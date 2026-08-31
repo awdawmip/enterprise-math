@@ -86,9 +86,8 @@ jobs:
       - name: Check same-execution control-result replacement chains
         run: >-
           python -c "from control_plane import research_control_bootstrap as b; b.install(); import sys; sys.argv=['research_result_control_replacements.py','audit']; import research_result_control_replacements as m; raise SystemExit(m.main())"
-      - name: Check multiple Driver review exact-set authority
-        run: >-
-          python -c "from control_plane import research_control_bootstrap as b; b.install(); import sys; sys.argv=['research_review_evidence.py','audit']; import research_review_evidence as m; raise SystemExit(m.main())"
+      - name: Check multiple Driver review exact-set authority on operational review view
+        run: python control_plane/check_review_evidence_fault_isolated.py
       - name: Check Driver review automatic follow-up authority across all nonoperational review causes
         run: python control_plane/check_driver_followup_nonoperational_review_fault_isolated.py
       - name: Check parallel evidence two-pass reference chains over operational results
