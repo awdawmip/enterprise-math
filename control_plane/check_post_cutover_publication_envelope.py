@@ -8,10 +8,12 @@ sections required by the publication transaction.
 
 Exact current-task integrity quarantine and exact audit-only nonoperational-record
 quarantine remain explicit exceptions because their bytes/error sets are already
-pinned and independently nonoperational.  Exact historical heading-alias waivers
-remain valid only through their existing nonoperational compatibility validator.
-No generic grandfathering is allowed: a new malformed remote/manual publication
-must fail this earliest writer-envelope gate.
+pinned and independently nonoperational. Full record-audit errors and earliest
+envelope errors remain separate vocabularies so no stale suppression leaks across
+checkers. Exact historical heading-alias waivers remain valid only through their
+existing nonoperational compatibility validator. No generic grandfathering is
+allowed: a new malformed remote/manual publication must fail this earliest
+writer-envelope gate.
 """
 from __future__ import annotations
 
@@ -55,7 +57,7 @@ def safe_path(value: str) -> Path:
 def _validated_exception_paths(
     root: Path,
 ) -> tuple[set[str], set[str], set[str], list[str]]:
-    """Return exact known-defect paths, exact strict suppressions, and legacy-heading paths."""
+    """Return exact known-defect paths, envelope suppressions, and legacy-heading paths."""
     errors: list[str] = []
     try:
         # Compatibility-waiver validation resolves operational/current state, so
@@ -65,7 +67,7 @@ def _validated_exception_paths(
         audit_only_rows = record_audit_isolation.validated_rows(root)
         exact_suppressions = (
             integrity_isolation.suppression_strings(root)
-            | record_audit_isolation.suppression_strings(root)
+            | record_audit_isolation.envelope_suppression_strings(root)
         )
         compatibility_suppressions, compatibility_errors = (
             task_records_facade._compatibility_suppressions(root)
@@ -136,8 +138,8 @@ def audit(root: Path = ROOT) -> list[str]:
             if exact_error in exact_suppressions:
                 # The quarantine validator has already pinned this immutable
                 # record, independently pinned the actual taskbook Git blob, and
-                # proved the record nonoperational. Only this exact error suffix
-                # is suppressed; a different defect remains fail-closed.
+                # proved the record nonoperational. Only this exact envelope
+                # suffix is suppressed; a different defect remains fail-closed.
                 continue
             errors.append(exact_error)
             continue
@@ -159,11 +161,15 @@ def audit(root: Path = ROOT) -> list[str]:
             continue
         actual_blob = git_blob_sha1(data)
         if actual_blob != declared_blob:
-            if rel in known_defect_paths:
+            exact_error = f"{rel}: taskbook Git blob drift: declared {declared_blob}, actual {actual_blob}"
+            if exact_error in exact_suppressions:
                 continue
-            errors.append(
-                f"{rel}: taskbook Git blob drift: declared {declared_blob}, actual {actual_blob}"
-            )
+            if rel in known_defect_paths:
+                # Any audit-only path reaching this branch must already have an
+                # independently exact taskbook pin. Current-task quarantines are
+                # separately exact-pinned and task-local BLOCKED.
+                continue
+            errors.append(exact_error)
             continue
 
         # Known exact malformed records are intentionally nonoperational and were
