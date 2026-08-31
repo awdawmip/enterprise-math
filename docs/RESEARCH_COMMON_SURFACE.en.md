@@ -329,6 +329,7 @@ All routes must remember:
 - `EnterpriseMath/Order/WellFoundedStabilization.lean`
 - `EnterpriseMath/Precision/Carry.lean`
 - `EnterpriseMath/Precision/CompositionSafeCollapse.lean`
+- `EnterpriseMath/Precision/PowerBRCTrichotomy.lean`
 - `EnterpriseMath/Precision/QuotientBasin.lean`
 - `EnterpriseMath/Precision/QuotientCoalescence.lean`
 - `EnterpriseMath/PrimeFusion.lean`

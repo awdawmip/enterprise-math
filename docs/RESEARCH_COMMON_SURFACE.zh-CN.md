@@ -329,6 +329,7 @@ PR #274 / `main@12500185f4c222ae49816e7b844e36a82e3ac8fe` 已 canonicalize：
 - `EnterpriseMath/Order/WellFoundedStabilization.lean`
 - `EnterpriseMath/Precision/Carry.lean`
 - `EnterpriseMath/Precision/CompositionSafeCollapse.lean`
+- `EnterpriseMath/Precision/PowerBRCTrichotomy.lean`
 - `EnterpriseMath/Precision/QuotientBasin.lean`
 - `EnterpriseMath/Precision/QuotientCoalescence.lean`
 - `EnterpriseMath/PrimeFusion.lean`
