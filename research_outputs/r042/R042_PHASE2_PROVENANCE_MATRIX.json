@@ -1,0 +1,20 @@
+{
+  "task_id": "RS-R042-POLYGONAL-NONSQUARE-BRANCH-LIMIT-PELL-RECURRENCE",
+  "researcher_id": "EM-R042-963283",
+  "historical_phase1_researcher_id": "EM-R042-290D7A",
+  "source_lock": "5e95b8b589ffa75975de165b46f70139b2e0720b",
+  "consumed_owner_head": "fb03a917f8ea343428d5805348f045910fc28752",
+  "claims": [
+    {"id":"R042-P2-C1","claim":"closed-form ideal reverse shadow and uniform ancestor window","status":"PROVED","provenance":"R042_NEW","evidence":["docs/R042_PELL_REVERSE_SHADOW_CONTINUATION.md#3-closed-form-ideal-reverse-shadow","tools/r042_pell_reverse_shadow.py","tests/test_r042_pell_reverse_shadow.py"]},
+    {"id":"R042-P2-C2","claim":"positive generalized-Pell solutions reduce to finitely many positive representatives satisfying r*Z0^2<=u^2*B","status":"PROVED_SPECIALIZATION","provenance":"R042_DERIVATION_PLUS_PRIOR_ART_PELL_UNIT_THEORY","evidence":["docs/R042_PELL_REVERSE_SHADOW_CONTINUATION.md#5-finite-reduced-pell-classes","tools/r042_pell_reverse_shadow.py"]},
+    {"id":"R042-P2-C3","claim":"strict reduced-Pell-class descent along reachable hit edges is false","status":"EXECUTABLE_CHECKED","provenance":"R042_NEW_NEGATIVE_WITNESS","evidence":["(s,r)=(8,40): 1->4->24","tests/test_r042_pell_reverse_shadow.py"]},
+    {"id":"R042-P2-C4","claim":"reachable hit-to-hit edges satisfy an exponentially shrinking Pell-unit/base-r resonance target","status":"PROVED","provenance":"R042_NEW","evidence":["docs/R042_PELL_REVERSE_SHADOW_CONTINUATION.md#6-pell-unit-shrinking-target"]},
+    {"id":"R042-P2-C5","claim":"any hypothetical infinite reachable hit ray is eventually superlacunary in Pell-unit exponent gaps and branch-time gaps","status":"PROVED_USING_PRIOR_ART","provenance":"R042_SPECIALIZATION_PLUS_MATVEEV_BAKER_LINEAR_FORMS","evidence":["docs/R042_PELL_REVERSE_SHADOW_CONTINUATION.md#7-superlacunarity-theorem-for-any-hypothetical-infinite-ray"]},
+    {"id":"R042-P2-C6","claim":"ordered local gate residual E_t gives the exact per-step accessibility gate and telescopes to the global centered-energy scale residual","status":"PROVED","provenance":"R042_NEW","evidence":["docs/R042_PELL_REVERSE_SHADOW_CONTINUATION.md#8-exact-local-gate-residual-the-hidden-correlation","tools/r042_pell_reverse_shadow.py","tests/test_r042_pell_reverse_shadow.py"]},
+    {"id":"R042-P2-C7","claim":"strong global reverse-shadow alignment does not imply even one-step reverse accessibility","status":"EXECUTABLE_CHECKED","provenance":"R042_NEW_EXACT_WITNESS","evidence":["(s,r,h,H,ell)=(5,14,2,95,3)","ideal shadow error <1/60","R(95)=none","tests/test_r042_pell_reverse_shadow.py"]},
+    {"id":"R042-P2-C8","claim":"quadratic Ostrowski/Beatty automata may be a useful next representation for gate words","status":"PRIOR_ART_CANDIDATE_NOT_USED","provenance":"EXTERNAL_PRIOR_ART","evidence":["Hieronymi-Terry 2014","Schaeffer-Shallit-Zorcic 2024"]}
+  ],
+  "return": "HIT_ANCESTRY_ONTOLOGY_REPLACED / SMALLER_EXACT_RECURRENCE_OBJECT_FOUND / NOT_CANONICAL",
+  "consumed_intervening_owner_head": "b3ca1369c147e50d1a841d3f86c081f2cb152f68",
+  "relationship": "semantic extension of the exact correction-renormalization checkpoint; no overwrite of its files or claims"
+}

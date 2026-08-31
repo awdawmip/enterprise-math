@@ -1,0 +1,48 @@
+{
+  "claims": [
+    {
+      "claim": "R042 full nonsquare dimension theorem",
+      "sources": ["R040 positive prefactor theorem", "R040 uniform branch-limit tail bound", "R035/R040 no distinct-parent recoalescence r>=5", "R042 lattice-Frostman lemma"],
+      "status": "PROVED"
+    },
+    {
+      "claim": "uniform finite normalized-limit coding multiplicity",
+      "sources": ["R040 uniform tail bound", "integer level-center spacing", "R042 counting argument"],
+      "status": "PROVED"
+    },
+    {
+      "claim": "infinite-hit recurrent branch-limit subset has Hausdorff dimension zero",
+      "sources": ["R040 ambient exact hits O(log X)", "R040 support scale O(alpha^t)", "R042 limsup cover"],
+      "status": "PROVED"
+    },
+    {
+      "claim": "finite nonconsecutive branch hit revisits exist",
+      "sources": ["tools/r042_polygonal_branch_limit.py", "tests/test_r042_polygonal_branch_limit.py", "R042_BRANCH_HIT_RECURRENCE_ATLAS.json"],
+      "status": "EXECUTABLE_CHECKED"
+    },
+    {
+      "claim": "no checked ancestry has >=3 hit parents in stated holdout",
+      "sources": ["scan s=3..10 excluding 4, r=5..20 nonsquare, k<=200000"],
+      "status": "BOUNDED_EXHAUSTIVE"
+    },
+    {
+      "claim": "general existence/impossibility of infinite nonconsecutive branch hit recurrence",
+      "sources": ["no proof supplied; bounded scan is not promoted to theorem"],
+      "status": "CONJECTURAL/OPEN"
+    },
+    {
+      "claim": "fixed-modulus residue-only rule cannot encode full nonsquare mechanical phase",
+      "sources": ["irrationality/density of fractional parts of sqrt(r)k+beta", "R040 defect O(log K)"],
+      "status": "PROVED"
+    },
+    {
+      "claim": "generic Moran/Frostman/Pell-unit facts",
+      "sources": ["used only as standard background; project novelty claim restricted to exact specialization"],
+      "status": "PRIOR_ART"
+    }
+  ],
+  "consumed_r040_owner_head": "c1753e11f076d4147a677a3dfa8c76520d7957fb",
+  "researcher_id": "EM-R042-290D7A",
+  "source_lock": "5e95b8b589ffa75975de165b46f70139b2e0720b",
+  "task_id": "RS-R042-POLYGONAL-NONSQUARE-BRANCH-LIMIT-PELL-RECURRENCE"
+}
