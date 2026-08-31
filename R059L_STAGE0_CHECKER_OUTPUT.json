@@ -1,0 +1,115 @@
+{
+  "checker_semantics": "DETERMINISTIC_STRUCTURAL_AND_EXACT_BOOKKEEPING_VALIDATION",
+  "generation": "R059L",
+  "geometry_calibration_performed": false,
+  "grammar_search_performed": false,
+  "hard_rejection_self_tests": {
+    "summary": "PASS",
+    "tests": [
+      {
+        "expected_rejection_code": "DIMENSION_DEPENDENT_PACKET_WEIGHT",
+        "observed_codes": [
+          "DIMENSION_DEPENDENT_PACKET_WEIGHT",
+          "DIMENSION_OR_OTHER_PACKET_WEIGHT"
+        ],
+        "rejected": true,
+        "test_id": "NEG-01-DIMENSION-DEPENDENT-PACKET-WEIGHT"
+      },
+      {
+        "expected_rejection_code": "FRACTIONAL_FINE_PACKET_WEIGHT",
+        "observed_codes": [
+          "FRACTIONAL_FINE_PACKET_WEIGHT"
+        ],
+        "rejected": true,
+        "test_id": "NEG-02-FRACTIONAL-FINE-PACKET-WEIGHT"
+      },
+      {
+        "expected_rejection_code": "PACKET_COUNT_NATIVE_AREA_VOLUME",
+        "observed_codes": [
+          "PACKET_COUNT_NATIVE_AREA_VOLUME"
+        ],
+        "rejected": true,
+        "test_id": "NEG-03-PACKET-COUNT-AS-NATIVE-AREA"
+      },
+      {
+        "expected_rejection_code": "PATH_COUNT_GEOMETRIC_LENGTH",
+        "observed_codes": [
+          "PATH_COUNT_GEOMETRIC_LENGTH"
+        ],
+        "rejected": true,
+        "test_id": "NEG-04-PATH-COUNT-AS-GEOMETRIC-LENGTH"
+      },
+      {
+        "expected_rejection_code": "DEFAULT_PATH_PERMISSION_FORBIDDEN",
+        "observed_codes": [
+          "DEFAULT_PATH_PERMISSION_FORBIDDEN"
+        ],
+        "rejected": true,
+        "test_id": "NEG-05-DEFAULT-FORBID-REVERSAL"
+      },
+      {
+        "expected_rejection_code": "SAME_CHANNEL_INGRESS_EGRESS_FORBIDDEN",
+        "observed_codes": [
+          "SAME_CHANNEL_INGRESS_EGRESS_FORBIDDEN"
+        ],
+        "rejected": true,
+        "test_id": "NEG-06-FORBID-SAME-CHANNEL"
+      },
+      {
+        "expected_rejection_code": "GEOMETRY_PROMOTED_INTO_N0",
+        "observed_codes": [
+          "GEOMETRY_PROMOTED_INTO_N0"
+        ],
+        "rejected": true,
+        "test_id": "NEG-07-PROMOTE-LINE-INTO-N0"
+      },
+      {
+        "expected_rejection_code": "TEMPERATURE_CHANNEL_PREMISE",
+        "observed_codes": [
+          "TEMPERATURE_CHANNEL_PREMISE"
+        ],
+        "rejected": true,
+        "test_id": "NEG-08-TEMPERATURE-AS-CHANNEL-PREMISE"
+      },
+      {
+        "expected_rejection_code": "R057_R058S_GEOMETRY_LEAKAGE",
+        "observed_codes": [
+          "R057_R058S_GEOMETRY_LEAKAGE"
+        ],
+        "rejected": true,
+        "test_id": "NEG-09-CONSUME-R057-FITTED-RULE"
+      }
+    ],
+    "tests_rejected_as_required": 9,
+    "tests_total": 9
+  },
+  "inputs_sha256": {
+    "R059L_BARE_PACKET_SUBSTRATE_PROTOCOL.json": "cd3b72dcd07bc3f963c7f367f8b27060278c4618e1bc974c1fe356c5a6caf95f",
+    "R059L_COMPUTATION_REGISTRY.json": "54cba3d26d70e02a51750fa00c88f48551e9776c50ca2ca3fbfb99c07b42c48d",
+    "R059L_GEOMETRY_WITHHOLDING_PROTOCOL.json": "8c7bc0c0287036fd42ded1165061a0595c0f4126c942053b0fa0931db38c1756",
+    "R059L_IDEAL_C6_CHANNEL_EXTENSION_PROTOCOL.json": "d737700147ad86f364b2df4ca447cfb57ea31469e0c968c38ce78cc705ea532f",
+    "R059L_INGRESS_EGRESS_STATE_PROTOCOL.json": "1232498f682b13daba632fdb4473eb8a9951c509b4a9c8e0dbfad7e1d3411f9d",
+    "R059L_NATIVE_SEMANTICS_CLAIM_LEDGER.json": "331037216e9b19b398fa5aeb3e124da026a8c1d71255d2196af29671d32fed09",
+    "R059L_OCCUPANCY_STATIC_COUNT_PROTOCOL.json": "b2d910f5634685600c6503e30716b502008007afb105958dc3c7da755a016810",
+    "R059L_PATH_COUNT_PROTOCOL.json": "39859a41518ddcba0dd8954af2c42a06551bfb44c159914eb9b50bd559477573",
+    "R059L_PATH_EVENT_PROTOCOL.json": "edd3a28eb516145d86bcd301ff4700ae7b57bbbcc0a6ba41663a5b6d0737eaff",
+    "R059L_PRECISION_REFINEMENT_UNIT_PROTOCOL.json": "91701a79da03b08fb5b30174286e4af8a6c3432815cb432547b89f62933a54bf",
+    "R059L_STATIC_DYNAMIC_COUNT_TYPE_PROTOCOL.json": "7b162f12c6c56fc4dea38e1c3b23a62e9e42064f348d84eca142c329a8eb9fe1",
+    "R059L_UNIT_PACKET_PROTOCOL.json": "464b72fa059dee165ac7bd021cd494a16fb29b86447c06cd960e4602bcaa57cd"
+  },
+  "metric_fitting_performed": false,
+  "overall_summary": "PASS",
+  "path_ranking_performed": false,
+  "positive_validation": {
+    "summary": "PASS",
+    "violation_count": 0,
+    "violations": []
+  },
+  "researcher_id": "EM-R059L-5F9D05",
+  "schema": "R059L_STAGE0_CHECKER_OUTPUT_V1",
+  "stage": "STAGE_0",
+  "stage_a_entered": false,
+  "task_id": "RS-R059L-UNIT-PACKET-PATH-ONLY-CRYSTAL-FOUNDATIONS-V2",
+  "taskbook_source_commit": "52ebad39ac51331902cc5130ff10644fc45024b6",
+  "tiny_bookkeeping_case_count": 11
+}

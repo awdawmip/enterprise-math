@@ -1,0 +1,272 @@
+{
+  "authority": [
+    "research_tasks/R059L_UNIT_PACKET_PATH_ONLY_FOUNDATIONS_REISSUE_20260814.md",
+    "PACKET_PATH_FOUNDATION.md",
+    "packet_path_foundation.json",
+    "FOUNDATIONAL_LOGIC.md",
+    "foundational_logic.json",
+    "native_semantics_admissibility.json"
+  ],
+  "bookkeeping_rule": {
+    "packet_count": "CARDINALITY_OF_OCCUPIED_SET",
+    "transition_count": "NUMBER_OF_SUCCESSIVE_ADJACENCY_TRANSITIONS_IN_PATH"
+  },
+  "cases": [
+    {
+      "case_id": "S0-01-ONE-PACKET-OCCUPIED",
+      "expected_packet_count": 1,
+      "expected_transition_count": 0,
+      "occupied": [
+        "A"
+      ],
+      "path": [
+        "A"
+      ],
+      "property": "ONE_PACKET_OCCUPIED"
+    },
+    {
+      "case_id": "S0-02-FINITE-OCCUPIED-SET",
+      "expected_packet_count": 4,
+      "expected_transition_count": 0,
+      "occupied": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "path": [
+        "A"
+      ],
+      "property": "FINITE_SET_CARDINALITY"
+    },
+    {
+      "adjacency": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "case_id": "S0-03-ONE-TRANSITION",
+      "expected_packet_count": 2,
+      "expected_transition_count": 1,
+      "occupied": [
+        "A",
+        "B"
+      ],
+      "path": [
+        "A",
+        "B"
+      ],
+      "property": "UNIT_TRANSITION"
+    },
+    {
+      "adjacency": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "case_id": "S0-04-TWO-TRANSITIONS",
+      "expected_packet_count": 3,
+      "expected_transition_count": 2,
+      "occupied": [
+        "A",
+        "B",
+        "C"
+      ],
+      "path": [
+        "A",
+        "B",
+        "C"
+      ],
+      "property": "TWO_TRANSITIONS"
+    },
+    {
+      "adjacency": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "case_id": "S0-05-IMMEDIATE-REVERSAL",
+      "expected_packet_count": 2,
+      "expected_transition_count": 2,
+      "occupied": [
+        "A",
+        "B"
+      ],
+      "path": [
+        "A",
+        "B",
+        "A"
+      ],
+      "property": "IMMEDIATE_REVERSAL_ALLOWED"
+    },
+    {
+      "adjacency": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "A"
+        ]
+      ],
+      "case_id": "S0-06-LOOP",
+      "expected_packet_count": 3,
+      "expected_transition_count": 3,
+      "occupied": [
+        "A",
+        "B",
+        "C"
+      ],
+      "path": [
+        "A",
+        "B",
+        "C",
+        "A"
+      ],
+      "property": "LOOP_ALLOWED"
+    },
+    {
+      "adjacency": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "case_id": "S0-07-REPEATED-PACKET-VISIT",
+      "expected_packet_count": 3,
+      "expected_transition_count": 4,
+      "occupied": [
+        "A",
+        "B",
+        "C"
+      ],
+      "path": [
+        "A",
+        "B",
+        "C",
+        "B",
+        "C"
+      ],
+      "property": "REPEATED_PACKET_VISIT_ALLOWED"
+    },
+    {
+      "adjacency": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "case_id": "S0-08-REPEATED-ADJACENCY-USE",
+      "expected_packet_count": 2,
+      "expected_transition_count": 4,
+      "occupied": [
+        "A",
+        "B"
+      ],
+      "path": [
+        "A",
+        "B",
+        "A",
+        "B",
+        "A"
+      ],
+      "property": "SAME_ADJACENCY_REUSE_ALLOWED"
+    },
+    {
+      "adjacency": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "case_id": "S0-09-STATIC-DYNAMIC-DIVERGENCE",
+      "expected_packet_count": 2,
+      "expected_transition_count": 5,
+      "occupied": [
+        "A",
+        "B"
+      ],
+      "path": [
+        "A",
+        "B",
+        "A",
+        "B",
+        "A",
+        "B"
+      ],
+      "property": "PACKET_COUNT_NE_TRANSITION_COUNT"
+    }
+  ],
+  "determinism": {
+    "uses_coordinates": false,
+    "uses_fitting": false,
+    "uses_floating_point": false,
+    "uses_geometry": false,
+    "uses_metric": false,
+    "uses_optimizer": false,
+    "uses_randomness": false,
+    "uses_teacher": false,
+    "uses_temperature": false
+  },
+  "expected_all_cases_exact_integer": true,
+  "generation": "R059L",
+  "ranking_or_winner_selection": false,
+  "refinement_case": {
+    "case_id": "S0-11-REFINEMENT-UNIT-PRESERVED",
+    "coarse_packet_quantities": [
+      1
+    ],
+    "coarse_packets": [
+      "C"
+    ],
+    "expected_coarse_packet_count": 1,
+    "expected_fine_packet_count": 4,
+    "fine_packet_quantities": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fine_packets": [
+      "f1",
+      "f2",
+      "f3",
+      "f4"
+    ],
+    "fractional_native_weights": []
+  },
+  "researcher_id": "EM-R059L-5F9D05",
+  "same_channel_c6_case": {
+    "c6_declared": true,
+    "case_id": "S0-10-SAME-CHANNEL-INGRESS-EGRESS",
+    "egress_channel": 4,
+    "expected_allowed": true,
+    "geometric_interpretation": null,
+    "ingress_channel": 4,
+    "packet": "X",
+    "passage_count": 1
+  },
+  "schema": "R059L_COMPUTATION_REGISTRY_V1",
+  "stage": "STAGE_0",
+  "stage_a_authorized": false,
+  "stage_a_computation": false,
+  "status": "FROZEN_STAGE0_CANDIDATE_FOR_DRIVER_REVIEW",
+  "task_id": "RS-R059L-UNIT-PACKET-PATH-ONLY-CRYSTAL-FOUNDATIONS-V2",
+  "taskbook_source_commit": "52ebad39ac51331902cc5130ff10644fc45024b6"
+}
