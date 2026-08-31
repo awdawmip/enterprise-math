@@ -1,0 +1,80 @@
+{
+  "admissible_scan": {
+    "boundary_zero_count": 0,
+    "count": 137,
+    "legendre_minus_two_minus_count": 65,
+    "legendre_minus_two_plus_count": 72,
+    "prime_gate": [
+      "18m-1",
+      "12m-1",
+      "12m+1"
+    ],
+    "proof_status": "REGRESSION_FALSIFICATION_ONLY_NOT_PROOF",
+    "range": "1 <= m <= 5000",
+    "replay_source": "research_checks/P022_FRANEL_RANK2_DISCRIMINANT_BRIDGE_CHECK_20260829.py"
+  },
+  "claim_id": "chatgpt-p022r2d-20260829-1915-6f2a91",
+  "exact_identities": {
+    "J_k": "nu_k^(-1) K_k A0",
+    "boundary_equivalence": "p | F_k iff e2^T J_k v_(1/8)=0 iff J_k[v_(1/8)] = [1:0]",
+    "det_A0": "-9/8",
+    "det_J_k": "1",
+    "det_K_k": "(-8)^(k-1)/k^2",
+    "hahn_three_step_det": "((t+1/2)(t-1/6)(t+1/6)(t+1/18)(t+7/18)(t+13/18))/((t-1/9)(t+2/9)^2(t+5/9)^2(t+8/9))",
+    "nu_k": "3*(-8)^(k/2)/(8k)"
+  },
+  "known_unrestricted_control": {
+    "F_k_mod_p": 0,
+    "k": 50,
+    "normalized_projective_hit": true,
+    "p": 149
+  },
+  "publication_id": "TP2-59CF7A99F7C9755E4561",
+  "researcher_id": "EM-P022R2D-6F2A91",
+  "schema": "P022_FRANEL_RANK2_DISCRIMINANT_BRIDGE_REGRESSION_V1",
+  "spot_checks": [
+    {
+      "F_6m_mod_q": 3,
+      "chi": 1,
+      "m": 1,
+      "q": 17
+    },
+    {
+      "F_6m_mod_q": 54,
+      "chi": 1,
+      "m": 5,
+      "q": 89
+    },
+    {
+      "F_6m_mod_q": 77,
+      "chi": 1,
+      "m": 6,
+      "q": 107
+    },
+    {
+      "F_6m_mod_q": 237,
+      "chi": -1,
+      "m": 15,
+      "q": 269
+    },
+    {
+      "F_6m_mod_q": 55494,
+      "chi": 1,
+      "m": 4794,
+      "q": 86291
+    },
+    {
+      "F_6m_mod_q": 7078,
+      "chi": 1,
+      "m": 4866,
+      "q": 87587
+    },
+    {
+      "F_6m_mod_q": 36488,
+      "chi": 1,
+      "m": 4934,
+      "q": 88811
+    }
+  ],
+  "task_id": "RS-P022-FRANEL-RANK2-DISCRIMINANT-BRIDGE"
+}
