@@ -1,28 +1,32 @@
-import itertools
+#!/usr/bin/env python3
+from itertools import combinations, product
+from math import gcd
 import json
-import math
 import platform
-from fractions import Fraction
+import sys
 
-PRIMES = [3, 5, 7, 11]
-DIMS = [(1,1),(1,2),(2,1),(2,2),(2,3),(3,2),(3,3)]
-ALPHABET = [-1,0,1]
-
+SCHEMA = "N_COUPLED_EXPLICIT_PRESENTATION_SCALARIZATION_CHECK_V1"
 
 def det_bareiss(M):
     n = len(M)
     if n == 0:
         return 1
+    if n == 1:
+        return int(M[0][0])
     A = [list(map(int, row)) for row in M]
     sign = 1
     prev = 1
     for k in range(n - 1):
         if A[k][k] == 0:
-            swap = next((i for i in range(k + 1, n) if A[i][k] != 0), None)
-            if swap is None:
+            pivot_row = None
+            for i in range(k + 1, n):
+                if A[i][k] != 0:
+                    pivot_row = i
+                    break
+            if pivot_row is None:
                 return 0
-            A[k], A[swap] = A[swap], A[k]
-            sign = -sign
+            A[k], A[pivot_row] = A[pivot_row], A[k]
+            sign *= -1
         pivot = A[k][k]
         for i in range(k + 1, n):
             for j in range(k + 1, n):
@@ -30,146 +34,155 @@ def det_bareiss(M):
         prev = pivot
         for i in range(k + 1, n):
             A[i][k] = 0
-        for j in range(k + 1, n):
-            A[k][j] = 0
     return sign * A[n - 1][n - 1]
 
-
-def minors(A, k):
-    m = len(A)
-    n = len(A[0]) if m else 0
-    for rs in itertools.combinations(range(m), k):
-        for cs in itertools.combinations(range(n), k):
-            yield det_bareiss([[A[i][j] for j in cs] for i in rs])
-
-
-def Dk(A, k):
-    g = 0
-    for d in minors(A, k):
-        g = math.gcd(g, abs(d))
-    return g
-
-
-def rank_mod(A, p):
-    M = [[x % p for x in row] for row in A]
+def determinantal_divisor(M, k):
     m = len(M)
     n = len(M[0]) if m else 0
-    r = 0
-    for c in range(n):
-        pivot = next((i for i in range(r, m) if M[i][c] % p), None)
+    if k == 0:
+        return 1
+    if k > min(m, n):
+        return 0
+    g = 0
+    for rows in combinations(range(m), k):
+        for cols in combinations(range(n), k):
+            sub = [[M[i][j] for j in cols] for i in rows]
+            g = gcd(g, abs(det_bareiss(sub)))
+            if g == 1:
+                return 1
+    return g
+
+def rank_mod_prime(M, p):
+    A = [[int(x) % p for x in row] for row in M]
+    m = len(A)
+    n = len(A[0]) if m else 0
+    row = 0
+    for col in range(n):
+        pivot = None
+        for i in range(row, m):
+            if A[i][col] % p:
+                pivot = i
+                break
         if pivot is None:
             continue
-        M[r], M[pivot] = M[pivot], M[r]
-        inv = pow(M[r][c], -1, p)
-        M[r] = [(v * inv) % p for v in M[r]]
+        A[row], A[pivot] = A[pivot], A[row]
+        inv = pow(A[row][col], -1, p)
+        A[row] = [(x * inv) % p for x in A[row]]
         for i in range(m):
-            if i != r and M[i][c] % p:
-                a = M[i][c] % p
-                M[i] = [(M[i][j] - a * M[r][j]) % p for j in range(n)]
-        r += 1
-        if r == m:
+            if i != row and A[i][col] % p:
+                factor = A[i][col] % p
+                A[i] = [(A[i][j] - factor * A[row][j]) % p for j in range(n)]
+        row += 1
+        if row == m:
             break
-    return r
+    return row
 
-
-def support_profile(A, N):
-    upto = min(len(A), len(A[0]) if A else 0)
+def support_signature(M, N):
     out = []
-    for k in range(1, upto + 1):
-        d = Dk(A, k)
-        out.append({"k": k, "D_k": d, "sigma_k": math.gcd(N, d)})
+    for k in range(1, min(len(M), len(M[0])) + 1):
+        d = determinantal_divisor(M, k)
+        out.append({"k": k, "D_k": d, "sigma_k": gcd(N, d)})
     return out
 
-
-def all_matrices(m, n):
-    for flat in itertools.product(ALPHABET, repeat=m*n):
-        yield [list(flat[i*n:(i+1)*n]) for i in range(m)]
-
-
 def main():
-    rank_criterion_failures = 0
-    equivalence_failures = 0
-    matrices = 0
-    semiprime_matrix_cases = 0
-    k_checks = 0
-    balanced_cases = 0
-    rank_asymmetric_cases = 0
-    proper_sigma_cases = 0
+    primes = [3, 5, 7, 11]
+    semiprimes = [(p, q, p * q) for p, q in combinations(primes, 2)]
+    dims = [(1,1), (1,2), (2,1), (2,2), (2,3), (3,2), (3,3)]
+    alphabet = (-1, 0, 1)
 
-    semiprimes = [(p, q, p*q) for p, q in itertools.combinations(PRIMES, 2)]
+    counts = {
+        "matrices": 0,
+        "semiprime_matrix_cases": 0,
+        "k_checks": 0,
+        "rank_asymmetric_cases": 0,
+        "proper_sigma_cases": 0,
+        "balanced_cases": 0,
+        "equivalence_failures": 0,
+        "rank_criterion_failures": 0,
+    }
 
-    for m, n in DIMS:
-        upto = min(m, n)
-        for A in all_matrices(m, n):
-            matrices += 1
-            dvals = [Dk(A, k) for k in range(1, upto + 1)]
+    for m, n in dims:
+        for vals in product(alphabet, repeat=m*n):
+            M = [list(vals[i*n:(i+1)*n]) for i in range(m)]
+            counts["matrices"] += 1
+            divisors = [determinantal_divisor(M, k) for k in range(1, min(m,n)+1)]
             for p, q, N in semiprimes:
-                semiprime_matrix_cases += 1
-                rp = rank_mod(A, p)
-                rq = rank_mod(A, q)
+                counts["semiprime_matrix_cases"] += 1
+                rp = rank_mod_prime(M, p)
+                rq = rank_mod_prime(M, q)
                 if rp == rq:
-                    balanced_cases += 1
+                    counts["balanced_cases"] += 1
                 else:
-                    rank_asymmetric_cases += 1
-                proper = False
-                for k, d in enumerate(dvals, 1):
-                    k_checks += 1
-                    cp = (d % p == 0)
-                    cq = (d % q == 0)
-                    if cp != (rp < k) or cq != (rq < k):
-                        rank_criterion_failures += 1
-                    sigma = math.gcd(N, d)
-                    if 1 < sigma < N:
-                        proper = True
-                if proper:
-                    proper_sigma_cases += 1
-                if proper != (rp != rq):
-                    equivalence_failures += 1
+                    counts["rank_asymmetric_cases"] += 1
 
-    # Non-vacuity witness: balanced unimodular 3x3 seed, then a fixed
-    # factor-blind row/column projection makes the p=3 channel singular.
+                proper = False
+                for k, d in enumerate(divisors, start=1):
+                    counts["k_checks"] += 1
+                    if ((d % p == 0) != (rp < k)):
+                        counts["rank_criterion_failures"] += 1
+                    if ((d % q == 0) != (rq < k)):
+                        counts["rank_criterion_failures"] += 1
+                    sigma = gcd(N, d)
+                    if sigma not in (1, N):
+                        proper = True
+
+                if proper:
+                    counts["proper_sigma_cases"] += 1
+                if proper != (rp != rq):
+                    counts["equivalence_failures"] += 1
+
+    # Non-vacuity witness: a fixed, factor-blind, non-invertible projection
+    # changes full-carrier determinantal support from clean to one-sided, but
+    # the new support is immediately scalarized by D_2.
+    N = 15
+    p, q = 3, 5
     B0 = [[1,1,0],[1,4,1],[0,2,1]]
-    A = [[B0[i][j] for j in (0,1)] for i in (0,1)]
-    N, p, q = 15, 3, 5
-    coord_gcds = [math.gcd(N, abs(x)) for row in B0 for x in row] + [math.gcd(N, abs(x)) for row in A for x in row]
+    A = [[1,1],[1,4]]  # fixed top-left row/column restriction
     witness = {
         "N": N,
         "p": p,
         "q": q,
         "seed": B0,
         "projected": A,
-        "coordinate_gcds": coord_gcds,
-        "seed_rank_p": rank_mod(B0,p),
-        "seed_rank_q": rank_mod(B0,q),
-        "projected_rank_p": rank_mod(A,p),
-        "projected_rank_q": rank_mod(A,q),
-        "seed_support": support_profile(B0,N),
-        "projected_support": support_profile(A,N),
+        "seed_rank_p": rank_mod_prime(B0, p),
+        "seed_rank_q": rank_mod_prime(B0, q),
+        "projected_rank_p": rank_mod_prime(A, p),
+        "projected_rank_q": rank_mod_prime(A, q),
+        "seed_support": support_signature(B0, N),
+        "projected_support": support_signature(A, N),
+        "coordinate_gcds": [gcd(N, abs(x)) for row in B0 for x in row] +
+                           [gcd(N, abs(x)) for row in A for x in row],
     }
-    assert witness["seed_rank_p"] == witness["seed_rank_q"] == 3
-    assert witness["projected_rank_p"] == 1 and witness["projected_rank_q"] == 2
-    assert [x["D_k"] for x in witness["seed_support"]] == [1,1,1]
-    assert [x["D_k"] for x in witness["projected_support"]] == [1,3]
-    assert all(g in (1,N) for g in coord_gcds)
-    assert witness["projected_support"][-1]["sigma_k"] == 3
 
-    cert = {
-        "schema": "N_COUPLED_EXPLICIT_PRESENTATION_SCALARIZATION_CHECK_V1",
+    expected_witness = (
+        witness["seed_rank_p"] == 3 and
+        witness["seed_rank_q"] == 3 and
+        witness["projected_rank_p"] == 1 and
+        witness["projected_rank_q"] == 2 and
+        [x["D_k"] for x in witness["seed_support"]] == [1,1,1] and
+        [x["D_k"] for x in witness["projected_support"]] == [1,3] and
+        witness["projected_support"][1]["sigma_k"] == 3 and
+        all(g in (1, N) for g in witness["coordinate_gcds"])
+    )
+
+    if counts["rank_criterion_failures"] != 0:
+        raise AssertionError(counts)
+    if counts["equivalence_failures"] != 0:
+        raise AssertionError(counts)
+    if counts["rank_asymmetric_cases"] != counts["proper_sigma_cases"]:
+        raise AssertionError(counts)
+    if not expected_witness:
+        raise AssertionError(witness)
+
+    certificate = {
+        "schema": SCHEMA,
         "checker_execution": "PASS",
-        "proof_role": "FINITE_REGRESSION_ONLY_NOT_GENERAL_PROOF",
         "python": platform.python_version(),
-        "prime_set": PRIMES,
+        "prime_set": primes,
         "semiprimes": len(semiprimes),
-        "dimensions": [list(x) for x in DIMS],
-        "entry_alphabet": ALPHABET,
-        "matrices": matrices,
-        "semiprime_matrix_cases": semiprime_matrix_cases,
-        "k_checks": k_checks,
-        "balanced_cases": balanced_cases,
-        "rank_asymmetric_cases": rank_asymmetric_cases,
-        "proper_sigma_cases": proper_sigma_cases,
-        "rank_criterion_failures": rank_criterion_failures,
-        "equivalence_failures": equivalence_failures,
+        "dimensions": [list(x) for x in dims],
+        "entry_alphabet": list(alphabet),
+        **counts,
         "projection_witness": witness,
         "symbolic_laws_guarded": [
             "For every prime r, r divides D_k(A) iff rank_F_r(A mod r) < k.",
@@ -177,12 +190,9 @@ def main():
             "A balanced explicit presentation has only clean support scalars sigma_k in {1,N}; the first one-sided rank-support event creates a proper scalar gcd at the same explicit state.",
             "Arbitrary non-automorphic control/history does not evade this post-state scalarization when the resulting finite presentation matrix is explicit."
         ],
+        "proof_role": "FINITE_REGRESSION_ONLY_NOT_GENERAL_PROOF"
     }
-    assert rank_criterion_failures == 0
-    assert equivalence_failures == 0
-    assert rank_asymmetric_cases == proper_sigma_cases
-    print("PASS " + json.dumps(cert, sort_keys=True, separators=(",", ":")))
-
+    print("PASS " + json.dumps(certificate, sort_keys=True, separators=(",", ":")))
 
 if __name__ == "__main__":
     main()
