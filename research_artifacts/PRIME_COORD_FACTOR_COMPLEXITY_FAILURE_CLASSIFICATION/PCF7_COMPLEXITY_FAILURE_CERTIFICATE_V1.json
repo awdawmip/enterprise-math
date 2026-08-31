@@ -1,0 +1,115 @@
+{
+  "schema": "PCF7_COMPLEXITY_FAILURE_CERTIFICATE_V1",
+  "status": "FROZEN",
+  "task_id": "RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION",
+  "publication_id": "TP2-8F7443BCAF2BC5243574",
+  "claim_id": "chatgpt-pcf7-20260831-1028-sol",
+  "researcher_id": "EM-PCF7-A156DB",
+  "execution_record_id": "ER-A156DB0F0B38FE774AFB",
+  "hard_target": "FACTOR_ALGORITHM_COMPLEXITY_AND_FAILURE_CLASSIFIED",
+  "primary_task_verdict": "COMPLEXITY_FRONTIER_FROZEN",
+  "accepted_operational_inputs": {
+    "pcf4_result_id": "RR-A33E88150B0DAD0B13B8",
+    "pcf4_scope": "PUBLIC_PREFIX_FIXED_INTEGER_SUPPORT_NO_GO",
+    "pcf2_benchmark": "BENCHMARK_FROZEN_AND_SEALED",
+    "pcf2_scores": {
+      "quadratic_public_64": {
+        "success": 74,
+        "cases": 89,
+        "failures": 15
+      },
+      "sixth_power_public_64": {
+        "success": 84,
+        "cases": 89,
+        "failures": 5
+      },
+      "trial_division": {
+        "success": 89,
+        "cases": 89
+      },
+      "fermat_4096": {
+        "success": 83,
+        "cases": 89,
+        "failures": 6
+      },
+      "pollard_rho_5x4096": {
+        "success": 89,
+        "cases": 89
+      },
+      "pollard_p_minus_1_B1_256": {
+        "success": 39,
+        "cases": 89,
+        "failures": 50
+      }
+    }
+  },
+  "common_cost_model": {
+    "input_bits": "n=ceil(log2 N)",
+    "M_b": "bit complexity of multiplying b-bit integers",
+    "G_b": "O(M(b) log b) for gcd of b-bit integers",
+    "classification_rule": "polynomial means polynomial in n; 2^(c n) for c>0 is exponential in input length even when c<1/2"
+  },
+  "theorems": {
+    "T1_fixed_integer_equivalence": "For PCF4 public prefix L, gcd(G_N(L),N)=gcd(F_L,N), so a public-prefix query is a gcd probe against an N-independent integer.",
+    "T2_exact_amplification": "If theta_N is the one-trial split probability under a public seed law and trials are independent, T trials split with probability 1-(1-theta_N)^T. If theta_N=0, amplification remains exactly zero.",
+    "T3_polynomial_prefix_balanced_zero_family": "For every polynomial prefix cap P(n), there are infinitely many balanced semiprimes N=pq such that gcd(F_L,N)=1 for every 1<=L<=P(n). Hence any randomized or adaptive PCF4 recurrence campaign confined to polynomial prefix lengths has worst-case split probability exactly zero.",
+    "T4_L_equals_N_cost": "Under the frozen term-by-term recurrence, L=N requires at least N recurrence stages, hence Omega(N)=Omega(2^(n-1)) arithmetic stages before the final gcd, already worse than the square-root candidate-count scale.",
+    "T5_frozen_public_probe_fixed_support": "The frozen quadratic and sixth-power public probes at seeds 0..63 are finite families of gcds against fixed integers f(s); therefore they also admit infinitely many semiprime zero-success inputs despite their finite benchmark success rates."
+  },
+  "candidate_classification": {
+    "pcf2_quadratic_public_64": {
+      "cost": "constant 64-seed budget; polynomial bit cost in n",
+      "success": "74/89 on frozen finite benchmark; 15 exact budget failures",
+      "worst_case": "zero on infinitely many semiprimes by finite fixed-support theorem",
+      "verdict": "SUCCESS_PROBABILITY_NOT_LOWER_BOUNDED"
+    },
+    "pcf2_sixth_power_public_64": {
+      "cost": "constant 64-seed budget; polynomial bit cost in n",
+      "success": "84/89 on frozen finite benchmark; 5 synchronized/trivial-only failures",
+      "worst_case": "zero on infinitely many semiprimes by finite fixed-support theorem",
+      "verdict": "SUCCESS_PROBABILITY_NOT_LOWER_BOUNDED"
+    },
+    "pcf4_public_prefix": {
+      "cost": "O(L*M(L+n)+G(n)) bit operations under the frozen exact recurrence; streaming memory O(L+n)",
+      "intermediate_bits": "A_k has O(k) bits; F_L has < log2(6L^2)+(L-1)log2(216) bits",
+      "success": "exact support formula; no uniform positive lower bound for polynomial prefix caps",
+      "verdict": "SUCCESS_PROBABILITY_NOT_LOWER_BOUNDED",
+      "portfolio": "CLOSE_AS_GENERIC_FACTORING_CANDIDATE_AT_PUBLIC_PREFIX_SCOPE"
+    },
+    "pcf4_L_equals_N": {
+      "cost": "Omega(N) recurrence stages, with conservative upper O(N*M(N+n)); memory O(N+n)",
+      "success": "conditional synchronization can return gcd=N when the weak prime shadow holds at both hidden primes",
+      "verdict": "SQRT_SCALE_OR_WORSE_PROVED",
+      "portfolio": "DO_NOT_ADVANCE_AS_SPEEDUP"
+    }
+  },
+  "nonoperational_pending_evidence": {
+    "pcf5_pr_816": {
+      "authority": "UNREVIEWED_RESEARCHER_RETURN",
+      "conditional_cost_if_driver_accepted": "~O_kappa(2^(n/3)*M(n)) bit operations on fixed-balance coverage; arbitrary-imbalance one-layer visibility can force Omega(2^(2n/3)) cells",
+      "use_in_operational_portfolio": false
+    },
+    "pcf6_pr_790": {
+      "authority": "UNREVIEWED_RESEARCHER_RETURN",
+      "conditional_boundary": "corrected mixed rank-2 realization is equivalent to exposing a CRT selector/factor split; fixed H-independent probes reduce to fixed resultants",
+      "use_in_operational_portfolio": false
+    }
+  },
+  "benchmark_policy": {
+    "pcf4_score_in_frozen_generation": "NOT_AUTHORIZED_NOT_PRESENT",
+    "rule": "Do not fabricate or retrofit PCF4 scores into the sealed PCF2 generation. Compare theorems/cost models to frozen baseline evidence and require a new authorized benchmark generation for a numerical PCF4 score."
+  },
+  "formalization_assumptions": {
+    "theorem_inputs": [
+      "PCF4 accepted denominator-clearing theorem and support bound",
+      "standard prime-number theorem / prime abundance in dyadic intervals for T3",
+      "frozen recurrence implementation for the L=N stage-count classification"
+    ],
+    "empirical_inputs_not_theorem": [
+      "PCF2 finite 89-case benchmark scores",
+      "PCF4 finite weak-shadow regressions",
+      "PCF5 and PCF6 unreviewed research returns"
+    ]
+  },
+  "portfolio_verdict": "ACCEPTED_PUBLIC_PREFIX_LANE_CLOSED_AS_GENERIC_FACTORING_ROUTE; PRESERVE_N_DEPENDENT_SECOND_OBSERVABLE_FRONTIER; DO_NOT_PROMOTE_PENDING_PCF5_PCF6_WITHOUT_DRIVER_REVIEW"
+}
