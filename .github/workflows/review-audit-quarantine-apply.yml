@@ -1,6 +1,8 @@
 name: review-audit-quarantine-apply
 
 on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
   push:
     branches:
       - control/perfect-prime-publication-quarantine-resolution-20260831
@@ -12,6 +14,7 @@ permissions:
 
 jobs:
   apply:
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -33,9 +36,7 @@ jobs:
           ROOT=Path.cwd()
           from control_plane import research_result_review_binding_fault_isolation as binding
           from control_plane import research_result_review_audit_fault_isolation as audit_iso
-          from control_plane import research_result_records_impl as impl
 
-          # Preserve the already-authorized stale-binding filter first.
           binding.install(ROOT)
           from tools import research_result_records
           errors=research_result_records.audit(ROOT)
@@ -94,8 +95,6 @@ jobs:
           out=ROOT/"research_result_review_audit_quarantines.json"
           if out.exists(): raise SystemExit("review audit quarantine registry already exists")
           out.write_text(json.dumps(payload,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-
-          # Re-run the independent validator on the proposed bytes.
           validated=audit_iso.validated_rows(ROOT)
           if set(validated)!={x['review_id'] for x in entries}:
               raise SystemExit("validator cardinality mismatch")
@@ -104,6 +103,7 @@ jobs:
           test "$(git diff --name-only)" = "research_result_review_audit_quarantines.json"
           git diff --check
       - name: Commit exact invalid-review registry
+        if: github.event_name == 'push'
         shell: bash
         run: |
           set -euo pipefail
