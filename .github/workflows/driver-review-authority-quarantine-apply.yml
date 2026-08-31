@@ -1,0 +1,168 @@
+name: driver-review-authority-quarantine-apply
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  push:
+    branches:
+      - control/perfect-prime-publication-quarantine-resolution-20260831
+    paths:
+      - ".github/workflows/driver-review-authority-quarantine-apply.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Reconcile exact operational Driver-review authority debt
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from __future__ import annotations
+          import json
+          from pathlib import Path
+
+          ROOT=Path.cwd()
+          from control_plane import research_result_review_binding_fault_isolation as binding
+          from control_plane import research_result_review_audit_fault_isolation as structural
+          from control_plane import research_driver_review_authority_fault_isolation as authority_iso
+          import research_driver_authority as authority
+
+          authority.contract(ROOT)
+          authority.valid_records(ROOT)
+
+          # Earlier integrity layers own these nonoperational reviews; do not
+          # duplicate or reinterpret them as authority failures.
+          binding.validated_quarantines(ROOT)
+          binding.install(ROOT)
+          structural.validated_rows(ROOT)
+          structural.install(ROOT)
+
+          # Existing exact authority quarantines are consumed before classifying
+          # only the still-operational review surface.
+          existing=authority_iso.quarantine_rows(ROOT)
+          authority_iso.validated_quarantines(ROOT)
+          authority_iso.install(ROOT)
+
+          from tools import research_result_records
+          legacy=authority.legacy_review_ids(ROOT)
+          failing=[]
+          for review in research_result_records.iter_reviews(ROOT):
+              rid=review.get("review_id")
+              if isinstance(rid,str) and rid in legacy:
+                  continue
+              errors=authority.review_authority_errors(review,ROOT)
+              if not errors:
+                  continue
+              path=review.get("_review_path")
+              if not isinstance(path,str) or not path:
+                  raise SystemExit(f"authority-failing review lacks _review_path: {rid!r}")
+              prefix=path+": "
+              suffixes=[]
+              for error in errors:
+                  if not error.startswith(prefix):
+                      raise SystemExit(f"unexpected authority error prefix for {rid}: {error}")
+                  suffixes.append(error[len(prefix):])
+              suffixes=sorted(set(suffixes))
+              if not suffixes:
+                  raise SystemExit(f"empty authority error set for {rid}")
+              failing.append((review,path,suffixes))
+
+          registry_path=ROOT/authority_iso.QUARANTINE_FILE
+          payload=json.loads(registry_path.read_text(encoding="utf-8"))
+          entries=payload.get("entries")
+          if not isinstance(entries,list):
+              raise SystemExit("authority quarantine entries invalid")
+
+          if len(failing)==0:
+              if len(existing)!=16:
+                  raise SystemExit(f"no remaining authority failures but expected 16 validated quarantine rows, got {len(existing)}")
+              errs=authority_iso.quarantine_authority_errors(
+                  authority.review_authority_errors,
+                  legacy_review_ids=legacy,
+                  root=ROOT,
+              )
+              if errs:
+                  raise SystemExit("existing authority quarantine validation failed: "+json.dumps(errs,ensure_ascii=False))
+              print("DRIVER_REVIEW_AUTHORITY_QUARANTINE=ALREADY_CANONICAL count=16")
+              raise SystemExit(0)
+
+          if len(failing)!=14:
+              raise SystemExit(f"expected exactly 14 remaining operational authority failures, got {len(failing)}")
+
+          existing_ids=set(existing)
+          additions=[]
+          for review,path,suffixes in sorted(failing,key=lambda x:x[1]):
+              review_id=review.get("review_id")
+              result_id=review.get("result_id")
+              task_id=review.get("task_id")
+              if not all(isinstance(x,str) and x for x in (review_id,result_id,task_id)):
+                  raise SystemExit(f"invalid review identity at {path}")
+              if review_id in existing_ids:
+                  raise SystemExit(f"existing authority quarantine leaked into operational view: {review_id}")
+              additions.append({
+                  "review_id":review_id,
+                  "result_id":result_id,
+                  "task_id":task_id,
+                  "review_record_path":path,
+                  "review_record_blob_sha1":authority_iso._git_blob_sha1((ROOT/path).read_bytes()),
+                  "state":"INVALID_DRIVER_AUTHORITY",
+                  "operational":False,
+                  "history_preserved":True,
+                  "allowed_authority_errors":suffixes,
+                  "reason":"The immutable structurally-valid Driver review does not pin the source-backed Driver authority that was active at its reviewed_at timestamp. Preserve exact review bytes as nonoperational history and return the result to ordinary authorized review rather than inventing, backdating, or rewriting authority.",
+                  "working_truth_granted":False,
+                  "foundation_authority_granted":False,
+                  "canonical_promotion_granted":False,
+                  "successor_triggered":False,
+              })
+
+          if len({x["review_id"] for x in additions})!=14:
+              raise SystemExit("duplicate review_id in authority additions")
+          payload["entries"]=[*entries,*additions]
+          registry_path.write_text(json.dumps(payload,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+
+          validated=authority_iso.validated_quarantines(ROOT)
+          if len(validated)!=16:
+              raise SystemExit(f"expected 16 total validated authority quarantines, got {len(validated)}")
+          errs=authority_iso.quarantine_authority_errors(
+              authority.review_authority_errors,
+              legacy_review_ids=legacy,
+              root=ROOT,
+          )
+          if errs:
+              raise SystemExit("authority error-set validation failed: "+json.dumps(errs,ensure_ascii=False))
+          print("DRIVER_REVIEW_AUTHORITY_QUARANTINE=PASS added=14 total=16")
+          PY
+
+          changed="$(git diff --name-only)"
+          if [[ -n "$changed" && "$changed" != "research_driver_review_authority_quarantines.json" ]]; then
+            echo "unexpected changed paths: $changed"
+            exit 1
+          fi
+          git diff --check
+      - name: Commit exact authority quarantine expansion
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- research_driver_review_authority_quarantines.json; then
+            echo "DRIVER_REVIEW_AUTHORITY_QUARANTINE_WRITE=NOOP"
+            exit 0
+          fi
+          git config user.name "enterprise-math-control-bot"
+          git config user.email "enterprise-math-control-bot@users.noreply.github.com"
+          git add research_driver_review_authority_quarantines.json
+          git diff --cached --check
+          git commit -m "[CONTROL] isolate exact Driver-review authority drift"
+          git push origin HEAD:control/perfect-prime-publication-quarantine-resolution-20260831
