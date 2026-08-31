@@ -1,0 +1,49 @@
+{
+  "exact_local_delta": {
+    "d_C(u)": "occupied-neighbor count of u in C",
+    "delta_B": "B(C')-B(C)=2(d_C(u)-k_C_minus_u(v))",
+    "delta_E": "E(C')-E(C)=-d_C(u)+k_C_minus_u(v)",
+    "descent_criterion": "strict descent iff k_C_minus_u(v)>d_C(u)",
+    "k_C_minus_u(v)": "occupied-neighbor count of v in C\\{u}"
+  },
+  "generation": "R060",
+  "move_protocol": {
+    "accept_conditions": [
+      "u ADJ v",
+      "v empty",
+      "|C'|=|C|",
+      "C' connected under ADJACENCY",
+      "B(C')<B(C)"
+    ],
+    "metric_geometry_selection_data": [],
+    "nondeterminism": "all accepted proposals are valid branches",
+    "proposal": "occupied u -> adjacent empty v, C'=(C\\{u})∪{v}",
+    "selection_data": [
+      "ADJACENCY",
+      "OCCUPANCY",
+      "connectivity",
+      "B"
+    ]
+  },
+  "name": "D3_L1_LOCAL_CONTACT_CUT_DESCENT",
+  "researcher_id": "EM-R060-00CD9F",
+  "schema": "R060_D3_L1_LOCAL_COLLAPSE_PROTOCOL_V1",
+  "stage": "0",
+  "status": "FROZEN_STAGE0",
+  "task_id": "RS-R060-STAGE-0-RELATIONAL-3D-STABLE-COLLAPSE-FOUNDATION",
+  "taskbook_source_commit": "1d4b7dd5b2dd326019e1d91dbcbe050b0cd13f89",
+  "terminal_definition": "D3_L1_TERMINAL iff there is no accepted move",
+  "termination_theorem": {
+    "accepted_move_bound": "<= B(C0)/2",
+    "proof": [
+      "B(C) is a nonnegative integer.",
+      "B(C)=6|C|-2E(C), hence B(C) is even.",
+      "Every accepted move strictly decreases B, therefore decreases it by at least 2.",
+      "A nonnegative even integer cannot decrease strictly infinitely often."
+    ],
+    "stability_conclusion": "NONE",
+    "statement": "Every D3_L1 trajectory from a finite admissible state terminates after finitely many accepted moves.",
+    "status": "EXACT_THEOREM",
+    "theorem_id": "R060-S0-D3L1-TERMINATION"
+  }
+}

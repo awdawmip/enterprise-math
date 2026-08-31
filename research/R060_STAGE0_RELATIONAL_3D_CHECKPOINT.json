@@ -1,0 +1,64 @@
+{
+  "artifact_sha256": {
+    "R060_CONTACT_CUT_PROTOCOL.json": "b8abfad4c93973584b4348e35d6056266477d1f79db04c9e7fbf0f2ab8e18835",
+    "R060_D3_L1_LOCAL_COLLAPSE_PROTOCOL.json": "7aaf5798ae6edc96648b78906547981c75d2c1c74ad639e2ecd930f6b9f2e2b0",
+    "R060_DIMENSION_AS_OUTPUT_INFERENCE_GUARD.json": "3337011451c36114a103ffc768ccde93bdf68d6dfc6d62941ef4b1fb0f5008a2",
+    "R060_RANK3_AUTOMORPHISM_PROTOCOL.json": "b1056d76516a65a178efd37ccc64c2f400547c785717978a825e86f5ce4bf6d1",
+    "R060_RELATIONAL_RANK3_CARRIER.json": "ebb36e3eb37057bf1cbbad13a32bf1ddcc3d3b448e2c055859da8a74bd498ee8",
+    "R060_STABLE_COLLAPSE_HIERARCHY.json": "3c781fe71fcb9673c8e19e5f052e4392216077445e5454b9d42c60740b03065c",
+    "R060_STAGE0_CHECKER_OUTPUT.json": "51a5581027e6395d95563de4d0ed93db5ef06b6ca41e1eb57f36eacb6561e7fc",
+    "R060_STAGE0_SEMANTIC_CLAIM_LEDGER.json": "543c1249b2de9024db823004661e45f05c7b9bef389a3f2af905a137afa06f08",
+    "R060_STAGE0_TINY_REGRESSION_RESULTS.json": "77490d370983955c79b6d576d0fc8c2cc4bccd579881361bba73479aa2778813"
+  },
+  "checker_status": "PASS",
+  "checkpoint_name": "R060_STAGE0_RELATIONAL_3D_CHECKPOINT",
+  "ci_status": "CI_NOT_REQUIRED_FOR_RESEARCH",
+  "exact_results": [
+    "B(C)=6|C|-2E(C)",
+    "ΔB=2(d_C(u)-k_C_minus_u(v)); strict descent iff k_C_minus_u(v)>d_C(u)",
+    "Every finite D3_L1 branch terminates; accepted-move count <= B(C0)/2"
+  ],
+  "frozen_model": {
+    "carrier": "C3_RELATIONAL_RANK3_CHANNEL_CARRIER",
+    "dynamics": "D3_L1_LOCAL_CONTACT_CUT_DESCENT",
+    "equivalence": "full C3 carrier automorphism orbit",
+    "later_primary_target": "S1+S2",
+    "readout": "CONTACT_CUT_COUNT"
+  },
+  "generation": "R060",
+  "r059l_status": "PARKED_NOT_PARENT_NOT_MODIFIED",
+  "researcher_id": "EM-R060-00CD9F",
+  "schema": "R060_STAGE0_RELATIONAL_3D_CHECKPOINT_V1",
+  "scientific_status": "RANK3_MODEL_FROZEN_READY_FOR_STABILITY_SEARCH",
+  "semantic_freeze": {
+    "I0": "integer triples only",
+    "N0": "packet/unit/adjacency/occupancy/channel relations + N0-definable contact relations",
+    "N1": "D3_L1 operational move/selection and branch choice",
+    "N2": "B/E scalar counts and automorphism-orbit quotient",
+    "N3_used": false,
+    "world_dimension": "WITHHELD"
+  },
+  "stage": "0",
+  "status": "FROZEN_STAGE0",
+  "stop_rule": "STOP_AFTER_STAGE0; DO_NOT_ENTER_STAGE_A WITHOUT DRIVER AUTHORIZATION",
+  "task_id": "RS-R060-STAGE-0-RELATIONAL-3D-STABLE-COLLAPSE-FOUNDATION",
+  "taskbook_source_commit": "1d4b7dd5b2dd326019e1d91dbcbe050b0cd13f89",
+  "tiny_regression": {
+    "N_range": [
+      1,
+      6
+    ],
+    "first_strict_descent_N": 5,
+    "orbit_counts": [
+      1,
+      1,
+      2,
+      7,
+      23,
+      112
+    ],
+    "stability_search_performed": false,
+    "strict_descent_example": "B=22 -> 20",
+    "terminal_orbits_total": 127
+  }
+}
