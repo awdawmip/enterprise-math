@@ -1,0 +1,24 @@
+{
+  "schema": "ENTERPRISE_MATH_R044_INJECTION_BACKTEST_V1",
+  "researcher_id": "EM-R044-8C2F61",
+  "source_commit": "b662cc9c9febd341eaaed94e6591abb2b75b8421",
+  "probes": {
+    "agents_startup_gate": {"status": "PASS", "evidence": "AGENTS.md contains mandatory Native-semantics admissibility gate and requires machine-policy read before freezing native/intrinsic/base-world claims."},
+    "policy_digest_binding": {"status": "PASS", "evidence": "research_taskbook_policy.json policy_inputs includes native_semantics_admissibility.json."},
+    "digest_recomputation": {"status": "PASS", "algorithm": "sha256(path\\0 + git_blob_sha1_bytes + \\0) over research_taskbook_policy.json and policy_inputs", "computed": "sha256:8eb97ee026cbbd35f77f8bba02547d246beb86021631ab0a5257dd1f97acad19", "r044_stamp": "sha256:8eb97ee026cbbd35f77f8bba02547d246beb86021631ab0a5257dd1f97acad19"},
+    "old_taskbook_staleness": {"status": "PASS", "r043_stamp": "sha256:a03b06c1c6d29ca2776592fd12aa77406f45a21afb8fc1a8431b25cd41963c77", "current": "sha256:8eb97ee026cbbd35f77f8bba02547d246beb86021631ab0a5257dd1f97acad19", "expected_dispatch_result": "TB-POLICY-STALE / ERROR"},
+    "dynamic_research_hazard_injection": {"status": "PASS_WITH_HUMAN_GATE", "evidence": "AGENTS.md applies the gate before labeling any result native/intrinsic/base-world and explicitly names radius/equidistance/embedding/propagation/optimization/Fourier/readout hazards; the checker text trigger is warning-only and typed ledger remains decisive."}
+  },
+  "fixture_measurement": {"fixture_count": 16, "all_expected_verdicts_matched": true, "unsafe_native_promotions": 10, "unsafe_native_promotions_blocked_or_fail_closed": 10, "legal_native_cases": 3, "legal_native_cases_accepted": 3, "legal_non_native_math_cases": 3, "legal_non_native_math_cases_preserved": 3, "false_negative_count": 0, "false_positive_count": 0, "scope_note": "Counts are only for the frozen adversarial fixture set; they are not a statistical guarantee over arbitrary mathematical prose."},
+  "mutations": [
+    {"mutation_id": "M01_DELETE_AGENTS_GATE", "mutation": "Delete the native-semantics startup section from AGENTS.md.", "expected_failure": "Researcher can miss the mandatory startup injection.", "detected_by": "AGENTS_NATIVE_GATE_PRESENT probe", "baseline_status": "DETECTED_IF_MUTATED"},
+    {"mutation_id": "M02_OMIT_N1_DEPENDENCY", "mutation": "Delete shortest_path_metric from a native claim ledger while leaving it theorem-critical.", "expected_failure": "Potential false native pass if the checker trusts a flat list.", "detected_by": "critical_symbols must be covered by base or typed dependency DAG; F14 -> UNRESOLVED", "baseline_status": "PASS"},
+    {"mutation_id": "M03_REPORT_N2_AS_N0", "mutation": "Mark euclidean_norm N0 without declaring it in the task base.", "expected_failure": "Embedding readout promoted by relabeling.", "detected_by": "kind-derived default stratum + task-relative base precedence; F15 -> SEMANTIC_MISMATCH", "baseline_status": "PASS"},
+    {"mutation_id": "M04_CHANGE_BASE_DECLARE_METRIC", "mutation": "Explicitly declare metric_d and root_o in N0.", "expected_behavior": "Previously forbidden metric vocabulary becomes legal for this task.", "detected_by": "base declaration overrides default metricization hazard; F10 -> NATIVE_ADMISSIBLE", "baseline_status": "PASS"},
+    {"mutation_id": "M05_BLANKET_FORBID_METRIC", "mutation": "Mutant checker rejects any claim containing metric/distance regardless of base.", "expected_failure": "False positive on legal metric-base tasks.", "detected_by": "F10 positive control; actual checker accepts it", "baseline_status": "PASS"},
+    {"mutation_id": "M06_BLANKET_FORBID_CONTINUUM", "mutation": "Mutant checker rejects any continuum primitive regardless of task declaration.", "expected_failure": "False positive on continuum-base tasks.", "detected_by": "F11 positive control; actual checker accepts it", "baseline_status": "PASS"},
+    {"mutation_id": "M07_SCALAR_CERT_PROMOTES_OBJECT", "mutation": "Treat automorphism-invariant scalar as a certificate for the full reconstructed object.", "expected_failure": "Semantic-strength overpromotion.", "detected_by": "certificate semantic_strength must dominate promotion_target_strength; F04 -> SEMANTIC_MISMATCH", "baseline_status": "PASS"},
+    {"mutation_id": "M08_REMOVE_GATE_FROM_POLICY_INPUTS", "mutation": "Remove native_semantics_admissibility.json from policy_inputs.", "expected_failure": "Gate changes no longer invalidate old taskbook review stamps.", "detected_by": "POLICY_INPUT_CONTAINS_NATIVE_GATE probe", "baseline_status": "PASS"}
+  ],
+  "conclusion": "The two-path injection (startup context + taskbook-policy digest) is mechanically live. The principal residual risk is not keyword omission but semantic ledger dishonesty/incompleteness; the R044 checker fails closed on uncovered theorem-critical symbols and checks promotion strength."
+}

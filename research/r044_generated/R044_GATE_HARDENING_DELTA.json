@@ -1,0 +1,15 @@
+{
+  "schema": "ENTERPRISE_MATH_R044_GATE_HARDENING_DELTA_V1",
+  "status": "RESEARCH_PROPOSAL_NOT_ACTIVE_POLICY",
+  "researcher_id": "EM-R044-8C2F61",
+  "finding": "The active gate is conceptually sound but its machine policy does not explicitly encode task-relative base precedence, transitive dependency closure, or semantic-strength matching for promotions.",
+  "no_new_stratum_required": true,
+  "recommended_rules": [
+    {"id": "NSA-12-TASK-RELATIVE-BASE-PRECEDENCE", "rule": "N1/N2/N3 hazard categories classify structures introduced after the base declaration. A task may explicitly declare metric, embedding, stochastic, optimization, or continuum primitives in N0; the gate must then type them N0 for that task rather than blanket-forbid the vocabulary."},
+    {"id": "NSA-13-SEMANTIC-STRENGTH-MATCH", "rule": "A definability/invariance certificate must prove the same semantic strength being promoted. Scalar or quotient invariance cannot promote an unproved relation/full object/primitive."},
+    {"id": "NSA-14-TRANSITIVE-DEPENDENCY-CLOSURE", "rule": "Every theorem-critical symbol must be covered by the declared N0 base or a typed transitive dependency DAG. Omitted/dangling dependencies yield UNRESOLVED, never NATIVE_ADMISSIBLE."},
+    {"id": "NSA-15-DECLARED-VS-N0-DEFINABLE", "rule": "Distinguish DECLARED_N0_PRIMITIVE from N0_DEFINABLE_DERIVED. A successful promotion certificate establishes intrinsic definability/choice-independence; it does not silently rewrite the task base declaration itself."}
+  ],
+  "recommended_claim_ledger_fields": ["critical_symbols", "typed_dependency_graph", "promotion_target_strength", "certificate_semantic_strength", "transitive_dependency_closure_checked", "native_basis_status"],
+  "checker_implementation": "tools/check_native_semantics_claims.py"
+}
