@@ -1,0 +1,326 @@
+{
+  "claims": [
+    {
+      "admissibility_verdict": "NATIVE_ADMISSIBLE",
+      "certificate_semantic_strength": "OBJECT",
+      "claim_id": "R060-CLM-01-CARRIER",
+      "critical_symbols": [
+        "C3",
+        "UNIT_PACKET",
+        "ADJACENCY"
+      ],
+      "declared_base_carrier": "C3_RELATIONAL_RANK3_CHANNEL_CARRIER",
+      "definability_or_invariance_certificate": "explicit task-base declaration; coordinates only realize relations",
+      "effective_definitions_withheld_from_native_premises": [
+        "Euclidean distance/norm",
+        "center/centroid/radius",
+        "angle/curvature",
+        "length/area/volume/surface area",
+        "shortest-path/graph-distance optimization",
+        "continuum geometry"
+      ],
+      "engineering_success_constraints_consumed": [],
+      "future_language_if_any": "S1/S2/S3 later stability-search language; S4 reserved",
+      "implementation_carriers_used": [
+        "integer triples"
+      ],
+      "introduced_choices": [],
+      "n0_primitives_used": [
+        "CRYSTAL_PACKET",
+        "UNIT_PACKET",
+        "ADJACENCY",
+        "OCCUPANCY",
+        "CHANNEL_FAMILY_RELATION"
+      ],
+      "n1_operations_used": [],
+      "n2_readouts_used": [],
+      "n3_continuum_objects_used": [],
+      "native_basis_status": [
+        "DECLARED_N0_PRIMITIVE"
+      ],
+      "promotion_target_strength": "OBJECT",
+      "target_leakage_audit": "CLEAN: no physical-3D fact, classical geometry, R055/R056 energy, or R057/R058/R059 fitted geometry selects the Stage-0 carrier or move.",
+      "transitive_dependency_closure_checked": true,
+      "typed_dependency_graph": {
+        "C3": "declared N0 carrier",
+        "integer triples": "I0 only"
+      },
+      "weakest_valid_restatement": "C3 is a relational-rank-3 candidate carrier, not world dimension."
+    },
+    {
+      "admissibility_verdict": "NATIVE_ADMISSIBLE",
+      "certificate_semantic_strength": "RELATION",
+      "claim_id": "R060-CLM-02-CUT-REL",
+      "critical_symbols": [
+        "CUT_REL"
+      ],
+      "declared_base_carrier": "C3_RELATIONAL_RANK3_CHANNEL_CARRIER",
+      "definability_or_invariance_certificate": "choice-free relational definition invariant under carrier automorphisms",
+      "effective_definitions_withheld_from_native_premises": [
+        "Euclidean distance/norm",
+        "center/centroid/radius",
+        "angle/curvature",
+        "length/area/volume/surface area",
+        "shortest-path/graph-distance optimization",
+        "continuum geometry"
+      ],
+      "engineering_success_constraints_consumed": [],
+      "future_language_if_any": "S1/S2/S3 later stability-search language; S4 reserved",
+      "implementation_carriers_used": [],
+      "introduced_choices": [],
+      "n0_primitives_used": [
+        "ADJACENCY",
+        "OCCUPANCY"
+      ],
+      "n1_operations_used": [],
+      "n2_readouts_used": [],
+      "n3_continuum_objects_used": [],
+      "native_basis_status": [
+        "N0_DEFINABLE_DERIVED"
+      ],
+      "promotion_target_strength": "RELATION",
+      "target_leakage_audit": "CLEAN: no physical-3D fact, classical geometry, R055/R056 energy, or R057/R058/R059 fitted geometry selects the Stage-0 carrier or move.",
+      "transitive_dependency_closure_checked": true,
+      "typed_dependency_graph": {
+        "CUT_REL": "N0-definable from adjacency+occupancy"
+      },
+      "weakest_valid_restatement": "CUT_REL is N0-definable."
+    },
+    {
+      "admissibility_verdict": "READOUT_ONLY",
+      "certificate_semantic_strength": "SCALAR",
+      "claim_id": "R060-CLM-03-B",
+      "critical_symbols": [
+        "B",
+        "CUT_REL"
+      ],
+      "declared_base_carrier": "C3_RELATIONAL_RANK3_CHANNEL_CARRIER",
+      "definability_or_invariance_certificate": "automorphism-invariant finite cardinality; retained as N2 readout",
+      "effective_definitions_withheld_from_native_premises": [
+        "Euclidean distance/norm",
+        "center/centroid/radius",
+        "angle/curvature",
+        "length/area/volume/surface area",
+        "shortest-path/graph-distance optimization",
+        "continuum geometry"
+      ],
+      "engineering_success_constraints_consumed": [],
+      "future_language_if_any": "S1/S2/S3 later stability-search language; S4 reserved",
+      "implementation_carriers_used": [],
+      "introduced_choices": [],
+      "n0_primitives_used": [
+        "ADJACENCY",
+        "OCCUPANCY"
+      ],
+      "n1_operations_used": [],
+      "n2_readouts_used": [
+        "B"
+      ],
+      "n3_continuum_objects_used": [],
+      "native_basis_status": [
+        "N0_DEFINABLE_DERIVED"
+      ],
+      "promotion_target_strength": "SCALAR",
+      "target_leakage_audit": "CLEAN: no physical-3D fact, classical geometry, R055/R056 energy, or R057/R058/R059 fitted geometry selects the Stage-0 carrier or move.",
+      "transitive_dependency_closure_checked": true,
+      "typed_dependency_graph": {
+        "B": "N2",
+        "CUT_REL": "N0-definable",
+        "finite cardinality": "N2 scalar"
+      },
+      "weakest_valid_restatement": "B is exact CONTACT_CUT_COUNT, not surface area."
+    },
+    {
+      "admissibility_verdict": "CONDITIONAL_DERIVED",
+      "certificate_semantic_strength": "RELATION",
+      "claim_id": "R060-CLM-04-D3L1",
+      "critical_symbols": [
+        "D3_L1",
+        "B"
+      ],
+      "declared_base_carrier": "C3_RELATIONAL_RANK3_CHANNEL_CARRIER",
+      "definability_or_invariance_certificate": "operational rule explicitly typed N1 and not promoted to N0",
+      "effective_definitions_withheld_from_native_premises": [
+        "Euclidean distance/norm",
+        "center/centroid/radius",
+        "angle/curvature",
+        "length/area/volume/surface area",
+        "shortest-path/graph-distance optimization",
+        "continuum geometry"
+      ],
+      "engineering_success_constraints_consumed": [],
+      "future_language_if_any": "S1/S2/S3 later stability-search language; S4 reserved",
+      "implementation_carriers_used": [],
+      "introduced_choices": [
+        "nondeterministic legal branch choice"
+      ],
+      "n0_primitives_used": [
+        "ADJACENCY",
+        "OCCUPANCY"
+      ],
+      "n1_operations_used": [
+        "adjacent relocation",
+        "connectivity admissibility",
+        "strict-B descent selection"
+      ],
+      "n2_readouts_used": [
+        "B"
+      ],
+      "n3_continuum_objects_used": [],
+      "native_basis_status": [
+        "DECLARED_N0_PRIMITIVE",
+        "N0_DEFINABLE_DERIVED"
+      ],
+      "promotion_target_strength": "RELATION",
+      "target_leakage_audit": "CLEAN: no physical-3D fact, classical geometry, R055/R056 energy, or R057/R058/R059 fitted geometry selects the Stage-0 carrier or move.",
+      "transitive_dependency_closure_checked": true,
+      "typed_dependency_graph": {
+        "B": "N2",
+        "connectivity": "N0 predicate used operationally",
+        "proposal/selection": "N1"
+      },
+      "weakest_valid_restatement": "D3_L1 is a chosen N1 dynamics conditional on C3 and B."
+    },
+    {
+      "admissibility_verdict": "CONDITIONAL_DERIVED",
+      "certificate_semantic_strength": "SCALAR",
+      "claim_id": "R060-CLM-05-TERMINATION",
+      "critical_symbols": [
+        "trajectory",
+        "B"
+      ],
+      "declared_base_carrier": "C3_RELATIONAL_RANK3_CHANNEL_CARRIER",
+      "definability_or_invariance_certificate": "well-founded strict descent on nonnegative even integers",
+      "effective_definitions_withheld_from_native_premises": [
+        "Euclidean distance/norm",
+        "center/centroid/radius",
+        "angle/curvature",
+        "length/area/volume/surface area",
+        "shortest-path/graph-distance optimization",
+        "continuum geometry"
+      ],
+      "engineering_success_constraints_consumed": [],
+      "future_language_if_any": "S1/S2/S3 later stability-search language; S4 reserved",
+      "implementation_carriers_used": [],
+      "introduced_choices": [],
+      "n0_primitives_used": [
+        "ADJACENCY",
+        "OCCUPANCY"
+      ],
+      "n1_operations_used": [
+        "D3_L1"
+      ],
+      "n2_readouts_used": [
+        "B"
+      ],
+      "n3_continuum_objects_used": [],
+      "native_basis_status": [
+        "DECLARED_N0_PRIMITIVE",
+        "N0_DEFINABLE_DERIVED"
+      ],
+      "promotion_target_strength": "SCALAR",
+      "target_leakage_audit": "CLEAN: no physical-3D fact, classical geometry, R055/R056 energy, or R057/R058/R059 fitted geometry selects the Stage-0 carrier or move.",
+      "transitive_dependency_closure_checked": true,
+      "typed_dependency_graph": {
+        "B": "N2 nonnegative even integer",
+        "strict descent": "N1 criterion",
+        "trajectory": "N1"
+      },
+      "weakest_valid_restatement": "All finite D3_L1 branches terminate; S0 only."
+    },
+    {
+      "admissibility_verdict": "READOUT_ONLY",
+      "certificate_semantic_strength": "QUOTIENT",
+      "claim_id": "R060-CLM-06-AUT-ORBIT",
+      "critical_symbols": [
+        "Aut(C3)",
+        "canonical orbit"
+      ],
+      "declared_base_carrier": "C3_RELATIONAL_RANK3_CHANNEL_CARRIER",
+      "definability_or_invariance_certificate": "full automorphism completeness certificate + exact canonicalizer",
+      "effective_definitions_withheld_from_native_premises": [
+        "Euclidean distance/norm",
+        "center/centroid/radius",
+        "angle/curvature",
+        "length/area/volume/surface area",
+        "shortest-path/graph-distance optimization",
+        "continuum geometry"
+      ],
+      "engineering_success_constraints_consumed": [],
+      "future_language_if_any": "S1/S2/S3 later stability-search language; S4 reserved",
+      "implementation_carriers_used": [
+        "integer triples for canonicalizer"
+      ],
+      "introduced_choices": [],
+      "n0_primitives_used": [
+        "ADJACENCY",
+        "CHANNEL_FAMILY_RELATION"
+      ],
+      "n1_operations_used": [],
+      "n2_readouts_used": [
+        "automorphism orbit quotient"
+      ],
+      "n3_continuum_objects_used": [],
+      "native_basis_status": [
+        "N0_DEFINABLE_DERIVED"
+      ],
+      "promotion_target_strength": "QUOTIENT",
+      "target_leakage_audit": "CLEAN: no physical-3D fact, classical geometry, R055/R056 energy, or R057/R058/R059 fitted geometry selects the Stage-0 carrier or move.",
+      "transitive_dependency_closure_checked": true,
+      "typed_dependency_graph": {
+        "automorphism": "relation-preserving N0 symmetry",
+        "integer triples": "I0",
+        "orbit": "N2 quotient"
+      },
+      "weakest_valid_restatement": "State comparison is exact modulo full C3 carrier automorphisms."
+    },
+    {
+      "admissibility_verdict": "NATIVE_ADMISSIBLE",
+      "certificate_semantic_strength": "OBJECT",
+      "claim_id": "R060-CLM-07-DIMENSION-GUARD",
+      "critical_symbols": [
+        "relational rank",
+        "world dimension"
+      ],
+      "declared_base_carrier": "C3_RELATIONAL_RANK3_CHANNEL_CARRIER",
+      "definability_or_invariance_certificate": "explicit inference guard forbids candidate outcome -> world dimension promotion",
+      "effective_definitions_withheld_from_native_premises": [
+        "Euclidean distance/norm",
+        "center/centroid/radius",
+        "angle/curvature",
+        "length/area/volume/surface area",
+        "shortest-path/graph-distance optimization",
+        "continuum geometry"
+      ],
+      "engineering_success_constraints_consumed": [],
+      "future_language_if_any": "S1/S2/S3 later stability-search language; S4 reserved",
+      "implementation_carriers_used": [],
+      "introduced_choices": [],
+      "n0_primitives_used": [
+        "CHANNEL_FAMILY_RELATION"
+      ],
+      "n1_operations_used": [],
+      "n2_readouts_used": [],
+      "n3_continuum_objects_used": [],
+      "native_basis_status": [
+        "DECLARED_N0_PRIMITIVE"
+      ],
+      "promotion_target_strength": "OBJECT",
+      "target_leakage_audit": "CLEAN: no physical-3D fact, classical geometry, R055/R056 energy, or R057/R058/R059 fitted geometry selects the Stage-0 carrier or move.",
+      "transitive_dependency_closure_checked": true,
+      "typed_dependency_graph": {
+        "relational rank": "candidate carrier descriptor",
+        "world dimension": "withheld interpretation"
+      },
+      "weakest_valid_restatement": "Rank 3 describes this tested carrier only; world dimensionality remains unproved."
+    }
+  ],
+  "generation": "R060",
+  "policy": "ENTERPRISE_MATH_NATIVE_SEMANTICS_ADMISSIBILITY_V3",
+  "researcher_id": "EM-R060-00CD9F",
+  "schema": "R060_STAGE0_SEMANTIC_CLAIM_LEDGER_V1",
+  "stage": "0",
+  "status": "FROZEN_STAGE0",
+  "task_id": "RS-R060-STAGE-0-RELATIONAL-3D-STABLE-COLLAPSE-FOUNDATION",
+  "taskbook_source_commit": "1d4b7dd5b2dd326019e1d91dbcbe050b0cd13f89"
+}
