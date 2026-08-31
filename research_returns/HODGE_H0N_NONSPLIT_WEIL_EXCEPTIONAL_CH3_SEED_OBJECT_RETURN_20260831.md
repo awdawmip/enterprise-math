@@ -1,10 +1,10 @@
 # HODGE H0N - Non-Split Weil Sixfold Exceptional ch_3 Seed Object Return
 
-Researcher-ID: `EM-HODGEH0N-40AF21`
-Task-ID: `RS-HODGE-H0N-NONSPLIT-WEIL-EXCEPTIONAL-CH3-SEED-OBJECT`
-Publication: `TP2-9A71D4C6E2B5083F16CD`
-Claim: `chatgpt-hodgeh0n-20260831-1344`
-Execution branch: `research/hodge-h0n-exceptional-ch3-seed-em-hodgeh0n-40af21`
+Researcher-ID: `EM-HODGEH0N-40AF21`  
+Task-ID: `RS-HODGE-H0N-NONSPLIT-WEIL-EXCEPTIONAL-CH3-SEED-OBJECT`  
+Publication: `TP2-9A71D4C6E2B5083F16CD`  
+Claim: `chatgpt-hodgeh0n-20260831-1344`  
+Execution branch: `research/hodge-h0n-exceptional-ch3-seed-em-hodgeh0n-40af21`  
 Date: `2026-08-31`
 
 ## Terminal verdict
@@ -15,7 +15,7 @@ Hard target disposition:
 
 `NONSPLIT_WEIL_SIXFOLD_TARGET_SIDE_EXCEPTIONAL_CH3_SEED_OBJECT_CONSTRUCTED_OR_NATURAL_SOURCE_FAMILY_NO_GO_CLASSIFIED = SATISFIED_AT_NEGATIVE_FAMILY_NO_GO_STRENGTH`.
 
-No target-side object with nonzero exceptional `ch_3` is constructed. Instead, five explicitly delimited natural source families are proved to have zero exceptional projection on the declared very-general discriminant `[-3]` target. The remaining object-first frontier is a target-side non-semihomogeneous object with primitive degree-six characteristic class, or a genuinely non-tautological algebraic correspondence.
+No target-side object with nonzero exceptional `ch_3` is constructed. Instead, four broad natural source families plus two rigorously verified Fourier-Mukai endpoint regimes are proved to have zero exceptional projection on the declared very-general discriminant `[-3]` target. A full no-go for every Fourier-Mukai image of a line/semihomogeneous source is **not** claimed: intermediate-dimensional supported transforms remain an explicit surviving subfrontier.
 
 No non-algebraicity claim, Hodge-conjecture claim, or H1 promotion is made.
 
@@ -41,7 +41,7 @@ is one-dimensional over `K` and two-dimensional over `Q`. After complexification
 
 and
 
-`H^6(A,C)=direct_sum_(a=0)^6 B_a`,
+`H^6(A,C)=direct_sum_(a=0)^6 B_a`,  
 `B_a=wedge^a V_sigma tensor wedge^(6-a) V_sigma_bar`.
 
 The exceptional Weil space is `B_6 direct_sum B_0`; the Weil signature `(3,3)` makes both determinant lines Hodge type `(3,3)`. The divisor cube `theta^3` lies in `B_3`. Therefore
@@ -52,18 +52,18 @@ Throughout this Return, `proj_W` means the `B_6+B_0` exterior-count component. T
 
 ## 2. Source-literature boundary
 
-The family proofs use classical source mathematics at its own strength:
+The family proofs use classical source mathematics at its own exact strength:
 
-- Mukai, *Semi-homogeneous vector bundles on an abelian variety*, J. Math. Kyoto Univ. 18 (1978), 239-272: for a simple semihomogeneous rank-`r` bundle, `ch(E)=r exp(c1(E)/r)`.
-- Orlov, arXiv:alg-geom/9712017, plus standard Mukai semihomogeneous/Fourier-Mukai theory: abelian Fourier-Mukai equivalences transport translation/twist stabilizer data.
+- Mukai, *Semi-homogeneous vector bundles on an abelian variety*, J. Math. Kyoto Univ. 18 (1978), 239-272: for a simple semihomogeneous positive-rank bundle, `ch(E)=r exp(c1(E)/r)`.
+- Orlov, arXiv:alg-geom/9712017, together with standard Mukai semihomogeneous/Fourier-Mukai theory: derived equivalences of abelian varieties transport the translation/twist stabilizer structure. This does **not**, by itself, justify collapsing every possible supported transform to the positive-rank vector-bundle case.
 - Markman, arXiv:2502.03415: sixfold Weil classes are algebraic on the discriminant `-1` split locus; this is a positive control against any universal no-go.
 - Markman, arXiv:2509.23403: split secant-sheaf source mechanism.
-- Koike, arXiv:math/0211304: Gaussian sixfold Prym positive control on the classical trivial/discriminant-one regime.
+- Koike, arXiv:math/0211304: Gaussian sixfold Prym positive control on a classical special/discriminant-one regime.
 - Mostaed, arXiv:2603.20268: the sixfold frontier outside known discriminant-specific mechanisms remains open at the studied scope.
 
 These controls force the conclusion to remain a source-family theorem, not a theorem of non-algebraicity.
 
-## 3. F1 - semihomogeneous extension/shift envelope
+## 3. F1 - semihomogeneous vector-bundle extension/shift envelope
 
 For a simple semihomogeneous vector bundle `E` of rank `r>0`,
 
@@ -77,27 +77,32 @@ Since `NS(A)_Q=Q*theta`, write `c1(E)=q theta`. Then `ch_3(E)` is a rational mul
 
 `proj_W(ch_3(E))=0`.
 
-Chern character is additive in `K_0`, so finite direct sums and extensions remain on `Q*theta^3`; shifts only change sign. Therefore the entire finite semihomogeneous extension/shift envelope has zero exceptional `ch_3`.
+Chern character is additive in `K_0`, so finite direct sums and extensions of such bundles remain on `Q*theta^3`; shifts only change sign. Therefore this declared finite semihomogeneous vector-bundle extension/shift envelope has zero exceptional `ch_3`.
 
 The normalized diagnostic is sharper:
 
 `ch(E) exp(-c1(E)/r)=r`.
 
-Thus a successful positive-rank seed must leave the simple semihomogeneous class and possess a primitive higher characteristic component.
+Thus a successful positive-rank seed must leave this simple semihomogeneous vector-bundle class and possess a primitive higher characteristic component.
 
-## 4. F2 - target-side Fourier-Mukai orbit of line/semihomogeneous sources
+## 4. F2 - rigorously verified Fourier-Mukai endpoint regimes only
 
-Only target-side autoequivalences are allowed; no split object is imported.
+Only target-side autoequivalences are considered; no split object is imported.
 
-Under an abelian Fourier-Mukai equivalence, the translation/twist stabilizer is transported through the induced symplectic action on `A x Ahat`. Hence line/semihomogeneous sources remain in the semihomogeneous orbit at the relevant stabilizer level. A full-support positive-rank output is therefore covered by F1. A finite-support output of point type on a sixfold has no codimension-three Chern-character term, so `ch_3=0`.
+An abelian Fourier-Mukai autoequivalence transports translation/twist stabilizer data. Two endpoint regimes can be closed without an additional support theorem:
 
-Thus the declared Fourier-Mukai orbit of line/semihomogeneous sources cannot create exceptional `ch_3`.
+1. **Full-support positive-rank semihomogeneous output.** This is covered by F1, hence its `ch_3` lies in `Q*theta^3` and has zero exceptional projection.
+2. **Point-supported output.** On a sixfold a zero-dimensional sheaf has Chern character concentrated in cohomological degree `12` (codimension `6`), so its codimension-three term is `ch_3=0`.
 
-This does not cover an arbitrary input complex that already has primitive exceptional `ch_3`; admitting such an input would assume the desired seed.
+Therefore these two endpoint regimes cannot create exceptional `ch_3` from the declared line/semihomogeneous sources.
+
+However, this Return deliberately does **not** assert that every possible Fourier-Mukai image of such a source is forced into one of those two endpoints. Intermediate-dimensional supported semihomogeneous transforms require their own support and Grothendieck-Riemann-Roch/Chern-character analysis. They remain open and are not silently absorbed into F1.
+
+Likewise, an arbitrary input complex that already carries primitive exceptional `ch_3` is outside this no-go; admitting it would assume the desired seed.
 
 ## 5. F3 - polarization and target K-endomorphism tautological algebra
 
-Start from line/semihomogeneous objects and close under tensor, dual, finite additive/derived operations, and pullback/pushforward along nonzero target-side `K`-endomorphism isogenies.
+Start from line/semihomogeneous positive-rank bundles and close under tensor, dual, finite additive/derived operations, and pullback/pushforward along nonzero target-side `K`-endomorphism isogenies, whenever the relevant objects remain in the declared tautological algebra.
 
 Because `NS(A)_Q=Q*theta`, for such an isogeny `f` there is a nonzero rational scalar `lambda_f` with
 
@@ -105,7 +110,7 @@ Because `NS(A)_Q=Q*theta`, for such an isogeny `f` there is a nonzero rational s
 
 Hence `f^*(theta^3)=lambda_f^3 theta^3`. Since `f_*f^*=deg(f) id` on rational cohomology, `f_*` also preserves `Q*theta^3`. Tensor, dual, and additive operations preserve the divisor polynomial algebra `Q[theta]`.
 
-Therefore every codimension-three Chern-character output in this tautological algebra lies in `Q*theta^3` and has zero exceptional projection.
+Therefore every codimension-three Chern-character output in this declared tautological algebra lies in `Q*theta^3` and has zero exceptional projection.
 
 ## 6. F4 - tautological degeneracy/determinantal cycles
 
@@ -127,7 +132,7 @@ A genuinely non-tautological algebraic correspondence is not ruled out and remai
 
 ## 8. Unified no-go and falsifier audit
 
-For the union of F1-F5 at the stated scope,
+For F1, F3, F4 and F5 at the stated scope,
 
 `source_degree6 subset Q*theta^3`
 
@@ -135,17 +140,17 @@ and
 
 `W_K(A) intersect Q*theta^3={0}`.
 
-Therefore every audited natural source has zero exceptional projection.
+Hence every member of those four declared families has zero exceptional projection. F2 adds two separately verified endpoint no-go regimes, but no theorem is claimed for unanalysed intermediate-support transforms.
 
 Counterexample search prevents overstatement:
 
 1. Markman's discriminant-`-1` sixfolds are a positive control showing a universal no-go is false.
-2. Koike's Gaussian Prym geometry shows non-tautological geometry can escape the divisor algebra on another solved regime.
-3. Fourier-Mukai point outputs have `ch_3=0` on a sixfold.
+2. Koike's Gaussian Prym geometry shows non-tautological geometry can escape the divisor algebra on another solved/special regime.
+3. Fourier-Mukai point outputs have `ch_3=0` on a sixfold, but intermediate-dimensional supported images are not thereby classified.
 4. A hypothetical target bundle with primitive exceptional `c3` is not killed by the theorem; it is precisely the desired seed.
 5. A genuinely non-tautological correspondence remains open.
 
-No scope-internal counterexample was found.
+No scope-internal counterexample was found for F1/F3/F4/F5 or the two F2 endpoint regimes.
 
 ## 9. Deterministic checker and tool audit
 
@@ -155,31 +160,29 @@ Checker:
 
 Frozen execution:
 
-`HODGE_H0N_CHECKS=110`
-`HODGE_H0N_FAILURES=0`
+`HODGE_H0N_CHECKS=110`  
+`HODGE_H0N_FAILURES=0`  
 `HODGE_H0N_NONSPLIT_WEIL_EXCEPTIONAL_CH3_SEED_OBJECT_CHECK: PASS`
 
-The checker verifies only finite/symbolic reductions: exterior-count blocks, divisor/Weil separation, semihomogeneous `ch_3` coefficients and Newton identities, additive closure samples, the complete codimension-three Chern-monomial list, isogeny scalar closure, primitive-Weil boundary regressions, point-support `ch_3=0`, and the modulo-three Gaussian norm gate. It does not replace Mukai, Orlov/Mukai, Thom-Porteous, or generic Picard-rank theorems.
+The checker verifies only finite/symbolic reductions: exterior-count blocks, divisor/Weil separation, semihomogeneous `ch_3` coefficients and Newton identities, additive closure samples, the complete codimension-three Chern-monomial list, isogeny scalar closure, primitive-Weil boundary regressions, point-support `ch_3=0`, and the modulo-three Gaussian norm gate. It does not replace Mukai, Orlov/Mukai, Thom-Porteous, generic Picard-rank theorems, or an unproved classification of intermediate-support Fourier-Mukai transforms.
 
 `enterprise_toolbox_registry.json` was checked. No accepted global Enterprise tool replaces this Hodge-specific proof obligation, so no new general-purpose tool is introduced. The checker is task-local.
 
 ## 10. Exact surviving frontier
 
-The following routes are now removed on the declared very-general `[-3]` target:
+The following routes are removed on the declared very-general `[-3]` target:
 
-1. semihomogeneous bundles plus finite extension/shift closure;
-2. target-side Fourier-Mukai line/semihomogeneous orbit;
+1. semihomogeneous positive-rank vector bundles plus finite extension/shift closure;
+2. the **full-support positive-rank** and **point-supported** endpoint regimes of target-side Fourier-Mukai transforms of the declared sources;
 3. polarization plus target `K`-endomorphism tautological bundle algebra;
 4. tautological Thom-Porteous/determinantal constructions;
 5. graph/divisor `K`-tautological correspondence operators.
 
-The next positive task must instead construct either
+The surviving positive routes are now sharper:
 
-`A_TARGET_SIDE_NON_SEMIHOMOGENEOUS_OBJECT_E_WITH_PROJ_W(CH3(E))_NONZERO`
-
-or
-
-`A_GENUINELY_NONTAUTOLOGICAL_ALGEBRAIC_CORRESPONDENCE_WITH_NONZERO_WK_IMAGE`.
+- a target-side non-semihomogeneous object `E` with `proj_W(ch_3(E)) != 0`;
+- an intermediate-dimensional supported target-side Fourier-Mukai image whose `ch_3` is computed directly and has nonzero exceptional projection;
+- a genuinely non-tautological algebraic correspondence with nonzero `W_K` image.
 
 Only after such a seed exists is semiregularity/obstruction-cancellation target-side data instantiated.
 
