@@ -1,0 +1,39 @@
+{
+  "schema":"R037_SPECTRAL_MOMENT_CERTIFICATE_V1",
+  "researcher_id":"EM-R037-A7C2D1",
+  "fcc":{
+    "closed_symbol":"(cos(x/sqrt(2))*cos(y/sqrt(2))+cos(x/sqrt(2))*cos(z/sqrt(2))+cos(y/sqrt(2))*cos(z/sqrt(2)))/3",
+    "log2":"-(x^2+y^2+z^2)/6",
+    "log4":"-(x^4+x^2*y^2+x^2*z^2+y^4+y^2*z^2+z^4)/144"
+  },
+  "hcp":{
+    "C":"cos(x)+2*cos(x/2)*cos(sqrt(3)*y/2)",
+    "S":"2*cos(x/2)*exp(i*sqrt(3)*y/6)+exp(-i*sqrt(3)*y/3)",
+    "h":"sqrt(2/3)",
+    "bloch_matrix":"[[C/6,cos(h*z)*S/6],[cos(h*z)*conj(S)/6,C/6]]",
+    "principal_log2":"-(x^2+y^2+z^2)/6",
+    "principal_log4":"-(9*x^4+18*x^2*y^2+24*x^2*z^2+9*y^4+24*y^2*z^2+8*z^4)/1728",
+    "quadratic_conclusion":"exact common isotropic quadratic form; leading diffusive covariance I/3"
+  },
+  "stacking_alignment":{
+    "basis":"FCC [1,-1,0]/sqrt(2) -> HCP x, FCC [1,1,1]/sqrt(3) -> HCP z, right-handed y",
+    "fcc_minus_hcp_log4":"-sqrt(2)*y*z*(3*x^2-y^2)/432",
+    "first_principal_spectral_memory_order":4,
+    "finite_scale_order":"for k=xi/sqrt(n), n*log(lambda(k)) has quartic correction O(|xi|^4/n)",
+    "small_k_10e36_certificate":"quartic FCC/HCP difference is bounded by O(10^-36) in the diffusive expansion; this is a local small-k statement only, not a global heat-kernel theorem"
+  },
+  "barlow_return_gauge_theorem":{
+    "status":"REPRODUCED_EXACT_AND_UPGRADED_FROM_FROZEN_THEOREM_CANDIDATE",
+    "hypotheses":"bi-infinite legal Barlow close-packed stacking; uniform 12-neighbor transition; ideal geometry; basal Fourier decomposition",
+    "fiber":"(P_k psi)_j = C(k)/6 psi_j + t_j(k) psi_{j+1} + conjugate(t_{j-1}(k)) psi_{j-1}",
+    "hopping":"t_j(k)=S_sigma_j(k)/12, sigma_j in {+,-}; S_-(k)=conjugate(S_+(k)) up to the fixed orientation convention and |S_sigma|=sqrt(3+2*C(k))",
+    "proof":"the layer graph is Z, hence has no cycle flux. For nonzero hopping choose u_0=1 and recursively choose unit phases u_{j+1} so conjugate(u_j)*t_j*u_{j+1}=|t_j|. At zeros set the phase arbitrarily because the edge vanishes. The diagonal unitary U_k fixes delta_0 and converts every fiber to the same real constant-magnitude Jacobi fiber. The phase choice can be made measurable in k, so the direct-integral unitary is valid.",
+    "exact_consequences":[
+      "same root return probability for every n and every legal Barlow stacking",
+      "same root local spectral measure for every legal Barlow stacking",
+      "same infinite-operator spectrum under the direct-integral unitary"
+    ],
+    "integrated_DOS_boundary":"periodic stackings inherit the same integrated DOS exactly. For arbitrary nonperiodic stackings, equality holds for any standard IDS definition obtained from the common local spectral measure when the IDS/trace-per-volume limit exists; existence is a separate assumption and is not asserted here.",
+    "does_not_preserve":"the gauge is k-dependent and is not a physical-coordinate vertex permutation; it does not erase wavevector-labelled angular dispersion, local cubic/quartic stacking memory, or pointwise finite-time heat-kernel differences"
+  }
+}

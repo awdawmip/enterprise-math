@@ -1,0 +1,30 @@
+{
+  "schema":"R037_MACRO_READOUT_AUDIT_V1",
+  "researcher_id":"EM-R037-A7C2D1",
+  "K_definition":"A_r^3/V_r^2",
+  "fcc":{
+    "K_limit":"90",
+    "asymptotic":"90-270/r+927/(2*r^2)-540/r^3+O(r^-4)",
+    "bound":"0 < 90-K_r < 270/r for r>=1",
+    "euclidean_form_pi_eff":"5/2"
+  },
+  "hcp":{
+    "K_limit":"189/2",
+    "asymptotic_even":"189/2-567/(2*r)+4023/(8*r^2)-2565/(4*r^3)+O(r^-4)",
+    "asymptotic_odd":"189/2-567/(2*r)+3915/(8*r^2)-2349/(4*r^3)+O(r^-4)",
+    "bound":"0 < 189/2-K_r < 567/(2*r) for r>=1",
+    "euclidean_form_pi_eff":"21/8"
+  },
+  "leading_ratio_hcp_over_fcc":"21/20 for both shell and bulk coefficients",
+  "records":[
+    {"r":"10^36","fcc_K_minus_limit":"approximately -2.70e-34","hcp_K_minus_limit":"approximately -2.835e-34","hcp_facet_support_bound":"1/(6*10^36)"},
+    {"r":"10^37","fcc_K_minus_limit":"approximately -2.70e-35","hcp_K_minus_limit":"approximately -2.835e-35","hcp_facet_support_bound":"1/(6*10^37)"},
+    {"r":"10^38","fcc_K_minus_limit":"approximately -2.70e-36","hcp_K_minus_limit":"approximately -2.835e-36","hcp_facet_support_bound":"1/(6*10^38)"}
+  ],
+  "readout_semantics":{
+    "pi_eff_derivation":"post-hoc force A~4*pi_eff*r^2 and V~(4/3)*pi_eff*r^3 on the exact discrete leading laws; both channels agree at the native graph-radius calibration",
+    "calibration_dependence":"under R=alpha*r the area and volume channels become b/(4*alpha^2) and 3a/(4*alpha^3); equality uniquely selects alpha=3a/b=1 for both frozen native calibrations. Therefore 5/2 and 21/8 are readout constants, not microscopic inputs and not claims about classical pi.",
+    "pi_microscopic_input":false
+  },
+  "evidence_grade":"REPRODUCED_EXACT for closed forms and limits; REPRODUCED_ASYMPTOTIC_CERTIFICATE for displayed expansions/bounds"
+}
