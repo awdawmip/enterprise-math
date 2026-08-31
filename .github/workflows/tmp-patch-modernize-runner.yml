@@ -1,0 +1,102 @@
+name: tmp-patch-modernize-runner
+
+on:
+  push:
+    branches:
+      - control/perfect-prime-publication-quarantine-resolution-20260831
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Replace only the targeted-test runner
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('.github/workflows/tmp-modernize-stale-quality-tests.yml')
+          text = p.read_text(encoding='utf-8')
+          old = '''      - name: Run migrated test files only
+        env:
+          PYTHONPATH: src
+        run: |
+          set -euo pipefail
+          for f in \\
+            test_free_phase_a_integrity_shell_routing.py \\
+            test_free_primitive_substrate_partition.py \\
+            test_task_integrity_fault_isolation.py \\
+            test_free_researcher_axiom_discovery_contract.py \\
+            test_registered_json_migration_applier_unittest.py \\
+            test_research_task_registry_cli_surface_unittest.py \\
+            test_task_record_audit_fault_isolation_unittest.py \\
+            test_current_foundation_authority_contract.py \\
+            test_research_result_control_replacements.py \\
+            test_research_result_record_compatibility.py \\
+            test_driver_control_fault_isolation.py \\
+            test_research_review_evidence_contract.py \\
+            test_role_control_authority_unittest.py \\
+            test_research_architecture_v2_contract.py \\
+            test_publication_fault_isolation.py; do
+            python -m unittest discover -s tests -p "$f"
+          done
+'''
+          new = '''      - name: Run migrated test files only through repository loader
+        env:
+          PYTHONPATH: src
+        run: |
+          python - <<'PYTEST'
+          import unittest
+          from pathlib import Path
+          from control_plane import research_control_bootstrap
+          from scripts import run_unittest_shard as shard
+
+          root = Path.cwd()
+          research_control_bootstrap.install(root)
+          names = [
+              'test_free_phase_a_integrity_shell_routing.py',
+              'test_free_primitive_substrate_partition.py',
+              'test_task_integrity_fault_isolation.py',
+              'test_free_researcher_axiom_discovery_contract.py',
+              'test_registered_json_migration_applier_unittest.py',
+              'test_research_task_registry_cli_surface_unittest.py',
+              'test_task_record_audit_fault_isolation_unittest.py',
+              'test_current_foundation_authority_contract.py',
+              'test_research_result_control_replacements.py',
+              'test_research_result_record_compatibility.py',
+              'test_driver_control_fault_isolation.py',
+              'test_research_review_evidence_contract.py',
+              'test_role_control_authority_unittest.py',
+              'test_research_architecture_v2_contract.py',
+              'test_publication_fault_isolation.py',
+          ]
+          suite = unittest.TestSuite()
+          loader = unittest.TestLoader()
+          for name in names:
+              path = root / 'tests' / name
+              discovered = shard.load_file_suite(path, loader)
+              count = discovered.countTestCases()
+              if count == 0:
+                  raise SystemExit(f'{name}: repository loader produced zero tests')
+              print(f'TARGET_DISCOVERY {name} cases={count}', flush=True)
+              suite.addTests(discovered)
+          result = unittest.TextTestRunner(verbosity=2).run(suite)
+          raise SystemExit(0 if result.wasSuccessful() else 1)
+          PYTEST
+'''
+          if text.count(old) != 1:
+              raise SystemExit(f'expected one old runner block, found {text.count(old)}')
+          p.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
+          changed=$(git diff --name-only)
+          test "$changed" = ".github/workflows/tmp-modernize-stale-quality-tests.yml"
+      - name: Commit runner-only patch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .github/workflows/tmp-modernize-stale-quality-tests.yml
+          git commit -m 'ci: use repository loader for targeted stale-test validation'
+          git push origin HEAD:control/perfect-prime-publication-quarantine-resolution-20260831
