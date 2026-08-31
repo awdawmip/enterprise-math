@@ -1,0 +1,19 @@
+{
+  "schema":"R033_TOPOLOGY_ATLAS_V1",
+  "status":"EXACT_RATIONAL_REFERENCE_NOT_CANONICAL",
+  "method":"construct local Voronoi cells from rational bisector halfspaces; glue every ball-to-outside face by exact rational vertex keys",
+  "local_cell_f_vector":{"fcc":[14,24,12],"hcp_A":[14,24,12],"hcp_B":[14,24,12]},
+  "certified_radii":"r=0..20 inclusive for both FCC and HCP",
+  "f_vector_law":{"F":"12*(3*r^2+3*r+1)","E":"2*F","V":"F+2","chi":"2"},
+  "manifold_checks":{"connected_components":1,"edge_incidence":"exactly 2 for every boundary edge","vertex_links":"one cycle for every boundary vertex"},
+  "classification":"closed connected 2-manifold with chi=2 => topological S^2 for every certified radius",
+  "reference_samples":{
+    "r0":{"V":14,"E":24,"F":12,"chi":2},
+    "r1":{"V":86,"E":168,"F":84,"chi":2},
+    "r2":{"V":230,"E":456,"F":228,"chi":2},
+    "r10":{"V":3974,"E":7944,"F":3972,"chi":2},
+    "r20":{"V":15134,"E":30264,"F":15132,"chi":2}
+  },
+  "world_comparison":"the exposed-face f-vector is identical for FCC/HCP although graph-shell counts, shell adjacency, boundary spectra and limit shapes differ",
+  "all_radius_status":"nested layer/cuboctahedral structure gives a shelling-proof route, but all-r induction is not yet formalized as a repository theorem"
+}

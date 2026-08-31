@@ -1,0 +1,27 @@
+{
+  "schema":"R033_LIMIT_SHAPE_ATLAS_V1",
+  "status":"EXACT_OR_CERTIFIED_STABLE_NORM_CHECKPOINT_NOT_CANONICAL",
+  "fcc":{
+    "ball":"D3 intersect {max(|x|,|y|,|z|)<=r, |x|+|y|+|z|<=2r}",
+    "scaled_convex_hull":"exactly the same cuboctahedron for every integer r",
+    "vertices":12,
+    "facets":14,
+    "NN_normalized_circumradius":"1",
+    "NN_normalized_inradius":"1/sqrt(2)",
+    "anisotropy_ratio":"sqrt(2)",
+    "finite_r_support_remainder":"0"
+  },
+  "hcp":{
+    "periodic_quotient_states":2,
+    "velocity_polytope":"conv{(h,0),(h/2,+1),(h/2,-1): h in {(+-1,0),(0,+-1),(1,-1),(-1,1)}}",
+    "inequalities":["|z|<=1","|u|+|z|/2<=1","|v|+|z|/2<=1","|u+v|+|z|/2<=1"],
+    "physical_Gram_matrix":[["1","1/2","0"],["1/2","1","0"],["0","0","2/3"]],
+    "vertices":18,
+    "facets":14,
+    "circumradius":"1",
+    "inradius":"sqrt(24/41)",
+    "anisotropy_ratio":"sqrt(41/24)",
+    "support_certificate":"every normalized limit-facet support overshoot <=1/(6*r); for even r all 18 limit vertices are exactly reachable"
+  },
+  "disposition":{"EUCLIDEAN_ISOTROPY":"KILLED","STABLE_POLYHEDRAL_LIMIT":"CONFIRMED","FCC_HCP_SAME_LIMIT_SHAPE":"KILLED"}
+}
