@@ -15,22 +15,23 @@
     {
       "gate": "MATHEMATICAL_CONTINUATION",
       "decision": "REQUIRED",
-      "reason": "The accepted selector synthesis leaves six root gaps and justifies exactly three shared-prerequisite continuations rather than twelve per-selector tasks.",
+      "reason": "V2 normalizes six root gaps to three shared-prerequisite continuations. The post-V2 accepted Q24 no-model-change-arrow boundary raises PHYSICAL_REFINEMENT_SELECTOR and REFINEMENT_TRANSPORT_SELECTOR to partial constraints but does not remove any of the three shared continuations.",
       "evidence_refs": [
         "research_artifacts/GEO6_OBJECTIVE_SEMANTIC_SELECTOR_SYNTHESIS/selector_atlas_v2.json",
-        "driver_reviews/GEO6_OBJECTIVE_SELECTOR_SYNTHESIS_V2_DRIVER_REVIEW_20260901.md"
+        "driver_reviews/GEO6_OBJECTIVE_SELECTOR_SYNTHESIS_V2_DRIVER_REVIEW_20260901.md",
+        "driver_reviews/P000_PHILOSOPHY_FIRST_Q22_Q24_DRIVER_REVIEW_20260901.md"
       ]
     },
     {
       "gate": "LEAN_FORMALIZATION",
       "decision": "NOT_REQUIRED",
-      "reason": "The selector synthesis is a typed semantic integration boundary; no new stable theorem interface is yet ready for formalization.",
+      "reason": "No stable new native theorem interface is yet available; the successor set first resolves missing typed semantic primitives.",
       "evidence_refs": []
     },
     {
       "gate": "EXTERNAL_PRIOR_ART_DUPLICATION",
       "decision": "SATISFIED_BY_REVIEWED_RESULT",
-      "reason": "All three GEO6 prior-art boundaries are already canonically reviewed and the V2 synthesis preserves their continuation kills.",
+      "reason": "All three GEO6 prior-art boundaries are canonically reviewed and the V2 synthesis preserves their continuation kills.",
       "evidence_refs": [
         "research_result_records/RS-GEO6-OBJECTIVE-SEMANTIC-SELECTOR-SYNTHESIS/RR-0A26702D3A361799ADE0.json"
       ]
@@ -38,7 +39,7 @@
     {
       "gate": "INDEPENDENT_REPLICATION",
       "decision": "NOT_REQUIRED",
-      "reason": "The V2 task is a deterministic current-authority revalidation over already reviewed exact evidence and introduces no new standalone theorem claim requiring a replication lane.",
+      "reason": "The V2 task is deterministic current-authority revalidation over reviewed exact evidence; Q24 is an independently reviewed post-freeze delta rather than a reason to duplicate the synthesis.",
       "evidence_refs": [
         "research_checks/GEO6_OBJECTIVE_SEMANTIC_SELECTOR_SYNTHESIS_CURRENT_HEAD_REVALIDATION_V2_CHECK_20260901.py"
       ]
@@ -46,18 +47,20 @@
     {
       "gate": "INTEGRATION_OR_TOOL_HARVEST",
       "decision": "SATISFIED_BY_REVIEWED_RESULT",
-      "reason": "Objective-level integration is complete: twelve selectors are normalized to six roots and three bounded shared-prerequisite continuations; method_harvest remains RESULT_ONLY.",
+      "reason": "Objective-level integration is complete: twelve labels compress to six roots and three bounded shared-prerequisite continuations. Post-freeze Q24 sharpens the refinement branch without changing the task-set topology; method_harvest remains RESULT_ONLY.",
       "evidence_refs": [
         "research_artifacts/GEO6_OBJECTIVE_SEMANTIC_SELECTOR_SYNTHESIS/selector_atlas_v2.json",
-        "research_artifacts/GEO6_OBJECTIVE_SEMANTIC_SELECTOR_SYNTHESIS/accepted_resolver_manifest_v2.json"
+        "research_artifacts/GEO6_OBJECTIVE_SEMANTIC_SELECTOR_SYNTHESIS/accepted_resolver_manifest_v2.json",
+        "driver_reviews/GEO6_OBJECTIVE_SELECTOR_SYNTHESIS_V2_DRIVER_REVIEW_20260901.md"
       ]
     },
     {
       "gate": "ADVERSARIAL_AUDIT",
       "decision": "SATISFIED_BY_REVIEWED_RESULT",
-      "reason": "The V2 current-head scan fail-closed excludes stale review authority, unaccepted Q22-Q26 evidence and duplicate rotation/mixed continuation; post-freeze P000-L1 Gen21 is zero-math-delta routing only.",
+      "reason": "Driver current-head audit additionally consumes canonical Q22-Q24 review authority: Q22 type-map rejects for GEO6, Q23 is orthogonal, and Q24 contributes explicit partial constraints. P000-L1 Gen21 remains a zero-math-delta no-duplicate owner for immediate rotation/mixed lift work.",
       "evidence_refs": [
         "research_artifacts/GEO6_OBJECTIVE_SEMANTIC_SELECTOR_SYNTHESIS/current_head_delta_manifest_v2.json",
+        "driver_reviews/P000_PHILOSOPHY_FIRST_Q22_Q24_DRIVER_REVIEW_20260901.md",
         "driver_reviews/GEO6_OBJECTIVE_SELECTOR_SYNTHESIS_V2_DRIVER_REVIEW_20260901.md"
       ]
     }
@@ -79,7 +82,7 @@
       "task_role": "SHARED_TRANSLATION_PREREQUISITE"
     }
   ],
-  "created_at": "2026-09-01T12:09:10+00:00",
+  "created_at": "2026-09-01T12:13:10+00:00",
   "working_truth_granted": false,
   "foundation_authority_granted": false,
   "canonical_promotion_granted": false
