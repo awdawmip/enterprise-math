@@ -66,26 +66,33 @@ theorem dualPrime_iff_fixed_channel_prime_field_certificate (a b : ℤ) :
     exact ⟨h.gaussianPrime, h.eisensteinPrime, h.distinct⟩
 
 /-- Prime channel moduli equip the two fixed `ZMod` carriers with their canonical
-field structures. -/
+field structures. The instances are supplied explicitly so the statement carries
+no ambient instance-ordering ambiguity. -/
 theorem dualPrime_fixed_zmod_fields
     {a b : ℤ} (h : DualPrimeChannels a b) :
     Nonempty (Field (ZMod (Nmodulus a b))) ∧
       Nonempty (Field (ZMod (Cmodulus a b))) := by
-  letI : Fact (Nat.Prime (Nmodulus a b)) := ⟨h.1⟩
-  letI : Fact (Nat.Prime (Cmodulus a b)) := ⟨h.2.1⟩
-  exact ⟨⟨inferInstance⟩, ⟨inferInstance⟩⟩
+  exact
+    ⟨⟨@ZMod.instField (Nmodulus a b) ⟨h.1⟩⟩,
+      ⟨@ZMod.instField (Cmodulus a b) ⟨h.2.1⟩⟩⟩
 
 /-- F2-L04: under primitive input the already-fixed CRT projection is exactly a
-product of the two labelled prime-field carriers, with the expected orders. -/
+product of the two labelled prime-field carriers, with the expected orders. The
+field structures are returned together with the fixed equivalence so the theorem
+does not collapse to a bare unordered CRT slogan. -/
 theorem dualPrime_pointedCRT_prime_field_orders
     {a b : ℤ} (hab : IsCoprime a b) (h : DualPrimeChannels a b) :
-    ∃ e : ZMod (Hmodulus a b) ≃+*
-        ZMod (Nmodulus a b) × ZMod (Cmodulus a b),
-      e = pointedCRT a b hab ∧
-      Nat.card (ZMod (Nmodulus a b)) = Nmodulus a b ∧
-      Nat.card (ZMod (Cmodulus a b)) = Cmodulus a b := by
-  have _hfields := dualPrime_fixed_zmod_fields h
-  exact ⟨pointedCRT a b hab, rfl, gaussianCarrier_card a b, eisensteinCarrier_card a b⟩
+    Nonempty (Field (ZMod (Nmodulus a b))) ∧
+      Nonempty (Field (ZMod (Cmodulus a b))) ∧
+      ∃ e : ZMod (Hmodulus a b) ≃+*
+          ZMod (Nmodulus a b) × ZMod (Cmodulus a b),
+        e = pointedCRT a b hab ∧
+        Nat.card (ZMod (Nmodulus a b)) = Nmodulus a b ∧
+        Nat.card (ZMod (Cmodulus a b)) = Cmodulus a b := by
+  rcases dualPrime_fixed_zmod_fields h with ⟨hNField, hCField⟩
+  exact
+    ⟨hNField, hCField,
+      ⟨pointedCRT a b hab, rfl, gaussianCarrier_card a b, eisensteinCarrier_card a b⟩⟩
 
 /-- The fixed prime-field certificate also yields the channel-labelled semiprime
 statement, hence its unordered consequence, without dropping the attachment. -/
