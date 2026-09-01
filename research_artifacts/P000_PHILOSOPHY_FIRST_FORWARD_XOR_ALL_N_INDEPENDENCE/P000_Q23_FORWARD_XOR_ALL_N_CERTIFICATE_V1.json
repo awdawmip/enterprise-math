@@ -1,0 +1,64 @@
+{
+  "schema": "P000_Q23_FORWARD_XOR_ALL_N_CERTIFICATE_V1",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-FORWARD-XOR-ALL-N-INDEPENDENCE",
+  "publication_id": "TP2-5D06C7F7782AB19751E8",
+  "researcher_id": "EM-P000-F1E04B",
+  "claim_id": "chatgpt-p000q23-20260901-1018",
+  "execution_record_id": "ER-005658AA324D07ED2709",
+  "result_id": "RR-634B76E3BA22F328881A",
+  "terminal_verdict": "SUCCESS",
+  "hard_target_disposition": "ALL_FINITE_ARITY_NONCOPYING_XOR_NORMAL_FORM_PROVED / ZERO_SUPPORT_EFFECTIVITY_INDEPENDENCE_PROVED_FOR_ALL_FINITE_ARITIES / MINIMAL_ZERO_FIBRE_ESCAPE_CLASSIFIED",
+  "universal_theorem": {
+    "objects": "V_n=F_2^n for every finite n>=0",
+    "normal_form": "morphism Phi_alpha is uniquely indexed by a partial function alpha:[m]⇀[n]; each input is dropped or assigned to exactly one output and each output is the XOR of its fibre",
+    "matrix_characterization": "F_2 matrices with every column either zero or a standard basis vector",
+    "composition": "Phi_beta o Phi_alpha = Phi_{beta o alpha}",
+    "converse_construction": "delete unused inputs; permute survivors by target fibre; noncopying-XOR merge each fibre; insert zero target coordinates",
+    "faithfulness_witness": "Phi_alpha(e_j)=0 when alpha(j) undefined, otherwise e_{alpha(j)}",
+    "hom_count": "|Hom(V_m,V_n)|=(n+1)^m",
+    "zero_preservation": "Phi_alpha(0)=0 for every alpha",
+    "higher_arity_escape": false
+  },
+  "effectivity": {
+    "base_laws": ["effective unit", "neutral zero insertion/deletion", "coordinate restriction", "glue"],
+    "classification": "exactly two all-arity families",
+    "selector": "s=1 iff E_1(1)",
+    "selector_0": "E_n={0_n} for every n",
+    "selector_1": "E_n=V_n for every n",
+    "matched_forward_models": ["ZERO_SUPPORT", "ALL_EFFECTIVE"],
+    "independence": "all declared zero-preserving forward/coherence laws cannot force E_1(1) or nonzero effectivity"
+  },
+  "minimal_escape": {
+    "ground_witness": "KERNEL_ESCAPE_2: E_1(0) => E_2(1,1)",
+    "xor_map": "mu(a,b)=a XOR b with mu(1,1)=0",
+    "derivation": "effective unit -> E_1(0); ground witness -> E_2(1,1); restriction -> E_1(1); glue -> all-effective",
+    "strictly_weaker_than_full_fusion_backward": true,
+    "alternative_escape_type": "a nonzero-generating structural primitive g with g(0)!=0 plus forward preservation",
+    "copying_alone_crosses_obstruction": false
+  },
+  "finite_regression": {
+    "checker": "research_checks/P000_PHILOSOPHY_FIRST_FORWARD_XOR_ALL_N_INDEPENDENCE_CHECK_20260901.py",
+    "mode": "python -S, default --max-dim 4",
+    "max_dim": 4,
+    "normal_forms": 1279,
+    "hom_matrix": "1,1,1,1,1/1,2,3,4,5/1,4,9,16,25/1,8,27,64,125/1,16,81,256,625",
+    "composition_pairs": 848469,
+    "forward_model_checks": 35438,
+    "glue_checks": 258,
+    "two_model_states": 62,
+    "kernel_escape_generated_states": 31,
+    "status": "PASS",
+    "universal_proof_is_enumeration": false
+  },
+  "reuse_resolution": {
+    "coverage_verdict": "REUSE_EXISTING_METHOD_AT_BASELINE_ONLY",
+    "matched_method": "Q20 finite concrete-category normal form and matched-model method",
+    "reuse_resolution_state": "REUSE_APPLIED",
+    "how_applied": "used as finite base/regression target; Q23 supplies the arbitrary-arity symbolic closure and converse construction",
+    "general_purpose_xor_classifier_found": false,
+    "new_global_tool_created": false,
+    "method_harvest": "NO_TOOL_PAYLOAD"
+  },
+  "novelty_boundary": "finite partial functions and F_2 fibre-sum/parity push-forward are standard mathematics; no Enterprise novelty claim",
+  "driver_recommendation": "freeze the all-finite-arity obstruction, retire same-grammar loop-count escalation, and require any successor to identify a genuinely new primitive/semantic relation that kills zero-support"
+}
