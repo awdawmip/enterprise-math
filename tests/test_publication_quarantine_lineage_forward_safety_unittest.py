@@ -12,19 +12,46 @@ TASK = "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE"
 
 
 class PublicationQuarantineLineageForwardSafetyTests(unittest.TestCase):
-    def test_real_native_bridge_fork_has_one_current_head_per_anchor(self):
-        anchors = publication_isolation.quarantine_rows(ROOT)[TASK][
-            "lineage_anchor_publication_ids"
-        ]
-        evidence = safety.prove(TASK, anchors, ROOT)
-        self.assertEqual(TASK, evidence["task_id"])
-        self.assertEqual(set(anchors), set(evidence["anchor_to_current_head"]))
-        self.assertEqual(len(anchors), len(evidence["current_active_head_publication_ids"]))
-        self.assertFalse(evidence["operational_publication_selected"])
-        self.assertFalse(evidence["working_truth_granted"])
-        self.assertFalse(evidence["foundation_authority_granted"])
-        self.assertFalse(evidence["canonical_promotion_granted"])
-        self.assertFalse(evidence["successor_triggered"])
+    def test_real_native_bridge_fork_is_quarantined_or_resolved_exactly(self):
+        quarantines = publication_isolation.quarantine_rows(ROOT)
+        if TASK in quarantines:
+            anchors = quarantines[TASK]["lineage_anchor_publication_ids"]
+            evidence = safety.prove(TASK, anchors, ROOT)
+            self.assertEqual(TASK, evidence["task_id"])
+            self.assertEqual(set(anchors), set(evidence["anchor_to_current_head"]))
+            self.assertEqual(len(anchors), len(evidence["current_active_head_publication_ids"]))
+            self.assertFalse(evidence["operational_publication_selected"])
+            self.assertFalse(evidence["working_truth_granted"])
+            self.assertFalse(evidence["foundation_authority_granted"])
+            self.assertFalse(evidence["canonical_promotion_granted"])
+            self.assertFalse(evidence["successor_triggered"])
+            return
+
+        registry = json.loads(
+            (ROOT / "research_task_publication_resolutions.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        rows = [row for row in registry.get("resolutions", []) if row.get("task_id") == TASK]
+        self.assertEqual(1, len(rows))
+        row = rows[0]
+        expected_heads = {
+            "TP2-3F6A92D8C1E740B5A2C9",
+            "TP2-4A84B81FD5CAB8CD0359",
+            "TP2-FBDBDBE1C5BDF65F97A0",
+        }
+        self.assertEqual(
+            "TP2-FBDBDBE1C5BDF65F97A0",
+            row["operational_publication_id"],
+        )
+        self.assertEqual(expected_heads, set(row["retained_parallel_publication_ids"]))
+        self.assertEqual(
+            expected_heads - {row["operational_publication_id"]},
+            set(row["quarantined_publication_ids"]),
+        )
+        self.assertFalse(row["working_truth_granted"])
+        self.assertFalse(row["canonical_promotion_granted"])
+        self.assertFalse(row["successor_triggered"])
 
     def test_new_sibling_below_anchor_fails_closed(self):
         with tempfile.TemporaryDirectory() as td:
