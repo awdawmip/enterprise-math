@@ -1,0 +1,103 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_EXECUTION_RECORD_V1",
+  "record_state": "TERMINAL_EXECUTION",
+  "execution_record_id": "ER-E0723D1B7DC2C3F7EAA8",
+  "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+  "publication_id": "TP2-FBDBDBE1C5BDF65F97A0",
+  "taskbook_path": "research_tasks/P000_S4_EQUIVARIANT_PF10_CONNECTION_MODULI_V21_ZERO_MATH_DELTA_REFREEZE_20260901.md",
+  "taskbook_blob_sha1": "sha1:1cb39dfa8ca77922edb082ce0c052930f8e5d4e1",
+  "claim_id": "chatgpt-p000fcc21r-20260901-1113-8d4a2c",
+  "researcher_id": "EM-P000FCC21R-8D4A2C",
+  "theorem_owner": "research/p000-l1-native-carrier-contact-bridge",
+  "execution_branch": "research/p000-l1-gen19-moduli-em-p000fcc21r-8d4a2c",
+  "execution_branch_base": "c1f46c59608ea859ff1663b1db8103ffe52952ee",
+  "allowed_outputs": [
+    "research_returns/P000_S4_EQUIVARIANT_PF10_CONNECTION_MODULI_V21_RETURN_20260901.md",
+    "research_checks/P000_S4_EQUIVARIANT_PF10_CONNECTION_MODULI_V21_CHECK_20260901.py",
+    "research_artifacts/P000_S4_EQUIVARIANT_PF10_CONNECTION_MODULI_V21/",
+    "research_execution_records/RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE/",
+    "research_result_records/RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE/"
+  ],
+  "owner_lease_minutes": 240,
+  "prepared_at": "2026-09-01T03:13:00+00:00",
+  "terminal_at": "2026-09-01T03:27:36+00:00",
+  "terminal_class": "NONTRIVIAL_PF10_AND_NONFLAT_CONNECTION_MODULI_COMMON_MODEL_CLASSIFIED",
+  "hard_target_disposition": "P000_S4_EQUIVARIANT_PF10_CONNECTION_MODULI_AND_COMMON_NONDEGENERATE_MODEL_EXACTLY_CLASSIFIED",
+  "checker_status": "PASS_PRE_PERSISTENCE_SEMANTIC_EQUIVALENT_SELFTEST_PERSISTED_BLOB_ID_FROZEN",
+  "checker_summary": {
+    "checker_path": "research_checks/P000_S4_EQUIVARIANT_PF10_CONNECTION_MODULI_V21_CHECK_20260901.py",
+    "checker_git_blob_sha1": "sha1:6492115a53c0b803642311b3e27a0ff812261b33",
+    "pre_persistence_selftest_source_sha256": "sha256:7e0437cea46bd91972806edacdabd4491d8cd07b12343b4b7dd032252713befb",
+    "persisted_source_execution_claimed": false,
+    "carrier_s4_order": 24,
+    "full_s4_vector_orbits": 1,
+    "full_s4_ordered_pair_orbits": 3,
+    "base_cell_vector_orbits": 2,
+    "base_cell_ordered_pair_orbits": 8,
+    "pf10_binary_framed_families": 4096,
+    "pf10_binary_gauge_classes": 2080,
+    "connection_value_universe_order": 720,
+    "connection_edge_centralizer_candidates": 16,
+    "connection_raw_solutions": 12,
+    "connection_gauge_classes": 10,
+    "connection_flat_raw": 2,
+    "connection_nonflat_raw": 10,
+    "connection_flat_gauge_classes": 2,
+    "connection_nonflat_gauge_classes": 8,
+    "gen18_opposite_edge_witness_recovered": true,
+    "common_nonconstant_pf10_nonflat_connection_model": true
+  },
+  "output_blobs": {
+    "return": "sha1:bb857ede2a1dab8c9c37a47d8aad08132546d2a8",
+    "checker": "sha1:6492115a53c0b803642311b3e27a0ff812261b33",
+    "certificate": "sha1:9c1bb28a1701b22147ae6c854452379c25fb8534"
+  },
+  "pf10_resolution": {
+    "framed_moduli": "IVal^2 x OVal^2 x MVal^8",
+    "common_q_gauge_count": "(q^12+q^6)/2",
+    "binary_gauge_count": 2080,
+    "nonconstant_equivariant_family_exists": true
+  },
+  "connection_resolution": {
+    "typed_universe": "S6",
+    "representative_edge_equations": ["ct=tc", "s t s^-1=t^-1"],
+    "raw_solution_count": 12,
+    "residual_frame_gauge_order": 2,
+    "gauge_class_count": 10,
+    "nonflat_gauge_class_count": 8,
+    "holonomy_conjugacy_complete_classifier": false
+  },
+  "hidden_kernel_resolution": {
+    "model_specific_kernel_action_on_declared_channel_sorts": "TRIVIAL_BY_FROZEN_GEN17_PI_FORMULA",
+    "full_lift_fiber_criterion_preserved": true,
+    "kernel_quotient_used": false,
+    "gen18_general_hidden_kernel_countermodel_preserved": true
+  },
+  "common_model_resolution": {
+    "nonconstant_pf10": true,
+    "nonidentity_connection": true,
+    "nonflat_connection": true,
+    "R_a_cubed": true,
+    "R_b_squared": true,
+    "R_ab_fourth": true
+  },
+  "proof_obligations_closed": [
+    "BASE_CELL_S3_VECTOR_AND_ORDERED_PAIR_ORBIT_PARTITION",
+    "PF10_GLOBAL_EQUIVARIANT_RECONSTRUCTION_AND_COMPLETENESS",
+    "PF10_RESIDUAL_FRAME_GAUGE_QUOTIENT",
+    "NONCONSTANT_PF10_WITNESS",
+    "S6_REPRESENTATIVE_EDGE_CONNECTION_CLASSIFICATION",
+    "CONNECTION_RESIDUAL_FRAME_GAUGE_QUOTIENT",
+    "K4_BASIS_HOLONOMY_CLASSIFICATION",
+    "GEN18_OPPOSITE_EDGE_NONFLAT_REGRESSION",
+    "MODEL_SPECIFIC_FULL_LIFT_FIBER_HIDDEN_KERNEL_AUDIT",
+    "COMMON_ENRICHED_MODEL_INTEGRATION",
+    "ENRICHED_A3_B2_AB4_RELATIONS"
+  ],
+  "tool_reuse_resolution": "REUSE_APPLIED:T7_FINITE_SYMMETRY_EQUIVARIANCE;REUSE_APPLIED:T9_HOLONOMY_COCOYCLE_GLUING;TASK_LOCAL_FINITE_S4_S6_ENUMERATION_NO_NEW_GENERAL_TOOL",
+  "new_general_tool_claim": false,
+  "unresolved_residue": "No mathematical residue remains inside the declared finite S6 typed-transport universe on the frozen K4/tetra model. Other future typed connection universes are outside this task's declared finite scope. Driver review remains required before Working Truth/Foundation/canonical use.",
+  "canonical_promotion_granted": false,
+  "working_truth_granted": false,
+  "driver_review_required": true
+}
