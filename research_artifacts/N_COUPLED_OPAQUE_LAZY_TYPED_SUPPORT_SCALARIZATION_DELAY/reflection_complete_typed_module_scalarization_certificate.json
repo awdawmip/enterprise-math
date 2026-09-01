@@ -1,0 +1,53 @@
+{
+  "schema": "N_COUPLED_REFLECTION_COMPLETE_TYPED_MODULE_SCALARIZATION_CERTIFICATE_V1",
+  "task_id": "RS-N-COUPLED-OPAQUE-LAZY-TYPED-SUPPORT-SCALARIZATION-DELAY",
+  "publication_id": "TP2-6C1A4E92B7D3058F2A41",
+  "claim_id": "chatgpt-ncasot1-20260901-1016-91736f",
+  "researcher_id": "EM-NCASOT1-91736F",
+  "grammar": "G_reflect-FM",
+  "terminal_classification": "NEGATIVE_BOUNDARY",
+  "hard_target_disposition": "OPAQUE_TYPED_SUPPORT_ASYMMETRY_WITH_DELAYED_SCALARIZATION_EXACTLY_OBSTRUCTED_FOR_G_REFLECT_FM_BY_CARDINALITY_SUPPORT_SCALAR_AND_EFFECTIVE_PRESENTATION_RECOVERY",
+  "symbolic_theorems": [
+    "For N=pq and every finite Z/NZ-module M, |M|=p^a q^b where a=dim_Fp(M tensor Fp), b=dim_Fq(M tensor Fq).",
+    "gcd(N,|M|)=p^[a>0] q^[b>0], so one-sided support is equivalent to a proper cardinality gcd.",
+    "A finite complete iterator+equality, finite ambient membership oracle, or finite ambient quotient-equivalence oracle computes |M| before readout.",
+    "Complete finite reflection reconstructs a finite presentation by using all extensional elements as generators and exhaustively enumerating kernel relations.",
+    "A total linear evaluator R_N^a -> R_N^b is reconstructed by standard-basis probing."
+  ],
+  "checker_result": {
+    "status": "PASS",
+    "matrix_cases": 2500,
+    "support_checks": 2504,
+    "one_sided": 1094,
+    "eval_reconstruction": 2500,
+    "equality_class_counts": 1,
+    "relation_enumeration": 1,
+    "witness_relations": 1125
+  },
+  "witness": {
+    "N": 15,
+    "A": [
+      [1, 1],
+      [1, 4]
+    ],
+    "all_coordinate_gcds_clean": true,
+    "rank_mod_3": 1,
+    "rank_mod_5": 2,
+    "coker_dim_mod_3": 1,
+    "coker_dim_mod_5": 0,
+    "quotient_cardinality": 3,
+    "support_scalar_gcd": 3
+  },
+  "smallest_surviving_capability": "NONREFLECTIVE_EFFECTFUL_TYPED_SUPPORT_WITH_NONTRIVIAL_PRE_READOUT_COMPOSITION",
+  "firewalls": [
+    "NO_HIDDEN_PQ",
+    "NO_FACTOR_AWARE_SELECTOR",
+    "NO_CANDIDATE_PRIME_SCHEDULE",
+    "NO_SUPPLIED_CRT_IDEMPOTENT",
+    "NO_GROUP_ORDER_SMOOTHNESS",
+    "NO_COLLISION_CYCLE",
+    "NO_CONGRUENCE_OF_SQUARES_RELATION",
+    "NO_NAMED_PRIME_PADIC_ROUTE",
+    "NO_DIRECT_NONUNIT_ENDPOINT"
+  ]
+}
