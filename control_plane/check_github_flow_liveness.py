@@ -75,7 +75,7 @@ def check() -> None:
         "GitHub interaction budget lost the nonblocking-CI invariant",
     )
     require(
-        "do not toggle ready merely to trigger CI" in budget.lower(),
+        "do not toggle ready merely to trigger ci" in budget.lower(),
         "GitHub interaction budget must forbid Ready-state toggles used only to obtain validation",
     )
 
