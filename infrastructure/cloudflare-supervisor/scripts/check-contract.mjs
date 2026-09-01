@@ -4,6 +4,7 @@ const readText = (path) => fs.readFileSync(new URL(path, import.meta.url), "utf8
 
 const wrangler = readText("../wrangler.jsonc");
 const index = readText("../src/index.ts");
+const abandonTool = index.slice(index.indexOf('"turn_abandon"'), index.indexOf('"recovery_status"'));
 const owner = readText("../src/owner-scope.ts");
 const external = readText("../src/external.ts");
 const externalAuth = readText("../src/external-auth.ts");
@@ -30,14 +31,17 @@ const required = [
   [index, '"turn_acquire"', "turn_acquire MCP tool"],
   [index, '"turn_progress"', "turn_progress MCP tool"],
   [index, '"turn_complete"', "turn_complete MCP tool"],
+  [abandonTool, "turn_id: z.string().min(1),", "required turn_abandon owner identity"],
   [index, '"handoff_verify"', "handoff_verify MCP tool"],
   [index, '"github_enforcement_status"', "read-only GitHub enforcement tool"],
   [owner, "TURN_EXECUTION_LEASE_EXPIRED_WITHOUT_VERIFIED_PROGRESS", "stale-turn invariant"],
   [owner, "REQUIRED_DURABLE_HANDOFF_NOT_VERIFIED", "one-shot handoff gate"],
-  [owner, "Promise.all([stateWrite, alarmWrite])", "atomic owner-state and alarm transition"],
+  [owner, "this.ctx.storage.transaction", "atomic owner-state, audit, and alarm transition"],
+  [owner, '"RECOVERY_FRONTIER_ASSESSED"', "truthful recovery assessment event"],
   [owner, "RECOVERY_WORKFLOW.createBatch", "idempotent out-of-band recovery workflow"],
   [owner, "RECOVERY_WORKFLOW_RETRY_SCHEDULED", "durable recovery retry alarm"],
   [owner, "turn_progress requires a changed action or durable frontier", "no-op lease refresh rejection"],
+  [owner, "!current.turn_id || input.turn_id !== current.turn_id", "exact turn_abandon owner guard"],
   [external, "github_repository_not_allowlisted", "GitHub repo fail-closed gate"],
   [external, "github_ref_not_immutable_commit", "immutable GitHub handoff ref"],
   [external, "github_locator_not_file", "GitHub handoff file-only gate"],

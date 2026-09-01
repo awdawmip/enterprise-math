@@ -186,7 +186,7 @@ function serverFactory(env: Env) {
         "Mark one exact currently-running turn abandoned while preserving its owner CLAIM and durable frontier for recovery.",
       inputSchema: {
         ...scopeFields,
-        turn_id: z.string().min(1).optional(),
+        turn_id: z.string().min(1),
         reason: z.string().min(1),
       },
     },

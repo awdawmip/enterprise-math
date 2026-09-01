@@ -38,8 +38,8 @@ export class RecoveryWorkflow extends WorkflowEntrypoint<Env, { scope_key: strin
 
     await step.do("mark recovery ready", async () => {
       const stub = this.env.OWNER_SCOPES.getByName(scope_key);
-      return stub.markRecoveryVerified({
-        verified_at: new Date().toISOString(),
+      return stub.markRecoveryReady({
+        assessed_at: new Date().toISOString(),
         result: verification,
       });
     });
