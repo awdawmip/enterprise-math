@@ -83,6 +83,26 @@ def check() -> None:
         "GitHub interaction budget must forbid Ready-state toggles used only to obtain validation",
     )
 
+    handoff = read("docs/RESEARCHER_DURABLE_HANDOFF_PROTOCOL.md")
+    require(
+        "DURABLE_HANDOFF != OPEN_PR" in handoff,
+        "durable handoff must not require opening a Pull Request",
+    )
+    require(
+        "do not open a pr solely to obtain a locator" in handoff.lower(),
+        "handoff protocol must forbid PR creation used only as storage or CI trigger",
+    )
+
+    taskbook = read("docs/RESEARCH_TASKBOOK_AUTHORING_AND_REVIEW.md")
+    for marker in (
+        "CANONICAL TASKBOOK AUTHORING PROCESS / V5",
+        "research_task_publication_contract_v2.json",
+        "tools/research_task_records.py",
+        "The V1 shared-registry path is read-only after cutover",
+        "TASK_PUBLICATION != PR_CREATION",
+    ):
+        require(marker in taskbook, f"taskbook authoring policy is not aligned with V2/no-PR publication: {marker}")
+
     liveness = read("active_turn_liveness.json")
     require(
         "MERGEABLE_OR_CI_OR_REVIEW_PENDING_NONBLOCKING" in liveness,

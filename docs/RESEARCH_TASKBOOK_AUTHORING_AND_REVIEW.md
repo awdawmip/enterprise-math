@@ -1,53 +1,63 @@
 # Enterprise Math Research Taskbook Authoring and Review
 
-Status: `ACTIVE / CANONICAL TASKBOOK AUTHORING PROCESS / V4`
-Effective: `2026-08-25`
-Contract: `research_taskbook_contract.json`
-Publication contract: `research_task_publication_contract.json`
-Registry: `research_task_registry.json`
-Mandatory template: `templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json`
-Publication tool: `tools/research_task_registry.py`
-Architecture: `research_architecture.json`
-Candidate lifecycle: `research_axiom_candidate_state_machine.json`
+Status: `ACTIVE / CANONICAL TASKBOOK AUTHORING PROCESS / V5`
+Effective: `2026-09-01`
+Classification: `NO_NEW_MATHEMATICS`
 
-## Purpose
+Canonical machine sources:
 
-A taskbook is the **task-specific research contract**. It is not the object that makes a task officially exist.
+- `research_task_publication_contract_v2.json`;
+- `research_task_records/<task-id>/<publication-id>.json`;
+- `templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json`;
+- `tools/research_task_records.py`;
+- `docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md`.
+
+Legacy compatibility only:
+
+- `research_task_publication_contract.json`;
+- `research_task_registry.json`;
+- `tools/research_task_registry.py`.
+
+The V1 shared-registry path is read-only after cutover. It may be inspected for historical compatibility but must not publish, replace or select new official work.
+
+## 1. Purpose
+
+A taskbook is the task-specific research contract. It is not itself task authority.
 
 Freeze:
 
 `TASKBOOK_FILE != PUBLISHED_TASK`.
 
-A task becomes official only after the unified publication gate writes its canonical registry record and the registry audit passes.
+`OFFICIAL_POST_CUTOVER_TASK -> IMMUTABLE_V2_PUBLICATION_RECORD`.
 
-A good taskbook contains mother question, frozen inputs/scope, hard target/deliverables, research value, PASS/KILL/return criteria, **origin** and **lineage**. It does not bind a runtime conversation identity or promote truth.
+`UNREGISTERED_NEW_TASK -> NO READY / NO CLAIM / NO EXECUTION`.
 
-## 1. One mandatory publication template
+A good taskbook fixes the mother question, exact inputs/scope, hard target, required outputs, research value, PASS/KILL/return criteria, origin and lineage. It does not bind one runtime conversation identity and does not promote truth.
 
-All new official tasks—researcher, free researcher after audit, Driver, or Foundation Steward—start from:
+## 2. One mandatory template
+
+All new official tasks—Researcher, audited Free Researcher, Driver or Foundation Steward—start from:
 
 `templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json`.
 
-Recommended generator:
+Create a V2 draft with:
 
-```bash
-python tools/research_task_registry.py new \
+```text
+python tools/research_task_records.py new \
   --task-id RS-... \
   --title "..." \
-  --publisher-role RESEARCHER \
+  --publisher-role <RESEARCHER|RESEARCH_DRIVER|FOUNDATION_STEWARD> \
   --parent-objective-id OBJ-... \
-  --origin-kind DIRECT_USER_DIRECTION \
-  --lineage NEW_DIRECTION \
-  --output research_tasks/....md
+  --origin-kind <ORIGIN> \
+  --lineage <LINEAGE> \
+  --output research_tasks/<TASK>.md
 ```
 
-Use `RESEARCH_DRIVER` or `FOUNDATION_STEWARD` in `--publisher-role` when appropriate. There is no separate Driver-only official task template.
+Do not paste generic GitHub, CI, scheduler, liveness, identity or promotion policy into each taskbook. Inherit current repository policy and keep the taskbook task-local.
 
-The legacy `tools/research_taskbook.py` remains available as a parser/linter for historical taskbooks, but its old `new/review --approve` path is **not** the canonical publication gate.
+## 3. Origin and lineage
 
-## 2. Declare task origin
-
-Every new taskbook declares one of:
+Allowed origins include:
 
 - `DIRECT_USER_DIRECTION`;
 - `DRIVER_ROADMAP`;
@@ -56,27 +66,7 @@ Every new taskbook declares one of:
 - `REPLAY_OR_INTEGRATION`;
 - `MAINTENANCE`.
 
-### Free-candidate origin
-
-If `origin_kind=FREE_AXIOM_CANDIDATE`, include `origin_candidate_id` and `origin_candidate_state`.
-
-Raw Phase-A candidates cannot publish tasks. After Phase-B audit, the allowed task-publication states are:
-
-- `AUDITED_AXIOM_CANDIDATE`;
-- `AUDITED_REPLACEMENT_CANDIDATE`;
-- `EXACT_NEGATIVE_OBSTRUCTION`.
-
-A researcher may publish directly from those audited states **without Driver intake merely to make the task exist**. Driver/Steward intake remains separate for portfolio rank, Working Truth, replication/Foundation and promotion decisions.
-
-A raw candidate may not be relabeled `DRIVER_ROADMAP` to bypass provenance.
-
-### Foundation-question origin
-
-If `origin_kind=FOUNDATION_QUESTION`, include `origin_foundation_question_id`.
-
-## 3. Choose task lineage
-
-Every newly authored taskbook declares:
+Allowed lineage classes are:
 
 - `NEW_DIRECTION`;
 - `CONTINUATION`;
@@ -84,65 +74,65 @@ Every newly authored taskbook declares:
 - `INTEGRATION`;
 - `MAINTENANCE`.
 
-`CONTINUATION` requires `parent_task_id` and a complete successor gate:
+A free-discovery task preserves its exact audited candidate identity/state. Raw Phase-A candidates are not task-publication eligible.
 
-- `new_information_gap`;
-- `why_parent_result_does_not_close_it`;
-- `discriminating_outcomes`;
-- `kill_condition`;
-- `alternative_route_or_free_exploration_considered`;
-- `why_new_stage_or_task_is_better_than_same_task_or_closure`.
+`CONTINUATION` requires the exact parent task and a complete successor gate: new information gap, why the parent does not close it, discriminating outcomes, kill condition, alternative route/free exploration considered, and why a new task is better than same-task continuation or closure.
 
 Freeze:
 
 `PASS_IS_NOT_A_SUCCESSOR_TRIGGER`.
 
-Stage 2+ is continuation semantics. Renaming does not reset lineage.
+`RENAMING_DOES_NOT_RESET_LINEAGE`.
 
-## 4. Write the five mandatory content sections
+## 4. Five mandatory content sections
 
-Every new publication contains at least:
+Every taskbook contains nonempty task-local sections for:
 
 1. Mother question;
 2. Frozen inputs and scope;
 3. Hard target and required outputs;
 4. Research value to preserve;
-5. Success, kill, and return criteria.
+5. Success, kill and return criteria.
 
-The `research_value` section must explain why this unresolved work is worth preserving even if the portfolio does not execute it immediately.
+The task also carries a nonempty `parent_objective_id`, exact frontier and first executable `next_action`.
 
-Do not paste generic GitHub, scheduler, identity, promotion, liveness or registry policy prose into the task body; inherit current repository policy.
+## 5. Prepare and publish through V2
 
-## 5. Optional structural lint
+Preparation validates and normalizes the taskbook but creates no authority:
 
-Before publication, legacy taskbook tooling can still lint origin/lineage/conflicts:
-
-```bash
-python tools/research_taskbook.py audit research_tasks/<task>.md
+```text
+python tools/research_task_records.py prepare \
+  --taskbook research_tasks/<TASK>.md \
+  --publisher-role <ROLE> \
+  --parent-objective-id <PARENT_OBJECTIVE>
 ```
 
-This is a lint, not publication and not Driver approval.
+Publish exactly one immutable generation:
 
-## 6. Publish
-
-After task-local content is complete:
-
-```bash
-python tools/research_task_registry.py publish \
-  --taskbook research_tasks/<task>.md \
-  --publisher-role RESEARCHER \
-  --publisher-id EM-... \
-  --parent-objective-id OBJ-... \
-  --research-value "<why this task must not be lost>"
+```text
+python tools/research_task_records.py publish \
+  --taskbook research_tasks/<TASK>.md \
+  --publisher-role <ROLE> \
+  --publisher-id <Researcher-ID|Driver-ID|Steward-ID> \
+  --research-value "<WHY THIS TASK MUST NOT BE LOST>"
 ```
 
-Publication transaction:
+A correction creates a new immutable generation and names the exact predecessor with:
 
-`NORMALIZE_TEMPLATE -> POLICY/ORIGIN/LINEAGE GATE -> REGISTRY RECORD -> TASKBOOK BLOB PIN -> ORPHAN AUDIT -> CLAIMABLE`.
+```text
+--supersedes-publication-id <PRIOR_PUBLICATION_ID>
+```
 
-A researcher does not need Driver approval for this publication transaction.
+No overwrite/replace operation exists.
 
-Researcher-published tasks receive effective rank `P2 / MEDIUM` by default while preserving the publisher's requested priority/leverage. Driver can later reprioritize the portfolio. An explicit user priority instruction controls over the default.
+After publication, run the canonical audits:
+
+```text
+python tools/research_task_records.py audit
+python tools/check_task_registry_cutover.py
+```
+
+Researcher publication defaults to effective `P2 / MEDIUM` unless an explicit higher authority says otherwise. Requested priority remains provenance until Driver reprioritization.
 
 Freeze:
 
@@ -152,80 +142,36 @@ Freeze:
 
 `TASK_PUBLICATION != CANONICAL_PROMOTION`.
 
-## 7. Central registry and orphan prevention
+## 6. Remote-manual fallback
 
-Publication is complete only after:
+When local execution is unavailable but direct GitHub mutation is possible, follow the exact equivalent-preflight and CAS requirements in `docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md`.
 
-```bash
-python tools/research_task_registry.py audit
-```
+Remote/manual transport is not a second semantic publication path. If equivalent V2 preflight cannot be reproduced, stop at a non-executable draft or handoff; do not fabricate task authority.
 
-passes.
+## 7. Publication and handoff are not PR gates
 
-`research_task_registry.json` is the canonical task-existence surface.
+A taskbook/result becomes durable through a reachable branch or tag, immutable commit SHA and exact repository paths. V2 publication and Researcher handoff do not require opening a Pull Request, changing Draft/Ready state, waiting for CI or waiting for merge unless the exact task or an active Driver/integration decision explicitly requires that operation.
 
-For new/post-cutover work:
+Freeze:
 
-`NO REGISTRY RECORD -> NO READY / NO CLAIM / NO EXECUTION`.
+`DURABLE_HANDOFF != OPEN_PR`.
 
-A handoff, scheduler row, chat message or taskbook file cannot substitute for the registry record.
+`TASK_PUBLICATION != PR_CREATION`.
 
-Every registered task includes:
+`CI_PENDING_NONBLOCKING -> CONTINUE_PARENT_TASK`.
 
-- publisher role and identity;
-- parent objective;
-- taskbook path and pinned blob;
-- origin/lineage;
-- claimability/rank;
-- research value;
-- exact no-Working-Truth/no-promotion flags.
+The default Researcher checkpoint is one batched branch/commit handoff. A PR is an optional review/integration surface, not the durable storage primitive.
 
-## 8. Valuable side-residue capture
+## 8. Valuable side residue
 
-A TASK researcher may publish a new valuable residue discovered during current work.
+A task researcher may publish valuable unresolved residue through the same V2 gate. Publication is capture, not task switching. After the subflow succeeds, resume the current parent objective in the same turn unless its real terminal rule has been met.
 
-This is **capture**, not automatic task switching.
+## 9. Identity and runtime separation
 
-Publish the residue with exact parent objective/lineage/research value, then resume the current parent objective in the same turn unless its own completion rule says otherwise.
+Publisher identity belongs to the immutable publication record. Execution Researcher-ID and winning CLAIM belong to runtime owner/session state. Reusable taskbooks remain execution-ID-free.
 
-## 9. Temporary overrides
+## 10. Legacy boundary
 
-Task-local overrides remain narrow and explicit under `policy_review.temporary_overrides` with `conflict_id`, `scope`, `reason`, `replacement_behavior`, and `expires_when`.
+Already-owned compatible legacy executions may finish under their frozen authority. Fresh redispatch, modification or current-policy review of a legacy task requires explicit V2 migration.
 
-An override cannot bypass the registry, free-candidate maturity, continuation gate, theorem truth, safety, owner isolation, terminal scope, stale-adoption integrity or promotion gates.
-
-## 10. Dispatch identity lives outside the taskbook
-
-Only after registered publication may a Driver-mediated relay allocate an execution Researcher-ID:
-
-```bash
-python tools/research_identity.py allocate \
-  --task RS-... \
-  --role RESEARCHER \
-  --lane R... \
-  --dispatch-id <unique-dispatch-id>
-```
-
-Publisher identity belongs to the registry record. Execution Researcher-ID belongs to owner/session runtime state. The reusable taskbook remains execution-ID-free.
-
-## 11. Legacy cutover
-
-Pre-cutover taskbooks/scheduler work remain `LEGACY_BASELINE_REGISTERED` for existing executions only; no bulk rewrite is required.
-
-But:
-
-`LEGACY TASK + FRESH REDISPATCH / MODIFICATION / CURRENT-POLICY REVIEW -> EXPLICIT REGISTRY MIGRATION`.
-
-A policy update does not erase an already-running frozen execution, but all subsequent new publication/redispatch actions use the current registry contract.
-
-## Design separation
-
-- repository policy = how research operates;
-- candidate packet = what was independently discovered;
-- taskbook = exact research contract;
-- task registry = whether the task officially exists and why it must be preserved;
-- owner/session runtime = who executes it now and whether that conversation is alive;
-- Driver portfolio = reprioritization/closure/Working Truth/promotion decisions;
-- source `main` = gated canonical truth.
-
-Keeping these layers separate prevents orphan tasks, provenance laundering, stale identity, duplicated rules and automatic stage cascades.
+Historical V1 files remain provenance and compatibility evidence only; they are not current publication authority.
