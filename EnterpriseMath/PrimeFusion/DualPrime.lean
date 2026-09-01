@@ -39,7 +39,7 @@ theorem dualPrime_iff_squarefreeSemiprime_mul {n c : ℕ}
         calc
           p * (n * k) = n * c := by
             rw [hk]
-            simp [Nat.mul_assoc, Nat.mul_comm, Nat.mul_left_comm]
+            simp [Nat.mul_left_comm]
           _ = p * q := hprod
       have hnkq : n * k = q := Nat.mul_left_cancel hp.pos heq
       have hnq : n ∣ q := ⟨k, hnkq.symm⟩
@@ -59,20 +59,6 @@ def FixedChannelPrimeFieldPair (a b : ℤ) : Prop :=
     (Cmodulus a b).Prime ∧
       Nmodulus a b ≠ Cmodulus a b
 
-/-- The fixed Gaussian carrier acquires the canonical `ZMod p` field structure
-when its labelled modulus is prime. -/
-noncomputable def gaussianChannelField (a b : ℤ) (hN : (Nmodulus a b).Prime) :
-    Field (ZMod (Nmodulus a b)) := by
-  letI : Fact (Nat.Prime (Nmodulus a b)) := ⟨hN⟩
-  infer_instance
-
-/-- The fixed Eisenstein carrier acquires the canonical `ZMod q` field structure
-when its labelled modulus is prime. -/
-noncomputable def eisensteinChannelField (a b : ℤ) (hC : (Cmodulus a b).Prime) :
-    Field (ZMod (Cmodulus a b)) := by
-  letI : Fact (Nat.Prime (Cmodulus a b)) := ⟨hC⟩
-  infer_instance
-
 /-- F2-L04: a labelled dual-prime cell really has two finite field carriers,
 with the fixed Gaussian/Eisenstein orders `N` and `C`; no unordered product
 isomorphism is used to manufacture or swap these labels. -/
@@ -82,9 +68,25 @@ theorem fixed_channel_prime_fields_and_orders {a b : ℤ}
       Nonempty (Field (ZMod (Cmodulus a b))) ∧
         Nat.card (ZMod (Nmodulus a b)) = Nmodulus a b ∧
           Nat.card (ZMod (Cmodulus a b)) = Cmodulus a b := by
-  refine ⟨⟨gaussianChannelField a b h.1⟩, ⟨eisensteinChannelField a b h.2.1⟩, ?_, ?_⟩
+  letI : Fact (Nat.Prime (Nmodulus a b)) := ⟨h.1⟩
+  letI : Fact (Nat.Prime (Cmodulus a b)) := ⟨h.2.1⟩
+  refine ⟨⟨inferInstance⟩, ⟨inferInstance⟩, ?_, ?_⟩
   · exact gaussianCarrier_card a b
   · exact eisensteinCarrier_card a b
+
+/-- F2-L04 quotient/product form with fixed channel attachment. For a primitive
+cell the already-fixed CRT projections give the exact ring product, while dual
+primality upgrades each labelled factor to a finite field. -/
+theorem fixed_channel_prime_field_product {a b : ℤ}
+    (hab : IsCoprime a b)
+    (h : FixedChannelPrimeFieldPair a b) :
+    Nonempty (Field (ZMod (Nmodulus a b))) ∧
+      Nonempty (Field (ZMod (Cmodulus a b))) ∧
+        Nonempty
+          (ZMod (Hmodulus a b) ≃+*
+            ZMod (Nmodulus a b) × ZMod (Cmodulus a b)) := by
+  have hfields := fixed_channel_prime_fields_and_orders h
+  exact ⟨hfields.1, hfields.2.1, ⟨pointedCRT a b hab⟩⟩
 
 /-- F2-L03/L04 cell specialization: on the fixed channel projections, dual
 primality is equivalent to square-free-semiprime total modulus. The hypotheses
