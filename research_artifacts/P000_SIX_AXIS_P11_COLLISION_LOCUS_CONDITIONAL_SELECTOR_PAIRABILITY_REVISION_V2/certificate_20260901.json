@@ -1,0 +1,89 @@
+{
+  "schema": "P000_P11_PAIRABILITY_FILTERED_COLLISION_CERTIFICATE_V2",
+  "task_id": "RS-P000-SIX-AXIS-P11-COLLISION-LOCUS-CONDITIONAL-SELECTOR",
+  "publication_id": "TP2-E899F20BC1B62973D07C",
+  "researcher_id": "EM-P000P11C2-6F42A1",
+  "claim_id": "chatgpt-p000p11c2-20260901-1043-6f42a1",
+  "terminal_disposition": "EXACT_PAIRABILITY_FILTERED_COLLISION_LOCUS_WITH_ONE_BIT_ONLY_ON_ADMISSIBLE_DOUBLETONS",
+  "source_pins": {
+    "taskbook_git_blob_sha1": "sha1:15f8b2a063f900bcd0ff317d0c216e5d0d97bf7f",
+    "parent_result_record_git_blob_sha1": "sha1:ba8a42cd9d344462dc291aede6837ffc8ef4fc30",
+    "gen1_result_record_git_blob_sha1": "sha1:170c2ff8788beebce9e98e4c90dd9112517b4259",
+    "driver_review_git_blob_sha1": "sha1:dae705448bf6722aaca8efffc47e1e112736da8c",
+    "gen1_return_git_blob_sha1": "sha1:295d5c3b3a59c86912d4eeafeacb5c059c1466c5",
+    "gen1_checker_git_blob_sha1": "sha1:3cbf827e55fd08badc5877aa8fee194f25f3d930",
+    "gen1_certificate_git_blob_sha1": "sha1:055b37d9af94b50aef9daac7d1fb7a47322e739e"
+  },
+  "collision_classes": {
+    "C1": {
+      "equation": "A*C=B*D",
+      "assignments": ["132", "213"],
+      "two_admissible_criterion": [
+        "PAIRABLE(h0,t0)", "PAIRABLE(h1,t2)", "PAIRABLE(h2,t1)",
+        "PAIRABLE(h0,t1)", "PAIRABLE(h1,t0)", "PAIRABLE(h2,t2)"
+      ],
+      "root_order_relation": "P21/P12 SAME on admissible doubletons"
+    },
+    "C2": {
+      "equation": "A*D=B*C",
+      "assignments": ["231", "312"],
+      "two_admissible_criterion": [
+        "PAIRABLE(h0,t1)", "PAIRABLE(h1,t2)", "PAIRABLE(h2,t0)",
+        "PAIRABLE(h0,t2)", "PAIRABLE(h1,t0)", "PAIRABLE(h2,t1)"
+      ],
+      "root_order_relation": "P21/P12 OPPOSITE on admissible doubletons"
+    }
+  },
+  "pairability": "h^2-4t=d^2>=0 with d congruent h mod 2",
+  "fibre_classification": ["ZERO_ADMISSIBLE", "ONE_ADMISSIBLE", "TWO_ADMISSIBLE"],
+  "selector_cost": "log2 |F_adm(H,T,P11)|; valid fibres have cardinality 1 or 2",
+  "driver_falsifier": {
+    "H": [-2, 0, 2],
+    "T": [-1, 0, 1],
+    "C1": {"P11": 2, "assignments": {"132": false, "213": true}, "selector_bits": 0},
+    "C2": {"P11": -2, "assignments": {"231": false, "312": true}, "selector_bits": 0},
+    "P21_candidate_roots": [-4, 4],
+    "P12_candidate_roots": [-2, 2]
+  },
+  "simultaneous_collision_mixed_cardinality_witness": {
+    "H": [1, 4, 7],
+    "T": [-60, -30, 0],
+    "gaps": {"A": 3, "B": 3, "C": 30, "D": 30},
+    "C1": {"P11": -270, "admissibility": {"132": false, "213": true}, "selector_bits": 0,
+           "P21_assignment_values": [-1530, -990], "P12_assignment_values": [9900, 15300]},
+    "C2": {"P11": -450, "admissibility": {"231": true, "312": true}, "selector_bits": 1,
+           "P21_assignment_values": [-2970, -2430], "P12_assignment_values": [26100, 20700]}
+  },
+  "retained_B6_witnesses": {
+    "minimality_status": "RETAINED_FROM_GEN1_DRIVER_REVIEWED_EXACT_CENSUS",
+    "C1": {"H": [-1, 1, 4], "T": [-30, -12, 0], "P11": -18, "P21": [-222, -42], "P12": [-324, 756]},
+    "C2": {"H": [-4, -1, 1], "T": [-30, -12, 0], "P11": 18, "P21": [-222, -42], "P12": [324, -756]},
+    "scaling_rule": "local roots *m => H*m, T*m^2; m>=1"
+  },
+  "deterministic_control": {
+    "control_values": [-30, -12, -4, -2, -1, 0, 1, 2, 4, 7],
+    "sorted_multiset_triples": 220,
+    "direct_cases": 48400,
+    "valid_fibres": 2923,
+    "direct_doubletons": 2,
+    "max_admissible_fibre": 2,
+    "repeated_valid_max": 1,
+    "algebraic_counts": {
+      "C1": {"ZERO_ADMISSIBLE": 286, "ONE_ADMISSIBLE": 8, "TWO_ADMISSIBLE": 1},
+      "C2": {"ZERO_ADMISSIBLE": 350, "ONE_ADMISSIBLE": 11, "TWO_ADMISSIBLE": 1}
+    },
+    "resolvent_collision_checks": 657,
+    "witness_checks": 2,
+    "scale_checks": 24,
+    "checker_terminal": "PASS P000_P11_PAIRABILITY_FILTERED_V2"
+  },
+  "firewalls": [
+    "NO_NATIVE_ORIENTATION",
+    "NO_PFAFFIAN_NEGATIVE_SLOT_SELECTION",
+    "NO_DIMENSION_REDUCTION",
+    "NO_FACTORIZATION",
+    "NO_FULL_CELL_DYNAMICS",
+    "NO_MIXED_MOMENT_GRAMMAR_EXPANSION",
+    "NO_WORKING_TRUTH_OR_FOUNDATION_OR_CANONICAL_PROMOTION"
+  ]
+}
