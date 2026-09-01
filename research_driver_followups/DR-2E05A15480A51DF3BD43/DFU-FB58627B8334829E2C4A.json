@@ -1,0 +1,73 @@
+{
+  "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_FOLLOWUP_V1",
+  "policy": "AUTO_PUBLISH_TASKSET_OR_PARENT_CLOSE_V1",
+  "packet_id": "DFU-FB58627B8334829E2C4A",
+  "review_id": "DR-2E05A15480A51DF3BD43",
+  "result_id": "RR-16ADB5F4DE72A332B509",
+  "task_id": "RS-P000-SIX-AXIS-P11-COLLISION-LOCUS-CONDITIONAL-SELECTOR",
+  "source_publication_id": "TP2-E899F20BC1B62973D07C",
+  "driver_id": "EM-DVR-WLE3X6",
+  "review_disposition": "ACCEPTED",
+  "review_destination_class": "FOLLOWUP_TASK",
+  "parent_objective_id": "OBJ-P000-SIX-AXIS-ARITHMETIC-TROPICAL-INTEGRATION",
+  "source_next_control_plane_recommendation": "Driver review the Generation-2 pairability-filtered theorem and exact checker. If accepted, freeze C1/C2 as candidate collision loci, freeze the quadratic eliminants as candidate resolvents, and freeze selector cost at log2 |F_adm(H,T,P11)|: zero on admissible singletons and one bit exactly on admissible doubletons. Do not infer native orientation, Pfaffian slot choice, dimension reduction, factorization, Full-Cell dynamics, or any broader successor from this Result.",
+  "decision": "TASK_SET_PUBLISHED",
+  "gate_decisions": [
+    {
+      "gate": "MATHEMATICAL_CONTINUATION",
+      "decision": "REQUIRED",
+      "reason": "The selector theorem is complete but exposes a new arithmetic object: the global integer solution set of genuine pairability-filtered C1/C2 doubletons. Accepted evidence gives only exact membership tests, minimal B=6 witnesses and scaling families, not primitive normal forms or a completeness classification.",
+      "evidence_refs": [
+        "driver_reviews/P000_SIX_AXIS_P11_PAIRABILITY_REVISION_V2_DRIVER_REVIEW_20260901.md",
+        "research_tasks/P000_SIX_AXIS_P11_GENUINE_DOUBLETON_DIOPHANTINE_NORMAL_FORM_20260901.md"
+      ]
+    },
+    {
+      "gate": "LEAN_FORMALIZATION",
+      "decision": "NOT_REQUIRED",
+      "reason": "The accepted result and immediate successor are derived integer/Diophantine classifications rather than a Foundation-facing theorem interface.",
+      "evidence_refs": []
+    },
+    {
+      "gate": "EXTERNAL_PRIOR_ART_DUPLICATION",
+      "decision": "SATISFIED_BY_REVIEWED_RESULT",
+      "reason": "The reviewed Return treats assignment collision geometry, discriminant-square pairability, Vandermonde/Gram elimination and invariant calculations as classical ingredients and makes no historical novelty claim. The successor separately requires attribution of any conic, Pell-type or curve-theoretic machinery it uses.",
+      "evidence_refs": [
+        "research_returns/P000_SIX_AXIS_P11_COLLISION_LOCUS_CONDITIONAL_SELECTOR_PAIRABILITY_REVISION_V2_RETURN_20260901.md",
+        "driver_reviews/P000_SIX_AXIS_P11_PAIRABILITY_REVISION_V2_DRIVER_REVIEW_20260901.md"
+      ]
+    },
+    {
+      "gate": "INDEPENDENT_REPLICATION",
+      "decision": "NOT_REQUIRED",
+      "reason": "Driver independently reproduced the fixed 48,400-case admissible-fibre census, the mandatory falsifier, the mixed-cardinality witness and the exact maximum-fibre boundary; the next discriminating work is structural parametrization of the accepted locus.",
+      "evidence_refs": []
+    },
+    {
+      "gate": "INTEGRATION_OR_TOOL_HARVEST",
+      "decision": "NOT_REQUIRED",
+      "reason": "The reviewed Result is RESULT_ONLY and the next task is restricted to existing algebraic machinery plus a task-local exact checker rather than a reusable tool family.",
+      "evidence_refs": []
+    },
+    {
+      "gate": "ADVERSARIAL_AUDIT",
+      "decision": "SATISFIED_BY_REVIEWED_RESULT",
+      "reason": "The revision is driven by an explicit Driver falsifier, adds a simultaneous C1+C2 witness with unequal admissible cardinalities, retains genuine doubleton controls, and directly enumerates pairability-filtered fibres; these attack the exact failure modes that invalidated Generation 1.",
+      "evidence_refs": [
+        "research_returns/P000_SIX_AXIS_P11_COLLISION_LOCUS_CONDITIONAL_SELECTOR_PAIRABILITY_REVISION_V2_RETURN_20260901.md",
+        "research_checks/P000_SIX_AXIS_P11_COLLISION_LOCUS_CONDITIONAL_SELECTOR_PAIRABILITY_REVISION_V2_CHECK_20260901.py"
+      ]
+    }
+  ],
+  "task_publications": [
+    {
+      "task_id": "RS-P000-SIX-AXIS-P11-GENUINE-DOUBLETON-DIOPHANTINE-NORMAL-FORM",
+      "publication_id": "TP2-5774A7C199FB50588943",
+      "task_role": "MATHEMATICAL_CONTINUATION"
+    }
+  ],
+  "created_at": "2026-09-01T12:16:00+00:00",
+  "working_truth_granted": false,
+  "foundation_authority_granted": false,
+  "canonical_promotion_granted": false
+}
