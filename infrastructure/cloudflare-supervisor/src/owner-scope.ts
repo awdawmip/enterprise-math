@@ -8,7 +8,7 @@ import type {
   HandoffState,
   OwnerScopeState,
   ProgressInput,
-  RecoveryVerification,
+  RecoveryAssessment,
 } from "./types";
 
 const STATE_KEY = "owner-scope-state";
@@ -48,19 +48,21 @@ export class OwnerScope extends DurableObject<Env> {
     return (await this.ctx.storage.get<OwnerScopeState>(STATE_KEY)) ?? null;
   }
 
-  private async write(state: OwnerScopeState, alarmAt?: number | null) {
-    if (alarmAt === undefined) {
-      await this.ctx.storage.put(STATE_KEY, state);
-      return;
-    }
+  private async commit(
+    state: OwnerScopeState,
+    event: string,
+    payload: unknown,
+    alarmAt?: number | null,
+  ) {
     try {
-      const stateWrite = this.ctx.storage.put(STATE_KEY, state);
-      const alarmWrite = alarmAt === null
-        ? this.ctx.storage.deleteAlarm()
-        : this.ctx.storage.setAlarm(alarmAt);
-      await Promise.all([stateWrite, alarmWrite]);
+      await this.ctx.storage.transaction(async (txn) => {
+        await txn.put(STATE_KEY, state);
+        this.audit(event, payload);
+        if (alarmAt === null) await txn.deleteAlarm();
+        else if (alarmAt !== undefined) await txn.setAlarm(alarmAt);
+      });
     } catch (error) {
-      console.error("OwnerScope state/alarm transaction failed", error);
+      console.error("OwnerScope state/audit/alarm transaction failed", error);
       throw error;
     }
   }
@@ -91,12 +93,16 @@ export class OwnerScope extends DurableObject<Env> {
       await this.startRecoveryWorkflow(state);
     } catch (error) {
       console.error("Recovery Workflow request failed; retry scheduled", error);
-      this.audit("RECOVERY_WORKFLOW_RETRY_SCHEDULED", {
-        turn_id: state.turn_id,
-        generation: state.generation,
-        retry_ms: RECOVERY_RETRY_MS,
-      });
-      await this.ctx.storage.setAlarm(Date.now() + RECOVERY_RETRY_MS);
+      await this.commit(
+        state,
+        "RECOVERY_WORKFLOW_RETRY_SCHEDULED",
+        {
+          turn_id: state.turn_id,
+          generation: state.generation,
+          retry_ms: RECOVERY_RETRY_MS,
+        },
+        Date.now() + RECOVERY_RETRY_MS,
+      );
     }
   }
 
@@ -125,8 +131,12 @@ export class OwnerScope extends DurableObject<Env> {
     if (current?.status === "RUNNING") {
       if (current.turn_id === input.turn_id) {
         const leaseUntil = parseTime(current.lease_until) ?? Date.now();
-        await this.ctx.storage.setAlarm(Math.max(Date.now(), leaseUntil));
-        this.audit("TURN_ACQUIRE_IDEMPOTENT", { turn_id: input.turn_id });
+        await this.commit(
+          current,
+          "TURN_ACQUIRE_IDEMPOTENT",
+          { turn_id: input.turn_id },
+          Math.max(Date.now(), leaseUntil),
+        );
         return current;
       }
       throw new Error(`scope already has running turn ${current.turn_id}`);
@@ -167,8 +177,12 @@ export class OwnerScope extends DurableObject<Env> {
       },
       generation: (current?.generation ?? 0) + 1,
     };
-    await this.write(next, now + leaseMs);
-    this.audit("TURN_ACQUIRED", { turn_id: input.turn_id, lease_ms: leaseMs });
+    await this.commit(
+      next,
+      "TURN_ACQUIRED",
+      { turn_id: input.turn_id, lease_ms: leaseMs },
+      now + leaseMs,
+    );
     return next;
   }
 
@@ -196,12 +210,16 @@ export class OwnerScope extends DurableObject<Env> {
       current_action: input.current_action ?? current.current_action,
       durable_frontier: input.durable_frontier ?? current.durable_frontier,
     };
-    await this.write(next, now + leaseMs);
-    this.audit("TURN_PROGRESS", {
-      turn_id: input.turn_id,
-      durable_frontier: input.durable_frontier,
-      current_action: input.current_action,
-    });
+    await this.commit(
+      next,
+      "TURN_PROGRESS",
+      {
+        turn_id: input.turn_id,
+        durable_frontier: input.durable_frontier,
+        current_action: input.current_action,
+      },
+      now + leaseMs,
+    );
     return next;
   }
 
@@ -242,11 +260,12 @@ export class OwnerScope extends DurableObject<Env> {
       recovery_ready: incomplete,
       recovery_reason: incomplete ? "REQUIRED_DURABLE_HANDOFF_NOT_VERIFIED" : undefined,
     };
-    await this.write(next, null);
-    this.audit(incomplete ? "HANDOFF_INCOMPLETE" : "TURN_COMPLETED", {
-      turn_id: input.turn_id,
-      handoff,
-    });
+    await this.commit(
+      next,
+      incomplete ? "HANDOFF_INCOMPLETE" : "TURN_COMPLETED",
+      { turn_id: input.turn_id, handoff },
+      null,
+    );
     return next;
   }
 
@@ -256,7 +275,7 @@ export class OwnerScope extends DurableObject<Env> {
     if (current.status !== "RUNNING") {
       throw new Error(`turn_abandon forbidden from state ${current.status}`);
     }
-    if (input.turn_id && current.turn_id && input.turn_id !== current.turn_id) {
+    if (!current.turn_id || input.turn_id !== current.turn_id) {
       throw new Error("turn_id does not own scope");
     }
     const next: OwnerScopeState = {
@@ -266,12 +285,11 @@ export class OwnerScope extends DurableObject<Env> {
       recovery_reason: input.reason,
       stale_at: nowIso(),
     };
-    await this.write(next, null);
-    this.audit("TURN_ABANDONED", input);
+    await this.commit(next, "TURN_ABANDONED", input, null);
     return next;
   }
 
-  async markRecoveryVerified(input: RecoveryVerification): Promise<OwnerScopeState> {
+  async markRecoveryReady(input: RecoveryAssessment): Promise<OwnerScopeState> {
     const current = await this.read();
     if (!current) throw new Error("scope not initialized");
     if (current.status === "RECOVERY_READY") return current;
@@ -284,8 +302,7 @@ export class OwnerScope extends DurableObject<Env> {
       recovery_ready: true,
       recovery_verification: input.result,
     };
-    await this.write(next);
-    this.audit("RECOVERY_VERIFIED", input);
+    await this.commit(next, "RECOVERY_FRONTIER_ASSESSED", input);
     return next;
   }
 
@@ -322,8 +339,7 @@ export class OwnerScope extends DurableObject<Env> {
       recovery_ready: false,
       recovery_reason: "TURN_EXECUTION_LEASE_EXPIRED_WITHOUT_VERIFIED_PROGRESS",
     };
-    await this.write(next);
-    this.audit("TURN_STALE", {
+    await this.commit(next, "TURN_STALE", {
       turn_id: current.turn_id,
       last_progress_at: current.last_progress_at,
       lease_until: current.lease_until,

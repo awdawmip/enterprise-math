@@ -16,8 +16,41 @@ permissions:
   contents: read
 
 jobs:
-  unit-shard:
+  classify:
     if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    outputs:
+      supervisor_only: ${{ steps.scope.outputs.supervisor_only }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - id: scope
+        name: Classify pull-request scope
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        shell: bash
+        run: |
+          supervisor_only=false
+          if [[ "$EVENT_NAME" == "pull_request" ]]; then
+            mapfile -d '' changed < <(git diff --name-only -z "$BASE_SHA" "$HEAD_SHA")
+            if (( ${#changed[@]} > 0 )); then
+              supervisor_only=true
+              for path in "${changed[@]}"; do
+                case "$path" in
+                  infrastructure/cloudflare-supervisor/*|.github/workflows/cloudflare-supervisor*.yml|docs/CLOUDFLARE_SUPERVISOR_DEPLOYMENT.md) ;;
+                  *) supervisor_only=false; break ;;
+                esac
+              done
+            fi
+          fi
+          echo "supervisor_only=$supervisor_only" >> "$GITHUB_OUTPUT"
+
+  unit-shard:
+    needs: classify
+    if: needs.classify.outputs.supervisor_only != 'true'
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -36,8 +69,18 @@ jobs:
 
   test:
     if: always() && (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
-    needs: unit-shard
+    needs: [classify, unit-shard]
     runs-on: ubuntu-latest
     steps:
-      - name: Require every unit-test shard
-        run: test "${{ needs.unit-shard.result }}" = "success"
+      - name: Require the applicable quality gate
+        env:
+          CLASSIFY_RESULT: ${{ needs.classify.result }}
+          SUPERVISOR_ONLY: ${{ needs.classify.outputs.supervisor_only }}
+          UNIT_RESULT: ${{ needs.unit-shard.result }}
+        run: |
+          test "$CLASSIFY_RESULT" = "success"
+          if [ "$SUPERVISOR_ONLY" = "true" ]; then
+            test "$UNIT_RESULT" = "skipped"
+          else
+            test "$UNIT_RESULT" = "success"
+          fi

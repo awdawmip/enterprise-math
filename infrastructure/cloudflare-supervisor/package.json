@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "check": "node scripts/check-contract.mjs && wrangler deploy --dry-run --outdir .wrangler-dry-run",
+    "check": "npm test && node scripts/check-contract.mjs && wrangler deploy --dry-run --outdir .wrangler-dry-run",
+    "test": "vitest run",
     "smoke:live": "node scripts/smoke-live.mjs",
     "deploy": "wrangler deploy",
     "dev": "wrangler dev"
@@ -15,7 +16,9 @@
     "zod": "4.5.4"
   },
   "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "0.22.0",
     "@modelcontextprotocol/client": "2.0.0",
+    "vitest": "4.1.11",
     "wrangler": "4.127.1"
   }
 }

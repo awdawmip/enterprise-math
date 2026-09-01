@@ -90,12 +90,12 @@ export interface CompleteInput {
 }
 
 export interface AbandonInput {
-  turn_id?: string;
+  turn_id: string;
   reason: string;
 }
 
-export interface RecoveryVerification {
-  verified_at: string;
+export interface RecoveryAssessment {
+  assessed_at: string;
   result: Record<string, unknown>;
 }
 

@@ -4,14 +4,16 @@ on:
   pull_request:
     paths:
       - "infrastructure/cloudflare-supervisor/**"
-      - ".github/workflows/cloudflare-supervisor.yml"
+      - ".github/workflows/cloudflare-supervisor*.yml"
+      - "docs/CLOUDFLARE_SUPERVISOR_DEPLOYMENT.md"
   workflow_dispatch:
   push:
     branches:
       - main
     paths:
       - "infrastructure/cloudflare-supervisor/**"
-      - ".github/workflows/cloudflare-supervisor.yml"
+      - ".github/workflows/cloudflare-supervisor*.yml"
+      - "docs/CLOUDFLARE_SUPERVISOR_DEPLOYMENT.md"
 
 permissions:
   contents: read
