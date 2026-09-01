@@ -1,0 +1,91 @@
+{
+  "schema": "P000_Q23_FORWARD_XOR_ALL_N_CERTIFICATE_V1",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-FORWARD-XOR-ALL-N-INDEPENDENCE",
+  "publication_id": "TP2-5D06C7F7782AB19751E8",
+  "execution_record_id": "ER-60D301E690740902816C",
+  "researcher_id": "EM-P000-79CA40",
+  "claim_id": "chatgpt-phq23-20260901-1016",
+  "status": "FROZEN_RESEARCH_EVIDENCE_AWAITING_DRIVER_REVIEW",
+  "hard_target": "P000_FORWARD_XOR_ALL_FINITE_ARITY_ZERO_SUPPORT_INDEPENDENCE_PROVED_OR_REFUTED",
+  "terminal_state": "ALL_FINITE_ARITY_NONCOPYING_XOR_NORMAL_FORM_AND_ZERO_SUPPORT_INDEPENDENCE_PROVED",
+  "frozen_scope": {
+    "objects": "C2^n for every finite n>=0",
+    "primitive_grammar": [
+      "coordinate permutation",
+      "coordinate restriction/deletion",
+      "zero-coordinate insertion",
+      "XOR fusion using each input coordinate at most once",
+      "finite composition"
+    ],
+    "forbidden_as_old_information": [
+      "copying/diagonal",
+      "constant 1",
+      "affine shift",
+      "backward/preimage effectivity reflection",
+      "direct nonzero-effectivity axiom"
+    ]
+  },
+  "normal_form": {
+    "encoding": "alpha:{1,...,m}->{0,1,...,n}; alpha(i)=0 means discard, alpha(i)=j means input i contributes to output j",
+    "matrix_form": "M in F2^(n x m), every column is 0 or a standard basis vector e_j",
+    "output_rule": "y_j = XOR_{i:alpha(i)=j} x_i",
+    "closure_proof": "Generators have 0/e_j columns; under composition each source column maps to 0 or to one column of the second map, hence remains 0/e_k.",
+    "generation_proof": "For any alpha: delete discarded inputs; permute retained inputs into target-fibre blocks; XOR each block; insert zero outputs for empty fibres.",
+    "count": "|Hom(C2^m,C2^n)|=(n+1)^m",
+    "composition": "composition of partial functions on basis-index sets",
+    "dedup": "Standard finite partial-function structure represented linearly on F2 basis coordinates; no Enterprise novelty claim."
+  },
+  "effectivity_models": {
+    "zero_support": "Z_n(x)=1 iff x=0",
+    "all_effective": "A_n(x)=1 for every x",
+    "zero_support_forward_proof": "Every grammar morphism sends 0 to 0, so Z is forward-natural for every generated map.",
+    "structural_laws": [
+      "permutation",
+      "restriction/deletion forward preservation",
+      "neutral zero insertion/deletion",
+      "glue/product of effective zero states",
+      "all declared XOR fusion forward preservation",
+      "associativity and declared fusion coherence",
+      "effective unit and unit naturality"
+    ],
+    "matched_model_consequence": "Z and A share the same structural maps and satisfy every backward-free forward law, but differ on every nonzero state; therefore no such theory semantically entails nonzero effectivity."
+  },
+  "escape_boundary": {
+    "general_exact_criterion": "The zero-support obstruction is crossed exactly when the theory adds some axiom or primitive not satisfied by Z.",
+    "minimal_one_premise_mechanisms_in_current_structural_Horn_vocabulary": [
+      {
+        "kind": "NONZERO_GENERATING_FORWARD_PRIMITIVE",
+        "criterion": "some f has f(0)!=0",
+        "example": "constant 1 / affine shift"
+      },
+      {
+        "kind": "BACKWARD_REFLECTION_ACROSS_NONTRIVIAL_ZERO_FIBRE",
+        "criterion": "some x!=0 has f(x)=0 and E(f(x))=>E(x)",
+        "example": "XOR mu(1,1)=0"
+      },
+      {
+        "kind": "DIRECT_OR_EQUIVALENT_NONZERO_EFFECTIVITY_ASSERTION",
+        "criterion": "the language itself asserts some E_n(v) with v!=0"
+      }
+    ],
+    "nonexample": "Adding copying/diagonal alone breaks the noncopying normal form but remains zero-preserving, so Z still survives.",
+    "stronger_scope": "Zero-support independence uses only zero preservation plus forward-positive semantics; it persists even under arbitrary additional zero-preserving linear maps."
+  },
+  "regression": {
+    "checker_path": "research_checks/P000_PHILOSOPHY_FIRST_FORWARD_XOR_ALL_N_INDEPENDENCE_CHECK_20260901.py",
+    "max_dim": 4,
+    "morphisms_checked": 1279,
+    "factorizations_checked": 1279,
+    "zero_preserving_maps_checked": 1279,
+    "q20_prefix_morphisms": 144,
+    "checker_summary": "PASS P000_Q23_FORWARD_XOR_ALL_N; checks=2789; max_dim=4; morphisms=1279; factorized=1279; zero_preserving=1279; hom_matrix=1,1,1,1,1/1,2,3,4,5/1,4,9,16,25/1,8,27,64,125/1,16,81,256,625; q20_prefix=144; normal_form=(target_dimension+1)^source_dimension; category=finite_partial_functions_on_basis_indices; matched_models=zero_support,all_effective; escape=backward_nontrivial_fibre_or_nonzero_generating_primitive_or_direct_nonzero_axiom; copying=breaks_noncopying_normal_form_but_preserves_zero_support; terminal=ALL_FINITE_ARITY_NONCOPYING_XOR_NORMAL_FORM_AND_ZERO_SUPPORT_INDEPENDENCE",
+    "role": "REGRESSION_ONLY_NOT_UNIVERSAL_PROOF"
+  },
+  "prior_art_dedup": {
+    "native_proof_first": true,
+    "standard_identification": "finite sets and partial functions / restriction-category partial maps",
+    "reference": "J.R.B. Cockett and Stephen Lack, Restriction categories I: categories of partial maps, Theoretical Computer Science 270 (2002), 223-259, DOI 10.1016/S0304-3975(00)00382-0",
+    "novelty_claim": false
+  },
+  "control_recommendation": "If accepted, stop four-loop/five-loop enumeration under the unchanged forward zero-preserving grammar. Reopen only for a genuinely new primitive or semantic relation and state explicitly how it violates the zero-support countermodel."
+}
