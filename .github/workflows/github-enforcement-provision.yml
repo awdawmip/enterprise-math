@@ -1,0 +1,84 @@
+name: github-enforcement-provision
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/github-enforcement-provision.yml'
+      - '.github/workflows/quality.yml'
+      - '.github/workflows/reference-integrity.yml'
+      - '.github/workflows/bilingual-sync.yml'
+      - '.github/workflows/lean.yml'
+      - 'control_plane/github_enforcement_contract.json'
+      - 'control_plane/apply_github_enforcement.py'
+      - 'control_plane/check_github_enforcement_contract.py'
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: github-enforcement-provision
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  github-enforcement-provision:
+    name: github-enforcement-provision
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: cloudflare-supervisor
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Validate the repository-side enforcement contract
+        run: python control_plane/check_github_enforcement_contract.py
+
+      - name: Create repository-scoped GitHub App token
+        id: app-token
+        continue-on-error: true
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.GITHUB_APP_ID }}
+          private-key: ${{ secrets.GITHUB_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: enterprise-math
+
+      - name: Apply and verify main protection
+        env:
+          GITHUB_ADMIN_TOKEN: ${{ secrets.GITHUB_ADMIN_TOKEN }}
+          GITHUB_APP_TOKEN: ${{ steps.app-token.outputs.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          token="${GITHUB_ADMIN_TOKEN:-$GITHUB_APP_TOKEN}"
+          if [[ -z "$token" ]]; then
+            cat > github-enforcement-report.json <<'JSON'
+          {
+            "schema": "ENTERPRISE_MATH_GITHUB_ENFORCEMENT_REPORT_V1",
+            "verified": false,
+            "reason": "GITHUB_ADMIN_TOKEN_OR_ADMINISTRATION_WRITE_GITHUB_APP_REQUIRED"
+          }
+          JSON
+            echo "GITHUB_ENFORCEMENT_BLOCKED: configure GITHUB_ADMIN_TOKEN or a repository-scoped GitHub App with administration:write."
+            exit 2
+          fi
+          echo "::add-mask::$token"
+          GITHUB_ENFORCEMENT_TOKEN="$token" \
+            python control_plane/apply_github_enforcement.py \
+              --report github-enforcement-report.json
+
+      - name: Upload GitHub enforcement report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: github-enforcement-report
+          path: github-enforcement-report.json
+          if-no-files-found: warn
+          retention-days: 14
