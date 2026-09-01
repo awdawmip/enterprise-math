@@ -54,11 +54,16 @@ jobs:
             else
               for path in "${changed[@]}"; do
                 case "$path" in
-                  *.py|*.pyi|src/*|tests/*|scripts/*.py|tools/*.py|control_plane/*.py|pyproject.toml|setup.py|setup.cfg|tox.ini|requirements*.txt|requirements*.lock|Pipfile|Pipfile.lock|.github/workflows/quality.yml)
+                  *.py|*.pyi|src/*|tests/*|scripts/*|tools/*|control_plane/*|pyproject.toml|setup.py|setup.cfg|tox.ini|requirements*.txt|requirements*.lock|Pipfile|Pipfile.lock|.github/workflows/quality.yml)
                     unit_mode=full
-                    reason=python-surface-changed
+                    reason=executable-or-control-surface-changed
                     ;;
                 esac
+
+                if [[ "$path" != */* && "$path" == *.json ]]; then
+                  unit_mode=full
+                  reason=root-control-contract-changed
+                fi
 
                 case "$path" in
                   tests/test_p017_mirror_cross.py|src/enterprise_math/p017_mirror_cross.py|src/enterprise_math/p017_mirror_incidence.py|src/enterprise_math/cutoff_pairing.py|src/enterprise_math/legendre.py)
