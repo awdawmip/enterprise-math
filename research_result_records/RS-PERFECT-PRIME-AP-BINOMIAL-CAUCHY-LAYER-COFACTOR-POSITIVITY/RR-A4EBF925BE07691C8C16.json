@@ -1,0 +1,48 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-A4EBF925BE07691C8C16",
+  "task_id": "RS-PERFECT-PRIME-AP-BINOMIAL-CAUCHY-LAYER-COFACTOR-POSITIVITY",
+  "publication_id": "TP2-5A3E91C7D2B40F681AC3",
+  "execution_record_id": "ER-5061202400CCD679FFE6",
+  "claim_id": "chatgpt-pptabcp1-20260901-0907-r2",
+  "taskbook_path": "research_tasks/PERFECT_PRIME_AP_BINOMIAL_CAUCHY_LAYER_COFACTOR_POSITIVITY_20260831.md",
+  "taskbook_blob_sha1": "sha1:9b11446b5d2bc9bcca186c13bad361064990734e",
+  "execution_branch": "research/perfect-prime-ap-binomial-cauchy-layer-cofactor-positivity-em-pptabcp1-646aaa",
+  "execution_branch_base": "41fadce001efc968fe618ba209815928a743e16c",
+  "return_path": "research_returns/PERFECT_PRIME_AP_BINOMIAL_CAUCHY_LAYER_COFACTOR_POSITIVITY_RETURN_20260901.md",
+  "return_blob_sha1": "sha1:340a17c17156e633f0c107023507ceb5498a3763",
+  "return_sha256": "sha256:8d189093d0381743c734698e0dd47b4977d799ade23f268047f067f74eb504ee",
+  "owner_head": "9dd31c87be48890590bfa1ee3525a4afcba6c426",
+  "researcher_id": "EM-PPTAPBCP1-646AAA",
+  "frozen_at": "2026-09-01T01:25:00+00:00",
+  "terminal_verdict": "NEGATIVE_BOUNDARY",
+  "hard_target_disposition": "FULL_AP_COFACTOR_REDUCED_TO_OUTER_CONDITIONAL_COVARIANCE_DETERMINANT / INNER_BLOCK_POSITIVITY_MECHANISM_OBSTRUCTED_ALL_M / PARENT_NONVANISHING_REMAINS_OPEN",
+  "unresolved_residue": "Prove det S_m(t)!=0 for every m>=2 and 0<t<=1, preferably by fixed quotient inertia, or prove all coefficients of the double-Cauchy-endpoint residual Bhat_m(x) are positive. Exact coefficient positivity is verified only for finite m<=10 and is not an all-m proof.",
+  "output_manifest": [
+    {
+      "path": "research_returns/PERFECT_PRIME_AP_BINOMIAL_CAUCHY_LAYER_COFACTOR_POSITIVITY_RETURN_20260901.md",
+      "git_blob_sha1": "sha1:340a17c17156e633f0c107023507ceb5498a3763",
+      "sha256": "sha256:8d189093d0381743c734698e0dd47b4977d799ade23f268047f067f74eb504ee"
+    },
+    {
+      "path": "research_checks/PERFECT_PRIME_AP_BINOMIAL_CAUCHY_LAYER_COFACTOR_POSITIVITY_CHECK_20260901.py",
+      "git_blob_sha1": "sha1:0beaf76c3485e81de82b0b6e331e435cf7f0fc2b",
+      "sha256": "sha256:9ae776a08fe922a52146b20062a22a505df516256cfdc60fc9ad7adcb0eaa847"
+    },
+    {
+      "path": "research_artifacts/PERFECT_PRIME_AP_BINOMIAL_CAUCHY_LAYER_COFACTOR_POSITIVITY/exact_covariance_obstruction_certificate_20260901.json",
+      "git_blob_sha1": "sha1:0e317106c82c3ab53124cda050c8f78c11b76d16",
+      "sha256": "sha256:5c0cf511b32da4c9d26b5e71e54c7b7c7f4d57752da5a9b33e0a45c9dbae13aa"
+    },
+    {
+      "path": "research_execution_records/RS-PERFECT-PRIME-AP-BINOMIAL-CAUCHY-LAYER-COFACTOR-POSITIVITY/ER-5061202400CCD679FFE6.json",
+      "git_blob_sha1": "sha1:5ab612fecdf6ff2401cf7c0693052679cc9956f8",
+      "sha256": "sha256:2a39e54e89f2271fd100ea81c0c0b3ca5737e8063ee086adb3b76b38af33857f"
+    }
+  ],
+  "method_harvest": "RESULT_ONLY",
+  "independence_status": "NOT_INDEPENDENT",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "Driver-review and accept the exact negative boundary if the covariance reduction and inner-inertia proof check out. Close the direct inner-block positivity route, preserve the parent nonvanishing theorem as open, and route at most one successor targeting the outer conditional-covariance determinant or the double-endpoint residual Bernstein positivity. Do not grant Working Truth, Foundation, L4, or parent-objective closure.",
+  "driver_review_required": true
+}

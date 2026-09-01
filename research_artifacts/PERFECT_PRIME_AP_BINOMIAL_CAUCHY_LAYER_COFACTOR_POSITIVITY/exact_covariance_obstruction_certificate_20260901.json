@@ -1,0 +1,55 @@
+{
+  "schema": "PERFECT_PRIME_AP_BINOMIAL_CAUCHY_LAYER_COFACTOR_POSITIVITY_CERT_V1",
+  "arithmetic": "exact Python Fraction",
+  "checker_mode": "--extended",
+  "proof_boundary": "finite checks are regression/discovery only; all-m reduction and inertia obstruction are proved in the research return",
+  "adjacent_layer_regression": {
+    "m_range": [2, 7],
+    "s_range": [0, 2],
+    "cases": 18,
+    "status": "PASS_ROOT_GT_1_ROOT_ZERO_T1_NONZERO"
+  },
+  "outer_covariance_reduction": {
+    "m_range": [2, 6],
+    "t_values": ["1/2", "1"],
+    "cases": 10,
+    "status": "PASS_DIRECT_TAU_EQUALS_OUTER_REDUCTION_ALL_D_POSITIVE_INNER_DET_FORMULA"
+  },
+  "outer_leading_minor_signs_at_t_1": [
+    {"m": 2, "signs": [-1]},
+    {"m": 3, "signs": [-1, -1]},
+    {"m": 4, "signs": [-1, -1, 1]},
+    {"m": 5, "signs": [-1, -1, 1, 1]},
+    {"m": 6, "signs": [-1, -1, 1, 1, -1]}
+  ],
+  "forced_order_regression": {
+    "m_range": [2, 7],
+    "status": "PASS_FIRST_ORDER_OUTER_DET_NONZERO",
+    "det_signs": [-1, -1, 1, 1, -1, -1]
+  },
+  "mobius_double_endpoint_regression": {
+    "m_range": [2, 10],
+    "status": "PASS_ALL_TRANSFORMED_COEFFICIENTS_STRICTLY_POSITIVE",
+    "finite_only": true,
+    "rows": [
+      {"m": 2, "tau_degree": 2, "forced_t_order": 1, "postfactor_degree": 1, "coefficient_count": 2, "tau_at_1_positive": true, "double_endpoint_factor": "x^1(1+x)^1"},
+      {"m": 3, "tau_degree": 8, "forced_t_order": 2, "postfactor_degree": 6, "coefficient_count": 7, "tau_at_1_positive": true, "double_endpoint_factor": "x^2(1+x)^2"},
+      {"m": 4, "tau_degree": 18, "forced_t_order": 3, "postfactor_degree": 15, "coefficient_count": 16, "tau_at_1_positive": true, "double_endpoint_factor": "x^3(1+x)^3"},
+      {"m": 5, "tau_degree": 32, "forced_t_order": 4, "postfactor_degree": 28, "coefficient_count": 29, "tau_at_1_positive": true, "double_endpoint_factor": "x^4(1+x)^4"},
+      {"m": 6, "tau_degree": 50, "forced_t_order": 5, "postfactor_degree": 45, "coefficient_count": 46, "tau_at_1_positive": true, "double_endpoint_factor": "x^5(1+x)^5"},
+      {"m": 7, "tau_degree": 72, "forced_t_order": 6, "postfactor_degree": 66, "coefficient_count": 67, "tau_at_1_positive": true, "double_endpoint_factor": "x^6(1+x)^6"},
+      {"m": 8, "tau_degree": 98, "forced_t_order": 7, "postfactor_degree": 91, "coefficient_count": 92, "tau_at_1_positive": true, "double_endpoint_factor": "x^7(1+x)^7"},
+      {"m": 9, "tau_degree": 128, "forced_t_order": 8, "postfactor_degree": 120, "coefficient_count": 121, "tau_at_1_positive": true, "double_endpoint_factor": "x^8(1+x)^8"},
+      {"m": 10, "tau_degree": 162, "forced_t_order": 9, "postfactor_degree": 153, "coefficient_count": 154, "tau_at_1_positive": true, "double_endpoint_factor": "x^9(1+x)^9"}
+    ]
+  },
+  "exact_obstruction_witness": {
+    "m": 3,
+    "j": 0,
+    "t": "1",
+    "inner_covariance": [["-2673/16120", "-12231/16120"], ["-12231/16120", "102303/16120"]],
+    "determinant": "-6561/4030",
+    "classification": "indefinite conditional covariance block"
+  },
+  "checker_sha256": "sha256:9ae776a08fe922a52146b20062a22a505df516256cfdc60fc9ad7adcb0eaa847"
+}
