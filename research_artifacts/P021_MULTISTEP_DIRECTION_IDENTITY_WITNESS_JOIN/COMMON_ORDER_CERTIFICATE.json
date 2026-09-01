@@ -1,0 +1,88 @@
+{
+  "schema": "P021_MULTISTEP_DIRECTION_IDENTITY_COMMON_ORDER_CERTIFICATE_V1",
+  "status": "RESEARCHER_FROZEN_AWAITING_DRIVER_REVIEW",
+  "task_id": "RS-P021-FOCUSING-DIRECTION",
+  "researcher_id": "EM-P021-4B8E2D",
+  "claim_id": "chatgpt-p021-20260901-1142-4b8e2d",
+  "terminal_class": "P021_MULTISTEP_DIRECTION_IDENTITY_COMMON_ORDER_EXACT",
+  "scope": {
+    "domain": "finite P021 direction-class identity transport",
+    "one_step_semantics": "GLOBAL_SUPPORT_COMPATIBLE_IDENTITY",
+    "multistep_semantics": "Boolean class-level composition envelope plus exact middle-witness relational joins",
+    "physical_focusing_or_GR_claim": false,
+    "generic_A2_A4_ownership_claim": false
+  },
+  "normalization": {
+    "input": "each one-step bipartite support S_r has a unique perfect matching mu_r",
+    "cumulative_labels": "lambda_0=id; lambda_r=mu_r o lambda_{r-1}",
+    "normalized_support": "A_r(i,j)=S_r(lambda_{r-1}(i),lambda_r(j))",
+    "normalized_unique_matching": "identity",
+    "ambiguity_digraph": "Gamma_r={(i,j): i!=j and A_r(i,j)=1}"
+  },
+  "main_theorem": {
+    "horizon_envelope": "C_h=A_1 boolean_product ... boolean_product A_h",
+    "criterion": "C_h has unique perfect matching identity iff union_r Gamma_r is acyclic",
+    "equivalent_certificate": "all normalized noncanonical one-step support edges admit one common topological order",
+    "proof_kernel": [
+      "union_r Gamma_r is contained in the off-diagonal support of C_h because all other time steps may follow diagonal identity edges",
+      "every off-diagonal edge of C_h is induced by a path in union_r Gamma_r, hence lies in its transitive closure",
+      "therefore the endpoint ambiguity digraph is acyclic iff the union digraph is acyclic",
+      "with the identity matching present, unique perfect matching is equivalent to absence of an alternating/directed ambiguity cycle"
+    ]
+  },
+  "minimal_counterexample": {
+    "n": 2,
+    "horizon": 2,
+    "A": [[1,1],[0,1]],
+    "B": [[1,0],[1,1]],
+    "A_unique_matching": [0,1],
+    "B_unique_matching": [0,1],
+    "union_ambiguity_cycle": ["0->1","1->0"],
+    "boolean_product": [[1,1],[1,1]],
+    "endpoint_perfect_matchings": [[0,1],[1,0]],
+    "verdict": "ONE_STEP_CANONICAL_IDENTITY_IS_NOT_COMPOSITIONALLY_CLOSED"
+  },
+  "witness_refinement_theorem": {
+    "fine_endpoint_support_bound": "I subseteq J_h subseteq C_h whenever canonical matched chains are realizable",
+    "universal_safety": "every compatible fine witness realization has unique canonical endpoint identity iff union_r Gamma_r is acyclic",
+    "positive_direction": "if C_h has unique identity, every intermediate exact support J_h containing I and contained in C_h also has unique identity",
+    "negative_direction": "if C_h is ambiguous, a join-saturated witness realization using one boundary token per class/time realizes J_h=C_h",
+    "same_support_two_step_separation": {
+      "saturated": "same A,B; shared middle tokens realize full 2x2 endpoint support; identity ambiguous",
+      "filtered": "same A,B; private noncanonical tokens plus shared diagonal tokens realize identity-only endpoint support; identity unique"
+    }
+  },
+  "finite_regression": {
+    "checker": "scripts/check_p021_multistep_direction_identity.py",
+    "pre_persistence_exact_source_sha256": "sha256:de7ca2d03b943e0c50c2a375e6803a1ceda1d52031265429717a50236519c36d",
+    "local_run": "PASS",
+    "normalized_unique_identity_support_counts": {"n1":1,"n2":3,"n3":25,"n4":543},
+    "ordered_pair_census_total_safe_unsafe": {
+      "n1": [1,1,0],
+      "n2": [9,7,2],
+      "n3": [625,289,336],
+      "n4": [294849,63487,231362]
+    },
+    "ordered_triple_census_total_safe_unsafe": {
+      "n1": [1,1,0],
+      "n2": [27,15,12],
+      "n3": [15625,2689,12936]
+    },
+    "pair_theorem_exhaustive_through_n": 4,
+    "triple_theorem_exhaustive_through_n": 3
+  },
+  "prior_art_and_ownership": {
+    "unique_matching_alternating_cycle": "standard bipartite matching theory; reused from prior P021 correction",
+    "boolean_relation_composition": "standard relation/Boolean-semiring prior art; generic ownership remains A4/R015/P023 as applicable",
+    "enterprise_p021_residue": "typed temporal normalization by the forced one-step matchings, the common-order certificate for persistence of canonical direction identity, and the exact witness-refinement safety boundary",
+    "new_general_tool_claim": false
+  },
+  "guards": {
+    "counts_are_composition_complete": false,
+    "boolean_support_is_exact_fine_witness_join_in_general": false,
+    "one_step_unique_matching_implies_multistep_unique_matching": false,
+    "physical_focusing_scalar_claimed": false,
+    "canonical_promotion_granted": false,
+    "working_truth_granted": false
+  }
+}
