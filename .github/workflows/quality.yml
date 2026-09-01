@@ -17,70 +17,136 @@ permissions:
 
 jobs:
   classify:
-    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     outputs:
-      supervisor_only: ${{ steps.scope.outputs.supervisor_only }}
+      unit_mode: ${{ steps.scope.outputs.unit_mode }}
+      heavy_required: ${{ steps.scope.outputs.heavy_required }}
+      reason: ${{ steps.scope.outputs.reason }}
     steps:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - id: scope
-        name: Classify pull-request scope
+        name: Classify validation scope
         env:
           EVENT_NAME: ${{ github.event_name }}
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         shell: bash
         run: |
-          supervisor_only=false
+          set -euo pipefail
+
+          unit_mode=full
+          heavy_required=true
+          reason=main-or-manual-full-regression
+
           if [[ "$EVENT_NAME" == "pull_request" ]]; then
+            unit_mode=skip
+            heavy_required=false
+            reason=non-python-pr-reference-integrity-only
+
             mapfile -d '' changed < <(git diff --name-only -z "$BASE_SHA" "$HEAD_SHA")
-            if (( ${#changed[@]} > 0 )); then
-              supervisor_only=true
+            if (( ${#changed[@]} == 0 )); then
+              unit_mode=full
+              heavy_required=true
+              reason=empty-diff-fail-closed
+            else
               for path in "${changed[@]}"; do
                 case "$path" in
-                  infrastructure/cloudflare-supervisor/*|.github/workflows/cloudflare-supervisor*.yml|docs/CLOUDFLARE_SUPERVISOR_DEPLOYMENT.md) ;;
-                  *) supervisor_only=false; break ;;
+                  *.py|*.pyi|src/*|tests/*|scripts/*.py|tools/*.py|control_plane/*.py|pyproject.toml|setup.py|setup.cfg|tox.ini|requirements*.txt|requirements*.lock|Pipfile|Pipfile.lock|.github/workflows/quality.yml)
+                    unit_mode=full
+                    reason=python-surface-changed
+                    ;;
+                esac
+
+                case "$path" in
+                  tests/test_p017_mirror_cross.py|src/enterprise_math/p017_mirror_cross.py|src/enterprise_math/p017_mirror_incidence.py|src/enterprise_math/cutoff_pairing.py|src/enterprise_math/legendre.py)
+                    heavy_required=true
+                    ;;
                 esac
               done
             fi
           fi
-          echo "supervisor_only=$supervisor_only" >> "$GITHUB_OUTPUT"
+
+          {
+            echo "unit_mode=$unit_mode"
+            echo "heavy_required=$heavy_required"
+            echo "reason=$reason"
+          } >> "$GITHUB_OUTPUT"
+
+          {
+            echo "### Quality scope"
+            echo "- unit mode: \`$unit_mode\`"
+            echo "- isolated P017 regression: \`$heavy_required\`"
+            echo "- reason: \`$reason\`"
+          } >> "$GITHUB_STEP_SUMMARY"
 
   unit-shard:
     needs: classify
-    if: needs.classify.outputs.supervisor_only != 'true'
+    if: needs.classify.outputs.unit_mode == 'full'
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     strategy:
-      fail-fast: false
+      fail-fast: true
       max-parallel: 8
       matrix:
-        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
+      - name: Exclude isolated slow P017 bounded regression
+        run: rm -f tests/test_p017_mirror_cross.py
       - name: Unit tests shard ${{ matrix.shard }}
         env:
           PYTHONPATH: src
-        run: python scripts/run_unittest_shard.py --index ${{ matrix.shard }} --count 16
+        run: python scripts/run_unittest_shard.py --index ${{ matrix.shard }} --count 8
+
+  heavy-regression:
+    needs: classify
+    if: needs.classify.outputs.heavy_required == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: P017 mirror-cross bounded regression
+        env:
+          PYTHONPATH: src
+        run: python tests/test_p017_mirror_cross.py
 
   test:
-    if: always() && (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
-    needs: [classify, unit-shard]
+    if: always()
+    needs: [classify, unit-shard, heavy-regression]
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
-      - name: Require the applicable quality gate
+      - name: Require the applicable quality gates
         env:
           CLASSIFY_RESULT: ${{ needs.classify.result }}
-          SUPERVISOR_ONLY: ${{ needs.classify.outputs.supervisor_only }}
+          UNIT_MODE: ${{ needs.classify.outputs.unit_mode }}
           UNIT_RESULT: ${{ needs.unit-shard.result }}
+          HEAVY_REQUIRED: ${{ needs.classify.outputs.heavy_required }}
+          HEAVY_RESULT: ${{ needs.heavy-regression.result }}
+        shell: bash
         run: |
+          set -euo pipefail
           test "$CLASSIFY_RESULT" = "success"
-          if [ "$SUPERVISOR_ONLY" = "true" ]; then
-            test "$UNIT_RESULT" = "skipped"
-          else
+
+          if [[ "$UNIT_MODE" == "full" ]]; then
             test "$UNIT_RESULT" = "success"
+          else
+            test "$UNIT_MODE" = "skip"
+            test "$UNIT_RESULT" = "skipped"
+          fi
+
+          if [[ "$HEAVY_REQUIRED" == "true" ]]; then
+            test "$HEAVY_RESULT" = "success"
+          else
+            test "$HEAVY_REQUIRED" = "false"
+            test "$HEAVY_RESULT" = "skipped"
           fi

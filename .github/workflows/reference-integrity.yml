@@ -17,13 +17,15 @@ permissions:
 
 jobs:
   check:
-    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     runs-on: ubuntu-latest
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
+      - name: Check GitHub validation remains nonblocking for active turns
+        run: python control_plane/check_github_flow_liveness.py
       - name: Check citation and lineage integrity
         run: python tools/check_references.py
       - name: Check post-cutover publication writer envelope

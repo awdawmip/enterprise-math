@@ -19,8 +19,8 @@ permissions:
   contents: read
 
 concurrency:
-  group: cloudflare-supervisor-${{ github.ref }}
-  cancel-in-progress: false
+  group: cloudflare-supervisor-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name != 'workflow_dispatch' }}
 
 jobs:
   validate:
