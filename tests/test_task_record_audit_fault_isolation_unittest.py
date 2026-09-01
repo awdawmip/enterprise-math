@@ -49,7 +49,7 @@ class TaskRecordAuditFaultIsolationTests(unittest.TestCase):
         ]
         self.assertEqual("TP2-2F8C6A1D9E7043B5C812", current["publication_id"])
 
-    def test_fork_blocked_rows_match_current_fork_heads_and_old_bridge_record_is_superseded(self):
+    def test_fork_blocked_rows_track_live_forks_and_resolved_history_is_superseded(self):
         from control_plane import research_publication_fault_isolation as publication_isolation
 
         rows = {
@@ -64,11 +64,22 @@ class TaskRecordAuditFaultIsolationTests(unittest.TestCase):
             row for row in rows.values()
             if row["nonoperational_basis"] == audit_isolation.BASIS_FORK_BLOCKED
         ]
-        self.assertTrue(fork_rows)
         for row in fork_rows:
+            self.assertIn(row["task_id"], forks)
             fork = forks[row["task_id"]]
             effective = set(fork.get("_effective_publication_ids", fork["publication_ids"]))
             self.assertIn(row["publication_id"], effective)
+
+        resolved_task = "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE"
+        self.assertNotIn(resolved_task, forks)
+        for publication_id in (
+            "TP2-D4A7C19E5B306F821472",
+            "TP2-E5B7C19A3D604F821583",
+        ):
+            self.assertEqual(
+                audit_isolation.BASIS_SUPERSEDED,
+                rows[publication_id]["nonoperational_basis"],
+            )
 
     def test_every_declared_suppression_is_exact_record_prefixed(self):
         rows = audit_isolation.validated_rows(ROOT)
