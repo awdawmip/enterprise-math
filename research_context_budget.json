@@ -1,7 +1,7 @@
 {
   "schema": "ENTERPRISE_MATH_CONTEXT_READ_BUDGET_V1",
   "status": "ACTIVE_CANONICAL",
-  "effective_at": "2026-08-28T00:00:00+08:00",
+  "effective_at": "2026-09-01T00:00:00+08:00",
   "scope": [
     "EM_FREE_RESEARCHER",
     "TASK_RESEARCH",
@@ -21,6 +21,24 @@
     "file_line_range_soft_max": 200,
     "issue_comment_page_size_max": 20,
     "matching_test_files_soft_max": 3
+  },
+  "static_hot_start_guard": {
+    "files": [
+      "AGENTS.md",
+      "control_plane/current_control_authority.json",
+      "active_turn_liveness.json",
+      "research_context_budget.json"
+    ],
+    "max_file_bytes": 49152,
+    "max_total_bytes": 131072,
+    "checker": "control_plane/check_context_budget.py",
+    "scope_limit": "REPOSITORY_STATIC_HOT_ROUTER_ONLY",
+    "does_not_measure": [
+      "DYNAMIC_TASK_LOCAL_DEPENDENCIES",
+      "CONNECTED_TOOL_OUTPUTS",
+      "GLOBAL_KNOWLEDGE_EXTERNAL_REPOSITORY_INPUTS",
+      "PRODUCT_RUNTIME_TOKENIZATION"
+    ]
   },
   "high_fanout_paths": [
     "tests/",
