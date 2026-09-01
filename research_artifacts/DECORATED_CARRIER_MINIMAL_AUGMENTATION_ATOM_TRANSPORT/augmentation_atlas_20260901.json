@@ -1,0 +1,132 @@
+{
+  "schema": "ENTERPRISE_MATH_MINIMAL_TRANSPORT_AUGMENTATION_ATLAS_V1",
+  "task_id": "RS-DECORATED-CARRIER-MINIMAL-AUGMENTATION-ATOM-TRANSPORT",
+  "publication_id": "TP2-DCE2A9D900EF145F0E77",
+  "researcher_id": "EM-DCTRMIN-7BC444",
+  "claim_id": "chatgpt-dctrmin-20260901-1045",
+  "hard_target": "MINIMAL_TRANSPORT_AUGMENTATION_HIERARCHY_CLASSIFIED",
+  "terminal_verdict": "SUCCESS",
+  "frozen_space": {
+    "homotopy_type": "K_R wedge m*S1",
+    "beta_a_ne_b": "(k-1)(k-2)/2 + m",
+    "beta_a_eq_b": "(k-1)(k-2)/2"
+  },
+  "levels": [
+    {
+      "id": "L0_ARITHMETIC_REDUCT",
+      "objects": "frozen typed decorated carrier/support/resonance states",
+      "gauge": "existing carrier isomorphisms",
+      "added_structural_class": null
+    },
+    {
+      "id": "L1_PAIRING_FRAME_C2",
+      "objects": "flat C2 torsor connections on opposite-pair frame torsors",
+      "gauge": "vertex C2 frame changes",
+      "added_structural_class": "H1(X;F2) after admitting the C2 primitive"
+    },
+    {
+      "id": "L2_PAIRING_STATE_S3",
+      "objects": "flat S3 pairing-state connections whose sign quotient is L1",
+      "gauge": "vertex S3 frame changes; relative kernel gauge C3",
+      "added_structural_class": "H1(X;C3_h)",
+      "canonical_split": "marked carrier state stabilizer C2 -> S3"
+    },
+    {
+      "id": "L3_ATOM_TRANSPORT_S4",
+      "objects": "flat S4 atom connections projecting to L2 through S4->S3",
+      "gauge": "vertex S4 atom frames; relative kernel gauge V4",
+      "added_structural_class": "H1(X;V4_rho)",
+      "section_status": "all four homomorphic S3->S4 sections are V4-gauge-equivalent"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "L0_ARITHMETIC_REDUCT",
+      "to": "L1_PAIRING_FRAME_C2",
+      "extension": null,
+      "necessity": "parent same-carrier/different-C2 classes and no-selector obstruction",
+      "sufficiency": "explicit flat C2 torsor connection",
+      "gauge_quotient": "H1(X;F2)",
+      "natural_zero_note": "zero holonomy is canonical only after the exogenous C2 connection primitive is admitted"
+    },
+    {
+      "from": "L1_PAIRING_FRAME_C2",
+      "to": "L2_PAIRING_STATE_S3",
+      "extension": "1 -> C3=A3 -> S3 ->sgn C2 -> 1",
+      "kernel_action": "nontrivial C2 element acts on C3 by inversion",
+      "canonical_typed_quotient": "full pairing-frame torsor / A3 canonically equals opposite-pair ordering torsor using the marked carrier state",
+      "relative_classes": "H1(X;C3_h)",
+      "dimension_parent_free_rank_beta": "0 if beta=0; beta if h=0; beta-1 if h!=0",
+      "relative_class_count": "3^d2",
+      "full_gauge_residual_action": "[a] -> [-a]",
+      "full_gauge_orbit_count": "1 if d2=0 else 1+(3^d2-1)/2",
+      "necessity": "same L1 sign quotient admits distinct twisted C3 cohomology classes",
+      "sufficiency": "canonical marked split plus any C3_h crossed cocycle",
+      "section_status": "no arbitrary S3 section datum required; marked stabilizer provides typed split",
+      "nonzero_status": "lower reduct does not force a nonzero C3 class"
+    },
+    {
+      "from": "L2_PAIRING_STATE_S3",
+      "to": "L3_ATOM_TRANSPORT_S4",
+      "extension": "1 -> V4 -> S4 -> S3 -> 1",
+      "kernel_action": "natural S3 action on V4 ~= F2^2 ~= GL(2,2)",
+      "relative_classes": "H1(X;V4_rho)",
+      "dimension_parent_free_rank_beta": "0 if beta=0; 2*beta-2+dim(V4^im(rho)) if beta>=1",
+      "fixed_dimensions": {
+        "trivial_image": 2,
+        "one_transposition_subgroup": 1,
+        "contains_3cycle_or_two_distinct_transpositions": 0
+      },
+      "necessity": "same L2 quotient admits distinct twisted V4 cohomology classes when d3>0",
+      "sufficiency": "any temporary section plus any V4_rho twisted cocycle",
+      "section_status": "four sections are conjugate by V4; their differences are twisted coboundaries; same unframed zero class",
+      "nonzero_status": "lower reduct does not force a nonzero V4 class"
+    }
+  ],
+  "minimal_witnesses": {
+    "L1_same_L2_different": {
+      "X": "S1",
+      "L1_holonomy": "identity in C2",
+      "L2_holonomies": ["identity in S3", "(012) in S3"],
+      "relative_classes": "0 versus nonzero in H1(S1;C3)=C3",
+      "full_gauge_note": "(012) and (021) identify by residual C2 inversion, but nonzero does not identify with zero"
+    },
+    "L2_same_L3_different": {
+      "X": "S1",
+      "L2_holonomy": "identity in S3",
+      "L3_holonomies": ["identity in S4", "(01)(23) in V4"],
+      "relative_classes": "0 versus nonzero in H1(S1;V4)=V4",
+      "full_gauge_note": "S3 is transitive on three nonzero V4 vectors, but nonzero does not identify with zero"
+    }
+  },
+  "one_loop_L3": [
+    {"rho": "identity", "fixed_dim": 2, "H1_dim": 2, "relative_classes": 4},
+    {"rho": "transposition", "fixed_dim": 1, "H1_dim": 1, "relative_classes": 2},
+    {"rho": "3-cycle", "fixed_dim": 0, "H1_dim": 0, "relative_classes": 1}
+  ],
+  "carrier_regressions": [
+    {"name": "clean", "k": 3, "m": 0, "beta": 1},
+    {"name": "single_pinch", "k": 2, "m": 1, "beta": 1},
+    {"name": "multi_pinch", "k": 3, "m": 2, "beta": 3},
+    {"name": "equality_beta0", "k": 2, "m": 0, "beta": 0},
+    {"name": "equality_beta1", "k": 3, "m": 0, "beta": 1},
+    {"name": "beta2", "k": 3, "m": 1, "beta": 2}
+  ],
+  "natural_compression": {
+    "canonical": "zero split lift gauge class at L2 and L3",
+    "no_go": "the frozen lower reduct supplies no preferred nonzero C3 or V4 kernel-cohomology class",
+    "bit_count_warning": "C3 lift data are not binary; V4 H1 dimension is rho-dependent"
+  },
+  "tool_reuse": {
+    "T7_FINITE_SYMMETRY_EQUIVARIANCE": "REUSE_APPLIED",
+    "T9_HOLONOMY_COCOYCLE_GLUING": "REUSE_APPLIED",
+    "parent_checker": "REUSE_APPLIED",
+    "new_general_purpose_tool": "NONE"
+  },
+  "promotion": {
+    "working_truth_granted": false,
+    "foundation_authority_granted": false,
+    "canonical_promotion_granted": false,
+    "historical_novelty_claimed": false
+  }
+}
