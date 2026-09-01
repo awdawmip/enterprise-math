@@ -12,6 +12,7 @@ const smokeLive = readText("./smoke-live.mjs");
 const deployWorkflow = readText("../../../.github/workflows/cloudflare-supervisor.yml");
 const quarantineWorkflow = readText("../../../.github/workflows/cloudflare-supervisor-ci-token-quarantine.yml");
 const provisionWorkflow = readText("../../../.github/workflows/cloudflare-supervisor-access-provision.yml");
+const probeWorkflow = readText("../../../.github/workflows/cloudflare-supervisor-access-probe.yml");
 
 const required = [
   [wrangler, '"storage": "sqlite"', "SQLite-backed Durable Object"],
@@ -53,10 +54,14 @@ const required = [
   [smokeLive, "Durable Object reset because its code was updated.", "bounded DO hot-update retry marker"],
   [smokeLive, "attempt <= 8", "bounded DO hot-update retry count"],
   [deployWorkflow, "ACCESS_EPHEMERAL_CI_IDENTITY=READY", "ephemeral CI identity creation"],
+  [deployWorkflow, "ACCESS_EPHEMERAL_CI_IDENTITY=REGISTERED_FOR_CLEANUP", "early ephemeral CI identity cleanup registration"],
   [deployWorkflow, "enabled:false", "CI identity fail-closed revocation"],
   [deployWorkflow, ".result.enabled == false", "CI identity boolean-safe revocation verification"],
   [deployWorkflow, "ACCESS_EPHEMERAL_CI_IDENTITY=DISABLED", "revocation success marker"],
   [deployWorkflow, "if: github.event_name == 'workflow_dispatch'", "manual-only production deployment"],
+  [deployWorkflow, "validate:\n    runs-on: ubuntu-latest\n    timeout-minutes: 10", "bounded validation job"],
+  [deployWorkflow, "runs-on: ubuntu-latest\n    timeout-minutes: 20\n    environment: cloudflare-supervisor", "bounded deployment job"],
+  [deployWorkflow, "name: Revoke current Access CI identity\n        if: always()", "unconditional CI identity cleanup path"],
   [deployWorkflow, "npm ci --ignore-scripts", "lockfile-only dependency install"],
   [deployWorkflow, "ACCESS_STALE_CI_TOKEN=DELETED", "prior CI token pruning"],
   [quarantineWorkflow, ".result.enabled == false", "quarantine boolean-safe revocation verification"],
@@ -66,10 +71,18 @@ const required = [
   [provisionWorkflow, 'access_token_lifetime:"15m"', "short Access token lifetime"],
   [provisionWorkflow, 'session_duration:"336h"', "bounded OAuth grant session"],
   [provisionWorkflow, '"https://chatgpt.com/connector/oauth/*"', "ChatGPT OAuth callback allowlist"],
+  [probeWorkflow, "timeout-minutes: 5", "bounded read-only Access probe"],
 ];
 
 for (const [text, marker, label] of required) {
   if (!text.includes(marker)) throw new Error(`missing ${label}: ${marker}`);
+}
+
+if (
+  deployWorkflow.indexOf("ACCESS_EPHEMERAL_CI_IDENTITY=REGISTERED_FOR_CLEANUP") >
+  deployWorkflow.indexOf('stale_tokens="$(curl')
+) {
+  throw new Error("ephemeral CI identity cleanup registration must precede stale-token pruning");
 }
 
 for (const forbidden of [
@@ -94,7 +107,8 @@ for (const forbidden of [
     smokeLive.includes(forbidden) ||
     deployWorkflow.includes(forbidden) ||
     quarantineWorkflow.includes(forbidden) ||
-    provisionWorkflow.includes(forbidden)
+    provisionWorkflow.includes(forbidden) ||
+    probeWorkflow.includes(forbidden)
   ) {
     throw new Error(`forbidden privileged/broad surface in Supervisor: ${forbidden}`);
   }

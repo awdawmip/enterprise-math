@@ -23,6 +23,7 @@ concurrency:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     defaults:
       run:
         working-directory: infrastructure/cloudflare-supervisor
@@ -38,6 +39,7 @@ jobs:
     if: github.event_name == 'workflow_dispatch'
     needs: validate
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     environment: cloudflare-supervisor
     defaults:
       run:
@@ -82,6 +84,7 @@ jobs:
       - name: Prepare rotating Access CI identity when MCP Access app exists
         id: access
         if: steps.auth.outputs.ready == 'true'
+        timeout-minutes: 5
         shell: bash
         run: |
           set -euo pipefail
@@ -142,6 +145,19 @@ jobs:
           echo "::add-mask::$client_id"
           echo "::add-mask::$client_secret"
 
+          {
+            echo "ACCESS_APP_ID=$app_id"
+            echo "ACCESS_APP_AUD=$app_aud"
+            echo "ACCESS_TEAM_DOMAIN=$team_domain"
+            echo "ACCESS_SERVICE_CLIENT_ID=$client_id"
+            echo "ACCESS_SERVICE_CLIENT_SECRET=$client_secret"
+            echo "ACCESS_EPHEMERAL_SERVICE_TOKEN_ID=$service_token_id"
+            echo "ACCESS_EPHEMERAL_SERVICE_TOKEN_NAME=$service_token_name"
+            echo "ACCESS_CI_POLICY_ID=$ci_policy_id"
+          } >> "$GITHUB_ENV"
+          echo "enabled=true" >> "$GITHUB_OUTPUT"
+          echo "ACCESS_EPHEMERAL_CI_IDENTITY=REGISTERED_FOR_CLEANUP"
+
           policy_payload="$(jq -nc --arg name "$ACCESS_CI_POLICY_NAME" --arg token "$service_token_id" '{name:$name,decision:"non_identity",include:[{service_token:{token_id:$token}}],exclude:[],require:[]}')"
           policy_status="$(curl -sS -o /tmp/access-ci-policy-update.json -w '%{http_code}' -X PUT "${auth[@]}" "$api/policies/$ci_policy_id" --data "$policy_payload")"
           if [[ "$policy_status" != "200" || "$(jq -r '.success // false' /tmp/access-ci-policy-update.json)" != "true" ]]; then
@@ -177,17 +193,6 @@ jobs:
             fi
           done < <(jq -r --arg prefix "$ACCESS_CI_TOKEN_PREFIX" '.result[]? | select((.name // "") | startswith($prefix)) | [.id,.name] | @tsv' <<<"$stale_tokens")
 
-          {
-            echo "ACCESS_APP_ID=$app_id"
-            echo "ACCESS_APP_AUD=$app_aud"
-            echo "ACCESS_TEAM_DOMAIN=$team_domain"
-            echo "ACCESS_SERVICE_CLIENT_ID=$client_id"
-            echo "ACCESS_SERVICE_CLIENT_SECRET=$client_secret"
-            echo "ACCESS_EPHEMERAL_SERVICE_TOKEN_ID=$service_token_id"
-            echo "ACCESS_EPHEMERAL_SERVICE_TOKEN_NAME=$service_token_name"
-            echo "ACCESS_CI_POLICY_ID=$ci_policy_id"
-          } >> "$GITHUB_ENV"
-          echo "enabled=true" >> "$GITHUB_OUTPUT"
           echo "MCP_AUTH_TARGET=CLOUDFLARE_ACCESS"
           echo "ACCESS_EPHEMERAL_CI_IDENTITY=READY"
 
@@ -245,10 +250,12 @@ jobs:
 
       - name: Verify live /em route, MCP auth, lifecycle, and durable handoff
         if: steps.auth.outputs.ready == 'true'
+        timeout-minutes: 8
         run: npm run smoke:live
 
       - name: Revoke current Access CI identity
         if: always() && steps.auth.outputs.ready == 'true' && steps.access.outputs.enabled == 'true'
+        timeout-minutes: 3
         shell: bash
         run: |
           set -euo pipefail
