@@ -1,0 +1,62 @@
+{
+  "schema": "PCF6_PRIME_FUSION_NBLIND_REALIZATION_RESULT_REFREEZE_V3_INTEGRITY_MANIFEST_V1",
+  "task_id": "RS-PRIME-COORD-FACTOR-PRIME-FUSION-NBLIND-REALIZATION",
+  "publication_id": "TP2-7C2E91B4D5A8063F2B18",
+  "researcher_id": "EM-PCF6R3-5B7C2D",
+  "claim_id": "chatgpt-pcf6r3-20260831-1336-5b7c2d",
+  "execution_record_id": "ER-5B7C2D7E91B4D5A8063F",
+  "hard_target": "PCF6_PRIME_FUSION_NBLIND_REALIZATION_RESULT_REFROZEN_IN_CURRENT_SCHEMA_WITH_ZERO_MATH_DRIFT",
+  "no_math_delta": true,
+  "historical_result": {
+    "result_id": "RR-91F4C6A72D0B8E35F219",
+    "disposition": "IMMUTABLE_LEGACY_ENVELOPE_HISTORY_PRESERVED",
+    "edited": false
+  },
+  "frozen_checkpoint": "9cdd7ebc3604fbdde0f945ab54f6ce2f6e290094",
+  "frozen_source_manifest": [
+    {
+      "path": "research_returns/PRIME_COORD_FACTOR_PRIME_FUSION_NBLIND_REALIZATION_RETURN_20260827.md",
+      "git_blob_sha1": "sha1:f4d0bf4208f66d96af0938a515a11683fde435d0",
+      "sha256": "sha256:3932cad5780ad56e27eb3abf67ac89f7a726035449798147c60612201ef1cbb9"
+    },
+    {
+      "path": "research_artifacts/PRIME_COORD_FACTOR_PRIME_FUSION_NBLIND_REALIZATION/EVIDENCE_REPORT.md",
+      "git_blob_sha1": "sha1:ffe15449b5f49318c1f50bcd58241d9230e5d5d2",
+      "sha256": "sha256:3531276677850651458da1130a8082d264b5c662056154e9efa92c6c57b1ff8b"
+    },
+    {
+      "path": "scripts/check_prime_coord_factor_prime_fusion_nblind_realization.py",
+      "git_blob_sha1": "sha1:b088707bee61276917d40aff10d31e6145f27cef",
+      "sha256": "sha256:7a12d3fe7c309a501bc56fc381e1ec346a128d79c87bf3dd1ebe7fa33fd0c70e"
+    },
+    {
+      "path": "scripts/check_prime_coord_factor_prime_fusion_nblind_realization_independent.py",
+      "git_blob_sha1": "sha1:cbc34a9c36238762480ec6e25fb983c31108a5a0",
+      "sha256": "sha256:2d85940cb9d12c10342b32196aa66ac3651059f6336e7f66a767191503c90e35"
+    }
+  ],
+  "checker_replay": {
+    "primary": {
+      "status": "PASS",
+      "arguments": "ORIGINAL_DEFAULTS",
+      "stdout": "PCF6_CHECK_PASS source_pairs=412 public_profiles=412 selectors=412 root_classes=4:144,8:224,16:44 pressure=PASS trace_split=PASS ambient_sync=PASS"
+    },
+    "independent": {
+      "status": "PASS",
+      "arguments": "ORIGINAL_DEFAULTS",
+      "stdout": "PCF6_INDEPENDENT_PASS algebraic_pairs=432 root_classes=4:144,8:216,16:72 selector_equivalence=PASS fixed_cyclotomic_sync=PASS pressure=PASS"
+    }
+  },
+  "mathematical_scope_guard": {
+    "preserved_verdict": "FUNCTORIAL_REALIZATION_OBSTRUCTED",
+    "preserved_ambient_descent": "A_H=(Z/HZ)[X]/((X^2+1)(X^2+X+1)) and multiplication-by-X descend N-blindly",
+    "preserved_selector_equivalence": "exact corrected free-rank-2 oriented mixed realization <=> nontrivial CRT idempotent, with c=-tr(T)",
+    "preserved_fixed_resultant_boundary": "finite H-independent polynomial-determinant probes reduce to fixed integer resultants",
+    "preserved_root_count_classes": "4/8/16 with the 4-root coincidence only a root-predicate degeneracy",
+    "preserved_pressure_guard": "H=91, p=13, q=7, c=78, mixed roots {18,44,60,86}",
+    "surviving_open_question": "N_ONLY_NONTRIVIAL_IDEMPOTENT_OR_EQUIVALENT_SELECTOR_GENERATOR beyond the frozen corrected-carrier realization grammar",
+    "factorization_speedup_claimed": false,
+    "factoring_lower_bound_claimed": false,
+    "all_H_dependent_algorithms_ruled_out": false
+  }
+}
