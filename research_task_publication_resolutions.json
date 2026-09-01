@@ -134,6 +134,54 @@
       "working_truth_granted": false,
       "canonical_promotion_granted": false,
       "successor_triggered": false
+    },
+    {
+      "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+      "canonical_publication_id": "TP2-FBDBDBE1C5BDF65F97A0",
+      "operational_publication_id": "TP2-FBDBDBE1C5BDF65F97A0",
+      "quarantined_publication_ids": [
+        "TP2-3F6A92D8C1E740B5A2C9",
+        "TP2-4A84B81FD5CAB8CD0359"
+      ],
+      "retained_parallel_publication_ids": [
+        "TP2-3F6A92D8C1E740B5A2C9",
+        "TP2-D4A7C19E5B306F821472",
+        "TP2-E5B7C19A3D604F821583",
+        "TP2-4A84B81FD5CAB8CD0359",
+        "TP2-FBDBDBE1C5BDF65F97A0"
+      ],
+      "parallel_intake_id": "PI-P000L1-PUB-20260901-01",
+      "parallel_synthesis_id": "PS-P000L1-PUB-20260901-01",
+      "resolution_kind": "PARALLEL_PUBLICATION_OPERATIONAL_BINDING",
+      "reason": "The current immutable head partition contains the older nonclaimable redirect TP2-3F6A92D8C1E740B5A2C9 plus two V2-clean descendants of the later S4-background-moduli branches. Historical TP2-D4A7C19E5B306F821472 and TP2-E5B7C19A3D604F821583 remain immutable evidence and are directly superseded by exact zero-mathematical-delta descendants TP2-4A84B81FD5CAB8CD0359 and TP2-FBDBDBE1C5BDF65F97A0. Two reference passes retain the clean D4 descendant as a parallel head and select TP2-FBDBDBE1C5BDF65F97A0 only for runtime continuity because it preserves Gen19, continues the accepted Gen18 full-lift-fiber lineage TP2-D6A41E9C3B705F821847 / RR-7FED4A83F3922D37319D / DR-7F2A91C5D4B306E82194, and absorbs D4's useful moduli scope. No publication is rejected as mathematical evidence and the selection is not a truth, quality, priority, Working Truth, Foundation, P000 mutation, or canonical-promotion judgment.",
+      "authority_role": "RESEARCH_DRIVER",
+      "authority_id": "EM-DVR-P8H4Q2",
+      "resolved_at": "2026-09-01T02:28:00+00:00",
+      "reference_process": {
+        "passes_required": 2,
+        "pass_1": "COMPLETE_REDIRECT_SCOPE_DISTINCT_AND_ZERO_DELTA_DESCENDANTS_VERIFIED",
+        "pass_1_id": "RP1-P000L1-PUB-20260901-01",
+        "pass_2": "COMPLETE_KEEP_PARALLEL_SELECT_CLEAN_GEN19_LINEAGE",
+        "pass_2_id": "RP2-P000L1-PUB-20260901-01",
+        "relationship": [
+          "OLDER_REDIRECT_NONEXECUTABLE_HISTORY",
+          "HISTORICAL_D4_E5_DIRECTLY_SUPERSEDED_ZERO_MATH_DELTA",
+          "CLEAN_D4_AND_CLEAN_E5_SAME_DOWNSTREAM_MODULI_MOTHER_TARGET",
+          "CLEAN_E5_CONTINUES_ACCEPTED_GEN18_LOCAL_TO_GLOBAL_LINEAGE",
+          "CLEAN_D4_RETAINED_AS_PARALLEL_HEAD",
+          "NO_TRUTH_OR_QUALITY_RANKING"
+        ],
+        "final_disposition": "KEEP_PARALLEL_AND_SELECT_OPERATIONAL",
+        "allowed_final_dispositions": [
+          "KEEP_PARALLEL",
+          "MERGE_TO_NEW_GENERATION",
+          "SPLIT_TO_TYPED_TASKS",
+          "RESELECT_OPERATIONAL_WITHOUT_REJECTING_OTHERS"
+        ]
+      },
+      "working_truth_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
     }
   ]
 }
