@@ -1,0 +1,73 @@
+{
+  "schema": "N_COUPLED_OPAQUE_TYPED_SUPPORT_REFLECTION_CERTIFICATE_V1",
+  "task_id": "RS-N-COUPLED-OPAQUE-LAZY-TYPED-SUPPORT-SCALARIZATION-DELAY",
+  "researcher_id": "EM-NCASOT1-5E31B7",
+  "frozen_grammar": "G_FIN_REFLECT",
+  "verdict": "NEGATIVE_BOUNDARY",
+  "hard_target_disposition": "FINITE_EFFECTIVE_OPAQUE_MODULES_WITH_GENERATOR_COMPLETE_PUBLIC_OPERATIONS_AND_DECIDABLE_EQUALITY_REFLECT_TO_EXPLICIT_PRESENTATIONS_AND_ONE_SIDED_SUPPORT_SCALARIZES",
+  "grammar": {
+    "public_input": "N only",
+    "state": "finite opaque Z/NZ-module handle type",
+    "public_pre_readout_capabilities": [
+      "zero handle",
+      "finite generator-complete handle list",
+      "total addition on handles",
+      "decidable extensional equality on handles",
+      "ordinary program closure under repeated calls, storage, duplication and branching on equality"
+    ],
+    "internal_representation_visible": false,
+    "hidden_factor_input_allowed": false,
+    "presentation_matrix_given": false
+  },
+  "reflection_theorem": {
+    "closure_algorithm": "start from zero and public generators; repeatedly add all known handles and deduplicate by extensional equality until stable",
+    "termination_reason": "the carrier is finite",
+    "completeness_reason": "the supplied generators generate the carrier",
+    "presentation": "one free integer generator e_x for every enumerated handle x; relations e_0 and e_x+e_y-e_(x+y)",
+    "isomorphism": "Z^(carrier)/relations is canonically isomorphic to the opaque additive module",
+    "representation_dependency": "none; only exported operations and equality are queried"
+  },
+  "support_corollary": {
+    "fiber_dimension": "dim_F_r(M tensor F_r) = number_of_columns - rank_F_r(A mod r)",
+    "semiprime_boundary": "for N=pq, unequal p/q fiber dimensions imply unequal ranks of the reflected presentation",
+    "parent_theorem_reuse": "the accepted explicit-presentation determinantal-divisor theorem then yields some k with 1 < gcd(N,D_k(A)) < N",
+    "consequence": "ordinary finite opaque/lazy ADT wrapping does not delay scalarization"
+  },
+  "killed_routes": [
+    "opaque wrapper around an explicit presentation",
+    "lazy thunk whose algebraic operations and equality remain callable",
+    "finite black-box module with public generators, addition and extensional equality",
+    "implementation secrecy that merely declines to run the reflection algorithm"
+  ],
+  "surviving_capability": "NONREFLECTIVE_CAPABILITY_SEMANTICS",
+  "surviving_requirements": [
+    "remove effective extensional equality, or",
+    "remove generator-complete finite enumerability, or",
+    "remove unrestricted replay/duplication/composition of handles, or",
+    "leave the finite module/Fitting-support setting"
+  ],
+  "scope_exclusions": [
+    "infinite or non-effective carriers",
+    "oracle or physical hidden resources not computable from public N alone",
+    "linear/affine single-use handles without clone/equality",
+    "non-module typed states whose support is not presentation/Fitting support",
+    "universal factoring lower bounds"
+  ],
+  "finite_regression": {
+    "checker": "research_checks/N_COUPLED_OPAQUE_LAZY_TYPED_SUPPORT_SCALARIZATION_DELAY_CHECK_20260901.py",
+    "status": "PASS",
+    "cyclic_reflection_cases": [2, 3, 4, 5],
+    "maximal_minors_checked": 68290,
+    "N15_one_sided_cases": 2,
+    "observations": [
+      "reflection presentation for Z/3 has maximal determinantal divisor 3 and ranks 2 mod 3, 3 mod 5",
+      "reflection presentation for Z/5 has maximal determinantal divisor 5 and ranks 5 mod 3, 4 mod 5"
+    ]
+  },
+  "authority_guards": {
+    "working_truth_granted": false,
+    "foundation_authority_granted": false,
+    "canonical_promotion_granted": false,
+    "novelty_claimed": false
+  }
+}
