@@ -35,6 +35,10 @@ def check() -> None:
             f"{path}: Draft PRs must remain validation-capable; Draft is review readiness, not a CI-off switch",
         )
         require(
+            "ready_for_review" not in text,
+            f"{path}: review-readiness metadata must not rerun an already-validated head",
+        )
+        require(
             "cancel-in-progress: true" in text,
             f"{path}: obsolete validation runs must be cancelled on a newer head",
         )
