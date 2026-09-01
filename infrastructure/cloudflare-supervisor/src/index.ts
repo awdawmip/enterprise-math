@@ -27,7 +27,7 @@ async function resolveScopeStub(env: Env, input: ScopeIdentity) {
   if (await canonical.snapshot()) return canonical;
 
   const legacyKey = legacyScopeKey(input);
-  if (legacyKey !== canonicalKey) {
+  if (legacyKey && legacyKey !== canonicalKey) {
     const legacy = env.OWNER_SCOPES.getByName(legacyKey);
     if (await legacy.snapshot()) return legacy;
   }
