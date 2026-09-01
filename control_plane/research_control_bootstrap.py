@@ -5,13 +5,14 @@ Order is intentional:
 1. isolate unresolved immutable publication forks without selecting a head;
 2. isolate exact pinned current task-integrity faults;
 3. isolate exact stale result-review bindings from the operational review view;
-4. isolate exact nonconforming Driver-review provenance from the operational view;
-5. compose all nonoperational-review causes for follow-up isolation;
-6. isolate follow-up packets and task heads derived solely from those reviews;
-7. normalize every other isolated task to a state-machine-complete hard block;
-8. expose fault-isolated operational task/publication audits while retaining
+4. isolate exact invalid immutable review records from operational authority;
+5. isolate exact nonconforming Driver-review provenance from the operational view;
+6. compose all nonoperational-review causes for follow-up isolation;
+7. isolate follow-up packets and task heads derived solely from those reviews;
+8. normalize every other isolated task to a state-machine-complete hard block;
+9. expose fault-isolated operational task/publication audits while retaining
    explicit strict/raw audit handles;
-9. leave every unrelated task/review under the original strict rules.
+10. leave every unrelated task/review under the original strict rules.
 
 IMPORTANT LIVENESS BOUNDARY
 ---------------------------
@@ -26,7 +27,7 @@ reported as P0 OPEN for conversation-stall prevention even when repository
 runtime, dispatch, recovery, and integrity gates are green.
 
 This bootstrap grants no research, review, publication, Working Truth, Foundation,
-or successor authority.  Quarantine is exact and fail-closed: it may withhold
+or successor authority. Quarantine is exact and fail-closed: it may withhold
 operational authority, never manufacture replacement authority.
 """
 from __future__ import annotations
@@ -39,6 +40,7 @@ from control_plane import research_driver_followup_fault_isolation
 from control_plane import research_driver_review_authority_fault_isolation
 from control_plane import research_nonoperational_review_source_adapter
 from control_plane import research_publication_fault_isolation
+from control_plane import research_result_review_audit_fault_isolation
 from control_plane import research_result_review_binding_fault_isolation
 from control_plane import research_task_integrity_fault_isolation
 from control_plane import research_task_record_audit_fault_isolation
@@ -86,8 +88,8 @@ def _install_operational_audit_views(root: Path) -> None:
     """Make post-bootstrap public audits match the operational runtime view.
 
     Strict/raw validators are preserved on ``strict_audit`` / ``strict_selection`` /
-    ``strict_selections``.  The public operational surface subtracts only errors
-    pinned by exact validated quarantine records.  New or drifted faults still
+    ``strict_selections``. The public operational surface subtracts only errors
+    pinned by exact validated quarantine records. New or drifted faults still
     fail closed.
     """
     from tools import research_task_records
@@ -173,6 +175,7 @@ def install(root: Path = ROOT) -> None:
     research_publication_fault_isolation.install(root)
     research_task_integrity_fault_isolation.install(root)
     research_result_review_binding_fault_isolation.install(root)
+    research_result_review_audit_fault_isolation.install(root)
     research_driver_review_authority_fault_isolation.install(root)
     research_nonoperational_review_source_adapter.install(root)
     research_driver_followup_fault_isolation.install(root)
