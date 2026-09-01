@@ -1,24 +1,17 @@
 import fs from "node:fs";
 
-const wrangler = fs.readFileSync(new URL("../wrangler.jsonc", import.meta.url), "utf8");
-const index = fs.readFileSync(new URL("../src/index.ts", import.meta.url), "utf8");
-const owner = fs.readFileSync(new URL("../src/owner-scope.ts", import.meta.url), "utf8");
-const external = fs.readFileSync(new URL("../src/external.ts", import.meta.url), "utf8");
-const externalAuth = fs.readFileSync(new URL("../src/external-auth.ts", import.meta.url), "utf8");
-const security = fs.readFileSync(new URL("../src/security.ts", import.meta.url), "utf8");
-const smokeLive = fs.readFileSync(new URL("./smoke-live.mjs", import.meta.url), "utf8");
-const deployWorkflow = fs.readFileSync(
-  new URL("../../../.github/workflows/cloudflare-supervisor.yml", import.meta.url),
-  "utf8",
-);
-const quarantineWorkflow = fs.readFileSync(
-  new URL("../../../.github/workflows/cloudflare-supervisor-ci-token-quarantine.yml", import.meta.url),
-  "utf8",
-);
-const provisionWorkflow = fs.readFileSync(
-  new URL("../../../.github/workflows/cloudflare-supervisor-access-provision.yml", import.meta.url),
-  "utf8",
-);
+const readText = (path) => fs.readFileSync(new URL(path, import.meta.url), "utf8").replaceAll("\r\n", "\n");
+
+const wrangler = readText("../wrangler.jsonc");
+const index = readText("../src/index.ts");
+const owner = readText("../src/owner-scope.ts");
+const external = readText("../src/external.ts");
+const externalAuth = readText("../src/external-auth.ts");
+const security = readText("../src/security.ts");
+const smokeLive = readText("./smoke-live.mjs");
+const deployWorkflow = readText("../../../.github/workflows/cloudflare-supervisor.yml");
+const quarantineWorkflow = readText("../../../.github/workflows/cloudflare-supervisor-ci-token-quarantine.yml");
+const provisionWorkflow = readText("../../../.github/workflows/cloudflare-supervisor-access-provision.yml");
 
 const required = [
   [wrangler, '"storage": "sqlite"', "SQLite-backed Durable Object"],
