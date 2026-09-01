@@ -59,6 +59,20 @@ def FixedChannelPrimeFieldPair (a b : ℤ) : Prop :=
     (Cmodulus a b).Prime ∧
       Nmodulus a b ≠ Cmodulus a b
 
+/-- Canonical prime-field structure on the fixed Gaussian channel. -/
+@[instance_reducible]
+noncomputable def gaussianChannelField (a b : ℤ) (hN : (Nmodulus a b).Prime) :
+    Field (ZMod (Nmodulus a b)) := by
+  letI : Fact (Nat.Prime (Nmodulus a b)) := ⟨hN⟩
+  infer_instance
+
+/-- Canonical prime-field structure on the fixed Eisenstein channel. -/
+@[instance_reducible]
+noncomputable def eisensteinChannelField (a b : ℤ) (hC : (Cmodulus a b).Prime) :
+    Field (ZMod (Cmodulus a b)) := by
+  letI : Fact (Nat.Prime (Cmodulus a b)) := ⟨hC⟩
+  infer_instance
+
 /-- F2-L04: a labelled dual-prime cell really has two finite field carriers,
 with the fixed Gaussian/Eisenstein orders `N` and `C`; no unordered product
 isomorphism is used to manufacture or swap these labels. -/
@@ -68,9 +82,7 @@ theorem fixed_channel_prime_fields_and_orders {a b : ℤ}
       Nonempty (Field (ZMod (Cmodulus a b))) ∧
         Nat.card (ZMod (Nmodulus a b)) = Nmodulus a b ∧
           Nat.card (ZMod (Cmodulus a b)) = Cmodulus a b := by
-  letI : Fact (Nat.Prime (Nmodulus a b)) := ⟨h.1⟩
-  letI : Fact (Nat.Prime (Cmodulus a b)) := ⟨h.2.1⟩
-  refine ⟨⟨inferInstance⟩, ⟨inferInstance⟩, ?_, ?_⟩
+  refine ⟨⟨gaussianChannelField a b h.1⟩, ⟨eisensteinChannelField a b h.2.1⟩, ?_, ?_⟩
   · exact gaussianCarrier_card a b
   · exact eisensteinCarrier_card a b
 
