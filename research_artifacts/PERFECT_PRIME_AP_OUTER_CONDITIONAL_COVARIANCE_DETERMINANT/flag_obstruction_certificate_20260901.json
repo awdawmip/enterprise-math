@@ -1,0 +1,92 @@
+{
+  "arithmetic": "exact Python fractions.Fraction",
+  "classification": "EXACT_CANONICAL_FLAG_SIGN_REGULARITY_OBSTRUCTION",
+  "delta_11_at_4/5_sha256": "sha256:cf48043377dd68126d22d25b1d57c32fdde5bf3ddfd3caf699a7c7a7e6abf7c5",
+  "delta_12": {
+    "at_1": {
+      "canonical_fraction_sha256": "sha256:7ff466bcd873377dfd7b3539fd9d1521e66b479b2c587ac2cc728ec72f3b2143",
+      "sign": 1
+    },
+    "at_3/4": {
+      "canonical_fraction_sha256": "sha256:78622ad9fb61598ea1922854eaceebe951c9fde5ac8fe2c8c3928cdc45f17698",
+      "sign": 1
+    },
+    "at_4/5": {
+      "canonical_fraction_sha256": "sha256:dae8e77e01251c4c30f64e301f52b47ac640bc273f1f643cca17950612c7cbc3",
+      "sign": -1
+    },
+    "continuity_consequence": "at least one zero in (3/4,4/5) and at least one zero in (4/5,1)"
+  },
+  "delta_13_at_4/5_sha256": "sha256:9a25f696775d0bc9bbfbea01bfd5ff3ddb8dfc0657b8fa44573c6b6fabddeb1b",
+  "full_outer_determinant": {
+    "canonical_fraction_sha256": "sha256:0f141edcf6172842c6d5175af60c1785d1a7c3ff86b1e3eab48ef51b92f08d00",
+    "denominator_bits": 17720,
+    "nonzero": true,
+    "numerator_bits": 17954,
+    "sign": -1
+  },
+  "inertia_from_nonzero_ldl_pivots": {
+    "negative": 7,
+    "positive": 7,
+    "zero": 0
+  },
+  "ldl_pivot_signs_k1_to_k14": [
+    -1,
+    1,
+    -1,
+    1,
+    -1,
+    1,
+    -1,
+    1,
+    -1,
+    1,
+    -1,
+    -1,
+    1,
+    1
+  ],
+  "leading_minor_signs_k1_to_k14": [
+    -1,
+    -1,
+    1,
+    1,
+    -1,
+    -1,
+    1,
+    1,
+    -1,
+    -1,
+    1,
+    -1,
+    -1,
+    -1
+  ],
+  "mismatch_orders": [
+    12
+  ],
+  "rejected_universal_flag_pattern_k1_to_k14": [
+    -1,
+    -1,
+    1,
+    1,
+    -1,
+    -1,
+    1,
+    1,
+    -1,
+    -1,
+    1,
+    1,
+    -1,
+    -1
+  ],
+  "schema": "PERFECT_PRIME_AP_OUTER_COVARIANCE_FLAG_OBSTRUCTION_CERT_V1",
+  "scope": "Refutes the universal canonical-monomial-flag / strict alternating one-by-one LDL pivot mechanism. Does not refute det S_m(t)!=0 or the 7+7 inertia at the witness.",
+  "task_id": "RS-PERFECT-PRIME-AP-OUTER-CONDITIONAL-COVARIANCE-DETERMINANT",
+  "witness": {
+    "basis": "canonical quotient monomials X,...,X^14",
+    "m": 15,
+    "t": "4/5"
+  }
+}
