@@ -13,85 +13,47 @@
     "cell_graph": "K4/tetra",
     "channels": ["AB", "AC", "AD", "BC", "BD", "CD"],
     "carrier_group": "S4",
-    "connection_value_universe": "S6 = Bij(six typed channels)",
-    "frame_policy": "Gen17 pure per-Cell frame gauge; identity-frame slice with residual equivariant gauge",
-    "no_kernel_quotient": true,
-    "time_fixed": true,
-    "carrier_s4_is_not_complete_native_p000_rotation_group": true
+    "connection_value_universe": "S6 = Bij(six typed channels)"
   },
-  "hidden_kernel_resolution": {
-    "frozen_gen17_formula": "Pi_x^u = f_{u(x)} rho(q0(u)) f_x^-1",
-    "identity_frame_formula": "Pi_x^u = rho(q0(u))",
-    "kernel_action_on_declared_channel_background_sorts": "TRIVIAL",
-    "reason": "For k in ker(q0), the carrier Cell is fixed and rho(q0(k))=id on the six typed channels. Thus full lift fibers over a,b impose the same typed equations as visible a,b in this model. No quotient of K is performed.",
-    "gen18_general_countermodel_preserved": true
+  "hidden_kernel": {
+    "frozen_formula": "Pi_x^u = f_{u(x)} rho(q0(u)) f_x^-1",
+    "identity_frame": "Pi_x^u = rho(q0(u))",
+    "declared_channel_sort_kernel_action": "TRIVIAL",
+    "full_lift_fiber_criterion_satisfied_without_kernel_quotient": true,
+    "gen18_general_hidden_kernel_countermodel_preserved": true
   },
   "pf10": {
-    "full_local_s4": {
-      "vector_orbits": 1,
-      "ordered_pair_orbits": 3,
-      "ordered_pair_types": ["diagonal", "adjacent_distinct", "opposite"]
+    "full_s4_orbits": {"vector": 1, "ordered_pair": 3},
+    "base_stab_A_orbits": {"vector": 2, "ordered_pair": 8},
+    "base_vector_orbits": {
+      "S": ["AB", "AC", "AD"],
+      "F": ["BC", "BD", "CD"]
     },
-    "base_cell_stabilizer": {
-      "group": "S3 = Stab(A)",
-      "vector_orbits": {
-        "S": ["AB", "AC", "AD"],
-        "F": ["BC", "BD", "CD"]
-      },
-      "ordered_pair_orbits": ["SS_eq", "SS_neq", "FF_eq", "FF_neq", "SF_inc", "SF_opp", "FS_inc", "FS_opp"],
-      "vector_orbit_count": 2,
-      "ordered_pair_orbit_count": 8
-    },
-    "framed_parameterization": "IVal^2 x OVal^2 x MVal^8",
-    "framed_parameter_count_if_common_q": "q^12",
-    "residual_gauge": {
-      "group_order": 2,
-      "generator": "omega=(AB CD)(AC BD)(AD BC)",
-      "parameter_swaps": [
-        ["I_S", "I_F"],
-        ["O_S", "O_F"],
-        ["SS_eq", "FF_eq"],
-        ["SS_neq", "FF_neq"],
-        ["SF_inc", "FS_inc"],
-        ["SF_opp", "FS_opp"]
-      ],
-      "class_count_formula": "(q_I^2 q_O^2 q_M^8 + q_I q_O q_M^4)/2",
-      "common_q_formula": "(q^12+q^6)/2",
-      "binary_framed_count": 4096,
-      "binary_gauge_class_count": 2080
-    },
-    "nonconstant_witness": {
-      "I_x": "1[x in edge]",
-      "O_x": "1[x in edge]",
-      "M_x": "1[x in e] 1[x in f]",
-      "raw_cell_profiles_distinct": 4,
-      "fully_equivariant": true
-    }
+    "ordered_pair_orbits": ["SS_eq", "SS_neq", "FF_eq", "FF_neq", "SF_inc", "SF_opp", "FS_inc", "FS_opp"],
+    "framed_moduli": "IVal^2 x OVal^2 x MVal^8",
+    "common_q_framed_count": "q^12",
+    "residual_frame_gauge": "C2=<omega>, omega=(AB CD)(AC BD)(AD BC)",
+    "common_q_gauge_count": "(q^12+q^6)/2",
+    "binary_framed_count": 4096,
+    "binary_gauge_count": 2080,
+    "nonconstant_common_model_witness": true
   },
   "connection": {
     "representative_edge": "A->B",
-    "edge_stabilizer_generator": "c=rho((CD))=(AC AD)(BC BD)",
-    "reverse_generator": "s=rho((AB))=(AC BC)(AD BD)",
-    "equations": ["c t = t c", "s t s^-1 = t^-1"],
-    "centralizer_candidate_count": 16,
-    "solution_parameterization": {
-      "endpoint_flip": "e=(AB CD)",
-      "middle_allowed": ["id", "c", "s", "d=(AC BD)(AD BC)", "r=(AC BC AD BD)", "r^-1=(AC BD AD BC)"],
-      "formula": "t=e^epsilon u, epsilon in {0,1}, u in U",
-      "raw_solution_count": 12
-    },
-    "global_reconstruction": "T_{gA,gB}=rho(g) t rho(g)^-1",
-    "residual_gauge": {
-      "order": 2,
-      "generator": "omega=(AB CD)(AC BD)(AD BC)",
-      "raw_orbit_sizes": [1, 1, 1, 2, 1, 1, 1, 1, 2, 1],
-      "gauge_class_count": 10
-    },
-    "flat_raw_count": 2,
-    "nonflat_raw_count": 10,
-    "flat_gauge_class_count": 2,
-    "nonflat_gauge_class_count": 8,
-    "holonomy_cycle_type_distribution": {
+    "equations": [
+      "c t=t c with c=(AC AD)(BC BD)",
+      "s t s^-1=t^-1 with s=(AC BC)(AD BD)"
+    ],
+    "centralizer_candidates": 16,
+    "raw_solutions": 12,
+    "solution_normal_form": "t=e^epsilon u; e=(AB CD); u in {id,c,s,d,r,r^-1}; d=(AC BD)(AD BC); r=(AC BC AD BD)",
+    "residual_frame_gauge": "C2=<omega>",
+    "gauge_classes": 10,
+    "flat_raw": 2,
+    "nonflat_raw": 10,
+    "flat_gauge_classes": 2,
+    "nonflat_gauge_classes": 8,
+    "holonomy_type_class_counts": {
       "1^6": 2,
       "4+2": 1,
       "2+2+1+1": 1,
@@ -100,60 +62,53 @@
       "4+1+1": 1,
       "5+1": 1
     },
-    "gauge_classes": [
-      {"class": "C0", "raw_orbit_size": 1, "representative": "id", "raw_members": ["id"], "basis_holonomy_type": "1.1.1.1.1.1", "basis_holonomy_representatives": ["id", "id", "id"], "flat": true},
-      {"class": "C1", "raw_orbit_size": 1, "representative": "(AC AD)(BC BD)", "raw_members": ["(AC AD)(BC BD)"], "basis_holonomy_type": "4.2", "basis_holonomy_representatives": ["(AB BD CD AC)(AD BC)", "(AB BC CD AD)(AC BD)", "(AB CD)(AC BC BD AD)"], "flat": false},
-      {"class": "C2", "raw_orbit_size": 1, "representative": "(AC BC)(AD BD)", "raw_members": ["(AC BC)(AD BD)"], "basis_holonomy_type": "2.2.1.1", "basis_holonomy_representatives": ["(AB AC)(BD CD)", "(AB AD)(BC CD)", "(AC AD)(BC BD)"], "flat": false},
-      {"class": "C3", "raw_orbit_size": 2, "representative": "(AC BC AD BD)", "raw_members": ["(AC BC AD BD)", "(AC BD AD BC)"], "basis_holonomy_type": "2.1.1.1.1", "basis_holonomy_representatives": ["(AB AC)", "(AB AD)", "(AC AD)"], "flat": false},
-      {"class": "C4", "raw_orbit_size": 1, "representative": "(AC BD)(AD BC)", "raw_members": ["(AC BD)(AD BC)"], "basis_holonomy_type": "1.1.1.1.1.1", "basis_holonomy_representatives": ["id", "id", "id"], "flat": true},
-      {"class": "C5", "raw_orbit_size": 1, "representative": "(AB CD)", "raw_members": ["(AB CD)"], "basis_holonomy_type": "2.2.2", "basis_holonomy_representatives": ["(AB CD)(AC BD)(AD BC)", "(AB CD)(AC BD)(AD BC)", "(AB CD)(AC BD)(AD BC)"], "flat": false},
-      {"class": "C6", "raw_orbit_size": 1, "representative": "(AB CD)(AC AD)(BC BD)", "raw_members": ["(AB CD)(AC AD)(BC BD)"], "basis_holonomy_type": "2.2.2", "basis_holonomy_representatives": ["(AB BD)(AC CD)(AD BC)", "(AB BC)(AC BD)(AD CD)", "(AB CD)(AC BC)(AD BD)"], "flat": false},
-      {"class": "C7", "raw_orbit_size": 1, "representative": "(AB CD)(AC BC)(AD BD)", "raw_members": ["(AB CD)(AC BC)(AD BD)"], "basis_holonomy_type": "4.1.1", "basis_holonomy_representatives": ["(AB AC CD BD)", "(AB AD CD BC)", "(AC AD BD BC)"], "flat": false},
-      {"class": "C8", "raw_orbit_size": 2, "representative": "(AB CD)(AC BC AD BD)", "raw_members": ["(AB CD)(AC BC AD BD)", "(AB CD)(AC BD AD BC)"], "basis_holonomy_type": "5.1", "basis_holonomy_representatives": ["(AB CD BD AC BC)", "(AB CD BC AD BD)", "(AC BD BC AD CD)"], "flat": false},
-      {"class": "C9", "raw_orbit_size": 1, "representative": "(AB CD)(AC BD)(AD BC)", "raw_members": ["(AB CD)(AC BD)(AD BC)"], "basis_holonomy_type": "2.2.2", "basis_holonomy_representatives": ["(AB CD)(AC BD)(AD BC)", "(AB CD)(AC BD)(AD BC)", "(AB CD)(AC BD)(AD BC)"], "flat": false}
+    "class_representatives": [
+      {"class": "C0", "rep": "id", "raw_orbit_size": 1, "holonomy_type": "1.1.1.1.1.1", "flat": true},
+      {"class": "C1", "rep": "(AC AD)(BC BD)", "raw_orbit_size": 1, "holonomy_type": "4.2", "flat": false},
+      {"class": "C2", "rep": "(AC BC)(AD BD)", "raw_orbit_size": 1, "holonomy_type": "2.2.1.1", "flat": false},
+      {"class": "C3", "rep": "(AC BC AD BD)", "raw_orbit_size": 2, "holonomy_type": "2.1.1.1.1", "flat": false},
+      {"class": "C4", "rep": "(AC BD)(AD BC)", "raw_orbit_size": 1, "holonomy_type": "1.1.1.1.1.1", "flat": true},
+      {"class": "C5", "rep": "(AB CD)", "raw_orbit_size": 1, "holonomy_type": "2.2.2", "flat": false},
+      {"class": "C6", "rep": "(AB CD)(AC AD)(BC BD)", "raw_orbit_size": 1, "holonomy_type": "2.2.2", "flat": false},
+      {"class": "C7", "rep": "(AB CD)(AC BC)(AD BD)", "raw_orbit_size": 1, "holonomy_type": "4.1.1", "flat": false},
+      {"class": "C8", "rep": "(AB CD)(AC BC AD BD)", "raw_orbit_size": 2, "holonomy_type": "5.1", "flat": false},
+      {"class": "C9", "rep": "(AB CD)(AC BD)(AD BC)", "raw_orbit_size": 1, "holonomy_type": "2.2.2", "flat": false}
     ],
-    "holonomy_conjugacy_complete_classifier": false,
-    "gen18_regression": {
-      "representative": "(AB CD)",
-      "global_rule": "each Cell edge swaps its own channel with its unique opposite tetrahedral channel",
+    "gen18_witness": {
+      "T_AB": "(AB CD)",
       "basis_holonomy": "omega=(AB CD)(AC BD)(AD BC)",
       "nonflat": true
     }
   },
   "common_model": {
-    "pf10_witness": "star incidence I/O plus star outer-product M",
-    "connection_witness": "C5 representative T_AB=(AB CD)",
-    "same_cells_and_channels": true,
-    "pf10_transparency": true,
-    "connection_transparency": true,
+    "pf10": "I_x=O_x=incidence-star; M_x=star outer product",
+    "connection": "T_AB=(AB CD) propagated S4-equivariantly",
     "nonconstant_pf10": true,
     "nonidentity_connection": true,
     "nonflat_connection": true,
-    "relations": {"R_a^3": true, "R_b^2": true, "(R_a R_b)^4": true},
-    "terminal_verdict": "EXISTS"
+    "relations": {"R_a^3": true, "R_b^2": true, "(R_aR_b)^4": true}
   },
   "tool_reuse": {
-    "coverage_verdict": "COMPOSE_EXISTING_TOOLS",
-    "matches": [
-      {"id": "T7_FINITE_SYMMETRY_EQUIVARIANCE", "resolution": "REUSE_APPLIED", "use": "orbit/stabilizer, fixed-profile and equivariant reconstruction"},
-      {"id": "T9_HOLONOMY_COCOYCLE_GLUING", "resolution": "REUSE_APPLIED", "use": "loop transport, holonomy conjugacy and flat/nonflat classification"}
-    ],
+    "T7_FINITE_SYMMETRY_EQUIVARIANCE": "REUSE_APPLIED",
+    "T9_HOLONOMY_COCOYCLE_GLUING": "REUSE_APPLIED",
     "new_general_tool_claim": false
   },
   "checker": {
     "path": "research_checks/P000_S4_EQUIVARIANT_PF10_CONNECTION_MODULI_V21_CHECK_20260901.py",
-    "sha256": "sha256:7e0437cea46bd91972806edacdabd4491d8cd07b12343b4b7dd032252713befb",
-    "selftest": "PASS"
+    "git_blob_sha1": "sha1:6492115a53c0b803642311b3e27a0ff812261b33",
+    "pre_persistence_selftest_source_sha256": "sha256:7e0437cea46bd91972806edacdabd4491d8cd07b12343b4b7dd032252713befb",
+    "pre_persistence_selftest": "PASS",
+    "persisted_source_execution_claimed": false,
+    "note": "The in-chat selftest source and persisted checker are semantically equivalent formatting variants; authoritative persisted identity is the Git blob SHA-1."
   },
   "guards": {
+    "NO_KERNEL_QUOTIENT": true,
+    "TIME_FIXED": true,
+    "CARRIER_S4_IS_NOT_COMPLETE_NATIVE_P000_ROTATION_GROUP": true,
     "P000_MUTATED": false,
     "G15_MUTATED": false,
     "GEN17_GATE_COST_CHANGED": false,
     "GEN18_FULL_LIFT_FIBER_CRITERION_CHANGED": false,
-    "NO_KERNEL_QUOTIENT": true,
-    "TIME_FIXED": true,
-    "CARRIER_S4_IS_NOT_COMPLETE_NATIVE_P000_ROTATION_GROUP": true,
-    "GAUGE_BIT_IS_NATIVE_AXIS": false,
     "working_truth_granted": false,
     "canonical_promotion_granted": false
   }
