@@ -1,0 +1,56 @@
+{
+  "schema": "ENTERPRISE_MATH_BRANCH_PROTECTION_RECONCILIATION_V1",
+  "status": "ACTIVE_CANONICAL_CONTROL_ONLY",
+  "effective": "2026-09-01",
+  "repository": "awdawmip/enterprise-math",
+  "branch": "main",
+  "mode": "DIRECT_MAIN_RECOVERY_AUTHORIZED",
+  "expected_remote_state": {
+    "protected": false,
+    "required_status_check_contexts": []
+  },
+  "rationale": [
+    "The user explicitly authorized direct main repair to avoid a self-bootstrapping deadlock.",
+    "The connected GitHub application does not expose repository-administration write authority for rulesets or branch protection.",
+    "Several independent workflows historically emitted the generic check-run name check; requiring that ambiguous context would not prove that every intended workflow passed.",
+    "An unprotected branch with an explicit, audited recovery contract is safer than a partially configured protection rule that permanently blocks or falsely authorizes integration."
+  ],
+  "core_workflows": [
+    ".github/workflows/quality.yml",
+    ".github/workflows/reference-integrity.yml",
+    ".github/workflows/lean.yml",
+    ".github/workflows/bilingual-sync.yml",
+    ".github/workflows/control-plane-e2e-canary.yml"
+  ],
+  "forbidden_required_contexts": [
+    "check",
+    "unit-shard (0)",
+    "unit-shard (1)",
+    "unit-shard (2)",
+    "unit-shard (3)",
+    "unit-shard (4)",
+    "unit-shard (5)",
+    "unit-shard (6)",
+    "unit-shard (7)"
+  ],
+  "future_protected_mode_gate": {
+    "requires_repository_administration_write_authority": true,
+    "requires_exact_emergency_bypass_actor": true,
+    "requires_unique_always_emitted_gate_names": true,
+    "requires_live_ruleset_readback_after_write": true,
+    "preferred_mechanism": "REPOSITORY_RULESET_REQUIRED_WORKFLOWS_WITH_EXACT_WORKFLOW_PATHS",
+    "do_not_enable_from": [
+      "generic check-run names",
+      "matrix child job names",
+      "path-filtered jobs that may not be emitted",
+      "a cached branch or workflow snapshot"
+    ]
+  },
+  "invariants": [
+    "CURRENT_UNPROTECTED_STATE_IS_EXPLICIT_NOT_ACCIDENTAL",
+    "DIRECT_MAIN_RECOVERY_REMAINS_AVAILABLE_UNTIL_ADMIN_LEVEL_RULESET_WRITE_AND_BYPASS_ARE_VERIFIED",
+    "AMBIGUOUS_GENERIC_CHECK_NAMES_ARE_NEVER_REQUIRED_CONTEXTS",
+    "MATRIX_CHILD_JOBS_ARE_NEVER_REQUIRED_CONTEXTS",
+    "BRANCH_PROTECTION_CHANGE_REQUIRES_REMOTE_READBACK_NOT_FILE_ONLY_ASSERTION"
+  ]
+}
