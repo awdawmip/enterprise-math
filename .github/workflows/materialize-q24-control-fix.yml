@@ -19,6 +19,8 @@ jobs:
   materialize:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    env:
+      MATERIALIZER_CONTEXT: CURRENT_MAIN_MERGED
     steps:
       - uses: actions/checkout@v7
         with:
