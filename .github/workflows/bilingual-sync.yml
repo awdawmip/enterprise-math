@@ -16,7 +16,8 @@ permissions:
   contents: read
 
 jobs:
-  check:
+  bilingual-sync-gate:
+    name: bilingual-sync-gate
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
