@@ -1,0 +1,160 @@
+name: control-plane-e2e-canary
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/control-plane-e2e-canary.yml"
+      - "control_plane/branch_protection_contract.json"
+      - "control_plane/check_branch_protection_contract.py"
+      - "control_plane/e2e_canary.py"
+      - "control_plane/.canary_probe"
+
+concurrency:
+  group: "${{ github.workflow }}-${{ github.ref }}"
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  repository-canary:
+    name: control-plane-repository-canary
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Reconcile live main protection with the canonical recovery contract
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: >-
+          python control_plane/check_branch_protection_contract.py
+          --receipt /tmp/branch-protection-receipt.json
+      - name: Exercise PRE_TOOL, stale adoption, tool execution, immutable handoff, server verification, and release
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: >-
+          python control_plane/e2e_canary.py
+          --repository "${{ github.repository }}"
+          --receipt /tmp/control-plane-e2e-receipt.json
+      - name: Upload immutable canary receipts
+        uses: actions/upload-artifact@v6
+        with:
+          name: control-plane-e2e-receipts-${{ github.sha }}
+          if-no-files-found: error
+          retention-days: 30
+          path: |
+            /tmp/branch-protection-receipt.json
+            /tmp/control-plane-e2e-receipt.json
+
+  live-supervisor-canary:
+    name: control-plane-live-supervisor-canary
+    needs: repository-canary
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TARGET_SHA: ${{ github.sha }}
+      TARGET_WORKFLOW: cloudflare-supervisor.yml
+    steps:
+      - name: Dispatch the production-authenticated Supervisor lifecycle smoke
+        id: dispatch
+        shell: bash
+        run: |
+          set -euo pipefail
+          triggered_epoch="$(date -u +%s)"
+          gh api \
+            --method POST \
+            "repos/${GITHUB_REPOSITORY}/actions/workflows/${TARGET_WORKFLOW}/dispatches" \
+            -f ref=main
+
+          run_id=""
+          for _ in $(seq 1 40); do
+            candidate="$(
+              gh api \
+                "repos/${GITHUB_REPOSITORY}/actions/workflows/${TARGET_WORKFLOW}/runs?event=workflow_dispatch&branch=main&per_page=20" \
+              | jq -r \
+                  --arg sha "$TARGET_SHA" \
+                  --argjson epoch "$triggered_epoch" \
+                  '.workflow_runs
+                   | map(select(.head_sha == $sha))
+                   | map(select((.created_at | fromdateiso8601) >= $epoch))
+                   | sort_by(.created_at)
+                   | last
+                   | .id // empty'
+            )"
+            if [[ -n "$candidate" ]]; then
+              run_id="$candidate"
+              break
+            fi
+            sleep 5
+          done
+          if [[ -z "$run_id" ]]; then
+            echo "LIVE_SUPERVISOR_CANARY_DISPATCH_NOT_OBSERVED"
+            exit 1
+          fi
+          echo "run_id=$run_id" >> "$GITHUB_OUTPUT"
+          echo "Dispatched Supervisor run $run_id for $TARGET_SHA" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Reconcile the independently running Supervisor lifecycle canary
+        shell: bash
+        env:
+          RUN_ID: ${{ steps.dispatch.outputs.run_id }}
+        run: |
+          set -euo pipefail
+          conclusion=""
+          status=""
+          for _ in $(seq 1 100); do
+            row="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${RUN_ID}")"
+            status="$(jq -r '.status' <<<"$row")"
+            conclusion="$(jq -r '.conclusion // empty' <<<"$row")"
+            if [[ "$status" == "completed" ]]; then
+              break
+            fi
+            sleep 15
+          done
+          if [[ "$status" != "completed" ]]; then
+            echo "LIVE_SUPERVISOR_CANARY_TIMEOUT run_id=$RUN_ID"
+            exit 1
+          fi
+          if [[ "$conclusion" != "success" ]]; then
+            echo "LIVE_SUPERVISOR_CANARY_FAILED run_id=$RUN_ID conclusion=$conclusion"
+            gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${RUN_ID}/jobs?per_page=100" \
+              | jq '{jobs:[.jobs[]|{name,status,conclusion,html_url}]}'
+            exit 1
+          fi
+          echo "LIVE_SUPERVISOR_CANARY=PASS run_id=$RUN_ID head_sha=$TARGET_SHA"
+          {
+            echo "### Live Supervisor canary"
+            echo "- run: $RUN_ID"
+            echo "- head: \`$TARGET_SHA\`"
+            echo "- conclusion: \`$conclusion\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  canary-gate:
+    name: control-plane-e2e-canary-gate
+    if: always()
+    needs:
+      - repository-canary
+      - live-supervisor-canary
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Require repository and live Supervisor canaries
+        env:
+          REPOSITORY_RESULT: ${{ needs.repository-canary.result }}
+          LIVE_RESULT: ${{ needs.live-supervisor-canary.result }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$REPOSITORY_RESULT" = "success"
+          test "$LIVE_RESULT" = "success"
+          echo "CONTROL_PLANE_E2E_CANARY_GATE=PASS"
