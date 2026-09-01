@@ -1,0 +1,196 @@
+name: cloudflare-supervisor-live-canary
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/cloudflare-supervisor-live-canary.yml'
+      - '.github/workflows/github-enforcement-provision.yml'
+      - '.github/workflows/quality.yml'
+      - '.github/workflows/reference-integrity.yml'
+      - '.github/workflows/bilingual-sync.yml'
+      - '.github/workflows/lean.yml'
+      - 'control_plane/github_enforcement_contract.json'
+      - 'control_plane/apply_github_enforcement.py'
+      - 'control_plane/check_github_enforcement_contract.py'
+      - 'control_plane/check_control_plane_e2e_canary.py'
+      - 'infrastructure/cloudflare-supervisor/scripts/access-ci-identity.mjs'
+      - 'infrastructure/cloudflare-supervisor/scripts/smoke-live.mjs'
+      - 'infrastructure/cloudflare-supervisor/test/owner-scope.test.ts'
+  schedule:
+    - cron: '41 3 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: cloudflare-supervisor-live-canary
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  checks: read
+
+jobs:
+  control-plane-e2e-canary:
+    name: control-plane-e2e-canary
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: cloudflare-supervisor
+    env:
+      SUPERVISOR_BASE_URL: https://181131.xyz/em
+      SUPERVISOR_API_TOKEN: ${{ secrets.SUPERVISOR_API_TOKEN }}
+      SUPERVISOR_DRIVE_SMOKE_FILE_ID: 1-5LpZSR-iPLF1qwyVuwSro1IWCw_7w3suus3B_v_yKc
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      ACCESS_CI_POLICY_NAME: EnterpriseMath Supervisor CI Service Auth
+      ACCESS_CI_TOKEN_PREFIX: enterprise-math-supervisor-canary-
+      REQUIRED_ENFORCEMENT_CHECKS: quality-gate,reference-integrity-gate,bilingual-sync-gate,lean-gate
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Install pinned Supervisor dependencies
+        working-directory: infrastructure/cloudflare-supervisor
+        run: npm ci --ignore-scripts
+
+      - name: Validate static canary and enforcement contracts
+        run: |
+          python control_plane/check_github_enforcement_contract.py
+          python control_plane/check_control_plane_e2e_canary.py
+
+      - name: Create repository-scoped GitHub App token
+        id: app-token
+        continue-on-error: true
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.GITHUB_APP_ID }}
+          private-key: ${{ secrets.GITHUB_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: enterprise-math
+
+      - name: Apply and verify main protection before the canary
+        id: enforcement
+        continue-on-error: true
+        env:
+          GITHUB_ADMIN_TOKEN: ${{ secrets.GITHUB_ADMIN_TOKEN }}
+          GITHUB_APP_TOKEN: ${{ steps.app-token.outputs.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          token="${GITHUB_ADMIN_TOKEN:-$GITHUB_APP_TOKEN}"
+          if [[ -z "$token" ]]; then
+            cat > github-enforcement-report.json <<'JSON'
+          {
+            "schema": "ENTERPRISE_MATH_GITHUB_ENFORCEMENT_REPORT_V1",
+            "verified": false,
+            "reason": "GITHUB_ADMIN_TOKEN_OR_ADMINISTRATION_WRITE_GITHUB_APP_REQUIRED"
+          }
+          JSON
+            echo "GITHUB_ENFORCEMENT_BLOCKED: configure GITHUB_ADMIN_TOKEN or a repository-scoped GitHub App with administration:write."
+            exit 2
+          fi
+          echo "::add-mask::$token"
+          GITHUB_ENFORCEMENT_TOKEN="$token" \
+            python control_plane/apply_github_enforcement.py \
+              --report github-enforcement-report.json
+
+      - name: Create ephemeral Cloudflare Access canary identity
+        id: access
+        working-directory: infrastructure/cloudflare-supervisor
+        shell: bash
+        run: |
+          set -euo pipefail
+          state="$RUNNER_TEMP/access-ci-identity.json"
+          node scripts/access-ci-identity.mjs create "$state"
+          echo "state=$state" >> "$GITHUB_OUTPUT"
+          enabled="$(jq -r '.enabled // false' "$state")"
+          echo "enabled=$enabled" >> "$GITHUB_OUTPUT"
+          if [[ "$enabled" == "true" ]]; then
+            client_id="$(jq -r '.client_id' "$state")"
+            client_secret="$(jq -r '.client_secret' "$state")"
+            echo "::add-mask::$client_id"
+            echo "::add-mask::$client_secret"
+            {
+              echo "ACCESS_SERVICE_CLIENT_ID=$client_id"
+              echo "ACCESS_SERVICE_CLIENT_SECRET=$client_secret"
+            } >> "$GITHUB_ENV"
+          fi
+
+      - name: Run acquire-to-release-to-async-CI canary
+        id: live-canary
+        working-directory: infrastructure/cloudflare-supervisor
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          SUPERVISOR_CANARY_REPORT: ${{ github.workspace }}/control-plane-e2e-canary.json
+        run: node scripts/smoke-live.mjs
+
+      - name: Revoke ephemeral Cloudflare Access canary identity
+        if: always()
+        working-directory: infrastructure/cloudflare-supervisor
+        env:
+          ACCESS_STATE: ${{ steps.access.outputs.state }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -n "${ACCESS_STATE:-}" ]]; then
+            node scripts/access-ci-identity.mjs revoke "$ACCESS_STATE"
+          fi
+
+      - name: Require both enforcement and released-turn canary evidence
+        if: always()
+        env:
+          ENFORCEMENT_OUTCOME: ${{ steps.enforcement.outcome }}
+          CANARY_OUTCOME: ${{ steps.live-canary.outcome }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          enforcement_path = Path("github-enforcement-report.json")
+          canary_path = Path("control-plane-e2e-canary.json")
+          if not enforcement_path.exists():
+              raise SystemExit("missing github-enforcement-report.json")
+          if not canary_path.exists():
+              raise SystemExit("missing control-plane-e2e-canary.json")
+
+          enforcement = json.loads(enforcement_path.read_text(encoding="utf-8"))
+          canary = json.loads(canary_path.read_text(encoding="utf-8"))
+
+          checks = {
+              "enforcement_step_success": os.environ["ENFORCEMENT_OUTCOME"] == "success",
+              "canary_step_success": os.environ["CANARY_OUTCOME"] == "success",
+              "enforcement_verified": enforcement.get("verified") is True,
+              "canary_status_pass": canary.get("status") == "PASS",
+              "pre_tool_checkpoint_verified": canary.get("pre_tool_checkpoint_verified") is True,
+              "generation_recheck_verified": canary.get("generation_recheck_verified") is True,
+              "handoff_verified": canary.get("handoff_verified") is True,
+              "turn_released_before_ci_observation": canary.get("turn_released_before_ci_observation") is True,
+              "ci_does_not_block_turn": canary.get("async_ci_observation", {}).get("blocks_turn") is False,
+              "reconciliation_preserved_completed_turn": canary.get("reconciliation_preserved_completed_turn") is True,
+              "github_enforcement_match": canary.get("github_enforcement_match") is True,
+          }
+          print(json.dumps(checks, indent=2, sort_keys=True))
+          if not all(checks.values()):
+              raise SystemExit("control-plane end-to-end canary failed")
+          PY
+
+      - name: Upload control-plane canary evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: control-plane-e2e-canary-report
+          path: |
+            github-enforcement-report.json
+            control-plane-e2e-canary.json
+          if-no-files-found: warn
+          retention-days: 14
