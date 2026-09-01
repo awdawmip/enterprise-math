@@ -298,7 +298,10 @@ def check() -> None:
 
     supervisor = read("infrastructure/cloudflare-supervisor/README.md")
     require("no mathematical authority" in supervisor, "external Supervisor boundary must remain non-mathematical")
-    require("OWNER_STATE_AND_ALARM_UPDATE -> ONE STORAGE TRANSACTION" in supervisor, "Supervisor docs missing atomic alarm invariant")
+    require(
+        "OWNER_STATE_AND_AUDIT_AND_ALARM_UPDATE -> ONE STORAGE TRANSACTION" in supervisor,
+        "Supervisor docs missing atomic state/audit/alarm invariant",
+    )
 
     free_role = read("research_roles/EM_FREE_RESEARCHER_ROLE.md")
     require("ROLE-SPECIFIC CONTRACT V6.4" in free_role, "FREE role must be current V6.4 control version")
