@@ -56,18 +56,16 @@ theorem no_positive_reconstruction_if_not_oriented {n c : ℤ} (hnc : n ≤ c) :
   exact (not_lt_of_ge hnc) hlt
 
 /-- F2-L02: exact positive reconstruction from the oriented ordered channels and
-integral diagonal square roots. `Even (U+V)` and `Even (U-V)` are the supplied
-parity/integrality gate. The diagonal case `V=0` is allowed; strict interiority
-is separated below. -/
+integral diagonal square roots. The root parity needed to divide by two is not an
+extra hypothesis: it follows automatically because `U²+V²=2n`. The diagonal
+case `V=0` is allowed; strict interiority is separated below. -/
 theorem reconstruct_positive_cell_of_diagonal_roots
     {n c U V : ℤ}
     (hnc : c < n)
     (hU : U ^ 2 = 3 * n - 2 * c)
     (hV : V ^ 2 = 2 * c - n)
     (hUpos : 0 < U)
-    (hVnonneg : 0 ≤ V)
-    (hsum : Even (U + V))
-    (hdiff : Even (U - V)) :
+    (hVnonneg : 0 ≤ V) :
     ∃ a b : ℤ, 0 < a ∧ 0 < b ∧ N a b = n ∧ C a b = c := by
   have hsq : V ^ 2 < U ^ 2 := by
     nlinarith [hU, hV]
@@ -77,6 +75,16 @@ theorem reconstruct_positive_cell_of_diagonal_roots
     have hmul : 0 ≤ (V - U) * (V + U) :=
       mul_nonneg (sub_nonneg.mpr hUV) (add_nonneg hVnonneg (le_of_lt hUpos))
     nlinarith
+  have hsqsum : U ^ 2 + V ^ 2 = 2 * n := by
+    nlinarith [hU, hV]
+  have hsqsumEven : Even (U ^ 2 + V ^ 2) := by
+    rw [hsqsum]
+    exact ⟨n, by ring⟩
+  have hrootParity : Even U ↔ Even V := by
+    have hp := Int.even_add.mp hsqsumEven
+    simpa only [Int.even_pow' (by norm_num : (2 : ℕ) ≠ 0)] using hp
+  have hsum : Even (U + V) := Int.even_add.mpr hrootParity
+  have hdiff : Even (U - V) := Int.even_sub.mpr hrootParity
   rcases hsum with ⟨a, ha⟩
   rcases hdiff with ⟨b, hb⟩
   have hUcoord : u a b = U := by
@@ -99,10 +107,27 @@ theorem reconstruct_positive_cell_of_diagonal_roots
     nlinarith [hU, hV, hCdiag]
   exact ⟨a, b, haPos, hbPos, hNexact, hCexact⟩
 
-/-- The exact extra T7 gate for strict interiority: on a reconstructed positive
-cell, `V>0` is equivalent to choosing the ordering `a>b`; without it `V=0`
-permits the positive diagonal. -/
-theorem reconstructed_strict_interior_gate {a b : ℤ} (ha : 0 < a) (hb : 0 < b) :
+/-- Coprime reconstructed channels force the reconstructed positive cell to be
+primitive. Thus the idempotent split from F2-L01 supplies primitivity rather than
+requiring it as an independent reconstruction axiom. -/
+theorem reconstruct_positive_primitive_cell_of_diagonal_roots
+    {n c U V : ℤ}
+    (hnc : c < n)
+    (hNC : IsCoprime n c)
+    (hU : U ^ 2 = 3 * n - 2 * c)
+    (hV : V ^ 2 = 2 * c - n)
+    (hUpos : 0 < U)
+    (hVnonneg : 0 ≤ V) :
+    ∃ a b : ℤ, 0 < a ∧ 0 < b ∧ IsCoprime a b ∧ N a b = n ∧ C a b = c := by
+  rcases reconstruct_positive_cell_of_diagonal_roots hnc hU hV hUpos hVnonneg with
+    ⟨a, b, ha, hb, hN, hC⟩
+  have hChannels : IsCoprime (N a b) (C a b) := by
+    simpa [hN, hC] using hNC
+  exact ⟨a, b, ha, hb, channels_isCoprime_implies_primitive hChannels, hN, hC⟩
+
+/-- The exact extra T7 gate for strict interiority: `v=a-b` is positive exactly
+when the reconstructed ordering is strict. -/
+theorem reconstructed_strict_interior_gate {a b : ℤ} :
     0 < v a b ↔ b < a := by
   simp [v]
 
