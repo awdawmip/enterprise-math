@@ -4,7 +4,7 @@ import Mathlib.Analysis.SpecialFunctions.Stirling
 namespace EnterpriseMath.PrecisionPi
 
 /-- Real-valued presentation of the finite equal-occupancy probability. -/
-def equalOccupancyReal (k n : ℕ) : ℝ :=
+noncomputable def equalOccupancyReal (k n : ℕ) : ℝ :=
   (Nat.factorial (k * n) : ℝ) /
     ((Nat.factorial n : ℝ) ^ k * (k : ℝ) ^ (k * n))
 
@@ -29,13 +29,14 @@ theorem equalOccupancyReal_eq_stirling
     push_cast
     ring
   have hpowN :
-      (((n : ℝ) / Real.exp 1) ^ n) ^ k =
-        ((n : ℝ) / Real.exp 1) ^ (k * n) := by
-    rw [← pow_mul, Nat.mul_comm n k]
+      (((n : ℝ) ^ n / Real.exp 1 ^ n) ^ k) =
+        (n : ℝ) ^ (k * n) / Real.exp 1 ^ (k * n) := by
+    rw [div_pow, ← pow_mul, ← pow_mul, Nat.mul_comm n k]
   unfold equalOccupancyReal Stirling.stirlingSeq
   rw [hbase]
   simp_rw [div_pow, mul_pow]
   rw [hpowN]
+  simp_rw [div_pow]
   field_simp (disch := positivity)
   ring
 
