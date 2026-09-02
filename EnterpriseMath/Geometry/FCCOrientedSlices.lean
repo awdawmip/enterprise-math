@@ -52,29 +52,26 @@ theorem sliceLineOrder_mem (s : Slice) (j : Fin 3) :
 /-- Every oriented local representative has the same squared carrier length. -/
 theorem orientedVector_normSq (s : Slice) (j : Fin 3) :
     normSq (orientedVector s j) = 2 := by
-  fin_cases s <;> fin_cases j <;> norm_num [normSq, dot, orientedVector,
-    orientationSign, sliceLineOrder, lineVector]
+  fin_cases s <;> fin_cases j <;> native_decide
 
 /-- The three oriented vectors in every slice close exactly. -/
 theorem orientedSlice_sum_zero (s : Slice) :
     (fun c => orientedVector s 0 c + orientedVector s 1 c +
       orientedVector s 2 c) = 0 := by
   funext c
-  fin_cases s <;> fin_cases c <;> norm_num [orientedVector, orientationSign,
-    sliceLineOrder, lineVector]
+  fin_cases s <;> fin_cases c <;> native_decide
 
 /-- Distinct local axes have dot product `-1`; together with squared length
 `2`, this is the exact algebraic `120°` certificate. -/
 theorem orientedVector_dot_of_ne (s : Slice) (i j : Fin 3) (h : i ≠ j) :
     dot (orientedVector s i) (orientedVector s j) = -1 := by
-  fin_cases s <;> fin_cases i <;> fin_cases j <;>
-    simp_all [dot, orientedVector, orientationSign, sliceLineOrder, lineVector]
+  fin_cases s <;> fin_cases i <;> fin_cases j <;> simp_all <;> native_decide
 
 /-- The local chart has no repeated line label. -/
 theorem sliceLineOrder_injective (s : Slice) :
     Function.Injective (sliceLineOrder s) := by
   intro i j h
   fin_cases s <;> fin_cases i <;> fin_cases j <;>
-    simp_all [sliceLineOrder]
+    native_decide at h ⊢
 
 end EnterpriseMath.FCCOrientedSlices
