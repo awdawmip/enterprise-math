@@ -1,0 +1,44 @@
+name: legacy-control-plane-inventory-20260902
+
+on:
+  push:
+    branches:
+      - control/legacy-control-plane-migration-20260902
+    paths:
+      - 'control_plane/audit_legacy_control_plane_migration.py'
+      - '.github/workflows/legacy-control-plane-inventory-20260902.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: legacy-control-plane-inventory-20260902
+  cancel-in-progress: true
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: control/legacy-control-plane-migration-20260902
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build conservative inventory
+        run: python control_plane/audit_legacy_control_plane_migration.py
+      - name: Commit inventory receipt
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add control_plane/migrations/legacy-control-plane-inventory-20260902.json \
+                  control_plane/migrations/LEGACY_CONTROL_PLANE_INVENTORY_20260902.md
+          if git diff --cached --quiet; then
+            echo 'Inventory unchanged.'
+            exit 0
+          fi
+          git commit -m 'control: record legacy control-plane inventory'
+          git push origin HEAD:control/legacy-control-plane-migration-20260902
