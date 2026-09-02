@@ -46,19 +46,19 @@ theorem projected_basis_opposite_pair_constant :
 /-- Exact projected Gram matrix. -/
 theorem projected_gram_00 :
     qdot (projectedA2Basis 0) (projectedA2Basis 0) = 1 := by
-  norm_num [qdot, projectedA2Basis]
+  native_decide
 
 theorem projected_gram_01 :
     qdot (projectedA2Basis 0) (projectedA2Basis 1) = 1 / 2 := by
-  norm_num [qdot, projectedA2Basis]
+  native_decide
 
 theorem projected_gram_10 :
     qdot (projectedA2Basis 1) (projectedA2Basis 0) = 1 / 2 := by
-  norm_num [qdot, projectedA2Basis]
+  native_decide
 
 theorem projected_gram_11 :
     qdot (projectedA2Basis 1) (projectedA2Basis 1) = 1 := by
-  norm_num [qdot, projectedA2Basis]
+  native_decide
 
 /-- Squared covolume of the projected basis is `3/4`. -/
 theorem projected_gram_determinant :
@@ -73,19 +73,19 @@ theorem projected_gram_determinant :
 /-- Exact integral Gram matrix. -/
 theorem integral_gram_00 :
     zdot (integralA2Basis 0) (integralA2Basis 0) = 4 := by
-  norm_num [zdot, integralA2Basis]
+  native_decide
 
 theorem integral_gram_01 :
     zdot (integralA2Basis 0) (integralA2Basis 1) = 2 := by
-  norm_num [zdot, integralA2Basis]
+  native_decide
 
 theorem integral_gram_10 :
     zdot (integralA2Basis 1) (integralA2Basis 0) = 2 := by
-  norm_num [zdot, integralA2Basis]
+  native_decide
 
 theorem integral_gram_11 :
     zdot (integralA2Basis 1) (integralA2Basis 1) = 4 := by
-  norm_num [zdot, integralA2Basis]
+  native_decide
 
 /-- Squared covolume of the integral intersection basis is `12`. -/
 theorem integral_gram_determinant :
