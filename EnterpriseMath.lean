@@ -14,6 +14,7 @@ import EnterpriseMath.PrecisionPi.EqualOccupancy
 import EnterpriseMath.PrecisionPi.EqualOccupancyStirling
 import EnterpriseMath.PrecisionPi.BalanceRecurrence
 import EnterpriseMath.PrecisionPi.DoublePell
+import EnterpriseMath.PrecisionPi.PositiveAccelerator
 import EnterpriseMath.PrecisionPi.GeneralStirlingPrecision
 import EnterpriseMath.PrecisionPi.StirlingLimit
 import EnterpriseMath.PrecisionPi.TetrahedralRatio
