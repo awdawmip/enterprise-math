@@ -21,6 +21,7 @@ import EnterpriseMath.PrecisionPi.TetrahedralCore
 import EnterpriseMath.PrecisionPi.TetrahedralPrecision
 import EnterpriseMath.PrecisionPi.TetrahedralMatching
 import EnterpriseMath.PrecisionPi.TetrahedralResidual
+import EnterpriseMath.PrecisionPi.TetrahedralInvariant
 import EnterpriseMath.Quotient.OperationCongruence
 import EnterpriseMath.Quotient.RootAdjacentBoundary
 import EnterpriseMath.Quotient.PowerFreeActionBasis
