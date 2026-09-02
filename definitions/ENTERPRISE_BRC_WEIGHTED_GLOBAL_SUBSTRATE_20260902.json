@@ -18,6 +18,10 @@
     "LOG_IS_DERIVED: E=W/M and Delta=LN(E) are derived readout coordinates for live positive CWM states; LN/LOG are not primitive native state and need not be materialized during exact branch accumulation.",
     "FINITE_RATIONAL_RECURRENCE_CERTIFIED: for any finite non-negative rational transition-mass matrix W, total all-depth positive mass is stable iff there exists a positive rational potential h with Wh<h; after denominator clearing this has an exact positive integer certificate, and the complementary divergent phase has an exact nonzero non-negative integer left certificate.",
     "RECURRENT_GAUGE_LOCALIZATION: finite rational mass stability is equivalent to a positive rational state gauge in which every outgoing total-mass row sum is strictly below one; closed-cycle products are gauge-invariant.",
+    "RECURRENT_LOOP_ARITHMETIC: stable finite positive-rational recurrence has exact gauge-invariant determinant/loop-zeta, edge-response, response-Hessian and integer criticality-polynomial interfaces; these are derived recurrent observables rather than primitive spectral state.",
+    "RATIONAL_GAUGE_ARITHMETIC: positive rational vertex-gauge data may be retained exactly as finite-support prime-valuation integer cohomology before logarithmic readout; spanning-tree gauge and power-class decompositions are available when the problem declares such rational gauge structure.",
+    "SHADOW_INCOMPLETENESS: mod-m and C2/parity holonomy shadows are typed forgetful projections and must never be assumed to determine the full positive rational gauge state, recurrent phase, or loop surplus without a separate theorem.",
+    "DETERMINANT_SIGN_BOUNDARY: alternating signs in finite determinant/cycle-system certificates are inclusion-exclusion coefficients and are not signed/amplitude Weighted-BRC branch states.",
     "SIGNED_BOUNDARY: positive Weighted-BRC does not encode signed/amplitude cancellation or reflection-odd orientation after positive recoalescence.",
     "DETERMINISTIC_DEGENERATION: a single deterministic positive path has C=1, W=M, E=1 and Delta=0; the weighted layer contributes no extra multiplicity information and should not be forced onto deterministic problems.",
     "BOOLEAN_BASE_PRESERVED: canonical R023 Boolean result-support BRC remains the base support semantics and is not mutated by the weighted layer.",
@@ -27,22 +31,30 @@
     "rule": "These commitments are background typing rules, not a research agenda. FREE Phase A must still generate its own question from the primitive substrate and may open detailed Weighted-BRC theorem/tool surfaces only after the self-generated problem actually contains the relevant typed branch structure.",
     "forbidden": [
       "presenting weighted-BRC theorem IDs as suggested research questions",
-      "preloading successful arithmetic/selector/holonomy/recurrent-matrix examples to steer question choice",
-      "forcing a multiplicity interpretation onto deterministic or signed problems"
+      "preloading successful arithmetic/selector/holonomy/recurrent-matrix/loop-zeta examples to steer question choice",
+      "forcing a multiplicity, rational-gauge, determinant, or loop interpretation onto deterministic, signed, or unrelated problems"
     ]
   },
   "detailed_foundation": "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md",
   "finite_recurrent_foundation": "definitions/ENTERPRISE_BRC_FINITE_RECURRENT_FOUNDATION_20260902.md",
+  "recurrent_loop_arithmetic_foundation": "definitions/ENTERPRISE_BRC_RECURRENT_LOOP_ARITHMETIC_FOUNDATION_20260902.md",
   "theorem_ledger": "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json",
   "theorem_ledger_addenda": [
-    "definitions/ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json"
+    "definitions/ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json",
+    "definitions/ENTERPRISE_BRC_RECURRENT_LOOP_THEOREM_LEDGER_20260902.json"
   ],
   "tool_method_id": "t0.weighted_brc_cwm",
   "tool_method_addenda": [
-    "t0.weighted_brc_finite_recurrent"
+    "t0.weighted_brc_finite_recurrent",
+    "t0.weighted_brc_recurrent_loop",
+    "t0.weighted_brc_rational_holonomy",
+    "t0.weighted_brc_cycle_polynomial"
   ],
   "tool_module": "src/enterprise_math/brc_weighted.py",
   "tool_module_addenda": [
-    "src/enterprise_math/brc_weighted_recurrent.py"
+    "src/enterprise_math/brc_weighted_recurrent.py",
+    "src/enterprise_math/brc_recurrent_loop.py",
+    "src/enterprise_math/brc_rational_holonomy.py",
+    "src/enterprise_math/brc_cycle_polynomial.py"
   ]
 }
