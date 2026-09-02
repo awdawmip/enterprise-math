@@ -65,7 +65,7 @@ def main() -> int:
     assert ledger["research_evidence"]["merge"] == "9d91c769bd3d3086b6f27a843cbf4341659c9b88"
 
     assert substrate["finite_recurrent_foundation"].endswith(FOUNDATION.name)
-    assert LEDGER.name in substrate["theorem_ledger_addenda"]
+    assert any(path.endswith(LEDGER.name) for path in substrate["theorem_ledger_addenda"])
     assert "t0.weighted_brc_finite_recurrent" in substrate["tool_method_addenda"]
     assert "src/enterprise_math/brc_weighted_recurrent.py" in substrate["tool_module_addenda"]
     commitments = "\n".join(substrate["commitments"])
