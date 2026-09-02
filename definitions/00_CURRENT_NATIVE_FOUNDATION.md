@@ -1,6 +1,6 @@
 # Enterprise Math — Current Native Foundation Router
 
-Status: `ACTIVE / STABLE CURRENT ROUTER / P000-BOUND / FCC-CARRIER-SELECTED / WEIGHTED-BRC-GLOBAL-BASE / LAZY LOAD`
+Status: `ACTIVE / STABLE CURRENT ROUTER / P000-BOUND / FCC-CARRIER-SELECTED / WEIGHTED-BRC-GLOBAL-BASE / FINITE-RECURRENT-CERTIFIED / LAZY LOAD`
 Date: `2026-09-02`
 Purpose: route current native mathematics without loading unrelated results.
 
@@ -34,7 +34,7 @@ Do not infer world dimension from classical carrier rank, affine redundancy, Euc
 
 ## Universal branch-typing foundation
 
-All research modes now inherit the minimal branch-typing substrate:
+All research modes inherit the minimal branch-typing substrate:
 
 `ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json`.
 
@@ -43,18 +43,21 @@ Its role is type discipline, not agenda selection. In particular:
 - declared branch multiplicity/positive weight is not silently discarded to Boolean support;
 - finite positive-rational branch systems have the shared exact CWM carrier `(C,W,M)` available;
 - `E=W/M` and `Delta=LN(E)` are derived readout coordinates;
+- finite non-negative rational recurrent total-mass systems admit exact rational/integer stable-or-divergent certificates and a gauge-local row-subcritical form;
 - positive Weighted-BRC does not replace signed/amplitude data;
 - deterministic single-path problems reduce to `E=1`, `Delta=0`;
 - canonical R023 Boolean support remains the base support semantics;
-- no general SCC spectral theorem is assumed.
+- recurrent results beyond finite non-negative rational transition-mass systems are not assumed.
 
 Detailed statements are routed by:
 
-`ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json`.
+- `ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json` — base weighted/log layer;
+- `ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json` — finite recurrent rational addendum.
 
-Reusable executable method:
+Reusable executable methods:
 
-`t0.weighted_brc_cwm` -> `src/enterprise_math/brc_weighted.py`.
+- `t0.weighted_brc_cwm` -> `src/enterprise_math/brc_weighted.py`;
+- `t0.weighted_brc_finite_recurrent` -> `src/enterprise_math/brc_weighted_recurrent.py`.
 
 Freeze:
 
@@ -68,13 +71,15 @@ Freeze:
 2. **all-research Weighted-BRC minimal substrate** — `ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json`;
 3. BRC weighted/log detailed foundation — `ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md`;
 4. BRC weighted/log theorem ledger — `ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json`;
-5. **primary six-axis rotational coordinate carrier** — `P000_FCC_PRIMARY_COORDINATE_CARRIER_20260829.md`;
-6. established three-axis research slice / coordinates — `ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`;
-7. native line trace — `ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`;
-8. arbitrary-point directed gauge — `ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`;
-9. unoriented bidirectional segment — `ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md`;
-10. BRC × native multipath — `ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md`;
-11. path-valued square root — `ENTERPRISE_PATH_VALUED_SQUARE_ROOT_OPERATOR_20260821.md` when a selected task actually uses it.
+5. BRC finite recurrent rational foundation — `ENTERPRISE_BRC_FINITE_RECURRENT_FOUNDATION_20260902.md`;
+6. BRC finite recurrent theorem-ledger addendum — `ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json`;
+7. **primary six-axis rotational coordinate carrier** — `P000_FCC_PRIMARY_COORDINATE_CARRIER_20260829.md`;
+8. established three-axis research slice / coordinates — `ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`;
+9. native line trace — `ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`;
+10. arbitrary-point directed gauge — `ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`;
+11. unoriented bidirectional segment — `ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md`;
+12. BRC × native multipath — `ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md`;
+13. path-valued square root — `ENTERPRISE_PATH_VALUED_SQUARE_ROOT_OPERATOR_20260821.md` when a selected task actually uses it.
 
 The minimal Weighted-BRC substrate is universal. Other registry entries remain lazy: load only the exact object required by the current problem, except P000 when dimensional/spatial semantics are material and the FCC carrier definition when global coordinate/rotation semantics are material.
 
@@ -182,9 +187,16 @@ Core current interface:
 - `WBRC-T07`: projective/gauge-compensated quotient;
 - `WBRC-T08/T09/T10`: exact one-state recurrent positive-branch closure;
 - `WBRC-T11`: deterministic degeneration;
-- `WBRC-N01..N05`: signed/zero-divisor/quotient/local/general-SCC negative boundaries.
+- `WBRC-T12`: finite recurrent path-mass matrix powers;
+- `WBRC-T13`: exact positive rational recurrent potential and gauge localization;
+- `WBRC-T14`: exact finite recurrent star `(I-W)^(-1)` on the stable side;
+- `WBRC-T15`: pure integer stable/divergent certificate alternative;
+- `WBRC-T16`: total-mass stability implies dominant-path contraction, but not conversely;
+- `WBRC-N01..N04`: signed/zero-divisor/Boolean/local-bisimulation boundaries;
+- `WBRC-N05`: historical pre-finite-recurrent boundary, narrowed by T12..T16;
+- `WBRC-N06`: current recurrent boundary beyond finite non-negative rational transition mass.
 
-Use `t0.weighted_brc_cwm` for executable exact operations. `LN` is materialized only through the existing BRC logarithm runtime when a log readout is genuinely required.
+Use `t0.weighted_brc_cwm` for finite branch/CWM operations and `t0.weighted_brc_finite_recurrent` for finite rational recurrent total-mass analysis. `LN` is materialized only through the existing BRC logarithm runtime when a log readout is genuinely required.
 
 ## First native layer versus carrier polyhedra
 
@@ -223,7 +235,7 @@ FREE Phase A uses:
 
 `p000_reality_foundation.json + definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md + definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json`.
 
-It does not preload this full router, the theorem ledger, prior successful applications, or the tool catalog merely to choose a question.
+It does not preload this full router, theorem ledgers, prior successful applications, or tool catalogs merely to choose a question.
 
 TASK research, Driver/current-state review, Foundation Steward work and FREE Phase B may use this full router normally.
 
@@ -237,7 +249,9 @@ For current mathematics:
 
 For the universal Weighted-BRC type commitments, `ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json` controls.
 
-For detailed theorem scope, `ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json` controls.
+For detailed weighted/log theorem scope, `ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json` controls.
+
+For finite recurrent rational theorem scope, `ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json` controls.
 
 Project mission/routing is defined by `PROJECT_DEFINITION.md`, `PROJECT_DEFINITION.zh-CN.md`, and current machine governance.
 
