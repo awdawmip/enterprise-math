@@ -37,4 +37,4 @@ jobs:
         with:
           python-version: '3.12'
       - name: Verify current control surface and physical isolation
-        run: python control_plane/check_current_control_plane_surface.py
+        run: python control_plane/check_legacy_control_isolation.py
