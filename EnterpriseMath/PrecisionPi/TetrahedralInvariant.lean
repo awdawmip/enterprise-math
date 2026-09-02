@@ -71,7 +71,9 @@ theorem vertexInduced_iff_matchingSums_zero_and_even (x : TetraEdges) :
       ⟨v1, v2, v3, v4, hsum, h12, h13, h14, h23, h24, h34⟩
     refine ⟨⟨v1, v2, v3, v4⟩, ?_, ?_⟩
     · simpa [TetraVertices.total] using hsum
-    · apply TetraEdges.ext <;> simp [TetraVertices.toEdges] <;> omega
+    · rcases x with ⟨x12, x13, x14, x23, x24, x34⟩
+      simp only [TetraVertices.toEdges] at h12 h13 h14 h23 h24 h34 hm1 hm2 hm3 ⊢
+      congr <;> omega
 
 /-- The primitive opposite-edge difference represents the nonzero torsion class. -/
 def tetrahedralTorsionEdge : TetraEdges :=
