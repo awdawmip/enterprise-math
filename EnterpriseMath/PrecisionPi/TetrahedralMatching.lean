@@ -50,6 +50,10 @@ theorem matchingSums_add_kernel
       ⟨x.x12 + y.x12, x.x13 + y.x13, x.x14 + y.x14,
         x.x23 + y.x23, x.x24 + y.x24, x.x34 + y.x34⟩) =
       x.matchingSums := by
-  simp [TetraEdges.matchingSums]
+  dsimp
+  simp only [TetraEdges.matchingSums, Prod.mk.injEq]
+  constructor
+  · ring
+  · constructor <;> ring
 
 end EnterpriseMath.PrecisionPi
