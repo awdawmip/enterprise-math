@@ -29,6 +29,35 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
+      - name: Preserve compatibility anchors without restoring legacy authority
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          def replace_once(path: str, old: str, new: str) -> None:
+              target = Path(path)
+              text = target.read_text(encoding="utf-8")
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f"{path}: expected one compatibility span, found {count}")
+              target.write_text(text.replace(old, new, 1), encoding="utf-8")
+
+          replace_once(
+              "control_plane/apply_legacy_control_isolation.py",
+              "`OFFICIAL_NEW_TASK -> IMMUTABLE_V2_TASK_PUBLICATION_RECORD`.\n\n`UNPUBLISHED_TASK -> NO READY / NO CLAIM / NO EXECUTION`.",
+              "`OFFICIAL_NEW_TASK -> IMMUTABLE_V2_TASK_PUBLICATION_RECORD`.\n\nCompatibility vocabulary only: `OFFICIAL_NEW_TASK -> CANONICAL_TASK_REGISTRY_RECORD`; in V2, that registry record is the immutable publication record above.\n\n`UNPUBLISHED_TASK -> NO READY / NO CLAIM / NO EXECUTION`.",
+          )
+          replace_once(
+              "control_plane/apply_legacy_control_isolation.py",
+              "- `tools/research_lane_dispatch.py` — active-cohort lane selector;\n- `tools/research_runtime_reducer.py` — pure authenticated-event reducer;",
+              "- `tools/research_lane_dispatch.py` — active-cohort lane selector;\n- `tools/research_cohort_runtime.py` — exact cohort/lane runtime ownership surface;\n- `tools/research_runtime_reducer.py` — pure authenticated-event reducer;",
+          )
+          replace_once(
+              "control_plane/run_apply_legacy_control_isolation_v2.py",
+              "publish the task before READY/CLAIM/execution",
+              "register the task by publishing its immutable V2 record before READY/CLAIM/execution",
+          )
+          PY
       - name: Apply physical isolation and V2 runtime rewiring
         run: python control_plane/run_apply_legacy_control_isolation_v2.py
       - name: Compile live control code
