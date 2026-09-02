@@ -32,9 +32,8 @@ theorem tetrahedralPrecision_weighted {n : ℕ} (hn : 0 < n) :
   have hnR : (n : ℝ) ≠ 0 := by
     exact_mod_cast (Nat.ne_of_gt hn)
   have h6 : equalOccupancyReal 6 n ≠ 0 := by
-    unfold equalOccupancyReal
-    positivity
-  field_simp [hnR, h6] <;> ring
+    exact ne_of_gt (equalOccupancyReal_pos 6 n (by norm_num))
+  field_simp [hnR, h6]
 
 /-- Coefficient-level generating lift: the quartic Ramanujan kernel is the
 six-state balance weight multiplied by the finite tetrahedral precision value.
