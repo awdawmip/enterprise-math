@@ -45,15 +45,15 @@ theorem ramanujan58Scale_pos : 0 < ramanujan58Scale := by
 
 theorem ramanujan58A_pos : 0 < ramanujan58A := by
   unfold ramanujan58A
-  positivity
+  exact mul_pos ramanujan58Scale_pos (by norm_num)
 
 theorem ramanujan58B_pos : 0 < ramanujan58B := by
   unfold ramanujan58B
-  positivity
+  exact mul_pos ramanujan58Scale_pos (by norm_num)
 
 theorem ramanujan58Z_pos : 0 < ramanujan58Z := by
   unfold ramanujan58Z
-  positivity
+  norm_num
 
 /-- Every transformed `N = 58` coefficient is strictly positive. -/
 theorem ramanujan58Term_pos (n : ℕ) : 0 < ramanujan58Term n := by
