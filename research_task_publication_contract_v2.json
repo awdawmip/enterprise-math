@@ -39,7 +39,10 @@
     "RESEARCHER_PUBLICATION_DOES_NOT_GRANT_GLOBAL_PRIORITY_OR_TRUTH",
     "PUBLICATION_DOES_NOT_GRANT_WORKING_TRUTH_FOUNDATION_OR_CANONICAL_PROMOTION",
     "TASK_PUBLICATION_IS_A_SEMANTIC_CHECKPOINT_NOT_A_ROUTINE_HEARTBEAT",
-    "PUBLICATION_COMPLETE_IMPLIES_RESUME_PARENT_RESEARCH_WITHOUT_CI_OR_REVIEW_POLLING"
+    "PUBLICATION_COMPLETE_IMPLIES_RESUME_PARENT_RESEARCH_WITHOUT_CI_OR_REVIEW_POLLING",
+    "MIGRATION_WRAPPER_PROVENANCE_MUST_NOT_OVERWRITE_SOURCE_TASK_IDENTITY_LINEAGE_PARENTAGE_SUCCESSOR_GATE_OR_SOURCE_REFS",
+    "EXACT_PRESERVATION_CLAIM_REQUIRES_FIELD_LEVEL_SOURCE_BACKED_VERIFICATION",
+    "SCHEMA_VALID_SEMANTIC_PRESERVATION_FAULT_IS_NONOPERATIONAL_UNTIL_AUTHORIZED_SUPERSEDING_GENERATION"
   ],
   "mandatory_body_sections": [
     "Mother question",
@@ -82,6 +85,10 @@
     "manifest": "control_plane/legacy_control_migration_manifest.json",
     "archive_branch": "archive/legacy-control-plane-pre-v2-20260902",
     "archive_source_commit": "ce629e24e5af59128e25af87075c6622413684e0",
-    "legacy_runtime_on_main": false
+    "legacy_runtime_on_main": false,
+    "exact_preservation_requires_task_local_verification": true,
+    "semantic_integrity_quarantine": "research_task_semantic_integrity_quarantines.json",
+    "semantic_integrity_runtime": "control_plane/research_task_semantic_integrity_fault_isolation.py",
+    "known_semantic_faults_fail_closed": true
   }
 }
