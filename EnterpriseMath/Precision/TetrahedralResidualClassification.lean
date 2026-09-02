@@ -44,8 +44,20 @@ theorem delta_injective_on_zero_sum
     simpa [vertexSum] using hv
   have hw' : w 0 + w 1 + w 2 + w 3 = 0 := by
     simpa [vertexSum] using hw
+  have hv0 : v 0 = w 0 := by
+    linarith [h0, h1, h2, hv', hw']
+  have hv1 : v 1 = w 1 := by
+    linarith [h0, hv0]
+  have hv2 : v 2 = w 2 := by
+    linarith [h1, hv0]
+  have hv3 : v 3 = w 3 := by
+    linarith [h2, hv0]
   funext i
-  fin_cases i <;> omega
+  fin_cases i
+  · exact hv0
+  · exact hv1
+  · exact hv2
+  · exact hv3
 
 /--
 Concrete quotient classification: among states with the same `A₂` matching
@@ -58,15 +70,21 @@ theorem same_matching_liftable_iff_even_parity_difference
         vertexSum v = 0 ∧ delta v = edgeSub x y) ↔
       Even ((x 0 + x 1 + x 2) - (y 0 + y 1 + y 2)) := by
   rw [edgeSub_eq_kernelEdge_of_matchingSums_eq x y hxy]
+  have hrewrite :
+      (x 0 - y 0) + (x 1 - y 1) + (x 2 - y 2) =
+        (x 0 + x 1 + x 2) - (y 0 + y 1 + y 2) := by
+    ring
   constructor
   · intro h
     have he := (exists_zeroSum_delta_eq_kernelEdge_iff_even
       (x 0 - y 0) (x 1 - y 1) (x 2 - y 2)).1 h
-    convert he using 1 <;> ring
+    rw [hrewrite] at he
+    exact he
   · intro he
     apply (exists_zeroSum_delta_eq_kernelEdge_iff_even
       (x 0 - y 0) (x 1 - y 1) (x 2 - y 2)).2
-    convert he using 1 <;> ring
+    rw [hrewrite]
+    exact he
 
 /-- Same matching coordinate and even parity difference give a unique lift. -/
 theorem existsUnique_zeroSum_lift_of_same_matching_even
