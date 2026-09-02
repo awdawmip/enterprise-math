@@ -1,0 +1,62 @@
+{
+  "schema": "ENTERPRISE_MATH_WEIGHTED_BRC_FINITE_RECURRENT_THEOREM_LEDGER_V1",
+  "status": "CANONICAL_FOUNDATION_ADDENDUM_CANDIDATE",
+  "effective": "2026-09-02",
+  "parent_ledger": "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json",
+  "foundation": "definitions/ENTERPRISE_BRC_FINITE_RECURRENT_FOUNDATION_20260902.md",
+  "tool_method_id": "t0.weighted_brc_finite_recurrent",
+  "research_evidence": {
+    "pr": 1112,
+    "merge": "9d91c769bd3d3086b6f27a843cbf4341659c9b88",
+    "checker": "experiments/brc_finite_recurrent_rational_gauge_check.py"
+  },
+  "theorems": [
+    {
+      "id": "WBRC-T12-FINITE-RECURRENT-PATH-MASS-MATRIX",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "finite directed multigraph with positive rational branch weights; W_ij is total one-step mass from i to j",
+      "statement": "For every k>=0, the total positive weight of all length-k walks from i to j is exactly (W^k)_ij.",
+      "boundary": "This is the total-mass projection only; count, provenance and dominant-path data remain separately typed."
+    },
+    {
+      "id": "WBRC-T13-FINITE-RECURRENT-RATIONAL-POTENTIAL",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "W is a finite non-negative rational square matrix",
+      "statement": "The all-depth mass series sum_{k>=0} W^k is finite entrywise iff there exists h in Q_{>0}^n with Wh<h coordinatewise; equivalently I-W is invertible and x=(I-W)^(-1)1 is positive rational.",
+      "canonical_potential": "On the stable side x=W*1 and Wx=x-1.",
+      "gauge_form": "With H=diag(h), every row sum of H^(-1)WH is <1; for canonical x the row sum is 1-1/x_i.",
+      "cycle_invariant": "State gauge telescopes along paths and preserves every closed-cycle product."
+    },
+    {
+      "id": "WBRC-T14-FINITE-RECURRENT-EXACT-STAR",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "same stable finite rational scope as WBRC-T13",
+      "statement": "The exact recurrent total-mass star is W*=(I-W)^(-1) in M_n(Q_{>=0}); no numerical infinite summation or floating spectrum is required.",
+      "interpretation": "The i-th row sum of W* is the total positive mass of all finite walks starting at i and ending anywhere, including the empty walk."
+    },
+    {
+      "id": "WBRC-T15-FINITE-RECURRENT-INTEGER-ALTERNATIVE",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "W=A/D with A in M_n(N_0), D>0",
+      "statement": "Exactly one holds: (stable) exists h in N_{>0}^n with Ah<Dh; or (divergent) exists nonzero y in N_0^n with y^T A >= D y^T.",
+      "proof_boundary": "Completeness uses the finite-dimensional rational Gordan-Stiemke/Farkas linear alternative; stable and divergent witnesses are mutually exclusive by direct pairing.",
+      "consequence": "Both recurrent phases admit finite exact integer certificates."
+    },
+    {
+      "id": "WBRC-T16-TOTAL-STABILITY-IMPLIES-DOMINANT-CONTRACTION",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "finite positive rational recurrent branch system; M is the largest-one-step-branch matrix and W the total one-step-mass matrix",
+      "statement": "A total-mass stability potential for W makes every live dominant branch contractive in the same gauge; therefore all closed dominant cycles contract.",
+      "converse": "False: W=[[3/5,3/5],[3/5,3/5]] has every individual path weight (3/5)^k ->0 while total mass grows as (6/5)^k.",
+      "interpretation": "Branch multiplicity can destabilize total mass even when every individual path contracts."
+    }
+  ],
+  "negative_boundaries": [
+    {
+      "id": "WBRC-N06-RECURRENT-BEYOND-FINITE-RATIONAL",
+      "status": "SCOPE_BOUNDARY",
+      "statement": "Finite non-negative rational transition-mass recurrence is covered by WBRC-T12..T16. No theorem is promoted here for infinite state spaces, signed/amplitude recurrence, complex weights, or arbitrary non-rational exact weights."
+    }
+  ],
+  "supersession_note": "WBRC-N05-GENERAL-SCC-NOT-PROMOTED remains provenance for the pre-PR1112 boundary but is narrowed by this addendum: finite non-negative rational systems are now proved; only the broader recurrent scopes remain unpromoted."
+}
