@@ -2,9 +2,11 @@
 """Public immutable task-publication facade with exact historical compatibility.
 
 The strict V2 implementation lives in ``control_plane.research_task_records_impl``.
-This facade preserves that implementation unchanged for current publication and
-runtime semantics, and adds one fail-closed compatibility boundary for immutable
-historical taskbooks whose semantic sections predate today's exact heading names.
+This facade keeps its current publication and runtime semantics, adds one
+fail-closed compatibility boundary for immutable historical taskbooks whose
+semantic sections predate today's exact heading names, and ensures that the
+canonical writer persists source-backed task identity/lineage/provenance fields
+instead of leaving them only in the taskbook.
 
 Compatibility is keyed by exact publication + taskbook path + Git blob. It may
 suppress only the enumerated missing-current-heading errors after proving that
@@ -16,6 +18,7 @@ can be waived.
 """
 from __future__ import annotations
 
+import copy
 import json
 import re
 import sys
@@ -30,23 +33,69 @@ from control_plane import research_task_records_impl as _core  # noqa: E402
 from tools import research_taskbook  # noqa: E402
 
 # Preserve the historical public API, including helper names used by tests and
-# downstream runtime modules. Only audit semantics are wrapped below.
+# downstream runtime modules. Only audit/writer semantics are wrapped below.
 for _name in dir(_core):
     if not _name.startswith("__"):
         globals()[_name] = getattr(_core, _name)
 
-# Pin the byte-identical implementation audit once. The facade can be imported
-# both as tools.research_task_records and as bare research_task_records by
-# historical CLI entrypoints; neither path may wrap an already-wrapped audit.
+# Pin the byte-identical implementation functions once. The facade can be
+# imported both as tools.research_task_records and as bare research_task_records
+# by historical CLI entrypoints; neither path may wrap an already-wrapped call.
 if "_immutable_history_original_audit" not in _core.__dict__:
     _core.__dict__["_immutable_history_original_audit"] = _core.audit
+if "_semantic_preservation_original_build_record" not in _core.__dict__:
+    _core.__dict__["_semantic_preservation_original_build_record"] = _core.build_record
 _STRICT_AUDIT = _core.__dict__["_immutable_history_original_audit"]
+_STRICT_BUILD_RECORD = _core.__dict__["_semantic_preservation_original_build_record"]
 
 ROOT = _core.ROOT
 COMPATIBILITY_FILE = "research_task_record_compatibility_waivers.json"
 COMPATIBILITY_SCHEMA = "ENTERPRISE_MATH_TASK_RECORD_COMPATIBILITY_WAIVERS_V1"
 COMPATIBILITY_SCOPE = "MANDATORY_BODY_SECTION_HEADING_ALIAS_ONLY"
 _PLACEHOLDER = re.compile(r"^\s*<[^>\n]+>\s*$", re.MULTILINE)
+SEMANTIC_RECORD_FIELDS = (
+    "identity_lane",
+    "source_refs",
+    "dependencies",
+    "evidence_status",
+    "successor_gate",
+    "migration_source",
+    "parent_objective_generation_id",
+)
+
+
+def build_record(
+    meta: dict[str, Any],
+    *,
+    path: Path,
+    publisher_role: str,
+    publisher_id: str,
+    research_value: str,
+    published_at: str,
+    supersedes_publication_id: str | None,
+    root: Path = ROOT,
+) -> dict[str, Any]:
+    """Create the strict record and persist exact semantic taskbook fields.
+
+    Migration provenance remains in ``migration_source``; it must not replace
+    ``identity_lane``, ``origin_kind``, ``task_lineage``, ``parent_task_id``,
+    ``successor_gate`` or ``source_refs``.  This wrapper does not infer or repair
+    those values: it copies the prepared taskbook bytes' parsed metadata.
+    """
+    record = _STRICT_BUILD_RECORD(
+        meta,
+        path=path,
+        publisher_role=publisher_role,
+        publisher_id=publisher_id,
+        research_value=research_value,
+        published_at=published_at,
+        supersedes_publication_id=supersedes_publication_id,
+        root=root,
+    )
+    for field in SEMANTIC_RECORD_FIELDS:
+        if field in meta:
+            record[field] = copy.deepcopy(meta.get(field))
+    return record
 
 
 def _load_compatibility_waivers(root: Path = ROOT) -> list[dict[str, Any]]:
@@ -277,9 +326,7 @@ def _compatibility_suppressions(root: Path = ROOT) -> tuple[set[str], list[str]]
             continue
 
         prefix = record.get("_record_path", "<record>")
-        suppressions.update(
-            f"{prefix}: {message}" for message in expected_body_errors
-        )
+        suppressions.update(f"{prefix}: {message}" for message in expected_body_errors)
     return suppressions, errors
 
 
@@ -298,14 +345,17 @@ def audit(root: Path = ROOT) -> list[str]:
 
 
 def main() -> int:
-    # The strict CLI resolves its global audit function dynamically. Patch only
-    # for the duration of this call so duplicate facade imports never stack.
-    previous = _core.audit
+    # The strict CLI resolves global build_record/audit functions dynamically.
+    # Patch only for this call so duplicate facade imports never stack.
+    previous_audit = _core.audit
+    previous_build_record = _core.build_record
     _core.audit = audit
+    _core.build_record = build_record
     try:
         return _core.main()
     finally:
-        _core.audit = previous
+        _core.audit = previous_audit
+        _core.build_record = previous_build_record
 
 
 if __name__ == "__main__":
