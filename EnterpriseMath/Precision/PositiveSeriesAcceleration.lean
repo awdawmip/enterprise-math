@@ -1,5 +1,7 @@
 import Mathlib
 
+open scoped BigOperators
+
 namespace EnterpriseMath.PrecisionPi.PositiveSeriesAcceleration
 
 def partialSum (A : ℝ) (term : ℕ → ℝ) (M : ℕ) : ℝ :=
@@ -8,7 +10,6 @@ def partialSum (A : ℝ) (term : ℕ → ℝ) (M : ℕ) : ℝ :=
 theorem partialSum_succ (A : ℝ) (term : ℕ → ℝ) (M : ℕ) :
     partialSum A term (M + 1) = partialSum A term M + term (M + 1) := by
   simp [partialSum, Finset.sum_range_succ]
-  ring
 
 theorem partialSum_strict_step
     (A : ℝ) (term : ℕ → ℝ) (M : ℕ)
@@ -30,7 +31,8 @@ theorem one_div_strictAnti {a b : ℝ} (ha : 0 < a) (hab : a < b) :
   apply (div_lt_div_iff₀ hb ha).2
   simpa using hab
 
-def reciprocalApproximation (A : ℝ) (term : ℕ → ℝ) (M : ℕ) : ℝ :=
+noncomputable def reciprocalApproximation
+    (A : ℝ) (term : ℕ → ℝ) (M : ℕ) : ℝ :=
   1 / partialSum A term M
 
 theorem reciprocalApproximation_strict_step
@@ -60,6 +62,5 @@ theorem reciprocal_error_identity
     {s t : ℝ} (hs : s ≠ 0) (ht : t ≠ 0) :
     1 / s - 1 / t = (t - s) / (s * t) := by
   field_simp [hs, ht]
-  ring
 
 end EnterpriseMath.PrecisionPi.PositiveSeriesAcceleration
