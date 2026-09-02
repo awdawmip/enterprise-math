@@ -1,0 +1,28 @@
+name: brc-finite-recurrent-research
+
+on:
+  pull_request:
+    paths:
+      - 'research_notes/BRC_FINITE_RECURRENT_RATIONAL_GAUGE_STABILITY_20260902.md'
+      - 'experiments/brc_finite_recurrent_rational_gauge_check.py'
+      - '.github/workflows/brc-finite-recurrent-research.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'research_notes/BRC_FINITE_RECURRENT_RATIONAL_GAUGE_STABILITY_20260902.md'
+      - 'experiments/brc_finite_recurrent_rational_gauge_check.py'
+      - '.github/workflows/brc-finite-recurrent-research.yml'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Exact finite recurrent BRC rational gauge checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_finite_recurrent_rational_gauge_check.py
