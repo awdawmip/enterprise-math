@@ -51,8 +51,7 @@ noncomputable def sharedLineOfPair (p : SlicePair) : LineFamily :=
 same relation. -/
 theorem sharedLine_incident_iff (p : SlicePair) (s : SliceChart) :
     s ∈ (p : Finset SliceChart) ↔ sharedLineOfPair p ∈ sliceLines s := by
-  rw [← lineToSlicePair_sharedLineOfPair p]
-  exact mem_lineToSlicePair_iff _ _
+  simpa using mem_lineToSlicePair_iff (sharedLineOfPair p) s
 
 /-! ## 2. Slice permutations induce line-family permutations -/
 
@@ -85,8 +84,12 @@ theorem lineToSlicePair_lineFamilyPerm
     (σ : Equiv.Perm SliceChart) (l : LineFamily) :
     lineToSlicePair (lineFamilyPerm σ l) =
       mapSlicePair σ (lineToSlicePair l) := by
-  change lineFamilyEquivSlicePair (lineFamilyPerm σ l) = _
-  simp [lineFamilyPerm, slicePairPerm]
+  calc
+    lineToSlicePair (lineFamilyPerm σ l) =
+        lineFamilyEquivSlicePair (lineFamilyPerm σ l) := rfl
+    _ = mapSlicePair σ (lineFamilyEquivSlicePair l) := by
+      simp [lineFamilyPerm, slicePairPerm]
+    _ = mapSlicePair σ (lineToSlicePair l) := by rfl
 
 /-- The incident slices of a transported line are exactly the transported
 incident slices. -/
@@ -109,7 +112,8 @@ theorem incidence_covariant
 /-- Identity transport induces identity line transport. -/
 theorem lineFamilyPerm_refl :
     lineFamilyPerm (Equiv.refl SliceChart) = Equiv.refl LineFamily := by
-  ext l
+  apply Equiv.ext
+  intro l
   apply lineFamilyEquivSlicePair.injective
   simp [lineFamilyPerm, slicePairPerm, mapSlicePair]
 
@@ -118,7 +122,8 @@ transports. -/
 theorem lineFamilyPerm_trans (σ τ : Equiv.Perm SliceChart) :
     lineFamilyPerm (σ.trans τ) =
       (lineFamilyPerm σ).trans (lineFamilyPerm τ) := by
-  ext l
+  apply Equiv.ext
+  intro l
   apply lineFamilyEquivSlicePair.injective
   simp [lineFamilyPerm, slicePairPerm, mapSlicePair]
 
@@ -135,7 +140,7 @@ abbrev LineState (R : Type u) := LineFamily → R
 /-- Sum the two incident slice values on each carrier line. -/
 def carrierDelta {R : Type u} [AddCommMonoid R]
     (v : SliceState R) : LineState R :=
-  fun l => ∑ s in incidentSlices l, v s
+  fun l => (incidentSlices l).sum v
 
 /-- Pull a slice-labelled state through a slice permutation. -/
 def rotateSliceState {R : Type u}
@@ -159,8 +164,11 @@ theorem carrierDelta_equivariant {R : Type u} [AddCommMonoid R]
         (incidentSlices ((lineFamilyPerm σ).symm l)).map σ.toEmbedding := by
     simpa using
       incidentSlices_lineFamilyPerm σ ((lineFamilyPerm σ).symm l)
+  change
+    (incidentSlices l).sum (fun s => v (σ.symm s)) =
+      (incidentSlices ((lineFamilyPerm σ).symm l)).sum v
   rw [hinc]
-  simp [carrierDelta, rotateSliceState, rotateLineState]
+  simp
 
 /-- Identity rotation fixes every slice-labelled state. -/
 theorem rotateSliceState_refl {R : Type u} (v : SliceState R) :
@@ -262,6 +270,6 @@ theorem rotateEdgeData_delta
   apply lineStateOfEdge_injective
   rw [lineStateOfEdge_rotateEdgeData, lineStateOfEdge_delta,
     lineStateOfEdge_delta]
-  exact carrierDelta_equivariant σ v
+  exact (carrierDelta_equivariant σ v).symm
 
 end EnterpriseMath.PrecisionPi.PaperIIK4RotationV1
