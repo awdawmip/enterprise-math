@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Static gate for the Enterprise Math exact-arithmetic runtime policy.
 
-The checker is intentionally scoped to files supplied on the command line.  It
+The checker is intentionally scoped to files supplied on the command line. It
 is designed for new or materially modified research-calculation paths so the
 historical repository can migrate incrementally instead of being retroactively
 reclassified in one step.
@@ -21,7 +21,12 @@ DIRECT_DIVISION_PRIMITIVES = {
     "integer_quotient",
     "multiple_collapse",
 }
-FORBIDDEN_CALLS = {"divmod", "float", "Decimal", "Fraction"}
+DIRECT_ROOT_PRIMITIVES = {
+    "integer_nth_root",
+    "collapse",
+    "scaled_root",
+}
+FORBIDDEN_CALLS = {"divmod", "float", "Decimal", "Fraction", "sqrt", "isqrt"}
 FORBIDDEN_MODULES = {"decimal", "fractions"}
 
 
@@ -83,6 +88,10 @@ def check_python_file(path: Path) -> list[str]:
             if not facade and name in DIRECT_DIVISION_PRIMITIVES:
                 violations.append(
                     f"{display}:{line}: direct P007 primitive {name} bypasses BRC facade"
+                )
+            if not facade and name in DIRECT_ROOT_PRIMITIVES:
+                violations.append(
+                    f"{display}:{line}: direct root primitive {name} bypasses BRC facade"
                 )
 
     return violations

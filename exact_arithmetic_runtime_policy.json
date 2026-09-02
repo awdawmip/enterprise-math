@@ -1,27 +1,30 @@
 {
-  "schema": "ENTERPRISE_MATH_EXACT_ARITHMETIC_RUNTIME_POLICY_V1",
+  "schema": "ENTERPRISE_MATH_EXACT_ARITHMETIC_RUNTIME_POLICY_V2",
   "status": "ACTIVE_OPERATIONAL_NO_THEOREM_CLAIM",
   "effective": "2026-09-02",
   "scope": "new or materially modified Enterprise Math research calculations, numerical experiments, exact arithmetic helpers, and readout code",
-  "purpose": "Keep division symbolic by default; require BRC-mediated evaluation whenever division is actually calculated; use arbitrary-precision integers for high-precision evaluation; keep float/decimal representations outside the native arithmetic state.",
-  "authority_note": "This is an operational computation policy and tool interface. It does not prove a division-collapse theorem, extend the canonical BRC theorem family, or grant Foundation status.",
+  "purpose": "Keep division and roots symbolic by default; require BRC-mediated evaluation whenever either is actually calculated; use arbitrary-precision integers for high-precision evaluation; keep float/decimal representations outside the native arithmetic state.",
+  "authority_note": "This is an operational computation policy and tool interface. It does not prove a division-collapse theorem, root-collapse theorem, or new multiplicity-aware BRC theorem, and it does not grant Foundation status.",
   "invariants": [
     "DIVISION_MAY_TRAVEL_UNEVALUATED",
     "DIVISION_EVALUATION_REQUIRES_BRC",
-    "BRC_EVALUATION_MUST_EXPOSE_QUOTIENT_REMAINDER_AND_COLLAPSE_TRACE",
+    "ROOT_MAY_TRAVEL_UNEVALUATED",
+    "ROOT_EVALUATION_REQUIRES_BRC",
+    "BRC_DIVISION_EVALUATION_MUST_EXPOSE_QUOTIENT_REMAINDER_AND_COLLAPSE_TRACE",
+    "BRC_ROOT_EVALUATION_MUST_EXPOSE_ROOT_COLLAPSE_REMAINDER_AND_BASIN_TRACE",
     "BIGINT_IS_THE_DEFAULT_HIGH_PRECISION_CARRIER",
     "NO_SILENT_FIXED_WIDTH_OVERFLOW",
     "FLOAT_IS_READOUT_NOT_NATIVE_STATE",
     "NO_SILENT_FLOAT_FALLBACK",
-    "DECIMAL_READOUT_MUST_DESCEND_FROM_INTEGER_SCALE_PLUS_BRC_EVALUATION",
+    "FINITE_PRECISION_READOUT_MUST_DESCEND_FROM_INTEGER_SCALE_PLUS_BRC_EVALUATION",
     "STRUCTURAL_DIVISION_STATE_NEED_NOT_BE_VALUE_REDUCED",
     "VALUE_EQUIVALENCE_NEED_NOT_IMPLY_BRANCH_STRUCTURE_EQUIVALENCE"
   ],
   "division_state": {
     "native_form": "DIV(numerator, denominator)",
     "requirements": [
-      "numerator is an explicitly represented integer state within the selected signedness scope",
-      "denominator is an explicitly represented nonzero integer state within the selected signedness scope",
+      "numerator is an explicitly represented non-negative integer state in the current natural-number facade",
+      "denominator is an explicitly represented positive integer state",
       "construction of DIV does not itself evaluate the quotient"
     ],
     "allowed_without_brc_evaluation": [
@@ -32,8 +35,23 @@
       "attach provenance, scale, unit, or precision metadata"
     ]
   },
+  "root_state": {
+    "native_form": "ROOT_p(radicand)",
+    "requirements": [
+      "radicand is an explicitly represented non-negative integer state in the current natural-number facade",
+      "degree p is a positive integer",
+      "construction of ROOT does not itself evaluate a root index or decimal root"
+    ],
+    "allowed_without_brc_evaluation": [
+      "carry the ROOT node unchanged",
+      "store or transmit the ROOT node",
+      "attach provenance, scale, unit, degree, or precision metadata",
+      "retain ROOT symbolically inside a larger expression when no root-derived value is materialized"
+    ],
+    "signed_boundary": "This V2 operational facade covers non-negative integer radicands. Existing signed-root semantics remain separately typed and are not silently folded into this rule."
+  },
   "evaluation_trigger": {
-    "must_enter_brc_when": [
+    "division_must_enter_brc_when": [
       "an integer quotient is requested",
       "a remainder or divisibility decision is requested",
       "a same-state-space multiple collapse is requested",
@@ -41,7 +59,14 @@
       "rounding, truncation, floor, or other quotient-derived materialization is requested",
       "an algorithm otherwise needs to replace DIV by a calculated value"
     ],
-    "minimum_trace": [
+    "root_must_enter_brc_when": [
+      "an integer root index is requested",
+      "perfect-power membership is requested through a root calculation",
+      "a perfect-power collapse state or residual is requested",
+      "a finite-precision root digit/readout value is requested",
+      "an algorithm otherwise needs to replace ROOT by a calculated value"
+    ],
+    "division_minimum_trace": [
       "input numerator",
       "input denominator",
       "quotient",
@@ -49,22 +74,35 @@
       "same-state-space collapsed numerator",
       "evaluation kind = BRC_DIVISION_EVALUATION"
     ],
+    "root_minimum_trace": [
+      "input radicand",
+      "root degree",
+      "root index",
+      "collapsed perfect-power radicand",
+      "residual radicand",
+      "next perfect-power basin boundary",
+      "evaluation kind = BRC_ROOT_EVALUATION"
+    ],
     "forbidden_bypass": [
       "native Python / producing float",
-      "Decimal used as a native division state",
+      "Decimal used as a native exact-arithmetic state",
       "Fraction used to silently materialize/reduce native division",
+      "math.sqrt or equivalent floating root used as native evidence",
+      "math.isqrt or direct integer-root helper used outside the BRC facade on a governed path",
       "direct quotient helpers in governed research code when the BRC evaluation facade is available",
+      "direct integer_nth_root/collapse/scaled_root helpers in governed research code when the BRC evaluation facade is available",
       "fixed-width integer arithmetic without an explicit proven-safe bound"
     ]
   },
   "high_precision": {
-    "rule": "precision scale is a positive arbitrary-precision integer; scaled numerator is formed exactly before BRC evaluation",
+    "rule": "precision scale is a positive arbitrary-precision integer; scaling is performed exactly before BRC evaluation",
     "preferred_carriers": [
       "Python int",
       "Lean Nat/Int",
       "other arbitrary-precision integer implementations with explicit exact semantics"
     ],
-    "decimal_example": "For k decimal places, scale = 10^k is an integer. Evaluate DIV(scale*n, d) through BRC. Decimal text is a readout of the resulting integer quotient; residual remainder remains explicit.",
+    "division_decimal_example": "For k decimal places, scale = 10^k is an integer. Evaluate DIV(scale*n, d) through BRC. Decimal text is a readout of the resulting integer quotient; residual remainder remains explicit.",
+    "root_decimal_example": "For ROOT_p(n) at k decimal places, scale = 10^k and scaled_radicand = n*scale^p are integers. Evaluate ROOT_p(scaled_radicand) through BRC. The returned root index is the finite-scale readout integer and the residual collapse coordinate remains explicit.",
     "no_precision_ceiling": "No project-level decimal-digit ceiling is imposed by the arithmetic model. Practical resource limits are implementation limits, not mathematical truncation authority."
   },
   "legacy_boundary": {
@@ -76,10 +114,11 @@
     "matched_tool_or_method_ids": [
       "T0_BRC",
       "T5_PRECISION_REFINEMENT",
-      "P007_DISCRETE_DIVISION"
+      "P007_DISCRETE_DIVISION",
+      "EXISTING_INTEGER_ROOT_AND_PERFECT_POWER_COLLAPSE_CORE"
     ],
     "reuse_resolution_state": "EXTEND_EXISTING_TOOL",
-    "how_applied_or_why_not": "P007 supplies exact quotient/remainder and multiple-collapse primitives; T5 supplies integer precision/refinement and arbitrary integer scale semantics; BRC supplies the required evaluation boundary. The new facade operationally composes them without claiming a new theorem family.",
-    "hard_boundary_checked": "Boolean-support BRC does not thereby gain a proved multiplicity theorem; this policy is operational only."
+    "how_applied_or_why_not": "P007 supplies exact quotient/remainder and multiple-collapse primitives; the existing integer-root/perfect-power core supplies exact root/collapse primitives; T5 supplies integer precision/refinement and arbitrary integer scale semantics; BRC supplies the mandatory materialization boundary. The facade operationally composes them without claiming a new theorem family.",
+    "hard_boundary_checked": "Boolean-support BRC does not thereby gain a proved multiplicity theorem, and this operational policy does not prove division or root collapse as a new BRC theorem."
   }
 }
