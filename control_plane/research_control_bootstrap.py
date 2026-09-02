@@ -102,6 +102,8 @@ def _complete_quarantine_block(
     )
     value["base_state"] = "BLOCKED"
     value["hard_block"] = details
+    if kind == "TASK_SEMANTIC_INTEGRITY":
+        value["registration_source"] = "TASK_INTEGRITY_QUARANTINE"
     return value
 
 
