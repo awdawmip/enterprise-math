@@ -48,18 +48,17 @@ theorem distinct_slices_inter_card_one (s t : Slice) (h : s ≠ t) :
 /-- Strong form: two distinct slices have a unique shared line family. -/
 theorem existsUnique_sharedLine (s t : Slice) (h : s ≠ t) :
     ∃! l : Line, l ∈ sliceLines s ∧ l ∈ sliceLines t := by
-  fin_cases s <;> fin_cases t <;> simp_all [sliceLines]
+  fin_cases s <;> fin_cases t <;> simp_all <;> native_decide
 
 /-- No two line labels encode the same unordered pair of slices. -/
 theorem lineSlices_injective : Function.Injective lineSlices := by
-  intro l m h
-  fin_cases l <;> fin_cases m <;> simp_all [lineSlices]
+  native_decide
 
 /-- Every unordered pair of distinct slices is represented by a unique line
 family.  This is the exact `K₄` vertex-edge incidence statement. -/
 theorem existsUnique_line_of_distinct_slices (s t : Slice) (h : s ≠ t) :
     ∃! l : Line, lineSlices l = {s, t} := by
-  fin_cases s <;> fin_cases t <;> simp_all [lineSlices]
+  fin_cases s <;> fin_cases t <;> simp_all <;> native_decide
 
 /-- Double-counting the carrier incidences gives `4·3 = 6·2 = 12`. -/
 theorem incidence_double_count : 4 * 3 = 6 * 2 := by
