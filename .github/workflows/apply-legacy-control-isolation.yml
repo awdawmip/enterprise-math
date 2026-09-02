@@ -144,9 +144,32 @@ jobs:
               raise SystemExit(f'root JSON invalid: {failures}')
           print(f'root JSON: PASS ({len(paths)} files)')
           PY
-      - name: Validate installed V2 dispatch
+      - name: Diagnose and validate installed V2 dispatch
         run: |
-          python -c "from control_plane import research_control_bootstrap as b; b.install(); from tools import research_dispatch as d; e=d.validate(); print(e); raise SystemExit(bool(e))"
+          python - <<'PY'
+          from control_plane import research_control_bootstrap as bootstrap
+
+          bootstrap.install()
+          from tools import research_dispatch as dispatch
+
+          targets = {
+              "RS-NATIVE-TRISECTOR-N2-SCALAR-CLOSURE-FOUNDATION-STEWARD-ADMISSION-PRIOR-ART",
+              "RS-RSA-EXPONENT-COLLISION-EXTERNAL-PRIOR-ART-DUPLICATION-AUDIT",
+          }
+          for item in dispatch.merged_definitions():
+              if item.get("task_id") in targets:
+                  print(
+                      "DIAG",
+                      item.get("task_id"),
+                      "registration_source=", item.get("registration_source"),
+                      "base_state=", item.get("base_state"),
+                      "hard_block=", item.get("hard_block"),
+                      "definition_path=", item.get("_definition_path"),
+                  )
+          errors = dispatch.validate()
+          print(errors)
+          raise SystemExit(bool(errors))
+          PY
       - name: Remove one-shot cutover machinery
         run: |
           rm -f control_plane/apply_legacy_control_isolation.py
