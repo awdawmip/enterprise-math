@@ -8,6 +8,7 @@ on:
       - 'EnterpriseMath/PrecisionPi/PaperIIKernelV1.lean'
       - 'EnterpriseMath/PrecisionPi/PaperIIResidualClassificationV1.lean'
       - 'EnterpriseMath/PrecisionPi/PaperIIContinuumSplitV1.lean'
+      - 'EnterpriseMath/PrecisionPi/PaperIIK4RotationV1.lean'
       - '.github/workflows/precision-pi-kernel-v1.yml'
       - 'lakefile.toml'
       - 'lake-manifest.json'
@@ -48,6 +49,7 @@ jobs:
             EnterpriseMath/PrecisionPi/PaperIIKernelV1.lean
             EnterpriseMath/PrecisionPi/PaperIIResidualClassificationV1.lean
             EnterpriseMath/PrecisionPi/PaperIIContinuumSplitV1.lean
+            EnterpriseMath/PrecisionPi/PaperIIK4RotationV1.lean
           )
           if grep -nE '(^|[^[:alnum:]_])(sorry|admit)([^[:alnum:]_]|$)|^[[:space:]]*axiom[[:space:]]' "${files[@]}"; then
             echo 'Forbidden proof placeholder or custom axiom found.' >&2
@@ -59,3 +61,5 @@ jobs:
         run: lake build --wfail -KCI EnterpriseMath.PrecisionPi.PaperIIResidualClassificationV1
       - name: Build real continuum split and torsion-loss layer with warnings fatal
         run: lake build --wfail -KCI EnterpriseMath.PrecisionPi.PaperIIContinuumSplitV1
+      - name: Build K4 rotation-equivariant carrier layer with warnings fatal
+        run: lake build --wfail -KCI EnterpriseMath.PrecisionPi.PaperIIK4RotationV1
