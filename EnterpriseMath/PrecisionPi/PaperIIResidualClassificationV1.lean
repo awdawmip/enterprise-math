@@ -152,7 +152,7 @@ def normalForm (p q : ℤ) (ε : Bool) : EdgeData :=
 
 @[simp] theorem edgeSum_normalForm (p q : ℤ) (ε : Bool) :
     edgeSum (normalForm p q ε) = 0 := by
-  cases ε <;> (simp [edgeSum, normalForm, bitInt]; ring)
+  cases ε <;> simp [edgeSum, normalForm, bitInt]
 
 @[simp] theorem matching_normalForm (p q : ℤ) (ε : Bool) :
     matching (normalForm p q ε) = ![p, q, -p - q] := by
