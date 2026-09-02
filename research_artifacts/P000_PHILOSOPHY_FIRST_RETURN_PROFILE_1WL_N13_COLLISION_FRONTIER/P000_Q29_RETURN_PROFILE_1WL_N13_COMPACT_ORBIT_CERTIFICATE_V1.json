@@ -1,0 +1,36 @@
+{
+  "schema": "P000_Q29_RETURN_PROFILE_1WL_N13_COMPACT_ORBIT_CERTIFICATE_V1",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-RETURN-PROFILE-1WL-N13-COLLISION-FRONTIER",
+  "publication_id": "TP2-2BB590EA80230A7A7D4C",
+  "execution_record_id": "ER-B045187F5EDFF39075A8",
+  "researcher_id": "EM-P000Q29N13-6C1B4E",
+  "claim_id": "chatgpt-p000q29n13-20260902-2030-6c1b4e",
+  "n": 13,
+  "observable": "Q22_Q25_Q27_Q28_FROZEN_RETURN_PROFILE_INITIALIZED_ORDINARY_1WL",
+  "certificate_basis": "EXACT_CONNECTED_DEGREE_COUNT_PLUS_DETERMINISTIC_SEEDED_REPRESENTATIVE_DISCOVERY_PLUS_EXACT_AUTOMORPHISM_ORBIT_STABILIZER_COVER_AND_FULL_PACKET_SEPARATION",
+  "total_normalized_connected": 334553163840,
+  "total_representatives": 15529,
+  "collision_fibers": 0,
+  "combined_packet_image_sha256": "67cb46560ac86552b1ac0103de24a01192f5d85ccc6ec98e9e46e239308efbae",
+  "sectors": {
+    "2": {"expected_normalized_connected": 858211200,"representative_count": 35,"normalized_label_orbit_sum": 858211200,"packet_image_sha256": "c038bf95a0315e04e8bff7bafacd5dd3276295b446cc796c7b008f86a57d92c1","aut_order_histogram": {"2": 10,"4": 21,"8": 4}},
+    "4": {"expected_normalized_connected": 2430570240,"representative_count": 581,"normalized_label_orbit_sum": 2430570240,"packet_image_sha256": "35776ac6c676164c5137d6ffd7262d3dbed7f9669fce891ed5c577f64e87cc38","aut_order_histogram": {"1": 116,"2": 221,"4": 180,"6": 4,"8": 52,"16": 6,"48": 2}},
+    "6": {"expected_normalized_connected": 6963440400,"representative_count": 3159,"normalized_label_orbit_sum": 6963440400,"packet_image_sha256": "9ec3a4c5cadf74b5e20a5bca26d9098139939dab7a841dbb3c488cb653e16168","aut_order_histogram": {"1": 1151,"2": 1181,"4": 608,"8": 189,"16": 28,"32": 2}},
+    "8": {"expected_normalized_connected": 21063218400,"representative_count": 6374,"normalized_label_orbit_sum": 21063218400,"packet_image_sha256": "d9bd46ae70d16a3424392f17f5b80dc1551ea764e30925047af1e289bf529cd2","aut_order_histogram": {"1": 3048,"2": 2078,"4": 908,"8": 291,"16": 46,"32": 3}},
+    "10": {"expected_normalized_connected": 68047938000,"representative_count": 4541,"normalized_label_orbit_sum": 68047938000,"packet_image_sha256": "6a35f902944152c785925454f6bd4e238c68bff641da0f464533708558859571","aut_order_histogram": {"1": 2250,"2": 1374,"3": 2,"4": 615,"6": 11,"8": 227,"12": 3,"16": 53,"24": 1,"32": 3,"48": 2}},
+    "12": {"expected_normalized_connected": 235189785600,"representative_count": 839,"normalized_label_orbit_sum": 235189785600,"packet_image_sha256": "62988e4b43c090df2300b8e56bd32358f21442cc565194d7d08b6643660746c4","aut_order_histogram": {"1": 301,"2": 280,"4": 157,"8": 73,"16": 24,"32": 4}}
+  },
+  "discovery_plan": {
+    "2": {"seed": 813002,"samples": 30000,"base_unique_expected": 35,"supplement_graph6": []},
+    "4": {"seed": 813004,"samples": 60000,"base_unique_expected": 581,"supplement_graph6": []},
+    "6": {"seed": 913006,"samples": 80000,"base_unique_expected": 3153,"supplement_graph6": ["LB_G?UCCcGK?W?","LEC@OXCHC?O@W?","LHZK??O?KAAA?o","LLc_??DOaC?ga?","LX?I_GCaCO?KS?","LeAWB?G?`C@CGC"]},
+    "8": {"seed": 913008,"samples": 80000,"base_unique_expected": 6324,"supplement_graph6": ["L?X_[`_?c_?Ic?","L?YBGwOcC??DW?","L?YS_GgcAAGGG_","L?gpap?OK?O@@_","L@DS@WAoE?D??g","L@EHOl?OK?W?GA","L@rAX__?W_O??B","L@rOe?_G?Q?S?c","LABBO_S_POD?_O","LAGChQCWA_O_AO","LBARN??A?PP??K","LB`_kOG?b?OC?S","LCEPBDGQCG?OG@","LCPJ@KOC?@s?a?","LCocPHO@A_CA?o","LD@caGGICC@COO","LDA@AWQ_aOC_Q?","LGDdCc?c?PG_AG","LGMk?EA?Q_?IS?","LGUCIWOGH?A@__","LGcwb?AOODO?_@","LHD@OsC_C?w?@G","LHuOK@_?_C_G?P","LIaGZ_O?C?_SGC","LKWKgGoo?A?@?P","LKk_?CBCQGOOP?","LL?@CoKBACO_O_","LLp?g?@`@A@O?W","LOOT@DOASGI?B?","LPc@QHC__GG@CO","LQGgY?PCS?O@O_","LQHA?kKA`_O?_@","LQP?Ok_`C_CCA_","LQ_hSH??GaGAC_","LW@KSOBC@GI?CC","LWE?ooC@L?GGO_","LW`@cKGC?PG_CC","LWrG?cO?_CaCGO","L]GE?GH?__`_@O","L_?HaUCa@_G_K?","L_I?pa_AQGAOP?","L_Q@i?HKCGE?AO","L__lGOoC?_gGOO","L`Ia?GBo?EB?E?","LcFQ??aGOQCOAO","Ld@TG?HA?OgGGO","LeAoOOB?p?K?AA","LoOiPKO_?@AACA","Lu??AcKG_K@_I?","Lv?GRO??_H?c?c"]},
+    "10": {"seed": 913010,"samples": 70000,"base_unique_expected": 4509,"supplement_graph6": ["L?@sSPoOoOE?_A","L?hDAGTg?Cb?S?","L@?B@LWUCGO_a?","LAU@CH`G_Co_E?","LBA`QGIc?P?Io?","LBX_WA?_WEAG_G","LB_C[X_KGG?@O@","LB_GtICWa??@?H","LCRA@Cw_OOc_C_","LCd_X@?W_BQ??W","LEO?Gr@J@CCO`?","LFO?LR_B?C?o?E","LGoO`OEoSGACG_","LIBC@aEK?O`OAO","LKCm?y?W_@?@?H","LK_Z@BC?_o?I?S","LMK?JOA@GCo__G","LOEI_C[gAACAOO","LQChA`H`c??@?`","LQeiaC_?W??D?E","LRQ?@H@CgSO_A_","LSGsGd@A?PGAOC","LWCAgo_PS@OCB?","L`QIH?PGGEOAE?","L``CR?PGGK@_CC","LaiaHCOEO??D?I","LcIA@PSAOgCO?c","Ld?O@UIHa?G@B?","LeG_`BABOE?_A@","LgO?lOSD?Cd?_G","LqOWw?@_X?C@?W","Lw?GG_TQ_SQ?GO"]},
+    "12": {"seed": 913012,"samples": 30000,"base_unique_expected": 839,"supplement_graph6": []}
+  },
+  "notes": [
+    "Full packet equality is checked on exact serialized semantic packets; SHA-256 is only a pin.",
+    "Completeness authority is the independent connected labeled degree-state count plus exact automorphism orbit sum, not the discovery sample frequency.",
+    "Supplement rows are exact graph6 representatives only for rare types missed by the single frozen base seed in r=6,8,10."
+  ]
+}
