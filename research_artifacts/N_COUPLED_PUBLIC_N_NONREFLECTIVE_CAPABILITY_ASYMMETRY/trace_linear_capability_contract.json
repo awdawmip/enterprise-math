@@ -1,0 +1,86 @@
+{
+  "schema": "ENTERPRISE_MATH_NCASCAP_TRACE_LINEAR_CAPABILITY_V1",
+  "task_id": "RS-N-COUPLED-PUBLIC-N-NONREFLECTIVE-CAPABILITY-ASYMMETRY",
+  "researcher_id": "EM-NCASCAP1-7A2F4C",
+  "claim_id": "chatgpt-ncascap1-20260902-0741-7a2f4c",
+  "calculus_id": "G_trace-lin",
+  "status": "FROZEN_FOR_TASK_LOCAL_NEGATIVE_BOUNDARY",
+  "public_input": "N only",
+  "carrier_semantics": "A runtime handle denotes a finite R_N=Z/NZ module and is affine/linear: every consuming constructor invalidates its input handles.",
+  "pre_readout_handle_operations": [
+    "NEW_FREE(r)",
+    "ATTACH_RELATION(H,v)",
+    "DIRECT_SUM(H1,H2)",
+    "TENSOR(H1,H2)"
+  ],
+  "forbidden_pre_readout_handle_operations": [
+    "COPY_HANDLE",
+    "REPLAY_HANDLE",
+    "HANDLE_EQUALITY",
+    "ENUMERATE_ELEMENTS",
+    "MEMBERSHIP_QUERY",
+    "QUOTIENT_EQUALITY_QUERY",
+    "STANDARD_BASIS_PROBE",
+    "ARBITRARY_ELEMENT_EVALUATION",
+    "CARDINALITY_QUERY",
+    "PRESENTATION_QUERY"
+  ],
+  "public_intensional_data": [
+    "N",
+    "constructor tags",
+    "constructor arities and type dimensions",
+    "public integer relation vectors",
+    "the finite public constructor transcript"
+  ],
+  "pre_readout_scalar_semantics": "Arbitrary pure integer computation on public intensional data is allowed. No scalar observation of the runtime handle state is primitive.",
+  "constructor_semantics": {
+    "NEW_FREE(r)": "denotes R_N^r and compiles to the r x 0 empty presentation matrix",
+    "ATTACH_RELATION(H,v)": "consumes H=coker(C) and returns coker([C|v])",
+    "DIRECT_SUM(H1,H2)": "consumes both handles and returns their direct sum; presentations compile by block diagonal sum",
+    "TENSOR(H1,H2)": "consumes both handles and returns their tensor product over R_N; if C is rxs and D is uxv, compile to [C tensor I_u | I_r tensor D]"
+  },
+  "terminal_boundary": {
+    "operation": "MATERIALIZE(H)",
+    "semantics": "Consume the final handle and return one finite presentation matrix for its module.",
+    "declared_readout": "Compute the maximal-minor determinantal divisor Delta_r(C) of the materialized presentation and output gcd(N,Delta_r(C)).",
+    "oracle_guard": "MATERIALIZE returns a presentation, not a factor, nonunit, CRT side, hidden prime, or factor-aware selector."
+  },
+  "public_trace_compiler": {
+    "claim": "The finite public constructor transcript determines a presentation matrix before MATERIALIZE by structural recursion.",
+    "base": "NEW_FREE(r) -> empty r x 0 matrix",
+    "attach": "C,v -> [C|v]",
+    "direct_sum": "C,D -> blockdiag(C,D)",
+    "tensor": "C,D -> [C tensor I_u | I_r tensor D]",
+    "resource_note": "The compiler reads the public transcript, not runtime handles, so affine/linear noncopyability does not block it."
+  },
+  "support_scalar": {
+    "definition": "For an integer rxs presentation C, Delta_r(C)=1 when r=0, Delta_r(C)=0 when s<r, and otherwise the gcd of all r x r minors. For squarefree N=pq, support_scalar(C;N)=gcd(N,Delta_r(C)).",
+    "theorem": "For ell in {p,q}, ell divides Delta_r(C) iff rank(C mod ell)<r iff coker(C mod N) has nonzero ell-CRT component. Hence support_scalar is exactly the product of supported hidden primes.",
+    "one_sided_consequence": "A one-sided hidden support state forces 1<gcd(N,Delta_r(C))<N, computable from public transcript before MATERIALIZE."
+  },
+  "nonvacuity_witness": {
+    "N": 15,
+    "program": [
+      "H0=NEW_FREE(2)",
+      "H1=ATTACH_RELATION(H0,(1,1))",
+      "H2=ATTACH_RELATION(H1,(1,4))"
+    ],
+    "compiled_presentation": [[1,1],[1,4]],
+    "all_relation_coordinates_gcd_clean": true,
+    "Delta_2": 3,
+    "support_scalar": 3,
+    "hidden_component_dimensions_for_audit_only": {"mod_3": 1, "mod_5": 0}
+  },
+  "terminal_disposition_candidate": "NEGATIVE_BOUNDARY / EXTENSIONAL_NONREFLECTION_DOES_NOT_BLOCK_INTENSIONAL_PRESENTATION_COMPILATION",
+  "scope_boundary": [
+    "No claim about capability calculi containing a load-bearing transition whose realized output is not effectively presentation-compilable from the public transcript.",
+    "No claim about infinite-state carriers.",
+    "No factoring lower bound, complexity lower bound, novelty, Working Truth, Foundation, or canonical promotion claim.",
+    "The next necessary semantic gap is simultaneous extensional nonreflection and intensional presentation noncompilability, with a separately non-oracular terminal readout."
+  ],
+  "tool_reuse_resolution": {
+    "T0_BRC": "NOT_APPLICABLE: current proof uses CRT module support, not Boolean/provenance BRC support; do not conflate the typings.",
+    "T6_OPERATION_SAFE_QUOTIENT": "NOT_APPLICABLE: module cokernels here are algebraic presentations, not a chosen semantic coarse-graining/observation quotient.",
+    "new_general_purpose_tool": "NOT_CREATED"
+  }
+}
