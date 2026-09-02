@@ -1,0 +1,64 @@
+name: brc-weighted-foundation
+
+on:
+  pull_request:
+    paths:
+      - 'definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json'
+      - 'definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md'
+      - 'definitions/ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json'
+      - 'definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md'
+      - 'definitions/00_CURRENT_NATIVE_FOUNDATION.md'
+      - 'research_method_inventory_addenda/20260902_brc_weighted_foundation.json'
+      - 'src/enterprise_math/brc_weighted.py'
+      - 'src/enterprise_math/__init__.py'
+      - 'tests/test_brc_weighted_foundation_tool.py'
+      - 'experiments/check_brc_weighted_foundation.py'
+      - 'experiments/brc_foundation_retrofit_check.py'
+      - '.github/workflows/brc-weighted-foundation.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json'
+      - 'definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md'
+      - 'definitions/ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json'
+      - 'definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md'
+      - 'definitions/00_CURRENT_NATIVE_FOUNDATION.md'
+      - 'research_method_inventory_addenda/20260902_brc_weighted_foundation.json'
+      - 'src/enterprise_math/brc_weighted.py'
+      - 'src/enterprise_math/__init__.py'
+      - 'tests/test_brc_weighted_foundation_tool.py'
+      - 'experiments/check_brc_weighted_foundation.py'
+      - 'experiments/brc_foundation_retrofit_check.py'
+      - '.github/workflows/brc-weighted-foundation.yml'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Weighted-BRC reusable tool regression
+        env:
+          PYTHONPATH: src
+        run: python tests/test_brc_weighted_foundation_tool.py
+      - name: Weighted-BRC global Foundation integrity
+        run: python experiments/check_brc_weighted_foundation.py
+      - name: Old-research retrofit regression
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_foundation_retrofit_check.py
+      - name: Toolbox discovers Weighted-BRC subtool
+        run: |
+          python tools/enterprise_toolbox.py --json coverage weighted branch multiplicity CWM log surplus > /tmp/wbrc-coverage.json
+          python - <<'PY'
+          import json
+          data = json.load(open('/tmp/wbrc-coverage.json', encoding='utf-8'))
+          ids = {item.get('method_id') for item in data.get('methods', [])}
+          modules = {item.get('id') for item in data.get('executable_modules', [])}
+          assert 't0.weighted_brc_cwm' in ids, ids
+          assert 'module:brc_weighted' in modules, modules
+          print('Weighted-BRC toolbox routing: PASS')
+          PY
