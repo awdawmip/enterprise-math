@@ -1,0 +1,102 @@
+{
+  "schema": "P000_Q29_ROTATION_CANDIDATE_DISCRIMINATION_CERTIFICATE_V1",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-NATIVE-6D-ROTATION-LAW-CANDIDATE-DISCRIMINATION",
+  "publication_id": "TP2-4E118647826FFB47BA2C",
+  "researcher_id": "EM-P000Q29-A5DDA8",
+  "logical_carrier_notice": "X={0,1}^6 is reused only as the Driver-accepted Q26 finite logical countermodel carrier; it is not a native P000 ontology claim.",
+  "state_count": 64,
+  "slice_observation": "O(x1,...,x6)=(x1,x2,x3)",
+  "shared_unary_primitives": ["ZERO={000000}", "EVEN={x:sum(x_i)=0 mod 2}"],
+  "typed_law_equivalence": "Two finite rotation laws count as equivalent only if there is a token-monoid isomorphism and Full-Cell/model isomorphisms intertwining state actions, primitive/relation actions and the declared observation boundary. Hence state-action image cardinality, invertibility, generator fixed-point count/order, and fibre-descent truth are invariants when defined.",
+  "candidates": {
+    "E2_hidden_swap_equivalence": {
+      "semantic_class": "STRUCTURE_PRESERVING_EQUIVALENCE",
+      "token_monoid": "C6",
+      "generator": "(x1,x2,x3,x4,x5,x6)->(x1,x2,x3,x5,x4,x6)",
+      "state_action_image_cardinality": 2,
+      "generator_fixed_states": 32,
+      "generator_order": 2,
+      "bijective": true,
+      "zero_preserving": true,
+      "shared_primitives_preserved": true,
+      "slice_descent": true,
+      "induced_slice_action": "identity"
+    },
+    "E3_hidden_cycle_equivalence": {
+      "semantic_class": "STRUCTURE_PRESERVING_EQUIVALENCE",
+      "token_monoid": "C6",
+      "generator": "(x1,x2,x3,x4,x5,x6)->(x1,x2,x3,x6,x4,x5)",
+      "state_action_image_cardinality": 3,
+      "generator_fixed_states": 16,
+      "generator_order": 3,
+      "bijective": true,
+      "zero_preserving": true,
+      "shared_primitives_preserved": true,
+      "slice_descent": true,
+      "induced_slice_action": "identity"
+    },
+    "U_idempotent_update": {
+      "semantic_class": "FULL_CELL_STATE_RELATION_UPDATE",
+      "token_monoid": "two-object/idempotent typed update calculus",
+      "generator": "(x1,x2,x3,x4,x5,x6)->(0,x2,x3,x4,x5,x6)",
+      "state_image_cardinality": 32,
+      "injective": false,
+      "idempotent": true,
+      "zero_preserving": true,
+      "relation_update": "direct image on the declared unary primitive package; E(E(S))=E(S)",
+      "slice_descent": true,
+      "induced_slice_action": "(y1,y2,y3)->(0,y2,y3)"
+    },
+    "F_passive_frame_change": {
+      "semantic_class": "FRAME_PRESENTATION_CHANGE",
+      "token_monoid": "C6",
+      "ontic_state_action": "identity",
+      "ontic_state_action_image_cardinality": 1,
+      "frame_action": "k->k+a mod 6",
+      "frame_relative_observation": "O_k(x)=(x_k,x_{k+1},x_{k+2}) with cyclic indices",
+      "zero_preserving": true,
+      "slice_descent_for_frame_0_to_1": false,
+      "descent_failure_witness": {
+        "x": [0,0,0,0,0,0],
+        "y": [0,0,0,1,0,0],
+        "O_0_x_equals_O_0_y": [0,0,0],
+        "O_1_x": [0,0,0],
+        "O_1_y": [0,0,1]
+      }
+    }
+  },
+  "matched_countermodel_pair": {
+    "left": "E2_hidden_swap_equivalence",
+    "right": "E3_hidden_cycle_equivalence",
+    "matched_current_p000_features": [
+      "same 64-state Full-Cell logical carrier",
+      "same C6 token monoid",
+      "same source and target Full-Cell model type",
+      "same three-axis observation",
+      "same ZERO and EVEN primitive package",
+      "identity/composition exact",
+      "bijective state action",
+      "zero preservation",
+      "slice descent exists and is the identity"
+    ],
+    "inequivalence_invariant": "state-action representation image cardinality is 2 versus 3 (also generator fixed states 32 versus 16); this is invariant under token-monoid automorphism and state conjugacy",
+    "kill_condition_triggered": true
+  },
+  "q23_zero_support_audit": {
+    "E2": "passes zero-preservation; does not kill zero-support model",
+    "E3": "passes zero-preservation; does not kill zero-support model",
+    "U": "passes zero-preservation; does not kill zero-support model",
+    "F": "ontic identity preserves zero; does not kill zero-support model",
+    "nonzero_effectivity_derived": false
+  },
+  "pairwise_extension_discriminator_example": {
+    "clause": "U_r^2=id on Full-Cell states for the designated generator r",
+    "E2_satisfies": true,
+    "E3_satisfies": false,
+    "status": "extension-only pairwise discriminator; not a current-P000 consequence and not sufficient to select a unique law among all candidates"
+  },
+  "terminal": "NO_CANONICAL_ROTATION_LAW_SELECTED_BY_CURRENT_P000",
+  "working_truth_granted": false,
+  "foundation_authority_granted": false,
+  "canonical_promotion_granted": false
+}
