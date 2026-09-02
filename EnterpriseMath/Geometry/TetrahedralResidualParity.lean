@@ -53,13 +53,12 @@ def kernelEdge (a b c : ℤ) : Edge6 :=
 theorem edgeSum_kernelEdge (a b c : ℤ) :
     edgeSum (kernelEdge a b c) = 0 := by
   simp [edgeSum, kernelEdge]
-  ring
 
 /-- The kernel normal form has vanishing opposite-pair sums. -/
 theorem matchingSums_kernelEdge (a b c : ℤ) :
     matchingSums (kernelEdge a b c) = 0 := by
   funext i
-  fin_cases i <;> simp [matchingSums, kernelEdge]
+  fin_cases i <;> norm_num [matchingSums, kernelEdge]
 
 /-- Existence of an integer zero-sum slice potential inducing a kernel edge. -/
 def HasZeroSumPreimage (a b c : ℤ) : Prop :=
@@ -71,12 +70,14 @@ theorem hasZeroSumPreimage_iff_even (a b c : ℤ) :
     HasZeroSumPreimage a b c ↔ Even (a + b + c) := by
   constructor
   · rintro ⟨v, hv, hdelta⟩
+    have hv' : v 0 + v 1 + v 2 + v 3 = 0 := by
+      simpa [vertexSum] using hv
     have h01 := congrFun hdelta (0 : Fin 6)
     have h02 := congrFun hdelta (1 : Fin 6)
     have h03 := congrFun hdelta (2 : Fin 6)
     simp [delta, kernelEdge] at h01 h02 h03
     refine ⟨v 0, ?_⟩
-    linarith [hv]
+    omega
   · rintro ⟨t, ht⟩
     let v : Vertex4 := ![t, a - t, b - t, c - t]
     refine ⟨v, ?_, ?_⟩
@@ -104,9 +105,6 @@ theorem doublePrimitiveParity_hasPreimage :
 theorem doublePrimitiveParity_explicit :
     vertexSum (![1, 1, -1, -1] : Vertex4) = 0 ∧
       delta (![1, 1, -1, -1] : Vertex4) = kernelEdge 2 0 0 := by
-  constructor
-  · norm_num [vertexSum]
-  · funext i
-    fin_cases i <;> norm_num [delta, kernelEdge]
+  native_decide
 
 end EnterpriseMath.TetrahedralResidual
