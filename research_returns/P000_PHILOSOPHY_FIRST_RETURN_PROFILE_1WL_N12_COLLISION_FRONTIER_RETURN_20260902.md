@@ -1,10 +1,11 @@
-# P000 Philosophy-First Q28 — Frozen Return-Profile 1-WL n=12 Collision Frontier
+# P000 Philosophy-First Q28 — Frozen Return-Profile 1-WL n=12 Collision Frontier (independent control-valid re-execution)
 
 Task: `RS-P000-PHILOSOPHY-FIRST-RETURN-PROFILE-1WL-N12-COLLISION-FRONTIER`  
 Publication: `TP2-C74E704488CBF01A602D`  
-Researcher: `EM-P000-89C4F2`  
-Claim: `chatgpt-p000-q28-20260902-1302-89c4f2`  
-Execution branch: `research/p000-phil-q28-return-profile-1wl-n12-em-p000-89c4f2`  
+Researcher: `EM-P000-AED46E`  
+Claim: `chatgpt-p000q28-reexec-20260902-1920-8c7a2d`  
+Execution branch: `research/p000-q28-n12-reexecution-em-p000-aed46e`  
+Execution branch base: `0afd9a3021c86225eb1b79a8c79e69bf8fbe513d`  
 Hard target: `P000_RETURN_PROFILE_1WL_N12_FIRST_COLLISION_OR_EXACT_LOWER_BOUND_CLASSIFIED`
 
 ## Terminal verdict
@@ -20,65 +21,78 @@ c_{t+1}(x)=\Bigl(c_t(x),\operatorname{multiset}_{y\sim x}c_t(y)\Bigr),
 
 where `m_X(x)` is the primitive simple-cycle multiplicity profile through root `x`, and the graph-level output is the anonymous stabilized semantic packet `R_inf(X)`.
 
-Q28 proves, exactly at the first unresolved size,
+This re-execution proves
 
 \[
 R_\infty(X)=R_\infty(Y),\quad X,Y\in U_{BR}(12)
 \Longrightarrow X\cong Y.
 \]
 
-Together with the accepted Q22/Q25/Q27 prefix, the rigorous collision-free frontier is therefore
+Together with the accepted Q22/Q25/Q27 prefix, the rigorous bounded frontier is
 
 \[
 4\le n\le 12.
 \]
 
-No claim is made for `n>=13`, and no universal reconstruction, canonical-label, 2-WL, spectral, zeta, or stronger-observable theorem is claimed.
+No statement is made for `n>=13`, and no universal reconstruction, canonical-label, 2-WL, spectral, zeta, or stronger-observable theorem is claimed.
 
-## 1. Countermodel-first discovery
+## 1. Control-integrity / independence note
 
-The task required searching for failure before escalating to a complete certificate. I kept the observable bit-for-bit frozen and traversed exact degree-preserving 2-switch neighborhoods in each admissible `n=12` degree sector.
+The current `main` removed the earlier Q28 result/execution records because that evidence package was bound to a non-winning claim. This run therefore treated Q28 as a fresh mathematical re-execution under the current winning claim.
 
-For `r=#{v:deg(v)=3}`, handshaking forces
+To avoid silently inheriting the withdrawn conclusion, this run read only the current Q28 taskbook plus the accepted Q27 frozen definition/checker until the new n=12 certificate had independently closed. It did **not** read the surviving earlier Q28 return/checker/artifacts during discovery or certification. Only after the new certificate passed was the earlier Q28 return opened for comparison.
+
+Post-freeze comparison found exact agreement in every sector count and every packet-image digest. Thus the old mathematical evidence is independently replicated, while the present Result is bound to the current authenticated claim and execution record.
+
+## 2. Countermodel-first discovery route
+
+Handshaking forces the number `r` of degree-3 Cells at n=12 to lie in
 
 \[
 r\in\{2,4,6,8,10,12\}.
 \]
 
-The switch search encountered the following isomorphism-class counts among all simple realizations, before connectivity filtering:
+Before claiming completeness, the run searched all six sectors countermodel-first with deterministic seeded degree-preserving configuration-model sampling. The complete frozen observable was recomputed directly from adjacency for every candidate. No nonisomorphic equal-packet witness appeared.
 
-| `r` | all simple isomorphism classes seen | connected `U_BR(12)` representatives |
-|---:|---:|---:|
-| 2 | 73 | 29 |
-| 4 | 486 | 351 |
-| 6 | 1,545 | 1,373 |
-| 8 | 1,999 | 1,892 |
-| 10 | 872 | 835 |
-| 12 | 94 | 85 |
-| **total connected** |  | **4,565** |
+Discovery was deliberately not used as completeness authority. One useful adversarial signal occurred in the `r=6` sector: the first seed left an exact orbit deficit of `32,400`, equal to
 
-At every discovery step, graphs with an already-seen complete frozen packet were checked for exact graph isomorphism. No nonisomorphic equal-packet pair was found. This search is useful discovery evidence only; terminal completeness does **not** rely on switch-graph connectivity.
+\[
+\frac{6!6!}{16}.
+\]
 
-## 2. Independent completeness authority
+A second independent seed found exactly one additional packet representative with automorphism order 16, closing that deficit. This is recorded as discovery evidence only; the terminal proof is the independent exact count/orbit cover below.
 
-For each sector `3^r 2^(12-r)`, the checker independently computes the exact number `N_(12,r)` of connected simple realizations on normalized labels using a degree-state recurrence. Independently, every frozen representative is verified from adjacency alone for:
+Frozen discovery runs:
+
+- `r=2`: seed 1202, 40,000 samples;
+- `r=4`: seed 1204, 70,000 samples;
+- `r=6`: seed 1206, 60,000 samples, then seed 2206, 60,000 samples;
+- `r=8`: seed 1208, 100,000 samples;
+- `r=10`: seed 1210, 70,000 samples;
+- `r=12`: seed 1212, 30,000 samples.
+
+## 3. Independent exact completeness authority
+
+For each sector `3^r 2^(12-r)`, the checker independently computes the exact number `N_(12,r)` of connected simple normalized-label realizations using the accepted degree-state recurrence.
+
+Every frozen representative is then independently recomputed from adjacency for:
 
 1. connectivity and exact degree sector;
-2. every primitive simple unoriented cycle and every root profile `m_X(x)`;
+2. every primitive simple unoriented cycle and root profile `m_X(x)`;
 3. the unchanged ordinary 1-WL recurrence and complete semantic packet serialization;
 4. the exact automorphism-group order by adjacency-preserving backtracking.
 
-Every automorphism preserves degree, so one unlabeled representative contributes exactly
+Every automorphism preserves degree, so one isomorphism type contributes exactly
 
 \[
 \frac{r!(12-r)!}{|\operatorname{Aut}(G)|}
 \]
 
-normalized labelings in its sector.
+normalized labelings in sector `r`.
 
 The exact sector certificate is:
 
-| degree-3 count `r` | exact normalized connected realizations | graph-isomorphism representatives | stable packets | collision? |
+| degree-3 count `r` | exact normalized connected realizations | representatives | stable packets | collision? |
 |---:|---:|---:|---:|:---|
 | 2 | 63,504,000 | 29 | 29 | no |
 | 4 | 161,965,440 | 351 | 351 | no |
@@ -97,13 +111,13 @@ For every sector the checker verifies exactly
 N_{12,r}.
 \]
 
-The left side is a disjoint union of normalized labeling orbits of valid pairwise nonisomorphic representatives. The right side is an independently computed total count. Equality leaves no unrepresented connected isomorphism type.
+The representatives in a sector have pairwise distinct exact packet serializations, hence are pairwise nonisomorphic. The orbit sum equals an independently computed total normalized connected count, so no connected isomorphism type is missing. Finally, the 4,565 exact packet serializations are pairwise distinct globally, including across degree sectors.
 
-Finally, all 4,565 complete packet serializations are pairwise distinct globally, including across degree sectors. Hence no nonisomorphic equal-packet collision exists at `n=12`.
+Therefore no nonisomorphic equal-packet collision exists at `n=12`.
 
-## 3. Frozen packet-image digests
+## 4. Frozen packet-image digests
 
-SHA-256 is used only to pin already constructed complete serialization images; equality is tested on the raw complete serialization.
+SHA-256 pins the already constructed exact packet serialization images; hash equality is not used instead of packet equality.
 
 - `r=2`: `ed91e3ff2a67244632fb7c85b06b4f99f04d90e6e41f18728677a92af498ab6a`
 - `r=4`: `a883a730d51d50cadd0ec89615c1ea88a5a4077a7de24ccba9aeeeef84a8d3b1`
@@ -113,18 +127,11 @@ SHA-256 is used only to pin already constructed complete serialization images; e
 - `r=12`: `9c0c68896bb50488c16d2805920c75b46dcb6ddaa18bae43217366ffcf0b8c47`
 - combined: `0503bb2767926a155c8ceb09c15ebffdf4d5750fe1584b214108cc74c99ff814`
 
-## 4. Frozen machine artifacts
+## 5. Frozen machine artifacts
 
-Certificate:
+Independent re-execution certificate:
 
-`research_artifacts/P000_PHILOSOPHY_FIRST_RETURN_PROFILE_1WL_N12_COLLISION_FRONTIER/P000_Q28_RETURN_PROFILE_1WL_N12_EXACT_ORBIT_CERTIFICATE_V1.json`
-
-Representative payload shards:
-
-- `P000_Q28_N12_REPRESENTATIVES_A_V1.json`
-- `P000_Q28_N12_REPRESENTATIVES_B_V1.json`
-- `P000_Q28_N12_REPRESENTATIVES_C_V1.json`
-- `P000_Q28_N12_REPRESENTATIVES_D_V1.json`
+`research_artifacts/P000_PHILOSOPHY_FIRST_RETURN_PROFILE_1WL_N12_COLLISION_FRONTIER/P000_Q28_RETURN_PROFILE_1WL_N12_EXACT_ORBIT_CERTIFICATE_REEXEC_AED46E_V1.json`
 
 Deterministic standard-library checker:
 
@@ -134,13 +141,13 @@ The checker returns:
 
 `PASS Q28 n=12 exact orbit certificate: representatives=4565 normalized_connected=16937557920 stable_packets=4565 collision=0 lower_bound=n<=12`
 
-## 5. Exact strength and negative boundary
+## 6. Exact strength and negative boundary
 
 The terminal class is
 
 `RETURN_PROFILE_1WL_COLLISION_FREE_LOWER_BOUND_EXTENDED_THROUGH_N12`.
 
-The exact accepted-strength candidate for Driver review is:
+The exact Driver-review candidate strength is:
 
 `FROZEN_RETURN_PROFILE_INITIALIZED_ORDINARY_1WL_EXACT_GRAPH_LEVEL_INJECTIVITY_ON_U_BR_FOR_4_LE_N_LE_12_ONLY`.
 
@@ -149,7 +156,7 @@ This does **not** establish:
 - any statement for `n>=13`;
 - a universal finite-graph reconstruction theorem;
 - vertexwise canonical identification or a canonical-label algorithm;
-- 2-WL, spectra, zeta, full-cycle-incidence, or any strengthened observable;
+- 2-WL, spectra, zeta, full cycle incidence, or any strengthened observable;
 - Working Truth, Foundation, L4, canonical promotion, or historical novelty.
 
-If Driver accepts this result, Q28 stops exactly at `n=12`. Any `n=13` investigation requires a separately published successor.
+Q28 stops exactly at n=12. Any n=13 investigation requires a separately published successor after Driver review.
