@@ -1,0 +1,123 @@
+{
+  "schema": "ENTERPRISE_MATH_WEIGHTED_BRC_THEOREM_LEDGER_V1",
+  "status": "CANONICAL_FOUNDATION_THEOREM_INTERFACE",
+  "effective": "2026-09-02",
+  "scope": "universal research foundation interface; apply only when the declared problem has the typed hypotheses of the selected theorem",
+  "foundation": "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md",
+  "tool": "src/enterprise_math/brc_weighted.py",
+  "boolean_base": "R023 Boolean result-support BRC remains unchanged",
+  "theorems": [
+    {
+      "id": "WBRC-T01-CWM-SEMIRING",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "finite branch families; non-negative CWM algebraic carrier",
+      "statement": "S_CWM=N_0 x Q_{>=0} x Q_{>=0} with (c,w,m) boxplus (c',w',m')=(c+c',w+w',max(m,m')) and boxtimes=(cc',ww',mm') is a semiring-like direct-product path carrier; a positive edge a lifts to (1,a,a).",
+      "consequence": "one path evaluation can carry supported path count, total positive mass, and dominant path mass simultaneously",
+      "source": ["PR #1104", "research_notes/BRC_WEIGHTED_CWM_SAFE_QUOTIENT_20260902.md"]
+    },
+    {
+      "id": "WBRC-T02-POSITIVE-REALIZABILITY",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "finite family of positive rational path weights",
+      "statement": "The exact CWM realizability locus is (0,0,0), or C=1 with W=M>0, or C>=2 with 0<M<W<=CM; these conditions are necessary and sufficient.",
+      "negative_boundary": "The weaker envelope 0<M<=W<=CM is closed but contains non-realizable states such as (2,1,1).",
+      "source": ["PR #1105", "research_notes/BRC_WEIGHTED_CWM_REALIZABILITY_CORRECTION_20260902.md"]
+    },
+    {
+      "id": "WBRC-T03-BOOLEAN-SUPPORT-HOMOMORPHISM",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "semiring-like weighted branch carrier (S,oplus,otimes,0,1)",
+      "statement": "The nonzero-support map beta:S->{0,1} is a semiring homomorphism to Boolean support iff the carrier is zerosumfree and has no zero divisors.",
+      "consequence": "positive/counting mass semantics may forget to Boolean BRC without changing support under the stated hypotheses",
+      "source": ["PR #1103", "research_notes/BRC_WEIGHTED_LOG_SEMIRING_EXTENSION_20260902.md"]
+    },
+    {
+      "id": "WBRC-T04-MULTIPLICITY-SURPLUS",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "live finite positive CWM state with M>0",
+      "statement": "E=W/M satisfies 1<=E<=C and Delta=ln(E) satisfies 0<=Delta<=ln(C), with ln(W)=ln(M)+Delta.",
+      "equal_branch_case": "For k equal-weight branches, E=k and Delta=ln(k).",
+      "source": ["PR #1103", "PR #1104"]
+    },
+    {
+      "id": "WBRC-T05-MAX-TOTAL-DECOMPOSITION",
+      "status": "PROVED_MAIN_BACKED",
+      "hypotheses": "live finite positive CWM state",
+      "statement": "If T=ln(M) is the max-path log value and L=ln(W) is the total-mass log value, then L=T+Delta; the max-path/idempotent layer is the lower envelope and Delta is the exact multiplicity gap.",
+      "boundary": "Max-plus/idempotent closure forgets branch multiplicity and is not interchangeable with non-idempotent weighted recoalescence.",
+      "source": ["PR #1103", "research_notes/BRC_WEIGHTED_MULTIPLICITY_TOWER_20260902.md"]
+    },
+    {
+      "id": "WBRC-T06-ALL-PREFIX-SAFE-QUOTIENT",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "finite positive weighted branch system; declared target family; arbitrary admissible incoming prefixes must be preserved without changing their weights",
+      "statement": "Two states are safely quotient-equivalent iff their complete future CWM transfer vectors F_t=(C,W,M) agree for every declared target t; the kernel of the full future transfer vector is the coarsest all-prefix safe quotient.",
+      "source": ["PR #1104", "research_notes/BRC_WEIGHTED_CWM_SAFE_QUOTIENT_20260902.md"]
+    },
+    {
+      "id": "WBRC-T07-PROJECTIVE-GAUGE-QUOTIENT",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "future count coordinates agree and one common lambda>0 scales both W and M for every declared target; redirected incoming weights may be coherently compensated",
+      "statement": "G_lambda(c,w,m)=(c,lambda*w,lambda*m) defines projective future equivalence; after compensating redirected incoming weights by the same factor, complete path weights are preserved exactly.",
+      "invariant": "E=W/M and Delta=ln(W/M) are gauge-invariant; g=ln(lambda) is an additive absolute-scale coordinate.",
+      "source": ["PR #1105", "research_notes/BRC_WEIGHTED_PROJECTIVE_GAUGE_QUOTIENT_20260902.md"]
+    },
+    {
+      "id": "WBRC-T08-ONE-STATE-RECURRENT-POWER",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "one recurrent state with k>=1 positive rational self-loop weights q_i; S=sum q_i; Q=max q_i",
+      "statement": "After exactly n traversals the CWM value is (k^n,S^n,Q^n).",
+      "source": ["PR #1106", "research_notes/BRC_CYCLIC_LOG_MULTIPLICITY_CLOSURE_20260902.md"]
+    },
+    {
+      "id": "WBRC-T09-ONE-STATE-TOTAL-MASS-STABILITY",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "same as WBRC-T08",
+      "statement": "The all-depth sum-product mass is finite iff S<1, then equals 1/(1-S); the dominant-path envelope is bounded under the weaker condition Q<=1.",
+      "counterexample": "q_1=q_2=3/5 gives Q<1 but S>1, so every individual loop contracts while total branch mass diverges.",
+      "source": ["PR #1106"]
+    },
+    {
+      "id": "WBRC-T10-EQUAL-LOOP-LOG-THRESHOLD",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "k equal recurrent positive loops, each of weight q>0",
+      "statement": "Total-mass stability is kq<1, equivalently ln(q)<-ln(k); the same ln(k) that measures finite equal-branch recoalescence is the exact recurrent multiplicity stability penalty.",
+      "source": ["PR #1106"]
+    },
+    {
+      "id": "WBRC-T11-DETERMINISTIC-DEGENERATION",
+      "status": "EXACT_DEGENERATION_EXECUTABLE_CHECKED",
+      "hypotheses": "one deterministic positive path only",
+      "statement": "C=1 and W=M, hence E=1 and Delta=0; Weighted-BRC contributes no extra multiplicity information.",
+      "source": ["PR #1108", "research_notes/BRC_FOUNDATION_RETROFIT_REGRESSION_20260902.md"]
+    }
+  ],
+  "negative_boundaries": [
+    {
+      "id": "WBRC-N01-SIGNED-CANCELLATION",
+      "status": "COUNTEREXAMPLE_NEGATIVE_BOUNDARY",
+      "statement": "Positive Weighted-BRC cannot represent signed/amplitude cancellation; 1+(-1)=0 violates zerosumfreeness, and positive recoalescence erases reflection-odd orientation information such as the sign of Omega_2."
+    },
+    {
+      "id": "WBRC-N02-ZERO-DIVISOR-SUPPORT",
+      "status": "COUNTEREXAMPLE_NEGATIVE_BOUNDARY",
+      "statement": "A carrier with zero divisors need not preserve support multiplicatively; 2*3=0 mod 6 is the canonical witness."
+    },
+    {
+      "id": "WBRC-N03-BOOLEAN-QUOTIENT-TOO-COARSE",
+      "status": "PROVED_NEGATIVE_BOUNDARY",
+      "statement": "Boolean future equivalence may merge states whose target support agrees but whose multiplicity or positive-mass future differs; it is not generally a safe Weighted-BRC quotient."
+    },
+    {
+      "id": "WBRC-N04-LOCAL-BISIMULATION-NOT-NECESSARY",
+      "status": "PROVED_NEGATIVE_BOUNDARY",
+      "statement": "One-step local weighted bisimulation is sufficient but not necessary for complete future CWM equality because positive factors may be redistributed between an edge and its downstream future."
+    },
+    {
+      "id": "WBRC-N05-GENERAL-SCC-NOT-PROMOTED",
+      "status": "SCOPE_BOUNDARY",
+      "statement": "No general strongly-connected-component, Perron-Frobenius, or spectral-radius theorem follows from the one-state recurrent results without a separate proof/certificate layer."
+    }
+  ],
+  "consumption_rule": "These theorem IDs are part of the global research foundation. They are available in every research mode but activate only when their typed hypotheses occur; they do not choose the research question or force a branching interpretation on deterministic problems."
+}
