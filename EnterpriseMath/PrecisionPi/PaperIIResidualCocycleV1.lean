@@ -138,7 +138,7 @@ theorem swap12Edge_normalForm (p q : ℤ) (ε : Bool) :
   constructor
   · funext i
     fin_cases i <;> cases ε <;>
-      simp [matching, swap12Edge, normalForm, bitInt, add_comm]
+      simp [matching, swap12Edge, normalForm, bitInt] <;> ring
   · refine ⟨0, ?_⟩
     cases ε <;> simp [edgeSub, swap12Edge, normalForm, bitInt]
 
