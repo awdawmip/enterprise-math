@@ -39,7 +39,6 @@ theorem square_halfTrace_forces_fourth_residual
       ring
 
 /-- The two signed shells are the two linear factors of the fourth residual. -/
-omit [CharZero K] in
 theorem fourth_residual_shell_factorization (P : K) :
     P ^ 4 - 1 = (P ^ 2 - 1) * (P ^ 2 + 1) := by
   ring
