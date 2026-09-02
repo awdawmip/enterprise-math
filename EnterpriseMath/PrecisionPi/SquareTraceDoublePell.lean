@@ -21,10 +21,14 @@ theorem pairedPell_to_squareTraceUnit
     (hMinus : PellMinus P dMinus b)
     (hDisc : dPlus * dMinus = D * r ^ 2) :
     SquareTraceUnit P D (r * a * b) := by
+  have hPlus' : P ^ 2 - dPlus * a ^ 2 = 1 := by
+    simpa [PellPlus] using hPlus
+  have hMinus' : P ^ 2 - dMinus * b ^ 2 = -1 := by
+    simpa [PellMinus] using hMinus
   have hp : P ^ 2 - 1 = dPlus * a ^ 2 := by
-    linarith [hPlus]
+    linarith
   have hm : P ^ 2 + 1 = dMinus * b ^ 2 := by
-    linarith [hMinus]
+    linarith
   unfold SquareTraceUnit
   calc
     (P ^ 2) ^ 2 - D * (r * a * b) ^ 2 =
@@ -46,7 +50,7 @@ theorem fusedShell_at_inverseSquare (P : ℤ) (hP : P ≠ 0) :
         (1 + (1 : ℚ) / (P : ℚ) ^ 2) =
       1 - (1 : ℚ) / (P : ℚ) ^ 4 := by
   have hPq : (P : ℚ) ≠ 0 := by exact_mod_cast hP
-  field_simp
+  field_simp [hPq]
   ring
 
 /-- The `P=3` positive shell. -/
@@ -59,7 +63,9 @@ theorem pellMinus_three : PellMinus 3 10 1 := by
 
 /-- The `P=3` paired shell yields the unit `9+4√5`. -/
 theorem squareTraceUnit_three : SquareTraceUnit 3 5 4 := by
-  exact pairedPell_to_squareTraceUnit pellPlus_three pellMinus_three (by norm_num)
+  exact pairedPell_to_squareTraceUnit
+    (P := 3) (dPlus := 2) (dMinus := 10) (a := 2) (b := 1)
+    (D := 5) (r := 2) pellPlus_three pellMinus_three (by norm_num)
 
 /-- The `P=7` positive shell. -/
 theorem pellPlus_seven : PellPlus 7 3 4 := by
@@ -71,7 +77,9 @@ theorem pellMinus_seven : PellMinus 7 2 5 := by
 
 /-- The `P=7` paired shell yields the unit `49+20√6`. -/
 theorem squareTraceUnit_seven : SquareTraceUnit 7 6 20 := by
-  exact pairedPell_to_squareTraceUnit pellPlus_seven pellMinus_seven (by norm_num)
+  exact pairedPell_to_squareTraceUnit
+    (P := 7) (dPlus := 3) (dMinus := 2) (a := 4) (b := 5)
+    (D := 6) (r := 1) pellPlus_seven pellMinus_seven (by norm_num)
 
 /-- The `P=99` positive Pell shell. -/
 theorem pellPlus_ninetyNine : PellPlus 99 2 70 := by
@@ -88,8 +96,10 @@ theorem discriminantFusion_ninetyNine : (2 : ℤ) * 58 = 29 * 2 ^ 2 := by
 /-- The paired `P=99` shells yield the norm-one unit
 `9801 + 1820√29`. -/
 theorem squareTraceUnit_ninetyNine : SquareTraceUnit 99 29 1820 := by
-  exact pairedPell_to_squareTraceUnit pellPlus_ninetyNine
-    pellMinus_ninetyNine discriminantFusion_ninetyNine
+  exact pairedPell_to_squareTraceUnit
+    (P := 99) (dPlus := 2) (dMinus := 58) (a := 70) (b := 13)
+    (D := 29) (r := 2) pellPlus_ninetyNine pellMinus_ninetyNine
+    discriminantFusion_ninetyNine
 
 /-- The rational half-trace in the `N=58` unit is `99²=9801`. -/
 theorem halfTrace_ninetyNine : (99 : ℤ) ^ 2 = 9801 := by
