@@ -1,6 +1,6 @@
 # Enterprise Math — Current Native Foundation Router
 
-Status: `ACTIVE / STABLE CURRENT ROUTER / P000-BOUND / FCC-CARRIER-SELECTED / WEIGHTED-BRC-GLOBAL-BASE / FINITE-RECURRENT-CERTIFIED / LAZY LOAD`
+Status: `ACTIVE / STABLE CURRENT ROUTER / P000-BOUND / FCC-CARRIER-SELECTED / WEIGHTED-BRC-GLOBAL-BASE / FINITE-RECURRENT-CERTIFIED / RECURRENT-LOOP-ARITHMETIC / LAZY LOAD`
 Date: `2026-09-02`
 Purpose: route current native mathematics without loading unrelated results.
 
@@ -44,20 +44,28 @@ Its role is type discipline, not agenda selection. In particular:
 - finite positive-rational branch systems have the shared exact CWM carrier `(C,W,M)` available;
 - `E=W/M` and `Delta=LN(E)` are derived readout coordinates;
 - finite non-negative rational recurrent total-mass systems admit exact rational/integer stable-or-divergent certificates and a gauge-local row-subcritical form;
+- stable rational recurrence has exact loop-zeta, response/Hessian and integer criticality interfaces;
+- positive rational vertex gauge may be retained as exact prime-valuation integer cohomology before logarithmic readout;
+- mod-m/C2 shadows are forgetful and not assumed dynamically complete;
+- determinant cycle-system signs are inclusion-exclusion coefficients, not signed/amplitude branch data;
 - positive Weighted-BRC does not replace signed/amplitude data;
 - deterministic single-path problems reduce to `E=1`, `Delta=0`;
 - canonical R023 Boolean support remains the base support semantics;
-- recurrent results beyond finite non-negative rational transition-mass systems are not assumed.
+- recurrence beyond finite non-negative rational transition-mass systems is not assumed.
 
 Detailed statements are routed by:
 
 - `ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json` — base weighted/log layer;
-- `ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json` — finite recurrent rational addendum.
+- `ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json` — finite recurrent rational addendum;
+- `ENTERPRISE_BRC_RECURRENT_LOOP_THEOREM_LEDGER_20260902.json` — recurrent loop arithmetic / rational holonomy / cycle-polynomial addendum.
 
 Reusable executable methods:
 
 - `t0.weighted_brc_cwm` -> `src/enterprise_math/brc_weighted.py`;
-- `t0.weighted_brc_finite_recurrent` -> `src/enterprise_math/brc_weighted_recurrent.py`.
+- `t0.weighted_brc_finite_recurrent` -> `src/enterprise_math/brc_weighted_recurrent.py`;
+- `t0.weighted_brc_recurrent_loop` -> `src/enterprise_math/brc_recurrent_loop.py`;
+- `t0.weighted_brc_rational_holonomy` -> `src/enterprise_math/brc_rational_holonomy.py`;
+- `t0.weighted_brc_cycle_polynomial` -> `src/enterprise_math/brc_cycle_polynomial.py`.
 
 Freeze:
 
@@ -73,13 +81,15 @@ Freeze:
 4. BRC weighted/log theorem ledger — `ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json`;
 5. BRC finite recurrent rational foundation — `ENTERPRISE_BRC_FINITE_RECURRENT_FOUNDATION_20260902.md`;
 6. BRC finite recurrent theorem-ledger addendum — `ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json`;
-7. **primary six-axis rotational coordinate carrier** — `P000_FCC_PRIMARY_COORDINATE_CARRIER_20260829.md`;
-8. established three-axis research slice / coordinates — `ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`;
-9. native line trace — `ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`;
-10. arbitrary-point directed gauge — `ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`;
-11. unoriented bidirectional segment — `ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md`;
-12. BRC × native multipath — `ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md`;
-13. path-valued square root — `ENTERPRISE_PATH_VALUED_SQUARE_ROOT_OPERATOR_20260821.md` when a selected task actually uses it.
+7. BRC recurrent loop arithmetic foundation — `ENTERPRISE_BRC_RECURRENT_LOOP_ARITHMETIC_FOUNDATION_20260902.md`;
+8. BRC recurrent loop theorem-ledger addendum — `ENTERPRISE_BRC_RECURRENT_LOOP_THEOREM_LEDGER_20260902.json`;
+9. **primary six-axis rotational coordinate carrier** — `P000_FCC_PRIMARY_COORDINATE_CARRIER_20260829.md`;
+10. established three-axis research slice / coordinates — `ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`;
+11. native line trace — `ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`;
+12. arbitrary-point directed gauge — `ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`;
+13. unoriented bidirectional segment — `ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md`;
+14. BRC × native multipath — `ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md`;
+15. path-valued square root — `ENTERPRISE_PATH_VALUED_SQUARE_ROOT_OPERATOR_20260821.md` when a selected task actually uses it.
 
 The minimal Weighted-BRC substrate is universal. Other registry entries remain lazy: load only the exact object required by the current problem, except P000 when dimensional/spatial semantics are material and the FCC carrier definition when global coordinate/rotation semantics are material.
 
@@ -177,26 +187,31 @@ The exact native six-axis address equivalence, global metric and native six-dime
 
 When the actual research object has typed positive branching, load only the theorem/tool pieces required by the question.
 
-Core current interface:
+Base and finite recurrent interface:
 
-- `WBRC-T01`: CWM semiring path carrier;
-- `WBRC-T02`: exact positive-path realizability;
-- `WBRC-T03`: Boolean support homomorphism criterion;
-- `WBRC-T04/T05`: effective multiplicity and log surplus;
-- `WBRC-T06`: all-prefix future-CWM safe quotient;
-- `WBRC-T07`: projective/gauge-compensated quotient;
-- `WBRC-T08/T09/T10`: exact one-state recurrent positive-branch closure;
-- `WBRC-T11`: deterministic degeneration;
-- `WBRC-T12`: finite recurrent path-mass matrix powers;
-- `WBRC-T13`: exact positive rational recurrent potential and gauge localization;
-- `WBRC-T14`: exact finite recurrent star `(I-W)^(-1)` on the stable side;
-- `WBRC-T15`: pure integer stable/divergent certificate alternative;
-- `WBRC-T16`: total-mass stability implies dominant-path contraction, but not conversely;
-- `WBRC-N01..N04`: signed/zero-divisor/Boolean/local-bisimulation boundaries;
-- `WBRC-N05`: historical pre-finite-recurrent boundary, narrowed by T12..T16;
-- `WBRC-N06`: current recurrent boundary beyond finite non-negative rational transition mass.
+- `WBRC-T01..T11` — CWM, positive realizability, Boolean projection, multiplicity surplus, safe/gauge quotient, one-state recurrence and deterministic degeneration;
+- `WBRC-T12..T16` — finite recurrent path-mass powers, rational potential, exact star, integer stable/divergent alternative and dominant-vs-total boundary;
+- `WBRC-N01..N06` — signed/zero-divisor/quotient/local/recurrent-scope boundaries.
 
-Use `t0.weighted_brc_cwm` for finite branch/CWM operations and `t0.weighted_brc_finite_recurrent` for finite rational recurrent total-mass analysis. `LN` is materialized only through the existing BRC logarithm runtime when a log readout is genuinely required.
+Recurrent loop arithmetic interface:
+
+- `WBRC-T17` — exact recurrent loop-zeta determinant;
+- `WBRC-T18` — adjugate equal-slack integer potential;
+- `WBRC-T19` — loop gauge invariance, SCC additivity and DAG zero law;
+- `WBRC-T20` — exact edge-loop response and recurrent-edge support;
+- `WBRC-T21` — PSD response Hessian and cycle/gauge quotient metric;
+- `WBRC-T22` — integer response numerator certificate;
+- `WBRC-T23/T24` — integer criticality polynomial and exact rational susceptibility;
+- `WBRC-T25` — prime-valuation rational gauge cohomology;
+- `WBRC-T26` — spanning-tree/fundamental-holonomy rational normal form;
+- `WBRC-T27` — mod-m / C2 holonomy shadows;
+- `WBRC-T28` — m-power-free skeleton plus rational thickness and BRC ROOT_m bridge;
+- `WBRC-T29` — explicit finite cycle-interaction polynomial;
+- `WBRC-T30` — finite polynomial response identities;
+- `WBRC-T31` — finite inclusion-exclusion certificate versus infinite positive loop closure;
+- `WBRC-N07..N11` — C2 incompleteness, feed-forward gauge information, determinant-sign typing, log-prime non-lattice and critical-optimizer boundaries.
+
+Use the matching T0 subtool above. `LN` and `ROOT_m` materialize only through the existing exact BRC arithmetic runtime when those readouts are genuinely required.
 
 ## First native layer versus carrier polyhedra
 
@@ -252,6 +267,8 @@ For the universal Weighted-BRC type commitments, `ENTERPRISE_BRC_WEIGHTED_GLOBAL
 For detailed weighted/log theorem scope, `ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json` controls.
 
 For finite recurrent rational theorem scope, `ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json` controls.
+
+For recurrent loop arithmetic/rational gauge/cycle-polynomial theorem scope, `ENTERPRISE_BRC_RECURRENT_LOOP_THEOREM_LEDGER_20260902.json` controls.
 
 Project mission/routing is defined by `PROJECT_DEFINITION.md`, `PROJECT_DEFINITION.zh-CN.md`, and current machine governance.
 
