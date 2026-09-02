@@ -1,0 +1,61 @@
+{
+  "schema": "GEO8_R4_TO_R6_TRANSFER_AUDIT_V1",
+  "task_id": "RS-GEO8-BORSUK-R6-LASSAK-33-COMPRESSION-PRESSURE",
+  "source_method": "Tolmachev–Voronov 2026 R4 truncated Lassak/UCS construction",
+  "source_code_commit": "Alexandr-Tolmachev/borsuk-problem-r4@536be6984396091d78b122fca43cd9a8efcdd45e",
+  "classifications": [
+    {
+      "ingredient": "Lassak two-ball universal lens cover",
+      "classification": "EXACTLY_TRANSFERABLE_TO_R6",
+      "reason": "Theorem 4 is stated in general dimension n; n=6 gives r^2=3/7."
+    },
+    {
+      "ingredient": "UCS split by two parallel hyperplanes at distance 1",
+      "classification": "EXACTLY_TRANSFERABLE_TO_R6",
+      "reason": "The set-theoretic cutting proposition is dimension-independent."
+    },
+    {
+      "ingredient": "centered orthogonal width-1 slab selection",
+      "classification": "EXACTLY_TRANSFERABLE_TO_R6",
+      "reason": "General lemma: if A⊂R^m has diameter<=1 and 0∈A, then there exist m-1 pairwise orthonormal directions u_i with |<u_i,x>|<=1/2 for every x∈A. For the R6 five-dimensional projection this yields four orthogonal slabs."
+    },
+    {
+      "ingredient": "rhombic-dodecahedron completion of slab normals and four UCS orbit representatives",
+      "classification": "DIMENSION_4_SPECIFIC",
+      "reason": "The paper's completion and symmetry reduction live in the three-dimensional projection used for R4. No five-dimensional normal completion/orbit theorem is supplied by the R4 source."
+    },
+    {
+      "ingredient": "hypercube vertex rays and facet-cone covering of a convex body from an apex",
+      "classification": "EXACTLY_TRANSFERABLE_TO_R6",
+      "reason": "The combinatorial cone construction is n-dimensional; in R6 it uses 64 cube-vertex directions and 12 facet cones."
+    },
+    {
+      "ingredient": "all cone pieces have strict diameter <1 after truncation/rotation/apex choice",
+      "classification": "TRANSFERABLE_WITH_NEW_R6_LEMMA",
+      "reason": "This is the load-bearing geometric estimate. The simplest center-fixed untruncated R6 port is exactly false: every orientation has a same-facet witness of squared distance 10/7>1."
+    },
+    {
+      "ingredient": "circumscribed-polyhedron outer diameter validation",
+      "classification": "TRANSFERABLE_WITH_NEW_R6_LEMMA",
+      "reason": "The public code is largely dimension-parameterized, but a rigorous R6 universal theorem still requires an R6 cover family plus globally certified outer approximation/diameter bounds; numerical search alone is not a proof."
+    }
+  ],
+  "general_centered_strip_lemma": {
+    "statement": "For bounded A⊂R^m, diam(A)<=1, 0∈A, there are m-1 orthonormal u_1,...,u_{m-1} such that |<u_i,x>|<=1/2 for all x∈A.",
+    "proof": "For any subspace W of dimension at least 2, the support functions a(u)=sup_A<u,x> and b(u)=sup_A<-u,x> are continuous on S(W), nonnegative, and a(u)+b(u)<=1. The odd continuous function a-b has a zero on connected S(W), yielding a=b<=1/2. Choose such a direction, pass to its orthogonal complement, and iterate until dimension 1 remains.",
+    "R6_consequence": "applied to the five-dimensional projection, four mutually orthogonal centered unit-width slabs exist"
+  },
+  "exact_failure_boundary": {
+    "blocked_subtemplate": "center-fixed untruncated 12 hypercube-facet cones on L_6",
+    "orientation_uniform_lower_bound_squared": "10/7",
+    "not_blocked": [
+      "truncating the lens",
+      "moving the apex",
+      "using non-hypercubic cone directions",
+      "using more than one UCS representative",
+      "splitting/repartitioning Lassak atoms"
+    ]
+  },
+  "R6_missing_geometric_lemma": "Construct a finite five-dimensional truncation/UCS normal system with controlled orbit representatives and, for every resulting R6 lens variant, certify a repartition into at most 32 total pieces of diameter <1 (or show a quantified obstruction for that enlarged template).",
+  "conclusion": "The R4 method is not dimension-4-only at its algebraic or algorithmic core. The exact bottleneck in R6 is the missing five-dimensional truncation/orbit geometry and its strict-diameter certificate."
+}
