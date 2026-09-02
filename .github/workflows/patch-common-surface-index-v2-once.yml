@@ -319,7 +319,6 @@ jobs:
               return errors
 
           '''
-          replacement = replacement.replace('\n          ', '\n')
           text = text[:start] + replacement + text[end:]
           text = text.replace(
               '    scheduler = _load_json(SCHEDULER_JSON)',
