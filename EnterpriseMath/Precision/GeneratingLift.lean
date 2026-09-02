@@ -52,9 +52,9 @@ theorem finite_weighted_generating_lift
     (z : K) (M : ℕ)
     (hscale : scale ≠ 0)
     (htarget : ∀ n, n ≠ 0 → target n ≠ 0) :
-    (∑ j in Finset.range M,
+    (∑ j ∈ Finset.range M,
         source (j + 1) * response (j + 1) * z ^ (j + 1)) =
-      ∑ j in Finset.range M,
+      ∑ j ∈ Finset.range M,
         (scale⁻¹ * ((j + 1 : ℕ) : K) * target (j + 1) *
           scaledPrecision scale source target (j + 1)) *
             response (j + 1) * z ^ (j + 1) := by
@@ -68,8 +68,8 @@ theorem finite_generating_lift
     (scale : K) (source target : ℕ → K) (z : K) (M : ℕ)
     (hscale : scale ≠ 0)
     (htarget : ∀ n, n ≠ 0 → target n ≠ 0) :
-    (∑ j in Finset.range M, source (j + 1) * z ^ (j + 1)) =
-      ∑ j in Finset.range M,
+    (∑ j ∈ Finset.range M, source (j + 1) * z ^ (j + 1)) =
+      ∑ j ∈ Finset.range M,
         scale⁻¹ * ((j + 1 : ℕ) : K) * target (j + 1) *
           scaledPrecision scale source target (j + 1) * z ^ (j + 1) := by
   simpa using finite_weighted_generating_lift
