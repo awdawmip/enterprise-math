@@ -71,12 +71,12 @@ jobs:
               "* V1 task-registry write commands remain fail-closed compatibility only.\n",
               "* physical absence of the pre-V2 task and scheduler authority surfaces.\n",
           )
-          old = '''    require(
-        task_auth.get("legacy_role") == "READ_ONLY_COMPATIBILITY_AND_AUDIT_ONLY",
-        "V1 registry must be read-only compatibility",
-    )
-
-'''
+          old = (
+              "    require(\n"
+              "        task_auth.get(\"legacy_role\") == \"READ_ONLY_COMPATIBILITY_AND_AUDIT_ONLY\",\n"
+              "        \"V1 registry must be read-only compatibility\",\n"
+              "    )\n\n"
+          )
           if text.count(old) != 1:
               raise SystemExit("current-authority checker: expected one V1 legacy_role assertion")
           path.write_text(text.replace(old, "", 1), encoding="utf-8")
