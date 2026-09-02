@@ -14,7 +14,7 @@ The nontrivial middle-prefix numerator in the general `k → k+2m`
 majorization argument is strictly positive throughout the allowed range.
 -/
 theorem middleNumerator_pos
-    {K : Type*} [LinearOrderedField K]
+    {K : Type*} [Field K] [LinearOrder K] [IsStrictOrderedRing K]
     {k m s : K}
     (hk : 0 < k) (hm : 0 < m)
     (hs0 : 0 ≤ s) (hsk : s ≤ k - 1) :
@@ -50,9 +50,11 @@ theorem middlePrefixDifference_clear_denominators
     (k m s : ℚ) (hk : k ≠ 0) (hkm : k + 2 * m ≠ 0) :
     middlePrefixDifference k m s * (2 * k * (k + 2 * m)) =
       m * (k * (m + 1 + 2 * s) - 2 * s * (s + 1)) := by
+  have hkm' : k + m * 2 ≠ 0 := by
+    simpa [mul_comm] using hkm
   unfold middlePrefixDifference
   dsimp only
-  field_simp [hk, hkm]
+  field_simp [hk, hkm, hkm']
   ring
 
 /-- Positivity of the rational middle-prefix difference under positive denominators. -/
@@ -68,6 +70,6 @@ theorem middlePrefixDifference_pos
   have hden : 0 < 2 * k * (k + 2 * m) := by positivity
   have hclear := middlePrefixDifference_clear_denominators
     k m s (ne_of_gt hk) (ne_of_gt hkmPos)
-  nlinarith
+  nlinarith [hnum, hden, hclear]
 
 end EnterpriseMath.PrecisionPi.GeneralMajorizationArithmetic
