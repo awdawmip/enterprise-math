@@ -19,6 +19,7 @@ import EnterpriseMath.PrecisionPi.StirlingLimit
 import EnterpriseMath.PrecisionPi.TetrahedralRatio
 import EnterpriseMath.PrecisionPi.TetrahedralCore
 import EnterpriseMath.PrecisionPi.TetrahedralPrecision
+import EnterpriseMath.PrecisionPi.TetrahedralMatching
 import EnterpriseMath.PrecisionPi.TetrahedralResidual
 import EnterpriseMath.Quotient.OperationCongruence
 import EnterpriseMath.Quotient.RootAdjacentBoundary
