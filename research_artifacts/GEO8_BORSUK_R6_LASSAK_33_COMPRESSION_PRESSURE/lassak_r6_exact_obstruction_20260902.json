@@ -1,0 +1,69 @@
+{
+  "schema": "GEO8_LASSAK_R6_EXACT_OBSTRUCTION_V1",
+  "task_id": "RS-GEO8-BORSUK-R6-LASSAK-33-COMPRESSION-PRESSURE",
+  "dimension": 6,
+  "normalization": "diameter 1; Lassak universal lens L=B_r(0) intersect B_1(c), c=r e_6",
+  "exact_constants": {
+    "r_squared": "3/7",
+    "ell_squared": "1/84",
+    "two_r_ell": "1/7",
+    "rho_squared": "5/12",
+    "identity": "2 r^2 + 2 r ell = 1"
+  },
+  "frozen_template": {
+    "name": "LASSAK_R6_ATOM_COARSENING_TEMPLATE",
+    "parameters": [
+      "any 0<delta<r, with h=sqrt(r^2-delta^2/4)",
+      "any horizontal O(5) rotation fixing e_6",
+      "arbitrary deterministic tie-breaking on orthant boundaries"
+    ],
+    "atoms": [
+      "one cap atom D0=L intersect {x_6>h}",
+      "32 sector atoms D_sigma=L intersect {x_6<=h} intersect the 5-dimensional sign orthant sigma"
+    ],
+    "allowed_repartitioning": "coarsen only by unions of whole atoms; no atom may be split or have a wall redrawn"
+  },
+  "atom_diameter_certificate": {
+    "cap": "diam(D0)<=delta<1",
+    "sector": "diam(D_sigma)^2 <= 2 r^2 + 2 h ell < 2 r^2 + 2 r ell = 1"
+  },
+  "pairwise_incompatibility": {
+    "cap_vs_sector": {
+      "witness": "c=r e_6 and a_sigma=rho*(sigma/sqrt(5))-ell e_6",
+      "location": "c is in the cap; a_sigma is a strict-interior horizontal orthant point on both lens spheres and belongs to the sector",
+      "distance_squared": "1"
+    },
+    "sector_vs_sector": {
+      "construction": "for distinct sigma,tau choose j with sigma_j=-tau_j; take u_j=3 sigma_j/sqrt(13), u_i=sigma_i/sqrt(13) for i!=j, and v analogously from tau",
+      "dot_bound": "u dot v <= -5/13",
+      "witnesses": "a=rho u-ell e_6, b=rho v-ell e_6",
+      "distance_squared_lower_bound": "15/13 > 1",
+      "boundary_guard": "all five horizontal coordinates of u and v are nonzero, so the witnesses lie strictly inside their sign orthants"
+    }
+  },
+  "incompatibility_graph": {
+    "vertices": 33,
+    "edges": 528,
+    "graph": "K_33"
+  },
+  "theorem": "Every strict-diameter partition obtained only by coarsening the 33 frozen Lassak atoms requires all 33 atoms. Hence this explicit template cannot achieve 32 parts.",
+  "terminal_outcome": "FROZEN_LASSAK_COMPRESSION_TEMPLATE_CANNOT_BEAT_33",
+  "scope_guards": [
+    "This is not a lower bound b(6)>=33.",
+    "It does not rule out a 32-part construction that splits an atom, moves or redraws walls, truncates the lens, changes the apex, or otherwise leaves the frozen template.",
+    "It leaves the external Euclidean status 7<=b(6)<=33 unchanged.",
+    "The minimal structural escape is to split/repartition at least one original atom or introduce new geometry."
+  ],
+  "auxiliary_subtemplate_obstruction": {
+    "name": "CENTER_FIXED_UNTRUNCATED_R6_HYPERCUBE_FACET_CONES",
+    "statement": "For every O(6) rotation of the 64 cube-vertex ray directions, at least one of the 12 center-apex facet cones contains two lens boundary points at squared distance 10/7>1.",
+    "proof_kernel": [
+      "choose coordinate j where |(Q^T e_6)_j| is maximal",
+      "sign-balance the remaining five coordinates so their signed sum has absolute value at most the maximum",
+      "two cube vertices with common j sign and all other signs opposite then both have nonnegative axial ray component",
+      "their normalized dot product is -2/3",
+      "both hit the r-sphere before the unit sphere, giving squared distance 2*(3/7)*(1+2/3)=10/7"
+    ],
+    "scope_guard": "This blocks only the center-fixed, untruncated facet-cone port; it does not block the full R4-style scheme with truncation and movable apex."
+  }
+}
