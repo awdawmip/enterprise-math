@@ -24,9 +24,13 @@ theorem even_firstThree_of_zeroSum_preimage (x : Edge6)
     (h : ∃ v : Vertex4, vertexSum v = 0 ∧ delta v = x) :
     Even (x 0 + x 1 + x 2) := by
   rcases h with ⟨v, hv, rfl⟩
+  have hv' : v 0 + v 1 + v 2 + v 3 = 0 := by
+    simpa [vertexSum] using hv
   refine ⟨v 0, ?_⟩
-  simp [delta]
-  linarith [hv]
+  change
+    (v 0 + v 1) + (v 0 + v 2) + (v 0 + v 3) =
+      v 0 + v 0
+  omega
 
 /-- On the opposite-pair kernel, the parity test is complete: it is the only
 obstruction to an integral zero-sum slice potential. -/
