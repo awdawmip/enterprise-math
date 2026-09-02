@@ -60,6 +60,27 @@ jobs:
           PY
       - name: Apply physical isolation and V2 runtime rewiring
         run: python control_plane/run_apply_legacy_control_isolation_v2.py
+      - name: Remove final V1-only authority assertion
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("control_plane/check_current_control_authority.py")
+          text = path.read_text(encoding="utf-8")
+          text = text.replace(
+              "* V1 task-registry write commands remain fail-closed compatibility only.\n",
+              "* physical absence of the pre-V2 task and scheduler authority surfaces.\n",
+          )
+          old = '''    require(
+        task_auth.get("legacy_role") == "READ_ONLY_COMPATIBILITY_AND_AUDIT_ONLY",
+        "V1 registry must be read-only compatibility",
+    )
+
+'''
+          if text.count(old) != 1:
+              raise SystemExit("current-authority checker: expected one V1 legacy_role assertion")
+          path.write_text(text.replace(old, "", 1), encoding="utf-8")
+          PY
       - name: Migrate remaining prompt assertions to V2
         run: |
           python - <<'PY'
