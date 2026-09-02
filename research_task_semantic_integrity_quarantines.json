@@ -1,0 +1,86 @@
+{
+  "schema": "ENTERPRISE_MATH_TASK_SEMANTIC_INTEGRITY_QUARANTINE_V1",
+  "status": "ACTIVE",
+  "purpose": "Fail closed on exact current task publications whose schema is valid but whose migration wrapper overwrote task identity, lineage, or provenance. The control record only withholds operational selection; it grants no replacement publication, review disposition, mathematical truth, Working Truth, Foundation authority, canonical promotion, or successor authority.",
+  "quarantines": [
+    {
+      "task_id": "RS-NATIVE-FILAMENT-COUPLED-SELECTION-EXTERNAL-NOVELTY-INDEPENDENT-REEXECUTION",
+      "publication_id": "TP2-9568CDEA1071463F9532",
+      "record_path": "research_task_records/RS-NATIVE-FILAMENT-COUPLED-SELECTION-EXTERNAL-NOVELTY-INDEPENDENT-REEXECUTION/TP2-9568CDEA1071463F9532.json",
+      "record_blob_sha1": "sha1:766c732614ec1b76ecacf939dadb9bb68af34209",
+      "taskbook_path": "research_tasks/LEGACY_CONTROL_MIGRATION_RS_NATIVE_FILAMENT_COUPLED_SELECTION_EXTERNAL_NOVELTY_INDEPENDENT_REEXECUTION_20260902.md",
+      "taskbook_blob_sha1": "sha1:c4090e3b8e49eb1a3a28585f559c6cc04ffb414d",
+      "source_taskbook_path": "research_tasks/NATIVE_FILAMENT_COUPLED_SELECTION_EXTERNAL_NOVELTY_INDEPENDENT_REEXECUTION_20260825.md",
+      "source_taskbook_blob_sha1": "sha1:9b28d2fbddce122803c02485e17c1e9d220dbc93",
+      "fault_class": "LEGACY_MIGRATION_SEMANTIC_PRESERVATION_DRIFT",
+      "semantic_fields": [
+        "identity_lane",
+        "origin_kind",
+        "task_lineage",
+        "parent_task_id",
+        "successor_gate",
+        "source_refs"
+      ],
+      "expected_semantics": {
+        "identity_lane": "NFNOV2",
+        "origin_kind": "DIRECT_USER_DIRECTION",
+        "task_lineage": "CONTINUATION",
+        "parent_task_id": "RS-NATIVE-FILAMENT-COUPLED-SELECTION-EXTERNAL-NOVELTY-AUDIT",
+        "successor_gate": {
+          "new_information_gap": "The completed literature work is explicitly direct/nonblind because its auditor had already participated in PR #627. Its content is useful supporting evidence, but the original taskbook's provenance-clean independent novelty classification remains unclosed.",
+          "why_parent_result_does_not_close_it": "The parent execution failed the independence wall by disclosed provenance and intentionally did not occupy the reserved independent-return role. Accepting its content cannot manufacture independent evidence retroactively.",
+          "discriminating_outcomes": [
+            "a clean external auditor independently finds direct theorem antecedents or immediate-corollary coverage",
+            "a clean external auditor independently classifies only known components or partial overlap requiring narrower publication wording",
+            "a clean external auditor finds no direct theorem-statement match after reproducible serious search, without converting absence into a novelty claim"
+          ],
+          "kill_condition": "If the executor has read PR #627, the source generalization branch, the direct nonblind audit, or its detailed Driver review before freezing the return, independence is contaminated; stop and return PROVENANCE_CONTAMINATED rather than relabeling the work independent.",
+          "alternative_route_or_free_exploration_considered": "No new mathematics is needed. Further theorem proving or formalization cannot resolve historical/prior-art provenance. A clean literature re-execution is the narrowest route that can close the remaining hard target.",
+          "why_new_stage_or_task_is_better_than_same_task_or_closure": "The original task has a durable nonblind supporting output but no valid independent return. A separately identified clean re-execution preserves that evidence while preventing provenance laundering and gives the scheduler a falsifiable remaining objective."
+        },
+        "source_refs": [
+          "audit/native-filament-coupled-selection-literature-20260825:research_inputs/NATIVE_FILAMENT_COUPLED_SELECTION_V2_LITERATURE_AUDIT_PACKET_20260825.md#blob=2199c2bd34b44361570a4b68d85dcece70d6fba4",
+          "driver_reviews/NATIVE_FILAMENT_COUPLED_SELECTION_INDEPENDENT_AUDIT_DRIVER_REVIEW_20260825.md@d4e3f8eca68bff1d8803b8eb74402fc6d69e7b5f",
+          "driver_reviews/NATIVE_FILAMENT_COUPLED_SELECTION_EXTERNAL_NOVELTY_AUDIT_DRIVER_REVIEW_20260825.md@d9d3db11489196e5ef62ff435d4691f08b6b77d5"
+        ]
+      },
+      "observed_semantics": {
+        "identity_lane": "NATIVE",
+        "origin_kind": "MAINTENANCE",
+        "task_lineage": "MAINTENANCE",
+        "parent_task_id": null,
+        "successor_gate": null,
+        "source_refs": [
+          "research_tasks/NATIVE_FILAMENT_COUPLED_SELECTION_EXTERNAL_NOVELTY_INDEPENDENT_REEXECUTION_20260825.md@b7439da22a8b9200e57abea9d33fed6f3d4e0c19",
+          "audit/native-filament-coupled-selection-literature-20260825:research_inputs/NATIVE_FILAMENT_COUPLED_SELECTION_V2_LITERATURE_AUDIT_PACKET_20260825.md#blob=2199c2bd34b44361570a4b68d85dcece70d6fba4",
+          "driver_reviews/NATIVE_FILAMENT_COUPLED_SELECTION_EXTERNAL_NOVELTY_AUDIT_DRIVER_REVIEW_20260825.md@d9d3db11489196e5ef62ff435d4691f08b6b77d5"
+        ]
+      },
+      "required_missing_source_refs": [
+        "driver_reviews/NATIVE_FILAMENT_COUPLED_SELECTION_INDEPENDENT_AUDIT_DRIVER_REVIEW_20260825.md@d4e3f8eca68bff1d8803b8eb74402fc6d69e7b5f"
+      ],
+      "migration_provenance_field": "migration_source",
+      "migration_archive_branch": "archive/legacy-control-plane-pre-v2-20260902",
+      "migration_source_commit": "ce629e24e5af59128e25af87075c6622413684e0",
+      "repair_state": "AWAITING_AUTHORIZED_SUPERSEDING_PUBLICATION",
+      "operational_publication_id": null,
+      "isolation_scope": "CONTROL_PLANE_ONLY",
+      "reason": "The current migration publication preserves task ID, owner, P0/HIGH rank, mathematical frontier, and durable HANDOFF_READY state, but exact source-backed comparison proves that migration-wrapper metadata replaced the task's NFNOV2 identity lane, DIRECT_USER_DIRECTION origin, CONTINUATION lineage, parent task, complete six-part successor gate, and one pinned blind-review source reference. Ordinary Driver publication authority must create a superseding generation that restores task semantics while retaining migration provenance separately.",
+      "evidence_locator": {
+        "pull_request": 1086,
+        "head_commit": "b6dc43b85662021a108a96b42a5dc0e2b36bf7c2",
+        "result_id": "RR-5A96593BB713711FC557",
+        "result_path": "research_result_records/RS-NATIVE-FILAMENT-COUPLED-SELECTION-EXTERNAL-NOVELTY-INDEPENDENT-REEXECUTION/RR-5A96593BB713711FC557.json",
+        "result_blob_sha1": "sha1:348d30507a8850710762bf9bf49fa9dd2b76b2e9",
+        "certificate_path": "research_artifacts/NATIVE_FILAMENT_COUPLED_SELECTION_EXTERNAL_NOVELTY_V2_PRESERVATION_AUDIT/preservation_diff_certificate_20260902.json",
+        "certificate_blob_sha1": "sha1:3aaaa7aaa7b450dbbc0aa110f281f3e1a59cfe0d"
+      },
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false,
+      "review_disposition_granted": false,
+      "replacement_publication_granted": false
+    }
+  ]
+}
