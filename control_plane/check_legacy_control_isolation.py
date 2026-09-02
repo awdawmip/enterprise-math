@@ -6,6 +6,8 @@ import json
 import re
 from pathlib import Path
 
+from control_plane import research_task_semantic_integrity_fault_isolation
+
 ROOT = Path(__file__).resolve().parents[1]
 ARCHIVE_BRANCH = 'archive/legacy-control-plane-pre-v2-20260902'
 ARCHIVE_SHA = 'ce629e24e5af59128e25af87075c6622413684e0'
@@ -78,6 +80,10 @@ def check() -> list[str]:
                 errors.append(f"active prompt {rel} still names isolated file {name}")
         if re.search(r"(?i)do not read|must not read|不要读|不得读取|禁止读取", text):
             errors.append(f"active prompt {rel} still relies on file-avoidance instructions")
+    errors.extend(
+        "semantic preservation quarantine: " + error
+        for error in research_task_semantic_integrity_fault_isolation.audit(ROOT)
+    )
     return errors
 
 
@@ -87,7 +93,17 @@ def main() -> int:
         for error in errors:
             print("ERROR:", error)
         return 1
-    print("PASS: 27 task identities migrated; pre-V2 control files are physically isolated and live prompts are current-only.")
+    semantic_rows = research_task_semantic_integrity_fault_isolation.validated_quarantines(ROOT)
+    semantic_open = sum(
+        row["repair_state"]
+        == research_task_semantic_integrity_fault_isolation.OPEN_REPAIR_STATE
+        for row in semantic_rows.values()
+    )
+    print(
+        "PASS: 27 task identities migrated; pre-V2 control files are physically isolated; "
+        "live prompts are current-only; "
+        f"{semantic_open} exact semantic-preservation fault(s) are locally blocked."
+    )
     return 0
 
 
