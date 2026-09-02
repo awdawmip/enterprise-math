@@ -10,6 +10,7 @@ def partialSum (A : ℝ) (term : ℕ → ℝ) (M : ℕ) : ℝ :=
 theorem partialSum_succ (A : ℝ) (term : ℕ → ℝ) (M : ℕ) :
     partialSum A term (M + 1) = partialSum A term M + term (M + 1) := by
   simp [partialSum, Finset.sum_range_succ]
+  ring
 
 theorem partialSum_strict_step
     (A : ℝ) (term : ℕ → ℝ) (M : ℕ)
