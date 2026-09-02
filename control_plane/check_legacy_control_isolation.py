@@ -12,6 +12,8 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+from control_plane import research_publication_fault_isolation  # noqa: E402
+from control_plane import research_task_integrity_fault_isolation  # noqa: E402
 from control_plane import research_task_semantic_integrity_fault_isolation  # noqa: E402
 
 ARCHIVE_BRANCH = "archive/legacy-control-plane-pre-v2-20260902"
@@ -127,6 +129,12 @@ def _check_semantic_writer() -> list[str]:
 
 def check() -> list[str]:
     errors: list[str] = []
+    try:
+        research_publication_fault_isolation.install(ROOT)
+        research_task_integrity_fault_isolation.install(ROOT)
+    except Exception as exc:
+        errors.append(f"base quarantine composition failed: {exc}")
+        return errors
     for rel in LEGACY_PATHS:
         if (ROOT / rel).exists():
             errors.append(f"legacy control path remains on main: {rel}")
