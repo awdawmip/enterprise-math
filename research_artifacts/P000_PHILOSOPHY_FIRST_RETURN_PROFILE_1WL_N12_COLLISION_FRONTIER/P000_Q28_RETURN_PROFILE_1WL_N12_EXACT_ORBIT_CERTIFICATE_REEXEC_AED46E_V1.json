@@ -5,12 +5,46 @@
   "combined_packet_image_sha256": "0503bb2767926a155c8ceb09c15ebffdf4d5750fe1584b214108cc74c99ff814",
   "discovery_route": "DETERMINISTIC_SEEDED_CONFIGURATION_MODEL_COUNTERMODEL_FIRST; COMPLETENESS_DOES_NOT_DEPEND_ON_DISCOVERY_ROUTE",
   "discovery_runs": {
-    "10": [[1210,70000]],
-    "12": [[1212,30000]],
-    "2": [[1202,40000]],
-    "4": [[1204,70000]],
-    "6": [[1206,60000],[2206,60000]],
-    "8": [[1208,100000]]
+    "10": [
+      [
+        1210,
+        70000
+      ]
+    ],
+    "12": [
+      [
+        1212,
+        30000
+      ]
+    ],
+    "2": [
+      [
+        1202,
+        40000
+      ]
+    ],
+    "4": [
+      [
+        1204,
+        70000
+      ]
+    ],
+    "6": [
+      [
+        1206,
+        60000
+      ],
+      [
+        2206,
+        60000
+      ]
+    ],
+    "8": [
+      [
+        1208,
+        100000
+      ]
+    ]
   },
   "execution_record_id": "ER-AED46EF41615532B2F46",
   "independence_note": "Current re-execution independently reconstructed all six sector counts and packet-image digests before reading surviving prior-Q28 evidence. The pre-existing representative shards are reused only as byte-pinned transport after exact post-freeze agreement; completeness is reverified from adjacency, exact counts, automorphism orders, and packet separation.",
@@ -18,22 +52,82 @@
   "observable": "Q22_Q25_Q27_FROZEN_RETURN_PROFILE_INITIALIZED_ORDINARY_1WL",
   "payload_codec": "LZMA_BASE64_SHARDED_JSON",
   "payload_shards": [
-    {"file":"P000_Q28_N12_REPRESENTATIVES_A_V1.json","file_sha256":"31d17a75772f3dc70b73141d126a595929d2564d76ab907b2bef2e26e8b78ff9","raw_sha256":"28734cc0eb6e634c9baa2bd3a1ce5f7efb265f4d0151e143823c66b85a6c3f25","sectors":[2,4,12]},
-    {"file":"P000_Q28_N12_REPRESENTATIVES_B_V1.json","file_sha256":"bd152b5381023e1338e7d7c74bb1889164134dba36058fc6e7edfb20f25df264","raw_sha256":"1e0c0bb722d969398187924acf90b1010bfbb869f13d6ac7db265bc8c5496f64","sectors":[6]},
-    {"file":"P000_Q28_N12_REPRESENTATIVES_C_V1.json","file_sha256":"54e4c619279377ec80157ab1a7a008fb4384b52ede8a46948d0ebd64a7b52f80","raw_sha256":"4f489f4a95f07352e1344c76368510b7872bcdc092059ed35ced65678ecf1dbf","sectors":[8]},
-    {"file":"P000_Q28_N12_REPRESENTATIVES_D_V1.json","file_sha256":"e10ca77bde98c0f8fd5b99943a87731b759189290cdc9a4ecd2a35868e2a13a5","raw_sha256":"2bb5e31a1e93bee1cfb1a187d489dd3bb22cae16067c07d0b74b88c35f1c30d0","sectors":[10]}
+    {
+      "file": "P000_Q28_N12_REPRESENTATIVES_A_V1.json",
+      "file_sha256": "31d17a75772f3dc70b73141d126a595929d2564d76ab907b2bef2e26e8b78ff9",
+      "raw_sha256": "28734cc0eb6e634c9baa2bd3a1ce5f7efb265f4d0151e143823c66b85a6c3f25",
+      "sectors": [
+        2,
+        4,
+        12
+      ]
+    },
+    {
+      "file": "P000_Q28_N12_REPRESENTATIVES_B_V1.json",
+      "file_sha256": "bd152b5381023e1338e7d7c74bb1889164134dba36058fc6e7edfb20f25df264",
+      "raw_sha256": "1e0c0bb722d969398187924acf90b1010bfbb869f13d6ac7db265bc8c5496f64",
+      "sectors": [
+        6
+      ]
+    },
+    {
+      "file": "P000_Q28_N12_REPRESENTATIVES_C_V1.json",
+      "file_sha256": "54e4c619279377ec80157ab1a7a008fb4384b52ede8a46948d0ebd64a7b52f80",
+      "raw_sha256": "4f489f4a95f07352e1344c76368510b7872bcdc092059ed35ced65678ecf1dbf",
+      "sectors": [
+        8
+      ]
+    },
+    {
+      "file": "P000_Q28_N12_REPRESENTATIVES_D_V1.json",
+      "file_sha256": "e10ca77bde98c0f8fd5b99943a87731b759189290cdc9a4ecd2a35868e2a13a5",
+      "raw_sha256": "2bb5e31a1e93bee1cfb1a187d489dd3bb22cae16067c07d0b74b88c35f1c30d0",
+      "sectors": [
+        10
+      ]
+    }
   ],
   "publication_id": "TP2-C74E704488CBF01A602D",
   "researcher_id": "EM-P000-AED46E",
   "result_id": "RR-D277A62E967320225132",
   "schema": "P000_Q28_RETURN_PROFILE_1WL_N12_EXACT_ORBIT_CERTIFICATE_V1",
   "sectors": {
-    "10":{"expected_normalized_connected":3561440400,"normalized_label_orbit_sum":3561440400,"packet_image_sha256":"7de0d6a3d5371fe4994ee41ea38d2dde7540c1bbebc862567ecdd50eaee54922","representative_count":835},
-    "12":{"expected_normalized_connected":11543439600,"normalized_label_orbit_sum":11543439600,"packet_image_sha256":"9c0c68896bb50488c16d2805920c75b46dcb6ddaa18bae43217366ffcf0b8c47","representative_count":85},
-    "2":{"expected_normalized_connected":63504000,"normalized_label_orbit_sum":63504000,"packet_image_sha256":"ed91e3ff2a67244632fb7c85b06b4f99f04d90e6e41f18728677a92af498ab6a","representative_count":29},
-    "4":{"expected_normalized_connected":161965440,"normalized_label_orbit_sum":161965440,"packet_image_sha256":"a883a730d51d50cadd0ec89615c1ea88a5a4077a7de24ccba9aeeeef84a8d3b1","representative_count":351},
-    "6":{"expected_normalized_connected":423705600,"normalized_label_orbit_sum":423705600,"packet_image_sha256":"65390b31b86c6a4c8a3833603045ec8310e05e6fd8a101746ebc0e15ec6c80fb","representative_count":1373},
-    "8":{"expected_normalized_connected":1183502880,"normalized_label_orbit_sum":1183502880,"packet_image_sha256":"1f9d61310be9c5dffeff5d0c4d496537c2c4b8bbcee0afd49fcfc80b94f006f9","representative_count":1892}
+    "10": {
+      "expected_normalized_connected": 3561440400,
+      "normalized_label_orbit_sum": 3561440400,
+      "packet_image_sha256": "7de0d6a3d5371fe4994ee41ea38d2dde7540c1bbebc862567ecdd50eaee54922",
+      "representative_count": 835
+    },
+    "12": {
+      "expected_normalized_connected": 11543439600,
+      "normalized_label_orbit_sum": 11543439600,
+      "packet_image_sha256": "9c0c68896bb50488c16d2805920c75b46dcb6ddaa18bae43217366ffcf0b8c47",
+      "representative_count": 85
+    },
+    "2": {
+      "expected_normalized_connected": 63504000,
+      "normalized_label_orbit_sum": 63504000,
+      "packet_image_sha256": "ed91e3ff2a67244632fb7c85b06b4f99f04d90e6e41f18728677a92af498ab6a",
+      "representative_count": 29
+    },
+    "4": {
+      "expected_normalized_connected": 161965440,
+      "normalized_label_orbit_sum": 161965440,
+      "packet_image_sha256": "a883a730d51d50cadd0ec89615c1ea88a5a4077a7de24ccba9aeeeef84a8d3b1",
+      "representative_count": 351
+    },
+    "6": {
+      "expected_normalized_connected": 423705600,
+      "normalized_label_orbit_sum": 423705600,
+      "packet_image_sha256": "65390b31b86c6a4c8a3833603045ec8310e05e6fd8a101746ebc0e15ec6c80fb",
+      "representative_count": 1373
+    },
+    "8": {
+      "expected_normalized_connected": 1183502880,
+      "normalized_label_orbit_sum": 1183502880,
+      "packet_image_sha256": "1f9d61310be9c5dffeff5d0c4d496537c2c4b8bbcee0afd49fcfc80b94f006f9",
+      "representative_count": 1892
+    }
   },
   "task_id": "RS-P000-PHILOSOPHY-FIRST-RETURN-PROFILE-1WL-N12-COLLISION-FRONTIER",
   "taskbook_blob_sha1": "sha1:734b38132321e901bbf32af268503e56686d8139",
