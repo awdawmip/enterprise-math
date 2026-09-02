@@ -7,6 +7,7 @@ on:
     paths:
       - '.github/workflows/legacy-control-migration-audit.yml'
       - 'control_plane/audit_legacy_control_migration.py'
+      - 'control_plane/audit_legacy_runtime_states.py'
 
 permissions:
   contents: read
@@ -40,6 +41,9 @@ jobs:
             --comments /tmp/issue240-comments.json \
             --json-out /tmp/legacy-control-audit/legacy_control_migration_audit.json \
             --md-out /tmp/legacy-control-audit/legacy_control_migration_audit.md
+          python control_plane/audit_legacy_runtime_states.py \
+            --comments /tmp/issue240-comments.json \
+            --out /tmp/legacy-control-audit/legacy_runtime_states.json
       - uses: actions/upload-artifact@v4
         with:
           name: legacy-control-migration-audit-${{ github.sha }}
