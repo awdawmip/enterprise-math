@@ -13,6 +13,20 @@ abbrev SlicePair := {s : Finset SliceChart // s.card = 2}
 def lineToSlicePair (l : LineFamily) : SlicePair :=
   ⟨incidentSlices l, incidentSlices_card l⟩
 
+/-- Explicit endpoint table for the six line families. -/
+def lineSlicePairTable : LineFamily → Finset SliceChart :=
+  ![({0, 1} : Finset SliceChart),
+    ({2, 3} : Finset SliceChart),
+    ({0, 2} : Finset SliceChart),
+    ({1, 3} : Finset SliceChart),
+    ({1, 2} : Finset SliceChart),
+    ({0, 3} : Finset SliceChart)]
+
+/-- The filtered incidence definition agrees with the explicit endpoint table. -/
+@[simp] theorem incidentSlices_eq_lineSlicePairTable (l : LineFamily) :
+    incidentSlices l = lineSlicePairTable l := by
+  fin_cases l <;> native_decide
+
 /-- Incidence is recovered exactly from the associated slice pair. -/
 theorem mem_lineToSlicePair_iff (l : LineFamily) (s : SliceChart) :
     s ∈ (lineToSlicePair l : Finset SliceChart) ↔ l ∈ sliceLines s := by
@@ -126,6 +140,7 @@ theorem lineFamilyPerm_trans (σ τ : Equiv.Perm SliceChart) :
   intro l
   apply lineFamilyEquivSlicePair.injective
   simp [lineFamilyPerm, slicePairPerm, mapSlicePair]
+  rw [Finset.map_map]
 
 /-! ## 3. Equivariance of the carrier slice-to-line map -/
 
@@ -248,7 +263,7 @@ theorem lineStateOfEdge_delta (v : VertexData) :
   funext l
   fin_cases l <;>
     simp [lineStateOfEdge, lineFamilyEquivEdgeIndex, edgeIndexOfLine,
-      carrierDelta, incidentSlices, sliceLines, delta]
+      carrierDelta, lineSlicePairTable, delta]
 
 /-- Rotate an edge-coordinate state through the induced carrier-line
 permutation. -/
