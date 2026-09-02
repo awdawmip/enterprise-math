@@ -32,6 +32,7 @@ import EnterpriseMath.PrecisionPi.TetrahedralInvariant
 import EnterpriseMath.PrecisionPi.TetrahedralResidualEquivalence
 import EnterpriseMath.Geometry.FCCOrientedSlices
 import EnterpriseMath.Geometry.TetrahedralResidualCoordinates
+import EnterpriseMath.Geometry.TetrahedralZeroResidualEquiv
 import EnterpriseMath.Quotient.OperationCongruence
 import EnterpriseMath.Quotient.RootAdjacentBoundary
 import EnterpriseMath.Quotient.PowerFreeActionBasis
