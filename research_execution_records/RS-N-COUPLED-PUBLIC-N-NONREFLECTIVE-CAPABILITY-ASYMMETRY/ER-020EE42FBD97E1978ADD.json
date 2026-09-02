@@ -1,0 +1,69 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_EXECUTION_RECORD_V1",
+  "record_id": "ER-020EE42FBD97E1978ADD",
+  "task_id": "RS-N-COUPLED-PUBLIC-N-NONREFLECTIVE-CAPABILITY-ASYMMETRY",
+  "publication_id": "TP2-08FEE1835AC7CB784181",
+  "researcher_id": "EM-NCASCAP1-7A2F4C",
+  "claim_id": "chatgpt-ncascap1-20260902-0741-7a2f4c",
+  "theorem_owner": "research/n-coupled-public-n-nonreflective-capability-asymmetry",
+  "execution_branch": "research/n-coupled-public-n-nonreflective-capability-asymmetry-em-ncascap1-7a2f4c",
+  "execution_branch_base": "ce629e24e5af59128e25af87075c6622413684e0",
+  "research_mode": "TASK_RESEARCH",
+  "calculus_id": "G_trace-lin",
+  "terminal_verdict": "NEGATIVE_BOUNDARY",
+  "hard_target_disposition": "PUBLIC_N_ONLY_NONREFLECTIVE_EFFECTFUL_TYPED_SUPPORT_EXACTLY_OBSTRUCTED_FOR_G_TRACE_LIN_BY_PUBLIC_TRACE_PRESENTATION_COMPILATION",
+  "symbolic_results": [
+    "Every finite public G_trace-lin constructor transcript compiles factor-blindly to a finite R_N presentation without runtime handle reflection.",
+    "For N=pq squarefree and M=coker(C mod N), gcd(N,Delta_r(C)) is exactly the product of hidden primes supporting M.",
+    "Therefore one-sided hidden support in G_trace-lin yields a pre-readout proper gcd even though runtime handles are affine/linear and extensionally nonreflective."
+  ],
+  "checker_execution": {
+    "method": "exact checker content replayed under local Python",
+    "return_code": 0,
+    "stdout": "PASS G_TRACE_LIN_INTENSIONAL_PRESENTATION_SCALARIZATION matrix_cases=4165 one_sided=790 tensor_checks=196 direct_sum_checks=196 witness=N15_two_linear_ATTACH_Delta3_gcd3 forbidden_reflection_ops=10",
+    "finite_scope": {
+      "matrix_cases": 4165,
+      "one_sided_cases": 790,
+      "support_mismatches": 0,
+      "tensor_checks": 196,
+      "direct_sum_checks": 196
+    },
+    "environment_note": "The host Python process emitted an unrelated artifact_tool spreadsheet warmup warning on stderr; checker assertions completed and process exit status was 0."
+  },
+  "frozen_outputs_before_execution_record": [
+    {
+      "path": "research_returns/N_COUPLED_PUBLIC_N_NONREFLECTIVE_CAPABILITY_ASYMMETRY_RETURN_20260902.md",
+      "git_blob_sha1": "139299765db4d8e0ff1bb17e510d26ce9e24303d",
+      "sha256": "9102a2daf8f79deb06bef78b008ad204913d4d1cbba2aa33e2d8cc4c1523c2ff"
+    },
+    {
+      "path": "research_checks/N_COUPLED_PUBLIC_N_NONREFLECTIVE_CAPABILITY_ASYMMETRY_CHECK_20260902.py",
+      "git_blob_sha1": "d7418f3926d77a0657f31a007e9a6aecfe278107",
+      "sha256": "70055366773acfd7db7f06b661ef8addfe265932cff08d90a1a37ba9f8d711fa"
+    },
+    {
+      "path": "research_artifacts/N_COUPLED_PUBLIC_N_NONREFLECTIVE_CAPABILITY_ASYMMETRY/trace_linear_capability_contract.json",
+      "git_blob_sha1": "5fe455165de4b8acd1ff3a9676014446490f9759",
+      "sha256": "019cacdd7d0d057dfcf3457e9cffde8ef87b6bcd065c6b6119453b1b4099b1d1"
+    },
+    {
+      "path": "research_artifacts/N_COUPLED_PUBLIC_N_NONREFLECTIVE_CAPABILITY_ASYMMETRY/trace_linear_capability_certificate.json",
+      "git_blob_sha1": "2a48203b4eeab78b9e9c9c8b418e96a3f7460bde",
+      "sha256": "88571c07cfbccb0ec29d60f150941ea9b098ada6da6975c5f70c72d826a7c5ac"
+    }
+  ],
+  "tool_reuse_resolution": {
+    "T0_BRC": "NOT_APPLICABLE_TYPED_SUPPORT_MISMATCH",
+    "T6_OPERATION_SAFE_QUOTIENT": "NOT_APPLICABLE_ALGEBRAIC_COKERNEL_NOT_OBSERVATION_QUOTIENT",
+    "new_general_purpose_tool": "NOT_CREATED"
+  },
+  "next_frontier_if_driver_keeps_objective_open": "EXTENSIONAL_NONREFLECTION_PLUS_INTENSIONAL_PRESENTATION_NONCOMPILABILITY_WITH_NONORACULAR_READOUT",
+  "authority_limits": [
+    "NO_UNIVERSAL_FACTORING_LOWER_BOUND",
+    "NO_COMPLEXITY_LOWER_BOUND",
+    "NO_NOVELTY_CLAIM",
+    "NO_WORKING_TRUTH",
+    "NO_FOUNDATION_PROMOTION",
+    "NO_CANONICAL_PROMOTION"
+  ]
+}
