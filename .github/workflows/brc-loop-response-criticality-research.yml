@@ -1,0 +1,22 @@
+name: brc-loop-response-criticality-research
+
+on:
+  pull_request:
+    paths:
+      - "research_notes/BRC_LOOP_RESPONSE_CRITICALITY_20260902.md"
+      - "experiments/brc_loop_response_criticality_check.py"
+      - ".github/workflows/brc-loop-response-criticality-research.yml"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Exact BRC loop-response / criticality checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_loop_response_criticality_check.py
