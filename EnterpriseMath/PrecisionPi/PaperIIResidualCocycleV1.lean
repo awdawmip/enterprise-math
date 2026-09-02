@@ -138,7 +138,7 @@ theorem swap12Edge_normalForm (p q : ℤ) (ε : Bool) :
   constructor
   · funext i
     fin_cases i <;> cases ε <;>
-      simp [matching, swap12Edge, normalForm, bitInt]
+      simp [matching, swap12Edge, normalForm, bitInt, add_comm]
   · refine ⟨0, ?_⟩
     cases ε <;> simp [edgeSub, swap12Edge, normalForm, bitInt]
 
@@ -189,9 +189,11 @@ theorem swap01Edge_normalForm_odd
     | false =>
         refine ⟨-k - 1, ?_⟩
         simp [edgeSub, swap01Edge, normalForm, bitInt, flipBit, hp]
+        ring
     | true =>
         refine ⟨-k, ?_⟩
         simp [edgeSub, swap01Edge, normalForm, bitInt, flipBit, hp]
+        ring
 
 /-- Every integral free coordinate falls into exactly the two displayed
 cocycle cases: even `p` preserves `ε`, odd `p` translates `ε` by the nonzero
