@@ -13,6 +13,7 @@ import EnterpriseMath.PrecisionPi.ArithmeticCertificates
 import EnterpriseMath.PrecisionPi.EqualOccupancy
 import EnterpriseMath.PrecisionPi.BalanceRecurrence
 import EnterpriseMath.PrecisionPi.DoublePell
+import EnterpriseMath.PrecisionPi.TetrahedralRatio
 import EnterpriseMath.PrecisionPi.TetrahedralResidual
 import EnterpriseMath.Quotient.OperationCongruence
 import EnterpriseMath.Quotient.RootAdjacentBoundary
