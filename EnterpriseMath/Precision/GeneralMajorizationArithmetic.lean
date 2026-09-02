@@ -3,7 +3,8 @@ import Mathlib
 namespace EnterpriseMath.PrecisionPi.GeneralMajorizationArithmetic
 
 /-- Algebraic decomposition of the middle-prefix majorization numerator. -/
-theorem middleNumerator_decomposition (k m s : ℝ) :
+theorem middleNumerator_decomposition
+    {K : Type*} [CommRing K] (k m s : K) :
     m * (k * (m + 1 + 2 * s) - 2 * s * (s + 1)) =
       m * (k * (m + 1) + 2 * s * (k - 1 - s)) := by
   ring
@@ -13,7 +14,8 @@ The nontrivial middle-prefix numerator in the general `k → k+2m`
 majorization argument is strictly positive throughout the allowed range.
 -/
 theorem middleNumerator_pos
-    {k m s : ℝ}
+    {K : Type*} [LinearOrderedField K]
+    {k m s : K}
     (hk : 0 < k) (hm : 0 < m)
     (hs0 : 0 ≤ s) (hsk : s ≤ k - 1) :
     0 < m * (k * (m + 1 + 2 * s) - 2 * s * (s + 1)) := by
@@ -34,7 +36,9 @@ theorem middleNumerator_nat_pos
   · exact_mod_cast (show 0 < k by omega)
   · exact_mod_cast (show 0 < m by omega)
   · positivity
-  · exact_mod_cast hs
+  · have hnat : s + 1 ≤ k := by omega
+    have hreal : (s : ℝ) + 1 ≤ (k : ℝ) := by exact_mod_cast hnat
+    linarith
 
 /-- Exact rational middle-prefix difference formula. -/
 def middlePrefixDifference (k m s : ℚ) : ℚ :=
@@ -43,11 +47,12 @@ def middlePrefixDifference (k m s : ℚ) : ℚ :=
 
 /-- Clearing denominators gives the positive numerator used above. -/
 theorem middlePrefixDifference_clear_denominators
-    (k m s : ℚ) :
+    (k m s : ℚ) (hk : k ≠ 0) (hkm : k + 2 * m ≠ 0) :
     middlePrefixDifference k m s * (2 * k * (k + 2 * m)) =
       m * (k * (m + 1 + 2 * s) - 2 * s * (s + 1)) := by
   unfold middlePrefixDifference
   dsimp only
+  field_simp [hk, hkm]
   ring
 
 /-- Positivity of the rational middle-prefix difference under positive denominators. -/
@@ -57,10 +62,12 @@ theorem middlePrefixDifference_pos
     (hs0 : 0 ≤ s) (hsk : s ≤ k - 1) :
     0 < middlePrefixDifference k m s := by
   have hnum :
-      0 < m * (k * (m + 1 + 2 * s) - 2 * s * (s + 1)) := by
-    exact middleNumerator_pos hk hm hs0 hsk
+      0 < m * (k * (m + 1 + 2 * s) - 2 * s * (s + 1)) :=
+    middleNumerator_pos hk hm hs0 hsk
+  have hkmPos : 0 < k + 2 * m := by positivity
   have hden : 0 < 2 * k * (k + 2 * m) := by positivity
-  have hclear := middlePrefixDifference_clear_denominators k m s
+  have hclear := middlePrefixDifference_clear_denominators
+    k m s (ne_of_gt hk) (ne_of_gt hkmPos)
   nlinarith
 
 end EnterpriseMath.PrecisionPi.GeneralMajorizationArithmetic
