@@ -1,191 +1,206 @@
 #!/usr/bin/env python3
-"""Exact finite checker for P000 Q29 rotation-law candidate discrimination.
+"""Exact finite checker for P000 Philosophy-First Q29.
 
-The binary carrier is a finite logical countermodel only, following accepted Q26.
-It is not promoted to native P000 ontology.
+This checker certifies only the finite matched-countermodel claims stated in the
+Q29 return.  It does not assert that native P000 Full-Cell coordinates are
+binary and it does not import classical/continuous rotation semantics.
 """
+
 from itertools import product
 
 X = tuple(product((0, 1), repeat=6))
 ZERO = (0, 0, 0, 0, 0, 0)
-ID = {x: x for x in X}
-EVEN = {x for x in X if sum(x) % 2 == 0}
-ZERO_SET = {ZERO}
+Y = tuple(product((0, 1), repeat=3))
 
+# Shared finite comparison token monoid T=<r | r^7=r>.
+# Normal forms are e=r^0 and r^1,...,r^6.
+TOKENS = tuple(range(7))
 
-def obs0(x):
-    return x[:3]
+def token_mul(a, b):
+    n = a + b
+    if n == 0:
+        return 0
+    return 1 + ((n - 1) % 6)
 
+def token_pow(n):
+    if n == 0:
+        return 0
+    return 1 + ((n - 1) % 6)
 
-def perm_map(p):
-    return {x: tuple(x[p[i]] for i in range(6)) for x in X}
+def E2_gen(x):
+    # Order-2 active equivalence: swap 1<->2 and 4<->5.
+    return (x[1], x[0], x[2], x[4], x[3], x[5])
 
+def E3_gen(x):
+    # Order-3 active equivalence: cycle each three-coordinate block.
+    return (x[1], x[2], x[0], x[4], x[5], x[3])
 
-def compose(f, g):
-    """f after g."""
-    return {x: f[g[x]] for x in X}
+def U_gen(x):
+    # Genuine noninvertible update: overwrite the first primitive by zero.
+    return (0, x[1], x[2], x[3], x[4], x[5])
 
+def ID(x):
+    return x
 
-def powers(gen, n):
-    out = []
-    cur = ID
+def apply_power(g, n, x):
+    y = x
     for _ in range(n):
-        out.append(cur)
-        cur = compose(gen, cur)
-    return out
+        y = g(y)
+    return y
 
+INDEX = {x: i for i, x in enumerate(X)}
 
-def map_key(m):
-    return tuple(m[x] for x in X)
+def map_tuple(g, token):
+    return tuple(apply_power(g, token, x) for x in X)
 
+def compose_maps(a, b):
+    # a after b
+    return tuple(a[INDEX[y]] for y in b)
 
-def image_size(m):
-    return len(set(m.values()))
+def map_rank(m):
+    return len(set(m))
 
+def map_fixed(m):
+    return sum(1 for x, y in zip(X, m) if x == y)
 
-def fixed_count(m):
-    return sum(1 for x in X if m[x] == x)
+def representation(g):
+    return tuple(map_tuple(g, t) for t in TOKENS)
 
+def representation_image_size(rho):
+    unique = []
+    for m in rho:
+        if m not in unique:
+            unique.append(m)
+    return len(unique)
 
-def is_bijection(m):
-    return image_size(m) == len(X)
+def assert_monoid():
+    assert all(token_mul(0, a) == a == token_mul(a, 0) for a in TOKENS)
+    assert all(
+        token_mul(token_mul(a, b), c) == token_mul(a, token_mul(b, c))
+        for a in TOKENS for b in TOKENS for c in TOKENS
+    )
+    assert token_pow(7) == 1
+    assert token_pow(13) == 1
 
+def assert_representation(rho):
+    for a in TOKENS:
+        for b in TOKENS:
+            assert compose_maps(rho[a], rho[b]) == rho[token_mul(a, b)]
 
-def preserves_set(m, subset):
-    return {m[x] for x in subset} == set(subset)
+def O0(x):
+    return (x[0], x[1], x[2])
 
+def O1(x):
+    # Alternate presentation frame for the passive-frame candidate.
+    return (x[1], x[0], x[2])
 
-def fibre_descent(src_obs, tgt_obs, m):
+def fibre_constancy(state_map, source_obs, target_obs):
     seen = {}
     for x in X:
-        a = src_obs(x)
-        b = tgt_obs(m[x])
-        if a in seen and seen[a] != b:
+        key = source_obs(x)
+        value = target_obs(state_map[INDEX[x]])
+        if key in seen and seen[key] != value:
             return False
-        seen[a] = b
+        seen[key] = value
+    return len(seen) == len(Y)
+
+def all_token_descent(rho):
+    return all(fibre_constancy(rho[t], O0, O0) for t in TOKENS)
+
+def frame_map_tuple(token):
+    # Generator flips two presentation labels. Since flip^7=flip, this is a T-action.
+    return tuple(((f + token) % 2) for f in (0, 1))
+
+def compose_frame_maps(a, b):
+    return tuple(a[v] for v in b)
+
+def assert_frame_representation():
+    rho = tuple(frame_map_tuple(t) for t in TOKENS)
+    for a in TOKENS:
+        for b in TOKENS:
+            assert compose_frame_maps(rho[a], rho[b]) == rho[token_mul(a, b)]
+    return rho
+
+def frame_all_token_descent():
+    state_rho = representation(ID)
+    for t in TOKENS:
+        target_obs = O1 if (t % 2) else O0
+        if not fibre_constancy(state_rho[t], O0, target_obs):
+            return False
     return True
 
+def zero_preserved(rho):
+    z = INDEX[ZERO]
+    return all(m[z] == ZERO for m in rho)
 
-def first_failure_witness(src_obs, tgt_obs, m):
-    buckets = {}
-    for x in X:
-        a = src_obs(x)
-        b = tgt_obs(m[x])
-        if a in buckets:
-            y, by = buckets[a]
-            if by != b:
-                return y, x, by, b
-        else:
-            buckets[a] = (x, b)
-    return None
+def main():
+    assert_monoid()
 
+    state_generators = {
+        "E2": E2_gen,
+        "E3": E3_gen,
+        "U": U_gen,
+        "F": ID,
+    }
+    rho = {name: representation(g) for name, g in state_generators.items()}
+    for value in rho.values():
+        assert_representation(value)
 
-def direct_image(m, subset):
-    return {m[x] for x in subset}
+    frame_rho = assert_frame_representation()
 
+    # Primitive/relation-action audit:
+    # E2/E3 reindex six Boolean primitive coordinates exactly as their state maps;
+    # U explicitly updates primitive 1 to 0 and leaves 2..6 fixed;
+    # F leaves ontic primitives fixed and acts only on the presentation label.
+    assert E2_gen((1,0,1,0,1,0)) == (0,1,1,1,0,0)
+    assert E3_gen((1,0,0,0,1,0)) == (0,0,1,1,0,0)
+    assert U_gen((1,1,0,1,0,1)) == (0,1,0,1,0,1)
+    assert ID((1,0,1,0,1,0)) == (1,0,1,0,1,0)
 
-# Matched structure-preserving equivalence candidates.
-# Same carrier, same C6 token monoid, same observation, same primitive package.
-# E2 generator swaps hidden coordinates 4 and 5.
-# E3 generator cycles hidden coordinates 4 -> 5 -> 6 -> 4.
-G2 = perm_map((0, 1, 2, 4, 3, 5))
-G3 = perm_map((0, 1, 2, 5, 3, 4))
-RHO2 = powers(G2, 6)
-RHO3 = powers(G3, 6)
+    # Q23 zero-support boundary: every state action in every candidate fixes zero.
+    assert all(zero_preserved(value) for value in rho.values())
 
-for rho in (RHO2, RHO3):
-    assert map_key(rho[0]) == map_key(ID)
-    for a in range(6):
-        for b in range(6):
-            assert map_key(rho[(a + b) % 6]) == map_key(compose(rho[a], rho[b]))
-    for m in rho:
-        assert is_bijection(m)
-        assert m[ZERO] == ZERO
-        assert preserves_set(m, EVEN)
-        assert preserves_set(m, ZERO_SET)
-        assert fibre_descent(obs0, obs0, m)
+    # Observation descent/fibre constancy.
+    assert all_token_descent(rho["E2"])
+    assert all_token_descent(rho["E3"])
+    assert all_token_descent(rho["U"])
+    assert frame_all_token_descent()
 
-action_image_E2 = {map_key(m) for m in RHO2}
-action_image_E3 = {map_key(m) for m in RHO3}
-assert len(action_image_E2) == 2
-assert len(action_image_E3) == 3
-assert fixed_count(G2) == 32
-assert fixed_count(G3) == 16
+    state_image = {name: representation_image_size(value) for name, value in rho.items()}
+    gen_rank = {name: map_rank(value[1]) for name, value in rho.items()}
+    gen_fixed = {name: map_fixed(value[1]) for name, value in rho.items()}
+    frame_image = len(set(frame_rho))
 
-# Typed-law equivalence permits a C6-token automorphism and state conjugacy.
-# The cardinality of the image of the state-action representation is invariant
-# under both operations, so E2 and E3 cannot be equivalent.
-C6_UNITS = (1, 5)
-for u in C6_UNITS:
-    precomposed_E2 = {map_key(RHO2[(u * k) % 6]) for k in range(6)}
-    assert len(precomposed_E2) == 2
-assert len(action_image_E3) == 3
+    assert state_image == {"E2": 2, "E3": 3, "U": 2, "F": 1}
+    assert gen_rank == {"E2": 64, "E3": 64, "U": 32, "F": 64}
+    assert gen_fixed == {"E2": 16, "E3": 4, "U": 32, "F": 64}
+    assert frame_image == 2
 
-# Genuine Full-Cell state/relation update candidate.
-# Object M0 has unary primitive package (ZERO, EVEN); applying e sends it to
-# the direct-image package on M1. E^2=E, so the typed update closes on M1.
-E = {x: (0, x[1], x[2], x[3], x[4], x[5]) for x in X}
-assert image_size(E) == 32
-assert not is_bijection(E)
-assert map_key(compose(E, E)) == map_key(E)
-assert E[ZERO] == ZERO
-assert fibre_descent(obs0, obs0, E)
+    # Typed-law equivalence preserves the cardinality of the conjugacy image and
+    # the rank multiset of its state maps. Hence E2 and E3 cannot be equivalent:
+    # their state-representation images have cardinalities 2 and 3.
+    assert state_image["E2"] != state_image["E3"]
 
-RELATIONS_M0 = {
-    "ZERO": ZERO_SET,
-    "EVEN": EVEN,
-    "FULL": set(X),
-}
-for subset in RELATIONS_M0.values():
-    once = direct_image(E, subset)
-    twice = direct_image(E, once)
-    assert twice == once
+    # The four candidates are pairwise separated by the exact signature below.
+    # For F, the final coordinate records nontrivial presentation-only action.
+    signatures = {
+        "E2": (state_image["E2"], gen_rank["E2"], 1),
+        "E3": (state_image["E3"], gen_rank["E3"], 1),
+        "U":  (state_image["U"],  gen_rank["U"],  1),
+        "F":  (state_image["F"],  gen_rank["F"],  frame_image),
+    }
+    assert len(set(signatures.values())) == 4
 
-# Passive frame/presentation candidate.
-# Ontic state action is identity. A token a in C6 changes frame k to k+a.
-# The frame-relative observation changes with k; descent is tested, not assumed.
-def frame_action(a, k):
-    return (k + a) % 6
+    print(
+        "PASS P000_Q29_ROTATION_LAW_DISCRIMINATION "
+        "tokens=7 states=64 candidates=4 "
+        "E2_state_image=2 E3_state_image=3 U_state_image=2 F_state_image=1 "
+        "E2_rank=64 E3_rank=64 U_rank=32 F_rank=64 "
+        "E2_fixed=16 E3_fixed=4 U_fixed=32 F_fixed=64 "
+        "frame_image=2 all_zero_preserving=1 all_slice_fibre_constant=1 "
+        "pairwise_typed_signatures_distinct=1 "
+        "terminal=NO_CANONICAL_ROTATION_LAW_SELECTED_BY_CURRENT_P000"
+    )
 
-
-def obs_frame(k):
-    return lambda x: (x[k % 6], x[(k + 1) % 6], x[(k + 2) % 6])
-
-
-for a in range(6):
-    assert ID[ZERO] == ZERO
-    for b in range(6):
-        for k in range(6):
-            assert frame_action(a, frame_action(b, k)) == frame_action((a + b) % 6, k)
-
-passive_descent = fibre_descent(obs_frame(0), obs_frame(1), ID)
-assert passive_descent is False
-passive_witness = first_failure_witness(obs_frame(0), obs_frame(1), ID)
-assert passive_witness == (
-    (0, 0, 0, 0, 0, 0),
-    (0, 0, 0, 1, 0, 0),
-    (0, 0, 0),
-    (0, 0, 1),
-)
-
-# Semantic inequivalence certificate.
-# Under typed-law isomorphism (token-monoid isomorphism + Full-Cell/model
-# isomorphism intertwining state actions, primitive actions and observations),
-# the listed signature components are invariants.
-sig_E2 = (6, 2, True, fixed_count(G2), True, True)
-sig_E3 = (6, 3, True, fixed_count(G3), True, True)
-sig_U = (2, 2, False, fixed_count(E), True, True)
-sig_F = (6, 1, True, len(X), True, False)
-assert len({sig_E2, sig_E3, sig_U, sig_F}) == 4
-
-print(
-    "PASS P000_Q29_ROTATION_CANDIDATE_DISCRIMINATION "
-    f"states={len(X)} "
-    f"E2_action_image=2 E2_fixed={fixed_count(G2)} E2_slice_descent=1 "
-    f"E3_action_image=3 E3_fixed={fixed_count(G3)} E3_slice_descent=1 "
-    f"update_image={image_size(E)} update_injective=0 update_idempotent=1 "
-    "update_slice_descent=1 "
-    "passive_state_action_image=1 passive_slice_descent=0 "
-    "all_zero_preserving=1 matched_equivalence_countermodels=1 "
-    "terminal=NO_CANONICAL_ROTATION_LAW_SELECTED_BY_CURRENT_P000"
-)
+if __name__ == "__main__":
+    main()

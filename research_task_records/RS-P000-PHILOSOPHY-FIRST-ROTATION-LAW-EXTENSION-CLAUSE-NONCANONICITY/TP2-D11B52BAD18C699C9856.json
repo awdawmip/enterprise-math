@@ -1,0 +1,58 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-ROTATION-LAW-EXTENSION-CLAUSE-NONCANONICITY",
+  "registry_key": "RS-P000-PHILOSOPHY-FIRST-ROTATION-LAW-EXTENSION-CLAUSE-NONCANONICITY",
+  "publication_id": "TP2-D11B52BAD18C699C9856",
+  "publication_generation": 1,
+  "supersedes_publication_id": null,
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "taskbook_path": "research_tasks/P000_PHILOSOPHY_FIRST_ROTATION_LAW_EXTENSION_CLAUSE_NONCANONICITY_20260902.md",
+  "taskbook_blob_sha1": "sha1:6fdb571c5b700747f5bcb526017b3f1ff479d3b2",
+  "publisher_role": "RESEARCH_DRIVER",
+  "publisher_id": "EM-DVR-VPSKLD",
+  "published_at": "2026-09-02T13:17:10+00:00",
+  "parent_objective_id": "OBJ-P000-ENTERPRISE-6D-ROTATION-TOMOGRAPHY",
+  "origin_kind": "DRIVER_ROADMAP",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-P000-PHILOSOPHY-FIRST-NATIVE-6D-ROTATION-LAW-CANDIDATE-DISCRIMINATION",
+  "claimable": true,
+  "effective_priority": "P0",
+  "effective_leverage": "HIGH",
+  "priority_source": "PUBLISHER_DECLARED",
+  "publisher_priority_request": "P0",
+  "publisher_leverage_request": "HIGH",
+  "owner": "research/p000-phil-q31-rotation-law-extension-clause-noncanonicity",
+  "frontier": "Q29 proves by matched finite typed countermodels that current P000 does not select a unique native 6D rotation law. Even inside the active structure-preserving equivalence class, E2 and E3 survive the same current-P000 tests while having inequivalent state-action representation images. Thus any law-selection step needs additional information rather than more manipulation of the existing clauses.",
+  "next_action": "Freeze current P000 and the Q29 typed-law equivalence. Define a candidate-blind invariant language for possible extension clauses, then classify the lowest noncircular clauses that separate admissible rotation-law families. Search first for two incomparable minimal discriminators; if they exist, freeze noncanonicity instead of choosing one by preference.",
+  "research_value": "Classify whether the additional information required by Q29 has a unique noncircular minimal form or is itself a noncanonical choice, without adopting any candidate rotation law or extension clause as P000.",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "source_refs": [
+    "research_result_records/RS-P000-PHILOSOPHY-FIRST-NATIVE-6D-ROTATION-LAW-CANDIDATE-DISCRIMINATION/RR-EAA5E06ACC18BB1E21BE.json",
+    "research_returns/P000_PHILOSOPHY_FIRST_NATIVE_6D_ROTATION_LAW_CANDIDATE_DISCRIMINATION_RETURN_20260902.md",
+    "driver_reviews/P000_PHILOSOPHY_FIRST_Q29_ROTATION_LAW_DRIVER_REVIEW_20260902.md"
+  ],
+  "dependencies": [
+    "RR-EAA5E06ACC18BB1E21BE"
+  ],
+  "evidence_status": "FORMAL_DRIVER_REVIEW_ACCEPTED_EXTENSION_AUDIT_ONLY",
+  "successor_gate": {
+    "new_information_gap": "Q29 establishes underdetermination but does not classify the minimal additional invariant information needed to discriminate admissible typed rotation laws, nor whether such minimal additions are unique or form incomparable choices.",
+    "why_parent_result_does_not_close_it": "The Q29 kill condition correctly stops canonical law selection under current P000. It does not answer the extension-level question of what extra information would be sufficient, minimal, noncircular, and invariant under typed-law equivalence.",
+    "discriminating_outcomes": [
+      "NO_CANONICAL_MINIMAL_ROTATION_EXTENSION_CLAUSE_ON_DECLARED_LANGUAGE",
+      "UNIQUE_MINIMAL_NONCIRCULAR_ROTATION_EXTENSION_PRINCIPLE_ISOLATED_WITHOUT_P000_PROMOTION",
+      "DECLARED_EXTENSION_CLAUSE_LANGUAGE_TOO_WEAK_OR_CIRCULAR"
+    ],
+    "kill_condition": "If two candidate-blind invariant clauses are each minimal, noncircular and sufficient to select inequivalent admissible subfamilies, with neither implied by current P000 nor by the other, freeze NO_CANONICAL_MINIMAL_ROTATION_EXTENSION_CLAUSE and stop. If a unique minimal principle is proved, freeze it only as an extension candidate and do not promote it to P000. If the clause language can distinguish candidates only by naming target models or encoding their action tables, freeze circularity and stop.",
+    "alternative_route_or_free_exploration_considered": "Directly adopting U_r^2=id, a fixed-point count, a preferred finite group, SO(6), or one of E2/E3 was considered and rejected because Q29 proves that current P000 does not authorize such a preference. Closing all rotation research was also considered, but it would leave the newly isolated extension-information question unclassified.",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "Q29 is terminal at no-selection and must not be reopened to choose a law. A separate extension-audit task preserves that theorem while asking the next falsifiable question: whether the missing information itself has a canonical minimal form."
+  }
+}

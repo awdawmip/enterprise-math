@@ -1,0 +1,86 @@
+{
+  "schema": "P000_Q29_FINITE_ROTATION_LAW_CERTIFICATE_V1",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-NATIVE-6D-ROTATION-LAW-CANDIDATE-DISCRIMINATION",
+  "publication_id": "TP2-4E118647826FFB47BA2C",
+  "claim_id": "CLM-5DB71CCF78F0FD96BD23",
+  "researcher_id": "EM-P000Q29-16E421",
+  "comparison_scaffold": {
+    "token_monoid": "T=<r | r^7=r>",
+    "normal_forms": [
+      "e",
+      "r",
+      "r^2",
+      "r^3",
+      "r^4",
+      "r^5",
+      "r^6"
+    ],
+    "native_status": "FINITE_COMPARISON_SCAFFOLD_ONLY_NOT_P000_AXIOM",
+    "forces_invertibility": false
+  },
+  "carrier": {
+    "X": "{0,1}^6",
+    "cardinality": 64,
+    "slice_observation": "O(x1,...,x6)=(x1,x2,x3)",
+    "native_status": "FINITE_LOGICAL_COUNTERMODEL_ONLY"
+  },
+  "semantic_equivalence": "token-monoid isomorphism plus Full-Cell typed isomorphism/conjugacy, primitive-action commutation, and observation/presentation compatibility; quotienting tokens is not equivalence",
+  "candidates": {
+    "E2": {
+      "class": "ACTIVE_STRUCTURE_PRESERVING_EQUIVALENCE",
+      "generator": "(x2,x1,x3,x5,x4,x6)",
+      "state_representation_image": 2,
+      "generator_rank": 64,
+      "generator_fixed_points": 16,
+      "generator_invertible": true,
+      "zero_preserving": true,
+      "slice_fibre_constant": true,
+      "independent_frame_action_image": 1
+    },
+    "E3": {
+      "class": "ACTIVE_STRUCTURE_PRESERVING_EQUIVALENCE",
+      "generator": "(x2,x3,x1,x5,x6,x4)",
+      "state_representation_image": 3,
+      "generator_rank": 64,
+      "generator_fixed_points": 4,
+      "generator_invertible": true,
+      "zero_preserving": true,
+      "slice_fibre_constant": true,
+      "independent_frame_action_image": 1
+    },
+    "U": {
+      "class": "GENUINE_STATE_PRIMITIVE_UPDATE",
+      "generator": "(0,x2,x3,x4,x5,x6)",
+      "state_representation_image": 2,
+      "generator_rank": 32,
+      "generator_fixed_points": 32,
+      "generator_invertible": false,
+      "zero_preserving": true,
+      "slice_fibre_constant": true,
+      "independent_frame_action_image": 1
+    },
+    "F": {
+      "class": "PASSIVE_FRAME_PRESENTATION_CHANGE",
+      "generator_state_action": "id_X",
+      "generator_frame_action": "flip f in C2",
+      "state_representation_image": 1,
+      "generator_rank": 64,
+      "generator_fixed_points": 64,
+      "generator_invertible": true,
+      "zero_preserving": true,
+      "slice_fibre_constant": true,
+      "independent_frame_action_image": 2
+    }
+  },
+  "decisive_invariant": {
+    "claim": "E2 and E3 are inequivalent even inside the active structure-preserving equivalence class",
+    "invariant": "cardinality of the state-action representation image under typed conjugacy",
+    "E2": 2,
+    "E3": 3
+  },
+  "q23_zero_support_audit": "ALL_FOUR_CANDIDATES_PRESERVE_ZERO; NONE_INVALIDATES_Q23_ZERO_SUPPORT",
+  "observation_audit": "ALL_FOUR_CANDIDATES_SATISFY_THE_REQUIRED_FIBRE_CONSTANCY_FOR_THE_DECLARED_READOUT/PRESENTATION_MAP",
+  "terminal": "NO_CANONICAL_ROTATION_LAW_SELECTED_BY_CURRENT_P000",
+  "checker_summary": "PASS P000_Q29_ROTATION_LAW_DISCRIMINATION tokens=7 states=64 candidates=4 E2_state_image=2 E3_state_image=3 U_state_image=2 F_state_image=1 E2_rank=64 E3_rank=64 U_rank=32 F_rank=64 E2_fixed=16 E3_fixed=4 U_fixed=32 F_fixed=64 frame_image=2 all_zero_preserving=1 all_slice_fibre_constant=1 pairwise_typed_signatures_distinct=1 terminal=NO_CANONICAL_ROTATION_LAW_SELECTED_BY_CURRENT_P000",
+  "source_exposure": "NONBLIND_REEXECUTION: prior Q29 control-plane terminal summary was visible before this freeze; no prior Q29 return/checker/result bytes were read before this certificate was independently reconstructed from accepted Q26/Q23/Q24 inputs"
+}
