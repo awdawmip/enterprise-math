@@ -1,0 +1,34 @@
+name: brc-weighted-research
+
+on:
+  pull_request:
+    paths:
+      - 'research_notes/BRC_WEIGHTED_LOG_SEMIRING_EXTENSION_20260902.md'
+      - 'experiments/brc_weighted_log_semiring_check.py'
+      - 'experiments/brc_weighted_rational_runtime_prototype.py'
+      - '.github/workflows/brc-weighted-research.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'research_notes/BRC_WEIGHTED_LOG_SEMIRING_EXTENSION_20260902.md'
+      - 'experiments/brc_weighted_log_semiring_check.py'
+      - 'experiments/brc_weighted_rational_runtime_prototype.py'
+      - '.github/workflows/brc-weighted-research.yml'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Exact finite-DAG weighted support checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_weighted_log_semiring_check.py
+      - name: Exact rational Weighted-BRC / LN integration prototype
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_weighted_rational_runtime_prototype.py
