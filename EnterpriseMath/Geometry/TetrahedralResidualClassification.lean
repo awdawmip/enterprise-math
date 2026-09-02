@@ -72,8 +72,10 @@ theorem deltaEquivalent_refl (x : Edge6) : DeltaEquivalent x x := by
 theorem deltaEquivalent_symm {x y : Edge6}
     (h : DeltaEquivalent x y) : DeltaEquivalent y x := by
   rcases h with ⟨v, hv, hdelta⟩
+  have hv' : v 0 + v 1 + v 2 + v 3 = 0 := by
+    simpa [vertexSum] using hv
   refine ⟨fun i => -v i, ?_, ?_⟩
-  · simp [vertexSum]
+  · change -v 0 + -v 1 + -v 2 + -v 3 = 0
     linarith
   · funext i
     have hi := congrFun hdelta i
@@ -85,8 +87,13 @@ theorem deltaEquivalent_trans {x y z : Edge6}
     DeltaEquivalent x z := by
   rcases hxy with ⟨v, hv, hdeltaV⟩
   rcases hyz with ⟨w, hw, hdeltaW⟩
+  have hv' : v 0 + v 1 + v 2 + v 3 = 0 := by
+    simpa [vertexSum] using hv
+  have hw' : w 0 + w 1 + w 2 + w 3 = 0 := by
+    simpa [vertexSum] using hw
   refine ⟨fun i => v i + w i, ?_, ?_⟩
-  · simp [vertexSum]
+  · change
+      (v 0 + w 0) + (v 1 + w 1) + (v 2 + w 2) + (v 3 + w 3) = 0
     linarith
   · funext i
     have hvi := congrFun hdeltaV i
