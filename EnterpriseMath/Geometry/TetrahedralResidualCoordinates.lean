@@ -30,13 +30,11 @@ theorem parityBit_eq_iff_even_sub (x y : Edge6) :
     even_iff_two_dvd]
   constructor
   · intro h
-    have hneg : (2 : ℤ) ∣ -(firstThreeSum y - firstThreeSum x) := by
-      rwa [Int.dvd_neg]
-    simpa only [neg_sub] using hneg
+    rw [← neg_sub, Int.dvd_neg]
+    exact h
   · intro h
-    have hneg : (2 : ℤ) ∣ -(firstThreeSum x - firstThreeSum y) := by
-      rwa [Int.dvd_neg]
-    simpa only [neg_sub] using hneg
+    rw [← neg_sub, Int.dvd_neg]
+    exact h
 
 /-- Free opposite-pair coordinates together with the residual `C₂` bit. -/
 abbrev ResidualCoordinate := (Fin 3 → ℤ) × ZMod 2
