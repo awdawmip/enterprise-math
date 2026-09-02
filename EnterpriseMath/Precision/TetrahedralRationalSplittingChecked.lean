@@ -94,7 +94,7 @@ theorem rational_splitting (x : QEdge) :
 theorem pairAverage_idempotent (x : QEdge) :
     pairAverage (pairAverage x) = pairAverage x := by
   funext e
-  fin_cases e <;> simp [pairAverage] <;> ring
+  fin_cases e <;> simp [pairAverage]
 
 theorem antiResidual_pairAverage (x : QEdge) :
     antiResidual (pairAverage x) = 0 := by
@@ -109,17 +109,14 @@ theorem pairAverage_antiResidual (x : QEdge) :
 def basicParityEdge : QEdge := ![1, 0, 0, -1, 0, 0]
 
 theorem basicParity_pairAverage : pairAverage basicParityEdge = 0 := by
-  funext e
-  fin_cases e <;> norm_num [pairAverage, basicParityEdge]
+  native_decide
 
 theorem basicParity_kernelPotential :
     kernelPotential basicParityEdge = ![1 / 2, 1 / 2, -1 / 2, -1 / 2] := by
-  funext s
-  fin_cases s <;> norm_num [kernelPotential, basicParityEdge]
+  native_decide
 
 theorem basicParity_delta_recovered :
     delta (![1 / 2, 1 / 2, -1 / 2, -1 / 2] : QVertex) = basicParityEdge := by
-  funext e
-  fin_cases e <;> norm_num [delta, basicParityEdge]
+  native_decide
 
 end EnterpriseMath.PrecisionPi.TetrahedralRationalSplittingChecked
