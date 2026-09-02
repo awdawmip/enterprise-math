@@ -96,6 +96,7 @@ theorem tetrahedralCore_succ {n : ℕ} (hn : 0 < n) :
   rw [tetrahedralCore, tetrahedralCore, quarticBalance_succ, sexticBalance_succ,
     tetrahedralRatio_eq_steps]
   field_simp [hnq, hn1q, h4, h6, hs4, hs6]
+  push_cast
   ring
 
 /-- Strict finite-resolution improvement: every positive-depth refinement
