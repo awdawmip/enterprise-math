@@ -24,11 +24,13 @@ from control_plane import materialize_legacy_tasks_v2 as migration
 
 EXPECTED_DISPOSITIONS = {
     "ALREADY_CURRENT_V2": 10,
-    "TERMINAL_HISTORY": 7,
+    "ALREADY_V2_TERMINAL_HISTORY": 1,
+    "TERMINAL_HISTORY": 6,
     "BACKLOG": 2,
     "ACTIVE_FRONTIER": 8,
 }
 GENERATED_DISPOSITIONS = {"TERMINAL_HISTORY", "BACKLOG", "ACTIVE_FRONTIER"}
+EXISTING_DISPOSITIONS = {"ALREADY_CURRENT_V2", "ALREADY_V2_TERMINAL_HISTORY"}
 
 
 class TargetedMigrationAuditError(ValueError):
@@ -106,6 +108,17 @@ def _load_object(path: Path, label: str) -> dict[str, Any]:
 def _require(condition: bool, message: str) -> None:
     if not condition:
         raise TargetedMigrationAuditError(message)
+
+
+def _validate_existing_row(row: dict[str, Any]) -> None:
+    task_id = str(row.get("task_id") or "")
+    record_rel = row.get("record_path")
+    _require(isinstance(record_rel, str) and (ROOT / record_rel).is_file(), f"{task_id}: referenced V2 record missing")
+    record = _load_object(ROOT / record_rel, task_id)
+    _require(record.get("task_id") == task_id, f"{task_id}: referenced V2 task mismatch")
+    _require(record.get("publication_id") == row.get("publication_id"), f"{task_id}: referenced V2 publication mismatch")
+    if row.get("disposition") == "ALREADY_V2_TERMINAL_HISTORY":
+        _require(record.get("record_state") in {"CLOSED", "SUPERSEDED"} or record.get("claimable") is False, f"{task_id}: referenced history is not terminal/nonclaimable")
 
 
 def _validate_generated_row(row: dict[str, Any]) -> None:
@@ -192,12 +205,8 @@ def validate_manifest() -> dict[str, Any]:
         disposition = str(row.get("disposition") or "")
         if disposition in GENERATED_DISPOSITIONS:
             _validate_generated_row(row)
-        elif disposition == "ALREADY_CURRENT_V2":
-            record_rel = row.get("record_path")
-            _require(isinstance(record_rel, str) and (ROOT / record_rel).is_file(), f"{row.get('task_id')}: referenced current V2 record missing")
-            record = _load_object(ROOT / record_rel, str(row.get("task_id")))
-            _require(record.get("task_id") == row.get("task_id"), f"{row.get('task_id')}: referenced current task mismatch")
-            _require(record.get("publication_id") == row.get("publication_id"), f"{row.get('task_id')}: referenced current publication mismatch")
+        elif disposition in EXISTING_DISPOSITIONS:
+            _validate_existing_row(row)
         else:
             raise TargetedMigrationAuditError(f"unsupported manifest disposition: {disposition}")
 
