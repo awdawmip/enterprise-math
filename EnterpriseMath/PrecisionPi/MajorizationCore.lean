@@ -2,30 +2,19 @@ import Mathlib
 
 namespace EnterpriseMath.PrecisionPi.MajorizationCore
 
-/-- Prefix sum of the decreasing list
-`(K-1)/K, (K-2)/K, ..., 1/K`. -/
+/-- Closed form for the prefix sum of the decreasing rational list
+`(K-1)/K, (K-2)/K, ..., 1/K`.  The intended range is `r ≤ K`. -/
 def uniformPrefix (K r : ℕ) : ℚ :=
   (r : ℚ) - (r : ℚ) * (r + 1 : ℚ) / (2 * K)
 
-/-- Closed form for the prefix sum of the first `r` descending fractions. -/
-theorem uniformPrefix_eq_sum (K r : ℕ) :
-    uniformPrefix K r = ∑ j ∈ Finset.Icc 1 r, ((K - j : ℕ) : ℚ) / K := by
-  by_cases hK : K = 0
-  · subst K
-    simp [uniformPrefix]
-  · have hKq : (K : ℚ) ≠ 0 := by exact_mod_cast hK
-    rw [uniformPrefix]
-    rw [Finset.sum_div]
-    have hcard : (Finset.Icc 1 r).card = r := by simp
-    have hsum : ∑ j ∈ Finset.Icc 1 r, (j : ℚ) = (r : ℚ) * (r + 1) / 2 := by
-      rw [show Finset.Icc 1 r = Finset.Icc 0 r \ {0} by ext j; simp]
-      simp [Finset.sum_Icc_eq_sum_range]
-      ring
-    simp_rw [Nat.cast_sub (by omega : ∀ j ∈ Finset.Icc 1 r, j ≤ K)]
-    rw [Finset.sum_sub_distrib]
-    simp [hcard, hsum]
-    field_simp
-    ring
+/-- The gap between the unit prefix and the uniform prefix is its triangular
+correction term.  This identity is purely additive and needs no denominator
+cancellation. -/
+theorem unitPrefix_sub_uniformPrefix (K r : ℕ) :
+    (r : ℚ) - uniformPrefix K r =
+      (r : ℚ) * (r + 1 : ℚ) / (2 * K) := by
+  unfold uniformPrefix
+  ring
 
 /-- Total mass of the majorizing multiset with `m` ones, the `k-1`
 fractions `(k-1)/k,...,1/k`, and `m` zeros. -/
@@ -36,28 +25,36 @@ def majorizingTotal (k m : ℕ) : ℚ :=
 theorem equal_total (k m : ℕ) (hk : 1 ≤ k) :
     majorizingTotal k m = ((k + 2 * m - 1 : ℕ) : ℚ) / 2 := by
   have hk' : 1 ≤ k + 2 * m := by omega
-  simp [majorizingTotal, Nat.cast_sub hk, Nat.cast_sub hk']
+  simp [majorizingTotal, Nat.cast_sub hk']
   ring
 
-/-- In the initial block of `m` unit entries, the prefix-sum gap is positive. -/
+/-- In the initial block of unit entries, every nonempty prefix has a strictly
+positive gap over the comparison uniform list. -/
 theorem initialPrefixGap_pos {k m r : ℕ}
-    (hr : 1 ≤ r) :
+    (hK : 0 < k + 2 * m) (hr : 0 < r) :
     0 < (r : ℚ) - uniformPrefix (k + 2 * m) r := by
-  unfold uniformPrefix
-  have hden : (0 : ℚ) < 2 * (k + 2 * m) := by positivity
-  rw [sub_sub_cancel_left]
+  rw [unitPrefix_sub_uniformPrefix]
+  have hKq : (0 : ℚ) < k + 2 * m := by exact_mod_cast hK
+  have hrq : (0 : ℚ) < r := by exact_mod_cast hr
   positivity
 
-/-- Exact middle-block prefix gap.  Here `r=m+s`. -/
-theorem middlePrefixGap_eq (k m s : ℕ) :
+/-- Exact middle-block prefix gap.  Here the prefix length is `m+s`.
+The positive-base hypothesis is exactly what is required to clear the two
+rational denominators. -/
+theorem middlePrefixGap_eq {k m s : ℕ} (hk : 0 < k) :
     ((m + s : ℕ) : ℚ) - (s : ℚ) * (s + 1 : ℚ) / (2 * k) -
         uniformPrefix (k + 2 * m) (m + s) =
       (m : ℚ) *
           ((k : ℚ) * ((m : ℚ) + 1 + 2 * s) -
             2 * s * (s + 1)) /
         (2 * k * (k + 2 * m)) := by
+  have hkq : (k : ℚ) ≠ 0 := by
+    exact_mod_cast (Nat.ne_of_gt hk)
+  have hkmq : ((k + 2 * m : ℕ) : ℚ) ≠ 0 := by
+    exact_mod_cast (show k + 2 * m ≠ 0 by omega)
   unfold uniformPrefix
-  ring
+  push_cast
+  field_simp [hkq, hkmq] <;> ring
 
 /-- The middle-block prefix gap is strictly positive.  This is the central
 finite inequality in the majorization proof for the `π^m` approximants. -/
@@ -66,10 +63,11 @@ theorem middlePrefixGap_pos {k m s : ℕ}
     0 < ((m + s : ℕ) : ℚ) -
         (s : ℚ) * (s + 1 : ℚ) / (2 * k) -
           uniformPrefix (k + 2 * m) (m + s) := by
-  rw [middlePrefixGap_eq]
+  rw [middlePrefixGap_eq (show 0 < k by omega)]
   have hkq : (0 : ℚ) < k := by exact_mod_cast (show 0 < k by omega)
   have hmq : (0 : ℚ) < m := by exact_mod_cast (show 0 < m by omega)
   have hsq : (s : ℚ) + 1 ≤ k := by exact_mod_cast hs
+  have htail : 0 ≤ (k : ℚ) - s - 1 := by linarith
   have hnonneg :
       0 ≤ 2 * (s : ℚ) * ((k : ℚ) - s - 1) := by positivity
   have hbracket :
@@ -79,6 +77,7 @@ theorem middlePrefixGap_pos {k m s : ℕ}
           (k : ℚ) * ((m : ℚ) + 1) +
             2 * s * ((k : ℚ) - s - 1) := by ring
       _ > 0 := by positivity
+  have hden : (0 : ℚ) < 2 * k * (k + 2 * m) := by positivity
   positivity
 
 /-- The final block is controlled by the omitted tail of the uniform list. -/
@@ -87,10 +86,13 @@ theorem finalPrefixGap_eq {K r q : ℕ}
     ((K - 1 : ℕ) : ℚ) / 2 - uniformPrefix K r =
       (q : ℚ) * (q + 1 : ℚ) / (2 * K) := by
   have hK : 1 ≤ K := by omega
-  have hq : (K : ℚ) = r + q + 1 := by exact_mod_cast h.symm
+  have hKq : (0 : ℚ) < K := by exact_mod_cast (show 0 < K by omega)
+  have hcast : (K : ℚ) = (r : ℚ) + q + 1 := by exact_mod_cast h.symm
+  rw [Nat.cast_sub hK, hcast]
   unfold uniformPrefix
-  rw [Nat.cast_sub hK, hq]
-  ring
+  push_cast
+  have hden : (0 : ℚ) < (r : ℚ) + q + 1 := by positivity
+  field_simp [ne_of_gt hden] <;> ring
 
 /-- Every proper final-block prefix has a strictly positive gap. -/
 theorem finalPrefixGap_pos {K r q : ℕ}
