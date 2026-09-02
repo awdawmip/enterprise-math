@@ -91,9 +91,24 @@ def _runtime_repo_tools(runtime: dict) -> list[str]:
         raise AssertionError("runtime executable_runtime must be a nonempty path")
     if executable not in entries:
         raise AssertionError("runtime executable_runtime must appear in repository_tool_paths")
-    primitive = runtime.get("composes", {}).get("pre_final_primitive")
-    if not isinstance(primitive, str) or primitive not in entries:
-        raise AssertionError("runtime PRE_FINAL primitive must appear in repository_tool_paths")
+    required_fields = {
+        "event_reducer": "tools/research_runtime_reducer.py",
+        "fresh_task_selector": "tools/research_dispatch.py",
+        "fresh_lane_selector": "tools/research_lane_dispatch.py",
+    }
+    for field, expected in required_fields.items():
+        if runtime.get(field) != expected or expected not in entries:
+            raise AssertionError(
+      f"runtime {field} must equal {expected!r} and appear in repository_tool_paths"
+            )
+    if runtime.get("canonical_live_dispatch") != "research_control_dispatch.py":
+        raise AssertionError(
+            "runtime canonical_live_dispatch must be research_control_dispatch.py"
+        )
+    if "tools/active_turn_liveness.py" not in entries:
+        raise AssertionError(
+            "runtime active-turn primitive must appear in repository_tool_paths"
+        )
     return sorted(entries)
 
 
@@ -333,7 +348,7 @@ def check() -> None:
         raise AssertionError("unexpected research_common_surface schema")
     if toolbox.get("schema") != "ENTERPRISE_MATH_TOOLBOX_REGISTRY_V2":
         raise AssertionError("unexpected enterprise_toolbox_registry schema")
-    if runtime.get("schema") != "ENTERPRISE_MATH_RESEARCH_RUNTIME_STATE_MACHINE_V1":
+    if runtime.get("schema") != "ENTERPRISE_MATH_RESEARCH_RUNTIME_STATE_MACHINE_V2":
         raise AssertionError("unexpected research_runtime_state_machine schema")
 
     en_text = COMMON_EN.read_text(encoding="utf-8")
