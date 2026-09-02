@@ -52,11 +52,15 @@ jobs:
               "- `tools/research_lane_dispatch.py` — active-cohort lane selector;\n- `tools/research_runtime_reducer.py` — pure authenticated-event reducer;",
               "- `tools/research_lane_dispatch.py` — active-cohort lane selector;\n- `tools/research_lane_claims.py` — exact lane-claim ownership and conflict surface;\n- `tools/research_cohort_runtime.py` — exact cohort/lane runtime ownership surface;\n- `tools/research_runtime.py` — parent/session/final state machine;\n- `tools/research_runtime_reducer.py` — pure authenticated-event reducer;",
           )
-          replace_once(
+          for dispatch_generator in (
               "control_plane/apply_legacy_control_isolation.py",
-              "        if item.get(\"registration_source\") not in {\n            \"IMMUTABLE_TASK_RECORD\",\n            \"TASK_DEFINITION_FAULT_QUARANTINE\",\n        }:",
-              "        if item.get(\"registration_source\") not in {\n            \"IMMUTABLE_TASK_RECORD\",\n            \"TASK_DEFINITION_FAULT_QUARANTINE\",\n            \"TASK_INTEGRITY_QUARANTINE\",\n            \"PUBLICATION_FORK_QUARANTINE\",\n        }:",
-          )
+              "control_plane/run_apply_legacy_control_isolation.py",
+          ):
+              replace_once(
+                  dispatch_generator,
+                  "        if item.get(\"registration_source\") not in {\n            \"IMMUTABLE_TASK_RECORD\",\n            \"TASK_DEFINITION_FAULT_QUARANTINE\",\n        }:",
+                  "        if item.get(\"registration_source\") not in {\n            \"IMMUTABLE_TASK_RECORD\",\n            \"TASK_DEFINITION_FAULT_QUARANTINE\",\n            \"TASK_INTEGRITY_QUARANTINE\",\n            \"PUBLICATION_FORK_QUARANTINE\",\n        }:",
+              )
           replace_once(
               "control_plane/run_apply_legacy_control_isolation_v2.py",
               "publish the task before READY/CLAIM/execution",
