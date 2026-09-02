@@ -1,0 +1,40 @@
+name: control-plane-surface
+
+on:
+  pull_request:
+    paths:
+      - 'AGENTS.md'
+      - 'control_plane/**'
+      - 'research_task_registry.json'
+      - '**/*legacy*'
+      - '**/*session*liveness*'
+      - '**/*conversation*liveness*'
+  push:
+    branches:
+      - main
+    paths:
+      - 'AGENTS.md'
+      - 'control_plane/**'
+      - 'research_task_registry.json'
+      - '**/*legacy*'
+      - '**/*session*liveness*'
+      - '**/*conversation*liveness*'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: control-plane-surface-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  control-plane-surface:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify current control surface and physical isolation
+        run: python control_plane/check_current_control_plane_surface.py
