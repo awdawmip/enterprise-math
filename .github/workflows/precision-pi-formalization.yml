@@ -1,0 +1,45 @@
+name: precision-pi-formalization
+
+on:
+  push:
+    branches:
+      - formalization/precision-pi-paper-ii-k4
+    paths:
+      - 'EnterpriseMath/PrecisionPi/**'
+      - 'EnterpriseMath.lean'
+      - 'lakefile.toml'
+      - 'lake-manifest.json'
+      - 'lean-toolchain'
+      - '.github/workflows/precision-pi-formalization.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: "${{ github.workflow }}-${{ github.ref }}"
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+      - name: Set up Lean
+        uses: leanprover/lean-action@v1
+        with:
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+          use-github-cache: false
+          use-mathlib-cache: false
+      - name: Resolve pinned dependencies
+        run: lake update
+      - name: Fetch mathlib cache
+        run: lake exe cache get
+      - name: Build repository Lean target with warnings fatal
+        run: lake build --wfail -KCI EnterpriseMath
+      - name: Compile the complete paper-II aggregation module explicitly
+        run: lake env lean EnterpriseMath/PrecisionPi/PaperIIExtended.lean
