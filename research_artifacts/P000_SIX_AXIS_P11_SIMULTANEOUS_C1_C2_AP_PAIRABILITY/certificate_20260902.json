@@ -1,0 +1,378 @@
+{
+  "claim_id": "chatgpt-p000p11s1-20260902-1400-a7c4e2",
+  "classical_prior": [
+    "Pythagorean triples",
+    "three squares in arithmetic progression",
+    "congruent-number elliptic curve Y^2=X^3-e^2 X",
+    "gcd normalization"
+  ],
+  "control_B64": {
+    "B": 64,
+    "primitive_normalized": [
+      [
+        -47,
+        -44,
+        -41,
+        0,
+        210,
+        420
+      ],
+      [
+        41,
+        44,
+        47,
+        0,
+        210,
+        420
+      ]
+    ],
+    "primitive_normalized_count": 2,
+    "primitive_solution_count": 2,
+    "primitive_solutions": [
+      [
+        -47,
+        -44,
+        -41,
+        0,
+        210,
+        420
+      ],
+      [
+        41,
+        44,
+        47,
+        0,
+        210,
+        420
+      ]
+    ],
+    "raw_solution_count": 2
+  },
+  "execution_record_id": "ER-1943F3CDC14761230A7B",
+  "exploratory_B256": {
+    "B": 256,
+    "primitive_normalized": [
+      [
+        -105,
+        0,
+        105,
+        -10816,
+        -5800,
+        -784
+      ],
+      [
+        -47,
+        -44,
+        -41,
+        0,
+        210,
+        420
+      ],
+      [
+        41,
+        44,
+        47,
+        0,
+        210,
+        420
+      ]
+    ],
+    "primitive_normalized_count": 3,
+    "primitive_solution_count": 3,
+    "primitive_solutions": [
+      [
+        -105,
+        0,
+        105,
+        -10816,
+        -5800,
+        -784
+      ],
+      [
+        -47,
+        -44,
+        -41,
+        0,
+        210,
+        420
+      ],
+      [
+        41,
+        44,
+        47,
+        0,
+        210,
+        420
+      ]
+    ],
+    "raw_solution_count": 11
+  },
+  "finite_census_is_global_proof": false,
+  "load_bearing_theorem": {
+    "equations": [
+      "x^2+y^2=b^2",
+      "X^2+Y^2=g^2",
+      "xy=XY=2e",
+      "g^2-b^2=4hd",
+      "2mu^2=(x+y)^2+(X+Y)^2-2d^2",
+      "2nu^2=(x-y)^2+(X-Y)^2-2d^2"
+    ],
+    "fixed_locus": "h=0 iff the two ordered triangle factors coincide",
+    "involution": "swap the two equal-area triangles and send h -> -h",
+    "name": "EQUAL_AREA_PYTHAGOREAN_NORMAL_FORM",
+    "parity_required": true,
+    "primitive_normalization": "gcd of all sixteen recovered outer roots"
+  },
+  "parent_regression": {
+    "B": 20,
+    "primitive_normalized": [],
+    "primitive_normalized_count": 0,
+    "primitive_solution_count": 0,
+    "primitive_solutions": [],
+    "raw_solution_count": 0
+  },
+  "precommitted_control": {
+    "catalog": "all unordered integer root pairs -B <= r <= s <= B",
+    "filters": [],
+    "root_height_B": 64,
+    "selected_before_outcome_inspection": true
+  },
+  "primitive_witnesses": {
+    "diagonal_negative_product": {
+      "datum": [
+        -105,
+        0,
+        105,
+        -10816,
+        -5800,
+        -784
+      ],
+      "normal_form": {
+        "K": 0,
+        "bottom_discriminants": [
+          233,
+          185,
+          119
+        ],
+        "bottom_triangle": [
+          176,
+          57,
+          185
+        ],
+        "d": 105,
+        "e": 5016,
+        "equal_leg_product": 10032,
+        "h": 0,
+        "middle_discriminants": [
+          208,
+          56
+        ],
+        "primitive_root_gcd": 1,
+        "t": -5800,
+        "top_discriminants": [
+          233,
+          185,
+          119
+        ],
+        "top_triangle": [
+          176,
+          57,
+          185
+        ]
+      },
+      "outer_roots": {
+        "0,0": [
+          -169,
+          64
+        ],
+        "0,1": [
+          -145,
+          40
+        ],
+        "0,2": [
+          -112,
+          7
+        ],
+        "1,0": [
+          -104,
+          104
+        ],
+        "1,2": [
+          -28,
+          28
+        ],
+        "2,0": [
+          -64,
+          169
+        ],
+        "2,1": [
+          -40,
+          145
+        ],
+        "2,2": [
+          -7,
+          112
+        ]
+      }
+    },
+    "involution_partner": {
+      "datum": [
+        -47,
+        -44,
+        -41,
+        0,
+        210,
+        420
+      ],
+      "normal_form": {
+        "K": -528,
+        "bottom_discriminants": [
+          41,
+          29,
+          1
+        ],
+        "bottom_triangle": [
+          21,
+          20,
+          29
+        ],
+        "d": 3,
+        "e": 210,
+        "equal_leg_product": 420,
+        "h": -44,
+        "middle_discriminants": [
+          44,
+          16
+        ],
+        "primitive_root_gcd": 1,
+        "t": 210,
+        "top_discriminants": [
+          47,
+          37,
+          23
+        ],
+        "top_triangle": [
+          35,
+          12,
+          37
+        ]
+      },
+      "outer_roots": {
+        "0,0": [
+          -47,
+          0
+        ],
+        "0,1": [
+          -42,
+          -5
+        ],
+        "0,2": [
+          -35,
+          -12
+        ],
+        "1,0": [
+          -44,
+          0
+        ],
+        "1,2": [
+          -30,
+          -14
+        ],
+        "2,0": [
+          -41,
+          0
+        ],
+        "2,1": [
+          -35,
+          -6
+        ],
+        "2,2": [
+          -21,
+          -20
+        ]
+      }
+    },
+    "off_diagonal_zero_column": {
+      "datum": [
+        41,
+        44,
+        47,
+        0,
+        210,
+        420
+      ],
+      "normal_form": {
+        "K": 528,
+        "bottom_discriminants": [
+          47,
+          37,
+          23
+        ],
+        "bottom_triangle": [
+          35,
+          12,
+          37
+        ],
+        "d": 3,
+        "e": 210,
+        "equal_leg_product": 420,
+        "h": 44,
+        "middle_discriminants": [
+          44,
+          16
+        ],
+        "primitive_root_gcd": 1,
+        "t": 210,
+        "top_discriminants": [
+          41,
+          29,
+          1
+        ],
+        "top_triangle": [
+          21,
+          20,
+          29
+        ]
+      },
+      "outer_roots": {
+        "0,0": [
+          0,
+          41
+        ],
+        "0,1": [
+          6,
+          35
+        ],
+        "0,2": [
+          20,
+          21
+        ],
+        "1,0": [
+          0,
+          44
+        ],
+        "1,2": [
+          14,
+          30
+        ],
+        "2,0": [
+          0,
+          47
+        ],
+        "2,1": [
+          5,
+          42
+        ],
+        "2,2": [
+          12,
+          35
+        ]
+      }
+    }
+  },
+  "publication_id": "TP2-61B5B36EBD10274CD5F8",
+  "researcher_id": "EM-P000P11S1-A7C4E2",
+  "schema": "P000_P11_SIMULTANEOUS_C1_C2_AP_PAIRABILITY_CERTIFICATE_V1",
+  "task_id": "RS-P000-SIX-AXIS-P11-SIMULTANEOUS-C1-C2-AP-PAIRABILITY",
+  "terminal_class": "SIMULTANEOUS_GENUINE_C1_C2_EXISTENCE_REDUCED_TO_EXACT_ARITHMETIC_COMPONENT"
+}
