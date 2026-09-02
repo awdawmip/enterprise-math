@@ -1,0 +1,22 @@
+name: brc-holonomy-parity-thickness-research
+
+on:
+  pull_request:
+    paths:
+      - "research_notes/BRC_HOLONOMY_PARITY_THICKNESS_20260902.md"
+      - "experiments/brc_holonomy_parity_thickness_check.py"
+      - ".github/workflows/brc-holonomy-parity-thickness-research.yml"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Exact BRC holonomy parity/thickness checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_holonomy_parity_thickness_check.py
