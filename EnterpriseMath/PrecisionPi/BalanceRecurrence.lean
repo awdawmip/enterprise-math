@@ -29,10 +29,12 @@ theorem equalOccupancy_succ (k n : ℕ) (hk : k ≠ 0) :
         (Nat.factorial (k * n + k) : ℚ) := by
     exact_mod_cast hfacNat
   have hkn : k * (n + 1) = k * n + k := by
-    omega
+    simp [Nat.mul_add]
   rw [equalOccupancy, equalOccupancy, equalOccupancyStep, hkn, ← hfac]
   simp only [Nat.factorial_succ, Nat.cast_mul, Nat.cast_add, Nat.cast_one, pow_add]
   field_simp [hkq, hnq, hfacnq]
+  rw [← mul_pow]
+  congr 1
   ring
 
 /-- Quartic specialization of the exact recurrence. -/
