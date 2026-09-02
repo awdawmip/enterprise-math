@@ -94,8 +94,8 @@ def main() -> int:
     assert "t0.weighted_brc_finite_recurrent" in router
 
     assert FOUNDATION.name in parent
-    assert "FINITE_RATIONAL_RECURRENCE" in parent
-    assert "INFINITE_STATE_RECURRENCE" in parent
+    assert "FINITE_NONNEGATIVE_RATIONAL_RECURRENCE" in parent
+    assert "INFINITE_OR_SIGNED_OR_ARBITRARY_REAL_RECURRENCE" in parent
 
     print("Finite recurrent Weighted-BRC Foundation integrity: PASS")
     print("theorems=5 negative_boundaries=1 method=t0.weighted_brc_finite_recurrent")
