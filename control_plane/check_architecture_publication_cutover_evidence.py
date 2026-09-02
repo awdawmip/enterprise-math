@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
-"""Build control-only structural evidence for Architecture V2 publication cutover.
+"""Verify Architecture V2 task-publication pointer locality.
 
-This checker does *not* approve the migration.  It applies the six publication
-pointer replacements from CSM-ARCHITECTURE-TASK-PUBLICATION-003 in memory and
-proves that every other JSON value is unchanged.  It also pins digests of the
-research-semantic sentinel blocks called out by the non-executable verification
-request.  Foundation Steward or Research Driver authority is still required to
-classify the mixed-semantics migration as approved.
+The registry supports two non-executive states:
+
+* ``REQUIRES_GOVERNANCE_VERIFICATION`` — build an in-memory six-pointer proposal
+  and prove that every other architecture value is unchanged;
+* ``VERIFIED_NO_POINTER_CHANGE_REQUIRED`` — verify that the six current pointers
+  already equal their canonical values and that the surrounding research-semantic
+  sentinels are merely observed, not rewritten.
+
+Neither state approves mathematics, changes research semantics, grants Working
+Truth/Foundation/Driver authority, or creates an execution claim.
 """
 from __future__ import annotations
 
@@ -20,6 +24,8 @@ ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "control_plane" / "control_semantic_migration_registry.json"
 ARCHITECTURE = ROOT / "research_architecture.json"
 MIGRATION_ID = "CSM-ARCHITECTURE-TASK-PUBLICATION-003"
+OPEN_STATE = "REQUIRES_GOVERNANCE_VERIFICATION"
+COMPLETE_STATE = "VERIFIED_NO_POINTER_CHANGE_REQUIRED"
 SENTINEL_POINTERS = (
     "/core_invariants",
     "/research_modes",
@@ -50,7 +56,10 @@ def _load(path: Path) -> dict[str, Any]:
 def _tokens(pointer: str) -> list[str]:
     if not pointer.startswith("/"):
         raise ArchitectureCutoverEvidenceError(f"invalid JSON pointer: {pointer!r}")
-    return [part.replace("~1", "/").replace("~0", "~") for part in pointer.split("/")[1:]]
+    return [
+        part.replace("~1", "/").replace("~0", "~")
+        for part in pointer.split("/")[1:]
+    ]
 
 
 def _get(value: dict[str, Any], pointer: str) -> Any:
@@ -87,7 +96,9 @@ def _delete(value: dict[str, Any], pointer: str) -> None:
 
 
 def _digest(value: Any) -> str:
-    payload = json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+    payload = json.dumps(
+        value, ensure_ascii=False, sort_keys=True, separators=(",", ":")
+    ).encode("utf-8")
     return "sha256:" + hashlib.sha256(payload).hexdigest()
 
 
@@ -104,28 +115,43 @@ def prove(root: Path = ROOT) -> dict[str, Any]:
         raise ArchitectureCutoverEvidenceError(f"missing migration entry: {MIGRATION_ID}")
     if entry.get("path") != "research_architecture.json":
         raise ArchitectureCutoverEvidenceError("architecture migration points to wrong file")
-    if entry.get("state") != "REQUIRES_GOVERNANCE_VERIFICATION":
+    state = entry.get("state")
+    if state not in {OPEN_STATE, COMPLETE_STATE}:
         raise ArchitectureCutoverEvidenceError(
-            "control structural evidence is only valid while governance verification remains open"
+            f"unsupported Architecture V2 cutover evidence state: {state!r}"
         )
 
     pointers = entry.get("json_pointers")
     old_values = entry.get("observed_legacy_values")
     target_values = entry.get("canonical_target_values")
-    if not isinstance(pointers, list) or not isinstance(old_values, list) or not isinstance(target_values, list):
-        raise ArchitectureCutoverEvidenceError("architecture migration pointer bundle malformed")
-    if len(pointers) != 6 or not (len(pointers) == len(old_values) == len(target_values)):
-        raise ArchitectureCutoverEvidenceError("architecture migration must remain an exact six-pointer bundle")
+    if not isinstance(pointers, list) or not isinstance(old_values, list) or not isinstance(
+        target_values, list
+    ):
+        raise ArchitectureCutoverEvidenceError(
+            "architecture migration pointer bundle malformed"
+        )
+    if len(pointers) != 6 or not (
+        len(pointers) == len(old_values) == len(target_values)
+    ):
+        raise ArchitectureCutoverEvidenceError(
+            "architecture migration must remain an exact six-pointer bundle"
+        )
 
     proposed = copy.deepcopy(source)
     before_values: dict[str, Any] = {}
     after_values: dict[str, Any] = {}
-    for pointer, old, target in zip(pointers, old_values, target_values, strict=True):
+    for pointer, old, target in zip(
+        pointers, old_values, target_values, strict=True
+    ):
         pointer = str(pointer)
         actual = _get(source, pointer)
         if actual not in (old, target):
             raise ArchitectureCutoverEvidenceError(
                 f"{pointer}: unexpected third-state value {actual!r}"
+            )
+        if state == COMPLETE_STATE and actual != target:
+            raise ArchitectureCutoverEvidenceError(
+                f"{pointer}: completed Architecture V2 cutover does not equal canonical target"
             )
         before_values[pointer] = copy.deepcopy(actual)
         _set(proposed, pointer, target)
@@ -133,12 +159,16 @@ def prove(root: Path = ROOT) -> dict[str, Any]:
 
     source_without_targets = copy.deepcopy(source)
     proposed_without_targets = copy.deepcopy(proposed)
-    for pointer in sorted((str(item) for item in pointers), key=lambda item: item.count("/"), reverse=True):
+    for pointer in sorted(
+        (str(item) for item in pointers),
+        key=lambda item: item.count("/"),
+        reverse=True,
+    ):
         _delete(source_without_targets, pointer)
         _delete(proposed_without_targets, pointer)
     if source_without_targets != proposed_without_targets:
         raise ArchitectureCutoverEvidenceError(
-            "proposed publication cutover changes architecture outside the six registered pointers"
+            "publication cutover changes architecture outside the six registered pointers"
         )
 
     sentinels: dict[str, dict[str, str]] = {}
@@ -147,17 +177,29 @@ def prove(root: Path = ROOT) -> dict[str, Any]:
         after = _get(proposed, pointer)
         if before != after:
             raise ArchitectureCutoverEvidenceError(
-                f"research semantic sentinel changed under proposed cutover: {pointer}"
+                f"research semantic sentinel changed under publication cutover: {pointer}"
             )
         digest = _digest(before)
         sentinels[pointer] = {"before": digest, "after": _digest(after)}
 
     return {
-        "status": "CONTROL_STRUCTURAL_EVIDENCE_ONLY_NOT_GOVERNANCE_APPROVAL",
+        "status": (
+            "CONTROL_STRUCTURAL_EVIDENCE_ONLY_NOT_GOVERNANCE_APPROVAL"
+            if state == OPEN_STATE
+            else "CURRENT_ARCHITECTURE_V2_POINTERS_VERIFIED_NO_CHANGE_REQUIRED"
+        ),
+        "registry_state": state,
         "migration_id": MIGRATION_ID,
         "source_architecture_blob_sha1": entry.get("baseline_blob_sha1"),
-        "changed_pointer_count": len(pointers),
-        "changed_pointers": list(pointers),
+        "changed_pointer_count": (
+            sum(before_values[pointer] != after_values[pointer] for pointer in pointers)
+        ),
+        "registered_pointer_count": len(pointers),
+        "changed_pointers": [
+            pointer
+            for pointer in pointers
+            if before_values[pointer] != after_values[pointer]
+        ],
         "before_values": before_values,
         "after_values": after_values,
         "non_target_structure_equal": True,
@@ -176,7 +218,16 @@ def main() -> int:
         print(f"ERROR: {exc}")
         return 1
     print(json.dumps(evidence, ensure_ascii=False, indent=2, sort_keys=True))
-    print("PASS: architecture V2 publication cutover is field-local; governance semantic approval remains open.")
+    if evidence["registry_state"] == OPEN_STATE:
+        print(
+            "PASS: Architecture V2 publication cutover is field-local; "
+            "governance semantic approval remains open."
+        )
+    else:
+        print(
+            "PASS: Architecture V2 publication pointers already equal the canonical values; "
+            "no governance migration remains open and no research-semantic sentinel changed."
+        )
     return 0
 
 
