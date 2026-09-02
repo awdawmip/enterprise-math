@@ -94,7 +94,10 @@ theorem tendsto_acceleratedPrecision_pi
     tendsto_const_nhds.div hseries hinv
   have hcollapse : (1 : ℝ) / (1 / Real.pi) = Real.pi := by
     field_simp [hpi]
-  simpa [acceleratedPrecision, hcollapse] using hrecip
+  change Tendsto
+    (fun M : ℕ => (1 : ℝ) / acceleratorPartialSum a A B z M)
+    atTop (𝓝 Real.pi)
+  simpa [hcollapse] using hrecip
 
 end
 
