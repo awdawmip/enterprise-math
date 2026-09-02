@@ -21,7 +21,7 @@ theorem trace_antitrace_identity (u : K) (hu : u ≠ 0) :
 theorem halfTrace_sq_eq_one_add_halfAntiTrace_sq (u : K) (hu : u ≠ 0) :
     halfTrace u ^ 2 = 1 + halfAntiTrace u ^ 2 := by
   have h := trace_antitrace_identity u hu
-  linarith
+  linear_combination h
 
 /--
 If the half-trace is an exact square `P²`, then the squared half-antitrace is
@@ -31,10 +31,15 @@ theorem square_halfTrace_forces_fourth_residual
     (u P : K) (hu : u ≠ 0) (htrace : halfTrace u = P ^ 2) :
     halfAntiTrace u ^ 2 = P ^ 4 - 1 := by
   have h := trace_antitrace_identity u hu
-  rw [htrace] at h
-  nlinarith [sq_nonneg (halfAntiTrace u)]
+  calc
+    halfAntiTrace u ^ 2 = halfTrace u ^ 2 - 1 := by
+      linear_combination -h
+    _ = P ^ 4 - 1 := by
+      rw [htrace]
+      ring
 
 /-- The two signed shells are the two linear factors of the fourth residual. -/
+omit [CharZero K] in
 theorem fourth_residual_shell_factorization (P : K) :
     P ^ 4 - 1 = (P ^ 2 - 1) * (P ^ 2 + 1) := by
   ring
@@ -47,13 +52,13 @@ theorem square_halfTrace_double_shell
   exact fourth_residual_shell_factorization P
 
 /-- Reversal `u ↦ u⁻¹` fixes half-trace and negates half-antitrace. -/
-theorem halfTrace_inv (u : K) (hu : u ≠ 0) :
+theorem halfTrace_inv (u : K) (_hu : u ≠ 0) :
     halfTrace u⁻¹ = halfTrace u := by
   unfold halfTrace
   rw [inv_inv]
   ring
 
-theorem halfAntiTrace_inv (u : K) (hu : u ≠ 0) :
+theorem halfAntiTrace_inv (u : K) (_hu : u ≠ 0) :
     halfAntiTrace u⁻¹ = -halfAntiTrace u := by
   unfold halfAntiTrace
   rw [inv_inv]
