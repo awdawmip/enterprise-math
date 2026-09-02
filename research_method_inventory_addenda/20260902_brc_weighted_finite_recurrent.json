@@ -1,0 +1,53 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "FOUNDATION_GLOBAL_SUBTOOL_CANDIDATE",
+  "date": "2026-09-02",
+  "methods": [
+    {
+      "method_id": "t0.weighted_brc_finite_recurrent",
+      "name": "Finite recurrent positive Weighted-BRC rational gauge calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL_CANDIDATE",
+      "source_refs": [
+        "definitions/ENTERPRISE_BRC_FINITE_RECURRENT_FOUNDATION_20260902.md",
+        "definitions/ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json",
+        "research_notes/BRC_FINITE_RECURRENT_RATIONAL_GAUGE_STABILITY_20260902.md",
+        "src/enterprise_math/brc_weighted_recurrent.py",
+        "tests/test_brc_weighted_recurrent.py",
+        "PR #1112",
+        "main@9d91c769bd3d3086b6f27a843cbf4341659c9b88"
+      ],
+      "api": [
+        "FiniteRecurrentMassAnalysis",
+        "finite_recurrent_mass_analysis",
+        "recurrent_mass_power",
+        "gauge_recurrent_mass_matrix",
+        "verify_recurrent_integer_stable_certificate",
+        "verify_recurrent_integer_divergence_certificate"
+      ],
+      "triggers": [
+        "finite recurrent BRC",
+        "weighted cycle",
+        "positive recurrent mass",
+        "rational transition matrix",
+        "integer stability certificate",
+        "gauge row sum",
+        "recurrent star",
+        "multiplicity driven instability",
+        "finite SCC"
+      ],
+      "capabilities": [
+        "exact finite non-negative rational transition-mass powers",
+        "exact recurrent total-mass stability decision without floating spectral materialization",
+        "exact rational Neumann star and canonical mass potential on the stable side",
+        "positive rational state-gauge normalization to row-subcritical form",
+        "pure integer stable-certificate verification after denominator clearing",
+        "pure integer divergence-certificate verification",
+        "one-state reduction to the existing S<1 recurrent law"
+      ],
+      "core_law": "For finite W in M_n(Q_{>=0}), total all-depth mass is finite iff exists h>0 rational with Wh<h. Then W*=(I-W)^-1 exactly and x=W*1 is the canonical potential. After W=A/D, stability iff exists positive integer h with Ah<Dh; otherwise a nonzero y>=0 exists with y^T A>=D y^T. A positive diagonal gauge localizes stability to row sums <1 and preserves closed-cycle products.",
+      "hard_boundary": "Finite non-negative rational total-mass projection only. No infinite-state theorem, signed/amplitude cancellation, complex recurrence, arbitrary-real exact-weight promise, probability/Markov semantics, or claim that dominant-path contraction alone implies total-mass stability."
+    }
+  ]
+}
