@@ -83,7 +83,7 @@ theorem matchingR_eq_zero_iff_patternR (x : EdgeDataR) :
 /-! ## 2. Division by two removes the integral parity obstruction -/
 
 /-- Explicit real zero-sum slice potential for a matching-kernel pattern. -/
-def realWitness (a b c : ℝ) : VertexDataR :=
+noncomputable def realWitness (a b c : ℝ) : VertexDataR :=
   ![(a + b + c) / 2,
     a - (a + b + c) / 2,
     b - (a + b + c) / 2,
@@ -323,13 +323,16 @@ theorem basicParity_real_lift :
   refine ⟨v, hv, ?_⟩
   calc
     deltaR v = patternR (1 : ℝ) 0 0 := hd
-    _ = castEdge (pattern 1 0 0) := (cast_pattern 1 0 0).symm
+    _ = castEdge (pattern 1 0 0) := by
+      simpa using (cast_pattern 1 0 0).symm
 
 /-- The same primitive witness is the zero class in the real residual quotient. -/
 theorem cast_basicParity_real_equivalent_zero :
     RealDeltaEquivalent (castEdge (pattern 1 0 0)) 0 := by
   rcases basicParity_real_lift with ⟨v, hv, hd⟩
-  exact ⟨v, hv, by simpa [edgeSubR] using hd⟩
+  refine ⟨v, hv, ?_⟩
+  funext i
+  simpa [edgeSubR] using congrFun hd i
 
 /-- Every integral canonical representative maps to the real class determined
 only by its two free coordinates; the Boolean parity coordinate is forgotten. -/
