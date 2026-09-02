@@ -5,11 +5,12 @@ Effective: `2026-09-02`
 Promotion authority: explicit current user instruction after main-backed extraction/regression  
 Minimal universal substrate: `ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json`  
 Theorem ledger: `ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json`  
-Reusable tool: `src/enterprise_math/brc_weighted.py` / `t0.weighted_brc_cwm`
+Finite recurrent addendum: `ENTERPRISE_BRC_FINITE_RECURRENT_FOUNDATION_20260902.md` / `ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json`  
+Reusable tools: `src/enterprise_math/brc_weighted.py` / `t0.weighted_brc_cwm`; `src/enterprise_math/brc_weighted_recurrent.py` / `t0.weighted_brc_finite_recurrent`
 
 ## 1. Foundation role
 
-Weighted/Log BRC is now part of the mathematical background available to **all Enterprise Math research modes**. It is a typed branch foundation, not a compulsory interpretation of every problem.
+Weighted/Log BRC is part of the mathematical background available to **all Enterprise Math research modes**. It is a typed branch foundation, not a compulsory interpretation of every problem.
 
 The universal rule is:
 
@@ -29,7 +30,7 @@ SIGNED_OR_AMPLITUDE_DATA -> POSITIVE_CWM_IS_NOT_A_REPLACEMENT
 
 Canonical R023 remains the Boolean result-support base. The weighted layer is a separately typed enrichment.
 
-For FREE Phase A, only the minimal commitments in `ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json` are a discovery prior. The detailed theorem ledger, examples, successful prior applications and tool catalog remain lazy: they may be opened only after the self-generated problem actually presents the corresponding branch structure. Thus global-foundation status does not create a default BRC research agenda.
+For FREE Phase A, only the minimal commitments in `ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json` are a discovery prior. The detailed theorem ledgers, examples, successful prior applications and tool catalog remain lazy: they may be opened only after the self-generated problem actually presents the corresponding branch structure. Thus global-foundation status does not create a default BRC research agenda.
 
 ## 2. Positive weighted branch carrier
 
@@ -302,6 +303,22 @@ For \(k\) equal loops of weight \(q\),
 
 Canonical theorem IDs: `WBRC-T08-ONE-STATE-RECURRENT-POWER`, `WBRC-T09-ONE-STATE-TOTAL-MASS-STABILITY`, `WBRC-T10-EQUAL-LOOP-LOG-THRESHOLD`.
 
+### Finite recurrent extension
+
+The one-state result has now been extended, in a separate exact addendum, to every finite non-negative rational transition-mass matrix. The current theorem IDs are `WBRC-T12` through `WBRC-T16` in `ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json`.
+
+The key finite-state equivalence is
+
+\[
+\sum_{k\ge0}W^k<\infty
+\iff
+\exists h\in\mathbb Q_{>0}^n:\ Wh<h,
+\]
+
+with exact stable star `(I-W)^(-1)`, gauge-local row-subcritical form, and pure integer stable/divergent certificates after denominator clearing.
+
+This is an exact finite-rational recurrence theorem, not a blanket spectral theorem for every recurrent carrier.
+
 ## 10. Global hard boundaries
 
 All research modes must preserve these type guards:
@@ -312,19 +329,21 @@ POSITIVE_WEIGHTED_BRC != SIGNED_AMPLITUDE_CANCELLATION
 BOOLEAN_SUPPORT != RECOVERED_MULTIPLICITY
 LN_LOG = DERIVED_EXACT_READOUT, NOT PRIMITIVE_NATIVE_STATE
 FINITE_DAG_CWM_COUNT != FINITE_COUNT_ON_RECURRENT_CLOSURE
-ONE_STATE_CYCLIC_RESULT != GENERAL_SCC_SPECTRAL_THEOREM
+FINITE_NONNEGATIVE_RATIONAL_RECURRENCE = EXACTLY_CERTIFIED_BY_T12_T16
+INFINITE_OR_SIGNED_OR_ARBITRARY_REAL_RECURRENCE != PROMOTED_BY_FINITE_RATIONAL_THEOREM
+SPECTRAL_RADIUS = CLASSICAL_EXTERNAL_EQUIVALENT, NOT REQUIRED NATIVE CERTIFICATE
 DETERMINISTIC_SINGLE_PATH -> DELTA=0
 ```
 
-Detailed negative-boundary IDs are `WBRC-N01` through `WBRC-N05` in the theorem ledger.
+Detailed original negative-boundary IDs are `WBRC-N01` through `WBRC-N05` in the base theorem ledger. `WBRC-N05` records the pre-finite-recurrent boundary and is narrowed by the finite recurrent addendum. Current remaining recurrent scope boundary is `WBRC-N06-RECURRENT-BEYOND-FINITE-RATIONAL`.
 
 ## 11. All-research consumption rule
 
 This foundation is available in every research mode.
 
-- **FREE Phase A:** inherit only `ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json`. It supplies type discipline, not a suggested question. If the independently generated problem actually contains relevant branching, the exact CWM definitions may then be used; do not preload successful examples or theorem menus to steer discovery.
-- **FREE Phase B / TASK research:** theorem IDs and the reusable T0 subtool may be loaded normally when relevant.
-- **Driver / Steward:** use the theorem ledger and method inventory for routing, deduplication, review and backflow.
+- **FREE Phase A:** inherit only `ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json`. It supplies type discipline, not a suggested question. If the independently generated problem actually contains relevant branching or finite rational recurrence, the exact definitions may then be used; do not preload successful examples or theorem menus to steer discovery.
+- **FREE Phase B / TASK research:** theorem IDs and reusable T0 subtools may be loaded normally when relevant.
+- **Driver / Steward:** use the theorem ledgers and method inventory for routing, deduplication, review and backflow.
 
 The foundation is therefore universal but lazy:
 
@@ -344,13 +363,20 @@ Main-backed evidence chain:
 - PR #1105 — realizability and projective/gauge quotient;
 - PR #1106 — one-state cyclic multiplicity closure;
 - PR #1107 — first Foundation integration;
-- PR #1108 — old-research regression and boundary pressure test.
+- PR #1108 — old-research regression and boundary pressure test;
+- PR #1110 — tools/theorems promoted as all-research Weighted-BRC base;
+- PR #1112 / `9d91c769bd3d3086b6f27a843cbf4341659c9b88` — exact finite recurrent rational gauge stability theorem package.
 
 Reusable current surfaces:
 
 - `definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json`;
 - `definitions/ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json`;
+- `definitions/ENTERPRISE_BRC_FINITE_RECURRENT_FOUNDATION_20260902.md`;
+- `definitions/ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json`;
 - `src/enterprise_math/brc_weighted.py`;
+- `src/enterprise_math/brc_weighted_recurrent.py`;
 - `tests/test_brc_weighted_foundation_tool.py`;
+- `tests/test_brc_weighted_recurrent.py`;
 - `src/enterprise_math/brc_logarithm.py`;
-- `research_method_inventory_addenda/20260902_brc_weighted_foundation.json`.
+- `research_method_inventory_addenda/20260902_brc_weighted_foundation.json`;
+- `research_method_inventory_addenda/20260902_brc_weighted_finite_recurrent.json`.
