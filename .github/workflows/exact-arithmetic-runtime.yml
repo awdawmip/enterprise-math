@@ -1,0 +1,48 @@
+name: exact-arithmetic-runtime
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'exact_arithmetic_runtime_policy.json'
+      - 'docs/EXACT_ARITHMETIC_BRC_RUNTIME_PROTOCOL.md'
+      - 'src/enterprise_math/exact_arithmetic.py'
+      - 'src/enterprise_math/division.py'
+      - 'src/enterprise_math/__init__.py'
+      - 'tests/test_exact_arithmetic_brc_runtime.py'
+      - 'tools/check_exact_arithmetic_policy.py'
+      - '.github/workflows/exact-arithmetic-runtime.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'exact_arithmetic_runtime_policy.json'
+      - 'docs/EXACT_ARITHMETIC_BRC_RUNTIME_PROTOCOL.md'
+      - 'src/enterprise_math/exact_arithmetic.py'
+      - 'src/enterprise_math/division.py'
+      - 'src/enterprise_math/__init__.py'
+      - 'tests/test_exact_arithmetic_brc_runtime.py'
+      - 'tools/check_exact_arithmetic_policy.py'
+      - '.github/workflows/exact-arithmetic-runtime.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-arithmetic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Static BRC arithmetic policy gate
+        run: >-
+          python tools/check_exact_arithmetic_policy.py
+          src/enterprise_math/exact_arithmetic.py
+          tests/test_exact_arithmetic_brc_runtime.py
+      - name: Exact arithmetic BRC runtime regression
+        env:
+          PYTHONPATH: src
+        run: python tests/test_exact_arithmetic_brc_runtime.py

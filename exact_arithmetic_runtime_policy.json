@@ -1,0 +1,85 @@
+{
+  "schema": "ENTERPRISE_MATH_EXACT_ARITHMETIC_RUNTIME_POLICY_V1",
+  "status": "ACTIVE_OPERATIONAL_NO_THEOREM_CLAIM",
+  "effective": "2026-09-02",
+  "scope": "new or materially modified Enterprise Math research calculations, numerical experiments, exact arithmetic helpers, and readout code",
+  "purpose": "Keep division symbolic by default; require BRC-mediated evaluation whenever division is actually calculated; use arbitrary-precision integers for high-precision evaluation; keep float/decimal representations outside the native arithmetic state.",
+  "authority_note": "This is an operational computation policy and tool interface. It does not prove a division-collapse theorem, extend the canonical BRC theorem family, or grant Foundation status.",
+  "invariants": [
+    "DIVISION_MAY_TRAVEL_UNEVALUATED",
+    "DIVISION_EVALUATION_REQUIRES_BRC",
+    "BRC_EVALUATION_MUST_EXPOSE_QUOTIENT_REMAINDER_AND_COLLAPSE_TRACE",
+    "BIGINT_IS_THE_DEFAULT_HIGH_PRECISION_CARRIER",
+    "NO_SILENT_FIXED_WIDTH_OVERFLOW",
+    "FLOAT_IS_READOUT_NOT_NATIVE_STATE",
+    "NO_SILENT_FLOAT_FALLBACK",
+    "DECIMAL_READOUT_MUST_DESCEND_FROM_INTEGER_SCALE_PLUS_BRC_EVALUATION",
+    "STRUCTURAL_DIVISION_STATE_NEED_NOT_BE_VALUE_REDUCED",
+    "VALUE_EQUIVALENCE_NEED_NOT_IMPLY_BRANCH_STRUCTURE_EQUIVALENCE"
+  ],
+  "division_state": {
+    "native_form": "DIV(numerator, denominator)",
+    "requirements": [
+      "numerator is an explicitly represented integer state within the selected signedness scope",
+      "denominator is an explicitly represented nonzero integer state within the selected signedness scope",
+      "construction of DIV does not itself evaluate the quotient"
+    ],
+    "allowed_without_brc_evaluation": [
+      "carry the DIV node unchanged",
+      "store or transmit the DIV node",
+      "form exact integer-coefficient addition or multiplication rewrites that retain an explicit denominator",
+      "cross-multiply for exact ordering/equality comparisons without materializing a quotient",
+      "attach provenance, scale, unit, or precision metadata"
+    ]
+  },
+  "evaluation_trigger": {
+    "must_enter_brc_when": [
+      "an integer quotient is requested",
+      "a remainder or divisibility decision is requested",
+      "a same-state-space multiple collapse is requested",
+      "a finite-precision digit/readout value is requested",
+      "rounding, truncation, floor, or other quotient-derived materialization is requested",
+      "an algorithm otherwise needs to replace DIV by a calculated value"
+    ],
+    "minimum_trace": [
+      "input numerator",
+      "input denominator",
+      "quotient",
+      "remainder",
+      "same-state-space collapsed numerator",
+      "evaluation kind = BRC_DIVISION_EVALUATION"
+    ],
+    "forbidden_bypass": [
+      "native Python / producing float",
+      "Decimal used as a native division state",
+      "Fraction used to silently materialize/reduce native division",
+      "direct quotient helpers in governed research code when the BRC evaluation facade is available",
+      "fixed-width integer arithmetic without an explicit proven-safe bound"
+    ]
+  },
+  "high_precision": {
+    "rule": "precision scale is a positive arbitrary-precision integer; scaled numerator is formed exactly before BRC evaluation",
+    "preferred_carriers": [
+      "Python int",
+      "Lean Nat/Int",
+      "other arbitrary-precision integer implementations with explicit exact semantics"
+    ],
+    "decimal_example": "For k decimal places, scale = 10^k is an integer. Evaluate DIV(scale*n, d) through BRC. Decimal text is a readout of the resulting integer quotient; residual remainder remains explicit.",
+    "no_precision_ceiling": "No project-level decimal-digit ceiling is imposed by the arithmetic model. Practical resource limits are implementation limits, not mathematical truncation authority."
+  },
+  "legacy_boundary": {
+    "existing_code": "Existing historical code is not automatically reclassified as invalid. New and materially modified research calculation paths should migrate to this policy before their numerical output is treated as native exact evidence.",
+    "external_numerical_oracle": "External floating-point or numerical libraries may be used only as explicitly typed oracle/readout/heuristic layers with declared precision/error semantics; they do not replace native exact evidence."
+  },
+  "tool_reuse_resolution": {
+    "coverage_verdict": "EXTEND_EXISTING_TOOL",
+    "matched_tool_or_method_ids": [
+      "T0_BRC",
+      "T5_PRECISION_REFINEMENT",
+      "P007_DISCRETE_DIVISION"
+    ],
+    "reuse_resolution_state": "EXTEND_EXISTING_TOOL",
+    "how_applied_or_why_not": "P007 supplies exact quotient/remainder and multiple-collapse primitives; T5 supplies integer precision/refinement and arbitrary integer scale semantics; BRC supplies the required evaluation boundary. The new facade operationally composes them without claiming a new theorem family.",
+    "hard_boundary_checked": "Boolean-support BRC does not thereby gain a proved multiplicity theorem; this policy is operational only."
+  }
+}
