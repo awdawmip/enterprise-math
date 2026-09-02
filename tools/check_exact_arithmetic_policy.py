@@ -28,6 +28,8 @@ DIRECT_ROOT_PRIMITIVES = {
 }
 FORBIDDEN_CALLS = {"divmod", "float", "Decimal", "Fraction", "sqrt", "isqrt"}
 FORBIDDEN_MODULES = {"decimal", "fractions"}
+FLOAT_LOG_MODULES = {"math", "cmath"}
+FLOAT_LOG_CALLS = {"log", "log2", "log10", "log1p"}
 
 
 def _relative_display(path: Path) -> str:
@@ -45,12 +47,47 @@ def _call_name(node: ast.Call) -> str | None:
     return None
 
 
+def _floating_log_aliases(tree: ast.AST) -> tuple[set[str], set[str]]:
+    """Return imported module aliases and direct-name aliases for float logs."""
+    module_aliases: set[str] = set()
+    direct_aliases: set[str] = set()
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Import):
+            for alias in node.names:
+                root = alias.name.split(".", 1)[0]
+                if root in FLOAT_LOG_MODULES:
+                    module_aliases.add(alias.asname or root)
+        elif isinstance(node, ast.ImportFrom):
+            root = (node.module or "").split(".", 1)[0]
+            if root not in FLOAT_LOG_MODULES:
+                continue
+            for alias in node.names:
+                if alias.name in FLOAT_LOG_CALLS:
+                    direct_aliases.add(alias.asname or alias.name)
+    return module_aliases, direct_aliases
+
+
+def _is_floating_log_call(
+    node: ast.Call,
+    module_aliases: set[str],
+    direct_aliases: set[str],
+) -> bool:
+    if isinstance(node.func, ast.Name):
+        return node.func.id in direct_aliases
+    if not isinstance(node.func, ast.Attribute):
+        return False
+    if node.func.attr not in FLOAT_LOG_CALLS:
+        return False
+    return isinstance(node.func.value, ast.Name) and node.func.value.id in module_aliases
+
+
 def check_python_file(path: Path) -> list[str]:
     display = _relative_display(path)
     source = path.read_text(encoding="utf-8")
     tree = ast.parse(source, filename=display)
     violations: list[str] = []
     facade = Path(display) == BRC_FACADE
+    floating_log_modules, floating_log_names = _floating_log_aliases(tree)
 
     for node in ast.walk(tree):
         line = getattr(node, "lineno", 0)
@@ -84,6 +121,10 @@ def check_python_file(path: Path) -> list[str]:
             if name in FORBIDDEN_CALLS:
                 violations.append(
                     f"{display}:{line}: direct {name} materialization bypasses BRC runtime"
+                )
+            if _is_floating_log_call(node, floating_log_modules, floating_log_names):
+                violations.append(
+                    f"{display}:{line}: floating logarithm materialization bypasses BRC runtime"
                 )
             if not facade and name in DIRECT_DIVISION_PRIMITIVES:
                 violations.append(

@@ -1,0 +1,93 @@
+{
+  "schema": "ENTERPRISE_MATH_BRC_LOGARITHM_RUNTIME_POLICY_V1",
+  "status": "RESEARCH_BRANCH_OPERATIONAL_NO_THEOREM_CLAIM",
+  "effective": "2026-09-02",
+  "scope": "positive-rational LN/LOG symbolic carriers and finite-scale materialization on governed Enterprise Math research paths",
+  "purpose": "Extend the exact-arithmetic BRC materialization boundary to natural and arbitrary-base logarithms without native float/Decimal/Fraction state or exponential-size precision powers.",
+  "authority_note": "This is an operational computation policy. It does not modify the canonical R023 Boolean-support theorem family, prove a logarithm-collapse theorem, add multiplicity/weight semantics to Boolean support, or grant Foundation status.",
+  "invariants": [
+    "LN_AND_LOG_MAY_TRAVEL_UNEVALUATED",
+    "LOGARITHM_MATERIALIZATION_REQUIRES_BRC_INTERVAL_CERTIFICATE",
+    "POSITIVE_RATIONAL_DOMAIN_ONLY_IN_V1",
+    "LOG_BASE_POSITIVE_AND_NOT_ONE",
+    "LN_RANGE_REDUCTION_USES_EXACT_POWER_OF_TWO_COMPARISONS",
+    "ATANH_SERIES_BOUNDS_ARE_EXACT_INTEGER_RATIOS",
+    "FINITE_SCALE_CELL_SELECTION_USES_BRC_DIVISION_TRACES",
+    "EXACT_LOG_GRID_BOUNDARY_USES_BRC_POWER_RELATION_PROOF",
+    "NO_EXPONENTIATION_BY_DECIMAL_SCALE_FOR_LOG_PRECISION",
+    "BIGINT_IS_THE_NATIVE_HIGH_PRECISION_CARRIER",
+    "FLOAT_IS_READOUT_NOT_NATIVE_EVIDENCE",
+    "BOOLEAN_SUPPORT_BRC_DOES_NOT_RECOVER_ERASED_WEIGHTS_OR_MULTIPLICITY"
+  ],
+  "native_states": {
+    "ln": "LN(DIV(numerator, denominator))",
+    "log": "LOG_base(DIV(numerator, denominator)) with base carried as a positive rational DIV state",
+    "requirements": [
+      "argument numerator is positive and denominator is positive",
+      "base numerator and denominator are positive",
+      "base value is not one",
+      "construction does not evaluate logarithm digits"
+    ]
+  },
+  "ln_evaluation": {
+    "orientation": "For x below one, evaluate the positive magnitude ln(1/x) and retain a separate negative sign. For x above one, retain positive sign. x=1 is exact zero.",
+    "range_reduction": "Choose integer k with 2^k <= y < 2^(k+1) for y=max(x,1/x), then write y=2^k*r with 1<=r<2.",
+    "series_coordinate": "z=(r-1)/(r+1), hence 0<=z<=1/3.",
+    "lower_bound": "L_N(z)=2*sum_{j=0}^{N-1} z^(2j+1)/(2j+1)",
+    "remainder_majorant": "0 <= ln((1+z)/(1-z))-L_N(z) < 2*z^(2N+1)/((2N+1)*(1-z^2)) for z>0; z=0 is exact.",
+    "combination": "Bounds for abs(ln x) are k times the corresponding ln(2) bounds plus the reduced-ratio bounds.",
+    "native_representation": "Every partial sum and remainder majorant is carried as an unreduced non-negative integer numerator/positive denominator pair. No quotient is materialized merely to form the bound."
+  },
+  "finite_scale_collapse": {
+    "scale": "Any positive arbitrary-precision integer; decimal readout uses scale=10^digits.",
+    "cell_rule": "Refine exact rational lower/upper bounds until BRC division of scale*lower and scale*upper yields one common magnitude cell index q, certifying q <= scale*abs(value) < q+1.",
+    "signed_readout": "The native trace stores sign plus non-negative magnitude cell. Human decimal text uses truncation toward zero; the exact rational interval remains the evidence.",
+    "minimum_trace": [
+      "operation LN or LOG",
+      "scale",
+      "sign",
+      "magnitude cell index",
+      "exact rational lower and upper bounds",
+      "series term count",
+      "power-of-two range coordinates",
+      "BRC division traces for lower and upper cell selection",
+      "exact-boundary marker and optional power-relation proof"
+    ]
+  },
+  "arbitrary_base_log": {
+    "identity": "abs(log_b x)=abs(ln x)/abs(ln b); sign is sign(ln x)*sign(ln b).",
+    "interval_rule": "For positive magnitude intervals Lx<=abs(ln x)<=Ux and Lb<=abs(ln b)<=Ub with Lb>0, use Lx/Ub <= abs(log_b x) <= Ux/Lb as exact rational carriers.",
+    "exact_grid_boundary_problem": "An exact rational logarithm such as log_4(2)=1/2 can remain on a finite-scale cell boundary forever if only two-sided analytic intervals are refined.",
+    "boundary_resolution": "When adjacent cells straddle candidate q/scale, reduce q/scale=m/n. Instead of constructing x^n or b^m, reduce the positive rational carriers and certify x=c^m and b=c^n for one common rational c using existing BRC perfect-power/root traces. This proves x^n=b^m and therefore exact boundary equality.",
+    "reuse": "Boundary resolution composes existing DIV reduction and ROOT perfect-power BRC facades; it does not create a new root primitive."
+  },
+  "complexity_boundary": {
+    "forbidden_naive_precision_scheme": "Do not certify d decimal digits by directly constructing x^(10^d) and b^q; the exponent-scale integer size is exponentially inappropriate for precision refinement.",
+    "current_scheme": "After binary range reduction, z<=1/3 so the atanh remainder contracts geometrically. Term count is adaptively doubled until one BRC precision cell or an exact power-relation boundary is proved.",
+    "no_project_digit_ceiling": "No mathematical digit ceiling is imposed. Resource exhaustion remains an implementation condition and may not be silently converted into false precision."
+  },
+  "hard_boundaries": [
+    "No real logarithm is defined here for zero or negative arguments.",
+    "Complex logarithm branches are outside V1 and must be separately typed.",
+    "The canonical R023 Boolean-support BRC carrier still does not preserve multiplicity, provenance, probability/weights, or signed/amplitude cancellation.",
+    "A future log-weight or log-semiring branch semantics would require a separately declared weighted carrier and theorem surface; it is not implied by this runtime facade."
+  ],
+  "reference_implementation": {
+    "module": "src/enterprise_math/brc_logarithm.py",
+    "regression": "tests/test_brc_logarithm_runtime.py",
+    "protocol": "docs/BRC_LOGARITHM_RUNTIME_PROTOCOL.md",
+    "static_gate": "tools/check_exact_arithmetic_policy.py"
+  },
+  "tool_reuse_resolution": {
+    "coverage_verdict": "EXTEND_EXISTING_TOOL",
+    "matched_tool_or_method_ids": [
+      "T0_BRC",
+      "T5_PRECISION_REFINEMENT",
+      "P007_DISCRETE_DIVISION",
+      "EXISTING_INTEGER_ROOT_AND_PERFECT_POWER_COLLAPSE_CORE"
+    ],
+    "reuse_resolution_state": "EXTEND_EXISTING_TOOL",
+    "how_applied_or_why_not": "T5 supplies finite integer precision/refinement, BRC division chooses certified precision cells, existing ROOT BRC resolves exact rational log boundaries, and all analytic bounds remain exact integer ratios. No new general-purpose arithmetic oracle is introduced.",
+    "hard_boundary_checked": "Operational logarithm materialization does not upgrade Boolean-support BRC to weighted or multiplicity-aware semantics and does not assert a logarithm-collapse theorem."
+  }
+}
