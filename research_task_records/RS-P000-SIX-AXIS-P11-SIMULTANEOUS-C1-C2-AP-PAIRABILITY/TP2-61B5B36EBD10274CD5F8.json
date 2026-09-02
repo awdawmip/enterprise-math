@@ -1,0 +1,58 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "task_id": "RS-P000-SIX-AXIS-P11-SIMULTANEOUS-C1-C2-AP-PAIRABILITY",
+  "registry_key": "RS-P000-SIX-AXIS-P11-SIMULTANEOUS-C1-C2-AP-PAIRABILITY",
+  "publication_id": "TP2-61B5B36EBD10274CD5F8",
+  "publication_generation": 1,
+  "supersedes_publication_id": null,
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "taskbook_path": "research_tasks/P000_SIX_AXIS_P11_SIMULTANEOUS_C1_C2_AP_PAIRABILITY_20260902.md",
+  "taskbook_blob_sha1": "sha1:3197c1f107860d3976055ab4a41304009915d778",
+  "publisher_role": "RESEARCH_DRIVER",
+  "publisher_id": "EM-DVR-WLE3X6",
+  "published_at": "2026-09-02T05:34:00+00:00",
+  "parent_objective_id": "OBJ-P000-SIX-AXIS-ARITHMETIC-TROPICAL-INTEGRATION",
+  "origin_kind": "DRIVER_ROADMAP",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-P000-SIX-AXIS-P11-GENUINE-DOUBLETON-DIOPHANTINE-NORMAL-FORM",
+  "claimable": true,
+  "effective_priority": "P1",
+  "effective_leverage": "HIGH",
+  "priority_source": "PUBLISHER_DECLARED",
+  "publisher_priority_request": "P1",
+  "publisher_leverage_request": "HIGH",
+  "owner": "research/p000-six-axis-p11-simultaneous-c1-c2-ap-pairability",
+  "frontier": "The accepted Diophantine normal form proves that simultaneous combinatorial C1+C2 forces both H and T to be strict three-term arithmetic progressions, while simultaneous genuine ambiguity additionally requires pairability of the two opposite corners. The declared root-box regression found no simultaneous genuine point, but no global existence or impossibility theorem is known.",
+  "next_action": "Write the arithmetic-progression specialization in primitive root variables, classify the eight required outer-grid pairability constraints modulo common root scaling, and prove global nonexistence or give and classify genuine primitive families; if neither closes, isolate the exact arithmetic curve or higher-dimensional obstruction.",
+  "research_value": "Decide whether the two exact P11 collision species can coexist in one pairability-complete arithmetic-progression grid, turning the parent's bounded zero observation into either a global exclusion theorem, a primitive intersection family, or an exact arithmetic obstruction.",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "identity_lane": "P000P11S1",
+  "source_refs": [
+    "research_result_records/RS-P000-SIX-AXIS-P11-GENUINE-DOUBLETON-DIOPHANTINE-NORMAL-FORM/RR-952CD6287F68219D7782.json",
+    "research_returns/P000_SIX_AXIS_P11_GENUINE_DOUBLETON_DIOPHANTINE_NORMAL_FORM_RETURN_20260902.md"
+  ],
+  "dependencies": [
+    "RR-952CD6287F68219D7782"
+  ],
+  "evidence_status": "PARENT_RESULT_DRIVER_ACCEPTED_REQUIRED / SIMULTANEOUS_GENUINE_EXISTENCE_OPEN / DERIVED_ARITHMETIC_ONLY",
+  "successor_gate": {
+    "new_information_gap": "The parent gives a complete normal form for separate genuine C1 and C2 doubletons and proves that simultaneous combinatorial collision is exactly the arithmetic-progression specialization, but it does not decide whether any simultaneously genuine integer point exists globally or classify such points if they exist.",
+    "why_parent_result_does_not_close_it": "The parent verifies zero simultaneous genuine points only in one finite root box and explicitly refuses to promote that absence. Its normal form reduces the question to an exact arithmetic specialization but leaves the two additional corner-pairability constraints unresolved over all integers.",
+    "discriminating_outcomes": [
+      "no simultaneously genuine integer point exists and an exact global obstruction is proved",
+      "simultaneously genuine primitive points exist and complete parameter or normal-form families are proved",
+      "existence reduces to a precisely identified elliptic, higher-genus, Pell-type, or higher-dimensional arithmetic component whose remaining rational/integral-point question is isolated exactly"
+    ],
+    "kill_condition": "Do not infer global nonexistence from bounded enumeration, add higher mixed moments, select a native orientation or Pfaffian slot, reduce P000 dimension, claim factorization, or enter Full-Cell dynamics. If the frozen AP specialization reduces to a harder arithmetic component, freeze that exact component instead of widening the grammar.",
+    "alternative_route_or_free_exploration_considered": "Closing the arithmetic-invariant route was considered because the parent already classifies separate C1/C2 normal forms. Enumerating rational points on an arbitrary genus-one skeleton was also considered. The simultaneous locus is preferred because it is the one explicit parent residue not decided even at existence level, has extra symmetry, and directly tests whether the two collision species can coexist in one admissible integer state.",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "The parent hard target concerns global normal forms and the obstruction to purely rational parametrization and is complete. This task changes the mother question to existence and arithmetic classification of the AP intersection where both collision species are genuine, with a distinct no-go outcome and distinct proof obligations."
+  }
+}

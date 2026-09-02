@@ -1,0 +1,226 @@
+{
+  "schema": "P000_P11_GENUINE_DOUBLETON_DIOPHANTINE_NORMAL_FORM_CERTIFICATE_V1",
+  "task_id": "RS-P000-SIX-AXIS-P11-GENUINE-DOUBLETON-DIOPHANTINE-NORMAL-FORM",
+  "publication_id": "TP2-5774A7C199FB50588943",
+  "researcher_id": "EM-P000P11D1-4C8E72",
+  "claim_id": "chatgpt-p000p11d1-20260902-1013-4c8e72",
+  "result_id": "RR-952CD6287F68219D7782",
+  "execution_record_id": "ER-D76E045E3B49878A7F95",
+  "terminal_disposition": "DIOPHANTINE_NORMAL_FORMS_COMPLETE_WITH_NONRATIONAL_PARAMETER_COMPONENTS",
+  "source_pins": {
+    "taskbook_git_blob_sha1": "sha1:ffc40f3c0b611d6a7684cb5dde72d6cf83a86ee6",
+    "publication_record_git_blob_sha1": "sha1:7b2201db7b5a6548a3f09b85647212803ef58308",
+    "parent_result_id": "RR-16ADB5F4DE72A332B509",
+    "parent_result_record_git_blob_sha1": "sha1:cde88b89570c6cd3ee0702c0f378a08bd2677dea",
+    "execution_branch_base": "bde59957ed4e9ac3e5cf14c9a222d1c3eefd5a4c"
+  },
+  "normal_form": {
+    "C1_columns": [
+      "rows 0-1 at t0",
+      "rows 0-2 at t1",
+      "rows 1-2 at t2"
+    ],
+    "column_factorization": "sorted top roots (a,b), sorted bottom roots (c,d), M=[[a,c],[d,b]]=column(u,v)*row(p,q), gcd(|p|,|q|)=1, first nonzero(p,q)>0",
+    "edge_roots": "top=(u*p,v*q), bottom=(u*q,v*p)",
+    "row_equations": [
+      "u0*p0+v0*q0=u1*p1+v1*q1=h0",
+      "u0*q0+v0*p0=u2*p2+v2*q2=h1",
+      "u1*q1+v1*p1=u2*q2+v2*p2=h2"
+    ],
+    "products": [
+      "t0=u0*v0*p0*q0",
+      "t1=u1*v1*p1*q1",
+      "t2=u2*v2*p2*q2"
+    ],
+    "gaps": [
+      "A=(q0-p0)*(u0-v0)>0",
+      "B=(q2-p2)*(u2-v2)>0",
+      "A+B=(q1-p1)*(u1-v1)",
+      "C=t1-t0>0",
+      "D=t2-t1>0"
+    ],
+    "collision": "A*C=B*D",
+    "primitive_scale": "m=gcd(|u0|,|v0|,|u1|,|v1|,|u2|,|v2|); primitive iff m=1",
+    "C2_involution": "(h0,h1,h2;T)->(-h2,-h1,-h0;T), induced by negating every recovered root and reversing H rows",
+    "zero_root_boundary": "covered without a new case by the rank-one factorization; t_j=0 iff u_j*v_j*p_j*q_j=0; strict T implies at most one zero column",
+    "root_swap_symmetry": "before sorting, independent swaps of the two roots on six edges are finite presentation symmetries; sorting each recovered pair removes them canonically"
+  },
+  "simultaneous_locus": {
+    "collision_equations": "C1 and C2 with positive A,B,C,D iff A=B and C=D",
+    "interpretation": "H and T are strict 3-term arithmetic progressions",
+    "simultaneously_genuine_from_C1": "add pairability of the two C2-only corners (h0,t2) and (h2,t0)",
+    "status": "SPECIALIZATION_INTERSECTION_NOT_NEW_SCALING_SPECIES"
+  },
+  "genus_one_obstruction": {
+    "primitive_witness": {
+      "H": [
+        -7,
+        11,
+        13
+      ],
+      "T": [
+        10,
+        12,
+        30
+      ]
+    },
+    "canonical_skeleton": [
+      [
+        5,
+        -1
+      ],
+      [
+        4,
+        -1
+      ],
+      [
+        5,
+        3
+      ]
+    ],
+    "u": [
+      -1,
+      -1,
+      1
+    ],
+    "v": [
+      2,
+      3,
+      2
+    ],
+    "v_from_u": [
+      "v0=(-55*u0+45*u1+16*u2)/13",
+      "v1=(-120*u0+97*u1+16*u2)/13",
+      "v2=(-96*u0+75*u1+5*u2)/13"
+    ],
+    "homogeneous_cubic_coefficients": {
+      "u0^3": 11220,
+      "u0^2*u1": -45405,
+      "u0^2*u2": -33552,
+      "u0*u1^2": 49515,
+      "u0*u1*u2": 55200,
+      "u0*u2^2": -96,
+      "u1^3": -16296,
+      "u1^2*u2": -22667,
+      "u1*u2^2": 163,
+      "u2^3": 120
+    },
+    "affine_base_point": "(u0:u1:u2)=(1:1:-1)",
+    "line_pencil": "u2/u0=-1+s*(u1/u0-1)",
+    "residual_quadratic": [
+      "A(s)=120*s^3+163*s^2-22667*s-16296",
+      "B(s)=-240*s^3-619*s^2+54874*s+55886",
+      "C(s)=120*s^3+456*s^2-33000*s-44556"
+    ],
+    "quartic_discriminant": "466489*s^4-2689724*s^3+8699424*s^2-57498680*s+218906692",
+    "quartic_gcd_with_derivative": "1 over Q",
+    "conclusion": "squarefree quartic double-cover model has genus 1; this fixed skeleton is a nonrational parameter component"
+  },
+  "bounded_regression": {
+    "declared_root_interval": [
+      -20,
+      20
+    ],
+    "population_policy": "FULL_INTEGER_POPULATION_NO_PARITY_OR_SMALL_PRIME_PREFILTER",
+    "unordered_root_pairs": 861,
+    "equal_product_rank_one_factor_checks": 3644,
+    "C1_genuine_doubletons": 83,
+    "C2_genuine_doubletons": 83,
+    "primitive_C1": 78,
+    "primitive_C2": 78,
+    "C1_primitive_gcd_profile": {
+      "1": 78,
+      "2": 4,
+      "3": 1
+    },
+    "C1_zero_column": 66,
+    "C1_primitive_zero_column": 61,
+    "C1_T_sign_patterns": {
+      "--0": 32,
+      "-0+": 22,
+      "0++": 12,
+      "--+": 8,
+      "---": 7,
+      "+++": 2
+    },
+    "C1_H_sign_patterns": {
+      "--+": 33,
+      "-++": 26,
+      "+++": 19,
+      "---": 4,
+      "0++": 1
+    },
+    "C1_arithmetic_progression_collision_points": 3,
+    "simultaneously_genuine_C1_C2": 0,
+    "simultaneous_absence_scope": "REGRESSION_ONLY_NOT_THEOREM",
+    "retained_B6_C1": {
+      "H": [
+        -1,
+        1,
+        4
+      ],
+      "T": [
+        -30,
+        -12,
+        0
+      ],
+      "canonical_parameters": [
+        [
+          6,
+          5,
+          -1,
+          1
+        ],
+        [
+          2,
+          1,
+          -2,
+          3
+        ],
+        [
+          4,
+          1,
+          0,
+          1
+        ]
+      ]
+    },
+    "non_B6_primitive_counterexample": {
+      "root_height": 9,
+      "H": [
+        -7,
+        -3,
+        2
+      ],
+      "T": [
+        -18,
+        -8,
+        0
+      ]
+    }
+  },
+  "tool_reuse_gate": {
+    "enterprise_toolbox_registry_lookup": "NO_DIOPHANTINE_OR_PAIRABILITY_NORMAL_FORM_TOOL_MATCH",
+    "reuse_applied": "parent task-local pairability/root reconstruction logic reused; no new global tool promoted"
+  },
+  "classical_machinery": {
+    "rank_one_integer_matrix_factorization": "CLASSICAL_ELEMENTARY_ARITHMETIC",
+    "projective_cubic_and_line_pencil": "CLASSICAL_ALGEBRAIC_GEOMETRY",
+    "genus_and_birational_invariance": "CLASSICAL_ALGEBRAIC_GEOMETRY",
+    "sources": [
+      "https://stacks.math.columbia.edu/tag/0BYD",
+      "https://stacks.math.columbia.edu/tag/0C1D",
+      "https://stacks.math.columbia.edu/tag/0CE2",
+      "https://stacks.math.columbia.edu/tag/0C6U"
+    ]
+  },
+  "firewalls": [
+    "NO_HIGHER_MIXED_MOMENTS",
+    "NO_NATIVE_ORIENTATION",
+    "NO_PFAFFIAN_SLOT_SELECTION",
+    "NO_DIMENSION_REDUCTION",
+    "NO_FACTORIZATION_CLAIM",
+    "NO_FULL_CELL_DYNAMICS",
+    "NO_WORKING_TRUTH_OR_FOUNDATION_OR_CANONICAL_PROMOTION"
+  ]
+}
