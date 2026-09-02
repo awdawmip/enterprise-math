@@ -1,0 +1,71 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-68BA014D54542DA7221C",
+  "task_id": "RS-GEO8-BORSUK-R6-LASSAK-33-COMPRESSION-PRESSURE",
+  "publication_id": "TP2-D425335E9566A3F6A54C",
+  "execution_record_id": "ER-AA5C5560AFB93E34BF60",
+  "claim_id": "CLM-3CEADA27494A571470B7",
+  "taskbook_path": "research_tasks/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE_20260902.md",
+  "taskbook_blob_sha1": "sha1:4f8bd12d3cfbe1159b76fdcad85790f0e64d2517",
+  "execution_branch": "research/geo8-borsuk-r6-lassak-33-compression-pressure-em-geo8-4bbdeb",
+  "execution_branch_base": "675d1466afce6b7ce81a86f7ff1732b19b14ded3",
+  "return_path": "research_returns/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE_RETURN_20260902.md",
+  "return_blob_sha1": "sha1:92a2ed004a794cd48425fdaff515a162329f3df7",
+  "return_sha256": "sha256:b67f925c3169ecda25eff59bba02763709390703f2e4036ea3b5840e54b1f8f5",
+  "owner_head": "ef8cfee9c58266063f91fde2e5a4e5f16c09f649",
+  "researcher_id": "EM-GEO8-4BBDEB",
+  "frozen_at": "2026-09-02T07:52:11+00:00",
+  "terminal_verdict": "SUCCESS",
+  "terminal_state": "FROZEN_LASSAK_COMPRESSION_TEMPLATE_CANNOT_BEAT_33",
+  "hard_target_disposition": "BORSUK_R6_LASSAK_33_BOUND_STRICTLY_IMPROVED_OR_TEMPLATE_OBSTRUCTION_EXACTLY_CLASSIFIED / MET / EXACT_K33_ATOM_COARSENING_OBSTRUCTION",
+  "unresolved_residue": "The Euclidean value b(6) remains open in 7<=b(6)<=33. The exact obstruction covers only coarsenings by unions of whole Lassak atoms (plus a separate center-fixed untruncated cube-facet subtemplate). Any genuine <=32 construction must leave that frozen class, e.g. by splitting/repartitioning atoms or proving new five-dimensional truncation/UCS geometry.",
+  "output_manifest": [
+    {
+      "path": "research_execution_records/RS-GEO8-BORSUK-R6-LASSAK-33-COMPRESSION-PRESSURE/ER-AA5C5560AFB93E34BF60.json",
+      "git_blob_sha1": "sha1:19aba074c0b27f575541521b560792b9af61e3ba",
+      "sha256": "sha256:1df433316b4d8739dc1caa5b0c4837ce738bf25fdfc8bddea5bb457a0c86a594"
+    },
+    {
+      "path": "research_checks/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE_CHECK_20260902.py",
+      "git_blob_sha1": "sha1:96479057e7f11f4f1b0a7122b2fc18489d417211",
+      "sha256": "sha256:298563cbc78be5f45b03383bb72ce1467f7905bf67541c05bc8c2d66f4461e73"
+    },
+    {
+      "path": "research_artifacts/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE/lassak_r6_exact_obstruction_20260902.json",
+      "git_blob_sha1": "sha1:903cfeeead05f04788aae92f883ffb1552ecf3e2",
+      "sha256": "sha256:0ed6c020d63f32a9b2f180fc6d96dac9e9b98e7b7db1d441448129ebdc73b603"
+    },
+    {
+      "path": "research_artifacts/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE/r4_to_r6_transfer_audit_20260902.json",
+      "git_blob_sha1": "sha1:f64f18f484425e6bf22cc0a0f40da937d166364c",
+      "sha256": "sha256:b7ab7ac85bd9fb25f68705e30003ad3fc8024ffc70221be5310f24c337cda563"
+    },
+    {
+      "path": "research_artifacts/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE/theorem_dependency_graph_20260902.json",
+      "git_blob_sha1": "sha1:3a5df0be05094942a7542788207ef21ea262aba0",
+      "sha256": "sha256:228aae077396bc72777dc2ec89ba93b91e5a25aa96c068105fbd6e41f17e7e1c"
+    },
+    {
+      "path": "research_artifacts/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE/source_manifest_20260902.json",
+      "git_blob_sha1": "sha1:487ed510d5f5ab7bba2b56b43fc72d1a0e6e9acc",
+      "sha256": "sha256:f948197f7677242169a19ba554bd37c0317440fe51b42b66dee54c917dd10bda"
+    },
+    {
+      "path": "research_artifacts/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE/adversarial_audit_20260902.json",
+      "git_blob_sha1": "sha1:04e2b0b784cc04e79ee829b973dfc177c90a3fa5",
+      "sha256": "sha256:e13087b936f8116add947e0ecf48d59f889ca9e9f11995981fc8c29281fc9646"
+    },
+    {
+      "path": "research_returns/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE_RETURN_20260902.md",
+      "git_blob_sha1": "sha1:92a2ed004a794cd48425fdaff515a162329f3df7",
+      "sha256": "sha256:b67f925c3169ecda25eff59bba02763709390703f2e4036ea3b5840e54b1f8f5"
+    }
+  ],
+  "checker_summary": "PASS GEO8 exact Lassak R6 obstruction: atoms=33 incompatibility_edges=528 sector_pair_lb2=15/13 center_fixed_facet_lb2=10/7",
+  "method_harvest": "RESULT_ONLY / EXACT_TEMPLATE_OBSTRUCTION_AND_R4_TO_R6_TRANSFER_AUDIT",
+  "method_reuse": "Consumed Lassak's published bound through a source-faithful reconstruction and Tolmachev–Voronov's 2026 R4 truncation/UCS architecture. The public R4 validation code was audited only to classify dimension-generic versus dimension-specific machinery; no numerical evidence was used as a universal R6 theorem.",
+  "independence_status": "NONBLIND CONTINUATION / NEW EXACT OBSTRUCTION DERIVED INDEPENDENTLY FROM THE FROZEN R6 LENS ALGEBRA / R4 PREPRINT CONSUMED ONLY FOR TRANSFER AUDIT",
+  "source_exposure_status": "LASSAK_PRIMARY_METADATA_VERIFIED_BUT_REMOTE_FULL_TEXT_RESTRICTED / BOLLOBAS_EXACT-PROOF_SECONDARY_USED_FOR_DETAILS / TV2026_PRIMARY_PREPRINT_AND_PINNED_PUBLIC_CODE_AUDITED / NO_HISTORICAL_NOVELTY_CLAIM",
+  "next_control_plane_recommendation": "DRIVER_REVIEW at exactly the restricted-template strength. Accept K33 atom-coarsening rigidity and the uniform 10/7 center-fixed cube-facet obstruction if the source reconstruction/provenance boundary is acceptable. Do not promote to b(6)=33 or global impossibility of b(6)<=32. If a successor is justified, it must add genuine atom-splitting/truncation geometry, preferably a five-dimensional R6 UCS normal-system and strict-diameter certificate.",
+  "driver_review_required": true
+}
