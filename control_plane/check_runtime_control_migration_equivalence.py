@@ -1,38 +1,34 @@
 #!/usr/bin/env python3
-"""Prove the proposed runtime control migration is structurally field-local.
+"""Verify the terminal V2 runtime cutover and retired migration binding.
 
-No repository file is modified by this checker. It loads the current runtime JSON,
-applies only the target values declared by the two approved runtime migration
-entries, and proves that the resulting object is deeply identical to the source
-after the declared migration pointers are removed from both copies.
+The old gradual runtime-pointer migrations are complete. This checker no longer
+constructs a hypothetical edit against removed V1 paths. Instead it proves that
+``research_runtime_state_machine.json`` is the active V2 surface, that the exact
+live/fresh/liveness fields retain their required values, that the retired legacy
+paths remain absent, and that the migration registry binds those facts to the
+pre-V2 archive and cutover commit.
 
-Protected selector fields are also checked before and after the in-memory
-transformation. This is a control-structure proof only; it does not adjudicate
-mathematical truth, Working Truth, Foundation semantics, result/review status, or
-any task-local mathematical content.
+This is a control-structure check only. It grants no mathematical, task,
+publication, Working Truth, Foundation, Driver, review, or successor authority.
 """
 from __future__ import annotations
 
-import copy
 import hashlib
 import json
+import re
 from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "control_plane" / "control_semantic_migration_registry.json"
 RUNTIME = ROOT / "research_runtime_state_machine.json"
-RUNTIME_MIGRATION_IDS = (
+RETIRED_IDS = (
     "CSM-RUNTIME-CANONICAL-DISPATCH-004",
     "CSM-RUNTIME-OWNER-SCOPE-LIVENESS-006",
 )
-RUNTIME_PROTECTION_IDS = ("CSP-RUNTIME-FRESH-SELECTOR-004",)
-APPROVED_STATES = {
-    "REFERENCE_CHECK_PASSED_READY_FOR_MECHANICAL_PATCH",
-    "READY_FOR_MECHANICAL_PATCH_WITH_RUNTIME_POINTER_BUNDLE",
-    "FIELD_LOCALITY_PROOF_PASSED_AWAITING_SAFE_WRITE_MECHANISM",
-    "TARGET_MIGRATED",
-}
+PROTECTION_ID = "CSP-RUNTIME-FRESH-SELECTOR-004"
+RETIRED_STATE = "RETIRED_BY_V2_PHYSICAL_CUTOVER"
+_FULL_SHA = re.compile(r"^[0-9a-f]{40}$")
 
 
 class RuntimeMigrationEquivalenceError(ValueError):
@@ -46,66 +42,24 @@ def _load(path: Path) -> dict[str, Any]:
     return value
 
 
-def _tokens(pointer: str) -> list[str]:
+def _pointer(value: Any, pointer: str) -> Any:
     if not pointer.startswith("/"):
         raise RuntimeMigrationEquivalenceError(f"invalid JSON pointer: {pointer!r}")
-    return [part.replace("~1", "/").replace("~0", "~") for part in pointer.split("/")[1:]]
-
-
-def _get(value: dict[str, Any], pointer: str) -> Any:
-    current: Any = value
-    for token in _tokens(pointer):
+    current = value
+    for raw in pointer.split("/")[1:]:
+        token = raw.replace("~1", "/").replace("~0", "~")
         if not isinstance(current, dict) or token not in current:
             raise RuntimeMigrationEquivalenceError(f"pointer not found: {pointer}")
         current = current[token]
     return current
 
 
-def _set(value: dict[str, Any], pointer: str, replacement: Any) -> None:
-    tokens = _tokens(pointer)
-    if not tokens:
-        raise RuntimeMigrationEquivalenceError("root replacement is forbidden")
-    current: Any = value
-    for token in tokens[:-1]:
-        if not isinstance(current, dict) or token not in current:
-            raise RuntimeMigrationEquivalenceError(f"pointer not found: {pointer}")
-        current = current[token]
-    if not isinstance(current, dict) or tokens[-1] not in current:
-        raise RuntimeMigrationEquivalenceError(f"pointer not found: {pointer}")
-    current[tokens[-1]] = copy.deepcopy(replacement)
-
-
-def _delete(value: dict[str, Any], pointer: str) -> None:
-    tokens = _tokens(pointer)
-    if not tokens:
-        raise RuntimeMigrationEquivalenceError("root deletion is forbidden")
-    current: Any = value
-    for token in tokens[:-1]:
-        if not isinstance(current, dict) or token not in current:
-            raise RuntimeMigrationEquivalenceError(f"pointer not found: {pointer}")
-        current = current[token]
-    if not isinstance(current, dict) or tokens[-1] not in current:
-        raise RuntimeMigrationEquivalenceError(f"pointer not found: {pointer}")
-    del current[tokens[-1]]
-
-
-def _field_rows(entry: dict[str, Any]) -> list[tuple[str, Any, Any]]:
-    if "json_pointer" in entry:
-        return [
-            (
-                str(entry["json_pointer"]),
-                entry.get("observed_legacy_value"),
-                entry.get("canonical_target_value"),
-            )
-        ]
-    pointers = entry.get("json_pointers")
-    olds = entry.get("observed_legacy_values")
-    targets = entry.get("canonical_target_values")
-    if not isinstance(pointers, list) or not isinstance(olds, list) or not isinstance(targets, list):
-        raise RuntimeMigrationEquivalenceError(f"{entry.get('migration_id')}: malformed pointer bundle")
-    if not (len(pointers) == len(olds) == len(targets)):
-        raise RuntimeMigrationEquivalenceError(f"{entry.get('migration_id')}: pointer bundle length mismatch")
-    return [(str(pointer), old, target) for pointer, old, target in zip(pointers, olds, targets, strict=True)]
+def _exists(value: Any, pointer: str) -> bool:
+    try:
+        _pointer(value, pointer)
+    except RuntimeMigrationEquivalenceError:
+        return False
+    return True
 
 
 def _digest(value: Any) -> str:
@@ -115,89 +69,128 @@ def _digest(value: Any) -> str:
 
 def prove(root: Path = ROOT) -> dict[str, Any]:
     registry = _load(root / "control_plane" / "control_semantic_migration_registry.json")
-    source = _load(root / "research_runtime_state_machine.json")
-    entries = {
-        row.get("migration_id"): row
-        for row in registry.get("entries", [])
-        if isinstance(row, dict)
+    runtime = _load(root / "research_runtime_state_machine.json")
+
+    required_runtime = {
+        "/schema": "ENTERPRISE_MATH_RESEARCH_RUNTIME_STATE_MACHINE_V2",
+        "/status": "ACTIVE_CANONICAL",
+        "/classification": "CONTROL_FLOW_ONLY_NO_MATHEMATICAL_AUTHORITY",
+        "/task_definition_authority": "research_task_records/<task-id>/<publication-id>.json",
+        "/runtime_policy": "research_runtime_policy_v2.json",
+        "/event_reducer": "tools/research_runtime_reducer.py",
+        "/canonical_live_dispatch": "research_control_dispatch.py",
+        "/fresh_task_selector": "tools/research_dispatch.py",
+        "/fresh_lane_selector": "tools/research_lane_dispatch.py",
+        "/executable_runtime": "tools/research_runtime_guard.py",
+        "/owner_lease_is_session_liveness": False,
+        "/stale_valid_owner_action": "ADOPT_EXISTING_CLAIM",
+        "/legacy_runtime_on_main": False,
+        "/legacy_archive/branch": "archive/legacy-control-plane-pre-v2-20260902",
+        "/legacy_archive/source_commit": "ce629e24e5af59128e25af87075c6622413684e0",
     }
+    for pointer, required in required_runtime.items():
+        actual = _pointer(runtime, pointer)
+        if actual != required:
+            raise RuntimeMigrationEquivalenceError(
+                f"runtime V2 field drift at {pointer}: actual={actual!r} required={required!r}"
+            )
+
+    forbidden_legacy_paths = {
+        "/dispatch",
+        "/composes",
+        "/lease_model",
+    }
+    reappeared = sorted(pointer for pointer in forbidden_legacy_paths if _exists(runtime, pointer))
+    if reappeared:
+        raise RuntimeMigrationEquivalenceError(
+            f"legacy runtime blocks reappeared after physical cutover: {reappeared}"
+        )
+
     protections = {
         row.get("protection_id"): row
         for row in registry.get("protected_selector_fields", [])
         if isinstance(row, dict)
     }
-
-    proposed = copy.deepcopy(source)
-    changed_pointers: list[str] = []
-    before_values: dict[str, Any] = {}
-    after_values: dict[str, Any] = {}
-
-    for migration_id in RUNTIME_MIGRATION_IDS:
-        entry = entries.get(migration_id)
-        if not isinstance(entry, dict):
-            raise RuntimeMigrationEquivalenceError(f"missing runtime migration entry: {migration_id}")
-        if entry.get("path") != "research_runtime_state_machine.json":
-            raise RuntimeMigrationEquivalenceError(f"{migration_id}: wrong target path")
-        state = str(entry.get("state") or "")
-        if state not in APPROVED_STATES:
-            raise RuntimeMigrationEquivalenceError(
-                f"{migration_id}: migration is not approved for field-local proof/patch: {state}"
-            )
-        for pointer, old, target in _field_rows(entry):
-            actual = _get(source, pointer)
-            if actual not in (old, target):
-                raise RuntimeMigrationEquivalenceError(
-                    f"{migration_id}: source has third-state value at {pointer}: {actual!r}"
-                )
-            before_values[pointer] = copy.deepcopy(actual)
-            _set(proposed, pointer, target)
-            after_values[pointer] = copy.deepcopy(_get(proposed, pointer))
-            changed_pointers.append(pointer)
-
-    protected_before: dict[str, Any] = {}
-    protected_after: dict[str, Any] = {}
-    for protection_id in RUNTIME_PROTECTION_IDS:
-        row = protections.get(protection_id)
-        if not isinstance(row, dict):
-            raise RuntimeMigrationEquivalenceError(f"missing runtime protection entry: {protection_id}")
-        if row.get("path") != "research_runtime_state_machine.json":
-            raise RuntimeMigrationEquivalenceError(f"{protection_id}: wrong protected path")
-        pointer = str(row.get("json_pointer") or "")
-        required = row.get("required_value")
-        before = _get(source, pointer)
-        after = _get(proposed, pointer)
-        if before != required or after != required:
-            raise RuntimeMigrationEquivalenceError(
-                f"{protection_id}: protected selector changed or already drifted: before={before!r} after={after!r} required={required!r}"
-            )
-        protected_before[pointer] = copy.deepcopy(before)
-        protected_after[pointer] = copy.deepcopy(after)
-
-    source_without_targets = copy.deepcopy(source)
-    proposed_without_targets = copy.deepcopy(proposed)
-    for pointer in sorted(set(changed_pointers), key=lambda item: item.count("/"), reverse=True):
-        _delete(source_without_targets, pointer)
-        _delete(proposed_without_targets, pointer)
-
-    if source_without_targets != proposed_without_targets:
+    protection = protections.get(PROTECTION_ID)
+    if not isinstance(protection, dict):
         raise RuntimeMigrationEquivalenceError(
-            "proposed runtime migration changes structure outside registered migration pointers"
+            f"missing runtime selector protection: {PROTECTION_ID}"
+        )
+    if (
+        protection.get("path") != "research_runtime_state_machine.json"
+        or protection.get("json_pointer") != "/fresh_task_selector"
+        or protection.get("required_value") != "tools/research_dispatch.py"
+        or _pointer(runtime, "/fresh_task_selector") != protection.get("required_value")
+    ):
+        raise RuntimeMigrationEquivalenceError(
+            "runtime fresh-selector protection is not bound to the exact V2 field"
         )
 
+    retired = {
+        row.get("migration_id"): row
+        for row in registry.get("retired_entries", [])
+        if isinstance(row, dict)
+    }
+    retired_proofs: dict[str, Any] = {}
+    for migration_id in RETIRED_IDS:
+        row = retired.get(migration_id)
+        if not isinstance(row, dict):
+            raise RuntimeMigrationEquivalenceError(
+                f"missing retired runtime migration: {migration_id}"
+            )
+        if (
+            row.get("state") != RETIRED_STATE
+            or row.get("execution_authority_while_open") is not False
+            or row.get("current_target_path") != "research_runtime_state_machine.json"
+            or row.get("archive_branch") != "archive/legacy-control-plane-pre-v2-20260902"
+            or not isinstance(row.get("archive_source_commit"), str)
+            or not _FULL_SHA.fullmatch(row["archive_source_commit"])
+            or not isinstance(row.get("cutover_commit"), str)
+            or not _FULL_SHA.fullmatch(row["cutover_commit"])
+        ):
+            raise RuntimeMigrationEquivalenceError(
+                f"{migration_id}: retired provenance envelope invalid"
+            )
+        legacy = row.get("legacy_json_pointers")
+        required = row.get("current_required_fields")
+        if not isinstance(legacy, list) or not legacy:
+            raise RuntimeMigrationEquivalenceError(
+                f"{migration_id}: legacy pointer list missing"
+            )
+        if not isinstance(required, dict) or not required:
+            raise RuntimeMigrationEquivalenceError(
+                f"{migration_id}: current V2 field map missing"
+            )
+        for pointer in legacy:
+            if not isinstance(pointer, str) or _exists(runtime, pointer):
+                raise RuntimeMigrationEquivalenceError(
+                    f"{migration_id}: legacy pointer is invalid or reappeared: {pointer!r}"
+                )
+        for pointer, expected in required.items():
+            actual = _pointer(runtime, str(pointer))
+            if actual != expected:
+                raise RuntimeMigrationEquivalenceError(
+                    f"{migration_id}: retired binding drift at {pointer}: "
+                    f"actual={actual!r} expected={expected!r}"
+                )
+        retired_proofs[migration_id] = {
+            "legacy_paths_absent": list(legacy),
+            "current_fields_exact": dict(required),
+            "archive_branch": row["archive_branch"],
+            "archive_source_commit": row["archive_source_commit"],
+            "cutover_commit": row["cutover_commit"],
+        }
+
     return {
+        "status": "V2_RUNTIME_CUTOVER_VERIFIED",
         "target_file": "research_runtime_state_machine.json",
-        "migration_ids": list(RUNTIME_MIGRATION_IDS),
-        "migration_states": {
-            migration_id: entries[migration_id]["state"] for migration_id in RUNTIME_MIGRATION_IDS
-        },
-        "changed_pointers": sorted(set(changed_pointers)),
-        "before_values": before_values,
-        "after_values": after_values,
-        "protected_before": protected_before,
-        "protected_after": protected_after,
-        "non_target_structure_sha256": _digest(source_without_targets),
-        "proposed_non_target_structure_sha256": _digest(proposed_without_targets),
-        "non_target_structure_equal": True,
+        "runtime_sha256": _digest(runtime),
+        "required_runtime_fields": required_runtime,
+        "forbidden_legacy_paths_absent": sorted(forbidden_legacy_paths),
+        "fresh_selector_protection_id": PROTECTION_ID,
+        "retired_migrations": retired_proofs,
+        "mathematical_authority_granted": False,
+        "execution_authority_granted": False,
     }
 
 
@@ -208,7 +201,10 @@ def main() -> int:
         print(f"ERROR: {exc}")
         return 1
     print(json.dumps(proof, ensure_ascii=False, indent=2, sort_keys=True))
-    print("PASS: proposed runtime control migration is identical outside registered pointers.")
+    print(
+        "PASS: V2 runtime cutover is exact; legacy runtime paths remain absent and "
+        "retired migrations bind the current fields to archive provenance."
+    )
     return 0
 
 
