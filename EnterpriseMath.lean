@@ -22,6 +22,7 @@ import EnterpriseMath.PrecisionPi.TetrahedralRatio
 import EnterpriseMath.PrecisionPi.TetrahedralCore
 import EnterpriseMath.PrecisionPi.TetrahedralPrecision
 import EnterpriseMath.PrecisionPi.TetrahedralGeneratingLift
+import EnterpriseMath.PrecisionPi.EnterpriseCoordinateAtlas
 import EnterpriseMath.PrecisionPi.TetrahedralMatching
 import EnterpriseMath.PrecisionPi.TetrahedralResidual
 import EnterpriseMath.PrecisionPi.TetrahedralInvariant
