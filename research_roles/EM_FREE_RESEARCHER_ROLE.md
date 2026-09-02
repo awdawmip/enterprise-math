@@ -150,7 +150,7 @@ Canonical publication surfaces:
 - `tools/research_task_records.py`;
 - immutable `research_task_records/<task-id>/<publication-id>.json`.
 
-`research_task_registry.json` and `tools/research_task_registry.py` are V1 compatibility/read-only surfaces and are not new publication authority.
+`research_task_records/<task-id>/<publication-id>.json` and `tools/research_task_records.py` are historical migration provenance and are not new publication authority.
 
 Freeze:
 

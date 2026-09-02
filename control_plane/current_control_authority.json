@@ -23,10 +23,6 @@
     "record_store": "research_task_records/<task-id>/<publication-id>.json",
     "tool": "tools/research_task_records.py",
     "human_protocol": "docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md",
-    "legacy_contract": "research_task_publication_contract.json",
-    "legacy_registry": "research_task_registry.json",
-    "legacy_tool": "tools/research_task_registry.py",
-    "legacy_role": "READ_ONLY_COMPATIBILITY_AND_AUDIT_ONLY",
     "remote_manual_transport_fallback_allowed": true,
     "remote_manual_validation_fallback_allowed": false,
     "remote_manual_equivalent_preflight_required": true,
@@ -43,7 +39,13 @@
     "remote_manual_cas_nonforce_required": true,
     "reference_integrity_is_publication_authorization": false,
     "if_equivalent_preflight_unavailable": "NONEXECUTABLE_DRAFT_OR_HANDOFF_ONLY",
-    "invariant": "POST_CUTOVER_NEW_OR_MODIFIED_TASK_REQUIRES_IMMUTABLE_V2_PUBLICATION_WITH_CANONICAL_PREFLIGHT"
+    "invariant": "POST_CUTOVER_NEW_OR_MODIFIED_TASK_REQUIRES_IMMUTABLE_V2_PUBLICATION_WITH_CANONICAL_PREFLIGHT",
+    "migration_manifest": "control_plane/legacy_control_migration_manifest.json",
+    "physical_archive": {
+      "branch": "archive/legacy-control-plane-pre-v2-20260902",
+      "source_commit": "ce629e24e5af59128e25af87075c6622413684e0",
+      "runtime_on_main": false
+    }
   },
   "live_dispatch": {
     "contract": "research_dispatch_contract.json",
@@ -58,7 +60,11 @@
     "external_supervisor_role": "TURN_LIVENESS_AND_RECOVERY_BOOKKEEPING_ONLY",
     "external_supervisor_creates_claims": false,
     "generic_conversation_activity_is_owner_scope_liveness": false,
-    "invariant": "STALE_RECOVERY_AND_FAULT_ISOLATION_PRECEDE_FALSE_NO_DISPATCH"
+    "invariant": "STALE_RECOVERY_AND_FAULT_ISOLATION_PRECEDE_FALSE_NO_DISPATCH",
+    "runtime_policy": "research_runtime_policy_v2.json",
+    "event_reducer": "tools/research_runtime_reducer.py",
+    "task_definition_source": "IMMUTABLE_V2_TASK_PUBLICATIONS_ONLY",
+    "legacy_definition_fallback": false
   },
   "review_write_authority": {
     "contract": "research_review_write_authority.json",
@@ -188,7 +194,6 @@
       "RESEARCH_DISCOVERY_FIREWALL",
       "TASK_LOCAL_MATHEMATICAL_SCOPE"
     ],
-    "stale_v1_pointer_semantics": "COMPATIBILITY_METADATA_ONLY_UNLESS_EXPLICITLY_LABELED_LEGACY_EXISTING_EXECUTION",
     "fresh_selector_named_canonical_in_older_doc": "INTERPRET_AS_SUBORDINATE_SELECTOR_NOT_TOP_LEVEL_LIVE_ENTRYPOINT",
     "role_transition_rule": "ROLE-SPECIFIC_AUTHORITY_IS_CLEARED_OR_REACTIVATED_BY_DESTINATION_CONTRACT; CONTEXT_AND_PROVENANCE_ARE_NOT_PRETENDED_TO_RESET",
     "review_write_rule": "READ_SNAPSHOT_IS_NOT_REVIEW_WRITE_AUTHORITY; REFRESH_EXACT_RESULT_AND_REMOTE_HEAD_BEFORE_REVIEW_RECORD_MUTATION",
@@ -196,7 +201,8 @@
     "mixed_semantic_file_edit_rule": "CONSULT_CONTROL_SEMANTIC_MIGRATION_REGISTRY_AND_VERIFY_BEFORE_EDIT",
     "uncertain_semantics_rule": "CAPTURE_NONEXECUTABLE_VERIFICATION_REQUEST_OR_ROUTE_TO_AUTHORIZED_GOVERNANCE_ROLE; DO_NOT_SELF_PUBLISH_FROM_CONTROL_MODE",
     "large_json_pointer_cleanup_rule": "USE_EXACT_SPAN_REGISTERED_MIGRATION; DO_NOT_WHOLE_FILE_RESERIALIZE_BY_DEFAULT",
-    "remote_manual_publication_rule": "TRANSPORT_FALLBACK_ONLY; CANONICAL_PREFLIGHT_REMAINS_REQUIRED; CI_IS_BACKSTOP_NOT_AUTHORIZATION"
+    "remote_manual_publication_rule": "TRANSPORT_FALLBACK_ONLY; CANONICAL_PREFLIGHT_REMAINS_REQUIRED; CI_IS_BACKSTOP_NOT_AUTHORIZATION",
+    "legacy_control_files": "PHYSICALLY_ISOLATED_ON_ARCHIVE_BRANCH_NOT_PROMPT_HIDDEN"
   },
   "role_expectations": {
     "TASK_RESEARCH": [

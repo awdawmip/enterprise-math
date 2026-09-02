@@ -13,7 +13,7 @@
     "docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md",
     "research_architecture.json",
     "research_runtime_state_machine.json",
-    "research_task_publication_contract.json",
+    "research_task_publication_contract_v2.json",
     "templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json",
     "research_axiom_candidate_state_machine.json",
     "research_role_policy.json",
@@ -25,8 +25,8 @@
     "native_semantics_admissibility.json"
   ],
   "mutable_state_excluded_from_policy_digest": [
-    "research_task_registry.json",
-    "research_scheduler.json runtime events"
+    "Issue #240 authenticated runtime events",
+    "current immutable task-record selection overlays"
   ],
   "conflict_checks": [
     {
@@ -103,7 +103,7 @@
     "For foundation-facing tasks, enforce foundational_logic.json before freezing native premises or importing successful effective/classical definitions.",
     "When engineering success is used, separate effective definitions withheld from native premises from engineering-success constraints consumed as evidence.",
     "Target-side definitions copied into native premises invalidate the claimed foundational derivation unless separately declared or derived at the correct semantic strength.",
-    "Every newly published or freshly redispatched task must pass research_task_publication_contract.json and have a canonical research_task_registry.json record; a taskbook, scheduler item or handoff alone is not publication.",
+    "Every newly published task requires one immutable V2 task-publication record; a taskbook, handoff, or runtime event alone is not publication.",
     "Researchers and Drivers use the same mandatory publication template. Researcher publication does not require Driver approval and defaults to P2/MEDIUM effective rank unless an explicit user priority instruction controls.",
     "Task publication never grants Working Truth, Foundation status, theorem truth, canonical promotion, or Driver authority.",
     "A raw free-research axiom candidate is not publishable as a task. After Phase-B audit, AUDITED_AXIOM_CANDIDATE, AUDITED_REPLACEMENT_CANDIDATE or EXACT_NEGATIVE_OBSTRUCTION may be published directly by the researcher without Driver intake solely to make the task exist.",
@@ -119,7 +119,6 @@
     "FREE Phase A follows the same discovery-firewall timing principle: no current toolbox prior before freeze; mandatory current-tool dedup in Phase B after freeze.",
     "Task-local freeze/stop language is TASK-terminal unless the parent objective is separately proven complete; TASK_FROZEN must return to research_runtime_state_machine REEVALUATE_PARENT rather than silently terminating the parent control loop.",
     "Taskbook or scheduler claim-lease minutes govern OWNER_CLAIM only. They must never be reused as session-liveness minutes; stale conversations follow research_runtime_state_machine stale-adoption semantics.",
-    "Legacy baseline tasks may continue already-existing executions, but fresh redispatch, modification or current-policy review requires explicit registry migration.",
     "Taskbooks that inherit final-response identity behavior are version-coupled to final_response_identity_policy.json, research_runtime_state_machine.json and the publication contract; policy changes invalidate prior review digests for redispatch."
   ],
   "override_required_fields": [

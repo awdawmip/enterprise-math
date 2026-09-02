@@ -25,7 +25,7 @@ try:
     from tools import research_lane_claims
     from tools import research_result_records
     from tools import research_runtime
-    from tools import research_scheduler
+    from tools import research_runtime_reducer
     from tools import research_task_records
 except ModuleNotFoundError:
     import research_cohort_runtime  # type: ignore
@@ -34,7 +34,7 @@ except ModuleNotFoundError:
     import research_lane_claims  # type: ignore
     import research_result_records  # type: ignore
     import research_runtime  # type: ignore
-    import research_scheduler  # type: ignore
+    import research_runtime_reducer  # type: ignore
     import research_task_records  # type: ignore
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -46,15 +46,6 @@ class RuntimeAuthorizationError(ValueError):
 
 def _load_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
-
-
-def legacy_task_ids(root: Path = ROOT) -> set[str]:
-    scheduler = _load_json(root / "research_scheduler.json")
-    return {
-        task["task_id"]
-        for task in scheduler.get("tasks", [])
-        if isinstance(task, dict) and isinstance(task.get("task_id"), str)
-    }
 
 
 def _execution_scope(state: Mapping[str, Any]) -> dict[str, str] | None:
@@ -181,31 +172,9 @@ def canonicalize_registration(
         return updated
 
     if scope is not None:
-        raise RuntimeAuthorizationError(
-            "execution cohorts require an immutable registered task"
-        )
-    if task_id in legacy_task_ids(root):
-        supplied = state.get("task_registration")
-        fresh = isinstance(supplied, Mapping) and supplied.get("fresh_redispatch") is True
-        if fresh:
-            raise RuntimeAuthorizationError(
-                "legacy baseline cannot authorize fresh redispatch; publish an immutable task record"
-            )
-        if purpose in {"execution", "adopt"}:
-            claim = state.get("owner_claim")
-            if not isinstance(claim, Mapping) or not claim.get("claim_id"):
-                raise RuntimeAuthorizationError(
-                    "legacy baseline permits only already-owned continuation; fresh claim requires migration"
-                )
-        updated["task_registration"] = {
-            "state": "LEGACY_BASELINE_REGISTERED",
-            "registry_key": None,
-            "fresh_redispatch": False,
-        }
-        return updated
-
+        raise RuntimeAuthorizationError("execution cohorts require an immutable registered task")
     raise RuntimeAuthorizationError(
-        f"task {task_id!r} is neither immutably registered nor in the frozen legacy baseline"
+        f"task {task_id!r} has no current immutable V2 publication"
     )
 
 
@@ -234,7 +203,7 @@ def canonical_live_claim_binding(
     authenticated, _ = research_dispatch._event_authentication_filter(task, events)
     filtered, _ = research_dispatch._filter_registered_events(task, authenticated, root)
     lease = int(task.get("claim_lease_minutes") or 120)
-    reduced = research_scheduler.reduce_task(
+    reduced = research_runtime_reducer.reduce_task(
         task,
         filtered,
         default_lease_minutes=lease,
@@ -396,11 +365,7 @@ def pre_final_gate(state: Mapping[str, Any], *, root: Path = ROOT) -> dict[str, 
     safe = _delegate_safe_state(state, purpose="pre_final", root=root)
     decision = research_runtime.pre_final_gate(safe)
     decision["registration_authenticated"] = True
-    decision["registration_authority"] = (
-        "FROZEN_LEGACY_BASELINE"
-        if safe["task_registration"]["state"] == "LEGACY_BASELINE_REGISTERED"
-        else "IMMUTABLE_TASK_RECORD"
-    )
+    decision["registration_authority"] = "IMMUTABLE_TASK_RECORD"
     return decision
 
 
@@ -454,34 +419,27 @@ def authorize_execution(
 ) -> dict[str, Any]:
     safe = canonicalize_registration(state, purpose="execution", root=root)
     task_id = safe["task"]["task_id"]
-    if safe["task_registration"]["state"] == "IMMUTABLE_REGISTERED":
-        if events is None:
-            raise RuntimeAuthorizationError(
-                "registered execution requires canonical Issue #240 event evidence"
-            )
-        resolved_now = now if now is not None else research_scheduler.now_utc(None)
-        scope = _execution_scope(state)
-        binding = _binding_for_scope(
-            task_id, scope, events, now=resolved_now, root=root
+    if events is None:
+        raise RuntimeAuthorizationError(
+            "registered execution requires canonical Issue #240 event evidence"
         )
-        _reconcile_caller_owner_claim(state, binding)
-        return {
-            "authorized": True,
-            "task_id": task_id,
-            "task_registration": safe["task_registration"],
-            "owner_claim": _canonical_owner_claim(binding),
-            "execution_binding": binding,
-            "authorization_authority": (
-                "CURRENT_AUTHORIZED_WINNING_ISSUE_240_LANE_CLAIM"
-                if scope is not None
-                else "CURRENT_AUTHORIZED_WINNING_ISSUE_240_CLAIM"
-            ),
-        }
+    resolved_now = now if now is not None else research_runtime_reducer.now_utc(None)
+    scope = _execution_scope(state)
+    binding = _binding_for_scope(
+        task_id, scope, events, now=resolved_now, root=root
+    )
+    _reconcile_caller_owner_claim(state, binding)
     return {
         "authorized": True,
         "task_id": task_id,
         "task_registration": safe["task_registration"],
-        "authorization_authority": "ALREADY_OWNED_FROZEN_LEGACY_BASELINE",
+        "owner_claim": _canonical_owner_claim(binding),
+        "execution_binding": binding,
+        "authorization_authority": (
+            "CURRENT_AUTHORIZED_WINNING_ISSUE_240_LANE_CLAIM"
+            if scope is not None
+            else "CURRENT_AUTHORIZED_WINNING_ISSUE_240_CLAIM"
+        ),
     }
 
 
@@ -548,7 +506,7 @@ def main() -> int:
         result = authorize_execution(
             state,
             events=events,
-            now=research_scheduler.now_utc(args.now),
+            now=research_runtime_reducer.now_utc(args.now),
         )
     elif args.command == "pre-final":
         result = pre_final_gate(state)

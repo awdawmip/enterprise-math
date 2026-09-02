@@ -13,7 +13,7 @@ post-cutover control facts owned by ``current_control_authority.json``:
 * typed role transitions that preserve provenance without leaking authority;
 * Foundation Steward V2 execution handoff;
 * chat-only control-plane maintenance boundaries;
-* V1 task-registry write commands remain fail-closed compatibility only.
+* physical absence of the pre-V2 task and scheduler authority surfaces.
 
 It does not audit theorem truth, Driver mathematical verdicts, Foundation truth,
 research-task mathematics, or discovery candidate content.
@@ -90,11 +90,6 @@ def check() -> None:
         task_auth.get("tool") == "tools/research_task_records.py",
         "task publication precedence must use immutable V2 tool",
     )
-    require(
-        task_auth.get("legacy_role") == "READ_ONLY_COMPATIBILITY_AND_AUDIT_ONLY",
-        "V1 registry must be read-only compatibility",
-    )
-
     require(
         publication.get("control_dispatch_tool") == "research_control_dispatch.py",
         "V2 publication contract must name recovery-aware control dispatch",
@@ -324,10 +319,18 @@ def check() -> None:
     require("research_control_dispatch.py" in agents, "AGENTS missing recovery-aware control dispatch")
     require("READ_SNAPSHOT != WRITE_AUTHORITY" in agents, "AGENTS missing mutation-authority boundary")
 
-    legacy_tool = read("tools/research_task_registry.py")
-    require("Read-only V1 task-registry compatibility surface" in legacy_tool, "V1 registry tool not explicitly read-only")
-    require('for name in ("new", "publish", "select")' in legacy_tool, "V1 registry write/select commands are not all fail-closed")
-    require("_forbid(command)" in legacy_tool, "V1 registry commands do not route through fail-closed guard")
+    for isolated in (
+        "research_scheduler.json",
+        "tools/research_scheduler.py",
+        "research_task_registry.json",
+        "tools/research_task_registry.py",
+        "research_task_publication_contract.json",
+        "tools/check_task_registry_cutover.py",
+    ):
+        require(not (ROOT / isolated).exists(), f"isolated legacy path returned to main: {isolated}")
+    require((ROOT / "control_plane/legacy_control_migration_manifest.json").is_file(), "legacy task migration manifest missing")
+    require((ROOT / "research_runtime_policy_v2.json").is_file(), "V2 runtime policy missing")
+    require((ROOT / "tools/research_runtime_reducer.py").is_file(), "V2 runtime reducer missing")
 
     router = read("research_control_dispatch.py")
     require("ENTERPRISE_MATH_SESSION_LIVENESS_OBSERVATIONS_V2" in router, "live control router missing owner-scope observation V2")

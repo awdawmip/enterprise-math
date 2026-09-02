@@ -26,7 +26,7 @@ TOOLBOX_JSON = ROOT / "enterprise_toolbox_registry.json"
 RUNTIME_JSON = ROOT / "research_runtime_state_machine.json"
 FOUNDATION_JSON = ROOT / "foundation_steward.json"
 BACKFLOW_JSON = ROOT / "foundation_backflow.json"
-SCHEDULER_JSON = ROOT / "research_scheduler.json"
+SCHEDULER_JSON = ROOT / "research_runtime_policy_v2.json"
 LEAN_ROOT = ROOT / "EnterpriseMath.lean"
 COMMON_EN = ROOT / "docs" / "RESEARCH_COMMON_SURFACE.en.md"
 COMMON_ZH = ROOT / "docs" / "RESEARCH_COMMON_SURFACE.zh-CN.md"
@@ -203,9 +203,9 @@ def validate_backflow(
         errors.append("Foundation backflow must expose research_dispatch_contract.json")
     if surfaces.get("task_record_store") != "research_task_records/<task-id>/<publication-id>.json":
         errors.append("Foundation backflow task_record_store drifted")
-    if surfaces.get("legacy_scheduler_config") != "research_scheduler.json":
+    if surfaces.get("legacy_scheduler_config") != "research_runtime_policy_v2.json":
         errors.append("legacy scheduler must be explicitly typed as frozen baseline")
-    if surfaces.get("legacy_scheduler_reducer") != "tools/research_scheduler.py":
+    if surfaces.get("runtime_event_reducer") != "tools/research_runtime_reducer.py":
         errors.append("legacy scheduler reducer path drifted")
 
     required_packet = {
@@ -405,7 +405,7 @@ def check() -> None:
         raise AssertionError(
             "Foundation Steward backflow task-definition authority must remain tools/research_dispatch.py"
         )
-    if foundation.get("legacy_scheduler_config") != "research_scheduler.json":
+    if foundation.get("legacy_scheduler_config") != "research_runtime_policy_v2.json":
         raise AssertionError("Foundation Steward must type scheduler config as legacy baseline")
 
     common_backflow = common.get("foundation_steward", {})

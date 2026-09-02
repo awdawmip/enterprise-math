@@ -18,7 +18,7 @@ class RoleControlAuthoritySimulationTests(unittest.TestCase):
         self.assertEqual("ACTIVE_CANONICAL_CONTROL_PRECEDENCE", data["status"])
         self.assertEqual("research_task_publication_contract_v2.json", data["task_publication"]["contract"])
         self.assertEqual("tools/research_task_records.py", data["task_publication"]["tool"])
-        self.assertEqual("READ_ONLY_COMPATIBILITY_AND_AUDIT_ONLY", data["task_publication"]["legacy_role"])
+        self.assertFalse(data["live_dispatch"]["legacy_definition_fallback"])
         self.assertEqual("research_control_dispatch.py", data["live_dispatch"]["canonical_entrypoint"])
         self.assertEqual("tools/research_dispatch.py", data["live_dispatch"]["ordinary_fresh_selector"])
         self.assertFalse(data["tool_reuse"]["coverage_lookup_is_tool_use"])
@@ -35,14 +35,14 @@ class RoleControlAuthoritySimulationTests(unittest.TestCase):
         self.assertIn("research_control_dispatch.py", text)
         self.assertNotIn("python tools/research_task_registry.py publish", text)
         self.assertNotIn("python tools/research_task_registry.py new", text)
-        self.assertIn("V1 compatibility", text)
+        self.assertNotIn("research_task_registry.json", text)
 
     def test_driver_simulation_uses_v2_and_recovery_aware_dispatch(self):
         text = self.read("docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md")
         self.assertIn("V5.4", text)
         self.assertIn("Task publication: `research_task_publication_contract_v2.json`", text)
         self.assertIn("Canonical live dispatch: `research_control_dispatch.py`", text)
-        self.assertIn("tools/research_task_registry.py` are V1 compatibility/read-only", text)
+        self.assertNotIn("tools/research_task_registry.py", text)
         self.assertIn("COVERAGE_LOOKUP != TOOL_USE", text)
         self.assertIn("REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE", text)
         self.assertNotIn("Task registry: `research_task_registry.json`", text)
@@ -148,12 +148,19 @@ class RoleControlAuthoritySimulationTests(unittest.TestCase):
             policy["forbidden"],
         )
 
-    def test_v1_registry_surface_fails_closed_for_write_commands(self):
-        text = self.read("tools/research_task_registry.py")
-        self.assertIn("Read-only V1 task-registry compatibility surface", text)
-        self.assertIn("use tools/research_task_records.py for publication", text)
-        self.assertIn("for name in (\"new\", \"publish\", \"select\")", text)
-        self.assertIn("_forbid(command)", text)
+    def test_legacy_control_files_are_physically_absent(self):
+        for rel in (
+            "research_scheduler.json",
+            "tools/research_scheduler.py",
+            "research_task_registry.json",
+            "tools/research_task_registry.py",
+            "research_task_publication_contract.json",
+            "tools/check_task_registry_cutover.py",
+        ):
+            self.assertFalse((ROOT / rel).exists(), rel)
+        manifest = self.load("control_plane/legacy_control_migration_manifest.json")
+        self.assertEqual("COMPLETE", manifest["status"])
+        self.assertEqual(27, manifest["counts"]["legacy_union"])
 
     def test_dispatch_contract_names_recovery_aware_top_level_entry(self):
         dispatch = self.load("research_dispatch_contract.json")

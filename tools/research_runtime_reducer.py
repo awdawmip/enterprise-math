@@ -1,40 +1,31 @@
 #!/usr/bin/env python3
-"""Validate and reduce the Enterprise Math research scheduler state machine.
+"""Pure V2 runtime event reducer.
 
-The repository config defines durable task frontiers. GitHub Issue #240 is the
-append-only runtime coordination surface; callers may export its valid event
-objects in GitHub comment order to JSON/JSONL and pass them with --events.
-
-This tool deliberately does not decide mathematical truth or canonical status.
-Research identity is runtime provenance: CLAIMs automatically resolve a stable
-Researcher-ID even when legacy callers do not supply one explicitly.
+Task definitions come from immutable V2 publication records.  This module only
+reduces already-authenticated Issue #240 events and derives stable execution
+identity.  It owns no task table, legacy baseline, publication authority, or
+mathematical status.
 """
-
 from __future__ import annotations
 
-import argparse
 import copy
 import hashlib
 import json
 import pathlib
 import re
-import sys
 from datetime import datetime, timedelta, timezone
 from typing import Any, Iterable
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-DEFAULT_CONFIG = ROOT / "research_scheduler.json"
-DEFAULT_OWNERS = ROOT / "branch_governance_overrides.json"
-
+POLICY_PATH = ROOT / "research_runtime_policy_v2.json"
 HARD_BLOCK_FIELDS = ("missing_object", "owner", "necessity", "unblock_condition")
-ACTIVE_OWNER_STATES = {"ACTIVE_OWNER", "ACTIVE_BRIDGE"}
-DEPENDENCY_ACTIONS = {"INFORM", "CONSUME", "TEST", "HARD_DEPENDENCY"}
 RESEARCHER_ID_RE = re.compile(r"^EM-[A-Z0-9]+-(?:[0-9]{2}|[A-Z0-9]{4,8})$")
 TASK_LANE_RE = re.compile(r"^RS-((?:R|P)\d{3}[A-Z]?)\b")
 LANE_RE = re.compile(r"[^A-Z0-9]+")
+EVENT_SCHEMA = "ENTERPRISE_MATH_SCHEDULER_EVENT_V1"
+POLICY_SCHEMA = "ENTERPRISE_MATH_RESEARCH_RUNTIME_POLICY_V2"
 
-
-class SchedulerError(ValueError):
+class RuntimeReducerError(ValueError):
     pass
 
 
@@ -64,7 +55,7 @@ def complete_hard_block(value: Any) -> bool:
 def normalize_lane(value: str) -> str:
     lane = LANE_RE.sub("", value.strip().upper())
     if not lane:
-        raise SchedulerError("identity_lane must contain an alphanumeric character")
+        raise RuntimeReducerError("identity_lane must contain an alphanumeric character")
     return lane[:16]
 
 
@@ -136,7 +127,7 @@ def validate_scheduler(config: dict[str, Any], owners: dict[str, Any]) -> list[s
         if "identity_lane" in task:
             try:
                 identity_lane(task)
-            except SchedulerError as exc:
+            except RuntimeReducerError as exc:
                 errors.append(f"{task_id}: {exc}")
 
         state = task.get("base_state")
@@ -199,27 +190,27 @@ def load_events(path: pathlib.Path | None) -> list[dict[str, Any]]:
     if text.startswith("["):
         data = json.loads(text)
         if not isinstance(data, list):
-            raise SchedulerError("event JSON must be an array")
+            raise RuntimeReducerError("event JSON must be an array")
         events = data
     else:
         events = [json.loads(line) for line in text.splitlines() if line.strip()]
     for index, event in enumerate(events):
         if not isinstance(event, dict):
-            raise SchedulerError(f"event {index} is not an object")
+            raise RuntimeReducerError(f"event {index} is not an object")
     return events
 
 
 def lease_duration(event: dict[str, Any], default_minutes: int) -> timedelta:
     minutes = event.get("lease_minutes", default_minutes)
     if not isinstance(minutes, int) or minutes <= 0:
-        raise SchedulerError("lease_minutes must be a positive integer")
+        raise RuntimeReducerError("lease_minutes must be a positive integer")
     return timedelta(minutes=minutes)
 
 
 def event_time(event: dict[str, Any]) -> datetime:
     value = event.get("at")
     if not isinstance(value, str) or not value:
-        raise SchedulerError("scheduler event requires ISO-8601 'at'")
+        raise RuntimeReducerError("scheduler event requires ISO-8601 'at'")
     return parse_time(value)
 
 
@@ -272,7 +263,7 @@ def reduce_task(
             continue
         try:
             at = event_time(event)
-        except (SchedulerError, ValueError) as exc:
+        except (RuntimeReducerError, ValueError) as exc:
             ignore(state, index, str(exc))
             continue
         if last_event_time is not None and at < last_event_time:
@@ -303,7 +294,7 @@ def reduce_task(
             )
             try:
                 duration = lease_duration(event, default_lease_minutes)
-            except SchedulerError as exc:
+            except RuntimeReducerError as exc:
                 ignore(state, index, str(exc))
                 continue
             state["state"] = "CLAIMED"
@@ -331,14 +322,14 @@ def reduce_task(
         if kind == "HEARTBEAT":
             try:
                 state["lease_until"] = at + lease_duration(event, default_lease_minutes)
-            except SchedulerError as exc:
+            except RuntimeReducerError as exc:
                 ignore(state, index, str(exc))
             continue
 
         if kind == "PROGRESS":
             try:
                 state["lease_until"] = at + lease_duration(event, default_lease_minutes)
-            except SchedulerError as exc:
+            except RuntimeReducerError as exc:
                 ignore(state, index, str(exc))
                 continue
             state["state"] = "IN_PROGRESS"
@@ -432,137 +423,70 @@ def reduce_task(
     return state
 
 
-def effective_states(config: dict[str, Any], events: list[dict[str, Any]], now: datetime) -> list[dict[str, Any]]:
-    default_lease = int(config.get("claim_lease_minutes", 120))
-    results = []
-    for task in config.get("tasks", []):
-        reduced = reduce_task(task, events, default_lease_minutes=default_lease, now=now)
-        reduced.update({
-            "title": task.get("title"),
-            "kind": task.get("kind"),
-            "owner": task.get("owner"),
-            "priority": task.get("priority"),
-            "leverage": task.get("leverage"),
-            "frontier": task.get("frontier"),
-            "source_refs": task.get("source_refs", []),
-            "identity_lane": identity_lane(task),
-        })
-        results.append(reduced)
-    return results
+
+def validate_policy(policy: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+    if policy.get("schema") != POLICY_SCHEMA:
+        errors.append("unexpected V2 runtime-policy schema")
+    if policy.get("status") != "ACTIVE_CANONICAL":
+        errors.append("V2 runtime policy must be ACTIVE_CANONICAL")
+    if policy.get("task_definition_source") != "IMMUTABLE_V2_TASK_PUBLICATIONS":
+        errors.append("runtime policy task source must be immutable V2 publications")
+    if policy.get("event_schema") != EVENT_SCHEMA:
+        errors.append("runtime policy event schema mismatch")
+    lease = policy.get("default_claim_lease_minutes")
+    if type(lease) is not int or lease <= 0:
+        errors.append("default_claim_lease_minutes must be positive integer")
+    selection = policy.get("selection_policy")
+    if not isinstance(selection, dict):
+        errors.append("selection_policy must be an object")
+    else:
+        for field in ("state_order", "priority_order", "leverage_order"):
+            value = selection.get(field)
+            if not isinstance(value, list) or not value or any(not isinstance(x, str) for x in value):
+                errors.append(f"selection_policy.{field} must be a nonempty string list")
+    if policy.get("legacy_task_definition_source") is not None:
+        errors.append("legacy task-definition source must be null after cutover")
+    return errors
 
 
-def select_task(
-    config: dict[str, Any],
-    events: list[dict[str, Any]],
-    now: datetime,
+def load_policy(root: pathlib.Path = ROOT) -> dict[str, Any]:
+    policy = load_json(root / "research_runtime_policy_v2.json")
+    errors = validate_policy(policy)
+    if errors:
+        raise RuntimeReducerError("invalid V2 runtime policy: " + "; ".join(errors))
+    return policy
+
+
+def select_state(
+    states: Iterable[dict[str, Any]],
+    policy: dict[str, Any],
     *,
     kind: str = "RESEARCH",
 ) -> dict[str, Any] | None:
-    policy = config["selection_policy"]
-    states = effective_states(config, events, now)
-    task_by_id = {task["task_id"]: task for task in config["tasks"]}
-    state_rank = {name: index for index, name in enumerate(policy["state_order"])}
-    priority_rank = {name: index for index, name in enumerate(policy["priority_order"])}
-    leverage_rank = {name: index for index, name in enumerate(policy["leverage_order"])}
-
+    selection = policy["selection_policy"]
+    state_rank = {name: index for index, name in enumerate(selection["state_order"])}
+    priority_rank = {name: index for index, name in enumerate(selection["priority_order"])}
+    leverage_rank = {name: index for index, name in enumerate(selection["leverage_order"])}
     candidates = [
-        state for state in states
-        if state["dispatch_state"] == "NEEDS_DISPATCH"
-        and (kind == "ANY" or state["kind"] == kind)
+        value for value in states
+        if value.get("dispatch_state") == "NEEDS_DISPATCH"
+        and (kind == "ANY" or value.get("kind") == kind)
     ]
     if not candidates:
         return None
 
-    def candidate_key(state: dict[str, Any]) -> tuple[Any, ...]:
-        task = task_by_id[state["task_id"]]
+    def key(value: dict[str, Any]) -> tuple[Any, ...]:
         try:
-            last_progress = parse_time(state["last_progress_at"])
-        except (TypeError, ValueError):
-            last_progress = datetime(1970, 1, 1, tzinfo=timezone.utc)
+            last = parse_time(str(value.get("last_progress_at") or ""))
+        except Exception:
+            last = datetime(1970, 1, 1, tzinfo=timezone.utc)
         return (
-            state_rank.get(state["state"], len(state_rank)),
-            priority_rank.get(task["priority"], len(priority_rank)),
-            leverage_rank.get(task["leverage"], len(leverage_rank)),
-            last_progress,
-            task["task_id"],
+            state_rank.get(value.get("state"), len(state_rank)),
+            priority_rank.get(value.get("priority"), len(priority_rank)),
+            leverage_rank.get(value.get("leverage"), len(leverage_rank)),
+            last,
+            value.get("task_id", ""),
         )
 
-    chosen = min(candidates, key=candidate_key)
-    return chosen
-
-
-def print_json(value: Any) -> None:
-    print(json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True))
-
-
-def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Enterprise Math research scheduler")
-    parser.add_argument("--config", type=pathlib.Path, default=DEFAULT_CONFIG)
-    parser.add_argument("--owners", type=pathlib.Path, default=DEFAULT_OWNERS)
-    sub = parser.add_subparsers(dest="command", required=True)
-
-    sub.add_parser("validate")
-
-    status = sub.add_parser("status")
-    status.add_argument("--events", type=pathlib.Path)
-    status.add_argument("--now")
-
-    select = sub.add_parser("select")
-    select.add_argument("--events", type=pathlib.Path)
-    select.add_argument("--now")
-    select.add_argument("--kind", choices=["RESEARCH", "GOVERNANCE", "ANY"], default="RESEARCH")
-
-    identity = sub.add_parser("identity")
-    identity.add_argument("--task-id", required=True)
-    identity.add_argument("--claim-id", required=True)
-    return parser
-
-
-def main(argv: list[str] | None = None) -> int:
-    args = build_parser().parse_args(argv)
-    config = load_json(args.config)
-    owners = load_json(args.owners)
-    errors = validate_scheduler(config, owners)
-
-    if args.command == "validate":
-        if errors:
-            for error in errors:
-                print(f"ERROR: {error}")
-            return 1
-        print(f"PASS: scheduler config valid; {len(config.get('tasks', []))} tasks cover all active research owners/bridges.")
-        return 0
-
-    if errors:
-        raise SchedulerError("invalid scheduler configuration: " + "; ".join(errors))
-
-    if args.command == "identity":
-        task = next((item for item in config.get("tasks", []) if item.get("task_id") == args.task_id), None)
-        if task is None:
-            raise SchedulerError(f"unknown task_id: {args.task_id}")
-        print_json({
-            "task_id": args.task_id,
-            "claim_id": args.claim_id,
-            "identity_lane": identity_lane(task),
-            "researcher_id": researcher_id_for_claim(task, args.claim_id),
-            "identity_source": "AUTO_CLAIM_DERIVED",
-        })
-        return 0
-
-    events = load_events(args.events)
-    current = now_utc(args.now)
-    if args.command == "status":
-        print_json(effective_states(config, events, current))
-        return 0
-    if args.command == "select":
-        chosen = select_task(config, events, current, kind=args.kind)
-        print_json(chosen)
-        return 0 if chosen is not None else 2
-    raise AssertionError(args.command)
-
-
-if __name__ == "__main__":
-    try:
-        sys.exit(main())
-    except SchedulerError as exc:
-        print(f"ERROR: {exc}", file=sys.stderr)
-        sys.exit(1)
+    return min(candidates, key=key)

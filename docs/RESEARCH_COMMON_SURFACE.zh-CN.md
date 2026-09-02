@@ -10,7 +10,7 @@
 开展实质性的 L1/L2/L3 研究前：
 
 1. 阅读本文件与 `research_common_surface.json`；
-2. 阅读 `docs/RESEARCH_SCHEDULING_PROTOCOL.*`、`research_scheduler.json` 与实时 Dispatch Board Issue #240；
+2. 阅读 `docs/RESEARCH_SCHEDULING_PROTOCOL.*`、`research_runtime_policy_v2.json` 与实时 Dispatch Board Issue #240；
 3. 阅读 `docs/RESEARCH_OWNER_ISOLATION.*`；
 4. 阅读 `docs/PROBLEM_STATUS.*` 及相关 canonical theorem/result 文档；
 5. 阅读 Research Relay Issue #82 中最新且相关的条目；
@@ -42,7 +42,7 @@ source/test module 进入 `main` 不会自动把其所有数学或物理解释�
 - `research_common_surface.json`：机器可读 theorem/tool/formalization router；
 - Research Relay Issue #82：跨路线 WIP、负向边界与 canonical consumption 通知；
 - Foundation Problem Set Issue #164：已验证但尚未解决的底层问题；
-- `research_scheduler.json` + Issue #240：仅用于 dispatch/lease/handoff。
+- `research_runtime_policy_v2.json` + Issue #240：仅用于 dispatch/lease/handoff。
 
 ## 4. 共享数学归属面
 
@@ -351,7 +351,7 @@ PR #274 / `main@12500185f4c222ae49816e7b844e36a82e3ac8fe` 已 canonicalize：
 - `tools/check_references.py`
 - `tools/check_research_common_surface.py`
 - `tools/research_identity.py`
-- `tools/research_scheduler.py`
+- `tools/research_runtime_reducer.py`
 - `tools/research_taskbook.py`
 
 `tools/check_research_common_surface.py` 只做机械检查：registered path 存在性、root-Lean imports 精确一致、repository-tool membership 精确一致、active-FQ 集合一致、active-alert 有效性。它不证明数学，也不判断语义复用价值。

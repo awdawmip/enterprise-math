@@ -358,20 +358,12 @@ def install(root: Path = ROOT) -> None:
     from tools import research_dispatch
     if not getattr(research_dispatch, "_publication_fault_isolation_installed", False):
         def merged_definitions(local_root: Path = research_dispatch.ROOT) -> list[dict[str, Any]]:
-            legacy = research_dispatch.load_json(local_root / "research_scheduler.json")
             by_id: dict[str, dict[str, Any]] = {}
-            for task in legacy.get("tasks", []):
-                if isinstance(task, dict) and isinstance(task.get("task_id"), str):
-                    value = copy.deepcopy(task)
-                    value["registration_source"] = "FROZEN_LEGACY_BASELINE"
-                    by_id[task["task_id"]] = value
-
             for task_id, record in isolated_current_records(local_root).items():
                 try:
                     by_id[task_id] = research_dispatch.registered_definition(record, local_root)
                 except Exception as exc:
-                    by_id[task_id] = definition_fault(task_id, record, exc, by_id.get(task_id))
-
+                    by_id[task_id] = definition_fault(task_id, record, exc, None)
             for task_id, row in validated_quarantines(local_root).items():
                 by_id[task_id] = blocked_definition(task_id, row, by_id.get(task_id))
             return [by_id[key] for key in sorted(by_id)]
