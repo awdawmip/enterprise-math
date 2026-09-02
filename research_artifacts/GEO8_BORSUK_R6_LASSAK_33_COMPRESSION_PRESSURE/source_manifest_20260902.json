@@ -1,0 +1,85 @@
+{
+  "schema": "GEO8_BORSUK_R6_SOURCE_MANIFEST_V1",
+  "task_id": "RS-GEO8-BORSUK-R6-LASSAK-33-COMPRESSION-PRESSURE",
+  "checked_through": "2026-09-02",
+  "sources": [
+    {
+      "id": "LASSAK_1982",
+      "authors": [
+        "Marek Lassak"
+      ],
+      "title": "An estimate concerning Borsuk partition problem",
+      "year": 1982,
+      "venue": "Bulletin of the Polish Academy of Sciences, Series Mathematics 30(9-10), 449-451",
+      "publication_state": "PUBLISHED_JOURNAL_ARTICLE",
+      "url": "https://rcin.org.pl/impan/dlibra/publication/84629/edition/65552/content",
+      "load_bearing": true,
+      "claim_consumed": "published bound b(n)<=2^(n-1)+1 and the Lassak construction lineage",
+      "access_note": "Official Institute of Mathematics PAS repository metadata was verified. Its digital full text is marked Restricted Access / Closed to remote access."
+    },
+    {
+      "id": "LASSAK_1982_AUTHOR_UPLOAD",
+      "authors": [
+        "Marek Lassak"
+      ],
+      "title": "An estimate concerning Borsuk partition problem",
+      "publication_state": "AUTHOR_UPLOADED_FULL_TEXT_PAGE",
+      "url": "https://www.researchgate.net/publication/248802399_An_estimate_concerning_Borsuk_partition_problem",
+      "load_bearing": false,
+      "claim_consumed": "confirms an author-uploaded full-text copy exists",
+      "access_note": "The public page was discoverable and labels the content as uploaded by Marek Lassak, but the PDF bytes were not retrievable through the current research tools; no theorem step is justified by an unread PDF."
+    },
+    {
+      "id": "BOLLOBAS_ART_OF_MATHEMATICS",
+      "authors": [
+        "Béla Bollobás"
+      ],
+      "title": "The Art of Mathematics: Coffee Time in Memphis",
+      "publication_state": "PUBLISHED_BOOK / RELIABLE_SECONDARY",
+      "year": 2006,
+      "load_bearing": true,
+      "claim_consumed": "line-by-line reconstruction of Lassak's cap-plus-orthant proof",
+      "provenance_note": "In the Borsuk solution, Bollobás explicitly states that the proof presented for the Lassak bound is exactly Lassak's proof. This secondary was used for proof details because the official primary full text is remotely restricted."
+    },
+    {
+      "id": "TOLMACHEV_VORONOV_2026",
+      "authors": [
+        "Alexander Tolmachev",
+        "Vsevolod Voronov"
+      ],
+      "title": "Reducing the upper bound for the Borsuk number in R^4 to 8",
+      "date": "2026-05-18",
+      "publication_state": "PRIMARY_PREPRINT",
+      "url": "https://arxiv.org/abs/2605.19068",
+      "load_bearing": true,
+      "claim_consumed": "general-dimensional restatement of Lassak's universal lens; R4 truncation/UCS propositions; hypercube facet-cone construction and certified R4 cover"
+    },
+    {
+      "id": "TOLMACHEV_VORONOV_CODE_2026",
+      "authors": [
+        "Alexander Tolmachev",
+        "Vsevolod Voronov"
+      ],
+      "title": "borsuk-problem-r4 validation repository",
+      "publication_state": "PUBLIC_RESEARCH_CODE",
+      "url": "https://github.com/Alexandr-Tolmachev/borsuk-problem-r4",
+      "pinned_commit": "536be6984396091d78b122fca43cd9a8efcdd45e",
+      "load_bearing": true,
+      "claim_consumed": "the validation implementation is dimension-parameterized in its sphere, hypercube-surface, ray-projection and outer-polyhedron routines; four R4 covers are separately validated"
+    }
+  ],
+  "project_internal_sources": [
+    {
+      "id": "GEO7_ACCEPTED_RESULT",
+      "result_id": "RR-440E83B6F8C06F0808D8",
+      "claim_consumed": "dated status 7<=b(6)<=33 and permission to attack the external Euclidean upper-bound gap",
+      "guard": "Consumed only as accepted project state; it does not prove the new GEO8 obstruction."
+    }
+  ],
+  "source_strength_guard": [
+    "The R4 result remains a preprint and is not promoted to peer-reviewed status.",
+    "The exact new K_33 incompatibility theorem is project-local and receives no historical novelty claim.",
+    "No claim is made that the remotely inaccessible primary Lassak PDF was read.",
+    "The reconstruction is triangulated from verified primary metadata, the 2026 primary preprint's general-dimensional Lassak restatement, and a reliable secondary that explicitly says it reproduces Lassak's proof exactly."
+  ]
+}
