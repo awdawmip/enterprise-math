@@ -2,45 +2,20 @@
   "schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RESOLUTION_REGISTRY_V1",
   "status": "ACTIVE",
   "purpose": "Provide a bounded operational binding when one task has multiple simultaneously valid immutable publication heads. This overlay preserves every publication as research evidence. It may select one publication for current runtime continuity, but that selection is not a truth, quality, priority, or canonical-mathematics judgment.",
-  "compatibility_note": "The field name quarantined_publication_ids is retained only because the current compatibility reducer expects it. Semantically these IDs are RETAINED_PARALLEL_PUBLICATIONS: they remain immutable, reviewable, referenceable, and eligible for later KEEP_PARALLEL / MERGE / SPLIT / operational-reselection. R043-C4 and P022 have completed the required two-pass reference process; superseded control conclusions remain immutable historical evidence.",
+  "compatibility_note": "The field name quarantined_publication_ids is retained only because the current compatibility reducer expects it. Semantically these IDs are RETAINED_PARALLEL_PUBLICATIONS: they remain immutable, reviewable, referenceable, and eligible for later KEEP_PARALLEL / MERGE / SPLIT / operational-reselection. Detailed historical reference-process metadata remains recoverable in Git history; this current router keeps only the live operational bindings and their decisive provenance.",
   "resolutions": [
     {
       "task_id": "RS-R043C4-NATIVE-INTERFACE-LINK-SEPARATOR-CLOSURE",
       "canonical_publication_id": "TP2-A63015C2EB99D00F2500",
       "operational_publication_id": "TP2-A63015C2EB99D00F2500",
-      "quarantined_publication_ids": [
-        "TP2-9D0A43C4F217B6E8C531"
-      ],
-      "retained_parallel_publication_ids": [
-        "TP2-9D0A43C4F217B6E8C531",
-        "TP2-A63015C2EB99D00F2500"
-      ],
-      "parallel_intake_id": "PI-R043C4-20260826-01",
-      "parallel_synthesis_id": "PS-R043C4-20260826-01",
+      "quarantined_publication_ids": ["TP2-9D0A43C4F217B6E8C531"],
+      "retained_parallel_publication_ids": ["TP2-9D0A43C4F217B6E8C531", "TP2-A63015C2EB99D00F2500"],
       "resolution_kind": "PARALLEL_PUBLICATION_OPERATIONAL_BINDING",
-      "reason": "Two generation-1 immutable publications were independently materialized for the same task with different owner/parent-objective metadata. TP2-A63015C2EB99D00F2500 remains the operational publication because the already-valid Issue #240 execution CLAIM and completed result chain are pinned to it. TP2-9D0A43C4F217B6E8C531 remains a retained parallel publication. Two reference passes found compatible mathematical scope with different routing metadata and did not reject either route.",
+      "reason": "Preserve the previously resolved R043-C4 runtime binding while retaining the alternate immutable publication as parallel evidence.",
       "authority_role": "RESEARCH_DRIVER",
       "authority_id": "EM-DVR-K7Q4N8",
       "resolved_at": "2026-08-26T19:15:00+08:00",
       "preserve_existing_claim": "chatgpt-r043c4-20260826-1435",
-      "reference_process": {
-        "passes_required": 2,
-        "pass_1": "COMPLETE_BOTH_SURVIVE",
-        "pass_1_id": "RP1-R043C4-20260826-01",
-        "pass_2": "COMPLETE_KEEP_PARALLEL",
-        "pass_2_id": "RP2-R043C4-20260826-01",
-        "relationship": [
-          "COMPATIBLE_COMPLEMENTARY",
-          "DIFFERENT_SCOPE_ROUTING_METADATA"
-        ],
-        "final_disposition": "KEEP_PARALLEL_AND_SELECT_OPERATIONAL",
-        "allowed_final_dispositions": [
-          "KEEP_PARALLEL",
-          "MERGE_TO_NEW_GENERATION",
-          "SPLIT_TO_TYPED_TASKS",
-          "RESELECT_OPERATIONAL_WITHOUT_REJECTING_OTHERS"
-        ]
-      },
       "working_truth_granted": false,
       "canonical_promotion_granted": false,
       "successor_triggered": false
@@ -49,43 +24,14 @@
       "task_id": "RS-P022-OBSERVATION-HISTORY",
       "canonical_publication_id": "TP2-DE338F269CA11E9BC01B",
       "operational_publication_id": "TP2-DE338F269CA11E9BC01B",
-      "quarantined_publication_ids": [
-        "TP2-2346F5D3E731ED56DB0A",
-        "TP2-D78DBA0243911E0363FA"
-      ],
-      "retained_parallel_publication_ids": [
-        "TP2-2346F5D3E731ED56DB0A",
-        "TP2-D78DBA0243911E0363FA",
-        "TP2-DE338F269CA11E9BC01B"
-      ],
-      "parallel_intake_id": "PI-P022PUB-20260827-02",
-      "parallel_synthesis_id": "PS-P022PUB-20260827-02",
+      "quarantined_publication_ids": ["TP2-2346F5D3E731ED56DB0A", "TP2-D78DBA0243911E0363FA"],
+      "retained_parallel_publication_ids": ["TP2-2346F5D3E731ED56DB0A", "TP2-D78DBA0243911E0363FA", "TP2-DE338F269CA11E9BC01B"],
       "resolution_kind": "PARALLEL_PUBLICATION_OPERATIONAL_BINDING",
-      "reason": "The exact current legacy P022 active-head set contains three complementary research publications. The prior resolution selected TP2-2346F5D3E731ED56DB0A because DR-710AC1A4CB63750F94CB described it as the live continuation for fixed-kernel nonvanishing. A routing correction establishes that TP2-2346F5D3E731ED56DB0A instead targets the distinct composite equal-depth mechanism, while TP2-DE338F269CA11E9BC01B owns the accepted q=3r-1 exact reduction. Fresh two-pass synthesis therefore preserves all three publications, reselects TP2-DE338F269CA11E9BC01B only for legacy runtime continuity, and splits the fixed-kernel and equal-depth residues into typed tasks. This is not a truth, quality, or mathematical-priority ranking.",
+      "reason": "Preserve the previously synthesized P022 operational routing while retaining the complementary publications as immutable parallel evidence.",
       "authority_role": "RESEARCH_DRIVER",
       "authority_id": "EM-DRIVER-01",
       "resolved_at": "2026-08-27T21:26:00+08:00",
       "preserve_existing_result": "RR-8323CFDCB99F7832F51F",
-      "reference_process": {
-        "passes_required": 2,
-        "pass_1": "COMPLETE_DISTINCT_HARD_TARGETS_CONFIRMED",
-        "pass_1_id": "RP1-P022PUB-20260827-02",
-        "pass_2": "COMPLETE_ROUTING_CORRECTED_AND_TYPED_SPLIT",
-        "pass_2_id": "RP2-P022PUB-20260827-02",
-        "relationship": [
-          "SAME_P022_MOTHER_PROGRAM",
-          "COMPLEMENTARY_SUBFRONTIERS",
-          "FIXED_KERNEL_AND_EQUAL_DEPTH_ARE_DISTINCT_HARD_TARGETS",
-          "SPLIT_OPEN_FRONTIERS_TO_TYPED_TASKS"
-        ],
-        "final_disposition": "SPLIT_TO_TYPED_TASKS",
-        "allowed_final_dispositions": [
-          "KEEP_PARALLEL",
-          "MERGE_TO_NEW_GENERATION",
-          "SPLIT_TO_TYPED_TASKS",
-          "RESELECT_OPERATIONAL_WITHOUT_REJECTING_OTHERS"
-        ]
-      },
       "working_truth_granted": false,
       "canonical_promotion_granted": false,
       "successor_triggered": false
@@ -94,43 +40,15 @@
       "task_id": "RS-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M-PROOF",
       "canonical_publication_id": "TP2-3EAC29B49F71ABB92BEA",
       "operational_publication_id": "TP2-3EAC29B49F71ABB92BEA",
-      "quarantined_publication_ids": [
-        "TP2-5547117E54D7A556279B"
-      ],
-      "retained_parallel_publication_ids": [
-        "TP2-5547117E54D7A556279B",
-        "TP2-3EAC29B49F71ABB92BEA"
-      ],
-      "parallel_intake_id": "PI-PPTA-PUB-20260830-01",
-      "parallel_synthesis_id": "PS-PPTA-PUB-20260830-01",
+      "quarantined_publication_ids": ["TP2-5547117E54D7A556279B"],
+      "retained_parallel_publication_ids": ["TP2-5547117E54D7A556279B", "TP2-3EAC29B49F71ABB92BEA"],
       "resolution_kind": "PARALLEL_PUBLICATION_OPERATIONAL_BINDING",
-      "reason": "Two generation-1 publications expressed the same all-m critical-cofactor mother target but belonged to different routing eras. TP2-5547117E54D7A556279B is the original researcher publication under the older PERFECT_PRIME_TABLE_CRITICAL_COFACTOR_CLOSURE parent. TP2-4EE2618ABEBB6D097023 is the later Driver-published Route-A objective-linked publication and is the exact publication pinned by the subsequent EM-PPTA-6D8F31 execution and RR-C9D440656391BA3B9763 handoff. Two reference passes therefore retain the old publication as parallel history, select the objective-linked lineage for runtime continuity without rejecting the old result, and then carry that lineage forward through the integrity-only generation-2 publication TP2-3EAC29B49F71ABB92BEA. The superseded TP2-4EE2618ABEBB6D097023 remains immutable lineage history but is no longer an active retained head. The selection is control routing only, not a theorem-quality or truth ranking.",
+      "reason": "Preserve the previously resolved objective-linked PERFECT-PRIME runtime lineage; older publication evidence remains retained.",
       "authority_role": "RESEARCH_DRIVER",
       "authority_id": "EM-DVR-P8H4Q2",
       "resolved_at": "2026-08-30T02:26:30+00:00",
       "preserve_existing_result": "RR-2B648AB483422BD7A6CD",
       "preserve_nonoperational_handoff_result": "RR-C9D440656391BA3B9763",
-      "reference_process": {
-        "passes_required": 2,
-        "pass_1": "COMPLETE_SAME_MOTHER_TARGET_LATER_ROUTE_REFINES_FRONTIER",
-        "pass_1_id": "RP1-PPTA-PUB-20260830-01",
-        "pass_2": "COMPLETE_OBJECTIVE_LINKED_EXECUTION_LINEAGE_SELECTED",
-        "pass_2_id": "RP2-PPTA-PUB-20260830-01",
-        "relationship": [
-          "SAME_ALL_M_CRITICAL_COFACTOR_MOTHER_TARGET",
-          "OLDER_PUBLICATION_HAS_REVIEWED_RETURN_TO_OWNER_HISTORY",
-          "LATER_PUBLICATION_IS_CURRENT_OBJECTIVE_LINKED",
-          "LATER_PUBLICATION_HAS_DEEPER_BETA_BERNSTEIN_EXECUTION_FRONTIER",
-          "GENERATION_2_IS_INTEGRITY_ONLY_NO_MATH_DELTA"
-        ],
-        "final_disposition": "KEEP_PARALLEL_HISTORY_AND_SELECT_OBJECTIVE_LINKED_LINEAGE",
-        "allowed_final_dispositions": [
-          "KEEP_PARALLEL",
-          "MERGE_TO_NEW_GENERATION",
-          "SPLIT_TO_TYPED_TASKS",
-          "RESELECT_OPERATIONAL_WITHOUT_REJECTING_OTHERS"
-        ]
-      },
       "working_truth_granted": false,
       "canonical_promotion_granted": false,
       "successor_triggered": false
@@ -139,44 +57,29 @@
       "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
       "canonical_publication_id": "TP2-FBDBDBE1C5BDF65F97A0",
       "operational_publication_id": "TP2-FBDBDBE1C5BDF65F97A0",
-      "quarantined_publication_ids": [
-        "TP2-3F6A92D8C1E740B5A2C9",
-        "TP2-4A84B81FD5CAB8CD0359"
-      ],
-      "retained_parallel_publication_ids": [
-        "TP2-3F6A92D8C1E740B5A2C9",
-        "TP2-4A84B81FD5CAB8CD0359",
-        "TP2-FBDBDBE1C5BDF65F97A0"
-      ],
-      "parallel_intake_id": "PI-P000L1-PUB-20260901-01",
-      "parallel_synthesis_id": "PS-P000L1-PUB-20260901-01",
+      "quarantined_publication_ids": ["TP2-3F6A92D8C1E740B5A2C9", "TP2-4A84B81FD5CAB8CD0359"],
+      "retained_parallel_publication_ids": ["TP2-3F6A92D8C1E740B5A2C9", "TP2-4A84B81FD5CAB8CD0359", "TP2-FBDBDBE1C5BDF65F97A0"],
       "resolution_kind": "PARALLEL_PUBLICATION_OPERATIONAL_BINDING",
-      "reason": "The current immutable head partition contains the older nonclaimable redirect TP2-3F6A92D8C1E740B5A2C9 plus two V2-clean descendants of the later S4-background-moduli branches. Historical TP2-D4A7C19E5B306F821472 and TP2-E5B7C19A3D604F821583 remain immutable evidence and are directly superseded by exact zero-mathematical-delta descendants TP2-4A84B81FD5CAB8CD0359 and TP2-FBDBDBE1C5BDF65F97A0. Two reference passes retain the clean D4 descendant as a parallel head and select TP2-FBDBDBE1C5BDF65F97A0 only for runtime continuity because it preserves Gen19, continues the accepted Gen18 full-lift-fiber lineage TP2-D6A41E9C3B705F821847 / RR-7FED4A83F3922D37319D / DR-7F2A91C5D4B306E82194, and absorbs D4's useful moduli scope. No publication is rejected as mathematical evidence and the selection is not a truth, quality, priority, Working Truth, Foundation, P000 mutation, or canonical-promotion judgment.",
+      "reason": "Preserve the previously selected Gen19 P000-L1 runtime lineage while retaining the other clean publication head as parallel evidence.",
       "authority_role": "RESEARCH_DRIVER",
       "authority_id": "EM-DVR-P8H4Q2",
       "resolved_at": "2026-09-01T02:28:00+00:00",
-      "reference_process": {
-        "passes_required": 2,
-        "pass_1": "COMPLETE_REDIRECT_SCOPE_DISTINCT_AND_ZERO_DELTA_DESCENDANTS_VERIFIED",
-        "pass_1_id": "RP1-P000L1-PUB-20260901-01",
-        "pass_2": "COMPLETE_KEEP_PARALLEL_SELECT_CLEAN_GEN19_LINEAGE",
-        "pass_2_id": "RP2-P000L1-PUB-20260901-01",
-        "relationship": [
-          "OLDER_REDIRECT_NONEXECUTABLE_HISTORY",
-          "HISTORICAL_D4_E5_DIRECTLY_SUPERSEDED_ZERO_MATH_DELTA",
-          "CLEAN_D4_AND_CLEAN_E5_SAME_DOWNSTREAM_MODULI_MOTHER_TARGET",
-          "CLEAN_E5_CONTINUES_ACCEPTED_GEN18_LOCAL_TO_GLOBAL_LINEAGE",
-          "CLEAN_D4_RETAINED_AS_PARALLEL_HEAD",
-          "NO_TRUTH_OR_QUALITY_RANKING"
-        ],
-        "final_disposition": "KEEP_PARALLEL_AND_SELECT_OPERATIONAL",
-        "allowed_final_dispositions": [
-          "KEEP_PARALLEL",
-          "MERGE_TO_NEW_GENERATION",
-          "SPLIT_TO_TYPED_TASKS",
-          "RESELECT_OPERATIONAL_WITHOUT_REJECTING_OTHERS"
-        ]
-      },
+      "working_truth_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    },
+    {
+      "task_id": "RS-P000-PHILOSOPHY-FIRST-RETURN-PROFILE-1WL-N13-COLLISION-FRONTIER",
+      "canonical_publication_id": "TP2-2BB590EA80230A7A7D4C",
+      "operational_publication_id": "TP2-2BB590EA80230A7A7D4C",
+      "quarantined_publication_ids": ["TP2-6C812E92A7C937795A59"],
+      "retained_parallel_publication_ids": ["TP2-2BB590EA80230A7A7D4C", "TP2-6C812E92A7C937795A59"],
+      "resolution_kind": "PARALLEL_PUBLICATION_OPERATIONAL_BINDING",
+      "reason": "Two generation-1 Driver publications independently express the same n=13 frozen return-profile 1-WL collision-frontier hard target. TP2-2BB590EA80230A7A7D4C was published first and already owns the valid live Issue #240 CLAIM chatgpt-p000q29n13-20260902-2030-6c1b4e. TP2-6C812E92A7C937795A59 is a later compatible post-review publication generated during Q28 control normalization and remains immutable parallel evidence plus the exact publication referenced by that review follow-up. Select TP2-2BB590EA80230A7A7D4C only to preserve in-flight execution continuity; this is not a theorem-quality, truth, priority, or canonical-mathematics ranking.",
+      "authority_role": "RESEARCH_DRIVER",
+      "authority_id": "EM-DVR-VPSKLD",
+      "resolved_at": "2026-09-02T13:18:00+00:00",
+      "preserve_existing_claim": "chatgpt-p000q29n13-20260902-2030-6c1b4e",
       "working_truth_granted": false,
       "canonical_promotion_granted": false,
       "successor_triggered": false
