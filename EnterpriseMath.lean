@@ -14,9 +14,12 @@ import EnterpriseMath.PrecisionPi.EqualOccupancy
 import EnterpriseMath.PrecisionPi.EqualOccupancyStirling
 import EnterpriseMath.PrecisionPi.BalanceRecurrence
 import EnterpriseMath.PrecisionPi.DoublePell
+import EnterpriseMath.PrecisionPi.PairedPell
+import EnterpriseMath.PrecisionPi.SquareTraceDoublePell
 import EnterpriseMath.PrecisionPi.PositiveAccelerator
 import EnterpriseMath.PrecisionPi.Ramanujan58Accelerator
 import EnterpriseMath.PrecisionPi.GeneralStirlingPrecision
+import EnterpriseMath.PrecisionPi.MajorizationCore
 import EnterpriseMath.PrecisionPi.StirlingLimit
 import EnterpriseMath.PrecisionPi.TetrahedralRatio
 import EnterpriseMath.PrecisionPi.TetrahedralCore
@@ -27,6 +30,8 @@ import EnterpriseMath.PrecisionPi.TetrahedralMatching
 import EnterpriseMath.PrecisionPi.TetrahedralResidual
 import EnterpriseMath.PrecisionPi.TetrahedralInvariant
 import EnterpriseMath.PrecisionPi.TetrahedralResidualEquivalence
+import EnterpriseMath.Geometry.FCCOrientedSlices
+import EnterpriseMath.Geometry.TetrahedralResidualClassification
 import EnterpriseMath.Quotient.OperationCongruence
 import EnterpriseMath.Quotient.RootAdjacentBoundary
 import EnterpriseMath.Quotient.PowerFreeActionBasis
