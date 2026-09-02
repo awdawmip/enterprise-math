@@ -4,14 +4,15 @@
 Order is intentional:
 1. isolate unresolved immutable publication forks without selecting a head;
 2. isolate exact pinned current task-integrity faults;
-3. isolate exact stale result-review bindings from the operational review view;
-4. isolate exact nonconforming Driver-review provenance from the operational view;
-5. compose all nonoperational-review causes for follow-up isolation;
-6. isolate follow-up packets and task heads derived solely from those reviews;
-7. normalize every other isolated task to a state-machine-complete hard block;
-8. expose fault-isolated operational task/publication audits while retaining
+3. isolate schema-valid task publications with exact semantic-preservation faults;
+4. isolate exact stale result-review bindings from the operational review view;
+5. isolate exact nonconforming Driver-review provenance from the operational view;
+6. compose all nonoperational-review causes for follow-up isolation;
+7. isolate follow-up packets and task heads derived solely from those reviews;
+8. normalize every other isolated task to a state-machine-complete hard block;
+9. expose fault-isolated operational task/publication audits while retaining
    explicit strict/raw audit handles;
-9. leave every unrelated task/review under the original strict rules.
+10. leave every unrelated task/review under the original strict rules.
 
 IMPORTANT LIVENESS BOUNDARY
 ---------------------------
@@ -42,6 +43,7 @@ from control_plane import research_publication_fault_isolation
 from control_plane import research_result_review_binding_fault_isolation
 from control_plane import research_task_integrity_fault_isolation
 from control_plane import research_task_record_audit_fault_isolation
+from control_plane import research_task_semantic_integrity_fault_isolation
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -55,13 +57,37 @@ def _complete_quarantine_block(
     if kind == "PUBLICATION_FORK":
         missing_object = "one authority-valid operational publication selection for the unresolved retained head set"
         owner = "control-plane/publication-fork-resolution"
+        necessity = (
+            "The task must not be selected or claimed while its current publication authority "
+            "is ambiguous."
+        )
         unblock = (
             "Complete the ordinary parallel-publication resolution contract, remove the exact fork "
             "quarantine, and re-run canonical integrity gates."
         )
+    elif kind == "TASK_SEMANTIC_INTEGRITY":
+        missing_object = (
+            "one authority-valid superseding task publication that restores the pinned source-backed "
+            "identity, lineage, parentage, successor gate, and source provenance while retaining "
+            "migration provenance separately"
+        )
+        owner = "control-plane/task-semantic-publication-repair"
+        necessity = (
+            "The task must not be selected or claimed while its schema-valid current publication "
+            "changes source-backed task semantics under an exact-preservation claim."
+        )
+        unblock = (
+            "An authorized Driver reviews the frozen negative boundary, publishes a directly "
+            "superseding semantically preserving generation, marks the exact semantic quarantine "
+            "resolved, and re-runs canonical integrity gates."
+        )
     else:
         missing_object = "one current task publication that passes the strict immutable-task publication contract"
         owner = "control-plane/task-publication-repair"
+        necessity = (
+            "The task must not be selected or claimed while its current publication authority "
+            "fails the strict task-publication contract."
+        )
         unblock = (
             "Repair or republish the exact task through ordinary publication authority, remove the "
             "exact integrity quarantine, and re-run canonical integrity gates."
@@ -70,10 +96,7 @@ def _complete_quarantine_block(
         {
             "missing_object": missing_object,
             "owner": owner,
-            "necessity": (
-                "The task must not be selected or claimed while its current publication authority "
-                "is ambiguous or fails the strict task-publication contract."
-            ),
+            "necessity": necessity,
             "unblock_condition": unblock,
         }
     )
@@ -117,8 +140,10 @@ def _install_operational_audit_views(root: Path) -> None:
         base_audit = operational.audit
 
         def isolated_ids(local_root: Path) -> set[str]:
-            return set(research_publication_fault_isolation.validated_quarantines(local_root)) | set(
-                research_task_integrity_fault_isolation.validated_quarantines(local_root)
+            return (
+                set(research_publication_fault_isolation.validated_quarantines(local_root))
+                | set(research_task_integrity_fault_isolation.validated_quarantines(local_root))
+                | set(research_task_semantic_integrity_fault_isolation.open_quarantines(local_root))
             )
 
         def selection(task_id: str, local_root: Path = operational.ROOT):
@@ -145,6 +170,7 @@ def _install_operational_audit_views(root: Path) -> None:
             errors: list[str] = []
             try:
                 integrity_rows = research_task_integrity_fault_isolation.validated_quarantines(local_root)
+                research_task_semantic_integrity_fault_isolation.validated_quarantines(local_root)
                 ignored_record_paths = {
                     row["record_path"]
                     for row in integrity_rows.values()
@@ -172,6 +198,7 @@ def _install_operational_audit_views(root: Path) -> None:
 def install(root: Path = ROOT) -> None:
     research_publication_fault_isolation.install(root)
     research_task_integrity_fault_isolation.install(root)
+    research_task_semantic_integrity_fault_isolation.install(root)
     research_result_review_binding_fault_isolation.install(root)
     research_driver_review_authority_fault_isolation.install(root)
     research_nonoperational_review_source_adapter.install(root)
@@ -186,6 +213,9 @@ def install(root: Path = ROOT) -> None:
             values = base_merged(local_root)
             fork_ids = set(research_publication_fault_isolation.validated_quarantines(local_root))
             integrity_ids = set(research_task_integrity_fault_isolation.validated_quarantines(local_root))
+            semantic_ids = set(
+                research_task_semantic_integrity_fault_isolation.open_quarantines(local_root)
+            )
             out: list[dict[str, Any]] = []
             for item in values:
                 task_id = item.get("task_id") if isinstance(item, dict) else None
@@ -193,6 +223,10 @@ def install(root: Path = ROOT) -> None:
                     out.append(_complete_quarantine_block(item, kind="PUBLICATION_FORK"))
                 elif task_id in integrity_ids:
                     out.append(_complete_quarantine_block(item, kind="TASK_INTEGRITY"))
+                elif task_id in semantic_ids:
+                    out.append(
+                        _complete_quarantine_block(item, kind="TASK_SEMANTIC_INTEGRITY")
+                    )
                 else:
                     out.append(item)
             return out
