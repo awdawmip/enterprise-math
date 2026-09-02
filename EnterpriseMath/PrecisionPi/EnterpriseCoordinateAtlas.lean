@@ -85,8 +85,9 @@ slice charts. -/
 theorem distinct_lines_have_distinct_slice_pairs
     (l r : FCCLineFamily) (h : l ≠ r) :
     l.slices ≠ r.slices := by
+  revert h
   cases l <;> cases r <;>
-    simp_all [FCCLineFamily.slices]
+    native_decide
 
 /-- The total slice-line incidence count is `4*3=12=6*2`. -/
 theorem carrier_incidence_count :
