@@ -141,6 +141,9 @@ theorem lineFamilyPerm_trans (σ τ : Equiv.Perm SliceChart) :
   apply lineFamilyEquivSlicePair.injective
   simp [lineFamilyPerm, slicePairPerm, mapSlicePair]
   rw [Finset.map_map]
+  apply Finset.ext
+  intro s
+  simp [Function.comp_def]
 
 /-! ## 3. Equivariance of the carrier slice-to-line map -/
 
