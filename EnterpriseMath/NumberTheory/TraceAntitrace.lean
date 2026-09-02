@@ -2,13 +2,35 @@ import Mathlib
 
 namespace EnterpriseMath.PrecisionPi.TraceAntitrace
 
-variable {K : Type*} [Field K] [CharZero K]
+variable {K : Type*} [Field K]
 
 /-- Symmetric coordinate of an invertible CM/unit parameter. -/
 def halfTrace (u : K) : K := (u + u⁻¹) / 2
 
 /-- Antisymmetric coordinate of an invertible CM/unit parameter. -/
 def halfAntiTrace (u : K) : K := (u - u⁻¹) / 2
+
+/-- The two signed shells are the two linear factors of the fourth residual. -/
+theorem fourth_residual_shell_factorization (P : K) :
+    P ^ 4 - 1 = (P ^ 2 - 1) * (P ^ 2 + 1) := by
+  ring
+
+/-- Reversal `u ↦ u⁻¹` fixes half-trace and negates half-antitrace. -/
+theorem halfTrace_inv (u : K) :
+    halfTrace u⁻¹ = halfTrace u := by
+  unfold halfTrace
+  rw [inv_inv]
+  ring
+
+theorem halfAntiTrace_inv (u : K) :
+    halfAntiTrace u⁻¹ = -halfAntiTrace u := by
+  unfold halfAntiTrace
+  rw [inv_inv]
+  ring
+
+section CharacteristicZero
+
+variable [CharZero K]
 
 /-- The trace-antitrace hyperbola identity. -/
 theorem trace_antitrace_identity (u : K) (hu : u ≠ 0) :
@@ -38,11 +60,6 @@ theorem square_halfTrace_forces_fourth_residual
       rw [htrace]
       ring
 
-/-- The two signed shells are the two linear factors of the fourth residual. -/
-theorem fourth_residual_shell_factorization (P : K) :
-    P ^ 4 - 1 = (P ^ 2 - 1) * (P ^ 2 + 1) := by
-  ring
-
 /-- Combined square-trace and shell-factorization statement. -/
 theorem square_halfTrace_double_shell
     (u P : K) (hu : u ≠ 0) (htrace : halfTrace u = P ^ 2) :
@@ -50,17 +67,6 @@ theorem square_halfTrace_double_shell
   rw [square_halfTrace_forces_fourth_residual u P hu htrace]
   exact fourth_residual_shell_factorization P
 
-/-- Reversal `u ↦ u⁻¹` fixes half-trace and negates half-antitrace. -/
-theorem halfTrace_inv (u : K) (_hu : u ≠ 0) :
-    halfTrace u⁻¹ = halfTrace u := by
-  unfold halfTrace
-  rw [inv_inv]
-  ring
-
-theorem halfAntiTrace_inv (u : K) (_hu : u ≠ 0) :
-    halfAntiTrace u⁻¹ = -halfAntiTrace u := by
-  unfold halfAntiTrace
-  rw [inv_inv]
-  ring
+end CharacteristicZero
 
 end EnterpriseMath.PrecisionPi.TraceAntitrace
