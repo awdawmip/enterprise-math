@@ -1,6 +1,6 @@
 # Enterprise Math Exact Arithmetic / BRC Runtime Protocol
 
-Status: `OPERATIONAL CANDIDATE / NO DIVISION-COLLAPSE THEOREM CLAIM`  
+Status: `ACTIVE OPERATIONAL / NO DIVISION-COLLAPSE THEOREM CLAIM`  
 Effective: `2026-09-02`
 
 ## 1. Runtime rule
@@ -119,6 +119,7 @@ The checker is intentionally migration-scoped: supply new or materially modified
 - facade: `src/enterprise_math/exact_arithmetic.py`
 - static gate: `tools/check_exact_arithmetic_policy.py`
 - regression: `tests/test_exact_arithmetic_brc_runtime.py`
+- dedicated CI: `.github/workflows/exact-arithmetic-runtime.yml`
 
 Operational tool reuse classification:
 
