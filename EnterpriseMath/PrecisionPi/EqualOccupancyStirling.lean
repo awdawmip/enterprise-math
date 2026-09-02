@@ -38,6 +38,5 @@ theorem equalOccupancyReal_eq_stirling
   rw [hpowN]
   simp_rw [div_pow]
   field_simp (disch := positivity)
-  ring
 
 end EnterpriseMath.PrecisionPi
