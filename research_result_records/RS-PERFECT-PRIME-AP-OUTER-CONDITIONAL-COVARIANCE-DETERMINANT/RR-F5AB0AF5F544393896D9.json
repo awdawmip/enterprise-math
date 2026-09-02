@@ -1,0 +1,48 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-F5AB0AF5F544393896D9",
+  "task_id": "RS-PERFECT-PRIME-AP-OUTER-CONDITIONAL-COVARIANCE-DETERMINANT",
+  "publication_id": "TP2-C4B48A416649C9324011",
+  "execution_record_id": "ER-7826B31D99D3787CFB78",
+  "claim_id": "chatgpt-pptapocd1-20260901-2030-8f31a2",
+  "taskbook_path": "research_tasks/PERFECT_PRIME_AP_OUTER_CONDITIONAL_COVARIANCE_DETERMINANT_20260901.md",
+  "taskbook_blob_sha1": "sha1:c2e573692fe13edb3c81df4b581759dd19033f5f",
+  "execution_branch": "research/perfect-prime-ap-outer-covariance-em-pptapocd1-8f31a2",
+  "execution_branch_base": "665ab87c4b5215e0af83d419da391d5f9a2810e5",
+  "return_path": "research_returns/PERFECT_PRIME_AP_OUTER_CONDITIONAL_COVARIANCE_DETERMINANT_RETURN_20260901.md",
+  "return_blob_sha1": "sha1:c4a846272846a659e4ccba9047fb1b5723d550f6",
+  "return_sha256": "sha256:0adbddd52261a69c1e3a02adb57f4dca82f541b01aa7a3ca1aec12d08ace3929",
+  "owner_head": "cbb1a3200998d5bbaf1a32b9d34ff9ca021d58d2",
+  "researcher_id": "EM-PPTAPOCD1-8F31A2",
+  "frozen_at": "2026-09-01T13:11:30+00:00",
+  "terminal_verdict": "NEGATIVE_BOUNDARY",
+  "hard_target_disposition": "EXACT_CANONICAL_MONOMIAL_FLAG_SIGN_REGULARITY_OBSTRUCTION / STRICT_ALTERNATING_1x1_LDL_ROUTE_CLOSED / FULL_OUTER_DETERMINANT_NONVANISHING_REMAINS_OPEN",
+  "unresolved_residue": "Prove det S_m(t)!=0 for every m>=2 and 0<t<=1 by a noncanonical/block structural invariant, or prove all-m positivity of the equivalent double-endpoint residual Bernstein/Mobius coefficients. The exact m=15,t=4/5 witness refutes only canonical leading-principal-minor sign regularity; it preserves nonzero full determinant and 7+7 inertia at the witness.",
+  "output_manifest": [
+    {
+      "path": "research_returns/PERFECT_PRIME_AP_OUTER_CONDITIONAL_COVARIANCE_DETERMINANT_RETURN_20260901.md",
+      "git_blob_sha1": "sha1:c4a846272846a659e4ccba9047fb1b5723d550f6",
+      "sha256": "sha256:0adbddd52261a69c1e3a02adb57f4dca82f541b01aa7a3ca1aec12d08ace3929"
+    },
+    {
+      "path": "research_checks/PERFECT_PRIME_AP_OUTER_CONDITIONAL_COVARIANCE_DETERMINANT_CHECK_20260901.py",
+      "git_blob_sha1": "sha1:c307599506109274d2482e648514840720faa41e",
+      "sha256": "sha256:762810a488ccd6324d1480df6c4ecaa55fea48e751bc1c2885fb9c3c20e914c7"
+    },
+    {
+      "path": "research_artifacts/PERFECT_PRIME_AP_OUTER_CONDITIONAL_COVARIANCE_DETERMINANT/flag_obstruction_certificate_20260901.json",
+      "git_blob_sha1": "sha1:5276630b3cc72e25d2edf697e3cfa369ce81c672",
+      "sha256": "sha256:3efd3f1d9c5d0827373a9228212ff8b0f46d8111fdf6d6c2e4013b0349be0b91"
+    },
+    {
+      "path": "research_execution_records/RS-PERFECT-PRIME-AP-OUTER-CONDITIONAL-COVARIANCE-DETERMINANT/ER-7826B31D99D3787CFB78.json",
+      "git_blob_sha1": "sha1:baa92a2edcf7293e33d30baeabb0647fca1e740b",
+      "sha256": "sha256:f2f755d46dea5606e17c167abac39e8960b66d620c4b877fca9ca6112534deec"
+    }
+  ],
+  "method_harvest": "RESULT_ONLY",
+  "independence_status": "NOT_INDEPENDENT",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "Driver-review and accept the exact negative boundary if the canonical-flag obstruction certificate checks. Close only the canonical monomial leading-principal-minor / strict alternating 1x1-LDL route. Preserve the full det S_m(t) nonvanishing target and the observed inertia as open. Any successor should target a noncanonical/block structural invariant or the all-m residual Bernstein interface; do not reopen inner-block definiteness or generic common-measure routes.",
+  "driver_review_required": true
+}
