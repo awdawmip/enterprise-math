@@ -100,7 +100,7 @@ def _blind_binding(
             "blind source firewall requires canonical Issue #240 event evidence"
         )
     task_id = str(safe["task"]["task_id"])
-    resolved_now = now if now is not None else _core.research_scheduler.now_utc(None)
+    resolved_now = now if now is not None else _core.research_runtime_reducer.now_utc(None)
     scope = _core._execution_scope(state)
     binding = _core._binding_for_scope(
         task_id, scope, events, now=resolved_now, root=root
@@ -278,7 +278,7 @@ def main() -> int:
     state = _load_state(args)
     events = _events(args)
     parsed_now = (
-        _core.research_scheduler.now_utc(args.now)
+        _core.research_runtime_reducer.now_utc(args.now)
         if getattr(args, "now", None) is not None
         else None
     )

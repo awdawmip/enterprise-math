@@ -15,7 +15,7 @@ For task publication, execution handoff, live dispatch and tool-reuse resolution
 - `research_dispatch_contract.json`;
 - `tool_invocation_policy.json`.
 
-Any older Steward/architecture prose that still names `research_task_registry.json`, `tools/research_task_registry.py`, `research_scheduler.json` as a new-task definition surface, or `tools/research_dispatch.py` as the complete live entrypoint is compatibility wording only.
+Any older Steward/architecture prose that still names `research_task_records/<task-id>/<publication-id>.json`, `tools/research_task_records.py`, `research_runtime_policy_v2.json` as a new-task definition surface, or `tools/research_dispatch.py` as the complete live entrypoint is compatibility wording only.
 
 ## 2. Foundation question to research execution
 
@@ -37,7 +37,7 @@ When that question needs an executable research task, the control path is:
 
 `-> RESEARCHER EXECUTION`.
 
-Do not create or modify `research_scheduler.json` to publish the new task. Do not use the V1 shared registry as post-cutover task authority.
+Do not create or modify `research_runtime_policy_v2.json` to publish the new task. Do not use the V1 shared registry as post-cutover task authority.
 
 ## 3. Steward task publication
 

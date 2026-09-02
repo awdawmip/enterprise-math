@@ -9,21 +9,28 @@
     "canonical_promotion": "SERIALIZED_FINAL_GATE",
     "defer_is_blocker": false,
     "only_blocker": "HARD_BLOCK",
-    "hard_block_required_fields": ["missing_object", "owner", "necessity", "unblock_condition"],
+    "hard_block_required_fields": [
+      "missing_object",
+      "owner",
+      "necessity",
+      "unblock_condition"
+    ],
     "no_new_mathematics_scope": "L4_INTEGRATION_ONLY_OR_EXPLICIT_REPLAY_SLICE"
   },
   "dispatch_scheduler": {
-    "config": "research_scheduler.json",
+    "runtime_policy": "research_runtime_policy_v2.json",
+    "task_definition_source": "research_task_records/<task-id>/<publication-id>.json",
     "runtime_issue": 240,
     "event_schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1",
-    "tool": "tools/research_scheduler.py",
-    "default_claim_semantics": "RENEWABLE_LEASE",
+    "event_reducer": "tools/research_runtime_reducer.py",
+    "fresh_selector": "tools/research_dispatch.py",
+    "control_router": "research_control_dispatch.py",
+    "default_claim_semantics": "RENEWABLE_OWNER_LEASE",
     "auto_select_when_user_task_absent": true,
     "explicit_user_task_overrides": true,
     "handoff_required_for_unfinished_session": true,
     "expired_claim_returns_to_dispatch": true,
-    "live_dispatch_authority": "current owner registry + research_scheduler.json + Issue #240 runtime events",
-    "historical_branch_ledger_is_live_dispatch_authority": false
+    "legacy_definition_fallback": false
   },
   "foundation_steward": {
     "machine_router": "foundation_steward.json",
@@ -42,8 +49,13 @@
     "steward_verifies_before_canonicalization": true,
     "research_backflow_enabled": true,
     "fq_scheduler_links_required_for_executable_open_questions": true,
-    "active_foundation_questions": ["FQ-20260809-005", "FQ-20260810-007"],
-    "active_interface_alerts": ["FQ-20260809-005"]
+    "active_foundation_questions": [
+      "FQ-20260809-005",
+      "FQ-20260810-007"
+    ],
+    "active_interface_alerts": [
+      "FQ-20260809-005"
+    ]
   },
   "canonical_foundation_conventions": {
     "natural_numbers": "N = N_0 includes zero; positive integers are N_{>0}",
@@ -68,7 +80,7 @@
   "mandatory_preflight": [
     "docs/RESEARCH_COMMON_SURFACE.en.md",
     "docs/RESEARCH_SCHEDULING_PROTOCOL.en.md",
-    "research_scheduler.json and live Research Dispatch Board Issue #240",
+    "current immutable V2 task publication and authenticated Issue #240 runtime events",
     "docs/RESEARCH_OWNER_ISOLATION.en.md",
     "docs/PROBLEM_STATUS.en.md",
     "relevant canonical theorem/result documents",
@@ -78,10 +90,19 @@
     "when foundation-facing or a mature result may feed back: docs/FOUNDATION_STEWARD_PROTOCOL.en.md, docs/FOUNDATION_BACKFLOW_LOOP.en.md, foundation_backflow.json, and relevant Foundation Problem Set Issue #164 entries"
   ],
   "theorem_channels": {
-    "canonical_base": ["docs/THEOREMS.en.md", "docs/THEOREMS.zh-CN.md"],
-    "canonical_status_router": ["docs/PROBLEM_STATUS.en.md", "docs/PROBLEM_STATUS.zh-CN.md"],
+    "canonical_base": [
+      "docs/THEOREMS.en.md",
+      "docs/THEOREMS.zh-CN.md"
+    ],
+    "canonical_status_router": [
+      "docs/PROBLEM_STATUS.en.md",
+      "docs/PROBLEM_STATUS.zh-CN.md"
+    ],
     "canonical_problem_documents": "docs/Pxxx_*.{en,zh-CN}.md referenced by PROBLEM_STATUS",
-    "formalized_subset": ["EnterpriseMath.lean", "EnterpriseMath/**.lean"],
+    "formalized_subset": [
+      "EnterpriseMath.lean",
+      "EnterpriseMath/**.lean"
+    ],
     "proved_wip_bus": "GitHub Issue #82 Research Relay",
     "foundation_problem_bus": "GitHub Issue #164 Foundation Steward Problem Set",
     "execution_bus": "GitHub Issue #240 Research Dispatch Board"
@@ -107,7 +128,15 @@
     "EnterpriseMath/Scale/Compatibility.lean",
     "EnterpriseMath/State/CriticalGrid.lean"
   ],
-  "result_statuses": ["CANONICAL_MAIN", "LEAN_CHECKED_MAIN", "LEAN_CHECKED_WIP", "PROVED_WIP_RELAY", "EXECUTABLE_CHECKED", "COUNTEREXAMPLE_NEGATIVE_BOUNDARY", "CONJECTURAL"],
+  "result_statuses": [
+    "CANONICAL_MAIN",
+    "LEAN_CHECKED_MAIN",
+    "LEAN_CHECKED_WIP",
+    "PROVED_WIP_RELAY",
+    "EXECUTABLE_CHECKED",
+    "COUNTEREXAMPLE_NEGATIVE_BOUNDARY",
+    "CONJECTURAL"
+  ],
   "shared_theorem_families": {
     "A0": "roots, collapse, quotient/remainder, scale lattice, signed state, typed descent, adjoints",
     "A1": "deterministic functional kernels, history merge, fibers/kernel multiplicity, collision spectra, coalescence, stabilization",
@@ -217,10 +246,32 @@
     "layering_law"
   ],
   "canonical_executable_modules": {
-    "A0_A5_primitives": ["src/enterprise_math/core.py", "src/enterprise_math/division.py", "src/enterprise_math/scale_algebra.py", "src/enterprise_math/signed.py", "src/enterprise_math/typed_scale.py", "src/enterprise_math/geometry.py"],
-    "A2": ["src/enterprise_math/composition_safe_collapse.py", "EnterpriseMath/Quotient/OperationCongruence.lean"],
-    "A2_safe_operation_algebra": ["src/enterprise_math/safe_operation_algebra.py", "tests/test_safe_operation_algebra.py", "docs/A2_SAFE_OPERATION_ALGEBRA.en.md", "docs/A2_SAFE_OPERATION_ALGEBRA.zh-CN.md", "docs/A2_SAFE_OPERATION_ALGEBRA_SUPPLEMENT_01.en.md", "docs/A2_SAFE_OPERATION_ALGEBRA_SUPPLEMENT_01.zh-CN.md"],
-    "P023_partial_operation_quotient": ["src/enterprise_math/partial_operation_quotient.py", "tests/test_partial_operation_quotient.py", "docs/P023_PARTIAL_OPERATION_QUOTIENT_SUPPLEMENT_08.en.md", "docs/P023_PARTIAL_OPERATION_QUOTIENT_SUPPLEMENT_08.zh-CN.md"],
+    "A0_A5_primitives": [
+      "src/enterprise_math/core.py",
+      "src/enterprise_math/division.py",
+      "src/enterprise_math/scale_algebra.py",
+      "src/enterprise_math/signed.py",
+      "src/enterprise_math/typed_scale.py",
+      "src/enterprise_math/geometry.py"
+    ],
+    "A2": [
+      "src/enterprise_math/composition_safe_collapse.py",
+      "EnterpriseMath/Quotient/OperationCongruence.lean"
+    ],
+    "A2_safe_operation_algebra": [
+      "src/enterprise_math/safe_operation_algebra.py",
+      "tests/test_safe_operation_algebra.py",
+      "docs/A2_SAFE_OPERATION_ALGEBRA.en.md",
+      "docs/A2_SAFE_OPERATION_ALGEBRA.zh-CN.md",
+      "docs/A2_SAFE_OPERATION_ALGEBRA_SUPPLEMENT_01.en.md",
+      "docs/A2_SAFE_OPERATION_ALGEBRA_SUPPLEMENT_01.zh-CN.md"
+    ],
+    "P023_partial_operation_quotient": [
+      "src/enterprise_math/partial_operation_quotient.py",
+      "tests/test_partial_operation_quotient.py",
+      "docs/P023_PARTIAL_OPERATION_QUOTIENT_SUPPLEMENT_08.en.md",
+      "docs/P023_PARTIAL_OPERATION_QUOTIENT_SUPPLEMENT_08.zh-CN.md"
+    ],
     "P018_P023_power_free_action_basis": [
       "src/enterprise_math/p018_p023_power_free_action_basis.py",
       "tests/test_p018_p023_power_free_action_basis.py",
@@ -231,23 +282,59 @@
       "sources_p018_p023_power_free_action_basis.json",
       "lineage_p018_p023_power_free_action_basis.json"
     ],
-    "P018_centered_prime_radius": ["src/enterprise_math/centered_prime_radius.py", "tests/test_centered_prime_radius.py"],
-    "A3": ["src/enterprise_math/weighted_relation_field.py", "src/enterprise_math/relation_lattice.py", "src/enterprise_math/relation_scale.py"],
-    "A4": ["src/enterprise_math/admissible_support.py", "src/enterprise_math/relational_spectrum.py"],
-    "A3_A4_bridge": ["src/enterprise_math/a3_a4_support_bridge.py"],
-    "A4_P023_relation_observable_bridge": ["src/enterprise_math/relation_observable_signature.py", "tests/test_relation_observable_signature.py", "src/enterprise_math/relation_observable_composition.py", "tests/test_relation_observable_composition.py", "src/enterprise_math/relation_future_powerset.py", "tests/test_relation_future_powerset.py"],
-    "A4_BRC_semantic_core": ["EnterpriseMath/Relation/BranchRecoalescence.lean"],
-    "A5_P022": ["src/enterprise_math/lattice_geometry.py", "tests/test_lattice_geometry.py"],
+    "P018_centered_prime_radius": [
+      "src/enterprise_math/centered_prime_radius.py",
+      "tests/test_centered_prime_radius.py"
+    ],
+    "A3": [
+      "src/enterprise_math/weighted_relation_field.py",
+      "src/enterprise_math/relation_lattice.py",
+      "src/enterprise_math/relation_scale.py"
+    ],
+    "A4": [
+      "src/enterprise_math/admissible_support.py",
+      "src/enterprise_math/relational_spectrum.py"
+    ],
+    "A3_A4_bridge": [
+      "src/enterprise_math/a3_a4_support_bridge.py"
+    ],
+    "A4_P023_relation_observable_bridge": [
+      "src/enterprise_math/relation_observable_signature.py",
+      "tests/test_relation_observable_signature.py",
+      "src/enterprise_math/relation_observable_composition.py",
+      "tests/test_relation_observable_composition.py",
+      "src/enterprise_math/relation_future_powerset.py",
+      "tests/test_relation_future_powerset.py"
+    ],
+    "A4_BRC_semantic_core": [
+      "EnterpriseMath/Relation/BranchRecoalescence.lean"
+    ],
+    "A5_P022": [
+      "src/enterprise_math/lattice_geometry.py",
+      "tests/test_lattice_geometry.py"
+    ],
     "P022_geodesic_hcp_core": [
       "src/enterprise_math/p022_geodesic_multiplicity.py",
       "src/enterprise_math/p022_hcp_geometry.py",
       "tests/test_p022_geodesic_multiplicity.py",
       "tests/test_p022_hcp_geometry.py"
     ],
-    "P022_barlow_stacking_core": ["src/enterprise_math/p022_barlow_stacking.py", "tests/test_p022_barlow_stacking.py"],
-    "P022_barlow_task_relative_precision": ["src/enterprise_math/p022_barlow_precision.py", "tests/test_p022_barlow_precision.py"],
-    "P022_barlow_periodic_growth": ["src/enterprise_math/p022_barlow_growth.py", "tests/test_p022_barlow_growth.py"],
-    "P021": ["src/enterprise_math/causal_boundary.py", "tests/test_causal_boundary.py"],
+    "P022_barlow_stacking_core": [
+      "src/enterprise_math/p022_barlow_stacking.py",
+      "tests/test_p022_barlow_stacking.py"
+    ],
+    "P022_barlow_task_relative_precision": [
+      "src/enterprise_math/p022_barlow_precision.py",
+      "tests/test_p022_barlow_precision.py"
+    ],
+    "P022_barlow_periodic_growth": [
+      "src/enterprise_math/p022_barlow_growth.py",
+      "tests/test_p022_barlow_growth.py"
+    ],
+    "P021": [
+      "src/enterprise_math/causal_boundary.py",
+      "tests/test_causal_boundary.py"
+    ],
     "E001_material_impulse_application": [
       "src/enterprise_math/material_impulse_accounting.py",
       "src/enterprise_math/material_impulse_world_1d.py",
@@ -289,7 +376,15 @@
     "lean_root": "EnterpriseMath.lean",
     "tests": "tests/",
     "experiments": "experiments/",
-    "repo_tools": ["tools/audit_branch_lifecycle.py", "tools/check_bilingual_pairs.py", "tools/check_references.py", "tools/check_research_common_surface.py", "tools/research_identity.py", "tools/research_scheduler.py", "tools/research_taskbook.py"]
+    "repo_tools": [
+      "tools/audit_branch_lifecycle.py",
+      "tools/check_bilingual_pairs.py",
+      "tools/check_references.py",
+      "tools/check_research_common_surface.py",
+      "tools/research_identity.py",
+      "tools/research_scheduler.py",
+      "tools/research_taskbook.py"
+    ]
   },
   "promotion_sync": {
     "rule": "every canonical promotion of a reusable theorem, formalization, executable tool family, negative boundary, or active interface alert must update the shared human/machine surface or explicitly justify N/A",
@@ -299,7 +394,26 @@
     "declared_paths_must_exist": true,
     "active_foundation_question_sets_must_match": true
   },
-  "relay_action_classes": ["INFORM", "CONSUME", "TEST", "HARD_DEPENDENCY"],
-  "route_heartbeat_fields": ["frontier", "hard_block", "last_progress", "shared_surface_seen"],
-  "runtime_handoff_events": ["CLAIM", "HEARTBEAT", "PROGRESS", "HANDOFF", "HARD_BLOCK", "UNBLOCK", "DONE", "SUPERSEDE"]
+  "relay_action_classes": [
+    "INFORM",
+    "CONSUME",
+    "TEST",
+    "HARD_DEPENDENCY"
+  ],
+  "route_heartbeat_fields": [
+    "frontier",
+    "hard_block",
+    "last_progress",
+    "shared_surface_seen"
+  ],
+  "runtime_handoff_events": [
+    "CLAIM",
+    "HEARTBEAT",
+    "PROGRESS",
+    "HANDOFF",
+    "HARD_BLOCK",
+    "UNBLOCK",
+    "DONE",
+    "SUPERSEDE"
+  ]
 }

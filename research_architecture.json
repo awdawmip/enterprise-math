@@ -7,9 +7,9 @@
   "runtime_control_plane": {
     "state_machine": "research_runtime_state_machine.json",
     "executable": "tools/research_runtime.py",
-    "task_publication_contract": "research_task_publication_contract.json",
-    "task_registry": "research_task_registry.json",
-    "task_publication_tool": "tools/research_task_registry.py",
+    "task_publication_contract": "research_task_publication_contract_v2.json",
+    "task_registry": "research_task_records/<task-id>/<publication-id>.json",
+    "task_publication_tool": "tools/research_task_records.py",
     "scope": [
       "FREE_AXIOM_DISCOVERY",
       "TASK_RESEARCH",
@@ -97,10 +97,10 @@
     }
   },
   "task_publication": {
-    "contract": "research_task_publication_contract.json",
-    "registry": "research_task_registry.json",
+    "contract": "research_task_publication_contract_v2.json",
+    "registry": "research_task_records/<task-id>/<publication-id>.json",
     "mandatory_template": "templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json",
-    "tool": "tools/research_task_registry.py",
+    "tool": "tools/research_task_records.py",
     "publisher_roles": [
       "RESEARCHER",
       "RESEARCH_DRIVER",

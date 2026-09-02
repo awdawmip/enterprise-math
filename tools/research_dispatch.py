@@ -1,17 +1,10 @@
 #!/usr/bin/env python3
-"""Canonical registered-plus-legacy Enterprise Math dispatch view.
+"""Canonical immutable-V2 Enterprise Math dispatch view.
 
-Post-cutover task definitions come from immutable task publication records.
-The frozen research_scheduler.json remains a compatibility baseline only.
-Issue #240 events are reduced by tools/research_scheduler.py only after the
-canonical layer has authenticated current live events from GitHub server comment
-metadata and authorized the server actor. For registered tasks, the CLAIM comment
-itself is the execution envelope; no separate pre-claim repository write is
-required.
-
-When an optional parallel execution cohort is ACTIVE, task-global registered
-selection is suppressed and ownership moves to tools/research_lane_dispatch.py.
-The ordinary non-cohort path is unchanged when no cohort is active.
+Task definitions come only from current immutable V2 publication records. Issue
+#240 events are accepted only through authenticated GitHub comment envelopes and
+are reduced by tools/research_runtime_reducer.py. No task-table or pre-V2
+definition fallback is present on main.
 """
 from __future__ import annotations
 
@@ -28,20 +21,19 @@ try:
     from tools import research_cohort_runtime
     from tools import research_execution_records
     from tools import research_result_records
-    from tools import research_scheduler
+    from tools import research_runtime_reducer
     from tools import research_task_records
     from tools import research_taskbook
 except ModuleNotFoundError:
     import research_cohort_runtime  # type: ignore
     import research_execution_records  # type: ignore
     import research_result_records  # type: ignore
-    import research_scheduler  # type: ignore
+    import research_runtime_reducer  # type: ignore
     import research_task_records  # type: ignore
     import research_taskbook  # type: ignore
 
 ROOT = Path(__file__).resolve().parents[1]
-LEGACY = ROOT / "research_scheduler.json"
-OWNERS = ROOT / "branch_governance_overrides.json"
+RUNTIME_POLICY = ROOT / "research_runtime_policy_v2.json"
 CONTROL_AUTHORIZATION = ROOT / "research_control_event_authorization.json"
 EVENT_SCHEMA = "ENTERPRISE_MATH_SCHEDULER_EVENT_V1"
 CONTROL_AUTH_SCHEMA = "ENTERPRISE_MATH_CONTROL_EVENT_AUTHORIZATION_V1"
@@ -163,13 +155,7 @@ def registered_definition(record: dict[str, Any], root: Path = ROOT) -> dict[str
 
 
 def merged_definitions(root: Path = ROOT) -> list[dict[str, Any]]:
-    legacy = load_json(root / "research_scheduler.json")
     by_id: dict[str, dict[str, Any]] = {}
-    for task in legacy.get("tasks", []):
-        if isinstance(task, dict) and isinstance(task.get("task_id"), str):
-            value = copy.deepcopy(task)
-            value["registration_source"] = "FROZEN_LEGACY_BASELINE"
-            by_id[task["task_id"]] = value
     for task_id, record in research_task_records.current_records(root).items():
         by_id[task_id] = registered_definition(record, root)
     return [by_id[key] for key in sorted(by_id)]
@@ -183,7 +169,7 @@ def _server_time(value: Any, field: str) -> datetime:
     if not isinstance(value, str) or not value.strip():
         raise DispatchError(f"GitHub comment {field} is required")
     try:
-        return research_scheduler.parse_time(value)
+        return research_runtime_reducer.parse_time(value)
     except Exception as exc:
         raise DispatchError(f"GitHub comment {field} is invalid") from exc
 
@@ -275,13 +261,7 @@ def events_from_github_comments(
 def _event_authentication_filter(
     task: dict[str, Any], events: list[dict[str, Any]]
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
-    """Fail closed for edited, unauthenticated, or unauthorized live events.
-
-    Bare V1 events remain accepted only for the frozen legacy reducer/replay path.
-    Live server events must independently satisfy authentication and actor
-    authorization; an unauthorized event-shaped comment is ignored rather than
-    allowed to mutate runtime state or abort the entire stream.
-    """
+    """Fail closed unless a live event carries an authorized server envelope."""
     accepted: list[dict[str, Any]] = []
     rejected: list[dict[str, Any]] = []
     for index, event in enumerate(events):
@@ -289,20 +269,17 @@ def _event_authentication_filter(
             accepted.append(event)
             continue
         meta = event.get(GITHUB_META_KEY)
-        if meta is None:
-            if _is_registered(task):
-                rejected.append({
-                    "index": index,
-                    "reason": "live registered event requires server-authenticated GitHub Issue #240 comment envelope",
-                })
-                continue
-            accepted.append(event)
-            continue
         if not isinstance(meta, dict) or meta.get("server_authenticated") is not True:
-            rejected.append({"index": index, "reason": "invalid GitHub event authentication envelope"})
+            rejected.append({
+                "index": index,
+                "reason": "runtime event requires server-authenticated GitHub Issue #240 comment envelope",
+            })
             continue
         if meta.get("issue_number") != 240 or type(meta.get("comment_id")) is not int:
-            rejected.append({"index": index, "reason": "GitHub event envelope issue/comment identity is invalid"})
+            rejected.append({
+                "index": index,
+                "reason": "GitHub event envelope issue/comment identity is invalid",
+            })
             continue
         if meta.get("control_authorized") is not True:
             rejected.append({
@@ -313,7 +290,7 @@ def _event_authentication_filter(
         if meta.get("edited") is True:
             rejected.append({
                 "index": index,
-                "reason": "edited scheduler event comment is not runtime authority; append a correction event instead",
+                "reason": "edited runtime event is not authority; append a correction event",
             })
             continue
         accepted.append(event)
@@ -354,10 +331,10 @@ def _inline_claim_envelope(
     supplied = event.get("researcher_id")
     if supplied is None:
         try:
-            researcher_id = research_scheduler.researcher_id_for_claim(task, claim_id)
+            researcher_id = research_runtime_reducer.researcher_id_for_claim(task, claim_id)
         except Exception as exc:
             return None, f"registered CLAIM could not derive researcher_id: {exc}"
-    elif not research_scheduler.valid_researcher_id(supplied):
+    elif not research_runtime_reducer.valid_researcher_id(supplied):
         return None, "registered CLAIM researcher_id has invalid format"
     else:
         researcher_id = str(supplied).strip().upper()
@@ -373,7 +350,7 @@ def _lifecycle_time(value: Any, field: str) -> datetime:
     if not isinstance(value, str) or not value.strip():
         raise DispatchError(f"result lifecycle {field} is required")
     try:
-        return research_scheduler.parse_time(value)
+        return research_runtime_reducer.parse_time(value)
     except Exception as exc:
         raise DispatchError(f"result lifecycle {field} is invalid") from exc
 
@@ -631,14 +608,8 @@ def _authentication_summary(task: dict[str, Any], events: list[dict[str, Any]]) 
             "last_server_comment_id": meta.get("comment_id"),
             "last_server_author_login": meta.get("author_login"),
         }
-    if matching:
-        return {
-            "event_authentication": "LEGACY_BARE_EVENT_REPLAY",
-            "last_server_comment_id": None,
-            "last_server_author_login": None,
-        }
     return {
-        "event_authentication": "NO_RUNTIME_EVENT",
+        "event_authentication": "UNAUTHENTICATED_EVENT_REJECTED" if matching else "NO_RUNTIME_EVENT",
         "last_server_comment_id": None,
         "last_server_author_login": None,
     }
@@ -655,7 +626,7 @@ def reduce_definition(
     authenticated, auth_rejected = _event_authentication_filter(task, events)
     filtered, registered_rejected = _filter_registered_events(task, authenticated, root)
     lease = int(task.get("claim_lease_minutes") or default_lease_minutes)
-    state = research_scheduler.reduce_task(
+    state = research_runtime_reducer.reduce_task(
         task,
         filtered,
         default_lease_minutes=lease,
@@ -676,7 +647,7 @@ def reduce_definition(
     })
     state.update(_authentication_summary(task, events))
     try:
-        state["identity_lane"] = research_scheduler.identity_lane(task)
+        state["identity_lane"] = research_runtime_reducer.identity_lane(task)
     except Exception:
         state["identity_lane"] = task.get("identity_lane")
     state = _overlay_result_state(task, state, root)
@@ -699,62 +670,39 @@ def select_task(
     kind: str = "RESEARCH",
     root: Path = ROOT,
 ) -> dict[str, Any] | None:
-    legacy = load_json(root / "research_scheduler.json")
-    policy = legacy["selection_policy"]
     states = effective_states(events, now=now, root=root)
-    state_rank = {name: index for index, name in enumerate(policy["state_order"])}
-    priority_rank = {name: index for index, name in enumerate(policy["priority_order"])}
-    leverage_rank = {name: index for index, name in enumerate(policy["leverage_order"])}
-    candidates = [
-        item for item in states
-        if item.get("dispatch_state") == "NEEDS_DISPATCH"
-        and (kind == "ANY" or item.get("kind") == kind)
-    ]
-    if not candidates:
-        return None
-
-    def key(item: dict[str, Any]):
-        try:
-            last = research_scheduler.parse_time(item.get("last_progress_at", ""))
-        except Exception:
-            last = datetime(1970, 1, 1, tzinfo=timezone.utc)
-        return (
-            state_rank.get(item.get("state"), len(state_rank)),
-            priority_rank.get(item.get("priority"), len(priority_rank)),
-            leverage_rank.get(item.get("leverage"), len(leverage_rank)),
-            last,
-            item.get("task_id", ""),
-        )
-
-    return min(candidates, key=key)
+    policy = research_runtime_reducer.load_policy(root)
+    return research_runtime_reducer.select_state(states, policy, kind=kind)
 
 
 def validate(root: Path = ROOT) -> list[str]:
     errors: list[str] = []
-    legacy = load_json(root / "research_scheduler.json")
-    owners = load_json(root / "branch_governance_overrides.json")
+    try:
+        policy = research_runtime_reducer.load_policy(root)
+        errors.extend(research_runtime_reducer.validate_policy(policy))
+    except Exception as exc:
+        errors.append(f"V2 runtime policy failure: {exc}")
     try:
         control_authorization_policy(root)
     except Exception as exc:
         errors.append(f"control-event authorization policy failure: {exc}")
-    errors.extend(research_scheduler.validate_scheduler(legacy, owners))
-    errors.extend(research_task_records.audit(root))
-    errors.extend(research_execution_records.audit(root))
-    errors.extend(research_result_records.audit(root))
-    errors.extend(research_cohort_runtime.audit(root))
     try:
         definitions = merged_definitions(root)
     except Exception as exc:
-        errors.append(f"merged dispatch definition failure: {exc}")
+        errors.append(f"V2 dispatch definition failure: {exc}")
         return errors
     ids = [item.get("task_id") for item in definitions]
     if len(ids) != len(set(ids)):
-        errors.append("canonical merged dispatch view contains duplicate task IDs")
-    current = research_task_records.current_records(root)
-    for task_id in current:
-        matches = [item for item in definitions if item.get("task_id") == task_id]
-        if len(matches) != 1 or matches[0].get("registration_source") != "IMMUTABLE_TASK_RECORD":
-            errors.append(f"{task_id}: registered task is not canonical in merged dispatch view")
+        errors.append("canonical V2 dispatch view contains duplicate task IDs")
+    for item in definitions:
+        if item.get("registration_source") not in {
+            "IMMUTABLE_TASK_RECORD",
+            "TASK_DEFINITION_FAULT_QUARANTINE",
+            "TASK_INTEGRITY_QUARANTINE",
+            "PUBLICATION_FORK_QUARANTINE",
+            "DRIVER_FOLLOWUP_AUTHORITY_QUARANTINE",
+        }:
+            errors.append(f"{item.get('task_id')}: non-V2 task definition entered live dispatch")
     return errors
 
 
@@ -790,11 +738,11 @@ def load_events(path: Path | None) -> list[dict[str, Any]]:
         raise DispatchError(
             "normalized GitHub event envelopes are internal-only; provide raw Issue #240 comment objects"
         )
-    return research_scheduler.load_events(path)
+    raise DispatchError("runtime input must be raw authenticated Issue #240 comment objects")
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Enterprise Math canonical registered-plus-legacy dispatch")
+    parser = argparse.ArgumentParser(description="Enterprise Math canonical immutable-V2 dispatch")
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("validate")
     status = sub.add_parser("status")
@@ -812,12 +760,12 @@ def main() -> int:
                 print("ERROR:", error)
             return 1
         print(
-            f"PASS: canonical dispatch valid; {len(merged_definitions())} merged task definition(s), "
+            f"PASS: canonical dispatch valid; {len(merged_definitions())} V2 task definition(s), "
             f"{len(research_task_records.current_records())} immutable registered task(s)."
         )
         return 0
     events = load_events(args.events)
-    now = research_scheduler.now_utc(args.now)
+    now = research_runtime_reducer.now_utc(args.now)
     if args.command == "status":
         print(json.dumps(effective_states(events, now=now), ensure_ascii=False, indent=2, sort_keys=True))
         return 0

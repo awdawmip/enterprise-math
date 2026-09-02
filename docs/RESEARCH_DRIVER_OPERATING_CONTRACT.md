@@ -65,7 +65,7 @@ All post-cutover official tasks—Researcher, audited Free Researcher, Driver, o
 - `tools/research_task_records.py`;
 - immutable `research_task_records/<task-id>/<publication-id>.json`.
 
-`research_task_registry.json` and `tools/research_task_registry.py` are V1 compatibility/read-only audit surfaces. They are **not** post-cutover publication authority.
+`research_task_records/<task-id>/<publication-id>.json` and `tools/research_task_records.py` are historical migration provenance. They are **not** post-cutover publication authority.
 
 Freeze:
 

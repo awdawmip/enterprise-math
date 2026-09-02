@@ -7,8 +7,8 @@
   "task_publication_contract": "research_task_publication_contract_v2.json",
   "task_registry": "research_task_records/<task-id>/<publication-id>.json",
   "canonical_dispatch": "research_control_dispatch.py",
-  "legacy_task_publication_contract": "research_task_publication_contract.json",
-  "legacy_task_registry": "research_task_registry.json",
+  "legacy_task_publication_contract": "research_task_publication_contract_v2.json",
+  "legacy_task_registry": "research_task_records/<task-id>/<publication-id>.json",
   "default_role": "RESEARCHER",
   "default_research_mode_when_explicit_task_exists": "TASK_RESEARCH",
   "identity_bootstrap": {
@@ -190,7 +190,7 @@
   "task_publication_authority": {
     "contract": "research_task_publication_contract_v2.json",
     "record_store": "research_task_records/<task-id>/<publication-id>.json",
-    "legacy_registry": "research_task_registry.json",
+    "legacy_registry": "research_task_records/<task-id>/<publication-id>.json",
     "template": "templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json",
     "tool": "tools/research_task_records.py",
     "dispatch": "tools/research_dispatch.py",

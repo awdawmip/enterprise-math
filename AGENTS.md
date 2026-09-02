@@ -2,7 +2,7 @@
 
 Status: `ACTIVE / STABLE EXECUTION ROUTER / V3.1`
 
-`AGENTS.md` is a **current execution router**. It is not a theorem catalog, project history, old-route index, or archive.
+`AGENTS.md` is a **current execution router**. It is not a theorem catalog, project history, archive index, or archive.
 
 ## 1. Mode resolution
 
@@ -129,7 +129,7 @@ Freeze:
 
 A stale replacement conversation verifies taskbook source, owner branch, live claim, remote HEAD, execution stamp and durable outputs, then adopts the existing claim and resumes the first unfinished unit. Do not re-claim or replay durable work.
 
-Scheduler `claim_lease_minutes` / `lease_until` is owner lease only. It does not prove conversation liveness.
+Runtime-policy `claim_lease_minutes` / `lease_until` is owner lease only. It does not prove conversation liveness.
 
 Canonical control dispatch is recovery-aware:
 
@@ -143,69 +143,31 @@ Immediately before final-channel output, evaluate PRE_FINAL through `tools/resea
 
 `RUNTIME_FINAL_ALLOWED_FALSE -> FINAL_CHANNEL_FORBIDDEN`.
 
-### Unified task publication / orphan prevention
+### Current task publication and runtime
 
-Canonical post-cutover task-publication surfaces:
+Current task authority is deliberately small:
 
-- `research_task_publication_contract_v2.json`;
-- `research_task_records/<task-id>/<publication-id>.json`;
-- `templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json`;
-- `tools/research_task_records.py`;
-- `tools/research_dispatch.py`.
-
-`research_task_registry.json` and `tools/research_task_registry.py` are V1 compatibility surfaces, not new publication authority. `research_scheduler.json` is a frozen legacy task-definition baseline, not a new publication path.
-
-Every new official task—Researcher, free Researcher after audit, Driver, or Foundation Steward—uses the **same taskbook template and immutable publication transaction**.
+- immutable task publication: `research_task_records/<task-id>/<publication-id>.json`;
+- publication contract/tool: `research_task_publication_contract_v2.json` and `tools/research_task_records.py`;
+- runtime policy/reducer: `research_runtime_policy_v2.json` and `tools/research_runtime_reducer.py`;
+- live routing: `research_control_dispatch.py`, `tools/research_dispatch.py`, and `tools/research_runtime_guard.py`;
+- authenticated coordination: GitHub Issue #240 server comment envelopes.
 
 Freeze:
 
 `TASKBOOK_FILE != PUBLISHED_TASK`.
 
-`OFFICIAL_NEW_TASK -> CANONICAL_TASK_REGISTRY_RECORD -> IMMUTABLE_TASK_PUBLICATION_RECORD`.
+`OFFICIAL_NEW_TASK -> IMMUTABLE_V2_TASK_PUBLICATION_RECORD`.
 
-`UNREGISTERED_NEW_TASK -> NO READY / NO CLAIM / NO EXECUTION`.
+Compatibility vocabulary only: `OFFICIAL_NEW_TASK -> CANONICAL_TASK_REGISTRY_RECORD`; in V2, that registry record is the immutable publication record above.
 
-`RESEARCHER_MAY_PUBLISH_TASK_WITHOUT_DRIVER_APPROVAL`.
+`UNPUBLISHED_TASK -> NO READY / NO CLAIM / NO EXECUTION`.
 
-Here `CANONICAL_TASK_REGISTRY_RECORD` is the compatibility name for the current immutable task-publication generation; it does not restore the V1 shared registry as write authority.
+`OWNER_LEASE != SESSION_LIVENESS`.
 
-A researcher-published task defaults to effective `P2 / MEDIUM`; publication may record a requested rank, but Driver portfolio reprioritization remains separate authority.
+Publication is a capture subflow and grants no mathematical truth, Working Truth, Foundation status, canonical promotion, or Driver authority. A stale session adopts the existing winning claim only after durable-frontier verification; it never creates a second claim.
 
-Publication never grants Working Truth, Foundation status, theorem truth, canonical promotion, or Driver authority.
-
-Every published task carries a nonempty `parent_objective_id` and `research_value` explaining why the work must not be lost.
-
-FREE Phase A cannot publish task agenda. After Phase-B audit, an eligible `AUDITED_AXIOM_CANDIDATE`, `AUDITED_REPLACEMENT_CANDIDATE`, or `EXACT_NEGATIVE_OBSTRUCTION` may be published directly by the free researcher while preserving candidate provenance.
-
-A task researcher may publish a valuable side residue without switching the current task. Publication is a SUBFLOW; after success return to the current parent objective.
-
-Legacy tasks may continue already-owned executions, but fresh redispatch/modification requires explicit immutable migration.
-
-### Canonical low-burden dispatch
-
-Canonical live control routing is `research_control_dispatch.py` over the existing fresh selectors and runtime guard:
-
-- ordinary fresh task selection: `tools/research_dispatch.py`;
-- active-cohort fresh lane selection: `tools/research_lane_dispatch.py`;
-- stale valid-owner adoption: `tools/research_runtime_guard.py adopt`;
-- immutable registered task definitions;
-- frozen legacy scheduler baseline;
-- Issue #240 runtime events;
-- result/review state.
-
-The control router must distinguish `OWNER_LEASE` from `SESSION_LIVENESS`. A fresh-selector miss is not a terminal dispatch verdict until stale-owner recovery has been excluded. Unknown liveness with a valid owner lease routes to `VERIFY_SESSION_LIVENESS`, not `NO_DISPATCH`.
-
-For a new registered execution:
-
-`VALIDATE_CURRENT_PUBLICATION -> CREATE_OR_VERIFY_BRANCH -> ONE_CLAIM -> RESEARCH`.
-
-For stale-session recovery:
-
-`VERIFY_STALE_SESSION -> VERIFY_WINNING_CLAIM_AND_DURABLE_FRONTIER -> ADOPT_SAME_CLAIM -> RESUME`.
-
-The single Issue #240 CLAIM is the execution envelope. Do not require a second pre-claim execution-record write, PR, merge, CI wait, or status poll.
-
-Live registered events are authenticated from the **same GitHub comment's server metadata**: comment ID orders events, server `created_at` supplies the event/lease clock, server author records provenance, and `updated_at` detects edits. Body `actor/at` are descriptive only. Edited event comments do not rewrite runtime history; append a new correction event instead.
+The pre-V2 control surface is physically absent from `main`. Its exact bytes and task lineage are preserved by `control_plane/legacy_control_migration_manifest.json` on `archive/legacy-control-plane-pre-v2-20260902`; normal execution does not need avoidance instructions for those files.
 
 ## 3. Identity and mandatory final footer
 
@@ -266,7 +228,7 @@ For a selected task:
 
 1. this router if not already loaded;
 2. the **exact task entry**;
-3. verify it is immutably registered or covered by an already-owned legacy continuation;
+3. verify its current immutable V2 publication and claimability;
 4. load the first exact dependency required to begin;
 5. work and expand only when a concrete dependency triggers.
 

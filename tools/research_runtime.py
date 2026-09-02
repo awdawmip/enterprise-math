@@ -31,7 +31,6 @@ TASK_REGISTRATION_STATES = {
     "DONE",
     "PARKED",
     "SUPERSEDED",
-    "LEGACY_BASELINE_REGISTERED",
 }
 SESSION_ACTIVE = "ACTIVE"
 SESSION_STALE_RECOVERABLE = "STALE_RECOVERABLE"
@@ -99,17 +98,14 @@ def require_task_registration(state: Mapping[str, Any]) -> None:
     if registration_state not in TASK_REGISTRATION_STATES:
         raise RuntimeStateError(
             "task registration is not executable: "
-            f"{registration_state or 'MISSING'}; register the task before READY/CLAIM/execution"
+            f"{registration_state or 'MISSING'}; register the task by publishing its immutable V2 record before READY/CLAIM/execution"
         )
     task_id = task.get("task_id")
     registry_key = registration.get("registry_key")
-    if registration_state != "LEGACY_BASELINE_REGISTERED":
-        if not isinstance(registry_key, str) or not registry_key.strip():
-            raise RuntimeStateError("registered task requires nonempty task_registration.registry_key")
-        if registry_key != task_id:
-            raise RuntimeStateError("task_registration.registry_key must equal task.task_id")
-    if registration_state == "LEGACY_BASELINE_REGISTERED" and registration.get("fresh_redispatch") is True:
-        raise RuntimeStateError("legacy baseline cannot authorize fresh redispatch; migrate to explicit registry record")
+    if not isinstance(registry_key, str) or not registry_key.strip():
+        raise RuntimeStateError("registered task requires nonempty task_registration.registry_key")
+    if registry_key != task_id:
+        raise RuntimeStateError("task_registration.registry_key must equal task.task_id")
 
 
 def require_canonical_state(state: Mapping[str, Any]) -> None:
@@ -183,7 +179,7 @@ def classify_session(
 
 
 def owner_claim_from_scheduler(scheduler_state: Mapping[str, Any]) -> dict[str, Any]:
-    """Map legacy scheduler claim fields to the owner-lease layer only."""
+    """Map reduced runtime claim fields to the owner-lease layer only."""
     return {
         "claim_id": scheduler_state.get("claim_id"),
         "actor": scheduler_state.get("actor"),
@@ -201,7 +197,7 @@ def dispatch_decision(
     now: datetime,
     session_liveness_minutes: int = DEFAULT_SESSION_LIVENESS_MINUTES,
 ) -> dict[str, Any]:
-    """Legacy scheduler conversation dispatch; new task existence is registry-owned."""
+    """Derive conversation dispatch from reduced runtime state."""
     owner_claim = owner_claim_from_scheduler(scheduler_state)
     dispatch_state = scheduler_state.get("dispatch_state")
     if dispatch_state == "LEASED" and owner_claim.get("claim_id"):

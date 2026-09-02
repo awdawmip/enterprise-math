@@ -76,9 +76,9 @@ class ResearchRuntimeTransitionTests(unittest.TestCase):
         with self.assertRaisesRegex(rt.RuntimeStateError, "registry_key"):
             rt.pre_final_gate(state)
 
-    def test_legacy_baseline_cannot_authorize_fresh_redispatch(self):
-        state = make_state(task_registration={"state": "LEGACY_BASELINE_REGISTERED", "fresh_redispatch": True})
-        with self.assertRaisesRegex(rt.RuntimeStateError, "fresh redispatch"):
+    def test_non_v2_registration_cannot_execute(self):
+        state = make_state(task_registration={"state": "LEGACY_BASELINE_REGISTERED"})
+        with self.assertRaisesRegex(rt.RuntimeStateError, "not executable"):
             rt.pre_final_gate(state)
 
     def test_tool_success_parent_open_next_action_physically_rejects_final_decision(self):
@@ -189,15 +189,14 @@ class ResearchRuntimeTransitionTests(unittest.TestCase):
             "SESSION_STALE + OWNER_LEASE_ACTIVE -> STALE_RECOVERABLE",
             "TASK_FROZEN -> REEVALUATE_PARENT",
             "RUNTIME_FINAL_ALLOWED_FALSE -> FINAL_CHANNEL_FORBIDDEN",
-            "OFFICIAL_NEW_TASK -> CANONICAL_TASK_REGISTRY_RECORD",
-            "RESEARCHER_MAY_PUBLISH_TASK_WITHOUT_DRIVER_APPROVAL",
+            "OFFICIAL_NEW_TASK -> IMMUTABLE_V2_TASK_PUBLICATION_RECORD",
+            "UNPUBLISHED_TASK -> NO READY / NO CLAIM / NO EXECUTION",
         ):
             self.assertIn(marker, agents)
         self.assertEqual(contract["runtime_state_machine"], "research_runtime_state_machine.json")
-        self.assertEqual(contract["task_registry"], "research_task_registry.json")
+        self.assertEqual(contract["task_record_store"], "research_task_records/<task-id>/<publication-id>.json")
         self.assertEqual(contract["publication_contract"]["researcher_driver_approval_required"], False)
-        self.assertIn("research_task_publication_contract.json", policy["policy_inputs"])
-        self.assertNotIn("research_task_registry.json", policy["policy_inputs"])
+        self.assertIn("research_task_publication_contract_v2.json", policy["policy_inputs"])
         self.assertEqual(final["final_permission_authority"], "research_runtime_state_machine.json")
         self.assertEqual(final["pre_final_permission_gate"]["evaluator"], "research_pre_final_authority.py")
         self.assertEqual(final["pre_final_permission_gate"]["registration_guard"], "tools/research_runtime_guard.py")
@@ -211,7 +210,6 @@ class ResearchRuntimeTransitionTests(unittest.TestCase):
             set(runtime["repository_tool_paths"]),
             {
                 "tools/active_turn_liveness.py",
-                "tools/check_task_registry_cutover.py",
                 "tools/research_cohort_runtime.py",
                 "tools/research_dispatch.py",
                 "tools/research_execution_records.py",
@@ -221,7 +219,7 @@ class ResearchRuntimeTransitionTests(unittest.TestCase):
                 "tools/research_runtime.py",
                 "tools/research_runtime_guard.py",
                 "tools/research_task_records.py",
-                "tools/research_task_registry.py",
+                "tools/research_runtime_reducer.py",
             },
         )
         self.assertEqual(runtime["executable_runtime"], "tools/research_runtime_guard.py")

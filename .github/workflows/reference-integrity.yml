@@ -72,8 +72,8 @@ jobs:
         run: python control_plane/check_publication_fault_isolation.py
       - name: Check immutable execution intents with exact nonlive audit isolation
         run: python control_plane/research_execution_record_audit_fault_isolation.py
-      - name: Check legacy scheduler cutover is frozen
-        run: python tools/check_task_registry_cutover.py
+      - name: Check pre-V2 control files are physically isolated
+        run: python control_plane/check_legacy_control_isolation.py
       - name: Check immutable result records and exact stale review bindings
         run: python control_plane/check_result_review_binding_fault_isolated.py
       - name: Check source-backed Driver authority provenance

@@ -16,7 +16,7 @@ def load_tool(name: str, relative: str):
 
 
 identity = load_tool("research_identity", "tools/research_identity.py")
-scheduler = load_tool("research_scheduler", "tools/research_scheduler.py")
+reducer = load_tool("research_runtime_reducer", "tools/research_runtime_reducer.py")
 
 
 class ResearchIdentityTests(unittest.TestCase):
@@ -140,7 +140,7 @@ class ResearchIdentityTests(unittest.TestCase):
         )
         self.assertEqual(payload["visible_marker"], f"Researcher-ID: {rid1} / {task}")
 
-    def test_scheduler_claim_auto_allocates_identity(self):
+    def test_runtime_claim_auto_allocates_identity(self):
         task = {
             "task_id": "RS-R012-A3A4-RELATION-GENESIS-CATEGORY-BOUNDARY",
             "base_state": "READY",
@@ -154,13 +154,13 @@ class ResearchIdentityTests(unittest.TestCase):
                 "at": "2026-08-11T00:00:00+08:00",
             }
         ]
-        state = scheduler.reduce_task(
+        state = reducer.reduce_task(
             task,
             events,
             default_lease_minutes=120,
             now=datetime(2026, 8, 10, 16, 30, tzinfo=timezone.utc),
         )
-        expected = scheduler.researcher_id_for_claim(task, "claim-alpha")
+        expected = reducer.researcher_id_for_claim(task, "claim-alpha")
         self.assertEqual(state["researcher_id"], expected)
         self.assertEqual(state["last_researcher_id"], expected)
         self.assertEqual(state["identity_source"], "AUTO_CLAIM_DERIVED")
@@ -171,7 +171,7 @@ class ResearchIdentityTests(unittest.TestCase):
             "task_id": "RS-R012-A3A4-RELATION-GENESIS-CATEGORY-BOUNDARY",
             "base_state": "READY",
         }
-        correct = scheduler.researcher_id_for_claim(task, "claim-alpha")
+        correct = reducer.researcher_id_for_claim(task, "claim-alpha")
         events = [
             {
                 "event": "CLAIM",
@@ -189,7 +189,7 @@ class ResearchIdentityTests(unittest.TestCase):
                 "progress_ref": "bad-progress",
             },
         ]
-        state = scheduler.reduce_task(
+        state = reducer.reduce_task(
             task,
             events,
             default_lease_minutes=120,
@@ -202,7 +202,7 @@ class ResearchIdentityTests(unittest.TestCase):
 
     def test_handoff_releases_live_identity_but_keeps_last(self):
         task = {"task_id": "RS-P017-GLOBAL-CAPACITY", "base_state": "READY"}
-        rid = scheduler.researcher_id_for_claim(task, "claim-a")
+        rid = reducer.researcher_id_for_claim(task, "claim-a")
         events = [
             {
                 "event": "CLAIM",
@@ -219,7 +219,7 @@ class ResearchIdentityTests(unittest.TestCase):
                 "next_action": "continue in a new conversation",
             },
         ]
-        state = scheduler.reduce_task(
+        state = reducer.reduce_task(
             task,
             events,
             default_lease_minutes=120,

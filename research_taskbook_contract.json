@@ -5,10 +5,9 @@
   "authority_source": "research_role_policy.json",
   "research_architecture": "research_architecture.json",
   "runtime_state_machine": "research_runtime_state_machine.json",
-  "task_publication_contract": "research_task_publication_contract.json",
-  "task_registry": "research_task_registry.json",
+  "task_publication_contract": "research_task_publication_contract_v2.json",
   "publication_template": "templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json",
-  "publication_tool": "tools/research_task_registry.py",
+  "publication_tool": "tools/research_task_records.py",
   "identity_state_machine": "research_identity_state_machine.json",
   "final_response_identity_policy": "final_response_identity_policy.json",
   "axiom_candidate_state_machine": "research_axiom_candidate_state_machine.json",
@@ -91,7 +90,7 @@
     "rule": "PASS or DONE on a parent task is not itself evidence for a successor. A CONTINUATION publication requires a genuine new information gap, falsifiable outcomes, kill condition and alternative-route/free-exploration consideration."
   },
   "publication_contract": {
-    "official_task_exists_only_after_registry_record": true,
+    "official_task_exists_only_after_registry_record": false,
     "researcher_may_publish": true,
     "researcher_driver_approval_required": false,
     "driver_uses_same_template": true,
@@ -101,7 +100,8 @@
     "taskbook_file_alone_is_publication": false,
     "handoff_alone_is_publication": false,
     "scheduler_entry_alone_is_publication": false,
-    "publication_completion": "REGISTRY_AUDIT_PASS"
+    "publication_completion": "IMMUTABLE_TASK_RECORD_AUDIT_PASS",
+    "official_task_exists_only_after_immutable_record": true
   },
   "runtime_terminal_contract": {
     "terminal_scopes": [
@@ -117,9 +117,9 @@
   },
   "runtime_lease_contract": {
     "taskbook_claim_lease_scope": "OWNER_CLAIM",
-    "scheduler_claim_lease_scope": "OWNER_CLAIM",
     "session_liveness_authority": "research_runtime_state_machine.json",
-    "rule": "Taskbook or scheduler lease minutes preserve ownership; they never prove the current conversation is alive."
+    "rule": "Taskbook or scheduler lease minutes preserve ownership; they never prove the current conversation is alive.",
+    "runtime_policy_claim_lease_scope": "OWNER_CLAIM"
   },
   "publisher_authority_boundary": {
     "researcher_can_publish_claimable_task": true,
@@ -145,8 +145,8 @@
     "execution_id"
   ],
   "draft_lint_gate": "python tools/research_taskbook.py audit <taskbook-path>",
-  "publication_gate": "python tools/research_task_registry.py publish --taskbook <path> --publisher-role <ROLE> --publisher-id <ID> --parent-objective-id <OBJ> --research-value <VALUE>",
-  "registry_audit_gate": "python tools/research_task_registry.py audit",
+  "publication_gate": "python tools/research_task_records.py publish --taskbook <path> --publisher-role <ROLE> --publisher-id <ID> --parent-objective-id <OBJ> --research-value <VALUE>",
+  "registry_audit_gate": "python tools/research_task_records.py audit",
   "manual_dispatch_identity_gate": "After registered publication, a Driver-mediated manual relay may preallocate a Researcher-ID outside the taskbook; registration always precedes handoff.",
   "manual_dispatch_identity_helper": "python tools/research_identity.py allocate --task <TASK> --role RESEARCHER --lane <LANE> --dispatch-id <UNIQUE_DISPATCH_ID>",
   "rules": [
@@ -161,19 +161,19 @@
     "CONTINUATION requires parent_task_id and a complete successor_gate; stage numbering or parent PASS is never a substitute.",
     "Taskbook generic repository policy is inherited rather than copied into the mathematical body.",
     "Task-specific temporary overrides cannot weaken theorem truth, safety, ownership, candidate provenance, successor gates, registry requirement, runtime terminal scope, stale-adoption integrity or final permission.",
-    "Legacy taskbooks remain historical/continuable under baseline compatibility, but any fresh redispatch, current-policy review or modification requires explicit registry migration.",
     "Taskbooks never bind a fixed runtime Researcher-ID. Publisher identity belongs to the registry record; execution identity belongs to owner/session runtime state.",
     "A stale replacement conversation adopts the existing owner claim after durable-frontier verification; registry publication does not manufacture a second execution identity.",
     "A taskbook STOP/FREEZE is TASK-terminal by default and returns the controlling runtime to the parent objective.",
     "Researcher publication of a side residue is capture, not an automatic switch away from the current task."
   ],
   "recommended_flow": [
-    "python tools/research_task_registry.py new --task-id <TASK> --title <TITLE> --publisher-role <ROLE> --parent-objective-id <OBJ> --origin-kind <ORIGIN> --lineage <LINEAGE> --output research_tasks/<FILE>.md",
+    "prepare a taskbook with tools/research_task_records.py prepare or the approved equivalent",
     "edit only task-local content and complete any successor gate",
     "run optional structural lint with tools/research_taskbook.py audit",
-    "publish through tools/research_task_registry.py publish with publisher identity and research_value",
-    "require tools/research_task_registry.py audit PASS",
-    "only then claim/dispatch/handoff the task",
-    "after publication, return to the current parent objective rather than waiting for a user wake-up message"
-  ]
+    "publish one immutable V2 task record with publisher identity and research_value",
+    "require tools/research_task_records.py audit PASS for the new transaction",
+    "only then claim or dispatch the task",
+    "after publication, return to the current parent objective"
+  ],
+  "task_record_store": "research_task_records/<task-id>/<publication-id>.json"
 }

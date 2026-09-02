@@ -76,7 +76,7 @@ All new or modified post-cutover tasks use:
 
 Allowed publishers: `RESEARCHER`, `RESEARCH_DRIVER`, `FOUNDATION_STEWARD`.
 
-`research_task_registry.json` and `tools/research_task_registry.py` are V1 read-only compatibility/audit surfaces, not post-cutover publication authority.
+`research_task_records/<task-id>/<publication-id>.json` and `tools/research_task_records.py` are historical migration provenance, not post-cutover publication authority.
 
 Freeze:
 
@@ -180,7 +180,7 @@ Canonical control dispatch is TASK exploitation infrastructure, not FREE Phase-A
 
 Raw discovery does not auto-enter Foundation backflow, and task publication does not auto-promote Foundation truth.
 
-Foundation Steward research handoffs use V2 task publication plus `research_control_dispatch.py`; they do not publish new work by editing `research_scheduler.json`.
+Foundation Steward research handoffs use V2 task publication plus `research_control_dispatch.py`; they do not publish new work by editing `research_runtime_policy_v2.json`.
 
 Recent route success is not itself roadmap evidence. Registered capture does not imply immediate selection.
 
@@ -230,7 +230,7 @@ Mathematical L4 remains one bounded active promotion attempt at a time. Strict `
 ## 15. Persistence / truth
 
 - immutable V2 task records = post-cutover task existence/provenance;
-- `research_task_registry.json` = V1 compatibility mirror only;
+- `research_task_records/<task-id>/<publication-id>.json` = V1 compatibility mirror only;
 - taskbook = task-local research content;
 - Issue #240 = sparse runtime ownership/control events;
 - immutable result/review records = terminal provenance;

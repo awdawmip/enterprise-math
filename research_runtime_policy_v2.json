@@ -1,0 +1,36 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_RUNTIME_POLICY_V2",
+  "status": "ACTIVE_CANONICAL",
+  "effective": "2026-09-02",
+  "task_definition_source": "IMMUTABLE_V2_TASK_PUBLICATIONS",
+  "task_record_store": "research_task_records/<task-id>/<publication-id>.json",
+  "event_schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1",
+  "runtime_issue": 240,
+  "event_authentication": "GITHUB_SERVER_COMMENT_ENVELOPE_REQUIRED",
+  "default_claim_lease_minutes": 120,
+  "selection_policy": {
+    "state_order": [
+      "HANDOFF_READY",
+      "READY"
+    ],
+    "priority_order": [
+      "P0",
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "leverage_order": [
+      "FOUNDATION",
+      "VERY_HIGH",
+      "HIGH",
+      "MEDIUM",
+      "LOW"
+    ]
+  },
+  "completion_rule": "TERMINAL_EVENT_PLUS_DURABLE_PROGRESS_REF",
+  "legacy_task_definition_source": null,
+  "legacy_runtime_on_main": false,
+  "mathematical_truth_authority": false,
+  "working_truth_authority": false,
+  "foundation_authority": false
+}
