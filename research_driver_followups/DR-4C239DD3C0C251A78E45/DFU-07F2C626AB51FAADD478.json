@@ -1,0 +1,72 @@
+{
+  "canonical_promotion_granted": false,
+  "created_at": "2026-09-02T05:18:05+00:00",
+  "decision": "PARENT_OBJECTIVE_CLOSURE",
+  "driver_id": "EM-DVR-G6K2P9",
+  "foundation_authority_granted": false,
+  "gate_decisions": [
+    {
+      "decision": "NOT_REQUIRED",
+      "evidence_refs": [
+        "research_returns/GEO7_BORSUK_6D_DIAMETER_PARTITION_NATIVE_BRIDGE_RETURN_20260902.md",
+        "driver_reviews/GEO7_BORSUK_6D_DIAMETER_PARTITION_NATIVE_BRIDGE_DRIVER_REVIEW_20260902.md"
+      ],
+      "gate": "MATHEMATICAL_CONTINUATION",
+      "reason": "The declared GEO7 status/native-interface Objective is complete. Current locked P000 does not supply a native metric/max-distance selector, so a native continuation would add ontology rather than complete this Objective. The surviving Euclidean upper-bound gap is routed separately under a new external objective."
+    },
+    {
+      "decision": "NOT_REQUIRED",
+      "evidence_refs": [],
+      "gate": "LEAN_FORMALIZATION",
+      "reason": "The accepted Result is RESULT_ONLY and requests no formalization, Foundation or L4 destination."
+    },
+    {
+      "decision": "SATISFIED_BY_REVIEWED_RESULT",
+      "evidence_refs": [
+        "research_artifacts/GEO7_BORSUK_6D_DIAMETER_PARTITION_NATIVE_BRIDGE/source_manifest_20260902.json",
+        "driver_reviews/GEO7_BORSUK_6D_DIAMETER_PARTITION_NATIVE_BRIDGE_DRIVER_REVIEW_20260902.md"
+      ],
+      "gate": "EXTERNAL_PRIOR_ART_DUPLICATION",
+      "reason": "The source manifest classifies general metric Borsuk number, maximum-distance coloring and generalized Borsuk graph machinery as prior art, keeps preprints publication-typed, and grants no novelty from NO_MATERIAL_MATCH."
+    },
+    {
+      "decision": "NOT_REQUIRED",
+      "evidence_refs": [
+        "research_checks/GEO7_BORSUK_6D_DIAMETER_PARTITION_NATIVE_BRIDGE_CHECK_20260902.py"
+      ],
+      "gate": "INDEPENDENT_REPLICATION",
+      "reason": "No canonical or Foundation promotion is requested. The decisive finite claims have direct elementary proofs plus exhaustive deterministic six-label verification, and the Driver independently audited the current external source boundary."
+    },
+    {
+      "decision": "NOT_REQUIRED",
+      "evidence_refs": [
+        "research_returns/GEO7_BORSUK_6D_DIAMETER_PARTITION_NATIVE_BRIDGE_RETURN_20260902.md"
+      ],
+      "gate": "INTEGRATION_OR_TOOL_HARVEST",
+      "reason": "Method harvest is RESULT_ONLY; the existing graph_distance helper is reused and no general-purpose project tool is introduced."
+    },
+    {
+      "decision": "SATISFIED_BY_REVIEWED_RESULT",
+      "evidence_refs": [
+        "research_checks/GEO7_BORSUK_6D_DIAMETER_PARTITION_NATIVE_BRIDGE_CHECK_20260902.py",
+        "research_artifacts/GEO7_BORSUK_6D_DIAMETER_PARTITION_NATIVE_BRIDGE/finite_metric_certificate_20260902.json",
+        "driver_reviews/GEO7_BORSUK_6D_DIAMETER_PARTITION_NATIVE_BRIDGE_DRIVER_REVIEW_20260902.md"
+      ],
+      "gate": "ADVERSARIAL_AUDIT",
+      "reason": "All 32767 nonempty six-label graphs and all 203 set partitions are checked at the frozen metric interface; same-readout beta=3 versus beta=2 models directly falsify any inference from six labels to a unique Borsuk invariant."
+    }
+  ],
+  "packet_id": "DFU-07F2C626AB51FAADD478",
+  "parent_objective_id": "OBJ-EXTERNAL-GEOMETRY-BORSUK-DIAMETER-PARTITION-20260902",
+  "policy": "AUTO_PUBLISH_TASKSET_OR_PARENT_CLOSE_V1",
+  "result_id": "RR-440E83B6F8C06F0808D8",
+  "review_destination_class": "ARCHIVE",
+  "review_disposition": "ACCEPTED",
+  "review_id": "DR-4C239DD3C0C251A78E45",
+  "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_FOLLOWUP_V1",
+  "source_next_control_plane_recommendation": "DRIVER_REVIEW this mixed exact finite theorem plus current-language no-go. Do not publish a successor that merely chooses a metric by fiat; continue only after an independently accepted native selector or under a separately published external Euclidean b(6) bound-improvement task.",
+  "source_publication_id": "TP2-A8D4C16E5B2097F3A621",
+  "task_id": "RS-GEO7-BORSUK-6D-DIAMETER-PARTITION-NATIVE-BRIDGE",
+  "task_publications": [],
+  "working_truth_granted": false
+}
