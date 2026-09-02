@@ -1,0 +1,51 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-E580A49AAAC8D91FE3C4",
+  "task_id": "RS-R037-R033-R034-INDEPENDENT-ALGORITHM-DATA-REPLICATION-AUDIT",
+  "publication_id": "TP2-FEE5990D460CCB106345",
+  "execution_record_id": "ER-8C1B932DC2012F23AD4C",
+  "claim_id": "chatgpt-r037-v2pres-20260902-1310-785730",
+  "taskbook_path": "research_tasks/LEGACY_CONTROL_MIGRATION_RS_R037_R033_R034_INDEPENDENT_ALGORITHM_DATA_REPLICATION_AUDIT_20260902.md",
+  "taskbook_blob_sha1": "sha1:16f7343d8087e0eb43b4af697de9785139539cc8",
+  "execution_branch": "research/r037-v2-preservation-audit-em-r037-785730",
+  "execution_branch_base": "ba50319daed74a660409b932c2cc0b464b2dbf82",
+  "return_path": "research_returns/R037_R033_R034_V2_PRESERVATION_AUDIT_RETURN_20260902.md",
+  "return_blob_sha1": "sha1:4f7bd91daa841825620410f77a32f300a580f7d4",
+  "return_sha256": "sha256:fb3d81d82b5aa6a01c1eba5c3be9ddd3aeef79a0c4c02e80b07720199b2168d1",
+  "owner_head": "126bb0f3f1a8e5a6bc4870af0ac6a0583f3348b9",
+  "researcher_id": "EM-R037-785730",
+  "frozen_at": "2026-09-02T05:25:00+00:00",
+  "terminal_verdict": "SUCCESS",
+  "terminal_state": "V2_PRESERVATION_CONFIRMED_AT_CUTOVER_SEMANTICS",
+  "hard_target_disposition": "R037_IMMUTABLE_V2_TASK_PRESERVATION / MET / IDENTITY_OWNER_P0_HIGH_FRONTIER_HANDOFF_PROGRESS_AND_DRIVER_NEXT_ACTION_PRESERVED_WITHOUT_SYNTHETIC_CUTOVER_OWNER",
+  "unresolved_residue": "Historical seed metadata is not byte-identical: satisfied dependency action labels were normalized to TEST and claim lease 1440->120; both are pinned as nonblocking caveats. Driver still must review the earlier mathematical/provenance result in PR #812 separately.",
+  "output_manifest": [
+    {
+      "path": "research_execution_records/RS-R037-R033-R034-INDEPENDENT-ALGORITHM-DATA-REPLICATION-AUDIT/ER-8C1B932DC2012F23AD4C.json",
+      "git_blob_sha1": "sha1:a6dda0c7af47b14ace2e30d533a1122dddf1cc5d",
+      "sha256": "sha256:d68246e5ee4ffb6f5124daf8bcb63cd778058adfd3c3aca4c667ee3e4abf41cf"
+    },
+    {
+      "path": "research_checks/R037_R033_R034_V2_PRESERVATION_AUDIT_CHECK_20260902.py",
+      "git_blob_sha1": "sha1:7ce57093c9ffa7951c9d3531c9aebeed6f05f016",
+      "sha256": "sha256:186aaba2c46c2c5f208c8dc3f6ac089d2601cea47d84e15d6102f27adbfc38e1"
+    },
+    {
+      "path": "research_artifacts/R037_R033_R034_V2_PRESERVATION_AUDIT/preservation_certificate_20260902.json",
+      "git_blob_sha1": "sha1:81ddd255108a13941c44be40a2fe5aad3dc91745",
+      "sha256": "sha256:fb638bf33aa0674505d92e4fa526754d1387b33b3796eff6a9dff5db85df85d7"
+    },
+    {
+      "path": "research_returns/R037_R033_R034_V2_PRESERVATION_AUDIT_RETURN_20260902.md",
+      "git_blob_sha1": "sha1:4f7bd91daa841825620410f77a32f300a580f7d4",
+      "sha256": "sha256:fb3d81d82b5aa6a01c1eba5c3be9ddd3aeef79a0c4c02e80b07720199b2168d1"
+    }
+  ],
+  "checker_summary": "REMOTE_EVIDENCE_CROSSCHECK_PASS; deterministic checker committed. Canonical publication/taskbook blobs, cutover source row, migration manifest row, authenticated HANDOFF overlay and historical normalization caveat were cross-checked through the repository connector; no clone was created solely to execute the script.",
+  "method_harvest": "RESULT_ONLY / CUTOVER_STATIC_DEFINITION_PLUS_AUTHENTICATED_RUNTIME_OVERLAY_PRESERVATION_AUDIT",
+  "method_reuse": "Reused immutable publication blob binding, migration-manifest provenance and Issue #240 authenticated HANDOFF as typed control-plane evidence. Added a deterministic git-show based checker and explicit distinction between cutover-semantic preservation and historical byte identity; no new mathematical theorem or general-purpose research tool is proposed.",
+  "independence_status": "CONTROL_PLANE_PRESERVATION_AUDIT; intentionally consumed canonical migration artifacts and authenticated scheduler events; R033/R034 mathematics was not replayed or re-graded.",
+  "source_exposure_status": "CANONICAL_CONTROL_SOURCE_EXPOSURE_ONLY / HISTORICAL_TASKBOOK_PINNED / PRIOR_R037_HANDOFF_CONSUMED_AS_RUNTIME_PROVENANCE / NO_NEW_BLIND_MATHEMATICAL_CLAIM",
+  "next_control_plane_recommendation": "DRIVER_REVIEW this preservation result separately from PR #812. If accepted, treat R037 V2 migration as semantically preserved at cutover and do not redispatch the already returned R033/R034 math; reissue only a narrowly scoped clean R034 replication successor if strict blind provenance is required.",
+  "driver_review_required": true
+}
