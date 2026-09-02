@@ -51,21 +51,21 @@ theorem swap01Edge_delta (v : VertexData) :
     swap01Edge (delta v) = delta (swap01Vertex v) := by
   funext i
   fin_cases i <;>
-    simp [swap01Edge, delta, swap01Vertex] <;> ring
+    simp [swap01Edge, delta, swap01Vertex, add_comm]
 
 /-- The coordinate incidence map is equivariant for `(1 2)`. -/
 theorem swap12Edge_delta (v : VertexData) :
     swap12Edge (delta v) = delta (swap12Vertex v) := by
   funext i
   fin_cases i <;>
-    simp [swap12Edge, delta, swap12Vertex] <;> ring
+    simp [swap12Edge, delta, swap12Vertex, add_comm]
 
 /-- The coordinate incidence map is equivariant for `(2 3)`. -/
 theorem swap23Edge_delta (v : VertexData) :
     swap23Edge (delta v) = delta (swap23Vertex v) := by
   funext i
   fin_cases i <;>
-    simp [swap23Edge, delta, swap23Vertex] <;> ring
+    simp [swap23Edge, delta, swap23Vertex, add_comm]
 
 @[simp] theorem swap01Edge_edgeSub (x y : EdgeData) :
     swap01Edge (edgeSub x y) = edgeSub (swap01Edge x) (swap01Edge y) := by
@@ -138,7 +138,7 @@ theorem swap12Edge_normalForm (p q : ℤ) (ε : Bool) :
   constructor
   · funext i
     fin_cases i <;> cases ε <;>
-      simp [matching, swap12Edge, normalForm, bitInt] <;> ring
+      simp [matching, swap12Edge, normalForm, bitInt]
   · refine ⟨0, ?_⟩
     cases ε <;> simp [edgeSub, swap12Edge, normalForm, bitInt]
 
@@ -152,7 +152,7 @@ theorem swap23Edge_normalForm (p q : ℤ) (ε : Bool) :
   constructor
   · funext i
     fin_cases i <;> cases ε <;>
-      simp [matching, swap23Edge, normalForm, bitInt] <;> ring
+      simp [matching, swap23Edge, normalForm, bitInt]
   · refine ⟨0, ?_⟩
     cases ε <;> simp [edgeSub, swap23Edge, normalForm, bitInt]
 
@@ -167,10 +167,10 @@ theorem swap01Edge_normalForm_even
   constructor
   · funext i
     fin_cases i <;> cases ε <;>
-      simp [matching, swap01Edge, normalForm, bitInt] <;> ring
+      simp [matching, swap01Edge, normalForm, bitInt]
   · refine ⟨-k, ?_⟩
     cases ε <;>
-      simp [edgeSub, swap01Edge, normalForm, bitInt, hp] <;> ring
+      simp [edgeSub, swap01Edge, normalForm, bitInt, hp]
 
 /-- If `p` is odd, the transposition `(0 1)` has the same free action as
 `(2 3)` but flips the parity bit. -/
@@ -184,16 +184,14 @@ theorem swap01Edge_normalForm_odd
   constructor
   · funext i
     fin_cases i <;> cases ε <;>
-      simp [matching, swap01Edge, normalForm, bitInt, flipBit] <;> ring
+      simp [matching, swap01Edge, normalForm, bitInt, flipBit]
   · cases ε with
     | false =>
         refine ⟨-k - 1, ?_⟩
         simp [edgeSub, swap01Edge, normalForm, bitInt, flipBit, hp]
-        ring
     | true =>
         refine ⟨-k, ?_⟩
         simp [edgeSub, swap01Edge, normalForm, bitInt, flipBit, hp]
-        ring
 
 /-- Every integral free coordinate falls into exactly the two displayed
 cocycle cases: even `p` preserves `ε`, odd `p` translates `ε` by the nonzero
@@ -247,39 +245,51 @@ def action01F2 (c : ResidualF2) : ResidualF2 :=
   ((c.1.1, c.1.1 + c.1.2), c.2 + c.1.1)
 
 /-- The three generator formulas are additive. -/
-theorem action12F2_add (x y : ResidualF2) :
-    action12F2 (x + y) = action12F2 x + action12F2 y := by
-  rcases x with ⟨⟨p, q⟩, ε⟩
-  rcases y with ⟨⟨p', q'⟩, ε'⟩
-  rfl
+theorem action12F2_add :
+    ∀ x y : ResidualF2,
+      action12F2 (x + y) = action12F2 x + action12F2 y := by
+  native_decide
 
-theorem action23F2_add (x y : ResidualF2) :
-    action23F2 (x + y) = action23F2 x + action23F2 y := by
-  rcases x with ⟨⟨p, q⟩, ε⟩
-  rcases y with ⟨⟨p', q'⟩, ε'⟩
-  ext <;> simp [action23F2] <;> ring
+theorem action23F2_add :
+    ∀ x y : ResidualF2,
+      action23F2 (x + y) = action23F2 x + action23F2 y := by
+  native_decide
 
-theorem action01F2_add (x y : ResidualF2) :
-    action01F2 (x + y) = action01F2 x + action01F2 y := by
-  rcases x with ⟨⟨p, q⟩, ε⟩
-  rcases y with ⟨⟨p', q'⟩, ε'⟩
-  ext <;> simp [action01F2] <;> ring
+theorem action01F2_add :
+    ∀ x y : ResidualF2,
+      action01F2 (x + y) = action01F2 x + action01F2 y := by
+  native_decide
 
 /-- Each adjacent-transposition formula is an involution. -/
-theorem action12F2_involutive (c : ResidualF2) :
-    action12F2 (action12F2 c) = c := by
-  rcases c with ⟨⟨p, q⟩, ε⟩
-  rfl
+theorem action12F2_involutive :
+    ∀ c : ResidualF2, action12F2 (action12F2 c) = c := by
+  native_decide
 
-theorem action23F2_involutive (c : ResidualF2) :
-    action23F2 (action23F2 c) = c := by
-  rcases c with ⟨⟨p, q⟩, ε⟩
-  ext <;> simp [action23F2] <;> ring
+theorem action23F2_involutive :
+    ∀ c : ResidualF2, action23F2 (action23F2 c) = c := by
+  native_decide
 
-theorem action01F2_involutive (c : ResidualF2) :
-    action01F2 (action01F2 c) = c := by
-  rcases c with ⟨⟨p, q⟩, ε⟩
-  ext <;> simp [action01F2] <;> ring
+theorem action01F2_involutive :
+    ∀ c : ResidualF2, action01F2 (action01F2 c) = c := by
+  native_decide
+
+/-- The three generators satisfy the Coxeter relations for `S₄`. -/
+theorem action01_action12_braid :
+    ∀ c : ResidualF2,
+      action01F2 (action12F2 (action01F2 c)) =
+        action12F2 (action01F2 (action12F2 c)) := by
+  native_decide
+
+theorem action12_action23_braid :
+    ∀ c : ResidualF2,
+      action12F2 (action23F2 (action12F2 c)) =
+        action23F2 (action12F2 (action23F2 c)) := by
+  native_decide
+
+theorem action01_action23_commute :
+    ∀ c : ResidualF2,
+      action01F2 (action23F2 c) = action23F2 (action01F2 c) := by
+  native_decide
 
 /-- Free-coordinate basis vectors and the torsion generator. -/
 def freeP : ResidualF2 := ((1, 0), 0)
@@ -289,24 +299,38 @@ def freeQ : ResidualF2 := ((0, 1), 0)
 def torsionF2 : ResidualF2 := ((0, 0), 1)
 
 @[simp] theorem action12F2_freeP : action12F2 freeP = freeQ := by
-  norm_num [action12F2, freeP, freeQ]
+  native_decide
 
 @[simp] theorem action23F2_freeP :
     action23F2 freeP = freeP + freeQ := by
-  norm_num [action23F2, freeP, freeQ]
+  native_decide
 
 @[simp] theorem action01F2_freeP :
     action01F2 freeP = freeP + freeQ + torsionF2 := by
-  norm_num [action01F2, freeP, freeQ, torsionF2]
+  native_decide
 
 @[simp] theorem action12F2_torsion : action12F2 torsionF2 = torsionF2 := by
-  norm_num [action12F2, torsionF2]
+  native_decide
 
 @[simp] theorem action23F2_torsion : action23F2 torsionF2 = torsionF2 := by
-  norm_num [action23F2, torsionF2]
+  native_decide
 
 @[simp] theorem action01F2_torsion : action01F2 torsionF2 = torsionF2 := by
-  norm_num [action01F2, torsionF2]
+  native_decide
+
+/-- A hidden double transposition: it is invisible on the free pair and
+translates the torsion coordinate by the first free parity. -/
+def hiddenDoubleSwapF2 (c : ResidualF2) : ResidualF2 :=
+  action01F2 (action23F2 c)
+
+theorem hiddenDoubleSwapF2_formula :
+    ∀ c : ResidualF2,
+      hiddenDoubleSwapF2 c = ((c.1.1, c.1.2), c.2 + c.1.1) := by
+  native_decide
+
+@[simp] theorem hiddenDoubleSwapF2_freeP :
+    hiddenDoubleSwapF2 freeP = freeP + torsionF2 := by
+  native_decide
 
 /-- There is no additive projection to the torsion coordinate which both sends
 the torsion generator to `1` and is invariant under the three adjacent
@@ -324,9 +348,7 @@ theorem no_adjacent_swap_invariant_torsion_retraction :
   have hP0 : r freeP = 0 := by
     have h := h23 freeP
     rw [action23F2_freeP, r.map_add, hPQ] at h
-    have hz : (0 : ZMod 2) = r freeP := by
-      simpa using h
-    exact hz.symm
+    simpa using h
   have h := h01 freeP
   rw [action01F2_freeP, r.map_add, r.map_add, hPQ, ht, hP0] at h
   norm_num at h
