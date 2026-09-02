@@ -58,7 +58,13 @@ theorem edgeSum_kernelEdge (a b c : ℤ) :
 theorem matchingSums_kernelEdge (a b c : ℤ) :
     matchingSums (kernelEdge a b c) = 0 := by
   funext i
-  fin_cases i <;> norm_num [matchingSums, kernelEdge]
+  fin_cases i
+  · change a + -a = 0
+    ring
+  · change b + -b = 0
+    ring
+  · change c + -c = 0
+    ring
 
 /-- Existence of an integer zero-sum slice potential inducing a kernel edge. -/
 def HasZeroSumPreimage (a b c : ℤ) : Prop :=
