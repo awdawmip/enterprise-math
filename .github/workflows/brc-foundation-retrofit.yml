@@ -1,0 +1,28 @@
+name: brc-foundation-retrofit
+
+on:
+  pull_request:
+    paths:
+      - 'definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md'
+      - 'research_notes/BRC_FOUNDATION_RETROFIT_REGRESSION_20260902.md'
+      - 'experiments/brc_foundation_retrofit_check.py'
+      - '.github/workflows/brc-foundation-retrofit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md'
+      - 'research_notes/BRC_FOUNDATION_RETROFIT_REGRESSION_20260902.md'
+      - 'experiments/brc_foundation_retrofit_check.py'
+      - '.github/workflows/brc-foundation-retrofit.yml'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Exact old-research regression under Weighted/Log BRC Foundation
+        run: python experiments/brc_foundation_retrofit_check.py
