@@ -118,9 +118,9 @@ for p, value in enumerate(projector_values):
 check("projector_kills_theta3", projector((Fraction(125), Fraction(0))) ==
       (Fraction(0), Fraction(0)))
 
-# On W_K the polynomial t^2-234t+15625 has negative discriminant
-# -7744, hence no rational eigenvalue. Any nonzero rational vector w has
-# {w,u^*w} Q-linearly independent and spans the 2D W_K.
+# On W_K the polynomial t^2-234t+15625 has negative non-square rational
+# discriminant -7744=-88^2, hence no rational eigenvalue. Any nonzero rational
+# vector w has {w,u^*w} Q-linearly independent and spans the 2D W_K.
 discriminant = 234*234 - 4*15625
 check("WK_minpoly_discriminant", discriminant == -7744)
 check("WK_minpoly_no_rational_root", discriminant < 0)
