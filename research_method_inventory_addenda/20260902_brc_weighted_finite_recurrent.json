@@ -1,6 +1,6 @@
 {
   "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
-  "status": "FOUNDATION_GLOBAL_SUBTOOL_CANDIDATE",
+  "status": "FOUNDATION_GLOBAL_SUBTOOL",
   "date": "2026-09-02",
   "methods": [
     {
@@ -8,7 +8,7 @@
       "name": "Finite recurrent positive Weighted-BRC rational gauge calculus",
       "classification": "GLOBAL_SUBTOOL",
       "family_id": "T0_BRC",
-      "status": "FOUNDATION_GLOBAL_SUBTOOL_CANDIDATE",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
       "source_refs": [
         "definitions/ENTERPRISE_BRC_FINITE_RECURRENT_FOUNDATION_20260902.md",
         "definitions/ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json",
@@ -46,7 +46,7 @@
         "pure integer divergence-certificate verification",
         "one-state reduction to the existing S<1 recurrent law"
       ],
-      "core_law": "For finite W in M_n(Q_{>=0}), total all-depth mass is finite iff exists h>0 rational with Wh<h. Then W*=(I-W)^-1 exactly and x=W*1 is the canonical potential. After W=A/D, stability iff exists positive integer h with Ah<Dh; otherwise a nonzero y>=0 exists with y^T A>=D y^T. A positive diagonal gauge localizes stability to row sums <1 and preserves closed-cycle products.",
+      "core_law": "For finite W in M_n(Q_{>=0}), total all-depth mass is finite iff exists h>0 rational with Wh<h. Then W^star=(I-W)^-1 exactly and x=W^star 1 is the canonical potential. After W=A/D, stability iff exists positive integer h with Ah<Dh; otherwise a nonzero y>=0 exists with y^T A>=D y^T. A positive diagonal gauge localizes stability to row sums <1 and preserves closed-cycle products.",
       "hard_boundary": "Finite non-negative rational total-mass projection only. No infinite-state theorem, signed/amplitude cancellation, complex recurrence, arbitrary-real exact-weight promise, probability/Markov semantics, or claim that dominant-path contraction alone implies total-mass stability."
     }
   ]
