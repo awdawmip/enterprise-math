@@ -1,6 +1,6 @@
 # Enterprise Math — Current Native Foundation Router
 
-Status: `ACTIVE / STABLE CURRENT ROUTER / P000-BOUND / FCC-CARRIER-SELECTED / LAZY LOAD`
+Status: `ACTIVE / STABLE CURRENT ROUTER / P000-BOUND / FCC-CARRIER-SELECTED / WEIGHTED-BRC-GLOBAL-BASE / LAZY LOAD`
 Date: `2026-09-02`
 Purpose: route current native mathematics without loading unrelated results.
 
@@ -32,19 +32,51 @@ P000 is an unconditional project starting axiom. It has no proof obligation, no 
 
 Do not infer world dimension from classical carrier rank, affine redundancy, Euclidean embedding dimension, projection dimension or visualizability.
 
+## Universal branch-typing foundation
+
+All research modes now inherit the minimal branch-typing substrate:
+
+`ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json`.
+
+Its role is type discipline, not agenda selection. In particular:
+
+- declared branch multiplicity/positive weight is not silently discarded to Boolean support;
+- finite positive-rational branch systems have the shared exact CWM carrier `(C,W,M)` available;
+- `E=W/M` and `Delta=LN(E)` are derived readout coordinates;
+- positive Weighted-BRC does not replace signed/amplitude data;
+- deterministic single-path problems reduce to `E=1`, `Delta=0`;
+- canonical R023 Boolean support remains the base support semantics;
+- no general SCC spectral theorem is assumed.
+
+Detailed statements are routed by:
+
+`ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json`.
+
+Reusable executable method:
+
+`t0.weighted_brc_cwm` -> `src/enterprise_math/brc_weighted.py`.
+
+Freeze:
+
+`GLOBAL_FOUNDATION_CAPABILITY != FORCED_BRC_INTERPRETATION`.
+
+`ALL_RESEARCH_CAN_USE_WEIGHTED_BRC_WHEN_TYPED_HYPOTHESES_APPLY`.
+
 ## Current canonical registry
 
 1. P000 world/dimension typing — `../p000_reality_foundation.json`;
-2. **primary six-axis rotational coordinate carrier** — `P000_FCC_PRIMARY_COORDINATE_CARRIER_20260829.md`;
-3. established three-axis research slice / coordinates — `ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`;
-4. native line trace — `ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`;
-5. arbitrary-point directed gauge — `ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`;
-6. unoriented bidirectional segment — `ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md`;
-7. BRC × native multipath — `ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md`;
-8. BRC weighted/log foundation extension — `ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md` when branch multiplicity, positive weight, log surplus, weighted quotient/gauge, or recurrent branch stability is material;
-9. path-valued square root — `ENTERPRISE_PATH_VALUED_SQUARE_ROOT_OPERATOR_20260821.md` when a selected task actually uses it.
+2. **all-research Weighted-BRC minimal substrate** — `ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json`;
+3. BRC weighted/log detailed foundation — `ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md`;
+4. BRC weighted/log theorem ledger — `ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json`;
+5. **primary six-axis rotational coordinate carrier** — `P000_FCC_PRIMARY_COORDINATE_CARRIER_20260829.md`;
+6. established three-axis research slice / coordinates — `ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`;
+7. native line trace — `ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`;
+8. arbitrary-point directed gauge — `ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`;
+9. unoriented bidirectional segment — `ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md`;
+10. BRC × native multipath — `ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md`;
+11. path-valued square root — `ENTERPRISE_PATH_VALUED_SQUARE_ROOT_OPERATOR_20260821.md` when a selected task actually uses it.
 
-Do not preload the registry. Load only the object required by the current task, except P000 when dimensional/spatial semantics are material and the FCC carrier definition when global coordinate/rotation semantics are material.
+The minimal Weighted-BRC substrate is universal. Other registry entries remain lazy: load only the exact object required by the current problem, except P000 when dimensional/spatial semantics are material and the FCC carrier definition when global coordinate/rotation semantics are material.
 
 ## Primary coordinate carrier — FCC rotational atlas
 
@@ -120,7 +152,7 @@ The following current facts remain exact **inside the established three-axis sli
 - unoriented endpoint pair = bidirectional trace pair + bidirectional length spectrum;
 - `CANONICAL_BRC_BASE_LAYER=BOOLEAN_RESULT_SUPPORT_SEMANTICS`;
 - current Boolean BRC enrichment: `PATH_FORMAL_BRC -> N_BRC -> BOOLEAN_BRC`;
-- positive weighted/log BRC is a separately typed current foundation extension and does not mutate the Boolean base.
+- positive weighted/log BRC is a separately typed global research foundation and does not mutate the Boolean base.
 
 Retyping guard:
 
@@ -136,31 +168,23 @@ Retyping guard:
 
 The exact native six-axis address equivalence, global metric and native six-dimensional rotation group remain research targets. The FCC carrier is the selected coordinate realization for attacking those targets; its classical linear relations are not native identities.
 
-## BRC weighted/log research foundation layer
+## Weighted-BRC theorem/tool activation
 
-When a declared research problem retains branch multiplicity or positive weights, load `ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md`.
+When the actual research object has typed positive branching, load only the theorem/tool pieces required by the question.
 
-Current foundation-level interface:
+Core current interface:
 
-- finite positive-rational branch transfer may be summarized by the exact CWM carrier `(C,W,M)` = path count, total path mass, dominant path mass;
-- CWM recoalescence is `(+,+,max)` and path propagation is componentwise multiplication;
-- Boolean support is a forgetful image only under an admissible zerosumfree/no-zero-divisor weighted carrier;
-- live finite branch families have effective multiplicity `E=W/M` and log surplus `Delta=ln(W/M)`, with `0 <= Delta <= ln C`; equal `k`-fold recoalescence has `Delta=ln k`;
-- ordinary all-prefix weighted-safe quotient equality is equality of complete declared-target future CWM transfer vectors;
-- projective/gauge equivalence may factor a common positive scale from future `(W,M)` only with compensating incoming-weight transport; `Delta` remains invariant;
-- for one-state positive recurrent loop families, total sum-product mass is stable iff the one-step total loop mass `S<1`, while max-path boundedness only requires `Q<=1`; equal `k` loops of weight `q` satisfy the exact multiplicity-corrected threshold `ln q < -ln k`.
+- `WBRC-T01`: CWM semiring path carrier;
+- `WBRC-T02`: exact positive-path realizability;
+- `WBRC-T03`: Boolean support homomorphism criterion;
+- `WBRC-T04/T05`: effective multiplicity and log surplus;
+- `WBRC-T06`: all-prefix future-CWM safe quotient;
+- `WBRC-T07`: projective/gauge-compensated quotient;
+- `WBRC-T08/T09/T10`: exact one-state recurrent positive-branch closure;
+- `WBRC-T11`: deterministic degeneration;
+- `WBRC-N01..N05`: signed/zero-divisor/quotient/local/general-SCC negative boundaries.
 
-Hard guards:
-
-`WEIGHTED_BRC != BOOLEAN_R023_MUTATION`.
-
-`POSITIVE_WEIGHTED_BRC != SIGNED_AMPLITUDE_CANCELLATION`.
-
-`LN_LOG = DERIVED_EXACT_READOUT, NOT PRIMITIVE_NATIVE_STATE`.
-
-`FINITE_DAG_CWM_COUNT != FINITE_COUNT_ON_RECURRENT_CLOSURE`.
-
-`ONE_STATE_CYCLIC_RESULT != GENERAL_SCC_SPECTRAL_THEOREM`.
+Use `t0.weighted_brc_cwm` for executable exact operations. `LN` is materialized only through the existing BRC logarithm runtime when a log readout is genuinely required.
 
 ## First native layer versus carrier polyhedra
 
@@ -195,21 +219,25 @@ The seventh dimension is time and is separately typed from the six spatial axes.
 
 ## FREE / TASK boundary
 
-FREE Phase A does **not** use this current-result router. It uses:
+FREE Phase A uses:
 
-`definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md`.
+`p000_reality_foundation.json + definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md + definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json`.
 
-P000 is nevertheless part of the primitive substrate and precedes free question generation.
+It does not preload this full router, the theorem ledger, prior successful applications, or the tool catalog merely to choose a question.
 
-This router is for TASK research, Driver/current-state review, and FREE Phase B after candidate freeze.
+TASK research, Driver/current-state review, Foundation Steward work and FREE Phase B may use this full router normally.
 
-The weighted/log BRC extension is therefore available to TASK research and Phase-B comparison, but is not injected into blind FREE Phase A merely because it is successful downstream mathematics.
+Thus the former rule “Weighted-BRC is excluded from FREE Phase A because it is downstream success” is superseded only at the **minimal substrate** level by the explicit user promotion. Anti-anchoring remains in force for detailed theorem/application/tool menus.
 
 ## Authority
 
 For current mathematics:
 
-`P000_ROOT_AXIOM -> USER-DIRECTED_COORDINATE_CARRIER_CONVENTION -> EXACT_CURRENT_CANONICAL_DEFINITION -> THIS_ROUTER_SUMMARY`.
+`P000_ROOT_AXIOM + USER_PROMOTED_GLOBAL_BRANCH_SUBSTRATE -> EXACT_CURRENT_CANONICAL_DEFINITION -> THIS_ROUTER_SUMMARY`.
+
+For the universal Weighted-BRC type commitments, `ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json` controls.
+
+For detailed theorem scope, `ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json` controls.
 
 Project mission/routing is defined by `PROJECT_DEFINITION.md`, `PROJECT_DEFINITION.zh-CN.md`, and current machine governance.
 
