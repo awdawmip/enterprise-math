@@ -60,13 +60,17 @@ theorem even_firstThree_of_deltaEquivalent {x y : EdgeData}
     (h : DeltaEquivalent x y) :
     ∃ k : ℤ, edgeSub x y 0 + edgeSub x y 1 + edgeSub x y 2 = 2 * k := by
   rcases h with ⟨v, hv, hd⟩
-  have h0 := congrFun hd (0 : Fin 6)
-  have h1 := congrFun hd (1 : Fin 6)
-  have h2 := congrFun hd (2 : Fin 6)
-  simp [delta, edgeSub] at h0 h1 h2
+  have h0 : v 0 + v 1 = edgeSub x y 0 := by
+    simpa [delta] using congrFun hd (0 : Fin 6)
+  have h1 : v 0 + v 2 = edgeSub x y 1 := by
+    simpa [delta] using congrFun hd (1 : Fin 6)
+  have h2 : v 0 + v 3 = edgeSub x y 2 := by
+    simpa [delta] using congrFun hd (2 : Fin 6)
   have hv' : v 0 + v 1 + v 2 + v 3 = 0 := by
     simpa [vertexSum] using hv
-  exact ⟨v 0, by omega⟩
+  refine ⟨v 0, ?_⟩
+  rw [← h0, ← h1, ← h2]
+  omega
 
 /-- Equality of opposite-pair coordinates puts the difference in the matching
 kernel. -/
@@ -148,13 +152,12 @@ def normalForm (p q : ℤ) (ε : Bool) : EdgeData :=
 
 @[simp] theorem edgeSum_normalForm (p q : ℤ) (ε : Bool) :
     edgeSum (normalForm p q ε) = 0 := by
-  cases ε <;> simp [edgeSum, normalForm, bitInt] <;> ring
+  cases ε <;> (simp [edgeSum, normalForm, bitInt]; ring)
 
 @[simp] theorem matching_normalForm (p q : ℤ) (ε : Bool) :
     matching (normalForm p q ε) = ![p, q, -p - q] := by
   funext i
-  fin_cases i <;> cases ε <;>
-    simp [matching, normalForm, bitInt] <;> ring
+  fin_cases i <;> cases ε <;> simp [matching, normalForm, bitInt]
 
 @[simp] theorem firstThree_normalForm (p q : ℤ) (ε : Bool) :
     normalForm p q ε 0 + normalForm p q ε 1 + normalForm p q ε 2 =
@@ -201,7 +204,7 @@ theorem exists_normalForm (x : EdgeData) (hx : edgeSum x = 0) :
     rw [hx] at hsum
     linarith
   have hm (ε : Bool) :
-      matching x = normalForm (matching x 0) (matching x 1) ε |> matching := by
+      matching x = matching (normalForm (matching x 0) (matching x 1) ε) := by
     funext i
     fin_cases i
     · simp
@@ -283,12 +286,12 @@ theorem normalClassMap_bijective : Function.Bijective normalClassMap := by
 
 /-- Exact set-level classification of the zero-sum integral residual quotient
 as two free integer coordinates plus one order-two bit. -/
-def normalCoordinateEquiv :
+noncomputable def normalCoordinateEquiv :
     ((ℤ × ℤ) × Bool) ≃ ZeroResidualQuotient :=
   Equiv.ofBijective normalClassMap normalClassMap_bijective
 
 /-- The paper-facing orientation of the same exact classification. -/
-def zeroResidualQuotientEquiv :
+noncomputable def zeroResidualQuotientEquiv :
     ZeroResidualQuotient ≃ ((ℤ × ℤ) × Bool) :=
   normalCoordinateEquiv.symm
 
