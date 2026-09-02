@@ -1,0 +1,140 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "FOUNDATION_GLOBAL_SUBTOOLS",
+  "date": "2026-09-02",
+  "methods": [
+    {
+      "method_id": "t0.weighted_brc_recurrent_loop",
+      "name": "Weighted-BRC recurrent loop-zeta / response / criticality calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "source_refs": [
+        "definitions/ENTERPRISE_BRC_RECURRENT_LOOP_ARITHMETIC_FOUNDATION_20260902.md",
+        "definitions/ENTERPRISE_BRC_RECURRENT_LOOP_THEOREM_LEDGER_20260902.json",
+        "research_notes/BRC_RECURRENT_LOGDET_LOOP_ZETA_20260902.md",
+        "research_notes/BRC_LOOP_RESPONSE_CRITICALITY_20260902.md",
+        "src/enterprise_math/brc_recurrent_loop.py",
+        "PR #1130",
+        "PR #1131"
+      ],
+      "api": [
+        "RecurrentCriticalityPolynomial",
+        "recurrent_loop_zeta_ratio",
+        "recurrent_loop_surplus_expr",
+        "recurrent_total_susceptibility",
+        "recurrent_edge_responses",
+        "recurrent_response_hessian",
+        "recurrent_criticality_polynomial",
+        "recurrent_critical_susceptibility",
+        "rational_critical_scale_lower_bound"
+      ],
+      "triggers": [
+        "loop zeta",
+        "recurrent surplus",
+        "log determinant",
+        "edge loop response",
+        "recurrent Hessian",
+        "criticality polynomial",
+        "susceptibility",
+        "cycle gauge metric"
+      ],
+      "capabilities": [
+        "exact rational loop-zeta ratio and symbolic BRC-LN surplus",
+        "exact recurrent edge-loop response and response Hessian",
+        "exact rational total loop susceptibility",
+        "integer criticality polynomial det(DI-tA)",
+        "exact rational susceptibility below criticality",
+        "rational certificate lower bounds on the critical scale"
+      ],
+      "core_law": "Stable finite rational recurrence has Z_loop=det(I-W)^-1, exact edge response R_e=q_e(I-W)^-1_{head,tail}, exact PSD gauge-quotient Hessian, and uniform criticality polynomial p(t)=det(DI-tA).",
+      "hard_boundary": "Finite positive/non-negative rational recurrence only; no signed/amplitude, complex-log, infinite-state, probability/Fisher interpretation, or canonical rational critical optimizer."
+    },
+    {
+      "method_id": "t0.weighted_brc_rational_holonomy",
+      "name": "Weighted-BRC positive-rational gauge / prime-valuation holonomy calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "source_refs": [
+        "definitions/ENTERPRISE_BRC_RECURRENT_LOOP_ARITHMETIC_FOUNDATION_20260902.md",
+        "definitions/ENTERPRISE_BRC_RECURRENT_LOOP_THEOREM_LEDGER_20260902.json",
+        "research_notes/BRC_PRIME_VALUATION_HOLONOMY_MODULE_20260902.md",
+        "research_notes/BRC_HOLONOMY_PARITY_THICKNESS_20260902.md",
+        "src/enterprise_math/brc_rational_holonomy.py",
+        "PR #1132",
+        "PR #1133"
+      ],
+      "api": [
+        "PowerThickness",
+        "TreeGaugeNormalForm",
+        "prime_valuations",
+        "m_power_free_thickness",
+        "squarefree_thickness",
+        "fundamental_cycle_holonomy",
+        "rational_tree_gauge_normal_form",
+        "prime_holonomy_coordinates",
+        "mod_m_holonomy_shadow"
+      ],
+      "triggers": [
+        "rational gauge",
+        "prime valuation holonomy",
+        "spanning tree gauge",
+        "fundamental cycle holonomy",
+        "C2 parity shadow",
+        "squarefree holonomy",
+        "m-power thickness",
+        "rational square class"
+      ],
+      "capabilities": [
+        "finite-support prime valuation coordinates for positive rational weights",
+        "unique root/tree spanning-tree rational gauge normal form",
+        "complete fundamental rational holonomy coordinates",
+        "prime-indexed integer holonomy vectors",
+        "mod-m and C2 parity shadows",
+        "unique m-power-free skeleton plus rational m-thickness root",
+        "BRC ROOT_m verification/materialization of rational thickness"
+      ],
+      "core_law": "Positive rational vertex gauge is integer coboundary addition prime by prime: H^1(G;Q_{>0}^x)=direct_sum_p H^1(G;Z). In a fixed tree normal form every holonomy q decomposes uniquely as s_m(q)t_m(q)^m.",
+      "hard_boundary": "The log-prime image is not generally a discrete Euclidean lattice; concrete m-power-free tuples depend on cycle basis; C2/mod-m shadows do not determine full positive dynamics; no signed/amplitude holonomy."
+    },
+    {
+      "method_id": "t0.weighted_brc_cycle_polynomial",
+      "name": "Weighted-BRC finite explicit cycle-interaction polynomial calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "source_refs": [
+        "definitions/ENTERPRISE_BRC_RECURRENT_LOOP_ARITHMETIC_FOUNDATION_20260902.md",
+        "definitions/ENTERPRISE_BRC_RECURRENT_LOOP_THEOREM_LEDGER_20260902.json",
+        "research_notes/BRC_CYCLE_INTERACTION_POLYNOMIAL_20260902.md",
+        "src/enterprise_math/brc_cycle_polynomial.py",
+        "PR #1134"
+      ],
+      "api": [
+        "CyclePolynomial",
+        "explicit_cycle_interaction_polynomial",
+        "evaluate_cycle_interaction_polynomial",
+        "partial_cycle_interaction_polynomial",
+        "tree_reduce_cycle_interaction_polynomial"
+      ],
+      "triggers": [
+        "cycle interaction polynomial",
+        "determinant cycle system",
+        "vertex-disjoint cycles",
+        "finite loop certificate",
+        "tree gauge polynomial",
+        "cycle polynomial derivative"
+      ],
+      "capabilities": [
+        "exact explicit-edge determinant polynomial by disjoint cycle systems",
+        "multiaffine +/-1 branch-resolved finite certificate",
+        "exact rational evaluation and edge partial derivatives",
+        "tree-variable elimination to integer-coefficient gauge-coordinate polynomial",
+        "finite polynomial numerators for recurrent response"
+      ],
+      "core_law": "P_G=det(I-W(x)) is the multiaffine signed sum over vertex-disjoint explicit cycle systems; stable positive recurrence has Z_loop=1/P_G and Gamma=-LN(P_G).",
+      "hard_boundary": "Enumeration is exponential in explicit edge count; determinant signs are inclusion-exclusion coefficients rather than signed BRC branch weights; no signed/amplitude or complex-weight extension is implied."
+    }
+  ]
+}
