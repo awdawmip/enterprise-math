@@ -1,0 +1,22 @@
+name: brc-recurrent-logdet-research
+
+on:
+  pull_request:
+    paths:
+      - "research_notes/BRC_RECURRENT_LOGDET_LOOP_ZETA_20260902.md"
+      - "experiments/brc_recurrent_logdet_zeta_check.py"
+      - ".github/workflows/brc-recurrent-logdet-research.yml"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Exact recurrent BRC logdet / loop-zeta checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_recurrent_logdet_zeta_check.py
