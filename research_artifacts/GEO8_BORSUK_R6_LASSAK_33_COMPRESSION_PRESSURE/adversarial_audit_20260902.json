@@ -1,0 +1,22 @@
+{
+  "schema": "GEO8_BORSUK_R6_ADVERSARIAL_AUDIT_V1",
+  "task_id": "RS-GEO8-BORSUK-R6-LASSAK-33-COMPRESSION-PRESSURE",
+  "attacks": [
+    {"attack":"Orthant-boundary tie breaking could destroy pairwise incompatibility witnesses.","resolution":"PASS","evidence":"Sector-sector witnesses use all nonzero horizontal coordinates (weights 3 and 1 over sqrt(13)); cap-sector witnesses use sigma/sqrt(5). They lie strictly inside the intended horizontal orthants."},
+    {"attack":"Changing the legal cap parameter delta could remove the witnesses.","resolution":"PASS","evidence":"For every 0<delta<r, h>0 while the lens intersection sphere is at x6=-ell<0, so all sector witnesses remain below the cap cut; c has x6=r>h and remains in the cap."},
+    {"attack":"Rotating the five horizontal Lassak cut hyperplanes could evade the K_33 obstruction.","resolution":"PASS","evidence":"The lens is invariant under O(5) fixing e6; rotate the explicit witness family together with the cuts, preserving all distances."},
+    {"attack":"A union of two sectors may avoid the far pair because one witness lies only on a shared boundary.","resolution":"PASS","evidence":"The constructed witnesses are strict interior points of their respective sign orthants, not boundary points."},
+    {"attack":"The cap-sector witness is only a closure point and could be removed by partition conventions.","resolution":"PASS","evidence":"The sector witness has nonzero horizontal coordinates and x6=-ell<h, so it is interior relative to all cut halfspaces; c is strictly above h. Its exact distance to c is 1."},
+    {"attack":"The template obstruction might accidentally assert b(6)>=33.","resolution":"PASS_WITH_SCOPE_GUARD","evidence":"The theorem quantifies only over coarsenings by unions of the 33 frozen Lassak atoms. Partitions that split or redraw atoms are explicitly outside scope."},
+    {"attack":"The center-fixed hypercube-facet no-go may depend on a special cube orientation.","resolution":"PASS","evidence":"The proof starts from arbitrary Q∈O(6), chooses a maximal coordinate of z=Q^T e6, and uses a deterministic sign-balancing lemma. The same-facet squared distance 10/7 is orientation-independent."},
+    {"attack":"The center-fixed hypercube-facet no-go could be misused against the full R4-style transfer.","resolution":"PASS_WITH_SCOPE_GUARD","evidence":"The no-go covers only untruncated Lassak lens, apex at the small-ball center, and 12 cube-facet cones. R4-style truncation, movable apex and new directions remain open escape routes."},
+    {"attack":"Finite or floating-point evidence could be mistaken for a universal R6 bound.","resolution":"PASS","evidence":"No numerical candidate is used to claim b(6)<=32. All terminal claims are exact symbolic inequalities or quantified geometric arguments."},
+    {"attack":"Remote unavailability of the Lassak primary PDF could be hidden.","resolution":"PASS_WITH_PROVENANCE_GUARD","evidence":"The source manifest states the access restriction and identifies the exact secondary reconstruction source; no unread primary text is quoted or claimed as inspected."}
+  ],
+  "remaining_open_surface": [
+    "A five-dimensional R6 truncation/UCS normal system replacing the R4 rhombic-dodecahedron-specific step.",
+    "A continuous strict-diameter certificate for a repartition that actually splits or redraws Lassak atoms.",
+    "The Euclidean value b(6), still only known here to lie in 7..33."
+  ],
+  "audit_verdict": "PASS_FOR_RESTRICTED_TEMPLATE_TERMINAL_OUTCOME"
+}
