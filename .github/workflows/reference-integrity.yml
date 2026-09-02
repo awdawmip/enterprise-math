@@ -40,7 +40,7 @@ jobs:
         run: python control_plane/check_review_write_authority.py
       - name: Check semantic migration authority contract
         run: python control_plane/check_semantic_migration_authority.py
-      - name: Check semantic-safe control migration and protected selectors
+      - name: Check active semantic migration debt and retired runtime cutover
         run: python control_plane/check_control_semantic_migration_registry.py
       - name: Prove Architecture V2 publication cutover field locality without granting approval
         run: python control_plane/check_architecture_publication_cutover_evidence.py
@@ -48,13 +48,8 @@ jobs:
         run: python control_plane/check_control_semantic_verification_requests.py
       - name: Check executable consumers before canonical-dispatch pointer migration
         run: python control_plane/check_control_pointer_python_consumers.py
-      - name: Prove runtime control migration changes only registered pointers
+      - name: Verify terminal V2 runtime cutover and archive binding
         run: python control_plane/check_runtime_control_migration_equivalence.py
-      - name: Dry-run exact-span runtime control migration
-        run: >-
-          python control_plane/apply_registered_json_migration.py
-          --migration-id CSM-RUNTIME-CANONICAL-DISPATCH-004
-          --migration-id CSM-RUNTIME-OWNER-SCOPE-LIVENESS-006
       - name: Check opt-in source firewall declarations
         run: python scripts/check_research_source_firewall.py
       - name: Check shared theorem and tool routing

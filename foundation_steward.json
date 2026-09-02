@@ -27,7 +27,7 @@
     "foundation_problem_issue": 164,
     "research_dispatch_issue": 240,
     "task_definition_authority": "tools/research_dispatch.py",
-    "legacy_scheduler_baseline": "research_runtime_policy_v2.json"
+    "runtime_policy": "research_runtime_policy_v2.json"
   },
   "free_axiom_candidate_intake": {
     "raw_candidate_is_steward_maintenance_input": false,
@@ -46,13 +46,28 @@
     "issue": 164,
     "title": "[P0] Foundation Steward Problem Set / 底层维护高优先级问题集",
     "id_prefix": "FQ-",
-    "priority_classes": ["P0-C", "P0-I", "P1-R", "P2-A"],
-    "status_classes": ["OPEN", "CLAIMED", "RESEARCHING", "ANSWERED", "REJECTED", "CANONICALIZED"],
-    "active_questions": ["FQ-20260809-005", "FQ-20260810-007"],
+    "priority_classes": [
+      "P0-C",
+      "P0-I",
+      "P1-R",
+      "P2-A"
+    ],
+    "status_classes": [
+      "OPEN",
+      "CLAIMED",
+      "RESEARCHING",
+      "ANSWERED",
+      "REJECTED",
+      "CANONICALIZED"
+    ],
+    "active_questions": [
+      "FQ-20260809-005",
+      "FQ-20260810-007"
+    ],
     "research_handoff_required": true,
     "steward_primary_investigator": false,
     "new_research_task_publication": "IMMUTABLE_TASK_RECORD_BEFORE_CLAIM",
-    "task_existence_lookup": "CANONICAL_REGISTERED_PLUS_FROZEN_LEGACY_DISPATCH_VIEW"
+    "task_existence_lookup": "IMMUTABLE_V2_TASK_PUBLICATION_VIEW"
   },
   "canonical_foundation_conventions": {
     "natural_numbers": {
@@ -191,5 +206,5 @@
   "common_research_surface": "research_common_surface.json",
   "scheduling_protocol": "docs/RESEARCH_SCHEDULING_PROTOCOL.en.md",
   "canonical_dispatch_tool": "tools/research_dispatch.py",
-  "legacy_scheduler_config": "research_runtime_policy_v2.json"
+  "runtime_policy": "research_runtime_policy_v2.json"
 }
