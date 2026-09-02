@@ -45,6 +45,7 @@ theorem matching_total (x : EdgeWeights) :
 theorem edgeSum_kernelEdge (a b c : ℤ) :
     edgeSum (kernelEdge a b c) = 0 := by
   simp [edgeSum, kernelEdge]
+  ring
 
 theorem matchingSums_kernelEdge (a b c : ℤ) :
     matchingSums (kernelEdge a b c) = 0 := by
