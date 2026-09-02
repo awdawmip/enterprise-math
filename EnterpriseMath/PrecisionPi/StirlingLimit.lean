@@ -14,6 +14,11 @@ noncomputable def tetrahedralStirlingPrecision (n : ℕ) : ℝ :=
 /-- The Stirling-normalized tetrahedral precision sequence converges to `π`. -/
 theorem tendsto_tetrahedralStirlingPrecision_pi :
     Tendsto tetrahedralStirlingPrecision atTop (𝓝 Real.pi) := by
+  change Tendsto
+    (fun n : ℕ =>
+      Stirling.stirlingSeq (4 * n) * Stirling.stirlingSeq n ^ 2 /
+        Stirling.stirlingSeq (6 * n))
+    atTop (𝓝 Real.pi)
   have hS := Stirling.tendsto_stirlingSeq_sqrt_pi
   have h4 :
       Tendsto (fun n : ℕ => Stirling.stirlingSeq (4 * n)) atTop
@@ -37,8 +42,11 @@ theorem tendsto_tetrahedralStirlingPrecision_pi :
   have hlim :
       Real.sqrt Real.pi * (Real.sqrt Real.pi) ^ 2 / Real.sqrt Real.pi =
         Real.pi := by
-    rw [div_eq_iff hsqrt]
-    nlinarith [Real.sq_sqrt (le_of_lt Real.pi_pos)]
-  simpa [tetrahedralStirlingPrecision, hlim] using hratio
+    calc
+      Real.sqrt Real.pi * (Real.sqrt Real.pi) ^ 2 / Real.sqrt Real.pi =
+          (Real.sqrt Real.pi) ^ 2 := by
+            field_simp [hsqrt]
+      _ = Real.pi := Real.sq_sqrt (le_of_lt Real.pi_pos)
+  simpa [hlim] using hratio
 
 end EnterpriseMath.PrecisionPi
