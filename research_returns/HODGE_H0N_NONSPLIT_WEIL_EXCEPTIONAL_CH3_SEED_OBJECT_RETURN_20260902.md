@@ -300,7 +300,7 @@ Frozen local run:
 `HODGE_H0N_FAILURES=0`  
 `HODGE_H0N_NONSPLIT_WEIL_EXCEPTIONAL_CH3_SEED_OBJECT_CHECK: PASS`
 
-It checks the elementary norm obstruction, exact Gaussian eigenvalues, rational factorization data, projector values, divisor-line annihilation, the no-rational-eigenline discriminant certificate, and the symbolic semihomogeneous `ch_3` coefficient identity. It does not replace any unbounded geometric theorem.
+It checks the elementary norm obstruction, exact Gaussian eigenvalues, rational factorization data, projector values, divisor-line annihilation, the irreducibility/no-rational-eigenline discriminant certificate, and the symbolic semihomogeneous `ch_3` coefficient identity. It does not replace any unbounded geometric theorem.
 
 ## Tool-reuse resolution
 
