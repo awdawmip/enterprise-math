@@ -1,7 +1,7 @@
 {
   "schema": "ENTERPRISE_MATH_FOUNDATION_BACKFLOW_V1",
   "status": "ACTIVE",
-  "effective": "2026-08-25",
+  "effective": "2026-09-02",
   "research_architecture": "research_architecture.json",
   "runtime_state_machine": "research_runtime_state_machine.json",
   "axiom_candidate_state_machine": "research_axiom_candidate_state_machine.json",
@@ -18,7 +18,7 @@
     "task_record_store": "research_task_records/<task-id>/<publication-id>.json",
     "execution_record_store": "research_execution_records/<task-id>/<execution-record-id>.json",
     "legacy_scheduler_config": "research_runtime_policy_v2.json",
-    "legacy_scheduler_reducer": "tools/research_runtime_reducer.py",
+    "runtime_event_reducer": "tools/research_runtime_reducer.py",
     "foundation_steward": "foundation_steward.json",
     "common_surface": "research_common_surface.json",
     "canonical_source": "main"
@@ -78,50 +78,67 @@
     "REJECTED",
     "APPLICATION_LOCAL_OR_NOT_READY"
   ],
-  "scheduler_roles": ["RESEARCH", "STEWARD_VERIFICATION", "INTEGRATION"],
+  "scheduler_roles": [
+    "RESEARCH",
+    "STEWARD_VERIFICATION",
+    "INTEGRATION"
+  ],
   "scheduler_link_contract": {
     "research_role_requires_task_kind": "RESEARCH",
     "steward_verification_requires_task_kind": "GOVERNANCE",
     "integration_requires_task_kind": "GOVERNANCE",
     "question_status_authority": "GitHub Issue #164",
     "runtime_claim_authority": "GitHub Issue #240",
-    "task_definition_authority": "CANONICAL_REGISTERED_PLUS_FROZEN_LEGACY_DISPATCH_VIEW",
+    "task_definition_authority": "IMMUTABLE_V2_TASK_PUBLICATIONS_WITH_FAULT_ISOLATION",
     "task_definition_tool": "tools/research_dispatch.py",
     "registered_task_store": "research_task_records/<task-id>/<publication-id>.json",
-    "legacy_task_definition_store": "frozen research_runtime_policy_v2.json baseline only",
+    "legacy_task_definition_store": null,
     "registered_foundation_task_allowed": true,
     "new_foundation_task_requires_immutable_registration": true,
     "one_fq_one_permanent_branch_required": false,
     "existing_owner_task_may_carry_fq_only_if_explicitly_declared": true,
     "research_task_question_field": "foundation_questions",
     "live_claim_scope_must_not_be_reinterpreted": true,
-    "scope_drift_forbidden": true
+    "scope_drift_forbidden": true,
+    "answered_research_link_is_not_live_dispatch": true,
+    "answered_research_link_requires_terminal_v2_publication": true
   },
-  "question_scheduler_links": [
+  "question_scheduler_links": [],
+  "answered_question_scheduler_links": [
     {
       "question_id": "FQ-20260809-005",
-      "phase": "RESEARCH_SCHEDULED",
+      "phase": "ANSWERED",
       "scheduler_task_id": "RS-P022-GRAPH-DISTANCE-API",
       "scheduler_role": "RESEARCH",
       "research_owner": "program/p022-geometry-v2",
+      "terminal_publication_id": "TP2-5B9A7E9D506075AA13C7",
+      "terminal_record_state": "CLOSED",
+      "claimable": false,
+      "next_foundation_action": "STEWARD_VERIFICATION_OR_CANONICALIZATION",
       "source_refs": [
+        "research_task_records/RS-P022-GRAPH-DISTANCE-API/TP2-5B9A7E9D506075AA13C7.json",
+        "PR #431",
+        "FQ-20260809-005 return evidence",
         "Issue #164 comment 5231423831",
-        "P012 intrinsic discrete geometry",
-        "src/enterprise_math/geometry.py",
-        "tests/test_p012_geometry.py"
+        "P012 intrinsic discrete geometry"
       ]
     },
     {
       "question_id": "FQ-20260810-007",
-      "phase": "RESEARCH_SCHEDULED",
+      "phase": "ANSWERED",
       "scheduler_task_id": "RS-R004-CAUSAL-IDENTIFIABILITY",
       "scheduler_role": "RESEARCH",
       "research_owner": "research/r004-causal-identifiability-v1",
+      "terminal_publication_id": "TP2-4E4385E37C8AD66B83A0",
+      "terminal_record_state": "CLOSED",
+      "claimable": false,
+      "next_foundation_action": "STEWARD_VERIFICATION_OR_CANONICALIZATION",
       "source_refs": [
-        "Issue #164 FQ-20260810-007 / comment 5236396941",
-        "Issue #164 control-plane update 5236482486",
-        "R004 PR #302 generative-identifiability evidence",
-        "owner_manifest_r004_causal_identifiability.json"
+        "research_task_records/RS-R004-CAUSAL-IDENTIFIABILITY/TP2-4E4385E37C8AD66B83A0.json",
+        "PR #389 / 735a8bd94af2723153203776b1949f7f5d0ab296",
+        "Issue #82 comment 5238933817",
+        "Issue #164 RETURN comment 5238943596",
+        "FQ-20260810-007 / comment 5236396941"
       ]
     }
   ],
@@ -131,7 +148,11 @@
       "phase": "CANONICALIZED",
       "canonical_pr": 268,
       "canonical_merge": "fe94a3201c4f6ca996c78cb55e719709d5144a54",
-      "final_gates": ["quality", "bilingual-sync", "reference-integrity"],
+      "final_gates": [
+        "quality",
+        "bilingual-sync",
+        "reference-integrity"
+      ],
       "foundation_result": "typed state -> deterministic/observation functional kernel -> declared future-signature kernel; State Pair derived; compressed coordinates require factorization; A3/A4 remain extensions",
       "source_refs": [
         "Issue #164 RETURN comment 5231561135",
@@ -144,8 +165,12 @@
       "phase": "CANONICALIZED",
       "canonical_pr": 311,
       "canonical_merge": "a7c21de79c8115fc06238d7810452a218987ecd6",
-      "final_gates": ["quality", "bilingual-sync", "reference-integrity"],
-      "foundation_result": "finite deterministic partial future languages preserve enabledness/domain membership and enabled target classes; legality-sensitive refinement is the coarsest compatible refinement; total-operation P023 is recovered when all domains are total; absorbing UNDEFINED is verification-only",
+      "final_gates": [
+        "quality",
+        "bilingual-sync",
+        "reference-integrity"
+      ],
+      "foundation_result": "finite deterministic partial operations preserve enabledness/domain membership and enabled target classes; legality-sensitive refinement is the coarsest compatible refinement; total-operation P023 is recovered when all domains are total; absorbing UNDEFINED is verification-only",
       "source_refs": [
         "Issue #164 steward verification comment 5234662126",
         "research return PR #285 / frozen head 4c9f7424281d41488a1240a382c8685944c1f77c",
