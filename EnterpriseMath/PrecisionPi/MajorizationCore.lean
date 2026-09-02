@@ -54,7 +54,8 @@ theorem middlePrefixGap_eq {k m s : ℕ} (hk : 0 < k) :
     exact_mod_cast (show k + 2 * m ≠ 0 by omega)
   unfold uniformPrefix
   push_cast
-  field_simp [hkq, hkmq] <;> ring
+  field_simp [hkq, hkmq]
+  ring
 
 /-- The middle-block prefix gap is strictly positive.  This is the central
 finite inequality in the majorization proof for the `π^m` approximants. -/
@@ -85,14 +86,14 @@ theorem finalPrefixGap_eq {K r q : ℕ}
     (h : r + q + 1 = K) :
     ((K - 1 : ℕ) : ℚ) / 2 - uniformPrefix K r =
       (q : ℚ) * (q + 1 : ℚ) / (2 * K) := by
-  have hK : 1 ≤ K := by omega
-  have hKq : (0 : ℚ) < K := by exact_mod_cast (show 0 < K by omega)
-  have hcast : (K : ℚ) = (r : ℚ) + q + 1 := by exact_mod_cast h.symm
-  rw [Nat.cast_sub hK, hcast]
+  subst K
+  have hsub : r + q + 1 - 1 = r + q := by omega
+  rw [hsub]
   unfold uniformPrefix
   push_cast
   have hden : (0 : ℚ) < (r : ℚ) + q + 1 := by positivity
-  field_simp [ne_of_gt hden] <;> ring
+  field_simp [ne_of_gt hden]
+  ring
 
 /-- Every proper final-block prefix has a strictly positive gap. -/
 theorem finalPrefixGap_pos {K r q : ℕ}
