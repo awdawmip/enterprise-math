@@ -6,6 +6,7 @@ on:
       - formalization/precision-pi-paper-ii-kernel-v1
     paths:
       - 'EnterpriseMath/PrecisionPi/PaperIIKernelV1.lean'
+      - 'EnterpriseMath/PrecisionPi/PaperIIResidualClassificationV1.lean'
       - '.github/workflows/precision-pi-kernel-v1.yml'
       - 'lakefile.toml'
       - 'lake-manifest.json'
@@ -38,5 +39,19 @@ jobs:
         run: lake update
       - name: Fetch mathlib cache
         run: lake exe cache get
+      - name: Reject placeholders and custom axioms
+        shell: bash
+        run: |
+          set -euo pipefail
+          files=(
+            EnterpriseMath/PrecisionPi/PaperIIKernelV1.lean
+            EnterpriseMath/PrecisionPi/PaperIIResidualClassificationV1.lean
+          )
+          if grep -nE '(^|[^[:alnum:]_])(sorry|admit)([^[:alnum:]_]|$)|^[[:space:]]*axiom[[:space:]]' "${files[@]}"; then
+            echo 'Forbidden proof placeholder or custom axiom found.' >&2
+            exit 1
+          fi
       - name: Compile minimal paper-II kernel
         run: lake env lean EnterpriseMath/PrecisionPi/PaperIIKernelV1.lean
+      - name: Compile exact residual classification
+        run: lake env lean EnterpriseMath/PrecisionPi/PaperIIResidualClassificationV1.lean
