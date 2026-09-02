@@ -1,0 +1,51 @@
+{
+  "schema": "GEO7_BORSUK_6D_EXTERNAL_STATUS_SEED_V1",
+  "prepared_at": "2026-09-02T00:32:00+00:00",
+  "prepared_by": "EM-DVR-G6K2P9",
+  "purpose": "Seed a fail-closed primary-source audit of the current Borsuk diameter-partition frontier before any native P000 transfer claim. This manifest does not assert an exact current value or best bound for b(6).",
+  "sources": [
+    {
+      "id": "BORSUK_R4_UPPER_2026",
+      "title": "Reducing the upper bound for the Borsuk number in R^4 to 8",
+      "authors": ["Alexander Tolmachev", "Vsevolod Voronov"],
+      "url": "https://arxiv.org/abs/2605.19068",
+      "source_class": "PRIMARY_PREPRINT",
+      "submitted": "2026-05-18",
+      "seed_claim": "The authors claim b(4) <= 8.",
+      "verification_status": "PREPRINT_CLAIM_REQUIRES_SCOPE_AND_PROOF_AUDIT"
+    },
+    {
+      "id": "BORSUK_R63_COUNTEREXAMPLE_2026",
+      "title": "An AI Generated Counterexample to Borsuk Problem in Dimension 63",
+      "authors": ["Yibo Ji"],
+      "url": "https://arxiv.org/abs/2608.12561",
+      "source_class": "RECENT_PRIMARY_PREPRINT",
+      "submitted": "2026-08-12",
+      "seed_claim": "The author claims a 321-point set in R^63 proving b(63) >= 65.",
+      "verification_status": "VERY_RECENT_PREPRINT_REQUIRES_INDEPENDENT_MATHEMATICAL_VERIFICATION"
+    },
+    {
+      "id": "GENERALIZED_BORSUK_GRAPHS_2024",
+      "title": "Generalized Borsuk Graphs",
+      "authors": ["Francisco Martinez-Figueroa"],
+      "url": "https://doi.org/10.1007/s00454-024-00695-1",
+      "source_class": "PEER_REVIEWED_ARTICLE",
+      "published": "2024-10-06",
+      "seed_claim": "Develops G-Borsuk graphs and relates small-epsilon chromatic number to a G-covering number for free finite-group actions on compact metric spaces.",
+      "verification_status": "PEER_REVIEWED_FRAMEWORK_SOURCE"
+    }
+  ],
+  "mandatory_audit_questions": [
+    "What is the exact current proved lower/upper status for the Euclidean Borsuk number b(6), separated by publication status and date?",
+    "Do the 2026 dimension-4 and dimension-63 preprints alter any six-dimensional bound or only the surrounding methodological frontier?",
+    "Which graph, covering and metric formulations are exact equivalents, strict antecedents or merely adjacent methods for the six-dimensional problem?",
+    "What finite typed diameter relation and partition contract can be stated in P000 without importing Euclidean norm or dimension constants by fiat?"
+  ],
+  "guards": [
+    "DO_NOT_ASSUME_B6_EQUALS_7",
+    "DO_NOT_TREAT_PREPRINT_AS_PEER_REVIEWED_FACT",
+    "DO_NOT_IDENTIFY_GRAPH_COLORING_WITH_DIAMETER_PARTITION_WITHOUT_A_TYPED_EQUIVALENCE",
+    "DO_NOT_IDENTIFY_EUCLIDEAN_R6_WITH_P000_CELL_SPACE",
+    "NO_SEARCH_ABSENCE_AS_NOVELTY_CERTIFICATE"
+  ]
+}
