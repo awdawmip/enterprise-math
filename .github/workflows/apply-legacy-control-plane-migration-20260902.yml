@@ -1,0 +1,133 @@
+name: apply-legacy-control-plane-migration-20260902
+
+on:
+  push:
+    branches:
+      - control/legacy-control-plane-migration-20260902
+    paths:
+      - 'control_plane/apply_legacy_control_plane_migration.py'
+      - 'control_plane/check_current_control_plane_surface.py'
+      - '.github/workflows/apply-legacy-control-plane-migration-20260902.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: apply-legacy-control-plane-migration-20260902
+  cancel-in-progress: true
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: control/legacy-control-plane-migration-20260902
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare latest-main worktree
+        id: prepare
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          base_sha="$(git rev-parse origin/main)"
+          echo "base_sha=$base_sha" >> "$GITHUB_OUTPUT"
+          mkdir -p "$RUNNER_TEMP/migration-scripts"
+          cp control_plane/audit_legacy_control_plane_migration.py "$RUNNER_TEMP/migration-scripts/"
+          cp control_plane/apply_legacy_control_plane_migration.py "$RUNNER_TEMP/migration-scripts/"
+          cp control_plane/check_current_control_plane_surface.py "$RUNNER_TEMP/migration-scripts/"
+          git worktree add --detach "$RUNNER_TEMP/main-work" "$base_sha"
+          mkdir -p "$RUNNER_TEMP/main-work/control_plane"
+          cp "$RUNNER_TEMP/migration-scripts/audit_legacy_control_plane_migration.py" "$RUNNER_TEMP/main-work/control_plane/"
+          cp "$RUNNER_TEMP/migration-scripts/apply_legacy_control_plane_migration.py" "$RUNNER_TEMP/main-work/control_plane/"
+          cp "$RUNNER_TEMP/migration-scripts/check_current_control_plane_surface.py" "$RUNNER_TEMP/main-work/control_plane/"
+      - name: Rebuild inventory from latest main
+        working-directory: ${{ runner.temp }}/main-work
+        run: python control_plane/audit_legacy_control_plane_migration.py
+      - name: Apply guarded migration in latest-main worktree
+        working-directory: ${{ runner.temp }}/main-work
+        run: python control_plane/apply_legacy_control_plane_migration.py
+      - name: Create immutable isolation branch
+        shell: bash
+        env:
+          BASE_SHA: ${{ steps.prepare.outputs.base_sha }}
+        run: |
+          set -euo pipefail
+          archive='archive/legacy-control-plane-state-machine-20260902'
+          if git ls-remote --exit-code --heads origin "$archive" >/dev/null 2>&1; then
+            echo "Archive branch already exists; refusing to overwrite it."
+            exit 1
+          fi
+          git worktree add --detach "$RUNNER_TEMP/archive-work" "$BASE_SHA"
+          cd "$RUNNER_TEMP/archive-work"
+          git switch -c "$archive"
+          mkdir -p control_plane/migrations
+          cp "$RUNNER_TEMP/main-work/control_plane/migrations/legacy-control-plane-migration-20260902.json" \
+             control_plane/migrations/legacy-control-plane-isolation-20260902.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          record = json.loads(Path('control_plane/migrations/legacy-control-plane-isolation-20260902.json').read_text(encoding='utf-8'))
+          paths = record['isolated_paths']
+          lines = [
+              '# Legacy control-plane physical isolation — 2026-09-02',
+              '',
+              'This branch preserves the pre-migration main tree and the legacy mutable/state-machine files removed from current main.',
+              '',
+              'It is provenance and recovery storage only. It grants no runtime, mathematical, Driver, Working Truth, Foundation, or publication authority.',
+              '',
+              '## Isolated paths',
+              '',
+              *[f'- `{p}`' for p in paths],
+              '',
+              '## Recovery rule',
+              '',
+              'Recover an individual historical byte sequence by immutable commit/path. Do not merge this branch back wholesale into main.',
+          ]
+          Path('LEGACY_CONTROL_PLANE_ISOLATION_20260902.md').write_text('\n'.join(lines) + '\n', encoding='utf-8')
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add LEGACY_CONTROL_PLANE_ISOLATION_20260902.md \
+                  control_plane/migrations/legacy-control-plane-isolation-20260902.json
+          git commit -m 'archive: freeze legacy control-plane state machine'
+          git push origin HEAD:"$archive"
+      - name: Validate and commit latest-main migration
+        working-directory: ${{ runner.temp }}/main-work
+        shell: bash
+        env:
+          BASE_SHA: ${{ steps.prepare.outputs.base_sha }}
+        run: |
+          set -euo pipefail
+          rm -f control_plane/audit_legacy_control_plane_migration.py \
+                control_plane/apply_legacy_control_plane_migration.py
+          python control_plane/check_current_control_plane_surface.py
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'No migration change was produced.'
+            exit 1
+          fi
+          git commit -m 'control: migrate legacy tasks and physically isolate old state machine'
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = "$BASE_SHA" || {
+            echo 'main moved during migration; refusing non-fast-forward integration.'
+            exit 1
+          }
+          git push origin HEAD:main
+      - name: Verify remote main and archive branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main archive/legacy-control-plane-state-machine-20260902
+          remote_main="$(git rev-parse origin/main)"
+          local_main="$(git -C "$RUNNER_TEMP/main-work" rev-parse HEAD)"
+          test "$remote_main" = "$local_main"
+          test -n "$(git rev-parse origin/archive/legacy-control-plane-state-machine-20260902)"
+          python "$RUNNER_TEMP/main-work/control_plane/check_current_control_plane_surface.py"
