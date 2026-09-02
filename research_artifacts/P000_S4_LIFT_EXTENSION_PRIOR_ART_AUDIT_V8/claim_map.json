@@ -1,0 +1,124 @@
+{
+  "schema": "P000_S4_LIFT_EXTENSION_PRIOR_ART_AUDIT_V8_CLAIM_MAP_V1",
+  "task_id": "RS-P000-6D-ROTATION-PRIOR-ART-DUPLICATION-AUDIT",
+  "publication_id": "TP2-2F8C6A1D9E7043B5C812",
+  "researcher_id": "EM-P0006DPA8-71C4E2",
+  "hard_target": "P000_S4_LIFT_EXTENSION_SPLITTING_EXTERNAL_DUPLICATION_BOUNDARY_CLASSIFIED",
+  "classification_legend": {
+    "EXACT_DUPLICATE": "The abstract mathematical claim/form is already standard and materially matched.",
+    "PARTIAL_ANTECEDENT": "Standard theory covers a substantial proper part but not the entire bundled claim without additional hypotheses.",
+    "ADJACENT_METHOD": "Nearby standard machinery is relevant only after extra hypotheses/translation.",
+    "NO_MATERIAL_MATCH": "No material exact match found in the audited source set; this is not a novelty conclusion."
+  },
+  "claims": [
+    {
+      "claim_no": 1,
+      "subject": "Short exact-sequence language 1 -> K -> G~ -> S4 -> 1",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "Ordinary group-extension language; kernel, quotient and equivalence of extensions are standard.",
+      "scope_guard": "This does not identify a P000 hidden kernel or authorize quotienting native Cell identity.",
+      "source_ids": ["SRC-WILKES-2020", "SRC-WEIBEL-CH6"]
+    },
+    {
+      "claim_no": 2,
+      "subject": "Split extension / semidirect product / complement / homomorphic section",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "A split extension is exactly one admitting a homomorphic section; semidirect-product reconstruction is standard.",
+      "scope_guard": "Existence of a section does not supply a canonical section.",
+      "source_ids": ["SRC-WILKES-2020", "SRC-WEIBEL-CH6"]
+    },
+    {
+      "claim_no": 3,
+      "subject": "Lifted presentation relations land in K",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "If a relator is trivial in the quotient, the same word in arbitrary chosen lifts lies in the kernel; factor sets record this failure of a set section to be a homomorphism.",
+      "scope_guard": "A nontrivial residue for one chosen lift does not by itself imply the extension is nonsplit.",
+      "source_ids": ["SRC-EOM-PRESENTATION", "SRC-WEIBEL-CH6"]
+    },
+    {
+      "claim_no": 4,
+      "subject": "Central/abelian extensions and H^2 classification",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "For abelian kernel A with fixed G-module action, extension equivalence classes are classified by H^2(G;A); central extensions are the trivial-action special case.",
+      "scope_guard": "Do not write H^2(S4,K) as a universal classifier without abelianity and a fixed S4-module action.",
+      "source_ids": ["SRC-WILKES-2020", "SRC-WEIBEL-CH6", "SRC-CONRAD-H2"]
+    },
+    {
+      "claim_no": 5,
+      "subject": "Nonabelian kernel / Schreier-Eilenberg-Mac Lane extension theory",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "For nonabelian K the quotient determines only an outer action; existence carries an H^3(G,Z(K)) obstruction, and when realizable the extension classes form an H^2(G,Z(K))-torsor relative to the outer action.",
+      "scope_guard": "This is not ordinary H^2(G,K), and the torsor has no preferred zero extension in general.",
+      "source_ids": ["SRC-EML-1947", "SRC-BROWN-1982", "SRC-MACLANE-NONABELIAN-SUMMARY"]
+    },
+    {
+      "claim_no": 6,
+      "subject": "Change of lift/section; conjugacy and nonuniqueness of complements",
+      "classification": "PARTIAL_ANTECEDENT",
+      "external_boundary": "Changing a set section changes factor-set representatives by coboundary; complement existence/conjugacy has standard theorems under additional hypotheses. Exact finite examples already show multiple nonconjugate complements when those hypotheses fail.",
+      "scope_guard": "No general theorem upgrades splitting to a unique or canonical complement; Schur-Zassenhaus-type conjugacy needs hypotheses such as the Hall/coprime setting.",
+      "source_ids": ["SRC-WEIBEL-CH6", "SRC-SCHUR-ZASSENHAUS-SECONDARY"]
+    },
+    {
+      "claim_no": 7,
+      "subject": "Faithful permutation representations of S4, especially degree 4 and the induced action on six 2-subsets",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "S4 is by definition the symmetric group on four letters; its natural four-point action and induced action on unordered pairs are classical permutation constructions.",
+      "scope_guard": "Gen12 novelty cannot reside in the abstract S4 representation; only its typed P000 realization can remain project-specific.",
+      "source_ids": ["SRC-EOM-SYMMETRIC", "SRC-EOM-PERMUTATION"]
+    },
+    {
+      "claim_no": 8,
+      "subject": "A faithful 24-element permutation image requires at least four points",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "Faithfulness embeds the group into S_n. For n<4, |S_n|<=6<24, while S4 acts faithfully on four points.",
+      "scope_guard": "This is cardinality-minimality of a representation, not an ontology claim that P000 has four Cells.",
+      "source_ids": ["SRC-EOM-PERMUTATION", "SRC-EOM-SYMMETRIC"]
+    },
+    {
+      "claim_no": 9,
+      "subject": "Projective / covering-group analogies",
+      "classification": "ADJACENT_METHOD",
+      "external_boundary": "Schur's projective-representation theory and double covers of S4 are classical nearby machinery; M(S4) is C2 and classical covering groups exist.",
+      "scope_guard": "These sources apply to projective/central-extension hypotheses and do not prove that a P000 residue realizes a Schur cover, binary octahedral group or GL(2,3).",
+      "source_ids": ["SRC-EOM-PROJECTIVE-SYMMETRIC", "SRC-SPRINGER-DOUBLE-COVERS"]
+    },
+    {
+      "claim_no": 10,
+      "subject": "Automorphism/definability obstruction to a canonical section",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "A definable object over fixed parameters must be fixed by automorphisms fixing those parameters. Hence an automorphism orbit moving candidate sections obstructs definable/canonical choice.",
+      "scope_guard": "Use only the necessary invariance direction unless stronger model-theoretic hypotheses are declared.",
+      "source_ids": ["SRC-BERKELEY-MT-2023"]
+    },
+    {
+      "claim_no": 11,
+      "subject": "Universal existence versus existence in one model",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "The existential statement 'some admitted model has a section' and the universal statement 'every admitted model has a section' are different first-order/model-class strengths.",
+      "scope_guard": "Gen12 is Driver-accepted only at existential common-model strength; no universal inference is licensed.",
+      "source_ids": ["SRC-BERKELEY-TARSKI", "INTERNAL-GEN12-DRIVER"]
+    },
+    {
+      "claim_no": 12,
+      "subject": "P000 compound semantics: opaque Cell, no carrier quotient, native-axis typing, downstream frame/PF10 decorations",
+      "classification": "NO_MATERIAL_MATCH",
+      "external_boundary": "Audited sources separately cover group extensions, permutation actions, definability, torsors/connections and projective covers, but no source located duplicates the exact compound P000 operational package.",
+      "scope_guard": "NO_MATERIAL_MATCH != NOVELTY. This is a search boundary, not an originality, priority, patentability or Foundation claim.",
+      "source_ids": ["INTERNAL-V7-PRIOR-ART", "INTERNAL-GEN12-DRIVER"]
+    }
+  ],
+  "classification_counts": {
+    "ADJACENT_METHOD": 1,
+    "EXACT_DUPLICATE": 9,
+    "NO_MATERIAL_MATCH": 1,
+    "PARTIAL_ANTECEDENT": 1
+  },
+  "required_guards": {
+    "H2": "Plain H^2(S4,K) classification requires K abelian plus a fixed S4-module action; central extensions are the trivial-action special case.",
+    "NONABELIAN": "For nonabelian K use outer-action/Schreier-Eilenberg-Mac Lane theory; H^3(S4,Z(K)) controls realizability and, after existence, H^2(S4,Z(K)) acts transitively on extension classes.",
+    "GEN12": "The four-point faithful S4 action and six-edge action are classical; Gen12 remains only an existential typed Full-Cell realization.",
+    "FLATNESS": "STANDARD_FLATNESS != TRIVIAL_GLOBAL_HOLONOMY.",
+    "NOVELTY": "NO_MATERIAL_MATCH != NOVELTY."
+  }
+}
