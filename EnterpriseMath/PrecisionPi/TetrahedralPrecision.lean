@@ -42,11 +42,16 @@ theorem tetrahedral_sqrt_scale (x : ℝ) (hx : 0 < x) :
       _ = (Real.sqrt (12 * x)) ^ 2 := by rw [h12]
   have hq : Real.sqrt (2 * x) ≠ 0 := by positivity
   have hc : Real.sqrt (12 * x) ≠ 0 := by positivity
+  have hsqrt2 : Real.sqrt (x * 2) = Real.sqrt (2 * x) := by
+    rw [mul_comm x 2]
+  have hsqrt12 : Real.sqrt (x * 12) = Real.sqrt (12 * x) := by
+    rw [mul_comm x 12]
   field_simp [hq, hc]
-  rw [show (Real.sqrt (2 * x)) ^ 6 =
-      (Real.sqrt (2 * x)) ^ 4 * (Real.sqrt (2 * x)) ^ 2 by ring]
-  rw [h2, hroot]
-  ring
+  rw [hsqrt2, hsqrt12, h2]
+  calc
+    Real.sqrt (3 / 8 : ℝ) * Real.sqrt (8 * x) * (2 * x) =
+        x * (2 * Real.sqrt (3 / 8 : ℝ) * Real.sqrt (8 * x)) := by ring
+    _ = x * Real.sqrt (12 * x) := by rw [hroot]
 
 /-- Pointwise identification of the finite multinomial precision approximant
 with the Stirling-normalized sequence. -/
@@ -56,6 +61,16 @@ theorem tetrahedralPrecision_eq_stirling {n : ℕ} (hn : 0 < n) :
     equalOccupancyReal_eq_stirling 4 n (by norm_num) hn,
     equalOccupancyReal_eq_stirling 6 n (by norm_num) hn]
   have hscale := tetrahedral_sqrt_scale (n : ℝ) (by exact_mod_cast hn)
+  have h4cast :
+      (2 : ℝ) * ((4 * n : ℕ) : ℝ) = 8 * (n : ℝ) := by
+    push_cast
+    ring
+  have h6cast :
+      (2 : ℝ) * ((6 * n : ℕ) : ℝ) = 12 * (n : ℝ) := by
+    push_cast
+    ring
+  rw [h4cast, h6cast]
+  unfold tetrahedralStirlingPrecision
   change
     Real.sqrt (3 / 8 : ℝ) *
           (Stirling.stirlingSeq (4 * n) / Stirling.stirlingSeq n ^ 4 *
@@ -71,15 +86,35 @@ theorem tetrahedralPrecision_eq_stirling {n : ℕ} (hn : 0 < n) :
   have hS6 : Stirling.stirlingSeq (6 * n) ≠ 0 := by
     unfold Stirling.stirlingSeq
     positivity
-  field_simp [hSn, hS6]
-  nlinarith [hscale]
+  have hnR : (n : ℝ) ≠ 0 := by
+    exact_mod_cast (Nat.ne_of_gt hn)
+  have hq : Real.sqrt (2 * (n : ℝ)) ≠ 0 := by positivity
+  have hc : Real.sqrt (12 * (n : ℝ)) ≠ 0 := by positivity
+  calc
+    Real.sqrt (3 / 8 : ℝ) *
+          (Stirling.stirlingSeq (4 * n) / Stirling.stirlingSeq n ^ 4 *
+            (Real.sqrt (8 * (n : ℝ)) / Real.sqrt (2 * (n : ℝ)) ^ 4)) /
+        ((n : ℝ) *
+          (Stirling.stirlingSeq (6 * n) / Stirling.stirlingSeq n ^ 6 *
+            (Real.sqrt (12 * (n : ℝ)) / Real.sqrt (2 * (n : ℝ)) ^ 6))) =
+        (Stirling.stirlingSeq (4 * n) * Stirling.stirlingSeq n ^ 2 /
+          Stirling.stirlingSeq (6 * n)) *
+        (Real.sqrt (3 / 8 : ℝ) *
+          (Real.sqrt (8 * (n : ℝ)) / Real.sqrt (2 * (n : ℝ)) ^ 4) /
+          ((n : ℝ) *
+            (Real.sqrt (12 * (n : ℝ)) / Real.sqrt (2 * (n : ℝ)) ^ 6))) := by
+          field_simp [hSn, hS6, hnR, hq, hc]
+          ring
+    _ = Stirling.stirlingSeq (4 * n) * Stirling.stirlingSeq n ^ 2 /
+        Stirling.stirlingSeq (6 * n) := by rw [hscale]; ring
 
 /-- The real tetrahedral precision approximants converge to `π`. -/
 theorem tendsto_tetrahedralPrecision_pi :
     Tendsto tetrahedralPrecision atTop (𝓝 Real.pi) := by
   refine tendsto_tetrahedralStirlingPrecision_pi.congr' ?_
   filter_upwards [eventually_atTop.2 ⟨1, fun _ h => h⟩] with n hn
-  exact tetrahedralPrecision_eq_stirling (by omega)
+  exact tetrahedralPrecision_eq_stirling
+    (lt_of_lt_of_le Nat.zero_lt_one hn)
 
 /-- Every positive-depth tetrahedral precision refinement is strictly smaller. -/
 theorem tetrahedralPrecision_succ_lt {n : ℕ} (hn : 0 < n) :
@@ -92,7 +127,7 @@ theorem tetrahedralPrecision_succ_lt {n : ℕ} (hn : 0 < n) :
       tetrahedralPrecision j = Real.sqrt (3 / 8 : ℝ) * (tetrahedralCore j : ℝ) := by
     rw [tetrahedralPrecision, tetrahedralCore,
       equalOccupancyReal_eq_cast, equalOccupancyReal_eq_cast]
-    norm_num
+    norm_num [quarticBalance, sexticBalance]
   rw [hcast (n + 1), hcast n]
   exact mul_lt_mul_of_pos_left hcore hscale
 
