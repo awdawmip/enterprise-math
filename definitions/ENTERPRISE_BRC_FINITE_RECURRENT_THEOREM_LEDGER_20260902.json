@@ -1,6 +1,6 @@
 {
   "schema": "ENTERPRISE_MATH_WEIGHTED_BRC_FINITE_RECURRENT_THEOREM_LEDGER_V1",
-  "status": "CANONICAL_FOUNDATION_ADDENDUM_CANDIDATE",
+  "status": "CANONICAL_FOUNDATION_ADDENDUM",
   "effective": "2026-09-02",
   "parent_ledger": "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json",
   "foundation": "definitions/ENTERPRISE_BRC_FINITE_RECURRENT_FOUNDATION_20260902.md",
@@ -23,7 +23,7 @@
       "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
       "hypotheses": "W is a finite non-negative rational square matrix",
       "statement": "The all-depth mass series sum_{k>=0} W^k is finite entrywise iff there exists h in Q_{>0}^n with Wh<h coordinatewise; equivalently I-W is invertible and x=(I-W)^(-1)1 is positive rational.",
-      "canonical_potential": "On the stable side x=W*1 and Wx=x-1.",
+      "canonical_potential": "On the stable side x=W^star 1=(I-W)^(-1)1 and Wx=x-1.",
       "gauge_form": "With H=diag(h), every row sum of H^(-1)WH is <1; for canonical x the row sum is 1-1/x_i.",
       "cycle_invariant": "State gauge telescopes along paths and preserves every closed-cycle product."
     },
@@ -31,8 +31,8 @@
       "id": "WBRC-T14-FINITE-RECURRENT-EXACT-STAR",
       "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
       "hypotheses": "same stable finite rational scope as WBRC-T13",
-      "statement": "The exact recurrent total-mass star is W*=(I-W)^(-1) in M_n(Q_{>=0}); no numerical infinite summation or floating spectrum is required.",
-      "interpretation": "The i-th row sum of W* is the total positive mass of all finite walks starting at i and ending anywhere, including the empty walk."
+      "statement": "The exact recurrent total-mass star is W^star=(I-W)^(-1) in M_n(Q_{>=0}); no numerical infinite summation or floating spectrum is required.",
+      "interpretation": "The i-th row sum of W^star is the total positive mass of all finite walks starting at i and ending anywhere, including the empty walk."
     },
     {
       "id": "WBRC-T15-FINITE-RECURRENT-INTEGER-ALTERNATIVE",
