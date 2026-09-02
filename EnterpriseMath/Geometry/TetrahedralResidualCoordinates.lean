@@ -31,10 +31,18 @@ theorem parityBit_eq_iff_even_sub (x y : Edge6) :
   constructor
   · rintro ⟨t, ht⟩
     refine ⟨-t, ?_⟩
-    linarith
+    calc
+      firstThreeSum x - firstThreeSum y =
+          -(firstThreeSum y - firstThreeSum x) := by ring
+      _ = -((2 : ℤ) * t) := by rw [ht]
+      _ = (2 : ℤ) * (-t) := by ring
   · rintro ⟨t, ht⟩
     refine ⟨-t, ?_⟩
-    linarith
+    calc
+      firstThreeSum y - firstThreeSum x =
+          -(firstThreeSum x - firstThreeSum y) := by ring
+      _ = -((2 : ℤ) * t) := by rw [ht]
+      _ = (2 : ℤ) * (-t) := by ring
 
 /-- Free opposite-pair coordinates together with the residual `C₂` bit. -/
 abbrev ResidualCoordinate := (Fin 3 → ℤ) × ZMod 2
@@ -70,7 +78,12 @@ theorem delta_injective : Function.Injective delta := by
   have h3 := congrFun h (3 : Fin 6)
   have h4 := congrFun h (4 : Fin 6)
   have h5 := congrFun h (5 : Fin 6)
-  simp [delta] at h0 h1 h2 h3 h4 h5
+  change v 0 + v 1 = w 0 + w 1 at h0
+  change v 0 + v 2 = w 0 + w 2 at h1
+  change v 0 + v 3 = w 0 + w 3 at h2
+  change v 1 + v 2 = w 1 + w 2 at h3
+  change v 1 + v 3 = w 1 + w 3 at h4
+  change v 2 + v 3 = w 2 + w 3 at h5
   funext i
   fin_cases i <;> omega
 
@@ -115,7 +128,7 @@ theorem matchingSums_coordinateRepresentative (c : ResidualCoordinate) :
 theorem parityBit_coordinateRepresentative (c : ResidualCoordinate) :
     parityBit (coordinateRepresentative c) = c.2 := by
   change (((c.2.val : ℤ) : ZMod 2)) = c.2
-  simpa using ZMod.natCast_zmod_val c.2
+  rw [Int.cast_natCast, ZMod.natCast_zmod_val]
 
 /-- The canonical representative is a right inverse to the coordinate map. -/
 theorem residualCoordinates_coordinateRepresentative (c : ResidualCoordinate) :
