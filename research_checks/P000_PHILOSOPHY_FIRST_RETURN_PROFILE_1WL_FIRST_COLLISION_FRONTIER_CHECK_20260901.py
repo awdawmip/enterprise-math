@@ -68,7 +68,6 @@ def parse_graph6(text: str) -> tuple[int, ...]:
     check(all(bit == 0 for bit in bits[k:]), "nonzero graph6 padding")
     return tuple(adj)
 
-
 def connected(adj: tuple[int, ...]) -> bool:
     n = len(adj)
     seen = 1
@@ -211,6 +210,7 @@ def connected_sector(c2: int, c3: int) -> int:
         return 0
     answer = total_sector(c2, c3)
     if c3:
+        # Distinguish one degree-3 label.
         rem3, rem2 = c3 - 1, c2
         for other3 in range(rem3 + 1):
             for s2 in range(rem2 + 1):
@@ -221,6 +221,7 @@ def connected_sector(c2: int, c3: int) -> int:
                 ways = math.comb(rem3, other3) * math.comb(rem2, s2)
                 answer -= ways * connected_sector(s2, s3) * total_sector(c2 - s2, c3 - s3)
     else:
+        # Only used as a recursive primitive; distinguish one degree-2 label.
         rem2 = c2 - 1
         for other2 in range(rem2 + 1):
             s2 = 1 + other2
@@ -353,7 +354,6 @@ def verify_artifact(path: Path) -> dict[str, int]:
         "normalized_connected": total_labels,
         "packets": len(all_packet_encodings),
     }
-
 
 def main() -> int:
     parser = argparse.ArgumentParser()
