@@ -8,6 +8,14 @@ noncomputable def equalOccupancyReal (k n : ℕ) : ℝ :=
   (Nat.factorial (k * n) : ℝ) /
     ((Nat.factorial n : ℝ) ^ k * (k : ℝ) ^ (k * n))
 
+/-- Every finite equal-occupancy probability over a nonempty alphabet is
+strictly positive. -/
+theorem equalOccupancyReal_pos (k n : ℕ) (hk : 0 < k) :
+    0 < equalOccupancyReal k n := by
+  unfold equalOccupancyReal
+  have hkR : (0 : ℝ) < k := by exact_mod_cast hk
+  positivity
+
 /-- The rational and real presentations of equal occupancy agree exactly. -/
 theorem equalOccupancyReal_eq_cast (k n : ℕ) :
     equalOccupancyReal k n = (equalOccupancy k n : ℝ) := by
