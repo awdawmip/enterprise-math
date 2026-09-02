@@ -1,8 +1,10 @@
 import Mathlib
 
+open scoped BigOperators
+
 namespace EnterpriseMath.PrecisionPi.GeneratingLift
 
-variable {K : Type*} [Field K]
+variable {K : Type*} [Field K] [CharZero K]
 
 /-- A scaled precision coefficient comparing two nonzero balance channels. -/
 def scaledPrecision
@@ -18,9 +20,9 @@ theorem source_eq_scaledPrecision_lift
     (hscale : scale ≠ 0) (hn : n ≠ 0) (htarget : target n ≠ 0) :
     source n = scale⁻¹ * (n : K) * target n *
       scaledPrecision scale source target n := by
+  have hnK : (n : K) ≠ 0 := by exact_mod_cast hn
   unfold scaledPrecision
-  field_simp [hscale, hn, htarget]
-  ring
+  field_simp [hscale, hnK, htarget]
 
 /-- Equivalent orientation of the coefficient lift. -/
 theorem scaledPrecision_lift_eq_source
@@ -31,7 +33,7 @@ theorem scaledPrecision_lift_eq_source
   symm
   exact source_eq_scaledPrecision_lift scale source target n hscale hn htarget
 
-/-- Multiplying by any CM response factor and power preserves the lift. -/
+/-- Multiplying by any response factor and power preserves the lift. -/
 theorem weighted_coefficient_lift
     (scale : K) (source target : ℕ → K) (response : ℕ → K)
     (z : K) (n : ℕ)
@@ -43,7 +45,7 @@ theorem weighted_coefficient_lift
 
 /--
 Finite generating-lift identity, indexed by `n=1,…,M`.  This is the exact
-finite algebraic bridge used before passing to the analytic CM limit.
+finite algebraic bridge used before passing to the analytic limit.
 -/
 theorem finite_weighted_generating_lift
     (scale : K) (source target : ℕ → K) (response : ℕ → K)
