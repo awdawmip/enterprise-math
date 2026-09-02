@@ -72,6 +72,6 @@ theorem sliceLineOrder_injective (s : Slice) :
     Function.Injective (sliceLineOrder s) := by
   intro i j h
   fin_cases s <;> fin_cases i <;> fin_cases j <;>
-    native_decide at h ⊢
+    simp_all [sliceLineOrder]
 
 end EnterpriseMath.FCCOrientedSlices
