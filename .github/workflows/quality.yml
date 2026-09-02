@@ -124,7 +124,8 @@ jobs:
           PYTHONPATH: src
         run: python tests/test_p017_mirror_cross.py
 
-  test:
+  quality-gate:
+    name: quality-gate
     if: always()
     needs: [classify, unit-shard, heavy-regression]
     runs-on: ubuntu-latest

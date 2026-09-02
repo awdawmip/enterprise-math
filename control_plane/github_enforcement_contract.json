@@ -1,0 +1,45 @@
+{
+  "schema": "ENTERPRISE_MATH_GITHUB_ENFORCEMENT_CONTRACT_V1",
+  "status": "ACTIVE_CANONICAL",
+  "effective": "2026-09-01",
+  "repository": "awdawmip/enterprise-math",
+  "branch": "main",
+  "required_status_checks": [
+    "quality-gate",
+    "reference-integrity-gate",
+    "bilingual-sync-gate",
+    "lean-gate"
+  ],
+  "status_check_app": {
+    "slug": "github-actions",
+    "app_id": 15368
+  },
+  "branch_protection": {
+    "strict_status_checks": true,
+    "require_pull_request": true,
+    "required_approving_review_count": 0,
+    "enforce_admins": false,
+    "allow_force_pushes": false,
+    "allow_deletions": false,
+    "required_conversation_resolution": false,
+    "required_linear_history": false
+  },
+  "provisioning": {
+    "workflow": ".github/workflows/github-enforcement-provision.yml",
+    "tool": "control_plane/apply_github_enforcement.py",
+    "mode": "IDEMPOTENT_APPLY_THEN_VERIFY",
+    "preferred_identity": "GITHUB_ADMIN_TOKEN_OR_REPOSITORY_SCOPED_GITHUB_APP_WITH_ADMINISTRATION_WRITE",
+    "admin_bypass": "enforce_admins=false preserves emergency owner repair without making direct-main the ordinary path"
+  },
+  "liveness": {
+    "required_checks_are_integration_gates_not_conversation_leases": true,
+    "pending_ci_keeps_turn_released": true,
+    "every_required_check_must_be_emitted_on_every_pull_request": true,
+    "path_scoped_expensive_work_must_use_an_always_emitted_aggregate_gate": true
+  },
+  "cutover": {
+    "preexisting_pull_request_heads": "REVALIDATE_ON_NEXT_SYNCHRONIZE_OR_REOPEN_BEFORE_INTEGRATION",
+    "missing_new_gate_on_old_head_is_not_conversation_blocker": true,
+    "do_not_bulk_touch_research_heads_only_to_create_checks": true
+  }
+}

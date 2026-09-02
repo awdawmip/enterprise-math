@@ -16,7 +16,8 @@ permissions:
   contents: read
 
 jobs:
-  check:
+  reference-integrity-gate:
+    name: reference-integrity-gate
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
@@ -26,6 +27,10 @@ jobs:
           python-version: '3.12'
       - name: Check GitHub validation remains nonblocking for active turns
         run: python control_plane/check_github_flow_liveness.py
+      - name: Check GitHub enforcement contract and stable required checks
+        run: python control_plane/check_github_enforcement_contract.py
+      - name: Check the end-to-end control canary contract
+        run: python control_plane/check_control_plane_e2e_canary.py
       - name: Check bounded static hot-start context
         run: python control_plane/check_context_budget.py
       - name: Check citation and lineage integrity

@@ -13,13 +13,6 @@ on:
       - '.github/workflows/lean.yml'
   pull_request:
     types: [opened, synchronize, reopened]
-    paths:
-      - '**/*.lean'
-      - 'lakefile.toml'
-      - 'lakefile.lean'
-      - 'lake-manifest.json'
-      - 'lean-toolchain'
-      - '.github/workflows/lean.yml'
   workflow_dispatch:
 
 concurrency:
@@ -30,11 +23,57 @@ permissions:
   contents: read
 
 jobs:
-  build:
+  lean-gate:
+    name: lean-gate
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Determine whether Lean validation is required
+        id: scope
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          required=true
+          reason=push-or-manual-lean-validation
+
+          if [[ "$EVENT_NAME" == "pull_request" ]]; then
+            required=false
+            reason=no-lean-surface-change
+            mapfile -d '' changed < <(git diff --name-only -z "$BASE_SHA" "$HEAD_SHA")
+            if (( ${#changed[@]} == 0 )); then
+              required=true
+              reason=empty-diff-fail-closed
+            else
+              for path in "${changed[@]}"; do
+                case "$path" in
+                  *.lean|lakefile.toml|lakefile.lean|lake-manifest.json|lean-toolchain|.github/workflows/lean.yml)
+                    required=true
+                    reason=lean-surface-changed
+                    break
+                    ;;
+                esac
+              done
+            fi
+          fi
+
+          {
+            echo "required=$required"
+            echo "reason=$reason"
+          } >> "$GITHUB_OUTPUT"
+          {
+            echo "### Lean scope"
+            echo "- required: \`$required\`"
+            echo "- reason: \`$reason\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Detect Lean project
         id: lean_project
         shell: bash
@@ -44,8 +83,15 @@ jobs:
           else
             echo "present=false" >> "$GITHUB_OUTPUT"
           fi
+
+      - name: Require the Lean project when validation is selected
+        if: steps.scope.outputs.required == 'true' && steps.lean_project.outputs.present != 'true'
+        run: |
+          echo "Lean validation was selected but no lakefile exists."
+          exit 1
+
       - name: Set up Lean
-        if: steps.lean_project.outputs.present == 'true'
+        if: steps.scope.outputs.required == 'true' && steps.lean_project.outputs.present == 'true'
         uses: leanprover/lean-action@v1
         with:
           auto-config: false
@@ -54,12 +100,19 @@ jobs:
           lint: false
           use-github-cache: false
           use-mathlib-cache: false
+
       - name: Resolve pinned dependencies
-        if: steps.lean_project.outputs.present == 'true'
+        if: steps.scope.outputs.required == 'true' && steps.lean_project.outputs.present == 'true'
         run: lake update
+
       - name: Fetch mathlib cache
-        if: steps.lean_project.outputs.present == 'true'
+        if: steps.scope.outputs.required == 'true' && steps.lean_project.outputs.present == 'true'
         run: lake exe cache get
+
       - name: Compile Enterprise Math Lean layer with warnings fatal
-        if: steps.lean_project.outputs.present == 'true'
+        if: steps.scope.outputs.required == 'true' && steps.lean_project.outputs.present == 'true'
         run: lake build --wfail -KCI EnterpriseMath
+
+      - name: Record no-op Lean gate
+        if: steps.scope.outputs.required != 'true'
+        run: echo "No Lean surface changed; stable lean-gate succeeds without compiling."
