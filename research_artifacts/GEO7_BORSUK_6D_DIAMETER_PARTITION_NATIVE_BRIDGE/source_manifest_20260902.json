@@ -1,0 +1,195 @@
+{
+  "checked_through": "2026-09-02",
+  "prior_art_classification": [
+    {
+      "basis": [
+        "IVANOV_TUZHILIN_2022"
+      ],
+      "classification": "EXACT_DUPLICATE",
+      "project_claim": "finite metric Borsuk number M0"
+    },
+    {
+      "basis": [
+        "RAIGORODSKII_2013",
+        "LOPEZ_CAMPOS_OLIVEROS_RAMIREZ_2025"
+      ],
+      "classification": "EXACT_DUPLICATE",
+      "project_claim": "finite maximum-distance graph coloring equivalence"
+    },
+    {
+      "basis": [
+        "targeted literature search through 2026-09-02"
+      ],
+      "classification": "NO_MATERIAL_MATCH",
+      "guard": "NO_MATERIAL_MATCH is not a novelty certificate; the construction is elementary",
+      "project_claim": "every nonempty simple graph is realized exactly as a maximum-distance graph by the 0/1/2 metric"
+    },
+    {
+      "basis": [
+        "finite exhaustive certificate"
+      ],
+      "classification": "NO_MATERIAL_MATCH",
+      "guard": "project-local corollary, not a historical novelty claim",
+      "project_claim": "six fixed labels with the same axis-label readout can realize Borsuk numbers 2 through 6 under unrestricted finite metrics"
+    },
+    {
+      "basis": [
+        "RAIGORODSKII_2013",
+        "CACERES_GARIJO_MARQUEZ_SILVEIRA_2026"
+      ],
+      "classification": "STRICT_ANTECEDENT",
+      "project_claim": "connected typed relation plus shortest-path metric yields an exact diameter-graph coloring reduction"
+    },
+    {
+      "basis": [
+        "MARTINEZ_FIGUEROA_2024"
+      ],
+      "classification": "EXACT_DUPLICATE",
+      "project_claim": "free finite-group compact-metric G-Borsuk graph / covering transfer"
+    },
+    {
+      "basis": [
+        "project-internal typed countermodel plus accepted GEO6 selector boundary"
+      ],
+      "classification": "NO_MATERIAL_MATCH",
+      "guard": "external novelty not asserted",
+      "project_claim": "current locked P000 six-label presentation does not determine a native Borsuk invariant"
+    }
+  ],
+  "project_internal_sources": [
+    {
+      "claim_consumed": "shortest relation-path distance is legal only after an undirected Cell relation is declared; locked P000 does not itself choose the six-axis unit-step relation",
+      "path": "research_returns/GEO6_FALCONER_RELATION_DISTANCE_SPECTRUM_RETURN_20260830.md"
+    },
+    {
+      "claim_consumed": "current P000 does not force a native contact/exclusion/support resolver; relation conversions require additional typed data",
+      "path": "driver_reviews/GEO6_NATIVE_RELATION_SELECTOR_CORE_DRIVER_REVIEW_20260902.md"
+    },
+    {
+      "claim_consumed": "reused graph_distance helper for the connected undirected path-metric regression",
+      "path": "src/enterprise_math/geometry.py"
+    }
+  ],
+  "schema": "GEO7_BORSUK_6D_SOURCE_MANIFEST_V1",
+  "sources": [
+    {
+      "authors": [
+        "Marek Lassak"
+      ],
+      "claim_consumed": "general constructive bound b(n) <= 2^(n-1)+1; for n=6 this gives b(6)<=33",
+      "id": "LASSAK_1982",
+      "load_bearing": true,
+      "publication_state": "PUBLISHED_JOURNAL_ARTICLE",
+      "title": "An estimate concerning Borsuk partition problem",
+      "url": "https://rcin.org.pl/impan/dlibra/publication/84629/edition/65552/content",
+      "venue": "Bulletin of the Polish Academy of Sciences, Series Mathematics 30(9-10), 449-451",
+      "year": 1982
+    },
+    {
+      "authors": [
+        "Alexander Tolmachev",
+        "Vsevolod Voronov"
+      ],
+      "claim_consumed": "states regular-simplex lower b(n)>=n+1; identifies Lassak b(n)<=2^(n-1)+1 as the best constructive upper bound for small dimensions n>=4 before their R4-only improvement; proves/claims b(4)<=8",
+      "date": "2026-05-18",
+      "id": "TOLMACHEV_VORONOV_2026",
+      "load_bearing": true,
+      "publication_state": "PRIMARY_PREPRINT",
+      "title": "Reducing the upper bound for the Borsuk number in R^4 to 8",
+      "url": "https://arxiv.org/abs/2605.19068"
+    },
+    {
+      "authors": [
+        "Yibo Ji"
+      ],
+      "claim_consumed": "claims a 321-point subset of R^63 requiring at least 65 smaller-diameter parts; used only as a recent unreviewed frontier claim",
+      "date": "2026-08-12",
+      "id": "JI_2026",
+      "load_bearing": false,
+      "publication_state": "RECENT_PRIMARY_PREPRINT",
+      "title": "An AI Generated Counterexample to Borsuk Problem in Dimension 63",
+      "url": "https://arxiv.org/abs/2608.12561"
+    },
+    {
+      "authors": [
+        "Chuanming Zong"
+      ],
+      "claim_consumed": "peer-reviewed survey context and canonical bibliography for Lassak, Kahn-Kalai, Jenrich-Brouwer and the low-dimensional frontier",
+      "date": "2021-07-21",
+      "id": "ZONG_2021",
+      "load_bearing": true,
+      "publication_state": "PEER_REVIEWED_VERSION_OF_RECORD",
+      "title": "Borsuk's partition conjecture",
+      "url": "https://doi.org/10.1007/s11537-021-2007-7",
+      "venue": "Japanese Journal of Mathematics 16, 185-201"
+    },
+    {
+      "authors": [
+        "Gyivan Lopez-Campos",
+        "Deborah Oliveros",
+        "Jorge L. Ramirez Alfonsin"
+      ],
+      "claim_consumed": "modern peer-reviewed statement that the Euclidean Borsuk conjecture remained open in dimensions 4 through 63 at that publication cut; finite diameter-graph coloring equivalence is standard",
+      "date": "2025",
+      "id": "LOPEZ_CAMPOS_OLIVEROS_RAMIREZ_2025",
+      "load_bearing": true,
+      "publication_state": "PEER_REVIEWED_JOURNAL_ARTICLE",
+      "title": "Borsuk and Vazsonyi problems through Reuleaux polyhedra",
+      "url": "https://doi.org/10.1016/j.ejc.2025.104215",
+      "venue": "European Journal of Combinatorics 130 (2025), 104215"
+    },
+    {
+      "authors": [
+        "Andrei M. Raigorodskii"
+      ],
+      "claim_consumed": "finite Borsuk problems translate to coloring finite graphs of diameters",
+      "date": "2013",
+      "id": "RAIGORODSKII_2013",
+      "load_bearing": true,
+      "publication_state": "PUBLISHED_SPRINGER_BOOK_CHAPTER",
+      "title": "Coloring Distance Graphs and Graphs of Diameters",
+      "url": "https://doi.org/10.1007/978-1-4614-0110-0_23"
+    },
+    {
+      "authors": [
+        "Alexander O. Ivanov",
+        "Alexey A. Tuzhilin"
+      ],
+      "claim_consumed": "Borsuk number is defined and studied for general bounded metric spaces, so M0 is not a novel generalization",
+      "date": "2022-02-15",
+      "id": "IVANOV_TUZHILIN_2022",
+      "load_bearing": true,
+      "publication_state": "PRIMARY_PREPRINT",
+      "title": "Gromov-Hausdorff Distance and Borsuk Number",
+      "url": "https://arxiv.org/abs/2203.05991"
+    },
+    {
+      "authors": [
+        "Francisco Martinez-Figueroa"
+      ],
+      "claim_consumed": "for a free finite-group action on a compact metric space, small-epsilon G-Borsuk graph chromatic number is controlled by the G-covering number under the paper's exact hypotheses",
+      "date": "2024-10-06",
+      "id": "MARTINEZ_FIGUEROA_2024",
+      "load_bearing": true,
+      "publication_state": "PEER_REVIEWED_JOURNAL_ARTICLE",
+      "title": "Generalized Borsuk Graphs",
+      "url": "https://doi.org/10.1007/s00454-024-00695-1",
+      "venue": "Discrete & Computational Geometry 72, 1377-1416"
+    },
+    {
+      "authors": [
+        "Jose Caceres",
+        "Delia Garijo",
+        "Alberto Marquez",
+        "Rodrigo I. Silveira"
+      ],
+      "claim_consumed": "adjacent graph-diameter formulation; confirms path-distance Borsuk variants are an active external topic but does not type a P000 relation",
+      "date": "2026-04-13",
+      "id": "CACERES_GARIJO_MARQUEZ_SILVEIRA_2026",
+      "load_bearing": false,
+      "publication_state": "PRIMARY_PREPRINT",
+      "title": "The Borsuk number of a graph",
+      "url": "https://arxiv.org/abs/2604.11651"
+    }
+  ]
+}
