@@ -1,0 +1,147 @@
+{
+  "schema": "ENTERPRISE_MATH_BRC_RECURRENT_LOOP_THEOREM_LEDGER_V1",
+  "status": "CANONICAL_FOUNDATION_ADDENDUM_CANDIDATE",
+  "effective": "2026-09-02",
+  "parent_ledger": "definitions/ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json",
+  "foundation": "definitions/ENTERPRISE_BRC_RECURRENT_LOOP_ARITHMETIC_FOUNDATION_20260902.md",
+  "research_evidence": [
+    {"pr": 1130, "merge": "edfbeacb13d1fa741c76cd7a6db328bd1b324ad3"},
+    {"pr": 1131, "merge": "86f42d9ebd06dc86ad262ab794ce64cd67517b7f"},
+    {"pr": 1132, "merge": "4f6761bbb5fb5b256d856cbfd25958483ebc1d72"},
+    {"pr": 1133, "merge": "3a6bb471a10fd8673483ea5163687ce850bba9bb"},
+    {"pr": 1134, "merge": "6f8f53230f6e36e0b55c873a72052176dd40b673"}
+  ],
+  "tool_method_ids": [
+    "t0.weighted_brc_recurrent_loop",
+    "t0.weighted_brc_rational_holonomy",
+    "t0.weighted_brc_cycle_polynomial"
+  ],
+  "theorems": [
+    {
+      "id": "WBRC-T17-RECURRENT-LOOP-ZETA-DETERMINANT",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "stable finite non-negative rational transition-mass matrix W",
+      "statement": "Z_loop(W)=det(I-W)^(-1)=det(W^star); if W=A/D and B=DI-A then Z_loop=D^n/det(B). Gamma(W)=LN(Z_loop)=-LN(det(I-W)) is a derived exact logarithmic readout.",
+      "prior_art_boundary": "log-determinant, Neumann-series and graph-zeta determinant identities are classical"
+    },
+    {
+      "id": "WBRC-T18-RECURRENT-ADJUGATE-EQUAL-SLACK",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "same stable finite rational scope; B=DI-A, delta=det(B), C=adj(B)",
+      "statement": "h0=C*1 is a strictly positive integer vector and B h0=delta*1, equivalently A h0=D h0-delta*1. The canonical rational potential is x=(D/delta)h0.",
+      "boundary": "h0 need not be primitive; primitive integer normalization changes the common slack"
+    },
+    {
+      "id": "WBRC-T19-RECURRENT-LOOP-GAUGE-SCC-DAG",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED + CLASSICAL_ZETA_BRIDGE",
+      "hypotheses": "stable finite non-negative rational positive recurrence",
+      "statement": "Gamma is invariant under positive diagonal vertex gauge, additive across SCC diagonal blocks, blind to feed-forward inter-SCC edges, and Gamma=0 iff the positive-support digraph is acyclic.",
+      "trace_form": "Gamma=sum_{k>=1} tr(W^k)/k; standard primitive-loop Euler product is classical prior art"
+    },
+    {
+      "id": "WBRC-T20-RECURRENT-EDGE-LOOP-RESPONSE",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "stable finite explicit positive branch system; edge e:a->b has weight q_e; S=(I-W)^(-1)",
+      "statement": "R_e=dGamma/d ln(q_e)=q_e S_ba. R_e is exact rational, individually gauge invariant, and R_e>0 iff e lies on a directed cycle. Sum_e R_e=tr(S-I)."
+    },
+    {
+      "id": "WBRC-T21-RECURRENT-RESPONSE-HESSIAN-CYCLE-METRIC",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "same explicit stable positive branch system; e:a->b and f:c->d",
+      "statement": "H_ef=delta_ef q_e S_ba + q_e q_f S_bc S_da is symmetric exact rational and positive semidefinite. On a strongly connected recurrent support, ker(H) is exactly the vertex-gauge coboundary space and rank(H)=|E|-|V|+1, so H is positive definite on the cycle/gauge quotient.",
+      "general_graph": "transient edges have zero Hessian rows/columns and cyclic SCCs form independent blocks"
+    },
+    {
+      "id": "WBRC-T22-RECURRENT-INTEGER-RESPONSE-CERTIFICATE",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "common explicit edge denominator D; q_e=a_e/D; B=DI-A; delta=det(B); C=adj(B)",
+      "statement": "R_e=a_e C_ba/delta and H_ef=[delta_ef a_e C_ba delta + a_e a_f C_bc C_da]/delta^2. Thus first/second recurrent response has a symmetric integer numerator certificate."
+    },
+    {
+      "id": "WBRC-T23-RECURRENT-CRITICALITY-POLYNOMIAL",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "finite non-negative rational W=A/D under uniform scaling tW",
+      "statement": "p(t)=det(DI-tA) is an integer polynomial. If support is acyclic, p(t)=D^n and all t>=0 are stable. If a directed positive cycle exists, the finite stability endpoint t_c is the smallest positive real root of p(t).",
+      "boundary": "t_c may be irrational; no floating spectral primitive or rational optimizer is assumed"
+    },
+    {
+      "id": "WBRC-T24-RECURRENT-CRITICAL-SUSCEPTIBILITY",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "rational stable scale 0<t<t_c in WBRC-T23",
+      "statement": "chi(t)=dGamma(t)/d ln(t)=-t p'(t)/p(t)=tr((I-tW)^(-1)-I) is exact rational. If the critical root has multiplicity r, chi(t)~r t_c/(t_c-t). Any rational stability potential h yields t_c>=1/alpha(h), alpha=max_i (Wh)_i/h_i."
+    },
+    {
+      "id": "WBRC-T25-RATIONAL-GAUGE-PRIME-VALUATION-COHOMOLOGY",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED + CLASSICAL_COHOMOLOGY_BRIDGE",
+      "hypotheses": "finite graph with positive rational explicit edge weights and positive rational vertex gauge",
+      "statement": "Q_{>0}^x is isomorphic to direct_sum_p Z by prime valuations and H^1(G;Q_{>0}^x) is isomorphic to direct_sum_p H^1(G;Z). Rational gauge acts primewise by integer coboundaries.",
+      "boundary": "the faithful log-prime image is not generally a discrete Euclidean lattice"
+    },
+    {
+      "id": "WBRC-T26-RATIONAL-SPANNING-TREE-HOLONOMY-NORMAL-FORM",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "connected underlying finite graph, fixed root and spanning tree T",
+      "statement": "There is a unique rational vertex gauge with root scale 1 and every tree-edge weight 1. The beta_1 non-tree weights are complete gauge coordinates and equal the fundamental algebraic cycle products; their prime valuations form a complete exact integer normal form."
+    },
+    {
+      "id": "WBRC-T27-RATIONAL-MOD-M-HOLONOMY-SHADOW",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "positive rational gauge class and integer m>=2",
+      "statement": "Prime valuation reduction mod m gives H^1(G;Q_{>0}^x)/m isomorphic to direct_sum_p H^1(G;Z/m). For m=2 each prime gives a typed C2/F2 holonomy shadow, and every finite-coefficient graph class has a positive rational p-power lift."
+    },
+    {
+      "id": "WBRC-T28-RATIONAL-M-POWER-THICKNESS",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "positive rational q and integer m>=2",
+      "statement": "Writing v_p(q)=m k_p+r_p with 0<=r_p<m gives a unique q=s_m(q)t_m(q)^m where s_m is a positive m-power-free integer and t_m positive rational. After reducing q/s_m=N/M, N and M are exact m-th powers and t_m may be materialized through the existing BRC ROOT_m facade.",
+      "m2": "q=s(q)r(q)^2 with squarefree s; s is the all-prime C2 parity skeleton and r the exact rational square-thickness root"
+    },
+    {
+      "id": "WBRC-T29-EXPLICIT-CYCLE-INTERACTION-POLYNOMIAL",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED + CLASSICAL_DETERMINANT_BRIDGE",
+      "hypotheses": "finite directed multigraph with one explicit formal variable x_e per branch edge",
+      "statement": "P_G(x)=det(I-W(x)) equals the signed sum over pairwise vertex-disjoint explicit directed cycle systems. P_G is multiaffine, every nonzero explicit-edge coefficient is +/-1, P_G is identically 1 iff the support is a DAG, and every cycle-system monomial is individually vertex-gauge invariant.",
+      "boundary": "alternating determinant coefficients are inclusion-exclusion signs, not signed/amplitude BRC branch weights"
+    },
+    {
+      "id": "WBRC-T30-CYCLE-POLYNOMIAL-RESPONSE",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "stable positive specialization q of WBRC-T29 with P=P_G(q)>0",
+      "statement": "R_e=-q_e P_e/P. P_e<=0, strictly iff e is recurrent. Multiaffinity gives H_ee=R_e(1+R_e); for e!=f, H_ef=q_e q_f(P_eP_f-P P_ef)/P^2>=0."
+    },
+    {
+      "id": "WBRC-T31-FINITE-CERTIFICATE-INFINITE-LOOP-DUALITY",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED + CLASSICAL_ZETA_BRIDGE",
+      "hypotheses": "finite stable positive rational recurrent branch system",
+      "statement": "The same recurrent object has a finite exclusion certificate P_G as an alternating sum over vertex-disjoint cycle systems and an infinite positive closure Z_loop=1/P_G, Gamma=-LN(P_G) as the closed-walk/primitive-loop expansion. Overlapping cycles excluded from one determinant term reappear through inversion/log closure."
+    }
+  ],
+  "negative_boundaries": [
+    {
+      "id": "WBRC-N07-C2-SHADOW-NOT-DYNAMICALLY-COMPLETE",
+      "status": "COUNTEREXAMPLE_NEGATIVE_BOUNDARY",
+      "statement": "C2/mod-m holonomy shadows do not determine the full positive rational state, recurrent phase or loop surplus. Example: 1/2 and 2 share squarefree skeleton 2 but have stable/divergent phases; 1/2 and 1/8 share skeleton 2 but different stable loop-zeta ratios."
+    },
+    {
+      "id": "WBRC-N08-FULL-GAUGE-RICHER-THAN-RECURRENT-LOOPS",
+      "status": "PROVED_NEGATIVE_BOUNDARY",
+      "statement": "Full H^1(G;Q_{>0}^x) gauge data can be strictly richer than recurrent Gamma/R/H. Feed-forward diamond cross-ratios may be nontrivial while all directed recurrent loop observables vanish."
+    },
+    {
+      "id": "WBRC-N09-DETERMINANT-SIGN-NOT-SIGNED-BRC",
+      "status": "TYPE_BOUNDARY",
+      "statement": "Signs (-1)^{number of disjoint cycles} in det(I-W) are finite inclusion-exclusion/permutation coefficients, not signed/amplitude branch weights in positive Weighted-BRC."
+    },
+    {
+      "id": "WBRC-N10-LOG-PRIME-MODULE-NOT-EUCLIDEAN-LATTICE",
+      "status": "TYPE_BOUNDARY",
+      "statement": "The prime-valuation gauge object is an abstract finite-support free-abelian module. Its faithful embedding sum v_p ln p into R is not generally a discrete Euclidean lattice."
+    },
+    {
+      "id": "WBRC-N11-NO-CANONICAL-RATIONAL-CRITICAL-OPTIMIZER",
+      "status": "SCOPE_BOUNDARY",
+      "statement": "Rational potentials give exact rational lower bounds on the critical scale, but no canonical rational Collatz/Perron optimizer is claimed; the exact critical scale may be irrational algebraic."
+    }
+  ],
+  "consumption_rule": "These T17-T31/N07-N11 statements are part of the all-research Weighted-BRC Foundation addendum but activate only under their explicit finite positive-rational/recurrent/gauge hypotheses. FREE Phase A receives only minimal typed substrate commitments, not this theorem menu as an agenda."
+}
