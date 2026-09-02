@@ -1,0 +1,42 @@
+name: precision-pi-kernel-v1
+
+on:
+  push:
+    branches:
+      - formalization/precision-pi-paper-ii-kernel-v1
+    paths:
+      - 'EnterpriseMath/PrecisionPi/PaperIIKernelV1.lean'
+      - '.github/workflows/precision-pi-kernel-v1.yml'
+      - 'lakefile.toml'
+      - 'lake-manifest.json'
+      - 'lean-toolchain'
+  workflow_dispatch:
+
+concurrency:
+  group: "${{ github.workflow }}-${{ github.ref }}"
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+      - name: Set up Lean
+        uses: leanprover/lean-action@v1
+        with:
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+          use-github-cache: false
+          use-mathlib-cache: false
+      - name: Resolve pinned dependencies
+        run: lake update
+      - name: Fetch mathlib cache
+        run: lake exe cache get
+      - name: Compile minimal paper-II kernel
+        run: lake env lean EnterpriseMath/PrecisionPi/PaperIIKernelV1.lean
