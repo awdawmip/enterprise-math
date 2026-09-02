@@ -29,20 +29,14 @@ theorem parityBit_eq_iff_even_sub (x y : Edge6) :
   rw [ZMod.intCast_eq_intCast_iff_dvd_sub, firstThreeSum_sub,
     even_iff_two_dvd]
   constructor
-  · rintro ⟨t, ht⟩
-    refine ⟨-t, ?_⟩
-    calc
-      firstThreeSum x - firstThreeSum y =
-          -(firstThreeSum y - firstThreeSum x) := by ring
-      _ = -((2 : ℤ) * t) := by rw [ht]
-      _ = (2 : ℤ) * (-t) := by ring
-  · rintro ⟨t, ht⟩
-    refine ⟨-t, ?_⟩
-    calc
-      firstThreeSum y - firstThreeSum x =
-          -(firstThreeSum x - firstThreeSum y) := by ring
-      _ = -((2 : ℤ) * t) := by rw [ht]
-      _ = (2 : ℤ) * (-t) := by ring
+  · intro h
+    have hneg : (2 : ℤ) ∣ -(firstThreeSum y - firstThreeSum x) := by
+      rwa [Int.dvd_neg]
+    simpa only [neg_sub] using hneg
+  · intro h
+    have hneg : (2 : ℤ) ∣ -(firstThreeSum x - firstThreeSum y) := by
+      rwa [Int.dvd_neg]
+    simpa only [neg_sub] using hneg
 
 /-- Free opposite-pair coordinates together with the residual `C₂` bit. -/
 abbrev ResidualCoordinate := (Fin 3 → ℤ) × ZMod 2
@@ -84,8 +78,16 @@ theorem delta_injective : Function.Injective delta := by
   change v 1 + v 2 = w 1 + w 2 at h3
   change v 1 + v 3 = w 1 + w 3 at h4
   change v 2 + v 3 = w 2 + w 3 at h5
+  have hv0 : v 0 = w 0 := by omega
+  have hv1 : v 1 = w 1 := by omega
+  have hv2 : v 2 = w 2 := by omega
+  have hv3 : v 3 = w 3 := by omega
   funext i
-  fin_cases i <;> omega
+  fin_cases i
+  · exact hv0
+  · exact hv1
+  · exact hv2
+  · exact hv3
 
 /-- Quotient by zero-sum slice potentials. -/
 abbrev ResidualQuotient := Quotient deltaSetoid
