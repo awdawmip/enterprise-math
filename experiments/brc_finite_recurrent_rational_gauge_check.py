@@ -251,7 +251,7 @@ def check_stable_raw_supercritical_example() -> None:
     assert matrix_mul(matrix_sub(identity(2), mass), star) == identity(2)
 
     integer_potential = primitive_integer_vector(potential)
-    assert integer_potential == [10, 18]
+    assert integer_potential == [5, 9]
     assert verify_integer_stable_certificate(mass, integer_potential)
 
     gauged = gauge_matrix(mass, potential)
