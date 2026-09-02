@@ -2,13 +2,14 @@
 
 Status: `FROZEN RESEARCH RETURN / DRIVER REVIEW REQUIRED`
 
-Researcher-ID: `EM-P000Q29-A5DDA8`  
+Researcher-ID: `EM-P000Q29-16E421`  
 Task-ID: `RS-P000-PHILOSOPHY-FIRST-NATIVE-6D-ROTATION-LAW-CANDIDATE-DISCRIMINATION`  
 Publication-ID: `TP2-4E118647826FFB47BA2C`  
-Claim-ID: `chatgpt-p000q29-20260902-1057-2d537e`  
-Execution-Record-ID: `ER-A0AA6363DC02BA75B68F`  
-Execution branch: `research/p000-phil-q29-native-6d-rotation-law-candidate-discrimination-a5dda8`  
-Execution base: `bd0310d19ae5f89f6ce8f6f491952d9b9a3c4819`
+Claim-ID: `CLM-5DB71CCF78F0FD96BD23`  
+Execution-Record-ID: `ER-EE4D4DEF726683061A8A`  
+Result-ID: `RR-8D3AFC7B09369C710EF3`  
+Execution branch: `research/p000-q29-reexecution-em-p000q29-16e421`  
+Execution base: `8f53372633fd810f32d30f953ae617dc059888f0`
 
 Hard target: `P000_NATIVE_6D_ROTATION_LAW_CANDIDATE_DISCRIMINATION_OR_NO_CANONICAL_SELECTION_CLASSIFIED`
 
@@ -16,282 +17,272 @@ Terminal class: `NO_CANONICAL_ROTATION_LAW_SELECTED_BY_CURRENT_P000`
 
 ## 1. Executive result
 
-Current frozen P000 does **not** select a unique native finite 6D rotation law, even after Q26 has supplied the exact typed interface that every candidate must satisfy.
+Current P000 still does **not** select a unique native finite 6D rotation law.
 
-The decisive witness is stronger than merely comparing an equivalence, a noninvertible update and a passive frame change. On the same Driver-accepted Q26 finite logical carrier
+The stronger point proved here is narrower than the Q26 three-way semantic underdetermination.  Even after restricting attention to **active, structure-preserving Full-Cell equivalence laws**, there are two matched finite candidates satisfying the same Q26 typed interface, the same finite token calculus, the same primitive/observation boundary, and the same Q23 zero-support boundary, yet they are not semantically equivalent.
 
-`X={0,1}^6`,
+The two decisive candidates are:
 
-with the same three-axis observation
+- `E2`: the generator has an order-2 active equivalence action and the state-action representation image has cardinality `2`;
+- `E3`: the generator has an order-3 active equivalence action and the state-action representation image has cardinality `3`.
 
-`O(x1,...,x6)=(x1,x2,x3)`,
+Typed-law equivalence preserves the cardinality of the representation image.  Hence `E2` and `E3` are inequivalent.  Because current P000 contains no clause selecting one image cardinality/order profile over the other, the taskbook kill condition fires and unique selection must stop.
 
-the same finite rotation-token monoid `C6`, the same source/target Full-Cell type, the same zero/parity primitive package, exact identity/composition, zero preservation, invertibility, and even the **same induced slice action (identity)**, there are two inequivalent structure-preserving candidate laws:
-
-- `E2`: the designated generator swaps hidden coordinates 4 and 5;
-- `E3`: the designated generator cycles hidden coordinates `4 -> 5 -> 6 -> 4`.
-
-The state-action representation of `C6` has image cardinality `2` for `E2` and `3` for `E3`. That cardinality is invariant under token-monoid automorphism and state conjugacy. Hence the two typed laws are not semantically equivalent, while every frozen current-P000 condition used by Q29 accepts both.
-
-This triggers the taskbook kill condition. Unique selection must stop and the terminal state is
-
-`NO_CANONICAL_ROTATION_LAW_SELECTED_BY_CURRENT_P000`.
-
-The required remaining class audit was also completed: a genuine idempotent state/relation update and a passive frame/presentation law both satisfy the Q26 interface when explicitly typed. Neither is selected by current P000. All four audited candidates preserve zero, so none escapes the accepted Q23 zero-support obstruction.
-
-## 2. Semantic equivalence relation for finite typed rotation laws
-
-A finite typed rotation law is treated as data consisting of:
-
-1. a finite rotation-token monoid/category of composable tokens;
-2. typed Full-Cell source/target models;
-3. state maps `U_r`;
-4. explicit primitive/relation preservation, transport or update maps `A_r`;
-5. identities and typed composition;
-6. source and target observations, with a slice map asserted only when fibre-constancy proves descent.
-
-Two such laws count as the **same semantics** only if there is a token-monoid isomorphism together with Full-Cell/model isomorphisms intertwining the state actions, primitive/relation actions and declared observations.
-
-Therefore the following are semantic invariants whenever defined:
-
-- cardinality of the image of the token action on Full-Cell states;
-- injectivity/bijectivity of each state action;
-- idempotence and element order;
-- fixed-state counts under conjugate finite actions;
-- fibre-descent truth once the observations are intertwined.
-
-This equivalence relation intentionally quotients mere relabeling while refusing to identify genuinely different active, update or passive semantics.
-
-## 3. Matched countermodels inside the structure-preserving equivalence class
-
-Reuse the Q26 binary six-coordinate carrier only as a **finite logical countermodel**. It is not promoted to native P000 ontology.
-
-Let
-
-`Z={000000}`
-
-and
-
-`E={x in X : sum_i x_i = 0 mod 2}`.
-
-Both are preserved by coordinate permutations.
-
-Let the finite token monoid be `C6=<r | r^6=1>`.
-
-### Candidate E2 — hidden transposition
-
-Define
-
-`U_r^(2)(x1,x2,x3,x4,x5,x6)=(x1,x2,x3,x5,x4,x6)`.
-
-Then:
-
-- `U_r^(2)` is bijective;
-- `(U_r^(2))^2=id`, hence also `(U_r^(2))^6=id`;
-- the resulting `C6` action has exactly `2` distinct state maps;
-- the generator fixes exactly `32` of the `64` states;
-- `Z` and `E` are preserved exactly;
-- `U_r^(2)(0)=0`;
-- `O o U_r^(2)=O`, so fibre-constancy holds and the induced slice map is the identity.
-
-Identity and composition are the ordinary `C6` action laws and are exhaustively checked.
-
-### Candidate E3 — hidden 3-cycle
-
-Define
-
-`U_r^(3)(x1,x2,x3,x4,x5,x6)=(x1,x2,x3,x6,x4,x5)`.
-
-This cycles hidden coordinates `4 -> 5 -> 6 -> 4`. Then:
-
-- `U_r^(3)` is bijective;
-- `(U_r^(3))^3=id`, hence also `(U_r^(3))^6=id`;
-- the resulting `C6` action has exactly `3` distinct state maps;
-- the generator fixes exactly `16` of the `64` states;
-- the same `Z` and `E` are preserved exactly;
-- `U_r^(3)(0)=0`;
-- `O o U_r^(3)=O`, so fibre-constancy again holds and the induced slice map is the identity.
-
-Again identity and all `36` token-composition pairs are checked exactly.
-
-### Inequivalence proof
-
-Suppose `E2` and `E3` were equivalent typed laws. A token automorphism of `C6` can only precompose the representation by a generator automorphism; a Full-Cell relabeling conjugates every state map. Neither operation changes the cardinality of the image of the representation.
-
-But
-
-`|im rho_E2|=2`
-
-while
-
-`|im rho_E3|=3`.
-
-Contradiction.
-
-Thus `E2` and `E3` are inequivalent even though they match on all frozen Q29 acceptance features listed above, including observation descent. This pair alone is sufficient to trigger the no-selection kill condition.
-
-The fixed-point counts `32` versus `16` provide an independent conjugacy invariant.
-
-## 4. Candidate U — genuine Full-Cell state/relation update
-
-Define
-
-`U_e(x1,x2,x3,x4,x5,x6)=(0,x2,x3,x4,x5,x6)`.
-
-Type it as an update from a source primitive package to its direct-image target package. For every declared unary primitive relation `S`, let
-
-`A_e(S)=U_e[S]`.
-
-Because `U_e^2=U_e`, direct image also satisfies
-
-`A_e(A_e(S))=A_e(S)`.
-
-Therefore an exact small typed calculus exists with identity arrows and the idempotent update arrow.
-
-Exact properties:
-
-- image size `32`;
-- noninjective and therefore noninvertible;
-- idempotent;
-- zero-preserving;
-- primitive/relation update law explicitly supplied rather than inferred from the carrier map;
-- slice descent exists, with
-
-`bar U_e(y1,y2,y3)=(0,y2,y3)`.
-
-Thus invertibility is genuinely an audited conclusion, not a condition smuggled into the word `rotation`.
-
-This candidate realizes `FULL_CELL_STATE_RELATION_UPDATE` and is semantically inequivalent to `E2/E3` because noninvertibility is invariant under typed-law isomorphism.
-
-## 5. Candidate F — passive frame/presentation change
-
-Let frame labels be `k in C6`. Keep the ontic Full-Cell state fixed:
-
-`U_a(x)=x`.
-
-Update only the frame label by
-
-`k -> k+a mod 6`.
-
-Use frame-relative observation
-
-`O_k(x)=(x_k,x_(k+1),x_(k+2))`
-
-with cyclic coordinate indices. Identity and composition are exact because frame updates compose by addition modulo `6` while the ontic state action remains identity.
-
-This is a typed `FRAME_PRESENTATION_CHANGE` candidate. Its ontic state-action image has cardinality `1`, so it is not equivalent to `E2` or `E3`.
-
-The observation boundary is load-bearing. For the frame change `0 -> 1`, take
-
-`x=(0,0,0,0,0,0)`,
-
-`y=(0,0,0,1,0,0)`.
-
-Then
-
-`O_0(x)=O_0(y)=(0,0,0)`
-
-but
-
-`O_1(x)=(0,0,0)`
-
-and
-
-`O_1(y)=(0,0,1)`.
-
-Hence `O_1 o U` is not constant on an `O_0` fibre. No slice map is asserted. This is exactly the Q26/Q24 descent discipline.
-
-## 6. Q23 zero-support audit for every candidate
-
-Each candidate is audited separately.
-
-| Candidate | `U(0)=0` | Q23 zero-support model invalidated? |
-|---|---:|---:|
-| `E2` hidden swap | yes | no |
-| `E3` hidden 3-cycle | yes | no |
-| `U` idempotent update | yes | no |
-| `F` passive frame change | yes, ontic action is identity | no |
-
-Therefore Q29 derives no nonzero effectivity. The fact that a rotation law has now been explicitly typed does not by itself cross the Q23 boundary.
-
-A nonzero-generating law would require separate P000 justification and separate review; none is selected here.
-
-## 7. What current P000 can and cannot discriminate
-
-Once a candidate law is supplied, current finite mathematics can **measure** distinctions such as action-image cardinality, element order, fixed-state count, injectivity, idempotence and slice descent.
-
-But current P000 contains no frozen clause requiring one of those values. In particular, it contains no clause that excludes either `E2` or `E3` while retaining the other. Therefore distinguishability of supplied candidates is not the same thing as canonical selection by the theory.
-
-The matched pair proves the stronger statement:
-
-> Even after fixing the semantic class to structure-preserving equivalence, fixing the same `C6` token monoid, fixing the same observation and primitive package, requiring exact composition, requiring invertibility, requiring zero preservation, and requiring slice descent to the identity, current P000 still admits inequivalent finite rotation laws.
-
-Hence choosing a generator action is additional structure.
-
-## 8. Minimal-additional-clause boundary
-
-For the matched pair `E2/E3`, a single additional clause such as
-
-`U_r^2=id`
-
-separates them: `E2` satisfies it and `E3` does not. Deleting that clause immediately re-admits both matched countermodels.
-
-This demonstrates that a pairwise discriminator can be extremely small. But the clause is **not** a current-P000 consequence, and it does not select a unique law among all possible finite candidates. Other incomparable one-clause discriminators are possible, such as a fixed-point count or a separating Full-Cell action equation.
-
-Therefore Q29 does **not** claim a unique weakest global forcing axiom. The exact missing semantic information remains the Q26 object
-
-`TYPED_FINITE_FULL_CELL_ROTATION_ACTION_AND_RELATION_UPDATE_LAW`,
-
-with any further action-order, action-table, orbit or effectivity condition treated only as an extension candidate unless independently authorized.
-
-## 9. Prohibited imports and strength boundary
-
-No part of the proof imports or assumes:
-
-- `SO(6)`;
-- Euclidean angles or trigonometric parameterizations;
-- a continuum manifold or metric rotation group;
-- connection, curvature, path transport or holonomy;
-- that rotation must be invertible;
-- that a Full-Cell transformation must descend to the three-axis observation;
-- that a named rotation creates nonzero effectivity;
-- Working Truth, Foundation, L4 or canonical promotion.
-
-The finite `C6` token monoid is used only as a matched finite candidate interface. It is not asserted to be native P000 rotation structure.
-
-## 10. Exact verification
-
-Checker:
-
-`research_checks/P000_PHILOSOPHY_FIRST_NATIVE_6D_ROTATION_LAW_CANDIDATE_DISCRIMINATION_CHECK_20260902.py`
-
-Certificate:
-
-`research_artifacts/P000_PHILOSOPHY_FIRST_NATIVE_6D_ROTATION_LAW_CANDIDATE_DISCRIMINATION/candidate_certificate.json`
-
-Deterministic checker terminal line:
-
-`PASS P000_Q29_ROTATION_CANDIDATE_DISCRIMINATION states=64 E2_action_image=2 E2_fixed=32 E2_slice_descent=1 E3_action_image=3 E3_fixed=16 E3_slice_descent=1 update_image=32 update_injective=0 update_idempotent=1 update_slice_descent=1 passive_state_action_image=1 passive_slice_descent=0 all_zero_preserving=1 matched_equivalence_countermodels=1 terminal=NO_CANONICAL_ROTATION_LAW_SELECTED_BY_CURRENT_P000`
-
-Method reuse:
-
-- Q26 typed interface: `REUSE_APPLIED`;
-- Q24 operation-safe observation quotient discipline: `REUSE_APPLIED` through exact fibre-constancy tests;
-- Q23 zero-support obstruction: `REUSE_APPLIED` as a mandatory per-candidate audit;
-- continuum rotation/transport machinery: `NOT_APPLICABLE / PROHIBITED_AT_THIS_STAGE`.
-
-Method harvest: `RESULT_ONLY / MATCHED_FINITE_TYPED_ACTION_COUNTERMODELS`.
-
-## 11. Hard-target disposition and Driver recommendation
-
-Hard-target disposition: `PROVED` via the taskbook kill condition.
+For completeness, the same finite comparison scaffold also admits a genuine noninvertible state/primitive update `U` and a passive frame/presentation law `F`.  Thus all three Q26 semantic classes are represented, but the terminal no-selection theorem already follows inside the equivalence class itself.
 
 Freeze:
 
 `NO_CANONICAL_ROTATION_LAW_SELECTED_BY_CURRENT_P000`.
 
-The decisive reason is the matched pair `E2/E3`, not merely the existence of different broad semantic classes.
+## 2. Semantic equivalence of typed laws
 
-Driver recommendation: review the exact typed-law equivalence relation, the `|im rho|=2` versus `3` invariant, the update and passive-frame audits, and the Q23 zero-support preservation. If accepted, close unique rotation-law selection under **current** P000. Any future successor should be published only after an independently justified new P000 clause or explicit extension objective is supplied; do not convert the pairwise example `U_r^2=id` into a native axiom by default.
+Fix a finite token monoid `T`, Full-Cell model types with state carriers, primitive packages, and observation/readout data.
 
-No Working Truth, Foundation, L4 or canonical promotion is requested.
+Two typed rotation laws `L,L'` count as the same semantics only if there is:
+
+1. a token-monoid isomorphism `alpha:T -> T'`;
+2. typed Full-Cell isomorphisms `phi_M:X_M -> X'_M` on source/target model types;
+3. commuting state actions
+   `phi_N o U_t = U'_(alpha(t)) o phi_M`;
+4. commuting primitive/relation transport or update laws;
+5. compatible observation/presentation isomorphisms.
+
+Merely quotienting distinct rotation tokens, forgetting a primitive update, or replacing an ontic state action by a presentation action is **not** semantic equivalence; those operations change the typed law.
+
+Under this equivalence, the set of distinct state maps `rho(T) subset End(X)` is carried by conjugacy to `rho'(T')`.  Therefore
+
+`|rho(T)|`
+
+is an invariant.  The multiset of state-map image cardinalities/ranks is also invariant.
+
+These two elementary invariants are enough for the finite discrimination below.
+
+## 3. Shared finite comparison scaffold
+
+Use the same logical Full-Cell carrier as the accepted Q26 countermodel:
+
+`X = {0,1}^6`, with `|X|=64`,
+
+and slice observation
+
+`O(x1,...,x6)=(x1,x2,x3)`.
+
+As in Q26, `{0,1}^6` is **only a finite logical compatibility carrier**.  No binary native ontology is asserted.
+
+To test identity/composition without silently assuming invertibility, use the finite monogenic comparison monoid
+
+`T = < r | r^7 = r >`.
+
+Its seven normal forms are
+
+`e,r,r^2,r^3,r^4,r^5,r^6`.
+
+For positive powers, multiplication reduces the exponent by period six.  This scaffold is deliberately weaker than choosing a finite group: `r^7=r` admits invertible order-2 and order-3 actions, but it also admits a noninvertible idempotent action.  Thus invertibility remains an audited property of each candidate rather than an assumption of the token calculus.
+
+`T` is a **comparison scaffold only**, not a P000 axiom.
+
+Use a minimal primitive package consisting of the six Boolean registers, equality, and the distinguished zero state.  Candidate laws must state explicitly whether these primitives are permuted, updated, or left ontically fixed.
+
+## 4. Four finite typed candidates
+
+### E2 — active structure-preserving equivalence
+
+Define the generator state action
+
+`S(x1,x2,x3,x4,x5,x6)=(x2,x1,x3,x5,x4,x6)`.
+
+Then:
+
+- `S^2=id`, hence `S^7=S`;
+- `S` is bijective on all 64 states;
+- the induced `T`-representation has exactly `2` distinct state maps;
+- `S(0)=0`;
+- primitive registers are transported by the same coordinate permutation;
+- the slice action descends as `(y1,y2,y3) -> (y2,y1,y3)`.
+
+Invertibility is therefore a conclusion of the explicit map, not a preset field.
+
+### E3 — active structure-preserving equivalence
+
+Define
+
+`C(x1,x2,x3,x4,x5,x6)=(x2,x3,x1,x5,x6,x4)`.
+
+Then:
+
+- `C^3=id`, hence `C^7=C`;
+- `C` is bijective on all 64 states;
+- the induced `T`-representation has exactly `3` distinct state maps;
+- `C(0)=0`;
+- primitive registers are transported by the same two three-cycles;
+- the slice action descends as `(y1,y2,y3) -> (y2,y3,y1)`.
+
+Again invertibility is derived from the concrete law.
+
+### U — genuine state/primitive update
+
+Define
+
+`P(x1,x2,x3,x4,x5,x6)=(0,x2,x3,x4,x5,x6)`.
+
+Then:
+
+- `P^2=P`, hence `P^7=P`;
+- its image has exactly `32` states, so it is noninvertible;
+- the induced `T`-representation has `2` distinct state maps, `id` and `P`;
+- `P(0)=0`;
+- primitive register 1 is explicitly updated to the constant `0`, while registers 2--6 are retained;
+- the slice action descends as `(y1,y2,y3) -> (0,y2,y3)`.
+
+This is a genuine update semantics, not a presentation equivalence.
+
+### F — passive frame/presentation change
+
+Keep the ontic state action equal to `id_X` for every token.  Add a two-state presentation label `f` and let the generator flip that label.  Use readouts
+
+`O_0(x)=(x1,x2,x3)`,
+`O_1(x)=(x2,x1,x3)`.
+
+Then:
+
+- the state-action representation image has cardinality `1`;
+- the independent presentation-action image has cardinality `2`;
+- every ontic state, including zero, is fixed;
+- the primitive Full-Cell package is unchanged;
+- the changed readout factors through the source slice by the swap `(y1,y2,y3)->(y2,y1,y3)`.
+
+Thus a changed displayed slice can coexist with an unchanged Full-Cell state, exactly preserving the Q24/Q26 observation boundary.
+
+## 5. Exact candidate table
+
+| candidate | semantic class | state-representation image | generator rank | generator fixed points | generator invertible | zero-preserving | slice fibre-constant |
+|---|---|---:|---:|---:|---|---|---|
+| `E2` | active equivalence | 2 | 64 | 16 | yes | yes | yes |
+| `E3` | active equivalence | 3 | 64 | 4 | yes | yes | yes |
+| `U` | genuine state/primitive update | 2 | 32 | 32 | no | yes | yes |
+| `F` | passive frame/presentation | 1 | 64 | 64 | ontic identity | yes | yes |
+
+For `F`, the independent frame/presentation representation has image cardinality `2`.
+
+The exact task-local checker enumerates all 64 states and all seven tokens, verifies the monoid law, representation homomorphism, zero preservation, and fibre constancy, and reproduces every entry above.
+
+## 6. Decisive matched-countermodel theorem
+
+### Proposition
+
+`E2` and `E3` are not equivalent typed laws under the equivalence relation in Section 2.
+
+### Proof
+
+Suppose an equivalence existed.  Token relabeling by a monoid isomorphism does not change the image cardinality of a representation, and conjugating every state map by a Full-Cell bijection also preserves the number of distinct state maps.  Therefore equivalent laws must satisfy
+
+`|rho_E2(T)| = |rho_E3(T)|`.
+
+But exact evaluation gives
+
+`|rho_E2(T)|=2`,
+`|rho_E3(T)|=3`.
+
+Contradiction.  Hence the laws are inequivalent. `□`
+
+Both laws use the same Full-Cell carrier, same observation, same token monoid, same zero state, same primitive-register type, same identity/composition contract, and both are active structure-preserving equivalences.  The difference therefore cannot be dismissed as comparing an update against a frame change or as a mere renaming of representations.
+
+Current frozen P000 supplies no clause fixing the order/image profile of the native rotation action.  Consequently it cannot select `E2` over `E3` or vice versa.
+
+By the Q29 kill condition, this already forces
+
+`NO_CANONICAL_ROTATION_LAW_SELECTED_BY_CURRENT_P000`.
+
+## 7. Primitive/relation-action audit
+
+The candidates do not rely on carrier maps alone.
+
+- `E2` transports primitive registers by the two swaps `(1 2)(4 5)`.
+- `E3` transports them by `(1 2 3)(4 5 6)`.
+- `U` declares a real primitive update: register 1 becomes the constant zero primitive; registers 2--6 are retained.
+- `F` keeps all ontic primitives fixed and acts only on presentation/frame data.
+
+Thus the Q26 requirement that primitive/relation action be explicit is satisfied.  In particular, `U` cannot be re-described as a structure-preserving equivalence because its generator has rank 32, while `F` cannot be re-described as `E2` merely because one displayed slice swap coincides: `F` has only the identity ontic state action.
+
+## 8. Observation descent audit
+
+For every token of `E2`, `E3`, and `U`, the transformed readout is constant on every fibre of `O`.  Therefore each admits a well-defined descended slice map.
+
+For `F`, the target frame readout `O_f` also factors through the source frame readout for every token.
+
+Hence the Q24/Q26 observation gate does not distinguish the four candidates.  This is important: no-selection persists even after requiring the strongest legal slice fibre-constancy test available at the current boundary.
+
+The result does **not** infer that every possible future rotation law must descend to slices; Q26 already proved the contrary in general.
+
+## 9. Q23 zero-support audit
+
+Every state action in all four candidates fixes the zero Full-Cell state.
+
+Therefore all four candidates remain compatible with the accepted Q23 zero-support countermodel.  None supplies the independently justified nonzero-generating primitive that would be required to invalidate Q23.
+
+So Q23 cannot be used as a hidden selection principle among these candidates, and this task makes no nonzero-effectivity claim.
+
+A nonzero-generating XOR-flip-style law remains only an extension boundary from Q26, not something selected here.
+
+## 10. What extra information would be needed
+
+The terminal no-selection result means that any future law-selection clause is additional structure unless separately justified.
+
+For example, within the shared scaffold a clause forcing a nontrivial order-2 active state action would distinguish `E2` from `E3`; a clause forcing a three-element state-action image would distinguish `E3`; an invertibility clause would exclude `U`; and a nontrivial ontic-action clause would exclude `F`.
+
+Current P000 contains none of these forcing clauses.  This return therefore does not promote any one of them to a native axiom and does not claim minimality of any proposed extension package.
+
+## 11. Prohibited imports and strength boundary
+
+Nothing here imports or licenses:
+
+- `SO(6)`, Euclidean angles, trigonometric parameterization, or a continuum limit;
+- manifolds, connections, curvature, bundles, path transport, or holonomy;
+- `C6` as the native rotation group;
+- `U_r^2=id`, `U_r^3=id`, or any other finite-order law as current P000 truth;
+- nonzero effectivity;
+- Working Truth, Foundation, L4, or canonical promotion;
+- a novelty claim.
+
+The monoid `T=<r | r^7=r>` is only a finite comparison harness chosen because it admits invertible and noninvertible candidate representations without assuming invertibility in advance.
+
+## 12. Verification, reuse, and provenance
+
+Task-local checker:
+
+`research_checks/P000_PHILOSOPHY_FIRST_NATIVE_6D_ROTATION_LAW_CANDIDATE_DISCRIMINATION_CHECK_20260902.py`
+
+Frozen certificate:
+
+`research_artifacts/P000_PHILOSOPHY_FIRST_NATIVE_6D_ROTATION_LAW_CANDIDATE_DISCRIMINATION/Q29_FINITE_LAW_CERTIFICATE_20260902.json`
+
+Deterministic terminal line:
+
+`PASS P000_Q29_ROTATION_LAW_DISCRIMINATION tokens=7 states=64 candidates=4 E2_state_image=2 E3_state_image=3 U_state_image=2 F_state_image=1 E2_rank=64 E3_rank=64 U_rank=32 F_rank=64 E2_fixed=16 E3_fixed=4 U_fixed=32 F_fixed=64 frame_image=2 all_zero_preserving=1 all_slice_fibre_constant=1 pairwise_typed_signatures_distinct=1 terminal=NO_CANONICAL_ROTATION_LAW_SELECTED_BY_CURRENT_P000`
+
+Tool/method reuse:
+
+- `T7_FINITE_SYMMETRY_EQUIVARIANCE`: `REUSE_APPLIED` to the finite action/conjugacy and representation-image invariant audit.
+- `T6_OPERATION_SAFE_QUOTIENT`: `REUSE_APPLIED` to the slice fibre-constancy/descent audit.
+- `T9_HOLONOMY_COCOYCLE_GLUING`: `NOT_APPLICABLE`; Q24 still forbids manufacturing transport/holonomy before an accepted native model-change law exists.
+- the newly global Weighted/Log-BRC substrate is `NOT_APPLICABLE` to this typed finite countermodel discrimination and was not forced into the proof.
+
+Provenance status:
+
+`NONBLIND_REEXECUTION`.
+
+A prior Q29 terminal summary was visible in control-plane history before this fresh execution, so this return does **not** claim blind independence.  However, no prior Q29 return/checker/result bytes were read before the present finite scaffold, candidate maps, exact checker, and certificate were frozen.  The mathematical reconstruction used the accepted Q26 result and Q23/Q24 Driver-reviewed boundaries required by the current taskbook.
+
+## 13. Hard-target disposition and Driver recommendation
+
+Hard target disposition:
+
+`PROVED / NO_CANONICAL_ROTATION_LAW_SELECTED_BY_CURRENT_P000`.
+
+The exact reason is stronger than broad semantic underdetermination: two inequivalent active structure-preserving equivalence laws, `E2` and `E3`, already survive all frozen current-P000 tests on a matched finite scaffold.
+
+Driver recommendation:
+
+accept this result only at the no-selection boundary.  Freeze the typed semantic-equivalence criterion, the exact `E2/E3` representation-image-cardinality separator, the update and passive-frame audit, and the Q23/observation compatibility checks.
+
+Do **not** adopt `T`, `E2`, `E3`, `U`, or `F` as native P000 structure.  Do not infer dynamics, transport, holonomy, nonzero effectivity, or any canonical rotation law from this result.
