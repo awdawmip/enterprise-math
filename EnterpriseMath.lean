@@ -11,6 +11,7 @@ import EnterpriseMath.Precision.QuotientBasin
 import EnterpriseMath.Precision.QuotientCoalescence
 import EnterpriseMath.PrecisionPi.ArithmeticCertificates
 import EnterpriseMath.PrecisionPi.EqualOccupancy
+import EnterpriseMath.PrecisionPi.EqualOccupancyStirling
 import EnterpriseMath.PrecisionPi.BalanceRecurrence
 import EnterpriseMath.PrecisionPi.DoublePell
 import EnterpriseMath.PrecisionPi.GeneralStirlingPrecision
