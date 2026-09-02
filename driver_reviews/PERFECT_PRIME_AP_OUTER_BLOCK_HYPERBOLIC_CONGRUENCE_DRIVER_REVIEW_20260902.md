@@ -1,152 +1,81 @@
-# Perfect Prime AP outer block-hyperbolic congruence — Driver Review
+# Driver Review — Perfect Prime AP outer block-hyperbolic congruence
 
-Status: `ACCEPTED / TERMINAL TASK NEGATIVE BOUNDARY / PARENT OBJECTIVE OPEN`
+Driver-ID: `EM-DVR-P8H4Q2`
+Review-ID: `DR-4B27C9136E5A08D1F624`
+Task: `RS-PERFECT-PRIME-AP-OUTER-BLOCK-HYPERBOLIC-CONGRUENCE`
+Publication: `TP2-E2EE65A96658AD50D37C`
+Result: `RR-19DB7617DE41BD10CCF7`
+Execution: `ER-F7285D4C9DB27860AEF4`
 
-- Task-ID: `RS-PERFECT-PRIME-AP-OUTER-BLOCK-HYPERBOLIC-CONGRUENCE`
-- Publication-ID: `TP2-E2EE65A96658AD50D37C`
-- Result-ID: `RR-19DB7617DE41BD10CCF7`
-- Researcher-ID: `EM-PPTAPOBHC1-C58329`
-- Driver-ID: `EM-DVR-P8H4Q2`
-- Parent Objective: `OBJ-ROUTE-A-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M`
-- Disposition: `ACCEPTED`
-- Terminal: `true`
+## Disposition
 
-## 1. Decision
+`ACCEPTED / EXACT_NEGATIVE_BOUNDARY / FOLLOWUP_TASK`.
 
-Accept the Result exactly as a task-level negative boundary:
+The Result is accepted at its exact declared strength. It does not prove or refute `det S_m(t) != 0` for all `m>=2`, `0<t<=1`. It closes two specific block-factorization readings: one fixed `t`-independent simultaneous congruence with blocks of size at most two, and the unstructured existential claim that some adaptive nonsingular `1x1/2x2` symmetric block-LDL decomposition exists.
 
-`EXACT_STATIC_T_INDEPENDENT_SMALL_BLOCK_CONGRUENCE_OBSTRUCTION_AND_UNSTRUCTURED_ADAPTIVE_BLOCK_CIRCULARITY`.
+## Envelope audit
 
-The accepted Result does **not** prove or refute the parent statement
+The immutable Result record is bound by Git blob `c66d05a707eed54e3540eaf40fee6afc8a306024` and independent SHA-256 `fdc9fd8b958e494be715a55a4b59f523ac9a7209dc184508f5363eb18eef435e`. Its output manifest is complete and all four frozen paths resolve to the declared Git blobs:
 
-`det S_m(t) != 0` for every `m>=2`, `0<t<=1`.
+- Return: `84a4d48828bfeef104938b4bff58303b70a7866c`;
+- checker: `e23e69062fa99a2cbebd7f45f85b194f9906ce10`;
+- exact static-block certificate: `e51eda899b88eebe6352ae1bc39b7150ddcff3f6`;
+- execution record: `0f9772ae8678ed68b2013f6b1272467694be788d`.
 
-It closes two proposed proof mechanisms and leaves the parent Objective OPEN.
+The taskbook binding is the published blob `df991fb3079a934097a1b034784a9c358b188fac`. Finite exact arithmetic is used only for the stated `m=4` obstruction and the accepted `m=15` regression; the adaptive block-LDL equivalence is symbolic.
 
-## 2. Result binding
+## Accepted symbolic boundary — adaptive block existence is circular
 
-The review binds to the Result materialized on current main:
+For a finite real symmetric matrix `A`, the Result proves:
 
-- Result blob: `sha1:c66d05a707eed54e3540eaf40fee6afc8a306024`;
-- Result SHA-256: `sha256:fdc9fd8b958e494be715a55a4b59f523ac9a7209dc184508f5363eb18eef435e`;
-- Return blob: `sha1:84a4d48828bfeef104938b4bff58303b70a7866c`;
-- Checker blob: `sha1:e23e69062fa99a2cbebd7f45f85b194f9906ce10`;
-- obstruction certificate blob: `sha1:e51eda899b88eebe6352ae1bc39b7150ddcff3f6`;
-- execution record blob: `sha1:0f9772ae8678ed68b2013f6b1272467694be788d`.
+`A is nonsingular`
 
-The Researcher bytes were absorbed without mathematical rewriting before this review.
+if and only if, after symmetric permutations and Schur-complement elimination, there exists a block-LDL congruence with nonsingular diagonal blocks of size `1` or `2`.
 
-## 3. Adaptive block-LDL theorem
+The forward direction is a complete dimension induction. If a diagonal entry is nonzero, pivot on a `1x1` block. If all diagonal entries vanish, nonsingularity forces a nonzero off-diagonal entry, giving a nonsingular block `[[0,a],[a,0]]`. In either case determinant factorization makes the remaining symmetric Schur complement nonsingular, so induction continues.
 
-The symbolic theorem in the Return is correct.
+Therefore the bare assertion
 
-For a finite real symmetric nonsingular matrix `A`, either:
+`there exists some adaptive nonsingular 1x1/2x2 block LDL for S_m(t)`
 
-1. some diagonal entry is nonzero, giving a nonsingular `1x1` principal pivot; or
-2. every diagonal entry is zero, in which case nonsingularity forces some nonzero off-diagonal entry `a_ij`, and the principal block `[[0,a_ij],[a_ij,0]]` is a nonsingular `2x2` pivot.
+is exactly equivalent to the parent target `det S_m(t) != 0`. It is not an independent invariant and cannot be used to prove the target without circularity.
 
-After either pivot, determinant factorization shows that the symmetric Schur complement is again nonsingular. Induction gives a permutation and adaptive sequence of nonsingular `1x1/2x2` pivots.
+## Accepted exact static obstruction
 
-The converse follows from rank preservation under invertible congruence and nonsingularity of the block diagonal factor.
+At `m=4`, take
 
-Therefore:
+`A=S_4(1/3)`, `B=S_4(2/3)`, `C=S_4(1)`.
 
-`EXISTS_ADAPTIVE_NONSINGULAR_1x1_2x2_BLOCK_LDL(A) <=> det(A) != 0`.
-
-For `S_m(t)`, bare existential adaptive block-LDL is thus equivalent to the parent target and cannot be used as an independent proof invariant.
-
-## 4. Exact static simultaneous-basis obstruction
-
-The exact `m=4` obstruction is accepted.
-
-Set
-
-`A=S_4(1/3)`, `B=S_4(2/3)`, `C=S_4(1)`,
-
-and
+All three are nonsingular in exact arithmetic. If one fixed real congruence and one fixed `1+2` partition simultaneously block-diagonalized all three, the one-dimensional block would be a common real invariant/eigenline for
 
 `T_B=A^(-1)B`, `T_C=A^(-1)C`.
 
-A fixed `t`-independent `1+2` congruence decomposition would force its one-dimensional block to be a common invariant line of `T_B` and `T_C`, hence a common eigenline.
+The exact commutator `K=[T_B,T_C]` has rank `2`, so its kernel is one-dimensional. The certificate gives a primitive generator of that line and verifies that `T_B v wedge v` has all three coordinates nonzero. Hence the unique commutator-kernel line is not `T_B`-invariant, so there is no common eigenline. Thus no fixed `t`-independent simultaneous congruence with blocks of size at most two can work uniformly, already for these three exact parameter values.
 
-The exact commutator certificate gives:
+The accepted `m=15` regression is preserved: the canonical `Delta_12` has signs `+,-,+` at `t=3/4,4/5,1`, so simply pairing adjacent canonical scalar pivots cannot make all paired blocks nonsingular throughout the interval.
 
-- `det A>0`, `det B>0`, `det C>0`;
-- `rank([T_B,T_C])=2`;
-- `det([T_B,T_C])=0`;
-- the commutator kernel is one-dimensional;
-- its primitive integer generator has bit lengths `[345,340,334]`;
-- its canonical vector hash is `sha256:3ba80ec7b3a9d849a9bc977b546dfd72900fb220c5d90081a660be542e0cca43`;
-- `(T_B v) wedge v` has three nonzero coordinates with signs `[+,-,-]`.
+## Exact route closure
 
-Thus the unique commutator-kernel line is not `T_B`-invariant, so there is no common eigenline and no fixed simultaneous `1+2` congruence block decomposition. The fully diagonal case is included as a stronger special case.
+Freeze as closed:
 
-### Driver independent recomputation
+- `FIXED_T_INDEPENDENT_SIMULTANEOUS_BLOCK_BASIS_LE_2`;
+- `BARE_ADAPTIVE_BLOCK_LDL_EXISTENCE_AS_PROOF_INVARIANT`;
+- `CANONICAL_ADJACENT_PAIRING_AS_UNIFORM_REPAIR`.
 
-The Driver independently reconstructed `S_4(t)` from the frozen exact Fraction formulas and reproduced, without reading stored determinant values:
+Do **not** infer that every structured `t`-dependent block rule is impossible. Such a rule would still need an independently derived pivot/block law and independent nonvanishing formulas. However, the block lane has now passed through the canonical one-by-one flag obstruction and this stronger static/adaptive block audit without producing an independent all-`m` invariant.
 
-- determinant signs `[+,+,+]`;
-- commutator rank `2` and determinant `0`;
-- kernel-vector bit lengths `[345,340,334]`;
-- the same SHA-256 `3ba80ec7b3a9d849a9bc977b546dfd72900fb220c5d90081a660be542e0cca43`;
-- wedge signs `[+,-,-]`, all nonzero.
+## Successor decision
 
-This independently confirms the load-bearing finite obstruction.
+The parent objective remains open, so mathematical continuation is required. Closure is invalid. A third generic block-search task would risk repackaging the same circularity; the already-frozen residual Bernstein/Mobius interface is genuinely different and has exact positive finite evidence through `m<=10`. Therefore the next single continuation should switch route rather than continue unstructured block exploration.
 
-## 5. Canonical adjacent pairing
+Publish P0/HIGH `RS-PERFECT-PRIME-AP-RESIDUAL-BERNSTEIN-MOBIUS-ALL-M-POSITIVITY`, targeting an all-`m` proof or exact obstruction for the double-endpoint residual polynomial coefficients.
 
-The obvious canonical adjacent-pair repair is also closed.
+## Gate decisions
 
-The already accepted predecessor certificate gives for `m=15`
+- `MATHEMATICAL_CONTINUATION = REQUIRED`.
+- `LEAN_FORMALIZATION = NOT_REQUIRED` — the load-bearing all-`m` theorem remains open.
+- `EXTERNAL_PRIOR_ART_DUPLICATION = SATISFIED_BY_EXISTING_REVIEWED_BOUNDARY`.
+- `INDEPENDENT_REPLICATION = NOT_REQUIRED_AT_THIS_CHECKPOINT`.
+- `ADVERSARIAL_AUDIT = BUILT_INTO_SUCCESSOR` — bounded coefficient positivity remains regression only and no closed block/flag mechanism may be silently reintroduced.
 
-- `Delta_(15,12)(3/4)>0`;
-- `Delta_(15,12)(4/5)<0`;
-- `Delta_(15,12)(1)>0`.
-
-Hence the even prefix determinant crosses zero in both `(3/4,4/5)` and `(4/5,1)`. A canonical adjacent `2x2` schedule whose first six block determinants all stayed nonzero would make that `12x12` prefix determinant nonzero, contradiction.
-
-This is a route obstruction only; it does not imply a zero of the full `14x14` determinant.
-
-## 6. Scope frozen
-
-This review does not accept any of the following:
-
-- a counterexample to `det S_m(t) != 0`;
-- failure of balanced inertia;
-- failure of every possible structured `t`-dependent congruence;
-- an all-m conclusion from finite computation;
-- any Working Truth, Foundation, L4, or historical-priority elevation.
-
-The parent Objective remains OPEN.
-
-## 7. Successor decision
-
-No further vague block-search successor is published.
-
-A structured `t`-dependent block law remains logically possible, but the current Result supplies no concrete independent invariant that would make another block task more than a reformulation of the same open determinant problem.
-
-The distinct accepted residual interface is higher leverage. The earlier exact double-endpoint reduction defines
-
-`Bhat_m(x)=(1+x)^((m-1)(2m-3)) q_m(x/(1+x))`
-
-after `tau_m(t)=t^(m-1) q_m(t)`, with
-
-`det Ltilde_x[hat(2m),hat(2m)] = x^(m-1)(1+x)^(m-1) Bhat_m(x)`.
-
-Exact arithmetic has strictly positive coefficients through `m<=10`, but no all-m proof.
-
-Therefore the follow-up publishes exactly one P0/HIGH task:
-
-`RS-PERFECT-PRIME-AP-RESIDUAL-MOBIUS-BERNSTEIN-COEFFICIENT-POSITIVITY / TP2-8C910B14D7B854905F6E`.
-
-Its hard target is:
-
-`OUTER_RESIDUAL_MOBIUS_BERNSTEIN_COEFFICIENT_POSITIVITY_ALL_M_PROVED_OR_EXACTLY_OBSTRUCTED`.
-
-A strict all-m coefficient-positivity theorem would force `Bhat_m(x)>0` for `x>0`; a first exact nonpositive coefficient would instead terminate this positivity mechanism without being misreported as a determinant zero.
-
-## 8. Driver disposition
-
-`ACCEPTED / TERMINAL TASK NEGATIVE BOUNDARY / FOLLOWUP_TASK=TP2-8C910B14D7B854905F6E`
-
-No parent-objective closure is issued.
+No Working Truth, Foundation authority, L4 status, novelty, canonical promotion, or parent-objective closure is granted.
