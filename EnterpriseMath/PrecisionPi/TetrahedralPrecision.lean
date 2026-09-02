@@ -104,7 +104,6 @@ theorem tetrahedralPrecision_eq_stirling {n : ℕ} (hn : 0 < n) :
           ((n : ℝ) *
             (Real.sqrt (12 * (n : ℝ)) / Real.sqrt (2 * (n : ℝ)) ^ 6))) := by
           field_simp [hSn, hS6, hnR, hq, hc]
-          ring
     _ = Stirling.stirlingSeq (4 * n) * Stirling.stirlingSeq n ^ 2 /
         Stirling.stirlingSeq (6 * n) := by rw [hscale]; ring
 
@@ -113,8 +112,8 @@ theorem tendsto_tetrahedralPrecision_pi :
     Tendsto tetrahedralPrecision atTop (𝓝 Real.pi) := by
   refine tendsto_tetrahedralStirlingPrecision_pi.congr' ?_
   filter_upwards [eventually_atTop.2 ⟨1, fun _ h => h⟩] with n hn
-  exact tetrahedralPrecision_eq_stirling
-    (lt_of_lt_of_le Nat.zero_lt_one hn)
+  exact (tetrahedralPrecision_eq_stirling
+    (lt_of_lt_of_le Nat.zero_lt_one hn)).symm
 
 /-- Every positive-depth tetrahedral precision refinement is strictly smaller. -/
 theorem tetrahedralPrecision_succ_lt {n : ℕ} (hn : 0 < n) :
@@ -128,6 +127,7 @@ theorem tetrahedralPrecision_succ_lt {n : ℕ} (hn : 0 < n) :
     rw [tetrahedralPrecision, tetrahedralCore,
       equalOccupancyReal_eq_cast, equalOccupancyReal_eq_cast]
     norm_num [quarticBalance, sexticBalance]
+    ring
   rw [hcast (n + 1), hcast n]
   exact mul_lt_mul_of_pos_left hcore hscale
 
