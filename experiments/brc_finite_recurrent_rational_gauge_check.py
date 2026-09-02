@@ -16,14 +16,15 @@ Matrix = list[list[Fraction]]
 Vector = list[Fraction]
 
 
-def q(value: int | Fraction) -> Fraction:
-    return Fraction(value)
-
-
-def validate_matrix(matrix: Matrix) -> int:
+def square_size(matrix: Matrix) -> int:
     n = len(matrix)
     if n == 0 or any(len(row) != n for row in matrix):
         raise ValueError("matrix must be nonempty and square")
+    return n
+
+
+def validate_mass_matrix(matrix: Matrix) -> int:
+    n = square_size(matrix)
     if any(value < 0 for row in matrix for value in row):
         raise ValueError("mass matrix must be non-negative")
     return n
@@ -34,22 +35,22 @@ def identity(n: int) -> Matrix:
 
 
 def matrix_add(left: Matrix, right: Matrix) -> Matrix:
-    n = validate_matrix(left)
-    if validate_matrix(right) != n:
+    n = square_size(left)
+    if square_size(right) != n:
         raise ValueError("dimension mismatch")
     return [[left[i][j] + right[i][j] for j in range(n)] for i in range(n)]
 
 
 def matrix_sub(left: Matrix, right: Matrix) -> Matrix:
-    n = validate_matrix(left)
-    if validate_matrix(right) != n:
+    n = square_size(left)
+    if square_size(right) != n:
         raise ValueError("dimension mismatch")
     return [[left[i][j] - right[i][j] for j in range(n)] for i in range(n)]
 
 
 def matrix_mul(left: Matrix, right: Matrix) -> Matrix:
-    n = validate_matrix(left)
-    if validate_matrix(right) != n:
+    n = square_size(left)
+    if square_size(right) != n:
         raise ValueError("dimension mismatch")
     return [
         [sum((left[i][k] * right[k][j] for k in range(n)), Q(0, 1)) for j in range(n)]
@@ -58,7 +59,7 @@ def matrix_mul(left: Matrix, right: Matrix) -> Matrix:
 
 
 def matrix_pow(matrix: Matrix, exponent: int) -> Matrix:
-    n = validate_matrix(matrix)
+    n = validate_mass_matrix(matrix)
     if exponent < 0:
         raise ValueError("exponent must be non-negative")
     result = identity(n)
@@ -73,23 +74,21 @@ def matrix_pow(matrix: Matrix, exponent: int) -> Matrix:
 
 
 def matrix_vec(matrix: Matrix, vector: Vector) -> Vector:
-    n = validate_matrix(matrix)
+    n = square_size(matrix)
     if len(vector) != n:
         raise ValueError("dimension mismatch")
     return [sum((matrix[i][j] * vector[j] for j in range(n)), Q(0, 1)) for i in range(n)]
 
 
 def left_vec_matrix(vector: Vector, matrix: Matrix) -> Vector:
-    n = validate_matrix(matrix)
+    n = square_size(matrix)
     if len(vector) != n:
         raise ValueError("dimension mismatch")
     return [sum((vector[i] * matrix[i][j] for i in range(n)), Q(0, 1)) for j in range(n)]
 
 
 def inverse(matrix: Matrix) -> Matrix | None:
-    n = len(matrix)
-    if n == 0 or any(len(row) != n for row in matrix):
-        raise ValueError("matrix must be nonempty and square")
+    n = square_size(matrix)
     aug = [
         [Fraction(value) for value in matrix[i]]
         + [Q(int(i == j), 1) for j in range(n)]
@@ -112,12 +111,12 @@ def inverse(matrix: Matrix) -> Matrix | None:
 
 
 def row_sums(matrix: Matrix) -> Vector:
-    validate_matrix(matrix)
+    square_size(matrix)
     return [sum(row, Q(0, 1)) for row in matrix]
 
 
 def stable_analysis(matrix: Matrix) -> tuple[bool, Vector | None, Matrix | None]:
-    n = validate_matrix(matrix)
+    n = validate_mass_matrix(matrix)
     resolvent = matrix_sub(identity(n), matrix)
     star = inverse(resolvent)
     if star is None:
@@ -125,15 +124,13 @@ def stable_analysis(matrix: Matrix) -> tuple[bool, Vector | None, Matrix | None]
     potential = [sum(star[i], Q(0, 1)) for i in range(n)]
     stable = all(value > 0 for value in potential)
     if stable:
-        # A positive potential implies stability, so the exact inverse is the
-        # non-negative Neumann star. This guard catches implementation drift.
         assert all(entry >= 0 for row in star for entry in row)
         assert matrix_vec(matrix, potential) == [value - 1 for value in potential]
     return stable, potential, star
 
 
 def common_denominator(matrix: Matrix) -> int:
-    validate_matrix(matrix)
+    validate_mass_matrix(matrix)
     result = 1
     for row in matrix:
         for entry in row:
@@ -143,10 +140,7 @@ def common_denominator(matrix: Matrix) -> int:
 
 def integer_mass_matrix(matrix: Matrix) -> tuple[int, list[list[int]]]:
     denominator = common_denominator(matrix)
-    return denominator, [
-        [int(entry * denominator) for entry in row]
-        for row in matrix
-    ]
+    return denominator, [[int(entry * denominator) for entry in row] for row in matrix]
 
 
 def primitive_integer_vector(vector: Vector) -> list[int]:
@@ -163,7 +157,7 @@ def primitive_integer_vector(vector: Vector) -> list[int]:
 
 
 def verify_integer_stable_certificate(matrix: Matrix, certificate: list[int]) -> bool:
-    n = validate_matrix(matrix)
+    n = validate_mass_matrix(matrix)
     if len(certificate) != n or any(value <= 0 for value in certificate):
         return False
     denominator, integer_matrix = integer_mass_matrix(matrix)
@@ -175,7 +169,7 @@ def verify_integer_stable_certificate(matrix: Matrix, certificate: list[int]) ->
 
 
 def verify_left_divergence_certificate(matrix: Matrix, certificate: list[int]) -> bool:
-    n = validate_matrix(matrix)
+    n = validate_mass_matrix(matrix)
     if len(certificate) != n or any(value < 0 for value in certificate) or not any(certificate):
         return False
     y = [Q(value, 1) for value in certificate]
@@ -184,20 +178,15 @@ def verify_left_divergence_certificate(matrix: Matrix, certificate: list[int]) -
 
 
 def gauge_matrix(matrix: Matrix, potential: Vector) -> Matrix:
-    n = validate_matrix(matrix)
+    n = validate_mass_matrix(matrix)
     if len(potential) != n or any(value <= 0 for value in potential):
         raise ValueError("gauge potential must be positive")
-    return [
-        [matrix[i][j] * potential[j] / potential[i] for j in range(n)]
-        for i in range(n)
-    ]
+    return [[matrix[i][j] * potential[j] / potential[i] for j in range(n)] for i in range(n)]
 
 
 def contraction_factor(matrix: Matrix, potential: Vector) -> Fraction:
-    ratios = [
-        value / potential[i]
-        for i, value in enumerate(matrix_vec(matrix, potential))
-    ]
+    validate_mass_matrix(matrix)
+    ratios = [value / potential[i] for i, value in enumerate(matrix_vec(matrix, potential))]
     return max(ratios)
 
 
@@ -208,10 +197,6 @@ def star_bound(matrix: Matrix, potential: Vector, i: int, j: int) -> Fraction:
     return (potential[i] / potential[j]) / (1 - alpha)
 
 
-# ---------------------------------------------------------------------------
-# Exact path expansion with parallel edges
-# ---------------------------------------------------------------------------
-
 EdgeTable = list[list[tuple[Fraction, ...]]]
 
 
@@ -219,10 +204,7 @@ def aggregate_edges(edges: EdgeTable) -> Matrix:
     n = len(edges)
     if n == 0 or any(len(row) != n for row in edges):
         raise ValueError("edge table must be square")
-    return [
-        [sum(edges[i][j], Q(0, 1)) for j in range(n)]
-        for i in range(n)
-    ]
+    return [[sum(edges[i][j], Q(0, 1)) for j in range(n)] for i in range(n)]
 
 
 def explicit_walk_mass(edges: EdgeTable, start: int, end: int, length: int) -> Fraction:
@@ -247,14 +229,8 @@ def explicit_walk_mass(edges: EdgeTable, start: int, end: int, length: int) -> F
 
 def check_path_mass_matrix() -> None:
     edges: EdgeTable = [
-        [
-            (Q(1, 4), Q(1, 8)),
-            (Q(1, 3),),
-        ],
-        [
-            (Q(1, 5), Q(1, 10)),
-            (Q(1, 7),),
-        ],
+        [(Q(1, 4), Q(1, 8)), (Q(1, 3),)],
+        [(Q(1, 5), Q(1, 10)), (Q(1, 7),)],
     ]
     mass = aggregate_edges(edges)
     for length in range(0, 5):
@@ -264,25 +240,14 @@ def check_path_mass_matrix() -> None:
                 assert explicit_walk_mass(edges, start, end, length) == powered[start][end]
 
 
-# ---------------------------------------------------------------------------
-# Core theorem regressions
-# ---------------------------------------------------------------------------
-
-
 def check_stable_raw_supercritical_example() -> None:
-    mass = [
-        [Q(0, 1), Q(1, 2)],
-        [Q(1, 2), Q(2, 3)],
-    ]
+    mass = [[Q(0, 1), Q(1, 2)], [Q(1, 2), Q(2, 3)]]
     assert row_sums(mass) == [Q(1, 2), Q(7, 6)]
 
     stable, potential, star = stable_analysis(mass)
     assert stable
     assert potential == [Q(10, 1), Q(18, 1)]
-    assert star == [
-        [Q(4, 1), Q(6, 1)],
-        [Q(6, 1), Q(12, 1)],
-    ]
+    assert star == [[Q(4, 1), Q(6, 1)], [Q(6, 1), Q(12, 1)]]
     assert matrix_mul(matrix_sub(identity(2), mass), star) == identity(2)
 
     integer_potential = primitive_integer_vector(potential)
@@ -291,15 +256,12 @@ def check_stable_raw_supercritical_example() -> None:
 
     gauged = gauge_matrix(mass, potential)
     assert row_sums(gauged) == [Q(9, 10), Q(17, 18)]
-    assert [Q(1, 1) / value for value in potential] == [Q(1, 10), Q(1, 18)]
     assert [1 - row for row in row_sums(gauged)] == [Q(1, 10), Q(1, 18)]
 
-    # The exact geometric potential bound dominates every star entry.
     for i in range(2):
         for j in range(2):
             assert star[i][j] <= star_bound(mass, potential, i, j)
 
-    # Gauge factors telescope along all live vertex walks up to length 6.
     for length in range(1, 7):
         for vertices in product(range(2), repeat=length + 1):
             raw = Q(1, 1)
@@ -321,21 +283,14 @@ def check_stable_raw_supercritical_example() -> None:
 
 
 def check_dominant_stable_total_unstable_example() -> None:
-    mass = [
-        [Q(3, 5), Q(3, 5)],
-        [Q(3, 5), Q(3, 5)],
-    ]
+    mass = [[Q(3, 5), Q(3, 5)], [Q(3, 5), Q(3, 5)]]
     stable, potential, star = stable_analysis(mass)
     assert not stable
-    assert star is not None  # I-W is invertible, but its canonical potential is not positive.
+    assert star is not None
     assert potential == [Q(-5, 1), Q(-5, 1)]
-
     assert verify_left_divergence_certificate(mass, [1, 1])
     assert left_vec_matrix([Q(1), Q(1)], mass) == [Q(6, 5), Q(6, 5)]
 
-    # Every individual path contracts exactly as (3/5)^length while the total
-    # mass grows because there are 2^length paths from each start when endpoint
-    # is not fixed.
     for length in range(1, 8):
         dominant = Q(3, 5) ** length
         assert dominant < 1
@@ -370,9 +325,7 @@ def search_small_integer_dual(matrix: Matrix, bound: int = 6) -> list[int] | Non
 
 def check_small_2x2_phase_dichotomy() -> None:
     values = [Q(0), Q(1, 3), Q(1, 2), Q(2, 3), Q(1)]
-    total = 0
-    stable_count = 0
-    unstable_count = 0
+    total = stable_count = unstable_count = 0
     for entries in product(values, repeat=4):
         mass = [list(entries[:2]), list(entries[2:])]
         stable, potential, star = stable_analysis(mass)
@@ -387,9 +340,6 @@ def check_small_2x2_phase_dichotomy() -> None:
             assert search_small_integer_dual(mass) is None
         else:
             unstable_count += 1
-            # For this exhaustive finite test alphabet, a very small exact dual
-            # witness always exists. The theorem's general completeness is from
-            # the linear-alternative proof, not from this finite search bound.
             dual = search_small_integer_dual(mass)
             assert dual is not None
             assert verify_left_divergence_certificate(mass, dual)
@@ -399,26 +349,25 @@ def check_small_2x2_phase_dichotomy() -> None:
 
 
 def check_gauge_generated_stable_family() -> None:
-    # Start from local-subcritical matrices B, then undo deliberately uneven
-    # gauges W=H B H^{-1}. Raw W row sums can exceed one although W is stable.
     bases = [
-        [[Q(1, 5), Q(1, 4), Q(1, 10)], [Q(1, 6), Q(1, 5), Q(1, 4)], [Q(1, 8), Q(1, 4), Q(1, 5)]],
-        [[Q(0), Q(1, 2), Q(1, 4)], [Q(1, 3), Q(0), Q(1, 3)], [Q(1, 4), Q(1, 4), Q(0)]],
+        [
+            [Q(1, 5), Q(1, 4), Q(1, 10)],
+            [Q(1, 6), Q(1, 5), Q(1, 4)],
+            [Q(1, 8), Q(1, 4), Q(1, 5)],
+        ],
+        [
+            [Q(0), Q(1, 2), Q(1, 4)],
+            [Q(1, 3), Q(0), Q(1, 3)],
+            [Q(1, 4), Q(1, 4), Q(0)],
+        ],
     ]
-    potentials = [
-        [Q(1), Q(3), Q(7)],
-        [Q(5), Q(2), Q(9)],
-    ]
+    potentials = [[Q(1), Q(3), Q(7)], [Q(5), Q(2), Q(9)]]
     saw_raw_supercritical = False
     for base in bases:
         assert all(row < 1 for row in row_sums(base))
         for h in potentials:
             n = len(base)
-            mass = [
-                [base[i][j] * h[i] / h[j] for j in range(n)]
-                for i in range(n)
-            ]
-            # gauge_matrix uses H^{-1} W H, so applying h recovers base.
+            mass = [[base[i][j] * h[i] / h[j] for j in range(n)] for i in range(n)]
             assert gauge_matrix(mass, h) == base
             if any(row >= 1 for row in row_sums(mass)):
                 saw_raw_supercritical = True
@@ -429,15 +378,11 @@ def check_gauge_generated_stable_family() -> None:
 
 
 def check_stable_vs_dual_mutual_exclusion() -> None:
-    mass = [
-        [Q(0), Q(1, 2)],
-        [Q(1, 2), Q(2, 3)],
-    ]
+    mass = [[Q(0), Q(1, 2)], [Q(1, 2), Q(2, 3)]]
     stable, potential, _ = stable_analysis(mass)
     assert stable and potential is not None
     h = primitive_integer_vector(potential)
     assert verify_integer_stable_certificate(mass, h)
-    # Search a substantial small box: no dual witness can coexist.
     assert search_small_integer_dual(mass, bound=20) is None
 
 
