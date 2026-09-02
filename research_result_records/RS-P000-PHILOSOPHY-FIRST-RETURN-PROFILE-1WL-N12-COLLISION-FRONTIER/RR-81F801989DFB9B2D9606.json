@@ -1,6 +1,6 @@
 {
   "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
-  "result_id": "RR-D277A62E967320225132",
+  "result_id": "RR-81F801989DFB9B2D9606",
   "task_id": "RS-P000-PHILOSOPHY-FIRST-RETURN-PROFILE-1WL-N12-COLLISION-FRONTIER",
   "publication_id": "TP2-C74E704488CBF01A602D",
   "execution_record_id": "ER-AED46EF41615532B2F46",
@@ -12,11 +12,10 @@
   "return_path": "research_returns/P000_PHILOSOPHY_FIRST_RETURN_PROFILE_1WL_N12_COLLISION_FRONTIER_RETURN_20260902.md",
   "return_blob_sha1": "sha1:a4dc82fe243317bb226df42d5f2fb8489e959567",
   "return_sha256": "sha256:64876c428611a2de89bc99ea1f76093a319b7cbbb140b91f03e302d3c4e5e013",
-  "owner_head": "ddcd56e9f09bb8fc12faed8fc60f40cb77e9b166",
+  "owner_head": "5947a023f60cd4048e2c93085a54910409909513",
   "researcher_id": "EM-P000-AED46E",
-  "frozen_at": "2026-09-02T19:57:00+08:00",
+  "frozen_at": "2026-09-02T20:49:30+08:00",
   "terminal_verdict": "SUCCESS",
-  "terminal_state": "RETURN_PROFILE_1WL_COLLISION_FREE_LOWER_BOUND_EXTENDED_THROUGH_N12",
   "hard_target_disposition": "P000_RETURN_PROFILE_1WL_N12_FIRST_COLLISION_OR_EXACT_LOWER_BOUND_CLASSIFIED / PROVED_AT_BOUNDED_SCOPE / RETURN_PROFILE_1WL_COLLISION_FREE_LOWER_BOUND_EXTENDED_THROUGH_N12",
   "unresolved_residue": "The first stable equal-packet nonisomorphic collision, if any, remains unknown for n>=13. No universal reconstruction theorem, canonical-label theorem, richer observable, Working Truth, Foundation, L4, canonical promotion, or novelty claim is authorized by this result.",
   "output_manifest": [
@@ -61,11 +60,9 @@
       "sha256": "sha256:64876c428611a2de89bc99ea1f76093a319b7cbbb140b91f03e302d3c4e5e013"
     }
   ],
-  "checker_summary": "PASS Q28 n=12 exact orbit certificate: representatives=4565 normalized_connected=16937557920 stable_packets=4565 collision=0 lower_bound=n<=12",
-  "method_harvest": "RESULT_ONLY / COUNTERMODEL_FIRST_SEEDED_DEGREE_SECTOR_SEARCH_PLUS_EXACT_DEGREE_COUNT_AND_AUTOMORPHISM_ORBIT_STABILIZER_COMPLETENESS_CERTIFICATE",
-  "method_reuse": "Accepted Q27 primitive-return, ordinary 1-WL semantic packet, exact degree-count recurrence, automorphism backtracking, and orbit-stabilizer completeness core are reused exactly. Existing Q28 representative shards are reused only after the current execution independently froze identical sector counts and packet-image digests; every reused graph is reverified from adjacency. No new observable or general project mechanism is introduced.",
-  "independence_status": "NONBLIND_CONTINUATION_TASK; accepted Q22/Q25/Q27 observable and n<=11 boundary intentionally consumed as frozen inputs. Current re-execution did not read surviving prior-Q28 return/checker/artifacts until its own n=12 exact count/orbit certificate had frozen; old payload is reused only as byte-pinned transport after exact post-freeze agreement.",
-  "source_exposure_status": "PROJECT_INTERNAL_ACCEPTED_Q22_Q25_Q27_BOUNDARY; PRIOR_Q28_EVIDENCE_POST_FREEZE_ONLY; NO_EXTERNAL_NOVELTY_CLAIM",
-  "next_control_plane_recommendation": "DRIVER_REVIEW the exact n=12 collision-free extension at bounded strength only. If accepted and the parent objective remains open, any n=13 continuation must be separately published and must keep the frozen observable unchanged unless a later authorized repair task explicitly changes it. Do not infer Working Truth, Foundation, L4, canonical promotion, universal reconstruction, or novelty.",
+  "method_harvest": "RESULT_ONLY",
+  "independence_status": "SHARED_AMBIENT_CONTEXT_DISCLOSED",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "DRIVER_REVIEW the exact n=12 collision-free extension at bounded strength only. If accepted and the parent objective remains open, publish a distinct n=13 continuation with the frozen observable unchanged and countermodel-first. Do not infer Working Truth, Foundation, L4, canonical promotion, universal reconstruction, or novelty.",
   "driver_review_required": true
 }

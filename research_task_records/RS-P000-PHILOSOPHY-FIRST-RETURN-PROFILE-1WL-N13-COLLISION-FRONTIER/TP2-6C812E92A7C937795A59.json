@@ -1,0 +1,58 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-RETURN-PROFILE-1WL-N13-COLLISION-FRONTIER",
+  "registry_key": "RS-P000-PHILOSOPHY-FIRST-RETURN-PROFILE-1WL-N13-COLLISION-FRONTIER",
+  "publication_id": "TP2-6C812E92A7C937795A59",
+  "publication_generation": 1,
+  "supersedes_publication_id": null,
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "taskbook_path": "research_tasks/P000_PHILOSOPHY_FIRST_RETURN_PROFILE_1WL_N13_COLLISION_FRONTIER_POSTREVIEW_20260902.md",
+  "taskbook_blob_sha1": "sha1:fd819ad2cd4c6498e65b6cc2d2c97a4ea6835105",
+  "publisher_role": "RESEARCH_DRIVER",
+  "publisher_id": "EM-DVR-VPSKLD",
+  "published_at": "2026-09-02T12:53:10+00:00",
+  "parent_objective_id": "OBJ-P000-ENTERPRISE-6D-ROTATION-TOMOGRAPHY",
+  "origin_kind": "DRIVER_ROADMAP",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-P000-PHILOSOPHY-FIRST-RETURN-PROFILE-1WL-N12-COLLISION-FRONTIER",
+  "claimable": true,
+  "effective_priority": "P0",
+  "effective_leverage": "HIGH",
+  "priority_source": "PUBLISHER_DECLARED",
+  "publisher_priority_request": "P0",
+  "publisher_leverage_request": "HIGH",
+  "owner": "research/p000-phil-q30-return-profile-1wl-n13-collision-frontier",
+  "frontier": "Q28 gives an exact complete n=12 certificate for the frozen return-profile-initialized ordinary 1-WL observable: 4,565 connected isomorphism representatives cover 16,937,557,920 normalized connected realizations and yield 4,565 distinct stabilized packets. Thus the collision-free frontier is rigorously known through n=12, while n=13 is the first unresolved size.",
+  "next_action": "Keep the Q22/Q25/Q27/Q28 observable bit-for-bit unchanged and attack n=13 countermodel-first. Prioritize exact equitable-partition, regular-cover/lift, switching-style, and low-degree-kernel constructions; freeze the first nonisomorphic equal-packet pair immediately. Only if countermodel search fails may an independently complete exact n=13 certificate extend the lower bound.",
+  "research_value": "Locate the first failure, if any, of the already-frozen lowest-information tomography observable beyond the exact n<=12 frontier, without repairing or strengthening the observable before a failure witness is found.",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "source_refs": [
+    "research_result_records/RS-P000-PHILOSOPHY-FIRST-RETURN-PROFILE-1WL-N12-COLLISION-FRONTIER/RR-81F801989DFB9B2D9606.json",
+    "research_returns/P000_PHILOSOPHY_FIRST_RETURN_PROFILE_1WL_N12_COLLISION_FRONTIER_RETURN_20260902.md",
+    "driver_reviews/P000_PHILOSOPHY_FIRST_Q28_N12_CONTROL_NORMALIZED_DRIVER_REVIEW_20260902.md"
+  ],
+  "dependencies": [
+    "RR-81F801989DFB9B2D9606"
+  ],
+  "evidence_status": "FORMAL_DRIVER_REVIEW_ACCEPTED_POSTREVIEW_PUBLICATION_GENERATION",
+  "successor_gate": {
+    "new_information_gap": "Q28 closes the exact frozen-observable prefix only through n=12. The first admissible size at which the unchanged observable can still fail is n=13, and no accepted collision witness or independently complete n=13 injectivity certificate exists.",
+    "why_parent_result_does_not_close_it": "Q28 is deliberately bounded to twelve Cells and supplies no structural propagation theorem from n=12 to n=13.",
+    "discriminating_outcomes": [
+      "RETURN_PROFILE_1WL_N13_FIRST_STABLE_COLLISION_CLASSIFIED",
+      "RETURN_PROFILE_1WL_COLLISION_FREE_LOWER_BOUND_EXTENDED_THROUGH_N13",
+      "DECLARED_N13_STRUCTURAL_SEARCH_ROUTE_EXHAUSTED_WITHOUT_CENSUS_OR_MINIMALITY_CLAIM"
+    ],
+    "kill_condition": "On the first exact nonisomorphic equal-packet pair, freeze immediately. If an independently complete exact n=13 certificate proves injectivity, freeze the n<=13 bound and stop. Do not continue to n=14 inside this task.",
+    "alternative_route_or_free_exploration_considered": "Strengthening to 2-WL, spectra, zeta data, full cycle incidence or canonical labeling was considered and rejected because the parent objective is still measuring the failure frontier of the already frozen low-information observable. Closing at n=12 was considered but rejected because n=13 is the smallest unresolved size.",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "Q28 is terminal by its own n=12 kill rule. A separate n=13 task preserves the exact finite frontier, isolates the larger search/certificate burden, and can terminate cleanly on collision, complete lower-bound extension, or an explicitly partial structural boundary."
+  }
+}
