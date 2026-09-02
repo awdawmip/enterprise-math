@@ -4,66 +4,58 @@ namespace EnterpriseMath.PrecisionPi.PaperIIKernelV1
 
 /-! ## 1. Enterprise-coordinate `K₄` incidence -/
 
-inductive LineFamily
-  | L1 | L2 | L3 | L4 | L5 | L6
-  deriving DecidableEq, Fintype, Repr
+/-- Six stable unoriented carrier-line families. -/
+abbrev LineFamily := Fin 6
 
-inductive SliceChart
-  | A | B | C | D
-  deriving DecidableEq, Fintype, Repr
+/-- Four overlapping three-line slice charts. -/
+abbrev SliceChart := Fin 4
 
-open LineFamily SliceChart
-
-def sliceLines : SliceChart → Finset LineFamily
-  | A => {L1, L3, L6}
-  | B => {L1, L4, L5}
-  | C => {L2, L3, L5}
-  | D => {L2, L4, L6}
+/-- The four slice charts, ordered as
+`A={L₁,L₃,L₆}`, `B={L₁,L₄,L₅}`, `C={L₂,L₃,L₅}`,
+`D={L₂,L₄,L₆}`. -/
+def sliceLines : SliceChart → Finset LineFamily :=
+  ![({0, 2, 5} : Finset LineFamily),
+    ({0, 3, 4} : Finset LineFamily),
+    ({1, 2, 4} : Finset LineFamily),
+    ({1, 3, 5} : Finset LineFamily)]
 
 theorem sliceLines_card (s : SliceChart) : (sliceLines s).card = 3 := by
-  fin_cases s <;> decide
+  fin_cases s <;> native_decide
 
 def incidentSlices (l : LineFamily) : Finset SliceChart :=
   Finset.univ.filter fun s => l ∈ sliceLines s
 
 theorem incidentSlices_card (l : LineFamily) : (incidentSlices l).card = 2 := by
-  fin_cases l <;> decide
+  fin_cases l <;> native_decide
 
 theorem distinct_slices_share_one
     (s t : SliceChart) (h : s ≠ t) :
     ((sliceLines s) ∩ (sliceLines t)).card = 1 := by
   fin_cases s <;> fin_cases t <;> simp_all [sliceLines]
 
-theorem four_slices : Fintype.card SliceChart = 4 := by decide
+theorem four_slices : Fintype.card SliceChart = 4 := by
+  simp [SliceChart]
 
-theorem six_lines : Fintype.card LineFamily = 6 := by decide
+theorem six_lines : Fintype.card LineFamily = 6 := by
+  simp [LineFamily]
 
 /-! ## 2. Integer slice-to-line residual and the `C₂` obstruction -/
 
-structure VertexData where
-  a : ℤ
-  b : ℤ
-  c : ℤ
-  d : ℤ
-  deriving DecidableEq, Repr
+abbrev VertexData := Fin 4 → ℤ
 
-structure EdgeData where
-  ab : ℤ
-  ac : ℤ
-  ad : ℤ
-  bc : ℤ
-  bd : ℤ
-  cd : ℤ
-  deriving DecidableEq, Repr
+abbrev EdgeData := Fin 6 → ℤ
 
-def vertexSum (v : VertexData) : ℤ := v.a + v.b + v.c + v.d
+abbrev MatchingData := Fin 3 → ℤ
+
+def vertexSum (v : VertexData) : ℤ :=
+  v 0 + v 1 + v 2 + v 3
 
 def edgeSum (x : EdgeData) : ℤ :=
-  x.ab + x.ac + x.ad + x.bc + x.bd + x.cd
+  x 0 + x 1 + x 2 + x 3 + x 4 + x 5
 
 def delta (v : VertexData) : EdgeData :=
-  ⟨v.a + v.b, v.a + v.c, v.a + v.d,
-   v.b + v.c, v.b + v.d, v.c + v.d⟩
+  ![v 0 + v 1, v 0 + v 2, v 0 + v 3,
+    v 1 + v 2, v 1 + v 3, v 2 + v 3]
 
 theorem edgeSum_delta (v : VertexData) :
     edgeSum (delta v) = 3 * vertexSum v := by
@@ -76,33 +68,30 @@ theorem delta_zero_sum {v : VertexData} (hv : vertexSum v = 0) :
   norm_num
 
 def pattern (p q r : ℤ) : EdgeData :=
-  ⟨p, q, r, -r, -q, -p⟩
+  ![p, q, r, -r, -q, -p]
 
-@[simp] theorem edgeSum_pattern (p q r : ℤ) : edgeSum (pattern p q r) = 0 := by
+@[simp] theorem edgeSum_pattern (p q r : ℤ) :
+    edgeSum (pattern p q r) = 0 := by
   simp [edgeSum, pattern]
 
-structure MatchingData where
-  x : ℤ
-  y : ℤ
-  z : ℤ
-  deriving DecidableEq, Repr
-
 def matching (e : EdgeData) : MatchingData :=
-  ⟨e.ab + e.cd, e.ac + e.bd, e.ad + e.bc⟩
+  ![e 0 + e 5, e 1 + e 4, e 2 + e 3]
 
 @[simp] theorem matching_pattern (p q r : ℤ) :
-    matching (pattern p q r) = ⟨0, 0, 0⟩ := by
-  ext <;> simp [matching, pattern]
+    matching (pattern p q r) = 0 := by
+  funext i
+  fin_cases i <;> simp [matching, pattern]
 
 theorem matching_delta_of_zero_sum
     {v : VertexData} (hv : vertexSum v = 0) :
-    matching (delta v) = ⟨0, 0, 0⟩ := by
-  have hv' := hv
-  simp [vertexSum] at hv'
-  ext <;> simp [matching, delta] <;> omega
+    matching (delta v) = 0 := by
+  have hv' : v 0 + v 1 + v 2 + v 3 = 0 := by
+    simpa [vertexSum] using hv
+  funext i
+  fin_cases i <;> simp [matching, delta] <;> omega
 
 def witness (p q r k : ℤ) : VertexData :=
-  ⟨k, p - k, q - k, r - k⟩
+  ![k, p - k, q - k, r - k]
 
 theorem witness_zero_sum
     {p q r k : ℤ} (h : p + q + r = 2 * k) :
@@ -113,19 +102,21 @@ theorem witness_zero_sum
 theorem delta_witness
     {p q r k : ℤ} (h : p + q + r = 2 * k) :
     delta (witness p q r k) = pattern p q r := by
-  ext <;> simp [delta, witness, pattern] <;> omega
+  funext i
+  fin_cases i <;> simp [delta, witness, pattern] <;> omega
 
 theorem pattern_in_image_iff_even (p q r : ℤ) :
     (∃ v : VertexData, vertexSum v = 0 ∧ delta v = pattern p q r) ↔
       ∃ k : ℤ, p + q + r = 2 * k := by
   constructor
   · rintro ⟨v, hv, hd⟩
-    have hab := congrArg EdgeData.ab hd
-    have hac := congrArg EdgeData.ac hd
-    have had := congrArg EdgeData.ad hd
-    simp [delta, pattern] at hab hac had
-    simp [vertexSum] at hv
-    exact ⟨v.a, by omega⟩
+    have h0 := congrFun hd (0 : Fin 6)
+    have h1 := congrFun hd (1 : Fin 6)
+    have h2 := congrFun hd (2 : Fin 6)
+    simp [delta, pattern] at h0 h1 h2
+    have hv' : v 0 + v 1 + v 2 + v 3 = 0 := by
+      simpa [vertexSum] using hv
+    exact ⟨v 0, by omega⟩
   · rintro ⟨k, hk⟩
     exact ⟨witness p q r k, witness_zero_sum hk, delta_witness hk⟩
 
@@ -169,11 +160,14 @@ theorem paired_shells_square_trace
     _ = (P ^ 2) ^ 2 - (P ^ 2 - 1) * (P ^ 2 + 1) := by rw [hp', hm']
     _ = 1 := by ring
 
-theorem shell_norm (u : ℚ) : (1 - u) * (1 + u) = 1 - u ^ 2 := by ring
+theorem shell_norm (u : ℚ) : (1 - u) * (1 + u) = 1 - u ^ 2 := by
+  ring
 
-theorem n58_positive : PositiveShell 99 2 70 := by norm_num [PositiveShell]
+theorem n58_positive : PositiveShell 99 2 70 := by
+  norm_num [PositiveShell]
 
-theorem n58_negative : NegativeShell 99 58 13 := by norm_num [NegativeShell]
+theorem n58_negative : NegativeShell 99 58 13 := by
+  norm_num [NegativeShell]
 
 theorem n58_square_trace :
     ((99 : ℤ) ^ 2) ^ 2 - (2 * 58) * (70 * 13) ^ 2 = 1 := by
@@ -189,21 +183,21 @@ theorem n58_constants :
 /-! ## 4. Finite CM transform and positive reciprocal hierarchy -/
 
 def ordinaryPartial (c : ℕ → ℝ) (z : ℝ) (M : ℕ) : ℝ :=
-  ∑ n in Finset.range (M + 1), c n * z ^ n
+  (Finset.range (M + 1)).sum fun n => c n * z ^ n
 
 def thetaPartial (c : ℕ → ℝ) (z : ℝ) (M : ℕ) : ℝ :=
-  ∑ n in Finset.range (M + 1), (n : ℝ) * c n * z ^ n
+  (Finset.range (M + 1)).sum fun n => (n : ℝ) * c n * z ^ n
 
 def cmPartial (A B : ℝ) (c : ℕ → ℝ) (z : ℝ) (M : ℕ) : ℝ :=
-  ∑ n in Finset.range (M + 1),
+  (Finset.range (M + 1)).sum fun n =>
     (A + B * (n : ℝ)) * c n * z ^ n
 
 theorem finite_cm_linearity
     (A B : ℝ) (c : ℕ → ℝ) (z : ℝ) (M : ℕ) :
     A * ordinaryPartial c z M + B * thetaPartial c z M =
       cmPartial A B c z M := by
-  simp [ordinaryPartial, thetaPartial, cmPartial,
-    Finset.mul_sum, ← Finset.sum_add_distrib]
+  unfold ordinaryPartial thetaPartial cmPartial
+  rw [Finset.mul_sum, Finset.mul_sum, ← Finset.sum_add_distrib]
   apply Finset.sum_congr rfl
   intro n hn
   ring
@@ -213,14 +207,16 @@ theorem cmPartial_succ
     cmPartial A B c z (M + 1) =
       cmPartial A B c z M +
         (A + B * ((M + 1 : ℕ) : ℝ)) * c (M + 1) * z ^ (M + 1) := by
-  simp [cmPartial, Finset.sum_range_succ]
+  unfold cmPartial
+  rw [Finset.sum_range_succ]
 
 theorem cm_term_pos
     {A B z : ℝ} {c : ℕ → ℝ}
     (hA : 0 < A) (hB : 0 ≤ B) (hz : 0 < z)
     (hc : ∀ n, 0 < c n) (n : ℕ) :
     0 < (A + B * (n : ℝ)) * c n * z ^ n := by
-  have hlin : 0 < A + B * (n : ℝ) := by positivity
+  have hlin : 0 < A + B * (n : ℝ) := by
+    positivity
   exact mul_pos (mul_pos hlin (hc n)) (pow_pos hz n)
 
 theorem cmPartial_pos
