@@ -34,11 +34,16 @@ theorem delta_injective_on_zero_sum
     (hv : vertexSum v = 0) (hw : vertexSum w = 0)
     (hdelta : delta v = delta w) :
     v = w := by
-  have h0 := congrFun hdelta (0 : Fin 6)
-  have h1 := congrFun hdelta (1 : Fin 6)
-  have h2 := congrFun hdelta (2 : Fin 6)
-  simp [delta] at h0 h1 h2
-  dsimp [vertexSum] at hv hw
+  have h0 : v 0 + v 1 = w 0 + w 1 := by
+    simpa [delta] using congrFun hdelta (0 : Fin 6)
+  have h1 : v 0 + v 2 = w 0 + w 2 := by
+    simpa [delta] using congrFun hdelta (1 : Fin 6)
+  have h2 : v 0 + v 3 = w 0 + w 3 := by
+    simpa [delta] using congrFun hdelta (2 : Fin 6)
+  have hv' : v 0 + v 1 + v 2 + v 3 = 0 := by
+    simpa [vertexSum] using hv
+  have hw' : w 0 + w 1 + w 2 + w 3 = 0 := by
+    simpa [vertexSum] using hw
   funext i
   fin_cases i <;> omega
 
@@ -53,11 +58,15 @@ theorem same_matching_liftable_iff_even_parity_difference
         vertexSum v = 0 ∧ delta v = edgeSub x y) ↔
       Even ((x 0 + x 1 + x 2) - (y 0 + y 1 + y 2)) := by
   rw [edgeSub_eq_kernelEdge_of_matchingSums_eq x y hxy]
-  have h := exists_zeroSum_delta_eq_kernelEdge_iff_even
-    (x 0 - y 0) (x 1 - y 1) (x 2 - y 2)
-  rw [h]
-  congr 1
-  ring
+  constructor
+  · intro h
+    have he := (exists_zeroSum_delta_eq_kernelEdge_iff_even
+      (x 0 - y 0) (x 1 - y 1) (x 2 - y 2)).1 h
+    convert he using 1 <;> ring
+  · intro he
+    apply (exists_zeroSum_delta_eq_kernelEdge_iff_even
+      (x 0 - y 0) (x 1 - y 1) (x 2 - y 2)).2
+    convert he using 1 <;> ring
 
 /-- Same matching coordinate and even parity difference give a unique lift. -/
 theorem existsUnique_zeroSum_lift_of_same_matching_even
@@ -70,7 +79,8 @@ theorem existsUnique_zeroSum_lift_of_same_matching_even
   rcases hex with ⟨v, hvsum, hvdelta⟩
   refine ⟨v, ⟨hvsum, hvdelta⟩, ?_⟩
   intro w hw
-  exact delta_injective_on_zero_sum w v hw.1 hvsum (hw.2.trans hvdelta.symm)
+  exact delta_injective_on_zero_sum w v hw.1 hvsum
+    (hw.2.trans hvdelta.symm)
 
 /-- Odd parity difference is precisely the obstruction to a slice-potential lift. -/
 theorem no_lift_of_same_matching_odd
@@ -79,6 +89,7 @@ theorem no_lift_of_same_matching_odd
     (hodd : ¬ Even ((x 0 + x 1 + x 2) - (y 0 + y 1 + y 2))) :
     ¬ ∃ v : VertexWeights, vertexSum v = 0 ∧ delta v = edgeSub x y := by
   intro h
-  exact hodd ((same_matching_liftable_iff_even_parity_difference x y hxy).1 h)
+  exact hodd
+    ((same_matching_liftable_iff_even_parity_difference x y hxy).1 h)
 
 end EnterpriseMath.PrecisionPi.TetrahedralResidual
