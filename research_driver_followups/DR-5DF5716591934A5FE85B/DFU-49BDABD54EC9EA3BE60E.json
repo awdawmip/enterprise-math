@@ -1,0 +1,73 @@
+{
+  "canonical_promotion_granted": false,
+  "created_at": "2026-09-02T05:04:15+00:00",
+  "decision": "TASK_SET_PUBLISHED",
+  "driver_id": "EM-DVR-P8H4Q2",
+  "foundation_authority_granted": false,
+  "gate_decisions": [
+    {
+      "decision": "REQUIRED",
+      "evidence_refs": [
+        "research_returns/PERFECT_PRIME_AP_OUTER_CONDITIONAL_COVARIANCE_DETERMINANT_RETURN_20260901.md",
+        "driver_reviews/PERFECT_PRIME_AP_OUTER_CONDITIONAL_COVARIANCE_DETERMINANT_DRIVER_REVIEW_20260902.md"
+      ],
+      "gate": "MATHEMATICAL_CONTINUATION",
+      "reason": "The accepted Result eliminates only the canonical 1x1 flag mechanism. The parent all-m determinant Objective remains OPEN, and the adjacent paired-pivot exchange creates a distinct block-structure information gap."
+    },
+    {
+      "decision": "NOT_REQUIRED",
+      "evidence_refs": [],
+      "gate": "LEAN_FORMALIZATION",
+      "reason": "The accepted Result is a task-local exact negative boundary with no L4, Foundation, or canonical theorem promotion request."
+    },
+    {
+      "decision": "SATISFIED_BY_REVIEWED_RESULT",
+      "evidence_refs": [
+        "research_returns/PERFECT_PRIME_AP_OUTER_CONDITIONAL_COVARIANCE_DETERMINANT_RETURN_20260901.md",
+        "driver_reviews/PERFECT_PRIME_AP_OUTER_CONDITIONAL_COVARIANCE_DETERMINANT_DRIVER_REVIEW_20260902.md"
+      ],
+      "gate": "EXTERNAL_PRIOR_ART_DUPLICATION",
+      "reason": "The review treats leading-principal-minor criteria, Sylvester/Jacobi inertia accounting and LDL/block congruence as standard mathematics and grants no historical novelty; the project-local claim is only the exact AP witness and route boundary."
+    },
+    {
+      "decision": "NOT_REQUIRED",
+      "evidence_refs": [],
+      "gate": "INDEPENDENT_REPLICATION",
+      "reason": "No stronger promotion is granted. The Driver independently reconstructed the exact m=15,t=4/5 witness, including minor signs, full determinant, pivot counts and the two sign reversals."
+    },
+    {
+      "decision": "NOT_REQUIRED",
+      "evidence_refs": [],
+      "gate": "INTEGRATION_OR_TOOL_HARVEST",
+      "reason": "Method harvest is RESULT_ONLY; the exact Fraction checker is task-local evidence and no new general-purpose project tool is proposed."
+    },
+    {
+      "decision": "SATISFIED_BY_REVIEWED_RESULT",
+      "evidence_refs": [
+        "research_checks/PERFECT_PRIME_AP_OUTER_CONDITIONAL_COVARIANCE_DETERMINANT_CHECK_20260901.py",
+        "driver_reviews/PERFECT_PRIME_AP_OUTER_CONDITIONAL_COVARIANCE_DETERMINANT_DRIVER_REVIEW_20260902.md"
+      ],
+      "gate": "ADVERSARIAL_AUDIT",
+      "reason": "The deterministic exact checker plus Driver recomputation verify that the witness kills only the canonical flag mechanism while preserving a nonzero full determinant and balanced inertia."
+    }
+  ],
+  "packet_id": "DFU-49BDABD54EC9EA3BE60E",
+  "parent_objective_id": "OBJ-ROUTE-A-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M",
+  "policy": "AUTO_PUBLISH_TASKSET_OR_PARENT_CLOSE_V1",
+  "result_id": "RR-F5AB0AF5F544393896D9",
+  "review_destination_class": "FOLLOWUP_TASK",
+  "review_disposition": "ACCEPTED",
+  "review_id": "DR-5DF5716591934A5FE85B",
+  "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_FOLLOWUP_V1",
+  "source_next_control_plane_recommendation": "Driver-review and accept the exact negative boundary if the canonical-flag obstruction certificate checks. Close only the canonical monomial leading-principal-minor / strict alternating 1x1-LDL route. Preserve the full det S_m(t) nonvanishing target and the observed inertia as open. Any successor should target a noncanonical/block structural invariant or the all-m residual Bernstein interface; do not reopen inner-block definiteness or generic common-measure routes.",
+  "source_publication_id": "TP2-C4B48A416649C9324011",
+  "task_id": "RS-PERFECT-PRIME-AP-OUTER-CONDITIONAL-COVARIANCE-DETERMINANT",
+  "task_publications": [
+    {
+      "publication_id": "TP2-E2EE65A96658AD50D37C",
+      "task_id": "RS-PERFECT-PRIME-AP-OUTER-BLOCK-HYPERBOLIC-CONGRUENCE",
+      "task_role": "MATHEMATICAL_CONTINUATION"
+    }
+  ],
+  "working_truth_granted": false
+}
