@@ -1,0 +1,22 @@
+name: brc-cycle-interaction-polynomial-research
+
+on:
+  pull_request:
+    paths:
+      - "research_notes/BRC_CYCLE_INTERACTION_POLYNOMIAL_20260902.md"
+      - "experiments/brc_cycle_interaction_polynomial_check.py"
+      - ".github/workflows/brc-cycle-interaction-polynomial-research.yml"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Exact BRC cycle-interaction polynomial checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_cycle_interaction_polynomial_check.py
