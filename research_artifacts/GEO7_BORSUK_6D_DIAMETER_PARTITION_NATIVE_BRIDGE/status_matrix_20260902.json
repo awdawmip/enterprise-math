@@ -1,0 +1,41 @@
+{
+  "checked_through": "2026-09-02",
+  "dimension_6": {
+    "b6_equals_7": "OPEN",
+    "best_retained_lower_bound": 7,
+    "best_retained_upper_bound": 33,
+    "caveat": "The literature search is not a novelty certificate. The upper-bound status is retained from the published Lassak theorem and a 2026 primary preprint explicitly identifying it as the best constructive small-dimension general bound for n>=4.",
+    "exact_value": "OPEN",
+    "lower_bound_reason": "regular 6-simplex: its 7 vertices are pairwise at the common diameter, so its diameter graph is K7",
+    "retained_interval": "7 <= b(6) <= 33",
+    "status_confidence": "HIGH_WITH_PUBLICATION_STATE_SEPARATION",
+    "upper_bound_reason": "Lassak's published general constructive bound b(n) <= 2^(n-1)+1, specialized to n=6"
+  },
+  "euclidean_definition": "b(d) is the least k such that every bounded positive-diameter subset of R^d partitions into k subsets of strictly smaller Euclidean diameter.",
+  "nearby_2026_audit": [
+    {
+      "claim": "b(4) <= 8",
+      "dimension": 4,
+      "effect_on_b6": "NONE_DIRECT",
+      "publication_state": "PRIMARY_PREPRINT",
+      "reason": "dimension-specific R4 upper bound; it does not supply a six-dimensional universal cover or partition theorem",
+      "source": "Tolmachev and Voronov, arXiv:2605.19068",
+      "submitted": "2026-05-18"
+    },
+    {
+      "claim": "b(63) >= 65",
+      "dimension": 63,
+      "effect_on_b6": "NONE_DIRECT",
+      "publication_state": "RECENT_PRIMARY_PREPRINT",
+      "reason": "dimension-63 counterexample claim; even if verified, it leaves the six-dimensional equality question unchanged",
+      "source": "Yibo Ji, arXiv:2608.12561",
+      "submitted": "2026-08-12"
+    }
+  ],
+  "publication_state_guard": {
+    "dimension_63_preprint_used_only_as_current_frontier_claim": true,
+    "preprints_are_not_peer_reviewed_facts": true,
+    "search_absence_is_not_novelty": true
+  },
+  "schema": "GEO7_BORSUK_6D_EXTERNAL_STATUS_MATRIX_V1"
+}
