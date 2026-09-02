@@ -1,0 +1,53 @@
+name: patch-common-surface-index-v2-once
+
+on:
+  push:
+    branches:
+      - control/finalize-task-record-section-adapters-20260902
+    paths:
+      - '.github/workflows/patch-common-surface-index-v2-once.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: patch-common-surface-index-v2-once-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 1
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Remove the physically retired scheduler from the common index
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('research_common_surface.json')
+          text = path.read_text(encoding='utf-8')
+          old = '      "tools/research_scheduler.py",\n'
+          if text.count(old) != 1:
+              raise SystemExit(f'expected one retired scheduler index entry, found {text.count(old)}')
+          text = text.replace(old, '', 1)
+          json.loads(text)
+          path.write_text(text, encoding='utf-8')
+          PY
+      - name: Verify the complete shared theorem/tool surface
+        run: python -c "from control_plane import research_control_bootstrap as b; b.install(); from tools import check_research_common_surface as c; c.check(); print('research common surface: PASS')"
+      - name: Commit exact index retirement
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research_common_surface.json
+          git diff --cached --check
+          git commit -m 'control: retire scheduler from common tool index'
+          git push origin HEAD:${{ github.ref_name }}
