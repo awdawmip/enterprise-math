@@ -1,5 +1,7 @@
 import Mathlib
 
+open scoped BigOperators
+
 namespace EnterpriseMath.PrecisionPi.GeometricTailBound
 
 /-- A one-step ratio bound propagates to every later term. -/
@@ -13,9 +15,7 @@ theorem term_le_geometric
   | zero => simp
   | succ j ih =>
       calc
-        term (M + 1 + (j + 1)) = term ((M + 1 + j) + 1) := by
-          congr 1
-          omega
+        term (M + 1 + (j + 1)) = term ((M + 1 + j) + 1) := by omega
         _ ≤ q * term (M + 1 + j) := hratio (M + 1 + j)
         _ ≤ q * (q ^ j * term (M + 1)) :=
           mul_le_mul_of_nonneg_left ih hq
