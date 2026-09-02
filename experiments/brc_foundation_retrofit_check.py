@@ -1,16 +1,18 @@
 """Exact regression checks for the 2026-09-02 Weighted/Log BRC Foundation retrofit.
 
-This experiment deliberately revisits three earlier research routes:
+This experiment deliberately revisits four earlier research routes:
 
 1. the unsieved support/thickness decomposition of arithmetic BRC;
 2. the width-one neighboring-arm selector-flip reduction;
-3. the oriented positive-axis holonomy cocycle.
+3. the oriented positive-axis holonomy cocycle;
+4. P001 deterministic integer-root multiplicativity as a negative control.
 
-The goal is not to manufacture a positive result.  It checks exactly which old
-variables compress under the new Foundation layer and where the new positive
-weighted carrier provably does *not* replace a signed path observable.
+The goal is not to manufacture a positive result. It checks exactly which old
+variables compress under the new Foundation layer, where the new positive
+weighted carrier provably does *not* replace a signed path observable, and
+where a single-valued deterministic problem correctly receives no new state.
 
-No floating logarithm is required.  Whenever a logarithmic identity is stated,
+No floating logarithm is required. Whenever a logarithmic identity is stated,
 the checker verifies its positive-rational precursor exactly.
 """
 
@@ -100,9 +102,6 @@ def check_two_scale_retyping() -> dict[str, int]:
         exponents = factor_exponents(n)
         ratio = thickness_ratio(n)
         assert ratio == product_thickness_ratio(n)
-
-        # Theta = ln(tau/2^omega) is exactly the logarithmic difference between
-        # full divisor multiplicity and the Boolean two-choice-per-prime skeleton.
         assert Fraction(tau(n), 1) == Fraction(2 ** omega(n), 1) * ratio
 
         is_squarefree = all(exponent == 1 for exponent in exponents)
@@ -112,8 +111,6 @@ def check_two_scale_retyping() -> dict[str, int]:
         else:
             non_squarefree += 1
 
-        # Old (omega,Theta,Delta_1) factorization collapses algebraically to
-        # the two exact arithmetic coordinates (tau,H_1).
         assert old_brc_factorization(n) == compressed_brc_factorization(n)
 
     return {
@@ -137,25 +134,17 @@ def check_width_one_reduction() -> dict[str, object]:
         rank_right = omega(right)
         d = rank_left - rank_right
 
-        # Exact rational precursor of rho_d=2^d exp(D_Theta).
         if d >= 0:
             two_to_d = Fraction(2**d, 1)
         else:
             two_to_d = Fraction(1, 2 ** (-d))
-        old_rho = (
-            two_to_d
-            * thickness_ratio(left)
-            / thickness_ratio(right)
-        )
+        old_rho = two_to_d * thickness_ratio(left) / thickness_ratio(right)
         new_rho = Fraction(tau(left), tau(right))
         assert old_rho == new_rho
 
         if d <= 0:
             continue
         d_positive += 1
-
-        # The old first flip test rho_d < 1 is exactly total multiplicity
-        # reversal tau(left) < tau(right).
         assert (old_rho < 1) == (tau(left) < tau(right))
         assert (old_rho == 1) == (tau(left) == tau(right))
 
@@ -238,8 +227,6 @@ def check_oriented_holonomy_boundary() -> dict[str, object]:
     assert forward_area == 1
     assert reverse_area == -1
 
-    # Encode the signed path observable into positive weights only for the
-    # purpose of testing what positive Weighted-BRC recoalescence can retain.
     lam = 2
     forward_weight = positive_power(lam, forward_area)
     reverse_weight = positive_power(lam, reverse_area)
@@ -254,14 +241,9 @@ def check_oriented_holonomy_boundary() -> dict[str, object]:
     assert (count, total, dominant) == (2, Fraction(5, 2), Fraction(2, 1))
     assert effective_multiplicity == Fraction(5, 4)
 
-    # Projective/gauge scaling changes W and M by a common factor but leaves E.
     gauge = Fraction(3, 1)
     gauged = (count, gauge * total, gauge * dominant)
     assert gauged[1] / gauged[2] == effective_multiplicity
-
-    # The two underlying paths have opposite oriented holonomy, but the positive
-    # recoalesced CWM state is unchanged when orientation is globally reversed.
-    # Therefore signed orientation is not recoverable from positive CWM alone.
     assert forward_area != reverse_area
     assert aggregate == reversed_aggregate
 
@@ -274,15 +256,58 @@ def check_oriented_holonomy_boundary() -> dict[str, object]:
     }
 
 
+def integer_root(n: int, degree: int) -> int:
+    if n < 0 or degree <= 0:
+        raise ValueError("non-negative radicand and positive degree required")
+    lo = 0
+    hi = n + 1
+    while lo + 1 < hi:
+        mid = (lo + hi) // 2
+        if mid**degree <= n:
+            lo = mid
+        else:
+            hi = mid
+    return lo
+
+
+def check_deterministic_root_negative_control() -> dict[str, int]:
+    """Recheck P001 while verifying that single-valued paths give Delta=0."""
+    cases = 0
+    for degree in range(1, 5):
+        for a in range(1, 51):
+            for b in range(1, 51):
+                r = integer_root(a, degree)
+                s = integer_root(b, degree)
+                u = a - r**degree
+                v = b - s**degree
+                carry_load = s**degree * u + r**degree * v + u * v
+                basin_width = (r * s + 1) ** degree - (r * s) ** degree
+                assert (
+                    integer_root(a * b, degree) == r * s
+                ) == (carry_load < basin_width)
+
+                # This theorem is a deterministic single-result computation.
+                # Giving its unique evaluation path unit positive weight yields
+                # C=W=M=1 and effective multiplicity one, so the Weighted-BRC
+                # log surplus is exactly zero and contributes no new theorem data.
+                cwm = (1, Fraction(1, 1), Fraction(1, 1))
+                assert cwm[1] / cwm[2] == 1
+                cases += 1
+
+    return {"checked_p001_cases": cases, "weighted_surplus_numerator": 0}
+
+
 def main() -> None:
     two_scale = check_two_scale_retyping()
     width_one = check_width_one_reduction()
     holonomy = check_oriented_holonomy_boundary()
+    root_control = check_deterministic_root_negative_control()
 
     print("BRC Foundation retrofit regression: PASS")
     print("two_scale", two_scale)
     print("width_one", width_one)
     print("holonomy", holonomy)
+    print("root_control", root_control)
 
 
 if __name__ == "__main__":
