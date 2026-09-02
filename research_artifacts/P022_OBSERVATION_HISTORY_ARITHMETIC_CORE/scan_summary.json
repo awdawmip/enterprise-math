@@ -1,0 +1,25 @@
+{
+  "schema": "P022_BOUNDARY_FRANEL_SCAN_SUMMARY_V1",
+  "max_r": 1000000,
+  "candidate_conditions": [
+    "6|r",
+    "4m-1=2r-1 prime",
+    "4m+1=2r+1 prime",
+    "6m-1=3r-1 prime",
+    "q mod 72 in {17,35}"
+  ],
+  "candidate_count": 891,
+  "class_17_count": 435,
+  "class_35_count": 456,
+  "zero_residue_count": 0,
+  "scanner_sha256": "sha256:3527a151f9d92bc1a1fd58c1ff1bc0ff10acaee3e119694d2e25d9b9b04c0ca2",
+  "stdout_tsv_sha256": "sha256:0e0e51f1470c6ba6070b4bf95df7927ed0a5a0fa34bba0ca346517211db6db74",
+  "evidence_grade": "FINITE_EXACT_ENUMERATION_NOT_INFINITE_PROOF",
+  "positive_zero_control": {
+    "q": 149,
+    "r": 50,
+    "q_mod_72": 5,
+    "franel_mod_q": 0,
+    "primitive_at_r": true
+  }
+}
