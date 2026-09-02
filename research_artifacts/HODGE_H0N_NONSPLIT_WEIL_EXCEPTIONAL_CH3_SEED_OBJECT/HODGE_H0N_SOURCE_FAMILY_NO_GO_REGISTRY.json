@@ -1,0 +1,62 @@
+{
+  "schema": "HODGE_H0N_SOURCE_FAMILY_NO_GO_REGISTRY_V1",
+  "task_id": "RS-HODGE-H0N-NONSPLIT-WEIL-EXCEPTIONAL-CH3-SEED-OBJECT",
+  "researcher_id": "EM-HODGEH0N-6A4C2F",
+  "date": "2026-09-02",
+  "target": "very-general non-split Weil sixfold A_gen with K=Q(i), discriminant [-3], NS_Q=Q theta",
+  "exceptional_projector": "Pi_W from HODGE_H0N_PREMISE_PROJECTOR_AUDIT_V1",
+  "families": [
+    {
+      "family": "semihomogeneous vector bundles on A_gen",
+      "status": "THEOREM_LEVEL_NO_GO",
+      "input_theorem": "Mukai: c(E)=(1+c1(E)/r)^r for rank-r semihomogeneous E (equivalently ch(E)=r exp(c1(E)/r) in rational cohomology).",
+      "codim3_formula": "ch_3(E)=c1(E)^3/(6 r^2).",
+      "target_specialization": "c1(E)=q theta because NS(A_gen)_Q=Q theta.",
+      "conclusion": "ch_3(E)∈Q theta^3 and Pi_W(ch_3(E))=0."
+    },
+    {
+      "family": "finite shifts/direct sums/extensions/cones built from semihomogeneous bundles",
+      "status": "THEOREM_LEVEL_NO_GO_WITH_EXPLICIT_NON_KAROUBI_BOUNDARY",
+      "law": "Chern character is additive in K_0 for exact triangles and changes sign under odd shift.",
+      "codim3_constraint": "ch_3 remains a Q-linear combination of semihomogeneous ch_3 values, hence remains in Q theta^3.",
+      "conclusion": "Pi_W(ch_3)=0 for every object produced by finitely many of these operations.",
+      "hard_boundary": "No claim is made for arbitrary direct summands/idempotent completion (thick closure). K_0 cancellation does not force the summands individually to remain in Q theta^3."
+    },
+    {
+      "family": "verified target-side Fourier-Mukai outputs that are semihomogeneous bundles up to shift",
+      "status": "THEOREM_LEVEL_NO_GO_ON_DECLARED_VERIFIED_SUBFAMILY",
+      "examples": "Poincare/WIT transforms of nondegenerate line bundles and universal semihomogeneous-kernel transforms in the standard Mukai-Orlov-Gulbrandsen scope when the output is proved semihomogeneous on the target.",
+      "codim3_constraint": "After the verified semihomogeneous-output step, the same formula ch_3=c1^3/(6r^2) applies; shifts only change sign.",
+      "conclusion": "Pi_W(ch_3)=0.",
+      "hard_boundary": "No blanket claim is made for an arbitrary Fourier-Mukai object unless its target-side output type/support is independently verified."
+    },
+    {
+      "family": "polarization/divisor classes acted on by target K-endomorphisms",
+      "status": "THEOREM_LEVEL_NO_GO",
+      "law": "For u=1+2i, u^*theta=5theta; more generally K-compatible endomorphisms preserve the one-dimensional NS_Q line.",
+      "codim3_constraint": "The Q[K]-orbit of theta^3 is Q theta^3.",
+      "conclusion": "K-endomorphism operations cannot turn divisor-generated degree-six input into W_K."
+    },
+    {
+      "family": "codimension-three Thom-Porteous / determinantal classes from bundles whose Chern classes lie in Q[theta]",
+      "status": "THEOREM_LEVEL_NO_GO",
+      "law": "Expected-codimension degeneracy classes are universal Schur polynomials in c(F-E).",
+      "codim3_constraint": "If all Chern classes of F-E are in Q[theta], the codimension-three term is a scalar multiple of theta^3.",
+      "conclusion": "Pi_W of the determinantal class is zero.",
+      "hard_boundary": "Using a defining bundle/complex already carrying exceptional Chern data is not ruled out; it imports the missing seed rather than generating it."
+    },
+    {
+      "family": "arbitrary target-side or auxiliary algebraic correspondences",
+      "status": "OPEN_NOT_NO_GO",
+      "reason": "The spectral projector Pi_W itself is an algebraic correspondence with cohomological image W_K, so a blanket claim that algebraic correspondences cannot access W_K is false. What remains missing is a known algebraic input sent to a nonzero W_K class.",
+      "unblock_condition": "Construct an algebraic correspondence Gamma and an explicitly algebraic source class z with Pi_W(Gamma_*(z))≠0, or directly construct E with Pi_W(ch_3(E))≠0."
+    }
+  ],
+  "active_counterexample_search": [
+    "Rejected overreach: finite cone/extension closure does not justify a theorem for arbitrary direct summands/Karoubi completion.",
+    "Rejected overreach: failure of semihomogeneous and divisor-generated families does not imply W_K is non-algebraic.",
+    "Rejected overreach: arbitrary correspondence no-go is false at operator level because Pi_W is itself an algebraic K-endomorphism polynomial projector.",
+    "Positive counterexample target still sought: any non-semihomogeneous target object with nonzero exceptional ch_3; none constructed in this execution."
+  ],
+  "terminal_classification": "REUSABLE_NATURAL_SOURCE_FAMILY_NO_GO_WITH_EXACT_EXCEPTIONAL_PROJECTOR__GENERAL_SEED_EXISTENCE_OPEN"
+}
