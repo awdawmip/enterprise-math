@@ -2,24 +2,154 @@
   "schema": "GEO8_BORSUK_R6_THEOREM_DEPENDENCY_GRAPH_V1",
   "task_id": "RS-GEO8-BORSUK-R6-LASSAK-33-COMPRESSION-PRESSURE",
   "nodes": [
-    {"id":"JUNG","type":"published_standard","statement":"Every unit-diameter subset of R^6 is contained in a ball of radius r=sqrt(3/7)."},
-    {"id":"LASSAK_LENS","type":"published_Lassak","depends_on":["JUNG"],"statement":"After choosing a point c of the set on the enclosing r-sphere, the set lies in L=B_r(0)∩B_1(c), |c|=r."},
-    {"id":"CAP","type":"published_Lassak","depends_on":["LASSAK_LENS"],"statement":"For 0<delta<r and h=sqrt(r^2-delta^2/4), the top cap above x6=h has diameter at most delta."},
-    {"id":"ORTHANTS","type":"published_Lassak","depends_on":["LASSAK_LENS","CAP"],"statement":"The remainder is split by x1=...=x5=0 into 32 sign sectors."},
-    {"id":"SECTOR_DIAM","type":"published_Lassak","depends_on":["ORTHANTS"],"statement":"Each sector has diameter squared at most 2r^2+2h ell<1, ell=1/(2r)-r."},
-    {"id":"LASSAK33","type":"published_Lassak","depends_on":["CAP","SECTOR_DIAM"],"statement":"Cap plus 32 sectors proves b(6)<=33."},
-    {"id":"INTERSECTION_SPHERE","type":"elementary_exact","depends_on":["LASSAK_LENS"],"statement":"The two lens spheres intersect in x6=-ell with horizontal radius rho, rho^2=5/12."},
-    {"id":"CAP_SECTOR_INCOMPAT","type":"project_local_exact","depends_on":["INTERSECTION_SPHERE"],"statement":"Each sector has an interior intersection-sphere point at exact distance 1 from c in the cap."},
-    {"id":"SECTOR_SECTOR_INCOMPAT","type":"project_local_exact","depends_on":["INTERSECTION_SPHERE"],"statement":"Any two distinct sectors contain strict-interior intersection-sphere witnesses with squared distance at least 15/13."},
-    {"id":"K33","type":"project_local_exact","depends_on":["CAP_SECTOR_INCOMPAT","SECTOR_SECTOR_INCOMPAT"],"statement":"The incompatibility graph of the 33 Lassak atoms is K_33."},
-    {"id":"TEMPLATE_OBSTRUCTION","type":"project_local_exact","depends_on":["LASSAK33","K33"],"statement":"No coarsening by unions of whole Lassak atoms can use <=32 strict-diameter parts."},
-    {"id":"R4_UCS_SPLIT","type":"preprint_TV2026","statement":"Unit-distance parallel cuts preserve UCS coverage."},
-    {"id":"CENTERED_STRIP","type":"preprint_seed_plus_project_generalization","statement":"R4 uses orthogonal centered slabs; the project-local lemma generalizes to m-1 orthogonal slabs in R^m."},
-    {"id":"R4_RHOMBIC","type":"preprint_TV2026","depends_on":["CENTERED_STRIP"],"statement":"In the R4 three-dimensional projection, rhombic-dodecahedron normals and symmetry reduce truncations to four UCS representatives."},
-    {"id":"HYPERCUBE_CONES","type":"preprint_TV2026","statement":"4D cube directions/facets define eight cone parts; the combinatorial construction extends to 6D as 64 directions/12 facets."},
-    {"id":"CENTER_FIXED_NO_GO","type":"project_local_exact","depends_on":["HYPERCUBE_CONES","LASSAK_LENS"],"statement":"For every orientation, a center-apex untruncated R6 facet cone has two lens boundary points at squared distance 10/7."},
-    {"id":"R6_MISSING_LEMMA","type":"open_residue","depends_on":["R4_UCS_SPLIT","CENTERED_STRIP","R4_RHOMBIC","HYPERCUBE_CONES","CENTER_FIXED_NO_GO"],"statement":"A new five-dimensional truncation/orbit system and strict R6 diameter certificate are required to escape the frozen Lassak template."}
+    {
+      "id": "JUNG",
+      "type": "published_standard",
+      "statement": "Every unit-diameter subset of R^6 is contained in a ball of radius r=sqrt(3/7)."
+    },
+    {
+      "id": "LASSAK_LENS",
+      "type": "published_Lassak",
+      "depends_on": [
+        "JUNG"
+      ],
+      "statement": "After choosing a point c of the set on the enclosing r-sphere, the set lies in L=B_r(0)∩B_1(c), |c|=r."
+    },
+    {
+      "id": "CAP",
+      "type": "published_Lassak",
+      "depends_on": [
+        "LASSAK_LENS"
+      ],
+      "statement": "For 0<delta<r and h=sqrt(r^2-delta^2/4), the top cap above x6=h has diameter at most delta."
+    },
+    {
+      "id": "ORTHANTS",
+      "type": "published_Lassak",
+      "depends_on": [
+        "LASSAK_LENS",
+        "CAP"
+      ],
+      "statement": "The remainder is split by x1=...=x5=0 into 32 sign sectors."
+    },
+    {
+      "id": "SECTOR_DIAM",
+      "type": "published_Lassak",
+      "depends_on": [
+        "ORTHANTS"
+      ],
+      "statement": "Each sector has diameter squared at most 2r^2+2h ell<1, ell=1/(2r)-r."
+    },
+    {
+      "id": "LASSAK33",
+      "type": "published_Lassak",
+      "depends_on": [
+        "CAP",
+        "SECTOR_DIAM"
+      ],
+      "statement": "Cap plus 32 sectors proves b(6)<=33."
+    },
+    {
+      "id": "INTERSECTION_SPHERE",
+      "type": "elementary_exact",
+      "depends_on": [
+        "LASSAK_LENS"
+      ],
+      "statement": "The two lens spheres intersect in x6=-ell with horizontal radius rho, rho^2=5/12."
+    },
+    {
+      "id": "CAP_SECTOR_INCOMPAT",
+      "type": "project_local_exact",
+      "depends_on": [
+        "INTERSECTION_SPHERE"
+      ],
+      "statement": "Each sector has an interior intersection-sphere point at exact distance 1 from c in the cap."
+    },
+    {
+      "id": "SECTOR_SECTOR_INCOMPAT",
+      "type": "project_local_exact",
+      "depends_on": [
+        "INTERSECTION_SPHERE"
+      ],
+      "statement": "Any two distinct sectors contain strict-interior intersection-sphere witnesses with squared distance at least 15/13."
+    },
+    {
+      "id": "K33",
+      "type": "project_local_exact",
+      "depends_on": [
+        "CAP_SECTOR_INCOMPAT",
+        "SECTOR_SECTOR_INCOMPAT"
+      ],
+      "statement": "The incompatibility graph of the 33 Lassak atoms is K_33."
+    },
+    {
+      "id": "TEMPLATE_OBSTRUCTION",
+      "type": "project_local_exact",
+      "depends_on": [
+        "LASSAK33",
+        "K33"
+      ],
+      "statement": "No coarsening by unions of whole Lassak atoms can use <=32 strict-diameter parts."
+    },
+    {
+      "id": "R4_UCS_SPLIT",
+      "type": "preprint_TV2026",
+      "statement": "Unit-distance parallel cuts preserve UCS coverage."
+    },
+    {
+      "id": "CENTERED_STRIP",
+      "type": "preprint_seed_plus_project_generalization",
+      "statement": "R4 uses orthogonal centered slabs; the project-local lemma generalizes to m-1 orthogonal slabs in R^m."
+    },
+    {
+      "id": "R4_RHOMBIC",
+      "type": "preprint_TV2026",
+      "depends_on": [
+        "CENTERED_STRIP"
+      ],
+      "statement": "In the R4 three-dimensional projection, rhombic-dodecahedron normals and symmetry reduce truncations to four UCS representatives."
+    },
+    {
+      "id": "HYPERCUBE_CONES",
+      "type": "preprint_TV2026",
+      "statement": "4D cube directions/facets define eight cone parts; the combinatorial construction extends to 6D as 64 directions/12 facets."
+    },
+    {
+      "id": "CENTER_FIXED_NO_GO",
+      "type": "project_local_exact",
+      "depends_on": [
+        "HYPERCUBE_CONES",
+        "LASSAK_LENS"
+      ],
+      "statement": "For every orientation, a center-apex untruncated R6 facet cone has two lens boundary points at squared distance 10/7."
+    },
+    {
+      "id": "R6_MISSING_LEMMA",
+      "type": "open_residue",
+      "depends_on": [
+        "R4_UCS_SPLIT",
+        "CENTERED_STRIP",
+        "R4_RHOMBIC",
+        "HYPERCUBE_CONES",
+        "CENTER_FIXED_NO_GO"
+      ],
+      "statement": "A new five-dimensional truncation/orbit system and strict R6 diameter certificate are required to escape the frozen Lassak template."
+    }
   ],
-  "terminal_path": ["JUNG","LASSAK_LENS","INTERSECTION_SPHERE","CAP_SECTOR_INCOMPAT","SECTOR_SECTOR_INCOMPAT","K33","TEMPLATE_OBSTRUCTION"],
-  "nonterminal_improvement_path": ["R4_UCS_SPLIT","CENTERED_STRIP","R4_RHOMBIC","HYPERCUBE_CONES","R6_MISSING_LEMMA"]
+  "terminal_path": [
+    "JUNG",
+    "LASSAK_LENS",
+    "INTERSECTION_SPHERE",
+    "CAP_SECTOR_INCOMPAT",
+    "SECTOR_SECTOR_INCOMPAT",
+    "K33",
+    "TEMPLATE_OBSTRUCTION"
+  ],
+  "nonterminal_improvement_path": [
+    "R4_UCS_SPLIT",
+    "CENTERED_STRIP",
+    "R4_RHOMBIC",
+    "HYPERCUBE_CONES",
+    "R6_MISSING_LEMMA"
+  ]
 }
