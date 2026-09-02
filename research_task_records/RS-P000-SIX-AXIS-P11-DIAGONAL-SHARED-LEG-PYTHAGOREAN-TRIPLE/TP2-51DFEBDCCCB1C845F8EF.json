@@ -1,0 +1,58 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "task_id": "RS-P000-SIX-AXIS-P11-DIAGONAL-SHARED-LEG-PYTHAGOREAN-TRIPLE",
+  "registry_key": "RS-P000-SIX-AXIS-P11-DIAGONAL-SHARED-LEG-PYTHAGOREAN-TRIPLE",
+  "publication_id": "TP2-51DFEBDCCCB1C845F8EF",
+  "publication_generation": 1,
+  "supersedes_publication_id": null,
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "taskbook_path": "research_tasks/P000_SIX_AXIS_P11_DIAGONAL_SHARED_LEG_PYTHAGOREAN_TRIPLE_20260902.md",
+  "taskbook_blob_sha1": "sha1:57b4b271914449bbb538929ed582fa28f816de14",
+  "publisher_role": "RESEARCH_DRIVER",
+  "publisher_id": "EM-DVR-WLE3X6",
+  "published_at": "2026-09-02T12:38:00+00:00",
+  "parent_objective_id": "OBJ-P000-SIX-AXIS-ARITHMETIC-TROPICAL-INTEGRATION",
+  "origin_kind": "DRIVER_ROADMAP",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-P000-SIX-AXIS-P11-SIMULTANEOUS-C1-C2-AP-PAIRABILITY",
+  "claimable": true,
+  "effective_priority": "P1",
+  "effective_leverage": "HIGH",
+  "priority_source": "PUBLISHER_DECLARED",
+  "publisher_priority_request": "P1",
+  "publisher_leverage_request": "HIGH",
+  "owner": "research/p000-six-axis-p11-diagonal-shared-leg-pythagorean-triple",
+  "frontier": "The accepted simultaneous C1/C2 normal form identifies the involution fixed locus exactly by h=0, where the two equal-area triangle factors coincide. The locus reduces to one integer right triangle (x,y,b) together with two additional right triangles (d,mu,x+y) and (d,nu,x-y) sharing the same leg d. One primitive witness is known, but the complete primitive Diophantine structure of this fixed locus is open.",
+  "next_action": "Parameterize the base integer right triangle and the two shared-leg square cuts, quotient common recovered-root scaling, and prove a complete primitive family classification or isolate the exact Pell, elliptic, higher-genus, or other arithmetic obstruction; actively falsify the hypothesis that every primitive fixed-locus point scales from the known witness.",
+  "research_value": "Classify the exact involution-fixed branch of the simultaneous C1/C2 arithmetic component, where the two equal-area factors collapse to a coupled triple of integer right triangles with a shared leg, and determine whether its primitive solutions admit explicit families or require a sharper arithmetic obstruction.",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "identity_lane": "P000P11D2",
+  "source_refs": [
+    "research_result_records/RS-P000-SIX-AXIS-P11-SIMULTANEOUS-C1-C2-AP-PAIRABILITY/RR-DA840CA11911B721506F.json",
+    "research_returns/P000_SIX_AXIS_P11_SIMULTANEOUS_C1_C2_AP_PAIRABILITY_RETURN_20260902.md"
+  ],
+  "dependencies": [
+    "RR-DA840CA11911B721506F"
+  ],
+  "evidence_status": "PARENT_RESULT_DRIVER_ACCEPTED_REQUIRED / H0_FIXED_LOCUS_PRIMITIVE_CLASSIFICATION_OPEN / DERIVED_ARITHMETIC_ONLY",
+  "successor_gate": {
+    "new_information_gap": "The parent proves the complete equal-area Pythagorean normal form for simultaneous C1/C2 data and identifies its involution fixed locus by h=0, but it does not classify the primitive integer points on that lower-dimensional fixed locus. There the two triangle factors coincide and the remaining square cuts become a coupled triple of Pythagorean equations with a shared leg.",
+    "why_parent_result_does_not_close_it": "The parent is terminal at existence-plus-exact-component strength. Its h=0 theorem is a structural reduction, not a primitive-point classification: only one fixed-locus primitive witness is frozen, and no completeness, infinite-family theorem, or arithmetic obstruction is proved for the shared-leg system.",
+    "discriminating_outcomes": [
+      "all primitive diagonal fixed-locus points are covered by finitely many explicit integer or rational parameter families",
+      "there are one or more explicit infinite primitive families but additional components remain and can be exactly separated",
+      "complete elementary parametrization is obstructed by a precisely identified Pell, elliptic, higher-genus, descent, or higher-dimensional arithmetic component"
+    ],
+    "kill_condition": "Do not treat any bounded census as a global theorem, do not assume every primitive point is a scale or symmetry image of the known seed, do not widen to the off-diagonal two-triangle fiber product before this fixed-locus task is terminal, and do not infer native orientation, Pfaffian-slot choice, P000 dimension reduction, factorization, or Full-Cell dynamics.",
+    "alternative_route_or_free_exploration_considered": "Closing the arithmetic route was considered because simultaneous existence and the full equal-area normal form are established. A global attack on all off-diagonal primitive points was also considered, but it retains two independent equal-area triangle factors. The h=0 fixed locus is preferred because it is canonically selected by the accepted involution, removes one triangle factor, and exposes a smaller shared-leg Diophantine system.",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "The parent hard target is satisfied by existence plus exact reduction to an arithmetic component. The new task changes the mother question from existence/reduction of the full simultaneous locus to primitive classification of its exact involution-fixed subvariety, with separate completion and obstruction outcomes."
+  }
+}
