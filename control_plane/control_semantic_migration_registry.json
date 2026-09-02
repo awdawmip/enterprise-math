@@ -1,19 +1,30 @@
 {
   "schema": "ENTERPRISE_MATH_CONTROL_SEMANTIC_MIGRATION_REGISTRY_V1",
   "status": "ACTIVE",
-  "effective": "2026-08-29",
+  "effective": "2026-09-02",
   "classification": "NO_NEW_MATHEMATICS_CONTROL_PLANE_ONLY",
   "authority": "control_plane/current_control_authority.json",
-  "purpose": "Retire stale control pointers gradually without rewriting files that also carry mathematical, discovery, Working Truth, Foundation, or successor semantics. Each entry records the exact legacy field, its current non-authoritative interpretation, and whether a mechanical edit is safe or semantic verification is required first. Fields that intentionally remain subordinate task-definition/fresh selectors are protected separately so live-route migration cannot rewrite them by pattern matching.",
+  "purpose": "Protect the explicit post-V2 control pointers and retain exact provenance for earlier pointer migrations without continuing to inspect JSON paths that were physically removed by the V2 runtime cutover. Each active pointer names either a top-level live route or an intentionally subordinate fresh/task-definition selector. Historical pre-V2 pointer locations remain recoverable from archive/legacy-control-plane-pre-v2-20260902, not from the current runtime document.",
   "invariants": [
     "MIGRATION_REGISTRY_DOES_NOT_OVERRIDE_MATHEMATICAL_SEMANTICS",
-    "CURRENT_CONTROL_AUTHORITY_CONTINUES_TO_CONTROL_RUNTIME_WHILE_DEBT_IS_OPEN",
-    "LOW_CONTROL_POINTER_MAY_CHANGE_ONLY_TO_AN_ALREADY_CANONICAL_CONTROL_TARGET",
-    "MIXED_SEMANTICS_REQUIRES_VERIFICATION_BEFORE_EDIT",
+    "CURRENT_CONTROL_AUTHORITY_CONTINUES_TO_CONTROL_RUNTIME",
+    "POST_V2_RUNTIME_POINTERS_ARE_EXPLICIT_AND_CURRENT",
     "INTENTIONAL_SELECTOR_FIELDS_MUST_NOT_BE_REWRITTEN_AS_LIVE_ROUTE",
+    "ARCHIVED_PRE_V2_POINTERS_MUST_NOT_BE_REQUIRED_ON_CURRENT_RUNTIME",
     "LEGACY_POINTER_REMOVAL_MUST_NOT_CHANGE_WORKING_TRUTH_FOUNDATION_DISCOVERY_OR_SUCCESSOR_SEMANTICS",
     "UNEXPECTED_THIRD_VALUE_FAILS_CLOSED"
   ],
+  "legacy_pointer_archive": {
+    "branch": "archive/legacy-control-plane-pre-v2-20260902",
+    "source_commit": "ce629e24e5af59128e25af87075c6622413684e0",
+    "runtime_paths_removed_from_current_document": [
+      "/dispatch/tool",
+      "/composes/canonical_dispatch",
+      "/lease_model/session_liveness/semantic_scope",
+      "/lease_model/session_liveness/renewed_by"
+    ],
+    "restored_to_current_runtime": false
+  },
   "protected_selector_fields": [
     {
       "protection_id": "CSP-FOUNDATION-BACKFLOW-SURFACE-001",
@@ -21,7 +32,7 @@
       "json_pointer": "/surfaces/canonical_dispatch",
       "required_value": "tools/research_dispatch.py",
       "semantic_role": "BACKFLOW_TASK_DEFINITION_SELECTOR",
-      "reason": "This surface resolves the registered-plus-frozen-legacy task-definition view. It does not own owner/session recovery."
+      "reason": "This surface resolves the task-definition view. It does not own owner/session recovery."
     },
     {
       "protection_id": "CSP-FOUNDATION-BACKFLOW-LINK-002",
@@ -42,10 +53,10 @@
     {
       "protection_id": "CSP-RUNTIME-FRESH-SELECTOR-004",
       "path": "research_runtime_state_machine.json",
-      "json_pointer": "/dispatch/tool",
+      "json_pointer": "/fresh_task_selector",
       "required_value": "tools/research_dispatch.py",
       "semantic_role": "ORDINARY_FRESH_TASK_SELECTOR",
-      "reason": "The runtime dispatch block describes the ordinary fresh task-definition/selection primitive. Recovery-aware top-level live routing is separately named by composes.canonical_dispatch and research_dispatch_contract.json."
+      "reason": "The post-V2 runtime names the ordinary fresh selector explicitly. Recovery-aware top-level live routing is separately named by /canonical_live_dispatch."
     },
     {
       "protection_id": "CSP-ROLEPOLICY-PUBLICATION-DISPATCH-005",
@@ -53,7 +64,7 @@
       "json_pointer": "/task_publication_authority/dispatch",
       "required_value": "tools/research_dispatch.py",
       "semantic_role": "POST_PUBLICATION_ORDINARY_FRESH_SELECTOR",
-      "reason": "The field belongs to task_publication_authority. research_task_publication_contract_v2.json explicitly separates control_dispatch_tool=research_control_dispatch.py from fresh_dispatch_selector/dispatch_tool=tools/research_dispatch.py and labels the legacy dispatch field as an ordinary fresh selector."
+      "reason": "The field belongs to task_publication_authority. research_task_publication_contract_v2.json separates control_dispatch_tool=research_control_dispatch.py from fresh_dispatch_selector/dispatch_tool=tools/research_dispatch.py."
     },
     {
       "protection_id": "CSP-STEWARD-SCHEDULING-TOOL-006",
@@ -61,7 +72,7 @@
       "json_pointer": "/canonical_dispatch_tool",
       "required_value": "tools/research_dispatch.py",
       "semantic_role": "STEWARD_SCHEDULING_SELECTOR",
-      "reason": "The field is adjacent to scheduling_protocol and legacy_scheduler_config. The scheduling protocol defines tools/research_dispatch.py as the merged selector/reducer, while the Steward control-plane addendum separately names research_control_dispatch.py as the recovery-aware live route."
+      "reason": "The scheduling protocol defines tools/research_dispatch.py as the merged selector/reducer, while the Steward control-plane addendum separately names research_control_dispatch.py as the recovery-aware live route."
     }
   ],
   "entries": [
@@ -71,12 +82,12 @@
       "baseline_blob_sha1": "ce2c208ab9fc63cc0baddb51e704e805bb868510",
       "json_pointer": "/canonical_dispatch",
       "observed_legacy_value": "tools/research_dispatch.py",
-      "current_interpretation": "ORDINARY_FRESH_SELECTOR_COMPATIBILITY_POINTER",
+      "current_interpretation": "TOP_LEVEL_RECOVERY_AWARE_LIVE_ROUTE",
       "canonical_target_value": "research_control_dispatch.py",
       "risk_class": "LOW_CONTROL_POINTER",
       "state": "TARGET_MIGRATED",
       "migrated_commit": "445eca7810e8c3d9cfa6df9e5d55157ea4a88e11",
-      "migration_scope": "ONLY /canonical_dispatch CHANGED; NESTED /task_publication_authority/dispatch LEFT UNCHANGED",
+      "migration_scope": "ONLY /canonical_dispatch CHANGED; NESTED /task_publication_authority/dispatch LEFT AS THE PROTECTED FRESH SELECTOR",
       "execution_authority_while_open": false,
       "semantic_surfaces_forbidden_to_change": [
         "research mode resolution",
@@ -136,30 +147,26 @@
         "tools/research_task_records.py"
       ],
       "risk_class": "MIXED_MATHEMATICAL_GOVERNANCE_FILE",
-      "state": "REQUIRES_GOVERNANCE_VERIFICATION",
+      "state": "VERIFIED_NO_POINTER_CHANGE_REQUIRED",
       "execution_authority_while_open": false,
-      "verification_question": "Prove that replacing only these publication pointers leaves FREE discovery, Working Truth, candidate lifecycle, successor semantics, portfolio balance, Foundation backflow, independence, and promotion semantics byte-for-byte or semantically unchanged."
+      "verification_question": "The registered task-publication pointers already equal the canonical V2 values; no control migration may alter the surrounding FREE discovery, Working Truth, candidate, successor, portfolio, Foundation, independence, or promotion semantics."
     },
     {
       "migration_id": "CSM-RUNTIME-CANONICAL-DISPATCH-004",
       "path": "research_runtime_state_machine.json",
-      "baseline_blob_sha1": "998976698bcef1bcf8681aad4647ed16b4f4d5fe",
-      "json_pointer": "/composes/canonical_dispatch",
+      "baseline_blob_sha1": "206642ea2059f3d0fa9726ae0866ccde61c1e9ff",
+      "json_pointer": "/canonical_live_dispatch",
       "observed_legacy_value": "tools/research_dispatch.py",
-      "current_interpretation": "SUBORDINATE_FRESH_SELECTOR_UNDER_RECOVERY_AWARE_CONTROL_ROUTER",
+      "current_interpretation": "POST_V2_EXPLICIT_TOP_LEVEL_LIVE_ROUTE",
       "canonical_target_value": "research_control_dispatch.py",
-      "risk_class": "CONTROL_POINTER_WITH_INTERNAL_NEW_RULE",
+      "risk_class": "POST_V2_EXPLICIT_CONTROL_POINTER",
       "state": "TARGET_MIGRATED",
-      "migrated_commit": "a3611b583acc7bd75f22d2c2f76548d9c79b7e76",
-      "migrated_blob_sha1": "a312e8c13086467fee7824f1457685e1f4fa096f",
-      "safe_write_mechanism": "DETACHED_GIT_BLOB_TREE_COMMIT_THEN_NONFORCE_FAST_FORWARD_MAIN",
-      "migration_scope": "ONLY /composes/canonical_dispatch CHANGED; /dispatch/tool REMAINED PROTECTED tools/research_dispatch.py",
+      "migrated_commit": "9e8dcf5dd44ea4d7eb5aaf7e160a28d5266ebfc9",
+      "migration_scope": "PRE-V2 /composes/canonical_dispatch WAS RETIRED; CURRENT /canonical_live_dispatch IS EXPLICIT; /fresh_task_selector REMAINS PROTECTED tools/research_dispatch.py",
       "exact_diff_verified": true,
       "reference_evidence": {
-        "production_consumer_reference_integrity_run_id": 33221974090,
-        "field_locality_reference_integrity_run_id": 33222148731,
-        "production_consumer_census": "PASS_NO_PRODUCTION_PYTHON_CONSUMER_OF_CANONICAL_DISPATCH_KEY",
-        "field_locality_proof": "PASS_IDENTICAL_OUTSIDE_REGISTERED_RUNTIME_POINTERS",
+        "physical_cutover_manifest": "control_plane/legacy_control_migration_manifest.json",
+        "archive_branch": "archive/legacy-control-plane-pre-v2-20260902",
         "protected_runtime_selector": "CSP-RUNTIME-FRESH-SELECTOR-004"
       },
       "execution_authority_while_open": false
@@ -170,7 +177,7 @@
       "baseline_blob_sha1": "9bd46df192665616dd1d786b8acf82186ec2f6fd",
       "json_pointer": "/canonical_dispatch",
       "observed_legacy_value": "tools/research_dispatch.py",
-      "current_interpretation": "ORDINARY_FRESH_SELECTOR_COMPATIBILITY_POINTER",
+      "current_interpretation": "TOP_LEVEL_RECOVERY_AWARE_LIVE_ROUTE",
       "canonical_target_value": "research_control_dispatch.py",
       "risk_class": "LOW_CONTROL_POINTER",
       "state": "TARGET_MIGRATED",
@@ -188,39 +195,26 @@
     {
       "migration_id": "CSM-RUNTIME-OWNER-SCOPE-LIVENESS-006",
       "path": "research_runtime_state_machine.json",
-      "baseline_blob_sha1": "998976698bcef1bcf8681aad4647ed16b4f4d5fe",
+      "baseline_blob_sha1": "206642ea2059f3d0fa9726ae0866ccde61c1e9ff",
       "json_pointers": [
-        "/lease_model/session_liveness/semantic_scope",
-        "/lease_model/session_liveness/renewed_by"
+        "/owner_lease_is_session_liveness",
+        "/stale_valid_owner_action"
       ],
       "observed_legacy_values": [
-        "CURRENT_CONVERSATION_INSTANCE",
-        [
-          "VISIBLE_OR_DURABLE_SESSION_PROGRESS",
-          "EXPLICIT_SESSION_HEARTBEAT"
-        ]
+        true,
+        "WAIT_FOR_OWNER_LEASE_EXPIRY"
       ],
       "canonical_target_values": [
-        "EXACT_OWNER_SCOPE_CURRENT_WINNING_CLAIM",
-        [
-          "TASK_RESEARCH_RESPONSE_BOUND_TO_EXACT_CLAIM_ID",
-          "DURABLE_EXECUTION_PROGRESS_BOUND_TO_EXACT_CLAIM_ID"
-        ]
+        false,
+        "ADOPT_EXISTING_CLAIM"
       ],
-      "risk_class": "CONTROL_LIVENESS_ALREADY_CANONICAL_IN_DISPATCH_V5",
+      "risk_class": "POST_V2_EXPLICIT_OWNER_SESSION_SEPARATION",
       "state": "TARGET_MIGRATED",
-      "migrated_commit": "a3611b583acc7bd75f22d2c2f76548d9c79b7e76",
-      "migrated_blob_sha1": "a312e8c13086467fee7824f1457685e1f4fa096f",
-      "safe_write_mechanism": "DETACHED_GIT_BLOB_TREE_COMMIT_THEN_NONFORCE_FAST_FORWARD_MAIN",
-      "migration_scope": "ONLY /lease_model/session_liveness/semantic_scope AND /renewed_by CHANGED",
+      "migrated_commit": "9e8dcf5dd44ea4d7eb5aaf7e160a28d5266ebfc9",
+      "migration_scope": "PRE-V2 nested session-liveness representation retired; current V2 exposes the two operative owner/session invariants directly",
       "exact_diff_verified": true,
-      "reference_evidence": {
-        "field_locality_reference_integrity_run_id": 33222148731,
-        "field_locality_proof": "PASS_IDENTICAL_OUTSIDE_REGISTERED_RUNTIME_POINTERS"
-      },
       "canonical_evidence": {
         "dispatch_contract": "research_dispatch_contract.json /session_liveness_routing",
-        "observation_schema": "ENTERPRISE_MATH_SESSION_LIVENESS_OBSERVATIONS_V2",
         "allowed_evidence_kinds": [
           "TASK_RESEARCH_RESPONSE",
           "DURABLE_EXECUTION_PROGRESS"
