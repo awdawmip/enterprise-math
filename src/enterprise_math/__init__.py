@@ -69,6 +69,14 @@ from .brc_weighted import (
     projective_scale,
     total_log_expr,
 )
+from .brc_weighted_recurrent import (
+    FiniteRecurrentMassAnalysis,
+    finite_recurrent_mass_analysis,
+    gauge_recurrent_mass_matrix,
+    recurrent_mass_power,
+    verify_recurrent_integer_divergence_certificate,
+    verify_recurrent_integer_stable_certificate,
+)
 from .geometry import (
     directed_graph_distance,
     graph_distance,
@@ -164,6 +172,12 @@ __all__ = [
     "gauge_scale",
     "compensate_incoming_weight",
     "one_state_recurrent_cwm",
+    "FiniteRecurrentMassAnalysis",
+    "finite_recurrent_mass_analysis",
+    "recurrent_mass_power",
+    "gauge_recurrent_mass_matrix",
+    "verify_recurrent_integer_stable_certificate",
+    "verify_recurrent_integer_divergence_certificate",
     "scale_factor",
     "scaled_root_factor",
     "project_scale_factor",

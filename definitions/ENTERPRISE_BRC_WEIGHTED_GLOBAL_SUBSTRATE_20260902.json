@@ -16,21 +16,33 @@
     "DECLARED_MULTIPLICITY_IS_NOT_DEFAULT_DISCARDABLE: when a problem itself declares multiple branch representatives and their multiplicity or positive weights matter, do not silently collapse them to Boolean support before testing what is lost.",
     "POSITIVE_WEIGHTED_BRANCH_MINIMAL_CARRIER: for finite positive-rational branch families the shared exact summary available to research is CWM=(C,W,M), carrying supported path count, total positive mass, and dominant path mass.",
     "LOG_IS_DERIVED: E=W/M and Delta=LN(E) are derived readout coordinates for live positive CWM states; LN/LOG are not primitive native state and need not be materialized during exact branch accumulation.",
+    "FINITE_RATIONAL_RECURRENCE_CERTIFIED: for any finite non-negative rational transition-mass matrix W, total all-depth positive mass is stable iff there exists a positive rational potential h with Wh<h; after denominator clearing this has an exact positive integer certificate, and the complementary divergent phase has an exact nonzero non-negative integer left certificate.",
+    "RECURRENT_GAUGE_LOCALIZATION: finite rational mass stability is equivalent to a positive rational state gauge in which every outgoing total-mass row sum is strictly below one; closed-cycle products are gauge-invariant.",
     "SIGNED_BOUNDARY: positive Weighted-BRC does not encode signed/amplitude cancellation or reflection-odd orientation after positive recoalescence.",
     "DETERMINISTIC_DEGENERATION: a single deterministic positive path has C=1, W=M, E=1 and Delta=0; the weighted layer contributes no extra multiplicity information and should not be forced onto deterministic problems.",
     "BOOLEAN_BASE_PRESERVED: canonical R023 Boolean result-support BRC remains the base support semantics and is not mutated by the weighted layer.",
-    "GENERAL_SCC_NOT_ASSUMED: one-state recurrent results do not grant a general SCC, Perron-Frobenius or spectral-radius theorem."
+    "RECURRENT_SCOPE_BOUNDARY: finite non-negative rational transition-mass systems are covered; do not extrapolate this certificate theorem to infinite state spaces, signed/amplitude recurrence, complex weights, or arbitrary non-rational exact weights without a separate theorem. Perron-Frobenius/spectral-radius language remains a classical external equivalent rather than a required primitive certificate."
   ],
   "phase_a_anti_anchoring": {
     "rule": "These commitments are background typing rules, not a research agenda. FREE Phase A must still generate its own question from the primitive substrate and may open detailed Weighted-BRC theorem/tool surfaces only after the self-generated problem actually contains the relevant typed branch structure.",
     "forbidden": [
       "presenting weighted-BRC theorem IDs as suggested research questions",
-      "preloading successful arithmetic/selector/holonomy regression examples to steer question choice",
+      "preloading successful arithmetic/selector/holonomy/recurrent-matrix examples to steer question choice",
       "forcing a multiplicity interpretation onto deterministic or signed problems"
     ]
   },
   "detailed_foundation": "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md",
+  "finite_recurrent_foundation": "definitions/ENTERPRISE_BRC_FINITE_RECURRENT_FOUNDATION_20260902.md",
   "theorem_ledger": "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json",
+  "theorem_ledger_addenda": [
+    "definitions/ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json"
+  ],
   "tool_method_id": "t0.weighted_brc_cwm",
-  "tool_module": "src/enterprise_math/brc_weighted.py"
+  "tool_method_addenda": [
+    "t0.weighted_brc_finite_recurrent"
+  ],
+  "tool_module": "src/enterprise_math/brc_weighted.py",
+  "tool_module_addenda": [
+    "src/enterprise_math/brc_weighted_recurrent.py"
+  ]
 }
