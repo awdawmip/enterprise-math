@@ -1,0 +1,41 @@
+name: brc-finite-recurrent-foundation
+
+on:
+  pull_request:
+    paths:
+      - "definitions/ENTERPRISE_BRC_FINITE_RECURRENT_FOUNDATION_20260902.md"
+      - "definitions/ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json"
+      - "definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json"
+      - "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md"
+      - "definitions/00_CURRENT_NATIVE_FOUNDATION.md"
+      - "research_method_inventory_addenda/20260902_brc_weighted_finite_recurrent.json"
+      - "src/enterprise_math/brc_weighted_recurrent.py"
+      - "src/enterprise_math/__init__.py"
+      - "tests/test_brc_weighted_recurrent.py"
+      - "experiments/check_brc_finite_recurrent_foundation.py"
+      - "experiments/brc_finite_recurrent_rational_gauge_check.py"
+      - ".github/workflows/brc-finite-recurrent-foundation.yml"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Production finite recurrent Weighted-BRC tests
+        env:
+          PYTHONPATH: src
+        run: python -m unittest tests/test_brc_weighted_recurrent.py
+      - name: Finite recurrent Foundation integrity
+        run: python experiments/check_brc_finite_recurrent_foundation.py
+      - name: Research theorem regression
+        run: python experiments/brc_finite_recurrent_rational_gauge_check.py
+      - name: Parent Weighted-BRC Foundation remains consistent
+        run: python experiments/check_brc_weighted_foundation.py
+      - name: Toolbox discovers finite recurrent BRC
+        run: |
+          python tools/enterprise_toolbox.py methods finite recurrent BRC | grep 't0.weighted_brc_finite_recurrent'
+          python tools/enterprise_toolbox.py modules finite recurrent BRC | grep 'module:brc_weighted_recurrent'
