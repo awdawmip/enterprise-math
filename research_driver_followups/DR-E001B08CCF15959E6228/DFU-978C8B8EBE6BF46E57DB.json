@@ -1,0 +1,64 @@
+{
+  "canonical_promotion_granted": false,
+  "created_at": "2026-09-02T13:12:00+00:00",
+  "decision": "TASK_SET_PUBLISHED",
+  "driver_id": "EM-DVR-BSJ393",
+  "foundation_authority_granted": false,
+  "gate_decisions": [
+    {
+      "decision": "NOT_REQUIRED",
+      "evidence_refs": [],
+      "gate": "MATHEMATICAL_CONTINUATION",
+      "reason": "No new mathematical continuation is authorized by this acceptance; the immediate unresolved requirement is comparative prior-art classification."
+    },
+    {
+      "decision": "NOT_REQUIRED",
+      "evidence_refs": [],
+      "gate": "LEAN_FORMALIZATION",
+      "reason": "These accepted results are bounded theorem/evidence packages and this transaction makes no new formalization-strength claim."
+    },
+    {
+      "decision": "REQUIRED",
+      "evidence_refs": [],
+      "gate": "EXTERNAL_PRIOR_ART_DUPLICATION",
+      "reason": "ACCEPTED status requires a source-backed audit against standard antecedents before any novelty interpretation; one shared task covers both restricted PCF routes."
+    },
+    {
+      "decision": "NOT_REQUIRED",
+      "evidence_refs": [],
+      "gate": "INDEPENDENT_REPLICATION",
+      "reason": "The reviewed objects are integrity re-freezes with checker replay and no mathematical delta; this acceptance does not make a new replication-dependent claim."
+    },
+    {
+      "decision": "NOT_REQUIRED",
+      "evidence_refs": [],
+      "gate": "INTEGRATION_OR_TOOL_HARVEST",
+      "reason": "The Results declare NO_TOOL_PAYLOAD and do not authorize global or domain tool promotion."
+    },
+    {
+      "decision": "NOT_REQUIRED",
+      "evidence_refs": [],
+      "gate": "ADVERSARIAL_AUDIT",
+      "reason": "The Driver review already preserves the exact counterexample/scope guards; the remaining required gate is external duplication classification rather than a new adversarial theorem audit."
+    }
+  ],
+  "packet_id": "DFU-978C8B8EBE6BF46E57DB",
+  "parent_objective_id": "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION",
+  "policy": "AUTO_PUBLISH_TASKSET_OR_PARENT_CLOSE_V1",
+  "result_id": "RR-D4F90C15C5BB4261230D",
+  "review_destination_class": "FOLLOWUP_TASK",
+  "review_disposition": "ACCEPTED",
+  "review_id": "DR-E001B08CCF15959E6228",
+  "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_FOLLOWUP_V1",
+  "source_next_control_plane_recommendation": "Driver review the corrected Result, verify the exact three-object frozen source digest chain and replay PASS, then terminally decide the already-audited restricted-support theorem. Do not infer any mathematical strengthening from this maintenance Result.",
+  "source_publication_id": "TP2-5D13A8C7E2F40B619A33",
+  "task_id": "RS-PRIME-COORD-FACTOR-CRITICAL-COFACTOR-SUPPORT-COMPRESSION",
+  "task_publications": [
+    {
+      "publication_id": "TP2-D7E01B4B2274498405F8",
+      "task_id": "RS-PCF-RESTRICTED-ROUTES-EXTERNAL-PRIOR-ART-DUPLICATION-AUDIT",
+      "task_role": "EXTERNAL_PRIOR_ART_DUPLICATION"
+    }
+  ],
+  "working_truth_granted": false
+}
