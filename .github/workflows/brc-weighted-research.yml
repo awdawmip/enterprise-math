@@ -5,18 +5,22 @@ on:
     paths:
       - 'research_notes/BRC_WEIGHTED_LOG_SEMIRING_EXTENSION_20260902.md'
       - 'research_notes/BRC_WEIGHTED_MULTIPLICITY_TOWER_20260902.md'
+      - 'research_notes/BRC_WEIGHTED_CWM_SAFE_QUOTIENT_20260902.md'
       - 'experiments/brc_weighted_log_semiring_check.py'
       - 'experiments/brc_weighted_rational_runtime_prototype.py'
       - 'experiments/brc_weighted_multiplicity_tower_check.py'
+      - 'experiments/brc_weighted_cwm_safe_quotient_check.py'
       - '.github/workflows/brc-weighted-research.yml'
   push:
     branches: [main]
     paths:
       - 'research_notes/BRC_WEIGHTED_LOG_SEMIRING_EXTENSION_20260902.md'
       - 'research_notes/BRC_WEIGHTED_MULTIPLICITY_TOWER_20260902.md'
+      - 'research_notes/BRC_WEIGHTED_CWM_SAFE_QUOTIENT_20260902.md'
       - 'experiments/brc_weighted_log_semiring_check.py'
       - 'experiments/brc_weighted_rational_runtime_prototype.py'
       - 'experiments/brc_weighted_multiplicity_tower_check.py'
+      - 'experiments/brc_weighted_cwm_safe_quotient_check.py'
       - '.github/workflows/brc-weighted-research.yml'
   workflow_dispatch:
 
@@ -40,3 +44,7 @@ jobs:
         env:
           PYTHONPATH: src
         run: python experiments/brc_weighted_multiplicity_tower_check.py
+      - name: Exact CWM semiring and all-prefix safe quotient checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_weighted_cwm_safe_quotient_check.py
