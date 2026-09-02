@@ -1,7 +1,7 @@
 # Enterprise Math — Current Native Foundation Router
 
 Status: `ACTIVE / STABLE CURRENT ROUTER / P000-BOUND / FCC-CARRIER-SELECTED / LAZY LOAD`
-Date: `2026-08-29`
+Date: `2026-09-02`
 Purpose: route current native mathematics without loading unrelated results.
 
 This file contains **current state only**. For exact statements/proofs/checker provenance, read the exact canonical definition actually used by the task.
@@ -41,7 +41,8 @@ Do not infer world dimension from classical carrier rank, affine redundancy, Euc
 5. arbitrary-point directed gauge — `ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`;
 6. unoriented bidirectional segment — `ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md`;
 7. BRC × native multipath — `ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md`;
-8. path-valued square root — `ENTERPRISE_PATH_VALUED_SQUARE_ROOT_OPERATOR_20260821.md` when a selected task actually uses it.
+8. BRC weighted/log foundation extension — `ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md` when branch multiplicity, positive weight, log surplus, weighted quotient/gauge, or recurrent branch stability is material;
+9. path-valued square root — `ENTERPRISE_PATH_VALUED_SQUARE_ROOT_OPERATOR_20260821.md` when a selected task actually uses it.
 
 Do not preload the registry. Load only the object required by the current task, except P000 when dimensional/spatial semantics are material and the FCC carrier definition when global coordinate/rotation semantics are material.
 
@@ -118,7 +119,8 @@ The following current facts remain exact **inside the established three-axis sli
 - arbitrary-point native line length object = directed native line gauge;
 - unoriented endpoint pair = bidirectional trace pair + bidirectional length spectrum;
 - `CANONICAL_BRC_BASE_LAYER=BOOLEAN_RESULT_SUPPORT_SEMANTICS`;
-- current BRC enrichment: `PATH_FORMAL_BRC -> N_BRC -> BOOLEAN_BRC`.
+- current Boolean BRC enrichment: `PATH_FORMAL_BRC -> N_BRC -> BOOLEAN_BRC`;
+- positive weighted/log BRC is a separately typed current foundation extension and does not mutate the Boolean base.
 
 Retyping guard:
 
@@ -133,6 +135,32 @@ Retyping guard:
 `OMITTED_CELL_COORDINATE!=ABSENT_DIMENSION`.
 
 The exact native six-axis address equivalence, global metric and native six-dimensional rotation group remain research targets. The FCC carrier is the selected coordinate realization for attacking those targets; its classical linear relations are not native identities.
+
+## BRC weighted/log research foundation layer
+
+When a declared research problem retains branch multiplicity or positive weights, load `ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md`.
+
+Current foundation-level interface:
+
+- finite positive-rational branch transfer may be summarized by the exact CWM carrier `(C,W,M)` = path count, total path mass, dominant path mass;
+- CWM recoalescence is `(+,+,max)` and path propagation is componentwise multiplication;
+- Boolean support is a forgetful image only under an admissible zerosumfree/no-zero-divisor weighted carrier;
+- live finite branch families have effective multiplicity `E=W/M` and log surplus `Delta=ln(W/M)`, with `0 <= Delta <= ln C`; equal `k`-fold recoalescence has `Delta=ln k`;
+- ordinary all-prefix weighted-safe quotient equality is equality of complete declared-target future CWM transfer vectors;
+- projective/gauge equivalence may factor a common positive scale from future `(W,M)` only with compensating incoming-weight transport; `Delta` remains invariant;
+- for one-state positive recurrent loop families, total sum-product mass is stable iff the one-step total loop mass `S<1`, while max-path boundedness only requires `Q<=1`; equal `k` loops of weight `q` satisfy the exact multiplicity-corrected threshold `ln q < -ln k`.
+
+Hard guards:
+
+`WEIGHTED_BRC != BOOLEAN_R023_MUTATION`.
+
+`POSITIVE_WEIGHTED_BRC != SIGNED_AMPLITUDE_CANCELLATION`.
+
+`LN_LOG = DERIVED_EXACT_READOUT, NOT PRIMITIVE_NATIVE_STATE`.
+
+`FINITE_DAG_CWM_COUNT != FINITE_COUNT_ON_RECURRENT_CLOSURE`.
+
+`ONE_STATE_CYCLIC_RESULT != GENERAL_SCC_SPECTRAL_THEOREM`.
 
 ## First native layer versus carrier polyhedra
 
@@ -174,6 +202,8 @@ FREE Phase A does **not** use this current-result router. It uses:
 P000 is nevertheless part of the primitive substrate and precedes free question generation.
 
 This router is for TASK research, Driver/current-state review, and FREE Phase B after candidate freeze.
+
+The weighted/log BRC extension is therefore available to TASK research and Phase-B comparison, but is not injected into blind FREE Phase A merely because it is successful downstream mathematics.
 
 ## Authority
 
