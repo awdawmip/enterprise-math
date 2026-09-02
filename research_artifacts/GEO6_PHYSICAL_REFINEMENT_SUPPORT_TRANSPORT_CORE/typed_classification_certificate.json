@@ -1,0 +1,60 @@
+{
+  "claim_id": "chatgpt-g6refcore-20260901-2056-6d3a91",
+  "current_candidate_classification": [
+    {"candidate": "FULL_CELL_EQUIVALENCE_OR_AUTOMORPHISM", "classification": "EQUIVALENCE_ONLY", "fails": ["NON_EQUIVALENT_MODEL_CHANGE", "NONTRIVIAL_SCALE_FIBER"]},
+    {"candidate": "SLICE_SELECTION_OBSERVATION_OR_REDUCT", "classification": "OBSERVATION_REDUCT_ONLY", "fails": ["FULL_CELL_TARGET", "MODEL_CHANGE_SEMANTICS"]},
+    {"candidate": "FINITE_QUOTIENT_OR_GRAPH_COVER", "classification": "ABSTRACT_REFINEMENT_ONLY", "fails": ["FULL_CELL_STATE_ARROW", "PHYSICAL_SCALE_WITNESS"]},
+    {"candidate": "Q17_ABSTRACT_REFINEMENT_GRAMMAR", "classification": "TYPE_MAP_REJECTED", "fails": ["ACCEPTED_P000_PHYSICAL_TYPE_MAP"]},
+    {"candidate": "Q20_EFFECTIVITY_REFINEMENT_GRAMMAR", "classification": "TYPE_MAP_REJECTED", "fails": ["ACCEPTED_P000_PHYSICAL_TYPE_MAP"]},
+    {"candidate": "Q22_RETURN_PROFILE_1WL_REFINEMENT", "classification": "TYPE_MAP_REJECTED", "fails": ["CELL_LOCALITY_TYPE_MAP", "PHYSICAL_SCALE_TYPE_MAP"]},
+    {"candidate": "NAMED_PRIMARY_ROTATION_WITHOUT_TYPED_SOURCE_TARGET_ACTION_LAW", "classification": "TYPE_MAP_REJECTED", "fails": ["REFINEMENT_SOURCE_TARGET_ACTION_LAW"], "owner_boundary": "P000_L1_NO_DUPLICATE"}
+  ],
+  "finite_cover_witness": {
+    "coarse_cells": 2,
+    "coarse_locality_edges": 1,
+    "coarse_state_count": 4,
+    "compatible_state_sections": 256,
+    "conclusion": "CELL_COVER_PLUS_FIXED_COARSE_PROJECTION_DOES_NOT_DETERMINE_STATE_REFINEMENT_ARROW",
+    "fiber_sizes": [2, 2],
+    "fine_cells": 4,
+    "fine_locality_edges": 4,
+    "fine_state_count": 16,
+    "locality_edge_surjective": true,
+    "parity_coarse_projection_fiber_size": 4
+  },
+  "minimal_extension_interface": {
+    "independent_semantic_clauses": [
+      "TYPED_DISTINCT_FULL_CELL_LEVELS_AND_NON_EQUIVALENCE_STATE_ARROW",
+      "NATIVE_NONTRIVIAL_LOCALITY_FIBER_MAP",
+      "EXPLICIT_PHYSICAL_SCALE_WITNESS_NOT_DERIVED_FROM_COVER_CARDINALITY",
+      "STATE_LOCALITY_UPDATE_PRESERVATION_AND_COMPOSITION_LAW"
+    ],
+    "mixed_direction_extra_prerequisite": "TYPED_PER_LEVEL_DIRECTION_OR_ACTION_INTERPRETATION",
+    "support_transport_extra_prerequisite": "TYPED_CELL_SUPPORT_INCIDENCE"
+  },
+  "promotion": {"canonical": false, "foundation": false, "native_geometry": false, "novelty": false, "working_truth": false},
+  "publication_id": "TP2-596ED944A7D5C5F8065B",
+  "researcher_id": "EM-G6REF-6D3A91",
+  "schema": "GEO6_PHYSICAL_REFINEMENT_SUPPORT_TRANSPORT_CERTIFICATE_V1",
+  "separation_witnesses": {
+    "bad_cross_state_arrow": {"map": "CONSTANT_ZERO", "parity_coarse_consistency_failures": 3, "physical_refinement": false},
+    "equivalence": {"bijective": true, "cell_fiber_sizes": [1, 1], "physical_refinement": false, "same_level": true},
+    "extension_candidate": {"map": "LEFT_FIBER_SECTION", "parity_coarse_consistency_failures": 0, "physical_scale_status": "EXPLICIT_EXTENSION_WITNESS_ONLY_NOT_CURRENT_P000_CONSEQUENCE"},
+    "observation": {"domain_states": 4, "fiber_sizes": [2, 2], "full_cell_target": false, "injective": false, "physical_refinement": false, "target_observations": 2},
+    "physicality_independence": {"conclusion": "PURE_COVER_AND_ARROW_EQUATIONS_DO_NOT_DEFINE_PHYSICAL_SCALE_SEMANTICS", "physical_scale_flag_values": [false, true], "same_structural_reduct_two_expansions": true}
+  },
+  "support_pullback_theorem": {
+    "composition_condition": "EXTENSIONAL_UNIQUE_PULLBACKS_COMPOSE_CONTRAVARIANTLY",
+    "criterion": "FOR_EACH_COARSE_SUPPORT_s_THE_SET_q_inverse(I0(-,s))_MUST_BE_REPRESENTABLE_BY_A_FINE_SUPPORT",
+    "defective_fine_support_model": {"fine_supports": 4, "missing_for_coarse_supports": [[0], [1]], "missing_pullbacks": 2, "transport_exists_for_all_coarse_supports": false},
+    "powerset_model": {"all_checks_pass": true, "all_pullbacks_representable": true, "coarse_supports": 4, "fine_supports": 16, "incidence_equivalence_checks": 16, "two_step_composition_checks": 4},
+    "uniqueness_condition": "FINE_INCIDENCE_PROFILE_MAP_IS_INJECTIVE"
+  },
+  "task_id": "RS-GEO6-PHYSICAL-REFINEMENT-SUPPORT-TRANSPORT-CORE",
+  "terminal_classification": {
+    "LOCALITY_REFINEMENT_SELECTOR": "UNRESOLVED_REQUIRED_PREREQUISITE",
+    "MIXED_DIRECTION_SELECTOR_CROSS_REFINEMENT": "DEPENDENCY_OBSTRUCTED_NO_P000_L1_ROTATION_REOPEN",
+    "PHYSICAL_REFINEMENT_SELECTOR": "CURRENT_P000_NO_GO_WITH_MINIMUM_EXTENSION_INTERFACE_CLASSIFIED",
+    "REFINEMENT_TRANSPORT_SELECTOR": "DEPENDENCY_OBSTRUCTED_BY_PHYSICAL_REFINEMENT_AND_SUPPORT_RELATION"
+  }
+}

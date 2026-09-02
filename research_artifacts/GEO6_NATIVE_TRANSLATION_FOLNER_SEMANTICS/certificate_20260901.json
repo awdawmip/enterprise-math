@@ -1,0 +1,119 @@
+{
+  "schema": "GEO6_NATIVE_TRANSLATION_FOLNER_SEMANTICS_CERTIFICATE_V1",
+  "task_id": "RS-GEO6-NATIVE-TRANSLATION-FOLNER-SEMANTICS",
+  "publication_id": "TP2-2DACFDB1816BE0DEB532",
+  "execution_record_id": "ER-F8A9F149D2416118F8A7",
+  "researcher_id": "EM-G6TRANSFOL-9D7E05",
+  "claim_id": "chatgpt-g6transfol-20260901-2059-4a7c12",
+  "evidence_cut": {
+    "execution_branch_base": "3418f4fdf52b2f62d9d8a47405d550ecd6632009",
+    "selector_atlas": {
+      "path": "research_artifacts/GEO6_OBJECTIVE_SEMANTIC_SELECTOR_SYNTHESIS/selector_atlas_v2.json",
+      "git_blob_sha1": "sha1:120b71b74dc07edd9a3c78474b51752676c6dae3",
+      "translation_action_status": "UNRESOLVED",
+      "translation_action_resolvers": [],
+      "translation_folner_status": "UNRESOLVED",
+      "dependency": "TRANSLATION_ACTION_SELECTOR -> TRANSLATION_FOLNER_SELECTOR"
+    },
+    "driver_review": {
+      "path": "driver_reviews/GEO6_OBJECTIVE_SELECTOR_SYNTHESIS_V2_DRIVER_REVIEW_20260901.md",
+      "git_blob_sha1": "sha1:510ed84f6ee0913eaee90372e2b591a30ebfa601",
+      "disposition": "ACCEPTED",
+      "translation_selectors_after_current_head_delta": "BOTH_UNRESOLVED"
+    }
+  },
+  "candidate_inventory": [
+    {
+      "candidate": "accepted exact Cell/Full-Cell equivalences and automorphisms",
+      "classification": "PRESENTATION_EQUIVALENCE_ONLY",
+      "reason": "Same-sort invertible symmetry is available in accepted semantics, but no accepted translation-label sort, displacement semantics, or native period/window law distinguishes any subgroup as translation."
+    },
+    {
+      "candidate": "accepted observation/reduct/slice maps",
+      "classification": "TYPE_MAP_REJECTED",
+      "reason": "These maps change observational presentation or forget data and are not a total same-sort action with identity/composition laws."
+    },
+    {
+      "candidate": "named carrier/rotation symmetry operations",
+      "classification": "PRESENTATION_EQUIVALENCE_ONLY",
+      "reason": "A named symmetry does not provide a native translation action; immediate native rotation typing is separately owned and supplies no translation resolver at this evidence cut."
+    },
+    {
+      "candidate": "comparison-model Z^6 coordinate shifts",
+      "classification": "COMPARISON_ONLY",
+      "reason": "They form a classical translation action only after the external comparison coordinates are declared; no accepted type map promotes them to native P000."
+    },
+    {
+      "candidate": "finite carrier permutations, quotient covers, and finite graph symmetries",
+      "classification": "TYPE_MAP_REJECTED",
+      "reason": "Permutation/cover structure alone does not type a spatial translation label or authorize a Følner window semantics."
+    }
+  ],
+  "native_action_count": 0,
+  "partial_action_count_at_density_strength": 0,
+  "terminal_theorem": {
+    "name": "CURRENT_P000_TRANSLATION_AUTHORIZATION_NO_GO",
+    "statement": "At the frozen accepted evidence cut, current P000/Full-Cell semantics does not determine or type a native translation/amenable action. Therefore native period, boundary, Følner-window, and density semantics are not presently derivable. This is an exact current-language authorization/underdetermination boundary, not a theorem that no P000-compatible translation extension can exist.",
+    "terminal_state": "CURRENT_P000_NATIVE_TRANSLATION_UNDERDETERMINED_WITH_EXACT_ACTION_TYPING_OBSTRUCTION"
+  },
+  "minimum_missing_primitive": {
+    "name": "NATIVE_TRANSLATION_LABEL_GROUP_AND_TYPED_CELL_FULLCELL_ACTION",
+    "contract": [
+      "A native translation-label group G with identity, multiplication, and inverse declared independently of comparison coordinates.",
+      "Total same-sort actions tau_Cell : G x Cell -> Cell and tau_Full : G x FullCell -> FullCell satisfying identity and composition.",
+      "A nondegeneracy witness showing the action is not merely the identity presentation.",
+      "Readout/locality equivariance wherever accepted maps are in scope; for rho : FullCell -> Cell, rho(tau_Full(g,x)) = tau_Cell(g,rho(x)).",
+      "When a native relation/support incidence is later fixed, its action/transport must be typed and equivariant rather than inferred from coordinate notation."
+    ]
+  },
+  "density_reuse_interface": {
+    "status": "CONDITIONAL_CLASSICAL_INTERFACE",
+    "requirements": [
+      "the native action contract above",
+      "finite nonempty windows F_n subset G",
+      "for every fixed g in G, |g F_n triangle F_n| / |F_n| -> 0",
+      "for periodic reuse, an explicitly typed finite-index period subgroup H and an H-periodic bounded/local observable"
+    ],
+    "consequence": "Once these inputs are supplied, standard classical Følner/finite-quotient averaging may be reused: periodic observables have the finite quotient mean along the declared Følner sequence. This conditional theorem is classical and does not authorize the missing native action."
+  },
+  "finite_countermodels": {
+    "state_space": "X={0,1}^3 with readout rho(b,u,v)=b; each readout fiber has four states.",
+    "same_group_pair": {
+      "group": "C4",
+      "action_A": "generator adds 1 mod 4 to index 2u+v on both readout fibers",
+      "action_B": "generator adds 1 mod 4 on b=0 fiber and acts identically on b=1 fiber",
+      "common_properties": [
+        "total C4 action",
+        "globally faithful",
+        "readout preserving"
+      ],
+      "distinguishing_invariant": "generator fixed-point count: A=0, B=4",
+      "obs_preserving_conjugacy_count": 0,
+      "obs_preserving_bijections_checked": 576
+    },
+    "torsor_pair": {
+      "action_A": "regular C4 action on every readout fiber",
+      "action_V": "regular V4=(Z/2)^2 XOR action on every readout fiber",
+      "common_properties": [
+        "total faithful action",
+        "readout preserving",
+        "free and transitive on every readout fiber"
+      ],
+      "distinguishing_invariant": "C4 has elements of order 4; V4 has exponent 2",
+      "conclusion": "Even a fiberwise torsor requirement plus the same readout does not determine the translation-label group."
+    },
+    "scope": "These finite witnesses refute inference of a unique native translation action from the observable/fiber-equivalence fragment. They are not claimed to realize all P000 axioms; the current-P000 no-go additionally uses the accepted selector census showing no native resolver."
+  },
+  "downstream_gate": {
+    "translation_action_selector": "UNRESOLVED",
+    "translation_folner_selector": "BLOCKED_BY_TRANSLATION_ACTION_SELECTOR",
+    "classical_periodic_folner_results": "REUSABLE_ONLY_AFTER_NATIVE_ACTION_AND_WINDOW_TYPING"
+  },
+  "authority": {
+    "working_truth": false,
+    "foundation": false,
+    "canonical_promotion": false,
+    "novelty": false,
+    "successor_publication": false
+  }
+}

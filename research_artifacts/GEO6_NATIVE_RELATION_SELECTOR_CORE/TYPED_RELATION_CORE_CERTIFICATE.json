@@ -1,0 +1,112 @@
+{
+  "schema": "GEO6_NATIVE_RELATION_CORE_CERTIFICATE_V1",
+  "task_id": "RS-GEO6-NATIVE-RELATION-SELECTOR-CORE",
+  "publication_id": "TP2-46E1AB6359CBEBAA6B0D",
+  "claim_id": "chatgpt-g6relcore-20260901-2055-91c7a4",
+  "researcher_id": "EM-G6REL-91C7A4",
+  "execution_branch_base": "5d5828f0c5db94bcafa1d5ca275bc9a44ccdf431",
+  "hard_target": "GEO6_NATIVE_RELATION_CORE_CONTACT_EXCLUSION_SUPPORT_TYPED_AND_CONVERSIONS_EXACTLY_CLASSIFIED",
+  "terminal_classification": "CURRENT_LANGUAGE_THREE_SELECTOR_INDEPENDENCE_PROVED_AND_MINIMAL_TYPED_EXTENSION_ATLAS_CLASSIFIED",
+  "selector_order": ["CONTACT_SELECTOR", "NONOVERLAP_SELECTOR", "SUPPORT_RELATION_SELECTOR"],
+  "frozen_authority": {
+    "taskbook": "sha1:7a3542eef47d600224f90ab0fb672285da11a3a6",
+    "selector_driver_review": "sha1:510ed84f6ee0913eaee90372e2b591a30ebfa601",
+    "selector_atlas": "sha1:120b71b74dc07edd9a3c78474b51752676c6dae3",
+    "p000_axis_handle_review": "sha1:f58401f148bcbb217e946006a2275f5b4d05b6f2",
+    "packing_review": "sha1:a2ffca5e814a8ed8926eccdfb26ffeedb54d352f",
+    "mahler_review": "sha1:27806652a2455a873da00d99498451928d84213e"
+  },
+  "current_language_conclusion": {
+    "contact": "PARTIALLY_CONSTRAINED_BUT_NO_NATIVE_RELATION_RESOLVER",
+    "exclusion": "UNRESOLVED",
+    "support_incidence": "UNRESOLVED",
+    "pairwise_conversions": "NONE_FORCED",
+    "shared_primitive": "NONE_DERIVED_FROM_CURRENT_ACCEPTED_P000_FULL_CELL_LANGUAGE",
+    "reason": "Accepted P000 supplies Cell identity, adjacency/path count, named axes and optional PF10 local data, but no typed relation or conversion law identifying native contact, exclusion, or Cell×Support incidence. Carrier contact, conflict graphs and FCA are downstream/comparison structures only until their native input relation is typed."
+  },
+  "signature_atlas": [
+    {
+      "id": "SIG0_INDEPENDENT_TYPED_TRIPLE",
+      "sorts": ["Cell", "Support"],
+      "primitives": ["K subset Sym2_neq(Cell)", "X subset Sym2_neq(Cell)", "I subset Cell×Support"],
+      "status": "SAFE_INTERFACE_EXTENSION_NOT_CURRENTLY_DERIVED",
+      "implication_matrix": [["Y", "N", "N"], ["N", "Y", "N"], ["N", "N", "Y"]],
+      "equivariance": ["K(gc,gd)=K(c,d)", "X(gc,gd)=X(c,d)", "I(gc,gs)=I(c,s)"],
+      "refinement": "NO_CURRENT_LAW; any future Cell/Support refinement must declare exact pullback, pushforward, or monotone naturality separately"
+    },
+    {
+      "id": "SIG1_ROLE_TAGGED_SUM",
+      "sorts": ["Cell", "Support", "Role={CONTACT,EXCLUSION,SUPPORT}"],
+      "primitives": ["one role-tagged relation whose restrictions decode K,X,I"],
+      "status": "LOSSLESS_SYNTACTIC_COMPRESSION_ONLY",
+      "implication_matrix": [["Y", "N", "N"], ["N", "Y", "N"], ["N", "N", "Y"]],
+      "minimality": "pair channel must have at least four local states to recover two independent Boolean pair selectors; incidence channel must have at least two local states"
+    },
+    {
+      "id": "SIG2_TYPED_WITNESS_INCIDENCE",
+      "sorts": ["Cell", "Witness", "Support", "Role(Witness)={CONTACT,EXCLUSION,SUPPORT}"],
+      "primitives": ["J subset Cell×Witness", "role map", "support label on SUPPORT witnesses", "degree-two law on CONTACT/EXCLUSION witnesses"],
+      "derived": ["K by CONTACT co-incidence", "X by EXCLUSION co-incidence", "I by SUPPORT witness incidence"],
+      "status": "GENUINE_SHARED_INCIDENCE_EXTENSION_NOT_CURRENTLY_DERIVED",
+      "implication_matrix": [["Y", "N", "N"], ["N", "Y", "N"], ["N", "N", "Y"]],
+      "minimality": "three semantic role fibers or an equivalent amount of typed information are necessary: merging the two pair roles forces K=X, while merging SUPPORT with a pair role loses Cell×Support typing or silently assumes self-duality"
+    },
+    {
+      "id": "SIG3_SELF_DUAL_CONTACT_SUPPORT",
+      "sorts": ["Cell", "Support"],
+      "extra_law": "equivariant bijection delta:Cell↔Support and I(c,delta(d)) iff K(c,d)",
+      "status": "EXPLICIT_EXTENSION_DEPENDS_ON_UNRESOLVED_SELF_DUAL_IDENTIFICATION_SELECTOR",
+      "implication_matrix": [["Y", "N", "Y"], ["N", "Y", "N"], ["Y", "N", "Y"]],
+      "forced_conversions": ["CONTACT iff SUPPORT through delta"],
+      "not_forced": ["EXCLUSION from CONTACT", "EXCLUSION from SUPPORT", "CONTACT or SUPPORT from EXCLUSION"]
+    },
+    {
+      "id": "SIG4_SUPPORT_OVERLAP_EXCLUSION",
+      "sorts": ["Cell", "Support"],
+      "extra_law": "X(c,d) iff c!=d and exists s with I(c,s) and I(d,s)",
+      "status": "EXPLICIT_CONFLICT_SEMANTICS_EXTENSION_NOT_CURRENTLY_DERIVED",
+      "implication_matrix": [["Y", "N", "N"], ["N", "Y", "N"], ["N", "Y", "Y"]],
+      "forced_conversions": ["SUPPORT implies EXCLUSION by declared overlap law"],
+      "not_forced": ["EXCLUSION implies SUPPORT", "any CONTACT conversion"]
+    }
+  ],
+  "minimality_theorem": {
+    "statement": "Without an independently justified conversion law, the three selector relations carry 2*binom(n,2)+n*m independent Boolean degrees of freedom on |Cell|=n and |Support|=m. Any lossless local typed representation must therefore distinguish four CONTACT/EXCLUSION states on every unordered Cell pair and two states on every Cell×Support slot. A role-tagged sum attains this bound exactly but creates no semantic implication.",
+    "exhaustive_regression": {"n": 3, "m": 2, "pair_slots": 3, "incidence_slots": 6, "independent_bits": 12, "triples_checked": 4096}
+  },
+  "same_carrier_same_readout_countermodel_bank": {
+    "carrier": "Cell=Z/4Z",
+    "support": "Support=Z/4Z",
+    "readout": "constant singleton readout",
+    "symmetry": "C4 simultaneous translation on Cell and Support",
+    "relations": {
+      "cycle": [[0,1],[0,3],[1,2],[2,3]],
+      "opposite": [[0,2],[1,3]],
+      "empty": [],
+      "diag_incidence": [[0,0],[1,1],[2,2],[3,3]],
+      "shift_incidence": [[0,1],[1,2],[2,3],[3,0]]
+    },
+    "directed_nonimplication_witnesses": {
+      "CONTACT_NOT_IMPLY_EXCLUSION": "hold CONTACT=cycle and SUPPORT=diag; vary EXCLUSION=opposite vs empty",
+      "EXCLUSION_NOT_IMPLY_CONTACT": "hold EXCLUSION=cycle and SUPPORT=diag; vary CONTACT=opposite vs empty",
+      "CONTACT_NOT_IMPLY_SUPPORT": "hold CONTACT=cycle and EXCLUSION=opposite; vary SUPPORT=diag vs shift",
+      "SUPPORT_NOT_IMPLY_CONTACT": "hold SUPPORT=diag and EXCLUSION=opposite; vary CONTACT=cycle vs opposite",
+      "EXCLUSION_NOT_IMPLY_SUPPORT": "hold EXCLUSION=cycle and CONTACT=opposite; vary SUPPORT=diag vs shift",
+      "SUPPORT_NOT_IMPLY_EXCLUSION": "hold SUPPORT=diag and CONTACT=opposite; vary EXCLUSION=cycle vs opposite"
+    },
+    "all_relations_equivariant": true
+  },
+  "downstream_interfaces": {
+    "packing": "Only X/NONOVERLAP may be turned into a conflict graph; independent-set, Hoffman, matching, periodic or packing machinery starts after X is typed. K/contact alone is insufficient.",
+    "mahler": "Only I/Cell×Support incidence licenses FCA/Galois derivation and closure; classical FCA then applies, but no self-dual identification or Mahler geometry follows without further typed data.",
+    "contact": "K may feed native contact/readout neighborhoods only after K itself is supplied or derived; carrier first-shell contact is not a native identity theorem.",
+    "shared_witness": "If SIG2 is later authorized, K/X/I are exact projections of J, but J is a strictly stronger typed primitive and does not prove selector equivalence."
+  },
+  "tool_reuse": {
+    "T7_FINITE_SYMMETRY_EQUIVARIANCE": "used for the C4-equivariant countermodel and canonical-choice discipline",
+    "T8_RELATION_OBSERVABLE_SPECTRUM": "reused as the declared-relation analysis boundary; it cannot invent the semantic relation being analyzed",
+    "new_general_tool": false
+  },
+  "checker_expected": "PASS equivariant_nonimplications=6 exhaustive_triples=4096 independent_bits_n3_m2=12 pair_local_alphabet_min=4 incidence_local_alphabet_min=2 signature_classes=5 selfdual_roundtrip=8 support_overlap_collision=1",
+  "promotion": {"working_truth": false, "foundation": false, "canonical": false, "native_geometry": false, "novelty": false}
+}
