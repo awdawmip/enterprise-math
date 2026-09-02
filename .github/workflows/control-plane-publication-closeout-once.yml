@@ -1,0 +1,57 @@
+name: control-plane-publication-closeout-once
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/control-plane-publication-closeout-once.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: control-plane-publication-closeout-once
+  cancel-in-progress: false
+
+jobs:
+  closeout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Materialize semantic-preserving V2 publication generations
+        run: python control_plane/repair_post_cutover_publications_once.py
+      - name: Compile modified control surface
+        run: python -m py_compile tools/research_task_records.py
+      - name: Enforce current publication writer envelope
+        run: python control_plane/check_post_cutover_publication_envelope.py
+      - name: Enforce physical pre-V2 isolation
+        run: python control_plane/check_legacy_control_isolation.py
+      - name: Validate current control authority
+        run: python control_plane/check_current_control_authority.py
+      - name: Test runtime reducer
+        run: python -m unittest discover -s tests -p 'test_research_runtime_reducer.py'
+      - name: Test runtime state contract
+        run: python -m unittest discover -s tests -p 'test_research_runtime_unittest.py'
+      - name: Test role and control authority
+        run: python -m unittest discover -s tests -p 'test_role_control_authority_unittest.py'
+      - name: Commit verified closeout transaction
+        run: |
+          rm -f control_plane/repair_post_cutover_publications_once.py
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'Closeout already materialized.'
+            exit 0
+          fi
+          git commit -m 'control: close post-cutover publication envelope'
+          git push origin HEAD:main
