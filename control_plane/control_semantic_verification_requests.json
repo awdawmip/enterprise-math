@@ -1,22 +1,23 @@
 {
   "schema": "ENTERPRISE_MATH_CONTROL_SEMANTIC_VERIFICATION_REQUESTS_V1",
-  "status": "ACTIVE_NONEXECUTABLE",
-  "effective": "2026-08-29",
+  "status": "CLOSED_NONEXECUTABLE_HISTORY",
+  "effective": "2026-09-02",
   "classification": "CONTROL_PLANE_REQUESTS_NOT_RESEARCH_TASKS",
   "migration_registry": "control_plane/control_semantic_migration_registry.json",
-  "purpose": "Preserve control-migration questions whose resolution may depend on research/governance semantics without allowing CONTROL_PLANE_MAINTENANCE to self-grant task-publication, Driver, Steward, theorem-review, or Foundation authority. These requests are not scheduler/runtime tasks. An authorized Researcher/Driver/Steward may later publish a real immutable GOVERNANCE task if the request still requires investigation.",
+  "purpose": "Preserve the audit history of control-migration questions without allowing CONTROL_PLANE_MAINTENANCE to self-grant task-publication, Driver, Steward, theorem-review, or Foundation authority. A request is open only while its related migration genuinely requires semantic verification. Once the current values already equal the canonical values and no field mutation remains to authorize, the request is retained as closed non-executable history rather than converted into a synthetic governance task.",
   "core_invariants": [
     "VERIFICATION_REQUEST_IS_NOT_A_TASK",
     "VERIFICATION_REQUEST_IS_NOT_CLAIMABLE",
     "VERIFICATION_REQUEST_GRANTS_NO_ROLE_AUTHORITY",
     "CONTROL_PLANE_MAINTENANCE_CANNOT_PUBLISH_RESEARCH_TASK_BY_RELABELLING_A_REQUEST",
     "AUTHORIZED_FUTURE_TASK_MUST_USE_IMMUTABLE_V2_PUBLICATION",
-    "MATHEMATICAL_AND_GOVERNANCE_SEMANTICS_MUST_BE_VERIFIED_BEFORE_MIXED_FIELD_MIGRATION"
+    "NO_REMAINING_FIELD_CHANGE_TO_AUTHORIZE_IMPLIES_CLOSE_REQUEST_WITHOUT_SYNTHETIC_TASK",
+    "CLOSED_REQUEST_REMAINS_PROVENANCE_NOT_RUNTIME_AUTHORITY"
   ],
   "requests": [
     {
       "request_id": "CSV-ARCHITECTURE-V2-PUBLICATION-CUTOVER-001",
-      "state": "AWAITING_AUTHORIZED_GOVERNANCE_TASK_PUBLICATION_OR_DIRECT_STEWARD_VERIFICATION",
+      "state": "RESOLVED_NO_TASK_REQUIRED_CURRENT_VALUES_ALREADY_CANONICAL",
       "is_research_task": false,
       "claimable": false,
       "runtime_dispatchable": false,
@@ -26,9 +27,23 @@
       ],
       "target_file": "research_architecture.json",
       "question": "Can the six V1 task-publication control pointers be migrated to immutable V2 authority without changing any mathematical/research governance semantics carried by research_architecture.json?",
-      "control_structural_evidence": {
+      "resolution": {
+        "migration_state": "VERIFIED_NO_POINTER_CHANGE_REQUIRED",
         "checker": "control_plane/check_architecture_publication_cutover_evidence.py",
-        "status": "CONTROL_STRUCTURAL_EVIDENCE_ONLY_NOT_GOVERNANCE_APPROVAL",
+        "evidence_status": "CURRENT_ARCHITECTURE_V2_POINTERS_VERIFIED_NO_CHANGE_REQUIRED",
+        "registered_pointer_count": 6,
+        "changed_pointer_count": 0,
+        "all_current_values_equal_canonical_targets": true,
+        "non_target_json_structure_equal": true,
+        "semantic_sentinel_digests_unchanged": true,
+        "task_publication_required": false,
+        "governance_approval_granted": false,
+        "migration_authority_granted": false,
+        "reason": "The six registered architecture pointers already equal their canonical immutable-V2 values. The current control operation proposes and performs no mutation of research_architecture.json, so there is no mixed-semantics field change left for an authorized governance task to approve. The former request is retained only as provenance."
+      },
+      "historical_control_structural_evidence": {
+        "checker": "control_plane/check_architecture_publication_cutover_evidence.py",
+        "prior_status": "CONTROL_STRUCTURAL_EVIDENCE_ONLY_NOT_GOVERNANCE_APPROVAL",
         "source_architecture_blob_sha1": "7b2c7da8f0b360cf6bd4e62493f12cda1c286aa0",
         "exact_registered_pointer_count": 6,
         "non_target_json_structure_equal": true,
@@ -49,31 +64,20 @@
         "governance_approval_granted": false,
         "migration_authority_granted": false
       },
-      "required_verification": [
-        "Enumerate the exact six JSON pointers and their V2 replacements. CONTROL structural evidence now supplies this mechanically.",
-        "Prove or explicitly justify that FREE discovery substrate/anti-anchoring semantics are unchanged. CONTROL structural evidence proves the corresponding JSON blocks are byte/structure-equivalent outside the six target pointers; authorized governance review must still classify the six pointer meanings.",
-        "Prove or explicitly justify that Working Truth activation/falsifier semantics are unchanged. CONTROL structural evidence pins the unchanged block; authorized governance review remains required.",
-        "Prove or explicitly justify that axiom-candidate lifecycle and origin provenance are unchanged. CONTROL structural evidence pins the unchanged block; authorized governance review remains required.",
-        "Prove or explicitly justify that successor-stage, portfolio-balance, and route-closure semantics are unchanged. CONTROL structural evidence pins the unchanged blocks; authorized governance review remains required.",
-        "Prove or explicitly justify that Foundation backflow, independence/replication, promotion, and theorem-status semantics are unchanged. CONTROL structural evidence pins the unchanged blocks; authorized governance review remains required.",
-        "Produce an exact field-local proposed diff; no unrelated JSON pointer may change. CONTROL structural checker provides the field-local proposal but does not authorize writing it."
+      "required_verification_completed": [
+        "The exact six JSON pointers and V2 values are registered.",
+        "All six current values already equal the registered canonical values.",
+        "Removing the six target pointers leaves identical non-target JSON structure.",
+        "Research-semantic sentinel blocks are unchanged.",
+        "No architecture write is required or authorized by this request."
       ],
       "forbidden_shortcuts": [
         "blind global string replacement",
-        "treating newer control precedence as proof that older mathematical/governance text is semantically irrelevant",
-        "changing wording or values outside the six registered pointers while performing the cutover",
-        "treating the CONTROL structural-evidence checker as Foundation Steward or Research Driver approval"
+        "treating a closed request as Driver or Foundation approval",
+        "changing wording or values outside the six registered pointers",
+        "creating a synthetic governance task when no field mutation remains"
       ],
-      "future_authorized_publication": {
-        "kind": "GOVERNANCE",
-        "publisher_role_must_be_one_of": [
-          "RESEARCH_DRIVER",
-          "FOUNDATION_STEWARD"
-        ],
-        "publication_contract": "research_task_publication_contract_v2.json",
-        "publication_tool": "tools/research_task_records.py",
-        "must_preserve_parent_objective": true
-      }
+      "future_authorized_publication": null
     }
   ]
 }
