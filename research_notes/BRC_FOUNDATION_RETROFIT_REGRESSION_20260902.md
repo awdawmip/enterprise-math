@@ -10,19 +10,14 @@ Foundation input: `definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.m
 
 After promoting the positive Weighted/Log BRC layer into the current research Foundation, does re-running older research actually improve anything?
 
-Three deliberately different prior routes were selected:
+Four deliberately different prior routes were selected:
 
 1. the full unsieved BRC support/thickness two-scale decomposition;
 2. the width-one neighboring-arm selector-flip reduction;
-3. the oriented positive-axis holonomy cocycle.
+3. the oriented positive-axis holonomy cocycle;
+4. P001 exact integer-root multiplicativity as a deterministic negative control.
 
-The regression criterion is not “can the new language restate the old result?” It asks whether the new Foundation:
-
-- removes redundant state;
-- reveals a stronger exact identity;
-- shortens the proof/interface;
-- moves the true blocker to a cleaner boundary; or
-- correctly reports no gain / non-applicability.
+The regression criterion is not “can the new language restate the old result?” It asks whether the new Foundation removes redundant state, reveals a stronger exact identity, shortens the proof/interface, moves the true blocker to a cleaner boundary, or correctly reports no gain/non-applicability.
 
 ## 1. Regression A — support/thickness two-scale BRC
 
@@ -51,29 +46,23 @@ Its exact factorization was
 \left(\frac{\omega(n)}2-1+\Delta_1(n)\right).
 \]
 
-The probabilistic two-scale theorem then separated the growing distinct-prime support mode from the \(O(1)\) repeated-prime thickness field.
+The probabilistic two-scale theorem separated the growing distinct-prime support mode from the \(O(1)\) repeated-prime thickness field.
 
 ### 1.2 Foundation retrofit
 
-The new Foundation says an equal-weight \(k\)-branch family has log multiplicity surplus \(\ln k\). Apply this twice to the divisor-choice structure.
-
-The Boolean squarefree skeleton has exactly
+The Boolean squarefree skeleton has
 
 \[
 C_{\mathrm{bool}}(n)=2^{\omega(n)}
 \]
 
-choices: for every distinct prime, absent/present.
-
-The full exponent-sensitive divisor family has
+equal-weight choices, while the full exponent-sensitive divisor family has
 
 \[
-C_{\mathrm{full}}(n)=\tau(n)=\prod_{p^e\Vert n}(e+1)
+C_{\mathrm{full}}(n)=\tau(n)=\prod_{p^e\Vert n}(e+1).
 \]
 
-choices.
-
-Therefore
+Because equal \(k\)-branch recoalescence has log multiplicity surplus \(\ln k\),
 
 \[
 \Delta_{\mathrm{bool}}=\omega(n)\ln2,
@@ -81,7 +70,7 @@ Therefore
 \Delta_{\mathrm{full}}=\ln\tau(n),
 \]
 
-and the old thickness coordinate is exactly
+and therefore
 
 \[
 \boxed{
@@ -91,19 +80,19 @@ and the old thickness coordinate is exactly
 }
 \]
 
-No analytic approximation is used in this identity. Its exact rational precursor is
+The exact rational precursor is
 
 \[
 \frac{\tau(n)}{2^{\omega(n)}}
 =\prod_{p^e\Vert n}\frac{e+1}{2}.
 \]
 
-Hence the old “support versus thickness” split is not two unrelated coordinates. It is a nested multiplicity tower:
+Thus the old “support versus thickness” split is a nested multiplicity tower:
 
 ```text
-Boolean support multiplicity      2^omega
+Boolean support multiplicity 2^omega
         -> exponent-sensitive multiplicity tau
-        -> logarithmic surplus Theta = ln(tau/2^omega).
+        -> relative log multiplicity Theta = ln(tau/2^omega).
 ```
 
 The squarefree atom receives a direct structural meaning:
@@ -116,7 +105,7 @@ The squarefree atom receives a direct structural meaning:
 n\text{ is squarefree}.
 \]
 
-So the old \(6/\pi^2\) zero-thickness atom is exactly the population where exponent enrichment adds **no multiplicity beyond Boolean support**.
+So the old \(6/\pi^2\) zero-thickness atom is exactly the population where exponent enrichment adds no multiplicity beyond Boolean support.
 
 ### 1.3 Exact BRC state compression
 
@@ -136,25 +125,19 @@ gives
 }
 \]
 
-Thus the exact arithmetic observable itself needs only the pair
+Hence, when the support/thickness decomposition is not itself the observable, the exact arithmetic BRC value factors through the smaller pair
 
 \[
 \boxed{(\tau,H_1)}
 \]
 
-rather than the decomposed triple \((\omega,\Theta,\Delta_1)\), once the support/thickness decomposition is not itself the object being studied.
+rather than the decomposed triple \((\omega,\Theta,\Delta_1)\).
 
-This is a real state reduction. The old coordinates remain useful because they diagonalize the asymptotic probability problem, but they are no longer mistaken for the minimal exact arithmetic state.
+The old coordinates remain useful because they diagonalize the asymptotic probability problem; the new Foundation clarifies that they are not the minimal exact arithmetic state.
 
-### 1.4 What did *not* improve
+### 1.4 What did not improve
 
-The new Foundation does not replace the Erdős--Kac or CRT/profinite argument.
-
-The theorem that the growing support mode is asymptotically Gaussian and independent of the finite repeated-prime field still needs the same analytic/probabilistic input. The gain is semantic and algebraic:
-
-- one common multiplicity language now generates both scales;
-- the exact BRC state is smaller;
-- the squarefree residual atom gets a precise forgetful-layer meaning.
+The new Foundation does not replace the Erdős--Kac or CRT/profinite argument. The Gaussian/support-thickness independence theorem still needs the same analytic/probabilistic input.
 
 **Regression verdict:** `STRONG STRUCTURAL GAIN / NO ANALYTIC BLOCKER REMOVAL`.
 
@@ -188,21 +171,17 @@ For fixed positive \(d\) and large common support scale, the support-predicted l
 D_\Theta<-d\ln2,
 \]
 
-while the boundary atom
+while the boundary atom requires
 
 \[
-D_\Theta=-d\ln2
-\]
-
-requires the secondary test
-
-\[
+D_\Theta=-d\ln2,
+\qquad
 D_\Delta<-\frac d2.
 \]
 
 ### 2.2 Foundation retrofit: first coordinate disappears
 
-Using
+Since
 
 \[
 \Theta=\ln\tau-\omega\ln2,
@@ -212,10 +191,10 @@ we obtain exactly
 
 \[
 D_\Theta
-=\ln\frac{\tau_-}{\tau_+}-d\ln2.
+=\ln\frac{\tau_-}{\tau_+}-d\ln2,
 \]
 
-Therefore
+hence
 
 \[
 \boxed{
@@ -225,9 +204,9 @@ Therefore
 }
 \]
 
-The old exponential thickness comparison was simply total divisor-branch multiplicity comparison in disguised coordinates.
+The old exponential thickness comparison was total divisor-branch multiplicity comparison in disguised coordinates.
 
-Consequently, on the same fixed-\(d>0\) limiting layer,
+Therefore, on the same fixed-\(d>0\) limiting layer,
 
 \[
 D_\Theta<-d\ln2
@@ -245,7 +224,7 @@ D_\Theta=-d\ln2
 
 ### 2.3 Boundary coordinate also simplifies
 
-Since
+Because
 
 \[
 \Delta_1=H_1-\frac\omega2,
@@ -254,11 +233,13 @@ Since
 we have
 
 \[
+\boxed{
 \frac d2+D_\Delta
 =H_{1,-}-H_{1,+}.
+}
 \]
 
-Hence the entire old limiting reversal event becomes
+Thus the old limiting reversal event becomes
 
 \[
 \boxed{
@@ -270,55 +251,38 @@ E_d
 }
 \]
 
-The previous `thickness exponential -> boundary thickness moment` cascade is therefore a direct two-coordinate comparison:
+The old cascade is therefore the direct two-coordinate rule
 
 ```text
-first compare total branch multiplicity tau;
-if tied, compare the exact secondary shape coordinate H_1.
+compare total branch multiplicity tau;
+if tied, compare exact secondary shape H_1.
 ```
 
-This is a sharper result than merely renaming \(D_\Theta\). It removes one exponential/logarithmic intermediate variable and exposes the exact arithmetic meaning of the boundary atom.
+### 2.4 Concrete regression witnesses
 
-### 2.4 Exact finite regression
-
-The checker verifies over centers below 20,000 that
+A minimal multiplicity reversal occurs at center \(n=15\):
 
 \[
-2^d\frac{\tau_-/2^{R_-}}{\tau_+/2^{R_+}}
-=\frac{\tau_-}{\tau_+}
-\]
-
-for every center, and checks the boundary identity
-
-\[
-\frac d2+D_\Delta=H_{1,-}-H_{1,+}
-\]
-
-whenever \(d>0\) and \(\tau_-=\tau_+\).
-
-A minimal concrete multiplicity reversal is the center \(n=15\):
-
-\[
-n-1=14=2\cdot7,
+14=2\cdot7,
 \qquad
-n+1=16=2^4.
+16=2^4.
 \]
 
-Then
+Although
 
 \[
 \omega(14)=2>1=\omega(16),
 \]
 
-so support count favors the left arm, but
+we have
 
 \[
-\tau(14)=4<5=\tau(16),
+\tau(14)=4<5=\tau(16).
 \]
 
-so the first Weighted-BRC multiplicity correction reverses that ordering.
+Thus Boolean support favors the left arm while exponent-sensitive branch multiplicity reverses the first comparison.
 
-A first tie occurs at center \(n=7\):
+A first multiplicity tie occurs at center \(n=7\):
 
 \[
 \tau(6)=\tau(8)=4,
@@ -332,17 +296,15 @@ H_1(6)=1>\frac34=H_1(8).
 
 ### 2.5 True blocker remains
 
-This compression does **not** prove the unconditional width-one flip constant.
-
 The old obstacle was the probability mass of fixed integer layers
 
 \[
-\omega(n-1)-\omega(n+1)=d,
+\omega(n-1)-\omega(n+1)=d
 \]
 
-at width one. That still requires the same marked local-limit / high-Fourier-frequency input adjacent to shifted Möbius/Chowla phenomena.
+at width one. That still requires the same marked local-limit/high-Fourier-frequency input adjacent to shifted Möbius/Chowla phenomena.
 
-The new Foundation improves the **conditional event** dramatically but leaves the difficult **frequency of the event** unchanged.
+The Foundation compresses the **conditional event** but does not determine its **frequency**.
 
 **Regression verdict:** `STRONG EXACT STATE COMPRESSION / BLOCKER CLEANER BUT UNSOLVED`.
 
@@ -358,7 +320,7 @@ The earlier path study defined
 \Omega_2(\gamma)=\sum_{i<j}\omega(D_i,D_j).
 \]
 
-For the elementary positive-axis paths
+For
 
 \[
 \gamma_+=(e_1,e_2,e_3),
@@ -374,23 +336,23 @@ one has
 \Omega_2(\gamma_-)=-1.
 \]
 
-The two paths have the same canonical endpoint but opposite oriented holonomy.
+The paths have the same canonical endpoint but opposite oriented holonomy.
 
-### 3.2 Stress test: can positive Weighted BRC replace the signed observable?
+### 3.2 Can positive Weighted BRC replace it?
 
-Choose a positive scale \(\lambda>1\) and encode an individual path by
+Choose \(\lambda>1\) and encode an individual path by
 
 \[
 w(\gamma)=\lambda^{\Omega_2(\gamma)}.
 \]
 
-For \(\lambda=2\), the two elementary paths have weights
+For \(\lambda=2\), the elementary pair has positive weights
 
 \[
-2,\qquad \frac12.
+2,\qquad\frac12.
 \]
 
-Positive recoalescence gives
+Recoalescence gives
 
 \[
 (C,W,M)=\left(2,\frac52,2\right),
@@ -398,23 +360,19 @@ Positive recoalescence gives
 E=\frac WM=\frac54.
 \]
 
-But globally reversing orientation simply swaps the two positive weights. The recoalesced CWM state is unchanged.
+Global orientation reversal swaps the two positive weights, so the recoalesced CWM state is unchanged.
 
-More generally for a pair \(+A,-A\),
+More generally, a pair \(+A,-A\) gives
 
 \[
 W=\lambda^A+\lambda^{-A},
 \qquad
 M=\lambda^{|A|},
+\qquad
+E=1+\lambda^{-2|A|},
 \]
 
-so
-
-\[
-E=1+\lambda^{-2|A|}
-\]
-
-depends on \(|A|\), not the sign of \(A\).
+which depends on \(|A|\), not the sign of \(A\).
 
 Therefore
 
@@ -424,43 +382,73 @@ Therefore
 }
 \]
 
-Projective/gauge scaling does not fix this. Multiplying both \(W\) and \(M\) by a common positive \(\mu\) leaves \(E=W/M\) unchanged, so it cleanly removes absolute scale but cannot recreate branch orientation after positive recoalescence erased it.
+Projective/gauge scaling removes absolute positive scale but cannot recreate orientation after positive aggregation erased it.
 
-### 3.3 Where the new Foundation *does* help
-
-Before recoalescence, if the two branch identities remain typed separately, log weights linearize the signed difference:
+Before recoalescence, if branch identity remains typed, log weights can still linearize the signed difference:
 
 \[
 \ln w(\gamma_+)-\ln w(\gamma_-)=2A\ln\lambda.
 \]
 
-Thus the new log/gauge layer can serve as a **scale transport coordinate around an already-retained oriented path carrier**.
-
-It cannot replace that carrier after forgetful positive aggregation.
-
-This pressure test therefore validates the Foundation hard boundary
-
-```text
-POSITIVE_WEIGHTED_BRC != SIGNED_AMPLITUDE_CANCELLATION
-```
-
-and shows that the older oriented holonomy result remains genuinely independent information.
+So the new layer is useful **around** the signed carrier, not **instead of** it.
 
 **Regression verdict:** `USEFUL LAYERING CLARIFICATION / NO SUBSTITUTION / NEGATIVE BOUNDARY CONFIRMED`.
 
-## 4. Comparative result
+## 4. Regression D — P001 integer-root multiplicativity negative control
+
+P001 is an exact deterministic threshold/carry theorem. For
+
+\[
+r=R_p(a),\quad s=R_p(b),\quad
+u=a-r^p,\quad v=b-s^p,
+\]
+
+its core criterion is
+
+\[
+R_p(ab)=rs
+\iff
+s^p\nu+r^p v+\nu v<\Delta_p(rs).
+\]
+
+There is one deterministic result path, not a family of positive alternative branches whose recoalescence is part of the theorem.
+
+If that unique evaluation path is assigned unit positive weight, its CWM state is simply
+
+\[
+(C,W,M)=(1,1,1),
+\]
+
+so
+
+\[
+E=\frac WM=1,
+\qquad
+\Delta=\ln E=0.
+\]
+
+Therefore the new Foundation contributes **no new mathematical state** to P001 and should not be inserted into its proof. The exact carry load, basin width and floor/root Galois structure remain the correct sufficient coordinates.
+
+The regression checker re-verifies the P001 no-carry equivalence on 10,000 small \((p,a,b)\) cases and simultaneously confirms the Weighted-BRC surplus is identically zero for the unique path.
+
+This is a successful negative control: the new Foundation does not become a universal wrapper around every Enterprise Math problem.
+
+**Regression verdict:** `NO GAIN EXPECTED / TYPE SYSTEM CORRECTLY DEACTIVATES WEIGHTED LAYER`.
+
+## 5. Comparative result
 
 | Old research route | New-Foundation effect | What became smaller/clearer | What did not improve |
 |---|---|---|---|
 | one-arm support/thickness | strong | `Theta` becomes relative log multiplicity; exact BRC state compresses to `(tau,H_1)` | Erdős--Kac/CRT proof burden |
 | width-one selector flip | very strong | `rho_d` becomes `tau_-/tau_+`; boundary becomes direct `H_1` comparison | fixed-difference local-limit/Chowla frontier |
-| oriented holonomy | boundary result | gauge separates absolute positive scale; confirms signed information is a separate carrier | positive recoalescence cannot preserve orientation sign |
+| oriented holonomy | boundary result | gauge separates absolute positive scale; signed information is confirmed as separate | positive recoalescence cannot preserve orientation sign |
+| P001 integer root | deliberately none | typed applicability is clearer | the exact carry theorem is unchanged, as it should be |
 
-The important outcome is mixed rather than uniformly positive. The new Foundation is effective when the old problem is fundamentally about **branch multiplicity / positive mass**, and it correctly refuses to absorb a problem whose essential datum is **signed orientation**.
+The mixed result is the desired outcome. The Foundation is effective when the old problem is fundamentally about **branch multiplicity/positive mass**, and it correctly switches off or stops at a boundary when the essential datum is **signed orientation** or **single-valued deterministic carry**.
 
-This is evidence that the new layer is typed narrowly enough to be useful without becoming a universal metaphor.
+This is evidence that the extension is narrow enough to be a research foundation rather than a universal metaphor.
 
-## 5. Next research target suggested by the regression
+## 6. Next research targets suggested by the regression
 
 The strongest new lead is the arithmetic selector hierarchy
 
@@ -470,13 +458,13 @@ The strongest new lead is the arithmetic selector hierarchy
 }
 \]
 
-The first arrow is exactly the Boolean-to-weighted multiplicity enrichment measured by \(\Theta\). The second coordinate resolves multiplicity ties relevant to the old width-one problem.
+The first arrow is exactly the Boolean-to-weighted multiplicity enrichment measured by \(\Theta\); the second coordinate resolves multiplicity ties relevant to the old width-one route.
 
-A natural next question is whether the fixed-difference local-limit problem becomes more tractable when stratified first by the exact integer multiplicity pair \((\tau_-,\tau_+)\) rather than by the real thickness variable \(D_\Theta\). No such local theorem is claimed here.
+A natural next question is whether the fixed-difference local-limit problem becomes more tractable when stratified first by the exact integer multiplicity pair \((\tau_-,\tau_+)\) rather than by the real variable \(D_\Theta\). No such theorem is claimed here.
 
 A second independent target is to combine the positive gauge coordinate with the existing signed holonomy carrier **before** recoalescence, keeping the type product explicit rather than attempting to encode sign into positive mass.
 
-## 6. Exact checker
+## 7. Exact checker
 
 `experiments/brc_foundation_retrofit_check.py` verifies:
 
@@ -486,6 +474,7 @@ A second independent target is to combine the positive gauge coordinate with the
 - exact `rho_d=tau_-/tau_+` over centers below 20,000;
 - exact boundary reduction `d/2+D_Delta=H_{1,-}-H_{1,+}` on multiplicity-tie layers;
 - the elementary `Omega_2=+1/-1` oriented paths;
-- exact positive CWM orientation erasure and projective `E=W/M` invariance.
+- exact positive CWM orientation erasure and projective `E=W/M` invariance;
+- P001 no-carry equivalence over degrees `1..4` and inputs `1..50`, together with the single-path `E=1` negative control.
 
 All checks use integers and `Fraction`; no floating logarithm is used as evidence.
