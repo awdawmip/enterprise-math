@@ -16,57 +16,69 @@ Hard target:
 
 Disposition:
 
-`MET AT EXPLICIT FROZEN-TEMPLATE LEVEL / NO UNIVERSAL B6 IMPROVEMENT CLAIMED`
+`MET AT AN EXPLICIT QUANTIFIED TEMPLATE / NO UNIVERSAL B6 IMPROVEMENT CLAIMED`
 
-The strongest exact conclusion reached is:
+The exact terminal theorem is:
 
-> In the six-dimensional Lassak construction, freeze the one cap atom and the 32 sign-sector atoms, allow any legal cap parameter and any horizontal `O(5)` rotation, and allow only coarsening by unions of whole atoms. Then the incompatibility graph of the 33 atoms is exactly `K_33`. Consequently no two atoms can be merged while retaining strict diameter `<1`, and every member of this frozen coarsening template requires all 33 pieces.
+> In `R^6`, freeze Lassak's one cap plus 32 sign-sector atoms. Allow every legal cap parameter, every horizontal `O(5)` rotation fixing the lens axis, and arbitrary deterministic boundary tie-breaking, but allow only coarsening by unions of whole atoms. Then the atom incompatibility graph is `K_33`. Hence no strict-diameter coarsening has fewer than 33 parts.
 
-This is **not** a theorem that `b(6)>=33`. It does not exclude a 32-part construction that splits an old atom, redraws the walls, truncates the lens differently, moves the cone apex, or introduces a genuinely new R6 geometric ingredient. The retained external status therefore remains
+This is a template obstruction, **not** a lower bound `b(6)>=33`. The retained Euclidean status remains
 
 `7 <= b(6) <= 33`.
 
-## 1. Source-faithful reconstruction of the Lassak construction
+A 32-part construction can escape the theorem only by leaving the frozen atom-coarsening class, e.g. by splitting an old atom, redrawing walls, truncating the lens, moving an apex, or introducing another R6 geometric ingredient.
 
-The official Institute of Mathematics PAS record verifies Lassak's 1982 published article and its bibliographic data, but marks the remote digital full text as restricted. An author-uploaded full-text page is publicly discoverable, but its PDF bytes were not retrievable through the available research tools. I therefore do not claim to have read an inaccessible primary PDF.
+## 1. Source and reconstruction boundary
 
-For the proof details I used Béla Bollobás's published treatment, which explicitly identifies its proof of the Lassak bound as Lassak's proof, and cross-checked the construction type against Tolmachev–Voronov 2026, whose Theorem 4 restates Lassak's universal two-ball cover in general dimension. The source and access boundary is frozen in the source manifest.
+The official Institute of Mathematics PAS record verifies Marek Lassak's 1982 journal article *An estimate concerning Borsuk partition problem*, volume 30, issue 9-10, pages 449-451, but marks remote digital access as restricted. A public ResearchGate page identifies an author-uploaded full text, but its PDF bytes were not retrievable through the available tools. No claim is made that an inaccessible primary PDF was read.
 
-Let `K subset R^n` have diameter 1. Jung's theorem gives an enclosing ball of radius
+The proof details below are reconstructed from Béla Bollobás's published treatment of the Borsuk problem, where he explicitly states that the proof he gives for this bound is Lassak's proof, and are cross-checked against Tolmachev–Voronov 2026, whose Theorem 4 restates Lassak's universal two-ball cover in general dimension.
+
+This access/provenance boundary is frozen in:
+
+`research_artifacts/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE/source_manifest_20260902.json`.
+
+## 2. Exact reconstruction of Lassak's `2^(n-1)+1` construction
+
+Let `K subset R^n` have diameter 1. Jung's theorem gives the radius
 
 `r = sqrt(n/(2n+2))`.
 
-Choose coordinates so a point `c` of `K` on the enclosing `r`-ball is the north pole
+In the Lassak/Bollobás normalization, choose an enclosing radius-`r` ball and a point `c in K` at its north pole,
 
 `c=(0,...,0,r)`.
 
-Since every point of `K` is at distance at most 1 from `c`, one has
+Because `diam(K)=1`, every point of `K` lies in the unit ball centered at `c`, so
 
 `K subset L := B_r(0) intersect B_1(c)`.
 
-Thus it is enough to partition the universal lens `L`.
+Fix `0<delta<r`, put
 
-Fix `0<delta<r` and set
+`h=sqrt(r^2-delta^2/4)`
 
-`h = sqrt(r^2-delta^2/4)`,
+and
 
-`ell = 1/(2r)-r >0`.
+`ell=1/(2r)-r>0`.
 
 Cut off the top cap
 
-`D0 = L intersect {x_n>h}`.
+`D0=L intersect {x_n>h}`.
 
 Its diameter is at most
 
 `2 sqrt(r^2-h^2)=delta<1`.
 
-Cut the remainder by the first `n-1` coordinate hyperplanes. This gives `2^(n-1)` sign sectors. In a fixed sector all products `a_i b_i` for `i<n` are nonnegative. For `a,b` in that sector, there are two cases.
+Cut the remainder by the coordinate hyperplanes
+
+`x_1=0,...,x_(n-1)=0`.
+
+This creates `2^(n-1)` sign sectors. In one sector, for `a,b` all horizontal products `a_i b_i` are nonnegative.
 
 If `min(a_n,b_n)>=-ell`, then `a_n b_n>=-ell h`, hence
 
 `|a-b|^2 <= 2r^2+2ell h`.
 
-If, say, `a_n<-ell`, the condition `a in B_1(c)` implies
+If, say, `a_n<-ell`, the constraint `a in B_1(c)` gives
 
 `|a|^2 <= 1+2r a_n-r^2`.
 
@@ -74,114 +86,118 @@ Using the nonnegative horizontal inner product and `b_n<=h`,
 
 `|a-b|^2 <= 1+2a_n(r-b_n) < 1-2ell(r-h)`.
 
-The identity
+Since
 
-`-2ell r = 2r^2-1`
+`-2ell r = 2r^2-1`,
 
-turns the last expression into
+the right side equals
 
 `2r^2+2ell h`.
 
-Because `h<r`,
+Finally `h<r`, so
 
 `2r^2+2ell h < 2r^2+2ell r = 1`.
 
-Therefore the cap and all sign sectors have strict diameter below 1, proving
+Thus every sector has strict diameter below 1, as does the cap. Therefore
 
 `b(n) <= 2^(n-1)+1`.
 
-For `n=6` this is exactly one cap plus 32 sectors, hence `b(6)<=33`.
+For `n=6`, Lassak's construction is exactly
 
-## 2. Exact R6 constants and the lens intersection sphere
+`1 cap + 32 sign sectors = 33 parts`.
 
-From `n=6`,
+## 3. Exact R6 lens constants
 
-`r^2 = 3/7`.
+For `n=6`,
 
-The parameter
+`r^2=3/7`.
 
-`ell=1/(2r)-r`
+With
 
-satisfies
+`ell=1/(2r)-r`,
 
-`ell^2=1/84`,
+one gets
 
-`2r ell=1/7`,
+`ell^2=1/84`
 
-and therefore
+and, since `r,ell>0`,
+
+`2r ell=1/7`.
+
+Hence
 
 `2r^2+2r ell=1`.
 
 The two sphere boundaries
 
-`|x|=r`,
+`|x|=r`, `|x-c|=1`
 
-`|x-c|=1`
-
-intersect in the horizontal hyperplane
+meet in the horizontal hyperplane
 
 `x_6=-ell`.
 
-If `rho` is the horizontal radius of that intersection sphere, then
+If `rho` is the horizontal radius of this intersection sphere, then
 
 `rho^2=r^2-ell^2=5/12`.
 
-This codimension-one sphere supplies exact incompatibility witnesses between the frozen Lassak atoms.
+This sphere supplies exact witnesses for the new obstruction.
 
-## 3. Frozen Lassak atom-coarsening template
+## 4. Frozen atom-coarsening template
 
-Freeze the following construction class.
+For arbitrary `0<delta<r`, let `h=sqrt(r^2-delta^2/4)`. Choose any horizontal orthonormal frame, equivalently any `O(5)` rotation fixing `e_6`.
 
-For arbitrary `0<delta<r`, let `h=sqrt(r^2-delta^2/4)`. Choose any orthonormal horizontal frame, equivalently any `O(5)` rotation fixing `e_6`.
+Freeze 33 atoms:
 
-The atoms are:
-
-- one cap atom `D0=L intersect {x_6>h}`;
-- for each sign vector `sigma in {+-1}^5`, one sector atom
+- `D0=L intersect {x_6>h}`;
+- for every `sigma in {+-1}^5`,
   `D_sigma=L intersect {x_6<=h} intersect {sigma_i x_i>=0, i=1,...,5}`,
   with any deterministic boundary tie-breaking.
 
-Allowed new parts are unions of whole atoms. Splitting an atom or redrawing a wall leaves the frozen template.
+Allowed new partition pieces are unions of complete atoms only.
 
-Every individual atom has diameter `<1` by the Lassak proof above.
+Each atom individually has diameter `<1` by Lassak's argument.
 
-## 4. Cap-versus-sector incompatibility
+## 5. Cap-sector incompatibility
 
-Fix a sign vector `sigma`. Put
+For a sign vector `sigma`, let
 
-`u_sigma = sigma/sqrt(5)`
+`u_sigma=sigma/sqrt(5)`
 
-in the horizontal five-space and define
+in the horizontal five-space, and set
 
-`a_sigma = rho u_sigma - ell e_6`.
+`a_sigma=rho u_sigma-ell e_6`.
 
-All horizontal coordinates of `a_sigma` have the strict signs prescribed by `sigma`, and `x_6=-ell<h`, so it lies in the interior of the sector relative to the cut halfspaces.
+All five horizontal coordinates have strict signs `sigma`, and
+
+`-ell<h`,
+
+so `a_sigma` lies strictly inside the corresponding sector relative to the cut hyperplanes.
 
 The north pole
 
 `c=r e_6`
 
-lies in the cap because `h<r`.
+lies strictly in the cap because `h<r`.
 
-Since `a_sigma` is on the two-sphere intersection,
+Since `a_sigma` lies on the two-sphere intersection,
 
 `|a_sigma-c|^2`
 
-`= rho^2+(r+ell)^2`
+`=rho^2+(r+ell)^2`
 
-`= (r^2-ell^2)+(r^2+ell^2+2r ell)`
+`=(r^2-ell^2)+(r^2+ell^2+2r ell)`
 
 `=2r^2+2r ell`
 
 `=1`.
 
-Thus the union of the cap with any complete sector has diameter at least 1. No cap-sector pair can be merged.
+Therefore the cap cannot be merged with any complete sector.
 
-## 5. Sector-versus-sector incompatibility
+## 6. Sector-sector incompatibility
 
-Let `sigma != tau` be two sign vectors. Choose an index `j` with `sigma_j=-tau_j`.
+Let `sigma != tau`. Pick `j` with `sigma_j=-tau_j`.
 
-Define horizontal unit vectors by
+Define horizontal unit vectors
 
 `u_j=3 sigma_j/sqrt(13)`, `u_i=sigma_i/sqrt(13)` for `i!=j`,
 
@@ -189,124 +205,159 @@ and analogously
 
 `v_j=3 tau_j/sqrt(13)`, `v_i=tau_i/sqrt(13)`.
 
-Every coordinate is nonzero, so these are strict-interior directions of their respective sign orthants.
+Every coordinate is nonzero, so both directions are strict interior directions of their respective sign orthants.
 
-Their inner product is
+Their inner product satisfies
 
-`u dot v = (-9 + sum_{i!=j} sigma_i tau_i)/13 <= (-9+4)/13=-5/13`.
+`u dot v`
 
-Place both directions on the lens intersection sphere:
+`=(-9 + sum_(i!=j) sigma_i tau_i)/13`
 
-`a=rho u-ell e_6`,
+`<=(-9+4)/13`
 
-`b=rho v-ell e_6`.
+`=-5/13`.
 
-Then `a` and `b` lie in the corresponding sector interiors and
+Now put
 
-`|a-b|^2 = 2 rho^2 (1-u dot v)`
+`a=rho u-ell e_6`, `b=rho v-ell e_6`.
 
-`>= 2*(5/12)*(1+5/13)`
+Both points lie on the lens intersection sphere and in the corresponding sector interiors. Hence
+
+`|a-b|^2`
+
+`=2rho^2(1-u dot v)`
+
+`>=2*(5/12)*(1+5/13)`
 
 `=15/13`
 
 `>1`.
 
-Hence no two distinct sectors can be merged.
+Thus no two distinct sectors can be merged.
 
-## 6. Complete incompatibility theorem
+## 7. `K_33` incompatibility theorem
 
-There are 33 atoms. The previous two sections give:
+There are
 
-- 32 cap-sector incompatibilities;
-- `C(32,2)=496` sector-sector incompatibilities.
+`32`
 
-The total is
+cap-sector pairs and
 
-`32+496=528=C(33,2)`.
+`C(32,2)=496`
 
-Therefore the atom incompatibility graph is exactly
+sector-sector pairs. Their sum is
+
+`528=C(33,2)`.
+
+Every unordered pair of distinct atoms is incompatible, so the incompatibility graph is exactly
 
 `K_33`.
 
-### Theorem — frozen Lassak coarsening rigidity in R6
+### Theorem
 
-For every legal cap parameter `0<delta<r`, every horizontal `O(5)` rotation, and every boundary tie-breaking convention, a strict-diameter partition obtained solely by unions of the 33 whole Lassak atoms has at least 33 parts.
+For every legal `delta`, every horizontal `O(5)` rotation, and every boundary tie-breaking convention, any strict-diameter partition obtained only by coarsening the 33 whole Lassak atoms uses at least 33 parts.
 
-Since the original 33 atoms already form a valid strict-diameter partition, the minimum inside this frozen template is exactly 33.
+The original 33 atoms already form a strict-diameter partition, so the minimum inside this frozen template is exactly 33.
 
-This proves the valid terminal outcome
+This proves the task-valid terminal outcome
 
 `FROZEN_LASSAK_COMPRESSION_TEMPLATE_CANNOT_BEAT_33`.
 
-The minimal structural escape is immediate: any construction with at most 32 parts must split/repartition at least one original Lassak atom or otherwise alter the geometric decomposition.
+The smallest necessary escape is structural: at least one original atom must be split/repartitioned or some other geometric boundary of the template must change.
 
-## 7. R4 truncation/UCS transfer audit
+## 8. R4-to-R6 transfer audit
 
-Tolmachev–Voronov do not obtain `8` in R4 by simply merging two of Lassak's 9 old parts. They first replace the single lens by a small universal covering system of truncated lens variants and then repartition each variant by cone-like pieces. This is exactly the kind of new freedom required by the K33 obstruction above.
+Tolmachev–Voronov's R4 method does not obtain 8 parts by simply merging two of Lassak's 9 original atoms. It changes the geometry: unit-distance truncations create a universal covering system of lens variants, and each variant is repartitioned by cone-like pieces. This is exactly the sort of escape not covered by the `K_33` theorem.
 
-The transfer classification is:
+The exact transfer classification is:
 
-| R4 ingredient | R6 classification | Exact reason |
+| R4 ingredient | R6 classification | Reason |
 |---|---|---|
 | general Lassak two-ball lens | `EXACTLY_TRANSFERABLE_TO_R6` | stated in general dimension |
-| splitting a UCS by parallel hyperplanes one unit apart | `EXACTLY_TRANSFERABLE_TO_R6` | dimension-independent set argument |
-| centered orthogonal width-one slab selection | `EXACTLY_TRANSFERABLE_TO_R6` | admits the all-dimensional lemma below |
-| rhombic-dodecahedron normal completion and four-orbit reduction | `DIMENSION_4_SPECIFIC` | uses the 3D projection geometry of R4 |
-| hypercube vertex rays / facet cones | `EXACTLY_TRANSFERABLE_TO_R6` combinatorially | becomes 64 directions and 12 facets |
-| strict `<1` diameter for all optimized truncated cone pieces | `TRANSFERABLE_WITH_NEW_R6_LEMMA` | the simplest R6 port is exactly false |
-| outer polyhedral validation machinery | `TRANSFERABLE_WITH_NEW_R6_LEMMA` | code is dimension-parameterized, but an R6 cover and global certificate are still missing |
+| UCS split by parallel hyperplanes one unit apart | `EXACTLY_TRANSFERABLE_TO_R6` | dimension-independent |
+| centered orthogonal unit-width slabs | `EXACTLY_TRANSFERABLE_TO_R6` | all-dimensional lemma below |
+| rhombic-dodecahedron normal completion and four-orbit reduction | `DIMENSION_4_SPECIFIC` | uses the three-dimensional projection geometry of R4 |
+| hypercube vertex rays / facet cones | `EXACTLY_TRANSFERABLE_TO_R6` combinatorially | R6 gives 64 directions and 12 facets |
+| strict `<1` diameter for every optimized truncated cone piece | `TRANSFERABLE_WITH_NEW_R6_LEMMA` | the naive center-fixed R6 port is exactly false |
+| circumscribed-polyhedron outer validation machinery | `TRANSFERABLE_WITH_NEW_R6_LEMMA` | code is dimension-parameterized, but an R6 UCS and global certificate are missing |
 
-### General centered-strip lemma
+The complete machine-readable audit is:
 
-Let `A subset R^m` be bounded with diameter at most 1 and `0 in A`. Then there exist `m-1` pairwise orthonormal unit vectors `u_1,...,u_{m-1}` such that
+`research_artifacts/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE/r4_to_r6_transfer_audit_20260902.json`.
+
+## 9. General centered-strip lemma
+
+Let `A subset R^m` be bounded with `diam(A)<=1` and `0 in A`.
+
+Then there exist `m-1` pairwise orthonormal unit vectors `u_1,...,u_(m-1)` such that
 
 `|<u_i,x>|<=1/2`
 
-for every `x in A` and every `i`.
+for every `x in A`.
 
-Proof: in any subspace `W` of dimension at least 2, define
+Proof. In any subspace `W` of dimension at least 2 define
 
-`a(u)=sup_{x in A}<u,x>`,
+`a(u)=sup_(x in A)<u,x>`
 
-`b(u)=sup_{x in A}<-u,x>`.
+and
 
-Both are continuous and nonnegative on the unit sphere of `W`, and diameter at most 1 gives `a(u)+b(u)<=1`. The continuous function `a-b` is odd. Since the unit sphere of `W` is connected, it vanishes at some `u`; then `a(u)=b(u)<=1/2`. Pass to `u^perp intersect W` and iterate until one dimension remains.
+`b(u)=sup_(x in A)<-u,x>`.
 
-For the five-dimensional projection relevant to R6, this gives four mutually orthogonal centered unit-width slabs. Thus the first slab-selection step is not the R6 obstruction.
+Because `A` is bounded these support functions are continuous; because `0 in A` they are nonnegative. The diameter bound gives
 
-The genuinely missing geometry is a five-dimensional replacement for the R4 rhombic-dodecahedron completion/orbit reduction together with a strict R6 diameter certificate after the ensuing repartition.
+`a(u)+b(u)<=1`.
 
-## 8. Exact no-go for the naive center-fixed R6 cube-facet port
+The continuous function `a-b` on the connected unit sphere of `W` is odd, so it has a zero. At such a direction,
 
-A second exact obstruction isolates another tempting but insufficient transfer.
+`a(u)=b(u)<=1/2`.
 
-Keep the untruncated R6 Lassak lens and put the cone apex at the center `0` of the radius-`r` ball. Take any `Q in O(6)` and the 64 normalized cube-vertex directions
+Choose that direction, restrict to its orthogonal complement in `W`, and iterate until one dimension remains.
+
+For the five-dimensional projection relevant to R6, four mutually orthogonal centered unit-width slabs therefore exist. The initial slab-selection mechanism itself is not the R6 bottleneck.
+
+The missing step is a five-dimensional analogue of the R4 normal-completion/orbit geometry plus a strict R6 diameter certificate after repartitioning.
+
+## 10. Uniform no-go for the naive R6 cube-facet port
+
+A second exact theorem blocks a particularly natural but insufficient transfer.
+
+Keep the untruncated R6 Lassak lens and put the cone apex at `0`, the center of the radius-`r` ball. For arbitrary `Q in O(6)`, use the 64 normalized cube directions
 
 `d_v=Qv/sqrt(6)`, `v in {+-1}^6`.
 
-The 12 cube facets define 12 cones.
+The 12 cube facets define 12 cone parts.
 
 Let
 
 `z=Q^T e_6`
 
-and choose an index `j` for which `|z_j|` is maximal, say `M`.
+and choose `j` with maximal `|z_j|=M`.
 
-For the other five coordinates choose signs so their signed sum `S` satisfies `|S|<=M`. This follows by the elementary greedy sign-balancing lemma: starting from zero, when adding a number of magnitude at most `M`, choose its sign to reduce the current absolute value; the partial sum remains of magnitude at most `M`.
+For the other five coordinates choose signs with signed sum `S` satisfying
 
-Choose a cube vertex `v` whose `j` coordinate has the sign of `z_j` and whose other signs realize `S`. Let `w` keep the same `j` sign and reverse all other five signs. Then `v,w` lie in the same cube facet and
+`|S|<=M`.
+
+This follows by a greedy sign-balancing lemma: if a current partial signed sum has magnitude at most `M` and the next number has magnitude at most `M`, choose its sign to reduce the absolute value; the new magnitude remains at most `M`.
+
+Choose a cube vertex `v` whose `j` coordinate has the sign of `z_j` and whose other signs realize `S`. Let `w` keep the same `j` sign and reverse the other five signs.
+
+Then `v,w` lie in the same cube facet and
 
 `<d_v,d_w>=(1-5)/6=-2/3`.
 
 Their axial components are
 
-`(M+S)/sqrt(6)>=0`,
+`(M+S)/sqrt(6)>=0`
+
+and
 
 `(M-S)/sqrt(6)>=0`.
 
-Hence along both rays the small sphere `|x|=r` is reached at `r d_v` and `r d_w` while those points still lie inside the unit ball centered at `c`. Therefore both are lens boundary points in the same facet cone.
+Therefore along both rays the small sphere is met at `r d_v` and `r d_w`, and those points still lie in the unit ball centered at `c` because for nonnegative axial component
 
-Their squared distance is
+`|r d-c|^2=2r^2(1-<d,e_6>)<=2r^2=6/7<1`.
+
+So both points belong to the same facet-cone part of the lens. Their squared distance is
 
 `2r^2(1+2/3)`
 
@@ -316,88 +367,81 @@ Their squared distance is
 
 `>1`.
 
-Thus **for every cube orientation**, at least one center-fixed untruncated R6 facet cone fails the strict-diameter test.
+Hence for **every** cube orientation at least one center-fixed untruncated R6 facet cone has diameter greater than 1.
 
-This does not refute the full R4-style strategy: truncation, movable apex, new cone directions, multiple UCS representatives, and atom splitting remain available.
+This theorem does not block truncation, movable apex, non-hypercubic directions, multiple UCS representatives, or atom splitting.
 
-## 9. Deterministic exact checker
-
-The checker uses only Python integer/rational arithmetic for all finite symbolic subcertificates. It verifies:
-
-- `r^2=3/7`, `ell^2=1/84`, `rho^2=5/12`;
-- `2r ell=1/7` through the positive squared identity;
-- exact cap-sector distance squared `1`;
-- all 496 sector pairs and the uniform lower bound `15/13`;
-- all 32 cap-sector incompatibilities;
-- complete incompatibility count `528=C(33,2)`;
-- the center-fixed cube-facet lower bound `10/7`.
-
-Expected summary:
-
-`PASS GEO8 exact Lassak R6 obstruction: atoms=33 incompatibility_edges=528 sector_pair_lb2=15/13 center_fixed_facet_lb2=10/7`
+## 11. Deterministic exact checker
 
 Checker:
 
 `research_checks/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE_CHECK_20260902.py`
 
-The checker does not pretend to replace the continuous `O(5)` invariance or arbitrary-`O(6)` sign-balancing proofs; those are proved analytically above.
+It uses only integer/rational arithmetic for the finite symbolic subcertificates and verifies:
 
-## 10. Frozen artifacts
+- `r^2=3/7`, `ell^2=1/84`, `rho^2=5/12`;
+- `2r ell=1/7`;
+- cap-sector distance squared `1`;
+- all 496 sector pairs with lower bound at least `15/13`;
+- all 32 cap-sector incompatibilities;
+- `528=C(33,2)` total incompatibility edges;
+- center-fixed cube-facet lower bound `10/7`.
 
-- exact obstruction certificate:
-  `research_artifacts/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE/lassak_r6_exact_obstruction_20260902.json`
-- R4-to-R6 transfer audit:
-  `research_artifacts/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE/r4_to_r6_transfer_audit_20260902.json`
-- theorem dependency graph:
-  `research_artifacts/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE/theorem_dependency_graph_20260902.json`
-- source manifest:
-  `research_artifacts/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE/source_manifest_20260902.json`
-- adversarial audit:
-  `research_artifacts/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE/adversarial_audit_20260902.json`
+Expected output:
 
-## 11. Adversarial scope audit
+`PASS GEO8 exact Lassak R6 obstruction: atoms=33 incompatibility_edges=528 sector_pair_lb2=15/13 center_fixed_facet_lb2=10/7`
 
-The following possible overclaims were explicitly killed.
+The checker is deliberately not used as a substitute for the continuous `O(5)` invariance or arbitrary-`O(6)` sign-balancing proofs above.
 
-1. **Boundary convention:** sector witnesses have no zero horizontal coordinates, so orthant tie-breaking cannot remove them.
-2. **Cap parameter:** the intersection sphere stays at `x_6=-ell<0<h` for every legal `delta`, while `c` stays strictly above the cap cut.
-3. **Horizontal rotation:** the lens is invariant under `O(5)` fixing its axis, so rotating the explicit witness family preserves the theorem.
-4. **Borsuk lower bound:** no statement `b(6)>=33` is made.
-5. **Full R4 transfer:** the `10/7` no-go is restricted to center-fixed, untruncated cube-facet cones.
-6. **Numerical universality:** no finite sample, Monte Carlo search, or floating-point optimizer is used to prove a universal R6 bound.
-7. **Source access:** the inaccessible primary Lassak PDF is not represented as read.
+## 12. Artifacts and adversarial audit
 
-Adversarial verdict:
+Frozen artifacts:
+
+- `research_artifacts/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE/lassak_r6_exact_obstruction_20260902.json`
+- `research_artifacts/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE/r4_to_r6_transfer_audit_20260902.json`
+- `research_artifacts/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE/theorem_dependency_graph_20260902.json`
+- `research_artifacts/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE/source_manifest_20260902.json`
+- `research_artifacts/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE/adversarial_audit_20260902.json`
+
+Adversarial checks explicitly cover:
+
+- orthant-boundary tie-breaking;
+- all legal cap parameters;
+- all horizontal `O(5)` rotations;
+- strict-interior witness placement;
+- the distinction between a template lower bound and `b(6)>=33`;
+- arbitrary cube orientation in the `10/7` subtemplate no-go;
+- the fact that the full R4 truncation strategy remains outside that no-go;
+- the prohibition on using finite/floating-point evidence as a universal R6 theorem;
+- the remote-access limitation of the Lassak primary PDF.
+
+Audit verdict:
 
 `PASS_FOR_RESTRICTED_TEMPLATE_TERMINAL_OUTCOME`.
 
-## 12. Residue and Driver handoff
+## 13. Residue and Driver handoff
 
-The world-class Euclidean gap is not closed:
+The Euclidean value `b(6)` remains open in the retained interval
 
-`7 <= b(6) <= 33` remains the retained status.
+`7 <= b(6) <= 33`.
 
-What is now closed is a precise route:
+What is closed here is the route
 
-`MERGE_EXISTING_LASSAK_ATOMS -> CANNOT_REDUCE_33_TO_32`.
+`MERGE_WHOLE_LASSAK_ATOMS -> CANNOT_REDUCE_33_TO_32`.
 
-A genuine upper-bound improvement must introduce at least one of:
+Any genuine improvement must introduce at least one new freedom, such as:
 
-- splitting/repartitioning an original Lassak atom;
-- a new five-dimensional truncation/UCS normal system;
-- movable or multiple cone apices;
-- non-hypercubic directions;
-- another continuous R6 covering lemma not contained in the frozen coarsening class.
+- split/repartition an original Lassak atom;
+- construct a five-dimensional truncation/UCS normal system;
+- move or multiply cone apices;
+- use non-hypercubic directions;
+- prove another continuous R6 covering lemma outside the frozen coarsening class.
 
-The R4 method remains relevant because it does exactly the first kind of structural escape, but its three-dimensional rhombic-dodecahedron orbit reduction has no proved five-dimensional replacement in this Result.
-
-Driver recommendation:
-
-Accept this Result at exactly the strength
+Driver-review strength should be exactly:
 
 `LASSAK_R6_33_ATOM_COARSENING_INCOMPATIBILITY_GRAPH_IS_K33_AND_NAIVE_CENTER_FIXED_R6_CUBE_FACET_PORT_HAS_UNIFORM_10_OVER_7_OBSTRUCTION`.
 
-Do not interpret it as `b(6)=33`, as a global impossibility of `b(6)<=32`, or as a proof that the full Tolmachev–Voronov truncation strategy cannot be generalized.
+Do **not** promote this to `b(6)=33`, to a global impossibility of `b(6)<=32`, or to a proof that the full Tolmachev–Voronov strategy cannot extend to R6.
 
 Method harvest:
 
