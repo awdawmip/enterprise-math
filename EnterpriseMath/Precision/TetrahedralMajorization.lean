@@ -18,40 +18,34 @@ def prefixDifference : Fin 6 → ℚ :=
   ![0, 1 / 6, 1 / 4, 1 / 4, 1 / 6, 0]
 
 theorem equal_total_sum : numeratorPrefix 5 = denominatorPrefix 5 := by
-  norm_num [numeratorPrefix, denominatorPrefix]
+  native_decide
 
-theorem prefix_difference_exact (r : Fin 6) :
-    numeratorPrefix r - denominatorPrefix r = prefixDifference r := by
-  fin_cases r <;>
-    norm_num [numeratorPrefix, denominatorPrefix, prefixDifference]
+theorem prefix_difference_exact :
+    ∀ r : Fin 6,
+      numeratorPrefix r - denominatorPrefix r = prefixDifference r := by
+  native_decide
 
-theorem prefix_domination (r : Fin 6) :
-    denominatorPrefix r ≤ numeratorPrefix r := by
-  have h : 0 ≤ numeratorPrefix r - denominatorPrefix r := by
-    rw [prefix_difference_exact]
-    fin_cases r <;> norm_num [prefixDifference]
-  linarith
+theorem prefix_domination :
+    ∀ r : Fin 6, denominatorPrefix r ≤ numeratorPrefix r := by
+  native_decide
 
-theorem strict_prefix_domination
-    (r : Fin 6) (hr0 : r ≠ 0) (hr5 : r ≠ 5) :
-    denominatorPrefix r < numeratorPrefix r := by
-  have h : 0 < numeratorPrefix r - denominatorPrefix r := by
-    rw [prefix_difference_exact]
-    fin_cases r <;> simp_all [prefixDifference] <;> norm_num
-  linarith
+theorem strict_prefix_domination :
+    ∀ r : Fin 6, r ≠ 0 → r ≠ 5 →
+      denominatorPrefix r < numeratorPrefix r := by
+  native_decide
 
 theorem numerator_descending :
     numeratorShift 1 ≤ numeratorShift 0 ∧
     numeratorShift 2 ≤ numeratorShift 1 ∧
     numeratorShift 3 ≤ numeratorShift 2 ∧
     numeratorShift 4 ≤ numeratorShift 3 := by
-  norm_num [numeratorShift]
+  native_decide
 
 theorem denominator_descending :
     denominatorShift 1 ≤ denominatorShift 0 ∧
     denominatorShift 2 ≤ denominatorShift 1 ∧
     denominatorShift 3 ≤ denominatorShift 2 ∧
     denominatorShift 4 ≤ denominatorShift 3 := by
-  norm_num [denominatorShift]
+  native_decide
 
 end EnterpriseMath.PrecisionPi.TetrahedralMajorization
