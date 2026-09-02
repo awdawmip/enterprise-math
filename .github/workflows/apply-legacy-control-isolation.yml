@@ -60,42 +60,19 @@ jobs:
           PY
       - name: Apply physical isolation and V2 runtime rewiring
         run: python control_plane/run_apply_legacy_control_isolation_v2.py
-      - name: Migrate runtime contract assertions to V2
+      - name: Migrate remaining prompt assertions to V2
         run: |
           python - <<'PY'
           from pathlib import Path
 
           path = Path("tests/test_research_runtime_unittest.py")
           text = path.read_text(encoding="utf-8")
-
-          def replace_once(old: str, new: str) -> None:
-              global text
-              count = text.count(old)
-              if count != 1:
-                  raise SystemExit(f"runtime test: expected one migration span, found {count}: {old!r}")
-              text = text.replace(old, new, 1)
-
-          replace_once(
-              '            "OFFICIAL_NEW_TASK -> CANONICAL_TASK_REGISTRY_RECORD",\n            "RESEARCHER_MAY_PUBLISH_TASK_WITHOUT_DRIVER_APPROVAL",',
-              '            "OFFICIAL_NEW_TASK -> IMMUTABLE_V2_TASK_PUBLICATION_RECORD",\n            "UNPUBLISHED_TASK -> NO READY / NO CLAIM / NO EXECUTION",',
-          )
-          replace_once(
-              '        self.assertEqual(contract["task_registry"], "research_task_registry.json")',
-              '        self.assertEqual(contract["task_record_store"], "research_task_records/<task-id>/<publication-id>.json")',
-          )
-          replace_once(
-              '        self.assertIn("research_task_publication_contract.json", policy["policy_inputs"])',
-              '        self.assertIn("research_task_publication_contract_v2.json", policy["policy_inputs"])',
-          )
-          replace_once(
-              '                "tools/check_task_registry_cutover.py",',
-              '                "tools/research_runtime_reducer.py",',
-          )
-          replace_once(
-              '                "tools/research_task_registry.py",\n',
-              '',
-          )
-          path.write_text(text, encoding="utf-8")
+          old = '            "OFFICIAL_NEW_TASK -> CANONICAL_TASK_REGISTRY_RECORD",\n            "RESEARCHER_MAY_PUBLISH_TASK_WITHOUT_DRIVER_APPROVAL",'
+          new = '            "OFFICIAL_NEW_TASK -> IMMUTABLE_V2_TASK_PUBLICATION_RECORD",\n            "UNPUBLISHED_TASK -> NO READY / NO CLAIM / NO EXECUTION",'
+          count = text.count(old)
+          if count != 1:
+              raise SystemExit(f"runtime test: expected one prompt-assertion span, found {count}")
+          path.write_text(text.replace(old, new, 1), encoding="utf-8")
           PY
       - name: Compile live control code
         run: |
