@@ -5,7 +5,7 @@ open scoped BigOperators
 namespace EnterpriseMath.PrecisionPi.PositiveSeriesAcceleration
 
 def partialSum (A : ℝ) (term : ℕ → ℝ) (M : ℕ) : ℝ :=
-  A + ∑ n in Finset.range (M + 1), term n
+  A + ∑ n ∈ Finset.range (M + 1), term n
 
 theorem partialSum_succ (A : ℝ) (term : ℕ → ℝ) (M : ℕ) :
     partialSum A term (M + 1) = partialSum A term M + term (M + 1) := by
@@ -23,7 +23,8 @@ theorem partialSum_pos
     (hA : 0 < A) (hterm : ∀ n, 0 ≤ term n) :
     0 < partialSum A term M := by
   unfold partialSum
-  exact add_pos_of_pos_of_nonneg hA (Finset.sum_nonneg fun i _ => hterm i)
+  exact add_pos_of_pos_of_nonneg hA
+    (Finset.sum_nonneg fun i _ => hterm i)
 
 theorem one_div_strictAnti {a b : ℝ} (ha : 0 < a) (hab : a < b) :
     1 / b < 1 / a := by
