@@ -3,9 +3,10 @@
 
 This checker is mechanical. Mathematical truth is not decided here. It enforces
 objective synchronization of the Common Research Surface, mathematical Toolbox,
-control-plane Runtime surface, and static research-to-Foundation links. New task
-definitions are resolved through the canonical registered-plus-frozen-legacy
-dispatch view; the frozen scheduler remains only a legacy metadata/event source.
+post-V2 control-plane Runtime surface, and static research-to-Foundation links.
+New task definitions are resolved through the immutable V2 publication view with
+its exact fault-isolation layers. The runtime policy carries selection/event
+policy only; it is not a frozen task-definition baseline.
 """
 from __future__ import annotations
 
@@ -86,14 +87,23 @@ def _runtime_repo_tools(runtime: dict) -> list[str]:
         raise AssertionError("runtime repository_tool_paths must be a string list")
     if len(entries) != len(set(entries)):
         raise AssertionError("runtime repository_tool_paths contains duplicates")
-    executable = runtime.get("executable_runtime")
-    if not isinstance(executable, str) or not executable:
-        raise AssertionError("runtime executable_runtime must be a nonempty path")
-    if executable not in entries:
-        raise AssertionError("runtime executable_runtime must appear in repository_tool_paths")
-    primitive = runtime.get("composes", {}).get("pre_final_primitive")
-    if not isinstance(primitive, str) or primitive not in entries:
+    for field in (
+        "event_reducer",
+        "fresh_task_selector",
+        "fresh_lane_selector",
+        "executable_runtime",
+    ):
+        path = runtime.get(field)
+        if not isinstance(path, str) or not path:
+            raise AssertionError(f"runtime {field} must be a nonempty path")
+        if path not in entries:
+            raise AssertionError(f"runtime {field} must appear in repository_tool_paths")
+    primitive = "tools/active_turn_liveness.py"
+    if primitive not in entries:
         raise AssertionError("runtime PRE_FINAL primitive must appear in repository_tool_paths")
+    live = runtime.get("canonical_live_dispatch")
+    if not isinstance(live, str) or not live or not (ROOT / live).is_file():
+        raise AssertionError("runtime canonical_live_dispatch must name an existing repository path")
     return sorted(entries)
 
 
@@ -139,17 +149,16 @@ def _require_human_visibility(label: str, entries: Iterable[str], text: str) -> 
         raise AssertionError(f"{label} missing shared-surface entries: {missing}")
 
 
-def _validation_dispatch_tasks(scheduler: dict[str, Any]) -> list[dict[str, Any]]:
-    """Build the canonical task-definition view without breaking legacy callers.
+def _validation_dispatch_tasks(runtime_policy: dict[str, Any]) -> list[dict[str, Any]]:
+    """Build the current immutable task-definition view.
 
-    Historical tests and callers pass an in-memory scheduler object so they can
-    pressure-test legacy metadata. Preserve that injected legacy baseline, then
-    overlay immutable post-cutover task definitions from repository-local state.
-    This is deterministic local computation: it performs no GitHub/API reads and
-    adds no runtime heartbeat or polling obligation.
+    Historical focused tests may still inject an in-memory ``tasks`` list. It is
+    treated only as test input, then overlaid by current immutable definitions.
+    Repository runtime policy itself carries no legacy task-definition fallback.
+    This is deterministic local computation and performs no remote reads.
     """
     by_id: dict[str, dict[str, Any]] = {}
-    for task in scheduler.get("tasks", []):
+    for task in runtime_policy.get("tasks", []):
         if isinstance(task, dict) and isinstance(task.get("task_id"), str):
             by_id[task["task_id"]] = task
     for task in research_dispatch.merged_definitions(ROOT):
@@ -164,17 +173,17 @@ def _validation_dispatch_tasks(scheduler: dict[str, Any]) -> list[dict[str, Any]
 
 def validate_backflow(
     backflow: dict[str, Any],
-    scheduler: dict[str, Any],
+    runtime_policy: dict[str, Any],
     dispatch_tasks: list[dict[str, Any]] | None = None,
 ) -> list[str]:
-    """Validate static #82/#164/#240 links against canonical task existence.
+    """Validate static #82/#164/#240 links against current task existence.
 
     ``dispatch_tasks`` remains injectable for focused tests/new callers. When it
-    is omitted, the historical two-argument API is preserved and transparently
-    derives the registered-plus-supplied-legacy view locally.
+    is omitted, the historical two-argument API is preserved and derives the
+    immutable registered view locally.
     """
     if dispatch_tasks is None:
-        dispatch_tasks = _validation_dispatch_tasks(scheduler)
+        dispatch_tasks = _validation_dispatch_tasks(runtime_policy)
 
     errors: list[str] = []
 
@@ -182,21 +191,24 @@ def validate_backflow(
         errors.append("unexpected foundation backflow schema")
     if backflow.get("status") != "ACTIVE":
         errors.append("foundation backflow router must be ACTIVE")
+    if runtime_policy.get("schema") != "ENTERPRISE_MATH_RESEARCH_RUNTIME_POLICY_V2":
+        errors.append("unexpected research runtime policy schema")
+    if runtime_policy.get("status") != "ACTIVE_CANONICAL":
+        errors.append("research runtime policy must be ACTIVE_CANONICAL")
+    if runtime_policy.get("task_definition_source") != "IMMUTABLE_V2_TASK_PUBLICATIONS":
+        errors.append("runtime policy task-definition source must be immutable V2 publications")
+    if runtime_policy.get("legacy_task_definition_source") is not None:
+        errors.append("runtime policy must not expose a legacy task-definition source")
+    if runtime_policy.get("legacy_runtime_on_main") is not False:
+        errors.append("runtime policy must keep legacy runtime absent from main")
 
     surfaces = backflow.get("surfaces", {})
-    authority = scheduler.get("authority", {})
-    expected_surface_pairs = [
-        ("research_relay_issue", "research_relay_issue"),
-        ("foundation_problem_issue", "foundation_problem_issue"),
-    ]
-    for backflow_key, scheduler_key in expected_surface_pairs:
-        if surfaces.get(backflow_key) != authority.get(scheduler_key):
-            errors.append(
-                f"surface mismatch: backflow {backflow_key}={surfaces.get(backflow_key)!r} "
-                f"!= legacy scheduler metadata {scheduler_key}={authority.get(scheduler_key)!r}"
-            )
-    if surfaces.get("research_dispatch_issue") != scheduler.get("scheduler_issue"):
-        errors.append("research dispatch issue does not match legacy scheduler metadata")
+    if surfaces.get("research_relay_issue") != 82:
+        errors.append("Foundation backflow research relay issue must remain #82")
+    if surfaces.get("foundation_problem_issue") != 164:
+        errors.append("Foundation backflow problem issue must remain #164")
+    if surfaces.get("research_dispatch_issue") != runtime_policy.get("runtime_issue"):
+        errors.append("research dispatch issue does not match runtime policy")
     if surfaces.get("canonical_dispatch") != "tools/research_dispatch.py":
         errors.append("Foundation backflow must use tools/research_dispatch.py")
     if surfaces.get("dispatch_contract") != "research_dispatch_contract.json":
@@ -204,9 +216,10 @@ def validate_backflow(
     if surfaces.get("task_record_store") != "research_task_records/<task-id>/<publication-id>.json":
         errors.append("Foundation backflow task_record_store drifted")
     if surfaces.get("legacy_scheduler_config") != "research_runtime_policy_v2.json":
-        errors.append("legacy scheduler must be explicitly typed as frozen baseline")
-    if surfaces.get("runtime_event_reducer") != "tools/research_runtime_reducer.py":
-        errors.append("legacy scheduler reducer path drifted")
+        errors.append("Foundation backflow runtime-policy pointer drifted")
+    reducer = surfaces.get("runtime_event_reducer", surfaces.get("legacy_scheduler_reducer"))
+    if reducer != "tools/research_runtime_reducer.py":
+        errors.append("runtime event reducer path drifted")
 
     required_packet = {
         "candidate_object_or_tool",
@@ -237,8 +250,12 @@ def validate_backflow(
     question_field = link_contract.get("research_task_question_field")
     if question_field != "foundation_questions":
         errors.append("research_task_question_field must be 'foundation_questions'")
-    if link_contract.get("task_definition_authority") != "CANONICAL_REGISTERED_PLUS_FROZEN_LEGACY_DISPATCH_VIEW":
-        errors.append("Foundation task-definition authority must be canonical merged dispatch")
+    allowed_definition_authorities = {
+        "CANONICAL_REGISTERED_PLUS_FROZEN_LEGACY_DISPATCH_VIEW",
+        "IMMUTABLE_V2_TASK_PUBLICATIONS_WITH_FAULT_ISOLATION",
+    }
+    if link_contract.get("task_definition_authority") not in allowed_definition_authorities:
+        errors.append("Foundation task-definition authority must be the immutable dispatch view")
     if link_contract.get("task_definition_tool") != "tools/research_dispatch.py":
         errors.append("Foundation task-definition tool must be tools/research_dispatch.py")
     if link_contract.get("new_foundation_task_requires_immutable_registration") is not True:
@@ -327,13 +344,13 @@ def check() -> None:
     runtime = _load_json(RUNTIME_JSON)
     foundation = _load_json(FOUNDATION_JSON)
     backflow = _load_json(BACKFLOW_JSON)
-    scheduler = _load_json(SCHEDULER_JSON)
+    runtime_policy = _load_json(SCHEDULER_JSON)
 
     if common.get("schema") != "ENTERPRISE_MATH_COMMON_RESEARCH_SURFACE_V1":
         raise AssertionError("unexpected research_common_surface schema")
     if toolbox.get("schema") != "ENTERPRISE_MATH_TOOLBOX_REGISTRY_V2":
         raise AssertionError("unexpected enterprise_toolbox_registry schema")
-    if runtime.get("schema") != "ENTERPRISE_MATH_RESEARCH_RUNTIME_STATE_MACHINE_V1":
+    if runtime.get("schema") != "ENTERPRISE_MATH_RESEARCH_RUNTIME_STATE_MACHINE_V2":
         raise AssertionError("unexpected research_runtime_state_machine schema")
 
     en_text = COMMON_EN.read_text(encoding="utf-8")
@@ -390,10 +407,10 @@ def check() -> None:
             f"{sorted(alerts - active)}"
         )
 
-    # 5. Foundation task links resolve through the merged task-definition selector,
-    # while the Steward's top-level live route remains recovery-aware.
+    # 5. Foundation task links resolve through the immutable task-definition
+    # selector, while the Steward's top-level live route remains recovery-aware.
     dispatch_tasks = research_dispatch.merged_definitions(ROOT)
-    backflow_errors = validate_backflow(backflow, scheduler, dispatch_tasks)
+    backflow_errors = validate_backflow(backflow, runtime_policy, dispatch_tasks)
     if backflow_errors:
         raise AssertionError("foundation backflow drift: " + "; ".join(backflow_errors))
 
@@ -406,7 +423,7 @@ def check() -> None:
             "Foundation Steward backflow task-definition authority must remain tools/research_dispatch.py"
         )
     if foundation.get("legacy_scheduler_config") != "research_runtime_policy_v2.json":
-        raise AssertionError("Foundation Steward must type scheduler config as legacy baseline")
+        raise AssertionError("Foundation Steward runtime-policy pointer drifted")
 
     common_backflow = common.get("foundation_steward", {})
     if common_backflow.get("backflow_router") != "foundation_backflow.json":
