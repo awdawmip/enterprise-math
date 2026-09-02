@@ -1,40 +1,39 @@
-# Enterprise Math — BRC Weighted / Log Foundation Extension
+# Enterprise Math — BRC Weighted / Log Global Research Foundation
 
-Status: `CANONICAL FOUNDATION EXTENSION / MAIN-BACKED / R023-BOOLEAN-BASE-PRESERVED`
-Effective: `2026-09-02`
-Steward integration: `DIRECT_FOUNDATION_MAINTENANCE`
-Evidence baseline: `main@843d3e41d570361f77589cbf4983670f3918feac`
+Status: `CANONICAL ALL-RESEARCH FOUNDATION / MAIN-BACKED / R023-BOOLEAN-BASE-PRESERVED`  
+Effective: `2026-09-02`  
+Promotion authority: explicit current user instruction after main-backed extraction/regression  
+Minimal universal substrate: `ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json`  
+Theorem ledger: `ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json`  
+Reusable tool: `src/enterprise_math/brc_weighted.py` / `t0.weighted_brc_cwm`
 
-## 1. Purpose and authority
+## 1. Foundation role
 
-This definition records the verified weighted/logarithmic branch layer that now sits above the canonical R023 Boolean-result-support BRC base.
+Weighted/Log BRC is now part of the mathematical background available to **all Enterprise Math research modes**. It is a typed branch foundation, not a compulsory interpretation of every problem.
 
-It is a **typed extension**, not a replacement of R023 and not a new primitive ontology.
-
-Freeze:
+The universal rule is:
 
 ```text
-CANONICAL_BRC_BASE_LAYER = BOOLEAN_RESULT_SUPPORT_SEMANTICS
-WEIGHTED_BRC = SEPARATELY_TYPED_ENRICHMENT
-LN_LOG = DERIVED_EXACT_READOUT_COORDINATES, NOT PRIMITIVE STATE
-SIGNED_AMPLITUDE_CANCELLATION != POSITIVE_WEIGHTED_BRC
-GENERAL_SCC_SPECTRAL_THEORY = NOT_PROMOTED_BY_THIS FILE
-FREE_AXIOM_DISCOVERY_PHASE_A = UNCHANGED
+PROBLEM_DECLARES_BRANCHING_OR_POSITIVE_WEIGHT
+-> PRESERVE_THE_DECLARED_BRANCH_TYPE
+-> BOOLEAN_SUPPORT_MAY_BE_TOO_COARSE
+-> CWM_WEIGHTED_LAYER_IS_AVAILABLE
 ```
 
-The exact source evidence is the merged BRC arithmetic/log and weighted-BRC research sequence:
+while
 
-- PR #1102 / `2fc50ba0823a02bd213bba4fe89d7446957dc34a` — exact BRC `LN/LOG` materialization;
-- PR #1103 / `889a0c10991fa9d8a70e273535ea0d1a21039f33` — weighted support projection and multiplicity tower;
-- PR #1104 / `8a05c2ad3d44d4f4aeb7040ad7213583061d669b` — CWM semiring and all-prefix safe quotient;
-- PR #1105 / `ed2fdcb28e7205832ad9e507eba872e1a8f1c6f5` — CWM realizability correction and projective/gauge quotient;
-- PR #1106 / `843d3e41d570361f77589cbf4983670f3918feac` — one-state cyclic log-multiplicity closure.
+```text
+DETERMINISTIC_SINGLE_PATH -> E=1 -> DELTA=0 -> NO_FORCED_WEIGHTED_REINTERPRETATION
+SIGNED_OR_AMPLITUDE_DATA -> POSITIVE_CWM_IS_NOT_A_REPLACEMENT
+```
 
-## 2. Positive weighted branch algebra
+Canonical R023 remains the Boolean result-support base. The weighted layer is a separately typed enrichment.
 
-For finite branch families with non-negative weights, propagation along one path is multiplicative and recoalescence across alternative paths is additive.
+For FREE Phase A, only the minimal commitments in `ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json` are a discovery prior. The detailed theorem ledger, examples, successful prior applications and tool catalog remain lazy: they may be opened only after the self-generated problem actually presents the corresponding branch structure. Thus global-foundation status does not create a default BRC research agenda.
 
-For a finite DAG with positive rational edge weights, the exact native summary at a source/target pair is
+## 2. Positive weighted branch carrier
+
+For a finite family of positive rational weighted paths, use
 
 \[
 (C,W,M),
@@ -42,111 +41,102 @@ For a finite DAG with positive rational edge weights, the exact native summary a
 
 where
 
-- \(C\in\mathbb N_0\) is the number of supported paths;
-- \(W\in\mathbb Q_{\ge0}\) is the sum of all path weights;
-- \(M\in\mathbb Q_{\ge0}\) is the largest single path weight.
+- \(C\in\mathbb N_0\) is supported path count;
+- \(W\in\mathbb Q_{\ge0}\) is total path mass;
+- \(M\in\mathbb Q_{\ge0}\) is dominant single-path mass.
 
-The carrier
+The algebraic carrier
 
 \[
 \mathcal S_{CWM}=\mathbb N_0\times\mathbb Q_{\ge0}\times\mathbb Q_{\ge0}
 \]
 
-has operations
+uses
 
 \[
-(c,w,m)\boxplus(c',w',m')=(c+c',\;w+w',\;\max(m,m')),
+(c,w,m)\boxplus(c',w',m')=(c+c',w+w',\max(m,m')),
 \]
 
 \[
-(c,w,m)\boxtimes(c',w',m')=(cc',\;ww',\;mm').
+(c,w,m)\boxtimes(c',w',m')=(cc',ww',mm').
 \]
 
-A positive edge of weight \(a\) lifts as
+A positive edge/path weight \(a\) lifts as
 
 \[
-a\longmapsto(1,a,a).
+a\mapsto(1,a,a).
 \]
 
-Thus one semiring path evaluation simultaneously carries count, total mass, and dominant-path mass.
+Hence one path evaluation can carry count, total positive mass and dominant mass simultaneously.
 
-## 3. Exact positive-path realizability locus
+Canonical theorem ID: `WBRC-T01-CWM-SEMIRING`.
 
-The algebraic envelope
+## 3. Exact positive-path realizability
+
+The weak closed envelope
 
 \[
 c\ge1,\qquad 0<m\le w\le cm
 \]
 
-is closed but is larger than the exact image of finite families of **positive** path weights.
+is not the exact finite positive-path image.
 
-The exact realizability conditions are:
+The exact realizability locus is:
 
 \[
-(C,W,M)=(0,0,0)
+(C,W,M)=(0,0,0),
 \]
 
-for no supported path;
+or
 
 \[
-C=1\quad\Longrightarrow\quad W=M>0;
+C=1,\quad W=M>0,
 \]
 
-and
+or
 
 \[
-C\ge2\quad\Longrightarrow\quad 0<M<W\le CM.
+C\ge2,\quad 0<M<W\le CM.
 \]
 
-These conditions are necessary and sufficient for a finite family of positive rational path weights after allowing an appropriate rational realization.
+These conditions are necessary and sufficient for a finite positive rational branch family.
 
-This distinction must be preserved in later theorem statements: `ALGEBRAIC_CWM_CARRIER != EXACT_POSITIVE_PATH_REALIZABILITY_LOCUS`.
+Canonical theorem ID: `WBRC-T02-POSITIVE-REALIZABILITY`.
 
-## 4. Boolean support as a forgetful image
+## 4. Boolean support projection
 
-For a semiring-like weighted branch carrier \((S,\oplus,\otimes,0,1)\), define
+For a weighted semiring-like carrier \((S,\oplus,\otimes,0,1)\), define
 
 \[
-\beta(a)=\begin{cases}
-0,&a=0,\\
-1,&a\ne0.
-\end{cases}
+\beta(a)=0\iff a=0,
+\qquad
+\beta(a)=1\iff a\ne0.
 \]
 
-The nonzero-support map is a semiring homomorphism to Boolean support exactly when the weighted carrier has both:
+Then \(\beta\) is a semiring homomorphism to Boolean support exactly when the carrier is:
 
-1. **zerosumfreeness**: \(a\oplus b=0\Rightarrow a=b=0\);
-2. **no zero divisors**: \(a\otimes b=0\Rightarrow a=0\) or \(b=0\).
+1. zerosumfree;
+2. without zero divisors.
 
-Hence positive/non-negative counting or mass semantics can forget to Boolean BRC without creating or deleting support, while signed cancellation or zero-divisor carriers generally cannot.
+Thus positive/counting mass can forget to Boolean BRC under explicit admissibility hypotheses, while signed cancellation and zero-divisor carriers cannot.
 
-Canonical counter-boundaries include:
+Canonical theorem ID: `WBRC-T03-BOOLEAN-SUPPORT-HOMOMORPHISM`.
+
+Hard witnesses:
 
 \[
-1+(-1)=0
+1+(-1)=0,
+\qquad
+2\cdot3=0\pmod 6.
 \]
 
-for signed cancellation, and
+## 5. Effective multiplicity and logarithmic surplus
+
+For a live CWM state with \(M>0\), define
 
 \[
-2\cdot3=0\pmod 6
-\]
-
-for a zero-divisor carrier.
-
-Therefore the R023 Boolean base is a valid support projection only under an explicit admissible weighted carrier; Boolean BRC does not recover erased multiplicity or weight.
-
-## 5. Logarithmic coordinates and multiplicity surplus
-
-For a live finite weighted path family \((C,W,M)\) with \(M>0\), define the effective multiplicity
-
-\[
-E=\frac WM
-\]
-
-and the logarithmic recoalescence surplus
-
-\[
+E=\frac WM,
+\qquad
 \Delta=\ln E=\ln\frac WM.
 \]
 
@@ -164,93 +154,95 @@ and
 \boxed{\ln W=\ln M+\Delta.}
 \]
 
-For \(k\) equal-weight branches,
+For \(k\) equal branches,
 
 \[
-\boxed{\Delta=\ln k.}
+\boxed{E=k,\qquad \Delta=\ln k.}
 \]
 
-This gives a precise meaning to \(\ln k\) in BRC: it is the information/scale increment contributed by equal branch multiplicity at recoalescence after the dominant-path scale has been factored out.
+This is the canonical BRC meaning of \(\ln k\): recoalescence multiplicity after dominant-path scale has been factored out.
 
-`LN` is not required during exact path accumulation. When the ratio \(W/M\) is rational, \(\Delta\) may be materialized only at readout time through the existing exact BRC logarithm runtime.
+No logarithm is needed during exact path accumulation. When the ratio is rational, `Delta` is materialized only at readout time through the existing exact BRC `LN` runtime.
 
-## 6. Relation to max-path / idempotent path closure
+Canonical theorem IDs: `WBRC-T04-MULTIPLICITY-SURPLUS`, `WBRC-T05-MAX-TOTAL-DECOMPOSITION`.
 
-The dominant coordinate \(M\) is the max-times path envelope. In log coordinates its value is the max-plus path envelope
+## 6. Deterministic degeneration
+
+For exactly one deterministic positive path,
 
 \[
-T=\ln M.
+C=1,\qquad W=M,
 \]
 
-The total-mass log value is
+hence
 
 \[
-L=\ln W=T+\Delta.
+E=1,
+\qquad
+\Delta=0.
 \]
 
-Thus the idempotent max-path layer is a lower envelope of the non-idempotent weighted BRC layer, and \(\Delta\) measures the exact recoalescence gap between them.
+Therefore this foundation does not add artificial multiplicity information to a deterministic problem.
 
-This does not merge the two tool families: max-plus closure forgets multiplicity by idempotence, while weighted BRC intentionally retains it.
+Canonical theorem ID: `WBRC-T11-DETERMINISTIC-DEGENERATION`.
 
 ## 7. All-prefix safe weighted quotient
 
-Fix a declared family of terminal observations/targets. For a state \(x\), let
+For declared terminal targets \(t\), define the complete future transfer
 
 \[
-F_t(x)=\bigl(C_{x\to t},W_{x\to t},M_{x\to t}\bigr)
+F_t(x)=\bigl(C_{x\to t},W_{x\to t},M_{x\to t}\bigr).
 \]
 
-be its exact future CWM transfer to target \(t\).
-
-If arbitrary admissible incoming prefixes must remain valid without modifying their weights, then two states are weighted-BRC safe-equivalent exactly when
+If arbitrary admissible incoming prefixes must remain valid without changing their weights, then
 
 \[
-\boxed{F_t(x)=F_t(y)\quad\text{for every declared target }t.}
+\boxed{x\sim y\iff F_t(x)=F_t(y)\ \text{for every declared target }t.}
 \]
 
-The kernel of the complete future CWM transfer vector is therefore the coarsest all-prefix quotient preserving all declared terminal CWM observations.
+The kernel of the full future CWM vector is the coarsest all-prefix safe weighted quotient.
 
-Boolean future equivalence is generally strictly coarser and may merge states whose supported targets agree while their multiplicity or mass behavior differs.
+Boolean future equivalence is generally strictly coarser. One-step local weighted bisimulation is sufficient but not necessary because a positive factor may be moved between an edge and downstream future without changing complete transfer.
 
-A one-step local weighted bisimulation condition is sufficient but not necessary: edge factors may be redistributed between an incoming edge and the downstream future while preserving complete path transfer. The canonical safety object is the full future transfer, not the raw one-step table.
+Canonical theorem ID: `WBRC-T06-ALL-PREFIX-SAFE-QUOTIENT`.
 
 ## 8. Projective / gauge-compensated quotient
 
-A second, larger equivalence is available only when the representation is allowed to change incoming weights coherently.
-
-For \(\lambda>0\), define
+For \(\lambda>0\),
 
 \[
 G_\lambda(c,w,m)=(c,\lambda w,\lambda m).
 \]
 
-Two live future signatures are projectively equivalent when their count coordinates agree and one common positive rational \(\lambda\) scales both \(W\) and \(M\) for every declared target.
+Two future signatures are projectively equivalent when count coordinates agree and one common \(\lambda\) scales both \(W\) and \(M\) for every declared target.
 
-Such states are not ordinary quotient-equivalent. They become exactly mergeable only if every redirected incoming weighted transition is compensated by the same factor so that complete path weights remain unchanged.
+This is not an ordinary quotient. Exact merging requires coherent compensation of every redirected incoming weight by the same scale factor so complete path weights are preserved.
 
-In log coordinates this scale is the additive gauge
-
-\[
-g=\ln\lambda.
-\]
-
-The multiplicity surplus is gauge-invariant:
+In log coordinates
 
 \[
-\Delta'=\ln\frac{\lambda W}{\lambda M}=\Delta.
+g=\ln\lambda
 \]
 
-Therefore absolute log scale and internal recoalescence structure are distinct coordinates.
+is an additive absolute-scale coordinate, while
 
-## 9. One-state recurrent closure and multiplicity stability
+\[
+\Delta'=\ln\frac{\lambda W}{\lambda M}=\Delta
+\]
 
-For one recurrent state with positive rational self-loop branch weights
+is gauge invariant.
+
+Canonical theorem ID: `WBRC-T07-PROJECTIVE-GAUGE-QUOTIENT`.
+
+## 9. One-state recurrent positive branches
+
+For one recurrent state with positive rational loop weights
 
 \[
 q_1,\ldots,q_k,
 \]
 
-define
+write
 
 \[
 S=\sum_iq_i,
@@ -258,124 +250,107 @@ S=\sum_iq_i,
 Q=\max_iq_i.
 \]
 
-After exactly \(n\) loop traversals, the CWM value is
+After exactly \(n\) traversals,
 
 \[
-(k^n,S^n,Q^n).
+(C_n,W_n,M_n)=(k^n,S^n,Q^n).
 \]
 
-The number of finite walks over all depths is infinite whenever at least one loop exists, so the finite-DAG natural count coordinate does not remain finite on recurrent closure.
+All-depth path count is infinite whenever a loop exists, so finite-DAG `C` does not remain finite under recurrent closure.
 
-The total sum-product mass over all depths is finite exactly when
+Total sum-product mass is finite exactly when
 
 \[
 \boxed{S<1,}
 \]
 
-in which case
+and then
 
 \[
 \sum_{n\ge0}S^n=\frac1{1-S}.
 \]
 
-The dominant-path envelope is bounded under the weaker condition
+Dominant-path mass is bounded under the weaker condition
 
 \[
 Q\le1.
 \]
 
-Writing
+If
 
 \[
 T=\ln Q,
-\qquad
+\quad
 L=\ln S,
-\qquad
-\Delta_{\mathrm{loop}}=\ln\frac SQ,
+\quad
+\Delta_{\rm loop}=\ln(S/Q),
 \]
 
-we have
+then
 
 \[
-L=T+\Delta_{\mathrm{loop}}.
+L=T+\Delta_{\rm loop}.
 \]
 
-Thus recurrent total-mass stability is controlled by the multiplicity-corrected exponent \(L\), not by the dominant-path exponent \(T\) alone.
+Thus multiplicity can destabilize a system even when every individual loop contracts.
 
 For \(k\) equal loops of weight \(q\),
 
 \[
-S=kq
+\boxed{kq<1\iff\ln q<-\ln k.}
 \]
 
-and the stable region is
+Canonical theorem IDs: `WBRC-T08-ONE-STATE-RECURRENT-POWER`, `WBRC-T09-ONE-STATE-TOTAL-MASS-STABILITY`, `WBRC-T10-EQUAL-LOOP-LOG-THRESHOLD`.
 
-\[
-\boxed{kq<1}
-\]
+## 10. Global hard boundaries
 
-or equivalently
-
-\[
-\boxed{\ln q<-\ln k.}
-\]
-
-Hence the same \(\ln k\) that measures finite recoalescence surplus becomes the exact multiplicity stability penalty for equal recurrent branches.
-
-A minimal boundary witness is two loops of weight \(3/5\): every individual loop contracts since \(Q=3/5<1\), while total branch mass diverges since \(S=6/5>1\).
-
-When \(S=N/D<1\), recurrent closure may be materialized exactly as
-
-\[
-\frac1{1-S}=\frac D{D-N},
-\]
-
-and any logarithmic readout may use the canonical BRC `DIV -> LN` path rather than numerical infinite summation.
-
-## 10. Hard boundaries and non-promotions
-
-This foundation extension does **not** assert:
-
-- that R023 Boolean BRC preserves weight, multiplicity, probability or branch provenance;
-- that signed/amplitude cancellation is covered by the positive weighted carrier;
-- that `LN` or `LOG` is a primitive arithmetic state;
-- that complex logarithm branches are included;
-- that the finite-DAG count coordinate remains finite on recurrent graphs;
-- a general strongly-connected-component closure theorem;
-- a Perron-Frobenius or spectral-radius theorem for arbitrary weighted BRC transition matrices;
-- a physical probability interpretation of positive weights;
-- a new Foundation axiom replacing integer/discrete native commitments.
-
-General cyclic/SCC behavior beyond the exact one-state loop family remains a research frontier and requires separately proved exact certificates.
-
-## 11. Research consumption rule
-
-For TASK research, Driver review and FREE Phase B, use this extension whenever the problem explicitly contains:
-
-- multiple branch representatives whose multiplicity or positive weight matters;
-- a comparison of total branch mass with a dominant branch;
-- a weighted future-safe quotient or projective/gauge reparameterization;
-- a recurrent positive weighted branch family where multiplicity can alter stability.
-
-Do **not** inject this file into blind FREE Phase A solely because it is successful downstream mathematics. The canonical anti-anchoring rule remains:
+All research modes must preserve these type guards:
 
 ```text
-FOUNDATION_FOR_CURRENT_RESEARCH != FREE_PHASE_A_DISCOVERY_PRIOR
+WEIGHTED_BRC != BOOLEAN_R023_MUTATION
+POSITIVE_WEIGHTED_BRC != SIGNED_AMPLITUDE_CANCELLATION
+BOOLEAN_SUPPORT != RECOVERED_MULTIPLICITY
+LN_LOG = DERIVED_EXACT_READOUT, NOT PRIMITIVE_NATIVE_STATE
+FINITE_DAG_CWM_COUNT != FINITE_COUNT_ON_RECURRENT_CLOSURE
+ONE_STATE_CYCLIC_RESULT != GENERAL_SCC_SPECTRAL_THEOREM
+DETERMINISTIC_SINGLE_PATH -> DELTA=0
 ```
 
-## 12. Executable evidence
+Detailed negative-boundary IDs are `WBRC-N01` through `WBRC-N05` in the theorem ledger.
 
-Canonical executable/checker surfaces include:
+## 11. All-research consumption rule
 
+This foundation is available in every research mode.
+
+- **FREE Phase A:** inherit only `ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json`. It supplies type discipline, not a suggested question. If the independently generated problem actually contains relevant branching, the exact CWM definitions may then be used; do not preload successful examples or theorem menus to steer discovery.
+- **FREE Phase B / TASK research:** theorem IDs and the reusable T0 subtool may be loaded normally when relevant.
+- **Driver / Steward:** use the theorem ledger and method inventory for routing, deduplication, review and backflow.
+
+The foundation is therefore universal but lazy:
+
+```text
+ALL_RESEARCH_HAS_THE_TYPED_CAPABILITY
+!=
+ALL_RESEARCH_MUST_USE_THE_CAPABILITY
+```
+
+## 12. Canonical evidence and executable surfaces
+
+Main-backed evidence chain:
+
+- PR #1102 — exact BRC `LN/LOG` materialization;
+- PR #1103 — support projection and multiplicity tower;
+- PR #1104 — CWM semiring and safe quotient;
+- PR #1105 — realizability and projective/gauge quotient;
+- PR #1106 — one-state cyclic multiplicity closure;
+- PR #1107 — first Foundation integration;
+- PR #1108 — old-research regression and boundary pressure test.
+
+Reusable current surfaces:
+
+- `definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json`;
+- `definitions/ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json`;
+- `src/enterprise_math/brc_weighted.py`;
+- `tests/test_brc_weighted_foundation_tool.py`;
 - `src/enterprise_math/brc_logarithm.py`;
-- `experiments/brc_weighted_log_semiring_check.py`;
-- `experiments/brc_weighted_rational_runtime_prototype.py`;
-- `experiments/brc_weighted_multiplicity_tower_check.py`;
-- `experiments/brc_weighted_cwm_safe_quotient_check.py`;
-- `experiments/brc_weighted_local_bisimulation_boundary_check.py`;
-- `experiments/brc_weighted_cwm_realizability_check.py`;
-- `experiments/brc_weighted_projective_gauge_check.py`;
-- `experiments/brc_cyclic_log_multiplicity_check.py`;
-- `.github/workflows/brc-weighted-research.yml`.
-
-The merged dedicated weighted-BRC research gate passed all listed exact checkers at the cited main-backed generations. Repository-wide unrelated control-plane failures do not alter the mathematical scope frozen above.
+- `research_method_inventory_addenda/20260902_brc_weighted_foundation.json`.

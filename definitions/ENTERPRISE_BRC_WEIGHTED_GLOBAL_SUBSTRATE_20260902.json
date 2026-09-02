@@ -1,0 +1,36 @@
+{
+  "schema": "ENTERPRISE_MATH_WEIGHTED_BRC_GLOBAL_SUBSTRATE_V1",
+  "status": "ACTIVE_USER_PROMOTED_ALL_RESEARCH_FOUNDATION",
+  "effective": "2026-09-02",
+  "scope": [
+    "FREE_AXIOM_DISCOVERY_PHASE_A",
+    "FREE_AXIOM_DISCOVERY_PHASE_B",
+    "TASK_RESEARCH",
+    "RESEARCH_DRIVER",
+    "FOUNDATION_STEWARD"
+  ],
+  "authority": "explicit current user instruction to make the extracted Weighted/Log BRC tools and theorems part of the foundation for all research",
+  "purpose": "Expose only the minimal typed branch commitments universally; detailed theorem IDs, examples, successful routes and tool catalogs remain lazy and must not choose a free research question.",
+  "commitments": [
+    "BRANCHING_IS_TYPED: Boolean support, positive weighted multiplicity/mass, provenance, and signed/amplitude data are distinct carriers unless an explicit reduction theorem identifies them.",
+    "DECLARED_MULTIPLICITY_IS_NOT_DEFAULT_DISCARDABLE: when a problem itself declares multiple branch representatives and their multiplicity or positive weights matter, do not silently collapse them to Boolean support before testing what is lost.",
+    "POSITIVE_WEIGHTED_BRANCH_MINIMAL_CARRIER: for finite positive-rational branch families the shared exact summary available to research is CWM=(C,W,M), carrying supported path count, total positive mass, and dominant path mass.",
+    "LOG_IS_DERIVED: E=W/M and Delta=LN(E) are derived readout coordinates for live positive CWM states; LN/LOG are not primitive native state and need not be materialized during exact branch accumulation.",
+    "SIGNED_BOUNDARY: positive Weighted-BRC does not encode signed/amplitude cancellation or reflection-odd orientation after positive recoalescence.",
+    "DETERMINISTIC_DEGENERATION: a single deterministic positive path has C=1, W=M, E=1 and Delta=0; the weighted layer contributes no extra multiplicity information and should not be forced onto deterministic problems.",
+    "BOOLEAN_BASE_PRESERVED: canonical R023 Boolean result-support BRC remains the base support semantics and is not mutated by the weighted layer.",
+    "GENERAL_SCC_NOT_ASSUMED: one-state recurrent results do not grant a general SCC, Perron-Frobenius or spectral-radius theorem."
+  ],
+  "phase_a_anti_anchoring": {
+    "rule": "These commitments are background typing rules, not a research agenda. FREE Phase A must still generate its own question from the primitive substrate and may open detailed Weighted-BRC theorem/tool surfaces only after the self-generated problem actually contains the relevant typed branch structure.",
+    "forbidden": [
+      "presenting weighted-BRC theorem IDs as suggested research questions",
+      "preloading successful arithmetic/selector/holonomy regression examples to steer question choice",
+      "forcing a multiplicity interpretation onto deterministic or signed problems"
+    ]
+  },
+  "detailed_foundation": "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md",
+  "theorem_ledger": "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json",
+  "tool_method_id": "t0.weighted_brc_cwm",
+  "tool_module": "src/enterprise_math/brc_weighted.py"
+}

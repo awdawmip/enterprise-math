@@ -1,0 +1,78 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "FOUNDATION_ADMITTED_GLOBAL_SUBTOOL",
+  "date": "2026-09-02",
+  "admission": {
+    "classification": "DIRECT_FOUNDATION_MAINTENANCE",
+    "authority": "explicit current user instruction plus canonical main-backed PR #1102 through #1108 evidence",
+    "family_id": "T0_BRC",
+    "foundation_mutation": true,
+    "working_truth_promotion": false,
+    "new_global_tool_family": false,
+    "reason": "The capability is a strict typed extension/subtool of canonical BRC: positive branch multiplicity/mass semantics, exact CWM aggregation, weighted future quotient, projective gauge transport, and one-state recurrent closure."
+  },
+  "methods": [
+    {
+      "method_id": "t0.weighted_brc_cwm",
+      "name": "Weighted BRC CWM / log-multiplicity calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_ADMITTED_EXECUTABLE",
+      "source_refs": [
+        "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md",
+        "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json",
+        "src/enterprise_math/brc_weighted.py",
+        "tests/test_brc_weighted_foundation_tool.py",
+        "research_notes/BRC_FOUNDATION_RETROFIT_REGRESSION_20260902.md"
+      ],
+      "api": [
+        "CWMState",
+        "CWM_ZERO",
+        "CWM_ONE",
+        "cwm_edge",
+        "cwm_recoalesce",
+        "cwm_propagate",
+        "cwm_from_positive_weights",
+        "is_positive_path_realizable",
+        "boolean_support",
+        "effective_multiplicity",
+        "multiplicity_surplus_expr",
+        "dominant_log_expr",
+        "total_log_expr",
+        "future_cwm_equivalent",
+        "projective_scale",
+        "gauge_scale",
+        "compensate_incoming_weight",
+        "OneStateRecurrentCWM",
+        "one_state_recurrent_cwm"
+      ],
+      "triggers": [
+        "weighted BRC",
+        "branch multiplicity",
+        "positive branch weight",
+        "path count total dominant",
+        "CWM",
+        "effective multiplicity",
+        "log surplus",
+        "ln k multiplicity",
+        "weighted recoalescence",
+        "weighted future quotient",
+        "projective gauge quotient",
+        "positive recurrent branches",
+        "multiplicity-driven divergence"
+      ],
+      "capabilities": [
+        "exact positive-rational branch recoalescence and propagation through one CWM carrier",
+        "exact positive-path realizability test",
+        "Boolean support forgetful readout",
+        "effective multiplicity E=W/M and symbolic BRC LN surplus readout",
+        "all-prefix future-CWM safe equivalence",
+        "projective future scaling and incoming-weight compensation",
+        "one-state multi-loop exact recurrence and stable geometric closure",
+        "typed deterministic degeneration with E=1 and zero log surplus"
+      ],
+      "core_law": "Positive finite branch systems carry CWM=(C,W,M) with alternative recoalescence (+,+,max) and serial propagation by componentwise multiplication; E=W/M and Delta=ln(E) measure multiplicity beyond the dominant path. Equal k-way recoalescence has Delta=ln k. For one-state loops total mass is stable iff S=sum q_i<1, not merely max q_i<1.",
+      "hard_boundary": "Positive Weighted-BRC does not represent signed/amplitude cancellation, does not recover erased branch provenance from Boolean support, does not make LN/LOG primitive state, and does not provide a general SCC/Perron-Frobenius/spectral-radius theorem. Deterministic single-path problems reduce to E=1, Delta=0 and should not be artificially reinterpreted as multiplicity problems."
+    }
+  ]
+}
