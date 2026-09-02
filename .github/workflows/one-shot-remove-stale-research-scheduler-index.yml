@@ -1,0 +1,67 @@
+name: one-shot-remove-stale-research-scheduler-index
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/one-shot-remove-stale-research-scheduler-index.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: one-shot-remove-stale-research-scheduler-index
+  cancel-in-progress: false
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Remove the exact physically-isolated scheduler path from the shared tool index
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('research_common_surface.json')
+          text = path.read_text(encoding='utf-8')
+          needle = '      "tools/research_scheduler.py",\n'
+          count = text.count(needle)
+          if count != 1:
+              raise SystemExit(f'expected exactly one stale scheduler index entry, found {count}')
+          path.write_text(text.replace(needle, '', 1), encoding='utf-8')
+          payload = json.loads(path.read_text(encoding='utf-8'))
+          repo_tools = payload['tool_roots']['repo_tools']
+          if 'tools/research_scheduler.py' in repo_tools:
+              raise SystemExit('stale scheduler path remains')
+          if 'tools/research_runtime_reducer.py' in repo_tools:
+              raise SystemExit('runtime reducer must remain owned by the runtime surface, not common surface')
+          print('shared tool index exact cleanup: PASS')
+          PY
+            python -c "from control_plane import research_control_bootstrap as b; b.install(); from tools import check_research_common_surface as c; c.check()"
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add research_common_surface.json
+            if git diff --cached --quiet; then
+              echo 'Index already clean.'
+              exit 0
+            fi
+            git commit -m 'control: remove physically isolated scheduler from shared tool index'
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "push raced on attempt ${attempt}; retrying" >&2
+          done
+          exit 1
