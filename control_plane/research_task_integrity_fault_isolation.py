@@ -7,7 +7,8 @@ Runtime availability and governance strictness are deliberately separated:
   removed from operational current-record selection;
 * unrelated tasks remain dispatchable;
 * strict task-record audit errors are suppressible only when the exact record
-  blob, taskbook blob, and exact error suffix are pinned in the quarantine file;
+  blob, taskbook blob, and exact error suffix are pinned in a declared quarantine
+  registry;
 * every declared suppression must be used, so a repaired/drifted publication
   makes the quarantine stale and fails CI until the control record is updated;
 * no quarantine grants Working Truth, Foundation authority, canonical promotion,
@@ -25,6 +26,10 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 QUARANTINE_FILE = "research_task_integrity_quarantines.json"
+QUARANTINE_FILES = (
+    QUARANTINE_FILE,
+    "control_plane/task_integrity_quarantine_addendum_20260902.json",
+)
 QUARANTINE_SCHEMA = "ENTERPRISE_MATH_TASK_INTEGRITY_QUARANTINE_V1"
 QUARANTINE_STATE = "INVALID_CURRENT_TASK_PUBLICATION"
 
@@ -41,75 +46,95 @@ def _load(path: Path) -> dict[str, Any]:
 
 
 def quarantine_rows(root: Path = ROOT) -> dict[str, dict[str, Any]]:
-    path = root / QUARANTINE_FILE
-    if not path.exists():
-        return {}
-    payload = _load(path)
-    if payload.get("schema") != QUARANTINE_SCHEMA:
-        raise TaskIntegrityIsolationError(f"{QUARANTINE_FILE}: wrong schema")
-    if payload.get("status") != "ACTIVE":
-        raise TaskIntegrityIsolationError(f"{QUARANTINE_FILE}: status must be ACTIVE")
-    rows = payload.get("quarantines")
-    if not isinstance(rows, list):
-        raise TaskIntegrityIsolationError(f"{QUARANTINE_FILE}: quarantines must be list")
-
     out: dict[str, dict[str, Any]] = {}
     seen_publications: set[str] = set()
-    for index, row in enumerate(rows):
-        if not isinstance(row, dict):
-            raise TaskIntegrityIsolationError(f"{QUARANTINE_FILE}: row {index} must be object")
-        task_id = row.get("task_id")
-        publication_id = row.get("publication_id")
-        if not isinstance(task_id, str) or not task_id:
-            raise TaskIntegrityIsolationError(f"{QUARANTINE_FILE}: row {index} missing task_id")
-        if task_id in out:
-            raise TaskIntegrityIsolationError(f"{QUARANTINE_FILE}: duplicate task {task_id}")
-        if not isinstance(publication_id, str) or not publication_id:
-            raise TaskIntegrityIsolationError(f"{QUARANTINE_FILE}: {task_id} missing publication_id")
-        if publication_id in seen_publications:
-            raise TaskIntegrityIsolationError(
-                f"{QUARANTINE_FILE}: duplicate publication {publication_id}"
-            )
-        if row.get("state") != QUARANTINE_STATE:
-            raise TaskIntegrityIsolationError(f"{QUARANTINE_FILE}: {task_id} wrong state")
-        if row.get("operational_publication_id") is not None:
-            raise TaskIntegrityIsolationError(
-                f"{QUARANTINE_FILE}: {task_id} quarantine cannot select an operational publication"
-            )
-        if row.get("isolation_scope") != "CONTROL_PLANE_ONLY":
-            raise TaskIntegrityIsolationError(f"{QUARANTINE_FILE}: {task_id} wrong isolation_scope")
-        for field in ("record_path", "record_blob_sha1", "taskbook_path", "taskbook_blob_sha1"):
-            value = row.get(field)
-            if not isinstance(value, str) or not value:
+    for registry_name in QUARANTINE_FILES:
+        path = root / registry_name
+        if not path.exists():
+            continue
+        payload = _load(path)
+        if payload.get("schema") != QUARANTINE_SCHEMA:
+            raise TaskIntegrityIsolationError(f"{registry_name}: wrong schema")
+        if payload.get("status") != "ACTIVE":
+            raise TaskIntegrityIsolationError(f"{registry_name}: status must be ACTIVE")
+        rows = payload.get("quarantines")
+        if not isinstance(rows, list):
+            raise TaskIntegrityIsolationError(f"{registry_name}: quarantines must be list")
+
+        for index, raw_row in enumerate(rows):
+            if not isinstance(raw_row, dict):
                 raise TaskIntegrityIsolationError(
-                    f"{QUARANTINE_FILE}: {task_id} missing {field}"
+                    f"{registry_name}: row {index} must be object"
                 )
-        allowed = row.get("allowed_task_record_audit_errors")
-        if (
-            not isinstance(allowed, list)
-            or not allowed
-            or any(not isinstance(item, str) or not item for item in allowed)
-            or len(set(allowed)) != len(allowed)
-        ):
-            raise TaskIntegrityIsolationError(
-                f"{QUARANTINE_FILE}: {task_id} allowed_task_record_audit_errors invalid"
-            )
-        for flag in (
-            "working_truth_granted",
-            "foundation_authority_granted",
-            "canonical_promotion_granted",
-            "successor_triggered",
-        ):
-            if row.get(flag) is not False:
+            row = copy.deepcopy(raw_row)
+            row["_quarantine_file"] = registry_name
+            task_id = row.get("task_id")
+            publication_id = row.get("publication_id")
+            if not isinstance(task_id, str) or not task_id:
                 raise TaskIntegrityIsolationError(
-                    f"{QUARANTINE_FILE}: {task_id} cannot grant {flag}"
+                    f"{registry_name}: row {index} missing task_id"
                 )
-        out[task_id] = row
-        seen_publications.add(publication_id)
+            if task_id in out:
+                raise TaskIntegrityIsolationError(
+                    f"task-integrity quarantine registries duplicate task {task_id}"
+                )
+            if not isinstance(publication_id, str) or not publication_id:
+                raise TaskIntegrityIsolationError(
+                    f"{registry_name}: {task_id} missing publication_id"
+                )
+            if publication_id in seen_publications:
+                raise TaskIntegrityIsolationError(
+                    f"task-integrity quarantine registries duplicate publication {publication_id}"
+                )
+            if row.get("state") != QUARANTINE_STATE:
+                raise TaskIntegrityIsolationError(f"{registry_name}: {task_id} wrong state")
+            if row.get("operational_publication_id") is not None:
+                raise TaskIntegrityIsolationError(
+                    f"{registry_name}: {task_id} quarantine cannot select an operational publication"
+                )
+            if row.get("isolation_scope") != "CONTROL_PLANE_ONLY":
+                raise TaskIntegrityIsolationError(
+                    f"{registry_name}: {task_id} wrong isolation_scope"
+                )
+            for field in (
+                "record_path",
+                "record_blob_sha1",
+                "taskbook_path",
+                "taskbook_blob_sha1",
+            ):
+                value = row.get(field)
+                if not isinstance(value, str) or not value:
+                    raise TaskIntegrityIsolationError(
+                        f"{registry_name}: {task_id} missing {field}"
+                    )
+            allowed = row.get("allowed_task_record_audit_errors")
+            if (
+                not isinstance(allowed, list)
+                or not allowed
+                or any(not isinstance(item, str) or not item for item in allowed)
+                or len(set(allowed)) != len(allowed)
+            ):
+                raise TaskIntegrityIsolationError(
+                    f"{registry_name}: {task_id} allowed_task_record_audit_errors invalid"
+                )
+            for flag in (
+                "working_truth_granted",
+                "foundation_authority_granted",
+                "canonical_promotion_granted",
+                "successor_triggered",
+            ):
+                if row.get(flag) is not False:
+                    raise TaskIntegrityIsolationError(
+                        f"{registry_name}: {task_id} cannot grant {flag}"
+                    )
+            out[task_id] = row
+            seen_publications.add(publication_id)
     return out
 
 
-def _active_heads(records: list[dict[str, Any]], terminal_states: set[str]) -> dict[str, list[dict[str, Any]]]:
+def _active_heads(
+    records: list[dict[str, Any]], terminal_states: set[str]
+) -> dict[str, list[dict[str, Any]]]:
     grouped: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for record in records:
         task_id = record.get("task_id")
@@ -191,13 +216,19 @@ def validated_quarantines(root: Path = ROOT) -> dict[str, dict[str, Any]]:
     return rows
 
 
-def suppression_strings(root: Path = ROOT) -> set[str]:
+def suppression_sources(root: Path = ROOT) -> dict[str, str]:
     rows = validated_quarantines(root)
     return {
-        f"{row['record_path']}: {suffix}"
+        f"{row['record_path']}: {suffix}": str(
+            row.get("_quarantine_file") or QUARANTINE_FILE
+        )
         for row in rows.values()
         for suffix in row["allowed_task_record_audit_errors"]
     }
+
+
+def suppression_strings(root: Path = ROOT) -> set[str]:
+    return set(suppression_sources(root))
 
 
 def blocked_definition(
@@ -221,7 +252,7 @@ def blocked_definition(
                 | {row["record_path"], row["taskbook_path"], row["publication_id"]}
             ),
             "evidence_status": "CONTROL_PLANE_QUARANTINED_INVALID_CURRENT_TASK_PUBLICATION",
-            "last_progress_ref": QUARANTINE_FILE,
+            "last_progress_ref": row.get("_quarantine_file") or QUARANTINE_FILE,
             "last_progress_at": value.get("last_progress_at", "1970-01-01T00:00:00+00:00"),
             "hard_block": {
                 "code": "INVALID_CURRENT_TASK_PUBLICATION",
@@ -232,7 +263,9 @@ def blocked_definition(
                 "taskbook_blob_sha1": row["taskbook_blob_sha1"],
                 "operational_publication_id": None,
             },
-            "tags": sorted(set(value.get("tags", [])) | {"CONTROL_PLANE_INTEGRITY_QUARANTINE"}),
+            "tags": sorted(
+                set(value.get("tags", [])) | {"CONTROL_PLANE_INTEGRITY_QUARANTINE"}
+            ),
             "claim_lease_minutes": int(value.get("claim_lease_minutes") or 120),
             "publication_id": None,
             "publication_ids": [row["publication_id"]],
@@ -268,7 +301,9 @@ def install(root: Path = ROOT) -> None:
     if not getattr(research_dispatch, "_task_integrity_fault_isolation_installed", False):
         base_merged = research_dispatch.merged_definitions
 
-        def merged_definitions(local_root: Path = research_dispatch.ROOT) -> list[dict[str, Any]]:
+        def merged_definitions(
+            local_root: Path = research_dispatch.ROOT,
+        ) -> list[dict[str, Any]]:
             values = base_merged(local_root)
             by_id = {
                 item["task_id"]: item
@@ -282,8 +317,6 @@ def install(root: Path = ROOT) -> None:
         research_dispatch.merged_definitions = merged_definitions
         research_dispatch._task_integrity_fault_isolation_installed = True
 
-    # Force exact validation even on repeated installs where monkeypatches are
-    # already resident in this interpreter.
     if set(rows) != set(validated_quarantines(root)):
         raise TaskIntegrityIsolationError("task integrity quarantine changed during install")
 
@@ -294,15 +327,18 @@ def audit_task_records(root: Path = ROOT) -> list[str]:
         install(root)
         from tools import research_task_records
 
-        strict_audit = getattr(research_task_records, "strict_audit", research_task_records.audit)
+        strict_audit = getattr(
+            research_task_records, "strict_audit", research_task_records.audit
+        )
         raw_errors = list(strict_audit(root))
-        suppressions = suppression_strings(root)
+        sources = suppression_sources(root)
+        suppressions = set(sources)
     except Exception as exc:
         return [str(exc)]
 
     raw_set = set(raw_errors)
     errors = [
-        f"{QUARANTINE_FILE}: stale or unused suppression: {item}"
+        f"{sources[item]}: stale or unused suppression: {item}"
         for item in sorted(suppressions - raw_set)
     ]
     errors.extend(item for item in raw_errors if item not in suppressions)
@@ -352,7 +388,8 @@ def main() -> int:
         return 1
     print(
         "PASS: exact task-integrity quarantine valid "
-        f"({len(quarantine_rows())} locally blocked publication(s))."
+        f"({len(quarantine_rows())} locally blocked publication(s) across "
+        f"{len(QUARANTINE_FILES)} registry surface(s))."
     )
     return 0
 
