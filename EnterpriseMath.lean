@@ -26,6 +26,7 @@ import EnterpriseMath.PrecisionPi.EnterpriseCoordinateAtlas
 import EnterpriseMath.PrecisionPi.TetrahedralMatching
 import EnterpriseMath.PrecisionPi.TetrahedralResidual
 import EnterpriseMath.PrecisionPi.TetrahedralInvariant
+import EnterpriseMath.PrecisionPi.TetrahedralResidualEquivalence
 import EnterpriseMath.Quotient.OperationCongruence
 import EnterpriseMath.Quotient.RootAdjacentBoundary
 import EnterpriseMath.Quotient.PowerFreeActionBasis
