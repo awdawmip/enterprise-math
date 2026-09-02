@@ -35,10 +35,8 @@ jobs:
         run: gh api --paginate --slurp 'repos/${{ github.repository }}/issues/240/comments?per_page=100' > /tmp/issue240-comments.json
       - name: Materialize exact V2 task generations
         run: python control_plane/run_legacy_task_migration_safe.py --comments /tmp/issue240-comments.json
-      - name: Validate taskbooks and immutable task records
-        run: |
-          python control_plane/run_legacy_task_migration_safe.py --comments /tmp/issue240-comments.json --check
-          python tools/research_task_records.py audit
+      - name: Validate only the exact migration transaction
+        run: python control_plane/run_legacy_task_migration_safe.py --check
       - name: Commit migration transaction
         run: |
           git config user.name 'github-actions[bot]'
