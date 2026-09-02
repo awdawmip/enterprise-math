@@ -1,0 +1,48 @@
+name: legacy-control-migration-audit
+
+on:
+  push:
+    branches:
+      - control/legacy-control-plane-migration-20260902
+    paths:
+      - '.github/workflows/legacy-control-migration-audit.yml'
+      - 'control_plane/audit_legacy_control_migration.py'
+
+permissions:
+  contents: read
+  issues: read
+
+concurrency:
+  group: legacy-control-migration-audit-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 1
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Fetch authenticated Issue 240 history
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --paginate --slurp 'repos/${{ github.repository }}/issues/240/comments?per_page=100' > /tmp/issue240-comments.json
+      - name: Build migration inventory
+        run: |
+          mkdir -p /tmp/legacy-control-audit
+          python control_plane/audit_legacy_control_migration.py \
+            --comments /tmp/issue240-comments.json \
+            --json-out /tmp/legacy-control-audit/legacy_control_migration_audit.json \
+            --md-out /tmp/legacy-control-audit/legacy_control_migration_audit.md
+      - uses: actions/upload-artifact@v4
+        with:
+          name: legacy-control-migration-audit-${{ github.sha }}
+          path: /tmp/legacy-control-audit
+          if-no-files-found: error
+          retention-days: 7
