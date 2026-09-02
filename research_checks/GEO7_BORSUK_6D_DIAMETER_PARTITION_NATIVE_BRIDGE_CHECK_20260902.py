@@ -10,7 +10,7 @@ The checker certifies only finite exact statements:
 3. the declared C5+isolated six-label model has Borsuk number 3;
 4. a same-label/same-readout matching model has Borsuk number 2;
 5. the existing project graph_distance helper gives the expected connected
-   path-metric reduction on C5.
+   path-metric reduction on C6.
 
 No Euclidean realization claim is made by this checker.
 """
