@@ -4,12 +4,16 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
-from control_plane import research_task_semantic_integrity_fault_isolation
-
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from control_plane import research_task_semantic_integrity_fault_isolation  # noqa: E402
+
 ARCHIVE_BRANCH = "archive/legacy-control-plane-pre-v2-20260902"
 ARCHIVE_SHA = "ce629e24e5af59128e25af87075c6622413684e0"
 LEGACY_PATHS = [
@@ -115,7 +119,9 @@ def _check_semantic_writer() -> list[str]:
                     f"expected={value!r} actual={record.get(field)!r}"
                 )
         if record.get("migration_source") == record.get("successor_gate"):
-            errors.append("canonical publication writer conflates migration provenance and task semantics")
+            errors.append(
+                "canonical publication writer conflates migration provenance and task semantics"
+            )
     return errors
 
 
@@ -132,7 +138,10 @@ def check() -> list[str]:
     if manifest.get("status") != "COMPLETE":
         errors.append("migration manifest is not COMPLETE")
     source = manifest.get("source") or {}
-    if source.get("archive_branch") != ARCHIVE_BRANCH or source.get("commit") != ARCHIVE_SHA:
+    if (
+        source.get("archive_branch") != ARCHIVE_BRANCH
+        or source.get("commit") != ARCHIVE_SHA
+    ):
         errors.append("migration manifest archive pin mismatch")
     rows = manifest.get("tasks")
     if not isinstance(rows, list) or len(rows) != 27:
