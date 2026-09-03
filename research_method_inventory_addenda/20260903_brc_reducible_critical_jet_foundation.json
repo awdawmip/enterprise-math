@@ -1,0 +1,54 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "FOUNDATION_GLOBAL_SUBTOOLS",
+  "date": "2026-09-03",
+  "foundation": "definitions/ENTERPRISE_BRC_REDUCIBLE_CRITICAL_JET_FOUNDATION_20260903.md",
+  "theorem_ledger": "definitions/ENTERPRISE_BRC_REDUCIBLE_CRITICAL_JET_THEOREM_LEDGER_20260903.json",
+  "methods": [
+    {
+      "method_id": "t0.weighted_brc_reducible_critical_jet",
+      "name": "Exact reducible critical gauge, characteristic root-activity and first Newton-edge calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "source_refs": [
+        "PR #1182",
+        "PR #1183",
+        "PR #1184",
+        "src/enterprise_math/brc_reducible_critical_jet.py"
+      ],
+      "api": [
+        "PoweredBranchRatio",
+        "GlobalStrictPoweredGauge",
+        "CharacteristicJetLayer",
+        "CharacteristicRatioJetState",
+        "RootActiveLayer",
+        "NewtonCandidateScale",
+        "NewtonScaleState",
+        "global_strict_powered_gauge",
+        "characteristic_ratio_jet",
+        "first_root_active_layer",
+        "first_newton_edge_state"
+      ],
+      "triggers": [
+        "reducible critical classes",
+        "global strict powered gauge",
+        "root-active characteristic layer",
+        "unique Perron winner",
+        "multiple critical root",
+        "first Newton edge",
+        "Puiseux first scale"
+      ],
+      "capabilities": [
+        "construct one exact global rational strict powered-gauge representative",
+        "collapse representative branch ratios into gauge-invariant characteristic exponential layers",
+        "select the first root-active strict layer when the selected Perron root is simple",
+        "compute selected-root multiplicity and strict-layer contact orders exactly",
+        "compare candidate radical scales by rational integer powers",
+        "return first Newton-edge state and a rational edge polynomial when the selected root is rational"
+      ],
+      "core_law": "Reducible critical branch ratios are representative-dependent, but closed characteristic ratio layers are gauge invariant. Simple selected roots use root activity; multiple selected roots use contact-order-weighted Newton scales.",
+      "hard_boundary": "This tool does not claim canonical reducible per-edge ratios, a full Puiseux series, a floating eigensolver, signed/amplitude semantics or infinite-state coverage."
+    }
+  ]
+}
