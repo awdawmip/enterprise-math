@@ -1,0 +1,29 @@
+diff --git a/experiments/r005a_p2_discrete_gap916_patch.cpp b/experiments/r005a_p2_discrete_gap916_patch.cpp
+index 0bdc137..1111111 100644
+--- a/experiments/r005a_p2_discrete_gap916_patch.cpp
++++ b/experiments/r005a_p2_discrete_gap916_patch.cpp
+@@ -103,12 +103,21 @@ int main(int argc, char** argv) {
+ 
+     // In the one-unit-deficit phase k=(H-1)Q+r = H Q-s.
+     const u64 m = H - 1;
+-    const u64 r0 = k_global_fail - m * Q;
+-    if (r0 >= Q) {
++    const u64 lower_band = m * Q;
++    if (k_global_fail < lower_band) {
++        std::cerr << "q is below the (H-1)Q <= k < HQ seam band\n";
++        return 4;
++    }
++    const u64 r0 = k_global_fail - lower_band;
++    const u64 s_max = Q - r0;
++
++    // The predicate s^2-jQ < 2s characterizes D=G-1 only while
++    // 2s <= Q throughout the seam.  Without this guard a deficit-two seam
++    // (the first is q=78553) may reach D=G-2 and trip the D=G-1 assertion.
++    if (r0 >= Q || (u128)2 * s_max > Q) {
+         std::cerr << "q is outside the 915/916 one-unit seam regime\n";
+         return 4;
+     }
+-    const u64 s_max = Q - r0;
+     const u64 j_max = static_cast<u64>((u128)s_max * s_max / Q);
+ 
+     u64 j0 = argc > 2 ? std::strtoull(argv[2], nullptr, 10) : 0;
