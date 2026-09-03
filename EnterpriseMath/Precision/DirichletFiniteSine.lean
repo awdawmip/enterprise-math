@@ -6,7 +6,7 @@ namespace EnterpriseMath.Precision
 open scoped BigOperators Nat
 
 /-- The exact finite normalized Dirichlet determinant used as the #1159 sine carrier. -/
-def dirichletFiniteSineDeterminant (M : ℕ) (x : ℝ) : ℝ :=
+noncomputable def dirichletFiniteSineDeterminant (M : ℕ) (x : ℝ) : ℝ :=
   (dirichletMatrix (x ^ 2 / (M : ℝ) ^ 2) (M - 1)).det / (M : ℝ)
 
 /-- Rescale one choose-expansion term into the natural even power of `x`. -/
@@ -19,7 +19,7 @@ theorem dirichletFiniteSine_term_rescale (M j : ℕ) (x : ℝ) (hM : 0 < M) :
   rw [div_pow]
   rw [← pow_mul, ← pow_mul]
   rw [pow_succ]
-  field_simp [hM0] <;> ring
+  field_simp [hM0]
 
 /--
 WSR-L33 / WSR-T01: exact finite normalized determinant coefficients.
