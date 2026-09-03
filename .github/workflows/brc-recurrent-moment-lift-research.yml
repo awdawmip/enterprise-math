@@ -1,0 +1,23 @@
+name: brc-recurrent-moment-lift-research
+
+on:
+  pull_request:
+    paths:
+      - 'research_notes/BRC_RECURRENT_BRANCH_MOMENT_LIFT_20260903.md'
+      - 'experiments/brc_recurrent_branch_moment_lift_check.py'
+      - '.github/workflows/brc-recurrent-moment-lift-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Exact BRC recurrent branch moment-lift checker
+        run: python experiments/brc_recurrent_branch_moment_lift_check.py
