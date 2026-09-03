@@ -103,7 +103,12 @@ theorem dirichletSpectralPoly_coeff_choose :
                   (Nat.choose (n + k + 2) (2 * k + 3) : ℝ) =
                 (Nat.choose (n + k + 4) (2 * k + 3) : ℝ) := by
             linarith [hc]
-          rw [← hc']
+          have hA : n + 1 + 1 + k = n + k + 2 := by omega
+          have hB : n + 1 + 1 + (k + 1) = n + k + 3 := by omega
+          have hC : n + 1 + (k + 1) = n + k + 2 := by omega
+          have hT : n + 2 + 1 + (k + 1) = n + k + 4 := by omega
+          have hK : 2 * (k + 1) + 1 = 2 * k + 3 := by omega
+          rw [hA, hB, hC, hT, hK, ← hc']
           ring
 
 end EnterpriseMath.Precision
