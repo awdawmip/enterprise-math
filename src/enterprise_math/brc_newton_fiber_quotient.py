@@ -32,8 +32,10 @@ class NewtonFiberPosition:
     def __post_init__(self) -> None:
         if not isinstance(self.source_scale, RationalValuationScale):
             raise TypeError("source_scale must be RationalValuationScale")
-        if isinstance(self.taylor_degree, bool) or not isinstance(self.taylor_degree, int) or self.taylor_degree < 0:
-            raise ValueError("taylor_degree must be a non-negative integer")
+        if isinstance(self.taylor_degree, bool) or not isinstance(self.taylor_degree, int):
+            raise TypeError("taylor_degree must be an integer")
+        if self.taylor_degree < 0:
+            raise ValueError("taylor_degree must be non-negative")
         if self.label is not None and not isinstance(self.label, str):
             raise TypeError("label must be str or None")
 
@@ -84,8 +86,10 @@ def newton_fiber_coordinate(
         raise TypeError("position must be NewtonFiberPosition")
     if not isinstance(theta, RationalValuationScale):
         raise TypeError("theta must be RationalValuationScale")
-    if isinstance(multiplicity, bool) or not isinstance(multiplicity, int) or multiplicity < 1:
-        raise ValueError("multiplicity must be a positive integer")
+    if isinstance(multiplicity, bool) or not isinstance(multiplicity, int):
+        raise TypeError("multiplicity must be an integer")
+    if multiplicity < 1:
+        raise ValueError("multiplicity must be positive")
     return NewtonFiberCoordinate(
         position.source_scale.multiply(theta.power(position.taylor_degree - multiplicity)),
         position.taylor_degree,
