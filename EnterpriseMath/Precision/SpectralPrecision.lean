@@ -79,4 +79,34 @@ theorem sineAtFourPartial_neg :
     (4 : ℚ) - 64 / 6 + 1024 / 120 - 16384 / 5040 + 262144 / 362880 < 0 := by
   norm_num
 
+/--
+The scalar continuant associated with the size-`n` tridiagonal Dirichlet
+characteristic recurrence.  A later matrix lemma will identify this recursion
+with the actual determinant; keeping the recursion explicit makes the finite
+algebraic core reusable independently of a matrix representation.
+-/
+def dirichletContinuant (z : ℝ) : ℕ → ℝ
+  | 0 => 1
+  | 1 => 2 - z
+  | n + 2 => (2 - z) * dirichletContinuant z (n + 1) - dirichletContinuant z n
+
+/-- WSR-L05: at zero spectral parameter, the size-`n` continuant is `n+1`. -/
+theorem dirichletContinuant_zero (n : ℕ) :
+    dirichletContinuant 0 n = ((n + 1 : ℕ) : ℝ) := by
+  induction n using Nat.twoStepInduction with
+  | zero => norm_num [dirichletContinuant]
+  | one => norm_num [dirichletContinuant]
+  | more n ih0 ih1 =>
+      rw [dirichletContinuant, ih0, ih1]
+      push_cast
+      ring
+
+/--
+The recurrence-level form of `det L_M^D = M`: once the determinant/continuant
+bridge is installed, this theorem discharges the value calculation itself.
+-/
+theorem dirichletContinuant_zero_pred (M : ℕ) (hM : 1 ≤ M) :
+    dirichletContinuant 0 (M - 1) = (M : ℝ) := by
+  simpa [Nat.sub_add_cancel hM] using dirichletContinuant_zero (M - 1)
+
 end EnterpriseMath.Precision
