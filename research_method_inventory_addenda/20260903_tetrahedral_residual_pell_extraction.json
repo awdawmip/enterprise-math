@@ -4,6 +4,7 @@
   "date": "2026-09-03",
   "author": "YUAN X",
   "program": "Enterprise Math",
+  "validation": "Exact finite regression logic was independently rechecked during extraction; repository-wide quality is presently blocked by an unrelated pre-existing control-plane import failure. Tool promotion remains pending the ordinary Driver/tool-reuse process.",
   "methods": [
     {
       "method_id": "t6_t7_t9.tetrahedral_endpoint_sum_residual",
@@ -14,12 +15,12 @@
         "T7_FINITE_SYMMETRY_EQUIVARIANCE",
         "T9_HOLONOMY_COCOYCLE_GLUING"
       ],
-      "status": "EXECUTABLE_EXTRACTED_TESTED_ON_SOURCE_BRANCH",
+      "status": "EXECUTABLE_EXTRACTED_REGRESSION_CHECKED_PENDING_PROMOTION",
       "source_refs": [
         "definitions/ENTERPRISE_TETRAHEDRAL_RESIDUAL_THEOREM_LEDGER_20260903.json",
         "src/enterprise_math/tetrahedral_endpoint_sum.py",
         "tests/test_tetrahedral_endpoint_sum.py",
-        "formalization/precision-pi-paper-ii-kernel-v1@95a9cd418f6abdb4916f5cf8182437af61dba9db",
+        "PR #1125 formalization/precision-pi-paper-ii-kernel-v1@95a9cd418f6abdb4916f5cf8182437af61dba9db",
         "workflow-run:33657478048"
       ],
       "api": [
@@ -59,18 +60,16 @@
       "hard_boundary": "K4/four-slice six-line carrier specialization only. This executable does not identify carrier lines with native P000 axes, infer a physical metric, or replace general T6/T7/T9 machinery."
     },
     {
-      "method_id": "t9.paired_pell_shell_certificate",
+      "method_id": "project.paired_pell_shell_certificate",
       "name": "Shared-square paired positive/negative Pell shell certificate",
-      "classification": "PROJECT_SUBTOOL_REUSABLE_ARITHMETIC",
-      "family_ids": [
-        "T9_HOLONOMY_COCOYCLE_GLUING"
-      ],
-      "status": "EXECUTABLE_EXTRACTED_TESTED_ON_SOURCE_BRANCH",
+      "classification": "PROJECT_SUBTOOL_UNASSIGNED_PENDING_COVERAGE_REVIEW",
+      "family_ids": [],
+      "status": "EXECUTABLE_EXTRACTED_REGRESSION_CHECKED_PENDING_PROMOTION",
       "source_refs": [
         "definitions/ENTERPRISE_TETRAHEDRAL_RESIDUAL_THEOREM_LEDGER_20260903.json",
         "src/enterprise_math/paired_pell_shell.py",
         "tests/test_paired_pell_shell.py",
-        "formalization/precision-pi-paper-ii-v3@ca2b30c7ef45b470d0d5cb6955def48610cd9dd7",
+        "PR #1126 formalization/precision-pi-paper-ii-v3@ca2b30c7ef45b470d0d5cb6955def48610cd9dd7",
         "workflow-run:33659295408"
       ],
       "api": [
@@ -97,7 +96,7 @@
         "return exact geometric-tail bounds from a supplied ratio certificate"
       ],
       "core_law": "If P^2-d_plus*y_plus^2=1 and P^2-d_minus*y_minus^2=-1, then P^4-1=d_plus*d_minus*(y_plus*y_minus)^2.",
-      "hard_boundary": "Integer/rational certificate layer only. It does not derive a modular parametrization, a Ramanujan-CM identity, or a native geometric meaning for the Pell shells."
+      "hard_boundary": "Integer/rational certificate layer only. It does not derive a modular parametrization, a Ramanujan-CM identity, or a native geometric meaning for the Pell shells. No existing top-level toolbox family is asserted to own this arithmetic helper until coverage review is completed."
     }
   ]
 }
