@@ -1,0 +1,50 @@
+name: brc-newton-fiber-quotient-foundation
+
+on:
+  pull_request:
+    paths:
+      - 'definitions/ENTERPRISE_BRC_NEWTON_FIBER_QUOTIENT_FOUNDATION_20260904.md'
+      - 'definitions/ENTERPRISE_BRC_NEWTON_FIBER_QUOTIENT_THEOREM_LEDGER_20260904.json'
+      - 'definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json'
+      - 'research_method_inventory_addenda/20260904_brc_newton_fiber_quotient_foundation.json'
+      - 'src/enterprise_math/brc_newton_fiber_quotient.py'
+      - 'tests/test_brc_newton_fiber_quotient_foundation.py'
+      - 'experiments/check_brc_newton_fiber_quotient_foundation.py'
+      - '.github/workflows/brc-newton-fiber-quotient-foundation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Newton fiber quotient production subtool
+        env:
+          PYTHONPATH: src
+        run: python -m unittest tests/test_brc_newton_fiber_quotient_foundation.py
+      - name: Newton fiber quotient Foundation integrity
+        env:
+          PYTHONPATH: src
+        run: python experiments/check_brc_newton_fiber_quotient_foundation.py
+      - name: Newton fiber quotient research regression
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_newton_fiber_sum_operation_safe_quotient_check.py
+      - name: Parent Newton handoff/resonance Foundation remains consistent
+        env:
+          PYTHONPATH: src
+        run: |
+          python -m unittest tests/test_brc_newton_handoff_resonance_foundation.py
+          python experiments/check_brc_newton_handoff_resonance_foundation.py
+      - name: Toolbox discovers Newton fiber quotient BRC
+        run: |
+          python tools/enterprise_toolbox.py --json methods newton fiber quotient brc > /tmp/brc_nf_method.json
+          grep -q 't0.weighted_brc_newton_fiber_quotient' /tmp/brc_nf_method.json
+          python tools/enterprise_toolbox.py --json modules newton fiber quotient brc > /tmp/brc_nf_module.json
+          grep -q 'brc_newton_fiber_quotient' /tmp/brc_nf_module.json

@@ -30,18 +30,19 @@
     "NEWTON_RECURSION_SCALE_AND_COEFFICIENTS_TYPED: later Newton scales are exact finite prime-valuation vectors with rational exponents. Algebraic selected-root coefficients are typed by their semantic values g(alpha), not by polynomial-representative nonzeroness; selected-root semantic zero testing must precede scale ordering. Rational translated selected roots recurse exactly. A first irrational translated root over rational coefficients may hand off to a new single-root evaluation carrier; a true multi-generator frontier begins only when old algebraic data remain live and the new root is not certified inside the current single-root algebra.",
     "NEWTON_TRANSLATED_REAL_ROOT_HANDOFF_IS_TYPED: a translated real root may be carried by an exact rational-polynomial isolating interval without changing WBRC-T41 critical smallest-positive-root semantics. Handoff from Q and explicit single-root absorption certificates are allowed; automatic root-expression search is not.",
     "NEWTON_SCALE_RESONANCE_AGGREGATES_BEFORE_ROOT_SELECTION: at every Newton step each Taylor atom maps to residual scale rho=sigma*theta^(k-r). Equal residual scales must aggregate first, then selected-root semantic zero reduction is applied, and only then may edge/contact/root analysis proceed. The residual Newton jet does not retain source provenance after this pushforward.",
+    "NEWTON_FULL_RESIDUAL_FIBER_QUOTIENT_IS_OBSERVER_TYPED: when the declared observer is the complete residual Newton jet, source Taylor provenance is safely quotientable exactly by coefficient sums in each (residual scale rho, Taylor degree k) fiber. Different rho or different k remain distinct. Edge-only or provenance-sensitive observers require a different lease and may not use this minimality claim.",
     "FEEDBACK_INTERACTION_IS_HIGHER_ORDER_TYPED: simultaneous positive feedback updates may have cooperative recurrent interactions of arbitrary finite order; pairwise edge responses/interactions are not assumed complete. Exact event-level condensation and all-orders subset interactions are available when the problem declares a finite feedback set.",
     "SIGNED_BOUNDARY: positive Weighted-BRC does not encode signed/amplitude cancellation or reflection-odd orientation after positive recoalescence; determinant/group-ring alternating signs used for algebraic compression are not signed branch mass.",
     "DETERMINISTIC_DEGENERATION: a single deterministic positive path has C=1, W=M, E=1, dominant degeneracy d=1 and Delta=0; richer weighted layers should not be forced onto deterministic problems without an observer need.",
     "BOOLEAN_BASE_PRESERVED: canonical R023 Boolean result-support BRC remains the base support semantics and is not mutated by the weighted layer.",
-    "RECURRENT_SCOPE_BOUNDARY: current recurrent/histogram/critical-degeneracy/orbit/ratio-jet/reducible-characteristic/Newton-recursion/handoff-resonance Foundation covers finite explicit positive-rational/non-negative-rational systems and exact single selected algebraic roots within the stated interfaces; it does not extrapolate to infinite state spaces, signed/amplitude recurrence, complex weights, arbitrary non-rational branch weights, a generic multi-generator algebraic field, automatic absorption search, or a complete Puiseux engine."
+    "RECURRENT_SCOPE_BOUNDARY: current recurrent/histogram/critical-degeneracy/orbit/ratio-jet/reducible-characteristic/Newton-recursion/handoff-resonance/fiber-quotient Foundation covers finite explicit positive-rational/non-negative-rational systems and exact single selected algebraic roots within the stated interfaces; it does not extrapolate to infinite state spaces, signed/amplitude recurrence, complex weights, arbitrary non-rational branch weights, a generic multi-generator algebraic field, automatic absorption search, provenance recovery after an observer quotient, or a complete Puiseux engine."
   ],
   "phase_a_anti_anchoring": {
     "rule": "These commitments are background typing rules, not a research agenda. FREE Phase A must still generate its own question from the primitive substrate and may open detailed Weighted-BRC theorem/tool surfaces only after the self-generated problem actually contains the relevant typed branch/recurrent structure.",
     "forbidden": [
-      "presenting weighted/recurrent/histogram/critical-degeneracy/orbit/ratio-jet/reducible-characteristic/Newton-recursion/handoff-resonance BRC theorem IDs as suggested research questions",
+      "presenting weighted/recurrent/histogram/critical-degeneracy/orbit/ratio-jet/reducible-characteristic/Newton-recursion/handoff-resonance/fiber-quotient BRC theorem IDs as suggested research questions",
       "preloading successful arithmetic/selector/holonomy/recurrent/feedback/histogram/critical/orbit/ratio-jet/Newton examples to steer question choice",
-      "forcing multiplicity, recurrence, moments, histogram, critical-degeneracy, periodic-orbit, ratio-jet, Newton-edge, root-handoff, resonance or feedback interpretations onto deterministic or signed problems"
+      "forcing multiplicity, recurrence, moments, histogram, critical-degeneracy, periodic-orbit, ratio-jet, Newton-edge, root-handoff, resonance, fiber-quotient or feedback interpretations onto deterministic or signed problems"
     ]
   },
   "detailed_foundation": "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md",
@@ -55,6 +56,7 @@
   "reducible_critical_jet_foundation": "definitions/ENTERPRISE_BRC_REDUCIBLE_CRITICAL_JET_FOUNDATION_20260903.md",
   "newton_recursion_foundation": "definitions/ENTERPRISE_BRC_NEWTON_RECURSION_FOUNDATION_20260904.md",
   "newton_handoff_resonance_foundation": "definitions/ENTERPRISE_BRC_NEWTON_HANDOFF_RESONANCE_FOUNDATION_20260904.md",
+  "newton_fiber_quotient_foundation": "definitions/ENTERPRISE_BRC_NEWTON_FIBER_QUOTIENT_FOUNDATION_20260904.md",
   "theorem_ledger": "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json",
   "theorem_ledger_addenda": [
     "definitions/ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json",
@@ -66,7 +68,8 @@
     "definitions/ENTERPRISE_BRC_CRITICAL_RATIO_JET_THEOREM_LEDGER_20260903.json",
     "definitions/ENTERPRISE_BRC_REDUCIBLE_CRITICAL_JET_THEOREM_LEDGER_20260903.json",
     "definitions/ENTERPRISE_BRC_NEWTON_RECURSION_THEOREM_LEDGER_20260904.json",
-    "definitions/ENTERPRISE_BRC_NEWTON_HANDOFF_RESONANCE_THEOREM_LEDGER_20260904.json"
+    "definitions/ENTERPRISE_BRC_NEWTON_HANDOFF_RESONANCE_THEOREM_LEDGER_20260904.json",
+    "definitions/ENTERPRISE_BRC_NEWTON_FIBER_QUOTIENT_THEOREM_LEDGER_20260904.json"
   ],
   "tool_method_id": "t0.weighted_brc_cwm",
   "tool_method_addenda": [
@@ -82,7 +85,8 @@
     "t0.weighted_brc_critical_ratio_jet",
     "t0.weighted_brc_reducible_critical_jet",
     "t0.weighted_brc_newton_recursion",
-    "t0.weighted_brc_newton_handoff_resonance"
+    "t0.weighted_brc_newton_handoff_resonance",
+    "t0.weighted_brc_newton_fiber_quotient"
   ],
   "tool_module": "src/enterprise_math/brc_weighted.py",
   "tool_module_addenda": [
@@ -98,6 +102,7 @@
     "src/enterprise_math/brc_critical_ratio_jet.py",
     "src/enterprise_math/brc_reducible_critical_jet.py",
     "src/enterprise_math/brc_newton_recursion.py",
-    "src/enterprise_math/brc_newton_handoff.py"
+    "src/enterprise_math/brc_newton_handoff.py",
+    "src/enterprise_math/brc_newton_fiber_quotient.py"
   ]
 }
