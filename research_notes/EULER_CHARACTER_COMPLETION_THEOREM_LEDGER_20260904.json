@@ -9,19 +9,29 @@
     "AC-EM-FREE-F6D046-EULER-CELL-POLYGON-PI-V1"
   ],
   "candidate": "AC-EM-FREE-F6D046-EULER-CHARACTER-COMPLETION-UNIQUENESS-V1",
+  "validation": {
+    "workflow": "euler-character-completion",
+    "run_id": 33785095705,
+    "job_id": 100747821341,
+    "head_sha": "8e09fdf96e4033be5b1436fa9b4c81b4995c9a8f",
+    "python_tests": "9/9 PASS",
+    "lean_command": "lake build --wfail -KCI EnterpriseMath.Precision.EulerCharacterCompletion",
+    "lean_result": "PASS",
+    "proof_placeholders": "NONE"
+  },
   "theorems": [
     {
       "id": "EMECC-T01",
       "name": "Unique normalized quarter-turn-invariant quadratic form",
       "statement": "If q(x,y)=a*x^2+2*b*x*y+c*y^2 is invariant under (x,y)->(-y,x) and q(1,0)=1, then a=c=1 and b=0.",
-      "status": "LEAN_CHECKED_TARGET_PENDING_CI",
+      "status": "LEAN_CHECKED",
       "formal_theorem": "normalized_quarterTurn_invariant_unique"
     },
     {
       "id": "EMECC-T02",
       "name": "Character norm multiplicativity",
       "statement": "For J^2=-1, the coordinate norm x^2+y^2 is multiplicative under (x+yJ)(u+vJ).",
-      "status": "LEAN_CHECKED_TARGET_PENDING_CI",
+      "status": "LEAN_CHECKED",
       "formal_theorem": "characterNormSq_mul"
     },
     {
@@ -47,7 +57,7 @@
       "id": "EMECC-T06",
       "name": "Finite phase fraction compatibility",
       "statement": "The phase coordinate k/(6*2^n) is preserved by the refinement (k,N)->(2k,2N).",
-      "status": "LEAN_CHECKED_TARGET_PENDING_CI",
+      "status": "LEAN_CHECKED",
       "formal_theorem": "phase_fraction_refinement"
     },
     {
@@ -85,7 +95,7 @@
       "id": "EMECC-T12",
       "name": "Geometric-harmonic polygon renormalization",
       "statement": "For inner/outer bounds a_n,b_n, a_(n+1)^2=a_n*b_n and b_(n+1)(a_(n+1)+b_n)=2*a_(n+1)*b_n.",
-      "status": "LEAN_CHECKED_TARGET_PENDING_CI",
+      "status": "LEAN_CHECKED",
       "formal_theorems": [
         "lowerAfter_sq_eq_lowerBefore_mul_upperBefore",
         "upperAfter_harmonic_identity"
