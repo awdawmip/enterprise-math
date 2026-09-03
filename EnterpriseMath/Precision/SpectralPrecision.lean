@@ -153,11 +153,15 @@ private theorem extendDirichletPath_det (z : ℝ) {n : ℕ}
     (extendDirichletPath z M).det =
       (2 - z) * M.det - (M.submatrix Fin.castSucc Fin.castSucc).det := by
   rw [Matrix.det_succ_row (extendDirichletPath z M) (Fin.last _), Fin.sum_univ_castSucc]
-  simp only [extendDirichletPath, extendDirichletPath_tail, Fin.lastCases_last,
-    Fin.lastCases_castSucc, Fin.val_last, Fin.val_castSucc, Fin.succAbove_last]
+  simp only [extendDirichletPath, Fin.lastCases_last, Fin.lastCases_castSucc,
+    Fin.val_last, Fin.val_castSucc, Fin.succAbove_last]
   rw [Finset.sum_eq_single_of_mem (Fin.last n) (Finset.mem_univ _)]
-  · rw [if_pos rfl, extendDirichletPath_minor, Fin.val_last,
-      Odd.neg_one_pow ⟨n, by ring⟩, Even.neg_one_pow ⟨n + 1, rfl⟩]
+  · have hlastEq : (Fin.last n).val + 1 = n.succ := by
+      simp [Fin.val_last]
+    rw [if_pos hlastEq]
+    fold extendDirichletPath
+    rw [extendDirichletPath_minor, extendDirichletPath_tail]
+    rw [Fin.val_last, Odd.neg_one_pow ⟨n, by ring⟩, Even.neg_one_pow ⟨n + 1, rfl⟩]
     ring
   · intro b _ hb
     rw [if_neg (fun h => hb (Fin.ext (by rw [Fin.val_last]; omega)))]
@@ -192,11 +196,15 @@ theorem dirichletMatrix_det_eq_continuant (z : ℝ) (n : ℕ) :
     (dirichletMatrix z n).det = dirichletContinuant z n := by
   induction n using Nat.twoStepInduction with
   | zero =>
-      simpa [dirichletContinuant] using
-        (Matrix.det_isEmpty (A := dirichletMatrix z 0))
+      change (dirichletMatrix z 0).det = 1
+      exact Matrix.det_isEmpty
   | one =>
       rw [Matrix.det_fin_one]
-      change (dirichletMatrix z 1) (Fin.last 0) (Fin.last 0) = 2 - z
+      change (dirichletMatrix z 1) (0 : Fin 1) (0 : Fin 1) = 2 - z
+      have hzero : (0 : Fin 1) = Fin.last 0 := by
+        apply Fin.ext
+        simp [Fin.val_last]
+      rw [hzero]
       simp [dirichletMatrix, extendDirichletPath]
   | more n ih0 ih1 =>
       rw [dirichletMatrix_det_add_two, dirichletContinuant, ih0, ih1]
