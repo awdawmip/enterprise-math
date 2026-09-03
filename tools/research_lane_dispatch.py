@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -18,12 +19,12 @@ try:
     from tools import research_cohort_runtime
     from tools import research_dispatch
     from tools import research_lane_claims
-    from tools import research_scheduler
+    from tools import research_runtime_reducer
 except ModuleNotFoundError:
     import research_cohort_runtime  # type: ignore
     import research_dispatch  # type: ignore
     import research_lane_claims  # type: ignore
-    import research_scheduler  # type: ignore
+    import research_runtime_reducer  # type: ignore
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -137,7 +138,11 @@ def main() -> int:
         cmd.add_argument("--now")
     args = parser.parse_args()
     events = research_dispatch.load_events(args.events)
-    now = research_scheduler.now_utc(args.now)
+    now = (
+        research_runtime_reducer.now_utc(args.now)
+        if args.now
+        else datetime.now(timezone.utc)
+    )
     if args.command == "status":
         value = task_lane_summary(args.task_id, events, now=now)
     else:

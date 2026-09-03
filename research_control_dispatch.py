@@ -15,11 +15,17 @@ research owner artificially alive.
 Known task-local publication faults are isolated before the fresh selectors run:
 unresolved forks select no head, exact pinned integrity faults select no invalid
 publication, affected tasks are BLOCKED, and unrelated tasks remain dispatchable.
+
+The returned startup transport is deliberately non-semantic. It prevents a task
+start from turning AGENTS.md discovery into a remote preflight: if AGENTS.md was
+already injected by the host, obey it; otherwise start from the exact dispatch
+target/taskbook and load triggered control files only when a concrete need arises.
 """
 from __future__ import annotations
 
 import argparse
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Mapping
 
@@ -29,7 +35,6 @@ from control_plane import research_task_integrity_fault_isolation
 from tools import research_dispatch
 from tools import research_lane_dispatch
 from tools import research_runtime
-from tools import research_scheduler
 
 ROOT = Path(__file__).resolve().parent
 research_control_bootstrap.install(ROOT)
@@ -43,6 +48,19 @@ SESSION_ACTIVITY_KINDS = frozenset(
 )
 ORDINARY_TASK = "ORDINARY_TASK"
 COHORT_LANE = "COHORT_LANE"
+STARTUP_TRANSPORT = {
+    "schema": "ENTERPRISE_MATH_RESEARCH_STARTUP_TRANSPORT_V1",
+    "agents_md": "INJECTED_CONTEXT_ONLY_DO_NOT_REMOTE_SEARCH_OR_FETCH_FOR_TASK_START",
+    "if_agents_context_unavailable": "PROCEED_FROM_CANONICAL_DISPATCH_TARGET_AND_EXACT_TASKBOOK",
+    "hot_start": [
+        "EXACT_DISPATCH_TARGET",
+        "EXACT_TASK_PUBLICATION_AND_TASKBOOK",
+        "FIRST_REQUIRED_DEPENDENCY",
+        "SUBSTANTIVE_RESEARCH",
+    ],
+    "remote_control_reads": "TRIGGERED_ONLY",
+    "taskbook_policy_digest_impact": "NONE_CONTROL_TRANSPORT_ONLY",
+}
 
 
 class ControlDispatchError(ValueError):
@@ -345,6 +363,7 @@ def route_control(
         fresh_task=fresh_task,
         fresh_lane=fresh_lane,
     )
+    result["startup_transport"] = dict(STARTUP_TRANSPORT)
     fork_quarantines = sorted(research_publication_fault_isolation.validated_quarantines(root))
     integrity_quarantines = sorted(research_task_integrity_fault_isolation.validated_quarantines(root))
     if fork_quarantines or integrity_quarantines:
@@ -381,7 +400,7 @@ def main() -> int:
     args = parser.parse_args()
 
     events = research_dispatch.load_events(args.events)
-    now = research_scheduler.now_utc(args.now)
+    now = research_runtime.parse_time(args.now) if args.now else datetime.now(timezone.utc)
     observations = _load_observation_payload(args)
     result = route_control(events, now=now, observations=observations, kind=args.kind)
     print(json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True))

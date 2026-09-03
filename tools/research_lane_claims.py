@@ -4,7 +4,7 @@
 This module deliberately leaves the ordinary task-level scheduler unchanged.
 For an opt-in execution cohort it projects the authenticated Issue #240 event
 stream onto exactly one `(task_id, cohort_id, lane_id)` fiber and then reuses the
-existing scheduler reducer. Therefore each lane has its own first-valid CLAIM
+canonical V2 runtime reducer. Therefore each lane has its own first-valid CLAIM
 race while unrelated lanes remain concurrent.
 """
 from __future__ import annotations
@@ -16,11 +16,11 @@ from typing import Any, Mapping
 
 try:
     from tools import research_dispatch
-    from tools import research_scheduler
+    from tools import research_runtime_reducer
     from tools import research_task_records
 except ModuleNotFoundError:
     import research_dispatch  # type: ignore
-    import research_scheduler  # type: ignore
+    import research_runtime_reducer  # type: ignore
     import research_task_records  # type: ignore
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -186,7 +186,7 @@ def reduce_lane(
             continue
         accepted.append(event)
 
-    state = research_scheduler.reduce_task(
+    state = research_runtime_reducer.reduce_task(
         task,
         accepted,
         default_lease_minutes=int(task.get("claim_lease_minutes") or 120),
@@ -242,7 +242,7 @@ def winning_lane_claim_binding(
             reducer_events.append(normalized)
         else:
             reducer_events.append(event)
-    reduced = research_scheduler.reduce_task(
+    reduced = research_runtime_reducer.reduce_task(
         task,
         reducer_events,
         default_lease_minutes=int(task.get("claim_lease_minutes") or 120),
