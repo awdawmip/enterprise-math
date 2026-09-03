@@ -58,7 +58,7 @@ end CharacterMultiplication
 
 section MeanRenormalization
 
-variable {F : Type*} [Field F] [CharZero F]
+variable {F : Type*} [Field F]
 
 /-- Current inner polygon area in root coordinates. -/
 def lowerBefore (scale x y : F) : F :=
@@ -92,7 +92,6 @@ theorem lowerAfter_sq_eq_lowerBefore_mul_upperBefore
       lowerBefore scale x y * upperBefore scale x y := by
   unfold lowerAfter lowerBefore upperBefore
   field_simp [hx]
-  ring
 
 /-- Polygon doubling updates the upper area by the harmonic mean of the new
     lower area and the old upper area, written without an outer division. -/
@@ -105,7 +104,12 @@ theorem upperAfter_harmonic_identity
       2 * lowerAfter scale y * upperBefore scale x y := by
   unfold upperAfter lowerAfter upperBefore
   field_simp [hx, hxp]
-  ring
+
+end MeanRenormalization
+
+section PhaseRefinement
+
+variable {F : Type*} [Field F] [CharZero F]
 
 /-- Refining `(index,N)` to `(2*index,2*N)` preserves its rational phase. -/
 theorem phase_fraction_refinement
@@ -115,6 +119,6 @@ theorem phase_fraction_refinement
   have htwo : (2 : F) ≠ 0 := by norm_num
   field_simp [hperiod, htwo]
 
-end MeanRenormalization
+end PhaseRefinement
 
 end EnterpriseMath.Precision.EulerCharacterCompletion
