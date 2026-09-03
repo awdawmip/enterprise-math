@@ -10,9 +10,19 @@ Second-order Pascal identity matching the two-step Dirichlet spectral-polynomial
 theorem choose_second_order (N k : ℕ) :
     Nat.choose (N + 2) (k + 2) + Nat.choose N (k + 2) =
       2 * Nat.choose (N + 1) (k + 2) + Nat.choose N k := by
-  have h1 := Nat.choose_succ_succ' (N + 1) (k + 1)
-  have h2 := Nat.choose_succ_succ' N k
-  have h3 := Nat.choose_succ_succ' N (k + 1)
+  have h1 :
+      Nat.choose (N + 2) (k + 2) =
+        Nat.choose (N + 1) (k + 1) + Nat.choose (N + 1) (k + 2) := by
+    simpa [Nat.add_assoc] using Nat.choose_succ_succ' (N + 1) (k + 1)
+  have h2 :
+      Nat.choose (N + 1) (k + 1) =
+        Nat.choose N k + Nat.choose N (k + 1) := by
+    simpa [Nat.add_assoc] using Nat.choose_succ_succ' N k
+  have h3 :
+      Nat.choose (N + 1) (k + 2) =
+        Nat.choose N (k + 1) + Nat.choose N (k + 2) := by
+    simpa [Nat.add_assoc] using Nat.choose_succ_succ' N (k + 1)
+  rw [h1, h2, h3]
   omega
 
 /--
@@ -36,7 +46,7 @@ theorem dirichletSpectralPoly_coeff_choose :
       | succ k =>
           have hlt : 0 + 1 + (k + 1) < 2 * (k + 1) + 1 := by omega
           rw [Nat.choose_eq_zero_of_lt hlt]
-          simp [dirichletSpectralPoly]
+          simp [dirichletSpectralPoly, coeff_one]
   | one =>
       intro j
       cases j with
@@ -47,7 +57,8 @@ theorem dirichletSpectralPoly_coeff_choose :
           | succ k =>
               have hlt : 1 + 1 + (k + 2) < 2 * (k + 2) + 1 := by omega
               rw [Nat.choose_eq_zero_of_lt hlt]
-              simp [dirichletSpectralPoly]
+              have hne : k + 2 ≠ 1 := by omega
+              simp [dirichletSpectralPoly, coeff_X_of_ne_one hne]
   | more n ih0 ih1 =>
       intro j
       cases j with
@@ -59,9 +70,11 @@ theorem dirichletSpectralPoly_coeff_choose :
           have hs0 :
               (-1 : ℝ) ^ (n + 1 + k) =
                 (-1 : ℝ) ^ (n + 2 + (k + 1)) := by
-            have h : n + 2 + (k + 1) = (n + 1 + k) + 2 := by omega
-            rw [h, pow_add]
-            norm_num
+            calc
+              (-1 : ℝ) ^ (n + 1 + k)
+                  = (-1 : ℝ) ^ (n + 1 + k) * (-1 : ℝ) ^ 2 := by norm_num
+              _ = (-1 : ℝ) ^ ((n + 1 + k) + 2) := by rw [← pow_add]
+              _ = (-1 : ℝ) ^ (n + 2 + (k + 1)) := by congr 1 <;> omega
           have hs1 :
               (-1 : ℝ) ^ (n + 1 + (k + 1)) =
                 -((-1 : ℝ) ^ (n + 2 + (k + 1))) := by
@@ -71,9 +84,11 @@ theorem dirichletSpectralPoly_coeff_choose :
           have hs2 :
               (-1 : ℝ) ^ (n + (k + 1)) =
                 (-1 : ℝ) ^ (n + 2 + (k + 1)) := by
-            have h : n + 2 + (k + 1) = (n + (k + 1)) + 2 := by omega
-            rw [h, pow_add]
-            norm_num
+            calc
+              (-1 : ℝ) ^ (n + (k + 1))
+                  = (-1 : ℝ) ^ (n + (k + 1)) * (-1 : ℝ) ^ 2 := by norm_num
+              _ = (-1 : ℝ) ^ ((n + (k + 1)) + 2) := by rw [← pow_add]
+              _ = (-1 : ℝ) ^ (n + 2 + (k + 1)) := by congr 1 <;> omega
           rw [hs0, hs1, hs2]
           have hcNat := choose_second_order (n + k + 2) (2 * k + 1)
           have hc :
@@ -83,6 +98,6 @@ theorem dirichletSpectralPoly_coeff_choose :
                   (Nat.choose (n + k + 2) (2 * k + 1) : ℝ) := by
             exact_mod_cast hcNat
           linear_combination (norm := ring_nf)
-            ((-1 : ℝ) ^ (n + 2 + (k + 1))) * hc
+            (-2 : ℝ) * ((-1 : ℝ) ^ (n + 2 + (k + 1))) * hc
 
 end EnterpriseMath.Precision
