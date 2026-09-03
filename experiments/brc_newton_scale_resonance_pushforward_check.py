@@ -151,7 +151,6 @@ def resonance_criterion_checks(theta: Scale, sources) -> tuple[int, int]:
                 left = scale1.multiply(scale2.power(-1))
                 right = theta.power(k2 - k1)
                 assert scale_equal(left, right)
-                # Both sides also give the same residual scale by construction.
                 assert scale_equal(
                     scale1.multiply(theta.power(k1)),
                     scale2.multiply(theta.power(k2)),
@@ -161,7 +160,7 @@ def resonance_criterion_checks(theta: Scale, sources) -> tuple[int, int]:
 
 
 def synthetic_exhaustive_regression():
-    base = (Q(1), Q(-2), Q(1))  # (x-1)^2
+    base = (Q(1), Q(-2), Q(1))
     root = Q(1)
     scales = [Q(1, 2), Q(1, 3), Q(1, 4), Q(1, 6), Q(1, 8), Q(1, 9)]
     polynomials = [
@@ -192,7 +191,6 @@ def synthetic_exhaustive_regression():
         resonance_fibers += rf
         criterion_checks += cc
 
-        # Enumeration order is provenance only; pushforward aggregation is not.
         reversed_step = rational_newton_step(tuple(reversed(jet)), root, 2)
         assert scale_equal(reversed_step.scale, step.scale)
         assert production_map(reversed_step) == production_map(step)
@@ -203,8 +201,6 @@ def synthetic_exhaustive_regression():
 
 
 def canonical_resonant_edge_witness():
-    # Three distinct source mechanisms hit the scale-one Newton edge:
-    # p0 k=2, sigma=1/2 with k=1, sigma=1/4 with k=0.
     jet = (
         (ONE, (Q(1), Q(-2), Q(1))),
         (scale_from(Q(1, 2)), (Q(-1), Q(1))),
@@ -212,7 +208,7 @@ def canonical_resonant_edge_witness():
     )
     step = rational_newton_step(jet, Q(1), 2)
     assert step.scale == scale_from(Q(1, 2))
-    assert trim(step.edge_polynomial) == (Q(-1), Q(1), Q(1))  # y^2+y-1
+    assert trim(step.edge_polynomial) == (Q(-1), Q(1), Q(1))
     pushed, sources, _ = independent_pushforward(jet, Q(1), 2, step.scale)
     assert pushed[ONE] == (Q(-1), Q(1), Q(1))
     assert len({(scale, k) for scale, k, _ in sources[ONE]}) == 3
@@ -222,10 +218,6 @@ def canonical_resonant_edge_witness():
 
 
 def cancellation_after_aggregation_witness():
-    # The two strict sources are deliberately distinct provenance entries at
-    # the same old scale and Taylor degree.  They cancel only after the scale
-    # fiber is aggregated.  The remaining edge is y^2, so the first selected
-    # translation at this scale is still zero/multiple.
     jet = (
         (ONE, (Q(1), Q(-2), Q(1))),
         (scale_from(Q(1, 4)), (Q(1),)),
@@ -265,7 +257,6 @@ def direct_two_step(original, root1, mult1, theta1, root2, mult2, theta2):
 
 
 def staged_composition_checks():
-    # First resonant edge is (y+1)^2, allowing a rational repeated root -1.
     original = (
         (ONE, (Q(1), Q(-2), Q(1))),
         (scale_from(Q(1, 2)), (Q(-2), Q(2))),
@@ -295,7 +286,7 @@ def handoff_resonance_witness():
         original = handoff.rr.rational_jet(expansion)
         first = handoff.rr.newton_step(original, Q(1), 4)
         assert first is not None
-        theta1, jet1, edge1, _ = first
+        _, jet1, edge1, _ = first
         state = handoff.RealRootEvalState(handoff.smallest_real_root_selector(edge1))
         assert handoff.vanish_order(edge1, state) == 2
         second = handoff.handoff_step(jet1, state, 2)
@@ -307,16 +298,14 @@ def handoff_resonance_witness():
         assert third is not None
         return state, third
 
-    # Exact resonance: declared tau2 layer collides with intrinsic eta^2.
     common_res = handoff.rr.scale_from_rational(Q(1, 4) / tau1)
     intrinsic = handoff.rr.scale_from_rational((eta * eta) / tau1)
-    assert handoff.rr.scale_equal(common_res, intrinsic)
+    assert handoff.rr.scale_compare(common_res, intrinsic) == 0
     state_r, third_r = run(Q(1, 4))
     theta_r, _, edge_r, _ = third_r
     assert theta_r == common_res
     assert handoff.evalpoly_vanish_order(edge_r, Q(-1), state_r) != 2
 
-    # Separated scale: common shift strictly dominates the intrinsic layer.
     common_sep = handoff.rr.scale_from_rational(Q(3, 10) / tau1)
     assert handoff.rr.scale_compare(common_sep, intrinsic) > 0
     state_s, third_s = run(Q(3, 10))
