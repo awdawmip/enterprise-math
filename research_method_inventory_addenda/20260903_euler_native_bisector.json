@@ -1,0 +1,34 @@
+{
+  "schema": "ENTERPRISE_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "date": "2026-09-03",
+  "status": "PROJECT_SUBTOOL_FREE_RESEARCH",
+  "methods": [
+    {
+      "method_id": "project.euler_native_bisector",
+      "title": "Exact C3-to-C12 Cell-radius Euler bisector certificate",
+      "implementation": "src/enterprise_math/euler_native_bisector.py",
+      "test": "tests/test_euler_native_bisector.py",
+      "theorem_ledger": "research_notes/EULER_CELL_RADIUS_BISECTOR_THEOREM_LEDGER_20260903.json",
+      "inputs": [
+        "integral C3 right-turn representation",
+        "invariant Gram form",
+        "declared Cell-radius relation r^2=1/3"
+      ],
+      "outputs": [
+        "G=I+R order-six rotor certificate",
+        "H=r(I+G) order-twelve gate rotor certificate",
+        "J=H^3=r(R-R^-1) complex-structure certificate",
+        "Gram-invariance and twelve-state interleaving certificates"
+      ],
+      "arithmetic": "exact Fraction arithmetic in Q(r), r^2=1/3",
+      "uses_pi": false,
+      "uses_trigonometry": false,
+      "tool_family_status": "PROJECT_SUBTOOL_UNASSIGNED_PENDING_COVERAGE_REVIEW",
+      "boundaries": [
+        "derived character representation only",
+        "not a P000 native-axis identity",
+        "not a global Cell-trajectory quotient"
+      ]
+    }
+  ]
+}
