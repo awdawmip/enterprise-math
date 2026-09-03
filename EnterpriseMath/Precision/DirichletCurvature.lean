@@ -36,9 +36,8 @@ theorem dirichletContinuant_root_decimation (z : ℝ) (n : ℕ)
 
 /-- The endpoint square-root correction is exactly the square root of the decimated value. -/
 theorem sqrt_endpoint_product_eq_sqrt_decimation (z : ℝ)
-    (hz0 : 0 ≤ z) (hz4 : z ≤ 4) :
+    (hz0 : 0 ≤ z) :
     Real.sqrt z * Real.sqrt (4 - z) = Real.sqrt (spectralDecimation z) := by
-  have hcomp : 0 ≤ 4 - z := by linarith
   rw [← Real.sqrt_mul hz0]
   unfold spectralDecimation
   rfl
@@ -60,11 +59,11 @@ WSR-L24: endpoint complement plus spectral decimation collapses the parity
 curvature kernel to one half of the coarse normalized mode radius.
 -/
 theorem dirichletParityEndpointCurvature_collapse (q : ℕ) (z : ℝ)
-    (hz0 : 0 ≤ z) (hz4 : z ≤ 4) :
+    (hz0 : 0 ≤ z) :
     dirichletParityEndpointCurvature q z =
       dirichletCoarseRadius q (spectralDecimation z) / 2 := by
   unfold dirichletParityEndpointCurvature dirichletCoarseRadius
-  rw [sqrt_endpoint_product_eq_sqrt_decimation z hz0 hz4]
+  rw [sqrt_endpoint_product_eq_sqrt_decimation z hz0]
   ring
 
 end EnterpriseMath.Precision
