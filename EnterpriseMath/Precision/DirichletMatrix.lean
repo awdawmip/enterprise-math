@@ -72,11 +72,13 @@ private theorem extendDirichletPath_det (z : ℝ) {n : ℕ}
     change ((extendDirichletPath z M).submatrix Fin.castSucc
       (Fin.succAbove (Fin.castSucc (Fin.last n)))).det = _
     exact extendDirichletPath_minor z M
-  have hodd : Odd (n + 1 + (Fin.castSucc (Fin.last n)).val) := by
+  have hodd : Odd ((Fin.last (n + 1)).val + (Fin.castSucc (Fin.last n)).val) := by
     refine ⟨n, ?_⟩
     simp [Fin.val_last]
     omega
-  have heven : Even (n + 1 + (n + 1)) := ⟨n + 1, rfl⟩
+  have heven : Even ((Fin.last (n + 1)).val + (Fin.last (n + 1)).val) := by
+    refine ⟨n + 1, ?_⟩
+    simp [Fin.val_last]
   change A.det = _
   rw [Matrix.det_succ_row A (Fin.last _), Fin.sum_univ_castSucc]
   simp only [Fin.succAbove_last]
