@@ -1,0 +1,25 @@
+name: brc-critical-log-correction-research
+
+on:
+  pull_request:
+    paths:
+      - 'research_notes/BRC_CRITICAL_DEGENERACY_LOG_CORRECTION_20260903.md'
+      - 'experiments/brc_critical_degeneracy_log_correction_check.py'
+      - '.github/workflows/brc-critical-log-correction-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Exact BRC critical log-correction selector checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_critical_degeneracy_log_correction_check.py
