@@ -23,20 +23,24 @@ theorem wallisUpperReal_eq_mul (n : ℕ) :
 /-- The real Wallis lower approximants are strictly increasing. -/
 theorem wallisPartialReal_strictMono : StrictMono wallisPartialReal := by
   refine strictMono_nat_of_lt_succ fun n => ?_
+  unfold wallisPartialReal
   exact_mod_cast wallisPartial_strictMono_step n
 
 /-- The real Wallis upper approximants are strictly decreasing. -/
 theorem wallisUpperReal_strictAnti : StrictAnti wallisUpperReal := by
   refine strictAnti_nat_of_succ_lt fun n => ?_
+  unfold wallisUpperReal
   exact_mod_cast wallisUpper_strictAnti_step n
 
 /-- Every real Wallis lower approximant is positive. -/
 theorem wallisPartialReal_pos (n : ℕ) : 0 < wallisPartialReal n := by
+  unfold wallisPartialReal
   exact_mod_cast wallisPartial_pos n
 
 /-- Pointwise lower/upper separation after embedding the rational certificate in `ℝ`. -/
 theorem wallisPartialReal_lt_upperReal (n : ℕ) :
     wallisPartialReal n < wallisUpperReal n := by
+  unfold wallisPartialReal wallisUpperReal
   exact_mod_cast wallisPartial_lt_upper n
 
 /-- The lower sequence is bounded above by the initial upper envelope. -/
@@ -59,6 +63,7 @@ theorem wallisPartialReal_tendsto :
 /-- The explicit upper prefactor is `1 + 1/(4n+1)` over the reals. -/
 theorem wallisUpperFactorReal_eq_one_add (n : ℕ) :
     wallisUpperFactorReal n = 1 + 1 / (4 * (n : ℝ) + 1) := by
+  unfold wallisUpperFactorReal
   exact_mod_cast wallisUpperFactor_eq_one_add n
 
 /-- The target-free upper prefactor converges to one. -/
@@ -80,7 +85,8 @@ theorem wallisUpperFactorReal_tendsto_one :
 theorem wallisUpperReal_tendsto :
     Tendsto wallisUpperReal atTop (𝓝 wallisLimit) := by
   have h := wallisPartialReal_tendsto.mul wallisUpperFactorReal_tendsto_one
-  simpa [wallisUpperReal_eq_mul] using h
+  apply h.congr'
+  exact Filter.Eventually.of_forall fun n => (wallisUpperReal_eq_mul n).symm
 
 /-- Every finite lower approximant lies below the internal completion. -/
 theorem wallisPartialReal_le_limit (n : ℕ) :
