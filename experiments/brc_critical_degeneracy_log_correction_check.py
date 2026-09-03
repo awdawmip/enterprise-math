@@ -99,11 +99,13 @@ def divisors(value: int) -> tuple[int, ...]:
     if value == 0:
         return ()
     result = []
-    for candidate in range(1, int(value**0.5) + 1):
+    candidate = 1
+    while candidate * candidate <= value:
         if value % candidate == 0:
             result.append(candidate)
             if candidate * candidate != value:
                 result.append(value // candidate)
+        candidate += 1
     return tuple(sorted(result))
 
 
@@ -164,7 +166,6 @@ def sturm_sequence(poly: Poly) -> tuple[Poly, ...]:
         if remainder == (Q(0),):
             break
         next_poly = p_scale(remainder, Q(-1))
-        # Positive rescaling only; preserve Sturm signs.
         scale = abs(next_poly[-1])
         if scale:
             next_poly = p_scale(next_poly, Q(1) / scale)
@@ -214,7 +215,6 @@ def isolate_smallest_irrational(poly: Poly) -> tuple[Fraction, Fraction] | None:
             assert root_count(sequence, Q(0), left) == 0
             return left, right
         midpoint = (left + right) / 2
-        # Rational roots were completely deflated, so midpoint cannot be a root.
         assert p_eval(poly, midpoint) != 0
         if root_count(sequence, left, midpoint) > 0:
             right = midpoint
@@ -277,8 +277,6 @@ def critical_graph_shaped(matrix: tuple[tuple[int, ...], ...]) -> bool:
 
 def zero_correction_structure(matrix: tuple[tuple[int, ...], ...]) -> bool:
     assert critical_graph_shaped(matrix)
-    # Since every positive edge lies in an SCC/cycle, row sum one on each
-    # nonzero row is equivalent to every recurrent SCC being a unit cycle.
     return all(sum(row) in (0, 1) for row in matrix)
 
 
@@ -331,28 +329,24 @@ def exhaustive() -> tuple[int, int]:
 def special_examples() -> int:
     checks = 0
 
-    # Unit 3-cycle: zero correction and exact root z=1.
     unit_cycle = ((0, 1, 0), (0, 0, 1), (1, 0, 0))
     assert criticality_polynomial(unit_cycle) == (1, 0, 0, -1)
     selector = smallest_positive_selector(criticality_polynomial(unit_cycle))
     assert selector.exact_root == 1
     checks += 2
 
-    # Degeneracy cycle: p=1-24 z^3, irrational root selector, correction ln(24)/3.
     deg_cycle = ((0, 2, 0), (0, 0, 3), (4, 0, 0))
     assert criticality_polynomial(deg_cycle) == (1, 0, 0, -24)
     selector = smallest_positive_selector(criticality_polynomial(deg_cycle))
     assert not selector.is_rational and selector.upper < 1
     checks += 2
 
-    # Branching critical graph: rho=2, exact z_c=1/2.
     branching = ((1, 1), (1, 1))
     assert criticality_polynomial(branching) == (1, -2)
     selector = smallest_positive_selector(criticality_polynomial(branching))
     assert selector.exact_root == Q(1, 2)
     checks += 2
 
-    # Golden ratio correction: p=1-z-z^2 and rational Sturm bracket.
     golden = ((1, 1), (1, 0))
     assert criticality_polynomial(golden) == (1, -1, -1)
     selector = smallest_positive_selector(criticality_polynomial(golden))
@@ -360,11 +354,10 @@ def special_examples() -> int:
     assert Q(3, 5) < selector.lower < selector.upper < Q(5, 8)
     checks += 3
 
-    # Rational correction maps to the current rational LN input 1/z_c.
     from enterprise_math.brc_logarithm import ln
     from enterprise_math.exact_arithmetic import division
 
-    expr = ln(division(selector=1, denominator=1)) if False else ln(division(2, 1))
+    expr = ln(division(2, 1))
     assert expr.argument.numerator == 2 and expr.argument.denominator == 1
     checks += 1
 
