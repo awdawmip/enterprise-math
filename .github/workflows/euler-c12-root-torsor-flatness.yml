@@ -1,0 +1,61 @@
+name: euler-c12-root-torsor-flatness
+
+on:
+  pull_request:
+    paths:
+      - "research_notes/EULER_C12_ROOT_TORSOR_TETRAHEDRAL_FLATNESS_20260904.md"
+      - "definitions/ENTERPRISE_EULER_C12_ROOT_TORSOR_FLATNESS_THEOREM_LEDGER_20260904.json"
+      - "research_method_inventory_addenda/20260904_euler_c12_root_torsor.json"
+      - "src/enterprise_math/euler_c12_root_torsor.py"
+      - "tests/test_euler_c12_root_torsor.py"
+      - "EnterpriseMath/Precision/EulerC12RootTorsorFlatness.lean"
+      - ".github/workflows/euler-c12-root-torsor-flatness.yml"
+  workflow_dispatch:
+
+jobs:
+  exact-finite-and-formal:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Compile exact checker and test
+        run: >-
+          python -m py_compile
+          src/enterprise_math/euler_c12_root_torsor.py
+          tests/test_euler_c12_root_torsor.py
+      - name: Run exhaustive root-cover and tetrahedral regression
+        env:
+          PYTHONPATH: src
+        run: python -m unittest -v tests/test_euler_c12_root_torsor.py
+      - name: Validate theorem and method JSON
+        run: >-
+          python -m json.tool
+          definitions/ENTERPRISE_EULER_C12_ROOT_TORSOR_FLATNESS_THEOREM_LEDGER_20260904.json
+          >/dev/null
+          && python -m json.tool
+          research_method_inventory_addenda/20260904_euler_c12_root_torsor.json
+          >/dev/null
+      - name: Reject proof placeholders
+        run: |
+          if grep -n -E '\b(sorry|admit|axiom)\b' EnterpriseMath/Precision/EulerC12RootTorsorFlatness.lean; then
+            echo "Proof placeholder detected"
+            exit 1
+          fi
+      - uses: leanprover/lean-action@v1
+        with:
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+          use-github-cache: false
+          use-mathlib-cache: false
+      - name: Resolve pinned dependencies
+        run: lake update
+      - name: Fetch mathlib cache
+        run: lake exe cache get
+      - name: Build C12 root torsor and tetrahedral flatness
+        run: >-
+          lake build --wfail -KCI
+          EnterpriseMath.Precision.EulerC12RootTorsorFlatness
