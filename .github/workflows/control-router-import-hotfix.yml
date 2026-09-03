@@ -73,7 +73,6 @@ jobs:
           from tools import research_lane_claims, research_lane_dispatch
           print('PASS: canonical router and lane runtime import without legacy scheduler')
           PY
-          git rm .github/workflows/control-router-import-hotfix.yml
           git add research_control_dispatch.py tools/research_lane_claims.py tools/research_lane_dispatch.py
           git commit -m "control: remove stale pre-V2 scheduler runtime consumers"
           git push origin HEAD:main
