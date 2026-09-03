@@ -1,0 +1,79 @@
+name: brc-recurrent-interaction-foundation
+
+on:
+  pull_request:
+    paths:
+      - 'definitions/ENTERPRISE_BRC_RECURRENT_INTERACTION_FOUNDATION_20260903.md'
+      - 'definitions/ENTERPRISE_BRC_RECURRENT_INTERACTION_THEOREM_LEDGER_20260903.json'
+      - 'definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json'
+      - 'definitions/00_CURRENT_NATIVE_FOUNDATION.md'
+      - 'research_method_inventory_addenda/20260903_brc_recurrent_interaction_foundation.json'
+      - 'src/enterprise_math/brc_recurrent_invariants.py'
+      - 'src/enterprise_math/brc_rational_holonomy.py'
+      - 'src/enterprise_math/brc_feedback.py'
+      - 'src/enterprise_math/__init__.py'
+      - 'tests/test_brc_recurrent_interaction_foundation.py'
+      - 'experiments/check_brc_recurrent_interaction_foundation.py'
+      - '.github/workflows/brc-recurrent-interaction-foundation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Recurrent interaction production subtools
+        env:
+          PYTHONPATH: src
+        run: python -m unittest tests/test_brc_recurrent_interaction_foundation.py
+
+      - name: Recurrent interaction Foundation integrity
+        run: python experiments/check_brc_recurrent_interaction_foundation.py
+
+      - name: Feedback condensation research regression
+        run: python experiments/brc_feedback_condensation_check.py
+
+      - name: Modular feedback research regression
+        run: python experiments/brc_feedback_modular_condensation_check.py
+
+      - name: All-orders feedback interaction regression
+        run: python experiments/brc_feedback_mobius_interaction_check.py
+
+      - name: Feedback circuit atom regression
+        run: python experiments/brc_feedback_circuit_atoms_check.py
+
+      - name: Parent finite recurrent Foundation remains consistent
+        env:
+          PYTHONPATH: src
+        run: |
+          python -m unittest tests/test_brc_weighted_recurrent.py
+          python experiments/check_brc_finite_recurrent_foundation.py
+
+      - name: Parent Weighted-BRC Foundation remains consistent
+        env:
+          PYTHONPATH: src
+        run: |
+          python -m unittest tests/test_brc_weighted_foundation_tool.py
+          python experiments/check_brc_weighted_foundation.py
+
+      - name: Toolbox discovers recurrent interaction subtools
+        run: |
+          python tools/enterprise_toolbox.py --json methods recurrent loop zeta > /tmp/recurrent.json
+          grep -q 't0.weighted_brc_recurrent_invariants' /tmp/recurrent.json
+          python tools/enterprise_toolbox.py --json methods prime valuation holonomy > /tmp/holonomy.json
+          grep -q 't0.weighted_brc_rational_holonomy' /tmp/holonomy.json
+          python tools/enterprise_toolbox.py --json methods feedback interaction > /tmp/feedback.json
+          grep -q 't0.weighted_brc_feedback_interaction' /tmp/feedback.json
+          python tools/enterprise_toolbox.py --json modules recurrent invariants > /tmp/recurrent-module.json
+          grep -q 'module:brc_recurrent_invariants' /tmp/recurrent-module.json
+          python tools/enterprise_toolbox.py --json modules rational holonomy > /tmp/holonomy-module.json
+          grep -q 'module:brc_rational_holonomy' /tmp/holonomy-module.json
+          python tools/enterprise_toolbox.py --json modules feedback > /tmp/feedback-module.json
+          grep -q 'module:brc_feedback' /tmp/feedback-module.json
