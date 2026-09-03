@@ -1,0 +1,128 @@
+{
+  "schema": "ENTERPRISE_MATH_EULER_GATE_ROTATION_THEOREM_LEDGER_V1",
+  "status": "FREE_RESEARCH_THEOREM_PACKAGE_CANDIDATE_EXECUTABLE_BACKED",
+  "effective": "2026-09-03",
+  "author": "YUAN X",
+  "program": "Enterprise Math",
+  "scope": "six-gate Cell-link orientation, cyclic dyadic refinement, binary carry, finite rotation characters, Euler reversal decomposition, and Viete rotation completion",
+  "research_note": "research_notes/EULER_GATE_CYCLE_CARRY_SPECTRAL_COMPLETION_20260903.md",
+  "executable_evidence": {
+    "source": "src/enterprise_math/cyclic_rotation_refinement.py",
+    "tests": "tests/test_cyclic_rotation_refinement.py",
+    "local_extraction_check": "PYTHONPATH=src python -m unittest tests.test_cyclic_rotation_refinement -v",
+    "proof_boundary": "The executable checks exact finite integer laws and high-precision algebraic/archimedean consistency. It does not replace the manuscript proofs or promote the package to Foundation."
+  },
+  "theorems": [
+    {
+      "id": "EGR-T01-SIX-GATE-CELL-LINK",
+      "status": "PROVED_CARRIER_COMBINATORIAL_MANUSCRIPT",
+      "hypotheses": "one Cell in the frozen critical triangular carrier, with the six incident elementary center triangles and their triple boundary-intersection events",
+      "statement": "The six local transition gates are distinct and have cyclic link graph C6.",
+      "boundary": "Cyclic incidence does not identify a carrier 60-degree angle with a native Enterprise angle or metric."
+    },
+    {
+      "id": "EGR-T02-ORIENTATION-AS-TRANSITION-OBSERVABLE",
+      "status": "PROVED_FOR_DECLARED_GATE_OR_NEAREST_NEIGHBOR_GERMS",
+      "hypotheses": "ordered adjacent Cell-center or gate-transition germs in the declared triangular carrier language",
+      "statement": "Translation classes of ordered local germs have six cyclic direction labels; reversal is the antipodal shift by three and forgetting reversal gives the three unoriented line-family classes.",
+      "boundary": "A single instantaneous Cell has no direction. Predictive sufficiency for every future native rotating-segment operation remains open."
+    },
+    {
+      "id": "EGR-T03-CYCLE-SUBDIVISION-REFINEMENT",
+      "status": "PROVED_FINITE_INTEGER_EXECUTABLE_CHECKED",
+      "hypotheses": "cyclic phase graph C_N with N>=2",
+      "statement": "Barycentric edge subdivision gives C_(2N); the old phases embed as k -> 2k and every refined phase has a unique normal form 2k+epsilon with epsilon in {0,1}.",
+      "boundary": "Odd refined states are precision/readout interval states, not asserted new physical Cell gates."
+    },
+    {
+      "id": "EGR-T04-REFINEMENT-SPLIT-CRITERION",
+      "status": "PROVED_FINITE_INTEGER_EXECUTABLE_CHECKED",
+      "hypotheses": "the exact sequence 0 -> C_N -> C_(2N) -> C2 -> 0 induced by even-state embedding and parity",
+      "statement": "The extension splits as groups if and only if N is odd.",
+      "consequence": "Every refinement in C6 -> C12 -> C24 -> ... is non-split."
+    },
+    {
+      "id": "EGR-T05-BINARY-PHASE-CARRY",
+      "status": "PROVED_FINITE_INTEGER_EXECUTABLE_CHECKED",
+      "hypotheses": "refined normal coordinates j=2k+epsilon",
+      "statement": "Refined addition is (k,e)+(l,f)=(k+l+e*f, e+f mod 2); two detail-one states generate one coarse phase carry.",
+      "interpretation": "The added phase-resolution bit is not an independent Boolean factor when the extension is non-split."
+    },
+    {
+      "id": "EGR-T06-CHIRAL-MIDPOINT-ROOT-TOWER",
+      "status": "PROVED_FINITE_CYCLE_MANUSCRIPT_EXECUTABLE_CHECKED",
+      "hypotheses": "the identity and antipode in C6 plus one chosen cyclic orientation/arc",
+      "statement": "Repeated cycle subdivision and nested combinatorial midpoint selection gives q_m=3 in C_(6*2^m), of order 2^(m+1), satisfying 2^m q_m=halfturn and 2q_(m+1)=embed(q_m).",
+      "no_go": "Without the chiral arc choice there are exactly two local nested towers, exchanged by reversal; -1 alone does not select i."
+    },
+    {
+      "id": "EGR-T07-TRACE-SPECTRAL-DECIMATION",
+      "status": "PROVED_FINITE_ALGEBRA_MANUSCRIPT_EXECUTABLE_CHECKED",
+      "hypotheses": "compatible finite characters u_0=-1 and u_(m+1)^2=u_m; c_m=(u_m+u_m^-1)/2",
+      "statement": "c_(m+1)^2=(1+c_m)/2. Equivalently, the fixed mode-3 normalized adjacency eigenvalue under C_(6*2^m) subdivision obeys c_m=2c_(m+1)^2-1.",
+      "consequence": "The positive branch generates the Viete nested radicals without using a numerical value of pi."
+    },
+    {
+      "id": "EGR-T08-FINITE-EULER-REVERSAL-DECOMPOSITION",
+      "status": "PROVED_FINITE_ALGEBRA_MANUSCRIPT_EXECUTABLE_CHECKED",
+      "hypotheses": "m>=1, i=u_1, c_m=(u_m+u_m^-1)/2, s_m=(u_m-u_m^-1)/(2i)",
+      "statement": "u_m=c_m+i*s_m and c_m^2+s_m^2=1. With a fixed chiral frame, c is reversal-even and s is reversal-odd; character multiplication yields the exact sine/cosine addition laws.",
+      "interpretation": "Euler decomposition is the recombination of orientation-forgetting and orientation-sensitive character channels."
+    },
+    {
+      "id": "EGR-T09-VIETE-CHARACTER-TELESCOPING",
+      "status": "PROVED_FINITE_ALGEBRA_MANUSCRIPT_EXECUTABLE_CHECKED",
+      "hypotheses": "same coherent root tower as EGR-T07 and M>=2",
+      "statement": "With P_M=product_(m=2)^M c_m and Pi_M^rot=2/P_M, one has P_M=1/(2^(M-1)*s_M) and Pi_M^rot=2^M*s_M.",
+      "boundary": "This is a finite cyclotomic identity; no continuous sine or classical pi is needed."
+    },
+    {
+      "id": "EGR-T10-INTRINSIC-ROTATION-COMPLETION",
+      "status": "PROVED_REAL_ALGEBRA_MANUSCRIPT_EXECUTABLE_CHECKED",
+      "hypotheses": "the positive trace branch c_1=0 and c_(m+1)=sqrt((1+c_m)/2)",
+      "statement": "Pi_M^rot is strictly increasing and converges to a finite positive constant Pi_infinity^rot defined without the target numerical value of pi.",
+      "proof_key": "For a_m=1-c_m, a_(m+1)=a_m/[2(1+c_(m+1))] and a_(m+1)/a_m <= 1-1/sqrt(2); hence the infinite product of c_m is positive."
+    },
+    {
+      "id": "EGR-T11-FINITE-ALGEBRAIC-ENCLOSURE",
+      "status": "PROVED_REAL_ALGEBRA_MANUSCRIPT_EXECUTABLE_CHECKED",
+      "hypotheses": "M>=2 and the positive trace branch",
+      "statement": "Let B_M=sqrt(2)*(1-c_(M+1)). Then 0<B_M<1 and Pi_M^rot < Pi_infinity^rot <= Pi_M^rot/(1-B_M).",
+      "role": "A finite nested-radical error certificate independent of the target value."
+    },
+    {
+      "id": "EGR-T12-CLASSICAL-PI-IDENTIFICATION",
+      "status": "EXTERNAL_ARCHIMEDEAN_ANALYTIC_BRIDGE",
+      "hypotheses": "standard complex character chi_m(k)=exp(2*pi*i*k/(6*2^m)) and the classical sine small-angle limit",
+      "statement": "u_m=exp(i*pi/2^m), Pi_M^rot=2^m*sin(pi/2^m), and Pi_infinity^rot=pi.",
+      "boundary": "This identifies the intrinsic completion with classical pi; it is not used to choose the finite recursion."
+    }
+  ],
+  "negative_boundaries": [
+    {
+      "id": "EGR-N01-NO-STATE-ONLY-ORIENTATION",
+      "status": "PROVED_TYPE_NO_GO",
+      "statement": "An instantaneous one-Cell state alone cannot encode the direction of arrival/departure; orientation requires an ordered transition or equivalent first-order history."
+    },
+    {
+      "id": "EGR-N02-NO-I-FROM-MINUS-ONE-ALONE",
+      "status": "PROVED_FINITE_NO_GO",
+      "statement": "The half-turn has two square roots exchanged by reversal. A chirality/forward-order datum is necessary to select i rather than -i."
+    },
+    {
+      "id": "EGR-N03-NO-UNIQUE-U1-WITHOUT-TOPOLOGY",
+      "status": "OPEN_COMPLETION_BOUNDARY",
+      "statement": "The algebraic cyclic refinement tower does not by itself select the archimedean U(1) topology or chord norm."
+    },
+    {
+      "id": "EGR-N04-NATIVE-ROTATION-GLOBALIZATION",
+      "status": "OPEN_NATIVE_BOUNDARY",
+      "statement": "The local gate-phase carrier has not yet been proved to be an operation-safe quotient for the full admissible native rotating-segment/Cell dynamics."
+    },
+    {
+      "id": "EGR-N05-TORSION-IDENTIFICATION",
+      "status": "OPEN_COMPARISON_BOUNDARY",
+      "statement": "No theorem currently identifies the cyclic refinement carry bit with the earlier tetrahedral four-slice/six-line residual C2 class."
+    }
+  ]
+}
