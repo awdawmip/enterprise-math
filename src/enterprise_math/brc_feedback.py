@@ -44,6 +44,9 @@ class FeedbackEvent:
 
 
 def feedback_event(source: int, target: int, mass: RationalInput) -> FeedbackEvent:
+    """Construct a typed positive feedback event without bool-to-int coercion."""
+    if isinstance(mass, bool) or not isinstance(mass, (int, Fraction)):
+        raise TypeError("feedback mass must be int or Fraction")
     return FeedbackEvent(source, target, Fraction(mass))
 
 
