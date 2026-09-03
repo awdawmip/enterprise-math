@@ -104,6 +104,7 @@ theorem upperAfter_harmonic_identity
       2 * lowerAfter scale y * upperBefore scale x y := by
   unfold upperAfter lowerAfter upperBefore
   field_simp [hx, hxp]
+  ring
 
 end MeanRenormalization
 
