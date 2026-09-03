@@ -7,6 +7,10 @@ radius r = 1/sqrt(3) uniquely normalizes the adjacent-state sum
 H = r(I + G) into a twelve-state rotor.  The quarter-turn operator is
 J = H^3 = r(R - R^-1), and J^2 = -I.
 
+The unit orientation character H must be distinguished from the physical gate
+displacement.  The latter is rH = (I+G)/3, the centroid/circumcenter vector of
+the elementary unit center triangle.
+
 No trigonometric function and no numerical value of pi is used.  The matrices
 are a derived rotation-character representation; they are not a replacement
 for the native Enterprise length algebra.
@@ -184,8 +188,21 @@ def six_state_rotor() -> Matrix2:
 
 
 def gate_rotor() -> Matrix2:
-    """The Cell-radius-normalized adjacent-state sum H=r(I+G)."""
+    """The unit gate-ray orientation character H=r(I+G)."""
     return matrix_scale(radial(), matrix_add(IDENTITY, six_state_rotor()))
+
+
+def physical_gate_displacement() -> Matrix2:
+    """Physical gate displacement: Cell radius times its unit orientation."""
+    return matrix_scale(radial(), gate_rotor())
+
+
+def physical_gate_centroid_form() -> Matrix2:
+    """The same displacement as one third of the adjacent center-vector sum."""
+    return matrix_scale(
+        Fraction(1, 3),
+        matrix_add(IDENTITY, six_state_rotor()),
+    )
 
 
 def quarter_turn() -> Matrix2:
@@ -229,6 +246,8 @@ class NativeBisectorCertificate:
     gate_cube: Matrix2
     gate_sixth: Matrix2
     gate_twelfth: Matrix2
+    physical_gate: Matrix2
+    physical_gate_centroid: Matrix2
     quarter_chiral: Matrix2
     quarter_square: Matrix2
     adjacent_gram: Matrix2
@@ -247,6 +266,7 @@ class NativeBisectorCertificate:
             and self.gate_cube == quarter_turn()
             and self.gate_sixth == matrix_neg(IDENTITY)
             and self.gate_twelfth == IDENTITY
+            and self.physical_gate == self.physical_gate_centroid
             and self.quarter_chiral == quarter_turn()
             and self.quarter_square == matrix_neg(IDENTITY)
             and self.adjacent_gram == matrix_scale(3, GRAM)
@@ -272,6 +292,8 @@ def native_bisector_certificate() -> NativeBisectorCertificate:
         gate_cube=matrix_pow(gate, 3),
         gate_sixth=matrix_pow(gate, 6),
         gate_twelfth=matrix_pow(gate, 12),
+        physical_gate=physical_gate_displacement(),
+        physical_gate_centroid=physical_gate_centroid_form(),
         quarter_chiral=chiral_difference(),
         quarter_square=matrix_pow(quarter, 2),
         adjacent_gram=adjacent_sum_gram(),
