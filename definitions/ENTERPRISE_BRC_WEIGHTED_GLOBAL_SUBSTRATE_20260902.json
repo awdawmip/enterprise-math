@@ -25,19 +25,20 @@
     "LENGTH_AND_MOMENT_OBSERVERS_REQUIRE_STRONGER_PORT_STATE: constant total-mass W_eff is not length-safe or all-moment complete. Fixed integer moments use E_m(z); the universal exact-weight histogram transfer specializes to every integer moment while retaining original walk length coefficientwise.",
     "CRITICAL_DEGENERACY_IS_EXPLICIT_BRANCH_TYPED: when large-m recurrent subleading behavior is observed, construct the tropical critical graph from explicit histogram dominant weights and the integer critical-degeneracy matrix K from dominant tie multiplicities. Aggregated total mass is not sufficient. Exact correction identity uses the integer polynomial det(I-zK) plus its smallest-positive-root selector; rational threshold comparisons should reuse finite-recurrent exact stability rather than promote floating spectral roots.",
     "CRITICAL_ORBIT_INVENTORY_IS_K_TYPED: after K is constructed, total critical dominant-word counts, based closed-word counts, primitive periodic orbit counts and the critical Euler/zeta prefix are exact integer observables of K and therefore exact rational-gauge invariants. Primitive periodic edge-word orbits are distinct from finite feedback-support simple circuit atoms and are not arithmetic prime counts.",
-    "CRITICAL_RATIO_JET_IS_EXPLICIT_BRANCH_TYPED: powered rational critical gauges and critical/full branch-ratio jets preserve subdominant explicit-branch shape that K alone discards. In irreducible critical scope, the full normalized moment matrix is an exact finite rational ratio jet and the WBRC-T40 determinant gap equals the largest strict powered branch ratio. Reducible critical classes remain a separate research frontier.",
+    "CRITICAL_RATIO_JET_IS_EXPLICIT_BRANCH_TYPED: powered rational critical gauges and critical/full branch-ratio jets preserve subdominant explicit-branch shape that K alone discards. In irreducible critical scope, the full normalized moment matrix is an exact finite rational ratio jet and the WBRC-T40 determinant gap equals the largest strict powered branch ratio. Reducible critical classes require the separate characteristic-jet rules below.",
+    "REDUCIBLE_CRITICAL_CHARACTERISTIC_JET_IS_CANONICAL: for reducible critical classes/structure a global strict rational powered gauge exists, but individual inter-class powered branch ratios are representative-dependent. Closed characteristic ratio layers are exact gauge invariants. A simple selected critical root uses the first root-active characteristic layer; a multiple selected root requires contact-order-weighted Newton scales, and the first Newton edge is not a complete Puiseux expansion.",
     "FEEDBACK_INTERACTION_IS_HIGHER_ORDER_TYPED: simultaneous positive feedback updates may have cooperative recurrent interactions of arbitrary finite order; pairwise edge responses/interactions are not assumed complete. Exact event-level condensation and all-orders subset interactions are available when the problem declares a finite feedback set.",
     "SIGNED_BOUNDARY: positive Weighted-BRC does not encode signed/amplitude cancellation or reflection-odd orientation after positive recoalescence; determinant/group-ring alternating signs used for algebraic compression are not signed branch mass.",
     "DETERMINISTIC_DEGENERATION: a single deterministic positive path has C=1, W=M, E=1, dominant degeneracy d=1 and Delta=0; richer weighted layers should not be forced onto deterministic problems without an observer need.",
     "BOOLEAN_BASE_PRESERVED: canonical R023 Boolean result-support BRC remains the base support semantics and is not mutated by the weighted layer.",
-    "RECURRENT_SCOPE_BOUNDARY: current recurrent/histogram/critical-degeneracy/orbit/ratio-jet Foundation covers finite explicit positive-rational/non-negative-rational systems only; first spectral response/full gap identification currently require irreducible critical K and do not extrapolate to reducible critical classes, infinite state spaces, signed/amplitude recurrence, complex weights, or arbitrary non-rational exact weights without a separate theorem."
+    "RECURRENT_SCOPE_BOUNDARY: current recurrent/histogram/critical-degeneracy/orbit/ratio-jet/reducible-characteristic-jet Foundation covers finite explicit positive-rational/non-negative-rational systems only; it does not extrapolate to infinite state spaces, signed/amplitude recurrence, complex weights, arbitrary non-rational exact branch weights or a generic all-orders Puiseux engine."
   ],
   "phase_a_anti_anchoring": {
     "rule": "These commitments are background typing rules, not a research agenda. FREE Phase A must still generate its own question from the primitive substrate and may open detailed Weighted-BRC theorem/tool surfaces only after the self-generated problem actually contains the relevant typed branch/recurrent structure.",
     "forbidden": [
-      "presenting weighted/recurrent/histogram/critical-degeneracy/orbit/ratio-jet BRC theorem IDs as suggested research questions",
-      "preloading successful arithmetic/selector/holonomy/recurrent/feedback/histogram/critical/orbit/ratio-jet examples to steer question choice",
-      "forcing multiplicity, recurrence, moments, histogram, critical-degeneracy, periodic-orbit, ratio-jet or feedback interpretations onto deterministic or signed problems"
+      "presenting weighted/recurrent/histogram/critical-degeneracy/orbit/ratio-jet/reducible-characteristic-jet BRC theorem IDs as suggested research questions",
+      "preloading successful arithmetic/selector/holonomy/recurrent/feedback/histogram/critical/orbit/ratio-jet/Newton examples to steer question choice",
+      "forcing multiplicity, recurrence, moments, histogram, critical-degeneracy, periodic-orbit, ratio-jet, Newton-edge or feedback interpretations onto deterministic or signed problems"
     ]
   },
   "detailed_foundation": "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md",
@@ -48,6 +49,7 @@
   "critical_degeneracy_foundation": "definitions/ENTERPRISE_BRC_CRITICAL_DEGENERACY_FOUNDATION_20260903.md",
   "critical_orbit_foundation": "definitions/ENTERPRISE_BRC_CRITICAL_ORBIT_FOUNDATION_20260903.md",
   "critical_ratio_jet_foundation": "definitions/ENTERPRISE_BRC_CRITICAL_RATIO_JET_FOUNDATION_20260903.md",
+  "reducible_critical_jet_foundation": "definitions/ENTERPRISE_BRC_REDUCIBLE_CRITICAL_JET_FOUNDATION_20260903.md",
   "theorem_ledger": "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json",
   "theorem_ledger_addenda": [
     "definitions/ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json",
@@ -56,7 +58,8 @@
     "definitions/ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_THEOREM_LEDGER_20260903.json",
     "definitions/ENTERPRISE_BRC_CRITICAL_DEGENERACY_THEOREM_LEDGER_20260903.json",
     "definitions/ENTERPRISE_BRC_CRITICAL_ORBIT_THEOREM_LEDGER_20260903.json",
-    "definitions/ENTERPRISE_BRC_CRITICAL_RATIO_JET_THEOREM_LEDGER_20260903.json"
+    "definitions/ENTERPRISE_BRC_CRITICAL_RATIO_JET_THEOREM_LEDGER_20260903.json",
+    "definitions/ENTERPRISE_BRC_REDUCIBLE_CRITICAL_JET_THEOREM_LEDGER_20260903.json"
   ],
   "tool_method_id": "t0.weighted_brc_cwm",
   "tool_method_addenda": [
@@ -69,7 +72,8 @@
     "t0.weighted_brc_moment_transfer",
     "t0.weighted_brc_critical_degeneracy",
     "t0.weighted_brc_critical_orbits",
-    "t0.weighted_brc_critical_ratio_jet"
+    "t0.weighted_brc_critical_ratio_jet",
+    "t0.weighted_brc_reducible_critical_jet"
   ],
   "tool_module": "src/enterprise_math/brc_weighted.py",
   "tool_module_addenda": [
@@ -82,6 +86,7 @@
     "src/enterprise_math/brc_moment_transfer.py",
     "src/enterprise_math/brc_critical_degeneracy.py",
     "src/enterprise_math/brc_critical_orbits.py",
-    "src/enterprise_math/brc_critical_ratio_jet.py"
+    "src/enterprise_math/brc_critical_ratio_jet.py",
+    "src/enterprise_math/brc_reducible_critical_jet.py"
   ]
 }
