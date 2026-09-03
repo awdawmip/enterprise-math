@@ -1,0 +1,159 @@
+{
+  "schema": "ENTERPRISE_MATH_BRC_RECURRENT_INTERACTION_THEOREM_LEDGER_V1",
+  "status": "CANONICAL_FOUNDATION_ADDENDUM",
+  "effective": "2026-09-03",
+  "parent_ledgers": [
+    "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json",
+    "definitions/ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json"
+  ],
+  "foundation": "definitions/ENTERPRISE_BRC_RECURRENT_INTERACTION_FOUNDATION_20260903.md",
+  "scope": "stable finite non-negative rational recurrent total-mass systems, explicit positive rational branch/gauge coordinates, and finite declared positive feedback-event sets",
+  "research_evidence": [
+    {"pr": 1130, "merge": "edfbeacb13d1fa741c76cd7a6db328bd1b324ad3"},
+    {"pr": 1131, "merge": "86f42d9ebd06dc86ad262ab794ce64cd67517b7f"},
+    {"pr": 1132, "merge": "4f6761bbb5fb5b256d856cbfd25958483ebc1d72"},
+    {"pr": 1133, "merge": "3a6bb471a10fd8673483ea5163687ce850bba9bb"},
+    {"pr": 1134, "merge": "6f8f53230f6e36e0b55c873a72052176dd40b673"},
+    {"pr": 1142, "merge": "1fce8294c6116bdd9fd97828a232657fc7ee892c"},
+    {"pr": 1144, "merge": "c2278f6f446e8bb1c96826c4f723a40b55fb4ee6"},
+    {"pr": 1146, "merge": "69ca04e285d717f015295e149f03cbfd31836ba4"},
+    {"pr": 1147, "merge": "09d5dc3361e40910676bcaff377af81234c06fa6"}
+  ],
+  "theorems": [
+    {
+      "id": "WBRC-T17-RECURRENT-LOOP-ZETA",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "stable finite W in M_n(Q_{>=0})",
+      "statement": "Z_loop(W)=1/det(I-W)=det((I-W)^(-1)) and Gamma(W)=-ln det(I-W)=sum_{k>=1} tr(W^k)/k. Gamma is invariant under positive diagonal state gauge, additive across SCC diagonal blocks, insensitive to feed-forward inter-SCC weights, and Gamma=0 iff the positive-support digraph is acyclic.",
+      "one_state_reduction": "For W=[S], Gamma=-ln(1-S), recovering WBRC-T09.",
+      "source": ["PR #1130", "research_notes/BRC_RECURRENT_LOGDET_ZETA_20260902.md"]
+    },
+    {
+      "id": "WBRC-T18-RECURRENT-INTEGER-EQUAL-SLACK",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "same as T17; write W=A/D and B=DI-A with A integer non-negative",
+      "statement": "With delta=det(B)>0 and C=adj(B), h0=C*1 is a positive integer vector satisfying B h0=delta*1, equivalently A h0=D h0-delta*1. Moreover Z_loop=D^n/delta and the canonical potential x=(I-W)^(-1)1 equals (D/delta) h0.",
+      "consequence": "The same exact integer determinant is the uniform canonical potential slack and the recurrent zeta denominator after common-denominator clearing.",
+      "source": ["PR #1130"]
+    },
+    {
+      "id": "WBRC-T19-RECURRENT-EDGE-LOOP-RESPONSE",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "stable finite positive rational system; explicit branch e:a->b with weight q_e>0; S=(I-W)^(-1)",
+      "statement": "R_e=dGamma/d ln(q_e)=q_e S_ba. R_e>0 iff e lies on a directed recurrent cycle and R_e=0 for transient/feed-forward edges. Sum_e R_e=tr(S-I).",
+      "integer_form": "After common-denominator clearing W=A/D, S=(D/delta) adj(DI-A), so every response is exact rational with integer numerator/denominator certificate.",
+      "source": ["PR #1131"]
+    },
+    {
+      "id": "WBRC-T20-RECURRENT-RESPONSE-HESSIAN-GAUGE",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "same stable explicit-branch scope as T19; e:a->b, f:c->d",
+      "statement": "In log branch-weight coordinates, H_ef=delta_ef R_e + q_e q_f S_bc S_da. H is exact rational, symmetric and positive semidefinite. On a strongly connected recurrent support its kernel is exactly the vertex-gauge coboundary space, hence rank(H)=|E|-|V|+1 and H is positive definite on the cycle/gauge quotient. Transient edges give zero rows/columns and cyclic SCCs split into blocks.",
+      "source": ["PR #1131"]
+    },
+    {
+      "id": "WBRC-T21-RECURRENT-CRITICALITY-POLYNOMIAL",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "finite W=A/D in non-negative rational scope under uniform scale W(t)=tW",
+      "statement": "p(t)=det(DI-tA) is an exact integer polynomial. If support is acyclic, p(t)=D^n and all t>=0 are stable. Otherwise the positive stability endpoint t_c is the smallest positive real root of p. At rational stable t, chi(t)=-t p'(t)/p(t)=tr((I-tW)^(-1)-I) is exact rational. Any positive rational stability potential gives an exact rational lower bound t_c>=1/alpha(h).",
+      "boundary": "The critical root itself need not be rational and no floating spectral/root oracle is required for exact rational in-phase certificates.",
+      "source": ["PR #1131"]
+    },
+    {
+      "id": "WBRC-T22-RATIONAL-GAUGE-PRIME-VALUATION",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "finite graph with positive rational edge weights and vertex gauge q'_e=q_e h_t/h_s",
+      "statement": "Q_{>0}^x is the direct sum over primes of Z via valuations, so rational gauge classes satisfy H^1(G;Q_{>0}^x) ~= direct_sum_p H^1(G;Z). For a fixed root and underlying spanning tree there is a unique rational gauge with root scale 1 and every tree-edge weight 1; the non-tree rational weights are complete fundamental holonomy coordinates.",
+      "log_readout": "ln(q)=sum_p v_p(q) ln p is faithful but derived; the prime-valuation object is an abstract free-abelian module, not generally a discrete Euclidean lattice after log embedding.",
+      "source": ["PR #1132"]
+    },
+    {
+      "id": "WBRC-T23-RATIONAL-HOLONOMY-SKELETON-THICKNESS",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "q in Q_{>0}, integer m>=2",
+      "statement": "There is a unique decomposition q=s_m(q) t_m(q)^m where s_m is a positive m-power-free integer with prime exponents in {0,...,m-1} and t_m is positive rational. For m=2, s_2 is the squarefree/all-prime C2 parity skeleton and t_2 is the exact even-valuation thickness.",
+      "boundary": "Skeleton/parity alone does not determine recurrent stability or loop surplus; thickness remains essential. q/s_m is an exact rational m-th power suitable for the existing BRC ROOT facade.",
+      "source": ["PR #1133"]
+    },
+    {
+      "id": "WBRC-T24-RECURRENT-DETERMINANT-CYCLE-POLYNOMIAL",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "finite explicit positive branch variables x_e with W_ij=sum_{e:i->j} x_e",
+      "statement": "P_G(x)=det(I-W(x)) is multiaffine. Its nonzero monomials have coefficients +/-1 and are indexed by vertex-disjoint directed cycle systems with sign (-1)^(number of cycles). P_G is identically 1 iff support is acyclic. Each cycle-system monomial is vertex-gauge invariant. On the stable phase Z_loop=1/P_G and Gamma=-ln P_G.",
+      "response_bridge": "For explicit edge e, R_e=-q_e P_e/P; diagonal and mixed response identities agree with T19/T20.",
+      "boundary": "Alternating determinant signs are inclusion-exclusion bookkeeping, not signed/amplitude BRC branch mass.",
+      "source": ["PR #1134"]
+    },
+    {
+      "id": "WBRC-T25-FEEDBACK-EVENT-CONDENSATION",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "stable finite rational background W with S=(I-W)^(-1); finitely many inserted positive rational events e_r:a_r->b_r of masses delta_r",
+      "statement": "Define F_rs=S_{b_r a_s} delta_s. The full updated system is stable iff F is stable. If stable, S_tilde=S+SUD(I-F)^(-1)V^T S, det(I-W_tilde)=det(I-W)det(I-F), Z_loop(W_tilde)=Z_loop(W)Z_loop(F), and Gamma(W_tilde)=Gamma(W)+Gamma(F).",
+      "gauge": "Original vertex gauge descends to positive diagonal similarity on event states, so feedback stability/determinant/Gamma are gauge invariant.",
+      "source": ["PR #1142"]
+    },
+    {
+      "id": "WBRC-T26-FEEDBACK-EDGE-ROBUSTNESS",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "same background as T25; one inserted candidate a->b or one existing explicit branch e:a->b",
+      "statement": "For a new edge, kappa=S_ba. If kappa=0 its finite positive insertion radius is infinite; otherwise delta_c=1/kappa and DeltaGamma=-ln(1-delta*kappa) below criticality. For existing branch weight q and response R=qS_ba, the gauge-invariant multiplicative critical factor is Lambda=1+1/R; deleting the branch changes Gamma by ln(1+R).",
+      "polynomial_form": "With P=det(I-W) and branch derivative P_e, delta_c=-P/P_e and Lambda=1-P/(q P_e) on recurrent edges.",
+      "thickness_bridge": "For q=s_m t^m at fixed mod-m skeleton, thickness scaling t->mu t remains stable exactly while mu^m<Lambda.",
+      "source": ["PR #1142"]
+    },
+    {
+      "id": "WBRC-T27-MODULAR-FEEDBACK-CHAIN",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "T25 feedback events partitioned into ordered groups A,B and F_A stable",
+      "statement": "For one-shot block kernel F=[[F_A,X],[Y,F_B]], the conditional kernel after installing A is F_{B|A}=F_B+Y(I-F_A)^(-1)X. Final stability is equivalent to F_A stable and F_{B|A} stable; det(I-F)=det(I-F_A)det(I-F_{B|A}), so DeltaGamma_{A union B}=DeltaGamma_A+DeltaGamma_{B|A}. Repeated conditioning is associative at the final star/determinant level.",
+      "boundary": "Stagewise Gamma attribution depends on order/context although final Gamma is invariant; no unique intrinsic module credit follows.",
+      "source": ["PR #1144"]
+    },
+    {
+      "id": "WBRC-T28-FEEDBACK-MOBIUS-INTERACTION-HIERARCHY",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "finite declared positive feedback-event universe E whose full update is stable; G(A)=Gamma(W_A)-Gamma(W); Z(A)=exp(G(A)) rational",
+      "statement": "There are unique nonnegative event-support interactions Phi_T with G(A)=sum_{nonempty T subseteq A} Phi_T. Exact rational factors J_T=exp(Phi_T)=product_{B subseteq T} Z(B)^((-1)^(|T|-|B|)) satisfy J_T>=1 and Z(A)=product_{nonempty T subseteq A} J_T. J_T>1 iff a positive closed event walk has inserted-event support exactly T.",
+      "consequences": "G is monotone and supermodular; conditional feedback margins increase and critical radii shrink with positive context. Pair interaction for kernel [[a,b],[c,d]] is ((1-a)(1-d))/((1-a)(1-d)-bc). Pairwise interactions need not be complete: pure higher-order feedback can have all lower-order J=1.",
+      "group_bridge": "For disjoint A,B, Z(A union B)/(Z(A)Z(B)) is the product of all J_T crossing the partition and equals the T27 conditional-risk amplification Z(B|A)/Z(B).",
+      "source": ["PR #1146"]
+    },
+    {
+      "id": "WBRC-T29-FEEDBACK-CIRCUIT-ATOM-GIRTH",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "same stable feedback-event scope as T28",
+      "statement": "A Möbius-primitive T (J_T>1 and all proper nonempty J_U=1) is a self-return if |T|=1 and otherwise its induced event support is exactly one directed simple cycle. If its rational circuit product is Q_T, then J_T=1/(1-Q_T) and Phi_T=-ln(1-Q_T). The first nonzero interaction order min{|T|:J_T>1} equals directed girth of the feedback-event support.",
+      "number_theory": "Q_T is vertex-gauge invariant and carries the T22 prime-valuation and T23 mod-m skeleton/thickness coordinates.",
+      "boundary": "Nonprimitive interactions can contain overlapping lower-order circuits and do not reduce to one simple-cycle product.",
+      "source": ["PR #1147"]
+    }
+  ],
+  "negative_boundaries": [
+    {
+      "id": "WBRC-N07-FULL-RATIONAL-GAUGE-EXCEEDS-RECURRENT-OBSERVABLES",
+      "status": "PROVED_NEGATIVE_BOUNDARY",
+      "statement": "Full rational vertex-gauge cohomology can be nontrivial even when recurrent Gamma/response vanish. A feed-forward diamond can retain a nontrivial rational cross-ratio while having no directed recurrent cycle."
+    },
+    {
+      "id": "WBRC-N08-DETERMINANT-SIGN-NOT-SIGNED-BRC",
+      "status": "TYPE_BOUNDARY",
+      "statement": "Alternating signs in determinant cycle-system expansion are inclusion-exclusion signs and do not provide signed/amplitude branch-cancellation semantics."
+    },
+    {
+      "id": "WBRC-N09-PAIRWISE-FEEDBACK-INCOMPLETE",
+      "status": "PROVED_NEGATIVE_BOUNDARY",
+      "statement": "Singleton and pair feedback responses/interactions can all vanish while a pure third- or higher-order event circuit has positive recurrent interaction. Pairwise summaries are not complete in general."
+    },
+    {
+      "id": "WBRC-N10-CONDITIONAL-GAMMA-ATTRIBUTION-NONCANONICAL",
+      "status": "PROVED_NEGATIVE_BOUNDARY",
+      "statement": "Sequential conditional feedback factors telescope to the intrinsic final Gamma, but stagewise/module attribution generally changes with insertion order. No canonical component credit is implied."
+    },
+    {
+      "id": "WBRC-N11-RECURRENT-INTERACTION-SCOPE",
+      "status": "SCOPE_BOUNDARY",
+      "statement": "The addendum is finite, positive/non-negative and rational. It does not promote signed/amplitude or complex recurrence, arbitrary exact irrational weights, infinite-state closure, probability/Fisher semantics, or a generic runtime-speedup theorem."
+    }
+  ],
+  "consumption_rule": "These theorem IDs are all-research Foundation capabilities but remain lazy. Activate only when the problem actually contains finite rational recurrence, positive rational gauge/holonomy, or declared positive feedback events. Do not force recurrent or feedback semantics onto deterministic/signed problems."
+}
