@@ -1,0 +1,47 @@
+{
+  "schema": "ENTERPRISE_MATH_BRC_NEWTON_HANDOFF_RESONANCE_THEOREM_LEDGER_V1",
+  "effective": "2026-09-04",
+  "status": "CANDIDATE_FOUNDATION_BACKFLOW",
+  "parent_foundation": "definitions/ENTERPRISE_BRC_NEWTON_RECURSION_FOUNDATION_20260904.md",
+  "tool_method_id": "t0.weighted_brc_newton_handoff_resonance",
+  "theorems": [
+    {
+      "id": "WBRC-T54-SINGLE-GENERATOR-IRRATIONAL-TRANSLATED-ROOT-HANDOFF",
+      "status": "PROVED_MAIN_BACKED",
+      "source": "PR #1191",
+      "statement": "For a finite Newton jet with rational polynomial coefficients, a first exactly selected irrational translated root beta may be adopted as the sole selected-root evaluation generator A_beta; the residual jet remains finite over rational-valuation Newton scales, and later rational translated roots continue exactly in the same carrier.  If coefficients already lie in A_alpha, a supplied beta=[h]_alpha can be absorbed after semantic root and selected-branch verification."
+    },
+    {
+      "id": "WBRC-T55-AFFINE-NEWTON-SCALE-PUSHFORWARD-RESONANCE",
+      "status": "PROVED_MAIN_BACKED",
+      "source": "PR #1193",
+      "statement": "For selected root x0, multiplicity r and Newton scale theta, every Taylor atom (sigma,k,a) is pushed to residual scale rho=sigma*theta^(k-r); equal residual scales aggregate exactly, two sources resonate iff sigma1/sigma2=theta^(k2-k1), the next edge is the rho=1 fiber, and staged vs one-shot Newton substitutions agree after this pushforward and aggregation."
+    }
+  ],
+  "negative_boundaries": [
+    {
+      "id": "WBRC-N42-IRRATIONAL-TRANSLATED-ROOT-NOT-AUTOMATIC-MULTIGENERATOR",
+      "statement": "A first irrational translated root over rational coefficients can be handed off to a new single-root evaluation carrier."
+    },
+    {
+      "id": "WBRC-N43-HANDOFF-CANNOT-DISCARD-LIVE-OLD-ALGEBRAIC-DATA",
+      "statement": "Replacing an existing algebraic generator by a new translated root is invalid when old algebraic coefficient data remain live and no absorption certificate is supplied."
+    },
+    {
+      "id": "WBRC-N44-ABSORPTION-CERTIFICATE-NOT-ROOT-EXPRESSION-SEARCH",
+      "statement": "The Foundation verifies a supplied beta=[h]_alpha candidate; it does not promise or search for such an expression."
+    },
+    {
+      "id": "WBRC-N45-NEWTON-RESONANCE-NOT-SIGNED-BRANCH-INTERFERENCE",
+      "statement": "Signed coefficients in resonant Newton edge polynomials are algebraic-compression coefficients, not signed branch mass semantics."
+    },
+    {
+      "id": "WBRC-N46-RESIDUAL-NEWTON-JET-LOSES-SOURCE-PROVENANCE",
+      "statement": "Equal residual-scale/Taylor-degree atoms are aggregated; the residual jet does not recover their original source provenance."
+    },
+    {
+      "id": "WBRC-N47-GENERAL-REAL-ROOT-SELECTOR-NOT-T41-REPLACEMENT",
+      "statement": "The translated-root real selector is downstream and does not replace WBRC-T41 smallest-positive critical-root semantics."
+    }
+  ]
+}
