@@ -1,6 +1,8 @@
 import unittest
 from pathlib import Path
 
+from control_plane import research_startup_transport as startup
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -19,6 +21,22 @@ class ResearchStartupTransportTests(unittest.TestCase):
         self.assertIn("ENTERPRISE_MATH_RESEARCH_STARTUP_TRANSPORT_V1", text)
         self.assertIn("INJECTED_CONTEXT_ONLY_DO_NOT_REMOTE_SEARCH_OR_FETCH_FOR_TASK_START", text)
         self.assertIn('result["startup_transport"] = dict(STARTUP_TRANSPORT)', text)
+
+    def test_explicit_runtime_authorize_and_adopt_attach_transport(self):
+        text = (ROOT / "tools/research_runtime_guard.py").read_text(encoding="utf-8")
+        self.assertIn("from control_plane import research_startup_transport as _startup", text)
+        self.assertIn("result = _startup.attach(", text)
+        self.assertGreaterEqual(text.count("_startup.attach("), 2)
+
+    def test_transport_is_nonsemantic_and_agents_nonblocking(self):
+        payload = startup.attach({"task_id": "RS-X"})["startup_transport"]
+        self.assertEqual(payload["schema"], "ENTERPRISE_MATH_RESEARCH_STARTUP_TRANSPORT_V1")
+        self.assertEqual(
+            payload["agents_md"],
+            "INJECTED_CONTEXT_ONLY_DO_NOT_REMOTE_SEARCH_OR_FETCH_FOR_TASK_START",
+        )
+        self.assertEqual(payload["remote_control_reads"], "TRIGGERED_ONLY")
+        self.assertEqual(payload["taskbook_policy_digest_impact"], "NONE_CONTROL_TRANSPORT_ONLY")
 
 
 if __name__ == "__main__":

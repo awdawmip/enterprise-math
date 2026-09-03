@@ -17,6 +17,7 @@ from typing import Any, Mapping
 from control_plane.research_runtime_guard_core import *  # noqa: F401,F403
 from control_plane import research_runtime_guard_core as _core
 from control_plane import research_source_firewall as _firewall
+from control_plane import research_startup_transport as _startup
 
 ROOT = _core.ROOT
 RuntimeAuthorizationError = _core.RuntimeAuthorizationError
@@ -34,7 +35,9 @@ def authorize_execution(
     root: Path = ROOT,
 ) -> dict[str, Any]:
     """Authorize the existing winning CLAIM, then enforce opt-in PRE_MATH."""
-    result = _core.authorize_execution(state, events=events, now=now, root=root)
+    result = _startup.attach(
+        _core.authorize_execution(state, events=events, now=now, root=root)
+    )
     binding = result.get("execution_binding")
     if not isinstance(binding, Mapping):
         return result
@@ -293,13 +296,15 @@ def main() -> int:
         evidence = json.loads(args.evidence_json)
         if not isinstance(evidence, dict):
             raise RuntimeAuthorizationError("evidence must decode to an object")
-        result = _core.adopt_stale_session(
-            state,
-            evidence,
-            replacement_session_id=args.replacement_session_id,
-            now=_core.research_runtime.parse_time(args.now),
-            events=events,
-            session_liveness_minutes=args.session_liveness_minutes,
+        result = _startup.attach(
+            _core.adopt_stale_session(
+                state,
+                evidence,
+                replacement_session_id=args.replacement_session_id,
+                now=_core.research_runtime.parse_time(args.now),
+                events=events,
+                session_liveness_minutes=args.session_liveness_minutes,
+            )
         )
     elif args.command == "pre-math-stamp":
         result = write_pre_math_stamp(
