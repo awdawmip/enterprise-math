@@ -1,0 +1,64 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "FOUNDATION_GLOBAL_SUBTOOLS",
+  "effective": "2026-09-04",
+  "date": "2026-09-04",
+  "module": "BRC_NEWTON_HANDOFF_RESONANCE_FOUNDATION",
+  "parent_method": "T0_BRC",
+  "foundation": "definitions/ENTERPRISE_BRC_NEWTON_HANDOFF_RESONANCE_FOUNDATION_20260904.md",
+  "theorem_ledger": "definitions/ENTERPRISE_BRC_NEWTON_HANDOFF_RESONANCE_THEOREM_LEDGER_20260904.json",
+  "methods": [
+    {
+      "method_id": "t0.weighted_brc_newton_handoff_resonance",
+      "name": "Exact BRC translated-real-root handoff and Newton resonance pushforward",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "implementation": "src/enterprise_math/brc_newton_handoff.py",
+      "foundation": "definitions/ENTERPRISE_BRC_NEWTON_HANDOFF_RESONANCE_FOUNDATION_20260904.md",
+      "theorem_ledger": "definitions/ENTERPRISE_BRC_NEWTON_HANDOFF_RESONANCE_THEOREM_LEDGER_20260904.json",
+      "source_refs": [
+        "PR #1191",
+        "PR #1193",
+        "src/enterprise_math/brc_newton_handoff.py"
+      ],
+      "triggers": [
+        "irrational translated root",
+        "root handoff",
+        "single generator algebra",
+        "root absorption",
+        "newton resonance",
+        "scale collision",
+        "newton pushforward",
+        "brc handoff"
+      ],
+      "capabilities": [
+        "verify one rational-polynomial real root from an exact rational isolating interval including negative translated roots",
+        "carry coefficients in a single selected-real-root evaluation algebra with exact zero equality sign and contact tests",
+        "handoff a rational Newton jet at a selected irrational translated root and continue through later rational translated roots",
+        "verify the semantic zero part of a supplied root-absorption certificate",
+        "return the exact affine Newton residual-scale pushforward with source atoms and resonance fibers",
+        "verify the prime-valuation resonance relation and expose the scale-one edge fiber"
+      ],
+      "typed_inputs": [
+        "finite rational-polynomial Newton jet",
+        "rational-prime-valuation Newton scales",
+        "exact rational isolating interval for one selected real translated root",
+        "optional explicit candidate beta=[h]_alpha for absorption verification"
+      ],
+      "typed_outputs": [
+        "isolated real-root selector",
+        "single-real-root evaluation Newton jet",
+        "rational translated-root continuation",
+        "Newton pushforward fibers and source atoms",
+        "resonance diagnostics"
+      ],
+      "reuse": [
+        "t0.weighted_brc_newton_recursion",
+        "t0.weighted_brc_reducible_critical_jet",
+        "t0.weighted_brc_rational_holonomy"
+      ],
+      "hard_boundary": "No general multi-generator algebraic field, automatic root-expression search, replacement of WBRC-T41 critical-root semantics, complete Puiseux solver, signed branch interference, source-provenance recovery, or infinite-state extension is promoted."
+    }
+  ]
+}
