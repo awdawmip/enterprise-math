@@ -112,10 +112,6 @@ def scale_compare(left: Scale, right: Scale) -> int:
     return (value > 1) - (value < 1)
 
 
-def scale_equal(left: Scale, right: Scale) -> bool:
-    return left == right
-
-
 def scale_max(scales: list[Scale]) -> Scale:
     if not scales:
         raise ValueError("empty scale list")
@@ -136,11 +132,7 @@ def add_poly(target: dict[Scale, list[Fraction]], scale: Scale, order: int, coef
 
 
 def freeze_jet(raw: dict[Scale, list[Fraction]]) -> Jet:
-    return {
-        scale: trim(tuple(values))
-        for scale, values in raw.items()
-        if any(values)
-    }
+    return {scale: trim(tuple(values)) for scale, values in raw.items() if any(values)}
 
 
 def rational_jet(expansion: dict[Fraction, Poly]) -> Jet:
@@ -181,15 +173,7 @@ def newton_step(jet: Jet, root: Fraction, multiplicity: int):
     return theta, output, output[ONE], checks
 
 
-def direct_two_step(
-    original: Jet,
-    z0: Fraction,
-    r1: int,
-    theta1: Scale,
-    y0: Fraction,
-    r2: int,
-    theta2: Scale,
-) -> Jet:
+def direct_two_step(original: Jet, z0: Fraction, r1: int, theta1: Scale, y0: Fraction, r2: int, theta2: Scale) -> Jet:
     raw: dict[Scale, list[Fraction]] = {}
     for scale, poly in original.items():
         for k in range(len(poly)):
@@ -200,13 +184,7 @@ def direct_two_step(
                 value = coefficient * Q(comb(k, j)) * y0 ** (k - j)
                 if value == 0:
                     continue
-                residual = scale_mul(
-                    scale,
-                    scale_mul(
-                        scale_pow(theta1, k - r1),
-                        scale_pow(theta2, j - r2),
-                    ),
-                )
+                residual = scale_mul(scale, scale_mul(scale_pow(theta1, k - r1), scale_pow(theta2, j - r2)))
                 add_poly(raw, residual, j, value)
     return freeze_jet(raw)
 
@@ -239,18 +217,11 @@ def rational_factor_roots(poly: Poly):
         integers = [value // content for value in integers]
     constant = integers[0]
     leading = integers[-1]
-    candidates = {
-        Q(sign * p, q)
-        for p in divisors(constant)
-        for q in divisors(leading)
-        if q
-        for sign in (-1, 1)
-    }
+    candidates = {Q(sign * p, q) for p in divisors(constant) for q in divisors(leading) if q for sign in (-1, 1)}
     for root in sorted(candidates):
         while len(current) > 1 and p_eval(current, root) == 0:
             roots.append(root)
-            current = cd._p_div_exact(current, (-root, Q(1)))
-            current = trim(current)
+            current = trim(cd._p_div_exact(current, (-root, Q(1))))
     return tuple(sorted(roots)), current
 
 
@@ -306,27 +277,23 @@ def branches_from_assignment(cells, assignment) -> tuple[Branch, ...]:
 
 def exhaustive_second_edge_regression():
     eligible = recursive_checks = scale_layers = 0
-
     catalog2 = [(), (Q(1, 4),), (Q(1, 2),), (Q(1, 2), Q(1, 2))]
     cells2 = [(0, 0), (0, 1), (1, 0), (1, 1)]
     for assignment in product(catalog2, repeat=4):
         result = initial_multiple_sample(2, branches_from_assignment(cells2, assignment))
-        if result is None:
-            continue
-        eligible += 1
-        recursive_checks += result[4]
-        scale_layers += result[5]
+        if result is not None:
+            eligible += 1
+            recursive_checks += result[4]
+            scale_layers += result[5]
 
     catalog3 = [(), (Q(1, 3),), (Q(1, 2),)]
     cells3 = [(i, j) for i in range(3) for j in range(3)]
     for assignment in product(catalog3, repeat=9):
         result = initial_multiple_sample(3, branches_from_assignment(cells3, assignment))
-        if result is None:
-            continue
-        eligible += 1
-        recursive_checks += result[4]
-        scale_layers += result[5]
-
+        if result is not None:
+            eligible += 1
+            recursive_checks += result[4]
+            scale_layers += result[5]
     return eligible, recursive_checks, scale_layers
 
 
@@ -335,6 +302,41 @@ def characteristic_expansion_from_branches(branches: tuple[Branch, ...]):
     gauge, _, _, _, records, _, _, _ = data
     levels, layers = win.levels_layers(2, records)
     return rsp.determinant_exponential_expansion(levels, layers)
+
+
+def targeted_common_shift_regression():
+    eligible = checks = irrational_scales = 0
+    a_values = (Q(1, 2), Q(2, 5), Q(1, 3))
+    lower = (Q(1, 3), Q(1, 4), Q(1, 5), Q(1, 6), Q(1, 7))
+    for a, b, c in product(a_values, lower, lower):
+        if not (b < a and c < a):
+            continue
+        branches = (
+            (0, 0, Q(1)), (0, 0, a),
+            (1, 1, Q(1)), (1, 1, a),
+            (0, 1, b), (1, 0, c),
+        )
+        expansion = characteristic_expansion_from_branches(branches)
+        original = rational_jet(expansion)
+        first = newton_step(original, Q(1), 2)
+        if first is None:
+            continue
+        theta1, jet1, edge1, c1 = first
+        if theta1 != scale_from_rational(a) or edge1 != (Q(1), Q(2), Q(1)):
+            continue
+        second = newton_step(jet1, Q(-1), 2)
+        if second is None:
+            continue
+        theta2, jet2, _, c2 = second
+        direct = direct_two_step(original, Q(1), 2, theta1, Q(-1), 2, theta2)
+        assert jet2 == direct
+        eligible += 1
+        checks += c1 + c2 + len(jet2)
+        if any(exponent.denominator > 1 for _, exponent in theta2):
+            irrational_scales += 1
+    assert eligible > 0
+    assert irrational_scales > 0
+    return eligible, checks, irrational_scales
 
 
 def two_step_radical_witness():
@@ -350,16 +352,15 @@ def two_step_radical_witness():
     assert first is not None
     theta1, jet1, edge1, _ = first
     assert theta1 == scale_from_rational(a)
-    assert edge1 == (Q(1), Q(2), Q(1))  # (y+1)^2
+    assert edge1 == (Q(1), Q(2), Q(1))
     second = newton_step(jet1, Q(-1), 2)
     assert second is not None
     theta2, jet2, edge2, _ = second
     expected = scale_mul(scale_root(scale_from_rational(b * c), 2), scale_pow(scale_from_rational(a), -1))
     assert theta2 == expected
     assert dict(theta2) == {2: Q(1), 3: Q(-1, 2), 5: Q(-1, 2)}
-    assert edge2 == (Q(-1), Q(0), Q(1))  # x^2-1
-    direct = direct_two_step(original, Q(1), 2, theta1, Q(-1), 2, theta2)
-    assert jet2 == direct
+    assert edge2 == (Q(-1), Q(0), Q(1))
+    assert jet2 == direct_two_step(original, Q(1), 2, theta1, Q(-1), 2, theta2)
     return 7
 
 
@@ -370,26 +371,20 @@ def three_step_witness():
         (1, 1, Q(1)), (1, 1, a), (1, 1, b),
         (0, 1, c), (1, 0, d),
     )
-    expansion = characteristic_expansion_from_branches(branches)
-    jet0 = rational_jet(expansion)
+    jet0 = rational_jet(characteristic_expansion_from_branches(branches))
     step1 = newton_step(jet0, Q(1), 2)
     assert step1 is not None
     theta1, jet1, edge1, _ = step1
-    assert theta1 == scale_from_rational(a)
-    assert edge1 == (Q(1), Q(2), Q(1))
-
+    assert theta1 == scale_from_rational(a) and edge1 == (Q(1), Q(2), Q(1))
     step2 = newton_step(jet1, Q(-1), 2)
     assert step2 is not None
     theta2, jet2, edge2, _ = step2
-    assert theta2 == scale_from_rational(b / a)
-    assert edge2 == (Q(1), Q(2), Q(1))
-
+    assert theta2 == scale_from_rational(b / a) and edge2 == (Q(1), Q(2), Q(1))
     step3 = newton_step(jet2, Q(-1), 2)
     assert step3 is not None
     theta3, _, edge3, _ = step3
     expected3 = scale_mul(scale_root(scale_from_rational(c * d), 2), scale_pow(scale_from_rational(b), -1))
-    assert theta3 == expected3
-    assert edge3 == (Q(-1), Q(0), Q(1))
+    assert theta3 == expected3 and edge3 == (Q(-1), Q(0), Q(1))
     return 7
 
 
@@ -398,23 +393,27 @@ def scale_algebra_checks():
     third = scale_from_rational(Q(1, 3))
     radical = scale_root(scale_mul(half, third), 2)
     assert dict(radical) == {2: Q(-1, 2), 3: Q(-1, 2)}
-    assert scale_compare(radical, half) < 0  # 1/sqrt(6) < 1/2
+    assert scale_compare(radical, half) < 0
     assert scale_compare(scale_root(scale_from_rational(Q(1, 3)), 2), half) > 0
-    assert scale_compare(scale_from_rational(Q(1, 2)), scale_root(scale_from_rational(Q(1, 3)), 2)) < 0
+    assert scale_compare(half, scale_root(scale_from_rational(Q(1, 3)), 2)) < 0
     assert scale_pow(scale_root(scale_from_rational(Q(2, 15)), 3), 3) == scale_from_rational(Q(2, 15))
     return 5
 
 
 def main() -> int:
-    eligible, recursive, layers = exhaustive_second_edge_regression()
+    old_eligible, old_recursive, old_layers = exhaustive_second_edge_regression()
+    targeted, targeted_checks, irrational = targeted_common_shift_regression()
     radical = two_step_radical_witness()
     third = three_step_witness()
     scale_checks = scale_algebra_checks()
-    assert eligible > 0
+    assert old_eligible == 0  # informative negative census for the old coarse catalog
     print("BRC rational-root Newton recursion checker: PASS")
-    print(f"catalog_second_edge_eligible_samples={eligible}")
-    print(f"recursive_vs_direct_checks={recursive}")
-    print(f"second_residual_scale_layers={layers}")
+    print(f"old_catalog_second_edge_eligible_samples={old_eligible}")
+    print(f"old_catalog_recursive_checks={old_recursive}")
+    print(f"old_catalog_second_residual_scale_layers={old_layers}")
+    print(f"targeted_common_shift_eligible_samples={targeted}")
+    print(f"targeted_recursive_vs_direct_checks={targeted_checks}")
+    print(f"targeted_irrational_scale_samples={irrational}")
     print(f"radical_second_edge_checks={radical}")
     print(f"three_step_recursive_checks={third}")
     print(f"rational_valuation_scale_checks={scale_checks}")
