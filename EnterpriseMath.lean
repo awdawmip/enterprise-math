@@ -15,6 +15,7 @@ import EnterpriseMath.Precision.DirichletDecimation
 import EnterpriseMath.Precision.DirichletMatrix
 import EnterpriseMath.Precision.DirichletPolynomial
 import EnterpriseMath.Precision.DirichletCurvature
+import EnterpriseMath.Precision.DirichletCoefficients
 import EnterpriseMath.Precision.CompositionSafeCollapse
 import EnterpriseMath.Precision.QuotientBasin
 import EnterpriseMath.Precision.QuotientCoalescence
