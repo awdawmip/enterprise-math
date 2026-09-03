@@ -76,6 +76,7 @@ theorem dirichletParitySecond_zero (n : ℕ) :
     dirichletContinuant 0 (n + 2) - dirichletContinuant 0 n = 2 := by
   rw [dirichletContinuant_zero, dirichletContinuant_zero]
   push_cast
+  ring
 
 /--
 The zero-parameter odd-chain determinant factorization has parity-sector values
