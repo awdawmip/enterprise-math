@@ -4,6 +4,10 @@ import EnterpriseMath.PrimeFusion.Reconstruction
 
 namespace EnterpriseMath.PrimeFusion
 
+-- These proposition-valued structures are intentionally installed with `letI`
+-- below because the fixed `ZMod` API consumes them through typeclass synthesis.
+set_option linter.style.haveILetI false
+
 /-- An unordered square-free semiprime is a product of two distinct natural primes.
 This deliberately forgets channel attachment; the fixed-channel predicate below
 retains the Gaussian/Eisenstein labels. -/
@@ -62,9 +66,9 @@ theorem zmod_isField_of_prime {n : ℕ} (hn : n.Prime) : IsField (ZMod n) := by
 /-- Converse field-to-prime bridge for a nontrivial positive modulus.
 
 Crucially, the hypothesis is `IsField (ZMod n)`, a property of the already-fixed
-`ZMod n` ring operations; it does not store or assume `n.Prime`.  Since `ZMod n`
+`ZMod n` ring operations; it does not store or assume `n.Prime`. Since `ZMod n`
 has characteristic `n`, fieldness supplies an integral-domain structure and,
-for `1 < n`, the carrier is finite.  The characteristic of a finite nontrivial
+for `1 < n`, the carrier is finite. The characteristic of a finite nontrivial
 domain is prime, hence `n.Prime`. -/
 theorem zmod_prime_of_isField {n : ℕ} (hn1 : 1 < n)
     (hfield : IsField (ZMod n)) : n.Prime := by
@@ -77,7 +81,7 @@ theorem zmod_prime_of_isField {n : ℕ} (hn1 : 1 < n)
 /-- The channel-labelled quotient-field condition.
 
 Unlike the rejected first F2 encoding, this definition contains **no primality
-fields**.  It asserts directly that the two already-fixed Gaussian/Eisenstein
+fields**. It asserts directly that the two already-fixed Gaussian/Eisenstein
 `ZMod` quotient rings are fields and remembers that their moduli are distinct. -/
 def FixedChannelPrimeFieldPair (a b : ℤ) : Prop :=
   IsField (ZMod (Nmodulus a b)) ∧
@@ -141,7 +145,7 @@ theorem fixed_channels_dualPrime_iff_squarefreeSemiprime
   exact dualPrime_iff_squarefreeSemiprime_mul hN1 hC1 hne
 
 /-- The load-bearing F2-L04 converse: actual fieldness of the two fixed quotient
-rings forces primality of the two channel moduli.  The `1 <` hypotheses are the
+rings forces primality of the two channel moduli. The `1 <` hypotheses are the
 explicit edge conditions needed to exclude the characteristic-zero/degenerate
 modulus boundary when converting finite-domain characteristic to primality. -/
 theorem fixedChannelPrimeFieldPair_dualPrime
@@ -156,7 +160,7 @@ theorem fixedChannelPrimeFieldPair_dualPrime
 
 The forward direction constructs fieldness from dual primality; the reverse
 direction proves primality from structural `IsField` hypotheses on the existing
-`ZMod` quotients.  Distinctness is retained as channel data rather than erased by
+`ZMod` quotients. Distinctness is retained as channel data rather than erased by
 an unordered product isomorphism. -/
 theorem fixedChannelPrimeFieldPair_iff_dualPrime
     {a b : ℤ}
