@@ -1,0 +1,95 @@
+{
+  "schema": "ENTERPRISE_MATH_R037_V2_PRESERVATION_AUDIT_V1",
+  "task_id": "RS-R037-R033-R034-INDEPENDENT-ALGORITHM-DATA-REPLICATION-AUDIT",
+  "publication_id": "TP2-FEE5990D460CCB106345",
+  "researcher_id": "EM-R037-DA5B4D",
+  "claim_id": "chatgpt-r037-v2pres-20260902-1034-a71c2e",
+  "execution_branch_base": "ac709e6d472c39b1b623905d85eb753d965a6567",
+  "claim_comment_id": 5503474685,
+  "claim_server_created_at": "2026-09-02T02:34:57+00:00",
+  "scope": "V2_PRESERVATION_AND_DISPATCH_SEMANTICS_AUDIT_ONLY__NO_R033_R034_MATHEMATICAL_REPLAY",
+  "pins": {
+    "current_task_record": "research_task_records/RS-R037-R033-R034-INDEPENDENT-ALGORITHM-DATA-REPLICATION-AUDIT/TP2-FEE5990D460CCB106345.json",
+    "current_taskbook": "research_tasks/LEGACY_CONTROL_MIGRATION_RS_R037_R033_R034_INDEPENDENT_ALGORITHM_DATA_REPLICATION_AUDIT_20260902.md",
+    "current_taskbook_blob_sha1": "sha1:16f7343d8087e0eb43b4af697de9785139539cc8",
+    "legacy_source_commit": "ce629e24e5af59128e25af87075c6622413684e0",
+    "legacy_taskbook": "research_tasks/R037_R033_R034_INDEPENDENT_ALGORITHM_DATA_REPLICATION_AUDIT_20260812.md",
+    "legacy_taskbook_blob_sha1": "sha1:23c4f0c3dc034ee0f1d48d72d47009376685a56d",
+    "r033_frozen_owner_head": "c2aa1758c6cf8f194d8b4493b90c903a2dfcd048",
+    "r034_frozen_owner_head": "674fb8717d753cd36fd83b061c869d79e8875b31",
+    "historical_pr": 812,
+    "historical_return_head": "87d617a90d81b6197d521699512e1894db4346d8",
+    "historical_return_path": "research_returns/R037_R033_R034_INDEPENDENT_ALGORITHM_DATA_REPLICATION_AUDIT_RETURN_20260828.md",
+    "historical_return_blob_sha1": "sha1:66c837d42227d7de02dfd2de82219a17b875a66f"
+  },
+  "matrix": [
+    {
+      "check": "TASK_IDENTITY_AND_OWNER",
+      "result": "PASS",
+      "evidence": "V2 task_id, owner, P0 frontier identity, and exact source pins match the migrated R037 boundary."
+    },
+    {
+      "check": "MATHEMATICAL_FRONTIER_AND_RETURN_BOUNDARY",
+      "result": "PASS",
+      "evidence": "V2 next_action still routes to Driver review of PR #812 and preserves the mathematical-vs-provenance split; the preservation taskbook forbids replaying completed work."
+    },
+    {
+      "check": "R033_R034_FROZEN_OWNER_PINS",
+      "result": "PASS",
+      "evidence": "The original taskbook and historical return both pin R033 c2aa1758... and R034 674fb871...."
+    },
+    {
+      "check": "PROVENANCE_CAVEAT_PRESERVATION",
+      "result": "PASS",
+      "evidence": "The V2 next_action explicitly retains the accidental partial R034 patch-exposure caveat and the fresh-R034-only option if a strict provenance-clean label is required."
+    },
+    {
+      "check": "TRUTH_AUTHORITY_BACKFLOW",
+      "result": "PASS",
+      "evidence": "Current publication has working_truth_granted=false and canonical_promotion_granted=false; migration does not upgrade historical mathematical claims."
+    },
+    {
+      "check": "LEVERAGE_METADATA",
+      "result": "OPERATIONAL_NORMALIZATION",
+      "legacy": "FOUNDATIONAL_VERIFICATION",
+      "v2": "HIGH",
+      "effect": "Selector metadata changed; mathematical scope did not."
+    },
+    {
+      "check": "CLAIM_LEASE",
+      "result": "OPERATIONAL_NORMALIZATION",
+      "legacy_minutes": 1440,
+      "v2_minutes": 120,
+      "effect": "Liveness window changed; mathematical scope did not."
+    },
+    {
+      "check": "RUNTIME_RESULT_OVERLAY_AT_CLAIM_BASE",
+      "result": "FAIL_CONTROL_GAP",
+      "evidence": "At execution base ac709e6..., the exact task-scoped V2 execution-record and result-record directories are absent, so the historical frozen return cannot produce the ordinary AWAITING_DRIVER_REVIEW overlay."
+    },
+    {
+      "check": "DISPATCH_SEMANTICS",
+      "result": "FAIL_CONTROL_GAP",
+      "evidence": "The migrated publication is claimable=true with base_state=HANDOFF_READY while its own next_action is Driver review and its body says not to replay completed work. V2 policy ranks HANDOFF_READY first and reducer maps unleased HANDOFF_READY to NEEDS_DISPATCH."
+    },
+    {
+      "check": "OBSERVED_REDISPATCH",
+      "result": "REPRODUCED_EXACT",
+      "evidence": "The canonical selector led to server-authenticated Issue #240 CLAIM comment 5503474685 for this migrated review-pending task, concretely reproducing the redispatch gap."
+    }
+  ],
+  "verdict": {
+    "mathematical_meaning_preserved": true,
+    "durable_handoff_boundary_preserved": true,
+    "truth_status_not_upgraded": true,
+    "runtime_dispatch_semantics_safe": false,
+    "terminal_label": "PRESERVATION_PASS_WITH_RUNTIME_DISPATCH_GAP"
+  },
+  "recommendations": [
+    "Materialize or otherwise authoritatively represent the historical frozen R037 return as a V2 review-pending result lifecycle so dispatch overlays it as AWAITING_DRIVER_REVIEW.",
+    "Until that lifecycle is authoritative, block researcher redispatch of this task rather than HANDOFF it back into the selector.",
+    "Driver should review historical PR #812 separately from this preservation audit.",
+    "If strict provenance-clean R034 replication is required, publish a fresh R034-only task; do not rerun the completed parent R037 audit.",
+    "Document the leverage and lease normalizations as runtime metadata changes, not mathematical changes."
+  ]
+}
