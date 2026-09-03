@@ -12,7 +12,9 @@ Order is intentional:
 8. normalize every other isolated task to a state-machine-complete hard block;
 9. expose fault-isolated operational task/publication audits while retaining
    explicit strict/raw audit handles;
-10. leave every unrelated task/review under the original strict rules.
+10. apply the current parent-Objective head as the final dispatch authority so
+    PARKED/CLOSED Objectives cannot leak stale child execution;
+11. leave every unrelated task/review under the original strict rules.
 
 IMPORTANT LIVENESS BOUNDARY
 ---------------------------
@@ -39,6 +41,7 @@ from typing import Any
 from control_plane import research_driver_followup_fault_isolation
 from control_plane import research_driver_review_authority_fault_isolation
 from control_plane import research_nonoperational_review_source_adapter
+from control_plane import research_parent_objective_dispatch_gate
 from control_plane import research_publication_fault_isolation
 from control_plane import research_result_review_binding_fault_isolation
 from control_plane import research_task_integrity_fault_isolation
@@ -237,6 +240,7 @@ def install(root: Path = ROOT) -> None:
         research_dispatch._canonical_control_bootstrap_installed = True
 
     _install_operational_audit_views(root)
+    research_parent_objective_dispatch_gate.install(root)
 
 
 if __name__ == "__main__":
