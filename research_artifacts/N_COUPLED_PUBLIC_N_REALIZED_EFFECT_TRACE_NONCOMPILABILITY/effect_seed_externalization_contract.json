@@ -1,0 +1,98 @@
+{
+  "calculus_id": "G_effect-seed",
+  "carrier_semantics": "A runtime handle denotes a finitely presented R_N=Z/NZ-module and is affine/linear. Pre-readout handle reflection is absent. Deterministic presentation-transparent constructors may be composed with public seeded realization effects.",
+  "claim_id": "CLM-9C6A4E2F18D7B3510C42",
+  "effect_class": {
+    "branch_specific_pre_readout_reflection_forbidden": true,
+    "hidden_factor_or_factor_correlated_seed_forbidden": true,
+    "primitive": "REALIZE_EFFECT(spec,H_1,...,H_k) -> H'",
+    "public_spec_requirement": "spec gives a finite exact seed space S, positive integer weights (or an equivalent exact public sampler), and a public deterministic branch compiler Phi taking N, the seed, and explicit input presentations to an explicit output presentation",
+    "runtime_rule": "The primitive consumes its input handles, samples a seed according to the public exact law, computes the branch presentation through Phi, returns a nonreflective handle for that realized module, and does not reveal the realized seed or output presentation before terminal materialization.",
+    "secret_implementation_forbidden": true
+  },
+  "forbidden_pre_readout_handle_operations": [
+    "COPY_HANDLE",
+    "REPLAY_HANDLE",
+    "HANDLE_EQUALITY",
+    "ENUMERATE_ELEMENTS",
+    "MEMBERSHIP_QUERY",
+    "QUOTIENT_EQUALITY_QUERY",
+    "STANDARD_BASIS_PROBE",
+    "ARBITRARY_ELEMENT_EVALUATION",
+    "CARDINALITY_QUERY",
+    "PRESENTATION_QUERY",
+    "REALIZED_SEED_QUERY"
+  ],
+  "next_frontier": "A surviving positive route must require more than an unknown realized branch: its public semantics must resist effective distributional externalization to explicit presentations while remaining fully specified, public-N-only, non-oracular, and outside the reviewed order/collision/square-relation/p-adic/direct-nonunit mechanisms.",
+  "public_input": "N only; theorem statements audit N=pq with distinct hidden primes p,q used only in proofs",
+  "public_intensional_data": [
+    "N",
+    "effect operation tags and types",
+    "public spec",
+    "the exact public seed law",
+    "public branch compiler Phi",
+    "public deterministic constructor transcript"
+  ],
+  "publication_id": "TP2-6E2A94C1B7D3058F2A41",
+  "researcher_id": "EM-NCASEFF1-84C2D6",
+  "schema": "ENTERPRISE_MATH_NCASEFF1_EFFECT_SEED_EXTERNALIZATION_V1",
+  "scope_boundary": [
+    "No impossibility claim for arbitrary effectful computation.",
+    "No claim for effects whose public semantics is not effectively sampleable/enumerable as explicit presentations.",
+    "No factoring lower bound or complexity lower bound.",
+    "No novelty, Working Truth, Foundation, L4, or canonical-promotion claim.",
+    "Hidden p,q are proof variables only and are never supplied to the public effect."
+  ],
+  "seed_externalization_theorem": {
+    "conclusion": "The full realized presentation trace has an exact external public sampler obtained by sampling the same seeds and running the public presentation compilers in program order. Terminal readout on materialized presentations therefore has exactly the same output distribution under the hidden-effect execution and the external explicit-presentation simulator.",
+    "consequence": "If success is a proper determinantal gcd/nonunit event of the realized presentation, the mechanism is exactly an explicit randomized presentation/nonunit search in the sense of the task firewall.",
+    "hypotheses": [
+      "finite program",
+      "each effect has a public exact seed sampler",
+      "each effect has a public deterministic presentation branch compiler Phi",
+      "deterministic constructors are presentation-transparent",
+      "no factor-correlated secret input or hidden implementation"
+    ]
+  },
+  "semantic_distinction": {
+    "actual_branch_compilability": "The same pre-readout public transcript may admit multiple realized seeds and therefore multiple realized presentations/supports; the actual branch need not be a deterministic function of that transcript.",
+    "distributional_compilability": "Because the seed law and Phi are public and effective, an external simulator can sample the same seed law and apply Phi recursively. The joint law of explicit presentations is exactly the pushforward law of the hidden runtime effects.",
+    "freeze": "ACTUAL_BRANCH_NONCOMPILABILITY != DISTRIBUTIONAL_NONCOMPILABILITY"
+  },
+  "status": "FROZEN_FOR_TASK_LOCAL_NEGATIVE_BOUNDARY",
+  "task_id": "RS-N-COUPLED-PUBLIC-N-REALIZED-EFFECT-TRACE-NONCOMPILABILITY",
+  "terminal_boundary": {
+    "operation": "MATERIALIZE(H)",
+    "oracle_guard": "MATERIALIZE returns a presentation, not a factor/nonunit/CRT side; the failure is equivalence to public random presentation sampling, not an oracle contract",
+    "semantics": "consume final handle and return its explicit presentation",
+    "witness_readout": "for [A], compute gcd(N,A)"
+  },
+  "tool_reuse_resolution": {
+    "T8_RELATION_OBSERVABLE_SPECTRUM": "REUSE_APPLIED: model the public effect as a weighted relation from public pre-state/spec to possible presentation branches; preserve the distinction between raw branching and observed nondeterminism. The task-specific theorem then proves this weighted relation is exactly externally sampleable.",
+    "new_general_purpose_tool": "NOT_CREATED"
+  },
+  "witness": {
+    "N": "pq, distinct hidden primes",
+    "actual_branch_support": "For ell in {p,q}, the ell-CRT component of H1 is nonzero iff ell divides A. Thus support can be empty, p-only, q-only, or both under the same public transcript.",
+    "classification": "EXPLICIT_RANDOM_SCALAR_PRESENTATION_NONUNIT_SEARCH / KILLED_AS_POSITIVE_ROUTE",
+    "distribution_externalization": "External sampling A uniformly in R_N and forming [A] gives the identical presentation law.",
+    "exact_counts": {
+      "gcd_1": "(p-1)(q-1)",
+      "gcd_N": "1",
+      "gcd_p": "q-1",
+      "gcd_q": "p-1",
+      "proper_factor": "p+q-2"
+    },
+    "exact_probability": {
+      "proper_factor": "(p+q-2)/(pq)"
+    },
+    "program": [
+      "H0 = NEW_FREE(1)",
+      "H1 = REALIZE_RANDOM_RELATION(uniform_R_N,H0)",
+      "MATERIALIZE(H1) -> [A]",
+      "readout gcd(N,A)"
+    ],
+    "runtime_effect": "A is sampled uniformly from {0,...,N-1}; H1 = coker([A]:R_N->R_N); A is hidden until MATERIALIZE"
+  },
+  "witness_calculus_id": "G_effect-randrel"
+}
