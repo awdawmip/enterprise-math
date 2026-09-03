@@ -7,6 +7,7 @@ on:
       - "research_notes/EULER_FCC_CHIRALITY_CUBE_ORIENTATION_COVER_20260904.md"
       - "research_notes/EULER_FCC_CHIRALITY_THEOREM_LEDGER_20260904.json"
       - "EnterpriseMath/Precision/EulerFccChiralityGluing.lean"
+      - "EnterpriseMath/Precision/EulerFccChiralityConnectivity.lean"
       - "src/enterprise_math/euler_fcc_chirality.py"
       - "src/enterprise_math/euler_fcc_chirality_connectivity.py"
       - "tests/test_euler_fcc_chirality.py"
@@ -46,7 +47,9 @@ jobs:
           python src/enterprise_math/euler_fcc_chirality_connectivity.py > /tmp/euler-fcc-connectivity.json
       - name: Reject proof placeholders
         run: |
-          if grep -R -n -E '\b(sorry|admit|axiom)\b' EnterpriseMath/Precision/EulerFccChiralityGluing.lean; then
+          if grep -R -n -E '\b(sorry|admit|axiom)\b' \
+            EnterpriseMath/Precision/EulerFccChiralityGluing.lean \
+            EnterpriseMath/Precision/EulerFccChiralityConnectivity.lean; then
             echo "Proof placeholder or custom axiom detected"
             exit 1
           fi
@@ -63,5 +66,5 @@ jobs:
         run: lake update
       - name: Fetch mathlib cache
         run: lake exe cache get
-      - name: Build finite FCC chirality classification
-        run: lake build --wfail -KCI EnterpriseMath.Precision.EulerFccChiralityGluing
+      - name: Build finite FCC chirality and connectivity classification
+        run: lake build --wfail -KCI EnterpriseMath.Precision.EulerFccChiralityConnectivity
