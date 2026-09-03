@@ -1,0 +1,25 @@
+name: brc-critical-ratio-spectral-response-research
+
+on:
+  pull_request:
+    paths:
+      - 'research_notes/BRC_CRITICAL_RATIO_JET_SPECTRAL_RESPONSE_20260903.md'
+      - 'experiments/brc_critical_ratio_spectral_response_check.py'
+      - '.github/workflows/brc-critical-ratio-spectral-response-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Exact BRC critical ratio-jet spectral response checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_critical_ratio_spectral_response_check.py
