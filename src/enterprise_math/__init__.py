@@ -161,6 +161,16 @@ from .brc_critical_orbits import (
     critical_word_counts,
     critical_zeta_coefficients,
 )
+from .brc_critical_ratio_jet import (
+    CriticalRatioJet,
+    CriticalRatioResponseState,
+    FullPoweredRatioJet,
+    PoweredCriticalGauge,
+    critical_ratio_first_response,
+    critical_ratio_jet,
+    full_powered_ratio_jet,
+    powered_critical_gauge,
+)
 from .geometry import (
     directed_graph_distance,
     graph_distance,
@@ -330,6 +340,14 @@ __all__ = [
     "critical_zeta_coefficients",
     "critical_euler_coefficients",
     "critical_orbit_prefix",
+    "PoweredCriticalGauge",
+    "CriticalRatioJet",
+    "FullPoweredRatioJet",
+    "CriticalRatioResponseState",
+    "powered_critical_gauge",
+    "critical_ratio_jet",
+    "full_powered_ratio_jet",
+    "critical_ratio_first_response",
     "scale_factor",
     "scaled_root_factor",
     "project_scale_factor",
