@@ -16,10 +16,10 @@ Known task-local publication faults are isolated before the fresh selectors run:
 unresolved forks select no head, exact pinned integrity faults select no invalid
 publication, affected tasks are BLOCKED, and unrelated tasks remain dispatchable.
 
-The returned startup transport is deliberately non-semantic. It prevents a task
-start from turning AGENTS.md discovery into a remote preflight: if AGENTS.md was
-already injected by the host, obey it; otherwise start from the exact dispatch
-target/taskbook and load triggered control files only when a concrete need arises.
+Every returned route also carries the current non-semantic startup/rebase transport.
+That transport invalidates stale cached conversation workflow plans on every control
+entry while preserving exact task/claim/durable-frontier authority. AGENTS.md is
+obeyed when already injected by the host; it is not a remote task-start prerequisite.
 """
 from __future__ import annotations
 
@@ -32,6 +32,7 @@ from typing import Any, Mapping
 from control_plane import research_control_bootstrap
 from control_plane import research_publication_fault_isolation
 from control_plane import research_task_integrity_fault_isolation
+from control_plane import research_startup_transport
 from tools import research_dispatch
 from tools import research_lane_dispatch
 from tools import research_runtime
@@ -48,19 +49,6 @@ SESSION_ACTIVITY_KINDS = frozenset(
 )
 ORDINARY_TASK = "ORDINARY_TASK"
 COHORT_LANE = "COHORT_LANE"
-STARTUP_TRANSPORT = {
-    "schema": "ENTERPRISE_MATH_RESEARCH_STARTUP_TRANSPORT_V1",
-    "agents_md": "INJECTED_CONTEXT_ONLY_DO_NOT_REMOTE_SEARCH_OR_FETCH_FOR_TASK_START",
-    "if_agents_context_unavailable": "PROCEED_FROM_CANONICAL_DISPATCH_TARGET_AND_EXACT_TASKBOOK",
-    "hot_start": [
-        "EXACT_DISPATCH_TARGET",
-        "EXACT_TASK_PUBLICATION_AND_TASKBOOK",
-        "FIRST_REQUIRED_DEPENDENCY",
-        "SUBSTANTIVE_RESEARCH",
-    ],
-    "remote_control_reads": "TRIGGERED_ONLY",
-    "taskbook_policy_digest_impact": "NONE_CONTROL_TRANSPORT_ONLY",
-}
 
 
 class ControlDispatchError(ValueError):
@@ -161,7 +149,7 @@ def _owner_scope_activity(
     """Return liveness time only when observation matches exact current owner scope.
 
     A stale/foreign claim observation is ignored rather than allowed to keep the
-    current owner active.  Direct library callers receive the same rule as the
+    current owner active. Direct library callers receive the same rule as the
     CLI parser, so bypassing JSON parsing cannot turn generic chat activity into
     owner-scope liveness.
     """
@@ -363,7 +351,7 @@ def route_control(
         fresh_task=fresh_task,
         fresh_lane=fresh_lane,
     )
-    result["startup_transport"] = dict(STARTUP_TRANSPORT)
+    result = research_startup_transport.attach(result)
     fork_quarantines = sorted(research_publication_fault_isolation.validated_quarantines(root))
     integrity_quarantines = sorted(research_task_integrity_fault_isolation.validated_quarantines(root))
     if fork_quarantines or integrity_quarantines:
