@@ -1,0 +1,25 @@
+name: brc-newton-fiber-sum-quotient-research
+
+on:
+  pull_request:
+    paths:
+      - 'research_notes/BRC_NEWTON_FIBER_SUM_OPERATION_SAFE_QUOTIENT_20260904.md'
+      - 'experiments/brc_newton_fiber_sum_operation_safe_quotient_check.py'
+      - '.github/workflows/brc-newton-fiber-sum-quotient-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Exact BRC Newton fiber-sum quotient checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_newton_fiber_sum_operation_safe_quotient_check.py
