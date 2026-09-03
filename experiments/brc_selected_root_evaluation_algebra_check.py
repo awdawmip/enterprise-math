@@ -181,7 +181,7 @@ def algebraic_base_first_step(expansion: dict[Fraction, Poly], root: RootEvalSta
         sigma = rr.scale_from_rational(base)
         for k in range(len(poly)):
             coefficient = taylor_eval_coeff(poly, k)
-            if coefficient == (Q(0),):
+            if root.zero(coefficient):
                 continue
             residual = rr.scale_mul(sigma, rr.scale_pow(theta, k - r))
             assert rr.scale_compare(residual, ONE) <= 0
@@ -229,11 +229,11 @@ def direct_two_step(expansion: dict[Fraction, Poly], root: RootEvalState, r1: in
         sigma = rr.scale_from_rational(base)
         for k in range(len(poly)):
             coefficient = taylor_eval_coeff(poly, k)
-            if coefficient == (Q(0),):
+            if root.zero(coefficient):
                 continue
             for j in range(k + 1):
                 value = p_scale(coefficient, Q(comb(k, j)) * y0 ** (k - j))
-                if value == (Q(0),):
+                if root.zero(value):
                     continue
                 residual = rr.scale_mul(sigma, rr.scale_mul(rr.scale_pow(theta1, k - r1), rr.scale_pow(theta2, j - r2)))
                 add_eval_coeff(raw, residual, j, value)
