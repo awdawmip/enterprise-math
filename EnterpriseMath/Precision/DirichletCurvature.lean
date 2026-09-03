@@ -43,7 +43,7 @@ theorem sqrt_endpoint_product_eq_sqrt_decimation (z : ℝ)
   rfl
 
 /-- Coarse normalized mode radius at scale `q`. -/
-def dirichletCoarseRadius (q : ℕ) (u : ℝ) : ℝ :=
+noncomputable def dirichletCoarseRadius (q : ℕ) (u : ℝ) : ℝ :=
   (q : ℝ) * Real.sqrt u
 
 /--
@@ -51,7 +51,7 @@ The parity-product ratio `q/2`, corrected by the two endpoint square roots.
 Once the parity factors are identified with the even/odd spectral products,
 this is exactly the #1159 full-spectrum curvature observer.
 -/
-def dirichletParityEndpointCurvature (q : ℕ) (z : ℝ) : ℝ :=
+noncomputable def dirichletParityEndpointCurvature (q : ℕ) (z : ℝ) : ℝ :=
   ((q : ℝ) / 2) * Real.sqrt z * Real.sqrt (4 - z)
 
 /--
@@ -63,7 +63,11 @@ theorem dirichletParityEndpointCurvature_collapse (q : ℕ) (z : ℝ)
     dirichletParityEndpointCurvature q z =
       dirichletCoarseRadius q (spectralDecimation z) / 2 := by
   unfold dirichletParityEndpointCurvature dirichletCoarseRadius
-  rw [sqrt_endpoint_product_eq_sqrt_decimation z hz0]
-  ring
+  calc
+    (q : ℝ) / 2 * Real.sqrt z * Real.sqrt (4 - z)
+        = (q : ℝ) / 2 * (Real.sqrt z * Real.sqrt (4 - z)) := by ring
+    _ = (q : ℝ) / 2 * Real.sqrt (spectralDecimation z) := by
+      rw [sqrt_endpoint_product_eq_sqrt_decimation z hz0]
+    _ = (q : ℝ) * Real.sqrt (spectralDecimation z) / 2 := by ring
 
 end EnterpriseMath.Precision
