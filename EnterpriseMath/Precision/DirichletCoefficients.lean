@@ -74,7 +74,9 @@ theorem dirichletSpectralPoly_coeff_choose :
               (-1 : ℝ) ^ (n + 1 + k)
                   = (-1 : ℝ) ^ (n + 1 + k) * (-1 : ℝ) ^ 2 := by norm_num
               _ = (-1 : ℝ) ^ ((n + 1 + k) + 2) := by rw [← pow_add]
-              _ = (-1 : ℝ) ^ (n + 2 + (k + 1)) := by congr 1 <;> omega
+              _ = (-1 : ℝ) ^ (n + 2 + (k + 1)) := by
+                congr 1
+                omega
           have hs1 :
               (-1 : ℝ) ^ (n + 1 + (k + 1)) =
                 -((-1 : ℝ) ^ (n + 2 + (k + 1))) := by
@@ -88,7 +90,9 @@ theorem dirichletSpectralPoly_coeff_choose :
               (-1 : ℝ) ^ (n + (k + 1))
                   = (-1 : ℝ) ^ (n + (k + 1)) * (-1 : ℝ) ^ 2 := by norm_num
               _ = (-1 : ℝ) ^ ((n + (k + 1)) + 2) := by rw [← pow_add]
-              _ = (-1 : ℝ) ^ (n + 2 + (k + 1)) := by congr 1 <;> omega
+              _ = (-1 : ℝ) ^ (n + 2 + (k + 1)) := by
+                congr 1
+                omega
           rw [hs0, hs1, hs2]
           have hcNat := choose_second_order (n + k + 2) (2 * k + 1)
           have hc :
