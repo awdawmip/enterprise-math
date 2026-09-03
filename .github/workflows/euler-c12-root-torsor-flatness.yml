@@ -4,11 +4,16 @@ on:
   pull_request:
     paths:
       - "research_notes/EULER_C12_ROOT_TORSOR_TETRAHEDRAL_FLATNESS_20260904.md"
+      - "research_notes/EULER_HOLONOMY_ENDPOINT_RESIDUAL_DUALITY_20260904.md"
       - "definitions/ENTERPRISE_EULER_C12_ROOT_TORSOR_FLATNESS_THEOREM_LEDGER_20260904.json"
+      - "definitions/ENTERPRISE_EULER_HOLONOMY_RESIDUAL_DUALITY_ADDENDUM_20260904.json"
       - "research_method_inventory_addenda/20260904_euler_c12_root_torsor.json"
       - "src/enterprise_math/euler_c12_root_torsor.py"
+      - "src/enterprise_math/euler_holonomy_residual_duality.py"
       - "tests/test_euler_c12_root_torsor.py"
+      - "tests/test_euler_holonomy_residual_duality.py"
       - "EnterpriseMath/Precision/EulerC12RootTorsorFlatness.lean"
+      - "EnterpriseMath/Precision/EulerHolonomyResidualDuality.lean"
       - ".github/workflows/euler-c12-root-torsor-flatness.yml"
   workflow_dispatch:
 
@@ -20,26 +25,30 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-      - name: Compile exact checker and test
+      - name: Compile exact checkers and tests
         run: >-
           python -m py_compile
           src/enterprise_math/euler_c12_root_torsor.py
+          src/enterprise_math/euler_holonomy_residual_duality.py
           tests/test_euler_c12_root_torsor.py
-      - name: Run exhaustive root-cover and tetrahedral regression
+          tests/test_euler_holonomy_residual_duality.py
+      - name: Run exhaustive root-cover, flatness, and duality regressions
         env:
           PYTHONPATH: src
-        run: python -m unittest -v tests/test_euler_c12_root_torsor.py
-      - name: Validate theorem and method JSON
         run: >-
-          python -m json.tool
-          definitions/ENTERPRISE_EULER_C12_ROOT_TORSOR_FLATNESS_THEOREM_LEDGER_20260904.json
-          >/dev/null
-          && python -m json.tool
-          research_method_inventory_addenda/20260904_euler_c12_root_torsor.json
-          >/dev/null
+          python -m unittest -v
+          tests/test_euler_c12_root_torsor.py
+          tests/test_euler_holonomy_residual_duality.py
+      - name: Validate theorem and method JSON
+        run: |
+          python -m json.tool definitions/ENTERPRISE_EULER_C12_ROOT_TORSOR_FLATNESS_THEOREM_LEDGER_20260904.json >/dev/null
+          python -m json.tool definitions/ENTERPRISE_EULER_HOLONOMY_RESIDUAL_DUALITY_ADDENDUM_20260904.json >/dev/null
+          python -m json.tool research_method_inventory_addenda/20260904_euler_c12_root_torsor.json >/dev/null
       - name: Reject proof placeholders
         run: |
-          if grep -n -E '\b(sorry|admit|axiom)\b' EnterpriseMath/Precision/EulerC12RootTorsorFlatness.lean; then
+          if grep -n -E '\b(sorry|admit|axiom)\b' \
+            EnterpriseMath/Precision/EulerC12RootTorsorFlatness.lean \
+            EnterpriseMath/Precision/EulerHolonomyResidualDuality.lean; then
             echo "Proof placeholder detected"
             exit 1
           fi
@@ -55,7 +64,7 @@ jobs:
         run: lake update
       - name: Fetch mathlib cache
         run: lake exe cache get
-      - name: Build C12 root torsor and tetrahedral flatness
-        run: >-
-          lake build --wfail -KCI
-          EnterpriseMath.Precision.EulerC12RootTorsorFlatness
+      - name: Build C12 root torsor, flatness, and residual duality
+        run: |
+          lake build --wfail -KCI EnterpriseMath.Precision.EulerC12RootTorsorFlatness
+          lake build --wfail -KCI EnterpriseMath.Precision.EulerHolonomyResidualDuality
