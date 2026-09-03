@@ -113,12 +113,19 @@ private theorem extendDirichletPath_scalar_sub (z : ℝ) {n : ℕ}
   ext i j
   refine Fin.lastCases ?_ (fun i => ?_) i
   · refine Fin.lastCases ?_ (fun j => ?_) j
-    · simp [Matrix.scalar_apply, extendDirichletPath]
-    · simp [Matrix.scalar_apply, extendDirichletPath]
+    · change z - extendDirichletPath 0 M0 (Fin.last n) (Fin.last n) =
+        -extendDirichletPath z Mz (Fin.last n) (Fin.last n)
+      rw [extendDirichletPath_last_last, extendDirichletPath_last_last]
+      ring
+    · change -extendDirichletPath 0 M0 (Fin.last n) j.castSucc =
+        -extendDirichletPath z Mz (Fin.last n) j.castSucc
+      simp [extendDirichletPath]
   · refine Fin.lastCases ?_ (fun j => ?_) j
-    · simp [Matrix.scalar_apply, extendDirichletPath]
-    · have hij := congr_fun (congr_fun hshift i) j
-      simpa [Matrix.scalar_apply, extendDirichletPath] using hij
+    · change -extendDirichletPath 0 M0 i.castSucc (Fin.last n) =
+        -extendDirichletPath z Mz i.castSucc (Fin.last n)
+      simp [extendDirichletPath]
+    · change Matrix.scalar (Fin n) z i j - M0 i j = -Mz i j
+      exact congr_fun (congr_fun hshift i) j
 
 /--
 A concrete finite Dirichlet path matrix, built by repeated endpoint extension.
