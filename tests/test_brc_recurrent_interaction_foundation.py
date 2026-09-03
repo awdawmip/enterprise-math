@@ -7,6 +7,7 @@ from enterprise_math.brc_feedback import (
     feedback_additive_radius,
     feedback_circuit_atoms,
     feedback_condensation,
+    feedback_event,
     feedback_interaction_girth,
     feedback_mobius_interaction_factors,
     feedback_subset_zeta_factors,
@@ -100,6 +101,11 @@ class RationalHolonomyTests(unittest.TestCase):
 
 
 class FeedbackFoundationTests(unittest.TestCase):
+    def test_typed_constructor_rejects_bool_mass(self) -> None:
+        with self.assertRaises(TypeError):
+            feedback_event(0, 0, True)
+        self.assertEqual(feedback_event(0, 0, 1).mass, Q(1))
+
     def test_single_feedback_condensation_and_radius(self) -> None:
         background = [[Q(0), Q(1, 2)], [Q(0), Q(0)]]
         event = FeedbackEvent(1, 0, Q(1))
