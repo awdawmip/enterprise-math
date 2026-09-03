@@ -63,6 +63,7 @@ def circumscribedArea (N : ℕ) (t : F) : F :=
   (N : F) * t
 
 /-- The Cayley parameter times `1+c` is the skew coordinate. -/
+omit [LinearOrder F] [IsStrictOrderedRing F] in
 theorem tangentParameter_mul_one_add
     {c s : F}
     (hc : 1 + c ≠ 0) :
@@ -157,6 +158,7 @@ theorem c12_tangent_parameter
 
 /-- The physical outer tangent dodecagon has area `8-12r`, i.e.
     `8-4*sqrt(3)` when `r=1/sqrt(3)`. -/
+omit [LinearOrder F] [IsStrictOrderedRing F] in
 theorem physical_c12_outer_area
     (r : F)
     (hr : 3 * r ^ 2 = 1) :
