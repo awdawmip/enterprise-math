@@ -40,7 +40,7 @@
       "id": "EMEFCC-T04",
       "name": "Eight-class quotient",
       "statement": "C^1(K4;F2)/delta C^0(K4;F2) is identified with the eight-element even-weight code E4, hence has dimension three over F2.",
-      "status": "LEAN_FINITE_CLASSIFICATION_PLUS_EXECUTABLE_ENUMERATION",
+      "status": "LEAN_FINITE_CLASSIFICATION_PLUS_EXECUTABLE_ENUMERATION_PENDING_CI",
       "formal_theorem": "evenFacePatterns_card",
       "checker": "src/enterprise_math/euler_fcc_chirality.py"
     },
@@ -65,7 +65,7 @@
       "id": "EMEFCC-T07",
       "name": "S4 orbit trichotomy",
       "statement": "The eight even face vectors form S4 orbits of weights 0, 2 and 4, with orbit sizes 1, 6 and 1.",
-      "status": "LEAN_WEIGHT_TRICHOTOMY_PLUS_EXHAUSTIVE_S4_CHECK",
+      "status": "LEAN_WEIGHT_TRICHOTOMY_PLUS_EXHAUSTIVE_S4_CHECK_PENDING_CI",
       "formal_theorem": "even_face_weight_trichotomy",
       "checker": "src/enterprise_math/euler_fcc_chirality.py"
     },
@@ -99,7 +99,7 @@
       "id": "EMEFCC-T11",
       "name": "Exact edge-assignment distribution",
       "statement": "Among all 64 edge assignments, 8 are flat, 48 have face weight two, and 8 are all-face-odd; every gauge orbit has size eight.",
-      "status": "LEAN_CARDINALITY_CHECKS_PLUS_EXECUTABLE_ENUMERATION",
+      "status": "LEAN_CARDINALITY_CHECKS_PLUS_EXECUTABLE_ENUMERATION_PENDING_CI",
       "formal_theorems": [
         "flatEdgeAssignments_card",
         "weightTwoEdgeAssignments_card",
@@ -111,16 +111,67 @@
       "name": "Typed separation from twelve-direction sign closure",
       "statement": "A globally coherent sign assignment on the twelve oriented FCC nearest-neighbor directions does not imply flat transport of three-axis slice cyclic orders or local complex structures.",
       "status": "TYPED_COMPARISON_THEOREM_FROM_DISTINCT_DATA_DOMAINS"
+    },
+    {
+      "id": "EMEFCC-T13",
+      "name": "Antibalanced orientation cover is the cube",
+      "statement": "The eight signed slice states in the all-face-odd class are canonically isomorphic as a graph to the three-dimensional cube Q3; the four slices are its four antipodal body diagonals.",
+      "status": "LEAN_CHECKED_TARGET_PENDING_CI_PLUS_EXECUTABLE_GRAPH_ISOMORPHISM",
+      "formal_theorems": [
+        "cubeLabel_bijective",
+        "cubeLabel_preserves_adjacency",
+        "signedSlice_card",
+        "cubeBits_card"
+      ],
+      "checker": "src/enterprise_math/euler_fcc_chirality.py"
+    },
+    {
+      "id": "EMEFCC-T14",
+      "name": "Chirality deck transformation is cube antipodality",
+      "statement": "The global sheet flip J -> -J acts under the cube labeling as x -> x xor 111 and is fixed-point free.",
+      "status": "LEAN_CHECKED_TARGET_PENDING_CI_PLUS_EXECUTABLE_CERTIFICATE",
+      "formal_theorems": [
+        "deckFlip_is_cube_antipode",
+        "deckFlip_fixed_point_free"
+      ]
+    },
+    {
+      "id": "EMEFCC-T15",
+      "name": "Orientation-cover connectedness classification",
+      "statement": "The signed orientation cover is connected iff the face-holonomy class is non-flat; flat systems give two tetrahedra of size four, whereas all non-flat systems give one eight-state connected cover.",
+      "status": "LEAN_CHECKED_TARGET_PENDING_CI_PLUS_EXHAUSTIVE_BFS",
+      "formal_theorems": [
+        "cover_connected_iff_nonflat",
+        "nonflat_reachable_within_three",
+        "flat_cover_not_connected",
+        "antibalanced_cover_connected"
+      ],
+      "checker": "src/enterprise_math/euler_fcc_chirality_connectivity.py"
+    },
+    {
+      "id": "EMEFCC-T16",
+      "name": "Symmetry-plus-connectedness selection theorem",
+      "statement": "Among fully S4-symmetric chirality transition systems, connected signed transport is equivalent to the antibalanced gauge class and therefore selects face holonomy 1111.",
+      "status": "LEAN_CHECKED_TARGET_PENDING_CI_PLUS_EXHAUSTIVE_ENUMERATION",
+      "formal_theorems": [
+        "full_symmetry_and_connectedness_select_allOdd",
+        "fully_symmetric_connected_iff_antibalanced"
+      ]
     }
   ],
   "closed_boundaries": [
     "FOUR_SLICE_CHIRALITY_GAUGE_QUOTIENT_CLASSIFIED_BY_EVEN_FACE_CODE",
     "FULL_S4_SYMMETRY_REDUCES_THE_UNRESTRICTED_F2_CUBE_TO_ONE_C2_BIT",
     "ACCEPTED_P000_ALL_NEGATIVE_SIGNATURE_IDENTIFIED_WITH_UNIQUE_NONZERO_S4_FIXED_CLASS",
-    "GLOBAL_SIGNED_J_EXISTS_EXACTLY_IN_FLAT_CLASS"
+    "GLOBAL_SIGNED_J_EXISTS_EXACTLY_IN_FLAT_CLASS",
+    "ALL_FACE_ODD_ORIENTATION_COVER_IS_THE_THREE_DIMENSIONAL_CUBE",
+    "CHIRALITY_DECK_FLIP_IS_CUBE_ANTIPODALITY",
+    "COVER_CONNECTEDNESS_IS_EQUIVALENT_TO_NONFLAT_HOLONOMY",
+    "FULL_S4_SYMMETRY_PLUS_CONNECTED_TRANSPORT_SELECTS_THE_ALL_FACE_ODD_CLASS"
   ],
   "negative_boundaries": [
     "BARE_FCC_INCIDENCE_DOES_NOT_SELECT_FLAT_VERSUS_ALL_FACE_ODD",
+    "CONNECTED_SIGNED_TRANSPORT_IS_A_DYNAMICAL_SELECTION_INPUT_NOT_YET_DERIVED_FROM_P000",
     "TWELVE_DIRECTION_SIGN_CLOSURE_IS_NOT_SLICE_CHIRALITY_FLATNESS",
     "NO_GLOBAL_NATIVE_SIX_DIMENSIONAL_TRANSPORT_LAW_IS_DERIVED",
     "NO_IDENTITY_IS_CLAIMED_WITH_EVERY_OTHER_C2_RESIDUAL",
@@ -129,9 +180,13 @@
   ],
   "artifacts": [
     "research_notes/EULER_FCC_CHIRALITY_FACE_HOLONOMY_CLASSIFICATION_20260904.md",
+    "research_notes/EULER_FCC_CHIRALITY_CUBE_ORIENTATION_COVER_20260904.md",
     "EnterpriseMath/Precision/EulerFccChiralityGluing.lean",
+    "EnterpriseMath/Precision/EulerFccChiralityConnectivity.lean",
     "src/enterprise_math/euler_fcc_chirality.py",
+    "src/enterprise_math/euler_fcc_chirality_connectivity.py",
     "tests/test_euler_fcc_chirality.py",
+    "tests/test_euler_fcc_chirality_connectivity.py",
     "research_method_inventory_addenda/20260904_euler_fcc_chirality.json"
   ]
 }
