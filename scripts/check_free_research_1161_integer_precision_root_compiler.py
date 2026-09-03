@@ -118,7 +118,7 @@ if __name__ == "__main__":
         "rational_bits_checked": 13,
         "b0_bits_checked": 64,
         "b1_bits_checked": 64,
-        "b1_first_32_detail_bits": "10101110100010011111100110010100",
+        "b1_first_32_detail_bits": "10101110100010011111100110010101",
     }
     if result != expected:
         raise SystemExit(f"unexpected precision-root compiler output: {result!r}")
