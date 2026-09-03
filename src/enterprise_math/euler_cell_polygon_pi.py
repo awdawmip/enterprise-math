@@ -113,6 +113,7 @@ def exact_cell_polygon_certificate() -> ExactCellPolygonCertificate:
 class PolygonLevel:
     level: int
     sides: int
+    precision: int
     scalar: Decimal
     skew: Decimal
     cayley: Decimal
@@ -122,11 +123,15 @@ class PolygonLevel:
 
     @property
     def residual_lower_from_three(self) -> Decimal:
-        return self.lower_area - Decimal(3)
+        with localcontext() as context:
+            context.prec = self.precision
+            return +(self.lower_area - Decimal(3))
 
     @property
     def residual_upper_from_three(self) -> Decimal:
-        return self.upper_area - Decimal(3)
+        with localcontext() as context:
+            context.prec = self.precision
+            return +(self.upper_area - Decimal(3))
 
 
 def _require_level(level: int) -> None:
@@ -161,6 +166,7 @@ def cell_polygon_levels(max_level: int, *, precision: int = 100) -> list[Polygon
                 PolygonLevel(
                     level=level,
                     sides=sides,
+                    precision=precision,
                     scalar=+c,
                     skew=+s,
                     cayley=+tau,
@@ -180,7 +186,7 @@ def cell_polygon_levels(max_level: int, *, precision: int = 100) -> list[Polygon
 def complex_pair_mul(
     left: tuple[Decimal, Decimal], right: tuple[Decimal, Decimal]
 ) -> tuple[Decimal, Decimal]:
-    """Multiply (a+bJ)(c+dJ) with J^2=-1."""
+    """Multiply (a+bJ)(c+dJ) with J^2=-1 in the active Decimal context."""
 
     a, b = left
     c, d = right
@@ -205,30 +211,37 @@ def complex_pair_pow(
 def regular_vertices(level: PolygonLevel) -> list[tuple[Decimal, Decimal]]:
     """Return powers of the finite rotor, starting from the identity vertex."""
 
-    step = (level.scalar, level.skew)
-    current = (Decimal(1), Decimal(0))
-    vertices: list[tuple[Decimal, Decimal]] = []
-    for _ in range(level.sides):
-        vertices.append(current)
-        current = complex_pair_mul(current, step)
-    return vertices
+    with localcontext() as context:
+        context.prec = level.precision
+        step = (level.scalar, level.skew)
+        current = (Decimal(1), Decimal(0))
+        vertices: list[tuple[Decimal, Decimal]] = []
+        for _ in range(level.sides):
+            vertices.append((+current[0], +current[1]))
+            current = complex_pair_mul(current, step)
+        return vertices
 
 
-def polygon_area(vertices: list[tuple[Decimal, Decimal]]) -> Decimal:
-    """Shoelace area of a cyclic polygon."""
+def polygon_area(
+    vertices: list[tuple[Decimal, Decimal]], *, precision: int = 100
+) -> Decimal:
+    """Shoelace area of a cyclic polygon in a controlled Decimal context."""
 
     if len(vertices) < 3:
         raise ValueError("at least three vertices are required")
-    total = Decimal(0)
-    for current, following in zip(vertices, vertices[1:] + vertices[:1]):
-        total += current[0] * following[1] - current[1] * following[0]
-    return abs(total) / 2
+    with localcontext() as context:
+        context.prec = precision
+        total = Decimal(0)
+        for current, following in zip(vertices, vertices[1:] + vertices[:1]):
+            total += current[0] * following[1] - current[1] * following[0]
+        return +(abs(total) / 2)
 
 
 def tangent_intersection(
-    first: tuple[Decimal, Decimal], second: tuple[Decimal, Decimal]
+    first: tuple[Decimal, Decimal],
+    second: tuple[Decimal, Decimal],
 ) -> tuple[Decimal, Decimal]:
-    """Intersect tangents first·x=1 and second·x=1 to the unit circle."""
+    """Intersect tangents first·x=1 and second·x=1 in the active context."""
 
     a, b = first
     c, d = second
@@ -239,11 +252,19 @@ def tangent_intersection(
 
 
 def circumscribed_vertices(level: PolygonLevel) -> list[tuple[Decimal, Decimal]]:
-    unit_vertices = regular_vertices(level)
-    return [
-        tangent_intersection(unit_vertices[index], unit_vertices[(index + 1) % level.sides])
-        for index in range(level.sides)
-    ]
+    with localcontext() as context:
+        context.prec = level.precision
+        unit_vertices = regular_vertices(level)
+        return [
+            tuple(
+                +coordinate
+                for coordinate in tangent_intersection(
+                    unit_vertices[index],
+                    unit_vertices[(index + 1) % level.sides],
+                )
+            )
+            for index in range(level.sides)
+        ]
 
 
 def verify_level(level: PolygonLevel, *, tolerance: Decimal | None = None) -> bool:
@@ -252,24 +273,26 @@ def verify_level(level: PolygonLevel, *, tolerance: Decimal | None = None) -> bo
     if tolerance is None:
         tolerance = Decimal("1e-70")
 
-    c = level.scalar
-    s = level.skew
-    tau = level.cayley
-    lower = level.lower_area
-    upper = level.upper_area
+    with localcontext() as context:
+        context.prec = level.precision
+        c = level.scalar
+        s = level.skew
+        tau = level.cayley
+        lower = level.lower_area
+        upper = level.upper_area
 
-    half_turn = complex_pair_pow((c, s), level.sides // 2)
-    full_turn = complex_pair_pow((c, s), level.sides)
-    return (
-        _close(c * c + s * s, Decimal(1), tolerance)
-        and _close(tau * (1 + c), s, tolerance)
-        and _close(tau * s, 1 - c, tolerance)
-        and _close(upper - lower, lower * tau * tau, tolerance)
-        and _close(half_turn[0], Decimal(-1), tolerance)
-        and _close(half_turn[1], Decimal(0), tolerance)
-        and _close(full_turn[0], Decimal(1), tolerance)
-        and _close(full_turn[1], Decimal(0), tolerance)
-    )
+        half_turn = complex_pair_pow((c, s), level.sides // 2)
+        full_turn = complex_pair_pow((c, s), level.sides)
+        return (
+            _close(c * c + s * s, Decimal(1), tolerance)
+            and _close(tau * (1 + c), s, tolerance)
+            and _close(tau * s, 1 - c, tolerance)
+            and _close(upper - lower, lower * tau * tau, tolerance)
+            and _close(half_turn[0], Decimal(-1), tolerance)
+            and _close(half_turn[1], Decimal(0), tolerance)
+            and _close(full_turn[0], Decimal(1), tolerance)
+            and _close(full_turn[1], Decimal(0), tolerance)
+        )
 
 
 def verify_polygon_areas(
@@ -279,25 +302,33 @@ def verify_polygon_areas(
 
     if tolerance is None:
         tolerance = Decimal("1e-60")
-    inner = polygon_area(regular_vertices(level))
-    outer = polygon_area(circumscribed_vertices(level))
-    return _close(inner, level.lower_area, tolerance) and _close(
-        outer, level.upper_area, tolerance
-    )
+    with localcontext() as context:
+        context.prec = level.precision
+        inner = polygon_area(regular_vertices(level), precision=level.precision)
+        outer = polygon_area(
+            circumscribed_vertices(level), precision=level.precision
+        )
+        return _close(inner, level.lower_area, tolerance) and _close(
+            outer, level.upper_area, tolerance
+        )
 
 
 def width_refinement_factor(
     previous: PolygonLevel, following: PolygonLevel
 ) -> Decimal:
-    """Return W_(n+1)/W_n and verify the exact formula (1-tau_(n+1)^4)/4."""
+    """Return W_(n+1)/W_n for consecutive levels."""
 
     if following.level != previous.level + 1:
         raise ValueError("levels must be consecutive")
-    return following.width / previous.width
+    with localcontext() as context:
+        context.prec = max(previous.precision, following.precision)
+        return +(following.width / previous.width)
 
 
 def theoretical_width_refinement_factor(following: PolygonLevel) -> Decimal:
-    return (1 - following.cayley**4) / 4
+    with localcontext() as context:
+        context.prec = following.precision
+        return +((1 - following.cayley**4) / 4)
 
 
 def residual_interval_from_three(level: PolygonLevel) -> tuple[Decimal, Decimal]:
@@ -311,11 +342,15 @@ def residual_interval_from_three(level: PolygonLevel) -> tuple[Decimal, Decimal]
 def physical_cell_area_interval(level: PolygonLevel) -> tuple[Decimal, Decimal]:
     """Scale normalized polygon areas by the current Cell radius squared 1/3."""
 
-    radius_sq = Decimal(1) / Decimal(3)
-    return radius_sq * level.lower_area, radius_sq * level.upper_area
+    with localcontext() as context:
+        context.prec = level.precision
+        radius_sq = Decimal(1) / Decimal(3)
+        return +(radius_sq * level.lower_area), +(radius_sq * level.upper_area)
 
 
-def refinement_report(max_level: int = 8, *, precision: int = 100) -> list[dict[str, str | int]]:
+def refinement_report(
+    max_level: int = 8, *, precision: int = 100
+) -> list[dict[str, str | int]]:
     """Return a serialization-friendly finite certificate table."""
 
     levels = cell_polygon_levels(max_level, precision=precision)
