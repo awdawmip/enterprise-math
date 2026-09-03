@@ -1,0 +1,114 @@
+{
+  "schema": "ENTERPRISE_RESEARCH_THEOREM_LEDGER_V1",
+  "status": "FREE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "date": "2026-09-04",
+  "researcher": "EM-FREE-F6D046 / FREE_AXIOM_DISCOVERY",
+  "author_program": "YUAN X / Enterprise Math",
+  "parent": "AC-EM-FREE-F6D046-EULER-GEOMETRIC-COMPLETION-SYNTHESIS-V1",
+  "candidate": "AC-EM-FREE-F6D046-EULER-CELL-POLYGON-PI-V1",
+  "theorems": [
+    {
+      "id": "EMECPP-T01",
+      "name": "C6 and C12 chiral coordinates",
+      "statement": "For G=1+R, H=r(1+G), J=r(R-R^2), R^2+R+1=0 and 3r^2=1, one has 2G=1+3rJ and 2H=3r+J.",
+      "status": "LEAN_CHECKED_TARGET_PENDING_CI",
+      "formal_surface": "EnterpriseMath/Precision/EulerCellPolygonPi.lean"
+    },
+    {
+      "id": "EMECPP-T02",
+      "name": "Cell-rooted dyadic polygon tower",
+      "statement": "Starting from the six-direction rotor K_0=G and repeatedly taking the chirality-selected normalized adjacency root gives K_n of order N_n=6*2^n with K_n^(N_n/2)=-1 and nested vertex sets.",
+      "status": "FINITE_GROUP_AND_PARENT_PACKAGE_PROOF",
+      "dependencies": [
+        "EULER_CELL_RADIUS_BISECTOR_THEOREM_LEDGER_20260903.json",
+        "EULER_ROTATION_REFINEMENT_THEOREM_LEDGER_20260903.json"
+      ]
+    },
+    {
+      "id": "EMECPP-T03",
+      "name": "Exact inscribed polygon area",
+      "statement": "If K_n=c_n+s_nJ, the regular N_n-gon formed by its powers has area A_n^-=(N_n/2)s_n=3*2^n*s_n.",
+      "status": "MANUSCRIPT_FINITE_PROOF_AND_EXECUTABLE_CHECK",
+      "checker": "src/enterprise_math/euler_cell_polygon_pi.py"
+    },
+    {
+      "id": "EMECPP-T04",
+      "name": "Exact circumscribed polygon area",
+      "statement": "With tau_n=s_n/(1+c_n), consecutive tangents meet at height tau_n and the regular outer polygon has area A_n^+=N_n*tau_n.",
+      "status": "MANUSCRIPT_FINITE_PROOF_AND_EXECUTABLE_CHECK",
+      "formal_components": [
+        "tangentParameter_mul_one_add",
+        "tangentParameter_mul_skew"
+      ]
+    },
+    {
+      "id": "EMECPP-T05",
+      "name": "Polygon residual identity",
+      "statement": "A_n^+-A_n^-=A_n^-*tau_n^2.",
+      "status": "LEAN_CHECKED_TARGET_PENDING_CI",
+      "formal_theorem": "polygon_area_gap"
+    },
+    {
+      "id": "EMECPP-T06",
+      "name": "Sharp dyadic width contraction",
+      "statement": "The exact ratio of consecutive polygon gaps is (1-tau_(n+1)^4)/4, hence it is strictly smaller than 1/4.",
+      "status": "LEAN_ALGEBRAIC_IDENTITY_AND_EXECUTABLE_SEQUENCE_CHECK_PENDING_CI",
+      "formal_theorems": [
+        "polygon_width_refinement_identity",
+        "polygon_width_factor_lt_quarter"
+      ]
+    },
+    {
+      "id": "EMECPP-T07",
+      "name": "Exact C12 baseline",
+      "statement": "At the actual twelve-phase Cell/gate layer, c_1=sqrt(3)/2, s_1=1/2, A_1^-=3 and A_1^+=12(2-sqrt(3)).",
+      "status": "LEAN_PARTIAL_AND_EXACT_QRADIAL_CHECK_PENDING_CI",
+      "formal_theorems": [
+        "c12_inscribed_area_exact",
+        "c12_tangent_parameter"
+      ]
+    },
+    {
+      "id": "EMECPP-T08",
+      "name": "Unit physical Cell dodecagon",
+      "statement": "Since the current physical Cell radius satisfies r^2=1/3, the boundary dodecagon read out from the C12 phase directions has exact area one; the outer tangent dodecagon has area 8-4sqrt(3)=8-12r.",
+      "status": "LEAN_CHECKED_TARGET_PENDING_CI",
+      "formal_theorems": [
+        "physical_c12_dodecagon_area_one",
+        "physical_c12_outer_area"
+      ]
+    },
+    {
+      "id": "EMECPP-T09",
+      "name": "Pi equals three plus algebraic residual completion",
+      "statement": "The lower areas increase from A_1^-=3, the upper areas decrease, and their common limit L satisfies L=3+sum_(n>=1)(A_(n+1)^--A_n^-), with 0<L-A_n^-<A_n^-*tau_n^2.",
+      "status": "MANUSCRIPT_PROOF_AND_EXECUTABLE_CHECK"
+    },
+    {
+      "id": "EMECPP-T10",
+      "name": "Geometric identification of L",
+      "statement": "The nested inner and outer polygons exhaust the unit rotation-character disk, so its area is L; their perimeters converge to 2L, hence circumference/diameter=L. Therefore L is geometric pi.",
+      "status": "STANDARD_PLANAR_AREA_AND_RECTIFIABLE_LENGTH_COMPLETION",
+      "boundary": "This uses standard real planar analysis but does not use pi as an input to the finite tower."
+    },
+    {
+      "id": "EMECPP-T11",
+      "name": "Cell-rooted finite Euler ladder",
+      "statement": "At every level K_n^(3*2^n)=-1. The Cayley form of these exact finite identities converges to exp(JL)=-1, and EMECPP-T10 identifies L with pi.",
+      "status": "FINITE_PARENT_PROOF_PLUS_STANDARD_CAYLEY_EXPONENTIAL_LIMIT"
+    }
+  ],
+  "negative_boundaries": [
+    "CHARACTER_UNIT_CIRCLE_IS_NOT_PRIMITIVE_NATIVE_METRIC_PLANE",
+    "C12_IS_THE_LAST_ONE_STEP_PHYSICAL_CELL_GATE_PHASE_LAYER_CURRENTLY_PROVED",
+    "DEEPER_DYADIC_BOUNDARY_POINTS_ARE_TRANSITION_HISTORY_READOUTS_UNLESS_SEPARATELY_REALIZED",
+    "STANDARD_REAL_AREA_AND_RECTIFIABLE_LENGTH_ARE_COMPLETION_INPUTS",
+    "NO_INTERTWINER_WITH_TETRAHEDRAL_OR_PAIRED_PELL_C2_IS_CLAIMED"
+  ],
+  "artifacts": [
+    "research_notes/EULER_CELL_POLYGON_PI_COMPLETION_20260904.md",
+    "EnterpriseMath/Precision/EulerCellPolygonPi.lean",
+    "src/enterprise_math/euler_cell_polygon_pi.py",
+    "tests/test_euler_cell_polygon_pi.py"
+  ]
+}
