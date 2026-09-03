@@ -123,4 +123,76 @@ theorem gateRotor_twelfth
 
 end
 
+section SegmentSpinor
+
+variable {A : Type*} [CommRing A]
+variable (a b J : A)
+
+/-- The two-component segment numerator `a + bJ`. -/
+def segmentNumerator : A := a + b * J
+
+/-- Its Pythagorean norm square. -/
+def segmentNormSq : A := a ^ 2 + b ^ 2
+
+/-- The numerator of the doubled projective rotation character. -/
+def characterNumerator : A := (a ^ 2 - b ^ 2) + 2 * a * b * J
+
+/-- The numerator of the reflected/conjugate character. -/
+def characterConjugateNumerator : A :=
+  (a ^ 2 - b ^ 2) - 2 * a * b * J
+
+/-- A Pythagorean segment is a spinor: its square is the rotation-character numerator. -/
+theorem segment_spinor_sq (hJ : J ^ 2 = -1) :
+    segmentNumerator a b J ^ 2 = characterNumerator a b J := by
+  unfold segmentNumerator characterNumerator
+  calc
+    (a + b * J) ^ 2 =
+        (a ^ 2 - b ^ 2) + 2 * a * b * J + b ^ 2 * (J ^ 2 + 1) := by
+      ring
+    _ = (a ^ 2 - b ^ 2) + 2 * a * b * J := by
+      rw [hJ]
+      ring
+
+/-- Character times reflected character is the square of the segment norm. -/
+theorem character_norm_sq (hJ : J ^ 2 = -1) :
+    characterNumerator a b J * characterConjugateNumerator a b J =
+      segmentNormSq a b ^ 2 := by
+  unfold characterNumerator characterConjugateNumerator segmentNormSq
+  calc
+    ((a ^ 2 - b ^ 2) + 2 * a * b * J) *
+        ((a ^ 2 - b ^ 2) - 2 * a * b * J) =
+      (a ^ 2 + b ^ 2) ^ 2 - 4 * a ^ 2 * b ^ 2 * (J ^ 2 + 1) := by
+        ring
+    _ = (a ^ 2 + b ^ 2) ^ 2 := by
+      rw [hJ]
+      ring
+
+/-- Adding identity to the character exposes the underlying segment direction. -/
+theorem norm_plus_character :
+    segmentNormSq a b + characterNumerator a b J =
+      2 * a * segmentNumerator a b J := by
+  unfold segmentNormSq characterNumerator segmentNumerator
+  ring
+
+/-- The scalar bisector normalization is exactly `4 a^2`. -/
+theorem character_bisector_scale :
+    2 * segmentNormSq a b + characterNumerator a b J +
+        characterConjugateNumerator a b J = 4 * a ^ 2 := by
+  unfold segmentNormSq characterNumerator characterConjugateNumerator
+  ring
+
+/-- The balanced component segment has quarter-turn character numerator `2J`. -/
+theorem balanced_character_numerator :
+    characterNumerator (1 : A) 1 J = 2 * J := by
+  unfold characterNumerator
+  ring
+
+/-- The second boundary component has reversal character numerator `-1`. -/
+theorem second_axis_character_numerator :
+    characterNumerator (0 : A) 1 J = -1 := by
+  unfold characterNumerator
+  ring
+
+end SegmentSpinor
+
 end EnterpriseMath.Precision.EulerCellRadiusBisector
