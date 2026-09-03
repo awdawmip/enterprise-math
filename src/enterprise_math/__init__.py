@@ -153,6 +153,14 @@ from .brc_critical_degeneracy import (
     criticality_polynomial,
     smallest_positive_root_selector,
 )
+from .brc_critical_orbits import (
+    CriticalOrbitPrefix,
+    critical_euler_coefficients,
+    critical_orbit_prefix,
+    critical_primitive_orbit_counts,
+    critical_word_counts,
+    critical_zeta_coefficients,
+)
 from .geometry import (
     directed_graph_distance,
     graph_distance,
@@ -316,6 +324,12 @@ __all__ = [
     "critical_log_less_than_rational",
     "critical_log_bounds",
     "critical_log_correction_from_branches",
+    "CriticalOrbitPrefix",
+    "critical_word_counts",
+    "critical_primitive_orbit_counts",
+    "critical_zeta_coefficients",
+    "critical_euler_coefficients",
+    "critical_orbit_prefix",
     "scale_factor",
     "scaled_root_factor",
     "project_scale_factor",
