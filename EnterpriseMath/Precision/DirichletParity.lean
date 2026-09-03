@@ -69,16 +69,13 @@ theorem dirichletContinuant_odd_factorization (z : ℝ) (n : ℕ) :
 /-- At zero spectral parameter, the first parity factor is exactly `n+2`. -/
 theorem dirichletParityFirst_zero (n : ℕ) :
     dirichletContinuant 0 (n + 1) = ((n + 2 : ℕ) : ℝ) := by
-  rw [dirichletContinuant_zero]
-  push_cast
-  ring
+  simpa [Nat.add_assoc] using dirichletContinuant_zero (n + 1)
 
 /-- At zero spectral parameter, the complementary parity factor is exactly `2`. -/
 theorem dirichletParitySecond_zero (n : ℕ) :
     dirichletContinuant 0 (n + 2) - dirichletContinuant 0 n = 2 := by
   rw [dirichletContinuant_zero, dirichletContinuant_zero]
   push_cast
-  ring
 
 /--
 The zero-parameter odd-chain determinant factorization has parity-sector values
