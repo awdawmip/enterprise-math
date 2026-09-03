@@ -1,0 +1,59 @@
+name: control-router-import-hotfix
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/control-router-import-hotfix.yml
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Repair stale pre-V2 scheduler import fail-fast
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --ff-only origin main
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('research_control_dispatch.py')
+          text = p.read_text(encoding='utf-8')
+          old_import = 'from tools import research_scheduler\n'
+          old_now = '    now = research_scheduler.now_utc(args.now)\n'
+          if text.count(old_import) != 1:
+              raise SystemExit(f'expected exactly one stale scheduler import, found {text.count(old_import)}')
+          if text.count(old_now) != 1:
+              raise SystemExit(f'expected exactly one stale scheduler clock call, found {text.count(old_now)}')
+          text = text.replace(
+              old_import,
+              'from datetime import datetime, timezone\n',
+              1,
+          )
+          text = text.replace(
+              old_now,
+              '    now = research_runtime.parse_time(args.now) if args.now else datetime.now(timezone.utc)\n',
+              1,
+          )
+          p.write_text(text, encoding='utf-8')
+          PY
+          python -m py_compile research_control_dispatch.py
+          python research_control_dispatch.py --help >/dev/null
+          if git diff --quiet -- research_control_dispatch.py; then
+            echo "No router change after repair" >&2
+            exit 1
+          fi
+          git add research_control_dispatch.py
+          git commit -m "control: remove stale pre-V2 scheduler import from canonical router"
+          git push origin HEAD:main
