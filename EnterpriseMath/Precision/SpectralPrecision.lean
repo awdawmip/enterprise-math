@@ -120,6 +120,7 @@ private def extendDirichletPath (z : ℝ) {n : ℕ} (M : Matrix (Fin n) (Fin n) 
 private theorem extendDirichletPath_tail (z : ℝ) {n : ℕ} (M : Matrix (Fin n) (Fin n) ℝ) :
     (extendDirichletPath z M).submatrix Fin.castSucc Fin.castSucc = M := by
   ext i j
+  change extendDirichletPath z M i.castSucc j.castSucc = M i j
   simp [extendDirichletPath]
 
 private theorem extendDirichletPath_minor (z : ℝ) {n : ℕ}
@@ -130,14 +131,21 @@ private theorem extendDirichletPath_minor (z : ℝ) {n : ℕ}
   let B := (extendDirichletPath z M).submatrix Fin.castSucc
     (Fin.succAbove (Fin.castSucc (Fin.last n)))
   have hlast : B (Fin.last n) (Fin.last n) = -1 := by
-    simp [B, extendDirichletPath]
+    change extendDirichletPath z M (Fin.castSucc (Fin.last n))
+      ((Fin.castSucc (Fin.last n)).succAbove (Fin.last n)) = -1
+    simp [extendDirichletPath, Fin.succAbove]
   have hzero (i : Fin n) : B i.castSucc (Fin.last n) = 0 := by
-    simp [B, extendDirichletPath]
-    grind
+    change extendDirichletPath z M (Fin.castSucc i.castSucc)
+      ((Fin.castSucc (Fin.last n)).succAbove (Fin.last n)) = 0
+    simp [extendDirichletPath, Fin.succAbove]
+    omega
   have hminor : B.submatrix Fin.castSucc Fin.castSucc =
       M.submatrix Fin.castSucc Fin.castSucc := by
     ext i j
-    simp [B, extendDirichletPath]
+    change extendDirichletPath z M (Fin.castSucc i.castSucc)
+      ((Fin.castSucc (Fin.last n)).succAbove j.castSucc) = M i.castSucc j.castSucc
+    simp [extendDirichletPath, Fin.succAbove]
+    omega
   change B.det = _
   simp [Matrix.det_succ_column B (Fin.last n), Fin.sum_univ_castSucc, hlast, hzero, hminor]
 
@@ -146,15 +154,20 @@ private theorem extendDirichletPath_det (z : ℝ) {n : ℕ}
     (extendDirichletPath z M).det =
       (2 - z) * M.det - (M.submatrix Fin.castSucc Fin.castSucc).det := by
   rw [Matrix.det_succ_row (extendDirichletPath z M) (Fin.last _), Fin.sum_univ_castSucc]
-  simp only [extendDirichletPath, extendDirichletPath_tail, Fin.lastCases_last,
-    Fin.lastCases_castSucc, Fin.val_last, Fin.val_castSucc, Fin.succAbove_last]
+  simp only [extendDirichletPath, Fin.lastCases_last, Fin.lastCases_castSucc,
+    Fin.val_last, Fin.val_castSucc, Fin.succAbove_last]
   rw [Finset.sum_eq_single_of_mem (Fin.last n) (Finset.mem_univ _)]
-  · rw [ite_eq_left (by rfl), extendDirichletPath_minor, Fin.val_last,
+  · simp [extendDirichletPath_minor, Fin.val_last,
       Odd.neg_one_pow ⟨n, by ring⟩, Even.neg_one_pow ⟨n + 1, rfl⟩]
     ring
   · intro b _ hb
-    rw [ite_eq_right (fun h => hb (Fin.ext (by rw [Fin.val_last]; lia)))]
-    ring
+    have hne : b.val + 1 ≠ n + 1 := by
+      intro h
+      apply hb
+      apply Fin.ext
+      rw [Fin.val_last]
+      omega
+    simp [hne]
 
 /--
 A concrete finite Dirichlet path matrix, built by repeated endpoint extension.
@@ -184,8 +197,12 @@ theorem dirichletMatrix_det_add_two (z : ℝ) (n : ℕ) :
 theorem dirichletMatrix_det_eq_continuant (z : ℝ) (n : ℕ) :
     (dirichletMatrix z n).det = dirichletContinuant z n := by
   induction n using Nat.twoStepInduction with
-  | zero => simp [dirichletMatrix, dirichletContinuant]
-  | one => simp [dirichletMatrix, extendDirichletPath, dirichletContinuant]
+  | zero =>
+      simpa [dirichletContinuant] using
+        (Matrix.det_isEmpty (A := dirichletMatrix z 0))
+  | one =>
+      rw [Matrix.det_fin_one]
+      simp [dirichletMatrix, extendDirichletPath, dirichletContinuant]
   | more n ih0 ih1 =>
       rw [dirichletMatrix_det_add_two, dirichletContinuant, ih0, ih1]
 
