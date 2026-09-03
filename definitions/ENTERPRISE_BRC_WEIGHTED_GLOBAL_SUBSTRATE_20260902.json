@@ -1,7 +1,7 @@
 {
   "schema": "ENTERPRISE_MATH_WEIGHTED_BRC_GLOBAL_SUBSTRATE_V1",
   "status": "ACTIVE_USER_PROMOTED_ALL_RESEARCH_FOUNDATION",
-  "effective": "2026-09-03",
+  "effective": "2026-09-04",
   "scope": [
     "FREE_AXIOM_DISCOVERY_PHASE_A",
     "FREE_AXIOM_DISCOVERY_PHASE_B",
@@ -16,7 +16,7 @@
     "DECLARED_MULTIPLICITY_IS_NOT_DEFAULT_DISCARDABLE: when a problem itself declares multiple branch representatives and their multiplicity or positive weights matter, do not silently collapse them to Boolean support or total mass before testing what is lost.",
     "EXPLICIT_POSITIVE_RATIONAL_BRANCH_UNIVERSAL_CARRIER: for finite explicit positive-rational branch families the exact shared carrier is the finite weight histogram N[Q_{>0}^x]; CWM=(C,W,M), integer moments and dominant-degeneracy Lead=(M,d) are typed projections/quotients rather than complete exact branch state.",
     "CWM_SHARED_LOW_COST_SUMMARY: CWM remains the standard compact positive-branch summary when count, total mass and dominant mass are the declared observations; do not infer exact weight shape, dominant tie multiplicity or higher moments from CWM alone.",
-    "LOG_IS_DERIVED: logarithmic quantities such as Delta=LN(W/M), recurrent Gamma, moment log growth and LN(d) are derived readouts; LN/LOG are not primitive native state and need not be materialized during exact rational/histogram accumulation.",
+    "LOG_IS_DERIVED: logarithmic quantities such as Delta=LN(W/M), recurrent Gamma, moment log growth and LN(d) are derived readout coordinates; LN/LOG are not primitive native state and need not be materialized during exact rational/histogram accumulation.",
     "FINITE_RATIONAL_RECURRENCE_CERTIFIED: for any finite non-negative rational transition-mass matrix W, total all-depth positive mass is stable iff there exists a positive rational potential h with Wh<h; after denominator clearing this has an exact positive integer certificate, and the complementary divergent phase has an exact nonzero non-negative integer left certificate.",
     "RECURRENT_GAUGE_LOCALIZATION: finite rational mass stability is equivalent to a positive rational state gauge in which every outgoing total-mass row sum is strictly below one; closed-cycle products are gauge-invariant.",
     "RECURRENT_LOOP_INVARIANTS_AVAILABLE: when finite positive rational recurrence is actually present, exact determinant/zeta, recurrent response, criticality and feedback-condensation interfaces are part of the shared Foundation; floating spectral values are not required primitive state.",
@@ -27,16 +27,17 @@
     "CRITICAL_ORBIT_INVENTORY_IS_K_TYPED: after K is constructed, total critical dominant-word counts, based closed-word counts, primitive periodic orbit counts and the critical Euler/zeta prefix are exact integer observables of K and therefore exact rational-gauge invariants. Primitive periodic edge-word orbits are distinct from finite feedback-support simple circuit atoms and are not arithmetic prime counts.",
     "CRITICAL_RATIO_JET_IS_EXPLICIT_BRANCH_TYPED: powered rational critical gauges and critical/full branch-ratio jets preserve subdominant explicit-branch shape that K alone discards. In irreducible critical scope, the full normalized moment matrix is an exact finite rational ratio jet and the WBRC-T40 determinant gap equals the largest strict powered branch ratio. Reducible critical classes require the separate characteristic-jet rules below.",
     "REDUCIBLE_CRITICAL_CHARACTERISTIC_JET_IS_CANONICAL: for reducible critical classes/structure a global strict rational powered gauge exists, but individual inter-class powered branch ratios are representative-dependent. Closed characteristic ratio layers are exact gauge invariants. A simple selected critical root uses the first root-active characteristic layer; a multiple selected root requires contact-order-weighted Newton scales, and the first Newton edge is not a complete Puiseux expansion.",
+    "NEWTON_RECURSION_SCALE_AND_COEFFICIENTS_TYPED: later Newton scales are exact finite prime-valuation vectors with rational exponents. If the base selected root is algebraic, Taylor coefficients are typed by their value g(alpha), not by polynomial-representative nonzeroness; selected-root semantic zero testing must precede scale ordering. Exact recursion is currently certified for rational translated selected roots. An irrational translated root is a separate multi-generator algebraic-coefficient frontier.",
     "FEEDBACK_INTERACTION_IS_HIGHER_ORDER_TYPED: simultaneous positive feedback updates may have cooperative recurrent interactions of arbitrary finite order; pairwise edge responses/interactions are not assumed complete. Exact event-level condensation and all-orders subset interactions are available when the problem declares a finite feedback set.",
     "SIGNED_BOUNDARY: positive Weighted-BRC does not encode signed/amplitude cancellation or reflection-odd orientation after positive recoalescence; determinant/group-ring alternating signs used for algebraic compression are not signed branch mass.",
     "DETERMINISTIC_DEGENERATION: a single deterministic positive path has C=1, W=M, E=1, dominant degeneracy d=1 and Delta=0; richer weighted layers should not be forced onto deterministic problems without an observer need.",
     "BOOLEAN_BASE_PRESERVED: canonical R023 Boolean result-support BRC remains the base support semantics and is not mutated by the weighted layer.",
-    "RECURRENT_SCOPE_BOUNDARY: current recurrent/histogram/critical-degeneracy/orbit/ratio-jet/reducible-characteristic-jet Foundation covers finite explicit positive-rational/non-negative-rational systems only; it does not extrapolate to infinite state spaces, signed/amplitude recurrence, complex weights, arbitrary non-rational exact branch weights or a generic all-orders Puiseux engine."
+    "RECURRENT_SCOPE_BOUNDARY: current recurrent/histogram/critical-degeneracy/orbit/ratio-jet/reducible-characteristic/Newton-recursion Foundation covers finite explicit positive-rational/non-negative-rational systems and exact selected algebraic roots only within the stated single-root/rational-translated-root interface; it does not extrapolate to infinite state spaces, signed/amplitude recurrence, complex weights, arbitrary non-rational branch weights, a generic multi-generator algebraic field, or a complete Puiseux engine."
   ],
   "phase_a_anti_anchoring": {
     "rule": "These commitments are background typing rules, not a research agenda. FREE Phase A must still generate its own question from the primitive substrate and may open detailed Weighted-BRC theorem/tool surfaces only after the self-generated problem actually contains the relevant typed branch/recurrent structure.",
     "forbidden": [
-      "presenting weighted/recurrent/histogram/critical-degeneracy/orbit/ratio-jet/reducible-characteristic-jet BRC theorem IDs as suggested research questions",
+      "presenting weighted/recurrent/histogram/critical-degeneracy/orbit/ratio-jet/reducible-characteristic/Newton-recursion BRC theorem IDs as suggested research questions",
       "preloading successful arithmetic/selector/holonomy/recurrent/feedback/histogram/critical/orbit/ratio-jet/Newton examples to steer question choice",
       "forcing multiplicity, recurrence, moments, histogram, critical-degeneracy, periodic-orbit, ratio-jet, Newton-edge or feedback interpretations onto deterministic or signed problems"
     ]
@@ -50,6 +51,7 @@
   "critical_orbit_foundation": "definitions/ENTERPRISE_BRC_CRITICAL_ORBIT_FOUNDATION_20260903.md",
   "critical_ratio_jet_foundation": "definitions/ENTERPRISE_BRC_CRITICAL_RATIO_JET_FOUNDATION_20260903.md",
   "reducible_critical_jet_foundation": "definitions/ENTERPRISE_BRC_REDUCIBLE_CRITICAL_JET_FOUNDATION_20260903.md",
+  "newton_recursion_foundation": "definitions/ENTERPRISE_BRC_NEWTON_RECURSION_FOUNDATION_20260904.md",
   "theorem_ledger": "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json",
   "theorem_ledger_addenda": [
     "definitions/ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json",
@@ -59,7 +61,8 @@
     "definitions/ENTERPRISE_BRC_CRITICAL_DEGENERACY_THEOREM_LEDGER_20260903.json",
     "definitions/ENTERPRISE_BRC_CRITICAL_ORBIT_THEOREM_LEDGER_20260903.json",
     "definitions/ENTERPRISE_BRC_CRITICAL_RATIO_JET_THEOREM_LEDGER_20260903.json",
-    "definitions/ENTERPRISE_BRC_REDUCIBLE_CRITICAL_JET_THEOREM_LEDGER_20260903.json"
+    "definitions/ENTERPRISE_BRC_REDUCIBLE_CRITICAL_JET_THEOREM_LEDGER_20260903.json",
+    "definitions/ENTERPRISE_BRC_NEWTON_RECURSION_THEOREM_LEDGER_20260904.json"
   ],
   "tool_method_id": "t0.weighted_brc_cwm",
   "tool_method_addenda": [
@@ -73,7 +76,8 @@
     "t0.weighted_brc_critical_degeneracy",
     "t0.weighted_brc_critical_orbits",
     "t0.weighted_brc_critical_ratio_jet",
-    "t0.weighted_brc_reducible_critical_jet"
+    "t0.weighted_brc_reducible_critical_jet",
+    "t0.weighted_brc_newton_recursion"
   ],
   "tool_module": "src/enterprise_math/brc_weighted.py",
   "tool_module_addenda": [
@@ -87,6 +91,7 @@
     "src/enterprise_math/brc_critical_degeneracy.py",
     "src/enterprise_math/brc_critical_orbits.py",
     "src/enterprise_math/brc_critical_ratio_jet.py",
-    "src/enterprise_math/brc_reducible_critical_jet.py"
+    "src/enterprise_math/brc_reducible_critical_jet.py",
+    "src/enterprise_math/brc_newton_recursion.py"
   ]
 }
