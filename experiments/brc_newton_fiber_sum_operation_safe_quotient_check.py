@@ -63,8 +63,6 @@ def fiber_sum(
 
 
 def polynomial_from_taylor_atom(root: Fraction, degree: int, coefficient: Fraction):
-    # coefficient * (x-root)^degree, so its only nonzero Taylor coefficient
-    # at x=root is exactly the requested coefficient in the requested degree.
     values = [Q(0) for _ in range(degree + 1)]
     for k in range(degree + 1):
         values[k] = coefficient * Q(comb(degree, k)) * ((-root) ** (degree - k))
@@ -77,9 +75,6 @@ def production_source_jet(
     root: Fraction,
     multiplicity: int,
 ):
-    # Keep the scale-one base polynomial unique.  Every provenance atom is a
-    # separate strict jet entry, which lets T55 diagnostics retain its source
-    # label while the transformed step aggregates by residual coordinate.
     base = polynomial_from_taylor_atom(root, multiplicity, Q(1))
     jet = [(ONE, base)]
     for position, coefficient in zip(positions, coefficients):
@@ -104,9 +99,6 @@ def residual_from_production(analysis):
 
 
 def layout():
-    # Duplicate A/B positions create two nontrivial provenance fibers.  C/D
-    # have the same residual scale but different Taylor degree, while B/C have
-    # the same Taylor degree but different residual scale.
     return (
         AtomPosition("A1", source_scale(Q(1, 2)), 1),
         AtomPosition("A2", source_scale(Q(1, 2)), 1),
@@ -162,10 +154,8 @@ def exact_rank_and_kernel_checks():
     assert rank == len(coordinates) == len(fibers)
     assert len(positions) - rank == sum(len(indices) - 1 for indices in fibers.values())
 
-    # Exhaust zero-fiber-sum differences on every nontrivial fiber and verify
-    # the anchor-transfer decomposition exactly.
     decomposition_checks = 0
-    for coordinate, indices in fibers.items():
+    for _, indices in fibers.items():
         if len(indices) <= 1:
             continue
         anchor = indices[0]
@@ -191,13 +181,16 @@ def transfer_invariance_regression():
     positions = layout()
     theta = source_scale(Q(1, 2))
     root, r = Q(1), 2
-    # Permanent B sum=1 ensures the selected Newton scale stays 1/2 even when
-    # A provenance is redistributed.
     base_coefficients = (Q(1), Q(1), Q(2), Q(-1), Q(3), Q(4), Q(-2))
     expected = fiber_sum(positions, base_coefficients, theta, r)
     checks = future_checks = 0
 
-    # Move rational coefficient between duplicate A and B provenance labels.
+    baseline_analysis = rational_newton_pushforward(
+        production_source_jet(positions, base_coefficients, root, r), root, r
+    )
+    assert baseline_analysis.step.scale == theta
+    reference_next = rational_newton_step(baseline_analysis.step.jet, Q(-1), 2)
+
     for delta_a, delta_b in product((Q(-3), Q(-1), Q(0), Q(2), Q(5)), repeat=2):
         coefficients = list(base_coefficients)
         coefficients[0] += delta_a
@@ -210,22 +203,17 @@ def transfer_invariance_regression():
         analysis = rational_newton_pushforward(production_source_jet(positions, current, root, r), root, r)
         assert analysis.step.scale == theta
         production = residual_from_production(analysis)
-        # Add the scale-one base contribution y^2 to the independent Pi table.
         independent = dict(expected)
         independent[(ONE, r)] = independent.get((ONE, r), Q(0)) + Q(1)
         assert production == independent
         checks += len(production) + 2
 
-        # The downstream edge is y^2+2y+1=(y+1)^2 for every redistribution.
         self_edge = {key: value for key, value in production.items() if key[0] == ONE}
         assert self_edge[(ONE, 0)] == 1 and self_edge[(ONE, 1)] == 2 and self_edge[(ONE, 2)] == 1
         next_step = rational_newton_step(analysis.step.jet, Q(-1), 2)
-        if delta_a == 0 and delta_b == 0:
-            reference_next = next_step
-        else:
-            assert next_step.scale == reference_next.scale
-            assert next_step.jet == reference_next.jet
-            assert next_step.edge_polynomial == reference_next.edge_polynomial
+        assert next_step.scale == reference_next.scale
+        assert next_step.jet == reference_next.jet
+        assert next_step.edge_polynomial == reference_next.edge_polynomial
         future_checks += 3
     return checks, future_checks
 
@@ -235,8 +223,7 @@ def coordinate_probe_and_no_merge_checks():
     theta = source_scale(Q(1, 2))
     r = 2
     zero = tuple(Q(0) for _ in positions)
-    base = fiber_sum(positions, zero, theta, r)
-    assert base == {}
+    assert fiber_sum(positions, zero, theta, r) == {}
     probes = 0
     for index in range(len(positions)):
         vector = [Q(0) for _ in positions]
@@ -246,13 +233,10 @@ def coordinate_probe_and_no_merge_checks():
         assert observed == {coordinate: Q(1)}
         probes += 1
 
-    # Same residual scale rho=1/2, but degrees 0 and 1.  They must not merge:
-    # y^0 changes the edge/contact polynomial differently from y^1.
     c = residual_coordinate(positions[4], theta, r)
     d = residual_coordinate(positions[5], theta, r)
     assert c[0] == d[0] and c[1] != d[1]
 
-    # Same degree 0 but different residual scales 1 and 1/2.
     b = residual_coordinate(positions[2], theta, r)
     assert b[1] == c[1] and b[0] != c[0]
     return probes + 4
@@ -281,7 +265,7 @@ def edge_only_is_coarser_witness():
     r = 2
     a = (Q(1), Q(1), Q(2), Q(-1), Q(3), Q(4), Q(0))
     b = list(a)
-    b[6] = Q(9)  # only rho=1/4, degree 0 changes
+    b[6] = Q(9)
     full_a = fiber_sum(positions, a, theta, r)
     full_b = fiber_sum(positions, tuple(b), theta, r)
     assert full_a != full_b
@@ -292,7 +276,6 @@ def edge_only_is_coarser_witness():
 
 
 def production_source_split_checks():
-    # Directly compare two different provenance splittings through T55.
     root, r = Q(1), 2
     positions_a = (
         AtomPosition("A", source_scale(Q(1, 2)), 1),
@@ -314,7 +297,6 @@ def production_source_split_checks():
     result_b = rational_newton_pushforward(production_source_jet(positions_b, coeffs_b, root, r), root, r)
     assert result_a.step.jet == result_b.step.jet
     assert result_a.step.edge_polynomial == result_b.step.edge_polynomial
-    # Diagnostic source atoms differ: quotient preserves semantics, not provenance.
     assert tuple(len(fiber.atoms) for fiber in result_a.fibers) != tuple(len(fiber.atoms) for fiber in result_b.fibers)
     return 4
 
