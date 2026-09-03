@@ -1,7 +1,6 @@
 import unittest
 
 from enterprise_math.euler_c12_root_torsor import (
-    HolonomyCode,
     all_edge_bits,
     gauge_equivalent,
 )
@@ -37,10 +36,10 @@ class EulerHolonomyResidualDualityTests(unittest.TestCase):
                 holonomy_to_residual(residual_to_holonomy(residual)),
                 residual,
             )
-        for a in (False, True):
-            for b in (False, True):
-                for c in (False, True):
-                    code = HolonomyCode(a, b, c)
+        for a in (0, 1):
+            for b in (0, 1):
+                for c in (0, 1):
+                    code = (a, b, c)
                     self.assertEqual(
                         residual_to_holonomy(holonomy_to_residual(code)),
                         code,
