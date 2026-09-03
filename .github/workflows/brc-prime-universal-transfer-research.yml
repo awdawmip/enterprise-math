@@ -1,0 +1,25 @@
+name: brc-prime-universal-transfer-research
+
+on:
+  pull_request:
+    paths:
+      - 'research_notes/BRC_PRIME_VALUATION_UNIVERSAL_TRANSFER_20260903.md'
+      - 'experiments/brc_prime_valuation_universal_transfer_check.py'
+      - '.github/workflows/brc-prime-universal-transfer-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Exact prime-valuation universal BRC transfer checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_prime_valuation_universal_transfer_check.py
