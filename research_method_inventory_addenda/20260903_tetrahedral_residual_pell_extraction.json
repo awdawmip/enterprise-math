@@ -1,0 +1,102 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "PROJECT_SUBTOOLS_EXTRACTED_PENDING_DRIVER_PROMOTION",
+  "date": "2026-09-03",
+  "author": "YUAN X",
+  "program": "Enterprise Math",
+  "validation": "Exact finite regression logic was independently rechecked during extraction; repository-wide quality is presently blocked by an unrelated pre-existing control-plane import failure. Tool promotion remains pending the ordinary Driver/tool-reuse process.",
+  "methods": [
+    {
+      "method_id": "t6_t7_t9.tetrahedral_endpoint_sum_residual",
+      "name": "Tetrahedral endpoint-sum residual / affine torsion analyzer",
+      "classification": "PROJECT_SUBTOOL_COMPOSITION",
+      "family_ids": [
+        "T6_OPERATION_SAFE_QUOTIENT",
+        "T7_FINITE_SYMMETRY_EQUIVARIANCE",
+        "T9_HOLONOMY_COCOYCLE_GLUING"
+      ],
+      "status": "EXECUTABLE_EXTRACTED_REGRESSION_CHECKED_PENDING_PROMOTION",
+      "source_refs": [
+        "definitions/ENTERPRISE_TETRAHEDRAL_RESIDUAL_THEOREM_LEDGER_20260903.json",
+        "src/enterprise_math/tetrahedral_endpoint_sum.py",
+        "tests/test_tetrahedral_endpoint_sum.py",
+        "PR #1125 formalization/precision-pi-paper-ii-kernel-v1@95a9cd418f6abdb4916f5cf8182437af61dba9db",
+        "workflow-run:33657478048"
+      ],
+      "api": [
+        "endpoint_sum",
+        "matching_sums",
+        "star_parity",
+        "residual_code",
+        "normal_form",
+        "canonical_representative",
+        "canonical_decomposition",
+        "delta_equivalent",
+        "lift_difference",
+        "verify_torsion_certificate",
+        "affine_support",
+        "opposite_support",
+        "hidden_translation_phase"
+      ],
+      "triggers": [
+        "K4 endpoint-sum quotient",
+        "four-slice six-line residual",
+        "opposite-edge matching sums",
+        "A2 residual",
+        "two-torsion parity",
+        "tetrahedral residual normal form",
+        "affine F2 edge model",
+        "hidden V4 phase"
+      ],
+      "capabilities": [
+        "exact integer endpoint-sum evaluation",
+        "exact Z^2 x C2 residual classification on zero-total edge states",
+        "canonical representative and explicit zero-total lift certificate",
+        "primitive order-two obstruction verification",
+        "F2 affine support and opposite-edge complement readout",
+        "hidden-translation character evaluation"
+      ],
+      "core_law": "For the zero-total K4 endpoint-sum system, quotient equality is exactly equality of the two free opposite-edge coordinates plus one star-parity bit; the primitive parity class doubles into the integer image.",
+      "hard_boundary": "K4/four-slice six-line carrier specialization only. This executable does not identify carrier lines with native P000 axes, infer a physical metric, or replace general T6/T7/T9 machinery."
+    },
+    {
+      "method_id": "project.paired_pell_shell_certificate",
+      "name": "Shared-square paired positive/negative Pell shell certificate",
+      "classification": "PROJECT_SUBTOOL_UNASSIGNED_PENDING_COVERAGE_REVIEW",
+      "family_ids": [],
+      "status": "EXECUTABLE_EXTRACTED_REGRESSION_CHECKED_PENDING_PROMOTION",
+      "source_refs": [
+        "definitions/ENTERPRISE_TETRAHEDRAL_RESIDUAL_THEOREM_LEDGER_20260903.json",
+        "src/enterprise_math/paired_pell_shell.py",
+        "tests/test_paired_pell_shell.py",
+        "PR #1126 formalization/precision-pi-paper-ii-v3@ca2b30c7ef45b470d0d5cb6955def48610cd9dd7",
+        "workflow-run:33659295408"
+      ],
+      "api": [
+        "paired_pell_certificate",
+        "n58_certificate",
+        "n58_integer_constants",
+        "n58_ratio_certificate",
+        "geometric_tail_bound"
+      ],
+      "triggers": [
+        "paired Pell shells",
+        "common Pell coordinate P",
+        "positive and negative Pell fusion",
+        "square half-trace",
+        "P^-4 fugacity",
+        "N=58 certificate",
+        "positive geometric tail"
+      ],
+      "capabilities": [
+        "verify a shared-P positive and negative Pell pair",
+        "certify P^4-1=(P^2-1)(P^2+1) and the fused discriminant product",
+        "return exact rational P^-4 fugacity",
+        "verify the P=99 N=58 integer constants",
+        "return exact geometric-tail bounds from a supplied ratio certificate"
+      ],
+      "core_law": "If P^2-d_plus*y_plus^2=1 and P^2-d_minus*y_minus^2=-1, then P^4-1=d_plus*d_minus*(y_plus*y_minus)^2.",
+      "hard_boundary": "Integer/rational certificate layer only. It does not derive a modular parametrization, a Ramanujan-CM identity, or a native geometric meaning for the Pell shells. No existing top-level toolbox family is asserted to own this arithmetic helper until coverage review is completed."
+    }
+  ]
+}
