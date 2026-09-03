@@ -1,0 +1,147 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "FOUNDATION_GLOBAL_SUBTOOLS",
+  "date": "2026-09-03",
+  "foundation": "definitions/ENTERPRISE_BRC_RECURRENT_INTERACTION_FOUNDATION_20260903.md",
+  "theorem_ledger": "definitions/ENTERPRISE_BRC_RECURRENT_INTERACTION_THEOREM_LEDGER_20260903.json",
+  "methods": [
+    {
+      "method_id": "t0.weighted_brc_recurrent_invariants",
+      "name": "Stable recurrent BRC zeta / response / robustness calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "source_refs": [
+        "definitions/ENTERPRISE_BRC_RECURRENT_INTERACTION_FOUNDATION_20260903.md",
+        "definitions/ENTERPRISE_BRC_RECURRENT_INTERACTION_THEOREM_LEDGER_20260903.json",
+        "src/enterprise_math/brc_recurrent_invariants.py",
+        "PR #1130",
+        "PR #1131",
+        "PR #1142"
+      ],
+      "api": [
+        "RecurrentEqualSlackCertificate",
+        "recurrent_loop_zeta",
+        "recurrent_loop_surplus_expr",
+        "recurrent_equal_slack_certificate",
+        "recurrent_edge_response",
+        "recurrent_edge_multiplicative_radius",
+        "recurrent_edge_deletion_zeta_factor",
+        "recurrent_log_response_hessian"
+      ],
+      "triggers": [
+        "recurrent loop zeta",
+        "logdet BRC",
+        "edge response",
+        "feedback robustness",
+        "recurrent Hessian",
+        "equal slack",
+        "loop surplus",
+        "critical branch weight"
+      ],
+      "capabilities": [
+        "exact stable recurrent loop-zeta and symbolic LN surplus",
+        "pure integer equal-slack determinant certificate",
+        "exact explicit-edge recurrent response",
+        "gauge-invariant multiplicative branch robustness radius",
+        "exact deletion zeta factor",
+        "exact rational log-weight response Hessian"
+      ],
+      "core_law": "For stable finite rational W, Z_loop=det((I-W)^-1); explicit branch response is q*S_ba; existing-edge critical factor is 1+1/R; log-coordinate Hessian is delta_ef*R_e+q_e*q_f*S_bc*S_da. After W=A/D, det(DI-A) gives a canonical equal-slack integer certificate and zeta denominator.",
+      "hard_boundary": "Stable finite non-negative rational total-mass scope only. No signed/amplitude, infinite-state, probability/Fisher, or floating-spectrum primitive claim."
+    },
+    {
+      "method_id": "t0.weighted_brc_rational_holonomy",
+      "name": "Positive-rational BRC prime-valuation holonomy calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "source_refs": [
+        "definitions/ENTERPRISE_BRC_RECURRENT_INTERACTION_FOUNDATION_20260903.md",
+        "src/enterprise_math/brc_rational_holonomy.py",
+        "PR #1132",
+        "PR #1133"
+      ],
+      "api": [
+        "RationalPowerDecomposition",
+        "RationalTreeGaugeNormalForm",
+        "rational_prime_valuations",
+        "rational_from_prime_valuations",
+        "rational_power_skeleton_thickness",
+        "rational_squarefree_skeleton_thickness",
+        "rational_tree_gauge_normal_form"
+      ],
+      "triggers": [
+        "rational gauge",
+        "prime valuation holonomy",
+        "squarefree skeleton",
+        "parity skeleton",
+        "m-power thickness",
+        "tree gauge normal form",
+        "fundamental rational holonomy"
+      ],
+      "capabilities": [
+        "exact finite-support prime valuation coordinates for positive rationals",
+        "exact reconstruction from prime valuations",
+        "unique mod-m power-free skeleton and rational thickness",
+        "squarefree/C2 parity skeleton specialization",
+        "unique rooted spanning-tree rational gauge normal form",
+        "fundamental non-tree holonomy prime coordinates"
+      ],
+      "core_law": "Q_{>0}^x is free abelian on primes; rational vertex gauge acts by primewise integer coboundaries. Every q>0 has unique q=s_m*t^m, and a rooted spanning tree uniquely fixes tree weights to one so non-tree weights are complete fundamental rational holonomies.",
+      "hard_boundary": "Prime factorization is an exact reference implementation, not a factoring-speedup theorem. Log embedding is derived and need not be a discrete Euclidean lattice. Full rational gauge information may exceed recurrent loop observables."
+    },
+    {
+      "method_id": "t0.weighted_brc_feedback_interaction",
+      "name": "Positive feedback-event condensation and interaction calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "source_refs": [
+        "definitions/ENTERPRISE_BRC_RECURRENT_INTERACTION_FOUNDATION_20260903.md",
+        "src/enterprise_math/brc_feedback.py",
+        "PR #1142",
+        "PR #1144",
+        "PR #1146",
+        "PR #1147"
+      ],
+      "api": [
+        "FeedbackEvent",
+        "FeedbackCondensationAnalysis",
+        "FeedbackCircuitAtom",
+        "feedback_event",
+        "feedback_event_kernel",
+        "feedback_condensation",
+        "feedback_additive_radius",
+        "conditional_feedback_kernel",
+        "feedback_subset_zeta_factors",
+        "feedback_mobius_interaction_factors",
+        "feedback_interaction_girth",
+        "feedback_circuit_atoms"
+      ],
+      "triggers": [
+        "feedback insertion",
+        "new recurrent edge",
+        "feedback kernel",
+        "conditional feedback",
+        "cooperative feedback",
+        "Mobius interaction",
+        "higher order feedback",
+        "feedback circuit atom",
+        "interaction girth"
+      ],
+      "capabilities": [
+        "exact event-level feedback condensation against a stable rational background",
+        "full updated stability and star through the feedback kernel",
+        "single-edge additive critical radius",
+        "conditional feedback kernel after an installed stable module",
+        "exact subset zeta factors for small declared event sets",
+        "all-orders rational Mobius interaction factors",
+        "first nonzero interaction order",
+        "Möbius-primitive directed circuit atoms with rational holonomy"
+      ],
+      "core_law": "For stable background star S and inserted events e_r:a_r->b_r of mass delta_r, F_rs=S_bra_s*delta_s. Full update is stable iff F is stable and its new Gamma is Gamma(F). Conditional modules use Schur feedback kernels. Stable declared event sets have exact rational interactions J_T>=1; primitive supports are directed circuits with J_T=1/(1-Q_T).",
+      "hard_boundary": "Positive total-mass condensation only; subset/Mobius APIs are exponential in event count; no CWM count/provenance preservation, pairwise completeness, unique module credit, signed/amplitude, infinite-state, or runtime-speedup theorem."
+    }
+  ]
+}

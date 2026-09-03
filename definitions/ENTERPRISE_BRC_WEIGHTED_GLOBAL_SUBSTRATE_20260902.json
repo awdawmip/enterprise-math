@@ -1,7 +1,7 @@
 {
   "schema": "ENTERPRISE_MATH_WEIGHTED_BRC_GLOBAL_SUBSTRATE_V1",
   "status": "ACTIVE_USER_PROMOTED_ALL_RESEARCH_FOUNDATION",
-  "effective": "2026-09-02",
+  "effective": "2026-09-03",
   "scope": [
     "FREE_AXIOM_DISCOVERY_PHASE_A",
     "FREE_AXIOM_DISCOVERY_PHASE_B",
@@ -9,8 +9,8 @@
     "RESEARCH_DRIVER",
     "FOUNDATION_STEWARD"
   ],
-  "authority": "explicit current user instruction to make the extracted Weighted/Log BRC tools and theorems part of the foundation for all research",
-  "purpose": "Expose only the minimal typed branch commitments universally; detailed theorem IDs, examples, successful routes and tool catalogs remain lazy and must not choose a free research question.",
+  "authority": "explicit user instruction to make extracted Weighted/Log BRC tools and theorems part of the foundation for all research, with subsequent main-backed recurrent results returned through the same Foundation backflow rule",
+  "purpose": "Expose only minimal typed branch/recurrent commitments universally; detailed theorem IDs, examples, successful routes and tool catalogs remain lazy and must not choose a free research question.",
   "commitments": [
     "BRANCHING_IS_TYPED: Boolean support, positive weighted multiplicity/mass, provenance, and signed/amplitude data are distinct carriers unless an explicit reduction theorem identifies them.",
     "DECLARED_MULTIPLICITY_IS_NOT_DEFAULT_DISCARDABLE: when a problem itself declares multiple branch representatives and their multiplicity or positive weights matter, do not silently collapse them to Boolean support before testing what is lost.",
@@ -18,31 +18,42 @@
     "LOG_IS_DERIVED: E=W/M and Delta=LN(E) are derived readout coordinates for live positive CWM states; LN/LOG are not primitive native state and need not be materialized during exact branch accumulation.",
     "FINITE_RATIONAL_RECURRENCE_CERTIFIED: for any finite non-negative rational transition-mass matrix W, total all-depth positive mass is stable iff there exists a positive rational potential h with Wh<h; after denominator clearing this has an exact positive integer certificate, and the complementary divergent phase has an exact nonzero non-negative integer left certificate.",
     "RECURRENT_GAUGE_LOCALIZATION: finite rational mass stability is equivalent to a positive rational state gauge in which every outgoing total-mass row sum is strictly below one; closed-cycle products are gauge-invariant.",
+    "RECURRENT_LOOP_INVARIANTS_AVAILABLE: when finite positive rational recurrence is actually present, exact determinant/zeta, recurrent response, criticality and feedback-condensation interfaces are part of the shared Foundation; floating spectral values are not required primitive state.",
+    "RATIONAL_GAUGE_HAS_INTEGER_COORDINATES: positive rational multiplicative gauge/holonomy should preserve exact prime-valuation coordinates before optional logarithmic readout; mod-m skeleton and rational thickness are separately typed.",
+    "FEEDBACK_INTERACTION_IS_HIGHER_ORDER_TYPED: simultaneous positive feedback updates may have cooperative recurrent interactions of arbitrary finite order; pairwise edge responses/interactions are not assumed complete. Exact event-level condensation and all-orders subset interactions are available when the problem declares a finite feedback set.",
     "SIGNED_BOUNDARY: positive Weighted-BRC does not encode signed/amplitude cancellation or reflection-odd orientation after positive recoalescence.",
     "DETERMINISTIC_DEGENERATION: a single deterministic positive path has C=1, W=M, E=1 and Delta=0; the weighted layer contributes no extra multiplicity information and should not be forced onto deterministic problems.",
     "BOOLEAN_BASE_PRESERVED: canonical R023 Boolean result-support BRC remains the base support semantics and is not mutated by the weighted layer.",
-    "RECURRENT_SCOPE_BOUNDARY: finite non-negative rational transition-mass systems are covered; do not extrapolate this certificate theorem to infinite state spaces, signed/amplitude recurrence, complex weights, or arbitrary non-rational exact weights without a separate theorem. Perron-Frobenius/spectral-radius language remains a classical external equivalent rather than a required primitive certificate."
+    "RECURRENT_SCOPE_BOUNDARY: current recurrent/interaction Foundation covers finite non-negative rational positive-mass systems only; do not extrapolate to infinite state spaces, signed/amplitude recurrence, complex weights, or arbitrary non-rational exact weights without a separate theorem."
   ],
   "phase_a_anti_anchoring": {
-    "rule": "These commitments are background typing rules, not a research agenda. FREE Phase A must still generate its own question from the primitive substrate and may open detailed Weighted-BRC theorem/tool surfaces only after the self-generated problem actually contains the relevant typed branch structure.",
+    "rule": "These commitments are background typing rules, not a research agenda. FREE Phase A must still generate its own question from the primitive substrate and may open detailed Weighted-BRC theorem/tool surfaces only after the self-generated problem actually contains the relevant typed branch/recurrent structure.",
     "forbidden": [
-      "presenting weighted-BRC theorem IDs as suggested research questions",
-      "preloading successful arithmetic/selector/holonomy/recurrent-matrix examples to steer question choice",
-      "forcing a multiplicity interpretation onto deterministic or signed problems"
+      "presenting weighted/recurrent BRC theorem IDs as suggested research questions",
+      "preloading successful arithmetic/selector/holonomy/recurrent/feedback examples to steer question choice",
+      "forcing multiplicity, recurrence or feedback interpretations onto deterministic or signed problems"
     ]
   },
   "detailed_foundation": "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md",
   "finite_recurrent_foundation": "definitions/ENTERPRISE_BRC_FINITE_RECURRENT_FOUNDATION_20260902.md",
+  "recurrent_interaction_foundation": "definitions/ENTERPRISE_BRC_RECURRENT_INTERACTION_FOUNDATION_20260903.md",
   "theorem_ledger": "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json",
   "theorem_ledger_addenda": [
-    "definitions/ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json"
+    "definitions/ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json",
+    "definitions/ENTERPRISE_BRC_RECURRENT_INTERACTION_THEOREM_LEDGER_20260903.json"
   ],
   "tool_method_id": "t0.weighted_brc_cwm",
   "tool_method_addenda": [
-    "t0.weighted_brc_finite_recurrent"
+    "t0.weighted_brc_finite_recurrent",
+    "t0.weighted_brc_recurrent_invariants",
+    "t0.weighted_brc_rational_holonomy",
+    "t0.weighted_brc_feedback_interaction"
   ],
   "tool_module": "src/enterprise_math/brc_weighted.py",
   "tool_module_addenda": [
-    "src/enterprise_math/brc_weighted_recurrent.py"
+    "src/enterprise_math/brc_weighted_recurrent.py",
+    "src/enterprise_math/brc_recurrent_invariants.py",
+    "src/enterprise_math/brc_rational_holonomy.py",
+    "src/enterprise_math/brc_feedback.py"
   ]
 }
