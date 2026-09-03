@@ -398,7 +398,7 @@ def scale_algebra_checks():
     third = scale_from_rational(Q(1, 3))
     radical = scale_root(scale_mul(half, third), 2)
     assert dict(radical) == {2: Q(-1, 2), 3: Q(-1, 2)}
-    assert scale_compare(radical, half) > 0  # 1/sqrt(6) > 1/2
+    assert scale_compare(radical, half) < 0  # 1/sqrt(6) < 1/2
     assert scale_compare(scale_root(scale_from_rational(Q(1, 3)), 2), half) > 0
     assert scale_compare(scale_from_rational(Q(1, 2)), scale_root(scale_from_rational(Q(1, 3)), 2)) < 0
     assert scale_pow(scale_root(scale_from_rational(Q(2, 15)), 3), 3) == scale_from_rational(Q(2, 15))
