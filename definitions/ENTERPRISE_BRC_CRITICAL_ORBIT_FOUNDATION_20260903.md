@@ -22,11 +22,7 @@ Expand `K_ij=d` into `d` parallel branch symbols. The resulting finite directed 
 For every `n>=0`,
 
 \[
-\boxed{
-(K^n)_{ij}
-=
-\#\{\text{length-n critical dominant branch words }i\to j\}.
-}
+\boxed{(K^n)_{ij}=\#\{\text{length-n critical dominant branch words }i\to j\}.}
 \]
 
 Define
@@ -37,28 +33,16 @@ B_n=\mathbf1^TK^n\mathbf1,
 T_n=\operatorname{tr}(K^n).
 \]
 
-Then `B_n` is the total length-`n` critical dominant-word count and `T_n` is the based closed-word count.
-
-Because `K` is finite nonnegative and has recurrent support,
+Then `B_n` is the total length-`n` critical dominant-word count and `T_n` is the based closed-word count. Because `K` is finite nonnegative and recurrent,
 
 \[
-\boxed{
-\Gamma_{\rm crit}
-=\ln\rho(K)
-=\lim_{n\to\infty}\frac1n\ln B_n.
-}
+\boxed{\Gamma_{\rm crit}=\ln\rho(K)=\lim_{n\to\infty}\frac1n\ln B_n.}
 \]
 
-This gives the exact BRC interpretation
+This unifies
 
 \[
-\boxed{
-\ln d
-\longrightarrow
-\frac1r\ln D
-\longrightarrow
-\ln\rho(K)
-}
+\boxed{\ln d\longrightarrow \frac1r\ln D\longrightarrow\ln\rho(K)}
 \]
 
 for one dominant tie, one critical circuit, and a general critical multigraph.
@@ -73,23 +57,21 @@ For a positive rational vertex gauge
 q'_{ij,\alpha}=q_{ij,\alpha}\frac{h_j}{h_i},
 \]
 
-all parallel branches in one cell receive the same factor, so the dominant tie set and `d_ij` are unchanged. Every cycle product telescopes, so tropical critical cycles and critical edges are unchanged.
-
-Therefore
+all parallel branches in one cell receive the same factor, so the dominant tie set and `d_ij` are unchanged. Every cycle product telescopes, so tropical critical cycles and critical edges are unchanged. Therefore
 
 \[
 \boxed{K'=K}
 \]
 
-**exactly**, not merely up to similarity.
+exactly, not merely up to similarity.
 
-Hence every observable built only from `K` is already a rational-gauge quotient:
+Hence every `K`-derived observable is already a rational-gauge quotient:
 
 \[
 B_n,\ T_n,\ p_K(z),\ z_c,\ \Gamma_{\rm crit}.
 \]
 
-The zero-correction law `WBRC-T42` becomes: `Gamma_crit=0` iff the critical multiplicity automaton is a disjoint union of unit-multiplicity directed cycles; equivalently `B_n` is bounded (indeed constant for `n>=1` on the recurrent-state carrier).
+The zero-correction law `WBRC-T42` becomes: `Gamma_crit=0` iff the critical multiplicity automaton is a disjoint union of unit-multiplicity directed cycles; equivalently `B_n` is bounded (constant for `n>=1` on the recurrent-state carrier).
 
 ## 4. Finite recurrence and critical multiplicity zeta
 
@@ -99,9 +81,7 @@ The integer polynomial
 p_K(z)=\det(I-zK)
 \]
 
-finitely encodes the infinite critical word-count sequences.
-
-Every matrix entry of `K^n`, `B_n`, and `T_n` satisfies the integer Cayley-Hamilton recurrence corresponding to
+finitely encodes the infinite critical word-count sequences. Every matrix entry of `K^n`, `B_n`, and `T_n` satisfies the integer Cayley-Hamilton recurrence corresponding to
 
 \[
 \det(\lambda I-K)=\lambda^N p_K(1/\lambda).
@@ -116,21 +96,13 @@ Define
 Formally,
 
 \[
-\boxed{
-\ln Z_{\rm crit}(z)
-=
-\sum_{n\ge1}\frac{T_n}{n}z^n.
-}
+\boxed{\ln Z_{\rm crit}(z)=\sum_{n\ge1}\frac{T_n}{n}z^n}
 \]
 
-Equivalently,
+and equivalently
 
 \[
-\boxed{
--z\frac{p_K'(z)}{p_K(z)}
-=
-\sum_{n\ge1}T_nz^n.
-}
+\boxed{-z\frac{p_K'(z)}{p_K(z)}=\sum_{n\ge1}T_nz^n.}
 \]
 
 The smallest positive root remains `z_c=1/rho(K)`, so `Gamma_crit=-ln z_c` as in `WBRC-T41`.
@@ -145,39 +117,33 @@ Let
 P_n=\#\{\text{primitive periodic critical branch orbits of exact length }n\}.
 \]
 
-Each primitive orbit of length `d` contributes its `d` choices of base point to `T_n` whenever `d|n`. Therefore
+Each primitive orbit of length `d` contributes its `d` choices of base point to `T_n` whenever `d|n`, hence
 
 \[
-\boxed{T_n=\sum_{d\mid n}dP_d.}
+\boxed{T_n=\sum_{d\mid n}dP_d}
 \]
 
-Möbius inversion gives
+and Möbius inversion gives
 
 \[
-\boxed{
-P_n=\frac1n\sum_{d\mid n}\mu(d)T_{n/d}\in\mathbf N_0.
-}
+\boxed{P_n=\frac1n\sum_{d\mid n}\mu(d)T_{n/d}\in\mathbf N_0.}
 \]
 
 The critical zeta has the exact formal Euler product
 
 \[
-\boxed{
-Z_{\rm crit}(z)
-=
-\prod_{n\ge1}(1-z^n)^{-P_n}.
-}
+\boxed{Z_{\rm crit}(z)=\prod_{n\ge1}(1-z^n)^{-P_n}.}
 \]
 
-Every coefficient through order `z^N` uses only the finite inventory `P_1,...,P_N`; the entire infinite inventory is finitely represented through `p_K`.
+Every coefficient through order `z^N` uses only `P_1,...,P_N`; the entire infinite inventory is finitely represented through `p_K`.
 
 Canonical ID: `WBRC-T44`.
 
 ## 6. Zero and positive residual growth
 
-If `Gamma_crit=0`, the critical automaton is a finite disjoint union of unit cycles. Then the primitive inventory has finite support: one primitive orbit for each component cycle, at that component's length.
+If `Gamma_crit=0`, the critical automaton is a finite disjoint union of unit cycles. Then the primitive inventory has finite support: one primitive orbit for each component cycle at that component's length.
 
-If `Gamma_crit>0`, then `rho(K)>1` and the critical automaton has exponentially proliferating dominant words; equivalently its primitive periodic-orbit inventory is infinite. The exact critical radius remains encoded by the smallest positive root of `p_K` rather than by enumerating the full inventory.
+If `Gamma_crit>0`, then `rho(K)>1` and the critical automaton has exponentially proliferating dominant words; its primitive periodic-orbit inventory is infinite. The exact critical radius remains encoded by the smallest positive root of `p_K` rather than by enumerating the full inventory.
 
 ## 7. Semantic boundaries
 
@@ -204,11 +170,11 @@ Canonical negative IDs: `WBRC-N23`, `WBRC-N24`, `WBRC-N25`.
 
 ## 8. Tool routing
 
-No new top-level method family is created. The existing T0 subtool
+No new top-level family is created. A companion T0 subtool
 
-`t0.weighted_brc_critical_degeneracy`
+`t0.weighted_brc_critical_orbits` -> `src/enterprise_math/brc_critical_orbits.py`
 
-is extended with exact finite-prefix word/orbit/zeta APIs in `src/enterprise_math/brc_critical_degeneracy.py`.
+consumes the canonical integer `K` and provides exact finite-prefix total/closed word counts, primitive periodic-orbit counts, determinant-zeta coefficients and verified Euler-product coefficients. The parent `t0.weighted_brc_critical_degeneracy` remains responsible for constructing `K` and its critical-log selector.
 
 ## 9. Validation evidence
 
