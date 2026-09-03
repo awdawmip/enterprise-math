@@ -16,9 +16,11 @@ theorem descAscFactorial_pair_product (M j : ℕ) (hj : j < M) :
       have hM1 : 1 ≤ M := by omega
       have hsub : j ≤ M - 1 := by omega
       have hih := ih hj'
+      push_cast at hih
       rw [Nat.descFactorial_succ, Nat.ascFactorial_succ, Finset.prod_range_succ]
       simp only [Nat.cast_mul, Nat.cast_add, Nat.cast_one]
       rw [Nat.cast_sub hsub, Nat.cast_sub hM1]
+      simp only [Nat.cast_one]
       calc
         ((M : ℝ) - 1 - (j : ℝ)) * (((M - 1).descFactorial j : ℕ) : ℝ) *
               (((M : ℝ) + 1 + (j : ℝ)) * (((M + 1).ascFactorial j : ℕ) : ℝ)) =
@@ -27,12 +29,10 @@ theorem descAscFactorial_pair_product (M j : ℕ) (hj : j < M) :
                 (((M + 1).ascFactorial j : ℕ) : ℝ)) := by ring
         _ = (((M : ℝ) - 1 - (j : ℝ)) * ((M : ℝ) + 1 + (j : ℝ))) *
               (∏ r ∈ Finset.range j,
-                ((M : ℝ) ^ 2 - (((r + 1 : ℕ) : ℝ) ^ 2))) := by rw [hih]
+                ((M : ℝ) ^ 2 - ((r : ℝ) + 1) ^ 2)) := by rw [hih]
         _ = (∏ r ∈ Finset.range j,
-                ((M : ℝ) ^ 2 - (((r + 1 : ℕ) : ℝ) ^ 2)) *
-              ((M : ℝ) ^ 2 - (((j + 1 : ℕ) : ℝ) ^ 2)) := by
-          push_cast
-          ring
+                ((M : ℝ) ^ 2 - ((r : ℝ) + 1) ^ 2)) *
+              ((M : ℝ) ^ 2 - ((j : ℝ) + 1) ^ 2) := by ring
 
 /-- The centered odd ascending factorial splits into the central factor and paired halves. -/
 theorem centeredAscFactorial_factorization (M j : ℕ) (hj : j < M) :
@@ -141,9 +141,7 @@ theorem normalized_choose_eq_unit_defects (M j : ℕ) (hj : j < M) :
               (1 - (((r + 1 : ℕ) : ℝ) ^ 2) / (M : ℝ) ^ 2)) := hchoose
       _ = _ := by rw [← mul_assoc, hpow]
   rw [one_div_mul_eq_div]
-  apply (div_eq_div_iff ?_ ?_).2
-  · exact pow_ne_zero _ hM0
-  · exact hfac0
-  · simpa [mul_comm] using htotal
+  refine (div_eq_div_iff (pow_ne_zero _ hM0) hfac0).mpr ?_
+  simpa [mul_comm] using htotal
 
 end EnterpriseMath.Precision
