@@ -46,7 +46,7 @@ end RotorCoordinates
 
 section PolygonArea
 
-variable {F : Type*} [LinearOrderedField F]
+variable {F : Type*} [Field F] [LinearOrder F] [IsStrictOrderedRing F]
 
 /-- Cayley half-step / tangent half-side coordinate. -/
 def tangentParameter (c s : F) : F :=
@@ -163,7 +163,7 @@ theorem physical_c12_outer_area
     r ^ 2 * (12 * (2 - 3 * r)) = 8 - 12 * r := by
   calc
     r ^ 2 * (12 * (2 - 3 * r)) =
-        8 * (3 * r ^ 2) - 12 * (3 * r ^ 2) * r := by ring
+        8 * (3 * r ^ 2) - 12 * r * (3 * r ^ 2) := by ring
     _ = 8 - 12 * r := by rw [hr]; ring
 
 end PolygonArea
