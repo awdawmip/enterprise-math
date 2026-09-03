@@ -8,6 +8,7 @@
   "source_note": "research_notes/EULER_CELL_RADIUS_NORMALIZED_BISECTOR_COMPLETION_20260903.md",
   "checker": "src/enterprise_math/euler_native_bisector.py",
   "test": "tests/test_euler_native_bisector.py",
+  "lean": "EnterpriseMath/Precision/EulerCellRadiusBisector.lean",
   "theorems": [
     {
       "id": "EMER-T01",
@@ -19,7 +20,7 @@
       "id": "EMER-T02",
       "name": "Internal six-state rotor",
       "statement": "G=I+R satisfies G^2=R, G^3=-I, G^6=I and G^TQG=Q.",
-      "status": "EXACT_FINITE_ALGEBRA"
+      "status": "EXACT_FINITE_ALGEBRA_AND_LEAN_CANDIDATE"
     },
     {
       "id": "EMER-T03",
@@ -31,13 +32,13 @@
       "id": "EMER-T04",
       "name": "Twelve-state gate rotor",
       "statement": "H=(I+G)/sqrt(3) satisfies H^2=G, H^6=-I, H^12=I; its twelve powers are distinct and H^(2j),H^(2j+1) interleave six direction and six gate character phases.",
-      "status": "EXACT_FINITE_ALGRA"
+      "status": "EXACT_FINITE_ALGEBRA_AND_LEAN_CANDIDATE"
     },
     {
       "id": "EMER-T05",
       "name": "Cell-radius chiral complex structure",
       "statement": "J=H^3=(R-R^{-1})/sqrt(3) and J^2=-I. Reflection R<->R^{-1} sends J<->-J while fixing -I.",
-      "status": "EXACT_FINITE_ALGEBRA"
+      "status": "EXACT_FINITE_ALGEBRA_AND_LEAN_CANDIDATE"
     },
     {
       "id": "EMER-T06",
