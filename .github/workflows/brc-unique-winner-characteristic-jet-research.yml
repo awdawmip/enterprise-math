@@ -1,0 +1,25 @@
+name: brc-unique-winner-characteristic-jet-research
+
+on:
+  pull_request:
+    paths:
+      - 'research_notes/BRC_UNIQUE_WINNER_ROOT_ACTIVE_CHARACTERISTIC_JET_20260903.md'
+      - 'experiments/brc_unique_winner_root_active_characteristic_jet_check.py'
+      - '.github/workflows/brc-unique-winner-characteristic-jet-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Exact BRC unique-winner root-active characteristic jet checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_unique_winner_root_active_characteristic_jet_check.py
