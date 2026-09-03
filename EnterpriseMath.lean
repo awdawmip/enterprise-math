@@ -8,6 +8,7 @@ import EnterpriseMath.Order.ReductiveCompositionStabilization
 import EnterpriseMath.Precision.Carry
 import EnterpriseMath.Precision.SpectralPrecision
 import EnterpriseMath.Precision.WallisPrecision
+import EnterpriseMath.Precision.DirichletParity
 import EnterpriseMath.Precision.CompositionSafeCollapse
 import EnterpriseMath.Precision.QuotientBasin
 import EnterpriseMath.Precision.QuotientCoalescence
