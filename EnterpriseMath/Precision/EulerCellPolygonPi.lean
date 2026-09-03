@@ -44,9 +44,9 @@ theorem gateRotor_chiral_coordinates
 
 end RotorCoordinates
 
-section PolygonArea
+section PolygonAlgebra
 
-variable {F : Type*} [Field F] [LinearOrder F] [IsStrictOrderedRing F]
+variable {F : Type*} [Field F]
 
 /-- Cayley half-step / tangent half-side coordinate. -/
 def tangentParameter (c s : F) : F :=
@@ -63,13 +63,57 @@ def circumscribedArea (N : ℕ) (t : F) : F :=
   (N : F) * t
 
 /-- The Cayley parameter times `1+c` is the skew coordinate. -/
-omit [LinearOrder F] [IsStrictOrderedRing F] in
 theorem tangentParameter_mul_one_add
     {c s : F}
     (hc : 1 + c ≠ 0) :
     tangentParameter c s * (1 + c) = s := by
   unfold tangentParameter
   field_simp [hc]
+
+/-- Algebraic form of the sharp width-refinement ratio.  If `u` is the new
+    Cayley half-step, then the next width is `(1-u^4)/4` times the old width. -/
+theorem polygon_width_refinement_identity
+    (A u : F)
+    (hden : 1 - u ^ 2 ≠ 0) :
+    (A * (1 + u ^ 2) / (1 - u ^ 2)) * u ^ 2 =
+      (A * (2 * u / (1 - u ^ 2)) ^ 2) * ((1 - u ^ 4) / 4) := by
+  field_simp [hden]
+  ring
+
+/-- The normalized inscribed area of the twelve-phase Cell/gate polygon is
+    exactly three. -/
+theorem c12_inscribed_area_exact :
+    inscribedArea (F := F) 12 (1 / 2) = 3 := by
+  unfold inscribedArea
+  norm_num
+
+/-- With the current Cell radius relation `3r^2=1`, the physical C12
+    dodecagon has exact area one. -/
+theorem physical_c12_dodecagon_area_one
+    (r : F)
+    (hr : 3 * r ^ 2 = 1) :
+    r ^ 2 * inscribedArea (F := F) 12 (1 / 2) = 1 := by
+  rw [c12_inscribed_area_exact]
+  calc
+    r ^ 2 * 3 = 3 * r ^ 2 := by ring
+    _ = 1 := hr
+
+/-- The physical outer tangent dodecagon has area `8-12r`, i.e.
+    `8-4*sqrt(3)` when `r=1/sqrt(3)`. -/
+theorem physical_c12_outer_area
+    (r : F)
+    (hr : 3 * r ^ 2 = 1) :
+    r ^ 2 * (12 * (2 - 3 * r)) = 8 - 12 * r := by
+  calc
+    r ^ 2 * (12 * (2 - 3 * r)) =
+        8 * (3 * r ^ 2) - 12 * r * (3 * r ^ 2) := by ring
+    _ = 8 - 12 * r := by rw [hr]; ring
+
+end PolygonAlgebra
+
+section PolygonOrder
+
+variable {F : Type*} [Field F] [LinearOrder F] [IsStrictOrderedRing F]
 
 /-- On the unit conic, the same parameter is the tangent intersection height
     `(1-c)/s`.  This is kept in cross-multiplied form. -/
@@ -110,16 +154,6 @@ theorem polygon_area_gap
     _ = ((N : F) / 2) * (s * t ^ 2) := by rw [htwo]; ring
     _ = ((N : F) * s / 2) * t ^ 2 := by ring
 
-/-- Algebraic form of the sharp width-refinement ratio.  If `u` is the new
-    Cayley half-step, then the next width is `(1-u^4)/4` times the old width. -/
-theorem polygon_width_refinement_identity
-    (A u : F)
-    (hden : 1 - u ^ 2 ≠ 0) :
-    (A * (1 + u ^ 2) / (1 - u ^ 2)) * u ^ 2 =
-      (A * (2 * u / (1 - u ^ 2)) ^ 2) * ((1 - u ^ 4) / 4) := by
-  field_simp [hden]
-  ring
-
 /-- A nonzero positive new half-step makes the refinement factor strictly less
     than one quarter. -/
 theorem polygon_width_factor_lt_quarter
@@ -127,22 +161,6 @@ theorem polygon_width_factor_lt_quarter
     (hu : 0 < u) :
     (1 - u ^ 4) / 4 < 1 / 4 := by
   have hu4 : 0 < u ^ 4 := pow_pos hu 4
-  nlinarith
-
-/-- The normalized inscribed area of the twelve-phase Cell/gate polygon is
-    exactly three. -/
-theorem c12_inscribed_area_exact :
-    inscribedArea (F := F) 12 (1 / 2) = 3 := by
-  unfold inscribedArea
-  norm_num
-
-/-- With the current Cell radius relation `3r^2=1`, the physical C12
-    dodecagon has exact area one. -/
-theorem physical_c12_dodecagon_area_one
-    (r : F)
-    (hr : 3 * r ^ 2 = 1) :
-    r ^ 2 * inscribedArea (F := F) 12 (1 / 2) = 1 := by
-  rw [c12_inscribed_area_exact]
   nlinarith
 
 /-- The first C12 Cayley half-step is `2-3r`. -/
@@ -156,18 +174,6 @@ theorem c12_tangent_parameter
   field_simp [hden]
   nlinarith [hr]
 
-/-- The physical outer tangent dodecagon has area `8-12r`, i.e.
-    `8-4*sqrt(3)` when `r=1/sqrt(3)`. -/
-omit [LinearOrder F] [IsStrictOrderedRing F] in
-theorem physical_c12_outer_area
-    (r : F)
-    (hr : 3 * r ^ 2 = 1) :
-    r ^ 2 * (12 * (2 - 3 * r)) = 8 - 12 * r := by
-  calc
-    r ^ 2 * (12 * (2 - 3 * r)) =
-        8 * (3 * r ^ 2) - 12 * r * (3 * r ^ 2) := by ring
-    _ = 8 - 12 * r := by rw [hr]; ring
-
-end PolygonArea
+end PolygonOrder
 
 end EnterpriseMath.Precision.EulerCellPolygonPi
