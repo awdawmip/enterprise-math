@@ -1,0 +1,76 @@
+{
+  "schema": "ENTERPRISE_MATH_EULER_PYTHAGOREAN_SPINOR_THEOREM_LEDGER_V1",
+  "status": "FREE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "effective": "2026-09-03",
+  "author": "YUAN X",
+  "researcher": "EM-FREE-F6D046 / FREE_AXIOM_DISCOVERY",
+  "source_note": "research_notes/EULER_PYTHAGOREAN_SPINOR_CAYLEY_GEOMETRY_20260903.md",
+  "checker": "src/enterprise_math/euler_cayley_spinor.py",
+  "regression": "tests/test_euler_cayley_spinor.py",
+  "theorems": [
+    {
+      "id": "EMEC-T01-PYTHAGOREAN-SPINOR-UNIT-CHARACTER",
+      "status": "PROVED_FINITE_ALGEBRAIC_EXECUTABLE_CHECKED",
+      "statement": "For every nonzero pair (a,b), C[a:b]=((a^2-b^2)+J*2ab)/(a^2+b^2) has character norm one because (a^2-b^2)^2+(2ab)^2=(a^2+b^2)^2.",
+      "boundary": "The J-character plane is a derived rotation representation and is not identified with the native Enterprise metric plane."
+    },
+    {
+      "id": "EMEC-T02-PROJECTIVE-COMPOSITION-HOMOMORPHISM",
+      "status": "PROVED_FINITE_ALGEBRAIC_EXECUTABLE_CHECKED",
+      "statement": "Under [a:b] star [c:d]=[ac-bd:ad+bc], norms multiply and C(u star v)=C(u)C(v). Scaling or simultaneous sign reversal of a pair does not change its character."
+    },
+    {
+      "id": "EMEC-T03-RATIONAL-UNIT-CONIC-PARAMETRIZATION",
+      "status": "PROVED_FINITE_ALGEBRAIC_EXECUTABLE_CHECKED",
+      "statement": "Every rational point (x,y) with x^2+y^2=1 is C[1+x:y] when x is not -1, while (-1,0)=C[0:1]. Thus P1(Q) parametrizes the rational unit-character conic."
+    },
+    {
+      "id": "EMEC-T04-EULER-ENDPOINT-SPINORS",
+      "status": "PROVED_FINITE_ALGEBRAIC_EXECUTABLE_CHECKED",
+      "statement": "C[1:0]=1, C[1:1]=J, C[0:1]=-1, and [1:1] star [1:1]=[0:1], so J^2=-1. Reflection exchanges [1:1] and [1:-1], hence the sign of the quarter-turn coordinate requires chirality."
+    },
+    {
+      "id": "EMEC-T05-CAYLEY-MOBIUS-COMPOSITION",
+      "status": "PROVED_FINITE_ALGEBRAIC_EXECUTABLE_CHECKED",
+      "statement": "For projective parameter t, C(t)=((1-t^2)+J*2t)/(1+t^2)=(1+Jt)/(1-Jt), with infinity mapped to -1, and C(s)C(t)=C((s+t)/(1-st)) in projective arithmetic.",
+      "boundary": "No inverse tangent or classical angle is needed for this law."
+    },
+    {
+      "id": "EMEC-T06-NEGATIVE-PELL-CAYLEY-SEGMENT",
+      "status": "PROVED_ALGEBRAIC_EXECUTABLE_CHECKED",
+      "hypotheses": "P^2-DQ^2=-1 with P>=0, Q,D>0",
+      "statement": "For R=Q*sqrt(D) and tau=R-P, tau=1/(R+P) and C(tau)=P/R+J/R. Thus the negative-Pell residual is exactly the Cayley half-angle coordinate of the normalized near-axis segment (P,1)."
+    },
+    {
+      "id": "EMEC-T07-N58-THREE-CAYLEY-DEFECTS",
+      "status": "PROVED_ALGEBRAIC_IN_NOTE",
+      "statement": "sqrt(2)-1, 13sqrt(29)-70, and 13sqrt(58)-99 are the Cayley defects of the negative-Pell segments (1,1), (70,1), and (99,1), and 99sqrt(2)-70-13sqrt(29)=(sqrt(2)-1)^6(13sqrt(29)-70)(13sqrt(58)-99).",
+      "boundary": "The exponent six is not derived here from the six Cell gates."
+    },
+    {
+      "id": "EMEC-T08-MACHIN-INTEGER-SPINOR-CERTIFICATE",
+      "status": "PROVED_FINITE_INTEGER_EXECUTABLE_CHECKED",
+      "statement": "[5:1]^4 star [239:-1]=[1:1]; before projective reduction, (5+J)^4(239-J)=114244(1+J). Classical angle decoding yields Machin's identity but is not needed for the integer certificate."
+    },
+    {
+      "id": "EMEC-T09-UNARY-ORIENTATION-NOGO-AND-BINARY-SUFFICIENCY",
+      "status": "PROVED_STANDARD_GROUP_ACTION_ARGUMENT_IN_NOTE",
+      "statement": "On a transitive homogeneous Cell carrier, every translation-invariant direction readout from one Cell is constant. The common-translation quotient of ordered neighboring Cell pairs is instead exactly the six oriented neighbor-direction classes; endpoint swap and a chosen cyclic rotation descend to half-turn and successor operations.",
+      "boundary": "This closes only the restricted primitive ordered-segment subsystem, not every native Cell trajectory."
+    },
+    {
+      "id": "EMEC-T10-CAYLEY-TO-EULER-COMPLETION",
+      "status": "STANDARD_ANALYTIC_COMPLETION",
+      "statement": "For Q_n(theta)=(1+J theta/(2n))/(1-J theta/(2n)), every finite Q_n(theta)^n has exact unit norm and the standard limit is exp(J theta).",
+      "interpretation": "The base e records the continuous completion of repeated multiplicative forward composition; it is not a spatial direction or an additional geometric primitive."
+    }
+  ],
+  "open_boundaries": [
+    "Lean formalization of the projective pair law and rational-conic equivalence",
+    "Lean formalization of the unary no-go and directed-edge orbit quotient",
+    "global native Cell-trajectory orientation quotient",
+    "derivation or refutation of the exponent six in the N=58 defect product from six Cell gates",
+    "explicit commuting limit diagram between Cayley products and the dyadic Cell-gate tower",
+    "intertwiner, if any, among spinor sign, tetrahedral residual, and paired-Pell C2 fibers"
+  ]
+}
