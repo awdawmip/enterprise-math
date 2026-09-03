@@ -90,6 +90,36 @@ private theorem extendDirichletPath_det (z : ℝ) {n : ℕ}
     rw [hzero b hb]
     ring
 
+/-- Endpoint extension preserves Hermitian symmetry over the real carrier. -/
+private theorem extendDirichletPath_isHermitian (z : ℝ) {n : ℕ}
+    (M : Matrix (Fin n) (Fin n) ℝ) (hM : M.IsHermitian) :
+    (extendDirichletPath z M).IsHermitian := by
+  apply Matrix.IsHermitian.ext
+  intro i j
+  refine Fin.lastCases ?_ (fun i => ?_) i
+  · refine Fin.lastCases ?_ (fun j => ?_) j
+    · simp [extendDirichletPath]
+    · simp [extendDirichletPath]
+  · refine Fin.lastCases ?_ (fun j => ?_) j
+    · simp [extendDirichletPath]
+    · simpa [extendDirichletPath] using hM.apply i j
+
+/-- Endpoint extension respects the scalar spectral shift. -/
+private theorem extendDirichletPath_scalar_sub (z : ℝ) {n : ℕ}
+    (M0 Mz : Matrix (Fin n) (Fin n) ℝ)
+    (hshift : Matrix.scalar (Fin n) z - M0 = -Mz) :
+    Matrix.scalar (Fin (n + 1)) z - extendDirichletPath 0 M0 =
+      -extendDirichletPath z Mz := by
+  ext i j
+  refine Fin.lastCases ?_ (fun i => ?_) i
+  · refine Fin.lastCases ?_ (fun j => ?_) j
+    · simp [Matrix.scalar_apply, extendDirichletPath]
+    · simp [Matrix.scalar_apply, extendDirichletPath]
+  · refine Fin.lastCases ?_ (fun j => ?_) j
+    · simp [Matrix.scalar_apply, extendDirichletPath]
+    · have hij := congr_fun (congr_fun hshift i) j
+      simpa [Matrix.scalar_apply, extendDirichletPath] using hij
+
 /--
 A concrete finite Dirichlet path matrix, built by repeated endpoint extension.
 This recursive representation is definitionally tridiagonal.
@@ -102,6 +132,35 @@ private theorem dirichletMatrix_one_last (z : ℝ) :
     (dirichletMatrix z 1) (Fin.last 0) (Fin.last 0) = 2 - z := by
   change extendDirichletPath z (dirichletMatrix z 0) (Fin.last 0) (Fin.last 0) = 2 - z
   exact extendDirichletPath_last_last z (dirichletMatrix z 0)
+
+/-- WSR-L34: every finite Dirichlet matrix is Hermitian (symmetric over `ℝ`). -/
+theorem dirichletMatrix_isHermitian (z : ℝ) (n : ℕ) :
+    (dirichletMatrix z n).IsHermitian := by
+  induction n with
+  | zero =>
+      apply Matrix.IsHermitian.ext
+      intro i
+      exact Fin.elim0 i
+  | succ n ih =>
+      change (extendDirichletPath z (dirichletMatrix z n)).IsHermitian
+      exact extendDirichletPath_isHermitian z (dirichletMatrix z n) ih
+
+/--
+WSR-L35: the spectral parameter enters only through a scalar diagonal shift.
+Equivalently, `zI - L(0) = -L(z)`.
+-/
+theorem dirichletMatrix_scalar_sub_zero (z : ℝ) (n : ℕ) :
+    Matrix.scalar (Fin n) z - dirichletMatrix 0 n = -dirichletMatrix z n := by
+  induction n with
+  | zero =>
+      ext i
+      exact Fin.elim0 i
+  | succ n ih =>
+      change Matrix.scalar (Fin (n + 1)) z -
+          extendDirichletPath 0 (dirichletMatrix 0 n) =
+        -extendDirichletPath z (dirichletMatrix z n)
+      exact extendDirichletPath_scalar_sub z
+        (dirichletMatrix 0 n) (dirichletMatrix z n) ih
 
 /-- WSR-L06: the actual finite Dirichlet determinant obeys the continuant recurrence. -/
 theorem dirichletMatrix_det_add_two (z : ℝ) (n : ℕ) :
