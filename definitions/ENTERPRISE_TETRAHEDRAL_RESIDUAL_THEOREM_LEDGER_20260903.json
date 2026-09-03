@@ -5,15 +5,18 @@
   "author": "YUAN X",
   "program": "Enterprise Math",
   "scope": "four-slice/six-line carrier residuals, tetrahedral symmetry, double-Pell finite arithmetic, and conditional positive-series acceleration",
-  "publication_source": "papers/2026-tetrahedral-residuals/",
+  "publication_source": "PR #1136 on publication/yuan-x-tetrahedral-residuals-20260903; not yet canonical main",
   "formalization_evidence": {
+    "residual_symmetry_pr": 1125,
     "residual_symmetry_branch": "formalization/precision-pi-paper-ii-kernel-v1",
     "residual_symmetry_checkpoint": "95a9cd418f6abdb4916f5cf8182437af61dba9db",
     "residual_symmetry_run": 33657478048,
+    "arithmetic_tail_pr": 1126,
     "arithmetic_tail_branch": "formalization/precision-pi-paper-ii-v3",
     "arithmetic_tail_checkpoint": "ca2b30c7ef45b470d0d5cb6955def48610cd9dd7",
     "arithmetic_tail_run": 33659295408,
-    "strict_command": "lake build --wfail -KCI EnterpriseMath"
+    "strict_command": "lake build --wfail -KCI EnterpriseMath",
+    "canonicality_note": "Lean-checked proof evidence is currently PR/branch-backed. This ledger extracts theorem statements and evidence; it does not by itself promote those source branches to Foundation or claim they are already merged into main."
   },
   "theorems": [
     {
