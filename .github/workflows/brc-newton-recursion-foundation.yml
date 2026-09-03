@@ -1,0 +1,54 @@
+name: brc-newton-recursion-foundation
+
+on:
+  pull_request:
+    paths:
+      - 'definitions/ENTERPRISE_BRC_NEWTON_RECURSION_FOUNDATION_20260904.md'
+      - 'definitions/ENTERPRISE_BRC_NEWTON_RECURSION_THEOREM_LEDGER_20260904.json'
+      - 'definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json'
+      - 'research_method_inventory_addenda/20260904_brc_newton_recursion_foundation.json'
+      - 'src/enterprise_math/brc_newton_recursion.py'
+      - 'tests/test_brc_newton_recursion_foundation.py'
+      - 'experiments/check_brc_newton_recursion_foundation.py'
+      - 'experiments/brc_rational_root_newton_recursion_check.py'
+      - 'experiments/brc_selected_root_evaluation_algebra_check.py'
+      - '.github/workflows/brc-newton-recursion-foundation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Newton recursion production subtool
+        env:
+          PYTHONPATH: src
+        run: python -m unittest tests/test_brc_newton_recursion_foundation.py
+      - name: Newton recursion Foundation integrity
+        run: python experiments/check_brc_newton_recursion_foundation.py
+      - name: Rational-root recursion research regression
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_rational_root_newton_recursion_check.py
+      - name: Selected-root evaluation algebra research regression
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_selected_root_evaluation_algebra_check.py
+      - name: Parent reducible critical-jet Foundation remains consistent
+        env:
+          PYTHONPATH: src
+        run: |
+          python -m unittest tests/test_brc_reducible_critical_jet_foundation.py
+          python experiments/check_brc_reducible_critical_jet_foundation.py
+      - name: Toolbox discovers BRC Newton recursion
+        run: |
+          python tools/enterprise_toolbox.py --json methods newton recursion brc > /tmp/newton.json
+          grep -q 't0.weighted_brc_newton_recursion' /tmp/newton.json
+          python tools/enterprise_toolbox.py --json modules newton recursion brc > /tmp/newton-module.json
+          grep -q 'module:brc_newton_recursion' /tmp/newton-module.json
