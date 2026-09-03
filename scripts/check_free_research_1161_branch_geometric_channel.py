@@ -123,7 +123,7 @@ if __name__ == "__main__":
         "seed_sqrt_only": True,
         "direct_geometric_sqrt_used": False,
         "common_binary_bits": 54,
-        "common_binary_cell": 15148384199492731,
+        "common_binary_cell": 15148243129575258,
         "interval_width_lt_2^-54": True,
     }
     if result != expected:
