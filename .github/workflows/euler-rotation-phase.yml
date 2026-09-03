@@ -5,10 +5,13 @@ on:
     paths:
       - 'research_notes/EULER_CELL_GATE_PHASE_REFINEMENT_20260903.md'
       - 'research_notes/EULER_CAYLEY_DOUBLE_PELL_BRIDGE_20260903.md'
+      - 'research_notes/EULER_ROTATION_DIFFERENCE_SPECTRUM_20260903.md'
       - 'src/enterprise_math/rotation_phase_refinement.py'
       - 'src/enterprise_math/rotation_cayley_pell.py'
+      - 'src/enterprise_math/rotation_character_spectrum.py'
       - 'tests/test_rotation_phase_refinement.py'
       - 'tests/test_rotation_cayley_pell.py'
+      - 'tests/test_rotation_character_spectrum.py'
       - 'research_method_inventory_addenda/20260903_rotation_phase_refinement.json'
       - '.github/workflows/euler-rotation-phase.yml'
   workflow_dispatch:
@@ -28,15 +31,18 @@ jobs:
         run: |
           python -m py_compile src/enterprise_math/rotation_phase_refinement.py
           python -m py_compile src/enterprise_math/rotation_cayley_pell.py
+          python -m py_compile src/enterprise_math/rotation_character_spectrum.py
       - name: Run isolated Euler rotation-phase regressions
         env:
           PYTHONPATH: src
         run: |
           python -m unittest discover -s tests -p 'test_rotation_phase_refinement.py' -v
           python -m unittest discover -s tests -p 'test_rotation_cayley_pell.py' -v
+          python -m unittest discover -s tests -p 'test_rotation_character_spectrum.py' -v
       - name: Emit exact certificates
         env:
           PYTHONPATH: src
         run: |
           python -m enterprise_math.rotation_phase_refinement > /tmp/euler-rotation-phase-certificate.json
           python -m enterprise_math.rotation_cayley_pell > /tmp/euler-cayley-pell-certificate.json
+          python -m enterprise_math.rotation_character_spectrum > /tmp/euler-rotation-spectrum-certificate.json
