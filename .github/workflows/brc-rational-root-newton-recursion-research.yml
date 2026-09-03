@@ -1,0 +1,25 @@
+name: brc-rational-root-newton-recursion-research
+
+on:
+  pull_request:
+    paths:
+      - 'research_notes/BRC_RATIONAL_ROOT_NEWTON_RECURSION_20260904.md'
+      - 'experiments/brc_rational_root_newton_recursion_check.py'
+      - '.github/workflows/brc-rational-root-newton-recursion-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Exact BRC rational-root Newton recursion checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_rational_root_newton_recursion_check.py
