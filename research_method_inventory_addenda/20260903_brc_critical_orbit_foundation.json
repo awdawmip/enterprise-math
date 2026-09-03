@@ -1,0 +1,48 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "FOUNDATION_GLOBAL_SUBTOOL",
+  "date": "2026-09-03",
+  "foundation": "definitions/ENTERPRISE_BRC_CRITICAL_ORBIT_FOUNDATION_20260903.md",
+  "theorem_ledger": "definitions/ENTERPRISE_BRC_CRITICAL_ORBIT_THEOREM_LEDGER_20260903.json",
+  "methods": [
+    {
+      "method_id": "t0.weighted_brc_critical_orbits",
+      "name": "Critical BRC word, primitive-orbit and Euler-prefix arithmetic",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "source_refs": [
+        "definitions/ENTERPRISE_BRC_CRITICAL_ORBIT_FOUNDATION_20260903.md",
+        "definitions/ENTERPRISE_BRC_CRITICAL_ORBIT_THEOREM_LEDGER_20260903.json",
+        "src/enterprise_math/brc_critical_orbits.py",
+        "PR #1173",
+        "PR #1174"
+      ],
+      "api": [
+        "CriticalOrbitPrefix",
+        "critical_word_counts",
+        "critical_primitive_orbit_counts",
+        "critical_zeta_coefficients",
+        "critical_euler_coefficients",
+        "critical_orbit_prefix"
+      ],
+      "triggers": [
+        "critical dominant word count",
+        "critical multiplicity automaton",
+        "primitive periodic orbit",
+        "critical zeta Euler product",
+        "Mobius primitive orbit count",
+        "residual critical multiplicity growth"
+      ],
+      "capabilities": [
+        "exact total and based-closed critical dominant branch-word counts from integer K",
+        "exact primitive periodic-orbit counts by Mobius inversion",
+        "exact determinant-zeta reciprocal coefficients",
+        "exact truncated primitive-orbit Euler-product coefficients with determinant cross-check",
+        "verified finite prefix bundling of total/closed/primitive/zeta data"
+      ],
+      "core_law": "For the canonical integer critical-degeneracy matrix K, T_n=tr(K^n)=sum_{d|n}dP_d and 1/det(I-zK)=product_n(1-z^n)^(-P_n); all data are exact rational-gauge invariants because K itself is gauge invariant.",
+      "hard_boundary": "Primitive periodic edge-word orbits are not WBRC-T29 simple feedback-support circuits and P_n are not arithmetic prime counts. Classical dynamical-zeta/entropy structure only; no runtime orbit-enumeration speedup, Shannon-probability or infinite-state claim."
+    }
+  ]
+}
