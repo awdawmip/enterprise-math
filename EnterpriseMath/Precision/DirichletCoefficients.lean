@@ -97,7 +97,13 @@ theorem dirichletSpectralPoly_coeff_choose :
                 2 * (Nat.choose (n + k + 3) (2 * k + 3) : ℝ) +
                   (Nat.choose (n + k + 2) (2 * k + 1) : ℝ) := by
             exact_mod_cast hcNat
-          linear_combination (norm := ring_nf)
-            ((-1 : ℝ) ^ (n + 2 + (k + 1))) * hc
+          have hc' :
+              (Nat.choose (n + k + 2) (2 * k + 1) : ℝ) +
+                  2 * (Nat.choose (n + k + 3) (2 * k + 3) : ℝ) -
+                  (Nat.choose (n + k + 2) (2 * k + 3) : ℝ) =
+                (Nat.choose (n + k + 4) (2 * k + 3) : ℝ) := by
+            linarith [hc]
+          rw [← hc']
+          ring
 
 end EnterpriseMath.Precision
