@@ -1,0 +1,49 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "FOUNDATION_GLOBAL_SUBTOOL",
+  "date": "2026-09-03",
+  "foundation": "definitions/ENTERPRISE_BRC_RECURRENT_PORT_FOUNDATION_20260903.md",
+  "theorem_ledger": "definitions/ENTERPRISE_BRC_RECURRENT_PORT_THEOREM_LEDGER_20260903.json",
+  "methods": [
+    {
+      "method_id": "t0.weighted_brc_recurrent_port_collapse",
+      "name": "Recurrent BRC Schur port-collapse and contextual-signature calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "source_refs": [
+        "definitions/ENTERPRISE_BRC_RECURRENT_PORT_FOUNDATION_20260903.md",
+        "definitions/ENTERPRISE_BRC_RECURRENT_PORT_THEOREM_LEDGER_20260903.json",
+        "src/enterprise_math/brc_recurrent_ports.py",
+        "PR #1152",
+        "PR #1153"
+      ],
+      "api": [
+        "RecurrentPortSignature",
+        "recurrent_port_signature",
+        "recurrent_port_dynamic_equivalent",
+        "recurrent_port_zeta_equivalent",
+        "recurrent_port_context_matrix"
+      ],
+      "triggers": [
+        "recurrent Schur collapse",
+        "ported recurrent module",
+        "boundary effective matrix",
+        "contextual equivalence",
+        "black box recurrent module",
+        "minimal port signature",
+        "hidden zeta",
+        "operation safe recurrent collapse"
+      ],
+      "capabilities": [
+        "exact stable-hidden-state Schur elimination to a positive-rational port matrix",
+        "exact hidden loop-zeta constant extraction",
+        "same-labeled-port dynamic contextual-equivalence comparison",
+        "absolute-zeta contextual-equivalence comparison",
+        "construction of reduced finite positive-rational external port contexts"
+      ],
+      "core_law": "For W=[[A,X],[Y,B]] with stable A, W_eff=B+Y(I-A)^-1X is the complete exact visible dynamic signature under all finite positive-rational contexts attached only through retained ports. Absolute full loop-zeta additionally requires Z_int=1/det(I-A).",
+      "hard_boundary": "Positive total-mass finite-rational port semantics only. Equal W_eff does not preserve CWM count/dominant/provenance. Direct future hidden-state access or coupling mutation is outside the lease. No generic Schur/Kron/black-box novelty or runtime-speedup claim."
+    }
+  ]
+}
