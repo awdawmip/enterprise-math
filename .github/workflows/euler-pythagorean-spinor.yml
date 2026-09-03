@@ -1,0 +1,27 @@
+name: euler-pythagorean-spinor
+
+on:
+  pull_request:
+    paths:
+      - "research_notes/EULER_PYTHAGOREAN_SPINOR_CAYLEY_GEOMETRY_20260903.md"
+      - "research_notes/EULER_PYTHAGOREAN_SPINOR_THEOREM_LEDGER_20260903.json"
+      - "src/enterprise_math/euler_cayley_spinor.py"
+      - "tests/test_euler_cayley_spinor.py"
+      - "research_method_inventory_addenda/20260903_euler_pythagorean_spinor_cayley.json"
+      - ".github/workflows/euler-pythagorean-spinor.yml"
+  workflow_dispatch:
+
+jobs:
+  exact-check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Compile exact checker and regression
+        run: python -m py_compile src/enterprise_math/euler_cayley_spinor.py tests/test_euler_cayley_spinor.py
+      - name: Run isolated exact regression
+        env:
+          PYTHONPATH: src
+        run: python -m unittest -v tests/test_euler_cayley_spinor.py
