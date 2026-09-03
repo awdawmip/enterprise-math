@@ -1,0 +1,39 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "effective": "2026-09-04",
+  "module": "BRC_NEWTON_RECURSION_FOUNDATION",
+  "parent_method": "T0_BRC",
+  "methods": [
+    {
+      "method_id": "t0.weighted_brc_newton_recursion",
+      "status": "GLOBAL_SUBTOOL",
+      "implementation": "src/enterprise_math/brc_newton_recursion.py",
+      "foundation": "definitions/ENTERPRISE_BRC_NEWTON_RECURSION_FOUNDATION_20260904.md",
+      "theorem_ledger": "definitions/ENTERPRISE_BRC_NEWTON_RECURSION_THEOREM_LEDGER_20260904.json",
+      "typed_inputs": [
+        "finite rational-prime-valuation Newton scales",
+        "finite rational-polynomial characteristic jets",
+        "exact selected critical root state",
+        "rational selected translated roots for recursive continuation"
+      ],
+      "typed_outputs": [
+        "exact rational valuation scale",
+        "rational Newton residual jet",
+        "selected-root evaluation Newton residual jet",
+        "exact selected-root zero/equality/sign/contact decisions"
+      ],
+      "reuse": [
+        "t0.weighted_brc_reducible_critical_jet",
+        "t0.weighted_brc_critical_degeneracy",
+        "t0.weighted_brc_rational_holonomy"
+      ],
+      "boundaries": [
+        "no generic algebraic-number field",
+        "no general inversion",
+        "no irrational translated-root continuation",
+        "no complete Puiseux solver",
+        "no floating radical or eigensolver"
+      ]
+    }
+  ]
+}
