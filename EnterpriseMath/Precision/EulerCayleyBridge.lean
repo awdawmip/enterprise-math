@@ -52,10 +52,14 @@ theorem half_phase_square_cross
     (hunit : c ^ 2 + s ^ 2 = 1)
     (ht : t * (1 + c) = s) :
     t ^ 2 * (1 + c) ^ 2 = (1 - c) * (1 + c) := by
+  have hs : s ^ 2 = 1 - c ^ 2 := by
+    calc
+      s ^ 2 = (c ^ 2 + s ^ 2) - c ^ 2 := by ring
+      _ = 1 - c ^ 2 := by rw [hunit]
   calc
     t ^ 2 * (1 + c) ^ 2 = (t * (1 + c)) ^ 2 := by ring
     _ = s ^ 2 := by rw [ht]
-    _ = 1 - c ^ 2 := by nlinarith [hunit]
+    _ = 1 - c ^ 2 := hs
     _ = (1 - c) * (1 + c) := by ring
 
 end
