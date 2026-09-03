@@ -66,6 +66,7 @@ theorem wallisUpperFactorReal_eq_one_add (n : ℕ) :
   unfold wallisUpperFactorReal
   rw [wallisUpperFactor_eq_one_add]
   push_cast
+  rfl
 
 /-- The target-free upper prefactor converges to one. -/
 theorem wallisUpperFactorReal_tendsto_one :
