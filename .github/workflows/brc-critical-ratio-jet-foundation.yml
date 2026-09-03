@@ -1,0 +1,67 @@
+name: brc-critical-ratio-jet-foundation
+
+on:
+  pull_request:
+    paths:
+      - 'definitions/ENTERPRISE_BRC_CRITICAL_RATIO_JET_FOUNDATION_20260903.md'
+      - 'definitions/ENTERPRISE_BRC_CRITICAL_RATIO_JET_THEOREM_LEDGER_20260903.json'
+      - 'definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json'
+      - 'research_method_inventory_addenda/20260903_brc_critical_ratio_jet_foundation.json'
+      - 'src/enterprise_math/brc_critical_ratio_jet.py'
+      - 'src/enterprise_math/__init__.py'
+      - 'tests/test_brc_critical_ratio_jet_foundation.py'
+      - 'experiments/check_brc_critical_ratio_jet_foundation.py'
+      - 'experiments/brc_critical_powered_rational_gauge_check.py'
+      - 'experiments/brc_critical_ratio_histogram_jet_check.py'
+      - 'experiments/brc_critical_ratio_spectral_response_check.py'
+      - 'experiments/brc_full_powered_ratio_jet_check.py'
+      - '.github/workflows/brc-critical-ratio-jet-foundation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Critical ratio-jet production subtool
+        env:
+          PYTHONPATH: src
+        run: python -m unittest tests/test_brc_critical_ratio_jet_foundation.py
+      - name: Critical ratio-jet Foundation integrity
+        run: python experiments/check_brc_critical_ratio_jet_foundation.py
+      - name: Powered rational critical gauge research regression
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_critical_powered_rational_gauge_check.py
+      - name: Critical ratio histogram research regression
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_critical_ratio_histogram_jet_check.py
+      - name: Critical residual first-response research regression
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_critical_ratio_spectral_response_check.py
+      - name: Full powered ratio-jet research regression
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_full_powered_ratio_jet_check.py
+      - name: Parent critical orbit and degeneracy Foundations remain consistent
+        env:
+          PYTHONPATH: src
+        run: |
+          python -m unittest tests/test_brc_critical_orbit_foundation.py
+          python experiments/check_brc_critical_orbit_foundation.py
+          python -m unittest tests/test_brc_critical_degeneracy_foundation.py
+          python experiments/check_brc_critical_degeneracy_foundation.py
+      - name: Toolbox discovers critical ratio-jet BRC
+        run: |
+          python tools/enterprise_toolbox.py --json methods critical ratio jet > /tmp/ratio-jet.json
+          grep -q 't0.weighted_brc_critical_ratio_jet' /tmp/ratio-jet.json
+          python tools/enterprise_toolbox.py --json modules critical ratio jet > /tmp/ratio-jet-module.json
+          grep -q 'module:brc_critical_ratio_jet' /tmp/ratio-jet-module.json
