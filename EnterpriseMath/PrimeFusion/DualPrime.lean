@@ -1,3 +1,5 @@
+import Mathlib.Algebra.CharP.Lemmas
+import Mathlib.Algebra.Field.IsField
 import EnterpriseMath.PrimeFusion.Reconstruction
 
 namespace EnterpriseMath.PrimeFusion
@@ -51,44 +53,68 @@ theorem dualPrime_iff_squarefreeSemiprime_mul {n c : ℕ}
       have hcEq : c = p := by simpa [hkEq] using hk
       exact ⟨by simpa [hnEq] using hq, by simpa [hcEq] using hp⟩
 
-/-- The channel-labelled prime-field condition. Unlike `SquarefreeSemiprime`,
-this records which fixed projection is the Gaussian `N` factor and which is the
-Eisenstein `C` factor. -/
+/-- A prime modulus makes the *existing* quotient ring `ZMod n` a field.
+The primality proof is used only in this forward construction. -/
+theorem zmod_isField_of_prime {n : ℕ} (hn : n.Prime) : IsField (ZMod n) := by
+  letI : Fact (Nat.Prime n) := ⟨hn⟩
+  exact Field.toIsField (ZMod n)
+
+/-- Converse field-to-prime bridge for a nontrivial positive modulus.
+
+Crucially, the hypothesis is `IsField (ZMod n)`, a property of the already-fixed
+`ZMod n` ring operations; it does not store or assume `n.Prime`.  Since `ZMod n`
+has characteristic `n`, fieldness supplies an integral-domain structure and,
+for `1 < n`, the carrier is finite.  The characteristic of a finite nontrivial
+domain is prime, hence `n.Prime`. -/
+theorem zmod_prime_of_isField {n : ℕ} (hn1 : 1 < n)
+    (hfield : IsField (ZMod n)) : n.Prime := by
+  letI : Nontrivial (ZMod n) := hfield.nontrivial
+  letI : IsDomain (ZMod n) := hfield.isDomain
+  letI : NeZero n := ⟨Nat.ne_of_gt (Nat.zero_lt_of_lt hn1)⟩
+  letI : Finite (ZMod n) := inferInstance
+  exact CharP.char_is_prime (ZMod n) n
+
+/-- The channel-labelled quotient-field condition.
+
+Unlike the rejected first F2 encoding, this definition contains **no primality
+fields**.  It asserts directly that the two already-fixed Gaussian/Eisenstein
+`ZMod` quotient rings are fields and remembers that their moduli are distinct. -/
 def FixedChannelPrimeFieldPair (a b : ℤ) : Prop :=
-  (Nmodulus a b).Prime ∧
-    (Cmodulus a b).Prime ∧
+  IsField (ZMod (Nmodulus a b)) ∧
+    IsField (ZMod (Cmodulus a b)) ∧
       Nmodulus a b ≠ Cmodulus a b
 
-/-- Canonical prime-field structure on the fixed Gaussian channel. -/
+/-- Canonical prime-field structure on the fixed Gaussian channel, used in the
+forward dual-prime-to-field direction. -/
 @[instance_reducible]
 noncomputable def gaussianChannelField (a b : ℤ) (hN : (Nmodulus a b).Prime) :
     Field (ZMod (Nmodulus a b)) := by
   letI : Fact (Nat.Prime (Nmodulus a b)) := ⟨hN⟩
   infer_instance
 
-/-- Canonical prime-field structure on the fixed Eisenstein channel. -/
+/-- Canonical prime-field structure on the fixed Eisenstein channel, used in the
+forward dual-prime-to-field direction. -/
 @[instance_reducible]
 noncomputable def eisensteinChannelField (a b : ℤ) (hC : (Cmodulus a b).Prime) :
     Field (ZMod (Cmodulus a b)) := by
   letI : Fact (Nat.Prime (Cmodulus a b)) := ⟨hC⟩
   infer_instance
 
-/-- F2-L04: a labelled dual-prime cell really has two finite field carriers,
-with the fixed Gaussian/Eisenstein orders `N` and `C`; no unordered product
-isomorphism is used to manufacture or swap these labels. -/
+/-- F2-L04: structural fieldness of the fixed channels yields actual finite-field
+data on exactly those quotient ring operations, together with the exact orders. -/
 theorem fixed_channel_prime_fields_and_orders {a b : ℤ}
     (h : FixedChannelPrimeFieldPair a b) :
     Nonempty (Field (ZMod (Nmodulus a b))) ∧
       Nonempty (Field (ZMod (Cmodulus a b))) ∧
         Nat.card (ZMod (Nmodulus a b)) = Nmodulus a b ∧
           Nat.card (ZMod (Cmodulus a b)) = Cmodulus a b := by
-  refine ⟨⟨gaussianChannelField a b h.1⟩, ⟨eisensteinChannelField a b h.2.1⟩, ?_, ?_⟩
+  refine ⟨⟨h.1.toField⟩, ⟨h.2.1.toField⟩, ?_, ?_⟩
   · exact gaussianCarrier_card a b
   · exact eisensteinCarrier_card a b
 
 /-- F2-L04 quotient/product form with fixed channel attachment. For a primitive
-cell the already-fixed CRT projections give the exact ring product, while dual
-primality upgrades each labelled factor to a finite field. -/
+cell the already-fixed CRT projections give the exact ring product, while the
+structural field hypotheses upgrade each labelled factor to a finite field. -/
 theorem fixed_channel_prime_field_product {a b : ℤ}
     (hab : IsCoprime a b)
     (h : FixedChannelPrimeFieldPair a b) :
@@ -114,13 +140,35 @@ theorem fixed_channels_dualPrime_iff_squarefreeSemiprime
   rw [Hmodulus_eq_mul]
   exact dualPrime_iff_squarefreeSemiprime_mul hN1 hC1 hne
 
-/-- Channel-labelled form of the same T8 characterization. This is the converse
-bridge required by F2-L04: a fixed pair of distinct prime `ZMod` channels is
-exactly the dual-prime condition, not merely an abstract unordered product. -/
+/-- The load-bearing F2-L04 converse: actual fieldness of the two fixed quotient
+rings forces primality of the two channel moduli.  The `1 <` hypotheses are the
+explicit edge conditions needed to exclude the characteristic-zero/degenerate
+modulus boundary when converting finite-domain characteristic to primality. -/
+theorem fixedChannelPrimeFieldPair_dualPrime
+    {a b : ℤ}
+    (hN1 : 1 < Nmodulus a b)
+    (hC1 : 1 < Cmodulus a b)
+    (h : FixedChannelPrimeFieldPair a b) :
+    (Nmodulus a b).Prime ∧ (Cmodulus a b).Prime := by
+  exact ⟨zmod_prime_of_isField hN1 h.1, zmod_prime_of_isField hC1 h.2.1⟩
+
+/-- Channel-labelled T8 characterization at the fixed quotient interface.
+
+The forward direction constructs fieldness from dual primality; the reverse
+direction proves primality from structural `IsField` hypotheses on the existing
+`ZMod` quotients.  Distinctness is retained as channel data rather than erased by
+an unordered product isomorphism. -/
 theorem fixedChannelPrimeFieldPair_iff_dualPrime
-    {a b : ℤ} (hne : Nmodulus a b ≠ Cmodulus a b) :
+    {a b : ℤ}
+    (hN1 : 1 < Nmodulus a b)
+    (hC1 : 1 < Cmodulus a b)
+    (hne : Nmodulus a b ≠ Cmodulus a b) :
     FixedChannelPrimeFieldPair a b ↔
       ((Nmodulus a b).Prime ∧ (Cmodulus a b).Prime) := by
-  simp [FixedChannelPrimeFieldPair, hne]
+  constructor
+  · intro h
+    exact fixedChannelPrimeFieldPair_dualPrime hN1 hC1 h
+  · rintro ⟨hN, hC⟩
+    exact ⟨zmod_isField_of_prime hN, zmod_isField_of_prime hC, hne⟩
 
 end EnterpriseMath.PrimeFusion
