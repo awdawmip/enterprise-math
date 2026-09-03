@@ -11,6 +11,7 @@ import EnterpriseMath.Precision.WallisPrecision
 import EnterpriseMath.Precision.DirichletParity
 import EnterpriseMath.Precision.DirichletDecimation
 import EnterpriseMath.Precision.DirichletMatrix
+import EnterpriseMath.Precision.DirichletPolynomial
 import EnterpriseMath.Precision.CompositionSafeCollapse
 import EnterpriseMath.Precision.QuotientBasin
 import EnterpriseMath.Precision.QuotientCoalescence
