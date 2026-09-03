@@ -9,12 +9,14 @@ Order is intentional:
 5. isolate exact nonconforming Driver-review provenance from the operational view;
 6. compose all nonoperational-review causes for follow-up isolation;
 7. isolate follow-up packets and task heads derived solely from those reviews;
-8. normalize every other isolated task to a state-machine-complete hard block;
-9. expose fault-isolated operational task/publication audits while retaining
-   explicit strict/raw audit handles;
-10. apply the current parent-Objective head as the final dispatch authority so
+8. install rollback-safe follow-up materialization so a failed Driver follow-up
+   leaves no partial taskbook/publication/packet candidates;
+9. normalize every other isolated task to a state-machine-complete hard block;
+10. expose fault-isolated operational task/publication audits while retaining
+    explicit strict/raw audit handles;
+11. apply the current parent-Objective head as the final dispatch authority so
     PARKED/CLOSED Objectives cannot leak stale child execution;
-11. leave every unrelated task/review under the original strict rules.
+12. leave every unrelated task/review under the original strict rules.
 
 IMPORTANT LIVENESS BOUNDARY
 ---------------------------
@@ -39,6 +41,7 @@ from pathlib import Path
 from typing import Any
 
 from control_plane import research_driver_followup_fault_isolation
+from control_plane import research_driver_followup_transaction
 from control_plane import research_driver_review_authority_fault_isolation
 from control_plane import research_nonoperational_review_source_adapter
 from control_plane import research_parent_objective_dispatch_gate
@@ -208,6 +211,7 @@ def install(root: Path = ROOT) -> None:
     research_driver_review_authority_fault_isolation.install(root)
     research_nonoperational_review_source_adapter.install(root)
     research_driver_followup_fault_isolation.install(root)
+    research_driver_followup_transaction.install(root)
 
     from tools import research_dispatch
 
