@@ -1,0 +1,60 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-RETURN-PROFILE-1WL-N14-COLLISION-FRONTIER",
+  "registry_key": "RS-P000-PHILOSOPHY-FIRST-RETURN-PROFILE-1WL-N14-COLLISION-FRONTIER",
+  "publication_id": "TP2-8969646E7FF5FB8A9F5D",
+  "publication_generation": 2,
+  "supersedes_publication_id": "TP2-55728CADAA68B6D6E5E2",
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "taskbook_path": "research_tasks/P000_PHILOSOPHY_FIRST_RETURN_PROFILE_1WL_N14_COLLISION_FRONTIER_POSTREVIEW_20260903.md",
+  "taskbook_blob_sha1": "sha1:f60e805aea561a56399f00655f16889894fad29f",
+  "publisher_role": "RESEARCH_DRIVER",
+  "publisher_id": "EM-DVR-VPSKLD",
+  "published_at": "2026-09-03T04:58:30+00:00",
+  "parent_objective_id": "OBJ-P000-ENTERPRISE-6D-ROTATION-TOMOGRAPHY",
+  "origin_kind": "DRIVER_ROADMAP",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-P000-PHILOSOPHY-FIRST-RETURN-PROFILE-1WL-N13-COLLISION-FRONTIER",
+  "claimable": true,
+  "effective_priority": "P0",
+  "effective_leverage": "HIGH",
+  "priority_source": "PUBLISHER_DECLARED",
+  "publisher_priority_request": "P0",
+  "publisher_leverage_request": "HIGH",
+  "owner": "research/p000-phil-q30-return-profile-1wl-n14-collision-frontier",
+  "frontier": "Q29 proves exact graph-level injectivity of the frozen return-profile-initialized ordinary 1-WL observable on U_BR(n) through n=13. The first possible stable equal-packet nonisomorphic collision is now unresolved at n=14.",
+  "next_action": "Keep the accepted Q22/Q25/Q27/Q28/Q29 observable bit-for-bit unchanged and attack n=14 countermodel-first; freeze the first exact nonisomorphic equal-packet collision immediately, or only if necessary establish an independently complete exact n=14 collision-free certificate. Partial structural exhaustion must remain partial.",
+  "research_value": "Locate the first failure, if any, of the already-frozen lowest-information return-profile initialized ordinary 1-WL observable at the new smallest unresolved size n=14 without strengthening it; an exact collision supplies the next minimal repair witness, while an exact negative result extends only the rigorously certified finite lower frontier.",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "identity_lane": "P000Q30",
+  "source_refs": [
+    "research_returns/P000_PHILOSOPHY_FIRST_RETURN_PROFILE_1WL_N13_COLLISION_FRONTIER_RETURN_20260902.md",
+    "driver_reviews/P000_PHILOSOPHY_FIRST_Q29_N13_DRIVER_REVIEW_20260903.md",
+    "research_result_reviews/RR-FB1330BF11DA90424B65/DR-EB92CA0A4ACC645F494D.json"
+  ],
+  "dependencies": [
+    "RR-FB1330BF11DA90424B65",
+    "DR-EB92CA0A4ACC645F494D"
+  ],
+  "evidence_status": "Q29_IMMUTABLE_DRIVER_REVIEW_ACCEPTED / N14_SMALLEST_UNRESOLVED / POSTREVIEW_GENERATION",
+  "successor_gate": {
+    "new_information_gap": "Q29 closes the exact finite collision-free prefix only through n=13. The first admissible size at which the unchanged observable can still fail is n=14, and no accepted collision witness or exact n=14 injectivity certificate exists.",
+    "why_parent_result_does_not_close_it": "The accepted Q29 result is deliberately bounded to thirteen Cells and supplies no structural theorem propagating injectivity to fourteen Cells.",
+    "discriminating_outcomes": [
+      "RETURN_PROFILE_1WL_N14_FIRST_STABLE_COLLISION_CLASSIFIED",
+      "RETURN_PROFILE_1WL_COLLISION_FREE_LOWER_BOUND_EXTENDED_THROUGH_N14",
+      "DECLARED_N14_STRUCTURAL_SEARCH_ROUTE_EXHAUSTED_WITHOUT_CENSUS_OR_MINIMALITY_CLAIM"
+    ],
+    "kill_condition": "On the first exact nonisomorphic equal-packet pair, freeze immediately. If an independently complete exact n=14 certificate proves injectivity, freeze the n<=14 bound and stop. Do not continue to n=15 inside this task.",
+    "alternative_route_or_free_exploration_considered": "Strengthening to 2-WL, spectra, zeta data, full cycle incidence or canonical labels was considered and rejected because the current objective is to locate the failure of the already frozen low-information observable before repairing it. Closure at n=13 was rejected because n=14 is now the smallest unresolved size; unrelated free exploration does not answer this exact first-failure question.",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "Q29 is terminal at n=13 by its own kill rule. A separate n=14 task preserves the exact finite frontier, isolates the larger search and completeness burden, and can terminate cleanly on either a collision, a complete lower-bound extension, or a declared partial structural boundary."
+  }
+}
