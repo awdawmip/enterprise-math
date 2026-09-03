@@ -1,0 +1,94 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "FOUNDATION_GLOBAL_SUBTOOLS",
+  "date": "2026-09-03",
+  "foundation": "definitions/ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_FOUNDATION_20260903.md",
+  "theorem_ledger": "definitions/ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_THEOREM_LEDGER_20260903.json",
+  "methods": [
+    {
+      "method_id": "t0.weighted_brc_histogram",
+      "name": "Exact positive-rational branch-weight histogram and leading-pair calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "source_refs": [
+        "definitions/ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_FOUNDATION_20260903.md",
+        "definitions/ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_THEOREM_LEDGER_20260903.json",
+        "src/enterprise_math/brc_histogram.py",
+        "PR #1155",
+        "PR #1157"
+      ],
+      "api": [
+        "LeadingPair",
+        "WeightHistogram",
+        "weight_histogram",
+        "histogram_recoalesce",
+        "histogram_serial",
+        "leading_recoalesce",
+        "leading_serial",
+        "dominant_degeneracy_error_bound",
+        "power_sum_root_polynomial"
+      ],
+      "triggers": [
+        "explicit positive branch weights",
+        "exact weight histogram",
+        "moment completeness",
+        "dominant degeneracy",
+        "strongest path multiplicity",
+        "prime valuation branch histogram"
+      ],
+      "capabilities": [
+        "exact finite histogram recoalescence and serial convolution",
+        "count total-mass dominant-mass and integer-moment readouts",
+        "exact prime-valuation histogram terms",
+        "dominant weight plus tie multiplicity quotient",
+        "exact finite dominant-degeneracy error bound",
+        "Newton root-polynomial recovery from finite power sums"
+      ],
+      "core_law": "N[Q_{>0}^x] is the exact common positive branch carrier; C,W,M and all integer moments are typed projections, and Lead(H)=(M,d) is an exact quotient.",
+      "hard_boundary": "Equal-weight branch labels/provenance are not retained. Finite exact representation is not a runtime-complexity theorem. Signed/amplitude and arbitrary irrational/complex weights are outside scope."
+    },
+    {
+      "method_id": "t0.weighted_brc_moment_transfer",
+      "name": "Exact integer-moment transition and length-marker port transfer",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "source_refs": [
+        "definitions/ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_FOUNDATION_20260903.md",
+        "definitions/ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_THEOREM_LEDGER_20260903.json",
+        "src/enterprise_math/brc_moment_transfer.py",
+        "PR #1155",
+        "PR #1156"
+      ],
+      "api": [
+        "FiniteMomentSignature",
+        "moment_transition_matrix",
+        "moment_matrix_power",
+        "moment_walk_series_coefficients",
+        "finite_moment_signature",
+        "moment_star_at_z",
+        "moment_port_kernel_at_z",
+        "equal_loop_moment_critical_z"
+      ],
+      "triggers": [
+        "branch moment matrix",
+        "walk count generating function",
+        "length-aware recurrent transfer",
+        "moment port kernel",
+        "finite moment signature",
+        "equal-loop moment criticality"
+      ],
+      "capabilities": [
+        "construct exact W^(m) from explicit positive-rational branch edges",
+        "compute exact fixed-length path moment coefficient matrices",
+        "extract finite primitive moment signature W^0..W^R",
+        "evaluate exact rational resolvents at a rational length marker z",
+        "evaluate exact fixed-m port Schur kernel E_m(z)",
+        "compute exact equal-loop moment critical z"
+      ],
+      "core_law": "For fixed integer m, W^(m) powers are exact path weight power-sums and E_m(z)=zB_m+z^2Y_m(I-zA_m)^-1X_m preserves original walk length at retained ports.",
+      "hard_boundary": "Constant W_eff is not length-safe; primitive finite moment cutoff is not automatically port-complete; rational evaluations outside positive stability are algebraic values rather than convergent recurrent mass sums."
+    }
+  ]
+}
