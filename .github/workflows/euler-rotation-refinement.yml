@@ -15,6 +15,7 @@ on:
       - "tests/test_euler_rotation_refinement.py"
       - "tests/test_euler_native_bisector.py"
       - "EnterpriseMath/Precision/EulerCellRadiusBisector.lean"
+      - "EnterpriseMath/Precision/EulerPhysicalGate.lean"
       - "research_method_inventory_addenda/20260903_euler_rotation_refinement.json"
       - "research_method_inventory_addenda/20260903_euler_native_bisector.json"
       - ".github/workflows/euler-rotation-refinement.yml"
@@ -62,4 +63,4 @@ jobs:
       - name: Fetch mathlib cache
         run: lake exe cache get
       - name: Compile the Euler Cell-radius bisector proofs with warnings fatal
-        run: lake build --wfail -KCI EnterpriseMath.Precision.EulerCellRadiusBisector
+        run: lake build --wfail -KCI EnterpriseMath.Precision.EulerPhysicalGate
