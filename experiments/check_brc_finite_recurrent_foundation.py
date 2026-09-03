@@ -85,10 +85,10 @@ def main() -> int:
     for symbol in EXPECTED_API:
         assert f'"{symbol}"' in package
 
-    for theorem_id in sorted(EXPECTED_THEOREMS):
-        short = theorem_id.split("-", 2)[1]
-        assert short in router or theorem_id in router
-    assert "WBRC-N06" in router
+    # The exact theorem names live in the ledger.  The hot router may compress
+    # contiguous theorem ranges to keep startup context bounded.
+    assert "WBRC-T12..T16" in router
+    assert "WBRC-N01..N06" in router
     assert FOUNDATION.name in router
     assert LEDGER.name in router
     assert "t0.weighted_brc_finite_recurrent" in router
