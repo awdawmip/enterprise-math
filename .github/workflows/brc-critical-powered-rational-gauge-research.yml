@@ -1,0 +1,25 @@
+name: brc-critical-powered-rational-gauge-research
+
+on:
+  pull_request:
+    paths:
+      - 'research_notes/BRC_CRITICAL_POWERED_RATIONAL_GAUGE_20260903.md'
+      - 'experiments/brc_critical_powered_rational_gauge_check.py'
+      - '.github/workflows/brc-critical-powered-rational-gauge-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Exact BRC powered rational critical gauge checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_critical_powered_rational_gauge_check.py
