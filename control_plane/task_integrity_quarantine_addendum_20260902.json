@@ -1,7 +1,7 @@
 {
   "schema": "ENTERPRISE_MATH_TASK_INTEGRITY_QUARANTINE_V1",
   "status": "ACTIVE",
-  "purpose": "Exact closeout addendum for four current task publications that are schema-valid but bypass the mandatory V2 body-section envelope. Each row pins the sole active publication record, taskbook bytes, and exact strict-audit error set. The tasks are locally BLOCKED until ordinary authorized republishing; frozen Results remain reviewable and no research content, truth, review disposition, or successor authority is changed.",
+  "purpose": "Exact task-local quarantine for current publications that are schema-valid but bypass the mandatory V2 body-section envelope. Each row pins the sole active publication record, taskbook bytes, and exact strict-audit error set. Only the affected task is removed from operational selection; frozen Results remain reviewable, unrelated tasks remain dispatchable, and ordinary authorized republishing resolves the quarantine.",
   "quarantines": [
     {
       "task_id": "RS-GEO6-NATIVE-RELATION-SELECTOR-CORE",
@@ -10,6 +10,7 @@
       "record_blob_sha1": "sha1:580406713be77d004ae45e6dd9b5c159aaac1d78",
       "taskbook_path": "research_tasks/GEO6_NATIVE_RELATION_SELECTOR_CORE_20260901.md",
       "taskbook_blob_sha1": "sha1:7a3542eef47d600224f90ab0fb672285da11a3a6",
+      "reason": "The sole active generation has a frozen SUCCESS Result awaiting Driver review, but its taskbook predates the exact combined V2 section headings. Preserve the immutable Result and block fresh execution until a corrected generation is published through ordinary authority.",
       "allowed_task_record_audit_errors": [
         "mandatory body section is missing or empty: Frozen inputs and scope",
         "mandatory body section is missing or empty: Hard target and required outputs",
@@ -22,8 +23,7 @@
       "successor_triggered": false,
       "state": "INVALID_CURRENT_TASK_PUBLICATION",
       "operational_publication_id": null,
-      "isolation_scope": "CONTROL_PLANE_ONLY",
-      "reason": "The sole active generation has a frozen SUCCESS Result awaiting Driver review, but its taskbook predates the exact combined V2 section headings. Preserve the immutable Result and block fresh execution until a corrected generation is published through ordinary authority."
+      "isolation_scope": "CONTROL_PLANE_ONLY"
     },
     {
       "task_id": "RS-GEO6-NATIVE-TRANSLATION-FOLNER-SEMANTICS",
@@ -32,6 +32,7 @@
       "record_blob_sha1": "sha1:80ae0999ff59ddb4dda3dc6845762440cfffcddc",
       "taskbook_path": "research_tasks/GEO6_NATIVE_TRANSLATION_FOLNER_SEMANTICS_20260901.md",
       "taskbook_blob_sha1": "sha1:fbf8f9bd7779aad1cf9ba880acdcfc0bed15cfb6",
+      "reason": "The sole active generation has a frozen NEGATIVE_BOUNDARY Result awaiting Driver review, but its taskbook predates the exact combined V2 section headings. Preserve the immutable Result and block fresh execution until a corrected generation is published through ordinary authority.",
       "allowed_task_record_audit_errors": [
         "mandatory body section is missing or empty: Frozen inputs and scope",
         "mandatory body section is missing or empty: Hard target and required outputs",
@@ -44,8 +45,7 @@
       "successor_triggered": false,
       "state": "INVALID_CURRENT_TASK_PUBLICATION",
       "operational_publication_id": null,
-      "isolation_scope": "CONTROL_PLANE_ONLY",
-      "reason": "The sole active generation has a frozen NEGATIVE_BOUNDARY Result awaiting Driver review, but its taskbook predates the exact combined V2 section headings. Preserve the immutable Result and block fresh execution until a corrected generation is published through ordinary authority."
+      "isolation_scope": "CONTROL_PLANE_ONLY"
     },
     {
       "task_id": "RS-GEO6-PHYSICAL-REFINEMENT-SUPPORT-TRANSPORT-CORE",
@@ -54,6 +54,7 @@
       "record_blob_sha1": "sha1:72e187134bf6e290859195316a4d6b97c2411f13",
       "taskbook_path": "research_tasks/GEO6_PHYSICAL_REFINEMENT_SUPPORT_TRANSPORT_CORE_20260901.md",
       "taskbook_blob_sha1": "sha1:06f137c60f7d3fc7988489e56d84d3d8c8b1fe44",
+      "reason": "The sole active generation has a frozen NEGATIVE_BOUNDARY Result awaiting Driver review, but its taskbook predates the exact combined V2 section headings. Preserve the immutable Result and block fresh execution until a corrected generation is published through ordinary authority.",
       "allowed_task_record_audit_errors": [
         "mandatory body section is missing or empty: Frozen inputs and scope",
         "mandatory body section is missing or empty: Hard target and required outputs",
@@ -66,8 +67,7 @@
       "successor_triggered": false,
       "state": "INVALID_CURRENT_TASK_PUBLICATION",
       "operational_publication_id": null,
-      "isolation_scope": "CONTROL_PLANE_ONLY",
-      "reason": "The sole active generation has a frozen NEGATIVE_BOUNDARY Result awaiting Driver review, but its taskbook predates the exact combined V2 section headings. Preserve the immutable Result and block fresh execution until a corrected generation is published through ordinary authority."
+      "isolation_scope": "CONTROL_PLANE_ONLY"
     },
     {
       "task_id": "RS-GEO7-BORSUK-6D-DIAMETER-PARTITION-NATIVE-BRIDGE",
@@ -76,6 +76,7 @@
       "record_blob_sha1": "sha1:da58201b647897c5cc2ca3881bcbc0a96d1108fc",
       "taskbook_path": "research_tasks/GEO7_BORSUK_6D_DIAMETER_PARTITION_NATIVE_BRIDGE_20260902.md",
       "taskbook_blob_sha1": "sha1:b1b7ee83947873cfd78bac79006cdad0bbd53967",
+      "reason": "The sole active generation is otherwise claimable but its taskbook bypasses the exact combined V2 section headings. Block only this task until an ordinary authorized corrected generation is published; no Borsuk research claim or priority status is changed.",
       "allowed_task_record_audit_errors": [
         "mandatory body section is missing or empty: Frozen inputs and scope",
         "mandatory body section is missing or empty: Hard target and required outputs",
@@ -88,8 +89,95 @@
       "successor_triggered": false,
       "state": "INVALID_CURRENT_TASK_PUBLICATION",
       "operational_publication_id": null,
-      "isolation_scope": "CONTROL_PLANE_ONLY",
-      "reason": "The sole active generation is otherwise claimable but its taskbook bypasses the exact combined V2 section headings. Block only this task until an ordinary authorized corrected generation is published; no Borsuk research claim or priority status is changed."
+      "isolation_scope": "CONTROL_PLANE_ONLY"
+    },
+    {
+      "task_id": "RS-GEO8-BORSUK-R6-LASSAK-33-COMPRESSION-PRESSURE",
+      "publication_id": "TP2-D425335E9566A3F6A54C",
+      "record_path": "research_task_records/RS-GEO8-BORSUK-R6-LASSAK-33-COMPRESSION-PRESSURE/TP2-D425335E9566A3F6A54C.json",
+      "record_blob_sha1": "sha1:65dc9740ba5e09850849e77a63210c6835cf6416",
+      "taskbook_path": "research_tasks/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE_20260902.md",
+      "taskbook_blob_sha1": "sha1:4f8bd12d3cfbe1159b76fdcad85790f0e64d2517",
+      "reason": "The sole active generation has frozen Result RR-68BA014D54542DA7221C awaiting Driver review, but its taskbook bypasses the exact combined V2 section headings. Preserve and review the immutable Result; block only fresh research execution until ordinary authorized republishing.",
+      "allowed_task_record_audit_errors": [
+        "mandatory body section is missing or empty: Frozen inputs and scope",
+        "mandatory body section is missing or empty: Hard target and required outputs",
+        "mandatory body section is missing or empty: Research value to preserve",
+        "mandatory body section is missing or empty: Success, kill, and return criteria"
+      ],
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false,
+      "state": "INVALID_CURRENT_TASK_PUBLICATION",
+      "operational_publication_id": null,
+      "isolation_scope": "CONTROL_PLANE_ONLY"
+    },
+    {
+      "task_id": "RS-N-COUPLED-PUBLIC-N-DISTRIBUTIONAL-NONEXTERNALIZABILITY",
+      "publication_id": "TP2-5D9C21A7B40E683F1C52",
+      "record_path": "research_task_records/RS-N-COUPLED-PUBLIC-N-DISTRIBUTIONAL-NONEXTERNALIZABILITY/TP2-5D9C21A7B40E683F1C52.json",
+      "record_blob_sha1": "sha1:1eb4fe4825ff1ff4eeac929ba72fb5a277614c2e",
+      "taskbook_path": "research_tasks/N_COUPLED_PUBLIC_N_DISTRIBUTIONAL_NONEXTERNALIZABILITY_20260903.md",
+      "taskbook_blob_sha1": "sha1:7be6bca90aeb7b1e8222090ea6e22797f9e96f8c",
+      "reason": "The sole active generation is otherwise claimable and has no frozen Result, but its taskbook bypasses the exact combined V2 section headings. Block only this task before claim; an authorized Driver may publish a corrected superseding generation without changing its research frontier.",
+      "allowed_task_record_audit_errors": [
+        "mandatory body section is missing or empty: Frozen inputs and scope",
+        "mandatory body section is missing or empty: Hard target and required outputs",
+        "mandatory body section is missing or empty: Research value to preserve",
+        "mandatory body section is missing or empty: Success, kill, and return criteria"
+      ],
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false,
+      "state": "INVALID_CURRENT_TASK_PUBLICATION",
+      "operational_publication_id": null,
+      "isolation_scope": "CONTROL_PLANE_ONLY"
+    },
+    {
+      "task_id": "RS-PERFECT-PRIME-AP-RESIDUAL-MOBIUS-BERNSTEIN-COEFFICIENT-POSITIVITY",
+      "publication_id": "TP2-8C910B14D7B854905F6E",
+      "record_path": "research_task_records/RS-PERFECT-PRIME-AP-RESIDUAL-MOBIUS-BERNSTEIN-COEFFICIENT-POSITIVITY/TP2-8C910B14D7B854905F6E.json",
+      "record_blob_sha1": "sha1:cdd39d1d29cb1d14136cdb3edb70f9e2b3d4fa36",
+      "taskbook_path": "research_tasks/PERFECT_PRIME_AP_RESIDUAL_MOBIUS_BERNSTEIN_COEFFICIENT_POSITIVITY_20260902.md",
+      "taskbook_blob_sha1": "sha1:290e507c7bf7a651b2f3608ced64ff09de47bed5",
+      "reason": "The sole active generation already has frozen Result RR-23D512CBD58341BB6BDB and Driver review/follow-up history, but its taskbook bypasses the exact combined V2 section headings. Preserve the immutable result/review chain and remove this historical generation from fresh operational selection.",
+      "allowed_task_record_audit_errors": [
+        "mandatory body section is missing or empty: Frozen inputs and scope",
+        "mandatory body section is missing or empty: Hard target and required outputs",
+        "mandatory body section is missing or empty: Research value to preserve",
+        "mandatory body section is missing or empty: Success, kill, and return criteria"
+      ],
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false,
+      "state": "INVALID_CURRENT_TASK_PUBLICATION",
+      "operational_publication_id": null,
+      "isolation_scope": "CONTROL_PLANE_ONLY"
+    },
+    {
+      "task_id": "RS-PERFECT-PRIME-AP-SIGNED-SECANT-HCM0-HAUSDORFF-LIFT",
+      "publication_id": "TP2-7A2D91C5E40B836F19D2",
+      "record_path": "research_task_records/RS-PERFECT-PRIME-AP-SIGNED-SECANT-HCM0-HAUSDORFF-LIFT/TP2-7A2D91C5E40B836F19D2.json",
+      "record_blob_sha1": "sha1:c714ef5a2cf9aea014fa7419d90556015ee4b365",
+      "taskbook_path": "research_tasks/PERFECT_PRIME_AP_SIGNED_SECANT_HCM0_HAUSDORFF_LIFT_20260903.md",
+      "taskbook_blob_sha1": "sha1:6dd839051295d84f389f3e0975bc8b00463ca970",
+      "reason": "The sole active generation is otherwise claimable and has no frozen Result, but its taskbook bypasses the exact combined V2 section headings. Block only this task before claim; an authorized Driver may publish a corrected superseding generation without changing its HCM0 research frontier.",
+      "allowed_task_record_audit_errors": [
+        "mandatory body section is missing or empty: Frozen inputs and scope",
+        "mandatory body section is missing or empty: Hard target and required outputs",
+        "mandatory body section is missing or empty: Research value to preserve",
+        "mandatory body section is missing or empty: Success, kill, and return criteria"
+      ],
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false,
+      "state": "INVALID_CURRENT_TASK_PUBLICATION",
+      "operational_publication_id": null,
+      "isolation_scope": "CONTROL_PLANE_ONLY"
     }
   ]
 }
