@@ -11,7 +11,10 @@
   ],
   "checker": "src/enterprise_math/euler_native_bisector.py",
   "test": "tests/test_euler_native_bisector.py",
-  "lean": "EnterpriseMath/Precision/EulerCellRadiusBisector.lean",
+  "lean": [
+    "EnterpriseMath/Precision/EulerCellRadiusBisector.lean",
+    "EnterpriseMath/Precision/EulerPhysicalGate.lean"
+  ],
   "theorems": [
     {
       "id": "EMER-T01",
@@ -89,11 +92,18 @@
       "id": "EMER-T13",
       "name": "Native Pythagorean segment-spinor identity",
       "statement": "For v=a+bJ and n=a^2+b^2, the projective rotation character C[a:b]=((a^2-b^2)+2abJ)/n equals (v/sqrt(n))^2. For a>0, beta(C[a:b])=v/sqrt(n). In particular C[1:0]=1, C[1:1]=J, and C[0:1]=-1.",
-      "status": "EXACT_ALGEBRAIC_BRIDGE_WITH_MANUSCRIPT_PROOF_AND_MERGED_CAYLEY_CHECKER"
+      "status": "EXACT_ALGEBRAIC_BRIDGE_WITH_LEAN_CANDIDATE_AND_MERGED_CAYLEY_CHECKER"
+    },
+    {
+      "id": "EMER-T14",
+      "name": "Physical gate displacement",
+      "statement": "The unit gate-ray character is H=r(I+G), while the physical triple-intersection gate displacement is rH=(I+G)/3. Equivalently 3(rH)=I+G under 3r^2=1.",
+      "status": "EXACT_CELL_GEOMETRY_AND_LEAN_CANDIDATE"
     }
   ],
   "negative_boundaries": [
     "The character matrices are not identified with the native Enterprise metric plane or the P000 six native axes.",
+    "The unit gate-ray phase H is not the physical gate displacement; the latter is rH.",
     "Only the first C6-to-C12 refinement is realized by one-step Cell/gate incidence; deeper roots are transition-history states unless separately realized.",
     "No global operation-safe factorization of every admissible native Cell trajectory to this phase tower is claimed.",
     "Without chirality, the sign of J is not canonical.",
