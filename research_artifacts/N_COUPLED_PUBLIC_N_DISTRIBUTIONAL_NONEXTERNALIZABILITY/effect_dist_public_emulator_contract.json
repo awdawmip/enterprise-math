@@ -1,0 +1,22 @@
+{
+  "contract_id": "G_effect-dist^eff",
+  "public_inputs": ["N", "program specification P"],
+  "forbidden_inputs": ["hidden p/q", "CRT selector", "factor-correlated environment state", "secret implementation", "noncomputable or physical oracle"],
+  "probabilistic_semantics": {
+    "transition_rule": "public computable small-step interpreter",
+    "randomness": "public effective sampler, reducible to an explicit random tape; fair-bit source is canonical",
+    "termination": "almost sure termination is sufficient for exact external sampling",
+    "terminal_output": "finite explicit presentation C"
+  },
+  "nondeterministic_semantics": {
+    "branching": "effective finitely branching or computably enumerable branch choices",
+    "terminal_output": "finite explicit presentation C",
+    "externalization_target": "computable enumeration of reachable terminal presentation support"
+  },
+  "externalization": {
+    "sampler": "an external public algorithm given only N and P that has exactly the runtime output law",
+    "support_enumerator": "an external public algorithm enumerating every reachable terminal presentation and no unreachable presentation"
+  },
+  "theorem_boundary": "If all operational resources used by the runtime are present in the public effective specification, a universal interpreter externally reproduces the probabilistic law; effective nondeterministic support is enumerable. A claimed nonexternalizable survivor must therefore import a resource outside this frozen class rather than branch opacity alone.",
+  "complexity_claim": "NONE"
+}
