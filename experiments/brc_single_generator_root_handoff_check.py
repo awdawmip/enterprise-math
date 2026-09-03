@@ -354,7 +354,12 @@ def irrational_b_matrices():
 
 
 def systematic_handoff_regression():
-    eta, tau1, tau2 = Q(1, 2), Q(1, 3), Q(1, 4)
+    # tau2 is deliberately chosen above eta^2.  The former tau2=1/4 sat
+    # exactly on the intrinsic eta^2 resonance and therefore mixed the third
+    # edge with the denominator/nonlinear correction instead of giving a pure
+    # common-shift edge.
+    eta, tau1, tau2 = Q(1, 2), Q(1, 3), Q(3, 10)
+    assert eta * eta < tau2 < tau1 < eta
     samples = root_checks = recursive_checks = semantic_checks = continuation_checks = 0
     for b in irrational_b_matrices():
         K = mat_identity(4)
