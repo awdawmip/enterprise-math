@@ -9,6 +9,7 @@ import EnterpriseMath.Precision.Carry
 import EnterpriseMath.Precision.SpectralPrecision
 import EnterpriseMath.Precision.WallisPrecision
 import EnterpriseMath.Precision.WallisLimit
+import EnterpriseMath.Precision.WallisCurvature
 import EnterpriseMath.Precision.DirichletParity
 import EnterpriseMath.Precision.DirichletDecimation
 import EnterpriseMath.Precision.DirichletMatrix
