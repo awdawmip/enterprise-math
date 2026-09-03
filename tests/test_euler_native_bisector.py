@@ -21,13 +21,23 @@ class EulerNativeBisectorTests(unittest.TestCase):
         self.assertEqual(enb.matrix_pow(rotor, 3), enb.matrix_neg(enb.IDENTITY))
         self.assertEqual(enb.matrix_pow(rotor, 6), enb.IDENTITY)
 
-    def test_cell_radius_generates_the_gate_bisector(self):
+    def test_cell_radius_generates_the_unit_gate_bisector(self):
         gate = enb.gate_rotor()
         self.assertEqual(enb.matrix_pow(gate, 2), enb.six_state_rotor())
         self.assertEqual(enb.matrix_pow(gate, 6), enb.matrix_neg(enb.IDENTITY))
         self.assertEqual(enb.matrix_pow(gate, 12), enb.IDENTITY)
         self.assertEqual(enb.gate_normalizer_square(), Fraction(1, 3))
         self.assertEqual(enb.adjacent_sum_gram(), enb.matrix_scale(3, enb.GRAM))
+
+    def test_physical_gate_is_centroid_displacement(self):
+        self.assertEqual(
+            enb.physical_gate_displacement(),
+            enb.physical_gate_centroid_form(),
+        )
+        self.assertEqual(
+            enb.physical_gate_displacement(),
+            enb.matrix_scale(enb.radial(), enb.gate_rotor()),
+        )
 
     def test_quarter_turn_is_the_normalized_chiral_difference(self):
         quarter = enb.quarter_turn()
