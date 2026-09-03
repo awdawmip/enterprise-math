@@ -1,0 +1,50 @@
+{
+  "schema": "ENTERPRISE_MATH_BRC_RECURRENT_PORT_THEOREM_LEDGER_V1",
+  "status": "CANONICAL_FOUNDATION_ADDENDUM",
+  "effective": "2026-09-03",
+  "parent_ledger": "definitions/ENTERPRISE_BRC_RECURRENT_INTERACTION_THEOREM_LEDGER_20260903.json",
+  "foundation": "definitions/ENTERPRISE_BRC_RECURRENT_PORT_FOUNDATION_20260903.md",
+  "tool_method_id": "t0.weighted_brc_recurrent_port_collapse",
+  "research_evidence": [
+    {"pr": 1152, "merge": "40d3ec9e7786bafddb6e10694e2d60137a65850b"},
+    {"pr": 1153, "merge": "48659591c3d51dcb3fdaf9585789a1d49eadfdf1"}
+  ],
+  "theorems": [
+    {
+      "id": "WBRC-T30-RECURRENT-SCHUR-BOUNDARY-COLLAPSE",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "finite non-negative rational W partitioned into stable internal block A and retained boundary B, with W=[[A,X],[Y,B]]",
+      "statement": "With S_I=(I-A)^-1 and W_eff=B+Y S_I X, full W is stable iff W_eff is stable. On the stable phase the full star restricted to retained boundary equals (I-W_eff)^-1; det(I-W)=det(I-A)det(I-W_eff); Z_loop(W)=Z_loop(A)Z_loop(W_eff).",
+      "path_semantics": "Each effective boundary transition is the positive recoalescence of a direct boundary edge and every complete internal excursion with no intermediate boundary visit.",
+      "source": ["PR #1152"]
+    },
+    {
+      "id": "WBRC-T31-RECURRENT-PORT-CONTEXT-SAFETY",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "same module scope as T30; future finite non-negative rational context may add port-port, port-external, external-port and external-external edges but no direct hidden-internal edges",
+      "statement": "Replacing the hidden module by W_eff preserves composite stability and every stable visible port/external star entry in every allowed context. Therefore all visible feedback-event kernels, feedback interactions and critical radii computed from those star entries are exactly preserved.",
+      "gauge_composition": "Positive state gauge restricts to positive diagonal similarity on W_eff; Schur elimination is associative under stable sequential elimination.",
+      "source": ["PR #1152", "PR #1153"]
+    },
+    {
+      "id": "WBRC-T32-RECURRENT-MINIMAL-PORT-SIGNATURE",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "baseline-stable modules with the same labeled port set; observer sees stable/unstable status and stable visible star for every allowed finite positive-rational port context",
+      "statement": "Two modules are port-dynamically contextually equivalent iff their W_eff matrices are equal. If the observer additionally sees absolute full global loop-zeta, the complete exact signature is (W_eff,Z_int) with Z_int=1/det(I-A). For context-induced Gamma/zeta increments only, Z_int cancels and W_eff alone remains sufficient.",
+      "minimality": "Necessity follows from the empty context: the stable port star determines W_eff=I-S_port^-1; once W_eff is known, empty-context full zeta determines Z_int.",
+      "source": ["PR #1153"]
+    }
+  ],
+  "negative_boundaries": [
+    {
+      "id": "WBRC-N12-RECURRENT-PORT-COLLAPSE-NOT-CWM-SAFE",
+      "status": "PROVED_NEGATIVE_BOUNDARY",
+      "statement": "Total-mass Schur collapse can identify modules with different path count, dominant-path mass or provenance. Equal W_eff does not imply equal CWM/provenance data."
+    },
+    {
+      "id": "WBRC-N13-RECURRENT-PORT-LEASE-BOUNDARY",
+      "status": "SCOPE_BOUNDARY",
+      "statement": "The port signature is exact only for contexts that cannot directly mutate or connect to hidden internal states/couplings. Richer observers or hidden-state operations require a richer signature. Signed/amplitude, complex and infinite-state contexts remain outside scope."
+    }
+  ]
+}
