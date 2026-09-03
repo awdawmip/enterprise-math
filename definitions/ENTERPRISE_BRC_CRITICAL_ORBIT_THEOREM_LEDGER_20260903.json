@@ -1,0 +1,48 @@
+{
+  "schema": "ENTERPRISE_MATH_BRC_CRITICAL_ORBIT_THEOREM_LEDGER_V1",
+  "status": "CANONICAL_FOUNDATION_ADDENDUM",
+  "effective": "2026-09-03",
+  "parent_ledger": "definitions/ENTERPRISE_BRC_CRITICAL_DEGENERACY_THEOREM_LEDGER_20260903.json",
+  "foundation": "definitions/ENTERPRISE_BRC_CRITICAL_ORBIT_FOUNDATION_20260903.md",
+  "tool_method_id": "t0.weighted_brc_critical_orbits",
+  "parent_tool_method_id": "t0.weighted_brc_critical_degeneracy",
+  "research_evidence": [
+    {"pr": 1173, "merge": "c8b42da536eee2a1b14635405a8ecdce76fa4658"},
+    {"pr": 1174, "merge": "4daf62373665843928c0ea69fe9b5398dabdd63b"}
+  ],
+  "theorems": [
+    {
+      "id": "WBRC-T43-CRITICAL-MULTIPLICITY-AUTOMATON",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "statement": "For the integer critical-degeneracy matrix K, expanding K_ij into K_ij parallel critical dominant branch symbols gives a finite multigraph with (K^n)_ij equal to the exact length-n critical dominant branch-word count from i to j. With B_n=1^T K^n 1 and T_n=tr(K^n), Gamma_crit=ln rho(K)=lim_n (1/n)ln B_n. B_n and T_n obey exact integer Cayley-Hamilton recurrences and -z p_K'(z)/p_K(z)=sum_{n>=1}T_n z^n.",
+      "gauge": "Positive rational vertex gauge leaves dominant ties and all critical cycle products unchanged, hence K'=K exactly and all K-derived observables are exact gauge invariants.",
+      "zero_law": "Gamma_crit=0 iff the recurrent critical automaton is a disjoint union of unit-multiplicity directed cycles, equivalently B_n is bounded/constant on the recurrent-state carrier.",
+      "source": ["PR #1173", "WBRC-T39..T42"]
+    },
+    {
+      "id": "WBRC-T44-CRITICAL-PRIMITIVE-ORBIT-EULER",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "statement": "Let P_n be the number of primitive periodic edge-labeled critical branch orbits of exact length n in the expanded K-multigraph. Then T_n=sum_{d|n} d P_d, so P_n=(1/n)sum_{d|n} mu(d)T_{n/d} is a non-negative integer. The critical multiplicity zeta satisfies the exact formal Euler product 1/det(I-zK)=product_{n>=1}(1-z^n)^(-P_n).",
+      "finite_representation": "Every coefficient through order N depends only on P_1..P_N; the entire infinite primitive inventory is finitely encoded by the integer polynomial p_K(z)=det(I-zK).",
+      "gauge": "Since rational vertex gauge leaves K exactly unchanged, every P_n and the entire Euler product are exact gauge invariants.",
+      "source": ["PR #1174", "PR #1173"]
+    }
+  ],
+  "negative_boundaries": [
+    {
+      "id": "WBRC-N23-PRIMITIVE-PERIODIC-ORBIT-NOT-T29-SIMPLE-CIRCUIT",
+      "status": "TYPE_BOUNDARY",
+      "statement": "WBRC-T44 primitive periodic edge-word orbits are not WBRC-T29 Möbius-primitive simple support circuits. T29 is finite feedback-event-subset semantics; T44 is arbitrary-length periodic-word semantics in the condensed critical automaton."
+    },
+    {
+      "id": "WBRC-N24-CRITICAL-RESIDUAL-GROWTH-NOT-SHANNON-ENTROPY",
+      "status": "TYPE_BOUNDARY",
+      "statement": "The term residual/topological entropy denotes the classical logarithmic word-growth rate ln rho(K). No Shannon probability distribution, information entropy, Fisher metric or stochastic interpretation is implied."
+    },
+    {
+      "id": "WBRC-N25-PRIMITIVE-ORBIT-EULER-NOT-ARITHMETIC-PRIME-EULER",
+      "status": "TYPE_BOUNDARY",
+      "statement": "The P_n are primitive periodic orbit counts, not arithmetic prime counts. The Euler product is the classical dynamical-zeta factorization and is not an arithmetic-prime Euler product or a generic novelty claim."
+    }
+  ]
+}

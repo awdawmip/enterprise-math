@@ -1,0 +1,55 @@
+name: brc-critical-orbit-foundation
+
+on:
+  pull_request:
+    paths:
+      - 'definitions/ENTERPRISE_BRC_CRITICAL_ORBIT_FOUNDATION_20260903.md'
+      - 'definitions/ENTERPRISE_BRC_CRITICAL_ORBIT_THEOREM_LEDGER_20260903.json'
+      - 'definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json'
+      - 'research_method_inventory_addenda/20260903_brc_critical_orbit_foundation.json'
+      - 'src/enterprise_math/brc_critical_orbits.py'
+      - 'src/enterprise_math/__init__.py'
+      - 'tests/test_brc_critical_orbit_foundation.py'
+      - 'experiments/check_brc_critical_orbit_foundation.py'
+      - 'experiments/brc_critical_multiplicity_residual_entropy_check.py'
+      - 'experiments/brc_critical_primitive_orbit_euler_check.py'
+      - '.github/workflows/brc-critical-orbit-foundation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Critical orbit production subtool
+        env:
+          PYTHONPATH: src
+        run: python -m unittest tests/test_brc_critical_orbit_foundation.py
+      - name: Critical orbit Foundation integrity
+        run: python experiments/check_brc_critical_orbit_foundation.py
+      - name: Critical residual automaton research regression
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_critical_multiplicity_residual_entropy_check.py
+      - name: Critical primitive-orbit Euler research regression
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_critical_primitive_orbit_euler_check.py
+      - name: Parent critical-degeneracy Foundation remains consistent
+        env:
+          PYTHONPATH: src
+        run: |
+          python -m unittest tests/test_brc_critical_degeneracy_foundation.py
+          python experiments/check_brc_critical_degeneracy_foundation.py
+      - name: Toolbox discovers critical orbit BRC
+        run: |
+          python tools/enterprise_toolbox.py --json methods critical orbit > /tmp/critical-orbit.json
+          grep -q 't0.weighted_brc_critical_orbits' /tmp/critical-orbit.json
+          python tools/enterprise_toolbox.py --json modules critical orbit > /tmp/critical-orbit-module.json
+          grep -q 'module:brc_critical_orbits' /tmp/critical-orbit-module.json
