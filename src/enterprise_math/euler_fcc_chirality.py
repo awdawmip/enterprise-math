@@ -6,6 +6,11 @@ edge cochain. Reversing the chosen generator in one slice is a vertex gauge
 transformation. The four triangular face holonomies are the complete gauge
 invariant.
 
+For the accepted all-negative transition class, the eight signed slice states
+form the canonical two-sheeted orientation cover of K4. This cover is exactly
+the three-dimensional cube graph: the four slices are its four body diagonals
+and the deck transformation J -> -J is central inversion.
+
 This module is finite and exact. It does not infer the overlap bits from bare
 FCC incidence and it does not identify slice chirality with the already
 globally closed sign assignment on the twelve oriented FCC directions.
@@ -23,6 +28,8 @@ EdgeBits = tuple[Bit, Bit, Bit, Bit, Bit, Bit]
 GaugeBits = tuple[Bit, Bit, Bit, Bit]
 FaceBits = tuple[Bit, Bit, Bit, Bit]
 Permutation4 = tuple[int, int, int, int]
+SignedSlice = tuple[int, Bit]
+CubeBits = tuple[Bit, Bit, Bit]
 
 VERTICES: tuple[int, ...] = (0, 1, 2, 3)
 EDGES: tuple[tuple[int, int], ...] = (
@@ -48,6 +55,14 @@ ZERO_GAUGE: GaugeBits = (0, 0, 0, 0)
 GLOBAL_FLIP: GaugeBits = (1, 1, 1, 1)
 ZERO_FACES: FaceBits = (0, 0, 0, 0)
 ALL_ODD_FACES: FaceBits = (1, 1, 1, 1)
+
+# Four even-parity cube vertices, one representative from each antipodal pair.
+CUBE_BODY_DIAGONAL_BASES: tuple[CubeBits, ...] = (
+    (0, 0, 0),
+    (0, 1, 1),
+    (1, 0, 1),
+    (1, 1, 0),
+)
 
 
 def _bits(values: Sequence[int], length: int, name: str) -> tuple[int, ...]:
@@ -75,6 +90,20 @@ def normalize_faces(values: Sequence[int]) -> FaceBits:
     return _bits(values, 4, "face pattern")  # type: ignore[return-value]
 
 
+def normalize_cube(values: Sequence[int]) -> CubeBits:
+    return _bits(values, 3, "cube vertex")  # type: ignore[return-value]
+
+
+def normalize_signed_slice(values: Sequence[int]) -> SignedSlice:
+    if len(values) != 2:
+        raise ValueError("signed slice must contain a slice index and one sheet bit")
+    slice_index = values[0]
+    if isinstance(slice_index, bool) or slice_index not in VERTICES:
+        raise ValueError("slice index must be one of 0,1,2,3")
+    sheet = _bits((values[1],), 1, "sheet")[0]
+    return int(slice_index), sheet
+
+
 def edge_assignments() -> Iterator[EdgeBits]:
     for values in product((0, 1), repeat=6):
         yield normalize_edges(values)
@@ -88,6 +117,17 @@ def gauges() -> Iterator[GaugeBits]:
 def face_patterns() -> Iterator[FaceBits]:
     for values in product((0, 1), repeat=4):
         yield normalize_faces(values)
+
+
+def signed_slice_states() -> Iterator[SignedSlice]:
+    for slice_index in VERTICES:
+        for sheet in (0, 1):
+            yield slice_index, sheet
+
+
+def cube_vertices() -> Iterator[CubeBits]:
+    for values in product((0, 1), repeat=3):
+        yield normalize_cube(values)
 
 
 def s4_permutations() -> Iterator[Permutation4]:
@@ -203,6 +243,109 @@ def is_s4_fixed(faces: Sequence[int]) -> bool:
         permute_face_pattern(face_bits, permutation) == face_bits
         for permutation in s4_permutations()
     )
+
+
+def transition_bit(edges: Sequence[int], left: int, right: int) -> Bit:
+    edge_bits = normalize_edges(edges)
+    if left == right or left not in VERTICES or right not in VERTICES:
+        raise ValueError("transition requires two distinct slice indices")
+    edge = tuple(sorted((left, right)))
+    return edge_bits[EDGE_INDEX[edge]]
+
+
+def transition_cover_adjacent(
+    edges: Sequence[int], left: Sequence[int], right: Sequence[int]
+) -> bool:
+    """Adjacency in the signed orientation cover of a transition system."""
+
+    left_slice, left_sheet = normalize_signed_slice(left)
+    right_slice, right_sheet = normalize_signed_slice(right)
+    if left_slice == right_slice:
+        return False
+    return right_sheet == (
+        left_sheet ^ transition_bit(edges, left_slice, right_slice)
+    )
+
+
+def gauge_lift_state(state: Sequence[int], gauge: Sequence[int]) -> SignedSlice:
+    """Sheet relabeling that implements a vertex gauge on the cover."""
+
+    slice_index, sheet = normalize_signed_slice(state)
+    gauge_bits = normalize_gauge(gauge)
+    return slice_index, sheet ^ gauge_bits[slice_index]
+
+
+def cube_complement(vertex: Sequence[int]) -> CubeBits:
+    x, y, z = normalize_cube(vertex)
+    return 1 ^ x, 1 ^ y, 1 ^ z
+
+
+def cube_label(state: Sequence[int]) -> CubeBits:
+    """Label a signed slice state by one endpoint of a cube body diagonal."""
+
+    slice_index, sheet = normalize_signed_slice(state)
+    base = CUBE_BODY_DIAGONAL_BASES[slice_index]
+    return base if sheet == 0 else cube_complement(base)
+
+
+def deck_flip(state: Sequence[int]) -> SignedSlice:
+    slice_index, sheet = normalize_signed_slice(state)
+    return slice_index, 1 ^ sheet
+
+
+def cube_distance(left: Sequence[int], right: Sequence[int]) -> int:
+    left_bits = normalize_cube(left)
+    right_bits = normalize_cube(right)
+    return sum(a ^ b for a, b in zip(left_bits, right_bits))
+
+
+def cube_adjacent(left: Sequence[int], right: Sequence[int]) -> bool:
+    return cube_distance(left, right) == 1
+
+
+def verify_antibalanced_cube_cover() -> dict[str, object]:
+    """Identify the all-face-odd orientation cover with the cube graph."""
+
+    states = tuple(signed_slice_states())
+    labels = {state: cube_label(state) for state in states}
+    if set(labels.values()) != set(cube_vertices()):
+        raise AssertionError("signed slice states did not biject to cube vertices")
+
+    for left in states:
+        if cube_label(deck_flip(left)) != cube_complement(cube_label(left)):
+            raise AssertionError("deck transformation is not cube antipodality")
+        for right in states:
+            cover = transition_cover_adjacent(ANTIBALANCED_EDGES, left, right)
+            cube = cube_adjacent(cube_label(left), cube_label(right))
+            if cover != cube:
+                raise AssertionError("antibalanced cover adjacency is not the cube graph")
+
+    cover_edges = {
+        tuple(sorted((left, right)))
+        for left in states
+        for right in states
+        if left < right
+        and transition_cover_adjacent(ANTIBALANCED_EDGES, left, right)
+    }
+    cube_edges = {
+        tuple(sorted((left, right)))
+        for left in cube_vertices()
+        for right in cube_vertices()
+        if left < right and cube_adjacent(left, right)
+    }
+    if len(cover_edges) != 12 or len(cube_edges) != 12:
+        raise AssertionError("cube-cover edge count is not twelve")
+
+    return {
+        "signed_slice_states": len(states),
+        "cover_edges": len(cover_edges),
+        "cube_vertices": len(set(labels.values())),
+        "cube_edges": len(cube_edges),
+        "body_diagonals": 4,
+        "adjacency_isomorphism": True,
+        "deck_transformation": "cube antipodal map x -> x xor 111",
+        "quotient": "four body diagonals / antipodal pairs = tetrahedral K4 slices",
+    }
 
 
 @dataclass(frozen=True)
@@ -339,6 +482,7 @@ def classification_report() -> dict[str, object]:
         "schema": "ENTERPRISE_EULER_FCC_CHIRALITY_CLASSIFICATION_V1",
         "classification": classify().as_dict(),
         "accepted_antibalanced_signature": verify_accepted_antibalanced_signature(),
+        "antibalanced_orientation_cover": verify_antibalanced_cube_cover(),
         "typed_boundaries": [
             "direction-sign closure on 12 FCC directions is distinct from slice-chirality gluing",
             "overlap signs are inputs; bare FCC incidence does not derive them",
