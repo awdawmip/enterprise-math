@@ -1,0 +1,78 @@
+name: brc-universal-histogram-foundation
+
+on:
+  pull_request:
+    paths:
+      - 'definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json'
+      - 'definitions/00_CURRENT_NATIVE_FOUNDATION.md'
+      - 'definitions/ENTERPRISE_BRC_RECURRENT_PORT_FOUNDATION_20260903.md'
+      - 'definitions/ENTERPRISE_BRC_RECURRENT_PORT_THEOREM_LEDGER_20260903.json'
+      - 'definitions/ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_FOUNDATION_20260903.md'
+      - 'definitions/ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_THEOREM_LEDGER_20260903.json'
+      - 'research_method_inventory_addenda/20260903_brc_recurrent_port_foundation.json'
+      - 'research_method_inventory_addenda/20260903_brc_universal_histogram_foundation.json'
+      - 'src/enterprise_math/brc_recurrent_ports.py'
+      - 'src/enterprise_math/brc_histogram.py'
+      - 'src/enterprise_math/brc_moment_transfer.py'
+      - 'src/enterprise_math/__init__.py'
+      - 'tests/test_brc_recurrent_port_foundation.py'
+      - 'tests/test_brc_universal_histogram_foundation.py'
+      - 'experiments/check_brc_recurrent_port_foundation.py'
+      - 'experiments/check_brc_universal_histogram_foundation.py'
+      - '.github/workflows/brc-universal-histogram-foundation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Universal histogram production tools
+        env:
+          PYTHONPATH: src
+        run: python -m unittest tests/test_brc_universal_histogram_foundation.py
+      - name: Universal histogram Foundation integrity
+        run: python experiments/check_brc_universal_histogram_foundation.py
+      - name: Repaired recurrent port Foundation integrity
+        env:
+          PYTHONPATH: src
+        run: |
+          python -m unittest tests/test_brc_recurrent_port_foundation.py
+          python experiments/check_brc_recurrent_port_foundation.py
+      - name: Branch moment research regression
+        run: python experiments/brc_recurrent_branch_moment_lift_check.py
+      - name: Finite moment completeness regression
+        run: python experiments/brc_recurrent_branch_moment_completeness_check.py
+      - name: Moment length-safe port regression
+        run: python experiments/brc_moment_length_safe_port_transfer_check.py
+      - name: Universal histogram transfer regression
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_prime_valuation_universal_transfer_check.py
+      - name: Dominant degeneracy quotient regression
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_dominant_degeneracy_quotient_check.py
+      - name: Parent recurrent interaction Foundation remains consistent
+        env:
+          PYTHONPATH: src
+        run: |
+          python -m unittest tests/test_brc_recurrent_interaction_foundation.py
+          python experiments/check_brc_recurrent_interaction_foundation.py
+      - name: Toolbox discovers repaired and new BRC subtools
+        run: |
+          python tools/enterprise_toolbox.py --json methods recurrent port collapse > /tmp/port.json
+          grep -q 't0.weighted_brc_recurrent_port_collapse' /tmp/port.json
+          python tools/enterprise_toolbox.py --json methods histogram moment > /tmp/hist.json
+          grep -q 't0.weighted_brc_histogram' /tmp/hist.json
+          grep -q 't0.weighted_brc_moment_transfer' /tmp/hist.json
+          python tools/enterprise_toolbox.py --json modules brc histogram moment port > /tmp/modules.json
+          grep -q 'module:brc_recurrent_ports' /tmp/modules.json
+          grep -q 'module:brc_histogram' /tmp/modules.json
+          grep -q 'module:brc_moment_transfer' /tmp/modules.json

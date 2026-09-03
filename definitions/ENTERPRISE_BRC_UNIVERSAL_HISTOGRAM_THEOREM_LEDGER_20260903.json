@@ -1,0 +1,81 @@
+{
+  "schema": "ENTERPRISE_MATH_BRC_UNIVERSAL_HISTOGRAM_THEOREM_LEDGER_V1",
+  "status": "CANONICAL_FOUNDATION_ADDENDUM",
+  "effective": "2026-09-03",
+  "parent_ledger": "definitions/ENTERPRISE_BRC_RECURRENT_PORT_THEOREM_LEDGER_20260903.json",
+  "foundation": "definitions/ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_FOUNDATION_20260903.md",
+  "tool_method_ids": [
+    "t0.weighted_brc_histogram",
+    "t0.weighted_brc_moment_transfer"
+  ],
+  "research_evidence": [
+    {"pr": 1155, "merge": "7d1183113331fc81cf85512ad99722230cf084d6"},
+    {"pr": 1156, "merge": "e3af4a9726fad024dd3f2aa5e8abefd7135d3a8c"},
+    {"pr": 1157, "merge": "6fa1b46886b89d508f93f830c5134850bc2fc748"}
+  ],
+  "theorems": [
+    {
+      "id": "WBRC-T33-EXPLICIT-BRANCH-MOMENT-CHARACTERS",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "statement": "For every integer m>=0, P_m(Q)=sum_q q^m is an exact semiring character from finite positive-rational branch families under alternative recoalescence and serial Cartesian composition. For an explicit multigraph, W^(m)_ij=sum_{e:i->j} q_e^m and (W^(m)^n)_ij is the exact m-th power-sum of length-n path weights.",
+      "source": ["PR #1155"]
+    },
+    {
+      "id": "WBRC-T34-FINITE-MOMENT-COMPLETENESS",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "statement": "For r positive rational parallel branch weights, P_0=r and P_1,...,P_r determine the unordered weight multiset through Newton identities and the monic root polynomial. Hence if the maximum parallel multiplicity is R, W^(0),...,W^(R) determine every source-target primitive branch-weight multiset up to parallel-label permutation; higher moments satisfy the induced linear recurrence.",
+      "source": ["PR #1155"]
+    },
+    {
+      "id": "WBRC-T35-MOMENT-LENGTH-PORT-TRANSFER",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "statement": "For fixed integer moment order m and W^(m)=[[A_m,X_m],[Y_m,B_m]], E_m(z)=z B_m+z^2 Y_m(I-z A_m)^-1 X_m satisfies (I-zW^(m))^-1[B,B]=(I-E_m(z))^-1 over Q[[z]]/Q(z). Coefficient z^n preserves the original length-n port path moment exactly. At m=1,z=1 this reduces to the recurrent Schur W_eff when the ordinary hidden block is stable.",
+      "source": ["PR #1156"]
+    },
+    {
+      "id": "WBRC-T36-UNIVERSAL-WEIGHT-HISTOGRAM-SEMIRING",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "statement": "The finite-support positive histogram semiring N[Q_{>0}^x], H=sum_q c_q[q], is a common exact carrier for count, total mass, dominant mass and every integer moment. Addition recoalesces exact weights by coefficient; multiplication convolves weights. C,W,M and P_m are typed readouts of the same carrier.",
+      "source": ["PR #1157"]
+    },
+    {
+      "id": "WBRC-T37-PRIME-VALUATION-UNIVERSAL-TRANSFER",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "statement": "Unique factorization identifies positive rational histogram basis elements with finite Laurent monomials in prime-valuation variables. The histogram transition matrix has exact length-n path-weight histogram powers and a formal recurrent/ported transfer; specialization x_p->p^m recovers every W^(m) and E_m(z), including m=0 count and m=1 mass.",
+      "source": ["PR #1157"]
+    },
+    {
+      "id": "WBRC-T38-DOMINANT-DEGENERACY-QUOTIENT",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "statement": "Lead(H)=(M,d), where M is the largest supported exact weight and d its coefficient, is an exact semiring quotient of the histogram carrier. For nonzero finite H, P_m(H)/M^m -> d with exact bound 0<=P_m/M^m-d<=(C-d)r^m for the largest subdominant ratio r<1. Thus ln d is the general dominant-degeneracy subleading log term; the equal-k-branch ln k law is the special case d=k.",
+      "source": ["PR #1157"]
+    }
+  ],
+  "negative_boundaries": [
+    {
+      "id": "WBRC-N14-TOTAL-MASS-NOT-MOMENT-COMPLETE",
+      "status": "PROVED_NEGATIVE_BOUNDARY",
+      "statement": "Aggregated W^(1) does not determine W^(0), W^(2), the branch histogram, or higher moments once parallel branch provenance is erased."
+    },
+    {
+      "id": "WBRC-N15-CONSTANT-PORT-NOT-LENGTH-SAFE",
+      "status": "PROVED_NEGATIVE_BOUNDARY",
+      "statement": "Ordinary W_eff=E_1(1) does not preserve original path length. Direct and internally routed paths can agree at z=1 while giving different formal z dependence."
+    },
+    {
+      "id": "WBRC-N16-PRIMITIVE-MOMENT-CUTOFF-NOT-PORT-COMPLETE",
+      "status": "PROVED_NEGATIVE_BOUNDARY",
+      "statement": "A finite moment cutoff sufficient for primitive parallel-edge cells does not automatically remain complete after hidden-route port collapse; modules can agree at E_0,E_1 and differ at E_2 even when primitive parallel multiplicity is one."
+    },
+    {
+      "id": "WBRC-N17-HISTOGRAM-NOT-LABELED-PROVENANCE",
+      "status": "SCOPE_BOUNDARY",
+      "statement": "The exact-weight histogram preserves multiplicity by exact weight but not semantic path or branch labels among equal-weight alternatives."
+    },
+    {
+      "id": "WBRC-N18-FORMAL-EVALUATION-NOT-MASS-OUTSIDE-STABILITY",
+      "status": "SCOPE_BOUNDARY",
+      "statement": "Formal/rational transfer identities remain algebraically valid beyond a positive convergence region, but such specializations are not interpreted as convergent recurrent positive mass sums. Signed/amplitude, complex, arbitrary irrational-exact and infinite-state extensions remain separate."
+    }
+  ]
+}

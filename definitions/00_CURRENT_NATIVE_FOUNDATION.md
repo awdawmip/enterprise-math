@@ -1,6 +1,6 @@
 # Enterprise Math — Current Native Foundation Router
 
-Status: `ACTIVE / STABLE CURRENT ROUTER / P000-BOUND / FCC-CARRIER-SELECTED / WEIGHTED-BRC-GLOBAL-BASE / FINITE-RECURRENT-CERTIFIED / RECURRENT-INTERACTION-CERTIFIED / LAZY LOAD`
+Status: `ACTIVE / STABLE CURRENT ROUTER / P000-BOUND / FCC-CARRIER-SELECTED / WEIGHTED-BRC-GLOBAL-BASE / FINITE-RECURRENT-CERTIFIED / RECURRENT-INTERACTION-CERTIFIED / RECURRENT-PORT-CERTIFIED / UNIVERSAL-HISTOGRAM-CERTIFIED / LAZY LOAD`
 Date: `2026-09-03`
 Purpose: route current native mathematics without loading unrelated results.
 
@@ -40,23 +40,26 @@ All research modes inherit the minimal branch-typing substrate:
 
 Its role is type discipline, not agenda selection. In particular:
 
-- declared branch multiplicity/positive weight is not silently discarded to Boolean support;
-- finite positive-rational branch systems have the shared exact CWM carrier `(C,W,M)` available;
-- `E=W/M` and `Delta=LN(E)` are derived readout coordinates;
+- declared branch multiplicity/positive weight is not silently discarded to Boolean support or aggregated total mass;
+- finite explicit positive-rational branch systems have an exact weight-histogram carrier; CWM `(C,W,M)`, moments and dominant-degeneracy `(M,d)` are typed projections/quotients;
+- logarithmic quantities such as `Delta=LN(W/M)`, recurrent `Gamma` and `LN(d)` are derived readout coordinates;
 - finite non-negative rational recurrent total-mass systems admit exact rational/integer stable-or-divergent certificates and a gauge-local row-subcritical form;
 - stable finite rational recurrence has exact determinant/zeta, response and feedback-condensation capabilities without requiring a floating spectral primitive;
-- positive rational multiplicative gauge/holonomy preserves exact prime-valuation coordinates before optional logarithmic readout;
+- positive rational multiplicative gauge/holonomy and exact histogram weights preserve finite prime-valuation coordinates before optional logarithmic readout;
+- stable hidden recurrent modules admit exact context-typed port collapse; constant `W_eff` is not silently treated as length/moment complete;
 - simultaneous positive feedback may have higher-order recurrent interaction, so pairwise summaries are not presumed complete;
 - positive Weighted-BRC does not replace signed/amplitude data;
-- deterministic single-path problems reduce to `E=1`, `Delta=0`;
+- deterministic single-path problems reduce to `C=1`, `W=M`, dominant degeneracy `d=1`, `Delta=0`;
 - canonical R023 Boolean support remains the base support semantics;
-- current recurrent interaction results remain finite and rational; broader infinite/signed/complex recurrence is not assumed.
+- current recurrent/histogram results remain finite and rational; broader infinite/signed/complex recurrence is not assumed.
 
 Detailed statements are routed by:
 
 - `ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json` — base weighted/log layer;
 - `ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json` — finite recurrent rational addendum;
-- `ENTERPRISE_BRC_RECURRENT_INTERACTION_THEOREM_LEDGER_20260903.json` — recurrent zeta/response, rational holonomy and feedback-interaction addendum.
+- `ENTERPRISE_BRC_RECURRENT_INTERACTION_THEOREM_LEDGER_20260903.json` — recurrent zeta/response, rational holonomy and feedback-interaction addendum;
+- `ENTERPRISE_BRC_RECURRENT_PORT_THEOREM_LEDGER_20260903.json` — recurrent Schur/port contextual-equivalence addendum;
+- `ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_THEOREM_LEDGER_20260903.json` — explicit branch moments, length-aware transfer, exact histogram and leading-pair addendum.
 
 Reusable executable methods:
 
@@ -64,7 +67,10 @@ Reusable executable methods:
 - `t0.weighted_brc_finite_recurrent` -> `src/enterprise_math/brc_weighted_recurrent.py`;
 - `t0.weighted_brc_recurrent_invariants` -> `src/enterprise_math/brc_recurrent_invariants.py`;
 - `t0.weighted_brc_rational_holonomy` -> `src/enterprise_math/brc_rational_holonomy.py`;
-- `t0.weighted_brc_feedback_interaction` -> `src/enterprise_math/brc_feedback.py`.
+- `t0.weighted_brc_feedback_interaction` -> `src/enterprise_math/brc_feedback.py`;
+- `t0.weighted_brc_recurrent_port_collapse` -> `src/enterprise_math/brc_recurrent_ports.py`;
+- `t0.weighted_brc_histogram` -> `src/enterprise_math/brc_histogram.py`;
+- `t0.weighted_brc_moment_transfer` -> `src/enterprise_math/brc_moment_transfer.py`.
 
 Freeze:
 
@@ -82,13 +88,17 @@ Freeze:
 6. BRC finite recurrent theorem-ledger addendum — `ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json`;
 7. BRC recurrent interaction foundation — `ENTERPRISE_BRC_RECURRENT_INTERACTION_FOUNDATION_20260903.md`;
 8. BRC recurrent interaction theorem ledger — `ENTERPRISE_BRC_RECURRENT_INTERACTION_THEOREM_LEDGER_20260903.json`;
-9. **primary six-axis rotational coordinate carrier** — `P000_FCC_PRIMARY_COORDINATE_CARRIER_20260829.md`;
-10. established three-axis research slice / coordinates — `ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`;
-11. native line trace — `ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`;
-12. arbitrary-point directed gauge — `ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`;
-13. unoriented bidirectional segment — `ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md`;
-14. BRC × native multipath — `ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md`;
-15. path-valued square root — `ENTERPRISE_PATH_VALUED_SQUARE_ROOT_OPERATOR_20260821.md` when a selected task actually uses it.
+9. BRC recurrent port foundation — `ENTERPRISE_BRC_RECURRENT_PORT_FOUNDATION_20260903.md`;
+10. BRC recurrent port theorem ledger — `ENTERPRISE_BRC_RECURRENT_PORT_THEOREM_LEDGER_20260903.json`;
+11. BRC universal histogram foundation — `ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_FOUNDATION_20260903.md`;
+12. BRC universal histogram theorem ledger — `ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_THEOREM_LEDGER_20260903.json`;
+13. **primary six-axis rotational coordinate carrier** — `P000_FCC_PRIMARY_COORDINATE_CARRIER_20260829.md`;
+14. established three-axis research slice / coordinates — `ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`;
+15. native line trace — `ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`;
+16. arbitrary-point directed gauge — `ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`;
+17. unoriented bidirectional segment — `ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md`;
+18. BRC × native multipath — `ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md`;
+19. path-valued square root — `ENTERPRISE_PATH_VALUED_SQUARE_ROOT_OPERATOR_20260821.md` when a selected task actually uses it.
 
 The minimal Weighted-BRC substrate is universal. Other registry entries remain lazy: load only the exact object required by the current problem, except P000 when dimensional/spatial semantics are material and the FCC carrier definition when global coordinate/rotation semantics are material.
 
@@ -190,19 +200,16 @@ Core current interface:
 
 - `WBRC-T01..T11`: finite CWM, weighted/log quotient/gauge, one-state recurrence and deterministic degeneration;
 - `WBRC-T12..T16`: exact finite rational recurrent mass, potential/star and integer stable/divergent certificates;
-- `WBRC-T17/T18`: recurrent loop zeta and integer equal-slack determinant synthesis;
-- `WBRC-T19/T20`: explicit-edge recurrent response and cycle/gauge Hessian geometry;
-- `WBRC-T21`: exact uniform criticality polynomial and rational susceptibility;
-- `WBRC-T22/T23`: positive-rational prime-valuation holonomy and mod-m skeleton/thickness;
-- `WBRC-T24`: multiaffine determinant cycle-interaction polynomial;
-- `WBRC-T25/T26`: feedback-event condensation and exact edge robustness;
-- `WBRC-T27`: modular/conditional feedback chain rule;
-- `WBRC-T28`: all-orders nonnegative feedback Möbius interactions and supermodularity;
-- `WBRC-T29`: Möbius-primitive circuit atoms and interaction-girth = directed-girth;
-- `WBRC-N01..N06`: base/finite-recurrent negative and scope boundaries;
-- `WBRC-N07..N11`: rational-gauge/recurrent completeness, determinant-sign, pairwise-feedback, attribution and recurrent-interaction scope boundaries.
+- `WBRC-T17..T21`: recurrent loop zeta, integer equal-slack synthesis, edge response/Hessian and criticality polynomial;
+- `WBRC-T22..T24`: prime-valuation holonomy, mod-m skeleton/thickness and determinant cycle-interaction polynomial;
+- `WBRC-T25..T29`: feedback condensation, robustness, modular chain, all-orders Möbius interactions and circuit atoms;
+- `WBRC-T30..T32`: recurrent Schur boundary collapse, port-context safety and observer-relative minimal port signatures;
+- `WBRC-T33..T35`: explicit branch moments, finite primitive moment completeness and length-aware fixed-m port transfer;
+- `WBRC-T36..T38`: universal exact-weight histogram, prime-valuation universal transfer and dominant-degeneracy quotient;
+- `WBRC-N01..N13`: base through recurrent-port negative/scope boundaries;
+- `WBRC-N14..N18`: total-mass incompleteness, length/moment port boundaries, histogram provenance and formal-evaluation scope boundaries.
 
-Use the T0 subtools listed above according to type. `LN`/`ROOT` materialization continues through existing exact BRC arithmetic facades and is not required during exact rational/integer accumulation.
+Use the T0 subtools listed above according to type. `LN`/`ROOT` materialization continues through existing exact BRC arithmetic facades and is not required during exact rational/integer/histogram accumulation.
 
 ## First native layer versus carrier polyhedra
 
@@ -260,6 +267,10 @@ For detailed weighted/log theorem scope, `ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LE
 For finite recurrent rational theorem scope, `ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json` controls.
 
 For recurrent zeta/response, rational holonomy and feedback interaction theorem scope, `ENTERPRISE_BRC_RECURRENT_INTERACTION_THEOREM_LEDGER_20260903.json` controls.
+
+For recurrent Schur/port contextual-equivalence scope, `ENTERPRISE_BRC_RECURRENT_PORT_THEOREM_LEDGER_20260903.json` controls.
+
+For explicit-branch moment, length-aware port, exact histogram and dominant-degeneracy scope, `ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_THEOREM_LEDGER_20260903.json` controls.
 
 Project mission/routing is defined by `PROJECT_DEFINITION.md`, `PROJECT_DEFINITION.zh-CN.md`, and current machine governance.
 
