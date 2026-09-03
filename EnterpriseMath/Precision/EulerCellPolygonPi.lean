@@ -44,7 +44,7 @@ theorem gateRotor_chiral_coordinates
 
 end RotorCoordinates
 
-section PolygonAlgebra
+section PolygonDefinitions
 
 variable {F : Type*} [Field F]
 
@@ -70,6 +70,23 @@ theorem tangentParameter_mul_one_add
   unfold tangentParameter
   field_simp [hc]
 
+/-- The physical outer tangent dodecagon has area `8-12r`, i.e.
+    `8-4*sqrt(3)` when `r=1/sqrt(3)`. -/
+theorem physical_c12_outer_area
+    (r : F)
+    (hr : 3 * r ^ 2 = 1) :
+    r ^ 2 * (12 * (2 - 3 * r)) = 8 - 12 * r := by
+  calc
+    r ^ 2 * (12 * (2 - 3 * r)) =
+        8 * (3 * r ^ 2) - 12 * r * (3 * r ^ 2) := by ring
+    _ = 8 - 12 * r := by rw [hr]; ring
+
+end PolygonDefinitions
+
+section PolygonCharZero
+
+variable {F : Type*} [Field F] [CharZero F]
+
 /-- Algebraic form of the sharp width-refinement ratio.  If `u` is the new
     Cayley half-step, then the next width is `(1-u^4)/4` times the old width. -/
 theorem polygon_width_refinement_identity
@@ -77,7 +94,8 @@ theorem polygon_width_refinement_identity
     (hden : 1 - u ^ 2 ≠ 0) :
     (A * (1 + u ^ 2) / (1 - u ^ 2)) * u ^ 2 =
       (A * (2 * u / (1 - u ^ 2)) ^ 2) * ((1 - u ^ 4) / 4) := by
-  field_simp [hden]
+  have hfour : (4 : F) ≠ 0 := by norm_num
+  field_simp [hden, hfour]
   ring
 
 /-- The normalized inscribed area of the twelve-phase Cell/gate polygon is
@@ -98,18 +116,7 @@ theorem physical_c12_dodecagon_area_one
     r ^ 2 * 3 = 3 * r ^ 2 := by ring
     _ = 1 := hr
 
-/-- The physical outer tangent dodecagon has area `8-12r`, i.e.
-    `8-4*sqrt(3)` when `r=1/sqrt(3)`. -/
-theorem physical_c12_outer_area
-    (r : F)
-    (hr : 3 * r ^ 2 = 1) :
-    r ^ 2 * (12 * (2 - 3 * r)) = 8 - 12 * r := by
-  calc
-    r ^ 2 * (12 * (2 - 3 * r)) =
-        8 * (3 * r ^ 2) - 12 * r * (3 * r ^ 2) := by ring
-    _ = 8 - 12 * r := by rw [hr]; ring
-
-end PolygonAlgebra
+end PolygonCharZero
 
 section PolygonOrder
 
