@@ -1,0 +1,63 @@
+{
+  "schema": "ENTERPRISE_MATH_BRC_REDUCIBLE_CRITICAL_JET_THEOREM_LEDGER_V1",
+  "status": "CANONICAL_FOUNDATION_ADDENDUM",
+  "effective": "2026-09-03",
+  "parent_ledger": "definitions/ENTERPRISE_BRC_CRITICAL_RATIO_JET_THEOREM_LEDGER_20260903.json",
+  "foundation": "definitions/ENTERPRISE_BRC_REDUCIBLE_CRITICAL_JET_FOUNDATION_20260903.md",
+  "tool_method_id": "t0.weighted_brc_reducible_critical_jet",
+  "research_evidence": [
+    {"pr": 1182, "merge": "3e78b80954100d680eadb8eac72a7df092373922"},
+    {"pr": 1183, "merge": "fee3bb0022772087c89d81afbdad38dac1797b31"},
+    {"pr": 1184, "merge": "86bd84522cbd2512b0fee747854b8b85af904a0d"}
+  ],
+  "theorems": [
+    {
+      "id": "WBRC-T49-GLOBAL-STRICT-RATIONAL-POWERED-GAUGE",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "statement": "For arbitrary finite explicit positive-rational recurrent branch systems, the powered critical potentials on critical SCCs extend to a global positive rational potential H with powered ratio lambda_e=1 exactly for critical dominant branches and 0<lambda_e<1 for every other explicit branch. A constructive quotient-cycle slack and maximum-simple-path potential gives such H. Any chosen H yields an exact full finite exponential moment jet with dominant layer K.",
+      "reducible_boundary": "When several critical equality classes remain, independent class multipliers change individual inter-class lambda_e. Closed excursion products and grouped characteristic cycle-system ratios are invariant; the reducible full branch-ratio jet is a gauge representative rather than a canonical per-edge coordinate system.",
+      "source": ["PR #1182", "WBRC-T45..T48"]
+    },
+    {
+      "id": "WBRC-T50-ROOT-ACTIVE-CHARACTERISTIC-JET",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "statement": "For any global strict powered gauge the exact characteristic polynomial has a finite gauge-invariant expansion P_s(z)=p_K(z)+sum_{eta<1} eta^s G_eta(z), because determinant exponential bases are closed ratio products. If the selected smallest positive root z_* of p_K is simple, strict layers are exactly classifiable as root-active or root-inactive by G_eta(z_*). If all strict layers are inactive the Perron root is unchanged; otherwise the largest root-active eta_* gives ln rho_s=ln rho_*+[G_eta*(z_*)/(z_*p_K'(z_*))] eta_*^s+o(eta_*^s), with positive Perron coefficient.",
+      "semantics": "Feed-forward strict branches can be root-inactive, while closed excursions through losing critical/noncritical blocks can be root-active. This is the reducible simple-root replacement for irreducible max-branch-ratio gap selection.",
+      "source": ["PR #1183", "PR #1182"]
+    },
+    {
+      "id": "WBRC-T51-MULTIPLE-ROOT-FIRST-NEWTON-EDGE",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "statement": "If the selected smallest positive root z_* of p_K has multiplicity r>=2, each strict characteristic layer has contact order q_eta=ord_{z_*}G_eta. For q_eta<r its candidate first root scale is the exact radical state theta_eta^(r-q_eta)=eta. Candidate scales compare by rational integer powers. The maximal candidate scale theta_* determines the first Newton edge; after z=z_*+theta_*^s y, the scaled characteristic polynomial tends to E(y)=a_r y^r+sum_{theta_eta=theta_*} b_eta y^q_eta. If the Perron-selected negative edge root y_* is simple, z_s=z_*+y_*theta_*^s+o(theta_*^s) and ln rho_s=ln rho(K)-(y_*/z_*)theta_*^s+o(theta_*^s).",
+      "boundary": "A multiple selected edge root requires a later Newton edge. Determinant-base ordering can differ from root-scale ordering because contact order changes the exponent denominator.",
+      "source": ["PR #1184", "PR #1183"]
+    }
+  ],
+  "negative_boundaries": [
+    {
+      "id": "WBRC-N31-REDUCIBLE-INTERCLASS-RATIO-NOT-CANONICAL",
+      "status": "PROVED_NEGATIVE_BOUNDARY",
+      "statement": "Independent critical-class rescaling changes individual inter-class powered branch ratios in reducible systems. Only closed ratio products/characteristic layers are canonical gauge invariants."
+    },
+    {
+      "id": "WBRC-N32-LARGEST-STRICT-RATIO-NOT-GENERAL-SPECTRAL-SCALE",
+      "status": "PROVED_NEGATIVE_BOUNDARY",
+      "statement": "In reducible systems the largest strict branch ratio can be feed-forward/root-inactive. With multiple selected roots, even the largest determinant base need not give the largest root scale because contact orders alter the Newton exponent."
+    },
+    {
+      "id": "WBRC-N33-MULTIPLE-ROOT-NOT-ORDINARY-FIRST-DERIVATIVE",
+      "status": "PROVED_NEGATIVE_BOUNDARY",
+      "statement": "The simple-root response formula G(z_*)/(z_*p_K'(z_*)) is invalid when p_K'(z_*)=0. Tied critical classes can produce fractional Puiseux exponents such as (ab)^(s/2)."
+    },
+    {
+      "id": "WBRC-N34-FIRST-NEWTON-EDGE-NOT-COMPLETE-PUISEUX",
+      "status": "SCOPE_BOUNDARY",
+      "statement": "WBRC-T51 selects and validates only the first Newton edge. If the selected edge root is multiple or further coefficients are required, later Newton edges are a separate research task."
+    },
+    {
+      "id": "WBRC-N35-REDUCIBLE-CRITICAL-JET-SCOPE",
+      "status": "SCOPE_BOUNDARY",
+      "statement": "The addendum is finite-state, explicit positive-rational and unsigned. It does not promote signed/amplitude cancellation, complex or arbitrary irrational branch weights, infinite-state recurrence, a floating eigensolver, or a general symbolic Puiseux-series engine."
+    }
+  ]
+}
