@@ -1,0 +1,45 @@
+{
+  "schema": "R005A_EXECUTABLE_BINDING_CORRECTION_ARTIFACT_MANIFEST_V1",
+  "task_id": "RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION",
+  "publication_id": "TP2-ADD82532ACD19FC01D53",
+  "researcher_id": "EM-R005AFIX-754384",
+  "claim_id": "chatgpt-r005a-fix-20260904-0746",
+  "source_commit": "f9e2a611b45631c43effce36b7300c6f9a56b77b",
+  "disposition": "NO_MATH_DELTA_EXECUTABLE_BINDING_REPAIRED",
+  "self_hash_policy": "This manifest intentionally excludes its own digest to avoid a self-referential hash cycle. The immutable Research Result record pins this manifest separately by Git blob SHA-1 and SHA-256.",
+  "artifacts": [
+    {
+      "path": "experiments/r005a_p2_gap_shadow_inversion.py",
+      "bytes": 12289,
+      "git_blob_sha1": "sha1:1d3d19adc13652bf343972c5eb3ac95684bb8c8a",
+      "sha256": "sha256:6fe2dc9fe05ac16ef2bbd1919d3d03fc5b36037d010ca95afeafb62f4958d3f5"
+    },
+    {
+      "path": "experiments/r005a_p2_gap_shadow_inversion_regression.py",
+      "bytes": 8145,
+      "git_blob_sha1": "sha1:ece824a71c884b09033f1666581a71afe86822a0",
+      "sha256": "sha256:3286c62f6ac7ab3a14c214e462ef8a8e3ad19f780873253ff906f46d8ba394be"
+    },
+    {
+      "path": "research_artifacts/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION_20260904/focused_regression_output.json",
+      "bytes": 734,
+      "git_blob_sha1": "sha1:4bf7d82b52185f1ffc8bf357d719c29c00406768",
+      "sha256": "sha256:5a9fe4f053df4b886a3b0d2e1a26b9c2ec25ef592840220f2ccffc0773d4b6f8"
+    },
+    {
+      "path": "research_artifacts/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION_20260904/validation_transcript.txt",
+      "bytes": 3552,
+      "git_blob_sha1": "sha1:fc929d83bc57a4068ef8786c5e66520c9ae3756d",
+      "sha256": "sha256:30fa91f56a21a2a677486375a3386fef4459f55a00794fac1c8b6904f00f540e"
+    },
+    {
+      "path": "research_returns/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION_20260904.md",
+      "bytes": 4432,
+      "git_blob_sha1": "sha1:8f8850a7a848755af842043bf572df434f1ea35c",
+      "sha256": "sha256:ccdfd06dc29149354c54dac27bb4d6155f3f596dcf5407501bdb03f9fea2ab1a"
+    }
+  ],
+  "mathematical_delta": false,
+  "q78553_frontier_extended": false,
+  "driver_review_required": true
+}
