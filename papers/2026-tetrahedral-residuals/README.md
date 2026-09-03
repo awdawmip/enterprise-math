@@ -1,7 +1,7 @@
 # Tetrahedral endpoint-sum residuals
 
 Author: **YUAN X**  
-Affiliation: **Enterprise Number Theory**  
+Affiliation: **Enterprise Math**  
 Prepared: 2026-09-03
 
 This publication branch contains the English manuscripts associated with the four-slice/six-line residual project.
@@ -38,6 +38,6 @@ OpenAI's ChatGPT assisted with translation, language editing, organization of th
 
 The rendered PDFs prepared from these sources were checked page by page with embedded fonts and no clipping or overlap.
 
-- focused submission PDF SHA-256: `5d4b6152250a34a20167dc39a849acf9f513ed2779262a3a74fccb8367be81dd`
-- full English PDF SHA-256: `081fb46549a22068d280e657fb22c50db2a5e246673dceb1ccdd403426fbd09d`
+- focused submission PDF SHA-256: `f7532dec3e189e32f231227396bfcf357040aa1e97c678ffb6e0a8cdbbc367b9`
+- full English PDF SHA-256: `4375616f5507a0530631f9ca9c9136985065b6882551dcbfd6e93e17d63f2d28`
 - revised Chinese PDF SHA-256: `90ec351f3e24694d4531cb4482b0e28b7d8f1bf08f622948ab1b3c5835883a3b`
