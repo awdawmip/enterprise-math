@@ -1,0 +1,37 @@
+{
+  "schema": "PERFECT_PRIME_AP_RESIDUAL_MOBIUS_BERNSTEIN_COEFFICIENT_CERT_V1",
+  "task_id": "RS-PERFECT-PRIME-AP-RESIDUAL-MOBIUS-BERNSTEIN-COEFFICIENT-POSITIVITY",
+  "researcher_id": "EM-PPTAPRMBP1-409E2B",
+  "arithmetic": "exact Python fractions.Fraction",
+  "symbolic_interface": {
+    "status": "PROVED_IN_PAIRED_RETURN",
+    "name": "SIGNED_SQUARED_SECANT_BASIS_BERNSTEIN_EXPANSION",
+    "endpoint_factors": "TERM_BY_TERM_X_N_AND_ONE_PLUS_X_N",
+    "target_reduction": "Bhat coefficient positivity iff initial signed finite differences of normalized q coefficients are positive",
+    "stronger_candidate": "STRICT_FINITE_HAUSDORFF_COMPLETE_MONOTONICITY_OF_NORMALIZED_Q"
+  },
+  "finite_regression": {
+    "cauchy_binet_secant_formula_exact_match_m": [2, 3, 4],
+    "row_minor_secant_factorization_all_candidates_m": [2, 3],
+    "hausdorff_rows": [
+      {"m": 2, "q_alternating": true, "degree": 1, "all_strict": true, "cells": 3, "sha256": "db1a11973bd389c6f89777857dedc97b494f2f3c92559b70a6dbac57363b9ecd"},
+      {"m": 3, "q_alternating": true, "degree": 6, "all_strict": true, "cells": 28, "sha256": "4fd5cc04d7d712e17f1908fdae1ff3ee3cf45c885213dbd33a5f402101e7a94e"},
+      {"m": 4, "q_alternating": true, "degree": 15, "all_strict": true, "cells": 136, "sha256": "0efcae329ee35bc1f47be6a5a5c74c679d85a3a17d57e252ac0287479ab577c9"},
+      {"m": 5, "q_alternating": true, "degree": 28, "all_strict": true, "cells": 435, "sha256": "a5eaf50d8e31ba421c9ac0301b7b9a62294977a8c20cff7b6f4a8b1f4fffe47d"},
+      {"m": 6, "q_alternating": true, "degree": 45, "all_strict": true, "cells": 1081, "sha256": "8221609a338743e90ff31607e5eb89dea0848a86cd24b3b6316493560885f3b3"},
+      {"m": 7, "q_alternating": true, "degree": 66, "all_strict": true, "cells": 2278, "sha256": "958311eaedea9710650b68ba1f6c260933ee6bebd6db92e9c65c75f793f2363f"},
+      {"m": 8, "q_alternating": true, "degree": 91, "all_strict": true, "cells": 4278, "sha256": "1f456605ef28b1d3ad8c0d4777c8b07d27ce3884080391860eccb0dc065941e5"},
+      {"m": 9, "q_alternating": true, "degree": 120, "all_strict": true, "cells": 7381, "sha256": "64f6d8f8c604ed7a2d67063e40aa03e4a5fa5376e1482a50f545aaf3a0a92cea"},
+      {"m": 10, "q_alternating": true, "degree": 153, "all_strict": true, "cells": 11935, "sha256": "27fe3c2a21c279d715ec9095b06c7bfa0e631d7d6e7b07d0a451f78e42ed407c"}
+    ]
+  },
+  "checker": {
+    "path": "research_checks/PERFECT_PRIME_AP_RESIDUAL_MOBIUS_BERNSTEIN_COEFFICIENT_POSITIVITY_CHECK_20260903.py",
+    "sha256": "sha256:be3e9115bf57c2dbd6e2c5b446945b36f928b3c326c6d9c463d5b5af41d3edef",
+    "validated_commands": [
+      "python research_checks/PERFECT_PRIME_AP_RESIDUAL_MOBIUS_BERNSTEIN_COEFFICIENT_POSITIVITY_CHECK_20260903.py",
+      "python research_checks/PERFECT_PRIME_AP_RESIDUAL_MOBIUS_BERNSTEIN_COEFFICIENT_POSITIVITY_CHECK_20260903.py --m 10"
+    ]
+  },
+  "proof_boundary": "Finite regressions are not an all-m proof. The all-m statements in this certificate are only the signed secant Cauchy-Binet representation, nonzero-basis all-j support necessity, row-minor factorization, and termwise endpoint exponent bounds proved in the paired return."
+}
