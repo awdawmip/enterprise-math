@@ -27,6 +27,8 @@ theorem integerParityCurvature_eq_wallisPartial (n : ℕ) :
   | zero => simp [integerParityCurvature, wallisPartial]
   | succ n ih =>
       rw [integerParityCurvature, Finset.prod_range_succ, wallisPartial]
-      rw [← integerParityCurvature, ih, integerModeCurvatureStep_eq_wallisStep]
+      change integerParityCurvature n * integerModeCurvatureStep n =
+        wallisPartial n * wallisStep n
+      rw [ih, integerModeCurvatureStep_eq_wallisStep]
 
 end EnterpriseMath.Precision
