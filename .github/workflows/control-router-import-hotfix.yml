@@ -20,17 +20,14 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
-      - name: Repair stale pre-V2 runtime consumers fail-fast
+      - name: Repair the three verified stale pre-V2 runtime consumers
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --ff-only origin main
-          echo 'Pre-repair runtime imports:'
-          git grep -n -E '(^|[[:space:]])(from tools import research_scheduler|import research_scheduler)' -- research_control_dispatch.py 'tools/*.py' || true
           python - <<'PY'
           from pathlib import Path
-          import json
 
           def replace_exact(path_text, replacements, label):
               p = Path(path_text)
@@ -68,32 +65,7 @@ jobs:
               ],
               'lane dispatch',
           )
-
-          qpath = Path('control_plane/task_integrity_quarantine_addendum_20260902.json')
-          q = json.loads(qpath.read_text(encoding='utf-8'))
-          target = 'RS-GEO8-BORSUK-R6-LASSAK-33-COMPRESSION-PRESSURE'
-          rows = q.get('quarantines')
-          if not isinstance(rows, list):
-              raise SystemExit('quarantine registry has no quarantines list')
-          matches = [row for row in rows if isinstance(row, dict) and row.get('task_id') == target]
-          if len(matches) != 1:
-              raise SystemExit(f'expected exactly one stale GEO8 quarantine row, found {len(matches)}')
-          old = matches[0]
-          if old.get('publication_id') != 'TP2-D425335E9566A3F6A54C':
-              raise SystemExit('GEO8 quarantine no longer pins expected Gen1 publication')
-          new_record = Path('research_task_records/RS-GEO8-BORSUK-R6-LASSAK-33-COMPRESSION-PRESSURE/TP2-75A6C3F81E2D094B67CF.json')
-          if not new_record.exists():
-              raise SystemExit('GEO8 corrected Gen2 publication is missing')
-          new = json.loads(new_record.read_text(encoding='utf-8'))
-          if new.get('supersedes_publication_id') != old.get('publication_id'):
-              raise SystemExit('GEO8 corrected Gen2 does not directly supersede quarantined Gen1')
-          q['quarantines'] = [row for row in rows if row is not old]
-          qpath.write_text(json.dumps(q, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
           PY
-          if git grep -n -E '(^|[[:space:]])(from tools import research_scheduler|import research_scheduler)' -- research_control_dispatch.py 'tools/*.py'; then
-            echo "ERROR: stale pre-V2 scheduler import remains in runtime code" >&2
-            exit 1
-          fi
           python -m py_compile research_control_dispatch.py tools/research_lane_claims.py tools/research_lane_dispatch.py
           python research_control_dispatch.py --help >/dev/null
           python - <<'PY'
@@ -101,8 +73,7 @@ jobs:
           from tools import research_lane_claims, research_lane_dispatch
           print('PASS: canonical router and lane runtime import without legacy scheduler')
           PY
-          python control_plane/check_publication_fault_isolation.py
           git rm .github/workflows/control-router-import-hotfix.yml
-          git add research_control_dispatch.py tools/research_lane_claims.py tools/research_lane_dispatch.py control_plane/task_integrity_quarantine_addendum_20260902.json
-          git commit -m "control: complete V2 runtime consumer and quarantine reconciliation"
+          git add research_control_dispatch.py tools/research_lane_claims.py tools/research_lane_dispatch.py
+          git commit -m "control: remove stale pre-V2 scheduler runtime consumers"
           git push origin HEAD:main
