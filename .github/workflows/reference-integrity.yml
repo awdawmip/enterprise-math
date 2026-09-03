@@ -81,6 +81,8 @@ jobs:
       - name: Check Objective generations and source-backed Driver authority
         run: >-
           python -c "from control_plane import research_control_bootstrap as b; b.install(); import sys; sys.argv=['research_objective_records.py','audit']; import research_objective_records as m; raise SystemExit(m.main())"
+      - name: Check closed or parked parent Objectives cannot leak child dispatch
+        run: python control_plane/research_parent_objective_dispatch_gate.py
       - name: Check same-execution control-result replacement chains
         run: >-
           python -c "from control_plane import research_control_bootstrap as b; b.install(); import sys; sys.argv=['research_result_control_replacements.py','audit']; import research_result_control_replacements as m; raise SystemExit(m.main())"
@@ -88,6 +90,8 @@ jobs:
         run: python control_plane/check_review_evidence_fault_isolated.py
       - name: Check Driver review automatic follow-up authority across all nonoperational review causes
         run: python control_plane/check_driver_followup_nonoperational_review_fault_isolated.py
+      - name: Check Driver follow-up candidate materialization is rollback-safe
+        run: python control_plane/research_driver_followup_transaction.py
       - name: Check parallel evidence two-pass reference chains over operational results
         run: >-
           python -c "from control_plane import research_control_bootstrap as b; b.install(); from tools import research_result_records as _result_view; import sys; sys.argv=['research_parallel_evidence.py','audit']; import research_parallel_evidence as _parallel; raise SystemExit(_parallel.main())"
