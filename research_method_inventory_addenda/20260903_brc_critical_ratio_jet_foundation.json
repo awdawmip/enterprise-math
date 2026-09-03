@@ -1,0 +1,50 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "FOUNDATION_GLOBAL_SUBTOOLS",
+  "date": "2026-09-03",
+  "foundation": "definitions/ENTERPRISE_BRC_CRITICAL_RATIO_JET_FOUNDATION_20260903.md",
+  "theorem_ledger": "definitions/ENTERPRISE_BRC_CRITICAL_RATIO_JET_THEOREM_LEDGER_20260903.json",
+  "methods": [
+    {
+      "method_id": "t0.weighted_brc_critical_ratio_jet",
+      "name": "Exact powered critical gauge and finite branch-ratio jet calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "source_refs": [
+        "PR #1177",
+        "PR #1178",
+        "PR #1179",
+        "PR #1180",
+        "src/enterprise_math/brc_critical_ratio_jet.py"
+      ],
+      "api": [
+        "PoweredCriticalGauge",
+        "CriticalRatioJet",
+        "FullPoweredRatioJet",
+        "CriticalRatioResponseState",
+        "powered_critical_gauge",
+        "critical_ratio_jet",
+        "full_powered_ratio_jet",
+        "critical_ratio_first_response"
+      ],
+      "triggers": [
+        "powered critical gauge",
+        "critical branch ratio",
+        "finite ratio jet",
+        "large moment next correction",
+        "critical residual spectral response",
+        "T40 gap interpretation"
+      ],
+      "capabilities": [
+        "construct exact rational powered potentials on critical SCCs",
+        "extract gauge-invariant critical-cell ratio histograms and integer layers",
+        "construct the full powered branch-ratio jet when critical K is irreducible",
+        "evaluate exact normalized moment matrices from finite ratio levels",
+        "construct exact p0/root-selector/p1 first-response states without floating spectrum"
+      ],
+      "core_law": "In irreducible critical scope, every explicit branch has an exact powered ratio lambda in (0,1], lambda=1 exactly on critical dominant branches, and the full normalized moment matrix is the finite exponential jet sum_j lambda_j^s M_j with M_0=K.",
+      "hard_boundary": "Full-jet and first-response formulas are not promoted for reducible critical K. Ratio jets are positive-rational multiplicity carriers, not signed/amplitude semantics or labeled provenance, and this reference implementation is not a runtime-complexity claim."
+    }
+  ]
+}
