@@ -1,0 +1,64 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "FOUNDATION_GLOBAL_SUBTOOLS",
+  "effective": "2026-09-04",
+  "date": "2026-09-04",
+  "module": "BRC_NEWTON_FIBER_QUOTIENT_FOUNDATION",
+  "parent_method": "T0_BRC",
+  "foundation": "definitions/ENTERPRISE_BRC_NEWTON_FIBER_QUOTIENT_FOUNDATION_20260904.md",
+  "theorem_ledger": "definitions/ENTERPRISE_BRC_NEWTON_FIBER_QUOTIENT_THEOREM_LEDGER_20260904.json",
+  "methods": [
+    {
+      "method_id": "t0.weighted_brc_newton_fiber_quotient",
+      "name": "Exact BRC Newton residual fiber-sum operation-safe quotient",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "implementation": "src/enterprise_math/brc_newton_fiber_quotient.py",
+      "foundation": "definitions/ENTERPRISE_BRC_NEWTON_FIBER_QUOTIENT_FOUNDATION_20260904.md",
+      "theorem_ledger": "definitions/ENTERPRISE_BRC_NEWTON_FIBER_QUOTIENT_THEOREM_LEDGER_20260904.json",
+      "source_refs": [
+        "PR #1196",
+        "WBRC-T55",
+        "src/enterprise_math/operation_quotient.py"
+      ],
+      "triggers": [
+        "newton fiber quotient",
+        "newton provenance quotient",
+        "residual jet compression",
+        "fiber sum",
+        "operation safe quotient",
+        "source provenance",
+        "brc quotient"
+      ],
+      "capabilities": [
+        "map fixed source Taylor positions to exact residual (scale,degree) coordinates",
+        "compute complete residual fiber-sum signatures",
+        "decide full-residual observer equivalence",
+        "return within-fiber transfer generators and exact rank/kernel dimensions",
+        "project to the weaker current edge-only observer",
+        "apply one exact within-fiber provenance transfer"
+      ],
+      "typed_inputs": [
+        "fixed RationalValuationScale theta",
+        "fixed positive Newton multiplicity",
+        "finite labeled source Taylor positions with source scales and degrees",
+        "rational algebraic-compression coefficients"
+      ],
+      "typed_outputs": [
+        "residual Newton coordinates",
+        "fiber partition",
+        "full residual coefficient signature",
+        "observer equivalence",
+        "kernel transfer basis",
+        "observer rank and kernel dimension"
+      ],
+      "reuse": [
+        "t0.weighted_brc_newton_handoff_resonance",
+        "t0.weighted_brc_newton_recursion",
+        "T6_OPERATION_SAFE_QUOTIENT principle only"
+      ],
+      "hard_boundary": "Minimality is for the complete residual Newton-jet observer only. Edge-only or provenance-sensitive observers have different quotients. Different residual scales or Taylor degrees do not merge. Algebraic coefficient cancellation is not signed branch-mass cancellation."
+    }
+  ]
+}
