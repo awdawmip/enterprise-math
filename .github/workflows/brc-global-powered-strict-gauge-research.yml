@@ -1,0 +1,25 @@
+name: brc-global-powered-strict-gauge-research
+
+on:
+  pull_request:
+    paths:
+      - 'research_notes/BRC_GLOBAL_POWERED_STRICT_GAUGE_REDUCIBLE_OBSTRUCTION_20260903.md'
+      - 'experiments/brc_global_powered_strict_gauge_reducible_check.py'
+      - '.github/workflows/brc-global-powered-strict-gauge-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Exact BRC global powered strict gauge checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_global_powered_strict_gauge_reducible_check.py
