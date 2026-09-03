@@ -8,7 +8,8 @@
   "source_notes": [
     "research_notes/EULER_CELL_RADIUS_NORMALIZED_BISECTOR_COMPLETION_20260903.md",
     "research_notes/EULER_NATIVE_SEGMENT_SPINOR_BISECTOR_IDENTITY_20260903.md",
-    "research_notes/EULER_FINITE_CAYLEY_HALF_TURN_SQUEEZE_20260903.md"
+    "research_notes/EULER_FINITE_CAYLEY_HALF_TURN_SQUEEZE_20260903.md",
+    "research_notes/EULER_FORMULA_GEOMETRIC_COMPLETION_SYNTHESIS_20260903.md"
   ],
   "checkers": [
     "src/enterprise_math/euler_native_bisector.py",
@@ -25,36 +26,45 @@
     "EnterpriseMath/Precision/EulerPhysicalGate.lean",
     "EnterpriseMath/Precision/EulerCayleyBridge.lean"
   ],
+  "validation": {
+    "dedicated_workflow": "euler-rotation-refinement",
+    "run_id": 33777351596,
+    "tested_head": "1c8e4bf7134efc0ef15d69d282c8f6af47d5834f",
+    "python_finite_check": "SUCCESS",
+    "lean_check": "SUCCESS",
+    "lean_command": "lake build --wfail -KCI EnterpriseMath.Precision.EulerPhysicalGate EnterpriseMath.Precision.EulerCayleyBridge",
+    "generic_reference_integrity_boundary": "Known repository-global missing tools/research_scheduler.py; unrelated to this package"
+  },
   "theorems": [
     {
       "id": "EMER-T01",
       "name": "C3 integral right-turn representation",
       "statement": "For R=[[0,-1],[1,-1]], R^3=I and I+R+R^2=0; R preserves Q=[[2,-1],[-1,2]].",
-      "status": "EXACT_FINITE_ALGEBRA"
+      "status": "EXACT_FINITE_ALGEBRA_PYTHON_CHECKED"
     },
     {
       "id": "EMER-T02",
       "name": "Internal six-state rotor",
       "statement": "G=I+R satisfies G^2=R, G^3=-I, G^6=I and G^TQG=Q.",
-      "status": "EXACT_FINITE_ALGEBRA_AND_LEAN_CANDIDATE"
+      "status": "LEAN_CHECKED_POWER_IDENTITIES_AND_PYTHON_EXACT_GRAM"
     },
     {
       "id": "EMER-T03",
       "name": "Unique Cell-radius gate normalization",
       "statement": "(I+G)^TQ(I+G)=3Q, hence the unique positive scalar a for which a(I+G) preserves Q is a=1/sqrt(3), equal to the current Cell radius.",
-      "status": "EXACT_FINITE_ALGEBRA_PLUS_DECLARED_CELL_RADIUS"
+      "status": "EXACT_PYTHON_GRAM_CERTIFICATE_PLUS_MANUSCRIPT_UNIQUENESS"
     },
     {
       "id": "EMER-T04",
       "name": "Twelve-state gate rotor",
       "statement": "H=(I+G)/sqrt(3) satisfies H^2=G, H^6=-I, H^12=I; its twelve powers are distinct and H^(2j),H^(2j+1) interleave six direction and six gate character phases.",
-      "status": "EXACT_FINITE_ALGEBRA_AND_LEAN_CANDIDATE"
+      "status": "LEAN_CHECKED_POWER_IDENTITIES_AND_PYTHON_CHECKED_INTERLEAVING"
     },
     {
       "id": "EMER-T05",
       "name": "Cell-radius chiral complex structure",
       "statement": "J=H^3=(R-R^{-1})/sqrt(3) and J^2=-I. Reflection R<->R^{-1} sends J<->-J while fixing -I.",
-      "status": "EXACT_FINITE_ALGEBRA_AND_LEAN_CANDIDATE"
+      "status": "LEAN_CHECKED_CORE_IDENTITIES_AND_MANUSCRIPT_REFLECTION_PROOF"
     },
     {
       "id": "EMER-T06",
@@ -84,7 +94,7 @@
       "id": "EMER-T10",
       "name": "Viète trace recursion",
       "statement": "Repeated forward normalized bisectors U_(n+1)^2=U_n yield c_(n+1)=sqrt((1+c_n)/2) and P_n=2^n s_n=2/prod_{j=2}^n c_j.",
-      "status": "EXACT_FINITE_ALGEBRA"
+      "status": "EXACT_FINITE_ALGEBRA_AND_PYTHON_CHECKED"
     },
     {
       "id": "EMER-T11",
@@ -102,25 +112,25 @@
       "id": "EMER-T13",
       "name": "Native Pythagorean segment-spinor identity",
       "statement": "For v=a+bJ and n=a^2+b^2, the projective rotation character C[a:b]=((a^2-b^2)+2abJ)/n equals (v/sqrt(n))^2. For a>0, beta(C[a:b])=v/sqrt(n). In particular C[1:0]=1, C[1:1]=J, and C[0:1]=-1.",
-      "status": "EXACT_ALGEBRAIC_BRIDGE_WITH_LEAN_CANDIDATE_AND_MERGED_CAYLEY_CHECKER"
+      "status": "LEAN_CHECKED_POLYNOMIAL_CORE_PLUS_MANUSCRIPT_NORMALIZED_RECOVERY_AND_MERGED_CAYLEY_CHECKER"
     },
     {
       "id": "EMER-T14",
       "name": "Physical gate displacement",
-      "statement": "The unit gate-ray character is H=r(I+G), while the physical triple-intersection gate displacement is rH=(I+G)/3. Equivalently 3(rH)=I+G under 3r^2=1.",
-      "status": "EXACT_CELL_GEOMETRY_AND_LEAN_CANDIDATE"
+      "statement": "The unit gate-ray character is H=r(I+G), while the carrier-character image of the physical triple-intersection gate displacement is rH=(I+G)/3. Equivalently 3(rH)=I+G under 3r^2=1.",
+      "status": "LEAN_CHECKED_CROSS_IDENTITY_AND_PYTHON_CHECKED"
     },
     {
       "id": "EMER-T15",
       "name": "Finite Cayley half-turn certificate",
       "statement": "For tau_n=s_n/(1+c_n), U_n=(1+J tau_n)/(1-J tau_n) and ((1+J tau_n)/(1-J tau_n))^(2^n)=-1 at every finite depth.",
-      "status": "EXACT_FINITE_ALGEBRA_WITH_LEAN_CROSS_IDENTITY_AND_PYTHON_REGRESSION"
+      "status": "LEAN_CHECKED_CAYLEY_CROSS_IDENTITY_PLUS_PYTHON_FINITE_POWER_REGRESSION"
     },
     {
       "id": "EMER-T16",
       "name": "Target-free two-sided period squeeze",
       "statement": "P_n=2^n s_n increases, Q_n=2^(n+1) tau_n decreases, P_n<Q_n, both have a common limit L, and Q_n-P_n=P_n tau_n^2; in particular 2<L<4.",
-      "status": "EXACT_INEQUALITY_THEOREM_MANUSCRIPT_PROOF_AND_PYTHON_REGRESSION"
+      "status": "LEAN_CHECKED_CROSS_IDENTITIES_PLUS_MANUSCRIPT_INEQUALITY_PROOF_AND_PYTHON_REGRESSION"
     },
     {
       "id": "EMER-T17",
@@ -131,9 +141,9 @@
   ],
   "negative_boundaries": [
     "The character matrices are not identified with the native Enterprise metric plane or the P000 six native axes.",
-    "The unit gate-ray phase H is not the physical gate displacement; the latter is rH.",
+    "The unit gate-ray phase H is not the physical gate displacement; the latter is represented as rH in the carrier-character readout.",
     "Only the first C6-to-C12 refinement is realized by one-step Cell/gate incidence; deeper roots are transition-history states unless separately realized.",
-    "No global operation-safe factorization of every admissible native Cell trajectory to this phase tower is claimed.",
+    "No global operation-safe factorization of every admissible native Cell trajectory to this phase tower is claimed or required for the local pivoted theorem.",
     "Without chirality, the sign of J is not canonical.",
     "Without unit-speed normalization, finite cyclic roots alone do not determine a numerical real period.",
     "The spinor character doubles a typed component direction; it is not a carrier-angle identity.",
