@@ -1,6 +1,6 @@
 {
   "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
-  "status": "PROJECT_SUBTOOL_EXTRACTED_PENDING_DRIVER_PROMOTION",
+  "status": "PROJECT_SUBTOOLS_EXTRACTED_PENDING_DRIVER_PROMOTION",
   "date": "2026-09-03",
   "author": "YUAN X",
   "program": "Enterprise Math",
@@ -14,11 +14,12 @@
         "T7_FINITE_SYMMETRY_EQUIVARIANCE",
         "T9_HOLONOMY_COCOYCLE_GLUING"
       ],
-      "status": "EXECUTABLE_EXTRACTED_LOCAL_REGRESSION_CHECKED_PENDING_PROMOTION",
+      "status": "EXECUTABLE_EXTRACTED_REGRESSION_CHECKED_PENDING_PROMOTION",
       "source_refs": [
         "research_notes/EULER_CELL_GATE_PHASE_REFINEMENT_20260903.md",
         "src/enterprise_math/rotation_phase_refinement.py",
-        "tests/test_rotation_phase_refinement.py"
+        "tests/test_rotation_phase_refinement.py",
+        "workflow:euler-rotation-phase"
       ],
       "api": [
         "pivot_gate_certificate",
@@ -58,6 +59,54 @@
       ],
       "core_law": "Interleave each coarse oriented phase state with the unique oriented transition event to obtain a refined successor Q satisfying Q^2=R; every fine state is uniquely 2k+epsilon and the residual bit obeys carry.",
       "hard_boundary": "Carrier/phase layer only. Gate events are not native Cell states; normalized phase distance is not the native directed line gauge; deeper midpoint events are formal unless separately realized; the tool does not derive the operation-safe native rotation quotient or the Ramanujan-CM identity."
+    },
+    {
+      "method_id": "t5_t9.rotation_cayley_pell",
+      "name": "Euler Cayley composition and shared-P double-Pell unit certificate",
+      "classification": "PROJECT_SUBTOOL_COMPOSITION",
+      "family_ids": [
+        "T5_PRECISION_REFINEMENT",
+        "T9_HOLONOMY_COCOYCLE_GLUING"
+      ],
+      "status": "EXECUTABLE_EXTRACTED_REGRESSION_CHECKED_PENDING_PROMOTION",
+      "source_refs": [
+        "research_notes/EULER_CAYLEY_DOUBLE_PELL_BRIDGE_20260903.md",
+        "src/enterprise_math/rotation_cayley_pell.py",
+        "src/enterprise_math/paired_pell_shell.py",
+        "tests/test_rotation_cayley_pell.py",
+        "workflow:euler-rotation-phase"
+      ],
+      "api": [
+        "quadratic_add",
+        "quadratic_scale",
+        "quadratic_mul",
+        "quadratic_pow",
+        "quadratic_conjugate",
+        "quadratic_norm",
+        "biquadratic_mul",
+        "cayley_compose",
+        "cayley_double",
+        "n58_cayley_pell_certificate",
+        "certificate"
+      ],
+      "triggers": [
+        "Euler Cayley coordinate",
+        "rational rotation composition",
+        "rotation square-root defect",
+        "sqrt2 minus 1",
+        "double Pell unit",
+        "N58 singular modulus factorization",
+        "shared P Pell defects"
+      ],
+      "capabilities": [
+        "exact rational Cayley composition and doubling",
+        "exact arithmetic in quadratic and biquadratic integer bases",
+        "verification that the first post-gate dyadic defect has sixth power 99-70 sqrt(2)",
+        "verification of inverse positive and negative Pell units sharing P=99",
+        "exact inverse-product certificate for the N=58 singular-modulus factors"
+      ],
+      "core_law": "For a rotation Cayley coordinate T, composition is T(uv)=(T(u)+T(v))/(1-T(u)T(v)); in the N=58 case T(U2)^6=(99+70 sqrt(2))^-1 and T(V58)=(99+13 sqrt(58))^-1.",
+      "hard_boundary": "Finite algebraic certificate only. The classical modular-lambda special value is an external input, and the match between exponent six and the six-gate shell is not promoted as a causal modular derivation."
     }
   ]
 }
