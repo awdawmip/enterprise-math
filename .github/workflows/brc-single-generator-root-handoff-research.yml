@@ -1,0 +1,25 @@
+name: brc-single-generator-root-handoff-research
+
+on:
+  pull_request:
+    paths:
+      - 'research_notes/BRC_SINGLE_GENERATOR_IRRATIONAL_ROOT_HANDOFF_20260904.md'
+      - 'experiments/brc_single_generator_root_handoff_check.py'
+      - '.github/workflows/brc-single-generator-root-handoff-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Exact BRC single-generator irrational root handoff checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_single_generator_root_handoff_check.py
