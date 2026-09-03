@@ -1,0 +1,74 @@
+{
+  "schema": "ENTERPRISE_MATH_BRC_CRITICAL_RATIO_JET_THEOREM_LEDGER_V1",
+  "status": "CANONICAL_FOUNDATION_ADDENDUM",
+  "effective": "2026-09-03",
+  "parent_ledger": "definitions/ENTERPRISE_BRC_CRITICAL_ORBIT_THEOREM_LEDGER_20260903.json",
+  "foundation": "definitions/ENTERPRISE_BRC_CRITICAL_RATIO_JET_FOUNDATION_20260903.md",
+  "tool_method_id": "t0.weighted_brc_critical_ratio_jet",
+  "research_evidence": [
+    {"pr": 1177, "merge": "872c33f8834dd1c2d282cafe6704e69ef011addb"},
+    {"pr": 1178, "merge": "6543b8c4ce11af0fc043d95e183dc35261510786"},
+    {"pr": 1179, "merge": "2021cd0f17b43e880dc531491a882b892cb7bffe"},
+    {"pr": 1180, "merge": "ab09cd839f8a348075a2756477484e82325b5328"}
+  ],
+  "theorems": [
+    {
+      "id": "WBRC-T45-POWERED-RATIONAL-CRITICAL-GAUGE",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "statement": "For reference critical cycle (r0,Q0), each critical SCC has a positive rational powered potential H, unique after one root normalization, satisfying a_uv^r0 H_v=Q0 H_u on every critical dominant edge. In prime valuations the dominant critical cochain is a constant Q-valued mean plus a rational coboundary. For m=r0*s this rational gauge realizes the critical residual W^(m)_uv/a_uv^m exactly without materializing the generally algebraic critical mean.",
+      "gauge": "Under ordinary positive rational vertex gauge the powered potential transforms covariantly and critical residual ratios remain exactly invariant.",
+      "source": ["PR #1177"]
+    },
+    {
+      "id": "WBRC-T46-CRITICAL-RATIO-HISTOGRAM-FINITE-JET",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "statement": "Normalize explicit branches in each critical cell by that cell's dominant weight. Distinct rational ratios 1=theta_0>...>theta_s with integer count matrices L_j give L_0=K and the exact all-order residual R^(m)=sum_j theta_j^m L_j. Every truncation has an exact positive tail bound and the full moment-order sequence has rational generating matrix sum_j L_j/(1-theta_j y), hence a finite recurrence.",
+      "gauge": "The ratio histogram/jet and prime-valuation ratio coordinates are exactly invariant under positive rational vertex gauge.",
+      "source": ["PR #1178", "PR #1177"]
+    },
+    {
+      "id": "WBRC-T47-IRREDUCIBLE-RATIO-JET-FIRST-SPECTRAL-RESPONSE",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "K irreducible; largest strict critical ratio layer (theta_1,L_1) with L_1 nonzero",
+      "statement": "With p0(z)=det(I-zK) and p1(z)=d/depsilon det(I-z(K+epsilon L_1))|_0, det(I-zR_m)=p0(z)+theta_1^m p1(z)+O_coeff(delta^m), delta=max(theta_2,theta_1^2)<theta_1. For the exact smallest-positive root selector z_c of p0, beta=p1(z_c)/(z_c p0'(z_c)) is strictly positive and ln rho(R_m)=ln rho(K)+beta theta_1^m+O(delta^m).",
+      "certificate": "Exact response state is integer p0 + existing algebraic root selector + integer p1; floating Perron vectors/eigenvalues are not proof primitives.",
+      "source": ["PR #1179"]
+    },
+    {
+      "id": "WBRC-T48-FULL-POWERED-BRANCH-RATIO-JET",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "critical K irreducible, hence the critical graph covers the current state set",
+      "statement": "For every explicit branch e:u->v define lambda_e=q_e^r0 H_v/(Q0 H_u). Then lambda_e=1 iff e is a critical dominant branch and all other branches have 0<lambda_e<1. Grouping equal ratios gives 1=lambda_0>...>lambda_s and integer matrices M_j with M_0=K. For m=r0*s, Q0^-s D(H^s)^-1 W^(m) D(H^s)=sum_j lambda_j^s M_j exactly, so normalized full Perron growth is the Perron growth of this finite rational jet.",
+      "gap_bridge": "If a strict ratio exists, the first response is positive and the WBRC-T40 maximal strict normalized characteristic base equals lambda_1 exactly. Thus the determinant-level gap is the largest full powered-gauge strict explicit-branch ratio in this irreducible scope.",
+      "gauge": "The complete ((lambda_j,M_j)) jet is a positive-rational vertex-gauge invariant with exact prime-valuation coordinates.",
+      "source": ["PR #1180", "PR #1179", "WBRC-T40"]
+    }
+  ],
+  "negative_boundaries": [
+    {
+      "id": "WBRC-N26-ALGEBRAIC-MEAN-NOT-ALGEBRAIC-CERTIFICATE",
+      "status": "TYPE_BOUNDARY",
+      "statement": "The classical critical mean Q0^(1/r0) may be algebraic irrational while the powered potential, branch ratios and moment normalization certificate remain entirely rational. No radical arithmetic engine is required."
+    },
+    {
+      "id": "WBRC-N27-K-NOT-SUBDOMINANT-RATIO-COMPLETE",
+      "status": "PROVED_NEGATIVE_BOUNDARY",
+      "statement": "K, or powered potentials together with K, do not recover subdominant within-cell or full branch ratio layers. Equal-K systems can have different ratio jets and different finite-m corrections."
+    },
+    {
+      "id": "WBRC-N28-RATIO-JET-NOT-ABSOLUTE-PROVENANCE",
+      "status": "TYPE_BOUNDARY",
+      "statement": "Critical/full ratio jets normalize away absolute cell scales and retain weight-ratio multiplicity, not semantic branch labels or full labeled provenance."
+    },
+    {
+      "id": "WBRC-N29-IRREDUCIBLE-SCOPE-NOT-REDUCIBLE-CRITICAL-CLASSES",
+      "status": "SCOPE_BOUNDARY",
+      "statement": "WBRC-T47/T48 first-response and full-gap identification are proved for irreducible K. Multiple/reducible critical classes can have competing winning blocks and exponentially small inter-class coupling and require a separate theorem."
+    },
+    {
+      "id": "WBRC-N30-POSITIVE-RATIO-RESPONSE-NOT-SIGNED-CANCELLATION",
+      "status": "TYPE_BOUNDARY",
+      "statement": "The strictly positive first response uses nonnegative ratio layers and irreducible Perron positivity. It does not extend to signed/amplitude cancellation or complex-weight systems."
+    }
+  ]
+}
