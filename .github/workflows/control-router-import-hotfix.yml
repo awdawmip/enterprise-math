@@ -26,56 +26,60 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --ff-only origin main
+          echo 'Pre-repair Python references:'
+          git grep -n 'research_scheduler' -- '*.py' || true
           python - <<'PY'
           from pathlib import Path
 
-          router = Path('research_control_dispatch.py')
-          text = router.read_text(encoding='utf-8')
-          old_import = 'from tools import research_scheduler\n'
-          old_now = '    now = research_scheduler.now_utc(args.now)\n'
-          if text.count(old_import) != 1:
-              raise SystemExit(f'router: expected exactly one stale scheduler import, found {text.count(old_import)}')
-          if text.count(old_now) != 1:
-              raise SystemExit(f'router: expected exactly one stale scheduler clock call, found {text.count(old_now)}')
-          text = text.replace(old_import, 'from datetime import datetime, timezone\n', 1)
-          text = text.replace(
-              old_now,
-              '    now = research_runtime.parse_time(args.now) if args.now else datetime.now(timezone.utc)\n',
-              1,
-          )
-          router.write_text(text, encoding='utf-8')
+          def replace_exact(path_text, replacements, label):
+              p = Path(path_text)
+              text = p.read_text(encoding='utf-8')
+              for old, new, expected in replacements:
+                  count = text.count(old)
+                  if count != expected:
+                      raise SystemExit(f'{label}: expected {expected} occurrences of {old!r}, found {count}')
+                  text = text.replace(old, new)
+              p.write_text(text, encoding='utf-8')
 
-          lanes = Path('tools/research_lane_claims.py')
-          text = lanes.read_text(encoding='utf-8')
-          exact = {
-              '    from tools import research_scheduler\n': '    from tools import research_runtime_reducer\n',
-              '    import research_scheduler  # type: ignore\n': '    import research_runtime_reducer  # type: ignore\n',
-              'research_scheduler.reduce_task(': 'research_runtime_reducer.reduce_task(',
-          }
-          expected = {
-              '    from tools import research_scheduler\n': 1,
-              '    import research_scheduler  # type: ignore\n': 1,
-              'research_scheduler.reduce_task(': 2,
-          }
-          for old, replacement in exact.items():
-              count = text.count(old)
-              if count != expected[old]:
-                  raise SystemExit(f'lane claims: expected {expected[old]} occurrences of {old!r}, found {count}')
-              text = text.replace(old, replacement)
-          lanes.write_text(text, encoding='utf-8')
+          replace_exact(
+              'research_control_dispatch.py',
+              [
+                  ('from tools import research_scheduler\n', 'from datetime import datetime, timezone\n', 1),
+                  ('    now = research_scheduler.now_utc(args.now)\n', '    now = research_runtime.parse_time(args.now) if args.now else datetime.now(timezone.utc)\n', 1),
+              ],
+              'router',
+          )
+          replace_exact(
+              'tools/research_lane_claims.py',
+              [
+                  ('    from tools import research_scheduler\n', '    from tools import research_runtime_reducer\n', 1),
+                  ('    import research_scheduler  # type: ignore\n', '    import research_runtime_reducer  # type: ignore\n', 1),
+                  ('research_scheduler.reduce_task(', 'research_runtime_reducer.reduce_task(', 2),
+              ],
+              'lane claims',
+          )
+          replace_exact(
+              'tools/research_lane_dispatch.py',
+              [
+                  ('    from tools import research_scheduler\n', '    from tools import research_runtime_reducer\n', 1),
+                  ('    import research_scheduler  # type: ignore\n', '    import research_runtime_reducer  # type: ignore\n', 1),
+                  ('    now = research_scheduler.now_utc(args.now)\n', '    now = research_runtime_reducer.now_utc(args.now)\n', 1),
+              ],
+              'lane dispatch',
+          )
           PY
-          python -m py_compile research_control_dispatch.py tools/research_lane_claims.py
+          if git grep -n 'research_scheduler' -- '*.py'; then
+            echo "ERROR: stale pre-V2 research_scheduler Python references remain after explicit migration" >&2
+            exit 1
+          fi
+          python -m py_compile research_control_dispatch.py tools/research_lane_claims.py tools/research_lane_dispatch.py
           python research_control_dispatch.py --help >/dev/null
           python - <<'PY'
           import research_control_dispatch
-          from tools import research_lane_claims
-          print('PASS: canonical router and lane claims import without legacy scheduler')
+          from tools import research_lane_claims, research_lane_dispatch
+          print('PASS: canonical router and lane runtime import without legacy scheduler')
           PY
-          if git grep -n 'research_scheduler' -- '*.py'; then
-            echo "ERROR: stale pre-V2 research_scheduler Python references remain" >&2
-            exit 1
-          fi
           git rm .github/workflows/control-router-import-hotfix.yml
-          git add research_control_dispatch.py tools/research_lane_claims.py
+          git add research_control_dispatch.py tools/research_lane_claims.py tools/research_lane_dispatch.py
           git commit -m "control: remove stale pre-V2 scheduler consumers"
           git push origin HEAD:main
