@@ -15,6 +15,7 @@ on:
 jobs:
   finite-and-formal-check:
     runs-on: ubuntu-24.04
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
@@ -32,5 +33,18 @@ jobs:
             echo "Proof placeholder detected"
             exit 1
           fi
+      - name: Set up Lean
+        uses: leanprover/lean-action@v1
+        with:
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+          use-github-cache: false
+          use-mathlib-cache: false
+      - name: Resolve pinned dependencies
+        run: lake update
+      - name: Fetch mathlib cache
+        run: lake exe cache get
       - name: Build finite Lean polygon identities
         run: lake build --wfail -KCI EnterpriseMath.Precision.EulerCellPolygonPi
