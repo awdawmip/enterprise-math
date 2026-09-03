@@ -15,6 +15,18 @@ from typing import Sequence
 from .brc_weighted_recurrent import RationalMatrix, RationalMatrixInput, finite_recurrent_mass_analysis
 
 
+def _fraction_matrix(name: str, matrix: RationalMatrixInput) -> RationalMatrix:
+    rows: list[tuple[Fraction, ...]] = []
+    for row in matrix:
+        values: list[Fraction] = []
+        for value in row:
+            if isinstance(value, bool) or not isinstance(value, (int, Fraction)):
+                raise TypeError(f"{name} entries must be int or Fraction")
+            values.append(Fraction(value))
+        rows.append(tuple(values))
+    return tuple(rows)
+
+
 def _determinant(matrix: Sequence[Sequence[Fraction | int]]) -> Fraction:
     n = len(matrix)
     if n == 0:
@@ -80,7 +92,7 @@ def recurrent_port_signature(
     The dynamic signature is ``W_eff`` alone. ``hidden_loop_zeta`` is retained
     only for observers asking for absolute full global zeta/Gamma.
     """
-    full = tuple(tuple(Fraction(value) for value in row) for row in matrix)
+    full = _fraction_matrix("matrix", matrix)
     n = len(full)
     if n == 0 or any(len(row) != n for row in full):
         raise ValueError("matrix must be nonempty and square")
@@ -138,10 +150,10 @@ def recurrent_port_context_matrix(
     """Build the exact visible reduced composite for an allowed port context."""
     w = signature.effective_matrix
     p = signature.port_count
-    c = tuple(tuple(Fraction(value) for value in row) for row in port_update)
-    u = tuple(tuple(Fraction(value) for value in row) for row in port_to_external)
-    v = tuple(tuple(Fraction(value) for value in row) for row in external_to_port)
-    r = tuple(tuple(Fraction(value) for value in row) for row in external_matrix)
+    c = _fraction_matrix("port_update", port_update)
+    u = _fraction_matrix("port_to_external", port_to_external)
+    v = _fraction_matrix("external_to_port", external_to_port)
+    r = _fraction_matrix("external_matrix", external_matrix)
     e = len(r)
     if any(value < 0 for matrix in (c, u, v, r) for row in matrix for value in row):
         raise ValueError("context matrices must be non-negative")
