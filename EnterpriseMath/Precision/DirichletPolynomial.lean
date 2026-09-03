@@ -110,9 +110,11 @@ theorem dirichletSpectralPoly_odd_factorization (n : ℕ) :
   have hp2 : (-1 : ℝ) ^ (n + 2) = (-1 : ℝ) ^ n := by
     rw [pow_add]
     norm_num
-  have heven : Even (n * 2) := ⟨n, by ring⟩
-  rw [Odd.neg_one_pow hodd, hp1, hp2, Even.neg_one_pow heven]
-  ring
+  rw [Odd.neg_one_pow hodd, hp1, hp2]
+  have hsq : ((-1 : ℝ) ^ n) ^ 2 = 1 := by
+    rw [← pow_mul]
+    exact Even.neg_one_pow ⟨n, by ring⟩
+  nlinarith
 
 /-- Constant coefficient of the first parity factor. -/
 theorem dirichletParityEvenPoly_coeff_zero (n : ℕ) :
