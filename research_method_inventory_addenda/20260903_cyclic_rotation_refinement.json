@@ -1,0 +1,76 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "PROJECT_SUBTOOL_EXTRACTED_NO_DRIVER_REVIEW_REQUESTED",
+  "date": "2026-09-03",
+  "author": "YUAN X",
+  "program": "Enterprise Math",
+  "methods": [
+    {
+      "method_id": "t5_t6_t7_t9.cyclic_rotation_refinement",
+      "name": "Cyclic gate-phase refinement / carry / Euler-Viete certificate",
+      "classification": "PROJECT_SUBTOOL_COMPOSITION",
+      "family_ids": [
+        "T5_PRECISION_REFINEMENT",
+        "T6_OPERATION_SAFE_QUOTIENT",
+        "T7_FINITE_SYMMETRY_EQUIVARIANCE",
+        "T9_HOLONOMY_COCOYCLE_GLUING"
+      ],
+      "status": "EXECUTABLE_EXTRACTED_REGRESSION_CHECKED_FREE_RESEARCH",
+      "source_refs": [
+        "definitions/ENTERPRISE_EULER_GATE_ROTATION_THEOREM_LEDGER_20260903.json",
+        "research_notes/EULER_GATE_CYCLE_CARRY_SPECTRAL_COMPLETION_20260903.md",
+        "src/enterprise_math/cyclic_rotation_refinement.py",
+        "tests/test_cyclic_rotation_refinement.py"
+      ],
+      "api": [
+        "refinement_embedding",
+        "refinement_coordinates",
+        "refined_index",
+        "refinement_carry",
+        "add_refinement_coordinates",
+        "refinement_extension_splits",
+        "splitting_section_generator",
+        "element_order",
+        "half_turn",
+        "half_turn_roots_after_refinement",
+        "positive_half_arc_root",
+        "dyadic_modulus",
+        "dyadic_half_turn_root",
+        "trace_coordinates",
+        "trace_coordinate",
+        "viete_factors",
+        "rotation_pi_approximant",
+        "rotation_completion_enclosure",
+        "effective_character",
+        "euler_even_odd",
+        "finite_euler_coordinates"
+      ],
+      "triggers": [
+        "cyclic rotation refinement",
+        "six-gate Cell link",
+        "orientation phase",
+        "dyadic angle refinement",
+        "binary phase carry",
+        "non-split C_N to C_2N extension",
+        "quarter-turn emergence",
+        "Euler formula geometry",
+        "Viete nested radicals",
+        "rotation precision pi",
+        "cycle spectral decimation"
+      ],
+      "capabilities": [
+        "exact even-state embedding C_N into C_2N",
+        "exact coarse/detail coordinate decomposition",
+        "binary carry law verification",
+        "split versus non-split refinement test",
+        "iterated half-turn root order certificate",
+        "pi-free Decimal trace recursion",
+        "finite Viete rotation approximants",
+        "finite algebraic completion enclosure",
+        "external archimedean Euler-character consistency check"
+      ],
+      "core_law": "Barycentric phase refinement has j=2k+epsilon and (k,e)+(l,f)=(k+l+e*f,e+f mod 2); for the coherent chiral half-turn root tower the normalized trace satisfies c_(m+1)^2=(1+c_m)/2 and its Viete product defines an increasing finite rotation-completion sequence without using the target value of pi.",
+      "hard_boundary": "Carrier/readout and finite algebraic layer only. The tool does not prove that every native Cell trajectory factors through the gate phase, does not derive an archimedean U(1) metric from native length, and does not identify the cyclic carry C2 with the tetrahedral residual C2. The effective_character API deliberately uses the classical complex exponential only as an external bridge check."
+    }
+  ]
+}
