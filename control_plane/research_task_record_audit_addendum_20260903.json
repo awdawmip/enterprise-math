@@ -1,0 +1,31 @@
+{
+  "schema": "ENTERPRISE_MATH_TASK_RECORD_AUDIT_QUARANTINE_V1",
+  "status": "ACTIVE",
+  "purpose": "Audit-only historical containment for the superseded malformed GEO8 Gen1 publication. This record grants no runtime, publication, review, successor, Working Truth, Foundation, or canonical authority; current GEO8 authority comes only from the independently valid direct Gen2 superseder.",
+  "quarantines": [
+    {
+      "quarantine_id": "TRAQ-GEO8-TP2-D425335E9566A3F6A54C-SUPERSEDED",
+      "task_id": "RS-GEO8-BORSUK-R6-LASSAK-33-COMPRESSION-PRESSURE",
+      "publication_id": "TP2-D425335E9566A3F6A54C",
+      "record_path": "research_task_records/RS-GEO8-BORSUK-R6-LASSAK-33-COMPRESSION-PRESSURE/TP2-D425335E9566A3F6A54C.json",
+      "record_blob_sha1": "sha1:65dc9740ba5e09850849e77a63210c6835cf6416",
+      "taskbook_path": "research_tasks/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE_20260902.md",
+      "taskbook_blob_sha1": "sha1:4f8bd12d3cfbe1159b76fdcad85790f0e64d2517",
+      "allowed_task_record_audit_errors": [
+        "mandatory body section is missing or empty: Frozen inputs and scope",
+        "mandatory body section is missing or empty: Hard target and required outputs",
+        "mandatory body section is missing or empty: Research value to preserve",
+        "mandatory body section is missing or empty: Success, kill, and return criteria"
+      ],
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false,
+      "state": "NONOPERATIONAL_IMMUTABLE_RECORD_INTEGRITY_FAULT",
+      "nonoperational_basis": "DIRECTLY_SUPERSEDED_SAME_TASK",
+      "operational": false,
+      "history_preserved": true,
+      "operational_publication_selected": false
+    }
+  ]
+}

@@ -32,6 +32,10 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 QUARANTINE_FILE = "research_task_record_audit_quarantines.json"
+QUARANTINE_FILES = (
+    QUARANTINE_FILE,
+    "control_plane/research_task_record_audit_addendum_20260903.json",
+)
 SCHEMA = "ENTERPRISE_MATH_TASK_RECORD_AUDIT_QUARANTINE_V1"
 STATE = "NONOPERATIONAL_IMMUTABLE_RECORD_INTEGRITY_FAULT"
 BASIS_SUPERSEDED = "DIRECTLY_SUPERSEDED_SAME_TASK"
@@ -66,69 +70,72 @@ def _validate_error_list(row: dict[str, Any], qid: str, field: str, *, required:
 
 
 def quarantine_rows(root: Path = ROOT) -> list[dict[str, Any]]:
-    path = root / QUARANTINE_FILE
-    if not path.exists():
-        return []
-    payload = _load(path)
-    if payload.get("schema") != SCHEMA or payload.get("status") != "ACTIVE":
-        raise TaskRecordAuditIsolationError(f"{QUARANTINE_FILE}: wrong schema/status")
-    rows = payload.get("quarantines")
-    if not isinstance(rows, list):
-        raise TaskRecordAuditIsolationError(f"{QUARANTINE_FILE}: quarantines must be list")
-
     seen_ids: set[str] = set()
     seen_publications: set[str] = set()
     out: list[dict[str, Any]] = []
-    for index, row in enumerate(rows):
-        if not isinstance(row, dict):
-            raise TaskRecordAuditIsolationError(f"{QUARANTINE_FILE}: row {index} must be object")
-        quarantine_id = row.get("quarantine_id")
-        task_id = row.get("task_id")
-        publication_id = row.get("publication_id")
-        if not isinstance(quarantine_id, str) or not quarantine_id or quarantine_id in seen_ids:
-            raise TaskRecordAuditIsolationError(
-                f"{QUARANTINE_FILE}: invalid/duplicate quarantine_id {quarantine_id!r}"
-            )
-        if not isinstance(task_id, str) or not task_id:
-            raise TaskRecordAuditIsolationError(f"{quarantine_id}: missing task_id")
-        if (
-            not isinstance(publication_id, str)
-            or not publication_id
-            or publication_id in seen_publications
-        ):
-            raise TaskRecordAuditIsolationError(
-                f"{quarantine_id}: invalid/duplicate publication_id {publication_id!r}"
-            )
-        if row.get("state") != STATE:
-            raise TaskRecordAuditIsolationError(f"{quarantine_id}: wrong state")
-        if row.get("nonoperational_basis") not in BASES:
-            raise TaskRecordAuditIsolationError(f"{quarantine_id}: unsupported nonoperational_basis")
-        if row.get("operational") is not False or row.get("history_preserved") is not True:
-            raise TaskRecordAuditIsolationError(
-                f"{quarantine_id}: record-audit quarantine must be nonoperational retained history"
-            )
-        for field in (
-            "record_path",
-            "record_blob_sha1",
-            "taskbook_path",
-            "taskbook_blob_sha1",
-        ):
-            if not isinstance(row.get(field), str) or not row[field]:
-                raise TaskRecordAuditIsolationError(f"{quarantine_id}: missing {field}")
-        _validate_error_list(row, quarantine_id, "allowed_task_record_audit_errors", required=True)
-        _validate_error_list(row, quarantine_id, "allowed_publication_envelope_errors", required=False)
-        for flag in (
-            "working_truth_granted",
-            "foundation_authority_granted",
-            "canonical_promotion_granted",
-            "successor_triggered",
-            "operational_publication_selected",
-        ):
-            if row.get(flag) is not False:
-                raise TaskRecordAuditIsolationError(f"{quarantine_id}: cannot grant {flag}")
-        seen_ids.add(quarantine_id)
-        seen_publications.add(publication_id)
-        out.append(row)
+    for registry_name in QUARANTINE_FILES:
+        path = root / registry_name
+        if not path.exists():
+            continue
+        payload = _load(path)
+        if payload.get("schema") != SCHEMA or payload.get("status") != "ACTIVE":
+            raise TaskRecordAuditIsolationError(f"{registry_name}: wrong schema/status")
+        rows = payload.get("quarantines")
+        if not isinstance(rows, list):
+            raise TaskRecordAuditIsolationError(f"{registry_name}: quarantines must be list")
+
+        for index, raw_row in enumerate(rows):
+            if not isinstance(raw_row, dict):
+                raise TaskRecordAuditIsolationError(f"{registry_name}: row {index} must be object")
+            row = dict(raw_row)
+            row["_quarantine_file"] = registry_name
+            quarantine_id = row.get("quarantine_id")
+            task_id = row.get("task_id")
+            publication_id = row.get("publication_id")
+            if not isinstance(quarantine_id, str) or not quarantine_id or quarantine_id in seen_ids:
+                raise TaskRecordAuditIsolationError(
+                    f"{registry_name}: invalid/duplicate quarantine_id {quarantine_id!r}"
+                )
+            if not isinstance(task_id, str) or not task_id:
+                raise TaskRecordAuditIsolationError(f"{quarantine_id}: missing task_id")
+            if (
+                not isinstance(publication_id, str)
+                or not publication_id
+                or publication_id in seen_publications
+            ):
+                raise TaskRecordAuditIsolationError(
+                    f"{quarantine_id}: invalid/duplicate publication_id {publication_id!r}"
+                )
+            if row.get("state") != STATE:
+                raise TaskRecordAuditIsolationError(f"{quarantine_id}: wrong state")
+            if row.get("nonoperational_basis") not in BASES:
+                raise TaskRecordAuditIsolationError(f"{quarantine_id}: unsupported nonoperational_basis")
+            if row.get("operational") is not False or row.get("history_preserved") is not True:
+                raise TaskRecordAuditIsolationError(
+                    f"{quarantine_id}: record-audit quarantine must be nonoperational retained history"
+                )
+            for field in (
+                "record_path",
+                "record_blob_sha1",
+                "taskbook_path",
+                "taskbook_blob_sha1",
+            ):
+                if not isinstance(row.get(field), str) or not row[field]:
+                    raise TaskRecordAuditIsolationError(f"{quarantine_id}: missing {field}")
+            _validate_error_list(row, quarantine_id, "allowed_task_record_audit_errors", required=True)
+            _validate_error_list(row, quarantine_id, "allowed_publication_envelope_errors", required=False)
+            for flag in (
+                "working_truth_granted",
+                "foundation_authority_granted",
+                "canonical_promotion_granted",
+                "successor_triggered",
+                "operational_publication_selected",
+            ):
+                if row.get(flag) is not False:
+                    raise TaskRecordAuditIsolationError(f"{quarantine_id}: cannot grant {flag}")
+            seen_ids.add(quarantine_id)
+            seen_publications.add(publication_id)
+            out.append(row)
     return out
 
 
@@ -267,8 +274,18 @@ def audit_against(raw_errors: list[str], root: Path = ROOT) -> list[str]:
         return [str(exc)]
     raw_set = set(raw_errors)
     errors = [
-        f"{QUARANTINE_FILE}: stale or unused suppression: {item}"
+        f"{row_source}: stale or unused suppression: {item}"
         for item in sorted(suppressions - raw_set)
+        for row_source in [
+            next(
+                (
+                    row.get("_quarantine_file", QUARANTINE_FILE)
+                    for row in validated_rows(root)
+                    if item.startswith(f"{row['record_path']}: ")
+                ),
+                QUARANTINE_FILE,
+            )
+        ]
     ]
     errors.extend(item for item in raw_errors if item not in suppressions)
     return errors
@@ -282,7 +299,8 @@ def main() -> int:
         return 1
     print(
         "PASS: exact nonoperational task-record audit quarantine valid "
-        f"({len(rows)} immutable record(s)); no runtime authority granted."
+        f"({len(rows)} immutable record(s) across {len(QUARANTINE_FILES)} registry surface(s)); "
+        "no runtime authority granted."
     )
     return 0
 
