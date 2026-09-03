@@ -41,15 +41,21 @@ def trace(matrix: Matrix) -> int:
     return sum(matrix[i][i] for i in range(len(matrix)))
 
 
-def recurrence_check(poly: tuple[int, ...], sequence: list[int], order: int) -> int:
-    # p(z)=1+c1 z+...+cr z^r corresponds to
-    # A^r+c1 A^(r-1)+...+cr I=0.
-    degree = len(poly) - 1
+def recurrence_check(
+    poly: tuple[int, ...],
+    sequence: list[int],
+    dimension: int,
+    windows: int,
+) -> int:
+    # If p(z)=det(I-zK)=1+c1 z+...+cd z^d with d<=n, then
+    # chi(lambda)=lambda^n+c1 lambda^(n-1)+...+cd lambda^(n-d).
+    # Pad p through degree n before applying Cayley-Hamilton.
+    coefficients = list(poly) + [0] * (dimension + 1 - len(poly))
     checks = 0
-    for start in range(order):
-        lhs = sequence[start + degree]
-        for j in range(1, degree + 1):
-            lhs += poly[j] * sequence[start + degree - j]
+    for start in range(windows):
+        lhs = sequence[start + dimension]
+        for j in range(1, dimension + 1):
+            lhs += coefficients[j] * sequence[start + dimension - j]
         assert lhs == 0
         checks += 1
     return checks
@@ -69,24 +75,8 @@ def log_derivative_series(poly: tuple[int, ...], upto: int) -> list[Fraction]:
     return series
 
 
-def direct_word_enumeration(matrix: Matrix, length: int) -> int:
-    n = len(matrix)
-    words = [(state,) for state in range(n)]
-    for _ in range(length):
-        new_words: list[tuple[int, ...]] = []
-        for word in words:
-            source = word[-1]
-            for target in range(n):
-                for copy in range(matrix[source][target]):
-                    new_words.append((*word, target * 100 + copy))
-                    # Encode the chosen parallel copy in the temporary final
-                    # symbol, then restore the state for the next transition.
-                    new_words[-1] = (*word, target)
-        words = new_words
-    return len(words)
-
-
 def direct_word_count_dp(matrix: Matrix, length: int) -> int:
+    # Each unit of K_ij is one distinct parallel critical branch symbol.
     counts = [1 for _ in range(len(matrix))]
     for _ in range(length):
         next_counts = [0 for _ in counts]
@@ -100,13 +90,12 @@ def direct_word_count_dp(matrix: Matrix, length: int) -> int:
 def validate_matrix(matrix: Matrix) -> tuple[int, int, int]:
     n = len(matrix)
     poly = logsel.criticality_polynomial(matrix)
-    degree = len(poly) - 1
-    horizon = degree + 7
+    horizon = n + 7
     pw = powers(matrix, horizon)
     b = [total_words(value) for value in pw]
     tr = [trace(value) for value in pw]
 
-    recurrence = recurrence_check(poly, b, 6) + recurrence_check(poly, tr, 6)
+    recurrence = recurrence_check(poly, b, n, 6) + recurrence_check(poly, tr, n, 6)
 
     series = log_derivative_series(poly, 7)
     zeta_checks = 0
