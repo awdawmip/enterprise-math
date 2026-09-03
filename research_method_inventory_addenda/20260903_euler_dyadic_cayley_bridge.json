@@ -1,0 +1,33 @@
+{
+  "schema": "ENTERPRISE_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "date": "2026-09-03",
+  "status": "PROJECT_SUBTOOL_FREE_RESEARCH",
+  "methods": [
+    {
+      "method_id": "project.euler_dyadic_cayley_bridge",
+      "title": "Target-free finite Cayley half-turn and two-sided period squeeze",
+      "implementation": "src/enterprise_math/euler_dyadic_cayley_bridge.py",
+      "test": "tests/test_euler_dyadic_cayley_bridge.py",
+      "source_note": "research_notes/EULER_FINITE_CAYLEY_HALF_TURN_SQUEEZE_20260903.md",
+      "inputs": [
+        "target-free dyadic symmetric/antisymmetric root traces",
+        "chirality-selected generator J with J^2=-1"
+      ],
+      "outputs": [
+        "Cayley coordinate tau_n=s_n/(1+c_n)",
+        "finite half-turn certificate C(tau_n)^(2^n)=-1",
+        "increasing lower period readout P_n=2^n s_n",
+        "decreasing upper period readout Q_n=2^(n+1) tau_n",
+        "exact squeeze width identity Q_n-P_n=P_n tau_n^2"
+      ],
+      "uses_pi": false,
+      "uses_trigonometry": false,
+      "tool_family_status": "PROJECT_SUBTOOL_UNASSIGNED_PENDING_COVERAGE_REVIEW",
+      "boundaries": [
+        "continuous Cayley-to-exponential passage is standard analytic completion",
+        "the character plane is not the primitive native metric plane",
+        "deeper roots are transition-history states unless separately realized"
+      ]
+    }
+  ]
+}
