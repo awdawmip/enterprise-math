@@ -1,0 +1,60 @@
+name: brc-reducible-critical-jet-foundation
+
+on:
+  pull_request:
+    paths:
+      - 'definitions/ENTERPRISE_BRC_REDUCIBLE_CRITICAL_JET_FOUNDATION_20260903.md'
+      - 'definitions/ENTERPRISE_BRC_REDUCIBLE_CRITICAL_JET_THEOREM_LEDGER_20260903.json'
+      - 'definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json'
+      - 'research_method_inventory_addenda/20260903_brc_reducible_critical_jet_foundation.json'
+      - 'src/enterprise_math/brc_reducible_critical_jet.py'
+      - 'src/enterprise_math/__init__.py'
+      - 'tests/test_brc_reducible_critical_jet_foundation.py'
+      - 'experiments/check_brc_reducible_critical_jet_foundation.py'
+      - 'experiments/brc_global_powered_strict_gauge_reducible_check.py'
+      - 'experiments/brc_unique_winner_root_active_characteristic_jet_check.py'
+      - 'experiments/brc_multiple_root_first_newton_edge_check.py'
+      - '.github/workflows/brc-reducible-critical-jet-foundation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Reducible critical-jet production subtool
+        env:
+          PYTHONPATH: src
+        run: python -m unittest tests/test_brc_reducible_critical_jet_foundation.py
+      - name: Reducible critical-jet Foundation integrity
+        run: python experiments/check_brc_reducible_critical_jet_foundation.py
+      - name: Global strict powered gauge research regression
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_global_powered_strict_gauge_reducible_check.py
+      - name: Unique-winner root-active research regression
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_unique_winner_root_active_characteristic_jet_check.py
+      - name: Multiple-root first Newton-edge research regression
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_multiple_root_first_newton_edge_check.py
+      - name: Parent critical ratio-jet Foundation remains consistent
+        env:
+          PYTHONPATH: src
+        run: |
+          python -m unittest tests/test_brc_critical_ratio_jet_foundation.py
+          python experiments/check_brc_critical_ratio_jet_foundation.py
+      - name: Toolbox discovers reducible critical-jet BRC
+        run: |
+          python tools/enterprise_toolbox.py --json methods reducible critical jet > /tmp/reducible-critical.json
+          grep -q 't0.weighted_brc_reducible_critical_jet' /tmp/reducible-critical.json
+          python tools/enterprise_toolbox.py --json modules reducible critical jet > /tmp/reducible-critical-module.json
+          grep -q 'module:brc_reducible_critical_jet' /tmp/reducible-critical-module.json
