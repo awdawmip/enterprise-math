@@ -1,0 +1,23 @@
+name: brc-port-contextual-equivalence-research
+
+on:
+  pull_request:
+    paths:
+      - 'research_notes/BRC_PORT_CONTEXTUAL_EQUIVALENCE_MINIMAL_SIGNATURE_20260903.md'
+      - 'experiments/brc_port_contextual_equivalence_check.py'
+      - '.github/workflows/brc-port-contextual-equivalence-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Exact BRC port contextual equivalence checker
+        run: python experiments/brc_port_contextual_equivalence_check.py
