@@ -1,0 +1,66 @@
+{
+  "schema": "ENTERPRISE_MATH_BRC_CRITICAL_DEGENERACY_THEOREM_LEDGER_V1",
+  "status": "CANONICAL_FOUNDATION_ADDENDUM",
+  "effective": "2026-09-03",
+  "parent_ledger": "definitions/ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_THEOREM_LEDGER_20260903.json",
+  "foundation": "definitions/ENTERPRISE_BRC_CRITICAL_DEGENERACY_FOUNDATION_20260903.md",
+  "tool_method_id": "t0.weighted_brc_critical_degeneracy",
+  "research_evidence": [
+    {"pr": 1166, "merge": "0aae8187076c0967e2f2bef7cccaa811d78c93ad"},
+    {"pr": 1167, "merge": "e4d787da5dd4a8411da0a62aca2dec993fd6099e"},
+    {"pr": 1168, "merge": "5c4b70f344586599386c5067264debb790f4e2f7"}
+  ],
+  "theorems": [
+    {
+      "id": "WBRC-T39-CRITICAL-DEGENERACY-MATRIX-ASYMPTOTIC",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "statement": "For explicit positive-rational branch moment matrices W^(m), let mu be the maximum cycle geometric mean of the entrywise dominant-weight graph and let K_ij be the dominant tie multiplicity d_ij on edges belonging to the tropical critical graph, zero elsewhere. Then mu^(-mn) det(mu^m t I-W^(m)) converges coefficientwise to det(tI-K), and rho(W^(m))/mu^m converges to rho(K).",
+      "log_readout": "ln rho(W^(m)) = m ln mu + ln rho(K) + o(1).",
+      "root_free_certificate": "Critical/subcritical cycles are classified by rational power equalities/inequalities against any reference critical cycle; no root evaluation is required for the certificate.",
+      "source": ["PR #1166", "PR #1167"]
+    },
+    {
+      "id": "WBRC-T40-CRITICAL-DEGENERACY-EXACT-GAP",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "statement": "For every strict characteristic exponential base b occupying k cycle-system vertices relative to reference critical cycle (r0,Q0), eta_b=b^r0/Q0^k lies in (0,1). With eta=max eta_b, normalized characteristic coefficient errors are O(eta^(m/r0)); on multiples m=r0*s the checker verifies explicit integer-coefficient bounds C_k eta^s. If rho(K) is a simple limiting Perron root, ordinary root perturbation yields rho(W^(m))/mu^m=rho(K)+O(eta^(m/r0)).",
+      "special_cases": "A unique critical r-cycle with edge tie product D has rho(K)=D^(1/r). Critical route branching can give rho(K)>1 even when every critical edge tie multiplicity is one.",
+      "source": ["PR #1166", "PR #1167"]
+    },
+    {
+      "id": "WBRC-T41-CRITICAL-LOG-ROOT-SELECTOR",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "statement": "For the non-negative integer critical-degeneracy matrix K, p_K(z)=det(I-zK) is an exact integer polynomial and its smallest positive root z_c equals 1/rho(K). The exact critical log correction is Gamma_crit=-ln z_c. The correction state is represented by p_K plus the SMALLEST_POSITIVE_REAL_ROOT selector and either an exact rational root or a rational Sturm isolating interval.",
+      "rational_root_rule": "Because p_K(0)=1, every positive rational root is 1/q for an integer divisor q of the absolute leading coefficient; rational roots can be extracted before Sturm isolation of the remaining irrational roots.",
+      "source": ["PR #1168", "WBRC-T21"]
+    },
+    {
+      "id": "WBRC-T42-CRITICAL-LOG-ZERO-THRESHOLD-READOUT",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "statement": "Gamma_crit>=0. For a critical-graph matrix K, Gamma_crit=0 iff every nonzero critical SCC is a unit-multiplicity directed simple cycle. For rational R>0, Gamma_crit<ln R iff K/R is in the exact stable finite-recurrent phase. If z_c lies in a rational interval a<z_c<b with a>0, then ln(1/b)<Gamma_crit<ln(1/a), so existing rational BRC LN supplies arbitrarily refinable bounds without a general algebraic-log evaluator.",
+      "specializations": "If z_c=a/b is rational, Gamma_crit=ln(b/a). For a unique critical r-cycle with degeneracy product D, Gamma_crit=(1/r)ln D. K=[[1,1],[1,0]] gives the genuinely irrational correction ln(phi).",
+      "source": ["PR #1168", "WBRC-T13..T15", "WBRC-T21"]
+    }
+  ],
+  "negative_boundaries": [
+    {
+      "id": "WBRC-N19-ONE-CYCLE-DEGENERACY-NOT-GENERAL-MULTICRITICAL",
+      "status": "PROVED_NEGATIVE_BOUNDARY",
+      "statement": "One selected critical cycle's degeneracy product D is not a complete multi-critical correction. The general subleading object is rho(K), which includes competing critical classes and critical route branching."
+    },
+    {
+      "id": "WBRC-N20-FLOATING-SPECTRAL-NOT-EXACT-CERTIFICATE",
+      "status": "TYPE_BOUNDARY",
+      "statement": "Floating eigenvalue/root computation is not an Enterprise proof certificate for the critical correction. Exact state uses rational cycle comparisons, integer K, integer criticality polynomial and exact root selection/isolation."
+    },
+    {
+      "id": "WBRC-N21-ALGEBRAIC-CORRECTION-NOT-RATIONAL-LN",
+      "status": "PROVED_NEGATIVE_BOUNDARY",
+      "statement": "rho(K) and z_c need not be rational. For K=[[1,1],[1,0]], p_K=1-z-z^2 and rho(K) is the golden ratio. Arbitrary critical corrections cannot be forced into the rational LN runtime."
+    },
+    {
+      "id": "WBRC-N22-TOTAL-MASS-NOT-CRITICAL-DEGENERACY-COMPLETE",
+      "status": "SCOPE_BOUNDARY",
+      "statement": "Aggregated total-mass matrices do not in general retain dominant branch tie multiplicities needed to reconstruct K. Critical-degeneracy analysis requires explicit positive-rational branch/histogram data."
+    }
+  ]
+}

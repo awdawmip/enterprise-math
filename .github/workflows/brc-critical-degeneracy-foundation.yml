@@ -1,0 +1,65 @@
+name: brc-critical-degeneracy-foundation
+
+on:
+  pull_request:
+    paths:
+      - 'definitions/ENTERPRISE_BRC_CRITICAL_DEGENERACY_FOUNDATION_20260903.md'
+      - 'definitions/ENTERPRISE_BRC_CRITICAL_DEGENERACY_THEOREM_LEDGER_20260903.json'
+      - 'definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json'
+      - 'definitions/00_CURRENT_NATIVE_FOUNDATION.md'
+      - 'research_method_inventory_addenda/20260903_brc_critical_degeneracy_foundation.json'
+      - 'src/enterprise_math/brc_critical_degeneracy.py'
+      - 'src/enterprise_math/__init__.py'
+      - 'tests/test_brc_critical_degeneracy_foundation.py'
+      - 'experiments/check_brc_critical_degeneracy_foundation.py'
+      - 'experiments/brc_unique_critical_cycle_moment_asymptotic_check.py'
+      - 'experiments/brc_critical_degeneracy_matrix_moment_asymptotic_check.py'
+      - 'experiments/brc_critical_degeneracy_log_correction_check.py'
+      - '.github/workflows/brc-critical-degeneracy-foundation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Critical-degeneracy production subtool
+        env:
+          PYTHONPATH: src
+        run: python -m unittest tests/test_brc_critical_degeneracy_foundation.py
+      - name: Critical-degeneracy Foundation integrity
+        run: python experiments/check_brc_critical_degeneracy_foundation.py
+      - name: Unique-critical-cycle research regression
+        run: python experiments/brc_unique_critical_cycle_moment_asymptotic_check.py
+      - name: Multi-critical matrix research regression
+        run: python experiments/brc_critical_degeneracy_matrix_moment_asymptotic_check.py
+      - name: Algebraic log-selector research regression
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_critical_degeneracy_log_correction_check.py
+      - name: Parent universal histogram Foundation remains consistent
+        env:
+          PYTHONPATH: src
+        run: |
+          python -m unittest tests/test_brc_universal_histogram_foundation.py
+          python experiments/check_brc_universal_histogram_foundation.py
+      - name: Recurrent criticality and finite-stability parents remain consistent
+        env:
+          PYTHONPATH: src
+        run: |
+          python -m unittest tests/test_brc_recurrent_interaction_foundation.py
+          python experiments/check_brc_recurrent_interaction_foundation.py
+          python -m unittest tests/test_brc_weighted_recurrent.py
+          python experiments/check_brc_finite_recurrent_foundation.py
+      - name: Toolbox discovers critical-degeneracy BRC
+        run: |
+          python tools/enterprise_toolbox.py --json methods critical degeneracy > /tmp/critical.json
+          grep -q 't0.weighted_brc_critical_degeneracy' /tmp/critical.json
+          python tools/enterprise_toolbox.py --json modules critical degeneracy > /tmp/critical-module.json
+          grep -q 'module:brc_critical_degeneracy' /tmp/critical-module.json

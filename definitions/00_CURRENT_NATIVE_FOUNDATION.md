@@ -1,6 +1,6 @@
 # Enterprise Math — Current Native Foundation Router
 
-Status: `ACTIVE / STABLE CURRENT ROUTER / P000-BOUND / FCC-CARRIER-SELECTED / WEIGHTED-BRC-GLOBAL-BASE / FINITE-RECURRENT-CERTIFIED / RECURRENT-INTERACTION-CERTIFIED / RECURRENT-PORT-CERTIFIED / UNIVERSAL-HISTOGRAM-CERTIFIED / LAZY LOAD`
+Status: `ACTIVE / STABLE CURRENT ROUTER / P000-BOUND / FCC-CARRIER-SELECTED / WEIGHTED-BRC-GLOBAL-BASE / FINITE-RECURRENT-CERTIFIED / RECURRENT-INTERACTION-CERTIFIED / RECURRENT-PORT-CERTIFIED / UNIVERSAL-HISTOGRAM-CERTIFIED / CRITICAL-DEGENERACY-CERTIFIED / LAZY LOAD`
 Date: `2026-09-03`
 Purpose: route current native mathematics without loading unrelated results.
 
@@ -47,11 +47,12 @@ Its role is type discipline, not agenda selection. In particular:
 - stable finite rational recurrence has exact determinant/zeta, response and feedback-condensation capabilities without requiring a floating spectral primitive;
 - positive rational multiplicative gauge/holonomy and exact histogram weights preserve finite prime-valuation coordinates before optional logarithmic readout;
 - stable hidden recurrent modules admit exact context-typed port collapse; constant `W_eff` is not silently treated as length/moment complete;
+- large-m recurrent subleading behavior uses the explicit-histogram critical graph and integer critical-degeneracy matrix `K`; the exact correction state is `det(I-zK)` plus a smallest-positive-root selector, not a floating eigenvalue;
 - simultaneous positive feedback may have higher-order recurrent interaction, so pairwise summaries are not presumed complete;
 - positive Weighted-BRC does not replace signed/amplitude data;
 - deterministic single-path problems reduce to `C=1`, `W=M`, dominant degeneracy `d=1`, `Delta=0`;
 - canonical R023 Boolean support remains the base support semantics;
-- current recurrent/histogram results remain finite and rational; broader infinite/signed/complex recurrence is not assumed.
+- current recurrent/histogram/critical-degeneracy results remain finite and rational/finite-algebraic-selector typed; broader infinite/signed/complex recurrence is not assumed.
 
 Detailed statements are routed by:
 
@@ -59,7 +60,8 @@ Detailed statements are routed by:
 - `ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json` — finite recurrent rational addendum;
 - `ENTERPRISE_BRC_RECURRENT_INTERACTION_THEOREM_LEDGER_20260903.json` — recurrent zeta/response, rational holonomy and feedback-interaction addendum;
 - `ENTERPRISE_BRC_RECURRENT_PORT_THEOREM_LEDGER_20260903.json` — recurrent Schur/port contextual-equivalence addendum;
-- `ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_THEOREM_LEDGER_20260903.json` — explicit branch moments, length-aware transfer, exact histogram and leading-pair addendum.
+- `ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_THEOREM_LEDGER_20260903.json` — explicit branch moments, length-aware transfer, exact histogram and leading-pair addendum;
+- `ENTERPRISE_BRC_CRITICAL_DEGENERACY_THEOREM_LEDGER_20260903.json` — large-m critical-degeneracy asymptotic, exact gap and algebraic log-selector addendum.
 
 Reusable executable methods:
 
@@ -70,7 +72,8 @@ Reusable executable methods:
 - `t0.weighted_brc_feedback_interaction` -> `src/enterprise_math/brc_feedback.py`;
 - `t0.weighted_brc_recurrent_port_collapse` -> `src/enterprise_math/brc_recurrent_ports.py`;
 - `t0.weighted_brc_histogram` -> `src/enterprise_math/brc_histogram.py`;
-- `t0.weighted_brc_moment_transfer` -> `src/enterprise_math/brc_moment_transfer.py`.
+- `t0.weighted_brc_moment_transfer` -> `src/enterprise_math/brc_moment_transfer.py`;
+- `t0.weighted_brc_critical_degeneracy` -> `src/enterprise_math/brc_critical_degeneracy.py`.
 
 Freeze:
 
@@ -92,13 +95,15 @@ Freeze:
 10. BRC recurrent port theorem ledger — `ENTERPRISE_BRC_RECURRENT_PORT_THEOREM_LEDGER_20260903.json`;
 11. BRC universal histogram foundation — `ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_FOUNDATION_20260903.md`;
 12. BRC universal histogram theorem ledger — `ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_THEOREM_LEDGER_20260903.json`;
-13. **primary six-axis rotational coordinate carrier** — `P000_FCC_PRIMARY_COORDINATE_CARRIER_20260829.md`;
-14. established three-axis research slice / coordinates — `ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`;
-15. native line trace — `ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`;
-16. arbitrary-point directed gauge — `ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`;
-17. unoriented bidirectional segment — `ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md`;
-18. BRC × native multipath — `ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md`;
-19. path-valued square root — `ENTERPRISE_PATH_VALUED_SQUARE_ROOT_OPERATOR_20260821.md` when a selected task actually uses it.
+13. BRC critical-degeneracy foundation — `ENTERPRISE_BRC_CRITICAL_DEGENERACY_FOUNDATION_20260903.md`;
+14. BRC critical-degeneracy theorem ledger — `ENTERPRISE_BRC_CRITICAL_DEGENERACY_THEOREM_LEDGER_20260903.json`;
+15. **primary six-axis rotational coordinate carrier** — `P000_FCC_PRIMARY_COORDINATE_CARRIER_20260829.md`;
+16. established three-axis research slice / coordinates — `ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`;
+17. native line trace — `ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`;
+18. arbitrary-point directed gauge — `ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`;
+19. unoriented bidirectional segment — `ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md`;
+20. BRC × native multipath — `ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md`;
+21. path-valued square root — `ENTERPRISE_PATH_VALUED_SQUARE_ROOT_OPERATOR_20260821.md` when a selected task actually uses it.
 
 The minimal Weighted-BRC substrate is universal. Other registry entries remain lazy: load only the exact object required by the current problem, except P000 when dimensional/spatial semantics are material and the FCC carrier definition when global coordinate/rotation semantics are material.
 
@@ -206,10 +211,12 @@ Core current interface:
 - `WBRC-T30..T32`: recurrent Schur boundary collapse, port-context safety and observer-relative minimal port signatures;
 - `WBRC-T33..T35`: explicit branch moments, finite primitive moment completeness and length-aware fixed-m port transfer;
 - `WBRC-T36..T38`: universal exact-weight histogram, prime-valuation universal transfer and dominant-degeneracy quotient;
+- `WBRC-T39..T42`: critical-degeneracy matrix asymptotic, exact gap/rate, integer criticality polynomial root selector and zero/threshold/log-bound readout;
 - `WBRC-N01..N13`: base through recurrent-port negative/scope boundaries;
-- `WBRC-N14..N18`: total-mass incompleteness, length/moment port boundaries, histogram provenance and formal-evaluation scope boundaries.
+- `WBRC-N14..N18`: total-mass incompleteness, length/moment port boundaries, histogram provenance and formal-evaluation scope boundaries;
+- `WBRC-N19..N22`: one-cycle/multi-critical boundary, floating-spectral boundary, irrational correction boundary and total-mass critical-degeneracy incompleteness.
 
-Use the T0 subtools listed above according to type. `LN`/`ROOT` materialization continues through existing exact BRC arithmetic facades and is not required during exact rational/integer/histogram accumulation.
+Use the T0 subtools listed above according to type. `LN`/`ROOT` materialization continues through existing exact BRC arithmetic facades; irrational critical corrections remain exact root-selector states with rational-LN bounds rather than being forced into rational `LN` arguments.
 
 ## First native layer versus carrier polyhedra
 
@@ -271,6 +278,8 @@ For recurrent zeta/response, rational holonomy and feedback interaction theorem 
 For recurrent Schur/port contextual-equivalence scope, `ENTERPRISE_BRC_RECURRENT_PORT_THEOREM_LEDGER_20260903.json` controls.
 
 For explicit-branch moment, length-aware port, exact histogram and dominant-degeneracy scope, `ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_THEOREM_LEDGER_20260903.json` controls.
+
+For large-m critical graph, critical-degeneracy matrix, exact gap and algebraic log-selector scope, `ENTERPRISE_BRC_CRITICAL_DEGENERACY_THEOREM_LEDGER_20260903.json` controls.
 
 Project mission/routing is defined by `PROJECT_DEFINITION.md`, `PROJECT_DEFINITION.zh-CN.md`, and current machine governance.
 

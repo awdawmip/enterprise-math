@@ -1,0 +1,59 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "FOUNDATION_GLOBAL_SUBTOOL",
+  "date": "2026-09-03",
+  "foundation": "definitions/ENTERPRISE_BRC_CRITICAL_DEGENERACY_FOUNDATION_20260903.md",
+  "theorem_ledger": "definitions/ENTERPRISE_BRC_CRITICAL_DEGENERACY_THEOREM_LEDGER_20260903.json",
+  "methods": [
+    {
+      "method_id": "t0.weighted_brc_critical_degeneracy",
+      "name": "Exact BRC critical-degeneracy graph, asymptotic correction and root-selector calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "source_refs": [
+        "definitions/ENTERPRISE_BRC_CRITICAL_DEGENERACY_FOUNDATION_20260903.md",
+        "definitions/ENTERPRISE_BRC_CRITICAL_DEGENERACY_THEOREM_LEDGER_20260903.json",
+        "src/enterprise_math/brc_critical_degeneracy.py",
+        "PR #1166",
+        "PR #1167",
+        "PR #1168"
+      ],
+      "api": [
+        "CriticalDegeneracyAnalysis",
+        "CriticalRootSelector",
+        "CriticalLogCorrectionState",
+        "critical_degeneracy_analysis",
+        "criticality_polynomial",
+        "smallest_positive_root_selector",
+        "critical_log_correction_state",
+        "critical_graph_shaped",
+        "critical_log_zero",
+        "critical_log_threshold_analysis",
+        "critical_log_less_than_rational",
+        "critical_log_bounds",
+        "critical_log_correction_from_branches"
+      ],
+      "triggers": [
+        "large moment recurrent asymptotic",
+        "tropical critical graph",
+        "dominant branch tie multiplicity",
+        "critical degeneracy matrix",
+        "subleading recurrent log correction",
+        "criticality polynomial root selector",
+        "multi critical BRC correction"
+      ],
+      "capabilities": [
+        "construct exact dominant edge weights, tie multiplicities and critical graph from explicit positive-rational branches",
+        "construct the non-negative integer critical-degeneracy matrix K",
+        "construct exact integer p_K(z)=det(I-zK)",
+        "select the smallest positive rational or irrational root using rational-root deflation and Sturm isolation",
+        "test the exact zero-correction structural law",
+        "compare critical log correction against rational LN thresholds by reusing finite-recurrent stability",
+        "produce existing rational BRC LN lower/upper expressions from an algebraic root interval"
+      ],
+      "core_law": "For explicit positive-rational branch moment matrices, rho(W^(m))/mu^m -> rho(K); the exact subleading log state is Gamma_crit=-ln z_c with z_c the smallest positive root of det(I-zK).",
+      "hard_boundary": "Leading max-cycle asymptotics and general perturbation/root theory are classical. No floating eigensolver/root is an exact certificate; no general algebraic-log materializer, signed/amplitude extension, infinite-state extension or runtime-speedup claim is made. Aggregated total mass is not critical-degeneracy complete."
+    }
+  ]
+}
