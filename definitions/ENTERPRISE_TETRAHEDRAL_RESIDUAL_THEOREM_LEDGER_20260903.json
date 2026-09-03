@@ -1,0 +1,132 @@
+{
+  "schema": "ENTERPRISE_MATH_TETRAHEDRAL_RESIDUAL_THEOREM_LEDGER_V1",
+  "status": "RESEARCH_THEOREM_LEDGER_FORMALIZATION_BACKED",
+  "effective": "2026-09-03",
+  "author": "YUAN X",
+  "program": "Enterprise Math",
+  "scope": "four-slice/six-line carrier residuals, tetrahedral symmetry, double-Pell finite arithmetic, and conditional positive-series acceleration",
+  "publication_source": "papers/2026-tetrahedral-residuals/",
+  "formalization_evidence": {
+    "residual_symmetry_branch": "formalization/precision-pi-paper-ii-kernel-v1",
+    "residual_symmetry_checkpoint": "95a9cd418f6abdb4916f5cf8182437af61dba9db",
+    "residual_symmetry_run": 33657478048,
+    "arithmetic_tail_branch": "formalization/precision-pi-paper-ii-v3",
+    "arithmetic_tail_checkpoint": "ca2b30c7ef45b470d0d5cb6955def48610cd9dd7",
+    "arithmetic_tail_run": 33659295408,
+    "strict_command": "lake build --wfail -KCI EnterpriseMath"
+  },
+  "theorems": [
+    {
+      "id": "EMTR-T01-K4-CARRIER-INCIDENCE",
+      "status": "PROVED_LEAN_CHECKED",
+      "hypotheses": "four declared slice labels with six shared unoriented line-family labels in the Enterprise FCC carrier readout",
+      "statement": "The four slice labels and six line-family labels have exactly the vertex-edge incidence of K4: every slice contains three line families, every line family belongs to two slices, and every distinct slice pair shares exactly one line family.",
+      "formal_layer": "carrier-level finite incidence",
+      "boundary": "This does not identify the six carrier line families with the six native P000 spatial axes."
+    },
+    {
+      "id": "EMTR-T02-INTEGRAL-RESIDUAL-QUOTIENT",
+      "status": "PROVED_LEAN_CHECKED",
+      "hypotheses": "V0={v in Z^4: sum v_i=0}, E0={x in Z^6: sum x_e=0}, delta(v)_ij=v_i+v_j",
+      "statement": "The residual quotient E0/delta(V0) has constructive coordinates (p,q,epsilon) and is isomorphic as an abelian group to Z^2 direct-sum Z/2Z, equivalently to A2(Z) direct-sum Z/2Z.",
+      "normal_form": "N(p,q,e)=(p,q,e-p-q,-e,0,0), with e read modulo 2.",
+      "classification": "Two zero-total edge states are delta-equivalent iff their opposite-edge matching sums agree and their first-three-edge sums have even difference."
+    },
+    {
+      "id": "EMTR-T03-PRIMITIVE-TWO-TORSION",
+      "status": "PROVED_LEAN_CHECKED",
+      "hypotheses": "same integer endpoint-sum quotient as EMTR-T02",
+      "statement": "tau=(1,0,0,0,0,-1) is not in delta(V0), while 2 tau is in delta(V0); hence tau represents the nonzero order-two residual class.",
+      "explicit_double_lift": "delta(1,1,-1,-1)=2 tau."
+    },
+    {
+      "id": "EMTR-T04-REAL-CONTINUUM-TORSION-LOSS",
+      "status": "PROVED_LEAN_CHECKED",
+      "hypotheses": "extend the same endpoint-sum system from integers to real coefficients",
+      "statement": "Over R the parity obstruction disappears, the residual quotient is R^2, and the two integer sheets distinguished by epsilon collapse to one real residual class.",
+      "interpretation": "division by two supplies the lift that is integrally obstructed; real completion retains the free A2 directions and erases the order-two residual."
+    },
+    {
+      "id": "EMTR-T05-K4-S4-COVARIANCE",
+      "status": "PROVED_LEAN_CHECKED",
+      "hypotheses": "the K4 carrier incidence of EMTR-T01 and any permutation of the four slice labels",
+      "statement": "Every slice permutation induces the corresponding line-family permutation and the endpoint-sum map is equivariant under simultaneous slice and line transport.",
+      "formal_identity": "rotateEdgeData(sigma, delta(v)) = delta(rotateSliceState(sigma, v))."
+    },
+    {
+      "id": "EMTR-T06-S4-RESIDUAL-COCYCLE-NONSPLIT",
+      "status": "PROVED_LEAN_CHECKED",
+      "hypotheses": "the mod-two residual normal coordinates induced by EMTR-T02 and the tetrahedral S4 action",
+      "statement": "The torsion line is S4-invariant, but there is no additive torsion retraction invariant under the three adjacent transpositions. Equivalently, the invariant two-torsion line has no S4-equivariant additive complement in the residual mod-two module.",
+      "hidden_rotation_witness": "A double transposition can fix the free pair while translating the torsion coordinate by a free-coordinate parity.",
+      "boundary": "This is a concrete finite-module nonsplitting theorem; it is not promoted here to a universal native holonomy theorem."
+    },
+    {
+      "id": "EMTR-T07-AFFINE-F2-EDGE-MODEL",
+      "status": "PROVED_IN_MANUSCRIPT_LEAN_PACKAGING_PENDING",
+      "hypotheses": "reduce residual normal coordinates (p,q,e) modulo 2",
+      "statement": "The eight residual states identify with Aff(F2^2,F2) by f_(p,q,e)(x,y)=e+px+qy. The six nonconstant affine functions have two-point supports and correspond bijectively to the six K4 edges; addition of the nonzero constant complements support and exchanges opposite edges.",
+      "boundary": "The manuscript proof is finite and explicit; a coordinate-free Lean equivalence is the next formal packaging target."
+    },
+    {
+      "id": "EMTR-T08-SQUARE-HALF-TRACE-DOUBLE-SHELL",
+      "status": "PROVED_LEAN_CHECKED",
+      "hypotheses": "u is invertible in a field and (u+u^-1)/2=P^2",
+      "statement": "((u-u^-1)/2)^2=P^4-1=(P^2-1)(P^2+1).",
+      "interpretation": "An exact square half-trace forces a paired positive/negative quadratic shell factorization."
+    },
+    {
+      "id": "EMTR-T09-N58-PELL-ARITHMETIC-CERTIFICATES",
+      "status": "PROVED_LEAN_CHECKED",
+      "hypotheses": "P=99 with the displayed integer witnesses",
+      "statement": "99^2-2*70^2=1 and 99^2-58*13^2=-1; furthermore 396=4*99, 9801=99^2, 26390=29*70*13, and 4*1103=29*70*13-2*99*(99+13-1).",
+      "consequence": "The principal integers in Ramanujan's N=58 expression admit a common exact Pell/arithmetic certificate.",
+      "boundary": "These identities do not derive the classical Ramanujan modular identity."
+    },
+    {
+      "id": "EMTR-T10-FINITE-GENERATING-LIFT",
+      "status": "PROVED_LEAN_CHECKED",
+      "hypotheses": "nonzero scale and nonzero target coefficients in a characteristic-zero field",
+      "statement": "A source coefficient can be exactly rewritten as scale^-1*n*target_n*scaledPrecision_n, and finite weighted generating sums preserve this identity term by term.",
+      "role": "finite algebraic bridge from a slow precision coefficient sequence to a weighted generating functional; no infinite-series theorem is assumed."
+    },
+    {
+      "id": "EMTR-T11-POSITIVE-RECIPROCAL-TRUNCATION",
+      "status": "PROVED_LEAN_CHECKED_FINITE_ORDER_THEOREM",
+      "hypotheses": "positive initial term and nonnegative series terms, with the next term strictly positive",
+      "statement": "Partial sums strictly increase and their reciprocals strictly decrease. If a finite partial sum lies below an exact positive inverse period, its reciprocal lies above that period.",
+      "ramanujan_boundary": "Identifying the exact inverse period with 1/pi for the N=58 series uses the classical Ramanujan-CM identity as an external analytic input."
+    },
+    {
+      "id": "EMTR-T12-GEOMETRIC-TAIL-CERTIFICATE",
+      "status": "PROVED_LEAN_CHECKED",
+      "hypotheses": "nonnegative terms satisfying term_(n+1)<=q*term_n with 0<=q<1",
+      "statement": "Every finite omitted tail is bounded by first_omitted/(1-q); the N=58 specialization has q_58=25/99^4=25/96059601.",
+      "boundary": "The ratio certificate controls the positive tail once the relevant series representation is supplied; it does not prove that representation."
+    },
+    {
+      "id": "EMTR-T13-GENERAL-MIDDLE-PREFIX-MAJORIZATION-ARITHMETIC",
+      "status": "PROVED_LEAN_CHECKED_ARITHMETIC_CORE",
+      "hypotheses": "k>=2, m>=1, and 0<=s<=k-1 in the parameter range of the k to k+2m balance comparison",
+      "statement": "The nontrivial middle-prefix majorization numerator m*(k*(m+1+2s)-2s*(s+1)) is strictly positive; equivalently the corresponding rational middle-prefix difference is positive.",
+      "boundary": "This ledger records the finite arithmetic core. Any Gamma-convexity or asymptotic pi^m completion theorem must cite its separate analytic proof status."
+    }
+  ],
+  "negative_boundaries": [
+    {
+      "id": "EMTR-N01-NATIVE-SIX-AXIS-LIFT",
+      "status": "OPEN_BOUNDARY",
+      "statement": "The FCC six line-family carrier readout is not identified here with the six native P000 spatial axes."
+    },
+    {
+      "id": "EMTR-N02-RAMANUJAN-CM-DERIVATION",
+      "status": "EXTERNAL_ANALYTIC_INPUT",
+      "statement": "The classical N=58 Ramanujan-CM identity is not derived from the finite carrier, residual quotient, or Pell certificates in this package."
+    },
+    {
+      "id": "EMTR-N03-AFFINE-F2-LEAN-PACKAGING",
+      "status": "FORMALIZATION_OPEN",
+      "statement": "The affine-function model EMTR-T07 is proved in the manuscript but its coordinate-free Lean equivalence is not yet part of the accepted formal stack."
+    }
+  ]
+}
