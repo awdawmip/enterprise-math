@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import inspect
 import unittest
-from decimal import Decimal
+from decimal import Decimal, localcontext
 from fractions import Fraction
 
 import enterprise_math.euler_character_completion as completion
@@ -67,8 +67,10 @@ class EulerCharacterCompletionTests(unittest.TestCase):
 
     def test_first_cell_factor_is_sqrt_two_plus_sqrt_three_over_two(self) -> None:
         levels = cell_polygon_levels(2, precision=120)
-        expected = ((Decimal(2) + Decimal(3).sqrt()).sqrt()) / Decimal(2)
-        self.assertLess(abs(levels[2].scalar - expected), Decimal("1e-110"))
+        with localcontext() as context:
+            context.prec = 120
+            expected = +(((Decimal(2) + Decimal(3).sqrt()).sqrt()) / Decimal(2))
+            self.assertLess(abs(levels[2].scalar - expected), Decimal("1e-110"))
 
     def test_uniform_residual_width_bound(self) -> None:
         self.assertTrue(verify_uniform_residual_bound(12, precision=120))
