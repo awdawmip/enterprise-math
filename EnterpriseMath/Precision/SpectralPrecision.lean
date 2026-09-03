@@ -166,10 +166,6 @@ def dirichletMatrix (z : ℝ) : (n : ℕ) → Matrix (Fin n) (Fin n) ℝ
   | 0 => fun i ↦ Fin.elim0 i
   | n + 1 => extendDirichletPath z (dirichletMatrix z n)
 
-@[simp]
-theorem dirichletMatrix_succ (z : ℝ) (n : ℕ) :
-    dirichletMatrix z (n + 1) = extendDirichletPath z (dirichletMatrix z n) := rfl
-
 /-- WSR-L06: the actual finite Dirichlet determinant obeys the continuant recurrence. -/
 theorem dirichletMatrix_det_add_two (z : ℝ) (n : ℕ) :
     (dirichletMatrix z (n + 2)).det =
