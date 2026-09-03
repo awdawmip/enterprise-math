@@ -145,7 +145,6 @@ private theorem extendDirichletPath_minor (z : ℝ) {n : ℕ}
     change extendDirichletPath z M (Fin.castSucc i.castSucc)
       ((Fin.castSucc (Fin.last n)).succAbove j.castSucc) = M i.castSucc j.castSucc
     simp [extendDirichletPath, Fin.succAbove]
-    omega
   change B.det = _
   simp [Matrix.det_succ_column B (Fin.last n), Fin.sum_univ_castSucc, hlast, hzero, hminor]
 
@@ -154,20 +153,15 @@ private theorem extendDirichletPath_det (z : ℝ) {n : ℕ}
     (extendDirichletPath z M).det =
       (2 - z) * M.det - (M.submatrix Fin.castSucc Fin.castSucc).det := by
   rw [Matrix.det_succ_row (extendDirichletPath z M) (Fin.last _), Fin.sum_univ_castSucc]
-  simp only [extendDirichletPath, Fin.lastCases_last, Fin.lastCases_castSucc,
-    Fin.val_last, Fin.val_castSucc, Fin.succAbove_last]
+  simp only [extendDirichletPath, extendDirichletPath_tail, Fin.lastCases_last,
+    Fin.lastCases_castSucc, Fin.val_last, Fin.val_castSucc, Fin.succAbove_last]
   rw [Finset.sum_eq_single_of_mem (Fin.last n) (Finset.mem_univ _)]
-  · simp [extendDirichletPath_minor, Fin.val_last,
+  · rw [if_pos rfl, extendDirichletPath_minor, Fin.val_last,
       Odd.neg_one_pow ⟨n, by ring⟩, Even.neg_one_pow ⟨n + 1, rfl⟩]
     ring
   · intro b _ hb
-    have hne : b.val + 1 ≠ n + 1 := by
-      intro h
-      apply hb
-      apply Fin.ext
-      rw [Fin.val_last]
-      omega
-    simp [hne]
+    rw [if_neg (fun h => hb (Fin.ext (by rw [Fin.val_last]; omega)))]
+    ring
 
 /--
 A concrete finite Dirichlet path matrix, built by repeated endpoint extension.
@@ -202,7 +196,8 @@ theorem dirichletMatrix_det_eq_continuant (z : ℝ) (n : ℕ) :
         (Matrix.det_isEmpty (A := dirichletMatrix z 0))
   | one =>
       rw [Matrix.det_fin_one]
-      simp [dirichletMatrix, extendDirichletPath, dirichletContinuant]
+      change (dirichletMatrix z 1) (Fin.last 0) (Fin.last 0) = 2 - z
+      simp [dirichletMatrix, extendDirichletPath]
   | more n ih0 ih1 =>
       rw [dirichletMatrix_det_add_two, dirichletContinuant, ih0, ih1]
 
