@@ -10,7 +10,9 @@ theorem dirichletContinuant_four_sub (z : ℝ) (n : ℕ) :
     dirichletContinuant (4 - z) n = (-1 : ℝ) ^ n * dirichletContinuant z n := by
   induction n using Nat.twoStepInduction with
   | zero => simp [dirichletContinuant]
-  | one => simp [dirichletContinuant]
+  | one =>
+      simp [dirichletContinuant]
+      ring
   | more n ih0 ih1 =>
       have hp1 : (-1 : ℝ) ^ (n + 1) = -((-1 : ℝ) ^ n) := by
         rw [pow_add]
