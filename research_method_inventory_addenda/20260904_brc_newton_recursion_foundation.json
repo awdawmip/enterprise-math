@@ -1,15 +1,43 @@
 {
   "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "FOUNDATION_GLOBAL_SUBTOOLS",
   "effective": "2026-09-04",
+  "date": "2026-09-04",
   "module": "BRC_NEWTON_RECURSION_FOUNDATION",
   "parent_method": "T0_BRC",
+  "foundation": "definitions/ENTERPRISE_BRC_NEWTON_RECURSION_FOUNDATION_20260904.md",
+  "theorem_ledger": "definitions/ENTERPRISE_BRC_NEWTON_RECURSION_THEOREM_LEDGER_20260904.json",
   "methods": [
     {
       "method_id": "t0.weighted_brc_newton_recursion",
-      "status": "GLOBAL_SUBTOOL",
+      "name": "Exact BRC Newton recursion over rational valuation scales and selected-root evaluation coefficients",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
       "implementation": "src/enterprise_math/brc_newton_recursion.py",
       "foundation": "definitions/ENTERPRISE_BRC_NEWTON_RECURSION_FOUNDATION_20260904.md",
       "theorem_ledger": "definitions/ENTERPRISE_BRC_NEWTON_RECURSION_THEOREM_LEDGER_20260904.json",
+      "source_refs": [
+        "PR #1186",
+        "PR #1188",
+        "src/enterprise_math/brc_newton_recursion.py"
+      ],
+      "triggers": [
+        "newton recursion",
+        "newton puiseux",
+        "rational valuation scale",
+        "selected root evaluation algebra",
+        "multiple critical root",
+        "later newton edge",
+        "brc newton"
+      ],
+      "capabilities": [
+        "represent multiplicative Newton scales by finite rational prime valuations and compare them exactly",
+        "perform rational-root Newton rescaling on finite rational characteristic jets",
+        "represent algebraic selected-root coefficients as rational-polynomial evaluations without floating roots",
+        "decide selected-root semantic zero equality sign and rational contact orders exactly",
+        "continue algebraic-base Newton recursion through later rational translated roots"
+      ],
       "typed_inputs": [
         "finite rational-prime-valuation Newton scales",
         "finite rational-polynomial characteristic jets",
@@ -27,6 +55,8 @@
         "t0.weighted_brc_critical_degeneracy",
         "t0.weighted_brc_rational_holonomy"
       ],
+      "core_law": "Finite Newton jets remain exact under rational selected translated roots when scales are stored in Q_{>0}^x tensor_Z Q; an irrational algebraic base root can be carried by selected-root evaluation coefficients while subsequent translated roots remain rational.",
+      "hard_boundary": "No generic algebraic-number field, general inversion, irrational translated-root continuation, complete Puiseux solver, floating radical/eigensolver, signed/amplitude, or infinite-state semantics are promoted.",
       "boundaries": [
         "no generic algebraic-number field",
         "no general inversion",
