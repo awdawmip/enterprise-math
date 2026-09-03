@@ -4,10 +4,13 @@ on:
   pull_request:
     paths:
       - "research_notes/EULER_FCC_CHIRALITY_FACE_HOLONOMY_CLASSIFICATION_20260904.md"
+      - "research_notes/EULER_FCC_CHIRALITY_CUBE_ORIENTATION_COVER_20260904.md"
       - "research_notes/EULER_FCC_CHIRALITY_THEOREM_LEDGER_20260904.json"
       - "EnterpriseMath/Precision/EulerFccChiralityGluing.lean"
       - "src/enterprise_math/euler_fcc_chirality.py"
+      - "src/enterprise_math/euler_fcc_chirality_connectivity.py"
       - "tests/test_euler_fcc_chirality.py"
+      - "tests/test_euler_fcc_chirality_connectivity.py"
       - "research_method_inventory_addenda/20260904_euler_fcc_chirality.json"
       - ".github/workflows/euler-fcc-chirality.yml"
   workflow_dispatch:
@@ -21,16 +24,26 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-      - name: Compile exact classifier
-        run: python -m py_compile src/enterprise_math/euler_fcc_chirality.py tests/test_euler_fcc_chirality.py
-      - name: Exhaust tetrahedral gauge classes
+      - name: Compile exact classifiers
+        run: |
+          python -m py_compile \
+            src/enterprise_math/euler_fcc_chirality.py \
+            src/enterprise_math/euler_fcc_chirality_connectivity.py \
+            tests/test_euler_fcc_chirality.py \
+            tests/test_euler_fcc_chirality_connectivity.py
+      - name: Exhaust tetrahedral gauge and cover classes
         env:
           PYTHONPATH: src
-        run: python -m unittest -v tests/test_euler_fcc_chirality.py
-      - name: Emit exact classification certificate
+        run: |
+          python -m unittest -v \
+            tests/test_euler_fcc_chirality.py \
+            tests/test_euler_fcc_chirality_connectivity.py
+      - name: Emit exact classification certificates
         env:
           PYTHONPATH: src
-        run: python src/enterprise_math/euler_fcc_chirality.py > /tmp/euler-fcc-chirality.json
+        run: |
+          python src/enterprise_math/euler_fcc_chirality.py > /tmp/euler-fcc-chirality.json
+          python src/enterprise_math/euler_fcc_chirality_connectivity.py > /tmp/euler-fcc-connectivity.json
       - name: Reject proof placeholders
         run: |
           if grep -R -n -E '\b(sorry|admit|axiom)\b' EnterpriseMath/Precision/EulerFccChiralityGluing.lean; then
