@@ -9,13 +9,17 @@ on:
       - "research_notes/EULER_ROTATION_COVER_THEOREM_ADDENDUM_20260903.json"
       - "research_notes/EULER_CELL_RADIUS_NORMALIZED_BISECTOR_COMPLETION_20260903.md"
       - "research_notes/EULER_NATIVE_SEGMENT_SPINOR_BISECTOR_IDENTITY_20260903.md"
+      - "research_notes/EULER_FINITE_CAYLEY_HALF_TURN_SQUEEZE_20260903.md"
       - "research_notes/EULER_CELL_RADIUS_BISECTOR_THEOREM_LEDGER_20260903.json"
       - "src/enterprise_math/euler_rotation_refinement.py"
       - "src/enterprise_math/euler_native_bisector.py"
+      - "src/enterprise_math/euler_dyadic_cayley_bridge.py"
       - "tests/test_euler_rotation_refinement.py"
       - "tests/test_euler_native_bisector.py"
+      - "tests/test_euler_dyadic_cayley_bridge.py"
       - "EnterpriseMath/Precision/EulerCellRadiusBisector.lean"
       - "EnterpriseMath/Precision/EulerPhysicalGate.lean"
+      - "EnterpriseMath/Precision/EulerCayleyBridge.lean"
       - "research_method_inventory_addenda/20260903_euler_rotation_refinement.json"
       - "research_method_inventory_addenda/20260903_euler_native_bisector.json"
       - ".github/workflows/euler-rotation-refinement.yml"
@@ -34,15 +38,18 @@ jobs:
           python -m py_compile \
             src/enterprise_math/euler_rotation_refinement.py \
             src/enterprise_math/euler_native_bisector.py \
+            src/enterprise_math/euler_dyadic_cayley_bridge.py \
             tests/test_euler_rotation_refinement.py \
-            tests/test_euler_native_bisector.py
+            tests/test_euler_native_bisector.py \
+            tests/test_euler_dyadic_cayley_bridge.py
       - name: Run isolated finite theorem regressions
         env:
           PYTHONPATH: src
         run: |
           python -m unittest -v \
             tests/test_euler_rotation_refinement.py \
-            tests/test_euler_native_bisector.py
+            tests/test_euler_native_bisector.py \
+            tests/test_euler_dyadic_cayley_bridge.py
 
   lean-check:
     runs-on: ubuntu-latest
@@ -62,5 +69,5 @@ jobs:
         run: lake update
       - name: Fetch mathlib cache
         run: lake exe cache get
-      - name: Compile the Euler Cell-radius bisector proofs with warnings fatal
-        run: lake build --wfail -KCI EnterpriseMath.Precision.EulerPhysicalGate
+      - name: Compile the Euler Cell-radius and Cayley proofs with warnings fatal
+        run: lake build --wfail -KCI EnterpriseMath.Precision.EulerPhysicalGate EnterpriseMath.Precision.EulerCayleyBridge
