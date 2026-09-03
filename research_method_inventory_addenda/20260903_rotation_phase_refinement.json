@@ -107,6 +107,46 @@
       ],
       "core_law": "For a rotation Cayley coordinate T, composition is T(uv)=(T(u)+T(v))/(1-T(u)T(v)); in the N=58 case T(U2)^6=(99+70 sqrt(2))^-1 and T(V58)=(99+13 sqrt(58))^-1.",
       "hard_boundary": "Finite algebraic certificate only. The classical modular-lambda special value is an external input, and the match between exponent six and the six-gate shell is not promoted as a causal modular derivation."
+    },
+    {
+      "method_id": "t5_t7.rotation_character_difference_spectrum",
+      "name": "Finite Euler character skew-difference and Laplacian spectrum checker",
+      "classification": "PROJECT_SUBTOOL_COMPOSITION",
+      "family_ids": [
+        "T5_PRECISION_REFINEMENT",
+        "T7_FINITE_SYMMETRY_EQUIVARIANCE"
+      ],
+      "status": "EXECUTABLE_EXTRACTED_REGRESSION_CHECKED_PENDING_PROMOTION",
+      "source_refs": [
+        "research_notes/EULER_ROTATION_DIFFERENCE_SPECTRUM_20260903.md",
+        "src/enterprise_math/rotation_character_spectrum.py",
+        "src/enterprise_math/rotation_phase_refinement.py",
+        "tests/test_rotation_character_spectrum.py",
+        "workflow:euler-rotation-phase"
+      ],
+      "api": [
+        "RotationSpectrumDatum",
+        "rotation_spectrum_data",
+        "verify_rotation_spectrum",
+        "certificate"
+      ],
+      "triggers": [
+        "Euler finite difference",
+        "rotation character eigenvalue",
+        "precision pi spectrum",
+        "discrete phase Laplacian",
+        "Viete spectral readout",
+        "Basel rotation spectrum"
+      ],
+      "capabilities": [
+        "compute finite centered skew-difference eigenvalue magnitudes from the pi-free dyadic trace tower",
+        "compute the positive centered phase-Laplacian fundamental eigenvalue",
+        "verify skew eigenvalue magnitude equals twice the current precision readout",
+        "verify Laplacian eigenvalue equals four times the next precision readout squared",
+        "emit high-precision finite spectral certificates"
+      ],
+      "core_law": "At dyadic phase step h_m, the fundamental character has skew eigenvalue 2 J Pi_m and positive Laplacian eigenvalue 4 Pi_(m+1)^2.",
+      "hard_boundary": "Derived normalized phase spectrum only. The tool does not identify the phase Laplacian with a native physical Laplacian, prove the Basel trace identity, or replace the Archimedean completion theorem."
     }
   ]
 }
