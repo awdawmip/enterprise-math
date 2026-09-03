@@ -1,0 +1,23 @@
+name: brc-recurrent-schur-collapse-research
+
+on:
+  pull_request:
+    paths:
+      - 'research_notes/BRC_RECURRENT_SCHUR_OPERATION_SAFE_COLLAPSE_20260903.md'
+      - 'experiments/brc_recurrent_schur_collapse_check.py'
+      - '.github/workflows/brc-recurrent-schur-collapse-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Exact BRC recurrent Schur collapse checker
+        run: python experiments/brc_recurrent_schur_collapse_check.py
