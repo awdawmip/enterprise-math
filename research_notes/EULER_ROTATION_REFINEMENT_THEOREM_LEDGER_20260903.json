@@ -1,0 +1,74 @@
+{
+  "schema": "ENTERPRISE_MATH_EULER_ROTATION_REFINEMENT_THEOREM_LEDGER_V1",
+  "status": "FREE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "effective": "2026-09-03",
+  "author": "YUAN X",
+  "researcher": "EM-FREE-F6D046 / FREE_AXIOM_DISCOVERY",
+  "source_note": "research_notes/EULER_CELL_GATE_DYADIC_ROTATION_TOWER_20260903.md",
+  "checker": "src/enterprise_math/euler_rotation_refinement.py",
+  "regression": "tests/test_euler_rotation_refinement.py",
+  "theorems": [
+    {
+      "id": "EMER-T01-CELL-GATE-C12-INCIDENCE",
+      "status": "PROVED_FROM_DECLARED_LOCAL_CARRIER_INCIDENCE",
+      "statement": "Six cyclic neighbor-Cell direction phases and the six triple-intersection gates between consecutive phases form a bipartite 12-cycle, with C_j at residue 2j and G_j at residue 2j+1.",
+      "boundary": "The phase cycle is a local orientation readout, not an identification with P000 native axes or a global native metric."
+    },
+    {
+      "id": "EMER-T02-DIRECTED-CYCLE-DOUBLING",
+      "status": "PROVED_FINITE_COMBINATORIAL",
+      "statement": "Directed barycentric subdivision sends C_N to C_(2N). For Gamma_m=Z/(6*2^m), the embedding iota_m(k)=2k satisfies two fine successor steps equal one embedded coarse successor step."
+    },
+    {
+      "id": "EMER-T03-MINIMAL-DYADIC-REFINEMENT",
+      "status": "PROVED_FINITE_ARITHMETIC_EXECUTABLE_CHECKED",
+      "statement": "A cyclic carrier preserving a C6 shell and containing a compatible m-fold dyadic root of reversal has order divisible by lcm(6,2^(m+1))=6*2^m; Gamma_m attains this minimum."
+    },
+    {
+      "id": "EMER-T04-THREE-STEP-ROOT-TOWER",
+      "status": "PROVED_FINITE_ARITHMETIC_EXECUTABLE_CHECKED",
+      "statement": "For u_m=3 in Gamma_m, ord(u_m)=2^(m+1) and 2*u_(m+1)=iota_m(u_m). Thus u_0 is reversal, u_1 a quarter-turn root, and successive u_m are compatible higher roots."
+    },
+    {
+      "id": "EMER-T05-QUARTER-TURN-GATE-AND-CHIRALITY",
+      "status": "PROVED_FINITE_SYMMETRY_EXECUTABLE_CHECKED",
+      "statement": "At C12 the two roots of the half-turn are residues 3 and 9, identified with gates G1 and G4. Reflection k->-k exchanges them, so an unoriented incidence cycle has no canonical choice of i versus -i."
+    },
+    {
+      "id": "EMER-T06-CELL-GATE-SATURATION-NOGO",
+      "status": "PROVED_CARDINALITY_AND_ORDER_OBSTRUCTION",
+      "statement": "The local Cell+gate phase inventory has 12 states and exactly realizes the minimal quarter-turn level C12. The next compatible eighth-turn level requires 24 states, so no Cell+gate-only faithful cyclic realization can continue the tower.",
+      "consequence": "Higher exact roots require a new transition/history state type unless a separate refined physical Cell geometry is supplied."
+    },
+    {
+      "id": "EMER-T07-FINITE-EULER-TRACE-ALGEBRA",
+      "status": "PROVED_ALGEBRAIC_IN_NOTE",
+      "statement": "For compatible character roots z_(m+1)^2=z_m, J=z_1, c_m=(z_m+z_m^-1)/2, and s_m=(z_m-z_m^-1)/(2J), one has z_m=c_m+J*s_m, c_m^2+s_m^2=1, and the exact sine/cosine addition laws under character multiplication.",
+      "boundary": "This is a character algebra, not a declaration that the complex plane is primitive native geometry."
+    },
+    {
+      "id": "EMER-T08-VIETE-FROM-ROOT-TRACE",
+      "status": "PROVED_ALGEBRAIC_EXECUTABLE_CHECKED",
+      "statement": "The root relation gives c_(m+1)=sqrt((1+c_m)/2) on the forward branch and 2/prod_(j=2)^m c_j=2^m*s_m. Therefore the finite Viete nested-radical hierarchy is the symmetric trace of compatible roots of reversal."
+    },
+    {
+      "id": "EMER-T09-TARGET-FREE-ROTATION-PI-COMPLETION",
+      "status": "PROVED_IN_NOTE_EXECUTABLE_CHECKED",
+      "statement": "Pi_m^rot=2^m*s_m is strictly increasing, bounded above by 2*(1+sqrt(2)), and converges to an internally defined constant pi_rot. For B=2*(1+sqrt(2)), the gap is at most Pi_m^rot*B^2/(3*4^m-B^2) for m>=2.",
+      "boundary": "No target value of classical pi is used in the finite recursion or convergence proof."
+    },
+    {
+      "id": "EMER-T10-CLASSICAL-PI-IDENTIFICATION",
+      "status": "EXTERNAL_STANDARD_ANALYTIC_IDENTIFICATION",
+      "statement": "Under the standard complex character embedding z_m=exp(i*pi/2^m), Pi_m^rot=2^m sin(pi/2^m) and the sinc limit identifies pi_rot with classical pi.",
+      "boundary": "This identification is not a native derivation of the classical exponential or a proof that all native Cell trajectories descend to the phase tower."
+    }
+  ],
+  "open_boundaries": [
+    "operation-safe quotient from actual pivot-preserving Cell rotation dynamics",
+    "physical realization of subdivision levels beyond the actual gate layer",
+    "Lean formalization of the finite cyclic tower and trace algebra",
+    "explicit transform between rotation-pi and multinomial precision-pi hierarchies",
+    "proof or disproof that paired-Pell shell conjugacy is the same reversal fiber"
+  ]
+}

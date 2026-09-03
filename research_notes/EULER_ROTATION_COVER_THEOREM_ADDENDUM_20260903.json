@@ -1,0 +1,47 @@
+{
+  "schema": "ENTERPRISE_MATH_EULER_ROTATION_COVER_THEOREM_ADDENDUM_V1",
+  "status": "FREE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "effective": "2026-09-03",
+  "author": "YUAN X",
+  "researcher": "EM-FREE-F6D046 / FREE_AXIOM_DISCOVERY",
+  "parent_ledger": "research_notes/EULER_ROTATION_REFINEMENT_THEOREM_LEDGER_20260903.json",
+  "source_note": "research_notes/EULER_ROTATION_COVER_AND_WINDING_GEOMETRY_20260903.md",
+  "theorems": [
+    {
+      "id": "EMER-T11-EVEN-CYCLIC-ROOT-COVER-NONSPLIT",
+      "status": "PROVED_STANDARD_FINITE_GROUP_THEORY",
+      "statement": "For every even N, the exact sequence 0 -> C2 -> C_(2N) -> C_N -> 0 induced by the root cover is non-split. Equivalently, no globally multiplicative single-valued square-root selector exists on mu_N.",
+      "proof_certificate": "Any lift of the generator 1 mod N is 1 or N+1 mod 2N; both have order 2N when N is even, so neither can be the image of an element of order N under a homomorphic section."
+    },
+    {
+      "id": "EMER-T12-ROTATION-ROOT-FIBER-C2-TORSOR",
+      "status": "PROVED_STANDARD_FINITE_GROUP_THEORY",
+      "statement": "Each z in mu_N has root fiber {w,-w} in mu_(2N). A directed path plus an initial branch selects a lift; an unoriented static state does not.",
+      "boundary": "This rotation-root fiber is not identified with the existing path-valued vector-norm square-root fiber, although the typing pattern is compatible."
+    },
+    {
+      "id": "EMER-T13-FINITE-SUCCESSOR-EULER-DECOMPOSITION",
+      "status": "PROVED_STANDARD_FINITE_HARMONIC_ANALYSIS",
+      "statement": "For a cycle successor S and a conjugate character mode with eigenvalue z=c+J*s, S decomposes exactly as (S+S^-1)/2 + J*(S-S^-1)/(2J). On the real two-dimensional mode, S has matrix [[c,-s],[s,c]] and J^2=-I."
+    },
+    {
+      "id": "EMER-T14-EXACT-FINITE-EULER-EIGEN-EQUATIONS",
+      "status": "PROVED_ALGEBRAIC",
+      "statement": "For the selected mode phi, D=(S-S^-1)/(2s) and L=(S+S^-1-2I)/(2(1-c)) satisfy D phi=J phi and L phi=-phi at every finite refinement level.",
+      "interpretation": "The continuous equations f'=if and f''=-f are limits of exact finite rotation-mode eigen-equations rather than the source of the finite law."
+    },
+    {
+      "id": "EMER-T15-EXPONENTIAL-WINDING-QUOTIENT",
+      "status": "STANDARD_CONTINUOUS_COVER_REINTERPRETED",
+      "statement": "After analytic completion, R -> U(1) identifies winding histories differing by a full deck period 2*pi_rot. The exponential is therefore a quotient from accumulated directed rotation history to current orientation, and Euler's identity is the half-period endpoint.",
+      "boundary": "This is a typed geometric interpretation of the standard universal cover; no historical novelty is claimed for the topology itself."
+    }
+  ],
+  "freeze": [
+    "GLOBAL_MULTIPLICATIVE_ROOT_SECTION_DOES_NOT_EXIST",
+    "ROOT_SELECTION_REQUIRES_PATH_OR_CHIRALITY",
+    "I_IS_MODE_ORIENTATION_OPERATOR_NOT_NATIVE_SPATIAL_AXIS",
+    "EXPONENTIAL_FORGETS_FULL_TURN_WINDING_HISTORY",
+    "NO_IDENTITY_ASSERTED_WITH_TETRAHEDRAL_OR_PELL_C2"
+  ]
+}
