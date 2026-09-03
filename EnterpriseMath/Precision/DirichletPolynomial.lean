@@ -114,7 +114,9 @@ theorem dirichletSpectralPoly_odd_factorization (n : ℕ) :
   have hsq : ((-1 : ℝ) ^ n) ^ 2 = 1 := by
     rw [← pow_mul]
     exact Even.neg_one_pow ⟨n, by ring⟩
-  nlinarith
+  linear_combination (norm := ring_nf)
+    (dirichletContinuant z (n + 1) *
+      (dirichletContinuant z (n + 2) - dirichletContinuant z n)) * hsq
 
 /-- Constant coefficient of the first parity factor. -/
 theorem dirichletParityEvenPoly_coeff_zero (n : ℕ) :
