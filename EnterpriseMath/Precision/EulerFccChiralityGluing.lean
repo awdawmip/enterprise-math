@@ -32,6 +32,29 @@ structure FaceBits where
   h123 : Bool
   deriving DecidableEq, Repr, Fintype
 
+/-- Four three-axis slices. -/
+inductive Slice where
+  | s0
+  | s1
+  | s2
+  | s3
+  deriving DecidableEq, Repr, Fintype
+
+/-- A slice together with one of the two local signs `J` and `-J`. -/
+@[ext]
+structure SignedSlice where
+  slice : Slice
+  sheet : Bool
+  deriving DecidableEq, Repr, Fintype
+
+/-- Vertices of the three-dimensional Boolean cube. -/
+@[ext]
+structure CubeBits where
+  x : Bool
+  y : Bool
+  z : Bool
+  deriving DecidableEq, Repr, Fintype
+
 /-- Three-fold addition in `F₂`, represented by Boolean xor. -/
 def xor3 (a b c : Bool) : Bool :=
   Bool.xor (Bool.xor a b) c
@@ -67,13 +90,23 @@ def faceWeight (h : FaceBits) : Nat :=
   (if h.h023 then 1 else 0) +
   (if h.h123 then 1 else 0)
 
+/-- Executable finite vertex-gauge equivalence test. -/
+def gaugeEquivalentB (e f : EdgeBits) : Bool :=
+  (Finset.univ : Finset GaugeBits).any
+    (fun g => decide (gaugeAction g e = f))
+
 /-- Two edge systems are equivalent when related by local slice-frame flips. -/
 def GaugeEquivalent (e f : EdgeBits) : Prop :=
-  ∃ g : GaugeBits, gaugeAction g e = f
+  gaugeEquivalentB e f = true
+
+/-- Executable full-face-symmetry test.  Since `S₄` acts transitively on the
+four tetrahedral faces, a fixed vector has all four coordinates equal. -/
+def fullySymmetricB (h : FaceBits) : Bool :=
+  decide (h.h012 = h.h013 ∧ h.h013 = h.h023 ∧ h.h023 = h.h123)
 
 /-- A face vector fixed by the full transitive permutation action on faces. -/
 def FullySymmetric (h : FaceBits) : Prop :=
-  h.h012 = h.h013 ∧ h.h013 = h.h023 ∧ h.h023 = h.h123
+  fullySymmetricB h = true
 
 /-- The trivial edge transition system. -/
 def zeroEdges : EdgeBits := ⟨false, false, false, false, false, false⟩
@@ -100,6 +133,52 @@ def allOddFaces : FaceBits := ⟨true, true, true, true⟩
 /-- Existence of one globally signed chiral generator across all four slices. -/
 def Globalizable (e : EdgeBits) : Prop :=
   GaugeEquivalent e zeroEdges
+
+/-- One representative from each antipodal pair of cube vertices. -/
+def cubeBase : Slice → CubeBits
+  | .s0 => ⟨false, false, false⟩
+  | .s1 => ⟨false, true, true⟩
+  | .s2 => ⟨true, false, true⟩
+  | .s3 => ⟨true, true, false⟩
+
+/-- Central inversion on the cube. -/
+def cubeComplement (p : CubeBits) : CubeBits :=
+  ⟨!p.x, !p.y, !p.z⟩
+
+/-- The explicit eight-state cube labeling of the antibalanced orientation
+cover. -/
+def cubeLabel (s : SignedSlice) : CubeBits :=
+  match s.sheet with
+  | false => cubeBase s.slice
+  | true => cubeComplement (cubeBase s.slice)
+
+/-- The deck transformation reversing the sign of the local generator. -/
+def deckFlip (s : SignedSlice) : SignedSlice :=
+  ⟨s.slice, !s.sheet⟩
+
+/-- Adjacency in the all-negative signed-slice cover: move to a different
+slice and reverse sheet. -/
+def coverAdjacentB (a b : SignedSlice) : Bool :=
+  decide (a.slice ≠ b.slice ∧ a.sheet ≠ b.sheet)
+
+/-- Propositional cover adjacency. -/
+def CoverAdjacent (a b : SignedSlice) : Prop :=
+  coverAdjacentB a b = true
+
+/-- Convert one Boolean difference to a natural Hamming contribution. -/
+def bitNat : Bool → Nat
+  | false => 0
+  | true => 1
+
+/-- Hamming distance in the Boolean cube. -/
+def cubeDistance (a b : CubeBits) : Nat :=
+  bitNat (Bool.xor a.x b.x) +
+  bitNat (Bool.xor a.y b.y) +
+  bitNat (Bool.xor a.z b.z)
+
+/-- Propositional cube-edge adjacency. -/
+def CubeAdjacent (a b : CubeBits) : Prop :=
+  cubeDistance a b = 1
 
 /-- All finite tetrahedral chirality holonomies satisfy the even-parity
 Bianchi identity because every edge occurs in exactly two faces. -/
@@ -183,6 +262,35 @@ theorem antibalanced_has_all_odd_face_holonomy :
 /-- The all-face-odd class cannot carry one globally signed chiral generator. -/
 theorem antibalanced_is_not_globalizable :
     ¬ Globalizable antibalancedEdges := by
+  native_decide
+
+/-- The eight signed slice states are exactly the eight cube vertices. -/
+theorem cubeLabel_bijective : Function.Bijective cubeLabel := by
+  native_decide
+
+/-- The explicit labeling identifies the antibalanced orientation-cover graph
+with the three-dimensional cube graph. -/
+theorem cubeLabel_preserves_adjacency :
+    ∀ a b : SignedSlice,
+      CoverAdjacent a b ↔ CubeAdjacent (cubeLabel a) (cubeLabel b) := by
+  native_decide
+
+/-- Reversal of the signed generator is central inversion of the cube. -/
+theorem deckFlip_is_cube_antipode :
+    ∀ s : SignedSlice,
+      cubeLabel (deckFlip s) = cubeComplement (cubeLabel s) := by
+  native_decide
+
+/-- The deck transformation has no fixed signed slice state. -/
+theorem deckFlip_fixed_point_free :
+    ∀ s : SignedSlice, deckFlip s ≠ s := by
+  native_decide
+
+/-- The orientation cover and cube both have eight vertices. -/
+theorem signedSlice_card : Fintype.card SignedSlice = 8 := by
+  native_decide
+
+theorem cubeBits_card : Fintype.card CubeBits = 8 := by
   native_decide
 
 /-- The gauge quotient has eight classes, represented by the eight even face
