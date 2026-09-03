@@ -39,7 +39,10 @@ def mat_jet(levels: tuple[Fraction, ...], layers: tuple[IntMatrix, ...], s: int)
     n = len(layers[0])
     return tuple(
         tuple(
-            sum((ratio**s) * layers[index][i][j] for index, ratio in enumerate(levels), Q(0))
+            sum(
+                ((ratio**s) * layers[index][i][j] for index, ratio in enumerate(levels)),
+                Q(0),
+            )
             for j in range(n)
         )
         for i in range(n)
