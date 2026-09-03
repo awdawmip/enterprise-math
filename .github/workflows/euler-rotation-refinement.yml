@@ -13,6 +13,7 @@ on:
       - "src/enterprise_math/euler_native_bisector.py"
       - "tests/test_euler_rotation_refinement.py"
       - "tests/test_euler_native_bisector.py"
+      - "EnterpriseMath/Precision/EulerCellRadiusBisector.lean"
       - "research_method_inventory_addenda/20260903_euler_rotation_refinement.json"
       - "research_method_inventory_addenda/20260903_euler_native_bisector.json"
       - ".github/workflows/euler-rotation-refinement.yml"
@@ -40,3 +41,24 @@ jobs:
           python -m unittest -v \
             tests/test_euler_rotation_refinement.py \
             tests/test_euler_native_bisector.py
+
+  lean-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+      - name: Set up Lean
+        uses: leanprover/lean-action@v1
+        with:
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+          use-github-cache: false
+          use-mathlib-cache: false
+      - name: Resolve pinned dependencies
+        run: lake update
+      - name: Fetch mathlib cache
+        run: lake exe cache get
+      - name: Compile the Euler Cell-radius bisector proofs with warnings fatal
+        run: lake build --wfail -KCI EnterpriseMath.Precision.EulerCellRadiusBisector
