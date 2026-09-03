@@ -5,6 +5,8 @@ import EnterpriseMath.PrimeFusion.MixedLocus
 import EnterpriseMath.PrimeFusion.PhaseReadout
 import EnterpriseMath.PrimeFusion.PointedQuotient
 import EnterpriseMath.PrimeFusion.PointedRecovery
+import EnterpriseMath.PrimeFusion.Reconstruction
+import EnterpriseMath.PrimeFusion.DualPrime
 
 #print axioms EnterpriseMath.PrimeFusion.channel_gcd_exact
 #print axioms EnterpriseMath.PrimeFusion.fusionCRT
@@ -17,3 +19,10 @@ import EnterpriseMath.PrimeFusion.PointedRecovery
 #print axioms EnterpriseMath.PrimeFusion.mixed_orbit_inverse_only_eleven
 #print axioms EnterpriseMath.PrimeFusion.dualPrime_sixth_gcd_readout
 #print axioms EnterpriseMath.PrimeFusion.mixed_sixth_eq_two_rootIdempotent_sub_one
+#print axioms EnterpriseMath.PrimeFusion.idempotent_universal_channel_split
+#print axioms EnterpriseMath.PrimeFusion.reconstruct_positive_cell_of_diagonal_roots
+#print axioms EnterpriseMath.PrimeFusion.reconstruct_positive_primitive_cell_of_diagonal_roots
+#print axioms EnterpriseMath.PrimeFusion.dualPrime_iff_squarefreeSemiprime_mul
+#print axioms EnterpriseMath.PrimeFusion.fixed_channels_dualPrime_iff_squarefreeSemiprime
+#print axioms EnterpriseMath.PrimeFusion.fixed_channel_prime_fields_and_orders
+#print axioms EnterpriseMath.PrimeFusion.fixed_channel_prime_field_product
