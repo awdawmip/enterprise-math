@@ -51,18 +51,19 @@ class NewtonHandoffResonanceFoundationTests(unittest.TestCase):
         one = RationalValuationScale.one()
         half = RationalValuationScale.from_rational(Q(1, 2))
         quarter = RationalValuationScale.from_rational(Q(1, 4))
-        ninth = RationalValuationScale.from_rational(Q(1, 9))
+        sixth = RationalValuationScale.from_rational(Q(1, 6))
         jet = (
             (one, f2),
             (half, linear),
             (quarter, a),
-            (ninth, (Q(1),)),
+            (sixth, (Q(1),)),
         )
         first = real_root_handoff_step(jet, algebra, 2)
         self.assertEqual(first.scale, half)
         self.assertEqual(real_root_polynomial_vanish_order(first.edge_polynomial, Q(-1), algebra), 2)
         second = real_root_rational_newton_step(first.jet, Q(-1), 2, algebra)
-        self.assertEqual(second.scale, RationalValuationScale.from_rational(Q(2, 3)))
+        expected = RationalValuationScale.from_rational(Q(2, 3)).root(2)
+        self.assertEqual(second.scale, expected)
 
     def test_absorption_zero_certificate(self):
         algebra = SelectedRootEvaluationAlgebra.from_polynomial((1, -1, -1))
