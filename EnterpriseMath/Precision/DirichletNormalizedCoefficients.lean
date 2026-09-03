@@ -15,10 +15,24 @@ theorem descAscFactorial_pair_product (M j : ℕ) (hj : j < M) :
       have hj' : j < M := lt_trans (Nat.lt_succ_self j) hj
       have hM1 : 1 ≤ M := by omega
       have hsub : j ≤ M - 1 := by omega
+      have hih := ih hj'
       rw [Nat.descFactorial_succ, Nat.ascFactorial_succ, Finset.prod_range_succ]
       simp only [Nat.cast_mul, Nat.cast_add, Nat.cast_one]
-      rw [Nat.cast_sub hsub, Nat.cast_sub hM1, ih hj']
-      ring
+      rw [Nat.cast_sub hsub, Nat.cast_sub hM1]
+      calc
+        ((M : ℝ) - 1 - (j : ℝ)) * (((M - 1).descFactorial j : ℕ) : ℝ) *
+              (((M : ℝ) + 1 + (j : ℝ)) * (((M + 1).ascFactorial j : ℕ) : ℝ)) =
+            (((M : ℝ) - 1 - (j : ℝ)) * ((M : ℝ) + 1 + (j : ℝ))) *
+              ((((M - 1).descFactorial j : ℕ) : ℝ) *
+                (((M + 1).ascFactorial j : ℕ) : ℝ)) := by ring
+        _ = (((M : ℝ) - 1 - (j : ℝ)) * ((M : ℝ) + 1 + (j : ℝ))) *
+              (∏ r ∈ Finset.range j,
+                ((M : ℝ) ^ 2 - (((r + 1 : ℕ) : ℝ) ^ 2))) := by rw [hih]
+        _ = (∏ r ∈ Finset.range j,
+                ((M : ℝ) ^ 2 - (((r + 1 : ℕ) : ℝ) ^ 2)) *
+              ((M : ℝ) ^ 2 - (((j + 1 : ℕ) : ℝ) ^ 2)) := by
+          push_cast
+          ring
 
 /-- The centered odd ascending factorial splits into the central factor and paired halves. -/
 theorem centeredAscFactorial_factorization (M j : ℕ) (hj : j < M) :
@@ -61,10 +75,17 @@ theorem choose_factorial_eq_symmetric_defects (M j : ℕ) (hj : j < M) :
         (((M + 1).ascFactorial j : ℕ) : ℝ) := by
       rw [centeredAscFactorial_factorization M j hj]
       push_cast
+      rfl
     _ = (M : ℝ) *
         ∏ r ∈ Finset.range j,
           ((M : ℝ) ^ 2 - (((r + 1 : ℕ) : ℝ) ^ 2)) := by
-      rw [← mul_assoc, descAscFactorial_pair_product M j hj]
+      calc
+        (M : ℝ) * (((M - 1).descFactorial j : ℕ) : ℝ) *
+              (((M + 1).ascFactorial j : ℕ) : ℝ) =
+            (M : ℝ) *
+              ((((M - 1).descFactorial j : ℕ) : ℝ) *
+                (((M + 1).ascFactorial j : ℕ) : ℝ)) := by ring
+        _ = _ := by rw [descAscFactorial_pair_product M j hj]
 
 /-- Quadratic defects factor out one common `M^2` per mode. -/
 theorem symmetric_defects_eq_scaled_unit_defects (M j : ℕ) (hM : 0 < M) :
@@ -81,9 +102,8 @@ theorem symmetric_defects_eq_scaled_unit_defects (M j : ℕ) (hM : 0 < M) :
           ((M : ℝ) ^ 2 *
             (1 - (((r + 1 : ℕ) : ℝ) ^ 2) / (M : ℝ) ^ 2)) := by
       apply Finset.prod_congr rfl
-      intro r hr
+      intro r _hr
       field_simp [hM0]
-      ring
     _ = (∏ _r ∈ Finset.range j, ((M : ℝ) ^ 2)) *
         ∏ r ∈ Finset.range j,
           (1 - (((r + 1 : ℕ) : ℝ) ^ 2) / (M : ℝ) ^ 2) := by
@@ -120,7 +140,10 @@ theorem normalized_choose_eq_unit_defects (M j : ℕ) (hj : j < M) :
             ∏ r ∈ Finset.range j,
               (1 - (((r + 1 : ℕ) : ℝ) ^ 2) / (M : ℝ) ^ 2)) := hchoose
       _ = _ := by rw [← mul_assoc, hpow]
-  field_simp [hM0, hfac0]
-  simpa [mul_comm] using htotal
+  rw [one_div_mul_eq_div]
+  apply (div_eq_div_iff ?_ ?_).2
+  · exact pow_ne_zero _ hM0
+  · exact hfac0
+  · simpa [mul_comm] using htotal
 
 end EnterpriseMath.Precision
