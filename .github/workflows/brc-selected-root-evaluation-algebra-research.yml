@@ -1,0 +1,25 @@
+name: brc-selected-root-evaluation-algebra-research
+
+on:
+  pull_request:
+    paths:
+      - 'research_notes/BRC_SELECTED_ROOT_EVALUATION_ALGEBRA_NEWTON_20260904.md'
+      - 'experiments/brc_selected_root_evaluation_algebra_check.py'
+      - '.github/workflows/brc-selected-root-evaluation-algebra-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Exact BRC selected-root evaluation algebra checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_selected_root_evaluation_algebra_check.py
