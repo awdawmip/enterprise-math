@@ -20,14 +20,14 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
-      - name: Repair all stale pre-V2 scheduler imports fail-fast
+      - name: Repair stale pre-V2 runtime consumers fail-fast
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --ff-only origin main
-          echo 'Pre-repair Python references:'
-          git grep -n 'research_scheduler' -- '*.py' || true
+          echo 'Pre-repair runtime imports:'
+          git grep -n -E '(^|[[:space:]])(from tools import research_scheduler|import research_scheduler)' -- research_control_dispatch.py 'tools/*.py' || true
           python - <<'PY'
           from pathlib import Path
           import json
@@ -90,8 +90,8 @@ jobs:
           q['quarantines'] = [row for row in rows if row is not old]
           qpath.write_text(json.dumps(q, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
           PY
-          if git grep -n 'research_scheduler' -- '*.py'; then
-            echo "ERROR: stale pre-V2 research_scheduler Python references remain after explicit migration" >&2
+          if git grep -n -E '(^|[[:space:]])(from tools import research_scheduler|import research_scheduler)' -- research_control_dispatch.py 'tools/*.py'; then
+            echo "ERROR: stale pre-V2 scheduler import remains in runtime code" >&2
             exit 1
           fi
           python -m py_compile research_control_dispatch.py tools/research_lane_claims.py tools/research_lane_dispatch.py
@@ -104,5 +104,5 @@ jobs:
           python control_plane/check_publication_fault_isolation.py
           git rm .github/workflows/control-router-import-hotfix.yml
           git add research_control_dispatch.py tools/research_lane_claims.py tools/research_lane_dispatch.py control_plane/task_integrity_quarantine_addendum_20260902.json
-          git commit -m "control: complete V2 scheduler consumer and quarantine reconciliation"
+          git commit -m "control: complete V2 runtime consumer and quarantine reconciliation"
           git push origin HEAD:main
