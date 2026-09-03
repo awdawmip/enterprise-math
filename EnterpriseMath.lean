@@ -9,6 +9,9 @@ import EnterpriseMath.Precision.Carry
 import EnterpriseMath.Precision.CompositionSafeCollapse
 import EnterpriseMath.Precision.QuotientBasin
 import EnterpriseMath.Precision.QuotientCoalescence
+import EnterpriseMath.PrecisionPi.ArithmeticCertificates
+import EnterpriseMath.PrecisionPi.EqualOccupancy
+import EnterpriseMath.PrecisionPi.TetrahedralResidual
 import EnterpriseMath.Quotient.OperationCongruence
 import EnterpriseMath.Quotient.RootAdjacentBoundary
 import EnterpriseMath.Quotient.PowerFreeActionBasis
