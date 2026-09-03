@@ -1,0 +1,54 @@
+{
+  "schema": "ENTERPRISE_MATH_EULER_C3_CHIRAL_COMPLEX_STRUCTURE_ADDENDUM_V1",
+  "status": "FREE_RESEARCH_EXACT_CARRIER_OPERATOR_THEOREM_EXECUTABLE_BACKED",
+  "effective": "2026-09-03",
+  "author": "YUAN X",
+  "program": "Enterprise Math",
+  "parent_ledger": "definitions/ENTERPRISE_EULER_GATE_ROTATION_THEOREM_LEDGER_20260903.json",
+  "research_note": "research_notes/EULER_I_AS_CELL_RADIUS_NORMALIZED_CHIRAL_RIGHT_TURN_20260903.md",
+  "executable_evidence": {
+    "source": "src/enterprise_math/c3_chiral_complex_structure.py",
+    "tests": "tests/test_c3_chiral_complex_structure.py"
+  },
+  "theorems": [
+    {
+      "id": "EGR-T13-C3-CHIRAL-DIFFERENCE-SQUARE",
+      "status": "PROVED_EXACT_INTEGER_MATRIX_EXECUTABLE_CHECKED",
+      "hypotheses": "R is the nontrivial two-dimensional C3 carrier representation with R^3=I and I+R+R^2=0",
+      "statement": "For D=R-R^-1=R-R^2, D^2=-3I.",
+      "explicit_certificate": "R=[[0,-1],[1,-1]], D=[[1,-2],[2,-1]], D^2=-3I."
+    },
+    {
+      "id": "EGR-T14-CELL-RADIUS-COMPLEX-STRUCTURE",
+      "status": "PROVED_EXACT_ALGEBRA_EXECUTABLE_CHECKED",
+      "hypotheses": "same nontrivial C3 representation and positive carrier/readout scalar a",
+      "statement": "[a(R-R^-1)]^2=-I iff a^2=1/3. Hence the unique positive normalizer is a=1/sqrt(3), equal to the frozen Cell radius in nearest-center-spacing-one carrier units.",
+      "boundary": "This is a carrier/readout scalar-operator compatibility, not yet a promoted native type multiplication law."
+    },
+    {
+      "id": "EGR-T15-COARSE-OPERATOR-REFINED-STATE-REALIZATION",
+      "status": "PROVED_FINITE_CHARACTER_MANUSCRIPT_EXECUTABLE_CHECKED",
+      "hypotheses": "the compatible C6 to C12 phase refinement, positive C3 turn character omega=chi(4), positive quarter-turn q=chi(3), and positive chirality",
+      "statement": "q=(omega-omega^-1)/sqrt(3). Thus the complex-structure operator latent in the coarse C3 representation is realized by an actual order-four phase state after first dyadic refinement.",
+      "boundary": "The scalar character equality does not identify the complex carrier plane with native Enterprise space."
+    },
+    {
+      "id": "EGR-T16-I-CHIRALITY-SIGN",
+      "status": "PROVED_EXACT_SYMMETRY_MANUSCRIPT",
+      "hypotheses": "reverse the cyclic orientation so R and R^-1 are exchanged",
+      "statement": "The normalized complex structure J=(R-R^-1)/sqrt(3) changes sign. Therefore the two signs of i encode the two carrier chiralities."
+    }
+  ],
+  "negative_boundaries": [
+    {
+      "id": "EGR-N06-CARRIER-RADIUS-OPERATOR-TYPE",
+      "status": "OPEN_NATIVE_TYPING_BOUNDARY",
+      "statement": "The frozen Cell radius and the rotation operator currently meet in an effective carrier/readout construction; no native Foundation multiplication between length and transport types is promoted here."
+    },
+    {
+      "id": "EGR-N07-OPERATOR-I-IS-NOT-COARSE-STATE-I",
+      "status": "TYPE_DISTINCTION",
+      "statement": "A square-minus-identity operator exists in the coarse real C3 representation, while an order-four group state does not exist until C12 refinement. These two meanings of i must not be conflated."
+    }
+  ]
+}
