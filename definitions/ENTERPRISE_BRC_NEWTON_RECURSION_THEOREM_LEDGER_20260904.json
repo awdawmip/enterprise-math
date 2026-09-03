@@ -1,0 +1,60 @@
+{
+  "schema": "ENTERPRISE_MATH_BRC_NEWTON_RECURSION_THEOREM_LEDGER_V1",
+  "status": "CANONICAL_FOUNDATION_CANDIDATE",
+  "effective": "2026-09-04",
+  "parent_ledger": "definitions/ENTERPRISE_BRC_REDUCIBLE_CRITICAL_JET_THEOREM_LEDGER_20260903.json",
+  "foundation": "definitions/ENTERPRISE_BRC_NEWTON_RECURSION_FOUNDATION_20260904.md",
+  "tool_method_id": "t0.weighted_brc_newton_recursion",
+  "research_evidence": [
+    {"pr": 1186, "merge": "1dcc5d556e5ab10622bdb816fe5236867a73993b"},
+    {"pr": 1188, "merge": "fbff55a6ec3fc48d65281c1a43c3f86bd77f7c3e"}
+  ],
+  "theorems": [
+    {
+      "id": "WBRC-T52-RATIONAL-ROOT-NEWTON-RECURSION-CLOSURE",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "statement": "Finite Newton jets with rational polynomial coefficients and scales in the finite rational prime-valuation group Q_{>0}^x tensor_Z Q are closed under every Newton rescaling whose selected translated root is rational. Candidate scales theta satisfy theta^(r-q)=sigma and are compared exactly by clearing rational valuation denominators. Recursive and one-shot multi-edge substitutions agree exactly.",
+      "occurrence_boundary": "The old coarse 2/3-state multiple-root catalogs contained zero natural second-edge rational-multiple-root samples. Targeted common-shift BRC families give 66 verified second-edge samples, including 34 genuinely non-rational radical scales, plus a three-step witness.",
+      "source": ["PR #1186", "WBRC-T51"]
+    },
+    {
+      "id": "WBRC-T53-SELECTED-ROOT-EVALUATION-ALGEBRA",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "statement": "For exact selected algebraic root alpha, coefficients g(alpha) may be represented by rational polynomials g with semantic equality/zero decided by the selected-root gcd/Sturm state. Addition, multiplication, rational scalar multiplication, sign, Taylor coefficients and rational translated-root contact orders are exact without factoring the selector polynomial or constructing a general algebraic field. Therefore algebraic-base Newton recursion remains exact as long as later selected translated roots are rational.",
+      "semantic_zero_law": "A nonzero polynomial representative may vanish at alpha. Semantic zero g(alpha)=0 must be filtered before Newton scale ordering.",
+      "source": ["PR #1188", "PR #1186", "WBRC-T51"]
+    }
+  ],
+  "negative_boundaries": [
+    {
+      "id": "WBRC-N36-RATIONAL-VALUATION-SCALE-NOT-FLOATING-RADICAL",
+      "status": "TYPE_BOUNDARY",
+      "statement": "Newton scales with rational prime valuations are exact symbolic multiplicative scales; no floating radical materialization is implied."
+    },
+    {
+      "id": "WBRC-N37-OLD-CATALOG-ZERO-NOT-NONEXISTENCE",
+      "status": "EVIDENCE_BOUNDARY",
+      "statement": "Zero second-edge examples in the old coarse catalog is an occurrence census only and is not a theorem that rational-root later edges do not exist."
+    },
+    {
+      "id": "WBRC-N38-POLYNOMIAL-REPRESENTATIVE-NONZERO-NOT-ROOT-VALUE-NONZERO",
+      "status": "TYPE_BOUNDARY",
+      "statement": "For algebraic selected alpha, g as a nonzero rational polynomial does not imply g(alpha) is nonzero. Semantic selected-root zero testing precedes scale calculus."
+    },
+    {
+      "id": "WBRC-N39-SELECTED-ROOT-EVALUATION-NOT-MINIMAL-FIELD",
+      "status": "TYPE_BOUNDARY",
+      "statement": "Polynomial representatives modulo a polynomial vanishing at alpha are storage representatives, not a claim of minimal polynomial factorization or a canonical algebraic number field."
+    },
+    {
+      "id": "WBRC-N40-NO-GENERAL-INVERSION-OR-COMPLETE-PUISEUX",
+      "status": "SCOPE_BOUNDARY",
+      "statement": "The current selected-root evaluation algebra supports the operations required for rational translated-root Newton recursion; it does not promote general inversion, a complete Puiseux engine, or generic algebraic-number arithmetic."
+    },
+    {
+      "id": "WBRC-N41-IRRATIONAL-TRANSLATED-ROOT-MULTIGENERATOR-FRONTIER",
+      "status": "OPEN_BOUNDARY",
+      "statement": "If a translated selected Newton-edge root is itself irrational, the next translation generally introduces another algebraic generator. Exact multi-generator coefficient state remains a separate research frontier."
+    }
+  ]
+}
