@@ -7,13 +7,23 @@
   "candidate_id": "AC-EM-FREE-F6D046-EULER-CELL-RADIUS-BISECTOR-COMPLETION-V1",
   "source_notes": [
     "research_notes/EULER_CELL_RADIUS_NORMALIZED_BISECTOR_COMPLETION_20260903.md",
-    "research_notes/EULER_NATIVE_SEGMENT_SPINOR_BISECTOR_IDENTITY_20260903.md"
+    "research_notes/EULER_NATIVE_SEGMENT_SPINOR_BISECTOR_IDENTITY_20260903.md",
+    "research_notes/EULER_FINITE_CAYLEY_HALF_TURN_SQUEEZE_20260903.md"
   ],
-  "checker": "src/enterprise_math/euler_native_bisector.py",
-  "test": "tests/test_euler_native_bisector.py",
+  "checkers": [
+    "src/enterprise_math/euler_native_bisector.py",
+    "src/enterprise_math/euler_rotation_refinement.py",
+    "src/enterprise_math/euler_dyadic_cayley_bridge.py"
+  ],
+  "tests": [
+    "tests/test_euler_native_bisector.py",
+    "tests/test_euler_rotation_refinement.py",
+    "tests/test_euler_dyadic_cayley_bridge.py"
+  ],
   "lean": [
     "EnterpriseMath/Precision/EulerCellRadiusBisector.lean",
-    "EnterpriseMath/Precision/EulerPhysicalGate.lean"
+    "EnterpriseMath/Precision/EulerPhysicalGate.lean",
+    "EnterpriseMath/Precision/EulerCayleyBridge.lean"
   ],
   "theorems": [
     {
@@ -73,19 +83,19 @@
     {
       "id": "EMER-T10",
       "name": "Viète trace recursion",
-      "statement": "Repeated forward normalized bisectors U_(n+1)^2=U_n yield c_(n+1)=sqrt((1+c_n)/2) and Pi_n=2^n s_n=2/prod_{j=2}^n c_j.",
+      "statement": "Repeated forward normalized bisectors U_(n+1)^2=U_n yield c_(n+1)=sqrt((1+c_n)/2) and P_n=2^n s_n=2/prod_{j=2}^n c_j.",
       "status": "EXACT_FINITE_ALGEBRA"
     },
     {
       "id": "EMER-T11",
       "name": "Internal unit-speed scale",
-      "statement": "The increasing bounded Pi_n has a finite positive limit L and (U_n-I)/(L/2^n) -> J; L is therefore the scale making the completed flow unit speed.",
+      "statement": "The increasing bounded P_n has a finite positive limit L and (U_n-I)/(L/2^n) -> J; L is therefore the scale making the completed flow unit speed.",
       "status": "REAL_ANALYSIS_FROM_TARGET_FREE_FINITE_BOUNDS"
     },
     {
       "id": "EMER-T12",
       "name": "Euler completion",
-      "statement": "The dyadic character E0(kL/2^n)=U_n^k extends uniquely to the continuous one-parameter subgroup E(t)=exp(tJ); under J=i its internally selected half-period L is classical pi and E(L)=-I.",
+      "statement": "The dyadic character E0(kL/2^n)=U_n^k extends uniquely to the continuous one-parameter subgroup E(t)=exp(tJ); under J=i its compatible forward-root tower selects the first half-period, classical pi, and E(L)=-I.",
       "status": "STANDARD_TOPOLOGICAL_GROUP_AND_EXPONENTIAL_COMPLETION"
     },
     {
@@ -99,6 +109,24 @@
       "name": "Physical gate displacement",
       "statement": "The unit gate-ray character is H=r(I+G), while the physical triple-intersection gate displacement is rH=(I+G)/3. Equivalently 3(rH)=I+G under 3r^2=1.",
       "status": "EXACT_CELL_GEOMETRY_AND_LEAN_CANDIDATE"
+    },
+    {
+      "id": "EMER-T15",
+      "name": "Finite Cayley half-turn certificate",
+      "statement": "For tau_n=s_n/(1+c_n), U_n=(1+J tau_n)/(1-J tau_n) and ((1+J tau_n)/(1-J tau_n))^(2^n)=-1 at every finite depth.",
+      "status": "EXACT_FINITE_ALGEBRA_WITH_LEAN_CROSS_IDENTITY_AND_PYTHON_REGRESSION"
+    },
+    {
+      "id": "EMER-T16",
+      "name": "Target-free two-sided period squeeze",
+      "statement": "P_n=2^n s_n increases, Q_n=2^(n+1) tau_n decreases, P_n<Q_n, both have a common limit L, and Q_n-P_n=P_n tau_n^2; in particular 2<L<4.",
+      "status": "EXACT_INEQUALITY_THEOREM_MANUSCRIPT_PROOF_AND_PYTHON_REGRESSION"
+    },
+    {
+      "id": "EMER-T17",
+      "name": "Finite Cayley certificates complete to the Euler exponential",
+      "statement": "Writing Q_n=2^(n+1)tau_n, the exact identities C(Q_n/2^(n+1))^(2^n)=-1 converge under the standard Cayley-to-exponential limit to exp(JL)=-1; the forward first-winding normalization identifies L with classical pi.",
+      "status": "EXACT_FINITE_SEQUENCE_PLUS_STANDARD_ANALYTIC_COMPLETION"
     }
   ],
   "negative_boundaries": [
