@@ -53,6 +53,7 @@ noncomputable def wallisLimit : ℝ := sSup (range wallisPartialReal)
 theorem wallisPartialReal_tendsto :
     Tendsto wallisPartialReal atTop (𝓝 wallisLimit) := by
   unfold wallisLimit
+  rw [sSup_range]
   exact tendsto_atTop_ciSup wallisPartialReal_strictMono.monotone wallisPartialReal_bddAbove
 
 /-- The explicit upper prefactor is `1 + 1/(4n+1)` over the reals. -/
@@ -113,7 +114,7 @@ theorem wallisLimit_ratio_bounds (n : ℕ) :
   constructor
   · exact (one_lt_div₀ hp).2 (wallisPartialReal_lt_limit n)
   · apply (div_le_iff₀ hp).2
-    rw [← wallisUpperReal_eq_mul]
+    rw [mul_comm, ← wallisUpperReal_eq_mul]
     exact wallisLimit_le_upperReal n
 
 end EnterpriseMath.Precision
