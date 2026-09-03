@@ -1,0 +1,35 @@
+{
+  "schema": "HODGE_H0M_OBSTRUCTION_CANCELLATION_REGISTRY_V1",
+  "task_id": "RS-HODGE-H0M-WEIL-SIXFOLD-SEMIREGULARITY-OBSTRUCTION-CANCELLATION",
+  "frontier_model": "very-general Q(i)-Weil sixfold in discriminant class [-3]",
+  "process_template": [
+    "DEFORMATION_STATE",
+    "EXT2_OBSTRUCTION",
+    "SEMIREGULARITY_OR_TRACE_CHANNELS",
+    "CANCELLED_OR_SURVIVING_OBSTRUCTION",
+    "CLASS_TRANSPORT_STATUS"
+  ],
+  "source_theory_baseline": "Ordinary derived deformation, Ext obstruction theory and semiregularity/trace maps are admitted source mathematics and receive no Enterprise attribution by themselves.",
+  "instantiation_status": {
+    "candidate_object_E": "MISSING",
+    "Ext1_EE": "UNDEFINED_UNTIL_E_EXISTS",
+    "Ext2_EE": "UNDEFINED_UNTIL_E_EXISTS",
+    "semiregularity_map": "THEORY_AVAILABLE_BUT_UNINSTANTIATED",
+    "exceptional_ch3_projection": "NO_SOURCE_OBJECT_TO_PROJECT",
+    "finite_obstruction_basis": "NOT_DEFINED",
+    "signed_cancellation_law": "NOT_DEFINED",
+    "class_transport": "BLOCKED_BEFORE_START"
+  },
+  "exact_block": {
+    "missing_object": "A coherent sheaf/complex E (or algebraic family) on the target [-3] component with a nonzero exceptional projection of ch_3(E) to W_K(A_gen)",
+    "why_necessary": "Semiregularity can show that a characteristic class attached to an existing algebraic/derived object remains of algebraic origin under suitable deformations; it does not manufacture the initial object or its exceptional Weil component on a disconnected discriminant component.",
+    "why_split_source_does_not_supply_it": "The known split secant-sheaf source lives in discriminant [-1], and the standard K-compatible deformation/isogeny/Hecke/derived transport routes cannot change the discriminant to [-3].",
+    "unblock_condition": "Construct E directly on the [-3] component, or construct a genuinely new algebraic correspondence producing such E/class there, then compute Ext^1/Ext^2 and the semiregularity channels."
+  },
+  "attribution_result": {
+    "standard_semiregularity": "SOURCE_INHERITED",
+    "enterprise_obstruction_cancellation": "NOT_INSTANTIATED",
+    "reason": "No proof-critical cancellation operation exists before a target-side source object is constructed. Calling the standard semiregularity map itself an Enterprise transform would violate the H0M baseline."
+  },
+  "classification": "EXACT_HARD_BLOCK_WITH_MISSING_FRONTIER_DERIVED_OBJECT_AND_UNBLOCK_CONDITION"
+}
