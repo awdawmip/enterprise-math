@@ -53,7 +53,7 @@ def main() -> int:
     assert "WBRC-T52" in foundation and "WBRC-T53" in foundation
     assert "SEMANTIC ZERO TEST MUST PRECEDE NEWTON SCALE ORDERING" in foundation
     assert "IRRATIONAL_TRANSLATED_ROOT" in foundation
-    assert "66 verified second-edge BRC families" in foundation
+    assert "verified 66 targeted second-edge BRC families" in foundation
     assert "22 irrational-base block families" in foundation
 
     assert substrate["newton_recursion_foundation"].endswith(
