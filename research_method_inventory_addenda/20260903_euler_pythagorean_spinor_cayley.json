@@ -1,0 +1,69 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "PROJECT_SUBTOOL_EXTRACTED_NO_DRIVER_REVIEW_REQUESTED",
+  "date": "2026-09-03",
+  "author": "YUAN X",
+  "program": "Enterprise Math",
+  "methods": [
+    {
+      "method_id": "t5_t7_t9.euler_pythagorean_spinor_cayley",
+      "name": "Pythagorean spinor / Cayley segment-rotation certificate",
+      "classification": "PROJECT_SUBTOOL_COMPOSITION",
+      "family_ids": [
+        "T5_PRECISION_REFINEMENT",
+        "T7_FINITE_SYMMETRY_EQUIVARIANCE",
+        "T9_HOLONOMY_COCOYCLE_GLUING"
+      ],
+      "status": "EXECUTABLE_EXTRACTED_REGRESSION_CHECKED_NOT_PROMOTED",
+      "source_refs": [
+        "research_notes/EULER_PYTHAGOREAN_SPINOR_CAYLEY_GEOMETRY_20260903.md",
+        "research_notes/EULER_PYTHAGOREAN_SPINOR_THEOREM_LEDGER_20260903.json",
+        "src/enterprise_math/euler_cayley_spinor.py",
+        "tests/test_euler_cayley_spinor.py"
+      ],
+      "api": [
+        "primitive_spinor",
+        "spinor_norm_squared",
+        "spinor_product",
+        "spinor_power",
+        "rotation_triple",
+        "rotation_character",
+        "character_product",
+        "compose_certificate",
+        "cayley_spinor",
+        "cayley_parameter",
+        "cayley_character",
+        "cayley_compose",
+        "spinor_from_rational_character",
+        "quarter_turn_spinors",
+        "pell_cayley_certificate",
+        "pell_defect_decimal",
+        "machin_spinor_certificate",
+        "cayley_euler_approximant"
+      ],
+      "triggers": [
+        "Euler formula geometry",
+        "line-segment rotation",
+        "Pythagorean rotation character",
+        "Cayley transform",
+        "half-angle spinor",
+        "rational unit circle",
+        "negative Pell residual",
+        "Machin identity certificate",
+        "exact rational rotation integrator"
+      ],
+      "capabilities": [
+        "map an integer projective segment pair to an exact rational unit rotation",
+        "compose rotations by exact Gaussian pair multiplication",
+        "invert the rational unit-conic parametrization",
+        "certify the two quarter-turn spinors and endpoint reversal",
+        "interpret a negative-Pell residual as an exact Cayley half-angle coordinate",
+        "verify the N=58 near-axis segment certificates",
+        "verify Machin's quarter-turn identity without inverse trigonometry",
+        "construct exact norm-one rational Cayley products approaching the continuous exponential"
+      ],
+      "core_law": "C[a:b]=((a^2-b^2)+J*2ab)/(a^2+b^2), J^2=-1, and C([a:b] star [c:d])=C[a:b]C[c:d] for [a:b] star [c:d]=[ac-bd:ad+bc]. If P^2-DQ^2=-1, tau=Qsqrt(D)-P is the exact Cayley coordinate of the normalized segment (P,1).",
+      "hard_boundary": "Derived character geometry only. It does not identify J with a native spatial axis, the unit-character conic with the native Enterprise metric plane, or a rational/projective segment state with every admissible Cell trajectory. The Cayley-product limit to exp(J theta) is standard analytic completion. No Driver review or shared-tool promotion is requested."
+    }
+  ]
+}
