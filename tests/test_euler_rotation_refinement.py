@@ -1,6 +1,6 @@
 import inspect
 import unittest
-from decimal import Decimal
+from decimal import Decimal, localcontext
 
 from enterprise_math import euler_rotation_refinement as err
 
@@ -49,10 +49,12 @@ class EulerRotationRefinementTests(unittest.TestCase):
         self.assertEqual(err.required_nonlocal_phase_states(2), 12)
 
     def test_target_free_viete_identity(self):
-        for depth in range(1, 12):
-            left = err.rotation_pi_approximant(depth, precision=100)
-            right = err.rotation_pi_viete_form(depth, precision=100)
-            self.assertLess(abs(left - right), Decimal("1e-90"))
+        with localcontext() as context:
+            context.prec = 120
+            for depth in range(1, 12):
+                left = err.rotation_pi_approximant(depth, precision=110)
+                right = err.rotation_pi_viete_form(depth, precision=110)
+                self.assertLess(abs(left - right), Decimal("1e-95"))
 
     def test_rotation_approximants_strictly_increase(self):
         values = [
@@ -62,14 +64,19 @@ class EulerRotationRefinementTests(unittest.TestCase):
         self.assertTrue(all(a < b for a, b in zip(values, values[1:])))
 
     def test_trace_norm_and_half_angle_recursion(self):
-        for depth in range(1, 12):
-            c = err.symmetric_trace(depth, precision=100)
-            s = err.antisymmetric_trace(depth, precision=100)
-            self.assertLess(abs(c * c + s * s - 1), Decimal("1e-90"))
-        for depth in range(1, 11):
-            coarse = err.symmetric_trace(depth, precision=100)
-            fine = err.symmetric_trace(depth + 1, precision=100)
-            self.assertLess(abs(coarse - (2 * fine * fine - 1)), Decimal("1e-90"))
+        with localcontext() as context:
+            context.prec = 120
+            for depth in range(1, 12):
+                c = err.symmetric_trace(depth, precision=110)
+                s = err.antisymmetric_trace(depth, precision=110)
+                self.assertLess(abs(c * c + s * s - 1), Decimal("1e-95"))
+            for depth in range(1, 11):
+                coarse = err.symmetric_trace(depth, precision=110)
+                fine = err.symmetric_trace(depth + 1, precision=110)
+                self.assertLess(
+                    abs(coarse - (2 * fine * fine - 1)),
+                    Decimal("1e-95"),
+                )
 
     def test_completion_bound_is_positive_and_decays(self):
         bounds = [
