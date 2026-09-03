@@ -1,0 +1,23 @@
+name: brc-unique-critical-cycle-asymptotic-research
+
+on:
+  pull_request:
+    paths:
+      - 'research_notes/BRC_UNIQUE_CRITICAL_CYCLE_MOMENT_ASYMPTOTIC_20260903.md'
+      - 'experiments/brc_unique_critical_cycle_moment_asymptotic_check.py'
+      - '.github/workflows/brc-unique-critical-cycle-asymptotic-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Exact BRC unique-critical-cycle moment asymptotic checker
+        run: python experiments/brc_unique_critical_cycle_moment_asymptotic_check.py
