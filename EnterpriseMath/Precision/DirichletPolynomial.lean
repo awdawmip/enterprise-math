@@ -9,7 +9,7 @@ open Polynomial
 The monic characteristic-polynomial normalization of the Dirichlet continuant.
 Its real roots are the positive spectral parameters of the finite path matrix.
 -/
-def dirichletSpectralPoly : ℕ → ℝ[X]
+noncomputable def dirichletSpectralPoly : ℕ → ℝ[X]
   | 0 => 1
   | 1 => X - C 2
   | n + 2 => (X - C 2) * dirichletSpectralPoly (n + 1) - dirichletSpectralPoly n
@@ -27,7 +27,8 @@ theorem dirichletSpectralPoly_isMonicOfDegree (n : ℕ) :
       have hprod0 := hlin.mul ih1
       have hprod :
           IsMonicOfDegree ((X - C (2 : ℝ)) * dirichletSpectralPoly (n + 1)) (n + 2) := by
-        convert hprod0 using 1 <;> omega
+        convert hprod0 using 1
+        omega
       rw [dirichletSpectralPoly]
       exact hprod.sub (by rw [ih0.natDegree_eq]; omega)
 
@@ -52,7 +53,6 @@ theorem dirichletSpectralPoly_eval (n : ℕ) (z : ℝ) :
   | zero => simp [dirichletSpectralPoly, dirichletContinuant]
   | one =>
       simp [dirichletSpectralPoly, dirichletContinuant]
-      ring
   | more n ih0 ih1 =>
       have hp1 : (-1 : ℝ) ^ (n + 1) = -((-1 : ℝ) ^ n) := by
         rw [pow_add]
@@ -69,15 +69,15 @@ theorem dirichletSpectralPoly_coeff_zero (n : ℕ) :
     (dirichletSpectralPoly n).coeff 0 =
       (-1 : ℝ) ^ n * ((n + 1 : ℕ) : ℝ) := by
   have h := dirichletSpectralPoly_eval n 0
-  rw [dirichletContinuant_zero] at h
-  simpa using h
+  rw [dirichletContinuant_zero, ← coeff_zero_eq_eval_zero] at h
+  exact h
 
 /-- First midpoint-parity characteristic factor. -/
-def dirichletParityEvenPoly (n : ℕ) : ℝ[X] :=
+noncomputable def dirichletParityEvenPoly (n : ℕ) : ℝ[X] :=
   dirichletSpectralPoly (n + 1)
 
 /-- Complementary midpoint-parity characteristic factor. -/
-def dirichletParityOddPoly (n : ℕ) : ℝ[X] :=
+noncomputable def dirichletParityOddPoly (n : ℕ) : ℝ[X] :=
   dirichletSpectralPoly (n + 2) - dirichletSpectralPoly n
 
 /-- The first parity factor is monic of degree `n+1`. -/
@@ -110,7 +110,8 @@ theorem dirichletSpectralPoly_odd_factorization (n : ℕ) :
   have hp2 : (-1 : ℝ) ^ (n + 2) = (-1 : ℝ) ^ n := by
     rw [pow_add]
     norm_num
-  rw [Odd.neg_one_pow hodd, hp1, hp2]
+  have heven : Even (n * 2) := ⟨n, by ring⟩
+  rw [Odd.neg_one_pow hodd, hp1, hp2, Even.neg_one_pow heven]
   ring
 
 /-- Constant coefficient of the first parity factor. -/
