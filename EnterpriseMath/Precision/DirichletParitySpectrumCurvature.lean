@@ -48,8 +48,10 @@ theorem dirichletParityOddPoly_root_decimates_to_evenPoly (n : ℕ) (z : ℝ)
     (hz2 : z ≠ 2) :
     (dirichletParityEvenPoly n).eval (spectralDecimation z) = 0 := by
   have hfine0 := dirichletParityOddPoly_root_fullContinuant n z hz
+  have hidx : 2 * (n + 1) + 1 = 2 * n + 3 := by omega
   have hfine : dirichletContinuant z (2 * (n + 1) + 1) = 0 := by
-    convert hfine0 using 1 <;> omega
+    rw [hidx]
+    exact hfine0
   have hcoarse := dirichletContinuant_root_decimation z (n + 1) hfine hz2
   unfold dirichletParityEvenPoly
   rw [dirichletSpectralPoly_eval, hcoarse, mul_zero]
