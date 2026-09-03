@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Check finite recurrent Weighted-BRC Foundation/tool/theorem integration."""
+"""Check finite recurrent Weighted-BRC Foundation/tool/theorem integration.
+
+Exact theorem identity lives in the ledger.  The hot router is allowed to merge
+later theorem/negative ranges, so routing checks validate semantic coverage
+rather than one historical display grouping.
+"""
 
 from __future__ import annotations
 
@@ -48,6 +53,10 @@ def public_symbols(path: Path) -> set[str]:
     }
 
 
+def router_covers(router: str, exact: str, broader: tuple[str, ...]) -> bool:
+    return exact in router or any(marker in router for marker in broader)
+
+
 def main() -> int:
     ledger = load_json(LEDGER)
     substrate = load_json(SUBSTRATE)
@@ -81,14 +90,11 @@ def main() -> int:
     assert method["status"] == "FOUNDATION_GLOBAL_SUBTOOL"
     assert EXPECTED_API <= set(method["api"])
     assert EXPECTED_API <= public_symbols(MODULE)
-
     for symbol in EXPECTED_API:
         assert f'"{symbol}"' in package
 
-    # The exact theorem names live in the ledger.  The hot router may compress
-    # contiguous theorem ranges to keep startup context bounded.
-    assert "WBRC-T12..T16" in router
-    assert "WBRC-N01..N06" in router
+    assert router_covers(router, "WBRC-T12..T16", ("WBRC-T12..T21", "WBRC-T01..T16"))
+    assert router_covers(router, "WBRC-N01..N06", ("WBRC-N01..N11", "WBRC-N01..N13", "WBRC-N01..N18"))
     assert FOUNDATION.name in router
     assert LEDGER.name in router
     assert "t0.weighted_brc_finite_recurrent" in router
