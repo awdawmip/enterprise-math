@@ -64,7 +64,8 @@ theorem wallisPartialReal_tendsto :
 theorem wallisUpperFactorReal_eq_one_add (n : ℕ) :
     wallisUpperFactorReal n = 1 + 1 / (4 * (n : ℝ) + 1) := by
   unfold wallisUpperFactorReal
-  exact_mod_cast wallisUpperFactor_eq_one_add n
+  rw [wallisUpperFactor_eq_one_add]
+  push_cast
 
 /-- The target-free upper prefactor converges to one. -/
 theorem wallisUpperFactorReal_tendsto_one :
@@ -84,9 +85,11 @@ theorem wallisUpperFactorReal_tendsto_one :
 /-- WSR-L26: the rational upper envelopes converge to the same internal completion. -/
 theorem wallisUpperReal_tendsto :
     Tendsto wallisUpperReal atTop (𝓝 wallisLimit) := by
-  have h := wallisPartialReal_tendsto.mul wallisUpperFactorReal_tendsto_one
-  apply h.congr'
-  exact Filter.Eventually.of_forall fun n => (wallisUpperReal_eq_mul n).symm
+  have h :
+      Tendsto (fun n => wallisPartialReal n * wallisUpperFactorReal n)
+        atTop (𝓝 wallisLimit) := by
+    simpa using wallisPartialReal_tendsto.mul wallisUpperFactorReal_tendsto_one
+  exact h.congr' <| Filter.Eventually.of_forall fun n => (wallisUpperReal_eq_mul n).symm
 
 /-- Every finite lower approximant lies below the internal completion. -/
 theorem wallisPartialReal_le_limit (n : ℕ) :
