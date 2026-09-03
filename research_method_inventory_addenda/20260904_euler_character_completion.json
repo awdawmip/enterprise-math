@@ -1,0 +1,37 @@
+{
+  "schema": "ENTERPRISE_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "date": "2026-09-04",
+  "status": "PROJECT_SUBTOOL_FREE_RESEARCH",
+  "methods": [
+    {
+      "method_id": "project.euler_character_completion",
+      "title": "Finite Euler character-completion, Cell-rooted Viete and mean-renormalization checker",
+      "implementation": "src/enterprise_math/euler_character_completion.py",
+      "test": "tests/test_euler_character_completion.py",
+      "theorem_ledger": "research_notes/EULER_CHARACTER_COMPLETION_THEOREM_LEDGER_20260904.json",
+      "inputs": [
+        "Cell-rooted C_(6*2^n) polygon rotor levels",
+        "quarter-turn coordinate rule (x,y)->(-y,x)",
+        "exact C12 lower/upper area anchor"
+      ],
+      "outputs": [
+        "unique normalized invariant quadratic-form certificate",
+        "character norm multiplicativity checks",
+        "geometric/harmonic polygon mean certificates",
+        "Cell-rooted Viete finite-product telescope",
+        "uniform residual width bound from baseline three",
+        "algebraic chord-mesh decay certificate",
+        "dyadic phase-refinement compatibility"
+      ],
+      "arithmetic": "exact Fraction algebra plus target-free high-precision Decimal recurrence",
+      "uses_pi": false,
+      "uses_trigonometry": false,
+      "tool_family_status": "PROJECT_SUBTOOL_UNASSIGNED_PENDING_COVERAGE_REVIEW",
+      "boundaries": [
+        "topological completion to the unit circle is a standard mathematical inference, not numerically approximated here",
+        "the character norm is not the primitive native metric",
+        "physical one-step Cell realization is not claimed beyond C12"
+      ]
+    }
+  ]
+}
