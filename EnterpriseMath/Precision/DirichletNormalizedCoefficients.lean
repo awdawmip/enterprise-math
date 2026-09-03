@@ -2,12 +2,12 @@ import EnterpriseMath.Precision.DirichletExpansion
 
 namespace EnterpriseMath.Precision
 
-open scoped BigOperators
+open scoped BigOperators Nat
 
 /-- The two half-products around the central mode pair into quadratic defects. -/
 theorem descAscFactorial_pair_product (M j : ℕ) (hj : j < M) :
     (((M - 1).descFactorial j : ℕ) : ℝ) * (((M + 1).ascFactorial j : ℕ) : ℝ) =
-      ∏ r in Finset.range j,
+      ∏ r ∈ Finset.range j,
         ((M : ℝ) ^ 2 - (((r + 1 : ℕ) : ℝ) ^ 2)) := by
   induction j with
   | zero => simp
@@ -44,15 +44,15 @@ theorem centeredAscFactorial_factorization (M j : ℕ) (hj : j < M) :
 
 /-- The exact factorial/binomial numerator is the central factor times the quadratic defects. -/
 theorem choose_factorial_eq_symmetric_defects (M j : ℕ) (hj : j < M) :
-    (Nat.choose (M + j) (2 * j + 1) : ℝ) * (((2 * j + 1)! : ℕ) : ℝ) =
+    (Nat.choose (M + j) (2 * j + 1) : ℝ) * (((2 * j + 1) ! : ℕ) : ℝ) =
       (M : ℝ) *
-        ∏ r in Finset.range j,
+        ∏ r ∈ Finset.range j,
           ((M : ℝ) ^ 2 - (((r + 1 : ℕ) : ℝ) ^ 2)) := by
   have hidx : M - j + (2 * j + 1) - 1 = M + j := by omega
   have hchoose := Nat.ascFactorial_eq_factorial_mul_choose' (M - j) (2 * j + 1)
   rw [hidx] at hchoose
   calc
-    (Nat.choose (M + j) (2 * j + 1) : ℝ) * (((2 * j + 1)! : ℕ) : ℝ) =
+    (Nat.choose (M + j) (2 * j + 1) : ℝ) * (((2 * j + 1) ! : ℕ) : ℝ) =
         (((M - j).ascFactorial (2 * j + 1) : ℕ) : ℝ) := by
       rw [hchoose]
       push_cast
@@ -62,34 +62,34 @@ theorem choose_factorial_eq_symmetric_defects (M j : ℕ) (hj : j < M) :
       rw [centeredAscFactorial_factorization M j hj]
       push_cast
     _ = (M : ℝ) *
-        ∏ r in Finset.range j,
+        ∏ r ∈ Finset.range j,
           ((M : ℝ) ^ 2 - (((r + 1 : ℕ) : ℝ) ^ 2)) := by
       rw [← mul_assoc, descAscFactorial_pair_product M j hj]
 
 /-- Quadratic defects factor out one common `M^2` per mode. -/
 theorem symmetric_defects_eq_scaled_unit_defects (M j : ℕ) (hM : 0 < M) :
-    (∏ r in Finset.range j,
+    (∏ r ∈ Finset.range j,
         ((M : ℝ) ^ 2 - (((r + 1 : ℕ) : ℝ) ^ 2))) =
       ((M : ℝ) ^ 2) ^ j *
-        ∏ r in Finset.range j,
+        ∏ r ∈ Finset.range j,
           (1 - (((r + 1 : ℕ) : ℝ) ^ 2) / (M : ℝ) ^ 2) := by
   have hM0 : (M : ℝ) ^ 2 ≠ 0 := by positivity
   calc
-    (∏ r in Finset.range j,
+    (∏ r ∈ Finset.range j,
         ((M : ℝ) ^ 2 - (((r + 1 : ℕ) : ℝ) ^ 2))) =
-        ∏ r in Finset.range j,
+        ∏ r ∈ Finset.range j,
           ((M : ℝ) ^ 2 *
             (1 - (((r + 1 : ℕ) : ℝ) ^ 2) / (M : ℝ) ^ 2)) := by
       apply Finset.prod_congr rfl
       intro r hr
       field_simp [hM0]
       ring
-    _ = (∏ _r in Finset.range j, ((M : ℝ) ^ 2)) *
-        ∏ r in Finset.range j,
+    _ = (∏ _r ∈ Finset.range j, ((M : ℝ) ^ 2)) *
+        ∏ r ∈ Finset.range j,
           (1 - (((r + 1 : ℕ) : ℝ) ^ 2) / (M : ℝ) ^ 2) := by
       rw [Finset.prod_mul_distrib]
     _ = ((M : ℝ) ^ 2) ^ j *
-        ∏ r in Finset.range j,
+        ∏ r ∈ Finset.range j,
           (1 - (((r + 1 : ℕ) : ℝ) ^ 2) / (M : ℝ) ^ 2) := by
       simp
 
@@ -98,26 +98,26 @@ WSR-L32: exact normalized coefficient identity behind the finite `sin(x)/x` dete
 -/
 theorem normalized_choose_eq_unit_defects (M j : ℕ) (hj : j < M) :
     (Nat.choose (M + j) (2 * j + 1) : ℝ) / (M : ℝ) ^ (2 * j + 1) =
-      (1 / (((2 * j + 1)! : ℕ) : ℝ)) *
-        ∏ r in Finset.range j,
+      (1 / (((2 * j + 1) ! : ℕ) : ℝ)) *
+        ∏ r ∈ Finset.range j,
           (1 - (((r + 1 : ℕ) : ℝ) ^ 2) / (M : ℝ) ^ 2) := by
   have hM : 0 < M := lt_of_le_of_lt (Nat.zero_le j) hj
   have hM0 : (M : ℝ) ≠ 0 := by exact_mod_cast (Nat.ne_of_gt hM)
-  have hfac0 : ((((2 * j + 1)! : ℕ) : ℝ)) ≠ 0 := by positivity
+  have hfac0 : ((((2 * j + 1) ! : ℕ) : ℝ)) ≠ 0 := by positivity
   have hchoose := choose_factorial_eq_symmetric_defects M j hj
   rw [symmetric_defects_eq_scaled_unit_defects M j hM] at hchoose
   have hpow : (M : ℝ) * ((M : ℝ) ^ 2) ^ j = (M : ℝ) ^ (2 * j + 1) := by
     rw [← pow_mul]
     rw [pow_succ']
   have htotal :
-      (Nat.choose (M + j) (2 * j + 1) : ℝ) * (((2 * j + 1)! : ℕ) : ℝ) =
+      (Nat.choose (M + j) (2 * j + 1) : ℝ) * (((2 * j + 1) ! : ℕ) : ℝ) =
         (M : ℝ) ^ (2 * j + 1) *
-          ∏ r in Finset.range j,
+          ∏ r ∈ Finset.range j,
             (1 - (((r + 1 : ℕ) : ℝ) ^ 2) / (M : ℝ) ^ 2) := by
     calc
       _ = (M : ℝ) *
           (((M : ℝ) ^ 2) ^ j *
-            ∏ r in Finset.range j,
+            ∏ r ∈ Finset.range j,
               (1 - (((r + 1 : ℕ) : ℝ) ^ 2) / (M : ℝ) ^ 2)) := hchoose
       _ = _ := by rw [← mul_assoc, hpow]
   field_simp [hM0, hfac0]
