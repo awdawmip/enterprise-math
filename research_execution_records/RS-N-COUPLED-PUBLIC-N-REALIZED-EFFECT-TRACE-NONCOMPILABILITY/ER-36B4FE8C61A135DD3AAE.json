@@ -1,0 +1,83 @@
+{
+  "adversarial_audit": {
+    "collision_or_cycle": "NOT_USED",
+    "direct_random_nonunit_equivalence": "TRIGGERED / NEGATIVE_CLASSIFICATION",
+    "hidden_factor_input": "NOT_USED",
+    "implementation_secrecy": "NOT_USED",
+    "named_prime_p_adic": "NOT_USED",
+    "order_or_smoothness": "NOT_USED",
+    "square_relation": "NOT_USED"
+  },
+  "authority_limits": [
+    "NO_UNIVERSAL_EFFECT_IMPOSSIBILITY",
+    "NO_FACTORING_LOWER_BOUND",
+    "NO_COMPLEXITY_LOWER_BOUND",
+    "NO_NOVELTY_CLAIM",
+    "NO_WORKING_TRUTH",
+    "NO_FOUNDATION_PROMOTION",
+    "NO_L4_PROMOTION",
+    "NO_CANONICAL_PROMOTION"
+  ],
+  "calculus_id": "G_effect-seed",
+  "checker_execution": {
+    "environment_note": "Pure Python exact-integer regression; no floating-point evidence and no network dependency.",
+    "finite_scope": {
+      "one_sided_cases": 483,
+      "pushforward_mismatches": 0,
+      "scalar_cases": 2451,
+      "semiprimes": 28,
+      "support_mismatches": 0,
+      "uniform_pushforward_checks": 28,
+      "weighted_pushforward_checks": 140
+    },
+    "method": "exact checker content replayed under local Python",
+    "return_code": 0,
+    "stdout": "PASS G_EFFECT_SEED_EXTERNALIZATION {\"calculus\": \"G_effect-seed\", \"one_sided_cases\": 483, \"proper_factor_count_formula\": \"p+q-2\", \"proper_factor_probability_formula\": \"(p+q-2)/(pq)\", \"pushforward_mismatches\": 0, \"scalar_cases\": 2451, \"semiprimes\": 28, \"status\": \"PASS\", \"support_mismatches\": 0, \"uniform_pushforward_checks\": 28, \"weighted_pushforward_checks\": 140}"
+  },
+  "claim_id": "CLM-9C6A4E2F18D7B3510C42",
+  "execution_branch": "research/n-coupled-realized-effect-noncompilability-em-ncaseff1-84c2d6",
+  "execution_branch_base": "6f8f53230f6e36e0b55c873a72052176dd40b673",
+  "frozen_outputs_before_execution_record": [
+    {
+      "git_blob_sha1": "09dfd19642302c3416f0f1a7f928b12e8aa9c231",
+      "path": "research_returns/N_COUPLED_PUBLIC_N_REALIZED_EFFECT_TRACE_NONCOMPILABILITY_RETURN_20260903.md",
+      "sha256": "b11e59b7721700e5cd172bea5ff402bc64430887fa78aeef70f674165375e52e"
+    },
+    {
+      "git_blob_sha1": "406c306363360c1b350367503d170c4c52924a36",
+      "path": "research_checks/N_COUPLED_PUBLIC_N_REALIZED_EFFECT_TRACE_NONCOMPILABILITY_CHECK_20260903.py",
+      "sha256": "2de8cf1533f6ced407a72f06046371de4fdf7bd4d3861792441dbd7442269dcf"
+    },
+    {
+      "git_blob_sha1": "d2a5b307945489a80095a11671a4c82be45832b9",
+      "path": "research_artifacts/N_COUPLED_PUBLIC_N_REALIZED_EFFECT_TRACE_NONCOMPILABILITY/effect_seed_externalization_contract.json",
+      "sha256": "0d830d1f735461574936da602abfc43f7e34c53ec602fc5478c7c5107080634e"
+    },
+    {
+      "git_blob_sha1": "98e4378033faf53fc9bb2f992031fbe626222687",
+      "path": "research_artifacts/N_COUPLED_PUBLIC_N_REALIZED_EFFECT_TRACE_NONCOMPILABILITY/effect_seed_externalization_certificate.json",
+      "sha256": "ce19bd59c4a41d13b9d589e73f46580914f598a78eaa5c9dc8cb4263014e6eb8"
+    }
+  ],
+  "hard_target_disposition": "PUBLIC_N_ONLY_REALIZED_EFFECT_TRACE_NONCOMPILABILITY_EXACTLY_OBSTRUCTED_FOR_G_EFFECT_SEED_BY_PUBLIC_SEED_EXTERNALIZATION_TO_EXPLICIT_RANDOM_PRESENTATION_SEARCH",
+  "next_frontier_if_driver_keeps_objective_open": "PUBLIC_N_ONLY_REALIZED_EFFECT_WITH_ACTUAL_BRANCH_NONCOMPILABILITY_PLUS_DISTRIBUTIONAL_NONEXTERNALIZABILITY_WITHOUT_ORACLE_OR_REVIEWED_CLASSICAL_MECHANISM",
+  "publication_id": "TP2-6E2A94C1B7D3058F2A41",
+  "record_id": "ER-36B4FE8C61A135DD3AAE",
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_EXECUTION_RECORD_V1",
+  "research_mode": "TASK_RESEARCH",
+  "researcher_id": "EM-NCASEFF1-84C2D6",
+  "symbolic_results": [
+    "Actual realized presentation/support need not be a deterministic function of the pre-readout transcript once a hidden seeded realization effect is admitted.",
+    "For every finite G_effect-seed program, the public exact seed laws and public deterministic branch-presentation compilers externalize recursively to an exact sampler of the full realized presentation law.",
+    "For H_A=coker([A]) with uniform A mod N=pq, hidden CRT support is exactly encoded by gcd(N,A), but the hidden effect is distributionally identical to explicit uniform scalar-presentation sampling followed by gcd.",
+    "Therefore actual-branch noncompilability alone does not satisfy the successor target when the public semantics is distributionally externalizable."
+  ],
+  "task_id": "RS-N-COUPLED-PUBLIC-N-REALIZED-EFFECT-TRACE-NONCOMPILABILITY",
+  "terminal_verdict": "NEGATIVE_BOUNDARY",
+  "theorem_owner": "research/n-coupled-public-n-realized-effect-trace-noncompilability",
+  "tool_reuse_resolution": {
+    "T8_RELATION_OBSERVABLE_SPECTRUM": "REUSE_APPLIED: weighted relation/branching audit; branch opacity kept distinct from distributional availability.",
+    "new_general_purpose_tool": "NOT_CREATED"
+  },
+  "witness_calculus_id": "G_effect-randrel"
+}
