@@ -1,0 +1,68 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "PROJECT_SUBTOOL_EXTRACTED_NO_DRIVER_REVIEW_REQUESTED",
+  "date": "2026-09-03",
+  "author": "YUAN X",
+  "program": "Enterprise Math",
+  "methods": [
+    {
+      "method_id": "t5_t7_t9.euler_rotation_refinement",
+      "name": "Cell-gate dyadic rotation refinement / target-free Viete checker",
+      "classification": "PROJECT_SUBTOOL_COMPOSITION",
+      "family_ids": [
+        "T5_PRECISION_REFINEMENT",
+        "T7_FINITE_SYMMETRY_EQUIVARIANCE",
+        "T9_HOLONOMY_COCOYCLE_GLUING"
+      ],
+      "status": "EXECUTABLE_EXTRACTED_REGRESSION_CHECKED_NOT_PROMOTED",
+      "source_refs": [
+        "research_notes/EULER_CELL_GATE_DYADIC_ROTATION_TOWER_20260903.md",
+        "src/enterprise_math/euler_rotation_refinement.py",
+        "tests/test_euler_rotation_refinement.py"
+      ],
+      "api": [
+        "phase_order",
+        "minimal_cyclic_order",
+        "coarse_embed",
+        "element_order",
+        "distinguished_root_order",
+        "root_square_certificate",
+        "quarter_turn_roots",
+        "phase_birth_level",
+        "phase_kind",
+        "cell_gate_cycle",
+        "rotation_level_certificate",
+        "rotation_tower_certificates",
+        "required_nonlocal_phase_states",
+        "symmetric_trace",
+        "antisymmetric_trace",
+        "viete_product",
+        "rotation_pi_approximant",
+        "rotation_pi_viete_form",
+        "completion_tail_bound"
+      ],
+      "triggers": [
+        "Euler formula geometry",
+        "Cell gate rotation",
+        "C6 C12 C24 refinement",
+        "dyadic root of reversal",
+        "quarter-turn emergence",
+        "Viete nested radical",
+        "target-free precision pi",
+        "rotation chirality obstruction"
+      ],
+      "capabilities": [
+        "certify the minimal cyclic order 6*2^m",
+        "certify 2*u_(m+1)=iota_m(u_m) for the three-step root state",
+        "locate the first quarter-turn in the actual Cell-gate C12 layer",
+        "show reflection exchanges the two quarter-turn roots",
+        "classify Cell, gate, and higher-transition birth levels",
+        "compute target-free nested-radical traces and Viete products",
+        "produce monotone rotation-pi approximants without importing classical pi",
+        "produce a target-free algebraic completion-tail bound"
+      ],
+      "core_law": "For Gamma_m=Z/(6*2^m), iota_m(k)=2k and u_m=3, ord(u_m)=2^(m+1) and 2*u_(m+1)=iota_m(u_m). The compatible character traces satisfy c_(m+1)^2=(1+c_m)/2 and 2/prod_{j=2}^m c_j=2^m s_m.",
+      "hard_boundary": "The first C6-to-C12 refinement has an actual Cell/gate incidence realization. Levels beyond C12 are transition/history refinements unless separately physically realized. The checker does not identify carrier directions with P000 native axes, derive a global operation-safe rotation quotient, or prove the classical analytic identity pi_rot=pi. No Driver review or shared-tool promotion is requested by this addendum."
+    }
+  ]
+}
