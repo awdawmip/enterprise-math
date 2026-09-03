@@ -10,6 +10,11 @@ from enterprise_math.euler_fcc_chirality import (
     ZERO_FACES,
     ZERO_GAUGE,
     classify,
+    cube_adjacent,
+    cube_complement,
+    cube_label,
+    cube_vertices,
+    deck_flip,
     edge_assignments,
     face_holonomy,
     face_parity,
@@ -17,6 +22,7 @@ from enterprise_math.euler_fcc_chirality import (
     face_weight,
     gauge_action,
     gauge_equivalent,
+    gauge_lift_state,
     gauge_orbit,
     gauges,
     globalizable,
@@ -24,8 +30,11 @@ from enterprise_math.euler_fcc_chirality import (
     is_s4_fixed,
     representative_from_even_faces,
     s4_orbit,
+    signed_slice_states,
+    transition_cover_adjacent,
     trivializing_gauges,
     verify_accepted_antibalanced_signature,
+    verify_antibalanced_cube_cover,
 )
 
 
@@ -139,6 +148,44 @@ class EulerFccChiralityTests(unittest.TestCase):
         self.assertTrue(certificate["s4_fixed"])
         self.assertFalse(certificate["global_signed_J_exists"])
         self.assertFalse(gauge_equivalent(ANTIBALANCED_EDGES, ZERO_EDGES))
+
+    def test_gauge_related_transition_covers_are_isomorphic(self) -> None:
+        states = tuple(signed_slice_states())
+        for edges in edge_assignments():
+            for gauge in gauges():
+                transformed_edges = gauge_action(edges, gauge)
+                for left in states:
+                    for right in states:
+                        self.assertEqual(
+                            transition_cover_adjacent(edges, left, right),
+                            transition_cover_adjacent(
+                                transformed_edges,
+                                gauge_lift_state(left, gauge),
+                                gauge_lift_state(right, gauge),
+                            ),
+                        )
+
+    def test_antibalanced_orientation_cover_is_cube(self) -> None:
+        states = tuple(signed_slice_states())
+        labels = {state: cube_label(state) for state in states}
+        self.assertEqual(set(labels.values()), set(cube_vertices()))
+        for left in states:
+            self.assertEqual(
+                cube_label(deck_flip(left)), cube_complement(cube_label(left))
+            )
+            for right in states:
+                self.assertEqual(
+                    transition_cover_adjacent(ANTIBALANCED_EDGES, left, right),
+                    cube_adjacent(cube_label(left), cube_label(right)),
+                )
+
+        certificate = verify_antibalanced_cube_cover()
+        self.assertEqual(certificate["signed_slice_states"], 8)
+        self.assertEqual(certificate["cover_edges"], 12)
+        self.assertEqual(certificate["cube_vertices"], 8)
+        self.assertEqual(certificate["cube_edges"], 12)
+        self.assertEqual(certificate["body_diagonals"], 4)
+        self.assertTrue(certificate["adjacency_isomorphism"])
 
     def test_exact_assignment_counts(self) -> None:
         report = classify()
