@@ -1,0 +1,25 @@
+name: brc-newton-scale-resonance-research
+
+on:
+  pull_request:
+    paths:
+      - 'research_notes/BRC_NEWTON_SCALE_RESONANCE_PUSHFORWARD_20260904.md'
+      - 'experiments/brc_newton_scale_resonance_pushforward_check.py'
+      - '.github/workflows/brc-newton-scale-resonance-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Exact BRC Newton scale resonance pushforward checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_newton_scale_resonance_pushforward_check.py
