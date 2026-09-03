@@ -32,13 +32,9 @@ structure FaceBits where
   h123 : Bool
   deriving DecidableEq, Repr, Fintype
 
-/-- Four three-axis slices. -/
-inductive Slice where
-  | s0
-  | s1
-  | s2
-  | s3
-  deriving DecidableEq, Repr, Fintype
+/-- Four three-axis slices, represented by `Fin 4` for stable executable
+finite enumeration under the pinned Lean toolchain. -/
+abbrev Slice := Fin 4
 
 /-- A slice together with one of the two local signs `J` and `-J`. -/
 @[ext]
@@ -90,14 +86,45 @@ def faceWeight (h : FaceBits) : Nat :=
   (if h.h023 then 1 else 0) +
   (if h.h123 then 1 else 0)
 
+/-- Explicit finite list of all local slice-frame gauges. -/
+def allGauges : List GaugeBits := [
+  ⟨false, false, false, false⟩,
+  ⟨false, false, false, true⟩,
+  ⟨false, false, true, false⟩,
+  ⟨false, false, true, true⟩,
+  ⟨false, true, false, false⟩,
+  ⟨false, true, false, true⟩,
+  ⟨false, true, true, false⟩,
+  ⟨false, true, true, true⟩,
+  ⟨true, false, false, false⟩,
+  ⟨true, false, false, true⟩,
+  ⟨true, false, true, false⟩,
+  ⟨true, false, true, true⟩,
+  ⟨true, true, false, false⟩,
+  ⟨true, true, false, true⟩,
+  ⟨true, true, true, false⟩,
+  ⟨true, true, true, true⟩
+]
+
+/-- Explicit finite list of the eight signed slice states. -/
+def allSignedSlices : List SignedSlice := [
+  ⟨0, false⟩, ⟨0, true⟩,
+  ⟨1, false⟩, ⟨1, true⟩,
+  ⟨2, false⟩, ⟨2, true⟩,
+  ⟨3, false⟩, ⟨3, true⟩
+]
+
 /-- Executable finite vertex-gauge equivalence test. -/
 def gaugeEquivalentB (e f : EdgeBits) : Bool :=
-  (Finset.univ : Finset GaugeBits).any
-    (fun g => decide (gaugeAction g e = f))
+  allGauges.any (fun g => decide (gaugeAction g e = f))
 
 /-- Two edge systems are equivalent when related by local slice-frame flips. -/
 def GaugeEquivalent (e f : EdgeBits) : Prop :=
   gaugeEquivalentB e f = true
+
+instance (e f : EdgeBits) : Decidable (GaugeEquivalent e f) := by
+  unfold GaugeEquivalent
+  infer_instance
 
 /-- Executable full-face-symmetry test.  Since `S₄` acts transitively on the
 four tetrahedral faces, a fixed vector has all four coordinates equal. -/
@@ -107,6 +134,10 @@ def fullySymmetricB (h : FaceBits) : Bool :=
 /-- A face vector fixed by the full transitive permutation action on faces. -/
 def FullySymmetric (h : FaceBits) : Prop :=
   fullySymmetricB h = true
+
+instance (h : FaceBits) : Decidable (FullySymmetric h) := by
+  unfold FullySymmetric
+  infer_instance
 
 /-- The trivial edge transition system. -/
 def zeroEdges : EdgeBits := ⟨false, false, false, false, false, false⟩
@@ -134,12 +165,17 @@ def allOddFaces : FaceBits := ⟨true, true, true, true⟩
 def Globalizable (e : EdgeBits) : Prop :=
   GaugeEquivalent e zeroEdges
 
+instance (e : EdgeBits) : Decidable (Globalizable e) := by
+  unfold Globalizable
+  infer_instance
+
 /-- One representative from each antipodal pair of cube vertices. -/
-def cubeBase : Slice → CubeBits
-  | .s0 => ⟨false, false, false⟩
-  | .s1 => ⟨false, true, true⟩
-  | .s2 => ⟨true, false, true⟩
-  | .s3 => ⟨true, true, false⟩
+def cubeBase (s : Slice) : CubeBits :=
+  match s.val with
+  | 0 => ⟨false, false, false⟩
+  | 1 => ⟨false, true, true⟩
+  | 2 => ⟨true, false, true⟩
+  | _ => ⟨true, true, false⟩
 
 /-- Central inversion on the cube. -/
 def cubeComplement (p : CubeBits) : CubeBits :=
@@ -165,6 +201,10 @@ def coverAdjacentB (a b : SignedSlice) : Bool :=
 def CoverAdjacent (a b : SignedSlice) : Prop :=
   coverAdjacentB a b = true
 
+instance (a b : SignedSlice) : Decidable (CoverAdjacent a b) := by
+  unfold CoverAdjacent
+  infer_instance
+
 /-- Convert one Boolean difference to a natural Hamming contribution. -/
 def bitNat : Bool → Nat
   | false => 0
@@ -179,6 +219,10 @@ def cubeDistance (a b : CubeBits) : Nat :=
 /-- Propositional cube-edge adjacency. -/
 def CubeAdjacent (a b : CubeBits) : Prop :=
   cubeDistance a b = 1
+
+instance (a b : CubeBits) : Decidable (CubeAdjacent a b) := by
+  unfold CubeAdjacent
+  infer_instance
 
 /-- All finite tetrahedral chirality holonomies satisfy the even-parity
 Bianchi identity because every edge occurs in exactly two faces. -/
