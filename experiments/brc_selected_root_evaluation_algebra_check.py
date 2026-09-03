@@ -8,6 +8,7 @@ from itertools import product
 from math import comb
 
 import brc_critical_ratio_spectral_response_check as rsp
+import brc_multiple_root_first_newton_edge_check as ne
 import brc_rational_root_newton_recursion_check as rr
 import brc_unique_winner_root_active_characteristic_jet_check as win
 from enterprise_math import brc_critical_degeneracy as cd
@@ -15,7 +16,7 @@ from enterprise_math import brc_critical_degeneracy as cd
 Q = Fraction
 Poly = tuple[Fraction, ...]
 Scale = rr.Scale
-EvalPoly = tuple[Poly, ...]  # coefficients in y, each polynomial in selected-root variable x
+EvalPoly = tuple[Poly, ...]
 EvalJet = dict[Scale, EvalPoly]
 ONE: Scale = ()
 
@@ -129,10 +130,6 @@ def evalpoly_vanish_order(poly: EvalPoly, value: Fraction, root: RootEvalState) 
     return order
 
 
-def symbolic_taylor(poly: Poly, order: int) -> Poly:
-    return p_scale(p_derivative_n(poly, order), Q(1, 1 if order == 0 else 1))
-
-
 def factorial(value: int) -> int:
     out = 1
     for k in range(2, value + 1):
@@ -213,8 +210,8 @@ def eval_newton_step(jet: EvalJet, root_value: Fraction, multiplicity: int, root
         current = poly
         for k in range(len(poly)):
             coefficient = evalpoly_at_rational(current, root_value)
-            coefficient = p_scale(coefficient, Q(1, factorial(k))) if k > 0 else coefficient
-            # current is k-th derivative after each loop iteration below.
+            if k > 0:
+                coefficient = p_scale(coefficient, Q(1, factorial(k)))
             if not root.zero(coefficient):
                 residual = rr.scale_mul(scale, rr.scale_pow(theta, k - multiplicity))
                 assert rr.scale_compare(residual, ONE) <= 0
@@ -238,10 +235,7 @@ def direct_two_step(expansion: dict[Fraction, Poly], root: RootEvalState, r1: in
                 value = p_scale(coefficient, Q(comb(k, j)) * y0 ** (k - j))
                 if value == (Q(0),):
                     continue
-                residual = rr.scale_mul(
-                    sigma,
-                    rr.scale_mul(rr.scale_pow(theta1, k - r1), rr.scale_pow(theta2, j - r2)),
-                )
+                residual = rr.scale_mul(sigma, rr.scale_mul(rr.scale_pow(theta1, k - r1), rr.scale_pow(theta2, j - r2)))
                 add_eval_coeff(raw, residual, j, value)
     return freeze_eval_jet(raw, root)
 
@@ -330,7 +324,6 @@ def systematic_two_edge_census():
         second_checks += c2 + 4
         semantic_checks += sum(len(poly) for poly in jet2.values())
 
-        # Basic selected-root coefficient arithmetic/sign sanity.
         x = (Q(0), Q(1))
         one = (Q(1),)
         assert root.sign(x) > 0
@@ -350,14 +343,12 @@ def three_edge_family_census():
         B = ((a, b), (c, d))
         if not is_irreducible_B(B):
             continue
-        K, expansion = expansion_for_B(
-            B,
-            ((Q(1), "base"), (eta1, "diag"), (eta2, "diag"), (tau, "off")),
-        )
-        selector = cd.smallest_positive_root_selector(cd.criticality_polynomial(K))
+        K, expansion = expansion_for_B(B, ((Q(1), "base"), (eta1, "diag"), (eta2, "diag"), (tau, "off")))
+        p0_int = cd.criticality_polynomial(K)
+        selector = cd.smallest_positive_root_selector(p0_int)
         if selector.is_rational:
             continue
-        root = RootEvalState(cd.criticality_polynomial(K), selector)
+        root = RootEvalState(p0_int, selector)
         first = algebraic_base_first_step(expansion, root)
         assert first is not None
         _, theta1, jet1, edge1, _, _ = first
