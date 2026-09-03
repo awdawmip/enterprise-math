@@ -5,7 +5,10 @@
   "researcher": "EM-FREE-F6D046 / FREE_AXIOM_DISCOVERY",
   "author_program": "YUAN X / Enterprise Math",
   "candidate_id": "AC-EM-FREE-F6D046-EULER-CELL-RADIUS-BISECTOR-COMPLETION-V1",
-  "source_note": "research_notes/EULER_CELL_RADIUS_NORMALIZED_BISECTOR_COMPLETION_20260903.md",
+  "source_notes": [
+    "research_notes/EULER_CELL_RADIUS_NORMALIZED_BISECTOR_COMPLETION_20260903.md",
+    "research_notes/EULER_NATIVE_SEGMENT_SPINOR_BISECTOR_IDENTITY_20260903.md"
+  ],
   "checker": "src/enterprise_math/euler_native_bisector.py",
   "test": "tests/test_euler_native_bisector.py",
   "lean": "EnterpriseMath/Precision/EulerCellRadiusBisector.lean",
@@ -81,6 +84,12 @@
       "name": "Euler completion",
       "statement": "The dyadic character E0(kL/2^n)=U_n^k extends uniquely to the continuous one-parameter subgroup E(t)=exp(tJ); under J=i its internally selected half-period L is classical pi and E(L)=-I.",
       "status": "STANDARD_TOPOLOGICAL_GROUP_AND_EXPONENTIAL_COMPLETION"
+    },
+    {
+      "id": "EMER-T13",
+      "name": "Native Pythagorean segment-spinor identity",
+      "statement": "For v=a+bJ and n=a^2+b^2, the projective rotation character C[a:b]=((a^2-b^2)+2abJ)/n equals (v/sqrt(n))^2. For a>0, beta(C[a:b])=v/sqrt(n). In particular C[1:0]=1, C[1:1]=J, and C[0:1]=-1.",
+      "status": "EXACT_ALGEBRAIC_BRIDGE_WITH_MANUSCRIPT_PROOF_AND_MERGED_CAYLEY_CHECKER"
     }
   ],
   "negative_boundaries": [
@@ -89,6 +98,7 @@
     "No global operation-safe factorization of every admissible native Cell trajectory to this phase tower is claimed.",
     "Without chirality, the sign of J is not canonical.",
     "Without unit-speed normalization, finite cyclic roots alone do not determine a numerical real period.",
+    "The spinor character doubles a typed component direction; it is not a carrier-angle identity.",
     "No six-gate derivation of the ordinary scalar exponent six in the N=58 defect product is claimed."
   ]
 }
