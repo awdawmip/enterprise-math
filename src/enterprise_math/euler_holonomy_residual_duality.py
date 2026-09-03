@@ -51,6 +51,13 @@ def vertex_values(values: Iterable[int | bool]) -> VertexValues:
     return result  # type: ignore[return-value]
 
 
+def holonomy_tuple(values: Iterable[int | bool]) -> HolonomyCode:
+    result = tuple(_bit(value) for value in values)
+    if len(result) != 3:
+        raise ValueError("holonomy code must have exactly three entries")
+    return result  # type: ignore[return-value]
+
+
 @dataclass(frozen=True)
 class AffineResidual:
     """Mod-two endpoint-residual coordinates for `f(x,y)=e+p*x+q*y`."""
@@ -114,11 +121,11 @@ def values_to_residual(values: VertexValues) -> AffineResidual:
 def opposite_face_values_from_code(code: HolonomyCode) -> VertexValues:
     """Assign each vertex the holonomy of its opposite triangular face.
 
-    The code stores `(ABC, ABD, ACD)`.  The fourth value is
+    The tuple stores `(ABC, ABD, ACD)`.  The fourth value is
     `BCD = ABC + ABD + ACD`.
     """
 
-    h_abc, h_abd, h_acd = _bit(code.abc), _bit(code.abd), _bit(code.acd)
+    h_abc, h_abd, h_acd = holonomy_tuple(code)
     h_bcd = xor(h_abc, h_abd, h_acd)
     return h_bcd, h_acd, h_abd, h_abc
 
@@ -133,9 +140,9 @@ def holonomy_to_residual(code: HolonomyCode) -> AffineResidual:
 
 
 def residual_to_holonomy(residual: AffineResidual) -> HolonomyCode:
-    a, b, c, d = residual.values
+    _, b, c, d = residual.values
     # Faces ABC, ABD, ACD are opposite D, C, B respectively.
-    return HolonomyCode(d, c, b)
+    return d, c, b
 
 
 def edge_to_residual(edges: EdgeBits) -> AffineResidual:
@@ -145,7 +152,7 @@ def edge_to_residual(edges: EdgeBits) -> AffineResidual:
 def all_face_flip_code() -> HolonomyCode:
     """The code whose fourth face is also one."""
 
-    return HolonomyCode(True, True, True)
+    return 1, 1, 1
 
 
 def all_face_flip_edge_witness() -> EdgeBits:
@@ -236,7 +243,7 @@ def verify_holonomy_residual_duality() -> DualityReport:
     for residual in residuals:
         if holonomy_to_residual(residual_to_holonomy(residual)) != residual:
             raise AssertionError("holonomy/residual inverse failed")
-    codes = tuple(HolonomyCode(bool(a), bool(b), bool(c)) for a, b, c in product((0, 1), repeat=3))
+    codes = tuple(holonomy_tuple((a, b, c)) for a, b, c in product((0, 1), repeat=3))
     for code in codes:
         if residual_to_holonomy(holonomy_to_residual(code)) != code:
             raise AssertionError("residual/holonomy inverse failed")
