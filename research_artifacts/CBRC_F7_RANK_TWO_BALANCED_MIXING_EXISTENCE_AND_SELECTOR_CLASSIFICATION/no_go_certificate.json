@@ -1,0 +1,50 @@
+{
+  "schema": "CBRC_F7_NO_GO_CERTIFICATE_V1",
+  "task_id": "RS-CBRC-F7-RANK-TWO-BALANCED-MIXING-EXISTENCE-AND-SELECTOR-CLASSIFICATION",
+  "publication_id": "TP2-6F3A8C21D4B7095E1F62",
+  "researcher_id": "EM-CBRCF7-AFCFEE",
+  "claim_id": "chatgpt-cbrcf7-20260901-2013-resume",
+  "primary_verdict": "F7_NO_BALANCED_RANK_TWO_MIXING_EXISTS",
+  "hard_target": "RANK_TWO_BALANCED_MIXING_EXISTENCE_AND_SELECTOR_STATUS_CLASSIFIED",
+  "raw_freeze": {
+    "path": "research_artifacts/CBRC_F7_RANK_TWO_BALANCED_MIXING_EXISTENCE_AND_SELECTOR_CLASSIFICATION/raw_freeze.json",
+    "git_blob_sha1": "bf4c942f9c31b13f414436c8b2a79aa011d4f3ae",
+    "status": "FROZEN_BEFORE_HISTORICAL_OR_EXTERNAL_MIXING_MATHEMATICS"
+  },
+  "no_go_chain": [
+    "finite tau-fiber minimization produces f:Z^2->R_nonnegative with f(0)=0, f(-n,m)=f(n,m), f(n,m)>0 for n!=0, f(e)=1, and exact separable conservation under the GL4(Z) free block",
+    "the period subgroup Per(f) contains no vector with nonzero old-e coordinate",
+    "if Per(f) is nonzero then Per(f)=k Z f; the induced finite-fiber rank-one envelope is positive off zero and conserved, so the accepted rank-one mixed-difference obstruction forces a signed-permutation old free block, contradicting A0",
+    "if Per(f)=0, mixed input differences for M and M^{-1} give the rank-two period/quadratic dichotomy: a non-block-monomial separable isometry has constant second differences on a finite-index J-stable lattice; the deficient rank cases would create a nonzero period and are therefore excluded",
+    "integrating those constant second differences gives f(z)=z^T H z + ell(z) on the zero coset of that finite-index lattice, with H positive semidefinite",
+    "J-invariance gives H=diag(alpha,beta), alpha,beta>=0, and kills the old-e linear coefficient",
+    "for first free column Pe=(a,b), Re=(c,d), A0 gives a,c nonzero; comparison on large old-axis multiples yields alpha(a^2+c^2-1)+beta(b^2+d^2)=0, hence alpha=0",
+    "therefore f(N e)=0 on a nonzero old-axis lattice point, contradicting f(n,m)>0 whenever n!=0"
+  ],
+  "balance_use": "NOT_USED_IN_THE_CONTRADICTION; THE NO_GO IS STRONGER_THAN THE BALANCED SUBCLASS",
+  "free_direction": "ARBITRARY_F_PARTICIPATION_ALLOWED_IN_THE_NO_GO; ACTIVE_F_DOES_NOT_RESCUE_EXISTENCE",
+  "physical_equivalence": "EMPTY_ADMISSIBLE_MODEL_SET; QUOTIENT_IS_EMPTY",
+  "ablations": {
+    "1_drop_A0": "EXACT_SURVIVOR_WITNESS_EXISTS (parity/f-fiber cross-slot involution)",
+    "2_drop_free_projection_zero_separation": "EXACT_SURVIVOR_WITNESS_EXISTS (2,3 support scalar; q(6e)=0)",
+    "3_drop_unary_invariance": "EXACT_SURVIVOR_WITNESS_EXISTS (oblique two-channel support scalar; explicit J failure)",
+    "4_drop_exact_global_conservation": "EXACT_MARKED_AUTOMORPHISM_AND_SCALAR_WITNESS_EXISTS_BUT_Q_NOT_CONSERVED",
+    "5_drop_elementary_balance": "NO_EFFECT_ON_NO_GO; balance is not used",
+    "6_drop_additive_invertibility": "NO_GO_PROOF_OPENS because the inverse mixed-difference half is unavailable; outside the F7 automorphism universe; no positive survivor is asserted",
+    "7_drop_marker_relabeling_equivalence": "NO_EFFECT_ON_EXISTENCE; empty physical quotient remains empty",
+    "8_drop_inverse_orientation_equivalence": "NO_EFFECT_ON_EXISTENCE; empty physical quotient remains empty",
+    "9_drop_named_tau_preservation": "NO_EFFECT provided M remains an additive automorphism; only characteristic torsion-fiber bijectivity is used",
+    "10_disallow_f_participation": "NO_GO_PERSISTS and reduces to the rank-one free obstruction"
+  },
+  "checker": {
+    "path": "research_checks/CBRC_F7_RANK_TWO_BALANCED_MIXING_EXISTENCE_AND_SELECTOR_CLASSIFICATION_CHECK_20260831.py",
+    "sha256": "6b6a4aea591772adc9f69adb63862e501867fd07b32f901147c4b30c7895ce59",
+    "stdout_sha256": "df18f382124a8c60b99a7b1729b875a3ae9fe3740994afd05e0c4c2a5d42ac66",
+    "deterministic_payload_sha256": "4ddd32c923401b5c0e62253132c7b052a399f2bfd1b9b4372c42b65a440f7847",
+    "result": "PASS",
+    "theorem_model_mismatches": 0,
+    "bounded_search_used_as_proof": false
+  },
+  "target_leak_audit": "PASS; clean execution stamp and raw freeze precede historical comparison; post-freeze F3/F4/F6 sources are disclosed",
+  "scope_stop": "NO arbitrary torsion-lift membership, multiplication/ring, norm/inner-product, square-law, complex/quadratic interpretation, or wave/continuum semantics"
+}

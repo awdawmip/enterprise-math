@@ -1,0 +1,22 @@
+{
+  "schema": "CBRC_F7_RAW_FREEZE_V1",
+  "task_id": "RS-CBRC-F7-RANK-TWO-BALANCED-MIXING-EXISTENCE-AND-SELECTOR-CLASSIFICATION",
+  "researcher_id": "EM-CBRCF7-AFCFEE",
+  "claim_id": "chatgpt-cbrcf7-20260901-1109",
+  "blind_source_path": "research_inputs/CBRC_F7_BLIND_RANK_TWO_BALANCED_MIXING_EXISTENCE_PACKET_20260825.md",
+  "blind_source_ref": "bc046c8d77910ddb1f42b572a736d9d938ecbb9c",
+  "blind_source_git_blob_sha1": "9f03062f665ff4117463b746ec630f659cc22cbc",
+  "raw_model": {
+    "carrier": "C2 = Z e + Z f + <tau | 3 tau=0>",
+    "old_projection": "pi(ne+mf+a tau)=n e",
+    "unary": ["R(e)=e+tau, R(tau)=tau, R(f)=f", "J(e)=-e, J(tau)=-tau, J(f)=f", "S(e)=e, S(tau)=-tau, S(f)=f"],
+    "scalar_axioms": ["q(0)=0", "q(e)=1", "q is R/J/S invariant", "pi(z)!=0 implies q(z)>0"],
+    "pair_scalar": "Q(x,y)=q(x)+q(y)",
+    "mixing_unknown": "M additive automorphism of C2+C2",
+    "mixing_axioms": ["global Q conservation", "for M(e,0)=(u,v): q(u)=q(v)=1/2", "elementary A0: pi(u),pi(v) nonzero", "genuine two-slot mixing modulo only declared equivalences", "exact reversibility"],
+    "free_block": "A in GL_4(Z) on (e1,f1,e2,f2)"
+  },
+  "forbidden_assumptions_not_added": ["MP=PM", "target matrix shape", "commutation with all inherited unary maps", "homogeneity", "power law", "norm", "inner product", "quadratic form", "multiplication", "phase/transform target"],
+  "primary_verdict": null,
+  "raw_freeze_status": "FROZEN_BEFORE_HISTORICAL_OR_EXTERNAL_MIXING_MATHEMATICS"
+}
