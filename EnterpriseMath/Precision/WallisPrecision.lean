@@ -97,6 +97,7 @@ theorem wallisUpper_succ (n : ℕ) :
   unfold wallisUpper wallisUpperFactor wallisDropDen
   rw [wallisPartial]
   unfold wallisStep
+  push_cast
   field_simp [h1, h3, h4n1, h4n5]
   ring
 
@@ -106,7 +107,7 @@ theorem wallisDropFactor_pos (n : ℕ) :
   have hd := one_lt_wallisDropDen n
   have hd0 : 0 < wallisDropDen n := lt_trans (by norm_num) hd
   have hfrac : 1 / wallisDropDen n < 1 := by
-    exact (div_lt_one₀ hd0).2 (by norm_num)
+    exact (div_lt_one₀ hd0).2 hd
   linarith
 
 /-- The one-step upper-envelope contraction factor is strictly less than one. -/
