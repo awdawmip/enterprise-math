@@ -1,0 +1,114 @@
+{
+  "checker": {
+    "standard_library_only": true,
+    "terminal_line": "PASS P000_P11_PAIRABILITY_FILTERED_REVISION_V2 checks=5226 valid_inputs=2634 filtered_levels=244 class_hist=0:204,1:40,2:0 resolvent=668 reconstruction=1336 branch=320 scale=24 repeated_valid=1714 control_max=1 rootbox=C1:0,0,0,0,0,1|C2:0,0,0,0,0,1 adm_fibre_max=2 selector_bits=log2|F_adm|=0_or_1 simultaneous_levels=cardinality_can_differ"
+  },
+  "claim_id": "chatgpt-p000p11c2-20260831-1341-8d4f27",
+  "firewalls": [
+    "NO_NATIVE_ORIENTATION_CLAIM",
+    "NO_PFAFFIAN_NEGATIVE_SLOT_SELECTION",
+    "NO_DIMENSION_REDUCTION",
+    "NO_FACTORIZATION_CLAIM",
+    "NO_FULL_CELL_DYNAMICS"
+  ],
+  "hard_target_disposition": "EXACT_PAIRABILITY_FILTERED_COLLISION_LOCUS_WITH_ONE_BIT_ONLY_ON_ADMISSIBLE_DOUBLETONS",
+  "mandatory_regression": {
+    "C1_P11": 2,
+    "C1_admissible": [
+      "213"
+    ],
+    "C2_P11": -2,
+    "C2_admissible": [
+      "312"
+    ],
+    "H": [
+      -2,
+      0,
+      2
+    ],
+    "T": [
+      -1,
+      0,
+      1
+    ]
+  },
+  "publication_id": "TP2-E899F20BC1B62973D07C",
+  "researcher_id": "EM-P000P11C2-8D4F27",
+  "rootbox_minimality": {
+    "C1_counts_B1_to_B6": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "C1_witness": {
+      "H": [
+        -1,
+        1,
+        4
+      ],
+      "T": [
+        -30,
+        -12,
+        0
+      ]
+    },
+    "C2_counts_B1_to_B6": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "C2_witness": {
+      "H": [
+        -4,
+        -1,
+        1
+      ],
+      "T": [
+        -30,
+        -12,
+        0
+      ]
+    }
+  },
+  "schema": "P000_P11_PAIRABILITY_FILTERED_REVISION_V2_CERTIFICATE_V1",
+  "simultaneous_collision_witness": {
+    "C1": {
+      "P11": -270,
+      "admissible_count": 1,
+      "selector_bits": 0
+    },
+    "C2": {
+      "P11": -450,
+      "admissible_count": 2,
+      "selector_bits": 1
+    },
+    "H": [
+      1,
+      4,
+      7
+    ],
+    "T": [
+      -60,
+      -30,
+      0
+    ]
+  },
+  "status": "PASS",
+  "task_id": "RS-P000-SIX-AXIS-P11-COLLISION-LOCUS-CONDITIONAL-SELECTOR",
+  "terminal_verdict": "SUCCESS",
+  "theorem": {
+    "C1_two_admissible": "C1 AND Q00 AND Q12 AND Q21 AND Q01 AND Q10 AND Q22",
+    "C2_two_admissible": "C2 AND Q01 AND Q12 AND Q20 AND Q02 AND Q10 AND Q21",
+    "admissible_fibre_bound": 2,
+    "algebraic_C1": "AC=BD for 132/213",
+    "algebraic_C2": "AD=BC for 231/312",
+    "repeated_valid_fibre_bound": 1,
+    "selector_cost": "log2|F_adm(H,T,P11)|; 0 for singleton, 1 for doubleton"
+  }
+}
