@@ -1,0 +1,48 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-23D512CBD58341BB6BDB",
+  "task_id": "RS-PERFECT-PRIME-AP-RESIDUAL-MOBIUS-BERNSTEIN-COEFFICIENT-POSITIVITY",
+  "publication_id": "TP2-8C910B14D7B854905F6E",
+  "execution_record_id": "ER-D37BD9F8D1CA513EBBF2",
+  "claim_id": "chatgpt-perfect-prime-rmbp-20260903-04cd89db",
+  "taskbook_path": "research_tasks/PERFECT_PRIME_AP_RESIDUAL_MOBIUS_BERNSTEIN_COEFFICIENT_POSITIVITY_20260902.md",
+  "taskbook_blob_sha1": "sha1:290e507c7bf7a651b2f3608ced64ff09de47bed5",
+  "execution_branch": "research/perfect-prime-ap-residual-mobius-bernstein-coeff-pos-em-pptaprmbp1-409e2b",
+  "execution_branch_base": "6f8f53230f6e36e0b55c873a72052176dd40b673",
+  "return_path": "research_returns/PERFECT_PRIME_AP_RESIDUAL_MOBIUS_BERNSTEIN_COEFFICIENT_POSITIVITY_RETURN_20260903.md",
+  "return_blob_sha1": "sha1:19a0bcf5eee3c6100443d66ed9a53d2979a5ace0",
+  "return_sha256": "sha256:617b34abac20d524023933a09777b85aa4220e1962283586c1c2121d3031b28d",
+  "owner_head": "1559dad7422d9ebcd9579ffaa9e53030a0e9540f",
+  "researcher_id": "EM-PPTAPRMBP1-409E2B",
+  "frozen_at": "2026-09-03T02:40:12+00:00",
+  "terminal_verdict": "BLOCKED",
+  "hard_target_disposition": "EXACT_COEFFICIENT_INTERFACE_REDUCED_TO_A_NAMED_UNRESOLVED_ARITHMETIC_SUBPROBLEM / SIGNED_SECANT_BASIS_HAUSDORFF_LIFT_OPEN / PARENT_NONVANISHING_OPEN",
+  "unresolved_residue": "The all-m coefficient sign remains open. The exact target is now the HCM0 initial finite-difference row of the normalized signed squared-secant coefficient sums. The stronger full finite Hausdorff complete-monotonicity property is exact-regression-verified only for 2<=m<=10 and is not promoted. The parent determinant nonvanishing theorem remains open.",
+  "output_manifest": [
+    {
+      "path": "research_returns/PERFECT_PRIME_AP_RESIDUAL_MOBIUS_BERNSTEIN_COEFFICIENT_POSITIVITY_RETURN_20260903.md",
+      "git_blob_sha1": "sha1:19a0bcf5eee3c6100443d66ed9a53d2979a5ace0",
+      "sha256": "sha256:617b34abac20d524023933a09777b85aa4220e1962283586c1c2121d3031b28d"
+    },
+    {
+      "path": "research_checks/PERFECT_PRIME_AP_RESIDUAL_MOBIUS_BERNSTEIN_COEFFICIENT_POSITIVITY_CHECK_20260903.py",
+      "git_blob_sha1": "sha1:8081c1908629f4f7bb0a52c2061e73885bda17ea",
+      "sha256": "sha256:05f75c3ae61b76ce8194df9a9d6305b1d5615f206fc0647f336e4f2ca0a412f9"
+    },
+    {
+      "path": "research_artifacts/PERFECT_PRIME_AP_RESIDUAL_MOBIUS_BERNSTEIN_COEFFICIENT_POSITIVITY/signed_secant_hausdorff_certificate_20260903.json",
+      "git_blob_sha1": "sha1:8b0360da2ad197f1d8595bff7d4de92d63a95d06",
+      "sha256": "sha256:52885d505046bbcf9bcaad6dc69e53325f17af2a511cd7a9b1137da9793a60dd"
+    },
+    {
+      "path": "research_execution_records/RS-PERFECT-PRIME-AP-RESIDUAL-MOBIUS-BERNSTEIN-COEFFICIENT-POSITIVITY/ER-D37BD9F8D1CA513EBBF2.json",
+      "git_blob_sha1": "sha1:bf87f5c9ad787ea4d67852f652723951f3717925",
+      "sha256": "sha256:a0de73c08e8d54a5eaf4c41e729825450fde3656cdf7d77a5398fda88b1ad62d"
+    }
+  ],
+  "method_harvest": "RESULT_ONLY",
+  "independence_status": "NOT_INDEPENDENT",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "Driver-review the exact signed-secant coefficient reduction. If accepted, preserve all-m residual coefficient positivity and the parent nonvanishing objective as OPEN, and route any successor directly to AP_SIGNED_SECANT_BASIS_HAUSDORFF_LIFT or to an exact obstruction search on its finite differences rather than restarting rejected block/inertia routes.",
+  "driver_review_required": true
+}
