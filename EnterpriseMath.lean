@@ -23,6 +23,7 @@ import EnterpriseMath.Precision.DirichletCoefficientDefect
 import EnterpriseMath.Precision.DirichletDefectSeries
 import EnterpriseMath.Precision.DirichletSineTail
 import EnterpriseMath.Precision.DirichletSineSeries
+import EnterpriseMath.Precision.DirichletCompactError
 import EnterpriseMath.Precision.DirichletSpectrumBridge
 import EnterpriseMath.Precision.DirichletParitySpectrumCurvature
 import EnterpriseMath.Precision.HammingKrawtchoukKernel
