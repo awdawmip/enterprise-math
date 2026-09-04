@@ -30,6 +30,10 @@ import EnterpriseMath.Relation.DeepChamberColorNoGo
 import EnterpriseMath.Relation.DeepChamberColorBalance
 import EnterpriseMath.Relation.S3EquivariantColorTransfer
 import EnterpriseMath.Relation.CubeRootRelationCascade
+import EnterpriseMath.Relation.CoreDeepEnergyBridge
+import EnterpriseMath.Relation.DeepChamberConditionalVariance
+import EnterpriseMath.Relation.DeepChamberIntermediateNoGo
+import EnterpriseMath.Relation.DeepChamberFullIntermediateVariance
 import EnterpriseMath.Scale.Compatibility
 import EnterpriseMath.State.CriticalGrid
 import EnterpriseMath.PrimeFusion
