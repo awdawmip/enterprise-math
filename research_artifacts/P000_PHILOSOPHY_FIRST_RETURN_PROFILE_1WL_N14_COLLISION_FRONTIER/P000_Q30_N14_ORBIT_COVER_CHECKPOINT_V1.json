@@ -12,10 +12,14 @@
     "2": {"samples": 10000, "representatives": 43, "expected_normalized_connected": 12414124800, "orbit_sum": 12414124800, "deficit": 0, "collision": 0, "aut_hist": {"2":12,"4":25,"8":5,"12":1}},
     "4": {"samples": 30000, "representatives": 931, "expected_normalized_connected": 38690265600, "orbit_sum": 38690265600, "deficit": 0, "collision": 0, "aut_hist": {"1":186,"2":347,"4":291,"8":85,"16":22}},
     "6": {"samples": 360000, "representatives": 6879, "expected_normalized_connected": 120607023600, "orbit_sum": 120607023600, "deficit": 0, "collision": 0, "aut_hist": {"1":2478,"2":2572,"4":1340,"8":405,"16":73,"32":10,"128":1}},
-    "8": {"samples": 1100000, "representatives": 19586, "expected_normalized_connected": 393165964800, "orbit_sum": 393165057600, "deficit": 907200, "coverage_fraction": 0.9999976925774833, "collision": 0, "aut_hist": {"1":9564,"2":6429,"3":1,"4":2617,"6":6,"8":785,"12":7,"16":159,"32":14,"64":2,"96":2}},
+    "8": {"samples": 1500000, "representatives": 19586, "expected_normalized_connected": 393165964800, "orbit_sum": 393165057600, "deficit": 907200, "coverage_fraction": 0.9999976925774833, "collision": 0, "aut_hist": {"1":9564,"2":6429,"3":1,"4":2617,"6":6,"8":785,"12":7,"16":159,"32":14,"64":2,"96":2}},
+    "10": {"samples": 1700000, "representatives": 21432, "expected_normalized_connected": 1358543793600, "orbit_sum": 1358538350400, "deficit": 5443200, "coverage_fraction": 0.9999959933569859, "collision": 0, "aut_hist": {"1":11785,"2":6179,"4":2442,"8":811,"16":191,"32":22,"64":2}},
+    "12": {"samples": 490000, "representatives": 7589, "expected_normalized_connected": 4991840330400, "orbit_sum": 4991840330400, "deficit": 0, "collision": 0, "aut_hist": {"1":3777,"2":2242,"4":1015,"8":402,"16":126,"32":24,"64":3}},
     "14": {"samples": 50000, "representatives": 509, "expected_normalized_connected": 19491385914000, "orbit_sum": 19491385914000, "deficit": 0, "collision": 0, "aut_hist": {"1":103,"2":159,"4":117,"6":4,"8":62,"12":7,"14":1,"16":35,"24":2,"28":2,"32":11,"48":1,"64":2,"96":1,"128":1,"336":1}}
   },
+  "exactly_closed_sectors": [2,4,6,12,14],
+  "unfinished_sectors": {"8": {"deficit": 907200}, "10": {"deficit": 5443200}},
   "cross_sector_equal_packet_intersections_among_frozen_representatives": 0,
-  "provenance_note": "This checkpoint is not a terminal n=14 census and makes no claim for unfinished sectors r=8,10,12. Closed sectors are exact only at the stated orbit-cover arithmetic level; representative payload serialization is to be frozen before terminal handoff.",
-  "next_action": "Close the remaining r=8 orbit tail (current exact deficit 907200), establish r=10 and r=12 orbit-cover status, and stop immediately on any exact nonisomorphic equal-packet collision."
+  "provenance_note": "This checkpoint is not a terminal n=14 census and makes no claim for unfinished sectors r=8 or r=10. Exact closure is certified only for r=2,4,6,12,14 at the stated orbit-cover arithmetic level; representative payload serialization is still required before terminal handoff.",
+  "next_action": "Close the residual high-symmetry tails r=8 (907200) and r=10 (5443200), or freeze a partial structural boundary if targeted/random discovery remains exhausted; stop immediately on any exact nonisomorphic equal-packet collision."
 }
