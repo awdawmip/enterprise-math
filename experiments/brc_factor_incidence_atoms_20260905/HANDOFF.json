@@ -1,0 +1,52 @@
+{
+  "schema": "BRC_FACTOR_INCIDENCE_ATOMS_DURABLE_HANDOFF_V1",
+  "task_id": null,
+  "task_id_status": "ORIGINAL_SCHEDULER_ID_NOT_RECOVERED; DIRECT_USER_CONTINUATION; NO_CLAIM_OR_NEW_TASK_CREATED",
+  "Researcher-ID": "EM-BRCWLOG-6F42A1",
+  "mode": "TASK_RESEARCH",
+  "status": "RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "surface": "GITHUB",
+  "repository": "awdawmip/enterprise-math",
+  "retained_branch": "research/brc-factor-incidence-atoms-em-brcwlog-6f42a1-20260905",
+  "immutable_payload_commit": "0efc5d1ae3a505fc9311b31ea7dccd41a74872ab",
+  "baseline_commit": "dc86d1d26a1374fc15cfb85c8db10f8bfbef849b",
+  "report_path": "research_notes/BRC_FACTOR_INCIDENCE_ATOMS_20260905.md",
+  "artifact_directory": "experiments/brc_factor_incidence_atoms_20260905",
+  "inventory": {
+    "factor_atoms.py": "canonical valuation compiler, structural verifier, observers, minimal count signature, monomial pushforward",
+    "atom_events.py": "regular event guard for supplied monic polynomial-in-t atoms",
+    "check_factor_atoms.py": "exact regression suite and refusal witnesses",
+    "pinned_polynomial_kernel.py": "transcribed pinned pure polynomial/Sturm functions",
+    "pinned_resultant_kernel.py": "transcribed pinned parameter-polynomial/Sylvester functions",
+    "verification.json": "observed pinned-backend output",
+    "README.md": "standalone and optional repository-backend execution instructions"
+  },
+  "remote_blob_identity_vs_executed_local_bytes": {
+    "status": "ALL_SIX_MATCH",
+    "atom_events.py": "3ebe5fb46118d14348edd5efcde153e38ab89302",
+    "check_factor_atoms.py": "55d7b31c55f2d6644a48df2da2cdc843e6b9b39f",
+    "factor_atoms.py": "23186f99df7a1e81253fce8e21808e48e2ea658a",
+    "pinned_polynomial_kernel.py": "a72d6637a145908ccdfaf3c2b6b0bd44e0e5cd2f",
+    "pinned_resultant_kernel.py": "3f5481e7fbe70af78005ed9fd9ba974c25ecdb69",
+    "verification.json": "2dfc9a5f5c1df68c98862395d2630c39b79f7593"
+  },
+  "execution": {
+    "backend": "PINNED_PURE_FUNCTION_TRANSCRIPTION",
+    "reference_checks": "PASS",
+    "full_repository_package_imported": false,
+    "repository_CI_run": false,
+    "Lean_run": false,
+    "independent_Driver_or_Steward_review": false
+  },
+  "frontier": "Canonical squarefree coprime valuation atoms with h<=radical degree<=D; gcd-only fixed-coefficient compiler; exact distinct/multiplicity/Boolean observers; minimal fixed-I count signature (support histogram, per-factor multiplicity vector); associative no-gcd monomial pushforward; regular-specialization theorem; nonzero atom guard for permanently overlapping parameter factors.",
+  "next_action": "Implement automatic generic atom compilation over Q(t)[x] with explicit denominator/scalar guard certificates, then connect to existing event-root/chamber compilation. Generate the (x-t)(x-1), (x-t)(x+1) atom guard without supplied atoms; preserve typed exceptional parameter points and persistent-endpoint refusals.",
+  "hard_boundaries": [
+    "No irreducible-factorization novelty claim or new global tool family",
+    "Gcd-call count is not a bit-complexity theorem",
+    "Count-only signatures do not retain root locations or support arbitrary insertions",
+    "Monomial transport excludes negative powers, division, addition and cancellation",
+    "Symbolic event executable accepts supplied atoms, not automatic Q(t) atomization",
+    "Inherited resultant determinant backend is reference-grade subset-DP",
+    "No task closure, mainline merge, Foundation promotion or CI/Lean certification"
+  ]
+}
