@@ -86,6 +86,42 @@ theorem balanced_recovery_forces_inverse
   norm_num [coneEnergy, rootOut, standardOut] at hrecover ⊢
   nlinarith
 
+/--
+Conditional odd-triangle energy equals twice the parent root energy, twice the
+child root-plus-variance energy, and one explicit signless-residual correction.
+-/
+theorem oddTriangle_childTerminal_identity
+    (x y conditionalMean variance : ℝ) :
+    (x + y) ^ 2 + ((x + conditionalMean) ^ 2 + variance) +
+        ((y + conditionalMean) ^ 2 + variance) =
+      2 * x ^ 2 + 2 * (y ^ 2 + variance) +
+        2 * (y + conditionalMean) *
+          ((y + conditionalMean) + x - y) := by
+  ring
+
+/-- With zero conditional signless residual, the terminal identity is exact. -/
+theorem oddTriangle_childTerminal_residualFree
+    (x y conditionalMean variance : ℝ)
+    (hresidual : y + conditionalMean = 0) :
+    (x + y) ^ 2 + ((x + conditionalMean) ^ 2 + variance) +
+        ((y + conditionalMean) ^ 2 + variance) =
+      2 * x ^ 2 + 2 * (y ^ 2 + variance) := by
+  rw [oddTriangle_childTerminal_identity]
+  rw [hresidual]
+  ring
+
+/-- In the residual-free case, child terminal energy is at most half the odd simplex. -/
+theorem childTerminal_le_half_oddTriangle
+    (x y conditionalMean variance : ℝ)
+    (hresidual : y + conditionalMean = 0) :
+    y ^ 2 + variance ≤
+      ((x + y) ^ 2 + ((x + conditionalMean) ^ 2 + variance) +
+        ((y + conditionalMean) ^ 2 + variance)) / 2 := by
+  have hidentity :=
+    oddTriangle_childTerminal_residualFree
+      x y conditionalMean variance hresidual
+  nlinarith [sq_nonneg x]
+
 /-- Root Mellin coefficient. -/
 def mellinA (beta : ℝ) : ℝ :=
   1 / (1 - beta) - 4 / (2 - beta) + 4 / (3 - beta)
