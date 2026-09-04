@@ -142,7 +142,14 @@ theorem signlessReturnResidual_eq
         ∑ c ∈ S, u c * f (quotient c n) := by
   classical
   unfold signlessReturnResidual totalWeight defect
-  rw [Finset.sum_add_distrib, Finset.sum_mul]
+  calc
+    (∑ c ∈ S, u c * (f n + f (quotient c n))) =
+        (∑ c ∈ S, u c * f n) +
+          ∑ c ∈ S, u c * f (quotient c n) := by
+            simp_rw [mul_add, Finset.sum_add_distrib]
+    _ = (∑ c ∈ S, u c) * f n +
+          ∑ c ∈ S, u c * f (quotient c n) := by
+            rw [Finset.sum_mul]
 
 /--
 Pointwise transport identity: one relation field plus its common-suffix
@@ -155,8 +162,7 @@ theorem relationField_signless_transport
       u a * u b *
         (defect c f (quotient a n) - defect c f (quotient b n)) := by
   rw [relationField_quotientCloud, relationField_quotientCloud]
-  simp [defect, quotient, Nat.div_div_eq_div_mul, Nat.mul_comm,
-    Nat.mul_left_comm, Nat.mul_assoc]
+  simp [defect, quotient, Nat.div_div_eq_div_mul, Nat.mul_comm]
   ring
 
 /--
@@ -225,7 +231,6 @@ theorem relationField_normalized_return_lift
           relationField u (quotientCloudTotal u f (quotient c n)) a b) /
             totalWeight S u := by
               field_simp [hU]
-              ring
     _ = (u a * u b *
         (signlessReturnResidual S u f (quotient a n) -
           signlessReturnResidual S u f (quotient b n))) /
