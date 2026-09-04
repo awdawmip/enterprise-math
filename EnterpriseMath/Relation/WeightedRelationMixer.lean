@@ -5,6 +5,9 @@ namespace EnterpriseMath.WeightedRelationMixer
 
 open EnterpriseMath.WeightedQuotientRelationField
 open EnterpriseMath.WeightedCoefficientCoercivity
+open scoped BigOperators
+
+noncomputable section
 
 /-- Convexly mix a scalar value channel toward one common mean. -/
 def mixValue {ι : Type*}
@@ -48,9 +51,9 @@ theorem weightedSum_mixValue
   classical
   unfold weightedSum weightedMass mixValue
   calc
-    (∑ i in S, u i * (lambda * value i + (1 - lambda) * mean)) =
-        lambda * (∑ i in S, u i * value i) +
-          (1 - lambda) * (∑ i in S, u i) * mean := by
+    (∑ i ∈ S, u i * (lambda * value i + (1 - lambda) * mean)) =
+        lambda * (∑ i ∈ S, u i * value i) +
+          (1 - lambda) * (∑ i ∈ S, u i) * mean := by
             simp_rw [Finset.sum_add_distrib]
             rw [Finset.mul_sum, Finset.mul_sum, Finset.sum_mul]
             ring
@@ -115,5 +118,7 @@ theorem s3ValueMixer_centered
   funext i
   unfold s3ValueMixer
   ring
+
+end
 
 end EnterpriseMath.WeightedRelationMixer
