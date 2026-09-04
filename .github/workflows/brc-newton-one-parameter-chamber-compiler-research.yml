@@ -1,0 +1,22 @@
+name: brc-newton-one-parameter-chamber-compiler-research
+
+on:
+  pull_request:
+    paths:
+      - "experiments/brc_newton_one_parameter_chamber_compiler_check.py"
+      - "research_notes/BRC_NEWTON_ONE_PARAMETER_SELECTOR_CHAMBER_COMPILER_20260904.md"
+      - ".github/workflows/brc-newton-one-parameter-chamber-compiler-research.yml"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Exact one-parameter selector chamber compiler checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_newton_one_parameter_chamber_compiler_check.py
