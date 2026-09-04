@@ -1,0 +1,32 @@
+{
+  "schema": "EM_FREE_F6D046_AXIOM_AUDIT_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "research_unit": "EM-FREE-F6D046-R9-SIGNATURE6-COMPANION-INVERSE-PI",
+  "verdict": "REJECT_AS_NEW_AXIOM",
+  "classification": [
+    "DERIVED_COMPANION_IDENTITY",
+    "JET_COVECTOR_TRANSPORT_APPLICATION",
+    "HIGH_PRECISION_VERIFIED",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION"
+  ],
+  "reasons": [
+    "both formulas are forced by exact pullback/gauge chain rules from pre-existing inverse-pi identities",
+    "their algebraic parameters are defined by source modular basepoint equations",
+    "the result introduces no independent modular equation or primitive law",
+    "the two formulas live at distinct basepoints and do not imply a global flat covector"
+  ],
+  "tool_reuse": [
+    {
+      "tool": "T9_HOLONOMY_COCOYCLE_GLUING",
+      "state": "REUSE_APPLIED",
+      "hard_boundary": "pointwise companion transport is not path-independent global trivialization"
+    }
+  ],
+  "tool_harvest": "RESULT_ONLY / NO_NEW_TOOL_FAMILY",
+  "p000": {
+    "modified": false,
+    "challenged": false,
+    "six_dimensional_lift_claimed": false
+  }
+}
