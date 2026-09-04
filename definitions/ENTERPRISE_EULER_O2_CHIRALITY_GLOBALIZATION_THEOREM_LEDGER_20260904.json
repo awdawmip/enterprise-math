@@ -1,0 +1,90 @@
+{
+  "schema": "ENTERPRISE_RESEARCH_THEOREM_LEDGER_V1",
+  "status": "FREE_RESEARCH / FORMAL_CANDIDATE_PENDING_CI / NOT_FOUNDATION",
+  "date": "2026-09-04",
+  "researcher": "EM-FREE-F6D046 / FREE_AXIOM_DISCOVERY",
+  "author_program": "YUAN X / Enterprise Math",
+  "source_note": "research_notes/EULER_O2_CHIRALITY_GLOBALIZATION_20260904.md",
+  "formal_module": "EnterpriseMath/EulerRotation/FccO2ChiralityGlobalization.lean",
+  "checker": "src/enterprise_math/euler_o2_chirality_globalization.py",
+  "tests": "tests/test_euler_o2_chirality_globalization.py",
+  "theorems": [
+    {
+      "id": "EMEUL-O2-01",
+      "name": "K4 chirality gauge classification",
+      "statement": "The six F2 handoff bits modulo four vertex sign gauges are completely classified by three independent triangle holonomies; C1(K4;F2)/delta C0(K4;F2) is F2^3.",
+      "status": "LEAN_CANDIDATE_AND_EXHAUSTIVE_CHECKER",
+      "formal_theorems": [
+        "fourth_triangle_dependency",
+        "holonomy_gauge_invariant",
+        "holonomy_complete_invariant",
+        "gauge_orbit_card"
+      ]
+    },
+    {
+      "id": "EMEUL-O2-02",
+      "name": "Global signed-generator criterion",
+      "statement": "A global signed J exists iff all three independent triangle holonomies vanish.",
+      "status": "LEAN_CANDIDATE_AND_EXHAUSTIVE_CHECKER",
+      "formal_theorem": "global_signed_generator_iff"
+    },
+    {
+      "id": "EMEUL-O2-03",
+      "name": "Global chirality is a two-element torsor",
+      "statement": "Every trivial handoff system has exactly two trivializations, differing by simultaneous reversal of all four local generators; nontrivial classes have none.",
+      "status": "LEAN_CANDIDATE_AND_EXHAUSTIVE_CHECKER",
+      "formal_theorem": "global_chirality_is_two_element_torsor"
+    },
+    {
+      "id": "EMEUL-O2-04",
+      "name": "No canonical full-S4 chirality choice",
+      "statement": "The two tetrahedral orientations form the sign torsor: A4 preserves each choice and every odd permutation exchanges them, so unoriented K4 incidence cannot select one S4-invariant signed generator.",
+      "status": "FINITE_GROUP_PROOF_AND_EXHAUSTIVE_CHECKER"
+    },
+    {
+      "id": "EMEUL-O2-05",
+      "name": "O(2) semidirect globalization",
+      "statement": "Before a global chirality choice, finite phase transport has structure C_N semidirect C2, with the nontrivial C2 element acting by inversion; after completion this is U(1) semidirect C2 isomorphic to O(2).",
+      "status": "EXACT_GROUP_CONSTRUCTION_PLUS_STANDARD_IDENTIFICATION"
+    },
+    {
+      "id": "EMEUL-O2-06",
+      "name": "Involutive phases survive chirality reversal",
+      "statement": "In any commutative phase group, every element h with h^2=1 is fixed by the inversion handoff and is central in the associated G semidirect C2 rotation/reflection group.",
+      "status": "LEAN_CANDIDATE",
+      "formal_theorems": [
+        "involutive_phase_fixed_by_chirality",
+        "involutive_rotation_central"
+      ]
+    },
+    {
+      "id": "EMEUL-O2-07",
+      "name": "Orientation-independent Euler half-turn",
+      "statement": "The complex phase -1 is fixed by every chirality handoff and central in the O(2) globalization; therefore exp(J_v*pi_rot)=-1 descends across all four slices even when the signed generators J_v do not glue.",
+      "status": "LEAN_CANDIDATE_FOR_ENDPOINT_PLUS_PARENT_EULER_COMPLETION",
+      "formal_theorems": [
+        "complex_euler_halfTurn_descends",
+        "complex_euler_halfTurn_central"
+      ]
+    },
+    {
+      "id": "EMEUL-O2-08",
+      "name": "Maximal orientation-forgetting finite phase set",
+      "statement": "For every even C_N, inversion fixes exactly 0 and N/2; hence identity and half-turn are the only phases that descend through arbitrary chirality reversals.",
+      "status": "EXACT_FINITE_THEOREM_AND_EXHAUSTIVE_CHECKER"
+    }
+  ],
+  "new_closed_boundary": [
+    "GLOBAL_EULER_HALF_TURN_DOES_NOT_REQUIRE_A_GLOBAL_SIGNED_J",
+    "THE_NATURAL_UNORIENTED_GLOBALIZATION_IS_O2_NOT_A_PRESELECTED_U1",
+    "BARE_S4_SYMMETRY_CANNOT_CANONICALLY_SELECT_ONE_TETRAHEDRAL_CHIRALITY",
+    "IDENTITY_AND_HALF_TURN_ARE_THE_MAXIMAL_CHIRALITY_INVARIANT_PHASES"
+  ],
+  "negative_boundaries": [
+    "NO_SPECIFIC_NATIVE_P000_EDGE_COHCHAIN_IS_DERIVED",
+    "NO_PHYSICAL_FLATNESS_LAW_IS_DERIVED_FROM_INCIDENCE_ALONE",
+    "NO_IDENTIFICATION_OF_LOCAL_J_WITH_A_PRIMITIVE_NATIVE_SPATIAL_AXIS",
+    "NO_IDENTITY_WITH_TETRAHEDRAL_RESIDUAL_TORSION_OR_PELL_SHELL_SIGN",
+    "O2_GLOBALIZATION_IS_AT_THE_CARRIER_AND_DERIVED_CHARACTER_LEVEL"
+  ]
+}

@@ -1,0 +1,61 @@
+name: euler-o2-chirality-globalization
+
+on:
+  pull_request:
+    paths:
+      - "research_notes/EULER_O2_CHIRALITY_GLOBALIZATION_20260904.md"
+      - "definitions/ENTERPRISE_EULER_O2_CHIRALITY_GLOBALIZATION_THEOREM_LEDGER_20260904.json"
+      - "EnterpriseMath/EulerRotation/FccO2ChiralityGlobalization.lean"
+      - "src/enterprise_math/euler_o2_chirality_globalization.py"
+      - "tests/test_euler_o2_chirality_globalization.py"
+      - "research_method_inventory_addenda/20260904_euler_o2_chirality_globalization.json"
+      - ".github/workflows/euler-o2-chirality-globalization.yml"
+  workflow_dispatch:
+
+jobs:
+  exact-and-formal:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Compile exact checker and tests
+        run: >-
+          python -m py_compile
+          src/enterprise_math/euler_o2_chirality_globalization.py
+          tests/test_euler_o2_chirality_globalization.py
+      - name: Exhaust K4 chirality and finite O(2) laws
+        env:
+          PYTHONPATH: src
+        run: python -m unittest -v tests/test_euler_o2_chirality_globalization.py
+      - name: Validate theorem ledger and method inventory
+        run: >-
+          python -m json.tool
+          definitions/ENTERPRISE_EULER_O2_CHIRALITY_GLOBALIZATION_THEOREM_LEDGER_20260904.json
+          >/dev/null &&
+          python -m json.tool
+          research_method_inventory_addenda/20260904_euler_o2_chirality_globalization.json
+          >/dev/null
+      - name: Reject proof placeholders
+        run: |
+          if grep -n -E '\b(sorry|admit|axiom)\b' EnterpriseMath/EulerRotation/FccO2ChiralityGlobalization.lean; then
+            echo "Proof placeholder detected"
+            exit 1
+          fi
+      - uses: leanprover/lean-action@v1
+        with:
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+          use-github-cache: false
+          use-mathlib-cache: false
+      - name: Resolve pinned dependencies
+        run: lake update
+      - name: Fetch mathlib cache
+        run: lake exe cache get
+      - name: Build formal K4/O(2) globalization theorem
+        run: >-
+          lake build --wfail -KCI
+          EnterpriseMath.EulerRotation.FccO2ChiralityGlobalization
