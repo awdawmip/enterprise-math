@@ -2,6 +2,8 @@ import Mathlib.Tactic
 
 namespace EnterpriseMath.CubeRootRelationCascade
 
+noncomputable section
+
 /-- Geometrically decaying forcing along cube-root scale levels. -/
 def cubeRootForcing (C L : ℝ) (k : ℕ) : ℝ :=
   (C / L) * (1 / 3 : ℝ) ^ k
@@ -67,5 +69,7 @@ theorem cubeRootMajorant_le_geometricRate
       _ = 9 * C / (2 * L) := by ring
   have hpow : 0 ≤ (1 / 9 : ℝ) ^ k := pow_nonneg (by norm_num) k
   nlinarith
+
+end
 
 end EnterpriseMath.CubeRootRelationCascade
