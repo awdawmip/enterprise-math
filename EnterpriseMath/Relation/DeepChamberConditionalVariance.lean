@@ -72,10 +72,10 @@ theorem colorTotals_standard
   classical
   unfold colorTotal weightedSum
   calc
-    (∑ m in S, κ m * H 0 m) +
-        (∑ m in S, κ m * H 1 m) +
-        (∑ m in S, κ m * H 2 m) =
-      ∑ m in S, κ m * (H 0 m + H 1 m + H 2 m) := by
+    (∑ m ∈ S, κ m * H 0 m) +
+        (∑ m ∈ S, κ m * H 1 m) +
+        (∑ m ∈ S, κ m * H 2 m) =
+      ∑ m ∈ S, κ m * (H 0 m + H 1 m + H 2 m) := by
         simp_rw [Finset.sum_add_distrib]
         apply Finset.sum_congr rfl
         intro m hm
