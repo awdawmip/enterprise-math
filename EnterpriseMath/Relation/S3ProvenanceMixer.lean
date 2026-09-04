@@ -48,7 +48,8 @@ theorem mixer3_idempotent (x y z : ℝ) :
     let out := mixer3 x y z
     mixer3 out.1 out.2.1 out.2.2 = out := by
   dsimp
-  simp [mixer3]
+  unfold mixer3 mean3
+  ext <;> ring
 
 /-- Standard-sector energy of the three distinct first-action classes. -/
 def centeredEnergy3 (x y z : ℝ) : ℝ :=
