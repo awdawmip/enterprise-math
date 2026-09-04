@@ -276,29 +276,32 @@ Combining with the native chiral trace character
 \chi_3(p)=\frac13\operatorname{Tr}(JP^p),
 \]
 
-we obtain at analytic-completion strength
+and the conditional Dirichlet Euler product gives, at analytic-completion strength,
+
+\[
+\boxed{
+\prod_p
+\left(1-\frac{\operatorname{Tr}(JP^p)}{3p}\right)^{-1}
+=\mathcal O_3
+=2R_{\rm cell}
+\int_{R_{\rm cell}}^{1/R_{\rm cell}}
+\frac{du}{1+u^2}
+}
+\]
+
+and therefore, by PR3-T03,
 
 \[
 \boxed{
 \prod_p
 \left(1-\frac{\operatorname{Tr}(JP^p)}{3p}\right)^{-1}
 =\frac{2R_{\rm cell}}3
-\int_{R_{\rm cell}}^{1/R_{\rm cell}}\frac{du}{1+u^2}
-\cdot\frac{3}{2R_{\rm cell}}
-}
-\]
-
-and, after the equal-third simplification,
-
-\[
-\boxed{
-\prod_p
-\left(1-\frac{\operatorname{Tr}(JP^p)}{3p}\right)^{-1}
+\int_0^\infty\frac{du}{1+u^2}
 =\frac{\tau R_{\rm cell}}3.
 }
 \]
 
-The first displayed line is intentionally schematic about the product-to-series analytic step; the exact geometric content is PR3-T01..T05, while the Euler product remains the standard conditional Dirichlet completion.
+The product-to-series step remains the standard conditional Dirichlet completion. The geometric normalization itself is exact from PR3-T01..T05.
 
 ---
 
