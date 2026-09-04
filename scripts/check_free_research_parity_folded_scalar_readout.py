@@ -446,6 +446,117 @@ def check_pair_mixer_eigen_sectors(
     )
 
 
+def symmetric_folded_values(
+    n: int,
+    actions: list[Action],
+    field: Dict[int, Fraction],
+) -> Dict[Pair, Fraction]:
+    return {
+        (a, b): (
+            field[quotient(n, a * b)]
+            if a * b <= n
+            else (field[quotient(n, a)] + field[quotient(n, b)]) / 2
+        )
+        for a, b in product(actions, repeat=2)
+    }
+
+
+def check_symmetric_fold_strengthening(
+    n: int,
+    actions: list[Action],
+    weights: Dict[Action, Fraction],
+    field: Dict[int, Fraction],
+) -> None:
+    total = mass(actions, weights, n)
+    probability = {a: weights[a] / total for a in actions}
+    oriented = {
+        (a, b): field[folded_endpoint(n, a, b)]
+        for a, b in product(actions, repeat=2)
+    }
+    symmetric = symmetric_folded_values(n, actions, field)
+    epsilon = {
+        (a, b): parity(n, a, b)
+        for a, b in product(actions, repeat=2)
+    }
+
+    oriented_signed = sum(
+        (
+            probability[a]
+            * probability[b]
+            * epsilon[a, b]
+            * oriented[a, b]
+            for a, b in product(actions, repeat=2)
+        ),
+        Fraction(0),
+    )
+    symmetric_signed = sum(
+        (
+            probability[a]
+            * probability[b]
+            * epsilon[a, b]
+            * symmetric[a, b]
+            for a, b in product(actions, repeat=2)
+        ),
+        Fraction(0),
+    )
+    assert oriented_signed == symmetric_signed
+    assert weighted_variance_pair(
+        actions, probability, symmetric
+    ) <= weighted_variance_pair(actions, probability, oriented)
+    assert all(
+        symmetric[a, b] == symmetric[b, a]
+        for a, b in product(actions, repeat=2)
+    )
+
+    shared_first_energy = sum(
+        (
+            probability[a]
+            * probability[b]
+            * probability[c]
+            * (symmetric[a, b] - symmetric[a, c]) ** 2
+            for a, b, c in product(actions, repeat=3)
+        ),
+        Fraction(0),
+    )
+    symmetric_dirichlet = pair_dirichlet(
+        actions, probability, symmetric
+    )
+    assert symmetric_dirichlet == shared_first_energy / 3
+    assert weighted_variance_pair(
+        actions, probability, symmetric
+    ) <= shared_first_energy
+
+    symmetric_center_energy = sum(
+        (
+            weights[a]
+            * weights[b]
+            * (symmetric[a, b] + field[n]) ** 2
+            for a, b in product(actions, repeat=2)
+        ),
+        Fraction(0),
+    )
+    oriented_tail_plus_core = sum(
+        (
+            weights[a]
+            * weights[b]
+            * (field[n] + field[quotient(n, a)]) ** 2
+            for a, b in product(actions, repeat=2)
+            if a * b > n
+        ),
+        Fraction(0),
+    ) + sum(
+        (
+            weights[a]
+            * weights[b]
+            * (field[n] + field[quotient(n, a * b)]) ** 2
+            for a, b in product(actions, repeat=2)
+            if a * b <= n
+        ),
+        Fraction(0),
+    )
+    assert symmetric_center_energy <= oriented_tail_plus_core
+
+
 def main() -> None:
     n, actions, weights, field = deterministic_fixture()
     check_quotient_composition(n, actions)
@@ -457,6 +568,7 @@ def main() -> None:
     check_pair_mixer_eigen_sectors(
         actions[:7], {a: weights[a] for a in actions[:7]}
     )
+    check_symmetric_fold_strengthening(n, actions, weights, field)
     print("parity-folded square scalar readout: exact checks passed")
 
 
