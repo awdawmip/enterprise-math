@@ -65,7 +65,7 @@ theorem sum_sum_right_sq
           intro j hj
           ring
     _ = (∑ i ∈ S, u i) * (∑ j ∈ S, u j * (x j) ^ 2) := by
-          rw [Finset.mul_sum]
+          rw [Finset.sum_mul]
 
 /-- The mixed contribution in the pair-energy expansion. -/
 theorem sum_sum_cross
