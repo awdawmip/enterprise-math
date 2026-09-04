@@ -2,6 +2,8 @@ import Mathlib.Tactic
 
 namespace EnterpriseMath.DelayedRecanonicalization
 
+noncomputable section
+
 /-- Root/mean energy after one stopped/core scattering step. -/
 def rootOut (s root : ℝ) : ℝ := (1 - 2 * s) ^ 2 * root
 
@@ -133,5 +135,7 @@ theorem beta_oneSixth_twoStep_lt_one :
     twoStepRootCoefficient (1 / 6 : ℝ) < 1 := by
   rw [beta_oneSixth_twoStep]
   norm_num
+
+end
 
 end EnterpriseMath.DelayedRecanonicalization
