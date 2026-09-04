@@ -17,8 +17,11 @@ noncomputable def dirichletTailRatio (R : ℝ) (M : ℕ) : ℝ :=
 /-- Positive tail terms are nonnegative. -/
 theorem dirichletPositiveTailTerm_nonneg (R : ℝ) (M k : ℕ) :
     0 ≤ dirichletPositiveTailTerm R M k := by
+  have hpow : 0 ≤ R ^ (2 * (M + k)) := by
+    rw [show 2 * (M + k) = (M + k) + (M + k) by omega, pow_add]
+    exact mul_self_nonneg _
   unfold dirichletPositiveTailTerm
-  positivity
+  exact div_nonneg hpow (by positivity)
 
 /-- The uniform tail ratio is nonnegative. -/
 theorem dirichletTailRatio_nonneg (R : ℝ) (M : ℕ) :
@@ -39,7 +42,7 @@ theorem dirichletPositiveTailTerm_succ (R : ℝ) (M k : ℕ) :
         (2 * (M + k) + 3) * (2 * (M + k) + 2) * (2 * (M + k) + 1)! := by
     grind [Nat.factorial_succ]
   unfold dirichletPositiveTailTerm
-  rw [hexp, pow_add, hfac]
+  rw [hfac, hexp, pow_add]
   push_cast
   have hf : ((((2 * (M + k) + 1)! : ℕ) : ℝ)) ≠ 0 := by positivity
   have h2 : (2 * (((M + k : ℕ) : ℝ)) + 2) ≠ 0 := by positivity
