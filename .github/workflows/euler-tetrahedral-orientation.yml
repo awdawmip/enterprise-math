@@ -1,0 +1,61 @@
+name: euler-tetrahedral-orientation
+
+on:
+  pull_request:
+    paths:
+      - "research_notes/EULER_TETRAHEDRAL_ORIENTATION_LOCAL_SYSTEM_20260904.md"
+      - "definitions/ENTERPRISE_EULER_TETRAHEDRAL_ORIENTATION_LOCAL_SYSTEM_20260904.json"
+      - "src/enterprise_math/euler_tetrahedral_orientation.py"
+      - "tests/test_euler_tetrahedral_orientation.py"
+      - "EnterpriseMath/EulerRotation/TetrahedralOrientationLocalSystem.lean"
+      - "research_method_inventory_addenda/20260904_euler_tetrahedral_orientation.json"
+      - ".github/workflows/euler-tetrahedral-orientation.yml"
+  workflow_dispatch:
+
+jobs:
+  exact-and-formal-check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Compile exact checker and tests
+        run: >-
+          python -m py_compile
+          src/enterprise_math/euler_tetrahedral_orientation.py
+          tests/test_euler_tetrahedral_orientation.py
+      - name: Run exhaustive finite regression
+        env:
+          PYTHONPATH: src
+        run: python -m unittest -v tests/test_euler_tetrahedral_orientation.py
+      - name: Validate theorem and method JSON
+        run: >-
+          python -m json.tool
+          definitions/ENTERPRISE_EULER_TETRAHEDRAL_ORIENTATION_LOCAL_SYSTEM_20260904.json
+          >/dev/null
+          && python -m json.tool
+          research_method_inventory_addenda/20260904_euler_tetrahedral_orientation.json
+          >/dev/null
+      - name: Reject proof placeholders
+        run: |
+          if grep -n -E '\b(sorry|admit|axiom)\b' EnterpriseMath/EulerRotation/TetrahedralOrientationLocalSystem.lean; then
+            echo "Proof placeholder detected"
+            exit 1
+          fi
+      - uses: leanprover/lean-action@v1
+        with:
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+          use-github-cache: false
+          use-mathlib-cache: false
+      - name: Resolve pinned dependencies
+        run: lake update
+      - name: Fetch mathlib cache
+        run: lake exe cache get
+      - name: Build tetrahedral orientation core
+        run: >-
+          lake build --wfail -KCI
+          EnterpriseMath.EulerRotation.TetrahedralOrientationLocalSystem
