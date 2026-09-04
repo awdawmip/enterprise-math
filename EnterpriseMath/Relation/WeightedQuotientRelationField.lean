@@ -34,6 +34,43 @@ theorem relationField_closure {ι : Type*}
   unfold relationField
   ring
 
+/-- Relation fields are linear in the carried-total channel. -/
+theorem relationField_add_total {ι : Type*}
+    (mass total₁ total₂ : ι → ℝ) (i j : ι) :
+    relationField mass (fun k => total₁ k + total₂ k) i j =
+      relationField mass total₁ i j + relationField mass total₂ i j := by
+  unfold relationField
+  ring
+
+/-- Relation fields commute with subtraction of carried-total channels. -/
+theorem relationField_sub_total {ι : Type*}
+    (mass total₁ total₂ : ι → ℝ) (i j : ι) :
+    relationField mass (fun k => total₁ k - total₂ k) i j =
+      relationField mass total₁ i j - relationField mass total₂ i j := by
+  unfold relationField
+  ring
+
+/-- Relation fields commute with scalar multiplication of a total channel. -/
+theorem relationField_smul_total {ι : Type*}
+    (mass total : ι → ℝ) (s : ℝ) (i j : ι) :
+    relationField mass (fun k => s * total k) i j =
+      s * relationField mass total i j := by
+  unfold relationField
+  ring
+
+/-- A scalar value channel converted to capacity-weighted block totals. -/
+def weightedValueTotal {ι : Type*}
+    (mass value : ι → ℝ) (i : ι) : ℝ :=
+  mass i * value i
+
+/-- The relation field of a weighted value channel is its weighted pair difference. -/
+theorem relationField_weightedValue {ι : Type*}
+    (mass value : ι → ℝ) (i j : ι) :
+    relationField mass (weightedValueTotal mass value) i j =
+      mass i * mass j * (value i - value j) := by
+  unfold relationField weightedValueTotal
+  ring
+
 /-- Total capacity of a finite block family. -/
 def blockMass {ι : Type*} (S : Finset ι) (mass : ι → ℝ) : ℝ :=
   ∑ i in S, mass i
