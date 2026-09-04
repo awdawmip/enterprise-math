@@ -6,6 +6,8 @@ namespace EnterpriseMath.DeepChamberColorBalance
 
 open scoped BigOperators
 
+noncomputable section
+
 /-- A colored lower-scale kernel is balanced when all three color fibers have equal mass. -/
 def BalancedKernel (κ : Fin 3 → ℕ → ℝ) : Prop :=
   ∀ m i j, κ i m = κ j m
@@ -58,7 +60,7 @@ theorem balanced_scalar_mass_and_standard_loss
 
 /-- Total scalar mass of a colored kernel over a finite endpoint set. -/
 def scalarKernelMass (S : Finset ℕ) (κ : Fin 3 → ℕ → ℝ) : ℝ :=
-  ∑ m in S, (κ 0 m + κ 1 m + κ 2 m)
+  ∑ m ∈ S, (κ 0 m + κ 1 m + κ 2 m)
 
 /-- Uniformly normalized quadratic norm on the three-color fiber. -/
 def normalizedColorEnergy (h : Fin 3 → ℝ) : ℝ :=
@@ -67,24 +69,24 @@ def normalizedColorEnergy (h : Fin 3 → ℝ) : ℝ :=
 /-- Total colored output energy over a finite endpoint set. -/
 def totalColoredEnergy
     (S : Finset ℕ) (κ : Fin 3 → ℕ → ℝ) (h : Fin 3 → ℝ) : ℝ :=
-  ∑ m in S, colorEnergy κ h m
+  ∑ m ∈ S, colorEnergy κ h m
 
 /-- Fiberwise balance makes total scalar mass three times one color mass. -/
 theorem scalarKernelMass_eq_three_mul_base
     (S : Finset ℕ) (κ : Fin 3 → ℕ → ℝ)
     (hκ : BalancedKernel κ) :
-    scalarKernelMass S κ = 3 * (∑ m in S, κ 0 m) := by
+    scalarKernelMass S κ = 3 * (∑ m ∈ S, κ 0 m) := by
   classical
   unfold scalarKernelMass
   calc
-    (∑ m in S, (κ 0 m + κ 1 m + κ 2 m)) =
-        ∑ m in S, 3 * κ 0 m := by
+    (∑ m ∈ S, (κ 0 m + κ 1 m + κ 2 m)) =
+        ∑ m ∈ S, 3 * κ 0 m := by
           apply Finset.sum_congr rfl
           intro m hm
           unfold BalancedKernel at hκ
           rw [hκ m 1 0, hκ m 2 0]
           ring
-    _ = 3 * (∑ m in S, κ 0 m) := by
+    _ = 3 * (∑ m ∈ S, κ 0 m) := by
           rw [Finset.mul_sum]
 
 /--
@@ -128,5 +130,7 @@ theorem standardColorVector_isStandard :
     IsStandardColor
       (fun i : Fin 3 => if i = 0 then 1 else if i = 1 then -1 else 0) := by
   norm_num [IsStandardColor]
+
+end
 
 end EnterpriseMath.DeepChamberColorBalance
