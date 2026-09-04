@@ -7,6 +7,8 @@ namespace EnterpriseMath.S3EquivariantColorTransfer
 open EnterpriseMath.DeepChamberColorBalance
 open EnterpriseMath.WeightedRelationMixer
 
+noncomputable section
+
 /-- Sum of the three color coordinates. -/
 def colorSum (h : Fin 3 → ℝ) : ℝ :=
   h 0 + h 1 + h 2
@@ -99,5 +101,7 @@ theorem five_ninth_two_ninth_standard_eigenvalue :
 theorem five_ninth_two_ninth_energy_survival :
     ((5 / 9 : ℝ) - (2 / 9 : ℝ)) ^ 2 = 1 / 9 := by
   norm_num
+
+end
 
 end EnterpriseMath.S3EquivariantColorTransfer
