@@ -8,78 +8,94 @@ open scoped BigOperators
 
 /-- Total weight of a finite action family. -/
 def weightedMass {ι : Type*} (S : Finset ι) (u : ι → ℝ) : ℝ :=
-  ∑ i in S, u i
+  ∑ i ∈ S, u i
 
 /-- Weighted first moment of a finite value channel. -/
 def weightedSum {ι : Type*}
     (S : Finset ι) (u x : ι → ℝ) : ℝ :=
-  ∑ i in S, u i * x i
+  ∑ i ∈ S, u i * x i
 
 /-- Weighted second moment of a finite value channel. -/
 def weightedSecond {ι : Type*}
     (S : Finset ι) (u x : ι → ℝ) : ℝ :=
-  ∑ i in S, u i * (x i) ^ 2
+  ∑ i ∈ S, u i * (x i) ^ 2
 
 /-- Complete weighted pair-difference energy. -/
 def weightedPairEnergy {ι : Type*}
     (S : Finset ι) (u x : ι → ℝ) : ℝ :=
-  ∑ i in S, ∑ j in S,
+  ∑ i ∈ S, ∑ j ∈ S,
     u i * u j * (x i - x j) ^ 2
 
 /-- The first square contribution in the pair-energy expansion. -/
 theorem sum_sum_left_sq
     {ι : Type*} (S : Finset ι) (u x : ι → ℝ) :
-    (∑ i in S, ∑ j in S, u i * u j * (x i) ^ 2) =
+    (∑ i ∈ S, ∑ j ∈ S, u i * u j * (x i) ^ 2) =
       weightedSecond S u x * weightedMass S u := by
   classical
   unfold weightedSecond weightedMass
   calc
-    (∑ i in S, ∑ j in S, u i * u j * (x i) ^ 2) =
-        ∑ i in S, (u i * (x i) ^ 2) * (∑ j in S, u j) := by
+    (∑ i ∈ S, ∑ j ∈ S, u i * u j * (x i) ^ 2) =
+        ∑ i ∈ S, (u i * (x i) ^ 2) * (∑ j ∈ S, u j) := by
           apply Finset.sum_congr rfl
           intro i hi
-          rw [Finset.mul_sum]
+          rw [Finset.sum_mul]
           apply Finset.sum_congr rfl
           intro j hj
           ring
-    _ = (∑ i in S, u i * (x i) ^ 2) * (∑ j in S, u j) := by
+    _ = (∑ i ∈ S, u i * (x i) ^ 2) * (∑ j ∈ S, u j) := by
           rw [Finset.sum_mul]
 
 /-- The second square contribution in the pair-energy expansion. -/
 theorem sum_sum_right_sq
     {ι : Type*} (S : Finset ι) (u x : ι → ℝ) :
-    (∑ i in S, ∑ j in S, u i * u j * (x j) ^ 2) =
+    (∑ i ∈ S, ∑ j ∈ S, u i * u j * (x j) ^ 2) =
       weightedMass S u * weightedSecond S u x := by
   classical
   unfold weightedSecond weightedMass
   calc
-    (∑ i in S, ∑ j in S, u i * u j * (x j) ^ 2) =
-        ∑ i in S, u i * (∑ j in S, u j * (x j) ^ 2) := by
+    (∑ i ∈ S, ∑ j ∈ S, u i * u j * (x j) ^ 2) =
+        ∑ i ∈ S, u i * (∑ j ∈ S, u j * (x j) ^ 2) := by
           apply Finset.sum_congr rfl
           intro i hi
           rw [Finset.mul_sum]
           apply Finset.sum_congr rfl
           intro j hj
           ring
-    _ = (∑ i in S, u i) * (∑ j in S, u j * (x j) ^ 2) := by
-          rw [Finset.sum_mul]
+    _ = (∑ i ∈ S, u i) * (∑ j ∈ S, u j * (x j) ^ 2) := by
+          rw [Finset.mul_sum]
 
 /-- The mixed contribution in the pair-energy expansion. -/
 theorem sum_sum_cross
     {ι : Type*} (S : Finset ι) (u x : ι → ℝ) :
-    (∑ i in S, ∑ j in S, (u i * x i) * (u j * x j)) =
+    (∑ i ∈ S, ∑ j ∈ S, (u i * x i) * (u j * x j)) =
       (weightedSum S u x) ^ 2 := by
   classical
   unfold weightedSum
   calc
-    (∑ i in S, ∑ j in S, (u i * x i) * (u j * x j)) =
-        ∑ i in S, (u i * x i) * (∑ j in S, u j * x j) := by
+    (∑ i ∈ S, ∑ j ∈ S, (u i * x i) * (u j * x j)) =
+        ∑ i ∈ S, (u i * x i) * (∑ j ∈ S, u j * x j) := by
+          apply Finset.sum_congr rfl
+          intro i hi
+          rw [Finset.sum_mul]
+    _ = (∑ i ∈ S, u i * x i) * (∑ j ∈ S, u j * x j) := by
+          rw [Finset.sum_mul]
+    _ = (∑ i ∈ S, u i * x i) ^ 2 := by ring
+
+/-- Twice the mixed contribution factors globally. -/
+theorem sum_sum_two_cross
+    {ι : Type*} (S : Finset ι) (u x : ι → ℝ) :
+    (∑ i ∈ S, ∑ j ∈ S, 2 * ((u i * x i) * (u j * x j))) =
+      2 * (weightedSum S u x) ^ 2 := by
+  classical
+  calc
+    (∑ i ∈ S, ∑ j ∈ S, 2 * ((u i * x i) * (u j * x j))) =
+        2 * (∑ i ∈ S, ∑ j ∈ S, (u i * x i) * (u j * x j)) := by
+          rw [Finset.mul_sum]
           apply Finset.sum_congr rfl
           intro i hi
           rw [Finset.mul_sum]
-    _ = (∑ i in S, u i * x i) * (∑ j in S, u j * x j) := by
-          rw [Finset.sum_mul]
-    _ = (∑ i in S, u i * x i) ^ 2 := by ring
+    _ = 2 * (weightedSum S u x) ^ 2 := by
+          rw [sum_sum_cross]
 
 /-- Pair-difference energy in first/second-moment form. -/
 theorem weightedPairEnergy_eq_moments
@@ -90,16 +106,25 @@ theorem weightedPairEnergy_eq_moments
   classical
   unfold weightedPairEnergy
   calc
-    (∑ i in S, ∑ j in S, u i * u j * (x i - x j) ^ 2) =
-        (∑ i in S, ∑ j in S, u i * u j * (x i) ^ 2) +
-          (∑ i in S, ∑ j in S, u i * u j * (x j) ^ 2) -
-          2 * (∑ i in S, ∑ j in S, (u i * x i) * (u j * x j)) := by
-            simp_rw [Finset.sum_sub_distrib, Finset.sum_add_distrib]
-            ring
+    (∑ i ∈ S, ∑ j ∈ S, u i * u j * (x i - x j) ^ 2) =
+        ∑ i ∈ S, ∑ j ∈ S,
+          (u i * u j * (x i) ^ 2 +
+            u i * u j * (x j) ^ 2 -
+            2 * ((u i * x i) * (u j * x j))) := by
+              apply Finset.sum_congr rfl
+              intro i hi
+              apply Finset.sum_congr rfl
+              intro j hj
+              ring
+    _ = (∑ i ∈ S, ∑ j ∈ S, u i * u j * (x i) ^ 2) +
+          (∑ i ∈ S, ∑ j ∈ S, u i * u j * (x j) ^ 2) -
+          (∑ i ∈ S, ∑ j ∈ S,
+            2 * ((u i * x i) * (u j * x j))) := by
+              simp_rw [Finset.sum_sub_distrib, Finset.sum_add_distrib]
     _ = weightedSecond S u x * weightedMass S u +
           weightedMass S u * weightedSecond S u x -
           2 * (weightedSum S u x) ^ 2 := by
-            rw [sum_sum_left_sq, sum_sum_right_sq, sum_sum_cross]
+            rw [sum_sum_left_sq, sum_sum_right_sq, sum_sum_two_cross]
     _ = 2 * weightedMass S u * weightedSecond S u x -
           2 * (weightedSum S u x) ^ 2 := by ring
 
@@ -134,13 +159,13 @@ theorem weightedSum_coefficientLift_of_centered
   classical
   unfold weightedSum coefficientLift coefficientProduct weightedMass at *
   calc
-    (∑ i in S, u i * ((∑ j in S, u j) + V i) * x i) =
-        (∑ j in S, u j) * (∑ i in S, u i * x i) +
-          ∑ i in S, u i * (V i * x i) := by
+    (∑ i ∈ S, u i * ((∑ j ∈ S, u j) + V i) * x i) =
+        (∑ j ∈ S, u j) * (∑ i ∈ S, u i * x i) +
+          ∑ i ∈ S, u i * (V i * x i) := by
             rw [Finset.mul_sum]
             simp_rw [Finset.sum_add_distrib]
             ring
-    _ = ∑ i in S, u i * (V i * x i) := by
+    _ = ∑ i ∈ S, u i * (V i * x i) := by
           rw [hcenter]
           ring
 
@@ -150,16 +175,32 @@ theorem weightedSecond_coefficientLift
     weightedSecond S u (coefficientLift S u V x) =
       (weightedMass S u) ^ 2 * weightedSecond S u x +
         2 * weightedMass S u *
-          (∑ i in S, u i * V i * (x i) ^ 2) +
+          (∑ i ∈ S, u i * V i * (x i) ^ 2) +
         weightedSecond S u (coefficientProduct V x) := by
   classical
   unfold weightedSecond coefficientLift coefficientProduct
-  apply Finset.sum_congr rfl
-  intro i hi
-  ring
+  calc
+    (∑ i ∈ S, u i * ((weightedMass S u + V i) * x i) ^ 2) =
+        ∑ i ∈ S,
+          ((weightedMass S u) ^ 2 * (u i * (x i) ^ 2) +
+            (2 * weightedMass S u) * (u i * V i * (x i) ^ 2) +
+            u i * (V i * x i) ^ 2) := by
+              apply Finset.sum_congr rfl
+              intro i hi
+              ring
+    _ = (∑ i ∈ S, (weightedMass S u) ^ 2 * (u i * (x i) ^ 2)) +
+          (∑ i ∈ S, (2 * weightedMass S u) *
+            (u i * V i * (x i) ^ 2)) +
+          ∑ i ∈ S, u i * (V i * x i) ^ 2 := by
+            rw [Finset.sum_add_distrib, Finset.sum_add_distrib]
+    _ = (weightedMass S u) ^ 2 * (∑ i ∈ S, u i * (x i) ^ 2) +
+          2 * weightedMass S u *
+            (∑ i ∈ S, u i * V i * (x i) ^ 2) +
+          ∑ i ∈ S, u i * (V i * x i) ^ 2 := by
+            rw [Finset.mul_sum, Finset.mul_sum]
 
 /--
-Centered tail-potential identity.  The lifted pair energy is the baseline
+Centered tail-potential identity. The lifted pair energy is the baseline
 `U^2` energy, plus a positive tail potential, plus the product-channel energy.
 -/
 theorem weightedPairEnergy_coefficientLift_of_centered
@@ -168,7 +209,7 @@ theorem weightedPairEnergy_coefficientLift_of_centered
     weightedPairEnergy S u (coefficientLift S u V x) =
       (weightedMass S u) ^ 2 * weightedPairEnergy S u x +
         4 * (weightedMass S u) ^ 2 *
-          (∑ i in S, u i * V i * (x i) ^ 2) +
+          (∑ i ∈ S, u i * V i * (x i) ^ 2) +
         weightedPairEnergy S u (coefficientProduct V x) := by
   rw [weightedPairEnergy_eq_moments,
     weightedPairEnergy_eq_moments,
@@ -185,7 +226,7 @@ theorem weightedPairEnergy_coefficientLift_potential_le
     (hu : ∀ i ∈ S, 0 ≤ u i) :
     (weightedMass S u) ^ 2 * weightedPairEnergy S u x +
         4 * (weightedMass S u) ^ 2 *
-          (∑ i in S, u i * V i * (x i) ^ 2) ≤
+          (∑ i ∈ S, u i * V i * (x i) ^ 2) ≤
       weightedPairEnergy S u (coefficientLift S u V x) := by
   rw [weightedPairEnergy_coefficientLift_of_centered S u V x hcenter]
   exact le_add_of_nonneg_right
@@ -200,12 +241,14 @@ theorem weightedPairEnergy_coefficientLift_baseline_le
     (weightedMass S u) ^ 2 * weightedPairEnergy S u x ≤
       weightedPairEnergy S u (coefficientLift S u V x) := by
   rw [weightedPairEnergy_coefficientLift_of_centered S u V x hcenter]
-  have hpot : 0 ≤ ∑ i in S, u i * V i * (x i) ^ 2 := by
+  have hpot : 0 ≤ ∑ i ∈ S, u i * V i * (x i) ^ 2 := by
     apply Finset.sum_nonneg
     intro i hi
-    positivity
-  have hprod := weightedPairEnergy_nonneg S u (coefficientProduct V x) hu
-  positivity
+    exact mul_nonneg (mul_nonneg (hu i hi) (hV i hi)) (sq_nonneg _)
+  have hprod :
+      0 ≤ weightedPairEnergy S u (coefficientProduct V x) :=
+    weightedPairEnergy_nonneg S u (coefficientProduct V x) hu
+  nlinarith [sq_nonneg (weightedMass S u)]
 
 /-- Outside the centered subspace, reciprocal coefficient modes form a kernel. -/
 theorem coefficientLift_reciprocal_mode
