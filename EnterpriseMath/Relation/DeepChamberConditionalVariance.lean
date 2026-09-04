@@ -83,7 +83,7 @@ theorem colorTotals_standard
     _ = 0 := by
       apply Finset.sum_eq_zero
       intro m hm
-      rw [hstd m hm, mul_zero]
+      simp only [hstd m hm, mul_zero]
 
 /-- Color-total energy of a pointwise standard channel is its reduced standard energy. -/
 theorem colorTotalEnergy_eq_standardPairEnergy_div_three
