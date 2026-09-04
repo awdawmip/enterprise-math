@@ -174,6 +174,18 @@ def Globalizable (e : EdgeBits) : Prop :=
 def GaugeEquivalent (x y : EdgeBits) : Prop :=
   ∃ v : VertexBits, y = edgeXor x (coboundary v)
 
+instance instDecidablePredFlat : DecidablePred Flat := fun e => by
+  unfold Flat
+  infer_instance
+
+instance instDecidablePredGlobalizable : DecidablePred Globalizable := fun e => by
+  unfold Globalizable
+  exact Fintype.decidableExistsFintype
+
+instance instDecidableGaugeEquivalent (x y : EdgeBits) : Decidable (GaugeEquivalent x y) := by
+  unfold GaugeEquivalent
+  exact Fintype.decidableExistsFintype
+
 /-- Gauge-fix the root on slice `A` and reconstruct the other three signs. -/
 def reconstruct (e : EdgeBits) : VertexBits :=
   ⟨false, e.ab, e.ac, e.ad⟩
