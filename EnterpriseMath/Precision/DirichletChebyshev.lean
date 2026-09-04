@@ -82,12 +82,14 @@ theorem dirichletContinuant_modeRoot_zero
     exact (mul_eq_zero_iff_right hsin).mp this
   rw [Polynomial.Chebyshev.U_real_cos]
   have hindex : ((M - 1 : ℕ) : ℤ) + 1 = (M : ℤ) := by omega
+  have hindexReal :
+      ((((M - 1 : ℕ) : ℤ) : ℝ) + 1) = (M : ℝ) := by
+    exact_mod_cast hindex
   have hM0 : (M : ℝ) ≠ 0 := by exact_mod_cast (Nat.ne_of_gt hM)
   have hphase :
-      ((((M - 1 : ℕ) : ℤ) + 1 : ℤ) : ℝ) * dirichletModeAngle M k =
+      ((((M - 1 : ℕ) : ℤ) : ℝ) + 1) * dirichletModeAngle M k =
         (k : ℝ) * Real.pi := by
-    rw [hindex]
-    push_cast
+    rw [hindexReal]
     unfold dirichletModeAngle
     field_simp [hM0]
   rw [hphase]
