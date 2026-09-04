@@ -1,0 +1,25 @@
+name: brc-newton-quadratic-open-interval-selector-research
+
+on:
+  pull_request:
+    paths:
+      - "experiments/brc_newton_quadratic_open_interval_selector_check.py"
+      - "research_notes/BRC_NEWTON_QUADRATIC_OPEN_INTERVAL_SELECTOR_20260904.md"
+      - ".github/workflows/brc-newton-quadratic-open-interval-selector-research.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Exact quadratic open-interval selector checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_newton_quadratic_open_interval_selector_check.py
