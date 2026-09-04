@@ -34,18 +34,19 @@
     "NEWTON_OBSERVER_LEASE_LATTICE_IS_TYPED: safe Newton compression is relative to the declared residual observer and future-operation horizon. Richer coordinate observers and longer frozen Newton horizons may only refine or preserve the safe quotient. A frozen root/multiplicity/scale schedule is a declared linear operation sequence and does not certify autonomous schedule stability under perturbation.",
     "NEWTON_AFFINE_SCHEDULE_VALIDITY_IS_CONSTRUCTIBLE: for finite rational-affine coefficient families and a declared finite rational-root Newton schedule, contact-order, selected-scale and declared root-multiplicity validity is a finite Boolean combination of rational affine equalities and non-equalities. The valid set need not be open and does not certify stability of a global root-selector rule.",
     "NEWTON_SPLIT_SELECTOR_STABILITY_IS_ORDER_TYPED: when a complete split-affine real-root certificate is available, T59 declared validity upgrades to smallest-real or smallest-positive selector stability by exact affine root-order conditions. Smallest-real and smallest-positive semantics are distinct; selector-value stability does not replace multiplicity validity; no general non-split parametric Sturm chamber is implied.",
+    "NEWTON_NONSPLIT_QUADRATIC_SELECTOR_IS_DLR_TYPED: for one monic quadratic competing cofactor Q=y^2+ay+b against a declared rational root r, fixed-multiplicity smallest-real selection is decided exactly by R=Q(r)!=0 and [D=a^2-4b<0 or (L=-a-2r>0 and R>0)]. No competing-root materialization is required; this does not imply smallest-positive or general parametric Sturm chambers.",
     "FEEDBACK_INTERACTION_IS_HIGHER_ORDER_TYPED: simultaneous positive feedback updates may have cooperative recurrent interactions of arbitrary finite order; pairwise edge responses/interactions are not assumed complete. Exact event-level condensation and all-orders subset interactions are available when the problem declares a finite feedback set.",
     "SIGNED_BOUNDARY: positive Weighted-BRC does not encode signed/amplitude cancellation or reflection-odd orientation after positive recoalescence; determinant/group-ring alternating signs used for algebraic compression are not signed branch mass.",
     "DETERMINISTIC_DEGENERATION: a single deterministic positive path has C=1, W=M, E=1, dominant degeneracy d=1 and Delta=0; richer weighted layers should not be forced onto deterministic problems without an observer need.",
     "BOOLEAN_BASE_PRESERVED: canonical R023 Boolean result-support BRC remains the base support semantics and is not mutated by the weighted layer.",
-    "RECURRENT_SCOPE_BOUNDARY: current recurrent/histogram/critical-degeneracy/orbit/ratio-jet/reducible-characteristic/Newton-recursion/handoff-resonance/fiber-quotient/observer-lattice/schedule-strata/split-selector Foundation covers finite explicit positive-rational/non-negative-rational systems and exact single selected algebraic roots within the stated interfaces; it does not extrapolate to infinite state spaces, signed/amplitude recurrence, complex weights, arbitrary non-rational branch weights, a generic multi-generator algebraic field, automatic absorption search, provenance recovery after an observer quotient, general non-split parametric root-selector chambers, or a complete Puiseux engine."
+    "RECURRENT_SCOPE_BOUNDARY: current recurrent/histogram/critical-degeneracy/orbit/ratio-jet/reducible-characteristic/Newton-recursion/handoff-resonance/fiber-quotient/observer-lattice/schedule-strata/split-selector/quadratic-selector Foundation covers finite explicit positive-rational/non-negative-rational systems and exact single selected algebraic roots within the stated interfaces; it does not extrapolate to infinite state spaces, signed/amplitude recurrence, complex weights, arbitrary non-rational branch weights, a generic multi-generator algebraic field, automatic absorption search, provenance recovery after an observer quotient, smallest-positive non-split quadratic selection, higher-degree non-split parametric selector chambers, or a complete Puiseux engine."
   ],
   "phase_a_anti_anchoring": {
     "rule": "These commitments are background typing rules, not a research agenda. FREE Phase A must still generate its own question from the primitive substrate and may open detailed Weighted-BRC theorem/tool surfaces only after the self-generated problem actually contains the relevant typed branch/recurrent structure.",
     "forbidden": [
-      "presenting weighted/recurrent/histogram/critical-degeneracy/orbit/ratio-jet/reducible-characteristic/Newton-recursion/handoff-resonance/fiber-quotient/observer-lattice/schedule-strata/split-selector BRC theorem IDs as suggested research questions",
+      "presenting weighted/recurrent/histogram/critical-degeneracy/orbit/ratio-jet/reducible-characteristic/Newton-recursion/handoff-resonance/fiber-quotient/observer-lattice/schedule-strata/split-selector/quadratic-selector BRC theorem IDs as suggested research questions",
       "preloading successful arithmetic/selector/holonomy/recurrent/feedback/histogram/critical/orbit/ratio-jet/Newton examples to steer question choice",
-      "forcing multiplicity, recurrence, moments, histogram, critical-degeneracy, periodic-orbit, ratio-jet, Newton-edge, root-handoff, resonance, fiber-quotient, observer-lattice, schedule-strata, split-selector or feedback interpretations onto deterministic or signed problems"
+      "forcing multiplicity, recurrence, moments, histogram, critical-degeneracy, periodic-orbit, ratio-jet, Newton-edge, root-handoff, resonance, fiber-quotient, observer-lattice, schedule-strata, split-selector, quadratic-selector or feedback interpretations onto deterministic or signed problems"
     ]
   },
   "detailed_foundation": "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md",
@@ -63,6 +64,7 @@
   "newton_observer_lattice_foundation": "definitions/ENTERPRISE_BRC_NEWTON_OBSERVER_LATTICE_FOUNDATION_20260904.md",
   "newton_schedule_strata_foundation": "definitions/ENTERPRISE_BRC_NEWTON_SCHEDULE_STRATA_FOUNDATION_20260904.md",
   "newton_selector_chambers_foundation": "definitions/ENTERPRISE_BRC_NEWTON_SELECTOR_CHAMBERS_FOUNDATION_20260904.md",
+  "newton_quadratic_selector_foundation": "definitions/ENTERPRISE_BRC_NEWTON_QUADRATIC_SELECTOR_FOUNDATION_20260904.md",
   "theorem_ledger": "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json",
   "theorem_ledger_addenda": [
     "definitions/ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json",
@@ -78,7 +80,8 @@
     "definitions/ENTERPRISE_BRC_NEWTON_FIBER_QUOTIENT_THEOREM_LEDGER_20260904.json",
     "definitions/ENTERPRISE_BRC_NEWTON_OBSERVER_LATTICE_THEOREM_LEDGER_20260904.json",
     "definitions/ENTERPRISE_BRC_NEWTON_SCHEDULE_STRATA_THEOREM_LEDGER_20260904.json",
-    "definitions/ENTERPRISE_BRC_NEWTON_SELECTOR_CHAMBERS_THEOREM_LEDGER_20260904.json"
+    "definitions/ENTERPRISE_BRC_NEWTON_SELECTOR_CHAMBERS_THEOREM_LEDGER_20260904.json",
+    "definitions/ENTERPRISE_BRC_NEWTON_QUADRATIC_SELECTOR_THEOREM_LEDGER_20260904.json"
   ],
   "tool_method_id": "t0.weighted_brc_cwm",
   "tool_method_addenda": [
@@ -98,7 +101,8 @@
     "t0.weighted_brc_newton_fiber_quotient",
     "t0.weighted_brc_newton_observer_lattice",
     "t0.weighted_brc_newton_schedule_strata",
-    "t0.weighted_brc_newton_selector_chambers"
+    "t0.weighted_brc_newton_selector_chambers",
+    "t0.weighted_brc_newton_quadratic_selector"
   ],
   "tool_module": "src/enterprise_math/brc_weighted.py",
   "tool_module_addenda": [
@@ -118,6 +122,7 @@
     "src/enterprise_math/brc_newton_fiber_quotient.py",
     "src/enterprise_math/brc_newton_observer_lattice.py",
     "src/enterprise_math/brc_newton_schedule_strata.py",
-    "src/enterprise_math/brc_newton_selector_chambers.py"
+    "src/enterprise_math/brc_newton_selector_chambers.py",
+    "src/enterprise_math/brc_newton_quadratic_selector.py"
   ]
 }
