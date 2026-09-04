@@ -9,10 +9,9 @@ on:
 
 permissions:
   contents: read
-  issues: read
 
 jobs:
-  validate:
+  diagnose:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -20,22 +19,26 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Validate control replacement chain used by dispatcher
-        run: python research_result_control_replacements.py audit
-      - name: Fetch current Issue 240 events
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - name: Enumerate incompatible immutable review schemas
+        shell: bash
         run: |
-          gh api --paginate --slurp "repos/${GITHUB_REPOSITORY}/issues/240/comments?per_page=100" > /tmp/comment-pages.json
-          jq 'add' /tmp/comment-pages.json > /tmp/comments.json
-      - name: Run canonical dispatcher after repair
-        run: |
-          set +e
-          python research_control_dispatch.py --events /tmp/comments.json --kind RESEARCH > /tmp/dispatch.json
-          status=$?
-          set -e
-          echo "CANONICAL_RESEARCH_CONTROL_DISPATCH_BEGIN"
-          cat /tmp/dispatch.json
-          echo "CANONICAL_RESEARCH_CONTROL_DISPATCH_END"
-          echo "DISPATCH_EXIT_STATUS=$status"
-          if [[ "$status" != "0" && "$status" != "2" ]]; then exit "$status"; fi
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          expected = "ENTERPRISE_MATH_RESEARCH_RESULT_REVIEW_V1"
+          bad = []
+          for path in sorted(Path("research_result_reviews").glob("*/*.json")):
+              row = json.loads(path.read_text(encoding="utf-8"))
+              got = row.get("record_schema")
+              if got != expected:
+                  bad.append({
+                      "path": path.as_posix(),
+                      "record_schema": got,
+                      "result_id": row.get("result_id"),
+                      "review_id": row.get("review_id"),
+                      "driver_id": row.get("driver_id"),
+                  })
+          print(f"BAD_REVIEW_SCHEMA_COUNT={len(bad)}")
+          for row in bad:
+              print(json.dumps(row, ensure_ascii=False, sort_keys=True))
+          PY
