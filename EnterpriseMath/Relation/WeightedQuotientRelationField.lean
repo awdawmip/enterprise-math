@@ -90,6 +90,113 @@ theorem relationField_quotientCloud
   unfold relationField quotientCloudTotal
   ring
 
+/-- Finite signless return residual over an action family. -/
+def signlessReturnResidual
+    (S : Finset ℕ) (u : ℕ → ℝ) (f : ℕ → ℝ) (n : ℕ) : ℝ :=
+  ∑ c in S, u c * defect c f n
+
+/-- The residual is total mass times the vertex plus the quotient average. -/
+theorem signlessReturnResidual_eq
+    (S : Finset ℕ) (u : ℕ → ℝ) (f : ℕ → ℝ) (n : ℕ) :
+    signlessReturnResidual S u f n =
+      totalWeight S u * f n +
+        ∑ c in S, u c * f (quotient c n) := by
+  classical
+  unfold signlessReturnResidual totalWeight defect
+  rw [Finset.sum_add_distrib, Finset.sum_mul]
+
+/--
+Pointwise transport identity: one relation field plus its common-suffix
+transport is the difference of two signless endpoint residuals.
+-/
+theorem relationField_signless_transport
+    (u : ℕ → ℝ) (f : ℕ → ℝ) (n a b c : ℕ) :
+    relationField u (quotientCloudTotal u f n) a b +
+        relationField u (quotientCloudTotal u f (quotient c n)) a b =
+      u a * u b *
+        (defect c f (quotient a n) - defect c f (quotient b n)) := by
+  rw [relationField_quotientCloud, relationField_quotientCloud]
+  simp [defect, quotient, Nat.div_div_eq_div_mul, Nat.mul_comm,
+    Nat.mul_left_comm, Nat.mul_assoc]
+  ring
+
+/--
+Exact operator-valued lift of the scalar signless return law to every internal
+relation-field coordinate.
+-/
+theorem relationField_return_lift
+    (S : Finset ℕ) (u : ℕ → ℝ) (f : ℕ → ℝ) (n a b : ℕ) :
+    totalWeight S u *
+          relationField u (quotientCloudTotal u f n) a b +
+        ∑ c in S, u c *
+          relationField u (quotientCloudTotal u f (quotient c n)) a b =
+      u a * u b *
+        (signlessReturnResidual S u f (quotient a n) -
+          signlessReturnResidual S u f (quotient b n)) := by
+  classical
+  unfold totalWeight signlessReturnResidual
+  rw [Finset.sum_mul, ← Finset.sum_add_distrib,
+    ← Finset.sum_sub_distrib, Finset.mul_sum]
+  apply Finset.sum_congr rfl
+  intro c hc
+  have h := relationField_signless_transport u f n a b c
+  calc
+    u c * relationField u (quotientCloudTotal u f n) a b +
+        u c * relationField u (quotientCloudTotal u f (quotient c n)) a b =
+      u c *
+        (relationField u (quotientCloudTotal u f n) a b +
+          relationField u (quotientCloudTotal u f (quotient c n)) a b) := by
+            ring
+    _ = u c *
+        (u a * u b *
+          (defect c f (quotient a n) - defect c f (quotient b n))) := by
+            rw [h]
+    _ = u a * u b *
+        (u c * defect c f (quotient a n) -
+          u c * defect c f (quotient b n)) := by
+            ring
+
+/-- Normalized quotient transport of one internal relation coordinate. -/
+def relationTransportAverage
+    (S : Finset ℕ) (u : ℕ → ℝ) (f : ℕ → ℝ)
+    (n a b : ℕ) : ℝ :=
+  (∑ c in S, u c *
+    relationField u (quotientCloudTotal u f (quotient c n)) a b) /
+      totalWeight S u
+
+/-- Normalized form of the exact relation-field return equation. -/
+theorem relationField_normalized_return_lift
+    (S : Finset ℕ) (u : ℕ → ℝ) (f : ℕ → ℝ) (n a b : ℕ)
+    (hU : totalWeight S u ≠ 0) :
+    relationField u (quotientCloudTotal u f n) a b +
+        relationTransportAverage S u f n a b =
+      (u a * u b / totalWeight S u) *
+        (signlessReturnResidual S u f (quotient a n) -
+          signlessReturnResidual S u f (quotient b n)) := by
+  unfold relationTransportAverage
+  have h := relationField_return_lift S u f n a b
+  calc
+    relationField u (quotientCloudTotal u f n) a b +
+        (∑ c in S, u c *
+          relationField u (quotientCloudTotal u f (quotient c n)) a b) /
+            totalWeight S u =
+      (totalWeight S u *
+          relationField u (quotientCloudTotal u f n) a b +
+        ∑ c in S, u c *
+          relationField u (quotientCloudTotal u f (quotient c n)) a b) /
+            totalWeight S u := by
+              field_simp [hU]
+              ring
+    _ = (u a * u b *
+        (signlessReturnResidual S u f (quotient a n) -
+          signlessReturnResidual S u f (quotient b n))) /
+            totalWeight S u := by
+              rw [h]
+    _ = (u a * u b / totalWeight S u) *
+        (signlessReturnResidual S u f (quotient a n) -
+          signlessReturnResidual S u f (quotient b n)) := by
+              field_simp [hU]
+
 /-- Positive pairing of the internal relation field with its endpoint difference. -/
 def relationFieldEnergy
     (S : Finset ℕ) (u : ℕ → ℝ) (f : ℕ → ℝ) (n : ℕ) : ℝ :=
