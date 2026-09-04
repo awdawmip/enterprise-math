@@ -18,6 +18,7 @@ import EnterpriseMath.Relation.PrimePowerQuotientTriangle
 import EnterpriseMath.Relation.QuotientNilpotence
 import EnterpriseMath.Relation.OrderedQuotientProvenance
 import EnterpriseMath.Relation.OrderedQuotientCurvature
+import EnterpriseMath.Relation.BranchAverageNoGo
 import EnterpriseMath.Scale.Compatibility
 import EnterpriseMath.State.CriticalGrid
 import EnterpriseMath.PrimeFusion
