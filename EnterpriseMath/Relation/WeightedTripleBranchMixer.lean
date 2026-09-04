@@ -8,6 +8,8 @@ open EnterpriseMath.WeightedCoefficientCoercivity
 open EnterpriseMath.WeightedRelationMixer
 open scoped BigOperators
 
+noncomputable section
+
 /-- One ordered three-history label. -/
 structure Triple (α : Type*) where
   first : α
@@ -118,65 +120,65 @@ theorem transpositionMixer_nonneg
 /-- Unnormalized pushback of a triple readout to the first action label. -/
 def pushFirstNumerator {α : Type*}
     (S : Finset α) (u : α → ℝ) (F : Triple α → ℝ) (a : α) : ℝ :=
-  ∑ b in S, ∑ c in S, u b * u c * F ⟨a, b, c⟩
+  ∑ b ∈ S, ∑ c ∈ S, u b * u c * F ⟨a, b, c⟩
 
 /-- Product-mass contribution of the first-coordinate term. -/
 theorem pushFirst_sum_first
     {α : Type*} (S : Finset α) (u value : α → ℝ) (a : α) :
-    (∑ b in S, ∑ c in S, u b * u c * value a) =
+    (∑ b ∈ S, ∑ c ∈ S, u b * u c * value a) =
       (weightedMass S u) ^ 2 * value a := by
   classical
   unfold weightedMass
   calc
-    (∑ b in S, ∑ c in S, u b * u c * value a) =
-        ∑ b in S, u b * ((∑ c in S, u c) * value a) := by
+    (∑ b ∈ S, ∑ c ∈ S, u b * u c * value a) =
+        ∑ b ∈ S, u b * ((∑ c ∈ S, u c) * value a) := by
           apply Finset.sum_congr rfl
           intro b hb
           rw [Finset.sum_mul]
           apply Finset.sum_congr rfl
           intro c hc
           ring
-    _ = (∑ b in S, u b) * ((∑ c in S, u c) * value a) := by
+    _ = (∑ b ∈ S, u b) * ((∑ c ∈ S, u c) * value a) := by
           rw [Finset.sum_mul]
-    _ = (∑ b in S, u b) ^ 2 * value a := by ring
+    _ = (∑ b ∈ S, u b) ^ 2 * value a := by ring
 
 /-- Product-mass contribution of the second-coordinate term. -/
 theorem pushFirst_sum_second
     {α : Type*} (S : Finset α) (u value : α → ℝ) :
-    (∑ b in S, ∑ c in S, u b * u c * value b) =
+    (∑ b ∈ S, ∑ c ∈ S, u b * u c * value b) =
       weightedMass S u * weightedSum S u value := by
   classical
   unfold weightedMass weightedSum
   calc
-    (∑ b in S, ∑ c in S, u b * u c * value b) =
-        ∑ b in S, (u b * value b) * (∑ c in S, u c) := by
+    (∑ b ∈ S, ∑ c ∈ S, u b * u c * value b) =
+        ∑ b ∈ S, (u b * value b) * (∑ c ∈ S, u c) := by
           apply Finset.sum_congr rfl
           intro b hb
           rw [Finset.mul_sum]
           apply Finset.sum_congr rfl
           intro c hc
           ring
-    _ = (∑ b in S, u b * value b) * (∑ c in S, u c) := by
+    _ = (∑ b ∈ S, u b * value b) * (∑ c ∈ S, u c) := by
           rw [Finset.sum_mul]
-    _ = (∑ c in S, u c) * (∑ b in S, u b * value b) := by ring
+    _ = (∑ c ∈ S, u c) * (∑ b ∈ S, u b * value b) := by ring
 
 /-- Product-mass contribution of the third-coordinate term. -/
 theorem pushFirst_sum_third
     {α : Type*} (S : Finset α) (u value : α → ℝ) :
-    (∑ b in S, ∑ c in S, u b * u c * value c) =
+    (∑ b ∈ S, ∑ c ∈ S, u b * u c * value c) =
       weightedMass S u * weightedSum S u value := by
   classical
   unfold weightedMass weightedSum
   calc
-    (∑ b in S, ∑ c in S, u b * u c * value c) =
-        ∑ b in S, u b * (∑ c in S, u c * value c) := by
+    (∑ b ∈ S, ∑ c ∈ S, u b * u c * value c) =
+        ∑ b ∈ S, u b * (∑ c ∈ S, u c * value c) := by
           apply Finset.sum_congr rfl
           intro b hb
           rw [Finset.mul_sum]
           apply Finset.sum_congr rfl
           intro c hc
           ring
-    _ = (∑ b in S, u b) * (∑ c in S, u c * value c) := by
+    _ = (∑ b ∈ S, u b) * (∑ c ∈ S, u c * value c) := by
           rw [Finset.sum_mul]
 
 /-- Exact unnormalized lift--transpose--project formula. -/
@@ -190,11 +192,11 @@ theorem pushFirstNumerator_transpositionMixer
   unfold pushFirstNumerator
   simp_rw [transpositionMixer_firstReadout]
   calc
-    (∑ b in S, ∑ c in S,
+    (∑ b ∈ S, ∑ c ∈ S,
         u b * u c * ((value a + value b + value c) / 3)) =
-      ((∑ b in S, ∑ c in S, u b * u c * value a) +
-        (∑ b in S, ∑ c in S, u b * u c * value b) +
-        (∑ b in S, ∑ c in S, u b * u c * value c)) / 3 := by
+      ((∑ b ∈ S, ∑ c ∈ S, u b * u c * value a) +
+        (∑ b ∈ S, ∑ c ∈ S, u b * u c * value b) +
+        (∑ b ∈ S, ∑ c ∈ S, u b * u c * value c)) / 3 := by
           simp_rw [Finset.sum_add_distrib]
           ring
     _ = ((weightedMass S u) ^ 2 * value a +
@@ -218,5 +220,7 @@ theorem pushFirst_transpositionMixer
   rw [pushFirstNumerator_transpositionMixer]
   field_simp [hU]
   ring
+
+end
 
 end EnterpriseMath.WeightedTripleBranchMixer
