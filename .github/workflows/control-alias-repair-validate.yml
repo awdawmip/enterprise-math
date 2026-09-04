@@ -1,0 +1,43 @@
+name: control-alias-repair-validate
+
+on:
+  push:
+    branches:
+      - control/fix-driver-authority-aliases-20260904
+    paths:
+      - '.github/workflows/control-alias-repair-validate.yml'
+
+permissions:
+  contents: read
+  issues: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate authority and replacement chains
+        run: |
+          python research_driver_authority.py audit
+          python research_result_control_replacements.py audit
+      - name: Fetch current Issue 240 events
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --paginate --slurp "repos/${GITHUB_REPOSITORY}/issues/240/comments?per_page=100" > /tmp/comment-pages.json
+          jq 'add' /tmp/comment-pages.json > /tmp/comments.json
+      - name: Run canonical dispatcher after repair
+        run: |
+          set +e
+          python research_control_dispatch.py --events /tmp/comments.json --kind RESEARCH > /tmp/dispatch.json
+          status=$?
+          set -e
+          echo "CANONICAL_RESEARCH_CONTROL_DISPATCH_BEGIN"
+          cat /tmp/dispatch.json
+          echo "CANONICAL_RESEARCH_CONTROL_DISPATCH_END"
+          echo "DISPATCH_EXIT_STATUS=$status"
+          if [[ "$status" != "0" && "$status" != "2" ]]; then exit "$status"; fi
