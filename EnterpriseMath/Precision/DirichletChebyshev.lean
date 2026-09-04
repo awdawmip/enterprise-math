@@ -20,7 +20,8 @@ theorem dirichletContinuant_eq_chebyshevU (z : ℝ) (n : ℕ) :
   | zero =>
       simp [dirichletContinuant]
   | one =>
-      simp [dirichletContinuant] <;> ring
+      simp [dirichletContinuant]
+      ring
   | more n ih0 ih1 =>
       rw [dirichletContinuant]
       have h2 : ((n + 2 : ℕ) : ℤ) = (n : ℤ) + 2 := by omega
