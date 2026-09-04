@@ -1,0 +1,22 @@
+name: brc-newton-sturm-signature-root-rank-research
+
+on:
+  pull_request:
+    paths:
+      - "experiments/brc_newton_sturm_signature_root_rank_check.py"
+      - "research_notes/BRC_NEWTON_STURM_SIGNATURE_ROOT_RANK_20260904.md"
+      - ".github/workflows/brc-newton-sturm-signature-root-rank-research.yml"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Exact arbitrary-degree Sturm-signature root-rank checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_newton_sturm_signature_root_rank_check.py
