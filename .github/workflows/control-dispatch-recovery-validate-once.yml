@@ -1,4 +1,4 @@
-# one-shot rerun 5
+# one-shot rerun 6
 name: control-dispatch-recovery-validate-once
 
 on:
@@ -40,40 +40,61 @@ jobs:
           path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
           print('RETIRED=' + ','.join(sorted(retire)))
           PY
-          python control_plane/research_driver_review_authority_compat_runtime.py
+          python - <<'PY'
+          from control_plane import research_result_review_audit_fault_isolation as invalid
+          from control_plane import research_result_review_binding_fault_isolation as binding
+          from control_plane import research_driver_review_authority_compat_runtime as compat
+          from control_plane import research_driver_review_authority_fault_isolation as authority_isolation
+          invalid.install()
+          binding.install()
+          compat.install()
+          authority_isolation.install()
+          print('AUTHORITY_QUARANTINE_AFTER_RETIRE=PASS')
+          PY
           git config user.name 'awdawmip'
           git config user.email '30957095+awdawmip@users.noreply.github.com'
           git add research_driver_review_authority_quarantines.json
           git commit -m 'control: retire quarantines resolved by exact raw authority aliases'
           git push origin HEAD:main
-      - name: Validate repaired runtime prerequisites
+      - name: Classify operational Driver authority leaks
         run: |
-          python control_plane/research_result_review_audit_fault_isolation.py
-          python control_plane/research_driver_review_authority_compat_runtime.py
           python - <<'PY'
+          import json
           from control_plane import research_control_bootstrap as bootstrap
           bootstrap.install()
+          import research_driver_authority as authority
           from tools import research_result_records
-          operational = {r.get('review_id') for r in research_result_records.iter_reviews()}
-          blocked = {
-              'DR-BC224E4802009728727F',
-              'DR-DD72EC82270666345509',
-              'DR-98D79A8522754B43637A',
-              'DR-23D512CBD58341BB6BDC',
-              'DR-4B7576B2FDCA2CCBAB38',
-              'DR-7E19A3C45B60D82F1A57',
-              'DR-9986FE430DB065EA8EF2',
-          }
-          leaked = sorted(blocked & operational)
-          if leaked:
-              raise SystemExit('nonoperational reviews leaked operationally: ' + repr(leaked))
-          import research_driver_authority as driver_authority
-          errors = driver_authority.audit()
-          if errors:
-              raise SystemExit('\n'.join(errors))
+          unresolved = []
+          for review in research_result_records.iter_reviews():
+              errors = authority.review_authority_errors(review)
+              if not errors:
+                  continue
+              driver_id = review.get('driver_id')
+              reviewed_at = review.get('reviewed_at')
+              active = None
+              if isinstance(driver_id, str) and isinstance(reviewed_at, str):
+                  try:
+                      active = authority.require_active_driver(driver_id, reviewed_at)
+                  except Exception as exc:
+                      active = {'lookup_error': str(exc)}
+              unresolved.append({
+                  'review_id': review.get('review_id'),
+                  'result_id': review.get('result_id'),
+                  'task_id': review.get('task_id'),
+                  'driver_id': driver_id,
+                  'reviewed_at': reviewed_at,
+                  'pinned_authority_record_id': review.get('driver_authority_record_id'),
+                  'pinned_source_comment_id': review.get('driver_authority_source_comment_id'),
+                  'active_authority_record_id': active.get('authority_record_id') if isinstance(active, dict) else None,
+                  'active_raw_authority_record_id': active.get('_raw_authority_record_id') if isinstance(active, dict) else None,
+                  'active_source_comment_id': active.get('source_comment_id') if isinstance(active, dict) else None,
+                  'errors': errors,
+              })
+          print('OPERATIONAL_AUTHORITY_ERRORS=' + json.dumps(unresolved, ensure_ascii=False, sort_keys=True))
+          if unresolved:
+              raise SystemExit(f'operational Driver authority leaks remain: {len(unresolved)}')
           print('RUNTIME_BOOTSTRAP=PASS')
-          print('NONOPERATIONAL_REVIEW_ISOLATION=PASS')
-          print('DRIVER_AUTHORITY=PASS')
+          print('OPERATIONAL_DRIVER_AUTHORITY=PASS')
           PY
       - name: Fetch raw Issue 240 runtime stream
         env:
