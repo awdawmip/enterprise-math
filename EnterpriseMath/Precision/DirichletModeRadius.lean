@@ -45,8 +45,10 @@ theorem two_mul_mode_lt_dirichletModeRadius
     2 * (k : ℝ) < dirichletCoarseRadius M (dirichletModeRoot M k) := by
   have hM : 0 < M := lt_trans hk hkM
   have hθ := dirichletModeAngle_mem_Ioo M k hk hkM
-  have hhalf0 : 0 < dirichletModeAngle M k / 2 := by linarith
-  have hhalfpi : dirichletModeAngle M k / 2 < Real.pi / 2 := by linarith
+  have hhalf0 : 0 < dirichletModeAngle M k / 2 :=
+    div_pos hθ.1 (by norm_num)
+  have hhalfpi : dirichletModeAngle M k / 2 < Real.pi / 2 :=
+    div_lt_div_of_pos_right hθ.2 (by norm_num)
   have hs := Real.mul_lt_sin hhalf0 hhalfpi
   have hMreal : 0 < (M : ℝ) := by exact_mod_cast hM
   have hM0 : (M : ℝ) ≠ 0 := ne_of_gt hMreal
