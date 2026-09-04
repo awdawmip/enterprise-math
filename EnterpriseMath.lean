@@ -28,6 +28,7 @@ import EnterpriseMath.Precision.DirichletSpectrumBridge
 import EnterpriseMath.Precision.DirichletParitySpectrumCurvature
 import EnterpriseMath.Precision.HammingKrawtchoukKernel
 import EnterpriseMath.Precision.HammingShellSpectrum
+import EnterpriseMath.Precision.HammingChebyshevSynchronization
 import EnterpriseMath.Precision.HammingReflection
 import EnterpriseMath.Precision.HammingSpectralWallis
 import EnterpriseMath.Precision.HammingFiniteOperator
