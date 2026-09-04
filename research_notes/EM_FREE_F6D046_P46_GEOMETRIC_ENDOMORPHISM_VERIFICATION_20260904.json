@@ -1,0 +1,114 @@
+{
+  "schema": "EM_FREE_F6D046_P46_GEOMETRIC_ENDOMORPHISM_VERIFICATION_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "research_units": [
+    "EM-FREE-F6D046-R22-P46-CORRECTED-ABSOLUTE-SIMPLICITY",
+    "EM-FREE-F6D046-R23-P46-ASYMMETRIC-ENDOMORPHISM-INTERSECTION"
+  ],
+  "all_passed": true,
+  "check_count": 21,
+  "checks": {
+    "discriminants_exact": true,
+    "point_counts_17": true,
+    "local_polynomial_17": true,
+    "good_split_ordinary_17": true,
+    "point_counts_29": true,
+    "local_polynomial_29": true,
+    "good_split_ordinary_29": true,
+    "gaussian_norm_factorization_17": true,
+    "gaussian_norm_factorization_29": true,
+    "g17_irreducible_over_Qi": true,
+    "g29_irreducible_over_Qi": true,
+    "f17_irreducible_over_Q": true,
+    "f29_irreducible_over_Q": true,
+    "p7_certificate_fails_at_m2": true,
+    "candidate_order_set_complete": true,
+    "absolute_simplicity_ratio_certificate_17": true,
+    "absolute_simplicity_ratio_certificate_29": true,
+    "g29_resolvent_irreducible_over_Qi": true,
+    "all_four_Qi_field_pairings_nonisomorphic": true,
+    "P46_geometrically_simple": true,
+    "End0_P46_equals_Qi": true
+  },
+  "correction": {
+    "invalidated_attempt": "p=7 absolute-simplicity lift",
+    "first_failing_witness": "m=2; f_7(X)=f_7(-X), hence roots occur in alpha,-alpha pairs",
+    "replacement_good_reductions": [17,29]
+  },
+  "curve_invariants": {
+    "disc_A": -15925248,
+    "disc_D": 48,
+    "resultant_A_D": -6912
+  },
+  "point_count_summary": {
+    "17": [
+      {"p":17,"n":1,"q":17,"modulus_low":[6,1],"N_E":14,"N_C46":26,"power_sum_P46":-12},
+      {"p":17,"n":2,"q":289,"modulus_low":[13,15,1],"N_E":308,"N_C46":260,"power_sum_P46":48},
+      {"p":17,"n":3,"q":4913,"modulus_low":[16,6,4,1],"N_E":5054,"N_C46":4946,"power_sum_P46":108},
+      {"p":17,"n":4,"q":83521,"modulus_low":[2,11,16,6,1],"N_E":83776,"N_C46":84552,"power_sum_P46":-776}
+    ],
+    "29": [
+      {"p":29,"n":1,"q":29,"modulus_low":[23,1],"N_E":30,"N_C46":34,"power_sum_P46":-4},
+      {"p":29,"n":2,"q":841,"modulus_low":[20,24,1],"N_E":900,"N_C46":884,"power_sum_P46":16},
+      {"p":29,"n":3,"q":24389,"modulus_low":[23,1,19,1],"N_E":24390,"N_C46":24898,"power_sum_P46":-508},
+      {"p":29,"n":4,"q":707281,"modulus_low":[8,7,7,1,1],"N_E":705600,"N_C46":708168,"power_sum_P46":-2568}
+    ]
+  },
+  "local_L_polynomials_coefficients_ascending": {
+    "17": [1,12,48,-36,-814,-612,13872,58956,83521],
+    "29": [1,4,0,148,1298,4292,0,97556,707281]
+  },
+  "characteristic_polynomials_coefficients_high": {
+    "17": [1,12,48,-36,-814,-612,13872,58956,83521],
+    "29": [1,4,0,148,1298,4292,0,97556,707281]
+  },
+  "quartic_irreducibility_certificates": {
+    "g17_mod_(5,i-2)": {"p":5,"degree":4,"monic_coefficients_low":[2,2,1,0,1],"x_reduced":[0,1],"x_pn_remainder":[0,1],"prime_divisor_gcds":{"2":[1]}},
+    "g29_mod_(101,i-10)": {"p":101,"degree":4,"monic_coefficients_low":[46,9,1,62,1],"x_reduced":[0,1],"x_pn_remainder":[0,1],"prime_divisor_gcds":{"2":[1]}}
+  },
+  "unit_root_order_bound": {
+    "degree_pair_field_bound": 64,
+    "m_bound": 8192,
+    "candidate_count": 126,
+    "candidate_max": 240
+  },
+  "root_ratio_witness_summary": {
+    "17": {"count":126,"auxiliary_prime_distribution":{"11":49,"19":76,"31":1},"sha256":"0ea015d1c6bf71bde530408dd59389a492778a383c8af81f60470e45d29d10dd"},
+    "29": {"count":126,"auxiliary_prime_distribution":{"11":106,"17":13,"13":2,"19":4,"31":1},"sha256":"5a70d1fd577a778812861e5e5207fc49e9d78825de7c096644ede48242af9488"}
+  },
+  "full_root_ratio_witnesses_local_artifact": {
+    "filename": "EM_FREE_F6D046_P46_GEOMETRIC_ENDOMORPHISM_VERIFICATION_20260904.json",
+    "sha256": "8a6f4d5c121fef5d96cbfb1ce71d17586c257196efaa210ed5da8985152e0911",
+    "note": "The repository verifier recomputes all 252 witnesses; this checked repository output stores counts and deterministic hashes."
+  },
+  "g29_cubic_resolvent": {
+    "coefficients_high_pairs": [[1,0],[20,8],[-1596,-1520],[-15600,-34080]],
+    "reduction_prime": 17,
+    "i_mod_prime": 4,
+    "coefficients_high_mod_prime": [1,1,8,9],
+    "rabin_certificate": {"p":17,"degree":3,"monic_coefficients_low":[9,8,1,1],"x_reduced":[0,1],"x_pn_remainder":[0,1],"prime_divisor_gcds":{"3":[1]}}
+  },
+  "field_nonisomorphism_witnesses": [
+    {"pairing":"g17+__g29+","ell":37,"i_mod_ell":6,"g17_coefficients_high_mod_ell":[1,18,26,24,6],"g29_coefficients_high_mod_ell":[1,1,6,16,19],"g17_factor_degrees":[2,2],"g29_factor_degrees":[1,3],"both_squarefree":true,"distinguished":true},
+    {"pairing":"g17+__g29-","ell":37,"i_mod_ell":6,"g17_coefficients_high_mod_ell":[1,18,26,24,6],"g29_coefficients_high_mod_ell":[1,3,28,12,15],"g17_factor_degrees":[2,2],"g29_factor_degrees":[1,3],"both_squarefree":true,"distinguished":true},
+    {"pairing":"g17-__g29+","ell":37,"i_mod_ell":6,"g17_coefficients_high_mod_ell":[1,31,19,13,2],"g29_coefficients_high_mod_ell":[1,1,6,16,19],"g17_factor_degrees":[2,2],"g29_factor_degrees":[1,3],"both_squarefree":true,"distinguished":true},
+    {"pairing":"g17-__g29-","ell":37,"i_mod_ell":6,"g17_coefficients_high_mod_ell":[1,31,19,13,2],"g29_coefficients_high_mod_ell":[1,3,28,12,15],"g17_factor_degrees":[2,2],"g29_factor_degrees":[1,3],"both_squarefree":true,"distinguished":true}
+  ],
+  "theorems": {
+    "geometric_simplicity": "P46 over Qbar is geometrically simple",
+    "geometric_endomorphism_algebra": "End^0_Qbar(P46) = Q(i)"
+  },
+  "logic": {
+    "absolute_simplicity": "irreducible Frobenius polynomial plus no root-of-unity quotient between distinct conjugate roots implies absolute simplicity of the reduction; specialization then excludes a characteristic-zero geometric idempotent",
+    "endomorphism_intersection": "At p=29, the K-quartic Frobenius field has no nontrivial K-subfield because both its quartic and cubic resolvent are K-irreducible. Thus any D=End^0_Qbar(P46) with K subset D subset F29 is K or F29. The latter would force a K-isomorphism with a p=17 Frobenius field, excluded in all four i/-i pairings by the squarefree split-type witness [2,2] != [1,3]."
+  },
+  "classification": [
+    "DERIVED_GEOMETRIC_THEOREM",
+    "GEOMETRICALLY_SIMPLE",
+    "GEOMETRIC_ENDOMORPHISM_ALGEBRA_QI",
+    "CORRECTION_AWARE",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION",
+    "P000_UNCHANGED"
+  ]
+}
