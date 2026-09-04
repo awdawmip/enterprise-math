@@ -29,6 +29,7 @@ import EnterpriseMath.Precision.DirichletParitySpectrumCurvature
 import EnterpriseMath.Precision.HammingKrawtchoukKernel
 import EnterpriseMath.Precision.HammingShellSpectrum
 import EnterpriseMath.Precision.HammingChebyshevSynchronization
+import EnterpriseMath.Precision.HammingMaxCarryWitness
 import EnterpriseMath.Precision.HammingReflection
 import EnterpriseMath.Precision.HammingSpectralWallis
 import EnterpriseMath.Precision.HammingFiniteOperator
