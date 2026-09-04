@@ -13,6 +13,7 @@ import copy
 import hashlib
 import json
 import re
+from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -654,13 +655,49 @@ def reduce_definition(
     return _overlay_active_cohort(task, state, root)
 
 
+@contextmanager
+def _dispatch_result_read_snapshot(root: Path = ROOT):
+    """Cache the operational Result/Review file view for one derived-state pass.
+
+    Canonical dispatch is read-only.  Without this bounded cache, every task's
+    result-state overlay rescans the complete immutable Result/Review stores,
+    turning one dispatch into repeated repository-wide I/O.  The original
+    functions are restored immediately after this effective-state derivation, so
+    writers and later calls always observe fresh repository bytes.
+    """
+    base_results = research_result_records.iter_results
+    base_reviews = research_result_records.iter_reviews
+    cached_results = tuple(base_results(root))
+    cached_reviews = tuple(base_reviews(root))
+    target_root = root.resolve()
+
+    def iter_results(local_root: Path = research_result_records.ROOT):
+        if local_root.resolve() != target_root:
+            return base_results(local_root)
+        return list(cached_results)
+
+    def iter_reviews(local_root: Path = research_result_records.ROOT):
+        if local_root.resolve() != target_root:
+            return base_reviews(local_root)
+        return list(cached_reviews)
+
+    research_result_records.iter_results = iter_results
+    research_result_records.iter_reviews = iter_reviews
+    try:
+        yield
+    finally:
+        research_result_records.iter_results = base_results
+        research_result_records.iter_reviews = base_reviews
+
+
 def effective_states(
     events: list[dict[str, Any]], *, now: datetime, root: Path = ROOT
 ) -> list[dict[str, Any]]:
-    return [
-        reduce_definition(task, events, now=now, root=root)
-        for task in merged_definitions(root)
-    ]
+    with _dispatch_result_read_snapshot(root):
+        return [
+            reduce_definition(task, events, now=now, root=root)
+            for task in merged_definitions(root)
+        ]
 
 
 def select_task(
