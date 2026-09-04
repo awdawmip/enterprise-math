@@ -43,8 +43,7 @@ theorem weightedSecond_eq_total_sq_add_pair
       (weightedSum S κ x) ^ 2 / weightedMass S κ +
         weightedPairEnergy S κ x / (2 * weightedMass S κ) := by
   rw [weightedPairEnergy_eq_moments]
-  field_simp [hK]
-  ring
+  field_simp [hK] <;> ring
 
 /--
 Exact colored law of total variance: deep energy is color-mean energy plus
