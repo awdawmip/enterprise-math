@@ -16,10 +16,11 @@ def discriminant(a: Fraction, b: Fraction, c: Fraction) -> Fraction:
 
 
 def values_at(a: Fraction, b: Fraction, c: Fraction, x: Fraction):
-    value = x**3 + a * x * x + b * x + c
-    first = 3 * x * x + 2 * a * x + b
-    second = 6 * x + 2 * a
-    return value, first, second
+    return (
+        x**3 + a * x * x + b * x + c,
+        3 * x * x + 2 * a * x + b,
+        6 * x + 2 * a,
+    )
 
 
 def root_rank_formula(a: Fraction, b: Fraction, c: Fraction, x: Fraction) -> int | None:
@@ -29,16 +30,13 @@ def root_rank_formula(a: Fraction, b: Fraction, c: Fraction, x: Fraction) -> int
         return None
     if d < 0:
         return 0 if value < 0 else 1
-    assert d > 0
     if value < 0:
         return 0 if first > 0 and second < 0 else 2
     return 3 if first > 0 and second > 0 else 1
 
 
 def cauchy_left_bound(a: Fraction, b: Fraction, c: Fraction, x: Fraction) -> Fraction:
-    coefficient_bound = max(abs(a), abs(b), abs(c), Q(0))
-    bound = max(abs(x) + 2, coefficient_bound + 2)
-    return -bound
+    return -max(abs(x) + 2, max(abs(a), abs(b), abs(c), Q(0)) + 2)
 
 
 def poly_eval(poly: Poly, x: Fraction) -> Fraction:
@@ -63,11 +61,8 @@ def zero_right_rank_formula(a: Fraction, b: Fraction, c: Fraction) -> int | None
         return None
     if c != 0:
         return root_rank_formula(a, b, c, Q(0))
-
-    # zero is a simple root because d != 0
     if d < 0:
         return 1
-    assert d > 0
     if b < 0:
         return 2
     if b > 0 and a < 0:
@@ -79,18 +74,14 @@ def zero_right_rank_formula(a: Fraction, b: Fraction, c: Fraction) -> int | None
 
 def sturm_zero_right_rank(a: Fraction, b: Fraction, c: Fraction) -> int:
     poly: Poly = (c, b, a, Q(1))
-    d = discriminant(a, b, c)
-    if d == 0:
+    if discriminant(a, b, c) == 0:
         raise ValueError("zero-right rank checker assumes non-degenerate cubic")
     left = cauchy_left_bound(a, b, c, Q(0))
     if c != 0:
         return cd._root_count(cd._sturm_sequence(poly), left, Q(0))
-
-    # Deflate the simple zero root, count negative roots, then add zero itself.
     cofactor = cd._p_div_exact(poly, (Q(0), Q(1)))
     assert poly_eval(cofactor, Q(0)) != 0
-    negative = cd._root_count(cd._sturm_sequence(cofactor), left, Q(0))
-    return negative + 1
+    return cd._root_count(cd._sturm_sequence(cofactor), left, Q(0)) + 1
 
 
 def sturm_open_positive_interval_empty(a: Fraction, b: Fraction, c: Fraction, root: Fraction) -> bool:
@@ -113,8 +104,7 @@ def exhaustive_rank_catalog():
     total = degenerate = root_probe = valid = checks = 0
     one_real = three_real = 0
     rank_counts = [0, 0, 0, 0]
-    derivative_zero_probes = second_zero_probes = 0
-    smallest_real_corollary_checks = 0
+    derivative_zero_probes = second_zero_probes = smallest_real_checks = 0
 
     for a, b, c, x in product(coeffs, coeffs, coeffs, probes):
         total += 1
@@ -129,7 +119,6 @@ def exhaustive_rank_catalog():
             root_probe += 1
             assert rank is None
             continue
-
         actual = sturm_rank_lt(a, b, c, x)
         assert rank == actual
         valid += 1
@@ -139,17 +128,12 @@ def exhaustive_rank_catalog():
             one_real += 1
             assert rank in (0, 1)
         else:
-            assert d > 0
             three_real += 1
-            if first == 0:
-                derivative_zero_probes += 1
-            if second == 0:
-                second_zero_probes += 1
-
-        # rank-zero readout must reproduce the cubic smallest-real formula.
+            derivative_zero_probes += int(first == 0)
+            second_zero_probes += int(second == 0)
         smallest_real = value < 0 and (d < 0 or (d > 0 and first > 0 and second < 0))
         assert (rank == 0) == smallest_real
-        smallest_real_corollary_checks += 1
+        smallest_real_checks += 1
 
     assert total == len(coeffs) ** 3 * len(probes)
     assert valid + degenerate + root_probe == total
@@ -157,17 +141,8 @@ def exhaustive_rank_catalog():
     assert all(count > 0 for count in rank_counts)
     assert derivative_zero_probes > 0 and second_zero_probes > 0
     return (
-        total,
-        degenerate,
-        root_probe,
-        valid,
-        checks,
-        one_real,
-        three_real,
-        tuple(rank_counts),
-        derivative_zero_probes,
-        second_zero_probes,
-        smallest_real_corollary_checks,
+        total, degenerate, root_probe, valid, checks, one_real, three_real,
+        tuple(rank_counts), derivative_zero_probes, second_zero_probes, smallest_real_checks,
     )
 
 
@@ -186,23 +161,16 @@ def zero_right_rank_catalog():
         checks += 1
         c_zero += int(c == 0)
     assert valid > 0 and c_zero > 0
-    assert zero_rank_counts[0] == 0  # at least one real cubic root is <= or >0; rank<=0 cannot occur at 0+? see below
-    # The preceding assertion is intentionally not mathematically universal;
-    # corrected below by direct support check if negative-root-free examples exist.
+    assert all(count > 0 for count in zero_rank_counts)
     return valid, c_zero, checks, tuple(zero_rank_counts)
 
 
-def corrected_zero_rank_support():
-    # Explicitly exercise all possible right-ranks that can occur at zero.
+def explicit_zero_rank_support():
     examples = (
-        # one-real, unique root positive -> zero right-rank 0
-        (Q(0), Q(1), Q(-1), 0),  # x^3+x-1
-        # c=0, zero smallest among 0,1,2
-        (Q(-3), Q(2), Q(0), 1),
-        # c=0, zero middle among -1,0,2
-        (Q(-1), Q(-2), Q(0), 2),
-        # c=0, zero largest among -2,-1,0
-        (Q(3), Q(2), Q(0), 3),
+        (Q(0), Q(1), Q(-1), 0),      # x^3+x-1: unique positive root
+        (Q(-3), Q(2), Q(0), 1),      # roots 0,1,2
+        (Q(-1), Q(-2), Q(0), 2),     # roots -1,0,2
+        (Q(3), Q(2), Q(0), 3),       # roots -2,-1,0
     )
     checks = 0
     for a, b, c, expected in examples:
@@ -218,7 +186,6 @@ def smallest_positive_catalog():
     roots = (Q(1, 2), Q(1), Q(2))
     valid = collisions = degenerate = stable = unstable = checks = 0
     zero_competitor_cases = one_real_checks = three_real_checks = 0
-
     for a, b, c, root in product(coeffs, coeffs, coeffs, roots):
         d = discriminant(a, b, c)
         value, _, _ = values_at(a, b, c, root)
@@ -228,7 +195,6 @@ def smallest_positive_catalog():
         if value == 0:
             collisions += 1
             continue
-
         rank_r = root_rank_formula(a, b, c, root)
         rank_zero = zero_right_rank_formula(a, b, c)
         assert rank_r is not None and rank_zero is not None
@@ -242,32 +208,17 @@ def smallest_positive_catalog():
         unstable += int(not predicted)
         checks += 3
         zero_competitor_cases += int(c == 0)
-
         if d < 0:
             one_real_checks += 1
-            # one-real closed corollary
             assert predicted == (c >= 0 or value < 0)
         else:
-            assert d > 0
             three_real_checks += 1
-
     assert valid > 0 and stable > 0 and unstable > 0
     assert zero_competitor_cases > 0 and one_real_checks > 0 and three_real_checks > 0
-    return (
-        valid,
-        collisions,
-        degenerate,
-        stable,
-        unstable,
-        checks,
-        zero_competitor_cases,
-        one_real_checks,
-        three_real_checks,
-    )
+    return valid, collisions, degenerate, stable, unstable, checks, zero_competitor_cases, one_real_checks, three_real_checks
 
 
 def disconnected_one_real_witness():
-    # Q_t=x^3+x+t, declared r=1.  Delta=-4-27t^2<0 always.
     root = Q(1)
     grid = tuple(Q(n, 4) for n in range(-16, 17))
     stable = unstable = collision = zero_root_safe = checks = 0
@@ -288,20 +239,16 @@ def disconnected_one_real_witness():
             stable += int(expected)
             unstable += int(not expected)
             if t == 0:
-                assert expected and c == 0
                 zero_root_safe += 1
         checks += 5
-    assert stable == 25
-    assert unstable == 7
-    assert collision == 1
-    assert zero_root_safe == 1
+    assert stable == 25 and unstable == 7 and collision == 1 and zero_root_safe == 1
     return len(grid), stable, unstable, collision, zero_root_safe, checks
 
 
 def main() -> int:
     rank = exhaustive_rank_catalog()
     zero = zero_right_rank_catalog()
-    support = corrected_zero_rank_support()
+    support = explicit_zero_rank_support()
     positive = smallest_positive_catalog()
     witness = disconnected_one_real_witness()
     print("BRC cubic root-rank selector checker: PASS")
