@@ -5,6 +5,8 @@ namespace EnterpriseMath.CoreDeepEnergyBridge
 
 open EnterpriseMath.DeepChamberColorBalance
 
+noncomputable section
+
 /-- Reduced factorial-core history: first color and one of the two final-slot orders. -/
 abbrev CoreHistory := Fin 3 × Bool
 
@@ -94,5 +96,7 @@ theorem amplitude_measure_tradeoff
     coreConditionalEnergy (fun i => h i / 3) =
       deepFullPacketEnergy h :=
   mixedCoreEnergy_eq_deepFullPacketEnergy h
+
+end
 
 end EnterpriseMath.CoreDeepEnergyBridge
