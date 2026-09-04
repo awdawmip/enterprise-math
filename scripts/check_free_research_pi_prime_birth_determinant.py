@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Exact finite checks for the pi-to-prime birth spectral determinant frontier.
+"""Exact finite checks for the pi-to-prime spectral/rotation frontiers.
 
 No floating target for pi/tau is used.  All mathematical comparisons are over
 integers or fractions.  This is a finite regression/checker, not a proof of the
-infinite #1159 sine-product dependency.
+infinite #1159 sine-product or Dirichlet-L completion dependencies.
 """
 
 from __future__ import annotations
@@ -69,6 +69,14 @@ def carry_count_double(n: int, p: int) -> int:
     return count
 
 
+def chi3(n: int) -> int:
+    """Nonprincipal Dirichlet character modulo 3."""
+    r = n % 3
+    if r == 0:
+        return 0
+    return 1 if r == 1 else -1
+
+
 def z_birth(M: int, r: int = 2) -> Fraction:
     assert M >= 1 and r >= 1
     z = Fraction(1, 1)
@@ -85,6 +93,14 @@ def z_birth_det_ratio(M: int, r: int = 2) -> Fraction:
         det_b *= p
         det_gap *= p**r - 1
     return Fraction(det_b**r, det_gap)
+
+
+def z_birth_sixfold_degenerate(M: int) -> Fraction:
+    """Naive sixfold spatial degeneracy repeats every Euler eigenfactor six times."""
+    z = Fraction(1, 1)
+    for p in primes_upto(M):
+        z *= Fraction(p * p, p * p - 1) ** 6
+    return z
 
 
 def prime_tau2_bounds(M: int) -> tuple[Fraction, Fraction]:
@@ -112,6 +128,15 @@ def diamond_tau_bounds(n: int) -> tuple[Fraction, Fraction]:
     return lower, upper
 
 
+def c3_orientation_partial(K: int) -> Fraction:
+    """S_K = sum_{k=0}^{K-1} (1/(3k+1)-1/(3k+2))."""
+    assert K >= 1
+    return sum(
+        (Fraction(1, 3 * k + 1) - Fraction(1, 3 * k + 2) for k in range(K)),
+        Fraction(0, 1),
+    )
+
+
 def check_birth_equivalence(limit: int = 250) -> None:
     for k in range(2, limit + 1):
         assert multiplicative_birth(k) == is_prime(k), k
@@ -121,6 +146,7 @@ def check_birth_determinant(limit: int = 250) -> None:
     for M in range(1, limit + 1):
         assert z_birth(M, 2) == z_birth_det_ratio(M, 2), M
         assert z_birth(M, 3) == z_birth_det_ratio(M, 3), M
+        assert z_birth_sixfold_degenerate(M) == z_birth(M, 2) ** 6, M
 
 
 def check_telescoping_tail(limit: int = 100) -> None:
@@ -133,6 +159,54 @@ def check_telescoping_tail(limit: int = 100) -> None:
             assert product == expected, (M, N)
         lo, hi = prime_tau2_bounds(M)
         assert Fraction(hi - lo, lo) == Fraction(1, M)
+
+
+def check_factorial_provenance(limit: int = 250) -> None:
+    """Exact j=1 normalized Dirichlet coefficient and S3 orbit count."""
+    for M in range(2, limit + 1):
+        lhs = Fraction(comb(M + 1, 3), M**3)
+        rhs = Fraction(1, 6) * (1 - Fraction(1, M * M))
+        assert lhs == rhs, M
+        assert 6 * comb(M + 1, 3) == (M + 1) * M * (M - 1), M
+
+
+def check_c3_prime_phase(limit: int = 250) -> None:
+    """Finite split/nonsplit/ramified classification of Phi_3(x)."""
+    for p in primes_upto(limit):
+        roots = [x for x in range(p) if (x * x + x + 1) % p == 0]
+        if p == 3:
+            assert roots == [1]
+            # Repeated root: derivative 2x+1 also vanishes at x=1 mod 3.
+            assert (2 * roots[0] + 1) % p == 0
+            assert chi3(p) == 0
+        elif p % 3 == 1:
+            assert len(roots) == 2, (p, roots)
+            assert chi3(p) == 1
+            assert all(pow(x, 3, p) == 1 and x != 1 for x in roots)
+        else:
+            assert p % 3 == 2
+            assert roots == [], (p, roots)
+            assert chi3(p) == -1
+
+
+def check_c3_orientation_tail(limit: int = 100) -> None:
+    """Finite proof kernel for S_K < O_3 < S_K + 1/(9K)."""
+    for K in range(1, limit + 1):
+        _SK = c3_orientation_partial(K)
+        for k in range(max(1, K), K + 50):
+            term = Fraction(1, (3 * k + 1) * (3 * k + 2))
+            majorant = Fraction(1, 9 * k * (k + 1))
+            assert 0 < term < majorant
+
+        # The majorant telescopes exactly on every finite tail segment.
+        for N in (K, K + 1, K + 9, K + 37):
+            majorant_sum = sum(
+                (Fraction(1, 9 * k * (k + 1)) for k in range(K, N + 1)),
+                Fraction(0, 1),
+            )
+            expected = Fraction(1, 9) * (Fraction(1, K) - Fraction(1, N + 1))
+            assert majorant_sum == expected, (K, N)
+            assert majorant_sum < Fraction(1, 9 * K)
 
 
 def check_wallis_flux(limit: int = 120) -> None:
@@ -187,9 +261,12 @@ def main() -> None:
     check_birth_equivalence()
     check_birth_determinant()
     check_telescoping_tail()
+    check_factorial_provenance()
+    check_c3_prime_phase()
+    check_c3_orientation_tail()
     check_wallis_flux()
     check_two_carrier_finite_consistency()
-    print("pi-prime birth determinant finite checks: PASS")
+    print("pi-prime spectral/rotation finite checks: PASS")
 
 
 if __name__ == "__main__":
