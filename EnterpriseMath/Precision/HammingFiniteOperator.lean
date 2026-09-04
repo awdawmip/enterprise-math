@@ -110,6 +110,7 @@ theorem hammingShellModeFin_linearIndependent (m : ℕ) :
     (fun k : Fin (m + 1) => (k.val : ℚ))
   · intro a b hab
     apply Fin.ext
+    change (a.val : ℚ) = (b.val : ℚ) at hab
     exact_mod_cast hab
   · intro k
     exact hammingShellKFin_hasEigenvector m k.val (by omega)
