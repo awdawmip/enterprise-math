@@ -1,0 +1,22 @@
+name: brc-newton-observer-lattice-research
+
+on:
+  pull_request:
+    paths:
+      - 'research_notes/BRC_NEWTON_OBSERVER_LATTICE_20260904.md'
+      - 'experiments/brc_newton_observer_lattice_check.py'
+      - '.github/workflows/brc-newton-observer-lattice-research.yml'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Exact BRC Newton observer lattice checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_newton_observer_lattice_check.py
