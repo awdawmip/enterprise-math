@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Compose independent nonoperational-review causes for follow-up isolation.
 
-Driver-authority quarantine and result-binding quarantine are deliberately separate
-registries with separate validators.  The existing follow-up isolation only needs
-one fact: whether its source review is currently nonoperational.  This adapter
-supplies the union to that layer without changing either underlying quarantine's
-semantics.
+Driver-authority quarantine, result-binding quarantine, and invalid-review audit
+quarantine are deliberately separate registries with separate validators. The
+existing follow-up isolation only needs one fact: whether its source review is
+currently nonoperational. This adapter supplies the union to that layer without
+changing any underlying quarantine's semantics.
 """
 from __future__ import annotations
 
@@ -19,18 +19,35 @@ class NonoperationalReviewSourceAdapterError(ValueError):
     pass
 
 
+def _merge_causes(
+    causes: list[tuple[str, dict[str, dict[str, Any]]]],
+) -> dict[str, dict[str, Any]]:
+    out: dict[str, dict[str, Any]] = {}
+    source: dict[str, str] = {}
+    for cause_name, rows in causes:
+        for review_id, row in rows.items():
+            if review_id in out:
+                raise NonoperationalReviewSourceAdapterError(
+                    f"review cannot be quarantined by multiple cause registries without explicit synthesis: "
+                    f"{review_id} ({source[review_id]}, {cause_name})"
+                )
+            out[review_id] = row
+            source[review_id] = cause_name
+    return out
+
+
 def review_rows(root: Path = ROOT) -> dict[str, dict[str, Any]]:
     from control_plane import research_driver_review_authority_fault_isolation as authority
     from control_plane import research_result_review_binding_fault_isolation as binding
+    from control_plane import research_result_review_audit_addendum as invalid_review
 
-    authority_rows = authority.validated_quarantines(root)
-    binding_rows = binding.validated_quarantines(root)
-    overlap = sorted(set(authority_rows) & set(binding_rows))
-    if overlap:
-        raise NonoperationalReviewSourceAdapterError(
-            f"review cannot be quarantined by multiple cause registries without explicit synthesis: {overlap}"
-        )
-    return {**authority_rows, **binding_rows}
+    return _merge_causes(
+        [
+            ("DRIVER_AUTHORITY", authority.validated_quarantines(root)),
+            ("RESULT_BINDING", binding.validated_quarantines(root)),
+            ("INVALID_REVIEW_RECORD", invalid_review.validated_rows(root)),
+        ]
+    )
 
 
 def install(root: Path = ROOT) -> None:
@@ -47,16 +64,16 @@ def install(root: Path = ROOT) -> None:
         def combined_review_rows(review_root: Path = local_root) -> dict[str, dict[str, Any]]:
             # Use the original authority validator here so this temporary adapter
             # cannot recurse through itself.
-            authority_rows = original_authority_validated(review_root)
             from control_plane import research_result_review_binding_fault_isolation as binding
+            from control_plane import research_result_review_audit_addendum as invalid_review
 
-            binding_rows = binding.validated_quarantines(review_root)
-            overlap = sorted(set(authority_rows) & set(binding_rows))
-            if overlap:
-                raise NonoperationalReviewSourceAdapterError(
-                    f"review quarantine cause overlap: {overlap}"
-                )
-            return {**authority_rows, **binding_rows}
+            return _merge_causes(
+                [
+                    ("DRIVER_AUTHORITY", original_authority_validated(review_root)),
+                    ("RESULT_BINDING", binding.validated_quarantines(review_root)),
+                    ("INVALID_REVIEW_RECORD", invalid_review.validated_rows(review_root)),
+                ]
+            )
 
         saved = authority.validated_quarantines
         authority.validated_quarantines = combined_review_rows
