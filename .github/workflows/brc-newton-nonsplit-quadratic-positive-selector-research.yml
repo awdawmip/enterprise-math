@@ -1,0 +1,22 @@
+name: brc-newton-nonsplit-quadratic-positive-selector-research
+
+on:
+  pull_request:
+    paths:
+      - "experiments/brc_newton_nonsplit_quadratic_smallest_positive_chamber_check.py"
+      - "research_notes/BRC_NEWTON_NONSPLIT_QUADRATIC_SMALLEST_POSITIVE_CHAMBER_20260904.md"
+      - ".github/workflows/brc-newton-nonsplit-quadratic-positive-selector-research.yml"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Exact non-split quadratic smallest-positive chamber checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_newton_nonsplit_quadratic_smallest_positive_chamber_check.py
