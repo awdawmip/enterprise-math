@@ -1,0 +1,52 @@
+name: euler-fcc-spin-holonomy
+
+on:
+  pull_request:
+    paths:
+      - "research_notes/EULER_FCC_SPHERICAL_SPIN_HOLONOMY_20260904.md"
+      - "definitions/ENTERPRISE_EULER_FCC_SPIN_HOLONOMY_THEOREM_LEDGER_20260904.json"
+      - "EnterpriseMath/Precision/EulerFccSpinHolonomy.lean"
+      - "src/enterprise_math/euler_fcc_spin_holonomy.py"
+      - "tests/test_euler_fcc_spin_holonomy.py"
+      - "research_method_inventory_addenda/20260904_euler_fcc_spin_holonomy.json"
+      - ".github/workflows/euler-fcc-spin-holonomy.yml"
+  workflow_dispatch:
+
+jobs:
+  exact-finite-and-formal-check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Compile exact checker and tests
+        run: python -m py_compile src/enterprise_math/euler_fcc_spin_holonomy.py tests/test_euler_fcc_spin_holonomy.py
+      - name: Run exact FCC spin-holonomy regression
+        env:
+          PYTHONPATH: src
+        run: python -m unittest -v tests/test_euler_fcc_spin_holonomy.py
+      - name: Validate theorem ledger JSON
+        run: python -m json.tool definitions/ENTERPRISE_EULER_FCC_SPIN_HOLONOMY_THEOREM_LEDGER_20260904.json >/dev/null
+      - name: Reject proof placeholders
+        run: |
+          if grep -R -n -E '\b(sorry|admit)\b' EnterpriseMath/Precision/EulerFccSpinHolonomy.lean; then
+            echo "Proof placeholder detected"
+            exit 1
+          fi
+      - name: Set up Lean
+        uses: leanprover/lean-action@v1
+        with:
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+          use-github-cache: false
+          use-mathlib-cache: false
+      - name: Resolve pinned dependencies
+        run: lake update
+      - name: Fetch mathlib cache
+        run: lake exe cache get
+      - name: Build exact FCC Euler spin-holonomy core
+        run: lake build --wfail -KCI EnterpriseMath.Precision.EulerFccSpinHolonomy
