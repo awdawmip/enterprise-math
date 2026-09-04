@@ -36,6 +36,7 @@ import EnterpriseMath.Relation.DeepChamberIntermediateNoGo
 import EnterpriseMath.Relation.DeepChamberFullIntermediateVariance
 import EnterpriseMath.Relation.DeepChamberHistoryMean
 import EnterpriseMath.Relation.DeepChamberVectorANOVA
+import EnterpriseMath.Relation.DeepChamberHighLowCoercivity
 import EnterpriseMath.Scale.Compatibility
 import EnterpriseMath.State.CriticalGrid
 import EnterpriseMath.PrimeFusion
