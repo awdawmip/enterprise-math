@@ -1,0 +1,49 @@
+name: brc-newton-schedule-strata-foundation
+
+on:
+  pull_request:
+    paths:
+      - 'definitions/ENTERPRISE_BRC_NEWTON_SCHEDULE_STRATA_FOUNDATION_20260904.md'
+      - 'definitions/ENTERPRISE_BRC_NEWTON_SCHEDULE_STRATA_THEOREM_LEDGER_20260904.json'
+      - 'definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json'
+      - 'research_method_inventory_addenda/20260904_brc_newton_schedule_strata_foundation.json'
+      - 'src/enterprise_math/brc_newton_schedule_strata.py'
+      - 'tests/test_brc_newton_schedule_strata_foundation.py'
+      - 'experiments/check_brc_newton_schedule_strata_foundation.py'
+      - '.github/workflows/brc-newton-schedule-strata-foundation.yml'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Newton schedule strata production subtool
+        env:
+          PYTHONPATH: src
+        run: python -m unittest tests/test_brc_newton_schedule_strata_foundation.py
+      - name: Newton schedule strata Foundation integrity
+        env:
+          PYTHONPATH: src
+        run: python experiments/check_brc_newton_schedule_strata_foundation.py
+      - name: Newton constructible schedule research regression
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_newton_constructible_schedule_strata_check.py
+      - name: Parent Newton observer lattice Foundation remains consistent
+        env:
+          PYTHONPATH: src
+        run: |
+          python -m unittest tests/test_brc_newton_observer_lattice_foundation.py
+          python experiments/check_brc_newton_observer_lattice_foundation.py
+      - name: Toolbox discovers Newton schedule strata BRC
+        env:
+          PYTHONPATH: src
+        run: |
+          python tools/enterprise_toolbox.py --json methods schedule strata newton brc > /tmp/schedule-strata.json
+          grep -q 't0.weighted_brc_newton_schedule_strata' /tmp/schedule-strata.json
+          python tools/enterprise_toolbox.py --json modules schedule strata newton brc > /tmp/schedule-strata-module.json
+          grep -q 'module:brc_newton_schedule_strata' /tmp/schedule-strata-module.json
