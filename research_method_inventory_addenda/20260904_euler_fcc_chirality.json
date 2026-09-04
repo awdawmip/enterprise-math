@@ -1,0 +1,55 @@
+{
+  "schema": "ENTERPRISE_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "date": "2026-09-04",
+  "status": "PROJECT_SUBTOOL_FREE_RESEARCH",
+  "methods": [
+    {
+      "method_id": "project.euler_fcc_chirality",
+      "title": "Tetrahedral FCC slice-chirality gauge, cube-cover, and connectedness classifier",
+      "implementation": [
+        "src/enterprise_math/euler_fcc_chirality.py",
+        "src/enterprise_math/euler_fcc_chirality_connectivity.py"
+      ],
+      "test": [
+        "tests/test_euler_fcc_chirality.py",
+        "tests/test_euler_fcc_chirality_connectivity.py"
+      ],
+      "formalization": [
+        "EnterpriseMath/Precision/EulerFccChiralityGluing.lean",
+        "EnterpriseMath/Precision/EulerFccChiralityConnectivity.lean"
+      ],
+      "theorem_ledger": "research_notes/EULER_FCC_CHIRALITY_THEOREM_LEDGER_20260904.json",
+      "inputs": [
+        "six F2 transition bits on pairwise overlaps of four three-axis FCC slices",
+        "four local slice-frame reversal bits",
+        "optional accepted P000 all-negative transition representative",
+        "optional signed-transport connectedness selection condition"
+      ],
+      "outputs": [
+        "four gauge-invariant triangular face holonomies",
+        "tetrahedral even-parity/Bianchi certificate",
+        "complete vertex-gauge equivalence classification",
+        "canonical star-gauge representative for every even face vector",
+        "global signed-J existence certificate",
+        "S4 orbit and fixed-pattern classification",
+        "exact 8/48/8 assignment counts",
+        "accepted antibalanced-signature certificate",
+        "explicit graph isomorphism from the all-face-odd orientation cover to Q3",
+        "cube-antipodal deck-transformation certificate",
+        "cover connected iff holonomy non-flat certificate",
+        "full-S4-symmetry plus connectedness selects 1111 certificate"
+      ],
+      "arithmetic": "exact finite F2/Boolean enumeration plus finite graph search",
+      "uses_pi": false,
+      "uses_trigonometry": false,
+      "tool_family_status": "PROJECT_SUBTOOL_UNASSIGNED_PENDING_COVERAGE_REVIEW",
+      "boundaries": [
+        "the six overlap bits are inputs and are not derived from bare FCC incidence",
+        "connected signed transport is a dynamical selection condition not yet derived from P000",
+        "slice-chirality transport is distinct from the globally coherent sign assignment on twelve oriented FCC directions",
+        "all-face-odd obstructs a global signed J but not reversal-even scalar Euler observables",
+        "no identity with unrelated C2 residuals is asserted"
+      ]
+    }
+  ]
+}

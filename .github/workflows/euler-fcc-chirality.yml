@@ -1,0 +1,70 @@
+name: euler-fcc-chirality
+
+on:
+  pull_request:
+    paths:
+      - "research_notes/EULER_FCC_CHIRALITY_FACE_HOLONOMY_CLASSIFICATION_20260904.md"
+      - "research_notes/EULER_FCC_CHIRALITY_CUBE_ORIENTATION_COVER_20260904.md"
+      - "research_notes/EULER_FCC_CHIRALITY_THEOREM_LEDGER_20260904.json"
+      - "EnterpriseMath/Precision/EulerFccChiralityGluing.lean"
+      - "EnterpriseMath/Precision/EulerFccChiralityConnectivity.lean"
+      - "src/enterprise_math/euler_fcc_chirality.py"
+      - "src/enterprise_math/euler_fcc_chirality_connectivity.py"
+      - "tests/test_euler_fcc_chirality.py"
+      - "tests/test_euler_fcc_chirality_connectivity.py"
+      - "research_method_inventory_addenda/20260904_euler_fcc_chirality.json"
+      - ".github/workflows/euler-fcc-chirality.yml"
+  workflow_dispatch:
+
+jobs:
+  finite-and-formal-check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Compile exact classifiers
+        run: |
+          python -m py_compile \
+            src/enterprise_math/euler_fcc_chirality.py \
+            src/enterprise_math/euler_fcc_chirality_connectivity.py \
+            tests/test_euler_fcc_chirality.py \
+            tests/test_euler_fcc_chirality_connectivity.py
+      - name: Exhaust tetrahedral gauge and cover classes
+        env:
+          PYTHONPATH: src
+        run: |
+          python -m unittest -v \
+            tests/test_euler_fcc_chirality.py \
+            tests/test_euler_fcc_chirality_connectivity.py
+      - name: Emit exact classification certificates
+        env:
+          PYTHONPATH: src
+        run: |
+          python src/enterprise_math/euler_fcc_chirality.py > /tmp/euler-fcc-chirality.json
+          python src/enterprise_math/euler_fcc_chirality_connectivity.py > /tmp/euler-fcc-connectivity.json
+      - name: Reject proof placeholders
+        run: |
+          if grep -R -n -E '\b(sorry|admit|axiom)\b' \
+            EnterpriseMath/Precision/EulerFccChiralityGluing.lean \
+            EnterpriseMath/Precision/EulerFccChiralityConnectivity.lean; then
+            echo "Proof placeholder or custom axiom detected"
+            exit 1
+          fi
+      - name: Set up Lean
+        uses: leanprover/lean-action@v1
+        with:
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+          use-github-cache: false
+          use-mathlib-cache: false
+      - name: Resolve pinned dependencies
+        run: lake update
+      - name: Fetch mathlib cache
+        run: lake exe cache get
+      - name: Build finite FCC chirality and connectivity classification
+        run: lake build --wfail -KCI EnterpriseMath.Precision.EulerFccChiralityConnectivity
