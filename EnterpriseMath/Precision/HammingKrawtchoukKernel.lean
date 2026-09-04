@@ -31,7 +31,7 @@ theorem hammingBasisPoly_left_kernel (b : ℕ) :
       C ((b + 1 : ℕ) : ℚ) * hammingBasisPoly 0 (b + 1) -
         (2 : ℚ[X]) * (X * derivative (hammingBasisPoly 0 (b + 1))) := by
   unfold hammingBasisPoly
-  simp [Polynomial.derivative_pow_succ, Polynomial.C_ofNat]
+  simp [Polynomial.derivative_pow_succ]
   ring_nf
 
 /-- Right endpoint (`j=m`) generating identity. -/
@@ -40,8 +40,14 @@ theorem hammingBasisPoly_right_kernel (a : ℕ) :
       C ((a + 1 : ℕ) : ℚ) * hammingBasisPoly (a + 1) 0 -
         (2 : ℚ[X]) * (X * derivative (hammingBasisPoly (a + 1) 0)) := by
   unfold hammingBasisPoly
-  simp [Polynomial.derivative_pow_succ, Polynomial.C_ofNat]
+  simp [Polynomial.derivative_pow_succ]
   ring_nf
+
+/-- Coefficient of a polynomial scalar `2` multiplication. -/
+theorem coeff_two_mul (p : ℚ[X]) (k : ℕ) :
+    ((2 : ℚ[X]) * p).coeff k = (2 : ℚ) * p.coeff k := by
+  change (C (2 : ℚ) * p).coeff k = _
+  rw [coeff_C_mul]
 
 /-- Coefficient of the Euler operator `X d/dX`. -/
 theorem coeff_X_mul_derivative (p : ℚ[X]) (k : ℕ) :
@@ -71,7 +77,7 @@ theorem hammingModeCoeff_interior (a b k : ℕ) :
     (hammingBasisPoly_interior_kernel a b)
   simp only [coeff_add, coeff_sub, coeff_C_mul, Nat.cast_add, Nat.cast_one,
     Nat.cast_ofNat] at h
-  rw [coeff_X_mul_derivative] at h
+  rw [coeff_two_mul, coeff_X_mul_derivative] at h
   push_cast at h ⊢
   ring_nf at h ⊢
   exact h
@@ -84,8 +90,8 @@ theorem hammingModeCoeff_left (b k : ℕ) :
   unfold hammingModeCoeff
   have h := congrArg (fun p : ℚ[X] => p.coeff k)
     (hammingBasisPoly_left_kernel b)
-  simp only [coeff_sub, coeff_C_mul, Nat.cast_add, Nat.cast_one, Nat.cast_ofNat] at h
-  rw [coeff_X_mul_derivative] at h
+  simp only [coeff_sub, coeff_C_mul, Nat.cast_add, Nat.cast_one] at h
+  rw [coeff_two_mul, coeff_X_mul_derivative] at h
   push_cast at h ⊢
   ring_nf at h ⊢
   exact h
@@ -98,8 +104,8 @@ theorem hammingModeCoeff_right (a k : ℕ) :
   unfold hammingModeCoeff
   have h := congrArg (fun p : ℚ[X] => p.coeff k)
     (hammingBasisPoly_right_kernel a)
-  simp only [coeff_sub, coeff_C_mul, Nat.cast_add, Nat.cast_one, Nat.cast_ofNat] at h
-  rw [coeff_X_mul_derivative] at h
+  simp only [coeff_sub, coeff_C_mul, Nat.cast_add, Nat.cast_one] at h
+  rw [coeff_two_mul, coeff_X_mul_derivative] at h
   push_cast at h ⊢
   ring_nf at h ⊢
   exact h
