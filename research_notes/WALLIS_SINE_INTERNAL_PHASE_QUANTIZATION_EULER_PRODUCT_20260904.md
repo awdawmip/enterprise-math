@@ -10,7 +10,7 @@ Issue: `#1159`
 The original #1159 theorem packet proves the Euler sine product by combining finite Dirichlet determinants, fixed-mode convergence, and a logarithmic tail estimate. A fresh audit finds two improvements:
 
 1. the finite mode quantization can be derived directly from the project-internal power-series rotation law `(S,C,tau)`, with no Chebyshev polynomial and no classical `pi` in the proof;
-2. the logarithmic tail estimate is unnecessary. A direct product-defect estimate is simpler, stronger, and exposes a missing domain condition in the old tail-log statement.
+2. the logarithmic tail estimate is unnecessary. A direct product-defect estimate is simpler and gives a stronger finite tail constant under a slightly weaker cutoff condition.
 
 The classical Chebyshev/cosine formulas remain valid as a downstream finite compatibility readout, but they are no longer needed for the internal Euler-product proof.
 
@@ -134,8 +134,7 @@ For `M>=2` and `1<=k<M`, set
 \]
 
 \[
-\boxed{
-u_{k,M}=2-2C(\theta_{k,M}).}
+\boxed{u_{k,M}=2-2C(\theta_{k,M}).}
 \]
 
 Because
@@ -184,8 +183,7 @@ C(\theta)=1-2S(\theta/2)^2.
 Therefore
 
 \[
-\boxed{
-u_{k,M}=4S\!\left(\frac{k\tau}{2M}\right)^2.}
+\boxed{u_{k,M}=4S\!\left(\frac{k\tau}{2M}\right)^2.}
 \tag{IPQ-4}
 \]
 
@@ -257,7 +255,7 @@ C\le1,
 so `S'=C<=1` and `S(0)=0` give
 
 \[
-S(y)\le y\qquad(y\ge0\text{ in the first phase}).
+S(y)\le y\qquad(0\le y\le\tau/2).
 \]
 
 Thus
@@ -311,9 +309,9 @@ F_M(x)
 
 So the finite determinant is already a true product over internally quantized rotation modes.
 
-## 7. Correction to the old tail-log statement
+## 7. The old logarithmic tail remains valid but is unnecessary
 
-The old theorem packet stated, for real `|x|<=R` and `K>=R`,
+The original theorem packet used, for natural `K` with `K>=R` and real `|x|<=R`,
 
 \[
 \left|
@@ -323,19 +321,9 @@ The old theorem packet stated, for real `|x|<=R` and `K>=R`,
 \le\frac{R^2}{3K}.
 \]
 
-As written, this is missing a positivity condition on `K`. For example, if
+There is no domain defect here under the intended hypotheses: `|x|<=R` forces `R>=0`; if `R>0`, natural-number `K>=R` automatically implies `K>=1`, while the degenerate case `R=K=0` has `x=0` and the product itself is exactly one.
 
-\[
-0<R<1,\qquad K=0,
-\]
-
-then `K>=R` is false if `R>0`; more generally the intended natural-number statement must explicitly prevent the zero denominator in `1/K`. The safe statement requires at least
-
-\[
-K\ge1.
-\]
-
-The log estimate is not needed anyway; the next section gives a stronger direct bound.
+The useful research change is therefore not a correction of the old estimate but a simplification: the logarithm can be removed entirely, with a stronger `1/(4K)` direct product-defect constant and only the weaker cutoff `2K>=R`.
 
 ## 8. Stronger log-free tail-product certificate
 
@@ -414,7 +402,7 @@ Thus
 \tag{IPQ-11}
 \]
 
-This is stronger and simpler than the old logarithmic `R^2/(3K)` certificate.
+This is stronger and simpler than the logarithmic `R^2/(3K)` certificate.
 
 Classification: `EXACT_FINITE_PRODUCT_CERTIFICATE`.
 
