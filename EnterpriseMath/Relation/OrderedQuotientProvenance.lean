@@ -43,12 +43,16 @@ theorem transportKey_coarsest :
       ∀ (C : Type*) (classifier : OrderedHistory → C),
         OneStepSufficient classifier intermediate endpoint →
           Recovers classifier transportKey := by
-  change
-    OneStepSufficient (oneStepKey intermediate endpoint) intermediate endpoint ∧
-      ∀ (C : Type*) (classifier : OrderedHistory → C),
-        OneStepSufficient classifier intermediate endpoint →
-          Recovers classifier (oneStepKey intermediate endpoint)
-  exact oneStepCoarsest intermediate endpoint
+  constructor
+  · constructor
+    · exact ⟨Prod.fst, fun _ => rfl⟩
+    · exact ⟨Prod.snd, fun _ => rfl⟩
+  · intro C classifier h
+    rcases h.1 with ⟨decodeIntermediate, hIntermediate⟩
+    rcases h.2 with ⟨decodeEndpoint, hEndpoint⟩
+    refine ⟨fun c => (decodeIntermediate c, decodeEndpoint c), ?_⟩
+    intro history
+    simp [transportKey, oneStepKey, hIntermediate history, hEndpoint history]
 
 /-- Every additive transported readout factors through the ordered transport key. -/
 def transportedReadout {R : Type*} [Add R]
