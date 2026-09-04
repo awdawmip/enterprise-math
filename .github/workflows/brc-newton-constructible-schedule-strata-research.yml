@@ -1,0 +1,22 @@
+name: brc-newton-constructible-schedule-strata-research
+
+on:
+  pull_request:
+    paths:
+      - 'research_notes/BRC_NEWTON_CONSTRUCTIBLE_SCHEDULE_STRATA_20260904.md'
+      - 'experiments/brc_newton_constructible_schedule_strata_check.py'
+      - '.github/workflows/brc-newton-constructible-schedule-strata-research.yml'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Exact BRC Newton constructible schedule strata checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_newton_constructible_schedule_strata_check.py
