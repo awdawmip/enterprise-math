@@ -1,0 +1,51 @@
+{
+  "artifact_schema": "ENTERPRISE_MATH_EXTERNAL_PRIOR_ART_COMPARISON_MATRIX_V1",
+  "task_id": "RS-PCF-RESTRICTED-ROUTES-EXTERNAL-PRIOR-ART-DUPLICATION-AUDIT",
+  "publication_id": "TP2-D7E01B4B2274498405F8",
+  "researcher_id": "EM-PCFPRIOR1-7E4B2A",
+  "generated_at": "2026-09-04T14:04:59+00:00",
+  "hard_target_disposition": "PCF5_PCF6_EXTERNAL_PRIOR_ART_AND_DUPLICATION_BOUNDARY_EXACTLY_CLASSIFIED",
+  "novelty_authority": false,
+  "rows": [
+    {"row_id":"P5-1","route":"PCF5","ingredient":"block product polynomial -> fast multipoint evaluation -> gcd per block","classification":"EXACT_ANTECEDENT","source_ids":["S1"],"consequence":"Core extraction skeleton is classical Strassen machinery."},
+    {"row_id":"P5-2","route":"PCF5","ingredient":"m factors/block and m^2 evaluation blocks; m approximately N^(1/6)","classification":"STRICT_ANTECEDENT","source_ids":["S1","S2"],"consequence":"Classical balanced Strassen processes about sqrt(N) candidates with d approximately N^(1/4) and stronger unrestricted asymptotics; PCF5 is rectangular reparameterization."},
+    {"row_id":"P5-3","route":"PCF5","ingredient":"subproduct/remainder-tree fast multipoint evaluation","classification":"EXACT_ANTECEDENT","source_ids":["S5"],"consequence":"Standard fast polynomial evaluation."},
+    {"row_id":"P5-4","route":"PCF5","ingredient":"batch-gcd-adjacent product/remainder-tree arithmetic","classification":"STRICT_ANTECEDENT","source_ids":["S3","S4"],"consequence":"Same-modulus cell gcd list is not identical to many-moduli batch-gcd, but the batching toolkit is classical."},
+    {"row_id":"P5-5","route":"PCF5","ingredient":"exact table cells partition [m+2,m^3+m+1]","classification":"PROJECT_SPECIFIC_TYPED_RESIDUE","source_ids":[],"consequence":"Elementary mixed-radix table-coordinate lemma; no historical novelty inferred."},
+    {"row_id":"P5-6","route":"PCF5","ingredient":"prime visibility iff p<=m^3+m+1","classification":"PROJECT_SPECIFIC_TYPED_RESIDUE","source_ids":[],"consequence":"Exact table-interface consequence; no new factoring principle."},
+    {"row_id":"P5-7","route":"PCF5","ingredient":"fixed-kappa coverage P^+(N)^2<=kappa*N with O_kappa(N^(1/3)) cells","classification":"PROJECT_SPECIFIC_TYPED_RESIDUE","source_ids":["S1","S2"],"consequence":"Useful exact scope theorem for this table; not a speedup or novel factoring algorithm."},
+    {"row_id":"P5-8","route":"PCF5","ingredient":"refine within block when gcd=N","classification":"EXACT_ANTECEDENT","source_ids":["S1"],"consequence":"Explicitly present in recalled Strassen algorithm."},
+    {"row_id":"P5-9","route":"PCF5","ingredient":"N=2018 guard and full-layer Omega(N^(2/3)) universal-visibility obstruction","classification":"PROJECT_SPECIFIC_TYPED_RESIDUE","source_ids":[],"consequence":"Interface-specific guard/lower bound only; not a general factoring lower bound."},
+    {"row_id":"P6-1","route":"PCF6","ingredient":"R_H[X]/(fg) product decomposition from comaximality","classification":"EXACT_ANTECEDENT","source_ids":["S6"],"consequence":"Standard ring CRT."},
+    {"row_id":"P6-2","route":"PCF6","ingredient":"coefficient CRT for H=pq / product-ring split","classification":"EXACT_ANTECEDENT","source_ids":["S6"],"consequence":"Standard integer/ring CRT."},
+    {"row_id":"P6-3","route":"PCF6","ingredient":"nontrivial selector idempotent and gcd factor extraction","classification":"EXACT_ANTECEDENT","source_ids":["S6","S7"],"consequence":"Idempotent is standard product-splitting information and already factor-equivalent."},
+    {"row_id":"P6-4","route":"PCF6","ingredient":"h_c=(1-c)f+c g idempotent gluing","classification":"STANDARD_METHOD_REPACKAGING","source_ids":["S6","S7"],"consequence":"Standard CRT/idempotent gluing in project notation."},
+    {"row_id":"P6-5","route":"PCF6","ingredient":"c=-tr(T), det(T)=1 and converse companion realization","classification":"STANDARD_METHOD_REPACKAGING","source_ids":["S8","S9"],"consequence":"Standard rank-2 characteristic-polynomial and companion-matrix facts."},
+    {"row_id":"P6-6","route":"PCF6","ingredient":"corrected Gaussian/Eisenstein oriented free-rank-2 realization iff nontrivial CRT idempotent","classification":"PROJECT_SPECIFIC_TYPED_RESIDUE","source_ids":["S6","S7","S8","S9"],"consequence":"Exact grammar-specific boundary remains useful; no general H-dependent no-go."},
+    {"row_id":"P6-7","route":"PCF6","ingredient":"ambient order 12 and root counts 4,8,16","classification":"STANDARD_METHOD_REPACKAGING","source_ids":["S6","S11"],"consequence":"Standard cyclotomic finite-field root counting plus CRT."},
+    {"row_id":"P6-8","route":"PCF6","ingredient":"det(P(T_H))=Res(F,P) mod H for fixed P","classification":"EXACT_ANTECEDENT","source_ids":["S10"],"consequence":"Standard resultant-as-multiplication-determinant identity."},
+    {"row_id":"P6-9","route":"PCF6","ingredient":"finite fixed H-independent probes cannot universally separate semiprimes","classification":"STANDARD_METHOD_REPACKAGING","source_ids":["S10"],"consequence":"Direct finite-prime-support consequence of fixed integer resultants; narrow scope only."},
+    {"row_id":"P6-10","route":"PCF6","ingredient":"H=91 selector/root pressure witness","classification":"PROJECT_SPECIFIC_TYPED_RESIDUE","source_ids":[],"consequence":"Concrete regression witness only."},
+    {"row_id":"P6-11","route":"PCF6","ingredient":"N_ONLY_NONTRIVIAL_IDEMPOTENT_OR_EQUIVALENT_SELECTOR_GENERATOR routing label","classification":"PROJECT_SPECIFIC_TYPED_RESIDUE","source_ids":["S6","S7"],"consequence":"Project routing label for generating asymmetry from H; idempotent itself is standard and factor-equivalent."}
+  ],
+  "sources": {
+    "S1":{"title":"A babystep-giantstep method for faster deterministic integer factorization","author":"Markus Hittmeir","url":"https://arxiv.org/abs/1608.08766","locator":"Introduction and section 3, recalled Strassen block-product/multipoint/gcd algorithm"},
+    "S2":{"title":"Integer factorization as subset-sum problem","author":"Markus Hittmeir","url":"https://doi.org/10.1016/j.jnt.2023.02.010","locator":"Introduction historical summary of Pollard/Strassen fast polynomial multiplication and multipoint evaluation"},
+    "S3":{"title":"How to find small factors of integers","author":"Daniel J. Bernstein","url":"https://cr.yp.to/papers.html#sf","locator":"paper landing / small-factor batching literature"},
+    "S4":{"title":"Remainder tree","author":"FactHacks / Bernstein et al.","url":"https://facthacks.cr.yp.to/remainder.html","locator":"remainder tree uses product tree; batch-gcd subroutine"},
+    "S5":{"title":"nmod_poly multipoint evaluation","author":"FLINT project","url":"https://flintlib.org/doc/nmod_poly.html","locator":"fast multipoint evaluation via temporary/precomputed subproduct tree"},
+    "S6":{"title":"Chinese remainder","author":"The Stacks Project","url":"https://stacks.math.columbia.edu/tag/00DT","locator":"pairwise comaximal ideals yield quotient product"},
+    "S7":{"title":"Idempotents and product decomposition","author":"The Stacks Project","url":"https://stacks.math.columbia.edu/tag/00EM","locator":"idempotent e and 1-e give product decomposition"},
+    "S8":{"title":"Eigenvalues and the Characteristic Equation of a Matrix","author":"MIT OpenCourseWare 18.013A","url":"https://ocw.mit.edu/ans7870/18/18.013a/textbook/HTML/chapter04/section06.html","locator":"2x2 characteristic polynomial x^2-xTr(M)+det(M)"},
+    "S9":{"title":"Companion Matrix","author":"Wolfram MathWorld","url":"https://mathworld.wolfram.com/CompanionMatrix.html","locator":"monic polynomial equals characteristic polynomial of its companion matrix"},
+    "S10":{"title":"Using Algebraic Geometry, 2nd ed.","author":"David A. Cox; John Little; Donal O'Shea","url":"https://eclass.uoa.gr/modules/document/file.php/D231/Papers/Cox-UsingAlgebraicGeometry.pdf","locator":"Chapter 3 section 1 Proposition (1.5): resultant as determinant of multiplication map"},
+    "S11":{"title":"Galois Theory III — Finite fields","author":"Daniel Evans, Durham University","url":"https://www.maths.dur.ac.uk/users/daniel.evans/GaloisTheory/Notes/finite-fields.html","locator":"Theorem 5.2: finite subgroup of K^x cyclic; F_q^x cyclic of order q-1"}
+  },
+  "surviving_boundary": {
+    "PCF5":["exact Perfect-Prime-Table mixed-radix cell embedding","exact p<=m^3+m+1 visibility boundary","fixed-kappa covered-family theorem","unbalanced/full-layer interface guards"],
+    "PCF6":["corrected Gaussian/Eisenstein oriented free-rank-2 typed selector equivalence","fixed H-independent probe-class resultant scope guard","pressure witness/routing boundary"]
+  },
+  "killed_interpretations": ["new factorization mechanism","factorization speedup from N^(1/3) support count","product-tree or batch-gcd novelty","CRT/idempotent novelty","trace/determinant selector novelty as linear algebra","resultant/determinant novelty","general H-dependent impossibility","project-specific residue implies historical novelty"],
+  "no_material_match_rows": [],
+  "no_material_match_warning": "No row is classified NO_MATERIAL_MATCH. This audit makes no historical novelty finding."
+}
