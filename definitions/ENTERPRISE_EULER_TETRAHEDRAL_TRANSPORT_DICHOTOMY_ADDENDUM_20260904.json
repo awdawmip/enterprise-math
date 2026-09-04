@@ -1,0 +1,67 @@
+{
+  "schema": "ENTERPRISE_RESEARCH_THEOREM_LEDGER_ADDENDUM_V1",
+  "status": "FREE_RESEARCH / EXACT FINITE TRANSPORT CLASSIFICATION / NOT_FOUNDATION",
+  "date": "2026-09-04",
+  "researcher": "EM-FREE-F6D046 / FREE_AXIOM_DISCOVERY",
+  "author_program": "YUAN X / Enterprise Math",
+  "parent_ledgers": [
+    "definitions/ENTERPRISE_EULER_C12_ROOT_TORSOR_FLATNESS_THEOREM_LEDGER_20260904.json",
+    "definitions/ENTERPRISE_EULER_TWISTED_ENDPOINT_COHOMOLOGY_ADDENDUM_20260904.json"
+  ],
+  "source_note": "research_notes/EULER_TETRAHEDRAL_TRANSPORT_DICHOTOMY_20260904.md",
+  "formal_module": "EnterpriseMath/Precision/EulerTetrahedralTransportDichotomy.lean",
+  "checker": "src/enterprise_math/euler_tetrahedral_transport_dichotomy.py",
+  "tests": "tests/test_euler_tetrahedral_transport_dichotomy.py",
+  "theorems": [
+    {
+      "id": "EMETD-T01",
+      "name": "Two-candidate S4-equivariant edge-transport classification",
+      "statement": "A tetrahedrally equivariant involutive transport attached to an overlap edge and exchanging its endpoints is uniquely either the endpoint transposition (ij) or the complementary double transposition (ij)(kl).",
+      "status": "LEAN_CHECKED_TARGET + EXHAUSTIVE S4 CHECKER",
+      "formal_theorem": "base_transport_classification"
+    },
+    {
+      "id": "EMETD-T02",
+      "name": "Proper half-turn face closure",
+      "statement": "The three proper double-transposition transports around any tetrahedral face are the nonidentity elements of V4 and multiply to the identity.",
+      "status": "LEAN_CHECKED_TARGET + EXHAUSTIVE CHECKER",
+      "formal_theorem": "proper_face_transport_is_identity"
+    },
+    {
+      "id": "EMETD-T03",
+      "name": "Reflective face twist",
+      "statement": "The three endpoint reflections around a face have odd composite, so every triangular face carries nonzero chirality holonomy.",
+      "status": "LEAN_CHECKED_TARGET + EXHAUSTIVE CHECKER",
+      "formal_theorems": [
+        "reflective_face_transport_is_nontrivial",
+        "reflective_face_transport_is_odd"
+      ]
+    },
+    {
+      "id": "EMETD-T04",
+      "name": "Determinant parity is chirality parity",
+      "statement": "In the standard three-dimensional tetrahedral representation, determinant equals permutation sign; under an orthogonal carrier map Q, Q J_n Q^{-1}=det(Q) J_{Qn}, so proper versus improper transport is exactly the local J-sign bit.",
+      "status": "EXACT 24-PERMUTATION MATRIX CHECKER + STANDARD CROSS-PRODUCT COVARIANCE",
+      "checker_function": "verify_transport_dichotomy"
+    },
+    {
+      "id": "EMETD-T05",
+      "name": "Symmetric phase selection",
+      "statement": "Proper double-transposition transport realizes the flat zero residual and a global signed J; endpoint-reflection transport realizes the uniform all-face twist and endpoint torsion.",
+      "status": "LEAN_CHECKED_TARGET + EXHAUSTIVE CHECKER",
+      "formal_theorems": [
+        "proper_phase_is_flat",
+        "reflective_phase_is_uniformly_twisted",
+        "proper_phase_maps_to_zero_residual",
+        "reflective_phase_maps_to_torsion_residual"
+      ]
+    }
+  ],
+  "selection_rule": "If future native overlap transport is formalized as orientation-preserving, the flat global-J phase is forced. If it is reflection-like, the uniformly twisted projective-Euler phase is forced.",
+  "remaining_boundaries": [
+    "CURRENT_P000_DOES_NOT_YET_PROVIDE_AN_ORTHOGONAL_OVERLAP_TRANSPORT_WITH_DETERMINANT",
+    "SYMMETRY_ALONE_LEAVES_BOTH_PROPER_AND_REFLECTIVE_PHASES",
+    "THE_SCALAR_EULER_HALF_PERIOD_CANNOT_DISTINGUISH_THE_TWO_PHASES",
+    "NO_NATIVE_IDENTITY_WITH_PELL_SIGN_OR_BACKTRACKING_C2_IS_CLAIMED"
+  ]
+}
