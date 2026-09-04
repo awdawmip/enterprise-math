@@ -1,0 +1,22 @@
+name: brc-newton-resultant-event-generator-research
+
+on:
+  pull_request:
+    paths:
+      - "experiments/brc_newton_resultant_event_generator_check.py"
+      - "research_notes/BRC_NEWTON_RESULTANT_SELECTOR_EVENT_GENERATOR_20260904.md"
+      - ".github/workflows/brc-newton-resultant-event-generator-research.yml"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Exact resultant selector-event generator checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_newton_resultant_event_generator_check.py
