@@ -11,8 +11,7 @@ theorem neg_X_pow (n : ℕ) :
   | zero => simp
   | succ n ih =>
       rw [pow_succ, ih, pow_succ]
-      simp only [neg_mul, C_mul, C_neg, C_one]
-      ring
+      simp [C_mul, C_neg]
 
 /-- Coefficients under the involution `X ↦ -X`. -/
 theorem coeff_comp_neg_X (p : ℚ[X]) (k : ℕ) :
@@ -27,7 +26,8 @@ theorem coeff_comp_neg_X (p : ℚ[X]) (k : ℕ) :
       by_cases h : n = k
       · subst k
         simp [mul_comm]
-      · simp [h]
+      · have hk : k ≠ n := by exact fun hkn => h hkn.symm
+        simp [h, hk]
 
 /-- Swapping the two shell exponents is exactly the substitution `X ↦ -X`. -/
 theorem hammingBasisPoly_swap_comp_neg (a b : ℕ) :
