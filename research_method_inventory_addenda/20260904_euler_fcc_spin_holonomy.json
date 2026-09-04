@@ -1,0 +1,38 @@
+{
+  "schema": "ENTERPRISE_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "date": "2026-09-04",
+  "status": "PROJECT_SUBTOOL_FREE_RESEARCH",
+  "methods": [
+    {
+      "method_id": "project.euler_fcc_spin_holonomy",
+      "title": "Exact FCC tetrahedral slice transport and Euler face-holonomy checker",
+      "implementation": "src/enterprise_math/euler_fcc_spin_holonomy.py",
+      "test": "tests/test_euler_fcc_spin_holonomy.py",
+      "theorem_ledger": "definitions/ENTERPRISE_EULER_FCC_SPIN_HOLONOMY_THEOREM_LEDGER_20260904.json",
+      "inputs": [
+        "four oriented regular-tetrahedral FCC slice normals",
+        "six declared FCC unoriented line families",
+        "ordered three-slice overlap loops"
+      ],
+      "outputs": [
+        "cross-normal recovery of all six shared line families",
+        "canonical local 120-degree chart certificates",
+        "scalar-orientation frustration certificate",
+        "proper rational inter-slice transition matrices",
+        "local complex-structure intertwining certificate",
+        "quaternion spin-holonomy numerator",
+        "elementary triangular tangent half-turn certificate"
+      ],
+      "arithmetic": "exact integer and Fraction vector/quaternion algebra",
+      "uses_pi": false,
+      "uses_trigonometry": false,
+      "tool_family_status": "T7_SYMMETRY_REPRESENTATION_PLUS_T9_COCYCLE_HOLONOMY_PROJECT_SUBTOOL",
+      "boundaries": [
+        "the FCC atlas is a selected classical carrier/readout, not the native P000 six-dimensional identity",
+        "the spherical face-area interpretation uses standard classical sphere normalization",
+        "no global factorization theorem for every native six-dimensional Cell trajectory is claimed",
+        "no identity with the tetrahedral residual C2, immediate-reversal bit, or Pell shell sign is claimed"
+      ]
+    }
+  ]
+}
