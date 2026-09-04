@@ -5,7 +5,7 @@ Order is intentional:
 1. isolate unresolved immutable publication forks without selecting a head;
 2. isolate exact pinned current task-integrity faults;
 3. isolate schema-valid task publications with exact semantic-preservation faults;
-4. isolate exact invalid immutable review records, including pinned legacy-schema history;
+4. isolate exact invalid immutable review records from the operational review view;
 5. isolate exact stale result-review bindings from the operational review view;
 6. isolate exact nonconforming Driver-review provenance from the operational view;
 7. compose all nonoperational-review causes for follow-up isolation;
@@ -47,7 +47,7 @@ from control_plane import research_driver_review_authority_fault_isolation
 from control_plane import research_nonoperational_review_source_adapter
 from control_plane import research_parent_objective_dispatch_gate
 from control_plane import research_publication_fault_isolation
-from control_plane import research_result_review_audit_addendum
+from control_plane import research_result_review_audit_fault_isolation
 from control_plane import research_result_review_binding_fault_isolation
 from control_plane import research_task_integrity_fault_isolation
 from control_plane import research_task_record_audit_fault_isolation
@@ -209,7 +209,7 @@ def install(root: Path = ROOT) -> None:
     research_publication_fault_isolation.install(root)
     research_task_integrity_fault_isolation.install(root)
     research_task_semantic_integrity_fault_isolation.install(root)
-    research_result_review_audit_addendum.install(root)
+    research_result_review_audit_fault_isolation.install(root)
     research_result_review_binding_fault_isolation.install(root)
     research_driver_review_authority_fault_isolation.install(root)
     research_nonoperational_review_source_adapter.install(root)
