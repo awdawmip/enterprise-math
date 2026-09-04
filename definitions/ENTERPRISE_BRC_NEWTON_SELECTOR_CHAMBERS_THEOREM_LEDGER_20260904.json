@@ -1,0 +1,52 @@
+{
+  "schema": "ENTERPRISE_BRC_THEOREM_LEDGER_V1",
+  "effective": "2026-09-04",
+  "parent": "definitions/ENTERPRISE_BRC_NEWTON_SCHEDULE_STRATA_THEOREM_LEDGER_20260904.json",
+  "tool_method_id": "t0.weighted_brc_newton_selector_chambers",
+  "theorems": [
+    {
+      "id": "WBRC-T60-COMPLETE-SPLIT-AFFINE-SMALLEST-REAL-SELECTOR-CHAMBER",
+      "statement": "For a complete split-affine real-root certificate with fixed declared rational root r and fixed multiplicity, r is the smallest real root iff every other affine real-root branch h_j satisfies h_j>r. The selector-stable set is therefore an intersection of strict rational affine half-spaces.",
+      "status": "MAIN_BACKED_FOUNDATION"
+    },
+    {
+      "id": "WBRC-T61-COMPLETE-SPLIT-AFFINE-SMALLEST-POSITIVE-SELECTOR-CHAMBER",
+      "statement": "For a complete split-affine real-root certificate with fixed declared rational root r>0 and fixed multiplicity, r is the smallest positive root iff every other affine real-root branch satisfies h_j<=0 or h_j>r. The selector-stable set is a finite Boolean combination of rational affine order inequalities and may be disconnected.",
+      "status": "MAIN_BACKED_FOUNDATION"
+    }
+  ],
+  "negative_boundaries": [
+    {
+      "id": "WBRC-N68-COMPLETE-SPLIT-AFFINE-CERTIFICATE-REQUIRED",
+      "statement": "T60/T61 require an exact complete real-root inventory; T59 declared validity alone is insufficient."
+    },
+    {
+      "id": "WBRC-N69-SPLIT-SELECTOR-CHAMBER-NOT-GENERAL-PARAMETRIC-STURM",
+      "statement": "T60/T61 do not classify non-split parametric root-order chambers."
+    },
+    {
+      "id": "WBRC-N70-SELECTOR-VALUE-STABILITY-NOT-MULTIPLICITY-STABILITY",
+      "statement": "At a root collision the selector value may remain unchanged while the declared root multiplicity and Newton schedule become invalid."
+    },
+    {
+      "id": "WBRC-N71-SMALLEST-REAL-NOT-SMALLEST-POSITIVE",
+      "statement": "Smallest-real and smallest-positive selectors have different order semantics and chamber boundaries."
+    },
+    {
+      "id": "WBRC-N72-ZERO-ROOT-NOT-POSITIVE",
+      "statement": "A zero root does not displace a positive selected root under smallest-positive semantics."
+    },
+    {
+      "id": "WBRC-N73-AFFINE-ROOT-BRANCHES-NOT-AFFINE-POLYNOMIAL-COEFFICIENTS",
+      "statement": "Multiplying several moving affine root factors can create nonlinear parameter dependence in polynomial coefficients."
+    },
+    {
+      "id": "WBRC-N74-SELECTOR-CHAMBER-DOES-NOT-REPLACE-T59-SCHEDULE-VALIDITY",
+      "statement": "T60/T61 order conditions must be intersected with the T59 declared root/multiplicity/scale validity stratum."
+    },
+    {
+      "id": "WBRC-N75-SPLIT-SELECTOR-CERTIFICATE-NOT-COMPLETE-PUISEUX-OR-MULTIGENERATOR-SOLVER",
+      "statement": "The split selector certificate is not a complete Puiseux solver or generic multi-generator algebraic field."
+    }
+  ]
+}
