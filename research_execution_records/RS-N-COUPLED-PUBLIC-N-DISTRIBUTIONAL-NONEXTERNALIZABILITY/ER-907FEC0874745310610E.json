@@ -1,0 +1,53 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_EXECUTION_RECORD_V1",
+  "record_id": "ER-907FEC0874745310610E",
+  "task_id": "RS-N-COUPLED-PUBLIC-N-DISTRIBUTIONAL-NONEXTERNALIZABILITY",
+  "publication_id": "TP2-5D9C21A7B40E683F1C52",
+  "claim_id": "CLM-NCDIST-3F7A91C4E82D105B6A37",
+  "researcher_id": "EM-NCASDIST1-3F7A91",
+  "research_mode": "TASK_RESEARCH",
+  "theorem_owner": "research/n-coupled-public-n-distributional-nonexternalizability",
+  "execution_branch": "research/n-coupled-public-n-distributional-nonexternalizability-em-ncasdist1-3f7a91",
+  "execution_branch_base": "dc8efce5e731043226c5f8c4b5d5c09de1c67aab",
+  "calculus_id": "G_effect-dist^eff",
+  "terminal_verdict": "NEGATIVE_BOUNDARY",
+  "hard_target_disposition": "EFFECTIVE_PUBLIC_EFFECTS_EXACTLY_EXTERNALIZED_FOR_G_EFFECT_DIST_EFF",
+  "symbolic_results": [
+    "Every oracle-free public effective probabilistic program with public effective stochastic primitives and almost-sure termination has an exact external sampler: a universal interpreter run on an independent copy of the same public random source.",
+    "The terminal-presentation support of fair-bit probabilistic programs is computably enumerable by finite-prefix enumeration; effective finitely-branching or c.e.-branching nondeterministic support is enumerable by dovetailing.",
+    "Any public deterministic terminal materialization/readout preserves the externalized output law, so branch opacity does not create a distributionally new support/factor capability.",
+    "A nonexternalizable but executable survivor must import an operational resource outside the public effective specification, such as oracle access, secret state/implementation, hidden-factor-correlated state, or an asymmetric model privilege."
+  ],
+  "checker_execution": {
+    "method": "exact pure-Python replay",
+    "return_code": 0,
+    "stdout": "PASS G_EFFECT_DIST_PUBLIC_EMULATOR {\"branch_opacity_nontrivial\": true, \"calculus\": \"G_effect-dist^eff\", \"finite_rational_specs\": 128, \"finite_terminal_paths\": 7680, \"law_mismatches\": 0, \"status\": \"PASS\", \"support_mismatches\": 0, \"unbounded_as_halt_example\": {\"even\": \"2/3\", \"odd\": \"1/3\"}}",
+    "finite_scope": {
+      "finite_rational_specs": 128,
+      "finite_terminal_paths": 7680,
+      "law_mismatches": 0,
+      "support_mismatches": 0
+    },
+    "environment_note": "Exact Fraction arithmetic; finite regression only. Symbolic public-emulator/support-enumeration theorems are independent of enumeration."
+  },
+  "frozen_outputs_before_execution_record": [
+    {"path": "research_returns/N_COUPLED_PUBLIC_N_DISTRIBUTIONAL_NONEXTERNALIZABILITY_RETURN_20260904.md", "git_blob_sha1": "bc7e4a6e4bf8cd7054f44509c9734053bcc37714", "sha256": "d2b8119ea453568bac2f4e33c8c4c4f2d15b906f8956a2d2ec846ff4f22aa7b3"},
+    {"path": "research_checks/N_COUPLED_PUBLIC_N_DISTRIBUTIONAL_NONEXTERNALIZABILITY_CHECK_20260904.py", "git_blob_sha1": "d984550a0fc5c61de48cc9db52cec46f0b2f5123", "sha256": "4b7b4de15a291526c1615b276248aa5a093c08459c835b07003d82a8eb131265"},
+    {"path": "research_artifacts/N_COUPLED_PUBLIC_N_DISTRIBUTIONAL_NONEXTERNALIZABILITY/effect_dist_public_emulator_contract.json", "git_blob_sha1": "978b26d2d51274495100295a3119e8620b86f560", "sha256": "1b2eb316133319b608f9255e567a9baa258e1222c60484be94bc388fbb547d5b"},
+    {"path": "research_artifacts/N_COUPLED_PUBLIC_N_DISTRIBUTIONAL_NONEXTERNALIZABILITY/effect_dist_public_emulator_certificate.json", "git_blob_sha1": "1a069261cc02d3ee6b87d05ae696f2ea030c6b57", "sha256": "80459f904e3970ce94b9c4a805cc016becac3e30a249e45cf0157f40c2a9e42f"}
+  ],
+  "adversarial_audit": {
+    "hidden_factor_input": "EXCLUDED",
+    "factor_correlated_environment": "EXCLUDED",
+    "implementation_secrecy": "EXCLUDED",
+    "noncomputable_or_physical_oracle": "EXCLUDED",
+    "order_or_smoothness": "NOT_USED",
+    "collision_or_cycle": "NOT_USED",
+    "square_relation": "NOT_USED",
+    "named_prime_p_adic": "NOT_USED",
+    "direct_random_nonunit": "SUBSUMED_AS_EXTERNALIZABLE_SPECIAL_CASE"
+  },
+  "authority_limits": ["NO_FACTORING_LOWER_BOUND", "NO_COMPLEXITY_LOWER_BOUND", "NO_NOVELTY_CLAIM", "NO_WORKING_TRUTH", "NO_FOUNDATION_PROMOTION", "NO_L4_PROMOTION", "NO_CANONICAL_PROMOTION"],
+  "tool_reuse_resolution": {"T8_RELATION_OBSERVABLE_SPECTRUM": "REUSE_APPLIED: actual branch opacity remains distinct from distributional externalizability.", "new_general_purpose_tool": "NOT_CREATED"},
+  "next_frontier_if_driver_keeps_objective_open": "Any continuation must name and justify an additional public operational resource outside G_effect-dist^eff; branch opacity, public randomness and effective nondeterminism are closed by external simulation/enumeration."
+}

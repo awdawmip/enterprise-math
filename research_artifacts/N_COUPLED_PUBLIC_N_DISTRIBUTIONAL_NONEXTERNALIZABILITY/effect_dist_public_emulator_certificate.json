@@ -1,0 +1,23 @@
+{
+  "certificate_id": "CERT-G-EFFECT-DIST-EFF-20260904",
+  "calculus": "G_effect-dist^eff",
+  "checker": "research_checks/N_COUPLED_PUBLIC_N_DISTRIBUTIONAL_NONEXTERNALIZABILITY_CHECK_20260904.py",
+  "checker_status": "PASS",
+  "finite_rational_specs": 128,
+  "finite_terminal_paths": 7680,
+  "law_mismatches": 0,
+  "support_mismatches": 0,
+  "branch_opacity_nontrivial": true,
+  "unbounded_almost_sure_halting_example": {
+    "source": "fair bits until first zero",
+    "even_output_probability": "2/3",
+    "odd_output_probability": "1/3"
+  },
+  "symbolic_theorems": [
+    "Public emulator: an oracle-free public effective probabilistic program can be externally interpreted with an independent copy of the same public random source, yielding exactly the same terminal-presentation law.",
+    "Support enumeration: terminal presentations of fair-bit probabilistic programs and effective finitely-branching/c.e.-branching nondeterministic programs are computably enumerable by finite-prefix/branch dovetailing.",
+    "Readout preservation: any public deterministic terminal presentation readout has the same output law after externalization."
+  ],
+  "finite_evidence_role": "regression only; symbolic theorems are not inferred from enumeration",
+  "complexity_claim": "NONE"
+}
