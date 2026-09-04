@@ -12,246 +12,107 @@
 
 `SUCCESS / DIAGONAL_FIXED_LOCUS_REDUCED_TO_EXACT_NONRATIONAL_OR_HIGHER_ARITHMETIC_COMPONENT`
 
-The accepted `h=0` fixed locus admits a complete Euclidean reduction, but after the primitive base Pythagorean triangle is frozen the shared-leg problem is a smooth genus-one curve. Thus the exact remaining arithmetic is elliptic rather than a third independent Pythagorean parameter.
+The accepted `h=0` fixed locus is reduced exactly to an elliptic (genus-one) fiber after complete Euclidean parameterization of the base right triangle. The reduction also proves that the strict fixed locus has no zero-root stratum and falsifies the hypothesis that every primitive point is a common scaling of the known witness.
 
-The reduction also produces two new exact facts that were not frozen in the parent:
+No claim is made about native orientation, Pfaffian-slot choice, P000 dimension reduction, factorization semantics, Full-Cell dynamics, Working Truth, Foundation/L4 status, canonical promotion, or historical novelty.
 
-1. the zero-root/sign boundary is empty on the strict fixed locus: every valid datum has `0 < d < x-y`, hence all three AP product coordinates are strictly negative;
-2. the hypothesis that every primitive fixed-locus datum is a common scaling of the known witness is false. In the precommitted exact control `b<=100000`, there are 19 recovered-root-gcd-one points. The smallest point after the known witness is
-
-\[
-(x,y,b;d,\mu,\nu)=(2720,165,2725;1533,2444,2044).
-\]
-
-The bounded census is used only as regression/falsification evidence. The terminal classification is the symbolic genus-one reduction below.
-
-No native orientation, Pfaffian slot, dimension reduction, factorization semantics, Full-Cell dynamics, Working Truth, Foundation authority, L4 status, canonical promotion, or novelty claim is made.
-
----
-
-## 1. Exact fixed-locus equivalence and parity
+## 1. Exact fixed-locus system and AP reconstruction
 
 Put
-
 \[
 p=x+y,\qquad q=x-y.
 \]
-
-The parent fixed-locus theorem says `h=0` iff the two equal-area Pythagorean factors coincide. Therefore its normal form specializes exactly to
-
+The parent `h=0` theorem specializes necessarily and sufficiently to
 \[
 x^2+y^2=b^2,\qquad x>y>0,
 \]
 \[
-d^2+\mu^2=p^2,
+d^2+\mu^2=p^2,\qquad d^2+\nu^2=q^2,\qquad d>0,
 \]
+with
 \[
-d^2+\nu^2=q^2,
-\qquad d>0,
+p\equiv b\equiv q\equiv d\pmod 2,\qquad \mu\equiv\nu\equiv0\pmod2.
 \]
+Conversely any sextuple satisfying these equations and parity conditions reconstructs the accepted `h=0` normal form.
 
-with fixed-locus parity
-
+The coupled system implies
 \[
-p\equiv b\equiv q\equiv d\pmod 2,\qquad
-\mu\equiv\nu\equiv0\pmod2.
+p^2+q^2=2b^2,\qquad \mu^2-\nu^2=p^2-q^2=4xy.
 \]
+For an integer Pythagorean triangle `p,q,b` have one common parity, so the fixed-locus parity is equivalently `d≡p (mod 2)`; the two square equations then force `mu,nu` even.
 
-Conversely, any integer sextuple satisfying these equations and parity conditions reconstructs the parent normal form with
-
+Set
 \[
-(X,Y,g)=(x,y,b),\qquad h=0,
+e=\frac{xy}{2},\qquad t=\frac{d^2-b^2}{4}.
 \]
-
-so it is an exact `h=0` simultaneous datum. Thus the three displayed quadratic equations plus parity are necessary and sufficient.
-
-The first equation gives
-
+Then
 \[
-p^2+q^2
-=(x+y)^2+(x-y)^2
-=2(x^2+y^2)
-=2b^2,
+H=(-d,0,d),\qquad T=(t-e,t,t+e)
 \]
-
-and subtraction of the two shared-leg equations gives the exact secondary identity
-
-\[
-\mu^2-\nu^2=p^2-q^2=4xy.
-\]
-
-For an integer Pythagorean triangle, `p,q,b` have one common parity. Hence the full fixed-locus parity may be compressed to
-
-\[
-d\equiv p\pmod2.
-\]
-
-Indeed if `p,d` are both odd, `p^2-d^2` and `q^2-d^2` are divisible by eight, so `mu,nu` are even; if `p,d` are even, their square differences are divisible by four, again forcing `mu,nu` even.
-
-Define
-
-\[
-e=\frac{xy}{2},\qquad
-t=\frac{d^2-b^2}{4}.
-\]
-
-The parity just proved makes both integers. The reconstructed AP datum is
-
-\[
-H=(-d,0,d),\qquad T=(t-e,t,t+e).
-\]
-
-Moreover
-
-\[
-4(t-e)=d^2-(x+y)^2=-\mu^2,
-\]
-\[
-4(t+e)=d^2-(x-y)^2=-\nu^2.
-\]
-
-These formulas determine the sign boundary exactly.
-
----
-
-## 2. Exact recovered-root gcd and primitive quotient
-
-The top and bottom discriminants are
-
-\[
-p,\ b,\ q
-\]
-
-and the two middle-row discriminants are `mu,nu`. Consequently the sixteen outer recovered roots are, up to duplication between the top and bottom rows,
-
-\[
-\frac{-d\pm p}{2},\quad
-\frac{-d\pm b}{2},\quad
-\frac{-d\pm q}{2},\quad
-\pm\frac{\mu}{2},\quad
-\pm\frac{\nu}{2},
-\]
-
 and
-
 \[
-\frac{d\pm p}{2},\quad
-\frac{d\pm b}{2},\quad
-\frac{d\pm q}{2}.
+4(t-e)=-\mu^2,\qquad 4(t+e)=-\nu^2.
 \]
 
-Therefore the exact common recovered-root gcd is
+## 2. Exact primitive quotient
 
+The sixteen recovered outer roots are obtained from
 \[
-m=
-\gcd\!\left(
+\frac{-d\pm p}{2},\quad \frac{-d\pm b}{2},\quad \frac{-d\pm q}{2},
+\quad \pm\frac{\mu}{2},\quad \pm\frac{\nu}{2},
+\]
+and
+\[
+\frac{d\pm p}{2},\quad \frac{d\pm b}{2},\quad \frac{d\pm q}{2}.
+\]
+Hence the exact common recovered-root gcd is
+\[
+m=\gcd\!\left(
 \left|\frac{d\pm p}{2}\right|,
 \left|\frac{d\pm b}{2}\right|,
 \left|\frac{d\pm q}{2}\right|,
-\frac{|\mu|}{2},
-\frac{|\nu|}{2}
+\frac{|\mu|}{2},\frac{|\nu|}{2}
 \right),
 \]
+with both choices of every `±`.
 
-where each `±` contributes both signs.
+If `m>1`, division of all recovered roots by `m` divides every row sum and discriminant by `m`, every product by `m^2`, and therefore divides `(x,y,b,d,mu,nu)` compatibly with the same homogeneous equations. Conversely common root scaling multiplies these coordinates by the same factor. Thus `m=1` is necessary and sufficient for the task's primitive quotient. This is strictly finer than the naive gcd of the six displayed coordinates.
 
-This is not the same as the naive gcd of `(x,y,b,d,mu,nu)`. For example the new primitive witness below has a base Pythagorean triangle with common factor five, but its recovered-root gcd is one.
-
-If `m>1`, division of all sixteen roots by `m` divides every row sum and every discriminant by `m`, and every product by `m^2`. Hence it induces
-
-\[
-(p,q,b,d,\mu,\nu)\mapsto
-(p,q,b,d,\mu,\nu)/m
-\]
-
-and, because the scaled discriminants retain the row parity,
-
-\[
-(x,y)\mapsto(x,y)/m.
-\]
-
-The three homogeneous quadratic equations remain valid. Conversely common root scaling by `m` multiplies exactly these fixed-locus coordinates by `m`. Thus `m=1` is necessary and sufficient for the task's primitive quotient.
-
----
-
-## 3. Complete Euclidean parameterization of the base triangle
-
-Classical Euclidean Pythagorean parameterization gives every integer base triangle uniquely up to the declared leg ordering as follows.
+## 3. Complete Euclidean base parameterization
 
 Choose
-
 \[
 r>s>0,\qquad \gcd(r,s)=1,\qquad r\not\equiv s\pmod2,
 \]
-
-and put
-
+and define
 \[
 A=r^2-s^2,\qquad B=2rs,\qquad C=r^2+s^2.
 \]
-
-Then for some integer `k>=1`,
-
+Every integer base triangle is, for a unique primitive core and an integer `k>=1`,
 \[
 \{x,y\}=\{kA,kB\},\qquad b=kC,
 \]
-
-with `x>y` fixing the order. Define
-
+with `x>y` fixing the order. Put
 \[
 P=A+B,\qquad Q=|A-B|.
 \]
-
-Since `A,B` are positive and unequal,
-
-\[
-P>Q>0,
-\]
-
-and independent of which Pythagorean leg is larger,
-
+Then `P>Q>0`, `P,Q,C` are odd, and
 \[
 p=kP,\qquad q=kQ.
 \]
-
-The entire residual fixed-locus arithmetic is therefore
-
-\[
-d^2+\mu^2=k^2P^2,\qquad
-d^2+\nu^2=k^2Q^2,
-\]
-
-together with
-
-\[
-d\equiv k\pmod2
-\]
-
-because `P,Q,C` are odd.
-
 Normalize
-
 \[
-D=\frac d k,\qquad U=\frac\mu k,\qquad V=\frac\nu k.
+D=d/k,\qquad U=\mu/k,\qquad V=\nu/k.
 \]
-
-Then
-
+The residual arithmetic is exactly
 \[
-U^2+D^2=P^2,\qquad
-V^2+D^2=Q^2.
+U^2+D^2=P^2,\qquad V^2+D^2=Q^2,
 \]
+plus denominator clearing, `d≡k (mod 2)`, positivity, and the recovered-root-gcd filter.
 
-Conversely, for any rational point `(D,U,V)` on these two quadrics with `D>0`, any positive integer `k` clearing denominators and satisfying the fixed parity reconstructs an integer shared-leg datum; the root-gcd formula of Section 2 then performs the exact primitive quotient.
+## 4. Exact genus-one obstruction
 
-Thus no independent treatment of the three Pythagorean equations is needed: after the complete Euclidean base parameterization, the remaining problem is the rational-point problem on one explicit curve.
-
----
-
-## 4. The residual curve is elliptic
-
-For a fixed primitive Euclidean core `(r,s)`, consider the projective curve
-
+For each primitive Euclidean core define
 \[
 C_{P,Q}:\quad
 U^2+D^2=P^2Z^2,\qquad
@@ -259,210 +120,80 @@ V^2+D^2=Q^2Z^2
 \subset\mathbf P^3.
 \]
 
-### Theorem 4.1 — smooth genus-one fiber
+### Theorem
 
-For every `P>Q>0`, `C_{P,Q}` is a smooth complete intersection of two quadrics, hence has genus one. It contains the rational point
-
-\[
-[D:U:V:Z]=[0:P:Q:1],
-\]
-
-so after choosing this degenerate `d=0` point as origin it is an elliptic curve over `Q`.
+`C_{P,Q}` is a smooth complete intersection of two quadrics, hence has genus one. It contains `[D:U:V:Z]=[0:P:Q:1]`, so after choosing that rational point as origin it is an elliptic curve over `Q`.
 
 ### Proof
 
-The gradients of the two quadrics in coordinates `(D,U,V,Z)` are
-
+The two gradients are
 \[
-(2D,2U,0,-2P^2Z),
+(2D,2U,0,-2P^2Z),\qquad (2D,0,2V,-2Q^2Z).
 \]
-\[
-(2D,0,2V,-2Q^2Z).
-\]
-
-Suppose they are linearly dependent at a projective point. If either dependence coefficient vanishes, the other gradient equations force `D,V,Z` or `D,U,Z` to vanish and then the remaining quadric forces the last coordinate to vanish, impossible in projective space. Hence both coefficients are nonzero, so `U=V=0`. The two quadratic equations then give
-
+If they were dependent at a projective point, neither dependence coefficient could vanish; hence `U=V=0`. The two quadrics would then give
 \[
 D^2=P^2Z^2=Q^2Z^2.
 \]
+Since `P>Q>0`, this forces `Z=D=0`, impossible projectively. Thus the intersection is smooth. A smooth complete intersection of two quadrics in `P^3` has genus one, and the displayed rational point supplies an origin. QED.
 
-Since `P^2!=Q^2`, this forces `Z=0` and then `D=0`, again impossible. Thus the intersection is smooth.
-
-A smooth complete intersection of two quadrics in `P^3` has genus one. The displayed rational point supplies the rational origin. QED.
-
-This already isolates a genuine nonrational curve (in the algebraic-geometric sense `genus=1`, not “having no rational points”) as the exact residual arithmetic.
-
-### Explicit quartic avatar
-
-Subtracting the two affine equations gives
-
+An explicit birational quartic avatar follows by setting
 \[
-U^2-V^2=P^2-Q^2.
+T=U+V,\qquad Y=2TD.
 \]
-
-Set
-
-\[
-T=U+V.
-\]
-
-Since `P^2-Q^2!=0`, one has `T!=0`, and therefore
-
+Since `U^2-V^2=P^2-Q^2` and `T\ne0`,
 \[
 U=\frac12\left(T+\frac{P^2-Q^2}{T}\right),\qquad
-V=\frac12\left(T-\frac{P^2-Q^2}{T}\right).
+V=\frac12\left(T-\frac{P^2-Q^2}{T}\right),
 \]
-
-With
-
+and
 \[
-Y=2TD
+Y^2=\bigl((P+Q)^2-T^2\bigr)\bigl(T^2-(P-Q)^2\bigr).
 \]
+The roots `±(P+Q), ±(P-Q)` are distinct. Thus the global fixed-locus problem is exactly a family of elliptic rational-point problems indexed by primitive Euclidean cores, with explicit integral/parity/primitive filters. No uniform Mordell-Weil classification is claimed.
 
-the first quadratic equation becomes exactly
+The Euclidean Pythagorean parameterization, genus formula for a smooth intersection of two quadrics, elliptic-curve rational-point theory, and Fermat's classical `n=4` descent used below are prior mathematics. The task-specific result is their exact specialization to this frozen P11 fixed locus.
 
-\[
-Y^2=
-\bigl((P+Q)^2-T^2\bigr)
-\bigl(T^2-(P-Q)^2\bigr).
-\]
-
-Conversely this formula recovers `(D,U,V)` by the displayed rational inverse. The four quartic roots
-
-\[
-\pm(P+Q),\qquad \pm(P-Q)
-\]
-
-are distinct because `P>Q>0`, so this is the same smooth genus-one curve.
-
-Hence the complete fixed-locus classification is reduced, for every Euclidean core, to rational points on an explicit elliptic fiber plus denominator, parity, positivity and recovered-root-gcd filters. This is the exact arithmetic obstruction authorized by the task's third terminal class. No assertion is made that Mordell-Weil groups for all fibers have been uniformly computed.
-
-The Euclidean Pythagorean parameterization, the genus formula for a smooth intersection of two quadrics, elliptic-curve rational-point theory, and Fermat's classical `n=4` infinite descent used below are prior mathematics. The task-specific contribution is their exact specialization to the frozen P11 fixed locus.
-
----
-
-## 5. Zero-root boundary is empty; product chamber is strictly negative
+## 5. The zero-root boundary is empty
 
 From
-
 \[
 d^2+\nu^2=q^2
 \]
-
-one has `d<=q`. Equality would give `nu=0` and
-
+one has `d<=q`. If `d=q`, then `nu=0` and, in primitive-core coordinates,
 \[
-\mu^2=p^2-q^2.
+(\mu/k)^2=P^2-Q^2=4AB.
 \]
-
-In primitive Euclidean-core coordinates this means
-
+Hence `AB` is a square. Since the primitive Euclidean legs `A,B` are coprime, each is a square: `A=u^2`, `B=v^2`. But
 \[
-\left(\frac{\mu}{k}\right)^2
-=P^2-Q^2
-=(A+B)^2-(A-B)^2
-=4AB.
+A^2+B^2=C^2
 \]
-
-Therefore `AB` is a square. Since the primitive Euclidean legs `A,B` are coprime, each would itself be a square:
-
-\[
-A=u^2,\qquad B=v^2.
-\]
-
-But `A^2+B^2=C^2` would then give
-
+would give
 \[
 u^4+v^4=C^2,
 \]
-
-contradicting Fermat's classical `n=4` infinite descent for positive integers. Hence equality cannot occur and
-
+contradicting Fermat's classical `n=4` infinite descent. Therefore
 \[
 0<d<q=x-y.
 \]
-
-It follows that
-
-\[
-\mu>0,\qquad\nu>0
-\]
-
-and, because `q<b<p`,
-
-\[
-4(t-e)=-\mu^2<0,
-\]
-\[
-4t=d^2-b^2<0,
-\]
-\[
-4(t+e)=-\nu^2<0.
-\]
-
-Thus
-
+Since `q<b<p`, it follows that
 \[
 t-e<t<t+e<0.
 \]
-
-Every outer cell product is strictly negative. A recovered outer root could be zero only if one of the relevant discriminants equalled `d` or if `mu=0` or `nu=0`; all are excluded by `0<d<q<b<p`. Therefore:
-
-`THE STRICT h=0 FIXED LOCUS HAS NO ZERO-ROOT STRATUM.`
-
-The degenerate rational point `D=0` used as the elliptic origin is not a valid AP datum because the task requires `d>0`.
-
----
+A recovered outer root could be zero only if `d` equalled one of `p,b,q` or if `mu=0` or `nu=0`; all are excluded. Hence the strict `h=0` fixed locus has no zero-root stratum and lies entirely in the strictly negative-product chamber. The rational point `D=0` used as elliptic origin is outside the task because `d>0`.
 
 ## 6. Known witness and a new primitive witness
 
-### Known witness
-
-The accepted witness
-
+The known point
 \[
 (176,57,185;105,208,56)
 \]
+comes from Euclidean core `(r,s)=(11,8)` and therefore appears naturally on `C_{233,119}`.
 
-has
-
+The precommitted exact control finds the new primitive point
 \[
-p=233,\qquad q=119,
+(2720,165,2725;1533,2444,2044).
 \]
-
-and satisfies the three coupled equations. Its Euclidean core is
-
-\[
-(r,s)=(11,8),
-\]
-
-because
-
-\[
-176=2\cdot11\cdot8,\qquad
-57=11^2-8^2,\qquad
-185=11^2+8^2.
-\]
-
-Thus it appears naturally as a nondegenerate rational point on the explicit fiber
-
-\[
-C_{233,119}.
-\]
-
-It is not inserted as an exceptional case.
-
-### New primitive witness
-
-The precommitted control certifies
-
-\[
-(x,y,b;d,\mu,\nu)
-=(2720,165,2725;1533,2444,2044).
-\]
-
 Directly,
-
 \[
 2720^2+165^2=2725^2,
 \]
@@ -472,18 +203,14 @@ Directly,
 \[
 1533^2+2044^2=2555^2=(2720-165)^2.
 \]
-
-The reconstructed AP data are
-
+It reconstructs
 \[
 H=(-1533,0,1533),
 \]
 \[
-T=(-1493284,-1268884,-1044484).
+T=(-1493284,-1268884,-1044484),
 \]
-
-Its outer root pairs are
-
+with outer root pairs
 \[
 \begin{array}{ccc}
 (-2209,676)&(-2129,596)&(-2044,511)\\
@@ -491,78 +218,37 @@ Its outer root pairs are
 (-676,2209)&(-596,2129)&(-511,2044).
 \end{array}
 \]
+The gcd of all sixteen recovered roots is exactly one. Since both this point and the known witness are primitive and distinct, the new point is not a nontrivial common scaling of the known witness. On `h=0`, the parent triangle-swap involution is the identity, and unordered pair presentation swaps do not change the fixed-locus coordinates. Thus the seed-scaling hypothesis is strictly false.
 
-The gcd of the absolute values of all sixteen recovered roots is exactly one. Hence the point is primitive in the task's actual quotient, even though the base triple itself has a factor five.
+## 7. Precommitted exhaustive control
 
-Both this point and the known witness have recovered-root gcd one. Therefore neither can be a nontrivial common scaling of the other. On the `h=0` fixed locus the parent triangle-swap involution is the identity, and unordered root-pair presentation swaps do not change `(p,b,q,d,mu,nu)`, so the new point is not a presentation image of the known point.
+Before inspection, scheduler comment `5540961965` froze the control: exhaust every integer base right triangle with `b<=100000`, every `0<d<=x-y` satisfying both shared-leg square equations, exact fixed-locus parity, and exact recovered-root gcd. The census was predeclared as regression/falsification evidence only.
 
-This strictly falsifies the seed-scaling hypothesis.
-
----
-
-## 7. Precommitted exact control
-
-Before inspecting the formal control outcome, scheduler comment `5540961965` froze:
-
-- every Euclidean integer base triangle with `b<=100000`;
-- every integer `0<d<=x-y` satisfying both shared-leg square cuts;
-- exact fixed-locus parity;
-- exact recovered-root gcd;
-- no promotion of the bounded census to global completeness.
-
-The standard-library checker exhausts this range through complete Euclidean generation, not random sampling.
-
-Exact counts:
+Exact standard-library replay gives:
 
 | quantity | count |
 |---|---:|
 | integer base Pythagorean triangles `b<=100000` | 161,436 |
-| common-leg square candidates before fixed parity | 700 |
+| shared-leg square candidates before parity | 700 |
 | parity-valid fixed-locus points | 645 |
-| recovered-root-gcd-one points | 19 |
+| recovered-root-gcd-one primitive points | 19 |
 
-The checker additionally reconstructs all eight AP root pairs for every valid hit and verifies the genus-one quartic identity exactly.
+The checker reconstructs and verifies all eight outer AP root pairs and the quartic identity for every valid hit. All 19 primitive control points are frozen in the certificate.
 
-The first two primitive points ordered by base hypotenuse are
-
-\[
-(176,57,185;105,208,56),
-\]
-\[
-(2720,165,2725;1533,2444,2044).
-\]
-
-All 19 primitive control points are frozen in the certificate artifact.
-
-Again, these counts are finite regression/falsification evidence only. The global terminal statement is the symbolic reduction of Sections 1–5.
-
----
-
-## 8. Frozen artifacts and exact scope
-
-Checker:
-
-`research_checks/P000_SIX_AXIS_P11_DIAGONAL_SHARED_LEG_PYTHAGOREAN_TRIPLE_CHECK_20260904.py`
-
-Control certificate:
-
-`research_artifacts/P000_SIX_AXIS_P11_DIAGONAL_SHARED_LEG_PYTHAGOREAN_TRIPLE/control_certificate_20260904.json`
-
-Fresh exact replay:
+Replay line:
 
 `PASS P000 P11 diagonal shared-leg control: B=100000 base_triangles=161436 shared_candidates=700 parity_valid=645 primitive_root_gcd_hits=19 new_primitive=(2720,165,2725;1533,2444,2044)`
 
-The result proves exactly:
+## 8. Exact scope
 
-- necessary-and-sufficient fixed-locus coupled equations and parity;
-- exact recovered-root primitive normalization;
-- complete Euclidean base parameterization;
-- exact reduction of every primitive-core residual problem to a smooth genus-one/elliptic fiber;
-- emptiness of the zero-root boundary and strict negativity of all fixed-locus AP products;
-- existence of a second primitive point not obtained from the known seed by common scaling or the fixed-locus presentation symmetries.
+Frozen outputs:
 
-It does **not** prove a uniform Mordell-Weil classification of every fiber, a finite list of all global primitive points, or any claim outside the frozen derived-arithmetic P11 facade.
+- `research_returns/P000_SIX_AXIS_P11_DIAGONAL_SHARED_LEG_PYTHAGOREAN_TRIPLE_RETURN_20260904.md`
+- `research_checks/P000_SIX_AXIS_P11_DIAGONAL_SHARED_LEG_PYTHAGOREAN_TRIPLE_CHECK_20260904.py`
+- `research_artifacts/P000_SIX_AXIS_P11_DIAGONAL_SHARED_LEG_PYTHAGOREAN_TRIPLE/control_certificate_20260904.json`
 
-The terminal class is therefore
+The result proves the exact fixed-locus equivalence and parity, the exact recovered-root primitive quotient, complete Euclidean reduction, a smooth genus-one/elliptic residual fiber for every primitive Euclidean core, emptiness of the zero-root boundary, strict negativity of the AP product chamber, and a second primitive point not generated from the known seed by common scaling or fixed-locus presentation symmetry.
+
+It does not prove a uniform Mordell-Weil classification of all fibers or a finite global list of primitive points. The terminal class is exactly:
 
 `DIAGONAL_FIXED_LOCUS_REDUCED_TO_EXACT_NONRATIONAL_OR_HIGHER_ARITHMETIC_COMPONENT`.
