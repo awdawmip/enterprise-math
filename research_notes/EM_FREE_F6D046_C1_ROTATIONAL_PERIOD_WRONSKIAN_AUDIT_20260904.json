@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "candidate_id": "EM-FREE-F6D046-C1-ROTATIONAL-PERIOD-WRONSKIAN",
+  "researcher_id": "EM-FREE-F6D046",
+  "axiom_gate": "REJECT_AS_NEW_AXIOM",
+  "reasons": [
+    "The core scalar identity is derived from a second-order ODE Wronskian, Clausen's identity, and a local modular transformation.",
+    "The degree-29 multiplier computation and coefficient formula have prior-art analogues.",
+    "The numerical coefficients depend on coordinate and normalization choices; only the operator-jet pairing is intrinsic.",
+    "No canonical six-dimensional P000 lift is determined by a single rank-2 formula."
+  ],
+  "retain_as": [
+    "derived theorem",
+    "bridge-layer interpretation",
+    "exact obstruction",
+    "executable evidence"
+  ],
+  "prohibited_promotions": [
+    "P000 axiom",
+    "native 120-degree metric area identity",
+    "claim that n is automatically a winding number",
+    "claim that 1103 or 26390 is an absolute invariant"
+  ],
+  "identity_collision": {
+    "status": "ALERT",
+    "existing_artifact": "research_notes/EULER_FCC_CHIRALITY_FACE_HOLONOMY_CLASSIFICATION_20260904.md",
+    "action": "preserve existing artifact; use Candidate-ID plus topic slug as compound provenance key"
+  }
+}
