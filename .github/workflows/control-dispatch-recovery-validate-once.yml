@@ -1,4 +1,4 @@
-# one-shot rerun 9
+# one-shot rerun 10
 name: control-dispatch-recovery-validate-once
 
 on:
@@ -20,52 +20,31 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
-      - name: Install one-result-state-per-task optimization
+      - name: Install lazy execution-intent lease compatibility
         run: |
           python - <<'PY'
           from pathlib import Path
           path = Path('tools/research_dispatch.py')
           text = path.read_text(encoding='utf-8')
-
-          old_filter = '''def _filter_registered_events(\n    task: dict[str, Any], events: list[dict[str, Any]], root: Path\n) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:\n    if not _is_registered(task):\n        return events, []\n    result_state = research_result_records.task_result_state(task["task_id"], root)\n'''
-          new_filter = '''def _filter_registered_events(\n    task: dict[str, Any],\n    events: list[dict[str, Any]],\n    root: Path,\n    result_state: dict[str, Any] | None,\n) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:\n    if not _is_registered(task):\n        return events, []\n'''
-          if old_filter not in text:
-              raise SystemExit('registered-event filter anchor missing')
-          text = text.replace(old_filter, new_filter, 1)
-
-          old_overlay = '''def _overlay_result_state(\n    task: dict[str, Any], state: dict[str, Any], root: Path\n) -> dict[str, Any]:\n    if not _is_registered(task):\n        return state\n    result_state = research_result_records.task_result_state(task["task_id"], root)\n'''
-          new_overlay = '''def _overlay_result_state(\n    task: dict[str, Any],\n    state: dict[str, Any],\n    root: Path,\n    result_state: dict[str, Any] | None,\n) -> dict[str, Any]:\n    if not _is_registered(task):\n        return state\n'''
-          if old_overlay not in text:
-              raise SystemExit('result overlay anchor missing')
-          text = text.replace(old_overlay, new_overlay, 1)
-
-          old_reduce = '''    authenticated, auth_rejected = _event_authentication_filter(task, events)\n    filtered, registered_rejected = _filter_registered_events(task, authenticated, root)\n    lease = int(task.get("claim_lease_minutes") or default_lease_minutes)\n'''
-          new_reduce = '''    authenticated, auth_rejected = _event_authentication_filter(task, events)\n    result_state = None\n    if _is_registered(task):\n        publication_id = task.get("publication_id")\n        result_state = research_result_records.task_result_state(\n            task["task_id"],\n            root,\n            publication_id if isinstance(publication_id, str) else None,\n        )\n    filtered, registered_rejected = _filter_registered_events(\n        task, authenticated, root, result_state\n    )\n    lease = int(task.get("claim_lease_minutes") or default_lease_minutes)\n'''
-          if old_reduce not in text:
-              raise SystemExit('reduce-definition anchor missing')
-          text = text.replace(old_reduce, new_reduce, 1)
-
-          old_tail = '    state = _overlay_result_state(task, state, root)\n'
-          new_tail = '    state = _overlay_result_state(task, state, root, result_state)\n'
-          if old_tail not in text:
-              raise SystemExit('overlay call anchor missing')
-          text = text.replace(old_tail, new_tail, 1)
-
+          old = '''                normalized = copy.deepcopy(event)\n                normalized["researcher_id"] = intent["researcher_id"]\n                normalized.setdefault("lease_minutes", intent["owner_lease_minutes"])\n                accepted.append(normalized)\n                continue\n'''
+          new = '''                normalized = copy.deepcopy(event)\n                normalized["researcher_id"] = intent["researcher_id"]\n                # Historical execution intents may predate owner_lease_minutes.\n                # Preserve an authenticated CLAIM-provided lease unchanged; only\n                # consult the intent when the CLAIM omitted it.  If both are\n                # absent, reject rather than inventing a lease.\n                if "lease_minutes" not in normalized:\n                    intent_lease = intent.get("owner_lease_minutes")\n                    if type(intent_lease) is not int or intent_lease <= 0:\n                        rejected.append({\n                            "index": index,\n                            "reason": (\n                                "registered CLAIM and historical execution intent both "\n                                "omit a positive owner lease"\n                            ),\n                        })\n                        continue\n                    normalized["lease_minutes"] = intent_lease\n                accepted.append(normalized)\n                continue\n'''
+          if old not in text:
+              raise SystemExit('execution-intent lease anchor missing')
+          text = text.replace(old, new, 1)
           path.write_text(text, encoding='utf-8')
           PY
           python -m py_compile tools/research_dispatch.py research_control_dispatch.py
           python - <<'PY'
           from pathlib import Path
           text = Path('tools/research_dispatch.py').read_text(encoding='utf-8')
-          assert text.count('research_result_records.task_result_state(') == 1
-          assert 'task, authenticated, root, result_state' in text
-          assert '_overlay_result_state(task, state, root, result_state)' in text
-          print('ONE_RESULT_STATE_PER_TASK_PATCH=PASS')
+          assert 'historical execution intent both' in text
+          assert 'normalized.setdefault("lease_minutes", intent["owner_lease_minutes"])' not in text
+          print('LAZY_INTENT_LEASE_PATCH=PASS')
           PY
           git config user.name 'awdawmip'
           git config user.email '30957095+awdawmip@users.noreply.github.com'
           git add tools/research_dispatch.py
-          git commit -m 'control: reuse one result lifecycle state per task'
+          git commit -m 'control: handle legacy intents without eager lease lookup'
           git push origin HEAD:main
       - name: Validate operational control prerequisites
         run: |
