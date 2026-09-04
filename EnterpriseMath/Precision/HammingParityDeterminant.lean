@@ -28,7 +28,11 @@ theorem hammingKrawtchoukMatrix_eq_diagonal (m : ℕ) :
     simpa only [hammingKrawtchoukBasis_apply] using
       hammingShellKFin_mode m j.val (by omega)
   rw [hK, map_smul, Basis.repr_self, Finsupp.smul_single, smul_eq_mul, mul_one]
-  simp [Matrix.diagonal_apply, eq_comm]
+  by_cases hij : i = j
+  · subst i
+    simp
+  · have hji : j ≠ i := Ne.symm hij
+    simp [Matrix.diagonal_apply, hij, hji]
 
 /-- Positive reflection-even Krawtchouk indices `2,4,...,2n`; the zero even mode is omitted. -/
 def hammingEvenPrimeIndex (n : ℕ) :
@@ -38,6 +42,7 @@ def hammingEvenPrimeIndex (n : ℕ) :
     intro a b h
     apply Fin.ext
     have hv := congrArg (fun x : Fin ((2 * n + 1) + 1) => x.val) h
+    change 2 * a.val + 2 = 2 * b.val + 2 at hv
     omega
 
 /-- Reflection-odd Krawtchouk indices `1,3,...,2n+1`. -/
@@ -48,6 +53,7 @@ def hammingOddIndex (n : ℕ) :
     intro a b h
     apply Fin.ext
     have hv := congrArg (fun x : Fin ((2 * n + 1) + 1) => x.val) h
+    change 2 * a.val + 1 = 2 * b.val + 1 at hv
     omega
 
 /-- The selected positive-even basis vectors are genuinely reflection-even. -/
@@ -58,7 +64,9 @@ theorem hammingEvenPrimeBasis_reflection
       hammingKrawtchoukBasis (2 * n + 1) (hammingEvenPrimeIndex n r) j := by
   simp only [hammingKrawtchoukBasis_apply, hammingShellModeFin]
   have hk : Even (hammingEvenPrimeIndex n r).val := by
-    convert even_two_mul (r.val + 1) using 1 <;> omega
+    change Even (2 * r.val + 2)
+    have h := even_two_mul (r.val + 1)
+    convert h using 1 <;> omega
   exact hammingShellMode_reflection_even (2 * n + 1)
     (hammingEvenPrimeIndex n r).val j.val (by omega) hk
 
@@ -70,7 +78,8 @@ theorem hammingOddBasis_reflection
       -hammingKrawtchoukBasis (2 * n + 1) (hammingOddIndex n r) j := by
   simp only [hammingKrawtchoukBasis_apply, hammingShellModeFin]
   have hk : Odd (hammingOddIndex n r).val := by
-    simpa [hammingOddIndex] using odd_two_mul_add_one r.val
+    change Odd (2 * r.val + 1)
+    exact odd_two_mul_add_one r.val
   exact hammingShellMode_reflection_odd (2 * n + 1)
     (hammingOddIndex n r).val j.val (by omega) hk
 
@@ -112,12 +121,16 @@ theorem hammingEvenPrimeRestrictedMatrix_det (n : ℕ) :
   rw [hammingEvenPrimeRestrictedMatrix_eq_diagonal, Matrix.det_diagonal]
   change (∏ r : Fin n, (((2 * r.val + 2 : ℕ) : ℚ))) =
     hammingEvenPositiveSpectralProduct n
-  rw [Fin.prod_univ_eq_prod_range]
-  unfold hammingEvenPositiveSpectralProduct
-  refine Finset.prod_congr rfl ?_
-  intro r hr
-  push_cast
-  ring
+  calc
+    (∏ r : Fin n, (((2 * r.val + 2 : ℕ) : ℚ))) =
+        ∏ r ∈ Finset.range n, (((2 * r + 2 : ℕ) : ℚ)) :=
+      Fin.prod_univ_eq_prod_range (fun r : ℕ => (((2 * r + 2 : ℕ) : ℚ))) n
+    _ = hammingEvenPositiveSpectralProduct n := by
+      unfold hammingEvenPositiveSpectralProduct
+      refine Finset.prod_congr rfl ?_
+      intro r hr
+      push_cast
+      ring
 
 /-- The literal odd restricted determinant is the odd spectral product. -/
 theorem hammingOddRestrictedMatrix_det (n : ℕ) :
@@ -126,12 +139,16 @@ theorem hammingOddRestrictedMatrix_det (n : ℕ) :
   rw [hammingOddRestrictedMatrix_eq_diagonal, Matrix.det_diagonal]
   change (∏ r : Fin (n + 1), (((2 * r.val + 1 : ℕ) : ℚ))) =
     hammingOddSpectralProduct n
-  rw [Fin.prod_univ_eq_prod_range]
-  unfold hammingOddSpectralProduct
-  refine Finset.prod_congr rfl ?_
-  intro r hr
-  push_cast
-  ring
+  calc
+    (∏ r : Fin (n + 1), (((2 * r.val + 1 : ℕ) : ℚ))) =
+        ∏ r ∈ Finset.range (n + 1), (((2 * r + 1 : ℕ) : ℚ)) :=
+      Fin.prod_univ_eq_prod_range (fun r : ℕ => (((2 * r + 1 : ℕ) : ℚ))) (n + 1)
+    _ = hammingOddSpectralProduct n := by
+      unfold hammingOddSpectralProduct
+      refine Finset.prod_congr rfl ?_
+      intro r hr
+      push_cast
+      ring
 
 /--
 WSR-L51 / literal determinant form of WSR-T05.
