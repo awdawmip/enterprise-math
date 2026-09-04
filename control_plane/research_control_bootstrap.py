@@ -7,17 +7,19 @@ Order is intentional:
 3. isolate schema-valid task publications with exact semantic-preservation faults;
 4. isolate exact invalid immutable review records from the operational review view;
 5. isolate exact stale result-review bindings from the operational review view;
-6. isolate exact nonconforming Driver-review provenance from the operational view;
-7. compose all nonoperational-review causes for follow-up isolation;
-8. isolate follow-up packets and task heads derived solely from those reviews;
-9. install rollback-safe follow-up materialization so a failed Driver follow-up
+6. install exact Driver-authority review compatibility for byte-pinned raw authority IDs
+   and exact missing-pin review quarantine addenda;
+7. isolate exact nonconforming Driver-review provenance from the operational view;
+8. compose all nonoperational-review causes for follow-up isolation;
+9. isolate follow-up packets and task heads derived solely from those reviews;
+10. install rollback-safe follow-up materialization so a failed Driver follow-up
    leaves no partial taskbook/publication/packet candidates;
-10. normalize every other isolated task to a state-machine-complete hard block;
-11. expose fault-isolated operational task/publication audits while retaining
+11. normalize every other isolated task to a state-machine-complete hard block;
+12. expose fault-isolated operational task/publication audits while retaining
     explicit strict/raw audit handles;
-12. apply the current parent-Objective head as the final dispatch authority so
+13. apply the current parent-Objective head as the final dispatch authority so
     PARKED/CLOSED Objectives cannot leak stale child execution;
-13. leave every unrelated task/review under the original strict rules.
+14. leave every unrelated task/review under the original strict rules.
 
 IMPORTANT LIVENESS BOUNDARY
 ---------------------------
@@ -43,6 +45,7 @@ from typing import Any
 
 from control_plane import research_driver_followup_fault_isolation
 from control_plane import research_driver_followup_transaction
+from control_plane import research_driver_review_authority_compat_runtime
 from control_plane import research_driver_review_authority_fault_isolation
 from control_plane import research_nonoperational_review_source_adapter
 from control_plane import research_parent_objective_dispatch_gate
@@ -211,6 +214,7 @@ def install(root: Path = ROOT) -> None:
     research_task_semantic_integrity_fault_isolation.install(root)
     research_result_review_audit_fault_isolation.install(root)
     research_result_review_binding_fault_isolation.install(root)
+    research_driver_review_authority_compat_runtime.install(root)
     research_driver_review_authority_fault_isolation.install(root)
     research_nonoperational_review_source_adapter.install(root)
     research_driver_followup_fault_isolation.install(root)
