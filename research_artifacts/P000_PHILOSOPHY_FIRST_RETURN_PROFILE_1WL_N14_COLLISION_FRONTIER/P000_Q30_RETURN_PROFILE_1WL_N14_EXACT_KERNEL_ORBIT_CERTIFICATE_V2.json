@@ -1,0 +1,51 @@
+{
+  "schema": "P000_Q30_N14_EXACT_KERNEL_ORBIT_CERTIFICATE_V2",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-RETURN-PROFILE-1WL-N14-COLLISION-FRONTIER",
+  "publication_id": "TP2-8969646E7FF5FB8A9F5D",
+  "execution_record_id": "ER-DB89BAA8E483449E2E00",
+  "researcher_id": "EM-P000Q30N14-536310",
+  "claim_id": "chatgpt-p000q30n14-20260904-2106-536310",
+  "taskbook_path": "research_tasks/P000_PHILOSOPHY_FIRST_RETURN_PROFILE_1WL_N14_COLLISION_FRONTIER_POSTREVIEW_20260903.md",
+  "taskbook_blob_sha1": "sha1:f60e805aea561a56399f00655f16889894fad29f",
+  "n": 14,
+  "observable": "FROZEN_Q22_Q25_Q27_Q28_Q29_PRIMITIVE_RETURN_PROFILE_INITIALIZED_ORDINARY_1WL_UNCHANGED",
+  "terminal_state": "RETURN_PROFILE_1WL_COLLISION_FREE_LOWER_BOUND_EXTENDED_THROUGH_N14",
+  "certificate_method": {
+    "kernel_reduction": "Suppress every maximal degree-2 path to a connected cubic multigraph kernel; loops and parallel edges are retained.",
+    "exact_expansion": "For sector r, enumerate every weak composition of 14-r subdivision vertices over all 3r/2 kernel edge instances, rejecting precisely the expansions that are nonsimple.",
+    "frozen_observable": "For every expanded simple graph, recompute primitive simple-cycle multiplicity profiles through each root and the unchanged ordinary 1-WL anonymous stabilized packet.",
+    "collision_test": "Exact packet equality is used without hashing; every repeated packet is checked by exact adjacency-preserving graph isomorphism.",
+    "completeness": "Recompute exact automorphism orders and sum r!(14-r)!/|Aut(G)|; compare with an independently evaluated connected degree-state recurrence for all labeled simple graphs in that degree sector.",
+    "kernel_role": "Kernel representation is a compact exhaustive parametrization only, not a strengthened graph observable."
+  },
+  "sectors": {
+    "2": {"degree3_count": 2,"degree2_count": 12,"expected_normalized_connected": 12414124800,"expected_representatives": 43,"expected_stable_packets": 43,"expected_aut_hist": {"2": 12,"4": 25,"8": 5,"12": 1},"kernel_type_count": 2},
+    "4": {"degree3_count": 4,"degree2_count": 10,"expected_normalized_connected": 38690265600,"expected_representatives": 931,"expected_stable_packets": 931,"expected_aut_hist": {"1": 186,"2": 347,"4": 291,"8": 85,"16": 22},"kernel_type_count": 5},
+    "6": {"degree3_count": 6,"degree2_count": 8,"expected_normalized_connected": 120607023600,"expected_representatives": 6879,"expected_stable_packets": 6879,"expected_aut_hist": {"1": 2478,"2": 2572,"4": 1340,"8": 405,"16": 73,"32": 10,"128": 1},"kernel_type_count": 17},
+    "8": {"degree3_count": 8,"degree2_count": 6,"expected_normalized_connected": 393165964800,"expected_representatives": 19587,"expected_stable_packets": 19587,"expected_aut_hist": {"1": 9564,"2": 6429,"3": 1,"4": 2617,"6": 6,"8": 785,"12": 7,"16": 159,"32": 15,"64": 2,"96": 2},"kernel_type_count": 59},
+    "10": {"degree3_count": 10,"degree2_count": 4,"expected_normalized_connected": 1358543793600,"expected_representatives": 21434,"expected_stable_packets": 21434,"expected_aut_hist": {"1": 11785,"2": 6179,"4": 2442,"8": 811,"16": 191,"32": 24,"64": 2},"kernel_type_count": 197},
+    "12": {"degree3_count": 12,"degree2_count": 2,"expected_normalized_connected": 4991840330400,"expected_representatives": 7589,"expected_stable_packets": 7589,"expected_aut_hist": {"1": 3777,"2": 2242,"4": 1015,"8": 402,"16": 126,"32": 24,"64": 3},"kernel_type_count": 478},
+    "14": {"degree3_count": 14,"degree2_count": 0,"expected_normalized_connected": 19491385914000,"expected_representatives": 509,"expected_stable_packets": 509,"expected_aut_hist": {"1": 103,"2": 159,"4": 117,"6": 4,"8": 62,"12": 7,"14": 1,"16": 35,"24": 2,"28": 2,"32": 11,"48": 1,"64": 2,"96": 1,"128": 1,"336": 1},"kernel_type_count": 509}
+  },
+  "kernel_shards": [
+    {"r": 2,"file": "P000_Q30_N14_KERNELS_R2_V1.json","file_sha256": "3d55d0492ace2069a4ddee5a9aad64297590e5a671197c9775d8d9767fc0b3ab","kernel_type_count": 2,"kernel_codes_sha256": "2ec841558061ab04b7e87e7fba283e3455032c8940a8103f45870d88e87ed4ac"},
+    {"r": 4,"file": "P000_Q30_N14_KERNELS_R4_V1.json","file_sha256": "e18695c1fac6244c63e86c085e001899f0198b558a68d96bb1aea97a63436e40","kernel_type_count": 5,"kernel_codes_sha256": "8094ad528d69c48743afcca119345ac028767c452fd8af4307379e84a5403868"},
+    {"r": 6,"file": "P000_Q30_N14_KERNELS_R6_V1.json","file_sha256": "1b6d0c059967f1015a0c74723a4acadb01eedc391c8b8ad2fc4a091f10009e63","kernel_type_count": 17,"kernel_codes_sha256": "d7a3cb42496a6692122da7fb0b35b2dd72792b1a83044d2f8c188257e70fc9a2"},
+    {"r": 8,"file": "P000_Q30_N14_KERNELS_R8_V1.json","file_sha256": "7b4d92b5ccba39c85b2240aaae98e36e4178153cad0a8a4aae1ef78df9c5234b","kernel_type_count": 59,"kernel_codes_sha256": "27a7772eae16a66e6fe0da77f389e7afd73bfcbc7d18c41d1c5491a0d9836bc2"},
+    {"r": 10,"file": "P000_Q30_N14_KERNELS_R10_V1.json","file_sha256": "e20125b49a66c98507f00c12c043ac9947daaba67fe43eea4f97105170e5e2d7","kernel_type_count": 197,"kernel_codes_sha256": "7f25387a6efbcd4528c2f49bab1bf1aeb88fc89532dc88860644894ea0a87160"},
+    {"r": 12,"file": "P000_Q30_N14_KERNELS_R12_V1.json","file_sha256": "4c8183e669947792fd58488c6928b7ac4e850ec9b6872d236ca51c2838230b0b","kernel_type_count": 478,"kernel_codes_sha256": "56a5c413bff853c0c2257bf65da32f0ec720b12b328c4186e6428b322cda6ed2"},
+    {"r": 14,"file": "P000_Q30_N14_KERNELS_R14_V1.json","file_sha256": "0bc3e356a8d7e5640333c6682d216353f493c44930d0020860b245e032b5ac01","kernel_type_count": 509,"kernel_codes_sha256": "a15d8f36aa027078172372eea8d896974ce16c53473547d5da10d761ee3e65a8"}
+  ],
+  "total_kernel_types": 1267,
+  "total_representatives": 56972,
+  "total_normalized_connected": 26406647416800,
+  "total_stable_packets": 56972,
+  "collision_fibers": 0,
+  "direct_replay_crosscheck": {"method": "Q29-format direct representative replay from the in-session frozen 56,972 graph representatives","status": "PASS","summary": "PASS Q30 n=14 exact orbit certificate: representatives=56972 normalized_connected=26406647416800 stable_packets=56972 collision=0 lower_bound=n<=14","combined_packet_image_sha256": "01734f5d33b007ddaad788565985bdbcc1ce13f102b59ca5726216e7b76a2f2f","note": "The persistent compact kernel certificate is the repository replay authority; this direct-replay digest is a secondary cross-check and hashes are not used as equality substitutes."},
+  "structural_tail_note": {
+    "r8": {"pre_structural_deficit": 907200,"missing_orbit_aut": 32,"orbit_size": 907200,"subdivision_vector": [0,2,0,0,1,1,0,0,1,1,0,0]},
+    "r10": {"pre_structural_deficit": 5443200,"missing_orbits": 2,"each_missing_orbit_aut": 32,"each_orbit_size": 2721600,"known_kernel_subdivision_vector": [0,0,0,1,1,0,0,0,0,0,0,1,1,0,0],"new_kernel_unique_legal_subdivision_vector": [0,0,0,2,0,0,0,0,0,0,0,0,2,0,0]}
+  },
+  "replay_status": {"persistent_compact_verifier_per_sector": "PASS for r=2,4,6,8,10,12,14","full_direct_representative_verifier": "PASS","cross_sector_equal_packets": 0},
+  "boundary": "Exact graph-level injectivity only on U_BR(14), extending the accepted bounded prefix to 4<=n<=14. No statement is made for n>=15; 2-WL, spectra, zeta, full cycle incidence, canonical labels and all other strengthened observables remain outside this task."
+}
