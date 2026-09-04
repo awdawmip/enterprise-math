@@ -14,6 +14,7 @@ import EnterpriseMath.Quotient.RootAdjacentBoundary
 import EnterpriseMath.Quotient.PowerFreeActionBasis
 import EnterpriseMath.Quotient.RootFutureClosure
 import EnterpriseMath.Relation.BranchRecoalescence
+import EnterpriseMath.Relation.PrimePowerQuotientTriangle
 import EnterpriseMath.Scale.Compatibility
 import EnterpriseMath.State.CriticalGrid
 import EnterpriseMath.PrimeFusion
