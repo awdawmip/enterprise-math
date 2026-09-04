@@ -24,7 +24,7 @@ theorem dirichletSineSeriesTerm_zero (j : ℕ) :
   cases j with
   | zero => norm_num [dirichletSineSeriesTerm]
   | succ j =>
-      simp [dirichletSineSeriesTerm, Nat.succ_ne_zero]
+      simp [dirichletSineSeriesTerm]
 
 /-- The internal completion series is summable for every real argument. -/
 theorem summable_dirichletSineSeriesTerm (x : ℝ) :
@@ -41,7 +41,6 @@ theorem summable_dirichletSineSeriesTerm (x : ℝ) :
     have hfac : ((((2 * j + 1) ! : ℕ) : ℝ)) ≠ 0 := by positivity
     rw [show 2 * j + 1 = 2 * j + 1 by rfl, pow_succ]
     field_simp [hx, hfac]
-    ring
 
 /-- The `tsum` definition is realized by the proven summable series. -/
 theorem hasSum_dirichletSineSeriesTerm (x : ℝ) :
@@ -56,7 +55,7 @@ theorem dirichletSineSeries_eq_partial_add_tail (M : ℕ) (x : ℝ) :
       dirichletSinePartial M x +
         ∑' k : ℕ, dirichletSineSeriesTerm x (k + M) := by
   unfold dirichletSineSeries dirichletSinePartial
-  simpa using (summable_dirichletSineSeriesTerm x).sum_add_tsum_nat_add M
+  simpa using (summable_dirichletSineSeriesTerm x).sum_add_tsum_nat_add M |>.symm
 
 /-- Outside the origin, the internal series is compatibly read as `sin x / x`. -/
 theorem dirichletSineSeries_eq_sin_div (x : ℝ) (hx : x ≠ 0) :
@@ -69,7 +68,6 @@ theorem dirichletSineSeries_eq_sin_div (x : ℝ) (hx : x ≠ 0) :
   have hfac : ((((2 * j + 1) ! : ℕ) : ℝ)) ≠ 0 := by positivity
   rw [show 2 * j + 1 = 2 * j + 1 by rfl, pow_succ]
   field_simp [hx, hfac]
-  ring
 
 /-- The internal series takes the normalized value one at the origin. -/
 theorem dirichletSineSeries_zero : dirichletSineSeries 0 = 1 := by
