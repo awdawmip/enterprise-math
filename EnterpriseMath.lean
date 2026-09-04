@@ -19,6 +19,7 @@ import EnterpriseMath.Precision.DirichletCoefficients
 import EnterpriseMath.Precision.DirichletExpansion
 import EnterpriseMath.Precision.DirichletNormalizedCoefficients
 import EnterpriseMath.Precision.DirichletFiniteSine
+import EnterpriseMath.Precision.DirichletCoefficientDefect
 import EnterpriseMath.Precision.DirichletSpectrumBridge
 import EnterpriseMath.Precision.DirichletParitySpectrumCurvature
 import EnterpriseMath.Precision.HammingKrawtchoukKernel
