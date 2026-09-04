@@ -26,6 +26,7 @@ import EnterpriseMath.Precision.DirichletSineSeries
 import EnterpriseMath.Precision.DirichletCompactError
 import EnterpriseMath.Precision.DirichletChebyshev
 import EnterpriseMath.Precision.DirichletExplicitSpectrum
+import EnterpriseMath.Precision.DirichletModeRadius
 import EnterpriseMath.Precision.DirichletSpectrumBridge
 import EnterpriseMath.Precision.DirichletParitySpectrumCurvature
 import EnterpriseMath.Precision.HammingKrawtchoukKernel
