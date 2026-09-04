@@ -2,6 +2,7 @@ import unittest
 from pathlib import Path
 
 from control_plane import research_startup_transport as startup
+from tools import research_runtime_reducer
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -48,6 +49,10 @@ class ResearchStartupTransportTests(unittest.TestCase):
             rebase["discard"],
         )
         self.assertIn(
+            "MANUAL_REPOSITORY_SCAN_OR_VISIBLE_TASK_RECORDS_AS_TASK_AVAILABILITY_AUTHORITY",
+            rebase["discard"],
+        )
+        self.assertIn(
             "HIGHEST_VERIFIED_DURABLE_FRONTIER",
             rebase["preserve"],
         )
@@ -55,6 +60,85 @@ class ResearchStartupTransportTests(unittest.TestCase):
             rebase["ci_pending"],
             "PENDING_NONBLOCKING_CONTINUE_PARENT_TASK",
         )
+
+    def test_transport_makes_canonical_dispatch_sole_task_availability_authority(self):
+        payload = startup.attach({"task_id": "RS-X"})["startup_transport"]
+        authority = payload["task_availability_authority"]
+        self.assertEqual(
+            authority["authority"],
+            "CANONICAL_RESEARCH_CONTROL_DISPATCH_OUTPUT_ONLY",
+        )
+        self.assertEqual(
+            authority["manual_repository_scan"],
+            "NONAUTHORITATIVE_FOR_TASK_AVAILABILITY",
+        )
+        self.assertEqual(
+            authority["higher_priority_leased"],
+            "EXCLUDE_FROM_FRESH_CANDIDATES_AND_CONTINUE_CANONICAL_SCAN",
+        )
+        self.assertEqual(
+            authority["free_axiom_discovery"],
+            "SEPARATE_ROLE_ROUTE_NOT_ORDINARY_SCHEDULER_FALLBACK",
+        )
+        self.assertFalse(authority["manual_override_allowed"])
+        self.assertIn(
+            "CONSUME_CURRENT_CANONICAL_DISPATCH_DECISION",
+            payload["hot_start"],
+        )
+
+    def test_leased_top_priority_tasks_do_not_block_lower_fresh_candidate(self):
+        policy = {
+            "selection_policy": {
+                "state_order": ["HANDOFF_READY", "READY"],
+                "priority_order": ["P0", "P1", "P2", "P3"],
+                "leverage_order": ["FOUNDATION", "VERY_HIGH", "HIGH", "MEDIUM", "LOW"],
+            }
+        }
+        states = [
+            {
+                "task_id": "RS-P0-A",
+                "kind": "RESEARCH",
+                "state": "READY",
+                "dispatch_state": "LEASED",
+                "priority": "P0",
+                "leverage": "FOUNDATION",
+            },
+            {
+                "task_id": "RS-P0-B",
+                "kind": "RESEARCH",
+                "state": "HANDOFF_READY",
+                "dispatch_state": "LEASED",
+                "priority": "P0",
+                "leverage": "VERY_HIGH",
+            },
+            {
+                "task_id": "RS-P0-BACKLOG",
+                "kind": "RESEARCH",
+                "state": "BACKLOG",
+                "dispatch_state": "DORMANT",
+                "priority": "P0",
+                "leverage": "FOUNDATION",
+            },
+            {
+                "task_id": "RS-P1-C",
+                "kind": "RESEARCH",
+                "state": "READY",
+                "dispatch_state": "NEEDS_DISPATCH",
+                "priority": "P1",
+                "leverage": "HIGH",
+            },
+            {
+                "task_id": "RS-P2-D",
+                "kind": "RESEARCH",
+                "state": "READY",
+                "dispatch_state": "NEEDS_DISPATCH",
+                "priority": "P2",
+                "leverage": "FOUNDATION",
+            },
+        ]
+        selected = research_runtime_reducer.select_state(states, policy, kind="RESEARCH")
+        self.assertIsNotNone(selected)
+        self.assertEqual(selected["task_id"], "RS-P1-C")
 
     def test_transport_is_nonsemantic_and_agents_nonblocking(self):
         payload = startup.attach({"task_id": "RS-X"})["startup_transport"]
