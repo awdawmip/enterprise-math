@@ -1,0 +1,22 @@
+name: brc-newton-split-affine-selector-chambers-research
+
+on:
+  pull_request:
+    paths:
+      - 'research_notes/BRC_NEWTON_SPLIT_AFFINE_SELECTOR_CHAMBERS_20260904.md'
+      - 'experiments/brc_newton_split_affine_selector_chambers_check.py'
+      - '.github/workflows/brc-newton-split-affine-selector-chambers-research.yml'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Exact BRC split-affine selector chamber checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_newton_split_affine_selector_chambers_check.py
