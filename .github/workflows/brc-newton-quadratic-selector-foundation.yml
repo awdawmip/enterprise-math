@@ -1,0 +1,49 @@
+name: brc-newton-quadratic-selector-foundation
+
+on:
+  pull_request:
+    paths:
+      - 'definitions/ENTERPRISE_BRC_NEWTON_QUADRATIC_SELECTOR_FOUNDATION_20260904.md'
+      - 'definitions/ENTERPRISE_BRC_NEWTON_QUADRATIC_SELECTOR_THEOREM_LEDGER_20260904.json'
+      - 'definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json'
+      - 'research_method_inventory_addenda/20260904_brc_newton_quadratic_selector_foundation.json'
+      - 'src/enterprise_math/brc_newton_quadratic_selector.py'
+      - 'tests/test_brc_newton_quadratic_selector_foundation.py'
+      - 'experiments/check_brc_newton_quadratic_selector_foundation.py'
+      - '.github/workflows/brc-newton-quadratic-selector-foundation.yml'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Newton quadratic selector production subtool
+        env:
+          PYTHONPATH: src
+        run: python -m unittest tests/test_brc_newton_quadratic_selector_foundation.py
+      - name: Newton quadratic selector Foundation integrity
+        env:
+          PYTHONPATH: src
+        run: python experiments/check_brc_newton_quadratic_selector_foundation.py
+      - name: Non-split quadratic selector research regression
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_newton_nonsplit_quadratic_selector_chamber_check.py
+      - name: Parent Newton selector chambers Foundation remains consistent
+        env:
+          PYTHONPATH: src
+        run: |
+          python -m unittest tests/test_brc_newton_selector_chambers_foundation.py
+          python experiments/check_brc_newton_selector_chambers_foundation.py
+      - name: Toolbox discovers Newton quadratic selector BRC
+        env:
+          PYTHONPATH: src
+        run: |
+          python tools/enterprise_toolbox.py --json methods quadratic selector newton brc > /tmp/quadratic-selector.json
+          grep -q 't0.weighted_brc_newton_quadratic_selector' /tmp/quadratic-selector.json
+          python tools/enterprise_toolbox.py --json modules quadratic selector newton brc > /tmp/quadratic-selector-module.json
+          grep -q 'module:brc_newton_quadratic_selector' /tmp/quadratic-selector-module.json

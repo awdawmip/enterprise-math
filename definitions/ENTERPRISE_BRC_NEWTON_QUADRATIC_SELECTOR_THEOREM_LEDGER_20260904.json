@@ -1,0 +1,47 @@
+{
+  "schema": "ENTERPRISE_BRC_THEOREM_LEDGER_V1",
+  "effective": "2026-09-04",
+  "parent": "definitions/ENTERPRISE_BRC_NEWTON_SELECTOR_CHAMBERS_THEOREM_LEDGER_20260904.json",
+  "tool_method_id": "t0.weighted_brc_newton_quadratic_selector",
+  "theorems": [
+    {
+      "id": "WBRC-T62-NONSPLIT-MONIC-QUADRATIC-SMALLEST-REAL-SELECTOR-CHAMBER",
+      "statement": "For E(y)=(y-r)^m(y^2+ay+b) with fixed declared rational root r and multiplicity guard R=r^2+ar+b!=0, define D=a^2-4b and L=-a-2r. The declared root is the smallest real root iff D<0 or (L>0 and R>0). Equivalently including the multiplicity guard: R!=0 and [D<0 or (L>0 and R>0)]. No competing-root materialization is required.",
+      "status": "MAIN_BACKED_FOUNDATION"
+    }
+  ],
+  "negative_boundaries": [
+    {
+      "id": "WBRC-N76-MONIC-QUADRATIC-COFACTOR-ONLY",
+      "statement": "T62 is promoted only for one monic quadratic competing cofactor."
+    },
+    {
+      "id": "WBRC-N77-SMALLEST-REAL-ONLY",
+      "statement": "T62 does not promote the smallest-positive quadratic interval selector."
+    },
+    {
+      "id": "WBRC-N78-FIXED-MULTIPLICITY-REQUIRES-R-NONZERO",
+      "statement": "The declared multiplicity requires R=Q(r)!=0; selector-value behavior at R=0 does not preserve the schedule multiplicity."
+    },
+    {
+      "id": "WBRC-N79-DISCRIMINANT-ZERO-NOT-AUTOMATIC-SELECTOR-CHANGE",
+      "statement": "D=0 may create a repeated competitor to the right or left; order data L and R remain necessary."
+    },
+    {
+      "id": "WBRC-N80-NO-ROOT-MATERIALIZATION-NOT-FACTORING-ALGORITHM",
+      "statement": "The D/L/R predicate avoids materializing quadratic roots but does not factor arbitrary polynomial families."
+    },
+    {
+      "id": "WBRC-N81-QUADRATIC-CLOSED-FORM-NOT-GENERAL-PARAMETRIC-STURM",
+      "statement": "The low-degree formula is not a general parametric Sturm/subresultant chamber theorem or CAD engine."
+    },
+    {
+      "id": "WBRC-N82-AFFINE-COEFFICIENT-FAMILY-NOT-ARBITRARY-NONLINEAR-PARAMETERIZATION",
+      "statement": "The promoted parameter-family interpretation assumes rational-affine a(lambda), b(lambda)."
+    },
+    {
+      "id": "WBRC-N83-T62-NOT-COMPLETE-PUISEUX-OR-MULTIGENERATOR-SOLVER",
+      "statement": "T62 does not solve complete Puiseux continuation or generic multi-generator algebraic coefficients."
+    }
+  ]
+}
