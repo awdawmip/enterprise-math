@@ -34,6 +34,8 @@ import EnterpriseMath.Relation.CoreDeepEnergyBridge
 import EnterpriseMath.Relation.DeepChamberConditionalVariance
 import EnterpriseMath.Relation.DeepChamberIntermediateNoGo
 import EnterpriseMath.Relation.DeepChamberFullIntermediateVariance
+import EnterpriseMath.Relation.DeepChamberHistoryMean
+import EnterpriseMath.Relation.DeepChamberVectorANOVA
 import EnterpriseMath.Scale.Compatibility
 import EnterpriseMath.State.CriticalGrid
 import EnterpriseMath.PrimeFusion
