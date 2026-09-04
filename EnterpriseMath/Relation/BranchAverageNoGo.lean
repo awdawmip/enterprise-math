@@ -16,7 +16,11 @@ theorem configSupport_singletonConfig (xs : List Bool) :
   induction xs with
   | nil => simp [singletonConfig, configSupport]
   | cons x xs ih =>
-      simp [singletonConfig, configSupport, ih]
+      change ({x} : Set Bool) ∪ configSupport (singletonConfig xs) =
+        ((x :: xs).toFinset : Set Bool)
+      rw [ih]
+      ext y
+      simp
 
 /-- A support-only runtime key after exact Boolean denotation. -/
 def supportKey (xs : List Bool) : Set Bool :=
@@ -43,8 +47,8 @@ theorem supportKey_balanced_eq_skewed :
     supportKey balancedSix = supportKey skewedSix := by
   rw [supportKey, supportKey, configSupport_singletonConfig,
     configSupport_singletonConfig]
-  congr
-  native_decide
+  ext b
+  cases b <;> simp [balancedSix, skewedSix]
 
 /-- They also have the same total branch count. -/
 theorem supportLengthKey_balanced_eq_skewed :
@@ -79,9 +83,8 @@ theorem exactRecoalesce_balanced_eq_skewed :
     exactRecoalesce (singletonConfig balancedSix) =
       exactRecoalesce (singletonConfig skewedSix) := by
   unfold exactRecoalesce
-  rw [configSupport_singletonConfig, configSupport_singletonConfig]
-  congr
-  native_decide
+  congr 1
+  exact supportKey_balanced_eq_skewed
 
 /-- No decoder from the exactly recoalesced token can recover branch multiplicity. -/
 theorem exactRecoalescedConfig_not_recovers_trueMultiplicity :
