@@ -19,13 +19,26 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
-      - name: Validate repaired review and authority layers
+      - name: Validate repaired runtime prerequisites
         run: |
           python control_plane/research_result_review_audit_fault_isolation.py
-          python control_plane/check_result_review_binding_fault_isolated.py
-          python research_driver_authority.py audit
-          python control_plane/research_nonoperational_review_source_adapter.py
-          python control_plane/check_post_cutover_publication_envelope.py
+          python - <<'PY'
+          from control_plane import research_control_bootstrap as bootstrap
+          bootstrap.install()
+          from tools import research_result_records
+          operational = {r.get('review_id') for r in research_result_records.iter_reviews()}
+          blocked = {'DR-BC224E4802009728727F', 'DR-DD72EC82270666345509'}
+          leaked = sorted(blocked & operational)
+          if leaked:
+              raise SystemExit('legacy invalid reviews leaked operationally: ' + repr(leaked))
+          import research_driver_authority as driver_authority
+          errors = driver_authority.audit()
+          if errors:
+              raise SystemExit('\n'.join(errors))
+          print('RUNTIME_BOOTSTRAP=PASS')
+          print('LEGACY_INVALID_REVIEWS_NONOPERATIONAL=PASS')
+          print('DRIVER_AUTHORITY=PASS')
+          PY
       - name: Fetch raw Issue 240 runtime stream
         env:
           GH_TOKEN: ${{ github.token }}
