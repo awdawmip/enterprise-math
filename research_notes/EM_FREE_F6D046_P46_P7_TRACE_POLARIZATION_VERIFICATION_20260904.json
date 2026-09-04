@@ -1,0 +1,39 @@
+{
+  "schema": "EM_FREE_F6D046_P46_P7_TRACE_POLARIZATION_VERIFICATION_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "research_units": ["R45", "R46", "R47", "R48"],
+  "all_passed": true,
+  "check_count": 14,
+  "checks": {
+    "initial_power_sums": true,
+    "recurrence_4_to_12": true,
+    "first_even_curve_differences": true,
+    "outer_even_polynomial": true,
+    "E2_cubic_no_F7_root": true,
+    "E2_cubic_irreducible": true,
+    "Frob_E2_order3": true,
+    "no_F7_invariant_line": true,
+    "F49_still_no_invariant_line": true,
+    "F343_all_lines_fixed": true,
+    "minimal_principalization_degree": true,
+    "simultaneous_strictification_degree": true,
+    "prym_polarization_degree": true,
+    "principalization_isogeny_degree": true
+  },
+  "power_sums_initial": [4, -5, 25, -860, -4079],
+  "curve_difference_even_degrees_2_4_6_8": [10, -50, 1720, 8158],
+  "polarization_kernel": "E[2]",
+  "E2_division_cubic_mod_7": "x^3+x^2+1",
+  "Frobenius_on_kernel": "order 3; characteristic polynomial T^2+T+1 over F2",
+  "minimal_principalization_extension_degree": 3,
+  "endomorphism_character_extension_degree": 2,
+  "minimal_simultaneous_extension_degree": 6,
+  "classification": [
+    "DERIVED_TRACE_TRANSFER",
+    "EXACT_POLARIZATION_DESCENT_OBSTRUCTION",
+    "ARITHMETIC_HOLONOMY_C2_C3",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION",
+    "P000_UNCHANGED"
+  ]
+}
