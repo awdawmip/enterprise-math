@@ -1,5 +1,5 @@
 import EnterpriseMath.Relation.BranchRecoalescence
-import Mathlib.Data.List.Finset
+import Mathlib.Data.Finset.Dedup
 import Mathlib.Tactic
 
 namespace EnterpriseMath.BranchAverageNoGo
