@@ -1,0 +1,36 @@
+{
+  "schema": "ENTERPRISE_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "date": "2026-09-04",
+  "status": "FREE_RESEARCH / PROJECT_SUBTOOL / NOT_TOP_LEVEL_FAMILY",
+  "methods": [
+    {
+      "method_id": "t7.euler_tetrahedral_transport_dichotomy",
+      "name": "Proper-versus-reflective tetrahedral Euler transport classifier",
+      "family": "T7_SYMMETRY_REPRESENTATION",
+      "secondary_families": [
+        "T9_COCYCLE_COHOMOLOGY",
+        "T0_EXACT_FINITE_ENUMERATION",
+        "T6_QUOTIENT_CONGRUENCE"
+      ],
+      "module": "src/enterprise_math/euler_tetrahedral_transport_dichotomy.py",
+      "test": "tests/test_euler_tetrahedral_transport_dichotomy.py",
+      "formal_module": "EnterpriseMath/Precision/EulerTetrahedralTransportDichotomy.lean",
+      "capabilities": [
+        "enumerate the two S4-equivariant involutive overlap transports",
+        "construct endpoint-reflection and complementary-double-transposition assignments",
+        "verify S4 conjugation equivariance",
+        "compute exact face transport products",
+        "classify proper versus improper permutation parity",
+        "verify determinant equals permutation sign on the three-dimensional tetrahedral representation",
+        "map the two transport phases to flat zero and endpoint torsion residuals"
+      ],
+      "exactness": "finite permutation and integer-matrix arithmetic only; no floating point, angle, trigonometry, or numerical pi",
+      "boundaries": [
+        "current P000 does not provide the native orthogonal overlap map",
+        "tetrahedral symmetry alone permits both phases",
+        "proper/reflection selection is conditional on determinant type",
+        "scalar half-period observables do not distinguish the phases"
+      ]
+    }
+  ]
+}
