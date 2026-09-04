@@ -1,0 +1,22 @@
+name: brc-newton-selector-finite-multiplicity-wall-charge-research
+
+on:
+  pull_request:
+    paths:
+      - "research_notes/BRC_NEWTON_SELECTOR_FINITE_MULTIPLICITY_WALL_CHARGE_20260904.md"
+      - "experiments/brc_newton_selector_finite_multiplicity_wall_charge_check.py"
+      - ".github/workflows/brc-newton-selector-finite-multiplicity-wall-charge-research.yml"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Exact finite-multiplicity selector wall-charge checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_newton_selector_finite_multiplicity_wall_charge_check.py
