@@ -35,7 +35,7 @@ def vp(n: int, p: int) -> int:
 def floor_log_p(n: int, p: int) -> int:
     assert n >= 1 and p >= 2
     q = 0
-    power = p
+    power = 1
     while power * p <= n:
         power *= p
         q += 1
