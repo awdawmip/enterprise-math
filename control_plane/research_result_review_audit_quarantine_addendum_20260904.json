@@ -1,0 +1,59 @@
+{
+  "schema": "ENTERPRISE_MATH_RESULT_REVIEW_AUDIT_QUARANTINE_V1",
+  "status": "ACTIVE",
+  "purpose": "Exact byte-pinned containment for the two legacy-schema Factor-Blind Square Multiplicative Shell Bridge Driver reviews discovered by canonical dispatch recovery on 2026-09-04. Preserve immutable history but grant no operational review, Working Truth, Foundation, promotion, or successor authority.",
+  "entries": [
+    {
+      "review_id": "DR-BC224E4802009728727F",
+      "result_id": "RR-C5769D6B237D02BFF025",
+      "task_id": "RS-FACTOR-BLIND-SQUARE-MULTIPLICATIVE-SHELL-BRIDGE",
+      "review_record_path": "research_result_reviews/RR-C5769D6B237D02BFF025/DR-BC224E4802009728727F.json",
+      "review_record_blob_sha1": "sha1:bf33c50a9cf77c03edc4325a6e1cbb0c081b4ca1",
+      "result_record_path": "research_result_records/RS-FACTOR-BLIND-SQUARE-MULTIPLICATIVE-SHELL-BRIDGE/RR-C5769D6B237D02BFF025.json",
+      "result_record_blob_sha1": "sha1:d843b127e82605255e394a21db6a3728db0c0d6d",
+      "state": "INVALID_IMMUTABLE_REVIEW_RECORD",
+      "operational": false,
+      "history_preserved": true,
+      "allowed_review_audit_errors": [
+        "invalid destination_class",
+        "invalid disposition",
+        "result record pin missing",
+        "result-linked field mismatch: execution_record_id",
+        "review artifact digest drift",
+        "terminal flag mismatch",
+        "wrong review schema"
+      ],
+      "reason": "Legacy schema_version=RESEARCH_RESULT_REVIEW_V1 predates the current immutable review envelope and omits current execution/result/artifact pins plus current disposition fields. CONTROL_PLANE_MAINTENANCE does not reinterpret or re-sign this historical Driver review; the exact bytes remain history and are removed only from operational review authority.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    },
+    {
+      "review_id": "DR-DD72EC82270666345509",
+      "result_id": "RR-C5769D6B237D02BFF025",
+      "task_id": "RS-FACTOR-BLIND-SQUARE-MULTIPLICATIVE-SHELL-BRIDGE",
+      "review_record_path": "research_result_reviews/RR-C5769D6B237D02BFF025/DR-DD72EC82270666345509.json",
+      "review_record_blob_sha1": "sha1:2b8d47077e0936989ae115d6b8d4dda5c6068117",
+      "result_record_path": "research_result_records/RS-FACTOR-BLIND-SQUARE-MULTIPLICATIVE-SHELL-BRIDGE/RR-C5769D6B237D02BFF025.json",
+      "result_record_blob_sha1": "sha1:d843b127e82605255e394a21db6a3728db0c0d6d",
+      "state": "INVALID_IMMUTABLE_REVIEW_RECORD",
+      "operational": false,
+      "history_preserved": true,
+      "allowed_review_audit_errors": [
+        "invalid destination_class",
+        "invalid disposition",
+        "result record pin missing",
+        "result-linked field mismatch: execution_record_id",
+        "review artifact digest drift",
+        "terminal flag mismatch",
+        "wrong review schema"
+      ],
+      "reason": "Legacy schema_version=RESEARCH_RESULT_REVIEW_V1 predates the current immutable review envelope and omits current execution/result/artifact pins plus current disposition fields. CONTROL_PLANE_MAINTENANCE does not reinterpret or re-sign this historical Driver review; the exact bytes remain history and are removed only from operational review authority.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    }
+  ]
+}
