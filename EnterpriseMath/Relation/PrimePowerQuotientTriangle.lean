@@ -27,8 +27,8 @@ route have opposite parity, so their signless defects recover the vertex.
 -/
 theorem oddTriangle_identity (f : ℕ → ℝ) (n : ℕ) :
     2 * f n = defect2 f n + defect4 f n - defect2 f (q2 n) := by
-  rw [show q2 (q2 n) = q4 n from q2_q2_eq_q4 n]
   simp only [defect2, defect4]
+  rw [q2_q2_eq_q4]
   ring
 
 /-- An exact sign reversal on both prime-power return families is necessarily zero. -/
@@ -52,6 +52,12 @@ theorem oddTriangle_sq_coercive (f : ℕ → ℝ) (n : ℕ) :
   let c := defect2 f (q2 n)
   have h : 2 * f n = a + b - c := by
     simpa [a, b, c] using oddTriangle_identity f n
-  nlinarith [sq_nonneg (a - b), sq_nonneg (a + c), sq_nonneg (b + c)]
+  calc
+    4 * (f n) ^ 2 = (2 * f n) ^ 2 := by ring
+    _ = (a + b - c) ^ 2 := by rw [h]
+    _ ≤ 3 * (a ^ 2 + b ^ 2 + c ^ 2) := by
+      nlinarith [sq_nonneg (a - b), sq_nonneg (a + c), sq_nonneg (b + c)]
+    _ = 3 * ((defect2 f n) ^ 2 + (defect4 f n) ^ 2 +
+        (defect2 f (q2 n)) ^ 2) := by rfl
 
 end EnterpriseMath.PrimePowerQuotientTriangle
