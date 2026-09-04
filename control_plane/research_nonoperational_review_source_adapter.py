@@ -39,7 +39,7 @@ def _merge_causes(
 def review_rows(root: Path = ROOT) -> dict[str, dict[str, Any]]:
     from control_plane import research_driver_review_authority_fault_isolation as authority
     from control_plane import research_result_review_binding_fault_isolation as binding
-    from control_plane import research_result_review_audit_addendum as invalid_review
+    from control_plane import research_result_review_audit_fault_isolation as invalid_review
 
     return _merge_causes(
         [
@@ -65,7 +65,7 @@ def install(root: Path = ROOT) -> None:
             # Use the original authority validator here so this temporary adapter
             # cannot recurse through itself.
             from control_plane import research_result_review_binding_fault_isolation as binding
-            from control_plane import research_result_review_audit_addendum as invalid_review
+            from control_plane import research_result_review_audit_fault_isolation as invalid_review
 
             return _merge_causes(
                 [
