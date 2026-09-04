@@ -17,10 +17,13 @@ canonical-promotion, or successor authority is created by this adapter.
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 ADDENDUM_FILE = "control_plane/driver_review_authority_quarantine_addendum_20260904.json"
 
 
