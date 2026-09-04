@@ -7,8 +7,8 @@ from fractions import Fraction
 from enterprise_math import brc_critical_degeneracy as cd
 
 Q = Fraction
-TPoly = tuple[Fraction, ...]          # ascending t powers
-XPoly = tuple[TPoly, ...]            # ascending x powers, coefficients in Q[t]
+TPoly = tuple[Fraction, ...]
+XPoly = tuple[TPoly, ...]
 ZERO: TPoly = (Q(0),)
 ONE: TPoly = (Q(1),)
 
@@ -178,7 +178,6 @@ def real_root_count(poly: TPoly) -> int:
 def low_degree_resultants():
     t: TPoly = (Q(0), Q(1))
     checks = 0
-
     quadratic: XPoly = (ONE, t, ONE)
     result_q = resultant_event_factor(quadratic)
     assert result_q == (Q(4), Q(0), Q(-1))
@@ -186,7 +185,7 @@ def low_degree_resultants():
 
     degree_drop: XPoly = (ONE, ONE, t)
     result_drop = resultant_event_factor(degree_drop)
-    assert result_drop == (Q(0), Q(-1), Q(4))  # t(4t-1)
+    assert result_drop == (Q(0), Q(-1), Q(4))
     assert t_eval(result_drop, Q(0)) == 0
     assert t_eval(result_drop, Q(1, 4)) == 0
     checks += 3
@@ -201,8 +200,7 @@ def low_degree_resultants():
     assert result_one == (Q(4), Q(0), Q(27))
     assert real_root_count(result_one) == 0
     checks += 2
-
-    return checks, quadratic, depressed, one_real
+    return checks, quadratic, depressed, one_real, degree_drop
 
 
 def generated_low_degree_events(quadratic: XPoly, depressed: XPoly, one_real: XPoly):
@@ -211,78 +209,62 @@ def generated_low_degree_events(quadratic: XPoly, depressed: XPoly, one_real: XP
     q_pos = generated_event(quadratic, Q(1), positive=True)
     dep_real = generated_event(depressed, Q(-2), positive=False)
     one_pos = generated_event(one_real, Q(1), positive=True)
-
-    assert real_root_count(q_real) == 2
-    assert real_root_count(q_pos) == 2
-    assert real_root_count(dep_real) == 2
-    assert real_root_count(one_pos) == 2
+    assert [real_root_count(e) for e in (q_real, q_pos, dep_real, one_pos)] == [2, 2, 2, 2]
     checks += 4
-
-    # Exact expected real event values.
     for event in (q_real, q_pos, dep_real):
         assert t_eval(event, Q(-2)) == 0
         assert t_eval(event, Q(2)) == 0
         checks += 2
-    assert t_eval(one_pos, Q(-2)) == 0
-    assert t_eval(one_pos, Q(0)) == 0
+    assert t_eval(one_pos, Q(-2)) == 0 and t_eval(one_pos, Q(0)) == 0
     checks += 2
     return checks
 
 
 def degree_five_resultant():
     t: TPoly = (Q(0), Q(1))
-    x2p1: XPoly = (ONE, ZERO, ONE)
-    x2mxm1: XPoly = (t_const(-1), t_const(-1), ONE)
-    moving: XPoly = (t_scale(t, -1), ONE)
-    family = x_mul(x_mul(x2p1, x2mxm1), moving)
+    family = x_mul(x_mul((ONE, ZERO, ONE), (t_const(-1), t_const(-1), ONE)), (t_scale(t, -1), ONE))
     assert len(family) - 1 == 5
-
     result = resultant_event_factor(family)
     ft = t_mul((Q(1), Q(0), Q(1)), (Q(-1), Q(-1), Q(1)))
     ft2 = t_mul(ft, ft)
     quotient = t_div_exact(result, ft2)
     assert len(quotient) == 1 and quotient[0] != 0
-
     event = generated_event(family, Q(1), positive=True)
     expected_real_factor = t_mul(t_mul(t, (Q(-1), Q(1))), (Q(-1), Q(-1), Q(1)))
     quotient_event = t_div_exact(event, t_mul(ft2, t_mul(t, (Q(-1), Q(1)))))
     assert len(quotient_event) == 1 and quotient_event[0] != 0
-    assert real_root_count(event) == 4
-    assert real_root_count(expected_real_factor) == 4
-    for value in (Q(0), Q(1)):
-        assert t_eval(event, value) == 0
-    checks = 8
-    return checks
+    assert real_root_count(event) == 4 and real_root_count(expected_real_factor) == 4
+    assert t_eval(event, Q(0)) == 0 and t_eval(event, Q(1)) == 0
+    return 8
 
 
 def repeated_factor_boundary():
     t: TPoly = (Q(0), Q(1))
     moving: XPoly = (t_scale(t, -1), ONE)
-    repeated = x_mul(moving, moving)
-    assert resultant_event_factor(repeated) == ZERO
+    assert resultant_event_factor(x_mul(moving, moving)) == ZERO
     return 1
 
 
-def sylvester_specialization_checks():
-    # Independent low-size specialization check: for a rational t0, the
-    # polynomial-in-t resultant must equal the Fraction resultant of the
-    # specialized x-polynomial and derivative.
-    t: TPoly = (Q(0), Q(1))
-    families = (
-        (ONE, t, ONE),
-        (t, t_const(-3), ZERO, ONE),
-        (ONE, ONE, t),
-    )
-    checks = 0
+def sylvester_specialization_checks(families: tuple[XPoly, ...]):
+    checks = skipped_degree_drops = 0
     for family in families:
         result = resultant_event_factor(family)
+        leading = family[-1]
         for t0 in (Q(-2), Q(-1, 2), Q(0), Q(1, 4), Q(1), Q(3)):
-            specialized = tuple((t_const(t_eval(coefficient, t0))) for coefficient in family)
+            if t_eval(leading, t0) == 0:
+                # Nominal-degree resultant intentionally records this event as
+                # zero; trimming first would change the polynomial degree and
+                # is not a specialization-commuting operation.
+                assert t_eval(result, t0) == 0
+                skipped_degree_drops += 1
+                continue
+            specialized = tuple(t_const(t_eval(coefficient, t0)) for coefficient in family)
             specialized_result = resultant_event_factor(specialized)
             assert len(specialized_result) == 1
             assert specialized_result[0] == t_eval(result, t0)
             checks += 1
-    return checks
+    assert skipped_degree_drops > 0
+    return checks, skipped_degree_drops
 
 
 def main() -> int:
@@ -290,13 +272,14 @@ def main() -> int:
     generated = generated_low_degree_events(low[1], low[2], low[3])
     degree5 = degree_five_resultant()
     repeated = repeated_factor_boundary()
-    specialization = sylvester_specialization_checks()
+    specialization = sylvester_specialization_checks((low[1], low[2], low[4]))
     print("BRC resultant selector-event generator checker: PASS")
     print(f"low_degree_resultant_checks={low[0]}")
     print(f"generated_low_degree_event_checks={generated}")
     print(f"degree_five_resultant_checks={degree5}")
     print(f"generic_repeated_factor_boundary_checks={repeated}")
-    print(f"sylvester_specialization_checks={specialization}")
+    print(f"sylvester_specialization_checks={specialization[0]}")
+    print(f"degree_drop_specialization_boundaries={specialization[1]}")
     return 0
 
 
