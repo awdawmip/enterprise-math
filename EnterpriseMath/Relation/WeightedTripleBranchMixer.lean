@@ -73,6 +73,32 @@ def transpositionMixer {α : Type*}
     (F : Triple α → ℝ) (t : Triple α) : ℝ :=
   (F (swap12 t) + F (swap13 t) + F (swap23 t)) / 3
 
+/-- The product branch mass is a pointwise stationary density for the mixer. -/
+theorem transpositionMixer_productWeight
+    {α : Type*} (u : α → ℝ) (t : Triple α) :
+    transpositionMixer (productWeight u) t = productWeight u t := by
+  unfold transpositionMixer
+  rw [productWeight_swap12, productWeight_swap13, productWeight_swap23]
+  ring
+
+/-- The positive support of product branch mass is invariant under each swap. -/
+theorem productWeight_pos_swap12_iff
+    {α : Type*} (u : α → ℝ) (t : Triple α) :
+    0 < productWeight u (swap12 t) ↔ 0 < productWeight u t := by
+  rw [productWeight_swap12]
+
+/-- The positive support of product branch mass is invariant under each swap. -/
+theorem productWeight_pos_swap13_iff
+    {α : Type*} (u : α → ℝ) (t : Triple α) :
+    0 < productWeight u (swap13 t) ↔ 0 < productWeight u t := by
+  rw [productWeight_swap13]
+
+/-- The positive support of product branch mass is invariant under each swap. -/
+theorem productWeight_pos_swap23_iff
+    {α : Type*} (u : α → ℝ) (t : Triple α) :
+    0 < productWeight u (swap23 t) ↔ 0 < productWeight u t := by
+  rw [productWeight_swap23]
+
 /-- On a first-coordinate readout, the local mixer is the three-label mean. -/
 theorem transpositionMixer_firstReadout
     {α : Type*} (value : α → ℝ) (t : Triple α) :
