@@ -1,0 +1,23 @@
+{
+  "schema": "ENTERPRISE_BRC_THEOREM_LEDGER_V1",
+  "effective": "2026-09-04",
+  "parent": "definitions/ENTERPRISE_BRC_NEWTON_QUADRATIC_SELECTOR_THEOREM_LEDGER_20260904.json",
+  "tool_method_id": "t0.weighted_brc_newton_quadratic_selector",
+  "theorems": [
+    {
+      "id": "WBRC-T63-NONSPLIT-MONIC-QUADRATIC-SMALLEST-POSITIVE-SELECTOR-CHAMBER",
+      "statement": "For E(y)=(y-r)^m(y^2+ay+b) with declared rational r>0 and fixed multiplicity guard R=r^2+ar+b!=0, define D=a^2-4b. The declared root is the smallest positive root iff the quadratic has no distinct real root in (0,r), equivalently V(b,a,D)=V(R,2r+a,D) where V deletes zero entries. This is also equivalent to the exact compact sign chamber R!=0, bR>=0, and [b<0 or R<0 or D<0 or a>=0 or a<=-2r].",
+      "status": "MAIN_BACKED_FOUNDATION"
+    }
+  ],
+  "negative_boundaries": [
+    {"id":"WBRC-N84-SMALLEST-POSITIVE-NOT-SMALLEST-REAL","statement":"T63 and T62 are distinct selector semantics."},
+    {"id":"WBRC-N85-ZERO-ROOT-NOT-POSITIVE","statement":"A root at zero lies at the open interval endpoint and does not defeat smallest-positive selection."},
+    {"id":"WBRC-N86-FIXED-SELECTOR-VALUE-NOT-FIXED-MULTIPLICITY-AT-R-ZERO","statement":"R=Q(r)=0 exits the declared multiplicity stratum even if the selector value remains r."},
+    {"id":"WBRC-N87-OPEN-INTERVAL-SEMANTICS-ARE-ESSENTIAL","statement":"The selector count is on the open interval (0,r); endpoint handling cannot be replaced by a closed-interval root count."},
+    {"id":"WBRC-N88-MONIC-QUADRATIC-COFACTOR-ONLY","statement":"T63 is promoted only for one monic quadratic competing cofactor."},
+    {"id":"WBRC-N89-DEGREE-TWO-STURM-VARIATION-NOT-GENERAL-PARAMETRIC-CAD","statement":"The explicit variation formula is not a general parametric Sturm/subresultant sign-cell enumerator."},
+    {"id":"WBRC-N90-COMPACT-CHAMBER-IS-DEGREE-TWO-SPECIALIZATION","statement":"The compact sign formula is a quadratic simplification of interval Sturm root count and should not be extrapolated to higher degree."},
+    {"id":"WBRC-N91-T63-NOT-COMPLETE-PUISEUX-OR-MULTIGENERATOR-SOLVER","statement":"T63 does not solve complete Puiseux continuation or generic multi-generator algebraic coefficients."}
+  ]
+}
