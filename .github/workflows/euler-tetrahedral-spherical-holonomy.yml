@@ -1,0 +1,61 @@
+name: euler-tetrahedral-spherical-holonomy
+
+on:
+  pull_request:
+    paths:
+      - "research_notes/EULER_TETRAHEDRAL_SPHERICAL_HOLONOMY_20260904.md"
+      - "definitions/ENTERPRISE_EULER_TETRAHEDRAL_SPHERICAL_HOLONOMY_THEOREM_LEDGER_20260904.json"
+      - "EnterpriseMath/EulerRotation/TetrahedralSphericalHolonomy.lean"
+      - "src/enterprise_math/euler_tetrahedral_holonomy.py"
+      - "tests/test_euler_tetrahedral_holonomy.py"
+      - "research_method_inventory_addenda/20260904_euler_tetrahedral_holonomy.json"
+      - ".github/workflows/euler-tetrahedral-spherical-holonomy.yml"
+  workflow_dispatch:
+
+jobs:
+  exact-and-formal:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Compile exact checker and tests
+        run: >-
+          python -m py_compile
+          src/enterprise_math/euler_tetrahedral_holonomy.py
+          tests/test_euler_tetrahedral_holonomy.py
+      - name: Exhaust all tetrahedral edge transports and face loops
+        env:
+          PYTHONPATH: src
+        run: python -m unittest -v tests/test_euler_tetrahedral_holonomy.py
+      - name: Validate theorem ledger and method inventory
+        run: >-
+          python -m json.tool
+          definitions/ENTERPRISE_EULER_TETRAHEDRAL_SPHERICAL_HOLONOMY_THEOREM_LEDGER_20260904.json
+          >/dev/null &&
+          python -m json.tool
+          research_method_inventory_addenda/20260904_euler_tetrahedral_holonomy.json
+          >/dev/null
+      - name: Reject proof placeholders
+        run: |
+          if grep -n -E '\b(sorry|admit|axiom)\b' EnterpriseMath/EulerRotation/TetrahedralSphericalHolonomy.lean; then
+            echo "Proof placeholder detected"
+            exit 1
+          fi
+      - uses: leanprover/lean-action@v1
+        with:
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+          use-github-cache: false
+          use-mathlib-cache: false
+      - name: Resolve pinned dependencies
+        run: lake update
+      - name: Fetch mathlib cache
+        run: lake exe cache get
+      - name: Build formal tetrahedral holonomy theorem
+        run: >-
+          lake build --wfail -KCI
+          EnterpriseMath.EulerRotation.TetrahedralSphericalHolonomy
