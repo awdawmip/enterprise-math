@@ -3,6 +3,8 @@ import Mathlib.Tactic
 
 namespace EnterpriseMath.S3ProvenanceMixer
 
+noncomputable section
+
 /-- Mean of the three first-action readout classes in one `3!` history fiber. -/
 def mean3 (x y z : ℝ) : ℝ :=
   (x + y + z) / 3
@@ -92,5 +94,7 @@ theorem mixer3_relationField_zero
       (EnterpriseMath.WeightedQuotientRelationField.uniformTotal mass m)
       i j = 0 := by
   simp
+
+end
 
 end EnterpriseMath.S3ProvenanceMixer
