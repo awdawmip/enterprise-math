@@ -1,0 +1,67 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "FOUNDATION_GLOBAL_SUBTOOLS",
+  "effective": "2026-09-04",
+  "date": "2026-09-04",
+  "module": "BRC_NEWTON_SCHEDULE_STRATA_FOUNDATION",
+  "parent_method": "T0_BRC",
+  "foundation": "definitions/ENTERPRISE_BRC_NEWTON_SCHEDULE_STRATA_FOUNDATION_20260904.md",
+  "theorem_ledger": "definitions/ENTERPRISE_BRC_NEWTON_SCHEDULE_STRATA_THEOREM_LEDGER_20260904.json",
+  "methods": [
+    {
+      "method_id": "t0.weighted_brc_newton_schedule_strata",
+      "name": "Exact rational-affine BRC Newton schedule-validity strata",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "implementation": "src/enterprise_math/brc_newton_schedule_strata.py",
+      "foundation": "definitions/ENTERPRISE_BRC_NEWTON_SCHEDULE_STRATA_FOUNDATION_20260904.md",
+      "theorem_ledger": "definitions/ENTERPRISE_BRC_NEWTON_SCHEDULE_STRATA_THEOREM_LEDGER_20260904.json",
+      "source_refs": [
+        "PR #1204",
+        "WBRC-T58",
+        "src/enterprise_math/brc_newton_schedule_strata.py"
+      ],
+      "triggers": [
+        "newton schedule stratum",
+        "constructible schedule",
+        "affine newton perturbation",
+        "contact hyperplane",
+        "declared root validity",
+        "newton chamber",
+        "schedule stability",
+        "affine root multiplicity constraints"
+      ],
+      "capabilities": [
+        "represent exact rational affine parameter forms and Newton polynomials",
+        "compute affine Taylor forms and exact contact order at rational parameter points",
+        "compute the exact selected rational-valuation Newton scale on a parameter point",
+        "construct the fixed-scale affine edge polynomial",
+        "construct exact affine equality/non-equality constraints for a declared rational root multiplicity",
+        "propagate affine coefficient dependence through a declared scheduled Newton substitution",
+        "evaluate affine Newton layers and residual states at rational parameter points"
+      ],
+      "typed_inputs": [
+        "finite RationalValuationScale Newton layers",
+        "rational-affine polynomial coefficients over a fixed finite parameter list",
+        "declared rational roots and positive multiplicities",
+        "declared or point-selected RationalValuationScale Newton factors",
+        "rational parameter points"
+      ],
+      "typed_outputs": [
+        "rational affine Taylor/contact forms",
+        "exact contact orders and selected scale at a parameter point",
+        "affine edge polynomial",
+        "declared root multiplicity constraint forms",
+        "affine scheduled residual state",
+        "evaluated rational Newton layers and states"
+      ],
+      "reuse": [
+        "t0.weighted_brc_newton_observer_lattice",
+        "t0.weighted_brc_newton_recursion",
+        "t0.weighted_brc_newton_handoff_resonance"
+      ],
+      "hard_boundary": "Declared rational-root schedule validity is not global root-selector stability. The promoted constructibility result assumes rational-affine coefficient dependence and a finite declared schedule; this tool is not a generic CAD/decomposition engine, complete Puiseux solver, or multi-generator algebraic-field package."
+    }
+  ]
+}
