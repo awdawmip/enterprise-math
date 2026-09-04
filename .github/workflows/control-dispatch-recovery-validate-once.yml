@@ -22,21 +22,30 @@ jobs:
       - name: Validate repaired runtime prerequisites
         run: |
           python control_plane/research_result_review_audit_fault_isolation.py
+          python control_plane/research_driver_review_authority_compat_runtime.py
           python - <<'PY'
           from control_plane import research_control_bootstrap as bootstrap
           bootstrap.install()
           from tools import research_result_records
           operational = {r.get('review_id') for r in research_result_records.iter_reviews()}
-          blocked = {'DR-BC224E4802009728727F', 'DR-DD72EC82270666345509'}
+          blocked = {
+              'DR-BC224E4802009728727F',
+              'DR-DD72EC82270666345509',
+              'DR-98D79A8522754B43637A',
+              'DR-23D512CBD58341BB6BDC',
+              'DR-4B7576B2FDCA2CCBAB38',
+              'DR-7E19A3C45B60D82F1A57',
+              'DR-9986FE430DB065EA8EF2',
+          }
           leaked = sorted(blocked & operational)
           if leaked:
-              raise SystemExit('legacy invalid reviews leaked operationally: ' + repr(leaked))
+              raise SystemExit('nonoperational reviews leaked operationally: ' + repr(leaked))
           import research_driver_authority as driver_authority
           errors = driver_authority.audit()
           if errors:
               raise SystemExit('\n'.join(errors))
           print('RUNTIME_BOOTSTRAP=PASS')
-          print('LEGACY_INVALID_REVIEWS_NONOPERATIONAL=PASS')
+          print('NONOPERATIONAL_REVIEW_ISOLATION=PASS')
           print('DRIVER_AUTHORITY=PASS')
           PY
       - name: Fetch raw Issue 240 runtime stream
