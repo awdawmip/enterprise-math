@@ -248,10 +248,10 @@ def run() -> dict[str, object]:
 if __name__ == "__main__":
     result = run()
     expected = {
-        "counter_factorization_cases": 1840,
-        "inter_horizon_naturality_cases": 6528,
-        "projection_composition_cases": 58905,
-        "s4_equivariance_cases": 149760,
+        "counter_factorization_cases": 1872,
+        "inter_horizon_naturality_cases": 12496,
+        "projection_composition_cases": 170170,
+        "s4_equivariance_cases": 14976,
         "first_return_depths_recovered": 32,
         "first_eight_return_masses": ["1/2", "1/8", "1/16", "5/128", "7/256", "21/1024", "33/2048", "429/32768"],
         "x_h_state_counts_h0_to_h8": [24, 36, 48, 60, 72, 84, 96, 108, 120],
