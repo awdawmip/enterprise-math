@@ -1,0 +1,101 @@
+{
+  "schema": "EM_FREE_F6D046_P46_GEOMETRIC_ENDOMORPHISM_EVIDENCE_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "research_units": [
+    "EM-FREE-F6D046-R22-P46-CORRECTED-ABSOLUTE-SIMPLICITY",
+    "EM-FREE-F6D046-R23-P46-ASYMMETRIC-ENDOMORPHISM-INTERSECTION"
+  ],
+  "date": "2026-09-04",
+  "parent_chain": "EM_FREE_F6D046_RAMANUJAN_RESEARCH_CHAIN",
+  "correction": {
+    "superseded_inference": "attempt to use p=7 irreducibility as an absolute-simplicity certificate",
+    "exact_failure": "f_7(X)=f_7(-X), so roots alpha and -alpha have quotient -1 and collide after squaring",
+    "first_failed_order": 2
+  },
+  "curve": {
+    "E": "v^2=t^4+24t^3+192t^2+528t+144",
+    "C46": "m^2=(-1/288)*v*(t^2+12t+24)",
+    "P46": "Prym(C46/E), dimension 4",
+    "good_reduction_support": "disc(A)=-2^16*3^5; disc(D)=2^4*3; Res(A,D)=-2^8*3^3"
+  },
+  "new_good_reductions": {
+    "17": {
+      "counts": [
+        {"p":17,"n":1,"q":17,"modulus_low":[6,1],"N_E":14,"N_C46":26,"power_sum_P46":-12},
+        {"p":17,"n":2,"q":289,"modulus_low":[13,15,1],"N_E":308,"N_C46":260,"power_sum_P46":48},
+        {"p":17,"n":3,"q":4913,"modulus_low":[16,6,4,1],"N_E":5054,"N_C46":4946,"power_sum_P46":108},
+        {"p":17,"n":4,"q":83521,"modulus_low":[2,11,16,6,1],"N_E":83776,"N_C46":84552,"power_sum_P46":-776}
+      ],
+      "L_coefficients_ascending": [1,12,48,-36,-814,-612,13872,58956,83521],
+      "characteristic_coefficients_high": [1,12,48,-36,-814,-612,13872,58956,83521],
+      "ordinary": true,
+      "split_in_Qi": true,
+      "root_ratio_candidate_orders_checked": 126,
+      "auxiliary_prime_distribution": {"11":49,"19":76,"31":1}
+    },
+    "29": {
+      "counts": [
+        {"p":29,"n":1,"q":29,"modulus_low":[23,1],"N_E":30,"N_C46":34,"power_sum_P46":-4},
+        {"p":29,"n":2,"q":841,"modulus_low":[20,24,1],"N_E":900,"N_C46":884,"power_sum_P46":16},
+        {"p":29,"n":3,"q":24389,"modulus_low":[23,1,19,1],"N_E":24390,"N_C46":24898,"power_sum_P46":-508},
+        {"p":29,"n":4,"q":707281,"modulus_low":[8,7,7,1,1],"N_E":705600,"N_C46":708168,"power_sum_P46":-2568}
+      ],
+      "L_coefficients_ascending": [1,4,0,148,1298,4292,0,97556,707281],
+      "characteristic_coefficients_high": [1,4,0,148,1298,4292,0,97556,707281],
+      "ordinary": true,
+      "split_in_Qi": true,
+      "root_ratio_candidate_orders_checked": 126,
+      "auxiliary_prime_distribution": {"11":106,"17":13,"13":2,"19":4,"31":1}
+    }
+  },
+  "field_certificates": {
+    "K": "Q(i)",
+    "g17_plus_coefficients_high_pairs": [[1,0],[6,2],[4,16],[-74,78],[-255,136]],
+    "g29_plus_coefficients_high_pairs": [[1,0],[2,6],[-20,-8],[162,-86],[609,580]],
+    "g17_irreducibility_witness": "(5,i-2), Rabin degree 4",
+    "g29_irreducibility_witness": "(101,i-10), Rabin degree 4",
+    "g29_resolvent_irreducibility_witness": "(17,i-4), Rabin degree 3",
+    "all_pairing_nonisomorphism_witness": {
+      "prime_ideal": "(37,i-6)",
+      "F17_factor_degrees": [2,2],
+      "F29_factor_degrees": [1,3],
+      "pairings_checked": 4
+    },
+    "asymmetric_intersection_lemma": "Only F29/K must have no intermediate fields; if D>K then D=F29, and its embedding into degree-4 F17 would force an excluded K-isomorphism."
+  },
+  "theorems": {
+    "T_R22": "P46/Qbar is geometrically simple",
+    "T_R23": "End^0_Qbar(P46)=Q(i)",
+    "T_R23_integral": "End_Qbar(P46)=Z[i]",
+    "T_R24_curve_automorphism": "Aut_Qbar(C46)=<sigma>≅C4",
+    "T_R24_prym_group_automorphism": "Aut_gp,Qbar(P46)=Z[i]^×≅C4"
+  },
+  "verification": {
+    "file": "EM_FREE_F6D046_P46_GEOMETRIC_ENDOMORPHISM_VERIFICATION_20260904.json",
+    "sha256": "8a6f4d5c121fef5d96cbfb1ce71d17586c257196efaa210ed5da8985152e0911",
+    "all_passed": true,
+    "check_count": 21,
+    "root_ratio_witness_count_total": 252
+  },
+  "tool_reuse": [
+    {"source":"R13 finite-field point-count method","state":"REUSE_EXECUTED"},
+    {"source":"R15 finite root-of-unity order protocol","state":"REUSE_APPLIED_CORRECTION_AWARE"},
+    {"source":"T2 finite-certificate structural pattern","state":"REUSE_APPLIED"},
+    {"classification":"DOMAIN_CERTIFICATE / RESULT_ONLY / NO_NEW_GLOBAL_TOOL"}
+  ],
+  "classification": [
+    "DERIVED_GEOMETRIC_THEOREM",
+    "GEOMETRICALLY_SIMPLE",
+    "GEOMETRIC_ENDOMORPHISM_ALGEBRA_QI",
+    "FULL_CURVE_AUTOMORPHISM_GROUP_C4",
+    "CORRECTION_AWARE",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION",
+    "P000_UNCHANGED"
+  ],
+  "dependencies": {
+    "R17": "unconditional normalizer theorem plus conditional full-Aut implication",
+    "R18": "explicit Z[i] action and Hodge signature (3,1)",
+    "R22": "geometric simplicity discharges R17 condition"
+  }
+}
