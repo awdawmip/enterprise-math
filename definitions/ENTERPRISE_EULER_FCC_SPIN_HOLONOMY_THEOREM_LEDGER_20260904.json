@@ -1,0 +1,96 @@
+{
+  "schema": "ENTERPRISE_RESEARCH_THEOREM_LEDGER_V1",
+  "status": "FREE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "date": "2026-09-04",
+  "researcher": "EM-FREE-F6D046 / FREE_AXIOM_DISCOVERY",
+  "author_program": "YUAN X / Enterprise Math",
+  "candidate": "AC-EM-FREE-F6D046-EULER-FCC-SPIN-HOLONOMY-V1",
+  "premise_typing": [
+    "P000 six-dimensional discrete Cell space is assumed",
+    "the FCC object is the selected classical coordinate carrier, not the native identity",
+    "the four close-packed slice normals and six line families are carrier/readout data",
+    "the standard spherical-area interpretation is separated from the exact rational/quaternion core"
+  ],
+  "theorems": [
+    {
+      "id": "EMESH-T01",
+      "name": "Regular tetrahedral slice-normal frame",
+      "statement": "The four FCC slice normals have square norm 3, pairwise dot product -1, and total sum zero.",
+      "status": "LEAN_TARGET_PENDING_CI + EXACT_CHECKER"
+    },
+    {
+      "id": "EMESH-T02",
+      "name": "Cross-normal recovery of the six FCC line families",
+      "statement": "ell_ST=(n_S x n_T)/2 has square norm 2, ell_TS=-ell_ST, and the six unordered pairs reproduce L1,...,L6 up to unoriented sign.",
+      "status": "LEAN_TARGET_PENDING_CI + EXACT_CHECKER"
+    },
+    {
+      "id": "EMESH-T03",
+      "name": "Canonical local 120-degree charts",
+      "statement": "For each slice S, the three outgoing ell_ST sum to zero and have pairwise dot product -1 and equal square norm 2.",
+      "status": "LEAN_TARGET_PENDING_CI + EXACT_CHECKER"
+    },
+    {
+      "id": "EMESH-T04",
+      "name": "Scalar orientation frustration",
+      "statement": "No assignment of vertex signs can make all shared oriented lines agree; the product of natural overlap signs around every triangle is -1.",
+      "status": "LEAN_TARGET_PENDING_CI + EXACT_NO_GO_CHECKER"
+    },
+    {
+      "id": "EMESH-T05",
+      "name": "Exact proper inter-slice transport",
+      "statement": "T_ST(v)=(-v+2 ell(ell dot v)+2 ell x v)/3 fixes ell_ST, maps n_S to n_T, preserves the dot form, and has inverse T_TS.",
+      "status": "LEAN_TARGET_PENDING_CI + EXACT_CHECKER"
+    },
+    {
+      "id": "EMESH-T06",
+      "name": "Covariant transport of local complex structures",
+      "statement": "T_ST(n_S x v)=n_T x T_ST(v); equivalently the normalized spin rotor Q_ST=(1+ell_ST)/sqrt(3) conjugates J_S=n_S/sqrt(3) to J_T.",
+      "status": "LEAN_TARGET_PENDING_CI + EXACT_CHECKER"
+    },
+    {
+      "id": "EMESH-T07",
+      "name": "Tetrahedral triangular spin holonomy",
+      "statement": "For distinct S,T,U, Q_US Q_TU Q_ST = epsilon_STU J_S with epsilon_STU=det(n_S,n_T,n_U)/4 in {+1,-1}; its square is -1.",
+      "status": "LEAN_NUMERATOR_TARGET_PENDING_CI + EXACT_CHECKER"
+    },
+    {
+      "id": "EMESH-T08",
+      "name": "Euler tangent half-turn holonomy",
+      "statement": "The vector transport around S->T->U->S equals H_S(v)=2 n_S(n_S dot v)/3-v, hence is -I on the starting slice plane.",
+      "status": "LEAN_TARGET_PENDING_CI + EXACT_CHECKER"
+    },
+    {
+      "id": "EMESH-T09",
+      "name": "Spherical face area interpretation",
+      "statement": "The normalized four-slice normals form a regular tetrahedron on S^2; its four congruent spherical faces have area pi, and standard parallel-transport holonomy agrees with EMESH-T08.",
+      "status": "STANDARD_SPHERICAL_GEOMETRY_INTERPRETATION",
+      "boundary": "The exact -I holonomy does not depend on importing spherical area or numerical pi."
+    },
+    {
+      "id": "EMESH-T10",
+      "name": "Cell-radius triple normalization",
+      "statement": "The same positive scalar 1/sqrt(3) normalizes the Cell radius, each slice-normal complex element J_S, and every inter-slice spin rotor 1+ell_ST.",
+      "status": "PARENT_FOUNDATION + EXACT_ALGEBRAIC_CONSEQUENCE",
+      "boundary": "Carrier/readout normalization; no primitive native length-operator multiplication is asserted."
+    }
+  ],
+  "corrected_boundaries": [
+    "FCC_SLICE_CONNECTION_IS_CURVED_NOT_FLAT",
+    "ELEMENTARY_THREE_SLICE_HOLONOMY_IS_EULER_HALF_TURN",
+    "LOCAL_COMPLEX_STRUCTURES_GLUE_BY_CONJUGATION_NOT_SCALAR_SIGN_EQUALITY"
+  ],
+  "negative_boundaries": [
+    "FCC_CARRIER_VECTOR_RELATIONS_ARE_NOT_NATIVE_6D_IDENTITIES",
+    "NO_GLOBAL_FACTORIZATION_OF_ALL_P000_TRAJECTORIES_IS_CLAIMED",
+    "CARRIER_SPHERICAL_AREA_IS_NOT_DECLARED_PRIMITIVE_NATIVE_AREA",
+    "NO_IDENTITY_WITH_TETRAHEDRAL_RESIDUAL_C2_OR_PELL_SHELL_SIGN_IS_CLAIMED",
+    "NO_DERIVATION_OF_RAMANUJAN_CM_TRANSFORMATIONS_FROM_FACE_HOLONOMY_IS_CLAIMED"
+  ],
+  "artifacts": [
+    "research_notes/EULER_FCC_SPHERICAL_SPIN_HOLONOMY_20260904.md",
+    "EnterpriseMath/Precision/EulerFccSpinHolonomy.lean",
+    "src/enterprise_math/euler_fcc_spin_holonomy.py",
+    "tests/test_euler_fcc_spin_holonomy.py"
+  ]
+}
