@@ -62,4 +62,14 @@ jobs:
         run: lake exe cache get
       - name: Compile Enterprise Math Lean layer with warnings fatal
         if: steps.lean_project.outputs.present == 'true'
-        run: lake build --wfail -KCI EnterpriseMath
+        shell: bash
+        run: |
+          set +e
+          lake build --wfail -KCI EnterpriseMath > /tmp/enterprise-lean-build.log 2>&1
+          status=$?
+          set -e
+          echo '=== LEAN ERROR/WARNING INDEX ==='
+          grep -nE 'error:|warning:|Build completed' /tmp/enterprise-lean-build.log || true
+          echo '=== LEAN LOG TAIL ==='
+          tail -n 180 /tmp/enterprise-lean-build.log
+          exit "$status"
