@@ -41,19 +41,22 @@ theorem colorTransfer_standard
     (diag off : ℝ) (h : Fin 3 → ℝ)
     (hstd : IsStandardColor h) :
     colorTransfer diag off h = fun i => (diag - off) * h i := by
+  have hzero : colorSum h = 0 := by
+    simpa [colorSum, IsStandardColor] using hstd
   funext i
-  unfold colorTransfer colorSum IsStandardColor at *
-  rw [hstd, mul_zero, add_zero]
+  unfold colorTransfer
+  rw [hzero, mul_zero, add_zero]
 
 /-- The standard sector is invariant under every equivariant color transfer. -/
 theorem colorTransfer_preserves_standard
     (diag off : ℝ) (h : Fin 3 → ℝ)
     (hstd : IsStandardColor h) :
     IsStandardColor (colorTransfer diag off h) := by
-  unfold IsStandardColor
-  rw [colorSum_colorTransfer]
-  unfold IsStandardColor at hstd
-  rw [hstd, mul_zero]
+  have hzero : colorSum h = 0 := by
+    simpa [colorSum, IsStandardColor] using hstd
+  have hout : colorSum (colorTransfer diag off h) = 0 := by
+    rw [colorSum_colorTransfer, hzero, mul_zero]
+  simpa [colorSum, IsStandardColor] using hout
 
 /-- Complete pair energy on the three-color fiber. -/
 def colorPairEnergy (h : Fin 3 → ℝ) : ℝ :=
@@ -74,9 +77,10 @@ theorem colorTransfer_constant_of_markov
     colorTransfer diag off (fun _ : Fin 3 => c) = fun _ => c := by
   funext i
   unfold colorTransfer colorSum
-  have hsum : c + c + c = 3 * c := by ring
-  rw [hsum]
-  nlinarith
+  calc
+    (diag - off) * c + off * (c + c + c) =
+        (diag + 2 * off) * c := by ring
+    _ = c := by rw [hmarkov, one_mul]
 
 /-- The global weighted `S_3` lift--project mixer has diagonal/off-diagonal weights `5/9,2/9`. -/
 theorem colorTransfer_five_ninth_two_ninth_eq_s3Mixer
@@ -100,7 +104,7 @@ theorem five_ninth_two_ninth_standard_eigenvalue :
 /-- Its quadratic standard energy survival is exactly `1/9`. -/
 theorem five_ninth_two_ninth_energy_survival :
     ((5 / 9 : ℝ) - (2 / 9 : ℝ)) ^ 2 = 1 / 9 := by
-  norm_num
+  ring
 
 end
 
