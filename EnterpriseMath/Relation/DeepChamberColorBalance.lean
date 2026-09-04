@@ -101,7 +101,7 @@ theorem totalColoredEnergy_eq_mass_mul_normalizedColorEnergy
   classical
   unfold totalColoredEnergy normalizedColorEnergy
   simp_rw [colorEnergy_eq_of_balanced κ h hκ]
-  rw [Finset.sum_mul, scalarKernelMass_eq_three_mul_base S κ hκ]
+  rw [← Finset.sum_mul, scalarKernelMass_eq_three_mul_base S κ hκ]
   ring
 
 /-- At scalar mass `1/9`, the colored transfer has squared norm factor `1/9`. -/
@@ -129,7 +129,8 @@ theorem balanced_colored_energy_and_scalar_loss
 theorem standardColorVector_isStandard :
     IsStandardColor
       (fun i : Fin 3 => if i = 0 then 1 else if i = 1 then -1 else 0) := by
-  norm_num [IsStandardColor]
+  change (1 : ℝ) + (-1) + 0 = 0
+  norm_num
 
 end
 
