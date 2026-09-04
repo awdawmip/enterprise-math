@@ -6,20 +6,26 @@ on:
       - "research_notes/EULER_C12_ROOT_TORSOR_TETRAHEDRAL_FLATNESS_20260904.md"
       - "research_notes/EULER_HOLONOMY_ENDPOINT_RESIDUAL_DUALITY_20260904.md"
       - "research_notes/EULER_UNIFORM_TWISTED_COHOMOLOGY_AND_ENDPOINT_RESIDUAL_20260904.md"
+      - "research_notes/EULER_TETRAHEDRAL_TRANSPORT_DICHOTOMY_20260904.md"
       - "definitions/ENTERPRISE_EULER_C12_ROOT_TORSOR_FLATNESS_THEOREM_LEDGER_20260904.json"
       - "definitions/ENTERPRISE_EULER_HOLONOMY_RESIDUAL_DUALITY_ADDENDUM_20260904.json"
       - "definitions/ENTERPRISE_EULER_TWISTED_ENDPOINT_COHOMOLOGY_ADDENDUM_20260904.json"
+      - "definitions/ENTERPRISE_EULER_TETRAHEDRAL_TRANSPORT_DICHOTOMY_ADDENDUM_20260904.json"
       - "research_method_inventory_addenda/20260904_euler_c12_root_torsor.json"
       - "research_method_inventory_addenda/20260904_euler_twisted_endpoint_cohomology.json"
+      - "research_method_inventory_addenda/20260904_euler_tetrahedral_transport_dichotomy.json"
       - "src/enterprise_math/euler_c12_root_torsor.py"
       - "src/enterprise_math/euler_holonomy_residual_duality.py"
       - "src/enterprise_math/euler_twisted_endpoint_cohomology.py"
+      - "src/enterprise_math/euler_tetrahedral_transport_dichotomy.py"
       - "tests/test_euler_c12_root_torsor.py"
       - "tests/test_euler_holonomy_residual_duality.py"
       - "tests/test_euler_twisted_endpoint_cohomology.py"
+      - "tests/test_euler_tetrahedral_transport_dichotomy.py"
       - "EnterpriseMath/Precision/EulerC12RootTorsorFlatness.lean"
       - "EnterpriseMath/Precision/EulerHolonomyResidualDuality.lean"
       - "EnterpriseMath/Precision/EulerTwistedEndpointCohomology.lean"
+      - "EnterpriseMath/Precision/EulerTetrahedralTransportDichotomy.lean"
       - ".github/workflows/euler-c12-root-torsor-flatness.yml"
   workflow_dispatch:
 
@@ -37,10 +43,12 @@ jobs:
           src/enterprise_math/euler_c12_root_torsor.py
           src/enterprise_math/euler_holonomy_residual_duality.py
           src/enterprise_math/euler_twisted_endpoint_cohomology.py
+          src/enterprise_math/euler_tetrahedral_transport_dichotomy.py
           tests/test_euler_c12_root_torsor.py
           tests/test_euler_holonomy_residual_duality.py
           tests/test_euler_twisted_endpoint_cohomology.py
-      - name: Run exhaustive root-cover, flatness, duality, and twisted-cohomology regressions
+          tests/test_euler_tetrahedral_transport_dichotomy.py
+      - name: Run exhaustive root-cover, cohomology, and transport regressions
         env:
           PYTHONPATH: src
         run: >-
@@ -48,19 +56,23 @@ jobs:
           tests/test_euler_c12_root_torsor.py
           tests/test_euler_holonomy_residual_duality.py
           tests/test_euler_twisted_endpoint_cohomology.py
+          tests/test_euler_tetrahedral_transport_dichotomy.py
       - name: Validate theorem and method JSON
         run: |
           python -m json.tool definitions/ENTERPRISE_EULER_C12_ROOT_TORSOR_FLATNESS_THEOREM_LEDGER_20260904.json >/dev/null
           python -m json.tool definitions/ENTERPRISE_EULER_HOLONOMY_RESIDUAL_DUALITY_ADDENDUM_20260904.json >/dev/null
           python -m json.tool definitions/ENTERPRISE_EULER_TWISTED_ENDPOINT_COHOMOLOGY_ADDENDUM_20260904.json >/dev/null
+          python -m json.tool definitions/ENTERPRISE_EULER_TETRAHEDRAL_TRANSPORT_DICHOTOMY_ADDENDUM_20260904.json >/dev/null
           python -m json.tool research_method_inventory_addenda/20260904_euler_c12_root_torsor.json >/dev/null
           python -m json.tool research_method_inventory_addenda/20260904_euler_twisted_endpoint_cohomology.json >/dev/null
+          python -m json.tool research_method_inventory_addenda/20260904_euler_tetrahedral_transport_dichotomy.json >/dev/null
       - name: Reject proof placeholders
         run: |
           if grep -n -E '\b(sorry|admit|axiom)\b' \
             EnterpriseMath/Precision/EulerC12RootTorsorFlatness.lean \
             EnterpriseMath/Precision/EulerHolonomyResidualDuality.lean \
-            EnterpriseMath/Precision/EulerTwistedEndpointCohomology.lean; then
+            EnterpriseMath/Precision/EulerTwistedEndpointCohomology.lean \
+            EnterpriseMath/Precision/EulerTetrahedralTransportDichotomy.lean; then
             echo "Proof placeholder detected"
             exit 1
           fi
@@ -76,8 +88,9 @@ jobs:
         run: lake update
       - name: Fetch mathlib cache
         run: lake exe cache get
-      - name: Build C12 root torsor, flatness, residual duality, and twisted cohomology
+      - name: Build Euler torsor, cohomology, and transport theorem modules
         run: |
           lake build --wfail -KCI EnterpriseMath.Precision.EulerC12RootTorsorFlatness
           lake build --wfail -KCI EnterpriseMath.Precision.EulerHolonomyResidualDuality
           lake build --wfail -KCI EnterpriseMath.Precision.EulerTwistedEndpointCohomology
+          lake build --wfail -KCI EnterpriseMath.Precision.EulerTetrahedralTransportDichotomy
