@@ -27,6 +27,7 @@ import EnterpriseMath.Relation.WeightedTripleBranchMixer
 import EnterpriseMath.Relation.PrimeWindingStirlingChambers
 import EnterpriseMath.Relation.S3StirlingIntertwiner
 import EnterpriseMath.Relation.DeepChamberColorNoGo
+import EnterpriseMath.Relation.DeepChamberColorBalance
 import EnterpriseMath.Scale.Compatibility
 import EnterpriseMath.State.CriticalGrid
 import EnterpriseMath.PrimeFusion
