@@ -34,7 +34,7 @@ theorem summable_dirichletSineSeriesTerm (x : ℝ) :
     have hsingle : HasSum (fun j : ℕ => if j = 0 then (1 : ℝ) else 0) 1 :=
       hasSum_ite_eq 0 1
     refine (HasSum.congr_fun hsingle (fun j => ?_)).summable
-    exact (dirichletSineSeriesTerm_zero j).symm
+    exact dirichletSineSeriesTerm_zero j
   · have hs := (Real.hasSum_sin x).div_const x
     refine (HasSum.congr_fun hs (fun j => ?_)).summable
     unfold dirichletSineSeriesTerm
@@ -78,6 +78,6 @@ theorem dirichletSineSeries_zero : dirichletSineSeries 0 = 1 := by
     hasSum_ite_eq 0 1
   apply HasSum.unique h
   refine HasSum.congr_fun hsingle (fun j => ?_)
-  exact (dirichletSineSeriesTerm_zero j).symm
+  exact dirichletSineSeriesTerm_zero j
 
 end EnterpriseMath.Precision
