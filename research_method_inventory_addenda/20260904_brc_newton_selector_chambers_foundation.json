@@ -1,0 +1,67 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "FOUNDATION_GLOBAL_SUBTOOLS",
+  "effective": "2026-09-04",
+  "date": "2026-09-04",
+  "module": "BRC_NEWTON_SELECTOR_CHAMBERS_FOUNDATION",
+  "parent_method": "T0_BRC",
+  "foundation": "definitions/ENTERPRISE_BRC_NEWTON_SELECTOR_CHAMBERS_FOUNDATION_20260904.md",
+  "theorem_ledger": "definitions/ENTERPRISE_BRC_NEWTON_SELECTOR_CHAMBERS_THEOREM_LEDGER_20260904.json",
+  "methods": [
+    {
+      "method_id": "t0.weighted_brc_newton_selector_chambers",
+      "name": "Exact complete split-affine Newton root-selector chambers",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "implementation": "src/enterprise_math/brc_newton_selector_chambers.py",
+      "foundation": "definitions/ENTERPRISE_BRC_NEWTON_SELECTOR_CHAMBERS_FOUNDATION_20260904.md",
+      "theorem_ledger": "definitions/ENTERPRISE_BRC_NEWTON_SELECTOR_CHAMBERS_THEOREM_LEDGER_20260904.json",
+      "source_refs": [
+        "PR #1206",
+        "WBRC-T59",
+        "src/enterprise_math/brc_newton_selector_chambers.py"
+      ],
+      "triggers": [
+        "newton selector chamber",
+        "split affine roots",
+        "smallest real root stability",
+        "smallest positive root stability",
+        "root order chamber",
+        "complete real root certificate",
+        "selector stability",
+        "affine root branch"
+      ],
+      "capabilities": [
+        "represent a complete split-affine real-root inventory with fixed declared root multiplicity",
+        "check fixed-multiplicity noncollision at rational parameter points",
+        "construct smallest-real affine selector chambers",
+        "construct smallest-positive Boolean affine selector chambers",
+        "evaluate exact selector predicates at rational parameter points",
+        "materialize the monic factorized polynomial exactly",
+        "verify a supplied rational polynomial matches the split certificate up to a nonzero scalar"
+      ],
+      "typed_inputs": [
+        "fixed declared rational root and positive multiplicity",
+        "finite rational-affine real-root branches with positive multiplicities",
+        "complete polynomial degree accounting",
+        "rational parameter point",
+        "optional rational polynomial for split-certificate matching"
+      ],
+      "typed_outputs": [
+        "fixed-multiplicity noncollision decision",
+        "affine order atoms and clauses",
+        "smallest-real or smallest-positive selector chamber",
+        "selector stability decision at a parameter point",
+        "exact monic split polynomial",
+        "split-certificate polynomial match decision"
+      ],
+      "reuse": [
+        "t0.weighted_brc_newton_schedule_strata",
+        "t0.weighted_brc_newton_handoff_resonance",
+        "existing exact rational root/Sturm regression machinery"
+      ],
+      "hard_boundary": "A complete split-affine real-root certificate is required. This is not a factorization algorithm or a general parametric Sturm/subresultant chamber solver. Selector-value stability does not replace T59 declared multiplicity/schedule validity; smallest-real and smallest-positive semantics remain distinct."
+    }
+  ]
+}

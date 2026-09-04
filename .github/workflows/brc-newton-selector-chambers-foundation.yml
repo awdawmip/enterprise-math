@@ -1,0 +1,49 @@
+name: brc-newton-selector-chambers-foundation
+
+on:
+  pull_request:
+    paths:
+      - 'definitions/ENTERPRISE_BRC_NEWTON_SELECTOR_CHAMBERS_FOUNDATION_20260904.md'
+      - 'definitions/ENTERPRISE_BRC_NEWTON_SELECTOR_CHAMBERS_THEOREM_LEDGER_20260904.json'
+      - 'definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json'
+      - 'research_method_inventory_addenda/20260904_brc_newton_selector_chambers_foundation.json'
+      - 'src/enterprise_math/brc_newton_selector_chambers.py'
+      - 'tests/test_brc_newton_selector_chambers_foundation.py'
+      - 'experiments/check_brc_newton_selector_chambers_foundation.py'
+      - '.github/workflows/brc-newton-selector-chambers-foundation.yml'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Newton selector chambers production subtool
+        env:
+          PYTHONPATH: src
+        run: python -m unittest tests/test_brc_newton_selector_chambers_foundation.py
+      - name: Newton selector chambers Foundation integrity
+        env:
+          PYTHONPATH: src
+        run: python experiments/check_brc_newton_selector_chambers_foundation.py
+      - name: Split-affine selector chamber research regression
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_newton_split_affine_selector_chambers_check.py
+      - name: Parent Newton schedule strata Foundation remains consistent
+        env:
+          PYTHONPATH: src
+        run: |
+          python -m unittest tests/test_brc_newton_schedule_strata_foundation.py
+          python experiments/check_brc_newton_schedule_strata_foundation.py
+      - name: Toolbox discovers Newton selector chambers BRC
+        env:
+          PYTHONPATH: src
+        run: |
+          python tools/enterprise_toolbox.py --json methods selector chamber newton brc > /tmp/selector-chambers.json
+          grep -q 't0.weighted_brc_newton_selector_chambers' /tmp/selector-chambers.json
+          python tools/enterprise_toolbox.py --json modules selector chamber newton brc > /tmp/selector-chambers-module.json
+          grep -q 'module:brc_newton_selector_chambers' /tmp/selector-chambers-module.json
