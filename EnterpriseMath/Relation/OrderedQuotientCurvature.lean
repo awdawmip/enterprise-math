@@ -7,9 +7,11 @@ namespace EnterpriseMath.OrderedQuotientCurvature
 open EnterpriseMath.PrimePowerQuotientTriangle
 open scoped BigOperators
 
+noncomputable section
+
 /--
 The ordered common-suffix curvature compares two signless edges whose total
-quotient labels recoalesce to the same product.  The first intermediate vertex
+quotient labels recoalesce to the same product. The first intermediate vertex
 is retained, so the expression remains sensitive to ordered provenance.
 -/
 def commonSuffixCurvature
@@ -62,21 +64,21 @@ theorem commonSuffixCurvature_cocycle
 
 /-- Total mass of a finite family of action weights. -/
 def totalWeight (S : Finset ℕ) (u : ℕ → ℝ) : ℝ :=
-  ∑ a in S, u a
+  ∑ a ∈ S, u a
 
 /-- Unnormalized pairwise quotient-cloud variance numerator. -/
 def pairCurvatureEnergy
     (S : Finset ℕ) (u : ℕ → ℝ) (f : ℕ → ℝ) (n : ℕ) : ℝ :=
-  ∑ a in S, ∑ b in S,
+  ∑ a ∈ S, ∑ b ∈ S,
     u a * u b * (f (quotient a n) - f (quotient b n)) ^ 2
 
 /--
-Ordered degree-three curvature energy.  For each triple `(a,b,c)`, the two
+Ordered degree-three curvature energy. For each triple `(a,b,c)`, the two
 compared signless edges terminate at the common quotient state `q_(abc)(n)`.
 -/
 def cubicCurvatureEnergy
     (S : Finset ℕ) (u : ℕ → ℝ) (f : ℕ → ℝ) (n : ℕ) : ℝ :=
-  ∑ a in S, ∑ b in S, ∑ c in S,
+  ∑ a ∈ S, ∑ b ∈ S, ∑ c ∈ S,
     u a * u b * u c * (commonSuffixCurvature a b c f n) ^ 2
 
 /--
@@ -91,13 +93,13 @@ theorem cubicCurvatureEnergy_eq_totalWeight_mul_pairCurvatureEnergy
   unfold cubicCurvatureEnergy pairCurvatureEnergy totalWeight
   simp_rw [commonSuffixCurvature_eq_intermediate_sub]
   calc
-    (∑ a in S, ∑ b in S, ∑ c in S,
+    (∑ a ∈ S, ∑ b ∈ S, ∑ c ∈ S,
         u a * u b * u c *
           (f (quotient a n) - f (quotient b n)) ^ 2) =
-        ∑ a in S, ∑ b in S,
+        ∑ a ∈ S, ∑ b ∈ S,
           (u a * u b *
               (f (quotient a n) - f (quotient b n)) ^ 2) *
-            (∑ c in S, u c) := by
+            (∑ c ∈ S, u c) := by
       apply Finset.sum_congr rfl
       intro a ha
       apply Finset.sum_congr rfl
@@ -106,8 +108,8 @@ theorem cubicCurvatureEnergy_eq_totalWeight_mul_pairCurvatureEnergy
       apply Finset.sum_congr rfl
       intro c hc
       ring
-    _ = (∑ c in S, u c) *
-        (∑ a in S, ∑ b in S,
+    _ = (∑ c ∈ S, u c) *
+        (∑ a ∈ S, ∑ b ∈ S,
           u a * u b *
             (f (quotient a n) - f (quotient b n)) ^ 2) := by
       rw [Finset.mul_sum]
@@ -131,6 +133,8 @@ theorem quotientCloudVariance_eq_normalized_cubicCurvatureEnergy
       cubicCurvatureEnergy S u f n / (2 * (totalWeight S u) ^ 2) := by
   unfold quotientCloudVariance
   rw [cubicCurvatureEnergy_eq_totalWeight_mul_pairCurvatureEnergy]
-  field_simp [hU] <;> ring
+  field_simp [hU]
+
+end
 
 end EnterpriseMath.OrderedQuotientCurvature
