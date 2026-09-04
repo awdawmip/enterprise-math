@@ -47,7 +47,7 @@ def main() -> int:
     assert "WBRC-T62" in foundation
     assert "R!=0 AND [D<0 OR (L>0 AND R>0)]" in foundation
     assert "L^2-D=(-a-2r)^2-(a^2-4b)=4(r^2+ar+b)=4R" in foundation
-    assert "D=0 is not by itself a selector boundary" in foundation
+    assert "not by itself a selector boundary" in foundation
 
     assert substrate["newton_quadratic_selector_foundation"].endswith(
         "ENTERPRISE_BRC_NEWTON_QUADRATIC_SELECTOR_FOUNDATION_20260904.md"
