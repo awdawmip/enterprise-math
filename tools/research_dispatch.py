@@ -493,7 +493,22 @@ def _filter_registered_events(
                     continue
                 normalized = copy.deepcopy(event)
                 normalized["researcher_id"] = intent["researcher_id"]
-                normalized.setdefault("lease_minutes", intent["owner_lease_minutes"])
+                # Historical execution intents may predate owner_lease_minutes.
+                # Preserve an authenticated CLAIM-provided lease unchanged; only
+                # consult the intent when the CLAIM omitted it.  If both are
+                # absent, reject rather than inventing a lease.
+                if "lease_minutes" not in normalized:
+                    intent_lease = intent.get("owner_lease_minutes")
+                    if type(intent_lease) is not int or intent_lease <= 0:
+                        rejected.append({
+                            "index": index,
+                            "reason": (
+                                "registered CLAIM and historical execution intent both "
+                                "omit a positive owner lease"
+                            ),
+                        })
+                        continue
+                    normalized["lease_minutes"] = intent_lease
                 accepted.append(normalized)
                 continue
 
