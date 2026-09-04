@@ -34,6 +34,46 @@ theorem relationField_closure {ι : Type*}
   unfold relationField
   ring
 
+/-- Total capacity of a finite block family. -/
+def blockMass {ι : Type*} (S : Finset ι) (mass : ι → ℝ) : ℝ :=
+  ∑ i in S, mass i
+
+/-- Grand total carried by a finite block family. -/
+def blockTotal {ι : Type*} (S : Finset ι) (total : ι → ℝ) : ℝ :=
+  ∑ i in S, total i
+
+/-- Row sum of the internal weighted relation field. -/
+def relationRowSum {ι : Type*}
+    (S : Finset ι) (mass total : ι → ℝ) (i : ι) : ℝ :=
+  ∑ j in S, relationField mass total i j
+
+/-- Exact row-sum identity behind weighted block recovery. -/
+theorem relationRowSum_eq
+    {ι : Type*} (S : Finset ι) (mass total : ι → ℝ) (i : ι) :
+    relationRowSum S mass total i =
+      blockMass S mass * total i - mass i * blockTotal S total := by
+  classical
+  unfold relationRowSum relationField blockMass blockTotal
+  rw [Finset.sum_sub_distrib, Finset.sum_mul, ← Finset.mul_sum]
+
+/-- Mass, grand total, and relation-row sum recover the weighted block numerator. -/
+theorem relationField_recovery_numerator
+    {ι : Type*} (S : Finset ι) (mass total : ι → ℝ) (i : ι) :
+    blockMass S mass * total i =
+      mass i * blockTotal S total + relationRowSum S mass total i := by
+  rw [relationRowSum_eq]
+  ring
+
+/-- If total capacity is nonzero, every block total is recovered exactly. -/
+theorem relationField_recovers_total
+    {ι : Type*} (S : Finset ι) (mass total : ι → ℝ) (i : ι)
+    (hM : blockMass S mass ≠ 0) :
+    total i =
+      (mass i * blockTotal S total + relationRowSum S mass total i) /
+        blockMass S mass := by
+  apply (eq_div_iff hM).2
+  simpa [mul_comm] using relationField_recovery_numerator S mass total i
+
 /-- Quotient-cloud block total: capacity times the field value at that endpoint. -/
 def quotientCloudTotal
     (u : ℕ → ℝ) (f : ℕ → ℝ) (n a : ℕ) : ℝ :=
