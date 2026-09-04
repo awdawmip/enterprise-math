@@ -31,7 +31,39 @@
         "the FCC atlas is a selected classical carrier/readout, not the native P000 six-dimensional identity",
         "the spherical face-area interpretation uses standard classical sphere normalization",
         "no global factorization theorem for every native six-dimensional Cell trajectory is claimed",
-        "no identity with the tetrahedral residual C2, immediate-reversal bit, or Pell shell sign is claimed"
+        "no identity with the arbitrary-path immediate-reversal bit or Pell shell sign is claimed"
+      ]
+    },
+    {
+      "method_id": "project.precision_pi_torsion_holonomy",
+      "title": "Torsion-normalized A3/A5 covolume and FCC face-holonomy checker",
+      "implementation": "src/enterprise_math/precision_pi_torsion_holonomy.py",
+      "test": "tests/test_precision_pi_torsion_holonomy.py",
+      "theorem_ledger": "definitions/ENTERPRISE_EULER_FCC_SPIN_HOLONOMY_THEOREM_LEDGER_20260904.json",
+      "inputs": [
+        "A3 and A5 root-lattice Gram forms",
+        "K4 endpoint-sum matrix",
+        "tetrahedral face-versus-star edge contrasts",
+        "four-state and six-state balanced multinomial probabilities"
+      ],
+      "outputs": [
+        "root-lattice Gram determinant certificates",
+        "endpoint-sum metric scaling and saturation index two",
+        "face contrast primitive two-torsion certificate",
+        "explicit equality of all four face-contrast quotient classes",
+        "residual torsion to half-turn holonomy sign",
+        "torsion-normalized precision coefficient square",
+        "exact two-beta factorization",
+        "unique balance saddle and Hessian certificate"
+      ],
+      "arithmetic": "exact integer, Fraction, factorial, determinant, and finite-minor arithmetic",
+      "uses_pi": false,
+      "uses_trigonometry": false,
+      "tool_family_status": "T6_QUOTIENT_CONGRUENCE_PLUS_T7_SYMMETRY_PLUS_T9_HOLONOMY_PROJECT_SUBTOOL",
+      "boundaries": [
+        "the local-CLT limit and standard spherical area are analytic interpretation layers",
+        "no coefficientwise spherical-face quadrature transform is yet supplied",
+        "no Ramanujan modular acceleration theorem follows from this checker"
       ]
     }
   ]
