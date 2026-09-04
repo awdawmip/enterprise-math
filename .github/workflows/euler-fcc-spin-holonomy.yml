@@ -4,10 +4,14 @@ on:
   pull_request:
     paths:
       - "research_notes/EULER_FCC_SPHERICAL_SPIN_HOLONOMY_20260904.md"
+      - "research_notes/PRECISION_PI_TORSION_HOLONOMY_BRIDGE_20260904.md"
       - "definitions/ENTERPRISE_EULER_FCC_SPIN_HOLONOMY_THEOREM_LEDGER_20260904.json"
       - "EnterpriseMath/Precision/EulerFccSpinHolonomy.lean"
+      - "EnterpriseMath/Precision/PrecisionPiTorsionHolonomy.lean"
       - "src/enterprise_math/euler_fcc_spin_holonomy.py"
+      - "src/enterprise_math/precision_pi_torsion_holonomy.py"
       - "tests/test_euler_fcc_spin_holonomy.py"
+      - "tests/test_precision_pi_torsion_holonomy.py"
       - "research_method_inventory_addenda/20260904_euler_fcc_spin_holonomy.json"
       - ".github/workflows/euler-fcc-spin-holonomy.yml"
   workflow_dispatch:
@@ -21,17 +25,27 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-      - name: Compile exact checker and tests
-        run: python -m py_compile src/enterprise_math/euler_fcc_spin_holonomy.py tests/test_euler_fcc_spin_holonomy.py
-      - name: Run exact FCC spin-holonomy regression
+      - name: Compile exact checkers and tests
+        run: |
+          python -m py_compile \
+            src/enterprise_math/euler_fcc_spin_holonomy.py \
+            src/enterprise_math/precision_pi_torsion_holonomy.py \
+            tests/test_euler_fcc_spin_holonomy.py \
+            tests/test_precision_pi_torsion_holonomy.py
+      - name: Run exact FCC holonomy and torsion regressions
         env:
           PYTHONPATH: src
-        run: python -m unittest -v tests/test_euler_fcc_spin_holonomy.py
+        run: |
+          python -m unittest -v \
+            tests/test_euler_fcc_spin_holonomy.py \
+            tests/test_precision_pi_torsion_holonomy.py
       - name: Validate theorem ledger JSON
         run: python -m json.tool definitions/ENTERPRISE_EULER_FCC_SPIN_HOLONOMY_THEOREM_LEDGER_20260904.json >/dev/null
       - name: Reject proof placeholders
         run: |
-          if grep -R -n -E '\b(sorry|admit)\b' EnterpriseMath/Precision/EulerFccSpinHolonomy.lean; then
+          if grep -R -n -E '\b(sorry|admit)\b' \
+              EnterpriseMath/Precision/EulerFccSpinHolonomy.lean \
+              EnterpriseMath/Precision/PrecisionPiTorsionHolonomy.lean; then
             echo "Proof placeholder detected"
             exit 1
           fi
@@ -50,3 +64,5 @@ jobs:
         run: lake exe cache get
       - name: Build exact FCC Euler spin-holonomy core
         run: lake build --wfail -KCI EnterpriseMath.Precision.EulerFccSpinHolonomy
+      - name: Build torsion-normalized precision-pi bridge
+        run: lake build --wfail -KCI EnterpriseMath.Precision.PrecisionPiTorsionHolonomy
