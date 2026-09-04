@@ -1,0 +1,37 @@
+name: lean-v18-delayed-recanonicalization
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'EnterpriseMath/Relation/DelayedRecanonicalization.lean'
+      - 'scripts/check_free_research_delayed_recanonicalization_v18.py'
+      - 'scripts/check_free_research_two_step_hypocoercivity_v18.py'
+      - '.github/workflows/lean-v18-delayed-recanonicalization.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - uses: leanprover/lean-action@v1
+        with:
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+          use-github-cache: false
+          use-mathlib-cache: false
+      - name: Fetch pinned Mathlib cache
+        run: lake exe cache get
+      - name: Compile the V18 finite algebra module
+        run: lake env lean EnterpriseMath/Relation/DelayedRecanonicalization.lean
+      - name: Run exact delayed-block checker
+        run: python scripts/check_free_research_delayed_recanonicalization_v18.py
+      - name: Run exact two-step checker
+        run: python scripts/check_free_research_two_step_hypocoercivity_v18.py

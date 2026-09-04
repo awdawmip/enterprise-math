@@ -1,0 +1,32 @@
+name: pi-prime-v20-exact-checks
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'research_notes/FREE_RESEARCH_*V19_20260905.md'
+      - 'research_notes/FREE_RESEARCH_*V20_20260905.md'
+      - 'scripts/check_free_research_growing_depth_commutator_frame_v19_corrected.py'
+      - 'scripts/check_free_research_log_rectangle_commutator_v19.py'
+      - 'scripts/check_free_research_defect_signless_lift_v20.py'
+      - '.github/workflows/pi-prime-v20-exact-checks.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-fraction-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Corrected growing-depth Volterra/frame checker
+        run: python scripts/check_free_research_growing_depth_commutator_frame_v19_corrected.py
+      - name: Log-rectangle commutator checker
+        run: python scripts/check_free_research_log_rectangle_commutator_v19.py
+      - name: Defect signless-lift checker
+        run: python scripts/check_free_research_defect_signless_lift_v20.py
