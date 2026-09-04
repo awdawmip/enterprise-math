@@ -22,6 +22,7 @@ import EnterpriseMath.Relation.BranchAverageNoGo
 import EnterpriseMath.Relation.WeightedQuotientRelationField
 import EnterpriseMath.Relation.S3ProvenanceMixer
 import EnterpriseMath.Relation.WeightedCoefficientCoercivity
+import EnterpriseMath.Relation.WeightedRelationMixer
 import EnterpriseMath.Scale.Compatibility
 import EnterpriseMath.State.CriticalGrid
 import EnterpriseMath.PrimeFusion
