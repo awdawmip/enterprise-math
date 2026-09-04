@@ -36,6 +36,7 @@ from control_plane import research_startup_transport
 from tools import research_dispatch
 from tools import research_lane_dispatch
 from tools import research_runtime
+from tools import research_runtime_reducer
 
 ROOT = Path(__file__).resolve().parent
 research_control_bootstrap.install(ROOT)
@@ -170,10 +171,16 @@ def _owner_scope_activity(
 
 
 def _leased_targets(
-    events: list[dict[str, Any]], *, now, kind: str, root: Path
+    events: list[dict[str, Any]],
+    *,
+    now,
+    kind: str,
+    root: Path,
+    states: list[dict[str, Any]] | None = None,
 ) -> list[dict[str, Any]]:
     targets: list[dict[str, Any]] = []
-    states = research_dispatch.effective_states(events, now=now, root=root)
+    if states is None:
+        states = research_dispatch.effective_states(events, now=now, root=root)
     for state in states:
         if kind != "ANY" and state.get("kind") != kind:
             continue
@@ -194,10 +201,17 @@ def _leased_targets(
 
 
 def _fresh_lane(
-    events: list[dict[str, Any]], *, now, kind: str, root: Path
+    events: list[dict[str, Any]],
+    *,
+    now,
+    kind: str,
+    root: Path,
+    states: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any] | None:
     candidates: list[dict[str, Any]] = []
-    for state in research_dispatch.effective_states(events, now=now, root=root):
+    if states is None:
+        states = research_dispatch.effective_states(events, now=now, root=root)
+    for state in states:
         if kind != "ANY" and state.get("kind") != kind:
             continue
         if state.get("dispatch_state") != "COHORT_ACTIVE":
@@ -341,9 +355,15 @@ def route_control(
     root: Path = ROOT,
 ) -> dict[str, Any]:
     observations = observations or {}
-    leased = _leased_targets(events, now=now, kind=kind, root=root)
-    fresh_task = research_dispatch.select_task(events, now=now, kind=kind, root=root)
-    fresh_lane = _fresh_lane(events, now=now, kind=kind, root=root)
+    # One immutable derived task-state snapshot per canonical dispatch.  The old
+    # route recomputed the full Issue #240 stream independently for leased-owner,
+    # fresh-task, and fresh-lane selection.  Reusing one snapshot is semantics-
+    # preserving because all three selectors share the same events/now/root.
+    states = research_dispatch.effective_states(events, now=now, root=root)
+    leased = _leased_targets(events, now=now, kind=kind, root=root, states=states)
+    policy = research_runtime_reducer.load_policy(root)
+    fresh_task = research_runtime_reducer.select_state(states, policy, kind=kind)
+    fresh_lane = _fresh_lane(events, now=now, kind=kind, root=root, states=states)
     result = route_from_candidates(
         leased,
         observations=observations,
