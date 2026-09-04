@@ -7,19 +7,26 @@
   "parent_method": "T0_BRC",
   "foundation": "definitions/ENTERPRISE_BRC_NEWTON_QUADRATIC_SELECTOR_FOUNDATION_20260904.md",
   "theorem_ledger": "definitions/ENTERPRISE_BRC_NEWTON_QUADRATIC_SELECTOR_THEOREM_LEDGER_20260904.json",
+  "extension_foundation": "definitions/ENTERPRISE_BRC_NEWTON_QUADRATIC_POSITIVE_SELECTOR_FOUNDATION_20260904.md",
+  "extension_theorem_ledger": "definitions/ENTERPRISE_BRC_NEWTON_QUADRATIC_POSITIVE_SELECTOR_THEOREM_LEDGER_20260904.json",
   "methods": [
     {
       "method_id": "t0.weighted_brc_newton_quadratic_selector",
-      "name": "Exact non-split monic-quadratic Newton smallest-real selector",
+      "name": "Exact non-split monic-quadratic Newton real/positive selectors",
       "classification": "GLOBAL_SUBTOOL",
       "family_id": "T0_BRC",
       "status": "FOUNDATION_GLOBAL_SUBTOOL",
       "implementation": "src/enterprise_math/brc_newton_quadratic_selector.py",
       "foundation": "definitions/ENTERPRISE_BRC_NEWTON_QUADRATIC_SELECTOR_FOUNDATION_20260904.md",
       "theorem_ledger": "definitions/ENTERPRISE_BRC_NEWTON_QUADRATIC_SELECTOR_THEOREM_LEDGER_20260904.json",
+      "extension_foundation": "definitions/ENTERPRISE_BRC_NEWTON_QUADRATIC_POSITIVE_SELECTOR_FOUNDATION_20260904.md",
+      "extension_theorem_ledger": "definitions/ENTERPRISE_BRC_NEWTON_QUADRATIC_POSITIVE_SELECTOR_THEOREM_LEDGER_20260904.json",
       "source_refs": [
         "PR #1208",
+        "PR #1211",
         "WBRC-T60",
+        "WBRC-T62",
+        "WBRC-T63",
         "src/enterprise_math/brc_newton_quadratic_selector.py"
       ],
       "triggers": [
@@ -27,7 +34,10 @@
         "non split newton selector",
         "monic quadratic cofactor",
         "smallest real quadratic selector",
+        "smallest positive quadratic selector",
         "quadratic discriminant selector",
+        "quadratic sturm variation",
+        "open interval positive roots",
         "D L R selector",
         "irrational competing roots",
         "quadratic root ordering"
@@ -36,13 +46,18 @@
         "construct exact quadratic selector state a,b,r,D,L,R",
         "decide fixed declared multiplicity through R=Q(r)!=0",
         "decide smallest-real selector stability without materializing quadratic roots",
-        "expose the exact chamber sign signature of D,L,R",
+        "compute exact sign variation for the degree-two Sturm sequence",
+        "count distinct quadratic roots in the open interval (0,r) for declared r>0",
+        "decide smallest-positive selector stability by the open-interval Sturm observer",
+        "decide the equivalent compact radical-free smallest-positive chamber",
+        "expose exact chamber sign diagnostics and positive-formula consistency",
         "evaluate rational-affine quadratic coefficient families at rational parameter points",
         "verify the invariant L^2-D=4R"
       ],
       "typed_inputs": [
         "rational monic quadratic coefficients a,b",
         "fixed declared rational root r",
+        "r>0 for smallest-positive semantics",
         "optional rational-affine a(lambda), b(lambda) forms",
         "rational parameter point"
       ],
@@ -50,6 +65,9 @@
         "QuadraticSelectorState",
         "fixed-multiplicity decision",
         "smallest-real selector decision",
+        "open-interval quadratic root count",
+        "smallest-positive selector decision",
+        "compact positive-chamber decision",
         "D/L/R chamber sign signature",
         "evaluated affine quadratic selector state"
       ],
@@ -58,7 +76,7 @@
         "t0.weighted_brc_newton_schedule_strata",
         "exact rational Sturm machinery as regression evidence only"
       ],
-      "hard_boundary": "One monic quadratic cofactor and smallest-real semantics only. The closed D/L/R formula is not a general parametric Sturm/subresultant solver, does not cover smallest-positive interval selection, and does not materialize or factor competing roots."
+      "hard_boundary": "One monic quadratic cofactor only. Smallest-real and smallest-positive are distinct observer semantics. The explicit degree-two Sturm variation/compact formulas are not a general parametric Sturm/subresultant solver, do not factor competing roots, and do not extend to higher degree without a new theorem."
     }
   ]
 }

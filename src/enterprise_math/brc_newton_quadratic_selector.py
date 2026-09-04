@@ -1,8 +1,9 @@
-"""Exact non-split monic-quadratic selector state for Weighted-BRC Newton edges.
+"""Exact non-split monic-quadratic selectors for Weighted-BRC Newton edges.
 
-Implements WBRC-T62 only.  The decision procedure uses the exact quantities
-D=a^2-4b, L=-a-2r and R=r^2+ar+b.  It deliberately does not materialize the
-quadratic roots and is not a general parametric Sturm/factorization engine.
+Implements WBRC-T62/T63.  Smallest-real selection uses the exact quantities
+D=a^2-4b, L=-a-2r and R=r^2+ar+b.  Smallest-positive selection uses the
+quadratic Sturm variation on the open interval (0,r), with an equivalent
+radical-free compact chamber.  No competing quadratic root is materialized.
 """
 from __future__ import annotations
 
@@ -19,6 +20,16 @@ def _fraction(name: str, value: RationalInput) -> Fraction:
     if isinstance(value, bool) or not isinstance(value, (int, Fraction)):
         raise TypeError(f"{name} must be int or Fraction")
     return Fraction(value)
+
+
+def quadratic_sturm_variation(values: Sequence[RationalInput]) -> int:
+    """Sign variation after deleting zero entries, exactly over Q."""
+    signs: list[int] = []
+    for raw in values:
+        value = _fraction("Sturm value", raw)
+        if value:
+            signs.append((value > 0) - (value < 0))
+    return sum(left != right for left, right in zip(signs, signs[1:]))
 
 
 @dataclass(frozen=True)
@@ -60,6 +71,57 @@ class QuadraticSelectorState:
         if not self.fixed_multiplicity:
             return False
         return self.discriminant < 0 or (self.left_margin > 0 and self.root_value > 0)
+
+    @property
+    def positive_left_variation(self) -> int:
+        if self.declared_root <= 0:
+            raise ValueError("declared_root must be positive for smallest-positive selection")
+        return quadratic_sturm_variation((self.b, self.a, self.discriminant))
+
+    @property
+    def positive_right_variation(self) -> int:
+        if self.declared_root <= 0:
+            raise ValueError("declared_root must be positive for smallest-positive selection")
+        if not self.fixed_multiplicity:
+            raise ValueError("Q(declared_root) must be nonzero for open-interval Sturm count")
+        return quadratic_sturm_variation(
+            (self.root_value, 2 * self.declared_root + self.a, self.discriminant)
+        )
+
+    @property
+    def positive_interval_root_count(self) -> int:
+        """Number of distinct Q-roots in the open interval (0,r)."""
+        if self.declared_root <= 0:
+            raise ValueError("declared_root must be positive for smallest-positive selection")
+        if not self.fixed_multiplicity:
+            raise ValueError("Q(declared_root) must be nonzero for open-interval Sturm count")
+        count = self.positive_left_variation - self.positive_right_variation
+        if count < 0 or count > 2:
+            raise AssertionError("quadratic Sturm interval count left its valid range")
+        return count
+
+    @property
+    def smallest_positive_selected(self) -> bool:
+        if self.declared_root <= 0 or not self.fixed_multiplicity:
+            return False
+        return self.positive_interval_root_count == 0
+
+    @property
+    def smallest_positive_compact_selected(self) -> bool:
+        if self.declared_root <= 0 or not self.fixed_multiplicity:
+            return False
+        r = self.declared_root
+        return self.b * self.root_value >= 0 and (
+            self.b < 0
+            or self.root_value < 0
+            or self.discriminant < 0
+            or self.a >= 0
+            or self.a <= -2 * r
+        )
+
+    @property
+    def positive_formula_consistent(self) -> bool:
+        return self.smallest_positive_selected == self.smallest_positive_compact_selected
 
     @property
     def chamber_signature(self) -> tuple[int, int, int]:
@@ -119,6 +181,30 @@ def quadratic_smallest_real_selected(
     return quadratic_selector_state(a, b, declared_root).smallest_real_selected
 
 
+def quadratic_positive_interval_root_count(
+    a: RationalInput,
+    b: RationalInput,
+    declared_root: RationalInput,
+) -> int:
+    return quadratic_selector_state(a, b, declared_root).positive_interval_root_count
+
+
+def quadratic_smallest_positive_selected(
+    a: RationalInput,
+    b: RationalInput,
+    declared_root: RationalInput,
+) -> bool:
+    return quadratic_selector_state(a, b, declared_root).smallest_positive_selected
+
+
+def quadratic_smallest_positive_compact_selected(
+    a: RationalInput,
+    b: RationalInput,
+    declared_root: RationalInput,
+) -> bool:
+    return quadratic_selector_state(a, b, declared_root).smallest_positive_compact_selected
+
+
 def evaluate_affine_quadratic_selector(
     family: AffineQuadraticSelectorFamily,
     parameters: Sequence[RationalInput],
@@ -131,8 +217,12 @@ def evaluate_affine_quadratic_selector(
 __all__ = [
     "QuadraticSelectorState",
     "AffineQuadraticSelectorFamily",
+    "quadratic_sturm_variation",
     "quadratic_selector_state",
     "quadratic_fixed_multiplicity",
     "quadratic_smallest_real_selected",
+    "quadratic_positive_interval_root_count",
+    "quadratic_smallest_positive_selected",
+    "quadratic_smallest_positive_compact_selected",
     "evaluate_affine_quadratic_selector",
 ]
