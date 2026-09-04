@@ -45,7 +45,7 @@ EXPECTED_PRIMITIVES = [
 def build_hypotenuse_leg_map(max_h: int) -> dict[int, dict[int, int]]:
     """All nondegenerate integer right triangles with hypotenuse <= max_h.
 
-    map[h][leg] = other_leg. Primitive Euclidean cores are unique; scaling
+    map[h][leg] = other_leg.  Primitive Euclidean cores are unique; scaling
     supplies every integer right triangle.
     """
     out: dict[int, dict[int, int]] = defaultdict(dict)
@@ -100,9 +100,11 @@ def verify_point(point: tuple[int, int, int, int, int, int]) -> None:
     assert d * d + nu * nu == q * q
     assert mu * mu - nu * nu == 4 * x * y
 
+    # Exact fixed-locus parity collapses to d == p (mod 2).
     assert p % 2 == q % 2 == b % 2 == d % 2
     assert mu % 2 == 0 and nu % 2 == 0
 
+    # Strict sign chamber for every actual point in the control.
     assert d < q < b < p
     e = x * y // 2
     t_num = d * d - b * b
@@ -112,6 +114,7 @@ def verify_point(point: tuple[int, int, int, int, int, int]) -> None:
     assert 4 * (t + e) == -nu * nu
     assert t - e < t < t + e < 0
 
+    # Reconstruct every outer pair and verify AP sum/product exactly.
     roots = fixed_outer_roots(point)
     H = (-d, 0, d)
     T = (t - e, t, t + e)
@@ -121,10 +124,12 @@ def verify_point(point: tuple[int, int, int, int, int, int]) -> None:
         (H[2], T[0]), (H[2], T[1]), (H[2], T[2]),
     ]
     pairs = [(roots[i], roots[i + 1]) for i in range(0, 16, 2)]
+    assert len(pairs) == len(expected_cells)
     for (r1, r2), (row_sum, col_prod) in zip(pairs, expected_cells):
         assert r1 + r2 == row_sum
         assert r1 * r2 == col_prod
 
+    # Exact quartic avatar of the genus-one fiber.
     TT = mu + nu
     YY = 2 * TT * d
     assert TT != 0
