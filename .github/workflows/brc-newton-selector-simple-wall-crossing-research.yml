@@ -1,0 +1,22 @@
+name: brc-newton-selector-simple-wall-crossing-research
+
+on:
+  pull_request:
+    paths:
+      - "experiments/brc_newton_selector_simple_wall_crossing_check.py"
+      - "research_notes/BRC_NEWTON_SELECTOR_SIMPLE_WALL_CROSSING_20260904.md"
+      - ".github/workflows/brc-newton-selector-simple-wall-crossing-research.yml"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Exact simple selector wall-crossing checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_newton_selector_simple_wall_crossing_check.py
