@@ -39,7 +39,7 @@ theorem scalarEndpoint_collision (m : ℕ) :
 theorem chamberColor_collision_ne (m : ℕ) :
     chamberColor ((0 : Fin 3), m) ≠
       chamberColor ((1 : Fin 3), m) := by
-  decide
+  simp [chamberColor]
 
 /-- The scalar lower endpoint cannot recover the deepest chamber color. -/
 theorem scalarEndpoint_not_recovers_chamberColor :
@@ -51,10 +51,10 @@ theorem scalarEndpoint_not_recovers_chamberColor :
   exact chamberColor_collision_ne 0 hsame
 
 /-- A concrete standard-sector color observable. -/
-def standardColorObservable : DeepState → ℤ
-  | ⟨0, _⟩ => 1
-  | ⟨1, _⟩ => -1
-  | ⟨2, _⟩ => 0
+def standardColorObservable (s : DeepState) : ℤ :=
+  if s.1 = (0 : Fin 3) then 1
+  else if s.1 = (1 : Fin 3) then -1
+  else 0
 
 /-- The scalar endpoint also cannot recover a nontrivial standard color observable. -/
 theorem scalarEndpoint_not_recovers_standardColorObservable :
