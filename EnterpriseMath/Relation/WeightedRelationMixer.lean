@@ -50,10 +50,10 @@ theorem weightedPairEnergy_mixValue
     _ = lambda ^ 2 *
         (∑ i ∈ S, ∑ j ∈ S,
           u i * u j * (value i - value j) ^ 2) := by
-          rw [Finset.sum_mul]
+          rw [Finset.mul_sum]
           apply Finset.sum_congr rfl
           intro i hi
-          rw [Finset.sum_mul]
+          rw [Finset.mul_sum]
 
 /-- Weighted first moment after common-mean mixing. -/
 theorem weightedSum_mixValue
@@ -75,13 +75,13 @@ theorem weightedSum_mixValue
     _ = lambda * (∑ i ∈ S, u i * value i) +
         (1 - lambda) * (∑ i ∈ S, u i) * mean := by
           congr 1
-          · rw [Finset.sum_mul]
+          · rw [Finset.mul_sum]
           · calc
               (∑ i ∈ S, (1 - lambda) * u i * mean) =
                   (∑ i ∈ S, (1 - lambda) * u i) * mean := by
-                    rw [Finset.mul_sum]
-              _ = (1 - lambda) * (∑ i ∈ S, u i) * mean := by
                     rw [Finset.sum_mul]
+              _ = (1 - lambda) * (∑ i ∈ S, u i) * mean := by
+                    rw [Finset.mul_sum]
 
 /-- Mixing toward the actual weighted mean preserves the weighted grand total. -/
 theorem weightedSum_mixValue_mean
