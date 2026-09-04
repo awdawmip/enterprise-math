@@ -23,8 +23,14 @@ theorem dirichletDefectWeight_zero (R : ℝ) :
 /-- Every weighted defect term is nonnegative. -/
 theorem dirichletDefectWeight_nonneg (R : ℝ) (j : ℕ) :
     0 ≤ dirichletDefectWeight R j := by
+  have hpow : 0 ≤ R ^ (2 * j) := by
+    rw [show 2 * j = j + j by omega, pow_add]
+    exact mul_self_nonneg _
   unfold dirichletDefectWeight
-  positivity
+  apply div_nonneg
+  · exact mul_nonneg
+      (mul_nonneg (mul_nonneg (by positivity) (by positivity)) (by positivity)) hpow
+  · positivity
 
 /--
 After deleting the zero-th term, the weighted kernel splits into one shifted `cosh`
@@ -65,7 +71,7 @@ theorem hasSum_dirichletDefectWeight (R : ℝ) :
         (dirichletDefectSeriesValue R) := by
     unfold dirichletDefectSeriesValue
     refine HasSum.congr_fun (hc.add hs) (fun n => ?_)
-    exact (dirichletDefectWeight_succ_decompose R n).symm
+    exact dirichletDefectWeight_succ_decompose R n
   have hfull := HasSum.zero_add hshift
   simpa [dirichletDefectWeight_zero] using hfull
 
