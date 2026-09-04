@@ -9,6 +9,10 @@ def rootOut (s root : ℝ) : ℝ := (1 - 2 * s) ^ 2 * root
 def standardOut (gamma s root standard : ℝ) : ℝ :=
   4 * gamma * s * (1 - s) * root + s * standard
 
+/-- A general positive two-channel energy. -/
+def coneEnergy (lambda root standard : ℝ) : ℝ :=
+  root + lambda * standard
+
 /-- Terminally canonical two-channel energy. -/
 def terminalEnergy (gamma root standard : ℝ) : ℝ :=
   root + standard / gamma
@@ -73,13 +77,11 @@ theorem terminalEnergy_twoStep_defect
 /-- The balanced row forces the inverse mixer weight in every positive root recovery. -/
 theorem balanced_recovery_forces_inverse
     {gamma lambda : ℝ}
-    (hgamma : 0 < gamma)
     (hrecover :
-      terminalEnergy gamma (rootOut (1 / 2 : ℝ) 1)
-          (lambda * standardOut gamma (1 / 2 : ℝ) 1 0) ≥ 1) :
-    1 ≤ lambda := by
-  unfold terminalEnergy rootOut standardOut at hrecover
-  field_simp [ne_of_gt hgamma] at hrecover
+      coneEnergy lambda (rootOut (1 / 2 : ℝ) 1)
+          (standardOut gamma (1 / 2 : ℝ) 1 0) ≥ 1) :
+    1 ≤ lambda * gamma := by
+  norm_num [coneEnergy, rootOut, standardOut] at hrecover ⊢
   nlinarith
 
 /-- Root Mellin coefficient. -/
@@ -114,11 +116,11 @@ theorem beta_oneSixth_mellinA :
     mellinA (1 / 6 : ℝ) = 402 / 935 := by
   norm_num [mellinA]
 
- theorem beta_oneSixth_mellinB :
+theorem beta_oneSixth_mellinB :
     mellinB (1 / 6 : ℝ) = 6 / 11 := by
   norm_num [mellinB]
 
- theorem beta_oneSixth_mellinD :
+theorem beta_oneSixth_mellinD :
     mellinD (1 / 6 : ℝ) = 144 / 187 := by
   norm_num [mellinD]
 
@@ -127,7 +129,7 @@ theorem beta_oneSixth_twoStep :
     twoStepRootCoefficient (1 / 6 : ℝ) = 48132 / 51425 := by
   norm_num [twoStepRootCoefficient, mellinA, mellinB, mellinD]
 
- theorem beta_oneSixth_twoStep_lt_one :
+theorem beta_oneSixth_twoStep_lt_one :
     twoStepRootCoefficient (1 / 6 : ℝ) < 1 := by
   rw [beta_oneSixth_twoStep]
   norm_num
