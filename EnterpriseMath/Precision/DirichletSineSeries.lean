@@ -55,7 +55,7 @@ theorem dirichletSineSeries_eq_partial_add_tail (M : ℕ) (x : ℝ) :
       dirichletSinePartial M x +
         ∑' k : ℕ, dirichletSineSeriesTerm x (k + M) := by
   unfold dirichletSineSeries dirichletSinePartial
-  simpa using (summable_dirichletSineSeriesTerm x).sum_add_tsum_nat_add M |>.symm
+  simpa using ((summable_dirichletSineSeriesTerm x).sum_add_tsum_nat_add M).symm
 
 /-- Outside the origin, the internal series is compatibly read as `sin x / x`. -/
 theorem dirichletSineSeries_eq_sin_div (x : ℝ) (hx : x ≠ 0) :
