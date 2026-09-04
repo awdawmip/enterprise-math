@@ -7,11 +7,11 @@ open scoped BigOperators
 
 /-- Product of the positive reflection-even Hamming-shell eigenvalues `2,4,...,2n`. -/
 def hammingEvenPositiveSpectralProduct (n : ℕ) : ℚ :=
-  ∏ r in Finset.range n, (2 * (r : ℚ) + 2)
+  ∏ r ∈ Finset.range n, (2 * (r : ℚ) + 2)
 
 /-- Product of the reflection-odd Hamming-shell eigenvalues `1,3,...,2n+1`. -/
 def hammingOddSpectralProduct (n : ℕ) : ℚ :=
-  ∏ r in Finset.range (n + 1), (2 * (r : ℚ) + 1)
+  ∏ r ∈ Finset.range (n + 1), (2 * (r : ℚ) + 1)
 
 /--
 Finite spectral Wallis invariant for the odd Hamming shell `m=2n+1`.
