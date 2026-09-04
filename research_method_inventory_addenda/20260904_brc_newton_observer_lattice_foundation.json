@@ -1,0 +1,65 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "FOUNDATION_GLOBAL_SUBTOOLS",
+  "effective": "2026-09-04",
+  "date": "2026-09-04",
+  "module": "BRC_NEWTON_OBSERVER_LATTICE_FOUNDATION",
+  "parent_method": "T0_BRC",
+  "foundation": "definitions/ENTERPRISE_BRC_NEWTON_OBSERVER_LATTICE_FOUNDATION_20260904.md",
+  "theorem_ledger": "definitions/ENTERPRISE_BRC_NEWTON_OBSERVER_LATTICE_THEOREM_LEDGER_20260904.json",
+  "methods": [
+    {
+      "method_id": "t0.weighted_brc_newton_observer_lattice",
+      "name": "Exact BRC Newton observer lattice and frozen-horizon observability",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "implementation": "src/enterprise_math/brc_newton_observer_lattice.py",
+      "foundation": "definitions/ENTERPRISE_BRC_NEWTON_OBSERVER_LATTICE_FOUNDATION_20260904.md",
+      "theorem_ledger": "definitions/ENTERPRISE_BRC_NEWTON_OBSERVER_LATTICE_THEOREM_LEDGER_20260904.json",
+      "source_refs": [
+        "PR #1202",
+        "WBRC-T56",
+        "T6_OPERATION_SAFE_QUOTIENT principle"
+      ],
+      "triggers": [
+        "newton observer lattice",
+        "edge only observer",
+        "full residual observer",
+        "future observation quotient",
+        "frozen newton schedule",
+        "finite horizon observability",
+        "observer lease",
+        "newton context compression"
+      ],
+      "capabilities": [
+        "construct canonical coordinate-projection observers on T56 residual coordinates",
+        "compute observer signatures, equivalence, joins, meets and rank/kernel dimensions",
+        "compare full-residual and edge-only safe quotients",
+        "apply exact rational Newton substitutions for a declared frozen schedule",
+        "compute scale-one edge signatures over a finite declared horizon",
+        "construct exact observability matrices and prefix rank/kernel profiles"
+      ],
+      "typed_inputs": [
+        "finite T56 residual coordinate universe",
+        "declared coordinate observer subset",
+        "finite rational residual coefficient state",
+        "declared frozen Newton schedule of rational roots, positive multiplicities and RationalValuationScale factors"
+      ],
+      "typed_outputs": [
+        "coordinate-observer signature and equivalence",
+        "observer join/meet and kernel dimension",
+        "scheduled residual coefficient state",
+        "finite-horizon edge signature",
+        "exact rational observability matrix",
+        "horizon rank and kernel-dimension profile"
+      ],
+      "reuse": [
+        "t0.weighted_brc_newton_fiber_quotient",
+        "t0.weighted_brc_newton_handoff_resonance",
+        "T6 future-observation principle only"
+      ],
+      "hard_boundary": "Coordinate observers do not classify arbitrary nonlinear observers. Frozen scheduled substitutions do not certify that perturbed states autonomously select the same roots, multiplicities or scales. Longer declared horizons can only refine or preserve the safe quotient."
+    }
+  ]
+}

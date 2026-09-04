@@ -1,0 +1,48 @@
+{
+  "schema": "ENTERPRISE_BRC_THEOREM_LEDGER_V1",
+  "effective": "2026-09-04",
+  "parent": "definitions/ENTERPRISE_BRC_NEWTON_FIBER_QUOTIENT_THEOREM_LEDGER_20260904.json",
+  "tool_method_id": "t0.weighted_brc_newton_observer_lattice",
+  "theorems": [
+    {
+      "id": "WBRC-T57-COORDINATE-OBSERVER-KERNEL-ANTI-LATTICE",
+      "statement": "For the surjective T56 fiber-sum map Pi:Q^I->Q^C and any coordinate observer O subset C, Phi_O=P_O o Pi has rank |O| and kernel dimension |I|-|O|. Observer inclusion reverses kernel inclusion, K_(O1 union O2)=K_O1 intersection K_O2, and K_(O1 intersection O2)=K_O1+K_O2.",
+      "status": "MAIN_BACKED_FOUNDATION"
+    },
+    {
+      "id": "WBRC-T58-FROZEN-NEWTON-FINITE-HORIZON-OBSERVABILITY",
+      "statement": "For a declared finite Newton schedule, each scheduled substitution is an exact rational linear map. The horizon-h stacked observer H_h has kernel K_h with K_(h+1) subset K_h; its safe quotient dimension is the exact rational rank of the observability matrix.",
+      "status": "MAIN_BACKED_FOUNDATION"
+    }
+  ],
+  "negative_boundaries": [
+    {
+      "id": "WBRC-N54-FULL-RESIDUAL-NOT-UNIVERSAL-OBSERVER",
+      "statement": "T56 full-residual minimality is relative to the complete residual observer, not all possible observers."
+    },
+    {
+      "id": "WBRC-N55-EDGE-ONLY-NOT-FULL-RESIDUAL",
+      "statement": "Edge-only observation may identify states distinguished by strict residual coordinates."
+    },
+    {
+      "id": "WBRC-N56-COORDINATE-LATTICE-NOT-ALL-NONLINEAR-OBSERVERS",
+      "statement": "T57 classifies coordinate-projection observers only; nonlinear root/support/threshold observers may induce different quotients."
+    },
+    {
+      "id": "WBRC-N57-FROZEN-SCHEDULE-NOT-AUTONOMOUS-SELECTION",
+      "statement": "A fixed future root/multiplicity/scale schedule is a declared operation sequence, not a theorem that arbitrary perturbed states autonomously select that schedule."
+    },
+    {
+      "id": "WBRC-N58-LONGER-HORIZON-NOT-COARSER",
+      "statement": "Under a fixed schedule, adding future observations can only preserve or shrink the safe kernel."
+    },
+    {
+      "id": "WBRC-N59-SCHEDULED-LINEARITY-NOT-CHAMBER-STABILITY",
+      "statement": "Exact linearity of scheduled substitutions does not certify stability of the Newton selection chamber."
+    },
+    {
+      "id": "WBRC-N60-TAYLOR-PROVENANCE-NOT-BRANCH-PROVENANCE",
+      "statement": "Observer quotients of algebraic Taylor coefficients do not authorize erasing explicit positive branch provenance when that provenance is itself observed."
+    }
+  ]
+}
