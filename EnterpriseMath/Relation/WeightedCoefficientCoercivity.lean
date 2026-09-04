@@ -35,13 +35,16 @@ theorem sum_sum_left_sq
   unfold weightedSecond weightedMass
   calc
     (∑ i ∈ S, ∑ j ∈ S, u i * u j * (x i) ^ 2) =
-        ∑ i ∈ S, (u i * (x i) ^ 2) * (∑ j ∈ S, u j) := by
+        ∑ i ∈ S, ∑ j ∈ S, (u i * (x i) ^ 2) * u j := by
           apply Finset.sum_congr rfl
           intro i hi
-          rw [Finset.sum_mul]
           apply Finset.sum_congr rfl
           intro j hj
           ring
+    _ = ∑ i ∈ S, (u i * (x i) ^ 2) * (∑ j ∈ S, u j) := by
+          apply Finset.sum_congr rfl
+          intro i hi
+          rw [Finset.mul_sum]
     _ = (∑ i ∈ S, u i * (x i) ^ 2) * (∑ j ∈ S, u j) := by
           rw [Finset.sum_mul]
 
@@ -76,7 +79,7 @@ theorem sum_sum_cross
         ∑ i ∈ S, (u i * x i) * (∑ j ∈ S, u j * x j) := by
           apply Finset.sum_congr rfl
           intro i hi
-          rw [Finset.sum_mul]
+          rw [Finset.mul_sum]
     _ = (∑ i ∈ S, u i * x i) * (∑ j ∈ S, u j * x j) := by
           rw [Finset.sum_mul]
     _ = (∑ i ∈ S, u i * x i) ^ 2 := by ring
@@ -157,16 +160,21 @@ theorem weightedSum_coefficientLift_of_centered
     weightedSum S u (coefficientLift S u V x) =
       weightedSum S u (coefficientProduct V x) := by
   classical
-  unfold weightedSum coefficientLift coefficientProduct weightedMass at *
+  have hcenter' : ∑ i ∈ S, u i * x i = 0 := by
+    simpa [weightedSum] using hcenter
+  unfold weightedSum coefficientLift coefficientProduct
   calc
-    (∑ i ∈ S, u i * ((∑ j ∈ S, u j) + V i) * x i) =
-        (∑ j ∈ S, u j) * (∑ i ∈ S, u i * x i) +
-          ∑ i ∈ S, u i * (V i * x i) := by
-            rw [Finset.mul_sum]
-            simp_rw [Finset.sum_add_distrib]
+    (∑ i ∈ S, u i * ((weightedMass S u + V i) * x i)) =
+        ∑ i ∈ S,
+          (weightedMass S u * (u i * x i) + u i * (V i * x i)) := by
+            apply Finset.sum_congr rfl
+            intro i hi
             ring
+    _ = weightedMass S u * (∑ i ∈ S, u i * x i) +
+          ∑ i ∈ S, u i * (V i * x i) := by
+            rw [Finset.sum_add_distrib, Finset.mul_sum]
     _ = ∑ i ∈ S, u i * (V i * x i) := by
-          rw [hcenter]
+          rw [hcenter']
           ring
 
 /-- Exact second-moment expansion of the coefficient lift. -/
