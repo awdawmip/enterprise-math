@@ -1,0 +1,22 @@
+name: brc-newton-selector-ordinary-fold-wall-research
+
+on:
+  pull_request:
+    paths:
+      - "experiments/brc_newton_selector_ordinary_fold_wall_check.py"
+      - "research_notes/BRC_NEWTON_SELECTOR_ORDINARY_FOLD_WALL_20260904.md"
+      - ".github/workflows/brc-newton-selector-ordinary-fold-wall-research.yml"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Exact ordinary-fold selector wall checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_newton_selector_ordinary_fold_wall_check.py
