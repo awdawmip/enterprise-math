@@ -135,16 +135,42 @@ def main():
     assert len(exp3_nontrivial) == 8
     assert set(exp2_nontrivial).isdisjoint(exp3_nontrivial)
 
-    # Deletion-minimality in the declared conjunctive atom language: deleting
-    # the sole atom gives the empty conjunction, which admits both matched Q29
-    # witnesses again.  Among divisor atoms, EXP_1 retains neither target and
-    # EXP_6 retains both, so exactly EXP_2 and EXP_3 discriminate the parent pair.
-    def separates_parent(d):
-        return exp_clause(E2, d) != exp_clause(E3, d)
+    # Complete the declared positive-conjunctive language L_wedge generated
+    # by the four divisor atoms.  Clauses are semantically equivalent exactly
+    # when they have the same truth set on this structurally defined universe.
+    formulas = []
+    for mask in range(1 << len(divisors)):
+        atoms = tuple(d for i, d in enumerate(divisors) if (mask >> i) & 1)
+        truth_set = frozenset(
+            p for p in LAWS if all(exp_clause(p, d) for d in atoms)
+        )
+        formulas.append((atoms, truth_set))
 
-    assert {d for d in divisors if separates_parent(d)} == {2, 3}
-    empty_clause_truth = tuple(LAWS)
-    assert E2 in empty_clause_truth and E3 in empty_clause_truth
+    semantic_classes = {}
+    for atoms, truth_set in formulas:
+        semantic_classes.setdefault(truth_set, []).append(atoms)
+    assert len(formulas) == 16
+    assert len(semantic_classes) == 4
+    assert sorted(len(k) for k in semantic_classes) == [1, 9, 16, 36]
+
+    # Exactly two semantic classes discriminate the decisive Q29 pair.  Their
+    # one-atom minimal representatives are EXP_2 and EXP_3.
+    discriminator_classes = {
+        truth_set
+        for truth_set in semantic_classes
+        if ((E2 in truth_set) != (E3 in truth_set))
+    }
+    assert len(discriminator_classes) == 2
+    assert frozenset(truth[2]) in discriminator_classes
+    assert frozenset(truth[3]) in discriminator_classes
+    assert semantic_classes[frozenset(truth[2])] == [(2,), (2, 6)]
+    assert semantic_classes[frozenset(truth[3])] == [(3,), (3, 6)]
+
+    # Deletion-minimality: deleting the sole atom from each minimal
+    # representative gives the empty conjunction, which admits both E2/E3.
+    empty_truth = next(ts for atoms, ts in formulas if atoms == ())
+    assert E2 in empty_truth and E3 in empty_truth
+    assert len((2,)) == 1 and len((3,)) == 1
 
     # Typed-law equivalence invariance: EXP_d is invariant under every
     # block-preserving conjugacy available in the witness universe.
@@ -164,7 +190,8 @@ def main():
         "exp1=1 exp2=16 exp3=9 exp6=36 "
         "exp2_nontrivial=15 exp3_nontrivial=8 intersection=1 neither=12 "
         "e2=EXP2_NOT_EXP3 e3=EXP3_NOT_EXP2 e6=NEITHER "
-        "minimal_parent_discriminators=2 conjugacy_checks=5184 "
+        "formulas=16 semantic_classes=4 minimal_parent_discriminators=2 "
+        "conjugacy_checks=5184 "
         "terminal=NO_CANONICAL_MINIMAL_ROTATION_EXTENSION_CLAUSE_ON_DECLARED_LANGUAGE"
     )
 
