@@ -131,16 +131,21 @@ theorem pushFirst_sum_first
   unfold weightedMass
   calc
     (∑ b ∈ S, ∑ c ∈ S, u b * u c * value a) =
-        ∑ b ∈ S, u b * ((∑ c ∈ S, u c) * value a) := by
+        ∑ b ∈ S, ∑ c ∈ S, (u b * value a) * u c := by
           apply Finset.sum_congr rfl
           intro b hb
-          rw [Finset.sum_mul]
           apply Finset.sum_congr rfl
           intro c hc
           ring
-    _ = (∑ b ∈ S, u b) * ((∑ c ∈ S, u c) * value a) := by
+    _ = ∑ b ∈ S, (u b * value a) * (∑ c ∈ S, u c) := by
+          apply Finset.sum_congr rfl
+          intro b hb
+          rw [Finset.mul_sum]
+    _ = (∑ b ∈ S, u b * value a) * (∑ c ∈ S, u c) := by
           rw [Finset.sum_mul]
-    _ = (∑ b ∈ S, u b) ^ 2 * value a := by ring
+    _ = (∑ b ∈ S, u b) ^ 2 * value a := by
+          rw [← Finset.sum_mul]
+          ring
 
 /-- Product-mass contribution of the second-coordinate term. -/
 theorem pushFirst_sum_second
@@ -151,13 +156,16 @@ theorem pushFirst_sum_second
   unfold weightedMass weightedSum
   calc
     (∑ b ∈ S, ∑ c ∈ S, u b * u c * value b) =
-        ∑ b ∈ S, (u b * value b) * (∑ c ∈ S, u c) := by
+        ∑ b ∈ S, ∑ c ∈ S, (u b * value b) * u c := by
           apply Finset.sum_congr rfl
           intro b hb
-          rw [Finset.mul_sum]
           apply Finset.sum_congr rfl
           intro c hc
           ring
+    _ = ∑ b ∈ S, (u b * value b) * (∑ c ∈ S, u c) := by
+          apply Finset.sum_congr rfl
+          intro b hb
+          rw [Finset.mul_sum]
     _ = (∑ b ∈ S, u b * value b) * (∑ c ∈ S, u c) := by
           rw [Finset.sum_mul]
     _ = (∑ c ∈ S, u c) * (∑ b ∈ S, u b * value b) := by ring
@@ -191,16 +199,31 @@ theorem pushFirstNumerator_transpositionMixer
   classical
   unfold pushFirstNumerator
   simp_rw [transpositionMixer_firstReadout]
+  have hthree : (3 : ℝ) ≠ 0 := by norm_num
+  apply (eq_div_iff hthree).2
   calc
     (∑ b ∈ S, ∑ c ∈ S,
-        u b * u c * ((value a + value b + value c) / 3)) =
-      ((∑ b ∈ S, ∑ c ∈ S, u b * u c * value a) +
-        (∑ b ∈ S, ∑ c ∈ S, u b * u c * value b) +
-        (∑ b ∈ S, ∑ c ∈ S, u b * u c * value c)) / 3 := by
-          simp_rw [Finset.sum_add_distrib]
+        u b * u c * ((value a + value b + value c) / 3)) * 3 =
+      ∑ b ∈ S, ∑ c ∈ S,
+        (u b * u c * ((value a + value b + value c) / 3)) * 3 := by
+          rw [Finset.sum_mul]
+          apply Finset.sum_congr rfl
+          intro b hb
+          rw [Finset.sum_mul]
+    _ = ∑ b ∈ S, ∑ c ∈ S,
+        (u b * u c * value a + u b * u c * value b +
+          u b * u c * value c) := by
+          apply Finset.sum_congr rfl
+          intro b hb
+          apply Finset.sum_congr rfl
+          intro c hc
           ring
-    _ = ((weightedMass S u) ^ 2 * value a +
-        2 * weightedMass S u * weightedSum S u value) / 3 := by
+    _ = (∑ b ∈ S, ∑ c ∈ S, u b * u c * value a) +
+        (∑ b ∈ S, ∑ c ∈ S, u b * u c * value b) +
+        (∑ b ∈ S, ∑ c ∈ S, u b * u c * value c) := by
+          simp_rw [Finset.sum_add_distrib]
+    _ = (weightedMass S u) ^ 2 * value a +
+        2 * weightedMass S u * weightedSum S u value := by
           rw [pushFirst_sum_first, pushFirst_sum_second, pushFirst_sum_third]
           ring
 
@@ -218,8 +241,7 @@ theorem pushFirst_transpositionMixer
         (weightedSum S u value / weightedMass S u) value a := by
   unfold pushFirst s3ValueMixer
   rw [pushFirstNumerator_transpositionMixer]
-  field_simp [hU]
-  ring
+  field_simp [hU] <;> ring
 
 end
 
