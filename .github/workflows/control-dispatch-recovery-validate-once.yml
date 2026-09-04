@@ -1,0 +1,51 @@
+name: control-dispatch-recovery-validate-once
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/control-dispatch-recovery-validate-once.yml'
+
+permissions:
+  contents: read
+  issues: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Validate repaired review and authority layers
+        run: |
+          python control_plane/research_result_review_audit_fault_isolation.py
+          python control_plane/check_result_review_binding_fault_isolated.py
+          python research_driver_authority.py audit
+          python control_plane/research_nonoperational_review_source_adapter.py
+          python control_plane/check_post_cutover_publication_envelope.py
+      - name: Fetch raw Issue 240 runtime stream
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --paginate --slurp 'repos/awdawmip/enterprise-math/issues/240/comments?per_page=100' > /tmp/comment-pages.json
+          python - <<'PY'
+          import json
+          pages = json.load(open('/tmp/comment-pages.json', encoding='utf-8'))
+          comments = [row for page in pages for row in page]
+          json.dump(comments, open('/tmp/comments.json', 'w', encoding='utf-8'), ensure_ascii=False)
+          print('RAW_COMMENT_COUNT=' + str(len(comments)))
+          PY
+      - name: Run canonical dispatcher read-only
+        run: |
+          set +e
+          python research_control_dispatch.py --events /tmp/comments.json --kind RESEARCH > /tmp/dispatch.json
+          rc=$?
+          set -e
+          cat /tmp/dispatch.json
+          if [ "$rc" -ne 0 ] && [ "$rc" -ne 2 ]; then
+            exit "$rc"
+          fi
+          echo "DISPATCH_EXIT_CODE=$rc"
