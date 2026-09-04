@@ -45,8 +45,10 @@ theorem hammingShellAdjacencyFin_apply
       (j.val : ℚ) * f ⟨j.val - 1, by omega⟩ +
         ((m - j.val : ℕ) : ℚ) *
           (if h : j.val < m then f ⟨j.val + 1, by omega⟩ else f j) := by
-  simp [hammingShellAdjacencyFin, hammingPrevProjection, hammingNextProjection,
-    LinearMap.pi_apply, LinearMap.proj_apply, LinearMap.smul_apply, smul_eq_mul]
+  unfold hammingShellAdjacencyFin hammingPrevProjection hammingNextProjection
+  rw [LinearMap.pi_apply]
+  simp only [LinearMap.add_apply, LinearMap.smul_apply, LinearMap.proj_apply, smul_eq_mul]
+  split <;> rfl
 
 /-- Pointwise formula for the normalized finite Hamming operator. -/
 theorem hammingShellKFin_apply
@@ -107,19 +109,24 @@ theorem hammingShellModeFin_linearIndependent (m : ℕ) :
   apply (hammingShellKFin m).eigenvectors_linearIndependent'
     (fun k : Fin (m + 1) => (k.val : ℚ))
   · intro a b hab
-    norm_cast at hab
-    exact Fin.ext hab
+    apply Fin.ext
+    exact_mod_cast hab
   · intro k
     exact hammingShellKFin_hasEigenvector m k.val (by omega)
 
 /-- The Krawtchouk modes form a basis of the full finite Hamming shell space. -/
 noncomputable def hammingKrawtchoukBasis (m : ℕ) :
-    Basis (Fin (m + 1)) ℚ (HammingShellFinSpace m) :=
-  basisOfPiSpaceOfLinearIndependent (hammingShellModeFin_linearIndependent m)
+    Module.Basis (Fin (m + 1)) ℚ (HammingShellFinSpace m) := by
+  classical
+  exact basisOfPiSpaceOfLinearIndependent (hammingShellModeFin_linearIndependent m)
 
 @[simp]
 theorem hammingKrawtchoukBasis_apply (m : ℕ) (k : Fin (m + 1)) :
     hammingKrawtchoukBasis m k = hammingShellModeFin m k.val := by
-  simp [hammingKrawtchoukBasis, coe_basisOfPiSpaceOfLinearIndependent]
+  classical
+  change (basisOfPiSpaceOfLinearIndependent (hammingShellModeFin_linearIndependent m)) k =
+    hammingShellModeFin m k.val
+  exact congrFun (coe_basisOfPiSpaceOfLinearIndependent
+    (hammingShellModeFin_linearIndependent m)) k
 
 end EnterpriseMath.Precision
