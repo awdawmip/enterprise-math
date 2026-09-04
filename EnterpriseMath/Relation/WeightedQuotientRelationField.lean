@@ -8,6 +8,8 @@ open EnterpriseMath.PrimePowerQuotientTriangle
 open EnterpriseMath.OrderedQuotientCurvature
 open scoped BigOperators
 
+noncomputable section
+
 /-- Capacity-weighted relation field `Z_ij = m_j c_i - m_i c_j`. -/
 def relationField {ι : Type*}
     (mass total : ι → ℝ) (i j : ι) : ℝ :=
@@ -73,16 +75,16 @@ theorem relationField_weightedValue {ι : Type*}
 
 /-- Total capacity of a finite block family. -/
 def blockMass {ι : Type*} (S : Finset ι) (mass : ι → ℝ) : ℝ :=
-  ∑ i in S, mass i
+  ∑ i ∈ S, mass i
 
 /-- Grand total carried by a finite block family. -/
 def blockTotal {ι : Type*} (S : Finset ι) (total : ι → ℝ) : ℝ :=
-  ∑ i in S, total i
+  ∑ i ∈ S, total i
 
 /-- Row sum of the internal weighted relation field. -/
 def relationRowSum {ι : Type*}
     (S : Finset ι) (mass total : ι → ℝ) (i : ι) : ℝ :=
-  ∑ j in S, relationField mass total i j
+  ∑ j ∈ S, relationField mass total i j
 
 /-- Exact row-sum identity behind weighted block recovery. -/
 theorem relationRowSum_eq
@@ -130,14 +132,14 @@ theorem relationField_quotientCloud
 /-- Finite signless return residual over an action family. -/
 def signlessReturnResidual
     (S : Finset ℕ) (u : ℕ → ℝ) (f : ℕ → ℝ) (n : ℕ) : ℝ :=
-  ∑ c in S, u c * defect c f n
+  ∑ c ∈ S, u c * defect c f n
 
 /-- The residual is total mass times the vertex plus the quotient average. -/
 theorem signlessReturnResidual_eq
     (S : Finset ℕ) (u : ℕ → ℝ) (f : ℕ → ℝ) (n : ℕ) :
     signlessReturnResidual S u f n =
       totalWeight S u * f n +
-        ∑ c in S, u c * f (quotient c n) := by
+        ∑ c ∈ S, u c * f (quotient c n) := by
   classical
   unfold signlessReturnResidual totalWeight defect
   rw [Finset.sum_add_distrib, Finset.sum_mul]
@@ -165,7 +167,7 @@ theorem relationField_return_lift
     (S : Finset ℕ) (u : ℕ → ℝ) (f : ℕ → ℝ) (n a b : ℕ) :
     totalWeight S u *
           relationField u (quotientCloudTotal u f n) a b +
-        ∑ c in S, u c *
+        ∑ c ∈ S, u c *
           relationField u (quotientCloudTotal u f (quotient c n)) a b =
       u a * u b *
         (signlessReturnResidual S u f (quotient a n) -
@@ -197,7 +199,7 @@ theorem relationField_return_lift
 def relationTransportAverage
     (S : Finset ℕ) (u : ℕ → ℝ) (f : ℕ → ℝ)
     (n a b : ℕ) : ℝ :=
-  (∑ c in S, u c *
+  (∑ c ∈ S, u c *
     relationField u (quotientCloudTotal u f (quotient c n)) a b) /
       totalWeight S u
 
@@ -214,12 +216,12 @@ theorem relationField_normalized_return_lift
   have h := relationField_return_lift S u f n a b
   calc
     relationField u (quotientCloudTotal u f n) a b +
-        (∑ c in S, u c *
+        (∑ c ∈ S, u c *
           relationField u (quotientCloudTotal u f (quotient c n)) a b) /
             totalWeight S u =
       (totalWeight S u *
           relationField u (quotientCloudTotal u f n) a b +
-        ∑ c in S, u c *
+        ∑ c ∈ S, u c *
           relationField u (quotientCloudTotal u f (quotient c n)) a b) /
             totalWeight S u := by
               field_simp [hU]
@@ -237,7 +239,7 @@ theorem relationField_normalized_return_lift
 /-- Positive pairing of the internal relation field with its endpoint difference. -/
 def relationFieldEnergy
     (S : Finset ℕ) (u : ℕ → ℝ) (f : ℕ → ℝ) (n : ℕ) : ℝ :=
-  ∑ a in S, ∑ b in S,
+  ∑ a ∈ S, ∑ b ∈ S,
     relationField u (quotientCloudTotal u f n) a b *
       (f (quotient a n) - f (quotient b n))
 
@@ -312,5 +314,7 @@ theorem relationField_quotientCloud_eq_zero_iff
     linarith
   · intro h
     rw [h, sub_self, mul_zero]
+
+end
 
 end EnterpriseMath.WeightedQuotientRelationField
