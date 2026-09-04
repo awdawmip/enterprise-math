@@ -1,0 +1,22 @@
+name: brc-cubic-smallest-positive-sturm-research
+
+on:
+  pull_request:
+    paths:
+      - 'research_notes/BRC_NEWTON_NONSPLIT_CUBIC_SMALLEST_POSITIVE_STURM_20260904.md'
+      - 'experiments/brc_newton_nonsplit_cubic_smallest_positive_sturm_check.py'
+      - '.github/workflows/brc-cubic-smallest-positive-sturm-research.yml'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Exact BRC cubic smallest-positive specialized Sturm checker
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_newton_nonsplit_cubic_smallest_positive_sturm_check.py
