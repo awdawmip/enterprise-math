@@ -1,0 +1,61 @@
+name: euler-cube-cover-ramanujan
+
+on:
+  pull_request:
+    paths:
+      - "research_notes/EULER_CUBE_FRAME_COVER_AND_RAMANUJAN_RETURN_KERNEL_20260904.md"
+      - "definitions/ENTERPRISE_EULER_CUBE_COVER_RAMANUJAN_BRIDGE_THEOREM_LEDGER_20260904.json"
+      - "EnterpriseMath/EulerRotation/CubeFrameCoverRamanujan.lean"
+      - "src/enterprise_math/euler_cube_cover_ramanujan.py"
+      - "tests/test_euler_cube_cover_ramanujan.py"
+      - "research_method_inventory_addenda/20260904_euler_cube_cover_ramanujan.json"
+      - ".github/workflows/euler-cube-cover-ramanujan.yml"
+  workflow_dispatch:
+
+jobs:
+  exact-and-formal:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Compile exact checker and tests
+        run: >-
+          python -m py_compile
+          src/enterprise_math/euler_cube_cover_ramanujan.py
+          tests/test_euler_cube_cover_ramanujan.py
+      - name: Exhaust cube cover, path parity, and return counts
+        env:
+          PYTHONPATH: src
+        run: python -m unittest -v tests/test_euler_cube_cover_ramanujan.py
+      - name: Validate theorem ledger and method inventory
+        run: >-
+          python -m json.tool
+          definitions/ENTERPRISE_EULER_CUBE_COVER_RAMANUJAN_BRIDGE_THEOREM_LEDGER_20260904.json
+          >/dev/null &&
+          python -m json.tool
+          research_method_inventory_addenda/20260904_euler_cube_cover_ramanuJAN.json
+          >/dev/null
+      - name: Reject proof placeholders
+        run: |
+          if grep -n -E '\b(sorry|admit|axiom)\b' EnterpriseMath/EulerRotation/CubeFrameCoverRamanujan.lean; then
+            echo "Proof placeholder detected"
+            exit 1
+          fi
+      - uses: leanprover/lean-action@v1
+        with:
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+          use-github-cache: false
+          use-mathlib-cache: false
+      - name: Resolve pinned dependencies
+        run: lake update
+      - name: Fetch mathlib cache
+        run: lake exe cache get
+      - name: Build formal cube-cover theorem
+        run: >-
+          lake build --wfail -KCI
+          EnterpriseMath.EulerRotation.CubeFrameCoverRamanujan
