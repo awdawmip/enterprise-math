@@ -31,8 +31,7 @@ theorem hammingKrawtchoukMatrix_eq_diagonal (m : ℕ) :
   by_cases hij : i = j
   · subst i
     simp
-  · have hji : j ≠ i := Ne.symm hij
-    simp [Matrix.diagonal_apply, hij, hji]
+  · simp [hij]
 
 /-- Positive reflection-even Krawtchouk indices `2,4,...,2n`; the zero even mode is omitted. -/
 def hammingEvenPrimeIndex (n : ℕ) :
@@ -65,8 +64,7 @@ theorem hammingEvenPrimeBasis_reflection
   simp only [hammingKrawtchoukBasis_apply, hammingShellModeFin]
   have hk : Even (hammingEvenPrimeIndex n r).val := by
     change Even (2 * r.val + 2)
-    have h := even_two_mul (r.val + 1)
-    convert h using 1 <;> omega
+    simpa [Nat.mul_add] using even_two_mul (r.val + 1)
   exact hammingShellMode_reflection_even (2 * n + 1)
     (hammingEvenPrimeIndex n r).val j.val (by omega) hk
 
