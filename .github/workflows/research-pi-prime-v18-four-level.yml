@@ -1,0 +1,28 @@
+name: research-pi-prime-v18-four-level
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'research_notes/FREE_RESEARCH_*V18_20260905.md'
+      - 'scripts/check_free_research_s4_defect_edge_gram_v18.py'
+      - 'scripts/check_free_research_volterra_commutator_jet_v18.py'
+      - '.github/workflows/research-pi-prime-v18-four-level.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Check Volterra commutator jet
+        run: python scripts/check_free_research_volterra_commutator_jet_v18.py
+      - name: Check S4 defect-edge Gram
+        run: python scripts/check_free_research_s4_defect_edge_gram_v18.py
