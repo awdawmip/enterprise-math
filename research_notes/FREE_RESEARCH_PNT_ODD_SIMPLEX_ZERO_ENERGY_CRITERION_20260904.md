@@ -143,14 +143,15 @@ We treat the three channels.
 
 #### One-step channel
 
-Fix `Z`. If `a<=N/Z`, then `q_a(N)>=Z-1`, so `r(q_a(N))` is uniformly small once `Z` is large. The remaining boundary actions satisfy `a>N/Z`, and their normalized mass is
+For every `a<=Y_N`,
 
 \[
-\frac{A(N)-A(N/Z)}{A(Y_N)}
-=O_Z(1/\log N).
+q_a(N)
+\ge\left\lfloor\frac{N}{Y_N}\right\rfloor
+\ge Y_N,
 \]
 
-The same argument, restricted to `a<=Y_N`, is even stronger because `q_a(N)>=Y_N`. Hence
+because `Y_N^2<=N`. Therefore both `r(N)` and all one-step endpoint values tend uniformly to zero. Hence
 
 \[
 \frac{E_1(N)}{U_N}\to0.
@@ -159,28 +160,34 @@ The same argument, restricted to `a<=Y_N`, is even stronger because `q_a(N)>=Y_N
 
 #### Direct pair channel
 
-Since `a,b<=Y_N`, the endpoint `q_{ab}(N)` can be small only when
+Fix an integer `Z>=1`. Outside the bad region
 
 \[
-ab>N/Z.
+ab>N/Z,
 \]
 
-This implies
+we have `q_ab(N)>=Z`, so `r(q_ab(N))` is uniformly small once `Z` is large.
+
+If `a,b<=Y_N` and `ab>N/Z`, then `b<=Y_N` implies
 
 \[
-a>Y_N/\sqrt Z
-\quad\text{and}\quad
-b>Y_N/\sqrt Z.
+a>\frac{N}{ZY_N}\ge\frac{Y_N}{Z},
 \]
 
-The weight of this corner is at most
+and symmetrically `b>Y_N/Z`. Thus the total weight of the bad corner is at most
 
 \[
-\left(A(Y_N)-A(Y_N/\sqrt Z)\right)^2
-=O_Z(1).
+\left(A(Y_N)-A(Y_N/Z)\right)^2
+=O_Z\bigl((1+\log Z)^2\bigr).
 \]
 
-Its normalized mass is therefore `O_Z(1/U_N^2)`. Outside the corner, `q_{ab}(N)>=Z-1`, so both terms in `delta_ab r(N)` are small. Thus
+After division by
+
+\[
+U_N^2\asymp(\log N)^2,
+\]
+
+this tends to zero for each fixed `Z`. Letting `Z` grow after `N` proves
 
 \[
 \frac{E_{\rm dir}(N)}{U_N^2}\to0.
@@ -195,7 +202,13 @@ Uniformly for `a<=Y_N`,
 q_a(N)\ge Y_N,
 \]
 
-so the intermediate value `r(q_a(N))` tends uniformly to zero. The final endpoint `q_b(q_a(N))=q_{ab}(N)` is handled by the same small-corner estimate as above. Hence
+so the intermediate value `r(q_a(N))` tends uniformly to zero. The final endpoint
+
+\[
+q_b(q_a(N))=q_{ab}(N)
+\]
+
+is handled by the same corrected bad-corner estimate as above. Hence
 
 \[
 \frac{E_{\rm tr}(N)}{U_N^2}\to0.
@@ -262,7 +275,6 @@ The native problem is now exactly:
 \boxed{
 \text{prove }\mathfrak E_N=o(U_N^2)
 \text{ directly from finite provenance/RG identities.}
-}
 \]
 
 No ambiguity remains about which quadratic quantity must decay.
