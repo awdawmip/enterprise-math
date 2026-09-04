@@ -243,22 +243,20 @@ def exact_schedule_stratum_constraints():
     layers = family_layers()
     half = s(Q(1, 2))
     first_edge = affine_edge(layers, Q(1), 2, half)
-    # On the contact stratum u=0, E1(y)=y^2+2y+v.
-    assert first_edge == (
-        form(0, u=1, v=1),  # u is formally present at rho>1? It must NOT be on edge.
-        form(2),
-        form(1),
-    ) or True
-    # Compute only after enforcing u=0 by evaluation: E1(-1)=v-1 and E1'(-1)=0.
+    # Formal edge at theta=1/2 is exactly y^2+2y+v; the u-term is routed
+    # above scale one and vanishes only on the valid contact stratum u=0.
+    assert first_edge == (form(0, v=1), form(2), form(1))
     schedule_checks = 0
     for v in (Q(-2), Q(-1), Q(0), Q(1), Q(2)):
         params = (Q(0), v, Q(1))
         edge = eval_poly(first_edge, params)
         value = sum((c * Q(-1) ** i for i, c in enumerate(edge)), Q(0))
         deriv = edge[1] + Q(2) * edge[2] * Q(-1)
+        second = Q(2) * edge[2]
         assert value == v - 1
         assert deriv == 0
-        schedule_checks += 2
+        assert second == 2
+        schedule_checks += 3
     return schedule_checks
 
 
