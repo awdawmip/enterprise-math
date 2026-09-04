@@ -1,0 +1,35 @@
+{
+  "date": "2026-09-05",
+  "command": "OPENBLAS_NUM_THREADS=1 python scripts/check_v22_slow_oscillation.py --numerical",
+  "checker_git_blob": "63cec6183101540a36faa1c84810726b4c6234d7",
+  "execution_environment": "current ChatGPT local runtime; not GitHub CI",
+  "exact": {
+    "exact_assertions": 492,
+    "status": "passed",
+    "scope": "finite algebra and endpoint supports only",
+    "analytic_barrier_formalized": false
+  },
+  "numerical": {
+    "status": "passed",
+    "classification": "numerical stress tests, not proof",
+    "barrier": [
+      {"log_T":16.0,"scaled_H2_barrier_excess":0.8503049192102063,"proved_upper_bound":4.0},
+      {"log_T":24.0,"scaled_H2_barrier_excess":0.81194308912425,"proved_upper_bound":4.0},
+      {"log_T":40.0,"scaled_H2_barrier_excess":0.7852349305510969,"proved_upper_bound":4.0},
+      {"log_T":64.0,"scaled_H2_barrier_excess":0.7714184229910899,"proved_upper_bound":4.0},
+      {"log_T":128.0,"scaled_H2_barrier_excess":0.760474772356896,"proved_upper_bound":4.0}
+    ],
+    "prime_D4": [
+      {"N":100,"actions":35,"r_N":-0.05954688770642602,"D4":0.10008237769592905,"two_times_folded_second_moment":1.2116794878718165},
+      {"N":300,"actions":79,"r_N":-0.0025588818594450835,"D4":0.10884394142283575,"two_times_folded_second_moment":1.0048270004440245},
+      {"N":1000,"actions":193,"r_N":-0.0033190877528245233,"D4":0.11262209271810554,"two_times_folded_second_moment":0.8421430427089577},
+      {"N":2000,"actions":333,"r_N":-0.002774210010960454,"D4":0.11296563480529925,"two_times_folded_second_moment":0.7692218834364458}
+    ]
+  },
+  "notes": [
+    "The analytic convergence theorem is proved in the V22 note, not established by these samples.",
+    "D4 is not monotone in the displayed small-cutoff samples.",
+    "No Lean, independent-referee, or GitHub CI success is asserted.",
+    "In history threshold estimates use Z_T=ceil(exp(sqrt(T))); the log-cutoff rounding is included in the O(h^2/T) term."
+  ]
+}
