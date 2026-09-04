@@ -136,7 +136,8 @@ theorem ordinary_eq_twisted_mod_two (v : IntVertexState) :
       reduceModTwo (twistedCoboundary v) := by
   ext <;>
     simp [reduceModTwo, ordinaryCoboundary, twistedCoboundary,
-      ZModModule.sub_eq_add]
+      ZModModule.sub_eq_add] <;>
+    ac_rfl
 
 /-! ## The two fully symmetric phases -/
 
