@@ -1,0 +1,49 @@
+name: brc-newton-quadratic-positive-selector-foundation
+
+on:
+  pull_request:
+    paths:
+      - 'definitions/ENTERPRISE_BRC_NEWTON_QUADRATIC_POSITIVE_SELECTOR_FOUNDATION_20260904.md'
+      - 'definitions/ENTERPRISE_BRC_NEWTON_QUADRATIC_POSITIVE_SELECTOR_THEOREM_LEDGER_20260904.json'
+      - 'definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json'
+      - 'research_method_inventory_addenda/20260904_brc_newton_quadratic_selector_foundation.json'
+      - 'src/enterprise_math/brc_newton_quadratic_selector.py'
+      - 'tests/test_brc_newton_quadratic_positive_selector_foundation.py'
+      - 'experiments/check_brc_newton_quadratic_positive_selector_foundation.py'
+      - '.github/workflows/brc-newton-quadratic-positive-selector-foundation.yml'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Newton quadratic positive selector production subtool
+        env:
+          PYTHONPATH: src
+        run: python -m unittest tests/test_brc_newton_quadratic_positive_selector_foundation.py
+      - name: Newton quadratic positive selector Foundation integrity
+        env:
+          PYTHONPATH: src
+        run: python experiments/check_brc_newton_quadratic_positive_selector_foundation.py
+      - name: Non-split quadratic smallest-positive research regression
+        env:
+          PYTHONPATH: src
+        run: python experiments/brc_newton_nonsplit_quadratic_smallest_positive_chamber_check.py
+      - name: Parent quadratic smallest-real Foundation remains consistent
+        env:
+          PYTHONPATH: src
+        run: |
+          python -m unittest tests/test_brc_newton_quadratic_selector_foundation.py
+          python experiments/check_brc_newton_quadratic_selector_foundation.py
+      - name: Toolbox discovers positive quadratic selector BRC
+        env:
+          PYTHONPATH: src
+        run: |
+          python tools/enterprise_toolbox.py --json methods positive quadratic selector newton brc > /tmp/quadratic-positive.json
+          grep -q 't0.weighted_brc_newton_quadratic_selector' /tmp/quadratic-positive.json
+          python tools/enterprise_toolbox.py --json modules positive quadratic selector newton brc > /tmp/quadratic-positive-module.json
+          grep -q 'module:brc_newton_quadratic_selector' /tmp/quadratic-positive-module.json
