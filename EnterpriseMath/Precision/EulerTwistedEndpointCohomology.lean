@@ -104,7 +104,15 @@ theorem uniform_twist_kernel_is_zero (v : IntVertexState)
   have hbc := congrArg IntEdgeState.bc h
   have had := congrArg IntEdgeState.ad h
   simp [twistedCoboundary] at hab hac hbc had
-  ext <;> omega
+  have ha : v.a = 0 := by omega
+  have hb : v.b = 0 := by omega
+  have hc : v.c = 0 := by omega
+  have hd : v.d = 0 := by omega
+  apply IntVertexState.ext
+  · simpa using ha
+  · simpa using hb
+  · simpa using hc
+  · simpa using hd
 
 /-! ## Characteristic-two coincidence -/
 
@@ -126,7 +134,9 @@ def reduceModTwo (e : IntEdgeState) : ModTwoEdgeState :=
 theorem ordinary_eq_twisted_mod_two (v : IntVertexState) :
     reduceModTwo (ordinaryCoboundary v) =
       reduceModTwo (twistedCoboundary v) := by
-  ext <;> simp [reduceModTwo, ordinaryCoboundary, twistedCoboundary] <;> ring
+  ext <;>
+    simp [reduceModTwo, ordinaryCoboundary, twistedCoboundary,
+      ZModModule.sub_eq_add]
 
 /-! ## The two fully symmetric phases -/
 
