@@ -102,7 +102,6 @@ theorem dirichletFiniteCoefficient_error_le
       have hM : 0 < M := by omega
       have hM0 : (M : ℝ) ≠ 0 := by exact_mod_cast (Nat.ne_of_gt hM)
       field_simp [hfac, hM0]
-      ring
 
 /-- Finite coefficient deformation contributes exactly the `O(M^-2)` main-term bound. -/
 theorem dirichletFiniteSine_main_error_le
