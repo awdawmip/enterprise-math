@@ -1,0 +1,40 @@
+{
+  "schema": "ENTERPRISE_FREE_RESEARCH_VALIDATION_RECEIPT_V1",
+  "date": "2026-09-04",
+  "status": "PASS",
+  "scope": "selected FCC tetrahedral normal connection and its derived Spin/tangent action",
+  "python": {
+    "compile": "PASS",
+    "test_target": "tests/test_euler_tetrahedral_holonomy.py",
+    "result": "PASS",
+    "finite_coverage": {
+      "directed_shortest_transports": 12,
+      "ordered_triangular_face_loops": 24,
+      "spin_orientation_reversal_pairs": 24
+    }
+  },
+  "lean": {
+    "target": "EnterpriseMath.EulerRotation.TetrahedralSphericalHolonomy",
+    "command": "lake build --wfail -KCI EnterpriseMath.EulerRotation.TetrahedralSphericalHolonomy",
+    "result": "PASS",
+    "proof_placeholders": "NONE"
+  },
+  "remote_ci": {
+    "workflow": "euler-tetrahedral-spherical-holonomy",
+    "result": "completed/success"
+  },
+  "validated_statements": [
+    "regular tetrahedral Gram data for the four slice normals",
+    "rational proper shortest-rotation transports",
+    "exact three-edge face holonomy equal to a tangent half-turn",
+    "integral norm-3 edge spinors",
+    "orientation-sensitive pure face-spinor product",
+    "Spin sign flip under loop reversal with identical projected tangent action",
+    "spherical tangent cosine -1/2"
+  ],
+  "boundaries": [
+    "does not prove P000 native dynamics chooses the shortest SO3 connection",
+    "does not identify the carrier sphere with primitive native angle or area",
+    "does not identify the Spin sign with other project C2 classes"
+  ]
+}
