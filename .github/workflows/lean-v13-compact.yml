@@ -1,0 +1,66 @@
+name: lean-v13-compact
+
+on:
+  push:
+    branches:
+      - free/pi-prime-v13-lean-close-20260904
+    paths:
+      - '**/*.lean'
+      - 'lakefile.toml'
+      - 'lakefile.lean'
+      - 'lake-manifest.json'
+      - 'lean-toolchain'
+      - '.github/workflows/lean-v13-compact.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: "${{ github.workflow }}-${{ github.ref }}"
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+      - name: Set up Lean
+        uses: leanprover/lean-action@v1
+        with:
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+          use-github-cache: false
+          use-mathlib-cache: false
+      - name: Resolve pinned dependencies
+        run: lake update
+      - name: Fetch mathlib cache
+        run: lake exe cache get
+      - name: Compile and annotate compact diagnostics
+        shell: bash
+        run: |
+          set +e
+          lake build --wfail -KCI EnterpriseMath > /tmp/enterprise-lean-build.log 2>&1
+          status=$?
+          set -e
+          if [[ $status -ne 0 ]]; then
+            python - <<'PY'
+          from pathlib import Path
+          import re
+
+          lines = Path('/tmp/enterprise-lean-build.log').read_text(errors='replace').splitlines()
+          starts = [i for i, line in enumerate(lines) if re.search(r'(^|\s)(error:|warning:)', line)]
+          if not starts:
+              starts = [max(0, len(lines) - 30)]
+          for number, start in enumerate(starts[:20], 1):
+              block = '\n'.join(lines[start:min(len(lines), start + 12)])
+              escaped = block.replace('%', '%25').replace('\r', '%0D').replace('\n', '%0A')
+              print(f'::error title=Lean V13 diagnostic {number}::{escaped}')
+          PY
+          fi
+          echo '=== LEAN COMPACT TAIL ==='
+          tail -n 80 /tmp/enterprise-lean-build.log
+          exit "$status"
