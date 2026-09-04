@@ -35,11 +35,25 @@ theorem weightedPairEnergy_mixValue
       lambda ^ 2 * weightedPairEnergy S u value := by
   classical
   unfold weightedPairEnergy mixValue
-  apply Finset.sum_congr rfl
-  intro i hi
-  apply Finset.sum_congr rfl
-  intro j hj
-  ring
+  calc
+    (∑ i ∈ S, ∑ j ∈ S,
+        u i * u j *
+          (lambda * value i + (1 - lambda) * mean -
+            (lambda * value j + (1 - lambda) * mean)) ^ 2) =
+      ∑ i ∈ S, ∑ j ∈ S,
+        lambda ^ 2 * (u i * u j * (value i - value j) ^ 2) := by
+          apply Finset.sum_congr rfl
+          intro i hi
+          apply Finset.sum_congr rfl
+          intro j hj
+          ring
+    _ = lambda ^ 2 *
+        (∑ i ∈ S, ∑ j ∈ S,
+          u i * u j * (value i - value j) ^ 2) := by
+          rw [Finset.mul_sum]
+          apply Finset.sum_congr rfl
+          intro i hi
+          rw [Finset.mul_sum]
 
 /-- Weighted first moment after common-mean mixing. -/
 theorem weightedSum_mixValue
@@ -52,12 +66,22 @@ theorem weightedSum_mixValue
   unfold weightedSum weightedMass mixValue
   calc
     (∑ i ∈ S, u i * (lambda * value i + (1 - lambda) * mean)) =
-        lambda * (∑ i ∈ S, u i * value i) +
-          (1 - lambda) * (∑ i ∈ S, u i) * mean := by
-            simp_rw [Finset.sum_add_distrib]
-            rw [Finset.mul_sum, Finset.mul_sum, Finset.sum_mul]
-            ring
-    _ = _ := by rfl
+      (∑ i ∈ S, lambda * (u i * value i)) +
+        (∑ i ∈ S, (1 - lambda) * u i * mean) := by
+          rw [← Finset.sum_add_distrib]
+          apply Finset.sum_congr rfl
+          intro i hi
+          ring
+    _ = lambda * (∑ i ∈ S, u i * value i) +
+        (1 - lambda) * (∑ i ∈ S, u i) * mean := by
+          congr 1
+          · rw [Finset.mul_sum]
+          · calc
+              (∑ i ∈ S, (1 - lambda) * u i * mean) =
+                  (∑ i ∈ S, (1 - lambda) * u i) * mean := by
+                    rw [Finset.sum_mul]
+              _ = (1 - lambda) * (∑ i ∈ S, u i) * mean := by
+                    rw [Finset.mul_sum]
 
 /-- Mixing toward the actual weighted mean preserves the weighted grand total. -/
 theorem weightedSum_mixValue_mean
