@@ -26,6 +26,7 @@ import EnterpriseMath.Precision.HammingShellSpectrum
 import EnterpriseMath.Precision.HammingReflection
 import EnterpriseMath.Precision.HammingSpectralWallis
 import EnterpriseMath.Precision.HammingFiniteOperator
+import EnterpriseMath.Precision.HammingParityDeterminant
 import EnterpriseMath.Precision.CompositionSafeCollapse
 import EnterpriseMath.Precision.QuotientBasin
 import EnterpriseMath.Precision.QuotientCoalescence
