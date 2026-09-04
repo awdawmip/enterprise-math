@@ -1,0 +1,43 @@
+{
+  "schema": "ENTERPRISE_BRC_THEOREM_LEDGER_V1",
+  "effective": "2026-09-04",
+  "parent": "definitions/ENTERPRISE_BRC_NEWTON_OBSERVER_LATTICE_THEOREM_LEDGER_20260904.json",
+  "tool_method_id": "t0.weighted_brc_newton_schedule_strata",
+  "theorems": [
+    {
+      "id": "WBRC-T59-AFFINE-CONSTRUCTIBLE-NEWTON-SCHEDULE-VALIDITY",
+      "statement": "For a finite rational-valuation Newton jet whose polynomial coefficients depend affinely on rational parameters, every finite declared rational-root Newton schedule has a validity set given by a finite Boolean combination of rational affine equalities and non-equalities. Contact orders and selected scales are constant on the induced affine-hyperplane strata, and frozen scheduled substitution preserves affine dependence.",
+      "status": "MAIN_BACKED_FOUNDATION"
+    }
+  ],
+  "negative_boundaries": [
+    {
+      "id": "WBRC-N61-CONSTRUCTIBLE-STRATUM-NOT-OPEN-STABILITY-NEIGHBORHOOD",
+      "statement": "A multiple-root schedule-valid set may have positive codimension and need not contain an ordinary open neighborhood."
+    },
+    {
+      "id": "WBRC-N62-DECLARED-ROOT-VALIDITY-NOT-GLOBAL-SELECTOR-STABILITY",
+      "statement": "T59 certifies declared rational roots/multiplicities/scales; it does not prove that a global root-selector rule continues to choose the same root."
+    },
+    {
+      "id": "WBRC-N63-AFFINE-RATIONAL-FAMILY-NOT-ARBITRARY-NONLINEAR-PARAMETERIZATION",
+      "statement": "The promoted constructibility theorem assumes coefficients affine over rational parameters."
+    },
+    {
+      "id": "WBRC-N64-RATIONAL-DECLARED-ROOTS-NOT-GENERAL-MULTIGENERATOR-ALGEBRAIC-ROOTS",
+      "statement": "T59 does not promote a generic multi-generator algebraic coefficient field."
+    },
+    {
+      "id": "WBRC-N65-FINITE-SCHEDULE-VALIDITY-NOT-COMPLETE-PUISEUX-SOLVER",
+      "statement": "Finite declared schedule validity is not a complete Puiseux-series algorithm or termination theorem."
+    },
+    {
+      "id": "WBRC-N66-CONSTRUCTIBLE-STRATUM-NOT-NECESSARILY-CONVEX-OR-OPEN",
+      "statement": "Finite Boolean combinations of affine equalities/non-equalities need not be convex or open."
+    },
+    {
+      "id": "WBRC-N67-AFFINE-CHARACTERISTIC-CANCELLATION-NOT-SIGNED-BRANCH-MASS",
+      "statement": "Affine determinant/Taylor coefficient cancellation remains algebraic compression and is not signed branch-mass interference."
+    }
+  ]
+}
