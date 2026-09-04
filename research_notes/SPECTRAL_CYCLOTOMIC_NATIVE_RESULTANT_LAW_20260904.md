@@ -7,9 +7,10 @@ Issue: `#1159`
 Depends on:
 - monic spectral factorization `Q_M=prod_(d|M,d>1) Psi_d`;
 - finite scale cocycle;
-- internal phase quantization at primitive roots.
+- internal phase quantization at primitive roots;
+- primitive spectral mass law.
 
-This note upgrades the prime-power resultant pattern from a later classical compatibility observation to a proof route internal to the finite Dirichlet spectral family. No roots of unity or classical cyclotomic resultant theorem are needed.
+This is a non-circular native proof route. No roots of unity or classical cyclotomic resultant theorem are used.
 
 ## 1. Integer primitive factors
 
@@ -22,30 +23,282 @@ Q_M(u)=(-1)^{M-1}D_{M-1}(u)
 lies in `Z[u]` and factors as
 
 \[
+\boxed{
 Q_M(u)=\prod_{\substack{d\mid M\\d>1}}\Psi_d(u),
+}
+\tag{NRL-1}
 \]
 
-where every `Psi_d` is monic and its roots are the primitive denominator-`d` finite mode roots.
+where `Psi_d` is monic and its roots are exactly the primitive denominator-`d` finite mode roots.
 
-Inductively, each `Psi_d` also lies in `Z[u]`: all earlier primitive factors are monic integer divisors of the monic integer polynomial `Q_d`, so polynomial long division/Gauss integrality keeps integer coefficients.
+Inductively each `Psi_d` lies in `Z[u]`: the already constructed product of proper primitive factors is monic integral and divides the monic integral polynomial `Q_d`, so monic polynomial division preserves integrality.
 
-Hence every pairwise resultant
+Hence, for distinct `m,n`,
 
 \[
-\operatorname{Res}(\Psi_m,\Psi_n)
+\operatorname{Res}(\Psi_m,\Psi_n)\in\mathbb Z\setminus\{0\}.
 \]
 
-is an integer.  Distinct primitive root sets are disjoint, so for `m!=n` the resultant is nonzero and its absolute value is a positive integer.
+Write
 
-## 2. Exact quotient along a scale multiple
+\[
+\boxed{
+r_m(n):=
+|\operatorname{Res}(\Psi_m,\Psi_n)|\in\mathbb Z_{>0}.
+}
+\tag{NRL-2}
+\]
+
+## 2. Primitive sine product from primitive spectral mass
+
+For `m>1`, define the positive internal primitive sine product
+
+\[
+B_m
+:=
+\prod_{\substack{1\le r<m\\(r,m)=1}}
+S\left(\frac{r\tau}{m}\right).
+\]
+
+All factors are positive because `0<r tau/m<tau`.
 
 Let
 
 \[
-N=mt.
+P_m
+:=
+\prod_{\substack{1\le r<m\\(r,m)=1}}
+u_{r,m}
 \]
 
-The normalized cocycle gives
+be the primitive spectral root mass. The internal double-angle/decimation law gives
+
+\[
+R_2(u_{r,m})
+=u_{r,m}(4-u_{r,m})
+=4S(r\tau/m)^2.
+\]
+
+The complement map `r->m-r` permutes primitive residues and satisfies
+
+\[
+4-u_{r,m}=u_{m-r,m}.
+\]
+
+Therefore
+
+\[
+\prod_r R_2(u_{r,m})
+=P_m^2
+=4^{\varphi(m)}B_m^2.
+\]
+
+All quantities are positive, so
+
+\[
+\boxed{
+B_m=\frac{P_m}{2^{\varphi(m)}}.
+}
+\tag{NRL-3}
+\]
+
+The already proved spectral Möbius law is
+
+\[
+\boxed{
+P_m=
+\begin{cases}
+p,&m=p^a,\\1,&\omega(m)\ge2.
+\end{cases}
+}
+\tag{NRL-4}
+\]
+
+## 3. Resultant against a full length polynomial
+
+Assume `m` does not divide `d`, so `Psi_m` and `Q_d` have no common root. Define
+
+\[
+A_m(d):=
+|\operatorname{Res}(\Psi_m,Q_d)|.
+\]
+
+At a primitive `m` root
+
+\[
+\alpha_r=u_{r,m},
+\qquad (r,m)=1,
+\]
+
+the internal recurrence identity gives
+
+\[
+D_{d-1}(\alpha_r)
+S(r\tau/m)
+=
+S(dr\tau/m).
+\]
+
+Since `Q_d=(-1)^{d-1}D_(d-1)`,
+
+\[
+|Q_d(\alpha_r)|
+=
+\frac{|S(dr\tau/m)|}{S(r\tau/m)}.
+\]
+
+Let
+
+\[
+g=(m,d),
+\qquad
+m'=m/g,
+\qquad
+d'=d/g.
+\]
+
+Then `(m',d')=1`. Reduction of primitive residues modulo `m'` is surjective with uniform fiber size
+
+\[
+\frac{\varphi(m)}{\varphi(m')}.
+\]
+
+Multiplication by `d'` permutes the primitive residues modulo `m'`. Internal antiperiodicity changes only signs when representatives are reduced, so absolute values are unaffected. Hence the numerator product is
+
+\[
+B_{m'}^{\varphi(m)/\varphi(m')}.
+\]
+
+Dividing by the denominator product `B_m` and using (NRL-3), all powers of `2` cancel. Thus
+
+\[
+\boxed{
+A_m(d)
+=
+\frac{
+P_{m'}^{\varphi(m)/\varphi(m')}
+}{P_m},
+\qquad
+m'=\frac{m}{(m,d)}.
+}
+\tag{NRL-5}
+\]
+
+This is the key non-circular evaluation formula.
+
+For convenience set `A_m(1)=1`; (NRL-5) also gives this value because `m'=m`.
+
+## 4. Resultant Möbius inversion when m does not divide n
+
+Suppose
+
+\[
+m\nmid n.
+\]
+
+Then no divisor `d|n` is divisible by `m`, so every `A_m(d)` is nonzero and defined by (NRL-5).
+
+From the primitive factorization
+
+\[
+Q_d=\prod_{\substack{e\mid d\\e>1}}\Psi_e,
+\]
+
+resultant multiplicativity gives
+
+\[
+A_m(d)
+=
+\prod_{\substack{e\mid d\\e>1}}r_m(e).
+\]
+
+Multiplicative Möbius inversion in the positive rationals therefore yields
+
+\[
+\boxed{
+ r_m(n)
+=
+\prod_{d\mid n}
+A_m(d)^{\mu(n/d)}.
+}
+\tag{NRL-6}
+\]
+
+This formula resolves all incomparable index pairs before the scale-multiple case is considered.
+
+## 5. Incomparable indices give unit resultants
+
+Assume now
+
+\[
+2\le m<n,
+\qquad
+m\nmid n.
+\]
+
+Insert (NRL-5) into (NRL-6). Since `n>1`,
+
+\[
+\sum_{d\mid n}\mu(n/d)=0,
+\]
+
+so the denominator `P_m` cancels completely.
+
+Fix a prime `p`. A `p`-adic contribution from the numerator can occur only when
+
+\[
+\frac{m}{(m,d)}=p^a
+\]
+
+for some `a>=1`, because `P_h` is nontrivial only for prime powers.
+
+Write
+
+\[
+m=p^b c,
+\qquad (p,c)=1.
+\]
+
+The condition `m/(m,d)=p^a` forces
+
+\[
+c\mid d.
+\]
+
+If `c` does not divide `n`, there are no such divisors and the `p`-exponent is zero.
+
+Suppose `c|n`. If some prime `q!=p` occurs in `n` to an exponent strictly larger than in `c` (including any extra prime absent from `c`), then in the divisor sum the two allowed squarefree Möbius choices for that last `q`-exponent are both compatible with `c|d`, have opposite signs, and leave the `p`-dependent weight unchanged. They cancel pairwise. Hence the total `p`-exponent is again zero.
+
+The only remaining possibility would be
+
+\[
+n=c p^t
+\]
+
+with no extra non-`p` exponent. But `m<n` then forces `t>b`, which implies `m|n`, contradicting the hypothesis.
+
+Therefore every prime exponent in (NRL-6) is zero. Since the resultant magnitude is a positive integer,
+
+\[
+\boxed{
+2\le m<n,\ m\nmid n
+\quad\Longrightarrow\quad
+r_m(n)=1.
+}
+\tag{NRL-7}
+
+This establishes the incomparable case independently, with no appeal to the multiple case.
+
+## 6. Exact scale-multiple quotient
+
+Now let
+
+\[
+N=mt,
+\qquad t>1.
+\]
+
+The normalized scale cocycle gives
 
 \[
 H_{mt}(u)=H_m(u)H_t(R_m(u)).
@@ -57,86 +310,32 @@ Since
 Q_M=(-1)^{M-1}M H_M,
 \]
 
-we obtain the exact monic quotient identity
+we obtain
 
 \[
 \boxed{
 \frac{Q_{mt}(u)}{Q_m(u)}
 =(-1)^{mt-m}\,t\,H_t(R_m(u)).
 }
-\tag{NRL-1}
-\]
+\tag{NRL-8}
 
-The left side is a genuine polynomial because `Q_m|Q_(mt)`.
-
-## 3. Evaluation at a primitive-m root
-
-Let
-
-\[
-\alpha=u_{r,m}
-\]
-
-with `gcd(r,m)=1`.
-
-Internal phase quantization gives
-
-\[
-\alpha=2-2C(r\tau/m).
-\]
-
-The `m`-fold decimation map multiplies phase by `m`, so
+At a primitive `m` root `alpha=u_(r,m)`, internal phase multiplication gives
 
 \[
 R_m(\alpha)
-=2-2C(r\tau).
+=2-2C(r\tau)
+\in\{0,4\}.
 \]
 
-Internal phase periodicity gives
+Moreover
 
 \[
-C(r\tau)=(-1)^r.
-\]
-
-Therefore
-
-\[
-\boxed{
-R_m(\alpha)
-=\begin{cases}
-0,&r\text{ even},\\
-4,&r\text{ odd}.
-\end{cases}
-}
-\tag{NRL-2}
-\]
-
-Now
-
-\[
-H_t(0)=1.
-\]
-
-Complement symmetry gives
-
-\[
-D_{t-1}(4)=(-1)^{t-1}D_{t-1}(0)=(-1)^{t-1}t,
-\]
-
-hence
-
-\[
+H_t(0)=1,
+\qquad
 H_t(4)=(-1)^{t-1}.
 \]
 
-Thus in both cases
-
-\[
-\boxed{|H_t(R_m(\alpha))|=1.}
-\tag{NRL-3}
-\]
-
-Combining with (NRL-1),
+Therefore at every primitive root
 
 \[
 \boxed{
@@ -144,213 +343,85 @@ Combining with (NRL-1),
 \frac{Q_{mt}}{Q_m}(\alpha)
 \right|=t.
 }
-\tag{NRL-4}
-\]
+\tag{NRL-9}
 
-## 4. Master resultant product identity
-
-There are `phi(m)` primitive roots of `Psi_m`. Multiplying (NRL-4) over all of them gives
-
-\[
-\left|
-\operatorname{Res}\left(
-\Psi_m,
-\frac{Q_{mt}}{Q_m}
-\right)
-\right|
-=t^{\varphi(m)}.
-\]
-
-The primitive factorization of the quotient is
-
-\[
-\frac{Q_{mt}}{Q_m}
-=
-\prod_{\substack{d\mid mt\\d\nmid m}}
-\Psi_d.
-\]
-
-Resultant multiplicativity therefore gives the master identity
+Multiplying over the `phi(m)` roots gives
 
 \[
 \boxed{
  t^{\varphi(m)}
 =
 \prod_{\substack{d\mid mt\\d\nmid m}}
-\left|
-\operatorname{Res}(\Psi_m,\Psi_d)
-\right|.
+r_m(d).
 }
-\tag{NRL-5}
-\]
+\tag{NRL-10}
 
-Every factor on the right is a positive integer.
+Here `d\nmid m` means that `d` is a divisor of `mt` which is not already a divisor of `m`.
 
-## 5. Multiple case: strong induction on t
+## 7. Remove all incomparable factors
 
-Fix `m`.  We determine
+Every new divisor `d` in (NRL-10) is of one of two types:
 
-\[
-R_m(mt):=
-|\operatorname{Res}(\Psi_m,\Psi_{mt})|
-\]
+1. `d=ms` for some divisor `s|t`, `s>1`;
+2. `d` is incomparable with `m` under divisibility.
 
-by strong induction on `t>1`.
+All type-2 factors have resultant magnitude one by (NRL-7), using symmetry if `d<m`.
 
-Assume the desired law is known for every proper multiplier `s<t`.
-
-In (NRL-5), every divisor `d<mt` which is a multiple of `m` has the form
-
-\[
-d=ms
-\]
-
-for a proper divisor `s|t`.
-
-By induction, its resultant is nontrivial exactly when
-
-\[
-s=p^a
-\]
-
-is a prime power, and then the value is
-
-\[
-p^{\varphi(m)}.
-\]
-
-All divisors `d` not divisible by `m` will be shown to contribute units in Section 7; alternatively they may be carried simultaneously in a double induction.
-
-### t is a prime power
-
-If
-
-\[
-t=p^a,
-\]
-
-the proper prime-power multipliers are
-
-\[
-p,p^2,\ldots,p^{a-1}.
-\]
-
-Their total contribution is
-
-\[
-p^{(a-1)\varphi(m)}.
-\]
-
-Since the left side of (NRL-5) is
-
-\[
-p^{a\varphi(m)},
-\]
-
-the remaining top factor must be
+Hence (NRL-10) reduces exactly to
 
 \[
 \boxed{
-R_m(mp^a)=p^{\varphi(m)}.
+ t^{\varphi(m)}
+=
+\prod_{\substack{s\mid t\\s>1}}
+r_m(ms).
 }
-\tag{NRL-6}
-\]
+\tag{NRL-11}
 
-### t has at least two distinct prime factors
+This is now an ordinary divisor-zeta relation in the multiplier `t`.
 
-Write
+## 8. Möbius inversion in the multiplier
 
-\[
-t=\prod_p p^{a_p}
-\]
-
-with at least two nonzero exponents.  The proper prime-power divisors of `t` include, for each `p`,
-
-\[
-p,p^2,\ldots,p^{a_p}.
-\]
-
-Their resultant contributions multiply to
-
-\[
-\prod_p p^{a_p\varphi(m)}
-=t^{\varphi(m)},
-\]
-
-which already exhausts the entire left side of (NRL-5).
-
-Since all remaining factors are positive integers,
+Apply multiplicative Möbius inversion to (NRL-11):
 
 \[
 \boxed{
-R_m(mt)=1
+ r_m(mt)
+=
+\prod_{s\mid t}
+s^{\varphi(m)\mu(t/s)}.
 }
-\tag{NRL-7}
-\]
+\tag{NRL-12}
 
-when `t` is not a prime power.
-
-## 6. Aggregate contribution of all multiple-of-m new factors
-
-The argument above also shows a useful stronger statement: for arbitrary `t`, the product of all new factors in (NRL-5) whose indices are multiples of `m` is exactly
-
-\[
-\boxed{t^{\varphi(m)}.}
-\tag{NRL-8}
-\]
-
-Indeed each prime `p` appearing to exponent `a_p` contributes one factor `p^(phi(m))` at every prime-power level `p,...,p^(a_p)`, for total `p^(a_p phi(m))`.
-
-Thus the multiple-of-`m` sector alone consumes the complete master resultant product.
-
-## 7. Nonmultiple indices give unit resultants
-
-Let `n>1` with `m` not dividing `n`, and set
-
-\[
-L=\operatorname{lcm}(m,n)=mt,
-\qquad
- t=\frac{n}{\gcd(m,n)}.
-\]
-
-Then `n|L` but `n` does not divide `m`, so `Psi_n` appears among the new factors in the quotient `Q_L/Q_m`.
-
-By (NRL-5), the product of all new resultant magnitudes is
-
-\[
-t^{\varphi(m)}.
-\]
-
-But Section 6 shows that the new factors whose indices are multiples of `m` already contribute exactly this full value.
-
-All other new factors, including `Psi_n`, have positive-integer resultant magnitudes. Their product must therefore be one, forcing every one of them to be one.
-
-Hence
+The inner arithmetic product is exactly the primitive mass expression, raised to `phi(m)`. Therefore
 
 \[
 \boxed{
- m\nmid n
-\quad\Longrightarrow\quad
-|\operatorname{Res}(\Psi_m,\Psi_n)|=1.
+ r_m(mt)
+=
+\begin{cases}
+ p^{\varphi(m)},&t=p^a,\\
+ 1,&t\text{ has at least two distinct prime factors}.
+\end{cases}
 }
-\tag{NRL-9}
-\]
+\tag{NRL-13}
 
-## 8. Native spectral resultant theorem
+No induction cycle remains.
 
-Combining Sections 5 and 7, for `2<=m<n`,
+## 9. Native spectral resultant theorem
+
+Combining the incomparable and multiple cases, for `2<=m<n`,
 
 \[
 \boxed{
 |\operatorname{Res}(\Psi_m,\Psi_n)|
 =
 \begin{cases}
- p^{\varphi(m)},& n/m=p^a\text{ for some prime }p,\\[1mm]
+ p^{\varphi(m)},& n/m=p^a\text{ for a prime }p,\\[1mm]
  1,&\text{otherwise}.
 \end{cases}
 }
-\tag{NRL-10}
-\]
+\tag{NRL-14}
 
 By symmetry of absolute resultants, for arbitrary distinct `m,n>1`,
 
@@ -361,46 +432,44 @@ By symmetry of absolute resultants, for arbitrary distinct `m,n>1`,
 \begin{cases}
  p^{\varphi(\min(m,n))},&
  \max(m,n)/\min(m,n)=p^a,\\[1mm]
- 1,&\text{otherwise}.
+ 1,&\text{otherwise},
 \end{cases}
 }
-\tag{NRL-11}
-\]
+\tag{NRL-15}
 
-The quotient in the first case is understood to be an integer prime power.
+where the first case requires the displayed quotient to be an integer prime power.
 
-## 9. Sign
+## 10. Sign
 
-The native argument above determines the absolute value. The sign depends on the chosen monic root ordering/orientation conventions and is not needed for the prime-power arithmetic statement.
-
-Exact symbolic examples include both signs:
+The argument determines the invariant absolute value. Exact examples show both signs:
 
 ```text
-Res(Psi_2,Psi_4) = -2
-Res(Psi_3,Psi_9) =  9
-Res(Psi_3,Psi_15)= -25
+Res(Psi_2,Psi_4)   = -2
+Res(Psi_3,Psi_9)   =  9
+Res(Psi_3,Psi_15)  = -25
 ```
 
-The invariant arithmetic content is (NRL-11).
+The prime-power arithmetic statement is (NRL-15).
 
-## 10. Relation to classical cyclotomic theory
+## 11. Classical compatibility
 
-A separate classical trace-compatibility theorem identifies the spectral primitive factors with real trace transforms of ordinary cyclotomic factors. Under that compatibility, (NRL-11) maps to the classical Apostol prime-power cyclotomic resultant law.
+A separate later theorem identifies the spectral primitive factors with real trace transforms of ordinary cyclotomic factors. Under that map, (NRL-15) becomes the classical Apostol prime-power cyclotomic resultant law.
 
 But the proof above uses only:
 
 ```text
-finite monic spectral factorization
-+ finite scale cocycle
-+ internal primitive phase quantization
+native primitive factorization
++ internal S/C phase quantization
++ primitive spectral mass
 + integer resultant multiplicativity
-+ strong induction / lcm
++ two Möbius inversions
++ exact scale cocycle
 ```
 
-Therefore the prime-power resultant law is already a finite spectral arithmetic theorem before root-of-unity naming.
+Therefore the resultant law is already a finite spectral arithmetic theorem; classical roots of unity are not a proof input.
 
 Freeze:
 
 `SPECTRAL_PRIMITIVE_RESULTANT_PRIME_POWER_LAW = NATIVE_FINITE_ARITHMETIC`.
 
-The classical cyclotomic resultant theorem is now a compatibility image, not a proof input.
+`CLASSICAL_APOSTOL_RESULTANT = LATER_TRACE_COMPATIBILITY_IMAGE`.
