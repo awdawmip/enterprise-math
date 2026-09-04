@@ -1,4 +1,4 @@
-# one-shot rerun 7
+# one-shot rerun 8
 name: control-dispatch-recovery-validate-once
 
 on:
@@ -20,50 +20,37 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
-      - name: Install single-snapshot dispatch optimization
+      - name: Install per-dispatch result/review read snapshot
         run: |
           python - <<'PY'
           from pathlib import Path
-          path = Path('research_control_dispatch.py')
+          path = Path('tools/research_dispatch.py')
           text = path.read_text(encoding='utf-8')
-          old_import = 'from tools import research_runtime\n'
-          new_import = 'from tools import research_runtime\nfrom tools import research_runtime_reducer\n'
+          old_import = 'import re\nfrom datetime import datetime, timezone\n'
+          new_import = 'import re\nfrom contextlib import contextmanager\nfrom datetime import datetime, timezone\n'
           if old_import not in text:
-              raise SystemExit('runtime import anchor missing')
+              raise SystemExit('contextmanager import anchor missing')
           text = text.replace(old_import, new_import, 1)
 
-          old_leased = '''def _leased_targets(\n    events: list[dict[str, Any]], *, now, kind: str, root: Path\n) -> list[dict[str, Any]]:\n    targets: list[dict[str, Any]] = []\n    states = research_dispatch.effective_states(events, now=now, root=root)\n'''
-          new_leased = '''def _leased_targets(\n    events: list[dict[str, Any]],\n    *,\n    now,\n    kind: str,\n    root: Path,\n    states: list[dict[str, Any]] | None = None,\n) -> list[dict[str, Any]]:\n    targets: list[dict[str, Any]] = []\n    if states is None:\n        states = research_dispatch.effective_states(events, now=now, root=root)\n'''
-          if old_leased not in text:
-              raise SystemExit('leased-target anchor missing')
-          text = text.replace(old_leased, new_leased, 1)
-
-          old_lane = '''def _fresh_lane(\n    events: list[dict[str, Any]], *, now, kind: str, root: Path\n) -> dict[str, Any] | None:\n    candidates: list[dict[str, Any]] = []\n    for state in research_dispatch.effective_states(events, now=now, root=root):\n'''
-          new_lane = '''def _fresh_lane(\n    events: list[dict[str, Any]],\n    *,\n    now,\n    kind: str,\n    root: Path,\n    states: list[dict[str, Any]] | None = None,\n) -> dict[str, Any] | None:\n    candidates: list[dict[str, Any]] = []\n    if states is None:\n        states = research_dispatch.effective_states(events, now=now, root=root)\n    for state in states:\n'''
-          if old_lane not in text:
-              raise SystemExit('fresh-lane anchor missing')
-          text = text.replace(old_lane, new_lane, 1)
-
-          old_route = '''    observations = observations or {}\n    leased = _leased_targets(events, now=now, kind=kind, root=root)\n    fresh_task = research_dispatch.select_task(events, now=now, kind=kind, root=root)\n    fresh_lane = _fresh_lane(events, now=now, kind=kind, root=root)\n'''
-          new_route = '''    observations = observations or {}\n    # One immutable derived task-state snapshot per canonical dispatch.  The old\n    # route recomputed the full Issue #240 stream independently for leased-owner,\n    # fresh-task, and fresh-lane selection.  Reusing one snapshot is semantics-\n    # preserving because all three selectors share the same events/now/root.\n    states = research_dispatch.effective_states(events, now=now, root=root)\n    leased = _leased_targets(events, now=now, kind=kind, root=root, states=states)\n    policy = research_runtime_reducer.load_policy(root)\n    fresh_task = research_runtime_reducer.select_state(states, policy, kind=kind)\n    fresh_lane = _fresh_lane(events, now=now, kind=kind, root=root, states=states)\n'''
-          if old_route not in text:
-              raise SystemExit('route-control anchor missing')
-          text = text.replace(old_route, new_route, 1)
+          old = '''def effective_states(\n    events: list[dict[str, Any]], *, now: datetime, root: Path = ROOT\n) -> list[dict[str, Any]]:\n    return [\n        reduce_definition(task, events, now=now, root=root)\n        for task in merged_definitions(root)\n    ]\n'''
+          new = '''@contextmanager\ndef _dispatch_result_read_snapshot(root: Path = ROOT):\n    \"\"\"Cache the operational Result/Review file view for one derived-state pass.\n\n    Canonical dispatch is read-only.  Without this bounded cache, every task's\n    result-state overlay rescans the complete immutable Result/Review stores,\n    turning one dispatch into repeated repository-wide I/O.  The original\n    functions are restored immediately after this effective-state derivation, so\n    writers and later calls always observe fresh repository bytes.\n    \"\"\"\n    base_results = research_result_records.iter_results\n    base_reviews = research_result_records.iter_reviews\n    cached_results = tuple(base_results(root))\n    cached_reviews = tuple(base_reviews(root))\n    target_root = root.resolve()\n\n    def iter_results(local_root: Path = research_result_records.ROOT):\n        if local_root.resolve() != target_root:\n            return base_results(local_root)\n        return list(cached_results)\n\n    def iter_reviews(local_root: Path = research_result_records.ROOT):\n        if local_root.resolve() != target_root:\n            return base_reviews(local_root)\n        return list(cached_reviews)\n\n    research_result_records.iter_results = iter_results\n    research_result_records.iter_reviews = iter_reviews\n    try:\n        yield\n    finally:\n        research_result_records.iter_results = base_results\n        research_result_records.iter_reviews = base_reviews\n\n\ndef effective_states(\n    events: list[dict[str, Any]], *, now: datetime, root: Path = ROOT\n) -> list[dict[str, Any]]:\n    with _dispatch_result_read_snapshot(root):\n        return [\n            reduce_definition(task, events, now=now, root=root)\n            for task in merged_definitions(root)\n        ]\n'''
+          if old not in text:
+              raise SystemExit('effective_states anchor missing')
+          text = text.replace(old, new, 1)
           path.write_text(text, encoding='utf-8')
           PY
-          python -m py_compile research_control_dispatch.py
+          python -m py_compile tools/research_dispatch.py research_control_dispatch.py
           python - <<'PY'
           from pathlib import Path
-          text = Path('research_control_dispatch.py').read_text(encoding='utf-8')
-          if text.count('states = research_dispatch.effective_states(events, now=now, root=root)') != 3:
-              # one in each fallback helper plus one canonical route snapshot
-              raise SystemExit('unexpected effective_states call count after patch')
-          print('SINGLE_SNAPSHOT_PATCH=PASS')
+          text = Path('tools/research_dispatch.py').read_text(encoding='utf-8')
+          assert '_dispatch_result_read_snapshot' in text
+          assert 'with _dispatch_result_read_snapshot(root):' in text
+          print('DISPATCH_RESULT_SNAPSHOT_PATCH=PASS')
           PY
           git config user.name 'awdawmip'
           git config user.email '30957095+awdawmip@users.noreply.github.com'
-          git add research_control_dispatch.py
-          git commit -m 'control: reuse one derived state snapshot per dispatch'
+          git add tools/research_dispatch.py
+          git commit -m 'control: cache result and review reads per dispatch'
           git push origin HEAD:main
       - name: Validate operational control prerequisites
         run: |
@@ -99,7 +86,7 @@ jobs:
       - name: Run canonical dispatcher read-only
         run: |
           set +e
-          time python research_control_dispatch.py --events /tmp/comments.json --kind RESEARCH > /tmp/dispatch.json
+          /usr/bin/time -f 'DISPATCH_WALL_SECONDS=%e' python research_control_dispatch.py --events /tmp/comments.json --kind RESEARCH > /tmp/dispatch.json
           rc=$?
           set -e
           cat /tmp/dispatch.json
