@@ -1,0 +1,110 @@
+{
+  "schema": "ENTERPRISE_RESEARCH_THEOREM_LEDGER_V1",
+  "status": "FREE_RESEARCH / FORMAL_CANDIDATE_PENDING_CI / NOT_FOUNDATION",
+  "date": "2026-09-04",
+  "researcher": "EM-FREE-F6D046 / FREE_AXIOM_DISCOVERY",
+  "author_program": "YUAN X / Enterprise Math",
+  "source_note": "research_notes/EULER_CUBE_FRAME_COVER_AND_RAMANUJAN_RETURN_KERNEL_20260904.md",
+  "formal_module": "EnterpriseMath/EulerRotation/CubeFrameCoverRamanujan.lean",
+  "checker": "src/enterprise_math/euler_cube_cover_ramanujan.py",
+  "tests": "tests/test_euler_cube_cover_ramanujan.py",
+  "theorems": [
+    {
+      "id": "EMEUL-CR-01",
+      "name": "K4 frame double cover is Q3",
+      "statement": "The eight pairs (slice, central half-turn sheet), with an edge whenever the slice changes and the sheet toggles, are canonically the eight vertices and twelve edges of the cube graph.",
+      "status": "LEAN_CANDIDATE_AND_EXACT_CHECKER",
+      "formal_theorems": [
+        "cubeCode_injective",
+        "cubeCode_surjective",
+        "liftedAdjacent_iff_cubeAdjacent",
+        "cubeCode_deck"
+      ]
+    },
+    {
+      "id": "EMEUL-CR-02",
+      "name": "Odd face loops reach the deck partner",
+      "statement": "Every lifted three-edge K4 face path ends at the opposite frame sheet; in the cube code this is the antipodal vertex.",
+      "status": "LEAN_CANDIDATE_AND_EXACT_CHECKER",
+      "formal_theorem": "faceLiftEnd_eq_deck"
+    },
+    {
+      "id": "EMEUL-CR-03",
+      "name": "Tetrahedral transport shortcut relations",
+      "statement": "The source half-turn squares to identity, shortest transport intertwines endpoint half-turns, and every two-edge path through a third vertex equals the direct edge followed by the source half-turn.",
+      "status": "LEAN_CANDIDATE_AND_EXACT_CHECKER",
+      "formal_theorems": [
+        "scaledHalfTurn_squared",
+        "scaledRotation_intertwines_halfTurn",
+        "scaled_two_edge_shortcut"
+      ]
+    },
+    {
+      "id": "EMEUL-CR-04",
+      "name": "Endpoint-parity path transport theorem",
+      "statement": "For any K4 path of m edges, transport equals T_start,end H_start^(m-1) when endpoints differ and H_start^m when the path is closed. Consequently closed even paths are identity and closed odd paths are the Euler tangent half-turn.",
+      "status": "MANUSCRIPT_INDUCTION_PLUS_EXHAUSTIVE_CHECKER",
+      "formal_support": [
+        "extend_to_third",
+        "extend_back_to_source",
+        "scaledRotation_reverse_product",
+        "scaled_two_edge_shortcut",
+        "scaledHalfTurn_squared"
+      ]
+    },
+    {
+      "id": "EMEUL-CR-05",
+      "name": "Flat development on the cube frame cover",
+      "statement": "Two K4 paths with the same base endpoint and length parity have identical shortest-connection transport; after lifting endpoints to Q3, transport is path independent and the deck involution acts by the local tangent half-turn.",
+      "status": "COROLLARY_OF_EMEUL_CR_04_AND_EXACT_CHECKER"
+    },
+    {
+      "id": "EMEUL-CR-06",
+      "name": "Unique nonzero S4-fixed central curvature class",
+      "statement": "The all-edge-one cochain evaluates to one on every K4 triangle and represents the unique nonzero class fixed by the full S4 action in C1(K4;F2)/delta C0(K4;F2).",
+      "status": "LEAN_CANDIDATE_AND_EXHAUSTIVE_CHECKER",
+      "formal_theorems": [
+        "allEdgeParity_code",
+        "unique_nonzero_S4_fixed_class"
+      ],
+      "boundary": "This central phase class is typed separately from the O(2) chirality-reversal handoff class."
+    },
+    {
+      "id": "EMEUL-CR-07",
+      "name": "Spin order-four refinement",
+      "statement": "The vector face holonomy has order two while its normalized Spin lift has order four; reversing face orientation changes only the Spin sign.",
+      "status": "LEAN_CANDIDATE_AND_PARENT_SPIN_THEOREMS",
+      "formal_theorems": [
+        "scaled_face_holonomy_order_two",
+        "faceSpinor_fourth_power"
+      ]
+    },
+    {
+      "id": "EMEUL-CR-08",
+      "name": "Cube/BCC return count",
+      "statement": "For the eight sign steps (+/-1,+/-1,+/-1), the number of 2n-step returns is choose(2n,n)^3 and the return probability is ((1/2)_n/n!)^3.",
+      "status": "EXACT_COMBINATORIAL_THEOREM_AND_DYNAMIC_CHECKER"
+    },
+    {
+      "id": "EMEUL-CR-09",
+      "name": "Euler-Ramanujan finite-cover bridge",
+      "statement": "The same eight-state cube realizes the central frame double cover resolving odd-cycle Euler half-turn holonomy and the BCC step alphabet producing the signature-1/2 Ramanujan hypergeometric kernel.",
+      "status": "EXACT_FINITE_IDENTIFICATION_WITH_SEPARATE_READOUT_MAPS",
+      "boundary": "No Ramanujan 1/pi functional is derived from holonomy alone."
+    }
+  ],
+  "new_closed_boundary": [
+    "ARBITRARY_SHORTEST_CONNECTION_PATH_TRANSPORT_IS_CLASSIFIED_BY_ENDPOINT_AND_LENGTH_PARITY",
+    "THE_CONNECTION_IS_FLAT_ON_THE_Q3_FRAME_DOUBLE_COVER",
+    "THE_ODD_CYCLE_HALF_TURN_IS_THE_UNIQUE_NONZERO_S4_FIXED_CENTRAL_F2_CURVATURE_CLASS",
+    "THE_SPIN_FACE_LIFT_IS_AN_ORDER_FOUR_REFINEMENT_OF_THE_VECTOR_HALF_TURN",
+    "THE_RAMANUJAN_SIGNATURE_HALF_STEP_ALPHABET_IS_THE_SAME_EIGHT_STATE_CUBE"
+  ],
+  "negative_boundaries": [
+    "THE_CUBE_SIGN_IS_A_FRAME_PHASE_CODE_NOT_LITERAL_SHORTEST_TRANSPORT_OF_THE_NORMAL_TO_ITS_NEGATIVE",
+    "THE_CENTRAL_PHASE_CLASS_IS_NOT_IDENTIFIED_WITH_THE_O2_CHIRALITY_CLASS",
+    "NO_RAMANUJAN_1_OVER_PI_FUNCTIONAL_IS_DERIVED_FROM_THE_PATH_HOLONOMY_THEOREM_ALONE",
+    "NO_P000_NATIVE_STATUS_IS_CLAIMED_FOR_THE_CUBE_FRAME_COVER",
+    "NO_IDENTITY_WITH_OTHER_PROJECT_C2_CLASSES_IS_CLAIMED"
+  ]
+}
