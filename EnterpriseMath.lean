@@ -23,6 +23,7 @@ import EnterpriseMath.Precision.DirichletSpectrumBridge
 import EnterpriseMath.Precision.DirichletParitySpectrumCurvature
 import EnterpriseMath.Precision.HammingKrawtchoukKernel
 import EnterpriseMath.Precision.HammingShellSpectrum
+import EnterpriseMath.Precision.HammingReflection
 import EnterpriseMath.Precision.CompositionSafeCollapse
 import EnterpriseMath.Precision.QuotientBasin
 import EnterpriseMath.Precision.QuotientCoalescence
