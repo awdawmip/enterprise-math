@@ -1,0 +1,53 @@
+name: euler-fcc-tetrahedral-transport
+
+on:
+  pull_request:
+    paths:
+      - "research_notes/EULER_FCC_TETRAHEDRAL_TRANSPORT_HOLONOMY_20260904.md"
+      - "definitions/ENTERPRISE_EULER_FCC_TETRAHEDRAL_TRANSPORT_LEDGER_20260904.json"
+      - "EnterpriseMath/EulerRotation/TetrahedralTransportHolonomy.lean"
+      - "src/enterprise_math/euler_fcc_tetrahedral_transport.py"
+      - "tests/test_euler_fcc_tetrahedral_transport.py"
+      - "research_method_inventory_addenda/20260904_euler_fcc_tetrahedral_transport.json"
+      - ".github/workflows/euler-fcc-tetrahedral-transport.yml"
+  workflow_dispatch:
+
+jobs:
+  exact-and-formal-check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Compile exact checker and tests
+        run: >-
+          python -m py_compile
+          src/enterprise_math/euler_fcc_tetrahedral_transport.py
+          tests/test_euler_fcc_tetrahedral_transport.py
+      - name: Run exhaustive exact transport regression
+        env:
+          PYTHONPATH: src
+        run: python -m unittest -v tests/test_euler_fcc_tetrahedral_transport.py
+      - name: Validate theorem ledger JSON
+        run: python -m json.tool definitions/ENTERPRISE_EULER_FCC_TETRAHEDRAL_TRANSPORT_LEDGER_20260904.json >/dev/null
+      - name: Reject Lean proof placeholders
+        run: |
+          if grep -n -E '\b(sorry|admit|axiom)\b' EnterpriseMath/EulerRotation/TetrahedralTransportHolonomy.lean; then
+            echo "Proof placeholder detected"
+            exit 1
+          fi
+      - uses: leanprover/lean-action@v1
+        with:
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+          use-github-cache: false
+          use-mathlib-cache: false
+      - name: Resolve pinned dependencies
+        run: lake update
+      - name: Fetch mathlib cache
+        run: lake exe cache get
+      - name: Build exact Lean transport certificate
+        run: lake build --wfail -KCI EnterpriseMath.EulerRotation.TetrahedralTransportHolonomy
