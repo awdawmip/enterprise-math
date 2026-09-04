@@ -10,7 +10,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from control_plane import research_result_review_binding_fault_isolation as binding_isolation
-from control_plane import research_result_review_audit_addendum as review_audit_isolation
+from control_plane import research_result_review_audit_fault_isolation as review_audit_isolation
 from control_plane import research_result_record_audit_fault_isolation as result_audit_isolation
 
 
