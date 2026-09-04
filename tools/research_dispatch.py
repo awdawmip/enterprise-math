@@ -450,11 +450,13 @@ def _claim_result_gate_reason(
 
 
 def _filter_registered_events(
-    task: dict[str, Any], events: list[dict[str, Any]], root: Path
+    task: dict[str, Any],
+    events: list[dict[str, Any]],
+    root: Path,
+    result_state: dict[str, Any] | None,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     if not _is_registered(task):
         return events, []
-    result_state = research_result_records.task_result_state(task["task_id"], root)
     terminal_result_id = None
     if result_state is not None and result_state.get("terminal") is True:
         terminal_result_id = result_state["result"].get("result_id")
@@ -522,11 +524,13 @@ def _filter_registered_events(
 
 
 def _overlay_result_state(
-    task: dict[str, Any], state: dict[str, Any], root: Path
+    task: dict[str, Any],
+    state: dict[str, Any],
+    root: Path,
+    result_state: dict[str, Any] | None,
 ) -> dict[str, Any]:
     if not _is_registered(task):
         return state
-    result_state = research_result_records.task_result_state(task["task_id"], root)
     if result_state is None:
         return state
     value = copy.deepcopy(state)
@@ -625,7 +629,17 @@ def reduce_definition(
     root: Path = ROOT,
 ) -> dict[str, Any]:
     authenticated, auth_rejected = _event_authentication_filter(task, events)
-    filtered, registered_rejected = _filter_registered_events(task, authenticated, root)
+    result_state = None
+    if _is_registered(task):
+        publication_id = task.get("publication_id")
+        result_state = research_result_records.task_result_state(
+            task["task_id"],
+            root,
+            publication_id if isinstance(publication_id, str) else None,
+        )
+    filtered, registered_rejected = _filter_registered_events(
+        task, authenticated, root, result_state
+    )
     lease = int(task.get("claim_lease_minutes") or default_lease_minutes)
     state = research_runtime_reducer.reduce_task(
         task,
@@ -651,7 +665,7 @@ def reduce_definition(
         state["identity_lane"] = research_runtime_reducer.identity_lane(task)
     except Exception:
         state["identity_lane"] = task.get("identity_lane")
-    state = _overlay_result_state(task, state, root)
+    state = _overlay_result_state(task, state, root, result_state)
     return _overlay_active_cohort(task, state, root)
 
 
