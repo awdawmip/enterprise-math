@@ -48,7 +48,6 @@ theorem dirichletPositiveTailTerm_succ (R : ℝ) (M k : ℕ) :
   have h2 : (2 * (((M + k : ℕ) : ℝ)) + 2) ≠ 0 := by positivity
   have h3 : (2 * (((M + k : ℕ) : ℝ)) + 3) ≠ 0 := by positivity
   field_simp [hf, h2, h3]
-  ring
 
 /-- Every later factorial ratio is bounded by the first tail ratio. -/
 theorem dirichletTailStepRatio_le (R : ℝ) (M k : ℕ) :
