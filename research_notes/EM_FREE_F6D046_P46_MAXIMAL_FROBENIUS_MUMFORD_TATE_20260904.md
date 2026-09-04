@@ -289,7 +289,7 @@ u=\frac{609+580i}{841}\in\mathbf Q(i).
 
 ## 5. Frobenius 环面维数为 \(5\)
 
-设 \(\Gamma\) 是由 \(29,\beta_1,\ldots,\beta_4\) 在 \(\overline{\mathbf Q}^{\times}\) 中生成的群，模去挠元。
+设 \(\Gamma\) 是由 \(29,\beta_1,\ldots,\beta_4\) 在 \(\overline{\mathbf Q}^{\times=\) 中生成的群，模去挠元。
 
 若
 
@@ -423,7 +423,7 @@ G_5^\circ\subseteq L_{\mathbf Q_5},
 H=\operatorname{GL}(W).
 \]
 
-投影核因总 rank 为 \(5\) 而是一维，故等于整个额外 \(\mathbf G_m\)。于是
+投影核因总引 rank 为 \(5\) 而是一维，故等于整个额外 \(\mathbf G_m\)。于是
 
 \[
 \boxed{G_5^\circ=L_{\mathbf Q_5}.}
@@ -581,21 +581,31 @@ G_\ell^\circ=L_{\mathbf Q_\ell}
 
 ## 11. Sato–Tate 连通分量
 
-作为群论推论，normalized connected Sato–Tate group 是
+这里必须区分两个不同的“最大紧子群”操作。Hodge group 的实点为
 
 \[
-\operatorname{Hg}(P_{46})(\mathbf R)
-=U(3,1)
+\operatorname{Hg}(P_{46})(\mathbf R)=U(3,1),
 \]
 
-的最大紧子群，因此抽象同构于
+其最大紧子群 \(U(3)\times U(1)\) 描述 Hermitian 对称域的实微分几何；它**不是** Sato–Tate 连通分量。
+
+Sato–Tate 连通分量按定义取代数 Hodge group 复点
+
+\[
+\operatorname{Hg}(P_{46})(\mathbf C)
+\simeq GL_4(\mathbf C)
+\]
+
+的最大紧子群。因此正确结论是
 
 \[
 \boxed{
 \operatorname{ST}(P_{46})^\circ
-\simeq U(3)\times U(1).
+\simeq U(4).
 }
 \]
+
+signature \((3,1)\) 决定实 Hodge 域和 PEL 模空间，但代数群复化后成为 \(GL_4\)，所以不会把 Sato–Tate 紧群切成 \(U(3)\times U(1)\)。
 
 这里仅确定连通分量。由于 \(i\)-endomorphism 在 \(\mathbf Q(i)\) 上定义，完整 component group 还需要单独核验 arithmetic descent；本文件不把它自动写成 \(C_2\)。
 
