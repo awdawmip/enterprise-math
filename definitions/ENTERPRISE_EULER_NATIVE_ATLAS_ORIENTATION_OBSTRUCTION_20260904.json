@@ -1,0 +1,75 @@
+{
+  "schema": "ENTERPRISE_RESEARCH_THEOREM_LEDGER_V1",
+  "status": "FREE_RESEARCH / EXACT GRAPH-GAUGE THEOREM / NOT_FOUNDATION",
+  "date": "2026-09-04",
+  "researcher": "EM-FREE-F6D046 / FREE_AXIOM_DISCOVERY",
+  "author_program": "YUAN X / Enterprise Math",
+  "candidate": "AC-EM-FREE-F6D046-EULER-NATIVE-ATLAS-W1-OBSTRUCTION-V1",
+  "source_note": "research_notes/EULER_NATIVE_ATLAS_ORIENTATION_OBSTRUCTION_20260904.md",
+  "checker": "src/enterprise_math/euler_atlas_orientation.py",
+  "tests": "tests/test_euler_atlas_orientation.py",
+  "formalization": "EnterpriseMath/EulerRotation/NativeAtlasOrientationObstruction.lean",
+  "theorems": [
+    {
+      "id": "EMEUL-W1-01",
+      "name": "Overlap parity is a gauge 1-cochain",
+      "statement": "The sign of each S4 chart transition changes by the sum of the endpoint chart-frame parities, so six edge bits are defined only modulo vertex coboundary.",
+      "status": "EXACT FINITE THEOREM / CHECKER AND LEAN CORE"
+    },
+    {
+      "id": "EMEUL-W1-02",
+      "name": "Three complete triangle invariants",
+      "statement": "The triangle parities on 012, 013 and 023 are gauge invariant, independent, and determine the fourth triangle parity and the full H1(K4,F2) class.",
+      "status": "EXACT FINITE THEOREM / EXHAUSTIVE CHECKER / LEAN CORE"
+    },
+    {
+      "id": "EMEUL-W1-03",
+      "name": "A4 reduction criterion",
+      "statement": "A four-chart S4 transition atlas can be relabeled so that every overlap lies in A4 iff all three independent triangle parities vanish.",
+      "status": "CONSTRUCTIVE EXACT THEOREM / EXHAUSTIVE CHECKER / LEAN CORE"
+    },
+    {
+      "id": "EMEUL-W1-04",
+      "name": "Explicit reduction gauge",
+      "statement": "For edge bits e01,e02,e03,e12,e13,e23 with zero triangle holonomies, the vertex gauge (0,e01,e02,e03) clears every edge bit.",
+      "status": "EXACT FORMULA / CHECKER AND LEAN CORE"
+    },
+    {
+      "id": "EMEUL-W1-05",
+      "name": "Uniqueness up to global reversal",
+      "statement": "On connected K4, any two gauges clearing all edge parities differ by one common C2 bit at every vertex.",
+      "status": "EXACT THEOREM / EXHAUSTIVE CHECKER / LEAN CORE"
+    },
+    {
+      "id": "EMEUL-W1-06",
+      "name": "Orientation obstruction class",
+      "statement": "The eight gauge classes of edge parities form H1(K4,F2)=F2^3 and are the possible first orientation classes w1 of an unstructured four-slice native atlas.",
+      "status": "EXACT FINITE COHOMOLOGY CLASSIFICATION"
+    },
+    {
+      "id": "EMEUL-W1-07",
+      "name": "Global Euler generator iff w1 vanishes",
+      "statement": "The local slice generators admit a globally coherent sign iff the transition parity class is zero; when it exists the coherent sign is unique up to simultaneous reversal.",
+      "status": "TYPED GLUING THEOREM",
+      "boundary": "Requires a future native construction of the S4-valued overlap transports."
+    },
+    {
+      "id": "EMEUL-W1-08",
+      "name": "Concrete FCC carrier is oriented",
+      "statement": "The regular tetrahedral carrier admits all overlap transports in A4, so its ordinary chirality obstruction class is zero.",
+      "status": "DERIVED FROM TETRAHEDRAL ORIENTATION LOCAL-SYSTEM THEOREM"
+    }
+  ],
+  "closed_boundaries": [
+    "THE_PREVIOUS_F2_CUBED_SPACE_IS_IDENTIFIED_AS_AN_ORIENTATION_OBSTRUCTION_SPACE",
+    "VANISHING_OF_THREE_TRIANGLE_PARITIES_IS_NECESSARY_AND_SUFFICIENT_FOR_A4_REDUCTION",
+    "WHEN_W1_VANISHES_THE_GLOBAL_J_SIGN_IS_UNIQUE_UP_TO_ONE_GLOBAL_REVERSAL",
+    "THE_CONCRETE_ORIENTED_FCC_TETRAHEDRAL_CARRIER_HAS_W1_ZERO"
+  ],
+  "negative_boundaries": [
+    "P000_NATIVE_OVERLAP_TRANSPORTS_HAVE_NOT_YET_BEEN_CONSTRUCTED",
+    "VANISHING_OF_NATIVE_W1_IS_NOT_ASSUMED WITHOUT_A_TRANSPORT_THEOREM",
+    "C3_FRAME_HOLONOMY_IS_NOT_ELIMINATED_BY_W1_ZERO",
+    "NO_IDENTITY_WITH_OTHER_C2_RESIDUALS_IS_CLAIMED"
+  ]
+}
