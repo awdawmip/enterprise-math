@@ -1,12 +1,12 @@
 import EnterpriseMath.Relation.BranchRecoalescence
-import Mathlib.Algebra.MonoidAlgebra.Defs
+import Mathlib.Algebra.MonoidAlgebra.Basic
 import Mathlib.Tactic
 
 namespace EnterpriseMath.BranchRecoalescence
 
 /-- A typed action of a frame monoid on an additive coordinate carrier.
 
-This is deliberately weaker than a linear representation.  BRC only needs the
+This is deliberately weaker than a linear representation. BRC only needs the
 laws required to transport a later coordinate increment through the frame left
 by an earlier path. -/
 structure CoordinateAction (G C : Type*) [Monoid G] [AddMonoid C] where
@@ -38,7 +38,7 @@ variable (ρ : CoordinateAction G C)
 def onePath : FramedPath W G C ρ :=
   ⟨1, 0, 1, 0⟩
 
-/-- Ordered concatenation.  The second coordinate increment is first transported
+/-- Ordered concatenation. The second coordinate increment is first transported
 through the frame left by the first path. -/
 def mulPath (a b : FramedPath W G C ρ) : FramedPath W G C ρ :=
   ⟨a.weight * b.weight,
@@ -46,22 +46,44 @@ def mulPath (a b : FramedPath W G C ρ) : FramedPath W G C ρ :=
     a.frame * b.frame,
     a.length + b.length⟩
 
-/-- The framed path summaries form a monoid.  This is the algebraic core of the
+/-- The framed path summaries form a monoid. This is the algebraic core of the
 semidirect BRC composition `(w,n,g,l)(v,m,h,k)=(wv,n+g·m,gh,l+k)`. -/
 instance instMonoid : Monoid (FramedPath W G C ρ) where
   one := onePath ρ
   mul := mulPath ρ
   one_mul a := by
-    cases a
-    simp [onePath, mulPath, ρ.one_act]
+    ext
+    · change 1 * a.weight = a.weight
+      exact one_mul a.weight
+    · change 0 + ρ.act 1 a.coord = a.coord
+      rw [ρ.one_act, zero_add]
+    · change 1 * a.frame = a.frame
+      exact one_mul a.frame
+    · change 0 + a.length = a.length
+      exact Nat.zero_add a.length
   mul_one a := by
-    cases a
-    simp [onePath, mulPath, ρ.act_zero]
+    ext
+    · change a.weight * 1 = a.weight
+      exact mul_one a.weight
+    · change a.coord + ρ.act a.frame 0 = a.coord
+      rw [ρ.act_zero, add_zero]
+    · change a.frame * 1 = a.frame
+      exact mul_one a.frame
+    · change a.length + 0 = a.length
+      exact Nat.add_zero a.length
   mul_assoc a b c := by
-    cases a
-    cases b
-    cases c
-    simp [mulPath, ρ.mul_act, ρ.act_add, mul_assoc, add_assoc]
+    ext
+    · change (a.weight * b.weight) * c.weight = a.weight * (b.weight * c.weight)
+      exact mul_assoc _ _ _
+    · change
+        (a.coord + ρ.act a.frame b.coord) + ρ.act (a.frame * b.frame) c.coord =
+          a.coord + ρ.act a.frame (b.coord + ρ.act b.frame c.coord)
+      rw [ρ.mul_act, ρ.act_add]
+      exact add_assoc _ _ _
+    · change (a.frame * b.frame) * c.frame = a.frame * (b.frame * c.frame)
+      exact mul_assoc _ _ _
+    · change (a.length + b.length) + c.length = a.length + (b.length + c.length)
+      exact Nat.add_assoc _ _ _
 
 @[simp] theorem weight_one :
     (1 : FramedPath W G C ρ).weight = 1 := rfl
@@ -104,16 +126,23 @@ instance instMonoid : Monoid (WeightLength W) where
   one := ⟨1, 0⟩
   mul a b := ⟨a.weight * b.weight, a.length + b.length⟩
   one_mul a := by
-    cases a
-    simp
+    ext
+    · change 1 * a.weight = a.weight
+      exact one_mul a.weight
+    · change 0 + a.length = a.length
+      exact Nat.zero_add a.length
   mul_one a := by
-    cases a
-    simp
+    ext
+    · change a.weight * 1 = a.weight
+      exact mul_one a.weight
+    · change a.length + 0 = a.length
+      exact Nat.add_zero a.length
   mul_assoc a b c := by
-    cases a
-    cases b
-    cases c
-    simp [mul_assoc, add_assoc]
+    ext
+    · change (a.weight * b.weight) * c.weight = a.weight * (b.weight * c.weight)
+      exact mul_assoc _ _ _
+    · change (a.length + b.length) + c.length = a.length + (b.length + c.length)
+      exact Nat.add_assoc _ _ _
 
 end WeightLength
 
@@ -131,7 +160,7 @@ def eraseGeometryHom : FramedPath W G C ρ →* WeightLength W where
 
 end FramedPath
 
-/-- Positive multiplicity BRC over framed path summaries.  Coefficients are
+/-- Positive multiplicity BRC over framed path summaries. Coefficients are
 natural-number path multiplicities; the path key still retains the exact weight,
 coordinate, frame and length data. -/
 abbrev FramedNBRC (W G C : Type*) [Monoid W] [Monoid G] [AddMonoid C]
@@ -141,7 +170,7 @@ abbrev FramedNBRC (W G C : Type*) [Monoid W] [Monoid G] [AddMonoid C]
 /-- Boolean/result-support shadow of the positive multiplicity layer. -/
 def booleanShadow {W G C : Type*} [Monoid W] [Monoid G] [AddMonoid C]
     {ρ : CoordinateAction G C} (f : FramedNBRC W G C ρ) : Set (FramedPath W G C ρ) :=
-  {p | f p ≠ 0}
+  {p | f.coeff p ≠ 0}
 
 @[simp] theorem booleanShadow_zero {W G C : Type*}
     [Monoid W] [Monoid G] [AddMonoid C] {ρ : CoordinateAction G C} :
@@ -149,7 +178,7 @@ def booleanShadow {W G C : Type*} [Monoid W] [Monoid G] [AddMonoid C]
   ext p
   simp [booleanShadow]
 
-/-- Positive recoalescence becomes literal support union.  This is the exact
+/-- Positive recoalescence becomes literal support union. This is the exact
 additive bridge `N-BRC -> Boolean-BRC`; no multiplicity can be reconstructed in
 the reverse direction. -/
 theorem booleanShadow_add {W G C : Type*}
@@ -184,7 +213,7 @@ theorem eraseFrame_not_futureSafe {W G C : Type*}
   intro hrec
   exact hdiff (noResurrection hrec hsame)
 
-/-- Integer-valued multiplicative two-coboundary.  BRC carries are instances of
+/-- Integer-valued multiplicative two-coboundary. BRC carries are instances of
 this construction once a compression potential is fixed. -/
 def twoCoboundary {M : Type*} [Monoid M] (potential : M → Int) (a b : M) : Int :=
   potential (a * b) - potential a - potential b
@@ -238,7 +267,7 @@ theorem coordinateCarry_cocycle {W G C : Type*}
       coordinateCarry K b c + coordinateCarry K a (b * c) := by
   exact twoCoboundary_cocycle (coordinatePotential K) a b c
 
-/-- Coordinate potential is superadditive under acted concatenation.  Concrete
+/-- Coordinate potential is superadditive under acted concatenation. Concrete
 atlas extraction algorithms discharge this predicate by their own exact theorem. -/
 def CoordinateSuperadditive {G C : Type*} [Monoid G] [AddMonoid C]
     (ρ : CoordinateAction G C) (K : C → Int) : Prop :=
