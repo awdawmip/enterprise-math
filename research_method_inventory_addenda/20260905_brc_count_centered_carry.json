@@ -1,0 +1,31 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "ACTIVE / RESEARCH-CANDIDATE / USER-DIRECTED / NOT-FOUNDATION-PROMOTION",
+  "effective": "2026-09-05",
+  "scope": "T0_BRC companion tooling for exact finite count-centered carry, valuation holonomy, symbolic reciprocal-wavelet geometry, Mobius-log deconvolution, and hard-prime skeleton/thickness diagnostics",
+  "tools": [
+    {
+      "tool_id": "t0.weighted_brc_count_centered_carry",
+      "family": "T0_BRC",
+      "path": "src/enterprise_math/brc_count_centered_carry.py",
+      "status": "ACTIVE / EXACT-FINITE / RESEARCH-CANDIDATE",
+      "input_contract": "Positive integer finite scales and branch indices; exact integer/Fraction valuation state; signed Mobius-log data only through the formal observer/deconvolution surface.",
+      "output_contract": "Exact carry counts, count-centered rational coefficients, prime-valuation holonomy, symbolic gamma/log forms, exact Mobius-divisor deconvolution identities, and hard-prime n-th-power skeleton/thickness coordinates.",
+      "reuse_rule": "Use when a selected problem has doubling-carry branch geometry and requires observer-safe count centering or valuation-holonomy preservation before logarithmic readout. Reuse the exact finite surface unchanged before deriving analytic asymptotics.",
+      "boundaries": [
+        "POSITIVE_BRANCH_WEIGHT != SIGNED_MOBIUS_DECONVOLUTION",
+        "FORMAL_GAMMA_LOG_IDENTITY != NUMERICAL_LN_APPROXIMATION",
+        "EXACT_FINITE_TOOL != UNIFORM_ASYMPTOTIC_BOUND",
+        "COUNT_CENTERED_HOLONOMY != RH_PROOF",
+        "POWER_SKELETON_ALONE_DELETES_HARD_CARRY_INFORMATION; RETAIN_THICKNESS",
+        "REFERENCE_FACTORIZATION_AND_SIEVE != FACTORING_COMPLEXITY_CLAIM"
+      ]
+    }
+  ],
+  "research_provenance": {
+    "researcher_id": "EM-FREE-3EAA93",
+    "mode": "FREE_AXIOM_DISCOVERY",
+    "source_event": "EM-FREE-3EAA93-BRC-COUNT-CENTERED-WAVELET-V14-20260905",
+    "global_journal_commit": "78075758a90fef59fb78fc2c13473ecdd49a7681"
+  }
+}
