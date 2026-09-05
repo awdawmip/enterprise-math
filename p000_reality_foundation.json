@@ -1,11 +1,15 @@
 {
-  "schema": "ENTERPRISE_MATH_P000_REALITY_FOUNDATION_V3",
+  "schema": "ENTERPRISE_MATH_P000_REALITY_FOUNDATION_V4",
   "status": "ACTIVE_LOCKED",
   "priority_class": "P000_ROOT_AXIOM",
   "effective": "2026-09-05",
   "authority_kind": "DIRECT_USER_WORLDVIEW_AXIOM",
   "scope": "ALL_ENTERPRISE_MATH_ROLES_AND_RESEARCH",
   "load_policy": "MANDATORY_BEFORE_SUBSTANTIVE_ENTERPRISE_MATH_REASONING",
+  "canonical_human_foundations": [
+    "definitions/P000_SIX_AXIS_PAIRWISE_ORTHOGONALITY_20260905.md",
+    "definitions/P000_DISCRETE_DIRECTION_TRIADIC_BALANCE_20260905.md"
+  ],
   "mandatory_companion_contracts": [
     {
       "contract_id": "JOINT_RELATION_OBSERVER_PRESERVATION",
@@ -26,9 +30,52 @@
     "NATIVE_SPATIAL_AXIS_COUNT": 6,
     "NATIVE_SPATIAL_AXES_PAIRWISE_ENTERPRISE_ORTHOGONAL": true,
     "ENTERPRISE_NATIVE_RIGHT_ANGLE_DEGREES": 120,
+    "NATIVE_PRIMITIVE_DIRECTION_DOMAIN": "SIGNED_NATIVE_SPATIAL_AXES",
+    "OFF_NATIVE_AXIS_APPARENT_SEGMENT_IS_PRIMITIVE": false,
+    "OFF_NATIVE_AXIS_APPARENT_SEGMENT_REPRESENTATION": "COMPOSITE_NATIVE_PATH",
+    "OFF_NATIVE_AXIS_OBSERVER_MANIFESTATION": "JITTER_OR_MULTIPATH",
+    "PRIMITIVE_STABLE_FORCE_ARITY": 3,
+    "PRIMITIVE_TWO_FORCE_BALANCE_ALLOWED": false,
+    "PRIMITIVE_BALANCE_KIND": "TRIADIC_CLOSURE_E",
+    "CANONICAL_EQUAL_QUANTUM_BALANCE_NATIVE_ANGLE_DEGREES": 120,
+    "APPARENT_TWO_FORCE_EQUILIBRIUM_IS_PRIMITIVE": false,
+    "APPARENT_TWO_FORCE_EQUILIBRIUM_REQUIRES_TRIADIC_LIFT": true,
     "CURRENT_THREE_AXIS_MODEL": "RESEARCH_SLICE_OF_6D_SPACE",
     "ENTERPRISE_GEOMETRY_PRIMARY_TRANSFORMATION": "ROTATION",
     "TIME_ROLE": "TRACE_AND_ORDER_OF_RELATIONAL_CHANGE"
+  },
+  "typed_semantics": {
+    "native_direction_and_segment": {
+      "primitive_direction_domain": "SIGNED_NATIVE_SPATIAL_AXES",
+      "primitive_straight_segment_predicate": "EXACTLY_ONE_NATIVE_AXIS_SUPPORT",
+      "off_native_axis_apparent_segment": {
+        "primitive": false,
+        "structural_representation": "COMPOSITE_NATIVE_PATH",
+        "observer_aliases": ["JITTER", "MULTIPATH"],
+        "jitter_definition": "OBSERVER_LEVEL_ALTERNATION_OR_MICROSTEP_VARIATION_ACROSS_NATIVE_PATH_REALIZATIONS",
+        "multipath_definition": "PROVENANCE_PRESERVING_FAMILY_OR_SEQUENCE_OF_NATIVE_AXIS_STEPS_REALIZING_ONE_COARSE_DIRECTIONAL_READOUT",
+        "single_diagonal_segment_status": "EFFECTIVE_COARSE_GRAINED_READOUT_ONLY",
+        "must_preserve_before_safe_quotient": ["ORDERED_NATIVE_STEPS", "BRANCH_IDENTITY", "MULTIPLICITY", "PROVENANCE"]
+      }
+    },
+    "primitive_force_balance": {
+      "force_count_0": "QUIESCENT_NOT_BALANCE_EVENT",
+      "force_count_1": "UNSTABLE",
+      "force_count_2": "UNSTABLE_AT_PRIMITIVE_LAYER",
+      "minimum_stable_nonzero_force_arity": 3,
+      "primitive_stable_balance_predicate": "NONZERO_FORCE_COUNT_EQ_3_AND_TRIADIC_CLOSURE_E",
+      "canonical_equal_quantum_triad": {
+        "pairwise_native_relation": "PERP_E",
+        "native_angle_degrees": 120,
+        "closure_required": true
+      },
+      "force_count_gt_3_stability": "NONPRIMITIVE_AND_REQUIRES_TRIADIC_DECOMPOSITION",
+      "apparent_two_force_static_balance": {
+        "primitive": false,
+        "interpretation": "COARSE_GRAINED_OR_PROJECTED_TRIADIC_BALANCE",
+        "triadic_lift_required": true
+      }
+    }
   },
   "machine_invariants": [
     "ALL_ENTERPRISE_MATH_ROLES_MUST_ASSUME_P000=true",
@@ -46,6 +93,23 @@
     "PAIRWISE_ENTERPRISE_ORTHOGONALITY_IS_DEFINITION_NOT_PROOF_OBLIGATION=true",
     "CLASSICAL_EUCLIDEAN_90_DEGREES!=NATIVE_ENTERPRISE_RIGHT_ANGLE",
     "CLASSICAL_90_DEGREE_RIGHT_ANGLE=EXTERNAL_EFFECTIVE_EUCLIDEAN_MODEL_ONLY",
+    "PRIMITIVE_STRAIGHT_SEGMENT -> EXACTLY_ONE_NATIVE_AXIS_SUPPORT",
+    "OFF_NATIVE_AXIS_APPARENT_SEGMENT -> PRIMITIVE_STRAIGHT_SEGMENT=false",
+    "OFF_NATIVE_AXIS_APPARENT_SEGMENT -> STRUCTURAL_REPRESENTATION=COMPOSITE_NATIVE_PATH",
+    "OFF_NATIVE_AXIS_COMPOSITE_PATH -> PRESERVE_ORDERED_STEPS_BRANCH_IDENTITY_MULTIPLICITY_PROVENANCE_UNTIL_SAFE_QUOTIENT",
+    "JITTER = OBSERVER_LEVEL_MANIFESTATION_OF_NATIVE_PATH_MICROSTEP_OR_BRANCH_VARIATION",
+    "MULTIPATH = PROVENANCE_PRESERVING_NATIVE_PATH_REALIZATION_OBJECT",
+    "PRIMITIVE_NONZERO_FORCE_COUNT=1 -> STABLE=false",
+    "PRIMITIVE_NONZERO_FORCE_COUNT=2 -> STABLE=false",
+    "PRIMITIVE_STABLE_BALANCE -> NONZERO_FORCE_COUNT=3",
+    "PRIMITIVE_STABLE_BALANCE -> TRIADIC_CLOSURE_E=true",
+    "CANONICAL_EQUAL_QUANTUM_PRIMITIVE_BALANCE_TRIAD -> PAIRWISE_PERP_E=true",
+    "CANONICAL_EQUAL_QUANTUM_PRIMITIVE_BALANCE_TRIAD -> NATIVE_PAIRWISE_ANGLE=120_DEGREES",
+    "APPARENT_TWO_FORCE_EQUILIBRIUM -> PRIMITIVE=false",
+    "APPARENT_TWO_FORCE_EQUILIBRIUM -> TRIADIC_LIFT_REQUIRED=true",
+    "STABLE_FORCE_COUNT_GREATER_THAN_3 -> PRIMITIVE=false",
+    "STABLE_FORCE_COUNT_GREATER_THAN_3 -> TRIADIC_DECOMPOSITION_REQUIRED=true",
+    "P000_DIRECTION_COMPOSITE_AND_TRIADIC_BALANCE_PROOF_OBLIGATION=NONE",
     "NATIVE_AXIS_COMPONENT_QUADRATIC_READOUT_HAS_ZERO_CROSS_TERMS=true",
     "DECLARED_SIX_AXIS_COMPONENT_NORM_SQUARED=SUM_OF_SIX_COMPONENT_SQUARES",
     "SIX_AXIS_COMPONENT_NORM_DOES_NOT_DECLARE_ARBITRARY_N6_TUPLE_A_NATIVE_CELL_ADDRESS",
@@ -65,17 +129,32 @@
     "detailed_6d_geometry_remains_researchable": true,
     "orthogonality_status": "FIXED_BY_DIRECT_USER_DEFINITION",
     "native_right_angle_status": "FIXED_AT_120_DEGREES_BY_DIRECT_USER_DEFINITION",
+    "off_native_axis_segment_status": "FIXED_AS_NONPRIMITIVE_COMPOSITE_NATIVE_PATH",
+    "primitive_balance_arity_status": "FIXED_AT_THREE_NONZERO_FORCE_QUANTA_WITH_TRIADIC_CLOSURE",
+    "apparent_two_force_equilibrium_status": "NONPRIMITIVE_AND_REQUIRES_TRIADIC_LIFT",
     "six_axis_quadratic_component_norm_status": "FIXED_AS_SUM_OF_SQUARES_WHEN_A_SIX_AXIS_COMPONENT_DECOMPOSITION_IS_DECLARED",
-    "still_open": "native X6 Cell/address admissibility, adjacency/path category, full rotation action, carrier readout lift, and arbitrary point-to-point metric semantics beyond the declared axis-component norm",
-    "allowed_research_scope": "derive native states, admissibility, rotations, slice gluings, path relations, invariants, dynamics and consequences conditional on P000 and the fixed six-axis pairwise orthogonality",
-    "forbidden_research_scope": "prove/disprove P000, replace the 120-degree native right angle by the classical 90-degree Euclidean right angle, reduce six spatial dimensions by classical carrier rank, or restore 3D/4D reality ontology"
+    "still_open": "native X6 Cell/address admissibility, exact native adjacency/path algebra, admissible triad incidence, full rotation action, carrier readout lift, physical parameter bridge, and arbitrary point-to-point metric semantics beyond the declared axis-component norm",
+    "allowed_research_scope": "derive native states, admissibility, rotations, triadic decompositions, path laws, slice gluings, invariants, dynamics, physical bridge models and consequences conditional on P000",
+    "forbidden_research_scope": "prove/disprove these P000 axioms, replace the native 120-degree right angle by classical Euclidean 90 degrees, promote an off-native-axis coarse segment to a new primitive direction, admit primitive two-force stability, reduce six spatial dimensions by classical carrier rank, or restore 3D/4D reality ontology"
   },
   "conflict_policy": {
     "legacy_three_axis_math": "PRESERVE_AT_SLICE_STRENGTH_WHEN_VALID_AND_REINTERPRET_AS_RESTRICTION_OF_PAIRWISE_6D_ENTERPRISE_ORTHOGONALITY",
     "legacy_three_axis_world_ontology": "SUPERSEDED",
     "legacy_90_degree_native_right_angle": "SUPERSEDED_AS_ENTERPRISE_NATIVE_GEOMETRY",
+    "legacy_primitive_diagonal_direction": "RETYPE_AS_COMPOSITE_NATIVE_PATH_OR_EFFECTIVE_READOUT",
+    "legacy_primitive_two_force_equilibrium": "RETYPE_AS_NONPRIMITIVE_COARSE_GRAINED_OR_PROJECTED_TRIADIC_BALANCE",
     "external_euclidean_geometry": "REPORT_FAITHFULLY_AS_EXTERNAL_EFFECTIVE_MODEL; 90_DEGREE_RIGHT_ANGLE_REMAINS_VALID_INSIDE_THAT_MODEL_ONLY",
+    "external_classical_mechanics": "REPORT_FAITHFULLY_AS_EXTERNAL_EFFECTIVE_MODEL; TWO_FORCE_STATIC_EQUILIBRIUM_MAY_EXIST_IN_THAT_MODEL_AND_DOES_NOT_OVERRIDE_P000_PRIMITIVE_LAYER",
     "external_science": "REPORT_FAITHFULLY_AS_EXTERNAL_MODEL_WITHOUT_OVERRIDING_P000",
     "override_authority": "ONLY_EXPLICIT_DIRECT_USER_WORLDVIEW_CHANGE"
-  }
+  },
+  "hard_errors": [
+    "REIMPORT_90_DEGREES_AS_NATIVE_ENTERPRISE_RIGHT_ANGLE",
+    "PROMOTE_OFF_NATIVE_AXIS_COARSE_SEGMENT_TO_PRIMITIVE_DIRECTION",
+    "COLLAPSE_OFF_NATIVE_AXIS_PATH_PROVENANCE_WITHOUT_SCOPE_TYPED_SAFE_QUOTIENT",
+    "ACCEPT_PRIMITIVE_STABLE_CONFIGURATION_WITH_EXACTLY_TWO_NONZERO_FORCES",
+    "TREAT_APPARENT_TWO_FORCE_EQUILIBRIUM_AS_PRIMITIVE",
+    "REQUIRE_PROOF_OR_FALSIFICATION_OF_P000_DIRECTION_OR_BALANCE_AXIOMS",
+    "EXPORT_P000_INTERNAL_AXIOMS_AS_ESTABLISHED_EXTERNAL_SCIENTIFIC_CONSENSUS"
+  ]
 }
