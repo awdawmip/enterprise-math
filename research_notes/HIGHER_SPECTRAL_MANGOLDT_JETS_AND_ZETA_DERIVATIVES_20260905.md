@@ -17,6 +17,7 @@ Define for integer `r>=1`
 :=\left.\frac{d^r}{dz^r}J_z(n)\right|_{z=0}.
 }
 \tag{HMJ-1}
+\]
 
 Since
 
@@ -32,6 +33,7 @@ termwise finite differentiation gives
 =\sum_{d\mid n}\mu(n/d)(\log d)^r.
 }
 \tag{HMJ-2}
+\]
 
 The logarithms are derived analytic coordinates; the divisor/pullback algebra is finite before this readout.
 
@@ -44,6 +46,7 @@ For `r=1`,
 \Lambda_1^{\rm spec}(n)=\Lambda(n).
 }
 \tag{HMJ-3}
+\]
 
 Thus the primitive endpoint prime-mass log and the first generalized-Jordan jet coincide.
 
@@ -67,6 +70,7 @@ Differentiate `r` times in `z` at zero:
 =(-1)^r\frac{\zeta^{(r)}(s)}{\zeta(s)}.
 }
 \tag{HMJ-4}
+\]
 
 For `r=1` this is the usual logarithmic derivative.
 
@@ -95,7 +99,8 @@ Therefore
 \Lambda_r^{\rm spec}(n)=0
 \quad\text{for }r<\omega(n).
 }
-\tag{HMJ-5
+\tag{HMJ-5}
+\]
 
 At the first visible order `t=omega(n)`,
 
@@ -104,7 +109,8 @@ At the first visible order `t=omega(n)`,
 \Lambda_t^{\rm spec}(n)
 =t!\prod_{p\mid n}\log p.
 }
-\tag{HMJ-6
+\tag{HMJ-6}
+\]
 
 This value is independent of the p-adic exponents of `n`; the first nonzero support jet sees the set of distinct prime directions, not their depth.
 
@@ -136,7 +142,8 @@ Thus
 \text{MINIMUM VISIBLE SPECTRAL-JET ORDER}
 =\omega(n).
 }
-\tag{HMJ-7
+\tag{HMJ-7}
+\]
 
 ## 6. Relation to mixed spectral join interactions
 
@@ -171,7 +178,8 @@ Differentiate the pullback eigenlaw
 \sum_{a=0}^{r}
 \binom ra(\log n)^{r-a}\Lambda_a^{\rm spec}(d),
 }
-\tag{HMJ-8
+\tag{HMJ-8}
+\]
 
 where `Lambda_0^spec:=J_0`.
 
