@@ -1,319 +1,122 @@
-# 进取任意点原生直线：Translated Trace 与有向 Line Gauge
+# Legacy R061 arbitrary-point directed min-zero gauge — centered-X6 retyping
 
-Status: `ACTIVE / CANONICAL / FROZEN`
-Date: `2026-08-21`
-Driver: `EM-DVR-9GP3M7 / CONTROL_PLANE`
+Status: `RETYPED / RELATIVE-OBSERVER GAUGE ONLY / SUPERSEDED AS NATIVE POINT-TO-POINT LENGTH`
+Original date: `2026-08-21`
+Retyped: `2026-09-05`
+Steward: `EM-STW-C31A7F / FOUNDATION_STEWARD`
 
-Canonical acceptance source:
+Current native three-axis authority is:
 
-`driver_reviews/R061_STAGE2_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_DRIVER_REVIEW_20260821.md`
+`ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md`.
 
-## 1. Scope
+The original construction decoded every carrier displacement to a unique nonnegative min-zero triple and then applied a sum-of-squares directed gauge. That decoder remains mathematically valid as a **relative/carrier observer section**, but it is no longer the native signed displacement in the centered X6 slice.
 
-This definition extends the frozen origin-based native component-trace line formula to arbitrary integer-addressed native coordinate vertices.
+## Current native point-to-point displacement
 
-It freezes an exact **directed** point-to-point native line object and directed line-length gauge.
+For native Cells `P,Q` in one centered selected slice, use raw signed coordinates
 
-It does **not** freeze a symmetric metric.
+`x(P),x(Q) in Z^3`
 
-## 2. Canonical directed displacement decoding
+and exact displacement
 
-Let `P,Q` be arbitrary native coordinate/triple-intersection vertices.
+`d(P,Q)=x(Q)-x(P)`.
 
-Use the frozen implementation carrier only to calculate the signed carrier difference
+Native squared distance is
 
-`delta_I(P,Q)=(r,s) in Z^2`.
-
-Let
-
-`m=min(r,s,0)`.
-
-Define the canonical native positive-axis displacement address
-
-`D_E(P->Q)=(r-m,s-m,-m)`.
-
-Then
-
-- all three components are nonnegative;
-- the minimum component is zero;
-- the triple is unique;
-- no native negative axis is introduced.
-
-Freeze:
-
-`DIRECTED_NATIVE_DISPLACEMENT = UNIQUE_NONNEGATIVE_MIN_ZERO_DECODE`.
-
-This decoding is not a **primitive native-point** common-diagonal quotient. It is the frozen carrier-to-native chart decode.
-
-At the separately typed derived G1 displacement layer frozen in `ENTERPRISE_DERIVED_DIAGONAL_DISPLACEMENT_QUOTIENT_20260826.md`, the same decoder is exactly the canonical min-zero section of
-
-`G_D=Z^3/Z(1,1,1)`.
-
-Writing
-
-`can(z)=z-min(z)(1,1,1)`, 
-
-one has the already accepted compatibility identity
-
-`D_E(P->Q)=can(r,s,0)`.
-
-When this triple is used as a derived displacement section value, its semantic type is `A_D`, not the primitive/current point or sector-address type `A_E`. The two types may share the same underlying tuple set but are not identified.
-
-Freeze compatibility only:
-
-`R061_STAGE2_DECODE_COMPATIBLE_WITH_DERIVED_G_D = true`.
-
-`A_D != A_E AS_SEMANTIC_TYPES`.
-
-No decoder formula is changed by this interpretation.
-
-## 3. Translated sector typing
-
-Write
-
-`D_E(P->Q)=(A,B,C)`.
-
-If `P=Q`, then `(A,B,C)=(0,0,0)`.
-
-If exactly one component is positive, the displacement lies on one translated positive native axis.
-
-If exactly two components are positive, the unique zero component selects one translated native right sector:
-
-- `(A,B,0)` -> `S_12(P)`;
-- `(0,B,C)` -> `S_23(P)`;
-- `(A,0,C)` -> `S_31(P)`.
-
-Translated positive axes have two adjacent sector presentations that glue to one physical directed axis identity.
-
-Freeze:
-
-`ALL_INTEGER_DIRECTED_DISPLACEMENTS_POSITIVE_AXIS_DECOMPOSABLE = true`.
-
-`DISPLACEMENT_DECOMPOSITION_UNIQUE_UP_TO_AXIS_GLUE = true`.
-
-## 4. Translated line identity
-
-For an open translated sector `S_ij(P)` with local native components `(a,b)`, define
-
-`T_{P;a,b}^{(ij)}=(P,[X_i^a X_j^b])`
-
-under the frozen component-preserving commutation law
-
-`X_iX_j ~ X_jX_i`.
-
-The minimal concrete identity therefore contains:
-
-- start vertex `P`;
-- translated sector label `(ij)`;
-- native component trace class.
-
-The start vertex is required to distinguish parallel translated segments.
-
-Freeze:
-
-`ARBITRARY_POINT_ENTERPRISE_LINE_IDENTITY = TRANSLATED_NATIVE_COMPONENT_TRACE`.
-
-A bare derived displacement element `g in G_D` is therefore not a global native line classifier. When used globally, derived displacement must retain start/target typing such as `(P,g):P->P·g`.
-
-## 5. Translated incidence and path fiber
-
-At every start vertex `P`, translation of the frozen circle-cell incidence gives exactly one sector-local incident anchor cell for each translated open sector.
-
-Define
-
-`Sigma_P^(ij): P -> C_P^(ij)(0,0)`.
-
-For the translated trace define
-
-`Realize_E(T_{P;a,b}^{(ij)})`
-
-`= { Sigma_P^(ij); w : w in Sh_{a,b}(X_i,X_j) }`.
-
-Every prefix is one circle cell, every center move is nearest-neighbor/overlap valid, and every representative terminates at the translated terminal cell incident to `Q`.
-
-Freeze:
-
-`ARBITRARY_POINT_PATH_FIBER_EXACT = true`.
-
-`PATH_FIBER_CARDINALITY_TRANSLATION_INVARIANT = true`.
-
-Cardinality:
-
-`|Realize_E(T_{P;a,b}^{(ij)})|=binom(a+b,a)`.
-
-The derived displacement interpretation does not create a total bare `PF_PATH -> G_D` map. The map is typed only when the path realization carries the R061 coordinate-vertex endpoint anchors, or when a separate endpoint decoration/bridge has been explicitly frozen.
-
-Freeze:
-
-`BARE_GLOBAL_PF_PATH_DISPLACEMENT = NOT_DEFINED`.
-
-## 6. Same endpoint versus same line remains distinct
-
-Translated third-family carrier shortcuts may reach the same carrier endpoint.
-
-They do not preserve the native `ij` component trace.
-
-Freeze:
-
-`SAME_CARRIER_ENDPOINT != SAME_NATIVE_LINE_IDENTITY`.
-
-`TRANSLATED_REVERSE_THIRD_SHORTCUT = CARRIER_ONLY_SHORTCUT_NOT_NATIVE_LINE`.
-
-No jump-count rule is used to make this distinction.
-
-Likewise, equality in the derived displacement quotient does not imply same native line identity or same Path-formal witness.
-
-Freeze:
-
-`SAME_DERIVED_DISPLACEMENT != SAME_NATIVE_LINE_IDENTITY`.
-
-## 7. Directed native line gauge
-
-For
-
-`D_E(P->Q)=(A,B,C)`,
-
-define
-
-`ell_E(P->Q)^2=A^2+B^2+C^2`.
-
-Because `min(A,B,C)=0`, at most two components are active, so this is exactly the frozen native Pythagorean law in the selected translated `120°` right sector.
-
-Freeze:
-
-`POINT_TO_POINT_NATIVE_LINE_LENGTH_OBJECT = DIRECTED_NATIVE_LINE_GAUGE`.
-
-The gauge satisfies:
-
-- `ell_E(P->P)=0`;
-- positivity for distinct integer vertices;
-- translation invariance;
-- compatibility with the frozen origin norm;
-- axis-glue compatibility;
-- triangle inequality.
-
-It is not graph jump count and not carrier Euclidean distance.
-
-The separately typed derived quotient does not replace this gauge and does not restore the historical diagonal-invariant quadratic as native Enterprise length.
-
-## 8. Triangle inequality
-
-Let `D1,D2` be the canonical nonnegative displacement triples for `P->Q` and `Q->R`.
-
-Before canonical decode, their composed component list is `D1+D2`.
-
-Let
-
-`m=min_i(D1_i+D2_i)`.
-
-The canonical triple for `P->R` is
-
-`D12=D1+D2-m(1,1,1)`.
-
-Since `m>=0`, every component of `D12` is no larger than the corresponding component of `D1+D2`.
-
-Hence
-
-`||D12||_2 <= ||D1+D2||_2 <= ||D1||_2+||D2||_2`.
+`d_S(P,Q)^2=sum_i d_i(P,Q)^2`.
 
 Therefore
 
-`ell_E(P->R) <= ell_E(P->Q)+ell_E(Q->R)`.
-
-Freeze:
-
-`DIRECTED_NATIVE_LINE_GAUGE_TRIANGLE_INEQUALITY = true`.
-
-At the derived displacement layer, the same canonicalization step is compatible with transported quotient addition
-
-`x (+)_D y = can(x+y)`.
-
-This is an interpretation of the existing composition formula, not a change to it.
-
-## 9. Reversal map without negative native axes
-
-Let
-
-`D_E(P->Q)=(A,B,C)`
+`d(P,Q)=-d(Q,P)`
 
 and
 
-`M=max(A,B,C)`.
-
-Then the reverse directed displacement decodes exactly as
-
-`D_E(Q->P)=(M-A,M-B,M-C)`.
+`d_S(P,Q)=d_S(Q,P)`.
 
 Freeze:
 
-`REVERSAL_TRACE_REDECOMPOSITION_WITHOUT_NATIVE_NEGATIVE_AXES = true`.
+`CENTERED_SIGNED_DISPLACEMENT = RAW_COORDINATE_DIFFERENCE`.
 
-This reverse positive-axis trace is generally not the same object as the path-groupoid inverse of the forward trace representative.
+`NATIVE_POINT_TO_POINT_DISTANCE_IS_SYMMETRIC = TRUE`.
 
-At the separately typed derived displacement layer, the same triple is compatible with the group inverse `can(-x)`. This downstream compatibility does not identify trace inversion with canonical reverse trace upstream.
+`NO_MIN_ZERO_DECODE_REQUIRED_FOR_NATIVE_POINT_TO_POINT_DISTANCE`.
 
-## 10. Reversal-length asymmetry
+## Historical min-zero decoder survives as observer
 
-Forward and reverse squared gauges are
+For any raw signed triple `d`, define
 
-`ell_f^2=A^2+B^2+C^2`,
+`can3(d)=d-min(d)*(1,1,1)`.
 
-`ell_r^2=(M-A)^2+(M-B)^2+(M-C)^2`.
+This is the canonical section of the carrier quotient `Z^3/Z(1,1,1)`. It forgets the common depth and therefore cannot by itself carry native point-to-point length.
 
-Their exact difference is
+The old directed gauge
 
-`ell_r^2-ell_f^2=M(3M-2(A+B+C))`.
+`ell_rel(d)^2=sum_i can3(d)_i^2`
 
-Thus symmetry occurs exactly on
-
-`2(A+B+C)=3M`.
-
-It fails in general.
-
-Smallest nonzero canonical obstruction:
-
-`D_f=(1,0,0)`, `ell_f^2=1`,
-
-`D_r=(0,1,1)`, `ell_r^2=2`.
-
-The translated `3-4-5` branch also shows the asymmetry:
-
-`(3,4,0)` has squared forward gauge `25`, while its reverse decode `(1,0,4)` has squared gauge `17`.
+is retained only as a **positive/min-zero relative observer gauge**.
 
 Freeze:
 
-`REVERSAL_LENGTH_SYMMETRY = false`.
+`LEGACY_DIRECTED_GAUGE = RELATIVE_OBSERVER_GAUGE`.
 
-`NATIVE_INTEGER_VERTEX_DISTANCE_IS_METRIC = false`.
+`LEGACY_DIRECTED_GAUGE != NATIVE_SIGNED_DISTANCE`.
 
-Do not call `ell_E` a metric.
+## Recomputed reversal witnesses
 
-The derived quotient does not alter this asymmetry.
+### Unit step
 
-## 11. Interpretation boundary
+Native:
 
-The accepted object is an asymmetric/directed native line gauge attached to an oriented native component trace.
+`d=(1,0,0)`, `L_E^2=1`;
 
-The separately typed G1 displacement quotient records endpoint displacement algebra only. It does not:
+`-d=(-1,0,0)`, `L_E^2=1`.
 
-- quotient primitive native point/address ontology;
-- identify `A_D` with `A_E`;
-- identify same displacement with same trace or path witness;
-- define a total bare `PF_PATH -> G_D` map;
-- make ordinary untyped multiplication in `N[G_D]` into native path composition;
-- restore the historical diagonal-invariant quadratic as the native Enterprise metric.
+Historical min-zero reverse observer:
 
-Current R062 Path-formal/N/Boolean BRC semantics remain unchanged.
+`can3(-1,0,0)=(0,1,1)` with component-square sum `2`.
 
-This definition does not decide whether Enterprise geometry should ultimately have:
+Thus the old `{1,sqrt(2)}` reversal spectrum is an observer artifact.
 
-- only the directed gauge;
-- a separate orientation-free segment invariant;
-- a symmetric scalar metric derived from additional principles;
-- or a future contradiction-driven supersession of one of the current frozen premises.
+### 3-4-5 displacement
 
-Freeze open question:
+Native:
 
-`CANONICAL_UNORIENTED_NATIVE_SEGMENT_INVARIANT = OPEN`.
+`d=(3,4,0)`, `L_E^2=25`;
 
-`SYMMETRIC_NATIVE_POINT_DISTANCE = OPEN_OR_IMPOSSIBLE_UNDER_CURRENT_PREMISES`.
+`-d=(-3,-4,0)`, `L_E^2=25`.
+
+Historical min-zero reverse observer:
+
+`can3(-3,-4,0)=(1,0,4)` with component-square sum `17`.
+
+Thus the old `5` versus `sqrt(17)` asymmetry is not a native signed metric asymmetry.
+
+## Repaired min-zero coordinates
+
+For a point coordinate `x`, the lossless pair is
+
+`r=can3(x)`, `h=min(x)`,
+
+with `x=r+h*(1,1,1)`.
+
+For `P<->(r,h)` and `Q<->(s,k)`, native squared distance is
+
+`sum_i (s_i-r_i+(k-h))^2`.
+
+This is the exact repair missing from the historical observer-only gauge.
+
+## BRC consequence
+
+Raw signed reversal preserves the shortest-path multiplicity
+
+`B_min(d)=(sum |d_i|)!/product |d_i|!`.
+
+Hence `(3,4,0)` and `(-3,-4,0)` both have 35 shortest native path words. The historical observer triple `(1,0,4)` has 5 positive words, but it is not the native reverse displacement.
+
+Freeze:
+
+`LEGACY_REVERSAL_ASYMMETRY = MIN_ZERO_OBSERVER_EFFECT`.
+
+`SIGNED_NATIVE_REVERSAL_PRESERVES_LENGTH_AND_BRC_MULTIPLICITY`.
+
+The full original R061 Stage-2 text remains in Git history as provenance.

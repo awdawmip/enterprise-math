@@ -1,0 +1,38 @@
+name: X6 centered three-axis slice Foundation
+
+on:
+  pull_request:
+    paths:
+      - 'definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md'
+      - 'definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.json'
+      - 'definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md'
+      - 'definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md'
+      - 'definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md'
+      - 'definitions/ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md'
+      - 'definitions/ENTERPRISE_DERIVED_DIAGONAL_DISPLACEMENT_QUOTIENT_20260826.md'
+      - 'definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md'
+      - 'definitions/P000_FCC_PRIMARY_COORDINATE_CARRIER_20260829.md'
+      - 'definitions/00_CURRENT_NATIVE_FOUNDATION.md'
+      - 'experiments/x6_centered_three_axis_slice_v19_20260905/**'
+      - 'experiments/x6_signed_native_spatial_v16_20260905/**'
+      - '.github/workflows/x6-centered-three-axis-slice-foundation.yml'
+  workflow_dispatch:
+
+jobs:
+  centered-slice-regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Full signed X6 regression
+        run: python experiments/x6_signed_native_spatial_v16_20260905/check_x6_signed.py
+      - name: Signed BRC regression
+        run: python experiments/x6_signed_native_spatial_v16_20260905/check_signed_brc.py
+      - name: Centered three-axis slice recomputation
+        run: python experiments/x6_centered_three_axis_slice_v19_20260905/check_centered_slice_rebase.py
+      - name: Centered slice cross-file consistency
+        run: python experiments/x6_centered_three_axis_slice_v19_20260905/check_centered_slice_crossfile.py
+      - name: Machine contract parse
+        run: python -m json.tool definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.json >/dev/null

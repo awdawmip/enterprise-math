@@ -1,14 +1,12 @@
 # Enterprise Math — Current Native Foundation Router
 
-Status: `ACTIVE / STABLE CURRENT ROUTER / P000-BOUND / X6-SIGNED-SPATIAL-CERTIFIED / FCC-CARRIER-SELECTED / WEIGHTED-BRC-GLOBAL-BASE / FINITE-RECURRENT-CERTIFIED / RECURRENT-INTERACTION-CERTIFIED / RECURRENT-PORT-CERTIFIED / UNIVERSAL-HISTOGRAM-CERTIFIED / CRITICAL-DEGENERACY-CERTIFIED / LAZY LOAD`
+Status: `ACTIVE / STABLE CURRENT ROUTER / P000-BOUND / X6-SIGNED-SPATIAL-CERTIFIED / CENTERED-THREE-AXIS-SLICE-CERTIFIED / FCC-CARRIER-SELECTED / WEIGHTED-BRC-GLOBAL-BASE / LAZY LOAD`
 Date: `2026-09-05`
-Purpose: route current native mathematics without loading unrelated results.
+Purpose: route current native mathematics from the smallest sufficient current definitions. Historical generations remain in Git history and are not treated as current authority.
 
-This file contains **current state only**. For exact statements/proofs/checker provenance, read the exact canonical definition actually used by the task.
+## 1. P000 root axiom
 
-## P000 root axiom — mandatory dimensional typing
-
-Load `../p000_reality_foundation.json` before interpreting any spatial result.
+Load `../p000_reality_foundation.json` before interpreting spatial results.
 
 Freeze:
 
@@ -19,8 +17,6 @@ Freeze:
 `ENTERPRISE_TIME_DIMENSION=1`.
 
 `ENTERPRISE_SPACE_KIND=DISCRETE_CELL_SPACE`.
-
-`ENTERPRISE_PLANE_NATIVE_DIMENSION=6`.
 
 `NATIVE_SPATIAL_AXIS_COUNT=6`.
 
@@ -36,174 +32,145 @@ Freeze:
 
 `TIME_ROLE=TRACE_AND_ORDER_OF_RELATIONAL_CHANGE`.
 
-P000 is an unconditional project starting axiom. It has no proof obligation, no falsification route and no replacement-candidate route inside Enterprise Math. Only an explicit direct user worldview change may supersede it.
+P000 is an unconditional project starting axiom. It has no proof/falsification/replacement route inside Enterprise Math.
 
-Do not infer world dimension from classical carrier rank, affine redundancy, Euclidean embedding dimension, projection dimension or visualizability.
+For direction/balance work load `P000_DISCRETE_DIRECTION_TRIADIC_BALANCE_20260905.md`.
 
-For direction/balance work also load `P000_DISCRETE_DIRECTION_TRIADIC_BALANCE_20260905.md`. Before any information-reducing projection or factor collapse load `ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json` and preserve the richer carrier unless an exact observer/future-operation descent certificate exists.
+Before any information-reducing projection, quotient or factor collapse load `ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json`.
 
-## Universal branch-typing foundation
+## 2. Current canonical registry
 
-All research modes inherit the minimal branch-typing substrate:
-
-`ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json`.
-
-Its role is type discipline, not agenda selection. In particular:
-
-- declared branch multiplicity/positive weight is not silently discarded to Boolean support or aggregated total mass;
-- finite explicit positive-rational branch systems have an exact weight-histogram carrier; CWM `(C,W,M)`, moments and dominant-degeneracy `(M,d)` are typed projections/quotients;
-- logarithmic quantities such as `Delta=LN(W/M)`, recurrent `Gamma` and `LN(d)` are derived readout coordinates;
-- finite non-negative rational recurrent total-mass systems admit exact rational/integer stable-or-divergent certificates and a gauge-local row-subcritical form;
-- stable finite rational recurrence has exact determinant/zeta, response and feedback-condensation capabilities without requiring a floating spectral primitive;
-- positive rational multiplicative gauge/holonomy and exact histogram weights preserve finite prime-valuation coordinates before optional logarithmic readout;
-- stable hidden recurrent modules admit exact context-typed port collapse; constant `W_eff` is not silently treated as length/moment complete;
-- large-m recurrent subleading behavior uses the explicit-histogram critical graph and integer critical-degeneracy matrix `K`; the exact correction state is `det(I-zK)` plus a smallest-positive-root selector, not a floating eigenvalue;
-- simultaneous positive feedback may have higher-order recurrent interaction, so pairwise summaries are not presumed complete;
-- positive Weighted-BRC does not replace signed/amplitude data;
-- deterministic single-path problems reduce to `C=1`, `W=M`, dominant degeneracy `d=1`, `Delta=0`;
-- canonical R023 Boolean support remains the base support semantics;
-- current recurrent/histogram/critical-degeneracy results remain finite and rational/finite-algebraic-selector typed; broader infinite/signed/complex recurrence is not assumed.
-
-Detailed statements are routed by:
-
-- `ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json` — base weighted/log layer;
-- `ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json` — finite recurrent rational addendum;
-- `ENTERPRISE_BRC_RECURRENT_INTERACTION_THEOREM_LEDGER_20260903.json` — recurrent zeta/response, rational holonomy and feedback-interaction addendum;
-- `ENTERPRISE_BRC_RECURRENT_PORT_THEOREM_LEDGER_20260903.json` — recurrent Schur/port contextual-equivalence addendum;
-- `ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_THEOREM_LEDGER_20260903.json` — explicit branch moments, length-aware transfer, exact histogram and leading-pair addendum;
-- `ENTERPRISE_BRC_CRITICAL_DEGENERACY_THEOREM_LEDGER_20260903.json` — large-m critical-degeneracy asymptotic, exact gap and algebraic log-selector addendum.
-
-Reusable executable methods:
-
-- `t0.weighted_brc_cwm` -> `src/enterprise_math/brc_weighted.py`;
-- `t0.weighted_brc_finite_recurrent` -> `src/enterprise_math/brc_weighted_recurrent.py`;
-- `t0.weighted_brc_recurrent_invariants` -> `src/enterprise_math/brc_recurrent_invariants.py`;
-- `t0.weighted_brc_rational_holonomy` -> `src/enterprise_math/brc_rational_holonomy.py`;
-- `t0.weighted_brc_feedback_interaction` -> `src/enterprise_math/brc_feedback.py`;
-- `t0.weighted_brc_recurrent_port_collapse` -> `src/enterprise_math/brc_recurrent_ports.py`;
-- `t0.weighted_brc_histogram` -> `src/enterprise_math/brc_histogram.py`;
-- `t0.weighted_brc_moment_transfer` -> `src/enterprise_math/brc_moment_transfer.py`;
-- `t0.weighted_brc_critical_degeneracy` -> `src/enterprise_math/brc_critical_degeneracy.py`.
-
-Freeze:
-
-`GLOBAL_FOUNDATION_CAPABILITY != FORCED_BRC_INTERPRETATION`.
-
-`ALL_RESEARCH_CAN_USE_WEIGHTED_BRC_WHEN_TYPED_HYPOTHESES_APPLY`.
-
-## Current canonical registry
-
-1. P000 world/dimension/signed-direction machine typing — `../p000_reality_foundation.json`;
-2. P000 six-axis pairwise Enterprise orthogonality / 120° right angle — `P000_SIX_AXIS_PAIRWISE_ORTHOGONALITY_20260905.md`;
-3. P000 primitive signed directions / composite off-axis paths / triadic balance — `P000_DISCRETE_DIRECTION_TRIADIC_BALANCE_20260905.md`;
-4. mandatory joint-relation observer preservation contract — `ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json`;
+1. P000 machine typing — `../p000_reality_foundation.json`;
+2. P000 six-axis pairwise Enterprise orthogonality / 120° — `P000_SIX_AXIS_PAIRWISE_ORTHOGONALITY_20260905.md`;
+3. P000 signed primitive directions / composite off-axis paths / triadic balance — `P000_DISCRETE_DIRECTION_TRIADIC_BALANCE_20260905.md`;
+4. mandatory observer-preservation contract — `ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json`;
 5. **native X6 signed spatial Cell-center torsor** — `ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md`;
-6. **all-research Weighted-BRC minimal substrate** — `ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json`;
-7. BRC weighted/log detailed foundation — `ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md`;
-8. BRC weighted/log theorem ledger — `ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json`;
-9. BRC finite recurrent rational foundation — `ENTERPRISE_BRC_FINITE_RECURRENT_FOUNDATION_20260902.md`;
-10. BRC finite recurrent theorem-ledger addendum — `ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json`;
-11. BRC recurrent interaction foundation — `ENTERPRISE_BRC_RECURRENT_INTERACTION_FOUNDATION_20260903.md`;
-12. BRC recurrent interaction theorem ledger — `ENTERPRISE_BRC_RECURRENT_INTERACTION_THEOREM_LEDGER_20260903.json`;
-13. BRC recurrent port foundation — `ENTERPRISE_BRC_RECURRENT_PORT_FOUNDATION_20260903.md`;
-14. BRC recurrent port theorem ledger — `ENTERPRISE_BRC_RECURRENT_PORT_THEOREM_LEDGER_20260903.json`;
-15. BRC universal histogram foundation — `ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_FOUNDATION_20260903.md`;
-16. BRC universal histogram theorem ledger — `ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_THEOREM_LEDGER_20260903.json`;
-17. BRC critical-degeneracy foundation — `ENTERPRISE_BRC_CRITICAL_DEGENERACY_FOUNDATION_20260903.md`;
-18. BRC critical-degeneracy theorem ledger — `ENTERPRISE_BRC_CRITICAL_DEGENERACY_THEOREM_LEDGER_20260903.json`;
-19. **primary six-axis rotational coordinate carrier/readout** — `P000_FCC_PRIMARY_COORDINATE_CARRIER_20260829.md`;
-20. established three-axis research slice / coordinates — `ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`;
-21. native line trace — `ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`;
-22. arbitrary-point three-axis directed gauge — `ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`;
-23. three-axis unoriented bidirectional segment — `ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md`;
-24. BRC × native multipath — `ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md`;
-25. path-valued square root — `ENTERPRISE_PATH_VALUED_SQUARE_ROOT_OPERATOR_20260821.md` when a selected task actually uses it.
+6. **centered signed three-axis native slice + recomputed carrier bridge** — `ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md`;
+7. centered-slice machine contract — `ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.json`;
+8. **primary six-axis rotational FCC carrier/readout** — `P000_FCC_PRIMARY_COORDINATE_CARRIER_20260829.md`;
+9. **all-research Weighted-BRC minimal substrate** — `ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json`;
+10. BRC weighted/log foundation — `ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md`;
+11. BRC weighted/log theorem ledger — `ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json`;
+12. BRC finite recurrent foundation — `ENTERPRISE_BRC_FINITE_RECURRENT_FOUNDATION_20260902.md`;
+13. BRC finite recurrent ledger — `ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json`;
+14. BRC recurrent interaction foundation — `ENTERPRISE_BRC_RECURRENT_INTERACTION_FOUNDATION_20260903.md`;
+15. BRC recurrent interaction ledger — `ENTERPRISE_BRC_RECURRENT_INTERACTION_THEOREM_LEDGER_20260903.json`;
+16. BRC recurrent port foundation — `ENTERPRISE_BRC_RECURRENT_PORT_FOUNDATION_20260903.md`;
+17. BRC recurrent port ledger — `ENTERPRISE_BRC_RECURRENT_PORT_THEOREM_LEDGER_20260903.json`;
+18. BRC universal histogram foundation — `ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_FOUNDATION_20260903.md`;
+19. BRC universal histogram ledger — `ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_THEOREM_LEDGER_20260903.json`;
+20. BRC critical-degeneracy foundation — `ENTERPRISE_BRC_CRITICAL_DEGENERACY_FOUNDATION_20260903.md`;
+21. BRC critical-degeneracy ledger — `ENTERPRISE_BRC_CRITICAL_DEGENERACY_THEOREM_LEDGER_20260903.json`;
+22. legacy three-positive-axis circle slice — `ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`, now a carrier/provenance pointer only;
+23. legacy R061 line trace — `ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`, now retyped composite-path combinatorics;
+24. legacy R061 directed min-zero gauge — `ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`, now relative-observer gauge only;
+25. legacy R061 bidirectional spectrum — `ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md`, now observer diagnostic only;
+26. BRC × multipath bridge — `ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md`, retyped to the signed centered X6 skeleton;
+27. path-valued square root — `ENTERPRISE_PATH_VALUED_SQUARE_ROOT_OPERATOR_20260821.md` only when a selected task actually uses it.
 
-The minimal Weighted-BRC substrate is universal. Other registry entries remain lazy: load only the exact object required by the current problem, except P000 when dimensional/spatial semantics are material, the X6 signed spatial definition when full spatial Cell identity/coordinates are material, the Joint Relation Observer Preservation contract before information-reducing projections, and the FCC carrier definition when classical carrier/readout semantics are material.
+Exact current canonical definitions control over this router summary.
 
-## Native X6 signed spatial Cell-center foundation
+## 3. Full native X6 Cell-center space
 
-The current full spatial Cell-center object is an affine torsor for
-
-`G6_FULL=Z^6`
-
-with six signed primitive coordinate directions `+/-E_i` from P000 V4.
-
-Freeze:
+Current full spatial Cell identity is
 
 `X6_NATIVE_SPATIAL = AFFINE_TORSOR(Z^6)`.
 
-`FULL_NATIVE_SPATIAL_CELL_CENTER_IDENTITY_IS_COMPLETE_IN_SIX_SIGNED_AXIS_COORDINATES = TRUE`.
+A chosen native Cell anchor `c_*` supplies coordinate zero. The zero tuple is therefore a legal native Cell coordinate.
 
-A chosen Cell anchor supplies coordinate zero; it is not the geometric origin `O_E`.
+Pure coordinate adjacency is
 
-Pure coordinate adjacency is by the twelve signed unit steps `z -> z +/- e_i`.
+`z -> z +/- e_i`, `i=1,...,6`.
 
 The full signed component metric is
 
 `L_E(z)^2=sum_i z_i^2`.
 
-Hence primitive signed unit directions have forward/reverse squared norm `1`.
+For signed displacement `d`:
 
-For every 3-of-6 coordinate selection S, the established-style positive observer is
+`N_min(d)=sum_i |d_i|`.
 
-`Obs_S(z)=can3(z|_S)`.
+`PRIMITIVE_STRAIGHT_SEGMENT <=> support_size(d)=1`.
 
-One such observer has a `Z^4` fibre: one common visible offset plus three omitted signed coordinates.
+For multi-axis shortest paths the exact N-BRC multiplicity is
 
-All twenty positive-min-zero coordinate selections jointly determine the full signed state only modulo the global diagonal subgroup
+`N_min(d)! / product_i |d_i|!`.
 
-`Delta=Z*(1,1,1,1,1,1)`.
+The global diagonal `D=(1,1,1,1,1,1)` is a nonzero composite native displacement with squared norm `6` even though every current positive min-zero three-axis observer cannot see it.
 
-Their joint relative observer is
+Path history, BRC provenance, internal/channel/field state and time remain richer typed state over the spatial Cell.
 
-`G6_REL=Z^6/Delta`.
+## 4. Centered signed three-axis native slice
 
-The earlier min-zero six-axis object is therefore a relative/joint-slice observer, not full spatial Cell identity.
+Direct-user unification on `2026-09-05` fixes every selected three-axis native slice as an actual restriction of the X6 Cell torsor.
 
-Every full signed state has the unique lossless chart
+For selected `S={i,j,k}` and chosen native Cell anchor `c_*`:
 
-`z=can6(z)+h*(1,...,1)`, `h=min(z) in Z`.
+`X_S(c_*) = c_* + Z e_i + Z e_j + Z e_k`.
 
-The existing V2 common-depth carry is exactly the change-of-section 2-cocycle for this chart. Common depth is the coordinate of a composite six-axis displacement, not a seventh primitive spatial axis.
+Raw slice coordinates are signed:
 
-The full diagonal displacement `D=(1,...,1)` is nonzero, has squared norm `6`, and is invisible to every positive-min-zero 3-axis coordinate observer.
+`coord^S_{c_*}: X_S(c_*) -> Z^3`.
 
-Exact axis-permutation rotation skeleton:
+The slice zero is the same chosen Cell anchor:
 
-`X6_AXIS_PERMUTATION_ROTATION_SKELETON=S6`.
-
-The current FCC/K4 `S4` is its carrier-atlas-preserving subgroup. The complete native rotation dynamics beyond axis permutations remains open.
-
-P000 direction-gate consequence for signed displacement z:
-
-`MIN_PRIMITIVE_TRANSITION_COUNT=sum_i |z_i|`.
-
-`PRIMITIVE_STRAIGHT_SEGMENT <=> exactly one native axis supports z`.
-
-For a multi-axis displacement the exact shortest-path N-BRC multiplicity is
-
-`(sum_i |z_i|)! / product_i |z_i|!`.
-
-Path/BRC/internal/time state remains richer than spatial endpoint coordinates and must not be erased by this foundation.
-
-## Primary coordinate carrier — FCC rotational atlas
-
-By direct user criterion `COORDINATE_CONTINUITY + ROTATION`, current P000 geometry selects FCC/cubic Barlow as the **primary classical coordinate carrier/readout**.
+`coord^S_{c_*}(c_*)=(0,0,0)`.
 
 Freeze:
 
-`P000_PRIMARY_COORDINATE_CARRIER=FCC_CUBIC_BARLOW`.
+`THREE_AXIS_NATIVE_SLICE_ZERO = CHOSEN_CELL_CENTER`.
 
-`P000_PRIMARY_FIRST_SHELL_CARRIER_HULL=CUBOCTAHEDRON`.
+`THREE_AXIS_NATIVE_SLICE_ZERO_IS_CELL = TRUE`.
 
-`P000_PRIMARY_CARRIER_VORONOI=RHOMBIC_DODECAHEDRON`.
+`THREE_AXIS_NATIVE_SLICE_COORDINATES = Z^3_SIGNED`.
 
-`HCP_HEXAGONAL_BARLOW=SECONDARY_REGRESSION_CARRIER`.
+`THREE_AXIS_SELECTED_PRIMITIVE_DIRECTIONS = +/-E_i,+/-E_j,+/-E_k`.
 
-The selection is downstream of P000 and X6. It must not be read as a return to a classical three-dimensional world ontology or as the definition of X6 identity.
+`REMOVE_ZERO_CELL_FROM_NATIVE_AXIS = TYPE_ERROR`.
 
-The selected FCC carrier supplies six stable unoriented nearest-neighbor line families and four overlapping close-packed triangular three-line slice types. At the carrier line-family level:
+For `P,Q` in one centered slice, raw displacement is ordinary signed coordinate difference and
+
+`d_S(P,Q)^2=sum_{a in S}(coord_a(Q)-coord_a(P))^2`.
+
+Thus native slice distance is reversal symmetric.
+
+### Current 3-4-5 correction
+
+Raw native `(3,4,0)` has squared length `25` and 35 shortest native path words.
+
+Its true native reverse is `(-3,-4,0)`, also squared length `25` with 35 shortest native path words.
+
+The historical min-zero reverse representative `(1,0,4)` has component-square readout `17` and 5 positive words, but those are **relative-observer values**, not native reversal values.
+
+## 5. Min-zero three-axis coordinates are observer coordinates
+
+For raw slice coordinate `x in Z^3`:
+
+`r=can3(x)=x-min(x)*(1,1,1)`
+
+and
+
+`h=min(x)`.
+
+The pair `(r,h)` is lossless:
+
+`x=r+h*(1,1,1)`.
+
+Freeze:
+
+`MIN_ZERO_THREE_AXIS_ADDRESS = RELATIVE/CARRIER OBSERVER`.
+
+`MIN_ZERO_THREE_AXIS_ADDRESS != NATIVE_CELL_IDENTITY`.
+
+`MIN_ZERO_ADDRESS + INTEGER_COMMON_DEPTH = LOSSLESS_RAW_SLICE_COORDINATE`.
+
+Dropping common depth requires the observer/future-operation safety certificate required by `ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json`.
+
+## 6. FCC STAR-slice carrier readout
+
+The primary classical carrier remains FCC/cubic Barlow.
+
+Its four established STAR slice types retain the same line-family incidence:
 
 `S_A={L1,L3,L6}`;
 
@@ -213,162 +180,181 @@ The selected FCC carrier supplies six stable unoriented nearest-neighbor line fa
 
 `S_D={L2,L4,L6}`.
 
-Each slice admits chart-local orientations realizing pairwise Euclidean `120 degree`; each carrier line family occurs in exactly two slices, so the incidence count is
+For one STAR slice choose three equal unit classical carrier vectors `u_i,u_j,u_k` at pairwise Euclidean `120°` with
 
-`4*3/2=6`.
+`u_i+u_j+u_k=0`.
 
-This six-family count is a **carrier compatibility structure**, not a derivation of P000 six-dimensionality.
+The carrier projection is
 
-Coordinate-continuity guard:
+`pi_S(x)=x_i u_i+x_j u_j+x_k u_k`.
 
-`CELL_TRANSLATION -> PRESERVE_GLOBAL_FCC_LINE_FAMILY_LABELS`.
+Its kernel is exactly
 
-`CARRIER_ROTATION -> PERMUTE_LINE_FAMILIES_AND_SLICE_CHARTS`.
+`Z*(1,1,1)`.
 
-`NO_STACKING_PHASE_REQUIRED_FOR_PRIMARY_FCC_FRAME`.
+Hence the carrier plane is a lower-information readout of the native `Z^3` slice, not native Cell identity.
 
-`HCP_NONCENTRAL_FIRST_SHELL -> MANDATORY_NO_12_DIV_2_AXIS_REGRESSION`.
-
-Native/carrier guard:
-
-`X6_NATIVE_SPATIAL -> FCC_CARRIER_READOUT`.
+Freeze:
 
 `FCC_CARRIER_READOUT_IS_NOT_NATIVE_IDENTITY`.
 
-`CARRIER_DIRECTION_RELATION != NATIVE_VECTOR_RELATION`.
+`FCC_STAR_SLICE_CARRIER_KERNEL != NATIVE_COORDINATE_EQUIVALENCE`.
 
-`CARRIER_KERNEL != NATIVE_COORDINATE_EQUIVALENCE`.
+`CARRIER_TRIANGLE_RETURN != NATIVE_CELL_RETURN`.
 
-The exact physical/readout bridge from the signed X6 coordinate torsor to all FCC line-family/chart-orientation/Cell-trajectory data remains a research target. Do not silently identify carrier opposite rays, chart-local trajectories or classical carrier linear relations with full X6 identity.
+The raw displacement `H_S=(1,1,1)` returns to the same carrier center but is nonzero natively, with squared norm `3` and 6 shortest positive-axis path orderings.
 
-## Established three-axis slice — exact local mathematics
+## 7. Recomputed circle-footprint geometry
 
-The following current facts remain exact **inside the established three-axis slice**:
+The historical overlapping-circle construction survives only as a classical carrier-footprint model.
 
-- `O_E=0`;
-- origin = triple circle-cell boundary intersection;
-- cells = overlapping circle cells identified by discrete centers;
-- nearest center spacing = `1`;
-- cell radius = `1/sqrt(3)`;
-- visible slice axes = three positive rays `E_1,E_2,E_3`;
-- `ENTERPRISE_RIGHT_ANGLE=120_DEGREES` in that slice;
-- canonical slice addresses: `(a,b,c) in N_0^3`, `min(a,b,c)=0`;
-- sector-local length law: `L_E^2=a^2+b^2` on the two active components;
-- carrier relations are implementation/classical carrier structure unless an exact current native definition states otherwise;
-- native line identity = component trace;
-- one line trace may have many discrete path representatives;
-- arbitrary-point native line length object = directed native line gauge;
-- unoriented endpoint pair = bidirectional trace pair + bidirectional length spectrum;
-- `CANONICAL_BRC_BASE_LAYER=BOOLEAN_RESULT_SUPPORT_SEMANTICS`;
-- current Boolean BRC enrichment: `PATH_FORMAL_BRC -> N_BRC -> BOOLEAN_BRC`;
-- positive weighted/log BRC is a separately typed global research foundation and does not mutate the Boolean base.
+With nearest carrier-center spacing `1`:
 
-Retyping guard:
+`CARRIER_CIRCLE_RADIUS=1/sqrt(3)`.
 
-`THREE_POSITIVE_AXIS_GEOMETRY=THREE_AXIS_RESEARCH_SLICE`.
+Neighboring circles overlap because `1 < 2/sqrt(3)`.
 
-`THREE_AXIS_SLICE!=FULL_ENTERPRISE_SPACE`.
+Every pairwise boundary intersection is a triple incidence: for a unit neighbor pair the squared perpendicular offset is `1/12`, giving the circumcenters of the two adjacent elementary equilateral triangles; the next center shell has squared distance `3 > 4/3=(2R)^2` and cannot intersect.
 
-`THREE_AXIS_THEOREM_REQUIRES_TYPED_LIFT_BEFORE_6D_PROMOTION`.
+The same `1/sqrt(3)` is the triangular-lattice covering radius, so the classical carrier-circle footprints cover the carrier plane without gaps.
 
-`OMITTED_CELL_COORDINATE!=ZERO_COORDINATE`.
+Freeze:
 
-`OMITTED_CELL_COORDINATE!=ABSENT_DIMENSION`.
+`CARRIER_CIRCLE_FOOTPRINT != NATIVE_CELL_IDENTITY`.
 
-The full signed six-axis spatial Cell-center address, component metric and pure coordinate adjacency are now fixed by `ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md`. The three-axis positive min-zero address is a lower-information selected-slice observer, not the full X6 address. The complete native rotation dynamics, full carrier/readout realization and detailed internal/channel dynamics remain research targets.
+`CARRIER_TRIPLE_INCIDENCE_VERTEX != NATIVE_COORDINATE_ZERO`.
 
-## Weighted-BRC theorem/tool activation
+`CARRIER_CIRCLE_COVER_GAP_FREE = TRUE`.
 
-When the actual research object has typed positive branching, load only the theorem/tool pieces required by the question.
+The former triple-boundary `O_E` is retyped as a carrier incidence vertex `V_E`; native coordinate zero is the chosen Cell center.
 
-Core current interface:
+## 8. Recomputed length-25 shell
 
-- `WBRC-T01..T11`: finite CWM, weighted/log quotient/gauge, one-state recurrence and deterministic degeneration;
-- `WBRC-T12..T16`: exact finite rational recurrent mass, potential/star and integer stable/divergent certificates;
-- `WBRC-T17..T21`: recurrent loop zeta, integer equal-slack synthesis, edge response/Hessian and criticality polynomial;
-- `WBRC-T22..T24`: prime-valuation holonomy, mod-m skeleton/thickness and determinant cycle-interaction polynomial;
-- `WBRC-T25..T29`: feedback condensation, robustness, modular chain, all-orders Möbius interactions and circuit atoms;
-- `WBRC-T30..T32`: recurrent Schur boundary collapse, port-context safety and observer-relative minimal port signatures;
-- `WBRC-T33..T35`: explicit branch moments, finite primitive moment completeness and length-aware fixed-m port transfer;
-- `WBRC-T36..T38`: universal exact-weight histogram, prime-valuation universal transfer and dominant-degeneracy quotient;
-- `WBRC-T39..T42`: critical-degeneracy matrix asymptotic, exact gap/rate, integer criticality polynomial root selector and zero/threshold/log-bound readout;
-- `WBRC-N01..N13`: base through recurrent-port negative/scope boundaries;
-- `WBRC-N14..N18`: total-mass incompleteness, length/moment port boundaries, histogram provenance and formal-evaluation scope boundaries;
-- `WBRC-N19..N22`: one-cycle/multi-critical boundary, floating-spectral boundary, irrational correction boundary and total-mass critical-degeneracy incompleteness.
+The full signed centered three-axis shell
 
-Use the T0 subtools listed above according to type. `LN`/`ROOT` materialization continues through existing exact BRC arithmetic facades; irrational critical corrections remain exact root-selector states with rational-LN bounds rather than being forced into rational `LN` arguments.
+`d_i^2+d_j^2+d_k^2=25`
 
-## First native layer versus carrier polyhedra
+contains:
 
-The default meaning of one layer is
+- 6 signed primitive axis endpoints, permutations of `(±5,0,0)`;
+- 24 signed support-two composite endpoints, permutations/signs of `(±4,±3,0)`.
 
-`L1_NATIVE(c)=NATIVE_ADJACENCY_DISTANCE_1`.
+Therefore:
 
-Under an ideal Barlow carrier readout, distinguish:
+`FULL_SIGNED_THREE_AXIS_N25_ENDPOINT_COUNT=30`.
+
+Shortest-path N-BRC total:
+
+`6*1 + 24*35 = 846`.
+
+The old `72` total remains exact only for the four nonnegative representatives of one positive sector: `(0,5,0),(3,4,0),(4,3,0),(5,0,0)`.
+
+## 9. BRC first-line spatial use
+
+Before collapsing raw signed displacement/path data to a carrier endpoint or min-zero address, preserve:
+
+- signed component counts;
+- ordered path provenance when required;
+- multiplicity;
+- common depth;
+- carrier/native endpoint distinction.
+
+Current spatial bridge:
+
+`PATH_FORMAL / WEIGHTED-BRC`
+
+`-> SIGNED NATIVE AXIS TRACE`
+
+`-> RAW X6 / RAW CENTERED-SLICE ENDPOINT`
+
+`-> OPTIONAL MIN-ZERO + COMMON-DEPTH REPAIR`
+
+`-> OPTIONAL FCC CARRIER ENDPOINT`
+
+`-> BOOLEAN/TOTAL COARSER OBSERVERS`.
+
+A carrier return is not automatically a native return.
+
+## 10. Weighted-BRC detailed routing
+
+Universal minimal substrate:
+
+`ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json`.
+
+Detailed theorem ledgers are loaded lazily:
+
+- `ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json`;
+- `ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json`;
+- `ENTERPRISE_BRC_RECURRENT_INTERACTION_THEOREM_LEDGER_20260903.json`;
+- `ENTERPRISE_BRC_RECURRENT_PORT_THEOREM_LEDGER_20260903.json`;
+- `ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_THEOREM_LEDGER_20260903.json`;
+- `ENTERPRISE_BRC_CRITICAL_DEGENERACY_THEOREM_LEDGER_20260903.json`.
+
+Reusable current T0 methods include:
+
+- `t0.weighted_brc_cwm`;
+- `t0.weighted_brc_finite_recurrent`;
+- `t0.weighted_brc_recurrent_invariants`;
+- `t0.weighted_brc_rational_holonomy`;
+- `t0.weighted_brc_feedback_interaction`;
+- `t0.weighted_brc_recurrent_port_collapse`;
+- `t0.weighted_brc_histogram`;
+- `t0.weighted_brc_moment_transfer`;
+- `t0.weighted_brc_critical_degeneracy`.
+
+Positive Weighted-BRC remains distinct from signed/phase cancellation.
+
+## 11. Primary carrier polyhedra
+
+Under the ideal Barlow carrier readout distinguish:
 
 - `KISS1` — 12 carrier kissing centers;
 - `HULL1` — neighbor-center convex hull;
 - `VOR` — center Voronoi/Dirichlet region.
 
-Accepted carrier classification:
+Current carrier classification remains:
 
-- FCC `HULL1`: cuboctahedron, `(V,E,F)=(12,24,14)`;
-- HCP `HULL1`: triangular orthobicupola / anticuboctahedron, `(12,24,14)` but different incidence;
-- FCC `VOR`: rhombic dodecahedron, `(14,24,12)`;
-- HCP `VOR`: trapezo-rhombic dodecahedron, `(14,24,12)`.
+- FCC `HULL1`: cuboctahedron `(V,E,F)=(12,24,14)`;
+- HCP `HULL1`: triangular orthobicupola / anticuboctahedron `(12,24,14)`;
+- FCC `VOR`: rhombic dodecahedron `(14,24,12)`;
+- HCP `VOR`: trapezo-rhombic dodecahedron `(14,24,12)`.
 
-The 14-face hull count and 12-face Voronoi count are carrier readouts, not the native definition of `L1_NATIVE`.
+These are carrier readouts, not definitions of native dimension or Cell identity.
 
-## Rotation and time
+## 12. Rotation and time
 
-Rotation is the characteristic spatial transformation under P000. A lower-dimensional slice observation does not equal the full Cell state.
+The exact finite axis-permutation skeleton is `S6`; the FCC atlas preserves an `S4` subgroup. Complete native rotation dynamics beyond axis permutations remains open.
 
-Current preferred typed pattern:
+Current typed pattern:
 
-`X6_NATIVE_SPATIAL SIGNED CELL STATE -> NATIVE ROTATION/AXIS PERMUTATION -> OPTIONAL FCC CARRIER READOUT -> SELECT 3-AXIS POSITIVE OBSERVER -> OBSERVE/COMPARE`.
+`X6 SIGNED CELL STATE -> ROTATE/PERMUTE -> SELECT CENTERED NATIVE Z3 SLICE OR OBSERVE SELECTED COMPONENTS -> OPTIONAL FCC CARRIER READOUT -> COMPARE`.
 
-The exact finite axis-permutation skeleton is `S6`; the FCC atlas preserves an `S4` subgroup. This does not close richer native rotation dynamics.
+The seventh dimension is time and is separately typed from all six spatial axes.
 
-The seventh dimension is time and is separately typed from the six spatial axes. Its first role is to order/trace relational changes such as rotation, adjacency, alignment, slice selection and path state.
+## 13. FREE / TASK boundary
 
-## FREE / TASK boundary
+FREE Phase A uses only its governing primitive substrate, including P000 and the minimal global BRC substrate. It does not preload this full current-result router merely to choose a question.
 
-FREE Phase A uses:
+TASK research, Driver review, Foundation Steward work and eligible FREE Phase B may use this router normally.
 
-`p000_reality_foundation.json + definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md + definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json`.
+## 14. Authority and history
 
-It does not preload this full router, theorem ledgers, prior successful applications, or tool catalogs merely to choose a question.
+For full signed spatial identity:
 
-TASK research, Driver/current-state review, Foundation Steward work and FREE Phase B may use this full router normally.
+`ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md` controls.
 
-Thus the former rule “Weighted-BRC is excluded from FREE Phase A because it is downstream success” is superseded only at the **minimal substrate** level by explicit user promotion and subsequent verified backflow. Anti-anchoring remains in force for detailed theorem/application/tool menus.
+For centered three-axis native slice/origin/metric and the recomputed old cut-plane bridge:
 
-## Authority
+`ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md` controls.
 
-For current mathematics:
+For information-reducing projections:
 
-`P000_ROOT_AXIOM + USER_PROMOTED_JOINT_RELATION_PRESERVATION + USER_PROMOTED_GLOBAL_BRANCH_SUBSTRATE -> EXACT_CURRENT_CANONICAL_DEFINITION -> THIS_ROUTER_SUMMARY`.
+`ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json` controls.
 
-For full signed spatial Cell-center identity/coordinates, `ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md` controls.
+For FCC carrier selection:
 
-For information-reducing projections/collapse, `ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json` controls.
+`P000_FCC_PRIMARY_COORDINATE_CARRIER_20260829.md` controls at carrier strength only.
 
-For the universal Weighted-BRC type commitments, `ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json` controls.
+Historical wording that makes a triple circle intersection the native coordinate zero, treats a circle footprint as native Cell identity, treats min-zero triples as full native Cell addresses, forbids native negative directions, or derives reversal-asymmetric native distance from a min-zero decoder is superseded.
 
-For detailed weighted/log theorem scope, `ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json` controls.
-
-For finite recurrent rational theorem scope, `ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json` controls.
-
-For recurrent zeta/response, rational holonomy and feedback interaction theorem scope, `ENTERPRISE_BRC_RECURRENT_INTERACTION_THEOREM_LEDGER_20260903.json` controls.
-
-For recurrent Schur/port contextual-equivalence scope, `ENTERPRISE_BRC_RECURRENT_PORT_THEOREM_LEDGER_20260903.json` controls.
-
-For explicit-branch moment, length-aware port, exact histogram and dominant-degeneracy scope, `ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_THEOREM_LEDGER_20260903.json` controls.
-
-For large-m critical graph, critical-degeneracy matrix, exact gap and algebraic log-selector scope, `ENTERPRISE_BRC_CRITICAL_DEGENERACY_THEOREM_LEDGER_20260903.json` controls.
-
-Project mission/routing is defined by `PROJECT_DEFINITION.md`, `PROJECT_DEFINITION.zh-CN.md`, and current machine governance.
-
-## History rule
-
-Historical generations and superseded formulations are kept in Git history and explicit historical/research files. They are not repeated in this current router. Older wording that treats the three-axis construction as the complete world, or that promotes the relative quotient `Z^6/Z*1` to full X6 spatial identity, is superseded; preserve valid mathematics only at its correctly typed observer strength.
+Git history preserves those earlier generations as provenance.

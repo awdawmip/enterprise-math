@@ -1,0 +1,91 @@
+{
+  "schema": "ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_V1",
+  "status": "ACTIVE_FOUNDATION",
+  "effective": "2026-09-05",
+  "authority_kind": "DIRECT_USER_FOUNDATION_REBASE",
+  "steward_id": "EM-STW-C31A7F",
+  "parent": "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md",
+  "human_definition": "definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md",
+  "slice": {
+    "native_object": "AFFINE_SUBTORSOR_OVER_SIGNED_SELECTED_THREE_AXIS_COORDINATES",
+    "coordinate_carrier": "Z^3",
+    "zero": "CHOSEN_NATIVE_CELL_ANCHOR",
+    "zero_is_cell": true,
+    "primitive_direction_domain": "PLUS_MINUS_SELECTED_NATIVE_AXES",
+    "directed_primitive_neighbor_count": 6,
+    "native_distance_squared": "SUM_OF_THREE_SIGNED_COMPONENT_DIFFERENCE_SQUARES",
+    "native_distance_symmetric": true
+  },
+  "relative_observer": {
+    "map": "can3(x)=x-min(x)*(1,1,1)",
+    "image": "NONNEGATIVE_MIN_ZERO_TRIPLES",
+    "kernel_direction": "Z*(1,1,1)",
+    "repair_coordinate": "INTEGER_COMMON_DEPTH=min(x)",
+    "lossless_pair": "(can3(x),min(x))",
+    "min_zero_alone_is_native_identity": false
+  },
+  "fcc_star_carrier": {
+    "kind": "CLASSICAL_TRIANGULAR_READOUT",
+    "three_local_vectors": "EQUAL_UNIT_120_DEGREE_WITH_SUM_ZERO",
+    "exact_axial_coordinate": "(x_i-x_k,x_j-x_k)",
+    "kernel": "Z*(1,1,1)",
+    "carrier_euclidean_q": "a^2+b^2+c^2-ab-bc-ca",
+    "carrier_q_is_native_metric": false,
+    "nearest_center_spacing": "1",
+    "circle_footprint_radius": "1/sqrt(3)",
+    "neighbor_circle_overlap": true,
+    "all_circle_boundary_intersections_triple": true,
+    "gap_free_circle_footprint_cover": true,
+    "triple_intersection_type": "CARRIER_INCIDENCE_VERTEX_NOT_NATIVE_ORIGIN"
+  },
+  "brc": {
+    "minimum_transition_count": "sum(abs(d_i))",
+    "primitive_straight_predicate": "support_size(d)==1",
+    "shortest_path_multiplicity": "N! / product(abs(d_i)!)",
+    "raw_signed_displacement_required_before_native_collapse": true,
+    "triangle_common_depth_displacement": "(1,1,1)",
+    "triangle_carrier_return_is_native_return": false,
+    "triangle_native_norm_squared": 3,
+    "triangle_shortest_brc_multiplicity": 6
+  },
+  "recomputed_witnesses": {
+    "raw_3_4_0": {
+      "native_norm_squared": 25,
+      "carrier_q": 13,
+      "shortest_brc": 35,
+      "reverse_native_norm_squared": 25,
+      "reverse_shortest_brc": 35
+    },
+    "diagonal_shift_4_5_1": {
+      "same_carrier_as_3_4_0": true,
+      "native_norm_squared": 42
+    },
+    "legacy_positive_reverse_1_0_4": {
+      "observer_component_square_sum": 17,
+      "positive_shortest_word_count": 5,
+      "status": "OBSERVER_ARTIFACT_NOT_NATIVE_REVERSAL"
+    },
+    "signed_n25_shell": {
+      "endpoint_count": 30,
+      "primitive_axis_endpoint_count": 6,
+      "support_two_endpoint_count": 24,
+      "total_shortest_brc_count": 846,
+      "legacy_positive_sector_subtotal": 72
+    }
+  },
+  "machine_invariants": [
+    "CENTERED_THREE_AXIS_SLICE_ZERO_IS_CELL=true",
+    "CENTERED_THREE_AXIS_SLICE_COORDINATES=Z3_SIGNED",
+    "REMOVE_ZERO_CELL_FROM_AXIS=TYPE_ERROR",
+    "MIN_ZERO_TRIPLE!=NATIVE_CELL_IDENTITY",
+    "MIN_ZERO_TRIPLE+COMMON_DEPTH=LOSSLESS_RAW_SLICE_COORDINATE",
+    "FCC_CARRIER_KERNEL!=NATIVE_COORDINATE_EQUIVALENCE",
+    "CARRIER_TRIPLE_INCIDENCE_VERTEX!=NATIVE_COORDINATE_ZERO",
+    "CARRIER_CIRCLE_FOOTPRINT!=NATIVE_CELL_IDENTITY",
+    "CARRIER_TRIANGLE_RETURN!=NATIVE_CELL_RETURN",
+    "LEGACY_DIRECTED_MIN_ZERO_GAUGE!=NATIVE_SIGNED_METRIC",
+    "SIGNED_NATIVE_REVERSAL_PRESERVES_LENGTH_AND_SHORTEST_BRC_MULTIPLICITY",
+    "FULL_SIGNED_THREE_AXIS_N25_ENDPOINT_COUNT=30",
+    "FULL_SIGNED_THREE_AXIS_N25_SHORTEST_BRC_COUNT=846"
+  ]
+}
