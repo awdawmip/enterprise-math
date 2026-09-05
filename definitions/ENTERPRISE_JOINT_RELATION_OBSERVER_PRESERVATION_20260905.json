@@ -1,0 +1,93 @@
+{
+  "schema": "ENTERPRISE_MATH_JOINT_RELATION_OBSERVER_PRESERVATION_V1",
+  "status": "ACTIVE_LOCKED_DIRECT_USER_PROJECT_CONSTRAINT",
+  "priority_class": "PROJECT_HIGHEST_RESEARCH_CONSTRAINT_BELOW_P000_ONTOLOGY",
+  "effective": "2026-09-05",
+  "authority_kind": "DIRECT_USER_RESEARCH_CONSTRAINT",
+  "project": "Enterprise Math / 进取数论",
+  "scope": "ALL_ENTERPRISE_MATH_ROLES_AND_SUBSTANTIVE_RESEARCH",
+  "load_policy": "MANDATORY_AFTER_P000_AND_BEFORE_ANY_INFORMATION_REDUCING_PROJECTION_OR_FACTOR_COLLAPSE",
+  "canonical_statement_zh": "不要只是把合数当成素数的重复产物；应该把它们保留为联合关系的观察方向。分解信息虽然已经存在，允许线性调用的交互方向却可能缺失。",
+  "canonical_statement_en": "Do not treat composite objects merely as repeated products of primitive factors. Preserve them as observation directions of joint relations. Even when decomposition information is already present, the interaction directions available to the permitted linear observer may still be missing.",
+  "semantic_status": {
+    "kind": "RESEARCH_METHOD_AND_INFORMATION_PRESERVATION_CONSTRAINT",
+    "is_theorem": false,
+    "is_P000_worldview_axiom": false,
+    "does_not_assert_every_composite_direction_is_independent": true,
+    "does_assert_no_default_erasure_from_factor_reconstructibility": true
+  },
+  "machine_invariants": [
+    "RAW_DECOMPOSITION_INFORMATION_COMPLETE != DECLARED_OBSERVER_SPAN_COMPLETE",
+    "JOINT_OBJECT_DETERMINED_BY_CONSTITUENTS != JOINT_OBSERVATION_REDUNDANT",
+    "RECONSTRUCTIBLE_FROM_FACTORS != LINEARLY_CALLABLE_FROM_FACTOR_OBSERVERS",
+    "COMPOSITE_OBJECT != DEFAULT_REPEATED_PRIMITIVE_PRODUCT_FOR_OBSERVER_PURPOSES",
+    "CONSTITUENT_DATA_PRESENT != INTERACTION_DIRECTION_PRESENT",
+    "JOINT_RELATION_DIRECTION -> PRESERVE_BY_DEFAULT",
+    "DROP_JOINT_RELATION_DIRECTION -> REQUIRE_EXACT_OBSERVER_FACTORIZATION_OR_SPAN_CERTIFICATE",
+    "DROP_JOINT_RELATION_DIRECTION -> REQUIRE_FUTURE_OPERATION_SAFETY_FOR_DECLARED_HORIZON",
+    "OBSERVER_FIBER_CONSTANCY_OR_EQUIVALENT_DESCENT_CERTIFICATE_REQUIRED_BEFORE_COLLAPSE=true",
+    "POSITIVE_RECOALESCENCE != SIGNED_INTERACTION_COMPLETENESS",
+    "PRIME_ONLY_VIEW=SECONDARY_PROJECTION_NOT_DEFAULT_ARITHMETIC_DISCOVERY_UNIVERSE",
+    "COMPOSITE_INTEGER=ELIGIBLE_JOINT_RELATION_OBSERVATION_DIRECTION",
+    "COMPOSITE_DECOMPOSABLE_INTO_PRIMES != COMPOSITE_OBSERVER_DIRECTION_DISCARDABLE",
+    "PRESERVE_FULL_INTEGER_POPULATION -> RETAIN_JOINT_COMPOSITE_OBSERVERS -> PROVE_SAFE_PROJECTION_BEFORE_ERASURE"
+  ],
+  "observer_safety_contract": {
+    "population": "the full declared object population before factor-only projection",
+    "must_preserve": [
+      "joint/composite object identity when it can induce a distinct declared observation",
+      "interaction coordinates not certified to lie in the allowed span of constituent observers",
+      "signed or amplitude information when the declared output depends on cancellation",
+      "provenance required by future operations",
+      "the exact relation between any filtered/factor-only view and the full population"
+    ],
+    "collapse_is_allowed_only_if": [
+      "the intended observer factors exactly through the proposed constituent/factor representation, or an exact span certificate proves the joint direction redundant",
+      "all declared future operations within the current horizon descend through the same quotient",
+      "no signed, phase, multiplicity, provenance, or interaction coordinate required later is erased"
+    ],
+    "failure_action": "RETAIN_OR_ADD_AN_EXPLICIT_INTERACTION_COORDINATE"
+  },
+  "arithmetic_specialization": {
+    "rule": "Prime factorization may determine a composite integer as raw arithmetic data, but it does not by itself prove that a composite-indexed observation lies in the allowed linear span of prime-indexed observations.",
+    "mandatory_consequence": [
+      "Do not delete composites merely because their prime factorization is known.",
+      "Treat composite-indexed residue, correlation, path, or transform coordinates as candidate joint-relation observers.",
+      "A prime-only reduction requires an observer-specific exact factorization/span certificate, not only unique factorization.",
+      "If a composite coordinate detects carry, CRT coupling, mixed difference, or another non-additively-separable interaction, preserve it unless a stronger certified observer equivalence exists."
+    ]
+  },
+  "brc_binding": {
+    "classification": "FIRST_LINE_OBSERVER_AND_PROVENANCE_GUARD",
+    "required_checks": [
+      "declare branch/object population before compression",
+      "declare observer and allowed future operations",
+      "distinguish raw reconstructibility from observer-span completeness",
+      "test fiber constancy/descent or retain a repair coordinate",
+      "do not replace signed interaction by positive mass"
+    ],
+    "compatible_existing_rule": "Use the narrowest sufficient carrier; coarsening is legal only after observer/future-operation factorization is proved."
+  },
+  "anti_misread": [
+    "This constraint does not say every composite coordinate is linearly independent.",
+    "This constraint does not deny unique factorization or other valid decompositions.",
+    "This constraint does not prohibit prime-only projections after a valid observer-specific certificate.",
+    "This constraint does not promote any RH research candidate to theorem or Foundation truth.",
+    "This constraint is general: the same logic applies to joint branches, path compositions, multi-factor residues, correlations, and other interaction objects."
+  ],
+  "precedence": {
+    "above": [
+      "method-specific convenience reductions",
+      "prime-only default filtering",
+      "factor-only observer choices",
+      "unproved positive-mass recoalescence",
+      "unproved quotient/collapse operations"
+    ],
+    "below": [
+      "system/safety/platform constraints",
+      "direct current user instruction",
+      "P000 ontology/worldview root axioms where applicable"
+    ],
+    "conflict_rule": "WHEN_IN_DOUBT_PRESERVE_THE_JOINT_RELATION_DIRECTION_AND_RECORD_THE_UNRESOLVED_REDUCTION_OBLIGATION"
+  }
+}
