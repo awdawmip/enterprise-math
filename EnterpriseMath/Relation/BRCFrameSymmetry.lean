@@ -58,10 +58,14 @@ theorem relabel_mul (s : G) (a b : FramedPath W G C ρ) :
           ρ.act (s * a.frame * s⁻¹) (ρ.act s b.coord)
     rw [ρ.act_add]
     congr 1
-    have hframe : (s * a.frame * s⁻¹) * s = s * a.frame := by
-      group
-    rw [← ρ.mul_act s a.frame b.coord, ← hframe,
-      ρ.mul_act (s * a.frame * s⁻¹) s b.coord]
+    calc
+      ρ.act s (ρ.act a.frame b.coord) =
+          ρ.act (s * a.frame) b.coord := (ρ.mul_act s a.frame b.coord).symm
+      _ = ρ.act ((s * a.frame * s⁻¹) * s) b.coord := by
+          congr 1
+          group
+      _ = ρ.act (s * a.frame * s⁻¹) (ρ.act s b.coord) :=
+          ρ.mul_act (s * a.frame * s⁻¹) s b.coord
   · change
       s * (a.frame * b.frame) * s⁻¹ =
         (s * a.frame * s⁻¹) * (s * b.frame * s⁻¹)
@@ -163,7 +167,7 @@ theorem equivariant_value_fixed {G X Y : Type*}
 fixed point, an equivariant deterministic selector cannot exist. In BRC this is
 the generic formal reason a symmetric optimal branch fibre must remain
 set-/branch-valued unless extra symmetry-breaking data are supplied. -/
-theorem no_equivariant_single_choice {G X Y : Type*}
+lemma no_equivariant_single_choice {G X Y : Type*}
     (actX : G → X → X) (actY : G → Y → Y)
     (x : X) (hx : FixedByAll actX x)
     (hNoFixed : ∀ y, ¬ FixedByAll actY y) :
