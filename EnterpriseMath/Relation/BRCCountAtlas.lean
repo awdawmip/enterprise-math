@@ -67,6 +67,7 @@ theorem commonDepth_coordinateInvariant {G ι : Type*}
     (hρ : CoordinateReindexing ρ) :
     CoordinateInvariant ρ (fun n => (commonDepth n : Int)) := by
   intro g n
+  change (commonDepth (ρ.act g n) : Int) = (commonDepth n : Int)
   exact_mod_cast commonDepth_act ρ hρ g n
 
 /-- Integer-valued common depth is superadditive for framed serial composition. -/
@@ -76,6 +77,8 @@ theorem commonDepth_coordinateSuperadditive {G ι : Type*}
     (hρ : CoordinateReindexing ρ) :
     CoordinateSuperadditive ρ (fun n => (commonDepth n : Int)) := by
   intro n m g
+  change (commonDepth n : Int) + (commonDepth m : Int) ≤
+    (commonDepth (n + ρ.act g m) : Int)
   exact_mod_cast commonDepth_add_act ρ hρ n m g
 
 /-- The BRC carry induced by removing common atlas depth after serial framed
