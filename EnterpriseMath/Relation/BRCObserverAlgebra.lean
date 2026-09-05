@@ -86,6 +86,23 @@ theorem pairObserver_recovers_right {W G C A B : Type*}
   intro p
   rfl
 
+/-- If a marginal observer merges two paths that the other component separates,
+then the marginal cannot recover the joint observer.  This is the precise
+NO_RESURRECTION boundary behind the rule that separate marginals need not retain
+observer correlation. -/
+theorem observer_not_recovers_pair_of_separates {W G C A B : Type*}
+    [Monoid W] [Monoid G] [AddMonoid C] [Monoid A] [Monoid B]
+    {ρ : CoordinateAction G C}
+    (φ : FramedPath W G C ρ →* A)
+    (ψ : FramedPath W G C ρ →* B)
+    {p q : FramedPath W G C ρ}
+    (hφ : φ p = φ q) (hψ : ψ p ≠ ψ q) :
+    ¬ Recovers φ (pairObserverHom φ ψ) := by
+  intro hrec
+  have hpq : pairObserverHom φ ψ p = pairObserverHom φ ψ q :=
+    noResurrection hrec hφ
+  exact hψ (congrArg Prod.snd hpq)
+
 /-- Frame invariance is closed under joint observation. -/
 theorem pairObserver_frameInvariant {W G C A B : Type*}
     [Monoid W] [Group G] [AddMonoid C] [Monoid A] [Monoid B]
