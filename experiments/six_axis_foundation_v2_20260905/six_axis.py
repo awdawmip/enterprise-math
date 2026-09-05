@@ -258,6 +258,7 @@ def verify_finite_axis_lift(state_count, transitions, actions):
 
     transitions=(source,axis_index,target); actions maps each S4 element to
     a permutation of states. Checks the WHOLE action, not just carrier rays.
+    Returns check counts, raising on the first exact counterexample.
     """
     if type(state_count) is not int or state_count<1:
         raise ValueError('positive state count required')

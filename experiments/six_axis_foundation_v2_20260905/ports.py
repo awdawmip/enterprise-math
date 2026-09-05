@@ -93,7 +93,7 @@ def specialize_ports(signature,replacements):
             raise ValueError('only parameter symbols, not z, may be specialized')
         if isinstance(value,bool) or not isinstance(value,(int,Fraction,s.Rational)):
             raise TypeError('exact rational parameter value required')
-        subs[key] = s.Rational(value.numerator,value.denominator)
+        subs[key] = value if isinstance(value,s.Rational) else s.Rational(value.numerator,value.denominator)
     guards = tuple(s.factor(g.subs(subs, simultaneous=True)) for g in signature.specialization_guards)
     if any(g==0 for g in guards):
         raise ValueError('specialization hits an original parameter-pole guard')

@@ -162,6 +162,7 @@ def test_rejections(z,x,G,edges,T,index,sig):
     require(guarded.specialization_guards==(t,))
     reject(specialize_ports,guarded,{t:0})
     require(specialize_ports(guarded,{t:2}).effective[0,0]==z**2)
+    require(specialize_ports(guarded,{t:s.Rational(1,2)}).effective[0,0]==z**2)
     reject(specialize_ports,guarded,{z:1})
     reject(specialize_ports,guarded,{t:0.5})
     dropped=FormalPortSignature(guarded.boundary_labels,guarded.effective,guarded.hidden_determinant,z)
