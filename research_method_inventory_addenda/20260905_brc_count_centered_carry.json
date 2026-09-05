@@ -2,7 +2,7 @@
   "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
   "status": "ACTIVE / RESEARCH-CANDIDATE / USER-DIRECTED / NOT-FOUNDATION-PROMOTION",
   "effective": "2026-09-05",
-  "scope": "T0_BRC companion tooling for exact finite count-centered carry, valuation holonomy, reciprocal quotient shells, Mobius geometry inversion, logarithmic gauge transfer, symbolic reciprocal-wavelet geometry, and hard-prime skeleton/thickness diagnostics",
+  "scope": "T0_BRC companion tooling for exact finite count-centered carry, valuation holonomy, reciprocal quotient shells, Mobius geometry inversion, logarithmic gauge transfer, prime-cutoff divisor/Mobius factorization, symbolic reciprocal-wavelet geometry, and hard-prime skeleton/thickness diagnostics",
   "tools": [
     {
       "tool_id": "t0.weighted_brc_count_centered_carry",
@@ -36,12 +36,27 @@
         "BOUNDED_DIAGONAL_DOES_NOT_BOUND_THE_OFF_DIAGONAL_MOBIUS_PAIR_CORRELATION",
         "FINITE_NEGATIVE_OFF_DIAGONAL_EXPERIMENTS_DO_NOT_PROVE_EVENTUAL_SIGN"
       ]
+    },
+    {
+      "tool_id": "t0.weighted_brc_prime_cutoff_connection",
+      "family": "T0_BRC",
+      "path": "src/enterprise_math/brc_prime_cutoff_factorization.py",
+      "status": "ACTIVE / EXACT-FINITE / RESEARCH-CANDIDATE",
+      "input_contract": "Positive integer state and positive integer prime cutoff y; exact Dirichlet-incidence coefficients only.",
+      "output_contract": "Unique smooth/rough prime-factor split; exact Z and Mobius recoalescence across the cutoff; exact formal small/rough von-Mangoldt log connections; finite rough-support degree certificate.",
+      "reuse_rule": "Use to separate a Mobius/divisor lifting into small-prime and rough-prime algebra before invoking analytic estimates. When y^2 covers the finite block, use the certified degree-one rough support rather than expanding nonexistent rough semiprime branches.",
+      "boundaries": [
+        "PRIME_CUTOFF_FACTORIZATION_IS_EXACT_REORGANIZATION_NOT_CANCELLATION_ESTIMATE",
+        "ROUGH_DEGREE_ONE_DOES_NOT_BOUND_THE_REMAINING_LARGE_PRIME_OBSERVER",
+        "CHOOSING_A_CUTOFF_FROM_AN_ANALYTIC_THRESHOLD_DOES_NOT_PROVE_CONTROL_AT_THAT_THRESHOLD",
+        "FINITE_CUTOFF_CERTIFICATE != ASYMPTOTIC_RH_PROOF"
+      ]
     }
   ],
   "research_provenance": {
     "researcher_id": "EM-FREE-3EAA93",
     "mode": "FREE_AXIOM_DISCOVERY",
-    "source_event": "EM-FREE-3EAA93-BRC-COUNT-CENTERED-WAVELET-V14-20260905 / V15-log-gauge-extension",
+    "source_event": "EM-FREE-3EAA93-BRC-COUNT-CENTERED-WAVELET-V14-20260905 / V15-log-gauge-and-cutoff-extension",
     "global_journal_commit": "78075758a90fef59fb78fc2c13473ecdd49a7681"
   }
 }
