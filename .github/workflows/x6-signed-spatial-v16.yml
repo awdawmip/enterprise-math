@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'research_notes/X6_P000_V4_SIGNED_AXIS_REFOUNDATION_V16_20260905.md'
+      - 'research_notes/X6_SIGNED_PATH_BRC_AND_PRIMITIVE_LINE_V17_20260905.md'
       - 'definitions/ENTERPRISE_X6_SIGNED_NATIVE_SPATIAL_CELL_TORSOR_CANDIDATE_20260905.md'
       - 'experiments/x6_signed_native_spatial_v16_20260905/**'
       - '.github/workflows/x6-signed-spatial-v16.yml'
@@ -19,3 +20,5 @@ jobs:
           python-version: '3.12'
       - name: Signed X6 exact regression
         run: python experiments/x6_signed_native_spatial_v16_20260905/check_x6_signed.py
+      - name: Signed BRC endpoint kernel and primitive-line regression
+        run: python experiments/x6_signed_native_spatial_v16_20260905/check_signed_brc.py
