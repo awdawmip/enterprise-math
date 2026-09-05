@@ -47,6 +47,8 @@ noncomputable def k4AxisPerm (g : K4Frame) : Equiv.Perm K4Axis :=
   apply Equiv.ext
   intro e
   apply Subtype.ext
+  apply Finset.ext
+  intro x
   simp [k4AxisPerm, Equiv.finsetCongr_apply]
 
 @[simp] theorem k4AxisPerm_mul (g h : K4Frame) :
@@ -54,8 +56,9 @@ noncomputable def k4AxisPerm (g : K4Frame) : Equiv.Perm K4Axis :=
   apply Equiv.ext
   intro e
   apply Subtype.ext
-  simp [k4AxisPerm, Equiv.finsetCongr_apply, Finset.map_map,
-    Equiv.Perm.mul_apply]
+  apply Finset.ext
+  intro x
+  simp [k4AxisPerm, Equiv.finsetCongr_apply, Equiv.Perm.mul_apply]
 
 /-- The executable source's `edge_action` is structurally a group homomorphism
 from S4 vertex frames to permutations of the six unordered K4 edges. -/
