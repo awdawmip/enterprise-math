@@ -1,8 +1,9 @@
 # P000 Enterprise Geometry — FCC Primary Coordinate Carrier
 
-Status: `ACTIVE / PRIMARY COORDINATE CARRIER CONVENTION / P000-BOUND / USER-DIRECTED DRIVER SELECTION`
-Date: `2026-08-29`
-Authority: `Driver review DR pending immutable record / direct user criterion = coordinate continuity + rotation`
+Status: `ACTIVE / PRIMARY CARRIER READOUT / P000-BOUND / CENTERED-SLICE-ALIGNED`
+Original date: `2026-08-29`
+Updated: `2026-09-05`
+Steward: `EM-STW-C31A7F / FOUNDATION_STEWARD`
 
 ## 1. Governing selection
 
@@ -16,58 +17,25 @@ Freeze:
 
 `HCP_HEXAGONAL_BARLOW = SECONDARY_REGRESSION_CARRIER`.
 
-This is a **carrier coordinate convention downstream of P000**. It does not replace the P000 six-dimensional native ontology with classical three-dimensional FCC space.
+This remains a **classical carrier/readout convention downstream of P000 and X6**. It is not native Cell identity and does not reduce the six-dimensional native ontology to classical three-dimensional FCC space.
 
-## 2. Why FCC is selected
+## 2. Six carrier line families
 
-The selection criterion is
+Use the six unoriented FCC nearest-neighbor line families
 
-`DISCRETE_COORDINATE_CONTINUITY + ROTATION_CLOSURE`.
+`L1=[(1,1,0)]`, `L2=[(1,-1,0)]`,
 
-Here discrete coordinate continuity means that axis-family labels can be transported from Cell to Cell without changing coordinate rules or adding an unobserved stacking/sublattice phase variable.
+`L3=[(1,0,1)]`, `L4=[(1,0,-1)]`,
 
-FCC is selected because:
+`L5=[(0,1,1)]`, `L6=[(0,1,-1)]`,
 
-1. its center set is translation-homogeneous as one Bravais carrier;
-2. its first contact shell is centrally symmetric;
-3. its 12 contact rays define six stable unoriented carrier line families;
-4. the cubic/octahedral rotation symmetry permutes the same line/slice incidence structure;
-5. its close-packed triangular sections provide exact carrier `120 degree` three-line charts compatible with the established three-axis Enterprise slice;
-6. no `AB` stacking-state bit is needed to keep the coordinate frame consistent under ordinary carrier translations.
+where `[v]={v,-v}` is a classical carrier line family.
 
-HCP remains mathematically valid as a close-packed carrier, but its first shell is not centrally symmetric and its `ABAB...` stacking requires additional layer/basis state for a globally uniform coordinate-frame transport. Therefore it is not the default coordinate carrier.
+The count six is a compatibility property, not a derivation of native dimension.
 
-## 3. Six FCC carrier line families
+## 3. Four overlapping STAR slice types
 
-Use the six unoriented nearest-neighbor line families
-
-`L1=[(1,1,0)]`,
-
-`L2=[(1,-1,0)]`,
-
-`L3=[(1,0,1)]`,
-
-`L4=[(1,0,-1)]`,
-
-`L5=[(0,1,1)]`,
-
-`L6=[(0,1,-1)]`,
-
-where `[v]={v,-v}` is an **unoriented classical carrier line family**.
-
-These are a carrier realization for six native axis labels; they do not derive the native axis count.
-
-Freeze:
-
-`NATIVE_AXIS_COUNT=6` comes from P000.
-
-`FCC_LINE_FAMILY_COUNT=6` is a compatibility property of the selected carrier.
-
-`FCC_LINE_FAMILY_COUNT != DERIVATION_OF_NATIVE_DIMENSION`.
-
-## 4. Four overlapping 120-degree slice charts
-
-At the line-family level the FCC close-packed triangular atlas contains four three-line slice types:
+The established close-packed triangular STAR atlas is
 
 `S_A={L1,L3,L6}`,
 
@@ -77,75 +45,152 @@ At the line-family level the FCC close-packed triangular atlas contains four thr
 
 `S_D={L2,L4,L6}`.
 
-For each slice, choose chart-local orientations of its three carrier lines so that their representatives have equal norm, pairwise Euclidean angle `120 degree`, and carrier sum zero.
+Each carrier line family occurs in two STAR slices, giving
 
-The chart-local sign is an implementation/readout orientation. It is **not** a primitive native negative axis.
+`4*3/2=6`.
 
-Incidence:
+Chart-local representatives in one STAR slice can be oriented as equal unit vectors `u_i,u_j,u_k` with pairwise Euclidean `120 degrees` and
 
-- 4 slice types;
-- 3 line families per slice;
-- 2 slice incidences per line family;
-- `4*3/2=6` unique carrier line families.
+`u_i+u_j+u_k=0`.
 
-This overlapping atlas is preferred to a decomposition into two disconnected three-axis blocks because rotation can transport between overlapping slices while preserving shared axis-family identity.
+The chart-local sign is a carrier orientation choice. Native primitive direction typing remains the P000 signed domain `+/-E_a`.
 
-## 5. Native-to-carrier typing
+## 4. Centered native slice -> STAR carrier projection
 
-The native six-dimensional state must remain distinct from its classical carrier readout.
+The 2026-09-05 centered-slice rebase closes the **local STAR-slice coordinate bridge**.
 
-Freeze:
+For selected native axes `S={i,j,k}` and a chosen native Cell anchor `c_*`, the native slice is
 
-`NATIVE_6D_STATE -> FCC_CARRIER_READOUT`.
+`X_S(c_*) = c_* + Z e_i + Z e_j + Z e_k`
 
-`FCC_CARRIER_READOUT_IS_NOT_NATIVE_IDENTITY`.
+with raw signed coordinate `x in Z^3` and Cell-center zero `(0,0,0)`.
 
-`CARRIER_DIRECTION_RELATION != NATIVE_VECTOR_RELATION`.
+The corresponding STAR carrier-center readout is
 
-`CARRIER_KERNEL != NATIVE_COORDINATE_EQUIVALENCE`.
+`pi_S(x)=x_i u_i+x_j u_j+x_k u_k`.
 
-`CLASSICAL_CARRIER_DIMENSION != NATIVE_SPATIAL_DIMENSION`.
+Since `u_i+u_j+u_k=0`,
 
-Therefore classical linear dependence among the six FCC line families cannot reduce P000 from six dimensions.
+`ker(pi_S)=Z*(1,1,1)`.
 
-## 6. Coordinate transport semantics
+An exact axial carrier coordinate is
 
-The default coordinate transport rule is:
-
-`CELL_TRANSLATION -> PRESERVE_GLOBAL_LINE_FAMILY_LABELS`.
-
-`CARRIER_ROTATION -> PERMUTE_LINE_FAMILIES_AND_SLICE_CHARTS`.
-
-`SLICE_SELECTION -> ORIENT_THREE_LOCAL_LINE_REPRESENTATIVES_FOR_120_DEGREE_CHART`.
-
-`OBSERVATION -> READ_SELECTED_SLICE_ONLY`.
-
-The global native positive-axis address calculus and exact bridge `E_i <-> L_j + chart orientation/transition` remain to be completed by the axis-mixing/bridge research route. Until that bridge is proved, do not identify a native positive ray with a Euclidean opposite-pair quotient.
-
-## 7. HCP regression role
-
-HCP is retained as a mandatory regression carrier because its first shell is not centrally symmetric.
-
-Any future theorem that accidentally derives six native axes from `12/2`, assumes every close-packed carrier has six antipodal contact pairs, or erases stacking/basis state must fail the HCP regression.
+`(x_i-x_k, x_j-x_k)`.
 
 Freeze:
 
-`HCP_REGRESSION_GUARD = NO_SILENT_12_TO_6_CARRIER_DERIVATION`.
+`CENTERED_NATIVE_STAR_SLICE = Z3_SIGNED_CELL_COORDINATES`.
 
-## 8. Research consequence
+`STAR_CARRIER_CENTER_READOUT = Z3/Z(1,1,1)`.
 
-The current preferred P000 coordinate route is:
+`STAR_CARRIER_KERNEL != NATIVE_COORDINATE_EQUIVALENCE`.
 
-`FULL_6D_NATIVE_CELL_STATE`
+`MIN_ZERO_TRIPLE = CANONICAL_CARRIER/RELATIVE SECTION`.
 
-`-> FCC_SIX_LINE_ROTATIONAL_ATLAS`
+`MIN_ZERO_TRIPLE + COMMON_DEPTH = LOSSLESS_NATIVE_SLICE_COORDINATE`.
 
-`-> ROTATE / TRANSPORT SLICE INCIDENCE`
+The local bridge is exact at this coordinate/readout strength. The **complete global bridge** from arbitrary signed X6 states, rotations, all six line families, chart orientations, the sixteen non-STAR coordinate selections, channels and time-dependent carrier data remains open.
 
-`-> SELECT 3-AXIS 120-DEGREE SLICE`
+## 5. Carrier circle-footprint geometry
 
-`-> OBSERVE`
+On each STAR carrier plane, normalize nearest carrier-center spacing to `1`.
 
-`-> TIME-ORDER RELATIONAL CHANGE`.
+The historical circle construction is retained as a footprint/readout decoration with
 
-FCC is therefore the default **coordinate carrier**, while P000 remains the native dimensional foundation and rotation remains the primary geometric operation.
+`R_CARRIER=1/sqrt(3)`.
+
+At this radius:
+
+- neighboring carrier circles overlap;
+- every circle-boundary intersection is a triple incidence;
+- the footprint circles cover the classical triangular carrier plane without gaps.
+
+The old triple-boundary point is now typed as a carrier incidence vertex `V_E`, not the native coordinate origin.
+
+Freeze:
+
+`CARRIER_CIRCLE_FOOTPRINT != NATIVE_CELL_IDENTITY`.
+
+`CARRIER_TRIPLE_INCIDENCE_VERTEX != NATIVE_CELL_ZERO`.
+
+`NATIVE_SLICE_ZERO = CHOSEN_CELL_CENTER`.
+
+## 6. Native/carrier metric separation
+
+For raw native slice displacement `x=(a,b,c)`,
+
+`L_E(x)^2=a^2+b^2+c^2`.
+
+The classical STAR carrier Euclidean quadratic is
+
+`Q_car(x)=a^2+b^2+c^2-ab-bc-ca`.
+
+The latter is diagonal-shift invariant; the former is not.
+
+Thus carrier-center identity cannot determine native length without common depth.
+
+Witness:
+
+`(3,4,0)` and `(4,5,1)` have the same carrier center and `Q_car=13`, while their native squared lengths are `25` and `42`.
+
+Freeze:
+
+`CARRIER_EUCLIDEAN_LENGTH != NATIVE_ENTERPRISE_LENGTH`.
+
+`CARRIER_CENTER_EQUALITY != NATIVE_CELL_EQUALITY`.
+
+## 7. Carrier triangle holonomy
+
+For the selected triple let
+
+`H_S=(1,1,1)`.
+
+Then
+
+`pi_S(H_S)=0`
+
+but natively
+
+`H_S!=0`, `L_E(H_S)^2=3`.
+
+Therefore a three-positive-step carrier triangle is a carrier return with hidden native common-depth displacement, not a native Cell return.
+
+Freeze:
+
+`CARRIER_TRIANGLE_RETURN != NATIVE_CELL_RETURN`.
+
+This is a mandatory observer-preservation witness for BRC/path work.
+
+## 8. Coordinate transport and rotation
+
+Current transport pattern:
+
+`NATIVE X6 CELL TRANSLATION -> PRESERVE NATIVE AXIS LABELS`.
+
+`NATIVE/CARRIER ROTATION -> PERMUTE AXIS FAMILIES AND SLICE CHARTS WITH TYPE PRESERVATION`.
+
+`SELECT CENTERED NATIVE Z3 SLICE -> OPTIONAL STAR CARRIER PROJECTION`.
+
+`CARRIER PROJECTION -> RETAIN COMMON DEPTH WHEN FUTURE OPERATIONS REQUIRE NATIVE STATE`.
+
+The exact finite native axis-permutation skeleton is `S6`; the FCC atlas-preserving subgroup remains `S4`.
+
+## 9. HCP regression role
+
+HCP remains a regression carrier. Its noncentral first shell prevents silently deriving native axis count by `12/2` and requires explicit layer/basis state when appropriate.
+
+Freeze:
+
+`HCP_REGRESSION_GUARD = NO_SILENT_12_TO_6_NATIVE_AXIS_DERIVATION`.
+
+## 10. Authority
+
+Local centered STAR-slice coordinate/readout semantics are controlled by
+
+`ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md`.
+
+Full native spatial identity remains controlled by
+
+`ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md`.
+
+FCC remains the preferred classical carrier/readout, never the native ontology.
