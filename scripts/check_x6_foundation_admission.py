@@ -13,19 +13,23 @@ router=(ROOT/"definitions/00_CURRENT_NATIVE_FOUNDATION.md").read_text()
 canonical=(ROOT/"definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md").read_text()
 
 assert p000["schema"]=="ENTERPRISE_MATH_P000_REALITY_FOUNDATION_V5"
-assert p000["derived_foundation_state"]["X6_NATIVE_SPATIAL_TRANSLATION_GROUP"]=="Z^6"
-assert p000["derived_foundation_state"]["X6_NATIVE_SPATIAL_CELL_CENTER_FOUNDATION"]=="ACTIVE"
-assert p000["derived_foundation_state"]["X6_JOINT_POSITIVE_SLICE_RELATIVE_OBSERVER"]=="Z^6 / Z(1,1,1,1,1,1)"
+state=p000["derived_foundation_state"]
+assert state["X6_NATIVE_SPATIAL_TRANSLATION_GROUP"]=="Z^6"
+assert state["X6_NATIVE_SPATIAL_CELL_CENTER_FOUNDATION"]=="ACTIVE"
+assert state["X6_JOINT_POSITIVE_SLICE_RELATIVE_OBSERVER"]=="Z^6 / Z(1,1,1,1,1,1)"
+assert state["X6_RELATIVE_OBSERVER_REPAIR_COORDINATE"]=="INTEGER_COMMON_DEPTH"
+assert state["X6_COMMON_DEPTH_TYPE"]=="COMPOSITE_GLOBAL_DIAGONAL_SPATIAL_COORDINATE_NOT_EXTRA_AXIS"
 assert p000["axioms"]["NATIVE_PRIMITIVE_DIRECTION_DOMAIN"]=="SIGNED_NATIVE_SPATIAL_AXES"
 assert p000["axioms"]["ENTERPRISE_NATIVE_RIGHT_ANGLE_DEGREES"]==120
 assert p000["axioms"]["NATIVE_SPATIAL_AXIS_COUNT"]==6
 
+# Router checks only stable semantic identifiers; prose wording is intentionally
+# not treated as a machine contract.
 required_router=(
     "ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md",
     "X6_NATIVE_SPATIAL = AFFINE_TORSOR(Z^6)",
     "G6_REL=Z^6/Delta",
     "X6_AXIS_PERMUTATION_ROTATION_SKELETON=S6",
-    "COMMON_DEPTH != SEVENTH_SPATIAL_AXIS",
 )
 for token in required_router:
     assert token in router, token
@@ -70,5 +74,6 @@ print("PASS_X6_FOUNDATION_ADMISSION")
 print("p000_schema=V5")
 print("full_spatial=Z^6_signed_torsor")
 print("relative_observer=Z^6/Z1")
+print("common_depth=explicit_repair_coordinate_not_extra_axis")
 print("full_diagonal_nonzero_but_joint_positive_slice_invisible=true")
 print("full_reverse_norm2=1; relative_positive_canonical_reverse_norm2=5")
