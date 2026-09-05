@@ -27,6 +27,66 @@ theorem commonDepth_le {ι : Type*} [Fintype ι] [Nonempty ι]
     commonDepth n ≤ n i := by
   exact Finset.inf'_le _ (Finset.mem_univ i)
 
+/-- Remove the globally common scalar depth from every atlas coordinate. -/
+def normalizeAtlas {ι : Type*} [Fintype ι] [Nonempty ι]
+    (n : CountAtlas ι) : CountAtlas ι :=
+  fun i => n i - commonDepth n
+
+@[simp] theorem normalizeAtlas_apply {ι : Type*} [Fintype ι] [Nonempty ι]
+    (n : CountAtlas ι) (i : ι) :
+    normalizeAtlas n i = n i - commonDepth n := rfl
+
+/-- The common depth together with the normalized residue recovers every
+coordinate exactly. -/
+theorem commonDepth_add_normalizeAtlas {ι : Type*} [Fintype ι] [Nonempty ι]
+    (n : CountAtlas ι) (i : ι) :
+    commonDepth n + normalizeAtlas n i = n i := by
+  exact Nat.add_sub_of_le (commonDepth_le n i)
+
+/-- Some axis attains the common minimum, hence normalization creates a zero
+coordinate rather than merely lowering all coordinates. -/
+theorem exists_normalizeAtlas_eq_zero {ι : Type*} [Fintype ι] [Nonempty ι]
+    (n : CountAtlas ι) :
+    ∃ i, normalizeAtlas n i = 0 := by
+  rcases Finset.exists_mem_eq_inf' (s := Finset.univ) Finset.univ_nonempty n with
+    ⟨i, _hi, hmin⟩
+  refine ⟨i, ?_⟩
+  have hcd : commonDepth n = n i := by
+    simpa [commonDepth] using hmin
+  simp [normalizeAtlas, hcd]
+
+/-- Normalization removes all removable common depth. -/
+theorem commonDepth_normalizeAtlas {ι : Type*} [Fintype ι] [Nonempty ι]
+    (n : CountAtlas ι) :
+    commonDepth (normalizeAtlas n) = 0 := by
+  rcases exists_normalizeAtlas_eq_zero n with ⟨i, hi⟩
+  apply Nat.eq_zero_of_le_zero
+  simpa [hi] using commonDepth_le (normalizeAtlas n) i
+
+/-- Canonical compressed atlas representation: removable scalar depth plus a
+normalized residue. -/
+def decomposeAtlas {ι : Type*} [Fintype ι] [Nonempty ι]
+    (n : CountAtlas ι) : ℕ × CountAtlas ι :=
+  (commonDepth n, normalizeAtlas n)
+
+/-- Restore a count atlas from a scalar depth and residual coordinates. -/
+def restoreAtlas {ι : Type*} (x : ℕ × CountAtlas ι) : CountAtlas ι :=
+  fun i => x.1 + x.2 i
+
+/-- The canonical decomposition is lossless. -/
+@[simp] theorem restoreAtlas_decomposeAtlas {ι : Type*}
+    [Fintype ι] [Nonempty ι] (n : CountAtlas ι) :
+    restoreAtlas (decomposeAtlas n) = n := by
+  funext i
+  exact commonDepth_add_normalizeAtlas n i
+
+/-- The normalized component of the canonical decomposition has common depth
+zero. -/
+theorem decomposeAtlas_normalized {ι : Type*}
+    [Fintype ι] [Nonempty ι] (n : CountAtlas ι) :
+    commonDepth (decomposeAtlas n).2 = 0 := by
+  exact commonDepth_normalizeAtlas n
+
 /-- Pure axis relabeling preserves common depth exactly. -/
 theorem commonDepth_act {G ι : Type*}
     [Monoid G] [Fintype ι] [Nonempty ι]
@@ -104,6 +164,11 @@ def commonDepthCarry {W G ι : Type*}
 def CountAtlasNormalized {ι : Type*} [Fintype ι] [Nonempty ι]
     (n : CountAtlas ι) : Prop :=
   commonDepth n = 0
+
+/-- Canonical normalization always satisfies the normalized predicate. -/
+theorem normalizeAtlas_normalized {ι : Type*} [Fintype ι] [Nonempty ι]
+    (n : CountAtlas ι) : CountAtlasNormalized (normalizeAtlas n) := by
+  exact commonDepth_normalizeAtlas n
 
 /-- For normalized inputs, the carry is exactly the common depth that appears
 after framed composition.  This is the direct formal version of the six-axis
