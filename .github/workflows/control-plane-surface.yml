@@ -24,6 +24,7 @@ on:
 
 permissions:
   contents: read
+  issues: read
 
 concurrency:
   group: control-plane-surface-${{ github.event.pull_request.number || github.ref }}
@@ -32,7 +33,7 @@ concurrency:
 jobs:
   control-plane-surface:
     runs-on: ubuntu-latest
-    timeout-minutes: 3
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -40,11 +41,14 @@ jobs:
           python-version: '3.12'
       - name: Verify current control surface and physical isolation
         run: python control_plane/check_legacy_control_isolation.py
-      - name: One-shot canonical research dispatch probe
+      - name: One-shot live canonical research dispatch probe
         shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
+          gh api --paginate --slurp 'repos/awdawmip/enterprise-math/issues/240/comments?per_page=100' | jq 'add' > issue240-comments.json
           set +e
-          python research_control_dispatch.py --kind RESEARCH
+          python research_control_dispatch.py --events issue240-comments.json --kind RESEARCH
           code=$?
           echo "DISPATCH_EXIT=${code}"
           if [ "${code}" -ne 0 ] && [ "${code}" -ne 2 ]; then
