@@ -20,7 +20,7 @@ abbrev K4Axis := {s : Finset K4Vertex // s.card = 2}
 /-- K4 has exactly six unordered edges/derived axis labels. -/
 theorem k4Axis_card : Fintype.card K4Axis = 6 := by
   rw [Fintype.card_finset_len]
-  norm_num
+  native_decide
 
 /-- The complete K4 vertex-frame group has 24 elements. -/
 theorem k4Frame_card : Fintype.card K4Frame = 24 := by
@@ -44,14 +44,12 @@ noncomputable def k4AxisPerm (g : K4Frame) : Equiv.Perm K4Axis :=
 
 @[simp] theorem k4AxisPerm_one :
     k4AxisPerm (1 : K4Frame) = 1 := by
-  ext e
-  apply Subtype.ext
+  ext e x
   simp [k4AxisPerm, Equiv.finsetCongr_apply]
 
 @[simp] theorem k4AxisPerm_mul (g h : K4Frame) :
     k4AxisPerm (g * h) = k4AxisPerm g * k4AxisPerm h := by
-  ext e
-  apply Subtype.ext
+  ext e x
   simp [k4AxisPerm, Equiv.finsetCongr_apply, Finset.map_map,
     Equiv.Perm.mul_apply]
 
@@ -70,10 +68,14 @@ noncomputable def coordinateActionOfPermHom {G ι : Type*} [Monoid G]
   act g n i := n ((σ g).symm i)
   one_act n := by
     funext i
-    simp
+    change n (((σ 1)⁻¹) i) = n i
+    rw [map_one]
+    rfl
   mul_act g h n := by
     funext i
-    simp [map_mul, Equiv.Perm.mul_apply]
+    change n (((σ (g * h))⁻¹) i) =
+      n (((σ h)⁻¹) (((σ g)⁻¹) i))
+    rw [map_mul, mul_inv_rev, Equiv.Perm.mul_apply]
   act_zero g := by
     funext i
     rfl
