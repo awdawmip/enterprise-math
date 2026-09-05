@@ -60,8 +60,12 @@ theorem commonDepth_normalizeAtlas {ι : Type*} [Fintype ι] [Nonempty ι]
     (n : CountAtlas ι) :
     commonDepth (normalizeAtlas n) = 0 := by
   rcases exists_normalizeAtlas_eq_zero n with ⟨i, hi⟩
-  apply Nat.eq_zero_of_le_zero
-  simpa [hi] using commonDepth_le (normalizeAtlas n) i
+  have hle : commonDepth (normalizeAtlas n) ≤ 0 := by
+    calc
+      commonDepth (normalizeAtlas n) ≤ normalizeAtlas n i :=
+        commonDepth_le (normalizeAtlas n) i
+      _ = 0 := hi
+  exact Nat.eq_zero_of_le_zero hle
 
 /-- Canonical compressed atlas representation: removable scalar depth plus a
 normalized residue. -/
