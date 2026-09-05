@@ -1,0 +1,29 @@
+name: chatgpt-dispatch-probe-once
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/chatgpt-dispatch-probe-once.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  dispatch-probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run canonical research dispatcher
+        shell: bash
+        run: |
+          set +e
+          python research_control_dispatch.py --kind RESEARCH | tee dispatch-output.json
+          code=${PIPESTATUS[0]}
+          echo "DISPATCH_EXIT=${code}"
+          if [ "${code}" -ne 0 ] && [ "${code}" -ne 2 ]; then
+            exit "${code}"
+          fi
