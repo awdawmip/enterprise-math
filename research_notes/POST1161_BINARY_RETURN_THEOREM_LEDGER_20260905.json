@@ -1,0 +1,163 @@
+{
+  "schema": "ENTERPRISE_MATH_POST1161_BINARY_RETURN_THEOREM_LEDGER_V1",
+  "status": "FREE_RESEARCH_THEOREM_INTERFACE / MAIN_BACKED / NOT_FOUNDATION / NOT_WORKING_TRUTH",
+  "date": "2026-09-05",
+  "researcher_id": "EM-FREE-G61R8",
+  "scope": "Reusable theorem extraction from the post-#1161 binary first-return / memory / S4 / finite-precision successor. Generic branch theorems are separated from Gauss-Legendre domain theorems and compiler-specific certificates.",
+  "generic_theorems": [
+    {
+      "id": "BFR-T01-FIRST-BALANCE-CATALAN",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "two concrete branch witnesses A,B; a word is retired at its first nonempty prefix with equal A/B multiplicities",
+      "statement": "The number of first-balance-return words of total length 2n is 2*Catalan(n-1). With equal branch mass 1/2, the normalized shell mass is f_n=Catalan(n-1)/2^(2n-1).",
+      "source": ["src/enterprise_math/brc_binary_first_return.py", "tests/test_brc_binary_first_return.py", "scripts/check_free_research_agm_first_balance_return_rg.py"]
+    },
+    {
+      "id": "BFR-T02-RENEWAL-FORMAL-SERIES",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "f_n as in BFR-T01; F(s)=sum_{n>=1} f_n s^(2n) as a formal power series",
+      "statement": "The coefficient identities 2f_1=1 and 2f_n=sum_{i=1}^{n-1} f_i f_{n-i} imply the exact formal renewal equation F(2-F)=s^2. No square-root evaluation is required to define F.",
+      "source": ["src/enterprise_math/brc_binary_first_return.py", "tests/test_brc_binary_first_return.py", "scripts/check_free_research_agm_first_balance_return_rg.py"]
+    },
+    {
+      "id": "BFR-T03-RANK-ONE-BRANCH-MEMORY",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "a two-element witness fiber D; cumulative branch multiplicities live in Z^D",
+      "statement": "The branch-resolved memory object M_D=Z^D/Z*1 is a rank-one free abelian group with canonical zero but no canonical positive generator. After choosing temporary labels A,B it has coordinate z=#A-#B; witness swap sends z to -z. The swap-orbit scalar quotient is canonically N_0 via z->|z|.",
+      "source": ["scripts/check_free_research_agm_branch_memory_lattice.py", "research_notes/FREE_RESEARCH_POST1161_AGM_RETURN_MEMORY_SYNTHESIS_20260904.md"]
+    },
+    {
+      "id": "BFR-T04-ALL-HORIZON-PREDICTIVE-MINIMALITY",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "first-hit/first-balance future observer on still-alive two-branch histories",
+      "statement": "For unlabeled first-return counts, the complete all-horizon future factors through d=|#A-#B| and distinct d are predictively distinguishable. For branch-resolved labeled future words, the signed coordinate z is complete and distinct z are distinguishable. Hence no fixed finite exact predictive automaton exists for the all-horizon observer.",
+      "source": ["src/enterprise_math/brc_binary_first_return.py", "scripts/check_free_research_agm_first_return_predictive_counter.py", "scripts/check_free_research_agm_branch_memory_lattice.py"]
+    },
+    {
+      "id": "BFR-T05-FINITE-HORIZON-CLASS-COUNTS",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "same process as BFR-T04; only futures of length <=h are observed",
+      "statement": "The exact unlabeled predictive quotient has h+2 classes: d=0,1,...,h and one FAR class d>h. The branch-resolved labeled-future quotient has 2h+2 classes: z=-h,...,h and one common beyond-horizon class.",
+      "source": ["src/enterprise_math/brc_binary_first_return.py", "tests/test_brc_binary_first_return.py", "scripts/check_free_research_agm_first_return_predictive_counter.py"]
+    },
+    {
+      "id": "BFR-T06-GRADED-PREDICTIVE-QUOTIENT",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "equal positive branch mass 1/2; Q_h as in BFR-T05; zero absorbing for first-hit verification",
+      "statement": "There is an exact graded rational kernel K_h:Q_h->Prob(Q_{h-1}) such that the full nonnegative counter kernel factors through every finite quotient: q_{h-1} K = K_h q_h. For 1<=k<=h, precision projection and dynamics commute: pi_{h-1,k-1} K_h = K_k pi_{h,k}. The projections themselves compose exactly.",
+      "source": ["src/enterprise_math/brc_binary_first_return.py", "tests/test_brc_binary_first_return.py", "scripts/check_free_research_agm_s4_graded_return_rg.py"]
+    },
+    {
+      "id": "BFR-T07-HIDDEN-FIBER-CAPACITY-LOWER-BOUND",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "after m binary recoalesced blocks, the visible terminal and block-time index are fixed; exact future first-return prediction must still be possible",
+      "statement": "Among still-alive histories over the same visible (terminal,time=m), the possible positive parity-compatible imbalances give at least ceil(m/2) pairwise distinct unlabeled predictive states; retaining branch sign requires at least 2*ceil(m/2). Therefore no uniformly bounded hidden fiber over visible Cell+time can carry exact all-horizon first-return memory.",
+      "source": ["scripts/check_free_research_agm_hidden_fiber_capacity.py", "research_notes/FREE_RESEARCH_POST1161_AGM_RETURN_MEMORY_SYNTHESIS_20260904.md"]
+    },
+    {
+      "id": "BFR-T08-SWAP-INVARIANT-SCALAR-DESCENT",
+      "status": "PROVED_MAIN_BACKED",
+      "hypotheses": "two-element witness fiber; any allowed fiber relabeling is identity or swap",
+      "statement": "The signed memory transforms by z or -z, while |z| is invariant under the full witness-fiber automorphism group S2. Any scalar first-return observer that factors through |z| is therefore independent of a choice of witness orientation; signed branch-majority data is not recoverable from that quotient.",
+      "source": ["scripts/check_free_research_agm_s4_diamond_memory_bundle.py", "research_notes/FREE_RESEARCH_POST1161_AGM_RETURN_MEMORY_SYNTHESIS_20260904.md"]
+    }
+  ],
+  "s4_k4_theorems": [
+    {
+      "id": "BFR-S4-T01-DIAMOND-ORBIT-COVER",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "the accepted K4/FCC six-line carrier action of S4; a local diamond is an unordered pair of incident K4 edges",
+      "statement": "There are 12 unordered diamonds and 24 ordered witness orientations. S4 acts transitively on the 12 diamonds with stabilizer C2 and regularly on the 24 ordered orientations. The nontrivial diamond stabilizer exchanges the two concrete witnesses.",
+      "source": ["scripts/check_free_research_agm_s4_diamond_memory_bundle.py"]
+    },
+    {
+      "id": "BFR-S4-T02-NO-EQUIVARIANT-ORIENTATION-SECTION",
+      "status": "PROVED_BY_EXISTING_T7_SECTION_CRITERION_AND_EXECUTABLE_CENSUS",
+      "hypotheses": "the 24->12 ordered-witness projection in BFR-S4-T01",
+      "statement": "No S4-equivariant global orientation section exists, because the C2 stabilizer of a diamond has no fixed point in its two-element orientation fiber. The project-wide equivariant-section tool applies directly; exhaustive enumeration of all 2^12 raw sections also returns zero equivariant sections.",
+      "tool_reuse": "symmetry.fibered_equivariant_section / T7_FINITE_SYMMETRY_EQUIVARIANCE",
+      "source": ["src/enterprise_math/equivariant_section.py", "scripts/check_free_research_agm_s4_diamond_memory_bundle.py"]
+    },
+    {
+      "id": "BFR-S4-T03-SCALAR-RG-NATURALITY",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED",
+      "hypotheses": "BFR-S4-T01 plus the unlabeled counter Q_h",
+      "statement": "For X_h=D_12 x Q_h, S4 acts on D_12 and trivially on the scalar counter. The graded first-return kernel commutes exactly with the S4 action at every horizon. Fixed nonzero signed memory forms the 24-state orientation orbit, while the absolute-memory quotient remains a 12-state diamond orbit times the scalar magnitude.",
+      "source": ["scripts/check_free_research_agm_s4_graded_return_rg.py", "scripts/check_free_research_agm_s4_diamond_memory_bundle.py"]
+    }
+  ],
+  "agm_domain_theorems": [
+    {
+      "id": "AGMR-T01-FIRST-RETURN-EQUALS-CHORD-LOSS",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED / DOMAIN_THEOREM",
+      "hypotheses": "a>b>0, H=a+b, s=(a-b)/H, and F is the positive first-return completion from BFR-T02",
+      "statement": "Let r=1-F. The renewal equation gives r^2+s^2=1. Since 1-s^2=4ab/H^2, b^+=H(1-F)/2 is positive and satisfies (b^+)^2=ab. Thus the geometric-mean channel is reconstructed without using sqrt(ab) as a selector. With chord loss ell=(1-r)/2, F=2ell. The exact shape update is s^+=F/(2-F).",
+      "source": ["scripts/check_free_research_agm_first_balance_return_rg.py", "research_notes/FREE_RESEARCH_POST1161_AGM_RETURN_MEMORY_SYNTHESIS_20260904.md"]
+    },
+    {
+      "id": "AGMR-T02-FINITE-RETURN-QUADRATIC-UNIVERSALITY",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED / DOMAIN_THEOREM",
+      "hypotheses": "0<s<=1/4; F_N=sum_{n=1}^N f_n s^(2n), N>=1; T_N=F_N/(2-F_N)",
+      "statement": "Every nonzero finite return depth already lies in the quadratic AGM universality class: s^2/4 <= T_N(s) < (256/961)s^2 < (4/15)s^2 and lim_{s->0} T_N(s)/s^2=1/4. The one-shell map is T_1=s^2/(4-s^2). The exact completed shape T obeys 0<=T-T_N<(512/961)s^(2N+2).",
+      "source": ["scripts/check_free_research_agm_adaptive_return_depth.py"]
+    },
+    {
+      "id": "AGMR-T03-ADAPTIVE-INNER-DEPTH-LAW",
+      "status": "PROVED_MAIN_BACKED_EXECUTABLE_CHECKED / DOMAIN_THEOREM",
+      "hypotheses": "standard Gauss-Legendre orbit with accepted shape bound s_n<2^(2-3*2^n); target p>=1 bits",
+      "statement": "A sufficient inner return depth for one-step truncation error below 2^-p is N_n(p)=max(1,ceil(p/[2(3*2^n-2)])-1). For return depth N the S4 scalar predictive-state cost is 12(2N+1)=24N+12. Hence the inner state budget decreases rapidly with the outer AGM step and eventually stabilizes at the 36-state N=1 core.",
+      "source": ["scripts/check_free_research_agm_adaptive_return_depth.py"]
+    },
+    {
+      "id": "AGMR-T04-WHOLE-TRAJECTORY-DYADIC-CERTIFICATE",
+      "status": "EXECUTABLE_INTEGER_CERTIFICATE / DOMAIN_RESULT",
+      "hypotheses": "standard seed; fixed dyadic denominator 2^640; six outer steps; outward interval propagation; return-depth schedule (175,43,17,7,3,1)",
+      "statement": "The pure-integer two-index interval compiler produces a final endogenous completion interval of width <2^-546 whose endpoints lie in one 544-bit dyadic cell and one 162-decimal-place cell. The first 80 decimal characters agree with 3.141592653589793238462643383279502884197169399375105820974944592307816406286208.",
+      "boundary": "This is an endogenous completion certificate. Identification with classical pi still uses the separately proved #1159/#1161 completion bridge.",
+      "source": ["scripts/check_free_research_agm_two_index_interval_certificate.py"]
+    },
+    {
+      "id": "AGMR-T05-FOUR-OUTER-STEP-256BIT-NO-GO",
+      "status": "PROVED_MAIN_BACKED / DOMAIN_THEOREM",
+      "hypotheses": "standard exact Gauss-Legendre orbit and the accepted completion bracket",
+      "statement": "The exact completion-bracket width D_n is >s_n^2; s_0>1/6 and s_{n+1}>=s_n^2/4 imply D_4>16/24^32>2^-156. Therefore four outer AGM steps cannot certify a 256-bit completion bracket regardless of inner first-return depth; at least five outer steps are necessary.",
+      "source": ["scripts/check_free_research_agm_five_step_lexicographic_pareto.py", "research_notes/FREE_RESEARCH_POST1161_AGM_RETURN_MEMORY_SYNTHESIS_20260904.md"]
+    },
+    {
+      "id": "AGMR-T06-FIVE-STEP-RETURN-DEPTH-PARETO",
+      "status": "FINITE_GLOBAL_OPTIMUM_CERTIFICATE / DOMAIN_RESULT",
+      "hypotheses": "fixed compiler B=640; exactly five outer steps; every inner depth N_i>=1; cost=sum_i(24N_i+12)",
+      "statement": "For final interval width <2^-256, the globally minimal inner depth sum is 80 with schedule (50,18,8,3,1) and total S4 predictive-state cost 1980. For both endpoints to lie in one common 256-bit dyadic cell, the globally minimal depth sum is 81 with schedule (51,18,8,3,1) and cost 2004.",
+      "boundary": "Optimality is only inside the declared compiler/search envelope and cost function; it is not a universal complexity lower bound for all AGM algorithms.",
+      "source": ["scripts/check_free_research_agm_five_step_lexicographic_pareto.py"]
+    }
+  ],
+  "negative_boundaries": [
+    {
+      "id": "BFR-N01-POSITIVE-QUOTIENT-LOSES-SIGN",
+      "status": "PROVED_INFORMATION_LOSS_BOUNDARY",
+      "statement": "The positive/unlabeled first-return observer factors through |z| and cannot reconstruct whether A or B is the majority branch. Signed branch-resolved memory and positive mass are different carriers."
+    },
+    {
+      "id": "BFR-N02-CELL-TIME-NOT-PREDICTIVELY-COMPLETE",
+      "status": "COUNTEREXAMPLE_NEGATIVE_BOUNDARY",
+      "statement": "After four recoalesced blocks, histories AAAA and AAAB have the same visible terminal and block time but imbalances 4 and 2, hence different earliest future return times. Current visible Cell+time is not a sufficient state for exact first-return prediction."
+    },
+    {
+      "id": "BFR-N03-BOUNDED-PASSIVE-FIBER-NO-GO",
+      "status": "PROVED_NEGATIVE_BOUNDARY",
+      "statement": "Because the exact predictive capacity over one visible terminal/time grows at least as ceil(m/2), no uniformly bounded passive hidden fiber can encode the all-horizon return state."
+    },
+    {
+      "id": "BFR-N04-SIGNED-S4-SECTION-NO-GO",
+      "status": "PROVED_T7_SECTION_OBSTRUCTION",
+      "statement": "The K4/FCC ordered-witness orientation cover has no S4-equivariant global section. This blocks canonical signed witness orientation, not the swap-invariant scalar AGM return observer."
+    },
+    {
+      "id": "AGMR-N01-NO-AUTOMATIC-G0-PROMOTION",
+      "status": "SEMANTIC_BOUNDARY",
+      "statement": "The extracted binary return calculus is path/history memory (N1) with scalar/readout consequences (N2). The post-#1161 work does not prove that the memory is already an instantaneous bare-P000/G0 Cell coordinate. Native promotion remains a separate P000 relational-state problem."
+    }
+  ],
+  "consumption_rule": "Generic BFR theorems may be reused at research strength when their exact two-branch/observer hypotheses hold. AGM-prefixed results are domain theorems only. No entry in this ledger is Foundation or Working Truth merely by appearing here; Driver/Steward promotion remains separate."
+}
