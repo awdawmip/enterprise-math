@@ -8,8 +8,8 @@ namespace FramedPath
 variable {W G C : Type*} [Monoid W] [Group G] [AddMonoid C]
 variable (ρ : CoordinateAction G C)
 
-/-- Global change of frame.  Coordinates transform by the declared action and
-relative frames transform by conjugation.  Weight and raw operation length are
+/-- Global change of frame. Coordinates transform by the declared action and
+relative frames transform by conjugation. Weight and raw operation length are
 unchanged. -/
 def relabel (s : G) (p : FramedPath W G C ρ) : FramedPath W G C ρ :=
   ⟨p.weight, ρ.act s p.coord, s * p.frame * s⁻¹, p.length⟩
@@ -36,7 +36,17 @@ def relabel (s : G) (p : FramedPath W G C ρ) : FramedPath W G C ρ :=
     group
   · rfl
 
-/-- Relabeling commutes with ordered BRC concatenation.  This is the precise
+@[simp] theorem relabel_id (p : FramedPath W G C ρ) :
+    relabel ρ (1 : G) p = p := by
+  ext
+  · rfl
+  · change ρ.act 1 p.coord = p.coord
+    exact ρ.one_act p.coord
+  · change 1 * p.frame * (1 : G)⁻¹ = p.frame
+    group
+  · rfl
+
+/-- Relabeling commutes with ordered BRC concatenation. This is the precise
 algebraic form of global rotation covariance for the generic framed layer. -/
 theorem relabel_mul (s : G) (a b : FramedPath W G C ρ) :
     relabel ρ s (a * b) = relabel ρ s a * relabel ρ s b := by
@@ -79,7 +89,10 @@ theorem relabel_relabel (s t : G) (p : FramedPath W G C ρ) :
 @[simp] theorem relabel_inv_relabel (s : G) (p : FramedPath W G C ρ) :
     relabel ρ s⁻¹ (relabel ρ s p) = p := by
   rw [relabel_relabel]
-  simpa using congrArg (fun t : G => relabel ρ t p) (inv_mul_cancel₀ s)
+  have hs : s⁻¹ * s = (1 : G) := by
+    group
+  rw [hs]
+  exact relabel_id ρ p
 
 end FramedPath
 
@@ -90,7 +103,7 @@ def CoordinateInvariant {G C : Type*} [Group G] [AddMonoid C]
   ∀ g n, K (ρ.act g n) = K n
 
 /-- A frame-invariant coordinate compression produces a rotation-invariant BRC
-carry.  This separates the universal cocycle law from the concrete choice of
+carry. This separates the universal cocycle law from the concrete choice of
 compression potential (`K` extraction, common-depth extraction, or another
 future observer-safe potential). -/
 theorem coordinateCarry_relabel {W G C : Type*}
@@ -106,7 +119,7 @@ theorem coordinateCarry_relabel {W G C : Type*}
       K (a * b).coord - K a.coord - K b.coord
   rw [hK s (a * b).coord, hK s a.coord, hK s b.coord]
 
-/-- Equivariance for a declared action pair.  No group laws are needed for the
+/-- Equivariance for a declared action pair. No group laws are needed for the
 fixed-input obstruction below; callers may use a group action, a finite atlas
 action, or another typed symmetry family. -/
 def EquivariantUnder {G X Y : Type*}
@@ -128,7 +141,7 @@ theorem equivariant_value_fixed {G X Y : Type*}
   rw [← hf g x, hx g]
 
 /-- If a symmetric input exists but the output candidate carrier has no global
-fixed point, an equivariant deterministic selector cannot exist.  In BRC this is
+fixed point, an equivariant deterministic selector cannot exist. In BRC this is
 the generic formal reason a symmetric optimal branch fibre must remain
 set-/branch-valued unless extra symmetry-breaking data are supplied. -/
 theorem no_equivariant_single_choice {G X Y : Type*}
