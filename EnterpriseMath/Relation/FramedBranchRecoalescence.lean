@@ -208,8 +208,7 @@ def booleanShadow {W G C : Type*} [Monoid W] [Monoid G] [AddMonoid C]
   by_cases h : q = p
   · subst q
     simp [booleanShadow]
-  · have hpq : p ≠ q := fun hp => h hp.symm
-    simp [booleanShadow, h, hpq]
+  · simp [booleanShadow, h]
 
 /-- Positive recoalescence becomes literal support union. This is the exact
 additive bridge `N-BRC -> Boolean-BRC`; no multiplicity can be reconstructed in
@@ -219,7 +218,6 @@ theorem booleanShadow_add {W G C : Type*}
     (f g : FramedNBRC W G C ρ) :
     booleanShadow (f + g) = booleanShadow f ∪ booleanShadow g := by
   ext p
-  simp only [booleanShadow, Set.mem_setOf_eq, Set.mem_union]
   change (f.coeff p + g.coeff p ≠ 0) ↔ f.coeff p ≠ 0 ∨ g.coeff p ≠ 0
   omega
 
