@@ -1,4 +1,4 @@
-import EnterpriseMath.Relation.BRCFrameSymmetry
+import EnterpriseMath.Relation.BRCObserverAlgebra
 
 namespace EnterpriseMath.BranchRecoalescence
 
@@ -20,12 +20,12 @@ instantiation this is the `N[Q_{>0}^×]` carrier used by Weighted-BRC. -/
 abbrev WeightHistogram (W : Type*) [Monoid W] := MonoidAlgebra ℕ W
 
 /-- Forget coordinate/frame/length but preserve exact branch weight and
-multiplicity.  Because this is induced from a monoid homomorphism, it preserves
-both alternative sums and serial convolution on the whole framed N-BRC. -/
+multiplicity.  This is the exact-weight specialization of the generic framed
+observer algebra. -/
 noncomputable def weightHistogramAlgHom {W G C : Type*}
     [Monoid W] [Monoid G] [AddMonoid C] (ρ : CoordinateAction G C) :
     FramedNBRC W G C ρ →ₐ[ℕ] WeightHistogram W :=
-  MonoidAlgebra.mapDomainAlgHom ℕ ℕ (FramedPath.weightHom ρ)
+  observerNBRCAlgHom ρ (FramedPath.weightHom ρ)
 
 /-- Atomic framed branches map to atomic histogram bins with unchanged
 multiplicity. -/
@@ -35,6 +35,14 @@ multiplicity. -/
     weightHistogramAlgHom ρ (MonoidAlgebra.single p n) =
       MonoidAlgebra.single p.weight n := by
   simp [weightHistogramAlgHom, FramedPath.weightHom]
+
+/-- Exact branch weight is frame-invariant at path level. -/
+theorem weightHom_frameInvariant {W G C : Type*}
+    [Monoid W] [Group G] [AddMonoid C]
+    (ρ : CoordinateAction G C) :
+    FrameInvariantObserver ρ (FramedPath.weightHom ρ) := by
+  intro _s _p
+  rfl
 
 /-- Global frame relabeling leaves exact branch weight unchanged at path level. -/
 @[simp] theorem weight_relabel {W G C : Type*}
@@ -50,12 +58,7 @@ theorem weightHistogram_relabel {W G C : Type*}
     (s : G) (f : FramedNBRC W G C ρ) :
     weightHistogramAlgHom ρ ((relabelNBRCAlgEquiv ρ s) f) =
       weightHistogramAlgHom ρ f := by
-  apply MonoidAlgebra.induction_linear f
-  · simp
-  · intro x y hx hy
-    simp [hx, hy]
-  · intro p n
-    simp [relabelNBRCAlgEquiv, weightHistogramAlgHom, FramedPath.relabelEquiv,
-      FramedPath.weightHom]
+  exact observerNBRC_relabel ρ (FramedPath.weightHom ρ)
+    (weightHom_frameInvariant ρ) s f
 
 end EnterpriseMath.BranchRecoalescence
