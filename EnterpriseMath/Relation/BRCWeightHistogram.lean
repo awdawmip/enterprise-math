@@ -13,6 +13,9 @@ def weightHom : FramedPath W G C ρ →* W where
   map_one' := rfl
   map_mul' _ _ := rfl
 
+@[simp] theorem weightHom_apply (p : FramedPath W G C ρ) :
+    weightHom ρ p = p.weight := rfl
+
 end FramedPath
 
 /-- Exact finite weight histogram.  In the canonical positive-rational
@@ -25,7 +28,7 @@ observer algebra. -/
 noncomputable def weightHistogramAlgHom {W G C : Type*}
     [Monoid W] [Monoid G] [AddMonoid C] (ρ : CoordinateAction G C) :
     FramedNBRC W G C ρ →ₐ[ℕ] WeightHistogram W :=
-  observerNBRCAlgHom ρ (FramedPath.weightHom ρ)
+  observerNBRCAlgHom ρ (FramedPath.weightHom (W := W) ρ)
 
 /-- Atomic framed branches map to atomic histogram bins with unchanged
 multiplicity. -/
@@ -34,13 +37,14 @@ multiplicity. -/
     (p : FramedPath W G C ρ) (n : ℕ) :
     weightHistogramAlgHom ρ (MonoidAlgebra.single p n) =
       MonoidAlgebra.single p.weight n := by
-  simp [weightHistogramAlgHom, FramedPath.weightHom]
+  simpa [weightHistogramAlgHom] using
+    (observerNBRCAlgHom_single ρ (FramedPath.weightHom (W := W) ρ) p n)
 
 /-- Exact branch weight is frame-invariant at path level. -/
 theorem weightHom_frameInvariant {W G C : Type*}
     [Monoid W] [Group G] [AddMonoid C]
     (ρ : CoordinateAction G C) :
-    FrameInvariantObserver ρ (FramedPath.weightHom ρ) := by
+    FrameInvariantObserver ρ (FramedPath.weightHom (W := W) ρ) := by
   intro _s _p
   rfl
 
@@ -58,7 +62,7 @@ theorem weightHistogram_relabel {W G C : Type*}
     (s : G) (f : FramedNBRC W G C ρ) :
     weightHistogramAlgHom ρ ((relabelNBRCAlgEquiv ρ s) f) =
       weightHistogramAlgHom ρ f := by
-  exact observerNBRC_relabel ρ (FramedPath.weightHom ρ)
-    (weightHom_frameInvariant ρ) s f
+  exact observerNBRC_relabel ρ (FramedPath.weightHom (W := W) ρ)
+    (weightHom_frameInvariant (W := W) ρ) s f
 
 end EnterpriseMath.BranchRecoalescence
