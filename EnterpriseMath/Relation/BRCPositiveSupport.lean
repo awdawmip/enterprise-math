@@ -49,6 +49,7 @@ theorem booleanShadow_mul {W G C : Type*}
     refine ⟨x, hxSupport, ?_⟩
     refine Finsupp.sum_pos' (fun _ _ => Nat.zero_le _) ?_
     refine ⟨y, hySupport, ?_⟩
+    rw [if_pos rfl]
     exact Nat.mul_pos hxPos hyPos
 
 /-- The positive N-BRC Boolean shadow therefore preserves both alternative
