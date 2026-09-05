@@ -1,5 +1,4 @@
 import EnterpriseMath.Relation.BRCWeightHistogram
-import Mathlib.Algebra.GroupPower.Hom
 import Mathlib.Tactic
 
 namespace EnterpriseMath.BranchRecoalescence
