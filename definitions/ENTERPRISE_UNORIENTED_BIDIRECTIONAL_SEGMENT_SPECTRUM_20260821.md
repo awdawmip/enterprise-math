@@ -1,145 +1,51 @@
-# 进取无向线段：双向 Canonical Trace Pair 与长度 Spectrum
+# Legacy R061 bidirectional segment spectrum — centered-X6 retyping
 
-Status: `ACTIVE / CANONICAL / FROZEN`
-Date: `2026-08-21`
-Driver: `EM-DVR-9GP3M7 / CONTROL_PLANE`
+Status: `RETYPED / OBSERVER-DIAGNOSTIC ONLY / SUPERSEDED AS NATIVE LENGTH REPAIR`
+Original date: `2026-08-21`
+Retyped: `2026-09-05`
+Steward: `EM-STW-C31A7F / FOUNDATION_STEWARD`
 
-Canonical review source:
+Current native three-axis authority is:
 
-`driver_reviews/R061_STAGE3_UNORIENTED_SEGMENT_FINAL_DRIVER_REVIEW_20260821.md`
+`ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md`.
 
-## 1. Directed foundation retained
+The original bidirectional spectrum was introduced because the historical positive/min-zero directed gauge assigned different scalar values to opposite orientations. Under the signed centered X6 slice, that asymmetry is not native.
 
-For arbitrary integer-addressed coordinate vertices `P,Q`, the frozen Stage 2 construction provides one canonical directed native trace
+For native Cells `P,Q` in one selected slice:
 
-`T(P->Q)`
+`d(P,Q)=x(Q)-x(P) in Z^3`,
 
-and directed native line gauge
+`d(Q,P)=-d(P,Q)`,
 
-`ell_E(P->Q)`.
+and
 
-These are generally not reversal symmetric.
+`L_E(P,Q)^2=sum_i d_i^2=L_E(Q,P)^2`.
 
-Do not replace them by a symmetric scalar and do not introduce native negative axes.
-
-## 2. Canonical unoriented segment
-
-For an unordered endpoint pair `{P,Q}`, freeze
-
-`BSEG_E(P,Q) = { T(P->Q), T(Q->P) }`
-
-as an endpoint-swap orbit / unordered typed pair of the two independently decoded canonical positive-axis traces.
+Therefore the native orientation-free scalar distance is already canonical at this layer.
 
 Freeze:
 
-`CANONICAL_UNORIENTED_SEGMENT_STRUCTURE = BIDIRECTIONAL_CANONICAL_TRACE_PAIR`.
+`NATIVE_SIGNED_SLICE_DISTANCE_IS_REVERSAL_SYMMETRIC=true`.
 
-The two directed traces may have different sector labels, component triples, path-fiber cardinalities, and directed line gauges.
+`BIDIRECTIONAL_LENGTH_SPECTRUM_NOT_REQUIRED_TO_REPAIR_NATIVE_METRIC=true`.
 
-## 3. Inverse trace is not canonical reverse trace
+The historical object
 
-For `P!=Q`, distinguish:
+`SPEC_rel(P,Q)=multiset{ell_rel(P->Q),ell_rel(Q->P)}`
 
-- `T(P->Q)^(-1)` — groupoid inverse / reverse traversal of the same carrier path fiber;
-- `T(Q->P)` — newly decoded canonical positive-axis native trace based at `Q`.
+may still be used as a diagnostic of the **relative/min-zero observer**, where `ell_rel` is explicitly typed as the legacy observer gauge.
 
-Freeze:
+Recomputed witnesses:
 
-`T(P->Q)^(-1) != T(Q->P)` for every nonzero segment.
+- native unit segment: orientation-free length is `1`; historical observer spectrum `{1,sqrt(2)}` is not native;
+- native raw `(3,4,0)` segment: orientation-free length is `5`; historical observer spectrum `{5,sqrt(17)}` is not native.
 
-Equality occurs only for the zero trace.
-
-No native rule identifies inverse carrier morphisms with positive-generator traces.
-
-## 4. Orientation-free length data
-
-Freeze the exact orientation-free length datum
-
-`SPEC_E(P,Q) = multiset{ ell_E(P->Q), ell_E(Q->P) }`.
-
-This is symmetric under endpoint exchange without discarding the directional information already forced by the native geometry.
+Path orientation and provenance still matter: the reversed path witness is a distinct oriented path object. Symmetry of scalar native distance does not collapse Path-formal/BRC provenance.
 
 Freeze:
 
-`CANONICAL_ORIENTATION_FREE_LENGTH_DATA = BIDIRECTIONAL_LENGTH_SPECTRUM`.
+`SCALAR_DISTANCE_REVERSAL_SYMMETRY != PATH_PROVENANCE_COLLAPSE`.
 
-Examples:
+`LEGACY_BIDIRECTIONAL_SPECTRUM = RELATIVE_OBSERVER_DIAGNOSTIC`.
 
-- unit positive-axis segment: `SPEC_E={1,sqrt(2)}`;
-- translated 3-4-5 segment: `SPEC_E={5,sqrt(17)}`;
-- reversal-symmetric `(2,1,0)`-type segment: `SPEC_E={sqrt(5),sqrt(5)}`.
-
-## 5. Unoriented path fiber
-
-Let `Realize_E(T(P->Q))` and `Realize_E(T(Q->P))` be the two frozen directed path fibers.
-
-Define the unoriented realization object as the orientation-tagged disjoint union
-
-`Realize_E(BSEG_E(P,Q)) = ({P->Q} x Realize_E(T(P->Q))) disjoint_union ({Q->P} x Realize_E(T(Q->P)))`.
-
-The orientation tag must be retained because the two directed trace identities are distinct objects.
-
-For translated 3-4-5:
-
-- forward path fiber has `35` members;
-- canonical reverse path fiber has `5` members;
-- the groupoid inverse of the forward fiber has `35` reversed paths but is not the canonical reverse trace fiber.
-
-## 6. Symmetric scalar metrics are noncanonical choices
-
-Let
-
-`v(P,Q)=(ell_E(P->Q),ell_E(Q->P))`.
-
-If `Phi` is any norm on `R^2` satisfying:
-
-- coordinate-swap symmetry;
-- componentwise monotonicity on `R_+^2`;
-
-then
-
-`d_Phi(P,Q)=Phi(v(P,Q))`
-
-is a symmetric metric.
-
-Examples:
-
-- `max(ell_f,ell_r)`;
-- `ell_f+ell_r`;
-- `(ell_f+ell_r)/2`;
-- `sqrt(ell_f^2+ell_r^2)`;
-- symmetric `l_p` norms.
-
-These are conditional scalarizations after an additional choice of `Phi`.
-
-Freeze:
-
-`MULTIPLE_SYMMETRIC_METRICS_EXIST_BUT_NONE_IS_CANONICALLY_DERIVED = true`.
-
-`CANONICAL_SYMMETRIC_NATIVE_METRIC_DERIVED = false`.
-
-No current native invariant selects one `Phi`.
-
-## 7. Nonuniqueness survives unit calibration
-
-Even after requiring a chosen symmetric scalar metric to assign value `1` to the positive-axis unit segment, uniqueness does not follow.
-
-Normalized `d_max` and normalized `d_2` both satisfy that calibration but disagree on a reversal-symmetric `(2,1,0)` segment.
-
-Therefore metric axioms + translation invariance + homogeneity + unit calibration still do not force one scalarization.
-
-## 8. R061 completion
-
-The canonical R061 line theory is now layered as follows:
-
-- directed line identity: native component trace;
-- directed realization: all trace linearizations after typed start incidence;
-- arbitrary-point directed line: translated trace;
-- directed length: `ell_E` gauge;
-- unoriented line segment: bidirectional canonical trace pair;
-- orientation-free length data: bidirectional length spectrum;
-- symmetric scalar metric: optional additional scalarization, not canonically derived.
-
-Freeze:
-
-`R061_PROGRAM_STATUS = COMPLETE_AND_FROZEN`.
+The full original R061 Stage-3 text remains in Git history as provenance.
