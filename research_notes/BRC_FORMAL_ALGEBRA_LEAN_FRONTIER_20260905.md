@@ -3,162 +3,209 @@
 Researcher-ID: `EM-BRCWLOG-6F42A1`  
 Mode: `TASK_RESEARCH / DIRECT_USER_CONTINUATION`  
 Date: `2026-09-05` (+08:00)  
-Status: `RESEARCH_CANDIDATE / LEAN_FORMALIZATION_IN_PROGRESS / NOT_FOUNDATION`
+Status: `RESEARCH_CANDIDATE / WARNING_FATAL_LEAN_GREEN_AT_CODE_HEAD_26a3336 / NOT_FOUNDATION`
 
 ## Objective
 
 Make Branch-Recoalescence Collapse the typed algebraic bridge between Enterprise coordinates and ordinary algebra, while preserving the historical Boolean/result-support BRC as the canonical support shadow.
 
-P000 remains unchanged: native Enterprise space is six-dimensional discrete Cell space, time is separately typed, the existing three-axis construction is a research slice, and rotation is the primary spatial transformation.  The constructions below do not derive or reduce P000 from a classical carrier.
+P000 remains unchanged: native Enterprise space is six-dimensional discrete Cell space, time is separately typed, the existing three-axis construction is a research slice, and rotation is the primary spatial transformation. The constructions below do not derive or reduce P000 from a classical carrier.
 
 ## 1. BRC algebraic contract
 
-A concrete BRC application must distinguish:
+A concrete BRC application must distinguish branch population, branch identity, alternative composition, serial composition, declared observers, the future-operation horizon, and the scale/recurrent horizon.
 
-1. **branch population** — exact path occurrences or exact path-summary keys;
-2. **branch identity** — which fields make two occurrences algebraically identical;
-3. **alternative composition** — recoalescence/addition;
-4. **serial composition** — ordered path concatenation;
-5. **observers** — Boolean support, multiplicity, positive weight, coordinate, frame, length, moments, determinants, roots, etc.;
-6. **future operation horizon** — which later compositions/rotations/port operations the compressed state must still support;
-7. **scale horizon** — finite exact state versus recurrent/asymptotic readout.
-
-Compression is allowed only relative to a declared observer/future-operation contract.  A distinction cannot be discarded merely because it is invisible to the current scalar output.
+Compression is valid only relative to that contract. A distinction cannot be deleted merely because a current scalar readout ignores it; later composition, rotation, port elimination, provenance or another observer may still distinguish it.
 
 ## 2. Exact framed path carrier
 
-The new Lean layer introduces a generic coordinate action `rho : G -> C -> C`, requiring only the laws of a monoid action by additive endomorphisms.  It deliberately does not assume a Euclidean representation or a completed native rotation group.
-
-A framed path summary is
+Lean now has a generic additive coordinate action `ρ : G -> C -> C` and a framed path summary
 
 `(weight, coord, frame, length)`.
 
 Ordered serial composition is
 
-`(w,n,g,l) * (v,m,h,k) = (wv, n + g.m, gh, l+k)`.
+`(w,n,g,l) * (v,m,h,k) = (wv, n + g·m, gh, l+k)`.
 
-This is now formalized as a Lean `Monoid`.  The `coord` field is therefore not a decorative tag: it participates in multiplication through the preceding frame.
+This is proved to form a `Monoid`. The coordinate and frame fields therefore participate in multiplication and are not decorative metadata.
 
-## 3. Positive multiplicity layer and Boolean shadow
-
-Define
+The positive multiplicity layer is
 
 `FramedNBRC = MonoidAlgebra Nat FramedPath`.
 
-The outer natural coefficient records multiplicity of identical framed summaries.  The exact positive weight remains a field of the summary key, so multiplicity and weight are not conflated.
+The outer natural coefficient records multiplicity of identical summaries while exact weight remains part of the path key.
 
-Alternative recoalescence is algebra addition.  The current Lean theorem proves that Boolean shadow of positive addition is literal support union.  Thus the enrichment tower is typed as
+## 3. Positive N-BRC -> Boolean BRC is now a full support bridge
 
-`framed path occurrences -> N-BRC -> Boolean support`.
+The Boolean shadow of an N-BRC state is the nonzero support of its natural coefficients.
 
-This extends rather than mutates historical Boolean BRC.  Reverse recovery of multiplicity/coordinate/frame after support collapse remains forbidden by `NO_RESURRECTION`.
+Lean proves both exact laws:
 
-## 4. Observer-safe and observer-unsafe erasures
+- alternative recoalescence: `shadow(f+g) = shadow(f) ∪ shadow(g)`;
+- serial composition: `shadow(fg) = shadow(f) * shadow(g)` using pointwise set multiplication.
 
-For the observer `(weight,length)`, deleting coordinate and frame is a valid monoid homomorphism; it is therefore safe for that declared observer.
+The reverse inclusion in the serial theorem uses positivity/no cancellation of `Nat`. This is the formal reason the theorem does not silently extend to signed/amplitude coefficients.
 
-By contrast, deleting only the frame is not future-safe when a common right context can distinguish the resulting coordinates.  Lean proves this directly from the existing `noResurrection` theorem:
+Thus historical Boolean BRC is an exact support shadow of the positive N-BRC layer, not a replacement for multiplicity or exact-weight semantics.
 
-if `eraseFrame a = eraseFrame b` but `(a*c).coord != (b*c).coord`, then no decoder from `eraseFrame` can recover the future-coordinate observer.
+## 4. Observer algebra and NO_RESURRECTION
 
-This gives BRC a reusable formal information-loss test rather than an informal warning.
+Every path-level monoid observer
 
-## 5. Carry is a typed coboundary, not one hard-coded formula
+`φ : FramedPath ->* M`
 
-For any integer-valued compression potential `K` on a monoid, define
+lifts canonically through `MonoidAlgebra.mapDomainAlgHom` to a whole-N-BRC algebra homomorphism.
 
-`delta_K(a,b) = K(ab)-K(a)-K(b)`.
+This now provides one reusable mechanism for weight histograms, geometry-erased observers and future valuation/moment observers.
 
-Lean proves exactly
+Joint observers are represented before recoalescence by the product observer `(φ,ψ)`. Lean proves that the joint observer recovers either component. Conversely, if `φ` merges two paths that `ψ` separates, then `φ` cannot recover `(φ,ψ)`; this is a direct `NO_RESURRECTION` theorem and formalizes the loss of correlation in separate marginals.
 
-`delta_K(a,b)+delta_K(ab,c)=delta_K(b,c)+delta_K(a,bc)`.
+The older frame-erasure obstruction remains: if erased-frame states agree but a common right context gives different future coordinates, frame erasure is not future-safe.
 
-If `K` is multiplicatively superadditive, the carry is nonnegative.
+## 5. Frame relabeling is internal algebra, not annotation
 
-For framed coordinates this specializes to
+For group-valued frames,
 
-`K(n + g.m)-K(n)-K(m)`.
+`R_s(w,n,g,l) = (w, s·n, s g s^-1, l)`.
 
-This unifies two already-distinct Enterprise coordinate carries without identifying their observers:
+Lean proves identity, multiplication compatibility, successive relabeling, inverse relabeling, a framed-path monoid equivalence, and the induced algebra equivalence on the entire positive N-BRC.
 
-- the earlier K4 optimal star-extraction carry;
-- the six-axis CountAtlas/common-depth carry recorded by the current six-axis research frontier.
+Coordinate carries are invariant under relabeling whenever their potential is invariant under the declared coordinate action.
 
-They are different potentials on different compressed states, but the same exact two-coboundary mechanism explains parenthesization independence.  This is a reusable BRC algebraic law.
+A separate generic theorem proves that at a symmetry-fixed input, an equivariant deterministic selector can only return a globally fixed output. If the output carrier has no fixed point, no such single-valued equivariant selector exists. This is the formal reason symmetric optimal fibres must remain branch/set-valued unless explicit symmetry-breaking data are supplied.
 
-## 6. Rotation/relabeling layer
+## 6. Carry is a typed two-coboundary
 
-For group-valued frames, global relabeling is
+For an integer-valued potential `K` on any monoid,
 
-`R_s(w,n,g,l) = (w, s.n, s g s^-1, l)`.
+`δ_K(a,b) = K(ab) - K(a) - K(b)`.
 
-The second Lean layer formalizes:
+Lean proves the exact cocycle identity
 
-- `R_s(1)=1`;
-- `R_s(ab)=R_s(a)R_s(b)`;
-- `R_s(R_t(p))=R_(st)(p)`;
-- inverse relabeling;
-- rotation invariance of coordinate carry whenever the compression potential is coordinate-invariant.
+`δ_K(a,b)+δ_K(ab,c)=δ_K(b,c)+δ_K(a,bc)`.
 
-Thus rotation covariance is inside multiplication rather than a post-hoc geometric annotation.
+Superadditivity of `K` implies nonnegative carry. For framed coordinates this specializes to
 
-## 7. Why symmetric optimal fibres must remain branch-valued
+`K(n + g·m) - K(n) - K(m)`.
 
-A generic Lean theorem now captures the earlier finite S4 obstruction:
+This is the correct unification of two distinct Enterprise carries:
 
-if an input is fixed by every declared symmetry and the candidate output carrier has no globally fixed point, then no equivariant deterministic selector exists.
+- the earlier K4 optimal-extraction carry;
+- the finite CountAtlas/common-depth carry.
 
-Consequently an optimizer or canonicalizer must retain the entire symmetric optimal fibre (or add explicit symmetry-breaking data) rather than choose an arbitrary representative.  This is a structural BRC requirement, not an implementation preference.
+They remain different potentials on different observer states; they share the same coboundary law. No equality between those potentials is asserted.
 
-The theorem is generic; instantiating it with the concrete six-axis K4/S4 atlas remains a separate formalization step.
+## 7. Exact-weight histogram and character readouts
 
-## 8. Algebra bridge beyond the noncommutative layer
+Exact path weight is a multiplicative observer. It therefore induces
 
-The prior rotation-atlas research already established an exact finite-frame lift: retain the frame as part of the state index and write transition entries in an ordinary commutative polynomial ring.  This permits determinant/response/root-atom calculations without applying a commutative determinant directly to the noncommutative framed path monoid.
+`framed N-BRC -> MonoidAlgebra Nat W`,
 
-The intended typed pipeline is therefore
+a finite exact-weight histogram which is invariant under global frame relabeling.
+
+Lean then uses the universal property `MonoidAlgebra.lift`: every multiplicative character
+
+`χ : W ->* R`
+
+extends to an algebra readout of the exact histogram and hence of the framed N-BRC.
+
+Formalized specializations include:
+
+- constant-one character -> exact branch multiplicity/count;
+- power character `q -> q^m` over a commutative semiring -> exact power-sum moment;
+- atomic `m=0` and `m=1` specializations -> multiplicity and total-mass contributions.
+
+This is the Lean bridge to the existing Weighted-BRC histogram/moment tower. It does not yet formalize every CWM max/recurrent readout.
+
+## 8. Finite CountAtlas common-depth layer is now a canonical normal form
+
+For a finite axis type `ι`, define
+
+`CountAtlas ι = ι -> Nat`.
+
+The six-axis specialization is `ι = Fin 6`, but the current Lean theorem is deliberately generic. A declared frame action is required to act by coordinate reindexing/permutation.
+
+Define common depth
+
+`h(n) = min_i n_i`
+
+and normalized residue
+
+`r(n)_i = n_i - h(n)`.
+
+Lean proves:
+
+- `h(n)` is below every coordinate and is attained by some axis;
+- normalized residue has at least one zero coordinate;
+- `h(r(n)) = 0`;
+- normalization is idempotent;
+- exact restoration `h(n) + r(n)_i = n_i`;
+- adding common scalar depth shifts the minimum exactly;
+- any normalized `(h,r)` decomposes back to itself;
+- the canonical equivalence
+
+  `CountAtlas ι ≃ { (h,r) // commonDepth(r)=0 }`;
+
+- common depth is invariant under axis reindexing;
+- normalization and canonical decomposition are equivariant under axis reindexing;
+- common depth is superadditive under framed serial coordinate addition;
+- the induced common-depth carry is nonnegative, obeys the exact two-coboundary cocycle, and is frame invariant;
+- for normalized inputs the carry is exactly `min(r + g·s)`.
+
+This is now a genuine reversible compression certificate, not only a carry formula.
+
+## 9. Typed algebra pipeline and remaining boundary
+
+The intended pipeline is now
 
 `exact path/provenance`
 `-> framed N-BRC`
-`-> declared observer quotient`
+`-> exact support / exact-weight histogram / declared joint observer`
 `-> finite frame-state lift when needed`
 `-> commutative polynomial/rational matrix algebra`
 `-> determinant / Schur port / root-atom certificate`
-`-> Boolean/log/scalar readout only when declared`.
+`-> scalar/log/Boolean readout only when declared`.
 
-The reverse arrows are not assumed.
+Reverse arrows are not assumed without a proved recovery map.
 
-## 9. Lean files and current proof boundary
-
-Files in this branch:
-
-- `EnterpriseMath/Relation/BranchRecoalescence.lean` — pre-existing Boolean/support core;
-- `EnterpriseMath/Relation/FramedBranchRecoalescence.lean` — framed monoid, N-BRC, Boolean additive shadow, observer erasure, NO_RESURRECTION witness, generic and coordinate carries;
-- `EnterpriseMath/Relation/BRCFrameSymmetry.lean` — global frame relabeling, carry covariance, equivariant single-choice obstruction;
-- `EnterpriseMath.lean` — umbrella import.
-
-Formalization intentionally does **not yet** claim:
+Current Lean formalization intentionally does **not** claim:
 
 - the full native six-axis Cell-address object;
-- a complete native six-dimensional rotation group;
+- a complete native six-dimensional rotation group or concrete `Fin 6`/S4 instantiation;
 - a unique global native metric;
-- the closed-form K4 theorem `K(n)=U(n)-delta(n)` in Lean;
-- exact support equality for arbitrary N-BRC serial products;
-- recurrent determinant/Schur/root-atom layers in Lean;
-- signed/amplitude BRC.
+- the closed-form K4 theorem `K(n)=U(n)-δ(n)` in Lean;
+- signed/amplitude cancellation semantics;
+- recurrent SCC, determinant, Schur-port or root-atom transfer in Lean;
+- every CWM/max/recurrent observer as a histogram character.
 
-CI status must be read from the final branch head.  A failed intermediate CI run is not erased from provenance and a pending run is not reported as green.
+## 10. Lean files
 
-## 10. Next formal milestones
+- `EnterpriseMath/Relation/FramedBranchRecoalescence.lean` — framed semidirect monoid, N-BRC, erasure tests, generic/coordinate coboundary carries;
+- `EnterpriseMath/Relation/BRCPositiveSupport.lean` — exact positive Boolean support under addition and serial multiplication;
+- `EnterpriseMath/Relation/BRCFrameSymmetry.lean` — frame relabel equivalences, carry covariance, equivariant single-choice obstruction;
+- `EnterpriseMath/Relation/BRCObserverAlgebra.lean` — generic observer lift, joint observers and correlation-loss NO_RESURRECTION boundary;
+- `EnterpriseMath/Relation/BRCWeightHistogram.lean` — exact-weight histogram observer and frame invariance;
+- `EnterpriseMath/Relation/BRCWeightCharacters.lean` — universal character readouts, count and power moments;
+- `EnterpriseMath/Relation/BRCCountAtlas.lean` — finite atlas common depth, canonical normal-form equivalence, carry and equivariance;
+- `EnterpriseMath.lean` — umbrella imports.
 
-Highest-leverage sequence:
+## 11. Verification checkpoint
 
-1. obtain warning-fatal Lean green for the generic framed/symmetry layer;
-2. formalize atomic serial multiplication and then exact positive-support convolution;
-3. instantiate the six-axis atlas action and the K4 symmetric-fibre obstruction;
-4. formalize one concrete compression potential (prefer the simpler common-depth potential first), including superadditivity/invariance and its nonnegative carry;
-5. formalize the K4 optimal extraction theorem separately;
-6. lift a finite framed transition system to a commutative matrix/polynomial semantics and connect determinant/port identities;
-7. connect generic root-block certificates only after the preceding semantic map is exact.
+Code head `26a33364bf705fd62e6179f4d70478edc8cb1c70` passed GitHub Actions Lean run `1586`, job `101266552945`, compiling the complete umbrella with
 
-This order keeps BRC semantics authoritative and prevents downstream algebra from silently erasing coordinate/provenance distinctions.
+`lake build --wfail -KCI EnterpriseMath`.
+
+That is a warning-fatal whole-library verification checkpoint. This research note is a later documentation synchronization commit, so final PR status must still be read from the final branch head; prior failed intermediate runs remain provenance.
+
+## 12. Next formal milestones
+
+Highest-leverage next sequence:
+
+1. instantiate the concrete six-axis/K4 permutation action into the generic CountAtlas/relabel layer and prove the concrete symmetry hypotheses;
+2. formalize the K4 optimal-extraction potential and its closed form separately, then connect its carry to the already-proved generic coboundary interface;
+3. formalize the finite framed transition-system lift into commutative matrix/polynomial semantics;
+4. connect exact histogram moments/valuations to finite recurrent and port transfer;
+5. only then lift determinant/Schur/root-atom certificates through the proved semantic maps;
+6. treat signed/amplitude cancellation as a separate carrier rather than weakening the positive BRC theorems.
+
+This order keeps BRC carrier/observer semantics authoritative and prevents later algebra from silently erasing coordinate, multiplicity, frame or provenance distinctions.
