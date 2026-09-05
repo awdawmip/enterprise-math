@@ -1,8 +1,8 @@
 {
-  "schema": "ENTERPRISE_MATH_P000_REALITY_FOUNDATION_V1",
+  "schema": "ENTERPRISE_MATH_P000_REALITY_FOUNDATION_V2",
   "status": "ACTIVE_LOCKED",
   "priority_class": "P000_ROOT_AXIOM",
-  "effective": "2026-08-29",
+  "effective": "2026-09-05",
   "authority_kind": "DIRECT_USER_WORLDVIEW_AXIOM",
   "scope": "ALL_ENTERPRISE_MATH_ROLES_AND_RESEARCH",
   "load_policy": "MANDATORY_BEFORE_SUBSTANTIVE_ENTERPRISE_MATH_REASONING",
@@ -13,6 +13,9 @@
     "REALITY_DECOMPOSITION": "6D_SPACE_PLUS_1D_TIME",
     "ENTERPRISE_SPACE_KIND": "DISCRETE_CELL_SPACE",
     "ENTERPRISE_PLANE_NATIVE_DIMENSION": 6,
+    "NATIVE_SPATIAL_AXIS_COUNT": 6,
+    "NATIVE_SPATIAL_AXES_PAIRWISE_ENTERPRISE_ORTHOGONAL": true,
+    "ENTERPRISE_NATIVE_RIGHT_ANGLE_DEGREES": 120,
     "CURRENT_THREE_AXIS_MODEL": "RESEARCH_SLICE_OF_6D_SPACE",
     "ENTERPRISE_GEOMETRY_PRIMARY_TRANSFORMATION": "ROTATION",
     "TIME_ROLE": "TRACE_AND_ORDER_OF_RELATIONAL_CHANGE"
@@ -25,6 +28,14 @@
     "P000_RESEARCH_BUDGET_FOR_PROVING_OR_DISPROVING=ZERO",
     "P000_ASSUMPTION_PRECEDES_QUESTION_GENERATION=true",
     "NATIVE_SPATIAL_DIMENSION=NATIVE_SPATIAL_AXIS_COUNT=6",
+    "FOR_ALL_DISTINCT_NATIVE_SPATIAL_AXES_EI_EJ:EI_PERP_E_EJ=true",
+    "ENTERPRISE_RIGHT_ANGLE=120_DEGREES",
+    "PAIRWISE_ENTERPRISE_ORTHOGONALITY_IS_DEFINITION_NOT_PROOF_OBLIGATION=true",
+    "CLASSICAL_EUCLIDEAN_90_DEGREES!=NATIVE_ENTERPRISE_RIGHT_ANGLE",
+    "CLASSICAL_90_DEGREE_RIGHT_ANGLE=EXTERNAL_EFFECTIVE_EUCLIDEAN_MODEL_ONLY",
+    "NATIVE_AXIS_COMPONENT_QUADRATIC_READOUT_HAS_ZERO_CROSS_TERMS=true",
+    "DECLARED_SIX_AXIS_COMPONENT_NORM_SQUARED=SUM_OF_SIX_COMPONENT_SQUARES",
+    "SIX_AXIS_COMPONENT_NORM_DOES_NOT_DECLARE_ARBITRARY_N6_TUPLE_A_NATIVE_CELL_ADDRESS",
     "THREE_AXIS_ENTERPRISE_GEOMETRY=RESEARCH_SLICE_NOT_FULL_WORLD",
     "OMITTED_CELL_COORDINATE!=ZERO_COORDINATE",
     "OMITTED_CELL_COORDINATE!=ABSENT_DIMENSION",
@@ -39,12 +50,18 @@
     "may_question_truth_within_project": false,
     "may_publish_replacement_candidate": false,
     "detailed_6d_geometry_remains_researchable": true,
-    "allowed_research_scope": "derive structures, rotations, slice gluings, metrics, invariants, dynamics and consequences conditional on P000",
-    "forbidden_research_scope": "prove/disprove P000, reduce six spatial dimensions by classical carrier rank, or restore 3D/4D reality ontology"
+    "orthogonality_status": "FIXED_BY_DIRECT_USER_DEFINITION",
+    "native_right_angle_status": "FIXED_AT_120_DEGREES_BY_DIRECT_USER_DEFINITION",
+    "six_axis_quadratic_component_norm_status": "FIXED_AS_SUM_OF_SQUARES_WHEN_A_SIX_AXIS_COMPONENT_DECOMPOSITION_IS_DECLARED",
+    "still_open": "native X6 Cell/address admissibility, adjacency/path category, full rotation action, carrier readout lift, and arbitrary point-to-point metric semantics beyond the declared axis-component norm",
+    "allowed_research_scope": "derive native states, admissibility, rotations, slice gluings, path relations, invariants, dynamics and consequences conditional on P000 and the fixed six-axis pairwise orthogonality",
+    "forbidden_research_scope": "prove/disprove P000, replace the 120-degree native right angle by the classical 90-degree Euclidean right angle, reduce six spatial dimensions by classical carrier rank, or restore 3D/4D reality ontology"
   },
   "conflict_policy": {
-    "legacy_three_axis_math": "PRESERVE_AT_SLICE_STRENGTH_WHEN_VALID",
+    "legacy_three_axis_math": "PRESERVE_AT_SLICE_STRENGTH_WHEN_VALID_AND_REINTERPRET_AS_RESTRICTION_OF_PAIRWISE_6D_ENTERPRISE_ORTHOGONALITY",
     "legacy_three_axis_world_ontology": "SUPERSEDED",
+    "legacy_90_degree_native_right_angle": "SUPERSEDED_AS_ENTERPRISE_NATIVE_GEOMETRY",
+    "external_euclidean_geometry": "REPORT_FAITHFULLY_AS_EXTERNAL_EFFECTIVE_MODEL; 90_DEGREE_RIGHT_ANGLE_REMAINS_VALID_INSIDE_THAT_MODEL_ONLY",
     "external_science": "REPORT_FAITHFULLY_AS_EXTERNAL_MODEL_WITHOUT_OVERRIDING_P000",
     "override_authority": "ONLY_EXPLICIT_DIRECT_USER_WORLDVIEW_CHANGE"
   }
