@@ -1,5 +1,5 @@
 {
-  "schema": "ENTERPRISE_MATH_JOINT_RELATION_OBSERVER_PRESERVATION_V1",
+  "schema": "ENTERPRISE_MATH_JOINT_RELATION_OBSERVER_PRESERVATION_V2",
   "status": "ACTIVE_LOCKED_DIRECT_USER_PROJECT_CONSTRAINT",
   "priority_class": "PROJECT_HIGHEST_RESEARCH_CONSTRAINT_BELOW_P000_ONTOLOGY",
   "effective": "2026-09-05",
@@ -7,22 +7,48 @@
   "project": "Enterprise Math / 进取数论",
   "scope": "ALL_ENTERPRISE_MATH_ROLES_AND_SUBSTANTIVE_RESEARCH",
   "load_policy": "MANDATORY_AFTER_P000_AND_BEFORE_ANY_INFORMATION_REDUCING_PROJECTION_OR_FACTOR_COLLAPSE",
-  "canonical_statement_zh": "不要只是把合数当成素数的重复产物；应该把它们保留为联合关系的观察方向。分解信息虽然已经存在，允许线性调用的交互方向却可能缺失。",
-  "canonical_statement_en": "Do not treat composite objects merely as repeated products of primitive factors. Preserve them as observation directions of joint relations. Even when decomposition information is already present, the interaction directions available to the permitted linear observer may still be missing.",
+  "canonical_statements_zh": [
+    "不要只是把合数当成素数的重复产物；应该把它们保留为联合关系的观察方向。分解信息虽然已经存在，允许线性调用的交互方向却可能缺失。",
+    "合数是路，素数是坑；路都没有了，光盯着坑没有意义。不允许轻易判定联合对象或合数方向冗余。"
+  ],
+  "canonical_statement_en": "Do not treat composite objects merely as repeated products of primitive factors. Preserve them as observation directions of joint relations. In the project research interpretation, composites are the relational road/background and primes are holes/defects observed relative to that background. Removing the road destroys context for the holes. Redundancy must never be assumed cheaply; it requires an exact scope-typed certificate.",
   "semantic_status": {
     "kind": "RESEARCH_METHOD_AND_INFORMATION_PRESERVATION_CONSTRAINT",
     "is_theorem": false,
     "is_P000_worldview_axiom": false,
-    "does_not_assert_every_composite_direction_is_independent": true,
-    "does_assert_no_default_erasure_from_factor_reconstructibility": true
+    "road_pit_status": "DIRECT_USER_PROJECT_RESEARCH_INTERPRETATION",
+    "does_not_assert_every_composite_direction_is_linearly_independent": true,
+    "does_assert_no_default_erasure_from_factor_reconstructibility": true,
+    "redundancy_default": "UNPROVEN_RETAIN"
+  },
+  "road_pit_interpretation": {
+    "COMPOSITE_LAYER": "RELATIONAL_ROAD_BACKGROUND_AND_JOINT_INTERACTION_CARRIER",
+    "PRIME_LAYER": "DISTINGUISHED_HOLE_OR_DEFECT_EVENT_OBSERVER_RELATIVE_TO_BACKGROUND",
+    "research_rule": "Study exceptional prime structure together with the composite/background relation field that makes the exception observable; do not delete the background merely because its elements factor.",
+    "context_rule": "A defect/hole is observer-relative to a retained ambient road/background. Removing the ambient relational background may erase the baseline, transitions, carries, couplings, paths, and comparison structure needed to characterize the defect.",
+    "anti_misread": "ROAD/PIT is a mandatory project research interpretation and information-preservation rule; it is not asserted as a classical textbook identity about integers outside this project."
   },
   "machine_invariants": [
     "RAW_DECOMPOSITION_INFORMATION_COMPLETE != DECLARED_OBSERVER_SPAN_COMPLETE",
     "JOINT_OBJECT_DETERMINED_BY_CONSTITUENTS != JOINT_OBSERVATION_REDUNDANT",
     "RECONSTRUCTIBLE_FROM_FACTORS != LINEARLY_CALLABLE_FROM_FACTOR_OBSERVERS",
+    "RECONSTRUCTIBLE != REDUNDANT",
     "COMPOSITE_OBJECT != DEFAULT_REPEATED_PRIMITIVE_PRODUCT_FOR_OBSERVER_PURPOSES",
     "CONSTITUENT_DATA_PRESENT != INTERACTION_DIRECTION_PRESENT",
+    "COMPOSITE_LAYER=RELATIONAL_ROAD_BACKGROUND_AND_JOINT_INTERACTION_CARRIER",
+    "PRIME_LAYER=DISTINGUISHED_HOLE_OR_DEFECT_OBSERVER_RELATIVE_TO_RETAINED_BACKGROUND",
+    "REMOVE_RELATIONAL_ROAD_BACKGROUND -> PRIME_DEFECT_CONTEXT_MAY_BE_DESTROYED",
+    "PRIME_ONLY_VIEW_WITHOUT_BACKGROUND_RELATION_FIELD = CONTEXT_LOSS_RISK",
     "JOINT_RELATION_DIRECTION -> PRESERVE_BY_DEFAULT",
+    "REDUNDANCY_STATUS_DEFAULT=UNPROVEN_RETAIN",
+    "EASY_REDUNDANCY_ASSUMPTION=FORBIDDEN",
+    "REDUNDANCY_CLAIM -> REQUIRE_EXPLICIT_OBSERVER_SCOPE",
+    "REDUNDANCY_CLAIM -> REQUIRE_EXPLICIT_FUTURE_OPERATION_HORIZON",
+    "REDUNDANCY_CLAIM -> REQUIRE_EXACT_FACTORIZATION_SPAN_FIBER_OR_DESCENT_CERTIFICATE",
+    "NO_EXACT_REDUNDANCY_CERTIFICATE -> NO_ERASURE",
+    "LOCAL_OBSERVER_REDUNDANCY != GLOBAL_REDUNDANCY",
+    "FINITE_HORIZON_REDUNDANCY != UNBOUNDED_HORIZON_REDUNDANCY",
+    "CURRENT_READOUT_REDUNDANCY != FUTURE_OPERATION_REDUNDANCY",
     "DROP_JOINT_RELATION_DIRECTION -> REQUIRE_EXACT_OBSERVER_FACTORIZATION_OR_SPAN_CERTIFICATE",
     "DROP_JOINT_RELATION_DIRECTION -> REQUIRE_FUTURE_OPERATION_SAFETY_FOR_DECLARED_HORIZON",
     "OBSERVER_FIBER_CONSTANCY_OR_EQUIVALENT_DESCENT_CERTIFICATE_REQUIRED_BEFORE_COLLAPSE=true",
@@ -30,11 +56,31 @@
     "PRIME_ONLY_VIEW=SECONDARY_PROJECTION_NOT_DEFAULT_ARITHMETIC_DISCOVERY_UNIVERSE",
     "COMPOSITE_INTEGER=ELIGIBLE_JOINT_RELATION_OBSERVATION_DIRECTION",
     "COMPOSITE_DECOMPOSABLE_INTO_PRIMES != COMPOSITE_OBSERVER_DIRECTION_DISCARDABLE",
-    "PRESERVE_FULL_INTEGER_POPULATION -> RETAIN_JOINT_COMPOSITE_OBSERVERS -> PROVE_SAFE_PROJECTION_BEFORE_ERASURE"
+    "PRESERVE_FULL_INTEGER_POPULATION -> RETAIN_COMPOSITE_ROAD_BACKGROUND -> RETAIN_JOINT_COMPOSITE_OBSERVERS -> PROVE_SCOPE_TYPED_REDUNDANCY_BEFORE_ERASURE"
   ],
+  "redundancy_certification_protocol": {
+    "default_state": "UNPROVEN_RETAIN",
+    "forbidden_shortcuts": [
+      "declaring redundancy only because prime factorization reconstructs the integer",
+      "declaring redundancy from a finite numerical fit without an exact certificate",
+      "declaring global redundancy from one observer, one scale, one truncation, or one finite horizon",
+      "declaring redundancy after taking absolute values, positive mass, totals, or other quotients that may erase the interaction being tested",
+      "declaring redundancy because a coordinate is zero or small in one fitted solution"
+    ],
+    "minimum_certificate": [
+      "name the exact object population and candidate direction to be removed",
+      "name the exact observer/readout under which redundancy is claimed",
+      "name every future operation and the finite or infinite horizon covered by the claim",
+      "prove exact factorization, exact span membership, fiber constancy, descent, or an equivalent observer-safe theorem",
+      "prove that signed, phase, multiplicity, carry, CRT coupling, provenance, path and interaction data needed later are preserved",
+      "record the scope of the certificate so it cannot be silently promoted to a stronger redundancy claim"
+    ],
+    "failure_action": "RETAIN_THE_DIRECTION_AND_RECORD_REDUNDANCY_AS_UNPROVEN"
+  },
   "observer_safety_contract": {
     "population": "the full declared object population before factor-only projection",
     "must_preserve": [
+      "the composite/background road required to interpret sparse prime/defect events",
       "joint/composite object identity when it can induce a distinct declared observation",
       "interaction coordinates not certified to lie in the allowed span of constituent observers",
       "signed or amplitude information when the declared output depends on cancellation",
@@ -44,42 +90,50 @@
     "collapse_is_allowed_only_if": [
       "the intended observer factors exactly through the proposed constituent/factor representation, or an exact span certificate proves the joint direction redundant",
       "all declared future operations within the current horizon descend through the same quotient",
-      "no signed, phase, multiplicity, provenance, or interaction coordinate required later is erased"
+      "no signed, phase, multiplicity, provenance, carry, CRT, path, or interaction coordinate required later is erased",
+      "the redundancy certificate is explicitly scoped and is not promoted beyond its observer/horizon"
     ],
     "failure_action": "RETAIN_OR_ADD_AN_EXPLICIT_INTERACTION_COORDINATE"
   },
   "arithmetic_specialization": {
-    "rule": "Prime factorization may determine a composite integer as raw arithmetic data, but it does not by itself prove that a composite-indexed observation lies in the allowed linear span of prime-indexed observations.",
+    "rule": "Prime factorization may determine a composite integer as raw arithmetic data, but it does not by itself prove that a composite-indexed observation lies in the allowed linear span of prime-indexed observations. The composite population is also the relational road/background against which sparse prime events are studied.",
     "mandatory_consequence": [
       "Do not delete composites merely because their prime factorization is known.",
-      "Treat composite-indexed residue, correlation, path, or transform coordinates as candidate joint-relation observers.",
+      "Do not make a prime-only picture the default universe and then infer global arithmetic structure from the holes alone.",
+      "Treat composite-indexed residue, correlation, path, transform, and transition coordinates as candidate joint-relation observers.",
       "A prime-only reduction requires an observer-specific exact factorization/span certificate, not only unique factorization.",
-      "If a composite coordinate detects carry, CRT coupling, mixed difference, or another non-additively-separable interaction, preserve it unless a stronger certified observer equivalence exists."
+      "If a composite coordinate detects carry, CRT coupling, mixed difference, path continuity, transition structure, or another non-additively-separable interaction, preserve it unless a stronger certified observer equivalence exists.",
+      "A redundancy conclusion is scoped; finite/local redundancy cannot be silently promoted to global/infinite-scale redundancy."
     ]
   },
   "brc_binding": {
-    "classification": "FIRST_LINE_OBSERVER_AND_PROVENANCE_GUARD",
+    "classification": "FIRST_LINE_OBSERVER_PROVENANCE_AND_ANTI_REDUNDANCY_GUARD",
     "required_checks": [
       "declare branch/object population before compression",
+      "retain the relational road/background needed to interpret exceptional events",
       "declare observer and allowed future operations",
       "distinguish raw reconstructibility from observer-span completeness",
+      "treat redundancy as UNPROVEN until a scope-typed exact certificate exists",
       "test fiber constancy/descent or retain a repair coordinate",
       "do not replace signed interaction by positive mass"
     ],
-    "compatible_existing_rule": "Use the narrowest sufficient carrier; coarsening is legal only after observer/future-operation factorization is proved."
+    "compatible_existing_rule": "Use the narrowest sufficient carrier only after sufficiency is proved for the declared observer and future-operation horizon; convenience is not a redundancy certificate."
   },
   "anti_misread": [
     "This constraint does not say every composite coordinate is linearly independent.",
     "This constraint does not deny unique factorization or other valid decompositions.",
     "This constraint does not prohibit prime-only projections after a valid observer-specific certificate.",
+    "This constraint does not allow a finite/local redundancy certificate to be promoted to a global/unbounded one.",
     "This constraint does not promote any RH research candidate to theorem or Foundation truth.",
-    "This constraint is general: the same logic applies to joint branches, path compositions, multi-factor residues, correlations, and other interaction objects."
+    "This constraint is general: the same logic applies to joint branches, path compositions, multi-factor residues, correlations, backgrounds and other interaction objects."
   ],
   "precedence": {
     "above": [
       "method-specific convenience reductions",
       "prime-only default filtering",
       "factor-only observer choices",
+      "informal redundancy judgments",
+      "finite-fit redundancy guesses",
       "unproved positive-mass recoalescence",
       "unproved quotient/collapse operations"
     ],
@@ -88,6 +142,6 @@
       "direct current user instruction",
       "P000 ontology/worldview root axioms where applicable"
     ],
-    "conflict_rule": "WHEN_IN_DOUBT_PRESERVE_THE_JOINT_RELATION_DIRECTION_AND_RECORD_THE_UNRESOLVED_REDUCTION_OBLIGATION"
+    "conflict_rule": "WHEN_IN_DOUBT_OR_CERTIFICATE_IS_INCOMPLETE_PRESERVE_THE_COMPOSITE_ROAD_AND_JOINT_RELATION_DIRECTION_AND_RECORD_REDUNDANCY_AS_UNPROVEN"
   }
 }
