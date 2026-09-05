@@ -15,6 +15,7 @@ import EnterpriseMath.Quotient.PowerFreeActionBasis
 import EnterpriseMath.Quotient.RootFutureClosure
 import EnterpriseMath.Relation.BranchRecoalescence
 import EnterpriseMath.Relation.FramedBranchRecoalescence
+import EnterpriseMath.Relation.BRCPositiveSupport
 import EnterpriseMath.Relation.BRCFrameSymmetry
 import EnterpriseMath.Relation.BRCObserverAlgebra
 import EnterpriseMath.Relation.BRCWeightHistogram
