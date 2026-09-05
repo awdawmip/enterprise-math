@@ -11,7 +11,7 @@ Depends on:
 
 ## 1. Odd denominator and its doubled denominator
 
-Let `d>1` be odd.  Primitive projective denominator-`d` roots and denominator-`2d` roots are exchanged by the complement map
+Let `d>1` be odd. Primitive projective denominator-`d` roots and denominator-`2d` roots are exchanged by the complement map
 
 \[
 v\longmapsto4-v.
@@ -26,6 +26,7 @@ More explicitly, internal phase indexing gives
 \{4-\alpha:\alpha\in\operatorname{Roots}(\Omega_d)\}.
 }
 \tag{CS-1}
+\]
 
 Both polynomials are monic of the same degree
 
@@ -42,6 +43,7 @@ Therefore monic leading-coefficient comparison gives the exact polynomial identi
 \qquad(d>1\text{ odd}).
 }
 \tag{CS-2}
+\]
 
 This identity is purely finite and does not require a cyclotomic field model.
 
@@ -49,7 +51,7 @@ This identity is purely finite and does not require a cyclotomic field model.
 
 ## 2. Equality of the projective spectral fields
 
-Let `alpha` be a root of `Omega_d`.  Then
+Let `alpha` be a root of `Omega_d`. Then
 
 \[
 4-\alpha
@@ -60,9 +62,7 @@ is a root of `Omega_(2d)`, and conversely.
 Hence
 
 \[
-\mathbf Q(\alpha)
-=
-\mathbf Q(4-\alpha).
+\mathbf Q(\alpha)=\mathbf Q(4-\alpha).
 \]
 
 Therefore, with compatible embeddings,
@@ -73,6 +73,7 @@ K_{2d}=K_d
 \qquad(d>1\text{ odd}).
 }
 \tag{CS-3}
+\]
 
 Thus doubling an odd projective denominator does **not** create a new projective spectral field; it changes the primitive generator by the complement sheet.
 
@@ -94,6 +95,7 @@ Using (CS-2),
 =(-1)^h\Omega_d(v)\Omega_d(4-v).
 }
 \tag{CS-4}
+\]
 
 Thus the two irreducible factors of the oriented block are the two complement-coordinate sheets of the **same** Galois field `K_d`.
 
@@ -123,7 +125,8 @@ Define the projective spectral conductor index
  d,& \text{otherwise}.
 \end{cases}
 }
-\tag{CS-5
+\tag{CS-5}
+\]
 
 For `d>2`, repeated use of (CS-3) gives
 
@@ -131,7 +134,8 @@ For `d>2`, repeated use of (CS-3) gives
 \boxed{
 K_d=K_{\mathfrak c(d)}.
 }
-\tag{CS-6
+\tag{CS-6}
+\]
 
 So the only redundant denominator label at field level is a single factor of two attached to an odd denominator.
 
@@ -155,7 +159,7 @@ When `d=2m` with `m` odd,
 (\mathbf Z/m\mathbf Z)^\times
 \]
 
-by reduction modulo `m`.  Quotienting by `{±1}` gives
+by reduction modulo `m`. Quotienting by `{±1}` gives
 
 \[
 \boxed{
@@ -163,7 +167,8 @@ by reduction modulo `m`.  Quotienting by `{±1}` gives
 \cong
 (\mathbf Z/\mathfrak c(d)\mathbf Z)^\times/\{\pm1\}.
 }
-\tag{CS-7
+\tag{CS-7}
+\]
 
 This agrees exactly with the field identity (CS-6) and the native Galois theorem.
 
@@ -171,7 +176,7 @@ This agrees exactly with the field identity (CS-6) and the native Galois theorem
 
 ## 6. Discriminant equality for the doubled odd label
 
-A translation/reflection of the generator does not change pairwise root differences in absolute value.  From (CS-2),
+A translation/reflection of the generator does not change pairwise root differences in absolute value. From (CS-2),
 
 \[
 \boxed{
@@ -180,7 +185,8 @@ A translation/reflection of the generator does not change pairwise root differen
 \operatorname{Disc}(\Omega_d)
 \qquad(d>1\text{ odd}).
 }
-\tag{CS-8
+\tag{CS-8}
+\]
 
 This is also visible directly in the native projective discriminant formula: the apparent extra factor `2` in the denominator label cancels against the midpoint/primitive-mass term.
 
@@ -204,20 +210,20 @@ Setting `v=0` in (CS-2):
 |\Omega_d(4)|
 =|\Omega_{2d}(0)|.
 }
-\tag{CS-9
+\tag{CS-9}
+\]
 
-The right side is the primitive projective mass at denominator `2d`.  Therefore for odd `d>1`,
+The right side is the primitive projective mass at denominator `2d`. Since `d>1` is odd, `2d` has the distinct prime divisors `2` and at least one odd prime. Therefore `2d` is never a prime power, and the primitive mass law gives
 
 \[
-|\Omega_d(4)|
-=
-\begin{cases}
- p,& d=p^a,\\
- 1,& d\text{ has at least two distinct prime factors}.
-\end{cases}
-\tag{CS-10
+\boxed{
+|\Omega_d(4)|=1
+\qquad(d>1\text{ odd}).
+}
+\tag{CS-10}
+\]
 
-This recovers the midpoint law from the complement-sheet identity itself.
+This is the correct odd-denominator midpoint law. In particular, even when `d=p^a` is an odd prime power, the doubled denominator `2p^a` is not a prime power, so the value remains one.
 
 ---
 
