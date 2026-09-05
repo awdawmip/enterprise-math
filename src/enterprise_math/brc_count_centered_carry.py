@@ -399,3 +399,110 @@ def hard_prime_skeleton_thickness(n: int) -> HardPrimeSkeletonThickness:
     if not state.verify():
         raise AssertionError("hard-prime skeleton/thickness verification failed")
     return state
+
+
+def divisor_count(value: int) -> int:
+    """Exact divisor-count function tau(value)."""
+    n = _require_positive_int("value", value)
+    result = 1
+    for _prime, exponent in factor_positive_integer(n):
+        result *= exponent + 1
+    return result
+
+
+@dataclass(frozen=True)
+class ReciprocalQuotientShell:
+    """One exact d-shell for x=n/d under the fixed gamma-centered geometry.
+
+    For every integer ``d`` in ``[lower_d, upper_d]`` we have
+    ``floor(n/d)=quotient``.  Inside the shell the geometry has only one
+    possible jump, at ``d<=midpoint_upper_d``:
+
+    ``K_gamma(n/d) = base + (tau(2r+1)-1) * 1[d<=midpoint_upper_d]``.
+
+    The ``-1`` is essential: when ``2x`` crosses the odd integer ``2r+1``,
+    the divisor summatory function jumps by ``tau(2r+1)`` while the count of
+    upper branches lying outside the old population jumps by one.
+    """
+
+    n: int
+    quotient: int
+    lower_d: int
+    midpoint_upper_d: int
+    upper_d: int
+    base: GammaAffine
+    jump: int
+
+    @property
+    def nonempty(self) -> bool:
+        return self.lower_d <= self.upper_d
+
+    def contains(self, d: int) -> bool:
+        return self.nonempty and self.lower_d <= d <= self.upper_d
+
+    def geometry(self, d: int) -> GammaAffine:
+        if not self.contains(d):
+            raise ValueError("d does not belong to this reciprocal quotient shell")
+        return self.base + GammaAffine(self.jump if d <= self.midpoint_upper_d else 0, 0)
+
+
+def reciprocal_quotient_shell(n: int, quotient: int, *, minimum_d: int = 2) -> ReciprocalQuotientShell:
+    """Compile one exact reciprocal shell for the Mobius-log d-variable."""
+    n = _require_positive_int("n", n)
+    r = _require_positive_int("quotient", quotient)
+    minimum_d = _require_positive_int("minimum_d", minimum_d)
+    if r > n:
+        raise ValueError("quotient cannot exceed n")
+    lower = max(minimum_d, n // (r + 1) + 1)
+    upper = n // r
+    midpoint_upper = min(upper, (2 * n) // (2 * r + 1))
+    base = GammaAffine(carry_count(r), -r)
+    jump = divisor_count(2 * r + 1) - 1
+    return ReciprocalQuotientShell(
+        n=n,
+        quotient=r,
+        lower_d=lower,
+        midpoint_upper_d=midpoint_upper,
+        upper_d=upper,
+        base=base,
+        jump=jump,
+    )
+
+
+def reciprocal_shells(n: int, *, minimum_d: int = 2) -> tuple[ReciprocalQuotientShell, ...]:
+    """Return all nonempty quotient shells covering ``minimum_d<=d<=n``."""
+    n = _require_positive_int("n", n)
+    minimum_d = _require_positive_int("minimum_d", minimum_d)
+    if minimum_d > n:
+        return ()
+    shells: list[ReciprocalQuotientShell] = []
+    d = minimum_d
+    while d <= n:
+        r = n // d
+        shell = reciprocal_quotient_shell(n, r, minimum_d=minimum_d)
+        if not shell.nonempty or not shell.contains(d):
+            raise AssertionError("reciprocal shell compiler failed to cover current d")
+        shells.append(shell)
+        d = shell.upper_d + 1
+    return tuple(shells)
+
+
+def mobius_shell_deconvolution_form(n: int) -> GammaLogForm:
+    """Same exact deconvolution as ``mobius_divisor_deconvolution_form``, shell-compiled.
+
+    This implementation is deliberately formal: it groups the geometry by
+    reciprocal quotient shells but retains the signed ``mu(d) log d`` observer
+    coefficients without turning them into positive path mass.
+    """
+    n = _require_positive_int("n", n)
+    constant = -centered_geometry_ratio(n)
+    terms: list[tuple[int, GammaAffine]] = []
+    for shell in reciprocal_shells(n):
+        for d in range(shell.lower_d, shell.upper_d + 1):
+            mu = mobius(d)
+            if mu == 0:
+                continue
+            coefficient = shell.geometry(d).scale(-mu)
+            if coefficient != GammaAffine():
+                terms.append((d, coefficient))
+    return GammaLogForm(constant=constant, log_terms=tuple(terms))
