@@ -134,5 +134,39 @@ class BRCCountCenteredCarryTests(unittest.TestCase):
         self.assertEqual(mobius(12), 0)
 
 
+class BRCReciprocalShellTests(unittest.TestCase):
+    def test_shells_cover_each_d_once_and_geometry_is_exact(self) -> None:
+        from enterprise_math.brc_count_centered_carry import reciprocal_shells
+
+        for n in range(2, 129):
+            shells = reciprocal_shells(n)
+            covered: list[int] = []
+            for shell in shells:
+                self.assertTrue(shell.nonempty)
+                for d in range(shell.lower_d, shell.upper_d + 1):
+                    covered.append(d)
+                    self.assertEqual(n // d, shell.quotient)
+                    self.assertEqual(shell.geometry(d), centered_geometry_ratio(n, d))
+            self.assertEqual(covered, list(range(2, n + 1)))
+
+    def test_shell_jump_is_tau_minus_one(self) -> None:
+        from enterprise_math.brc_count_centered_carry import reciprocal_quotient_shell
+
+        n = 100
+        shell = reciprocal_quotient_shell(n, 2)
+        self.assertEqual((shell.lower_d, shell.midpoint_upper_d, shell.upper_d), (34, 40, 50))
+        self.assertEqual(shell.jump, 1)  # tau(5)-1
+        self.assertEqual(shell.geometry(40), GammaAffine(1, -2))
+        self.assertEqual(shell.geometry(41), GammaAffine(0, -2))
+
+    def test_shell_deconvolution_matches_direct_form(self) -> None:
+        from enterprise_math.brc_count_centered_carry import mobius_shell_deconvolution_form
+
+        for n in range(1, 81):
+            direct = direct_gamma_centered_prime_error_form(n)
+            shell = mobius_shell_deconvolution_form(n)
+            self.assertTrue(direct.equivalent(shell), msg=f"n={n}")
+
+
 if __name__ == "__main__":
     unittest.main()
