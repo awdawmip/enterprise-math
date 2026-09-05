@@ -2,7 +2,7 @@
   "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
   "status": "ACTIVE / RESEARCH-CANDIDATE / USER-DIRECTED / NOT-FOUNDATION-PROMOTION",
   "effective": "2026-09-05",
-  "scope": "T0_BRC companion tooling for exact finite count-centered carry, valuation holonomy, reciprocal quotient shells, Mobius geometry inversion, logarithmic gauge transfer, prime-cutoff divisor/Mobius factorization, symbolic reciprocal-wavelet geometry, and hard-prime skeleton/thickness diagnostics",
+  "scope": "T0_BRC companion tooling for exact finite count-centered carry, valuation holonomy, reciprocal quotient shells, Mobius geometry inversion, logarithmic gauge transfer, prime-cutoff divisor/Mobius factorization, degree-one large-prime time increments, symbolic reciprocal-wavelet geometry, and hard-prime skeleton/thickness diagnostics",
   "tools": [
     {
       "tool_id": "t0.weighted_brc_count_centered_carry",
@@ -51,12 +51,28 @@
         "CHOOSING_A_CUTOFF_FROM_AN_ANALYTIC_THRESHOLD_DOES_NOT_PROVE_CONTROL_AT_THAT_THRESHOLD",
         "FINITE_CUTOFF_CERTIFICATE != ASYMPTOTIC_RH_PROOF"
       ]
+    },
+    {
+      "tool_id": "t0.weighted_brc_large_prime_increment",
+      "family": "T0_BRC",
+      "path": "src/enterprise_math/brc_large_prime_hard_core.py",
+      "status": "ACTIVE / EXACT-FINITE / RESEARCH-CANDIDATE",
+      "input_contract": "Positive integer time n, odd prime branch p when using residue identities, and positive integer large-prime cutoff y.",
+      "output_contract": "Exact half-residue carry, exact one-step divisibility increment, pointwise selected large-prime valuation state, rough-radical endpoint compiler, and degree-one rough certificate when y^2 exceeds the active linear-form range.",
+      "reuse_rule": "Use only after the prime-cutoff connection has reduced the unresolved observer to the complete pointwise large-prime layer. Preserve outer primes p<=n and use the increment compiler instead of a frozen p<=N surrogate.",
+      "boundaries": [
+        "TIME_INCREMENT_IDENTITY != LOW_FREQUENCY_CANCELLATION_BOUND",
+        "ROUGH_DEGREE_ONE != STATISTICAL_INDEPENDENCE",
+        "OUTER_PRIMES_N_LT_P_LT_2N_MUST_BE_RETAINED_POINTWISE_WHEN_P_LE_N",
+        "PLAIN_POINCARE_ON_INCREMENTS_LOSES_ONE_FACTOR_OF_N",
+        "FINITE_INCREMENT_TESTS != RH_PROOF"
+      ]
     }
   ],
   "research_provenance": {
     "researcher_id": "EM-FREE-3EAA93",
     "mode": "FREE_AXIOM_DISCOVERY",
-    "source_event": "EM-FREE-3EAA93-BRC-COUNT-CENTERED-WAVELET-V14-20260905 / V15-log-gauge-and-cutoff-extension",
-    "global_journal_commit": "78075758a90fef59fb78fc2c13473ecdd49a7681"
+    "source_event": "EM-FREE-3EAA93-BRC-FRAME-NOGO-HARD-INCREMENT-V17-20260905",
+    "global_journal_commit": "8592eb485621fe7bfe4e1e1769299d640dafbf83"
   }
 }
