@@ -22,6 +22,7 @@ and raw operation length.
 The outer `ℕ` coefficient used below records multiplicity of identical summaries;
 therefore `weight` remains part of the path key instead of being silently summed
 away. -/
+@[ext]
 structure FramedPath (W G C : Type*) [Monoid W] [Monoid G] [AddMonoid C]
     (ρ : CoordinateAction G C) where
   weight : W
@@ -113,6 +114,7 @@ end FramedPath
 
 /-- The observer that deliberately forgets all coordinate and frame information
 but retains multiplicative weight and additive operation length. -/
+@[ext]
 structure WeightLength (W : Type*) [Monoid W] where
   weight : W
   length : Nat
@@ -177,10 +179,10 @@ theorem framedSingle_mul_framedSingle {W G C : Type*}
   MonoidAlgebra.single_mul_single a b r s
 
 /-- A path-level observer that is a monoid homomorphism lifts canonically through
-positive BRC convolution.  This particular map proves that the `(weight,length)`
+positive BRC convolution. This particular map proves that the `(weight,length)`
 observer is safe not only for one path but for arbitrary finite N-BRC sums and
 serial products. -/
-def eraseGeometryNBRCAlgHom {W G C : Type*}
+noncomputable def eraseGeometryNBRCAlgHom {W G C : Type*}
     [Monoid W] [Monoid G] [AddMonoid C] (ρ : CoordinateAction G C) :
     FramedNBRC W G C ρ →ₐ[ℕ] MonoidAlgebra ℕ (WeightLength W) :=
   MonoidAlgebra.mapDomainAlgHom ℕ ℕ (FramedPath.eraseGeometryHom ρ)
@@ -203,7 +205,11 @@ def booleanShadow {W G C : Type*} [Monoid W] [Monoid G] [AddMonoid C]
     booleanShadow (MonoidAlgebra.single p (1 : ℕ)) = ({p} : Set (FramedPath W G C ρ)) := by
   classical
   ext q
-  simp [booleanShadow]
+  by_cases h : q = p
+  · subst q
+    simp [booleanShadow]
+  · have hpq : p ≠ q := fun hp => h hp.symm
+    simp [booleanShadow, h, hpq]
 
 /-- Positive recoalescence becomes literal support union. This is the exact
 additive bridge `N-BRC -> Boolean-BRC`; no multiplicity can be reconstructed in
@@ -213,9 +219,12 @@ theorem booleanShadow_add {W G C : Type*}
     (f g : FramedNBRC W G C ρ) :
     booleanShadow (f + g) = booleanShadow f ∪ booleanShadow g := by
   ext p
-  simp [booleanShadow]
+  simp only [booleanShadow, Set.mem_setOf_eq, Set.mem_union]
+  change (f.coeff p + g.coeff p ≠ 0) ↔ f.coeff p ≠ 0 ∨ g.coeff p ≠ 0
+  omega
 
 /-- Frame-erased state used to state an exact information-loss obstruction. -/
+@[ext]
 structure FrameErased (W C : Type*) where
   weight : W
   coord : C
