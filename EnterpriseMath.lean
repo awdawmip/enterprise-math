@@ -19,6 +19,7 @@ import EnterpriseMath.Relation.BRCPositiveSupport
 import EnterpriseMath.Relation.BRCFrameSymmetry
 import EnterpriseMath.Relation.BRCObserverAlgebra
 import EnterpriseMath.Relation.BRCWeightHistogram
+import EnterpriseMath.Relation.BRCWeightCharacters
 import EnterpriseMath.Relation.BRCCountAtlas
 import EnterpriseMath.Scale.Compatibility
 import EnterpriseMath.State.CriticalGrid
