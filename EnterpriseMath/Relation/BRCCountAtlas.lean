@@ -67,6 +67,13 @@ theorem commonDepth_normalizeAtlas {ι : Type*} [Fintype ι] [Nonempty ι]
       _ = 0 := hi
   exact Nat.eq_zero_of_le_zero hle
 
+/-- Once common depth is removed, normalizing again does nothing. -/
+@[simp] theorem normalizeAtlas_idempotent {ι : Type*} [Fintype ι] [Nonempty ι]
+    (n : CountAtlas ι) :
+    normalizeAtlas (normalizeAtlas n) = normalizeAtlas n := by
+  funext i
+  simp [normalizeAtlas, commonDepth_normalizeAtlas]
+
 /-- Canonical compressed atlas representation: removable scalar depth plus a
 normalized residue. -/
 def decomposeAtlas {ι : Type*} [Fintype ι] [Nonempty ι]
@@ -91,6 +98,64 @@ theorem decomposeAtlas_normalized {ι : Type*}
     commonDepth (decomposeAtlas n).2 = 0 := by
   exact commonDepth_normalizeAtlas n
 
+/-- Adding a scalar depth to every coordinate shifts common depth by exactly that
+scalar. -/
+theorem commonDepth_restoreAtlas {ι : Type*}
+    [Fintype ι] [Nonempty ι] (h : ℕ) (r : CountAtlas ι) :
+    commonDepth (restoreAtlas (h, r)) = h + commonDepth r := by
+  apply le_antisymm
+  · rcases Finset.exists_mem_eq_inf' (s := Finset.univ) Finset.univ_nonempty r with
+      ⟨i, _hi, hmin⟩
+    have hcd : commonDepth r = r i := by
+      simpa [commonDepth] using hmin
+    calc
+      commonDepth (restoreAtlas (h, r)) ≤ restoreAtlas (h, r) i :=
+        commonDepth_le (restoreAtlas (h, r)) i
+      _ = h + r i := rfl
+      _ = h + commonDepth r := by rw [hcd]
+  · refine Finset.le_inf' _ _ ?_
+    intro i _hi
+    change h + commonDepth r ≤ h + r i
+    exact Nat.add_le_add_left (commonDepth_le r i) h
+
+/-- Restoring a normalized residue and then normalizing recovers that residue
+exactly. -/
+theorem normalizeAtlas_restoreAtlas_of_normalized {ι : Type*}
+    [Fintype ι] [Nonempty ι] (h : ℕ) (r : CountAtlas ι)
+    (hr : commonDepth r = 0) :
+    normalizeAtlas (restoreAtlas (h, r)) = r := by
+  funext i
+  rw [normalizeAtlas_apply, commonDepth_restoreAtlas, hr]
+  simp [restoreAtlas]
+
+/-- A depth/residue pair with normalized residue is already in canonical normal
+form. -/
+theorem decomposeAtlas_restoreAtlas_of_normalized {ι : Type*}
+    [Fintype ι] [Nonempty ι] (h : ℕ) (r : CountAtlas ι)
+    (hr : commonDepth r = 0) :
+    decomposeAtlas (restoreAtlas (h, r)) = (h, r) := by
+  apply Prod.ext
+  · change commonDepth (restoreAtlas (h, r)) = h
+    rw [commonDepth_restoreAtlas, hr]
+    simp
+  · change normalizeAtlas (restoreAtlas (h, r)) = r
+    exact normalizeAtlas_restoreAtlas_of_normalized h r hr
+
+/-- Certified normal forms for finite count atlases. -/
+abbrev CountAtlasNormalForm (ι : Type*) [Fintype ι] [Nonempty ι] :=
+  {x : ℕ × CountAtlas ι // commonDepth x.2 = 0}
+
+/-- Finite count atlases are exactly equivalent to a common scalar depth plus a
+normalized residual atlas. -/
+def countAtlasNormalFormEquiv (ι : Type*) [Fintype ι] [Nonempty ι] :
+    CountAtlas ι ≃ CountAtlasNormalForm ι where
+  toFun n := ⟨decomposeAtlas n, decomposeAtlas_normalized n⟩
+  invFun x := restoreAtlas x.1
+  left_inv n := restoreAtlas_decomposeAtlas n
+  right_inv x := by
+    apply Subtype.ext
+    exact decomposeAtlas_restoreAtlas_of_normalized x.1.1 x.1.2 x.2
+
 /-- Pure axis relabeling preserves common depth exactly. -/
 theorem commonDepth_act {G ι : Type*}
     [Monoid G] [Fintype ι] [Nonempty ι]
@@ -108,6 +173,32 @@ theorem commonDepth_act {G ι : Type*}
     intro i _hi
     rw [he n i]
     exact commonDepth_le n (e i)
+
+/-- Canonical normalization commutes exactly with pure axis relabeling. -/
+theorem normalizeAtlas_act {G ι : Type*}
+    [Monoid G] [Fintype ι] [Nonempty ι]
+    (ρ : CoordinateAction G (CountAtlas ι))
+    (hρ : CoordinateReindexing ρ) (g : G) (n : CountAtlas ι) :
+    normalizeAtlas (ρ.act g n) = ρ.act g (normalizeAtlas n) := by
+  rcases hρ g with ⟨e, he⟩
+  funext i
+  change ρ.act g n i - commonDepth (ρ.act g n) = ρ.act g (normalizeAtlas n) i
+  rw [commonDepth_act ρ hρ g n, he n i, he (normalizeAtlas n) i]
+  rfl
+
+/-- Canonical depth/residue decomposition is equivariant: the scalar depth is
+fixed and only the normalized residual coordinates are reindexed. -/
+theorem decomposeAtlas_act {G ι : Type*}
+    [Monoid G] [Fintype ι] [Nonempty ι]
+    (ρ : CoordinateAction G (CountAtlas ι))
+    (hρ : CoordinateReindexing ρ) (g : G) (n : CountAtlas ι) :
+    decomposeAtlas (ρ.act g n) =
+      (commonDepth n, ρ.act g (normalizeAtlas n)) := by
+  apply Prod.ext
+  · change commonDepth (ρ.act g n) = commonDepth n
+    exact commonDepth_act ρ hρ g n
+  · change normalizeAtlas (ρ.act g n) = ρ.act g (normalizeAtlas n)
+    exact normalizeAtlas_act ρ hρ g n
 
 /-- The common depth of a serially added atlas is at least the sum of the two
 individual common depths, even when the second atlas is first frame-reindexed. -/
