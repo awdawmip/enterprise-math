@@ -37,8 +37,7 @@ multiplicity. -/
     (p : FramedPath W G C ρ) (n : ℕ) :
     weightHistogramAlgHom ρ (MonoidAlgebra.single p n) =
       MonoidAlgebra.single p.weight n := by
-  simpa [weightHistogramAlgHom] using
-    (observerNBRCAlgHom_single ρ (FramedPath.weightHom (W := W) ρ) p n)
+  simp [weightHistogramAlgHom]
 
 /-- Exact branch weight is frame-invariant at path level. -/
 theorem weightHom_frameInvariant {W G C : Type*}
