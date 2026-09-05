@@ -110,7 +110,7 @@ end FramedPath
 /-- A frame rotation acts by an exact algebra automorphism on the whole positive
 multiplicity BRC, so covariance is preserved through both alternative sums and
 serial convolutions. -/
-def relabelNBRCAlgEquiv {W G C : Type*}
+noncomputable def relabelNBRCAlgEquiv {W G C : Type*}
     [Monoid W] [Group G] [AddMonoid C] (ρ : CoordinateAction G C) (s : G) :
     FramedNBRC W G C ρ ≃ₐ[ℕ] FramedNBRC W G C ρ :=
   MonoidAlgebra.domCongr ℕ ℕ (FramedPath.relabelEquiv ρ s)
