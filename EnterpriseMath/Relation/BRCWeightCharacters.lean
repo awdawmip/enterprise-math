@@ -86,7 +86,9 @@ theorem framedWeightCharacter_relabel {W G C R : Type*}
     (s : G) (f : FramedNBRC W G C ρ) :
     framedWeightCharacter ρ χ ((relabelNBRCAlgEquiv ρ s) f) =
       framedWeightCharacter ρ χ f := by
-  unfold framedWeightCharacter
-  rw [weightHistogram_relabel]
+  change histogramCharacter χ
+      (weightHistogramAlgHom ρ ((relabelNBRCAlgEquiv ρ s) f)) =
+    histogramCharacter χ (weightHistogramAlgHom ρ f)
+  exact congrArg (histogramCharacter χ) (weightHistogram_relabel ρ s f)
 
 end EnterpriseMath.BranchRecoalescence
