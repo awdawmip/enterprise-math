@@ -1,7 +1,7 @@
 # Enterprise Math — Current Native Foundation Router
 
-Status: `ACTIVE / STABLE CURRENT ROUTER / P000-BOUND / FCC-CARRIER-SELECTED / WEIGHTED-BRC-GLOBAL-BASE / FINITE-RECURRENT-CERTIFIED / RECURRENT-INTERACTION-CERTIFIED / RECURRENT-PORT-CERTIFIED / UNIVERSAL-HISTOGRAM-CERTIFIED / CRITICAL-DEGENERACY-CERTIFIED / LAZY LOAD`
-Date: `2026-09-03`
+Status: `ACTIVE / STABLE CURRENT ROUTER / P000-BOUND / X6-SIGNED-SPATIAL-CERTIFIED / FCC-CARRIER-SELECTED / WEIGHTED-BRC-GLOBAL-BASE / FINITE-RECURRENT-CERTIFIED / RECURRENT-INTERACTION-CERTIFIED / RECURRENT-PORT-CERTIFIED / UNIVERSAL-HISTOGRAM-CERTIFIED / CRITICAL-DEGENERACY-CERTIFIED / LAZY LOAD`
+Date: `2026-09-05`
 Purpose: route current native mathematics without loading unrelated results.
 
 This file contains **current state only**. For exact statements/proofs/checker provenance, read the exact canonical definition actually used by the task.
@@ -22,6 +22,14 @@ Freeze:
 
 `ENTERPRISE_PLANE_NATIVE_DIMENSION=6`.
 
+`NATIVE_SPATIAL_AXIS_COUNT=6`.
+
+`NATIVE_PRIMITIVE_DIRECTION_DOMAIN=SIGNED_NATIVE_SPATIAL_AXES`.
+
+`FOR_ALL_i!=j: E_i PERP_E E_j`.
+
+`ENTERPRISE_RIGHT_ANGLE=120_DEGREES`.
+
 `CURRENT_THREE_AXIS_MODEL=RESEARCH_SLICE_OF_6D_SPACE`.
 
 `ENTERPRISE_GEOMETRY_PRIMARY_TRANSFORMATION=ROTATION`.
@@ -31,6 +39,8 @@ Freeze:
 P000 is an unconditional project starting axiom. It has no proof obligation, no falsification route and no replacement-candidate route inside Enterprise Math. Only an explicit direct user worldview change may supersede it.
 
 Do not infer world dimension from classical carrier rank, affine redundancy, Euclidean embedding dimension, projection dimension or visualizability.
+
+For direction/balance work also load `P000_DISCRETE_DIRECTION_TRIADIC_BALANCE_20260905.md`. Before any information-reducing projection or factor collapse load `ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json` and preserve the richer carrier unless an exact observer/future-operation descent certificate exists.
 
 ## Universal branch-typing foundation
 
@@ -83,33 +93,103 @@ Freeze:
 
 ## Current canonical registry
 
-1. P000 world/dimension typing — `../p000_reality_foundation.json`;
-2. **all-research Weighted-BRC minimal substrate** — `ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json`;
-3. BRC weighted/log detailed foundation — `ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md`;
-4. BRC weighted/log theorem ledger — `ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json`;
-5. BRC finite recurrent rational foundation — `ENTERPRISE_BRC_FINITE_RECURRENT_FOUNDATION_20260902.md`;
-6. BRC finite recurrent theorem-ledger addendum — `ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json`;
-7. BRC recurrent interaction foundation — `ENTERPRISE_BRC_RECURRENT_INTERACTION_FOUNDATION_20260903.md`;
-8. BRC recurrent interaction theorem ledger — `ENTERPRISE_BRC_RECURRENT_INTERACTION_THEOREM_LEDGER_20260903.json`;
-9. BRC recurrent port foundation — `ENTERPRISE_BRC_RECURRENT_PORT_FOUNDATION_20260903.md`;
-10. BRC recurrent port theorem ledger — `ENTERPRISE_BRC_RECURRENT_PORT_THEOREM_LEDGER_20260903.json`;
-11. BRC universal histogram foundation — `ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_FOUNDATION_20260903.md`;
-12. BRC universal histogram theorem ledger — `ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_THEOREM_LEDGER_20260903.json`;
-13. BRC critical-degeneracy foundation — `ENTERPRISE_BRC_CRITICAL_DEGENERACY_FOUNDATION_20260903.md`;
-14. BRC critical-degeneracy theorem ledger — `ENTERPRISE_BRC_CRITICAL_DEGENERACY_THEOREM_LEDGER_20260903.json`;
-15. **primary six-axis rotational coordinate carrier** — `P000_FCC_PRIMARY_COORDINATE_CARRIER_20260829.md`;
-16. established three-axis research slice / coordinates — `ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`;
-17. native line trace — `ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`;
-18. arbitrary-point directed gauge — `ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`;
-19. unoriented bidirectional segment — `ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md`;
-20. BRC × native multipath — `ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md`;
-21. path-valued square root — `ENTERPRISE_PATH_VALUED_SQUARE_ROOT_OPERATOR_20260821.md` when a selected task actually uses it.
+1. P000 world/dimension/signed-direction machine typing — `../p000_reality_foundation.json`;
+2. P000 six-axis pairwise Enterprise orthogonality / 120° right angle — `P000_SIX_AXIS_PAIRWISE_ORTHOGONALITY_20260905.md`;
+3. P000 primitive signed directions / composite off-axis paths / triadic balance — `P000_DISCRETE_DIRECTION_TRIADIC_BALANCE_20260905.md`;
+4. mandatory joint-relation observer preservation contract — `ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json`;
+5. **native X6 signed spatial Cell-center torsor** — `ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md`;
+6. **all-research Weighted-BRC minimal substrate** — `ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json`;
+7. BRC weighted/log detailed foundation — `ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md`;
+8. BRC weighted/log theorem ledger — `ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json`;
+9. BRC finite recurrent rational foundation — `ENTERPRISE_BRC_FINITE_RECURRENT_FOUNDATION_20260902.md`;
+10. BRC finite recurrent theorem-ledger addendum — `ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json`;
+11. BRC recurrent interaction foundation — `ENTERPRISE_BRC_RECURRENT_INTERACTION_FOUNDATION_20260903.md`;
+12. BRC recurrent interaction theorem ledger — `ENTERPRISE_BRC_RECURRENT_INTERACTION_THEOREM_LEDGER_20260903.json`;
+13. BRC recurrent port foundation — `ENTERPRISE_BRC_RECURRENT_PORT_FOUNDATION_20260903.md`;
+14. BRC recurrent port theorem ledger — `ENTERPRISE_BRC_RECURRENT_PORT_THEOREM_LEDGER_20260903.json`;
+15. BRC universal histogram foundation — `ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_FOUNDATION_20260903.md`;
+16. BRC universal histogram theorem ledger — `ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_THEOREM_LEDGER_20260903.json`;
+17. BRC critical-degeneracy foundation — `ENTERPRISE_BRC_CRITICAL_DEGENERACY_FOUNDATION_20260903.md`;
+18. BRC critical-degeneracy theorem ledger — `ENTERPRISE_BRC_CRITICAL_DEGENERACY_THEOREM_LEDGER_20260903.json`;
+19. **primary six-axis rotational coordinate carrier/readout** — `P000_FCC_PRIMARY_COORDINATE_CARRIER_20260829.md`;
+20. established three-axis research slice / coordinates — `ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`;
+21. native line trace — `ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`;
+22. arbitrary-point three-axis directed gauge — `ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`;
+23. three-axis unoriented bidirectional segment — `ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md`;
+24. BRC × native multipath — `ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md`;
+25. path-valued square root — `ENTERPRISE_PATH_VALUED_SQUARE_ROOT_OPERATOR_20260821.md` when a selected task actually uses it.
 
-The minimal Weighted-BRC substrate is universal. Other registry entries remain lazy: load only the exact object required by the current problem, except P000 when dimensional/spatial semantics are material and the FCC carrier definition when global coordinate/rotation semantics are material.
+The minimal Weighted-BRC substrate is universal. Other registry entries remain lazy: load only the exact object required by the current problem, except P000 when dimensional/spatial semantics are material, the X6 signed spatial definition when full spatial Cell identity/coordinates are material, the Joint Relation Observer Preservation contract before information-reducing projections, and the FCC carrier definition when classical carrier/readout semantics are material.
+
+## Native X6 signed spatial Cell-center foundation
+
+The current full spatial Cell-center object is an affine torsor for
+
+`G6_FULL=Z^6`
+
+with six signed primitive coordinate directions `+/-E_i` from P000 V4.
+
+Freeze:
+
+`X6_NATIVE_SPATIAL = AFFINE_TORSOR(Z^6)`.
+
+`FULL_NATIVE_SPATIAL_CELL_CENTER_IDENTITY_IS_COMPLETE_IN_SIX_SIGNED_AXIS_COORDINATES = TRUE`.
+
+A chosen Cell anchor supplies coordinate zero; it is not the geometric origin `O_E`.
+
+Pure coordinate adjacency is by the twelve signed unit steps `z -> z +/- e_i`.
+
+The full signed component metric is
+
+`L_E(z)^2=sum_i z_i^2`.
+
+Hence primitive signed unit directions have forward/reverse squared norm `1`.
+
+For every 3-of-6 coordinate selection S, the established-style positive observer is
+
+`Obs_S(z)=can3(z|_S)`.
+
+One such observer has a `Z^4` fibre: one common visible offset plus three omitted signed coordinates.
+
+All twenty positive-min-zero coordinate selections jointly determine the full signed state only modulo the global diagonal subgroup
+
+`Delta=Z*(1,1,1,1,1,1)`.
+
+Their joint relative observer is
+
+`G6_REL=Z^6/Delta`.
+
+The earlier min-zero six-axis object is therefore a relative/joint-slice observer, not full spatial Cell identity.
+
+Every full signed state has the unique lossless chart
+
+`z=can6(z)+h*(1,...,1)`, `h=min(z) in Z`.
+
+The existing V2 common-depth carry is exactly the change-of-section 2-cocycle for this chart. Common depth is the coordinate of a composite six-axis displacement, not a seventh primitive spatial axis.
+
+The full diagonal displacement `D=(1,...,1)` is nonzero, has squared norm `6`, and is invisible to every positive-min-zero 3-axis coordinate observer.
+
+Exact axis-permutation rotation skeleton:
+
+`X6_AXIS_PERMUTATION_ROTATION_SKELETON=S6`.
+
+The current FCC/K4 `S4` is its carrier-atlas-preserving subgroup. The complete native rotation dynamics beyond axis permutations remains open.
+
+P000 direction-gate consequence for signed displacement z:
+
+`MIN_PRIMITIVE_TRANSITION_COUNT=sum_i |z_i|`.
+
+`PRIMITIVE_STRAIGHT_SEGMENT <=> exactly one native axis supports z`.
+
+For a multi-axis displacement the exact shortest-path N-BRC multiplicity is
+
+`(sum_i |z_i|)! / product_i |z_i|!`.
+
+Path/BRC/internal/time state remains richer than spatial endpoint coordinates and must not be erased by this foundation.
 
 ## Primary coordinate carrier — FCC rotational atlas
 
-By direct user criterion `COORDINATE_CONTINUITY + ROTATION`, current P000 geometry selects FCC/cubic Barlow as the **primary classical coordinate carrier**.
+By direct user criterion `COORDINATE_CONTINUITY + ROTATION`, current P000 geometry selects FCC/cubic Barlow as the **primary classical coordinate carrier/readout**.
 
 Freeze:
 
@@ -121,7 +201,7 @@ Freeze:
 
 `HCP_HEXAGONAL_BARLOW=SECONDARY_REGRESSION_CARRIER`.
 
-The selection is downstream of P000 and must not be read as a return to a classical three-dimensional world ontology.
+The selection is downstream of P000 and X6. It must not be read as a return to a classical three-dimensional world ontology or as the definition of X6 identity.
 
 The selected FCC carrier supplies six stable unoriented nearest-neighbor line families and four overlapping close-packed triangular three-line slice types. At the carrier line-family level:
 
@@ -151,7 +231,7 @@ Coordinate-continuity guard:
 
 Native/carrier guard:
 
-`NATIVE_6D_STATE -> FCC_CARRIER_READOUT`.
+`X6_NATIVE_SPATIAL -> FCC_CARRIER_READOUT`.
 
 `FCC_CARRIER_READOUT_IS_NOT_NATIVE_IDENTITY`.
 
@@ -159,7 +239,7 @@ Native/carrier guard:
 
 `CARRIER_KERNEL != NATIVE_COORDINATE_EQUIVALENCE`.
 
-The exact bridge from native positive axes `E_1,...,E_6` to FCC line-family/chart-orientation data remains a current research target. Do not silently identify carrier opposite rays with primitive native negative axes.
+The exact physical/readout bridge from the signed X6 coordinate torsor to all FCC line-family/chart-orientation/Cell-trajectory data remains a research target. Do not silently identify carrier opposite rays, chart-local trajectories or classical carrier linear relations with full X6 identity.
 
 ## Established three-axis slice — exact local mathematics
 
@@ -189,13 +269,13 @@ Retyping guard:
 
 `THREE_AXIS_SLICE!=FULL_ENTERPRISE_SPACE`.
 
-`THREE_AXIS_THEOREM_REQUIRES_LIFT_BEFORE_6D_PROMOTION`.
+`THREE_AXIS_THEOREM_REQUIRES_TYPED_LIFT_BEFORE_6D_PROMOTION`.
 
 `OMITTED_CELL_COORDINATE!=ZERO_COORDINATE`.
 
 `OMITTED_CELL_COORDINATE!=ABSENT_DIMENSION`.
 
-The exact native six-axis address equivalence, global metric and native six-dimensional rotation group remain research targets. The FCC carrier is the selected coordinate realization for attacking those targets; its classical linear relations are not native identities.
+The full signed six-axis spatial Cell-center address, component metric and pure coordinate adjacency are now fixed by `ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md`. The three-axis positive min-zero address is a lower-information selected-slice observer, not the full X6 address. The complete native rotation dynamics, full carrier/readout realization and detailed internal/channel dynamics remain research targets.
 
 ## Weighted-BRC theorem/tool activation
 
@@ -245,7 +325,9 @@ Rotation is the characteristic spatial transformation under P000. A lower-dimens
 
 Current preferred typed pattern:
 
-`FULL_6D_NATIVE_CELL_STATE -> FCC_SIX_LINE_ROTATIONAL_ATLAS -> ROTATE/TRANSPORT_SLICE_INCIDENCE -> SELECT_3_AXIS_120_DEGREE_SLICE -> OBSERVE`.
+`X6_NATIVE_SPATIAL SIGNED CELL STATE -> NATIVE ROTATION/AXIS PERMUTATION -> OPTIONAL FCC CARRIER READOUT -> SELECT 3-AXIS POSITIVE OBSERVER -> OBSERVE/COMPARE`.
+
+The exact finite axis-permutation skeleton is `S6`; the FCC atlas preserves an `S4` subgroup. This does not close richer native rotation dynamics.
 
 The seventh dimension is time and is separately typed from the six spatial axes. Its first role is to order/trace relational changes such as rotation, adjacency, alignment, slice selection and path state.
 
@@ -265,7 +347,11 @@ Thus the former rule “Weighted-BRC is excluded from FREE Phase A because it is
 
 For current mathematics:
 
-`P000_ROOT_AXIOM + USER_PROMOTED_GLOBAL_BRANCH_SUBSTRATE -> EXACT_CURRENT_CANONICAL_DEFINITION -> THIS_ROUTER_SUMMARY`.
+`P000_ROOT_AXIOM + USER_PROMOTED_JOINT_RELATION_PRESERVATION + USER_PROMOTED_GLOBAL_BRANCH_SUBSTRATE -> EXACT_CURRENT_CANONICAL_DEFINITION -> THIS_ROUTER_SUMMARY`.
+
+For full signed spatial Cell-center identity/coordinates, `ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md` controls.
+
+For information-reducing projections/collapse, `ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json` controls.
 
 For the universal Weighted-BRC type commitments, `ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json` controls.
 
@@ -285,4 +371,4 @@ Project mission/routing is defined by `PROJECT_DEFINITION.md`, `PROJECT_DEFINITI
 
 ## History rule
 
-Historical generations and superseded formulations are kept in Git history and explicit historical files. They are not repeated in this current router. Older wording that treats the three-axis construction as the complete world is superseded; preserve valid mathematics only at slice strength.
+Historical generations and superseded formulations are kept in Git history and explicit historical/research files. They are not repeated in this current router. Older wording that treats the three-axis construction as the complete world, or that promotes the relative quotient `Z^6/Z*1` to full X6 spatial identity, is superseded; preserve valid mathematics only at its correctly typed observer strength.
