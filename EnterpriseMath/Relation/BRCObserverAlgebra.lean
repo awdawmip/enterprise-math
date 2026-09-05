@@ -46,7 +46,7 @@ theorem observerNBRC_relabel {W G C M : Type*}
   induction f using MonoidAlgebra.induction_linear with
   | zero => simp
   | add x y hx hy =>
-      simpa only [map_add, hx, hy]
+      simp only [map_add, hx, hy]
   | single p n =>
       simp [observerNBRCAlgHom, relabelNBRCAlgEquiv, FramedPath.relabelEquiv,
         hφ s p]
