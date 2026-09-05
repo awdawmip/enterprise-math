@@ -44,12 +44,16 @@ noncomputable def k4AxisPerm (g : K4Frame) : Equiv.Perm K4Axis :=
 
 @[simp] theorem k4AxisPerm_one :
     k4AxisPerm (1 : K4Frame) = 1 := by
-  ext e x
+  apply Equiv.ext
+  intro e
+  apply Subtype.ext
   simp [k4AxisPerm, Equiv.finsetCongr_apply]
 
 @[simp] theorem k4AxisPerm_mul (g h : K4Frame) :
     k4AxisPerm (g * h) = k4AxisPerm g * k4AxisPerm h := by
-  ext e x
+  apply Equiv.ext
+  intro e
+  apply Subtype.ext
   simp [k4AxisPerm, Equiv.finsetCongr_apply, Finset.map_map,
     Equiv.Perm.mul_apply]
 
