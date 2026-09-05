@@ -40,3 +40,13 @@ jobs:
           python-version: '3.12'
       - name: Verify current control surface and physical isolation
         run: python control_plane/check_legacy_control_isolation.py
+      - name: One-shot canonical research dispatch probe
+        shell: bash
+        run: |
+          set +e
+          python research_control_dispatch.py --kind RESEARCH
+          code=$?
+          echo "DISPATCH_EXIT=${code}"
+          if [ "${code}" -ne 0 ] && [ "${code}" -ne 2 ]; then
+            exit "${code}"
+          fi
