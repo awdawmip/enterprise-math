@@ -1,0 +1,48 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-764F6E463528167708E9",
+  "task_id": "RS-P000-SIX-AXIS-P11-DIAGONAL-SHARED-LEG-PYTHAGOREAN-TRIPLE",
+  "publication_id": "TP2-51DFEBDCCCB1C845F8EF",
+  "execution_record_id": "ER-865FBCA0D0FB305FF943",
+  "claim_id": "chatgpt-p000p11d2-20260904-2111-7a41c9",
+  "taskbook_path": "research_tasks/P000_SIX_AXIS_P11_DIAGONAL_SHARED_LEG_PYTHAGOREAN_TRIPLE_20260902.md",
+  "taskbook_blob_sha1": "sha1:57b4b271914449bbb538929ed582fa28f816de14",
+  "execution_branch": "research/p000-six-axis-p11-diagonal-shared-leg-em-p000p11d2-9c3167",
+  "execution_branch_base": "3a0268264f8c660fcc599eddc1b838eba2b99f45",
+  "return_path": "research_returns/P000_SIX_AXIS_P11_DIAGONAL_SHARED_LEG_PYTHAGOREAN_TRIPLE_RETURN_20260904.md",
+  "return_blob_sha1": "sha1:e9259cc07e5e7e07ca8498ef1f9b0583f781b323",
+  "return_sha256": "sha256:47a9f832ffe935290c00d4e1178fd232719dd8debbefc1cab1a8d9a170c55609",
+  "owner_head": "8caff042846ad306d43b3c4b36e28d468a0d7eaf",
+  "researcher_id": "EM-P000P11D2-9C3167",
+  "frozen_at": "2026-09-04T13:33:00+00:00",
+  "terminal_verdict": "SUCCESS",
+  "hard_target_disposition": "P000_P11_DIAGONAL_FIXED_LOCUS_EXACT_GENUS_ONE_ARITHMETIC_OBSTRUCTION_ISOLATED",
+  "unresolved_residue": "The fixed locus is classified exactly to an explicit elliptic/genus-one fiber for each primitive Euclidean Pythagorean core, with exact denominator, parity, positivity and recovered-root-gcd filters. A uniform Mordell-Weil classification of every fiber and a finite global list of all primitive integral points are not claimed. The precommitted b<=100000 census is regression/falsification evidence only; it finds 19 primitive points and strictly refutes seed-scaling uniqueness.",
+  "output_manifest": [
+    {
+      "path": "research_returns/P000_SIX_AXIS_P11_DIAGONAL_SHARED_LEG_PYTHAGOREAN_TRIPLE_RETURN_20260904.md",
+      "git_blob_sha1": "sha1:e9259cc07e5e7e07ca8498ef1f9b0583f781b323",
+      "sha256": "sha256:47a9f832ffe935290c00d4e1178fd232719dd8debbefc1cab1a8d9a170c55609"
+    },
+    {
+      "path": "research_checks/P000_SIX_AXIS_P11_DIAGONAL_SHARED_LEG_PYTHAGOREAN_TRIPLE_CHECK_20260904.py",
+      "git_blob_sha1": "sha1:b61f61039e431fe096c071103e9c268989013e88",
+      "sha256": "sha256:44fdb83367a01544bf37b1f9608d939139617343647dd92795673dbf591c7b38"
+    },
+    {
+      "path": "research_artifacts/P000_SIX_AXIS_P11_DIAGONAL_SHARED_LEG_PYTHAGOREAN_TRIPLE/control_certificate_20260904.json",
+      "git_blob_sha1": "sha1:20d22688eb3adabfb877bd24008bee04e657ed9c",
+      "sha256": "sha256:f5ee2e68e2839df67bce9bb138d7e57a2c4109a127455789e9f93d5c97aa4f4d"
+    },
+    {
+      "path": "research_execution_records/RS-P000-SIX-AXIS-P11-DIAGONAL-SHARED-LEG-PYTHAGOREAN-TRIPLE/ER-865FBCA0D0FB305FF943.json",
+      "git_blob_sha1": "sha1:952fe450919fb94e2c471242ac814263c0b558fe",
+      "sha256": "sha256:3b0355b4638271c2a31e796e9895402159c9b11303772188799fa4b81899b8e8"
+    }
+  ],
+  "method_harvest": "RESULT_ONLY",
+  "independence_status": "NOT_INDEPENDENT",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "Driver review the immutable genus-one obstruction result. If accepted, freeze exactly the derived-arithmetic theorem: the strict h=0 fixed locus has complete Euclidean reduction to explicit elliptic fibers, exact recovered-root primitive normalization, no zero-root stratum, and more than one primitive orbit. Do not promote the finite census to global completeness or widen automatically to the off-diagonal simultaneous locus.",
+  "driver_review_required": true
+}
