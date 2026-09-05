@@ -21,6 +21,7 @@ import EnterpriseMath.Relation.BRCObserverAlgebra
 import EnterpriseMath.Relation.BRCWeightHistogram
 import EnterpriseMath.Relation.BRCWeightCharacters
 import EnterpriseMath.Relation.BRCCountAtlas
+import EnterpriseMath.Relation.BRCSixAxisS4
 import EnterpriseMath.Scale.Compatibility
 import EnterpriseMath.State.CriticalGrid
 import EnterpriseMath.PrimeFusion
