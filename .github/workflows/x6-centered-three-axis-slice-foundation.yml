@@ -3,6 +3,8 @@ name: X6 centered three-axis slice Foundation
 on:
   pull_request:
     paths:
+      - 'p000_reality_foundation.json'
+      - 'definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md'
       - 'definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md'
       - 'definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.json'
       - 'definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md'
@@ -34,5 +36,7 @@ jobs:
         run: python experiments/x6_centered_three_axis_slice_v19_20260905/check_centered_slice_rebase.py
       - name: Centered slice cross-file consistency
         run: python experiments/x6_centered_three_axis_slice_v19_20260905/check_centered_slice_crossfile.py
-      - name: Machine contract parse
-        run: python -m json.tool definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.json >/dev/null
+      - name: Machine contracts parse
+        run: |
+          python -m json.tool p000_reality_foundation.json >/dev/null
+          python -m json.tool definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.json >/dev/null

@@ -1,8 +1,8 @@
 # Enterprise X6 native spatial Cell torsor
 
-Status: `ACTIVE / FOUNDATION / P000-V4-BOUND / SIGNED-SIX-AXIS`
+Status: `ACTIVE / FOUNDATION / P000-V5-BOUND / SIGNED-SIX-AXIS`
 Date: `2026-09-05`
-Authority: P000 V4 + direct user mandate to complete the six-axis theory/tool layer as common Enterprise Math foundation.
+Authority: P000 V5 + direct user mandate to complete the six-axis theory/tool layer as common Enterprise Math foundation.
 Research provenance:
 - `research_notes/X6_P000_V4_SIGNED_AXIS_REFOUNDATION_V16_20260905.md`;
 - `research_notes/X6_SIGNED_PATH_BRC_AND_PRIMITIVE_LINE_V17_20260905.md`;
@@ -22,7 +22,7 @@ Freeze:
 
 ## 2. Full signed spatial coordinate carrier
 
-Current P000 V4 defines six native spatial axes and the primitive signed direction domain
+Current P000 V5 defines six native spatial axes and the primitive signed direction domain
 
 `{+E_1,-E_1,...,+E_6,-E_6}`.
 
@@ -38,7 +38,9 @@ A chosen Cell anchor `c_*` supplies a relative chart
 
 `coord_{c_*}:X6_NATIVE_SPATIAL -> Z^6`.
 
-The anchor is a Cell chosen for coordinates; it is not the geometric origin `O_E`.
+The coordinate zero is therefore the chosen native Cell anchor. Because an affine torsor has no distinguished point before a chart anchor is chosen, this does **not** introduce a unique ontic center or global spatial origin.
+
+The historical three-circle boundary point formerly denoted `O_E` is not a second native origin. After the centered-slice rebase it is typed only as a classical carrier triple-incidence vertex `V_E`.
 
 Freeze:
 
@@ -46,7 +48,13 @@ Freeze:
 
 `FULL_NATIVE_SPATIAL_CELL_CENTER_IDENTITY_IS_COMPLETE_IN_SIX_SIGNED_AXIS_COORDINATES = TRUE`.
 
-`CELL_COORDINATE_ZERO = CHOSEN_CELL_ANCHOR != GEOMETRIC_ORIGIN_O_E`.
+`NATIVE_SPATIAL_DISTINGUISHED_GLOBAL_ORIGIN_EXISTS = FALSE`.
+
+`CELL_COORDINATE_ZERO = CHOSEN_NATIVE_CELL_ANCHOR`.
+
+`CELL_COORDINATE_ZERO_IS_CHART_RELATIVE = TRUE`.
+
+`LEGACY_O_E_TRIPLE_BOUNDARY_INTERSECTION = CARRIER_INCIDENCE_VERTEX_NOT_NATIVE_ORIGIN`.
 
 Enterprise dimension remains defined by P000 native-axis count. No conclusion about native dimension is derived from ordinary module rank.
 
@@ -64,7 +72,7 @@ Freeze:
 
 `X6_PURE_COORDINATE_ADJACENCY = SIGNED_UNIT_NATIVE_AXIS_STEPS`.
 
-A displacement supported on more than one native axis is not promoted to a new primitive straight direction. Under P000 V4 it is a composite native path/readout.
+A displacement supported on more than one native axis is not promoted to a new primitive straight direction. Under P000 V5 it is a composite native path/readout.
 
 Additional non-coordinate adjacency/channel mechanisms, if later admitted, are separately typed and do not silently mutate this coordinate graph.
 
@@ -117,8 +125,9 @@ There are `binom(6,3)=20` native **coordinate selections**.
 Strength guard:
 
 - all 20 maps are native coordinate observers;
-- only the current FCC/K4 four-star subatlas is presently frozen with the complete overlapping-circle Cell realization and its local trajectory theorems;
-- the other 16 coordinate selections are not silently promoted to already-realized circle-cell slices.
+- a true centered native three-axis slice is instead the affine sub-torsor obtained by requiring the three omitted relative X6 coordinates to be zero;
+- only the current FCC/K4 four-star subatlas is presently frozen with the complete overlapping-circle **carrier readout** realization and its local trajectory theorems;
+- the other 16 coordinate selections are not silently promoted to already-realized circle-carrier slices.
 
 For one selected S,
 
@@ -129,6 +138,8 @@ The selected observer therefore forgets one common visible offset plus the three
 Freeze:
 
 `SLICE_OBSERVATION != FULL_CELL_STATE`.
+
+`SELECTED_THREE_AXIS_OBSERVATION != CENTERED_THREE_AXIS_SLICE_MEMBERSHIP`.
 
 `OMITTED_COORDINATE != ZERO_COORDINATE`.
 
@@ -212,7 +223,7 @@ Coordinate-wise
 
 `Obs_S(H_S)=0`.
 
-For the four established FCC/K4 Cell slices, this gives the full-state lift of their local positive-triangle/reverse-third terminal relation: the selected slice observation may close while full X6 changes by `H_S`.
+For the four established FCC/K4 STAR **carrier readout slices**, this gives the full-state lift of their local positive-triangle/reverse-third terminal relation: the carrier observation may close while full X6 changes by `H_S`.
 
 For complementary triples,
 
@@ -221,6 +232,10 @@ For complementary triples,
 Only after passing to `G6_REL` does this become `H_{S^c}=-H_S`.
 
 Promoting every 3-of-6 coordinate-triple projection identity to a full-state return would collapse all six axis actions to a single `C3` action and is therefore forbidden as a silent lift.
+
+Freeze:
+
+`CARRIER_TRIANGLE_RETURN != NATIVE_CELL_RETURN`.
 
 ## 9. Rotation skeleton
 
@@ -241,7 +256,7 @@ The established FCC/K4 six-line atlas subgroup embeds as
 
 `S4 < S6`.
 
-Under this carrier subgroup the twenty coordinate selections split into orbit types `4 STAR + 4 FACE + 12 PATH`; only the four STAR selections are the currently frozen FCC close-packed Cell slices.
+Under this carrier subgroup the twenty coordinate selections split into orbit types `4 STAR + 4 FACE + 12 PATH`; only the four STAR selections have the currently frozen complete FCC close-packed carrier-readout realization.
 
 ## 10. P000 direction gate and BRC multipath theorem
 
@@ -279,7 +294,7 @@ Positive-rational signed-axis branch weights have the corresponding exact weight
 
 ## 11. Positive-only BRC and the relative observer
 
-For a path using only the six positive axes, the full endpoint from the chosen anchor is its exact occurrence vector
+For a path using only the six positive axes, the full endpoint from the chosen Cell anchor is its exact occurrence vector
 
 `n in N_0^6`, `sum_i n_i=m`.
 
@@ -287,7 +302,7 @@ Its N-BRC multiplicity is
 
 `m!/product_i n_i!`.
 
-No nontrivial positive-only path returns to the full signed spatial origin.
+No nontrivial positive-only path returns to the chosen coordinate-zero Cell.
 
 If an observer retains only the relative min-zero endpoint `r=can6(n)` and path length m, then the omitted common depth is reconstructed by
 
@@ -322,12 +337,15 @@ No downward projection is globally declared safe merely because the source can l
 Closed here:
 
 - full spatial Cell-center coordinate identity;
+- chart-relative Cell coordinate zero with no distinguished global native origin;
 - signed primitive coordinate adjacency;
 - six-axis component metric;
 - twenty coordinate projections and their information loss;
 - joint relative observer/common-depth decomposition;
 - S6 axis-permutation rotation skeleton;
 - primitive-line versus composite-multipath path calculus.
+
+The centered signed three-axis native restriction and the retyping of the historical non-Cell origin/min-zero plane are frozen separately in `ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md` and its machine contract.
 
 Still open above this foundation:
 

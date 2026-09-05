@@ -1,20 +1,31 @@
 {
-  "schema": "ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_V1",
+  "schema": "ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_V2",
   "status": "ACTIVE_FOUNDATION",
   "effective": "2026-09-05",
   "authority_kind": "DIRECT_USER_FOUNDATION_REBASE",
   "steward_id": "EM-STW-C31A7F",
   "parent": "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md",
   "human_definition": "definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md",
+  "semantic_authority": {
+    "native_spatial_identity_layer": "X6_NATIVE_SPATIAL_CELL_CENTER_TORSOR",
+    "native_global_distinguished_origin_exists": false,
+    "coordinate_zero_kind": "CHOSEN_NATIVE_CELL_ANCHOR",
+    "coordinate_zero_is_chart_relative": true,
+    "legacy_O_E_native_origin_status": "SUPERSEDED",
+    "legacy_O_E_current_type": "CARRIER_TRIPLE_INCIDENCE_VERTEX"
+  },
   "slice": {
     "native_object": "AFFINE_SUBTORSOR_OVER_SIGNED_SELECTED_THREE_AXIS_COORDINATES",
     "coordinate_carrier": "Z^3",
     "zero": "CHOSEN_NATIVE_CELL_ANCHOR",
     "zero_is_cell": true,
+    "zero_is_global_ontic_origin": false,
     "primitive_direction_domain": "PLUS_MINUS_SELECTED_NATIVE_AXES",
     "directed_primitive_neighbor_count": 6,
     "native_distance_squared": "SUM_OF_THREE_SIGNED_COMPONENT_DIFFERENCE_SQUARES",
-    "native_distance_symmetric": true
+    "native_distance_symmetric": true,
+    "slice_membership_rule": "OMITTED_RELATIVE_X6_COMPONENTS_EQUAL_ZERO",
+    "selected_observation_is_slice_membership": false
   },
   "relative_observer": {
     "map": "can3(x)=x-min(x)*(1,1,1)",
@@ -22,13 +33,16 @@
     "kernel_direction": "Z*(1,1,1)",
     "repair_coordinate": "INTEGER_COMMON_DEPTH=min(x)",
     "lossless_pair": "(can3(x),min(x))",
-    "min_zero_alone_is_native_identity": false
+    "min_zero_alone_is_native_identity": false,
+    "dropping_common_depth_is_globally_safe": false,
+    "drop_requires_observer_future_operation_certificate": true
   },
   "fcc_star_carrier": {
     "kind": "CLASSICAL_TRIANGULAR_READOUT",
     "three_local_vectors": "EQUAL_UNIT_120_DEGREE_WITH_SUM_ZERO",
     "exact_axial_coordinate": "(x_i-x_k,x_j-x_k)",
     "kernel": "Z*(1,1,1)",
+    "kernel_is_native_coordinate_equivalence": false,
     "carrier_euclidean_q": "a^2+b^2+c^2-ab-bc-ca",
     "carrier_q_is_native_metric": false,
     "nearest_center_spacing": "1",
@@ -36,6 +50,7 @@
     "neighbor_circle_overlap": true,
     "all_circle_boundary_intersections_triple": true,
     "gap_free_circle_footprint_cover": true,
+    "circle_footprint_is_native_cell_identity": false,
     "triple_intersection_type": "CARRIER_INCIDENCE_VERTEX_NOT_NATIVE_ORIGIN"
   },
   "brc": {
@@ -43,10 +58,20 @@
     "primitive_straight_predicate": "support_size(d)==1",
     "shortest_path_multiplicity": "N! / product(abs(d_i)!)",
     "raw_signed_displacement_required_before_native_collapse": true,
+    "signed_native_reversal_preserves_length": true,
+    "signed_native_reversal_preserves_shortest_multiplicity": true,
     "triangle_common_depth_displacement": "(1,1,1)",
     "triangle_carrier_return_is_native_return": false,
     "triangle_native_norm_squared": 3,
     "triangle_shortest_brc_multiplicity": 6
+  },
+  "legacy_retyping": {
+    "triple_boundary_origin": "CARRIER_INCIDENCE_ONLY",
+    "positive_min_zero_point_address": "RELATIVE_OR_CARRIER_OBSERVER_ONLY",
+    "directed_min_zero_gauge": "RELATIVE_OBSERVER_GAUGE_NOT_NATIVE_SIGNED_METRIC",
+    "bidirectional_asymmetry_spectrum": "OBSERVER_DIAGNOSTIC_NOT_NATIVE_LENGTH_STRUCTURE",
+    "diagonal_displacement_quotient": "RELATIVE_OR_CARRIER_ENDPOINT_QUOTIENT_NOT_NATIVE_SIGNED_DISPLACEMENT",
+    "positive_sector_path_counts": "VALID_RESTRICTED_SUBPOPULATION_NOT_FULL_SIGNED_SLICE"
   },
   "recomputed_witnesses": {
     "raw_3_4_0": {
@@ -74,18 +99,42 @@
     }
   },
   "machine_invariants": [
+    "NATIVE_SPATIAL_DISTINGUISHED_GLOBAL_ORIGIN_EXISTS=false",
+    "CELL_COORDINATE_ZERO=CHOSEN_NATIVE_CELL_ANCHOR",
+    "CELL_COORDINATE_ZERO_IS_CHART_RELATIVE=true",
     "CENTERED_THREE_AXIS_SLICE_ZERO_IS_CELL=true",
+    "CENTERED_THREE_AXIS_SLICE_ZERO_IS_GLOBAL_ONTIC_ORIGIN=false",
     "CENTERED_THREE_AXIS_SLICE_COORDINATES=Z3_SIGNED",
+    "CENTERED_THREE_AXIS_SLICE_MEMBERSHIP->OMITTED_RELATIVE_X6_COMPONENTS_ZERO",
+    "SELECTED_THREE_AXIS_OBSERVATION!=CENTERED_THREE_AXIS_SLICE_MEMBERSHIP",
     "REMOVE_ZERO_CELL_FROM_AXIS=TYPE_ERROR",
+    "LEGACY_O_E_TRIPLE_BOUNDARY_INTERSECTION=CARRIER_INCIDENCE_VERTEX_NOT_NATIVE_ORIGIN",
     "MIN_ZERO_TRIPLE!=NATIVE_CELL_IDENTITY",
     "MIN_ZERO_TRIPLE+COMMON_DEPTH=LOSSLESS_RAW_SLICE_COORDINATE",
+    "DROP_COMMON_DEPTH_WITHOUT_SCOPE_TYPED_OBSERVER_CERTIFICATE=FORBIDDEN",
     "FCC_CARRIER_KERNEL!=NATIVE_COORDINATE_EQUIVALENCE",
     "CARRIER_TRIPLE_INCIDENCE_VERTEX!=NATIVE_COORDINATE_ZERO",
     "CARRIER_CIRCLE_FOOTPRINT!=NATIVE_CELL_IDENTITY",
+    "CARRIER_EUCLIDEAN_Q!=NATIVE_SIGNED_SLICE_METRIC",
     "CARRIER_TRIANGLE_RETURN!=NATIVE_CELL_RETURN",
     "LEGACY_DIRECTED_MIN_ZERO_GAUGE!=NATIVE_SIGNED_METRIC",
+    "LEGACY_BIDIRECTIONAL_ASYMMETRY!=NATIVE_LENGTH_STRUCTURE",
     "SIGNED_NATIVE_REVERSAL_PRESERVES_LENGTH_AND_SHORTEST_BRC_MULTIPLICITY",
     "FULL_SIGNED_THREE_AXIS_N25_ENDPOINT_COUNT=30",
     "FULL_SIGNED_THREE_AXIS_N25_SHORTEST_BRC_COUNT=846"
+  ],
+  "hard_errors": [
+    "TREAT_LEGACY_O_E_TRIPLE_INTERSECTION_AS_NATIVE_COORDINATE_ZERO",
+    "ASSERT_DISTINGUISHED_GLOBAL_NATIVE_SPATIAL_ORIGIN_FROM_CHART_ZERO",
+    "REMOVE_ZERO_CELL_FROM_CENTERED_NATIVE_AXIS",
+    "PROMOTE_MIN_ZERO_TRIPLE_TO_NATIVE_CELL_IDENTITY",
+    "DROP_CENTERED_SLICE_COMMON_DEPTH_WITHOUT_SCOPE_TYPED_SAFE_QUOTIENT",
+    "PROMOTE_FCC_CARRIER_KERNEL_TO_NATIVE_COORDINATE_EQUIVALENCE",
+    "PROMOTE_CARRIER_CIRCLE_FOOTPRINT_TO_NATIVE_CELL_IDENTITY",
+    "USE_CARRIER_EUCLIDEAN_Q_AS_NATIVE_SIGNED_SLICE_METRIC",
+    "TREAT_LEGACY_DIRECTED_MIN_ZERO_GAUGE_AS_NATIVE_SIGNED_DISTANCE",
+    "INFER_NATIVE_REVERSAL_FROM_POSITIVE_MIN_ZERO_RECANONICALIZATION",
+    "IDENTIFY_CARRIER_TRIANGLE_RETURN_WITH_NATIVE_CELL_RETURN",
+    "TREAT_SELECTED_THREE_AXIS_OBSERVER_AS_PROOF_OF_SLICE_MEMBERSHIP"
   ]
 }
