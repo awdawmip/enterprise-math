@@ -1,5 +1,5 @@
 {
-  "schema": "ENTERPRISE_MATH_P000_REALITY_FOUNDATION_V4",
+  "schema": "ENTERPRISE_MATH_P000_REALITY_FOUNDATION_V5",
   "status": "ACTIVE_LOCKED",
   "priority_class": "P000_ROOT_AXIOM",
   "effective": "2026-09-05",
@@ -8,7 +8,8 @@
   "load_policy": "MANDATORY_BEFORE_SUBSTANTIVE_ENTERPRISE_MATH_REASONING",
   "canonical_human_foundations": [
     "definitions/P000_SIX_AXIS_PAIRWISE_ORTHOGONALITY_20260905.md",
-    "definitions/P000_DISCRETE_DIRECTION_TRIADIC_BALANCE_20260905.md"
+    "definitions/P000_DISCRETE_DIRECTION_TRIADIC_BALANCE_20260905.md",
+    "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md"
   ],
   "mandatory_companion_contracts": [
     {
@@ -43,6 +44,20 @@
     "CURRENT_THREE_AXIS_MODEL": "RESEARCH_SLICE_OF_6D_SPACE",
     "ENTERPRISE_GEOMETRY_PRIMARY_TRANSFORMATION": "ROTATION",
     "TIME_ROLE": "TRACE_AND_ORDER_OF_RELATIONAL_CHANGE"
+  },
+  "derived_foundation_state": {
+    "X6_NATIVE_SPATIAL_CELL_CENTER_FOUNDATION": "ACTIVE",
+    "X6_NATIVE_SPATIAL_CELL_CENTER_CANONICAL_DEFINITION": "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md",
+    "X6_NATIVE_SPATIAL_TRANSLATION_GROUP": "Z^6",
+    "X6_NATIVE_SPATIAL_MODEL": "AFFINE_TORSOR_OVER_SIGNED_SIX_AXIS_COORDINATES",
+    "X6_PURE_COORDINATE_ADJACENCY": "SIGNED_UNIT_NATIVE_AXIS_STEPS",
+    "X6_FULL_COMPONENT_NORM_SQUARED": "SUM_OF_SIX_SIGNED_COMPONENT_SQUARES",
+    "X6_JOINT_POSITIVE_SLICE_RELATIVE_OBSERVER": "Z^6 / Z(1,1,1,1,1,1)",
+    "X6_RELATIVE_OBSERVER_REPAIR_COORDINATE": "INTEGER_COMMON_DEPTH",
+    "X6_COMMON_DEPTH_TYPE": "COMPOSITE_GLOBAL_DIAGONAL_SPATIAL_COORDINATE_NOT_EXTRA_AXIS",
+    "X6_AXIS_PERMUTATION_ROTATION_SKELETON": "S6",
+    "X6_FCC_ATLAS_PRESERVING_SUBGROUP": "S4",
+    "X6_PACKET_HISTORY_INTERNAL_TIME_STATE_RELATION": "RICHER_TYPED_STATE_OVER_SPATIAL_CELL_NOT_ADDITIONAL_SPATIAL_AXIS"
   },
   "typed_semantics": {
     "native_direction_and_segment": {
@@ -113,6 +128,13 @@
     "NATIVE_AXIS_COMPONENT_QUADRATIC_READOUT_HAS_ZERO_CROSS_TERMS=true",
     "DECLARED_SIX_AXIS_COMPONENT_NORM_SQUARED=SUM_OF_SIX_COMPONENT_SQUARES",
     "SIX_AXIS_COMPONENT_NORM_DOES_NOT_DECLARE_ARBITRARY_N6_TUPLE_A_NATIVE_CELL_ADDRESS",
+    "FULL_NATIVE_SPATIAL_CELL_CENTER_IDENTITY_COMPLETE_IN_SIX_SIGNED_AXIS_COORDINATES=true",
+    "X6_NATIVE_SPATIAL_TRANSLATION_GROUP=Z^6",
+    "X6_PURE_COORDINATE_ADJACENCY=SIGNED_UNIT_NATIVE_AXIS_STEPS",
+    "X6_JOINT_POSITIVE_SLICE_RELATIVE_OBSERVER=Z^6/Z_GLOBAL_DIAGONAL",
+    "X6_RELATIVE_QUOTIENT_DROP_COMMON_DEPTH_REQUIRES_OBSERVER_SAFETY_CERTIFICATE=true",
+    "X6_COMMON_DEPTH=COMPOSITE_GLOBAL_DIAGONAL_SPATIAL_COORDINATE_NOT_SEVENTH_AXIS",
+    "PATH_BRC_INTERNAL_TIME_STATE!=SPATIAL_CELL_CENTER_IDENTITY",
     "THREE_AXIS_ENTERPRISE_GEOMETRY=RESEARCH_SLICE_NOT_FULL_WORLD",
     "OMITTED_CELL_COORDINATE!=ZERO_COORDINATE",
     "OMITTED_CELL_COORDINATE!=ABSENT_DIMENSION",
@@ -133,16 +155,20 @@
     "primitive_balance_arity_status": "FIXED_AT_THREE_NONZERO_FORCE_QUANTA_WITH_TRIADIC_CLOSURE",
     "apparent_two_force_equilibrium_status": "NONPRIMITIVE_AND_REQUIRES_TRIADIC_LIFT",
     "six_axis_quadratic_component_norm_status": "FIXED_AS_SUM_OF_SQUARES_WHEN_A_SIX_AXIS_COMPONENT_DECOMPOSITION_IS_DECLARED",
-    "still_open": "native X6 Cell/address admissibility, exact native adjacency/path algebra, admissible triad incidence, full rotation action, carrier readout lift, physical parameter bridge, and arbitrary point-to-point metric semantics beyond the declared axis-component norm",
-    "allowed_research_scope": "derive native states, admissibility, rotations, triadic decompositions, path laws, slice gluings, invariants, dynamics, physical bridge models and consequences conditional on P000",
-    "forbidden_research_scope": "prove/disprove these P000 axioms, replace the native 120-degree right angle by classical Euclidean 90 degrees, promote an off-native-axis coarse segment to a new primitive direction, admit primitive two-force stability, reduce six spatial dimensions by classical carrier rank, or restore 3D/4D reality ontology"
+    "x6_native_spatial_cell_center_status": "CLOSED_BY_ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905",
+    "x6_native_spatial_cell_center_model": "AFFINE_TORSOR_OVER_Z6_SIGNED_NATIVE_AXIS_COORDINATES",
+    "x6_joint_positive_slice_relative_observer": "Z6_MOD_GLOBAL_DIAGONAL_WITH_EXPLICIT_COMMON_DEPTH_REPAIR",
+    "still_open": "admissible triad incidence and dynamics, complete native rotation dynamics beyond the exact S6 axis-permutation skeleton, detailed carrier/readout realization including the sixteen non-FCC coordinate selections, internal/channel/field dynamics over spatial Cells, time evolution, physical parameter calibration, and application-specific observer-safe quotients",
+    "allowed_research_scope": "derive native rotations beyond axis permutations, triadic decompositions/incidence, carrier and slice realization, internal/channel/field dynamics, time evolution, observer-safe quotients, invariants, physical bridges and consequences conditional on P000 and the signed X6 spatial foundation",
+    "forbidden_research_scope": "prove/disprove these P000 axioms, replace the native 120-degree right angle by classical Euclidean 90 degrees, promote an off-native-axis coarse segment to a new primitive direction, admit primitive two-force stability, reduce six spatial dimensions by classical carrier rank, restore 3D/4D reality ontology, or erase the full global-diagonal spatial coordinate merely because lower positive-min-zero slice observers cannot see it"
   },
   "conflict_policy": {
-    "legacy_three_axis_math": "PRESERVE_AT_SLICE_STRENGTH_WHEN_VALID_AND_REINTERPRET_AS_RESTRICTION_OF_PAIRWISE_6D_ENTERPRISE_ORTHOGONALITY",
+    "legacy_three_axis_math": "PRESERVE_AT_SLICE_STRENGTH_WHEN_VALID_AND_REINTERPRET_AS_RESTRICTION_OR_OBSERVER_OF_SIGNED_6D_ENTERPRISE_GEOMETRY",
     "legacy_three_axis_world_ontology": "SUPERSEDED",
     "legacy_90_degree_native_right_angle": "SUPERSEDED_AS_ENTERPRISE_NATIVE_GEOMETRY",
     "legacy_primitive_diagonal_direction": "RETYPE_AS_COMPOSITE_NATIVE_PATH_OR_EFFECTIVE_READOUT",
     "legacy_primitive_two_force_equilibrium": "RETYPE_AS_NONPRIMITIVE_COARSE_GRAINED_OR_PROJECTED_TRIADIC_BALANCE",
+    "legacy_full_x6_relative_quotient_model": "SUPERSEDED_AS_FULL_SPATIAL_IDENTITY; RETAIN_AS JOINT_POSITIVE_SLICE_RELATIVE_OBSERVER WITH COMMON_DEPTH REPAIR",
     "external_euclidean_geometry": "REPORT_FAITHFULLY_AS_EXTERNAL_EFFECTIVE_MODEL; 90_DEGREE_RIGHT_ANGLE_REMAINS_VALID_INSIDE_THAT_MODEL_ONLY",
     "external_classical_mechanics": "REPORT_FAITHFULLY_AS_EXTERNAL_EFFECTIVE_MODEL; TWO_FORCE_STATIC_EQUILIBRIUM_MAY_EXIST_IN_THAT_MODEL_AND_DOES_NOT_OVERRIDE_P000_PRIMITIVE_LAYER",
     "external_science": "REPORT_FAITHFULLY_AS_EXTERNAL_MODEL_WITHOUT_OVERRIDING_P000",
@@ -154,6 +180,8 @@
     "COLLAPSE_OFF_NATIVE_AXIS_PATH_PROVENANCE_WITHOUT_SCOPE_TYPED_SAFE_QUOTIENT",
     "ACCEPT_PRIMITIVE_STABLE_CONFIGURATION_WITH_EXACTLY_TWO_NONZERO_FORCES",
     "TREAT_APPARENT_TWO_FORCE_EQUILIBRIUM_AS_PRIMITIVE",
+    "PROMOTE_RELATIVE_POSITIVE_SLICE_QUOTIENT_TO_FULL_X6_SPATIAL_IDENTITY",
+    "DROP_X6_COMMON_DEPTH_FROM_FULL_SPATIAL_STATE_WITHOUT_SCOPE_TYPED_SAFE_QUOTIENT",
     "REQUIRE_PROOF_OR_FALSIFICATION_OF_P000_DIRECTION_OR_BALANCE_AXIOMS",
     "EXPORT_P000_INTERNAL_AXIOMS_AS_ESTABLISHED_EXTERNAL_SCIENTIFIC_CONSENSUS"
   ]
