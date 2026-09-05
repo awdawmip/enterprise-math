@@ -2,7 +2,7 @@
   "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
   "status": "ACTIVE / RESEARCH-CANDIDATE / USER-DIRECTED / NOT-FOUNDATION-PROMOTION",
   "effective": "2026-09-05",
-  "scope": "T0_BRC companion tooling for exact finite count-centered carry, valuation holonomy, symbolic reciprocal-wavelet geometry, Mobius-log deconvolution, and hard-prime skeleton/thickness diagnostics",
+  "scope": "T0_BRC companion tooling for exact finite count-centered carry, valuation holonomy, reciprocal quotient shells, Mobius geometry inversion, logarithmic gauge transfer, symbolic reciprocal-wavelet geometry, and hard-prime skeleton/thickness diagnostics",
   "tools": [
     {
       "tool_id": "t0.weighted_brc_count_centered_carry",
@@ -10,8 +10,8 @@
       "path": "src/enterprise_math/brc_count_centered_carry.py",
       "status": "ACTIVE / EXACT-FINITE / RESEARCH-CANDIDATE",
       "input_contract": "Positive integer finite scales and branch indices; exact integer/Fraction valuation state; signed Mobius-log data only through the formal observer/deconvolution surface.",
-      "output_contract": "Exact carry counts, count-centered rational coefficients, prime-valuation holonomy, symbolic gamma/log forms, exact Mobius-divisor deconvolution identities, and hard-prime n-th-power skeleton/thickness coordinates.",
-      "reuse_rule": "Use when a selected problem has doubling-carry branch geometry and requires observer-safe count centering or valuation-holonomy preservation before logarithmic readout. Reuse the exact finite surface unchanged before deriving analytic asymptotics.",
+      "output_contract": "Exact carry counts, count-centered rational coefficients, prime-valuation holonomy, symbolic gamma/log forms, exact Mobius-divisor and reciprocal-shell deconvolution identities, and hard-prime n-th-power skeleton/thickness coordinates.",
+      "reuse_rule": "Use when a selected problem has doubling-carry branch geometry and requires observer-safe count centering, reciprocal quotient-shell compilation, or valuation-holonomy preservation before logarithmic readout. Reuse the exact finite surface unchanged before deriving analytic asymptotics.",
       "boundaries": [
         "POSITIVE_BRANCH_WEIGHT != SIGNED_MOBIUS_DECONVOLUTION",
         "FORMAL_GAMMA_LOG_IDENTITY != NUMERICAL_LN_APPROXIMATION",
@@ -20,12 +20,28 @@
         "POWER_SKELETON_ALONE_DELETES_HARD_CARRY_INFORMATION; RETAIN_THICKNESS",
         "REFERENCE_FACTORIZATION_AND_SIEVE != FACTORING_COMPLEXITY_CLAIM"
       ]
+    },
+    {
+      "tool_id": "t0.weighted_brc_mobius_log_gauge",
+      "family": "T0_BRC",
+      "path": "src/enterprise_math/brc_mobius_log_gauge.py",
+      "status": "ACTIVE / EXACT-FINITE / RESEARCH-CANDIDATE",
+      "input_contract": "Positive integer endpoint n with the exact GammaAffine reciprocal carry geometry and signed Mobius observer coefficients.",
+      "output_contract": "Exact divisor-lifting inverse check, rational log-valuation coordinates, and the endpoint logarithmic gauge transfer from mu(d) log(d) K(n/d) to mu(d) K(n/d) log(n/d), formally equivalent to the direct prime-error readout.",
+      "reuse_rule": "Use after exact Mobius-divisor deconvolution when a common endpoint logarithm can be removed by the divisor-lifting inverse. Preserve the signed observer layer and verify formal prime-log equivalence before any norm estimate.",
+      "boundaries": [
+        "LOG_GAUGE_TRANSFER_IS_EXACT_ALGEBRA_NOT_AN_RH_BOUND",
+        "SIGNED_MOBIUS_TERMS_ARE_NOT_POSITIVE_BRC_PATH_MASS",
+        "UNIFORM_BOUNDED_TRANSFORMED_DIAGONAL_USES_CLASSICAL_DIVISOR_MEAN_SQUARE_OUTSIDE_THIS_FINITE_TOOL",
+        "BOUNDED_DIAGONAL_DOES_NOT_BOUND_THE_OFF_DIAGONAL_MOBIUS_PAIR_CORRELATION",
+        "FINITE_NEGATIVE_OFF_DIAGONAL_EXPERIMENTS_DO_NOT_PROVE_EVENTUAL_SIGN"
+      ]
     }
   ],
   "research_provenance": {
     "researcher_id": "EM-FREE-3EAA93",
     "mode": "FREE_AXIOM_DISCOVERY",
-    "source_event": "EM-FREE-3EAA93-BRC-COUNT-CENTERED-WAVELET-V14-20260905",
+    "source_event": "EM-FREE-3EAA93-BRC-COUNT-CENTERED-WAVELET-V14-20260905 / V15-log-gauge-extension",
     "global_journal_commit": "78075758a90fef59fb78fc2c13473ecdd49a7681"
   }
 }
