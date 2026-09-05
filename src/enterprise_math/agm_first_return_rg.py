@@ -73,9 +73,12 @@ def finite_geometric_channel(
 def quadratic_universality_bounds(shape: Fraction | int) -> tuple[Fraction, Fraction]:
     """Return the proved depth-independent bounds for every N>=1.
 
-    For 0<=s<=1/4,
+    For 0<s<=1/4,
 
         s^2/4 <= T_N(s) < (256/961) s^2 < (4/15) s^2.
+
+    At s=0 all displayed quantities vanish, so the strict inequalities degenerate
+    to equality at the fixed point.
     """
     s = _as_fraction(shape)
     _require_shape(s)
