@@ -94,7 +94,26 @@ theorem relabel_relabel (s t : G) (p : FramedPath W G C ρ) :
   rw [hs]
   exact relabel_id ρ p
 
+/-- Relabeling is an equivalence of framed path monoids, not merely an external
+renaming operation. -/
+def relabelEquiv (s : G) : FramedPath W G C ρ ≃* FramedPath W G C ρ where
+  toFun := relabel ρ s
+  invFun := relabel ρ s⁻¹
+  left_inv := relabel_inv_relabel ρ s
+  right_inv p := by
+    have h := relabel_inv_relabel ρ s⁻¹ p
+    simpa only [inv_inv] using h
+  map_mul' := relabel_mul ρ s
+
 end FramedPath
+
+/-- A frame rotation acts by an exact algebra automorphism on the whole positive
+multiplicity BRC, so covariance is preserved through both alternative sums and
+serial convolutions. -/
+def relabelNBRCAlgEquiv {W G C : Type*}
+    [Monoid W] [Group G] [AddMonoid C] (ρ : CoordinateAction G C) (s : G) :
+    FramedNBRC W G C ρ ≃ₐ[ℕ] FramedNBRC W G C ρ :=
+  MonoidAlgebra.domCongr ℕ ℕ (FramedPath.relabelEquiv ρ s)
 
 /-- A coordinate potential is frame-invariant when global relabeling does not
 change its value. -/
