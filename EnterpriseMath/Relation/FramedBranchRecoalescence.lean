@@ -167,6 +167,24 @@ abbrev FramedNBRC (W G C : Type*) [Monoid W] [Monoid G] [AddMonoid C]
     (ρ : CoordinateAction G C) :=
   MonoidAlgebra ℕ (FramedPath W G C ρ)
 
+/-- Serial multiplication of two atomic positive branches is exactly framed path
+concatenation with multiplicities multiplied. -/
+theorem framedSingle_mul_framedSingle {W G C : Type*}
+    [Monoid W] [Monoid G] [AddMonoid C] {ρ : CoordinateAction G C}
+    (a b : FramedPath W G C ρ) (r s : ℕ) :
+    MonoidAlgebra.single a r * MonoidAlgebra.single b s =
+      MonoidAlgebra.single (a * b) (r * s) :=
+  MonoidAlgebra.single_mul_single a b r s
+
+/-- A path-level observer that is a monoid homomorphism lifts canonically through
+positive BRC convolution.  This particular map proves that the `(weight,length)`
+observer is safe not only for one path but for arbitrary finite N-BRC sums and
+serial products. -/
+def eraseGeometryNBRCAlgHom {W G C : Type*}
+    [Monoid W] [Monoid G] [AddMonoid C] (ρ : CoordinateAction G C) :
+    FramedNBRC W G C ρ →ₐ[ℕ] MonoidAlgebra ℕ (WeightLength W) :=
+  MonoidAlgebra.mapDomainAlgHom ℕ ℕ (FramedPath.eraseGeometryHom ρ)
+
 /-- Boolean/result-support shadow of the positive multiplicity layer. -/
 def booleanShadow {W G C : Type*} [Monoid W] [Monoid G] [AddMonoid C]
     {ρ : CoordinateAction G C} (f : FramedNBRC W G C ρ) : Set (FramedPath W G C ρ) :=
@@ -176,6 +194,15 @@ def booleanShadow {W G C : Type*} [Monoid W] [Monoid G] [AddMonoid C]
     [Monoid W] [Monoid G] [AddMonoid C] {ρ : CoordinateAction G C} :
     booleanShadow (0 : FramedNBRC W G C ρ) = ∅ := by
   ext p
+  simp [booleanShadow]
+
+/-- One positive atomic branch has exactly one Boolean support point. -/
+@[simp] theorem booleanShadow_single_one {W G C : Type*}
+    [Monoid W] [Monoid G] [AddMonoid C] {ρ : CoordinateAction G C}
+    (p : FramedPath W G C ρ) :
+    booleanShadow (MonoidAlgebra.single p (1 : ℕ)) = ({p} : Set (FramedPath W G C ρ)) := by
+  classical
+  ext q
   simp [booleanShadow]
 
 /-- Positive recoalescence becomes literal support union. This is the exact
