@@ -1,250 +1,177 @@
-# 进取 BRC × Multipath：Boolean Shadow 与路径加厚桥
+# R062 BRC × multipath bridge — centered-X6 signed retyping
 
-Status: `ACTIVE / CANONICAL / FROZEN`
-Date: `2026-08-21`
-Driver: `EM-DVR-9GP3M7 / CONTROL_PLANE`
+Status: `ACTIVE / RETYPED TO SIGNED CENTERED X6 / BOOLEAN SHADOW RETAINED`
+Original date: `2026-08-21`
+Retyped: `2026-09-05`
+Steward: `EM-STW-C31A7F / FOUNDATION_STEWARD`
 
-Canonical acceptance source:
+Current spatial authority:
 
-`driver_reviews/R062_STAGE0_BRC_MULTIPATH_ENRICHMENT_BRIDGE_DRIVER_REVIEW_20260821.md`
+- `ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md`;
+- `ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md`.
 
-## 1. Historical BRC identity
+The BRC enrichment hierarchy remains valid:
 
-`BRC = Branch-Recoalescence Collapse`.
+`PATH_FORMAL_BRC -> N_BRC -> BOOLEAN_BRC`.
 
-The authoritative historical BRC is the R021/R023 Boolean/result-support semantic core, canonicalized in main and implemented by:
+What changes is the native transition skeleton. The old bridge assumed a non-Cell triple-boundary origin and a three-positive-generator/min-zero native ontology. Current native slice state uses raw signed `Z^3` Cell coordinates.
 
-`EnterpriseMath/Relation/BranchRecoalescence.lean`.
+## 1. Signed component-typed skeleton
 
-Its native historical carrier is support-level:
+For selected axes `S={i,j,k}`, primitive transition labels are
 
-- relation `Rel X := X -> X -> Prop`;
-- support `Set X`;
-- relational direct image `relImage`;
-- exact branch `ExactBranch X := Set X`;
-- branch configuration `List (Set X)`;
-- exact recoalescence by literal support union;
-- relation composition by an existential shared middle witness.
+`+E_i,-E_i,+E_j,-E_j,+E_k,-E_k`.
 
-Freeze:
+A native path begins at an actual Cell `P` and is a typed word in these signed generators. Its raw endpoint displacement is
 
-`CANONICAL_BRC = BOOLEAN_RESULT_SUPPORT_SEMANTICS`.
-
-Historical BRC does not retain multiplicity, path identity, provenance/correlation, probability/weights, or signed/amplitude cancellation.
-
-## 2. Component-typed native skeleton
-
-For a translated native sector `S_ij(P)`, use typed cell states
-
-`c(P,ij;x,y)`.
-
-Retain the concrete start/placement `P`, sector label `(ij)` and distinct generator relations
-
-`R_i`, `R_j`
-
-corresponding to native component labels `X_i`, `X_j`.
-
-Start incidence:
-
-`Sigma_P^(ij) : P -> c(P,ij;0,0)`.
-
-The trace context is
-
-`T_{P;a,b}^{(ij)}`.
+`d in Z^3`.
 
 Freeze:
 
-`BRC_NATIVE_LINE_BRIDGE_REQUIRES_COMPONENT_TYPED_TRANSITION_SKELETON`.
+`BRC_CENTERED_SLICE_SKELETON = SIGNED_NATIVE_CELL_TO_CELL_STEPS`.
 
-## 3. Enrichment tower
+`BRC_NATIVE_PATH_START = NATIVE_CELL`.
 
-On the same typed skeleton, define three carrier levels.
+`NO_NONCELL_ORIGIN_INCIDENCE_PREFIX`.
 
-### Path-formal BRC
+## 2. Enrichment hierarchy
 
-`PATH_FORMAL_BRC(x,y)` is a finite formal `N`-sum of typed composable concrete path witnesses from `x` to `y`.
+Path-formal BRC retains concrete ordered path witnesses and provenance.
 
-A witness retains the generator word, prefix cell trajectory and typed placement/terminal.
+N-BRC applies occurrence augmentation and retains multiplicity.
 
-Addition is formal sum; multiplication is typed concatenation extended distributively.
-
-### N-BRC
-
-Apply augmentation
-
-`epsilon(sum_p n_p[p]) = sum_p n_p`.
-
-Entries now record path multiplicity in `N`; composition is typed natural-number convolution.
-
-### Boolean-BRC
-
-Apply support
-
-`beta(n)=0 iff n=0`, otherwise `beta(n)=1`.
-
-This is the canonical BRC/result-support shadow.
+Boolean-BRC applies support and retains only nonempty reachability on the same typed skeleton.
 
 Freeze:
 
 `PATH_FORMAL_BRC -> N_BRC -> BOOLEAN_BRC`.
 
-`BRC_IS_EXACT_BOOLEAN_SHADOW_OF_COMPONENT_TYPED_NATIVE_MULTIPATH = true`.
+`BOOLEAN_SUPPORT_DOES_NOT_RECONSTRUCT_DISCARDED_MULTIPLICITY_OR_PROVENANCE`.
 
-The word `shadow` means support projection on the same typed transition skeleton. It does not mean Boolean BRC retains hidden access to the discarded richer information.
+## 3. Exact shortest-path law
 
-## 4. Forgetful-map laws
+For raw signed displacement
 
-Path-formal augmentation to `N` is a global homomorphism for provenance-tagged formal path occurrences and typed composition.
+`d=(d_i,d_j,d_k)`,
 
-Freeze:
+`N_min(d)=sum |d_a|`.
 
-`PATH_FORMAL_SUM_TO_N = GLOBAL_HOMOMORPHISM_FOR_PROVENANCE_TAGGED_FORMAL_PATH_OCCURRENCES`.
+The exact N-BRC shortest multiplicity is
 
-Ordinary path-set cardinality is not a global additive semiring map because set union is idempotent:
+`B_min(d)=N_min(d)!/product |d_a|!`.
 
-`A={p}` gives `|A union A|=1` but `|A|+|A|=2`.
+This is the restriction of the signed X6 BRC kernel already implemented in
 
-Freeze:
+`experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py`.
 
-`PATH_SET_CARDINALITY_TO_N = NOT_GLOBAL_SEMIRING_HOMOMORPHISM`.
+Positive support-two shuffles from historical R062 survive as the special case `d=(a,b,0)` with `a,b>=0`:
 
-For `beta : N -> Boolean`, positivity is a global support homomorphism:
+`B_min=binom(a+b,a)`.
 
-`beta(a+b)=beta(a) OR beta(b)`,
+Examples retained:
 
-`beta(ab)=beta(a) AND beta(b)`.
+- `(1,1,0)`: 2 path witnesses -> N-BRC 2 -> Boolean support 1;
+- `(3,4,0)`: 35 path witnesses -> N-BRC 35 -> Boolean support 1.
 
-## 5. Minimal commuting diamond
+## 4. Reversal recomputation
 
-For local translated `(1,1)`:
+The native reverse of `d` is `-d`, not `can3(-d)`.
 
-`X_iX_j`
+Therefore
 
-and
+`B_min(-d)=B_min(d)`.
 
-`X_jX_i`
+For `(3,4,0)`, both orientations have 35 shortest native witnesses.
 
-are two distinct native path witnesses with a common typed terminal.
-
-Therefore:
-
-- Path-formal BRC witness count = `2`;
-- N-BRC multiplicity = `2`;
-- Boolean-BRC support = `1`;
-- trace quotient class count = `1`.
+The historical positive/min-zero reverse observer `(1,0,4)` has 5 positive shortest words, but it is a different lower-information observer representative and is not the native reverse endpoint.
 
 Freeze:
 
-`COMMUTING_DIAMOND_MULTIPATH_TO_BOOLEAN = 2 -> 2 -> 1`.
+`SIGNED_NATIVE_REVERSAL_PRESERVES_N_BRC_MULTIPLICITY`.
 
-## 6. 3-4-5 bridge
+`LEGACY_MIN_ZERO_REVERSE_MULTIPLICITY_ASYMMETRY = OBSERVER_EFFECT`.
 
-For `T_{P;3,4}^{(ij)}`:
+## 5. Carrier recoalescence does not imply native recoalescence
 
-- R061 native length = `5`;
-- Path-formal BRC has `35` concrete witnesses;
-- N-BRC terminal multiplicity = `35`;
-- Boolean-BRC terminal support = `1`;
-- trace quotient = one component trace.
+For the three selected positive axes let
 
-For `(4,3)` the count is also `35`; `(0,5)` and `(5,0)` each contribute one path. One fixed-sector `N=25` total is `72` path witnesses.
+`H_S=(1,1,1)`.
 
-Freeze:
+In the established triangular/FCC carrier readout,
 
-`R062_N25_BRC_COLLAPSE = 35_PATHS -> 35_MULTIPLICITY -> 1_SUPPORT` on each nondegenerate 3-4 branch.
+`pi_S(H_S)=0`
 
-## 7. Trace quotient and Boolean quotient are distinct
+because the three chart-local carrier vectors sum to zero.
 
-Both leave the common richer path-witness source, but they forget different information.
+In native X6,
 
-Trace quotient keeps:
+`H_S != 0`, `L_E(H_S)^2=3`.
 
-`(P, sector, component counts a,b)`
+There are exactly
 
-and quotients only component-preserving word order by adjacent commutations.
+`3!=6`
 
-Boolean support quotient keeps only nonempty typed reachability/support, with component labels/placement available only when retained in the external skeleton typing.
+shortest signed-native path words using each positive selected axis once.
+
+Thus all six paths recoalesce at the same **native endpoint `H_S`**, while the carrier readout reports the same carrier center as the start.
 
 Freeze:
 
-`TRACE_QUOTIENT != BOOLEAN_SUPPORT_QUOTIENT` globally.
+`CARRIER_ENDPOINT_RECOALESCENCE != NATIVE_ENDPOINT_RECOALESCENCE`.
 
-Boolean support can factor through a single already-fixed trace fiber, but that restricted factorization does not identify the two quotient constructions.
+`CARRIER_TRIANGLE_RETURN = OBSERVER_RETURN_WITH_HIDDEN_COMMON_DEPTH`.
 
-## 8. Unlabeled BRC obstruction
+`BRC_BEFORE_CARRIER_QUOTIENT = MANDATORY_WHEN_NATIVE_ENDPOINT_OR_PROVENANCE_MATTERS`.
 
-At translated `(1,1)`, a reverse-third carrier edge can reach the same carrier terminal as the two `ij` trace linearizations.
+This is a direct Joint Relation Observer Preservation witness.
 
-If generator labels are erased and only unlabeled nearest-neighbor/end-point reachability is retained, BRC support merges the shortcut with native line witnesses.
+## 6. Recomputed N=25 shell
 
-Freeze:
+The full signed centered three-axis shell
 
-`UNLABELED_BRC_CANNOT_CLASSIFY_NATIVE_LINE_MEMBERSHIP`.
+`d_i^2+d_j^2+d_k^2=25`
 
-This is independent of coefficient enrichment; an N-valued coefficient on the same wrong unlabeled skeleton would still count a non-trace shortcut.
+contains 30 raw displacement endpoints:
 
-When component labels are retained, the third-family edge lies outside the declared `{X_i,X_j}` trace language.
+- 6 signed support-one axis endpoints;
+- 24 signed support-two `(3,4,0)` permutations/signs.
 
-Freeze:
+Total shortest N-BRC mass over the shell is
 
-`COMPONENT_LABELED_BRC_DISTINGUISHES_SAME_ENDPOINT_FROM_SAME_LINE = true` for the frozen reverse-third gate.
+`6*1 + 24*35 = 846`.
 
-Correct construction order:
+The historical `72` count remains the subtotal for one nonnegative support-two sector list
 
-`COMPONENT_TYPED_FIRST -> CARRIER_ENRICHED_SECOND`.
-
-## 9. Translation covariance
-
-For any native coordinate-vertex translation `R`, the bridge transports:
-
-- `Sigma_P^(ij)` to `Sigma_{P+R}^(ij)`;
-- start placement `P`;
-- sector/component trace class;
-- path witness count;
-- typed terminal;
-- reverse-third distinction.
-
-Parallel translated line segments are not identified.
+`(0,5,0),(3,4,0),(4,3,0),(5,0,0)`.
 
 Freeze:
 
-`BRC_MULTIPATH_BRIDGE_TRANSLATION_COVARIANT = true`.
+`FULL_SIGNED_THREE_AXIS_N25_NBRC_TOTAL=846`.
 
-## 10. Reproducibility
+`LEGACY_N25_72=POSITIVE_SECTOR_SUBTOTAL`.
 
-R062 Stage 0 committed a deterministic integer-only checker:
+## 7. Trace quotient versus carrier quotient versus Boolean quotient
 
-`scripts/r062_stage0_validate_brc_multipath_bridge.py`.
+Three distinct compressions must remain typed:
 
-The accepted replay covered:
+1. component/order trace quotient — may forget order while retaining declared signed component counts;
+2. carrier endpoint quotient — forgets common diagonal depth in an FCC STAR slice;
+3. Boolean BRC — forgets multiplicity/provenance to support.
 
-- seven translated starts;
-- all three sectors;
-- all translated trace cases with `a+b<=12`;
-- `1,911` trace cases;
-- `172,011` explicit path witnesses;
-- `1,892,394` center transitions;
-- duplicate witness count `0`;
-- bridge mismatch count `0`;
-- witness replay SHA256 `175c7f0efa6e62497dde5abbb65d354ddfc17a557f37640ee30260815cd68726`;
-- exact regeneration of the frozen R061 Stage 1R native replay targets.
-
-## 11. Scope boundary
-
-Freeze the strongest accepted statement:
-
-`BRC_IS_EXACT_BOOLEAN_SHADOW_OF_COMPONENT_TYPED_NATIVE_MULTIPATH_WITH_PATH_ENRICHMENT_RECOVERING_FULL_FIBER`.
-
-Interpretation boundaries:
-
-1. canonical historical BRC remains Boolean/result-support semantics;
-2. Path-formal BRC and N-BRC are R062 enrichments/carrier lifts, not recovered hidden historical definitions;
-3. `RECOVERING_FULL_FIBER` means the enriched carrier explicitly stores the frozen R061 witness fiber from which N/Boolean projections are obtained;
-4. Boolean BRC cannot be inverted after the fact to reconstruct multiplicity/provenance already discarded;
-5. component labels are semantically necessary for native line membership.
+They are not interchangeable.
 
 Freeze:
 
-`BRC_MULTIPATH_ENRICHMENT_BRIDGE_CLASSIFIED_AND_FALSIFIABLE = true`.
+`TRACE_QUOTIENT != CARRIER_ENDPOINT_QUOTIENT != BOOLEAN_SUPPORT_QUOTIENT`.
 
-No R062 Stage 1 is implied by this definition.
+`RECONSTRUCTIBLE_CARRIER_ENDPOINT != NATIVE_STATE_REDUNDANCY_CERTIFICATE`.
+
+## 8. Current bridge statement
+
+The strongest current statement is:
+
+`SIGNED_COMPONENT_TYPED_PATH_FORMAL_BRC -> N_BRC -> BOOLEAN_BRC`
+
+on the centered native slice, with any carrier/min-zero projection applied only afterward and with explicit common-depth/provenance repair when required by the declared observer and future operations.
+
+The detailed original R062 text, replay hashes and historical positive-only skeleton remain in Git history as provenance.
