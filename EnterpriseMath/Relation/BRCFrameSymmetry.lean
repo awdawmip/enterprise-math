@@ -167,7 +167,7 @@ theorem equivariant_value_fixed {G X Y : Type*}
 fixed point, an equivariant deterministic selector cannot exist. In BRC this is
 the generic formal reason a symmetric optimal branch fibre must remain
 set-/branch-valued unless extra symmetry-breaking data are supplied. -/
-lemma no_equivariant_single_choice {G X Y : Type*}
+lemma noEquivariantSingleChoice {G X Y : Type*}
     (actX : G → X → X) (actY : G → Y → Y)
     (x : X) (hx : FixedByAll actX x)
     (hNoFixed : ∀ y, ¬ FixedByAll actY y) :
