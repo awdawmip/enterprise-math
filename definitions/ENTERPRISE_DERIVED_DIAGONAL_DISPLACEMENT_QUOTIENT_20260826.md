@@ -1,292 +1,158 @@
-# 进取派生对角位移商：G1 Derived Displacement Quotient
+# Legacy G1 diagonal displacement quotient — centered-X6 retyping
 
-Status: `ACTIVE / DERIVED G1 / TYPED INTEGRATION / NO NEW MATHEMATICS`
-Date: `2026-08-26`
-Source task: `RS-DIAGONAL-GAUGE-REFOUNDATION-TYPED-INTEGRATION`
-Accepted review: `driver_reviews/DIAGONAL_GAUGE_REFOUNDATION_INDEPENDENT_REVIEW_DRIVER_REVIEW_20260826.md`
+Status: `ACTIVE AS CARRIER/RELATIVE QUOTIENT / SUPERSEDED AS NATIVE DISPLACEMENT`
+Original date: `2026-08-26`
+Retyped: `2026-09-05`
+Steward: `EM-STW-C31A7F / FOUNDATION_STEWARD`
 
-## 1. Scope and type boundary
+Current centered slice authority is:
 
-This definition integrates only the Driver-accepted derived displacement interpretation already implicit in current R061 Stage 2.
+`ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md`.
 
-It does **not** modify primitive native point/address ontology, native line identity, Path-formal provenance, R062 BRC semantics, the current directed line gauge, or the Stage-3 bidirectional spectrum.
+## 1. Exact quotient retained
 
-Freeze the semantic separation:
+The algebraic map
 
-`A_E = CURRENT_NATIVE_POINT_OR_SECTOR_ADDRESS_TYPE`.
+`chi: Z^3 -> Z^2`,
 
-`A_D = MIN_ZERO_DERIVED_DISPLACEMENT_SECTION`.
+`chi(a,b,c)=(a-c,b-c)`
 
-Even when `A_E` and `A_D` use the same underlying set of nonnegative min-zero integer triples as representations,
+still has exact kernel
 
-`A_D != A_E`
+`Z*(1,1,1)`.
 
-as semantic types.
+Therefore
 
-A representation-level bijection is permitted. Semantic identification is not.
+`G_REL3 := Z^3/Z(1,1,1) ~= Z^2`
 
-## 2. Lifted displacement carrier
+is retained exactly.
 
-Use the lifted integer displacement carrier
-
-`L_D = Z^3`.
-
-Define
-
-`chi : Z^3 -> Z^2`
-
-by
-
-`chi(a,b,c)=(a-c,b-c)`.
-
-The accepted exact kernel is
-
-`ker(chi)=Z(1,1,1)`.
-
-Therefore define the derived G1 displacement quotient
-
-`G_D := Z^3 / Z(1,1,1)`.
-
-Equivalently,
-
-`G_D ~= Z^2`
-
-through the chart induced by `chi`.
-
-This is a **derived endpoint/displacement object**. It is not a primitive native coordinate quotient and does not convert arbitrary lifted triples into additional native points.
+What changes is its type: it is now the **relative/FCC STAR-slice carrier endpoint quotient**, not the native signed point-to-point displacement carrier.
 
 Freeze:
 
-`DERIVED_G1_DISPLACEMENT_QUOTIENT = G_D`.
+`G_REL3 = THREE_AXIS_RELATIVE/CARRIER_ENDPOINT_QUOTIENT`.
 
-`PRIMITIVE_NATIVE_POINT_ADDRESS_QUOTIENT = NOT_INTRODUCED`.
+`G_REL3 != NATIVE_SIGNED_SLICE_DISPLACEMENT`.
 
-## 3. Canonical min-zero section
+Native signed slice displacement is the raw difference `d in Z^3`.
 
-For `z=(a,b,c) in Z^3`, define
+## 2. Min-zero section and repair
 
-`can(z)=z-min(a,b,c)(1,1,1)`.
+`can3(z)=z-min(z)*(1,1,1)`
 
-Then `can(z)` is nonnegative and has minimum component zero.
+remains the unique nonnegative min-zero section of `G_REL3`.
 
-The accepted exact properties are:
+The missing coordinate is the common depth
 
-1. `can(z+k(1,1,1))=can(z)` for every `k in Z`;
-2. `can(z)=can(z')` iff `z-z' in Z(1,1,1)`;
-3. every class of `G_D` has one unique nonnegative min-zero representative.
+`h=min(z)`.
 
-Define
+Lossless reconstruction is
 
-`A_D := {d in N_0^3 : min(d)=0}`
-
-**with the semantic type tag DERIVED_DISPLACEMENT_SECTION**.
-
-The section is
-
-`sec_D : G_D -> A_D`,
-
-`sec_D([z])=can(z)`.
-
-The tuple-set equality
-
-`underlying_set(A_D)=underlying_set(A_E)`
-
-does not imply semantic equality of the two typed objects.
+`z=can3(z)+h*(1,1,1)`.
 
 Freeze:
 
-`MIN_ZERO_DERIVED_DISPLACEMENT_SECTION = A_D`.
+`MIN_ZERO_SECTION = RELATIVE/CARRIER REPRESENTATIVE`.
 
-`A_D_A_E_TYPE_SEPARATION = REQUIRED`.
+`MIN_ZERO_SECTION_ALONE != NATIVE_CELL_OR_DISPLACEMENT_IDENTITY`.
 
-## 4. R061 Stage-2 compatibility
+`MIN_ZERO_SECTION + COMMON_DEPTH = LOSSLESS_RAW_Z3`.
 
-For current R061 signed carrier difference
+The historical symbol `A_D` may be retained as a compatibility alias for the section object, but it has no authority to replace raw signed native displacement.
 
-`delta_I(P,Q)=(r,s) in Z^2`,
+## 3. Composition
 
-let
+The quotient addition
 
-`m=min(r,s,0)`.
+`[x]+[y]=[x+y]`
 
-The frozen R061 decoder remains exactly
+and canonical representative operation
 
-`D_E(P->Q)=(r-m,s-m,-m)`.
+`can3(can3(x)+can3(y))`
 
-At the derived displacement layer this satisfies
+remain exact at relative/carrier strength.
 
-`D_E(P->Q)=can(r,s,0)`
-
-and
-
-`chi(D_E(P->Q))=(r,s)`.
-
-Thus current R061 Stage-2 decoding is compatible with the canonical section of `G_D`.
-
-No R061 decoder formula is changed by this interpretation.
+However, native centered-slice displacement composition is simply raw signed addition in `Z^3` before any quotient.
 
 Freeze:
 
-`R061_STAGE2_DECODE_COMPATIBLE_WITH_G_D = true`.
+`NATIVE_DISPLACEMENT_COMPOSITION = Z3_ADDITION`.
 
-## 5. Derived composition and inverse
+`RELATIVE_QUOTIENT_COMPOSITION = DOWNSTREAM_PROJECTION_OF_NATIVE_ADDITION`.
 
-For canonical derived displacement representatives `x,y in A_D`, transport the group law of `G_D` by
+## 4. Reversal
 
-`x (+)_D y = can(x+y)`.
+Native reversal is
 
-Identity is `(0,0,0)` in `A_D`.
+`d -> -d`.
 
-Derived inverse is
+The quotient inverse is
 
-`(-)_D x = can(-x)`.
+`[d] -> [-d]`
 
-For `x=(A,B,C)` and `M=max(A,B,C)`,
+and its min-zero representative is `can3(-d)`.
 
-`(-)_D x=(M-A,M-B,M-C)`.
+These must not be conflated.
 
-These formulas record the accepted algebraic interpretation of the existing R061 Stage-2 composition and reversal formulas. They do not identify displacement inverse with native trace/path inversion.
+Witness:
 
-Freeze:
+`d=(3,4,0)` has native reverse `(-3,-4,0)` with squared native length `25` and shortest BRC multiplicity `35`.
 
-`R061_STAGE2_COMPOSITION_COMPATIBLE_WITH_DERIVED_ADDITION = true`.
-
-`R061_STAGE2_REVERSAL_COMPATIBLE_WITH_DERIVED_INVERSE = true`.
-
-`DERIVED_DISPLACEMENT_INVERSE != AUTOMATIC_NATIVE_TRACE_INVERSE`.
-
-## 6. Start/target typing
-
-Bare `g in G_D` records displacement only. Parallel translated segments with the same displacement remain distinct when their starts differ.
-
-The globally safe derived endpoint object is therefore a start/target-typed arrow
-
-`(P,g): P -> P·g`.
-
-Composition is permitted only for matching source/target objects:
-
-`(P,g);(P·g,h)=(P,g+h)`.
-
-This is an action-groupoid/category-level interpretation of endpoint displacement.
+Its relative min-zero inverse representative is `(1,0,4)`, whose component-square observer value is `17` and whose positive-word count is `5`.
 
 Freeze:
 
-`GLOBAL_DERIVED_ENDPOINT_OBJECT = START_TARGET_TYPED_DISPLACEMENT_ARROW`.
+`CAN3_MINUS_D = QUOTIENT_INVERSE_REPRESENTATIVE_NOT_NATIVE_REVERSE_COORDINATE`.
 
-`BARE_G_D_ELEMENT != GLOBAL_NATIVE_LINE_IDENTITY`.
+## 5. Carrier meaning
 
-## 7. Path boundary
+For an established FCC STAR slice with equal unit carrier vectors `u_i,u_j,u_k` satisfying
 
-The packet/path Foundation types native PATH endpoints as packet/cell states. Current R061 Stage-2 displacement is typed on coordinate/triple-intersection vertex endpoints.
+`u_i+u_j+u_k=0`,
 
-Therefore this integration does **not** define a total map
+`G_REL3` is exactly the carrier-center coordinate quotient. The raw common-depth displacement `(1,1,1)` is invisible to this carrier center readout.
 
-`PF_PATH -> G_D`.
+Thus:
 
-A path-to-displacement map is admitted only after one of the following supplies the required endpoint typing:
+`CARRIER_TRIANGLE_RETURN = ZERO_IN_G_REL3`
 
-1. an R061 endpoint-anchored translated-line realization;
-2. an explicitly endpoint-decorated path category;
-3. a separately frozen cell-to-vertex endpoint bridge.
+while
 
-Without such typing, a native closed path remains a nontrivial closed path, but Stage-2 displacement is not automatically attached to it.
+`(1,1,1) != 0_IN_NATIVE_Z3`.
 
-Freeze:
+This is an explicit observer-information-loss witness.
 
-`BARE_GLOBAL_PF_PATH_DISPLACEMENT = NOT_DEFINED`.
+## 6. Metric boundary
 
-`ENDPOINT_DECORATION_REQUIRED_FOR_PATH_TO_G_D`.
+The diagonal-invariant classical carrier quadratic
 
-## 8. Path-formal / BRC boundary
+`Q_car(a,b,c)=a^2+b^2+c^2-ab-bc-ca`
 
-Current R062 remains unchanged:
+factors through `G_REL3` and remains a carrier Euclidean metric.
 
-`PATH_FORMAL_BRC -> N_BRC -> BOOLEAN_BRC`.
+Native signed slice squared distance
 
-The derived displacement quotient is a separate forgetful endpoint target. It does not identify Path-formal witnesses, native line identity, or Boolean BRC support.
+`L_E(d)^2=a^2+b^2+c^2`
 
-In particular, ordinary everywhere-defined multiplication in the group semiring
-
-`N[G_D]`
-
-is **not** declared to be native path composition, because it forgets source/target composability.
-
-If coefficient pushforward is needed, the safe target is a start/target-typed action-groupoid/category algebra, basis elements `[P,g]` with composition constraints, or a later explicitly declared translation/object identification.
-
-Freeze:
-
-`DERIVED_DISPLACEMENT_QUOTIENT != TRACE_QUOTIENT`.
-
-`DERIVED_DISPLACEMENT_QUOTIENT != BOOLEAN_BRC_SUPPORT_QUOTIENT`.
-
-`UNTYPED_N_GD_PATH_MULTIPLICATION = NOT_NATIVE_PATH_COMPOSITION`.
-
-## 9. Metric fork
-
-The existence of `G_D` does not choose the native length functional.
-
-The historical diagonal-invariant symmetric quadratic
-
-`Delta(a,b,c)=a^2+b^2+c^2-ab-bc-ca`
-
-is not restored as current native Enterprise length.
-
-Current R061 directed line gauge remains
-
-`ell_E(P->Q)^2=A^2+B^2+C^2`
-
-for the frozen min-zero decoded displacement `(A,B,C)`, and current Stage-3 bidirectional spectrum remains unchanged.
+does not factor through `G_REL3` without common-depth repair.
 
 Freeze:
 
 `QUOTIENT_STRUCTURE != NATIVE_LENGTH_CHOICE`.
 
-`HISTORICAL_DELTA_NATIVE_METRIC = NOT_RESTORED`.
+`CARRIER_Q != NATIVE_ENTERPRISE_METRIC`.
 
-`CURRENT_R061_DIRECTED_GAUGE = UNCHANGED`.
+## 7. BRC/path boundary
 
-`CURRENT_STAGE3_BIDIRECTIONAL_SPECTRUM = UNCHANGED`.
-
-## 10. Primitive native-point prohibition
-
-The current plane Foundation prohibition is retained at its exact accepted type:
-
-`NO_PRIMITIVE_NATIVE_POINT_DIAGONAL_SHIFT_QUOTIENT`.
-
-For primitive native point/sector addresses, one must not identify
-
-`(a,b,c)`
-
-with
-
-`(a+k,b+k,c+k)`
-
-as two names for one native point merely from diagonal shift.
-
-This primitive prohibition does not forbid the separately typed G1 displacement quotient defined here.
+Endpoint quotienting does not collapse Path-formal provenance or N-BRC multiplicity. Apply signed native path/BRC analysis before discarding common depth whenever future operations depend on native endpoint, reversal, length, multiplicity or provenance.
 
 Freeze:
 
-`PRIMITIVE_POINT_ONTOLOGY_PRESERVED`.
+`RAW_SIGNED_NATIVE_ENDPOINT -> OPTIONAL G_REL3`.
 
-`DERIVED_G1_DISPLACEMENT_QUOTIENT_ALLOWED_SEPARATELY`.
+`G_REL3_ENDPOINT_EQUALITY != NATIVE_ENDPOINT_EQUALITY`.
 
-## 11. Integration invariant
+`G_REL3_ENDPOINT_EQUALITY != PATH_EQUALITY`.
 
-This definition is an interpretive/type integration only.
-
-It changes no equation in:
-
-- R061 Stage-2 decoder;
-- R061 translated trace identity;
-- R061 directed gauge;
-- R061 triangle inequality;
-- R061 reversal formula;
-- R061 Stage-3 bidirectional spectrum;
-- R062 Path-formal/N/Boolean BRC tower.
-
-Freeze final boundary:
-
-`DERIVED_G1_DIAGONAL_DISPLACEMENT_TYPED_INTEGRATION = TYPE_ONLY`.
-
-`NO_NEW_MATHEMATICS`.
+The detailed original G1 integration remains in Git history as provenance.
