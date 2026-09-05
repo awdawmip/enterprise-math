@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "researcher_id": "EM-FREE-F6D046",
+  "candidate_id": "EM-FREE-F6D046-C1-ROTATIONAL-PERIOD-WRONSKIAN",
+  "date": "2026-09-04",
+  "exact_identities": {
+    "pell": "9801^2 - 29*1820^2 = 1",
+    "alpha0": "1/2 - 910*sqrt(29)/9801",
+    "z0": "4*alpha0*(1-alpha0) = 99^-4",
+    "B0": "sqrt(29)*(1-2*alpha0) = 52780/9801 = 2*26390/9801",
+    "guillera_modular_jet": "m_u'(u0)=-8824/29, alpha_u'(u0)=1/9801, m0=1/sqrt(29)",
+    "mu_alpha_prime": "8824*9801 = 8*1103*99^2",
+    "A0": "alpha0*(1-alpha0)*mu_alpha_prime = 2206/9801 = 2*1103/9801",
+    "wronskian": "x(1-x)*(g*f'-f*g') = sin(pi*a)/pi",
+    "clausen": "F_a(4x(1-x))=f_a(x)^2"
+  },
+  "theorem": {
+    "assumptions": [
+      "f_a(phi(x))=mu(x)f_a(x)",
+      "phi(x0)=1-x0",
+      "phi'(x0)!=0"
+    ],
+    "conclusion": "sin(pi*a)/pi = A0*F_a(z0)+B0*Theta F_a(z0)",
+    "A0": "x0(1-x0)*mu'(x0)/phi'(x0)",
+    "B0": "(1-2*x0)/2*mu(x0)*(1+1/phi'(x0))"
+  },
+  "numerical_targets": {
+    "z0_approx": "1.0410203556852167e-8",
+    "digits_per_term": "7.9825 approximately",
+    "ramanujan_inverse_pi": "agrees with independently computed pi at high precision"
+  },
+  "source_refs": [
+    {
+      "type": "paper",
+      "id": "arXiv:1911.03968v13",
+      "role": "degree-29 modular polynomial data and general formulas"
+    },
+    {
+      "type": "paper",
+      "id": "Ramanujan 1914",
+      "role": "original series"
+    },
+    {
+      "type": "reference",
+      "id": "DLMF",
+      "role": "standard hypergeometric/Legendre identities"
+    }
+  ],
+  "negative_result": "A rank-2 transport has infinitely many 6D extensions M direct-sum R; a canonical P000 lift needs extra structure."
+}

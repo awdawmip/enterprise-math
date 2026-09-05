@@ -1,0 +1,107 @@
+{
+  "schema": "EM_FREE_F6D046_CROSS_SIGNATURE_JET_ORBIT_EVIDENCE_V1",
+  "date": "2026-09-04",
+  "researcher_id": "EM-FREE-F6D046",
+  "research_mode": "FREE_AXIOM_DISCOVERY",
+  "parent_candidate_id": "EM-FREE-F6D046-C1-ROTATIONAL-PERIOD-WRONSKIAN",
+  "research_unit_id": "EM-FREE-F6D046-R2-CROSS-SIGNATURE-JET-ORBIT",
+  "blindness_status": "ANCHOR_EXPOSED_PHASE_B_CONTINUATION",
+  "question": "Do standard first-jet covectors from two Ramanujan-Sato formulas outside one quadratic signature orbit admit nontrivial dual-jet orbit invariants?",
+  "selected_formulas": [
+    {
+      "label": "signature-4-level-2-degree-29",
+      "a": "1/4",
+      "z0": "1/99^4",
+      "wronskian_scalar": "sin(pi/4)/pi",
+      "wronskian_covector": ["2206/9801", "52780/9801"],
+      "inverse_pi_covector": ["2206*sqrt(2)/9801", "52780*sqrt(2)/9801"],
+      "source": "Guillera arXiv:1911.03968 and parent research unit"
+    },
+    {
+      "label": "signature-3-level-3-degree-23",
+      "a": "1/3",
+      "z0": "-1/500^2",
+      "wronskian_scalar": "sin(pi/3)/pi",
+      "wronskian_covector": ["827/3000", "14151/3000"],
+      "inverse_pi_covector": ["827/(1500*sqrt(3))", "14151/(1500*sqrt(3))"],
+      "source": "Guillera arXiv:1811.01200, formula (3)"
+    }
+  ],
+  "theorems": [
+    {
+      "id": "T1_NORMALIZED_FIRST_JET_ORBIT_COLLAPSE",
+      "statement": "For nonzero analytic germs at nonzero basepoints, fixed nonzero scalar K, and B1*B2 != 0, an unrestricted local analytic coordinate/gauge arrow exists carrying any normalized first-jet formula c1*j1=K to any other c2*j2=K.",
+      "construction": [
+        "g0=F1(z1)/F2(w2)",
+        "kappa0=B2/(B1*g0)",
+        "choose phi(w2)=z1 and phi'(w2)=z1/(w2*kappa0)",
+        "define g(w)=F1(phi(w))/F2(w)",
+        "B components agree by construction; A components agree because both pairings equal K and F2(w2) != 0"
+      ],
+      "consequence": "At fixed K != 0 there are exactly two unrestricted first-jet orbits, B=0 and B!=0."
+    },
+    {
+      "id": "T2_QUADRATIC_ODD_MONODROMY_ORDER_INVARIANT",
+      "statement": "Within Gauss period systems with two parabolic singularities and one finite-order elliptic singularity, the odd part of the projective elliptic monodromy order is invariant under chains of quadratic equation-preserving pullbacks, scalar gauges, and reverse traversal of those quadratic relations.",
+      "law": "nu_target=nu_source/gcd(nu_source,e), e in {1,2}",
+      "invariant": "Omega_2=oddpart(nu)"
+    },
+    {
+      "id": "T3_LEVEL2_LEVEL3_QUADRATIC_SEPARATION",
+      "statement": "The a=1/4 and a=1/3 period systems lie in distinct quadratic equation-pullback components because their elliptic projective monodromy orders are 2 and 3, with odd parts 1 and 3.",
+      "rank3_regression": {
+        "a=1/4_infinity_pairwise_orders": [2, 4, 4],
+        "a=1/3_infinity_pairwise_orders": [3, 6, 6],
+        "no_degree2_pullback_either_direction": true
+      }
+    }
+  ],
+  "key_negative_result": "A first-order coefficient-level orbit invariant cannot distinguish the selected formulas unless the arrow category retains differential-equation/local-system provenance.",
+  "minimal_rigidified_object": "(Gauss period local system, Clausen rank-3 operator, chosen solution, basepoint, covector, scalar normalization)",
+  "scope_boundaries": [
+    "The manufactured first-jet arrow is local and tautological; it is not modular and does not intertwine the differential equations.",
+    "The quadratic separation concerns equation-preserving pullback chains, not arbitrary correspondences represented by a common-cover span.",
+    "A common third cover may still relate the two systems bivariantly; this requires separate span and holonomy analysis.",
+    "No P000 six-dimensional lift is determined by these rank-2/rank-3 results."
+  ],
+  "tool_reuse_audit": [
+    {
+      "match": "T9_HOLONOMY_COCOYCLE_GLUING / holonomy.precision_defect_transport",
+      "coverage_verdict": "REUSE_EXISTING_TOOL",
+      "reuse_resolution_state": "REUSE_APPLIED",
+      "how_applied": "Used the typed distinction between local transport, loop obstruction, and strict global trivialization.",
+      "hard_boundary_checked": "Holonomy does not select a unique repaired global object."
+    },
+    {
+      "match": "T7_FINITE_SYMMETRY_EQUIVARIANCE",
+      "coverage_verdict": "NOT_APPLICABLE",
+      "reuse_resolution_state": "NOT_APPLICABLE",
+      "how_applied": "The acting object is an infinite local analytic pseudogroup/pullback category rather than a finite group action.",
+      "hard_boundary_checked": "No finite orbit-enumeration result was silently extended."
+    },
+    {
+      "match": "Dedicated Ramanujan/hypergeometric jet executable",
+      "coverage_verdict": "NOT_APPLICABLE",
+      "reuse_resolution_state": "NOT_APPLICABLE",
+      "how_applied": "No dedicated match was found in the curated registry, method inventory, or searchable main executable surface; a result-specific verifier was used without claiming a global tool.",
+      "hard_boundary_checked": "RESULT_ONLY; absence of a repository executable is not a mathematical capability gap."
+    }
+  ],
+  "prior_art_classification": {
+    "formula_level3": "Published formula; not new.",
+    "hypergeometric_local_exponents_and_pullback_law": "Standard theory; not new.",
+    "current_contribution": "Typed no-go synthesis and explicit application to the selected formula objects.",
+    "novelty_claim": "NONE_AS_FOUNDATIONAL_AXIOM_OR_GENERAL_HYPERGEOMETRIC_THEOREM"
+  },
+  "axiom_gate": {
+    "verdict": "REJECT_AS_NEW_AXIOM",
+    "classification": ["DERIVED_NO_GO", "PRIOR_ART_METHOD_SPECIALIZATION", "NOT_FOUNDATION"],
+    "parent_candidate_state": "UNCHANGED_REJECT_AS_NEW_AXIOM"
+  },
+  "verification": {
+    "file": "EM_FREE_F6D046_CROSS_SIGNATURE_JET_ORBIT_VERIFICATION_20260904.json",
+    "all_passed": true,
+    "check_count": 20
+  },
+  "successor_frontier": "Construct or exclude a minimal common-cover span between the a=1/4 and a=1/3 period systems, pull both inverse-pi covectors to the common local system, and compute equality/gauge/holonomy outcomes there."
+}

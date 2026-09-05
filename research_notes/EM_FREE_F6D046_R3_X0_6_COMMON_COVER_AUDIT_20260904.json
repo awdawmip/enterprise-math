@@ -1,0 +1,63 @@
+{
+  "schema": "EM_FREE_F6D046_R3_AXIOM_AUDIT_V1",
+  "date": "2026-09-04",
+  "researcher_id": "EM-FREE-F6D046",
+  "research_unit": "EM-FREE-F6D046-R3-X0-6-COMMON-COVER-HOLONOMY",
+  "parent_candidate": "EM-FREE-F6D046-C1-ROTATIONAL-PERIOD-WRONSKIAN",
+  "question": "Does a minimal common cover exist for the a=1/4 and a=1/3 period systems, and do their inverse-pi covectors become equal, gauge-equivalent, or holonomically distinct?",
+  "verdict": "REJECT_AS_NEW_AXIOM",
+  "result_classification": [
+    "DERIVED_COMMON_COVER",
+    "EXACT_CENTRAL_HOLONOMY_OBSTRUCTION",
+    "PRIOR_ART_COMPATIBLE",
+    "NOT_FOUNDATION"
+  ],
+  "answers": {
+    "minimal_projective_common_cover": "YES: X0(6), covering bidegree (4,3)",
+    "linear_period_equality_on_X0_6": "NO: differs by nontrivial quadratic character chi_D",
+    "strict_linear_common_cover": "YES after s^2=t^2+12t+24; explicit genus-zero bidegree (8,6) span",
+    "clausen_rank3_equality": "YES up to rational meromorphic gauge R=3D/[2(t+6)^2]",
+    "specific_covectors_same_point": "NO: arithmetic basepoints have unequal j-values",
+    "path_independent_global_covector": "NO: rank2 and Sym^2 common fixed dual spaces are zero"
+  },
+  "why_not_axiom": [
+    "The X0(6) maps and mixed-signature modular correspondence belong to classical modular-curve theory.",
+    "The common L6 equation follows by direct chain-rule pullback and scalar gauge.",
+    "The Z/2 character follows from local exponents and analytic continuation of sqrt(D).",
+    "The even/odd symmetric-power law is functorial tensor algebra.",
+    "The global-covector obstruction is explicit finite-dimensional monodromy linear algebra.",
+    "No independent primitive necessity or non-derivable new foundation statement remains."
+  ],
+  "novelty_boundary": {
+    "not_claimed": [
+      "novelty of X0(6) common cover",
+      "novelty of mixed signature modular transformation",
+      "novelty of Picard-Fuchs L6",
+      "novelty of Clausen identity"
+    ],
+    "research_value": [
+      "exact integration with the prior jet-covector framework",
+      "separation of projective equality, linear central twist, symmetric-square erasure, and basepoint transport",
+      "explicit pullback of both inverse-pi covectors to one common H^2 jet basis",
+      "minimal additional quadratic linearization over the fixed congruence span",
+      "exact no-go for a nonzero global horizontal covector"
+    ]
+  },
+  "p000": {
+    "status": "UNCHANGED",
+    "worldview_modified": false,
+    "six_dimensional_lift_claimed": false,
+    "effect": "tightens the typed input required for slice gluing; does not identify the rank2 modular curve with full 6D space"
+  },
+  "verification": {
+    "all_passed": true,
+    "check_count": 37,
+    "script": "scripts/verify_em_free_f6d046_x0_6_common_cover.py"
+  },
+  "publication_state": "RESEARCH_NOTE_ON_EXISTING_PR_BRANCH",
+  "next_gate": {
+    "status": "OPEN_DERIVED_RESEARCH",
+    "question": "tri-signature X0(12) central-character Cech cocycle and parity obstruction",
+    "axiom_gate": "CLOSED_UNLESS_NONDERIVABLE_PRIMITIVE_RESIDUE_EMERGES"
+  }
+}
