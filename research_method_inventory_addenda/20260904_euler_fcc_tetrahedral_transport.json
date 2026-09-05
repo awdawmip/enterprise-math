@@ -1,0 +1,36 @@
+{
+  "schema": "ENTERPRISE_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "date": "2026-09-04",
+  "status": "FREE_RESEARCH / PROJECT_SUBTOOL / NOT_TOP_LEVEL_FAMILY",
+  "methods": [
+    {
+      "method_id": "t7.euler_fcc_tetrahedral_transport",
+      "name": "FCC tetrahedral slice-transport and Euler-holonomy checker",
+      "family": "T7_SYMMETRY_REPRESENTATION",
+      "secondary_families": [
+        "T9_COCYCLE_COHOMOLOGY",
+        "T6_QUOTIENT_CONGRUENCE"
+      ],
+      "module": "src/enterprise_math/euler_fcc_tetrahedral_transport.py",
+      "test": "tests/test_euler_fcc_tetrahedral_transport.py",
+      "formal_target": "EnterpriseMath.EulerRotation.TetrahedralTransportHolonomy",
+      "capabilities": [
+        "exact tetrahedral normal and shared-axis arithmetic",
+        "proper shortest SO3 overlap transport",
+        "improper bisector-reflection overlap transport",
+        "determinant/chirality covariance checks",
+        "all 24 oriented triangular face holonomies",
+        "face half-turn and tangent-line reversal certificates",
+        "mirror-loop non-complex-linearity certificate",
+        "exact rational spherical cosine-law input"
+      ],
+      "exactness": "Fraction/rational matrices only in the finite core; no floating point, trigonometric evaluation, exponential, or numerical pi",
+      "boundaries": [
+        "embedded FCC carrier theorem only",
+        "short SO3 transport is not yet derived from native P000 Cell semantics",
+        "cross-product J is a derived operator, not a primitive spatial axis",
+        "no identity with endpoint-sum torsion or Pell-shell sign"
+      ]
+    }
+  ]
+}
