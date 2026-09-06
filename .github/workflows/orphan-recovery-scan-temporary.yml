@@ -5,7 +5,7 @@ on:
     branches:
       - control/recover-dangling-research-20260906
     paths:
-      - 'tools/research_orphan_recovery_scan.py'
+      - 'tools/research_orphan_recovery_scan_v2.py'
       - '.github/workflows/orphan-recovery-scan-temporary.yml'
 
 permissions:
@@ -34,10 +34,10 @@ jobs:
             -H 'Accept: application/vnd.github+json' \
             "repos/${GITHUB_REPOSITORY}/issues/240/comments?per_page=100" \
             --jq '.[]' | jq -s '.' > /tmp/em-orphan/issue-240-comments.json
-      - name: Run audit scanner
+      - name: Run indexed audit scanner
         run: |
           set -euo pipefail
-          python tools/research_orphan_recovery_scan.py \
+          python tools/research_orphan_recovery_scan_v2.py \
             --events /tmp/em-orphan/issue-240-comments.json \
             --output control_plane/research_orphan_recovery_scan_20260906.json
       - name: Persist audit on scan branch
