@@ -1,0 +1,41 @@
+name: control-result-handoff-patch
+
+on:
+  push:
+    branches:
+      - control/result-handoff-awaiting-review-20260906
+    paths:
+      - '.github/workflows/control-result-handoff-patch.yml'
+      - 'control_plane/apply_result_handoff_patch.py'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: contains(github.event.head_commit.message, 'bootstrap transient result-handoff patch')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Apply exact reducer patch
+        run: python control_plane/apply_result_handoff_patch.py
+      - name: Run focused reducer regressions
+        run: |
+          python -m unittest discover -s tests -p 'test_research_runtime_reducer.py'
+          python -m unittest discover -s tests -p 'test_result_handoff_dispatch_guard.py'
+      - name: Commit repaired control plane
+        run: |
+          set -euo pipefail
+          rm control_plane/apply_result_handoff_patch.py
+          rm .github/workflows/control-result-handoff-patch.yml
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add tools/research_runtime_reducer.py tests/test_result_handoff_dispatch_guard.py control_plane/apply_result_handoff_patch.py .github/workflows/control-result-handoff-patch.yml
+          git commit -m 'control: freeze result-bearing handoffs pending review'
+          git push origin HEAD:control/result-handoff-awaiting-review-20260906
