@@ -115,6 +115,13 @@ theorem k4Feasible_value_le_sevenBound (n : K4Capacity)
   unfold k4ExtractionValue
   apply le_k4SevenBound <;> omega
 
+/-- Split an integer target between two bounded nonnegative bins. -/
+private theorem k4PairSplit {x y m : ℕ} (h : m ≤ x + y) :
+    ∃ x' y' : ℕ, x' ≤ x ∧ y' ≤ y ∧ x' + y' = m := by
+  by_cases hx : m ≤ x
+  · exact ⟨m, 0, hx, Nat.zero_le _, by omega⟩
+  · refine ⟨x, m - x, le_rfl, ?_, ?_⟩ <;> omega
+
 /-- Any feasible four-vertex extraction can be monotonically reduced to any
 smaller requested total.  Feasibility is preserved because every vertex
 multiplicity only decreases. -/
@@ -123,15 +130,20 @@ theorem k4Feasible_shrink (n : K4Capacity)
     (hm : m ≤ k4ExtractionValue a b c d) :
     ∃ a' b' c' d' : ℕ,
       k4Feasible n a' b' c' d' ∧ k4ExtractionValue a' b' c' d' = m := by
-  have hsplit : ∃ a' b' c' d' : ℕ,
-      a' ≤ a ∧ b' ≤ b ∧ c' ≤ c ∧ d' ≤ d ∧ a' + b' + c' + d' = m := by
+  have hm' : m ≤ (a + b) + (c + d) := by
     unfold k4ExtractionValue at hm
     omega
-  rcases hsplit with ⟨a', b', c', d', ha, hb, hc, hd, hsum⟩
+  rcases k4PairSplit (x := a + b) (y := c + d) (m := m) hm' with
+    ⟨p, q, hp, hq, hpq⟩
+  rcases k4PairSplit (x := a) (y := b) (m := p) hp with
+    ⟨a', b', ha, hb, hab⟩
+  rcases k4PairSplit (x := c) (y := d) (m := q) hq with
+    ⟨c', d', hc, hd, hcd⟩
   refine ⟨a', b', c', d', ?_, ?_⟩
   · unfold k4Feasible at hfeas ⊢
     omega
-  · exact hsum
+  · unfold k4ExtractionValue
+    omega
 
 /-- The nested seven-bound minimum is attained by at least one of its seven
 explicit linear bounds. -/
@@ -178,6 +190,244 @@ theorem k4SevenBound_choice (n : K4Capacity) :
             · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inl h)))))
             · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr h)))))
 
+/-- Doubled lower endpoint for the A-coordinate in the AB/CD matching face. -/
+private def k4ABCDLower (n : K4Capacity) : ℕ :=
+  max (2 * (n.ab - n.bd))
+    (max (2 * (n.ab - n.bc))
+      (2 * n.ab + n.cd - n.bd - n.bc))
+
+/-- Doubled upper endpoint for the same matching-face interval. -/
+private def k4ABCDUpper (n : K4Capacity) : ℕ :=
+  min (2 * n.ab)
+    (min (2 * n.ac)
+      (min (2 * n.ad) (n.ac + n.ad - n.cd)))
+
+/-- Smallest integer A-coordinate whose double reaches the lower endpoint. -/
+private def k4ABCDA (n : K4Capacity) : ℕ := (k4ABCDLower n + 1) / 2
+
+private theorem k4CeilHalf_bounds (x : ℕ) :
+    x ≤ 2 * ((x + 1) / 2) ∧ 2 * ((x + 1) / 2) ≤ x + 1 := by
+  omega
+
+private theorem k4ABCDLower_le_upper (n : K4Capacity)
+    (h1 : n.ab + n.cd ≤ n.ac + n.bd)
+    (h2 : n.ab + n.cd ≤ n.ad + n.bc)
+    (h3 : n.ab + n.cd ≤ n.ab + n.ac + n.ad)
+    (h4 : n.ab + n.cd ≤ n.ab + n.bc + n.bd)
+    (h5 : n.ab + n.cd ≤ n.ac + n.bc + n.cd)
+    (h6 : n.ab + n.cd ≤ n.ad + n.bd + n.cd) :
+    k4ABCDLower n ≤ k4ABCDUpper n := by
+  unfold k4ABCDLower k4ABCDUpper
+  apply le_min
+  · apply max_le
+    · omega
+    · apply max_le <;> omega
+  · apply le_min
+    · apply max_le
+      · omega
+      · apply max_le <;> omega
+    · apply le_min
+      · apply max_le
+        · omega
+        · apply max_le <;> omega
+      · apply max_le
+        · omega
+        · apply max_le <;> omega
+
+private theorem k4ABCDLower_first_le (n : K4Capacity) :
+    2 * (n.ab - n.bd) ≤ k4ABCDLower n := by
+  unfold k4ABCDLower
+  exact le_max_left _ _
+
+private theorem k4ABCDLower_second_le (n : K4Capacity) :
+    2 * (n.ab - n.bc) ≤ k4ABCDLower n := by
+  unfold k4ABCDLower
+  exact le_trans (le_max_left _ _) (le_max_right _ _)
+
+private theorem k4ABCDLower_key_le (n : K4Capacity) :
+    2 * n.ab + n.cd - n.bd - n.bc ≤ k4ABCDLower n := by
+  unfold k4ABCDLower
+  exact le_trans (le_max_right _ _) (le_max_right _ _)
+
+private theorem k4ABCDUpper_le_ab (n : K4Capacity) :
+    k4ABCDUpper n ≤ 2 * n.ab := by
+  unfold k4ABCDUpper
+  exact min_le_left _ _
+
+private theorem k4ABCDUpper_le_ac (n : K4Capacity) :
+    k4ABCDUpper n ≤ 2 * n.ac := by
+  unfold k4ABCDUpper
+  exact le_trans (min_le_right _ _) (min_le_left _ _)
+
+private theorem k4ABCDUpper_le_ad (n : K4Capacity) :
+    k4ABCDUpper n ≤ 2 * n.ad := by
+  unfold k4ABCDUpper
+  exact le_trans (le_trans (min_le_right _ _) (min_le_right _ _)) (min_le_left _ _)
+
+private theorem k4ABCDUpper_le_key (n : K4Capacity) :
+    k4ABCDUpper n ≤ n.ac + n.ad - n.cd := by
+  unfold k4ABCDUpper
+  exact le_trans (le_trans (min_le_right _ _) (min_le_right _ _)) (min_le_right _ _)
+
+private theorem k4ABCDLower_cases (n : K4Capacity) :
+    k4ABCDLower n = 2 * (n.ab - n.bd) ∨
+    k4ABCDLower n = 2 * (n.ab - n.bc) ∨
+    k4ABCDLower n = 2 * n.ab + n.cd - n.bd - n.bc := by
+  unfold k4ABCDLower
+  rcases max_choice (2 * (n.ab - n.bd))
+      (max (2 * (n.ab - n.bc))
+        (2 * n.ab + n.cd - n.bd - n.bc)) with h | h
+  · exact Or.inl h
+  · rcases max_choice (2 * (n.ab - n.bc))
+        (2 * n.ab + n.cd - n.bd - n.bc) with h' | h'
+    · exact Or.inr (Or.inl (h.trans h'))
+    · exact Or.inr (Or.inr (h.trans h'))
+
+private theorem k4ABCDUpper_cases (n : K4Capacity) :
+    k4ABCDUpper n = 2 * n.ab ∨
+    k4ABCDUpper n = 2 * n.ac ∨
+    k4ABCDUpper n = 2 * n.ad ∨
+    k4ABCDUpper n = n.ac + n.ad - n.cd := by
+  unfold k4ABCDUpper
+  rcases min_choice (2 * n.ab)
+      (min (2 * n.ac) (min (2 * n.ad) (n.ac + n.ad - n.cd))) with h | h
+  · exact Or.inl h
+  · rcases min_choice (2 * n.ac)
+        (min (2 * n.ad) (n.ac + n.ad - n.cd)) with h' | h'
+    · exact Or.inr (Or.inl (h.trans h'))
+    · rcases min_choice (2 * n.ad) (n.ac + n.ad - n.cd) with h'' | h''
+      · exact Or.inr (Or.inr (Or.inl ((h.trans h').trans h'')))
+      · exact Or.inr (Or.inr (Or.inr ((h.trans h').trans h'')))
+
+/-- Explicit integral witness on the AB/CD matching face once the rounded lower
+endpoint remains inside the doubled feasible interval. -/
+private theorem k4ABCD_good_witness (n : K4Capacity)
+    (h1 : n.ab + n.cd ≤ n.ac + n.bd)
+    (h2 : n.ab + n.cd ≤ n.ad + n.bc)
+    (h3 : n.ab + n.cd ≤ n.ab + n.ac + n.ad)
+    (h4 : n.ab + n.cd ≤ n.ab + n.bc + n.bd)
+    (h5 : n.ab + n.cd ≤ n.ac + n.bc + n.cd)
+    (h6 : n.ab + n.cd ≤ n.ad + n.bd + n.cd)
+    (hgood : 2 * k4ABCDA n ≤ k4ABCDUpper n) :
+    ∃ a b c d : ℕ,
+      k4Feasible n a b c d ∧
+        k4ExtractionValue a b c d = n.ab + n.cd := by
+  let a := k4ABCDA n
+  let c₁ := n.cd + a - n.ad
+  let c₂ := n.ab + n.cd - n.bd - a
+  let c := max c₁ c₂
+  have hceil := k4CeilHalf_bounds (k4ABCDLower n)
+  have hL1 := k4ABCDLower_first_le n
+  have hL2 := k4ABCDLower_second_le n
+  have hL3 := k4ABCDLower_key_le n
+  have hUab := k4ABCDUpper_le_ab n
+  have hUac := k4ABCDUpper_le_ac n
+  have hUad := k4ABCDUpper_le_ad n
+  have hUkey := k4ABCDUpper_le_key n
+  have ha_ab : a ≤ n.ab := by
+    dsimp [a, k4ABCDA]
+    omega
+  have ha_ac : a ≤ n.ac := by
+    dsimp [a, k4ABCDA]
+    omega
+  have ha_ad : a ≤ n.ad := by
+    dsimp [a, k4ABCDA]
+    omega
+  have hc1_cd : c₁ ≤ n.cd := by
+    dsimp [c₁]
+    omega
+  have hc2_cd : c₂ ≤ n.cd := by
+    dsimp [c₂, a, k4ABCDA]
+    omega
+  have hac1 : a + c₁ ≤ n.ac := by
+    dsimp [c₁, a, k4ABCDA]
+    omega
+  have hac2 : a + c₂ ≤ n.ac := by
+    dsimp [c₂]
+    omega
+  have hbc1 : (n.ab - a) + c₁ ≤ n.bc := by
+    dsimp [c₁]
+    omega
+  have hbc2 : (n.ab - a) + c₂ ≤ n.bc := by
+    dsimp [c₂, a, k4ABCDA]
+    omega
+  have hc_cd : c ≤ n.cd := by
+    dsimp [c]
+    exact max_le hc1_cd hc2_cd
+  have hac : a + c ≤ n.ac := by
+    rcases max_choice c₁ c₂ with hc | hc
+    · change a + max c₁ c₂ ≤ n.ac
+      rw [hc]
+      exact hac1
+    · change a + max c₁ c₂ ≤ n.ac
+      rw [hc]
+      exact hac2
+  have hbc : (n.ab - a) + c ≤ n.bc := by
+    rcases max_choice c₁ c₂ with hc | hc
+    · change (n.ab - a) + max c₁ c₂ ≤ n.bc
+      rw [hc]
+      exact hbc1
+    · change (n.ab - a) + max c₁ c₂ ≤ n.bc
+      rw [hc]
+      exact hbc2
+  refine ⟨a, n.ab - a, c, n.cd - c, ?_, ?_⟩
+  · unfold k4Feasible
+    dsimp [c₁, c₂] at *
+    omega
+  · unfold k4ExtractionValue
+    omega
+
+/-- If the rounded lower endpoint lies outside the doubled feasible interval,
+the capacities themselves carry the unique all-edges-odd exceptional witness. -/
+private theorem k4ABCD_bad_exceptional (n : K4Capacity)
+    (h1 : n.ab + n.cd ≤ n.ac + n.bd)
+    (h2 : n.ab + n.cd ≤ n.ad + n.bc)
+    (h3 : n.ab + n.cd ≤ n.ab + n.ac + n.ad)
+    (h4 : n.ab + n.cd ≤ n.ab + n.bc + n.bd)
+    (h5 : n.ab + n.cd ≤ n.ac + n.bc + n.cd)
+    (h6 : n.ab + n.cd ≤ n.ad + n.bd + n.cd)
+    (hbad : ¬ 2 * k4ABCDA n ≤ k4ABCDUpper n) :
+    k4Exceptional n := by
+  have hLU := k4ABCDLower_le_upper n h1 h2 h3 h4 h5 h6
+  have hceil := k4CeilHalf_bounds (k4ABCDLower n)
+  have hEqLU : k4ABCDLower n = k4ABCDUpper n := by
+    unfold k4ABCDA at hbad
+    omega
+  have hRound : 2 * k4ABCDA n = k4ABCDLower n + 1 := by
+    unfold k4ABCDA at hbad ⊢
+    omega
+  have hLkey : k4ABCDLower n =
+      2 * n.ab + n.cd - n.bd - n.bc := by
+    rcases k4ABCDLower_cases n with h | h | h
+    · exfalso
+      omega
+    · exfalso
+      omega
+    · exact h
+  have hUkey : k4ABCDUpper n = n.ac + n.ad - n.cd := by
+    rcases k4ABCDUpper_cases n with h | h | h | h
+    · exfalso
+      omega
+    · exfalso
+      omega
+    · exfalso
+      omega
+    · exact h
+  have hmatch1 : n.ab + n.cd = n.ac + n.bd := by
+    omega
+  have hmatch2 : n.ab + n.cd = n.ad + n.bc := by
+    omega
+  have hUab := k4ABCDUpper_le_ab n
+  have hUac := k4ABCDUpper_le_ac n
+  have hUad := k4ABCDUpper_le_ad n
+  have ha_pos : 0 < k4ABCDA n := by omega
+  have ha_ab : k4ABCDA n ≤ n.ab := by omega
+  have ha_ac : k4ABCDA n ≤ n.ac := by omega
+  have ha_ad : k4ABCDA n ≤ n.ad := by omega
+  unfold k4Exceptional
+  refine ⟨k4ABCDA n - 1, n.ab - k4ABCDA n,
+    n.ac - k4ABCDA n, n.ad - k4ABCDA n, ?_, ?_, ?_, ?_, ?_, ?_⟩ <;> omega
+
 /-- If the first opposite-edge pairing is the active minimum and the exceptional
 half-integral pattern is absent, the top bound has an integer witness. -/
 theorem k4Realizable_ab_cd_of_min_of_not_exceptional
@@ -192,13 +442,30 @@ theorem k4Realizable_ab_cd_of_min_of_not_exceptional
     ∃ a b c d : ℕ,
       k4Feasible n a b c d ∧
         k4ExtractionValue a b c d = n.ab + n.cd := by
-  rcases n with ⟨ab, ac, ad, bc, bd, cd⟩
-  unfold k4Exceptional at hne
-  unfold k4Feasible k4ExtractionValue
-  dsimp at hne ⊢
-  omega
+  by_cases hgood : 2 * k4ABCDA n ≤ k4ABCDUpper n
+  · exact k4ABCD_good_witness n h1 h2 h3 h4 h5 h6 hgood
+  · exact (hne (k4ABCD_bad_exceptional n h1 h2 h3 h4 h5 h6 hgood)).elim
 
-/-- Second opposite-edge active-minimum case. -/
+/-- Vertex relabeling B↔C, used to reuse the first matching-face proof. -/
+private def k4SwapBC (n : K4Capacity) : K4Capacity where
+  ab := n.ac
+  ac := n.ab
+  ad := n.ad
+  bc := n.bc
+  bd := n.cd
+  cd := n.bd
+
+private theorem k4Exceptional_swapBC (n : K4Capacity) :
+    k4Exceptional (k4SwapBC n) ↔ k4Exceptional n := by
+  constructor
+  · rintro ⟨a, b, c, d, hab, hac, had, hbc, hbd, hcd⟩
+    dsimp [k4SwapBC] at hab hac had hbc hbd hcd
+    refine ⟨a, c, b, d, ?_, ?_, ?_, ?_, ?_, ?_⟩ <;> omega
+  · rintro ⟨a, b, c, d, hab, hac, had, hbc, hbd, hcd⟩
+    dsimp [k4SwapBC]
+    refine ⟨a, c, b, d, ?_, ?_, ?_, ?_, ?_, ?_⟩ <;> omega
+
+/-- Second opposite-edge active-minimum case, obtained by B↔C relabeling. -/
 theorem k4Realizable_ac_bd_of_min_of_not_exceptional
     (n : K4Capacity)
     (h0 : n.ac + n.bd ≤ n.ab + n.cd)
@@ -211,13 +478,59 @@ theorem k4Realizable_ac_bd_of_min_of_not_exceptional
     ∃ a b c d : ℕ,
       k4Feasible n a b c d ∧
         k4ExtractionValue a b c d = n.ac + n.bd := by
-  rcases n with ⟨ab, ac, ad, bc, bd, cd⟩
-  unfold k4Exceptional at hne
-  unfold k4Feasible k4ExtractionValue
-  dsimp at hne ⊢
-  omega
+  let n' := k4SwapBC n
+  have h1' : n'.ab + n'.cd ≤ n'.ac + n'.bd := by
+    dsimp [n', k4SwapBC]
+    exact h0
+  have h2' : n'.ab + n'.cd ≤ n'.ad + n'.bc := by
+    dsimp [n', k4SwapBC]
+    exact h2
+  have h3' : n'.ab + n'.cd ≤ n'.ab + n'.ac + n'.ad := by
+    dsimp [n', k4SwapBC]
+    omega
+  have h4' : n'.ab + n'.cd ≤ n'.ab + n'.bc + n'.bd := by
+    dsimp [n', k4SwapBC]
+    exact h5
+  have h5' : n'.ab + n'.cd ≤ n'.ac + n'.bc + n'.cd := by
+    dsimp [n', k4SwapBC]
+    exact h4
+  have h6' : n'.ab + n'.cd ≤ n'.ad + n'.bd + n'.cd := by
+    dsimp [n', k4SwapBC]
+    omega
+  have hne' : ¬ k4Exceptional n' := by
+    intro hex
+    apply hne
+    exact (k4Exceptional_swapBC n).mp hex
+  rcases k4Realizable_ab_cd_of_min_of_not_exceptional n'
+      h1' h2' h3' h4' h5' h6' hne' with ⟨a, b, c, d, hfeas, hvalue⟩
+  refine ⟨a, c, b, d, ?_, ?_⟩
+  · unfold k4Feasible at hfeas ⊢
+    dsimp [n', k4SwapBC] at hfeas
+    omega
+  · unfold k4ExtractionValue at hvalue ⊢
+    dsimp [n', k4SwapBC] at hvalue
+    omega
 
-/-- Third opposite-edge active-minimum case. -/
+/-- Vertex relabeling B↔D, used for the third matching face. -/
+private def k4SwapBD (n : K4Capacity) : K4Capacity where
+  ab := n.ad
+  ac := n.ac
+  ad := n.ab
+  bc := n.cd
+  bd := n.bd
+  cd := n.bc
+
+private theorem k4Exceptional_swapBD (n : K4Capacity) :
+    k4Exceptional (k4SwapBD n) ↔ k4Exceptional n := by
+  constructor
+  · rintro ⟨a, b, c, d, hab, hac, had, hbc, hbd, hcd⟩
+    dsimp [k4SwapBD] at hab hac had hbc hbd hcd
+    refine ⟨a, d, c, b, ?_, ?_, ?_, ?_, ?_, ?_⟩ <;> omega
+  · rintro ⟨a, b, c, d, hab, hac, had, hbc, hbd, hcd⟩
+    dsimp [k4SwapBD]
+    refine ⟨a, d, c, b, ?_, ?_, ?_, ?_, ?_, ?_⟩ <;> omega
+
+/-- Third opposite-edge active-minimum case, obtained by B↔D relabeling. -/
 theorem k4Realizable_ad_bc_of_min_of_not_exceptional
     (n : K4Capacity)
     (h0 : n.ad + n.bc ≤ n.ab + n.cd)
@@ -230,11 +543,38 @@ theorem k4Realizable_ad_bc_of_min_of_not_exceptional
     ∃ a b c d : ℕ,
       k4Feasible n a b c d ∧
         k4ExtractionValue a b c d = n.ad + n.bc := by
-  rcases n with ⟨ab, ac, ad, bc, bd, cd⟩
-  unfold k4Exceptional at hne
-  unfold k4Feasible k4ExtractionValue
-  dsimp at hne ⊢
-  omega
+  let n' := k4SwapBD n
+  have h1' : n'.ab + n'.cd ≤ n'.ac + n'.bd := by
+    dsimp [n', k4SwapBD]
+    exact h1
+  have h2' : n'.ab + n'.cd ≤ n'.ad + n'.bc := by
+    dsimp [n', k4SwapBD]
+    exact h0
+  have h3' : n'.ab + n'.cd ≤ n'.ab + n'.ac + n'.ad := by
+    dsimp [n', k4SwapBD]
+    omega
+  have h4' : n'.ab + n'.cd ≤ n'.ab + n'.bc + n'.bd := by
+    dsimp [n', k4SwapBD]
+    omega
+  have h5' : n'.ab + n'.cd ≤ n'.ac + n'.bc + n'.cd := by
+    dsimp [n', k4SwapBD]
+    exact h5
+  have h6' : n'.ab + n'.cd ≤ n'.ad + n'.bd + n'.cd := by
+    dsimp [n', k4SwapBD]
+    exact h4
+  have hne' : ¬ k4Exceptional n' := by
+    intro hex
+    apply hne
+    exact (k4Exceptional_swapBD n).mp hex
+  rcases k4Realizable_ab_cd_of_min_of_not_exceptional n'
+      h1' h2' h3' h4' h5' h6' hne' with ⟨a, b, c, d, hfeas, hvalue⟩
+  refine ⟨a, d, c, b, ?_, ?_⟩
+  · unfold k4Feasible at hfeas ⊢
+    dsimp [n', k4SwapBD] at hfeas
+    omega
+  · unfold k4ExtractionValue at hvalue ⊢
+    dsimp [n', k4SwapBD] at hvalue
+    omega
 
 /-- If the A-star bound is active, setting the A extraction to zero and taking
 the three incident capacities gives an explicit optimum witness. -/
