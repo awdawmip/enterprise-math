@@ -1,238 +1,180 @@
-# X6 Cell internal state V1: triadic port frames, channel-frame torsor, and PF-10 information-loss hierarchy
+# X6 Cell internal state V1R: corrected triadic port frames and PF-10 information-loss hierarchy
 
-Status: `FREE_RESEARCH / EXACT FINITE DERIVATION / NOT_FOUNDATION`
+Status: `FREE_RESEARCH / EXACT FINITE DERIVATION / CORRECTED 2026-09-06 / NOT_FOUNDATION`
 Date: `2026-09-06`
 Task: `RS-X6-CELL-CHANNEL-INTERNAL-STATE`
-Consumes:
-- `X6_NATIVE_SPATIAL = AFFINE_TORSOR(Z^6)`;
-- PF-10 ideal six-channel ingress/egress/passage counts;
-- `X6_TRIADIC_ATOMIC_SCATTER_AND_BRC_CORRELATION_V1_20260906.md`;
-- `X6_NATIVE_EVENT_TIME_AND_MARKOV_MEMORY_V1_20260906.md`;
-- existing BRC recurrent-port collapse interface.
-
-Method reuse:
-- T0 BRC for occurrence/provenance layers;
-- T7 finite symmetry for channel-frame canonical-choice audit;
-- T6 operation-safe quotient for PF-10 projections;
-- existing `recurrent_port_signature` only for positive-rational hidden channel blocks satisfying its stability/context hypotheses.
+Correction authority: `X6_SIGNED_INTERNAL_Q_GAUGE_CORRECTION_V5_20260906.md`.
 
 ## 1. Spatial Cell versus internal fiber
 
-A native spatial Cell is still one point of the X6 affine torsor. Internal relation state is a separate fiber over that Cell.
-
-For a Cell `c`, write schematically
+A native spatial Cell is one point of the signed X6 affine torsor. Internal relation state is a separate fiber over that Cell:
 
 `DECORATED_STATE_c = SPATIAL_CELL_c x INTERNAL_c`.
 
-No internal coordinate introduced below is a seventh spatial axis.
+No internal coordinate below is a seventh spatial axis.
 
 ## 2. Full ordered signed triadic port frame
 
-Let
+Represent a triadic port frame as
 
-`D6_signed={+e_1,-e_1,...,+e_6,-e_6}`.
+`F=((i0,i1,i2),(s0,s1,s2))`,
 
-Define a triadic port frame
-
-`tau=(d_0,d_1,d_2)`
-
-where the three signed directions have distinct underlying native-axis labels. Tuple position retains force-token/provenance identity.
-
-The number of such frames is
-
-`6*5*4*2^3 = 960`.
-
-Define the intrinsic triadic update
-
-`R(d_0,d_1,d_2)=(-d_1,-d_2,-d_0)`.
-
-Then exactly
-
-`R^2(tau)=(d_2,d_0,d_1)`,
-
-`R^3(tau)=(-d_0,-d_1,-d_2)`,
-
-`R^6(tau)=tau`.
-
-Because the underlying axes are distinct and the directions are nonzero, every orbit has exact size six. Hence the 960 frames split into
-
-`960/6 = 160`
-
-triadic C6 orbits.
-
-This recovers the `20 three-axis selections * 8 sign patterns = 160` static signed-triad cases after the appropriate provenance quotient.
-
-## 3. Full local deterministic triadic Cell fiber
-
-Add the interaction mode
-
-`p in {SHELL,CLOSURE}`.
-
-Define the local successor
-
-`F(tau,SHELL)=(tau,CLOSURE)`,
-
-`F(tau,CLOSURE)=(R tau,SHELL)`.
-
-Then `F^12=1`, and every state has exact period twelve. Therefore the full equal-unit ordered triadic internal carrier has
-
-`960*2 = 1920`
-
-states, partitioned into 160 disjoint C12 cycles.
-
-This finite fiber is sufficient for the deterministic equal-unit atomic-scatter law with exact token/port correspondence. It is not claimed to be the universal minimum for every observer or for unequal-quantum/internal-field dynamics.
-
-## 4. Signed-frame equivariance
-
-Any signed native-axis frame symmetry acts componentwise on `tau`. Because signed frame maps satisfy `g(-d)=-g(d)`, one has
-
-`g R(tau)=R(g tau)`.
-
-Thus the local port-frame dynamics is equivariant under the full signed coordinate-frame symmetry, not only one chosen FCC chart.
-
-This is an internal relation statement over X6; it does not promote the full signed frame group to the complete physical rotation dynamics.
-
-## 5. Six PF-10 channels are not automatically the six X6 axes
-
-PF-10 supplies an abstract six-channel set `C={0,...,5}`. X6 supplies six native axis labels `A={E_1,...,E_6}`.
-
-Equal cardinality does not define an identification.
-
-An axis-channel bridge is a bijection
-
-`beta:C -> A`.
-
-There are exactly
-
-`6! = 720`
-
-such bridges. Under axis relabeling they form a torsor; no one bridge is fixed by the full axis-label symmetry. Therefore no canonical `channel_i = E_i` assignment follows from the number six alone.
-
-A concrete channel/axis coupling model must carry or derive an `AXIS_CHANNEL_FRAME` datum. This is a T7 canonical-choice obstruction.
-
-## 6. PF-10 instantaneous readout after choosing a bridge
-
-Assume one axis-channel frame `beta` has been supplied. Map each signed port to its unsigned channel by forgetting sign after applying `beta^{-1}`.
-
-For `tau=(d_0,d_1,d_2)`, define the instantaneous PF-10-style readouts:
-
-- ingress support `I_tau`: one occurrence on each of the three used channels;
-- egress support `O_tau`: the same three channels;
-- directed passage relation `P_tau`: the three channel transitions
-  `axis(d_0)->axis(d_1)`,
-  `axis(d_1)->axis(d_2)`,
-  `axis(d_2)->axis(d_0)`.
-
-Thus `P_tau` is an oriented 3-cycle on three of the six channels.
-
-### Exact fiber sizes
-
-There are only `C(6,3)=20` possible I/O supports. Each I/O support has
-
-`960/20 = 48`
-
-full triadic port frames above it.
+where `i0,i1,i2` are distinct native axis labels, the tuple positions retain force-token/provenance identity, and `sr in {+1,-1}`.
 
 There are
 
-`C(6,3)*2 = 40`
+`6*5*4*2^3 = 960`
 
-possible oriented 3-cycle passage relations. Each has exactly
+full frames.
 
-`960/40 = 24 = 3*2^3`
+For the canonical oriented triadic generator `Q_S=J_S rho_S`,
 
-full frames above it.
+`Q_S(E_i0)=-E_i1`,
+`Q_S(E_i1)=-E_i2`,
+`Q_S(E_i2)=-E_i0`.
 
-The natural hidden factors are:
+Therefore the correct tokenwise frame update is
 
-- three cyclic choices of token-origin/matching phase;
-- three independent signed-port bits.
+`R_can((i0,i1,i2),(s0,s1,s2))`
 
-Therefore even an instantaneous directed PF-10 passage matrix is not a full triadic internal state when signed force phase or token provenance remains observable.
+`=((i1,i2,i0),(-s0,-s1,-s2))`.
 
-## 7. PF-10 cumulative counts are not a Markov state for rotation
+The superseded shorthand `R(d0,d1,d2)=(-d1,-d2,-d0)` is valid only on restricted sign-coherent examples and must not be used for arbitrary signed frames.
 
-PF-10 `I,O,M` are cumulative counts. Addition makes their totals insensitive to event order.
+Exact laws:
 
-Take two different active triad passage orientations `A` and `B` on the same three unsigned channels. Histories
+`R_can^2`: axes shift twice and token signs return;
 
-`H_1=A;B`
+`R_can^3`: the same ordered axes with all three token signs reversed;
 
-and
+`R_can^6=1`.
 
-`H_2=B;A`
+Every frame has exact period six, so the 960 frames form 160 C6 orbits.
 
-have identical cumulative `I`, `O`, and `M=P_A+P_B`.
+## 3. Full local deterministic triadic Cell fiber
 
-But their active last passage states differ. A future operation “continue the currently active triadic rotation” advances from `B` in `H_1` and from `A` in `H_2`, producing different next passage relations.
+Add relation mode
 
-Hence
+`p in {SHELL,CLOSURE}`
+
+and define
+
+`F(FRAME,SHELL)=(FRAME,CLOSURE)`,
+
+`F(FRAME,CLOSURE)=(R_can(FRAME),SHELL)`.
+
+Then every state has exact period twelve. The restricted equal-unit internal carrier therefore has
+
+`960*2=1920`
+
+states in 160 C12 cycles.
+
+This is sufficient for the declared deterministic equal-unit atomic-scatter interface. It is not a universal finite summary of unrestricted Path-formal history.
+
+## 4. Correct symmetry statement
+
+The canonical `Q_S=-rho_S` family is covariant under **unsigned axis relabeling**: relabel the oriented axes and the same canonical construction results.
+
+The earlier statement that one fixed canonical representative satisfies naive equivariance under every independent axis sign flip was too strong.
+
+Under an independent sign-frame change the generator is conjugated to a general signed 3-cycle
+
+`Q_{S,alpha}(E_i_r)=alpha_r E_i_{r+1}`
+
+with
+
+`alpha_0 alpha_1 alpha_2=-1`.
+
+There are four such twist patterns. They form one sign-gauge orbit, and the full four-twist family is the object closed under signed-frame gauge covariance. See V5 for the exact transport law.
+
+This correction does not enlarge the established frame group `(C2)^6 semidirect A6`.
+
+## 5. Six PF-10 channels are not automatically the six X6 axes
+
+PF-10 supplies an abstract six-channel set `C`; X6 supplies six native unsigned axes `A`. Equal cardinality does not define an identification.
+
+An axis-channel bridge is a bijection
+
+`beta:C -> A`,
+
+with `6!=720` possible choices. Current V2 work further shows that under full translation symmetry and channel-relabeling equivariance these choices form one global gauge torsor rather than 720 physical states at every Cell.
+
+## 6. PF-10 instantaneous readout
+
+After choosing one bridge `beta`, forget spatial sign only for the PF-10 positive-count readout.
+
+For an ordered frame on axes `(i0,i1,i2)`:
+
+- ingress/egress support uses the three selected channels;
+- directed passage support is the oriented cycle
+  `i0 -> i1 -> i2 -> i0`.
+
+Exact fiber sizes remain:
+
+- 20 unsigned I/O support states, each with 48 full signed frames;
+- 40 directed unsigned passage states, each with 24 full signed frames.
+
+The 24 hidden states above one directed passage consist of three phase-origin choices and eight signed-port patterns.
+
+The corrected tokenwise `R_can` still changes the unsigned axis tuple only by cyclic reindexing, so the directed unsigned passage is invariant along one internal C6 orbit.
+
+## 7. Four signed C6 sectors over each directed passage
+
+Each of the 40 directed unsigned passages has 24 full signed frames. Under corrected `R_can` those 24 frames split into exactly four C6 orbits.
+
+For one phase-origin representative define
+
+`alpha_state=(-s0*s1,-s1*s2,-s2*s0)`.
+
+Its product is `-1`; the four possible values are exactly the four signed-generator twist patterns from V5. Thus the signed internal phase has a four-state relative-sign/twist sector invisible to PF-10 unsigned passage.
+
+## 8. Cumulative PF-10 counts are not Markov complete
+
+PF-10 `I,O,M` are cumulative positive counts. Histories using two opposite passage orientations in opposite orders can have identical cumulative counts while retaining different active last-passage state.
+
+Therefore
 
 `CUMULATIVE_PF10_COUNTS != MARKOV_COMPLETE_INTERNAL_STATE`
 
-for rotation/time observers.
+for observers that continue the active rotation/triadic process.
 
-At minimum the active relation/phase must be retained in addition to aggregate traffic counts whenever future operations inspect or continue it.
+At minimum the active relation state must remain when future operations inspect it.
 
-## 8. Scope-typed minimal-state hierarchy
+## 9. Scope-typed observer hierarchy
 
-For the present equal-unit triadic sector:
+For the current equal-unit triadic sector:
 
-- unsigned active channel support only: 20 states;
+- unsigned active channel support: 20 states;
 - unsigned directed passage orientation: 40 states;
-- full ordered signed triad frame: 960 states;
-- full deterministic shell/closure triadic state: 1920 states.
+- phase-origin-free oriented signed passage: 320 states;
+- full ordered signed frame: 960 states;
+- full SHELL/CLOSURE state: 1920 states.
 
-These are not competing ontologies. They are a quotient hierarchy for different observer/future-operation languages.
+The quotient `960 -> 320` forgets a three-element phase-origin fiber and is operation-safe for the corrected signed-cycle successor at that observer strength.
 
-Dropping from a finer layer to a coarser layer requires a T6 operation-safety certificate.
+If cyclic orientation is also erased, the 160 unordered signed triads are generally not Markov safe: 120 of the 160 have two possible next unordered states depending on the erased cyclic orientation.
 
-## 9. Positive port collapse versus signed/internal phase
+Each downward projection therefore requires the existing operation-safe quotient/observer lease.
 
-The existing `recurrent_port_signature` tool Schur-eliminates a stable hidden **nonnegative rational** recurrent block and returns an effective boundary matrix, with optional hidden loop-zeta data for observers that require it.
+## 10. Positive port collapse versus signed/internal phase
 
-It is reusable for PF-10-like positive channel-mass dynamics when:
+The existing recurrent-port signature tool applies to stable hidden nonnegative-rational blocks under its declared context lease. A unit-weight deterministic C12 internal cycle is recurrent with eigenvalue 1 and is not such a stable hidden block.
 
-- hidden dynamics is stable in the declared sense;
-- all allowed contexts interact only through the retained ports;
-- the observer asks only for the declared positive-rational boundary semantics (plus zeta when requested).
+The tool therefore cannot silently erase the signed internal phase or Path-formal provenance. Direct finite quotients such as active support or unsigned passage remain available under their narrower observer leases.
 
-It is not a valid way to erase:
+## 11. Current corrected frontier
 
-- signed force-port bits;
-- C3 token/matching phase;
-- Path-formal branch history;
-- time/event ordering;
-- any hidden state directly queried by future operations.
+Closed in the corrected V1/V5 layer:
 
-Thus a safe decorated model keeps positive channel mass and signed/provenance relation state as separately typed factors until a stronger theorem couples or quotients them.
+- 960 ordered signed triad frames;
+- 160 exact canonical C6 orbits;
+- 1920 SHELL/CLOSURE states and 160 C12 cycles;
+- 20/40 PF-10 unsigned observer cardinalities and 48/24 fibers;
+- four signed C6 orbit sectors over every directed passage;
+- unsigned-axis covariance of the canonical generator;
+- four-twist gauge-covariant completion under independent sign-frame changes;
+- cumulative-count Markov obstruction.
 
-## 10. Current internal-state contract
+The global channel-frame gauge/flat-transport V2, unsigned channel C3 V3, frame/channel projection V4 and all-20 A6 integration remain valid after this signed-layer correction.
 
-The smallest reusable template supported by the current results is
-
-`INTERNAL_c = (POSITIVE_CHANNEL_TRAFFIC, ACTIVE_RELATION_STATE, PROVENANCE_MEMORY)`.
-
-For the deterministic equal-unit triadic law, `ACTIVE_RELATION_STATE` may be represented exactly by `(tau,mode)` and the atomic branch itself is derived as `III`, so that branch bit need not be stored **inside that law scope**.
-
-For generic rotation paths, branch/path provenance remains separate and may be unbounded under unrestricted future-history observers.
-
-## 11. Current frontier
-
-Closed here:
-
-- exact finite triadic port-frame carrier and C6 action;
-- exact 1920-state shell/closure decorated fiber for the restricted law;
-- full signed-frame equivariance;
-- 720-fold axis-channel bridge torsor and no-canonical-identification result;
-- exact PF-10 readout fiber sizes 48 and 24;
-- cumulative-count Markov obstruction;
-- precise boundary for reuse of positive recurrent-port collapse.
-
-Still open:
-
-1. derive a physical/native axis-channel bridge instead of choosing a frame;
-2. unequal-quantum and multi-triad concurrent internal states;
-3. channel state exchange between neighboring Cells;
-4. signed/phase interaction laws beyond positive channel mass;
-5. duration/energy/physical calibration of internal transitions.
+No Foundation promotion is made.
