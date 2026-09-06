@@ -1,0 +1,59 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "RESEARCH_TOOLIZED_GLOBAL_SUBTOOL",
+  "date": "2026-09-06",
+  "admission": {
+    "classification": "TASK_RESEARCH_TOOL_HARVEST",
+    "authority": "direct user continuation of the main-backed BRC multiplier program after static square-residue table deployment",
+    "family_id": "T0_BRC",
+    "foundation_mutation": false,
+    "working_truth_promotion": false,
+    "new_global_tool_family": false,
+    "reason": "Strict executable extension of t0.brc_multiplier_basin: exact consecutive multiplier root/remainder transport using retained BRC remainder and a dyadic predictor table."
+  },
+  "methods": [
+    {
+      "method_id": "t0.brc_multiplier_transition",
+      "name": "BRC consecutive-multiplier root/remainder transition",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_multiplier_transition.py",
+        "src/enterprise_math/brc_multiplier_transition_table.py",
+        "tests/test_brc_multiplier_transition.py",
+        "experiments/brc_multiplier_transition_benchmark.py",
+        "research_notes/BRC_MULTIPLIER_TRANSITION_RECURRENCE_20260906.md",
+        "research_artifacts/brc_multiplier_transition_benchmark_20260906.csv"
+      ],
+      "api": [
+        "MultiplierRootState",
+        "initial_multiplier_root_state",
+        "next_multiplier_root_state",
+        "multiplier_root_state_sequence",
+        "transition_table_mode",
+        "transition_correction_histogram",
+        "static_transition_payload_bytes"
+      ],
+      "triggers": [
+        "BRC multiplier recurrence",
+        "m to m+1 root update",
+        "avoid repeated isqrt",
+        "multiplier root transition",
+        "root remainder transport",
+        "dyadic multiplier predictor"
+      ],
+      "capabilities": [
+        "exact fixed-N multiplier root/remainder sequence through m=100 with only one initial N-dependent root materialization",
+        "checked-in 99-entry dyadic gamma predictor table for N up to 4096 bits",
+        "exact precision specialization by right shift from one high-precision table",
+        "cached exact predictor fallback above the static cap",
+        "proved at-most-two local BRC odd-width correction steps per transition",
+        "exact ceiling completion gap directly from retained root/remainder",
+        "composition with classical square-residue prefilter without semantic conflation"
+      ],
+      "core_law": "With gamma_m=sqrt((m+1)/m)-1, choose B so J_m<2^(B-1), C_m=floor(2^B gamma_m), d0=floor(C_m J_m/2^B). Then J_(m+1)-(J_m+d0) is in {0,1,2}. The provisional remainder is R_m+N-d0(2J_m+d0); subtracting successive odd basin widths at most twice yields exactly R_(m+1).",
+      "hard_boundary": "Finite exact integer multiplier scan only; checked-in static performance fast path N<=4096 bits and m<=100. Larger-N predictor generation is cached but no one-off speed claim is made. Performance evidence is environment-specific constant-factor timing. No asymptotic factorization speedup, no novelty claim for multiplier-Fermat/Lehman square-gap factoring, no recovery after erasing R_m, and no Foundation promotion."
+    }
+  ]
+}
