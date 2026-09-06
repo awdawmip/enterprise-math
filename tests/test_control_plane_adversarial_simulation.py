@@ -1,4 +1,5 @@
 import unittest
+from pathlib import Path
 from unittest import mock
 
 from tools import research_dispatch as rd
@@ -205,6 +206,32 @@ class ControlPlaneAdversarialSimulation(unittest.TestCase):
         state = self.reduce(task(), events, "2026-09-01T00:02:00+00:00")
         self.assertEqual("IN_PROGRESS", state["state"])
         self.assertEqual("LEASED", state["dispatch_state"])
+
+
+class BridgeConcurrencyContractTests(unittest.TestCase):
+    def setUp(self):
+        self.workflow = Path(".github/workflows/chatgpt-control-dispatch-bridge.yml").read_text()
+
+    def test_each_request_commit_has_an_independent_actions_concurrency_key(self):
+        self.assertIn(
+            "group: chatgpt-control-dispatch-bridge-${{ github.sha }}",
+            self.workflow,
+        )
+        self.assertNotIn("group: chatgpt-control-dispatch-bridge\n", self.workflow)
+
+    def test_every_request_gets_an_immutable_receipt(self):
+        self.assertIn("control_plane/chatgpt_dispatch_receipts", self.workflow)
+        self.assertIn("IMMUTABLE_RECEIPT_PATH", self.workflow)
+        self.assertIn("DUPLICATE_REQUEST_ID_WITH_DIFFERENT_SOURCE", self.workflow)
+
+    def test_stale_run_cannot_overwrite_latest_receipt(self):
+        self.assertIn("git reset --hard origin/main", self.workflow)
+        self.assertIn("current_request_id", self.workflow)
+        self.assertIn("LATEST_RECEIPT_SKIPPED", self.workflow)
+        self.assertIn('[[ "$current_request_id" == "$REQUEST_ID" ]]', self.workflow)
+
+    def test_request_id_is_path_safe_and_bounded(self):
+        self.assertIn("^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$", self.workflow)
 
 
 if __name__ == "__main__":
