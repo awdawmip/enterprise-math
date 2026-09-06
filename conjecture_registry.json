@@ -1,0 +1,268 @@
+{
+  "schema": "ENTERPRISE_MATH_CONJECTURE_REGISTRY_V1",
+  "status": "ACTIVE_REGISTRY",
+  "effective": "2026-09-06",
+  "contract": "conjecture_asset_contract.json",
+  "human_policy": "docs/CONJECTURE_ASSET_GOVERNANCE.md",
+  "backfill_generation": "BACKFILL-20260906-G1",
+  "assets": [
+    {
+      "id": "CJ-TH-20260906-001",
+      "kind": "CONJECTURAL_THEOREM",
+      "title": "Old-eigenbasis Weil square-shell repair crossover has Landau-Widom order",
+      "statement_or_tool_contract": {
+        "statement": "For the canonical Weil square-shell chain L_n=log n, if repair is constrained to the first r eigenmodes of the old-window block, the Feshbach crossover rank r_old(n) required to recover the raw shell coercive scale grows on the Landau-Widom/Shannon order Theta(n^2 log n), with 4 n^2 log n as the current model scale."
+      },
+      "claim_scope": "Asymptotic n -> infinity for the canonical square-shell model and the old-eigenbasis repair rule defined in the source finding; not a statement about response-optimal repair rank.",
+      "epistemic_status": "CONJECTURE",
+      "lifecycle_status": "RESTRICTED",
+      "dependencies": {
+        "proved": [
+          "FINDING-EM-NT-RESPONSE-OPTIMAL-SVD-REPAIR-20260906",
+          "FINDING-EM-NT-RESPONSE-INERTIA-THRESHOLD-CERT-20260906"
+        ],
+        "conjectural": []
+      },
+      "validation": {
+        "validated_envelope": "Floating canonical square-shell finite sections n in {2,3,4}; old-eigenmode repair only.",
+        "evidence_type": ["FLOATING_NUMERICAL", "HEURISTIC_MODEL"],
+        "sample_size_or_exhaustive_count": "3 finite n values",
+        "exactness": "FLOATING",
+        "independence": "SHARED_DISCOVERY_CONTEXT_DISCLOSED",
+        "evidence_refs": [
+          "knowledge/projects/enterprise-math/nt-rh-landau-widom-critical-repair-band-20260906.md"
+        ],
+        "summary": "Observed crossovers roughly 10-16, 32-40, 72-88 against model scales 11.09, 39.55, 88.72 for n=2,3,4. Later SVD/inertia work restricted the claim to the non-optimal old-eigenbasis carrier."
+      },
+      "known_failures": [
+        "The stronger claim OPTIMAL_RESPONSE_RANK = 4 n^2 log n is inconsistent with the tested finite response-SVD/inertia model and is excluded from this asset."
+      ],
+      "source_refs": [
+        "HYPOTHESIS-EM-NT-RH-LANDAU-WIDOM-REPAIR-BAND-20260906",
+        "knowledge/projects/enterprise-math/nt-rh-landau-widom-critical-repair-band-20260906.md"
+      ],
+      "downstream_refs": [
+        "HYPOTHESIS-EM-NT-RH-SHELL-SHANNON-RESPONSE-RANK-20260906"
+      ],
+      "falsifier_or_kill_condition": "Certified larger-n old-eigenbasis crossover data or a theorem showing growth not Theta(n^2 log n), under the same operator/repair definition.",
+      "promotion_target": "Derive a rigorous operator model and two-sided asymptotic bounds for r_old(n), or replace the asymptotic claim by a rigorously supported narrower law.",
+      "priority": {
+        "downstream_impact": "MEDIUM",
+        "empirical_stability": "LOW_SAMPLE",
+        "structural_centrality": "MEDIUM",
+        "expected_proof_cost": "HIGH",
+        "falsification_risk": "MEDIUM",
+        "proof_queue_tier": "P2"
+      },
+      "registered_at": "2026-09-06",
+      "last_reviewed_at": "2026-09-06",
+      "version": 1,
+      "notes": "Historical backfill. RESTRICTED records the already-known weakening from an optimal-rank interpretation to the old-eigenbasis carrier only."
+    },
+    {
+      "id": "CJ-TH-20260906-002",
+      "kind": "CONJECTURAL_THEOREM",
+      "title": "Prime-dominated Weil response rank obeys a phase-space dangerous-region law",
+      "statement_or_tool_contract": {
+        "statement": "For fixed interior singular threshold eta in (0,1), the effective rank of the normalized prime-dominated Weil square-shell response is asymptotically governed by the phase-space volume of the dangerous region of an appropriate normalized Wiener-Hopf/pseudodifferential symbol, with a lower-order boundary/plunge correction."
+      },
+      "claim_scope": "Canonical Weil square-shell response; fixed interior thresholds eta away from the extreme threshold 1; requires an actual symbol/model derived from the normalized response rather than a heuristic absolute-value surrogate.",
+      "epistemic_status": "CONJECTURE",
+      "lifecycle_status": "ACTIVE",
+      "dependencies": {
+        "proved": [
+          "FINDING-EM-NT-WIENER-HOPF-PHASE-SPACE-SPECTRAL-20260906",
+          "FINDING-EM-NT-RESPONSE-OPTIMAL-SVD-REPAIR-20260906",
+          "FINDING-EM-NT-RESPONSE-INERTIA-THRESHOLD-CERT-20260906",
+          "FINDING-EM-NT-RH-PRIME-BOUNDARY-REFLECTION-FRAME-20260906"
+        ],
+        "conjectural": []
+      },
+      "validation": {
+        "validated_envelope": "Structural/floating probes for n in {2,3,4}; prime-cross ablation and finite threshold-inertia counts. No certified asymptotic envelope.",
+        "evidence_type": ["FLOATING_NUMERICAL", "SYMBOLIC_DERIVATION_PARTIAL", "LITERATURE_ANALOGUE"],
+        "sample_size_or_exhaustive_count": "3 finite n values plus exact partial-reflection/pair-kernel reductions",
+        "exactness": "MIXED",
+        "independence": "SHARED_DISCOVERY_CONTEXT_DISCLOSED",
+        "evidence_refs": [
+          "knowledge/projects/enterprise-math/nt-rh-shell-shannon-response-rank-20260906.md",
+          "knowledge/projects/enterprise-math/nt-rh-prime-boundary-reflection-frame-20260906.md",
+          "knowledge/projects/enterprise-math/nt-tool-wiener-hopf-phase-space-spectral-count-20260906.md"
+        ],
+        "summary": "Exact reductions identify a prime partial-reflection frame and the classical phase-space spectral-count adapter; finite ablation indicates prime cross-coupling dominates near-critical response directions for n=2,3,4. The normalized response symbol and transfer bounds remain unproved."
+      },
+      "known_failures": [
+        "The earlier pure shell-Shannon ~4n mechanism is not retained as the primary asymptotic law.",
+        "Prime dominance does not imply rank equals the number of prime-power shifts.",
+        "Fixed-threshold spectral counts do not by themselves control the top singular value at 1 or prove RH."
+      ],
+      "source_refs": [
+        "HYPOTHESIS-EM-NT-RH-SHELL-SHANNON-RESPONSE-RANK-20260906",
+        "FINDING-EM-NT-WIENER-HOPF-PHASE-SPACE-SPECTRAL-20260906",
+        "FINDING-EM-NT-RH-PRIME-BOUNDARY-REFLECTION-FRAME-20260906"
+      ],
+      "downstream_refs": [
+        "CJ-TL-20260906-001"
+      ],
+      "falsifier_or_kill_condition": "A rigorous normalized-response analysis showing no applicable symbol/phase-space asymptotic, or certified large-scale threshold counts incompatible with every admissible derived symbol model under controlled remainder bounds.",
+      "promotion_target": "Derive the normalized response symbol/model, verify the required Szego/Widom hypotheses or an adapted arithmetic variant, control operator/HS/truncation errors, and compare against certified block-inertia counts.",
+      "priority": {
+        "downstream_impact": "HIGH",
+        "empirical_stability": "LOW_SAMPLE_MIXED",
+        "structural_centrality": "HIGH_RH_ROUTE",
+        "expected_proof_cost": "VERY_HIGH",
+        "falsification_risk": "HIGH",
+        "proof_queue_tier": "P1"
+      },
+      "registered_at": "2026-09-06",
+      "last_reviewed_at": "2026-09-06",
+      "version": 1,
+      "notes": "Historical backfill of the replacement hypothesis that superseded the strongest shell-Shannon interpretation."
+    },
+    {
+      "id": "CJ-TH-20260906-003",
+      "kind": "CONJECTURAL_THEOREM",
+      "title": "Navier-Stokes phase-aware effective modulation dimension is at most one on the Enterprise closure route",
+      "statement_or_tool_contract": {
+        "statement": "In a suitable phase-aware dyadic norm that preserves modulation j, helicity and four-STAR/Walsh path information, the coherent effective modulation population of the full heterochiral unequal-shell Navier-Stokes interaction network obeys M_N <= C_epsilon N^(1+epsilon) for every epsilon>0, once the six-axis / four-STAR / 120-degree closure structure is fully accounted for."
+      },
+      "claim_scope": "Enterprise six-axis/four-STAR/120-degree Navier-Stokes route; dyadic frequency N; phase-aware effective modulation population. This is not yet asserted as a theorem about arbitrary collapsed branch counts.",
+      "epistemic_status": "CONJECTURE",
+      "lifecycle_status": "ACTIVE",
+      "dependencies": {
+        "proved": [
+          "Fixed-modulation lattice-sphere counting bound",
+          "Fixed-j dyadic bilinear estimate",
+          "Exact four-STAR Walsh decomposition and recorded branch cancellations from parent research notes"
+        ],
+        "conjectural": []
+      },
+      "validation": {
+        "validated_envelope": "No uniform infinite-scale validation envelope. Supporting ingredients are exact finite/lattice reductions and exact branch-cancellation identities; the N^(1+epsilon) aggregation law itself remains unverified.",
+        "evidence_type": ["SYMBOLIC_DERIVATION_PARTIAL", "HEURISTIC_MODEL"],
+        "sample_size_or_exhaustive_count": null,
+        "exactness": "MIXED",
+        "independence": "SHARED_DISCOVERY_CONTEXT_DISCLOSED",
+        "evidence_refs": [
+          "knowledge/projects/enterprise-math/pde-modulation-branch-dimension-frontier-20260906.md"
+        ],
+        "summary": "Each fixed modulation layer has an almost one-derivative sparse gain, while unrestricted aggregation loses exactly the square-root cost of O(N^2) branches. The conjecture asserts that Enterprise phase/helicity/path structure reduces coherent effective dimension from 2 to at most 1."
+      },
+      "known_failures": [
+        "No automatic N^(1+epsilon) bound is presently proved for the full classical Navier-Stokes modulation coherence.",
+        "A half-derivative counting gain, even if proved, is not automatically a complete global-regularity proof."
+      ],
+      "source_refs": [
+        "knowledge/projects/enterprise-math/pde-modulation-branch-dimension-frontier-20260906.md"
+      ],
+      "downstream_refs": [],
+      "falsifier_or_kill_condition": "Construct a family of admissible interactions within the same typed carrier whose phase-aware coherent modulation population has lower growth exponent strictly greater than 1, or prove an unavoidable N^(2-o(1)) coherence mechanism.",
+      "promotion_target": "Define the phase-aware norm canonically and prove the N^(1+epsilon) effective-modulation bound, then separately quantify its PDE regularity consequence.",
+      "priority": {
+        "downstream_impact": "HIGH",
+        "empirical_stability": "NOT_YET_UNIFORMLY_TESTED",
+        "structural_centrality": "HIGH_PDE_ROUTE",
+        "expected_proof_cost": "VERY_HIGH",
+        "falsification_risk": "HIGH",
+        "proof_queue_tier": "P1"
+      },
+      "registered_at": "2026-09-06",
+      "last_reviewed_at": "2026-09-06",
+      "version": 1,
+      "notes": "Historical backfill from a precise directional research target; not promoted from the exact fixed-j estimates."
+    },
+    {
+      "id": "CJ-TL-20260906-001",
+      "kind": "CONJECTURAL_TOOL",
+      "title": "Prime-response phase-space rank predictor",
+      "statement_or_tool_contract": {
+        "statement": "Research-only model adapter for predicting finite/asymptotic effective response rank from a derived prime-dominated normalized-response symbol and its dangerous phase-space region.",
+        "input_contract": "A canonical square-shell step n, threshold eta, a phase-preserving candidate normalized-response symbol/model c_n, and explicit model/truncation metadata.",
+        "output_contract": "A predicted dangerous phase-space region, leading effective-rank estimate, boundary/plunge correction class, and an explicit uncertainty/dependency packet.",
+        "structural_law_or_certificate_target": "r_resp(eta;n) is approximated by the phase-space measure of {|c_n|>eta} with a controlled lower-order correction.",
+        "soundness_scope": "Conditional on CJ-TH-20260906-002 and on the particular symbol/model being correctly derived from the normalized response with controlled remainders.",
+        "hard_failure_boundary": "Not proof-safe for RH; do not use a heuristic absolute-value symbol; do not extrapolate outside a declared tested/model envelope; do not replace certified block-inertia counts when certification is required.",
+        "reuse_targets": [
+          "RH square-shell response-rank experiments",
+          "model comparison/ablation",
+          "selection of thresholds and truncation sizes for certified inertia tests"
+        ]
+      },
+      "claim_scope": "Research-only RH square-shell model adapter; no production toolbox status.",
+      "epistemic_status": "CONJECTURE",
+      "lifecycle_status": "ACTIVE",
+      "dependencies": {
+        "proved": [
+          "FINDING-EM-NT-WIENER-HOPF-PHASE-SPACE-SPECTRAL-20260906",
+          "FINDING-EM-NT-RESPONSE-INERTIA-THRESHOLD-CERT-20260906"
+        ],
+        "conjectural": [
+          "CJ-TH-20260906-002"
+        ]
+      },
+      "validation": {
+        "validated_envelope": "No quantitative prediction envelope yet. Structural probes only for n in {2,3,4}; exact prime-frame decomposition and floating component ablation exist.",
+        "evidence_type": ["FLOATING_NUMERICAL", "SYMBOLIC_DERIVATION_PARTIAL", "LITERATURE_ANALOGUE"],
+        "sample_size_or_exhaustive_count": "3 small finite n structural probes",
+        "exactness": "MIXED",
+        "independence": "SHARED_DISCOVERY_CONTEXT_DISCLOSED",
+        "evidence_refs": [
+          "knowledge/projects/enterprise-math/nt-rh-shell-shannon-response-rank-20260906.md",
+          "knowledge/projects/enterprise-math/nt-rh-prime-boundary-reflection-frame-20260906.md",
+          "knowledge/projects/enterprise-math/nt-tool-wiener-hopf-phase-space-spectral-count-20260906.md"
+        ],
+        "summary": "The generic Szego/Widom theorem adapter is established mathematics; the conjectural part is this RH-specific normalized-response model adapter and its rank prediction."
+      },
+      "known_failures": [
+        "Pure shell-Shannon 4n prediction is already weakened as a primary model.",
+        "No currently proved simple scalar principal symbol for the normalized RH response."
+      ],
+      "source_refs": [
+        "HYPOTHESIS-EM-NT-RH-SHELL-SHANNON-RESPONSE-RANK-20260906",
+        "FINDING-EM-NT-WIENER-HOPF-PHASE-SPACE-SPECTRAL-20260906"
+      ],
+      "downstream_refs": [],
+      "falsifier_or_kill_condition": "Failure to derive a stable phase-preserving normalized-response symbol/model, or repeated certified rank data incompatible with the predictor after controlled model/truncation errors.",
+      "promotion_target": "Prove the RH-specific model-transfer/spectral-count theorem and pass ordinary Enterprise tool acceptance before any production toolbox registration.",
+      "priority": {
+        "downstream_impact": "HIGH",
+        "empirical_stability": "LOW_SAMPLE",
+        "structural_centrality": "HIGH_RH_ROUTE",
+        "expected_proof_cost": "HIGH",
+        "falsification_risk": "HIGH",
+        "proof_queue_tier": "P1"
+      },
+      "registered_at": "2026-09-06",
+      "last_reviewed_at": "2026-09-06",
+      "version": 1,
+      "notes": "Separated from the established generic Wiener-Hopf/Szego-Widom theorem adapter. Only the RH-specific predictive adapter is conjectural."
+    }
+  ],
+  "backfill_nonconjecture_classifications": [
+    {
+      "source": "knowledge/projects/enterprise-math/candidate-tool-digital-automatic-arithmetic-20260905.md",
+      "classification": "IMPLEMENTATION_OR_TOOL_ACCEPTANCE_GAP",
+      "reason": "Core automatic-sequence/Christol/positive-characteristic substrate is established mathematics; Enterprise implementation/reviewer promotion is pending, so this is not a conjectural tool."
+    },
+    {
+      "source": "knowledge/projects/enterprise-math/candidate-tool-finite-character-spectral-20260905.md",
+      "classification": "IMPLEMENTATION_OR_TOOL_ACCEPTANCE_GAP",
+      "reason": "Finite character/Fourier orthogonality and Gauss-sum substrate is established; the missing piece is Enterprise tool ownership/implementation, not mathematical truth."
+    },
+    {
+      "source": "knowledge/projects/enterprise-math/poincare-brc-q-qo-empirical-controls-20260906.md",
+      "classification": "EXACT_BOUNDED_RESULT_PLUS_EXPERIMENTAL_UTILITY",
+      "reason": "The recorded finite control computations and Farkas certificates are exact within their stated scope. Broader performance usefulness is experimental, but the source does not freeze a sufficiently precise unproved soundness claim for conjectural-tool intake."
+    },
+    {
+      "source": "research_notes/1162_theta_positivity_cm_gate_20260906.md",
+      "classification": "PROVED_LOCAL_RESULT_PLUS_OPEN_CLASSIFICATION_PROBLEM",
+      "reason": "The chi5 positivity result and weighted-theta criterion are proved in the note; the remaining classification request is an open problem without a frozen asserted direction."
+    },
+    {
+      "source": "research_notes/1162_chi5_logcm_levy_injection_20260906.md",
+      "classification": "PROVED_LOCAL_RESULT_PLUS_OPEN_PROBLEM_NO_DIRECTION",
+      "reason": "chi5 logarithmic complete monotonicity is proved there; whether CM implies LCM in a nontrivial subclass is posed as a question rather than a conjectured direction."
+    }
+  ]
+}
