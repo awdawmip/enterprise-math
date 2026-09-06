@@ -1,0 +1,61 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "RESEARCH_TOOLIZED_DOMAIN_OPERATOR",
+  "date": "2026-09-06",
+  "admission": {
+    "classification": "TASK_RESEARCH_TOOL_HARVEST",
+    "authority": "direct user continuation of the main-backed BRC multiplier program through Round 6",
+    "family_id": "T0_BRC",
+    "foundation_mutation": false,
+    "working_truth_promotion": false,
+    "new_global_tool_family": false,
+    "reason": "Compose proved BRC multiplier root/remainder transport with classical parity pruning and quadratic-residue square filters; add exact skip-over-impossible-multiplier transport."
+  },
+  "methods": [
+    {
+      "method_id": "t0.brc_admissible_multiplier_scan",
+      "name": "Odd-N BRC admissible multiplier scan / strong square-gap cascade",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_SAFE_CORE_PLUS_EXPERIMENTAL_PRIORITY",
+      "source_refs": [
+        "src/enterprise_math/brc_multiplier_factor_scan.py",
+        "src/enterprise_math/brc_multiplier_transition_jump2_table.py",
+        "src/enterprise_math/brc_square_gap_table_46189.py",
+        "tests/test_brc_multiplier_factor_scan.py",
+        "research_notes/BRC_ADMISSIBLE_MULTIPLIER_CASCADE_PRIORITY_20260906.md",
+        "research_artifacts/brc_admissible_cascade_benchmark_20260906.csv",
+        "research_artifacts/brc_multiplier_priority_benchmark_20260906.csv"
+      ],
+      "api": [
+        "odd_multiplier_admissible",
+        "admissible_multipliers",
+        "admissible_root_state_sequence",
+        "strong_cascade_passes_squarehood",
+        "strong_cascade_square_root",
+        "strong_cascade_candidates",
+        "first_immediate_factor_witness",
+        "nontrivial_same_parity_factor_pairs",
+        "multiplier_priority_score",
+        "heuristic_priority_multipliers"
+      ],
+      "triggers": [
+        "BRC multiplier scan",
+        "odd semiprime multiplier",
+        "difference of squares multiplier",
+        "skip 2 mod 4 multiplier",
+        "strong square residue cascade",
+        "multiplier priority"
+      ],
+      "capabilities": [
+        "safe deletion of all m congruent 2 mod 4 for odd-N difference-of-squares search",
+        "exact m->m+2 retained-root/remainder transport with at most three BRC basin corrections",
+        "zero-false-negative two-table squarehood prefilter using moduli 20160 and 46189",
+        "immediate classical factor witness composition",
+        "experimental static multiplier ranking from admissible nontrivial divisor-ratio count"
+      ],
+      "core_law": "For odd N, m==2 mod 4 cannot satisfy x^2-y^2=mN. The admissible monotone path therefore has 75 states through m<=100. One-step transitions reuse t0.brc_multiplier_transition; two-step skips use a dyadic sqrt((m+2)/m) predictor and at most three odd-width corrections. A square gap must pass both mod-20160 and mod-46189 tables, whose uniform joint pass fraction is 108/46189.",
+      "hard_boundary": "Parity pruning, quadratic-residue filtering, Lawrence/Lehman/Hart multiplier-Fermat search, and rational factor-ratio selection are classical prior art. The nu(m)^4/m priority is experimental only and is not a theorem, default proof path, RSA shortcut, or asymptotic improvement. Finite timings and finite hit-rate samples do not imply factorization complexity progress. The BRC-specific proved addition is retained-state m->m+2 transport and its composition with the existing multiplier transition tool."
+    }
+  ]
+}
