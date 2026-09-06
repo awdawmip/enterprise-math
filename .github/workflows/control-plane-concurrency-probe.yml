@@ -1,0 +1,24 @@
+name: control-plane-concurrency-probe
+
+on:
+  push:
+    branches:
+      - control/adversarial-control-simulation-20260906
+    paths:
+      - '.github/workflows/control-plane-concurrency-probe.yml'
+      - 'control_plane/concurrency_probe_trigger.txt'
+
+concurrency:
+  group: control-plane-concurrency-probe
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Hold first run so later requests queue
+        run: |
+          echo "start=$GITHUB_SHA"
+          sleep 25
+          echo "finish=$GITHUB_SHA"
