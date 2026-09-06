@@ -3,30 +3,40 @@ on:
   push:
     branches: [control/recover-dangling-research-20260906]
     paths:
+      - 'tools/research_orphan_inventory.py'
       - 'tools/research_orphan_recovery_repackage.py'
       - '.github/workflows/orphan-recovery-scan-temporary.yml'
 permissions:
   contents: write
+  issues: read
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
+    env: {GH_TOKEN: '${{ github.token }}'}
     steps:
       - uses: actions/checkout@v7
         with: {fetch-depth: 0}
       - uses: actions/setup-python@v7
         with: {python-version: '3.12'}
-      - name: Fetch remote refs
-        run: git fetch origin '+refs/heads/*:refs/remotes/origin/*'
-      - name: Repackage raw scan into recovery states
+      - name: Sync latest main and all refs
         run: |
-          python tools/research_orphan_recovery_repackage.py \
-            --raw control_plane/research_orphan_recovery_scan_20260906.json \
-            --output control_plane/research_orphan_recovery_state_20260906.json
-      - name: Persist state
-        run: |
+          git fetch origin '+refs/heads/*:refs/remotes/origin/*'
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git merge --no-edit origin/main
+      - name: Fetch Issue 240
+        run: |
+          mkdir -p /tmp/em-orphan
+          gh api --paginate -H 'Accept: application/vnd.github+json' \
+            "repos/${GITHUB_REPOSITORY}/issues/240/comments?per_page=100" \
+            --jq '.[]' | jq -s '.' > /tmp/em-orphan/issue-240-comments.json
+      - name: Fresh inventory and state packaging
+        run: |
+          python tools/research_orphan_inventory.py --events /tmp/em-orphan/issue-240-comments.json --output /tmp/em-orphan/inventory.json
+          python tools/research_orphan_recovery_repackage.py --raw /tmp/em-orphan/inventory.json --output control_plane/research_orphan_recovery_state_20260906.json
+      - name: Persist refreshed state
+        run: |
           git add control_plane/research_orphan_recovery_state_20260906.json
-          git commit -m 'control: package dangling research into recovery states'
+          git commit -m 'control: refresh dangling research recovery states' || true
           git push origin HEAD:control/recover-dangling-research-20260906
