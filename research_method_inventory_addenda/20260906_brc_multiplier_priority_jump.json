@@ -1,0 +1,45 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "RESEARCH_TOOLIZED_GLOBAL_SUBTOOL",
+  "date": "2026-09-06",
+  "admission": {
+    "classification": "TASK_RESEARCH_TOOL_HARVEST",
+    "authority": "direct user continuation of the main-backed BRC multiplier transport program",
+    "family_id": "T0_BRC",
+    "foundation_mutation": false,
+    "working_truth_promotion": false,
+    "new_global_tool_family": false,
+    "reason": "Strict extension of exact multiplier root/remainder transport: safe odd-N mod-4 multiplier elimination, structural same-parity factor-pair priority, and exact direct m=1 to target-m BRC jumps."
+  },
+  "methods": [
+    {
+      "method_id": "t0.brc_multiplier_priority_jump",
+      "name": "BRC prioritized direct multiplier jump",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE_WITH_HEURISTIC_ORDER",
+      "source_refs": [
+        "src/enterprise_math/brc_multiplier_priority_jump.py",
+        "tests/test_brc_multiplier_priority_jump.py",
+        "research_notes/BRC_MULTIPLIER_PRIORITY_JUMP_20260906.md"
+      ],
+      "api": [
+        "factor_pair_count",
+        "admissible_same_parity_factor_pair_count",
+        "odd_n_multiplier_is_difference_square_feasible",
+        "prioritized_odd_multiplier_order",
+        "direct_multiplier_jump_from_one",
+        "prioritized_odd_multiplier_states"
+      ],
+      "capabilities": [
+        "exact elimination of m=2 mod 4 for odd-N difference-of-squares scans",
+        "same-parity multiplier factor-pair structural scoring",
+        "direct exact BRC transport from the retained m=1 root/remainder state to arbitrary target m<=100",
+        "proved at-most-11 odd-basin corrections for direct jumps",
+        "candidate ordering that does not require materializing all intermediate multiplier states"
+      ],
+      "core_law": "For odd N, m congruent 2 mod 4 is impossible as a difference-of-squares multiplier. For any target t<=100, the dyadic predictor floor(2^B(sqrt(t)-1)) applied to the retained m=1 BRC root places floor(sqrt(tN)) at most 11 odd square-basin crossings above the candidate; the exact remainder update uses R+(t-1)N-d(2J+d).",
+      "hard_boundary": "The mod-4 skip and direct jump are exact; the same-parity factor-pair ranking is only a finite empirically useful heuristic and is not claimed optimal. Multiplier-Fermat/Lehman difference-of-squares remains classical prior art. No asymptotic factorization speedup, no theorem about semiprime ratio distributions, and no Foundation promotion are claimed."
+    }
+  ]
+}
