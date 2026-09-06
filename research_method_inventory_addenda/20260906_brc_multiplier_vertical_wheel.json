@@ -1,0 +1,59 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "RESEARCH_TOOLIZED_DOMAIN_OPERATOR",
+  "date": "2026-09-06",
+  "admission": {
+    "classification": "TASK_RESEARCH_TOOL_HARVEST",
+    "authority": "direct user continuation of the main-backed BRC multiplier program through Round 7",
+    "family_id": "T0_BRC",
+    "foundation_mutation": false,
+    "working_truth_promotion": false,
+    "new_global_tool_family": false,
+    "reason": "Compose exact retained BRC multiplier states with a second vertical Fermat coordinate and safe periodic residue-wheel observers, materializing large exact gaps only on surviving fibers."
+  },
+  "methods": [
+    {
+      "method_id": "t0.brc_multiplier_vertical_wheel",
+      "name": "BRC multiplier x vertical residue-wheel / lazy exact gap calculus",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_SAFE_CORE_CLASSICAL_SIEVE_COMPOSITION",
+      "source_refs": [
+        "src/enterprise_math/brc_multiplier_vertical_wheel.py",
+        "tests/test_brc_multiplier_vertical_wheel.py",
+        "experiments/brc_vertical_residue_wheel_benchmark.py",
+        "research_notes/BRC_MULTIPLIER_VERTICAL_RESIDUE_WHEEL_20260906.md",
+        "research_artifacts/brc_vertical_residue_wheel_benchmark_20260906.csv"
+      ],
+      "api": [
+        "VerticalBRCState",
+        "VerticalResidueWheel",
+        "VerticalSquareCandidate",
+        "vertical_state_from_multiplier_state",
+        "vertical_gap_at",
+        "vertical_next_gap",
+        "vertical_residue_wheel",
+        "adaptive_first_wheel_modulus",
+        "vertical_square_candidates",
+        "first_vertical_factor_witness"
+      ],
+      "triggers": [
+        "BRC multiplier t lattice",
+        "vertical Fermat scan",
+        "square-gap wheel",
+        "quadratic residue wheel",
+        "lazy exact gap",
+        "Lehman inner loop"
+      ],
+      "capabilities": [
+        "exact vertical gap formula D_t=D_0+t(2x_0+t) from retained horizontal BRC state",
+        "exact period-M necessary squarehood wheel in the t coordinate",
+        "zero-false-negative first-stage wheel plus second residue filter",
+        "lazy exact materialization of D_t only after both residue observers pass",
+        "classical vertical factor-witness composition"
+      ],
+      "core_law": "For fixed m,N and x_0=ceil(sqrt(mN)), D_t=(x_0+t)^2-mN is periodic modulo M as a function of t mod M. Therefore every exact square hit lies in W_M={r:(x_0+r)^2-mN is a quadratic residue mod M}. Enumerating only translated copies of W_M is observer-safe for squarehood rejection; exact D_t can be reconstructed as D_0+t(2x_0+t) only after surviving all declared modular observers.",
+      "hard_boundary": "Vertical Fermat search, additive gap recurrence, congruence stepping, quadratic-residue sieving, and Lehman/Hart factoring are classical prior art. The adaptive 1008/20160 wheel threshold is a finite Python benchmark policy, not a theorem. Timing gains inside a fixed search rectangle do not reduce the classical rectangle size or imply an asymptotic factoring improvement. No Foundation promotion is made."
+    }
+  ]
+}
