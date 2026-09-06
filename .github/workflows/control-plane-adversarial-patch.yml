@@ -1,0 +1,87 @@
+name: control-plane-adversarial-patch
+
+on:
+  push:
+    branches:
+      - control/adversarial-control-simulation-20260906
+    paths:
+      - '.github/workflows/control-plane-adversarial-patch.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Apply narrow lifecycle isolation repair
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          p = Path('tools/research_dispatch.py')
+          s = p.read_text()
+
+          old = '''def _filter_registered_events(\n    task: dict[str, Any],\n    events: list[dict[str, Any]],\n    root: Path,\n    result_state: dict[str, Any] | None,\n) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:\n'''
+          new = '''V2_TASK_PUBLICATION_CUTOVER = datetime(2026, 8, 28, tzinfo=timezone.utc)\n\n\ndef _claimless_generation_gate_reason(\n    task: dict[str, Any], event: dict[str, Any]\n) -> str | None:\n    """Bind claimless registered mutations to the current task generation.\n\n    CLAIM already carries an exact publication binding and claim-bound mutations\n    inherit that live owner scope. UNBLOCK and SUPERSEDE have no claim identity,\n    so after the V2 cutover they must name the exact operational publication.\n    Pre-cutover publicationless events remain available to the legacy migration\n    replay path; an explicitly mismatched publication is never accepted.\n    """\n    kind = event.get("event")\n    if kind not in {"UNBLOCK", "SUPERSEDE"}:\n        return None\n    expected = task.get("publication_id")\n    supplied = event.get("publication_id")\n    if supplied is not None:\n        if not isinstance(expected, str) or not expected or supplied != expected:\n            return f"registered {kind} publication_id does not match current task publication"\n        return None\n    meta = event.get(GITHUB_META_KEY)\n    created_at = meta.get("created_at") if isinstance(meta, dict) else None\n    try:\n        created = _lifecycle_time(created_at, "GitHub created_at")\n    except DispatchError as exc:\n        return str(exc)\n    if created >= V2_TASK_PUBLICATION_CUTOVER:\n        return f"registered {kind} requires publication_id after V2 task-publication cutover"\n    return None\n\n\ndef _filter_registered_events(\n    task: dict[str, Any],\n    events: list[dict[str, Any]],\n    root: Path,\n    result_state: dict[str, Any] | None,\n) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:\n'''
+          if old not in s:
+              raise SystemExit('filter anchor not found')
+          s = s.replace(old, new, 1)
+
+          old = '''        kind = event.get("event")\n        if kind == "CLAIM":\n'''
+          new = '''        kind = event.get("event")\n        generation_reason = _claimless_generation_gate_reason(task, event)\n        if generation_reason is not None:\n            rejected.append({"index": index, "reason": generation_reason})\n            continue\n        if kind == "CLAIM":\n'''
+          if old not in s:
+              raise SystemExit('generation gate insertion anchor not found')
+          s = s.replace(old, new, 1)
+
+          old = '''def _block_unreviewed_registered_done(\n    task: dict[str, Any],\n    state: dict[str, Any],\n    authenticated: list[dict[str, Any]],\n    registered_rejected: list[dict[str, Any]],\n    result_state: dict[str, Any] | None,\n) -> dict[str, Any]:\n'''
+          new = '''def _block_unreviewed_registered_done(\n    task: dict[str, Any],\n    state: dict[str, Any],\n    authenticated: list[dict[str, Any]],\n    registered_rejected: list[dict[str, Any]],\n    result_state: dict[str, Any] | None,\n    reduced_task_events: list[dict[str, Any]] | None = None,\n    reducer_ignored_indices: set[int] | None = None,\n) -> dict[str, Any]:\n'''
+          if old not in s:
+              raise SystemExit('done guard signature anchor not found')
+          s = s.replace(old, new, 1)
+
+          old = '''        meta = event.get(GITHUB_META_KEY)\n        value = copy.deepcopy(state)\n'''
+          new = '''        meta = event.get(GITHUB_META_KEY)\n        rejected_comment_id = meta.get("comment_id") if isinstance(meta, dict) else None\n        ignored = reducer_ignored_indices or set()\n        if type(rejected_comment_id) is int and reduced_task_events is not None:\n            later_applied = False\n            for reduced_index, reduced_event in enumerate(reduced_task_events):\n                if reduced_index in ignored:\n                    continue\n                reduced_meta = reduced_event.get(GITHUB_META_KEY)\n                reduced_comment_id = (\n                    reduced_meta.get("comment_id") if isinstance(reduced_meta, dict) else None\n                )\n                if type(reduced_comment_id) is int and reduced_comment_id > rejected_comment_id:\n                    later_applied = True\n                    break\n            if later_applied:\n                # A later authoritative event actually changed/extended the same\n                # runtime stream. The provisional terminal attempt is historical\n                # audit evidence, not a permanent redispatch barrier.\n                continue\n        value = copy.deepcopy(state)\n'''
+          if old not in s:
+              raise SystemExit('done guard recovery anchor not found')
+          s = s.replace(old, new, 1)
+
+          old = '''    state = research_runtime_reducer.reduce_task(\n        task,\n        filtered,\n        default_lease_minutes=lease,\n        now=now,\n    )\n    state["ignored_events"].extend(auth_rejected)\n'''
+          new = '''    state = research_runtime_reducer.reduce_task(\n        task,\n        filtered,\n        default_lease_minutes=lease,\n        now=now,\n    )\n    reduced_task_events = [event for event in filtered if event.get("task_id") == task.get("task_id")]\n    reducer_ignored_indices = {\n        item.get("index")\n        for item in state.get("ignored_events", [])\n        if type(item.get("index")) is int\n    }\n    state["ignored_events"].extend(auth_rejected)\n'''
+          if old not in s:
+              raise SystemExit('reducer audit anchor not found')
+          s = s.replace(old, new, 1)
+
+          old = '''    return _block_unreviewed_registered_done(\n        task, state, authenticated, registered_rejected, result_state\n    )\n'''
+          new = '''    return _block_unreviewed_registered_done(\n        task,\n        state,\n        authenticated,\n        registered_rejected,\n        result_state,\n        reduced_task_events,\n        reducer_ignored_indices,\n    )\n'''
+          if old not in s:
+              raise SystemExit('done guard call anchor not found')
+          s = s.replace(old, new, 1)
+
+          p.write_text(s)
+          PY
+
+      - name: Run adversarial and prior lifecycle regressions
+        run: |
+          python -m unittest -v tests.test_control_plane_adversarial_simulation
+          python -m unittest -v tests.test_result_handoff_dispatch_guard
+          python -m unittest -v tests.test_registered_done_dispatch_guard
+
+      - name: Commit repair and remove transient patch workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm .github/workflows/control-plane-adversarial-patch.yml
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add tools/research_dispatch.py .github/workflows/control-plane-adversarial-patch.yml
+          git commit -m "fix(control): isolate task generations and stale DONE attempts"
+          git push origin HEAD:control/adversarial-control-simulation-20260906
