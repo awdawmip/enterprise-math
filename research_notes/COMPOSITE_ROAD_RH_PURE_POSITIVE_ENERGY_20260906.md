@@ -1,10 +1,10 @@
 # Pure positive-road RH energy criterion and finite falsification witnesses
 
-Status: `RESEARCH FRONTIER / PROVED RH-EQUIVALENT POSITIVE-ROAD CRITERION + FINITE FALSIFIER FAMILY / NOT FOUNDATION / NOT RH PROOF`
+Status: `RESEARCH FRONTIER / CORRECTED / PROVED RH-EQUIVALENT POSITIVE-ROAD CRITERION + FINITE FALSIFIER FAMILY / NOT FOUNDATION / NOT RH PROOF`
 Date: `2026-09-06`
 Researcher: `EM-FREE-C4A91D / FREE_AXIOM_DISCOVERY / ANCHOR_EXPOSED`
 Progress-Event-ID: `EM-FREE-C4A91D-PURE-ROAD-ENERGY-FINITE-WITNESS-20260906`
-Global journal source: `journal/enterprise-math/2026-09-06/20260906T170500+0800-em-free-c4a91d-pure-road-energy-finite-witness.md`
+Correction event: `EM-FREE-C4A91D-RAW-COMPLETED-ROAD-CORRECTION-20260906`
 Parents:
 - `research_notes/COMPOSITE_ROAD_RH_BOUNDARY_SLOPE_CLOSURE_20260906.md`
 - `research_notes/COMPOSITE_ROAD_RH_PENETRATION_JET_HIERARCHY_20260906.md`
@@ -45,7 +45,7 @@ Then, up to integer endpoints,
 \mu_a((0,x])=E_a(x)-E_0(x).
 \]
 
-Define the road discrepancy energy
+Define the raw road discrepancy energy
 
 \[
 \boxed{
@@ -58,15 +58,54 @@ Define the road discrepancy energy
 
 The discrete arithmetic part is entirely positive and uses the full integer population; primes are not selected.
 
-## 2. Pure-road RH criterion
+## 2. Correct pure-road RH criterion
 
-The completed Schur/Poisson result gives under RH
+The completed Schur energy `Delta_a` and raw road energy `mathcal Q_a` are distinct. Let
 
 \[
-\mathcal Q_a
-\le
-2\left[1-\frac{\xi(1)}{\xi(1+a)}\right]
-=2\lambda_1 a+O(a^2),
+C_a(s)=\frac{\xi(s)}{\xi(s+a)},
+\qquad
+Z_a(s)=\frac{\zeta(s)}{\zeta(s+a)},
+\qquad C_a=K_aZ_a.
+\]
+
+Under RH the completed energy satisfies
+
+\[
+\Delta_a\le
+U_{\rm comp}(a):=
+2\left[1-\frac{\xi(1)}{\xi(1+a)}\right].
+\]
+
+Set `J_a=K_a^{-1}` and
+
+\[
+A(a)^2=
+\frac1{2\pi}\int_{\mathbb R}
+\frac{|1-J_a(1/2+it)|^2}{1/4+t^2}\,dt.
+\]
+
+The corrected comparison theorem gives, under RH,
+
+\[
+|\sqrt{\mathcal Q_a}-\sqrt{\Delta_a}|\le A(a),
+\qquad A(a)=O(a).
+\]
+
+Hence define
+
+\[
+\boxed{
+U_{\rm road}(a)
+=\left[\sqrt{U_{\rm comp}(a)}+A(a)\right]^2.
+}
+\]
+
+Then under RH
+
+\[
+\mathcal Q_a\le U_{\rm road}(a)
+=2\lambda_1a+O(a^{3/2}),
 \]
 
 where
@@ -75,24 +114,16 @@ where
 \lambda_1=1+\frac\gamma2-\frac12\log(4\pi).
 \]
 
-Conversely, if `mathcal Q_a=O(a)` as `a\downarrow0`, then `E_a` belongs to the road Hilbert space for a sequence tending to zero, and Burnol's converse criterion implies RH.
-
-Therefore
+Conversely, if `mathcal Q_a=O(a)` as `a\downarrow0`, then `E_a` belongs to the road Hilbert space for a sequence tending to zero, and Burnol's converse implies RH. Therefore
 
 \[
 \boxed{
-RH\iff \mathcal Q_a=O(a)
-\quad(a\downarrow0).
+RH\iff\mathcal Q_a=O(a)
+\iff\|E_a-E_0\|_{\rm road}=O(\sqrt a).
 }
 \]
 
-Equivalently,
-
-\[
-RH\iff\|E_a-E_0\|_{\rm road}=O(\sqrt a).
-\]
-
-The boundary-slope theorem further gives, under RH,
+The corrected boundary-slope theorem further gives, under RH,
 
 \[
 \lim_{a\downarrow0}\frac{\mathcal Q_a}{a}
@@ -108,8 +139,6 @@ RH\ \&\ \text{all nontrivial zeros simple}
 \iff
 \mathcal Q_a=\lambda_1a+o(a).
 \]
-
-These are equivalent criteria, not proofs.
 
 ## 3. Exact finite road Green energy
 
@@ -157,7 +186,7 @@ Expanding discrete road against the continuous background gives
 }
 \]
 
-The continuous integrals used in the expansion are exact:
+The continuous integrals are exact:
 
 \[
 \int_0^N K_N(n,y)dy=\log(N/n),
@@ -165,13 +194,13 @@ The continuous integrals used in the expansion are exact:
 \iint_{[0,N]^2}K_N(u,v)dudv=N.
 \]
 
-For one-pass evaluation, let
+For one-pass evaluation, if
 
 \[
-A_n=\sum_{k=2}^n\mathcal R_a(k).
+A_n=\sum_{k=2}^n\mathcal R_a(k),
 \]
 
-Then
+then
 
 \[
 \sum_{m,n\le N}\frac{\mathcal R_a(m)\mathcal R_a(n)}{\max(m,n)}
@@ -182,9 +211,9 @@ Then
 
 and the `-1/N` contribution is `-A_N^2/N`.
 
-Each finite observable therefore retains every composite road weight and every pairwise Green interaction.
+Each finite observable retains every composite road weight and every pairwise Green interaction.
 
-## 4. Countable finite-inequality criterion
+## 4. Countable finite-inequality RH criterion
 
 Set `a_j=2^{-j}`. Under RH there are finite `C,j_0` such that
 
@@ -207,30 +236,35 @@ RH\iff
 
 This is a countable family of finite arithmetic inequalities, not a single finite certificate of truth.
 
-## 5. Finite falsification certificates
+## 5. Correct finite falsification certificates
 
-Under RH, for every `a>0`,
+The raw finite energy must be compared with `U_road`, not with the smaller completed bound `U_comp`.
+
+Under RH,
 
 \[
-\mathcal Q_a\le
-U(a):=2\left[1-\frac{\xi(1)}{\xi(1+a)}\right].
+\mathcal Q_{a,N}\le\mathcal Q_a\le U_{\rm road}(a).
 \]
 
-Therefore any rigorous finite computation with
+Therefore any rigorous finite computation satisfying
 
 \[
-\boxed{\mathcal Q_{a,N}>U(a)}
+\boxed{
+\mathcal Q_{a,N}>U_{\rm road}(a)
+}
 \]
 
 falsifies RH.
 
-If RH is false, there cannot exist arbitrarily small `a` with finite `mathcal Q_a`, or those thicknesses would form a sequence and Burnol would imply RH. Hence some `a_0>0` exists such that `mathcal Q_a=infinity` for every `0<a<a_0`. For every such fixed `a`, monotonicity in `N` forces a finite `N` with
+If RH is false, there cannot exist arbitrarily small `a` with finite `mathcal Q_a`, or such thicknesses would form a sequence and Burnol would imply RH. Hence some `a_0>0` exists such that `mathcal Q_a=infinity` for every `0<a<a_0`. For each such `a`, monotonicity in `N` forces a finite `N` with
 
 \[
-\mathcal Q_{a,N}>U(a).
+\mathcal Q_{a,N}>U_{\rm road}(a).
 \]
 
-Thus false RH produces finite full-road falsification witnesses at every sufficiently thin road scale, including all sufficiently fine dyadic levels.
+Thus false RH still produces finite full-road falsification witnesses at every sufficiently thin road scale, including all sufficiently fine dyadic levels.
+
+The earlier threshold `mathcal Q_(a,N)>U_comp(a)` is withdrawn for raw road energy.
 
 ## 6. Optional background-free lower envelope
 
@@ -245,13 +279,13 @@ D_{a,N}=\sum_{m,n}\mathcal R_a(m)\mathcal R_a(n)
 B_{a,N}=\sum_n\mathcal R_a(n)\log(N/n).
 \]
 
-If the continuous background density is temporarily allowed to be any real `c`, the energy is
+For arbitrary continuous background density `c`, the finite energy is
 
 \[
-D_{a,N}-2cB_{a,N}+c^2N.
+D_{a,N}-2cB_{a,N}+c^2N,
 \]
 
-The exact minimum over `c` is
+whose exact minimum is
 
 \[
 \boxed{
@@ -266,23 +300,26 @@ Since the true `c_a` is one admissible density,
 \mathcal Q_{a,N}\ge\mathcal Q^{\min}_{a,N}.
 \]
 
-Thus `mathcal Q^min_(a,N)>U(a)` is an even more robust finite falsifier that does not need `c_a` on the left-hand arithmetic side. No completeness claim is made for this minimized family.
+Thus
+
+\[
+\mathcal Q^{\min}_{a,N}>U_{\rm road}(a)
+\]
+
+is a robust sufficient finite falsifier. No completeness claim is made for this minimized family.
 
 ## 7. Research meaning
 
-This is the current purest realization of the user rule “合数是路，素数是坑”:
+This remains the current purest realization of “合数是路，素数是坑”:
 
-- all `n>=2` contribute positive road mass;
+- every `n>=2` contributes positive road mass;
 - prime filtering disappears from the arithmetic criterion;
-- composite/composite and composite/integer interactions are retained through the Green kernel `1/max(m,n)`;
+- composite/composite interactions are retained through the Green kernel `1/max(m,n)`;
 - only a deterministic continuous road density is subtracted;
-- the prime field appears only after the singular zero-thickness derivative, which is not the working state used here.
+- the prime field appears only after the singular zero-thickness derivative.
 
-The new hard target is now purely road-based: prove `mathcal Q_a=O(a)` directly from the finite full-road Green energies, without importing an RH-equivalent analytic continuation estimate.
+The current hard target is unchanged: prove `mathcal Q_a=O(a)` directly from the finite full-road Green energies, without importing an RH-equivalent analytic continuation estimate.
 
-## Reuse resolution
+## Correction record
 
-- `T8_RELATION_OBSERVABLE_SPECTRUM`: `COMPOSE_APPLIED` to the pairwise Green road observable;
-- `T2_BLOCK_FINITE_CERTIFICATE`: `REUSE_APPLIED` to finite truncation/falsification witnesses;
-- `T6_OPERATION_SAFE_QUOTIENT`: `REUSE_APPLIED`; background minimization is only a lower envelope, not a lossless quotient;
-- positive Weighted-BRC: `REUSE_APPLIED` to the full positive road mass, while continuous centering remains a separately typed signed discrepancy.
+The first version incorrectly used the completed Schur upper bound directly for raw road energy. The exact finite Green formula, countable criterion, raw rate criterion, raw slope, and finite-witness completeness survive; only the comparison proof and the falsifier threshold are replaced by the explicit completion-error bound above.
