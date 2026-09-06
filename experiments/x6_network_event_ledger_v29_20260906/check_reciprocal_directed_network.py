@@ -44,7 +44,10 @@ for S in TRIADS:
 def reciprocal_update(state):
     out=[]
     for i,S in enumerate(state):
-        ranked=sorted((sum(K[T,state[j]] for j in range(3) if j!=i),T) for T in NEIGH[S], reverse=True)
+        ranked=sorted(
+            ((sum(K[T,state[j]] for j in range(3) if j!=i),T) for T in NEIGH[S]),
+            reverse=True,
+        )
         if ranked[0][0]==ranked[1][0]: return None
         out.append(ranked[0][1])
     return tuple(out)
@@ -92,7 +95,7 @@ def directed_ring_update(state):
     for i,S in enumerate(state):
         Y=state[(i+1)%3]
         assert Y in NEIGH[S]
-        ranked=sorted((K[T,Y],T) for T in NEIGH[S], reverse=True)
+        ranked=sorted(((K[T,Y],T) for T in NEIGH[S]), reverse=True)
         assert ranked[0][0]==6 and ranked[0][1]==Y
         assert ranked[0][0]>ranked[1][0]
         out.append(Y)
