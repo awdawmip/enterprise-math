@@ -65,6 +65,21 @@ jobs:
           echo "DISPATCH_KIND=$kind" >> "$GITHUB_ENV"
           echo "IMMUTABLE_RECEIPT_PATH=$RECEIPT_DIR/$request_id.json" >> "$GITHUB_ENV"
 
+      - name: Detect request-producing push
+        id: request_change
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          set -euo pipefail
+          parent="$(git rev-parse "${GITHUB_SHA}^1")"
+          if git diff --quiet "$parent" "$GITHUB_SHA" -- "$REQUEST_PATH"; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "REQUEST_REPLAY_VALIDATION_ONLY source_sha=$GITHUB_SHA"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "REQUEST_PRODUCING_PUSH source_sha=$GITHUB_SHA"
+          fi
+
       - name: Fetch authoritative Issue 240 comment stream
         shell: bash
         run: |
@@ -150,7 +165,7 @@ jobs:
           cat /tmp/em-dispatch/receipt.json
 
       - name: Persist request receipt on main
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && steps.request_change.outputs.changed == 'true'
         shell: bash
         run: |
           set -euo pipefail
