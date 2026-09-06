@@ -1,0 +1,55 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "RESEARCH_TOOLIZED_GLOBAL_SUBTOOL",
+  "date": "2026-09-07",
+  "admission": {
+    "classification": "TASK_RESEARCH_TOOL_HARVEST",
+    "authority": "direct user continuation of the BRC >100 multiplier-horizon attack after pairwise transport and kernel-compression falsification",
+    "family_id": "T0_BRC",
+    "foundation_mutation": false,
+    "working_truth_promotion": false,
+    "new_global_tool_family": false,
+    "reason": "Prove and execute a certified table-free short-step multiplier tail using exact alternating binomial lower bounds, reducing long-horizon predictor-table dependence without claiming a faster Python factor scan."
+  },
+  "methods": [
+    {
+      "method_id": "t0.brc_table_free_tail",
+      "name": "BRC table-free certified multiplier tail",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE_STORAGE_FRONTIER",
+      "source_refs": [
+        "src/enterprise_math/brc_table_free_tail.py",
+        "tests/test_brc_table_free_tail.py",
+        "experiments/brc_table_free_tail_benchmark.py",
+        "research_notes/BRC_TABLE_FREE_TAIL_20260907.md",
+        "research_artifacts/brc_table_free_tail_benchmark_20260907.csv"
+      ],
+      "api": [
+        "TableFreeTailState",
+        "binomial_half_coefficients",
+        "scaled_even_truncation",
+        "lower_increment",
+        "two_correction_certificate",
+        "transport_certified_tail"
+      ],
+      "triggers": [
+        "BRC table-free tail",
+        "multiplier predictor storage",
+        "m greater than 100",
+        "short-step multiplier tail",
+        "alternating binomial predictor",
+        "two-correction certificate"
+      ],
+      "capabilities": [
+        "exact h=1,2 root/remainder transport with no sqrt-ratio predictor table when certified",
+        "arbitrary even-order alternating half-binomial lower predictor",
+        "exact integer certificate for at most two BRC basin corrections",
+        "tail frontier scaling O(N^(1/(2K+1))) for fixed even degree K",
+        "explicit CPU-negative benchmark boundary for current Python implementation"
+      ],
+      "core_law": "For x=h/m in (0,1] and even K, the alternating binomial truncation L_K(x) is below sqrt(1+x)-1 and its error is at most binom(1/2,K+1)x^(K+1). Thus d=floor(J L_K) is a lower root-increment predictor. If binom(1/2,K+1) J (h/m)^(K+1)+h/(2m)<=1, then at most two odd BRC basin crossings recover the exact (m+h) root/remainder state.",
+      "hard_boundary": "Storage/predictor-dependence result, not a Python performance win. High-order exact polynomial evaluation was slower than optimized isqrt in the finite benchmark. It does not reduce the multiplier search count, does not change Hart/Lehman asymptotic factorization complexity, does not establish RSA-scale practicality, and does not modify Foundation state."
+    }
+  ]
+}
