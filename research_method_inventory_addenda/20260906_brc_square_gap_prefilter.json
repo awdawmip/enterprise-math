@@ -1,0 +1,56 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "RESEARCH_TOOLIZED_DOMAIN_OPERATOR",
+  "date": "2026-09-06",
+  "admission": {
+    "classification": "TASK_RESEARCH_TOOL_HARVEST",
+    "authority": "direct user continuation of the main-backed BRC multiplier experiment and round-3 factor-bridge audit",
+    "family_id": "T0_BRC",
+    "foundation_mutation": false,
+    "working_truth_promotion": false,
+    "new_global_tool_family": false,
+    "reason": "Compose the exact BRC multiplier completion-cost interface with a classical quadratic-residue necessary condition before exact integer squarehood testing."
+  },
+  "methods": [
+    {
+      "method_id": "t0.brc_square_gap_prefilter",
+      "name": "BRC square-gap quadratic-residue prefilter",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "CLASSICAL_BASELINE_COMPOSED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_square_gap_prefilter.py",
+        "tests/test_brc_square_gap_prefilter.py",
+        "experiments/brc_multiplier_factor_bridge.py",
+        "research_notes/BRC_MULTIPLIER_FACTOR_BRIDGE_20260906.md",
+        "research_artifacts/brc_multiplier_square_gap_prefilter_20260906.csv"
+      ],
+      "api": [
+        "DEFAULT_SQUARE_RESIDUE_MODULUS",
+        "square_residue_mask",
+        "square_residue_count",
+        "passes_square_residue_filter",
+        "filtered_square_root",
+        "ceiling_completion_cost",
+        "ceiling_completion_square_witness"
+      ],
+      "triggers": [
+        "BRC square gap",
+        "completion cost square",
+        "quadratic residue prefilter",
+        "difference of squares",
+        "multiplier Fermat",
+        "square test table"
+      ],
+      "capabilities": [
+        "exact packed quadratic-residue table for a declared modulus",
+        "zero-false-negative rejection of impossible square gaps",
+        "exact integer square-root confirmation on survivors",
+        "typed separation of BRC next-square addition cost from ceiling-square Fermat completion cost",
+        "immediate square-gap witness surface for classical difference-of-squares composition"
+      ],
+      "core_law": "If an integer value is a square then its residue modulo M belongs to the precomputed quadratic-residue mask Q_M. Therefore Q_M[value mod M]=0 safely rejects squarehood before exact isqrt confirmation. For the default M=4032 the mask has 192 live residue classes out of 4032 (uniform fraction 1/21) and a packed mathematical payload of 504 bytes.",
+      "hard_boundary": "Quadratic-residue filtering, Fermat difference of squares, and Lehman-style multiplier use are classical prior art. Passing the residue filter is not a square certificate. The bounded semiprime benchmark does not imply a factorization speedup or asymptotic complexity result. Coarse BRC basin support/Pell resonance showed no useful within-multiplier pruning signal in the round-3 sample and is not promoted as a selector."
+    }
+  ]
+}
