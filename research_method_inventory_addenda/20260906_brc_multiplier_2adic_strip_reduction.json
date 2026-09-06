@@ -1,0 +1,51 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "RESEARCH_TOOLIZED_DOMAIN_OPERATOR",
+  "date": "2026-09-06",
+  "admission": {
+    "classification": "TASK_RESEARCH_TOOL_HARVEST",
+    "authority": "direct user continuation of the main-backed BRC multiplier program through Round 8",
+    "family_id": "T0_BRC",
+    "foundation_mutation": false,
+    "working_truth_promotion": false,
+    "new_global_tool_family": false,
+    "reason": "Normalize arbitrary odd-N multiplier strips by the complete universal 2-adic difference-of-squares classification, preventing impossible and square-scaled duplicate strips from being searched twice."
+  },
+  "methods": [
+    {
+      "method_id": "t0.brc_multiplier_2adic_strip_reduction",
+      "name": "BRC multiplier 2-adic strip normalization",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_multiplier_strip_reduction.py",
+        "tests/test_brc_multiplier_strip_reduction.py",
+        "research_notes/BRC_MULTIPLIER_2ADIC_STRIP_REDUCTION_20260906.md"
+      ],
+      "api": [
+        "StripReductionWitness",
+        "multiplier_strip_class",
+        "strip_reduced_multipliers",
+        "reduce_square_hit_to_parent",
+        "two_adic_strip_counts"
+      ],
+      "triggers": [
+        "BRC multiplier strip",
+        "2-adic multiplier",
+        "difference of squares parity",
+        "redundant multiplier",
+        "vertical strip pruning"
+      ],
+      "capabilities": [
+        "complete odd-N universal 2-adic multiplier-strip classification",
+        "safe deletion of m==2 mod4 impossible strips",
+        "safe reduction of m==4 mod8 square-scaled strips to m/4",
+        "exact bounded-window offset mapping parent_t=floor(t/2)",
+        "executable source/parent difference-of-squares reconstruction certificate"
+      ],
+      "core_law": "For odd N: m==2 mod4 is impossible for x^2-y^2=mN; m==4 mod8 forces x,y even and every hit divides to (m/4)N with parent vertical offset floor(t/2); for m odd or 8|m explicit representations show that no universal factor-two reduction is forced. Through m<=100 this yields 25 impossible, 13 redundant-by-four, and 62 universally 2-adically primitive strips.",
+      "hard_boundary": "This is elementary classical parity/congruence content expressed in BRC coordinates. Lehman's original inner loop already uses parity/mod-4 restrictions and different strides. The result does not improve the classical Lehman exponent or claim new factoring mathematics; it canonicalizes the arbitrary-multiplier BRC search and prevents duplicate strips. No Foundation promotion is made."
+    }
+  ]
+}
