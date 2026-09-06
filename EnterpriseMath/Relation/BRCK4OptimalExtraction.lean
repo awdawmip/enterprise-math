@@ -115,6 +115,291 @@ theorem k4Feasible_value_le_sevenBound (n : K4Capacity)
   unfold k4ExtractionValue
   apply le_k4SevenBound <;> omega
 
+/-- Any feasible four-vertex extraction can be monotonically reduced to any
+smaller requested total.  Feasibility is preserved because every vertex
+multiplicity only decreases. -/
+theorem k4Feasible_shrink (n : K4Capacity)
+    (a b c d m : ℕ) (hfeas : k4Feasible n a b c d)
+    (hm : m ≤ k4ExtractionValue a b c d) :
+    ∃ a' b' c' d' : ℕ,
+      k4Feasible n a' b' c' d' ∧ k4ExtractionValue a' b' c' d' = m := by
+  have hsplit : ∃ a' b' c' d' : ℕ,
+      a' ≤ a ∧ b' ≤ b ∧ c' ≤ c ∧ d' ≤ d ∧ a' + b' + c' + d' = m := by
+    unfold k4ExtractionValue at hm
+    omega
+  rcases hsplit with ⟨a', b', c', d', ha, hb, hc, hd, hsum⟩
+  refine ⟨a', b', c', d', ?_, ?_⟩
+  · unfold k4Feasible at hfeas ⊢
+    omega
+  · exact hsum
+
+/-- The nested seven-bound minimum is attained by at least one of its seven
+explicit linear bounds. -/
+theorem k4SevenBound_choice (n : K4Capacity) :
+    k4SevenBound n = n.ab + n.cd ∨
+    k4SevenBound n = n.ac + n.bd ∨
+    k4SevenBound n = n.ad + n.bc ∨
+    k4SevenBound n = n.ab + n.ac + n.ad ∨
+    k4SevenBound n = n.ab + n.bc + n.bd ∨
+    k4SevenBound n = n.ac + n.bc + n.cd ∨
+    k4SevenBound n = n.ad + n.bd + n.cd := by
+  unfold k4SevenBound
+  rcases min_choice (n.ab + n.cd)
+      (min (n.ac + n.bd)
+        (min (n.ad + n.bc)
+          (min (n.ab + n.ac + n.ad)
+            (min (n.ab + n.bc + n.bd)
+              (min (n.ac + n.bc + n.cd) (n.ad + n.bd + n.cd)))))) with h | h
+  · exact Or.inl h
+  · rw [h]
+    rcases min_choice (n.ac + n.bd)
+        (min (n.ad + n.bc)
+          (min (n.ab + n.ac + n.ad)
+            (min (n.ab + n.bc + n.bd)
+              (min (n.ac + n.bc + n.cd) (n.ad + n.bd + n.cd))))) with h | h
+    · exact Or.inr (Or.inl h)
+    · rw [h]
+      rcases min_choice (n.ad + n.bc)
+          (min (n.ab + n.ac + n.ad)
+            (min (n.ab + n.bc + n.bd)
+              (min (n.ac + n.bc + n.cd) (n.ad + n.bd + n.cd)))) with h | h
+      · exact Or.inr (Or.inr (Or.inl h))
+      · rw [h]
+        rcases min_choice (n.ab + n.ac + n.ad)
+            (min (n.ab + n.bc + n.bd)
+              (min (n.ac + n.bc + n.cd) (n.ad + n.bd + n.cd))) with h | h
+        · exact Or.inr (Or.inr (Or.inr (Or.inl h)))
+        · rw [h]
+          rcases min_choice (n.ab + n.bc + n.bd)
+              (min (n.ac + n.bc + n.cd) (n.ad + n.bd + n.cd)) with h | h
+          · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inl h))))
+          · rw [h]
+            rcases min_choice (n.ac + n.bc + n.cd) (n.ad + n.bd + n.cd) with h | h
+            · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inl h)))))
+            · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr h)))))
+
+/-- If the first opposite-edge pairing is the active minimum and the exceptional
+half-integral pattern is absent, the top bound has an integer witness. -/
+theorem k4Realizable_ab_cd_of_min_of_not_exceptional
+    (n : K4Capacity)
+    (h1 : n.ab + n.cd ≤ n.ac + n.bd)
+    (h2 : n.ab + n.cd ≤ n.ad + n.bc)
+    (h3 : n.ab + n.cd ≤ n.ab + n.ac + n.ad)
+    (h4 : n.ab + n.cd ≤ n.ab + n.bc + n.bd)
+    (h5 : n.ab + n.cd ≤ n.ac + n.bc + n.cd)
+    (h6 : n.ab + n.cd ≤ n.ad + n.bd + n.cd)
+    (hne : ¬ k4Exceptional n) :
+    ∃ a b c d : ℕ,
+      k4Feasible n a b c d ∧
+        k4ExtractionValue a b c d = n.ab + n.cd := by
+  rcases n with ⟨ab, ac, ad, bc, bd, cd⟩
+  unfold k4Exceptional at hne
+  unfold k4Feasible k4ExtractionValue
+  dsimp at hne ⊢
+  omega
+
+/-- Second opposite-edge active-minimum case. -/
+theorem k4Realizable_ac_bd_of_min_of_not_exceptional
+    (n : K4Capacity)
+    (h0 : n.ac + n.bd ≤ n.ab + n.cd)
+    (h2 : n.ac + n.bd ≤ n.ad + n.bc)
+    (h3 : n.ac + n.bd ≤ n.ab + n.ac + n.ad)
+    (h4 : n.ac + n.bd ≤ n.ab + n.bc + n.bd)
+    (h5 : n.ac + n.bd ≤ n.ac + n.bc + n.cd)
+    (h6 : n.ac + n.bd ≤ n.ad + n.bd + n.cd)
+    (hne : ¬ k4Exceptional n) :
+    ∃ a b c d : ℕ,
+      k4Feasible n a b c d ∧
+        k4ExtractionValue a b c d = n.ac + n.bd := by
+  rcases n with ⟨ab, ac, ad, bc, bd, cd⟩
+  unfold k4Exceptional at hne
+  unfold k4Feasible k4ExtractionValue
+  dsimp at hne ⊢
+  omega
+
+/-- Third opposite-edge active-minimum case. -/
+theorem k4Realizable_ad_bc_of_min_of_not_exceptional
+    (n : K4Capacity)
+    (h0 : n.ad + n.bc ≤ n.ab + n.cd)
+    (h1 : n.ad + n.bc ≤ n.ac + n.bd)
+    (h3 : n.ad + n.bc ≤ n.ab + n.ac + n.ad)
+    (h4 : n.ad + n.bc ≤ n.ab + n.bc + n.bd)
+    (h5 : n.ad + n.bc ≤ n.ac + n.bc + n.cd)
+    (h6 : n.ad + n.bc ≤ n.ad + n.bd + n.cd)
+    (hne : ¬ k4Exceptional n) :
+    ∃ a b c d : ℕ,
+      k4Feasible n a b c d ∧
+        k4ExtractionValue a b c d = n.ad + n.bc := by
+  rcases n with ⟨ab, ac, ad, bc, bd, cd⟩
+  unfold k4Exceptional at hne
+  unfold k4Feasible k4ExtractionValue
+  dsimp at hne ⊢
+  omega
+
+/-- If the A-star bound is active, setting the A extraction to zero and taking
+the three incident capacities gives an explicit optimum witness. -/
+theorem k4Realizable_starA_of_min (n : K4Capacity)
+    (h0 : n.ab + n.ac + n.ad ≤ n.ab + n.cd)
+    (h1 : n.ab + n.ac + n.ad ≤ n.ac + n.bd)
+    (h2 : n.ab + n.ac + n.ad ≤ n.ad + n.bc) :
+    ∃ a b c d : ℕ,
+      k4Feasible n a b c d ∧
+        k4ExtractionValue a b c d = n.ab + n.ac + n.ad := by
+  refine ⟨0, n.ab, n.ac, n.ad, ?_, ?_⟩
+  · unfold k4Feasible
+    omega
+  · unfold k4ExtractionValue
+    omega
+
+/-- B-star active-minimum witness. -/
+theorem k4Realizable_starB_of_min (n : K4Capacity)
+    (h0 : n.ab + n.bc + n.bd ≤ n.ab + n.cd)
+    (h1 : n.ab + n.bc + n.bd ≤ n.ac + n.bd)
+    (h2 : n.ab + n.bc + n.bd ≤ n.ad + n.bc) :
+    ∃ a b c d : ℕ,
+      k4Feasible n a b c d ∧
+        k4ExtractionValue a b c d = n.ab + n.bc + n.bd := by
+  refine ⟨n.ab, 0, n.bc, n.bd, ?_, ?_⟩
+  · unfold k4Feasible
+    omega
+  · unfold k4ExtractionValue
+    omega
+
+/-- C-star active-minimum witness. -/
+theorem k4Realizable_starC_of_min (n : K4Capacity)
+    (h0 : n.ac + n.bc + n.cd ≤ n.ab + n.cd)
+    (h1 : n.ac + n.bc + n.cd ≤ n.ac + n.bd)
+    (h2 : n.ac + n.bc + n.cd ≤ n.ad + n.bc) :
+    ∃ a b c d : ℕ,
+      k4Feasible n a b c d ∧
+        k4ExtractionValue a b c d = n.ac + n.bc + n.cd := by
+  refine ⟨n.ac, n.bc, 0, n.cd, ?_, ?_⟩
+  · unfold k4Feasible
+    omega
+  · unfold k4ExtractionValue
+    omega
+
+/-- D-star active-minimum witness. -/
+theorem k4Realizable_starD_of_min (n : K4Capacity)
+    (h0 : n.ad + n.bd + n.cd ≤ n.ab + n.cd)
+    (h1 : n.ad + n.bd + n.cd ≤ n.ac + n.bd)
+    (h2 : n.ad + n.bd + n.cd ≤ n.ad + n.bc) :
+    ∃ a b c d : ℕ,
+      k4Feasible n a b c d ∧
+        k4ExtractionValue a b c d = n.ad + n.bd + n.cd := by
+  refine ⟨n.ad, n.bd, n.cd, 0, ?_, ?_⟩
+  · unfold k4Feasible
+    omega
+  · unfold k4ExtractionValue
+    omega
+
+/-- Outside the half-integral obstruction, the top seven-bound value itself is
+attained.  The proof separates the three matching minima from the four integral
+star minima. -/
+theorem k4SevenBound_realizable_of_not_exceptional
+    (n : K4Capacity) (hne : ¬ k4Exceptional n) :
+    ∃ a b c d : ℕ,
+      k4Feasible n a b c d ∧
+        k4ExtractionValue a b c d = k4SevenBound n := by
+  rcases k4SevenBound_choice n with h | h | h | h | h | h | h
+  · have h1 : n.ab + n.cd ≤ n.ac + n.bd := by
+      rw [← h]
+      exact k4SevenBound_le_ac_bd n
+    have h2 : n.ab + n.cd ≤ n.ad + n.bc := by
+      rw [← h]
+      exact k4SevenBound_le_ad_bc n
+    have h3 : n.ab + n.cd ≤ n.ab + n.ac + n.ad := by
+      rw [← h]
+      exact k4SevenBound_le_starA n
+    have h4 : n.ab + n.cd ≤ n.ab + n.bc + n.bd := by
+      rw [← h]
+      exact k4SevenBound_le_starB n
+    have h5 : n.ab + n.cd ≤ n.ac + n.bc + n.cd := by
+      rw [← h]
+      exact k4SevenBound_le_starC n
+    have h6 : n.ab + n.cd ≤ n.ad + n.bd + n.cd := by
+      rw [← h]
+      exact k4SevenBound_le_starD n
+    simpa [h] using k4Realizable_ab_cd_of_min_of_not_exceptional n h1 h2 h3 h4 h5 h6 hne
+  · have h0 : n.ac + n.bd ≤ n.ab + n.cd := by
+      rw [← h]
+      exact k4SevenBound_le_ab_cd n
+    have h2 : n.ac + n.bd ≤ n.ad + n.bc := by
+      rw [← h]
+      exact k4SevenBound_le_ad_bc n
+    have h3 : n.ac + n.bd ≤ n.ab + n.ac + n.ad := by
+      rw [← h]
+      exact k4SevenBound_le_starA n
+    have h4 : n.ac + n.bd ≤ n.ab + n.bc + n.bd := by
+      rw [← h]
+      exact k4SevenBound_le_starB n
+    have h5 : n.ac + n.bd ≤ n.ac + n.bc + n.cd := by
+      rw [← h]
+      exact k4SevenBound_le_starC n
+    have h6 : n.ac + n.bd ≤ n.ad + n.bd + n.cd := by
+      rw [← h]
+      exact k4SevenBound_le_starD n
+    simpa [h] using k4Realizable_ac_bd_of_min_of_not_exceptional n h0 h2 h3 h4 h5 h6 hne
+  · have h0 : n.ad + n.bc ≤ n.ab + n.cd := by
+      rw [← h]
+      exact k4SevenBound_le_ab_cd n
+    have h1 : n.ad + n.bc ≤ n.ac + n.bd := by
+      rw [← h]
+      exact k4SevenBound_le_ac_bd n
+    have h3 : n.ad + n.bc ≤ n.ab + n.ac + n.ad := by
+      rw [← h]
+      exact k4SevenBound_le_starA n
+    have h4 : n.ad + n.bc ≤ n.ab + n.bc + n.bd := by
+      rw [← h]
+      exact k4SevenBound_le_starB n
+    have h5 : n.ad + n.bc ≤ n.ac + n.bc + n.cd := by
+      rw [← h]
+      exact k4SevenBound_le_starC n
+    have h6 : n.ad + n.bc ≤ n.ad + n.bd + n.cd := by
+      rw [← h]
+      exact k4SevenBound_le_starD n
+    simpa [h] using k4Realizable_ad_bc_of_min_of_not_exceptional n h0 h1 h3 h4 h5 h6 hne
+  · have h0 : n.ab + n.ac + n.ad ≤ n.ab + n.cd := by
+      rw [← h]
+      exact k4SevenBound_le_ab_cd n
+    have h1 : n.ab + n.ac + n.ad ≤ n.ac + n.bd := by
+      rw [← h]
+      exact k4SevenBound_le_ac_bd n
+    have h2 : n.ab + n.ac + n.ad ≤ n.ad + n.bc := by
+      rw [← h]
+      exact k4SevenBound_le_ad_bc n
+    simpa [h] using k4Realizable_starA_of_min n h0 h1 h2
+  · have h0 : n.ab + n.bc + n.bd ≤ n.ab + n.cd := by
+      rw [← h]
+      exact k4SevenBound_le_ab_cd n
+    have h1 : n.ab + n.bc + n.bd ≤ n.ac + n.bd := by
+      rw [← h]
+      exact k4SevenBound_le_ac_bd n
+    have h2 : n.ab + n.bc + n.bd ≤ n.ad + n.bc := by
+      rw [← h]
+      exact k4SevenBound_le_ad_bc n
+    simpa [h] using k4Realizable_starB_of_min n h0 h1 h2
+  · have h0 : n.ac + n.bc + n.cd ≤ n.ab + n.cd := by
+      rw [← h]
+      exact k4SevenBound_le_ab_cd n
+    have h1 : n.ac + n.bc + n.cd ≤ n.ac + n.bd := by
+      rw [← h]
+      exact k4SevenBound_le_ac_bd n
+    have h2 : n.ac + n.bc + n.cd ≤ n.ad + n.bc := by
+      rw [← h]
+      exact k4SevenBound_le_ad_bc n
+    simpa [h] using k4Realizable_starC_of_min n h0 h1 h2
+  · have h0 : n.ad + n.bd + n.cd ≤ n.ab + n.cd := by
+      rw [← h]
+      exact k4SevenBound_le_ab_cd n
+    have h1 : n.ad + n.bd + n.cd ≤ n.ac + n.bd := by
+      rw [← h]
+      exact k4SevenBound_le_ac_bd n
+    have h2 : n.ad + n.bd + n.cd ≤ n.ad + n.bc := by
+      rw [← h]
+      exact k4SevenBound_le_ad_bc n
+    simpa [h] using k4Realizable_starD_of_min n h0 h1 h2
+
 /-- Presburger completeness of the non-exceptional K4 extraction polytope.
 If a requested integer value lies below every one of the seven elementary
 bounds and the half-integral exceptional pattern is absent, then that value is
@@ -131,11 +416,14 @@ theorem k4Realizable_of_bounds_of_not_exceptional
     (hne : ¬ k4Exceptional n) :
     ∃ a b c d : ℕ,
       k4Feasible n a b c d ∧ k4ExtractionValue a b c d = m := by
-  rcases n with ⟨ab, ac, ad, bc, bd, cd⟩
-  unfold k4Exceptional at hne
-  unfold k4Feasible k4ExtractionValue
-  dsimp at hne ⊢
-  omega
+  have hm : m ≤ k4SevenBound n :=
+    le_k4SevenBound h0 h1 h2 h3 h4 h5 h6
+  rcases k4SevenBound_realizable_of_not_exceptional n hne with
+    ⟨a, b, c, d, hfeas, hvalue⟩
+  have hm' : m ≤ k4ExtractionValue a b c d := by
+    rw [hvalue]
+    exact hm
+  exact k4Feasible_shrink n a b c d m hfeas hm'
 
 /-- For an explicit exceptional witness, the seven-bound minimum is the common
 opposite-edge value `a+b+c+d+2`. -/
