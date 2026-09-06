@@ -1,0 +1,9 @@
+section,bits_or_sample,sample_count,metric_a,metric_b,metric_c,metric_d,metric_e,metric_f
+structured_filter,"p,q in 101..997 all pairs",10153,candidates=1015300,actual_square_gaps=29798,excluded_m2mod4_square_gaps=0,20160_survivors=46372,cascade_survivors=29804,cascade_false_negatives=0
+structured_filter_rates,"p,q in 101..997 all pairs",1015300,20160_reject_rate=0.954326799961,cascade_reject_rate=0.970645129518,cascade_false_positive_nonsquares=6,uniform_cascade_pass=108/46189,uniform_cascade_pass_rate=0.002338219056,
+runtime_random_odd,128,500,direct_seconds=0.034089968000,current_transition4032_seconds=0.032297060000,new_admissible_cascade_seconds=0.025689559000,new_vs_direct_speedup=1.326997011,new_vs_current_speedup=1.257205700,
+runtime_random_odd,256,400,direct_seconds=0.042591116000,current_transition4032_seconds=0.028532149000,new_admissible_cascade_seconds=0.026481499000,new_vs_direct_speedup=1.608334785,new_vs_current_speedup=1.077437082,
+runtime_random_odd,512,300,direct_seconds=0.049271945000,current_transition4032_seconds=0.027654386000,new_admissible_cascade_seconds=0.021825777000,new_vs_direct_speedup=2.257511611,new_vs_current_speedup=1.267051615,
+runtime_random_odd,1024,200,direct_seconds=0.053596983000,current_transition4032_seconds=0.027137443000,new_admissible_cascade_seconds=0.022665097000,new_vs_direct_speedup=2.364736537,new_vs_current_speedup=1.197323047,
+runtime_random_odd,2048,120,direct_seconds=0.064644681000,current_transition4032_seconds=0.034003604000,new_admissible_cascade_seconds=0.026305214000,new_vs_direct_speedup=2.457485463,new_vs_current_speedup=1.292656429,
+runtime_random_odd,4096,60,direct_seconds=0.081793971000,current_transition4032_seconds=0.047101179000,new_admissible_cascade_seconds=0.035209555000,new_vs_direct_speedup=2.323061765,new_vs_current_speedup=1.337738549,
