@@ -4,9 +4,11 @@ Status: `PROJECT-KNOWLEDGE IMPORT / NO THEOREM PROMOTION / NO FOUNDATION CHANGE`
 Target project: `awdawmip/enterprise-math`
 Source repository: `awdawmip/chatgpt-global-knowledge`
 Initial source snapshot: `main@6e70948745cff137e1c64ea09bf7898980377187`
-Tail catch-up source snapshot: `main@de4267a9f5b51492c91a98e1cd5d6280081f693c`
+First tail catch-up source snapshot: `main@de4267a9f5b51492c91a98e1cd5d6280081f693c`
+Final tail catch-up source snapshot for this transaction: `main@5c6d2303749fac3f25ba48cbfdc927c90aea4114`
 Initial target base snapshot: `main@ff1aeaf6befb9c72b4e59f7dec6b018671633e3a`
 First import merged at target: `main@bd00d2b409b78b83cc8e461bf382170aeee66bfe`
+Second import merged at target: `main@687a44dec5ffbf2901629af458261ba6a849ae21`
 
 ## Purpose
 
@@ -18,6 +20,7 @@ The import is intentionally non-promotional:
 - `NOT_MILLENNIUM_PROOF` remains binding where stated;
 - `HYPOTHESIS / TESTING` remains hypothesis/testing and is not promoted by co-location with verified reductions;
 - imported terminal archives and progress events remain archives/progress events, not accepted theorem ledgers;
+- imported `VERIFIED` theorem adapters remain adapters/compositions over existing Enterprise tool families unless separately admitted through the source project's normal tool/Foundation process;
 - no Driver review, Foundation admission, Working Truth, task publication, claim, or canonical theorem status is created by this import;
 - current source `p000_reality_foundation.json` and current control authority remain authoritative over stale provenance text embedded in imported records.
 
@@ -64,6 +67,16 @@ The import is intentionally non-promotional:
     - verified reusable theorem adapter over existing T2/T4/T6 machinery;
     - gives exact/coarse high-tail response certificates and observer-relative minimal future-safe repair rank;
     - explicitly not a new top-level T-family.
+
+11. `nt-tool-response-optimal-svd-repair-20260906.md`
+    - verified response-optimal SVD repair adapter;
+    - identifies the dominant left singular subspace of the normalized future-response operator as the optimal rank-constrained repair carrier;
+    - defines response-effective rank as future-observer relative and does not itself prove block positivity.
+
+12. `nt-tool-response-inertia-threshold-certificate-20260906.md`
+    - verified block-inertia threshold adapter for response singular-value counts;
+    - certifies the number of normalized response singular values above a threshold via the negative inertia of `[[eta^2 A,B],[B*,D]]`, avoiding explicit inverse square roots;
+    - finite numerical inertia is not proof without rigorous enclosures, and this remains a composition of existing T2/T4/T6 machinery.
 
 ## Deliberately not reverse-imported
 
