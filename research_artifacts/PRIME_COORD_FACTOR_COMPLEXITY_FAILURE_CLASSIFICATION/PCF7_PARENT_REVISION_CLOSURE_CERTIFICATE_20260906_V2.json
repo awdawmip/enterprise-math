@@ -1,0 +1,63 @@
+{
+  "schema": "ENTERPRISE_MATH_PCF7_PARENT_REVISION_CLOSURE_CERTIFICATE_V2",
+  "task_id": "RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION",
+  "publication_id": "TP2-8F7443BCAF2BC5243574",
+  "claim_id": "chatgpt-pcf7-20260906-1520-revision-v2",
+  "researcher_id": "EM-PCF7-283667",
+  "execution_record_id": "ER-586DD6A098AF43C3EFB1",
+  "driver_review_id": "DR-8183213860B7A72A2BD3",
+  "correction": {
+    "probe_instances": 256,
+    "nonzero_instances": 255,
+    "zero_instances": 1,
+    "unique_zero": {
+      "seed": 1,
+      "probe": "abs(s^6-1)",
+      "value": 0
+    },
+    "nonzero_branch": "gcd(N,a)=1 when p,q avoid prime_support(a)",
+    "zero_branch": "gcd(N,0)=N",
+    "conclusion": "all outputs lie in {1,N}; no proper factor occurs"
+  },
+  "brc_observer_repair": {
+    "lost_coordinate": "ZERO_FLAG(a)=[a=0]",
+    "coarse_observer": "product(nonzero probe values)",
+    "effect": "restores zero/nonzero branch provenance without strengthening the theorem"
+  },
+  "checker": {
+    "path": "research_checks/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_CHECK_20260831.py",
+    "git_blob_sha1": "sha1:b2a53c365f442fb2915cd869b77b62d9ce8a9ec8",
+    "sha256": "sha256:8a878f62fd213177036d14704dcd4efd19cad5b7e6f40dd96f3f91531b3492d9",
+    "replay": "PCF7_CHECK_PASS recurrence_terms=18 gcd_cases=108 pcf4_balanced_zero=1009x1013 fixed_probe_balanced_zero=10007x10009 amplification=PASS regime_order=PASS"
+  },
+  "independent_evidence": [
+    {
+      "kind": "correction",
+      "pr": 1137,
+      "result_id": "RR-87B7B98EEFD0D8525BEC"
+    },
+    {
+      "kind": "reverification",
+      "result_id": "RR-B379539A0F286A7509E2",
+      "commit": "ed751fe7fd8ddbab1a85313bd098f94c6d20d29d"
+    },
+    {
+      "kind": "independent_replication",
+      "pr": 1298,
+      "commit": "fa787241802ad4ad90d29d089e5a0665ec66916d",
+      "checker": "PASS"
+    }
+  ],
+  "preserved_boundaries": [
+    "Theorem 6.1 polynomial-prefix obstruction",
+    "exact worst-case proper-split probability 0 in declared model",
+    "L=N classification",
+    "T1-T5 no-proper-factor strength",
+    "sealed PCF2 benchmark",
+    "no global factoring lower bound",
+    "no generic factoring speedup",
+    "no Working Truth/Foundation/canonical promotion"
+  ],
+  "status": "RESEARCHER_REVISION_CLOSED_AWAITING_DRIVER_REVIEW",
+  "generated_at": "2026-09-06T08:35:32+00:00"
+}
