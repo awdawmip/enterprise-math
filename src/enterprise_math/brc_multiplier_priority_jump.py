@@ -1,25 +1,28 @@
 """Prioritized direct-jump BRC multiplier scan for odd N.
 
-This module extends the exact multiplier root/remainder transport with exact
-2-adic scan reductions plus one explicitly heuristic structural ordering:
+This module extends exact multiplier root/remainder transport with exact 2-adic
+scan reductions plus one explicitly heuristic structural ordering:
 
 1. if odd N and m == 2 (mod 4), then mN cannot be a difference of two integer
    squares;
 2. if odd N and m == 4 (mod 8) yields an immediate ceiling-square witness, the
    same witness divides by 2 to give an immediate witness already at m/4, with
    the same gcd factor. Such multipliers are feasible but scan-redundant;
-3. among the remaining irredundant multipliers, the number of same-parity
+3. more generally, once a BRC state is known, every successful witness with
+   4|m and even ceiling root reduces exactly to m/4. Repeating this gives an
+   N-visible, zero-loss gap-test representative before squarehood testing;
+4. among the remaining irredundant multipliers, the number of same-parity
    multiplier factor pairs is a natural N-independent structural priority score.
 
-Thus a scan-complete odd-N representative set uses multiplier residues
-{0,1,3,5,7} modulo 8. After materializing the m=1 BRC state once, each
-prioritized candidate m<=100 is reached directly from that state by a dyadic
-sqrt(m)-1 predictor plus at most 11 exact odd-width BRC corrections. No
-intermediate multiplier roots are required.
+Thus a static scan-complete odd-N representative set uses multiplier residues
+{0,1,3,5,7} modulo 8. The dynamic ceiling-root reduction may remove additional
+gap tests inside the retained 0 mod 8 class, but it does not delete that class
+uniformly. After materializing the m=1 BRC state once, each prioritized
+candidate m<=100 is reached directly from that state by a dyadic sqrt(m)-1
+predictor plus at most 11 exact odd-width BRC corrections.
 
 The factor-pair priority rule is a heuristic ordering, not a theorem of
-optimality. The mod-4 obstruction, mod-8 redundancy reduction, and jump
-transport are exact.
+optimality. The 2-adic reductions and jump transport are exact.
 """
 
 from __future__ import annotations
@@ -44,12 +47,7 @@ def factor_pair_count(value: int) -> int:
 
 
 def admissible_same_parity_factor_pair_count(multiplier: int) -> int:
-    """Same-parity multiplier splits relevant to odd-N difference of squares.
-
-    For odd m, every factor split u*v=m has u,v odd. For m divisible by 4,
-    same-parity requires u=2a, v=2b and therefore a*b=m/4. For m == 2 mod 4
-    no same-parity split exists.
-    """
+    """Same-parity multiplier splits relevant to odd-N difference of squares."""
     _require_positive("multiplier", multiplier)
     if multiplier % 2:
         return factor_pair_count(multiplier)
@@ -64,32 +62,24 @@ def odd_n_multiplier_is_difference_square_feasible(multiplier: int) -> bool:
     This answers whether the multiplier can occur in a difference-of-squares
     representation at all. It intentionally returns True on m == 4 (mod 8):
     those multipliers are feasible, but :func:`odd_n_multiplier_is_scan_irredundant`
-    identifies them as unnecessary in a factor-finding scan.
+    identifies them as unnecessary in a complete factor-finding scan.
     """
     _require_positive("multiplier", multiplier)
     return multiplier % 4 != 2
 
 
 def odd_n_multiplier_is_scan_irredundant(multiplier: int) -> bool:
-    """Exact scan-complete mod-8 representative test for odd N.
-
-    Multipliers 2 or 6 modulo 8 are impossible difference-of-squares targets.
-    A multiplier 4 modulo 8 is feasible but redundant: writing m=4*l with l
-    odd, every immediate ceiling witness x^2-y^2=m*N has even x,y and divides
-    to an immediate ceiling witness at l*N with the same gcd factor.
-
-    Therefore residues {0,1,3,5,7} modulo 8 form a scan-complete set.
-    """
+    """Exact static scan-complete mod-8 representative test for odd N."""
     _require_positive("multiplier", multiplier)
     return multiplier % 8 in (0, 1, 3, 5, 7)
 
 
 def odd_n_multiplier_scan_representative(multiplier: int) -> int | None:
-    """Return the exact odd-N scan representative, or None if impossible.
+    """Return the exact static odd-N scan representative, or None if impossible.
 
     - m == 2 or 6 (mod 8): impossible -> None;
     - m == 4 (mod 8): every successful witness reduces to m/4 -> m//4;
-    - other residues: already irredundant -> m.
+    - other residues: statically irredundant -> m.
     """
     _require_positive("multiplier", multiplier)
     residue = multiplier % 8
@@ -100,13 +90,52 @@ def odd_n_multiplier_scan_representative(multiplier: int) -> int | None:
     return multiplier
 
 
+def odd_n_ceiling_state_scan_representative(
+    multiplier: int,
+    ceiling_root: int,
+) -> int | None:
+    """Exact N-visible 2-adic representative conditional on a BRC ceiling root.
+
+    Assume N is odd and ``ceiling_root = ceil(sqrt(multiplier*N))`` is already
+    known. If a square completion gap exists and both ``4|multiplier`` and the
+    ceiling root is even, then the square root of the gap is also even. Dividing
+    the complete difference-of-squares witness by 4 yields the same immediate
+    ceiling witness at ``multiplier/4`` and preserves the gcd factor with odd N.
+
+    The reduction is repeated using the correspondingly halved ceiling root.
+    If it lands in a 2 mod 4 target, or in a 4 mod 8 target with odd ceiling
+    root, square-gap success is impossible and ``None`` is returned.
+
+    Returning a smaller multiplier means any success at the supplied state is
+    scan-redundant with that smaller representative. Returning the original
+    multiplier means the state cannot be eliminated by this exact 2-adic rule.
+    """
+    _require_positive("multiplier", multiplier)
+    _require_positive("ceiling_root", ceiling_root)
+
+    representative = multiplier
+    root = ceiling_root
+    while representative % 4 == 0 and root % 2 == 0:
+        representative //= 4
+        root //= 2
+
+    if representative % 4 == 2:
+        return None
+    if representative % 8 == 4:
+        # v2(target)=2 but the reduced ceiling root is odd. A square gap would
+        # make both roots odd, whose square difference is divisible by 8, a
+        # contradiction.
+        return None
+    return representative
+
+
 def prioritized_odd_multiplier_order(
     max_multiplier: int = MAX_MULTIPLIER,
 ) -> tuple[int, ...]:
     """Return scan-complete structural order with m=1 fixed first.
 
-    Exact 2-adic reduction keeps only residues {0,1,3,5,7} modulo 8. Remaining
-    multipliers are sorted by decreasing count of same-parity multiplier factor
+    Exact static 2-adic reduction keeps residues {0,1,3,5,7} modulo 8.
+    Remaining multipliers are sorted by decreasing count of same-parity factor
     pairs, then increasing m. The candidate set reduction is exact; only the
     ordering within that set is heuristic.
     """
@@ -140,10 +169,28 @@ class DirectMultiplierJumpState:
     correction_steps: int
 
     @property
+    def ceiling_root(self) -> int:
+        return self.root if self.remainder == 0 else self.root + 1
+
+    @property
     def ceiling_completion_gap(self) -> int:
         if self.remainder == 0:
             return 0
         return 2 * self.root + 1 - self.remainder
+
+    @property
+    def scan_representative(self) -> int | None:
+        """Exact state-dependent odd-N representative for square-gap testing."""
+        if self.n % 2 == 0:
+            raise ValueError("scan_representative requires odd n")
+        return odd_n_ceiling_state_scan_representative(
+            self.multiplier,
+            self.ceiling_root,
+        )
+
+    @property
+    def gap_test_is_irredundant(self) -> bool:
+        return self.scan_representative == self.multiplier
 
 
 def direct_multiplier_jump_from_one(
@@ -152,13 +199,7 @@ def direct_multiplier_jump_from_one(
     *,
     max_multiplier: int = MAX_MULTIPLIER,
 ) -> DirectMultiplierJumpState:
-    """Reach target multiplier directly from the exact m=1 BRC state.
-
-    For target m<=100, beta=sqrt(m)<=10. With B chosen by the existing
-    transition precision rule, the lower predictor error plus the unresolved
-    source-root fractional part places the true target root fewer than 12
-    integers above the candidate. Hence at most 11 odd-width corrections occur.
-    """
+    """Reach target multiplier directly from the exact m=1 BRC state."""
     _require_positive("n", n)
     _require_positive("target_multiplier", target_multiplier)
     if target_multiplier > max_multiplier:
@@ -210,9 +251,10 @@ def prioritized_odd_multiplier_states(
 ) -> tuple[DirectMultiplierJumpState, ...]:
     """Exact prioritized candidate states for odd n.
 
-    Multipliers 2 or 6 mod 8 are impossible; multipliers 4 mod 8 are omitted by
-    the exact m -> m/4 witness reduction. Every retained state is independently
-    jumped from m=1.
+    Static multipliers 2/6 mod 8 are impossible and 4 mod 8 are omitted by the
+    exact m -> m/4 reduction. Retained 0 mod 8 states may still be dynamically
+    gap-test redundant when their N-specific ceiling root is even; callers may
+    inspect ``state.gap_test_is_irredundant`` without changing scan coverage.
     """
     _require_positive("n", n)
     if n % 2 == 0:
@@ -230,6 +272,7 @@ __all__ = [
     "odd_n_multiplier_is_difference_square_feasible",
     "odd_n_multiplier_is_scan_irredundant",
     "odd_n_multiplier_scan_representative",
+    "odd_n_ceiling_state_scan_representative",
     "prioritized_odd_multiplier_order",
     "direct_multiplier_jump_from_one",
     "prioritized_odd_multiplier_states",
