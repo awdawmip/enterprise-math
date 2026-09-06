@@ -76,6 +76,15 @@ def claim(comment_id=1, at="2026-09-01T00:00:00+00:00", claim_id="c1"):
     )
 
 
+def hard_block():
+    return {
+        "missing_object": "x",
+        "owner": "y",
+        "necessity": "z",
+        "unblock_condition": "w",
+    }
+
+
 class ControlPlaneAdversarialSimulation(unittest.TestCase):
     def reduce(self, definition, events, now):
         with (
@@ -127,6 +136,55 @@ class ControlPlaneAdversarialSimulation(unittest.TestCase):
         self.assertEqual("HANDOFF_READY", state["state"])
         self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
 
+    def test_invalid_done_does_not_resurrect_after_later_valid_heartbeat_and_expiry(self):
+        events = [
+            claim(),
+            event(
+                "DONE",
+                2,
+                "2026-09-01T00:01:00+00:00",
+                claim_id="c1",
+                progress_ref="premature",
+            ),
+            event(
+                "HEARTBEAT",
+                3,
+                "2026-09-01T00:02:00+00:00",
+                claim_id="c1",
+                lease_minutes=10,
+            ),
+        ]
+        state = self.reduce(task(), events, "2026-09-01T00:20:00+00:00")
+        self.assertEqual("HANDOFF_READY", state["state"])
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
+
+    def test_ignored_wrong_claim_progress_cannot_clear_invalid_done_barrier(self):
+        events = [
+            claim(),
+            event(
+                "DONE",
+                2,
+                "2026-09-01T00:01:00+00:00",
+                claim_id="c1",
+                progress_ref="premature",
+            ),
+            event(
+                "PROGRESS",
+                3,
+                "2026-09-01T00:02:00+00:00",
+                claim_id="wrong-claim",
+                progress_ref="must-not-recover",
+                next_action="continue",
+                lease_minutes=10,
+            ),
+        ]
+        state = self.reduce(task(), events, "2026-09-01T00:20:00+00:00")
+        self.assertEqual("BLOCKED", state["dispatch_state"])
+        self.assertEqual(
+            "REGISTERED_DONE_REQUIRES_TERMINAL_DRIVER_REVIEW",
+            state["hard_block"]["code"],
+        )
+
     def test_mismatched_publication_supercede_cannot_close_current_generation(self):
         events = [
             event(
@@ -156,6 +214,19 @@ class ControlPlaneAdversarialSimulation(unittest.TestCase):
         self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
         self.assertTrue(any("publication_id" in x["reason"] for x in state["ignored_events"]))
 
+    def test_pre_cutover_publicationless_supercede_remains_legacy_compatible(self):
+        events = [
+            event(
+                "SUPERSEDE",
+                9,
+                "2026-08-27T23:59:00+00:00",
+                next_action="legacy migration supersede",
+            )
+        ]
+        state = self.reduce(task(), events, "2026-09-01T00:04:00+00:00")
+        self.assertEqual("SUPERSEDED", state["state"])
+        self.assertEqual("COMPLETE", state["dispatch_state"])
+
     def test_current_publication_supercede_remains_authoritative(self):
         events = [
             event(
@@ -171,12 +242,6 @@ class ControlPlaneAdversarialSimulation(unittest.TestCase):
         self.assertEqual("COMPLETE", state["dispatch_state"])
 
     def test_mismatched_publication_unblock_cannot_reopen_current_generation(self):
-        block = {
-            "missing_object": "x",
-            "owner": "y",
-            "necessity": "z",
-            "unblock_condition": "w",
-        }
         events = [
             event(
                 "UNBLOCK",
@@ -186,9 +251,36 @@ class ControlPlaneAdversarialSimulation(unittest.TestCase):
                 next_action="old generation unblock",
             )
         ]
-        state = self.reduce(task(base_state="BLOCKED", hard_block=block), events, "2026-09-01T00:04:00+00:00")
+        state = self.reduce(task(base_state="BLOCKED", hard_block=hard_block()), events, "2026-09-01T00:04:00+00:00")
         self.assertEqual("BLOCKED", state["state"])
         self.assertEqual("BLOCKED", state["dispatch_state"])
+
+    def test_post_cutover_publicationless_unblock_cannot_reopen_current_generation(self):
+        events = [
+            event(
+                "UNBLOCK",
+                14,
+                "2026-09-01T00:03:00+00:00",
+                next_action="unbound unblock",
+            )
+        ]
+        state = self.reduce(task(base_state="BLOCKED", hard_block=hard_block()), events, "2026-09-01T00:04:00+00:00")
+        self.assertEqual("BLOCKED", state["state"])
+        self.assertEqual("BLOCKED", state["dispatch_state"])
+
+    def test_current_publication_unblock_remains_authoritative(self):
+        events = [
+            event(
+                "UNBLOCK",
+                15,
+                "2026-09-01T00:03:00+00:00",
+                publication_id=CURRENT_PUBLICATION,
+                next_action="resume current generation",
+            )
+        ]
+        state = self.reduce(task(base_state="BLOCKED", hard_block=hard_block()), events, "2026-09-01T00:04:00+00:00")
+        self.assertEqual("HANDOFF_READY", state["state"])
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
 
     def test_claim_bound_progress_may_omit_publication_id_after_bound_claim(self):
         events = [
