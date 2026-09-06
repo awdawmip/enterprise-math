@@ -1,0 +1,103 @@
+{
+  "schema": "PCF7_PARENT_REVISION_CLOSURE_CERTIFICATE_V1",
+  "status": "FROZEN_EVIDENCE",
+  "task_id": "RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION",
+  "publication_id": "TP2-8F7443BCAF2BC5243574",
+  "claim_id": "chatgpt-pcf7-complexity-revision-20260906-1517-4d82a1",
+  "researcher_id": "EM-PCF7-4D82A1",
+  "execution_record_id": "ER-B0D034F578B4FA13B70B",
+  "source_result_id": "RR-A9A5ADD3931B3F3EDFAB",
+  "source_driver_review": {
+    "review_id": "DR-8183213860B7A72A2BD3",
+    "disposition": "REQUEST_REVISION",
+    "boundary": "NARROW_EXACT_STATEMENT_CORRECTION"
+  },
+  "mathematical_delta": {
+    "before": "Avoiding the prime support of all nonzero fixed probes was overgeneralized to 'every fixed-family gcd is 1'.",
+    "after": "nonzero avoided-support probe -> gcd 1; zero probe -> gcd N; neither returns a proper factor",
+    "scope": "ONLY_FIXED_PROBE_ZERO_VALUE_STATEMENT",
+    "main_pcf7_theorem_changed": false,
+    "L_equals_N_classification_changed": false,
+    "sealed_benchmark_changed": false,
+    "campaign_model_changed": false
+  },
+  "probe_census": {
+    "seed_range": [
+      0,
+      63
+    ],
+    "families": [
+      "s^2+1",
+      "s^2+s+1",
+      "|s^6-1|",
+      "s^6+1"
+    ],
+    "total_instances": 256,
+    "nonzero_instances": 255,
+    "zero_instances": 1,
+    "unique_zero": {
+      "family": "|s^6-1|",
+      "seed": 1,
+      "value": 0
+    }
+  },
+  "corrected_theorem": {
+    "support_object": "C*=product of absolute values of all nonzero frozen probe integers",
+    "condition": "p and q are primes outside prime_support(C*), N=pq",
+    "nonzero_branch": "a!=0 => gcd(N,a)=1",
+    "zero_branch": "a=0 => gcd(N,a)=N",
+    "proper_factor_returned": false,
+    "infinite_family_status": "PRESERVED"
+  },
+  "checker_binding": {
+    "path": "research_checks/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_CHECK_20260831.py",
+    "git_blob_sha1": "sha1:b2a53c365f442fb2915cd869b77b62d9ce8a9ec8",
+    "sha256": "sha256:8a878f62fd213177036d14704dcd4efd19cad5b7e6f40dd96f3f91531b3492d9",
+    "byte_change": "NONE",
+    "replay": "PASS",
+    "stdout": "PCF7_CHECK_PASS recurrence_terms=18 gcd_cases=108 pcf4_balanced_zero=1009x1013 fixed_probe_balanced_zero=10007x10009 amplification=PASS regime_order=PASS"
+  },
+  "balanced_witness": {
+    "p": 10007,
+    "q": 10009,
+    "N": 100160063,
+    "zero_seed": 1,
+    "zero_probe": 0,
+    "zero_gcd": 100160063,
+    "all_nonzero_probe_gcds": 1,
+    "proper_factor_returned": false
+  },
+  "maintenance_evidence": {
+    "publication_id": "TP2-C4DB35B43FE7334D2B63",
+    "original_correction": {
+      "pr": 1137,
+      "result_id": "RR-87B7B98EEFD0D8525BEC"
+    },
+    "fresh_reverify": {
+      "result_id": "RR-B379539A0F286A7509E2",
+      "commit": "ed751fe7fd8ddbab1a85313bd098f94c6d20d29d"
+    },
+    "independent_replication": {
+      "pr": 1298,
+      "head": "fa787241802ad4ad90d29d089e5a0665ec66916d",
+      "verdict": "PASS_REPRODUCED_EXACT_LOCAL_CORRECTION"
+    }
+  },
+  "brc_audit": {
+    "coarse_observer": "prime-support product of nonzero probe values",
+    "erased_information": "whether a labeled probe value equals zero",
+    "repair_coordinate": "ZERO_FLAG(a)=[a=0]",
+    "post_repair_semantics": "nonzero avoided-support -> 1; zero -> N"
+  },
+  "preserved_guards": [
+    "Theorem 6.1 polynomial-prefix obstruction",
+    "worst-case proper-split probability 0 in declared model",
+    "L=N complexity classification",
+    "T1-T5 accepted scope",
+    "sealed PCF2 benchmark",
+    "no generic factoring speedup claim",
+    "no universal factoring lower-bound claim",
+    "no Working Truth/Foundation/canonical promotion"
+  ],
+  "hard_target_disposition": "FACTOR_ALGORITHM_COMPLEXITY_AND_FAILURE_CLASSIFIED / DRIVER_REVISION_CLOSED_AT_EXACT_FIXED_PROBE_ZERO_VALUE_BOUNDARY"
+}
