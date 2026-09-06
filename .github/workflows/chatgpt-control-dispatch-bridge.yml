@@ -32,6 +32,7 @@ jobs:
       REQUEST_PATH: control_plane/chatgpt_dispatch_request.json
       RECEIPT_PATH: control_plane/chatgpt_dispatch_receipt.json
       RECEIPT_DIR: control_plane/chatgpt_dispatch_receipts
+      PUSH_BEFORE: ${{ github.event.before }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -64,6 +65,24 @@ jobs:
           echo "REQUEST_ID=$request_id" >> "$GITHUB_ENV"
           echo "DISPATCH_KIND=$kind" >> "$GITHUB_ENV"
           echo "IMMUTABLE_RECEIPT_PATH=$RECEIPT_DIR/$request_id.json" >> "$GITHUB_ENV"
+
+      - name: Detect request-producing push
+        id: request_change
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          set -euo pipefail
+          before="$PUSH_BEFORE"
+          if [[ ! "$before" =~ ^[0-9a-f]{40}$ || "$before" == "0000000000000000000000000000000000000000" ]]; then
+            before="$(git rev-parse "${GITHUB_SHA}^1")"
+          fi
+          if git diff --quiet "$before" "$GITHUB_SHA" -- "$REQUEST_PATH"; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "REQUEST_REPLAY_VALIDATION_ONLY source_sha=$GITHUB_SHA range=$before..$GITHUB_SHA"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "REQUEST_PRODUCING_PUSH source_sha=$GITHUB_SHA range=$before..$GITHUB_SHA"
+          fi
 
       - name: Fetch authoritative Issue 240 comment stream
         shell: bash
@@ -150,7 +169,7 @@ jobs:
           cat /tmp/em-dispatch/receipt.json
 
       - name: Persist request receipt on main
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && steps.request_change.outputs.changed == 'true'
         shell: bash
         run: |
           set -euo pipefail

@@ -67,22 +67,41 @@ Workflow:
 [A-Za-z0-9][A-Za-z0-9._-]{0,127}
 ```
 
-Reusing the same `request_id` for a different source commit fails closed. The path-safe restriction is part of the transport contract because the request id names the immutable receipt file.
+A real request-producing push must use a fresh `request_id`. Reusing an already-materialized id from a different request-producing source fails closed. A workflow-only validation replay is not a new request and therefore has no durable receipt-write authority at all; it may execute the router for validation but cannot collide with or replace the existing immutable receipt.
 
 `session_observations` is optional. If supplied, it must already satisfy the exact owner-scope liveness contract accepted by `research_control_dispatch.py`. Generic conversation activity must never be converted into an observation by this bridge.
 
+## Request-producing push
+
+For a `push` event, the bridge defines request production mechanically over the complete GitHub push range:
+
+```text
+github.event.before .. GITHUB_SHA
+```
+
+If `control_plane/chatgpt_dispatch_request.json` changed anywhere in that range, the run is request-producing and may persist a receipt. This range check is intentionally not limited to `GITHUB_SHA^1`, because one GitHub push may contain multiple commits and the request change may occur before the final commit. A zero/invalid `before` value uses the first parent only as a defensive fallback.
+
+If the request file did not change anywhere in the push range, the run is a validation replay. This is the expected mode when the bridge workflow itself is upgraded while the current request remains unchanged.
+
+Freeze:
+
+```text
+REQUEST_FILE_CHANGED_IN_PUSH_RANGE -> MAY_PERSIST_REQUEST_RECEIPT
+REQUEST_FILE_UNCHANGED_IN_PUSH_RANGE -> VALIDATION_REPLAY_ONLY
+WORKFLOW_UPGRADE != NEW_REQUEST
+VALIDATION_REPLAY != IMMUTABLE_RECEIPT_WRITE_AUTHORITY
+```
+
 ## Execution contract
 
-For each relevant request-producing push to `main`, the workflow:
+For every matching workflow run, the bridge still validates the request envelope, fetches the full current Issue #240 server-comment stream, executes the checked-out `research_control_dispatch.py`, accepts canonical router exit code `0` or `2`, and builds a deterministic temporary receipt.
 
-1. gives that exact source commit an independent workflow concurrency key, so a newer request cannot replace an older pending request;
-2. fetches every current raw comment from GitHub Issue #240 using GitHub's server response;
-3. preserves the raw comment objects so `tools/research_dispatch.py` performs its existing server-envelope authentication and authorization checks;
-4. runs the checked-out repository's current `research_control_dispatch.py` with that raw event snapshot;
-5. accepts router exit code `0` or the canonical `NO_DISPATCH` exit code `2`;
-6. records the request id, source commit, immutable receipt path, Issue #240 comment count, last comment id, comment-snapshot SHA-256, router exit code, and exact router JSON;
-7. persists the request result at `control_plane/chatgpt_dispatch_receipts/<request_id>.json` using a fresh-main retry loop;
-8. updates `control_plane/chatgpt_dispatch_receipt.json` only if `control_plane/chatgpt_dispatch_request.json` on the freshly fetched `main` still names the same request id.
+Only for a request-producing push, the workflow additionally:
+
+1. gives that source commit an independent workflow concurrency key, so a newer request cannot replace an older pending request;
+2. persists the request result at `control_plane/chatgpt_dispatch_receipts/<request_id>.json` using a fresh-main retry loop;
+3. fails closed if that request id already belongs to a different request-producing source;
+4. updates `control_plane/chatgpt_dispatch_receipt.json` only if the freshly fetched main request still names the same request id.
 
 The immutable per-request receipt makes every completed request individually recoverable. The latest compatibility receipt is only a convenience pointer; a slow older run is explicitly forbidden from overwriting it after a newer request has become current.
 
@@ -121,4 +140,4 @@ If the returned action is:
 
 `research_control_dispatch.py` accepts an optional `--events` path. The underlying canonical event loader intentionally treats an omitted path as an empty event stream and otherwise accepts only raw authenticated Issue #240 comment objects. Therefore a connector-only caller must not run or mentally emulate the router without first materializing the live Issue #240 server-comment stream. This bridge makes that prerequisite mechanical and auditable.
 
-The per-request receipt layer additionally prevents connector sessions from depending on a mutable single latest-output file when multiple requests overlap. It is transport durability only; all semantic routing authority remains with the canonical router and its current repository contracts.
+The per-request receipt layer additionally prevents connector sessions from depending on a mutable single latest-output file when multiple requests overlap. The replay guard prevents workflow maintenance from impersonating request production. Both are transport durability only; all semantic routing authority remains with the canonical router and its current repository contracts.

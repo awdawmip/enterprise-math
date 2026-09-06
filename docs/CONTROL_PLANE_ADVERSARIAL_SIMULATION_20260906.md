@@ -2,7 +2,7 @@
 
 Status: `CONTROL_MAINTENANCE_EVIDENCE / NO_MATHEMATICAL_AUTHORITY`
 
-This note records the focused failure modes reproduced before the accompanying control-plane repair. It is audit evidence, not a second control authority.
+This note records focused failure modes reproduced during the 2026-09-06 control-plane repair sequence. It is audit evidence, not a second control authority.
 
 ## Reproduced lifecycle failures
 
@@ -13,7 +13,7 @@ The pre-repair registered-task adapter reproducibly allowed four invalid outcome
 3. a claimless `UNBLOCK` carrying a different task publication id could reopen the current immutable task generation;
 4. after the V2 task-publication cutover, a publicationless claimless `SUPERSEDE` could still mutate the current generation.
 
-The permanent regression suite in `tests/test_control_plane_adversarial_simulation.py` locks these boundaries while preserving two required positive behaviors: pre-cutover publicationless legacy mutations remain replay-compatible, and events already bound by a valid live CLAIM need not repeat `publication_id`.
+The permanent regression suite in `tests/test_control_plane_adversarial_simulation.py` locks these boundaries while preserving required positive behaviors: pre-cutover publicationless legacy mutations remain replay-compatible, events already bound by a valid live CLAIM need not repeat `publication_id`, valid PROGRESS/HEARTBEAT can recover from an earlier provisional invalid-DONE attempt, and an ignored wrong-claim event cannot.
 
 ## Reproduced GitHub Actions request-loss failure
 
@@ -41,9 +41,33 @@ The probe was repeated after switching to a source-SHA-specific concurrency key.
 
 All temporary probe workflows and trigger files were removed after the experiment.
 
+## Reproduced workflow-replay idempotency failure
+
+After immutable per-request receipts were introduced, production acceptance materialized:
+
+```text
+control_plane/chatgpt_dispatch_receipts/chatgpt-20260906-1518-task-research-race-rebase-v1.json
+```
+
+for request id `chatgpt-20260906-1518-task-research-race-rebase-v1` from source commit `7983c93c3eeda5e4b7c654bc1392d3a77434e7c5`.
+
+The bridge still triggers when its own workflow file changes. Under the initial immutable-receipt implementation, such a workflow-only maintenance push would execute the unchanged current request under a different `source_sha`, encounter the existing `<request_id>.json`, and fail the duplicate-id check even though no new request had been submitted. Therefore workflow maintenance could impersonate request production.
+
+A second edge case was found while designing the guard: testing only `GITHUB_SHA^1..GITHUB_SHA` is insufficient because one push may contain multiple commits, with the request change in an earlier commit and a workflow change in the final commit. Such a real request would be misclassified as replay.
+
+The final guard therefore classifies a push over the complete GitHub event range:
+
+```text
+github.event.before .. GITHUB_SHA
+```
+
+and grants durable receipt-write authority only when the request file changed somewhere in that range. A workflow-only push still runs the complete live router for validation but cannot write immutable/latest receipts. An invalid/zero `before` value uses first-parent comparison only as a defensive fallback.
+
+Permanent coverage is in `tests/test_chatgpt_dispatch_bridge_replay_guard.py`.
+
 ## Repair invariants
 
-The repair freezes these control invariants:
+The repair sequence freezes these control invariants:
 
 ```text
 OLD_PUBLICATION_CLAIMLESS_MUTATION != CURRENT_GENERATION_AUTHORITY
@@ -54,6 +78,10 @@ IGNORED_WRONG_CLAIM_EVENT != RECOVERY
 EVERY_CHATGPT_REQUEST_COMMIT -> INDEPENDENT_WORKFLOW_RUN
 EVERY_COMPLETED_CHATGPT_REQUEST -> IMMUTABLE_RECEIPT
 STALE_REQUEST_RUN != LATEST_RECEIPT_OVERWRITE_AUTHORITY
+WORKFLOW_UPGRADE != NEW_REQUEST
+REQUEST_FILE_UNCHANGED_IN_PUSH_RANGE -> VALIDATION_REPLAY_ONLY
+REQUEST_FILE_CHANGED_ANYWHERE_IN_PUSH_RANGE -> REQUEST_PRODUCING
+VALIDATION_REPLAY != DURABLE_RECEIPT_WRITE_AUTHORITY
 RECEIPT != CLAIM
 ```
 

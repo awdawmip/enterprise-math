@@ -6,6 +6,7 @@ on:
       - 'tools/research_dispatch.py'
       - '.github/workflows/chatgpt-control-dispatch-bridge.yml'
       - 'tests/test_control_plane_adversarial_simulation.py'
+      - 'tests/test_chatgpt_dispatch_bridge_replay_guard.py'
       - '.github/workflows/control-plane-pr-focused-validation.yml'
 
 jobs:
@@ -19,5 +20,6 @@ jobs:
           python-version: '3.12'
       - run: |
           python -m unittest -v tests.test_control_plane_adversarial_simulation
+          python -m unittest -v tests.test_chatgpt_dispatch_bridge_replay_guard
           python -m unittest -v tests.test_result_handoff_dispatch_guard
           python -m unittest -v tests.test_registered_done_dispatch_guard
