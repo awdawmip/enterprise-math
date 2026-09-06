@@ -4,7 +4,7 @@
   "effective": "2026-09-06",
   "contract": "conjecture_asset_contract.json",
   "human_policy": "docs/CONJECTURE_ASSET_GOVERNANCE.md",
-  "backfill_generation": "BACKFILL-20260906-G1",
+  "backfill_generation": "BACKFILL-20260906-G2",
   "assets": [
     {
       "id": "CJ-TH-20260906-001",
@@ -236,6 +236,113 @@
       "last_reviewed_at": "2026-09-06",
       "version": 1,
       "notes": "Separated from the established generic Wiener-Hopf/Szego-Widom theorem adapter. Only the RH-specific predictive adapter is conjectural."
+    },
+    {
+      "id": "CJ-TH-20260906-004",
+      "kind": "CONJECTURAL_THEOREM",
+      "title": "Navier-Stokes 90-degree opposite-edge resonance admits a four-STAR checkerboard native lift",
+      "statement_or_tool_contract": {
+        "statement": "On the Enterprise minimal FCC carrier, each classical Navier-Stokes quadratic p·q=0 opposite-edge 90-degree resonant channel admits an exact classical-to-native/P000 four-STAR composite representation whose four shortest STAR-mediated paths have symmetry-matched leading weights; their checkerboard signs cancel the constant leading resonant component, so only a path-imbalance / mixed-second-difference defect survives."
+      },
+      "claim_scope": "Minimal FCC shell / six-line K4 carrier and the classical-to-native bridge described in the source frontier. This does not assert an already-proved all-scale critical estimate or global regularity conclusion.",
+      "epistemic_status": "CONJECTURE",
+      "lifecycle_status": "ACTIVE",
+      "dependencies": {
+        "proved": [
+          "Exact K4 opposite-edge identification of the 90-degree resonant shell-4 class",
+          "Exact four shortest STAR-mediated paths for every opposite-edge pair",
+          "Exact gauge-robust checkerboard sign zero-sum",
+          "Exact identification of the same 2D checkerboard sector with extensional strain gaps"
+        ],
+        "conjectural": []
+      },
+      "validation": {
+        "validated_envelope": "Exact carrier combinatorics and signed path algebra on the minimal FCC shell; no exact dynamic coefficient bridge has yet been established.",
+        "evidence_type": ["SYMBOLIC_DERIVATION_PARTIAL", "HEURISTIC_MODEL"],
+        "sample_size_or_exhaustive_count": "All three K4 opposite-edge classes at the minimal FCC carrier for the combinatorial/sign portion",
+        "exactness": "MIXED",
+        "independence": "SHARED_DISCOVERY_CONTEXT_DISCLOSED",
+        "evidence_refs": [
+          "knowledge/projects/enterprise-math/pde-opposite-edge-90deg-multipath-resonance-frontier-20260906.md"
+        ],
+        "summary": "The four-path multiplicity, checkerboard signs, mixed-difference form, extensional-sector identification and 90-degree Stokes resonance geometry are exact. The unproved residue is the equality between the classical resonant NS coefficient and the native four-path effective sum with symmetry-matched leading weights."
+      },
+      "known_failures": [
+        "A naive nonresonant quadratic normal form cannot eliminate the p·q=0 channel because its heat/Stokes homological denominator vanishes.",
+        "No equality of dynamic path weights for arbitrary states is proved.",
+        "No scale-critical estimate for the surviving checkerboard defect is proved."
+      ],
+      "source_refs": [
+        "knowledge/projects/enterprise-math/pde-opposite-edge-90deg-multipath-resonance-frontier-20260906.md"
+      ],
+      "downstream_refs": [],
+      "falsifier_or_kill_condition": "An exact evaluation of the classical quadratic coefficient on an admissible minimal-FCC opposite-edge channel showing that no four-STAR representation with the recorded checkerboard signs and symmetry-matched leading weights can reproduce it, or a proof that the required native path weights are generically asymmetric at leading order.",
+      "promotion_target": "Construct the exact classical-to-native coefficient map, prove equality/symmetry of the four path weights at leading resonant order, and derive the surviving mixed-difference defect formula before attempting any critical estimate.",
+      "priority": {
+        "downstream_impact": "HIGH",
+        "empirical_stability": "EXACT_CARRIER_PARTIAL_ONLY",
+        "structural_centrality": "HIGH_PDE_ROUTE",
+        "expected_proof_cost": "HIGH",
+        "falsification_risk": "HIGH",
+        "proof_queue_tier": "P1"
+      },
+      "registered_at": "2026-09-06",
+      "last_reviewed_at": "2026-09-06",
+      "version": 1,
+      "notes": "Backfilled from an explicit 'Main bridge conjecture / open target' source section. Only the asserted bridge mechanism is registered; later regularity estimates remain separate open targets."
+    },
+    {
+      "id": "CJ-TH-20260906-005",
+      "kind": "CONJECTURAL_THEOREM",
+      "title": "H_log3 N=8 interior threshold inertia is stable under regular archimedean-tail ablation",
+      "statement_or_tool_contract": {
+        "statement": "For the support-exact H_log3 four-branch Dirichlet-sine finite section with N=8 modes per branch, the full threshold-block inertia equals the prime-plus-Cauchy/Carleman reference-block inertia at eta in {0.9,0.99,0.999}; the common negative-inertia counts are respectively {8,6,5}."
+      },
+      "claim_scope": "Only the declared 32-dimensional N=8 four-branch sine finite section and eta in {0.9,0.99,0.999}. It excludes eta=1 and makes no inference about the Galerkin complement, the infinite H_log3 operator, later square-shell steps or RH.",
+      "epistemic_status": "CONJECTURE",
+      "lifecycle_status": "ACTIVE",
+      "dependencies": {
+        "proved": [
+          "FINDING-EM-NT-RH-THRESHOLD-BLOCK-ABLATION-STABILITY-20260906 exact threshold-block inertia identity",
+          "Corrected prime + Cauchy/Carleman principal split",
+          "Cutoff-free physical archimedean finite-section representation"
+        ],
+        "conjectural": []
+      },
+      "validation": {
+        "validated_envelope": "Floating support-exact N=8 four-branch sine computation at eta=0.9,0.99,0.999.",
+        "evidence_type": ["FLOATING_NUMERICAL"],
+        "sample_size_or_exhaustive_count": "3 declared threshold values on one fixed 32-dimensional finite section",
+        "exactness": "FLOATING",
+        "independence": "NOT_INDEPENDENT",
+        "evidence_refs": [
+          "knowledge/projects/enterprise-math/nt-rh-threshold-block-ablation-stability-20260906.md"
+        ],
+        "summary": "The full, prime-only and prime+Cauchy threshold-inertia counts agree at the three interior thresholds in floating arithmetic. The source explicitly keeps this diagnostic at TESTING pending interval/ball evaluation and interval LDL*."
+      },
+      "known_failures": [
+        "At eta=1 the observed floating minimum eigenvalue is around 7e-13 and is explicitly excluded from this conjecture because ordinary floating sign is not proof data.",
+        "Finite-section inertia stability does not imply infinite-operator positivity or RH."
+      ],
+      "source_refs": [
+        "FINDING-EM-NT-RH-THRESHOLD-BLOCK-ABLATION-STABILITY-20260906",
+        "knowledge/projects/enterprise-math/nt-rh-threshold-block-ablation-stability-20260906.md"
+      ],
+      "downstream_refs": [],
+      "falsifier_or_kill_condition": "Interval/ball evaluation plus certified LDL* produces a different inertia count for the full block or the prime+Cauchy/Carleman reference block at any of the three declared thresholds.",
+      "promotion_target": "Interval/ball-evaluate the finite physical translation integral and certify the three declared threshold inertias by interval LDL*. Because the claim scope is explicitly finite, a complete exact/certified bounded check may promote this asset directly to PROVED for this scope.",
+      "priority": {
+        "downstream_impact": "MEDIUM_HIGH",
+        "empirical_stability": "THREE_POINT_FLOATING_MATCH",
+        "structural_centrality": "HIGH_RH_FINITE_CERTIFICATE_ROUTE",
+        "expected_proof_cost": "LOW_TO_MEDIUM",
+        "falsification_risk": "MEDIUM",
+        "proof_queue_tier": "P1"
+      },
+      "registered_at": "2026-09-06",
+      "last_reviewed_at": "2026-09-06",
+      "version": 1,
+      "notes": "This is the canonical bounded-use example of 'register first, use conditionally, certify later'. The statement was deliberately narrowed to interior thresholds that have a stable floating diagnostic."
     }
   ],
   "backfill_nonconjecture_classifications": [
@@ -263,6 +370,36 @@
       "source": "research_notes/1162_chi5_logcm_levy_injection_20260906.md",
       "classification": "PROVED_LOCAL_RESULT_PLUS_OPEN_PROBLEM_NO_DIRECTION",
       "reason": "chi5 logarithmic complete monotonicity is proved there; whether CM implies LCM in a nontrivial subclass is posed as a question rather than a conjectured direction."
+    },
+    {
+      "source": "knowledge/projects/enterprise-math/pde-fcc-shell2-second-variation-frontier-20260906.md",
+      "classification": "PROVED_EXACT_IDENTITIES_PLUS_OPEN_PROOF_TARGET_NOT_FROZEN",
+      "reason": "The first- and second-variation leakage identities are exact, but the desired uniform viscous-absorption estimate is stated only as a next proof target rather than a frozen quantitative conjecture."
+    },
+    {
+      "source": "knowledge/projects/enterprise-math/pde-tetrahedral-strain-graph-tree-frontier-20260906.md",
+      "classification": "PROVED_EXACT_IDENTITIES_PLUS_OPEN_PROOF_TARGET_NOT_FROZEN",
+      "reason": "The K4 strain graph, tree polynomial and Betchov bridge are exact. The target inequality with theta<1 is a desired closure form, not an asserted law with a fixed R-class."
+    },
+    {
+      "source": "knowledge/projects/enterprise-math/pde-critical-helicity-double-null-20260906.md",
+      "classification": "PROVED_OR_CONDITIONAL_RESULTS_PLUS_OPEN_AGGREGATE_TARGET",
+      "reason": "The double-null identities, commutator bound and conditional helicity-mixing threshold are established within the note; the unconditional aggregate cancellation estimate is only a target."
+    },
+    {
+      "source": "knowledge/projects/enterprise-math/nt-rh-log3-branch-sine-arb-positivity-20260906.md",
+      "classification": "VERIFIED_BOUNDED_RESULT_PLUS_OPEN_COMPLEMENT_PROBLEM",
+      "reason": "V2 and V8 positivity are rigorously certified finite-subspace results; full H_log3 positivity remains an open Galerkin-complement problem rather than an asserted conjecture in this source."
+    },
+    {
+      "source": "knowledge/projects/enterprise-math/nt-rh-log3-full-window-negative-index-20260906.md",
+      "classification": "VERIFIED_FULL_WINDOW_BOUND_PLUS_OPEN_IMPROVEMENT_PROBLEM",
+      "reason": "The n_-(Q_full on H_log3)<=80 bound is rigorously certified. Suggested weighted Birman-Schwinger/Slepian routes are improvement targets, not frozen conjectures."
+    },
+    {
+      "source": "knowledge/projects/enterprise-math/poincare-brc-normal-surface-arithmetic-observer-20260905.md",
+      "classification": "PROVED_PRUNING_LAYER_PLUS_EXPERIMENTAL_ALGORITHMIC_UTILITY",
+      "reason": "The corrected modular/gcd/treewidth pruning statements are mathematical derivations; empirical speedup, novelty and implementation payoff remain exploratory and are not precise mathematical conjectures."
     }
   ]
 }
