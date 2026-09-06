@@ -7,6 +7,7 @@ from math import gcd, isqrt
 from enterprise_math.brc_multiplier_priority_jump import (
     admissible_same_parity_factor_pair_count,
     direct_multiplier_jump_from_one,
+    odd_n_ceiling_state_scan_representative,
     odd_n_multiplier_is_difference_square_feasible,
     odd_n_multiplier_is_scan_irredundant,
     odd_n_multiplier_scan_representative,
@@ -26,6 +27,15 @@ def _immediate_factor_witness(n: int, multiplier: int) -> tuple[int, int, int] |
     factor = gcd(x - y, n)
     if 1 < factor < n:
         return x, y, factor
+    return None
+
+
+def _first_irredundant_hit(n: int, max_multiplier: int) -> int | None:
+    for m in range(1, max_multiplier + 1):
+        if not odd_n_multiplier_is_scan_irredundant(m):
+            continue
+        if _immediate_factor_witness(n, m) is not None:
+            return m
     return None
 
 
@@ -60,9 +70,6 @@ class BRCMultiplierPriorityJumpTests(unittest.TestCase):
         self.assertEqual(odd_n_multiplier_scan_representative(8), 8)
 
     def test_mod8_redundancy_preserves_actual_factor_witness(self) -> None:
-        # Exhaustive bounded regression over odd N and m == 4 mod 8. Whenever
-        # the larger multiplier actually exposes a proper gcd factor, m/4 must
-        # already expose the same factor.
         witnessed = 0
         for n in range(3, 2000, 2):
             for m in range(4, 101, 8):
@@ -75,6 +82,59 @@ class BRCMultiplierPriorityJumpTests(unittest.TestCase):
                 assert reduced is not None
                 self.assertEqual(reduced[2], witness[2])
         self.assertGreater(witnessed, 0)
+
+    def test_dynamic_ceiling_root_reduction(self) -> None:
+        # 16*15 = 240, ceil sqrt = 16. A hypothetical/successful gap witness
+        # reduces twice: 16 -> 4 -> 1. In fact the gap is 16 and factor 3 is
+        # already visible at m=1.
+        self.assertEqual(odd_n_ceiling_state_scan_representative(16, 16), 1)
+        state = direct_multiplier_jump_from_one(15, 16)
+        self.assertEqual(state.ceiling_root, 16)
+        self.assertEqual(state.scan_representative, 1)
+        self.assertFalse(state.gap_test_is_irredundant)
+
+        # v2(m)=3 with even ceiling root cannot succeed: after one reduction it
+        # lands in the impossible 2 mod 4 class.
+        self.assertIsNone(odd_n_ceiling_state_scan_representative(8, 12))
+
+        # But the retained 0 mod 8 branch is genuinely necessary when the
+        # ceiling root is odd. 527=17*31 first succeeds at m=8 with root 65.
+        state = direct_multiplier_jump_from_one(527, 8)
+        self.assertEqual(state.ceiling_root, 65)
+        self.assertEqual(state.scan_representative, 8)
+        self.assertTrue(state.gap_test_is_irredundant)
+        self.assertEqual(_first_irredundant_hit(527, 8), 8)
+
+    def test_retained_mod8_classes_have_first_hit_witnesses(self) -> None:
+        # Each statically retained mod-8 class occurs as an actual first hit,
+        # so no retained whole residue class can be removed uniformly.
+        examples = {
+            1: (15, 1),
+            3: (33, 3),
+            5: (69, 5),
+            7: (87, 7),
+            0: (527, 8),
+        }
+        for residue, (n, expected_m) in examples.items():
+            self.assertEqual(expected_m % 8, residue)
+            self.assertEqual(_first_irredundant_hit(n, expected_m), expected_m)
+
+    def test_even_retained_branch_survives_mod32_refinement(self) -> None:
+        # All four multiples-of-8 residue classes mod 32 can be genuine first
+        # hits. This is a bounded obstruction to any further blanket mod-32
+        # deletion of the even retained branch.
+        examples = {
+            8: (527, 8),          # 17*31
+            16: (6437, 16),       # 41*157
+            24: (16801, 24),      # 53*317
+            0: (39973, 32),       # 71*563
+        }
+        for residue, (n, expected_m) in examples.items():
+            self.assertEqual(expected_m % 32, residue)
+            self.assertEqual(_first_irredundant_hit(n, expected_m), expected_m)
+            state = direct_multiplier_jump_from_one(n, expected_m)
+            self.assertEqual(state.ceiling_root % 2, 1)
+            self.assertTrue(state.gap_test_is_irredundant)
 
     def test_admissible_pair_count_examples(self) -> None:
         self.assertEqual(admissible_same_parity_factor_pair_count(1), 1)
