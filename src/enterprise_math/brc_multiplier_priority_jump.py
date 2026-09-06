@@ -1,19 +1,25 @@
 """Prioritized direct-jump BRC multiplier scan for odd N.
 
-This module extends the exact multiplier root/remainder transport with two
-classical structural facts useful for multiplier-Fermat style scans:
+This module extends the exact multiplier root/remainder transport with exact
+2-adic scan reductions plus one explicitly heuristic structural ordering:
 
 1. if odd N and m == 2 (mod 4), then mN cannot be a difference of two integer
-   squares, so that multiplier is safely skipped;
-2. among the remaining multipliers, the number of same-parity multiplier factor
-   pairs is a natural N-independent structural priority score.
+   squares;
+2. if odd N and m == 4 (mod 8) yields an immediate ceiling-square witness, the
+   same witness divides by 2 to give an immediate witness already at m/4, with
+   the same gcd factor. Such multipliers are feasible but scan-redundant;
+3. among the remaining irredundant multipliers, the number of same-parity
+   multiplier factor pairs is a natural N-independent structural priority score.
 
-After materializing the m=1 BRC state once, each prioritized candidate m<=100 is
-reached directly from that state by a dyadic sqrt(m)-1 predictor plus at most 11
-exact odd-width BRC corrections. No intermediate multiplier roots are required.
+Thus a scan-complete odd-N representative set uses multiplier residues
+{0,1,3,5,7} modulo 8. After materializing the m=1 BRC state once, each
+prioritized candidate m<=100 is reached directly from that state by a dyadic
+sqrt(m)-1 predictor plus at most 11 exact odd-width BRC corrections. No
+intermediate multiplier roots are required.
 
-The priority rule is a heuristic ordering, not a theorem of optimality. The
-skip rule and jump transport are exact.
+The factor-pair priority rule is a heuristic ordering, not a theorem of
+optimality. The mod-4 obstruction, mod-8 redundancy reduction, and jump
+transport are exact.
 """
 
 from __future__ import annotations
@@ -53,26 +59,63 @@ def admissible_same_parity_factor_pair_count(multiplier: int) -> int:
 
 
 def odd_n_multiplier_is_difference_square_feasible(multiplier: int) -> bool:
-    """Safe mod-4 feasibility test for odd N."""
+    """Safe mod-4 feasibility test for odd N.
+
+    This answers whether the multiplier can occur in a difference-of-squares
+    representation at all. It intentionally returns True on m == 4 (mod 8):
+    those multipliers are feasible, but :func:`odd_n_multiplier_is_scan_irredundant`
+    identifies them as unnecessary in a factor-finding scan.
+    """
     _require_positive("multiplier", multiplier)
     return multiplier % 4 != 2
+
+
+def odd_n_multiplier_is_scan_irredundant(multiplier: int) -> bool:
+    """Exact scan-complete mod-8 representative test for odd N.
+
+    Multipliers 2 or 6 modulo 8 are impossible difference-of-squares targets.
+    A multiplier 4 modulo 8 is feasible but redundant: writing m=4*l with l
+    odd, every immediate ceiling witness x^2-y^2=m*N has even x,y and divides
+    to an immediate ceiling witness at l*N with the same gcd factor.
+
+    Therefore residues {0,1,3,5,7} modulo 8 form a scan-complete set.
+    """
+    _require_positive("multiplier", multiplier)
+    return multiplier % 8 in (0, 1, 3, 5, 7)
+
+
+def odd_n_multiplier_scan_representative(multiplier: int) -> int | None:
+    """Return the exact odd-N scan representative, or None if impossible.
+
+    - m == 2 or 6 (mod 8): impossible -> None;
+    - m == 4 (mod 8): every successful witness reduces to m/4 -> m//4;
+    - other residues: already irredundant -> m.
+    """
+    _require_positive("multiplier", multiplier)
+    residue = multiplier % 8
+    if residue in (2, 6):
+        return None
+    if residue == 4:
+        return multiplier // 4
+    return multiplier
 
 
 def prioritized_odd_multiplier_order(
     max_multiplier: int = MAX_MULTIPLIER,
 ) -> tuple[int, ...]:
-    """Return structural scan order with m=1 fixed first.
+    """Return scan-complete structural order with m=1 fixed first.
 
-    Remaining feasible multipliers are sorted by decreasing count of same-parity
-    multiplier factor pairs, then increasing m. This ordering is heuristic; it
-    never changes the exact feasible multiplier set.
+    Exact 2-adic reduction keeps only residues {0,1,3,5,7} modulo 8. Remaining
+    multipliers are sorted by decreasing count of same-parity multiplier factor
+    pairs, then increasing m. The candidate set reduction is exact; only the
+    ordering within that set is heuristic.
     """
     _require_positive("max_multiplier", max_multiplier)
-    feasible = [
+    candidates = [
         m for m in range(1, max_multiplier + 1)
-        if odd_n_multiplier_is_difference_square_feasible(m)
+        if odd_n_multiplier_is_scan_irredundant(m)
     ]
-    rest = [m for m in feasible if m != 1]
+    rest = [m for m in candidates if m != 1]
     rest.sort(key=lambda m: (-admissible_same_parity_factor_pair_count(m), m))
     return (1, *rest)
 
@@ -167,8 +210,9 @@ def prioritized_odd_multiplier_states(
 ) -> tuple[DirectMultiplierJumpState, ...]:
     """Exact prioritized candidate states for odd n.
 
-    Multipliers 2 mod 4 are omitted by the exact difference-of-squares
-    obstruction. Every retained state is independently jumped from m=1.
+    Multipliers 2 or 6 mod 8 are impossible; multipliers 4 mod 8 are omitted by
+    the exact m -> m/4 witness reduction. Every retained state is independently
+    jumped from m=1.
     """
     _require_positive("n", n)
     if n % 2 == 0:
@@ -184,6 +228,8 @@ __all__ = [
     "factor_pair_count",
     "admissible_same_parity_factor_pair_count",
     "odd_n_multiplier_is_difference_square_feasible",
+    "odd_n_multiplier_is_scan_irredundant",
+    "odd_n_multiplier_scan_representative",
     "prioritized_odd_multiplier_order",
     "direct_multiplier_jump_from_one",
     "prioritized_odd_multiplier_states",
