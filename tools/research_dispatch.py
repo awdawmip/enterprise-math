@@ -2,8 +2,8 @@
 """Canonical immutable-V2 Enterprise Math dispatch compatibility wrapper.
 
 The pre-fix implementation is preserved byte-for-byte in
-``control_plane.research_dispatch_core``. This public entrypoint keeps the same
-API while repairing two reopen-path compatibility defects:
+``tools.research_dispatch_core``. This public entrypoint keeps the same API while
+repairing two reopen-path compatibility defects:
 
 1. an authorized CLAIM admitted after a nonterminal Driver review must remain the
    live owner when the reducer already reports a valid ``LEASED`` state; and
@@ -11,9 +11,11 @@ API while repairing two reopen-path compatibility defects:
    explicit Result lifecycle view must receive the same canonical lifecycle gate,
    rather than failing by arity or bypassing the frozen-result interval.
 
-No priority, lease duration, Driver disposition, terminalization, or task-selection
-policy is changed here. The wrapper only preserves authority that the core reducer
-and Result lifecycle gate have already accepted.
+The preserved core remains fail-closed: runtime input must be raw authenticated
+Issue #240 comment objects. No priority, lease duration, Driver disposition,
+terminalization, or task-selection policy is changed here. The wrapper only
+preserves authority that the core reducer and Result lifecycle gate have already
+accepted.
 """
 from __future__ import annotations
 
@@ -21,7 +23,7 @@ import copy
 from pathlib import Path
 from typing import Any
 
-from control_plane import research_dispatch_core as _core
+from tools import research_dispatch_core as _core
 
 ROOT = _core.ROOT
 DispatchError = _core.DispatchError
