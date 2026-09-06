@@ -1,0 +1,53 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "RESEARCH_TOOLIZED_GLOBAL_SUBTOOL",
+  "date": "2026-09-06",
+  "admission": {
+    "classification": "TASK_RESEARCH_TOOL_HARVEST",
+    "authority": "direct user continuation of the main-backed BRC multiplier transport and state-dependent scan-reduction program",
+    "family_id": "T0_BRC",
+    "foundation_mutation": false,
+    "working_truth_promotion": false,
+    "new_global_tool_family": false,
+    "reason": "Generalize the exact p=2 dynamic multiplier reduction to every square divisor visible simultaneously in the retained BRC ceiling root, while reusing canonical multiplier squarefree decomposition and odd-N scan typing."
+  },
+  "methods": [
+    {
+      "method_id": "t0.brc_multiplier_square_content",
+      "name": "BRC multiplier square-content scan reduction",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_multiplier_square_content.py",
+        "tests/test_brc_multiplier_square_content.py",
+        "research_notes/BRC_MULTIPLIER_SQUARE_CONTENT_REDUCTION_20260906.md",
+        "src/enterprise_math/brc_multiplier_basin.py",
+        "src/enterprise_math/brc_multiplier_priority_jump.py"
+      ],
+      "api": [
+        "SquareContentReduction",
+        "odd_n_square_content_scan_reduction",
+        "jump_state_square_content_reduction"
+      ],
+      "triggers": [
+        "BRC square content",
+        "squareful multiplier",
+        "multiplier common scale",
+        "ceiling root gcd",
+        "dynamic multiplier quotient",
+        "gap-test redundancy"
+      ],
+      "capabilities": [
+        "exact one-shot stripping of every multiplier square factor whose root divides the known BRC ceiling root",
+        "exact immediate-ceiling witness preservation under m->m/g^2 and x->x/g",
+        "same gcd-factor preservation under declared gcd(n,m)=1",
+        "canonical reuse of m=a^2 d squarefree decomposition",
+        "composition with the existing exact odd-N 2-adic state representative",
+        "state-level IRREDUNDANT/REDUCED/IMPOSSIBLE classification before gap squarehood testing"
+      ],
+      "core_law": "Write m=a^2 d with d squarefree and x=ceil(sqrt(mn)). Under gcd(n,m)=1, g=gcd(a,x) divides the square root y of every successful completion gap y^2=x^2-mn. Dividing m,x,y by g^2,g,g yields the exact immediate ceiling witness at m/g^2, and gcd(x-y,n)=gcd(x/g-y/g,n). After this one-shot normalization gcd(a/g,x/g)=1, so all square content visible in the current ceiling root has been removed.",
+      "hard_boundary": "Requires an already-known exact ceiling root and declared gcd(n,m)=1; a nontrivial multiplier gcd should be handled as a factor witness before this reduction. Squareful multipliers are not statically discardable: states with gcd(square-content-root,ceiling-root)=1 can be genuine first hits. Common-factor scaling is elementary prior art; no novelty priority, asymptotic factorization speedup, or Foundation promotion is claimed."
+    }
+  ]
+}
