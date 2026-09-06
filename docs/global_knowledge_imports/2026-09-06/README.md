@@ -5,10 +5,12 @@ Target project: `awdawmip/enterprise-math`
 Source repository: `awdawmip/chatgpt-global-knowledge`
 Initial source snapshot: `main@6e70948745cff137e1c64ea09bf7898980377187`
 First tail catch-up source snapshot: `main@de4267a9f5b51492c91a98e1cd5d6280081f693c`
-Final tail catch-up source snapshot for this transaction: `main@5c6d2303749fac3f25ba48cbfdc927c90aea4114`
+Second tail catch-up source snapshot: `main@5c6d2303749fac3f25ba48cbfdc927c90aea4114`
+Final bounded source cutoff for this transaction: `main@3fb88e2f62f6ea51fc558df3da68267cc35cf22e`
 Initial target base snapshot: `main@ff1aeaf6befb9c72b4e59f7dec6b018671633e3a`
 First import merged at target: `main@bd00d2b409b78b83cc8e461bf382170aeee66bfe`
 Second import merged at target: `main@687a44dec5ffbf2901629af458261ba6a849ae21`
+Third import merged at target: `main@9bc95577902f14e1539b1849ed9c4e31a155fa54`
 
 ## Purpose
 
@@ -78,10 +80,16 @@ The import is intentionally non-promotional:
     - certifies the number of normalized response singular values above a threshold via the negative inertia of `[[eta^2 A,B],[B*,D]]`, avoiding explicit inverse square roots;
     - finite numerical inertia is not proof without rigorous enclosures, and this remains a composition of existing T2/T4/T6 machinery.
 
+13. `nt-tool-response-model-transfer-capacity-20260906.md`
+    - verified normalized-response model-transfer adapter using operator-norm or Hilbert-Schmidt defect control;
+    - converts model singular-value information plus explicit defect into a finite bound on extra threshold-crossing repair directions;
+    - explicitly does not transfer RH positivity by itself and is not a new top-level tool family.
+
 ## Deliberately not reverse-imported
 
 - Global `projects/enterprise-math/P000_REALITY_FOUNDATION.json` was not copied because the source project already had a newer P000 revision at the migration snapshot.
 - PCF7FIX/BRC re-verification handoff material was not copied back because it already referenced durable Enterprise Math source artifacts and was a source-to-global handoff, not a source gap.
+- `journal/enterprise-math/2026-09-06/20260906T134800+0800-rh-green-alladi-critical-source-port.md` was not reverse-imported because it explicitly mirrors source commit `4b1c52677c5f7d07e9bd6527b6cf1a5375530e98` and source file `research_notes/RH_GREEN_ALLADI_CRITICAL_PRIMITIVE_SOURCE_PORT_20260906.md`, which remains present in Enterprise Math.
 - The large 2026-09-05 number-theory tool-harvest catalog was not bulk-copied in this transaction. Enterprise Math already has a substantial canonical tool registry / invocation policy / method inventory; those harvested notes require semantic tool-by-tool dedup rather than filename mirroring. Bulk duplication would create two competing catalogs.
 
 ## Provenance rule
