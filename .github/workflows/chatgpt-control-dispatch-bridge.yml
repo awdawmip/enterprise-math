@@ -17,8 +17,10 @@ permissions:
   contents: write
   issues: read
 
+# Every request-producing commit must get its own run. A fixed concurrency group
+# drops pending GitHub Actions runs when a newer request arrives.
 concurrency:
-  group: chatgpt-control-dispatch-bridge
+  group: chatgpt-control-dispatch-bridge-${{ github.sha }}
   cancel-in-progress: false
 
 jobs:
@@ -29,6 +31,7 @@ jobs:
       GH_TOKEN: ${{ github.token }}
       REQUEST_PATH: control_plane/chatgpt_dispatch_request.json
       RECEIPT_PATH: control_plane/chatgpt_dispatch_receipt.json
+      RECEIPT_DIR: control_plane/chatgpt_dispatch_receipts
     steps:
       - uses: actions/checkout@v7
         with:
@@ -45,6 +48,10 @@ jobs:
           test "$(jq -r '.schema // empty' "$REQUEST_PATH")" = "ENTERPRISE_MATH_CHATGPT_CONTROL_DISPATCH_REQUEST_V1"
           request_id="$(jq -r '.request_id // empty' "$REQUEST_PATH")"
           test -n "$request_id"
+          if [[ ! "$request_id" =~ ^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$ ]]; then
+            echo "INVALID_REQUEST_ID=$request_id"
+            exit 1
+          fi
           kind="$(jq -r '.kind // "RESEARCH"' "$REQUEST_PATH")"
           case "$kind" in
             RESEARCH|GOVERNANCE|ANY) ;;
@@ -56,6 +63,7 @@ jobs:
           fi
           echo "REQUEST_ID=$request_id" >> "$GITHUB_ENV"
           echo "DISPATCH_KIND=$kind" >> "$GITHUB_ENV"
+          echo "IMMUTABLE_RECEIPT_PATH=$RECEIPT_DIR/$request_id.json" >> "$GITHUB_ENV"
 
       - name: Fetch authoritative Issue 240 comment stream
         shell: bash
@@ -117,6 +125,7 @@ jobs:
             --arg repository "$GITHUB_REPOSITORY" \
             --arg source_sha "$GITHUB_SHA" \
             --arg kind "$DISPATCH_KIND" \
+            --arg immutable_receipt_path "$IMMUTABLE_RECEIPT_PATH" \
             --arg snapshot_sha256 "sha256:$ISSUE240_SNAPSHOT_SHA256" \
             --argjson comment_count "$ISSUE240_COMMENT_COUNT" \
             --argjson last_comment_id "$ISSUE240_LAST_COMMENT_ID" \
@@ -129,6 +138,7 @@ jobs:
               repository: $repository,
               source_sha: $source_sha,
               kind: $kind,
+              immutable_receipt_path: $immutable_receipt_path,
               issue_240: {
                 comment_count: $comment_count,
                 last_comment_id: $last_comment_id,
@@ -139,27 +149,52 @@ jobs:
             }' > /tmp/em-dispatch/receipt.json
           cat /tmp/em-dispatch/receipt.json
 
-      - name: Persist latest receipt on main
+      - name: Persist request receipt on main
         if: github.event_name == 'push'
         shell: bash
         run: |
           set -euo pipefail
-          cp /tmp/em-dispatch/receipt.json "$RECEIPT_PATH"
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add "$RECEIPT_PATH"
-          if git diff --cached --quiet; then
-            echo "RECEIPT_UNCHANGED"
-            exit 0
-          fi
-          git commit -m "control: record ChatGPT canonical dispatch receipt"
-          for attempt in 1 2 3; do
+
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git reset --hard origin/main
+
+            if [[ -e "$IMMUTABLE_RECEIPT_PATH" ]]; then
+              if jq -e \
+                --arg request_id "$REQUEST_ID" \
+                --arg source_sha "$GITHUB_SHA" \
+                '.request_id == $request_id and .source_sha == $source_sha' \
+                "$IMMUTABLE_RECEIPT_PATH" >/dev/null; then
+                echo "IMMUTABLE_RECEIPT_ALREADY_PERSISTED path=$IMMUTABLE_RECEIPT_PATH"
+                exit 0
+              fi
+              echo "DUPLICATE_REQUEST_ID_WITH_DIFFERENT_SOURCE path=$IMMUTABLE_RECEIPT_PATH"
+              exit 1
+            fi
+
+            mkdir -p "$RECEIPT_DIR"
+            cp /tmp/em-dispatch/receipt.json "$IMMUTABLE_RECEIPT_PATH"
+
+            current_request_id="$(jq -r '.request_id // empty' "$REQUEST_PATH")"
+            if [[ "$current_request_id" == "$REQUEST_ID" ]]; then
+              cp /tmp/em-dispatch/receipt.json "$RECEIPT_PATH"
+              echo "LATEST_RECEIPT_ELIGIBLE request_id=$REQUEST_ID"
+            else
+              echo "LATEST_RECEIPT_SKIPPED stale_request=$REQUEST_ID current_request=$current_request_id"
+            fi
+
+            git add "$IMMUTABLE_RECEIPT_PATH"
+            if [[ "$current_request_id" == "$REQUEST_ID" ]]; then
+              git add "$RECEIPT_PATH"
+            fi
+            git commit -m "control: record ChatGPT canonical dispatch receipt $REQUEST_ID"
             if git push origin HEAD:main; then
-              echo "RECEIPT_PERSISTED attempt=$attempt"
+              echo "RECEIPT_PERSISTED attempt=$attempt immutable=$IMMUTABLE_RECEIPT_PATH"
               exit 0
             fi
-            git fetch origin main
-            git rebase origin/main
           done
-          echo "RECEIPT_PERSIST_FAILED"
+
+          echo "RECEIPT_PERSIST_FAILED request_id=$REQUEST_ID"
           exit 1
