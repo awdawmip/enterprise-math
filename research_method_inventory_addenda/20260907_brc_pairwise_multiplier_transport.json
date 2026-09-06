@@ -1,0 +1,55 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "RESEARCH_TOOLIZED_GLOBAL_SUBTOOL",
+  "date": "2026-09-07",
+  "admission": {
+    "classification": "TASK_RESEARCH_TOOL_HARVEST",
+    "authority": "direct user continuation of the main-backed BRC multiplier transport and priority program through exact mod-8 sparse transport",
+    "family_id": "T0_BRC",
+    "foundation_mutation": false,
+    "working_truth_promotion": false,
+    "new_global_tool_family": false,
+    "reason": "Extend retained root/remainder transport from consecutive/direct-from-one jumps to exact arbitrary source-target multiplier transport, enabling a nonmonotone structural priority path to reuse each already-materialized BRC state."
+  },
+  "methods": [
+    {
+      "method_id": "t0.brc_pairwise_multiplier_transport",
+      "name": "BRC pairwise multiplier root/remainder transport",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_pairwise_multiplier_transport.py",
+        "tests/test_brc_pairwise_multiplier_transport.py",
+        "experiments/brc_pairwise_multiplier_transport_benchmark.py",
+        "research_notes/BRC_PAIRWISE_MULTIPLIER_TRANSPORT_20260907.md",
+        "research_artifacts/brc_pairwise_multiplier_transport_benchmark_20260907.csv"
+      ],
+      "api": [
+        "PairwiseMultiplierRootState",
+        "pairwise_correction_bound",
+        "pairwise_scale_constant",
+        "transport_multiplier_root_state",
+        "pairwise_multiplier_order_states",
+        "pairwise_prioritized_odd_multiplier_states"
+      ],
+      "triggers": [
+        "BRC pairwise multiplier transport",
+        "nonmonotone multiplier order",
+        "priority multiplier state reuse",
+        "bidirectional multiplier jump",
+        "reuse previous BRC root remainder"
+      ],
+      "capabilities": [
+        "exact integer root/remainder transport between arbitrary source and target multipliers <=100",
+        "one-sided lower predictor with exact odd-basin correction",
+        "safe correction bound ceil(sqrt(t/m))+1, hence <=11 globally and <=2 for downward jumps",
+        "exact nonmonotone structural-priority state stream with one initial N-dependent root",
+        "cached source-target dyadic scale constants with no new checked-in predictor payload",
+        "explicit negative audit for simple N-modular/root/remainder/phase adaptive routing shadows"
+      ],
+      "core_law": "Given mN=J^2+R and beta=sqrt(t/m), A=floor(2^B beta), q=floor(AJ/2^B) is a lower target-root candidate with sqrt(tN)-q < beta+3/2. Therefore at most ceil(beta)+1 BRC odd-width crossings recover floor(sqrt(tN)); G=tN-q^2 is computed exactly as R+(t-m)N-(q-J)(2J+q-J), valid for both upward and downward multiplier moves.",
+      "hard_boundary": "Finite exact multiplier<=100 reference surface. Pairwise scale constants are cached runtime data. The simple N-dependent shadow features tested in the accompanying note are finite negative evidence only, not an independence theorem. Difference-of-squares/multiplier-Fermat/Lehman mathematics remains classical; no optimal multiplier order, asymptotic factorization speedup, or Foundation promotion is claimed."
+    }
+  ]
+}
