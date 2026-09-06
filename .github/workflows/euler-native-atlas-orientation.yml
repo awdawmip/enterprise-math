@@ -1,0 +1,61 @@
+name: euler-native-atlas-orientation
+
+on:
+  pull_request:
+    paths:
+      - "research_notes/EULER_NATIVE_ATLAS_ORIENTATION_OBSTRUCTION_20260904.md"
+      - "definitions/ENTERPRISE_EULER_NATIVE_ATLAS_ORIENTATION_OBSTRUCTION_20260904.json"
+      - "src/enterprise_math/euler_atlas_orientation.py"
+      - "tests/test_euler_atlas_orientation.py"
+      - "EnterpriseMath/EulerRotation/NativeAtlasOrientationObstruction.lean"
+      - "research_method_inventory_addenda/20260904_euler_atlas_orientation.json"
+      - ".github/workflows/euler-native-atlas-orientation.yml"
+  workflow_dispatch:
+
+jobs:
+  exact-and-formal-check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Compile exact checker and tests
+        run: >-
+          python -m py_compile
+          src/enterprise_math/euler_atlas_orientation.py
+          tests/test_euler_atlas_orientation.py
+      - name: Run exhaustive F2 and S4 regression
+        env:
+          PYTHONPATH: src
+        run: python -m unittest -v tests/test_euler_atlas_orientation.py
+      - name: Validate theorem and method JSON
+        run: >-
+          python -m json.tool
+          definitions/ENTERPRISE_EULER_NATIVE_ATLAS_ORIENTATION_OBSTRUCTION_20260904.json
+          >/dev/null
+          && python -m json.tool
+          research_method_inventory_addenda/20260904_euler_atlas_orientation.json
+          >/dev/null
+      - name: Reject proof placeholders
+        run: |
+          if grep -n -E '\b(sorry|admit|axiom)\b' EnterpriseMath/EulerRotation/NativeAtlasOrientationObstruction.lean; then
+            echo "Proof placeholder detected"
+            exit 1
+          fi
+      - uses: leanprover/lean-action@v1
+        with:
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+          use-github-cache: false
+          use-mathlib-cache: false
+      - name: Resolve pinned dependencies
+        run: lake update
+      - name: Fetch mathlib cache
+        run: lake exe cache get
+      - name: Build native-atlas orientation core
+        run: >-
+          lake build --wfail -KCI
+          EnterpriseMath.EulerRotation.NativeAtlasOrientationObstruction

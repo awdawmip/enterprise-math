@@ -1,0 +1,82 @@
+{
+  "schema": "ENTERPRISE_RESEARCH_THEOREM_LEDGER_V1",
+  "status": "FREE_RESEARCH / EXACT CARRIER THEOREM / NOT_FOUNDATION",
+  "date": "2026-09-04",
+  "researcher": "EM-FREE-F6D046 / FREE_AXIOM_DISCOVERY",
+  "author_program": "YUAN X / Enterprise Math",
+  "candidate": "AC-EM-FREE-F6D046-EULER-TETRAHEDRAL-ORIENTATION-LOCAL-SYSTEM-V1",
+  "source_note": "research_notes/EULER_TETRAHEDRAL_ORIENTATION_LOCAL_SYSTEM_20260904.md",
+  "checker": "src/enterprise_math/euler_tetrahedral_orientation.py",
+  "tests": "tests/test_euler_tetrahedral_orientation.py",
+  "theorems": [
+    {
+      "id": "EMEUL-TOL01",
+      "name": "Regular tetrahedral normal realization",
+      "statement": "The four normals (1,1,1), (1,-1,-1), (-1,1,-1), (-1,-1,1) have norm squared 3, pairwise inner product -1, and sum zero; their six pairwise cross-product axes are exactly the six FCC [110]-type line families.",
+      "status": "EXACT INTEGER THEOREM / CHECKER COVERED"
+    },
+    {
+      "id": "EMEUL-TOL02",
+      "name": "Local cross-operator complex structure",
+      "statement": "For D_n(x)=n cross x, D_n^2(x)=n(n dot x)-3x. Hence D_n^2=-3I on n-perp and J_n=D_n/sqrt(3) satisfies J_n^2=-I.",
+      "status": "EXACT ALGEBRAIC THEOREM / LEAN CORE TARGET"
+    },
+    {
+      "id": "EMEUL-TOL03",
+      "name": "Full tetrahedral symmetry group",
+      "statement": "The signed permutation matrices preserving the four-normal set form a group of order 24 acting faithfully as S4; matrix determinant equals the sign of the induced permutation.",
+      "status": "EXACT FINITE ENUMERATION / CHECKER COVERED"
+    },
+    {
+      "id": "EMEUL-TOL04",
+      "name": "Twisted chirality covariance",
+      "statement": "For every tetrahedral symmetry Q, Q D_n Q^{-1}=det(Q) D_(Qn), and therefore Q J_n Q^{-1}=sgn(sigma_Q) J_(sigma_Q n).",
+      "status": "EXACT ALGEBRAIC THEOREM / CHECKER COVERED / LEAN GENERATOR CORE TARGET"
+    },
+    {
+      "id": "EMEUL-TOL05",
+      "name": "A4-consistent slice transport",
+      "statement": "For every ordered pair of slices there are exactly three orientation-preserving tetrahedral rotations taking the first to the second, and every such transport intertwines the two local J operators without a sign.",
+      "status": "EXACT FINITE GROUP THEOREM / CHECKER COVERED"
+    },
+    {
+      "id": "EMEUL-TOL06",
+      "name": "Flat chirality with residual C3 frame holonomy",
+      "statement": "Every closed chain of orientation-preserving slice transports has positive C2 chirality holonomy. Its full frame holonomy lies in the order-three stabilizer of the initial slice and therefore commutes with J.",
+      "status": "EXACT FINITE GROUP THEOREM / CHECKER COVERED"
+    },
+    {
+      "id": "EMEUL-TOL07",
+      "name": "Incidence-ray reversal is not chirality reversal",
+      "statement": "The local shared-line rays r_uv=n_u cross n_v satisfy r_vu=-r_uv, while an ambient orientation-preserving transport still sends J_u to J_v. Boundary-arrow reversal and complex-structure reversal are distinct operations.",
+      "status": "EXACT INTEGER THEOREM / CHECKER COVERED"
+    },
+    {
+      "id": "EMEUL-TOL08",
+      "name": "Geometric reduction of arbitrary K4 sign fields",
+      "statement": "Abstract edge bits modulo vertex gauge have H1(K4,F2)=F2^3, but the oriented tetrahedral carrier selects the trivial ordinary chirality cocycle for A4 transports. Full S4 covariance is governed instead by the single global sign representation.",
+      "status": "EXACT FINITE COHOMOLOGY COUNT PLUS GEOMETRIC SELECTION / CHECKER COVERED"
+    },
+    {
+      "id": "EMEUL-TOL09",
+      "name": "Four-slice Euler generator globalization",
+      "statement": "After choosing ambient orientation, the four local Euler generators form one A4-equivariant typed family. Reversing ambient orientation flips the entire family simultaneously.",
+      "status": "CARRIER-LEVEL GLOBALIZATION THEOREM",
+      "boundary": "Not yet a theorem about every P000 six-dimensional native Cell trajectory."
+    }
+  ],
+  "closed_boundaries": [
+    "FOUR_FCC_SLICES_DO_NOT_REQUIRE_SIX_INDEPENDENT_CHIRALITY_BITS_AT_CARRIER_LEVEL",
+    "A4_TRANSPORT_PRESERVES_THE_CELL_NORMALIZED_EULER_GENERATOR",
+    "ODD_TETRAHEDRAL_SYMMETRY_REVERSES_THE_GENERATOR_BY_THE_SIGN_CHARACTER",
+    "C2_CHIRALITY_HOLONOMY_IS_FLAT_FOR_ORIENTATION_PRESERVING_TRANSPORT",
+    "RESIDUAL_C3_FRAME_HOLONOMY_CAN_REMAIN_WITHOUT_CHANGING_J"
+  ],
+  "negative_boundaries": [
+    "NO_GLOBAL_P000_SIX_DIMENSIONAL_DYNAMICS_FACTORING_THEOREM_IS_CLAIMED",
+    "NO_IDENTIFICATION_OF_J_WITH_A_PRIMITIVE_NATIVE_AXIS",
+    "NO_IDENTIFICATION_OF_INCIDENCE_RAY_REVERSAL_WITH_CHIRALITY_REVERSAL",
+    "NO_IDENTITY_WITH_THE_TETRAHEDRAL_RESIDUAL_C2_OR_PAIRED_PELL_SIGN_IS_CLAIMED",
+    "NO_CLAIM_THAT_FULL_FRAME_HOLONOMY_IS_TRIVIAL"
+  ]
+}

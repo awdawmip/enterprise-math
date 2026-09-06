@@ -1,0 +1,35 @@
+{
+  "schema": "ENTERPRISE_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "date": "2026-09-04",
+  "status": "FREE_RESEARCH / PROJECT_SUBTOOL / NOT_TOP_LEVEL_FAMILY",
+  "methods": [
+    {
+      "method_id": "t9.euler_native_atlas_orientation",
+      "name": "K4 native-atlas orientation obstruction and A4 reduction",
+      "family": "T9_COCYCLE_COHOMOLOGY",
+      "secondary_families": [
+        "T7_SYMMETRY_REPRESENTATION",
+        "T6_QUOTIENT_CONGRUENCE",
+        "T0_EXACT_FINITE_ENUMERATION"
+      ],
+      "module": "src/enterprise_math/euler_atlas_orientation.py",
+      "test": "tests/test_euler_atlas_orientation.py",
+      "formalization": "EnterpriseMath/EulerRotation/NativeAtlasOrientationObstruction.lean",
+      "capabilities": [
+        "compute the three independent K4 triangle parity holonomies",
+        "apply vertex-frame gauge transformations to six overlap bits",
+        "construct an explicit clearing gauge when w1 vanishes",
+        "prove clearing-gauge uniqueness up to global reversal",
+        "enumerate all eight H1(K4,F2) orientation classes",
+        "translate S4 transition parity to an A4 reduction problem",
+        "verify the A4 reduction criterion exhaustively for all 64 parity fields"
+      ],
+      "exactness": "finite F2 and permutation arithmetic; no floating point or analytic completion",
+      "boundaries": [
+        "requires actual native transition maps before applying to P000",
+        "w1 zero does not eliminate residual C3 frame holonomy",
+        "does not identify this class with any other C2 residual"
+      ]
+    }
+  ]
+}
