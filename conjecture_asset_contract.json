@@ -1,0 +1,145 @@
+{
+  "schema": "ENTERPRISE_MATH_CONJECTURE_ASSET_CONTRACT_V1",
+  "status": "ACTIVE_CANONICAL_GOVERNANCE",
+  "effective": "2026-09-06",
+  "human_policy": "docs/CONJECTURE_ASSET_GOVERNANCE.md",
+  "registry": "conjecture_registry.json",
+  "template": "templates/CONJECTURE_ASSET_TEMPLATE.json",
+  "purpose": "Permit useful unproved theorems and tools to be registered and reused in exploration while preserving exact epistemic state, validation boundaries and transitive conjectural dependencies.",
+  "asset_kinds": [
+    "CONJECTURAL_THEOREM",
+    "CONJECTURAL_TOOL"
+  ],
+  "epistemic_statuses": [
+    "CONJECTURE",
+    "EMPIRICALLY_VALIDATED",
+    "PROVED"
+  ],
+  "lifecycle_statuses": [
+    "ACTIVE",
+    "RESTRICTED",
+    "REFUTED",
+    "SUPERSEDED",
+    "PARKED"
+  ],
+  "validation_evidence_types": [
+    "EXACT_BOUNDED_EXHAUSTIVE",
+    "EXACT_BOUNDED_SAMPLED",
+    "INTERVAL_CERTIFIED_NUMERICAL",
+    "FLOATING_NUMERICAL",
+    "SYMBOLIC_DERIVATION_PARTIAL",
+    "HEURISTIC_MODEL",
+    "INDEPENDENT_REPLICATION",
+    "LITERATURE_ANALOGUE",
+    "COUNTEREXAMPLE"
+  ],
+  "required_fields": [
+    "id",
+    "kind",
+    "title",
+    "statement_or_tool_contract",
+    "claim_scope",
+    "epistemic_status",
+    "lifecycle_status",
+    "dependencies",
+    "validation",
+    "known_failures",
+    "source_refs",
+    "downstream_refs",
+    "falsifier_or_kill_condition",
+    "promotion_target",
+    "priority",
+    "registered_at",
+    "last_reviewed_at",
+    "version"
+  ],
+  "dependency_shape": {
+    "proved": "array of exact theorem/tool/source identifiers whose required scopes are proved",
+    "conjectural": "array of conjecture asset IDs whose unresolved scopes are used"
+  },
+  "validation_shape": {
+    "validated_envelope": "exact tested/certified input or parameter scope; may be NONE",
+    "evidence_type": "one or more validation_evidence_types",
+    "sample_size_or_exhaustive_count": "integer/string/null",
+    "exactness": "EXACT|INTERVAL_CERTIFIED|FLOATING|HEURISTIC|MIXED",
+    "independence": "INDEPENDENT|SHARED_DISCOVERY_CONTEXT_DISCLOSED|NOT_INDEPENDENT|UNKNOWN",
+    "evidence_refs": "array of exact repository/journal/result references",
+    "summary": "bounded evidence summary; must not widen claim_scope"
+  },
+  "conjectural_tool_required_contract_fields": [
+    "input_contract",
+    "output_contract",
+    "structural_law_or_certificate_target",
+    "soundness_scope",
+    "validated_envelope",
+    "hard_failure_boundary",
+    "reuse_targets"
+  ],
+  "call_dispositions": [
+    "EXPLORATORY_ONLY",
+    "CONDITIONAL_RESULT",
+    "BOUNDED_CERTIFIED_RESULT"
+  ],
+  "core_invariants": [
+    "CONJECTURE_REGISTRATION_DOES_NOT_GRANT_WORKING_TRUTH_FOUNDATION_OR_CANONICAL_THEOREM_STATUS",
+    "CONJECTURAL_TOOL_IS_NOT_INSERTED_INTO_ENTERPRISE_TOOLBOX_REGISTRY_BEFORE_EXISTING_PROMOTION_GATES",
+    "EMPIRICAL_SUCCESS_DOES_NOT_CLEAR_CONJECTURAL_DEPENDENCY_TAINT",
+    "DOWNSTREAM_UNCONDITIONAL_PROOF_REQUIRES_OWN_PROOF_AND_ALL_TRANSITIVE_CONJECTURAL_DEPENDENCIES_PROVED_FOR_EXACT_USED_SCOPE",
+    "RIGOROUS_DERIVATION_ON_UNPROVED_PREMISE_IS_CONDITIONALLY_PROVED_NOT_UNCONDITIONALLY_PROVED",
+    "REFUTED_OR_RESTRICTED_CONJECTURE_FORCES_DOWNSTREAM_SCOPE_REVIEW",
+    "PROVING_A_CONJECTURE_TRIGGERS_DOWNSTREAM_REEVALUATION_BUT_NOT_AUTOMATIC_PROMOTION_OF_RESULTS_WITH_OTHER_GAPS",
+    "VALIDATION_ENVELOPE_NEVER_WIDENS_CLAIM_SCOPE",
+    "EXACT_EXHAUSTIVE_PROOF_OF_EXPLICIT_BOUNDED_SCOPE_MAY_PROVE_ONLY_THAT_BOUNDED_SCOPE",
+    "OPEN_QUESTION_WITHOUT_ASSERTED_DIRECTION_IS_NOT_A_CONJECTURE_ASSET",
+    "PROVED_MATHEMATICS_AWAITING_TOOL_IMPLEMENTATION_OR_REVIEW_IS_NOT_A_CONJECTURAL_TOOL"
+  ],
+  "historical_scan": {
+    "candidate_markers": [
+      "HYPOTHESIS",
+      "TESTING",
+      "empirical",
+      "numerical",
+      "conjecture",
+      "candidate law",
+      "expected",
+      "appears",
+      "suggests",
+      "frontier",
+      "unproved",
+      "not proved",
+      "smallest unresolved unit"
+    ],
+    "classification_order": [
+      "PROVED_OR_EXACT_RESULT",
+      "OPEN_PROBLEM_NO_DIRECTION",
+      "IMPLEMENTATION_OR_TOOL_ACCEPTANCE_GAP",
+      "AXIOM_CANDIDATE",
+      "CONJECTURAL_THEOREM",
+      "CONJECTURAL_TOOL"
+    ],
+    "source_preservation_required": true,
+    "later_restriction_or_supersession_must_be_recorded": true
+  },
+  "research_closeout": {
+    "scan_surfaces": [
+      "unresolved_residue",
+      "method_harvest",
+      "empirical_regularities",
+      "proposed_laws",
+      "candidate_tools",
+      "smallest_unresolved_unit"
+    ],
+    "registration_must_not_block_result_return": true,
+    "durable_candidate_should_not_remain_orphaned": true
+  },
+  "proof_priority": {
+    "factors": [
+      "DOWNSTREAM_IMPACT",
+      "EMPIRICAL_STABILITY",
+      "STRUCTURAL_CENTRALITY",
+      "EXPECTED_PROOF_COST",
+      "FALSIFICATION_RISK"
+    ],
+    "interpretation": "High use increases urgency to prove or kill; it does not increase truth status."
+  }
+}
