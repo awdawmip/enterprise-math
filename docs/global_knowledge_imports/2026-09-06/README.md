@@ -3,18 +3,21 @@
 Status: `PROJECT-KNOWLEDGE IMPORT / NO THEOREM PROMOTION / NO FOUNDATION CHANGE`
 Target project: `awdawmip/enterprise-math`
 Source repository: `awdawmip/chatgpt-global-knowledge`
-Source snapshot used for imported bytes: `main@6e70948745cff137e1c64ea09bf7898980377187`
-Target base snapshot before branch creation: `main@ff1aeaf6befb9c72b4e59f7dec6b018671633e3a`
+Initial source snapshot: `main@6e70948745cff137e1c64ea09bf7898980377187`
+Tail catch-up source snapshot: `main@de4267a9f5b51492c91a98e1cd5d6280081f693c`
+Initial target base snapshot: `main@ff1aeaf6befb9c72b4e59f7dec6b018671633e3a`
+First import merged at target: `main@bd00d2b409b78b83cc8e461bf382170aeee66bfe`
 
 ## Purpose
 
-This directory preserves recent Enterprise Math material that existed durably in the account-level GLOBAL_KNOWLEDGE_V1 repository but had no equivalent durable source in the Enterprise Math repository at the migration snapshot.
+This directory preserves recent Enterprise Math material that existed durably in the account-level GLOBAL_KNOWLEDGE_V1 repository but had no equivalent durable source in the Enterprise Math repository at the migration snapshots.
 
 The import is intentionally non-promotional:
 
 - imported `RESEARCH_FRONTIER` material remains research frontier material;
 - `NOT_MILLENNIUM_PROOF` remains binding where stated;
-- imported terminal archives remain archives, not accepted theorem ledgers;
+- `HYPOTHESIS / TESTING` remains hypothesis/testing and is not promoted by co-location with verified reductions;
+- imported terminal archives and progress events remain archives/progress events, not accepted theorem ledgers;
 - no Driver review, Foundation admission, Working Truth, task publication, claim, or canonical theorem status is created by this import;
 - current source `p000_reality_foundation.json` and current control authority remain authoritative over stale provenance text embedded in imported records.
 
@@ -23,7 +26,7 @@ The import is intentionally non-promotional:
 1. `BRC_RESEARCH_PRIORITY_AND_USAGE_20260905.md`
    - direct-user account-wide BRC method-priority contract;
    - imported because no equivalent policy file was present in the source project at the migration snapshot;
-   - this file records the policy; it does not itself rewrite theorem ledgers or machine-control JSON.
+   - records the policy without rewriting theorem ledgers or machine-control JSON.
 
 2. `pde-critical-helicity-double-null-20260906.md`
    - Navier–Stokes critical helicity double-null / FCC shell-coherence frontier;
@@ -38,8 +41,29 @@ The import is intentionally non-promotional:
    - explicitly records that RSA-270 was not factored.
 
 5. `20260906T194000+0800-rsa270-cost-field-geometrization-7e3b5d.md`
-   - later RSA-270 BRC add/sub cost-field and coordinate-geometrization progress event;
-   - preserves the quantified no-go refinement and the exact ridge/cost identities without claiming a factor.
+   - RSA-270 BRC add/sub cost-field and coordinate-geometrization progress event;
+   - preserves the quantified no-go refinement and exact ridge/cost identities without claiming a factor.
+
+6. `20260906T202000+0800-rsa270-round7-minimax-j-sieve-9d4c2e.md`
+   - multiplier-lattice cost-field minimax and forced-mod-72 endpoint sieve;
+   - closes the single-direction route at an infeasible quantified budget; no factor obtained.
+
+7. `20260906T205500+0800-rsa270-round8-combined-strategy-table-5b8f1a.md`
+   - complete direction table for combined cost × endpoint sieve;
+   - marks the branch family as quantitatively closed; no factor obtained.
+
+8. `nt-rh-ground-state-feshbach-leakage-20260905.md`
+   - verified exact rank-one / finite-low-mode Feshbach reduction, including the 2026-09-06 correction that rank one is not a robust predictive-complete state for the tested Weil square-shell propagation;
+   - explicitly not an RH proof.
+
+9. `nt-rh-landau-widom-critical-repair-band-20260906.md`
+   - `HYPOTHESIS / TESTING` record proposing a growing repair-band scale near `4 L exp(2L)` / `4 n^2 log n` from three floating pressure tests plus Landau-Widom/Shannon structure;
+   - numerical structural hypothesis only, not a theorem and not an RH proof.
+
+10. `nt-tool-spectral-tail-feshbach-certificate-20260906.md`
+    - verified reusable theorem adapter over existing T2/T4/T6 machinery;
+    - gives exact/coarse high-tail response certificates and observer-relative minimal future-safe repair rank;
+    - explicitly not a new top-level T-family.
 
 ## Deliberately not reverse-imported
 
