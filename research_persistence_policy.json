@@ -1,0 +1,81 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_PERSISTENCE_POLICY_V1",
+  "status": "ACTIVE_CANONICAL_PERSISTENCE_OVERRIDE",
+  "effective": "2026-09-06",
+  "scope": "enterprise-math research persistence only",
+  "purpose": "Prevent Enterprise Math research from existing durably only in the account-level GLOBAL_KNOWLEDGE journal while the project repository lacks the corresponding research frontier.",
+  "repositories": {
+    "project": "awdawmip/enterprise-math",
+    "account_knowledge": "awdawmip/chatgpt-global-knowledge"
+  },
+  "precedence": {
+    "rule": "This file is the narrower current authority for Enterprise Math research persistence. It overrides legacy wording that permits L1/L2/L3 research to remain REMOTE_SILENT across a semantic checkpoint or final substantive research response.",
+    "does_not_override": [
+      "mathematical truth gates",
+      "Working Truth authority",
+      "Foundation promotion authority",
+      "task publication authority",
+      "owner isolation",
+      "review or promotion gates"
+    ]
+  },
+  "invariants": [
+    "ENTERPRISE_MATH_PROJECT_REPOSITORY_IS_REQUIRED_DURABLE_RESEARCH_LANDING_ZONE",
+    "GLOBAL_KNOWLEDGE_JOURNAL_IS_MIRROR_OR_STAGING_NOT_PROJECT_REPOSITORY_SUBSTITUTE",
+    "SEMANTIC_RESEARCH_CHECKPOINT_REQUIRES_PROJECT_REPOSITORY_ARTIFACT",
+    "FINAL_SUBSTANTIVE_RESEARCH_RESPONSE_REQUIRES_PROJECT_REPOSITORY_DURABLE_FRONTIER_WHEN_CONNECTED_GITHUB_IS_AVAILABLE",
+    "ACCOUNT_JOURNAL_ONLY_IS_SYNC_DEBT_NOT_TERMINAL_SUCCESS",
+    "SYNC_DEBT_MUST_BE_REPAIRED_IN_THE_SAME_TURN_WHEN_CONNECTED_GITHUB_IS_AVAILABLE",
+    "VERIFIED_PROJECT_ARTIFACT_MUST_NOT_BE_DUPLICATED",
+    "PERSISTENCE_DOES_NOT_PROMOTE_MATHEMATICAL_STATUS"
+  ],
+  "semantic_checkpoint_triggers": [
+    "theorem or lemma candidate worth resuming",
+    "exact no-go or falsification",
+    "material finite experiment result",
+    "reusable implementation or checker checkpoint",
+    "research direction change or closed route",
+    "handoff or recovery frontier",
+    "terminal task result",
+    "final substantive research response containing new nontrivial progress"
+  ],
+  "remote_silence": {
+    "allowed": "Only inside an unfinished below-checkpoint computation when no durable handoff is yet required.",
+    "forbidden_across": [
+      "semantic checkpoint",
+      "handoff boundary",
+      "terminal or negative result",
+      "final substantive research response"
+    ]
+  },
+  "project_artifact_rule": {
+    "requirement": "Persist the smallest faithful project-native artifact authorized by the active research mode and owner/promotion rules.",
+    "examples": [
+      "research_notes/ research frontier note",
+      "experiments/ executable checkpoint",
+      "research_returns/ or task-local result artifact when required by the task contract",
+      "owner-branch checkpoint when main promotion is not yet authorized"
+    ],
+    "canonical_truth": "A persisted research artifact is provenance and durable frontier only; it is not automatically Foundation or canonical mathematical truth."
+  },
+  "global_knowledge_bridge": {
+    "journal_capture_first_allowed": true,
+    "journal_only_terminal_allowed": false,
+    "source_prefix": "journal/enterprise-math/",
+    "missing_project_representation_state": "SYNC_DEBT",
+    "deduplicate_by": [
+      "Progress-Event-ID",
+      "explicit source journal path",
+      "semantic equivalence to a verified current project artifact"
+    ],
+    "repair_rule": "Before treating the parent research objective as durably checkpointed, reconcile newly captured Enterprise Math journal events against current project artifacts and persist only missing semantic content."
+  },
+  "machine_freeze": {
+    "REMOTE_SILENT_BELOW_SEMANTIC_CHECKPOINT": true,
+    "REMOTE_SILENT_ACROSS_SEMANTIC_CHECKPOINT": false,
+    "PROJECT_ARTIFACT_REQUIRED_AT_SEMANTIC_CHECKPOINT": true,
+    "GLOBAL_JOURNAL_CAN_SUBSTITUTE_FOR_PROJECT_ARTIFACT": false,
+    "JOURNAL_ONLY_STATE": "SYNC_DEBT",
+    "PERSISTENCE_IMPLIES_PROMOTION": false
+  }
+}
