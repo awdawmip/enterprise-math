@@ -1,0 +1,57 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "RESEARCH_TOOLIZED_DOMAIN_OPERATOR",
+  "date": "2026-09-06",
+  "admission": {
+    "classification": "TASK_RESEARCH_TOOL_HARVEST",
+    "authority": "direct user continuation of the main-backed BRC multiplier program through Round 8",
+    "family_id": "T0_BRC",
+    "foundation_mutation": false,
+    "working_truth_promotion": false,
+    "new_global_tool_family": false,
+    "reason": "Compose the already-proved monotone multiplier state family and Round-7 vertical residue wheel with a latency-only multiplier permutation, while recording a new exact remainder-aware arbitrary-jump certificate and its performance boundary."
+  },
+  "methods": [
+    {
+      "method_id": "t0.brc_priority_vertical_scheduler",
+      "name": "BRC priority vertical scheduler / remainder-aware arbitrary-jump certificate",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_SAFE_COMPOSITION_PLUS_EXPERIMENTAL_PRIORITY",
+      "source_refs": [
+        "src/enterprise_math/brc_multiplier_priority_vertical.py",
+        "tests/test_brc_multiplier_priority_vertical.py",
+        "experiments/brc_priority_vertical_scheduler_benchmark.py",
+        "research_notes/BRC_PRIORITY_VERTICAL_SCHEDULER_20260906.md",
+        "research_artifacts/brc_priority_vertical_scheduler_20260906.csv"
+      ],
+      "api": [
+        "ArbitraryMultiplierJump",
+        "PriorityVerticalFactorWitness",
+        "remainder_aware_multiplier_jump",
+        "priority_ordered_multiplier_states",
+        "ordered_vertical_factor_witness_from_states",
+        "ordered_vertical_factor_witness",
+        "first_priority_vertical_factor_witness",
+        "first_ascending_vertical_factor_witness"
+      ],
+      "triggers": [
+        "multiplier priority",
+        "priority vertical search",
+        "BRC arbitrary multiplier jump",
+        "remainder-aware multiplier transport",
+        "vertical search scheduling",
+        "early factor witness"
+      ],
+      "capabilities": [
+        "exact arbitrary a->b multiplier jump through a retained remainder lower coordinate with at most one BRC basin correction for 1<=a,b<=100",
+        "compute the admissible monotone horizontal state family once and consume it in an arbitrary declared vertical-search order",
+        "priority-ordered vertical factor search preserving the same full finite multiplier x t rectangle",
+        "explicit ascending-order latency baseline",
+        "finite cross-scale priority-rank and runtime audit"
+      ],
+      "core_law": "If aN=J^2+R and sqrt(aN)=J+delta, then L=J+R/(2J+1) satisfies sqrt(aN)-L=delta(1-delta)/(2J+1). With beta=sqrt(b/a)<=10 and two extra dyadic predictor bits over the existing <=100 multiplier bound, floor(sqrt(bN)) differs from the lower dyadic prediction by at most one. For the default performance path, however, the complete monotone horizontal BRC state family is materialized once and only the expensive vertical-wheel evaluation is permuted by the experimental multiplier priority; this permutation preserves the declared finite rectangle exactly.",
+      "hard_boundary": "The current nu(m)^4/m priority is experimental and not a theorem. The arbitrary one-correction jump is exact but was slower than direct CPython isqrt on tested 10-state priority prefixes, so it is not the default fast path. Multiplier-Fermat/Lehman/Hart search and residue wheels remain classical prior art. Finite rank and timing gains do not imply asymptotic factoring improvement or Foundation promotion."
+    }
+  ]
+}
