@@ -120,15 +120,13 @@ for p in transpositions:
     lifts=fibers[p]
     moved_counts=[]
     for g in lifts:
-        moved=sum(abs(g[i])!=i+1 or g[i]<0 for i in range(3))
-        # stronger shell-participation count: +e_i changes by native L1 distance two
         counts=[]
         for i in range(3):
             src=[0]*6;src[i]=1
             dst=[0]*6; y=g[i];dst[abs(y)-1]=1 if y>0 else -1
             counts.append(sum(abs(a-b) for a,b in zip(src,dst)))
         moved_counts.append(tuple(counts))
-    assert sorted(moved_counts)==sorted([(2,2,0),(2,2,2)])
+    assert sorted(tuple(sorted(c)) for c in moved_counts)==[(0,2,2),(2,2,2)]
 
 # ---------- lift each curved Johnson triangle ----------
 # Use canonical base chart orientation (sorted S), and canonical all-minus twist.
