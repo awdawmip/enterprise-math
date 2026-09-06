@@ -2,18 +2,35 @@ from __future__ import annotations
 
 import random
 import unittest
-from math import isqrt
+from math import gcd, isqrt
 
 from enterprise_math.brc_multiplier_priority_jump import (
     admissible_same_parity_factor_pair_count,
     direct_multiplier_jump_from_one,
     odd_n_multiplier_is_difference_square_feasible,
+    odd_n_multiplier_is_scan_irredundant,
+    odd_n_multiplier_scan_representative,
     prioritized_odd_multiplier_order,
 )
 
 
+def _immediate_factor_witness(n: int, multiplier: int) -> tuple[int, int, int] | None:
+    target = multiplier * n
+    x = isqrt(target)
+    if x * x < target:
+        x += 1
+    gap = x * x - target
+    y = isqrt(gap)
+    if y * y != gap:
+        return None
+    factor = gcd(x - y, n)
+    if 1 < factor < n:
+        return x, y, factor
+    return None
+
+
 class BRCMultiplierPriorityJumpTests(unittest.TestCase):
-    def test_mod4_skip_rule(self) -> None:
+    def test_mod4_feasibility_rule(self) -> None:
         for m in range(1, 101):
             self.assertEqual(
                 odd_n_multiplier_is_difference_square_feasible(m),
@@ -24,17 +41,55 @@ class BRCMultiplierPriorityJumpTests(unittest.TestCase):
             25,
         )
 
+    def test_mod8_scan_irredundant_rule(self) -> None:
+        allowed = {0, 1, 3, 5, 7}
+        for m in range(1, 101):
+            self.assertEqual(
+                odd_n_multiplier_is_scan_irredundant(m),
+                m % 8 in allowed,
+            )
+        self.assertEqual(
+            sum(1 for m in range(1, 101) if odd_n_multiplier_is_scan_irredundant(m)),
+            62,
+        )
+        self.assertEqual(odd_n_multiplier_scan_representative(4), 1)
+        self.assertEqual(odd_n_multiplier_scan_representative(12), 3)
+        self.assertEqual(odd_n_multiplier_scan_representative(20), 5)
+        self.assertEqual(odd_n_multiplier_scan_representative(100), 25)
+        self.assertIsNone(odd_n_multiplier_scan_representative(6))
+        self.assertEqual(odd_n_multiplier_scan_representative(8), 8)
+
+    def test_mod8_redundancy_preserves_actual_factor_witness(self) -> None:
+        # Exhaustive bounded regression over odd N and m == 4 mod 8. Whenever
+        # the larger multiplier actually exposes a proper gcd factor, m/4 must
+        # already expose the same factor.
+        witnessed = 0
+        for n in range(3, 2000, 2):
+            for m in range(4, 101, 8):
+                witness = _immediate_factor_witness(n, m)
+                if witness is None:
+                    continue
+                witnessed += 1
+                reduced = _immediate_factor_witness(n, m // 4)
+                self.assertIsNotNone(reduced)
+                assert reduced is not None
+                self.assertEqual(reduced[2], witness[2])
+        self.assertGreater(witnessed, 0)
+
     def test_admissible_pair_count_examples(self) -> None:
         self.assertEqual(admissible_same_parity_factor_pair_count(1), 1)
         self.assertEqual(admissible_same_parity_factor_pair_count(45), 3)
         self.assertEqual(admissible_same_parity_factor_pair_count(96), 4)
         self.assertEqual(admissible_same_parity_factor_pair_count(6), 0)
 
-    def test_priority_order_is_exact_feasible_set(self) -> None:
+    def test_priority_order_is_exact_scan_complete_set(self) -> None:
         order = prioritized_odd_multiplier_order(100)
         self.assertEqual(order[0], 1)
-        self.assertEqual(len(order), 75)
-        self.assertEqual(set(order), {m for m in range(1, 101) if m % 4 != 2})
+        self.assertEqual(len(order), 62)
+        self.assertEqual(
+            set(order),
+            {m for m in range(1, 101) if m % 8 in (0, 1, 3, 5, 7)},
+        )
         scores = [admissible_same_parity_factor_pair_count(m) for m in order[1:]]
         self.assertTrue(all(a >= b for a, b in zip(scores, scores[1:])))
 
