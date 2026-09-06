@@ -1,645 +1,66 @@
 #!/usr/bin/env python3
-"""Canonical immutable-V2 Enterprise Math dispatch view.
+"""Canonical immutable-V2 Enterprise Math dispatch compatibility wrapper.
 
-Task definitions come only from current immutable V2 publication records. Issue
-#240 events are accepted only through authenticated GitHub comment envelopes and
-are reduced by tools/research_runtime_reducer.py. No task-table or pre-V2
-definition fallback is present on main.
+The pre-fix implementation is preserved byte-for-byte in
+``control_plane.research_dispatch_core``. This public entrypoint keeps the same
+API while repairing two reopen-path compatibility defects:
+
+1. an authorized CLAIM admitted after a nonterminal Driver review must remain the
+   live owner when the reducer already reports a valid ``LEASED`` state; and
+2. legacy/runtime-guard callers of ``_filter_registered_events`` that omit an
+   explicit Result lifecycle view must receive the same canonical lifecycle gate,
+   rather than failing by arity or bypassing the frozen-result interval.
+
+No priority, lease duration, Driver disposition, terminalization, or task-selection
+policy is changed here. The wrapper only preserves authority that the core reducer
+and Result lifecycle gate have already accepted.
 """
 from __future__ import annotations
 
-import argparse
 import copy
-import hashlib
-import json
-import re
-from contextlib import contextmanager
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-try:
-    from tools import research_cohort_runtime
-    from tools import research_execution_records
-    from tools import research_result_records
-    from tools import research_runtime_reducer
-    from tools import research_task_records
-    from tools import research_taskbook
-except ModuleNotFoundError:
-    import research_cohort_runtime  # type: ignore
-    import research_execution_records  # type: ignore
-    import research_result_records  # type: ignore
-    import research_runtime_reducer  # type: ignore
-    import research_task_records  # type: ignore
-    import research_taskbook  # type: ignore
+from control_plane import research_dispatch_core as _core
 
-ROOT = Path(__file__).resolve().parents[1]
-RUNTIME_POLICY = ROOT / "research_runtime_policy_v2.json"
-CONTROL_AUTHORIZATION = ROOT / "research_control_event_authorization.json"
-EVENT_SCHEMA = "ENTERPRISE_MATH_SCHEDULER_EVENT_V1"
-CONTROL_AUTH_SCHEMA = "ENTERPRISE_MATH_CONTROL_EVENT_AUTHORIZATION_V1"
-GITHUB_META_KEY = "_github"
-GITHUB_ISSUE_URL = "https://api.github.com/repos/awdawmip/enterprise-math/issues/240"
+ROOT = _core.ROOT
+DispatchError = _core.DispatchError
 
-
-class DispatchError(ValueError):
-    pass
-
-
-def load_json(path: Path) -> dict[str, Any]:
-    return json.loads(path.read_text(encoding="utf-8"))
-
-
-def control_authorization_policy(root: Path = ROOT) -> dict[str, Any]:
-    path = root / "research_control_event_authorization.json"
-    try:
-        policy = load_json(path)
-    except Exception as exc:
-        raise DispatchError(f"cannot load control-event authorization policy: {exc}") from exc
-    if policy.get("schema") != CONTROL_AUTH_SCHEMA:
-        raise DispatchError("unexpected control-event authorization schema")
-    if policy.get("status") != "ACTIVE_CANONICAL":
-        raise DispatchError("control-event authorization policy must be ACTIVE_CANONICAL")
-    if policy.get("repository") != "awdawmip/enterprise-math" or policy.get("issue") != 240:
-        raise DispatchError("control-event authorization policy repository/issue boundary drifted")
-    if policy.get("mode") != "EXACT_SERVER_AUTHOR_ALLOWLIST":
-        raise DispatchError("unsupported control-event authorization mode")
-    authors = policy.get("authorized_server_authors")
-    if not isinstance(authors, list) or not authors:
-        raise DispatchError("control-event authorization allowlist must be nonempty")
-    for index, item in enumerate(authors):
-        if not isinstance(item, dict):
-            raise DispatchError(f"authorized_server_authors[{index}] must be an object")
-        if not isinstance(item.get("login"), str) or not item["login"].strip():
-            raise DispatchError(f"authorized_server_authors[{index}].login is required")
-        if type(item.get("user_id")) is not int or item["user_id"] <= 0:
-            raise DispatchError(f"authorized_server_authors[{index}].user_id must be positive integer")
-        associations = item.get("author_association")
-        if (
-            not isinstance(associations, list)
-            or not associations
-            or any(not isinstance(value, str) or not value.strip() for value in associations)
-        ):
-            raise DispatchError(
-                f"authorized_server_authors[{index}].author_association must be a nonempty string list"
-            )
-    return policy
-
-
-def control_event_authorized(comment: dict[str, Any], *, root: Path = ROOT) -> bool:
-    """Authorize the GitHub server actor without trusting event-body identity."""
-    policy = control_authorization_policy(root)
-    user = comment.get("user")
-    if not isinstance(user, dict):
-        return False
-    login = user.get("login")
-    user_id = user.get("id")
-    association = comment.get("author_association")
-    if not isinstance(login, str) or type(user_id) is not int or not isinstance(association, str):
-        return False
-    for entry in policy["authorized_server_authors"]:
-        if (
-            login == entry["login"]
-            and user_id == entry["user_id"]
-            and association in entry["author_association"]
-        ):
-            return True
-    return False
-
-
-def _parse_taskbook(record: dict[str, Any], root: Path) -> dict[str, Any]:
-    path_value = record.get("taskbook_path")
-    if not isinstance(path_value, str) or not path_value:
-        raise DispatchError(f"{record.get('task_id')}: task record missing taskbook_path")
-    path = root / path_value
-    if not path.exists():
-        raise DispatchError(f"{record.get('task_id')}: taskbook does not exist")
-    meta, _ = research_taskbook.split_taskbook(path.read_text(encoding="utf-8"))
-    if meta.get("task_id") != record.get("task_id"):
-        raise DispatchError(f"{record.get('task_id')}: taskbook task_id mismatch")
-    return meta
-
-
-def registered_definition(record: dict[str, Any], root: Path = ROOT) -> dict[str, Any]:
-    meta = _parse_taskbook(record, root)
-    state = str(meta.get("base_state") or "READY")
-    if record.get("claimable") is True and state in {"DRAFT", "BACKLOG"}:
-        state = "READY"
-    if state not in {"BACKLOG", "READY", "HANDOFF_READY", "BLOCKED", "DONE", "SUPERSEDED"}:
-        state = "READY" if record.get("claimable") is True else "BACKLOG"
-    last_progress_at = meta.get("last_progress_at") or record.get("published_at")
-    if not isinstance(last_progress_at, str) or not last_progress_at:
-        last_progress_at = "1970-01-01T00:00:00+00:00"
-    return {
-        "task_id": record["task_id"],
-        "title": meta.get("title", record["task_id"]),
-        "kind": record.get("kind", meta.get("kind", "RESEARCH")),
-        "owner": record.get("owner", meta.get("owner", "taskbook/unassigned")),
-        "base_state": state,
-        "priority": record.get("effective_priority", meta.get("priority", "P2")),
-        "leverage": record.get("effective_leverage", meta.get("leverage", "MEDIUM")),
-        "frontier": record.get("frontier", meta.get("frontier", "")),
-        "next_action": record.get("next_action", meta.get("next_action", "")),
-        "dependencies": copy.deepcopy(meta.get("dependencies", [])),
-        "source_refs": copy.deepcopy(meta.get("source_refs", [])),
-        "evidence_status": meta.get("evidence_status", "REGISTERED_TASK"),
-        "last_progress_ref": meta.get("last_progress_ref") or record.get("publication_id"),
-        "last_progress_at": last_progress_at,
-        "hard_block": copy.deepcopy(meta.get("hard_block")),
-        "tags": copy.deepcopy(meta.get("tags", [])),
-        "claim_lease_minutes": int(meta.get("claim_lease_minutes") or 120),
-        "identity_lane": meta.get("identity_lane"),
-        "publication_id": record.get("publication_id"),
-        "taskbook_blob_sha1": record.get("taskbook_blob_sha1"),
-        "registration_source": "IMMUTABLE_TASK_RECORD",
-    }
-
-
-def merged_definitions(root: Path = ROOT) -> list[dict[str, Any]]:
-    by_id: dict[str, dict[str, Any]] = {}
-    for task_id, record in research_task_records.current_records(root).items():
-        by_id[task_id] = registered_definition(record, root)
-    return [by_id[key] for key in sorted(by_id)]
-
-
-def _is_registered(task: dict[str, Any]) -> bool:
-    return task.get("registration_source") == "IMMUTABLE_TASK_RECORD"
-
-
-def _server_time(value: Any, field: str) -> datetime:
-    if not isinstance(value, str) or not value.strip():
-        raise DispatchError(f"GitHub comment {field} is required")
-    try:
-        return research_runtime_reducer.parse_time(value)
-    except Exception as exc:
-        raise DispatchError(f"GitHub comment {field} is invalid") from exc
-
-
-def github_comment_event(
-    comment: dict[str, Any], *, root: Path = ROOT
-) -> dict[str, Any] | None:
-    """Convert one raw GitHub Issue #240 comment into an authenticated event.
-
-    Non-event human comments return None. Event JSON receives a server envelope.
-    The body-provided actor/at remain descriptive provenance only; comment id
-    orders the stream, GitHub created_at is the reducer clock, and control authority
-    is independently derived from the exact server actor allowlist.
-    """
-    body = comment.get("body")
-    if not isinstance(body, str):
-        return None
-    try:
-        payload = json.loads(body)
-    except json.JSONDecodeError:
-        return None
-    if not isinstance(payload, dict) or payload.get("schema") != EVENT_SCHEMA:
-        return None
-
-    comment_id = comment.get("id")
-    if type(comment_id) is not int or comment_id <= 0:
-        raise DispatchError("scheduler event comment requires positive GitHub comment id")
-    issue_url = comment.get("issue_url")
-    if issue_url != GITHUB_ISSUE_URL:
-        raise DispatchError("scheduler event comment must come from Enterprise Math Issue #240")
-    user = comment.get("user")
-    author_login = user.get("login") if isinstance(user, dict) else None
-    author_user_id = user.get("id") if isinstance(user, dict) else None
-    if not isinstance(author_login, str) or not author_login.strip():
-        raise DispatchError("scheduler event comment requires GitHub author login")
-    created = _server_time(comment.get("created_at"), "created_at")
-    updated = _server_time(comment.get("updated_at"), "updated_at")
-    app = comment.get("performed_via_github_app")
-    app_slug = app.get("slug") if isinstance(app, dict) and isinstance(app.get("slug"), str) else None
-
-    normalized = copy.deepcopy(payload)
-    if "at" in normalized:
-        normalized["_declared_at"] = normalized.get("at")
-    if "actor" in normalized:
-        normalized["_declared_actor"] = normalized.get("actor")
-    normalized["at"] = created.isoformat()
-    normalized[GITHUB_META_KEY] = {
-        "server_authenticated": True,
-        "issue_number": 240,
-        "comment_id": comment_id,
-        "author_login": author_login,
-        "author_user_id": author_user_id,
-        "author_association": comment.get("author_association"),
-        "control_authorized": control_event_authorized(comment, root=root),
-        "created_at": created.isoformat(),
-        "updated_at": updated.isoformat(),
-        "body_sha256": "sha256:" + hashlib.sha256(body.encode("utf-8")).hexdigest(),
-        "edited": updated != created,
-        "performed_via_github_app": app_slug,
-    }
-    return normalized
-
-
-def events_from_github_comments(
-    comments: list[dict[str, Any]], *, root: Path = ROOT
-) -> list[dict[str, Any]]:
-    """Extract Issue #240 events in authoritative GitHub comment-id order."""
-    ids: set[int] = set()
-    ordered: list[dict[str, Any]] = []
-    for comment in comments:
-        if not isinstance(comment, dict):
-            raise DispatchError("GitHub comment export must contain objects")
-        comment_id = comment.get("id")
-        if type(comment_id) is not int or comment_id <= 0:
-            raise DispatchError("GitHub comment export contains invalid comment id")
-        if comment_id in ids:
-            raise DispatchError(f"duplicate GitHub comment id: {comment_id}")
-        ids.add(comment_id)
-        ordered.append(comment)
-    ordered.sort(key=lambda item: item["id"])
-    events: list[dict[str, Any]] = []
-    for comment in ordered:
-        event = github_comment_event(comment, root=root)
-        if event is not None:
-            events.append(event)
-    return events
-
-
-def _event_authentication_filter(
-    task: dict[str, Any], events: list[dict[str, Any]]
-) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
-    """Fail closed unless a live event carries an authorized server envelope."""
-    accepted: list[dict[str, Any]] = []
-    rejected: list[dict[str, Any]] = []
-    for index, event in enumerate(events):
-        if event.get("task_id") != task.get("task_id"):
-            accepted.append(event)
-            continue
-        meta = event.get(GITHUB_META_KEY)
-        if not isinstance(meta, dict) or meta.get("server_authenticated") is not True:
-            rejected.append({
-                "index": index,
-                "reason": "runtime event requires server-authenticated GitHub Issue #240 comment envelope",
-            })
-            continue
-        if meta.get("issue_number") != 240 or type(meta.get("comment_id")) is not int:
-            rejected.append({
-                "index": index,
-                "reason": "GitHub event envelope issue/comment identity is invalid",
-            })
-            continue
-        if meta.get("control_authorized") is not True:
-            rejected.append({
-                "index": index,
-                "reason": "GitHub event author is authenticated but not authorized for control-plane mutation",
-            })
-            continue
-        if meta.get("edited") is True:
-            rejected.append({
-                "index": index,
-                "reason": "edited runtime event is not authority; append a correction event",
-            })
-            continue
-        accepted.append(event)
-    return accepted, rejected
-
-
-def _inline_claim_envelope(
-    task: dict[str, Any], event: dict[str, Any]
-) -> tuple[dict[str, Any] | None, str | None]:
-    """Validate one self-contained registered CLAIM without another repo write."""
-    claim_id = event.get("claim_id")
-    if not isinstance(claim_id, str) or not claim_id:
-        return None, "registered CLAIM requires claim_id"
-    if event.get("publication_id") != task.get("publication_id"):
-        return None, "registered CLAIM publication_id does not match current task publication"
-    theorem_owner = event.get("theorem_owner")
-    if not isinstance(theorem_owner, str) or not theorem_owner.strip():
-        return None, "registered CLAIM requires theorem_owner"
-    execution_branch = event.get("execution_branch")
-    if not isinstance(execution_branch, str) or not execution_branch.strip():
-        return None, "registered CLAIM requires execution_branch"
-    execution_branch_base = event.get("execution_branch_base")
-    if not isinstance(execution_branch_base, str) or not re.fullmatch(
-        r"[0-9a-fA-F]{40}", execution_branch_base.strip()
-    ):
-        return None, "registered CLAIM requires a 40-hex execution_branch_base"
-    allowed_outputs = event.get("allowed_outputs")
-    if (
-        not isinstance(allowed_outputs, list)
-        or not allowed_outputs
-        or any(not isinstance(item, str) or not item.strip() for item in allowed_outputs)
-        or len(set(allowed_outputs)) != len(allowed_outputs)
-    ):
-        return None, "registered CLAIM requires unique nonempty allowed_outputs"
-    lease = event.get("lease_minutes", task.get("claim_lease_minutes", 120))
-    if type(lease) is not int or lease <= 0:
-        return None, "registered CLAIM lease_minutes must be a positive integer"
-    supplied = event.get("researcher_id")
-    if supplied is None:
-        try:
-            researcher_id = research_runtime_reducer.researcher_id_for_claim(task, claim_id)
-        except Exception as exc:
-            return None, f"registered CLAIM could not derive researcher_id: {exc}"
-    elif not research_runtime_reducer.valid_researcher_id(supplied):
-        return None, "registered CLAIM researcher_id has invalid format"
-    else:
-        researcher_id = str(supplied).strip().upper()
-    normalized = copy.deepcopy(event)
-    normalized["researcher_id"] = researcher_id
-    normalized["lease_minutes"] = lease
-    normalized["taskbook_blob_sha1"] = task.get("taskbook_blob_sha1")
-    normalized["execution_branch_base"] = execution_branch_base.lower()
-    return normalized, None
-
-
-def _lifecycle_time(value: Any, field: str) -> datetime:
-    if not isinstance(value, str) or not value.strip():
-        raise DispatchError(f"result lifecycle {field} is required")
-    try:
-        return research_runtime_reducer.parse_time(value)
-    except Exception as exc:
-        raise DispatchError(f"result lifecycle {field} is invalid") from exc
-
-
-def _result_freeze_time(
-    result_state: dict[str, Any] | None, root: Path
-) -> datetime | None:
-    """Return the newest trusted freeze boundary for the current result generation."""
-    if result_state is None:
-        return None
-    values: list[datetime] = []
-    result = result_state.get("result")
-    result_ids: set[str] = set()
-    if isinstance(result, dict):
-        frozen_at = result.get("frozen_at")
-        if isinstance(frozen_at, str) and frozen_at.strip():
-            values.append(_lifecycle_time(frozen_at, "frozen_at"))
-        result_id = result.get("result_id")
-        if isinstance(result_id, str) and result_id:
-            result_ids.add(result_id)
-        parallel_ids = result.get("parallel_result_ids")
-        if isinstance(parallel_ids, list):
-            result_ids.update(item for item in parallel_ids if isinstance(item, str) and item)
-    parallel_ids = result_state.get("parallel_result_ids")
-    if isinstance(parallel_ids, list):
-        result_ids.update(item for item in parallel_ids if isinstance(item, str) and item)
-
-    # Parallel/synthetic control states may not copy frozen_at onto the synthetic
-    # result. Recover the boundary from the immutable component result records.
-    if result_ids:
-        try:
-            records = research_result_records.iter_results(root)
-        except Exception as exc:
-            raise DispatchError(f"result lifecycle record lookup failed: {exc}") from exc
-        for item in records:
-            if item.get("result_id") not in result_ids:
-                continue
-            frozen_at = item.get("frozen_at")
-            if isinstance(frozen_at, str) and frozen_at.strip():
-                values.append(_lifecycle_time(frozen_at, "frozen_at"))
-    return max(values) if values else None
-
-
-def _claim_result_gate_reason(
-    event: dict[str, Any],
-    result_state: dict[str, Any] | None,
-    root: Path,
-) -> str | None:
-    """Reject only CLAIMs inside the current frozen-result lifecycle interval.
-
-    Historical CLAIMs before the newest result freeze remain canonical. A normal
-    nonterminal Driver review reopens admission at its authoritative reviewed_at.
-    Terminal review never reopens the task. The server-created comment timestamp,
-    never body-declared `at`, is the claim clock.
-    """
-    frozen_at = _result_freeze_time(result_state, root)
-    if frozen_at is None or result_state is None:
-        return None
-    meta = event.get(GITHUB_META_KEY)
-    if not isinstance(meta, dict):
-        return "registered CLAIM under result lifecycle control requires authenticated GitHub metadata"
-    created_at = meta.get("created_at")
-    try:
-        claim_at = _lifecycle_time(created_at, "GitHub created_at")
-    except DispatchError as exc:
-        return str(exc)
-    if claim_at < frozen_at:
-        return None
-
-    state = result_state.get("state")
-    if state == "RETURN_TO_EXECUTION":
-        review = result_state.get("review")
-        reviewed_at = review.get("reviewed_at") if isinstance(review, dict) else None
-        if isinstance(reviewed_at, str) and reviewed_at.strip():
-            try:
-                reopened_at = _lifecycle_time(reviewed_at, "reviewed_at")
-            except DispatchError as exc:
-                return str(exc)
-            if claim_at >= reopened_at:
-                return None
-            return (
-                "registered CLAIM falls inside the frozen-result interval before the authoritative "
-                "nonterminal Driver review reopened execution"
-            )
-        if result_state.get("parallel_state") == "PARALLEL_SYNTHESIS_NONTERMINAL":
-            # Parallel task-global ownership is separately isolated by the cohort
-            # reducer; its synthesis compatibility view has no reviewed_at field.
-            return None
-        return "registered CLAIM cannot reopen frozen execution without an authoritative Driver review time"
-
-    if state == "TERMINAL":
-        return "registered CLAIM was created after the current result freeze and the task is terminal"
-    if state == "AWAITING_DRIVER_REVIEW":
-        return "registered CLAIM was created after the current result freeze while Driver review is pending"
-    return "registered CLAIM was created after the current result freeze without an explicit reopen state"
-
-
-V2_TASK_PUBLICATION_CUTOVER = datetime(2026, 8, 28, tzinfo=timezone.utc)
-
-
-def _claimless_generation_gate_reason(
-    task: dict[str, Any], event: dict[str, Any]
-) -> str | None:
-    """Bind claimless registered mutations to the current task generation.
-
-    CLAIM already carries an exact publication binding and claim-bound mutations
-    inherit that live owner scope. UNBLOCK and SUPERSEDE have no claim identity,
-    so after the V2 cutover they must name the exact operational publication.
-    Pre-cutover publicationless events remain available to the legacy migration
-    replay path; an explicitly mismatched publication is never accepted.
-    """
-    kind = event.get("event")
-    if kind not in {"UNBLOCK", "SUPERSEDE"}:
-        return None
-    expected = task.get("publication_id")
-    supplied = event.get("publication_id")
-    if supplied is not None:
-        if not isinstance(expected, str) or not expected or supplied != expected:
-            return f"registered {kind} publication_id does not match current task publication"
-        return None
-    meta = event.get(GITHUB_META_KEY)
-    created_at = meta.get("created_at") if isinstance(meta, dict) else None
-    try:
-        created = _lifecycle_time(created_at, "GitHub created_at")
-    except DispatchError as exc:
-        return str(exc)
-    if created >= V2_TASK_PUBLICATION_CUTOVER:
-        return f"registered {kind} requires publication_id after V2 task-publication cutover"
-    return None
+_ORIGINAL_OVERLAY_RESULT_STATE = _core._overlay_result_state
+_ORIGINAL_FILTER_REGISTERED_EVENTS = _core._filter_registered_events
+_AUTO_RESULT_STATE = object()
 
 
 def _filter_registered_events(
     task: dict[str, Any],
     events: list[dict[str, Any]],
     root: Path,
-    result_state: dict[str, Any] | None,
+    result_state: dict[str, Any] | None | object = _AUTO_RESULT_STATE,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
-    if not _is_registered(task):
-        return events, []
-    terminal_result_id = None
-    if result_state is not None and result_state.get("terminal") is True:
-        terminal_result_id = result_state["result"].get("result_id")
-    accepted: list[dict[str, Any]] = []
-    rejected: list[dict[str, Any]] = []
-    for index, event in enumerate(events):
-        if event.get("task_id") != task["task_id"]:
-            accepted.append(event)
-            continue
-        kind = event.get("event")
-        generation_reason = _claimless_generation_gate_reason(task, event)
-        if generation_reason is not None:
-            rejected.append({"index": index, "reason": generation_reason})
-            continue
-        if kind == "CLAIM":
-            claim_id = event.get("claim_id")
-            if not isinstance(claim_id, str) or not claim_id:
-                accepted.append(event)
-                continue
+    """Apply the registered-event lifecycle gate with backward-compatible arity.
 
-            lifecycle_reason = _claim_result_gate_reason(event, result_state, root)
-            if lifecycle_reason is not None:
-                rejected.append({"index": index, "reason": lifecycle_reason})
-                continue
-
-            try:
-                intent = research_execution_records.intent_for_claim(task["task_id"], claim_id, root)
-            except Exception as exc:
-                rejected.append({"index": index, "reason": f"execution intent lookup failed: {exc}"})
-                continue
-            if intent is not None:
-                supplied = event.get("researcher_id")
-                if supplied is not None and str(supplied).strip().upper() != intent["researcher_id"]:
-                    rejected.append({
-                        "index": index,
-                        "reason": "registered CLAIM researcher_id does not match execution intent",
-                    })
-                    continue
-                normalized = copy.deepcopy(event)
-                normalized["researcher_id"] = intent["researcher_id"]
-                # Historical execution intents may predate owner_lease_minutes.
-                # Preserve an authenticated CLAIM-provided lease unchanged; only
-                # consult the intent when the CLAIM omitted it.  If both are
-                # absent, reject rather than inventing a lease.
-                if "lease_minutes" not in normalized:
-                    intent_lease = intent.get("owner_lease_minutes")
-                    if type(intent_lease) is not int or intent_lease <= 0:
-                        rejected.append({
-                            "index": index,
-                            "reason": (
-                                "registered CLAIM and historical execution intent both "
-                                "omit a positive owner lease"
-                            ),
-                        })
-                        continue
-                    normalized["lease_minutes"] = intent_lease
-                accepted.append(normalized)
-                continue
-
-            normalized, reason = _inline_claim_envelope(task, event)
-            if normalized is None:
-                rejected.append({
-                    "index": index,
-                    "reason": reason or "registered CLAIM execution envelope is invalid",
-                })
-                continue
-            accepted.append(normalized)
-            continue
-        if kind == "DONE":
-            if not terminal_result_id:
-                rejected.append({
-                    "index": index,
-                    "reason": "registered DONE requires a frozen result with terminal Driver review",
-                })
-                continue
-            if event.get("result_id") != terminal_result_id:
-                rejected.append({
-                    "index": index,
-                    "reason": "registered DONE result_id does not match terminal reviewed result",
-                })
-                continue
-        accepted.append(event)
-    return accepted, rejected
-
-
-def _block_unreviewed_registered_done(
-    task: dict[str, Any],
-    state: dict[str, Any],
-    authenticated: list[dict[str, Any]],
-    registered_rejected: list[dict[str, Any]],
-    result_state: dict[str, Any] | None,
-    reduced_task_events: list[dict[str, Any]] | None = None,
-    reducer_ignored_indices: set[int] | None = None,
-) -> dict[str, Any]:
-    """Fail closed when an authenticated DONE lacks terminal result authority.
-
-    The rejected DONE is not promoted to completion.  It only prevents the same
-    task from falling back to fresh dispatch while its attempted terminal closure
-    is unresolved.  A trusted Result/Driver lifecycle overlay, an active lease,
-    or an active cohort remains authoritative and is never replaced by this guard.
+    Canonical dispatch already supplies ``result_state`` explicitly. Older runtime
+    guard callers supplied only ``task, events, root``. For those callers, resolve
+    the same immutable Result/Driver state here so execution authorization cannot
+    bypass a frozen-result interval and cannot fail merely because the helper grew
+    a lifecycle parameter.
     """
-    if result_state is not None or state.get("dispatch_state") != "NEEDS_DISPATCH":
-        return state
-    reason_text = "registered DONE requires a frozen result with terminal Driver review"
-    for rejected in registered_rejected:
-        if rejected.get("reason") != reason_text:
-            continue
-        index = rejected.get("index")
-        if type(index) is not int or index < 0 or index >= len(authenticated):
-            continue
-        event = authenticated[index]
-        if event.get("task_id") != task.get("task_id") or event.get("event") != "DONE":
-            continue
-        meta = event.get(GITHUB_META_KEY)
-        rejected_comment_id = meta.get("comment_id") if isinstance(meta, dict) else None
-        ignored = reducer_ignored_indices or set()
-        if type(rejected_comment_id) is int and reduced_task_events is not None:
-            later_applied = False
-            for reduced_index, reduced_event in enumerate(reduced_task_events):
-                if reduced_index in ignored:
-                    continue
-                reduced_meta = reduced_event.get(GITHUB_META_KEY)
-                reduced_comment_id = (
-                    reduced_meta.get("comment_id") if isinstance(reduced_meta, dict) else None
-                )
-                if type(reduced_comment_id) is int and reduced_comment_id > rejected_comment_id:
-                    later_applied = True
-                    break
-            if later_applied:
-                # A later authoritative event actually changed/extended the same
-                # runtime stream. The provisional terminal attempt is historical
-                # audit evidence, not a permanent redispatch barrier.
-                continue
-        value = copy.deepcopy(state)
-        value["state"] = "BLOCKED"
-        value["dispatch_state"] = "BLOCKED"
-        value["hard_block"] = {
-            "code": "REGISTERED_DONE_REQUIRES_TERMINAL_DRIVER_REVIEW",
-            "publication_id": task.get("publication_id"),
-            "claim_id": event.get("claim_id"),
-            "progress_ref": event.get("progress_ref"),
-            "server_comment_id": meta.get("comment_id") if isinstance(meta, dict) else None,
-        }
-        value["next_action"] = (
-            "Materialize/freeze the Result and obtain terminal Driver review, or append an "
-            "authorized correction event; do not redispatch this task."
-        )
-        return value
-    return state
+    if result_state is _AUTO_RESULT_STATE:
+        resolved: dict[str, Any] | None = None
+        if _core._is_registered(task):
+            publication_id = task.get("publication_id")
+            resolved = _core.research_result_records.task_result_state(
+                task["task_id"],
+                root,
+                publication_id if isinstance(publication_id, str) else None,
+            )
+        result_state = resolved
+    return _ORIGINAL_FILTER_REGISTERED_EVENTS(
+        task,
+        events,
+        root,
+        result_state if isinstance(result_state, dict) else None,
+    )
 
 
 def _overlay_result_state(
@@ -648,319 +69,51 @@ def _overlay_result_state(
     root: Path,
     result_state: dict[str, Any] | None,
 ) -> dict[str, Any]:
-    if not _is_registered(task):
-        return state
-    if result_state is None:
-        return state
-    value = copy.deepcopy(state)
-    result = result_state["result"]
-    review = result_state.get("review")
-    value["result_id"] = result.get("result_id")
-    value["result_record_path"] = result.get("_record_path")
-    if result_state["state"] == "AWAITING_DRIVER_REVIEW":
-        value["state"] = "FROZEN_RETURN"
-        value["dispatch_state"] = "AWAITING_REVIEW"
-        value["next_action"] = "Driver review required before terminal closure or researcher redispatch"
-        return value
-    if result_state["state"] == "RETURN_TO_EXECUTION":
-        value["state"] = "HANDOFF_READY"
-        value["dispatch_state"] = "NEEDS_DISPATCH"
-        value["claim_id"] = None
-        value["actor"] = None
-        value["researcher_id"] = None
-        value["identity_source"] = None
-        value["lease_until"] = None
-        value["driver_disposition"] = review.get("disposition") if review else None
+    """Preserve a reducer-accepted live owner across a nonterminal reopen.
+
+    ``_claim_result_gate_reason`` already rejects CLAIMs created inside the frozen
+    interval and admits CLAIMs at or after the authoritative ``reviewed_at`` of a
+    nonterminal Driver review. Therefore a reducer output of ``LEASED`` here is
+    already a live, post-reopen owner. Clearing it in the Result overlay creates a
+    permanent CLAIM_NEW_OWNER loop and contradicts that lifecycle gate.
+    """
+    if (
+        _core._is_registered(task)
+        and isinstance(result_state, dict)
+        and result_state.get("state") == "RETURN_TO_EXECUTION"
+        and state.get("dispatch_state") == "LEASED"
+        and isinstance(state.get("claim_id"), str)
+        and bool(state.get("claim_id"))
+    ):
+        value = copy.deepcopy(state)
+        result = result_state.get("result")
+        review = result_state.get("review")
+        if isinstance(result, dict):
+            value["result_id"] = result.get("result_id")
+            value["result_record_path"] = result.get("_record_path")
+        value["driver_disposition"] = (
+            review.get("disposition") if isinstance(review, dict) else None
+        )
         value["next_action"] = "Resume task under Driver disposition"
         return value
-    if result_state["state"] == "TERMINAL":
-        value["state"] = "DONE"
-        value["dispatch_state"] = "COMPLETE"
-        value["claim_id"] = None
-        value["actor"] = None
-        value["researcher_id"] = None
-        value["identity_source"] = None
-        value["lease_until"] = None
-        value["driver_disposition"] = review.get("disposition") if review else None
-        value["review_id"] = review.get("review_id") if review else None
-        return value
-    return value
+    return _ORIGINAL_OVERLAY_RESULT_STATE(task, state, root, result_state)
 
 
-def _overlay_active_cohort(
-    task: dict[str, Any], state: dict[str, Any], root: Path
-) -> dict[str, Any]:
-    if not _is_registered(task):
-        return state
-    try:
-        cohort_state = research_cohort_runtime.task_active_cohort_state(task["task_id"], root)
-    except Exception as exc:
-        raise DispatchError(f"{task['task_id']}: active cohort state invalid: {exc}") from exc
-    if cohort_state is None:
-        return state
-    value = copy.deepcopy(state)
-    prior_claim = value.get("claim_id")
-    if prior_claim:
-        value["suppressed_task_global_claim"] = {
-            "claim_id": prior_claim,
-            "actor": value.get("actor"),
-            "researcher_id": value.get("researcher_id"),
-            "lease_until": value.get("lease_until"),
-        }
-    value["state"] = "PARALLEL_COHORT"
-    value["dispatch_state"] = "COHORT_ACTIVE"
-    value["claim_id"] = None
-    value["actor"] = None
-    value["researcher_id"] = None
-    value["identity_source"] = None
-    value["lease_until"] = None
-    value["active_cohort_state"] = cohort_state
-    value["next_action"] = (
-        "Route ownership through tools/research_lane_dispatch.py; task-global registered CLAIM is disabled while cohort remains ACTIVE"
-    )
-    return value
+# Patch the preserved core because functions such as effective_states() resolve
+# these helpers in the core module's global namespace. Then re-export the complete
+# historical surface, including private helpers used by repository runtime guards.
+_core._filter_registered_events = _filter_registered_events
+_core._overlay_result_state = _overlay_result_state
 
+for _name in dir(_core):
+    if _name.startswith("__"):
+        continue
+    globals().setdefault(_name, getattr(_core, _name))
 
-def _authentication_summary(task: dict[str, Any], events: list[dict[str, Any]]) -> dict[str, Any]:
-    matching = [event for event in events if event.get("task_id") == task.get("task_id")]
-    server = [event for event in matching if isinstance(event.get(GITHUB_META_KEY), dict)]
-    if server:
-        latest = max(server, key=lambda event: event[GITHUB_META_KEY].get("comment_id", -1))
-        meta = latest[GITHUB_META_KEY]
-        return {
-            "event_authentication": "GITHUB_SERVER_COMMENT_ENVELOPE",
-            "last_server_comment_id": meta.get("comment_id"),
-            "last_server_author_login": meta.get("author_login"),
-        }
-    return {
-        "event_authentication": "UNAUTHENTICATED_EVENT_REJECTED" if matching else "NO_RUNTIME_EVENT",
-        "last_server_comment_id": None,
-        "last_server_author_login": None,
-    }
-
-
-def reduce_definition(
-    task: dict[str, Any],
-    events: list[dict[str, Any]],
-    *,
-    now: datetime,
-    default_lease_minutes: int = 120,
-    root: Path = ROOT,
-) -> dict[str, Any]:
-    authenticated, auth_rejected = _event_authentication_filter(task, events)
-    result_state = None
-    if _is_registered(task):
-        publication_id = task.get("publication_id")
-        result_state = research_result_records.task_result_state(
-            task["task_id"],
-            root,
-            publication_id if isinstance(publication_id, str) else None,
-        )
-    filtered, registered_rejected = _filter_registered_events(
-        task, authenticated, root, result_state
-    )
-    lease = int(task.get("claim_lease_minutes") or default_lease_minutes)
-    state = research_runtime_reducer.reduce_task(
-        task,
-        filtered,
-        default_lease_minutes=lease,
-        now=now,
-    )
-    reduced_task_events = [event for event in filtered if event.get("task_id") == task.get("task_id")]
-    reducer_ignored_indices = {
-        item.get("index")
-        for item in state.get("ignored_events", [])
-        if type(item.get("index")) is int
-    }
-    state["ignored_events"].extend(auth_rejected)
-    state["ignored_events"].extend(registered_rejected)
-    state.update({
-        "title": task.get("title"),
-        "kind": task.get("kind"),
-        "owner": task.get("owner"),
-        "priority": task.get("priority"),
-        "leverage": task.get("leverage"),
-        "frontier": task.get("frontier"),
-        "source_refs": task.get("source_refs", []),
-        "registration_source": task.get("registration_source"),
-        "publication_id": task.get("publication_id"),
-    })
-    state.update(_authentication_summary(task, events))
-    try:
-        state["identity_lane"] = research_runtime_reducer.identity_lane(task)
-    except Exception:
-        state["identity_lane"] = task.get("identity_lane")
-    state = _overlay_result_state(task, state, root, result_state)
-    state = _overlay_active_cohort(task, state, root)
-    return _block_unreviewed_registered_done(
-        task,
-        state,
-        authenticated,
-        registered_rejected,
-        result_state,
-        reduced_task_events,
-        reducer_ignored_indices,
-    )
-
-
-@contextmanager
-def _dispatch_result_read_snapshot(root: Path = ROOT):
-    """Cache the operational Result/Review file view for one derived-state pass.
-
-    Canonical dispatch is read-only.  Without this bounded cache, every task's
-    result-state overlay rescans the complete immutable Result/Review stores,
-    turning one dispatch into repeated repository-wide I/O.  The original
-    functions are restored immediately after this effective-state derivation, so
-    writers and later calls always observe fresh repository bytes.
-    """
-    base_results = research_result_records.iter_results
-    base_reviews = research_result_records.iter_reviews
-    cached_results = tuple(base_results(root))
-    cached_reviews = tuple(base_reviews(root))
-    target_root = root.resolve()
-
-    def iter_results(local_root: Path = research_result_records.ROOT):
-        if local_root.resolve() != target_root:
-            return base_results(local_root)
-        return list(cached_results)
-
-    def iter_reviews(local_root: Path = research_result_records.ROOT):
-        if local_root.resolve() != target_root:
-            return base_reviews(local_root)
-        return list(cached_reviews)
-
-    research_result_records.iter_results = iter_results
-    research_result_records.iter_reviews = iter_reviews
-    try:
-        yield
-    finally:
-        research_result_records.iter_results = base_results
-        research_result_records.iter_reviews = base_reviews
-
-
-def effective_states(
-    events: list[dict[str, Any]], *, now: datetime, root: Path = ROOT
-) -> list[dict[str, Any]]:
-    with _dispatch_result_read_snapshot(root):
-        return [
-            reduce_definition(task, events, now=now, root=root)
-            for task in merged_definitions(root)
-        ]
-
-
-def select_task(
-    events: list[dict[str, Any]],
-    *,
-    now: datetime,
-    kind: str = "RESEARCH",
-    root: Path = ROOT,
-) -> dict[str, Any] | None:
-    states = effective_states(events, now=now, root=root)
-    policy = research_runtime_reducer.load_policy(root)
-    return research_runtime_reducer.select_state(states, policy, kind=kind)
-
-
-def validate(root: Path = ROOT) -> list[str]:
-    errors: list[str] = []
-    try:
-        policy = research_runtime_reducer.load_policy(root)
-        errors.extend(research_runtime_reducer.validate_policy(policy))
-    except Exception as exc:
-        errors.append(f"V2 runtime policy failure: {exc}")
-    try:
-        control_authorization_policy(root)
-    except Exception as exc:
-        errors.append(f"control-event authorization policy failure: {exc}")
-    try:
-        definitions = merged_definitions(root)
-    except Exception as exc:
-        errors.append(f"V2 dispatch definition failure: {exc}")
-        return errors
-    ids = [item.get("task_id") for item in definitions]
-    if len(ids) != len(set(ids)):
-        errors.append("canonical V2 dispatch view contains duplicate task IDs")
-    for item in definitions:
-        if item.get("registration_source") not in {
-            "IMMUTABLE_TASK_RECORD",
-            "TASK_DEFINITION_FAULT_QUARANTINE",
-            "TASK_INTEGRITY_QUARANTINE",
-            "PUBLICATION_FORK_QUARANTINE",
-            "DRIVER_FOLLOWUP_AUTHORITY_QUARANTINE",
-        }:
-            errors.append(f"{item.get('task_id')}: non-V2 task definition entered live dispatch")
-    return errors
-
-
-def _decode_event_input(path: Path) -> list[dict[str, Any]]:
-    text = path.read_text(encoding="utf-8").strip()
-    if not text:
-        return []
-    if text.startswith("["):
-        data = json.loads(text)
-        if not isinstance(data, list) or not all(isinstance(item, dict) for item in data):
-            raise DispatchError("event input array must contain objects")
-        return data
-    values = [json.loads(line) for line in text.splitlines() if line.strip()]
-    if not all(isinstance(item, dict) for item in values):
-        raise DispatchError("event JSONL must contain objects")
-    return values
-
-
-def load_events(path: Path | None) -> list[dict[str, Any]]:
-    if path is None:
-        return []
-    values = _decode_event_input(path)
-    if not values:
-        return []
-    looks_like_comments = any(
-        "body" in item and "id" in item and "user" in item for item in values
-    )
-    if looks_like_comments:
-        if not all("body" in item and "id" in item and "user" in item for item in values):
-            raise DispatchError("do not mix GitHub comment objects with bare scheduler events")
-        return events_from_github_comments(values)
-    if any(GITHUB_META_KEY in item for item in values):
-        raise DispatchError(
-            "normalized GitHub event envelopes are internal-only; provide raw Issue #240 comment objects"
-        )
-    raise DispatchError("runtime input must be raw authenticated Issue #240 comment objects")
-
-
-def main() -> int:
-    parser = argparse.ArgumentParser(description="Enterprise Math canonical immutable-V2 dispatch")
-    sub = parser.add_subparsers(dest="command", required=True)
-    sub.add_parser("validate")
-    status = sub.add_parser("status")
-    status.add_argument("--events", type=Path)
-    status.add_argument("--now")
-    select = sub.add_parser("select")
-    select.add_argument("--events", type=Path)
-    select.add_argument("--now")
-    select.add_argument("--kind", choices=["RESEARCH", "GOVERNANCE", "ANY"], default="RESEARCH")
-    args = parser.parse_args()
-    if args.command == "validate":
-        errors = validate()
-        if errors:
-            for error in errors:
-                print("ERROR:", error)
-            return 1
-        print(
-            f"PASS: canonical dispatch valid; {len(merged_definitions())} V2 task definition(s), "
-            f"{len(research_task_records.current_records())} immutable registered task(s)."
-        )
-        return 0
-    events = load_events(args.events)
-    now = research_runtime_reducer.now_utc(args.now)
-    if args.command == "status":
-        print(json.dumps(effective_states(events, now=now), ensure_ascii=False, indent=2, sort_keys=True))
-        return 0
-    chosen = select_task(events, now=now, kind=args.kind)
-    print(json.dumps(chosen, ensure_ascii=False, indent=2, sort_keys=True))
-    return 0 if chosen is not None else 2
 
 if __name__ == "__main__":
     try:
-        raise SystemExit(main())
-    except DispatchError as exc:
+        raise SystemExit(_core.main())
+    except _core.DispatchError as exc:
         print("ERROR:", exc)
         raise SystemExit(1)
