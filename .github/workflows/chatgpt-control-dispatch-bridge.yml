@@ -1,0 +1,165 @@
+name: chatgpt-control-dispatch-bridge
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/chatgpt-control-dispatch-bridge.yml'
+      - 'control_plane/chatgpt_dispatch_request.json'
+      - 'docs/CHATGPT_CONTROL_DISPATCH_BRIDGE.md'
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/chatgpt-control-dispatch-bridge.yml'
+      - 'control_plane/chatgpt_dispatch_request.json'
+
+permissions:
+  contents: write
+  issues: read
+
+concurrency:
+  group: chatgpt-control-dispatch-bridge
+  cancel-in-progress: false
+
+jobs:
+  canonical-dispatch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REQUEST_PATH: control_plane/chatgpt_dispatch_request.json
+      RECEIPT_PATH: control_plane/chatgpt_dispatch_receipt.json
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Validate connector request
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f "$REQUEST_PATH"
+          test "$(jq -r '.schema // empty' "$REQUEST_PATH")" = "ENTERPRISE_MATH_CHATGPT_CONTROL_DISPATCH_REQUEST_V1"
+          request_id="$(jq -r '.request_id // empty' "$REQUEST_PATH")"
+          test -n "$request_id"
+          kind="$(jq -r '.kind // "RESEARCH"' "$REQUEST_PATH")"
+          case "$kind" in
+            RESEARCH|GOVERNANCE|ANY) ;;
+            *) echo "INVALID_DISPATCH_KIND=$kind"; exit 1 ;;
+          esac
+          if jq -e 'has("session_observations")' "$REQUEST_PATH" >/dev/null; then
+            test "$(jq -r '.session_observations.schema // empty' "$REQUEST_PATH")" = "ENTERPRISE_MATH_SESSION_LIVENESS_OBSERVATIONS_V2"
+            jq -e '.session_observations.observations | type == "array"' "$REQUEST_PATH" >/dev/null
+          fi
+          echo "REQUEST_ID=$request_id" >> "$GITHUB_ENV"
+          echo "DISPATCH_KIND=$kind" >> "$GITHUB_ENV"
+
+      - name: Fetch authoritative Issue 240 comment stream
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/em-dispatch
+          gh api --paginate \
+            -H 'Accept: application/vnd.github+json' \
+            "repos/${GITHUB_REPOSITORY}/issues/240/comments?per_page=100" \
+            --jq '.[]' \
+            | jq -s '.' > /tmp/em-dispatch/issue-240-comments.json
+          jq -e 'type == "array"' /tmp/em-dispatch/issue-240-comments.json >/dev/null
+          comment_count="$(jq 'length' /tmp/em-dispatch/issue-240-comments.json)"
+          last_comment_id="$(jq '[.[].id] | max // 0' /tmp/em-dispatch/issue-240-comments.json)"
+          snapshot_sha256="$(sha256sum /tmp/em-dispatch/issue-240-comments.json | awk '{print $1}')"
+          echo "ISSUE240_COMMENT_COUNT=$comment_count" >> "$GITHUB_ENV"
+          echo "ISSUE240_LAST_COMMENT_ID=$last_comment_id" >> "$GITHUB_ENV"
+          echo "ISSUE240_SNAPSHOT_SHA256=$snapshot_sha256" >> "$GITHUB_ENV"
+
+      - name: Execute canonical recover-before-fresh router
+        id: route
+        shell: bash
+        run: |
+          set -euo pipefail
+          session_observations="$(jq -c '.session_observations // empty' "$REQUEST_PATH")"
+          set +e
+          if [[ -n "$session_observations" ]]; then
+            python research_control_dispatch.py \
+              --events /tmp/em-dispatch/issue-240-comments.json \
+              --kind "$DISPATCH_KIND" \
+              --session-observations-json "$session_observations" \
+              > /tmp/em-dispatch/route.json
+          else
+            python research_control_dispatch.py \
+              --events /tmp/em-dispatch/issue-240-comments.json \
+              --kind "$DISPATCH_KIND" \
+              > /tmp/em-dispatch/route.json
+          fi
+          rc=$?
+          set -e
+          if [[ "$rc" != "0" && "$rc" != "2" ]]; then
+            cat /tmp/em-dispatch/route.json
+            exit "$rc"
+          fi
+          jq -e 'type == "object" and (.action | type == "string")' /tmp/em-dispatch/route.json >/dev/null
+          echo "router_exit_code=$rc" >> "$GITHUB_OUTPUT"
+          echo "CANONICAL_ROUTE=$(jq -c '.' /tmp/em-dispatch/route.json)"
+
+      - name: Build deterministic bridge receipt
+        shell: bash
+        env:
+          ROUTER_EXIT_CODE: ${{ steps.route.outputs.router_exit_code }}
+        run: |
+          set -euo pipefail
+          generated_at="$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          jq -n \
+            --arg request_id "$REQUEST_ID" \
+            --arg generated_at "$generated_at" \
+            --arg repository "$GITHUB_REPOSITORY" \
+            --arg source_sha "$GITHUB_SHA" \
+            --arg kind "$DISPATCH_KIND" \
+            --arg snapshot_sha256 "sha256:$ISSUE240_SNAPSHOT_SHA256" \
+            --argjson comment_count "$ISSUE240_COMMENT_COUNT" \
+            --argjson last_comment_id "$ISSUE240_LAST_COMMENT_ID" \
+            --argjson router_exit_code "$ROUTER_EXIT_CODE" \
+            --slurpfile route /tmp/em-dispatch/route.json \
+            '{
+              schema: "ENTERPRISE_MATH_CHATGPT_CONTROL_DISPATCH_RECEIPT_V1",
+              request_id: $request_id,
+              generated_at: $generated_at,
+              repository: $repository,
+              source_sha: $source_sha,
+              kind: $kind,
+              issue_240: {
+                comment_count: $comment_count,
+                last_comment_id: $last_comment_id,
+                raw_comment_snapshot_sha256: $snapshot_sha256
+              },
+              router_exit_code: $router_exit_code,
+              route: $route[0]
+            }' > /tmp/em-dispatch/receipt.json
+          cat /tmp/em-dispatch/receipt.json
+
+      - name: Persist latest receipt on main
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp /tmp/em-dispatch/receipt.json "$RECEIPT_PATH"
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add "$RECEIPT_PATH"
+          if git diff --cached --quiet; then
+            echo "RECEIPT_UNCHANGED"
+            exit 0
+          fi
+          git commit -m "control: record ChatGPT canonical dispatch receipt"
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then
+              echo "RECEIPT_PERSISTED attempt=$attempt"
+              exit 0
+            fi
+            git fetch origin main
+            git rebase origin/main
+          done
+          echo "RECEIPT_PERSIST_FAILED"
+          exit 1
