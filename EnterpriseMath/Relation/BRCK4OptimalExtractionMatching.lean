@@ -117,9 +117,9 @@ private theorem k4ABCD_good_witness (n : K4Capacity)
     (h1 : n.ab + n.cd ≤ n.ac + n.bd)
     (h2 : n.ab + n.cd ≤ n.ad + n.bc)
     (h3 : n.ab + n.cd ≤ n.ab + n.ac + n.ad)
-    (h4 : n.ab + n.cd ≤ n.ab + n.bc + n.bd)
-    (h5 : n.ab + n.cd ≤ n.ac + n.bc + n.cd)
-    (h6 : n.ab + n.cd ≤ n.ad + n.bd + n.cd)
+    (_h4 : n.ab + n.cd ≤ n.ab + n.bc + n.bd)
+    (_h5 : n.ab + n.cd ≤ n.ac + n.bc + n.cd)
+    (_h6 : n.ab + n.cd ≤ n.ad + n.bd + n.cd)
     (hgood : 2 * k4ABCDA n ≤ k4ABCDUpper n) :
     ∃ a b c d : ℕ,
       k4Feasible n a b c d ∧
