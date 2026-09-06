@@ -7,10 +7,9 @@ on:
 
 permissions:
   contents: read
-  issues: read
 
 jobs:
-  dispatch-probe:
+  validate-pcf7-replication:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -18,17 +17,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Run live canonical research dispatcher
+      - name: Run persisted PCF7 replication checker
         shell: bash
-        env:
-          GH_TOKEN: ${{ github.token }}
         run: |
-          # post-Gen21-handoff dispatch
-          gh api --paginate --slurp 'repos/awdawmip/enterprise-math/issues/240/comments?per_page=100' | jq 'add' > issue240-comments.json
-          set +e
-          python research_control_dispatch.py --events issue240-comments.json --kind RESEARCH | tee dispatch-output.json
-          code=${PIPESTATUS[0]}
-          echo "DISPATCH_EXIT=${code}"
-          if [ "${code}" -ne 0 ] && [ "${code}" -ne 2 ]; then
-            exit "${code}"
-          fi
+          git fetch origin fa787241802ad4ad90d29d089e5a0665ec66916d
+          git checkout --detach fa787241802ad4ad90d29d089e5a0665ec66916d
+          python research_checks/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_STATEMENT_CORRECTION_REPLICATION_CHECK_20260906.py
