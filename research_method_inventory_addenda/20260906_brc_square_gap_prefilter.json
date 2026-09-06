@@ -4,12 +4,12 @@
   "date": "2026-09-06",
   "admission": {
     "classification": "TASK_RESEARCH_TOOL_HARVEST",
-    "authority": "direct user continuation of the main-backed BRC multiplier experiment and round-3 factor-bridge audit",
+    "authority": "direct user continuation of the main-backed BRC multiplier experiment, round-3 factor-bridge audit, and explicit request to build and test the residue table",
     "family_id": "T0_BRC",
     "foundation_mutation": false,
     "working_truth_promotion": false,
     "new_global_tool_family": false,
-    "reason": "Compose the exact BRC multiplier completion-cost interface with a classical quadratic-residue necessary condition before exact integer squarehood testing."
+    "reason": "Compose the exact BRC multiplier completion-cost interface with a classical quadratic-residue necessary condition before exact integer squarehood testing; the 4032 and 20160 residue sets are now checked-in static packed tables."
   },
   "methods": [
     {
@@ -19,16 +19,23 @@
       "family_id": "T0_BRC",
       "status": "CLASSICAL_BASELINE_COMPOSED_EXECUTABLE",
       "source_refs": [
+        "src/enterprise_math/brc_square_gap_tables.py",
         "src/enterprise_math/brc_square_gap_prefilter.py",
         "tests/test_brc_square_gap_prefilter.py",
         "experiments/brc_multiplier_factor_bridge.py",
+        "experiments/brc_square_residue_static_table_benchmark.py",
         "research_notes/BRC_MULTIPLIER_FACTOR_BRIDGE_20260906.md",
-        "research_artifacts/brc_multiplier_square_gap_prefilter_20260906.csv"
+        "research_notes/BRC_SQUARE_RESIDUE_STATIC_TABLE_BENCHMARK_20260906.md",
+        "research_artifacts/brc_multiplier_square_gap_prefilter_20260906.csv",
+        "research_artifacts/brc_square_residue_static_table_benchmark_20260906.csv"
       ],
       "api": [
         "DEFAULT_SQUARE_RESIDUE_MODULUS",
+        "STRONG_SQUARE_RESIDUE_MODULUS",
+        "square_residue_table",
         "square_residue_mask",
         "square_residue_count",
+        "square_residue_payload_bytes",
         "passes_square_residue_filter",
         "filtered_square_root",
         "ceiling_completion_cost",
@@ -40,17 +47,20 @@
         "quadratic residue prefilter",
         "difference of squares",
         "multiplier Fermat",
-        "square test table"
+        "square test table",
+        "static square residue table"
       ],
       "capabilities": [
-        "exact packed quadratic-residue table for a declared modulus",
+        "checked-in exact packed quadratic-residue tables for moduli 4032 and 20160",
+        "deterministic cached fallback table generation for arbitrary positive moduli",
         "zero-false-negative rejection of impossible square gaps",
         "exact integer square-root confirmation on survivors",
         "typed separation of BRC next-square addition cost from ceiling-square Fermat completion cost",
-        "immediate square-gap witness surface for classical difference-of-squares composition"
+        "immediate square-gap witness surface for classical difference-of-squares composition",
+        "runtime benchmark surface separating gap-only second-root savings from full ceiling-gap pipeline cost"
       ],
-      "core_law": "If an integer value is a square then its residue modulo M belongs to the precomputed quadratic-residue mask Q_M. Therefore Q_M[value mod M]=0 safely rejects squarehood before exact isqrt confirmation. For the default M=4032 the mask has 192 live residue classes out of 4032 (uniform fraction 1/21) and a packed mathematical payload of 504 bytes.",
-      "hard_boundary": "Quadratic-residue filtering, Fermat difference of squares, and Lehman-style multiplier use are classical prior art. Passing the residue filter is not a square certificate. The bounded semiprime benchmark does not imply a factorization speedup or asymptotic complexity result. Coarse BRC basin support/Pell resonance showed no useful within-multiplier pruning signal in the round-3 sample and is not promoted as a selector."
+      "core_law": "If an integer value is a square then its residue modulo M belongs to the precomputed quadratic-residue table Q_M. Therefore Q_M[value mod M]=0 safely rejects squarehood before exact isqrt confirmation. For M=4032 the table has 192 live residue classes out of 4032 (1/21) and a 504-byte raw payload; for M=20160 it has 576 live classes out of 20160 (1/35) and a 2520-byte raw payload.",
+      "hard_boundary": "Quadratic-residue filtering, Fermat difference of squares, and Lehman-style multiplier use are classical prior art. Passing the residue filter is not a square certificate. Rejection percentage is not runtime speedup: on the checked small-integer semiprime sample direct Python isqrt was faster, while deterministic larger-integer timing showed the table becomes useful; full ceiling-gap pipeline gains were only about 1.2-1.4x in the tested big-integer ranges because ceil(sqrt(mN)) remains on the critical path. Timings are environment-dependent diagnostics, not complexity theorems. Coarse BRC basin support/Pell resonance remains unpromoted as a selector."
     }
   ]
 }
