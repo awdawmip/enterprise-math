@@ -3,12 +3,12 @@
 for the non-pole Riemann-Weil multiplier on H_{log 3}.
 
 The boundary prime power m=9 is absent: log 9=2 log 3 is exactly the support
-diameter, so its autocorrelation contribution is zero on H_{log 3}.  The active
+diameter, so its autocorrelation contribution is zero on H_{log 3}. The active
 prime-power comb is therefore m in {2,3,4,5,7,8}.
 
 On [0,4000] the script classifies dyadic/rational cells by direct Arb evaluation
-of the complete scalar symbol.  Cells not resolved by the final 1e-3 mesh are
-included in the outer negative set.  For t>=4000 a separate elementary Binet
+of the complete scalar symbol. Cells not resolved by the final 1e-4 mesh are
+included in the outer negative set. For t>=4000 a separate elementary Binet
 lower bound proves strict positivity, so no frequency tail is left unchecked.
 
 The output is a rigorous outer bound on |{t in R: symbol(t)<0}| and on the trace
@@ -18,9 +18,9 @@ It is a capacity certificate, not a positivity/RH certificate.
 from collections import deque
 from flint import arb, acb, ctx
 
-DEN = 1000                 # final cell width = 1e-3
+DEN = 10000                 # final cell width = 1e-4
 TMAX_TICKS = 4_000 * DEN
-INITIAL_TICKS = 250         # initial width = 0.25
+INITIAL_TICKS = 2500        # initial width = 0.25
 ACTIVE = ((2, 2), (3, 3), (4, 2), (5, 5), (7, 7), (8, 2))
 
 
@@ -69,6 +69,7 @@ def main():
     lb4000 = high_frequency_lower(4000)
     print("RH LOG3 NEGATIVE-SYMBOL CAPACITY ARB CERTIFICATE")
     print("active prime powers={2,3,4,5,7,8}; m=9 boundary-null")
+    print("final unresolved-cell width=1e-4")
     print("A_log3=%s" % active_comb_constant().str(30, radius=False))
     print("high-frequency lower bound at 4000=%s" % lb4000)
     if not (lb4000 > 0):
@@ -119,7 +120,7 @@ def main():
 
     print("evaluations=%d" % evals)
     print("definitely-negative cells=%d" % neg_cells)
-    print("ambiguous 1e-3 cells=%d" % amb_cells)
+    print("ambiguous 1e-4 cells=%d" % amb_cells)
     print("negative half-measure lower=%s" % half_lower)
     print("negative half-measure outer=%s" % half_outer)
     print("negative two-sided measure outer=%s" % two_sided_outer)
