@@ -5,6 +5,22 @@ Date: `2026-09-06`
 Researcher-ID: `EM-DIRECT-7C1A42`
 Scope: `RH / Weil square-shell / response inertia / prime-cross ablation / Wiener-Hopf symbol`
 
+## Correction / successor boundary — 2026-09-06
+
+The abstract perturbation theorems in this note remain valid. However, the application target in Sections 4 and 8 that attempted to treat the **entire raw archimedean old-to-shell cross** as `finite rank + arbitrarily small operator-norm tail` is too strong in the continuum problem.
+
+`RH_ARCH_BOUNDARY_CARLEMAN_PRINCIPAL_DECOMPOSITION_20260906.md` derives the exact off-diagonal archimedean kernel and shows that the touching same-sign old/shell branches contain the noncompact scale-invariant Carleman principal kernel `-1/[2(u+v)]`, with logarithmic Wiener-Hopf symbol `-pi/[2 cosh(pi xi)]`.
+
+Therefore the corrected reference is
+
+`B_ref = B_prime + B_Cauchy/Carleman`,
+
+while only the **regular archimedean remainder** and the pole term are routed through the rank-plus-small-tail theorem. At the first step `log2 -> log3`, the regular remainder is exponentially finite-rank compressible because its analytic radius is `pi` and the full separation range is only `log6<pi`.
+
+Read all prime-only completion language below subject to this correction. In particular,
+
+`PRIME-ONLY FLOATING DOMINANCE != RAW-ARCH NORM-SMALLNESS`.
+
 ## 0. Inputs and reuse resolution
 
 This note continues the current square-shell chain
@@ -56,9 +72,9 @@ Let
 
 Then
 
-`boxed: N_{H_0}((−infinity,−eps)) <= r_B(eta) <= N_{H_0}((−infinity,eps))`.
+`boxed: N_{H_0}((-infinity,-eps)) <= r_B(eta) <= N_{H_0}((-infinity,eps))`.
 
-Here `N_H((−infinity,t))` counts eigenvalues of `H` strictly below `t`, with multiplicity.
+Here `N_H((-infinity,t))` counts eigenvalues of `H` strictly below `t`, with multiplicity.
 
 ### Proof
 
@@ -96,7 +112,7 @@ where
 
 Then
 
-`boxed: N_{H_0}((−infinity,−eps)) - 2r <= r_B(eta) <= N_{H_0}((−infinity,eps)) + 2r}`,
+`boxed: N_{H_0}((-infinity,-eps)) - 2r <= r_B(eta) <= N_{H_0}((-infinity,eps)) + 2r`,
 
 with the lower bound truncated at zero when necessary.
 
@@ -109,37 +125,43 @@ This separates two distinct repair costs:
 - exact finite-dimensional provenance retained by the rank term;
 - unresolved analytic tail retained by the `eps` spectral window.
 
-## 4. RH prime-dominance certificate
+## 4. RH component-dominance certificate — corrected scope
 
 For the Weil square-shell cross block write, with labels retained,
 
 `B_n = B_n^prime + B_n^arch + B_n^pole`.
 
-Assume a certified approximation
+The successor Carleman decomposition shows
 
-`B_n^arch = K_n^arch + R_n^arch`,
+`B_n^arch = B_n^Cauchy + B_n^reg`,
 
-with `rank(K_n^arch)<=r_n`, `||R_n^arch||<=eps_n`, and let the finite-rank pole cross have rank at most `r_pole`.
+where the same-sign touching pieces of `B_n^Cauchy` are noncompact Carleman carriers and cannot be placed in an arbitrarily small norm tail.
+
+Therefore set
+
+`B_n^ref = B_n^prime + B_n^Cauchy`.
+
+Now assume a certified approximation
+
+`B_n^reg = K_n^reg + R_n^reg`,
+
+with `rank(K_n^reg)<=r_n`, `||R_n^reg||<=eps_n`, and let the finite-rank pole cross have rank at most `r_pole`.
 
 Put
 
-`H_n^prime(eta)=M_eta(B_n^prime)`.
+`H_n^ref(eta)=M_eta(B_n^ref)`.
 
 Then the full response effective rank satisfies
 
-`N_{H_n^prime(eta)}((−infinity,−eps_n)) - 2(r_n+r_pole)`
+`N_{H_n^ref(eta)}((-infinity,-eps_n)) - 2(r_n+r_pole)`
 `<= r_full(eta;n)`
-`<= N_{H_n^prime(eta)}((−infinity,eps_n)) + 2(r_n+r_pole)`.
+`<= N_{H_n^ref(eta)}((-infinity,eps_n)) + 2(r_n+r_pole)`.
 
-Therefore the current floating observation
+The earlier floating observation
 
 `prime-only threshold inertia ~= full threshold inertia`
 
-has a precise theorem-level completion target:
-
-1. certify the prime-only threshold inertia;
-2. certify a low-rank-plus-small-norm representation for arch/pole cross;
-3. verify that the prime-only threshold block has little or no spectrum in `[-eps_n,eps_n]`.
+remains a useful ablation fact, but its theorem-level completion must now proceed through the retained Cauchy/Carleman principal carrier rather than through a false raw-arch norm-smallness assumption.
 
 No inverse square root of the near-null old block is needed.
 
@@ -187,9 +209,15 @@ Hence the dangerous local response set is
 
 This reproduces the normalized-response threshold algebra **without constructing `A^{-1/2}` or `D^{-1/2}`**.
 
+The successor archimedean decomposition now supplies an explicit same-side boundary contribution
+
+`b_Carleman(xi) = -pi/[2 cosh(pi xi)]`
+
+to the reference cross symbol in logarithmic boundary coordinates.
+
 Consequently, if a matrix-valued Szego/Widom-type spectral-count theorem is proved applicable to the actual threshold block, the leading response-rank asymptotic should be read from the phase-space negative-inertia set of `m_eta`, with boundary/model defects retained separately.
 
-This is a route, not yet an RH theorem: the actual block symbols and the theorem hypotheses still have to be derived and certified.
+This is a route, not yet an RH theorem: the actual diagonal block symbols and the theorem hypotheses still have to be derived and certified.
 
 ## 7. Why this improves the current route
 
@@ -206,22 +234,22 @@ The new route instead studies
 directly. It has three advantages:
 
 1. threshold response rank is already its exact negative inertia;
-2. prime/arch/pole ablation has a rigorous norm/rank perturbation calculus;
+2. prime/arch/pole ablation has a rigorous norm/rank perturbation calculus after the noncompact arch principal carrier is retained;
 3. the prime cross retains its exact finite Dirichlet-polynomial translation symbol before any unsafe whitening.
 
-Thus the immediate theorem target is narrower:
+Thus the immediate theorem target is now
 
-`PRIME THRESHOLD BLOCK + ARCH/POLE RANK-TAIL CERTIFICATE`,
+`PRIME + CARLEMAN REFERENCE THRESHOLD BLOCK + REGULAR-ARCH/POLE RANK-TAIL CERTIFICATE`,
 
-not a full explicit construction of `A_n^{-1/2}`.
+not a full explicit construction of `A_n^{-1/2}` and not a prime-only raw-cross approximation.
 
-## 8. Smallest unresolved units
+## 8. Smallest unresolved units — revised
 
-1. For the exact `log 2 -> log 3` finite section, certify `H_2^prime(eta)` inertia and its zero-gap for `eta in {0.9,0.99,0.999}`.
-2. Derive a certified low-rank-plus-tail approximation of the archimedean cross kernel on the old/shell geometry.
+1. For the exact `log 2 -> log 3` finite section, construct and certify `H_2^ref(eta)` with `B_2^ref=B_2^prime+B_2^Cauchy` for `eta in {0.9,0.99,0.999}`.
+2. Use `RH_ARCH_BOUNDARY_CARLEMAN_PRINCIPAL_DECOMPOSITION_20260906.md` to certify the regular archimedean Taylor rank/tail budget; at this first step `log6<pi` gives exponential convergence.
 3. Determine the exact rank of the pole cross in the chosen basis and absorb it into the finite repair budget.
 4. Only after 1–3, test whether prime dominance persists as a certified statement rather than a floating ablation pattern.
-5. In parallel derive a matrix-valued threshold symbol for the prime-dominated block and compare its phase-space negative set against certified inertia counts.
+5. In parallel derive the diagonal symbols `a,d` needed to combine the exact prime translation carrier and exact Carleman boundary symbol in the matrix-valued threshold symbol.
 
 ## 9. Hard boundaries
 
@@ -229,9 +257,12 @@ not a full explicit construction of `A_n^{-1/2}`.
 - `EFFECTIVE RANK CONTROL != sigma_max(C)<1`.
 - A finite-section inertia count requires a separate operator-tail theorem before it becomes an infinite-operator count.
 - A low-rank approximation must retain its norm tail; dropping the tail is an unsafe quotient.
+- `RAW ARCH CROSS != FINITE_RANK + ARBITRARILY_SMALL_NORM TAIL` because of the retained Carleman principal carrier.
 - The bare prime multiplier is an exact cross-component symbol, not automatically the symbol of the whitened response.
 - The matrix-symbol phase-space law is conditional on proving the required pseudodifferential/Wiener-Hopf identification and spectral theorem hypotheses.
 
 ## 10. Verification
 
-The algebraic identities above were independently checked on random positive block matrices: the off-diagonal perturbation norm equals the omitted cross norm, and the predicted inertia sandwich contained the full threshold inertia in every checked instance. The proofs themselves are exact and do not depend on the finite checks.
+The algebraic threshold-perturbation identities were independently checked on random positive block matrices: the off-diagonal perturbation norm equals the omitted cross norm, and the predicted inertia sandwich contained the full threshold inertia in every checked instance. The proofs themselves are exact and do not depend on the finite checks.
+
+The continuum archimedean correction and the first-step regular-tail theorem are proved separately in `RH_ARCH_BOUNDARY_CARLEMAN_PRINCIPAL_DECOMPOSITION_20260906.md`.
