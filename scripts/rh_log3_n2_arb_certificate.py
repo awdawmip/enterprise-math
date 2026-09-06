@@ -20,13 +20,17 @@ Since every omitted J_c is positive semidefinite, a positive interval LDL^T
 certificate for this lower matrix proves positive definiteness of the complete
 Weil Gram matrix on this declared finite subspace.
 
+All support-order decisions for prime translations are exact rational
+comparisons in multiplicative coordinates; no floating-point control flow is
+used in the certificate.
+
 Boundary: finite-subspace certificate only.  This does NOT prove positivity on
 all of H_{log 3} and is NOT an RH proof.
 
 Requires python-flint >= 0.9.0.
 """
 import argparse
-import math
+from fractions import Fraction
 import sys
 
 from flint import arb, ctx
@@ -38,22 +42,23 @@ PRIME_POWERS = {2: 2, 3: 3, 4: 2, 5: 5, 7: 7, 8: 2, 9: 3}
 def make_basis():
     L2 = arb(2).log()
     L3 = arb(3).log()
+    # aq,bq are the exact multiplicative endpoints: a=log(aq), b=log(bq).
     intervals = [
-        (-L3, -L2, "S-", -math.log(3), -math.log(2)),
-        (-L2, arb(0), "O-", -math.log(2), 0.0),
-        (arb(0), L2, "O+", 0.0, math.log(2)),
-        (L2, L3, "S+", math.log(2), math.log(3)),
+        (-L3, -L2, "S-", Fraction(1, 3), Fraction(1, 2)),
+        (-L2, arb(0), "O-", Fraction(1, 2), Fraction(1, 1)),
+        (arb(0), L2, "O+", Fraction(1, 1), Fraction(2, 1)),
+        (L2, L3, "S+", Fraction(2, 1), Fraction(3, 1)),
     ]
     out = []
-    for a, b, label, af, bf in intervals:
+    for a, b, label, aq, bq in intervals:
         ell = b - a
         for k in (1, 2):
             out.append(
                 dict(
                     a=a,
                     b=b,
-                    af=af,
-                    bf=bf,
+                    aq=aq,
+                    bq=bq,
                     ell=ell,
                     label=label,
                     k=k,
@@ -161,25 +166,26 @@ def overlap_formula(bi, bj, r, lower, upper):
 
 
 def fixed_shift_overlap(basis, i, j, q):
-    """Support-exact overlap at r=log(q).
+    """Support-exact overlap at r=log(q), with exact selector logic.
 
-    The support selector is chosen using ordinary double precision only as a
-    discrete branch decision.  All numerical evaluation is Arb.  If a selector
-    equality occurs, either branch formula has the same exact boundary value,
-    because the overlap endpoint has zero measure and the sine basis vanishes
-    at its interval endpoints.
+    Since every interval endpoint is the logarithm of a positive rational and
+    the shift is log(q), max/min support choices are equivalent to comparing
+    rational multiplicative endpoints.  This removes floating-point branch
+    decisions from the rigorous certificate.
     """
     bi, bj = basis[i], basis[j]
-    rf = math.log(q)
     r = arb(q).log()
 
-    l1f, l2f = bi["af"], bj["af"] - rf
-    u1f, u2f = bi["bf"], bj["bf"] - rf
-    lower = bi["a"] if l1f >= l2f else bj["a"] - r
-    upper = bi["b"] if u1f <= u2f else bj["b"] - r
+    l1q, l2q = bi["aq"], bj["aq"] / q
+    u1q, u2q = bi["bq"], bj["bq"] / q
 
-    if min(u1f, u2f) <= max(l1f, l2f):
+    lower_q = max(l1q, l2q)
+    upper_q = min(u1q, u2q)
+    if upper_q <= lower_q:
         return arb(0)
+
+    lower = bi["a"] if l1q >= l2q else bj["a"] - r
+    upper = bi["b"] if u1q <= u2q else bj["b"] - r
     return overlap_formula(bi, bj, r, lower, upper)
 
 
@@ -241,6 +247,7 @@ def main():
     basis = make_basis()
     print("RH LOG3 N=2 ARB CERTIFICATE")
     print("dimension=8 K=%d arb_prec=%d bits" % (args.K, args.prec), flush=True)
+    print("support selectors=exact rational comparisons", flush=True)
     print("building closed-form archimedean lower sum ...", flush=True)
     Aarch = arch_partial(basis, args.K)
     print("building exact finite prime/pole blocks ...", flush=True)
