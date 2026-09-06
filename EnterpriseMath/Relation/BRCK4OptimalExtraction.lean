@@ -316,6 +316,7 @@ private theorem k4ABCD_good_witness (n : K4Capacity)
   let c₁ := n.cd + a - n.ad
   let c₂ := n.ab + n.cd - n.bd - a
   let c := max c₁ c₂
+  change 2 * a ≤ k4ABCDUpper n at hgood
   have hceil := k4CeilHalf_bounds (k4ABCDLower n)
   have hL1 := k4ABCDLower_first_le n
   have hL2 := k4ABCDLower_second_le n
@@ -324,23 +325,17 @@ private theorem k4ABCD_good_witness (n : K4Capacity)
   have hUac := k4ABCDUpper_le_ac n
   have hUad := k4ABCDUpper_le_ad n
   have hUkey := k4ABCDUpper_le_key n
-  have ha_ab : a ≤ n.ab := by
-    dsimp [a, k4ABCDA]
-    omega
-  have ha_ac : a ≤ n.ac := by
-    dsimp [a, k4ABCDA]
-    omega
-  have ha_ad : a ≤ n.ad := by
-    dsimp [a, k4ABCDA]
-    omega
+  have ha_ab : a ≤ n.ab := by omega
+  have ha_ac : a ≤ n.ac := by omega
+  have ha_ad : a ≤ n.ad := by omega
   have hc1_cd : c₁ ≤ n.cd := by
     dsimp [c₁]
     omega
   have hc2_cd : c₂ ≤ n.cd := by
-    dsimp [c₂, a, k4ABCDA]
+    dsimp [c₂]
     omega
   have hac1 : a + c₁ ≤ n.ac := by
-    dsimp [c₁, a, k4ABCDA]
+    dsimp [c₁]
     omega
   have hac2 : a + c₂ ≤ n.ac := by
     dsimp [c₂]
@@ -349,7 +344,7 @@ private theorem k4ABCD_good_witness (n : K4Capacity)
     dsimp [c₁]
     omega
   have hbc2 : (n.ab - a) + c₂ ≤ n.bc := by
-    dsimp [c₂, a, k4ABCDA]
+    dsimp [c₂]
     omega
   have hc_cd : c ≤ n.cd := by
     dsimp [c]
@@ -457,13 +452,16 @@ private def k4SwapBC (n : K4Capacity) : K4Capacity where
 
 private theorem k4Exceptional_swapBC (n : K4Capacity) :
     k4Exceptional (k4SwapBC n) ↔ k4Exceptional n := by
+  unfold k4Exceptional
   constructor
   · rintro ⟨a, b, c, d, hab, hac, had, hbc, hbd, hcd⟩
     dsimp [k4SwapBC] at hab hac had hbc hbd hcd
-    refine ⟨a, c, b, d, ?_, ?_, ?_, ?_, ?_, ?_⟩ <;> omega
+    refine ⟨a, c, b, d, hac, hab, had, ?_, hcd, hbd⟩
+    omega
   · rintro ⟨a, b, c, d, hab, hac, had, hbc, hbd, hcd⟩
     dsimp [k4SwapBC]
-    refine ⟨a, c, b, d, ?_, ?_, ?_, ?_, ?_, ?_⟩ <;> omega
+    refine ⟨a, c, b, d, hac, hab, had, ?_, hcd, hbd⟩
+    omega
 
 /-- Second opposite-edge active-minimum case, obtained by B↔C relabeling. -/
 theorem k4Realizable_ac_bd_of_min_of_not_exceptional
@@ -522,13 +520,14 @@ private def k4SwapBD (n : K4Capacity) : K4Capacity where
 
 private theorem k4Exceptional_swapBD (n : K4Capacity) :
     k4Exceptional (k4SwapBD n) ↔ k4Exceptional n := by
+  unfold k4Exceptional
   constructor
   · rintro ⟨a, b, c, d, hab, hac, had, hbc, hbd, hcd⟩
     dsimp [k4SwapBD] at hab hac had hbc hbd hcd
-    refine ⟨a, d, c, b, ?_, ?_, ?_, ?_, ?_, ?_⟩ <;> omega
+    refine ⟨a, d, c, b, had, hac, hab, ?_, ?_, ?_⟩ <;> omega
   · rintro ⟨a, b, c, d, hab, hac, had, hbc, hbd, hcd⟩
     dsimp [k4SwapBD]
-    refine ⟨a, d, c, b, ?_, ?_, ?_, ?_, ?_, ?_⟩ <;> omega
+    refine ⟨a, d, c, b, had, hac, hab, ?_, ?_, ?_⟩ <;> omega
 
 /-- Third opposite-edge active-minimum case, obtained by B↔D relabeling. -/
 theorem k4Realizable_ad_bc_of_min_of_not_exceptional
@@ -558,10 +557,10 @@ theorem k4Realizable_ad_bc_of_min_of_not_exceptional
     omega
   have h5' : n'.ab + n'.cd ≤ n'.ac + n'.bc + n'.cd := by
     dsimp [n', k4SwapBD]
-    exact h5
+    omega
   have h6' : n'.ab + n'.cd ≤ n'.ad + n'.bd + n'.cd := by
     dsimp [n', k4SwapBD]
-    exact h4
+    omega
   have hne' : ¬ k4Exceptional n' := by
     intro hex
     apply hne
