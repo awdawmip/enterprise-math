@@ -7,7 +7,7 @@ This experiment compares, at equal raw point budgets:
 
 Smooth relations and GF(2) dependencies are classical Dixon/QS/MPQS ideas.
 The benchmark tests only the finite BRC sampling geometry and exact cross-strip
-carrier implementation.  It is not a production sieve and makes no factoring
+carrier implementation. It is not a production sieve and makes no factoring
 complexity or novelty claim.
 """
 
@@ -17,8 +17,12 @@ import csv
 import random
 from pathlib import Path
 from statistics import mean, median
+from typing import Iterable
 
-from enterprise_math.brc_multiplier_factor_scan import admissible_root_state_sequence
+from enterprise_math.brc_multiplier_factor_scan import (
+    AdmissibleMultiplierRootState,
+    admissible_root_state_sequence,
+)
 from enterprise_math.brc_smooth_relation_scheduler import minimum_gap_relation_points
 from enterprise_math.brc_smooth_relations import (
     GF2RelationAccumulator,
@@ -55,6 +59,33 @@ def semiprime_sample(lo: int, hi: int, count: int, seed: int) -> list[int]:
     return result
 
 
+def _source(
+    states: tuple[AdmissibleMultiplierRootState, ...],
+    point_limit: int,
+    mode: str,
+) -> Iterable[tuple[AdmissibleMultiplierRootState, int]]:
+    if mode == "single":
+        return ((states[0], t) for t in range(point_limit))
+    if mode == "layered":
+        return layered_relation_points(states, point_limit)
+    if mode == "minimum_gap":
+        return (
+            (point.state, point.vertical_offset)
+            for point in minimum_gap_relation_points(states, point_limit)
+        )
+    raise ValueError("unknown scan mode")
+
+
+def _smooth_count(n: int, smooth_bound: int, point_limit: int, mode: str) -> int:
+    """Count all smooth relations in the full declared point budget."""
+    base = factor_base(smooth_bound)
+    states = admissible_root_state_sequence(n)
+    count = 0
+    for state, offset in _source(states, point_limit, mode):
+        count += int(relation_from_multiplier_state(state, offset, base) is not None)
+    return count
+
+
 def _scan(
     n: int,
     smooth_bound: int,
@@ -66,19 +97,9 @@ def _scan(
     accumulator = GF2RelationAccumulator(base)
     dependencies = 0
 
-    if mode == "single":
-        source = ((states[0], t) for t in range(point_limit))
-    elif mode == "layered":
-        source = layered_relation_points(states, point_limit)
-    elif mode == "minimum_gap":
-        source = (
-            (point.state, point.vertical_offset)
-            for point in minimum_gap_relation_points(states, point_limit)
-        )
-    else:
-        raise ValueError("unknown scan mode")
-
-    for points_examined, (state, offset) in enumerate(source, 1):
+    for points_examined, (state, offset) in enumerate(
+        _source(states, point_limit, mode), 1
+    ):
         relation = relation_from_multiplier_state(state, offset, base)
         if relation is None:
             continue
@@ -107,8 +128,8 @@ def smooth_yield_summary() -> dict[str, object]:
     sample = semiprime_sample(100_000, 1_000_000, 20, 610)
     bound = 200
     point_limit = 3000
-    single = [_scan(n, bound, point_limit, "single")["smooth"] for n in sample]
-    layered = [_scan(n, bound, point_limit, "layered")["smooth"] for n in sample]
+    single = [_smooth_count(n, bound, point_limit, "single") for n in sample]
+    layered = [_smooth_count(n, bound, point_limit, "layered") for n in sample]
     return {
         "section": "smooth_yield",
         "prime_range": "100000-1000000",
