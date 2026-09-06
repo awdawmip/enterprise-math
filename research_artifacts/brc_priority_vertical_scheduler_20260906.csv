@@ -1,0 +1,13 @@
+section,prime_range,t_limit,sample_count,hittable,hit_rate,ascending_mean_rank,ascending_median_rank,priority_mean_rank,priority_median_rank,priority_top5_rate,priority_top10_rate,rank_improvement,ascending_all_population_mean,priority_all_population_mean,runtime_speedup,direct_priority_over_jump,note
+rank,1009-9999,10,20000,19130,0.9565,16.175953998954522,11.0,6.929377940407736,4.0,0.5578672242550967,0.7425509670674334,2.3344020398464083,18.7348,9.89045,,,exact factor-pair vertical witness rank
+rank,10007-99999,100,20000,19038,0.9519,17.182529677487132,12.0,7.3057043807122595,5.0,0.5404979514654901,0.7254963756697133,2.351933336209252,19.96355,10.5618,,,exact factor-pair vertical witness rank
+rank,100003-999999,1000,20000,19075,0.95375,17.262857142857143,12,7.268990825688073,5,0.5419659239842726,0.7318479685452163,2.374862970228479,19.9332,10.40155,,,exact factor-pair vertical witness rank
+runtime,10007-99999,30,300,,,26.95689655172414,,11.625,,,,2.3188728216536894,,,1.4854767558147548,,precomputed horizontal states; exact vertical-wheel reference timing
+runtime,10007-99999,100,300,,,16.48421052631579,,7.52280701754386,,,,2.1912313432835817,,,1.7121115892472645,,precomputed horizontal states; exact vertical-wheel reference timing
+runtime,10007-99999,300,300,,,8.04,,4.3133333333333335,,,,1.863987635239567,,,1.7771215201842008,,precomputed horizontal states; exact vertical-wheel reference timing
+arbitrary_jump_runtime_negative,128-bit random odd N,priority_prefix_10,100,,,,,,,,,,,,,2.9556576399119208,remainder-aware <=1-correction arbitrary jump is this many times slower than direct priority isqrt in CPython
+arbitrary_jump_runtime_negative,256-bit random odd N,priority_prefix_10,100,,,,,,,,,,,,,2.483413660556323,remainder-aware <=1-correction arbitrary jump is this many times slower than direct priority isqrt in CPython
+arbitrary_jump_runtime_negative,512-bit random odd N,priority_prefix_10,100,,,,,,,,,,,,,2.200016718822443,remainder-aware <=1-correction arbitrary jump is this many times slower than direct priority isqrt in CPython
+arbitrary_jump_runtime_negative,1024-bit random odd N,priority_prefix_10,100,,,,,,,,,,,,,2.4224316373004577,remainder-aware <=1-correction arbitrary jump is this many times slower than direct priority isqrt in CPython
+arbitrary_jump_runtime_negative,2048-bit random odd N,priority_prefix_10,40,,,,,,,,,,,,,2.59050017795647,remainder-aware <=1-correction arbitrary jump is this many times slower than direct priority isqrt in CPython
+arbitrary_jump_runtime_negative,4096-bit random odd N,priority_prefix_10,40,,,,,,,,,,,,,2.6838604605920477,remainder-aware <=1-correction arbitrary jump is this many times slower than direct priority isqrt in CPython
