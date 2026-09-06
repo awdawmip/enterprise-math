@@ -1,236 +1,167 @@
-# X6 axis-channel frame V2: global gauge torsor, square holonomy, and symmetry-forced flat transport
+# X6 axis-channel frame V2R: global gauge torsor, square holonomy and symmetry-forced flat transport
 
-Status: `FREE_RESEARCH / EXACT CONDITIONAL DERIVATION / NOT_FOUNDATION`
+Status: `FREE_RESEARCH / EXACT CONDITIONAL DERIVATION / CORRECTED 2026-09-06 / NOT_FOUNDATION`
 Date: `2026-09-06`
 Task: `RS-X6-CELL-CHANNEL-INTERNAL-STATE`
-Depends on: `X6_CELL_TRIADIC_PORT_FRAME_INTERNAL_STATE_V1_20260906.md`
+Depends on: corrected `X6_CELL_TRIADIC_PORT_FRAME_INTERNAL_STATE_V1_20260906.md` and V5 signed-Q correction.
 
-## 1. Starting point
+## 1. Axis-channel frame field
 
-PF-10 has an abstract six-channel label set `C`. X6 has six native spatial-axis labels `A`.
+PF-10 has an abstract six-channel label set `C`; X6 has six native unsigned spatial axis labels `A`.
 
-V1 proved that equal cardinality does not canonically identify them: an axis-channel frame is a bijection
-
-`beta:C -> A`,
-
-with `6!=720` possible choices.
-
-The open question is whether one must carry an independent 720-way frame state at every Cell, or whether native translation/symmetry constrains frame transport.
-
-This note answers that question under an explicit deterministic permutation-transport model.
-
-## 2. Channel frame field and edge transport
-
-Assign each native Cell `x` a bijection
+An axis-channel frame at Cell `x` is a bijection
 
 `beta_x:C -> A`.
 
-For a primitive spatial edge
+There are `6!=720` choices at one Cell. Equal cardinality does not canonically select one.
 
-`x -> x+e_i`,
+For a primitive spatial edge `x -> x+e_i`, define channel-label transport
 
-define the channel-label transport permutation
+`U_{x,i}=beta_{x+e_i}^{-1} o beta_x in Sym(C)`.
 
-`U_{x,i} = beta_{x+e_i}^{-1} o beta_x in Sym(C)`.
+The reverse edge carries `U_{x+e_i,-i}=U_{x,i}^{-1}`.
 
-Equivalently,
+This is relational frame transport, not a spatial coordinate.
 
-`beta_{x+e_i} U_{x,i} = beta_x`.
+## 2. Square holonomy theorem
 
-The reverse edge has
+For distinct axes `i,j`, compare the two spatial paths around one X6 square. Define
 
-`U_{x+e_i,-i}=U_{x,i}^{-1}`.
+`H_{x;i,j}`
 
-This is relational frame transport, not an additional spatial coordinate.
-
-## 3. Square holonomy theorem
-
-Consider the elementary spatial square using distinct axes `i,j`:
-
-`x -> x+e_i -> x+e_i+e_j`
-
-versus
-
-`x -> x+e_j -> x+e_j+e_i`.
-
-The endpoint Cell is the same because X6 translation is `Z^6`.
-
-The two channel transports are
-
-`U_{x+e_i,j} U_{x,i}`
-
-and
-
-`U_{x+e_j,i} U_{x,j}`.
-
-Define the channel square holonomy
-
-`H_{x;i,j}=(U_{x+e_j,i} U_{x,j})^{-1}(U_{x+e_i,j} U_{x,i})`.
+`=(U_{x+e_j,i} U_{x,j})^{-1}(U_{x+e_i,j} U_{x,i})`.
 
 Then channel-frame transport is path-independent on that square iff
 
 `H_{x;i,j}=1`.
 
-Thus spatial endpoint commutativity does not itself imply internal channel path-independence; a nontrivial internal connection can carry holonomy above one spatial Cell endpoint.
+So the commutativity of spatial endpoints does not by itself erase internal channel-path provenance.
 
-This is the exact point where Path/BRC provenance becomes relevant if a future law observes channel frame transport.
+## 3. Translation-invariant connection
 
-## 4. Translation-invariant connection
+If pure spatial translation has no location-dependent channel rule,
 
-Assume pure spatial translation has no location-dependent channel rule, so
+`U_{x,i}=U_i`,
 
-`U_{x,i}=U_i`
+then square flatness is exactly
 
-for every Cell `x`.
+`U_i U_j=U_j U_i`
 
-Then square holonomy reduces to the commutator
+for all `i,j`.
 
-`H_{i,j}=U_i^{-1}U_j^{-1}U_iU_j`
-
-(up to the chosen path-order convention).
-
-Therefore translation-invariant channel transport is globally path-independent on X6 iff
-
-`U_i U_j = U_j U_i`
-
-for every pair of spatial axes.
-
-When this holds, transport along displacement
-
-`z=(z_1,...,z_6)`
-
-is
+When this holds, displacement transport is
 
 `U(z)=product_i U_i^{z_i}`
 
-independent of path ordering.
+independent of the chosen primitive-step ordering.
 
-## 5. Full S6 covariance forces trivial deterministic permutation transport
+## 4. Full S6 covariance forces trivial pure-translation permutation transport
 
-Now impose the strongest current native axis-label symmetry on the **pure spatial transport law**.
+Assume the deterministic pure-translation rule is fully equivariant under simultaneous axis/channel relabeling:
 
-Choose one axis-channel frame at a reference Cell so both the channel set and axis set are labeled by `{1,...,6}` for calculation. Let `S6` act simultaneously by relabeling axes and channel-frame labels.
-
-Require an axis-local translation rule
-
-`i -> U_i in S6`
-
-to be equivariant:
-
-`U_{g(i)} = g U_i g^{-1}`
+`U_{g(i)}=g U_i g^{-1}`
 
 for every `g in S6`.
 
-Fix axis `i=1`. Every element of its stabilizer
-
-`Stab(1) ~= S5`
-
-must satisfy
-
-`U_1 = h U_1 h^{-1}`.
-
-Hence `U_1` lies in the centralizer of this `S5` subgroup inside `S6`.
-
-But that centralizer is trivial:
-
-- any commuting permutation must preserve the unique common fixed point `1`;
-- on the remaining five labels it must lie in the center of `S5`;
-- `Z(S5)={1}`.
+Fix axis `1`. Its stabilizer is `S5`. Hence `U_1` must lie in the centralizer of that `S5` inside `S6`. The common fixed point `1` must be preserved and the restriction to the other five labels lies in the center of `S5`, which is trivial.
 
 Therefore
 
-`U_1=1`.
+`U_1=1`,
 
-By equivariance,
+and by equivariance
 
 `U_i=1`
 
-for every axis.
+for all axes.
 
-So:
+Thus, under the stated deterministic permutation model,
 
-`FULL_S6_COVARIANCE + TRANSLATION_INVARIANCE + DETERMINISTIC_CHANNEL_PERMUTATION_TRANSPORT`
+`FULL_S6_COVARIANCE + TRANSLATION_INVARIANCE`
 
 forces
 
 `PURE_SPATIAL_CHANNEL_TRANSPORT = IDENTITY`.
 
-This is a theorem under the stated model, not a new P000 axiom.
+## 5. Global gauge consequence
 
-## 6. Consequence: the 720 frames form one global gauge torsor, not per-Cell physical multiplicity
+Under this theorem one frame chosen at one Cell transports unchanged across pure spatial translations. The 720 initial identifications are related by global channel relabeling.
 
-Under the theorem above, choosing `beta` at one Cell transports the same frame to every Cell.
+For channel-relabeling-equivariant future operations they form one global gauge torsor rather than 720 physical states per Cell:
 
-There are still 720 possible global initial identifications, but they are related by global channel relabeling. If all admitted physical/internal laws are equivariant under that global relabeling, these choices are gauge-equivalent descriptions rather than 720 distinct physical states at each Cell.
+`AXIS_CHANNEL_FRAME = GLOBAL_GAUGE_TORSOR(S6)`.
 
-Thus the safe current statement is:
+No canonical element is selected.
 
-`AXIS_CHANNEL_FRAME = GLOBAL_GAUGE_TORSOR(S6)`
+If an external device, material parameter, memory register or other future operation attaches fixed non-equivariant meaning to a named channel, the frame becomes relationally observable and must be retained.
 
-under the full-symmetry pure-translation model.
+## 6. When channel holonomy can reappear
 
-No canonical element of the torsor is selected.
+The flatness theorem applies only to bare, translation-invariant, fully S6-equivariant deterministic channel permutations driven solely by the spatial step label.
 
-## 7. When nontrivial channel holonomy can reappear
-
-The flatness theorem does **not** forbid internal twisting in general. It excludes only twisting generated by a translation-invariant, fully S6-equivariant deterministic permutation rule depending solely on the spatial axis label.
-
-Nontrivial transport can arise if at least one extra datum participates, for example:
+Nontrivial channel evolution may arise from extra typed data such as:
 
 - active triadic/internal state;
 - local field/order parameter;
 - symmetry breaking;
-- Cell type/refinement context;
-- time-dependent channel interaction;
-- non-permutation channel mixing/weights;
-- explicitly retained path history.
+- time-dependent interaction;
+- non-permutation channel mixing;
+- retained path history.
 
-Such a rule must be typed as internal dynamics, not silently attributed to bare spatial translation.
+Such evolution belongs to internal dynamics, not bare X6 translation.
 
-## 8. Coupling to the triadic internal fiber
+## 7. Coupling to corrected triadic internal dynamics
 
-With a global gauge frame chosen, the 960 signed triadic port frames from V1 can be read consistently in channel labels at every Cell.
+With one global gauge frame chosen, the corrected 960 signed triadic port frames can be represented consistently in channel labels throughout X6.
 
-Because the pure spatial channel connection is flat in the full-symmetry model, translating the entire triadic subsystem does not change its abstract channel state.
+The nontrivial internal update is **not** the superseded arbitrary-sign shorthand `(-d1,-d2,-d0)`.
 
-The nontrivial internal C6/C12 update remains carried by
+For an ordered triad `S=(i0,i1,i2)` and signed token frame
 
-`R(d_0,d_1,d_2)=(-d_1,-d_2,-d_0)`
+`F=((i0,i1,i2),(s0,s1,s2))`,
 
-and SHELL/CLOSURE mode, not by spatial frame twisting.
+the canonical tokenwise update is
 
-This cleanly separates:
+`R_can(F)=((i1,i2,i0),(-s0,-s1,-s2))`.
 
-- spatial parallel transport: trivial/gauge-flat under the theorem assumptions;
-- internal triadic evolution: nontrivial finite relation dynamics.
+Under independent signed-frame gauge changes the canonical generator is transported inside the four-twist bundle
 
-## 9. Observer and gauge boundary
+`Q_{S,alpha}(E_i_r)=alpha_r E_i_{r+1}`,
 
-A PF-10 observer that reports raw channel numbers `0,...,5` is gauge-dependent unless a frame convention has been fixed.
+`alpha_0 alpha_1 alpha_2=-1`.
 
-Gauge-invariant quantities include, depending on the observer language:
+See `X6_SIGNED_INTERNAL_Q_GAUGE_CORRECTION_V5_20260906.md`.
 
-- support cardinalities;
-- unlabeled incidence isomorphism type;
-- conjugacy-invariant passage properties;
-- fully equivariant outputs.
+This correction does not change the present V2 spatial flatness theorem because that theorem concerns pure channel transport under spatial translation, not the signed internal triadic update.
 
-A downstream application that attaches distinct physical meaning to channel labels breaks the full gauge symmetry and must supply that calibration as extra structure.
+## 8. Observer boundary
 
-## 10. Current internal-state frontier
+Raw PF-10 channel numbers are gauge-dependent until a frame convention/calibration is supplied.
+
+Gauge-invariant outputs may include support cardinality, unlabeled incidence isomorphism type, conjugacy-invariant passage properties and any fully equivariant pushed-forward tensor package.
+
+The exact gauge theorem can be expressed as
+
+`(Bij(C,A) x channel_package)/S(C) ~= axis_indexed_package`
+
+whenever all admitted operations are channel-relabeling equivariant.
+
+## 9. Current V2 frontier
 
 Closed under the declared deterministic permutation model:
 
-- exact edge channel connection and square-holonomy formula;
-- path-independent translation-invariant connection iff all direction transports commute;
-- full `S6` covariance forces every pure translation transport to identity;
-- 720 local bijections reduce to one global gauge torsor rather than independent per-Cell state.
+- channel edge connection and square-holonomy formula;
+- translation-invariant flatness iff direction transports commute;
+- full S6 covariance forces trivial pure-translation channel permutation;
+- the 720 frame choices reduce to one global gauge torsor under an equivariant observer lease.
 
 Still open:
 
-1. symmetry-broken/non-permutation channel dynamics;
-2. coupling of channel transport to triadic state, fields and time;
-3. physical calibration that may distinguish channel species;
-4. channel transfer between interacting neighboring subsystems beyond pure coordinate translation.
+- symmetry-broken/non-permutation transport;
+- channel transfer between neighboring interacting subsystems;
+- field/time dependent channel laws;
+- physical channel calibration.
+
+The signed internal-phase correction is contained in V1R/V5 and does not alter these V2 results.
 
 No Foundation promotion is made.
