@@ -1,0 +1,79 @@
+{
+  "schema": "PCF7_FIXED_PROBE_ZERO_VALUE_BRC_REVERIFY_CERTIFICATE_V1",
+  "status": "FROZEN",
+  "task_id": "RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION-STATEMENT-CORRECTION",
+  "publication_id": "TP2-C4DB35B43FE7334D2B63",
+  "claim_id": "CLAIM-PCF7FIX-20260906T0628Z-CHATGPT-01",
+  "researcher_id": "EM-PCF7FIX-5C2A91",
+  "execution_record_id": "ER-6E5D46858E71F8F5AC31",
+  "source_result_id": "RR-A9A5ADD3931B3F3EDFAB",
+  "prior_correction_result_id": "RR-87B7B98EEFD0D8525BEC",
+  "prior_correction_pr": 1137,
+  "source_return": {
+    "path": "research_returns/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_RETURN_20260827.md",
+    "git_blob_sha1": "sha1:8d77415f0b88581300ec9ec37308ba78a762c025"
+  },
+  "source_checker": {
+    "path": "research_checks/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_CHECK_20260831.py",
+    "git_blob_sha1": "sha1:b2a53c365f442fb2915cd869b77b62d9ce8a9ec8",
+    "sha256": "sha256:8a878f62fd213177036d14704dcd4efd19cad5b7e6f40dd96f3f91531b3492d9",
+    "byte_change": "NONE"
+  },
+  "brc_audit": {
+    "policy_source": "knowledge/procedures/BRC_RESEARCH_PRIORITY_AND_USAGE_20260905.md",
+    "policy_git_blob_sha1": "sha1:d9271e084d318b807398583e564b235c6715b03f",
+    "population": "the 256 labeled frozen probes (seed s in 0..63, probe family/type retained)",
+    "carrier": "exact labeled integer probe value a before any support-product compression",
+    "observer": "gcd(N,a) with proper-factor predicate 1<gcd(N,a)<N",
+    "future_operation": "finite prime-support avoidance followed by gcd classification",
+    "compression_under_audit": "C*=product of absolute values of all nonzero frozen probe integers",
+    "information_retained": "prime support of every nonzero probe",
+    "information_erased": "existence and provenance of zero-valued probe branches",
+    "loss_witness": "seed s=1, probe |s^6-1|=0; this branch is absent from C* but gcd(N,0)=N",
+    "resolution": "REUSE_APPLIED",
+    "repair_coordinate": "retain zero/nonzero branch identity (equivalently zero_probe_count plus labeled zero provenance) through the gcd observer"
+  },
+  "before_after_audit": {
+    "before": "Primes outside supp(C*) were said to make every fixed-family gcd equal to 1.",
+    "after": "Nonzero probes whose support is avoided give gcd 1; zero probes give gcd N; therefore every output is trivial and no proper factor is returned.",
+    "mathematical_delta": "ONLY_FIXED_PROBE_ZERO_VALUE_STATEMENT"
+  },
+  "zero_probe_classification": {
+    "seed_range": "s=0,...,63",
+    "quadratic_zero_probes": [],
+    "sixth_power_zero_probes": [
+      {
+        "seed": 1,
+        "probe": "|s^6-1|",
+        "value": 0
+      }
+    ],
+    "zero_probe_count": 1
+  },
+  "deterministic_checker_replay": {
+    "result": "PASS",
+    "stdout": "PCF7_CHECK_PASS recurrence_terms=18 gcd_cases=108 pcf4_balanced_zero=1009x1013 fixed_probe_balanced_zero=10007x10009 amplification=PASS regime_order=PASS",
+    "finite_zero_probe_witness": {
+      "p": 10007,
+      "q": 10009,
+      "N": 100160063,
+      "seed": 1,
+      "probe": "|1^6-1|",
+      "value": 0,
+      "gcd": 100160063
+    },
+    "checker_semantics": "fixed_probe_values() removes zero from the support product and the fixed-probe loop asserts gcd=1 only under `if v`; no checker byte change is required."
+  },
+  "unchanged_guards": [
+    "PCF7 Theorem 6.1 polynomial-prefix infinite balanced-semiprime obstruction",
+    "exact worst-case proper-split probability 0 for the declared polynomial-prefix campaign model",
+    "L=N recurrence-stage classification",
+    "T1-T5 at no-proper-factor strength",
+    "sealed PCF2 benchmark boundary",
+    "no generic factorization speedup claim",
+    "no universal factorization lower-bound claim",
+    "no novelty, Working Truth, Foundation, or canonical promotion"
+  ],
+  "hard_target": "PCF7_FIXED_PROBE_ZERO_VALUE_STATEMENT_CORRECTED_WITH_MAIN_THEOREM_PRESERVED",
+  "verification_disposition": "SUCCESS / INDEPENDENT_REVERIFY / NO_NEW_MATHEMATICAL_EXPANSION"
+}
