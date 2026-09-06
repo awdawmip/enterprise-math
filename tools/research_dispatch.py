@@ -538,6 +538,51 @@ def _filter_registered_events(
     return accepted, rejected
 
 
+def _block_unreviewed_registered_done(
+    task: dict[str, Any],
+    state: dict[str, Any],
+    authenticated: list[dict[str, Any]],
+    registered_rejected: list[dict[str, Any]],
+    result_state: dict[str, Any] | None,
+) -> dict[str, Any]:
+    """Fail closed when an authenticated DONE lacks terminal result authority.
+
+    The rejected DONE is not promoted to completion.  It only prevents the same
+    task from falling back to fresh dispatch while its attempted terminal closure
+    is unresolved.  A trusted Result/Driver lifecycle overlay, an active lease,
+    or an active cohort remains authoritative and is never replaced by this guard.
+    """
+    if result_state is not None or state.get("dispatch_state") != "NEEDS_DISPATCH":
+        return state
+    reason_text = "registered DONE requires a frozen result with terminal Driver review"
+    for rejected in registered_rejected:
+        if rejected.get("reason") != reason_text:
+            continue
+        index = rejected.get("index")
+        if type(index) is not int or index < 0 or index >= len(authenticated):
+            continue
+        event = authenticated[index]
+        if event.get("task_id") != task.get("task_id") or event.get("event") != "DONE":
+            continue
+        meta = event.get(GITHUB_META_KEY)
+        value = copy.deepcopy(state)
+        value["state"] = "BLOCKED"
+        value["dispatch_state"] = "BLOCKED"
+        value["hard_block"] = {
+            "code": "REGISTERED_DONE_REQUIRES_TERMINAL_DRIVER_REVIEW",
+            "publication_id": task.get("publication_id"),
+            "claim_id": event.get("claim_id"),
+            "progress_ref": event.get("progress_ref"),
+            "server_comment_id": meta.get("comment_id") if isinstance(meta, dict) else None,
+        }
+        value["next_action"] = (
+            "Materialize/freeze the Result and obtain terminal Driver review, or append an "
+            "authorized correction event; do not redispatch this task."
+        )
+        return value
+    return state
+
+
 def _overlay_result_state(
     task: dict[str, Any],
     state: dict[str, Any],
@@ -681,7 +726,10 @@ def reduce_definition(
     except Exception:
         state["identity_lane"] = task.get("identity_lane")
     state = _overlay_result_state(task, state, root, result_state)
-    return _overlay_active_cohort(task, state, root)
+    state = _overlay_active_cohort(task, state, root)
+    return _block_unreviewed_registered_done(
+        task, state, authenticated, registered_rejected, result_state
+    )
 
 
 @contextmanager

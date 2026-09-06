@@ -345,7 +345,18 @@ def reduce_task(
             if not isinstance(next_action, str) or not next_action.strip():
                 ignore(state, index, "HANDOFF requires next_action")
                 continue
-            state["state"] = "HANDOFF_READY"
+            result_id = event.get("result_id")
+            if result_id is not None and (not isinstance(result_id, str) or not result_id.strip()):
+                ignore(state, index, "HANDOFF result_id must be a nonempty string when supplied")
+                continue
+            # A result-bearing HANDOFF is a provisional review barrier even before
+            # the immutable result record lands on main.  Plain HANDOFF remains a
+            # researcher-to-researcher continuation surface.
+            state["state"] = "FROZEN_RETURN" if result_id is not None else "HANDOFF_READY"
+            if isinstance(result_id, str):
+                state["result_id"] = result_id.strip()
+            else:
+                state.pop("result_id", None)
             if event.get("progress_ref"):
                 state["last_progress_ref"] = event["progress_ref"]
             state["last_progress_at"] = event["at"]
@@ -414,6 +425,8 @@ def reduce_task(
         state["dispatch_state"] = "COMPLETE"
     elif state["state"] == "BLOCKED" and complete_hard_block(state.get("hard_block")):
         state["dispatch_state"] = "BLOCKED"
+    elif state["state"] == "FROZEN_RETURN":
+        state["dispatch_state"] = "AWAITING_REVIEW"
     elif state.get("claim_id"):
         state["dispatch_state"] = "LEASED"
     elif state["state"] in {"READY", "HANDOFF_READY"}:
