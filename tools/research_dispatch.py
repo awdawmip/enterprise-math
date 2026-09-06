@@ -11,11 +11,10 @@ repairing two reopen-path compatibility defects:
    explicit Result lifecycle view must receive the same canonical lifecycle gate,
    rather than failing by arity or bypassing the frozen-result interval.
 
-The preserved core remains fail-closed: runtime input must be raw authenticated
-Issue #240 comment objects. No priority, lease duration, Driver disposition,
-terminalization, or task-selection policy is changed here. The wrapper only
-preserves authority that the core reducer and Result lifecycle gate have already
-accepted.
+The preserved core remains fail-closed: runtime input must be raw authenticated Issue #240 comment objects.
+No priority, lease duration, Driver disposition, terminalization, or task-selection
+policy is changed here. The wrapper only preserves authority that the core reducer
+and Result lifecycle gate have already accepted.
 """
 from __future__ import annotations
 
