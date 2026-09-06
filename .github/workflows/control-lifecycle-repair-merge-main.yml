@@ -1,0 +1,43 @@
+name: control-lifecycle-repair-merge-main
+
+on:
+  push:
+    branches:
+      - control/result-handoff-awaiting-review-20260906
+    paths:
+      - '.github/workflows/control-lifecycle-repair-merge-main.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  merge-main:
+    if: contains(github.event.head_commit.message, 'bootstrap transient main merge for lifecycle repair')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Merge current main without dropping the accepted probe
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git fetch origin main
+          set +e
+          git merge --no-ff origin/main -m 'control: merge current main before lifecycle repair'
+          rc=$?
+          set -e
+          if [[ "$rc" != "0" ]]; then
+            conflicts="$(git diff --name-only --diff-filter=U)"
+            test "$conflicts" = "control_plane/chatgpt_dispatch_request.json"
+            git checkout --ours control_plane/chatgpt_dispatch_request.json
+            git add control_plane/chatgpt_dispatch_request.json
+            git commit -m 'control: merge current main before lifecycle repair'
+          fi
+          rm .github/workflows/control-lifecycle-repair-merge-main.yml
+          git add .github/workflows/control-lifecycle-repair-merge-main.yml
+          git commit -m 'control: remove transient main-merge helper'
+          git push origin HEAD:control/result-handoff-awaiting-review-20260906
