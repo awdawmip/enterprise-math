@@ -40,7 +40,6 @@ def closure(gens):
 B6={tuple(signs[i]*(p[i]+1) for i in range(N))
     for p in permutations(range(N)) for signs in product((-1,1),repeat=N)}
 assert len(B6)==(2**6)*720==46080
-assert Counter if False else True
 
 # Triadic generated subgroup from all 20 canonical Q_S.
 R=closure(tuple(q_triad(S) for S in combinations(range(N),3)))
@@ -60,7 +59,7 @@ assert full==B6
 
 # Positive-permutation parity is not the same as ordinary matrix determinant,
 # because the sign kernel contains both determinant signs.
-parity_det= {(perm_parity(g),matrix_det_sign(g)) for g in B6}
+parity_det={(perm_parity(g),matrix_det_sign(g)) for g in B6}
 assert parity_det=={(0,1),(0,-1),(1,1),(1,-1)}
 
 # Unit lattice shell consists exactly of signed coordinate units. This finite
