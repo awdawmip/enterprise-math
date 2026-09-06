@@ -172,15 +172,13 @@ The endpoints are
 
 Therefore
 
-`boxed: p=x_2-x_F}`
+`boxed: p=x_2-x_F`
 
-`boxed: q=2x_F-x_2}`
+`boxed: q=2x_F-x_2`
 
 and
 
-`boxed: (x_2-x_F)(2x_F-x_2)=N}`.
-
-(Braces above are punctuation only; the algebraic identities are exact.)
+`boxed: (x_2-x_F)(2x_F-x_2)=N`.
 
 In cost coordinates, with
 
