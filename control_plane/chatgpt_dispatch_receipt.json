@@ -1,14 +1,14 @@
 {
   "schema": "ENTERPRISE_MATH_CHATGPT_CONTROL_DISPATCH_RECEIPT_V1",
-  "request_id": "chatgpt-20260906-1508-task-research-claim-v1",
-  "generated_at": "2026-09-06T07:11:30Z",
+  "request_id": "chatgpt-20260906-1518-task-research-race-rebase-v1",
+  "generated_at": "2026-09-06T07:18:02Z",
   "repository": "awdawmip/enterprise-math",
-  "source_sha": "210dcc29c10d01f91fc4c3eef9a85c525a3b41d4",
+  "source_sha": "f70d0f8a2c78442b7aafe53f86e7f4a6c5637592",
   "kind": "RESEARCH",
   "issue_240": {
-    "comment_count": 702,
-    "last_comment_id": 5557627763,
-    "raw_comment_snapshot_sha256": "sha256:0fb63933a7d522455c2352701ccba47f6359f2a58bdd0b536ad935dc435f5935"
+    "comment_count": 704,
+    "last_comment_id": 5557679873,
+    "raw_comment_snapshot_sha256": "sha256:b0187afc9c359e30b0fbe00a3967278070491a38df248a4098d5c40d432a26ac"
   },
   "router_exit_code": 0,
   "route": {
@@ -132,6 +132,14 @@
           "reason": "HANDOFF requires the current live claim_id"
         },
         {
+          "index": 3,
+          "reason": "task is not dispatchable"
+        },
+        {
+          "index": 4,
+          "reason": "task is not dispatchable"
+        },
+        {
           "index": 474,
           "reason": "registered CLAIM falls inside the frozen-result interval before the authoritative nonterminal Driver review reopened execution"
         }
@@ -141,7 +149,7 @@
       "last_progress_ref": "Published under ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION/OG-AA2BAD92F59DC97880C7 as part of PRIME_COORD_FACTOR_EXTRACTION_PROGRAM_20260827.",
       "last_researcher_id": null,
       "last_server_author_login": "awdawmip",
-      "last_server_comment_id": 5473852777,
+      "last_server_comment_id": 5557679873,
       "lease_until": null,
       "leverage": "HIGH",
       "next_action": "Resume task under Driver disposition",
