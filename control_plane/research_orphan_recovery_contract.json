@@ -1,0 +1,44 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_ORPHAN_RECOVERY_CONTRACT_V1",
+  "status": "ACTIVE / CONTROL_MAINTENANCE / NO_CLAIM_AUTHORITY",
+  "current_state_path": "control_plane/research_orphan_recovery_state_20260906.json",
+  "inventory_tool": "tools/research_orphan_inventory.py",
+  "repackage_tool": "tools/research_orphan_recovery_repackage.py",
+  "source_of_truth": {
+    "git_remote": "origin/main",
+    "runtime_event_stream": "GitHub Issue #240 raw server comments",
+    "ordinary_task_contract": "research_task_publication_contract_v2.json",
+    "free_candidate_state_machine": "research_axiom_candidate_state_machine.json"
+  },
+  "state_projection": {
+    "TASK_RESEARCH": {
+      "unresolved_orphan_state": "BLOCKED",
+      "dispatch_state": "BLOCKED",
+      "fresh_dispatch_eligible": false,
+      "unblock_authority": "Driver canonical provenance reconciliation"
+    },
+    "FREE_RESEARCH": {
+      "unresolved_orphan_state": "DISCOVERY_IN_PROGRESS",
+      "state_machine": "research_axiom_candidate_state_machine.json",
+      "fresh_dispatch_eligible": false,
+      "promotion_required_for_ordinary_task": true
+    }
+  },
+  "exclusion_rules": [
+    "PATCH_EQUIVALENT_TO_MAIN != ORPHAN",
+    "EXACT_DESCENDANT_COVERAGE != ORPHAN",
+    "EXISTING_ISSUE240_CONTROL_LINEAGE != ORPHAN",
+    "EXISTING_MAIN_STATE_REFERENCE != ORPHAN",
+    "DUPLICATE_BRANCH_ALIAS_SAME_TIP != DISTINCT_ORPHAN"
+  ],
+  "freeze": [
+    "RECOVERY_STATE != TASK_AVAILABILITY",
+    "RECOVERY_STATE != CLAIM",
+    "RECOVERY_STATE != RESULT",
+    "RECOVERY_STATE != DRIVER_REVIEW",
+    "TASK_ORPHAN_WITHOUT_CANONICAL_PROVENANCE -> BLOCKED",
+    "FREE_ORPHAN -> DISCOVERY_IN_PROGRESS_NOT_AUTOMATIC_TASK",
+    "RECOVERY_SCAN_MUST_READ_STATE_REFERENCES_FROM_ORIGIN_MAIN_NOT_ITS_OWN_OUTPUT_BRANCH",
+    "NO_RESEARCHER_ID_SYNTHESIS_DURING_RECOVERY"
+  ]
+}
