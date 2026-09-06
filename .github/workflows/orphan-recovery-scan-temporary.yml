@@ -1,0 +1,50 @@
+name: orphan-recovery-scan-temporary
+
+on:
+  push:
+    branches:
+      - control/recover-dangling-research-20260906
+    paths:
+      - 'tools/research_orphan_recovery_scan.py'
+      - '.github/workflows/orphan-recovery-scan-temporary.yml'
+
+permissions:
+  contents: write
+  issues: read
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Fetch all remote research refs and Issue 240
+        run: |
+          set -euo pipefail
+          git fetch origin '+refs/heads/*:refs/remotes/origin/*'
+          mkdir -p /tmp/em-orphan
+          gh api --paginate \
+            -H 'Accept: application/vnd.github+json' \
+            "repos/${GITHUB_REPOSITORY}/issues/240/comments?per_page=100" \
+            --jq '.[]' | jq -s '.' > /tmp/em-orphan/issue-240-comments.json
+      - name: Run audit scanner
+        run: |
+          set -euo pipefail
+          python tools/research_orphan_recovery_scan.py \
+            --events /tmp/em-orphan/issue-240-comments.json \
+            --output control_plane/research_orphan_recovery_scan_20260906.json
+      - name: Persist audit on scan branch
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add control_plane/research_orphan_recovery_scan_20260906.json
+          git commit -m 'control: record dangling research recovery audit'
+          git push origin HEAD:control/recover-dangling-research-20260906
