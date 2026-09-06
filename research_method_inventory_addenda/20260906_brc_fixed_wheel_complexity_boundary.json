@@ -1,0 +1,51 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "RESEARCH_TOOLIZED_DOMAIN_OPERATOR",
+  "date": "2026-09-06",
+  "admission": {
+    "classification": "TASK_RESEARCH_TOOL_HARVEST",
+    "authority": "direct user continuation of the main-backed BRC multiplier program through Round 9",
+    "family_id": "T0_BRC",
+    "foundation_mutation": false,
+    "working_truth_promotion": false,
+    "new_global_tool_family": false,
+    "reason": "Freeze the exact fixed-period residue-wheel counting law and nonempty-support certificates as a negative boundary for the vertical BRC route."
+  },
+  "methods": [
+    {
+      "method_id": "t0.brc_fixed_wheel_complexity_boundary",
+      "name": "BRC fixed residue-wheel complexity boundary",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_NEGATIVE_BOUNDARY_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_residue_wheel_complexity.py",
+        "tests/test_brc_residue_wheel_complexity.py",
+        "research_notes/BRC_FIXED_RESIDUE_WHEEL_COMPLEXITY_BOUNDARY_20260906.md"
+      ],
+      "api": [
+        "periodic_support_count",
+        "canonical_difference_square_pair",
+        "fixed_squarehood_wheel_must_be_nonempty",
+        "legendre_symbol_reference",
+        "prime_shift_square_support_count",
+        "fixed_wheel_boundary"
+      ],
+      "triggers": [
+        "BRC residue wheel complexity",
+        "fixed modular sieve density",
+        "vertical candidate count",
+        "giant CRT wheel",
+        "quadratic residue support"
+      ],
+      "capabilities": [
+        "exact periodic support count in a finite vertical horizon",
+        "constructive proof that every admissible difference-of-squares strip has nonempty fixed QR-wheel support",
+        "exact odd-prime shifted-square QR support count",
+        "explicit fixed-wheel Theta(T) negative boundary"
+      ],
+      "core_law": "For fixed period P and nonempty support S, the retained offsets below T equal floor(T/P)|S| plus the tail support count, hence (|S|/P)T+O(P)=Theta(T). Every integer C not congruent 2 mod4 has an explicit difference-of-squares point whose vertical residue survives every fixed QR wheel, so a fixed residue table cannot delete an admissible strip entirely.",
+      "hard_boundary": "This is classical periodic counting, quadratic-character and difference-of-squares mathematics used to close a BRC research route. It is not a lower bound for arbitrary factoring algorithms. Growing/segmented sieves may change implementation tradeoffs, but no exponent improvement follows merely from a fixed finite wheel. No Foundation promotion is made."
+    }
+  ]
+}
