@@ -1,0 +1,74 @@
+{
+  "schema": "ENTERPRISE_MATH_GLOBAL_KNOWLEDGE_SYNC_STATE_V1",
+  "status": "ACTIVE",
+  "project_repository": "awdawmip/enterprise-math",
+  "source_repository": "awdawmip/chatgpt-global-knowledge",
+  "source_snapshot_reconciled": "fd4ad4ae07d5343a35e58403456d6f6c801da25c",
+  "reconciled_at": "2026-09-06T13:10:00+08:00",
+  "policy": "research_persistence_policy.json",
+  "deduplication": {
+    "keys": [
+      "Progress-Event-ID",
+      "source journal path",
+      "verified semantic representation in current project artifact"
+    ],
+    "duplicate_verified_artifact": "FORBIDDEN"
+  },
+  "events": [
+    {
+      "event_id": "20260906T113700+0800-rh-pair-gram-triad-critical-wall",
+      "source_path": "journal/enterprise-math/2026-09-06/20260906T113700+0800-rh-pair-gram-triad-critical-wall.md",
+      "project_artifact": "research_notes/RH_X6_BRC_TRANSPORT_FRONTIER_20260906.md",
+      "state": "REPRESENTED"
+    },
+    {
+      "event_id": "20260906T113700+0800-rh-triadic-transport-smooth-cell-no-go",
+      "source_path": "journal/enterprise-math/2026-09-06/20260906T113700+0800-rh-triadic-transport-smooth-cell-no-go.md",
+      "project_artifact": "research_notes/RH_X6_BRC_TRANSPORT_FRONTIER_20260906.md",
+      "state": "REPRESENTED"
+    },
+    {
+      "event_id": "20260906T114100+0800-rh-bohr-p2-observer-half-derivative",
+      "source_path": "journal/enterprise-math/2026-09-06/20260906T114100+0800-rh-bohr-p2-observer-half-derivative.md",
+      "project_artifact": "research_notes/RH_X6_BRC_TRANSPORT_FRONTIER_20260906.md",
+      "state": "REPRESENTED"
+    },
+    {
+      "event_id": "20260906T115000+0800-friable-mobius-charge-quantile-interlacing",
+      "source_path": "journal/enterprise-math/2026-09-06/20260906T115000+0800-friable-mobius-charge-quantile-interlacing.md",
+      "project_artifact": "research_notes/RH_X6_BRC_TRANSPORT_FRONTIER_20260906.md",
+      "state": "REPRESENTED"
+    },
+    {
+      "event_id": "20260906T115700+0800-growing-label-complexity-lower-bound",
+      "source_path": "journal/enterprise-math/2026-09-06/20260906T115700+0800-growing-label-complexity-lower-bound.md",
+      "project_artifact": "research_notes/RH_X6_BRC_TRANSPORT_FRONTIER_20260906.md",
+      "state": "REPRESENTED"
+    },
+    {
+      "event_id": "20260906T120200+0800-x6-layer-relation-birthday-multipoint",
+      "source_path": "journal/enterprise-math/2026-09-06/20260906T120200+0800-x6-layer-relation-birthday-multipoint.md",
+      "project_artifact": "research_notes/20260906T120500+0800-x6-relation-birthday-fast-multipoint-progress.md",
+      "state": "REPRESENTED"
+    },
+    {
+      "event_id": "20260906T120500+0800-x6-relation-fast-multipoint-prototype",
+      "source_path": "journal/enterprise-math/2026-09-06/20260906T120500+0800-x6-relation-fast-multipoint-prototype.md",
+      "project_artifact": "research_notes/20260906T120500+0800-x6-relation-birthday-fast-multipoint-progress.md",
+      "state": "REPRESENTED"
+    },
+    {
+      "event_id": "20260906T122500+0800-x6-multiresolution-cyclotomic-factor-audit",
+      "source_path": "journal/enterprise-math/2026-09-06/20260906T122500+0800-x6-multiresolution-cyclotomic-factor-audit.md",
+      "project_artifact": "research_notes/20260906T122500+0800-x6-layer-frobenius-multiresolution-progress.md",
+      "state": "REPRESENTED"
+    },
+    {
+      "event_id": "20260906T124000+0800-x6-frobenius-vs-pollard-rho-boundary",
+      "source_path": "journal/enterprise-math/2026-09-06/20260906T124000+0800-x6-frobenius-vs-pollard-rho-boundary.md",
+      "project_artifact": "research_notes/20260906T122500+0800-x6-layer-frobenius-multiresolution-progress.md",
+      "state": "REPRESENTED"
+    }
+  ],
+  "next_reconciliation_rule": "Read only journal/enterprise-math events newer than the reconciled source snapshot, compare against current project artifacts, and persist only missing semantic content. Journal-only semantic checkpoints are SYNC_DEBT."
+}
