@@ -7,9 +7,10 @@ on:
 
 permissions:
   contents: read
+  issues: read
 
 jobs:
-  validate-replication:
+  dispatch-probe:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -17,9 +18,17 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Run exact claimed replication checker
+      - name: Run live canonical research dispatcher
         shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          git fetch origin 799c592b5d444ee5d905cf4d7baddeb1e246435f
-          git show 799c592b5d444ee5d905cf4d7baddeb1e246435f:research_checks/P000_S4_EQUIVARIANT_PF10_CONNECTION_MODULI_V21_REPLICATION_CHECK_20260906.py > /tmp/gen21_repl_check.py
-          python /tmp/gen21_repl_check.py
+          # post-Gen21-handoff dispatch
+          gh api --paginate --slurp 'repos/awdawmip/enterprise-math/issues/240/comments?per_page=100' | jq 'add' > issue240-comments.json
+          set +e
+          python research_control_dispatch.py --events issue240-comments.json --kind RESEARCH | tee dispatch-output.json
+          code=${PIPESTATUS[0]}
+          echo "DISPATCH_EXIT=${code}"
+          if [ "${code}" -ne 0 ] && [ "${code}" -ne 2 ]; then
+            exit "${code}"
+          fi
