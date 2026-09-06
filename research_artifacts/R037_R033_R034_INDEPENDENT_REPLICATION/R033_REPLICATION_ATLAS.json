@@ -1,0 +1,44 @@
+{
+  "schema":"R037_R033_INDEPENDENT_REPLICATION_ATLAS_V1",
+  "researcher_id":"EM-R037-204389",
+  "task_id":"RS-R037-R033-R034-INDEPENDENT-ALGORITHM-DATA-REPLICATION-AUDIT",
+  "derivation_boundary":"Independent graph/distance/boundary/topology derivations were completed before comparison with the frozen generated R033 atlases. The R033 owner-head commit lookup exposed only its prior-art-matrix patch, not its experiment implementation.",
+  "fcc":{
+    "degree":12,
+    "distance":"max(max(|x|,|y|,|z|),(|x|+|y|+|z|)/2) on D3",
+    "shell":"A_0=1; A_r=10*r^2+2 for r>=1",
+    "bulk":"V_r=(10*r^3+15*r^2+11*r+3)/3",
+    "shell_induced_edges":"24*r^2",
+    "holdout_r100":{"A":100002,"V":3383701,"shell_induced_edges":240000,"exposed_faces":363612},
+    "stable_boundary":{"from_r":3,"outside_degree_counts":{"7":"12","5":"24*(r-1)","4":"6*(r-1)^2","3":"4*(r-1)*(r-2)"},"limit_frequencies":{"4":"3/5","3":"2/5"},"TV":"(24*r-12)/(10*r^2+2)","TV_bound":"<=12/(5*r)"},
+    "limit_shape":{"polytope":"cuboctahedron","vertices":12,"facets":14,"circumradius_nn":1,"inradius_nn":"1/sqrt(2)","anisotropy":"sqrt(2)","finite_support_remainder":0}
+  },
+  "hcp":{
+    "degree":12,
+    "distance_even_k":"max(|k|,|k|/2+max(|i|,|j|,|i+j|))",
+    "distance_odd_k":"|k|+max(0,min(H(i,j),H(i+1,j),H(i,j+1))-(|k|-1)/2)",
+    "shell":"A_0=1; even r: (21*r^2+4)/2; odd r: (21*r^2+3)/2",
+    "bulk":"even r: (14*r^3+21*r^2+14*r+4)/4; odd r: (14*r^3+21*r^2+14*r+3)/4",
+    "shell_induced_edges":"even r:27*r^2; odd r:27*r^2-3",
+    "holdout_r100":{"A":105002,"V":3552851,"shell_induced_edges":270000,"exposed_faces":363612},
+    "stable_boundary":{"from_r":4,"orbit_count":10,"outside_degree_counts":["deg3: even 3*(3*r^2-6*r+4)/2; odd 9*(r-1)^2/2","deg4: even 3*(r-2)*(3*r-2)/2; odd 3*(r-1)*(3*r-5)/2","deg5:12*(r-1)","deg3: even (3*r^2-6*r+4)/2; odd 3*(r-1)^2/2","deg5: even 3*(r-2); odd 3*(r-1)","deg5: even 3*(r-2); odd 3*(r-3)","deg6:12","deg4:3*(r-1)","deg6:3*(r-1)","deg7:6"],"positive_limit_frequencies":["3/7","3/7","1/7"],"zero_mass_total":"24*r-12","TV":"(24*r-12)/A_r","TV_bound":"<=16/(7*r)"},
+    "limit_shape":{"inequalities":["|z|<=1","|u|+|z|/2<=1","|v|+|z|/2<=1","|u+v|+|z|/2<=1"],"vertices":18,"facets":14,"circumradius":1,"inradius":"sqrt(24/41)","anisotropy":"sqrt(41/24)","finite_support_overshoot":"<=1/(6*r)","even_r_all_18_vertices_exactly_reachable":true}
+  },
+  "cross_world":{
+    "first_rooted_induced_graph_difference":{"r":1,"shell_adjacency_trace_A4":{"fcc":384,"hcp":408},"four_cycle_counts":{"fcc":6,"hcp":9}},
+    "first_shell_cardinality_difference":{"r":2,"fcc":42,"hcp":44},
+    "leading_shell_ratio_hcp_over_fcc":"21/20",
+    "leading_bulk_ratio_hcp_over_fcc":"21/20",
+    "exposed_face_count":"12*(3*r^2+3*r+1)",
+    "exposed_orientation":{"fcc":"6 unoriented classes each 1/6","hcp":"3 same-layer classes each 1/6 and 6 interlayer classes each 1/12"}
+  },
+  "boundary_complex_finite_certificate":{
+    "method":"Independent exact-rational Voronoi halfspace intersection and face gluing by rational vertex keys",
+    "certified_radii":"r=0..20 inclusive for FCC and HCP",
+    "law":{"F":"12*(3*r^2+3*r+1)","E":"2*F","V":"F+2","chi":2},
+    "checks":{"connected":true,"every_edge_incidence":2,"every_vertex_link":"one cycle"},
+    "samples":{"r0":{"V":14,"E":24,"F":12},"r1":{"V":86,"E":168,"F":84},"r2":{"V":230,"E":456,"F":228},"r10":{"V":3974,"E":7944,"F":3972},"r20":{"V":15134,"E":30264,"F":15132}},
+    "all_radius_S2_status":"THEOREM_CANDIDATE_ONLY; finite certificate was not promoted to an all-r proof"
+  },
+  "frozen_comparison":"All listed R033 theorem-critical formulas, holdouts, boundary counts, limit-shape constants and r=0..20 topology certificates matched the frozen generated atlases. No mathematical mismatch found."
+}
