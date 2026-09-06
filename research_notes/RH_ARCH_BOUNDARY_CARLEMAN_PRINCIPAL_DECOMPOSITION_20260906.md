@@ -301,15 +301,19 @@ If the uniform kernel remainder is `e_d`, then the full regular cross remainder 
 
 because the total old measure is `2L` and the total shell measure is `2delta`.
 
-The global pole contribution is rank one in the current Weil decomposition, hence its old/shell cross has rank at most one.
+For the unreduced two-sided Weil form, the two pole/endpoint evaluation channels give a conservative full-space cross-rank budget
+
+`rank(B_2^pole) <= 2`.
+
+An exact parity/inversion reduction may lower this to one in a declared sector, but that recoalescence must be certified rather than assumed.
 
 Therefore, for the first step,
 
 `B_2 = B_2^ref + K_d^reg + R_d^reg + B_2^pole`
 
-with
+with the provenance-safe bound
 
-`rank(K_d^reg)+rank(B_2^pole) <= 4(d+1)+1`
+`rank(K_d^reg)+rank(B_2^pole) <= 4(d+1)+2`
 
 and the explicit norm tail above.
 
@@ -347,9 +351,9 @@ Let
 
 `H_2^ref(eta)=M_eta(B_2^ref)`.
 
-For a chosen Taylor degree `d`, put
+For a chosen Taylor degree `d`, put the conservative unreduced-space rank budget
 
-`r_d=4(d+1)+1`
+`r_d=4(d+1)+2`
 
 and
 
@@ -361,13 +365,13 @@ The low-rank-plus-tail inertia theorem from
 
 then gives
 
-`N_(H_2^ref(eta))((−infinity,−eps_d)) - 2 r_d`
+`N_(H_2^ref(eta))((-infinity,-eps_d)) - 2 r_d`
 `<= r_full(eta;2)`
-`<= N_(H_2^ref(eta))((−infinity,eps_d)) + 2 r_d`,
+`<= N_(H_2^ref(eta))((-infinity,eps_d)) + 2 r_d`,
 
 with the lower bound truncated at zero.
 
-This is deliberately conservative. The four branch polynomial blocks share structure and the pole vector is symmetry constrained, so the practical repair rank can be lower after a basis-specific exact audit. The displayed bound is a theorem-level safe envelope.
+This is deliberately conservative. The four branch polynomial blocks share structure and the pole channels become symmetry constrained after a certified parity/inversion split, so the practical repair rank can be lower after a basis-specific exact audit. The displayed bound is a theorem-level safe envelope before that recoalescence.
 
 ## 11. New matrix-symbol route
 
@@ -408,7 +412,7 @@ Established exactly:
 5. noncompactness of the raw touching principal carrier;
 6. analyticity radius `pi` of the regular remainder;
 7. exponential finite-rank compressibility of the complete regular remainder at `log2 -> log3` because `log6<pi`;
-8. an explicit theorem-level rank/norm budget for transferring threshold inertia from the corrected reference block to the full first-step block.
+8. an explicit theorem-level rank/norm budget for transferring threshold inertia from the corrected reference block to the full first-step block without an unsafe parity collapse.
 
 Not established:
 
@@ -438,7 +442,7 @@ Only after that certificate exists should the phrase `prime-dominated threshold 
 
 ## 14. Hard boundaries
 
-- `ARCHIMedean SPATIAL THINNESS != SMALL OPERATOR NORM`.
+- `ARCHIMEDEAN SPATIAL THINNESS != SMALL OPERATOR NORM`.
 - `NONCOMPACT CARLEMAN PRINCIPAL CARRIER != FINITE-RANK REPAIR`.
 - `PRIME-ONLY FLOATING ABLATION ~= FULL FLOATING ABLATION` is evidence, not a norm theorem.
 - The Cauchy/Carleman split is an operator decomposition, not an RH proof.
@@ -447,7 +451,7 @@ Only after that certificate exists should the phrase `prime-dominated threshold 
 
 ## 15. External theorem/convention anchors
 
-- Current truncated-Weil implementations use the archimedean multiplier `Re psi(1/4+i tau/2)-log pi` and a rank-one pole correction.
+- Current truncated-Weil implementations use the archimedean multiplier `Re psi(1/4+i tau/2)-log pi`; the unreduced explicit formula retains both endpoint/pole evaluation channels before parity/inversion recoalescence.
 - The classical Carleman operator with kernel `1/(u+v)` is diagonalized by the Mellin transform with multiplier `pi/cosh(pi xi)`.
 - Classical Hankel/Carleman spectral theory confirms that the `1/t` singularity is the noncompact principal carrier, while sufficiently regular error kernels are compact under the relevant hypotheses.
 
