@@ -449,6 +449,40 @@ def _claim_result_gate_reason(
     return "registered CLAIM was created after the current result freeze without an explicit reopen state"
 
 
+V2_TASK_PUBLICATION_CUTOVER = datetime(2026, 8, 28, tzinfo=timezone.utc)
+
+
+def _claimless_generation_gate_reason(
+    task: dict[str, Any], event: dict[str, Any]
+) -> str | None:
+    """Bind claimless registered mutations to the current task generation.
+
+    CLAIM already carries an exact publication binding and claim-bound mutations
+    inherit that live owner scope. UNBLOCK and SUPERSEDE have no claim identity,
+    so after the V2 cutover they must name the exact operational publication.
+    Pre-cutover publicationless events remain available to the legacy migration
+    replay path; an explicitly mismatched publication is never accepted.
+    """
+    kind = event.get("event")
+    if kind not in {"UNBLOCK", "SUPERSEDE"}:
+        return None
+    expected = task.get("publication_id")
+    supplied = event.get("publication_id")
+    if supplied is not None:
+        if not isinstance(expected, str) or not expected or supplied != expected:
+            return f"registered {kind} publication_id does not match current task publication"
+        return None
+    meta = event.get(GITHUB_META_KEY)
+    created_at = meta.get("created_at") if isinstance(meta, dict) else None
+    try:
+        created = _lifecycle_time(created_at, "GitHub created_at")
+    except DispatchError as exc:
+        return str(exc)
+    if created >= V2_TASK_PUBLICATION_CUTOVER:
+        return f"registered {kind} requires publication_id after V2 task-publication cutover"
+    return None
+
+
 def _filter_registered_events(
     task: dict[str, Any],
     events: list[dict[str, Any]],
@@ -467,6 +501,10 @@ def _filter_registered_events(
             accepted.append(event)
             continue
         kind = event.get("event")
+        generation_reason = _claimless_generation_gate_reason(task, event)
+        if generation_reason is not None:
+            rejected.append({"index": index, "reason": generation_reason})
+            continue
         if kind == "CLAIM":
             claim_id = event.get("claim_id")
             if not isinstance(claim_id, str) or not claim_id:
@@ -544,6 +582,8 @@ def _block_unreviewed_registered_done(
     authenticated: list[dict[str, Any]],
     registered_rejected: list[dict[str, Any]],
     result_state: dict[str, Any] | None,
+    reduced_task_events: list[dict[str, Any]] | None = None,
+    reducer_ignored_indices: set[int] | None = None,
 ) -> dict[str, Any]:
     """Fail closed when an authenticated DONE lacks terminal result authority.
 
@@ -565,6 +605,25 @@ def _block_unreviewed_registered_done(
         if event.get("task_id") != task.get("task_id") or event.get("event") != "DONE":
             continue
         meta = event.get(GITHUB_META_KEY)
+        rejected_comment_id = meta.get("comment_id") if isinstance(meta, dict) else None
+        ignored = reducer_ignored_indices or set()
+        if type(rejected_comment_id) is int and reduced_task_events is not None:
+            later_applied = False
+            for reduced_index, reduced_event in enumerate(reduced_task_events):
+                if reduced_index in ignored:
+                    continue
+                reduced_meta = reduced_event.get(GITHUB_META_KEY)
+                reduced_comment_id = (
+                    reduced_meta.get("comment_id") if isinstance(reduced_meta, dict) else None
+                )
+                if type(reduced_comment_id) is int and reduced_comment_id > rejected_comment_id:
+                    later_applied = True
+                    break
+            if later_applied:
+                # A later authoritative event actually changed/extended the same
+                # runtime stream. The provisional terminal attempt is historical
+                # audit evidence, not a permanent redispatch barrier.
+                continue
         value = copy.deepcopy(state)
         value["state"] = "BLOCKED"
         value["dispatch_state"] = "BLOCKED"
@@ -707,6 +766,12 @@ def reduce_definition(
         default_lease_minutes=lease,
         now=now,
     )
+    reduced_task_events = [event for event in filtered if event.get("task_id") == task.get("task_id")]
+    reducer_ignored_indices = {
+        item.get("index")
+        for item in state.get("ignored_events", [])
+        if type(item.get("index")) is int
+    }
     state["ignored_events"].extend(auth_rejected)
     state["ignored_events"].extend(registered_rejected)
     state.update({
@@ -728,7 +793,13 @@ def reduce_definition(
     state = _overlay_result_state(task, state, root, result_state)
     state = _overlay_active_cohort(task, state, root)
     return _block_unreviewed_registered_done(
-        task, state, authenticated, registered_rejected, result_state
+        task,
+        state,
+        authenticated,
+        registered_rejected,
+        result_state,
+        reduced_task_events,
+        reducer_ignored_indices,
     )
 
 
