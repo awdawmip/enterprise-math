@@ -1,0 +1,30 @@
+name: RH log3 N2 Arb certificate
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/rh_log3_n2_arb_certificate.py'
+      - '.github/workflows/rh-log3-n2-arb-cert.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  certify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install rigorous ball arithmetic backend
+        run: python -m pip install --disable-pip-version-check 'python-flint==0.9.0'
+
+      - name: Run closed-form Arb LDL certificate
+        run: python scripts/rh_log3_n2_arb_certificate.py --K 1000 --prec 256
