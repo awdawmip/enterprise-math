@@ -1,0 +1,62 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "RESEARCH_TOOLIZED_GLOBAL_SUBTOOL",
+  "date": "2026-09-07",
+  "admission": {
+    "classification": "TASK_RESEARCH_TOOL_HARVEST",
+    "authority": "direct user continuation of the BRC quotient-jet and staged square-gap-table program, asking to continue attacking the remaining q(2J+q) product",
+    "family_id": "T0_BRC",
+    "foundation_mutation": false,
+    "working_truth_promotion": false,
+    "new_global_tool_family": false,
+    "reuse_resolution": "EXTEND_EXISTING_TOOL",
+    "reason": "Extend t0.brc_quotient_jet_tail by retaining a third-order finite-difference jet for the exact square increment q(2J+q), eliminating every post-seed multiplication of two N-growing operands while preserving exact BRC root/remainder transport and square-gap-table composition."
+  },
+  "methods": [
+    {
+      "method_id": "t0.brc_square_increment_difference_jet",
+      "name": "BRC square-increment finite-difference jet tail",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_energy_difference_jet_tail.py",
+        "src/enterprise_math/brc_quotient_jet_tail.py",
+        "tests/test_brc_energy_difference_jet_tail.py",
+        "experiments/brc_energy_difference_jet_benchmark.py",
+        "research_notes/BRC_ENERGY_DIFFERENCE_JET_TAIL_20260907.md",
+        "research_artifacts/brc_energy_difference_jet_benchmark_20260907.csv"
+      ],
+      "api": [
+        "EnergyJetSeedSample",
+        "EnergyDifferenceJetOrbit",
+        "EnergyDifferenceJetTailStep",
+        "EnergyDifferenceJetTailScanner",
+        "root_stride_third_difference",
+        "root_third_difference_bound_sufficient",
+        "square_increment_third_difference"
+      ],
+      "triggers": [
+        "BRC square increment jet",
+        "eliminate q times 2J plus q",
+        "general-multiplication-free BRC tail",
+        "energy finite difference multiplier transport",
+        "root third difference bound",
+        "compose quotient jet with square-gap tables"
+      ],
+      "capabilities": [
+        "retain exact E=q(2J+q) on each of the five fixed-step mod-8 source orbits",
+        "prove the exact third-difference product identity coupling quotient and root jets",
+        "prove the sharp common-tail root third-difference interval [-3,387]",
+        "reuse the quotient-jet intervals epsilon in [-4,4] and Delta^2 q in [-2,98]",
+        "retain the sole unbounded mixed product (Delta q)(Delta^2 J) and transport it using only bounded-coefficient multiplications",
+        "after fifteen quotient divisions and fifteen direct square-increment seed products, perform no fresh division and no multiplication of two N-growing operands",
+        "preserve exact multiplier root/remainder states with at most two ordinary BRC root corrections",
+        "compose unchanged with the BALANCED 4032/12155/12673 square-gap residue cascade",
+        "repair the parent quotient scanner so its hot path performs fifteen actual seed divmods rather than recomputing them in orbit construction"
+      ],
+      "core_law": "On one stride-8 source orbit let s=nabla q, a=nabla^2 q, t=nabla J, u=nabla^2 J, e=nabla^3 q_new, w=nabla^3 J_new and E=q(2J+q). Then nabla^3 E_new = e(2(J+q+s+a+t+u+w)+e)+2w(q+s+a)+6(su+a(s+t)). The quotient jet gives e in [-4,4] and a in [-2,98]. For J=floor(sqrt(mN)), the common tail 4m^5>=N gives 0<Delta_8^3 sqrt(mN)<=384; floor phase contributes strictly between -4 and 4, hence w lies in the sharp integer interval [-3,387]. Retaining M=su and updating M_new=M+s w+(a+e)u+(a+e)w means every post-seed product has a fixed bounded integer factor.",
+      "hard_boundary": "This is an exact multiplier-state execution optimization extending t0.brc_quotient_jet_tail; it does not shorten a Lehman/Hart-style multiplier horizon, change factor-search complexity, establish RSA practicality, or create a new top-level BRC family. Finite CPython timings favor the difference jet only for sufficiently large integers (near parity at 4096 bits and favorable at 8192/16384 bits in the committed run); smaller inputs should retain the fresh native product. The exact quotient remainder, root finite differences, energy finite differences, and mixed provenance coordinate must not be collapsed."
+    }
+  ]
+}
