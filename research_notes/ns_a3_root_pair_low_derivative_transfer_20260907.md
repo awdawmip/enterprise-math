@@ -1,0 +1,236 @@
+# Navier–Stokes A3 root-pair low-derivative transfer and sparse forcing ladder
+
+Status: `RESEARCH_NOTE / DURABLE_FRONTIER / EXACT_PAIR_INEQUALITY + EXACT_PERIODIC_SPARSE_ESTIMATE / NOT_PROMOTED / NOT_MILLENNIUM_PROOF`
+Researcher-ID: `EM-FREE-7N3K2A`
+At: `2026-09-07T16:22:00+08:00`
+Parents:
+- `research_notes/ns_a3_cubic_defect_symbol_audit_20260907.md`
+- `research_notes/ns_a3_primitive_shell_acute_leakage_nogo_20260907.md`
+Authority immediately before write: `enterprise-math main@e951f399b7139c65f128fbb1929e5582765b112c`.
+
+## 0. Setup
+
+Let `Phi` be the 12 signed primitive A3 roots, each of length `sqrt(2)`, and let
+
+`R_A3={m alpha: m in Z_{>0}, alpha in Phi}`.
+
+Let `G=(g0,gx,gy,gz)` be the cubic defect frame and
+
+`delta(k)=|G(k)|/|k|^3` for `k!=0`.
+
+The previous notes give the exact pair-output formulas for root-pair dot products `-1,0,+1` and `delta=0` on the same root line.
+
+## 1. The A3 low-derivative transfer lemma
+
+### Theorem L1
+
+For any nonzero `p,q in R_A3` with `p+q!=0`, let
+
+`K_hi=max(|p|,|q|)`, `K_lo=min(|p|,|q|)`.
+
+Then
+
+`boxed: delta(p+q) * K_hi <= 2 K_lo`.
+
+If `p,q` are parallel on the same A3 line, the left side is zero. For distinct nonparallel root lines, the proof is the finite A3 dot-product classification.
+
+Assume `p=m alpha`, `q=n beta`, `m>=n>0`.
+
+### dot 0
+
+The exact formula is
+
+`delta_0=2mn/(m^2+n^2)`.
+
+Hence
+
+`delta_0 * m/n = 2m^2/(m^2+n^2) <=2`.
+
+### dot +1
+
+The exact formula is
+
+`delta_+=sqrt(13) mn(m+n)/[2(m^2+mn+n^2)]^(3/2)`.
+
+Since
+
+`m^2+mn+n^2 >= m(m+n)`,
+
+we obtain
+
+`delta_+ * m/n`
+`<= [sqrt(13)/(2sqrt(2))] sqrt(m/(m+n))`
+`<2`.
+
+### dot -1 / STAR
+
+The exact formula is
+
+`delta_STAR=sqrt(13) mn|m-n|/[2(m^2+n^2-mn)]^(3/2)`.
+
+For `0<n<=m`,
+
+`m^2+n^2-mn >= (3/4)m^2`.
+
+Therefore
+
+`delta_STAR * m/n`
+`<= sqrt(13)/(3/2)^(3/2)`
+`<2`.
+
+This proves L1 with the simple uniform constant `2`; no claim that `2` is sharp across all pair types is needed.
+
+### Interpretation
+
+The cubic output defect exactly compensates a high derivative on scale-separated root-ray interactions. Comparable-scale incompatible pairs remain critical because `K_lo~K_hi`; the theorem does not make them small.
+
+## 2. Ordered Navier–Stokes branch consequence
+
+For one ordered convolution branch of the quadratic term,
+
+`Bhat(k) = i P_k [(uhat(p)·q) uhat(q)]`, `k=p+q`,
+
+we have
+
+`|Bhat(k)| <= |q| |uhat(p)| |uhat(q)|`.
+
+Applying the four-channel defect multiplier and taking its Euclidean channel norm gives
+
+`|mathcal T B_{p,q}(k)|`
+`<= delta(k)|q| |uhat(p)||uhat(q)|`
+`<= 2 min(|p|,|q|) |uhat(p)||uhat(q)|`
+
+whenever both inputs lie on exact A3 root rays.
+
+Thus the derivative in skeleton-skeleton defect forcing can always be assigned to the lower input frequency, without a helicity assumption.
+
+Helicity supplies additional zeros (for example same-shell homochiral forcing), but is not needed for L1.
+
+## 3. Finite collision multiplicity of root-pair outputs
+
+Fix an ordered pair of distinct nonparallel signed A3 rays `(alpha,beta)`. Since `alpha,beta` are linearly independent, the map
+
+`(m,n) -> m alpha+n beta`
+
+is injective on positive integer radii.
+
+There are only finitely many ordered signed ray-label pairs. Hence every Fourier output frequency has a universal bounded number `M_A3` of nonparallel root-ray parent representations. A crude bound `M_A3<=120` is enough; no sharp multiplicity is required.
+
+This prevents the dense radial tower from creating an uncontrolled convolution multiplicity in L2-based estimates.
+
+## 4. Sparse negative-Sobolev forcing ladder
+
+Let `c` be a smooth mean-zero divergence-free periodic field with Fourier support in `R_A3`. Let
+
+`mathcal T f=(T0 f,Tx f,Ty f,Tz f)`
+
+with the four cubic zero-order defect multipliers, and let `B(c,c)=P[(c·grad)c]`.
+
+### Theorem L2
+
+For every `0<=sigma<=1`,
+
+`boxed:`
+
+`|| mathcal T B(c,c) ||_{Hdot^{-sigma}(l2_4)}`
+` <= C_{A3,sigma} ||c||_{Hdot^{(1-sigma)/2}}^2`.
+
+Proof. Parallel root pairs have zero output defect and contribute nothing. For nonparallel pairs, A3 angles are `60,90,120` degrees. If `K_hi=max(|p|,|q|)`, then uniformly
+
+`|p+q| >= (sqrt(3)/2) K_hi`.
+
+By L1, the channel-vector branch coefficient is bounded by
+
+`C K_lo |chat(p)||chat(q)|`.
+
+After the `Hdot^{-sigma}` output weight and the finite collision-multiplicity Cauchy bound, the squared norm is controlled by
+
+`C sum_{p,q} K_lo^2 K_hi^{-2sigma} |chat(p)|^2 |chat(q)|^2`.
+
+Since for `K_lo<=K_hi`,
+
+`K_lo^2 K_hi^{-2sigma}`
+`<= (|p||q|)^(1-sigma)`,
+
+the double sum factorizes into
+
+`C [sum_p |p|^(1-sigma)|chat(p)|^2]^2`,
+
+which is exactly the square of `||c||_{Hdot^{(1-sigma)/2}}^2`.
+
+### Important endpoints
+
+`sigma=0`:
+
+`||mathcal T B(c,c)||_2 <= C ||c||_{Hdot^{1/2}}^2`.
+
+`sigma=1/2`:
+
+`||mathcal T B(c,c)||_{Hdot^{-1/2}}`
+`<= C ||c||_{Hdot^{1/4}}^2`
+`<= C ||c||_2 ||c||_{Hdot^{1/2}}`.
+
+`sigma=1`:
+
+`||mathcal T B(c,c)||_{Hdot^{-1}} <= C ||c||_2^2`.
+
+These estimates quantify the full off-skeleton defect forcing generated by an exact root-ray field. They do not say the full quadratic term is small; only its A3-defect projection enjoys the derivative transfer.
+
+## 5. Dense-radius first-leakage critical estimate for the decimated reference
+
+Let `v` solve the A3 root-ray decimated periodic Navier–Stokes model, with no active radius below `K_* >0`. The decimated dynamics conserves each radial shell energy nonlinearly, so viscosity gives exact shellwise decay. In particular
+
+`||v(t)||_2 <= ||v_0||_2`
+
+and
+
+`int_0^infinity ||v(t)||_{Hdot^{1/2}}^2 dt`
+`<= C ||v_0||_2^2/(nu K_*)`.
+
+Let the first cubic-defect Stokes response `z_1` solve
+
+`partial_t z_1 - nu Delta z_1 = - mathcal T B(v,v)`,
+`z_1(0)=0`.
+
+Taking the `Hdot^{1/2}` energy and using the `sigma=1/2` endpoint,
+
+`sup_t ||z_1(t)||_{Hdot^{1/2}}^2`
+`+ nu int ||z_1||_{Hdot^{3/2}}^2 dt`
+`<= (C/nu) int ||v||_{Hdot^{1/4}}^4 dt`.
+
+Interpolation gives
+
+`||v||_{Hdot^{1/4}}^4 <= ||v||_2^2 ||v||_{Hdot^{1/2}}^2`,
+
+hence
+
+`boxed:`
+
+`sup_t ||z_1(t)||_{Hdot^{1/2}}^2`
+`<= C ||v_0||_2^4/(nu^2 K_*)`.
+
+This obtains a high-minimum-frequency gain in a critical defect norm **without assuming dyadic radial lacunarity**. It is a first-generation/forced-Stokes estimate, not a closure of the full perturbation equation.
+
+## 6. Relation to the earlier dyadic leakage route
+
+The earlier L3 first-generation estimate used dyadic radii to make a positive radial kernel summable and obtained a `1/K_*` gain in that norm. L2-based output orthogonality plus the injective two-ray parameterization provides a different mechanism: finite angular pair labels prevent radial convolution multiplicity, so the negative-Sobolev ladder survives for the full integer radial tower.
+
+Therefore dyadic lacunarity is not intrinsically required for **A3-defect forcing control in L2/Sobolev topology**. It may still be useful for stronger pointwise/L3/Lipschitz estimates and for closing nonlinear perturbations.
+
+## 7. Updated next target
+
+The next question is whether Theorem L2 can close the *full* perturbation `u=v+w` around the globally smooth decimated A3 reference without dyadic lacunarity.
+
+The forcing term `mathcal T B(v,v)` is now controlled. The remaining terms are
+
+`B(v,w)+B(w,v)+B(w,w)`
+
+and the fact that the geometric defect multipliers are not projections onto an invariant subspace.
+
+A viable closure must combine:
+
+1. the A3 low-derivative transfer for skeleton-skeleton forcing;
+2. minority-helicity/shell double-null information for comparable interactions;
+3. a critical perturbative estimate for interactions containing the defect field.
+
+No full perturbation theorem is claimed yet.
