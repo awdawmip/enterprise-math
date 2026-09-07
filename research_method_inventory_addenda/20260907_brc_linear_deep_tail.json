@@ -1,0 +1,60 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "RESEARCH_TOOLIZED_GLOBAL_SUBTOOL",
+  "date": "2026-09-07",
+  "admission": {
+    "classification": "TASK_RESEARCH_TOOL_HARVEST",
+    "authority": "direct user continuation of the BRC error-linearization and Pell/Padé multiplier-tail program",
+    "family_id": "T0_BRC",
+    "foundation_mutation": false,
+    "working_truth_promotion": false,
+    "new_global_tool_family": false,
+    "reason": "The high-order table-free Pell/Padé tail provably collapses to an order-one affine pair beyond an O(N^(1/5)) multiplier prefix.  The resulting exact h=1,2 root transport uses only a linear denominator and at most two ordinary BRC basin crossings."
+  },
+  "methods": [
+    {
+      "method_id": "t0.brc_linear_deep_tail",
+      "name": "BRC order-one linear deep-tail multiplier transport",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_linear_deep_tail.py",
+        "tests/test_brc_linear_deep_tail.py",
+        "experiments/brc_linear_deep_tail_benchmark.py",
+        "research_notes/BRC_LINEAR_DEEP_TAIL_20260907.md",
+        "research_artifacts/brc_linear_deep_tail_benchmark_20260907.csv"
+      ],
+      "api": [
+        "LinearDeepTailState",
+        "order1_pell_pair",
+        "order1_two_correction_certificate",
+        "linear_tail_sufficient",
+        "common_mod8_linear_tail_sufficient",
+        "linear_tail_threshold",
+        "common_mod8_linear_tail_threshold",
+        "transport_order1_linear_tail",
+        "odd_n_linear_deep_tail_states"
+      ],
+      "triggers": [
+        "BRC linear deep tail",
+        "order one Pell predictor",
+        "long multiplier horizon",
+        "N one fifth tail",
+        "table free mod8 tail",
+        "linear denominator root transport"
+      ],
+      "capabilities": [
+        "exact order-one Pell lower ratio (4m+3h)/(4m+h) for h=1,2",
+        "root increment predictor floor(2hJ/(4m+h)) without sqrt-ratio tables",
+        "exact state-dependent two-correction certificate J h^3 <= m(4m+3h)(4m+h)",
+        "root-free sufficient certificate 256m^5 >= N h^6",
+        "single common odd-N mod-8 tail threshold 4m^5 >= N",
+        "unbounded multiplier stream beyond the previous max_multiplier<=100 table boundary",
+        "finite full-pipeline speedup over fair incremental direct-isqrt baselines in tested 512..8192-bit cohorts"
+      ],
+      "core_law": "For h in {1,2}, the order-one Pell pair A=4m+3h, B=4m+h satisfies (m+h)B^2-mA^2=h^3 and A/B<sqrt((m+h)/m). Therefore d=floor(2hJ/(4m+h)) is a lower root increment. If J h^3<=mAB, at most two BRC odd-width corrections recover the exact target root/remainder. Since J<=sqrt(mN) and A,B>=4m, the root-free condition 256m^5>=N h^6 suffices; h=2 yields the common mod-8 tail condition 4m^5>=N.",
+      "hard_boundary": "This is an exact multiplier-state transport optimization only. It does not reduce a Lehman/Hart-style N^(1/3) factor-search horizon, prove an asymptotic factorization speedup, or imply RSA practicality. The deep-tail threshold is enormous at RSA bit sizes. Finite Python speedups are implementation evidence, not machine-model complexity theorems."
+    }
+  ]
+}
