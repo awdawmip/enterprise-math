@@ -1,0 +1,59 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "RESEARCH_TOOLIZED_GLOBAL_SUBTOOL",
+  "date": "2026-09-07",
+  "admission": {
+    "classification": "TASK_RESEARCH_TOOL_HARVEST",
+    "authority": "direct user continuation of the BRC quotient/energy-jet and staged square-gap-table program, asking to keep exploiting the tables after the previous large products were removed",
+    "family_id": "T0_BRC",
+    "foundation_mutation": false,
+    "working_truth_promotion": false,
+    "new_global_tool_family": false,
+    "reuse_resolution": "EXTEND_EXISTING_TOOL",
+    "reason": "Extend t0.brc_square_increment_difference_jet by transporting the modular observer needed by the existing staged square-gap tables, so most candidates are rejected before the full completion gap or any full-width cascade modulo is materialized."
+  },
+  "methods": [
+    {
+      "method_id": "t0.brc_gap_residue_jet_tail",
+      "name": "BRC completion-gap residue difference jet",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_gap_residue_jet_tail.py",
+        "src/enterprise_math/brc_energy_difference_jet_tail.py",
+        "src/enterprise_math/brc_square_gap_cascade.py",
+        "tests/test_brc_gap_residue_jet_tail.py",
+        "experiments/brc_gap_residue_jet_benchmark.py",
+        "research_notes/BRC_GAP_RESIDUE_JET_TAIL_20260907.md",
+        "research_artifacts/brc_gap_residue_jet_benchmark_20260907.csv"
+      ],
+      "api": [
+        "RootResidueDifferenceOrbit",
+        "GapResidueJetTailStep",
+        "GapResidueJetTailScanner",
+        "transported_cascade_modulus"
+      ],
+      "triggers": [
+        "BRC completion gap residue jet",
+        "transport square residue table input",
+        "avoid big integer modulo in BRC cascade",
+        "filter before full gap materialization",
+        "compose energy jet with square tables"
+      ],
+      "capabilities": [
+        "transport floor(sqrt(mN)) modulo a registered table-product on each of five stride-eight source orbits",
+        "reuse the exact root third difference already emitted by the square-increment energy jet",
+        "transport mN modulo the same product by the exact sparse-step recurrence t<-t+h*(N mod M)",
+        "compute the upward completion-gap residue exactly as (J+1)^2-mN modulo M",
+        "seed all root-residue orbits with exactly fifteen full-root reductions plus two one-time target reductions",
+        "COMPACT profile tests 4032 and 12155 before materializing the full completion gap",
+        "FULL profile transports all three BALANCED stages and performs no post-seed native big-integer cascade modulo",
+        "preserve zero false negatives and exact equality with the existing BALANCED cascade",
+        "defer exact completion-gap construction and gap isqrt until the appropriate table-survivor boundary"
+      ],
+      "core_law": "On one source orbit m_k=m_0+8k, let j_k=J_k mod M, v_k=nabla J_k mod M and a_k=nabla^2 J_k mod M. If w_(k+1)=nabla^3 J_(k+1) is supplied exactly by the parent energy jet, then j_(k+1)=j_k+v_k+a_k+w_(k+1), v_(k+1)=v_k+a_k+w_(k+1), and a_(k+1)=a_k+w_(k+1) modulo M. With t_m=mN mod M transported by t_(m+h)=t_m+h*(N mod M), the nonzero upward completion gap satisfies F_m mod M=(j_m+1)^2-t_m mod M. Therefore the registered square-residue tables can be evaluated exactly before F_m is materialized.",
+      "hard_boundary": "This is an exact modular-observer and execution optimization extending existing T0_BRC tools. It does not reduce the multiplier horizon or factor-search complexity. Finite CPython timings are mixed below several thousand bits and show only a modest incremental gain on large operands; no machine-independent crossover is claimed. PRIMARY/COMPACT/FULL must remain necessary-condition filters, and root/remainder plus modular provenance must not be collapsed into a Boolean table result before downstream exact checks."
+    }
+  ]
+}
