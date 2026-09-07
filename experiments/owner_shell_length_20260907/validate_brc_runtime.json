@@ -1,0 +1,27 @@
+{
+  "schema": "owner_shell_length_brc_migration_validation_v1",
+  "status": "PASS",
+  "scope": "Same 61 selected formula/input/resource cases plus exact BRC traces; no all-N proof claim from tests.",
+  "helper_sha256": "31c09afd186ecc86d608fdfeb3b014091f22a3b40bcbdc32d568fe0c0db8aa18",
+  "validation_sha256": "956126dae579767e65dd9f4f80ab04947a8cc1bdbaa9e34c6e41125dea2a21ec",
+  "frozen_v1_validation_sha256": "81df5c43c80cd7b459aac2a5d61c47d8accf0efb7cf5e97b42fdb187e3c642bf",
+  "original_validation_source_sha256": "5c8c8322971904f58af26bf53ec88abdbeb1ba2965355e96e4d1391d2ac76ba0",
+  "selected_case_count": 61,
+  "frozen_selected_outputs_equal": true,
+  "trace_count_verified": 1641,
+  "trace_kinds": [
+    "BRC_DIVISION_EVALUATION",
+    "BRC_ROOT_EVALUATION"
+  ],
+  "tampered_trace_rejected": true,
+  "governed_legacy_multiplicity_calls": 0,
+  "exact_large_trace_json_serialization": "PASS",
+  "interpreter_decimal_limit_unchanged": 4300,
+  "large_count_readout_status": "RESOURCE_LIMIT",
+  "source_dependencies": {
+    "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py": "6f0d79a519c53fed1300b3fabf500c34e30aa46cdd63b409fa6ecc115071ecb4",
+    "experiments/x6_signed_native_spatial_v16_20260905/x6_signed.py": "e48b6f2133edc588fde98b1b0f02ce27fecda915b152b7901300898920d52b8e",
+    "src/enterprise_math/exact_arithmetic.py": "f4f8feead82dc53a35e5fec495b31e46e64820f7b115c9efd6034063e68f8ad6"
+  },
+  "legacy_boundary": "Unmodified original regression imports Fraction only to reject noninteger input. Original signed BRC multiplicity routines are not used by the governed v2 certificate; pure-integer coordinate/norm/length contracts remain reused."
+}

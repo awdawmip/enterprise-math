@@ -715,10 +715,12 @@
       "source_refs": [
         "experiments/owner_shell_length_20260907/shell_length.py",
         "research_notes/OWNER_SHELL_LENGTH_FRONTIER_20260907.md",
-        "research_notes/OWNER_SHELL_LENGTH_INDEPENDENT_AUDIT_20260907.md"
+        "research_notes/OWNER_SHELL_LENGTH_INDEPENDENT_AUDIT_20260907.md",
+        "research_notes/OWNER_SHELL_LENGTH_BRC_RUNTIME_20260908.md"
       ],
       "api": [
         "upper_length",
+        "upper_length_evaluation",
         "reduction_parameters",
         "construct_endpoint",
         "verify_endpoint",
@@ -730,7 +732,7 @@
         "平方壳最短词长锐界"
       ],
       "input_contract": "Nonnegative integer quadratic readout N=sum z_i^2, explicit six signs and separate construction/large-BRC-readout budgets.",
-      "output_contract": "Lmax(N)=max{k>=0:k^2<=6N,k congruent N mod2}, plus an attaining raw signed endpoint, actual common-depth, all20 lossless joint slice addresses and shortest-word count when within budget.",
+      "output_contract": "Lmax(N)=max{k>=0:k^2<=6N,k congruent N mod2}, plus an attaining raw signed endpoint, actual common-depth, all20 lossless joint slice addresses and shortest-word count when within budget. The v2 certificate includes ordered BRC DIV/ROOT collapse traces; large trace integers have lossless typed hex encoding.",
       "core_law": "A six-residue reduction verifies every hypothesis of Meng-Sun Lemma 2.4, completing the all-N theorem; the executable constructor realizes its three-square/Hadamard proof.",
       "hard_boundary": "N is quadratic readout, not event length. Auxiliary b=floor(U/6) is not native common-depth. Existence proof is independent of search success; pseudopolynomial construction and representation budgets are not fast bit-complexity guarantees.",
       "reuse_resolution": {
@@ -740,19 +742,30 @@
           "T1_SCALE_ENUMERATION_VALUATION"
         ],
         "reuse_resolution_state": "COMPOSE_APPLIED",
-        "how_applied_or_why_not": "Executes the original signed_brc and x6_signed APIs and applies the published fixed-sum four-square lemma with all strict inequalities checked.",
+        "how_applied_or_why_not": "Executes unchanged pure-integer signed_brc and x6_signed coordinate/norm/length APIs; all materialized division, remainder and roots use the existing exact_arithmetic BRC facade. Shortest-word multiplicity retains the original signed BRC factorial ratio and requires a zero BRC remainder. The published fixed-sum four-square lemma and all strict inequalities are unchanged.",
         "hard_boundary_checked": "Original signed identity, no additional native dimension, classical prior art explicitly attributed."
       },
-      "runtime": "Python standard library and frozen native signed X6 modules.",
+      "runtime": "Python arbitrary-precision integers, existing BRC exact_arithmetic facade, and frozen native signed X6 modules. Historical direct-division multiplicity functions are not called by the governed v2 certificate.",
       "validation_refs": [
         "experiments/owner_shell_length_20260907/validate_selected_cases.py",
-        "research_notes/OWNER_SHELL_LENGTH_INDEPENDENT_AUDIT_20260907.md"
+        "research_notes/OWNER_SHELL_LENGTH_INDEPENDENT_AUDIT_20260907.md",
+        "experiments/owner_shell_length_20260907/validate_brc_runtime.py",
+        "experiments/owner_shell_length_20260907/validate_brc_runtime.json",
+        "experiments/owner_shell_length_20260907/brc_runtime_independent_20260908/review.py",
+        "experiments/owner_shell_length_20260907/brc_runtime_independent_20260908/review.json",
+        "experiments/owner_shell_length_20260907/brc_runtime_independent_20260908/REVIEW.md"
       ],
       "source_sha256": {
-        "experiments/owner_shell_length_20260907/shell_length.py": "c77bc6342eb5c78072ccea1b70dc0ee90a6dd7676aab4d3de1aa9928c2f67065",
+        "experiments/owner_shell_length_20260907/shell_length.py": "31c09afd186ecc86d608fdfeb3b014091f22a3b40bcbdc32d568fe0c0db8aa18",
         "experiments/owner_shell_length_20260907/validate_selected_cases.py": "5c8c8322971904f58af26bf53ec88abdbeb1ba2965355e96e4d1391d2ac76ba0",
         "research_notes/OWNER_SHELL_LENGTH_FRONTIER_20260907.md": "5cec9acf830ec0600b8bc7dd45f4b081f771a69da0ab7c6e43ecb53a602d8bb4",
-        "research_notes/OWNER_SHELL_LENGTH_INDEPENDENT_AUDIT_20260907.md": "80324f18bbdc9fe01f38b6943870c8ed36fa0068512e3fa874da21f4f71c8ea0"
+        "research_notes/OWNER_SHELL_LENGTH_INDEPENDENT_AUDIT_20260907.md": "80324f18bbdc9fe01f38b6943870c8ed36fa0068512e3fa874da21f4f71c8ea0",
+        "experiments/owner_shell_length_20260907/validate_brc_runtime.py": "956126dae579767e65dd9f4f80ab04947a8cc1bdbaa9e34c6e41125dea2a21ec",
+        "experiments/owner_shell_length_20260907/brc_runtime_independent_20260908/review.py": "013ca7d3cb7f7164a166ddad3cbd80c5b3fc18a00fe88944c37159100a98ab4c",
+        "experiments/owner_shell_length_20260907/validate_brc_runtime.json": "c4b454f6b84ed774d8471d685106c143ebea98d689c28cf7aba1ae9817d4fae9",
+        "experiments/owner_shell_length_20260907/brc_runtime_independent_20260908/review.json": "9d485a64cc490ce8ee60b502279bdcc82f6dc522e92d1b2b40d30e6175eb788d",
+        "experiments/owner_shell_length_20260907/brc_runtime_independent_20260908/REVIEW.md": "e12793f3a41eed96afcf12e148075cab59420be170f3ce535614a88d0afdeac4",
+        "research_notes/OWNER_SHELL_LENGTH_BRC_RUNTIME_20260908.md": "a0a470afcd1d78eab4d65b7c87b2eb925574c2fe2d66e062974662207828b0d8"
       }
     },
     {
