@@ -1,0 +1,118 @@
+{
+  "schema": "owner_shell_brc_independent_bounded_review_v1",
+  "created_utc": "2026-09-07T19:00:24.589865+00:00",
+  "scope": "Independent bounded source/API migration review, not a formal V2 review or all-N proof.",
+  "status": "PASS_FINITE_BOUNDARIES_NO_MATERIAL_DEFECT_FOUND",
+  "baseline": "5eddb6ea23761d928197b3d8227a5b42a7975a34",
+  "baseline_tree": "8c0a6c8d0383b3063ae97d00be069db1613c726e",
+  "baseline_equivalence": {
+    "original_review_local_commit": "9c8ba08cb82f0d071dfd91c0bdcf17f8220f08c6",
+    "original_review_tree_pin": "8c0a6c8d0383b3063ae97d00be069db1613c726e",
+    "public_tree_matches_original_review": true,
+    "provenance": "Both commit trees independently read as equal before packaging; replay requires only the published baseline object."
+  },
+  "runtime": {
+    "python": "3.12.14",
+    "assertions_enabled": true,
+    "repo_root": "D:\\em\\owner-20260907",
+    "package_default_repo_root": "D:\\em\\owner-20260907"
+  },
+  "replay_scope": "Exactly the existing two independent endpoint cases and original boundary/fault injections, with no added mathematical cases.",
+  "input_sha256": {
+    "shell_length.py": "31c09afd186ecc86d608fdfeb3b014091f22a3b40bcbdc32d568fe0c0db8aa18",
+    "validate_brc_runtime.py": "956126dae579767e65dd9f4f80ab04947a8cc1bdbaa9e34c6e41125dea2a21ec",
+    "validate_brc_runtime.json": "c4b454f6b84ed774d8471d685106c143ebea98d689c28cf7aba1ae9817d4fae9"
+  },
+  "source_dependencies": {
+    "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py": {
+      "sha256": "6f0d79a519c53fed1300b3fabf500c34e30aa46cdd63b409fa6ecc115071ecb4",
+      "baseline_bytes_equal": true
+    },
+    "experiments/x6_signed_native_spatial_v16_20260905/x6_signed.py": {
+      "sha256": "e48b6f2133edc588fde98b1b0f02ce27fecda915b152b7901300898920d52b8e",
+      "baseline_bytes_equal": true
+    },
+    "src/enterprise_math/exact_arithmetic.py": {
+      "sha256": "f4f8feead82dc53a35e5fec495b31e46e64820f7b115c9efd6034063e68f8ad6",
+      "baseline_bytes_equal": true
+    }
+  },
+  "golden_evidence_bindings": "PASS; inspected frozen result without rerunning its 61 cases or 1641 traces",
+  "checks": [
+    {
+      "case": "new_endpoint_count_and_trace_bijection",
+      "N": 60,
+      "endpoint": [
+        4,
+        -1,
+        3,
+        -3,
+        3,
+        -4
+      ],
+      "count": 51459408000,
+      "trace_count": 31,
+      "signed_triple": [
+        -1,
+        3,
+        3
+      ],
+      "status": "PASS"
+    },
+    {
+      "case": "new_endpoint_count_and_trace_bijection",
+      "N": 61,
+      "endpoint": [
+        -4,
+        3,
+        -3,
+        3,
+        -3,
+        3
+      ],
+      "count": 651819168000,
+      "trace_count": 29,
+      "signed_triple": [
+        1,
+        1,
+        1
+      ],
+      "status": "PASS"
+    },
+    {
+      "case": "exact_candidate_budget_one_reject_two_accept",
+      "N": 60,
+      "status": "PASS"
+    },
+    {
+      "case": "negative_hadamard_rejected_before_natural_division",
+      "status": "PASS"
+    },
+    {
+      "case": "hex_threshold_exact_json_and_decimal_limit_preserved",
+      "decimal_limit": 4300,
+      "status": "PASS"
+    },
+    {
+      "case": "five_additional_trace_corruption_signatures_rejected",
+      "signatures": [
+        "wrong_quotient",
+        "zero_denominator",
+        "boolean_integer",
+        "wrong_root_basin",
+        "missing_root_field"
+      ],
+      "status": "PASS"
+    }
+  ],
+  "script_sha256": "013ca7d3cb7f7164a166ddad3cbd80c5b3fc18a00fe88944c37159100a98ab4c",
+  "policy": "ENTERPRISE_MATH_EXACT_ARITHMETIC_RUNTIME_POLICY_V2",
+  "global_knowledge_canonical": "990d7c1b3a7c63ab4c81b356a28ca88be953c2e8",
+  "boundaries": [
+    "Arithmetic traces prove local exact evaluations; they are not a certificate authenticity signature or an all-N mathematical proof.",
+    "Upper_length scalar API is retained; upper_length_evaluation and optional ledger expose its three BRC evaluations.",
+    "Search budget bounds tested candidate pairs, not arbitrary-precision CPU time or memory.",
+    "Multiplicity event/readout resource outcomes remain separate from endpoint existence; default budget is unchanged.",
+    "Only review.py/review.json/REVIEW.md are added in the dedicated package directory. Frozen reviewed files, catalog, old TEMP evidence, coordinates, facade, and untracked proof are unchanged; no remote action."
+  ]
+}
