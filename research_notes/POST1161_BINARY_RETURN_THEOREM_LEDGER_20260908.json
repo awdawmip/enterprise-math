@@ -1,0 +1,165 @@
+{
+  "schema": "ENTERPRISE_MATH_BINARY_FIRST_RETURN_ADMISSION_LEDGER_V2",
+  "status": "FREE_RESEARCH_ADMISSION_CANDIDATE / BRANCH_BACKED / NOT_FOUNDATION / NOT_WORKING_TRUTH",
+  "date": "2026-09-08",
+  "researcher_id": "EM-FREE-G61R8",
+  "parent_issue": 1161,
+  "candidate_tool": {
+    "method_id": "brc.binary_first_return_predictive_rg",
+    "classification": "GLOBAL_SUBTOOL_CANDIDATE",
+    "proposed_family": "T0_BRC",
+    "composes_with": [
+      "T6_OPERATION_SAFE_QUOTIENT",
+      "T5_PRECISION_REFINEMENT",
+      "T4_FINITE_FIBER_CAPACITY_COLLISION_MINIMA",
+      "T7_FINITE_SYMMETRY_EQUIVARIANCE"
+    ],
+    "source": "src/enterprise_math/brc_binary_first_return.py",
+    "admission_boundary": "Do not place signed-memory statements inside the positive/non-negative Weighted-BRC ledger. Positive first-return mass and signed branch-majority memory are distinct carriers."
+  },
+  "support_lemmas": [
+    {
+      "id": "BFR-T01-FIRST-BALANCE-CATALAN",
+      "admission_class": "CLASSICAL_SUPPORT_LEMMA / NO_NOVELTY_CLAIM",
+      "hypotheses": "two concrete branch witnesses A,B; first nonempty equal-multiplicity return",
+      "statement": "The first-balance-return word count at length 2n is 2*Catalan(n-1); under equal branch mass 1/2 the shell mass is Catalan(n-1)/2^(2n-1).",
+      "role": "support executable and downstream theorems; do not promote as an Enterprise novelty claim"
+    },
+    {
+      "id": "BFR-T02-RENEWAL-FORMAL-SERIES",
+      "admission_class": "CLASSICAL_SUPPORT_LEMMA / NO_NOVELTY_CLAIM",
+      "hypotheses": "BFR-T01 shell masses f_n; formal F(s)=sum f_n s^(2n)",
+      "statement": "The coefficient recurrence gives F(2-F)=s^2 as a formal power-series identity.",
+      "role": "support AGM reconstruction and finite-return facade without using a square-root selector"
+    }
+  ],
+  "typing_lemmas": [
+    {
+      "id": "BFR-T03-RANK-ONE-BRANCH-MEMORY",
+      "admission_class": "TYPED_SPECIALIZATION / REUSE_EXISTING_SIGNED_GROUP_COMPLETION_AND_T7",
+      "hypotheses": "two-element witness fiber D; cumulative branch multiplicities",
+      "statement": "M_D=Z^D/Z*1 is rank one; after temporary labeling z=#A-#B; witness swap sends z to -z; the swap-orbit scalar is |z| in N_0.",
+      "promotion_recommendation": "retain as a typing lemma for the binary-first-return subtool; do not add to the positive Weighted-BRC theorem ledger"
+    }
+  ],
+  "promotion_candidates": [
+    {
+      "id": "BFR-T04-ALL-HORIZON-PREDICTIVE-MINIMALITY",
+      "priority": "HIGH",
+      "proposed_home": "T0_BRC binary-first-return subledger; semantic bridge to T6",
+      "hypotheses": "still-alive two-branch histories; declared first-hit/first-balance future observer",
+      "statement": "The unlabeled all-horizon future is complete on d=|#A-#B| and distinct d are distinguishable; labeled futures are complete on signed z. Therefore no fixed finite exact predictive automaton exists for the all-horizon observer.",
+      "why_new": "Existing T6 compiles finite predictive quotients on a declared finite state set; this theorem identifies the exact minimal state for an unbounded one-counter process and proves the fixed-finite-state no-go.",
+      "hard_boundary": "observer-relative; does not imply a universal state lower bound for unrelated branch systems"
+    },
+    {
+      "id": "BFR-T05-FINITE-HORIZON-CLASS-COUNTS",
+      "priority": "HIGH",
+      "proposed_home": "T0_BRC binary-first-return subledger; executable T6 specialization",
+      "hypotheses": "BFR-T04 process observed only through future length h",
+      "statement": "The exact unlabeled predictive quotient has h+2 classes {0,1,...,h,FAR}; the branch-resolved quotient has 2h+2 classes.",
+      "why_new": "closed-form quotient cardinality and state labels replace generic finite partition refinement for this unbounded process",
+      "hard_boundary": "exact only for the declared binary first-return observer"
+    },
+    {
+      "id": "BFR-T06-GRADED-PREDICTIVE-QUOTIENT",
+      "priority": "HIGHEST",
+      "proposed_home": "T0_BRC binary-first-return subledger; composition of T6 and T5",
+      "hypotheses": "equal positive branch mass 1/2; Q_h from BFR-T05; zero absorbing for first-hit verification",
+      "statement": "There is an exact rational kernel K_h:Q_h->Prob(Q_{h-1}) with q_{h-1}K=K_h q_h; for 1<=k<=h, pi_{h-1,k-1}K_h=K_k pi_{h,k}, and horizon projections compose exactly.",
+      "why_new": "provides an explicit horizon-changing operation-safe quotient tower; existing fixed-state T6 and generic T5 do not by themselves supply this closed-form graded dynamics",
+      "hard_boundary": "N1/path-memory semantics; no automatic promotion to instantaneous G0/N0 Cell state"
+    }
+  ],
+  "composed_results": [
+    {
+      "id": "BFR-T07-HIDDEN-FIBER-CAPACITY-LOWER-BOUND",
+      "admission_class": "T4_APPLICATION / NEGATIVE_BOUNDARY",
+      "statement": "At visible terminal/time m, exact unlabeled future prediction needs at least ceil(m/2) distinct hidden states, and branch-resolved sign needs at least 2*ceil(m/2).",
+      "promotion_recommendation": "keep as a regression/capacity witness; no new capacity tool family"
+    },
+    {
+      "id": "BFR-T08-SWAP-INVARIANT-SCALAR-DESCENT",
+      "admission_class": "T7_APPLICATION / OBSERVER_BOUNDARY",
+      "statement": "Witness relabeling acts by z->+-z while |z| is invariant, so scalar first-return observers factoring through |z| are orientation-section independent.",
+      "promotion_recommendation": "keep as a typed observer/symmetry regression; no new symmetry tool"
+    }
+  ],
+  "s4_k4_applications": [
+    {
+      "id": "BFR-S4-T01-DIAMOND-ORBIT-COVER",
+      "statement": "The K4/FCC action has 12 unordered diamonds and 24 ordered witness orientations; unordered stabilizer is C2 and ordered action is regular.",
+      "class": "DOMAIN_THEOREM"
+    },
+    {
+      "id": "BFR-S4-T02-NO-EQUIVARIANT-ORIENTATION-SECTION",
+      "statement": "The 24->12 ordered-witness cover has no S4-equivariant section because the C2 stabilizer has no fixed lift.",
+      "class": "REUSE_EXISTING_T7_EQUIVARIANT_SECTION"
+    },
+    {
+      "id": "BFR-S4-T03-SCALAR-RG-NATURALITY",
+      "statement": "For X_h=D_12 x Q_h the graded first-return kernel commutes with S4; the scalar counter survives the signed-orientation no-section obstruction.",
+      "class": "DOMAIN_THEOREM"
+    }
+  ],
+  "agm_domain_results": [
+    {
+      "id": "AGMR-T01-FIRST-RETURN-EQUALS-CHORD-LOSS",
+      "statement": "The completed positive first-return mass F reconstructs the geometric channel b+=H(1-F)/2 with (b+)^2=ab, gives F=2*chord_loss, and exact next shape F/(2-F).",
+      "class": "DOMAIN_THEOREM / NOT_FOUNDATION_PROMOTION_REQUEST"
+    },
+    {
+      "id": "AGMR-T02-FINITE-RETURN-QUADRATIC-UNIVERSALITY",
+      "statement": "For 0<s<=1/4 and every N>=1, s^2/4 <= T_N(s) < (256/961)s^2 and T_N(s)/s^2 -> 1/4; one shell already preserves the quadratic class.",
+      "class": "DOMAIN_THEOREM"
+    },
+    {
+      "id": "AGMR-T03-ADAPTIVE-INNER-DEPTH-LAW",
+      "statement": "On the standard AGM orbit a sufficient p-bit inner depth is max(1,ceil(p/[2(3*2^n-2)])-1), with K4/S4 scalar state cost 24N+12.",
+      "class": "DOMAIN_THEOREM"
+    },
+    {
+      "id": "AGMR-T04-WHOLE-TRAJECTORY-DYADIC-CERTIFICATE",
+      "statement": "A pure-integer two-index interval compiler certifies a 546-bit-wide endogenous completion bracket under the frozen six-step schedule.",
+      "class": "EXECUTABLE_CERTIFICATE"
+    },
+    {
+      "id": "AGMR-T05-FOUR-OUTER-STEP-256BIT-NO-GO",
+      "statement": "Four exact outer AGM steps cannot certify a 256-bit completion bracket under the accepted completion bracket; at least five are necessary.",
+      "class": "DOMAIN_THEOREM"
+    },
+    {
+      "id": "AGMR-T06-FIVE-STEP-RETURN-DEPTH-PARETO",
+      "statement": "Within the frozen B=640 compiler/cost envelope the five-step depth optima are (50,18,8,3,1) for width and (51,18,8,3,1) for a common 256-bit cell.",
+      "class": "FINITE_OPTIMUM_CERTIFICATE"
+    }
+  ],
+  "negative_boundaries": [
+    "POSITIVE_FIRST_RETURN_MASS != SIGNED_BRANCH_MEMORY",
+    "BOOLEAN_RECOALESCENCE_CANNOT_RECONSTRUCT_ERASED_MULTIPLICITY_OR_SIGN",
+    "CELL_PLUS_TIME_NOT_PREDICTIVELY_COMPLETE_FOR_FIRST_RETURN",
+    "FIXED_BOUNDED_PASSIVE_FIBER_CANNOT_CARRY_ALL_HORIZON_MEMORY",
+    "NO_S4_EQUIVARIANT_SIGNED_ORIENTATION_SECTION_ON_THE_DECLARED_24_TO_12_COVER",
+    "N1_PATH_MEMORY != G0_OR_N0_INSTANTANEOUS_CELL_STATE",
+    "AGM_DOMAIN_CERTIFICATE != UNIVERSAL_AGM_COMPLEXITY_LOWER_BOUND"
+  ],
+  "admission_recommendation": {
+    "promote_now_if_driver_steward_accept": [
+      "BFR-T04-ALL-HORIZON-PREDICTIVE-MINIMALITY",
+      "BFR-T05-FINITE-HORIZON-CLASS-COUNTS",
+      "BFR-T06-GRADED-PREDICTIVE-QUOTIENT"
+    ],
+    "retain_as_support_or_reuse": [
+      "BFR-T01-FIRST-BALANCE-CATALAN",
+      "BFR-T02-RENEWAL-FORMAL-SERIES",
+      "BFR-T03-RANK-ONE-BRANCH-MEMORY",
+      "BFR-T07-HIDDEN-FIBER-CAPACITY-LOWER-BOUND",
+      "BFR-T08-SWAP-INVARIANT-SCALAR-DESCENT"
+    ],
+    "do_not_modify": [
+      "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json",
+      "P000 root ontology"
+    ],
+    "suggested_new_shared_surface_after_acceptance": "typed T0/BRC binary-first-return subledger plus registry entry for brc.binary_first_return_predictive_rg; shared routing is a Driver/Steward action, not a FREE researcher action"
+  }
+}
