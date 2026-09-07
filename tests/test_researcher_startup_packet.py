@@ -1,4 +1,5 @@
 import json
+import re
 import tempfile
 import unittest
 from pathlib import Path
@@ -130,6 +131,59 @@ class ResearcherStartupPacketTests(unittest.TestCase):
         publication_path.write_text(json.dumps(publication), encoding="utf-8")
         with self.assertRaises(startup.StartupPacketError):
             startup.build_packet(receipt, root)
+
+    def test_documented_fresh_request_matches_the_actual_bridge_envelope(self):
+        repo = Path(__file__).resolve().parents[1]
+        protocol = (repo / "docs/RESEARCHER_STARTUP_CONTEXT_PROTOCOL.md").read_text(encoding="utf-8")
+        workflow = (repo / ".github/workflows/chatgpt-control-dispatch-bridge.yml").read_text(encoding="utf-8")
+        example = re.search(r"```json\n(.*?)\n```", protocol, re.DOTALL)
+        self.assertIsNotNone(example)
+        request = json.loads(example.group(1))
+        self.assertEqual(set(request), {"schema", "request_id", "kind"})
+        schema_line = next(line for line in workflow.splitlines()
+                           if "jq -r '.schema // empty'" in line)
+        self.assertEqual(request["schema"], schema_line.rsplit(' = "', 1)[1].removesuffix('"'))
+        id_line = next(line.strip() for line in workflow.splitlines()
+                       if line.strip().startswith('if [[ ! "$request_id" =~ '))
+        id_pattern = id_line.removeprefix('if [[ ! "$request_id" =~ ').removesuffix(' ]]; then')
+        self.assertRegex(request["request_id"], id_pattern)
+        kind_case = re.search(r'case "\$kind" in\s+([A-Z|]+)\)', workflow)
+        self.assertIsNotNone(kind_case)
+        self.assertIn(request["kind"], kind_case.group(1).split("|"))
+        self.assertEqual(request["kind"], "RESEARCH")
+
+    def test_typed_actions_and_claim_bindings_need_no_legacy_registry(self):
+        for action, claim_needed, owner_preserved in (
+            ("CLAIM_NEW_OWNER", True, False),
+            ("ADOPT_OWNER_CLAIM", False, True),
+            ("VERIFY_SESSION_LIVENESS", False, True),
+            ("NO_DISPATCH", False, False),
+        ):
+            with self.subTest(action=action):
+                root, receipt = self.make_root()
+                self.assertFalse((root / "research_task_registry.json").exists())
+                route = receipt["route"]
+                route.update(action=action, new_claim_required=claim_needed,
+                             owner_claim_preserved=owner_preserved)
+                if owner_preserved:
+                    route["target"].update(claim_id="claim-1", researcher_id="researcher-1",
+                                           lease_until="2026-09-07T04:00:00Z")
+                if action == "NO_DISPATCH":
+                    route["target"] = None
+                packet = startup.build_packet(receipt, root)
+                self.assertEqual(packet["action"], action)
+                self.assertEqual(packet["new_claim_required"], claim_needed)
+                self.assertEqual(packet["owner_claim_preserved"], owner_preserved)
+                self.assertEqual(packet["source_sha"], receipt["source_sha"])
+                self.assertEqual(packet["request_id"], receipt["request_id"])
+                if route["target"] is None:
+                    self.assertIsNone(packet["task"])
+                else:
+                    for key in ("task_id", "publication_id", "identity_lane", "owner",
+                                "claim_id", "researcher_id", "lease_until"):
+                        self.assertEqual(packet["task"][key], route["target"][key])
+                self.assertFalse((root / "research_task_registry.json").exists())
+                self.assertLessEqual(packet["packet_bytes"], 8192)
 
 
 if __name__ == "__main__":
