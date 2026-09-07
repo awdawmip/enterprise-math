@@ -150,7 +150,6 @@ def main():
     parser.add_argument("--limit", type=int, default=2000)
     args = parser.parse_args()
 
-    # Discriminant -24 class polynomial consistency.
     A = 2417472
     B = 1707264
     assert 2 * A == 4834944
