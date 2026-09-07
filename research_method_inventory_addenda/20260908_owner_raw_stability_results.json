@@ -1,0 +1,137 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+  "date": "2026-09-08",
+  "authority": "FRONTIER_ROUTING_ONLY_EXACT_SOURCES_CONTROL",
+  "provenance": {
+    "published_source_commit": "90974735b479a6e99db769eec385b2c51a749f24",
+    "equivalent_local_source_commit": "7f4c93e9ce43a0042079dc66daa64f628fa2e485",
+    "source_branch": "research/em-owner-20260907",
+    "source_pull_request": "https://github.com/awdawmip/enterprise-math/pull/1364",
+    "formal_driver_or_steward_acceptance": null,
+    "official_claim": null,
+    "foundation_mutation": false,
+    "new_global_tool_family": false,
+    "evidence_scope": "Two paper-only results with internal evidence review. Original paper headers and historical statuses remain byte-identical; this index links the complete compression proof and the separate two-positive author and independent proofs.",
+    "existing_owner_shard": "research_method_inventory_addenda/20260907_owner_native_frontier_candidates.json",
+    "existing_owner_shard_policy": "Preserve its bytes and method objects. This separate result shard does not replace either the nineteen-entry source version or the two-entry main integration version."
+  },
+  "availability": {
+    "loader": "tools/enterprise_toolbox.py",
+    "preferred_lookup": "python -X utf8 tools/enterprise_toolbox.py --json methods <exact need>",
+    "scope": "Paper results only; api is empty. No compression consumer or executable two-positive certificate is supplied by this shard.",
+    "formal_acceptance_inferred_from_indexing": false,
+    "main_admission": "Separate mathematical L4 integration and actual current-main admission remain required."
+  },
+  "methods": [
+    {
+      "method_id": "result.x6.positive_support_raw_l1_compression",
+      "name": "Positive-support-preserving raw X6 compression with every coordinate-marginal L1 unchanged",
+      "classification": "RESULT_ONLY",
+      "family_id": null,
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "source_refs": [
+        "research_notes/OWNER_POSITIVE_SUPPORT_RAW_COMPRESSION_REVIEW_20260908.md"
+      ],
+      "validation_refs": [
+        "research_notes/OWNER_POSITIVE_SUPPORT_RAW_COMPRESSION_REVIEW_20260908.md"
+      ],
+      "validation_kind": "COMPLETE_PAPER_PROOF_AND_BOUNDED_REVIEW_IN_THE_SAME_SOURCE",
+      "api": [],
+      "triggers": [
+        "positive support raw X6 L1 compression",
+        "X6 正支点 raw L1 压缩"
+      ],
+      "input_contract": "Finite rational signed spatial difference of positive populations in one common external anchor and labelled signed X6 frame. Aggregate identical Cells, cancel, then define the Jordan positive support S. For nonempty finite S use A_i={q_i:q in S} and a fresh integer c_i; p=0 is a separate nonpositive constant-map case.",
+      "output_contract": "The coordinate product map fixing A_i and sending its complement to c_i fixes S with singleton inverse fibers; preserves every positive-site mass, positive/negative totals, global L1 and each raw coordinate-subset marginal L1, hence all twenty complete raw three-axis L1 norms and their sum D. Its carrier has size product_i(|A_i|+1)<=(p+1)^6; p=2 with r differing axes gives 3^r*2^(6-r)<=729. Zero stays zero with no ratio.",
+      "core_law": "Every positive raw projection address has a singleton inverse fiber. All other projected addresses carry only nonpositive mass, so their coalescence creates no new opposite-sign cancellation.",
+      "hard_boundary": "The carrier bound is not the actual support count or a solved weight optimization. The map depends on post-Jordan S; it is an analytic raw readout compression, not a native isometry or physical event. It does not preserve signed displacements, paths, common-depth, branch history or microscopic BRC histograms. can3 alone, unpaired depth and arbitrary linear observations do not inherit the claim. Signed analysis is not a negative BRC primitive; no formal acceptance or new family follows.",
+      "result_scope": {
+        "post_jordan_positive_support": true,
+        "same_anchor_labelled_signed_x6": true,
+        "all_twenty_complete_raw_three_axis_norms": true,
+        "preserves_every_coordinate_marginal_l1": true,
+        "carrier_bound_is_actual_support_count": false,
+        "p_zero_handled_separately": true,
+        "zero_ratio_defined": false,
+        "recovers_microscopic_brc": false,
+        "executable_theorem_certificate": false
+      },
+      "reuse_resolution": {
+        "coverage_verdict": "EXTEND_EXISTING_TOOL",
+        "matched_tool_or_method_ids": [
+          "T0_BRC",
+          "T6_OPERATION_SAFE_QUOTIENT",
+          "candidate.x6.raw_joint_observer_recovery",
+          "candidate.x6.one_positive_raw_stability_certificate",
+          "result.x6.sparse_marginal_stability"
+        ],
+        "reuse_resolution_state": "EXTEND_EXISTING_TOOL",
+        "how_applied_or_why_not": "The paper composes existing raw/Jordan observation typing with the declared operation-descent contract and independently proves the additional singleton-fiber L1 preservation law for arbitrary finite positive support. This is a local extension of raw stability analysis, not a new global family; no executable method was run.",
+        "hard_boundary_checked": "Operation descent alone does not imply L1 equality. The channel-average quotient classification has a different carrier and is not used as this proof."
+      },
+      "source_sha256": {
+        "research_notes/OWNER_POSITIVE_SUPPORT_RAW_COMPRESSION_REVIEW_20260908.md": "2cb061262e713859fd419871d0be9e4d5041698a01a46a55bd5ef5fc3f7e38b4"
+      }
+    },
+    {
+      "method_id": "result.x6.two_positive_raw_stability",
+      "name": "Sharp one-quarter raw X6 stability for at most two Jordan-positive sites",
+      "classification": "RESULT_ONLY",
+      "family_id": null,
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "source_refs": [
+        "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_BOUND_REVIEW_20260908.md",
+        "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_INDEPENDENT_AUDIT_20260908.md"
+      ],
+      "validation_refs": [
+        "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_INDEPENDENT_AUDIT_20260908.md"
+      ],
+      "validation_kind": "AUTHOR_PAPER_PLUS_SEPARATE_INDEPENDENT_RECONSTRUCTION_WITHOUT_READING_AUTHOR_DRAFT",
+      "api": [],
+      "triggers": [
+        "two positive raw X6 stability sharp 1/4",
+        "X6 双正支点 raw L1 稳定性 1/4"
+      ],
+      "input_contract": "Finite rational signed spatial difference of positive populations in the same external anchor and labelled signed X6 frame. Aggregate and Jordan-cancel first, then require p(f)<=2. D is the sum of all twenty complete raw three-axis marginal L1 norms, not their average or maximum. Negative support and coordinate spans are arbitrary and finite; no equality of total masses is required.",
+      "output_contract": "4*||f||_1<=D with sharp constant 1/4 both for arbitrary total mass difference and for the equal-total-mass subclass. The coordinate rectangle with unit positive diagonal corners and unit negative off-diagonal corners has ||f||_1=4 and D=16. p=1 uses the stronger existing 3/20 bound; p=0 has D=20*||f||_1; zero has no ratio.",
+      "core_law": "For positive sites differing in one or at least three axes, equality-set counts and the finite mass ledger give stronger bounds. In the two-differing-axis case, four raw tables use +1/-1 and the other sixteen use 0/-1 bounded observation functions; their sum is 4 on positive sites and at most -4 elsewhere. Pairing with the signed difference proves D>=4(P+N).",
+      "hard_boundary": "This does not extend the 1/4 bound to p>=3 or classify every equality case. Only raw addresses or lossless joint can3/common-offset encoding satisfy the observation contract. No branch count/history, paths, common-depth or microscopic BRC is recovered. Signed differences and signed observation functions are analytical bookkeeping, not negative BRC primitives. Paper proof is distinct from executable evidence, indexing and formal authority.",
+      "result_scope": {
+        "post_jordan_positive_support": true,
+        "same_anchor_labelled_signed_x6": true,
+        "all_twenty_complete_raw_three_axis_norms": true,
+        "maximum_positive_support": 2,
+        "sharp_constant_numerator": 1,
+        "sharp_constant_denominator": 4,
+        "equal_mass_also_sharp": true,
+        "extends_to_p_ge_3": false,
+        "complete_equality_classification": false,
+        "p_zero_handled_separately": true,
+        "zero_ratio_defined": false,
+        "recovers_microscopic_brc": false,
+        "executable_theorem_certificate": false
+      },
+      "reuse_resolution": {
+        "coverage_verdict": "EXTEND_EXISTING_TOOL",
+        "matched_tool_or_method_ids": [
+          "T0_BRC",
+          "candidate.x6.raw_joint_observer_recovery",
+          "candidate.x6.minimum_raw_query_plan",
+          "candidate.x6.one_positive_raw_stability_certificate",
+          "result.x6.sparse_marginal_stability",
+          "result.x6.positive_support_raw_l1_compression"
+        ],
+        "reuse_resolution_state": "EXTEND_EXISTING_TOOL",
+        "how_applied_or_why_not": "Extends the existing raw stability result to the sharp two-positive-support statement, using the existing Jordan/all20 contract, single-positive boundary and known axis-pair parity witness. The author composes the available compression reduction; the separate review proves the bound directly on all coordinates. Neither proof runs an LP or introduces a new global family.",
+        "hard_boundary_checked": "The rectangle witness is already covered by query-plan parity reasoning; the new strength is the universal 1/4 upper bound. The old one-positive consumer keeps its p<=1 input contract and is not executed or relabelled as a two-positive checker."
+      },
+      "source_sha256": {
+        "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_BOUND_REVIEW_20260908.md": "1bb732a50cccbbec6c8c11950104c62eed9afc15f326fcc39d9142bd13b24a35",
+        "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_INDEPENDENT_AUDIT_20260908.md": "f610e3d642b53279efa91dec15ad3b392270768f73ad0a31edf38212b60be61c"
+      }
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "schema": "OWNER_RAW_STABILITY_PAPER_REGISTRATION_VALIDATION_V1",
+  "status": "PASS_TWO_RESULT_ONLY_REGISTRATIONS",
+  "created_utc": "2026-09-07T21:28:55.008022+00:00",
+  "python": "3.12.14",
+  "argv": [
+    "experiments/owner_raw_stability_harvest_20260908/validate_registration.py"
+  ],
+  "executed_script_sha256": "44dbbdad93480061c69abe32e32acbdb1631c94b18e872b13b56cd41b6e055c0",
+  "shard_sha256": "b1d4d216f76bde3fa2964912db68c96d5ff68b661ce793054e18df44048e95eb",
+  "canonical_loader_sha256": "321625e6e2d2fa95a25c81d3bc2588cee1b26b16c70d10dd28f4f0da3c2b49b0",
+  "methods": [
+    {
+      "method_id": "result.x6.positive_support_raw_l1_compression",
+      "loaded_exactly_once": true,
+      "api": [],
+      "queries": [
+        {
+          "language": "en",
+          "query": "positive support raw X6 L1 compression",
+          "hit": true
+        },
+        {
+          "language": "zh-CN",
+          "query": "X6 正支点 raw L1 压缩",
+          "hit": true
+        }
+      ]
+    },
+    {
+      "method_id": "result.x6.two_positive_raw_stability",
+      "loaded_exactly_once": true,
+      "api": [],
+      "queries": [
+        {
+          "language": "en",
+          "query": "two positive raw X6 stability sharp 1/4",
+          "hit": true
+        },
+        {
+          "language": "zh-CN",
+          "query": "X6 双正支点 raw L1 稳定性 1/4",
+          "hit": true
+        }
+      ]
+    }
+  ],
+  "source_paper_sha256": {
+    "research_notes/OWNER_POSITIVE_SUPPORT_RAW_COMPRESSION_REVIEW_20260908.md": "2cb061262e713859fd419871d0be9e4d5041698a01a46a55bd5ef5fc3f7e38b4",
+    "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_BOUND_REVIEW_20260908.md": "1bb732a50cccbbec6c8c11950104c62eed9afc15f326fcc39d9142bd13b24a35",
+    "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_INDEPENDENT_AUDIT_20260908.md": "f610e3d642b53279efa91dec15ad3b392270768f73ad0a31edf38212b60be61c"
+  },
+  "source_papers_unchanged": true,
+  "protected_previous_shard": {
+    "path": "research_method_inventory_addenda\\20260907_owner_native_frontier_candidates.json",
+    "sha256_before_and_after": "9b9b1851602200bbb207681dbac444a7e745b2915d6f8851bc999fd3a028f115",
+    "observed_method_count": 19,
+    "all_method_objects_and_file_bytes_unchanged": true,
+    "observed_count_is_not_a_permanent_main_assertion": true
+  },
+  "boundary_checks_passed": true,
+  "mathematical_consumers_executed": false,
+  "proof_or_formal_acceptance_granted": false,
+  "global_knowledge_sync": "main@990d7c1 / GLOBAL_KNOWLEDGE_V1"
+}
