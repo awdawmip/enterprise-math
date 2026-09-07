@@ -12,6 +12,7 @@ on:
       - 'tests/test_result_reopen_runtime_precedence.py'
       - 'tests/test_control_dispatch_session_observation_time.py'
       - 'tests/test_execution_intent_publication_gate.py'
+      - 'tests/test_registered_event_publication_time_gate.py'
       - '.github/workflows/control-plane-pr-focused-validation.yml'
 
 jobs:
@@ -31,3 +32,4 @@ jobs:
           python -m unittest -v tests.test_result_reopen_runtime_precedence
           python -m unittest -v tests.test_control_dispatch_session_observation_time
           python -m unittest -v tests.test_execution_intent_publication_gate
+          python -m unittest -v tests.test_registered_event_publication_time_gate
