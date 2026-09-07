@@ -1,0 +1,130 @@
+{
+  "schema": "OWNER_RAW_STABILITY_PAPER_MAIN_VALIDATION_V1",
+  "status": "PASS_TWO_RESULT_ONLY_REGISTRATIONS",
+  "created_utc": "2026-09-07T21:54:25.673270+00:00",
+  "python": "3.12.14",
+  "argv": [
+    "experiments/owner_raw_stability_harvest_20260908/validate_registration.py",
+    "--base-commit",
+    "fb83bcbe252f19f36961ad8fc80090c1806b6f6a",
+    "--global-knowledge-sync",
+    "main@eb09a0a / GLOBAL_KNOWLEDGE_V1"
+  ],
+  "executed_script_sha256": "bfd8fa0bf33a047318d37809020b796e728b5d604e4861222cea3f469bc28983",
+  "shard_sha256": "b1d4d216f76bde3fa2964912db68c96d5ff68b661ce793054e18df44048e95eb",
+  "canonical_loader_sha256": "d0f0383a344194133a303f6758142bfd4ecd56deb35a3008f4bf6009ccf6892b",
+  "methods": [
+    {
+      "method_id": "result.x6.positive_support_raw_l1_compression",
+      "loaded_exactly_once": true,
+      "api": [],
+      "queries": [
+        {
+          "language": "en",
+          "query": "positive support raw X6 L1 compression",
+          "hit": true
+        },
+        {
+          "language": "zh-CN",
+          "query": "X6 正支点 raw L1 压缩",
+          "hit": true
+        }
+      ]
+    },
+    {
+      "method_id": "result.x6.two_positive_raw_stability",
+      "loaded_exactly_once": true,
+      "api": [],
+      "queries": [
+        {
+          "language": "en",
+          "query": "two positive raw X6 stability sharp 1/4",
+          "hit": true
+        },
+        {
+          "language": "zh-CN",
+          "query": "X6 双正支点 raw L1 稳定性 1/4",
+          "hit": true
+        }
+      ]
+    }
+  ],
+  "source_paper_sha256": {
+    "research_notes/OWNER_POSITIVE_SUPPORT_RAW_COMPRESSION_REVIEW_20260908.md": "2cb061262e713859fd419871d0be9e4d5041698a01a46a55bd5ef5fc3f7e38b4",
+    "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_BOUND_REVIEW_20260908.md": "1bb732a50cccbbec6c8c11950104c62eed9afc15f326fcc39d9142bd13b24a35",
+    "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_INDEPENDENT_AUDIT_20260908.md": "f610e3d642b53279efa91dec15ad3b392270768f73ad0a31edf38212b60be61c"
+  },
+  "source_papers_unchanged": true,
+  "protected_previous_shard": {
+    "path": "research_method_inventory_addenda\\20260907_owner_native_frontier_candidates.json",
+    "sha256_before_and_after": "8e9a8484054f620437efa2e9b81d00a6e62dd0fd4b9c335bd70eda327a6abef3",
+    "observed_method_count": 2,
+    "all_method_objects_and_file_bytes_unchanged": true,
+    "observed_count_is_not_a_permanent_main_assertion": true
+  },
+  "boundary_checks_passed": true,
+  "mathematical_consumers_executed": false,
+  "proof_or_formal_acceptance_granted": false,
+  "source_authoring_global_knowledge_sync": "main@990d7c1 / GLOBAL_KNOWLEDGE_V1",
+  "source_registration_schema": "OWNER_RAW_STABILITY_PAPER_REGISTRATION_VALIDATION_V1",
+  "main_execution": {
+    "base_commit": "fb83bcbe252f19f36961ad8fc80090c1806b6f6a",
+    "base_tree": "8d33cd659fb4788d95806a56e8fc654cc40e45bb",
+    "tested_input_commit": "4eed96bae0db0e0fd328be1492cd158fb986ece8",
+    "tested_input_tree": "015e0e8d48e47667c3ca34c3189938ba5683282d",
+    "unchanged_baseline_entries": 4587,
+    "all_baseline_entries_unchanged": true,
+    "frozen_source_sha256": {
+      "research_notes/OWNER_POSITIVE_SUPPORT_RAW_COMPRESSION_REVIEW_20260908.md": "2cb061262e713859fd419871d0be9e4d5041698a01a46a55bd5ef5fc3f7e38b4",
+      "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_BOUND_REVIEW_20260908.md": "1bb732a50cccbbec6c8c11950104c62eed9afc15f326fcc39d9142bd13b24a35",
+      "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_INDEPENDENT_AUDIT_20260908.md": "f610e3d642b53279efa91dec15ad3b392270768f73ad0a31edf38212b60be61c",
+      "research_method_inventory_addenda/20260908_owner_raw_stability_results.json": "b1d4d216f76bde3fa2964912db68c96d5ff68b661ce793054e18df44048e95eb"
+    },
+    "input_sha256": {
+      "experiments/owner_raw_stability_harvest_20260908/validate_registration.py": "bfd8fa0bf33a047318d37809020b796e728b5d604e4861222cea3f469bc28983",
+      "research_method_inventory_addenda/20260908_owner_raw_stability_results.json": "b1d4d216f76bde3fa2964912db68c96d5ff68b661ce793054e18df44048e95eb",
+      "research_notes/OWNER_POSITIVE_SUPPORT_RAW_COMPRESSION_REVIEW_20260908.md": "2cb061262e713859fd419871d0be9e4d5041698a01a46a55bd5ef5fc3f7e38b4",
+      "research_notes/OWNER_RAW_STABILITY_RESULTS_L4_INTEGRATION_20260908.md": "0ca2cc3c89cb34e8fa8a8ac7ddaf3b844ee69082ec8b42f2af212b8a5a5b2392",
+      "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_BOUND_REVIEW_20260908.md": "1bb732a50cccbbec6c8c11950104c62eed9afc15f326fcc39d9142bd13b24a35",
+      "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_INDEPENDENT_AUDIT_20260908.md": "f610e3d642b53279efa91dec15ad3b392270768f73ad0a31edf38212b60be61c"
+    },
+    "old_two_method_objects_and_twenty_sources_unchanged": true,
+    "prior_api_checker_sha256": "738cfe3dade6a9680cc6b17de972ca6c5b681759213cacc467f4267ee012233c",
+    "prior_api_check": {
+      "status": "PASS_TWO_SELECTED_METHODS",
+      "methods": [
+        {
+          "method_id": "candidate.x6.quadratic_shell_max_shortest_length",
+          "loaded_exactly_once": true,
+          "query": "quadratic shell maximal shortest length",
+          "query_hit": true,
+          "api_signatures": {
+            "upper_length": "(N, *, arithmetic_trace=None)",
+            "upper_length_evaluation": "(N)",
+            "reduction_parameters": "(N, *, arithmetic_trace=None)",
+            "construct_endpoint": "(N, *, signs=(1, 1, 1, 1, 1, 1), search_budget=1000000, arithmetic_trace=None)",
+            "verify_endpoint": "(N, endpoint, *, arithmetic_trace=None)",
+            "certificate": "(N, *, signs=(1, 1, 1, 1, 1, 1), search_budget=1000000, brc_event_budget=4000)"
+          }
+        },
+        {
+          "method_id": "candidate.x6.one_positive_raw_stability_certificate",
+          "loaded_exactly_once": true,
+          "query": "one positive support raw X6 stability certificate",
+          "query_hit": true,
+          "api_signatures": {
+            "audit_case": "(case_id, mu, nu, denominator=1)"
+          }
+        }
+      ],
+      "global_inventory_count_is_not_an_assertion": true
+    },
+    "prior_api_check_returncode": 0,
+    "prior_api_check_stdout_sha256": "aa9b4bf71e9b3750ddcec124e05a0016a3664a89a198866d233e3f24d1a3e9fa",
+    "prior_api_check_stderr": "",
+    "prior_api_check_kind": "Existing API_CHECK imports canonical modules and inspects callable signatures; no consumer replay is invoked. Module initialization is outside any arithmetic observation claim.",
+    "mathematical_consumers_invoked": false,
+    "current_main_freshness_or_promotion_authority_asserted": false,
+    "global_knowledge_sync_recorded_for_this_execution": "main@eb09a0a / GLOBAL_KNOWLEDGE_V1"
+  }
+}
