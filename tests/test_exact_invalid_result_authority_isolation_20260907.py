@@ -98,7 +98,8 @@ class ExactInvalidResultAuthorityTests(unittest.TestCase):
         other = self.pub["supersedes_publication_id"]
         if mixed or other_only:
             _write_current_record(self.root, task_id=self.task_id, publication_id=other,
-                                  parent_objective_id=self.pub["parent_objective_id"], claimable=True)
+                                  parent_objective_id=self.pub["parent_objective_id"], claimable=True,
+                                  published_at=self.pub["published_at"])
         lanes = []
         if not other_only:
             lanes.append({"lane_id": "held", "publication_id": self.pub_id, "lane_role": "AUDIT",

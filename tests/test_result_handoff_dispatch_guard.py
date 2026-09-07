@@ -58,11 +58,49 @@ class ResultHandoffDispatchGuardTests(unittest.TestCase):
         state.update({"kind": "RESEARCH", "priority": "P0", "leverage": "HIGH"})
         self.assertIsNone(rr.select_state([state], rr.load_policy(), kind="RESEARCH"))
 
+    def test_explicit_driver_review_terminal_scope_waits_without_result_id(self):
+        state = self.reduce(
+            {"terminal_scope": "RESEARCH_RETURN_FROZEN_AWAITING_DRIVER_REVIEW"}
+        )
+        self.assertEqual("FROZEN_RETURN", state["state"])
+        self.assertEqual("AWAITING_REVIEW", state["dispatch_state"])
+        self.assertNotIn("result_id", state)
+        self.assertEqual(
+            "RESEARCH_RETURN_FROZEN_AWAITING_DRIVER_REVIEW",
+            state["terminal_scope"],
+        )
+        self.assertIsNone(state["claim_id"])
+
+    def test_explicit_driver_review_terminal_scope_is_not_a_fresh_candidate(self):
+        state = self.reduce(
+            {"terminal_scope": "RESEARCH_RETURN_FROZEN_AWAITING_DRIVER_REVIEW"}
+        )
+        state.update({"kind": "RESEARCH", "priority": "P0", "leverage": "HIGH"})
+        self.assertIsNone(rr.select_state([state], rr.load_policy(), kind="RESEARCH"))
+
+    def test_legacy_terminal_candidate_waits_for_driver_review(self):
+        state = self.reduce(
+            {"terminal_candidate": "SUCCESS_REVIEW_COMPLETE_AWAITING_DRIVER_DECISION"}
+        )
+        self.assertEqual("FROZEN_RETURN", state["state"])
+        self.assertEqual("AWAITING_REVIEW", state["dispatch_state"])
+        self.assertEqual(
+            "SUCCESS_REVIEW_COMPLETE_AWAITING_DRIVER_DECISION",
+            state["terminal_candidate"],
+        )
+        self.assertIsNone(state["claim_id"])
+
     def test_plain_handoff_remains_dispatchable(self):
         state = self.reduce({})
         self.assertEqual("HANDOFF_READY", state["state"])
         self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
         self.assertNotIn("result_id", state)
+
+    def test_unrecognized_terminal_scope_does_not_invent_review_authority(self):
+        state = self.reduce({"terminal_scope": "RESEARCHER_TO_RESEARCHER_CONTINUATION"})
+        self.assertEqual("HANDOFF_READY", state["state"])
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
+        self.assertNotIn("terminal_scope", state)
 
     def test_malformed_result_id_does_not_open_fresh_dispatch(self):
         state = self.reduce({"result_id": "   "})

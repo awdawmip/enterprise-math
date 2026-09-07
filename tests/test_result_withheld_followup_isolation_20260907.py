@@ -104,8 +104,10 @@ class ResultWithheldFollowupIsolationTests(unittest.TestCase):
                       result_record_path=relative, result_record_sha256=self.sha256(relative))
         self.write(f"research_result_reviews/{VALID_RESULT}/{VALID_REVIEW}.json", review)
         self.assertEqual([], review_audit._review_errors(review, result, self.root))
+        # Preserve the frozen successor's publication clock after its review.
         record = _write_current_record(self.root, task_id="RS-VALID-DERIVED",
-                                       publication_id="TP2-VALID-DERIVED", parent_objective_id="OBJ-VALID")
+                                       publication_id="TP2-VALID-DERIVED", parent_objective_id="OBJ-VALID",
+                                       published_at=self.load(self.task["publication_record_path"])["published_at"])
         packet = self.load(self.packet_row["packet_path"])
         packet.update(packet_id=VALID_PACKET, review_id=VALID_REVIEW, result_id=VALID_RESULT,
                       task_publications=[{"task_id": record["task_id"], "publication_id": record["publication_id"],
