@@ -1,4 +1,3 @@
-import hashlib
 import json
 import tempfile
 import unittest
@@ -49,7 +48,7 @@ class ResearcherStartupPacketTests(unittest.TestCase):
             body += f"## {name}\n\n{value}\n\n"
         taskbook = root / "research_tasks" / "T1.md"
         taskbook.write_text(body, encoding="utf-8")
-        sha1 = "sha1:" + hashlib.sha1(taskbook.read_bytes()).hexdigest()
+        sha1 = startup._git_blob_sha1(taskbook.read_bytes())
         publication = {
             "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
             "task_id": "T1",
