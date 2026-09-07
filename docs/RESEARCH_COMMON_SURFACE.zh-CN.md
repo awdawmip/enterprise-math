@@ -344,15 +344,17 @@ PR #274 / `main@12500185f4c222ae49816e7b844e36a82e3ac8fe` 已 canonicalize：
 
 ## 8. Repository operational tools
 
-所有 `tools/*.py` 都是共享 operational infrastructure，必须同时进入 machine/human index：
+每个 `tools/*.py` 必须恰有一个 machine/human 归属面：Common Surface、Toolbox 或 Runtime。以下 repository tools 归 Common Surface：
 
 - `tools/audit_branch_lifecycle.py`
 - `tools/check_bilingual_pairs.py`
+- `tools/check_exact_arithmetic_policy.py`
 - `tools/check_references.py`
 - `tools/check_research_common_surface.py`
 - `tools/research_identity.py`
-- `tools/research_runtime_reducer.py`
 - `tools/research_taskbook.py`
+
+Toolbox 工具登记在 `enterprise_toolbox_registry.json` 与 `docs/ENTERPRISE_TOOLBOX_REGISTRY.md`；Runtime 工具登记在 `research_runtime_state_machine.json` 与 `docs/RESEARCH_RUNTIME_STATE_MACHINE.md`。依照 `control_plane/current_control_authority.json`，实时调度入口是 `research_control_dispatch.py`；`tools/research_dispatch.py` 负责 fresh task selection，`tools/research_runtime_reducer.py` 归约已认证事件。后两者保持 Runtime 归属，不在 Common Surface 工具索引重复登记。
 
 `tools/check_research_common_surface.py` 只做机械检查：registered path 存在性、root-Lean imports 精确一致、repository-tool membership 精确一致、active-FQ 集合一致、active-alert 有效性。它不证明数学，也不判断语义复用价值。
 

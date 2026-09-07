@@ -344,15 +344,17 @@ Claim `LEAN_CHECKED_MAIN` only for statements actually covered by these modules.
 
 ## 8. Repository operational tools
 
-Every `tools/*.py` file is shared operational infrastructure and must remain machine/human indexed:
+Every `tools/*.py` file must have exactly one machine/human owner surface: Common Surface, Toolbox, or Runtime. The Common Surface owns these repository tools:
 
 - `tools/audit_branch_lifecycle.py`
 - `tools/check_bilingual_pairs.py`
+- `tools/check_exact_arithmetic_policy.py`
 - `tools/check_references.py`
 - `tools/check_research_common_surface.py`
 - `tools/research_identity.py`
-- `tools/research_runtime_reducer.py`
 - `tools/research_taskbook.py`
+
+Toolbox-owned tools are indexed in `enterprise_toolbox_registry.json` and `docs/ENTERPRISE_TOOLBOX_REGISTRY.md`; Runtime-owned tools are indexed in `research_runtime_state_machine.json` and `docs/RESEARCH_RUNTIME_STATE_MACHINE.md`. Under `control_plane/current_control_authority.json`, live dispatch enters through `research_control_dispatch.py`; `tools/research_dispatch.py` provides fresh task selection and `tools/research_runtime_reducer.py` reduces authenticated events. The latter two remain Runtime-owned and are not duplicated in the Common Surface tool index.
 
 `tools/check_research_common_surface.py` is mechanical only. It checks declared-path existence, exact root-Lean imports, exact repository-tool membership, active-FQ agreement, and active-alert validity. It does not prove mathematics or decide semantic reusability.
 
