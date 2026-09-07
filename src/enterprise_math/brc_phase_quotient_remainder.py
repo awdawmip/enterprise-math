@@ -176,6 +176,9 @@ class PhaseQuotientRemainderTracker:
     The tracker is valid on the common order-1 deep tail and expects calls in
     increasing exact odd-N mod-8 representative order.  Each phase uses two
     direct seed divmods; later calls use the exact phase recurrence.
+
+    ``divide_pair`` is the low-overhead kernel.  ``divide`` wraps the same result
+    with diagnostic mode/correction metadata for research and testing.
     """
 
     def __init__(self, n: int) -> None:
@@ -186,6 +189,8 @@ class PhaseQuotientRemainderTracker:
         self._slots = [_PhaseSlot() for _ in range(5)]
         self._bucket = _ReciprocalBucket()
         self._last_multiplier = 0
+        self.last_mode = "UNUSED"
+        self.last_correction = 0
 
     @staticmethod
     def _negative_correction(rho: int, denominator: int) -> int:
@@ -196,7 +201,7 @@ class PhaseQuotientRemainderTracker:
             return -2
         return -3
 
-    def divide(self, root: int, multiplier: int, step: int) -> PhaseQuotientResult:
+    def _validate_call(self, root: int, multiplier: int, step: int) -> int:
         _require_positive("multiplier", multiplier)
         if isinstance(root, bool) or not isinstance(root, int) or root < 0:
             raise ValueError("root must be a non-negative integer")
@@ -211,10 +216,14 @@ class PhaseQuotientRemainderTracker:
         if self._last_multiplier and multiplier <= self._last_multiplier:
             raise ValueError("tracker calls must use increasing multipliers")
         self._last_multiplier = multiplier
-
         phase_index = _PHASE_INDEX[multiplier & 7]
         if phase_index < 0:
             raise AssertionError("representative multiplier mapped to no phase")
+        return phase_index
+
+    def divide_pair(self, root: int, multiplier: int, step: int) -> tuple[int, int]:
+        """Return exact quotient/remainder with only seed divmods after warmup."""
+        phase_index = self._validate_call(root, multiplier, step)
         slot = self._slots[phase_index]
         denominator = 4 * multiplier + step
         numerator = 2 * step * root
@@ -222,7 +231,9 @@ class PhaseQuotientRemainderTracker:
         if slot.count < 2:
             quotient, remainder = divmod(numerator, denominator)
             slot.seed(root, quotient, remainder)
-            return PhaseQuotientResult(quotient, remainder, 0, "SEED_DIVMOD")
+            self.last_mode = "SEED_DIVMOD"
+            self.last_correction = 0
+            return quotient, remainder
 
         predicted = 2 * slot.previous_quotient - slot.older_quotient
         rho = (
@@ -247,11 +258,17 @@ class PhaseQuotientRemainderTracker:
             raise AssertionError("phase quotient/remainder transport failed")
 
         slot.advance(root, quotient, remainder)
+        self.last_mode = "PHASE_RECURRENCE"
+        self.last_correction = correction
+        return quotient, remainder
+
+    def divide(self, root: int, multiplier: int, step: int) -> PhaseQuotientResult:
+        quotient, remainder = self.divide_pair(root, multiplier, step)
         return PhaseQuotientResult(
             quotient,
             remainder,
-            correction,
-            "PHASE_RECURRENCE",
+            self.last_correction,
+            self.last_mode,
         )
 
 
