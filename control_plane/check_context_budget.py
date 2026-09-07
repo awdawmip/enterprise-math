@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Enforce bounded repository-static hot-start context without false runtime claims."""
+"""Enforce bounded repository-static and real researcher cold-start context contracts."""
 
 from __future__ import annotations
 
@@ -93,12 +93,81 @@ def check() -> dict[str, object]:
     require(isinstance(limitations, list), "static guard must disclose measurement limitations")
     require(set(limitations) == required_limitations, "static guard limitation disclosure drifted")
 
+    cold = policy.get("researcher_cold_start_envelope")
+    require(isinstance(cold, dict), "missing researcher_cold_start_envelope")
+    require(
+        cold.get("schema") == "ENTERPRISE_MATH_RESEARCHER_COLD_START_ENVELOPE_V1",
+        "unexpected researcher cold-start envelope schema",
+    )
+    require(
+        cold.get("compact_packet_schema") == "ENTERPRISE_MATH_RESEARCHER_STARTUP_PACKET_V1",
+        "compact startup packet schema drifted",
+    )
+    builder = cold.get("compact_packet_builder")
+    require(isinstance(builder, str) and (ROOT / builder).is_file(), "compact packet builder missing")
+    require(
+        cold.get("compact_packet_store") == "control_plane/chatgpt_startup_packets/<request_id>.json",
+        "compact startup packet store drifted",
+    )
+    packet_max = cold.get("compact_packet_hard_max_bytes")
+    require(isinstance(packet_max, int) and 0 < packet_max <= 8192, "compact packet budget must be <= 8192 bytes")
+    remote_reads = cold.get("normal_remote_source_reads_before_math_max")
+    require(isinstance(remote_reads, int) and 0 < remote_reads <= 2, "ordinary cold start may use at most two remote source reads")
+    soft = cold.get("cold_start_raw_soft_max_bytes")
+    hard = cold.get("cold_start_raw_hard_max_bytes")
+    require(isinstance(soft, int) and 0 < soft <= 65536, "cold-start soft budget exceeds 64 KiB")
+    require(isinstance(hard, int) and soft < hard <= 81920, "cold-start hard budget exceeds 80 KiB")
+
+    components = cold.get("component_hard_max_bytes")
+    required_components = {
+        "GLOBAL_UNIVERSAL_BOOTSTRAP_PLUS_MANUAL",
+        "GLOBAL_ENTERPRISE_TASK_BOOTSTRAP",
+        "GLOBAL_P000",
+        "INJECTED_ENTERPRISE_AGENTS",
+        "COMPACT_STARTUP_PACKET",
+    }
+    require(isinstance(components, dict), "cold-start component ceilings missing")
+    require(set(components) == required_components, "cold-start component ceiling set drifted")
+    require(all(isinstance(v, int) and v > 0 for v in components.values()), "invalid cold-start component ceiling")
+    component_sum = sum(components.values())
+    require(cold.get("component_hard_max_sum_bytes") == component_sum, "cold-start component sum is stale")
+    require(component_sum <= hard, "cold-start component ceilings exceed the hard envelope")
+    require(components["COMPACT_STARTUP_PACKET"] == packet_max, "packet component ceiling must equal packet budget")
+
+    diagnostics = cold.get("diagnostic_only_not_ordinary_hot_path")
+    require(isinstance(diagnostics, list), "diagnostic-only startup exclusions missing")
+    for required in (
+        "FULL_CHATGPT_DISPATCH_RECEIPT",
+        "CONTROL_PLANE_CURRENT_CONTROL_AUTHORITY",
+        "FULL_ISSUE_240_COMMENT_STREAM",
+        "RECURSIVE_REPOSITORY_TREE",
+        "HIGH_FANOUT_TASK_RESULT_DIRECTORY_ENUMERATION",
+    ):
+        require(required in diagnostics, f"missing cold-start diagnostic exclusion: {required}")
+
+    cold_invariants = cold.get("invariants")
+    require(isinstance(cold_invariants, list), "cold-start invariants missing")
+    for required in (
+        "FULL_RECEIPT_IS_DIAGNOSTIC_NOT_ORDINARY_STARTUP_CONTEXT",
+        "REMOTE_AGENTS_FETCH_FOR_ORDINARY_START=FORBIDDEN",
+        "CURRENT_CONTROL_AUTHORITY_FULL_READ_FOR_ORDINARY_START=FORBIDDEN",
+        "UNKNOWN_DEPENDENCY_NEVER_AUTHORIZES_DIRECTORY_ENUMERATION",
+    ):
+        require(required in cold_invariants, f"missing cold-start invariant: {required}")
+
     return {
         "files": measurements,
         "total_bytes": total,
         "max_file_bytes": max_file,
         "max_total_bytes": max_total,
         "scope": guard.get("scope_limit"),
+        "researcher_cold_start": {
+            "soft_max_bytes": soft,
+            "hard_max_bytes": hard,
+            "component_hard_max_sum_bytes": component_sum,
+            "compact_packet_hard_max_bytes": packet_max,
+            "remote_source_reads_before_math_max": remote_reads,
+        },
     }
 
 

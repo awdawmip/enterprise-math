@@ -3,21 +3,22 @@
 
 The pre-fix implementation is preserved byte-for-byte in
 ``tools.research_dispatch_core``. This public entrypoint keeps the same API while
-repairing reopen-path compatibility defects:
+repairing narrow compatibility defects:
 
 1. an authorized CLAIM admitted after a nonterminal Driver review must remain the
    live owner when the reducer already reports a valid ``LEASED`` state;
 2. once a reducer-applied runtime transition occurs at or after that Driver review,
    the old ``RETURN_TO_EXECUTION`` Result is only the reopen edge, not a permanent
-   overlay over the new revision cycle; and
+   overlay over the new revision cycle;
 3. legacy/runtime-guard callers of ``_filter_registered_events`` that omit an
-   explicit Result lifecycle view must receive the same canonical lifecycle gate,
-   rather than failing by arity or bypassing the frozen-result interval.
+   explicit Result lifecycle view receive the same canonical lifecycle gate; and
+4. an immutable execution intent may authorize only the exact task-publication
+   generation it was prepared for.  Intent-backed CLAIMs are normalized to that
+   current publication and cannot use an old intent to cross a V2 generation.
 
-The preserved core remains fail-closed: runtime input must be raw authenticated Issue #240 comment objects.
-No priority, lease duration, Driver disposition, terminalization, or task-selection
-policy is changed here. The wrapper only preserves authority that the core reducer
-and Result lifecycle gate have already accepted.
+The preserved core remains fail-closed: runtime input must be raw authenticated
+Issue #240 comment objects. No priority, lease duration, Driver disposition,
+terminalization, or task-selection policy is changed here.
 """
 from __future__ import annotations
 
@@ -35,20 +36,106 @@ _ORIGINAL_FILTER_REGISTERED_EVENTS = _core._filter_registered_events
 _AUTO_RESULT_STATE = object()
 
 
+def _event_source_index(
+    event: dict[str, Any], events: list[dict[str, Any]]
+) -> int | None:
+    """Recover the authenticated-stream index after core normalization copies."""
+    meta = event.get(_core.GITHUB_META_KEY)
+    comment_id = meta.get("comment_id") if isinstance(meta, dict) else None
+    if type(comment_id) is not int:
+        return None
+    for index, source in enumerate(events):
+        source_meta = source.get(_core.GITHUB_META_KEY)
+        if isinstance(source_meta, dict) and source_meta.get("comment_id") == comment_id:
+            return index
+    return None
+
+
+def _bind_intent_claim_publications(
+    task: dict[str, Any],
+    events: list[dict[str, Any]],
+    accepted: list[dict[str, Any]],
+    rejected: list[dict[str, Any]],
+    root: Path,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Fail closed when an execution intent belongs to another publication.
+
+    ``research_execution_records.intent_for_claim`` indexes historical immutable
+    intents by task/claim owner scope so old generations remain auditable.  That
+    lookup is intentionally not a current-publication selector.  Therefore an
+    intent-backed CLAIM must prove that the returned intent belongs to the current
+    task publication before it can carry execution authority.
+
+    When the event omits ``publication_id``, a current immutable intent supplies
+    the generation binding and the normalized event receives it explicitly.  A
+    supplied event publication must also equal the current generation.
+    """
+    if not _core._is_registered(task):
+        return accepted, rejected
+    expected = task.get("publication_id")
+    kept: list[dict[str, Any]] = []
+    extra_rejected = list(rejected)
+    for event in accepted:
+        if event.get("task_id") != task.get("task_id") or event.get("event") != "CLAIM":
+            kept.append(event)
+            continue
+        claim_id = event.get("claim_id")
+        if not isinstance(claim_id, str) or not claim_id:
+            kept.append(event)
+            continue
+        try:
+            intent = _core.research_execution_records.intent_for_claim(
+                task["task_id"], claim_id, root
+            )
+        except Exception as exc:
+            index = _event_source_index(event, events)
+            extra_rejected.append(
+                {
+                    "index": index if index is not None else 0,
+                    "reason": f"execution intent lookup failed during publication binding: {exc}",
+                }
+            )
+            continue
+        if intent is None:
+            # Inline/no-intent CLAIMs were already publication-checked by the core.
+            kept.append(event)
+            continue
+        index = _event_source_index(event, events)
+        intent_publication = intent.get("publication_id")
+        if (
+            not isinstance(expected, str)
+            or not expected
+            or intent_publication != expected
+        ):
+            extra_rejected.append(
+                {
+                    "index": index if index is not None else 0,
+                    "reason": "registered CLAIM execution intent publication_id does not match current task publication",
+                }
+            )
+            continue
+        supplied = event.get("publication_id")
+        if supplied is not None and supplied != expected:
+            extra_rejected.append(
+                {
+                    "index": index if index is not None else 0,
+                    "reason": "registered CLAIM publication_id does not match current task publication",
+                }
+            )
+            continue
+        normalized = copy.deepcopy(event)
+        normalized["publication_id"] = expected
+        kept.append(normalized)
+    return kept, extra_rejected
+
+
 def _filter_registered_events(
     task: dict[str, Any],
     events: list[dict[str, Any]],
     root: Path,
     result_state: dict[str, Any] | None | object = _AUTO_RESULT_STATE,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
-    """Apply the registered-event lifecycle gate with backward-compatible arity.
-
-    Canonical dispatch already supplies ``result_state`` explicitly. Older runtime
-    guard callers supplied only ``task, events, root``. For those callers, resolve
-    the same immutable Result/Driver state here so execution authorization cannot
-    bypass a frozen-result interval and cannot fail merely because the helper grew
-    a lifecycle parameter.
-    """
+    """Apply lifecycle and generation gates with backward-compatible arity."""
     if result_state is _AUTO_RESULT_STATE:
         resolved: dict[str, Any] | None = None
         if _core._is_registered(task):
@@ -59,29 +146,19 @@ def _filter_registered_events(
                 publication_id if isinstance(publication_id, str) else None,
             )
         result_state = resolved
-    return _ORIGINAL_FILTER_REGISTERED_EVENTS(
+    accepted, rejected = _ORIGINAL_FILTER_REGISTERED_EVENTS(
         task,
         events,
         root,
         result_state if isinstance(result_state, dict) else None,
     )
+    return _bind_intent_claim_publications(task, events, accepted, rejected, root)
 
 
 def _post_review_runtime_transition(
     state: dict[str, Any], result_state: dict[str, Any]
 ) -> bool:
-    """Whether the reducer has applied a transition on/after the reopen boundary.
-
-    GitHub event ingestion overwrites body-declared ``at`` with the immutable
-    server ``created_at`` before reduction. Reducer-applied PROGRESS, HANDOFF,
-    HARD_BLOCK, UNBLOCK and SUPERSEDE transitions copy that trusted clock into
-    ``last_progress_at``; ignored events do not. CLAIM/HEARTBEAT do not advance
-    ``last_progress_at`` and are handled separately by the live-LEASED guard.
-
-    Therefore a trusted ``last_progress_at >= reviewed_at`` is the compact state
-    witness that the old nonterminal review has already performed its one-time
-    reopen role and must no longer overwrite the new revision cycle.
-    """
+    """Whether the reducer has applied a transition on/after the reopen boundary."""
     review = result_state.get("review")
     reviewed_at = review.get("reviewed_at") if isinstance(review, dict) else None
     last_progress_at = state.get("last_progress_at")
@@ -103,20 +180,7 @@ def _overlay_result_state(
     root: Path,
     result_state: dict[str, Any] | None,
 ) -> dict[str, Any]:
-    """Treat nonterminal Driver review as a reopen edge, not a permanent overlay.
-
-    ``_claim_result_gate_reason`` rejects CLAIMs inside the frozen interval and
-    admits CLAIMs at or after authoritative ``reviewed_at``. A reducer output of
-    ``LEASED`` is therefore already a live post-reopen owner and must survive.
-
-    After that owner (or an authorized claimless mutation) causes a reducer-applied
-    transition on/after ``reviewed_at``, the reducer state becomes the newer
-    authority. This is essential for a second result-bearing HANDOFF, HARD_BLOCK,
-    UNBLOCK/plain HANDOFF continuation, or current-generation SUPERSEDE. The old
-    Result/REQUEST_REVISION record remains provenance but cannot reopen the task a
-    second time. Ignored events cannot acquire precedence because they do not
-    advance reducer ``last_progress_at``.
-    """
+    """Treat nonterminal Driver review as a reopen edge, not a permanent overlay."""
     if (
         _core._is_registered(task)
         and isinstance(result_state, dict)

@@ -1,0 +1,38 @@
+name: researcher-startup-context-validation
+
+on:
+  pull_request:
+    paths:
+      - 'research_context_budget.json'
+      - 'control_plane/check_context_budget.py'
+      - 'control_plane/researcher_startup_packet.py'
+      - '.github/workflows/chatgpt-control-dispatch-bridge.yml'
+      - '.github/workflows/researcher-startup-context-validation.yml'
+      - 'tests/test_researcher_startup_packet.py'
+      - 'tests/test_researcher_startup_context_envelope.py'
+      - 'tests/test_chatgpt_dispatch_bridge_replay_guard.py'
+      - 'docs/RESEARCHER_STARTUP_CONTEXT_PROTOCOL.md'
+  push:
+    branches:
+      - main
+    paths:
+      - 'research_context_budget.json'
+      - 'control_plane/check_context_budget.py'
+      - 'control_plane/researcher_startup_packet.py'
+      - '.github/workflows/chatgpt-control-dispatch-bridge.yml'
+      - '.github/workflows/researcher-startup-context-validation.yml'
+
+jobs:
+  startup-context:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: |
+          python control_plane/check_context_budget.py
+          python -m unittest -v tests.test_researcher_startup_packet
+          python -m unittest -v tests.test_researcher_startup_context_envelope
+          python -m unittest -v tests.test_chatgpt_dispatch_bridge_replay_guard

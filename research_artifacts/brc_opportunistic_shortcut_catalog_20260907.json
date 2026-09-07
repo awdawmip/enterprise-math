@@ -1,0 +1,178 @@
+{
+  "schema": "BRC_OPPORTUNISTIC_SHORTCUT_CATALOG_V1",
+  "date": "2026-09-07",
+  "policy": "cheap-first / exact fallback / regime telemetry / adaptive only after mature local evidence",
+  "shortcut_count": 13,
+  "shortcuts": [
+    {
+      "shortcut_id": "structural_priority",
+      "name": "same-parity structural priority",
+      "family": "multiplier_order",
+      "safety": "HEURISTIC_FALLBACK",
+      "probe_cost": "TINY",
+      "default_enabled": true,
+      "trigger": "odd-N multiplier scan",
+      "fallback": "exact mod-8 candidate set retained",
+      "evidence": "Repeated finite rank/runtime benefit",
+      "source_refs": [
+        "research_notes/BRC_MULTIPLIER_PRIORITY_JUMP_20260906.md"
+      ]
+    },
+    {
+      "shortcut_id": "learned_cover_prefix",
+      "name": "learned 20-multiplier prefix",
+      "family": "multiplier_order",
+      "safety": "HEURISTIC_FALLBACK",
+      "probe_cost": "TINY",
+      "default_enabled": true,
+      "trigger": "expensive candidate evaluation",
+      "fallback": "append structural fallback",
+      "evidence": "Held-out rank improved; original CPython runtime slightly worse",
+      "source_refs": [
+        "conversation 2026-09-06"
+      ]
+    },
+    {
+      "shortcut_id": "ratio_cover_prefix",
+      "name": "log-ratio specialist prefix",
+      "family": "multiplier_order",
+      "safety": "HEURISTIC_FALLBACK",
+      "probe_cost": "TINY",
+      "default_enabled": false,
+      "trigger": "moderate factor-imbalance signal",
+      "fallback": "append structural fallback",
+      "evidence": "Overall worse; q/p in [2,4] diagnostic band improved",
+      "source_refs": [
+        "conversation 2026-09-06"
+      ]
+    },
+    {
+      "shortcut_id": "kernel13_prefix",
+      "name": "13-kernel early probe",
+      "family": "multiplier_prefix",
+      "safety": "HEURISTIC_FALLBACK",
+      "probe_cost": "CHEAP",
+      "default_enabled": true,
+      "trigger": "long multiplier horizon",
+      "fallback": "scan remaining exact representatives",
+      "evidence": "98 multipliers: training 100%, shifted full-hit recall 84.76% / 55.27%",
+      "source_refs": [
+        "research_artifacts/brc_squarefree_kernel_compression_probe_20260907.csv"
+      ]
+    },
+    {
+      "shortcut_id": "gap_sort_if_materialized",
+      "name": "gap sort on existing states",
+      "family": "multiplier_order",
+      "safety": "HEURISTIC_FALLBACK",
+      "probe_cost": "CHEAP",
+      "default_enabled": false,
+      "trigger": "states already materialized",
+      "fallback": "same complete set",
+      "evidence": "Strong rank gain; lost runtime only when materialization was done for sorting",
+      "source_refs": []
+    },
+    {
+      "shortcut_id": "low12_compact_gap_filter",
+      "name": "LOW12 compact square filter",
+      "family": "filter_backend",
+      "safety": "EXACT",
+      "probe_cost": "CHEAP",
+      "default_enabled": false,
+      "trigger": "gap filtering dominates",
+      "fallback": "BALANCED cascade",
+      "evidence": "Zero false negatives; filter-level large-bit win in Round-14 prototype",
+      "source_refs": []
+    },
+    {
+      "shortcut_id": "table_free_tail",
+      "name": "certified table-free tail",
+      "family": "transport_backend",
+      "safety": "CONDITIONAL_EXACT",
+      "probe_cost": "MODERATE",
+      "default_enabled": false,
+      "trigger": "memory constrained",
+      "fallback": "ordinary predictor/direct root",
+      "evidence": "Storage win, not CPython CPU win",
+      "source_refs": [
+        "research_notes/BRC_TABLE_FREE_TAIL_20260907.md"
+      ]
+    },
+    {
+      "shortcut_id": "quotient_jet_large_bits",
+      "name": "quotient/remainder jet",
+      "family": "transport_backend",
+      "safety": "CONDITIONAL_EXACT",
+      "probe_cost": "MODERATE",
+      "default_enabled": true,
+      "trigger": "large long tail",
+      "fallback": "native division on smaller inputs",
+      "evidence": "Finite crossover around 4096 bits",
+      "source_refs": [
+        "research_notes/BRC_QUOTIENT_JET_TAIL_20260907.md"
+      ]
+    },
+    {
+      "shortcut_id": "energy_jet_very_large_bits",
+      "name": "energy difference jet",
+      "family": "transport_backend",
+      "safety": "CONDITIONAL_EXACT",
+      "probe_cost": "MODERATE",
+      "default_enabled": true,
+      "trigger": "very large long tail",
+      "fallback": "fresh product below crossover",
+      "evidence": "Finite gain at 8192/16384 bits",
+      "source_refs": [
+        "research_notes/BRC_ENERGY_DIFFERENCE_JET_TAIL_20260907.md"
+      ]
+    },
+    {
+      "shortcut_id": "gap_residue_jet_ultralarge",
+      "name": "completion-gap residue jet",
+      "family": "filter_backend",
+      "safety": "CONDITIONAL_EXACT",
+      "probe_cost": "MODERATE",
+      "default_enabled": false,
+      "trigger": "ultra-large long filter-dominated stream",
+      "fallback": "native staged modulo",
+      "evidence": "Prototype crossover only in tens-of-thousands-bit regime",
+      "source_refs": []
+    },
+    {
+      "shortcut_id": "brc_shadow_telemetry",
+      "name": "N/J/R/phase shadow tag",
+      "family": "telemetry",
+      "safety": "EXACT",
+      "probe_cost": "TINY",
+      "default_enabled": false,
+      "trigger": "outcome logging",
+      "fallback": "no routing unless evidence emerges",
+      "evidence": "Old classifier failed; exact observables retained for hidden-regime discovery",
+      "source_refs": []
+    },
+    {
+      "shortcut_id": "fibonacci_delete_storage_probe",
+      "name": "Fibonacci/delete storage compression",
+      "family": "cross_family_storage",
+      "safety": "HEURISTIC_FALLBACK",
+      "probe_cost": "CHEAP",
+      "default_enabled": false,
+      "trigger": "representation/table compression",
+      "fallback": "binary/BRC representation",
+      "evidence": ">90% bounded storage compression; little semiprime leakage",
+      "source_refs": []
+    },
+    {
+      "shortcut_id": "pisano_metadata_probe",
+      "name": "Pisano/rank metadata probe",
+      "family": "cross_family_metadata",
+      "safety": "CONDITIONAL_EXACT",
+      "probe_cost": "TINY",
+      "default_enabled": false,
+      "trigger": "Pisano/rank metadata already available",
+      "fallback": "ordinary exact factor pipeline",
+      "evidence": "Strong local reduction when metadata setup cost is already sunk",
+      "source_refs": []
+    }
+  ]
+}

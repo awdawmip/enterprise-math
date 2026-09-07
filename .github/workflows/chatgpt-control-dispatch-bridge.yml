@@ -5,6 +5,8 @@ on:
     paths:
       - '.github/workflows/chatgpt-control-dispatch-bridge.yml'
       - 'control_plane/chatgpt_dispatch_request.json'
+      - 'control_plane/researcher_startup_packet.py'
+      - 'research_context_budget.json'
       - 'docs/CHATGPT_CONTROL_DISPATCH_BRIDGE.md'
   push:
     branches:
@@ -12,6 +14,8 @@ on:
     paths:
       - '.github/workflows/chatgpt-control-dispatch-bridge.yml'
       - 'control_plane/chatgpt_dispatch_request.json'
+      - 'control_plane/researcher_startup_packet.py'
+      - 'research_context_budget.json'
 
 permissions:
   contents: write
@@ -32,6 +36,7 @@ jobs:
       REQUEST_PATH: control_plane/chatgpt_dispatch_request.json
       RECEIPT_PATH: control_plane/chatgpt_dispatch_receipt.json
       RECEIPT_DIR: control_plane/chatgpt_dispatch_receipts
+      STARTUP_PACKET_DIR: control_plane/chatgpt_startup_packets
       PUSH_BEFORE: ${{ github.event.before }}
     steps:
       - uses: actions/checkout@v7
@@ -65,6 +70,7 @@ jobs:
           echo "REQUEST_ID=$request_id" >> "$GITHUB_ENV"
           echo "DISPATCH_KIND=$kind" >> "$GITHUB_ENV"
           echo "IMMUTABLE_RECEIPT_PATH=$RECEIPT_DIR/$request_id.json" >> "$GITHUB_ENV"
+          echo "IMMUTABLE_STARTUP_PACKET_PATH=$STARTUP_PACKET_DIR/$request_id.json" >> "$GITHUB_ENV"
 
       - name: Detect request-producing push
         id: request_change
@@ -168,6 +174,20 @@ jobs:
             }' > /tmp/em-dispatch/receipt.json
           cat /tmp/em-dispatch/receipt.json
 
+      - name: Build compact researcher startup packet
+        shell: bash
+        run: |
+          set -euo pipefail
+          python control_plane/researcher_startup_packet.py \
+            --receipt /tmp/em-dispatch/receipt.json \
+            --output /tmp/em-dispatch/startup-packet.json
+          jq -e \
+            --arg request_id "$REQUEST_ID" \
+            --arg source_sha "$GITHUB_SHA" \
+            '.schema == "ENTERPRISE_MATH_RESEARCHER_STARTUP_PACKET_V1" and .request_id == $request_id and .source_sha == $source_sha and (.packet_bytes <= 8192)' \
+            /tmp/em-dispatch/startup-packet.json >/dev/null
+          cat /tmp/em-dispatch/startup-packet.json
+
       - name: Persist request receipt on main
         if: github.event_name == 'push' && steps.request_change.outputs.changed == 'true'
         shell: bash
@@ -186,15 +206,29 @@ jobs:
                 --arg source_sha "$GITHUB_SHA" \
                 '.request_id == $request_id and .source_sha == $source_sha' \
                 "$IMMUTABLE_RECEIPT_PATH" >/dev/null; then
-                echo "IMMUTABLE_RECEIPT_ALREADY_PERSISTED path=$IMMUTABLE_RECEIPT_PATH"
-                exit 0
+                if [[ -e "$IMMUTABLE_STARTUP_PACKET_PATH" ]] && jq -e \
+                  --arg request_id "$REQUEST_ID" \
+                  --arg source_sha "$GITHUB_SHA" \
+                  '.request_id == $request_id and .source_sha == $source_sha' \
+                  "$IMMUTABLE_STARTUP_PACKET_PATH" >/dev/null; then
+                  echo "IMMUTABLE_RECEIPT_AND_STARTUP_PACKET_ALREADY_PERSISTED receipt=$IMMUTABLE_RECEIPT_PATH packet=$IMMUTABLE_STARTUP_PACKET_PATH"
+                  exit 0
+                fi
+                echo "IMMUTABLE_STARTUP_PACKET_MISSING_OR_MISMATCHED_FOR_EXISTING_RECEIPT path=$IMMUTABLE_STARTUP_PACKET_PATH"
+                exit 1
               fi
               echo "DUPLICATE_REQUEST_ID_WITH_DIFFERENT_SOURCE path=$IMMUTABLE_RECEIPT_PATH"
               exit 1
             fi
 
-            mkdir -p "$RECEIPT_DIR"
+            if [[ -e "$IMMUTABLE_STARTUP_PACKET_PATH" ]]; then
+              echo "ORPHAN_IMMUTABLE_STARTUP_PACKET path=$IMMUTABLE_STARTUP_PACKET_PATH"
+              exit 1
+            fi
+
+            mkdir -p "$RECEIPT_DIR" "$STARTUP_PACKET_DIR"
             cp /tmp/em-dispatch/receipt.json "$IMMUTABLE_RECEIPT_PATH"
+            cp /tmp/em-dispatch/startup-packet.json "$IMMUTABLE_STARTUP_PACKET_PATH"
 
             current_request_id="$(jq -r '.request_id // empty' "$REQUEST_PATH")"
             if [[ "$current_request_id" == "$REQUEST_ID" ]]; then
@@ -204,13 +238,13 @@ jobs:
               echo "LATEST_RECEIPT_SKIPPED stale_request=$REQUEST_ID current_request=$current_request_id"
             fi
 
-            git add "$IMMUTABLE_RECEIPT_PATH"
+            git add "$IMMUTABLE_RECEIPT_PATH" "$IMMUTABLE_STARTUP_PACKET_PATH"
             if [[ "$current_request_id" == "$REQUEST_ID" ]]; then
               git add "$RECEIPT_PATH"
             fi
-            git commit -m "control: record ChatGPT canonical dispatch receipt $REQUEST_ID"
+            git commit -m "control: record ChatGPT dispatch receipt and startup packet $REQUEST_ID"
             if git push origin HEAD:main; then
-              echo "RECEIPT_PERSISTED attempt=$attempt immutable=$IMMUTABLE_RECEIPT_PATH"
+              echo "RECEIPT_AND_STARTUP_PACKET_PERSISTED attempt=$attempt receipt=$IMMUTABLE_RECEIPT_PATH packet=$IMMUTABLE_STARTUP_PACKET_PATH"
               exit 0
             fi
           done
