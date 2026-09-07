@@ -1,0 +1,57 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "RESEARCH_TOOLIZED_GLOBAL_SUBTOOL",
+  "date": "2026-09-07",
+  "admission": {
+    "classification": "TASK_RESEARCH_TOOL_HARVEST",
+    "authority": "direct user request to verify the previous product-jet answer and continue from the current BRC square-increment difference-jet frontier",
+    "family_id": "T0_BRC",
+    "foundation_mutation": false,
+    "working_truth_promotion": false,
+    "new_global_tool_family": false,
+    "reuse_resolution": "EXTEND_EXISTING_TOOL",
+    "reason": "Replace the retained mixed product coordinate M=(nabla q)(nabla^2 J) by the observer-equivalent scaled cross coordinate C=6*(M+(nabla^2 q)(nabla q+nabla J)), shortening the exact energy third-difference hot path without losing provenance or changing the existing proof bounds."
+  },
+  "methods": [
+    {
+      "method_id": "t0.brc_square_increment_scaled_cross_coordinate",
+      "name": "BRC square-increment scaled cross-coordinate jet",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_energy_scaled_cross_tail.py",
+        "tests/test_brc_energy_scaled_cross_tail.py",
+        "experiments/brc_energy_scaled_cross_benchmark.py",
+        "research_notes/BRC_ENERGY_SCALED_CROSS_COORDINATE_20260907.md",
+        "research_artifacts/brc_energy_scaled_cross_benchmark_20260907.csv"
+      ],
+      "api": [
+        "ScaledCrossEnergyOrbit",
+        "ScaledCrossEnergyTailScanner",
+        "scaled_cross_from_mixed",
+        "mixed_from_scaled_cross",
+        "square_increment_scaled_cross_third_difference",
+        "next_scaled_cross"
+      ],
+      "triggers": [
+        "BRC energy cross coordinate",
+        "compact square-increment jet",
+        "remove six times K multiplication",
+        "observer-equivalent mixed coordinate",
+        "scaled finite difference energy carrier"
+      ],
+      "capabilities": [
+        "bijectively replace the older mixed coordinate M using already-retained quotient/root finite differences",
+        "evaluate the exact square-increment third difference as e*(2*(J_new+q_new)-e)+2*w*(q_new-e)+C",
+        "transport C exactly with only bounded-coefficient big-integer multiplications",
+        "preserve the existing quotient-third, root-third and two-root-correction proof bounds",
+        "preserve the exact fifteen quotient divisions and fifteen square-increment product seed budget",
+        "match the existing square-increment difference scanner state-for-state",
+        "compose unchanged with the BALANCED square-gap residue cascade"
+      ],
+      "core_law": "Let s=nabla q, a=nabla^2 q, t=nabla J, u=nabla^2 J, e=nabla^3 q_new, w=nabla^3 J_new and M=s*u. Define C=6*(M+a*(s+t)). Because a,s,t are already retained, M=C/6-a*(s+t), so this is an observer-equivalent coordinate change. At the target point, nabla^3 E_new=e*(2*(J_new+q_new)-e)+2*w*(q_new-e)+C. With a_new=a+e and u_new=u+w, C_new=C+6*s*w+6*e*(s+t)+6*a_new*(2*u_new+a_new). The new multipliers are bounded by the inherited e in [-4,4], w in [-3,387] and a_new in [-2,98] bounds.",
+      "hard_boundary": "This is a compatible constant-factor execution variant extending t0.brc_square_increment_difference_jet, not a new top-level BRC family. It does not reduce the multiplier search horizon or factorization complexity. Finite CPython reference timings show a modest roughly 2.6%-13.8% gain across the tested 1024..16384-bit cohorts; these timings are environment-dependent and not an asymptotic machine theorem. Exact square-gap residue-state transport and a 2-adic front gate were also tested but not promoted because their end-to-end gain was marginal after the energy jet became the dominant cost."
+    }
+  ]
+}
