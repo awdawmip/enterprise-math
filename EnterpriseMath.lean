@@ -25,6 +25,7 @@ import EnterpriseMath.Relation.BRCSixAxisS4
 import EnterpriseMath.Relation.BRCK4OptimalExtraction
 import EnterpriseMath.Relation.BRCFiniteFrameLift
 import EnterpriseMath.Relation.BRCAtlasPolynomialEmission
+import EnterpriseMath.Relation.BRCSchurPorts
 import EnterpriseMath.Scale.Compatibility
 import EnterpriseMath.State.CriticalGrid
 import EnterpriseMath.PrimeFusion
