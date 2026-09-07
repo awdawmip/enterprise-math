@@ -78,6 +78,18 @@ class ResultHandoffDispatchGuardTests(unittest.TestCase):
         state.update({"kind": "RESEARCH", "priority": "P0", "leverage": "HIGH"})
         self.assertIsNone(rr.select_state([state], rr.load_policy(), kind="RESEARCH"))
 
+    def test_legacy_terminal_candidate_waits_for_driver_review(self):
+        state = self.reduce(
+            {"terminal_candidate": "SUCCESS_REVIEW_COMPLETE_AWAITING_DRIVER_DECISION"}
+        )
+        self.assertEqual("FROZEN_RETURN", state["state"])
+        self.assertEqual("AWAITING_REVIEW", state["dispatch_state"])
+        self.assertEqual(
+            "SUCCESS_REVIEW_COMPLETE_AWAITING_DRIVER_DECISION",
+            state["terminal_candidate"],
+        )
+        self.assertIsNone(state["claim_id"])
+
     def test_plain_handoff_remains_dispatchable(self):
         state = self.reduce({})
         self.assertEqual("HANDOFF_READY", state["state"])
