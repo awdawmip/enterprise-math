@@ -1,6 +1,6 @@
 # Height-2 supersingular Frobenius second-digit reduction
 
-Status: `STRICT_LOCAL_REDUCTION / NO_P3_CLOSURE_CLAIM`
+Status: `STRICT_LOCAL_REDUCTION / EXACT_PARENT_NORMALIZATION_MAP / NO_P3_CLOSURE_CLAIM`
 
 Date: `2026-09-08`
 
@@ -205,44 +205,118 @@ This is a strict three-source factorization of the missing second digit:
 - `TWIST`: one additional digit of the quartic CM normalization;
 - `CLAUSEN2`: one additional digit of the truncated Clausen comparison.
 
-## 6. Relation to the frozen parent LIFT scalar
+## 6. Exact normalization map to the frozen parent LIFT scalar
 
-The Enterprise parent has already compressed all weighted-tail bookkeeping into
-
-\[
-LIFT:\qquad
-\frac{G_ph-1}{p}-R_p\equiv0\pmod p.
-\]
-
-Since the predecessor bridge identifies the full weighted mod-\(p^3\) target with JT2, `(HEIGHT2-LIFT)` and the parent `LIFT` are two presentations of the **same final weighted second-digit obstruction after their respective normalizations**.
-
-However, this note does **not** assert a termwise identity such as \(R_p=\kappa_p\) or \(R_p=\mathcal F_p\). Deriving the exact normalization map
+To avoid the parent notation collision, write
 
 \[
-(\mathcal F_p,\tau_p,\kappa_p)\longrightarrow
-\left(\frac{G_ph-1}{p},R_p\right)
+g:=\sum_{k=0}^{p-1}B_k,\qquad
+h:=\sum_{k=0}^{p-1}(12k+1)B_k,
+\qquad \widehat G_p:=g/p.
 \]
 
-is a separate required step.
+The frozen finite Clausen product is an exact finite convolution. For degrees \(n<p\), the product coefficients coincide with the target weighted \({}_3F_2\) coefficients, while the degrees \(p\le n\le2p-2\) form the finite convolution tail \(T_p\). Hence
+
+\[
+\boxed{gh=W_p+T_p.} \tag{FINITE-CLAUSEN}
+\]
+
+The accepted parent theorem gives
+
+\[
+T_p\equiv p^2R_p\pmod{p^3}. \tag{TAIL}
+\]
+
+Since \(p\mid g\), divide the resulting identity by \(p^2\). Modulo \(p\),
+
+\[
+\begin{aligned}
+\frac{W_p-p}{p^2}
+&\equiv
+\frac{gh-p}{p^2}-R_p\\
+&=
+\frac{\widehat G_p h-1}{p}-R_p.
+\end{aligned}
+\tag{PARENT-W2}
+\]
+
+Therefore the frozen parent `LIFT` residual is **exactly the weighted second p-adic digit**, with no missing proportionality factor or sign:
+
+\[
+\boxed{
+\mathcal L_p:=
+\frac{\widehat G_p h-1}{p}-R_p
+\equiv
+\frac{W_p-p}{p^2}
+\pmod p.
+} \tag{LIFT=W2}
+\]
+
+Combining `(LIFT=W2)` with `(W2JET)` gives the exact bridge between the Enterprise parent language and the supersingular height-2 Frobenius language:
+
+\[
+\boxed{
+\mathcal L_p
+\equiv
+\kappa_p-\mathcal F_p-\tau_p
+\equiv
+\kappa_p-U^2+e_a+e_b-\tau_p
+\pmod p.
+} \tag{MASTER-LIFT}
+\]
+
+Thus the normalization-map problem left open in the first version of this note is now closed.
+
+No termwise identity such as \(R_p=\kappa_p\) is implied or needed. The equality is at the level of the **complete normalized second-digit obstruction**.
 
 ## 7. New smallest interfaces
 
-The previous live interface “compute the next height-2 Frobenius digit” can now be split into four concrete subtargets:
+The parent `LIFT` has now been strictly factorized into four local/finite coordinates:
 
 1. `FROB-DIAG`: compute/prove \(U=u/p\bmod p\);
 2. `FROB-COMP`: compute/prove \(e_a+e_b\bmod p\) (the two defects are only needed through their sum);
 3. `CM-TWIST`: compute \(\tau_p\bmod p\);
-4. `CLAUSEN2`: compute \(\kappa_p\bmod p\) and prove `(HEIGHT2-LIFT)`.
+4. `CLAUSEN2`: compute \(\kappa_p\bmod p\).
 
-The determinant identity shows that separately computing \(V\) and \(W\) beyond what is needed for \(e_a+e_b\) is unnecessary information inflation.
+The desired theorem is the single equality
 
-## 8. Freeze
+\[
+\boxed{
+\kappa_p-U^2+e_a+e_b-\tau_p\equiv0\pmod p.
+} \tag{LOCAL-LIFT}
+\]
+
+The determinant identity shows that separately computing \(V\) and \(W\) beyond what is needed for \(e_a+e_b\) is unnecessary information inflation. The frozen reflected scalar \(R_p\) also no longer has to be separately matched to one local Frobenius coefficient: its role is already incorporated exactly through `(LIFT=W2)`.
+
+## 8. BRC information audit
+
+The previous carrier
+
+\[
+(\widehat G_p\bmod p^2,h\bmod p^2,R_p)
+\]
+
+and the new carrier
+
+\[
+(U,e_a+e_b,\tau_p,\kappa_p)
+\]
+
+have now been proved equivalent **for the sole future observer “does the weighted second digit vanish?”** through `(MASTER-LIFT)`.
+
+This does not license arbitrary replacement for other future operations. In particular, no claim is made that the four local coordinates reconstruct \(R_p\), \(\widehat G_p\), or \(h\) individually. The quotient is operation-safe only at the declared LIFT observer.
+
+`BRC_REUSE_RESOLUTION = REUSE_APPLIED + COMPOSE_APPLIED`.
+
+## 9. Freeze
 
 `RAW_DERHAM_P3_DEFECT = STRICTLY_REDUCED_TO U^2-e_a-e_b`.
 
 `WEIGHTED_P3_DEFECT = STRICTLY_REDUCED_TO kappa_p-F_p-tau_p`.
 
-`PARENT_LIFT = OPEN`.
+`PARENT_LIFT_NORMALIZATION_MAP = PROVED_EXACTLY_AT_SECOND_DIGIT_OBSERVER`.
+
+`PARENT_LIFT = EQUIVALENT_TO kappa_p-U^2+e_a+e_b-tau_p = 0 mod p / OPEN`.
 
 `JT2 = OPEN`.
 
@@ -250,4 +324,4 @@ The determinant identity shows that separately computing \(V\) and \(W\) beyond 
 
 `FINITE_SCAN_PROMOTION = NONE`.
 
-`NEXT_ACTION = derive the normalization map from the frozen Clausen-tail R_p interface, prioritizing the combined scalar e_a+e_b rather than individual matrix entries`.
+`NEXT_ACTION = attack the four-coordinate local identity, first seeking structural cancellation between the coefficient-comparison sum e_a+e_b and the truncated-Clausen defect kappa_p before separately computing all four coordinates`.
