@@ -1,0 +1,64 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "RESEARCH_TOOLIZED_GLOBAL_SUBTOOL",
+  "date": "2026-09-07",
+  "admission": {
+    "classification": "TASK_RESEARCH_TOOL_HARVEST",
+    "authority": "direct user continuation of the main-backed BRC multiplier table, linear-tail, phase quotient/remainder, and square-gap cascade program",
+    "family_id": "T0_BRC",
+    "foundation_mutation": false,
+    "working_truth_promotion": false,
+    "new_global_tool_family": false,
+    "coverage_verdict": "EXTEND_EXISTING_TOOL",
+    "matched_tool_or_method_ids": [
+      "t0.brc_linear_deep_tail",
+      "t0.brc_phase_quotient_remainder",
+      "t0.brc_square_gap_cascade"
+    ],
+    "reuse_resolution_state": "COMPOSE_APPLIED_AND_EXTEND_EXISTING_TOOL",
+    "reason": "Reuse the exact labeled (J,R) tail state, the existing 1 KiB normalized reciprocal table, and the BALANCED completion-gap observer, while adding the previously absent direct three-visit fixed-phase root/remainder recurrence."
+  },
+  "methods": [
+    {
+      "method_id": "t0.brc_phase_root_recurrence",
+      "name": "BRC fixed-phase root/remainder third-difference transport",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_phase_root_recurrence.py",
+        "tests/test_brc_phase_root_recurrence.py",
+        "experiments/brc_phase_root_recurrence_benchmark.py",
+        "research_notes/BRC_PHASE_ROOT_RECURRENCE_20260907.md",
+        "research_artifacts/brc_phase_root_recurrence_benchmark_20260907.csv"
+      ],
+      "api": [
+        "PhaseRootRemainderState",
+        "PhaseRootRemainderTracker",
+        "phase_root_candidate_gap",
+        "phase_root_third_difference_bounds",
+        "odd_n_phase_root_tail_states",
+        "reused_reciprocal_table_bytes"
+      ],
+      "triggers": [
+        "BRC phase root recurrence",
+        "third finite difference multiplier root",
+        "remove order-one quotient after warmup",
+        "reuse reciprocal table for BRC correction",
+        "fixed mod-8 phase root remainder"
+      ],
+      "capabilities": [
+        "exact unbounded fixed-phase root/remainder transport after fourteen order-one seed transitions",
+        "quadratic extrapolation of each mod-8 phase root from three labeled exact phase states",
+        "exact target residual G=R0-3R1+3R2-6b(b-a) without target square root or q(2J+q)",
+        "uniform common-tail integer correction bound -3..387",
+        "reuse of the existing 1024-byte normalized reciprocal table for constant-comparison phase closure",
+        "preservation of the exact completion gap for composition with the zero-false-negative BALANCED square-residue cascade",
+        "optional exact lifted product state using only bounded-correction multipliers, retained as a CPU-negative alternative"
+      ],
+      "core_law": "For phase-spaced states (m+8i)N=J_i^2+R_i, let a=J_1-J_0, b=J_2-J_1 and C=3J_2-3J_1+J_0. Then (m+24)N-C^2=R_0-3R_1+3R_2-6b(b-a). On 4m^5>=N, e=J_3-C is the integer third phase difference and satisfies -3<=e<=387. For C>=75078, floor(G/(2C+1)) lies in {e,e+1}; the existing Round-13 1 KiB lower-reciprocal table recovers that floor with at most two increments, and one sign check yields the exact (J_3,R_3).",
+      "observer_contract": "Retain three labeled phase triples (m_i,J_i,R_i). Roots alone, Boolean support, or an unlabeled aggregate are inadequate because the exact residual and future completion-gap observer depend on the individual remainders and phase order.",
+      "hard_boundary": "Exact integer transport only on the already-certified odd-N order-one deep tail and fixed mod-8 representative phases. The finite performance crossover is runtime-dependent; direct division remains appropriate for smaller operands. This does not reduce the multiplier horizon, change Lehman/Hart factorization complexity, imply RSA practicality, or create a new top-level BRC family."
+    }
+  ]
+}
