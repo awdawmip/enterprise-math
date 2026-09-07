@@ -1,0 +1,68 @@
+{
+  "artifact_schema": "ENTERPRISE_MATH_EXTERNAL_PRIOR_ART_COMPARISON_MATRIX_V1",
+  "generated_at": "2026-09-07T02:18:12+00:00",
+  "task_id": "RS-PCF-RESTRICTED-ROUTES-EXTERNAL-PRIOR-ART-DUPLICATION-AUDIT",
+  "publication_id": "TP2-D7E01B4B2274498405F8",
+  "researcher_id": "EM-EBP6JT-25C94A",
+  "claim_id": "chatgpt-pcfpriorart-20260907-1012-sol25c94a",
+  "replication_target": {
+    "prior_unmerged_result": "RR-3D275FA80F4E26F00F3D",
+    "prior_branch": "research/pcf-restricted-routes-prior-art-audit-em-pcfprior1-7e4b2a",
+    "status": "USED_AS_HIGHEST_DURABLE_FRONTIER_NOT_AS_AUTHORITY",
+    "replication_disposition": "MATERIALLY_CONFIRMED_WITH_TWO_PRECISION_REPAIRS: P5-6 bounded-multiple proof wording; P6-9 zero-resultant case"
+  },
+  "hard_target_disposition": "PCF5_PCF6_EXTERNAL_PRIOR_ART_AND_DUPLICATION_BOUNDARY_EXACTLY_CLASSIFIED",
+  "novelty_authority": false,
+  "no_material_match_rows": [],
+  "no_material_match_warning": "No row is classified NO_MATERIAL_MATCH. This audit makes no historical novelty finding.",
+  "killed_interpretations": [
+    "PCF5 new factorization mechanism",
+    "PCF5 factoring speedup from N^(1/3) support count",
+    "product-tree, remainder-tree or batch-gcd novelty",
+    "CRT/product-ring/idempotent novelty",
+    "trace/determinant selector novelty as linear algebra",
+    "resultant/determinant novelty",
+    "general H-dependent impossibility",
+    "project-specific typed residue implies historical novelty"
+  ],
+  "rows": [
+    {"row_id":"P5-1","route":"PCF5","ingredient":"block product polynomial -> fast multipoint evaluation -> gcd per block","strongest_antecedent":"Pollard-Strassen/Strassen deterministic fast-polynomial factorization skeleton","classification":"EXACT_ANTECEDENT","source_ids":["S1","S2"],"consequence":"The load-bearing extraction skeleton is classical; project notation does not create a new factorization mechanism."},
+    {"row_id":"P5-2","route":"PCF5","ingredient":"m factors per block and m^2 evaluation blocks with m≈N^(1/6), covering m^3 candidates","strongest_antecedent":"Balanced Pollard-Strassen/Strassen uses fast polynomial arithmetic at ~N^(1/4) deterministic factoring scale","classification":"STRICT_ANTECEDENT","source_ids":["S1","S2"],"consequence":"PCF5's rectangular m-by-m^2 parameterization is a restricted reparameterization; it is not a speedup and is asymptotically weaker than classical unrestricted factoring bounds."},
+    {"row_id":"P5-3","route":"PCF5","ingredient":"subproduct/remainder-tree fast multipoint evaluation","strongest_antecedent":"Standard fast multipoint evaluation by subproduct trees","classification":"EXACT_ANTECEDENT","source_ids":["S3"],"consequence":"The fast-evaluation implementation is standard."},
+    {"row_id":"P5-4","route":"PCF5","ingredient":"batch-gcd-adjacent product/remainder-tree arithmetic","strongest_antecedent":"Classical product/remainder-tree batch-gcd and batched small-factor toolkit","classification":"STRICT_ANTECEDENT","source_ids":["S4","S12"],"consequence":"The same-modulus PCF5 cell-gcd list is not literally the many-moduli batch-gcd problem, but its batching machinery is classical."},
+    {"row_id":"P5-5","route":"PCF5","ingredient":"exact cells C_ij={1+i+mj+km^2} partition [m+2,m^3+m+1]","strongest_antecedent":"Elementary mixed-radix decomposition of the project table coordinates","classification":"PROJECT_SPECIFIC_TYPED_RESIDUE","source_ids":[],"consequence":"Retain as an exact table-coordinate lemma only; project-local typing is not historical novelty."},
+    {"row_id":"P5-6","route":"PCF5","ingredient":"prime visibility iff p<=U_m=m^3+m+1","strongest_antecedent":"Elementary consequence of the project interval partition plus one bounded-multiple argument for p<m+2","classification":"PROJECT_SPECIFIC_TYPED_RESIDUE","source_ids":[],"consequence":"Precise proof: if p>=m+2, p itself lies in the partition interval; if p<m+2, r=p*ceil((m+2)/p) lies in [m+2,U_m]. This is an exact table-interface boundary, not a new factoring principle."},
+    {"row_id":"P5-7","route":"PCF5","ingredient":"fixed-kappa coverage P^+(N)^2<=kappa*N with m^2=O_kappa(N^(1/3)) cells","strongest_antecedent":"Classical unrestricted deterministic factoring is already asymptotically stronger than interpreting the support count as an algorithmic complexity claim","classification":"PROJECT_SPECIFIC_TYPED_RESIDUE","source_ids":["S1","S2"],"consequence":"Retain only the exact coverage theorem for this table support; never advertise O_kappa(N^(1/3)) support as a factoring speedup."},
+    {"row_id":"P5-8","route":"PCF5","ingredient":"when a block gcd equals N, refine inside that block by gcd descent","strongest_antecedent":"Standard Strassen/Pollard-Strassen block-refinement logic","classification":"EXACT_ANTECEDENT","source_ids":["S1"],"consequence":"The refinement rule is classical."},
+    {"row_id":"P5-9","route":"PCF5","ingredient":"N=2018=2*1009 guard and full-layer Omega(N^(2/3)) universal-visibility obstruction","strongest_antecedent":"Project-specific consequence of the frozen table support geometry","classification":"PROJECT_SPECIFIC_TYPED_RESIDUE","source_ids":[],"consequence":"Retain only as a full-layer interface obstruction; it is not a general integer-factorization lower bound."},
+    {"row_id":"P6-1","route":"PCF6","ingredient":"R_H[X]/(fg) product decomposition from comaximality","strongest_antecedent":"Ring-theoretic Chinese remainder theorem","classification":"EXACT_ANTECEDENT","source_ids":["S5"],"consequence":"The ambient product decomposition is standard CRT."},
+    {"row_id":"P6-2","route":"PCF6","ingredient":"coefficient CRT for H=pq / product-ring split","strongest_antecedent":"Ordinary CRT for the coprime ideals (p),(q)","classification":"EXACT_ANTECEDENT","source_ids":["S5"],"consequence":"The hidden-factor product structure is standard."},
+    {"row_id":"P6-3","route":"PCF6","ingredient":"nontrivial selector idempotent c=(0 mod p,1 mod q) and gcd(c,H) factor extraction","strongest_antecedent":"CRT idempotents and standard idempotent/product decomposition","classification":"EXACT_ANTECEDENT","source_ids":["S5","S6"],"consequence":"A nontrivial idempotent already carries factor-equivalent CRT information."},
+    {"row_id":"P6-4","route":"PCF6","ingredient":"h_c=(1-c)f+c g idempotent gluing","strongest_antecedent":"Standard gluing in a product ring using complementary idempotents","classification":"STANDARD_METHOD_REPACKAGING","source_ids":["S5","S6"],"consequence":"The formula is project notation for standard CRT gluing."},
+    {"row_id":"P6-5","route":"PCF6","ingredient":"c=-tr(T), det(T)=1 and converse companion realization","strongest_antecedent":"2x2 characteristic-polynomial trace/determinant identity plus companion-matrix realization","classification":"STANDARD_METHOD_REPACKAGING","source_ids":["S7","S8"],"consequence":"Trace/determinant readout and converse realization are standard linear algebra."},
+    {"row_id":"P6-6","route":"PCF6","ingredient":"corrected Gaussian/Eisenstein oriented free-rank-2 realization iff nontrivial CRT idempotent","strongest_antecedent":"Combination of standard CRT/idempotents with standard rank-2 characteristic-polynomial facts","classification":"PROJECT_SPECIFIC_TYPED_RESIDUE","source_ids":["S5","S6","S7","S8"],"consequence":"The exact grammar-specific equivalence remains a useful project boundary; it is not a general H-dependent no-go theorem."},
+    {"row_id":"P6-7","route":"PCF6","ingredient":"ambient order 12 and fused root counts 4,8,16 at the frozen admissible scope","strongest_antecedent":"Cyclicity of finite-field unit groups, elementary cyclotomic root counts, and CRT multiplication of local solution counts","classification":"STANDARD_METHOD_REPACKAGING","source_ids":["S5","S9"],"consequence":"The root census is standard finite-field/cyclotomic arithmetic expressed in project notation."},
+    {"row_id":"P6-8","route":"PCF6","ingredient":"det(P(T_H))=Res(F,P) mod H for fixed P","strongest_antecedent":"Standard companion/multiplication-operator interpretation of polynomial evaluation together with the resultant root-product/determinant identity","classification":"EXACT_ANTECEDENT","source_ids":["S8","S10","S11"],"consequence":"The determinant/resultant identity is standard; no novelty attaches to it."},
+    {"row_id":"P6-9","route":"PCF6","ingredient":"a finite family of fixed H-independent determinant probes cannot universally separate semiprimes","strongest_antecedent":"Each fixed probe reduces to one fixed integer resultant","classification":"STANDARD_METHOD_REPACKAGING","source_ids":["S10","S11"],"consequence":"Precision guard: if a fixed resultant is nonzero, only its finitely many prime divisors can affect vanishing/invertibility; if it is zero, that probe vanishes for every modulus and carries no separating information. Hence a finite fixed family cannot encode arbitrary hidden semiprime splits. This says nothing about H-dependent probes."},
+    {"row_id":"P6-10","route":"PCF6","ingredient":"H=91, c=78 mixed-root pressure witness","strongest_antecedent":"Concrete arithmetic regression for the project grammar","classification":"PROJECT_SPECIFIC_TYPED_RESIDUE","source_ids":[],"consequence":"Validation witness only; it carries no novelty authority."},
+    {"row_id":"P6-11","route":"PCF6","ingredient":"N_ONLY_NONTRIVIAL_IDEMPOTENT_OR_EQUIVALENT_SELECTOR_GENERATOR routing label","strongest_antecedent":"Standard CRT/idempotent theory for the primitive; project-specific routing semantics for the open generator problem","classification":"PROJECT_SPECIFIC_TYPED_RESIDUE","source_ids":["S5","S6"],"consequence":"Keep only as a project routing label for generating asymmetry from H; do not present idempotents themselves as new mathematics."}
+  ],
+  "sources": {
+    "S1":{"author":"Markus Hittmeir","title":"A babystep-giantstep method for faster deterministic integer factorization","locator":"Abstract and §3 historical/algorithmic discussion of Strassen's deterministic fast-polynomial factoring approach","url":"https://arxiv.org/abs/1608.08766"},
+    "S2":{"author":"Markus Hittmeir","title":"Integer factorization as subset-sum problem","locator":"Introduction: Pollard/Strassen use fast polynomial multiplication and multipoint evaluation; deterministic ~O(N^(1/4)) historical bound","url":"https://doi.org/10.1016/j.jnt.2023.02.010"},
+    "S3":{"author":"FLINT project","title":"nmod_poly — fast multipoint evaluation","locator":"Fast multipoint evaluation uses temporary or precomputed subproduct trees","url":"https://flintlib.org/doc/nmod_poly.html"},
+    "S4":{"author":"FactHacks / Bernstein et al.","title":"Remainder tree","locator":"Remainder trees are built from product trees and are a standard batch-gcd subroutine","url":"https://facthacks.cr.yp.to/remainder.html"},
+    "S5":{"author":"The Stacks Project","title":"Chinese remainder theorem","locator":"Tag 00DT: pairwise comaximal ideals give quotient/product decompositions","url":"https://stacks.math.columbia.edu/tag/00DT"},
+    "S6":{"author":"The Stacks Project","title":"Idempotents and product decompositions","locator":"Tag 00EM: nontrivial idempotents encode product decompositions","url":"https://stacks.math.columbia.edu/tag/00EM"},
+    "S7":{"author":"Wolfram MathWorld","title":"Characteristic Polynomial","locator":"For a 2x2 matrix, chi_A(x)=x^2-Tr(A)x+det(A)","url":"https://mathworld.wolfram.com/CharacteristicPolynomial.html"},
+    "S8":{"author":"Wolfram MathWorld","title":"Companion Matrix","locator":"The companion matrix of a monic polynomial has that polynomial as characteristic polynomial","url":"https://mathworld.wolfram.com/CompanionMatrix.html"},
+    "S9":{"author":"The Stacks Project","title":"Finite fields","locator":"Tag 09HY: F_q^* is cyclic of order q-1","url":"https://stacks.math.columbia.edu/tag/09HY"},
+    "S10":{"author":"Wolfram MathWorld","title":"Resultant","locator":"Root-product and Sylvester-determinant definitions of the resultant","url":"https://mathworld.wolfram.com/Resultant.html"},
+    "S11":{"author":"Wolfram MathWorld","title":"Sylvester Matrix","locator":"The determinant of the Sylvester matrix equals the resultant","url":"https://mathworld.wolfram.com/SylvesterMatrix.html"},
+    "S12":{"author":"Daniel J. Bernstein","title":"How to find small factors of integers","locator":"Classical product/remainder-tree and batched small-factor literature landing page","url":"https://cr.yp.to/papers.html#sf"}
+  },
+  "surviving_boundary": {
+    "PCF5": ["exact Perfect-Prime-Table mixed-radix cell embedding and partition","exact visibility boundary p<=m^3+m+1 with the corrected two-case bounded-multiple proof","fixed-public-kappa covered-family theorem P^+(N)^2<=kappa*N","unbalanced N=2018 guard and full-layer-only interface obstruction"],
+    "PCF6": ["corrected Gaussian/Eisenstein oriented free-rank-2 typed selector equivalence within the frozen grammar","finite fixed H-independent determinant-probe resultant scope guard with explicit zero/nonzero resultant split","H=91 pressure witness and N-only selector-generator routing boundary"]
+  }
+}
