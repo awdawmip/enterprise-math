@@ -569,6 +569,39 @@ we obtain
 uniformly over all nonzero nonnegative prime-root weights supported on
 `q<=Y`.
 
+A useful refinement holds for the RH weight family
+
+\[
+f(q)=q^\beta,
+\qquad
+\beta>0\ \text{fixed}.
+\]
+
+The root law is then concentrated at `log Q=log Y+O_P(1)`. Standard prime
+partial summation gives
+
+\[
+\mathbb E[\log\log Y-\log\log Q]
+\ll_\beta \frac1{\log Y}
+\]
+
+and the same bound squared for the corresponding variance. Consequently,
+
+\[
+\boxed{
+\mathbb E H
+=
+L_X+
+O_\beta\left(
+\frac1{\log Y}+\frac1{u_X}
+\right),
+\qquad
+\operatorname{Var}(H)\ll_\beta L_X+1,
+}
+\]
+
+where `u_X=log X/log Y`.
+
 This separates two different depth scales:
 
 - the **typical rooted factor depth** is
@@ -611,8 +644,19 @@ Then
 \exp\left(-a_X(\tau)\frac{H}{L_X}\right).
 \]
 
-The function `x -> exp(-a_X x)` is uniformly Lipschitz on `x>=0`, so the
-`L^2` law gives
+Instead of using only a Lipschitz estimate, expand the smooth function
+`x -> exp(-a_X x)` to second order about `E(H/L_X)`. Its second derivative
+is uniformly bounded for `x>=0`. The linear centered term has mean zero, so
+
+\[
+\mathbb E\exp(-a_XH/L_X)
+=
+\exp[-a_X\mathbb E(H/L_X)]
++
+O_T(\operatorname{Var}(H/L_X)).
+\]
+
+Therefore, for arbitrary nonnegative root weights,
 
 \[
 \boxed{
@@ -621,28 +665,52 @@ The function `x -> exp(-a_X x)` is uniformly Lipschitz on `x>=0`, so the
 e^{-\tau}
 +
 O_T\left(
-\frac1{\sqrt{L_X}}
+\frac1{L_X}
 +
 \frac{\log\log Y}{L_X}
++
+\frac{(\log\log Y)^2}{L_X^2}
 \right).
 }
 \]
 
-In particular,
+For the power root weights `f(q)=q^beta`, the refinement in Section 8 gives
 
 \[
 \boxed{
--\frac{F_{X,Y,f}(\tau/L_X)}{S_{X,Y,f}}
-\longrightarrow e^{-\tau}
+-\frac{F_{X,Y,q^\beta}(\tau/L_X)}{S_{X,Y,q^\beta}}
+=
+e^{-\tau}
++
+O_{\beta,T}\left(
+\frac1{L_X}
++
+\frac1{\log Y}
++
+\frac1{u_X}
+\right).
 }
 \]
 
-uniformly for `tau` in compact nonnegative intervals.
+At the RH choice `beta=1/2`, `Y=(log X)^2`, this is
 
-This proves the leading `e^{-tau}` boundary-layer attenuation directly for
-the exact discrete population carrier. It bypasses the harmonic/floor
-typing issue because the rooted probability law uses the original
-floor-weighted phase.
+\[
+\boxed{
+-\frac{F_{X,Y,\sqrt{\cdot}}(\tau/L_X)}
+       {S_{X,Y,\sqrt{\cdot}}}
+=
+e^{-\tau}
++
+O_T\left(\frac1{\log\log X}\right).
+}
+\]
+
+In particular, the normalized profile converges uniformly to `e^{-tau}` for
+`tau` in compact nonnegative intervals.
+
+This proves the leading boundary-layer attenuation directly for the exact
+discrete population carrier. It bypasses the harmonic/floor typing issue
+because the rooted probability law uses the original floor-weighted phase.
 
 The reciprocal-Gamma factor from the continuum note contributes only at
 lower orders when `t=tau/L_X`; recovering it discretely requires higher
