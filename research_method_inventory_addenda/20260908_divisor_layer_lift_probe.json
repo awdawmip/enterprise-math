@@ -1,0 +1,55 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "RESEARCH_TOOLIZED_GLOBAL_SUBTOOL",
+  "date": "2026-09-08",
+  "admission": {
+    "classification": "TASK_RESEARCH_TOOL_HARVEST",
+    "authority": "direct user request to lift primes and semiprimes to nearby composite divisor-count layers and search for structure",
+    "family_id": "T0_BRC",
+    "foundation_mutation": false,
+    "working_truth_promotion": false,
+    "new_global_tool_family": false,
+    "reuse_resolution": "NO_EXISTING_DIVISOR_LAYER_LIFT_TOOL_FOUND",
+    "reason": "Preserve the full local composite tau spectrum, classify factor-forcing target layers, and expose the exact squarefree 2^(k-1)r prime-layer encoder as a small-number research probe."
+  },
+  "methods": [
+    {
+      "method_id": "t0.divisor_layer_lift_probe",
+      "name": "local divisor-layer lift and factor-forcing spectrum probe",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/divisor_layer_lift.py",
+        "tests/test_divisor_layer_lift.py",
+        "experiments/divisor_layer_lift_probe.py",
+        "research_notes/DIVISOR_LAYER_LIFT_PROBE_20260908.md",
+        "research_artifacts/divisor_layer_lift_probe_20260908.csv"
+      ],
+      "api": [
+        "local_composite_divisor_layers",
+        "factor_forcing_target",
+        "squarefree_prime_layer_encoder",
+        "predicted_minimal_encoder_lift",
+        "minimal_divisor_layer_lift_small",
+        "neighborhood_profile"
+      ],
+      "triggers": [
+        "divisor layer lift",
+        "nearby composite tau spectrum",
+        "factor-forcing target divisor count",
+        "semiprime tau=6 neighbor",
+        "squarefree prime-layer encoder"
+      ],
+      "capabilities": [
+        "classify target T as factor-forcing whenever tau(n) does not divide T",
+        "prove lambda_T(n)=p_min^(r-2) for squarefree n with k primes and T=2^(k-1)r, r odd prime",
+        "retain all nearby composite divisor-count layers instead of prematurely collapsing to a mode",
+        "measure information loss caused by modal compression",
+        "run finite exact small-number diagnostics with explicit large-N non-claim boundaries"
+      ],
+      "core_law": "If gcd(a,n)=1 then tau(an)=tau(a)tau(n), so tau(n) not dividing T forces every exact lift multiplier to overlap n. For squarefree n with k distinct prime factors and T=2^(k-1)r with r an odd prime, the divisor-product factorization has exactly k factors and forces exponent pattern (r-1,1,...,1), hence the minimal lift is p_min^(r-2).",
+      "hard_boundary": "The theorem does not provide lambda_T(n) from N alone and exact tau of arbitrary large neighbors can itself require factorization. This is currently an opportunistic observer/research probe, not a claimed large-integer factoring shortcut. Fixed small-layer frequencies are finite diagnostics and must not be extrapolated to RSA scale."
+    }
+  ]
+}
