@@ -83,12 +83,34 @@ def claim(comment_id, at):
     )
 
 
+def current_intent(claim_id):
+    return {
+        "record_schema": "ENTERPRISE_MATH_RESEARCH_EXECUTION_RECORD_V1",
+        "record_state": "CLAIM_INTENT",
+        "task_id": TASK_ID,
+        "claim_id": claim_id,
+        "publication_id": PUBLICATION,
+        "researcher_id": "EM-PUBTIME-7A4C21",
+        "owner_lease_minutes": 30,
+    }
+
+
 class RegisteredEventPublicationTimeGateTests(unittest.TestCase):
-    def reduce(self, definition, events, now="2026-09-01T10:02:00+00:00"):
+    def reduce(
+        self,
+        definition,
+        events,
+        now="2026-09-01T10:02:00+00:00",
+        execution_intent=None,
+    ):
         with (
             mock.patch.object(rd.research_result_records, "task_result_state", return_value=None),
             mock.patch.object(rd.research_result_records, "iter_results", return_value=[]),
-            mock.patch.object(rd.research_execution_records, "intent_for_claim", return_value=None),
+            mock.patch.object(
+                rd.research_execution_records,
+                "intent_for_claim",
+                return_value=execution_intent,
+            ),
             mock.patch.object(rd.research_cohort_runtime, "task_active_cohort_state", return_value=None),
         ):
             return rd.reduce_definition(
@@ -110,6 +132,25 @@ class RegisteredEventPublicationTimeGateTests(unittest.TestCase):
         state = self.reduce(task(), [claim(3, "2026-09-01T10:00:01+00:00")])
         self.assertEqual("CLAIMED", state["state"])
         self.assertEqual("LEASED", state["dispatch_state"])
+
+    def test_intent_bound_publicationless_claim_before_publication_is_rejected(self):
+        claim_id = "intent-prepublication-claim"
+        state = self.reduce(
+            task(),
+            [
+                event(
+                    "CLAIM",
+                    7,
+                    "2026-09-01T09:59:59+00:00",
+                    claim_id=claim_id,
+                    researcher_id="EM-PUBTIME-7A4C21",
+                )
+            ],
+            execution_intent=current_intent(claim_id),
+        )
+        self.assertEqual("READY", state["state"])
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
+        self.assertTrue(any("predates current task publication" in item["reason"] for item in state["ignored_events"]))
 
     def test_current_generation_supersede_before_publication_is_rejected(self):
         state = self.reduce(
@@ -183,7 +224,7 @@ class RegisteredEventPublicationTimeGateTests(unittest.TestCase):
             "dependencies": [],
             "source_refs": [],
         }
-        with mock.patch.object(rd, "_parse_taskbook", return_value=meta_value):
+        with mock.patch.object(rd._core, "_parse_taskbook", return_value=meta_value):
             definition = rd.registered_definition(record, Path("."))
         self.assertEqual(PUBLISHED_AT, definition["publication_published_at"])
 
