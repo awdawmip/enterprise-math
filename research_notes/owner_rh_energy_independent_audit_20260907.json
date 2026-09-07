@@ -1,0 +1,144 @@
+{
+  "status": "PASS",
+  "source_hashes_sha256": {
+    "OWNER_RH_ENERGY_DOMAIN_AUDIT_20260907.md": "db1dd64e4e4e709fd150c3909102efb862d07e83847b076d9efbe3096910819d",
+    "owner_rh_energy_domain_20260907_check.py": "5a043e15b1fcbfe7374a30296c84366a925644045560ac409409eff8fc72cbcf",
+    "RH_X6_BRC_TRANSPORT_FRONTIER_20260906.md": "693a7b2888d3eb72faca74c7d166a8af78caa9107bbf532aea918e9085873412",
+    "owner_rh_energy_independent_audit_20260907.py": "6a30637c687a475c53fe1342ff56ec6320a73a5ec53bf5e0df7bf77e92371253"
+  },
+  "scope": "finite exact guards only; analytic proofs are in the independent note; no RH conclusion",
+  "zero_lower_on_0_to_1_over_16": "1/6",
+  "sigma_5_over_2_divergence": [
+    {
+      "epsilon": "1/64",
+      "energy_lower_bound": "2/9"
+    },
+    {
+      "epsilon": "1/256",
+      "energy_lower_bound": "2/3"
+    },
+    {
+      "epsilon": "1/1024",
+      "energy_lower_bound": "14/9"
+    },
+    {
+      "epsilon": "1/4096",
+      "energy_lower_bound": "10/3"
+    },
+    {
+      "epsilon": "1/16384",
+      "energy_lower_bound": "62/9"
+    },
+    {
+      "epsilon": "1/65536",
+      "energy_lower_bound": "14"
+    },
+    {
+      "epsilon": "1/262144",
+      "energy_lower_bound": "254/9"
+    },
+    {
+      "epsilon": "1/1048576",
+      "energy_lower_bound": "170/3"
+    }
+  ],
+  "integrability_exponent_table": [
+    {
+      "sigma": "-1",
+      "zero_integrable": true,
+      "positive_carrier_tail_integrable": false
+    },
+    {
+      "sigma": "0",
+      "zero_integrable": true,
+      "positive_carrier_tail_integrable": false
+    },
+    {
+      "sigma": "1/2",
+      "zero_integrable": true,
+      "positive_carrier_tail_integrable": false
+    },
+    {
+      "sigma": "1",
+      "zero_integrable": true,
+      "positive_carrier_tail_integrable": false
+    },
+    {
+      "sigma": "3/2",
+      "zero_integrable": true,
+      "positive_carrier_tail_integrable": true
+    },
+    {
+      "sigma": "2",
+      "zero_integrable": false,
+      "positive_carrier_tail_integrable": true
+    },
+    {
+      "sigma": "5/2",
+      "zero_integrable": false,
+      "positive_carrier_tail_integrable": true
+    }
+  ],
+  "mellin_CS_parameter_examples": [
+    {
+      "Re_s": "1/8",
+      "chosen_sigma": "9/8",
+      "CS_tail_exponent": "-13/8"
+    },
+    {
+      "Re_s": "1/4",
+      "chosen_sigma": "1",
+      "CS_tail_exponent": "-3/2"
+    },
+    {
+      "Re_s": "1/2",
+      "chosen_sigma": "3/4",
+      "CS_tail_exponent": "-5/4"
+    },
+    {
+      "Re_s": "5/8",
+      "chosen_sigma": "5/8",
+      "CS_tail_exponent": "-9/8"
+    },
+    {
+      "Re_s": "11/16",
+      "chosen_sigma": "9/16",
+      "CS_tail_exponent": "-17/16"
+    },
+    {
+      "Re_s": "23/32",
+      "chosen_sigma": "17/32",
+      "CS_tail_exponent": "-33/32"
+    }
+  ],
+  "L2_squared_tail_exponent_cases": 19,
+  "sigma_1_finite_grams_N1_to_N8": [
+    "1/2",
+    "9/40",
+    "1097/4680",
+    "1097/4680",
+    "3521629/11536200",
+    "177905913/723255650",
+    "274136765502/939147461525",
+    "274136765502/939147461525"
+  ],
+  "sigma_1_leading_principal_determinants": [
+    "1/2",
+    "9/400",
+    "1/8450",
+    "3969/48841000000",
+    "10207918728/1317324711194766015625",
+    "121045500276624/1134077310087550739984719140625",
+    "144590723489283567648768/662478372436129643157629066083002697509765625",
+    "174406653181992769275435711906816/2579836462306589943074784781674450918281139676185797119140625"
+  ],
+  "N2_minus_N1_Gram": "-11/40",
+  "continued_sigma_5_over_2_diagonal_over_sqrt_2pi": "-2",
+  "source_Lemma_2_4_counterexample": {
+    "k": 2,
+    "s": "1/4",
+    "ordinary_integral": "diverges to +infinity at zero; tail absolutely convergent",
+    "continued_RHS": "Gamma(-1/4)/zeta(5/2), finite negative"
+  },
+  "global_knowledge_sync": "main@4fa7d7d / GLOBAL_KNOWLEDGE_V1"
+}

@@ -1,0 +1,852 @@
+{
+  "status": "PASS",
+  "scope": "complete signed endpoints N=0..10; primes 2,3,5,7",
+  "small_signed_endpoints_enumerated_once": 134245,
+  "small_endpoint_prime_checks": 536980,
+  "small_cases": 44,
+  "joint_active_valuation_checked": true,
+  "lifting_and_positive_Lucas_checked": true,
+  "carry_gt_one_witness": {
+    "N": 6,
+    "p": 2,
+    "abs_endpoint": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "carries": [
+      3,
+      1,
+      0
+    ],
+    "multiplicity": 720,
+    "valuation": 4
+  },
+  "exception_checks": [
+    "ValueError",
+    "TypeError",
+    "ValueError",
+    "TypeError",
+    "ComputationBudgetExceeded",
+    "ComputationBudgetExceeded"
+  ],
+  "rows": [
+    {
+      "N": 0,
+      "p": 2,
+      "labels": {
+        "zero": true,
+        "unit": false,
+        "even": true,
+        "prime": false,
+        "composite": false
+      },
+      "endpoints": 1,
+      "H": {
+        "0": 1
+      },
+      "positive_Lucas_nonzero": 1
+    },
+    {
+      "N": 0,
+      "p": 3,
+      "labels": {
+        "zero": true,
+        "unit": false,
+        "even": true,
+        "prime": false,
+        "composite": false
+      },
+      "endpoints": 1,
+      "H": {
+        "0": 1
+      },
+      "positive_Lucas_nonzero": 1
+    },
+    {
+      "N": 0,
+      "p": 5,
+      "labels": {
+        "zero": true,
+        "unit": false,
+        "even": true,
+        "prime": false,
+        "composite": false
+      },
+      "endpoints": 1,
+      "H": {
+        "0": 1
+      },
+      "positive_Lucas_nonzero": 1
+    },
+    {
+      "N": 0,
+      "p": 7,
+      "labels": {
+        "zero": true,
+        "unit": false,
+        "even": true,
+        "prime": false,
+        "composite": false
+      },
+      "endpoints": 1,
+      "H": {
+        "0": 1
+      },
+      "positive_Lucas_nonzero": 1
+    },
+    {
+      "N": 1,
+      "p": 2,
+      "labels": {
+        "zero": false,
+        "unit": true,
+        "even": false,
+        "prime": false,
+        "composite": false
+      },
+      "endpoints": 12,
+      "H": {
+        "0": 12
+      },
+      "positive_Lucas_nonzero": 6
+    },
+    {
+      "N": 1,
+      "p": 3,
+      "labels": {
+        "zero": false,
+        "unit": true,
+        "even": false,
+        "prime": false,
+        "composite": false
+      },
+      "endpoints": 12,
+      "H": {
+        "0": 12
+      },
+      "positive_Lucas_nonzero": 6
+    },
+    {
+      "N": 1,
+      "p": 5,
+      "labels": {
+        "zero": false,
+        "unit": true,
+        "even": false,
+        "prime": false,
+        "composite": false
+      },
+      "endpoints": 12,
+      "H": {
+        "0": 12
+      },
+      "positive_Lucas_nonzero": 6
+    },
+    {
+      "N": 1,
+      "p": 7,
+      "labels": {
+        "zero": false,
+        "unit": true,
+        "even": false,
+        "prime": false,
+        "composite": false
+      },
+      "endpoints": 12,
+      "H": {
+        "0": 12
+      },
+      "positive_Lucas_nonzero": 6
+    },
+    {
+      "N": 2,
+      "p": 2,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": true,
+        "prime": true,
+        "composite": false
+      },
+      "endpoints": 72,
+      "H": {
+        "0": 12,
+        "1": 60
+      },
+      "positive_Lucas_nonzero": 6
+    },
+    {
+      "N": 2,
+      "p": 3,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": true,
+        "prime": true,
+        "composite": false
+      },
+      "endpoints": 72,
+      "H": {
+        "0": 72
+      },
+      "positive_Lucas_nonzero": 21
+    },
+    {
+      "N": 2,
+      "p": 5,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": true,
+        "prime": true,
+        "composite": false
+      },
+      "endpoints": 72,
+      "H": {
+        "0": 72
+      },
+      "positive_Lucas_nonzero": 21
+    },
+    {
+      "N": 2,
+      "p": 7,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": true,
+        "prime": true,
+        "composite": false
+      },
+      "endpoints": 72,
+      "H": {
+        "0": 72
+      },
+      "positive_Lucas_nonzero": 21
+    },
+    {
+      "N": 3,
+      "p": 2,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": false,
+        "prime": true,
+        "composite": false
+      },
+      "endpoints": 292,
+      "H": {
+        "0": 132,
+        "1": 160
+      },
+      "positive_Lucas_nonzero": 36
+    },
+    {
+      "N": 3,
+      "p": 3,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": false,
+        "prime": true,
+        "composite": false
+      },
+      "endpoints": 292,
+      "H": {
+        "0": 12,
+        "1": 280
+      },
+      "positive_Lucas_nonzero": 6
+    },
+    {
+      "N": 3,
+      "p": 5,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": false,
+        "prime": true,
+        "composite": false
+      },
+      "endpoints": 292,
+      "H": {
+        "0": 292
+      },
+      "positive_Lucas_nonzero": 56
+    },
+    {
+      "N": 3,
+      "p": 7,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": false,
+        "prime": true,
+        "composite": false
+      },
+      "endpoints": 292,
+      "H": {
+        "0": 292
+      },
+      "positive_Lucas_nonzero": 56
+    },
+    {
+      "N": 4,
+      "p": 2,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": true,
+        "prime": false,
+        "composite": true
+      },
+      "endpoints": 912,
+      "H": {
+        "0": 12,
+        "1": 60,
+        "2": 600,
+        "3": 240
+      },
+      "positive_Lucas_nonzero": 6
+    },
+    {
+      "N": 4,
+      "p": 3,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": true,
+        "prime": false,
+        "composite": true
+      },
+      "endpoints": 912,
+      "H": {
+        "0": 132,
+        "1": 780
+      },
+      "positive_Lucas_nonzero": 36
+    },
+    {
+      "N": 4,
+      "p": 5,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": true,
+        "prime": false,
+        "composite": true
+      },
+      "endpoints": 912,
+      "H": {
+        "0": 912
+      },
+      "positive_Lucas_nonzero": 126
+    },
+    {
+      "N": 4,
+      "p": 7,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": true,
+        "prime": false,
+        "composite": true
+      },
+      "endpoints": 912,
+      "H": {
+        "0": 912
+      },
+      "positive_Lucas_nonzero": 126
+    },
+    {
+      "N": 5,
+      "p": 2,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": false,
+        "prime": true,
+        "composite": false
+      },
+      "endpoints": 2364,
+      "H": {
+        "0": 132,
+        "1": 600,
+        "2": 1440,
+        "3": 192
+      },
+      "positive_Lucas_nonzero": 36
+    },
+    {
+      "N": 5,
+      "p": 3,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": false,
+        "prime": true,
+        "composite": false
+      },
+      "endpoints": 2364,
+      "H": {
+        "0": 732,
+        "1": 1632
+      },
+      "positive_Lucas_nonzero": 126
+    },
+    {
+      "N": 5,
+      "p": 5,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": false,
+        "prime": true,
+        "composite": false
+      },
+      "endpoints": 2364,
+      "H": {
+        "0": 12,
+        "1": 2352
+      },
+      "positive_Lucas_nonzero": 6
+    },
+    {
+      "N": 5,
+      "p": 7,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": false,
+        "prime": true,
+        "composite": false
+      },
+      "endpoints": 2364,
+      "H": {
+        "0": 2364
+      },
+      "positive_Lucas_nonzero": 252
+    },
+    {
+      "N": 6,
+      "p": 2,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": true,
+        "prime": false,
+        "composite": true
+      },
+      "endpoints": 5336,
+      "H": {
+        "0": 132,
+        "1": 760,
+        "2": 2460,
+        "3": 1920,
+        "4": 64
+      },
+      "positive_Lucas_nonzero": 36
+    },
+    {
+      "N": 6,
+      "p": 3,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": true,
+        "prime": false,
+        "composite": true
+      },
+      "endpoints": 5336,
+      "H": {
+        "0": 72,
+        "1": 2640,
+        "2": 2624
+      },
+      "positive_Lucas_nonzero": 21
+    },
+    {
+      "N": 6,
+      "p": 5,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": true,
+        "prime": false,
+        "composite": true
+      },
+      "endpoints": 5336,
+      "H": {
+        "0": 132,
+        "1": 5204
+      },
+      "positive_Lucas_nonzero": 36
+    },
+    {
+      "N": 6,
+      "p": 7,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": true,
+        "prime": false,
+        "composite": true
+      },
+      "endpoints": 5336,
+      "H": {
+        "0": 5336
+      },
+      "positive_Lucas_nonzero": 462
+    },
+    {
+      "N": 7,
+      "p": 2,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": false,
+        "prime": true,
+        "composite": false
+      },
+      "endpoints": 10836,
+      "H": {
+        "0": 1332,
+        "1": 2880,
+        "2": 5280,
+        "3": 1344
+      },
+      "positive_Lucas_nonzero": 216
+    },
+    {
+      "N": 7,
+      "p": 3,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": false,
+        "prime": true,
+        "composite": false
+      },
+      "endpoints": 10836,
+      "H": {
+        "0": 732,
+        "1": 6840,
+        "2": 3264
+      },
+      "positive_Lucas_nonzero": 126
+    },
+    {
+      "N": 7,
+      "p": 5,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": false,
+        "prime": true,
+        "composite": false
+      },
+      "endpoints": 10836,
+      "H": {
+        "0": 732,
+        "1": 10104
+      },
+      "positive_Lucas_nonzero": 126
+    },
+    {
+      "N": 7,
+      "p": 7,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": false,
+        "prime": true,
+        "composite": false
+      },
+      "endpoints": 10836,
+      "H": {
+        "0": 12,
+        "1": 10824
+      },
+      "positive_Lucas_nonzero": 6
+    },
+    {
+      "N": 8,
+      "p": 2,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": true,
+        "prime": false,
+        "composite": true
+      },
+      "endpoints": 20256,
+      "H": {
+        "0": 12,
+        "1": 60,
+        "2": 600,
+        "3": 5760,
+        "4": 7200,
+        "5": 6240,
+        "6": 384
+      },
+      "positive_Lucas_nonzero": 6
+    },
+    {
+      "N": 8,
+      "p": 3,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": true,
+        "prime": false,
+        "composite": true
+      },
+      "endpoints": 20256,
+      "H": {
+        "0": 3792,
+        "1": 13344,
+        "2": 3120
+      },
+      "positive_Lucas_nonzero": 441
+    },
+    {
+      "N": 8,
+      "p": 5,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": true,
+        "prime": false,
+        "composite": true
+      },
+      "endpoints": 20256,
+      "H": {
+        "0": 2772,
+        "1": 17484
+      },
+      "positive_Lucas_nonzero": 336
+    },
+    {
+      "N": 8,
+      "p": 7,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": true,
+        "prime": false,
+        "composite": true
+      },
+      "endpoints": 20256,
+      "H": {
+        "0": 132,
+        "1": 20124
+      },
+      "positive_Lucas_nonzero": 36
+    },
+    {
+      "N": 9,
+      "p": 2,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": false,
+        "prime": false,
+        "composite": true
+      },
+      "endpoints": 35436,
+      "H": {
+        "0": 132,
+        "1": 600,
+        "2": 5520,
+        "3": 13920,
+        "4": 11424,
+        "5": 3840
+      },
+      "positive_Lucas_nonzero": 36
+    },
+    {
+      "N": 9,
+      "p": 3,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": false,
+        "prime": false,
+        "composite": true
+      },
+      "endpoints": 35436,
+      "H": {
+        "0": 12,
+        "1": 280,
+        "2": 12840,
+        "3": 20064,
+        "4": 2240
+      },
+      "positive_Lucas_nonzero": 6
+    },
+    {
+      "N": 9,
+      "p": 5,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": false,
+        "prime": false,
+        "composite": true
+      },
+      "endpoints": 35436,
+      "H": {
+        "0": 8172,
+        "1": 27264
+      },
+      "positive_Lucas_nonzero": 756
+    },
+    {
+      "N": 9,
+      "p": 7,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": false,
+        "prime": false,
+        "composite": true
+      },
+      "endpoints": 35436,
+      "H": {
+        "0": 732,
+        "1": 34704
+      },
+      "positive_Lucas_nonzero": 126
+    },
+    {
+      "N": 10,
+      "p": 2,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": true,
+        "prime": false,
+        "composite": true
+      },
+      "endpoints": 58728,
+      "H": {
+        "0": 132,
+        "1": 1200,
+        "2": 3900,
+        "3": 20952,
+        "4": 20640,
+        "5": 10944,
+        "6": 960
+      },
+      "positive_Lucas_nonzero": 36
+    },
+    {
+      "N": 10,
+      "p": 3,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": true,
+        "prime": false,
+        "composite": true
+      },
+      "endpoints": 58728,
+      "H": {
+        "0": 132,
+        "1": 2640,
+        "2": 31380,
+        "3": 23424,
+        "4": 1152
+      },
+      "positive_Lucas_nonzero": 36
+    },
+    {
+      "N": 10,
+      "p": 5,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": true,
+        "prime": false,
+        "composite": true
+      },
+      "endpoints": 58728,
+      "H": {
+        "0": 72,
+        "1": 20064,
+        "2": 38592
+      },
+      "positive_Lucas_nonzero": 21
+    },
+    {
+      "N": 10,
+      "p": 7,
+      "labels": {
+        "zero": false,
+        "unit": false,
+        "even": true,
+        "prime": false,
+        "composite": true
+      },
+      "endpoints": 58728,
+      "H": {
+        "0": 2772,
+        "1": 55956
+      },
+      "positive_Lucas_nonzero": 336
+    }
+  ],
+  "large_count_only_checks": [
+    {
+      "N": 1000001,
+      "p": 2,
+      "digits": 20,
+      "endpoint_count": 533336000010666688000024800012,
+      "valuation_bins": 86,
+      "endpoint_oracle": "closed shell count only; no large-domain factorial census"
+    },
+    {
+      "N": 1000001,
+      "p": 3,
+      "digits": 13,
+      "endpoint_count": 533336000010666688000024800012,
+      "valuation_bins": 55,
+      "endpoint_oracle": "closed shell count only; no large-domain factorial census"
+    },
+    {
+      "N": 1000001,
+      "p": 5,
+      "digits": 9,
+      "endpoint_count": 533336000010666688000024800012,
+      "valuation_bins": 37,
+      "endpoint_oracle": "closed shell count only; no large-domain factorial census"
+    },
+    {
+      "N": 1000000000039,
+      "p": 2,
+      "digits": 40,
+      "endpoint_count": 533333333437333333341450666666983658666672860184800048436180,
+      "valuation_bins": 184,
+      "endpoint_oracle": "closed shell count only; no large-domain factorial census"
+    },
+    {
+      "N": 1000000000039,
+      "p": 3,
+      "digits": 26,
+      "endpoint_count": 533333333437333333341450666666983658666672860184800048436180,
+      "valuation_bins": 117,
+      "endpoint_oracle": "closed shell count only; no large-domain factorial census"
+    },
+    {
+      "N": 1000000000039,
+      "p": 5,
+      "digits": 18,
+      "endpoint_count": 533333333437333333341450666666983658666672860184800048436180,
+      "valuation_bins": 81,
+      "endpoint_oracle": "closed shell count only; no large-domain factorial census"
+    }
+  ]
+}
