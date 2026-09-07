@@ -11,10 +11,11 @@ repairing narrow compatibility defects:
    the old ``RETURN_TO_EXECUTION`` Result is only the reopen edge, not a permanent
    overlay over the new revision cycle;
 3. legacy/runtime-guard callers of ``_filter_registered_events`` that omit an
-   explicit Result lifecycle view receive the same canonical lifecycle gate; and
+   explicit Result lifecycle view receive the same canonical lifecycle gate;
 4. an immutable execution intent may authorize only the exact task-publication
-   generation it was prepared for.  Intent-backed CLAIMs are normalized to that
-   current publication and cannot use an old intent to cross a V2 generation.
+   generation it was prepared for; and
+5. a runtime event explicitly bound to the current V2 publication cannot predate
+   the immutable publication record that makes that task generation exist.
 
 The preserved core remains fail-closed: runtime input must be raw authenticated
 Issue #240 comment objects. No priority, lease duration, Driver disposition,
@@ -31,9 +32,26 @@ from tools import research_dispatch_core as _core
 ROOT = _core.ROOT
 DispatchError = _core.DispatchError
 
+_ORIGINAL_REGISTERED_DEFINITION = _core.registered_definition
 _ORIGINAL_OVERLAY_RESULT_STATE = _core._overlay_result_state
 _ORIGINAL_FILTER_REGISTERED_EVENTS = _core._filter_registered_events
 _AUTO_RESULT_STATE = object()
+
+
+def registered_definition(
+    record: dict[str, Any], root: Path = ROOT
+) -> dict[str, Any]:
+    """Expose the immutable publication clock to the runtime compatibility layer."""
+    value = _ORIGINAL_REGISTERED_DEFINITION(record, root)
+    published_at = record.get("published_at")
+    if not isinstance(published_at, str) or not published_at.strip():
+        raise DispatchError(f"{record.get('task_id')}: task publication published_at is required")
+    try:
+        _core._lifecycle_time(published_at, "task publication published_at")
+    except DispatchError:
+        raise
+    value["publication_published_at"] = published_at.strip()
+    return value
 
 
 def _event_source_index(
@@ -58,18 +76,7 @@ def _bind_intent_claim_publications(
     rejected: list[dict[str, Any]],
     root: Path,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
-    """Fail closed when an execution intent belongs to another publication.
-
-    ``research_execution_records.intent_for_claim`` indexes historical immutable
-    intents by task/claim owner scope so old generations remain auditable.  That
-    lookup is intentionally not a current-publication selector.  Therefore an
-    intent-backed CLAIM must prove that the returned intent belongs to the current
-    task publication before it can carry execution authority.
-
-    When the event omits ``publication_id``, a current immutable intent supplies
-    the generation binding and the normalized event receives it explicitly.  A
-    supplied event publication must also equal the current generation.
-    """
+    """Fail closed when an execution intent belongs to another publication."""
     if not _core._is_registered(task):
         return accepted, rejected
     expected = task.get("publication_id")
@@ -129,13 +136,84 @@ def _bind_intent_claim_publications(
     return kept, extra_rejected
 
 
+def _enforce_publication_event_causality(
+    task: dict[str, Any],
+    events: list[dict[str, Any]],
+    accepted: list[dict[str, Any]],
+    rejected: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Reject current-generation authority that predates task existence.
+
+    Canonical production definitions carry ``publication_published_at`` from the
+    immutable V2 task record.  Synthetic/direct compatibility definitions that do
+    not carry that field retain historical test/library behavior; they are not the
+    production task-definition source.
+
+    The time gate is deliberately narrow.  CLAIMs normalized to the current
+    publication are checked.  Claimless UNBLOCK/SUPERSEDE are checked only when
+    they explicitly name the current publication.  Therefore pre-cutover
+    publicationless legacy replay remains available to the migration path.
+    """
+    if not _core._is_registered(task):
+        return accepted, rejected
+    published_raw = task.get("publication_published_at")
+    if published_raw is None:
+        return accepted, rejected
+    try:
+        published_at = _core._lifecycle_time(
+            published_raw, "task publication published_at"
+        )
+    except DispatchError:
+        raise
+    expected = task.get("publication_id")
+    kept: list[dict[str, Any]] = []
+    extra_rejected = list(rejected)
+    for event in accepted:
+        if event.get("task_id") != task.get("task_id"):
+            kept.append(event)
+            continue
+        kind = event.get("event")
+        bound_to_current = (
+            kind == "CLAIM" and event.get("publication_id") == expected
+        ) or (
+            kind in {"UNBLOCK", "SUPERSEDE"}
+            and event.get("publication_id") == expected
+        )
+        if not bound_to_current:
+            kept.append(event)
+            continue
+        meta = event.get(_core.GITHUB_META_KEY)
+        created_raw = meta.get("created_at") if isinstance(meta, dict) else None
+        index = _event_source_index(event, events)
+        try:
+            created_at = _core._lifecycle_time(created_raw, "GitHub created_at")
+        except DispatchError as exc:
+            extra_rejected.append(
+                {
+                    "index": index if index is not None else 0,
+                    "reason": f"registered {kind} current-publication clock is invalid: {exc}",
+                }
+            )
+            continue
+        if created_at < published_at:
+            extra_rejected.append(
+                {
+                    "index": index if index is not None else 0,
+                    "reason": f"registered {kind} predates current task publication",
+                }
+            )
+            continue
+        kept.append(event)
+    return kept, extra_rejected
+
+
 def _filter_registered_events(
     task: dict[str, Any],
     events: list[dict[str, Any]],
     root: Path,
     result_state: dict[str, Any] | None | object = _AUTO_RESULT_STATE,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
-    """Apply lifecycle and generation gates with backward-compatible arity."""
+    """Apply lifecycle, generation, and publication-time gates."""
     if result_state is _AUTO_RESULT_STATE:
         resolved: dict[str, Any] | None = None
         if _core._is_registered(task):
@@ -152,7 +230,10 @@ def _filter_registered_events(
         root,
         result_state if isinstance(result_state, dict) else None,
     )
-    return _bind_intent_claim_publications(task, events, accepted, rejected, root)
+    accepted, rejected = _bind_intent_claim_publications(
+        task, events, accepted, rejected, root
+    )
+    return _enforce_publication_event_causality(task, events, accepted, rejected)
 
 
 def _post_review_runtime_transition(
@@ -207,9 +288,9 @@ def _overlay_result_state(
     return _ORIGINAL_OVERLAY_RESULT_STATE(task, state, root, result_state)
 
 
-# Patch the preserved core because functions such as effective_states() resolve
-# these helpers in the core module's global namespace. Then re-export the complete
-# historical surface, including private helpers used by repository runtime guards.
+# Patch the preserved core because functions such as merged_definitions() and
+# effective_states() resolve these helpers in the core module's global namespace.
+_core.registered_definition = registered_definition
 _core._filter_registered_events = _filter_registered_events
 _core._overlay_result_state = _overlay_result_state
 
