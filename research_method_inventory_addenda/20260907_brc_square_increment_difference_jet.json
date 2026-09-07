@@ -52,8 +52,7 @@
         "retain the sole unbounded mixed product (Delta q)(Delta^2 J) and transport it using only bounded-coefficient multiplications",
         "after fifteen quotient divisions and fifteen direct square-increment seed products, perform no fresh division and no multiplication of two N-growing operands",
         "preserve exact multiplier root/remainder states with at most two ordinary BRC root corrections",
-        "compose unchanged with the BALANCED 4032/12155/12673 square-gap residue cascade",
-        "repair the parent quotient scanner so its hot path performs fifteen actual seed divmods rather than recomputing them in orbit construction"
+        "compose unchanged with the BALANCED 4032/12155/12673 square-gap residue cascade"
       ],
       "core_law": "On one stride-8 source orbit let s=nabla q, a=nabla^2 q, t=nabla J, u=nabla^2 J, e=nabla^3 q_new, w=nabla^3 J_new and E=q(2J+q). Then nabla^3 E_new = e(2(J+q+s+a+t+u+w)+e)+2w(q+s+a)+6(su+a(s+t)). The quotient jet gives e in [-4,4] and a in [-2,98]. For J=floor(sqrt(mN)), the common tail 4m^5>=N gives 0<Delta_8^3 sqrt(mN)<=384; floor phase contributes strictly between -4 and 4, hence w lies in the sharp integer interval [-3,387]. Retaining M=su and updating M_new=M+s w+(a+e)u+(a+e)w means every post-seed product has a fixed bounded integer factor.",
       "hard_boundary": "This is an exact multiplier-state execution optimization extending t0.brc_quotient_jet_tail; it does not shorten a Lehman/Hart-style multiplier horizon, change factor-search complexity, establish RSA practicality, or create a new top-level BRC family. Finite CPython timings favor the difference jet only for sufficiently large integers (near parity at 4096 bits and favorable at 8192/16384 bits in the committed run); smaller inputs should retain the fresh native product. The exact quotient remainder, root finite differences, energy finite differences, and mixed provenance coordinate must not be collapsed."
