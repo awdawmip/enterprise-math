@@ -1,0 +1,110 @@
+{
+  "schema": "ENTERPRISE_MATH_CONJECTURE_SCANNER_POLICY_V1",
+  "status": "ACTIVE_CANDIDATE_CONTROL",
+  "effective": "2026-09-07",
+  "governing_policy": "docs/CONJECTURE_ASSET_GOVERNANCE.md",
+  "registry": "conjecture_registry.json",
+  "purpose": "Continuously extract precise unproved mathematical assets without confusing experiments, open questions, proved tools, or failed ideas with conjectures; preserve and propagate conjectural dependency taint.",
+  "scan_surfaces": [
+    "research_notes/**",
+    "research_returns/**",
+    "research_artifacts/**",
+    "knowledge/projects/enterprise-math/** when mirrored or referenced",
+    "research_result_reviews/**",
+    "driver_reviews/**",
+    "control-plane task frontiers and smallest unresolved units"
+  ],
+  "positive_markers": [
+    "CONJECTURE",
+    "HYPOTHESIS",
+    "TESTING",
+    "empirical",
+    "numerical",
+    "candidate law",
+    "expected",
+    "appears",
+    "suggests",
+    "unproved",
+    "not proved",
+    "frontier",
+    "smallest unresolved unit",
+    "no all-prime proof",
+    "finite regression only",
+    "predicts"
+  ],
+  "candidate_gate": {
+    "all_required": [
+      "There is an asserted direction rather than a directionless question.",
+      "The claim can be frozen into a precise falsifiable statement or reusable tool contract.",
+      "The full frozen scope is not already proved/certified.",
+      "Source provenance and the current evidence envelope are identifiable.",
+      "A counterexample, failed certificate, or proof target could in principle decide or restrict it."
+    ],
+    "confidence_tiers": {
+      "A_REGISTER": "Explicit conjecture/hypothesis or exact research reduction to a clearly unproved external/internal target; register now.",
+      "B_FREEZE_THEN_REGISTER": "Repeated empirical/structural regularity with a clear direction but wording still loose; first freeze scope and falsifier, then register.",
+      "C_REVIEW_ONLY": "Potential signal lacking a stable statement, validation envelope, or provenance; keep in scan audit, do not register.",
+      "D_EXCLUDE": "Falls under a hard false-positive class."
+    }
+  },
+  "hard_false_positive_classes": {
+    "PROVED_OR_CERTIFIED_RESULT": "The mathematical statement/correctness is already proved for its advertised scope.",
+    "EXACT_TOOL_WITH_EXPERIMENTAL_PERFORMANCE": "Correctness is proved; only speed, memory, utility, or crossover performance is empirical.",
+    "OPEN_QUESTION_NO_ASSERTED_DIRECTION": "The source asks what is true without betting on a falsifiable direction.",
+    "IMPLEMENTATION_OR_ACCEPTANCE_GAP": "Established mathematics awaits code, reviewer approval, or toolbox promotion.",
+    "RAW_OBSERVATION_NOT_FROZEN": "Numerical pattern has not yet been converted to a precise mathematical claim.",
+    "AXIOM_CANDIDATE": "Use the separate axiom-candidate state machine.",
+    "REFUTED_CANDIDATE_WITHOUT_SURVIVING_RESTRICTION": "The proposed law/tool was falsified and there is no surviving narrower claim to register.",
+    "PERFORMANCE_ONLY_NEGATIVE_OR_POSITIVE": "Finite benchmark outcome alone is not a mathematical conjecture."
+  },
+  "closeout_hook": {
+    "mandatory_fields_to_inspect": [
+      "unresolved",
+      "unresolved_residue",
+      "smallest_successor",
+      "smallest_unresolved_unit",
+      "method_harvest",
+      "empirical_regularities",
+      "proposed_laws",
+      "candidate_tools",
+      "no_claims",
+      "prior_art_boundary"
+    ],
+    "required_outputs": [
+      "registered_asset_ids",
+      "review_only_candidates",
+      "explicit_nonconjecture_classifications"
+    ]
+  },
+  "dependency_model": {
+    "taint_definition": "An asset/result is conjecture-tainted iff its proof, advertised soundness, or claimed scope transitively uses at least one conjectural asset not PROVED for the exact used scope.",
+    "required_fields_for_new_machine_records": [
+      "direct_conjectural_dependencies",
+      "transitive_taint_sources",
+      "dependency_essentiality",
+      "downstream_review_required"
+    ],
+    "dependency_essentiality_values": [
+      "ESSENTIAL",
+      "OPTIONAL_HEURISTIC",
+      "EXPERIMENT_SELECTION_ONLY"
+    ],
+    "transition_rules": {
+      "CONJECTURE_TO_EMPIRICALLY_VALIDATED": "Retain all conjectural taint; update evidence envelope and proof priority only.",
+      "ANY_TO_PROVED": "Clear only the taint contributed by the proved asset for the exact proved scope; traverse reverse dependencies and re-evaluate them. Never auto-promote a dependent whose own obligations or other conjectural dependencies remain.",
+      "ANY_TO_RESTRICTED": "Compute invalidated scope intersection and mark every dependent using that scope REVIEW_REQUIRED.",
+      "ANY_TO_REFUTED": "Every ESSENTIAL dependent using the refuted scope becomes REVIEW_REQUIRED and must be restricted, re-derived, parked, superseded, or refuted; heuristic-only dependents keep historical outputs but may not cite the refuted claim as support.",
+      "ANY_TO_SUPERSEDED": "Replacement does not clear taint unless the replacement logically covers the exact scope used by each dependent.",
+      "CYCLE_RULE": "Strongly connected components of unresolved conjectural dependencies never self-promote; each cycle requires an external proof/falsifier or an explicit restriction that breaks the cycle."
+    }
+  },
+  "bounded_claim_rule": "An explicitly finite claim can move directly to PROVED after exhaustive exact/replayable certification of the entire frozen domain; this does not prove any unstated infinite extension.",
+  "scan_priority": [
+    "claims already driving active research tasks",
+    "high-centrality BRC/native-coordinate bridge claims",
+    "finite claims with cheap exact certification paths",
+    "repeatedly reused empirical laws",
+    "older low-impact speculative claims"
+  ],
+  "scanner_invariant": "The scanner may make the registry more complete, but never more certain than the evidence warrants."
+}
