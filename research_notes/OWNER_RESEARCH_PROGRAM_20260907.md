@@ -127,9 +127,21 @@ Observer 丢失的标签、质量、联合关系必须逐项声明。不能因�
 | `finite_hcm_brc.py` | 有限h列 → 可交换词BRC、阶乘观察、系数质量或负差分障碍 | 不等于普通幂矩，也不判任意非交换prefix总体；资源超限独立于不可行 |
 | `channel_quotient.py` | 等质量通道向量 → 至多5步共同像gate见证 | gate等价链不是实际Ai动力可达，不扩展微观histogram或空间位置carrier |
 
-这些是非 canonical consumer 入口；正式工具登记仍要遵循现有 reuse/coverage 与发布协议。理论笔记、候选发现脚本、独立审计和真实输出分开保存，hash 绑定实际受审版本。既有审核文件的来源不会因为新的 checkpoint 而被改写。
+这些 consumer 已连同可复用定理和负向边界登记为18项候选路由，见 `research_method_inventory_addenda/20260907_owner_native_frontier_candidates.json` 与 `OWNER_FRONTIER_TOOL_HARVEST_20260907.md`。现有 loader 实际载入，64个来源文件摘要、44个 API 和18条自然语言检索均通过核验；原词端口查询经补足准确 trigger 回到默认结果窗口。纯中文查询仍受现有 ASCII tokenizer 限制，入口文档提供准确英文/API 查询。
 
-本轮源打包时只将三份生成JSON的CRLF转为LF，默认Git whitespace检查已通过；所有JSON值及数学/生产源码字节不变。
+候选登记不冒充正式工具接受。区间证书只保证负惯性指数，完整惯性还需严格条件；路径 verifier 接受 WALKS，不认证原始 EXCURSIONS。目录审计移除了未实际应用的 T2/T4/T5 归属，避免按词名套用工具。理论笔记、候选实现、独立审计和输出分开保存，摘要绑定真实受审版本。
+
+## 原生新方向 A/B 的闭合与消费
+
+**A：全 N 平方壳的最坏最短词长度。** 对原生分量平方读出 `N=sum z_i²`，准确锐界为 `max{k>=0:k²<=6N,k≡N (mod2)}`。六余类构造逐条满足 Meng–Sun Lemma 2.4 的严格前提，零壳和平衡情形直接处理，无有限前缀缺口。`owner_shell_length_20260907/shell_length.py` 实际调用原 signed BRC 和 X6 联合切片接口，输出达到者、真实 common-depth、20个无损联合地址和预算内最短词数。辅助 b 不是原生 depth；数学全称证明不依赖搜索成功。独立审计发现并验证修复了无限 iterable 消费和超大整数读出丢失已验证端点的两项边界。
+
+**B：all20 相对首返的 common-depth 双侧尾律。** 对12条 signed primitive 各权1/12的声明步律，首次正时间命中 `ZD` 的非条件质量满足 `F(h)~1/(12*pi³*S²)|h|^-4`，其中 `S=sum_h G_Z6(hD)`。Lawler–Limic 的强 Green 余项与自足双侧 Fourier 倒数引理给出常数；独立审计核对四阶分部积分、三阶跳跃符号、圆周接缝和时间周期。无限首返质量是明确观察，不替代完整原词权 histogram，也不由有限表自动认证尾假设。
+
+两个证明及交叉审计分别在 `OWNER_SHELL_LENGTH_FRONTIER_20260907.md`、`OWNER_SHELL_LENGTH_INDEPENDENT_AUDIT_20260907.md`、`OWNER_COMMON_DEPTH_FIRST_RETURN_20260907.md` 与对应独立审计。两者均闭合其冻结 scout 目标，不机械扩参数或重新包装经典先例。通用双侧倒数尾引理另作 RESULT_ONLY 入口，供条件真正相符的分析支线复用。
+
+用户进一步明确要求工具、定理和控制面及时进入 main。Owner source 的冻结与发布后，继续从当时最新 main 建立独立 L4 replay，保持候选/证明状态不变，在确切组合态执行适用检查；控制面用独立维护 lane 检查，主线写入由 root 串行执行。实际合入结果以发布事件的远端 SHA 为准，源笔记不预先声称成功。
+
+前一checkpoint将三份生成JSON的CRLF转为LF；本次同样处理首返小检查与壳长度独立检查的两份生成JSON。所有JSON值及数学/生产源码字节不变。
 `experiments/owner_packaging_20260907.json`保存前后SHA256与可精确反向重建步骤，较早审计中的输出哈希仍指明其当时字节。
 GitHub源分支保存可运行成果，全局知识库journal记录其提交位置与下一步；两者持续同步，研究地图承担当前入口，历史证据保持可追溯。
 
