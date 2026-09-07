@@ -24,6 +24,7 @@ import EnterpriseMath.Relation.BRCCountAtlas
 import EnterpriseMath.Relation.BRCSixAxisS4
 import EnterpriseMath.Relation.BRCK4OptimalExtraction
 import EnterpriseMath.Relation.BRCK4FactorizationAlgebra
+import EnterpriseMath.Relation.BRCK4ParityHole
 import EnterpriseMath.Relation.BRCFiniteFrameLift
 import EnterpriseMath.Relation.BRCAtlasPolynomialEmission
 import EnterpriseMath.Relation.BRCAtlasCarryAlgebra
