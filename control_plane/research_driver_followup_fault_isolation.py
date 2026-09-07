@@ -393,9 +393,13 @@ def validated_quarantines(root: Path = ROOT) -> dict[str, dict[str, Any]]:
 
 
 def derived_task_rows(root: Path = ROOT) -> dict[str, dict[str, Any]]:
+    return _derived_task_rows(validated_quarantines(root))
+
+
+def _derived_task_rows(rows: dict[str, dict[str, Any]]) -> dict[str, dict[str, Any]]:
     out: dict[str, dict[str, Any]] = {}
     sources: dict[str, list[tuple[str, str]]] = defaultdict(list)
-    for packet_id, row in validated_quarantines(root).items():
+    for packet_id, row in rows.items():
         for task in row["derived_task_publications"]:
             task_id = task["task_id"]
             # validated_quarantines already proves exact pin agreement and the
@@ -482,10 +486,77 @@ def _blocked_definition(task_id: str, task: dict[str, Any], prior: dict[str, Any
     return value
 
 
+def _integrity_overlaps(
+    tasks: dict[str, dict[str, Any]], root: Path,
+) -> dict[str, dict[str, Any]]:
+    from control_plane import research_task_integrity_fault_isolation as integrity
+
+    rows = integrity.validated_quarantines(root)
+    overlaps = {task_id: rows[task_id] for task_id in tasks.keys() & rows.keys()}
+    for task_id, row in overlaps.items():
+        task = tasks[task_id]
+        for followup_field, integrity_field in (
+            ("task_id", "task_id"), ("publication_id", "publication_id"),
+            ("publication_record_path", "record_path"),
+            ("publication_record_blob_sha1", "record_blob_sha1"),
+            ("taskbook_path", "taskbook_path"), ("taskbook_blob_sha1", "taskbook_blob_sha1"),
+        ):
+            if task[followup_field] != row[integrity_field]:
+                raise DriverFollowupIsolationError(
+                    f"{task_id}: integrity/follow-up exact pin conflict: {followup_field}"
+                )
+    return overlaps
+
+
+def _followup_block_cause(
+    task_id: str, task: dict[str, Any], rows: dict[str, dict[str, Any]],
+) -> dict[str, Any]:
+    packet_ids = task.get("source_packet_ids") or [task["source_packet_id"]]
+    return {
+        "registration_source": "DRIVER_FOLLOWUP_AUTHORITY_QUARANTINE",
+        "quarantine_file": QUARANTINE_FILE,
+        **{field: task[field] for field in _TASK_PINS},
+        "hard_block": _blocked_definition(task_id, task, None)["hard_block"],
+        "source_packets": [
+            {
+                **{field: rows[packet_id][field] for field in (
+                    "packet_id", "review_id", "result_id", "packet_path", "packet_blob_sha1",
+                )},
+                "source_review_basis": rows[packet_id].get("source_review_basis", AUTHORITY_SOURCE),
+            }
+            for packet_id in sorted(packet_ids)
+        ],
+    }
+
+
+def _composed_blocked_definition(
+    task_id: str, task: dict[str, Any], prior: dict[str, Any] | None,
+    integrity_row: dict[str, Any] | None, rows: dict[str, dict[str, Any]],
+) -> dict[str, Any]:
+    followup = _blocked_definition(task_id, task, prior)
+    if integrity_row is None:
+        return followup
+    from control_plane import research_task_integrity_fault_isolation as integrity
+
+    # Reconstruct the primary cause from the independently validated registry,
+    # never from an incoming registration_source label or hard_block payload.
+    value = integrity.blocked_definition(task_id, integrity_row, prior)
+    value["followup_authority_block"] = _followup_block_cause(task_id, task, rows)
+    value["source_refs"] = sorted(set(value["source_refs"]) | set(followup["source_refs"]))
+    value["tags"] = sorted(set(value["tags"]) | set(followup["tags"]))
+    return value
+
+
 def install(root: Path = ROOT) -> None:
     """Filter exact packets and locally block their exact solely-derived task heads."""
     rows = validated_quarantines(root)
     derived = derived_task_rows(root)
+
+    from control_plane import research_publication_fault_isolation as publication
+
+    # The publication layer establishes (rather than wraps) the root selectors.
+    # Install that prerequisite before our wrappers even when integrity is later.
+    publication.install(root)
 
     import research_driver_followup as followup
     from control_plane import research_task_records_impl as task_core
@@ -523,8 +594,13 @@ def install(root: Path = ROOT) -> None:
                 for item in values
                 if isinstance(item, dict) and isinstance(item.get("task_id"), str)
             }
-            for task_id, task in derived_task_rows(local_root).items():
-                by_id[task_id] = _blocked_definition(task_id, task, by_id.get(task_id))
+            packet_rows = validated_quarantines(local_root)
+            tasks = _derived_task_rows(packet_rows)
+            overlaps = _integrity_overlaps(tasks, local_root)
+            for task_id, task in tasks.items():
+                by_id[task_id] = _composed_blocked_definition(
+                    task_id, task, by_id.get(task_id), overlaps.get(task_id), packet_rows,
+                )
             return [by_id[key] for key in sorted(by_id)]
 
         research_dispatch.merged_definitions = merged_definitions
@@ -539,6 +615,7 @@ def audit(root: Path = ROOT) -> list[str]:
     try:
         from control_plane import research_driver_review_authority_fault_isolation as review_isolation
         from control_plane import research_result_review_audit_fault_isolation as review_audit
+        from control_plane import research_task_integrity_fault_isolation as integrity
 
         review_isolation.install(root)
         review_audit.install(root)
@@ -563,7 +640,9 @@ def audit(root: Path = ROOT) -> list[str]:
         definitions = {
             item["task_id"]: item for item in research_dispatch.merged_definitions(root)
         }
-        for task_id, task in derived_task_rows(root).items():
+        tasks = _derived_task_rows(rows)
+        overlaps = _integrity_overlaps(tasks, root)
+        for task_id, task in tasks.items():
             if task_id in current:
                 errors.append(f"{task_id}: review-derived quarantined task remains current")
             definition = definitions.get(task_id)
@@ -574,6 +653,18 @@ def audit(root: Path = ROOT) -> list[str]:
                 errors.append(f"{task_id}: review-derived quarantine is not BLOCKED")
             if definition.get("publication_id") is not None:
                 errors.append(f"{task_id}: review-derived quarantine selected a publication")
+            if task_id in overlaps:
+                expected = integrity.blocked_definition(task_id, overlaps[task_id])
+                if definition.get("registration_source") != expected["registration_source"]:
+                    errors.append(f"{task_id}: composed integrity registration source drifted")
+                hard_block = definition.get("hard_block")
+                if not isinstance(hard_block, dict) or any(
+                    key not in hard_block or hard_block[key] != value
+                    for key, value in expected["hard_block"].items()
+                ):
+                    errors.append(f"{task_id}: composed integrity hard-block pin drifted")
+                if definition.get("followup_authority_block") != _followup_block_cause(task_id, task, rows):
+                    errors.append(f"{task_id}: composed follow-up authority cause drifted")
     except Exception as exc:
         errors.append(str(exc))
     return errors
