@@ -58,9 +58,10 @@ def test_encoder_formula_over_small_squarefree_semiprimes() -> None:
 
 
 def test_neighborhood_keeps_all_layers() -> None:
-    profile = neighborhood_profile(35, 2)
+    # n=33=3*11 and its radius-2 neighborhood contains 32=2^5, tau(32)=6.
+    profile = neighborhood_profile(33, 2)
     assert profile.source_tau == 4
-    assert profile.layers == local_composite_divisor_layers(35, 2)
+    assert profile.layers == local_composite_divisor_layers(33, 2)
     assert any(layer == 6 for _, layer in profile.layers)
     assert 6 in profile.factor_forcing_layers
     assert 6 in profile.strong_encoder_layers
