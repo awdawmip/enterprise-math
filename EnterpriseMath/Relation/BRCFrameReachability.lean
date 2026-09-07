@@ -1,5 +1,5 @@
 import EnterpriseMath.Relation.BRCFiniteTransition
-import Mathlib.GroupTheory.Subgroup.Basic
+import Mathlib.Algebra.Group.Subgroup.Basic
 import Mathlib.Data.Fintype.Card
 import Mathlib.Data.Fintype.Prod
 import Mathlib.Tactic
