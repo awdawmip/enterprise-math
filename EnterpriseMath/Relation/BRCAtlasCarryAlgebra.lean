@@ -37,11 +37,18 @@ theorem atlasMonomial_decompose_commonDepth {ι R : Type*}
     atlasMonomial n length coefficient =
       depthMonomial (commonDepth n) *
         atlasMonomial (normalizeAtlas n) length coefficient := by
-  rw [← commonLayer_add_normalizeAtlas n]
-  simpa [depthMonomial] using
-    (atlasMonomial_mul
-      (commonLayerAtlas (commonDepth n)) (normalizeAtlas n)
-      0 length (1 : R) coefficient).symm
+  calc
+    atlasMonomial n length coefficient =
+        atlasMonomial
+          (commonLayerAtlas (commonDepth n) + normalizeAtlas n)
+          length coefficient := by
+      rw [commonLayer_add_normalizeAtlas]
+    _ = depthMonomial (commonDepth n) *
+          atlasMonomial (normalizeAtlas n) length coefficient := by
+      simpa [depthMonomial] using
+        (atlasMonomial_mul
+          (commonLayerAtlas (commonDepth n)) (normalizeAtlas n)
+          0 length (1 : R) coefficient).symm
 
 /-- Multiplying two atlas monomials and then restoring canonical min-zero form
 extracts exactly the newly available common layer.  This is the commutative
