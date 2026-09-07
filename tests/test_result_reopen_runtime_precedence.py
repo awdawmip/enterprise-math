@@ -147,6 +147,7 @@ class ResultReopenRuntimePrecedenceTests(unittest.TestCase):
         self.assertEqual("FROZEN_RETURN", state["state"])
         self.assertEqual("AWAITING_REVIEW", state["dispatch_state"])
         self.assertEqual("RR-R2", state["result_id"])
+        self.assertNotIn("driver_disposition", state)
 
     def test_post_review_hard_block_is_not_erased_by_old_result(self):
         state = self.reduce(
@@ -180,6 +181,69 @@ class ResultReopenRuntimePrecedenceTests(unittest.TestCase):
         )
         self.assertEqual("SUPERSEDED", state["state"])
         self.assertEqual("COMPLETE", state["dispatch_state"])
+        self.assertEqual("replacement generation published", state["next_action"])
+
+    def test_post_review_plain_handoff_preserves_newer_next_action(self):
+        state = self.reduce(
+            [
+                claim(32, "2026-09-01T00:11:00+00:00"),
+                event(
+                    "HANDOFF",
+                    33,
+                    "2026-09-01T00:12:00+00:00",
+                    claim_id="c2",
+                    next_action="continue revision with another researcher",
+                ),
+            ]
+        )
+        self.assertEqual("HANDOFF_READY", state["state"])
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
+        self.assertEqual("continue revision with another researcher", state["next_action"])
+        self.assertNotIn("driver_disposition", state)
+
+    def test_post_review_unblock_preserves_newer_next_action(self):
+        state = self.reduce(
+            [
+                claim(34, "2026-09-01T00:11:00+00:00"),
+                event(
+                    "HARD_BLOCK",
+                    35,
+                    "2026-09-01T00:11:30+00:00",
+                    claim_id="c2",
+                    hard_block=hard_block(),
+                ),
+                event(
+                    "UNBLOCK",
+                    36,
+                    "2026-09-01T00:12:00+00:00",
+                    publication_id=PUBLICATION,
+                    next_action="resume after new dependency arrived",
+                ),
+            ]
+        )
+        self.assertEqual("HANDOFF_READY", state["state"])
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
+        self.assertEqual("resume after new dependency arrived", state["next_action"])
+        self.assertNotIn("driver_disposition", state)
+
+    def test_review_boundary_is_inclusive_for_same_second_runtime_transition(self):
+        state = self.reduce(
+            [
+                claim(37, "2026-09-01T00:10:00+00:00"),
+                event(
+                    "HANDOFF",
+                    38,
+                    "2026-09-01T00:10:00+00:00",
+                    claim_id="c2",
+                    result_id="RR-R2-SAME-SECOND",
+                    next_action="Driver review same-second R2",
+                ),
+            ],
+            now="2026-09-01T00:10:30+00:00",
+        )
+        self.assertEqual("FROZEN_RETURN", state["state"])
+        self.assertEqual("AWAITING_REVIEW", state["dispatch_state"])
+        self.assertEqual("RR-R2-SAME-SECOND", state["result_id"])
 
     def test_ignored_post_review_wrong_claim_event_does_not_create_runtime_precedence(self):
         state = self.reduce(
@@ -206,6 +270,7 @@ class ResultReopenRuntimePrecedenceTests(unittest.TestCase):
         )
         self.assertEqual("HANDOFF_READY", state["state"])
         self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
+        self.assertEqual("Resume task under Driver disposition", state["next_action"])
         self.assertTrue(any("current live claim_id" in item["reason"] for item in state["ignored_events"]))
 
 
