@@ -41,7 +41,7 @@ noncomputable def frameLift [Fintype G] [DecidableEq G]
     (E : FrameEmission W G C R ρ) :
     E.frameLift (1 : FramedPath W G C ρ) = 1 := by
   ext g h
-  simp [frameLift, Matrix.one_apply, E.emit_one]
+  simp [frameLift, Matrix.one_apply, E.emit_one, eq_comm]
 
 /-- The finite frame lift converts the semidirect/noncommutative framed product
 into ordinary matrix multiplication over the declared coefficient semiring.
@@ -84,7 +84,7 @@ multiplicity. -/
     (E : FrameEmission W G C R ρ)
     (p : FramedPath W G C ρ) (n : ℕ) :
     E.frameLiftNBRCAlgHom (MonoidAlgebra.single p n) = n • E.frameLift p := by
-  simp [frameLiftNBRCAlgHom]
+  simp [frameLiftNBRCAlgHom, frameLiftMonoidHom]
 
 end FrameEmission
 
