@@ -1,0 +1,55 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "RESEARCH_TOOLIZED_GLOBAL_SUBTOOL",
+  "date": "2026-09-07",
+  "admission": {
+    "classification": "TASK_RESEARCH_TOOL_HARVEST",
+    "authority": "direct user continuation asking to exploit tables and recursively transport the remaining order-one deep-tail quotient",
+    "family_id": "T0_BRC",
+    "foundation_mutation": false,
+    "working_truth_promotion": false,
+    "new_global_tool_family": false,
+    "reason": "Use the fixed mod-8 phase structure and bounded second difference of the order-one quotient to replace repeated full-size division by exact quotient/remainder state transport plus a fixed normalized reciprocal correction table."
+  },
+  "methods": [
+    {
+      "method_id": "t0.brc_phase_quotient_remainder",
+      "name": "BRC phase quotient/remainder transport",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_phase_quotient_remainder.py",
+        "tests/test_brc_phase_quotient_remainder.py",
+        "experiments/brc_phase_quotient_remainder_benchmark.py",
+        "research_notes/BRC_PHASE_QUOTIENT_REMAINDER_20260907.md",
+        "research_artifacts/brc_phase_quotient_remainder_benchmark_20260907.csv"
+      ],
+      "api": [
+        "PhaseQuotientRemainderTracker",
+        "PhaseQuotientResult",
+        "phase_second_difference_bounds",
+        "reciprocal_seed_table",
+        "RECIPROCAL_RAW_BYTES"
+      ],
+      "triggers": [
+        "BRC quotient remainder transport",
+        "order-one division removal",
+        "phase second difference",
+        "mod-8 quotient phase",
+        "reciprocal correction table"
+      ],
+      "capabilities": [
+        "exact five-phase transport of divmod(2*h*J,4*m+h) on the common order-one deep tail",
+        "two direct seed divmods per mod-8 source phase followed by recurrence-only quotient generation",
+        "proved phase second-difference bounds -3..51 for h=1 and -3..99 for h=2",
+        "exact product-free residual recurrence using retained roots, quotients and division remainders",
+        "512-entry 10-bit normalized lower reciprocal table with 1024-byte logical raw payload",
+        "proved non-negative correction estimate within at most one plus one exact comparison",
+        "optional large-integer backend that composes with the order-one linear BRC tail and staged square-gap cascade"
+      ],
+      "core_law": "For one fixed mod-8 phase, S_h(m)=2h*sqrt(mN)/(4m+h) has 0<=Delta_8^2 S_h<=48h on 4m^5>=N. Since q_h=floor(2h*floor(sqrt(mN))/(4m+h)) differs from S_h by less than 2, its exact integer second difference is in [-3,51] for h=1 and [-3,99] for h=2. With X_i=q_i D_i+r_i and D_(i+1)=D_i+32, the residual relative to qhat=2q_i-q_(i-1) is rho=2h(J_(i+1)-2J_i+J_(i-1))+2r_i-r_(i-1)+64(q_(i-1)-q_i), so the next quotient/remainder follows from only a bounded correction. A 10-bit upper-bucket reciprocal seed estimates each non-negative correction from below within one.",
+      "hard_boundary": "Exact only on the already-certified common order-one deep tail and increasing odd-N mod-8 representative stream. Native big-integer division remains faster in the measured 1024/2048-bit Python cohorts; the tracker is an optional large-integer long-stream backend with a runtime-dependent crossover. It does not reduce the multiplier horizon, alter factorization complexity, or imply RSA practicality."
+    }
+  ]
+}
