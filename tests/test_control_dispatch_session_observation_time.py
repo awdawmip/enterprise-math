@@ -47,8 +47,16 @@ class SessionObservationTimeTests(unittest.TestCase):
         )
 
     def test_future_verified_activity_fails_closed(self):
-        with self.assertRaisesRegex(rcd.ControlDispatchError, "future"):
+        with self.assertRaisesRegex(research_runtime.RuntimeStateError, "future"):
             self.route(observation("2099-01-01T00:00:00+00:00"))
+
+    def test_runtime_dispatch_itself_rejects_future_activity(self):
+        with self.assertRaisesRegex(research_runtime.RuntimeStateError, "future"):
+            research_runtime.dispatch_decision(
+                leased_target()["state"],
+                session_last_activity_at="2099-01-01T00:00:00+00:00",
+                now=NOW,
+            )
 
     def test_activity_exactly_now_remains_valid(self):
         result = self.route(observation("2026-09-07T01:30:00+00:00"))
