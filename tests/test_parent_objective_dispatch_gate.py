@@ -1,3 +1,6 @@
+import os
+import subprocess
+import sys
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -6,6 +9,25 @@ from control_plane import research_parent_objective_dispatch_gate as gate
 
 
 class ParentObjectiveDispatchGateTests(unittest.TestCase):
+    def test_script_and_module_entrypoints_audit_current_repository(self):
+        environment = os.environ.copy()
+        environment.pop("PYTHONPATH", None)
+        for args in (
+            ["control_plane/research_parent_objective_dispatch_gate.py"],
+            ["-m", "control_plane.research_parent_objective_dispatch_gate"],
+        ):
+            with self.subTest(entrypoint=args):
+                run = subprocess.run(
+                    [sys.executable, *args], cwd=gate.ROOT, env=environment,
+                    capture_output=True, text=True, timeout=60,
+                )
+                self.assertEqual(0, run.returncode, run.stdout + run.stderr)
+                self.assertEqual(
+                    "PASS: non-open parent Objectives cannot dispatch child tasks.\n",
+                    run.stdout,
+                )
+                self.assertEqual("", run.stderr)
+
     def task(self):
         return {
             "task_id": "RS-X",
