@@ -1,0 +1,403 @@
+{
+  "schema": "OWNER_STAR_STABILITY_RESULT_REGISTRATION_VALIDATION_V1",
+  "status": "PASS_TWO_RESULT_ONLY_STAR_REGISTRATIONS",
+  "created_utc": "2026-09-07T23:11:37.086203+00:00",
+  "python": "3.12.14",
+  "argv": [
+    "experiments/owner_star_stability_harvest_20260908/validate_registration.py",
+    "--write"
+  ],
+  "repository_root": "D:\\em\\owner-20260907",
+  "executed_script_sha256": "ae6e1c51ae548c1a0431010befa4cd29f44ad46898f7634dcb9b3f379b0fce17",
+  "shard_sha256": "2ab6c7249446ae4c258f19e2a38104633213eeeed7289ea4d53a0fc2e0bbbe82",
+  "canonical_loader_sha256": "321625e6e2d2fa95a25c81d3bc2588cee1b26b16c70d10dd28f4f0da3c2b49b0",
+  "methods": [
+    {
+      "method_id": "result.x6.three_positive_star_raw_stability",
+      "loaded_exactly_once": true,
+      "classification": "RESULT_ONLY",
+      "family_id": null,
+      "api": [],
+      "queries": [
+        {
+          "language": "en",
+          "query": "three positive coordinate star raw stability sharp 7/26 equality",
+          "hit": true,
+          "returned_method_ids": [
+            "result.x6.three_positive_star_raw_stability",
+            "result.x6.three_positive_raw_mass_boundary",
+            "candidate.x6.one_positive_raw_stability_certificate",
+            "result.x6.three_positive_star_fixed_weight_stability",
+            "result.x6.two_positive_raw_stability",
+            "candidate.x6.positive_support_raw_compression_certificate",
+            "result.x6.two_positive_equality_rectangle",
+            "result.x6.sparse_marginal_stability",
+            "t0.weighted_brc_feedback_interaction",
+            "t0.weighted_brc_finite_recurrent",
+            "candidate.x6.minimum_raw_query_plan",
+            "domain.prime.native_trisector_coupled_closure"
+          ],
+          "matching_score": 34
+        },
+        {
+          "language": "zh-CN",
+          "query": "X6 三正坐标星形 raw 稳定性 7/26 七角等幅取等",
+          "hit": true,
+          "returned_method_ids": [
+            "result.x6.three_positive_star_raw_stability",
+            "result.x6.three_positive_raw_mass_boundary",
+            "candidate.x6.one_positive_raw_stability_certificate",
+            "candidate.x6.positive_support_raw_compression_certificate",
+            "candidate.x6.raw_joint_observer_recovery",
+            "result.x6.positive_support_raw_l1_compression",
+            "result.x6.three_positive_star_fixed_weight_stability",
+            "result.x6.two_positive_equality_rectangle",
+            "result.x6.two_positive_raw_stability",
+            "candidate.x6.budgeted_noisy_recovery",
+            "candidate.x6.finite_reverse_step_port_monitor",
+            "candidate.x6.integer_histogram_realization"
+          ],
+          "matching_score": 16
+        }
+      ]
+    },
+    {
+      "method_id": "result.x6.three_positive_star_fixed_weight_stability",
+      "loaded_exactly_once": true,
+      "classification": "RESULT_ONLY",
+      "family_id": null,
+      "api": [],
+      "queries": [
+        {
+          "language": "en",
+          "query": "three positive coordinate star fixed weight equal mass minimum D simplex",
+          "hit": true,
+          "returned_method_ids": [
+            "result.x6.three_positive_star_fixed_weight_stability",
+            "result.x6.three_positive_raw_mass_boundary",
+            "result.x6.three_positive_star_raw_stability",
+            "t0.weighted_brc_finite_recurrent",
+            "candidate.x6.minimum_raw_query_plan",
+            "candidate.x6.one_positive_raw_stability_certificate",
+            "t0.weighted_brc_newton_quadratic_selector",
+            "candidate.x6.integer_histogram_realization",
+            "candidate.x6.positive_support_raw_compression_certificate",
+            "candidate.x6.raw_joint_observer_recovery",
+            "project.paired_pell_shell_certificate",
+            "result.x6.positive_support_raw_l1_compression"
+          ],
+          "matching_score": 37
+        },
+        {
+          "language": "zh-CN",
+          "query": "X6 三正坐标星形 固定正权 等质量 精确最小 D 单纯形",
+          "hit": true,
+          "returned_method_ids": [
+            "result.x6.three_positive_star_fixed_weight_stability",
+            "candidate.x6.budgeted_noisy_recovery",
+            "result.x6.three_positive_raw_mass_boundary",
+            "result.x6.two_positive_equality_rectangle",
+            "candidate.x6.finite_reverse_step_port_monitor",
+            "candidate.x6.integer_histogram_realization",
+            "candidate.x6.one_positive_raw_stability_certificate",
+            "candidate.x6.positive_support_raw_compression_certificate",
+            "candidate.x6.quadratic_shell_max_shortest_length",
+            "candidate.x6.raw_joint_observer_recovery",
+            "result.x6.positive_support_raw_l1_compression",
+            "result.x6.sparse_marginal_stability"
+          ],
+          "matching_score": 10
+        }
+      ]
+    }
+  ],
+  "source_paper_sha256": {
+    "research_notes/OWNER_THREE_POSITIVE_STAR_SHARP_STABILITY_REVIEW_20260908.md": "6a809986a77a5cc21deb8cdb4062af13d44993fc465b073111eaacf5f7671fe1",
+    "research_notes/OWNER_THREE_POSITIVE_EQUAL_MASS_STRUCTURAL_REVIEW_20260908.md": "47f12081c02090cc19de25b2c8ed234b6ed8a5ed300ea4fb13df4d8ff71dcda8",
+    "research_notes/OWNER_THREE_POSITIVE_STAR_WEIGHT_PROFILE_REVIEW_20260908.md": "fe5169d2e5e093d21753ad27994825ecf4f58d9ea2fa19d042dd445e78b6e0e6"
+  },
+  "source_papers_unchanged": true,
+  "protected_inventory_sources": {
+    "research_method_inventory.json": {
+      "sha256_before_and_after": "f6b221bcd7050ddea5965bcb80d6cf64c98e99d23f9ae6cbadb8e23a390f7402",
+      "observed_method_count": 25,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260823_tool_discovery_six_return.json": {
+      "sha256_before_and_after": "f10fcf0f094b56351a39ad057397c8fc67da0eb00dbafab4f7c0ff9f9142308f",
+      "observed_method_count": 6,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260825_triaxial_directional_defect_t1.json": {
+      "sha256_before_and_after": "481fe53126daa383651e2419545fbd1b7132654b76404d96fca6ff9eadb88243",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260826_diagonal_quotient_normalization.json": {
+      "sha256_before_and_after": "08bfbb6c03ca3cd75ef336d30fa09017fd02c01b028ce8f7fefbeb2a4b8509ba",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260826_quadratic_packet_equivariant_section_harvest.json": {
+      "sha256_before_and_after": "572fa9bbaf52d64473a46c47fe12cc04ce8fa4d5ca9d10aca43116f5ee56fe62",
+      "observed_method_count": 3,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260827_native_trisector_coupled_closure_harvest.json": {
+      "sha256_before_and_after": "0c1bad1e5d613108b49bdf443a30e5169ab4247771697a95eadca72eed4a5e60",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260828_nonly_valuation_wall_gcd_extractor.json": {
+      "sha256_before_and_after": "074c2010bf7d0fa688b3bd53b90cb7533f87e39067105fae487a1da96ec3601a",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260828_p018_quotient_root_atlas_carry_harvest.json": {
+      "sha256_before_and_after": "6f5caaddf707d1e2a10a34b88c327f26857e3ef7755dd318cd11c72601a2a294",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260902_brc_weighted_finite_recurrent.json": {
+      "sha256_before_and_after": "3b52a716a672502fe78f413cb76ed5232f311364ca54d1af1fb4bebc2934e5d2",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260902_brc_weighted_foundation.json": {
+      "sha256_before_and_after": "84321f5f995f950ef56de61f7c95487f2a187ca485d86d8adce86b2056f14dd9",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260903_brc_critical_degeneracy_foundation.json": {
+      "sha256_before_and_after": "dde07b2897f6d2faccbd0ff8e6435fbf3dfb7cf56e79f626b5996778839d4c2f",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260903_brc_critical_orbit_foundation.json": {
+      "sha256_before_and_after": "93221c006d8579c881e185b55e807e1b6627c9db9081aa5254504f680b0e3a00",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260903_brc_critical_ratio_jet_foundation.json": {
+      "sha256_before_and_after": "49b2cf7236b3d6e4f3691eef33bced9bbf6c23163d488799cd772804044a7f3e",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260903_brc_recurrent_interaction_foundation.json": {
+      "sha256_before_and_after": "ad7cee458bb23f5c599d9368a97be2a2b54a97f77b4db53b4db66904c351c3ca",
+      "observed_method_count": 3,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260903_brc_recurrent_port_foundation.json": {
+      "sha256_before_and_after": "37951e8bf2c34f62a173dc4753155cbfd1b7f5cb3a8ffcdb88a23b121ba45453",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260903_brc_reducible_critical_jet_foundation.json": {
+      "sha256_before_and_after": "9c875c60db3e71b36ee3e307441d5fb4ec539d6a2503f2bd2629cd1b7559a1e8",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260903_brc_universal_histogram_foundation.json": {
+      "sha256_before_and_after": "7e5f3e60a96bde1b5104be2100a5f8033e8fc8dade2e5fba00f941a6360f7db6",
+      "observed_method_count": 2,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260903_cyclic_rotation_refinement.json": {
+      "sha256_before_and_after": "5852506bf0ad9fc848667fc4a8a0f4f89511b2fd20cde2c6149582cacc33c026",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260903_euler_dyadic_cayley_bridge.json": {
+      "sha256_before_and_after": "2cef40d366a3f6f124d1d4227df2b110906c4dff9d1099f4ea4f9ca9854296e2",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260903_euler_native_bisector.json": {
+      "sha256_before_and_after": "65bcb6bb6b1dd54b5c22b8fdf0e9002a070a7b518a3959752687451d6c9c7824",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260903_euler_pythagorean_spinor_cayley.json": {
+      "sha256_before_and_after": "282cc2c94c5bf7ba8388d0f5b05732e5f7e4586ccb83e47aff1db2047738f648",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260903_euler_rotation_refinement.json": {
+      "sha256_before_and_after": "f7c3d95898efa09be562549dc4eda80ed97db11560d1fd66d3a193c568f3edd3",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260903_tetrahedral_residual_pell_extraction.json": {
+      "sha256_before_and_after": "1cc8323db6e63c4a505124df0c24b2b6880c7277672a6dc3f601f6c6cbe5aca6",
+      "observed_method_count": 2,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260904_brc_newton_fiber_quotient_foundation.json": {
+      "sha256_before_and_after": "a43044d11a2f8ff30ecfe58b35b35a52500b8f23923182eade06551b8169b7f2",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260904_brc_newton_handoff_resonance_foundation.json": {
+      "sha256_before_and_after": "9465e83afe76ae3124b6677073f6fb2e3d1102f6e84ed80926d292aafa4cd491",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260904_brc_newton_observer_lattice_foundation.json": {
+      "sha256_before_and_after": "38b273ae107001a305afe9d9b52ef5186c148021c004d62c17ae397b1cacef4a",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260904_brc_newton_quadratic_selector_foundation.json": {
+      "sha256_before_and_after": "a20ccc67d94955cdfea920bc100060fe2adf59341cf38d5838bd98882e161645",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260904_brc_newton_recursion_foundation.json": {
+      "sha256_before_and_after": "dd12fdc68468967345cb36d0a5e5cc513be056d74032b8ed266c76c15a5d1078",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260904_brc_newton_schedule_strata_foundation.json": {
+      "sha256_before_and_after": "cfb9c4d6dbc00ce4fa85953d13eac36eb5efb4e931ad6dc8e7d19f05f750a785",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260904_brc_newton_selector_chambers_foundation.json": {
+      "sha256_before_and_after": "c2e0a40faf64bb6fc35ea3e3d46b752aac4b2c40cbc95782b857fb3e2211dea2",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260904_euler_cell_polygon_pi.json": {
+      "sha256_before_and_after": "f34b730a67bceb7cf3f362ad00a9e6b17f10f9c3ca1311e306bcb3d5b27ee086",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260904_euler_character_completion.json": {
+      "sha256_before_and_after": "e00c173be83ee98b8925e48e0ce15756300d6c0c533dded491f14be2820df9ef",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260904_euler_fcc_chirality.json": {
+      "sha256_before_and_after": "4bbbb84caecf9c143449ffc5fc3e20f3c4db5c0a1315001ed086bf0fa7491f62",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260906_brc_admissible_multiplier_scan.json": {
+      "sha256_before_and_after": "678463c53b884d28f85455824ecb8c2c3e32aaadc4c2bf2b881c0b775e2f2cc9",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260906_brc_fixed_wheel_complexity_boundary.json": {
+      "sha256_before_and_after": "20f31207c1891b6bc39f2f20073ac1a19cf7d2b8032b3e8e389c9bec58a27142",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260906_brc_mod8_sparse_transition.json": {
+      "sha256_before_and_after": "c8fd124597975502a047733969ea60742e897a22ab4d123892db4401390eab66",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260906_brc_multiplier_2adic_strip_reduction.json": {
+      "sha256_before_and_after": "56b1e6b8e9fd8e5c2feae718a265715941f8f39a74760c4a5e1ce304b29cf844",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260906_brc_multiplier_basin.json": {
+      "sha256_before_and_after": "29c202899aacbf644aa0b215516a2163ac07f94ce81ea77211da10f02e55b675",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260906_brc_multiplier_priority_jump.json": {
+      "sha256_before_and_after": "419c5731cdb1b16d4548d85166758c3617afc127a20845798eebc6a6aa4889fd",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260906_brc_multiplier_square_content.json": {
+      "sha256_before_and_after": "b6ed081eb3057da252b318cbce6e90a8545136208e5ce6e802713264ddb772ce",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260906_brc_multiplier_transition.json": {
+      "sha256_before_and_after": "8a81805adeac495ffcbf7e0b69d7b13811a781ad67f7886b14eb1008de5f3a1f",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260906_brc_multiplier_vertical_wheel.json": {
+      "sha256_before_and_after": "7d2e2c5eefa05c43b6fb445dd3f5d35962ba89a40544736c543c956de8b16bd0",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260906_brc_priority_vertical_scheduler.json": {
+      "sha256_before_and_after": "fe27c826a528e63f286bed49493983ed914d8deeb12b27112971f51e17c93478",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260906_brc_smooth_relation_lattice.json": {
+      "sha256_before_and_after": "3ad38aa3554703c2bb06c8988b284e5336f7cf7c632b83bc0b47eff131cb7202",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260906_brc_square_gap_prefilter.json": {
+      "sha256_before_and_after": "c1623e5c9605433214fdf74fab0a9c2352fcd3b8d17369fd13caa17a34ecb490",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260907_brc_error_linearization_pell.json": {
+      "sha256_before_and_after": "427947aa8bf9076ee705c4c60204f00140b98deee5d0ff7ddda43393176f0741",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260907_brc_linear_deep_tail.json": {
+      "sha256_before_and_after": "e761ee09fe7f2aebfc7b638ab8805521cbc5ada3c652a96525f461887c4a8d7b",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260907_brc_pairwise_multiplier_transport.json": {
+      "sha256_before_and_after": "99eb575204cdff598e97adf6f8b5aab4f309a10e878c38230d353ee96fed6376",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260907_brc_phase_quotient_remainder.json": {
+      "sha256_before_and_after": "b337ee602ed4d4d47f4810b307639cf6db83fe43a4e9d44e9bb84a92d1ae3c55",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260907_brc_square_gap_cascade.json": {
+      "sha256_before_and_after": "da112b01e3a59804c5685ad48507a13da303a95dd45bc3c46a9dd65456d07a52",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260907_brc_table_free_tail.json": {
+      "sha256_before_and_after": "e0a64725b1034ffc7a4259ea13f576900a70c54b83f5d8f2ee82568aede203f6",
+      "observed_method_count": 1,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260907_owner_native_frontier_candidates.json": {
+      "sha256_before_and_after": "9b9b1851602200bbb207681dbac444a7e745b2915d6f8851bc999fd3a028f115",
+      "observed_method_count": 19,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260908_owner_raw_stability_extensions.json": {
+      "sha256_before_and_after": "506bc35b11c211f351d26ac0f19e1f3ba09b841521cfb49302067f69b293b571",
+      "observed_method_count": 3,
+      "all_method_objects_and_file_bytes_unchanged": true
+    },
+    "research_method_inventory_addenda/20260908_owner_raw_stability_results.json": {
+      "sha256_before_and_after": "b1d4d216f76bde3fa2964912db68c96d5ff68b661ce793054e18df44048e95eb",
+      "observed_method_count": 2,
+      "all_method_objects_and_file_bytes_unchanged": true
+    }
+  },
+  "complete_inventory_source_set_unchanged": true,
+  "canonical_prior_method_view_unchanged": true,
+  "observed_prior_method_count": 110,
+  "observed_total_method_count": 112,
+  "observed_counts_are_not_permanent_source_or_main_assertions": true,
+  "boundary_checks_passed": true,
+  "mathematical_source_modules_imported": [],
+  "mathematical_consumers_executed": false,
+  "mathematical_proof_verified_by_this_program": false,
+  "proof_or_formal_acceptance_granted": false,
+  "registration_authoring_global_knowledge_sync": "main@eb09a0a / GLOBAL_KNOWLEDGE_V1"
+}

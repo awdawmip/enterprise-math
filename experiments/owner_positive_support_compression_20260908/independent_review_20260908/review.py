@@ -56,7 +56,7 @@ def value_digest(value):
 def snapshot(root, pins):
     records = {}
     for path, pin in sorted(pins.items()):
-        file = root / path
+        file = root.joinpath(path)
         data, stat = file.read_bytes(), file.stat()
         need(digest(data) == pin, "frozen bytes drifted: " + path)
         records[path] = {"sha256": pin, "bytes": len(data), "mtime_ns": stat.st_mtime_ns}
@@ -163,7 +163,7 @@ def expect_value_error(name, action, expected):
 def run(root):
     before_limit = sys.get_int_max_str_digits()
     frozen_before = snapshot(root, FROZEN)
-    saved = json.loads((root / (PREFIX + "certificate.json")).read_bytes())
+    saved = json.loads(root.joinpath(PREFIX + "certificate.json").read_bytes())
     pins = saved["source_sha256"]
     need(len(pins) == 14, "fourteen dependency pins required")
     before = snapshot(root, {**pins, **FROZEN})
@@ -179,9 +179,9 @@ def run(root):
     need(snapshot(root, {**pins, **FROZEN}) == before, "default replay changed source bytes or mtimes")
 
     need("check_positive_support_compression" not in sys.modules, "fresh review import required")
-    sys.path.insert(0, str(root / PREFIX))
+    sys.path.insert(0, str(root.joinpath(PREFIX)))
     module = importlib.import_module("check_positive_support_compression")
-    need(Path(module.__file__).resolve() == (root / (PREFIX + "check_positive_support_compression.py")).resolve(),
+    need(Path(module.__file__).resolve() == root.joinpath(PREFIX + "check_positive_support_compression.py").resolve(),
          "wrong extension module")
     need(module.SOURCE_SHA256 == pins, "effective dependency pins differ")
     one, native, exact = module.one_positive, module.x6, module.exact
@@ -207,7 +207,7 @@ def run(root):
     identities = {}
     for name, function in selected.items():
         expected_file = expected_files[name.split(".", 1)[0]]
-        need(Path(function.__code__.co_filename).resolve() == (root / expected_file).resolve(), name + ": code origin")
+        need(Path(function.__code__.co_filename).resolve() == root.joinpath(expected_file).resolve(), name + ": code origin")
         identities[name] = {"source_path": expected_file, "source_sha256": pins[expected_file],
                             "first_line": function.__code__.co_firstlineno, "module": function.__module__}
     code_names = {function.__code__: name for name, function in selected.items()}

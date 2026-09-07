@@ -4,6 +4,14 @@ Status: `PASS_BOUNDED_CONSUMER_REVIEW_NO_FORMAL_ACCEPTANCE`.
 
 本次独立复核冻结程序的输入/输出合同、真实原生调用和少量有区分力的执行边界，未发现阻止该辅助 consumer 发布的缺陷。这不是正式 V2 Result review、数学结果晋升或一般输入的机器证明。此前压缩论文承担全体有限输入的证明；本包提供指定程序字节上的有限独立执行证据。
 
+## Narrow Path-join compatibility revision
+
+本轮仅把独审脚本五处 `root / path` 形式的 `pathlib.Path` 路径组合改为等价 `root.joinpath(path)`。初次主线 L4 输入 commit `6b35ff4546ed090ffbd0731f765f6fbbdc6f44c4` 的 metadata、旧 API 兼容和独审重放均实际通过，但现行算术静态门禁把这五处 AST `/` 一律报为 `native '/' division is forbidden`。该首次静态失败保留为 FAIL，未产生主线 PASS 回执，未修改 checker 或扩大白名单。
+
+原独审包的不可变来源为 owner commit `ad2798bcc9d6f5b3c57bbd0fd292015f67390583`，更早的首次包发布为 `c0495fd71a557ed78eef7ab62a8b2bf08feee535`。原脚本、回执和说明 SHA256 分别为 `d940c1f6e4efac745284a28cba77bcfde2a48ac6ee432a6f0d583417e401adf2`、`8ee1608a8e32d442fa788d797936278b50752c84439c28c9af3f1373ac5fd43e`、`cffb5c4c6f259bc10bbb981f1e1e3460955fb95ec1eb394d99a5de8ce08ed3d1`。它们继续可按该不可变 commit 查验，本轮不把旧回执的时间、路径或脚本哈希冒充新执行。
+
+独立核对恰好五处 Path 表达式替换后，原 AST 与新 AST 完全相同；数学构造、五例及三拒绝输入、oracle、pin 和 code-object 计数逻辑均未改。新脚本在 owner 工作区执行一次 fresh 默认重放及原五个独立案例，并生成本目录新的真实 `review.json`。执行日期、实际 argv、精确脚本哈希、输入/输出摘要和子进程时耗均来自本轮回执。随后在真实源路径上运行当前 checker，consumer 与独审两个文件实际通过静态门禁；这是有限所选文件检查，不是传递代码全量合规声明。作者 consumer、certificate、README 和十四个依赖均保持原字节。本次路径兼容性修订没有新增数学或 formal acceptance，也不等于本轮 main L4 已完成。
+
 ## Exact reviewed input
 
 作者 r2 冻结清单 SHA256 为 `e96471b93542205d1046c1f84dfba8ae613c45d663e9004e33366928a7836833`。执行前独立核实该清单本身、以下三文件，以及其全部 14 个依赖的实际字节。
@@ -30,7 +38,7 @@ Status: `PASS_BOUNDED_CONSUMER_REVIEW_NO_FORMAL_ACCEPTANCE`.
 
 ## Actual bounded execution
 
-仅执行一次 [review.py](review.py)，Python 3.12.14，退出码 0。脚本首先在 fresh 子进程中运行冻结程序的默认只读入口一次：18 个作者案例、360 张 raw 表、10 个拒绝输入、2 个失效边界全部重建，与冻结 certificate 精确逐字节相等。该重放没有使用 `--write`，也没有再运行作者的数学/静态测试集。
+本轮 Path-join 修订仅执行一次 [review.py](review.py)，Python 3.12.14，退出码 0。脚本首先在 fresh 子进程中运行冻结程序的默认只读入口一次：18 个作者案例、360 张 raw 表、10 个拒绝输入、2 个失效边界全部重建，与冻结 certificate 精确逐字节相等。该重放没有使用 `--write`，也没有再运行作者的数学/静态测试集。
 
 随后执行以下五个独立构造，另有三项新拒绝检查。每例的二十张表均使用独立数账核对：先分别投影两个正总体，再相减，避免仅把被审函数自身的 signed projection 结果当作 oracle。还独立核对每个输出地址及质量、Jordan P/N、实际 support、符号 carrier、未求值 DIV、D 确为二十个范数之和。
 
@@ -77,10 +85,10 @@ python -B -X utf8 experiments/owner_positive_support_compression_20260908/indepe
 
 也可向脚本传入 repository root 作为唯一位置参数。默认根路径由本包目录布局定位。脚本仅写本目录的 `review.json`，默认子进程只读比较作者 certificate。每次复现记录实际时间、命令、脚本哈希与 stdout/stderr 哈希，因此新回执的时间和整体 SHA 可以不同；数学输入及冻结字节由内部 pin 控制。
 
-本包所含且本次真正执行的脚本 SHA256：`d940c1f6e4efac745284a28cba77bcfde2a48ac6ee432a6f0d583417e401adf2`。
+本包所含且本次真正执行的脚本 SHA256：`d49d91d6686b68790cbad7966d1db2421b4ef2533f5de9e6b5c18d2dee3258a9`。
 
-本次实际生成的回执 SHA256：`8ee1608a8e32d442fa788d797936278b50752c84439c28c9af3f1373ac5fd43e`。
+本次实际生成的回执 SHA256：`2b69f5e837c8067bb266931e438b4207e394aff16f0f40c56d4d759dddeb844a`。
 
-本说明在执行后新增，没有对已执行脚本做字节归一化或语义改动。三个独立包文件统一为 UTF-8、无 BOM、LF、EOF LF、无行末空白；包自身的最终三文件哈希另交 owner 的出版清单绑定，避免自引用。
+本说明按本轮实际执行后生成的回执更新；随后未修改已执行脚本字节。三个独立包文件统一为 UTF-8、无 BOM、LF、EOF LF、无行末空白；包自身的最终三文件哈希另交 owner 的出版清单绑定，避免自引用。
 
 Global-Knowledge-Sync: main@eb09a0a / GLOBAL_KNOWLEDGE_V1
