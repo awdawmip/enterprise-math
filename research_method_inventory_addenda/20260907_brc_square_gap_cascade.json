@@ -1,0 +1,57 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "RESEARCH_TOOLIZED_GLOBAL_SUBTOOL",
+  "date": "2026-09-07",
+  "admission": {
+    "classification": "TASK_RESEARCH_TOOL_HARVEST",
+    "authority": "direct user continuation asking to reuse the previously built BRC square-residue tables after the order-one linear deep-tail result",
+    "family_id": "T0_BRC",
+    "foundation_mutation": false,
+    "working_truth_promotion": false,
+    "new_global_tool_family": false,
+    "reason": "Compose the existing mod-4032 square-gap table with staged small coprime residue tables so nearly all second square-root tests are rejected before isqrt while preserving exact zero-false-negative semantics."
+  },
+  "methods": [
+    {
+      "method_id": "t0.brc_square_gap_cascade",
+      "name": "BRC staged square-gap residue cascade",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_square_gap_cascade.py",
+        "tests/test_brc_square_gap_cascade.py",
+        "experiments/brc_square_gap_cascade_benchmark.py",
+        "research_notes/BRC_SQUARE_GAP_CASCADE_20260907.md",
+        "research_artifacts/brc_square_gap_cascade_benchmark_20260907.csv"
+      ],
+      "api": [
+        "CASCADE_STAGE_MODULI",
+        "CASCADE_PROFILES",
+        "passes_square_residue_cascade",
+        "filtered_square_root_cascade",
+        "cascade_survival_density",
+        "cascade_raw_table_bytes",
+        "cascade_profile_stats"
+      ],
+      "triggers": [
+        "BRC square-gap cascade",
+        "quadratic-residue staged table",
+        "second isqrt filter",
+        "4032 12155 12673",
+        "use BRC residue tables"
+      ],
+      "capabilities": [
+        "reuse the existing 504-byte mod-4032 checked-in table as first gate",
+        "compile small secondary bit tables for moduli 12155 and 12673 once per process",
+        "zero-false-negative necessary filtering for exact squares",
+        "exact CRT survival density for pairwise-coprime stages",
+        "BALANCED 3-stage profile using 3609 raw bytes total",
+        "BALANCED uniform survivor density 19440/30808063 about 0.0631 percent",
+        "finite composition benchmark with the order-one linear deep-tail pipeline"
+      ],
+      "core_law": "If g is an integer square then g is a quadratic residue modulo every cascade modulus. The registered stage moduli 4032, 12155 and 12673 are pairwise coprime, so CRT makes the uniform joint survivor density the product of the exact per-stage QR densities. Later modular reductions are evaluated only on earlier survivors, giving a fixed-size staged necessary filter with no false negatives.",
+      "hard_boundary": "This is classical modular square filtering composed with T0_BRC. It reduces the second squarehood isqrt but does not shorten the multiplier horizon or prove a factorization-complexity improvement. Finite Python timing gains are environment-dependent. Reciprocal-table replacement of the order-one division and radix BRC correction tables were explored but not promoted because they were slower than native operations in the tested runtime."
+    }
+  ]
+}
