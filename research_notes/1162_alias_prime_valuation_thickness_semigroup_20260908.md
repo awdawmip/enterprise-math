@@ -1,0 +1,154 @@
+# #1162 — alias boundary to prime valuations: independent Euler coordinates and the thickness semigroup
+
+Status: RESEARCH_NOTE / DURABLE FRONTIER / NOT PROMOTED
+Researcher-ID: EM-DIRECT-B62D
+Research-Mode: TASK_RESEARCH
+Progress-Event-ID: 1162-alias-prime-valuation-thickness-semigroup-20260908
+At: 2026-09-08T01:00:00+08:00
+Parents:
+- `research_notes/1162_alias_boundary_renyi_observer_lattice_20260907.md`
+- `research_notes/1162_q_chain_markov_gauge_stabilization_20260908.md`
+
+## 1. Native antiperiodic alias law
+
+The dyadic/antiperiodic inverse-square alias boundary gives the positive odd integer variable K with
+
+P(K=n)=8/[pi^2 n^2], n odd.
+
+Equivalently, before inserting the Basel normalization, the positive weight is proportional to n^(-2). The finite refinement path almost surely stabilizes to such an integer label.
+
+## 2. Exact carrier change to prime valuations
+
+Unique factorization gives the lossless map
+
+n <-> (v_p(n))_(p odd),
+
+with finite support for every finite integer n. This is precisely the kind of finite prime-valuation coordinate retained by the existing BRC rational holonomy/skeleton-thickness interface.
+
+Since
+
+n^(-2)=prod_(p odd) p^(-2 v_p(n)),
+
+positive monotone summation over finite prime sets gives independent prime exponents:
+
+P(v_p=k)=(1-p^(-2)) p^(-2k), k>=0,
+
+and for every finite set P of odd primes,
+
+P(v_p=k_p for p in P)=prod_(p in P)(1-p^(-2))p^(-2k_p).
+
+Thus the state-dependent additive/radix alias refinement becomes an independent product measure in multiplicative prime-valuation coordinates.
+
+## 3. Euler product from the same boundary measure
+
+Probability normalization yields
+
+1=(8/pi^2) sum_(n odd)n^(-2)
+ =(8/pi^2) prod_(p odd)(1-p^(-2))^(-1).
+
+Therefore
+
+prod_(p odd)(1-p^(-2))=8/pi^2.
+
+Multiplying the p=2 factor 1-2^(-2)=3/4 gives
+
+prod_p(1-p^(-2))=6/pi^2,
+
+hence the Euler-product form of Basel.
+
+The DFT/Parseval and Euler-product ingredients are classical; the point here is that they are two coordinate readouts of the same positive alias boundary carrier.
+
+## 4. Positive zeta tilts and the unique native exponent
+
+For any real s>1 define the positive label tilt of the same odd boundary:
+
+mu_s(n)=n^(-s)/[(1-2^(-s))zeta(s)], n odd.
+
+Equivalently,
+
+d mu_s / d mu_2 is proportional to K^(2-s).
+
+Under mu_s,
+
+P(v_p=k)=(1-p^(-s))p^(-sk),
+
+independently over odd primes.
+
+Only at s=2 is the tilt K^(2-s) identically 1. Therefore the unmodified rotation alias measure itself coincides with the independent Euler prime-valuation product measure only at the Basel exponent.
+
+## 5. BRC m-power skeleton/thickness independence
+
+For integer m>=2 apply the exact unique decomposition
+
+K=S_m T^m,
+
+where S_m is m-power-free. Primewise write
+
+v_p(K)=m q_p+r_p, 0<=r_p<m.
+
+For geometric parameter rho=p^(-s),
+
+P(q_p,r_p)=(1-rho)rho^(m q_p+r_p)
+
+factors exactly into
+
+P(r_p=j)=(1-rho)rho^j/(1-rho^m), 0<=j<m,
+
+P(q_p=k)=(1-rho^m)(rho^m)^k, k>=0.
+
+Hence the skeleton and thickness are independent, and
+
+T ~ mu_(ms).
+
+Define the thickness map on the zeta family by T_m(mu_s)=law(T). Then
+
+T_m(mu_s)=mu_(ms),
+
+T_m T_n = T_(mn).
+
+Thus the BRC power-thickness operation realizes exponent multiplication as an exact discrete semigroup on the zeta boundary measures.
+
+## 6. Even zeta as an m-power-free event in the native Basel measure
+
+Take s=2. The event T=1 is exactly the event that K is m-power-free. Since T~mu_(2m),
+
+P_mu2(K is m-power-free)
+= P(T=1)
+=1/[(1-2^(-2m))zeta(2m)].
+
+Therefore
+
+zeta(2m)
+=
+1/[(1-2^(-2m)) P_mu2(K is m-power-free)].
+
+Examples:
+- m=2: P(K squarefree)=1/[(15/16)zeta(4)]; after classical calibration zeta(4)=pi^4/90 this equals 96/pi^4.
+- m=3: cube-free probability is 1/[(63/64)zeta(6)].
+
+This gives a second derivative-free even-zeta carrier, now arithmetic rather than determinant-based: all even zeta values are event probabilities / thickness laws inside the single native inverse-square alias distribution.
+
+## 7. BRC reuse resolution
+
+`REUSE_APPLIED`:
+- pointwise integer alias -> prime valuation vector;
+- m-power skeleton/thickness decomposition;
+- skeleton/thickness are separately typed coordinates.
+
+Exact source family: `src/enterprise_math/brc_rational_holonomy.py`, especially `rational_prime_valuations` and `rational_power_skeleton_thickness`.
+
+The current implementation is finite and pointwise; no claim is made that it executes the infinite boundary product at once. Infinite-product identities above follow separately from positive monotone convergence / unique factorization.
+
+This is not positive-rational recurrence, and signed character readouts are not folded into the positive prime-mass carrier.
+
+## 8. Status / novelty boundary
+
+Euler products, zeta distributions, unique factorization, and power-free Dirichlet series are classical. No priority claim is made for those components.
+
+Candidate project synthesis: the finite rotation alias probability generated by DFT/refinement is identified with the s=2 zeta distribution, after which the existing BRC valuation/skeleton-thickness coordinates make multiplicative prime independence and the exponent-multiplication thickness semigroup explicit on the same carrier.
+
+## 9. Next
+
+1. compare the determinant even-zeta recursion and the thickness-semigroup even-zeta readout as two quotients of the same alias carrier;
+2. investigate finite-depth estimators for m-power-free probabilities before alias stabilization;
+3. extend from the odd antiperiodic carrier to rational residue/Dirichlet character boundary measures while preserving signed provenance.
