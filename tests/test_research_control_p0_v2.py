@@ -1,6 +1,7 @@
 import json
 import tempfile
 import unittest
+from datetime import timedelta
 from pathlib import Path
 from unittest import mock
 
@@ -47,7 +48,7 @@ def runtime_state(task_id, registration=None):
     }
 
 
-def auth(comment_id, *, edited=False):
+def auth(comment_id, *, edited=False, created_at="2026-08-25T14:00:00+00:00"):
     return {
         "server_authenticated": True,
         "issue_number": 240,
@@ -56,8 +57,8 @@ def auth(comment_id, *, edited=False):
         "author_user_id": 30957095,
         "author_association": "OWNER",
         "control_authorized": True,
-        "created_at": "2026-08-25T14:00:00+00:00",
-        "updated_at": "2026-08-25T14:00:00+00:00",
+        "created_at": created_at,
+        "updated_at": created_at,
         "body_sha256": "sha256:" + "a" * 64,
         "edited": edited,
         "performed_via_github_app": "chatgpt-codex-connector",
@@ -216,12 +217,15 @@ class UnifiedDispatchTests(unittest.TestCase):
         self.assertTrue(any("publication_id" in item["reason"] for item in state["ignored_events"]))
 
     def test_inline_claim_envelope_needs_no_preclaim_repository_record(self):
-        event = self.inline_claim()
+        task = self.registered_definition()
+        # A valid claim must follow the real immutable publication clock.
+        claim_at = runtime_reducer.parse_time(task["publication_published_at"]) + timedelta(minutes=1)
+        event = self.inline_claim(at=claim_at.isoformat(), _github=auth(1001, created_at=claim_at.isoformat()))
         with mock.patch.object(dispatch.research_execution_records, "intent_for_claim", return_value=None):
             state = dispatch.reduce_definition(
-                self.registered_definition(),
+                task,
                 [event],
-                now=runtime_reducer.parse_time("2026-08-25T22:02:00+08:00"),
+                now=claim_at + timedelta(minutes=2),
                 root=ROOT,
             )
         self.assertEqual("LEASED", state["dispatch_state"])
@@ -256,6 +260,8 @@ class UnifiedDispatchTests(unittest.TestCase):
 
     def test_registered_done_without_reviewed_result_is_ignored_after_valid_intent(self):
         task = self.registered_definition()
+        claim_at = runtime_reducer.parse_time(task["publication_published_at"]) + timedelta(minutes=1)
+        done_at = claim_at + timedelta(minutes=1)
         intent = {
             "task_id": REGISTERED_TASK,
             "publication_id": task["publication_id"],
@@ -264,14 +270,14 @@ class UnifiedDispatchTests(unittest.TestCase):
             "owner_lease_minutes": 120,
         }
         events = [
-            {"schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1", "event": "CLAIM", "task_id": REGISTERED_TASK, "actor": "test", "at": "2026-08-25T22:00:00+08:00", "claim_id": "c1", "_github": auth(1010)},
-            {"schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1", "event": "DONE", "task_id": REGISTERED_TASK, "actor": "test", "at": "2026-08-25T22:01:00+08:00", "claim_id": "c1", "result_id": "RR-NOT-REVIEWED", "_github": auth(1011)},
+            {"schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1", "event": "CLAIM", "task_id": REGISTERED_TASK, "actor": "test", "at": claim_at.isoformat(), "claim_id": "c1", "_github": auth(1010, created_at=claim_at.isoformat())},
+            {"schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1", "event": "DONE", "task_id": REGISTERED_TASK, "actor": "test", "at": done_at.isoformat(), "claim_id": "c1", "result_id": "RR-NOT-REVIEWED", "_github": auth(1011, created_at=done_at.isoformat())},
         ]
         with mock.patch.object(dispatch.research_execution_records, "intent_for_claim", return_value=intent):
             state = dispatch.reduce_definition(
                 task,
                 events,
-                now=runtime_reducer.parse_time("2026-08-25T22:02:00+08:00"),
+                now=claim_at + timedelta(minutes=2),
                 root=ROOT,
             )
         self.assertEqual("LEASED", state["dispatch_state"])
