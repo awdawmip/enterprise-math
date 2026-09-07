@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
-      - name: Apply fail-closed future-time guard and remove helper
+      - name: Apply fail-closed future-time guard
         shell: bash
         run: |
           set -euo pipefail
@@ -48,17 +48,6 @@ jobs:
           if marker not in text:
               raise SystemExit('test insertion anchor missing')
           test.write_text(text.replace(marker, direct + marker, 1))
-
-          workflow = Path('.github/workflows/control-plane-pr-focused-validation.yml')
-          text = workflow.read_text()
-          anchor = "      - 'research_control_dispatch.py'\n"
-          if "      - 'tools/research_runtime.py'\n" not in text:
-              if anchor not in text:
-                  raise SystemExit('workflow path anchor missing')
-              text = text.replace(anchor, anchor + "      - 'tools/research_runtime.py'\n", 1)
-          workflow.write_text(text)
-
-          Path('.github/workflows/transient-session-liveness-future-fix.yml').unlink()
           PY
           python -m unittest -v tests.test_control_dispatch_session_observation_time
           python -m unittest -v tests.test_control_plane_adversarial_simulation
@@ -68,6 +57,6 @@ jobs:
           python -m unittest -v tests.test_result_reopen_runtime_precedence
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add tools/research_runtime.py tests/test_control_dispatch_session_observation_time.py .github/workflows/control-plane-pr-focused-validation.yml .github/workflows/transient-session-liveness-future-fix.yml
+          git add tools/research_runtime.py tests/test_control_dispatch_session_observation_time.py
           git commit -m 'fix(control): reject future session liveness evidence'
           git push origin HEAD:control/session-liveness-future-evidence-20260907
