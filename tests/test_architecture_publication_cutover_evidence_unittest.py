@@ -4,14 +4,18 @@ from control_plane import check_architecture_publication_cutover_evidence as evi
 
 
 class ArchitecturePublicationCutoverEvidenceTests(unittest.TestCase):
-    def test_proposed_cutover_is_exactly_six_pointer_and_non_authorizing(self):
+    def test_current_six_pointer_cutover_needs_no_change_and_grants_no_authority(self):
         report = evidence.prove()
         self.assertEqual(
-            "CONTROL_STRUCTURAL_EVIDENCE_ONLY_NOT_GOVERNANCE_APPROVAL",
+            "CURRENT_ARCHITECTURE_V2_POINTERS_VERIFIED_NO_CHANGE_REQUIRED",
             report["status"],
         )
-        self.assertEqual(6, report["changed_pointer_count"])
-        self.assertEqual(6, len(report["changed_pointers"]))
+        self.assertEqual("VERIFIED_NO_POINTER_CHANGE_REQUIRED", report["registry_state"])
+        self.assertEqual(6, report["registered_pointer_count"])
+        self.assertEqual(6, len(report["before_values"]))
+        self.assertEqual(0, report["changed_pointer_count"])
+        self.assertEqual([], report["changed_pointers"])
+        self.assertEqual(report["before_values"], report["after_values"])
         self.assertTrue(report["non_target_structure_equal"])
         self.assertEqual(
             report["non_target_structure_sha256"],

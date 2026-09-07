@@ -24,7 +24,7 @@ class ControlSemanticMigrationRegistryTests(unittest.TestCase):
         self.assertTrue(any("CSP-ROLEPOLICY-PUBLICATION-DISPATCH-005" in row for row in reports))
         self.assertTrue(any("CSP-STEWARD-SCHEDULING-TOOL-006" in row for row in reports))
 
-    def test_only_architecture_migration_remains_mixed_semantic_debt(self):
+    def test_architecture_pointers_are_verified_without_reopening_mixed_semantic_debt(self):
         data = json.loads(
             (ROOT / "control_plane" / "control_semantic_migration_registry.json").read_text(
                 encoding="utf-8"
@@ -32,7 +32,7 @@ class ControlSemanticMigrationRegistryTests(unittest.TestCase):
         )
         by_id = {row["migration_id"]: row for row in data["entries"]}
         self.assertEqual(
-            "REQUIRES_GOVERNANCE_VERIFICATION",
+            "VERIFIED_NO_POINTER_CHANGE_REQUIRED",
             by_id["CSM-ARCHITECTURE-TASK-PUBLICATION-003"]["state"],
         )
         self.assertEqual(
@@ -73,7 +73,7 @@ class ControlSemanticMigrationRegistryTests(unittest.TestCase):
             steward_selector["resolution_evidence"]["protected_selector_id"],
         )
 
-    def test_runtime_bundle_is_migrated_by_verified_nonforce_git_object_transaction(self):
+    def test_post_v2_runtime_bundle_retains_exact_physical_cutover_provenance(self):
         data = json.loads(
             (ROOT / "control_plane" / "control_semantic_migration_registry.json").read_text(
                 encoding="utf-8"
@@ -85,29 +85,33 @@ class ControlSemanticMigrationRegistryTests(unittest.TestCase):
         for row in (dispatch, liveness):
             self.assertEqual("TARGET_MIGRATED", row["state"])
             self.assertEqual(
-                "a3611b583acc7bd75f22d2c2f76548d9c79b7e76",
+                "9e8dcf5dd44ea4d7eb5aaf7e160a28d5266ebfc9",
                 row["migrated_commit"],
             )
-            self.assertEqual(
-                "a312e8c13086467fee7824f1457685e1f4fa096f",
-                row["migrated_blob_sha1"],
-            )
-            self.assertEqual(
-                "DETACHED_GIT_BLOB_TREE_COMMIT_THEN_NONFORCE_FAST_FORWARD_MAIN",
-                row["safe_write_mechanism"],
-            )
+            self.assertEqual("research_runtime_state_machine.json", row["path"])
             self.assertTrue(row["exact_diff_verified"])
+            self.assertFalse(row["execution_authority_while_open"])
         self.assertEqual(
-            33221974090,
-            dispatch["reference_evidence"]["production_consumer_reference_integrity_run_id"],
+            "/canonical_live_dispatch", dispatch["json_pointer"],
         )
         self.assertEqual(
-            33222148731,
-            dispatch["reference_evidence"]["field_locality_reference_integrity_run_id"],
+            ["/owner_lease_is_session_liveness", "/stale_valid_owner_action"],
+            liveness["json_pointers"],
+        )
+        reference = dispatch["reference_evidence"]
+        self.assertEqual(
+            "control_plane/legacy_control_migration_manifest.json",
+            reference["physical_cutover_manifest"],
+        )
+        manifest = json.loads((ROOT / reference["physical_cutover_manifest"]).read_text(encoding="utf-8"))
+        self.assertEqual("COMPLETE", manifest["status"])
+        self.assertEqual(manifest["source"]["archive_branch"], reference["archive_branch"])
+        self.assertEqual(
+            "CSP-RUNTIME-FRESH-SELECTOR-004", reference["protected_runtime_selector"],
         )
         self.assertEqual(
-            33222148731,
-            liveness["reference_evidence"]["field_locality_reference_integrity_run_id"],
+            ["TASK_RESEARCH_RESPONSE", "DURABLE_EXECUTION_PROGRESS"],
+            liveness["canonical_evidence"]["allowed_evidence_kinds"],
         )
         self.assertFalse(
             liveness["canonical_evidence"]["generic_conversation_activity_is_owner_scope_liveness"]
