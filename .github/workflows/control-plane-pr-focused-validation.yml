@@ -7,6 +7,7 @@ on:
       - '.github/workflows/chatgpt-control-dispatch-bridge.yml'
       - 'tests/test_control_plane_adversarial_simulation.py'
       - 'tests/test_chatgpt_dispatch_bridge_replay_guard.py'
+      - 'tests/test_result_reopen_runtime_precedence.py'
       - '.github/workflows/control-plane-pr-focused-validation.yml'
 
 jobs:
@@ -23,3 +24,4 @@ jobs:
           python -m unittest -v tests.test_chatgpt_dispatch_bridge_replay_guard
           python -m unittest -v tests.test_result_handoff_dispatch_guard
           python -m unittest -v tests.test_registered_done_dispatch_guard
+          python -m unittest -v tests.test_result_reopen_runtime_precedence
