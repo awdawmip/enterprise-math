@@ -25,6 +25,11 @@ LANE_RE = re.compile(r"[^A-Z0-9]+")
 EVENT_SCHEMA = "ENTERPRISE_MATH_SCHEDULER_EVENT_V1"
 POLICY_SCHEMA = "ENTERPRISE_MATH_RESEARCH_RUNTIME_POLICY_V2"
 DRIVER_REVIEW_TERMINAL_SCOPE = "RESEARCH_RETURN_FROZEN_AWAITING_DRIVER_REVIEW"
+HANDOFF_SCOPE_CONTINUATION = "CONTINUATION"
+HANDOFF_SCOPE_FROZEN_RETURN = "FROZEN_RETURN_AWAITING_DRIVER_REVIEW"
+LEGACY_DRIVER_REVIEW_TERMINAL_CANDIDATES = {
+    "SUCCESS_REVIEW_COMPLETE_AWAITING_DRIVER_DECISION",
+}
 
 class RuntimeReducerError(ValueError):
     pass
@@ -351,11 +356,25 @@ def reduce_task(
                 ignore(state, index, "HANDOFF result_id must be a nonempty string when supplied")
                 continue
             terminal_scope = event.get("terminal_scope")
-            driver_review_terminal = terminal_scope == DRIVER_REVIEW_TERMINAL_SCOPE
-            # A result-bearing HANDOFF or the exact legacy frozen-return terminal
-            # scope is a provisional review barrier even before an immutable result
-            # record lands on main.  Plain HANDOFF remains a researcher-to-researcher
-            # continuation surface.  Unknown terminal_scope values carry no authority.
+            handoff_scope = event.get("handoff_scope")
+            if handoff_scope is not None and handoff_scope not in {
+                HANDOFF_SCOPE_CONTINUATION,
+                HANDOFF_SCOPE_FROZEN_RETURN,
+            }:
+                ignore(state, index, "HANDOFF handoff_scope is invalid")
+                continue
+            legacy_terminal_candidate = event.get("terminal_candidate")
+            driver_review_terminal = (
+                terminal_scope == DRIVER_REVIEW_TERMINAL_SCOPE
+                or handoff_scope == HANDOFF_SCOPE_FROZEN_RETURN
+                or legacy_terminal_candidate in LEGACY_DRIVER_REVIEW_TERMINAL_CANDIDATES
+            )
+            if handoff_scope == HANDOFF_SCOPE_CONTINUATION and (
+                result_id is not None or driver_review_terminal
+            ):
+                ignore(state, index, "HANDOFF CONTINUATION scope contradicts frozen-return marker")
+                continue
+            # Terminality is machine-explicit. Natural-language fields never decide it.
             state["state"] = (
                 "FROZEN_RETURN"
                 if result_id is not None or driver_review_terminal
@@ -365,10 +384,18 @@ def reduce_task(
                 state["result_id"] = result_id.strip()
             else:
                 state.pop("result_id", None)
-            if driver_review_terminal:
+            if terminal_scope == DRIVER_REVIEW_TERMINAL_SCOPE:
                 state["terminal_scope"] = DRIVER_REVIEW_TERMINAL_SCOPE
             else:
                 state.pop("terminal_scope", None)
+            if handoff_scope in {HANDOFF_SCOPE_CONTINUATION, HANDOFF_SCOPE_FROZEN_RETURN}:
+                state["handoff_scope"] = handoff_scope
+            else:
+                state.pop("handoff_scope", None)
+            if legacy_terminal_candidate in LEGACY_DRIVER_REVIEW_TERMINAL_CANDIDATES:
+                state["terminal_candidate"] = legacy_terminal_candidate
+            else:
+                state.pop("terminal_candidate", None)
             if event.get("progress_ref"):
                 state["last_progress_ref"] = event["progress_ref"]
             state["last_progress_at"] = event["at"]
