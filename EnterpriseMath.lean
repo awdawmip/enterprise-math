@@ -29,6 +29,7 @@ import EnterpriseMath.Relation.BRCFiniteFrameLift
 import EnterpriseMath.Relation.BRCAtlasPolynomialEmission
 import EnterpriseMath.Relation.BRCAtlasCarryAlgebra
 import EnterpriseMath.Relation.BRCAtlasNormalFormComposition
+import EnterpriseMath.Relation.BRCAtlasNormalFramedPath
 import EnterpriseMath.Relation.BRCFiniteStateLift
 import EnterpriseMath.Relation.BRCFiniteTransition
 import EnterpriseMath.Relation.BRCFrameReachability
