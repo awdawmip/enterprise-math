@@ -23,6 +23,7 @@ noncomputable def schurPortEffective
 
 /-- Subtracting a block transition matrix from the identity acts blockwise with
 negative off-diagonal blocks. -/
+omit [Fintype I] [Fintype B] in
 theorem one_sub_fromBlocks
     (A : Matrix I I R) (X : Matrix I B R)
     (Y : Matrix B I R) (D : Matrix B B R) :
