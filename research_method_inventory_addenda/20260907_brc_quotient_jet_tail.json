@@ -1,0 +1,60 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "RESEARCH_TOOLIZED_GLOBAL_SUBTOOL",
+  "date": "2026-09-07",
+  "admission": {
+    "classification": "TASK_RESEARCH_TOOL_HARVEST",
+    "authority": "direct user continuation of the BRC linear deep-tail and staged square-gap-table program, asking to attack the remaining quotient division",
+    "family_id": "T0_BRC",
+    "foundation_mutation": false,
+    "working_truth_promotion": false,
+    "new_global_tool_family": false,
+    "reason": "Extend the exact order-one linear BRC tail by retaining Euclidean quotient/remainder jets on the five mod-8 source orbits, so an unbounded multiplier tail needs only fifteen seed divisions and bounded exact repairs thereafter."
+  },
+  "methods": [
+    {
+      "method_id": "t0.brc_quotient_jet_tail",
+      "name": "BRC stride-8 quotient/remainder jet tail",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_quotient_jet_tail.py",
+        "tests/test_brc_quotient_jet_tail.py",
+        "experiments/brc_quotient_jet_benchmark.py",
+        "research_notes/BRC_QUOTIENT_JET_TAIL_20260907.md",
+        "research_artifacts/brc_quotient_jet_benchmark_20260907.csv"
+      ],
+      "api": [
+        "QuotientJetOrbit",
+        "QuotientJetTailStep",
+        "QuotientJetTailScanner",
+        "outgoing_sparse_step",
+        "quotient_jet_bound_sufficient",
+        "quotient_jet_tail_threshold",
+        "QuotientJetTailScanner.advance_inplace"
+      ],
+      "triggers": [
+        "BRC quotient jet",
+        "avoid linear-tail division",
+        "stride-8 multiplier quotient recurrence",
+        "quotient remainder transport",
+        "fifteen seed divisions",
+        "division-free BRC tail"
+      ],
+      "capabilities": [
+        "decompose the odd-N mod-8 sparse multiplier stream into five fixed-step residue orbits",
+        "seed every orbit with three exact Euclidean quotient samples, exactly fifteen divisions total",
+        "quadratically extrapolate the next quotient and recover the exact quotient/remainder by at most four signed denominator repairs",
+        "prove the quotient third-difference correction interval [-4,4] under the common linear tail and m>=962h",
+        "retain exact quotient remainder and bounded first/second finite-difference repair coordinates",
+        "avoid a fresh large-integer quotient division and generic quotient-times-denominator product after seeding",
+        "compose with the order-one linear BRC root closure and the staged square-gap residue cascade",
+        "provide an allocation-free in-place scan path for large-integer hot loops",
+        "operate without a multiplier-horizon table or upper multiplier bound"
+      ],
+      "core_law": "For one fixed source residue class modulo 8, let q_m=floor(2hJ_m/(4m+h)) and rho_m be the exact Euclidean remainder. Consecutive visits differ by 8. Under 4m^5>=N and m>=962h, the smooth third-difference plus source-root phase has magnitude below one, while the floor phase contributes strictly between -4 and 4; hence epsilon=q_(m+8)-3q_m+3q_(m-8)-q_(m-16) lies in [-4,4]. Carrying rho and P=(Delta q+Delta^2 q)(D+32) yields the exact provisional residual S=rho+2h(J'-J)-32q-P, normalized by at most four additions/subtractions of D'=D+32. Five orbits times three samples require fifteen seed divisions; all later quotient states are exact recurrence states.",
+      "hard_boundary": "This extends t0.brc_linear_deep_tail and composes with t0.brc_square_gap_cascade; it is not a new top-level tool family. The proof controls exact multiplier-state transport only and does not shorten a Lehman/Hart-style search horizon or establish a factorization-complexity improvement. Finite Python benchmarks favor the jet only for sufficiently large integers (around 4096 bits in the committed environment); small-size routing should retain native division. The exact quotient remainder must not be collapsed to quotient-only or a fitted real trend."
+    }
+  ]
+}
