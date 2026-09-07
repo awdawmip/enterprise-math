@@ -161,7 +161,10 @@ def classify_session(
     last_activity = session.get("last_activity_at")
     if not isinstance(last_activity, str) or not last_activity.strip():
         raise RuntimeStateError("session.last_activity_at is required")
-    stale_at = parse_time(last_activity) + timedelta(minutes=session_liveness_minutes)
+    last_activity_at = parse_time(last_activity)
+    if last_activity_at > now:
+        raise RuntimeStateError("session.last_activity_at cannot be in the future")
+    stale_at = last_activity_at + timedelta(minutes=session_liveness_minutes)
     is_stale = now >= stale_at
     owner_active = owner_lease_active(owner_claim, now)
     if not is_stale:
