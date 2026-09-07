@@ -21,23 +21,23 @@ variable [Monoid W] [Monoid G] [AddMonoid C] [Semiring R]
 variable {ρ : CoordinateAction G C}
 
 /-- Compose two typed arrows when the first target equals the second source. -/
-def then (a b : FramedArrow S W G C ρ) (h : a.target = b.source) :
+def compose (a b : FramedArrow S W G C ρ) (_h : a.target = b.source) :
     FramedArrow S W G C ρ where
   source := a.source
   target := b.target
   path := a.path * b.path
 
-@[simp] theorem then_source (a b : FramedArrow S W G C ρ)
+@[simp] theorem compose_source (a b : FramedArrow S W G C ρ)
     (h : a.target = b.source) :
-    (a.then b h).source = a.source := rfl
+    (a.compose b h).source = a.source := rfl
 
-@[simp] theorem then_target (a b : FramedArrow S W G C ρ)
+@[simp] theorem compose_target (a b : FramedArrow S W G C ρ)
     (h : a.target = b.source) :
-    (a.then b h).target = b.target := rfl
+    (a.compose b h).target = b.target := rfl
 
-@[simp] theorem then_path (a b : FramedArrow S W G C ρ)
+@[simp] theorem compose_path (a b : FramedArrow S W G C ρ)
     (h : a.target = b.source) :
-    (a.then b h).path = a.path * b.path := rfl
+    (a.compose b h).path = a.path * b.path := rfl
 
 /-- Nested state/frame matrix: the only nonzero state-level entry is
 `source → target`, and that entry is the exact finite frame-lift matrix. -/
@@ -62,12 +62,19 @@ serial composition. -/
     (E : FrameEmission W G C R ρ)
     (a b : FramedArrow S W G C ρ) (h : a.target = b.source) :
     a.stateFrameLift E * b.stateFrameLift E =
-      (a.then b h).stateFrameLift E := by
-  unfold stateFrameLift nestedLift
-  rw [← (Matrix.compRingEquiv S G R).map_mul]
-  congr 1
-  subst h
-  simp
+      (a.compose b h).stateFrameLift E := by
+  have hNested :
+      a.nestedLift E * b.nestedLift E = (a.compose b h).nestedLift E := by
+    unfold nestedLift compose
+    rw [← h]
+    rw [Matrix.single_mul_single_same]
+    rw [E.frameLift_mul]
+  calc
+    a.stateFrameLift E * b.stateFrameLift E =
+        Matrix.compRingEquiv S G R (a.nestedLift E * b.nestedLift E) := by
+          exact ((Matrix.compRingEquiv S G R).map_mul _ _).symm
+    _ = Matrix.compRingEquiv S G R ((a.compose b h).nestedLift E) := by rw [hNested]
+    _ = (a.compose b h).stateFrameLift E := rfl
 
 /-- If endpoints do not compose, their category-algebra product is literally the
 zero matrix.  No external error flag or post-processing convention is needed. -/
@@ -76,10 +83,15 @@ zero matrix.  No external error flag or post-processing convention is needed. -/
     (E : FrameEmission W G C R ρ)
     (a b : FramedArrow S W G C ρ) (h : a.target ≠ b.source) :
     a.stateFrameLift E * b.stateFrameLift E = 0 := by
-  unfold stateFrameLift nestedLift
-  rw [← (Matrix.compRingEquiv S G R).map_mul]
-  rw [Matrix.single_mul_single_of_ne _ _ _ _ h]
-  simp
+  have hNested : a.nestedLift E * b.nestedLift E = 0 := by
+    unfold nestedLift
+    exact Matrix.single_mul_single_of_ne _ _ _ _ h _
+  calc
+    a.stateFrameLift E * b.stateFrameLift E =
+        Matrix.compRingEquiv S G R (a.nestedLift E * b.nestedLift E) := by
+          exact ((Matrix.compRingEquiv S G R).map_mul _ _).symm
+    _ = Matrix.compRingEquiv S G R 0 := by rw [hNested]
+    _ = 0 := (Matrix.compRingEquiv S G R).map_zero
 
 end FramedArrow
 
