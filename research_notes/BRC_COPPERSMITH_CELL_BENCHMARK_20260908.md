@@ -1,6 +1,6 @@
 # BRC Activation Frontier — Coppersmith Cell Benchmark
 
-Status: `RESEARCH FRONTIER / EXTERNAL-BASELINE TIGHTENING + EXACT SCALE CONSEQUENCES / NO SPEEDUP CLAIM`
+Status: `RESEARCH FRONTIER / EXTERNAL-BASELINE TIGHTENING + EXACT SCALE CONSEQUENCES + OBSERVER CORRECTION / NO SPEEDUP CLAIM`
 Date: `2026-09-08`
 Parent: `research_notes/BRC_PRECISION_DEFICIT_WINDOW_WALL_FRONTIER_20260908.md`
 Source snapshot before write: `main@bc1960dd56c73c5fce63ba72368c5c7ac062f45d`
@@ -12,6 +12,8 @@ The parent precision-deficit note correctly derived the benchmark for a **square
 That is not the strongest known deterministic interval-search baseline.
 
 Harvey–Hittmeir's deterministic r-power divisor interval method (Research in Number Theory 8 (2022), Article 94), specialized to ordinary factors `r=1`, gives a sharper search cost for a prescribed interval near the balanced factor scale. This note updates the active comparison baseline without invalidating the parent's explicitly backend-specific calculation.
+
+A same-turn observer audit also corrects an initially over-strong provenance warning: inside a certified one-factor zone `U<q`, a collective Boolean OR across many factor-location cells **is sufficient**, provided its arithmetic realization returns a proper gcd on positivity. Cell identity itself is unnecessary because the gcd already is `p`.
 
 ---
 
@@ -69,10 +71,16 @@ This is a natural BRC observer decomposition:
 
 - population: the unresolved factor interval;
 - branches: Coppersmith-size cells;
-- per-cell observer: whether that cell contains a divisor of N;
-- recoalescence goal: find the unique positive cell / factor without visiting all cells.
+- per-cell predicate: whether that cell contains a divisor of N;
+- declared one-factor future operation: return a nontrivial gcd if any cell is positive.
 
-Thus the strongest current target is no longer merely compressing integer products inside one block. It is **collapsing many factor-location cells while retaining enough cell provenance to identify a positive branch**.
+Crucially, if the whole interval is certified below `q`, every positive branch refers to the same hidden prime `p`. Therefore a collective OR is operation-safe: any arithmetic aggregate divisible by `p` iff at least one cell is positive yields
+
+`gcd(aggregate,N)=p`.
+
+No cell label is required after positivity. This is exactly the one-factor Boolean lease from the divisor-lattice parent note applied at the Coppersmith-cell scale.
+
+Thus the strongest current target is **constructing the collective OR/gcd state of many Coppersmith-searchable cells in sublinear-in-cell-count work**, not preserving cell provenance.
 
 ---
 
@@ -140,11 +148,16 @@ This is a heuristic information-count translation of the exact interval-width fo
 
 ## 6. Revised A/B attack split
 
-### A. Cell-collapse constructor
+### A. Collective one-factor cell constructor
 
-Given `Theta(H/N^(1/4))` Coppersmith-searchable cells, evaluate a provenance-preserving collective observer that identifies a positive cell in sublinear-in-cell-count work, without reconstructing a factor by another method.
+Given `Theta(H/N^(1/4))` Coppersmith-searchable cells lying wholly below `q`, construct one aggregate whose gcd with `N` is
 
-A simple OR over cell existence is not enough after positive detection unless the positive cell/factor can be localized without replaying all cells; branch provenance or an exact group-testing repair coordinate is required.
+- `1` when every cell is negative;
+- `p` when any cell is positive,
+
+in sublinear-in-cell-count work.
+
+Because the positive hidden factor is unique in this zone, Boolean OR is sufficient and cell identity is not required. The hard part is constructing that OR without individually running the known polynomial-time cell search on every branch.
 
 ### B. Growing preconditioner
 
@@ -157,17 +170,19 @@ Fixed prefixes, moduli and finite shadow classes are only constant-factor reduct
 
 ---
 
-## 7. BRC observer warning: Boolean cell OR is not sufficient for localization
+## 7. Observer lease and its exact boundary
 
-The previous divisor-lattice note proved that within one certified factor interval, Boolean unit/nonunit is enough **for one threshold test** because a positive gcd returns the factor directly.
+The collective Boolean lease is valid only because the search population is certified to contain at most one prime divisor type of `N`, namely `p` (`U<q`).
 
-If we instead split a wide range into many Coppersmith cells and collapse them all to one Boolean OR, a positive result only says that some cell contains `p`; it does not identify which cell. Future localization therefore requires either:
+If the future search range is widened so that both `p` and `q` may occur in different cells, an anonymous Boolean OR is no longer sufficient to distinguish proper from total support. Then one must restore the divisor-lattice carrier or equivalent factor identity, exactly as proved in the parent quotient note.
 
-- labeled cell provenance;
-- a logarithmic family of separating group tests whose total construction cost is genuinely sublinear;
-- or an aggregate whose value algebraically decodes the positive cell/factor.
+So the correct BRC rule is:
 
-So the global multi-cell observer is stronger than the one-block Boolean lease. Collapsing provenance too early would recreate the exact information-loss mistake BRC policy forbids.
+`ONE_FACTOR_ZONE -> BOOLEAN_CELL_OR_IS_SUFFICIENT`,
+
+`MULTI_FACTOR_ZONE -> RESTORE_DIVISOR_SUPPORT_IDENTITY`.
+
+This correction strengthens rather than weakens the constructor target: within the RSA-270 least-factor range, no provenance overhead can be blamed for failure to accelerate the search.
 
 ---
 
@@ -179,9 +194,9 @@ Kill if:
 
 - it is asymptotically no better than `H/N^(1/4)` polynomial-time cells near `sqrt(N)`;
 - its gain comes from a factor interval that was already supplied as hidden information;
-- it collapses many cells to Boolean support but cannot recover cell identity without replay;
+- its collective OR is implemented by individually evaluating every Coppersmith cell with no sublinear construction;
 - it uses a fixed modular restriction and reports it as a growing candidate-density reduction.
 
-Retain only a new collective cell operator or a growing N-only preconditioner whose full construction cost beats this tightened baseline.
+Retain only a new collective one-factor OR constructor or a growing N-only preconditioner whose full construction cost beats this tightened baseline.
 
 No Foundation promotion, Working Truth promotion, or factorization-speedup claim is made.
