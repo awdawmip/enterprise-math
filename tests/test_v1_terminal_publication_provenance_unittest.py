@@ -3,7 +3,7 @@ import unittest
 from pathlib import Path
 
 from tools import research_task_records
-from tools import research_task_registry
+from control_plane import check_taskbook_publication_provenance as research_task_registry
 
 
 class V1TerminalPublicationProvenanceTests(unittest.TestCase):
@@ -19,7 +19,7 @@ class V1TerminalPublicationProvenanceTests(unittest.TestCase):
             "task_id": meta["task_id"],
             "publication_id": "TP2-TERMINAL-PROVENANCE",
             "taskbook_path": "research_tasks/TERMINAL_V2_PROVENANCE.md",
-            "taskbook_blob_sha1": research_task_registry.blob_sha1(path),
+            "taskbook_blob_sha1": research_task_registry.core.taskbook_blob(path),
             "publication_transaction": research_task_records.PUBLICATION_TRANSACTION_V2,
         }
         return path, meta, [record]

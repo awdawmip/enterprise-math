@@ -4,14 +4,22 @@ import unittest
 from pathlib import Path
 from unittest import mock
 
+from control_plane import research_control_bootstrap as bootstrap
 from tools import research_dispatch as dispatch
 from tools import research_execution_records as executions
 from tools import research_result_records as results
 from tools import research_runtime_guard as guard
+from tools import research_runtime_reducer as runtime_reducer
 from tools import research_task_records as records
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTERED_TASK = "RS-QUADRATIC-PACKET-HIGHER-JET-AUTOMORPHISM-NO-SECTION-INDEPENDENT-AUDIT"
+
+
+def setUpModule():
+    # Public runtime/audit views install exact fault isolation before reading
+    # repository state. Strict validators remain available behind that layer.
+    bootstrap.install(ROOT)
 
 
 def runtime_state(task_id, registration=None):
@@ -58,7 +66,7 @@ def auth(comment_id, *, edited=False):
 
 class RuntimeAuthorizationTests(unittest.TestCase):
     def test_forged_registration_cannot_authorize_unknown_task(self):
-        with self.assertRaisesRegex(guard.RuntimeAuthorizationError, "neither immutably registered"):
+        with self.assertRaisesRegex(guard.RuntimeAuthorizationError, "has no current immutable V2 publication"):
             guard.canonicalize_registration(runtime_state("RS-DEFINITELY-NOT-A-REAL-TASK"), purpose="pre_final", root=ROOT)
 
     def test_caller_registration_state_is_replaced_by_repository_authority(self):
@@ -71,12 +79,12 @@ class RuntimeAuthorizationTests(unittest.TestCase):
         self.assertEqual(REGISTERED_TASK, safe["task_registration"]["registry_key"])
         self.assertTrue(safe["task_registration"]["publication_id"])
 
-    def test_legacy_fresh_redispatch_is_rejected_even_with_forged_registration(self):
+    def test_legacy_registration_cannot_replace_missing_v2_publication(self):
         state = runtime_state(
             "RS-P017-GLOBAL-CAPACITY",
             registration={"state": "LEGACY_BASELINE_REGISTERED", "fresh_redispatch": True},
         )
-        with self.assertRaisesRegex(guard.RuntimeAuthorizationError, "fresh redispatch"):
+        with self.assertRaisesRegex(guard.RuntimeAuthorizationError, "has no current immutable V2 publication"):
             guard.canonicalize_registration(state, purpose="pre_final", root=ROOT)
 
 
@@ -140,18 +148,36 @@ class UnifiedDispatchTests(unittest.TestCase):
         value.update(overrides)
         return value
 
-    def test_registered_and_legacy_tasks_share_one_view_without_duplicates(self):
+    def test_public_view_preserves_v2_tasks_and_blocked_faults_without_legacy_fallback(self):
         definitions = dispatch.merged_definitions(ROOT)
         by_id = {item["task_id"]: item for item in definitions}
         self.assertEqual(len(definitions), len(by_id))
         self.assertEqual("IMMUTABLE_TASK_RECORD", by_id[REGISTERED_TASK]["registration_source"])
-        self.assertEqual("FROZEN_LEGACY_BASELINE", by_id["RS-P017-GLOBAL-CAPACITY"]["registration_source"])
+        self.assertNotIn("RS-P017-GLOBAL-CAPACITY", by_id)
+        current = records.current_records(ROOT)
+        for task in definitions:
+            with self.subTest(task_id=task["task_id"]):
+                if task["registration_source"] == "IMMUTABLE_TASK_RECORD":
+                    self.assertIn(task["task_id"], current)
+                    self.assertEqual(current[task["task_id"]]["publication_id"], task["publication_id"])
+                else:
+                    # Exact public quarantine rows are visible as blocked
+                    # diagnostics, never as a legacy publication fallback.
+                    self.assertTrue(task["registration_source"].endswith("_QUARANTINE"))
+                    self.assertEqual("BLOCKED", task["base_state"])
+                    blocked = runtime_reducer.reduce_task(
+                        task, [], default_lease_minutes=120,
+                        now=runtime_reducer.parse_time("2026-09-07T00:00:00+00:00"),
+                    )
+                    self.assertEqual("BLOCKED", blocked["dispatch_state"])
+                    self.assertIsNone(blocked["claim_id"])
+                    self.assertIsNone(blocked["researcher_id"])
 
     def test_registered_task_is_dispatchable_without_static_scheduler_row(self):
         state = dispatch.reduce_definition(
             self.registered_definition(),
             [],
-            now=dispatch.research_scheduler.parse_time("2026-08-25T22:20:00+08:00"),
+            now=runtime_reducer.parse_time("2026-08-25T22:20:00+08:00"),
             root=ROOT,
         )
         self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
@@ -163,7 +189,7 @@ class UnifiedDispatchTests(unittest.TestCase):
         state = dispatch.reduce_definition(
             self.registered_definition(),
             [event],
-            now=dispatch.research_scheduler.parse_time("2026-08-25T22:02:00+08:00"),
+            now=runtime_reducer.parse_time("2026-08-25T22:02:00+08:00"),
             root=ROOT,
         )
         self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
@@ -183,7 +209,7 @@ class UnifiedDispatchTests(unittest.TestCase):
         state = dispatch.reduce_definition(
             self.registered_definition(),
             events,
-            now=dispatch.research_scheduler.parse_time("2026-08-25T22:02:00+08:00"),
+            now=runtime_reducer.parse_time("2026-08-25T22:02:00+08:00"),
             root=ROOT,
         )
         self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
@@ -195,7 +221,7 @@ class UnifiedDispatchTests(unittest.TestCase):
             state = dispatch.reduce_definition(
                 self.registered_definition(),
                 [event],
-                now=dispatch.research_scheduler.parse_time("2026-08-25T22:02:00+08:00"),
+                now=runtime_reducer.parse_time("2026-08-25T22:02:00+08:00"),
                 root=ROOT,
             )
         self.assertEqual("LEASED", state["dispatch_state"])
@@ -210,7 +236,7 @@ class UnifiedDispatchTests(unittest.TestCase):
             state = dispatch.reduce_definition(
                 self.registered_definition(),
                 [event],
-                now=dispatch.research_scheduler.parse_time("2026-08-25T22:02:00+08:00"),
+                now=runtime_reducer.parse_time("2026-08-25T22:02:00+08:00"),
                 root=ROOT,
             )
         self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
@@ -221,15 +247,18 @@ class UnifiedDispatchTests(unittest.TestCase):
         state = dispatch.reduce_definition(
             self.registered_definition(),
             [event],
-            now=dispatch.research_scheduler.parse_time("2026-08-25T22:02:00+08:00"),
+            now=runtime_reducer.parse_time("2026-08-25T22:02:00+08:00"),
             root=ROOT,
         )
         self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
-        self.assertTrue(any("edited scheduler event" in item["reason"] for item in state["ignored_events"]))
+        self.assertTrue(any("edited runtime event is not authority" in item["reason"] for item in state["ignored_events"]))
+        self.assertIsNone(state["claim_id"])
 
     def test_registered_done_without_reviewed_result_is_ignored_after_valid_intent(self):
+        task = self.registered_definition()
         intent = {
             "task_id": REGISTERED_TASK,
+            "publication_id": task["publication_id"],
             "claim_id": "c1",
             "researcher_id": "EM-QPHJA-ABC123",
             "owner_lease_minutes": 120,
@@ -240,12 +269,14 @@ class UnifiedDispatchTests(unittest.TestCase):
         ]
         with mock.patch.object(dispatch.research_execution_records, "intent_for_claim", return_value=intent):
             state = dispatch.reduce_definition(
-                self.registered_definition(),
+                task,
                 events,
-                now=dispatch.research_scheduler.parse_time("2026-08-25T22:02:00+08:00"),
+                now=runtime_reducer.parse_time("2026-08-25T22:02:00+08:00"),
                 root=ROOT,
             )
         self.assertEqual("LEASED", state["dispatch_state"])
+        self.assertEqual("c1", state["claim_id"])
+        self.assertEqual("EM-QPHJA-ABC123", state["researcher_id"])
         self.assertTrue(any("review" in item["reason"] for item in state["ignored_events"]))
 
     def test_unreviewed_frozen_result_is_not_researcher_dispatchable(self):
@@ -259,7 +290,7 @@ class UnifiedDispatchTests(unittest.TestCase):
             state = dispatch.reduce_definition(
                 self.registered_definition(),
                 [],
-                now=dispatch.research_scheduler.parse_time("2026-08-25T22:02:00+08:00"),
+                now=runtime_reducer.parse_time("2026-08-25T22:02:00+08:00"),
                 root=ROOT,
             )
         self.assertEqual("AWAITING_REVIEW", state["dispatch_state"])

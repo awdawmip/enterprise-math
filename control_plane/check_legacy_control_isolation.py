@@ -15,6 +15,7 @@ if str(ROOT) not in sys.path:
 from control_plane import research_publication_fault_isolation  # noqa: E402
 from control_plane import research_task_integrity_fault_isolation  # noqa: E402
 from control_plane import research_task_semantic_integrity_fault_isolation  # noqa: E402
+from tools import research_dispatch  # noqa: E402
 
 ARCHIVE_BRANCH = "archive/legacy-control-plane-pre-v2-20260902"
 ARCHIVE_SHA = "ce629e24e5af59128e25af87075c6622413684e0"
@@ -127,6 +128,63 @@ def _check_semantic_writer() -> list[str]:
     return errors
 
 
+def _check_dispatch_event_boundary() -> list[str]:
+    """Probe the public loader, including wrappers, without applying any event."""
+    errors: list[str] = []
+    event = {
+        "schema": research_dispatch.EVENT_SCHEMA,
+        "event": "PROGRESS",
+        "task_id": "RS-CONTROL-EVENT-BOUNDARY-CANARY",
+        "actor": "local-checker-fixture",
+        "at": "1900-01-01T00:00:00Z",
+    }
+    comment = {
+        "id": 1,
+        "issue_url": research_dispatch.GITHUB_ISSUE_URL,
+        "user": {"login": "control-boundary-fixture"},
+        "created_at": "2026-09-07T00:00:00Z",
+        "updated_at": "2026-09-07T00:00:00Z",
+        "body": json.dumps(event),
+    }
+    normalized = dict(event, _github={
+        "server_authenticated": True,
+        "control_authorized": True,
+        "comment_id": 1,
+    })
+    rejected_inputs = {
+        "bare runtime events": [event],
+        "caller-supplied normalized envelopes": [normalized],
+        "mixed raw comments and bare events": [comment, event],
+    }
+    with TemporaryDirectory(prefix="em-dispatch-boundary-") as temp:
+        path = Path(temp) / "events.json"
+        for label, payload in rejected_inputs.items():
+            path.write_text(json.dumps(payload), encoding="utf-8")
+            try:
+                research_dispatch.load_events(path)
+            except research_dispatch.DispatchError:
+                continue
+            except Exception as exc:
+                errors.append(f"live dispatch boundary probe failed for {label}: {exc}")
+            else:
+                errors.append(f"live dispatch does not fail closed on {label}")
+        path.write_text(json.dumps([comment]), encoding="utf-8")
+        try:
+            parsed = research_dispatch.load_events(path)
+            valid = (
+                len(parsed) == 1
+                and parsed[0].get("task_id") == event["task_id"]
+                and parsed[0].get("at") == "2026-09-07T00:00:00+00:00"
+                and parsed[0].get("_github", {}).get("comment_id") == 1
+                and parsed[0].get("_github", {}).get("control_authorized") is False
+            )
+            if not valid:
+                errors.append("live dispatch fails raw-comment provenance/authority preservation")
+        except Exception as exc:
+            errors.append(f"live dispatch rejects a valid raw-comment fixture: {exc}")
+    return errors
+
+
 def check() -> list[str]:
     errors: list[str] = []
     try:
@@ -175,8 +233,7 @@ def check() -> list[str]:
     dispatch = (ROOT / "tools/research_dispatch.py").read_text(encoding="utf-8")
     if "FROZEN_LEGACY_BASELINE" in dispatch or "LEGACY_BARE_EVENT_REPLAY" in dispatch:
         errors.append("live dispatch still contains legacy fallback semantics")
-    if "raw authenticated Issue #240 comment objects" not in dispatch:
-        errors.append("live dispatch does not fail closed on bare runtime events")
+    errors.extend(_check_dispatch_event_boundary())
     guard = (ROOT / "control_plane/research_runtime_guard_core.py").read_text(
         encoding="utf-8"
     )

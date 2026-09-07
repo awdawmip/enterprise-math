@@ -63,7 +63,7 @@ def load_method_inventory() -> dict[str, Any]:
         for path in sorted(METHOD_INVENTORY_ADDENDA_ROOT.glob("*.json")):
             shard = load_json(path)
             methods.extend(shard.get("methods", []))
-            addenda.append(str(path.relative_to(ROOT)))
+            addenda.append(path.relative_to(ROOT).as_posix())
     ids = [str(method.get("method_id", "")) for method in methods]
     if len(ids) != len(set(ids)):
         duplicates = sorted({method_id for method_id in ids if ids.count(method_id) > 1})
@@ -161,7 +161,7 @@ def _module_record(path: Path) -> dict[str, Any] | None:
         "id": f"module:{path.stem}",
         "name": path.name,
         "description": doc.split("\n\n", 1)[0],
-        "source_ref": str(path.relative_to(ROOT)),
+        "source_ref": path.relative_to(ROOT).as_posix(),
         "api": functions + classes,
         "triggers": [path.stem.replace("_", " ")],
         "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY",

@@ -281,13 +281,22 @@ class RuntimeWrapperTests(unittest.TestCase):
             "authorization_authority": "CURRENT_AUTHORIZED_WINNING_ISSUE_240_CLAIM",
         }
 
-    def test_ordinary_authorization_is_byte_semantically_unchanged(self):
+    def test_ordinary_authorization_is_preserved_with_startup_transport(self):
         base = self.core_result()
         with mock.patch.object(guard._core, "authorize_execution", return_value=dict(base)), mock.patch.object(
             guard._firewall, "execution_gate", return_value=None
         ):
             out = guard.authorize_execution({"task": {"task_id": "RS-T"}}, events=[])
-        self.assertEqual(base, out)
+        self.assertEqual(set(base) | {"startup_transport"}, set(out))
+        self.assertEqual(base, {key: out[key] for key in base})
+        transport = out["startup_transport"]
+        self.assertEqual("ENTERPRISE_MATH_RESEARCH_STARTUP_TRANSPORT_V2", transport["schema"])
+        self.assertEqual("NONE_CONTROL_TRANSPORT_ONLY", transport["taskbook_policy_digest_impact"])
+        availability = transport["task_availability_authority"]
+        self.assertEqual("CANONICAL_RESEARCH_CONTROL_DISPATCH_OUTPUT_ONLY", availability["authority"])
+        self.assertFalse(availability["manual_override_allowed"])
+        self.assertIn("WINNING_CLAIM_AND_OWNER_SCOPE", transport["conversation_rebase"]["preserve"])
+        self.assertIn("FROZEN_SOURCE_AND_BLINDNESS_RESTRICTIONS", transport["conversation_rebase"]["preserve"])
 
     def test_blind_gate_is_composed_after_winning_claim(self):
         with mock.patch.object(guard._core, "authorize_execution", return_value=self.core_result()), mock.patch.object(

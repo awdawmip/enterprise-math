@@ -2,7 +2,8 @@ import unittest
 from unittest import mock
 
 from tools import research_dispatch as dispatch
-from tools import research_scheduler as scheduler
+from tools import research_dispatch_core as dispatch_core
+from tools import research_runtime_reducer as runtime_reducer
 
 
 TASK = {
@@ -123,12 +124,14 @@ class DispatchCohortOverlayTests(unittest.TestCase):
                 "last_progress_at": "2026-08-27T00:00:00+00:00",
             },
         ]
-        with mock.patch.object(dispatch, "load_json", return_value=policy), mock.patch.object(
-            dispatch, "effective_states", return_value=states
+        with mock.patch.object(
+            dispatch_core.research_runtime_reducer, "load_policy", return_value=policy
+        ), mock.patch.object(
+            dispatch_core, "effective_states", return_value=states
         ):
             chosen = dispatch.select_task(
                 [],
-                now=scheduler.parse_time("2026-08-27T01:00:00+00:00"),
+                now=runtime_reducer.parse_time("2026-08-27T01:00:00+00:00"),
                 kind="RESEARCH",
                 root=dispatch.ROOT,
             )

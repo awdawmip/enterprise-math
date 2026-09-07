@@ -3,7 +3,7 @@ import unittest
 from pathlib import Path
 
 from tools import research_task_records as records
-from tools import research_task_registry as registry
+from control_plane import check_taskbook_publication_provenance as registry
 
 
 class ExactV2AuthorityCompatibilityTests(unittest.TestCase):
@@ -21,7 +21,7 @@ class ExactV2AuthorityCompatibilityTests(unittest.TestCase):
             "publication_transaction": records.PUBLICATION_TRANSACTION_V2,
             "task_id": "RS-T",
             "taskbook_path": "research_tasks/T.md",
-            "taskbook_blob_sha1": registry.blob_sha1(path),
+            "taskbook_blob_sha1": registry.core.taskbook_blob(path),
         }
 
     def test_exact_v2_publication_is_valid_compatibility_authority_even_if_nonoperational(self):

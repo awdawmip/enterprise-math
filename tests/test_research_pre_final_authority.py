@@ -169,13 +169,40 @@ class RepositoryDerivedPreFinalTests(unittest.TestCase):
             authority.research_task_records,
             "current_records",
         ) as current:
-            out = authority.pre_final_gate(legacy)
+            safe, closure = authority.canonical_pre_final_state(legacy)
+            with self.assertRaisesRegex(authority.research_runtime.RuntimeStateError, "LEGACY_BASELINE_REGISTERED"):
+                authority.pre_final_gate(legacy)
         current.assert_not_called()
-        self.assertFalse(out["canonical_final_allowed"])
+        self.assertFalse(closure["derived_parent_complete"])
+        self.assertFalse(closure["final_permission_granted"])
+        self.assertEqual("OPEN", safe["parent_objective"]["status"])
         self.assertEqual(
             "LEGACY_PARENT_OBJECTIVE_AUTHORITY_UNBOUND",
-            out["parent_closure"]["state"],
+            closure["state"],
         )
+
+    def test_registered_task_without_parent_binding_cannot_self_declare_complete(self):
+        with patch.object(
+            authority.research_runtime_guard,
+            "canonicalize_registration",
+            side_effect=self.canonicalized,
+        ), patch.object(
+            authority.research_task_records,
+            "current_records",
+            return_value={"RS-T1": {"task_id": "RS-T1", "publication_id": "TP2-T1"}},
+        ), patch.object(
+            authority.research_parent_closure,
+            "derive_objective_closure",
+        ) as derive:
+            out = authority.pre_final_gate(self.state())
+            terminal = authority.apply_terminal_event(self.state(), "PARENT_OBJECTIVE_COMPLETE")
+        derive.assert_not_called()
+        self.assertFalse(out["canonical_final_allowed"])
+        self.assertEqual("CURRENT_TASK_PARENT_OBJECTIVE_MISSING", out["parent_closure"]["state"])
+        self.assertFalse(out["caller_supplied_parent_status_is_authority"])
+        self.assertFalse(terminal["parent_terminal_event_authorized"])
+        self.assertEqual("OPEN", terminal["parent_objective"]["status"])
+        self.assertFalse(terminal["final_allowed"])
 
     def test_explicit_user_stop_remains_interaction_boundary_with_parent_open(self):
         state = self.state(

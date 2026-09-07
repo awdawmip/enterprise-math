@@ -5,7 +5,7 @@ from pathlib import Path
 from unittest import mock
 
 from tools import research_lane_claims as lane_claims
-from tools import research_scheduler as scheduler
+from tools import research_runtime_reducer as runtime_reducer
 
 
 def write_json(path: Path, value: dict):
@@ -147,7 +147,7 @@ class LaneScopedClaimTests(unittest.TestCase):
                 "research_returns/parallel/EC-1/route-b/result.md",
             ),
         ]
-        now = scheduler.parse_time("2026-08-27T00:02:00+00:00")
+        now = runtime_reducer.parse_time("2026-08-27T00:02:00+00:00")
         with self.patch_definition():
             a = lane_claims.reduce_lane("RS-T", "EC-1", "route-a", events, now=now, root=self.root)
             b = lane_claims.reduce_lane("RS-T", "EC-1", "route-b", events, now=now, root=self.root)
@@ -179,7 +179,7 @@ class LaneScopedClaimTests(unittest.TestCase):
                 "EC-1",
                 "route-a",
                 events,
-                now=scheduler.parse_time("2026-08-27T00:02:00+00:00"),
+                now=runtime_reducer.parse_time("2026-08-27T00:02:00+00:00"),
                 root=self.root,
             )
         self.assertEqual("first", state["claim_id"])
@@ -199,7 +199,7 @@ class LaneScopedClaimTests(unittest.TestCase):
                 "EC-1",
                 "route-a",
                 [event],
-                now=scheduler.parse_time("2026-08-27T00:02:00+00:00"),
+                now=runtime_reducer.parse_time("2026-08-27T00:02:00+00:00"),
                 root=self.root,
             )
         self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
@@ -219,7 +219,7 @@ class LaneScopedClaimTests(unittest.TestCase):
                 "EC-1",
                 "route-a",
                 [event],
-                now=scheduler.parse_time("2026-08-27T00:02:00+00:00"),
+                now=runtime_reducer.parse_time("2026-08-27T00:02:00+00:00"),
                 root=self.root,
             )
         self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
@@ -239,7 +239,7 @@ class LaneScopedClaimTests(unittest.TestCase):
                 "EC-1",
                 "route-b",
                 [event],
-                now=scheduler.parse_time("2026-08-27T00:02:00+00:00"),
+                now=runtime_reducer.parse_time("2026-08-27T00:02:00+00:00"),
                 root=self.root,
             )
         self.assertEqual("TP2-P2", binding["publication_id"])

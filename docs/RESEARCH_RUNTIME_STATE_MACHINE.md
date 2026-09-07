@@ -12,6 +12,8 @@ Canonical tools:
 
 - `research_control_dispatch.py` — recovery-aware top-level router;
 - `tools/research_dispatch.py` — fresh task selector;
+- `tools/research_dispatch_core.py` — implementation behind the current dispatch facade, not an additional live entrypoint;
+- `tools/research_driver_queue.py` — read-only discovery of frozen Results awaiting Driver review, review synthesis or follow-up; it creates no claim or review authority;
 - `tools/research_lane_dispatch.py` — active-cohort lane selector;
 - `tools/research_lane_claims.py` — exact lane-claim ownership and conflict surface;
 - `tools/research_cohort_runtime.py` — exact cohort/lane runtime ownership surface;

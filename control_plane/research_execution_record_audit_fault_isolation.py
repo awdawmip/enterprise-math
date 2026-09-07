@@ -8,12 +8,19 @@ is independently proven non-live by either:
 * a frozen result bound to the same task/publication/execution_record_id; or
 * the immutable execution record's own TERMINAL_EXECUTION state.
 
+An explicitly registered legacy post-execution payload may instead use its
+literal record_id only inside this audit layer: both its exact bytes and one
+frozen result's exact bytes must be pinned, and that result must bind the full
+execution identity and include the exact payload path/blob in its output manifest.
+The missing canonical execution_record_id remains a strict error, not an alias.
+
 The registry is never consulted by intent lookup, ownership, dispatch, result authority,
 or review authority.
 """
 from __future__ import annotations
 
 import json
+import hashlib
 import re
 import sys
 from pathlib import Path
@@ -31,7 +38,8 @@ SCHEMA = "ENTERPRISE_MATH_EXECUTION_RECORD_AUDIT_QUARANTINE_V1"
 STATE = "NONLIVE_IMMUTABLE_EXECUTION_AUDIT_FAULT"
 BASIS_RESULT = "BOUND_FROZEN_RESULT_EXISTS"
 BASIS_TERMINAL = "TERMINAL_EXECUTION_STATE"
-BASES = {BASIS_RESULT, BASIS_TERMINAL}
+BASIS_LEGACY_RESULT = "BOUND_FROZEN_RESULT_EXACT_LEGACY_RECORD"
+BASES = {BASIS_RESULT, BASIS_TERMINAL, BASIS_LEGACY_RESULT}
 SHA1 = re.compile(r"^sha1:[0-9a-f]{40}$")
 
 
@@ -60,6 +68,82 @@ def _result_records(root: Path) -> list[dict[str, Any]]:
             value["_record_path"] = path.relative_to(root).as_posix()
             out.append(value)
     return out
+
+
+def _pinned_object(root: Path, relative: Any, pin: Any, directory: str, qid: str) -> dict[str, Any]:
+    if not isinstance(relative, str) or not relative or "\\" in relative:
+        raise ExecutionAuditIsolationError(f"{qid}: exact source path invalid")
+    path = Path(relative)
+    if path.is_absolute() or ".." in path.parts or len(path.parts) != 3 or path.parts[0] != directory:
+        raise ExecutionAuditIsolationError(f"{qid}: exact source path escapes {directory}")
+    target = root / path
+    if not target.resolve().is_relative_to(root.resolve()):
+        raise ExecutionAuditIsolationError(f"{qid}: exact source resolves outside repository")
+    if not isinstance(pin, str) or not SHA1.fullmatch(pin):
+        raise ExecutionAuditIsolationError(f"{qid}: exact source blob pin invalid")
+    raw = target.read_bytes()
+    if record_core.git_blob_sha1_bytes(raw) != pin:
+        raise ExecutionAuditIsolationError(f"{qid}: exact source blob drift: {relative}")
+    value = json.loads(raw)
+    if not isinstance(value, dict):
+        raise ExecutionAuditIsolationError(f"{qid}: exact source must be a JSON object")
+    value["_record_path"] = relative
+    return value
+
+
+def _legacy_record(row: dict[str, Any], root: Path) -> dict[str, Any]:
+    qid = row["quarantine_id"]
+    record = _pinned_object(
+        root, row["record_path"], row["record_blob_sha1"], "research_execution_records", qid,
+    )
+    if "execution_record_id" in record:
+        raise ExecutionAuditIsolationError(f"{qid}: legacy basis requires canonical execution_record_id to be absent")
+    if record.get("record_schema") != research_execution_records.SCHEMA:
+        raise ExecutionAuditIsolationError(f"{qid}: legacy execution record schema mismatch")
+    if record.get("record_id") != row["execution_record_id"]:
+        raise ExecutionAuditIsolationError(f"{qid}: literal legacy record_id mismatch")
+    return record
+
+
+def _validate_legacy_result(row: dict[str, Any], record: dict[str, Any], root: Path) -> None:
+    qid = row["quarantine_id"]
+    result = _pinned_object(
+        root, row.get("result_record_path"), row.get("result_record_blob_sha1"),
+        "research_result_records", qid,
+    )
+    result_id = row.get("result_id")
+    if not isinstance(result_id, str) or not result_id or result.get("result_id") != result_id:
+        raise ExecutionAuditIsolationError(f"{qid}: frozen result identity mismatch")
+    if result.get("record_schema") != "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1":
+        raise ExecutionAuditIsolationError(f"{qid}: frozen result schema mismatch")
+    if result.get("execution_record_id") != row["execution_record_id"]:
+        raise ExecutionAuditIsolationError(f"{qid}: frozen result execution binding mismatch")
+    for field in (
+        "task_id", "publication_id", "claim_id", "researcher_id",
+        "execution_branch", "execution_branch_base",
+    ):
+        value = record.get(field)
+        if not isinstance(value, str) or not value.strip() or result.get(field) != value:
+            raise ExecutionAuditIsolationError(f"{qid}: frozen result {field} binding mismatch")
+    for field in ("frozen_at", "terminal_verdict"):
+        if not isinstance(result.get(field), str) or not result[field].strip():
+            raise ExecutionAuditIsolationError(f"{qid}: frozen result lacks {field}")
+    if result["terminal_verdict"] != record.get("terminal_verdict"):
+        raise ExecutionAuditIsolationError(f"{qid}: frozen result terminal verdict differs from legacy payload")
+    manifest = result.get("output_manifest")
+    if not isinstance(manifest, list) or any(not isinstance(item, dict) for item in manifest):
+        raise ExecutionAuditIsolationError(f"{qid}: frozen result output_manifest invalid")
+    paths = [item.get("path") for item in manifest]
+    if any(not isinstance(path, str) or not path for path in paths) or len(set(paths)) != len(paths):
+        raise ExecutionAuditIsolationError(f"{qid}: frozen result output_manifest paths invalid/duplicated")
+    matches = [item for item in manifest if item["path"] == row["record_path"]]
+    if len(matches) != 1 or matches[0].get("git_blob_sha1") != row["record_blob_sha1"]:
+        raise ExecutionAuditIsolationError(f"{qid}: frozen result manifest lacks exact legacy record path/blob")
+    declared_sha256 = matches[0].get("sha256")
+    if declared_sha256 is not None:
+        actual_sha256 = "sha256:" + hashlib.sha256((root / row["record_path"]).read_bytes()).hexdigest()
+        if declared_sha256 != actual_sha256:
+            raise ExecutionAuditIsolationError(f"{qid}: frozen result manifest legacy record SHA256 mismatch")
 
 
 def validated_rows(root: Path = ROOT) -> list[dict[str, Any]]:
@@ -118,7 +202,8 @@ def validated_rows(root: Path = ROOT) -> list[dict[str, Any]]:
             if row.get(flag) is not False:
                 raise ExecutionAuditIsolationError(f"{qid}: cannot grant {flag}")
 
-        record = executions.get(erid)
+        basis = row["nonlive_basis"]
+        record = _legacy_record(row, root) if basis == BASIS_LEGACY_RESULT else executions.get(erid)
         if record is None:
             raise ExecutionAuditIsolationError(f"{qid}: unknown execution_record_id {erid}")
         if record.get("task_id") != task_id or record.get("publication_id") != publication_id:
@@ -134,7 +219,6 @@ def validated_rows(root: Path = ROOT) -> list[dict[str, Any]]:
                 f"{qid}: execution record blob drift; declared={declared_blob} actual={actual_blob}"
             )
 
-        basis = row["nonlive_basis"]
         if basis == BASIS_TERMINAL:
             if record.get("record_state") != "TERMINAL_EXECUTION":
                 raise ExecutionAuditIsolationError(f"{qid}: execution record is not TERMINAL_EXECUTION")
@@ -156,6 +240,8 @@ def validated_rows(root: Path = ROOT) -> list[dict[str, Any]]:
                 raise ExecutionAuditIsolationError(
                     f"{qid}: no frozen terminal result binds exact task/publication/execution record"
                 )
+        elif basis == BASIS_LEGACY_RESULT:
+            _validate_legacy_result(row, record, root)
 
         seen_qids.add(qid)
         seen_execs.add(erid)

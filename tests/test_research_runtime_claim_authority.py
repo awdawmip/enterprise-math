@@ -2,13 +2,19 @@ import unittest
 from pathlib import Path
 from unittest import mock
 
+from control_plane import research_control_bootstrap as bootstrap
 from tools import research_runtime_guard as guard
-from tools import research_scheduler as scheduler
+from tools import research_runtime_reducer as runtime_reducer
 from tools import research_task_records as records
 
 
 ROOT = Path(__file__).resolve().parents[1]
 TASK_ID = "RS-QUADRATIC-PACKET-HIGHER-JET-AUTOMORPHISM-NO-SECTION-INDEPENDENT-AUDIT"
+
+
+def setUpModule():
+    # Match the public control entrypoint's exact, validated operational view.
+    bootstrap.install(ROOT)
 
 
 def state(owner_claim=None):
@@ -84,7 +90,7 @@ class RegisteredRuntimeClaimAuthorityTests(unittest.TestCase):
             guard.authorize_execution(
                 state(),
                 events=[claim(authorized=False)],
-                now=scheduler.parse_time("2026-08-26T05:01:00+00:00"),
+                now=runtime_reducer.parse_time("2026-08-26T05:01:00+00:00"),
                 root=ROOT,
             )
 
@@ -93,7 +99,7 @@ class RegisteredRuntimeClaimAuthorityTests(unittest.TestCase):
             guard.authorize_execution(
                 state(),
                 events=[claim()],
-                now=scheduler.parse_time("2026-08-26T08:00:00+00:00"),
+                now=runtime_reducer.parse_time("2026-08-26T08:00:00+00:00"),
                 root=ROOT,
             )
 
@@ -102,7 +108,7 @@ class RegisteredRuntimeClaimAuthorityTests(unittest.TestCase):
             guard.authorize_execution(
                 state({"claim_id": "forged-other-claim"}),
                 events=[claim()],
-                now=scheduler.parse_time("2026-08-26T05:01:00+00:00"),
+                now=runtime_reducer.parse_time("2026-08-26T05:01:00+00:00"),
                 root=ROOT,
             )
 
@@ -110,7 +116,7 @@ class RegisteredRuntimeClaimAuthorityTests(unittest.TestCase):
         result = guard.authorize_execution(
             state(),
             events=[claim()],
-            now=scheduler.parse_time("2026-08-26T05:01:00+00:00"),
+            now=runtime_reducer.parse_time("2026-08-26T05:01:00+00:00"),
             root=ROOT,
         )
         binding = result["execution_binding"]

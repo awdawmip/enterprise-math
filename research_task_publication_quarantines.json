@@ -2,5 +2,83 @@
   "schema": "ENTERPRISE_MATH_TASK_PUBLICATION_FORK_QUARANTINE_V1",
   "status": "ACTIVE",
   "purpose": "Fail closed on an unresolved immutable-publication fork without allowing one task-local metadata conflict to deny service to the global dispatch view. This is control-plane isolation only and selects no publication as operational.",
-  "quarantines": []
+  "quarantines": [
+    {
+      "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+      "publication_ids": [
+        "TP2-3F6A92D8C1E740B5A2C9",
+        "TP2-4A84B81FD5CAB8CD0359",
+        "TP2-FBDBDBE1C5BDF65F97A0"
+      ],
+      "state": "UNRESOLVED_PUBLICATION_FORK",
+      "operational_publication_id": null,
+      "isolation_scope": "CONTROL_PLANE_ONLY",
+      "reason": "Owner-directed fail-closed repair of a main@16cc5663 baseline fault: the withdrawn operational resolution lacks the required parallel_synthesis_id after two reference passes. Preserve every immutable publication and Result as evidence; select no head until the existing parallel-publication contract is satisfied. Exact head and withdrawn-resolution evidence: research_notes/OWNER_UNRESOLVED_PUBLICATION_FORK_ISOLATION_20260907.md.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    },
+    {
+      "task_id": "RS-P000-PHILOSOPHY-FIRST-RETURN-PROFILE-1WL-N13-COLLISION-FRONTIER",
+      "publication_ids": [
+        "TP2-2BB590EA80230A7A7D4C",
+        "TP2-6C812E92A7C937795A59"
+      ],
+      "state": "UNRESOLVED_PUBLICATION_FORK",
+      "operational_publication_id": null,
+      "isolation_scope": "CONTROL_PLANE_ONLY",
+      "reason": "Owner-directed fail-closed repair of a main@16cc5663 baseline fault: the withdrawn operational resolution lacks the required parallel_synthesis_id after two reference passes. Preserve every immutable publication and Result as evidence; select no head until the existing parallel-publication contract is satisfied. Exact head and withdrawn-resolution evidence: research_notes/OWNER_UNRESOLVED_PUBLICATION_FORK_ISOLATION_20260907.md.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    },
+    {
+      "task_id": "RS-P022-OBSERVATION-HISTORY",
+      "publication_ids": [
+        "TP2-2346F5D3E731ED56DB0A",
+        "TP2-D78DBA0243911E0363FA",
+        "TP2-DE338F269CA11E9BC01B"
+      ],
+      "state": "UNRESOLVED_PUBLICATION_FORK",
+      "operational_publication_id": null,
+      "isolation_scope": "CONTROL_PLANE_ONLY",
+      "reason": "Owner-directed fail-closed repair of a main@16cc5663 baseline fault: the withdrawn operational resolution lacks the required parallel_synthesis_id after two reference passes. Preserve every immutable publication and Result as evidence; select no head until the existing parallel-publication contract is satisfied. Exact head and withdrawn-resolution evidence: research_notes/OWNER_UNRESOLVED_PUBLICATION_FORK_ISOLATION_20260907.md.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    },
+    {
+      "task_id": "RS-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M-PROOF",
+      "publication_ids": [
+        "TP2-3EAC29B49F71ABB92BEA",
+        "TP2-5547117E54D7A556279B"
+      ],
+      "state": "UNRESOLVED_PUBLICATION_FORK",
+      "operational_publication_id": null,
+      "isolation_scope": "CONTROL_PLANE_ONLY",
+      "reason": "Owner-directed fail-closed repair of a main@16cc5663 baseline fault: the withdrawn operational resolution lacks the required parallel_synthesis_id after two reference passes. Preserve every immutable publication and Result as evidence; select no head until the existing parallel-publication contract is satisfied. Exact head and withdrawn-resolution evidence: research_notes/OWNER_UNRESOLVED_PUBLICATION_FORK_ISOLATION_20260907.md.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    },
+    {
+      "task_id": "RS-R043C4-NATIVE-INTERFACE-LINK-SEPARATOR-CLOSURE",
+      "publication_ids": [
+        "TP2-9D0A43C4F217B6E8C531",
+        "TP2-A63015C2EB99D00F2500"
+      ],
+      "state": "UNRESOLVED_PUBLICATION_FORK",
+      "operational_publication_id": null,
+      "isolation_scope": "CONTROL_PLANE_ONLY",
+      "reason": "Owner-directed fail-closed repair of a main@16cc5663 baseline fault: the withdrawn operational resolution lacks the required parallel_synthesis_id after two reference passes. Preserve every immutable publication and Result as evidence; select no head until the existing parallel-publication contract is satisfied. Exact head and withdrawn-resolution evidence: research_notes/OWNER_UNRESOLVED_PUBLICATION_FORK_ISOLATION_20260907.md.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    }
+  ]
 }
