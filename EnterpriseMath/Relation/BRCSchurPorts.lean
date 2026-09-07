@@ -6,7 +6,7 @@ namespace EnterpriseMath.BranchRecoalescence
 open Matrix
 
 variable {I B R : Type*}
-variable [Fintype I] [Fintype B] [DecidableEq I] [DecidableEq B]
+variable [DecidableEq I] [DecidableEq B]
 variable [CommRing R]
 
 /-- Exact effective boundary transition after eliminating an invertible hidden
@@ -16,6 +16,7 @@ resolvent block `1 - A`.  This is the formal algebraic port law
 
 No numerical stability interpretation is built into this definition. -/
 noncomputable def schurPortEffective
+    [Fintype I]
     (A : Matrix I I R) (X : Matrix I B R)
     (Y : Matrix B I R) (D : Matrix B B R)
     [Invertible (1 - A)] : Matrix B B R :=
@@ -23,7 +24,6 @@ noncomputable def schurPortEffective
 
 /-- Subtracting a block transition matrix from the identity acts blockwise with
 negative off-diagonal blocks. -/
-omit [Fintype I] [Fintype B] in
 theorem one_sub_fromBlocks
     (A : Matrix I I R) (X : Matrix I B R)
     (Y : Matrix B I R) (D : Matrix B B R) :
@@ -43,6 +43,7 @@ If the hidden resolvent block `1 - A` is invertible, then for
 The signed determinant is an algebraic certificate of the commutative matrix
 semantics; it is not interpreted as signed branch mass. -/
 theorem det_one_sub_fromBlocks_eq_hidden_mul_effective
+    [Fintype I] [Fintype B]
     (A : Matrix I I R) (X : Matrix I B R)
     (Y : Matrix B I R) (D : Matrix B B R)
     [Invertible (1 - A)] :
