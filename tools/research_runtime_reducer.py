@@ -24,6 +24,7 @@ TASK_LANE_RE = re.compile(r"^RS-((?:R|P)\d{3}[A-Z]?)\b")
 LANE_RE = re.compile(r"[^A-Z0-9]+")
 EVENT_SCHEMA = "ENTERPRISE_MATH_SCHEDULER_EVENT_V1"
 POLICY_SCHEMA = "ENTERPRISE_MATH_RESEARCH_RUNTIME_POLICY_V2"
+DRIVER_REVIEW_TERMINAL_SCOPE = "RESEARCH_RETURN_FROZEN_AWAITING_DRIVER_REVIEW"
 
 class RuntimeReducerError(ValueError):
     pass
@@ -349,14 +350,25 @@ def reduce_task(
             if result_id is not None and (not isinstance(result_id, str) or not result_id.strip()):
                 ignore(state, index, "HANDOFF result_id must be a nonempty string when supplied")
                 continue
-            # A result-bearing HANDOFF is a provisional review barrier even before
-            # the immutable result record lands on main.  Plain HANDOFF remains a
-            # researcher-to-researcher continuation surface.
-            state["state"] = "FROZEN_RETURN" if result_id is not None else "HANDOFF_READY"
+            terminal_scope = event.get("terminal_scope")
+            driver_review_terminal = terminal_scope == DRIVER_REVIEW_TERMINAL_SCOPE
+            # A result-bearing HANDOFF or the exact legacy frozen-return terminal
+            # scope is a provisional review barrier even before an immutable result
+            # record lands on main.  Plain HANDOFF remains a researcher-to-researcher
+            # continuation surface.  Unknown terminal_scope values carry no authority.
+            state["state"] = (
+                "FROZEN_RETURN"
+                if result_id is not None or driver_review_terminal
+                else "HANDOFF_READY"
+            )
             if isinstance(result_id, str):
                 state["result_id"] = result_id.strip()
             else:
                 state.pop("result_id", None)
+            if driver_review_terminal:
+                state["terminal_scope"] = DRIVER_REVIEW_TERMINAL_SCOPE
+            else:
+                state.pop("terminal_scope", None)
             if event.get("progress_ref"):
                 state["last_progress_ref"] = event["progress_ref"]
             state["last_progress_at"] = event["at"]
