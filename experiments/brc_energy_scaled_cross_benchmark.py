@@ -35,14 +35,6 @@ REPEATS = 7
 SEED = 2026090719
 
 
-def _population(bits: int, samples: int) -> tuple[int, ...]:
-    rng = random.Random(SEED + bits)
-    return tuple(
-        rng.getrandbits(bits) | (1 << (bits - 1)) | 1
-        for _ in range(samples)
-    )
-
-
 def _run(values: tuple[int, ...], scanner_type) -> int:
     checksum = 0
     for n in values:
@@ -70,8 +62,12 @@ def _median_seconds(values: tuple[int, ...], scanner_type) -> float:
 
 def benchmark_rows() -> list[dict[str, object]]:
     rows: list[dict[str, object]] = []
+    rng = random.Random(SEED)
     for bits, sample_count in BITS_AND_SAMPLES:
-        values = _population(bits, sample_count)
+        values = tuple(
+            rng.getrandbits(bits) | (1 << (bits - 1)) | 1
+            for _ in range(sample_count)
+        )
         if _run(values, EnergyDifferenceJetTailScanner) != _run(
             values, ScaledCrossEnergyTailScanner
         ):
