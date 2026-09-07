@@ -58,6 +58,12 @@ def _budget(root: Path) -> dict[str, Any]:
     return value
 
 
+def _git_blob_sha1(raw: bytes) -> str:
+    """Return the Git blob object id format used by taskbook_blob_sha1."""
+    payload = f"blob {len(raw)}\0".encode("ascii") + raw
+    return "sha1:" + hashlib.sha1(payload).hexdigest()
+
+
 def _task_metadata(text: str) -> dict[str, Any]:
     match = TASK_FRONTMATTER.search(text)
     if not match:
@@ -172,7 +178,7 @@ def _task_projection(
     path = root / taskbook_path
     _require(path.is_file(), f"missing exact taskbook: {taskbook_path}")
     raw = path.read_bytes()
-    actual_sha1 = "sha1:" + hashlib.sha1(raw).hexdigest()
+    actual_sha1 = _git_blob_sha1(raw)
     expected_sha1 = publication.get("taskbook_blob_sha1")
     _require(expected_sha1 == actual_sha1, f"taskbook blob mismatch: {taskbook_path}")
     text = raw.decode("utf-8")
