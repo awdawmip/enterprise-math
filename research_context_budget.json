@@ -40,6 +40,58 @@
       "PRODUCT_RUNTIME_TOKENIZATION"
     ]
   },
+  "researcher_cold_start_envelope": {
+    "schema": "ENTERPRISE_MATH_RESEARCHER_COLD_START_ENVELOPE_V1",
+    "purpose": "Bound the real new-researcher startup path rather than only repository-static policy files.",
+    "compact_packet_schema": "ENTERPRISE_MATH_RESEARCHER_STARTUP_PACKET_V1",
+    "compact_packet_builder": "control_plane/researcher_startup_packet.py",
+    "compact_packet_store": "control_plane/chatgpt_startup_packets/<request_id>.json",
+    "compact_packet_hard_max_bytes": 8192,
+    "normal_remote_source_reads_before_math_max": 2,
+    "cold_start_raw_soft_max_bytes": 65536,
+    "cold_start_raw_hard_max_bytes": 81920,
+    "component_hard_max_bytes": {
+      "GLOBAL_UNIVERSAL_BOOTSTRAP_PLUS_MANUAL": 32768,
+      "GLOBAL_ENTERPRISE_TASK_BOOTSTRAP": 6144,
+      "GLOBAL_P000": 6144,
+      "INJECTED_ENTERPRISE_AGENTS": 24576,
+      "COMPACT_STARTUP_PACKET": 8192
+    },
+    "component_hard_max_sum_bytes": 77824,
+    "ordinary_hot_path": [
+      "GLOBAL_UNIVERSAL_BOOTSTRAP_PLUS_MANUAL",
+      "GLOBAL_ENTERPRISE_TASK_BOOTSTRAP",
+      "GLOBAL_P000",
+      "INJECTED_ENTERPRISE_AGENTS_IF_HOST_PROVIDES_IT",
+      "EXACT_COMPACT_STARTUP_PACKET",
+      "INLINE_EXACT_TASK_PROJECTION_WHEN_PRESENT",
+      "FIRST_EXACT_DEPENDENCY_ONLY_WHEN_NEEDED",
+      "SUBSTANTIVE_RESEARCH"
+    ],
+    "diagnostic_only_not_ordinary_hot_path": [
+      "FULL_CHATGPT_DISPATCH_RECEIPT",
+      "CONTROL_PLANE_CURRENT_CONTROL_AUTHORITY",
+      "FULL_ISSUE_240_COMMENT_STREAM",
+      "RECURSIVE_REPOSITORY_TREE",
+      "HIGH_FANOUT_TASK_RESULT_DIRECTORY_ENUMERATION",
+      "FULL_TOOL_OR_COMMON_SURFACE_CATALOG"
+    ],
+    "fallbacks": {
+      "TASK_PROJECTION_TOO_LARGE": "OMIT_INLINE_PROJECTION_AND_FETCH_EXACT_TASKBOOK_ONLY",
+      "FIRST_DEPENDENCY_UNKNOWN": "AFTER_TASK_UNDERSTANDING_USE_BOUNDED_TARGETED_SEARCH_TOPN_LE_20",
+      "COMPACT_PACKET_MISSING_FOR_CURRENT_REQUEST": "FAIL_CLOSED_AND_CREATE_A_FRESH_CANONICAL_DISPATCH_REQUEST",
+      "DIAGNOSTIC_DETAIL_REQUIRED": "LOAD_EXACT_IMMUTABLE_RECEIPT_FOR_SAME_REQUEST_ID_ONLY"
+    },
+    "invariants": [
+      "COMPACT_STARTUP_PACKET != TASK_CLAIM",
+      "COMPACT_STARTUP_PACKET != MATHEMATICAL_AUTHORITY",
+      "FULL_RECEIPT_IS_DIAGNOSTIC_NOT_ORDINARY_STARTUP_CONTEXT",
+      "REMOTE_AGENTS_FETCH_FOR_ORDINARY_START=FORBIDDEN",
+      "CURRENT_CONTROL_AUTHORITY_FULL_READ_FOR_ORDINARY_START=FORBIDDEN",
+      "TASK_PROJECTION_MUST_BE_BYTE_PINNED_TO_EXACT_TASKBOOK_BLOB",
+      "UNKNOWN_DEPENDENCY_NEVER_AUTHORIZES_DIRECTORY_ENUMERATION"
+    ]
+  },
   "high_fanout_paths": [
     "tests/",
     "research_tasks/",
