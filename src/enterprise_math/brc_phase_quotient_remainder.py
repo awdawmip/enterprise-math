@@ -24,11 +24,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from functools import lru_cache
 
-from .brc_linear_deep_tail import (
-    common_mod8_linear_tail_sufficient,
-    next_odd_n_representative_multiplier,
-    odd_n_multiplier_is_representative,
-)
+from .brc_linear_deep_tail import common_mod8_linear_tail_sufficient
 
 RECIPROCAL_INDEX_BITS = 10
 RECIPROCAL_FRACTION_BITS = 20
@@ -189,6 +185,7 @@ class PhaseQuotientRemainderTracker:
         self._slots = [_PhaseSlot() for _ in range(5)]
         self._bucket = _ReciprocalBucket()
         self._last_multiplier = 0
+        self._tail_started = False
         self.last_mode = "UNUSED"
         self.last_correction = 0
 
@@ -205,20 +202,20 @@ class PhaseQuotientRemainderTracker:
         _require_positive("multiplier", multiplier)
         if isinstance(root, bool) or not isinstance(root, int) or root < 0:
             raise ValueError("root must be a non-negative integer")
-        if step not in (1, 2):
-            raise ValueError("step must be 1 or 2")
-        if not odd_n_multiplier_is_representative(multiplier):
+        residue = multiplier & 7
+        phase_index = _PHASE_INDEX[residue]
+        if phase_index < 0:
             raise ValueError("multiplier must lie in the odd-N representative set")
-        if next_odd_n_representative_multiplier(multiplier) - multiplier != step:
+        expected_step = 1 if residue in (0, 7) else 2
+        if step != expected_step:
             raise ValueError("step does not match the exact mod-8 representative stream")
-        if not common_mod8_linear_tail_sufficient(self.n, multiplier):
-            raise ValueError("multiplier is before the common order-1 deep tail")
+        if not self._tail_started:
+            if not common_mod8_linear_tail_sufficient(self.n, multiplier):
+                raise ValueError("multiplier is before the common order-1 deep tail")
+            self._tail_started = True
         if self._last_multiplier and multiplier <= self._last_multiplier:
             raise ValueError("tracker calls must use increasing multipliers")
         self._last_multiplier = multiplier
-        phase_index = _PHASE_INDEX[multiplier & 7]
-        if phase_index < 0:
-            raise AssertionError("representative multiplier mapped to no phase")
         return phase_index
 
     def divide_pair(self, root: int, multiplier: int, step: int) -> tuple[int, int]:
