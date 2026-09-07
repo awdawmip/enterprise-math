@@ -1,0 +1,2550 @@
+{
+  "examples": [
+    {
+      "chart": {
+        "anchor": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "signs": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "counterexample": null,
+      "coverage_witness": [
+        {
+          "read_query": [
+            0,
+            1,
+            2
+          ],
+          "required_axes": []
+        }
+      ],
+      "global_minimum_table_count": 1,
+      "input_sha256": "3135ca94e194e73dc1cd076251346294065d00e9805ad0219694a5a562c1a56c",
+      "minimum_certificate": "ONE_TOTAL_MASS_OBSERVER_REQUIRED",
+      "missing_required_subsets": [],
+      "possible_with_three_axis_queries": true,
+      "queries": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "query_contract": "STATIC_UNWEIGHTED_FULL_RAW_THREE_AXIS_TABLES",
+      "query_count": 1,
+      "recovery_scope": "SPATIAL_MASS_ONLY; NO_BRANCH_LABEL_OR_PATH_IDENTITY_RECOVERY",
+      "required_cover_order": 0,
+      "schema": "owner_x6_query_plan_v1",
+      "sparsity_premise": "USER_DECLARED_NOT_VERIFIED_FROM_OBSERVATIONS",
+      "status": "GUARANTEED",
+      "support_bound": 0,
+      "target_and_competitor": "FINITE_NONNEGATIVE_SPATIAL_MASS_IN_THE_SAME_CHART"
+    },
+    {
+      "chart": {
+        "anchor": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "signs": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "counterexample": null,
+      "coverage_witness": [
+        {
+          "read_query": [
+            0,
+            1,
+            2
+          ],
+          "required_axes": [
+            0
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            1,
+            2
+          ],
+          "required_axes": [
+            1
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            1,
+            2
+          ],
+          "required_axes": [
+            2
+          ]
+        },
+        {
+          "read_query": [
+            3,
+            4,
+            5
+          ],
+          "required_axes": [
+            3
+          ]
+        },
+        {
+          "read_query": [
+            3,
+            4,
+            5
+          ],
+          "required_axes": [
+            4
+          ]
+        },
+        {
+          "read_query": [
+            3,
+            4,
+            5
+          ],
+          "required_axes": [
+            5
+          ]
+        }
+      ],
+      "global_minimum_table_count": 2,
+      "input_sha256": "b043638131bfc96f7ae9983fc6ac5c218899e3e65f4c142c9b64c53d51704483",
+      "minimum_certificate": "SIX_AXES_REQUIRE_AT_LEAST_TWO_TRIPLES",
+      "missing_required_subsets": [],
+      "possible_with_three_axis_queries": true,
+      "queries": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          3,
+          4,
+          5
+        ]
+      ],
+      "query_contract": "STATIC_UNWEIGHTED_FULL_RAW_THREE_AXIS_TABLES",
+      "query_count": 2,
+      "recovery_scope": "SPATIAL_MASS_ONLY; NO_BRANCH_LABEL_OR_PATH_IDENTITY_RECOVERY",
+      "required_cover_order": 1,
+      "schema": "owner_x6_query_plan_v1",
+      "sparsity_premise": "USER_DECLARED_NOT_VERIFIED_FROM_OBSERVATIONS",
+      "status": "GUARANTEED",
+      "support_bound": 1,
+      "target_and_competitor": "FINITE_NONNEGATIVE_SPATIAL_MASS_IN_THE_SAME_CHART"
+    },
+    {
+      "chart": {
+        "anchor": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "signs": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "counterexample": null,
+      "coverage_witness": [
+        {
+          "read_query": [
+            0,
+            1,
+            2
+          ],
+          "required_axes": [
+            0,
+            1
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            1,
+            2
+          ],
+          "required_axes": [
+            0,
+            2
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            1,
+            3
+          ],
+          "required_axes": [
+            0,
+            3
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            4,
+            5
+          ],
+          "required_axes": [
+            0,
+            4
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            4,
+            5
+          ],
+          "required_axes": [
+            0,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            1,
+            2
+          ],
+          "required_axes": [
+            1,
+            2
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            1,
+            3
+          ],
+          "required_axes": [
+            1,
+            3
+          ]
+        },
+        {
+          "read_query": [
+            1,
+            4,
+            5
+          ],
+          "required_axes": [
+            1,
+            4
+          ]
+        },
+        {
+          "read_query": [
+            1,
+            4,
+            5
+          ],
+          "required_axes": [
+            1,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            2,
+            3,
+            4
+          ],
+          "required_axes": [
+            2,
+            3
+          ]
+        },
+        {
+          "read_query": [
+            2,
+            3,
+            4
+          ],
+          "required_axes": [
+            2,
+            4
+          ]
+        },
+        {
+          "read_query": [
+            2,
+            3,
+            5
+          ],
+          "required_axes": [
+            2,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            2,
+            3,
+            4
+          ],
+          "required_axes": [
+            3,
+            4
+          ]
+        },
+        {
+          "read_query": [
+            2,
+            3,
+            5
+          ],
+          "required_axes": [
+            3,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            4,
+            5
+          ],
+          "required_axes": [
+            4,
+            5
+          ]
+        }
+      ],
+      "global_minimum_table_count": 6,
+      "input_sha256": "352d9c631c80076d87945a17951edefef8e3bdc4a081bd91d92c2a49a0491d17",
+      "minimum_certificate": "EACH_AXIS_NEEDS_THREE_INCIDENCES; 6*3/3=6; EXPLICIT_PAIR_COVER",
+      "missing_required_subsets": [],
+      "possible_with_three_axis_queries": true,
+      "queries": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          4,
+          5
+        ],
+        [
+          1,
+          4,
+          5
+        ],
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          3,
+          5
+        ]
+      ],
+      "query_contract": "STATIC_UNWEIGHTED_FULL_RAW_THREE_AXIS_TABLES",
+      "query_count": 6,
+      "recovery_scope": "SPATIAL_MASS_ONLY; NO_BRANCH_LABEL_OR_PATH_IDENTITY_RECOVERY",
+      "required_cover_order": 2,
+      "schema": "owner_x6_query_plan_v1",
+      "sparsity_premise": "USER_DECLARED_NOT_VERIFIED_FROM_OBSERVATIONS",
+      "status": "GUARANTEED",
+      "support_bound": 2,
+      "target_and_competitor": "FINITE_NONNEGATIVE_SPATIAL_MASS_IN_THE_SAME_CHART"
+    },
+    {
+      "chart": {
+        "anchor": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "signs": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "counterexample": null,
+      "coverage_witness": [
+        {
+          "read_query": [
+            0,
+            1,
+            2
+          ],
+          "required_axes": [
+            0,
+            1
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            1,
+            2
+          ],
+          "required_axes": [
+            0,
+            2
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            1,
+            3
+          ],
+          "required_axes": [
+            0,
+            3
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            4,
+            5
+          ],
+          "required_axes": [
+            0,
+            4
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            4,
+            5
+          ],
+          "required_axes": [
+            0,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            1,
+            2
+          ],
+          "required_axes": [
+            1,
+            2
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            1,
+            3
+          ],
+          "required_axes": [
+            1,
+            3
+          ]
+        },
+        {
+          "read_query": [
+            1,
+            4,
+            5
+          ],
+          "required_axes": [
+            1,
+            4
+          ]
+        },
+        {
+          "read_query": [
+            1,
+            4,
+            5
+          ],
+          "required_axes": [
+            1,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            2,
+            3,
+            4
+          ],
+          "required_axes": [
+            2,
+            3
+          ]
+        },
+        {
+          "read_query": [
+            2,
+            3,
+            4
+          ],
+          "required_axes": [
+            2,
+            4
+          ]
+        },
+        {
+          "read_query": [
+            2,
+            3,
+            5
+          ],
+          "required_axes": [
+            2,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            2,
+            3,
+            4
+          ],
+          "required_axes": [
+            3,
+            4
+          ]
+        },
+        {
+          "read_query": [
+            2,
+            3,
+            5
+          ],
+          "required_axes": [
+            3,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            4,
+            5
+          ],
+          "required_axes": [
+            4,
+            5
+          ]
+        }
+      ],
+      "global_minimum_table_count": 6,
+      "input_sha256": "cc326d8e44a7bcecf8e30f226ec8d2646d7327449e8d22b01c1e17b1f7b20932",
+      "minimum_certificate": "EACH_AXIS_NEEDS_THREE_INCIDENCES; 6*3/3=6; EXPLICIT_PAIR_COVER",
+      "missing_required_subsets": [],
+      "possible_with_three_axis_queries": true,
+      "queries": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          4,
+          5
+        ],
+        [
+          1,
+          4,
+          5
+        ],
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          3,
+          5
+        ]
+      ],
+      "query_contract": "STATIC_UNWEIGHTED_FULL_RAW_THREE_AXIS_TABLES",
+      "query_count": 6,
+      "recovery_scope": "SPATIAL_MASS_ONLY; NO_BRANCH_LABEL_OR_PATH_IDENTITY_RECOVERY",
+      "required_cover_order": 2,
+      "schema": "owner_x6_query_plan_v1",
+      "sparsity_premise": "USER_DECLARED_NOT_VERIFIED_FROM_OBSERVATIONS",
+      "status": "GUARANTEED",
+      "support_bound": 3,
+      "target_and_competitor": "FINITE_NONNEGATIVE_SPATIAL_MASS_IN_THE_SAME_CHART"
+    },
+    {
+      "chart": {
+        "anchor": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "signs": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "counterexample": null,
+      "coverage_witness": [
+        {
+          "read_query": [
+            0,
+            1,
+            2
+          ],
+          "required_axes": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            1,
+            3
+          ],
+          "required_axes": [
+            0,
+            1,
+            3
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            1,
+            4
+          ],
+          "required_axes": [
+            0,
+            1,
+            4
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            1,
+            5
+          ],
+          "required_axes": [
+            0,
+            1,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            2,
+            3
+          ],
+          "required_axes": [
+            0,
+            2,
+            3
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            2,
+            4
+          ],
+          "required_axes": [
+            0,
+            2,
+            4
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            2,
+            5
+          ],
+          "required_axes": [
+            0,
+            2,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            3,
+            4
+          ],
+          "required_axes": [
+            0,
+            3,
+            4
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            3,
+            5
+          ],
+          "required_axes": [
+            0,
+            3,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            4,
+            5
+          ],
+          "required_axes": [
+            0,
+            4,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            1,
+            2,
+            3
+          ],
+          "required_axes": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "read_query": [
+            1,
+            2,
+            4
+          ],
+          "required_axes": [
+            1,
+            2,
+            4
+          ]
+        },
+        {
+          "read_query": [
+            1,
+            2,
+            5
+          ],
+          "required_axes": [
+            1,
+            2,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            1,
+            3,
+            4
+          ],
+          "required_axes": [
+            1,
+            3,
+            4
+          ]
+        },
+        {
+          "read_query": [
+            1,
+            3,
+            5
+          ],
+          "required_axes": [
+            1,
+            3,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            1,
+            4,
+            5
+          ],
+          "required_axes": [
+            1,
+            4,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            2,
+            3,
+            4
+          ],
+          "required_axes": [
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "read_query": [
+            2,
+            3,
+            5
+          ],
+          "required_axes": [
+            2,
+            3,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            2,
+            4,
+            5
+          ],
+          "required_axes": [
+            2,
+            4,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            3,
+            4,
+            5
+          ],
+          "required_axes": [
+            3,
+            4,
+            5
+          ]
+        }
+      ],
+      "global_minimum_table_count": 20,
+      "input_sha256": "990448e52bddc5f67fa1513abb53b0cadebc64572ae7021a9e536b5707e4d640",
+      "minimum_certificate": "EVERY_ONE_OF_TWENTY_TRIPLES_HAS_ITS_OWN_PARITY_OBSTRUCTION",
+      "missing_required_subsets": [],
+      "possible_with_three_axis_queries": true,
+      "queries": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          1,
+          4
+        ],
+        [
+          0,
+          1,
+          5
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          0,
+          2,
+          4
+        ],
+        [
+          0,
+          2,
+          5
+        ],
+        [
+          0,
+          3,
+          4
+        ],
+        [
+          0,
+          3,
+          5
+        ],
+        [
+          0,
+          4,
+          5
+        ],
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          4
+        ],
+        [
+          1,
+          2,
+          5
+        ],
+        [
+          1,
+          3,
+          4
+        ],
+        [
+          1,
+          3,
+          5
+        ],
+        [
+          1,
+          4,
+          5
+        ],
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          3,
+          5
+        ],
+        [
+          2,
+          4,
+          5
+        ],
+        [
+          3,
+          4,
+          5
+        ]
+      ],
+      "query_contract": "STATIC_UNWEIGHTED_FULL_RAW_THREE_AXIS_TABLES",
+      "query_count": 20,
+      "recovery_scope": "SPATIAL_MASS_ONLY; NO_BRANCH_LABEL_OR_PATH_IDENTITY_RECOVERY",
+      "required_cover_order": 3,
+      "schema": "owner_x6_query_plan_v1",
+      "sparsity_premise": "USER_DECLARED_NOT_VERIFIED_FROM_OBSERVATIONS",
+      "status": "GUARANTEED",
+      "support_bound": 4,
+      "target_and_competitor": "FINITE_NONNEGATIVE_SPATIAL_MASS_IN_THE_SAME_CHART"
+    },
+    {
+      "chart": {
+        "anchor": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "signs": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "counterexample": null,
+      "coverage_witness": [
+        {
+          "read_query": [
+            0,
+            1,
+            2
+          ],
+          "required_axes": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            1,
+            3
+          ],
+          "required_axes": [
+            0,
+            1,
+            3
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            1,
+            4
+          ],
+          "required_axes": [
+            0,
+            1,
+            4
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            1,
+            5
+          ],
+          "required_axes": [
+            0,
+            1,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            2,
+            3
+          ],
+          "required_axes": [
+            0,
+            2,
+            3
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            2,
+            4
+          ],
+          "required_axes": [
+            0,
+            2,
+            4
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            2,
+            5
+          ],
+          "required_axes": [
+            0,
+            2,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            3,
+            4
+          ],
+          "required_axes": [
+            0,
+            3,
+            4
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            3,
+            5
+          ],
+          "required_axes": [
+            0,
+            3,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            4,
+            5
+          ],
+          "required_axes": [
+            0,
+            4,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            1,
+            2,
+            3
+          ],
+          "required_axes": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "read_query": [
+            1,
+            2,
+            4
+          ],
+          "required_axes": [
+            1,
+            2,
+            4
+          ]
+        },
+        {
+          "read_query": [
+            1,
+            2,
+            5
+          ],
+          "required_axes": [
+            1,
+            2,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            1,
+            3,
+            4
+          ],
+          "required_axes": [
+            1,
+            3,
+            4
+          ]
+        },
+        {
+          "read_query": [
+            1,
+            3,
+            5
+          ],
+          "required_axes": [
+            1,
+            3,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            1,
+            4,
+            5
+          ],
+          "required_axes": [
+            1,
+            4,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            2,
+            3,
+            4
+          ],
+          "required_axes": [
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "read_query": [
+            2,
+            3,
+            5
+          ],
+          "required_axes": [
+            2,
+            3,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            2,
+            4,
+            5
+          ],
+          "required_axes": [
+            2,
+            4,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            3,
+            4,
+            5
+          ],
+          "required_axes": [
+            3,
+            4,
+            5
+          ]
+        }
+      ],
+      "global_minimum_table_count": 20,
+      "input_sha256": "996c4c6b1a8c0e7c820672ed6e0218364d9ab46e33a4a0b0d9f0a2ef5c7cf4c3",
+      "minimum_certificate": "EVERY_ONE_OF_TWENTY_TRIPLES_HAS_ITS_OWN_PARITY_OBSTRUCTION",
+      "missing_required_subsets": [],
+      "possible_with_three_axis_queries": true,
+      "queries": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          1,
+          4
+        ],
+        [
+          0,
+          1,
+          5
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          0,
+          2,
+          4
+        ],
+        [
+          0,
+          2,
+          5
+        ],
+        [
+          0,
+          3,
+          4
+        ],
+        [
+          0,
+          3,
+          5
+        ],
+        [
+          0,
+          4,
+          5
+        ],
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          4
+        ],
+        [
+          1,
+          2,
+          5
+        ],
+        [
+          1,
+          3,
+          4
+        ],
+        [
+          1,
+          3,
+          5
+        ],
+        [
+          1,
+          4,
+          5
+        ],
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          3,
+          5
+        ],
+        [
+          2,
+          4,
+          5
+        ],
+        [
+          3,
+          4,
+          5
+        ]
+      ],
+      "query_contract": "STATIC_UNWEIGHTED_FULL_RAW_THREE_AXIS_TABLES",
+      "query_count": 20,
+      "recovery_scope": "SPATIAL_MASS_ONLY; NO_BRANCH_LABEL_OR_PATH_IDENTITY_RECOVERY",
+      "required_cover_order": 3,
+      "schema": "owner_x6_query_plan_v1",
+      "sparsity_premise": "USER_DECLARED_NOT_VERIFIED_FROM_OBSERVATIONS",
+      "status": "GUARANTEED",
+      "support_bound": 7,
+      "target_and_competitor": "FINITE_NONNEGATIVE_SPATIAL_MASS_IN_THE_SAME_CHART"
+    },
+    {
+      "chart": {
+        "anchor": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "signs": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "counterexample": {
+        "competitor": [
+          {
+            "coordinate": [
+              0,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            "label": "parity1:0001",
+            "weight": "1/1"
+          },
+          {
+            "coordinate": [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            "label": "parity1:0010",
+            "weight": "1/1"
+          },
+          {
+            "coordinate": [
+              0,
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            "label": "parity1:0100",
+            "weight": "1/1"
+          },
+          {
+            "coordinate": [
+              0,
+              1,
+              1,
+              1,
+              0,
+              0
+            ],
+            "label": "parity1:0111",
+            "weight": "1/1"
+          },
+          {
+            "coordinate": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "label": "parity1:1000",
+            "weight": "1/1"
+          },
+          {
+            "coordinate": [
+              1,
+              0,
+              1,
+              1,
+              0,
+              0
+            ],
+            "label": "parity1:1011",
+            "weight": "1/1"
+          },
+          {
+            "coordinate": [
+              1,
+              1,
+              0,
+              1,
+              0,
+              0
+            ],
+            "label": "parity1:1101",
+            "weight": "1/1"
+          },
+          {
+            "coordinate": [
+              1,
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "label": "parity1:1110",
+            "weight": "1/1"
+          }
+        ],
+        "input_sha256": "4c895a3de0f260501edf87bee80fb579edb34ee9b9ad376d20e2d53c9f3b0f4e",
+        "schema": "owner_x6_query_counterexample_v1",
+        "target": [
+          {
+            "coordinate": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "label": "parity0:0000",
+            "weight": "1/1"
+          },
+          {
+            "coordinate": [
+              0,
+              0,
+              1,
+              1,
+              0,
+              0
+            ],
+            "label": "parity0:0011",
+            "weight": "1/1"
+          },
+          {
+            "coordinate": [
+              0,
+              1,
+              0,
+              1,
+              0,
+              0
+            ],
+            "label": "parity0:0101",
+            "weight": "1/1"
+          },
+          {
+            "coordinate": [
+              0,
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "label": "parity0:0110",
+            "weight": "1/1"
+          },
+          {
+            "coordinate": [
+              1,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            "label": "parity0:1001",
+            "weight": "1/1"
+          },
+          {
+            "coordinate": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            "label": "parity0:1010",
+            "weight": "1/1"
+          },
+          {
+            "coordinate": [
+              1,
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            "label": "parity0:1100",
+            "weight": "1/1"
+          },
+          {
+            "coordinate": [
+              1,
+              1,
+              1,
+              1,
+              0,
+              0
+            ],
+            "label": "parity0:1111",
+            "weight": "1/1"
+          }
+        ],
+        "varying_axes": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "coverage_witness": [],
+      "global_minimum_table_count": null,
+      "input_sha256": "4c895a3de0f260501edf87bee80fb579edb34ee9b9ad376d20e2d53c9f3b0f4e",
+      "minimum_certificate": "FOUR_AXIS_PARITY_COLLIDES_ON_ALL_TWENTY_QUERIES",
+      "missing_required_subsets": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          1,
+          2,
+          4
+        ],
+        [
+          0,
+          1,
+          2,
+          5
+        ],
+        [
+          0,
+          1,
+          3,
+          4
+        ],
+        [
+          0,
+          1,
+          3,
+          5
+        ],
+        [
+          0,
+          1,
+          4,
+          5
+        ],
+        [
+          0,
+          2,
+          3,
+          4
+        ],
+        [
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          0,
+          2,
+          4,
+          5
+        ],
+        [
+          0,
+          3,
+          4,
+          5
+        ],
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          1,
+          2,
+          3,
+          5
+        ],
+        [
+          1,
+          2,
+          4,
+          5
+        ],
+        [
+          1,
+          3,
+          4,
+          5
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "possible_with_three_axis_queries": false,
+      "queries": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          1,
+          4
+        ],
+        [
+          0,
+          1,
+          5
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          0,
+          2,
+          4
+        ],
+        [
+          0,
+          2,
+          5
+        ],
+        [
+          0,
+          3,
+          4
+        ],
+        [
+          0,
+          3,
+          5
+        ],
+        [
+          0,
+          4,
+          5
+        ],
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          4
+        ],
+        [
+          1,
+          2,
+          5
+        ],
+        [
+          1,
+          3,
+          4
+        ],
+        [
+          1,
+          3,
+          5
+        ],
+        [
+          1,
+          4,
+          5
+        ],
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          3,
+          5
+        ],
+        [
+          2,
+          4,
+          5
+        ],
+        [
+          3,
+          4,
+          5
+        ]
+      ],
+      "query_contract": "STATIC_UNWEIGHTED_FULL_RAW_THREE_AXIS_TABLES",
+      "query_count": 20,
+      "recovery_scope": "SPATIAL_MASS_ONLY; NO_BRANCH_LABEL_OR_PATH_IDENTITY_RECOVERY",
+      "required_cover_order": 4,
+      "schema": "owner_x6_query_plan_v1",
+      "sparsity_premise": "USER_DECLARED_NOT_VERIFIED_FROM_OBSERVATIONS",
+      "status": "COUNTEREXAMPLE",
+      "support_bound": 8,
+      "target_and_competitor": "FINITE_NONNEGATIVE_SPATIAL_MASS_IN_THE_SAME_CHART",
+      "verification": {
+        "comparisons": [
+          {
+            "axes": [
+              0,
+              1,
+              2
+            ],
+            "fiber_histograms_equal": true,
+            "raw_fiber_count": 8,
+            "raw_mass_tables_equal": true
+          },
+          {
+            "axes": [
+              0,
+              1,
+              3
+            ],
+            "fiber_histograms_equal": true,
+            "raw_fiber_count": 8,
+            "raw_mass_tables_equal": true
+          },
+          {
+            "axes": [
+              0,
+              1,
+              4
+            ],
+            "fiber_histograms_equal": true,
+            "raw_fiber_count": 4,
+            "raw_mass_tables_equal": true
+          },
+          {
+            "axes": [
+              0,
+              1,
+              5
+            ],
+            "fiber_histograms_equal": true,
+            "raw_fiber_count": 4,
+            "raw_mass_tables_equal": true
+          },
+          {
+            "axes": [
+              0,
+              2,
+              3
+            ],
+            "fiber_histograms_equal": true,
+            "raw_fiber_count": 8,
+            "raw_mass_tables_equal": true
+          },
+          {
+            "axes": [
+              0,
+              2,
+              4
+            ],
+            "fiber_histograms_equal": true,
+            "raw_fiber_count": 4,
+            "raw_mass_tables_equal": true
+          },
+          {
+            "axes": [
+              0,
+              2,
+              5
+            ],
+            "fiber_histograms_equal": true,
+            "raw_fiber_count": 4,
+            "raw_mass_tables_equal": true
+          },
+          {
+            "axes": [
+              0,
+              3,
+              4
+            ],
+            "fiber_histograms_equal": true,
+            "raw_fiber_count": 4,
+            "raw_mass_tables_equal": true
+          },
+          {
+            "axes": [
+              0,
+              3,
+              5
+            ],
+            "fiber_histograms_equal": true,
+            "raw_fiber_count": 4,
+            "raw_mass_tables_equal": true
+          },
+          {
+            "axes": [
+              0,
+              4,
+              5
+            ],
+            "fiber_histograms_equal": true,
+            "raw_fiber_count": 2,
+            "raw_mass_tables_equal": true
+          },
+          {
+            "axes": [
+              1,
+              2,
+              3
+            ],
+            "fiber_histograms_equal": true,
+            "raw_fiber_count": 8,
+            "raw_mass_tables_equal": true
+          },
+          {
+            "axes": [
+              1,
+              2,
+              4
+            ],
+            "fiber_histograms_equal": true,
+            "raw_fiber_count": 4,
+            "raw_mass_tables_equal": true
+          },
+          {
+            "axes": [
+              1,
+              2,
+              5
+            ],
+            "fiber_histograms_equal": true,
+            "raw_fiber_count": 4,
+            "raw_mass_tables_equal": true
+          },
+          {
+            "axes": [
+              1,
+              3,
+              4
+            ],
+            "fiber_histograms_equal": true,
+            "raw_fiber_count": 4,
+            "raw_mass_tables_equal": true
+          },
+          {
+            "axes": [
+              1,
+              3,
+              5
+            ],
+            "fiber_histograms_equal": true,
+            "raw_fiber_count": 4,
+            "raw_mass_tables_equal": true
+          },
+          {
+            "axes": [
+              1,
+              4,
+              5
+            ],
+            "fiber_histograms_equal": true,
+            "raw_fiber_count": 2,
+            "raw_mass_tables_equal": true
+          },
+          {
+            "axes": [
+              2,
+              3,
+              4
+            ],
+            "fiber_histograms_equal": true,
+            "raw_fiber_count": 4,
+            "raw_mass_tables_equal": true
+          },
+          {
+            "axes": [
+              2,
+              3,
+              5
+            ],
+            "fiber_histograms_equal": true,
+            "raw_fiber_count": 4,
+            "raw_mass_tables_equal": true
+          },
+          {
+            "axes": [
+              2,
+              4,
+              5
+            ],
+            "fiber_histograms_equal": true,
+            "raw_fiber_count": 2,
+            "raw_mass_tables_equal": true
+          },
+          {
+            "axes": [
+              3,
+              4,
+              5
+            ],
+            "fiber_histograms_equal": true,
+            "raw_fiber_count": 2,
+            "raw_mass_tables_equal": true
+          }
+        ],
+        "competitor_support": 8,
+        "queries_checked": 20,
+        "scope": "FAILURE_OF_UNIVERSAL_QUERY_GUARANTEE; NOT_AMBIGUITY_OF_USER_DATA",
+        "spatial_difference": {
+          "competitor_mass": "0",
+          "coordinate": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_mass": "1"
+        },
+        "target_support": 8,
+        "valid": true
+      }
+    },
+    {
+      "chart": {
+        "anchor": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "permutation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "signs": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "counterexample": {
+        "competitor": [
+          {
+            "coordinate": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "label": "nonzero_competitor",
+            "weight": "1/1"
+          }
+        ],
+        "input_sha256": "4c94fc346c4fc04080ee08e5a3722e8d40642c75d064ce7a611baf4c31543c8a",
+        "schema": "owner_x6_query_counterexample_v1",
+        "target": [],
+        "varying_axes": []
+      },
+      "coverage_witness": [],
+      "global_minimum_table_count": 1,
+      "input_sha256": "4c94fc346c4fc04080ee08e5a3722e8d40642c75d064ce7a611baf4c31543c8a",
+      "missing_required_subsets": [
+        []
+      ],
+      "possible_with_three_axis_queries": true,
+      "queries": [],
+      "query_contract": "STATIC_UNWEIGHTED_FULL_RAW_THREE_AXIS_TABLES",
+      "query_count": 0,
+      "recovery_scope": "SPATIAL_MASS_ONLY; NO_BRANCH_LABEL_OR_PATH_IDENTITY_RECOVERY",
+      "required_cover_order": 0,
+      "schema": "owner_x6_query_plan_v1",
+      "sparsity_premise": "USER_DECLARED_NOT_VERIFIED_FROM_OBSERVATIONS",
+      "status": "COUNTEREXAMPLE",
+      "support_bound": 0,
+      "target_and_competitor": "FINITE_NONNEGATIVE_SPATIAL_MASS_IN_THE_SAME_CHART",
+      "verification": {
+        "comparisons": [],
+        "competitor_support": 1,
+        "queries_checked": 0,
+        "scope": "FAILURE_OF_UNIVERSAL_QUERY_GUARANTEE; NOT_AMBIGUITY_OF_USER_DATA",
+        "spatial_difference": {
+          "competitor_mass": "1",
+          "coordinate": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "target_mass": "0"
+        },
+        "target_support": 0,
+        "valid": true
+      }
+    },
+    {
+      "chart": {
+        "anchor": [
+          17,
+          -5,
+          0,
+          42,
+          -19,
+          8
+        ],
+        "permutation": [
+          5,
+          2,
+          4,
+          1,
+          3,
+          0
+        ],
+        "signs": [
+          -1,
+          1,
+          -1,
+          -1,
+          1,
+          1
+        ]
+      },
+      "counterexample": {
+        "competitor": [
+          {
+            "coordinate": [
+              18,
+              -5,
+              0,
+              42,
+              -19,
+              8
+            ],
+            "label": "parity1:01",
+            "weight": "1/1"
+          },
+          {
+            "coordinate": [
+              17,
+              -5,
+              0,
+              42,
+              -19,
+              7
+            ],
+            "label": "parity1:10",
+            "weight": "1/1"
+          }
+        ],
+        "input_sha256": "50e649f6e12ad8ee2a0195aa83b8dedf4edefb72f10f0a9779b9df8700462eba",
+        "schema": "owner_x6_query_counterexample_v1",
+        "target": [
+          {
+            "coordinate": [
+              17,
+              -5,
+              0,
+              42,
+              -19,
+              8
+            ],
+            "label": "parity0:00",
+            "weight": "1/1"
+          },
+          {
+            "coordinate": [
+              18,
+              -5,
+              0,
+              42,
+              -19,
+              7
+            ],
+            "label": "parity0:11",
+            "weight": "1/1"
+          }
+        ],
+        "varying_axes": [
+          0,
+          5
+        ]
+      },
+      "coverage_witness": [
+        {
+          "read_query": [
+            0,
+            1,
+            2
+          ],
+          "required_axes": [
+            0,
+            1
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            1,
+            2
+          ],
+          "required_axes": [
+            0,
+            2
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            1,
+            3
+          ],
+          "required_axes": [
+            0,
+            3
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            3,
+            4
+          ],
+          "required_axes": [
+            0,
+            4
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            1,
+            2
+          ],
+          "required_axes": [
+            1,
+            2
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            1,
+            3
+          ],
+          "required_axes": [
+            1,
+            3
+          ]
+        },
+        {
+          "read_query": [
+            1,
+            2,
+            5
+          ],
+          "required_axes": [
+            1,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            2,
+            4,
+            5
+          ],
+          "required_axes": [
+            2,
+            4
+          ]
+        },
+        {
+          "read_query": [
+            1,
+            2,
+            5
+          ],
+          "required_axes": [
+            2,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            0,
+            3,
+            4
+          ],
+          "required_axes": [
+            3,
+            4
+          ]
+        },
+        {
+          "read_query": [
+            3,
+            4,
+            5
+          ],
+          "required_axes": [
+            3,
+            5
+          ]
+        },
+        {
+          "read_query": [
+            2,
+            4,
+            5
+          ],
+          "required_axes": [
+            4,
+            5
+          ]
+        }
+      ],
+      "global_minimum_table_count": 6,
+      "input_sha256": "50e649f6e12ad8ee2a0195aa83b8dedf4edefb72f10f0a9779b9df8700462eba",
+      "missing_required_subsets": [
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "possible_with_three_axis_queries": true,
+      "queries": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          3,
+          4
+        ],
+        [
+          1,
+          2,
+          5
+        ],
+        [
+          2,
+          4,
+          5
+        ],
+        [
+          3,
+          4,
+          5
+        ]
+      ],
+      "query_contract": "STATIC_UNWEIGHTED_FULL_RAW_THREE_AXIS_TABLES",
+      "query_count": 6,
+      "recovery_scope": "SPATIAL_MASS_ONLY; NO_BRANCH_LABEL_OR_PATH_IDENTITY_RECOVERY",
+      "required_cover_order": 2,
+      "schema": "owner_x6_query_plan_v1",
+      "sparsity_premise": "USER_DECLARED_NOT_VERIFIED_FROM_OBSERVATIONS",
+      "status": "COUNTEREXAMPLE",
+      "support_bound": 2,
+      "target_and_competitor": "FINITE_NONNEGATIVE_SPATIAL_MASS_IN_THE_SAME_CHART",
+      "verification": {
+        "comparisons": [
+          {
+            "axes": [
+              0,
+              1,
+              2
+            ],
+            "fiber_histograms_equal": true,
+            "raw_fiber_count": 2,
+            "raw_mass_tables_equal": true
+          },
+          {
+            "axes": [
+              0,
+              1,
+              3
+            ],
+            "fiber_histograms_equal": true,
+            "raw_fiber_count": 2,
+            "raw_mass_tables_equal": true
+          },
+          {
+            "axes": [
+              0,
+              3,
+              4
+            ],
+            "fiber_histograms_equal": true,
+            "raw_fiber_count": 2,
+            "raw_mass_tables_equal": true
+          },
+          {
+            "axes": [
+              1,
+              2,
+              5
+            ],
+            "fiber_histograms_equal": true,
+            "raw_fiber_count": 2,
+            "raw_mass_tables_equal": true
+          },
+          {
+            "axes": [
+              2,
+              4,
+              5
+            ],
+            "fiber_histograms_equal": true,
+            "raw_fiber_count": 2,
+            "raw_mass_tables_equal": true
+          },
+          {
+            "axes": [
+              3,
+              4,
+              5
+            ],
+            "fiber_histograms_equal": true,
+            "raw_fiber_count": 2,
+            "raw_mass_tables_equal": true
+          }
+        ],
+        "competitor_support": 2,
+        "queries_checked": 6,
+        "scope": "FAILURE_OF_UNIVERSAL_QUERY_GUARANTEE; NOT_AMBIGUITY_OF_USER_DATA",
+        "spatial_difference": {
+          "competitor_mass": "1",
+          "coordinate": [
+            17,
+            -5,
+            0,
+            42,
+            -19,
+            7
+          ],
+          "target_mass": "0"
+        },
+        "target_support": 2,
+        "valid": true
+      }
+    }
+  ],
+  "mathematical_proof": "research_notes/OWNER_OBSERVATION_QUERY_DESIGN_20260907.md",
+  "schema": "owner_x6_query_design_examples_v1"
+}

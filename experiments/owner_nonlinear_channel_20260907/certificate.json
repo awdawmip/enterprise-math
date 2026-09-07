@@ -1,0 +1,241 @@
+{
+  "status": "FINITE_WITNESSES_VERIFIED",
+  "scope": "rational six-channel mass vector; not arbitrary-q execution or microscopic quotient",
+  "source_sha256": {
+    "experiments/owner_nonlinear_channel_20260907/run_certificate.py": "a518fc682110e02bfbc0fd052599b2fc0f59d1cd91d9555655eca0caf55a9b6b",
+    "experiments/owner_nonlinear_channel_20260907/channel_quotient.py": "c90d67e9d56bc14e2d2adea36b8f69ba2e1afc21c794c22aee73e69de34bd844",
+    "experiments/owner_nonlinear_channel_20260907/test_channel_quotient.py": "a4afeb65ed303b6ed6788102b0117818453729f1822a05a96705268347443d28",
+    "research_notes/owner_geometry_20260907_check.py": "d92a45acb9c455b88a3786ce99ae919cbfbd5a0b09b55ce3dfeb6b39b633c4a7",
+    "src/enterprise_math/operation_quotient.py": "39e62738077eaddb2a3b19a679d0e6a2e7a3415cee7cffa894fe810bb034927e",
+    "src/enterprise_math/brc_histogram.py": "256ef167e2aee651c042195522a0013ba619f265f9e4d8fa24f07d3399695a67",
+    "src/enterprise_math/brc_weighted.py": "4f3e356227a1c964d33a3ddae94922463ba28097a43b8d1b8f6cd9ca5615fc9f",
+    "src/enterprise_math/brc_weighted_recurrent.py": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+  },
+  "reused_geometry_sha256": "d92a45acb9c455b88a3786ce99ae919cbfbd5a0b09b55ce3dfeb6b39b633c4a7",
+  "five_step_witness": {
+    "source": [
+      "5",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "target": [
+      "0",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "steps": [
+      {
+        "before": [
+          "5",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "after": [
+          "4",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "donor": 0,
+        "receiver": 1,
+        "amount": "1",
+        "gate": 2,
+        "common_matrix_image": [
+          "1",
+          "1",
+          "0",
+          "1",
+          "1",
+          "1"
+        ]
+      },
+      {
+        "before": [
+          "4",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "after": [
+          "3",
+          "1",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        "donor": 0,
+        "receiver": 2,
+        "amount": "1",
+        "gate": 1,
+        "common_matrix_image": [
+          "4/5",
+          "1",
+          "4/5",
+          "4/5",
+          "4/5",
+          "4/5"
+        ]
+      },
+      {
+        "before": [
+          "3",
+          "1",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        "after": [
+          "2",
+          "1",
+          "1",
+          "1",
+          "0",
+          "0"
+        ],
+        "donor": 0,
+        "receiver": 3,
+        "amount": "1",
+        "gate": 1,
+        "common_matrix_image": [
+          "4/5",
+          "1",
+          "4/5",
+          "4/5",
+          "4/5",
+          "4/5"
+        ]
+      },
+      {
+        "before": [
+          "2",
+          "1",
+          "1",
+          "1",
+          "0",
+          "0"
+        ],
+        "after": [
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "0"
+        ],
+        "donor": 0,
+        "receiver": 4,
+        "amount": "1",
+        "gate": 1,
+        "common_matrix_image": [
+          "4/5",
+          "1",
+          "4/5",
+          "4/5",
+          "4/5",
+          "4/5"
+        ]
+      },
+      {
+        "before": [
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "0"
+        ],
+        "after": [
+          "0",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1"
+        ],
+        "donor": 0,
+        "receiver": 5,
+        "amount": "1",
+        "gate": 1,
+        "common_matrix_image": [
+          "4/5",
+          "1",
+          "4/5",
+          "4/5",
+          "4/5",
+          "4/5"
+        ]
+      }
+    ]
+  },
+  "brc_boundary": {
+    "inputs": [
+      [
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "1/2",
+        "1/2",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    ],
+    "gate": 2,
+    "same_channel_mass": [
+      "1/5",
+      "1/5",
+      "0",
+      "1/5",
+      "1/5",
+      "1/5"
+    ],
+    "counts": [
+      5,
+      10
+    ],
+    "histograms": [
+      [
+        [
+          "1/5",
+          5
+        ]
+      ],
+      [
+        [
+          "1/10",
+          10
+        ]
+      ]
+    ]
+  },
+  "finite_single_gate_t6_checks": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "global_knowledge": "main@4fa7d7d"
+}

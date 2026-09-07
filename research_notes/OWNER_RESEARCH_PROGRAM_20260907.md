@@ -90,11 +90,25 @@ Owner / Driver: `EM-DVR-01E1D9`。当前用户直接授权：制定方向、充�
 不覆盖 prime+Cauchy reference、eta<1；也不覆盖 Galerkin complement、整个 H_log3 或 RH。
 准确五文件来源、环境和复用合同见 `OWNER_RH_FINITE_CERTIFICATE_INTAKE_20260907.md`。
 
-当前新的最小执行单元已经冻结为 **N=8、eta=9/10 的 prime+Cauchy reference 严格惯性包**。
-旧浮点 q=8 只作待检候选。复用已有 cutoff-free A、D 构建器，补 Cauchy cross 的严格球；
-再由独立 Fraction 工具核验有理区间族的惯性。原始32个 basis 标签、两个 pole 通道及 cross 定义保留。
-exact_solver负责严格生产者，stability_research负责独立有理区间惯性器，branch_scout审复用/尾界合同，Owner负责环境、原数学审查与集成。
-该单元尚未生成新 reference 证书，运行时和精度不能凭旧结果推测；资源不足必须给 UNDETERMINED。
+**N=8、eta=9/10 的 prime+Cauchy reference 严格惯性单元已经闭合。**
+复用既有 cutoff-free A、D，补全部256个Cauchy cross条目并保留32个basis标签、两个pole通道与准确cross定义。
+实际Python 3.12.14 / python-flint 0.9.0、384bits、K256/P10/C0=20000产生完整矩阵区间；
+独立Fraction工具对 M±delta I 的原输入合同分解逐项重构，二者均8负、24正、无零，故整个区间族均如此。
+delta约2.22e-8，精确值在证书中；q=8未作为求解输入。数学只覆盖该有限reference，未变成full-cross或RH结论。
+见 `OWNER_RH_REFERENCE_CERTIFICATE_20260907.md`、独立reuse/producer审计及实验目录。
+整数转字符串上限导致的run001失败已用2^-160严格外舍入处理；run003修复完整生产源码与可信缓存绑定。
+run002/003的bounds与labels完全相同，复用原有理证明但重新绑定新完整文件；不覆盖历史输出。
+积分预算耗尽实测返回UNDETERMINED且没有bounds，FFI的SystemError传播限制如实记录。
+
+## 新的原生消费与旧接口纠错
+
+| 方向 | 本轮实质结果 | 证据及保留边界 |
+|---|---|---|
+| 三轴观察成本 | 对目标支点上界s、任意有限非负竞争分布，最少raw三轴表：s0需1，s1需2，s2/3需6，s4..7需20；s≥8全20表也不保证 | `OWNER_OBSERVATION_QUERY_DESIGN_20260907.md`及独立audit；覆盖充要性、六表组合下界和原BRC反例。s是声明前提，失败否定普遍计划保证，不判实际数据歧义 |
+| Perfect Prime有限表示 | 原m3全部28个有限差分仍正，但二次多项式平方读出为负，否定旧普通幂矩lift；修复为可交换有限词、阶乘读出及BRC系数展开 | `OWNER_PP_FINITE_MOMENT_CORRECTION_20260907.md`及两条原模型独立路径；all-m HCM0/有限差分正性仍开放。抽象词长不是X6维数 |
+| 非线性通道观察 | 原Ai平均操作若在任意集合值观察上能诱导单射，则且仅则q=f∘总质量，无需线性/连续/满射 | `OWNER_NONLINEAR_CHANNEL_QUOTIENT_20260907.md`；至多5步原矩阵gate证书；质量同而5[1/5]与10[1/10]不同，阻止跨到微观BRC carrier |
+
+角色继续按缺口轮换：exact_solver从RH生产转PP原模型独立否证和查询审计；stability_research从惯性工具转查询计划和BRC适配器审计；branch_scout从RH审计转非线性观察及下一分支侦察。Owner自行发现PP错误、构造简单平方见证、证明有限BRC修复、实现消费者、修复独立审查发现的输入与资源边界，并负责源保存。每个有限单元闭合都不表示持续owner目标完成。
 
 ## 研究架构：把证明接到真实消费者
 
@@ -108,19 +122,27 @@ Observer 丢失的标签、质量、联合关系必须逐项声明。不能因�
 | `histogram_realization.py` | 逐权重整数分支实现、二值统一纤维谱及Rao证书 | 有理解不能替代整数实现；一般表仍未分类 |
 | `path_monitor.py` | 真实原生步图 → 有限监测端口系数及独立验证 | 有限 horizon、指定操作语言；验证不扩展到未知隐藏访问 |
 | `owner_arithmetic_20260907.py` | 全 signed 壳层 → `(r,e)` 端点谱及 `p^e` BRC histogram | path-count 聚合是明确观察步骤；赋值谱丢失 coprime unit 与端点标签 |
+| `query_design.py` | 稀疏前提和raw三轴查询集 → 普遍保证或明确非负BRC反例 | 不从查询自身验证未知真分布支点数，不替代实际恢复算法 |
+| `inertia_certificate.py` / `run_reference_certificate.py` | 有理对称区间矩阵 → 原输入可核验的惯性证明 | 只证明输入区间族；积分目标身份须独立生产者证明，无负值不自动意味正定 |
+| `finite_hcm_brc.py` | 有限h列 → 可交换词BRC、阶乘观察、系数质量或负差分障碍 | 不等于普通幂矩，也不判任意非交换prefix总体；资源超限独立于不可行 |
+| `channel_quotient.py` | 等质量通道向量 → 至多5步共同像gate见证 | gate等价链不是实际Ai动力可达，不扩展微观histogram或空间位置carrier |
 
 这些是非 canonical consumer 入口；正式工具登记仍要遵循现有 reuse/coverage 与发布协议。理论笔记、候选发现脚本、独立审计和真实输出分开保存，hash 绑定实际受审版本。既有审核文件的来源不会因为新的 checkpoint 而被改写。
+
+本轮源打包时只将三份生成JSON的CRLF转为LF，默认Git whitespace检查已通过；所有JSON值及数学/生产源码字节不变。
+`experiments/owner_packaging_20260907.json`保存前后SHA256与可精确反向重建步骤，较早审计中的输出哈希仍指明其当时字节。
+GitHub源分支保存可运行成果，全局知识库journal记录其提交位置与下一步；两者持续同步，研究地图承担当前入口，历史证据保持可追溯。
 
 ## 后续方向与退出条件（持续组合）
 
 | 方向 | 真实信息缺口 | 继续条件 | 退出 / 回流 |
 |---|---|---|---|
 | 联合观察稳定性 | 一般 `p(f)<=7` 的最优常数仍在 `[1,111/20]` | 新上界证明或不属于已关闭删点路线的下界见证 | 八正点、至少九负点已被排除，不重跑该搜索 |
-| 观察方式设计 | 哪些受限分布需要哪一组高阶联合观察 | 明确总体、成本和 future-operation family | 单个四轴标量区分一对例子，不冒充全局最小修复 |
+| 观察方式设计 | 当前均价raw三轴查询的稀疏度分类已闭合 | 新的观测合同或具体consumer才扩展 | 不机械扩为weighted/adaptive优化；未声明的新观察语言没有保证 |
 | X6 路径工具组合 | 空间位移、非交换分支词和后续操作同时保留的具体消费接口 | 先有具体问题并复查已存在的 T33–T37 等接口 | 只新增长度/count/histogram 的方向已被既有工具覆盖，关闭重复立项 |
 | 算术观察 | 赋值e不能区分C=4与12的p-coprime unit | 真正需要联合单位谱的consumer先查 factorial-unit 先例 | 当前完整赋值谱已闭合，不自动扩为同一数字算法续篇 |
-| 几何观察 | 具体混合例已区分空间相同、通道不同、微观分支不同 | 需要新声明的通道操作或观察合同才扩展 | 不从几何邻接推断物理动力学，不重复置换中心化子分类 |
-| 旧研究消费 | 同一N8 full-cross eta1已有Arb证书；reference eta9/10的Cauchy条目与负惯性包尚在构建；PP/Hodge父命题尚未闭合 | 按 `OWNER_RH_FINITE_CERTIFICATE_INTAKE_20260907.md` 复用已有A/D，核验准确reference输入 | 不重造已有对角积分器，不把有限惯性当无限空间或父猜想结论 |
+| 几何观察 | 当前Ai完整质量锥的任意集合可逆观察商也已闭合 | 需要新声明的通道操作或联合carrier才扩展 | 不把共同像gate当动力可达，不从质量商删除微观BRC信息 |
+| 旧研究消费 | N8 reference eta9/10严格惯性已闭合；PP普通幂矩lift已由m3关闭，有限BRC修复保留；PP/Hodge父命题未闭合 | 比较真实未闭合问题与独立分支候选后择题 | 不扩大m搜已知反例，不自动扩大N/eta，不把有限计算或恒等式当父猜想证明 |
 | 自由发现 | 由独立研究员另起 primitive 问题 | 干净上下文才宣称 CLEAN | 不能从已暴露目录的会话重新声称 clean blind |
 
 上述是研究组合中的候选方向，不构成 READY/CLAIMABLE 任务。把方向转成正式任务前，写出 exact gap、成功/反例、kill condition、替代路线和 V2 publication；不能靠“上阶段通过”自动续开。
