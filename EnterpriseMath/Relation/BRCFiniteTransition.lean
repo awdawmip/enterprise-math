@@ -20,7 +20,7 @@ structure FiniteTransitionSystem
 namespace FiniteTransitionSystem
 
 variable {BranchId S W G C R : Type*}
-variable [Monoid W] [Monoid G] [AddMonoid C] [Semiring R]
+variable [Monoid W] [Monoid G] [AddMonoid C]
 variable {ρ : CoordinateAction G C}
 
 /-- Ordinary finite transition matrix obtained by summing all named branch
@@ -29,6 +29,7 @@ occurrences after the exact source/target × frame lift.
 This is an explicit observer quotient: distinct branch IDs may recoalesce into
 the same matrix entry, but no reverse provenance recovery is assumed. -/
 noncomputable def transitionMatrix
+    [Semiring R]
     [Fintype BranchId] [Fintype S] [Fintype G]
     [DecidableEq S] [DecidableEq G]
     (E : FrameEmission W G C R ρ)
@@ -38,6 +39,7 @@ noncomputable def transitionMatrix
 
 /-- Entrywise form of the finite transition matrix. -/
 @[simp] theorem transitionMatrix_apply
+    [Semiring R]
     [Fintype BranchId] [Fintype S] [Fintype G]
     [DecidableEq S] [DecidableEq G]
     (E : FrameEmission W G C R ρ)
@@ -46,19 +48,24 @@ noncomputable def transitionMatrix
     T.transitionMatrix E x y =
       ∑ b : BranchId,
         T.multiplicity b • ((T.arrow b).stateFrameLift E x y) := by
-  simp [transitionMatrix, Matrix.sum_apply]
+  classical
+  unfold transitionMatrix
+  rw [Matrix.sum_apply]
+  apply Finset.sum_congr rfl
+  intro b _hb
+  rfl
 
 /-- If every declared branch multiplicity is zero, the transition observer is
 the zero matrix. -/
 @[simp] theorem transitionMatrix_eq_zero_of_multiplicity_zero
+    [Semiring R]
     [Fintype BranchId] [Fintype S] [Fintype G]
     [DecidableEq S] [DecidableEq G]
     (E : FrameEmission W G C R ρ)
     (T : FiniteTransitionSystem BranchId S W G C ρ)
     (h : ∀ b, T.multiplicity b = 0) :
     T.transitionMatrix E = 0 := by
-  ext x y
-  simp [transitionMatrix_apply, h]
+  simp [transitionMatrix, h]
 
 /-- Determinant certificate of a finite BRC transition observer.
 
@@ -66,9 +73,9 @@ The determinant lives only after the exact finite state/frame lift has entered a
 commutative coefficient ring.  Its alternating signs are algebraic determinant
 signs, not signed branch populations. -/
 noncomputable def transitionDeterminant
+    [CommRing R]
     [Fintype BranchId] [Fintype S] [Fintype G]
     [DecidableEq S] [DecidableEq G]
-    [CommRing R]
     (E : FrameEmission W G C R ρ)
     (T : FiniteTransitionSystem BranchId S W G C ρ) : R :=
   Matrix.det (1 - T.transitionMatrix E)
@@ -76,9 +83,9 @@ noncomputable def transitionDeterminant
 /-- A system with no positive branch multiplicity has determinant certificate
 one. -/
 @[simp] theorem transitionDeterminant_eq_one_of_multiplicity_zero
+    [CommRing R]
     [Fintype BranchId] [Fintype S] [Fintype G]
     [DecidableEq S] [DecidableEq G]
-    [CommRing R]
     (E : FrameEmission W G C R ρ)
     (T : FiniteTransitionSystem BranchId S W G C ρ)
     (h : ∀ b, T.multiplicity b = 0) :
