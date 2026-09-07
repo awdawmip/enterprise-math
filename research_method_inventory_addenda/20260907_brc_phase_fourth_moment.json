@@ -1,0 +1,68 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "RESEARCH_TOOLIZED_GLOBAL_SUBTOOL",
+  "date": "2026-09-07",
+  "admission": {
+    "classification": "TASK_RESEARCH_TOOL_HARVEST",
+    "authority": "direct user continuation of the BRC multiplier/table/error-linearization program through fixed-phase moment closure",
+    "family_id": "T0_BRC",
+    "foundation_mutation": false,
+    "working_truth_promotion": false,
+    "new_global_tool_family": false,
+    "coverage_verdict": "EXTEND_EXISTING_TOOL",
+    "matched_tool_or_method_ids": [
+      "t0.brc_phase_root_recurrence",
+      "t0.brc_phase_quotient_remainder",
+      "t0.brc_square_gap_cascade"
+    ],
+    "reuse_resolution_state": "COMPOSE_APPLIED_AND_EXTEND_EXISTING_TOOL",
+    "reason": "Extend the exact labeled phase-root recurrence from three to four visits, reuse the existing 1 KiB reciprocal table, and lift the quadratic root-difference moments so the earlier N^(1/7) tail needs no recurrent unbounded-by-unbounded products."
+  },
+  "methods": [
+    {
+      "method_id": "t0.brc_phase_fourth_moment",
+      "name": "BRC fourth-order fixed-phase lifted-moment transport",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_phase_fourth_moment.py",
+        "tests/test_brc_phase_fourth_moment.py",
+        "experiments/brc_phase_fourth_moment_benchmark.py",
+        "research_notes/BRC_PHASE_FOURTH_MOMENT_20260907.md",
+        "research_artifacts/brc_phase_fourth_moment_benchmark_20260907.csv"
+      ],
+      "api": [
+        "FourthPhaseMomentState",
+        "FourthPhaseMomentTracker",
+        "fourth_phase_tail_sufficient",
+        "fourth_phase_tail_threshold",
+        "aligned_fourth_phase_tail_threshold",
+        "phase_fourth_difference_bounds",
+        "phase_fourth_candidate_gap",
+        "odd_n_fourth_phase_tail_states",
+        "reused_reciprocal_table_bytes"
+      ],
+      "triggers": [
+        "BRC fourth phase difference",
+        "N one seventh multiplier tail",
+        "fixed phase lifted moment",
+        "remove unbounded dynamic products",
+        "early phase root recurrence"
+      ],
+      "capabilities": [
+        "exact unbounded odd-N mod-8 root/remainder transport from an m^7>=128N tail",
+        "cubic phase-root extrapolation from four labeled exact phase states",
+        "exact target residual using the signed remainder jet and a four-coordinate lifted quadratic moment carrier",
+        "uniform integer fourth-difference correction bound -347..7",
+        "negative correction recovery using the existing 1024-byte normalized reciprocal table with at most two estimate increments and one adjacent-candidate comparison",
+        "nineteen fixed seed-root transitions followed by recurrence with no further target square roots",
+        "moment updates whose new products use only a bounded correction or fixed small coefficients",
+        "exact completion-gap preservation for the BALANCED zero-false-negative square-residue cascade"
+      ],
+      "core_law": "For (m+8i)N=J_i^2+R_i, i=0..3, let u=Delta J_0, v=Delta^2 J_0, w=Delta^3 J_0 and C=4J_3-6J_2+4J_1-J_0. Then (m+32)N-C^2=-R_0+4R_1-6R_2+4R_3-2(4uw+3v^2+12vw+6w^2). Under m^7>=128N, e=Delta^4J_0 lies in [-347,7]. The lifted moments UW,V2,VW,W2 update using only bounded e, and the existing Round-13 reciprocal table recovers the dominant negative correction exactly.",
+      "observer_contract": "Retain four labeled phase triples plus the ordered finite-difference and quadratic-moment state. A root-only, remainder-total, Boolean-support, or unlabeled phase quotient cannot reproduce the exact residual or completion-gap future operation.",
+      "hard_boundary": "Exact integer transport on the declared odd-N fixed-phase tail. Nineteen direct-root seeds must be amortized by a long stream. Finite timing crossover is runtime-dependent. The result does not reduce the multiplier horizon, change Lehman/Hart factorization complexity, imply RSA practicality, mutate Foundation, or create a new top-level BRC family."
+    }
+  ]
+}
