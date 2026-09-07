@@ -1,0 +1,58 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "RESEARCH_TOOLIZED_GLOBAL_SUBTOOL",
+  "date": "2026-09-07",
+  "admission": {
+    "classification": "TASK_RESEARCH_TOOL_HARVEST",
+    "authority": "direct user request to quantify the growing/decaying predictor error and seek repeated-derivative or recursive-BRC linear laws",
+    "family_id": "T0_BRC",
+    "foundation_mutation": false,
+    "working_truth_promotion": false,
+    "new_global_tool_family": false,
+    "reason": "The derivative, finite-difference, and Pell/Padé laws are strict exact extensions of retained square-root BRC error transport and the existing table-free tail surface."
+  },
+  "methods": [
+    {
+      "method_id": "t0.brc_error_linearization_pell",
+      "name": "BRC error linearization / Pell-Pade tail transport",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_error_linearization_pell.py",
+        "tests/test_brc_error_linearization_pell.py",
+        "experiments/brc_error_linearization_pell_benchmark.py",
+        "research_notes/BRC_ERROR_LINEARIZATION_PELL_20260907.md",
+        "research_artifacts/brc_error_linearization_pell_benchmark_20260907.csv"
+      ],
+      "api": [
+        "PellTailState",
+        "post_truncation_derivative_ratio",
+        "brc_gap_after_crossings",
+        "pell_pade_pair",
+        "pell_linear_recurrence_next",
+        "pell_two_correction_certificate",
+        "transport_pell_tail"
+      ],
+      "triggers": [
+        "BRC predictor error",
+        "differentiate BRC error",
+        "recursive BRC linear law",
+        "Pell Pade square root predictor",
+        "table-free multiplier tail",
+        "error linearization"
+      ],
+      "capabilities": [
+        "exact affine post-truncation derivative ratio (1+x)E^(n+1)/E^n=1/2-n",
+        "exact recursive BRC gap orbit with second difference -2 and third difference 0",
+        "exact integer Pell-Pade lower approximant to sqrt((m+h)/m) for h=1,2",
+        "second-order linear recurrence in Pade order X_(n+2)=(4m+2h)X_(n+1)-h^2 X_n",
+        "sqrt-free Pell norm identity (m+h)B_n^2-mA_n^2=h^(2n+1)",
+        "exact integer <=2-correction certificate J h^(2n+1)<=m A_n B_n",
+        "certified table-free BRC root/remainder transport"
+      ],
+      "core_law": "For E_K=sqrt(1+x)-1-P_K, derivatives above order K satisfy (1+x)E_K^(n+1)/E_K^n=1/2-n, while ordinary BRC correction gaps satisfy G_q=G_0-q(2a+q). The diagonal Pade/Pell approximant obtained from (1+sqrt(1+x))^(2n+1)=P_n+sqrt(1+x)Q_n yields homogenized integers A_n,B_n with (m+h)B_n^2-mA_n^2=h^(2n+1). This makes A_n/B_n a rigorous lower sqrt-ratio predictor and gives the exact sufficient certificate J h^(2n+1)<=m A_n B_n for at most two BRC basin corrections.",
+      "hard_boundary": "Classical Pade/Pell approximation is prior art. The current contribution is exact BRC composition, certification, and error-linearization bookkeeping. The Python reference path is substantially faster than the previous high-order Taylor table-free tail but still slower than direct optimized isqrt on isolated steps. No asymptotic factorization speedup, RSA-practicality, optimal multiplier order, or Foundation promotion is claimed."
+    }
+  ]
+}
