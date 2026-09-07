@@ -9,8 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from control_plane import research_result_review_binding_fault_isolation as binding_isolation  # noqa: E402
-from control_plane import research_result_review_audit_fault_isolation as review_audit_isolation  # noqa: E402
+from control_plane import research_control_bootstrap as bootstrap  # noqa: E402
 from control_plane import research_driver_review_authority_fault_isolation as isolation  # noqa: E402
 import research_driver_authority as driver_authority  # noqa: E402
 
@@ -23,13 +22,9 @@ def audit() -> list[str]:
         if not records:
             errors.append("Driver authority contract is active but no authority records exist")
 
-        # Authority provenance is checked only on the operational review view.
-        # Reviews already proven nonoperational by exact stale-binding or strict
-        # structural-integrity isolation must not be judged a second time here.
-        binding_isolation.validated_quarantines(ROOT)
-        binding_isolation.install(ROOT)
-        review_audit_isolation.validated_rows(ROOT)
-        review_audit_isolation.install(ROOT)
+        # Use the same exact alias, quarantine and Result-dependency layers as
+        # live routing before auditing the remaining operational reviews.
+        bootstrap.install(ROOT)
 
         errors.extend(isolation.audit(ROOT))
     except Exception as exc:
