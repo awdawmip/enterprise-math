@@ -1,6 +1,6 @@
 import math
 import unittest
-from decimal import Decimal
+from decimal import Decimal, localcontext
 
 from enterprise_math.cyclic_rotation_refinement import (
     add_refinement_coordinates,
@@ -74,10 +74,14 @@ class CyclicRotationRefinementTests(unittest.TestCase):
         self.assertEqual(values[0], Decimal(-1))
         self.assertEqual(values[1], Decimal(0))
         tolerance = Decimal("1e-90")
-        for current, refined in zip(values, values[1:]):
-            self.assertLess(
-                abs(refined * refined - (Decimal(1) + current) / 2), tolerance
-            )
+        # Returned coordinates carry 100 digits; residual arithmetic must not
+        # silently round them back to the process default 28-digit context.
+        with localcontext() as context:
+            context.prec = 100
+            for current, refined in zip(values, values[1:]):
+                self.assertLess(
+                    abs(refined * refined - (Decimal(1) + current) / 2), tolerance
+                )
         for value in values[2:]:
             self.assertGreater(value, 0)
             self.assertLess(value, 1)

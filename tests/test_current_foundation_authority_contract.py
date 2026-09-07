@@ -30,22 +30,36 @@ def test_root_project_definition_routes_current_routers_only():
     assert "historical_carrier_typing" not in dumped
 
 
-def test_current_native_router_is_lazy_and_current_only():
+def test_current_native_router_preserves_p000_x6_and_typed_observers():
     text = read("definitions/00_CURRENT_NATIVE_FOUNDATION.md")
     for token in (
-        "O_E=0",
+        "../p000_reality_foundation.json",
+        "ENTERPRISE_SPACE_DIMENSION=6",
+        "ENTERPRISE_TIME_DIMENSION=1",
         "ENTERPRISE_RIGHT_ANGLE=120_DEGREES",
-        "min(a,b,c)=0",
+        "X6_NATIVE_SPATIAL = AFFINE_TORSOR(Z^6)",
+        "THREE_AXIS_NATIVE_SLICE_ZERO = CHOSEN_CELL_CENTER",
+        "MIN_ZERO_THREE_AXIS_ADDRESS != NATIVE_CELL_IDENTITY",
+        "MIN_ZERO_ADDRESS + INTEGER_COMMON_DEPTH = LOSSLESS_RAW_SLICE_COORDINATE",
+        "ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json",
+        "ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md",
+        "ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md",
         "ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md",
         "ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md",
         "ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md",
         "ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md",
-        "CANONICAL_BRC_BASE_LAYER=BOOLEAN_RESULT_SUPPORT_SEMANTICS",
+        "ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json",
+        "Positive Weighted-BRC remains distinct from signed/phase cancellation",
+        "Exact current canonical definitions control over this router summary",
         "FREE Phase A",
     ):
         assert token in text
 
-    assert not re.search(r"\bR0\d{2}\b", text)
+    assert "now retyped composite-path combinatorics" in text
+    assert "now relative-observer gauge only" in text
+    assert "now observer diagnostic only" in text
+    assert "O_E=0" not in text
+    assert "CANONICAL_BRC_BASE_LAYER=BOOLEAN_RESULT_SUPPORT_SEMANTICS" not in text
     assert "Historical / superseded family" not in text
     assert "signed-origin" not in text
 
@@ -53,7 +67,10 @@ def test_current_native_router_is_lazy_and_current_only():
 def test_free_and_general_current_router_are_separate():
     current = read("definitions/00_CURRENT_NATIVE_FOUNDATION.md")
     free = read("definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md")
-    assert "definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md" in current
+    routes = json.loads(read("project_definition.json"))["authority_chain"]
+    assert routes["free_discovery_substrate_router"] == "definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md"
+    assert routes["current_native_router"] == "definitions/00_CURRENT_NATIVE_FOUNDATION.md"
+    assert "FREE Phase A uses only its governing primitive substrate" in current
     assert "DO_NOT_PRELOAD = definitions/00_CURRENT_NATIVE_FOUNDATION.md" in free
     assert "NO_DEFAULT_DISCOVERY_LENS_MENU" in free
 

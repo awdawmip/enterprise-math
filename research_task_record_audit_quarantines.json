@@ -669,6 +669,31 @@
       "operational": false,
       "history_preserved": true,
       "operational_publication_selected": false
+    },
+    {
+      "quarantine_id": "TRAQ-P022-D78-FORK-BLOCKED-BODY-20260907",
+      "task_id": "RS-P022-OBSERVATION-HISTORY",
+      "publication_id": "TP2-D78DBA0243911E0363FA",
+      "record_path": "research_task_records/RS-P022-OBSERVATION-HISTORY/TP2-D78DBA0243911E0363FA.json",
+      "record_blob_sha1": "sha1:a7fb4c39766e8895306e21938da35f4a919cb9ef",
+      "taskbook_path": "research_tasks/P022_OBSERVATION_HISTORY_FORCED_MIDPOINT_FALLBACK_REPLAY_20260827.md",
+      "taskbook_blob_sha1": "sha1:15b495b7a21af748260363a6969097abe1f79611",
+      "allowed_task_record_audit_errors": [
+        "mandatory body section is missing or empty: Frozen inputs and scope",
+        "mandatory body section is missing or empty: Hard target and required outputs",
+        "mandatory body section is missing or empty: Research value to preserve",
+        "mandatory body section is missing or empty: Success, kill, and return criteria"
+      ],
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false,
+      "state": "NONOPERATIONAL_IMMUTABLE_RECORD_INTEGRITY_FAULT",
+      "nonoperational_basis": "TASK_BLOCKED_BY_PUBLICATION_FORK_QUARANTINE",
+      "operational": false,
+      "history_preserved": true,
+      "operational_publication_selected": false,
+      "reason": "The exact three-head P022 fork is newly blocked in OWNER_UNRESOLVED_PUBLICATION_FORK_ISOLATION_20260907.md. The old resolution-retained heading waiver no longer has its required operational-current witness. Preserve these four exact immutable-body errors through the existing audit-only fork-blocked basis; this selects no publication and grants no authority."
     }
   ]
 }

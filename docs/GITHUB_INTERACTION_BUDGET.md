@@ -2,6 +2,7 @@
 
 Status: `ACTIVE / CANONICAL REMOTE-LIVENESS OVERRIDE`
 Effective: `2026-08-22`
+GitHub write-route update: `2026-09-07 / CURRENT EXPLICIT USER INSTRUCTION`
 Scope: repository reads, GitHub connector/API use, branch/PR publication, Issue coordination, CI and promotion.
 
 ## 1. Core invariant
@@ -33,6 +34,22 @@ Do not use ChatGPT/container networking to clone/fetch GitHub or read raw GitHub
 A pre-existing local checkout may be used for actual local execution/tests. It is not the fallback transport for remote GitHub synchronization.
 
 If a local/container GitHub network route is known unavailable, do not retry it later and do not keep reporting the same environment failure.
+
+### 2.1 Current write-route choice
+
+For an already-authorized GitHub write, the assistant may choose a direct commit/update to the intended ref or an ordinary branch → PR → merge workflow. Neither route is mandatory merely for persistence. Older conversation habits or prior main-only/no-PR restrictions do not constrain this current write-route choice.
+
+Use the actions actually advertised by the current connection and their current argument schema. Equivalent available connector actions may implement the same authorized write; a low-level `create_blob` call is not a mandatory prerequisite when a file or commit action can preserve the exact content and required transaction boundary. Conversely, one failed action does not establish that the repository or another action is read-only.
+
+Immediately before a mutation, identify the exact repository and target ref, refresh the expected head/file identity, and use compare-and-swap/non-force semantics where supported. Preserve the bundle's exact paths, bytes, hashes and atomicity requirements across transport changes. After writing, read back the resulting immutable commit and verify every intended path; after a merge, verify the intended target ref contains the change.
+
+This choice concerns GitHub transport and integration only. Existing research-role authority, owner/claim scope, task publication, immutable records, tests, review and mathematical promotion requirements remain in force. A successful upload or merge does not supply those authorities.
+
+### 2.2 Recovering an older conversation's failed upload
+
+Keep the frozen work and resume the upload from its last verified frontier. Inspect one bounded failure record and the currently advertised tool binding, then select an available equivalent authorized action against an explicit repository/ref. Do not rerun completed mathematics or retry an unchanged failing request in a loop.
+
+Use the executable recovery sequence and fixed probe evidence in [GitHub write transport recovery](../research_notes/GITHUB_WRITE_TRANSPORT_RECOVERY_20260907.md). A `Resource not found` response for one request is an endpoint/request observation, not a diagnosis of repository-wide permissions or workflow behavior.
 
 ## 3. Startup read budget
 
@@ -162,8 +179,8 @@ Publish when a coherent theorem/counterexample/tool/artifact checkpoint, handoff
 At one checkpoint:
 
 1. batch related changes;
-2. publish/update the owner branch once;
-3. create/update at most one Draft PR for the bounded owner generation when useful;
+2. publish the batch once using the authorized direct-ref or branch route selected under §2.1;
+3. if using a branch, create/update at most one PR for the bounded owner generation when useful;
 4. terminate the remote publication subflow;
 5. **resume the parent research/Driver/user objective in the same turn unless that parent objective is complete.**
 
@@ -177,7 +194,7 @@ Generated artifacts additionally follow `docs/ARTIFACT_PUBLICATION_LIVENESS.md`.
 
 For L1/L2/L3:
 
-- normally one branch + at most one Draft PR per bounded owner generation;
+- when choosing the branch route, normally one branch + at most one PR per bounded owner generation; direct authorized persistence does not require a PR;
 - do not create a PR for every minor stage/diagnostic;
 - do not toggle ready merely to trigger CI;
 - report local/executable evidence honestly.

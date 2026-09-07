@@ -16,12 +16,12 @@ FREE Phase A remains blinded from the current catalog until candidate freeze. To
 
 ## Shared repository-tool ownership
 
-The Common Research Surface and Toolbox divide ownership of repository `tools/*.py` exactly. Toolbox-owned repository tools are:
+The Common Research Surface, Toolbox, and Runtime divide ownership of repository `tools/*.py` exactly. Toolbox-owned repository tools are:
 
 - `tools/enterprise_toolbox.py` — reuse-before-invention router;
 - `tools/tool_discovery_native_valuation_ehrhart_brion_calculus_check.py` — frozen T1 discovery checker.
 
-`tools/check_research_common_surface.py` audits that the Common-Surface and Toolbox tool indexes are disjoint and jointly cover the actual repository tool files.
+`tools/check_research_common_surface.py` audits that the indexes in `research_common_surface.json`, `enterprise_toolbox_registry.json`, and `research_runtime_state_machine.json` are pairwise disjoint and jointly cover the actual repository tool files. Runtime-owned tools are documented in `docs/RESEARCH_RUNTIME_STATE_MACHINE.md`; their registration does not duplicate Toolbox ownership or change mathematical tool-family status.
 
 ## T0–T9 retained families
 

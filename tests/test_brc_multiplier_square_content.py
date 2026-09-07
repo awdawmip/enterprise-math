@@ -44,10 +44,12 @@ class BRCMultiplierSquareContentTests(unittest.TestCase):
         self.assertEqual(r.scan_representative, 1)
 
     def test_squareful_multiplier_can_be_irredundant(self) -> None:
-        # 111=3*37 first succeeds in the exact mod-8 scan at m=9:
-        # 9*111=32^2-5^2, and gcd(32,3)=1, so square content cannot reduce it.
-        state = direct_multiplier_jump_from_one(111, 9)
-        self.assertEqual(state.ceiling_root, 32)
+        # 9*19=14^2-5^2 with gcd(19,9)=gcd(14,3)=1, so this valid
+        # square-gap state cannot strip the square content of multiplier 9.
+        state = direct_multiplier_jump_from_one(19, 9)
+        self.assertEqual(state.ceiling_root, 14)
+        self.assertEqual(gcd(state.n, state.multiplier), 1)
+        self.assertEqual(9 * 19, state.ceiling_root**2 - 5**2)
         r = jump_state_square_content_reduction(state)
         self.assertEqual(r.square_content_root, 3)
         self.assertEqual(r.common_scale, 1)
@@ -55,6 +57,13 @@ class BRCMultiplierSquareContentTests(unittest.TestCase):
         self.assertTrue(r.gap_test_is_irredundant)
 
     def test_coprimality_boundary(self) -> None:
+        # The former irredundant fixture has gcd(111,9)=3 and is outside
+        # the same-gcd transport contract, despite having a square gap.
+        state = direct_multiplier_jump_from_one(111, 9)
+        self.assertEqual(state.ceiling_root, 32)
+        self.assertEqual(gcd(state.n, state.multiplier), 3)
+        with self.assertRaisesRegex(ValueError, "reduction requires coprimality"):
+            jump_state_square_content_reduction(state)
         with self.assertRaises(ValueError):
             odd_n_square_content_scan_reduction(21, 9, 14)
         with self.assertRaises(ValueError):

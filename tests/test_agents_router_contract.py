@@ -1,3 +1,4 @@
+import json
 import re
 import unittest
 from pathlib import Path
@@ -118,11 +119,25 @@ class AgentsRouterContractTests(unittest.TestCase):
 
     def test_agents_low_burden_dispatch_is_one_claim_and_no_poll_loop(self):
         text = read("AGENTS.md")
-        self.assertIn("VALIDATE_CURRENT_PUBLICATION -> CREATE_OR_VERIFY_BRANCH -> ONE_CLAIM -> RESEARCH", text)
-        self.assertIn("Do not require a second pre-claim execution-record write", text)
+        self.assertIn("One canonical task selection/claim boundary is sufficient", text)
+        self.assertIn("verify its current immutable V2 publication and claimability", text)
         self.assertIn("Between genuine semantic checkpoints, default added governance operations are zero", text)
-        self.assertIn("comment ID orders events", text)
-        self.assertIn("Edited event comments do not rewrite runtime history", text)
+        contract = json.loads(read("research_dispatch_contract.json"))
+        self.assertEqual("research_control_dispatch.py", contract["canonical_tool"])
+        self.assertIn("One self-contained GitHub Issue #240 CLAIM envelope", contract["registered_claim_authority"])
+        for invariant in (
+            "NO_SEPARATE_REMOTE_EXECUTION_INTENT_WRITE_IS_REQUIRED_BEFORE_CLAIM",
+            "NONCOHORT_REGISTERED_CLAIM_MUST_REFERENCE_OPERATIONAL_PUBLICATION_AND_EXACT_BRANCH_BASE_OUTPUT_SCOPE",
+            "FIRST_VALID_AUTHORIZED_ISSUE_CLAIM_COMMITS_THE_OWNER_RACE_WITHIN_ITS_OWNER_SCOPE",
+            "SERVER_COMMENT_ID_DETERMINES_EVENT_ORDER",
+            "EDITED_EVENT_COMMENTS_DO_NOT_MUTATE_HISTORY",
+        ):
+            self.assertIn(invariant, contract["core_invariants"])
+        envelope = contract["server_event_envelope"]
+        self.assertEqual(240, envelope["issue"])
+        self.assertEqual("GitHub comment_id", envelope["ordering_authority"])
+        self.assertFalse(envelope["body_actor_authority"])
+        self.assertFalse(envelope["body_at_authority"])
 
     def test_agents_has_chat_only_control_plane_soft_watchdog(self):
         text = read("AGENTS.md")

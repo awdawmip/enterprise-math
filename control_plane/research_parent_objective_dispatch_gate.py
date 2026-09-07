@@ -14,10 +14,14 @@ reversible if ordinary Driver authority later publishes an OPEN Objective head.
 from __future__ import annotations
 
 import copy
+import sys
 from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 NONOPEN_STATUSES = {"PARKED", "CLOSED"}
 
 
@@ -182,6 +186,9 @@ def audit(root: Path = ROOT) -> list[str]:
 
 
 if __name__ == "__main__":
+    from control_plane import research_control_bootstrap as bootstrap
+
+    bootstrap.install(ROOT)
     found = audit()
     if found:
         for item in found:

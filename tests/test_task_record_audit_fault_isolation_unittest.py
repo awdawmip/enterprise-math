@@ -51,6 +51,7 @@ class TaskRecordAuditFaultIsolationTests(unittest.TestCase):
 
     def test_fork_blocked_rows_track_live_forks_and_resolved_history_is_superseded(self):
         from control_plane import research_publication_fault_isolation as publication_isolation
+        from tools import research_dispatch
 
         rows = {
             row["publication_id"]: row for row in audit_isolation.validated_rows(ROOT)
@@ -70,8 +71,26 @@ class TaskRecordAuditFaultIsolationTests(unittest.TestCase):
             effective = set(fork.get("_effective_publication_ids", fork["publication_ids"]))
             self.assertIn(row["publication_id"], effective)
 
-        resolved_task = "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE"
-        self.assertNotIn(resolved_task, forks)
+        blocked_tasks = {
+            "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+            "RS-P000-PHILOSOPHY-FIRST-RETURN-PROFILE-1WL-N13-COLLISION-FRONTIER",
+            "RS-P022-OBSERVATION-HISTORY",
+            "RS-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M-PROOF",
+            "RS-R043C4-NATIVE-INTERFACE-LINK-SEPARATOR-CLOSURE",
+        }
+        current = publication_isolation.isolated_current_records(ROOT)
+        definitions = {row["task_id"]: row for row in research_dispatch.merged_definitions(ROOT)}
+        for task in blocked_tasks:
+            with self.subTest(task=task):
+                self.assertIn(task, forks)
+                self.assertEqual(publication_isolation.QUARANTINE_STATE, forks[task]["state"])
+                self.assertIsNone(forks[task]["operational_publication_id"])
+                self.assertNotIn(task, current)
+                self.assertEqual("BLOCKED", definitions[task]["base_state"])
+                self.assertIsNone(definitions[task]["publication_id"])
+
+        # Superseded generations remain valid history even when their family's
+        # later active heads still form an unresolved fork.
         for publication_id in (
             "TP2-D4A7C19E5B306F821472",
             "TP2-E5B7C19A3D604F821583",
@@ -80,6 +99,11 @@ class TaskRecordAuditFaultIsolationTests(unittest.TestCase):
                 audit_isolation.BASIS_SUPERSEDED,
                 rows[publication_id]["nonoperational_basis"],
             )
+        resolved_history = rows["TP2-6866CB3F890F6563C474"]
+        self.assertEqual("RS-GEO6-OBJECTIVE-SEMANTIC-SELECTOR-SYNTHESIS", resolved_history["task_id"])
+        self.assertNotIn(resolved_history["task_id"], forks)
+        self.assertEqual(audit_isolation.BASIS_SUPERSEDED, resolved_history["nonoperational_basis"])
+        self.assertTrue(resolved_history["history_preserved"])
 
     def test_every_declared_suppression_is_exact_record_prefixed(self):
         rows = audit_isolation.validated_rows(ROOT)

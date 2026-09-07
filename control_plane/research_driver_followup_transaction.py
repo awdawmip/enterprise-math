@@ -23,13 +23,16 @@ never rewritten or deleted.
 from __future__ import annotations
 
 import json
+import sys
 import tempfile
 from pathlib import Path
 from typing import Any
 
-from control_plane import immutable_write_transaction as _tx
-
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from control_plane import immutable_write_transaction as _tx  # noqa: E402
 
 
 class DriverFollowupTransactionError(ValueError):

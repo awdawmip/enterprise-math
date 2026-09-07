@@ -4,6 +4,7 @@ import unittest
 from pathlib import Path
 
 import research_operational_publications as operational
+from test_research_task_record_compatibility import _write_current_record, _write_semantic_fixture
 
 
 def write_json(path: Path, value: dict):
@@ -13,15 +14,12 @@ def write_json(path: Path, value: dict):
 
 class OperationalPublicationTests(unittest.TestCase):
     def publication(self, root: Path, pid: str, *, task_id="RS-T", supersedes=None, state="ACTIVE"):
-        write_json(
-            root / "research_task_records" / task_id / f"{pid}.json",
-            {
-                "record_schema": operational.RECORD_SCHEMA,
-                "record_state": state,
-                "task_id": task_id,
-                "publication_id": pid,
-                "supersedes_publication_id": supersedes,
-            },
+        if not (root / "research_task_semantic_integrity_quarantines.json").exists():
+            _write_semantic_fixture(root)
+        _write_current_record(
+            root, task_id=task_id, publication_id=pid,
+            parent_objective_id="OBJ-OPERATIONAL-FIXTURE",
+            record_state=state, supersedes_publication_id=supersedes,
         )
 
     def resolution(self, root: Path, row: dict):
@@ -88,7 +86,10 @@ class OperationalPublicationTests(unittest.TestCase):
             self.publication(root, "TP2-B")
             with self.assertRaisesRegex(operational.OperationalPublicationError, "retained"):
                 operational.selection("RS-T", root)
-            self.assertEqual(2, len(operational.iter_publications(root)))
+            self.assertEqual(
+                {"TP2-A", "TP2-B"},
+                {r["publication_id"] for r in operational.iter_publications(root) if r["task_id"] == "RS-T"},
+            )
 
     def test_resolution_must_retain_every_active_head(self):
         with tempfile.TemporaryDirectory() as td:
@@ -130,7 +131,10 @@ class OperationalPublicationTests(unittest.TestCase):
             value = operational.selection("RS-T", root)
             self.assertEqual("TP2-B", value["operational_publication_id"])
             self.assertEqual(["TP2-B"], value["retained_parallel_publication_ids"])
-            self.assertEqual(2, len(operational.iter_publications(root)))
+            self.assertEqual(
+                {"TP2-A", "TP2-B"},
+                {r["publication_id"] for r in operational.iter_publications(root) if r["task_id"] == "RS-T"},
+            )
 
 
 class RepositoryOperationalPublicationTests(unittest.TestCase):

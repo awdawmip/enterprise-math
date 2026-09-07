@@ -15,6 +15,27 @@ class PublicationQuarantineLineageForwardSafetyTests(unittest.TestCase):
     def test_real_native_bridge_fork_is_quarantined_or_resolved_exactly(self):
         quarantines = publication_isolation.quarantine_rows(ROOT)
         if TASK in quarantines:
+            row = quarantines[TASK]
+            if row["state"] == publication_isolation.QUARANTINE_STATE:
+                expected_heads = {
+                    "TP2-3F6A92D8C1E740B5A2C9",
+                    "TP2-4A84B81FD5CAB8CD0359",
+                    "TP2-FBDBDBE1C5BDF65F97A0",
+                }
+                validated = publication_isolation.validated_quarantines(ROOT)[TASK]
+                self.assertEqual(expected_heads, set(row["publication_ids"]))
+                self.assertEqual(expected_heads, set(validated["_effective_publication_ids"]))
+                self.assertNotIn("tracking_mode", row)
+                self.assertNotIn("lineage_anchor_publication_ids", row)
+                self.assertIsNone(row["operational_publication_id"])
+                self.assertNotIn(TASK, publication_isolation.isolated_current_records(ROOT))
+                for flag in (
+                    "working_truth_granted", "foundation_authority_granted",
+                    "canonical_promotion_granted", "successor_triggered",
+                ):
+                    self.assertIs(row[flag], False)
+                return
+            self.assertEqual(publication_isolation.LINEAGE_FORWARD_QUARANTINE_STATE, row["state"])
             anchors = quarantines[TASK]["lineage_anchor_publication_ids"]
             evidence = safety.prove(TASK, anchors, ROOT)
             self.assertEqual(TASK, evidence["task_id"])

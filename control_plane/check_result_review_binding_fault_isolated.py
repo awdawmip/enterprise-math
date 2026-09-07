@@ -12,6 +12,7 @@ if str(ROOT) not in sys.path:
 from control_plane import research_result_review_binding_fault_isolation as binding_isolation
 from control_plane import research_result_review_audit_fault_isolation as review_audit_isolation
 from control_plane import research_result_record_audit_fault_isolation as result_audit_isolation
+from control_plane import research_result_authority_fault_isolation as result_authority_isolation
 
 
 def audit() -> list[str]:
@@ -24,6 +25,7 @@ def audit() -> list[str]:
         review_audit_isolation.install(ROOT)
 
         result_audit_isolation.validated_rows(ROOT)
+        result_authority_isolation.install(ROOT)
 
         from tools import research_result_records
 
@@ -44,7 +46,9 @@ def audit() -> list[str]:
             )
 
         strict_errors = research_result_records.audit(ROOT)
-        errors.extend(result_audit_isolation.audit_against(strict_errors, ROOT))
+        errors.extend(result_authority_isolation.audit_against(
+            result_audit_isolation.audit_against(strict_errors, ROOT), ROOT
+        ))
     except Exception as exc:
         errors.append(str(exc))
     return errors
@@ -61,7 +65,8 @@ def main() -> int:
         "exact invalid-review isolation, and audit-only superseded-result containment; "
         f"binding_reviews={len(binding_isolation.quarantine_rows(ROOT))}; "
         f"invalid_reviews={len(review_audit_isolation.quarantine_rows(ROOT))}; "
-        f"superseded_result_audit_rows={len(result_audit_isolation.quarantine_rows(ROOT))}."
+        f"superseded_result_audit_rows={len(result_audit_isolation.quarantine_rows(ROOT))}; "
+        f"withheld_result_authority_rows={len(result_authority_isolation.quarantine_rows(ROOT))}."
     )
     return 0
 

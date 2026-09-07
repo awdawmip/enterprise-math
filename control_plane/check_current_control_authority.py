@@ -337,7 +337,17 @@ def check() -> None:
     require("TASK_RESEARCH_RESPONSE" in router, "live control router missing task-response liveness kind")
     require("DURABLE_EXECUTION_PROGRESS" in router, "live control router missing durable-progress liveness kind")
     require("research_control_bootstrap.install(ROOT)" in router, "live control router must install canonical bootstrap")
-    require("research_dispatch.select_task" in router, "live control router must subordinate ordinary fresh selector")
+    # select_task uses this same effective-states -> policy -> reducer chain.
+    # The live router shares its state snapshot with owner recovery and lane
+    # selection, so requiring a second select_task call would reject that reuse.
+    require(
+        all(fragment in router for fragment in (
+            "states = research_dispatch.effective_states(events, now=now, root=root)",
+            "policy = research_runtime_reducer.load_policy(root)",
+            "fresh_task = research_runtime_reducer.select_state(states, policy, kind=kind)",
+        )),
+        "live control router must subordinate canonical fresh selection over shared effective states",
+    )
     require("research_runtime.ADOPT_OWNER_CLAIM" in router, "live control router missing same-CLAIM adoption path")
     require('"VERIFY_SESSION_LIVENESS"' in router, "live control router missing unknown-liveness route")
 

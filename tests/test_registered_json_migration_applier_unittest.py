@@ -31,14 +31,16 @@ class RegisteredJsonMigrationApplierTests(unittest.TestCase):
         self.assertTrue(result["non_target_text_segments_byte_identical"])
         self.assertEqual(
             "tools/research_dispatch.py",
-            result["protected_after"]["/dispatch/tool"],
+            result["protected_after"]["/fresh_task_selector"],
         )
+        self.assertEqual(result["protected_before"], result["protected_after"])
         parsed = json.loads(proposed)
-        self.assertEqual("research_control_dispatch.py", parsed["composes"]["canonical_dispatch"])
-        self.assertEqual(
-            "EXACT_OWNER_SCOPE_CURRENT_WINNING_CLAIM",
-            parsed["lease_model"]["session_liveness"]["semantic_scope"],
-        )
+        self.assertEqual("research_control_dispatch.py", parsed["canonical_live_dispatch"])
+        self.assertFalse(parsed["owner_lease_is_session_liveness"])
+        self.assertEqual("ADOPT_EXISTING_CLAIM", parsed["stale_valid_owner_action"])
+        self.assertNotIn("dispatch", parsed)
+        self.assertNotIn("composes", parsed)
+        self.assertNotIn("lease_model", parsed)
 
     def test_write_mode_logic_can_be_exercised_on_exact_temp_copy_without_repo_mutation(self):
         # Construct a tiny standalone source to test exact span replacement and

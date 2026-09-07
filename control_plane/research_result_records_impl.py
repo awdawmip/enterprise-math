@@ -432,22 +432,25 @@ def review_result(
     return value
 
 
-def audit(root: Path = ROOT) -> list[str]:
+def audit_result_record(
+    item: dict[str, Any],
+    execution: dict[str, Any] | None,
+    root: Path = ROOT,
+) -> list[str]:
+    """Strictly audit one Result without resolving or granting execution identity.
+
+    The caller supplies the execution relation explicitly. A missing relation is
+    an error, but cannot hide independently checkable Result metadata or files.
+    This helper does not mutate either input, create missing fields, or add an
+    execution-map alias. Linked fields are compared only when execution exists.
+    """
     errors: list[str] = []
-    try:
-        executions = execution_map(root)
-        results = result_map(root)
-    except Exception as exc:
-        return [str(exc)]
-    seen_reviews: set[str] = set()
-    for rid, item in results.items():
-        prefix = item.get("_record_path", rid)
-        if item.get("record_schema") != RESULT_SCHEMA:
-            errors.append(f"{prefix}: wrong result schema")
-        execution = executions.get(str(item.get("execution_record_id", "")))
-        if execution is None:
-            errors.append(f"{prefix}: unknown execution record")
-            continue
+    prefix = item.get("_record_path", item.get("result_id", "<result>"))
+    if item.get("record_schema") != RESULT_SCHEMA:
+        errors.append(f"{prefix}: wrong result schema")
+    if execution is None:
+        errors.append(f"{prefix}: unknown execution record")
+    else:
         for field in ("task_id", "publication_id", "claim_id", "researcher_id", "taskbook_blob_sha1", "execution_branch"):
             if item.get(field) != execution.get(field):
                 errors.append(f"{prefix}: execution-linked field mismatch: {field}")
@@ -459,45 +462,59 @@ def audit(root: Path = ROOT) -> list[str]:
             for field in ("execution_cohort_id", "execution_lane_id", "lane_output_prefix"):
                 if item.get(field) != execution.get(field):
                     errors.append(f"{prefix}: execution-linked lane field mismatch: {field}")
-        path_value = item.get("return_path")
-        if not isinstance(path_value, str) or not (root / path_value).exists():
-            errors.append(f"{prefix}: return artifact missing")
-        else:
-            if not _same_git_blob_identity(_blob(root / path_value), item.get("return_blob_sha1")):
-                errors.append(f"{prefix}: return artifact blob drift")
-            if _sha256(root / path_value) != item.get("return_sha256"):
-                errors.append(f"{prefix}: return artifact SHA-256 drift")
-        if item.get("terminal_verdict") not in TERMINAL_VERDICTS:
-            errors.append(f"{prefix}: invalid terminal_verdict")
-        if item.get("method_harvest") not in METHOD_HARVEST:
-            errors.append(f"{prefix}: invalid method_harvest")
-        if item.get("independence_status") not in INDEPENDENCE_STATUS:
-            errors.append(f"{prefix}: invalid independence_status")
-        if item.get("source_exposure_status") not in SOURCE_EXPOSURE_STATUS:
-            errors.append(f"{prefix}: invalid source_exposure_status")
-        if not isinstance(item.get("hard_target_disposition"), str) or not item["hard_target_disposition"].strip():
-            errors.append(f"{prefix}: hard_target_disposition missing")
-        if not isinstance(item.get("unresolved_residue"), str) or not item["unresolved_residue"].strip():
-            errors.append(f"{prefix}: unresolved_residue missing")
-        if not isinstance(item.get("next_control_plane_recommendation"), str) or not item["next_control_plane_recommendation"].strip():
-            errors.append(f"{prefix}: next_control_plane_recommendation missing")
-        manifest = item.get("output_manifest")
-        if not isinstance(manifest, list) or not manifest:
-            errors.append(f"{prefix}: output_manifest missing")
-        else:
-            for output in manifest:
-                if not isinstance(output, dict) or not isinstance(output.get("path"), str):
-                    errors.append(f"{prefix}: invalid output manifest row")
-                    continue
-                path = root / output["path"]
-                if not path.exists():
-                    errors.append(f"{prefix}: output missing: {output['path']}")
-                else:
-                    if (
-                        not _same_git_blob_identity(_blob(path), output.get("git_blob_sha1"))
-                        or _sha256(path) != output.get("sha256")
-                    ):
-                        errors.append(f"{prefix}: output digest drift: {output['path']}")
+    path_value = item.get("return_path")
+    if not isinstance(path_value, str) or not (root / path_value).exists():
+        errors.append(f"{prefix}: return artifact missing")
+    else:
+        if not _same_git_blob_identity(_blob(root / path_value), item.get("return_blob_sha1")):
+            errors.append(f"{prefix}: return artifact blob drift")
+        if _sha256(root / path_value) != item.get("return_sha256"):
+            errors.append(f"{prefix}: return artifact SHA-256 drift")
+    if item.get("terminal_verdict") not in TERMINAL_VERDICTS:
+        errors.append(f"{prefix}: invalid terminal_verdict")
+    if item.get("method_harvest") not in METHOD_HARVEST:
+        errors.append(f"{prefix}: invalid method_harvest")
+    if item.get("independence_status") not in INDEPENDENCE_STATUS:
+        errors.append(f"{prefix}: invalid independence_status")
+    if item.get("source_exposure_status") not in SOURCE_EXPOSURE_STATUS:
+        errors.append(f"{prefix}: invalid source_exposure_status")
+    if not isinstance(item.get("hard_target_disposition"), str) or not item["hard_target_disposition"].strip():
+        errors.append(f"{prefix}: hard_target_disposition missing")
+    if not isinstance(item.get("unresolved_residue"), str) or not item["unresolved_residue"].strip():
+        errors.append(f"{prefix}: unresolved_residue missing")
+    if not isinstance(item.get("next_control_plane_recommendation"), str) or not item["next_control_plane_recommendation"].strip():
+        errors.append(f"{prefix}: next_control_plane_recommendation missing")
+    manifest = item.get("output_manifest")
+    if not isinstance(manifest, list) or not manifest:
+        errors.append(f"{prefix}: output_manifest missing")
+    else:
+        for output in manifest:
+            if not isinstance(output, dict) or not isinstance(output.get("path"), str):
+                errors.append(f"{prefix}: invalid output manifest row")
+                continue
+            path = root / output["path"]
+            if not path.exists():
+                errors.append(f"{prefix}: output missing: {output['path']}")
+            else:
+                if (
+                    not _same_git_blob_identity(_blob(path), output.get("git_blob_sha1"))
+                    or _sha256(path) != output.get("sha256")
+                ):
+                    errors.append(f"{prefix}: output digest drift: {output['path']}")
+    return errors
+
+
+def audit(root: Path = ROOT) -> list[str]:
+    errors: list[str] = []
+    try:
+        executions = execution_map(root)
+        results = result_map(root)
+    except Exception as exc:
+        return [str(exc)]
+    seen_reviews: set[str] = set()
+    for item in results.values():
+        execution = executions.get(str(item.get("execution_record_id", "")))
+        errors.extend(audit_result_record(item, execution, root))
     for item in iter_reviews(root):
         prefix = item.get("_review_path", "<review>")
         rev_id = item.get("review_id")

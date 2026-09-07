@@ -1,6 +1,10 @@
 from __future__ import annotations
 
+import os
+import subprocess
+import sys
 import unittest
+from pathlib import Path
 from unittest import mock
 
 import research_driver_followup as impl
@@ -33,6 +37,26 @@ def gate_rows(**overrides):
 
 
 class DriverFollowupContractTests(unittest.TestCase):
+    def test_transaction_script_and_module_entrypoints(self):
+        environment = os.environ.copy()
+        environment.pop("PYTHONPATH", None)
+        root = Path(__file__).resolve().parents[1]
+        for args in (
+            ["control_plane/research_driver_followup_transaction.py"],
+            ["-m", "control_plane.research_driver_followup_transaction"],
+        ):
+            with self.subTest(entrypoint=args):
+                run = subprocess.run(
+                    [sys.executable, *args], cwd=root, env=environment,
+                    capture_output=True, text=True, timeout=60,
+                )
+                self.assertEqual(0, run.returncode, run.stdout + run.stderr)
+                self.assertEqual(
+                    "PASS: Driver follow-up materialization is rollback-safe.\n",
+                    run.stdout,
+                )
+                self.assertEqual("", run.stderr)
+
     def test_frozen_review_id_not_timestamp_controls_compatibility(self):
         legacy_id = "DR-674A8EC67ED785D968FA"
         legacy = {

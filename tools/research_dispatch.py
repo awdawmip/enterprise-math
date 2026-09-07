@@ -23,6 +23,8 @@ terminalization, or task-selection policy is changed here.
 from __future__ import annotations
 
 import copy
+from contextlib import contextmanager
+from control_plane import research_result_authority_fault_isolation as _result_authority
 from pathlib import Path
 from typing import Any
 
@@ -32,6 +34,8 @@ ROOT = _core.ROOT
 DispatchError = _core.DispatchError
 
 _ORIGINAL_OVERLAY_RESULT_STATE = _core._overlay_result_state
+_ORIGINAL_OVERLAY_ACTIVE_COHORT = _core._overlay_active_cohort
+_ORIGINAL_RESULT_SNAPSHOT = _core._dispatch_result_read_snapshot
 _ORIGINAL_FILTER_REGISTERED_EVENTS = _core._filter_registered_events
 _AUTO_RESULT_STATE = object()
 
@@ -146,13 +150,40 @@ def _filter_registered_events(
                 publication_id if isinstance(publication_id, str) else None,
             )
         result_state = resolved
+    held = isinstance(result_state, dict) and result_state.get("state") == _result_authority.STATE
     accepted, rejected = _ORIGINAL_FILTER_REGISTERED_EVENTS(
         task,
         events,
         root,
-        result_state if isinstance(result_state, dict) else None,
+        result_state if isinstance(result_state, dict) and not held else None,
     )
-    return _bind_intent_claim_publications(task, events, accepted, rejected, root)
+    accepted, rejected = _bind_intent_claim_publications(task, events, accepted, rejected, root)
+    if held and _core._is_registered(task):
+        kept = []
+        for event in accepted:
+            if event.get("task_id") != task.get("task_id"):
+                kept.append(event)
+                continue
+            kind = event.get("event")
+            blocked = kind in {"CLAIM", "HANDOFF", "DONE", "UNBLOCK", "SUPERSEDE"}
+            if kind == "CLAIM":
+                # Keep authenticated pre-freeze ownership as historical source;
+                # live execution is separately denied by the repository guard.
+                meta = event.get(_core.GITHUB_META_KEY)
+                try:
+                    blocked = not (isinstance(meta, dict) and
+                        _core._lifecycle_time(meta.get("created_at"), "GitHub created_at") <
+                        _core._lifecycle_time(result_state.get("withheld_frozen_at"), "withheld freeze"))
+                except Exception:
+                    blocked = True
+            if blocked:
+                index = _event_source_index(event, events)
+                rejected.append({"index": index if index is not None else 0,
+                                 "reason": _result_authority.STATE + ": control recovery required"})
+            else:
+                kept.append(event)
+        accepted = kept
+    return accepted, rejected
 
 
 def _post_review_runtime_transition(
@@ -181,6 +212,24 @@ def _overlay_result_state(
     result_state: dict[str, Any] | None,
 ) -> dict[str, Any]:
     """Treat nonterminal Driver review as a reopen edge, not a permanent overlay."""
+    if (_core._is_registered(task) and isinstance(result_state, dict)
+            and result_state.get("state") == _result_authority.STATE):
+        value = copy.deepcopy(state)
+        value.update({"state": "BLOCKED", "dispatch_state": "BLOCKED", "terminal": False,
+                      "result_authority_state": _result_authority.STATE,
+                      "result_id": None, "review_id": None, "driver_disposition": None,
+                      "historical_execution_claims": copy.deepcopy(result_state.get("historical_execution_claims", [])),
+                      "hard_block": {
+                          "code": _result_authority.STATE,
+                          "publication_id": result_state.get("publication_id"),
+                          "withheld_result_ids": list(result_state.get("withheld_result_ids", [])),
+                          "owner": "control-plane/result-authority-recovery",
+                          "missing_object": "a valid frozen Result under the ordinary Result/replacement contract",
+                          "necessity": "Invalid frozen Result evidence cannot authorize execution, completion, review or follow-up.",
+                          "unblock_condition": "Obtain a valid Result through the existing contract and re-run strict control gates.",
+                      },
+                      "next_action": "Wait for Result control authority recovery under the ordinary Result/replacement contract"})
+        return value
     if (
         _core._is_registered(task)
         and isinstance(result_state, dict)
@@ -207,11 +256,48 @@ def _overlay_result_state(
     return _ORIGINAL_OVERLAY_RESULT_STATE(task, state, root, result_state)
 
 
+def _overlay_active_cohort(task: dict[str, Any], state: dict[str, Any], root: Path) -> dict[str, Any]:
+    value = _ORIGINAL_OVERLAY_ACTIVE_COHORT(task, state, root)
+    if state.get("result_authority_state") != _result_authority.STATE:
+        return value
+    if value.get("dispatch_state") == "COHORT_ACTIVE":
+        # A separately published lane remains independent. Withheld source
+        # generation lanes cannot erase the exact-generation control block.
+        cohorts = _core.research_cohort_runtime.active_cohorts(task["task_id"], root)
+        lane_publications = {lane.get("publication_id") for cohort in cohorts
+                             for lane in cohort.get("lanes", []) if isinstance(lane, dict)}
+        withheld_publications = set()
+        for publication_id in lane_publications:
+            if not isinstance(publication_id, str):
+                continue
+            lane_result = _core.research_result_records.task_result_state(
+                task["task_id"], root, publication_id,
+            )
+            if isinstance(lane_result, dict) and lane_result.get("state") == _result_authority.STATE:
+                withheld_publications.add(publication_id)
+        if lane_publications - withheld_publications - {None}:
+            value["withheld_lane_publication_ids"] = sorted(withheld_publications)
+            value["task_global_result_authority_withheld"] = copy.deepcopy(state.get("hard_block"))
+            value.pop("hard_block", None)
+            value.pop("result_authority_state", None)
+            return value
+    return state
+
+
+@contextmanager
+def _dispatch_result_read_snapshot(root: Path = _core.ROOT):
+    with _result_authority.authority_snapshot(root):
+        with _ORIGINAL_RESULT_SNAPSHOT(root):
+            yield
+
+
 # Patch the preserved core because functions such as effective_states() resolve
 # these helpers in the core module's global namespace. Then re-export the complete
 # historical surface, including private helpers used by repository runtime guards.
 _core._filter_registered_events = _filter_registered_events
 _core._overlay_result_state = _overlay_result_state
+_core._overlay_active_cohort = _overlay_active_cohort
+_core._dispatch_result_read_snapshot = _dispatch_result_read_snapshot
 
 for _name in dir(_core):
     if _name.startswith("__"):

@@ -7,6 +7,7 @@ from unittest.mock import patch
 import research_objective_authority as objective_authority
 import research_objective_records as objective_core
 import research_parent_closure as parent_closure
+from test_research_task_record_compatibility import _write_current_record, _write_semantic_fixture
 
 
 def write_json(path: Path, value: dict):
@@ -20,6 +21,7 @@ class ParentClosureTests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
         self.driver = "EM-DVR-ABC123"
+        _write_semantic_fixture(self.root)
 
     def objective_payload(self, status: str, created_at: str, title: str):
         value = {
@@ -53,17 +55,11 @@ class ParentClosureTests(unittest.TestCase):
         )
 
     def task(self, publication_id: str, generation_id: str | None = None):
-        value = {
-            "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
-            "record_state": "ACTIVE",
-            "task_id": "RS-CHILD",
-            "publication_id": publication_id,
-            "parent_objective_id": "OBJ-PARENT",
-            "taskbook_path": "research_tasks/CHILD.md",
-            "taskbook_blob_sha1": "sha1:" + "1" * 40,
-            "published_at": "2026-08-27T00:01:00+00:00",
-            "claimable": True,
-        }
+        value = _write_current_record(
+            self.root, task_id="RS-CHILD", publication_id=publication_id,
+            parent_objective_id="OBJ-PARENT",
+            published_at="2026-08-27T00:01:00+00:00", claimable=True,
+        )
         if generation_id is not None:
             value["parent_objective_generation_id"] = generation_id
         write_json(
