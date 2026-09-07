@@ -84,6 +84,18 @@ Owner / Driver: `EM-DVR-01E1D9`。当前用户直接授权：制定方向、充�
 | 路径观察工具 | 反向步监测、有限端口组合、原始词独立 verifier | `OWNER_CONSUMER_INDEPENDENT_AUDIT_20260907.md`；91对状态的区分后缀、12个 signed frame/anchor 变换，CWM相同而histogram不同的篡改被拒绝 |
 | 旧研究整理及纠错 | PP系数/HCM0接口、Hodge异常投影器、RH精确尾界均与其未闭合父问题分开；发现并纠正 RH 能量域及交换次序 | `OWNER_PRIOR_RESEARCH_MAP_20260907.md` 与 `OWNER_RH_ENERGY_DOMAIN_AUDIT_20260907.md`。原能量正确域为每个 `.5<sigma<2`；绝对双和仅在 `1<sigma<2`；判据不是 RH 证明 |
 
+后续有界接入找到历史地图未展开的较晚证据：`RH_LOG3_N8_ARB_POSITIVITY_CERTIFICATE_20260906.md`
+及 `scripts/rh_log3_n8_arb_certificate.py` 已记录同一四分支 N=8、32维子空间的 cutoff-free 完整 Weil Gram 正定证书。
+所以旧笔记的“同一对角块尚需频率区间积分”不能继续当成当前缺口。该已有结果仅覆盖 full cross、eta=1，
+不覆盖 prime+Cauchy reference、eta<1；也不覆盖 Galerkin complement、整个 H_log3 或 RH。
+准确五文件来源、环境和复用合同见 `OWNER_RH_FINITE_CERTIFICATE_INTAKE_20260907.md`。
+
+当前新的最小执行单元已经冻结为 **N=8、eta=9/10 的 prime+Cauchy reference 严格惯性包**。
+旧浮点 q=8 只作待检候选。复用已有 cutoff-free A、D 构建器，补 Cauchy cross 的严格球；
+再由独立 Fraction 工具核验有理区间族的惯性。原始32个 basis 标签、两个 pole 通道及 cross 定义保留。
+exact_solver负责严格生产者，stability_research负责独立有理区间惯性器，branch_scout审复用/尾界合同，Owner负责环境、原数学审查与集成。
+该单元尚未生成新 reference 证书，运行时和精度不能凭旧结果推测；资源不足必须给 UNDETERMINED。
+
 ## 研究架构：把证明接到真实消费者
 
 每个工作包至少固定四件事：原生总体与类型、允许观察/未来操作、准确成功或反例目标、可重放证据。
@@ -108,7 +120,7 @@ Observer 丢失的标签、质量、联合关系必须逐项声明。不能因�
 | X6 路径工具组合 | 空间位移、非交换分支词和后续操作同时保留的具体消费接口 | 先有具体问题并复查已存在的 T33–T37 等接口 | 只新增长度/count/histogram 的方向已被既有工具覆盖，关闭重复立项 |
 | 算术观察 | 赋值e不能区分C=4与12的p-coprime unit | 真正需要联合单位谱的consumer先查 factorial-unit 先例 | 当前完整赋值谱已闭合，不自动扩为同一数字算法续篇 |
 | 几何观察 | 具体混合例已区分空间相同、通道不同、微观分支不同 | 需要新声明的通道操作或观察合同才扩展 | 不从几何邻接推断物理动力学，不重复置换中心化子分类 |
-| 旧研究消费 | RH有限矩阵还缺严格积分/惯性认证；PP/Hodge父命题尚未闭合 | 先核实母接口与现时权限，选一个有证据价值的最小缺口 | 历史接受不等于当前claim，不把有限计算当父猜想成立 |
+| 旧研究消费 | 同一N8 full-cross eta1已有Arb证书；reference eta9/10的Cauchy条目与负惯性包尚在构建；PP/Hodge父命题尚未闭合 | 按 `OWNER_RH_FINITE_CERTIFICATE_INTAKE_20260907.md` 复用已有A/D，核验准确reference输入 | 不重造已有对角积分器，不把有限惯性当无限空间或父猜想结论 |
 | 自由发现 | 由独立研究员另起 primitive 问题 | 干净上下文才宣称 CLEAN | 不能从已暴露目录的会话重新声称 clean blind |
 
 上述是研究组合中的候选方向，不构成 READY/CLAIMABLE 任务。把方向转成正式任务前，写出 exact gap、成功/反例、kill condition、替代路线和 V2 publication；不能靠“上阶段通过”自动续开。
