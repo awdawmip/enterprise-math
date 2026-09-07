@@ -2,7 +2,7 @@ import unittest
 from unittest import mock
 
 from tools import research_runtime_guard as guard
-from tools import research_scheduler as scheduler
+from tools import research_runtime_reducer as runtime_reducer
 
 
 TASK_ID = "RS-LANE-TEST"
@@ -116,7 +116,7 @@ class RuntimeLaneAuthorityTests(unittest.TestCase):
             result = guard.authorize_execution(
                 runtime_state(scope=scope()),
                 events=[{"raw": "fixture"}],
-                now=scheduler.parse_time("2026-08-27T00:10:00+00:00"),
+                now=runtime_reducer.parse_time("2026-08-27T00:10:00+00:00"),
             )
         self.assertTrue(result["authorized"])
         self.assertEqual("CURRENT_AUTHORIZED_WINNING_ISSUE_240_LANE_CLAIM", result["authorization_authority"])
@@ -138,7 +138,7 @@ class RuntimeLaneAuthorityTests(unittest.TestCase):
             result = guard.authorize_execution(
                 runtime_state(scope=scope()),
                 events=[{"raw": "fixture"}],
-                now=scheduler.parse_time("2026-08-27T00:10:00+00:00"),
+                now=runtime_reducer.parse_time("2026-08-27T00:10:00+00:00"),
             )
         self.assertTrue(result["authorized"])
         self.assertEqual("AUDIT", result["execution_binding"]["lane_role"])
@@ -166,7 +166,7 @@ class RuntimeLaneAuthorityTests(unittest.TestCase):
                 guard.authorize_execution(
                     runtime_state(scope=scope(), owner_claim=forged_owner),
                     events=[{"raw": "fixture"}],
-                    now=scheduler.parse_time("2026-08-27T00:10:00+00:00"),
+                    now=runtime_reducer.parse_time("2026-08-27T00:10:00+00:00"),
                 )
 
     def test_partial_execution_scope_fails_closed(self):
