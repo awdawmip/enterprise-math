@@ -27,6 +27,7 @@ import EnterpriseMath.Relation.BRCFiniteFrameLift
 import EnterpriseMath.Relation.BRCAtlasPolynomialEmission
 import EnterpriseMath.Relation.BRCFiniteStateLift
 import EnterpriseMath.Relation.BRCFiniteTransition
+import EnterpriseMath.Relation.BRCK4PolynomialModel
 import EnterpriseMath.Relation.BRCSchurPorts
 import EnterpriseMath.Scale.Compatibility
 import EnterpriseMath.State.CriticalGrid
