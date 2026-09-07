@@ -6,9 +6,13 @@ on:
       - 'tools/research_dispatch.py'
       - 'research_control_dispatch.py'
       - 'tools/research_runtime.py'
+      - 'tools/research_runtime_reducer.py'
       - '.github/workflows/chatgpt-control-dispatch-bridge.yml'
       - 'tests/test_control_plane_adversarial_simulation.py'
       - 'tests/test_chatgpt_dispatch_bridge_replay_guard.py'
+      - 'tests/test_result_handoff_dispatch_guard.py'
+      - 'tests/test_registered_done_dispatch_guard.py'
+      - 'tests/test_registered_handoff_scope_guard.py'
       - 'tests/test_result_reopen_runtime_precedence.py'
       - 'tests/test_control_dispatch_session_observation_time.py'
       - 'tests/test_execution_intent_publication_gate.py'
@@ -28,6 +32,7 @@ jobs:
           python -m unittest -v tests.test_chatgpt_dispatch_bridge_replay_guard
           python -m unittest -v tests.test_result_handoff_dispatch_guard
           python -m unittest -v tests.test_registered_done_dispatch_guard
+          python -m unittest -v tests.test_registered_handoff_scope_guard
           python -m unittest -v tests.test_result_reopen_runtime_precedence
           python -m unittest -v tests.test_control_dispatch_session_observation_time
           python -m unittest -v tests.test_execution_intent_publication_gate
