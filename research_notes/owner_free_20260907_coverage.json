@@ -1,0 +1,707 @@
+{
+  "query": "three coordinate marginal sparse parity trade CWM positive observer",
+  "verdict": "REUSE_CANDIDATE_FOUND",
+  "tool_families": [],
+  "methods": [
+    {
+      "score": 10,
+      "method_id": "t0.weighted_brc_cwm",
+      "name": "Weighted BRC CWM / log-multiplicity calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_ADMITTED_EXECUTABLE",
+      "source_refs": [
+        "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md",
+        "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json",
+        "src/enterprise_math/brc_weighted.py",
+        "tests/test_brc_weighted_foundation_tool.py",
+        "research_notes/BRC_FOUNDATION_RETROFIT_REGRESSION_20260902.md"
+      ],
+      "api": [
+        "CWMState",
+        "CWM_ZERO",
+        "CWM_ONE",
+        "cwm_edge",
+        "cwm_recoalesce",
+        "cwm_propagate",
+        "cwm_from_positive_weights",
+        "is_positive_path_realizable",
+        "boolean_support",
+        "effective_multiplicity",
+        "multiplicity_surplus_expr",
+        "dominant_log_expr",
+        "total_log_expr",
+        "future_cwm_equivalent",
+        "projective_scale",
+        "gauge_scale",
+        "compensate_incoming_weight",
+        "OneStateRecurrentCWM",
+        "one_state_recurrent_cwm"
+      ],
+      "triggers": [
+        "weighted BRC",
+        "branch multiplicity",
+        "positive branch weight",
+        "path count total dominant",
+        "CWM",
+        "effective multiplicity",
+        "log surplus",
+        "ln k multiplicity",
+        "weighted recoalescence",
+        "weighted future quotient",
+        "projective gauge quotient",
+        "positive recurrent branches",
+        "multiplicity-driven divergence"
+      ],
+      "capabilities": [
+        "exact positive-rational branch recoalescence and propagation through one CWM carrier",
+        "exact positive-path realizability test",
+        "Boolean support forgetful readout",
+        "effective multiplicity E=W/M and symbolic BRC LN surplus readout",
+        "all-prefix future-CWM safe equivalence",
+        "projective future scaling and incoming-weight compensation",
+        "one-state multi-loop exact recurrence and stable geometric closure",
+        "typed deterministic degeneration with E=1 and zero log surplus"
+      ],
+      "core_law": "Positive finite branch systems carry CWM=(C,W,M) with alternative recoalescence (+,+,max) and serial propagation by componentwise multiplication; E=W/M and Delta=ln(E) measure multiplicity beyond the dominant path. Equal k-way recoalescence has Delta=ln k. For one-state loops total mass is stable iff S=sum q_i<1, not merely max q_i<1.",
+      "hard_boundary": "Positive Weighted-BRC does not represent signed/amplitude cancellation, does not recover erased branch provenance from Boolean support, does not make LN/LOG primitive state, and does not provide a general SCC/Perron-Frobenius/spectral-radius theorem. Deterministic single-path problems reduce to E=1, Delta=0 and should not be artificially reinterpreted as multiplicity problems."
+    },
+    {
+      "score": 6,
+      "method_id": "project.paired_pell_shell_certificate",
+      "name": "Shared-square paired positive/negative Pell shell certificate",
+      "classification": "PROJECT_SUBTOOL_UNASSIGNED_PENDING_COVERAGE_REVIEW",
+      "family_ids": [],
+      "status": "EXECUTABLE_EXTRACTED_REGRESSION_CHECKED_PENDING_PROMOTION",
+      "source_refs": [
+        "definitions/ENTERPRISE_TETRAHEDRAL_RESIDUAL_THEOREM_LEDGER_20260903.json",
+        "src/enterprise_math/paired_pell_shell.py",
+        "tests/test_paired_pell_shell.py",
+        "PR #1126 formalization/precision-pi-paper-ii-v3@ca2b30c7ef45b470d0d5cb6955def48610cd9dd7",
+        "workflow-run:33659295408"
+      ],
+      "api": [
+        "paired_pell_certificate",
+        "n58_certificate",
+        "n58_integer_constants",
+        "n58_ratio_certificate",
+        "geometric_tail_bound"
+      ],
+      "triggers": [
+        "paired Pell shells",
+        "common Pell coordinate P",
+        "positive and negative Pell fusion",
+        "square half-trace",
+        "P^-4 fugacity",
+        "N=58 certificate",
+        "positive geometric tail"
+      ],
+      "capabilities": [
+        "verify a shared-P positive and negative Pell pair",
+        "certify P^4-1=(P^2-1)(P^2+1) and the fused discriminant product",
+        "return exact rational P^-4 fugacity",
+        "verify the P=99 N=58 integer constants",
+        "return exact geometric-tail bounds from a supplied ratio certificate"
+      ],
+      "core_law": "If P^2-d_plus*y_plus^2=1 and P^2-d_minus*y_minus^2=-1, then P^4-1=d_plus*d_minus*(y_plus*y_minus)^2.",
+      "hard_boundary": "Integer/rational certificate layer only. It does not derive a modular parametrization, a Ramanujan-CM identity, or a native geometric meaning for the Pell shells. No existing top-level toolbox family is asserted to own this arithmetic helper until coverage review is completed."
+    },
+    {
+      "score": 6,
+      "method_id": "t0.brc_admissible_multiplier_scan",
+      "name": "Odd-N BRC admissible multiplier scan / strong square-gap cascade",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_SAFE_CORE_PLUS_EXPERIMENTAL_PRIORITY",
+      "source_refs": [
+        "src/enterprise_math/brc_multiplier_factor_scan.py",
+        "src/enterprise_math/brc_multiplier_transition_jump2_table.py",
+        "src/enterprise_math/brc_square_gap_table_46189.py",
+        "tests/test_brc_multiplier_factor_scan.py",
+        "research_notes/BRC_ADMISSIBLE_MULTIPLIER_CASCADE_PRIORITY_20260906.md",
+        "research_artifacts/brc_admissible_cascade_benchmark_20260906.csv",
+        "research_artifacts/brc_multiplier_priority_benchmark_20260906.csv"
+      ],
+      "api": [
+        "odd_multiplier_admissible",
+        "admissible_multipliers",
+        "admissible_root_state_sequence",
+        "strong_cascade_passes_squarehood",
+        "strong_cascade_square_root",
+        "strong_cascade_candidates",
+        "first_immediate_factor_witness",
+        "nontrivial_same_parity_factor_pairs",
+        "multiplier_priority_score",
+        "heuristic_priority_multipliers"
+      ],
+      "triggers": [
+        "BRC multiplier scan",
+        "odd semiprime multiplier",
+        "difference of squares multiplier",
+        "skip 2 mod 4 multiplier",
+        "strong square residue cascade",
+        "multiplier priority"
+      ],
+      "capabilities": [
+        "safe deletion of all m congruent 2 mod 4 for odd-N difference-of-squares search",
+        "exact m->m+2 retained-root/remainder transport with at most three BRC basin corrections",
+        "zero-false-negative two-table squarehood prefilter using moduli 20160 and 46189",
+        "immediate classical factor witness composition",
+        "experimental static multiplier ranking from admissible nontrivial divisor-ratio count"
+      ],
+      "core_law": "For odd N, m==2 mod 4 cannot satisfy x^2-y^2=mN. The admissible monotone path therefore has 75 states through m<=100. One-step transitions reuse t0.brc_multiplier_transition; two-step skips use a dyadic sqrt((m+2)/m) predictor and at most three odd-width corrections. A square gap must pass both mod-20160 and mod-46189 tables, whose uniform joint pass fraction is 108/46189.",
+      "hard_boundary": "Parity pruning, quadratic-residue filtering, Lawrence/Lehman/Hart multiplier-Fermat search, and rational factor-ratio selection are classical prior art. The nu(m)^4/m priority is experimental only and is not a theorem, default proof path, RSA shortcut, or asymptotic improvement. Finite timings and finite hit-rate samples do not imply factorization complexity progress. The BRC-specific proved addition is retained-state m->m+2 transport and its composition with the existing multiplier transition tool."
+    },
+    {
+      "score": 6,
+      "method_id": "t0.weighted_brc_feedback_interaction",
+      "name": "Positive feedback-event condensation and interaction calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "source_refs": [
+        "definitions/ENTERPRISE_BRC_RECURRENT_INTERACTION_FOUNDATION_20260903.md",
+        "src/enterprise_math/brc_feedback.py",
+        "PR #1142",
+        "PR #1144",
+        "PR #1146",
+        "PR #1147"
+      ],
+      "api": [
+        "FeedbackEvent",
+        "FeedbackCondensationAnalysis",
+        "FeedbackCircuitAtom",
+        "feedback_event",
+        "feedback_event_kernel",
+        "feedback_condensation",
+        "feedback_additive_radius",
+        "conditional_feedback_kernel",
+        "feedback_subset_zeta_factors",
+        "feedback_mobius_interaction_factors",
+        "feedback_interaction_girth",
+        "feedback_circuit_atoms"
+      ],
+      "triggers": [
+        "feedback insertion",
+        "new recurrent edge",
+        "feedback kernel",
+        "conditional feedback",
+        "cooperative feedback",
+        "Mobius interaction",
+        "higher order feedback",
+        "feedback circuit atom",
+        "interaction girth"
+      ],
+      "capabilities": [
+        "exact event-level feedback condensation against a stable rational background",
+        "full updated stability and star through the feedback kernel",
+        "single-edge additive critical radius",
+        "conditional feedback kernel after an installed stable module",
+        "exact subset zeta factors for small declared event sets",
+        "all-orders rational Mobius interaction factors",
+        "first nonzero interaction order",
+        "Möbius-primitive directed circuit atoms with rational holonomy"
+      ],
+      "core_law": "For stable background star S and inserted events e_r:a_r->b_r of mass delta_r, F_rs=S_bra_s*delta_s. Full update is stable iff F is stable and its new Gamma is Gamma(F). Conditional modules use Schur feedback kernels. Stable declared event sets have exact rational interactions J_T>=1; primitive supports are directed circuits with J_T=1/(1-Q_T).",
+      "hard_boundary": "Positive total-mass condensation only; subset/Mobius APIs are exponential in event count; no CWM count/provenance preservation, pairwise completeness, unique module credit, signed/amplitude, infinite-state, or runtime-speedup theorem."
+    },
+    {
+      "score": 6,
+      "method_id": "t0.weighted_brc_newton_observer_lattice",
+      "name": "Exact BRC Newton observer lattice and frozen-horizon observability",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "implementation": "src/enterprise_math/brc_newton_observer_lattice.py",
+      "foundation": "definitions/ENTERPRISE_BRC_NEWTON_OBSERVER_LATTICE_FOUNDATION_20260904.md",
+      "theorem_ledger": "definitions/ENTERPRISE_BRC_NEWTON_OBSERVER_LATTICE_THEOREM_LEDGER_20260904.json",
+      "source_refs": [
+        "PR #1202",
+        "WBRC-T56",
+        "T6_OPERATION_SAFE_QUOTIENT principle"
+      ],
+      "triggers": [
+        "newton observer lattice",
+        "edge only observer",
+        "full residual observer",
+        "future observation quotient",
+        "frozen newton schedule",
+        "finite horizon observability",
+        "observer lease",
+        "newton context compression"
+      ],
+      "capabilities": [
+        "construct canonical coordinate-projection observers on T56 residual coordinates",
+        "compute observer signatures, equivalence, joins, meets and rank/kernel dimensions",
+        "compare full-residual and edge-only safe quotients",
+        "apply exact rational Newton substitutions for a declared frozen schedule",
+        "compute scale-one edge signatures over a finite declared horizon",
+        "construct exact observability matrices and prefix rank/kernel profiles"
+      ],
+      "typed_inputs": [
+        "finite T56 residual coordinate universe",
+        "declared coordinate observer subset",
+        "finite rational residual coefficient state",
+        "declared frozen Newton schedule of rational roots, positive multiplicities and RationalValuationScale factors"
+      ],
+      "typed_outputs": [
+        "coordinate-observer signature and equivalence",
+        "observer join/meet and kernel dimension",
+        "scheduled residual coefficient state",
+        "finite-horizon edge signature",
+        "exact rational observability matrix",
+        "horizon rank and kernel-dimension profile"
+      ],
+      "reuse": [
+        "t0.weighted_brc_newton_fiber_quotient",
+        "t0.weighted_brc_newton_handoff_resonance",
+        "T6 future-observation principle only"
+      ],
+      "hard_boundary": "Coordinate observers do not classify arbitrary nonlinear observers. Frozen scheduled substitutions do not certify that perturbed states autonomously select the same roots, multiplicities or scales. Longer declared horizons can only refine or preserve the safe quotient."
+    },
+    {
+      "score": 6,
+      "method_id": "t0.weighted_brc_newton_quadratic_selector",
+      "name": "Exact non-split monic-quadratic Newton real/positive selectors",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "implementation": "src/enterprise_math/brc_newton_quadratic_selector.py",
+      "foundation": "definitions/ENTERPRISE_BRC_NEWTON_QUADRATIC_SELECTOR_FOUNDATION_20260904.md",
+      "theorem_ledger": "definitions/ENTERPRISE_BRC_NEWTON_QUADRATIC_SELECTOR_THEOREM_LEDGER_20260904.json",
+      "extension_foundation": "definitions/ENTERPRISE_BRC_NEWTON_QUADRATIC_POSITIVE_SELECTOR_FOUNDATION_20260904.md",
+      "extension_theorem_ledger": "definitions/ENTERPRISE_BRC_NEWTON_QUADRATIC_POSITIVE_SELECTOR_THEOREM_LEDGER_20260904.json",
+      "source_refs": [
+        "PR #1208",
+        "PR #1211",
+        "WBRC-T60",
+        "WBRC-T62",
+        "WBRC-T63",
+        "src/enterprise_math/brc_newton_quadratic_selector.py"
+      ],
+      "triggers": [
+        "quadratic selector chamber",
+        "non split newton selector",
+        "monic quadratic cofactor",
+        "smallest real quadratic selector",
+        "smallest positive quadratic selector",
+        "quadratic discriminant selector",
+        "quadratic sturm variation",
+        "open interval positive roots",
+        "D L R selector",
+        "irrational competing roots",
+        "quadratic root ordering"
+      ],
+      "capabilities": [
+        "construct exact quadratic selector state a,b,r,D,L,R",
+        "decide fixed declared multiplicity through R=Q(r)!=0",
+        "decide smallest-real selector stability without materializing quadratic roots",
+        "compute exact sign variation for the degree-two Sturm sequence",
+        "count distinct quadratic roots in the open interval (0,r) for declared r>0",
+        "decide smallest-positive selector stability by the open-interval Sturm observer",
+        "decide the equivalent compact radical-free smallest-positive chamber",
+        "expose exact chamber sign diagnostics and positive-formula consistency",
+        "evaluate rational-affine quadratic coefficient families at rational parameter points",
+        "verify the invariant L^2-D=4R"
+      ],
+      "typed_inputs": [
+        "rational monic quadratic coefficients a,b",
+        "fixed declared rational root r",
+        "r>0 for smallest-positive semantics",
+        "optional rational-affine a(lambda), b(lambda) forms",
+        "rational parameter point"
+      ],
+      "typed_outputs": [
+        "QuadraticSelectorState",
+        "fixed-multiplicity decision",
+        "smallest-real selector decision",
+        "open-interval quadratic root count",
+        "smallest-positive selector decision",
+        "compact positive-chamber decision",
+        "D/L/R chamber sign signature",
+        "evaluated affine quadratic selector state"
+      ],
+      "reuse": [
+        "t0.weighted_brc_newton_selector_chambers",
+        "t0.weighted_brc_newton_schedule_strata",
+        "exact rational Sturm machinery as regression evidence only"
+      ],
+      "hard_boundary": "One monic quadratic cofactor only. Smallest-real and smallest-positive are distinct observer semantics. The explicit degree-two Sturm variation/compact formulas are not a general parametric Sturm/subresultant solver, do not factor competing roots, and do not extend to higher degree without a new theorem."
+    },
+    {
+      "score": 6,
+      "method_id": "t0.weighted_brc_rational_holonomy",
+      "name": "Positive-rational BRC prime-valuation holonomy calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "source_refs": [
+        "definitions/ENTERPRISE_BRC_RECURRENT_INTERACTION_FOUNDATION_20260903.md",
+        "src/enterprise_math/brc_rational_holonomy.py",
+        "PR #1132",
+        "PR #1133"
+      ],
+      "api": [
+        "RationalPowerDecomposition",
+        "RationalTreeGaugeNormalForm",
+        "rational_prime_valuations",
+        "rational_from_prime_valuations",
+        "rational_power_skeleton_thickness",
+        "rational_squarefree_skeleton_thickness",
+        "rational_tree_gauge_normal_form"
+      ],
+      "triggers": [
+        "rational gauge",
+        "prime valuation holonomy",
+        "squarefree skeleton",
+        "parity skeleton",
+        "m-power thickness",
+        "tree gauge normal form",
+        "fundamental rational holonomy"
+      ],
+      "capabilities": [
+        "exact finite-support prime valuation coordinates for positive rationals",
+        "exact reconstruction from prime valuations",
+        "unique mod-m power-free skeleton and rational thickness",
+        "squarefree/C2 parity skeleton specialization",
+        "unique rooted spanning-tree rational gauge normal form",
+        "fundamental non-tree holonomy prime coordinates"
+      ],
+      "core_law": "Q_{>0}^x is free abelian on primes; rational vertex gauge acts by primewise integer coboundaries. Every q>0 has unique q=s_m*t^m, and a rooted spanning tree uniquely fixes tree weights to one so non-tree weights are complete fundamental rational holonomies.",
+      "hard_boundary": "Prime factorization is an exact reference implementation, not a factoring-speedup theorem. Log embedding is derived and need not be a discrete Euclidean lattice. Full rational gauge information may exceed recurrent loop observables."
+    },
+    {
+      "score": 6,
+      "method_id": "t0.weighted_brc_recurrent_port_collapse",
+      "name": "Recurrent BRC Schur port-collapse and contextual-signature calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "source_refs": [
+        "definitions/ENTERPRISE_BRC_RECURRENT_PORT_FOUNDATION_20260903.md",
+        "definitions/ENTERPRISE_BRC_RECURRENT_PORT_THEOREM_LEDGER_20260903.json",
+        "src/enterprise_math/brc_recurrent_ports.py",
+        "PR #1152",
+        "PR #1153"
+      ],
+      "api": [
+        "RecurrentPortSignature",
+        "recurrent_port_signature",
+        "recurrent_port_dynamic_equivalent",
+        "recurrent_port_zeta_equivalent",
+        "recurrent_port_context_matrix"
+      ],
+      "triggers": [
+        "recurrent Schur collapse",
+        "ported recurrent module",
+        "boundary effective matrix",
+        "contextual equivalence",
+        "black box recurrent module",
+        "minimal port signature",
+        "hidden zeta",
+        "operation safe recurrent collapse"
+      ],
+      "capabilities": [
+        "exact stable-hidden-state Schur elimination to a positive-rational port matrix",
+        "exact hidden loop-zeta constant extraction",
+        "same-labeled-port dynamic contextual-equivalence comparison",
+        "absolute-zeta contextual-equivalence comparison",
+        "construction of reduced finite positive-rational external port contexts"
+      ],
+      "core_law": "For W=[[A,X],[Y,B]] with stable A, W_eff=B+Y(I-A)^-1X is the complete exact visible dynamic signature under all finite positive-rational contexts attached only through retained ports. Absolute full loop-zeta additionally requires Z_int=1/det(I-A).",
+      "hard_boundary": "Positive total-mass finite-rational port semantics only. Equal W_eff does not preserve CWM count/dominant/provenance. Direct future hidden-state access or coupling mutation is outside the lease. No generic Schur/Kron/black-box novelty or runtime-speedup claim."
+    },
+    {
+      "score": 3,
+      "method_id": "specialization.weighted_incidence_energy",
+      "name": "Positive weighted incidence Dirichlet/flow variational layer",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T10_LOCAL_REDISTRIBUTION_TOPPLING",
+      "status": "DRIVER_ACCEPTED_DOMAIN_SPECIALIZATION",
+      "source_refs": [
+        "research_notes/TOOL_DISCOVERY_WEIGHTED_INCIDENCE_ENERGY_DIRICHLET_RESULT_20260823.md",
+        "scripts/tool_discovery_weighted_incidence_energy_dirichlet_check.py"
+      ],
+      "triggers": [
+        "Dirichlet energy",
+        "flow energy",
+        "effective resistance",
+        "Thomson",
+        "Kron reduction",
+        "weighted incidence"
+      ],
+      "capabilities": [
+        "positive weighted Dirichlet form",
+        "minimum-energy potential/flow",
+        "gradient-circulation orthogonality",
+        "effective resistance",
+        "Schur/Kron reduction"
+      ],
+      "note": "BARE_INCIDENCE != ENERGY. No separate global energy family; preferred ownership is T10 weighted variational subtool plus T3 circuit witnesses."
+    },
+    {
+      "score": 3,
+      "method_id": "t0.brc_mod8_sparse_transition",
+      "name": "BRC mod-8 sparse multiplier transition",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_mod8_sparse_transition.py",
+        "tests/test_brc_mod8_sparse_transition.py",
+        "research_notes/BRC_MOD8_SPARSE_TRANSITION_20260906.md",
+        "src/enterprise_math/brc_multiplier_transition.py",
+        "src/enterprise_math/brc_multiplier_priority_jump.py"
+      ],
+      "api": [
+        "SparseMultiplierRootState",
+        "compile_two_step_gamma_constants",
+        "odd_n_sparse_multiplier_root_sequence",
+        "sparse_transition_table_mode"
+      ],
+      "triggers": [
+        "BRC sparse multiplier stream",
+        "skip removed multiplier roots",
+        "mod-8 transition",
+        "two-step multiplier root",
+        "compiled predictor"
+      ],
+      "capabilities": [
+        "exact root/remainder transport only on the odd-N mod-8 scan representatives",
+        "deterministic compilation of lower two-step dyadic predictors from adjacent canonical one-step constants",
+        "zero-extra-checked-in-table two-step predictor construction",
+        "root-free remainder update for multiplier steps one and two",
+        "proved two-correction bound for step one and four-correction bound for compiled step two",
+        "exact 62-state m<=100 root stream instead of 100 consecutive states"
+      ],
+      "core_law": "The scan-complete multiplier residues {0,1,3,5,7} mod 8 have adjacent gaps only 1 or 2. If A_m/2^B and A_(m+1)/2^B are lower dyadic bounds for the consecutive square-root scale factors, floor(A_m A_(m+1)/2^B)/2^B is a lower bound for sqrt((m+2)/m). With J_m<2^(B-1), this compiled predictor places the exact two-step root at most four square-basin crossings above the candidate. Therefore statically removed multipliers need not have BRC root states materialized.",
+      "hard_boundary": "The checked-in production sequence reuses the current canonical transition table and is therefore bounded at max_multiplier<=100. Long-stream rows in the research note used separately generated consecutive constants and demonstrate the construction, not a larger production table. This is an exact constant-factor transport improvement only; it does not reduce the Hart/Lehman N^(1/3) search horizon or imply asymptotic factorization speedup."
+    },
+    {
+      "score": 3,
+      "method_id": "t0.brc_multiplier_2adic_strip_reduction",
+      "name": "BRC multiplier 2-adic strip normalization",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_multiplier_strip_reduction.py",
+        "tests/test_brc_multiplier_strip_reduction.py",
+        "research_notes/BRC_MULTIPLIER_2ADIC_STRIP_REDUCTION_20260906.md"
+      ],
+      "api": [
+        "StripReductionWitness",
+        "multiplier_strip_class",
+        "strip_reduced_multipliers",
+        "reduce_square_hit_to_parent",
+        "two_adic_strip_counts"
+      ],
+      "triggers": [
+        "BRC multiplier strip",
+        "2-adic multiplier",
+        "difference of squares parity",
+        "redundant multiplier",
+        "vertical strip pruning"
+      ],
+      "capabilities": [
+        "complete odd-N universal 2-adic multiplier-strip classification",
+        "safe deletion of m==2 mod4 impossible strips",
+        "safe reduction of m==4 mod8 square-scaled strips to m/4",
+        "exact bounded-window offset mapping parent_t=floor(t/2)",
+        "executable source/parent difference-of-squares reconstruction certificate"
+      ],
+      "core_law": "For odd N: m==2 mod4 is impossible for x^2-y^2=mN; m==4 mod8 forces x,y even and every hit divides to (m/4)N with parent vertical offset floor(t/2); for m odd or 8|m explicit representations show that no universal factor-two reduction is forced. Through m<=100 this yields 25 impossible, 13 redundant-by-four, and 62 universally 2-adically primitive strips.",
+      "hard_boundary": "This is elementary classical parity/congruence content expressed in BRC coordinates. Lehman's original inner loop already uses parity/mod-4 restrictions and different strides. The result does not improve the classical Lehman exponent or claim new factoring mathematics; it canonicalizes the arbitrary-multiplier BRC search and prevents duplicate strips. No Foundation promotion is made."
+    },
+    {
+      "score": 3,
+      "method_id": "t0.brc_multiplier_vertical_wheel",
+      "name": "BRC multiplier x vertical residue-wheel / lazy exact gap calculus",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_SAFE_CORE_CLASSICAL_SIEVE_COMPOSITION",
+      "source_refs": [
+        "src/enterprise_math/brc_multiplier_vertical_wheel.py",
+        "tests/test_brc_multiplier_vertical_wheel.py",
+        "experiments/brc_vertical_residue_wheel_benchmark.py",
+        "research_notes/BRC_MULTIPLIER_VERTICAL_RESIDUE_WHEEL_20260906.md",
+        "research_artifacts/brc_vertical_residue_wheel_benchmark_20260906.csv"
+      ],
+      "api": [
+        "VerticalBRCState",
+        "VerticalResidueWheel",
+        "VerticalSquareCandidate",
+        "vertical_state_from_multiplier_state",
+        "vertical_gap_at",
+        "vertical_next_gap",
+        "vertical_residue_wheel",
+        "adaptive_first_wheel_modulus",
+        "vertical_square_candidates",
+        "first_vertical_factor_witness"
+      ],
+      "triggers": [
+        "BRC multiplier t lattice",
+        "vertical Fermat scan",
+        "square-gap wheel",
+        "quadratic residue wheel",
+        "lazy exact gap",
+        "Lehman inner loop"
+      ],
+      "capabilities": [
+        "exact vertical gap formula D_t=D_0+t(2x_0+t) from retained horizontal BRC state",
+        "exact period-M necessary squarehood wheel in the t coordinate",
+        "zero-false-negative first-stage wheel plus second residue filter",
+        "lazy exact materialization of D_t only after both residue observers pass",
+        "classical vertical factor-witness composition"
+      ],
+      "core_law": "For fixed m,N and x_0=ceil(sqrt(mN)), D_t=(x_0+t)^2-mN is periodic modulo M as a function of t mod M. Therefore every exact square hit lies in W_M={r:(x_0+r)^2-mN is a quadratic residue mod M}. Enumerating only translated copies of W_M is observer-safe for squarehood rejection; exact D_t can be reconstructed as D_0+t(2x_0+t) only after surviving all declared modular observers.",
+      "hard_boundary": "Vertical Fermat search, additive gap recurrence, congruence stepping, quadratic-residue sieving, and Lehman/Hart factoring are classical prior art. The adaptive 1008/20160 wheel threshold is a finite Python benchmark policy, not a theorem. Timing gains inside a fixed search rectangle do not reduce the classical rectangle size or imply an asymptotic factoring improvement. No Foundation promotion is made."
+    }
+  ],
+  "executable_modules": [
+    {
+      "score": 3,
+      "id": "module:brc_mod8_sparse_transition",
+      "name": "brc_mod8_sparse_transition.py",
+      "description": "Exact sparse BRC root transport over the odd-N mod-8 representative scan.",
+      "source_ref": "src\\enterprise_math\\brc_mod8_sparse_transition.py",
+      "api": [
+        "compile_two_step_gamma_constants",
+        "odd_n_sparse_multiplier_root_sequence",
+        "sparse_transition_table_mode",
+        "SparseMultiplierRootState"
+      ],
+      "triggers": [
+        "brc mod8 sparse transition"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 3,
+      "id": "module:brc_multiplier_factor_scan",
+      "name": "brc_multiplier_factor_scan.py",
+      "description": "Odd-N BRC multiplier scan with safe parity pruning and strong square-gap cascade.",
+      "source_ref": "src\\enterprise_math\\brc_multiplier_factor_scan.py",
+      "api": [
+        "strong_cascade_passes_squarehood",
+        "strong_cascade_square_root",
+        "odd_multiplier_admissible",
+        "admissible_multipliers",
+        "admissible_root_state_sequence",
+        "strong_cascade_candidates",
+        "first_immediate_factor_witness",
+        "nontrivial_same_parity_factor_pairs",
+        "multiplier_priority_score",
+        "heuristic_priority_multipliers",
+        "AdmissibleMultiplierRootState"
+      ],
+      "triggers": [
+        "brc multiplier factor scan"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 3,
+      "id": "module:brc_newton_observer_lattice",
+      "name": "brc_newton_observer_lattice.py",
+      "description": "Exact observer-lattice and frozen-horizon tools for Weighted-BRC Newton jets.",
+      "source_ref": "src\\enterprise_math\\brc_newton_observer_lattice.py",
+      "api": [
+        "full_coordinate_observer",
+        "edge_coordinate_observer",
+        "coordinate_observer_signature",
+        "coordinate_observer_equivalent",
+        "coordinate_observer_kernel_dimension",
+        "frozen_newton_substitution",
+        "residual_edge_signature",
+        "frozen_horizon_edge_signature",
+        "frozen_horizon_observability_analysis",
+        "frozen_horizon_rank_profile",
+        "frozen_horizon_kernel_profile",
+        "NewtonCoordinateObserver",
+        "FrozenNewtonScheduleStep",
+        "FrozenNewtonObservabilityAnalysis"
+      ],
+      "triggers": [
+        "brc newton observer lattice"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 3,
+      "id": "module:brc_weighted",
+      "name": "brc_weighted.py",
+      "description": "Exact positive Weighted-BRC tool layer.",
+      "source_ref": "src\\enterprise_math\\brc_weighted.py",
+      "api": [
+        "cwm_edge",
+        "cwm_recoalesce",
+        "cwm_propagate",
+        "cwm_from_positive_weights",
+        "is_positive_path_realizable",
+        "boolean_support",
+        "effective_multiplicity",
+        "multiplicity_surplus_expr",
+        "dominant_log_expr",
+        "total_log_expr",
+        "future_cwm_equivalent",
+        "projective_scale",
+        "gauge_scale",
+        "compensate_incoming_weight",
+        "one_state_recurrent_cwm",
+        "CWMState",
+        "OneStateRecurrentCWM"
+      ],
+      "triggers": [
+        "brc weighted"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 3,
+      "id": "module:brc_weighted_recurrent",
+      "name": "brc_weighted_recurrent.py",
+      "description": "Exact finite recurrent positive Weighted-BRC mass calculus.",
+      "source_ref": "src\\enterprise_math\\brc_weighted_recurrent.py",
+      "api": [
+        "recurrent_mass_power",
+        "gauge_recurrent_mass_matrix",
+        "verify_recurrent_integer_stable_certificate",
+        "verify_recurrent_integer_divergence_certificate",
+        "finite_recurrent_mass_analysis",
+        "FiniteRecurrentMassAnalysis"
+      ],
+      "triggers": [
+        "brc weighted recurrent"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 3,
+      "id": "module:p022_hcp_geometry",
+      "name": "p022_hcp_geometry.py",
+      "description": "Exact integer coordinate model for the HCP contact graph used by P022.",
+      "source_ref": "src\\enterprise_math\\p022_hcp_geometry.py",
+      "api": [
+        "triangular_distance",
+        "hcp_neighbors",
+        "hcp_graph_distance",
+        "hcp_shell",
+        "hcp_geodesic_path_count",
+        "hcp_geodesic_path_count_coefficient",
+        "triangular_shell_total_geodesic_paths",
+        "base_triangle_shell_total_geodesic_paths",
+        "hcp_shell_count",
+        "hcp_shell_total_geodesic_paths",
+        "hcp_shell_total_geodesic_paths_closed",
+        "hcp_shell_total_geodesic_paths_recurrence",
+        "hcp_shell_multiplicity_spectrum"
+      ],
+      "triggers": [
+        "p022 hcp geometry"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    }
+  ],
+  "next_rule": "Inspect semantic preconditions and hard boundaries before deciding REUSE / COMPOSE / EXTEND_EXISTING_TOOL."
+}
