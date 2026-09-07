@@ -149,8 +149,13 @@ def canonicalize_registration(
         # A deliberate ACTIVE cohort is its own execution-control lifecycle.
         # Do not let an older task-global result close sibling replication/audit
         # lanes; cohort terminalization is controlled only by cohort synthesis.
+        if purpose in {"execution", "adopt"}:
+            result_state = research_result_records.task_result_state(
+                task_id, root, record.get("publication_id"),
+            )
+            if result_state is not None and result_state.get("state") == "RESULT_CONTROL_AUTHORITY_WITHHELD":
+                raise RuntimeAuthorizationError("RESULT_CONTROL_AUTHORITY_WITHHELD: exact publication requires control recovery")
         if purpose in {"execution", "adopt"} and scope is None:
-            result_state = research_result_records.task_result_state(task_id, root)
             if (
                 result_state is not None
                 and result_state.get("state") in {"AWAITING_DRIVER_REVIEW", "TERMINAL"}
@@ -200,6 +205,9 @@ def canonical_live_claim_binding(
 ) -> dict[str, Any]:
     """Return the exact currently winning non-cohort CLAIM or fail closed."""
     task = _registered_definition(task_id, root)
+    result_state = research_result_records.task_result_state(task_id, root, task.get("publication_id"))
+    if result_state is not None and result_state.get("state") == "RESULT_CONTROL_AUTHORITY_WITHHELD":
+        raise RuntimeAuthorizationError("RESULT_CONTROL_AUTHORITY_WITHHELD: historical CLAIM cannot authorize execution")
     authenticated, _ = research_dispatch._event_authentication_filter(task, events)
     filtered, _ = research_dispatch._filter_registered_events(task, authenticated, root)
     lease = int(task.get("claim_lease_minutes") or 120)
@@ -306,6 +314,10 @@ def _binding_for_scope(
 ) -> dict[str, Any]:
     if scope is None:
         return canonical_live_claim_binding(task_id, events, now=now, root=root)
+    record, _ = _lane_registration(task_id, scope, root)
+    result_state = research_result_records.task_result_state(task_id, root, record.get("publication_id"))
+    if result_state is not None and result_state.get("state") == "RESULT_CONTROL_AUTHORITY_WITHHELD":
+        raise RuntimeAuthorizationError("RESULT_CONTROL_AUTHORITY_WITHHELD: exact lane publication requires control recovery")
     try:
         return research_lane_claims.winning_lane_claim_binding(
             task_id,

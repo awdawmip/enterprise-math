@@ -36,18 +36,38 @@ def _merge_causes(
     return out
 
 
+def _with_result_causes(rows: dict[str, dict[str, Any]], root: Path) -> dict[str, dict[str, Any]]:
+    """Explicitly compose Result dependency loss with independently proved review faults."""
+    from control_plane import research_result_authority_fault_isolation as result_authority
+
+    out = dict(rows)
+    for review_id, result_row in result_authority.validated_review_rows(root).items():
+        previous = out.get(review_id)
+        if previous is None:
+            out[review_id] = result_row
+            continue
+        for key in ("review_id", "result_id", "task_id", "publication_id"):
+            if key in previous and previous[key] != result_row[key]:
+                raise NonoperationalReviewSourceAdapterError(
+                    f"Result/review cause synthesis has conflicting {key}: {review_id}"
+                )
+        # Retain the original registry's fields and disposition interpretation.
+        out[review_id] = {**previous, "result_control_authority_cause": result_row}
+    return out
+
+
 def review_rows(root: Path = ROOT) -> dict[str, dict[str, Any]]:
     from control_plane import research_driver_review_authority_fault_isolation as authority
     from control_plane import research_result_review_binding_fault_isolation as binding
     from control_plane import research_result_review_audit_fault_isolation as invalid_review
 
-    return _merge_causes(
+    return _with_result_causes(_merge_causes(
         [
             ("DRIVER_AUTHORITY", authority.validated_quarantines(root)),
             ("RESULT_BINDING", binding.validated_quarantines(root)),
             ("INVALID_REVIEW_RECORD", invalid_review.validated_rows(root)),
         ]
-    )
+    ), root)
 
 
 def install(root: Path = ROOT) -> None:

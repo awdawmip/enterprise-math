@@ -24,6 +24,7 @@ TASK_ISOLATION = "PACKET_AND_DERIVED_TASKS"
 PACKET_ONLY = "PACKET_ONLY_NO_DERIVED_TASK_AUTHORITY"
 AUTHORITY_SOURCE = "DRIVER_REVIEW_AUTHORITY"
 AUDIT_SOURCE = "INVALID_REVIEW_RECORD_AUDIT"
+RESULT_SOURCE = "RESULT_CONTROL_AUTHORITY"
 _TASK_PINS = (
     "task_id", "publication_id", "publication_record_path",
     "publication_record_blob_sha1", "taskbook_path", "taskbook_blob_sha1",
@@ -101,7 +102,7 @@ def quarantine_rows(root: Path = ROOT) -> dict[str, dict[str, Any]]:
                 f"{QUARANTINE_FILE}: {packet_id} missing expected isolation error"
             )
         basis = row.get("source_review_basis", AUTHORITY_SOURCE)
-        if basis not in {AUTHORITY_SOURCE, AUDIT_SOURCE}:
+        if basis not in {AUTHORITY_SOURCE, AUDIT_SOURCE, RESULT_SOURCE}:
             raise DriverFollowupIsolationError(f"{packet_id}: unsupported source review basis")
         kind = row.get("isolation_kind", TASK_ISOLATION)
         if kind not in {TASK_ISOLATION, PACKET_ONLY}:
@@ -145,6 +146,8 @@ def quarantine_rows(root: Path = ROOT) -> dict[str, dict[str, Any]]:
             if task["task_id"] in seen_tasks:
                 raise DriverFollowupIsolationError(f"{packet_id}: duplicate derived task identity")
             seen_tasks.add(task["task_id"])
+            if basis == RESULT_SOURCE and "source_packet_ids" not in task:
+                raise DriverFollowupIsolationError(f"{packet_id}: Result basis requires explicit complete source set")
             if "source_packet_ids" in task:
                 sources = task["source_packet_ids"]
                 if (
@@ -279,19 +282,29 @@ def validated_quarantines(root: Path = ROOT) -> dict[str, dict[str, Any]]:
     audit_rows = review_audit.validated_rows(root) if any(
         row.get("source_review_basis") == AUDIT_SOURCE for row in rows.values()
     ) else {}
+    result_rows = {}
+    if any(row.get("source_review_basis") == RESULT_SOURCE for row in rows.values()):
+        from control_plane import research_result_authority_fault_isolation as result_isolation
+
+        result_rows = result_isolation.validated_review_rows(root)
+    source_rows = {
+        AUTHORITY_SOURCE: review_rows, AUDIT_SOURCE: audit_rows, RESULT_SOURCE: result_rows,
+    }
+    source_labels = {
+        AUTHORITY_SOURCE: "review-authority quarantined",
+        AUDIT_SOURCE: "immutable-review-audit quarantined",
+        RESULT_SOURCE: "Result-control-authority withheld",
+    }
     active_heads = _active_publication_heads(root)
 
     for packet_id, row in rows.items():
         review_id = row["review_id"]
-        review_row = (
-            audit_rows if row.get("source_review_basis", AUTHORITY_SOURCE) == AUDIT_SOURCE
-            else review_rows
-        ).get(review_id)
+        basis = row.get("source_review_basis", AUTHORITY_SOURCE)
+        review_row = source_rows[basis].get(review_id)
         if review_row is None:
             raise DriverFollowupIsolationError(
                 f"{QUARANTINE_FILE}: {packet_id} source review is not "
-                + ("immutable-review-audit quarantined" if row.get("source_review_basis") == AUDIT_SOURCE
-                   else "review-authority quarantined")
+                + source_labels[basis]
             )
         if review_row["result_id"] != row["result_id"]:
             raise DriverFollowupIsolationError(

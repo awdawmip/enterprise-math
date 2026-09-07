@@ -35,6 +35,7 @@ if str(_REPO_ROOT) not in sys.path:
 from control_plane import immutable_write_transaction as _write_tx  # noqa: E402
 from control_plane import research_immutable_candidate_validation as _candidate_validation  # noqa: E402
 from control_plane import research_result_records_compat_runtime as _base  # noqa: E402
+from control_plane import research_result_authority_fault_isolation as _result_authority  # noqa: E402
 
 for _name in dir(_base):
     if not _name.startswith("__"):
@@ -113,18 +114,20 @@ def _replacement_edges(root: Path = ROOT) -> dict[str, dict[str, Any]]:
 def iter_results(root: Path = ROOT) -> list[dict[str, Any]]:
     edges = _replacement_edges(root)
     replaced = set(edges)
-    return [
+    sinks = [
         item for item in _BASE_ITER_RESULTS(root)
         if item.get("result_id") not in replaced
     ]
+    return _result_authority.operational_results(sinks, root, replacement_edges=edges)
 
 
 def iter_reviews(root: Path = ROOT) -> list[dict[str, Any]]:
     replaced = set(_replacement_edges(root))
-    return [
+    reviews = [
         item for item in _BASE_ITER_REVIEWS(root)
         if item.get("result_id") not in replaced
     ]
+    return _result_authority.operational_reviews(reviews, root)
 
 
 def result_map(root: Path = ROOT) -> dict[str, dict[str, Any]]:
@@ -289,6 +292,36 @@ def _parallel_review_authority(
 
 
 def task_result_state(
+    task_id: str,
+    root: Path = ROOT,
+    publication_id: str | None = None,
+) -> dict[str, Any] | None:
+    with _result_authority.authority_snapshot(root) as rows:
+        affected = [row for row in rows.values() if row["task_id"] == task_id]
+        if affected:
+            selected = _base._publication_for_state(task_id, root, publication_id)
+            if selected is None:
+                # Existing publication isolation remains the authority; history
+                # cannot stand in for a missing current generation.
+                return None
+            held = _result_authority.withheld_state(task_id, selected, root)
+            if held is not None:
+                surviving = [item for item in iter_results(root)
+                             if item.get("task_id") == task_id and item.get("publication_id") == selected]
+                if not surviving:
+                    return held
+                executions = _base._impl.execution_map(root)
+                for item in surviving:
+                    failures = _base._impl.audit_result_record(
+                        item, executions.get(str(item.get("execution_record_id"))), root,
+                    )
+                    if failures:
+                        raise ResultRecordError("surviving Result under authority hold is invalid: " + "; ".join(failures))
+            publication_id = selected
+        return _task_result_state_operational(task_id, root, publication_id)
+
+
+def _task_result_state_operational(
     task_id: str,
     root: Path = ROOT,
     publication_id: str | None = None,
