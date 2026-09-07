@@ -584,6 +584,8 @@ def _block_unreviewed_registered_done(
     result_state: dict[str, Any] | None,
     reduced_task_events: list[dict[str, Any]] | None = None,
     reducer_ignored_indices: set[int] | None = None,
+    *,
+    resolved_lease_minutes: int | None = None,
 ) -> dict[str, Any]:
     """Fail closed when an authenticated DONE lacks terminal result authority.
 
@@ -800,6 +802,7 @@ def reduce_definition(
         result_state,
         reduced_task_events,
         reducer_ignored_indices,
+        resolved_lease_minutes=lease,
     )
 
 

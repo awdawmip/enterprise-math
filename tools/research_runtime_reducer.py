@@ -24,6 +24,12 @@ TASK_LANE_RE = re.compile(r"^RS-((?:R|P)\d{3}[A-Z]?)\b")
 LANE_RE = re.compile(r"[^A-Z0-9]+")
 EVENT_SCHEMA = "ENTERPRISE_MATH_SCHEDULER_EVENT_V1"
 POLICY_SCHEMA = "ENTERPRISE_MATH_RESEARCH_RUNTIME_POLICY_V2"
+DRIVER_REVIEW_TERMINAL_SCOPE = "RESEARCH_RETURN_FROZEN_AWAITING_DRIVER_REVIEW"
+HANDOFF_SCOPE_CONTINUATION = "CONTINUATION"
+HANDOFF_SCOPE_FROZEN_RETURN = "FROZEN_RETURN_AWAITING_DRIVER_REVIEW"
+LEGACY_DRIVER_REVIEW_TERMINAL_CANDIDATES = {
+    "SUCCESS_REVIEW_COMPLETE_AWAITING_DRIVER_DECISION",
+}
 
 class RuntimeReducerError(ValueError):
     pass
@@ -246,6 +252,21 @@ def ignore(state: dict[str, Any], index: int, reason: str) -> None:
     state["ignored_events"].append({"index": index, "reason": reason})
 
 
+def live_claim_event_reason(state: dict[str, Any], event: dict[str, Any]) -> str | None:
+    """Share the reducer's claim and optional researcher identity boundary."""
+    kind = event.get("event")
+    live_claim = state.get("claim_id")
+    if not live_claim or event.get("claim_id") != live_claim:
+        return f"{kind} requires the current live claim_id"
+    event_researcher_id = event.get("researcher_id")
+    if event_researcher_id is not None:
+        if not valid_researcher_id(event_researcher_id):
+            return f"{kind} researcher_id has invalid format"
+        if event_researcher_id.strip().upper() != state.get("researcher_id"):
+            return f"{kind} researcher_id does not match live claim identity"
+    return None
+
+
 def reduce_task(
     task: dict[str, Any],
     events: Iterable[dict[str, Any]],
@@ -307,17 +328,10 @@ def reduce_task(
             continue
 
         if kind in {"HEARTBEAT", "PROGRESS", "HANDOFF", "HARD_BLOCK", "DONE"}:
-            if not live_claim or claim_id != live_claim:
-                ignore(state, index, f"{kind} requires the current live claim_id")
+            reason = live_claim_event_reason(state, event)
+            if reason is not None:
+                ignore(state, index, reason)
                 continue
-            event_researcher_id = event.get("researcher_id")
-            if event_researcher_id is not None:
-                if not valid_researcher_id(event_researcher_id):
-                    ignore(state, index, f"{kind} researcher_id has invalid format")
-                    continue
-                if event_researcher_id.strip().upper() != state.get("researcher_id"):
-                    ignore(state, index, f"{kind} researcher_id does not match live claim identity")
-                    continue
 
         if kind == "HEARTBEAT":
             try:
@@ -349,14 +363,53 @@ def reduce_task(
             if result_id is not None and (not isinstance(result_id, str) or not result_id.strip()):
                 ignore(state, index, "HANDOFF result_id must be a nonempty string when supplied")
                 continue
-            # A result-bearing HANDOFF is a provisional review barrier even before
-            # the immutable result record lands on main.  Plain HANDOFF remains a
-            # researcher-to-researcher continuation surface.
-            state["state"] = "FROZEN_RETURN" if result_id is not None else "HANDOFF_READY"
+            terminal_scope = event.get("terminal_scope")
+            if terminal_scope is not None and not isinstance(terminal_scope, str):
+                ignore(state, index, "HANDOFF terminal_scope must be a string when supplied")
+                continue
+            handoff_scope = event.get("handoff_scope")
+            if handoff_scope is not None and (
+                not isinstance(handoff_scope, str)
+                or handoff_scope not in {HANDOFF_SCOPE_CONTINUATION, HANDOFF_SCOPE_FROZEN_RETURN}
+            ):
+                ignore(state, index, "HANDOFF handoff_scope is invalid")
+                continue
+            legacy_terminal_candidate = event.get("terminal_candidate")
+            if legacy_terminal_candidate is not None and not isinstance(legacy_terminal_candidate, str):
+                ignore(state, index, "HANDOFF terminal_candidate must be a string when supplied")
+                continue
+            driver_review_terminal = (
+                terminal_scope == DRIVER_REVIEW_TERMINAL_SCOPE
+                or handoff_scope == HANDOFF_SCOPE_FROZEN_RETURN
+                or legacy_terminal_candidate in LEGACY_DRIVER_REVIEW_TERMINAL_CANDIDATES
+            )
+            if handoff_scope == HANDOFF_SCOPE_CONTINUATION and (
+                result_id is not None or driver_review_terminal
+            ):
+                ignore(state, index, "HANDOFF CONTINUATION scope contradicts frozen-return marker")
+                continue
+            # Terminality is machine-explicit. Natural-language fields never decide it.
+            state["state"] = (
+                "FROZEN_RETURN"
+                if result_id is not None or driver_review_terminal
+                else "HANDOFF_READY"
+            )
             if isinstance(result_id, str):
                 state["result_id"] = result_id.strip()
             else:
                 state.pop("result_id", None)
+            if terminal_scope == DRIVER_REVIEW_TERMINAL_SCOPE:
+                state["terminal_scope"] = DRIVER_REVIEW_TERMINAL_SCOPE
+            else:
+                state.pop("terminal_scope", None)
+            if handoff_scope in {HANDOFF_SCOPE_CONTINUATION, HANDOFF_SCOPE_FROZEN_RETURN}:
+                state["handoff_scope"] = handoff_scope
+            else:
+                state.pop("handoff_scope", None)
+            if legacy_terminal_candidate in LEGACY_DRIVER_REVIEW_TERMINAL_CANDIDATES:
+                state["terminal_candidate"] = legacy_terminal_candidate
+            else:
+                state.pop("terminal_candidate", None)
             if event.get("progress_ref"):
                 state["last_progress_ref"] = event["progress_ref"]
             state["last_progress_at"] = event["at"]

@@ -1,0 +1,183 @@
+{
+  "schema": "owner_registered_event_revision1_independent_review_v1",
+  "status": "PASS_BOUNDED_REVISION_REVIEW",
+  "created_utc": "2026-09-07T19:15:26.156881+00:00",
+  "scope": "Original three root causes, resolved-lease consumers and exact task/publication/researcher boundaries; no full suite or mathematical review.",
+  "public_base_commit": "86a04d17cbffd687b1ef74ab4990cf6b2b7e093a",
+  "public_base_tree": "7ab67689a86e47a2c0be43ca2fb5e2c4feefdfc5",
+  "candidate_manifest_sha256": "3d6055a3cffc9b7de99cabeebeb1a8e2e6b92230ebe8f77dc6794984973fb266",
+  "candidate_source_sha256": {
+    ".github/workflows/control-plane-pr-focused-validation.yml": "f9044cee50fce642ef12580249b05865757a41e5ea4859a88121cc18a9cbad9e",
+    "docs/RESEARCH_SCHEDULING_PROTOCOL.en.md": "a2a814f81a951e37c6bf6c60ed26fc73cf19470966d6f731f9e51ef93b054a9b",
+    "tests/test_exact_invalid_result_authority_isolation_20260907.py": "f97ff49e6498c79bab49a807e412a035046f7e2f9611671b238e5588aabc6a67",
+    "tests/test_result_handoff_dispatch_guard.py": "e4fbf92a486713c30f19b964ec76ecedf034ce0b480e6ff6a55f5a8c54f18b8d",
+    "tools/research_dispatch.py": "ac5991215550c95b4dcb4059b53a63fc727d6933beb077f25b15096144b3675a",
+    "tools/research_runtime_reducer.py": "b44513708ea9099e369aa445769a6db56fb3b78f68dfcd6692f6b7a782ea0c55",
+    "tests/test_registered_event_control_composition_20260908.py": "004a732d6ab80dd26610741814448acf7049e6c32797644e5540689e05d8ae13",
+    "tests/test_registered_event_publication_time_gate.py": "f7759fa830a39b101875fc7784dd58ddfd49c343ccbe1ac7d1f0add5f509a598",
+    "tests/test_registered_handoff_scope_guard.py": "d25c551b123f2c21e75c1a35c03c0a70148d7d3675d87561cdba570b4a4b6828",
+    "research_notes/OWNER_REGISTERED_EVENT_CONTROL_COMPOSITION_20260908.md": "e06af64e291af8cd53bd38b3a0dca12a6e30a9939cc29e566b0ae4822aa09c07",
+    "tools/research_dispatch_core.py": "e0aad8b3a54c4812d45348a6eef3137756ba629428e4a95c2f40c4293f4153a8"
+  },
+  "script_sha256": "6ed10ea934c2a26b3f05bb31cab80f18126b7c5f98b28a25944dcfab42c5555c",
+  "python": "3.12.14",
+  "checks": [
+    {
+      "case": "postcutover_mapping_scope_public_path",
+      "expected_dispatch_state": "BLOCKED",
+      "actual_dispatch_state": "BLOCKED",
+      "pass": true,
+      "hard_block": {
+        "code": "REGISTERED_HANDOFF_SCOPE_REQUIRED",
+        "publication_id": "TP2-EVENT-CROSS",
+        "claim_id": "cross-owner",
+        "server_comment_id": 9002,
+        "reason": "registered HANDOFF scope contract: invalid handoff_scope"
+      },
+      "ignored_events": [
+        {
+          "index": 1,
+          "reason": "registered HANDOFF scope contract: invalid handoff_scope"
+        }
+      ]
+    },
+    {
+      "case": "mapping_legacy_candidate_pure_reducer",
+      "expected_dispatch_state": "LEASED",
+      "actual_dispatch_state": "LEASED",
+      "pass": true,
+      "hard_block": null,
+      "ignored_events": [
+        {
+          "index": 1,
+          "reason": "HANDOFF terminal_candidate must be a string when supplied"
+        }
+      ]
+    },
+    {
+      "case": "default_renewal_120_minute_claim",
+      "expected_dispatch_state": "BLOCKED",
+      "actual_dispatch_state": "BLOCKED",
+      "pass": true,
+      "hard_block": {
+        "code": "REGISTERED_HANDOFF_SCOPE_REQUIRED",
+        "publication_id": "TP2-EVENT-CROSS",
+        "claim_id": "cross-owner",
+        "server_comment_id": 9103,
+        "reason": "registered HANDOFF scope contract: explicit machine scope required after cutover"
+      },
+      "ignored_events": [
+        {
+          "index": 2,
+          "reason": "registered HANDOFF scope contract: explicit machine scope required after cutover"
+        }
+      ]
+    },
+    {
+      "case": "default_renewal_10_minute_claim",
+      "expected_dispatch_state": "NEEDS_DISPATCH",
+      "actual_dispatch_state": "NEEDS_DISPATCH",
+      "pass": true,
+      "hard_block": null,
+      "ignored_events": [
+        {
+          "index": 2,
+          "reason": "registered HANDOFF scope contract: explicit machine scope required after cutover"
+        }
+      ]
+    },
+    {
+      "case": "mismatched_researcher_ambiguous",
+      "expected_dispatch_state": "NEEDS_DISPATCH",
+      "actual_dispatch_state": "NEEDS_DISPATCH",
+      "pass": true,
+      "hard_block": null,
+      "ignored_events": [
+        {
+          "index": 1,
+          "reason": "registered HANDOFF scope contract: explicit machine scope required after cutover"
+        }
+      ]
+    },
+    {
+      "case": "mismatched_researcher_typed",
+      "expected_dispatch_state": "NEEDS_DISPATCH",
+      "actual_dispatch_state": "NEEDS_DISPATCH",
+      "pass": true,
+      "hard_block": null,
+      "ignored_events": [
+        {
+          "index": 1,
+          "reason": "HANDOFF researcher_id does not match live claim identity"
+        }
+      ]
+    },
+    {
+      "case": "custom_caller_default_37_through_heartbeat_and_done",
+      "expected_dispatch_state": "NEEDS_DISPATCH",
+      "actual_dispatch_state": "NEEDS_DISPATCH",
+      "pass": true,
+      "hard_block": null,
+      "ignored_events": [
+        {
+          "index": 2,
+          "reason": "registered DONE requires a frozen result with terminal Driver review"
+        }
+      ]
+    },
+    {
+      "case": "legacy_five_argument_direct_hook",
+      "expected_dispatch_state": "BLOCKED",
+      "actual_dispatch_state": "BLOCKED",
+      "pass": true,
+      "hard_block": {
+        "code": "REGISTERED_DONE_REQUIRES_TERMINAL_DRIVER_REVIEW",
+        "publication_id": "TP2-EVENT-CROSS",
+        "claim_id": "historical-direct-owner",
+        "progress_ref": null,
+        "server_comment_id": 9401
+      },
+      "ignored_events": []
+    },
+    {
+      "case": "replay_context_without_resolved_lease_rejected",
+      "pass": true,
+      "reason": "live-claim replay requires the dispatch resolved lease"
+    },
+    {
+      "case": "wrong_publication_claim_cannot_supply_terminal_barrier",
+      "expected_dispatch_state": "NEEDS_DISPATCH",
+      "actual_dispatch_state": "NEEDS_DISPATCH",
+      "pass": true,
+      "hard_block": null,
+      "ignored_events": [
+        {
+          "index": 0,
+          "reason": "registered CLAIM publication_id does not match current task publication"
+        },
+        {
+          "index": 1,
+          "reason": "registered HANDOFF scope contract: explicit machine scope required after cutover"
+        }
+      ]
+    }
+  ],
+  "source_protection": {
+    "base_tracked_count": 4556,
+    "changed_tracked_paths": [
+      ".github/workflows/control-plane-pr-focused-validation.yml",
+      "docs/RESEARCH_SCHEDULING_PROTOCOL.en.md",
+      "tests/test_exact_invalid_result_authority_isolation_20260907.py",
+      "tests/test_result_handoff_dispatch_guard.py",
+      "tools/research_dispatch.py",
+      "tools/research_dispatch_core.py",
+      "tools/research_runtime_reducer.py"
+    ],
+    "other_tracked_bytes_identical": 4549,
+    "six_wrappers_exact_source_equal": true,
+    "held_tail_and_core_call_equal": true,
+    "core_changes_exactly_three_added_lines": true
+  },
+  "admission_boundary": "Internal control review only. Published exact-head reference chain, eight quality shards and expected-head main admission remain owner work.",
+  "global_knowledge_sync": "main@990d7c1 / GLOBAL_KNOWLEDGE_V1"
+}
