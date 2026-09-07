@@ -20,6 +20,14 @@ ROOT = Path(__file__).resolve().parents[1]
 QUARANTINE_FILE = "research_driver_followup_authority_quarantines.json"
 QUARANTINE_SCHEMA = "ENTERPRISE_MATH_DRIVER_FOLLOWUP_AUTHORITY_QUARANTINE_V1"
 QUARANTINE_STATE = "NONOPERATIONAL_SOURCE_REVIEW"
+TASK_ISOLATION = "PACKET_AND_DERIVED_TASKS"
+PACKET_ONLY = "PACKET_ONLY_NO_DERIVED_TASK_AUTHORITY"
+AUTHORITY_SOURCE = "DRIVER_REVIEW_AUTHORITY"
+AUDIT_SOURCE = "INVALID_REVIEW_RECORD_AUDIT"
+_TASK_PINS = (
+    "task_id", "publication_id", "publication_record_path",
+    "publication_record_blob_sha1", "taskbook_path", "taskbook_blob_sha1",
+)
 _AUTHORITY_FLAGS = (
     "working_truth_granted",
     "foundation_authority_granted",
@@ -92,12 +100,25 @@ def quarantine_rows(root: Path = ROOT) -> dict[str, dict[str, Any]]:
             raise DriverFollowupIsolationError(
                 f"{QUARANTINE_FILE}: {packet_id} missing expected isolation error"
             )
+        basis = row.get("source_review_basis", AUTHORITY_SOURCE)
+        if basis not in {AUTHORITY_SOURCE, AUDIT_SOURCE}:
+            raise DriverFollowupIsolationError(f"{packet_id}: unsupported source review basis")
+        kind = row.get("isolation_kind", TASK_ISOLATION)
+        if kind not in {TASK_ISOLATION, PACKET_ONLY}:
+            raise DriverFollowupIsolationError(f"{packet_id}: unsupported isolation kind")
         derived = row.get("derived_task_publications")
-        if not isinstance(derived, list) or not derived:
+        if not isinstance(derived, list) or (kind == TASK_ISOLATION and not derived):
             raise DriverFollowupIsolationError(
                 f"{QUARANTINE_FILE}: {packet_id} derived_task_publications must be nonempty"
             )
+        if kind == PACKET_ONLY and (
+            derived != [] or row.get("packet_decision") not in {
+                "PARENT_CLOSED", "PARENT_OBJECTIVE_CLOSURE",
+            }
+        ):
+            raise DriverFollowupIsolationError(f"{packet_id}: packet-only isolation requires exact empty closure task set")
         seen_publications: set[str] = set()
+        seen_tasks: set[str] = set()
         for j, task in enumerate(derived):
             if not isinstance(task, dict):
                 raise DriverFollowupIsolationError(
@@ -121,6 +142,17 @@ def quarantine_rows(root: Path = ROOT) -> dict[str, dict[str, Any]]:
                     f"{QUARANTINE_FILE}: {packet_id} duplicate derived publication {publication_id}"
                 )
             seen_publications.add(publication_id)
+            if task["task_id"] in seen_tasks:
+                raise DriverFollowupIsolationError(f"{packet_id}: duplicate derived task identity")
+            seen_tasks.add(task["task_id"])
+            if "source_packet_ids" in task:
+                sources = task["source_packet_ids"]
+                if (
+                    not isinstance(sources, list) or not sources
+                    or any(not isinstance(source, str) or not source for source in sources)
+                    or len(sources) != len(set(sources)) or packet_id not in sources
+                ):
+                    raise DriverFollowupIsolationError(f"{packet_id}: invalid explicit source packet set")
         reason = row.get("reason")
         if not isinstance(reason, str) or not reason.strip():
             raise DriverFollowupIsolationError(
@@ -162,25 +194,111 @@ def _active_publication_heads(root: Path) -> dict[str, set[str]]:
     return out
 
 
+def _raw_packets(root: Path) -> list[dict[str, Any]]:
+    """Read source evidence before any operational packet filtering."""
+    directory = root / "research_driver_followups"
+    out = []
+    for path in sorted(directory.glob("*/*.json")) if directory.exists() else []:
+        packet = _load(path)
+        packet["_path"] = path.relative_to(root).as_posix()
+        out.append(packet)
+    return out
+
+
+def _complete_source_sets(
+    rows: dict[str, dict[str, Any]], root: Path,
+) -> None:
+    """Prove each exact publication's entire packet source set is registered.
+
+    Unrelated historical packet formats do not acquire new authority here. Any
+    packet naming a covered review or exact derived publication is relevant,
+    including a newly added source whose review is not quarantined.
+    """
+    groups: dict[str, list[tuple[str, dict[str, Any]]]] = defaultdict(list)
+    by_review: dict[str, set[str]] = defaultdict(set)
+    for packet_id, row in rows.items():
+        by_review[row["review_id"]].add(packet_id)
+        for task in row["derived_task_publications"]:
+            groups[task["task_id"]].append((packet_id, task))
+    by_publication: dict[str, str] = {}
+    for task_id, values in groups.items():
+        for _, task in values:
+            publication_id = task["publication_id"]
+            if publication_id in by_publication and by_publication[publication_id] != task_id:
+                raise DriverFollowupIsolationError(f"{publication_id}: shared publication has conflicting task identities")
+            by_publication[publication_id] = task_id
+    actual_sources: dict[str, set[str]] = defaultdict(set)
+    actual_reviews: dict[str, set[str]] = defaultdict(set)
+    seen_ids: set[str] = set()
+    for packet in _raw_packets(root):
+        task_rows = packet.get("task_publications", [])
+        mentions = [
+            item for item in task_rows if isinstance(item, dict)
+            and item.get("publication_id") in by_publication
+        ] if isinstance(task_rows, list) else []
+        review_id = packet.get("review_id")
+        if review_id not in by_review and not mentions:
+            continue
+        packet_id = packet.get("packet_id")
+        if not isinstance(packet_id, str) or not packet_id or packet_id in seen_ids:
+            raise DriverFollowupIsolationError("covered source has missing or duplicate packet_id")
+        seen_ids.add(packet_id)
+        if packet_id in rows and packet.get("_path") != rows[packet_id]["packet_path"]:
+            raise DriverFollowupIsolationError(f"{packet_id}: exact source packet path mismatch")
+        if review_id in by_review:
+            actual_reviews[review_id].add(packet_id)
+        for item in mentions:
+            task_id = by_publication[item["publication_id"]]
+            if item.get("task_id") != task_id:
+                raise DriverFollowupIsolationError(f"{packet_id}: derived source task identity drift")
+            actual_sources[task_id].add(packet_id)
+    for review_id, expected in by_review.items():
+        if actual_reviews[review_id] != expected:
+            raise DriverFollowupIsolationError(f"{review_id}: direct review packet set drift")
+    for task_id, values in groups.items():
+        first = values[0][1]
+        expected = {packet_id for packet_id, _ in values}
+        for packet_id, task in values:
+            if any(task[field] != first[field] for field in _TASK_PINS):
+                raise DriverFollowupIsolationError(f"{task_id}: shared derived publication pin mismatch")
+            explicit = task.get("source_packet_ids")
+            if len(expected) > 1 and explicit is None:
+                raise DriverFollowupIsolationError(f"{task_id}: shared publication requires explicit complete source set")
+            if set(explicit if explicit is not None else [packet_id]) != expected:
+                raise DriverFollowupIsolationError(f"{task_id}: declared source packet set drift")
+        if actual_sources[task_id] != expected:
+            raise DriverFollowupIsolationError(f"{task_id}: derived source packet set drift")
+
+
 def validated_quarantines(root: Path = ROOT) -> dict[str, dict[str, Any]]:
     from control_plane import research_driver_review_authority_fault_isolation as review_isolation
+    from control_plane import research_result_review_audit_fault_isolation as review_audit
 
     rows = quarantine_rows(root)
     review_rows = review_isolation.validated_quarantines(root)
+    audit_rows = review_audit.validated_rows(root) if any(
+        row.get("source_review_basis") == AUDIT_SOURCE for row in rows.values()
+    ) else {}
     active_heads = _active_publication_heads(root)
-    seen_task_ids: set[str] = set()
 
     for packet_id, row in rows.items():
         review_id = row["review_id"]
-        review_row = review_rows.get(review_id)
+        review_row = (
+            audit_rows if row.get("source_review_basis", AUTHORITY_SOURCE) == AUDIT_SOURCE
+            else review_rows
+        ).get(review_id)
         if review_row is None:
             raise DriverFollowupIsolationError(
-                f"{QUARANTINE_FILE}: {packet_id} source review is not review-authority quarantined"
+                f"{QUARANTINE_FILE}: {packet_id} source review is not "
+                + ("immutable-review-audit quarantined" if row.get("source_review_basis") == AUDIT_SOURCE
+                   else "review-authority quarantined")
             )
         if review_row["result_id"] != row["result_id"]:
             raise DriverFollowupIsolationError(
                 f"{QUARANTINE_FILE}: {packet_id} result_id differs from source-review quarantine"
             )
+        if row["packet_path"] != f"research_driver_followups/{review_id}/{packet_id}.json":
+            raise DriverFollowupIsolationError(f"{packet_id}: exact source packet path mismatch")
         packet_path = root / row["packet_path"]
         if not packet_path.exists():
             raise DriverFollowupIsolationError(
@@ -198,28 +316,31 @@ def validated_quarantines(root: Path = ROOT) -> dict[str, dict[str, Any]]:
                 raise DriverFollowupIsolationError(
                     f"{QUARANTINE_FILE}: {packet_id} packet {field} mismatch"
                 )
-        packet_publications = {
-            str(item.get("publication_id"))
-            for item in packet.get("task_publications", [])
-            if isinstance(item, dict) and isinstance(item.get("publication_id"), str)
-        }
-        declared_publications = {
-            item["publication_id"] for item in row["derived_task_publications"]
-        }
-        if packet_publications != declared_publications:
+        if packet.get("decision") != row.get("packet_decision", "TASK_SET_PUBLISHED"):
+            raise DriverFollowupIsolationError(f"{packet_id}: exact packet decision drift")
+        task_rows = packet.get("task_publications")
+        if not isinstance(task_rows, list) or any(
+            not isinstance(item, dict) or any(
+                not isinstance(item.get(field), str) or not item[field]
+                for field in ("task_id", "publication_id")
+            ) for item in task_rows
+        ):
+            raise DriverFollowupIsolationError(f"{packet_id}: malformed exact packet task set")
+        packet_pairs = [(item["task_id"], item["publication_id"]) for item in task_rows]
+        declared_pairs = [(item["task_id"], item["publication_id"]) for item in row["derived_task_publications"]]
+        if len(packet_pairs) != len(set(packet_pairs)) or set(packet_pairs) != set(declared_pairs):
             raise DriverFollowupIsolationError(
                 f"{QUARANTINE_FILE}: {packet_id} derived publication set drift; "
-                f"packet={sorted(packet_publications)!r} declared={sorted(declared_publications)!r}"
+                f"packet={sorted(packet_pairs)!r} declared={sorted(declared_pairs)!r}"
             )
+        if row.get("isolation_kind", TASK_ISOLATION) == PACKET_ONLY and task_rows != []:
+            raise DriverFollowupIsolationError(f"{packet_id}: packet-only isolation has derived tasks")
 
         for task in row["derived_task_publications"]:
             task_id = task["task_id"]
             publication_id = task["publication_id"]
-            if task_id in seen_task_ids:
-                raise DriverFollowupIsolationError(
-                    f"{QUARANTINE_FILE}: duplicate derived task quarantine {task_id}"
-                )
-            seen_task_ids.add(task_id)
+            if task["publication_record_path"] != f"research_task_records/{task_id}/{publication_id}.json":
+                raise DriverFollowupIsolationError(f"{publication_id}: exact publication record path mismatch")
             if active_heads.get(task_id, set()) != {publication_id}:
                 raise DriverFollowupIsolationError(
                     f"{QUARANTINE_FILE}: {task_id} derived quarantine requires exactly the pinned active head; "
@@ -243,6 +364,8 @@ def validated_quarantines(root: Path = ROOT) -> dict[str, dict[str, Any]]:
                 raise DriverFollowupIsolationError(
                     f"{QUARANTINE_FILE}: {publication_id} taskbook_path mismatch"
                 )
+            if record.get("taskbook_blob_sha1") != task["taskbook_blob_sha1"]:
+                raise DriverFollowupIsolationError(f"{publication_id}: publication taskbook pin mismatch")
             taskbook_path = root / task["taskbook_path"]
             if not taskbook_path.exists():
                 raise DriverFollowupIsolationError(
@@ -252,17 +375,27 @@ def validated_quarantines(root: Path = ROOT) -> dict[str, dict[str, Any]]:
                 raise DriverFollowupIsolationError(
                     f"{QUARANTINE_FILE}: {publication_id} taskbook blob drift"
                 )
+    _complete_source_sets(rows, root)
     return rows
 
 
 def derived_task_rows(root: Path = ROOT) -> dict[str, dict[str, Any]]:
     out: dict[str, dict[str, Any]] = {}
+    sources: dict[str, list[tuple[str, str]]] = defaultdict(list)
     for packet_id, row in validated_quarantines(root).items():
         for task in row["derived_task_publications"]:
-            value = dict(task)
-            value["source_packet_id"] = packet_id
-            value["source_review_id"] = row["review_id"]
-            out[task["task_id"]] = value
+            task_id = task["task_id"]
+            # validated_quarantines already proves exact pin agreement and the
+            # complete source set; retain every source instead of overwriting.
+            if task_id not in out:
+                out[task_id] = dict(task)
+            sources[task_id].append((packet_id, row["review_id"]))
+    for task_id, pairs in sources.items():
+        if len(pairs) == 1:
+            out[task_id]["source_packet_id"], out[task_id]["source_review_id"] = pairs[0]
+        else:
+            out[task_id]["source_packet_ids"] = sorted(packet_id for packet_id, _ in pairs)
+            out[task_id]["source_review_ids"] = sorted({review_id for _, review_id in pairs})
     return out
 
 
@@ -287,6 +420,13 @@ def operational_packets(
 
 def _blocked_definition(task_id: str, task: dict[str, Any], prior: dict[str, Any] | None) -> dict[str, Any]:
     value = copy.deepcopy(prior or {})
+    packet_ids = task.get("source_packet_ids") or [task["source_packet_id"]]
+    review_ids = task.get("source_review_ids") or [task["source_review_id"]]
+    source_identity = (
+        {"source_packet_id": packet_ids[0], "source_review_id": review_ids[0]}
+        if len(packet_ids) == 1 else
+        {"source_packet_ids": packet_ids, "source_review_ids": review_ids}
+    )
     value.update(
         {
             "task_id": task_id,
@@ -301,9 +441,8 @@ def _blocked_definition(task_id: str, task: dict[str, Any], prior: dict[str, Any
             "dependencies": copy.deepcopy(value.get("dependencies", [])),
             "source_refs": sorted(
                 set(value.get("source_refs", []))
+                | set(packet_ids) | set(review_ids)
                 | {
-                    task["source_packet_id"],
-                    task["source_review_id"],
                     task["publication_id"],
                     task["publication_record_path"],
                 }
@@ -313,8 +452,7 @@ def _blocked_definition(task_id: str, task: dict[str, Any], prior: dict[str, Any
             "last_progress_at": value.get("last_progress_at", "1970-01-01T00:00:00+00:00"),
             "hard_block": {
                 "code": "NONOPERATIONAL_SOURCE_REVIEW_FOLLOWUP",
-                "source_review_id": task["source_review_id"],
-                "source_packet_id": task["source_packet_id"],
+                **source_identity,
                 "publication_id": task["publication_id"],
                 "missing_object": "one source-backed operational Driver review authorizing this follow-up chain",
                 "owner": "control-plane/driver-review-authority-repair",
@@ -387,8 +525,10 @@ def audit(root: Path = ROOT) -> list[str]:
     errors: list[str] = []
     try:
         from control_plane import research_driver_review_authority_fault_isolation as review_isolation
+        from control_plane import research_result_review_audit_fault_isolation as review_audit
 
         review_isolation.install(root)
+        review_audit.install(root)
         rows = validated_quarantines(root)
         install(root)
 

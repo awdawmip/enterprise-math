@@ -54,6 +54,238 @@
       "foundation_authority_granted": false,
       "canonical_promotion_granted": false,
       "successor_triggered": false
+    },
+    {
+      "packet_id": "DFU-998EB492E2A5C7188EC3",
+      "review_id": "DR-007256B8119682DF8EFA",
+      "result_id": "RR-0A26702D3A361799ADE0",
+      "packet_path": "research_driver_followups/DR-007256B8119682DF8EFA/DFU-998EB492E2A5C7188EC3.json",
+      "packet_blob_sha1": "sha1:c8def616f545343a2621f4b7f9127fd0e7b273ad",
+      "state": "NONOPERATIONAL_SOURCE_REVIEW",
+      "operational": false,
+      "history_preserved": true,
+      "source_review_basis": "INVALID_REVIEW_RECORD_AUDIT",
+      "isolation_kind": "PACKET_AND_DERIVED_TASKS",
+      "packet_decision": "TASK_SET_PUBLISHED",
+      "expected_post_review_isolation_error": "packet references unknown review",
+      "derived_task_publications": [
+        {
+          "task_id": "RS-GEO6-NATIVE-RELATION-SELECTOR-CORE",
+          "publication_id": "TP2-46E1AB6359CBEBAA6B0D",
+          "publication_record_path": "research_task_records/RS-GEO6-NATIVE-RELATION-SELECTOR-CORE/TP2-46E1AB6359CBEBAA6B0D.json",
+          "publication_record_blob_sha1": "sha1:580406713be77d004ae45e6dd9b5c159aaac1d78",
+          "taskbook_path": "research_tasks/GEO6_NATIVE_RELATION_SELECTOR_CORE_20260901.md",
+          "taskbook_blob_sha1": "sha1:7a3542eef47d600224f90ab0fb672285da11a3a6",
+          "source_packet_ids": [
+            "DFU-998EB492E2A5C7188EC3"
+          ]
+        },
+        {
+          "task_id": "RS-GEO6-PHYSICAL-REFINEMENT-SUPPORT-TRANSPORT-CORE",
+          "publication_id": "TP2-596ED944A7D5C5F8065B",
+          "publication_record_path": "research_task_records/RS-GEO6-PHYSICAL-REFINEMENT-SUPPORT-TRANSPORT-CORE/TP2-596ED944A7D5C5F8065B.json",
+          "publication_record_blob_sha1": "sha1:72e187134bf6e290859195316a4d6b97c2411f13",
+          "taskbook_path": "research_tasks/GEO6_PHYSICAL_REFINEMENT_SUPPORT_TRANSPORT_CORE_20260901.md",
+          "taskbook_blob_sha1": "sha1:06f137c60f7d3fc7988489e56d84d3d8c8b1fe44",
+          "source_packet_ids": [
+            "DFU-998EB492E2A5C7188EC3"
+          ]
+        },
+        {
+          "task_id": "RS-GEO6-NATIVE-TRANSLATION-FOLNER-SEMANTICS",
+          "publication_id": "TP2-2DACFDB1816BE0DEB532",
+          "publication_record_path": "research_task_records/RS-GEO6-NATIVE-TRANSLATION-FOLNER-SEMANTICS/TP2-2DACFDB1816BE0DEB532.json",
+          "publication_record_blob_sha1": "sha1:80ae0999ff59ddb4dda3dc6845762440cfffcddc",
+          "taskbook_path": "research_tasks/GEO6_NATIVE_TRANSLATION_FOLNER_SEMANTICS_20260901.md",
+          "taskbook_blob_sha1": "sha1:fbf8f9bd7779aad1cf9ba880acdcfc0bed15cfb6",
+          "source_packet_ids": [
+            "DFU-998EB492E2A5C7188EC3"
+          ]
+        }
+      ],
+      "reason": "The exact source review fails its complete pinned immutable-review audit. Preserve this packet, original decision and every source artifact; remove packet authority and the listed exact publications only after proving their complete packet source sets are covered by validated invalid reviews. A closure-only packet carries no task publication and grants no parent closure authority through this packet. No replacement review, publication, claim, disposition or mathematical authority is inferred.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    },
+    {
+      "packet_id": "DFU-E79D7C72DF1A2D5137F5",
+      "review_id": "DR-19B757A8E5D817B5E495",
+      "result_id": "RR-1DE3F3213271AED2625C",
+      "packet_path": "research_driver_followups/DR-19B757A8E5D817B5E495/DFU-E79D7C72DF1A2D5137F5.json",
+      "packet_blob_sha1": "sha1:74479428c8228896ac06fa86a33c874c5cc1cef9",
+      "state": "NONOPERATIONAL_SOURCE_REVIEW",
+      "operational": false,
+      "history_preserved": true,
+      "source_review_basis": "INVALID_REVIEW_RECORD_AUDIT",
+      "isolation_kind": "PACKET_AND_DERIVED_TASKS",
+      "packet_decision": "TASK_SET_PUBLISHED",
+      "expected_post_review_isolation_error": "packet references unknown review",
+      "derived_task_publications": [
+        {
+          "task_id": "RS-P000-PHILOSOPHY-FIRST-NATIVE-6D-ROTATION-TYPING-MINIMALITY",
+          "publication_id": "TP2-C00220B16C3714BDED46",
+          "publication_record_path": "research_task_records/RS-P000-PHILOSOPHY-FIRST-NATIVE-6D-ROTATION-TYPING-MINIMALITY/TP2-C00220B16C3714BDED46.json",
+          "publication_record_blob_sha1": "sha1:ada91dd2371bf70baa9c37ce8a3f3528297b7bf2",
+          "taskbook_path": "research_tasks/P000_PHILOSOPHY_FIRST_NATIVE_6D_ROTATION_TYPING_MINIMALITY_POSTREVIEW_20260901.md",
+          "taskbook_blob_sha1": "sha1:73d1f85b253ad6382251419c61a421f29c761c67",
+          "source_packet_ids": [
+            "DFU-343CAA302296B0CE47B3",
+            "DFU-E79D7C72DF1A2D5137F5"
+          ]
+        }
+      ],
+      "reason": "The exact source review fails its complete pinned immutable-review audit. Preserve this packet, original decision and every source artifact; remove packet authority and the listed exact publications only after proving their complete packet source sets are covered by validated invalid reviews. A closure-only packet carries no task publication and grants no parent closure authority through this packet. No replacement review, publication, claim, disposition or mathematical authority is inferred.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    },
+    {
+      "packet_id": "DFU-19C7A4E25B8063DF91A2",
+      "review_id": "DR-4B7A2D91E6C0538FA124",
+      "result_id": "RR-85C8C9CDB6C3A8B8622C",
+      "packet_path": "research_driver_followups/DR-4B7A2D91E6C0538FA124/DFU-19C7A4E25B8063DF91A2.json",
+      "packet_blob_sha1": "sha1:f5225d1d054ae3cf23b904e5571a04ac92176cc9",
+      "state": "NONOPERATIONAL_SOURCE_REVIEW",
+      "operational": false,
+      "history_preserved": true,
+      "source_review_basis": "INVALID_REVIEW_RECORD_AUDIT",
+      "isolation_kind": "PACKET_ONLY_NO_DERIVED_TASK_AUTHORITY",
+      "packet_decision": "PARENT_CLOSED",
+      "expected_post_review_isolation_error": "packet references unknown review",
+      "derived_task_publications": [],
+      "reason": "The exact source review fails its complete pinned immutable-review audit. Preserve this packet, original decision and every source artifact; remove packet authority and the listed exact publications only after proving their complete packet source sets are covered by validated invalid reviews. A closure-only packet carries no task publication and grants no parent closure authority through this packet. No replacement review, publication, claim, disposition or mathematical authority is inferred.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    },
+    {
+      "packet_id": "DFU-07F2C626AB51FAADD478",
+      "review_id": "DR-4C239DD3C0C251A78E45",
+      "result_id": "RR-440E83B6F8C06F0808D8",
+      "packet_path": "research_driver_followups/DR-4C239DD3C0C251A78E45/DFU-07F2C626AB51FAADD478.json",
+      "packet_blob_sha1": "sha1:7fa1d3286da11d7bf449e55874840d2cd48d32ec",
+      "state": "NONOPERATIONAL_SOURCE_REVIEW",
+      "operational": false,
+      "history_preserved": true,
+      "source_review_basis": "INVALID_REVIEW_RECORD_AUDIT",
+      "isolation_kind": "PACKET_ONLY_NO_DERIVED_TASK_AUTHORITY",
+      "packet_decision": "PARENT_OBJECTIVE_CLOSURE",
+      "expected_post_review_isolation_error": "packet references unknown review",
+      "derived_task_publications": [],
+      "reason": "The exact source review fails its complete pinned immutable-review audit. Preserve this packet, original decision and every source artifact; remove packet authority and the listed exact publications only after proving their complete packet source sets are covered by validated invalid reviews. A closure-only packet carries no task publication and grants no parent closure authority through this packet. No replacement review, publication, claim, disposition or mathematical authority is inferred.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    },
+    {
+      "packet_id": "DFU-6D3A91B84E205FC713A9",
+      "review_id": "DR-8E3C51A7D2B9046F1C85",
+      "result_id": "RR-79C65C93052D6857CA9C",
+      "packet_path": "research_driver_followups/DR-8E3C51A7D2B9046F1C85/DFU-6D3A91B84E205FC713A9.json",
+      "packet_blob_sha1": "sha1:38039cc204ec0de1a5a7f3102eb7bd15c40f2eb8",
+      "state": "NONOPERATIONAL_SOURCE_REVIEW",
+      "operational": false,
+      "history_preserved": true,
+      "source_review_basis": "INVALID_REVIEW_RECORD_AUDIT",
+      "isolation_kind": "PACKET_ONLY_NO_DERIVED_TASK_AUTHORITY",
+      "packet_decision": "PARENT_CLOSED",
+      "expected_post_review_isolation_error": "packet references unknown review",
+      "derived_task_publications": [],
+      "reason": "The exact source review fails its complete pinned immutable-review audit. Preserve this packet, original decision and every source artifact; remove packet authority and the listed exact publications only after proving their complete packet source sets are covered by validated invalid reviews. A closure-only packet carries no task publication and grants no parent closure authority through this packet. No replacement review, publication, claim, disposition or mathematical authority is inferred.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    },
+    {
+      "packet_id": "DFU-1B0311E52B57CE82D55D",
+      "review_id": "DR-B66959082DC75F6225C0",
+      "result_id": "RR-8A1951FD6A09D5D232CD",
+      "packet_path": "research_driver_followups/DR-B66959082DC75F6225C0/DFU-1B0311E52B57CE82D55D.json",
+      "packet_blob_sha1": "sha1:824bfdd3323d1233678de42ebacebd8c249118cf",
+      "state": "NONOPERATIONAL_SOURCE_REVIEW",
+      "operational": false,
+      "history_preserved": true,
+      "source_review_basis": "INVALID_REVIEW_RECORD_AUDIT",
+      "isolation_kind": "PACKET_AND_DERIVED_TASKS",
+      "packet_decision": "TASK_SET_PUBLISHED",
+      "expected_post_review_isolation_error": "packet references unknown review",
+      "derived_task_publications": [
+        {
+          "task_id": "RS-P000-PHILOSOPHY-FIRST-RETURN-PROFILE-1WL-FIRST-COLLISION-FRONTIER",
+          "publication_id": "TP2-00DBAF3804A8CB88ED06",
+          "publication_record_path": "research_task_records/RS-P000-PHILOSOPHY-FIRST-RETURN-PROFILE-1WL-FIRST-COLLISION-FRONTIER/TP2-00DBAF3804A8CB88ED06.json",
+          "publication_record_blob_sha1": "sha1:682b017198319b86acef048c33f1f9b5bfc368d9",
+          "taskbook_path": "research_tasks/P000_PHILOSOPHY_FIRST_RETURN_PROFILE_1WL_FIRST_COLLISION_FRONTIER_POSTREVIEW_20260901.md",
+          "taskbook_blob_sha1": "sha1:ff66633d93307b2cde0fdc59149098e462299c09",
+          "source_packet_ids": [
+            "DFU-1B0311E52B57CE82D55D"
+          ]
+        }
+      ],
+      "reason": "The exact source review fails its complete pinned immutable-review audit. Preserve this packet, original decision and every source artifact; remove packet authority and the listed exact publications only after proving their complete packet source sets are covered by validated invalid reviews. A closure-only packet carries no task publication and grants no parent closure authority through this packet. No replacement review, publication, claim, disposition or mathematical authority is inferred.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    },
+    {
+      "packet_id": "DFU-343CAA302296B0CE47B3",
+      "review_id": "DR-C20A9201B684ECE69AF8",
+      "result_id": "RR-14766C42C430C5DD36C4",
+      "packet_path": "research_driver_followups/DR-C20A9201B684ECE69AF8/DFU-343CAA302296B0CE47B3.json",
+      "packet_blob_sha1": "sha1:3d7be18362d02f76781bf8c9643bb33ba40115b4",
+      "state": "NONOPERATIONAL_SOURCE_REVIEW",
+      "operational": false,
+      "history_preserved": true,
+      "source_review_basis": "INVALID_REVIEW_RECORD_AUDIT",
+      "isolation_kind": "PACKET_AND_DERIVED_TASKS",
+      "packet_decision": "TASK_SET_PUBLISHED",
+      "expected_post_review_isolation_error": "packet references unknown review",
+      "derived_task_publications": [
+        {
+          "task_id": "RS-P000-PHILOSOPHY-FIRST-NATIVE-6D-ROTATION-TYPING-MINIMALITY",
+          "publication_id": "TP2-C00220B16C3714BDED46",
+          "publication_record_path": "research_task_records/RS-P000-PHILOSOPHY-FIRST-NATIVE-6D-ROTATION-TYPING-MINIMALITY/TP2-C00220B16C3714BDED46.json",
+          "publication_record_blob_sha1": "sha1:ada91dd2371bf70baa9c37ce8a3f3528297b7bf2",
+          "taskbook_path": "research_tasks/P000_PHILOSOPHY_FIRST_NATIVE_6D_ROTATION_TYPING_MINIMALITY_POSTREVIEW_20260901.md",
+          "taskbook_blob_sha1": "sha1:73d1f85b253ad6382251419c61a421f29c761c67",
+          "source_packet_ids": [
+            "DFU-343CAA302296B0CE47B3",
+            "DFU-E79D7C72DF1A2D5137F5"
+          ]
+        }
+      ],
+      "reason": "The exact source review fails its complete pinned immutable-review audit. Preserve this packet, original decision and every source artifact; remove packet authority and the listed exact publications only after proving their complete packet source sets are covered by validated invalid reviews. A closure-only packet carries no task publication and grants no parent closure authority through this packet. No replacement review, publication, claim, disposition or mathematical authority is inferred.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    },
+    {
+      "packet_id": "DFU-9D7E05C41A682BF330D7",
+      "review_id": "DR-C6A128F3B95D407E2A71",
+      "result_id": "RR-EBE56954DEFC688B316A",
+      "packet_path": "research_driver_followups/DR-C6A128F3B95D407E2A71/DFU-9D7E05C41A682BF330D7.json",
+      "packet_blob_sha1": "sha1:6676e0b9bd6b271dae516feaea6bd388f1089a4c",
+      "state": "NONOPERATIONAL_SOURCE_REVIEW",
+      "operational": false,
+      "history_preserved": true,
+      "source_review_basis": "INVALID_REVIEW_RECORD_AUDIT",
+      "isolation_kind": "PACKET_ONLY_NO_DERIVED_TASK_AUTHORITY",
+      "packet_decision": "PARENT_CLOSED",
+      "expected_post_review_isolation_error": "packet references unknown review",
+      "derived_task_publications": [],
+      "reason": "The exact source review fails its complete pinned immutable-review audit. Preserve this packet, original decision and every source artifact; remove packet authority and the listed exact publications only after proving their complete packet source sets are covered by validated invalid reviews. A closure-only packet carries no task publication and grants no parent closure authority through this packet. No replacement review, publication, claim, disposition or mathematical authority is inferred.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
     }
   ]
 }
