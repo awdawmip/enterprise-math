@@ -1,0 +1,948 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+  "date": "2026-09-07",
+  "authority": "FRONTIER_ROUTING_ONLY_EXACT_SOURCES_CONTROL",
+  "provenance": {
+    "owner_driver_id": "EM-DVR-01E1D9",
+    "owner_review_ref": "research_notes/OWNER_FRONTIER_TOOL_HARVEST_20260907.md",
+    "formal_driver_or_steward_acceptance": null,
+    "official_claim": null,
+    "source_branch": "research/em-owner-20260907",
+    "source_pull_request": "https://github.com/awdawmip/enterprise-math/pull/1364",
+    "previous_published_head": "514cd10eba2e29034052295d4c3fece50c491041",
+    "foundation_mutation": false,
+    "new_global_tool_family": false,
+    "internal_catalog_audit_ref": "research_notes/OWNER_FRONTIER_TOOL_CATALOG_AUDIT_20260907.md",
+    "internal_catalog_audit_sha256": "eb5a66c11f04ae0d2d90c6743a63e047400c32c2dc63f2a5a2b4270e5295e7d2",
+    "byte_normalization_ref": "experiments/owner_packaging_20260907.json",
+    "byte_normalization_rule": "Earlier audit hashes of generated JSON refer to exactly reconstructible CRLF bytes; only the recorded two new JSON outputs were normalized in this checkpoint.",
+    "one_positive_checkpoint": {
+      "date": "2026-09-08",
+      "paper_audit": "research_notes/OWNER_ONE_POSITIVE_STABILITY_INDEPENDENT_AUDIT_20260908.md",
+      "consumer_audit": "experiments/owner_one_positive_stability_20260908/independent_review_20260908/REVIEW.md",
+      "status": "INTERNAL_PAPER_AND_FINITE_CONSUMER_REVIEW_PASS_FORMAL_ACCEPTANCE_ABSENT",
+      "existing_eighteen_method_objects_unchanged": true,
+      "main_admission": "SEPARATE_CURRENT_MAIN_L4_REQUIRED"
+    }
+  },
+  "availability": {
+    "loader": "tools/enterprise_toolbox.py",
+    "preferred_lookup": "python -X utf8 tools/enterprise_toolbox.py --json methods <exact need>",
+    "cross_branch_rule": "Use the immutable published source snapshot containing this shard and its source files. Old checkouts do not auto-load another branch. Publication journal supplies the exact Git SHA; main admission is a separate gated action.",
+    "formal_acceptance_inferred_from_indexing": false
+  },
+  "methods": [
+    {
+      "method_id": "candidate.x6.raw_joint_observer_recovery",
+      "name": "X6 raw joint observation and exact sparse mass recovery",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "source_refs": [
+        "experiments/owner_joint_observer_20260907/observer_certificate.py",
+        "experiments/owner_joint_observer_20260907/recovery.py",
+        "research_notes/OWNER_FREE_CANDIDATE_20260907.md",
+        "research_notes/OWNER_RECOVERY_CERTIFICATE_UPGRADE_20260907.md",
+        "research_notes/OWNER_FEASIBILITY_INDEPENDENT_AUDIT_20260907.md",
+        "research_notes/OWNER_INDEPENDENT_AUDIT_20260907.md"
+      ],
+      "api": [
+        "Branch",
+        "fiber_histograms",
+        "raw_marginal_table",
+        "all_three_axis_tables",
+        "candidate_join",
+        "recover"
+      ],
+      "triggers": [
+        "X6 raw joint observer",
+        "seven support marginal recovery",
+        "三轴边缘恢复",
+        "八点奇偶盲区"
+      ],
+      "input_contract": "Finite labeled positive rational branches in one signed Z6 affine chart, or all twenty complete raw three-axis mass tables with missing addresses zero.",
+      "output_contract": "Original fiber WeightHistograms/provenance or a rational spatial measure checked against every input mass table; a recovered support of at most seven certifies uniqueness against every finite nonnegative competitor.",
+      "core_law": "A nonzero finite signed array with all k-coordinate marginals zero has at least 2^k positive and 2^k negative support points. Four-bit parity gives the sharp X6 eight-versus-eight obstruction.",
+      "hard_boundary": "Spatial mass uniqueness does not recover branch labels/history or arbitrary weight histograms. can3 without its joint common depth is insufficient. Candidate budget or solver failure is not infeasibility.",
+      "reuse_resolution": {
+        "coverage_verdict": "COMPOSE_EXISTING_TOOLS",
+        "matched_tool_or_method_ids": [
+          "T0_BRC",
+          "T6_OPERATION_SAFE_QUOTIENT",
+          "T8_RELATION_OBSERVABLE_SPECTRUM"
+        ],
+        "reuse_resolution_state": "COMPOSE_APPLIED",
+        "how_applied_or_why_not": "Existing WeightHistogram and operation-safe refinement were executed; the owner adapter adds the explicit X6 all20 export/recovery contract.",
+        "hard_boundary_checked": "Positive BRC population versus auxiliary signed difference; raw joint coordinates retained."
+      },
+      "runtime": "Python with sympy==1.14.0 for recovery; repository src and experiment module path.",
+      "validation_refs": [
+        "experiments/owner_joint_observer_20260907/test_observer_certificate.py",
+        "experiments/owner_joint_observer_20260907/test_recovery.py",
+        "research_notes/OWNER_FEASIBILITY_INDEPENDENT_AUDIT_20260907.md"
+      ],
+      "source_sha256": {
+        "experiments/owner_joint_observer_20260907/observer_certificate.py": "93a2f2775ec919bc747fb339c52730f0eba7de99bed5dffba89a0fd1b1459d4d",
+        "experiments/owner_joint_observer_20260907/recovery.py": "503282c2b6c07f2a9fece03a16f242d3ae5442ed333990a073ce9d0daa5d3b24",
+        "experiments/owner_joint_observer_20260907/test_observer_certificate.py": "3e3508cdbcd828dcdaa4d9df0a60e134e25481b1fe9a5195812ea46ee982b881",
+        "experiments/owner_joint_observer_20260907/test_recovery.py": "4239c804a55f36e00cc4de3cc109e06054a318c0dc45b19d2d413df3df2e22db",
+        "research_notes/OWNER_FEASIBILITY_INDEPENDENT_AUDIT_20260907.md": "87f6d958193d2fa61306d37ff977ac205ac989eab6ac65049bc0736b2941878e",
+        "research_notes/OWNER_FREE_CANDIDATE_20260907.md": "2fc21dfb799a5183b57e50e44f99d268530b63c8d4b87a965bb8ebfc12e0b7c6",
+        "research_notes/OWNER_INDEPENDENT_AUDIT_20260907.md": "7359a8a484ee74a64aa02274f3ebbe5f821bb2dd4127966975cc11d8b1c5ce29",
+        "research_notes/OWNER_RECOVERY_CERTIFICATE_UPGRADE_20260907.md": "270b6e7167ea86da80120f0ce7b91a7c1b48d4c070e363192b1538a7619a4a5a"
+      }
+    },
+    {
+      "method_id": "candidate.certificate.rational_nonnegative_phase1",
+      "name": "Exact nonnegative Phase-I primal or Farkas certificate",
+      "classification": "CANDIDATE_NOT_TOOL",
+      "family_id": null,
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "proposed_classification": "GLOBAL_SUBTOOL",
+      "source_refs": [
+        "experiments/owner_joint_observer_20260907/exact_feasibility.py",
+        "research_notes/OWNER_RECOVERY_CERTIFICATE_UPGRADE_20260907.md",
+        "research_notes/OWNER_FEASIBILITY_INDEPENDENT_AUDIT_20260907.md"
+      ],
+      "api": [
+        "FeasibilityCertificate",
+        "solve_nonnegative",
+        "verify_certificate"
+      ],
+      "triggers": [
+        "rational nonnegative Phase I Farkas",
+        "exact feasibility certificate",
+        "原方程有理可行证书"
+      ],
+      "input_contract": "Finite exact rational A,b for Ax=b,x>=0, with declared resource bounds.",
+      "output_contract": "A primal solution or Farkas separator independently verified against the original system; resource exhaustion stays separate.",
+      "core_law": "Classical rational Phase I with Bland pivots; the verifier checks original primal/dual identities and inequalities, without trusting reduced equations.",
+      "hard_boundary": "No integer-feasibility conclusion, numerical-LP theorem, or new general optimization family. A verifier failure and computation budget failure do not prove infeasibility.",
+      "reuse_resolution": {
+        "coverage_verdict": "NOT_APPLICABLE",
+        "matched_tool_or_method_ids": [
+          "T2_BLOCK_FINITE_CERTIFICATE"
+        ],
+        "reuse_resolution_state": "NOT_APPLICABLE",
+        "how_applied_or_why_not": "T2 is only a coverage comparison: its supported block/max-law does not prove this arbitrary matrix-system result. The cited classical exact method and separately audited implementation carry this candidate; no family extension is admitted.",
+        "hard_boundary_checked": "A shared word certificate does not establish semantic coverage by T2; the finite input contract and original-input verifier remain explicit."
+      },
+      "runtime": "Python standard-library Fraction; no floating solver.",
+      "validation_refs": [
+        "experiments/owner_joint_observer_20260907/test_exact_feasibility.py",
+        "research_notes/OWNER_FEASIBILITY_INDEPENDENT_AUDIT_20260907.md"
+      ],
+      "related_tool_ids": [
+        "T2_BLOCK_FINITE_CERTIFICATE"
+      ],
+      "source_sha256": {
+        "experiments/owner_joint_observer_20260907/exact_feasibility.py": "874b480ccb9f073f26e851c48bf6955ac745152698cf66710277f3e7a48691ec",
+        "experiments/owner_joint_observer_20260907/test_exact_feasibility.py": "093da1616afb70f46b782761ba2dfca5fb9d6bbbbae7ae37ca8779cb2a87021f",
+        "research_notes/OWNER_FEASIBILITY_INDEPENDENT_AUDIT_20260907.md": "87f6d958193d2fa61306d37ff977ac205ac989eab6ac65049bc0736b2941878e",
+        "research_notes/OWNER_RECOVERY_CERTIFICATE_UPGRADE_20260907.md": "270b6e7167ea86da80120f0ce7b91a7c1b48d4c070e363192b1538a7619a4a5a"
+      }
+    },
+    {
+      "method_id": "candidate.x6.budgeted_noisy_recovery",
+      "name": "X6 finite-carrier fit with declared stacked l1 residual budget",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "source_refs": [
+        "experiments/owner_joint_observer_20260907/noisy_recovery.py",
+        "research_notes/OWNER_NOISY_INTERFACE_INDEPENDENT_AUDIT_20260907.md",
+        "research_notes/OWNER_X6_STABILITY_20260907.md"
+      ],
+      "api": [
+        "fit_budgeted_noise"
+      ],
+      "triggers": [
+        "X6 noisy recovery finite carrier residual budget",
+        "含噪三轴拟合"
+      ],
+      "input_contract": "Declared finite signed X6 candidate carrier D, all20 observed tables (possibly signed noise), and exact nonnegative residual budget eta.",
+      "output_contract": "A positive fit with its actual all20 stacked residual recomputed, or original-system Farkas obstruction for this D and eta.",
+      "core_law": "Residual splitting and slack compile the l1 budget into the existing nonnegative rational equality system.",
+      "hard_boundary": "The fit need not minimize residual or be unique. Truth-support, true noise and sparsity assumptions are external; infeasibility applies only to D and eta. It is not an unrestricted recovery theorem.",
+      "reuse_resolution": {
+        "coverage_verdict": "COMPOSE_EXISTING_TOOLS",
+        "matched_tool_or_method_ids": [
+          "T0_BRC",
+          "candidate.certificate.rational_nonnegative_phase1"
+        ],
+        "reuse_resolution_state": "COMPOSE_APPLIED",
+        "how_applied_or_why_not": "Executes the existing owner Phase-I solver and BRC raw observer, adding only the finite-carrier residual compiler.",
+        "hard_boundary_checked": "Observed addresses union candidate projections, not just nonzero supplied entries."
+      },
+      "runtime": "Python Fraction with the owner observer/solver modules and repository src.",
+      "validation_refs": [
+        "experiments/owner_joint_observer_20260907/test_noisy_recovery.py",
+        "experiments/owner_joint_observer_20260907/audit_noise_budget.json",
+        "research_notes/OWNER_NOISY_INTERFACE_INDEPENDENT_AUDIT_20260907.md"
+      ],
+      "source_sha256": {
+        "experiments/owner_joint_observer_20260907/audit_noise_budget.json": "72f363bbe945eef383e869f481f9d92b0d1d97708091ab85d8d986c75d710d4c",
+        "experiments/owner_joint_observer_20260907/noisy_recovery.py": "52638faba84a41562642bddb73b5bf22bb9138b919c617dd77e009e8d7022f11",
+        "experiments/owner_joint_observer_20260907/test_noisy_recovery.py": "1d88c0b8580647df70ee5eeb9e0a30fd81319da9686f17515909b2979617dbc5",
+        "research_notes/OWNER_NOISY_INTERFACE_INDEPENDENT_AUDIT_20260907.md": "6a3d7bd6cb4dfc6827e169d9fdb170e732dd1d767c5bb6e26f6e8a5ff39be4a0",
+        "research_notes/OWNER_X6_STABILITY_20260907.md": "2915e70210dce5bc136c915e45e96a7c8a1f6dd414fae1590a4687f41bff3127"
+      }
+    },
+    {
+      "method_id": "candidate.x6.integer_histogram_realization",
+      "name": "Per-weight integer X6 histogram realization and binary uniform family",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "source_refs": [
+        "experiments/owner_joint_observer_20260907/histogram_realization.py",
+        "experiments/owner_branch_scout_20260907.py",
+        "research_notes/OWNER_BRANCH_SCOUT_20260907.md",
+        "research_notes/OWNER_NOISY_INTERFACE_INDEPENDENT_AUDIT_20260907.md"
+      ],
+      "api": [
+        "stratify_histogram_tables",
+        "verify_histogram_realization",
+        "verify_rao_obstruction",
+        "realize_uniform_binary_histograms"
+      ],
+      "triggers": [
+        "X6 integer histogram realization",
+        "uniform binary strength three Rao",
+        "逐权重整数实现"
+      ],
+      "input_contract": "Twenty complete raw three-axis exact WeightHistogram tables in a common signed chart.",
+      "output_contract": "Integer layers by exact weight; direct branch realization checks; for the uniform binary six-axis family, constructions at lambda=0 or lambda>=2 and a Rao obstruction at lambda=1.",
+      "core_law": "Counts at each distinct exact weight form a nonnegative integer marginal problem. Strength-three binary arrays at lambda=2,3 generate every lambda>=2.",
+      "hard_boundary": "A rational mass solution does not give integer branch counts. General histogram realizability remains UNCLASSIFIED; source branch identities are not reconstructed from a histogram.",
+      "reuse_resolution": {
+        "coverage_verdict": "COMPOSE_EXISTING_TOOLS",
+        "matched_tool_or_method_ids": [
+          "T0_BRC"
+        ],
+        "reuse_resolution_state": "COMPOSE_APPLIED",
+        "how_applied_or_why_not": "Reuses exact WeightHistogram and declared raw observation layers; classical Rao and binary array generators handle the narrow classified family.",
+        "hard_boundary_checked": "Mass relaxation versus integer per-weight counts."
+      },
+      "runtime": "Python Fraction, repository src, existing owner observer and generator.",
+      "validation_refs": [
+        "experiments/owner_joint_observer_20260907/test_histogram_realization.py",
+        "research_notes/OWNER_NOISY_INTERFACE_INDEPENDENT_AUDIT_20260907.md"
+      ],
+      "source_sha256": {
+        "experiments/owner_branch_scout_20260907.py": "c6b430730c8101aad36c9ca15a6206264bd925d4d3111498cc9cefcf0aa61531",
+        "experiments/owner_joint_observer_20260907/histogram_realization.py": "67486d02fd8b2986c4e03e5e68dc14f632b87ec3d45d0ef5a50ab7836917bd10",
+        "experiments/owner_joint_observer_20260907/test_histogram_realization.py": "ac2dc77cb4037479820720345c494838d4b475d4431ff73eb70b717b38ef8f82",
+        "research_notes/OWNER_BRANCH_SCOUT_20260907.md": "485168211e780c306daccb87310c4756fafdcd4b5ebcd2c212302723e42c1e70",
+        "research_notes/OWNER_NOISY_INTERFACE_INDEPENDENT_AUDIT_20260907.md": "6a3d7bd6cb4dfc6827e169d9fdb170e732dd1d767c5bb6e26f6e8a5ff39be4a0"
+      }
+    },
+    {
+      "method_id": "candidate.x6.finite_reverse_step_port_monitor",
+      "name": "Signed X6 finite port reverse-step monitor with word verifier",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "supporting_family_ids": [
+        "T6_OPERATION_SAFE_QUOTIENT"
+      ],
+      "source_refs": [
+        "experiments/owner_path_monitor_20260907/path_monitor.py",
+        "experiments/owner_path_monitor_20260907/README.md",
+        "research_notes/OWNER_CONSUMER_INDEPENDENT_AUDIT_20260907.md"
+      ],
+      "api": [
+        "NativeGraph",
+        "reverse_step_monitor",
+        "port_excursion_series",
+        "compose_port_series",
+        "coefficient",
+        "verify_port_series"
+      ],
+      "triggers": [
+        "signed primitive reverse step finite port monitor",
+        "word sensitive BRC",
+        "原生路径反向步监测",
+        "reverse step",
+        "port monitor",
+        "finite path reverse step port monitor"
+      ],
+      "input_contract": "Explicit finite labeled positive rational step graph, fixed ports, finite horizon and declared reverse-step observation.",
+      "output_contract": "Exact monitored excursion and composed port WeightHistograms. The original-word verifier accepts WALKS or ENUMERATED_WALKS, not raw EXCURSIONS; the latter return UNVERIFIED.",
+      "core_law": "The fourteen-state observer tracks the necessary previous primitive direction and reversal outcome; existing BRC serial/recoalescence and finite port laws compose it.",
+      "hard_boundary": "Finite horizon and explicit hidden-state lease only. Equal CWM does not imply equal histograms; total displacement does not recover noncommuting words. Incomplete budget output is not a complete series.",
+      "reuse_resolution": {
+        "coverage_verdict": "COMPOSE_EXISTING_TOOLS",
+        "matched_tool_or_method_ids": [
+          "T0_BRC",
+          "T6_OPERATION_SAFE_QUOTIENT"
+        ],
+        "reuse_resolution_state": "COMPOSE_APPLIED",
+        "how_applied_or_why_not": "Uses existing WeightHistogram and port composition laws; the additional consumer is the explicit word-sensitive finite monitor.",
+        "hard_boundary_checked": "WBRC T33-T37 already own generic length/count/histogram transfer."
+      },
+      "runtime": "Python standard library plus repository src.",
+      "validation_refs": [
+        "experiments/owner_path_monitor_20260907/test_path_monitor.py",
+        "research_notes/OWNER_CONSUMER_INDEPENDENT_AUDIT_20260907.md"
+      ],
+      "source_sha256": {
+        "experiments/owner_path_monitor_20260907/README.md": "918f396cfc0a693c4e812f8d372614e20f55de2fc6f74a8d9fc7173b20dfa7e1",
+        "experiments/owner_path_monitor_20260907/path_monitor.py": "86c7e3e751f1f4817ed836b397b3779dc65bdaf0a10da71c0ee1e434150daccd",
+        "experiments/owner_path_monitor_20260907/test_path_monitor.py": "ae7b61e2988a51c9e6e301140bffd4603d4b06b5690dc407b8aa6470dbc9ccab",
+        "research_notes/OWNER_CONSUMER_INDEPENDENT_AUDIT_20260907.md": "a79ac7f26fc2ca6e769465065eb6b9415fb9e0a0a3d455e305ebb3bdc9151d95"
+      }
+    },
+    {
+      "method_id": "candidate.x6.shortest_path_valuation_spectrum",
+      "name": "Signed shortest-path multinomial prime-valuation spectrum",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T1_SCALE_ENUMERATION_VALUATION",
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "supporting_family_ids": [
+        "T0_BRC"
+      ],
+      "source_refs": [
+        "research_notes/owner_arithmetic_20260907.py",
+        "research_notes/OWNER_ARITHMETIC_FRONTIER_20260907.md"
+      ],
+      "api": [
+        "SignedValuationSpectrum",
+        "signed_valuation_spectrum"
+      ],
+      "triggers": [
+        "signed shortest path multinomial valuation spectrum",
+        "carry active state spectrum",
+        "素数赋值路径谱"
+      ],
+      "input_contract": "Declared nonnegative shortest event length N, prime p and finite computation limits, over signed X6 endpoints at that event length.",
+      "output_contract": "Exact endpoint counts indexed by nonzero-axis count r and p-adic path-count valuation e, plus the declared p^e WeightHistogram observation.",
+      "core_law": "A forty-two-state carry/active transfer uses the classical multinomial valuation digit method, with explicit signed lifting and actual BRC histogram composition.",
+      "hard_boundary": "This N is event length, not the quadratic shell parameter of the separate shell-length operator. The spectrum forgets endpoint labels and the p-coprime unit of the path count. Rowland's matrix method is prior art.",
+      "reuse_resolution": {
+        "coverage_verdict": "COMPOSE_EXISTING_TOOLS",
+        "matched_tool_or_method_ids": [
+          "T0_BRC",
+          "T1_SCALE_ENUMERATION_VALUATION"
+        ],
+        "reuse_resolution_state": "COMPOSE_APPLIED",
+        "how_applied_or_why_not": "Reuses native shortest-path multinomials and BRC histograms; specializes known digit-carry valuation transfer to signed six-axis endpoints.",
+        "hard_boundary_checked": "Valuation observation is not the original path-weight histogram or endpoint population."
+      },
+      "runtime": "Python Fraction and repository src.",
+      "validation_refs": [
+        "research_notes/owner_arithmetic_20260907_check.py",
+        "research_notes/owner_arithmetic_20260907_results.json"
+      ],
+      "source_sha256": {
+        "research_notes/OWNER_ARITHMETIC_FRONTIER_20260907.md": "7bc15c47d2505001234f2e630b300f561ca935be5d1076c6d9fb45b839dbae88",
+        "research_notes/owner_arithmetic_20260907.py": "71f0214cc414c9d1291facd3ec8a727989fafe1bc21e0db5001b7d5e5655a79d",
+        "research_notes/owner_arithmetic_20260907_check.py": "4fa11c530976ea1b64c68d79d110c3d1d0b10081ef6758f0e7a9e7874ab6e3c4",
+        "research_notes/owner_arithmetic_20260907_results.json": "6f720cb6068601f488b3e84bd3918806fd7db942581c745413a2af91db371a17"
+      }
+    },
+    {
+      "method_id": "candidate.x6.minimum_raw_query_plan",
+      "name": "Minimum static raw three-axis query plan by sparsity class",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "supporting_family_ids": [],
+      "source_refs": [
+        "experiments/owner_query_design_20260907/query_design.py",
+        "research_notes/OWNER_OBSERVATION_QUERY_DESIGN_20260907.md",
+        "research_notes/OWNER_QUERY_DESIGN_INDEPENDENT_AUDIT_20260907.md"
+      ],
+      "api": [
+        "SignedAxisChart",
+        "observe",
+        "classify_query_set",
+        "minimum_query_plan",
+        "verify_counterexample"
+      ],
+      "triggers": [
+        "minimum raw three axis query plan",
+        "sparse marginal query covering",
+        "最少三轴查询"
+      ],
+      "input_contract": "User-declared target support bound s, a static set of complete raw axis-triple tables, and one shared signed axis chart.",
+      "output_contract": "A universal guarantee classification or an explicit pair of positive populations with original-table collision; minimal counts are 1,2,6,20 for s=0,1,2..3,4..7, and impossible for s>=8.",
+      "core_law": "Cover all axes for s=1, all pairs for s=2..3, or all triples for s=4..7; missing-subset parity supplies necessity. Six pair-covering triples attain the incidence lower bound.",
+      "hard_boundary": "The sparsity premise is not verified from the observations. A failed universal plan is not proof of ambiguity in a user's actual data. No adaptive/weighted query optimization claim; raw-table collisions need not preserve weight histograms.",
+      "reuse_resolution": {
+        "coverage_verdict": "COMPOSE_EXISTING_TOOLS",
+        "matched_tool_or_method_ids": [
+          "T0_BRC",
+          "candidate.x6.raw_joint_observer_recovery"
+        ],
+        "reuse_resolution_state": "COMPOSE_APPLIED",
+        "how_applied_or_why_not": "Executes existing Branch and raw_marginal_table for witnesses, using the proved sparse-uniqueness result and elementary covering/parity arguments.",
+        "hard_boundary_checked": "Raw observations are declared. Covering/parity and sparse uniqueness carry the proof; T4 capacity or a T2 block max-law is not invoked."
+      },
+      "runtime": "Python Fraction with owner observer and repository src.",
+      "validation_refs": [
+        "experiments/owner_query_design_20260907/test_query_design.py",
+        "research_notes/OWNER_QUERY_DESIGN_INDEPENDENT_AUDIT_20260907.md"
+      ],
+      "source_sha256": {
+        "experiments/owner_query_design_20260907/query_design.py": "b264d96f31dbe47f5c0b5411f6183ed4a484aa10e293fec42ccf0a15a6b1af97",
+        "experiments/owner_query_design_20260907/test_query_design.py": "109ae7557e64b737239b9aa8e5a4f2d3fb8213e05e7e7371ce9362713410f990",
+        "research_notes/OWNER_OBSERVATION_QUERY_DESIGN_20260907.md": "16df4e2f39f0caaa7f58e62cdbc34839afe8e52348eb14079f6d9894c75a9aa7",
+        "research_notes/OWNER_QUERY_DESIGN_INDEPENDENT_AUDIT_20260907.md": "92ba686cd0ee81e38b5aaf1ca01d9c0b5c872351692c6f8183440523dd156f56"
+      }
+    },
+    {
+      "method_id": "candidate.certificate.rational_interval_inertia",
+      "name": "Exact rational symmetric-interval negative-inertia index certificate",
+      "classification": "CANDIDATE_NOT_TOOL",
+      "family_id": null,
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "proposed_classification": "GLOBAL_SUBTOOL",
+      "source_refs": [
+        "experiments/owner_rh_reference_20260907/inertia_certificate.py",
+        "experiments/owner_rh_reference_20260907/inertia_validation_20260907.md",
+        "research_notes/OWNER_RH_REFERENCE_REUSE_AUDIT_20260907.md"
+      ],
+      "api": [
+        "certify_interval_inertia",
+        "verify_interval_inertia"
+      ],
+      "triggers": [
+        "rational interval matrix strict inertia certificate",
+        "PLDL original matrix verifier",
+        "有理区间惯性证书"
+      ],
+      "input_contract": "Finite symmetric rational entry intervals and exact ordered basis labels, within the declared dimension limit.",
+      "output_contract": "Exact endpoint congruences certify a constant negative index when their negative counts match; otherwise UNDETERMINED. Full inertia additionally requires the relevant strict endpoint conditions.",
+      "core_law": "Classical spectral perturbation bounds and exact congruence inertia; the verifier reconstructs every original matrix entry without trusting the producer's elimination.",
+      "hard_boundary": "CERTIFIED fixes negative index, not automatically zero/positive indices: the one-dimensional interval [0,1] is a counterexample to the stronger reading. Analytic target identity needs a separate producer audit; nonsingular full inertia needs strict endpoint evidence. Resource and invalid-input cases stay separate.",
+      "reuse_resolution": {
+        "coverage_verdict": "NOT_APPLICABLE",
+        "matched_tool_or_method_ids": [
+          "T2_BLOCK_FINITE_CERTIFICATE"
+        ],
+        "reuse_resolution_state": "NOT_APPLICABLE",
+        "how_applied_or_why_not": "T2 is only a coverage comparison: its supported block/max-law does not prove this arbitrary matrix-system result. The cited classical exact method and separately audited implementation carry this candidate; no family extension is admitted.",
+        "hard_boundary_checked": "A shared word certificate does not establish semantic coverage by T2; the finite input contract and original-input verifier remain explicit."
+      },
+      "runtime": "Python standard-library Fraction; Arb is needed only by the separate RH interval producer.",
+      "validation_refs": [
+        "experiments/owner_rh_reference_20260907/test_inertia_certificate.py",
+        "research_notes/OWNER_RH_REFERENCE_REUSE_AUDIT_20260907.md"
+      ],
+      "related_tool_ids": [
+        "T2_BLOCK_FINITE_CERTIFICATE"
+      ],
+      "source_sha256": {
+        "experiments/owner_rh_reference_20260907/inertia_certificate.py": "eedb0fbdfebfec478a18f418fcf8b3eb386903870bea1ae9b9948afce1e67bc5",
+        "experiments/owner_rh_reference_20260907/inertia_validation_20260907.md": "7a4e86c987aa81cc6eb0796cba743c947b7736d1279c42a3aef155931ace31d2",
+        "experiments/owner_rh_reference_20260907/test_inertia_certificate.py": "85ecc880f563e60f83875ea4af532345e680b6372e72f3c73ad90fb7b260ffa1",
+        "research_notes/OWNER_RH_REFERENCE_REUSE_AUDIT_20260907.md": "719d2803f75de2e0c3c63afbe4207438b96d25e2ce2f31d7368ebbabbbb7d97d"
+      }
+    },
+    {
+      "method_id": "result.rh.n8_reference_eta09_inertia",
+      "name": "N8 eta 9/10 prime-plus-Cauchy reference has inertia 8 negative / 24 positive",
+      "classification": "RESULT_ONLY",
+      "family_id": null,
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "source_refs": [
+        "research_notes/OWNER_RH_REFERENCE_CERTIFICATE_20260907.md",
+        "research_notes/OWNER_RH_REFERENCE_PRODUCER_AUDIT_20260907.md",
+        "experiments/owner_rh_reference_20260907/reference_builder.py",
+        "experiments/owner_rh_reference_20260907/reference_bounds_run003.json",
+        "experiments/owner_rh_reference_20260907/reference_inertia_run003.json"
+      ],
+      "api": [],
+      "triggers": [
+        "N8 reference eta 9/10 inertia",
+        "prime Cauchy cross eight negative",
+        "RH有限reference惯性"
+      ],
+      "input_contract": "The exact 32 labeled old/shell modes, eta=9/10, full diagonal A,D and cross reference prime+Cauchy with the source-defined omissions.",
+      "output_contract": "The complete interval family is nonsingular with inertia (8 negative,0 zero,24 positive).",
+      "core_law": "Arb enclosure of every defined cross entry followed by independent rational interval-inertia verification.",
+      "hard_boundary": "Only this finite reference is certified. It is not the full-cross eta=1 Gram matrix, Galerkin complement, full H_log3 positivity, or an RH proof.",
+      "reuse_resolution": {
+        "coverage_verdict": "COMPOSE_EXISTING_TOOLS",
+        "matched_tool_or_method_ids": [
+          "candidate.certificate.rational_interval_inertia"
+        ],
+        "reuse_resolution_state": "COMPOSE_APPLIED",
+        "how_applied_or_why_not": "Reuses the frozen RH cutoff-free diagonal implementation and exact interval-inertia verifier; adds the explicitly defined Cauchy cross enclosure.",
+        "hard_boundary_checked": "Old/shell labels, prime/Cauchy versus pole/regular-arch cross, producer/cache hash binding."
+      },
+      "validation_refs": [
+        "research_notes/OWNER_RH_REFERENCE_REUSE_AUDIT_20260907.md",
+        "research_notes/OWNER_RH_REFERENCE_PRODUCER_AUDIT_20260907.md"
+      ],
+      "source_sha256": {
+        "experiments/owner_rh_reference_20260907/reference_bounds_run003.json": "385ea5b8806f302b6bf403842a0ae496233f67227841c8e5c320ff82f5e9453a",
+        "experiments/owner_rh_reference_20260907/reference_builder.py": "67a15aaebe4a27b59dd29b1e833da456e85581705eb601eeba712818c37f92ca",
+        "experiments/owner_rh_reference_20260907/reference_inertia_run003.json": "8d962dc8b4018e0aac5e349171db1dde80941bf3abff8115797433324a6022ba",
+        "research_notes/OWNER_RH_REFERENCE_CERTIFICATE_20260907.md": "22d0a06de5af0624d50831d8a808ef0bef50da29126c2596f4173060efe3526d",
+        "research_notes/OWNER_RH_REFERENCE_PRODUCER_AUDIT_20260907.md": "bb12e55d15f415161d65f939152210b3e09073abccd32cc8c705de4e60f8df3c",
+        "research_notes/OWNER_RH_REFERENCE_REUSE_AUDIT_20260907.md": "719d2803f75de2e0c3c63afbe4207438b96d25e2ce2f31d7368ebbabbbb7d97d"
+      }
+    },
+    {
+      "method_id": "candidate.brc.finite_exchangeable_factorial_observer",
+      "name": "Finite completely-monotone data to exchangeable-word BRC and factorial observations",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "source_refs": [
+        "experiments/owner_pp_finite_brc_20260907/finite_hcm_brc.py",
+        "research_notes/OWNER_PP_FINITE_MOMENT_CORRECTION_20260907.md",
+        "research_notes/OWNER_PP_BRC_CONSUMER_INDEPENDENT_AUDIT_20260907.md"
+      ],
+      "api": [
+        "terminal_weights",
+        "build_certificate",
+        "verify_certificate",
+        "prefix_observation_histogram",
+        "coefficient_histogram",
+        "verify_square_obstruction"
+      ],
+      "triggers": [
+        "finite completely monotone exchangeable BRC",
+        "factorial moments Bernstein terminal weights",
+        "有限可交换词阶乘观察"
+      ],
+      "input_contract": "Finite exact rational sequence h_0..h_d, fixed symmetric/exchangeable word observation contract and declared representation/resource limits.",
+      "output_contract": "Nonnegative terminal word weights beta_j, actual exact WeightHistograms for cylinders and coefficient readouts, or finite-difference obstruction within that declared contract.",
+      "core_law": "beta_j=(-1)^(d-j) Delta^(d-j)h_j; h_a=sum_{j>=a} binom(d-a,j-a) beta_j. Each d-bit word of weight j is assigned beta_j; zero-weight words are omitted from the positive BRC population.",
+      "hard_boundary": "This is a finite exchangeable/factorial representation, not an ordinary power-moment measure or arbitrary nonsymmetric prefix population. A negative square certifies obstruction; nonnegative tested squares do not prove existence. Word length is not native spatial dimension.",
+      "reuse_resolution": {
+        "coverage_verdict": "COMPOSE_EXISTING_TOOLS",
+        "matched_tool_or_method_ids": [
+          "T0_BRC",
+          "T1_SCALE_ENUMERATION_VALUATION"
+        ],
+        "reuse_resolution_state": "COMPOSE_APPLIED",
+        "how_applied_or_why_not": "Uses actual WeightHistogram serial composition/recoalescence with finite binomial inversion and declared observation multiplicities.",
+        "hard_boundary_checked": "Positive primitive weights, explicit label-forgetting, finite versus infinite extendibility."
+      },
+      "runtime": "Python Fraction, repository src; no symbolic/numerical solver.",
+      "validation_refs": [
+        "experiments/owner_pp_finite_brc_20260907/run_finite_brc_checks.py",
+        "research_notes/OWNER_PP_BRC_CONSUMER_INDEPENDENT_AUDIT_20260907.md"
+      ],
+      "source_sha256": {
+        "experiments/owner_pp_finite_brc_20260907/finite_hcm_brc.py": "389b9551bbd4929964b28361c0a927abcb7a078b02da7b2bd6269bdd59b21f3b",
+        "experiments/owner_pp_finite_brc_20260907/run_finite_brc_checks.py": "32ea7a7425df42640665db260a6172893777753fb25ef07b56cd17ad13e4530e",
+        "research_notes/OWNER_PP_BRC_CONSUMER_INDEPENDENT_AUDIT_20260907.md": "667525ca56ca1449858cffcf6a8c1f3a51f64865c998949683b9c2410874304a",
+        "research_notes/OWNER_PP_FINITE_MOMENT_CORRECTION_20260907.md": "804d85f5fc34cda940b41b917a684595bd2037e67726e501debbbc494e42a530"
+      }
+    },
+    {
+      "method_id": "result.pp.finite_power_moment_lift_obstruction",
+      "name": "Perfect Prime m3 refutes the finite ordinary power-moment lift",
+      "classification": "RESULT_ONLY",
+      "family_id": null,
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "source_refs": [
+        "research_notes/OWNER_PP_FINITE_MOMENT_CORRECTION_20260907.md",
+        "research_notes/OWNER_PP_FINITE_MOMENT_INDEPENDENT_AUDIT_20260907.md",
+        "experiments/owner_pp_finite_moment_audit_20260907.py"
+      ],
+      "api": [],
+      "triggers": [
+        "Perfect Prime finite Hausdorff power moment correction",
+        "m3 negative square witness",
+        "PP普通幂矩误用"
+      ],
+      "input_contract": "The exact historical m=3 cofactor coefficient sequence normalized by q0, as independently reconstructed in the cited evidence.",
+      "output_contract": "All 28 finite alternating differences are positive, yet L_h((u^2+8u/7-3/10)^2)=-7205915063/2893645755000.",
+      "core_law": "A positive ordinary power-moment measure on any real support must be nonnegative on every polynomial square; the exact witness is negative.",
+      "hard_boundary": "Closes the all-m ordinary-power-measure lift through m3. It does not disprove all-m finite complete monotonicity or HCM0, and does not negate the corrected finite exchangeable BRC representation.",
+      "reuse_resolution": {
+        "coverage_verdict": "NOT_APPLICABLE",
+        "matched_tool_or_method_ids": [
+          "T1_SCALE_ENUMERATION_VALUATION"
+        ],
+        "reuse_resolution_state": "NOT_APPLICABLE",
+        "how_applied_or_why_not": "T1 finite-difference vocabulary only describes the contrast cone; ordinary power-moment obstruction follows from classical positivity on polynomial squares and the two source-bound coefficient reconstructions.",
+        "hard_boundary_checked": "Finite differences do not prove power-moment existence; this result has no new executable tool payload."
+      },
+      "validation_refs": [
+        "research_notes/OWNER_PP_FINITE_MOMENT_INDEPENDENT_AUDIT_20260907.md"
+      ],
+      "source_sha256": {
+        "experiments/owner_pp_finite_moment_audit_20260907.py": "3497b9093612a90c69db13f67f7cba3896c7ed4d626c8ebf4ff6699cdce30b00",
+        "research_notes/OWNER_PP_FINITE_MOMENT_CORRECTION_20260907.md": "804d85f5fc34cda940b41b917a684595bd2037e67726e501debbbc494e42a530",
+        "research_notes/OWNER_PP_FINITE_MOMENT_INDEPENDENT_AUDIT_20260907.md": "469a388a971adb20e2ef11dcfce02b0fd6314487dbe0cc7cf7332b8054b9cd81"
+      }
+    },
+    {
+      "method_id": "candidate.x6.nonlinear_channel_gate_quotient",
+      "name": "Arbitrary set-valued reversible channel observation and exact common-image gates",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T6_OPERATION_SAFE_QUOTIENT",
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "source_refs": [
+        "experiments/owner_nonlinear_channel_20260907/channel_quotient.py",
+        "research_notes/OWNER_NONLINEAR_CHANNEL_QUOTIENT_20260907.md",
+        "research_notes/OWNER_NONLINEAR_CHANNEL_INDEPENDENT_AUDIT_20260907.md"
+      ],
+      "api": [
+        "make_gate_witness",
+        "verify_gate_witness",
+        "gate_image",
+        "brc_gate_observation"
+      ],
+      "triggers": [
+        "nonlinear injective channel quotient",
+        "common image mass gate",
+        "非线性可逆观察商"
+      ],
+      "input_contract": "Full nonnegative (or strictly positive) rational six-channel mass cone, the source-defined idempotent A_i average operators, and qA_i=R_iq with R_i injective on q(X).",
+      "output_contract": "The mathematical classification q=f composed with total mass; an exact at-most-five-step common-image gate witness for any equal-mass pair.",
+      "core_law": "Idempotence forces qA_i=q. Donor/receiver transfers through a third unchanged gate connect each full equal-mass fiber, without linearity, continuity or surjectivity.",
+      "hard_boundary": "Gate equivalence is not actual A_i-word reachability. The bound concerns this transfer construction only. Channel mass matrices do not identify microscopic BRC populations or signed spatial translations.",
+      "reuse_resolution": {
+        "coverage_verdict": "EXTEND_EXISTING_TOOL",
+        "matched_tool_or_method_ids": [
+          "T6_OPERATION_SAFE_QUOTIENT",
+          "T0_BRC"
+        ],
+        "reuse_resolution_state": "EXTEND_EXISTING_TOOL",
+        "how_applied_or_why_not": "Extends the already-declared channel operator consumer to arbitrary set-valued observations; runs the original matrix kernel and BRC histogram boundary examples.",
+        "hard_boundary_checked": "Image-restricted injectivity, full carrier connectivity, and microscopic histogram loss."
+      },
+      "runtime": "Python Fraction, original owner channel matrix source and repository src.",
+      "validation_refs": [
+        "experiments/owner_nonlinear_channel_20260907/test_channel_quotient.py",
+        "research_notes/OWNER_NONLINEAR_CHANNEL_INDEPENDENT_AUDIT_20260907.md"
+      ],
+      "source_sha256": {
+        "experiments/owner_nonlinear_channel_20260907/channel_quotient.py": "c90d67e9d56bc14e2d2adea36b8f69ba2e1afc21c794c22aee73e69de34bd844",
+        "experiments/owner_nonlinear_channel_20260907/test_channel_quotient.py": "a4afeb65ed303b6ed6788102b0117818453729f1822a05a96705268347443d28",
+        "research_notes/OWNER_NONLINEAR_CHANNEL_INDEPENDENT_AUDIT_20260907.md": "71a66af1121a975eb9d0972dff2565a51cbdf5d7b9fceae98e676258825ca026",
+        "research_notes/OWNER_NONLINEAR_CHANNEL_QUOTIENT_20260907.md": "edcc5694bd2a85cebc0836110d03142ad3637cd953e96b2c98c08fbbe8e77ffc"
+      }
+    },
+    {
+      "method_id": "result.x6.sparse_marginal_stability",
+      "name": "X6 seven-positive-support marginal stability bound",
+      "classification": "RESULT_ONLY",
+      "family_id": null,
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "source_refs": [
+        "research_notes/OWNER_X6_STABILITY_20260907.md",
+        "research_notes/OWNER_STABILITY_INDEPENDENT_AUDIT_20260907.md",
+        "research_notes/OWNER_STABILITY_CONSTANT_FRONTIER_20260907.md"
+      ],
+      "api": [],
+      "triggers": [
+        "X6 sparse marginal stability 111/20",
+        "seven positive support stability",
+        "七支点稳定常数"
+      ],
+      "input_contract": "Finite signed auxiliary array on the common raw X6 chart with at most seven positive support sites and the source-defined stacked all20 marginal norm.",
+      "output_contract": "Uniform l1 stability bound with C=111/20 and the currently retained optimal-constant interval [1,111/20].",
+      "core_law": "The source's exact combinatorial decomposition bounds full variation by the twenty marginal residual norms.",
+      "hard_boundary": "The sharp optimal constant is still unresolved. Auxiliary signed differences are not positive BRC primitive weights; changing norm/observation or support premise changes the contract.",
+      "reuse_resolution": {
+        "coverage_verdict": "NOT_APPLICABLE",
+        "matched_tool_or_method_ids": [
+          "T4_FINITE_FIBER_CAPACITY_COLLISION_MINIMA"
+        ],
+        "reuse_resolution_state": "NOT_APPLICABLE",
+        "how_applied_or_why_not": "The declared raw marginal kernel and the owner support/slicing lemmas carry the proof. T4 finite-fiber capacity/minima is a coverage comparison and is not an invoked theorem.",
+        "hard_boundary_checked": "No capacity-family attribution from vocabulary alone; source proofs retain positive BRC versus auxiliary signed-array typing."
+      },
+      "validation_refs": [
+        "research_notes/OWNER_STABILITY_INDEPENDENT_AUDIT_20260907.md"
+      ],
+      "source_sha256": {
+        "research_notes/OWNER_STABILITY_CONSTANT_FRONTIER_20260907.md": "e81c20d9b9c44dc6af00beb500552d4245f3ed5c207c3e210707b3f572697134",
+        "research_notes/OWNER_STABILITY_INDEPENDENT_AUDIT_20260907.md": "1632cca0698a9102eb409092ed4a9b9d646fe05d3af110e8b13ecb2be893d09c",
+        "research_notes/OWNER_X6_STABILITY_20260907.md": "2915e70210dce5bc136c915e45e96a7c8a1f6dd414fae1590a4687f41bff3127"
+      }
+    },
+    {
+      "method_id": "result.x6.weighted_minimum_trade",
+      "name": "Eight-positive zero-marginal trade forces equal-weight four-bit parity",
+      "classification": "RESULT_ONLY",
+      "family_id": null,
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "source_refs": [
+        "research_notes/OWNER_WEIGHTED_TRADE_FRONTIER_20260907.md",
+        "research_notes/OWNER_WEIGHTED_TRADE_INDEPENDENT_AUDIT_20260907.md"
+      ],
+      "api": [],
+      "triggers": [
+        "weighted minimum trade eight positive",
+        "four bit parity rigidity",
+        "八正点加权trade分类"
+      ],
+      "input_contract": "Nonzero finite auxiliary signed X6 array with all raw three-axis marginals zero and exactly eight positive support sites.",
+      "output_contract": "Exactly eight negative sites and common absolute weight, with the source-defined four-bit parity form and allowed constant/repeated/complemented columns.",
+      "core_law": "Equality in the support lower bound forces the Boolean parity trade structure, including exact rational weights.",
+      "hard_boundary": "Closes the eight-positive/at-least-nine-negative or delete-light-point route. Does not prove the unrestricted best stability constant equals one.",
+      "reuse_resolution": {
+        "coverage_verdict": "NOT_APPLICABLE",
+        "matched_tool_or_method_ids": [
+          "T4_FINITE_FIBER_CAPACITY_COLLISION_MINIMA"
+        ],
+        "reuse_resolution_state": "NOT_APPLICABLE",
+        "how_applied_or_why_not": "The declared raw marginal kernel and the owner support/slicing lemmas carry the proof. T4 finite-fiber capacity/minima is a coverage comparison and is not an invoked theorem.",
+        "hard_boundary_checked": "No capacity-family attribution from vocabulary alone; source proofs retain positive BRC versus auxiliary signed-array typing."
+      },
+      "validation_refs": [
+        "research_notes/OWNER_WEIGHTED_TRADE_INDEPENDENT_AUDIT_20260907.md"
+      ],
+      "source_sha256": {
+        "research_notes/OWNER_WEIGHTED_TRADE_FRONTIER_20260907.md": "520a41ee878aeb1d1c546a7c088ae1c86f0acbe8292d7356d00436322b6f20be",
+        "research_notes/OWNER_WEIGHTED_TRADE_INDEPENDENT_AUDIT_20260907.md": "bafe071af7d04a7734641410cd5820342ab307ddcef1a0e5cfd89f38bb0d2aa9"
+      }
+    },
+    {
+      "method_id": "candidate.x6.quadratic_shell_max_shortest_length",
+      "name": "All-N signed X6 quadratic-shell maximal shortest word length and attaining endpoint",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T1_SCALE_ENUMERATION_VALUATION",
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "source_refs": [
+        "experiments/owner_shell_length_20260907/shell_length.py",
+        "research_notes/OWNER_SHELL_LENGTH_FRONTIER_20260907.md",
+        "research_notes/OWNER_SHELL_LENGTH_INDEPENDENT_AUDIT_20260907.md",
+        "research_notes/OWNER_SHELL_LENGTH_BRC_RUNTIME_20260908.md"
+      ],
+      "api": [
+        "upper_length",
+        "upper_length_evaluation",
+        "reduction_parameters",
+        "construct_endpoint",
+        "verify_endpoint",
+        "certificate"
+      ],
+      "triggers": [
+        "quadratic shell maximal shortest length",
+        "six squares fixed sum U(N)",
+        "平方壳最短词长锐界"
+      ],
+      "input_contract": "Nonnegative integer quadratic readout N=sum z_i^2, explicit six signs and separate construction/large-BRC-readout budgets.",
+      "output_contract": "Lmax(N)=max{k>=0:k^2<=6N,k congruent N mod2}, plus an attaining raw signed endpoint, actual common-depth, all20 lossless joint slice addresses and shortest-word count when within budget. The v2 certificate includes ordered BRC DIV/ROOT collapse traces; large trace integers have lossless typed hex encoding.",
+      "core_law": "A six-residue reduction verifies every hypothesis of Meng-Sun Lemma 2.4, completing the all-N theorem; the executable constructor realizes its three-square/Hadamard proof.",
+      "hard_boundary": "N is quadratic readout, not event length. Auxiliary b=floor(U/6) is not native common-depth. Existence proof is independent of search success; pseudopolynomial construction and representation budgets are not fast bit-complexity guarantees.",
+      "reuse_resolution": {
+        "coverage_verdict": "COMPOSE_EXISTING_TOOLS",
+        "matched_tool_or_method_ids": [
+          "T0_BRC",
+          "T1_SCALE_ENUMERATION_VALUATION"
+        ],
+        "reuse_resolution_state": "COMPOSE_APPLIED",
+        "how_applied_or_why_not": "Executes unchanged pure-integer signed_brc and x6_signed coordinate/norm/length APIs; all materialized division, remainder and roots use the existing exact_arithmetic BRC facade. Shortest-word multiplicity retains the original signed BRC factorial ratio and requires a zero BRC remainder. The published fixed-sum four-square lemma and all strict inequalities are unchanged.",
+        "hard_boundary_checked": "Original signed identity, no additional native dimension, classical prior art explicitly attributed."
+      },
+      "runtime": "Python arbitrary-precision integers, existing BRC exact_arithmetic facade, and frozen native signed X6 modules. Historical direct-division multiplicity functions are not called by the governed v2 certificate.",
+      "validation_refs": [
+        "experiments/owner_shell_length_20260907/validate_selected_cases.py",
+        "research_notes/OWNER_SHELL_LENGTH_INDEPENDENT_AUDIT_20260907.md",
+        "experiments/owner_shell_length_20260907/validate_brc_runtime.py",
+        "experiments/owner_shell_length_20260907/validate_brc_runtime.json",
+        "experiments/owner_shell_length_20260907/brc_runtime_independent_20260908/review.py",
+        "experiments/owner_shell_length_20260907/brc_runtime_independent_20260908/review.json",
+        "experiments/owner_shell_length_20260907/brc_runtime_independent_20260908/REVIEW.md"
+      ],
+      "source_sha256": {
+        "experiments/owner_shell_length_20260907/shell_length.py": "31c09afd186ecc86d608fdfeb3b014091f22a3b40bcbdc32d568fe0c0db8aa18",
+        "experiments/owner_shell_length_20260907/validate_selected_cases.py": "5c8c8322971904f58af26bf53ec88abdbeb1ba2965355e96e4d1391d2ac76ba0",
+        "research_notes/OWNER_SHELL_LENGTH_FRONTIER_20260907.md": "5cec9acf830ec0600b8bc7dd45f4b081f771a69da0ab7c6e43ecb53a602d8bb4",
+        "research_notes/OWNER_SHELL_LENGTH_INDEPENDENT_AUDIT_20260907.md": "80324f18bbdc9fe01f38b6943870c8ed36fa0068512e3fa874da21f4f71c8ea0",
+        "experiments/owner_shell_length_20260907/validate_brc_runtime.py": "956126dae579767e65dd9f4f80ab04947a8cc1bdbaa9e34c6e41125dea2a21ec",
+        "experiments/owner_shell_length_20260907/brc_runtime_independent_20260908/review.py": "013ca7d3cb7f7164a166ddad3cbd80c5b3fc18a00fe88944c37159100a98ab4c",
+        "experiments/owner_shell_length_20260907/validate_brc_runtime.json": "c4b454f6b84ed774d8471d685106c143ebea98d689c28cf7aba1ae9817d4fae9",
+        "experiments/owner_shell_length_20260907/brc_runtime_independent_20260908/review.json": "9d485a64cc490ce8ee60b502279bdcc82f6dc522e92d1b2b40d30e6175eb788d",
+        "experiments/owner_shell_length_20260907/brc_runtime_independent_20260908/REVIEW.md": "e12793f3a41eed96afcf12e148075cab59420be170f3ce535614a88d0afdeac4",
+        "research_notes/OWNER_SHELL_LENGTH_BRC_RUNTIME_20260908.md": "a0a470afcd1d78eab4d65b7c87b2eb925574c2fe2d66e062974662207828b0d8"
+      }
+    },
+    {
+      "method_id": "result.x6.common_depth_first_return_tail",
+      "name": "All20 relative first-return common-depth two-sided mass tail",
+      "classification": "RESULT_ONLY",
+      "family_id": "T0_BRC",
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "source_refs": [
+        "research_notes/OWNER_COMMON_DEPTH_FIRST_RETURN_20260907.md",
+        "research_notes/OWNER_COMMON_DEPTH_FIRST_RETURN_INDEPENDENT_AUDIT_20260907.md",
+        "experiments/owner_common_depth_first_return_check_20260907.py"
+      ],
+      "api": [],
+      "triggers": [
+        "common depth first return two sided tail",
+        "relative zero all20 Green renewal",
+        "共同深度首返尾律"
+      ],
+      "input_contract": "Independent uniform weights 1/12 on the twelve native signed primitives, common anchor, and first positive-time hit of ZD, D=(1,1,1,1,1,1).",
+      "output_contract": "Unconditional first-return mass F(h)~1/(12*pi^3*S^2)|h|^-4 with S=sum_h G_Z6(hD), 1<S<infinity and return probability p=1-1/S.",
+      "core_law": "Two-sided defective renewal, the primary Green expansion with O(|h|^-6) remainder and the proved reciprocal Fourier-cusp lemma give the constant without tail fitting.",
+      "hard_boundary": "F forgets individual words and length-dependent weights. The result is not a finite WeightHistogram identity or automatic tail verifier. Time parity is already in Green; depth has full integer support. Conditional mass requires division by p.",
+      "reuse_resolution": {
+        "coverage_verdict": "COMPOSE_EXISTING_TOOLS",
+        "matched_tool_or_method_ids": [
+          "T0_BRC"
+        ],
+        "reuse_resolution_state": "COMPOSE_APPLIED",
+        "how_applied_or_why_not": "Uses native finite endpoint BRC and relative class typing, classical Green asymptotics and the explicitly proved two-sided reciprocal tail lemma.",
+        "hard_boundary_checked": "Infinite relative state space is outside the finite-port implementation contract; five Fourier observation variables are not a native dimension change."
+      },
+      "validation_refs": [
+        "experiments/owner_common_depth_first_return_check_20260907.json",
+        "research_notes/OWNER_COMMON_DEPTH_FIRST_RETURN_INDEPENDENT_AUDIT_20260907.md"
+      ],
+      "source_sha256": {
+        "experiments/owner_common_depth_first_return_check_20260907.json": "2caaf2a0f4af88557b0075888493866040cd387a7ccbde281bae553fb1152e13",
+        "experiments/owner_common_depth_first_return_check_20260907.py": "ca169914e24600a1f2ee1f004f0db6ba14f205faeebe53e310edb2a140f7b56b",
+        "research_notes/OWNER_COMMON_DEPTH_FIRST_RETURN_20260907.md": "60c0dd61326e6dc781a757e4f02511fc1af8bc606a7a2ab440228bdde1feda6d",
+        "research_notes/OWNER_COMMON_DEPTH_FIRST_RETURN_INDEPENDENT_AUDIT_20260907.md": "af9713da02287f9fdf1b93cef06222b95eb997229d355486cd6763ecdfce72e2"
+      }
+    },
+    {
+      "method_id": "result.analysis.two_sided_reciprocal_cusp_tail",
+      "name": "Two-sided Fourier reciprocal tail from a fourth-order summable remainder",
+      "classification": "RESULT_ONLY",
+      "family_id": null,
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "source_refs": [
+        "research_notes/OWNER_COMMON_DEPTH_FIRST_RETURN_20260907.md",
+        "research_notes/OWNER_COMMON_DEPTH_FIRST_RETURN_INDEPENDENT_AUDIT_20260907.md"
+      ],
+      "api": [],
+      "triggers": [
+        "Fourier reciprocal cusp derivative jump tail",
+        "two sided convolution inverse fourth power",
+        "双侧Fourier倒数尾引理"
+      ],
+      "input_contract": "Real even a in l1(Z), Fourier transform nowhere zero, A=sum a !=0, and a(h)=c|h|^-4+e(h) off zero with sum |h|^4|e(h)| finite.",
+      "output_contract": "The Fourier coefficients v of 1/ahat satisfy v(h)=-c/A^2 |h|^-4+o(|h|^-4) in both directions.",
+      "core_law": "A periodic cusp kernel has third derivative jump 2*pi; inversion gives jump -2*pi*c/A^2, and four integrations by parts plus Riemann-Lebesgue give the tail.",
+      "hard_boundary": "A bare asymptotic a(h)~c|h|^-4 does not supply the required C4 remainder. Nonvanishing must hold on the whole circle, and periodic seam terms must be checked. This is a mathematical theorem interface, not an executable oracle or new top-level BRC family.",
+      "reuse_resolution": {
+        "coverage_verdict": "NOT_APPLICABLE",
+        "matched_tool_or_method_ids": [],
+        "reuse_resolution_state": "NOT_APPLICABLE",
+        "how_applied_or_why_not": "Classical Fourier singularity analysis is proved in the exact stated interface; finite-source lexical matches do not certify these infinite-tail hypotheses.",
+        "hard_boundary_checked": "No unsupported half-line renewal inversion or formal finite-tail certification."
+      },
+      "validation_refs": [
+        "experiments/owner_common_depth_first_return_check_20260907.py",
+        "research_notes/OWNER_COMMON_DEPTH_FIRST_RETURN_INDEPENDENT_AUDIT_20260907.md"
+      ],
+      "source_sha256": {
+        "experiments/owner_common_depth_first_return_check_20260907.py": "ca169914e24600a1f2ee1f004f0db6ba14f205faeebe53e310edb2a140f7b56b",
+        "research_notes/OWNER_COMMON_DEPTH_FIRST_RETURN_20260907.md": "60c0dd61326e6dc781a757e4f02511fc1af8bc606a7a2ab440228bdde1feda6d",
+        "research_notes/OWNER_COMMON_DEPTH_FIRST_RETURN_INDEPENDENT_AUDIT_20260907.md": "af9713da02287f9fdf1b93cef06222b95eb997229d355486cd6763ecdfce72e2"
+      }
+    },
+    {
+      "method_id": "result.rh.energy_domain_correction",
+      "name": "RH full-energy and absolute Gram-sum domain correction",
+      "classification": "RESULT_ONLY",
+      "family_id": null,
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "source_refs": [
+        "research_notes/OWNER_RH_ENERGY_DOMAIN_AUDIT_20260907.md",
+        "research_notes/OWNER_RH_ENERGY_INDEPENDENT_AUDIT_20260907.md"
+      ],
+      "api": [],
+      "triggers": [
+        "RH energy sigma domain correction",
+        "absolute Gram interchange",
+        "RH能量定义域纠错"
+      ],
+      "input_contract": "The historical source's full 0-to-infinity sigma-weighted energy and its declared tail/Gram identities, with exact hypotheses retained.",
+      "output_contract": "The full-energy criterion uses every 1/2<sigma<2; absolute Gram interchange uses 1<sigma<2; the tail-only criterion remains for every sigma>1/2.",
+      "core_law": "Direct analysis of the zero-end singularity and absolute double-sum convergence separates three domains.",
+      "hard_boundary": "At sigma>=2 the full energy diverges at zero under the source contract. Criteria and finite checks are not RH proofs; do not reuse stale unrestricted parameter claims.",
+      "reuse_resolution": {
+        "coverage_verdict": "NOT_APPLICABLE",
+        "matched_tool_or_method_ids": [],
+        "reuse_resolution_state": "NOT_APPLICABLE",
+        "how_applied_or_why_not": "A source-bound analytic correction is indexed to prevent reuse of the invalid domain statement; no new tool payload.",
+        "hard_boundary_checked": "Full integral, tail integral and absolute interchange are distinct."
+      },
+      "validation_refs": [
+        "research_notes/OWNER_RH_ENERGY_INDEPENDENT_AUDIT_20260907.md"
+      ],
+      "source_sha256": {
+        "research_notes/OWNER_RH_ENERGY_DOMAIN_AUDIT_20260907.md": "db1dd64e4e4e709fd150c3909102efb862d07e83847b076d9efbe3096910819d",
+        "research_notes/OWNER_RH_ENERGY_INDEPENDENT_AUDIT_20260907.md": "bf79196170bdf5b25ec297860e4969462acf0586e4326b3d0cb078940a0046d2"
+      }
+    },
+    {
+      "method_id": "candidate.x6.one_positive_raw_stability_certificate",
+      "name": "Sharp one-positive-support raw X6 stability with an integer and symbolic DIV consumer",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "source_refs": [
+        "research_notes/OWNER_ONE_POSITIVE_STABILITY_20260907.md",
+        "research_notes/OWNER_ONE_POSITIVE_STABILITY_INDEPENDENT_AUDIT_20260908.md",
+        "experiments/owner_one_positive_stability_20260908/check_one_positive_stability.py"
+      ],
+      "api": [
+        "audit_case"
+      ],
+      "triggers": [
+        "one positive support raw X6 stability certificate",
+        "sharp three twentieth one tenth raw marginal mass bound",
+        "单正支点原始二十表稳定性"
+      ],
+      "input_contract": "Two finite positive spatial mass populations in one shared external anchor and labelled signed X6 frame; exact positive integer numerators and one positive integer common denominator. Aggregate and cancel equal Cells first, then require at most one positive site in the signed difference. D is the sum of all twenty complete raw three-axis marginal L1 norms.",
+      "output_contract": "Complete raw and joint (can3, per-slice common offset) tables; post-cancellation P/N, L1 and D; exact integer comparisons for L1 <= (3/20)D and, when total masses agree, L1 <= (1/10)D. Constants, masses and nonzero ratios remain literal canonical unevaluated DIV nodes. Zero has no ratio. The consumer also checks the two distinct nonzero equality conditions.",
+      "core_law": "For f=P delta_q - nu after cancellation, every table has norm abs(P-N+a_I)+a_I and sum_I a_I >= 10N. The sharp 3/20 constant requires N=2P, negative sites on individual axis lines and equal six-axis aggregate negative masses. The sharp equal-mass 1/10 constant only requires single-axis negative sites; axis aggregates need not be equal.",
+      "hard_boundary": "Raw addresses or jointly retained can3 and common offset are mandatory; can3 alone is insufficient. Shared chart provenance is a caller premise. The signed difference is analytical bookkeeping, not a negative BRC branch. No branch history/count/max-weight recovery, general p<=7 constant, global novelty, formal acceptance or Foundation promotion follows. Finite tests audit the consumer; the separate paper carries the all-input proof.",
+      "reuse_resolution": {
+        "coverage_verdict": "COMPOSE_EXISTING_TOOLS",
+        "matched_tool_or_method_ids": [
+          "T0_BRC"
+        ],
+        "reuse_resolution_state": "COMPOSE_APPLIED",
+        "how_applied_or_why_not": "Uses existing canonical signed X6 Cell, signed BRC support/unit-step interfaces, raw joint slice reconstruction and exact_arithmetic.division/compare_divisions. The existing raw stability source supplies observation typing; the separately audited one-positive proof sharpens its restricted support case. No quotient or root evaluation is requested, so no collapse trace is fabricated.",
+        "hard_boundary_checked": "Positive population numerators remain integer states; denominator nodes stay unreduced. Historical canonical module initialization is outside the bounded main-ledger observation and is not claimed migrated. No transitive runtime certificate is inferred from a static or finite-call audit."
+      },
+      "runtime": "Python arbitrary-precision integers, canonical Spatial6 and DivisionExpr identities, and twelve pinned paper/native/arithmetic source dependencies. audit_case performs finite raw-table aggregation and returns a certificate; it does not materialize a quotient or a root.",
+      "validation_refs": [
+        "experiments/owner_one_positive_stability_20260908/certificate.json",
+        "experiments/owner_one_positive_stability_20260908/README.md",
+        "experiments/owner_one_positive_stability_20260908/independent_review_20260908/review.py",
+        "experiments/owner_one_positive_stability_20260908/independent_review_20260908/review.json",
+        "experiments/owner_one_positive_stability_20260908/independent_review_20260908/REVIEW.md"
+      ],
+      "source_sha256": {
+        "research_notes/OWNER_ONE_POSITIVE_STABILITY_20260907.md": "b49eac9291c7b6a6ec458a133700ee17a4573972e58787a976871512746dd4e7",
+        "research_notes/OWNER_ONE_POSITIVE_STABILITY_INDEPENDENT_AUDIT_20260908.md": "f6fe6713fb46bc0fd9c6626333cb44afd14c88b13b7f7d99fe8f928859434038",
+        "experiments/owner_one_positive_stability_20260908/check_one_positive_stability.py": "283c0b64e995077d01e5b42114ffd5791bafadeb5f175b4df17118ee1a9d5878",
+        "experiments/owner_one_positive_stability_20260908/certificate.json": "11fd30fcc2894ffdcd7ed43e1266b65dc063aa12b57f9f5b653eb9d437bc3010",
+        "experiments/owner_one_positive_stability_20260908/README.md": "91f4c918eead64e0efb32f24577c9e4db081412131ccf4b22313a0ae96e4d820",
+        "experiments/owner_one_positive_stability_20260908/independent_review_20260908/review.py": "785f60ee9f66445e1675c19f7a93981355819c674001ad4eb85bf26c09c1d010",
+        "experiments/owner_one_positive_stability_20260908/independent_review_20260908/review.json": "2bb0c93ce92aff98f7f5e3dc2d1cfb74481bbbc1121288ab54b0512ef29ae47c",
+        "experiments/owner_one_positive_stability_20260908/independent_review_20260908/REVIEW.md": "8a72e04a80dcbf93556690438f8cc51229ff95bebdf5a81d57ae2ca6139f5076"
+      }
+    }
+  ]
+}

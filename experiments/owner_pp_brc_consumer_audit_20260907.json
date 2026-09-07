@@ -1,0 +1,106 @@
+{
+  "all_labelled_cylinder_checks": 29,
+  "exact_input_rejections": 5,
+  "existing_m3_certificate_verified_against_supplied_h": true,
+  "generator_items_consumed": 0,
+  "historical_m3_h_q_negative_square_agree_without_recomputation": true,
+  "invalid_certificates_rejected": [
+    "bool_layer_index",
+    "float_word_count",
+    "fraction_word_count",
+    "float_histogram_count",
+    "bool_histogram_entry_count",
+    "zero_denominator",
+    "noncanonical_fraction",
+    "wrong_beta",
+    "group_mass_in_place_of_per_word",
+    "erase_histogram_multiplicity",
+    "wrong_original_h",
+    "forged_power_measure_realized",
+    "forged_power_measure_obstructed",
+    "bool_obstruction_index",
+    "extra_nested_field",
+    "overlong_beta",
+    "generator_beta_rejected_before_iteration"
+  ],
+  "local_ensembles": 3,
+  "local_ensembles_data": [
+    {
+      "beta": [
+        "0"
+      ],
+      "d": 0,
+      "full_histogram": {
+        "branch_count": 0,
+        "entries": [],
+        "total_mass": "0/1"
+      },
+      "h": [
+        "0"
+      ]
+    },
+    {
+      "beta": [
+        "7/3"
+      ],
+      "d": 0,
+      "full_histogram": {
+        "branch_count": 1,
+        "entries": [
+          {
+            "count": 1,
+            "weight": "7/3"
+          }
+        ],
+        "total_mass": "7/3"
+      },
+      "h": [
+        "7/3"
+      ]
+    },
+    {
+      "beta": [
+        "1/2",
+        "0",
+        "1/2",
+        "2/3"
+      ],
+      "d": 3,
+      "full_histogram": {
+        "branch_count": 5,
+        "entries": [
+          {
+            "count": 4,
+            "weight": "1/2"
+          },
+          {
+            "count": 1,
+            "weight": "2/3"
+          }
+        ],
+        "total_mass": "8/3"
+      },
+      "h": [
+        "8/3",
+        "5/3",
+        "7/6",
+        "2/3"
+      ]
+    }
+  ],
+  "marked_word_coefficient_checks": 6,
+  "resource_semantics_checked": [
+    "degree_budget",
+    "scalar_budget",
+    "node_budget",
+    "valid_large_rational_unverified",
+    "large_input_build_resource_limit",
+    "large_certificate_rational_unverified"
+  ],
+  "scope": "adapter and local finite identities; no legacy m3 source runs or author 63-ensemble rerun",
+  "source_sha256": {
+    "experiments/owner_pp_brc_consumer_audit_20260907.py": "cbecf1e31b56da5c2f6efdd46a1c1a00521488a29f8448703d527755a307fc99",
+    "experiments/owner_pp_finite_brc_20260907/finite_hcm_brc.py": "389b9551bbd4929964b28361c0a927abcb7a078b02da7b2bd6269bdd59b21f3b"
+  },
+  "status": "PASS"
+}

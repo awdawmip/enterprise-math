@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "scope": "independent finite audit; universal conclusions require the report's proof",
+  "source_hashes_sha256": {
+    "research_notes/OWNER_GEOMETRY_FRONTIER_20260907.md": "9c7d54b65cc65c3723076186675cb3ec3f744709da2b73c1d82c5d1105bd450e",
+    "research_notes/owner_geometry_20260907_check.py": "d92a45acb9c455b88a3786ce99ae919cbfbd5a0b09b55ce3dfeb6b39b633c4a7",
+    "research_notes/X6_AXIS_CHANNEL_FRAME_GAUGE_AND_FLAT_TRANSPORT_V2_20260906.md": "9d718ab2de19235b8e0958b8605f3c7c3cf2d0ebcca5f4dbb001088fb8905dfd",
+    "research_notes/X6_CELL_TRIADIC_PORT_FRAME_INTERNAL_STATE_V1_20260906.md": "6c4173ff1d1bb9e30fa25cae83673c1eb24b364349fe289dc61d69486bf8c8b6",
+    "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md": "519a16725156be5461c6e28a0dcef664e267cff4e85120cfb257d5d540ec459e",
+    "definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json": "22e17d9bf7f3cb644f5f91785b8c80f82820462d7ddefc72abf2d1acc7da033b",
+    "src/enterprise_math/brc_weighted.py": "4f3e356227a1c964d33a3ddae94922463ba28097a43b8d1b8f6cd9ca5615fc9f",
+    "src/enterprise_math/brc_histogram.py": "256ef167e2aee651c042195522a0013ba619f265f9e4d8fa24f07d3399695a67",
+    "src/enterprise_math/brc_weighted_recurrent.py": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26",
+    "research_notes/owner_geometry_independent_audit_20260907.py": "248a5d9b37c83b244f6a1b506d27965d42fdd642d1079ec568340578619de7f8"
+  },
+  "checks": {
+    "rank_two_idempotent_kernels": 6,
+    "full_S6_signed_covariance": 8640,
+    "full_S5_stabilizer_size": 120,
+    "centralizer_size": 1,
+    "signed_ordered_squares": 120,
+    "signed_backtracks": 60,
+    "all_signed_words_through_length_2_with_start_channel": 942,
+    "joint_fixed_row_constraint_rank": 5,
+    "joint_fixed_row_kernel_dimension": 1,
+    "unnormalized_signed_displacement_coordinates": 18
+  },
+  "square_l1_difference": "8/25",
+  "first_square_histogram": [
+    [
+      "1/5",
+      5
+    ]
+  ],
+  "second_square_histogram": [
+    [
+      "1/25",
+      20
+    ],
+    [
+      "1/5",
+      1
+    ]
+  ],
+  "backtrack_histogram": [
+    [
+      "1/25",
+      25
+    ]
+  ],
+  "matrix_identity_micro_roundtrip_CWM": [
+    2,
+    "1",
+    "1/2"
+  ],
+  "guards": {
+    "nonsurjective_q_does_not_force_global_R_identity": "PASS",
+    "single_channel_readout_fails_factorization": "PASS",
+    "inverse_with_negative_entries_is_outside_positive_BRC": "PASS"
+  },
+  "global_knowledge_sync": "main@4fa7d7d / GLOBAL_KNOWLEDGE_V1"
+}

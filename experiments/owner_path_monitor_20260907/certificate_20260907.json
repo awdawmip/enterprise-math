@@ -1,0 +1,105 @@
+{
+  "schema": "OWNER_NATIVE_PATH_MONITOR_FINITE_CERTIFICATE_V1",
+  "scope": "noncanonical T0/T6 consumer; raw signed X6, declared finite horizons only",
+  "t6_partition_sizes": [
+    2,
+    14
+  ],
+  "excursion_minimum_length": 1,
+  "length_zero_semantics": "complete-walk identity only",
+  "blind_pair": [
+    {
+      "word": "u",
+      "horizon": 8,
+      "endpoint_length4": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "unmonitored_histogram_length4": [
+        [
+          "2/11",
+          1
+        ]
+      ],
+      "hit_histogram_length4": [
+        [
+          "2/11",
+          1
+        ]
+      ],
+      "all_monitor_blocks_equal_independent_enumeration": true,
+      "independent_verifier_status": "VERIFIED",
+      "complete_coefficient_blocks": 42
+    },
+    {
+      "word": "v",
+      "horizon": 8,
+      "endpoint_length4": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "unmonitored_histogram_length4": [
+        [
+          "2/11",
+          1
+        ]
+      ],
+      "hit_histogram_length4": [],
+      "all_monitor_blocks_equal_independent_enumeration": true,
+      "independent_verifier_status": "VERIFIED",
+      "complete_coefficient_blocks": 42
+    }
+  ],
+  "future_suffix": {
+    "ports": [
+      "P",
+      "Q",
+      "R"
+    ],
+    "prefix": [
+      1
+    ],
+    "suffix": [
+      -1
+    ],
+    "suffix_hit_with_initial_plus_E1": [
+      [
+        "3/5",
+        1
+      ]
+    ],
+    "suffix_hit_with_reset_initial": [],
+    "composed_hit": [
+      [
+        "2/5",
+        1
+      ]
+    ]
+  },
+  "hidden_cycle": {
+    "horizon": 8,
+    "complete_monitor_blocks": 70,
+    "explicit_port_path_witnesses": 81,
+    "all_blocks_equal": true
+  },
+  "independent_verification_boundary": {
+    "forged_complete_empty_coefficients": "REJECTED",
+    "enumeration_budget_zero": "UNVERIFIED",
+    "enumeration_budget_zero_process_status": "INCOMPLETE",
+    "complete_label_alone_is_not_verification": true,
+    "coefficient_function_is_convenience_readout_only": true
+  },
+  "budget_exhaustion": {
+    "status": "INCOMPLETE",
+    "coefficient_count": 0,
+    "incomplete_readout_refused": true
+  }
+}

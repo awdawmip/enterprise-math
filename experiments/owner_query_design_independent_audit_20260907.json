@@ -1,0 +1,160 @@
+{
+  "schema": "owner_query_design_independent_audit_v1",
+  "status": "PASS",
+  "provenance": {
+    "source_sha256": "b264d96f31dbe47f5c0b5411f6183ed4a484aa10e293fec42ccf0a15a6b1af97",
+    "note_sha256": "16df4e2f39f0caaa7f58e62cdbc34839afe8e52348eb14079f6d9894c75a9aa7",
+    "audit_script_sha256": "48ced8ea3b9b9c1b538f104cda5a47853f64554112cf26117d5dfe28b948c5ac",
+    "global_knowledge_canonical": "4fa7d7d0c19a5e80a681b33c8ee2ab643ce97563"
+  },
+  "alternate_six_tables": {
+    "covered_pair_count": 12,
+    "missing_pairs_one_based": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        6
+      ]
+    ],
+    "all_axis_degrees_three": true,
+    "actual_brc_witness_verification": {
+      "valid": true,
+      "target_support": 2,
+      "competitor_support": 2,
+      "queries_checked": 6,
+      "comparisons": [
+        {
+          "axes": [
+            0,
+            1,
+            2
+          ],
+          "raw_mass_tables_equal": true,
+          "fiber_histograms_equal": true,
+          "raw_fiber_count": 2
+        },
+        {
+          "axes": [
+            0,
+            1,
+            5
+          ],
+          "raw_mass_tables_equal": true,
+          "fiber_histograms_equal": true,
+          "raw_fiber_count": 2
+        },
+        {
+          "axes": [
+            0,
+            2,
+            4
+          ],
+          "raw_mass_tables_equal": true,
+          "fiber_histograms_equal": true,
+          "raw_fiber_count": 2
+        },
+        {
+          "axes": [
+            1,
+            3,
+            5
+          ],
+          "raw_mass_tables_equal": true,
+          "fiber_histograms_equal": true,
+          "raw_fiber_count": 2
+        },
+        {
+          "axes": [
+            2,
+            3,
+            4
+          ],
+          "raw_mass_tables_equal": true,
+          "fiber_histograms_equal": true,
+          "raw_fiber_count": 2
+        },
+        {
+          "axes": [
+            3,
+            4,
+            5
+          ],
+          "raw_mass_tables_equal": true,
+          "fiber_histograms_equal": true,
+          "raw_fiber_count": 2
+        }
+      ],
+      "spatial_difference": {
+        "coordinate": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "target_mass": "1",
+        "competitor_mass": "0"
+      },
+      "scope": "FAILURE_OF_UNIVERSAL_QUERY_GUARANTEE; NOT_AMBIGUITY_OF_USER_DATA"
+    }
+  },
+  "formal_six_tables_cover_all_pairs": true,
+  "independent_contract_digest_matches": true,
+  "unrestricted_competitor_verification": {
+    "valid": true,
+    "target_support": 1,
+    "competitor_support": 9,
+    "queries_checked": 1,
+    "comparisons": [
+      {
+        "axes": [
+          0,
+          1,
+          2
+        ],
+        "raw_mass_tables_equal": true,
+        "fiber_histograms_equal": false,
+        "raw_fiber_count": 1
+      }
+    ],
+    "spatial_difference": {
+      "coordinate": [
+        7,
+        -4,
+        9,
+        0,
+        3,
+        -8
+      ],
+      "target_mass": "1",
+      "competitor_mass": "0"
+    },
+    "scope": "FAILURE_OF_UNIVERSAL_QUERY_GUARANTEE; NOT_AMBIGUITY_OF_USER_DATA"
+  },
+  "invalid_witness_mutations_rejected": {
+    "changed_support_contract": "witness is not bound to this query/support/chart contract",
+    "changed_chart_contract": "witness is not bound to this query/support/chart contract",
+    "changed_query_contract": "witness is not bound to this query/support/chart contract",
+    "wrong_contract_digest": "witness is not bound to this query/support/chart contract",
+    "false_mass_equality": "raw query (0, 1, 2) distinguishes the alleged witness",
+    "false_varying_axes": "varying_axes does not match the supplied populations",
+    "noncanonical_rational": "witness weight is not canonical",
+    "zero_branch_weight": "branch weight must be positive",
+    "same_spatial_mass_different_label": "different branch labels are not different spatial masses",
+    "untrusted_extra_equality_flag": "wrong counterexample fields",
+    "correctly_rebound_but_raw_tables_differ": "raw query (0, 1, 3) distinguishes the alleged witness"
+  },
+  "legitimate_common_scaling_accepted": true,
+  "coalesced_support_one_despite_two_target_branches": true,
+  "separate_can3_and_depth_lose_pairing": true,
+  "joint_can3_depth_exactly_reconstructs_raw": true,
+  "scope": "Focused independent probes plus separately written analytic audit; author 11-test suite not rerun"
+}

@@ -1,0 +1,51 @@
+{
+  "scope": "byte-only LF normalization of generated JSON; mathematical/source-code bytes unchanged",
+  "audit_hash_interpretation": "earlier audits refer to the exactly reconstructible pre-normalization bytes",
+  "files": [
+    {
+      "path": "experiments/owner_nonlinear_channel_20260907/tool_coverage.json",
+      "before_sha256": "9c098ba9ff5f05cc869d3463d092f7fdf36fa003e57c7d48b5d1059b75fca96f",
+      "after_sha256": "21d939812bdf2c0387688d89bed935ceca1e7d20bd7fa417a0e301f937b29e32",
+      "before_bytes": 43140,
+      "after_bytes": 42106,
+      "json_values_unchanged": true,
+      "exact_inverse": "replace every LF byte with CRLF; no other bytes change"
+    },
+    {
+      "path": "experiments/owner_pp_brc_consumer_audit_20260907.json",
+      "before_sha256": "3980461015170dbc2303d81af71c31ab3ad9c8d13d26c4801024b75fea3cb3b8",
+      "after_sha256": "8391fdc6359f3f73a2ff45a60ddce109710a769ef333871bfef8040fe600538f",
+      "before_bytes": 2598,
+      "after_bytes": 2492,
+      "json_values_unchanged": true,
+      "exact_inverse": "replace every LF byte with CRLF; no other bytes change"
+    },
+    {
+      "path": "experiments/owner_query_design_20260907/examples.json",
+      "before_sha256": "da64a36d533cd86af7759d27bd24b233c3877cd29ca534cb0125f5a333e25ddf",
+      "after_sha256": "a385b399da869112e789b6fd30bd52dd8c84dedee316c18fa9588587224e0edf",
+      "before_bytes": 48879,
+      "after_bytes": 46329,
+      "json_values_unchanged": true,
+      "exact_inverse": "replace every LF byte with CRLF; no other bytes change"
+    },
+    {
+      "path": "experiments/owner_common_depth_first_return_check_20260907.json",
+      "before_sha256": "c23f3119d26660322f4a652757216117e41bf793a189e1f0bd651c8181d383a4",
+      "after_sha256": "2caaf2a0f4af88557b0075888493866040cd387a7ccbde281bae553fb1152e13",
+      "before_bytes": 1122,
+      "after_bytes": 1086,
+      "json_values_unchanged": true,
+      "exact_inverse": "replace every LF byte with CRLF; no other bytes change"
+    },
+    {
+      "path": "experiments/owner_shell_length_audit_20260907.json",
+      "before_sha256": "ce99879c6ec8ca3f33b7a1902509f13aa662f5f3909e751d68f986546cb71a96",
+      "after_sha256": "70ecea76c3cd5ab781d9ecefbac8556a37cdb4046e4c892e52f177acae25e722",
+      "before_bytes": 3173,
+      "after_bytes": 2985,
+      "json_values_unchanged": true,
+      "exact_inverse": "replace every LF byte with CRLF; no other bytes change"
+    }
+  ]
+}

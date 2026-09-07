@@ -1,0 +1,5557 @@
+{
+  "schema": "OWNER_X6_JOINT_OBSERVER_FINITE_CERTIFICATE_V1",
+  "status": "NONCANONICAL_EXPERIMENT_EXACT_FINITE_CHECK",
+  "source_snapshot": "ef1893382",
+  "foundation": "X6 affine Cell torsor Z^6; raw signed coordinate observers; chosen Cell origin retained",
+  "reuse": {
+    "method": "t0.weighted_brc_histogram",
+    "state": "REUSE_EXECUTED",
+    "implementation": "src/enterprise_math/brc_histogram.py",
+    "calls": [
+      "WeightHistogram.from_weights",
+      "count",
+      "total_mass",
+      "dominant_mass",
+      "dominant_degeneracy",
+      "prime_valuation_terms"
+    ]
+  },
+  "claim_boundary": "Finite 8-vs-8 collision certificate only; no seven-support uniqueness proof, global observer equivalence, theorem promotion or new tool family.",
+  "observer_scope": "All 20 raw three-axis fiber histograms, including CWM and exact weight valuations. Source labels remain in attached provenance and are not asserted equal.",
+  "left_population": [
+    {
+      "label": "p0:0000",
+      "coordinate": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weight": "1"
+    },
+    {
+      "label": "p0:0011",
+      "coordinate": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "weight": "1"
+    },
+    {
+      "label": "p0:0101",
+      "coordinate": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "weight": "1"
+    },
+    {
+      "label": "p0:0110",
+      "coordinate": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "weight": "1"
+    },
+    {
+      "label": "p0:1001",
+      "coordinate": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "weight": "1"
+    },
+    {
+      "label": "p0:1010",
+      "coordinate": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "weight": "1"
+    },
+    {
+      "label": "p0:1100",
+      "coordinate": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weight": "1"
+    },
+    {
+      "label": "p0:1111",
+      "coordinate": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "weight": "1"
+    }
+  ],
+  "right_population": [
+    {
+      "label": "p1:0001",
+      "coordinate": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "weight": "1"
+    },
+    {
+      "label": "p1:0010",
+      "coordinate": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "weight": "1"
+    },
+    {
+      "label": "p1:0100",
+      "coordinate": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weight": "1"
+    },
+    {
+      "label": "p1:0111",
+      "coordinate": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "weight": "1"
+    },
+    {
+      "label": "p1:1000",
+      "coordinate": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weight": "1"
+    },
+    {
+      "label": "p1:1011",
+      "coordinate": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "weight": "1"
+    },
+    {
+      "label": "p1:1101",
+      "coordinate": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "weight": "1"
+    },
+    {
+      "label": "p1:1110",
+      "coordinate": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "weight": "1"
+    }
+  ],
+  "three_axis_comparisons": [
+    {
+      "axes_zero_based": [
+        0,
+        1,
+        2
+      ],
+      "histograms_equal": true,
+      "fibers": [
+        {
+          "address": [
+            0,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0000"
+          ],
+          "right_source_labels": [
+            "p1:0001"
+          ]
+        },
+        {
+          "address": [
+            0,
+            0,
+            1
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0011"
+          ],
+          "right_source_labels": [
+            "p1:0010"
+          ]
+        },
+        {
+          "address": [
+            0,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0101"
+          ],
+          "right_source_labels": [
+            "p1:0100"
+          ]
+        },
+        {
+          "address": [
+            0,
+            1,
+            1
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0110"
+          ],
+          "right_source_labels": [
+            "p1:0111"
+          ]
+        },
+        {
+          "address": [
+            1,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1001"
+          ],
+          "right_source_labels": [
+            "p1:1000"
+          ]
+        },
+        {
+          "address": [
+            1,
+            0,
+            1
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1010"
+          ],
+          "right_source_labels": [
+            "p1:1011"
+          ]
+        },
+        {
+          "address": [
+            1,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1100"
+          ],
+          "right_source_labels": [
+            "p1:1101"
+          ]
+        },
+        {
+          "address": [
+            1,
+            1,
+            1
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1111"
+          ],
+          "right_source_labels": [
+            "p1:1110"
+          ]
+        }
+      ]
+    },
+    {
+      "axes_zero_based": [
+        0,
+        1,
+        3
+      ],
+      "histograms_equal": true,
+      "fibers": [
+        {
+          "address": [
+            0,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0000"
+          ],
+          "right_source_labels": [
+            "p1:0010"
+          ]
+        },
+        {
+          "address": [
+            0,
+            0,
+            1
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0011"
+          ],
+          "right_source_labels": [
+            "p1:0001"
+          ]
+        },
+        {
+          "address": [
+            0,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0110"
+          ],
+          "right_source_labels": [
+            "p1:0100"
+          ]
+        },
+        {
+          "address": [
+            0,
+            1,
+            1
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0101"
+          ],
+          "right_source_labels": [
+            "p1:0111"
+          ]
+        },
+        {
+          "address": [
+            1,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1010"
+          ],
+          "right_source_labels": [
+            "p1:1000"
+          ]
+        },
+        {
+          "address": [
+            1,
+            0,
+            1
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1001"
+          ],
+          "right_source_labels": [
+            "p1:1011"
+          ]
+        },
+        {
+          "address": [
+            1,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1100"
+          ],
+          "right_source_labels": [
+            "p1:1110"
+          ]
+        },
+        {
+          "address": [
+            1,
+            1,
+            1
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1111"
+          ],
+          "right_source_labels": [
+            "p1:1101"
+          ]
+        }
+      ]
+    },
+    {
+      "axes_zero_based": [
+        0,
+        1,
+        4
+      ],
+      "histograms_equal": true,
+      "fibers": [
+        {
+          "address": [
+            0,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0000",
+            "p0:0011"
+          ],
+          "right_source_labels": [
+            "p1:0001",
+            "p1:0010"
+          ]
+        },
+        {
+          "address": [
+            0,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0101",
+            "p0:0110"
+          ],
+          "right_source_labels": [
+            "p1:0100",
+            "p1:0111"
+          ]
+        },
+        {
+          "address": [
+            1,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1001",
+            "p0:1010"
+          ],
+          "right_source_labels": [
+            "p1:1000",
+            "p1:1011"
+          ]
+        },
+        {
+          "address": [
+            1,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1100",
+            "p0:1111"
+          ],
+          "right_source_labels": [
+            "p1:1101",
+            "p1:1110"
+          ]
+        }
+      ]
+    },
+    {
+      "axes_zero_based": [
+        0,
+        1,
+        5
+      ],
+      "histograms_equal": true,
+      "fibers": [
+        {
+          "address": [
+            0,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0000",
+            "p0:0011"
+          ],
+          "right_source_labels": [
+            "p1:0001",
+            "p1:0010"
+          ]
+        },
+        {
+          "address": [
+            0,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0101",
+            "p0:0110"
+          ],
+          "right_source_labels": [
+            "p1:0100",
+            "p1:0111"
+          ]
+        },
+        {
+          "address": [
+            1,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1001",
+            "p0:1010"
+          ],
+          "right_source_labels": [
+            "p1:1000",
+            "p1:1011"
+          ]
+        },
+        {
+          "address": [
+            1,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1100",
+            "p0:1111"
+          ],
+          "right_source_labels": [
+            "p1:1101",
+            "p1:1110"
+          ]
+        }
+      ]
+    },
+    {
+      "axes_zero_based": [
+        0,
+        2,
+        3
+      ],
+      "histograms_equal": true,
+      "fibers": [
+        {
+          "address": [
+            0,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0000"
+          ],
+          "right_source_labels": [
+            "p1:0100"
+          ]
+        },
+        {
+          "address": [
+            0,
+            0,
+            1
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0101"
+          ],
+          "right_source_labels": [
+            "p1:0001"
+          ]
+        },
+        {
+          "address": [
+            0,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0110"
+          ],
+          "right_source_labels": [
+            "p1:0010"
+          ]
+        },
+        {
+          "address": [
+            0,
+            1,
+            1
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0011"
+          ],
+          "right_source_labels": [
+            "p1:0111"
+          ]
+        },
+        {
+          "address": [
+            1,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1100"
+          ],
+          "right_source_labels": [
+            "p1:1000"
+          ]
+        },
+        {
+          "address": [
+            1,
+            0,
+            1
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1001"
+          ],
+          "right_source_labels": [
+            "p1:1101"
+          ]
+        },
+        {
+          "address": [
+            1,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1010"
+          ],
+          "right_source_labels": [
+            "p1:1110"
+          ]
+        },
+        {
+          "address": [
+            1,
+            1,
+            1
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1111"
+          ],
+          "right_source_labels": [
+            "p1:1011"
+          ]
+        }
+      ]
+    },
+    {
+      "axes_zero_based": [
+        0,
+        2,
+        4
+      ],
+      "histograms_equal": true,
+      "fibers": [
+        {
+          "address": [
+            0,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0000",
+            "p0:0101"
+          ],
+          "right_source_labels": [
+            "p1:0001",
+            "p1:0100"
+          ]
+        },
+        {
+          "address": [
+            0,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0011",
+            "p0:0110"
+          ],
+          "right_source_labels": [
+            "p1:0010",
+            "p1:0111"
+          ]
+        },
+        {
+          "address": [
+            1,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1001",
+            "p0:1100"
+          ],
+          "right_source_labels": [
+            "p1:1000",
+            "p1:1101"
+          ]
+        },
+        {
+          "address": [
+            1,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1010",
+            "p0:1111"
+          ],
+          "right_source_labels": [
+            "p1:1011",
+            "p1:1110"
+          ]
+        }
+      ]
+    },
+    {
+      "axes_zero_based": [
+        0,
+        2,
+        5
+      ],
+      "histograms_equal": true,
+      "fibers": [
+        {
+          "address": [
+            0,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0000",
+            "p0:0101"
+          ],
+          "right_source_labels": [
+            "p1:0001",
+            "p1:0100"
+          ]
+        },
+        {
+          "address": [
+            0,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0011",
+            "p0:0110"
+          ],
+          "right_source_labels": [
+            "p1:0010",
+            "p1:0111"
+          ]
+        },
+        {
+          "address": [
+            1,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1001",
+            "p0:1100"
+          ],
+          "right_source_labels": [
+            "p1:1000",
+            "p1:1101"
+          ]
+        },
+        {
+          "address": [
+            1,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1010",
+            "p0:1111"
+          ],
+          "right_source_labels": [
+            "p1:1011",
+            "p1:1110"
+          ]
+        }
+      ]
+    },
+    {
+      "axes_zero_based": [
+        0,
+        3,
+        4
+      ],
+      "histograms_equal": true,
+      "fibers": [
+        {
+          "address": [
+            0,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0000",
+            "p0:0110"
+          ],
+          "right_source_labels": [
+            "p1:0010",
+            "p1:0100"
+          ]
+        },
+        {
+          "address": [
+            0,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0011",
+            "p0:0101"
+          ],
+          "right_source_labels": [
+            "p1:0001",
+            "p1:0111"
+          ]
+        },
+        {
+          "address": [
+            1,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1010",
+            "p0:1100"
+          ],
+          "right_source_labels": [
+            "p1:1000",
+            "p1:1110"
+          ]
+        },
+        {
+          "address": [
+            1,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1001",
+            "p0:1111"
+          ],
+          "right_source_labels": [
+            "p1:1011",
+            "p1:1101"
+          ]
+        }
+      ]
+    },
+    {
+      "axes_zero_based": [
+        0,
+        3,
+        5
+      ],
+      "histograms_equal": true,
+      "fibers": [
+        {
+          "address": [
+            0,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0000",
+            "p0:0110"
+          ],
+          "right_source_labels": [
+            "p1:0010",
+            "p1:0100"
+          ]
+        },
+        {
+          "address": [
+            0,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0011",
+            "p0:0101"
+          ],
+          "right_source_labels": [
+            "p1:0001",
+            "p1:0111"
+          ]
+        },
+        {
+          "address": [
+            1,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1010",
+            "p0:1100"
+          ],
+          "right_source_labels": [
+            "p1:1000",
+            "p1:1110"
+          ]
+        },
+        {
+          "address": [
+            1,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1001",
+            "p0:1111"
+          ],
+          "right_source_labels": [
+            "p1:1011",
+            "p1:1101"
+          ]
+        }
+      ]
+    },
+    {
+      "axes_zero_based": [
+        0,
+        4,
+        5
+      ],
+      "histograms_equal": true,
+      "fibers": [
+        {
+          "address": [
+            0,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                4
+              ]
+            ],
+            "CWM": {
+              "C": 4,
+              "W": "4",
+              "M": "1"
+            },
+            "dominant_degeneracy": 4,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 4
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                4
+              ]
+            ],
+            "CWM": {
+              "C": 4,
+              "W": "4",
+              "M": "1"
+            },
+            "dominant_degeneracy": 4,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 4
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0000",
+            "p0:0011",
+            "p0:0101",
+            "p0:0110"
+          ],
+          "right_source_labels": [
+            "p1:0001",
+            "p1:0010",
+            "p1:0100",
+            "p1:0111"
+          ]
+        },
+        {
+          "address": [
+            1,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                4
+              ]
+            ],
+            "CWM": {
+              "C": 4,
+              "W": "4",
+              "M": "1"
+            },
+            "dominant_degeneracy": 4,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 4
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                4
+              ]
+            ],
+            "CWM": {
+              "C": 4,
+              "W": "4",
+              "M": "1"
+            },
+            "dominant_degeneracy": 4,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 4
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1001",
+            "p0:1010",
+            "p0:1100",
+            "p0:1111"
+          ],
+          "right_source_labels": [
+            "p1:1000",
+            "p1:1011",
+            "p1:1101",
+            "p1:1110"
+          ]
+        }
+      ]
+    },
+    {
+      "axes_zero_based": [
+        1,
+        2,
+        3
+      ],
+      "histograms_equal": true,
+      "fibers": [
+        {
+          "address": [
+            0,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0000"
+          ],
+          "right_source_labels": [
+            "p1:1000"
+          ]
+        },
+        {
+          "address": [
+            0,
+            0,
+            1
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1001"
+          ],
+          "right_source_labels": [
+            "p1:0001"
+          ]
+        },
+        {
+          "address": [
+            0,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1010"
+          ],
+          "right_source_labels": [
+            "p1:0010"
+          ]
+        },
+        {
+          "address": [
+            0,
+            1,
+            1
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0011"
+          ],
+          "right_source_labels": [
+            "p1:1011"
+          ]
+        },
+        {
+          "address": [
+            1,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1100"
+          ],
+          "right_source_labels": [
+            "p1:0100"
+          ]
+        },
+        {
+          "address": [
+            1,
+            0,
+            1
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0101"
+          ],
+          "right_source_labels": [
+            "p1:1101"
+          ]
+        },
+        {
+          "address": [
+            1,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0110"
+          ],
+          "right_source_labels": [
+            "p1:1110"
+          ]
+        },
+        {
+          "address": [
+            1,
+            1,
+            1
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                1
+              ]
+            ],
+            "CWM": {
+              "C": 1,
+              "W": "1",
+              "M": "1"
+            },
+            "dominant_degeneracy": 1,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 1
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:1111"
+          ],
+          "right_source_labels": [
+            "p1:0111"
+          ]
+        }
+      ]
+    },
+    {
+      "axes_zero_based": [
+        1,
+        2,
+        4
+      ],
+      "histograms_equal": true,
+      "fibers": [
+        {
+          "address": [
+            0,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0000",
+            "p0:1001"
+          ],
+          "right_source_labels": [
+            "p1:0001",
+            "p1:1000"
+          ]
+        },
+        {
+          "address": [
+            0,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0011",
+            "p0:1010"
+          ],
+          "right_source_labels": [
+            "p1:0010",
+            "p1:1011"
+          ]
+        },
+        {
+          "address": [
+            1,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0101",
+            "p0:1100"
+          ],
+          "right_source_labels": [
+            "p1:0100",
+            "p1:1101"
+          ]
+        },
+        {
+          "address": [
+            1,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0110",
+            "p0:1111"
+          ],
+          "right_source_labels": [
+            "p1:0111",
+            "p1:1110"
+          ]
+        }
+      ]
+    },
+    {
+      "axes_zero_based": [
+        1,
+        2,
+        5
+      ],
+      "histograms_equal": true,
+      "fibers": [
+        {
+          "address": [
+            0,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0000",
+            "p0:1001"
+          ],
+          "right_source_labels": [
+            "p1:0001",
+            "p1:1000"
+          ]
+        },
+        {
+          "address": [
+            0,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0011",
+            "p0:1010"
+          ],
+          "right_source_labels": [
+            "p1:0010",
+            "p1:1011"
+          ]
+        },
+        {
+          "address": [
+            1,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0101",
+            "p0:1100"
+          ],
+          "right_source_labels": [
+            "p1:0100",
+            "p1:1101"
+          ]
+        },
+        {
+          "address": [
+            1,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0110",
+            "p0:1111"
+          ],
+          "right_source_labels": [
+            "p1:0111",
+            "p1:1110"
+          ]
+        }
+      ]
+    },
+    {
+      "axes_zero_based": [
+        1,
+        3,
+        4
+      ],
+      "histograms_equal": true,
+      "fibers": [
+        {
+          "address": [
+            0,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0000",
+            "p0:1010"
+          ],
+          "right_source_labels": [
+            "p1:0010",
+            "p1:1000"
+          ]
+        },
+        {
+          "address": [
+            0,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0011",
+            "p0:1001"
+          ],
+          "right_source_labels": [
+            "p1:0001",
+            "p1:1011"
+          ]
+        },
+        {
+          "address": [
+            1,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0110",
+            "p0:1100"
+          ],
+          "right_source_labels": [
+            "p1:0100",
+            "p1:1110"
+          ]
+        },
+        {
+          "address": [
+            1,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0101",
+            "p0:1111"
+          ],
+          "right_source_labels": [
+            "p1:0111",
+            "p1:1101"
+          ]
+        }
+      ]
+    },
+    {
+      "axes_zero_based": [
+        1,
+        3,
+        5
+      ],
+      "histograms_equal": true,
+      "fibers": [
+        {
+          "address": [
+            0,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0000",
+            "p0:1010"
+          ],
+          "right_source_labels": [
+            "p1:0010",
+            "p1:1000"
+          ]
+        },
+        {
+          "address": [
+            0,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0011",
+            "p0:1001"
+          ],
+          "right_source_labels": [
+            "p1:0001",
+            "p1:1011"
+          ]
+        },
+        {
+          "address": [
+            1,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0110",
+            "p0:1100"
+          ],
+          "right_source_labels": [
+            "p1:0100",
+            "p1:1110"
+          ]
+        },
+        {
+          "address": [
+            1,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0101",
+            "p0:1111"
+          ],
+          "right_source_labels": [
+            "p1:0111",
+            "p1:1101"
+          ]
+        }
+      ]
+    },
+    {
+      "axes_zero_based": [
+        1,
+        4,
+        5
+      ],
+      "histograms_equal": true,
+      "fibers": [
+        {
+          "address": [
+            0,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                4
+              ]
+            ],
+            "CWM": {
+              "C": 4,
+              "W": "4",
+              "M": "1"
+            },
+            "dominant_degeneracy": 4,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 4
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                4
+              ]
+            ],
+            "CWM": {
+              "C": 4,
+              "W": "4",
+              "M": "1"
+            },
+            "dominant_degeneracy": 4,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 4
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0000",
+            "p0:0011",
+            "p0:1001",
+            "p0:1010"
+          ],
+          "right_source_labels": [
+            "p1:0001",
+            "p1:0010",
+            "p1:1000",
+            "p1:1011"
+          ]
+        },
+        {
+          "address": [
+            1,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                4
+              ]
+            ],
+            "CWM": {
+              "C": 4,
+              "W": "4",
+              "M": "1"
+            },
+            "dominant_degeneracy": 4,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 4
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                4
+              ]
+            ],
+            "CWM": {
+              "C": 4,
+              "W": "4",
+              "M": "1"
+            },
+            "dominant_degeneracy": 4,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 4
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0101",
+            "p0:0110",
+            "p0:1100",
+            "p0:1111"
+          ],
+          "right_source_labels": [
+            "p1:0100",
+            "p1:0111",
+            "p1:1101",
+            "p1:1110"
+          ]
+        }
+      ]
+    },
+    {
+      "axes_zero_based": [
+        2,
+        3,
+        4
+      ],
+      "histograms_equal": true,
+      "fibers": [
+        {
+          "address": [
+            0,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0000",
+            "p0:1100"
+          ],
+          "right_source_labels": [
+            "p1:0100",
+            "p1:1000"
+          ]
+        },
+        {
+          "address": [
+            0,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0101",
+            "p0:1001"
+          ],
+          "right_source_labels": [
+            "p1:0001",
+            "p1:1101"
+          ]
+        },
+        {
+          "address": [
+            1,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0110",
+            "p0:1010"
+          ],
+          "right_source_labels": [
+            "p1:0010",
+            "p1:1110"
+          ]
+        },
+        {
+          "address": [
+            1,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0011",
+            "p0:1111"
+          ],
+          "right_source_labels": [
+            "p1:0111",
+            "p1:1011"
+          ]
+        }
+      ]
+    },
+    {
+      "axes_zero_based": [
+        2,
+        3,
+        5
+      ],
+      "histograms_equal": true,
+      "fibers": [
+        {
+          "address": [
+            0,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0000",
+            "p0:1100"
+          ],
+          "right_source_labels": [
+            "p1:0100",
+            "p1:1000"
+          ]
+        },
+        {
+          "address": [
+            0,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0101",
+            "p0:1001"
+          ],
+          "right_source_labels": [
+            "p1:0001",
+            "p1:1101"
+          ]
+        },
+        {
+          "address": [
+            1,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0110",
+            "p0:1010"
+          ],
+          "right_source_labels": [
+            "p1:0010",
+            "p1:1110"
+          ]
+        },
+        {
+          "address": [
+            1,
+            1,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                2
+              ]
+            ],
+            "CWM": {
+              "C": 2,
+              "W": "2",
+              "M": "1"
+            },
+            "dominant_degeneracy": 2,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 2
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0011",
+            "p0:1111"
+          ],
+          "right_source_labels": [
+            "p1:0111",
+            "p1:1011"
+          ]
+        }
+      ]
+    },
+    {
+      "axes_zero_based": [
+        2,
+        4,
+        5
+      ],
+      "histograms_equal": true,
+      "fibers": [
+        {
+          "address": [
+            0,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                4
+              ]
+            ],
+            "CWM": {
+              "C": 4,
+              "W": "4",
+              "M": "1"
+            },
+            "dominant_degeneracy": 4,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 4
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                4
+              ]
+            ],
+            "CWM": {
+              "C": 4,
+              "W": "4",
+              "M": "1"
+            },
+            "dominant_degeneracy": 4,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 4
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0000",
+            "p0:0101",
+            "p0:1001",
+            "p0:1100"
+          ],
+          "right_source_labels": [
+            "p1:0001",
+            "p1:0100",
+            "p1:1000",
+            "p1:1101"
+          ]
+        },
+        {
+          "address": [
+            1,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                4
+              ]
+            ],
+            "CWM": {
+              "C": 4,
+              "W": "4",
+              "M": "1"
+            },
+            "dominant_degeneracy": 4,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 4
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                4
+              ]
+            ],
+            "CWM": {
+              "C": 4,
+              "W": "4",
+              "M": "1"
+            },
+            "dominant_degeneracy": 4,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 4
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0011",
+            "p0:0110",
+            "p0:1010",
+            "p0:1111"
+          ],
+          "right_source_labels": [
+            "p1:0010",
+            "p1:0111",
+            "p1:1011",
+            "p1:1110"
+          ]
+        }
+      ]
+    },
+    {
+      "axes_zero_based": [
+        3,
+        4,
+        5
+      ],
+      "histograms_equal": true,
+      "fibers": [
+        {
+          "address": [
+            0,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                4
+              ]
+            ],
+            "CWM": {
+              "C": 4,
+              "W": "4",
+              "M": "1"
+            },
+            "dominant_degeneracy": 4,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 4
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                4
+              ]
+            ],
+            "CWM": {
+              "C": 4,
+              "W": "4",
+              "M": "1"
+            },
+            "dominant_degeneracy": 4,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 4
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0000",
+            "p0:0110",
+            "p0:1010",
+            "p0:1100"
+          ],
+          "right_source_labels": [
+            "p1:0010",
+            "p1:0100",
+            "p1:1000",
+            "p1:1110"
+          ]
+        },
+        {
+          "address": [
+            1,
+            0,
+            0
+          ],
+          "left": {
+            "weight_histogram": [
+              [
+                "1",
+                4
+              ]
+            ],
+            "CWM": {
+              "C": 4,
+              "W": "4",
+              "M": "1"
+            },
+            "dominant_degeneracy": 4,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 4
+              }
+            ]
+          },
+          "right": {
+            "weight_histogram": [
+              [
+                "1",
+                4
+              ]
+            ],
+            "CWM": {
+              "C": 4,
+              "W": "4",
+              "M": "1"
+            },
+            "dominant_degeneracy": 4,
+            "prime_valuation_terms": [
+              {
+                "valuation": [],
+                "count": 4
+              }
+            ]
+          },
+          "histogram_equal": true,
+          "left_source_labels": [
+            "p0:0011",
+            "p0:0101",
+            "p0:1001",
+            "p0:1111"
+          ],
+          "right_source_labels": [
+            "p1:0001",
+            "p1:0111",
+            "p1:1011",
+            "p1:1101"
+          ]
+        }
+      ]
+    }
+  ],
+  "all_three_axis_histograms_equal": true,
+  "four_axis_difference": {
+    "axes_zero_based": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "different_addresses": [
+      {
+        "address": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "left_mass": "1",
+        "right_mass": "0"
+      },
+      {
+        "address": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "left_mass": "0",
+        "right_mass": "1"
+      },
+      {
+        "address": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "left_mass": "0",
+        "right_mass": "1"
+      },
+      {
+        "address": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "left_mass": "1",
+        "right_mass": "0"
+      },
+      {
+        "address": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "left_mass": "0",
+        "right_mass": "1"
+      },
+      {
+        "address": [
+          0,
+          1,
+          0,
+          1
+        ],
+        "left_mass": "1",
+        "right_mass": "0"
+      },
+      {
+        "address": [
+          0,
+          1,
+          1,
+          0
+        ],
+        "left_mass": "1",
+        "right_mass": "0"
+      },
+      {
+        "address": [
+          0,
+          1,
+          1,
+          1
+        ],
+        "left_mass": "0",
+        "right_mass": "1"
+      },
+      {
+        "address": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "left_mass": "0",
+        "right_mass": "1"
+      },
+      {
+        "address": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "left_mass": "1",
+        "right_mass": "0"
+      },
+      {
+        "address": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "left_mass": "1",
+        "right_mass": "0"
+      },
+      {
+        "address": [
+          1,
+          0,
+          1,
+          1
+        ],
+        "left_mass": "0",
+        "right_mass": "1"
+      },
+      {
+        "address": [
+          1,
+          1,
+          0,
+          0
+        ],
+        "left_mass": "1",
+        "right_mass": "0"
+      },
+      {
+        "address": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "left_mass": "0",
+        "right_mass": "1"
+      },
+      {
+        "address": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "left_mass": "0",
+        "right_mass": "1"
+      },
+      {
+        "address": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "left_mass": "1",
+        "right_mass": "0"
+      }
+    ]
+  },
+  "joint_observer": {
+    "formula": "sum_x mass(x) * (-1)^(x0+x1+x2+x3)",
+    "left": "8",
+    "right": "-8"
+  },
+  "future_operation_failure": {
+    "operation": "retain only the four-axis cylinder x0=x1=x2=x3=0, then read total mass",
+    "horizon": 1,
+    "left": {
+      "weight_histogram": [
+        [
+          "1",
+          1
+        ]
+      ],
+      "CWM": {
+        "C": 1,
+        "W": "1",
+        "M": "1"
+      },
+      "dominant_degeneracy": 1,
+      "prime_valuation_terms": [
+        {
+          "valuation": [],
+          "count": 1
+        }
+      ]
+    },
+    "right": {
+      "weight_histogram": [],
+      "CWM": {
+        "C": 0,
+        "W": "0",
+        "M": "0"
+      },
+      "dominant_degeneracy": 0,
+      "prime_valuation_terms": []
+    },
+    "conclusion": "The three-axis histogram observer does not support this future operation; retain a joint coordinate or the original population."
+  },
+  "T6_exact_reuse": {
+    "method": "quotient.operation_family_closure",
+    "state": "REUSE_EXECUTED",
+    "implementation": "src/enterprise_math/operation_quotient.py",
+    "calls": [
+      "operation_descends",
+      "stable_family_partition"
+    ],
+    "declared_finite_population_states": [
+      "even",
+      "odd",
+      "origin",
+      "empty"
+    ],
+    "operation": {
+      "even": "origin",
+      "odd": "empty",
+      "origin": "origin",
+      "empty": "empty"
+    },
+    "initial_class_count": 3,
+    "operation_descends": false,
+    "coarsest_stable_refinement": {
+      "even": 0,
+      "odd": 1,
+      "origin": 2,
+      "empty": 3
+    },
+    "repaired_class_count": 4,
+    "scope": "Only this four-state carrier and repetitions of the declared idempotent cylinder filter; no unrestricted X6 minimality claim."
+  }
+}

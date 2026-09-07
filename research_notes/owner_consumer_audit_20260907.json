@@ -1,0 +1,126 @@
+{
+  "status": "PASS",
+  "path": {
+    "pairwise_suffix_separations": 91,
+    "same_CWM_different_histogram_forgery": "REJECTED",
+    "signed_frame_and_anchor_cases": 12
+  },
+  "arithmetic": {
+    "independent_unsigned_matrix_lifting_cases": [
+      {
+        "N": 0,
+        "p": 2,
+        "bins": 1
+      },
+      {
+        "N": 0,
+        "p": 3,
+        "bins": 1
+      },
+      {
+        "N": 0,
+        "p": 7,
+        "bins": 1
+      },
+      {
+        "N": 4,
+        "p": 2,
+        "bins": 4
+      },
+      {
+        "N": 4,
+        "p": 3,
+        "bins": 2
+      },
+      {
+        "N": 4,
+        "p": 7,
+        "bins": 1
+      },
+      {
+        "N": 11,
+        "p": 2,
+        "bins": 6
+      },
+      {
+        "N": 11,
+        "p": 3,
+        "bins": 5
+      },
+      {
+        "N": 11,
+        "p": 7,
+        "bins": 2
+      },
+      {
+        "N": 31,
+        "p": 2,
+        "bins": 10
+      },
+      {
+        "N": 31,
+        "p": 3,
+        "bins": 8
+      },
+      {
+        "N": 31,
+        "p": 7,
+        "bins": 5
+      },
+      {
+        "N": 64,
+        "p": 2,
+        "bins": 20
+      },
+      {
+        "N": 64,
+        "p": 3,
+        "bins": 11
+      },
+      {
+        "N": 64,
+        "p": 7,
+        "bins": 7
+      },
+      {
+        "N": 257,
+        "p": 2,
+        "bins": 29
+      },
+      {
+        "N": 257,
+        "p": 3,
+        "bins": 17
+      },
+      {
+        "N": 257,
+        "p": 7,
+        "bins": 10
+      },
+      {
+        "N": 1000001,
+        "p": 2,
+        "bins": 86
+      },
+      {
+        "N": 1000001,
+        "p": 3,
+        "bins": 55
+      },
+      {
+        "N": 1000001,
+        "p": 7,
+        "bins": 31
+      }
+    ],
+    "N_less_than_p_boundary": "PASS",
+    "independence": "No active-axis state, BRC multiplication, or digit coefficient convolution in oracle"
+  },
+  "source_sha256": {
+    "experiments/owner_path_monitor_20260907/path_monitor.py": "86c7e3e751f1f4817ed836b397b3779dc65bdaf0a10da71c0ee1e434150daccd",
+    "experiments/owner_path_monitor_20260907/test_path_monitor.py": "ae7b61e2988a51c9e6e301140bffd4603d4b06b5690dc407b8aa6470dbc9ccab",
+    "research_notes/owner_arithmetic_20260907.py": "71f0214cc414c9d1291facd3ec8a727989fafe1bc21e0db5001b7d5e5655a79d",
+    "research_notes/OWNER_ARITHMETIC_FRONTIER_20260907.md": "7bc15c47d2505001234f2e630b300f561ca935be5d1076c6d9fb45b839dbae88"
+  },
+  "scope": "independent finite implementation checks; general proofs audited separately"
+}
