@@ -5,13 +5,16 @@
 
 - `observer_certificate.py` 直接复用 BRC `WeightHistogram` 与 T6，生成三轴相同、四轴可区分的精确见证；空间坐标和来源标签另外保留。
 - `recovery.py` 只读全部20张 **raw signed** 三轴边缘表，互补连接、筛选、精确消元及非负求解后重新计算所有边缘。输出少于8个支点时给出全有限非负竞争分布范围内的唯一证书。
+- `exact_feasibility.py` 补全标准有理 Phase-I + Bland 求解，不依赖第三方不等式求解器。可行返回非负有理向量；不可行返回原始方程的 Farkas 分离向量。独立 verifier 完整检查原始输入。
+- `histogram_realization.py` 接受完整 WeightHistogram，逐精确权重保留整数分支计数，并完整核验联合实现。均匀二值六轴族中每个权重的纤维重数必须为0或至少2；重数1有 Rao 证书。一般表保持 `UNCLASSIFIED`。构造复用旁边 scout 的 λ=2/3生成器及现有 BRC alternative。
+- `noisy_recovery.py` 在声明有限候选D及stacked残差预算η下寻找非负质量拟合，返回原方程证书与实际BRC残差。可附带前提明确的稳定性条件界；不承诺最小残差或唯一拟合。9项回归及独立48个预算边界检查通过。
 - `parity_certificate.json`、`recovery_certificate.json` 是示例运行结果，不代替一般证明。
 
 坐标锚点必须一致。`can3` 观察必须额外保留 common depth 才能交给恢复器。返回的 `recovered:*` 是输出行标签，不是找回原来的路径/分支身份。
 
 ## 运行
 
-Python 3.11+。恢复器额外依赖 `sympy==1.14.0`，观察证书只需标准库与仓库现有代码。
+Python 3.11+。恢复器的精确行消元及测试的独立小系统 oracle 依赖 `sympy==1.14.0`；Phase-I 求解器本身、观察证书只需标准库与仓库现有代码。
 
 在仓库根目录执行：
 
@@ -29,6 +32,10 @@ python -X utf8 -m unittest discover -s experiments/owner_joint_observer_20260907
 
 互补连接候选上界为两个表的支点数之积；若生成源有s支点，则≤s²。默认候选预算256，超过预算只是运行范围限制。
 
-本轮发现 SymPy 的直接等式 LP 可返回不满足等式的答案。满列秩现在直接用精确 RREF；欠定问题消去等式，只对自由质量变量求非负可行点。该求解器仍可能失败，所有输出必须经非负性与原表重算。`ArithmeticError` 表示没有得到合格的求解器证书，不能作为数学无解或反驳支点定理。
+最初发现 SymPy 的等式及不等式 LP 可返回不合格答案。当前已替换这条求解路径：先独立验证 RREF 的廉价候选；若不合格，对全部原等式执行有理 Phase-I，采用 Bland 入基/出基规则。任何来源的 primal/dual 都要重新经过独立 verifier；成功质量分布还必须通过 BRC 原表重算。
 
-实验未承诺：含噪鲁棒性、无限支持、完整原生旋转群、路径身份恢复、线性或多项式时间复杂度、所有输入均能由第三方求解器完成。
+`InfeasibleMarginalsError` 附带原始 rows/rhs/candidates 与已核验的 Farkas certificate；`ArithmeticError` 表示执行或证书故障。候选预算、内存、时间耗尽不构成无解。标准算法的有限终止依据来自 [Bland 1977](https://doi.org/10.1287/moor.2.2.103)，未声称多项式时间或实际资源总能充足。
+
+精确求解/恢复/观察的26项测试通过，包括729个小型 signed 系统、48个有理随机系统、176个稀疏 X6 样例及原先失败的21支点原表。Histogram consumer 另有18项测试，覆盖完整直方图与质量相等的区别、混合权重、signed二值重标、Rao证书和输入深层别名冻结。测试不是一般证明的替代品。
+
+`recovery.py` 仍只处理精确质量表；含噪数据使用独立的预算拟合接口。空间质量可实现也不等于逐权重分支直方图可联合实现。未承诺无限支持、完整原生旋转群、路径身份恢复或一般整数直方图实现。

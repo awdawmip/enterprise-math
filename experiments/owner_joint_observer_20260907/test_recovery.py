@@ -1,8 +1,8 @@
 """Independent bounded regression of the noncanonical raw X6 recovery adapter.
 
 No finite test below substitutes for the support-bound induction proof. The
-known feasible 21-point case records a SymPy 1.14.0 limitation: refusing an
-unverified answer is acceptable; issuing an incorrect certificate is not.
+known feasible 21-point case must now recover successfully after replacing
+the faulty external inequality solver with exact certificate-producing Phase I.
 """
 from __future__ import annotations
 
@@ -14,7 +14,7 @@ from unittest.mock import patch
 
 import recovery
 from observer_certificate import Branch, all_three_axis_tables, parity_branches
-from sympy.solvers.simplex import InfeasibleLPError
+from exact_feasibility import FeasibilityCertificate, verify_certificate
 
 
 # Seed 2026090709, trial 13 in the audit's expanding binary-six population probe.
@@ -135,8 +135,11 @@ class RecoveryAudit(unittest.TestCase):
         first = tables[(0, 1, 2)]
         first[(0, 0, 0)] += Fraction(1, 2)
         first[(0, 0, 1)] -= Fraction(1, 2)
-        with self.assertRaisesRegex(ValueError, "inconsistent marginal equations"):
+        with self.assertRaises(recovery.InfeasibleMarginalsError) as caught:
             recovery.recover(tables)
+        error = caught.exception
+        self.assertTrue(verify_certificate(error.rows, error.rhs, error.certificate))
+        self.assertEqual(error.certificate.status, "INFEASIBLE")
 
     def test_budget_rejection_is_not_an_infeasibility_claim(self):
         tables = all_three_axis_tables(parity_branches(0)[:-1])
@@ -150,29 +153,29 @@ class RecoveryAudit(unittest.TestCase):
         self.assertEqual(branch.coordinate, (0,) * 6)
         self.assertIsInstance(branch.coordinate, tuple)
 
-    def test_malicious_solver_parameters_cannot_escape_validation(self):
+    def test_malicious_solver_primal_cannot_escape_validation(self):
         tables = all_three_axis_tables(population(FEASIBLE_SOLVER_STRESS))
-        with patch.object(recovery, "linprog", side_effect=lambda objective, *a, **kw: (0, [0] * len(objective))) as solver:
-            with self.assertRaisesRegex(ArithmeticError, "negative mass"):
+        forged = lambda rows, rhs: FeasibilityCertificate("FEASIBLE", primal=(Fraction(0),) * len(rows[0]))
+        with patch.object(recovery, "solve_nonnegative", side_effect=forged) as solver:
+            with self.assertRaisesRegex(ArithmeticError, "certificate verification"):
                 recovery.recover(tables)
             self.assertEqual(solver.call_count, 1)
 
     def test_solver_infeasible_report_is_not_mathematical_certificate(self):
         tables = all_three_axis_tables(population(FEASIBLE_SOLVER_STRESS))
-        with patch.object(recovery, "linprog", side_effect=InfeasibleLPError("injected failure")):
-            with self.assertRaisesRegex(ArithmeticError, "no verified infeasibility certificate"):
+        forged = lambda rows, rhs: FeasibilityCertificate("INFEASIBLE", dual=(Fraction(0),) * len(rows))
+        with patch.object(recovery, "solve_nonnegative", side_effect=forged):
+            with self.assertRaisesRegex(ArithmeticError, "certificate verification"):
                 recovery.recover(tables)
 
-    def test_known_feasible_solver_stress_is_verified_or_refused(self):
+    def test_known_feasible_solver_stress_must_recover(self):
         tables = all_three_axis_tables(population(FEASIBLE_SOLVER_STRESS))
-        try:
-            answer = recovery.recover(tables)
-        except ArithmeticError:
-            # A dependency failure is a supported incomplete outcome. ValueError
-            # would be a false mathematical infeasibility claim for this input.
-            return
+        answer = recovery.recover(tables)
         self.assert_verified(tables, answer)
         self.assertEqual(answer["status"], "FEASIBLE_UNIQUENESS_UNCLASSIFIED")
+        self.assertEqual(answer["feasibility_method"], "exact_phase_one_bland")
+        self.assertTrue(answer["certificate_verified_on_original_equations"])
+        self.assertGreater(answer["feasibility_pivots"], 0)
 
 
 if __name__ == "__main__":

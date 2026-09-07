@@ -1,8 +1,8 @@
-# 进取数论 owner 接手与首轮研究闭环
+# 进取数论 owner 持续研究纲领
 
 Owner / Driver: `EM-DVR-01E1D9`。当前用户直接授权：制定方向、组织子代理、处理报错、完善研究架构并研发原生工具。
 
-本文件是本轮 owner 的工作与证据地图，不替代仓库已有权限合同，不是正式任务发布、CLAIM、Working Truth 或 Foundation 采纳记录。
+本文件是持续 owner 工作与证据地图，不替代仓库已有权限合同，不是正式任务发布、CLAIM、Working Truth 或 Foundation 采纳记录。用户的持续研究目标保持开放；下文首轮闭合只指有限子单元，不表示整个目标完成。
 
 源快照：`ef1893382eb1dcfcd773e19882569e9ff072a8ee`。
 GLOBAL_KNOWLEDGE：`ccd838a220b00ad44a7f5375fffeee8aa6afaaa0`。
@@ -58,7 +58,22 @@ GLOBAL_KNOWLEDGE：`ccd838a220b00ad44a7f5375fffeee8aa6afaaa0`。
 - frozen Branch 接受可变列表坐标：转为不可变 tuple，增加外部修改不影响分支的回归。
 - SymPy 1.14.0 的等式 LP 返回错误答案：独立审核复现。原表验证拦截；满秩直接精确解，欠定只把自由变量不等式交给求解器并完整复核。求解器并非数学权威。
 
-## 后续方向与退出条件
+## 持续推进检查点：证书、稳定性、整数直方图
+
+首轮结束后用户的 owner 目标始终开放。以下工作由新的确切缺口触发，未把“前一单元通过”自动当成续题理由：
+
+1. 原非负求解器在已知可行输入上不能恢复，已用标准 exact Phase-I+Bland 补全，并把 primal/dual 绑定全部原方程；旧21支点失败例现在确实恢复。见 `OWNER_RECOVERY_CERTIFICATE_UPGRADE_20260907.md` 与独立 `OWNER_FEASIBILITY_INDEPENDENT_AUDIT_20260907.md`。
+2. 原七支点结论只处理零误差。完整切片归纳现给出 `||μ−ν||1 ≤ (111/20) Σ_20 ||M_Iμ−M_Iν||1`，μ≤7空间支点、ν任意有限非负；常数不依赖候选规模或最小质量。两份独立证明审计及精确验证已完成，见 `OWNER_X6_STABILITY_20260907.md`、`OWNER_STABILITY_INDEPENDENT_AUDIT_20260907.md`。最佳常数仍只夹在 `[3/4,111/20]`。
+3. 完整 BRC histogram 带有整数分支重数，质量有理解不能替代。二值六轴、全部三轴、每纤维同一 histogram 的逐权重实现谱为 `λ=0 或 λ≥2`；λ1的Rao阻碍与λ2/3的明确构造闭合该族。现有BRC消费者已分层、生成witness、回表并核验Rao证书，见 `OWNER_BRANCH_SCOUT_20260907.md` 及 `histogram_realization.py`。一般整数表尚未分类。
+4. 侦察把路径顺序监测保留为下一候选：十二 signed primitive steps 的“曾出现相邻反向步”观察需要14态，已通过T6细化 `2→14`。拟组合路径图×监测器后再端口消元；单纯新增长度/count/histogram仍属重复。独立 sheaf 顶层工具路线暂 park，反例回流现有联合可行性工具。
+
+持续安排：root负责选择及交叉审查；exact_solver补全求解后转审稳定性；stability_research证明稳定性后转审求解接入；branch_scout发现整数障碍后提取消费接口；control_driver在独立维护树处理checker与旧测试入口故障。控制修复尚不等于main已集成，也没有把其他CI故障当数学主线的阻塞条件。
+
+5. 含噪预算拟合接口已接到同一有理可行性求解器：声明有限D和stacked残差预算η，成功返回非负质量及实际BRC残差；失败证书只覆盖该D/预算。可附带 `111(ε+η_actual)/20` 条件界，未知真分布≤7与真实噪声ε的前提不会被程序冒充为已验证事实。9项回归与48个独立预算边界检查通过，见 `noisy_recovery.py`、`OWNER_NOISY_INTERFACE_INDEPENDENT_AUDIT_20260907.md`。
+
+源研究checkpoint保存到owner研究分支，控制修复保存到独立维护分支。它们仍为研究/维护候选，不改变Foundation状态。接下来尝试缩小稳定常数区间，并按母问题价值选择一般整数联合实现或原生路径监测的下一可判别单元。
+
+## 后续方向与退出条件（持续组合）
 
 | 方向 | 真实信息缺口 | 继续条件 | 退出 / 回流 |
 |---|---|---|---|

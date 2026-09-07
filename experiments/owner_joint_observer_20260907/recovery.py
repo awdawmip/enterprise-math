@@ -1,7 +1,7 @@
 """Exact finite X6 raw-marginal recovery experiment, not Foundation admission.
 
-Uses the observer adapter (and its BRC histograms) plus SymPy's rational
-simplex. A <=7-support feasible answer certifies uniqueness among ALL finite
+Uses the observer adapter (and its BRC histograms), exact row reduction and
+independently verified rational feasibility. A <=7-support answer certifies uniqueness among ALL finite
 nonnegative spatial measures by OWNER-FREE-20260907-3MARGINAL-7V8.
 It does not recover branch labels, path histories, or min-zero-only data.
 """
@@ -14,14 +14,25 @@ import json
 from pathlib import Path
 from typing import Mapping
 
-from sympy import Matrix, Rational
-from sympy.solvers.simplex import InfeasibleLPError, linprog
+from sympy import Matrix
+from exact_feasibility import FeasibilityCertificate, solve_nonnegative, verify_certificate
 
 from observer_certificate import Branch, all_three_axis_tables, parity_branches
 
 AXES = tuple(combinations(range(6), 3))
 Table = dict[tuple[int, ...], Fraction]
 Marginals = dict[tuple[int, ...], Table]
+
+
+class InfeasibleMarginalsError(ValueError):
+    """Original-equation Farkas witness; execution failure never uses this type."""
+
+    def __init__(self, rows, rhs, candidates, certificate):
+        super().__init__("verified Farkas certificate: no nonnegative marginal realization")
+        self.rows = tuple(tuple(row) for row in rows)
+        self.rhs = tuple(rhs)
+        self.candidates = candidates
+        self.certificate = certificate
 
 
 def validate_tables(tables: Mapping) -> Marginals:
@@ -87,32 +98,27 @@ def recover(tables: Mapping, *, max_candidates: int = 256) -> dict:
     for axes in AXES:
         for address, mass in sorted(tables[axes].items()):
             rows.append([int(tuple(z[a] for a in axes) == address) for z in candidates])
-            rhs.append(Rational(mass.numerator, mass.denominator))
+            rhs.append(mass)
     width = len(candidates)
     reduced, pivots = Matrix([row + [value] for row, value in zip(rows, rhs)]).rref()
-    if width in pivots:
-        raise ValueError("exact row reduction proves inconsistent marginal equations")
-    free = [column for column in range(width) if column not in pivots]
-    # x_p = b_p - sum_j R[p,j] t_j; each free variable t_j is itself
-    # a spatial mass, so its default nonnegative bound is legitimate.
-    values = [Rational(0)] * width
-    for row, column in enumerate(pivots):
-        values[column] = reduced[row, width]
-    if any(value < 0 for value in values):
-        if not free:
-            raise ValueError("unique linear solution has negative mass")
-        inequalities = [[reduced[row, column] for column in free] for row in range(len(pivots))]
-        bounds = [reduced[row, width] for row in range(len(pivots))]
-        try:
-            _, parameters = linprog([0] * len(free), inequalities, bounds)
-        except InfeasibleLPError as exc:
-            raise ArithmeticError("solver did not return a feasible point; no verified infeasibility certificate") from exc
-        for column, value in zip(free, parameters):
-            values[column] = value
-        for row, column in enumerate(pivots):
-            values[column] = reduced[row, width] - sum(
-                reduced[row, j] * values[j] for j in free
-            )
+    mass_pivots = tuple(column for column in pivots if column < width)
+    free = [column for column in range(width) if column not in mass_pivots]
+    values = [Fraction(0)] * width
+    for row, column in enumerate(mass_pivots):
+        values[column] = Fraction(reduced[row, width])
+    # A cheap row-reduction candidate avoids Phase I when already feasible.
+    # The same independent checker validates both routes against ALL original
+    # equations, including any inconsistent or redundant rows.
+    certificate = FeasibilityCertificate("FEASIBLE", primal=tuple(values))
+    method = "verified_rref_candidate"
+    if not verify_certificate(rows, rhs, certificate):
+        certificate = solve_nonnegative(rows, rhs)
+        method = "exact_phase_one_bland"
+    if not verify_certificate(rows, rhs, certificate):
+        raise ArithmeticError("solver output failed independent original-equation certificate verification")
+    if certificate.status == "INFEASIBLE":
+        raise InfeasibleMarginalsError(rows, rhs, candidates, certificate)
+    values = certificate.primal
     distribution = tuple(
         (z, Fraction(value)) for z, value in zip(candidates, values) if value
     )
@@ -125,7 +131,9 @@ def recover(tables: Mapping, *, max_candidates: int = 256) -> dict:
     return {
         "status": "UNIQUE_BY_SUPPORT_BOUND" if count < 8 else "FEASIBLE_UNIQUENESS_UNCLASSIFIED",
         "candidate_count": len(candidates), "prefilter_join_count": join_size,
-        "equation_rank": len(pivots), "free_mass_variables": len(free),
+        "equation_rank": len(mass_pivots), "free_mass_variables": len(free),
+        "feasibility_method": method, "feasibility_pivots": certificate.pivots,
+        "certificate_verified_on_original_equations": True,
         "support_count": count, "distribution": distribution,
     }
 

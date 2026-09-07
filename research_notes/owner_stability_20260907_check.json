@@ -1,0 +1,111 @@
+{
+  "status": "PASS",
+  "evidence_type": "EXACT_FINITE_CHECKS_NOT_GENERAL_THEOREM_PROOF",
+  "seed": 20260907,
+  "rational_array_samples": 540,
+  "per_axis_slice_ledger_checks": 1400,
+  "constant_6_3": "111/20",
+  "binomially_scaled_constant_rows": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      3,
+      1
+    ],
+    [
+      1,
+      5,
+      7,
+      1
+    ],
+    [
+      1,
+      7,
+      17,
+      15,
+      1
+    ],
+    [
+      1,
+      9,
+      31,
+      49,
+      31,
+      1
+    ],
+    [
+      1,
+      11,
+      49,
+      111,
+      129,
+      63,
+      1
+    ]
+  ],
+  "seven_vs_eight_witness": {
+    "positive_support": 7,
+    "negative_support": 8,
+    "l1_error": 15,
+    "stacked_l1_residual": 20,
+    "lower_bound_on_universal_constant": "3/4"
+  },
+  "eight_vs_eight_zero_noise_failure": true,
+  "one_axis_constant_saturating_witness": "11/6",
+  "brc_executable_reused": "enterprise_math.brc_weighted.cwm_from_positive_weights",
+  "brc_boundaries": [
+    {
+      "t": "1/10",
+      "count_jump": [
+        1,
+        2
+      ],
+      "E_at_vanishing_mass": [
+        1,
+        2
+      ]
+    },
+    {
+      "t": "1/100",
+      "count_jump": [
+        1,
+        2
+      ],
+      "E_at_vanishing_mass": [
+        1,
+        2
+      ]
+    },
+    {
+      "t": "1/1000",
+      "count_jump": [
+        1,
+        2
+      ],
+      "E_at_vanishing_mass": [
+        1,
+        2
+      ]
+    }
+  ],
+  "unbounded_joint_moment_boundaries": [
+    {
+      "radius": 2,
+      "stacked_error": "5/2",
+      "joint_moment_error": "1"
+    },
+    {
+      "radius": 10,
+      "stacked_error": "1/250",
+      "joint_moment_error": "1"
+    },
+    {
+      "radius": 100,
+      "stacked_error": "1/2500000",
+      "joint_moment_error": "1"
+    }
+  ]
+}
