@@ -1,22 +1,50 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-URLEG-7C42A1-20260909T0036",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "f6ac88de1e02e2b0f1b05e673a5cb3802c4e680f",
+          "path": "research_artifacts/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE/ur_legendre_companion_connection_frontier_20260909.json",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "29d4dd1100fb839c42a704fb1409aa4d1cf5decf395185bc938fe58e85ebd672",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "44ab21a2b5a607fbb26b1b602c61fe3ae6a5a9e9",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/f6ac88de1e02e2b0f1b05e673a5cb3802c4e680f/research_artifacts/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE/ur_legendre_companion_connection_frontier_20260909.json",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "obs-urleg-frontier-20260909-001",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-URLEG-7C42A1-20260909T0036/readbacks/bf8fc90dcddb447e5f10f0c2c9bec403c9d81beb12bf26d222a95e6b18a2397c.json",
+          "verification_receipt_sha256": "bf8fc90dcddb447e5f10f0c2c9bec403c9d81beb12bf26d222a95e6b18a2397c"
+        }
+      ],
+      "event_id": "urleg-lc-frontier-published-20260909",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-09-09T00:36:00+08:00",
   "registration_key": "session:chatgpt-local-urleg-20260909-7C42A1:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-URLEG-7C42A1",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "chatgpt-local-urleg-20260909-7C42A1",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-09-09T00:36:00+08:00",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
