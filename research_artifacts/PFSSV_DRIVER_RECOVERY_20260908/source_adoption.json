@@ -1,0 +1,144 @@
+{
+  "schema": "EM_PFSSV_DRIVER_RECOVERY_EVIDENCE_V1",
+  "captured_at": "2026-09-08T07:28:18.880230+00:00",
+  "source": {
+    "source_commit": "1cac434cb9ac542a38a8e7bb6defa414fefb2e4d",
+    "base_main": "154d649a419bf72fac1b2bf5cb6426a878ac9dbe",
+    "files": [
+      {
+        "path": "research_artifacts/PRIME_FACTOR_SEMIPRIME_SHELL_RESIDUAL_VALIDATION/discovery_freeze.json",
+        "blob_sha": "d2b18add08249aa25dff22834a01c3c02f642c00",
+        "sha256": "08437fa7bfa86f299284d56fc6e249bddfaa53bb8f9268b2a4494a7470531eb9",
+        "bytes": 1816
+      },
+      {
+        "path": "research_artifacts/PRIME_FACTOR_SEMIPRIME_SHELL_RESIDUAL_VALIDATION/experiment_manifest.json",
+        "blob_sha": "3c8b17d2168899867cdb08ae9b877c90bd858baf",
+        "sha256": "d1f4184e301e709897c4e240e5bb75c27219d91c99a0a152c089df9468382730",
+        "bytes": 4051
+      },
+      {
+        "path": "research_artifacts/PRIME_FACTOR_SEMIPRIME_SHELL_RESIDUAL_VALIDATION/result_summary.json",
+        "blob_sha": "bef84c036a1b121f85f5568c491735a962f30164",
+        "sha256": "473cc5ed0d43373e91a41db7c37af1a9922d0d145f419dffbe62ee2bf874cff9",
+        "bytes": 8821
+      },
+      {
+        "path": "research_execution_records/RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION/ER-7C6EAD0D84D3B0C96A12.json",
+        "blob_sha": "4ca5bca619b122ed08ff18ab7f2b7d7b6f7f919c",
+        "sha256": "adf2050288cddf0764c5a89dec26d06f88d688c9c56c704632dc3cd97ac3a6cd",
+        "bytes": 1516
+      },
+      {
+        "path": "research_result_records/RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION/RR-3287C6124F8D8A1F0901.json",
+        "blob_sha": "629a13a97fd598e095fb6c9fe0840a29e43cf49b",
+        "sha256": "e303b0f9ad864ea789b8ff194ed1e25f0a72444c2f14fe0adbfe3d7cda15e5dd",
+        "bytes": 2305
+      },
+      {
+        "path": "research_returns/PRIME_FACTOR_SEMIPRIME_SHELL_RESIDUAL_VALIDATION_RETURN_20260827.md",
+        "blob_sha": "705667fbae2379f0d68a03ed58fee09d87d1a5e9",
+        "sha256": "78963ec2070cc872806fce3e252a4136aa58334f8fe27c86aa363d2a5bb58c05",
+        "bytes": 10923
+      },
+      {
+        "path": "scripts/check_prime_factor_semiprime_shell_residual_validation.py",
+        "blob_sha": "c2e6319ab0f52a2ac7d0ad4845d345c96177eb8d",
+        "sha256": "8772484435d77abf74e87a6f053a0edaf4fa9395bdbade93ede2413083f22140",
+        "bytes": 11665
+      }
+    ]
+  },
+  "compatibility": {
+    "raw_audit_errors": [
+      "research_result_records/RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION/RR-3287C6124F8D8A1F0901.json: return artifact SHA-256 drift",
+      "research_result_records/RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION/RR-3287C6124F8D8A1F0901.json: output digest drift: research_returns/PRIME_FACTOR_SEMIPRIME_SHELL_RESIDUAL_VALIDATION_RETURN_20260827.md"
+    ],
+    "normalized_audit_errors": [],
+    "entry": {
+      "normalization_id": "RRC-PFSSV-FROZEN-RETURN-SHA256",
+      "result_id": "RR-3287C6124F8D8A1F0901",
+      "record_path": "research_result_records/RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION/RR-3287C6124F8D8A1F0901.json",
+      "record_blob_sha1": "sha1:629a13a97fd598e095fb6c9fe0840a29e43cf49b",
+      "field_aliases": [],
+      "artifact_sha256_repairs": [
+        "research_returns/PRIME_FACTOR_SEMIPRIME_SHELL_RESIDUAL_VALIDATION_RETURN_20260827.md"
+      ],
+      "reason": "PR 749 recovery preserves the exact Result blob 629a13a97fd598e095fb6c9fe0840a29e43cf49b and return blob 705667fbae2379f0d68a03ed58fee09d87d1a5e9 at source 1cac434cb9ac542a38a8e7bb6defa414fefb2e4d. The primary Git-blob pins match; only stale secondary SHA-256 values are recomputed in the compatibility view. No Result bytes, verdict, review, Working Truth, Foundation, promotion, or successor authority change."
+    },
+    "raw_return_sha256": "sha256:46acd9281eb489b5dc0adf0c2c1a7cfb534b20c1babfa5e65aaa17f1e1e68ff0",
+    "normalized_return_sha256": "sha256:78963ec2070cc872806fce3e252a4136aa58334f8fe27c86aa363d2a5bb58c05",
+    "original_record_and_return_bytes_unchanged": true,
+    "prior_compatibility_bytes_preserved_by_single_insertion": true,
+    "compatibility_before_sha256": "00065e21684f00eb4629dc79a48945ff8465088a748157290d0a46ecd3cdeb35",
+    "compatibility_after_sha256": "8a12ea59a6bbfbfaaac28a6b5d997cf971c8accd800df716c445757518bfcf04"
+  },
+  "derived_result_state": {
+    "elapsed_seconds": 4.465172500000335,
+    "state": {
+      "state": "AWAITING_DRIVER_REVIEW",
+      "result": {
+        "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+        "result_id": "RR-3287C6124F8D8A1F0901",
+        "task_id": "RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION",
+        "publication_id": "TP2-8EE46AA7741B8867DAF3",
+        "execution_record_id": "ER-7C6EAD0D84D3B0C96A12",
+        "claim_id": "chatgpt-pfssv-20260827-2132",
+        "taskbook_path": "research_tasks/PRIME_FACTOR_SEMIPRIME_SHELL_RESIDUAL_VALIDATION_20260827.md",
+        "taskbook_blob_sha1": "sha1:079343422a312abc99eebba5696c03538820b024",
+        "execution_branch": "research/prime-factor-semiprime-shell-residual-validation-em-pfssv-9c27a1",
+        "execution_branch_base": "2ade883b351fe8ec45f2d69ab1b77774c64e9e8d",
+        "return_path": "research_returns/PRIME_FACTOR_SEMIPRIME_SHELL_RESIDUAL_VALIDATION_RETURN_20260827.md",
+        "return_blob_sha1": "sha1:705667fbae2379f0d68a03ed58fee09d87d1a5e9",
+        "return_sha256": "sha256:78963ec2070cc872806fce3e252a4136aa58334f8fe27c86aa363d2a5bb58c05",
+        "owner_head": "525f3696bcda934828630c2dfd4fd396969eee10",
+        "researcher_id": "EM-PFSSV-9C27A1",
+        "frozen_at": "2026-08-27T14:00:00+00:00",
+        "terminal_verdict": "REFUTED",
+        "hard_target_disposition": "RESIDUE_OR_DENSITY_ARTIFACT / PREREGISTERED DISCOVERY AND BLIND HOLDOUT SCREEN PASSED, BUT THE FROZEN FEATURE IS REPRODUCED BY FIRST-ORDER LOCAL PRIME DENSITY PLUS EXACT SHELL GEOMETRY AND DISAPPEARS AFTER DENSITY-RESPECTING CORRECTION",
+        "unresolved_residue": "NONE_WITHIN_TASK_HARD_TARGET / A DENSITY-RESPECTING SECOND-ORDER NULL REDESIGN IS FOLLOWUP_TASK SCOPE",
+        "output_manifest": [
+          {
+            "path": "research_returns/PRIME_FACTOR_SEMIPRIME_SHELL_RESIDUAL_VALIDATION_RETURN_20260827.md",
+            "git_blob_sha1": "sha1:705667fbae2379f0d68a03ed58fee09d87d1a5e9",
+            "sha256": "sha256:78963ec2070cc872806fce3e252a4136aa58334f8fe27c86aa363d2a5bb58c05"
+          }
+        ],
+        "method_harvest": "RESULT_ONLY",
+        "independence_status": "NOT_APPLICABLE",
+        "source_exposure_status": "NOT_APPLICABLE",
+        "next_control_plane_recommendation": "Driver review this as a clean negative decomposition. If accepted, close the naive semiprime factor-shell occupancy route at RESIDUE_OR_DENSITY_ARTIFACT strength; publish any density-respecting second-order residual experiment only as a separate successor task rather than upgrading this result.",
+        "driver_review_required": true,
+        "_record_path": "research_result_records/RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION/RR-3287C6124F8D8A1F0901.json"
+      },
+      "review": null,
+      "terminal": false,
+      "review_parallel_state": "NO_REVIEW",
+      "parallel_review_ids": []
+    }
+  },
+  "selection_evidence": {
+    "entrypoint": "research_control_dispatch.py",
+    "base_main": "154d649a419bf72fac1b2bf5cb6426a878ac9dbe",
+    "server_comment_count": 734,
+    "last_server_comment_id": 5578453645,
+    "comments_sha256": "ad5616c558d9f7f8c2767e81fc7c48959bf5a254c886545b32bd732df595f7da",
+    "actual_tool_chunk": "1d55ff",
+    "action": "CLAIM_NEW_OWNER",
+    "new_claim_created": false,
+    "durable_source_recovered_instead": true
+  },
+  "driver_authority": {
+    "record_path": "research_driver_authority_records/EM-DVR-01E1D9/DA-3DD1D3F6CAAB01EA5D6C.json",
+    "source_comment_id": 5580862447,
+    "local_validation_errors": []
+  },
+  "bootstrap_tests": {
+    "actual_tool_chunk": "c00cf7",
+    "test_count": 3,
+    "result": "PASS",
+    "queue_probe_scope": "IMPORT_ONLY"
+  },
+  "historical_research_replayed": false,
+  "mathematical_acceptance_granted": false
+}

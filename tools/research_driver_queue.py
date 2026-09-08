@@ -10,10 +10,13 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys as _sys
 from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in _sys.path:
+    _sys.path.insert(0, str(ROOT))
 _PRIORITY = {"P0": 0, "P1": 1, "P2": 2, "P3": 3}
 _LEVERAGE = {"HIGH": 0, "MEDIUM": 1, "LOW": 2}
 _PHASE = {"DRIVER_REVIEW": 0, "DRIVER_REVIEW_SYNTHESIS": 1, "DRIVER_FOLLOWUP": 2}
