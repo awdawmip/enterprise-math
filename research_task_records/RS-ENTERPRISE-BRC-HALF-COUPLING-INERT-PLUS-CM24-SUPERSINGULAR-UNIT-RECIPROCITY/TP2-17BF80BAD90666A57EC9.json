@@ -1,0 +1,61 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-CM24-SUPERSINGULAR-UNIT-RECIPROCITY",
+  "registry_key": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-CM24-SUPERSINGULAR-UNIT-RECIPROCITY",
+  "publication_id": "TP2-17BF80BAD90666A57EC9",
+  "publication_generation": 1,
+  "supersedes_publication_id": null,
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "taskbook_path": "research_tasks/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_CM24_SUPERSINGULAR_UNIT_RECIPROCITY_20260908.md",
+  "taskbook_blob_sha1": "sha1:14a6701f2abfdebfe93265530c2274d88f4955bc",
+  "publisher_role": "RESEARCH_DRIVER",
+  "publisher_id": "EM-DVR-3E669D",
+  "published_at": "2026-09-08T14:15:00+00:00",
+  "parent_objective_id": "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION",
+  "origin_kind": "DRIVER_ROADMAP",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-TERMINATING-JACOBI-JET-CERTIFICATE",
+  "claimable": true,
+  "effective_priority": "P1",
+  "effective_leverage": "HIGH",
+  "priority_source": "PUBLISHER_DECLARED",
+  "publisher_priority_request": "P1",
+  "publisher_leverage_request": "HIGH",
+  "owner": "research/enterprise-brc-half-inert-plus-cm24-supersingular-unit-reciprocity",
+  "frontier": "Prove, refute, or strictly reduce the single first-digit reciprocity certificate UR: (g/p)(-6 Q_m'(1/2)) congruent 1 modulo p for p=6m+1 with p mod 24 in {13,19}, using the accepted CM(-24) simple-zero reduction without reopening CM0, SIMPLE, or the finite-tail bookkeeping.",
+  "next_action": "Treat g as the p-adic parameter displacement of the same terminating hypergeometric family because 1/6=-m+p/6 and 1/3=-2m+p/3. Test a Gauss-Manin/Wronskian proof at the supersingular CM(-24) simple zero and a structurally distinct finite-field Jacobi-sum or p-adic-Gamma normalization; freeze an exact proof, counterexample, or one-scalar strict reduction.",
+  "research_value": "Close the necessary first p-adic digit isolated by the accepted JT2 reduction, so that only the second-digit LIFT certificate remains before the inert-plus supercongruence can be reconsidered.",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "identity_lane": "EBP6UR",
+  "source_refs": [
+    "research_returns/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE_RETURN_20260828.md",
+    "driver_reviews/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE_DRIVER_REVIEW_20260908.md",
+    "research_returns/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_REFLECTED_DERIVATIVE_PRODUCT_BRIDGE_RETURN_20260827.md"
+  ],
+  "dependencies": [
+    "RR-82F6383FB6634F72B457",
+    "DR-2EA60F5817976E662FA6"
+  ],
+  "evidence_status": "DRIVER_REVIEW_FOLLOWUP_V1",
+  "successor_gate": {
+    "new_information_gap": "The accepted JT2 result proves the CM(-24) Hasse value vanishes simply and reduces the entire first p-adic digit to one reciprocal scalar, but does not determine the normalized parameter displacement g/p.",
+    "why_parent_result_does_not_close_it": "CM0 gives Q_m(1/2)=0 and SIMPLE gives Q_m'(1/2) nonzero, yet neither identifies g/p with the inverse of -6Q_m'(1/2); the previous finite parameter deformation only rewrites this missing equality as R0.",
+    "discriminating_outcomes": [
+      "A uniform proof of UR for both residue classes p congruent 13,19 modulo 24.",
+      "An exact counterexample to UR, independently recomputed.",
+      "A strict reduction of UR to one explicitly normalized CM(-24) deformation/Wronskian or finite-field scalar.",
+      "An exact obstruction showing that an additional normalization datum is genuinely required."
+    ],
+    "kill_condition": "Finite prime regression is not a proof; Sun A14(ii) may not be assumed; ordinary split-CM unit-root or ASD formulas may not be imported at inert supersingular primes without a theorem matching this normalization; CM0, SIMPLE, and the eliminated tail/harmonic bookkeeping must not be reopened as if unresolved.",
+    "alternative_route_or_free_exploration_considered": "Proceeding directly to LIFT is premature because UR is a necessary first digit. Replaying the terminating-Jacobi or finite-tail reductions would duplicate closed work. The justified independent routes are a local deformation/Wronskian argument and a finite-field or p-adic special-function normalization.",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "The parent task is terminal at its authorized strict-reduction scope and identifies UR as the unique first-digit residue. A narrow successor preserves that terminal boundary while isolating one theorem-sized scalar."
+  }
+}
