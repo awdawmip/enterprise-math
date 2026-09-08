@@ -85,6 +85,28 @@ def main():
         a = isqrt(m*n + gap)
         assert a*a == m*n + gap and (a-1)**2 < m*n <= a*a
 
+        # Independent downward-remainder carrier. Its contract is the exact
+        # floor state; it does not transport an immediate ceiling witness.
+        j = a if gap == 0 else a-1
+        remainder = m*n-j*j
+        floor_m, floor_r, floor_scale = m, remainder, 1
+        while floor_m % 4 == 0 and floor_r % 4 == 0:
+            floor_m //= 4
+            floor_r //= 4
+            floor_scale *= 2
+        assert j % floor_scale == 0
+        floor_j = j // floor_scale
+        assert floor_j*floor_j+floor_r == floor_m*n
+        assert floor_j*floor_j <= floor_m*n < (floor_j+1)**2
+        assert remainder == floor_scale*floor_scale*floor_r
+        floor_direction = "Z" if floor_r == 0 else "D" if floor_r <= floor_j else "U"
+        if floor_scale > 1:
+            assert floor_direction == ("Z" if floor_r == 0 else "D")
+        floor_state = {"remainder": str(remainder), "reduced_multiplier": floor_m,
+            "reduced_remainder": str(floor_r), "root_scale": floor_scale,
+            "result_direction": floor_direction, "exact_floor_identity_verified": True,
+            "immediate_ceiling_witness_preservation_claimed": False}
+
         # Representation side: after the valid-state contract above, this
         # block reads only m and gap. N and a do not select a reduction.
         representative, reduced_gap, scale, steps = m, gap, 1, 0
@@ -101,6 +123,11 @@ def main():
         reduced_a = a // scale
         assert reduced_a*reduced_a-reduced_gap == representative*n
         assert (reduced_a-1)**2 < representative*n <= reduced_a*reduced_a
+        ceiling_direction = "Z" if reduced_gap == 0 else "D" if reduced_gap >= reduced_a else "U"
+        if scale > 1:
+            assert ceiling_direction == ("Z" if reduced_gap == 0 else "U")
+        if gap > 0 and m % 4 == 0:
+            assert (floor_scale > 1) != (scale > 1)
 
         old_root, new_root = isqrt(gap), isqrt(reduced_gap)
         old_square, new_square = old_root*old_root == gap, new_root*new_root == reduced_gap
@@ -117,7 +144,8 @@ def main():
             assert scale == control["expected_scale"]
             verified_controls.append({**control, "reduced_gap": str(reduced_gap),
                 "reduced_ceiling": reduced_a, "reduced_square_root": new_root,
-                "source_equivalence": True, "square_identity_preserved": True})
+                "source_equivalence": True, "square_identity_preserved": True,
+                "gap_reduction_direction": ceiling_direction, "floor_carrier": floor_state})
             continue
 
         assert entry["status"] in ("REUSED_PINNED_NO_WITNESS", "NO_WITNESS_AT_THIS_POSITION")
@@ -128,6 +156,7 @@ def main():
             "reduced_gap": str(reduced_gap), "root_scale": scale, "reduction_steps": steps,
             "source_representative": source_representative,
             "source_equivalence": True, "exact_square_status_preserved": True,
+            "gap_reduction_direction": ceiling_direction, "floor_carrier": floor_state,
             "already_rejected_by_original_mod4096": gap % 4096 not in qrs4096}
         if impossible:
             row["classification"] = "MODULARLY_IMPOSSIBLE"
@@ -164,12 +193,20 @@ def main():
             "duplicate_live_records": len(live)-len(keys),
             "modular_exits_already_rejected_by_mod4096": sum(r["already_rejected_by_original_mod4096"]
                 for r in group if r["classification"] == "MODULARLY_IMPOSSIBLE"),
-            "direction_counts": direction_counts})
+            "direction_counts": direction_counts,
+            "floor_carrier_reduction_count": sum(r["floor_carrier"]["root_scale"] > 1 for r in group),
+            "floor_carrier_direction_transitions": dict(Counter(r["original_multiplied_direction"]+"->"+r["floor_carrier"]["result_direction"]
+                for r in group if r["floor_carrier"]["root_scale"] > 1)),
+            "gap_carrier_reduction_count": sum(r["root_scale"] > 1 for r in group),
+            "gap_carrier_direction_transitions": dict(Counter(r["original_multiplied_direction"]+"->"+r["gap_reduction_direction"]
+                for r in group if r["root_scale"] > 1))})
     assert len(records) == 60 and len(verified_controls) == 32
     assert sum(r["remaining_distinct_predicate_inputs"] for r in summaries) == 50
     assert sum(r["eliminated_modular_positions"] for r in summaries) == 7
     assert sum(r["duplicate_live_records"] for r in summaries) == 3
     assert sum(r["modular_exits_already_rejected_by_mod4096"] for r in summaries) == 7
+    assert sum(r["floor_carrier_reduction_count"] for r in summaries) == 20
+    assert sum(r["gap_carrier_reduction_count"] for r in summaries) == 10
 
     result = {"status": "COMPLETED_FIXED_ARCHIVE_REPRESENTATION_AUDIT",
         "researcher": "EM-HME-0CE4FD / TASK_RESEARCH",
@@ -183,6 +220,12 @@ def main():
             "coordinate": "A is the upward completion gap, distinct from the downward remainder R",
             "normalization_reads": ["m", "A"], "audit_only": "N and restored ceiling a",
             "metadata_only": "original multiplied-state D/U/Z label; not assumed invariant under reduction"},
+        "downward_remainder_contract": {"input": "m,R with a previously validated floor state mN=J^2+R",
+            "normalization_reads": ["m", "R"], "identity": "if 4 divides m and R, divide both by 4; J divides by 2 exactly",
+            "nonzero_reduction_direction": "D after any positive number of divisions",
+            "upward_gap_comparison": "The corresponding nonzero A-carrier reduction instead ends in U",
+            "complementarity": "For a nonsquare supplied state with 4|m, exactly one carrier permits the first division",
+            "separate_contract": "Floor-state preservation does not assert preservation of the immediate ceiling-square predicate; no square test is performed at a new floor representative"},
         "budget": {"consumed_public_positions": 60, "new_public_positions": 0,
             "new_public_witness_api_calls": 0, "new_public_factors": 0,
             "source_reference_comparisons": 92, "known_positive_controls_consumed": 15,
