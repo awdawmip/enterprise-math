@@ -5,18 +5,20 @@
   "shortcuts": [
     {
       "shortcut_id": "neighbor_square_high_v2_probe",
-      "name": "N±1 high-v2 neighbor-square fixed-gap probe",
+      "name": "compressed local N±d power-of-two square fixed-gap probe",
       "family": "adaptive_multiplier_probe",
       "safety": "EXACT",
       "probe_cost": "TINY_ON_TRIGGER",
       "default_enabled": true,
-      "trigger": "v2(N±1) yields m=2a∓1 beyond the ordinary multiplier horizon",
+      "trigger": "one low-bit residue identifies a signed d within a declared compressible window and its v2 chain yields a multiplier beyond the ordinary horizon",
       "fallback": "return immediately to the ordinary exact multiplier pipeline",
-      "evidence": "Exact m=127/255/511 semiprime witnesses; exhaustive <2,000,000 diagnostic found 315 beyond-100 triggers and one factor hit among 328,564 odd squarefree semiprimes",
+      "evidence": "Exact m=127/255/511 unit-distance witnesses plus a balanced m=171,d=43 horizon-extending witness; for H=100,D=64 the complete power-of-two distance window is reduced exactly to N mod1024 plus at most one v2 chain; finite balanced hit density falls rapidly with factor size",
       "source_refs": [
         "research_notes/BRC_NEIGHBOR_SQUARE_LIFT_SHORTCUT_20260908.md",
+        "research_notes/BRC_NEIGHBOR_DISTANCE_COMPRESSION_20260908.md",
         "src/enterprise_math/brc_neighbor_square_lift_shortcut.py",
-        "research_artifacts/brc_neighbor_square_lift_probe_20260908.csv"
+        "research_artifacts/brc_neighbor_square_lift_probe_20260908.csv",
+        "research_artifacts/brc_neighbor_distance_balanced_probe_20260908.csv"
       ]
     },
     {
