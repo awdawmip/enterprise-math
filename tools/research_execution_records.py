@@ -12,6 +12,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 try:
     from tools import research_identity
     from tools import research_task_records
@@ -21,9 +25,6 @@ except ModuleNotFoundError:
     import research_task_records  # type: ignore
     import research_taskbook  # type: ignore
 
-ROOT = Path(__file__).resolve().parents[1]
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
 import research_execution_cohorts  # noqa: E402
 
 SCHEMA = "ENTERPRISE_MATH_RESEARCH_EXECUTION_RECORD_V1"
@@ -419,6 +420,12 @@ def main() -> int:
     audit_parser = sub.add_parser("audit")
     audit_parser.set_defaults(func=command_audit)
     args = parser.parse_args()
+    if args.command == "prepare-claim":
+        # Read through the same exact isolation as canonical runtime before
+        # preparing an intent. The separate raw audit command stays strict.
+        from control_plane import research_control_bootstrap
+
+        research_control_bootstrap.install(ROOT)
     return args.func(args)
 
 
