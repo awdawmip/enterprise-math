@@ -1,0 +1,50 @@
+{
+  "schema": "ENTERPRISE_BRC_EBP6JT_RECOVERY_VERIFICATION_V1",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-TERMINATING-JACOBI-JET-CERTIFICATE",
+  "publication_id": "TP2-A19C97A703AF47D1CBEC",
+  "claim_id": "chatgpt-ebp6jt-20260907-2359-solc4a91e",
+  "researcher_id": "EM-EBP6JT-4D1A01",
+  "execution_record_id": "ER-A84CDD1F0678E7BEE767",
+  "recovered_durable_frontier": {
+    "branch": "research/enterprise-brc-half-coupling-inert-plus-terminating-jacobi-jet-certificate-em-ebp6jt-25c94a",
+    "commit": "a722292873eba2449f0959fad7b766a12741ff47",
+    "classification": "VERIFIED_COMPLETE_MATHEMATICAL_RETURN / CONTROL_HANDOFF_INCOMPLETE"
+  },
+  "hard_target_disposition": "ACHIEVED_BY_STRICT_REDUCTION",
+  "proved_or_exactly_reduced": [
+    "CM0: Q_m(1/2)=0 mod p for p mod 24 in {13,19}",
+    "SIMPLE: Q_m'(1/2) != 0 mod p",
+    "JT0 iff UR: (g/p)(-6 Q_m'(1/2)) = 1 mod p",
+    "JT2 iff UR + LIFT with Phi_xx retained inside g/p mod p^2"
+  ],
+  "successor_frontier": [
+    "UR: discriminant -24 supersingular unit reciprocity",
+    "LIFT: ((g/p)h-1)/p = R_p mod p after UR"
+  ],
+  "brc_information_audit": {
+    "population": "target primes p mod 24 in {13,19}",
+    "branch_identity": "residue classes retained separately",
+    "carrier": "exact B_k, g, h, G_p mod p^2, R_p, Q_m(1/2), Q_m'(1/2)",
+    "observer": "mod p for CM0/SIMPLE/UR; mod p^2 plus divided second digit for LIFT",
+    "future_operations": "divide g by p; multiply G_p*h; extract second p-adic digit",
+    "loss_guard": "do not collapse G_p mod p^2 to mod p before LIFT",
+    "reuse_resolution": "REUSE_APPLIED"
+  },
+  "independent_regression": {
+    "prime_limit_exclusive": 2000,
+    "target_primes_checked": 77,
+    "class_13_count": 40,
+    "class_19_count": 37,
+    "cm0_failures": 0,
+    "simple_failures": 0,
+    "ur_failures": 0,
+    "jt2_lift_failures": 0,
+    "finite_evidence_only": true
+  },
+  "authority": {
+    "working_truth_granted": false,
+    "foundation_authority_granted": false,
+    "canonical_promotion_granted": false,
+    "driver_review_required": true
+  }
+}
