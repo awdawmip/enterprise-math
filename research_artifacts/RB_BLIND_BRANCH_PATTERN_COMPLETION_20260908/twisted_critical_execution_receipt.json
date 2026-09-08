@@ -1,0 +1,74 @@
+{
+  "schema": "RB_BLIND_TWISTED_CRITICAL_EXECUTION_V1",
+  "recorded_at": "2026-09-08 15:24:37 UTC",
+  "runs": [
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/check_twisted_critical_numerator.py",
+        "--write"
+      ],
+      "cwd": "D:/em/research-rb-blind-20260908",
+      "tool_result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "774d11",
+          "wall_time_seconds": 0.6202493,
+          "exit_code": 0,
+          "original_token_count": 72,
+          "output": "{\"certificate_sha256\": \"a36593100cdc3a67465c45b1569222349575cda61660576595e4541df5056ef8\", \"derivative_and_frame_identities\": 6, \"missing_term_and_nonunit_frame_counterexamples\": 6, \"new_components_excluded\": 0, \"remaining_total\": 1980, \"status\": \"PASS\", \"three_nontrivial_twists\": 3}\r\n"
+        }
+      }
+    },
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_exact_arithmetic_policy.py",
+        "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/check_twisted_critical_numerator.py"
+      ],
+      "cwd": "D:/em/research-rb-blind-20260908",
+      "tool_result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "4cbbae",
+          "wall_time_seconds": 0.4565568,
+          "exit_code": 0,
+          "original_token_count": 11,
+          "output": "EXACT_ARITHMETIC_POLICY: PASS (1 files)\r\n"
+        }
+      }
+    },
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/check_twisted_critical_numerator.py"
+      ],
+      "cwd": "D:/em/research-rb-blind-20260908",
+      "tool_result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "746613",
+          "wall_time_seconds": 0.3605403,
+          "exit_code": 0,
+          "original_token_count": 72,
+          "output": "{\"certificate_sha256\": \"a36593100cdc3a67465c45b1569222349575cda61660576595e4541df5056ef8\", \"derivative_and_frame_identities\": 6, \"missing_term_and_nonunit_frame_counterexamples\": 6, \"new_components_excluded\": 0, \"remaining_total\": 1980, \"status\": \"PASS\", \"three_nontrivial_twists\": 3}\r\n"
+        }
+      }
+    }
+  ],
+  "status": "PASS_BOUNDED_FORMAL_DIFFERENTIAL_AND_FRAME_IDENTITIES",
+  "scope": "The three nontrivial empty-fiber classes only; degree-six g on the normalized unramified cover; no new exclusions beyond the published 180.",
+  "actual_checked": "For each gamma, Dgamma=2t; cleared derivative ideal-membership witness; common-frame covariance; omitted-term and nonunit-frame counterexamples. Default replay compared exact certificate bytes.",
+  "arithmetic": "No evaluated quotient/root/rational-function value or BRC call; formal integer polynomial checks only.",
+  "limits": "No basis solver, RR/ODE solution, new field descent, map or period. The 540/1440 residual stays unchanged.",
+  "tool_output_boundary": "Combined output strings retained; stdout and stderr were not separately captured."
+}

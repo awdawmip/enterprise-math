@@ -1,0 +1,137 @@
+{
+  "schema": "RB_POSTFREEZE_SOURCE_COMPARISON_V1",
+  "phase": "POST_FREEZE_COMPARISON",
+  "recorded_at_utc": "2026-09-08T16:29:36.532491Z",
+  "task_id": "RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION",
+  "researcher_id": "EM-HODGEH0O-82EF42",
+  "claim_id": "chatgpt-rb-blind-20260908-1943ccc582e1463bbcef0c6ab3c7db1b",
+  "raw_freeze": {
+    "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/raw_freeze_branch_patterns.json",
+    "sha256": "a9bac29196d70c40e0b08eb9efc23a3a5c07add447479bca979a11b885bec9b2",
+    "git_blob": "3a002caa7c085a34c3a41c271564cec53ac4bc83",
+    "bytes": 35592,
+    "commit": "7791ddf5c969bb580cff04b1cb742ec3f9d8a9b9",
+    "tree": "9f1724cc12dd9da7671556627cbad278c7be0597",
+    "parent": "ad05f1ce0e1f06b64268681a1a57d08d2032e6ca",
+    "frozen_at_utc": "2026-09-08T16:04:28.017752Z",
+    "payload_sha256": "45258b1482b73515d6057aa5bace2cf0828e1d61834f0e386c466fadaa036cc0",
+    "readback_evidence": "Root confirmed both files by exact full-content and Git-blob readback before authorizing this phase. No new remote verification is claimed by this researcher."
+  },
+  "phase_order": {
+    "first_postfreeze_route_read_not_before_utc": "2026-09-08T16:17:10Z",
+    "owner_remote_freeze_confirmation_received_before_read": true,
+    "originating_explicit_formula_or_replay_actually_found_or_read": false,
+    "new_mathematics_after_raw_freeze": false,
+    "frozen_payload_modified": false
+  },
+  "comparison_status": "SOURCE_COMPARISON_UNRESOLVED",
+  "originating_candidate_exact_commit_and_path": null,
+  "originating_formula_or_scaling_comparison_performed": false,
+  "retrieval_rounds": [
+    {
+      "round": 1,
+      "kind": "EXACT_LOCAL_GIT_ROUTE_READS",
+      "sources": [
+        {
+          "label": "em-parent-task",
+          "repository": "D:/em/research-rb-blind-20260908",
+          "commit": "c73816d3552b4247861e12e476101e94a4a2ce5a",
+          "path": "research_tasks/RAMANUJAN_BORWEIN_ENTERPRISE_DEGREE6_CM24_BLIND_REPLICATION_20260827.md",
+          "argv": [
+            "git",
+            "show",
+            "c73816d3552b4247861e12e476101e94a4a2ce5a:research_tasks/RAMANUJAN_BORWEIN_ENTERPRISE_DEGREE6_CM24_BLIND_REPLICATION_20260827.md"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "sha256": "e76d517734bd76dbca265fa22eb72da7182a0c62c6f3765acf2276fc00e4c845",
+          "git_blob": "ad69e1166254cb4bb32fd9490f9ed1c5c92f8b41",
+          "bytes": 8695,
+          "line_count": 175
+        },
+        {
+          "label": "gk-reconnaissance",
+          "repository": "D:/knowledge/chatgpt-global-knowledge",
+          "commit": "97fb3048dcb9ca1589006801d589525c31de7899",
+          "path": "projects/enterprise-math/DRIVER_THEORY_RECONNAISSANCE_20260830.md",
+          "argv": [
+            "git",
+            "show",
+            "97fb3048dcb9ca1589006801d589525c31de7899:projects/enterprise-math/DRIVER_THEORY_RECONNAISSANCE_20260830.md"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "sha256": "df5c7bccd8d763fc77b2b776812cc6109d843ebcfb2d96bf00cbf6960ca6eedc",
+          "git_blob": "8c5a3591c24a04e0679a4e3980db25a770d2dfdb",
+          "bytes": 9602,
+          "line_count": 158
+        },
+        {
+          "label": "gk-taskset",
+          "repository": "D:/knowledge/chatgpt-global-knowledge",
+          "commit": "97fb3048dcb9ca1589006801d589525c31de7899",
+          "path": "projects/enterprise-math/DRIVER_THEORY_TASKSET_PUBLICATION_20260830.md",
+          "argv": [
+            "git",
+            "show",
+            "97fb3048dcb9ca1589006801d589525c31de7899:projects/enterprise-math/DRIVER_THEORY_TASKSET_PUBLICATION_20260830.md"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "sha256": "6f513d76bacd6141b92feb85dcdb655316693510bd4c96a163519e959f2ec97d",
+          "git_blob": "6a247b03c5c537deb2c80e8896c3301d21132dab",
+          "bytes": 3669,
+          "line_count": 70
+        }
+      ],
+      "actual_receipt_sha256": "65804c720348703d5b93e57f3809a01c1f6ff62873be1ded3ca06b941b3025db",
+      "finding": "The original parent blind taskbook states that an existing explicit self-audited map is withheld but supplies no commit/path. The two suggested canonical GK routes discuss Johnson/Plucker and an A2/cubic-theta bridge, not this degree-six CM(-24) originating map."
+    },
+    {
+      "round": 2,
+      "kind": "BOUNDED_CONNECTED_GITHUB_DEFAULT_BRANCH_INDEX_SEARCH",
+      "searches": [
+        {
+          "tool": "github_search",
+          "query": {
+            "repository_name": "awdawmip/chatgpt-global-knowledge",
+            "query": "CM24",
+            "topn": 6
+          },
+          "results": [],
+          "is_error": false
+        },
+        {
+          "tool": "github_search",
+          "query": {
+            "repository_name": "awdawmip/chatgpt-global-knowledge",
+            "query": "Fermat",
+            "topn": 6
+          },
+          "results": [],
+          "is_error": false
+        },
+        {
+          "tool": "github_search",
+          "query": {
+            "repository_name": "awdawmip/enterprise-math",
+            "query": "Ramanujan Borwein",
+            "topn": 6
+          },
+          "results": [],
+          "is_error": false
+        }
+      ],
+      "actual_receipt_sha256": "9f1a57bb615e876b51bc4c95d042083ff29da723bcb01c914d0d33fd985ec982",
+      "finding": "Each query returned zero results without a connector error. The code-index search is not an exhaustive exact-snapshot repository/history search and cannot establish absence."
+    }
+  ],
+  "stopping_rule": "Owner authorized at most two bounded targeted retrieval rounds; both are complete. No broad tree/history/journal scan, third round, or external formula search was started.",
+  "actual_comparison_scope": "Only source routing was inspected. No originating X/Y, coefficients, basepoint, target twist, period value, or symbolic replay was obtained. Agreement, equivalence, scaling mismatch and discrepancy are therefore unknown, not PASS or absence.",
+  "dedup_and_method_boundary": "The bounded retrieval gives no completed originating-candidate dedup. No method novelty, new generic tool, new family, formal adoption, or native migration is claimed.",
+  "next_exact_evidence_action": "Owner or the source holder must provide the originating theorem-package candidate and replay at a resolvable immutable repository/commit/path. Then record a separate post-freeze comparison; do not modify the frozen blind payload or relabel a supplied map as independently reconstructed.",
+  "primary_verdict_preserved": "BLIND_BRANCH_PATTERN_INCOMPLETE",
+  "hard_target_satisfied": false,
+  "parent_objective_status": "OPEN",
+  "global_knowledge_read_snapshot": "main@97fb3048dcb9ca1589006801d589525c31de7899"
+}
