@@ -1,0 +1,38 @@
+{
+  "schema": "BRC_OPPORTUNISTIC_SHORTCUT_CATALOG_ADDENDUM_V1",
+  "date": "2026-09-08",
+  "parent_catalog": "research_artifacts/brc_opportunistic_shortcut_catalog_20260907.json",
+  "shortcuts": [
+    {
+      "shortcut_id": "neighbor_square_high_v2_probe",
+      "name": "N±1 high-v2 neighbor-square fixed-gap probe",
+      "family": "adaptive_multiplier_probe",
+      "safety": "EXACT",
+      "probe_cost": "TINY_ON_TRIGGER",
+      "default_enabled": true,
+      "trigger": "v2(N±1) yields m=2a∓1 beyond the ordinary multiplier horizon",
+      "fallback": "return immediately to the ordinary exact multiplier pipeline",
+      "evidence": "Exact m=127/255/511 semiprime witnesses; exhaustive <2,000,000 diagnostic found 315 beyond-100 triggers and one factor hit among 328,564 odd squarefree semiprimes",
+      "source_refs": [
+        "research_notes/BRC_NEIGHBOR_SQUARE_LIFT_SHORTCUT_20260908.md",
+        "src/enterprise_math/brc_neighbor_square_lift_shortcut.py",
+        "research_artifacts/brc_neighbor_square_lift_probe_20260908.csv"
+      ]
+    },
+    {
+      "shortcut_id": "even_neighbor_strong_tau_telemetry",
+      "name": "exact-shape N±1 strong 2r divisor-layer telemetry",
+      "family": "telemetry",
+      "safety": "CONDITIONAL_EXACT",
+      "probe_cost": "CHEAP",
+      "default_enabled": false,
+      "trigger": "a primality certificate/provider for the odd cofactor is already available",
+      "fallback": "no routing change",
+      "evidence": "N-visible v2 classification is exact, but a 10,000-semiprime finite routing diagnostic showed no material coverage/rank separation",
+      "source_refs": [
+        "research_notes/BRC_NEIGHBOR_SQUARE_LIFT_SHORTCUT_20260908.md",
+        "research_notes/DIVISOR_LAYER_LIFT_PROBE_20260908.md"
+      ]
+    }
+  ]
+}
