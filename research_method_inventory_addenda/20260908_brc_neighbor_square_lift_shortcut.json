@@ -1,0 +1,57 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "RESEARCH_TOOLIZED_GLOBAL_SUBTOOL",
+  "date": "2026-09-08",
+  "admission": {
+    "classification": "TASK_RESEARCH_TOOL_HARVEST",
+    "authority": "direct user continuation of the divisor-layer lift experiment and opportunistic-shortcut policy",
+    "family_id": "T0_BRC",
+    "foundation_mutation": false,
+    "working_truth_promotion": false,
+    "new_global_tool_family": false,
+    "reuse_resolution": "EXTEND_EXISTING_TOOL",
+    "reason": "Extract the exact N-dependent fixed-gap multiplier hidden inside square divisors of N±1, and retain only the rare beyond-horizon power-of-two trigger as a low-cost opportunistic probe."
+  },
+  "methods": [
+    {
+      "method_id": "t0.brc_neighbor_square_lift_shortcut",
+      "name": "BRC neighbor-square lift fixed-gap shortcut",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_neighbor_square_lift_shortcut.py",
+        "tests/test_brc_neighbor_square_lift_shortcut.py",
+        "experiments/brc_neighbor_square_lift_probe.py",
+        "research_notes/BRC_NEIGHBOR_SQUARE_LIFT_SHORTCUT_20260908.md",
+        "research_artifacts/brc_neighbor_square_lift_probe_20260908.csv"
+      ],
+      "api": [
+        "NeighborSquareLiftProbe",
+        "valuation_two",
+        "neighbor_square_parameters",
+        "probe_neighbor_square_lift",
+        "power2_neighbor_square_candidates",
+        "try_power2_neighbor_square_shortcuts"
+      ],
+      "triggers": [
+        "large v2 of N plus or minus one",
+        "known square divisor of N plus or minus one",
+        "beyond-horizon opportunistic multiplier",
+        "divisor-layer lift shortcut",
+        "fixed-gap multiplier Fermat probe"
+      ],
+      "capabilities": [
+        "derive m=2a-epsilon from any known a^2 dividing N-epsilon",
+        "reduce the multiplier-Fermat test to squarehood of mt+1 with fixed gap root abs(a-epsilon)",
+        "discover power-of-two square-divisor levels using v2(N±1) only",
+        "probe only multipliers beyond an existing bounded horizon",
+        "reuse the exact BALANCED quadratic-residue cascade before isqrt",
+        "recover a proper factor by gcd when the exact square witness splits N",
+        "return immediately to the ordinary exact fallback on a miss"
+      ],
+      "core_law": "If N=a^2 t+epsilon with epsilon in {+1,-1} and m=2a-epsilon, then mN=a^2(mt+1)-(a-epsilon)^2. Therefore mt+1=c^2 gives mN=(ac)^2-(a-epsilon)^2. For a=2^k the trigger is read from v2(N-epsilon) with shifts only, making high-v2 multipliers beyond the ordinary scan horizon a very low-overhead free-option probe.",
+      "hard_boundary": "This is a specialization of classical multiplier-Fermat/difference-of-squares inside T0_BRC. Finite small-N diagnostics show very rare beyond-100 hits; it must not replace a complete scan, must not cause horizon expansion after a miss, and does not establish any asymptotic factorization improvement. Factoring N±1 merely to manufacture square-divisor metadata is outside the shortcut budget."
+    }
+  ]
+}
