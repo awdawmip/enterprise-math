@@ -45,6 +45,7 @@ flowchart TB
   VALUATION_DIGITS["Valuation digits local BRC division migration"]
   PP_MOMENT_NOGO["Perfect Prime m3 ordinary-moment no-go"]
   INJECTIVE_AXIS_RAW["Raw stability along an injective positive-support axis"]
+  PFSSV_SHELL["Prime-factor semiprime thin-shell review and revision"]
   A3 -->|"CONSUMES"| A4
   BRC -->|"CONSUMES"| A4
   BRC -.->|"REUSE_IDENTIFIED"| A1
@@ -76,6 +77,7 @@ flowchart TB
   OWNER_PORTFOLIO -->|"CONTAINS"| PP_MOMENT_NOGO
   X6 -->|"CONTAINS"| INJECTIVE_AXIS_RAW
   P3_TEMPLATES -->|"CONSUMES"| INJECTIVE_AXIS_RAW
+  NUMBER_THEORY -->|"CONTAINS"| PFSSV_SHELL
 ```
 
 ## Comparable evidence at the stated scope
@@ -113,6 +115,7 @@ These are source statements and recorded receipts, not new checks performed by t
 | **VALUATION_DIGITS — Valuation digits local BRC division migration**<br>Local digits routine within the original shortest-path valuation-spectrum source method; this is not whole-spectrum native compliance.<br>[S38](#source-s38), [S46](#source-s46), [S47](#source-s47), [S48](#source-s48), [S49](#source-s49), [S50](#source-s50), [S51](#source-s51), [S52](#source-s52) | Existing valuation/digit definitions and caller contracts retained; no new theorem or family is claimed. | No new Lean coverage is asserted. | Published portable replay records 288 native DIV-facade evaluations, 10 valid digit cases, 8 standalone rejections and 11 pre-histogram caller boundaries. Source metadata/static validation is a separate receipt. This map reruns neither; no full-spectrum regression was run. | SOURCE_ONLY: the local digits substitution and its evidence package are applied/published at owner b506f92a. No main or formal admission; the older nineteen-object snapshot remains pinned separately. | Owner source/index evidence only; no new formal Task/Result/Driver acceptance. |
 | **PP_MOMENT_NOGO — Perfect Prime m3 ordinary-moment no-go**<br>The exact historical m=3 cofactor sequence normalized by positive q0; ordinary power-moment representation is distinguished from finite exchangeable factorial observation.<br>[S53](#source-s53), [S54](#source-s54), [S55](#source-s55), [S56](#source-s56), [S57](#source-s57), [S58](#source-s58), [S59](#source-s59), [S60](#source-s60), [S61](#source-s61) | RESULT_ONLY source result: all 28 admissible finite alternating differences are positive, yet a degree-four square observation is negative, ruling out a positive ordinary-power-moment measure even on the real line. The finite BRC identities under nonnegative beta remain valid. | No new Lean coverage is asserted. | Frozen historical Fraction audit and same-generation JSON only; not new native BRC-facade numerical evidence. The JSON serializes seven positive beta values and records the 28-cell check, not a full 28-value table. A metadata receipt must remain separate and must not import or replay this audit. Metadata-only lookup and two rejection cases have their own frozen receipts; the new-helper static check selected only validator.py. | MAIN RESULT_ONLY via PR1404 at 44243768. Its nine-file transport retains the original method object, empty API and null family. The actual merged tree matches the tested combination; no executable finite-BRC consumer or formal acceptance is added. | No official Task/Result/Driver acceptance, Working Truth or Foundation status is created by this result index. |
 | **INJECTIVE_AXIS_RAW — Raw stability along an injective positive-support axis**<br>Same anchor and labelled raw X6 chart, finite Jordan positive and negative populations. One actual physical coordinate is injective on all positive support points; no mixed-coordinate replacement axis.<br>[S62](#source-s62), [S63](#source-s63), [S64](#source-s64), [S65](#source-s65), [S44](#source-s44), [S45](#source-s45) | Paper proof for any finite positive-support size: D>=10P-2N+10&#124;P-N&#124;+12N_empty>=4M, using all twenty raw tables. For exactly three positive points q_i=(a_i,r_i) with distinct a_i, deduplicate R={r_i} and set W_r=sum_(j:r_j=r)w_j. Equality iff n=sum c_(i,r) delta_(a_i,r), c>=0, supported on Ham(r,r_i)=1, with row sums w_i and column sums W_r. The whole injective-axis class has a nonzero sharp 1/4 six-cell example. | No new Lean proof or coverage is claimed. | Paper only. No consumer, LP, flow solver, template enumeration, numerical replay or widened p<=1/p<=2 program domain was executed or added. | SOURCE_ONLY at owner 528ea6aa: paper, byte-identical independent review archive and source-adoption receipt published. The receipt retains its original TEMP preparation state and review time; publication does not relabel them as a new execution. No main mathematical admission. | Internal paper review only; no official Task/Result/Driver acceptance, Working Truth, Foundation or API. |
+| **PFSSV_SHELL — Prime-factor semiprime thin-shell review and revision**<br>The existing PFSSV task: exact p<=q shells X<pq<=floor((1+eta)X), with D(pq)=(p,q,0) as a derived min-zero factor-coordinate representation. S3 expansion is a display diagnostic, not a new native point ontology or metric. This is a number-theory experimental closeout, not an X6 result.<br>[S66](#source-s66), [S67](#source-s67), [S68](#source-s68), [S69](#source-s69), [S70](#source-s70), [S71](#source-s71), [S72](#source-s72), [S73](#source-s73), [S74](#source-s74), [S75](#source-s75), [S76](#source-s76), [S77](#source-s77) | The frozen author return labels the selected feature RESIDUE_OR_DENSITY_ARTIFACT and claims no unresolved residue. Independent review does not accept full hard-target closure: the baseline support, required prime-rank coordinates and persisted profiles leave concrete gaps. The existing screen does not justify a new residual candidate; the review also does not prove all registered residual structure absent. | No new Lean theorem or coverage is claimed. | Historical NumPy experiment only. A separate archived nonblind review ran two already-public X=100000 discovery cells (eta=1/100 and 1/1000), independently checked primes through 50500 and recovered raw counts 237 and 25. Its small probes confirmed the mask/rank/serialization gaps. The 50.5-million sieve, all 21 cells and holdouts were not replayed. This graph update executes no mathematics and claims no native BRC certificate, new API or new blind test. | PR1406 restored the seven original files on main 6efc3fdb, preserving source 1cac434c bytes. The independent review, Driver REQUEST_REVISION and same-task generation-2 followup were source-published at fc6d7bc6ed4c92363b8abd4889575bef69a9328f and have now merged through PR1408 on main be350eb1b0eeb2a9a07a23a43ee3c8170e93b4b4. This completes the Driver revision registration only; the scientific hard target remains open and the corrected experiment is not asserted complete or accepted. | Published Driver review DR-FDDA90E2280E08CA5A35 requests revision of the original Result; it does not accept complete hard-target closure. Actual successful followup DFU-19973107B48580C086E7 publishes TP2-2029B5CCC5EEC5F0132C for the same task. No successful scientific revision, new claim, Working Truth, canonical promotion or parent closure is asserted. |
 
 ## Unfinished frontier and existing next action
 
@@ -123,6 +126,7 @@ Reading order only; this is not the live task-selection queue.
 | Current closeout | A3_A4_REVIEW | Do not equate an ambient quotient rank with the minimal realizable state data; no new research assignment. | Finish the existing formal Driver review of PR955 using the admitted narrow correction; preserve the unaffected original arguments and do not repeat the completed source admission. |
 | Current closeout | H0O | No non-algebraicity claim; other genuinely mixing kernels or explicit exceptional cycles remain open. | Review preserved TP2-A314F727276CFF8CE168 / RR-FB3CF77C4F611FDED79B at its exact scope; do not re-claim or re-research from this map. |
 | Current closeout | VALUATION_DIGITS | Primality, histogram/Fraction arithmetic and broad imports remain separate boundaries. The helper can collect a local trace; the unchanged public spectrum API neither returns nor persists digit traces. Local evidence is not whole-spectrum or transitive native compliance. | Preserve the local migration and its actual caller boundary; continue only an explicitly selected unfinished spectrum interface. |
+| Current closeout | PFSSV_SHELL | Three required repairs: (1) define full geometric support versus a declared conditional null, because counts>0 currently also selects positions for the null and smooth surrogate; (2) implement the requested (pi(p),pi(q)) view instead of retained-row rank; (3) persist complete per-cell raw/corrected profiles and signed phase outputs, and compute scientific gates from actual data. Conditional randomization is not invalid merely for being conditional, but the present design does not establish the full-occupancy/pure-density claim. | Continue only the unfinished scope specified in TP2-2029B5CCC5EEC5F0132C, using its exact taskbook and current canonical ownership/recovery route. Preserve the original seven files and old experiment generation. Reanalysis of opened holdouts remains post hoc; this graph neither grants a claim nor starts a new blind study. |
 | Existing mathematical frontier | NUMBER_THEORY | Centered prime-radius results have left-prime/size hypotheses and imply neither universal symmetric pairs nor Goldbach. | Keep the existing P017/Perfect Prime mathematical frontier visible alongside the X6 branch. |
 | Existing mathematical frontier | PERFECT_PRIME | All-m finite complete monotonicity/HCM0 and mother-determinant nonvanishing remain OPEN. The ordinary positive power-moment lift is separately ruled out already at m3; the conditional finite BRC factorial representation is not that rejected lift. | Verify the current handoff and resume only an exact existing residual/HCM0 gap. Keep the finite factorial-observer contract; do not restart the rejected block/inertia or ordinary-power-measure routes. |
 | Existing mathematical frontier | P021 | Causal focusing, direction/witness composition and physical interpretation remain open. | Continue a specified finite causal/observation contract without importing a physical theorem. |
@@ -189,6 +193,7 @@ Reading order only; this is not the live task-selection queue.
 | OWNER_PORTFOLIO → PP_MOMENT_NOGO | `CONTAINS` | This unchanged original nineteen-portfolio RESULT_ONLY object is now the fourth exact original object on main 44243768; the rest are not admitted by this edge. | [S38](#source-s38), [S57](#source-s57) |
 | X6 → INJECTIVE_AXIS_RAW | `CONTAINS` | A raw labelled-coordinate stability direction with an explicit physical-axis hypothesis; no new family. | [S62](#source-s62) |
 | P3_TEMPLATES → INJECTIVE_AXIS_RAW | `CONSUMES` | The p3 applicability statement consumes the existing D-type coordinate partition and 41/16 count; the any-p inequality itself does not require enumeration. | [S44](#source-s44), [S45](#source-s45), [S62](#source-s62) |
+| NUMBER_THEORY → PFSSV_SHELL | `CONTAINS` | An existing semiprime factor-coordinate experiment belongs to the arithmetic program. This is organizational only: it asserts no Legendre/Perfect Prime theorem dependency, no BRC execution and no transfer from the A2 quotient or A5/X6 geometry results. | [S66](#source-s66) |
 
 ## Immutable source pins and evidence depth
 
@@ -394,6 +399,42 @@ Source IDs resolve below; SHA256 values pin file contents. An immutable file lin
 
 <a id="source-s65"></a>
 - **S65** [Existing one-positive paper: the (5,2) fiber ledger reused on paper](https://github.com/awdawmip/enterprise-math/blob/4424376809ddb7c41180453fa85f29a72d585a3e/research_notes/OWNER_ONE_POSITIVE_STABILITY_20260907.md); `FROZEN_MAIN_SOURCE`; SHA256 `b49eac9291c7b6a6ec458a133700ee17a4573972e58787a976871512746dd4e7`.
+
+<a id="source-s66"></a>
+- **S66** [PFSSV original hard-target taskbook](https://github.com/awdawmip/enterprise-math/blob/6efc3fdbad07bddee88270d10fc0ca2554a1184c/research_tasks/PRIME_FACTOR_SEMIPRIME_SHELL_RESIDUAL_VALIDATION_20260827.md); `FROZEN_MAIN_SOURCE`; SHA256 `b4e6011b736026ab2a5fc247f8a3750163cd33909fe25cf04bec6391078157d3`.
+
+<a id="source-s67"></a>
+- **S67** [PFSSV frozen original return; full-closeout claim is not accepted by the independent review](https://github.com/awdawmip/enterprise-math/blob/6efc3fdbad07bddee88270d10fc0ca2554a1184c/research_returns/PRIME_FACTOR_SEMIPRIME_SHELL_RESIDUAL_VALIDATION_RETURN_20260827.md); `RETURN_DECLARATION_NOT_REVIEW`; SHA256 `78963ec2070cc872806fce3e252a4136aa58334f8fe27c86aa363d2a5bb58c05`.
+
+<a id="source-s68"></a>
+- **S68** [PFSSV original NumPy checker; no execution by this graph draft](https://github.com/awdawmip/enterprise-math/blob/6efc3fdbad07bddee88270d10fc0ca2554a1184c/scripts/check_prime_factor_semiprime_shell_residual_validation.py); `FROZEN_MAIN_SOURCE`; SHA256 `8772484435d77abf74e87a6f053a0edaf4fa9395bdbade93ede2413083f22140`.
+
+<a id="source-s69"></a>
+- **S69** [PFSSV original result summary; historical finite experiment output](https://github.com/awdawmip/enterprise-math/blob/6efc3fdbad07bddee88270d10fc0ca2554a1184c/research_artifacts/PRIME_FACTOR_SEMIPRIME_SHELL_RESIDUAL_VALIDATION/result_summary.json); `RETURN_DECLARATION_NOT_REVIEW`; SHA256 `473cc5ed0d43373e91a41db7c37af1a9922d0d145f419dffbe62ee2bf874cff9`.
+
+<a id="source-s70"></a>
+- **S70** [PFSSV independent hard-target review; not a new experiment](https://github.com/awdawmip/enterprise-math/blob/fc6d7bc6ed4c92363b8abd4889575bef69a9328f/research_artifacts/PFSSV_DRIVER_REVIEW_20260908/INDEPENDENT_REVIEW.md); `PUBLISHED_PIN_READBACK`; SHA256 `53db4b935131fe33f9b084ba4014fad29af2c141aab2cb400fee063a1d01ec6a`.
+
+<a id="source-s71"></a>
+- **S71** [Original bounded independent-review script; historical invocation retained](https://github.com/awdawmip/enterprise-math/blob/fc6d7bc6ed4c92363b8abd4889575bef69a9328f/research_artifacts/PFSSV_DRIVER_REVIEW_20260908/small_boundary_review.py); `PUBLISHED_PIN_READBACK`; SHA256 `463a082b919283220892373f40d05a0f27bfe91ef2b8d3be13bc7c8998ff60f7`.
+
+<a id="source-s72"></a>
+- **S72** [Original bounded nonblind review receipt; not replayed by this map](https://github.com/awdawmip/enterprise-math/blob/fc6d7bc6ed4c92363b8abd4889575bef69a9328f/research_artifacts/PFSSV_DRIVER_REVIEW_20260908/small_boundary_receipt.json); `PUBLISHED_RECEIPT_NOT_REEXECUTED`; SHA256 `d4f1f3c976c4fd9ed391e673c890eea0d5c8b5bc9c2222889687adcbde005f66`.
+
+<a id="source-s73"></a>
+- **S73** [Published PFSSV Driver REQUEST_REVISION record](https://github.com/awdawmip/enterprise-math/blob/fc6d7bc6ed4c92363b8abd4889575bef69a9328f/research_result_reviews/RR-3287C6124F8D8A1F0901/DR-FDDA90E2280E08CA5A35.json); `PUBLISHED_PIN_READBACK`; SHA256 `7a5f46bfabd0dbe15cd305f10556b6d62ee9c90325f27891c8f5e0abeb148b6f`.
+
+<a id="source-s74"></a>
+- **S74** [Published PFSSV Driver review artifact](https://github.com/awdawmip/enterprise-math/blob/fc6d7bc6ed4c92363b8abd4889575bef69a9328f/driver_reviews/PFSSV_FROZEN_RETURN_REVISION_REQUEST_20260908.md); `PUBLISHED_PIN_READBACK`; SHA256 `5d313aae3df3b3da3d7fcb7b048057be61d1c3b1a92b9ce2b33e9e06f19ae302`.
+
+<a id="source-s75"></a>
+- **S75** [Same-task PFSSV generation-2 revision taskbook](https://github.com/awdawmip/enterprise-math/blob/fc6d7bc6ed4c92363b8abd4889575bef69a9328f/research_tasks/PRIME_FACTOR_SEMIPRIME_SHELL_RESIDUAL_VALIDATION_REVISION_20260908.md); `PUBLISHED_PIN_READBACK`; SHA256 `e1b35c812f66f105a55af54ad258d3f5381f8de33ac598ff3d806ba7b0ca0c0f`.
+
+<a id="source-s76"></a>
+- **S76** [Immutable PFSSV generation-2 publication](https://github.com/awdawmip/enterprise-math/blob/fc6d7bc6ed4c92363b8abd4889575bef69a9328f/research_task_records/RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION/TP2-2029B5CCC5EEC5F0132C.json); `PUBLISHED_PIN_READBACK`; SHA256 `adaea5673bbc0881ed28f69ffd286cf145730cb6ed39e3e665ea1e78e02f4b9f`.
+
+<a id="source-s77"></a>
+- **S77** [Committed PFSSV Driver follow-up packet](https://github.com/awdawmip/enterprise-math/blob/fc6d7bc6ed4c92363b8abd4889575bef69a9328f/research_driver_followups/DR-FDDA90E2280E08CA5A35/DFU-19973107B48580C086E7.json); `PUBLISHED_PIN_READBACK`; SHA256 `9ca06c55a0e6e802e6cc60aa8dd252aecfb84776d75ba7d006f8874ec8ebb8ae`.
 
 ## Maintenance
 

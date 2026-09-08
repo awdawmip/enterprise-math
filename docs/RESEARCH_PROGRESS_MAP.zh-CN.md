@@ -45,6 +45,7 @@ flowchart TB
   VALUATION_DIGITS["valuation digits 局部 BRC 除法迁移"]
   PP_MOMENT_NOGO["Perfect Prime m3 普通幂矩 no-go"]
   INJECTIVE_AXIS_RAW["正支撑单射轴的 raw 稳定性"]
+  PFSSV_SHELL["素因子半素数薄壳审查与整改"]
   A3 -->|"CONSUMES"| A4
   BRC -->|"CONSUMES"| A4
   BRC -.->|"REUSE_IDENTIFIED"| A1
@@ -76,6 +77,7 @@ flowchart TB
   OWNER_PORTFOLIO -->|"CONTAINS"| PP_MOMENT_NOGO
   X6 -->|"CONTAINS"| INJECTIVE_AXIS_RAW
   P3_TEMPLATES -->|"CONSUMES"| INJECTIVE_AXIS_RAW
+  NUMBER_THEORY -->|"CONTAINS"| PFSSV_SHELL
 ```
 
 ## 同一范围内的证据对照
@@ -113,6 +115,7 @@ flowchart TB
 | **VALUATION_DIGITS — valuation digits 局部 BRC 除法迁移**<br>原 shortest-path valuation-spectrum 源方法中的局部 digits 例程；不等于全谱原生合规。<br>[S38](#source-s38), [S46](#source-s46), [S47](#source-s47), [S48](#source-s48), [S49](#source-s49), [S50](#source-s50), [S51](#source-s51), [S52](#source-s52) | 保留既有 valuation/digit 定义与调用合同，不声称新定理或 family。 | 不新增 Lean 覆盖声称。 | 已发布可移植重放记录 288 次原生 DIV facade 求值、10 个合法 digit 案例、8 个独立拒绝及 11 个进入 histogram 前的 caller 边界。源元数据/静态检查另有回执；本图均未重跑，未执行全谱回归。 | SOURCE_ONLY：局部 digits 替换及证据包已在 owner b506f92a 应用/发布；未入 main、无正式准入；旧十九对象快照另行固定保留。 | 仅 owner 来源/索引证据，不新增正式 Task/Result/Driver 接受。 |
 | **PP_MOMENT_NOGO — Perfect Prime m3 普通幂矩 no-go**<br>正 q0 归一化后的精确历史 m=3 cofactor 列；普通幂矩表示与有限可交换阶乘观测分开。<br>[S53](#source-s53), [S54](#source-s54), [S55](#source-s55), [S56](#source-s56), [S57](#source-s57), [S58](#source-s58), [S59](#source-s59), [S60](#source-s60), [S61](#source-s61) | RESULT_ONLY 源结果：28 个允许的有限交替差分均正，但二次多项式的平方读出为负，排除实线上正普通幂矩测度；非负 beta 合同下的有限 BRC 恒等式仍成立。 | 不新增 Lean 覆盖声称。 | 仅冻结的历史 Fraction 审计及同代 JSON，不是新原生 BRC facade 数值证据。JSON 保存七个正 beta 并记录 28 格检查，未逐项保存全部 28 个值；纯元数据回执须独立，不导入或重跑该审计。 纯元数据查询与两项拒绝有独立冻结回执；新 helper 静态检查仅选择 validator.py。 | 已经 PR1404 在 44243768 以 MAIN RESULT_ONLY 合流；九文件承载保留原 method 对象、空 API 和 null family。实际合并树与受测组合相同，不增加可执行有限 BRC 消费者或正式接受。 | 本结果索引不建立正式 Task/Result/Driver 接受、Working Truth 或 Foundation 状态。 |
 | **INJECTIVE_AXIS_RAW — 正支撑单射轴的 raw 稳定性**<br>同一 anchor 和带实际轴标签的 raw X6 chart，有限 Jordan 正负人口；一条实际物理轴在全部正支撑上单射，不用混合坐标伪造新轴。<br>[S62](#source-s62), [S63](#source-s63), [S64](#source-s64), [S65](#source-s65), [S44](#source-s44), [S45](#source-s45) | 任意有限正支点数的纸面证明：全部二十张 raw 表给出 D>=10P-2N+10&#124;P-N&#124;+12N_empty>=4M。恰三正 q_i=(a_i,r_i) 且 a_i 互异时，将 R={r_i} 去重，置 W_r=sum_(j:r_j=r)w_j；取等当且仅当 n=sum c_(i,r)delta_(a_i,r)，c>=0，仅允许 Ham(r,r_i)=1，行和 w_i、列和 W_r。整个单射轴类有非零六 Cell 的 sharp 1/4 见证。 | 未声称新增 Lean 证明或覆盖。 | 仅纸面；未执行或新增消费者、LP、求流程序、模板枚举、数值重放，也未扩展既有 p<=1/p<=2 程序输入域。 | 已在 owner 528ea6aa 以 SOURCE_ONLY 发布论文、逐字相同的独立审稿归档及 source-adoption 回执。回执保留原 TEMP 准备状态与审查时点，发布不将其改称新执行；未作数学主线准入。 | 仅内部纸面审阅，不建立正式 Task/Result/Driver 接受、Working Truth、Foundation 或 API。 |
+| **PFSSV_SHELL — 素因子半素数薄壳审查与整改**<br>既有 PFSSV 任务：精确 p<=q、X<pq<=floor((1+eta)X) 薄壳，以 D(pq)=(p,q,0) 作派生 min-zero 素因子坐标表示；S3 展开仅作显示诊断，不建立新原生点本体或度量。这是数论实验收尾，不是 X6 结果。<br>[S66](#source-s66), [S67](#source-s67), [S68](#source-s68), [S69](#source-s69), [S70](#source-s70), [S71](#source-s71), [S72](#source-s72), [S73](#source-s73), [S74](#source-s74), [S75](#source-s75), [S76](#source-s76), [S77](#source-s77) | 冻结作者回传将选中特征解释为 RESIDUE_OR_DENSITY_ARTIFACT 并声称无剩余。独立审查不认可硬目标完整闭合：基线支撑、必需素数秩坐标和持久化 profiles 均有具体缺口。既有筛选不足以支持新 residual candidate；本审查也未证明所有注册残差结构均不存在。 | 不新增 Lean 定理或覆盖声称。 | 原实验为历史 NumPy 执行。另有归档的非盲独审运行两个已公开 X=100000 discovery 小 cell（eta=1/100、1/1000），独立核素数至 50500，raw 计数为 237、25，并确认掩码／rank／序列化缺口。未重放 5050 万筛、全部 21 个 cell 或 holdout。本次图更新不执行数学，不声称原生 BRC 证书、新 API 或新盲测。 | PR1406 已在 main 6efc3fdb 恢复原七文件，保留 source 1cac434c 字节。独审、Driver REQUEST_REVISION 及同 task generation-2 followup 已在 source fc6d7bc6ed4c92363b8abd4889575bef69a9328f 发布，现已由 PR1408 合入 main be350eb1b0eeb2a9a07a23a43ee3c8170e93b4b4。这里只完成 Driver 整改登记；科学硬目标仍未闭合，不声称整改后的实验已完成或已获接受。 | 已发布 Driver 审查 DR-FDDA90E2280E08CA5A35 要求修订原 Result，不接受硬目标完整闭合；真实成功 followup DFU-19973107B48580C086E7 已为同 task 发布 TP2-2029B5CCC5EEC5F0132C。不声称科研整改已完成、新 claim、Working Truth、canonical promotion 或父目标闭合。 |
 
 ## 未完前沿与已有下一步
 
@@ -123,6 +126,7 @@ flowchart TB
 | 当前收尾 | A3_A4_REVIEW | 不能把环境商秩等同可实现状态所需最少数据；不新建研究任务。 | 使用已准入的窄纠正，收尾原 PR955 正式 Driver 审查；保留不受影响的原论证，不重复已完成源准入。 |
 | 当前收尾 | H0O | 无非代数性声称；真正混合的其他核或显式 exceptional cycles 仍开放。 | 在精确范围审保留的 TP2-A314F727276CFF8CE168 / RR-FB3CF77C4F611FDED79B；不从图中重新 claim/研究。 |
 | 当前收尾 | VALUATION_DIGITS | 素性、histogram/Fraction 算术及广泛导入仍有独立边界。helper 可收集局部 trace；未变更的 public 谱 API 不返回或持久化 digit trace。局部证据不是全谱或传递原生合规。 | 保留局部迁移及实际 caller 边界；仅继续被明确选中的既有谱未完接口。 |
+| 当前收尾 | PFSSV_SHELL | 三项必需整改：(1) 明确全几何支撑与声明的条件性 null，因为 counts>0 目前也选择 null／平滑基线的位置；(2) 实现所要求的 (pi(p),pi(q)) 视图，不能用幸存行序号替代；(3) 持久化逐 cell 完整 raw／corrected profiles 与带符号相位输出，科学 gate 按实际数据计算。条件随机化不因“有条件”本身失效，但当前设计未建立完整占据／纯密度解释。 | 仅按 TP2-2029B5CCC5EEC5F0132C 的精确任务书和当前 canonical 领取／恢复路由续接既有未完范围。保留原七文件及原实验代次；对已打开 holdout 的再分析仍是事后分析，本图不授予 claim，也不启动新盲测。 |
 | 已有数学前沿 | NUMBER_THEORY | centered prime-radius 有 left-prime/size 假设，不推出普遍对称素数对或 Goldbach。 | 与 X6 子支并列保留 P017/Perfect Prime 原有数学前沿。 |
 | 已有数学前沿 | PERFECT_PRIME | 全 m 有限完全单调性/HCM0 及母 determinant 非消失仍 OPEN。正普通幂矩 lift 已在 m3 被单独否定；有条件的有限 BRC 阶乘表示不是被否定的 lift。 | 核实当前交接，仅从精确既有 residual/HCM0 缺口续接。保留有限阶乘观测合同，不重启已否定 block/inertia 或普通幂矩测度路线。 |
 | 已有数学前沿 | P021 | causal focusing、方向/witness 复合及物理解释仍开放。 | 在明确有限因果/观测合同内续接，不偷渡物理定理。 |
@@ -189,6 +193,7 @@ flowchart TB
 | OWNER_PORTFOLIO → PP_MOMENT_NOGO | `CONTAINS` | 原十九组合中这一未改的 RESULT_ONLY 对象已成为 main44243768 上第四个精确原对象；此边不准入其余条目。 | [S38](#source-s38), [S57](#source-s57) |
 | X6 → INJECTIVE_AXIS_RAW | `CONTAINS` | 带明确实际轴假设的 raw 坐标稳定性子方向，不建立新 family。 | [S62](#source-s62) |
 | P3_TEMPLATES → INJECTIVE_AXIS_RAW | `CONSUMES` | p3 适用范围消费既有 D 型坐标分型及 41/16 计数；任意 p 不等式本身不依赖枚举。 | [S44](#source-s44), [S45](#source-s45), [S62](#source-s62) |
+| NUMBER_THEORY → PFSSV_SHELL | `CONTAINS` | 既有半素数素因子坐标实验归于算术主线。仅表示组织归属，不声称依赖 Legendre／Perfect Prime 定理、已执行 BRC，或从 A2 商／A5／X6 几何结果传递定理。 | [S66](#source-s66) |
 
 ## 不可变来源与证据深度
 
@@ -394,6 +399,42 @@ source ID 在此解析，SHA256 固定文件字节；不可变文件链接不证
 
 <a id="source-s65"></a>
 - **S65** [既有单正论文：纸面复用 (5,2) 纤维账本](https://github.com/awdawmip/enterprise-math/blob/4424376809ddb7c41180453fa85f29a72d585a3e/research_notes/OWNER_ONE_POSITIVE_STABILITY_20260907.md); `FROZEN_MAIN_SOURCE`; SHA256 `b49eac9291c7b6a6ec458a133700ee17a4573972e58787a976871512746dd4e7`.
+
+<a id="source-s66"></a>
+- **S66** [PFSSV 原硬目标任务书](https://github.com/awdawmip/enterprise-math/blob/6efc3fdbad07bddee88270d10fc0ca2554a1184c/research_tasks/PRIME_FACTOR_SEMIPRIME_SHELL_RESIDUAL_VALIDATION_20260827.md); `FROZEN_MAIN_SOURCE`; SHA256 `b4e6011b736026ab2a5fc247f8a3750163cd33909fe25cf04bec6391078157d3`.
+
+<a id="source-s67"></a>
+- **S67** [PFSSV 冻结原回传；完整收尾声称未获独立审查认可](https://github.com/awdawmip/enterprise-math/blob/6efc3fdbad07bddee88270d10fc0ca2554a1184c/research_returns/PRIME_FACTOR_SEMIPRIME_SHELL_RESIDUAL_VALIDATION_RETURN_20260827.md); `RETURN_DECLARATION_NOT_REVIEW`; SHA256 `78963ec2070cc872806fce3e252a4136aa58334f8fe27c86aa363d2a5bb58c05`.
+
+<a id="source-s68"></a>
+- **S68** [PFSSV 原 NumPy checker；本图草稿未执行](https://github.com/awdawmip/enterprise-math/blob/6efc3fdbad07bddee88270d10fc0ca2554a1184c/scripts/check_prime_factor_semiprime_shell_residual_validation.py); `FROZEN_MAIN_SOURCE`; SHA256 `8772484435d77abf74e87a6f053a0edaf4fa9395bdbade93ede2413083f22140`.
+
+<a id="source-s69"></a>
+- **S69** [PFSSV 原 result summary；历史有限实验输出](https://github.com/awdawmip/enterprise-math/blob/6efc3fdbad07bddee88270d10fc0ca2554a1184c/research_artifacts/PRIME_FACTOR_SEMIPRIME_SHELL_RESIDUAL_VALIDATION/result_summary.json); `RETURN_DECLARATION_NOT_REVIEW`; SHA256 `473cc5ed0d43373e91a41db7c37af1a9922d0d145f419dffbe62ee2bf874cff9`.
+
+<a id="source-s70"></a>
+- **S70** [PFSSV 独立硬目标审查；不是新实验](https://github.com/awdawmip/enterprise-math/blob/fc6d7bc6ed4c92363b8abd4889575bef69a9328f/research_artifacts/PFSSV_DRIVER_REVIEW_20260908/INDEPENDENT_REVIEW.md); `PUBLISHED_PIN_READBACK`; SHA256 `53db4b935131fe33f9b084ba4014fad29af2c141aab2cb400fee063a1d01ec6a`.
+
+<a id="source-s71"></a>
+- **S71** [原有界独审脚本；保留历史调用](https://github.com/awdawmip/enterprise-math/blob/fc6d7bc6ed4c92363b8abd4889575bef69a9328f/research_artifacts/PFSSV_DRIVER_REVIEW_20260908/small_boundary_review.py); `PUBLISHED_PIN_READBACK`; SHA256 `463a082b919283220892373f40d05a0f27bfe91ef2b8d3be13bc7c8998ff60f7`.
+
+<a id="source-s72"></a>
+- **S72** [原有界非盲独审回执；本图未重放](https://github.com/awdawmip/enterprise-math/blob/fc6d7bc6ed4c92363b8abd4889575bef69a9328f/research_artifacts/PFSSV_DRIVER_REVIEW_20260908/small_boundary_receipt.json); `PUBLISHED_RECEIPT_NOT_REEXECUTED`; SHA256 `d4f1f3c976c4fd9ed391e673c890eea0d5c8b5bc9c2222889687adcbde005f66`.
+
+<a id="source-s73"></a>
+- **S73** [已发布 PFSSV Driver REQUEST_REVISION 记录](https://github.com/awdawmip/enterprise-math/blob/fc6d7bc6ed4c92363b8abd4889575bef69a9328f/research_result_reviews/RR-3287C6124F8D8A1F0901/DR-FDDA90E2280E08CA5A35.json); `PUBLISHED_PIN_READBACK`; SHA256 `7a5f46bfabd0dbe15cd305f10556b6d62ee9c90325f27891c8f5e0abeb148b6f`.
+
+<a id="source-s74"></a>
+- **S74** [已发布 PFSSV Driver 审稿](https://github.com/awdawmip/enterprise-math/blob/fc6d7bc6ed4c92363b8abd4889575bef69a9328f/driver_reviews/PFSSV_FROZEN_RETURN_REVISION_REQUEST_20260908.md); `PUBLISHED_PIN_READBACK`; SHA256 `5d313aae3df3b3da3d7fcb7b048057be61d1c3b1a92b9ce2b33e9e06f19ae302`.
+
+<a id="source-s75"></a>
+- **S75** [同 task PFSSV generation-2 整改任务书](https://github.com/awdawmip/enterprise-math/blob/fc6d7bc6ed4c92363b8abd4889575bef69a9328f/research_tasks/PRIME_FACTOR_SEMIPRIME_SHELL_RESIDUAL_VALIDATION_REVISION_20260908.md); `PUBLISHED_PIN_READBACK`; SHA256 `e1b35c812f66f105a55af54ad258d3f5381f8de33ac598ff3d806ba7b0ca0c0f`.
+
+<a id="source-s76"></a>
+- **S76** [PFSSV generation-2 不可变发布](https://github.com/awdawmip/enterprise-math/blob/fc6d7bc6ed4c92363b8abd4889575bef69a9328f/research_task_records/RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION/TP2-2029B5CCC5EEC5F0132C.json); `PUBLISHED_PIN_READBACK`; SHA256 `adaea5673bbc0881ed28f69ffd286cf145730cb6ed39e3e665ea1e78e02f4b9f`.
+
+<a id="source-s77"></a>
+- **S77** [已提交 PFSSV Driver followup 包](https://github.com/awdawmip/enterprise-math/blob/fc6d7bc6ed4c92363b8abd4889575bef69a9328f/research_driver_followups/DR-FDDA90E2280E08CA5A35/DFU-19973107B48580C086E7.json); `PUBLISHED_PIN_READBACK`; SHA256 `9ca06c55a0e6e802e6cc60aa8dd252aecfb84776d75ba7d006f8874ec8ebb8ae`.
 
 ## 维护方法
 
