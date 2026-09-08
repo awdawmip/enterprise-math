@@ -1,0 +1,83 @@
+{
+  "schema": "PFN_FACTUAL_DISPATCH_RECEIPT_EXTRACT_V1",
+  "capture_mode": "ALLOWLIST_EXTRACT_NOT_RAW_RECEIPT",
+  "raw_source": {
+    "path": "D:/em/TEMP/state-resume-20260908/owner-canonical-redispatch-after-pfn-release.json",
+    "sha256": "2087198cf720be527aac9bd1d198d2eba2a68236d6daa6399cb71db7456c6014",
+    "git_blob": "7b6abdd29c24f07ab55f2e05ccaa1d6ae72b46a4",
+    "bytes": 10947,
+    "CRLF_count": 0
+  },
+  "selected_fields": {
+    "schema": "OWNER_CANONICAL_REDISPATCH_AFTER_UNEXECUTED_PFN_HANDOFF_V2",
+    "at": "2026-09-08T13:37:58.782660+00:00",
+    "elapsed_seconds": 174.13396249999641,
+    "source_snapshot": "3db36e3b996351ec04e2c6ec318448c8b1443b61",
+    "comments": 740,
+    "integrated_main": "a8ac21f9e1b1685dcefe3631f6f754e5425f7d4e",
+    "owner_intent_source": "fabe2a359cc5f2460a59d08abe462b1bb24c2593",
+    "owner_intent_exact_bytes_loaded_for_read_snapshot": true,
+    "claim_comment_id": 5585867751,
+    "release_comment_id": 5585930654,
+    "previous_authorization_receipt_sha256": "9003633fdeb8382db8fa9caa749d11d3d87d2dcd0e6771db0c54d191ddc40696",
+    "current_authorization": "DENIED_NO_WINNING_LIVE_CLAIM",
+    "denial_reason": "registered execution requires a current winning live Issue #240 CLAIM",
+    "pfn_mathematical_execution": false,
+    "prior_verification_wrapper_failures": "Two wrappers incorrectly expected a false return; the canonical guard actually raises RuntimeAuthorizationError. Their original failure outputs remain; this wrapper handles only that exact expected denial.",
+    "route": {
+      "action": "CLAIM_NEW_OWNER",
+      "surface": "ORDINARY_TASK",
+      "target_key": "RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION",
+      "owner_claim_preserved": false,
+      "new_claim_required": true,
+      "reason": "fresh canonical task selector returned a dispatchable target",
+      "target": {
+        "task_id": "RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION",
+        "publication_id": "TP2-032D4712B5CB0E5D2376",
+        "state": "HANDOFF_READY",
+        "dispatch_state": "NEEDS_DISPATCH",
+        "claim_id": null
+      }
+    }
+  },
+  "field_selection": {
+    "top_level": [
+      "schema",
+      "at",
+      "elapsed_seconds",
+      "source_snapshot",
+      "current_main",
+      "main_delta_only_unrelated_research_note",
+      "comments",
+      "events",
+      "comments_sha256",
+      "integrated_main",
+      "owner_intent_source",
+      "owner_intent_exact_bytes_loaded_for_read_snapshot",
+      "claim_comment_id",
+      "release_comment_id",
+      "previous_authorization_receipt_sha256",
+      "current_authorization",
+      "denial_reason",
+      "pfn_mathematical_execution",
+      "prior_verification_wrapper_failures"
+    ],
+    "route": [
+      "action",
+      "surface",
+      "target_key",
+      "owner_claim_preserved",
+      "new_claim_required",
+      "reason"
+    ],
+    "route_target": [
+      "task_id",
+      "publication_id",
+      "state",
+      "dispatch_state",
+      "claim_id"
+    ]
+  },
+  "omitted": "Other-task frontier/next_action/title/source metadata, unrelated quarantines/startup payloads, and any full comment/event collection. Counts and source hashes are retained when present.",
+  "verification": "Each selected field below is exactly equal to the corresponding supplied raw receipt field; no dispatch or runtime re-execution."
+}
