@@ -1,0 +1,82 @@
+{
+  "canonical_promotion_granted": false,
+  "created_at": "2026-09-08T09:52:25.354611+00:00",
+  "decision": "TASK_SET_PUBLISHED",
+  "driver_id": "EM-DVR-01E1D9",
+  "foundation_authority_granted": false,
+  "gate_decisions": [
+    {
+      "decision": "NOT_REQUIRED",
+      "evidence_refs": [
+        "driver_reviews/PFSSV_FROZEN_RETURN_REVISION_REQUEST_20260908.md",
+        "research_artifacts/PFSSV_DRIVER_REVIEW_20260908/INDEPENDENT_REVIEW.md"
+      ],
+      "gate": "MATHEMATICAL_CONTINUATION",
+      "reason": "The next action repairs the unchanged hard target within the same task. No density-respecting second-order successor question is authorized by this spec."
+    },
+    {
+      "decision": "NOT_REQUIRED",
+      "evidence_refs": [
+        "driver_reviews/PFSSV_FROZEN_RETURN_REVISION_REQUEST_20260908.md",
+        "research_artifacts/PFSSV_DRIVER_REVIEW_20260908/INDEPENDENT_REVIEW.md"
+      ],
+      "gate": "LEAN_FORMALIZATION",
+      "reason": "This REQUEST_REVISION or RETURN_TO_OWNER does not accept a theorem or request L4/Foundation admission; the current gap is the empirical experiment and its required outputs."
+    },
+    {
+      "decision": "NOT_REQUIRED",
+      "evidence_refs": [
+        "driver_reviews/PFSSV_FROZEN_RETURN_REVISION_REQUEST_20260908.md",
+        "research_artifacts/PFSSV_DRIVER_REVIEW_20260908/INDEPENDENT_REVIEW.md"
+      ],
+      "gate": "EXTERNAL_PRIOR_ART_DUPLICATION",
+      "reason": "No acceptance, novelty claim, or new method registration is made. This bounded revision checks compliance with the already published task."
+    },
+    {
+      "decision": "NOT_REQUIRED",
+      "evidence_refs": [
+        "driver_reviews/PFSSV_FROZEN_RETURN_REVISION_REQUEST_20260908.md",
+        "research_artifacts/PFSSV_DRIVER_REVIEW_20260908/INDEPENDENT_REVIEW.md"
+      ],
+      "gate": "INDEPENDENT_REPLICATION",
+      "reason": "This spec returns the original hard-target defects for correction; it does not certify independent replication or publish a separate replication task. Any later acceptance must re-evaluate evidence and independence."
+    },
+    {
+      "decision": "NOT_REQUIRED",
+      "evidence_refs": [
+        "driver_reviews/PFSSV_FROZEN_RETURN_REVISION_REQUEST_20260908.md",
+        "research_artifacts/PFSSV_DRIVER_REVIEW_20260908/INDEPENDENT_REVIEW.md"
+      ],
+      "gate": "INTEGRATION_OR_TOOL_HARVEST",
+      "reason": "The reviewed RR declares RESULT_ONLY. No executable-tool harvest, integration, or promotion is approved by this revision request."
+    },
+    {
+      "decision": "NOT_REQUIRED",
+      "evidence_refs": [
+        "driver_reviews/PFSSV_FROZEN_RETURN_REVISION_REQUEST_20260908.md",
+        "research_artifacts/PFSSV_DRIVER_REVIEW_20260908/INDEPENDENT_REVIEW.md"
+      ],
+      "gate": "ADVERSARIAL_AUDIT",
+      "reason": "The immediate action is to correct the three specifically reported defects within one REVISION task, rather than publish a duplicate audit task. The corrected return remains subject to a new actual Driver review; this choice does not certify the repair."
+    }
+  ],
+  "packet_id": "DFU-19973107B48580C086E7",
+  "parent_objective_id": "PROGRESSIVE_PLANE_PRIME_SEMIPRIME_COORDINATE_DISCOVERY",
+  "policy": "AUTO_PUBLISH_TASKSET_OR_PARENT_CLOSE_V1",
+  "result_id": "RR-3287C6124F8D8A1F0901",
+  "review_destination_class": "NONE",
+  "review_disposition": "REQUEST_REVISION",
+  "review_id": "DR-FDDA90E2280E08CA5A35",
+  "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_FOLLOWUP_V1",
+  "source_next_control_plane_recommendation": "Driver review this as a clean negative decomposition. If accepted, close the naive semiprime factor-shell occupancy route at RESIDUE_OR_DENSITY_ARTIFACT strength; publish any density-respecting second-order residual experiment only as a separate successor task rather than upgrading this result.",
+  "source_publication_id": "TP2-8EE46AA7741B8867DAF3",
+  "task_id": "RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION",
+  "task_publications": [
+    {
+      "publication_id": "TP2-2029B5CCC5EEC5F0132C",
+      "task_id": "RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION",
+      "task_role": "REVISION"
+    }
+  ],
+  "working_truth_granted": false
+}

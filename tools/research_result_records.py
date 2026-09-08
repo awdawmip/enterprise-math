@@ -572,12 +572,8 @@ def command_review_with_authority(args: argparse.Namespace) -> int:
             created_at=args.followup_created_at,
             root=ROOT,
         )
-        followup_errors = _driver_followup.audit(ROOT)
-        if followup_errors:
-            raise ResultRecordError(
-                "review/follow-up materialized but follow-up audit failed: "
-                + "; ".join(followup_errors)
-            )
+        # A successful canonical materialize return has already validated the
+        # exact persisted candidate and the current CI isolation chain.
     else:
         state = _review_evidence.state(args.result_id, ROOT)
         followup = {

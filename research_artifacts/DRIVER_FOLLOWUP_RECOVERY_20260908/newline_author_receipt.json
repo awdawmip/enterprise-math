@@ -1,0 +1,62 @@
+{
+  "status": "PASS_BOUNDED_NEWLINE_BOUNDARY",
+  "base_sha": "15522052b267a757aee8c834aadf4a19b0ddc76e",
+  "worktree": "D:\\em\\control-followup-taskbook-newlines-20260908",
+  "cause": "On Windows canonical prepare_taskbook succeeds and writes CRLF. The transaction passed raw decoded bytes to a strict LF-only split_taskbook. The actual spec failed only after successful canonical preparation.",
+  "change": "Read only the newly prepared temporary taskbook as UTF-8 text (universal newlines), then encode UTF-8 before freezing/parsing/metadata equality/body validation; no parser or global prepare policy change.",
+  "before": {
+    "path": "before.json",
+    "sha256": "6ea318e3b7b1d3993df375fbc6c7b731051c495b43f49869a3c64d4ae8c66f99",
+    "canonical_prepare_succeeded": true,
+    "crlf_count": 80,
+    "observed_error": "missing ENTERPRISE_MATH_TASK_V1 frontmatter",
+    "original_prepared_sha256": "9ba8032db866bfee57b6cabb8f522833ecdd2c9561cdd6ae610bec57fabb8624"
+  },
+  "after": {
+    "path": "after.json",
+    "sha256": "1aa75a20b4fc9808e8b1afb68fc05633c64ea5c2ae5ea74ee4fd3ee5cab80afd",
+    "canonical_prepare_succeeded": true,
+    "same_content_after_newline_normalization": true,
+    "metadata_equal": true,
+    "prepared_sha256": "e1b35c812f66f105a55af54ad258d3f5381f8de33ac598ff3d806ba7b0ca0c0f"
+  },
+  "tests": {
+    "receipt": "focused.json",
+    "sha256": "66dd2b00f9ed8c067dc18c4a527858085e37119e79fb9cd78ea21e6319dd4964",
+    "new_tests": 6,
+    "existing_driver_contract_tests": 12,
+    "total": 18,
+    "outcome": "PASS",
+    "unittest_elapsed_seconds": 0.731,
+    "boundaries": [
+      "LF bytes unchanged",
+      "CRLF becomes exact same complete LF bytes; strict parser remains strict",
+      "missing frontmatter rejected",
+      "returned-vs-parsed metadata mismatch rejected",
+      "invalid body rejected",
+      "invalid UTF8 rejected"
+    ],
+    "fixture_scope": "New tests isolate successful preparer output using a test double; before/after actual captured spec separately ran real canonical prepare. No permission, task or review state is granted by either."
+  },
+  "preservation": {
+    "base_entries": 4723,
+    "other_base_entries_exact_blob_bytes": 4722,
+    "production_statement_and_comment_only": true,
+    "strict_parser_and_global_prepare_unchanged": true,
+    "all_materialize_and_rollback_logic_byte_identical": true,
+    "no_source_data_or_registry_changes": true,
+    "diff_check_exit_code": 0
+  },
+  "not_executed": [
+    "second review",
+    "actual materialize",
+    "mathematics",
+    "remote writes",
+    "git add or commit"
+  ],
+  "root_durable_review": "DR-FDDA90E2280E08CA5A35 already persisted; not touched by this work",
+  "root_retry_failure_log": {
+    "path": "root-retry2.stderr.txt",
+    "sha256": "2b152ad03ce23da9ba468b16b6dc67cf5b807413cd892c067c9ccfbf8335addb"
+  }
+}

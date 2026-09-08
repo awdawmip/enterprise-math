@@ -49,6 +49,47 @@ def _packet_bytes(value: dict[str, Any]) -> bytes:
     ).encode("utf-8")
 
 
+def _validate_packet_candidate(
+    packet: dict[str, Any], root: Path, *, persisted: bool,
+) -> None:
+    """Validate this write without interpreting unrelated pending work as failure."""
+    import research_driver_followup as impl
+    from control_plane import research_driver_followup_fault_isolation as isolation
+
+    impl.validate_packet(packet, root)
+    path = root / "research_driver_followups" / packet["review_id"] / f"{packet['packet_id']}.json"
+    related = [
+        row for row in isolation._raw_packets(root)
+        if row.get("review_id") == packet["review_id"]
+        or row.get("packet_id") == packet["packet_id"]
+    ]
+    if not persisted:
+        if related:
+            raise DriverFollowupTransactionError("follow-up candidate has an existing review/packet identity")
+        return
+    if len(related) != 1 or related[0].get("_path") != path.relative_to(root).as_posix():
+        raise DriverFollowupTransactionError("materialized follow-up is not the unique exact review packet")
+    if not path.is_file() or path.read_bytes() != _packet_bytes(packet):
+        raise DriverFollowupTransactionError("materialized follow-up differs from frozen candidate bytes")
+
+
+def _candidate_post_audit(
+    packet: dict[str, Any], root: Path, *, created: list[_tx.PlannedFile],
+) -> list[str]:
+    """Combine the current CI isolation gate with full validation of this write."""
+    from control_plane import check_driver_followup_nonoperational_review_fault_isolated as checker
+
+    errors = list(checker.audit(root))
+    try:
+        _validate_packet_candidate(packet, root, persisted=True)
+    except Exception as exc:
+        errors.append(str(exc))
+    for planned in created:
+        if not planned.path.is_file() or planned.path.read_bytes() != planned.content:
+            errors.append(f"materialized follow-up source differs from frozen candidate bytes: {planned.path}")
+    return errors
+
+
 def _rollback_owned(created: list[_tx.PlannedFile]) -> list[str]:
     """Remove only unchanged bytes created by this invocation."""
     errors: list[str] = []
@@ -95,7 +136,8 @@ def _prepared_taskbook_bytes(
             parent_objective_id=parent,
             root=root,
         )
-        prepared = candidate.read_bytes()
+        # Freeze the same LF text that canonical preparation validated.
+        prepared = candidate.read_text(encoding="utf-8").encode("utf-8")
         parsed, body = research_taskbook.split_taskbook(prepared.decode("utf-8"))
         if parsed != meta:
             raise DriverFollowupTransactionError(
@@ -167,7 +209,8 @@ def materialize(
         out = root / "research_driver_followups" / review_id / f"{packet['packet_id']}.json"
         planned = _tx.PlannedFile(out, _packet_bytes(packet))
         try:
-            _tx.commit([planned], postcheck=lambda: impl.audit(root))
+            _validate_packet_candidate(packet, root, persisted=False)
+            _tx.commit([planned], postcheck=lambda: _candidate_post_audit(packet, root, created=[planned]))
         except Exception as exc:
             raise DriverFollowupTransactionError(str(exc)) from exc
         return {**packet, "record_path": out.relative_to(root).as_posix()}
@@ -272,10 +315,11 @@ def materialize(
             / f"{packet['packet_id']}.json"
         )
         packet_file = _tx.PlannedFile(packet_path, _packet_bytes(packet))
+        _validate_packet_candidate(packet, root, persisted=False)
         _tx.commit([packet_file])
         created.append(packet_file)
 
-        errors = impl.audit(root)
+        errors = _candidate_post_audit(packet, root, created=created)
         if errors:
             raise DriverFollowupTransactionError(
                 "follow-up audit failed: " + "; ".join(errors)

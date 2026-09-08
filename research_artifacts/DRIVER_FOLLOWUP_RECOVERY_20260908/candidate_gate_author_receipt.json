@@ -1,0 +1,203 @@
+{
+  "status": "PASS_BOUNDED_CANDIDATE_SCOPED_TRANSACTION",
+  "base_sha": "a2816cd2b626856e5602fda83ceac3e81d199b8c",
+  "worktree": "D:\\em\\control-followup-post-audit-20260908",
+  "decision": "Owner explicitly authorized full validation of this transaction candidate plus the current CI isolation gate, while preserving unrelated pending work and raw historical diagnostics. No baseline-error whitelist or new isolation registry was introduced.",
+  "not_a_global_raw_audit_pass": {
+    "observed_historical_packet_errors": 39,
+    "observed_pending_reviews_without_followup": 9,
+    "observed_old_packet_errors_in_current_15_isolation_rows": 0,
+    "raw_and_public_audits_unchanged": true,
+    "historical_faults_not_newly_exempted": true
+  },
+  "production_contract": [
+    "Both PARENT_OBJECTIVE_CLOSURE and TASK_SET_PUBLISHED validate_packet before persisting the DFU (after new TP2s exist for task sets)",
+    "A candidate cannot duplicate any raw packet review identity or packet ID",
+    "Postcheck invokes the exact current CI bootstrap/adapter audit with explicit root, then full current candidate validation",
+    "The persisted DFU must be the unique exact-path packet and byte-equal to its frozen candidate",
+    "Every PlannedFile created by this invocation must still exist with frozen bytes before success",
+    "Original rollback only removes unchanged owned bytes; tampered files remain and are reported",
+    "The first-review facade trusts successful canonical materialize, removing its redundant global guard.audit call",
+    "Previously verified Windows newline normalization and six regressions are included"
+  ],
+  "validation": {
+    "receipt": "r3-final-combination.json",
+    "sha256": "fa9c20d524951bd11986eea904bc9e3564bf5a934575d6da079ea627e582f119",
+    "tests": 20,
+    "new_fresh_subprocess_cases": 14,
+    "retained_newline_tests": 6,
+    "unittest_seconds": 35.269,
+    "cases": [
+      {
+        "case": "bad_candidate",
+        "status": "PASS",
+        "success_expected": false,
+        "failure": "packet source publication mismatch",
+        "new_frozen_packet_id": "DFU-8E007B0719C2968E4CCC",
+        "historical_raw_errors_before": 3,
+        "history_preserved_except_deliberate_fault_injection": true
+      },
+      {
+        "case": "closure",
+        "status": "PASS",
+        "success_expected": true,
+        "failure": null,
+        "new_frozen_packet_id": "DFU-CD36A5AA65FA27838511",
+        "historical_raw_errors_before": 3,
+        "history_preserved_except_deliberate_fault_injection": true
+      },
+      {
+        "case": "coordinated_drift",
+        "status": "PASS",
+        "success_expected": false,
+        "failure": "follow-up audit failed: materialized follow-up source differs from frozen candidate bytes: C:\\Users\\Administrator\\AppData\\Local\\Temp\\em-followup-candidate-1st6rey3\\research_tasks\\RS-FOLLOWUP-CANDIDATE_63b22455.md; materialized follow-up source differs from frozen candidate bytes: C:\\Users\\Administrator\\AppData\\Local\\Temp\\em-followup-candidate-1st6rey3\\research_task_records\\RS-FOLLOWUP-CANDIDATE\\TP2-978F88E13A9FDC13618B.json; refused rollback because candidate changed after creation: C:\\Users\\Administrator\\AppData\\Local\\Temp\\em-followup-candidate-1st6rey3\\research_task_records\\RS-FOLLOWUP-CANDIDATE\\TP2-978F88E13A9FDC13618B.json; refused rollback because candidate changed after creation: C:\\Users\\Administrator\\AppData\\Local\\Temp\\em-followup-candidate-1st6rey3\\research_tasks\\RS-FOLLOWUP-CANDIDATE_63b22455.md",
+        "new_frozen_packet_id": "DFU-8E007B0719C2968E4CCC",
+        "historical_raw_errors_before": 3,
+        "history_preserved_except_deliberate_fault_injection": true
+      },
+      {
+        "case": "duplicate_after",
+        "status": "PASS",
+        "success_expected": false,
+        "failure": "follow-up audit failed: materialized follow-up is not the unique exact review packet",
+        "new_frozen_packet_id": "DFU-8E007B0719C2968E4CCC",
+        "historical_raw_errors_before": 3,
+        "history_preserved_except_deliberate_fault_injection": true
+      },
+      {
+        "case": "duplicate_before",
+        "status": "PASS",
+        "success_expected": false,
+        "failure": "follow-up candidate has an existing review/packet identity",
+        "new_frozen_packet_id": "DFU-8E007B0719C2968E4CCC",
+        "historical_raw_errors_before": 3,
+        "history_preserved_except_deliberate_fault_injection": true
+      },
+      {
+        "case": "isolation_pin_drift",
+        "status": "PASS",
+        "success_expected": false,
+        "failure": "follow-up audit failed: research_driver_followup_authority_quarantines.json: DFU-19C7A4E25B8063DF91A2 packet blob drift; declared=sha1:f5225d1d054ae3cf23b904e5571a04ac92176cc9 actual=sha1:4a9670c7b85f0ed39e512130a3ad242a91d83e9d",
+        "new_frozen_packet_id": "DFU-8E007B0719C2968E4CCC",
+        "historical_raw_errors_before": 3,
+        "history_preserved_except_deliberate_fault_injection": true
+      },
+      {
+        "case": "objective_reopen",
+        "status": "PASS",
+        "success_expected": false,
+        "failure": "immutable transaction post-check failed: no-task exception is valid only after canonical parent Objective head is CLOSED",
+        "new_frozen_packet_id": "DFU-CD36A5AA65FA27838511",
+        "historical_raw_errors_before": 3,
+        "history_preserved_except_deliberate_fault_injection": true
+      },
+      {
+        "case": "packet_drift",
+        "status": "PASS",
+        "success_expected": false,
+        "failure": "follow-up audit failed: materialized follow-up differs from frozen candidate bytes; materialized follow-up source differs from frozen candidate bytes: C:\\Users\\Administrator\\AppData\\Local\\Temp\\em-followup-candidate-m2134nii\\research_driver_followups\\DR-63B22455C5E50CC214D3\\DFU-8E007B0719C2968E4CCC.json; refused rollback because candidate changed after creation: C:\\Users\\Administrator\\AppData\\Local\\Temp\\em-followup-candidate-m2134nii\\research_driver_followups\\DR-63B22455C5E50CC214D3\\DFU-8E007B0719C2968E4CCC.json",
+        "new_frozen_packet_id": "DFU-8E007B0719C2968E4CCC",
+        "historical_raw_errors_before": 3,
+        "history_preserved_except_deliberate_fault_injection": true
+      },
+      {
+        "case": "publication_drift",
+        "status": "PASS",
+        "success_expected": false,
+        "failure": "follow-up audit failed: materialized follow-up source differs from frozen candidate bytes: C:\\Users\\Administrator\\AppData\\Local\\Temp\\em-followup-candidate-nqqknjqe\\research_task_records\\RS-FOLLOWUP-CANDIDATE\\TP2-978F88E13A9FDC13618B.json; refused rollback because candidate changed after creation: C:\\Users\\Administrator\\AppData\\Local\\Temp\\em-followup-candidate-nqqknjqe\\research_task_records\\RS-FOLLOWUP-CANDIDATE\\TP2-978F88E13A9FDC13618B.json",
+        "new_frozen_packet_id": "DFU-8E007B0719C2968E4CCC",
+        "historical_raw_errors_before": 3,
+        "history_preserved_except_deliberate_fault_injection": true
+      },
+      {
+        "case": "result_missing",
+        "status": "PASS",
+        "success_expected": false,
+        "failure": "follow-up audit failed: follow-up packet references unknown review",
+        "new_frozen_packet_id": "DFU-8E007B0719C2968E4CCC",
+        "historical_raw_errors_before": 3,
+        "history_preserved_except_deliberate_fault_injection": true
+      },
+      {
+        "case": "second_review",
+        "status": "PASS",
+        "success_expected": false,
+        "failure": "follow-up audit failed: follow-up packet references unknown review",
+        "new_frozen_packet_id": "DFU-8E007B0719C2968E4CCC",
+        "historical_raw_errors_before": 3,
+        "history_preserved_except_deliberate_fault_injection": true
+      },
+      {
+        "case": "stale_isolation",
+        "status": "PASS",
+        "success_expected": false,
+        "failure": "follow-up audit failed: research_result_review_audit_quarantines.json: DR-4B7A2D91E6C0538FA124 exact audit error set drift; expected=['invalid destination_class', 'nonexistent error', 'result record digest drift', 'review artifact digest drift']; actual=['invalid destination_class', 'result record digest drift', 'review artifact digest drift']; research_result_review_audit_quarantines.json: DR-4B7A2D91E6C0538FA124 exact audit error set drift; expected=['invalid destination_class', 'nonexistent error', 'result record digest drift', 'review artifact digest drift']; actual=['invalid destination_class', 'result record digest drift', 'review artifact digest drift']",
+        "new_frozen_packet_id": "DFU-8E007B0719C2968E4CCC",
+        "historical_raw_errors_before": 3,
+        "history_preserved_except_deliberate_fault_injection": true
+      },
+      {
+        "case": "taskbook_drift",
+        "status": "PASS",
+        "success_expected": false,
+        "failure": "follow-up audit failed: TP2-978F88E13A9FDC13618B: follow-up taskbook blob drift; materialized follow-up source differs from frozen candidate bytes: C:\\Users\\Administrator\\AppData\\Local\\Temp\\em-followup-candidate-7eyf9_9i\\research_tasks\\RS-FOLLOWUP-CANDIDATE_63b22455.md; refused rollback because candidate changed after creation: C:\\Users\\Administrator\\AppData\\Local\\Temp\\em-followup-candidate-7eyf9_9i\\research_tasks\\RS-FOLLOWUP-CANDIDATE_63b22455.md",
+        "new_frozen_packet_id": "DFU-8E007B0719C2968E4CCC",
+        "historical_raw_errors_before": 3,
+        "history_preserved_except_deliberate_fault_injection": true
+      },
+      {
+        "case": "taskset",
+        "status": "PASS",
+        "success_expected": true,
+        "failure": null,
+        "new_frozen_packet_id": "DFU-8E007B0719C2968E4CCC",
+        "historical_raw_errors_before": 3,
+        "history_preserved_except_deliberate_fault_injection": true
+      }
+    ],
+    "execution_scope": "Only TEMP fixture materialization; no actual PFSSV materialize or second review. Fresh subprocesses run real bootstrap, current CI audit, source authority record loading, canonical builders, validate_packet and immutable transactions. Fault injection wraps builders/checker, never substitutes successful validators or bootstrap.",
+    "first_review_facade_scope": "The removal of the redundant global audit was statically verified; no actual first review was replayed.",
+    "held_result_boundary": "Result removal and second-review authority loss were executed; no synthetic held-result registry was invented for a separate held-source case."
+  },
+  "preservation": {
+    "base_entries": 4731,
+    "other_baseline_files_byte_identical": 4728,
+    "strict_raw_followup_and_guard_files_unchanged": true,
+    "rollback_and_existing_helpers_unchanged_except_newline": true,
+    "newline_function_ast_matches_prior_frozen_unit": true,
+    "newline_test_bytes_match_prior_frozen_unit": true,
+    "existing_facade_functions_unchanged_except_first_review_post_materialize_block": true,
+    "diff_check_exit_code": 0
+  },
+  "development_evidence": [
+    {
+      "path": "production-candidate.json",
+      "status": "Initial uncomposed candidate; missing newline was caught by root. Never treated as PASS. Preserved."
+    },
+    {
+      "tool_chunk": "26ce3e",
+      "status": "Initial small fixture failed because canonical bootstrap requires nonempty Driver authority quarantine. Corrected by copying an actual exact source row and contract, without mocking validation."
+    },
+    {
+      "path": "r1-taskset.json",
+      "status": "PASS: corrected fixture first task-set transaction"
+    },
+    {
+      "path": "r2-combination.json",
+      "status": "PASS: 19-test intermediate composition"
+    },
+    {
+      "path": "r3-final-combination.json",
+      "status": "PASS: final 20 tests; adds direct DFU-byte tamper and checks exact negative signatures"
+    }
+  ],
+  "no_actions": [
+    "actual materialize",
+    "second review",
+    "math execution",
+    "remote writes",
+    "git add",
+    "commit",
+    "push"
+  ]
+}

@@ -18,10 +18,10 @@ from control_plane import research_control_bootstrap
 from control_plane import research_nonoperational_review_source_adapter as adapter
 
 
-def audit() -> list[str]:
+def audit(root: Path = ROOT) -> list[str]:
     try:
-        research_control_bootstrap.install(ROOT)
-        return adapter.audit(ROOT)
+        research_control_bootstrap.install(root)
+        return adapter.audit(root)
     except Exception as exc:
         return [str(exc)]
 

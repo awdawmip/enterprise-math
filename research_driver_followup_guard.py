@@ -200,6 +200,15 @@ def authority_for_result(
 
 
 def authority_map(root: Path = ROOT) -> dict[str, dict[str, Any]]:
+    from tools import research_dispatch
+
+    # This scope ends before callers publish any review, taskbook or packet.
+    # Reuse the existing operational readers and reject source drift on exit.
+    with research_dispatch._dispatch_result_read_snapshot(root):
+        return _authority_map_from_snapshot(root)
+
+
+def _authority_map_from_snapshot(root: Path) -> dict[str, dict[str, Any]]:
     out: dict[str, dict[str, Any]] = {}
     for result_id in _canonical_results().result_map(root):
         authority = authority_for_result(result_id, root)
