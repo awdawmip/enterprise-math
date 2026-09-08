@@ -1,0 +1,388 @@
+{
+  "schema": "ER_CLI_POSTMERGE_NARROW_REVIEW_V1",
+  "observed_at_utc": "2026-09-08T14:13:35.421Z",
+  "status": "FIX_CONTENT_PRESERVED_FINAL_MAIN_TEST_EXECUTION_EVIDENCE_PRESENT_QUALITY_GATE_NOT_GREEN",
+  "repository": "awdawmip/enterprise-math",
+  "pr": 1413,
+  "tested_pr_combination": {
+    "commit": "f95295f55e6c2be27dbb818dd31c98f668437c9a",
+    "tree": "5856d55555e5fe555568e35dacbe2d62a44eb79f",
+    "ordered_parents": [
+      "16c0dc57842873215848dd0eb5901b37ce661310",
+      "0d839f37ffb13c3a77df530a932ebc39efac189e"
+    ],
+    "ci_pass_provenance": "Owner supplied the original PR success receipt; this review re-read immutable commit metadata, not the old full CI suite."
+  },
+  "final_merge": {
+    "commit": "4ab8c468fdf0e899fd5047923418241e2b5f1908",
+    "tree": "4add13f44745c7ead135e501dc9aaeb2a5e8eae2",
+    "ordered_parents": [
+      "e6e86195ee6c5cac9dd55ac2afa714fc448c2c5c",
+      "0d839f37ffb13c3a77df530a932ebc39efac189e"
+    ]
+  },
+  "commits_trees_and_ordered_parents_equal": false,
+  "parent_compare": {
+    "repository_full_name": "awdawmip/enterprise-math",
+    "base": "16c0dc57842873215848dd0eb5901b37ce661310",
+    "head": "e6e86195ee6c5cac9dd55ac2afa714fc448c2c5c",
+    "status": "ahead",
+    "ahead_by": 3,
+    "behind_by": 0,
+    "total_commits": 3,
+    "too_large": null,
+    "base_commit": {
+      "sha": "16c0dc57842873215848dd0eb5901b37ce661310",
+      "url": "https://api.github.com/repos/awdawmip/enterprise-math/commits/16c0dc57842873215848dd0eb5901b37ce661310",
+      "html_url": "https://github.com/awdawmip/enterprise-math/commit/16c0dc57842873215848dd0eb5901b37ce661310"
+    },
+    "merge_base_commit": {
+      "sha": "16c0dc57842873215848dd0eb5901b37ce661310",
+      "url": "https://api.github.com/repos/awdawmip/enterprise-math/commits/16c0dc57842873215848dd0eb5901b37ce661310",
+      "html_url": "https://github.com/awdawmip/enterprise-math/commit/16c0dc57842873215848dd0eb5901b37ce661310"
+    },
+    "files": [
+      {
+        "filename": "research_notes/1162_series_path_all_order_port_composition_20260908_b62d.md",
+        "status": "added",
+        "additions": 145,
+        "deletions": 0,
+        "changes": 145,
+        "previous_filename": null
+      },
+      {
+        "filename": "research_notes/1162_unequal_subdivision_order2_finite_port_jet_20260908_b62d.md",
+        "status": "added",
+        "additions": 200,
+        "deletions": 0,
+        "changes": 200,
+        "previous_filename": null
+      },
+      {
+        "filename": "research_notes/nollm_hecke_radix_multiplicative_field_sync_20260908.md",
+        "status": "added",
+        "additions": 183,
+        "deletions": 0,
+        "changes": 183,
+        "previous_filename": null
+      }
+    ]
+  },
+  "exact_final_vs_tested_tree_delta": [
+    {
+      "path": "research_notes/1162_series_path_all_order_port_composition_20260908_b62d.md",
+      "tested": null,
+      "final": {
+        "path": "1162_series_path_all_order_port_composition_20260908_b62d.md",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "5c47ed974533e5696e6849597b79cf0d9eb4b8fa",
+        "size": 7440,
+        "url": "https://api.github.com/repos/awdawmip/enterprise-math/git/blobs/5c47ed974533e5696e6849597b79cf0d9eb4b8fa"
+      }
+    },
+    {
+      "path": "research_notes/1162_unequal_subdivision_order2_finite_port_jet_20260908_b62d.md",
+      "tested": null,
+      "final": {
+        "path": "1162_unequal_subdivision_order2_finite_port_jet_20260908_b62d.md",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "809fdc5fed0f9045eb1cd5c6355336e502465e6e",
+        "size": 6869,
+        "url": "https://api.github.com/repos/awdawmip/enterprise-math/git/blobs/809fdc5fed0f9045eb1cd5c6355336e502465e6e"
+      }
+    },
+    {
+      "path": "research_notes/nollm_hecke_radix_multiplicative_field_sync_20260908.md",
+      "tested": null,
+      "final": {
+        "path": "nollm_hecke_radix_multiplicative_field_sync_20260908.md",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "a48aa17bf47d2508c2acd1368e017fdaab1e0d60",
+        "size": 8787,
+        "url": "https://api.github.com/repos/awdawmip/enterprise-math/git/blobs/a48aa17bf47d2508c2acd1368e017fdaab1e0d60"
+      }
+    }
+  ],
+  "tree_proof": {
+    "root_entries_each": 199,
+    "root_entries_identical": 198,
+    "only_changed_root_path": "research_notes",
+    "tested_notes_entries": 544,
+    "final_notes_entries": 547,
+    "all_old_note_entries_identical": true,
+    "new_notes": 3,
+    "protected_roots": [
+      {
+        "path": "tools",
+        "tested_sha": "00e45b14f33f5459987e48bd260344c0fdc33270",
+        "final_sha": "00e45b14f33f5459987e48bd260344c0fdc33270"
+      },
+      {
+        "path": "tests",
+        "tested_sha": "e085b54efe7bfcd465116128f5e7cf1e40739f3e",
+        "final_sha": "e085b54efe7bfcd465116128f5e7cf1e40739f3e"
+      },
+      {
+        "path": "control_plane",
+        "tested_sha": "3065b6a1aa7cba432f26121aad25ce3bd4914137",
+        "final_sha": "3065b6a1aa7cba432f26121aad25ce3bd4914137"
+      },
+      {
+        "path": ".github",
+        "tested_sha": "fb8188819d1e87f5d3c97d0378f5fd0cb723da1c",
+        "final_sha": "fb8188819d1e87f5d3c97d0378f5fd0cb723da1c"
+      }
+    ],
+    "key_files": [
+      {
+        "path": "tools/research_execution_records.py",
+        "git_blob": "c175d82a26646a79cc7c2d66bec4b032949f7510",
+        "bytes": 18418,
+        "sha256_from_original_exact_author_freeze": "c00864bc0e645a1c1008dd8aead014fedc558ad17600db11825ff52e87db4e3a",
+        "equality_basis": "Both commits reference the same parent subtree; exact entry read from that shared immutable subtree."
+      },
+      {
+        "path": "tests/test_execution_prepare_canonical_audit.py",
+        "git_blob": "42bca3a0ad4f51c233fb70d66a2237e9d33430c6",
+        "bytes": 16393,
+        "sha256_from_original_exact_author_freeze": "5d9e3ae35da98955ca366c630ea3dde5791b501984a0f22b54f97d787f2f6bcf",
+        "equality_basis": "Both commits reference the same parent subtree; exact entry read from that shared immutable subtree."
+      }
+    ]
+  },
+  "compare_endpoint_boundary": "GitHub compare f952...4ab is merge-base-relative (merge base 0d839f37), so its 4 added markdown rows are not a two-tree delta. Nonrecursive immutable root and research_notes trees establish exactly 3 new files; the fourth compare row already exists unchanged in both trees.",
+  "final_push_workflows": [
+    {
+      "id": 34234546284,
+      "name": "bilingual-sync",
+      "url": "https://github.com/awdawmip/enterprise-math/actions/runs/34234546284",
+      "event": "push",
+      "head_sha": "4ab8c468fdf0e899fd5047923418241e2b5f1908",
+      "head_tree": "4add13f44745c7ead135e501dc9aaeb2a5e8eae2",
+      "status": "completed",
+      "conclusion": "success",
+      "updated_at": "2026-09-08T13:51:30Z"
+    },
+    {
+      "id": 34234546246,
+      "name": "reference-integrity",
+      "url": "https://github.com/awdawmip/enterprise-math/actions/runs/34234546246",
+      "event": "push",
+      "head_sha": "4ab8c468fdf0e899fd5047923418241e2b5f1908",
+      "head_tree": "4add13f44745c7ead135e501dc9aaeb2a5e8eae2",
+      "status": "completed",
+      "conclusion": "success",
+      "updated_at": "2026-09-08T13:53:29Z"
+    },
+    {
+      "id": 34234546303,
+      "name": "quality",
+      "url": "https://github.com/awdawmip/enterprise-math/actions/runs/34234546303",
+      "event": "push",
+      "head_sha": "4ab8c468fdf0e899fd5047923418241e2b5f1908",
+      "head_tree": "4add13f44745c7ead135e501dc9aaeb2a5e8eae2",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "updated_at": "2026-09-08T13:56:00Z"
+    }
+  ],
+  "final_quality_jobs": [
+    {
+      "id": 102088844918,
+      "name": "classify",
+      "status": "completed",
+      "conclusion": "success",
+      "test_steps": []
+    },
+    {
+      "id": 102088914696,
+      "name": "heavy-regression",
+      "status": "completed",
+      "conclusion": "success",
+      "test_steps": [
+        {
+          "name": "P017 mirror-cross bounded regression",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        }
+      ]
+    },
+    {
+      "id": 102088914755,
+      "name": "unit-shard (1)",
+      "status": "completed",
+      "conclusion": "success",
+      "test_steps": [
+        {
+          "name": "Unit tests shard 1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        }
+      ]
+    },
+    {
+      "id": 102088914795,
+      "name": "unit-shard (7)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "test_steps": [
+        {
+          "name": "Unit tests shard 7",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        }
+      ]
+    },
+    {
+      "id": 102088914834,
+      "name": "unit-shard (0)",
+      "status": "completed",
+      "conclusion": "success",
+      "test_steps": [
+        {
+          "name": "Unit tests shard 0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        }
+      ]
+    },
+    {
+      "id": 102088914848,
+      "name": "unit-shard (6)",
+      "status": "completed",
+      "conclusion": "success",
+      "test_steps": [
+        {
+          "name": "Unit tests shard 6",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        }
+      ]
+    },
+    {
+      "id": 102088914875,
+      "name": "unit-shard (2)",
+      "status": "completed",
+      "conclusion": "success",
+      "test_steps": [
+        {
+          "name": "Unit tests shard 2",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        }
+      ]
+    },
+    {
+      "id": 102088914926,
+      "name": "unit-shard (3)",
+      "status": "completed",
+      "conclusion": "success",
+      "test_steps": [
+        {
+          "name": "Unit tests shard 3",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        }
+      ]
+    },
+    {
+      "id": 102088914940,
+      "name": "unit-shard (4)",
+      "status": "completed",
+      "conclusion": "success",
+      "test_steps": [
+        {
+          "name": "Unit tests shard 4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        }
+      ]
+    },
+    {
+      "id": 102088914944,
+      "name": "unit-shard (5)",
+      "status": "completed",
+      "conclusion": "success",
+      "test_steps": [
+        {
+          "name": "Unit tests shard 5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        }
+      ]
+    },
+    {
+      "id": 102090411996,
+      "name": "test",
+      "status": "completed",
+      "conclusion": "failure",
+      "test_steps": [
+        {
+          "name": "Require the applicable quality gates",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 2
+        }
+      ]
+    }
+  ],
+  "cancelled_shard_evidence": {
+    "job_id": 102088914795,
+    "url": "https://github.com/awdawmip/enterprise-math/actions/runs/34234546303/job/102088914795",
+    "job_conclusion": "cancelled",
+    "actual_checkout": "4ab8c468fdf0e899fd5047923418241e2b5f1908",
+    "actual_tests": 277,
+    "unittest_seconds": 239.972,
+    "actual_test_output": "OK",
+    "exact_log_lines": [
+      "2026-09-08T13:51:44.7883107Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +4ab8c468fdf0e899fd5047923418241e2b5f1908:refs/remotes/origin/main",
+      "2026-09-08T13:51:47.0504908Z  * [new ref]         4ab8c468fdf0e899fd5047923418241e2b5f1908 -> origin/main",
+      "2026-09-08T13:51:47.0590433Z 4ab8c468fdf0e899fd5047923418241e2b5f1908",
+      "2026-09-08T13:51:47.5885592Z [command]/usr/bin/git log -1 --format=%H",
+      "2026-09-08T13:51:47.5918228Z 4ab8c468fdf0e899fd5047923418241e2b5f1908",
+      "2026-09-08T13:55:51.5598218Z Ran 277 tests in 239.972s",
+      "2026-09-08T13:55:51.5598510Z OK"
+    ],
+    "cancellation_cause": "Not inferred. Job cancellation does not erase observed test completion, but it is not a successful job conclusion."
+  },
+  "aggregate_evidence": {
+    "job_id": 102090411996,
+    "conclusion": "failure",
+    "observed_env": {
+      "CLASSIFY_RESULT": "success",
+      "UNIT_MODE": "full",
+      "UNIT_RESULT": "cancelled",
+      "HEAVY_REQUIRED": "true",
+      "HEAVY_RESULT": "success"
+    },
+    "exit_code": 1
+  },
+  "minimum_followup": "No new implementation or mathematics rerun is indicated by the three-note delta. Preserve original PR CI success separately from final push reference/bilingual success, seven successful shard jobs, shard7 actual 277-test PASS with cancelled job, heavy success, and failed aggregate. Consume the next normal commit applicable quality validation; no broad rerun or control redesign is requested by this review.",
+  "limitations": [
+    "No claim that final main quality or all CI is green.",
+    "No mathematical appraisal of the three added notes.",
+    "No inference of who or what cancelled the job.",
+    "No live repository, graph, code or CI state was mutated."
+  ],
+  "global_knowledge": "main@e5a086173024bde6e59782df4c68427bbe24e3ef / GLOBAL_KNOWLEDGE_V1",
+  "actions": {
+    "connector_GET_only": true,
+    "repo_source_edits": false,
+    "graph_edits": false,
+    "git_commit": false,
+    "remote_write": false,
+    "new_test_execution": false
+  }
+}

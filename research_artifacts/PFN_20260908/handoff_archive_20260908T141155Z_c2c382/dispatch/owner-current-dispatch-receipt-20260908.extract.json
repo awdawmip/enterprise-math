@@ -1,0 +1,76 @@
+{
+  "schema": "PFN_FACTUAL_DISPATCH_RECEIPT_EXTRACT_V1",
+  "capture_mode": "ALLOWLIST_EXTRACT_NOT_RAW_RECEIPT",
+  "raw_source": {
+    "path": "D:/em/TEMP/state-resume-20260908/owner-current-dispatch-receipt-20260908.json",
+    "sha256": "2b5584b6140a04c70ccb52b21900aa9fb28c44b51c9ed67ef38fedd3cabe46b4",
+    "git_blob": "1c52d24833bf7cfb19cc38ef3c315eec18a824d5",
+    "bytes": 10275,
+    "CRLF_count": 0
+  },
+  "selected_fields": {
+    "at": "2026-09-08T13:19:50.927003+00:00",
+    "elapsed_seconds": 155.0029424000095,
+    "source_snapshot": "3db36e3b996351ec04e2c6ec318448c8b1443b61",
+    "current_main": "48c30ef0fbddcbc1fc64ea38ec251f867723063c",
+    "main_delta_only_unrelated_research_note": true,
+    "comments": 738,
+    "events": 673,
+    "comments_sha256": "e8b9493c483e50e4e656a5c48e60e1d07e663a2599cf7907aa8e8aeb03b3f9b5",
+    "route": {
+      "action": "CLAIM_NEW_OWNER",
+      "surface": "ORDINARY_TASK",
+      "target_key": "RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION",
+      "owner_claim_preserved": false,
+      "new_claim_required": true,
+      "reason": "fresh canonical task selector returned a dispatchable target",
+      "target": {
+        "task_id": "RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION",
+        "publication_id": "TP2-032D4712B5CB0E5D2376",
+        "state": "HANDOFF_READY",
+        "dispatch_state": "NEEDS_DISPATCH",
+        "claim_id": null
+      }
+    }
+  },
+  "field_selection": {
+    "top_level": [
+      "schema",
+      "at",
+      "elapsed_seconds",
+      "source_snapshot",
+      "current_main",
+      "main_delta_only_unrelated_research_note",
+      "comments",
+      "events",
+      "comments_sha256",
+      "integrated_main",
+      "owner_intent_source",
+      "owner_intent_exact_bytes_loaded_for_read_snapshot",
+      "claim_comment_id",
+      "release_comment_id",
+      "previous_authorization_receipt_sha256",
+      "current_authorization",
+      "denial_reason",
+      "pfn_mathematical_execution",
+      "prior_verification_wrapper_failures"
+    ],
+    "route": [
+      "action",
+      "surface",
+      "target_key",
+      "owner_claim_preserved",
+      "new_claim_required",
+      "reason"
+    ],
+    "route_target": [
+      "task_id",
+      "publication_id",
+      "state",
+      "dispatch_state",
+      "claim_id"
+    ]
+  },
+  "omitted": "Other-task frontier/next_action/title/source metadata, unrelated quarantines/startup payloads, and any full comment/event collection. Counts and source hashes are retained when present.",
+  "verification": "Each selected field below is exactly equal to the corresponding supplied raw receipt field; no dispatch or runtime re-execution."
+}

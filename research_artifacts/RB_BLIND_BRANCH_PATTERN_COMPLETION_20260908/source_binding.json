@@ -1,0 +1,31 @@
+{
+  "schema": "RB_BLIND_BRANCH_PATTERN_SOURCE_BINDING_V1",
+  "task_id": "RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION",
+  "researcher_id": "EM-HODGEH0O-82EF42",
+  "claim_id": "chatgpt-rb-blind-20260908-1943ccc582e1463bbcef0c6ab3c7db1b",
+  "source_paths": [
+    {
+      "path": "research_artifacts/RB_ENTERPRISE_DEGREE6_CM24_BLIND_REPLICATION/raw_freeze_reduction.json",
+      "commit": "c73816d3552b4247861e12e476101e94a4a2ce5a",
+      "git_blob": "9a397eb108beaf7ec00e297e70f5d854e803afc8",
+      "sha256": "0740e43ae09bc28fcb2facada23ea5e9fdfa535829e547eed27d2128dd6e8207",
+      "bytes": 5980,
+      "exposure": "FULL_CONTENT_READ_WHITELISTED",
+      "executed": false
+    },
+    {
+      "path": "scripts/check_rb_enterprise_degree6_cm24_blind_replication.py",
+      "commit": "c73816d3552b4247861e12e476101e94a4a2ce5a",
+      "git_blob": "fd389162bf3fc2607bc39cf3e9ed390d9053c094",
+      "sha256": "c3ad29911348934d28e136f95dbced12fa2b9a4ccab5b7f3c40e31d46911bfe5",
+      "bytes": 3763,
+      "exposure": "FULL_CONTENT_READ_WHITELISTED",
+      "executed": false
+    }
+  ],
+  "blind_scope": "Taskbook BLIND_FORWARD: only the two exact whitelisted mathematical sources read; no originating formula, basepoint, twist, period or symbolic replay was read. This describes observed session exposure, not a proof about inaccessible history.",
+  "firewall_gate": "Taskbook has no source_firewall.mode=BLIND_INDEPENDENT field; no canonical PRE_MATH stamp is asserted or manufactured. Both whitelisted mathematical sources were actually read before this progress artifact.",
+  "raw_freeze_status": "NOT_YET_FROZEN",
+  "catalog_lookup_status": "DEFERRED_UNTIL_TASK_RAW_FREEZE",
+  "legacy_checker_status": "READ_NOT_EXECUTED; historical SymPy exact-arithmetic dependencies are not asserted native-migrated."
+}

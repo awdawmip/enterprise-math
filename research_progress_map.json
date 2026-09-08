@@ -1147,8 +1147,8 @@
       "id": "H0O",
       "kind": "frontier",
       "label": {
-        "en": "H0O captured Result awaiting review",
-        "zh-CN": "H0O 已捕获 Result 待审"
+        "en": "H0O theorem-preserving contract revision",
+        "zh-CN": "H0O 保留定理的合同整改"
       },
       "scope": {
         "en": "Pure codimension-3 Poincare-polarization intermediate support family on the same nonsplit target.",
@@ -1156,8 +1156,8 @@
       },
       "evidence": {
         "mathematics": {
-          "en": "Original Result declares NEGATIVE_BOUNDARY: this family cannot create the first exceptional seed.",
-          "zh-CN": "原 Result 声明 NEGATIVE_BOUNDARY：此族不能创造首个 exceptional seed。"
+          "en": "Preserve the scoped identity Pi_W(ch_3(Psi_Q(F)))=T_lambda(Pi_W([F]_cyc)) and its nonzero equivalence with invertible T_lambda. It cannot create exceptional output from zero exceptional input; this does not prove universal zero projection or family non-instantiability.",
+          "zh-CN": "保留限定范围的恒等式 Pi_W(ch_3(Psi_Q(F)))=T_lambda(Pi_W([F]_cyc)) 及 T_lambda 可逆给出的非零等价。它不能从零 exceptional 输入创造非零输出；这不证明全族投影为零或该族不可实例化。"
         },
         "lean": {
           "en": "No new Lean claim.",
@@ -1168,24 +1168,29 @@
           "zh-CN": "原产物/Execution record 保留；18 项捕获控制检查不是新增数学重放。"
         },
         "publication": {
-          "en": "MAIN_SOURCE_CAPTURED at b3d39a9 via PR1391. Old PR1148 closed as duplicated source, not mathematical closure.",
-          "zh-CN": "PR1391 / b3d39a9 已 MAIN_SOURCE_CAPTURED。旧 PR1148 作为重复源关闭，不是数学闭合。"
+          "en": "Original source capture remains PR1391 / b3d39a9; PR1148 closed as duplicate source, not mathematical closure. The Driver review and same-TaskID generation-2 REVISION were published at 3db36e3b and integrated by PR1412 into main a8ac21f9e1b1685dcefe3631f6f754e5425f7d4e.",
+          "zh-CN": "原来源捕获仍为 PR1391 / b3d39a9；PR1148 作为重复源关闭，不是数学闭合。Driver 审查和同 TaskID 的第二代 REVISION 已发布于 3db36e3b，并由 PR1412 合入 main a8ac21f9e1b1685dcefe3631f6f754e5425f7d4e。"
         },
         "formal_review": {
-          "en": "Canonical FROZEN_RETURN / AWAITING_REVIEW, claim null at the verified snapshot; formal Driver review pending.",
-          "zh-CN": "已核快照为 canonical FROZEN_RETURN / AWAITING_REVIEW、claim null；正式 Driver 审查待办。"
+          "en": "DR-59B956C38543808B4146 records REQUEST_REVISION / destination NONE / terminal=false at 2026-09-08T13:07:35Z. This preserves the theorem and requests correction of unsupported satisfaction/closure labels; it grants no theorem acceptance or hard-target completion.",
+          "zh-CN": "DR-59B956C38543808B4146 于 2026-09-08T13:07:35Z 记录 REQUEST_REVISION / destination NONE / terminal=false。保留定理并要求纠正无充分证据的满足/闭合标签，不授予定理接受或硬目标完成。"
         }
       },
       "frontier": {
-        "en": "No non-algebraicity claim; other genuinely mixing kernels or explicit exceptional cycles remain open.",
-        "zh-CN": "无非代数性声称；真正混合的其他核或显式 exceptional cycles 仍开放。"
+        "en": "Original output 4 remains unmet: no positive exceptional output, whole-family zero-projection theorem, or exact target-side family non-instantiability theorem is established. Exceptional source-cycle existence remains unresolved; parent HODGE_SPECIAL_OPEN_FRONTIER_ALGEBRAICITY_MECHANISM stays OPEN. No non-algebraicity, H1 or all-kernel conclusion follows.",
+        "zh-CN": "原输出 4 仍未满足：非零 exceptional 输出、全族零投影定理、目标侧该族不可实例化的精确定理，三项均未建立。exceptional 源支撑循环的存在性仍未决；父目标 HODGE_SPECIAL_OPEN_FRONTIER_ALGEBRAICITY_MECHANISM 保持 OPEN。不推出非代数性、H1 或全核结论。"
       },
       "next": {
-        "en": "Review preserved TP2-A314F727276CFF8CE168 / RR-FB3CF77C4F611FDED79B at its exact scope; do not re-claim or re-research from this map.",
-        "zh-CN": "在精确范围审保留的 TP2-A314F727276CFF8CE168 / RR-FB3CF77C4F611FDED79B；不从图中重新 claim/研究。"
+        "en": "DFU-55A50DE009218A7E6CF2 publishes the same-TaskID REVISION TP2-853EE36ED78FF34CC992 at 2026-09-08T13:07:52Z; unclaimed and unexecuted at this update. Preserve all six original obligations, account for the three terminal alternatives, and return a theorem-preserving correction with a nonempty residue if the hard target remains unproved. No new kernel search or replay of the historical 46 checks; use canonical runtime for any later claim.",
+        "zh-CN": "DFU-55A50DE009218A7E6CF2 于 2026-09-08T13:07:52Z 发布同 TaskID 的 REVISION TP2-853EE36ED78FF34CC992；本次更新时尚未领取、未执行。保留原六项义务，逐项核清三个终局，若硬目标仍未证明，则交回保留定理且有非空未决项的纠正。不搜索新核，不重放历史 46 项检查；后续领取须走 canonical runtime。"
       },
       "source_ids": [
-        "S28"
+        "S28",
+        "S93",
+        "S94",
+        "S95",
+        "S96",
+        "S97"
       ],
       "priority": "CURRENT_CLOSEOUT"
     },
@@ -1746,6 +1751,107 @@
         "S92"
       ],
       "priority": "MATHEMATICAL_FRONTIER"
+    },
+    {
+      "id": "RB_ENTERPRISE_THEOREM_PACKAGE_V2_INDEPENDENT_VALIDATION",
+      "kind": "branch",
+      "label": {
+        "en": "RB × Enterprise independent-validation route",
+        "zh-CN": "RB × 进取数论独立验证路线"
+      },
+      "scope": {
+        "en": "Organizational parent keyed exactly to RB_ENTERPRISE_THEOREM_PACKAGE_V2_INDEPENDENT_VALIDATION in the published task. This node indexes the child checkpoint only; it does not report the depth or completion of the full Ramanujan–Borwein × Enterprise package.",
+        "zh-CN": "仅组织性母节点，精确绑定已发布任务的 RB_ENTERPRISE_THEOREM_PACKAGE_V2_INDEPENDENT_VALIDATION。本节点只索引子任务检查点，不报告整个 Ramanujan–Borwein × 进取数论定理包的深度或完成度。"
+      },
+      "evidence": {
+        "mathematics": {
+          "en": "See the child assignment-coverage scope. No full-route theorem, exact map, ODE solution or completeness conclusion is inferred.",
+          "zh-CN": "只对应子任务的 assignment 覆盖范围，不推断全路线定理、精确映射、ODE 解或完备性结论。"
+        },
+        "lean": {
+          "en": "This checkpoint adds no Lean coverage for the parent route.",
+          "zh-CN": "本检查点不增加母路线的 Lean 覆盖。"
+        },
+        "program": {
+          "en": "The child has a published finite integer-enumeration receipt; no program audit of the whole RB package was performed by this map.",
+          "zh-CN": "子任务有已发布的有限整数枚举回执；本图未审计整个 RB 定理包的程序。"
+        },
+        "publication": {
+          "en": "The existing immutable task publication names this parent objective. Adding its map node is source indexing, not new task publication or theorem-package admission.",
+          "zh-CN": "既有不可变任务发布已指明该母目标；补入图节点只是来源索引，不是新任务发布或定理包准入。"
+        },
+        "formal_review": {
+          "en": "Parent OPEN. No acceptance, final raw freeze or closure is assigned to the parent by the child progress checkpoint.",
+          "zh-CN": "父目标 OPEN；子任务进展检查点不赋予母路线接受、终局 raw freeze 或闭合。"
+        }
+      },
+      "frontier": {
+        "en": "Independent validation remains open at the existing child frontier. The rest of the route is not assessed here.",
+        "zh-CN": "独立验证在既有子任务前沿继续开放；本次不评估路线的其余部分。"
+      },
+      "next": {
+        "en": "Consult the existing child source checkpoint and canonical runtime for continuation. This organizational edge changes no task priority, claim or dispatch decision.",
+        "zh-CN": "续接既有子任务来源检查点及 canonical runtime；此组织边不改变任务优先级、claim 或调度决定。"
+      },
+      "source_ids": [
+        "S104",
+        "S105"
+      ],
+      "priority": "MATHEMATICAL_FRONTIER"
+    },
+    {
+      "id": "RB_BLIND_BRANCH_PATTERNS",
+      "kind": "frontier",
+      "label": {
+        "en": "RB blind branch-pattern assignment coverage",
+        "zh-CN": "RB 盲分支模式 assignment 覆盖"
+      },
+      "scope": {
+        "en": "Existing task RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION / TP2-032D4712B5CB0E5D2376. This published BLIND_FORWARD progress covers assignments for 4+2+0+0 and 2+2+2+0, not reconstruction of the originating map.",
+        "zh-CN": "既有任务 RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION / TP2-032D4712B5CB0E5D2376。此次已发布 BLIND_FORWARD 进展覆盖 4+2+0+0 与 2+2+2+0 的 assignment，不是 originating map 的重建。"
+      },
+      "evidence": {
+        "mathematics": {
+          "en": "Assignment coverage is complete at the published scope: raw 180 / 360; at fixed lambda and k, quotienting only by target V4 gives 45 / 90 candidates. The cover-only 33 / 54 and coarser 11 / 9 do not count as fixed-parameter ODE candidates.",
+          "zh-CN": "已发布范围内 assignment 覆盖完成：原始 180 / 360；固定 lambda 与 k 时只按 target V4 取商，得到 45 / 90 个候选。cover-only 的 33 / 54 与更粗的 11 / 9 不能计作固定参数 ODE 候选。"
+        },
+        "lean": {
+          "en": "No Lean proof or formalized classification is claimed by this checkpoint.",
+          "zh-CN": "本检查点不声称 Lean 证明或形式化分类。"
+        },
+        "program": {
+          "en": "The published receipt records certificate construction/read-only replay, three focused tests and exact-arithmetic policy PASS. Integer enumeration/comparisons only; DIV, ROOT and BRC calls are zero in this step. Historical mathematical checker was read, not executed; this map reruns none of these checks.",
+          "zh-CN": "已发布回执记录证书生成/只读重放、三项定向测试及精确算术策略 PASS。本步骤只有整数枚举/比较，DIV、ROOT 和 BRC 调用均为零。历史数学 checker 只读未执行；建图未重跑这些检查。"
+        },
+        "publication": {
+          "en": "Six-file source checkpoint b8c4fb6c8e86080699c67b65b863e1ce791f1263; execution-intent source 07af62e91f5178d9538d90c310f66fc9fa73f0dc. This indexes actual published progress, not full-package main admission or a final mathematical return.",
+          "zh-CN": "六文件来源检查点 b8c4fb6c8e86080699c67b65b863e1ce791f1263；执行意向来源 07af62e91f5178d9538d90c310f66fc9fa73f0dc。这里只索引真实已发布进展，不声称全定理包主线准入或最终数学交回。"
+        },
+        "formal_review": {
+          "en": "No final raw freeze, unblinding, canonical Result or Driver acceptance at this checkpoint; parent OPEN. Source_binding records limited observed BLIND_FORWARD exposure, not a fabricated BLIND_INDEPENDENT/PRE_MATH authorization.",
+          "zh-CN": "本检查点尚未终局 raw freeze、未解盲、未生成 canonical Result、无 Driver 接受；父目标 OPEN。source_binding 记录有限可观察的 BLIND_FORWARD 暴露范围，不伪造 BLIND_INDEPENDENT/PRE_MATH 授权。"
+        }
+      },
+      "frontier": {
+        "en": "Square-class and Riemann–Roch constraints and their intersection with the frozen ODE remain in progress. Assignment counts alone do not prove an exact map, impossibility, scaling or period conclusion; source-flip and label-transport reductions cannot erase fixed-k partners.",
+        "zh-CN": "square-class、Riemann–Roch 约束及其与冻结 ODE 的交集仍在研。assignment 计数本身不证明精确映射、不可能性、缩放或周期结论；source-flip 与标签搬运的约简不能抹去固定 k 的伙伴。"
+      },
+      "next": {
+        "en": "Continue the existing durable frontier under the actual Issue240 claim 5586114827, researcher EM-HODGEH0O-82EF42, subject to canonical runtime. Preserve blind-source restrictions and freeze the permitted exact reconstruction or obstruction before unblinding. This map makes no new claim, priority or scheduling decision and supplies no originating formula to the researcher.",
+        "zh-CN": "在实际 Issue240 claim 5586114827、研究员 EM-HODGEH0O-82EF42 的既有持久化前沿上续研，并遵守 canonical runtime。保留盲来源限制，在解盲前冻结许可范围内的精确重建或阻碍。本图不新增 claim、优先级或调度决定，也不向研究员提供 originating 公式。"
+      },
+      "source_ids": [
+        "S98",
+        "S99",
+        "S100",
+        "S101",
+        "S102",
+        "S103",
+        "S104",
+        "S105",
+        "S106"
+      ],
+      "priority": "MATHEMATICAL_FRONTIER"
     }
   ],
   "edges": [
@@ -2228,6 +2334,20 @@
         "S90",
         "S91",
         "S92"
+      ]
+    },
+    {
+      "id": "RB_PARENT_CONTAINS_BLIND_BRANCH_PATTERNS",
+      "from": "RB_ENTERPRISE_THEOREM_PACKAGE_V2_INDEPENDENT_VALIDATION",
+      "to": "RB_BLIND_BRANCH_PATTERNS",
+      "type": "CONTAINS",
+      "scope": {
+        "en": "Organizational parent-objective binding from the immutable task publication only. No theorem implication, whole-route depth claim, BRC execution or inferred originating-map relation.",
+        "zh-CN": "只表达不可变任务发布中的组织性母目标绑定，不表达定理蕴涵、全路线深度、BRC 执行或推测的 originating-map 关系。"
+      },
+      "source_ids": [
+        "S104",
+        "S105"
       ]
     }
   ],
@@ -3518,6 +3638,202 @@
       "label": {
         "en": "PFSSV finite-window contract and identifiability task scope; unexecuted",
         "zh-CN": "PFSSV 有限窗合同与可辨识性任务范围；尚未执行"
+      }
+    },
+    {
+      "id": "S93",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "3db36e3b996351ec04e2c6ec318448c8b1443b61",
+      "path": "research_result_reviews/RR-FB3CF77C4F611FDED79B/DR-59B956C38543808B4146.json",
+      "sha256": "e36b7a3069031babeb72f729c28f065825d7dc825aa7284cece3e629043d5630",
+      "blob_sha1": "f1f879c3f78cb3fdd8c3ceecb62ff769d7ac5584",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "H0O immutable Driver REQUEST_REVISION record",
+        "zh-CN": "H0O 不可变 Driver REQUEST_REVISION 记录"
+      }
+    },
+    {
+      "id": "S94",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "3db36e3b996351ec04e2c6ec318448c8b1443b61",
+      "path": "research_driver_followups/DR-59B956C38543808B4146/DFU-55A50DE009218A7E6CF2.json",
+      "sha256": "0ee3bfc1393c6baf6a99ab837c3b04448ecead9d1cae23b596d11c0de0903100",
+      "blob_sha1": "c85662cb17d35c8bbe72d43a303c9ff78f30b5ab",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "H0O same-task REVISION follow-up packet",
+        "zh-CN": "H0O 同任务 REVISION 后续包"
+      }
+    },
+    {
+      "id": "S95",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "3db36e3b996351ec04e2c6ec318448c8b1443b61",
+      "path": "research_task_records/RS-HODGE-H0O-NONSPLIT-WEIL-INTERMEDIATE-SUPPORT-FM-EXCEPTIONAL-CH3/TP2-853EE36ED78FF34CC992.json",
+      "sha256": "72d79a6c97950ea4cb90fff46de6354a5a2b63696738508dd428334ef8f67207",
+      "blob_sha1": "70ca523b90438c8d1e85dbe4bc6881d178be4d2f",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "H0O generation-2 immutable revision publication",
+        "zh-CN": "H0O 第二代不可变整改发布记录"
+      }
+    },
+    {
+      "id": "S96",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "3db36e3b996351ec04e2c6ec318448c8b1443b61",
+      "path": "research_tasks/HODGE_H0O_CONTRACT_ALIGNMENT_REVISION_20260908.md",
+      "sha256": "04352a60dfb61a7c8e7926e54bd6c9edc7725a0420abda7fe8d1e3b34d407e35",
+      "blob_sha1": "9646c6985973b7978cb7e49608d1d272e5e1a643",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "H0O theorem-preserving contract-alignment revision scope",
+        "zh-CN": "H0O 保留定理的合同对齐整改范围"
+      }
+    },
+    {
+      "id": "S97",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "3db36e3b996351ec04e2c6ec318448c8b1443b61",
+      "path": "driver_reviews/HODGE_H0O_CONTRACT_ALIGNMENT_REVISION_REQUEST_20260908.md",
+      "sha256": "d7e40f5229ce0c8c687117e99e34d60bef0b7fdacf9255bd74f0e15c9e9f1894",
+      "blob_sha1": "0a81e3fc18625780375572ff542101fc8db142c9",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "H0O Driver decision: retained theorem and unmet terminal alternatives",
+        "zh-CN": "H0O Driver 判词：保留定理与未满足的终局选项"
+      }
+    },
+    {
+      "id": "S98",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "b8c4fb6c8e86080699c67b65b863e1ce791f1263",
+      "path": "scripts/check_rb_blind_branch_patterns_20260908.py",
+      "sha256": "3cfb6b09016b8d41066245f2e9bd4d06d8b13d6a4bf13a06d2bf8d628bb42a81",
+      "blob_sha1": "4efab8d7f626313ccd28dc79b5ca973c42c60bf1",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "RB blind finite assignment enumerator source",
+        "zh-CN": "RB 盲研究有限 assignment 枚举源码"
+      }
+    },
+    {
+      "id": "S99",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "b8c4fb6c8e86080699c67b65b863e1ce791f1263",
+      "path": "tests/test_rb_blind_branch_patterns_20260908.py",
+      "sha256": "4281d2769a1b15257168f8b02aeb629c69895a6c439525af6160291e8ff8dc71",
+      "blob_sha1": "b813fa9856c19c770fe8eacfc04316f58b5f6ae2",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "RB blind assignment focused tests; historical execution",
+        "zh-CN": "RB 盲研究 assignment 定向测试；历史执行"
+      }
+    },
+    {
+      "id": "S100",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "b8c4fb6c8e86080699c67b65b863e1ce791f1263",
+      "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/source_binding.json",
+      "sha256": "516400d46ae5dd5a8aa2d25520021ee3a57dc839538746a550ad2a7bfae2a473",
+      "blob_sha1": "0d740e90e03eca30ce6a3160fe315b55ffe9337e",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "RB blind checkpoint source exposure and frozen-input binding",
+        "zh-CN": "RB 盲研究检查点的来源暴露与冻结输入绑定"
+      }
+    },
+    {
+      "id": "S101",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "b8c4fb6c8e86080699c67b65b863e1ce791f1263",
+      "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/branch_assignment_classification.md",
+      "sha256": "8cbb95a5fdacf6e146e9ab934b6228a78e0180d361807a651710a83db4f89770",
+      "blob_sha1": "105ec0bc1da83cd8012af0a76a6365eaa68b10cf",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "RB blind assignment classification scope and symmetry boundaries",
+        "zh-CN": "RB 盲研究 assignment 分类范围及对称性边界"
+      }
+    },
+    {
+      "id": "S102",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "b8c4fb6c8e86080699c67b65b863e1ce791f1263",
+      "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/branch_assignment_classification.json",
+      "sha256": "a83524c6b9b8cb6e00561c014e7129c614e9b1c46eedcbd9c9e79f2ff5ee89a0",
+      "blob_sha1": "a173e6e63a1f0820123e486e0c698ac6259a0bd4",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "RB frozen assignment coverage certificate; not a terminal raw freeze",
+        "zh-CN": "RB 冻结 assignment 覆盖证书；不是终局 raw freeze"
+      }
+    },
+    {
+      "id": "S103",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "b8c4fb6c8e86080699c67b65b863e1ce791f1263",
+      "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/assignment_execution_receipt.json",
+      "sha256": "d33bc0f2ea583f763e999530ff2f024fa6046bf18670132114f1c4a641bb97f4",
+      "blob_sha1": "bde6170b850ebf968bbbb7a9c7f577b99e70188c",
+      "verification": "PUBLISHED_RECEIPT_NOT_REEXECUTED",
+      "label": {
+        "en": "RB actual assignment execution and rejection receipt",
+        "zh-CN": "RB 实际 assignment 执行与拒绝边界回执"
+      }
+    },
+    {
+      "id": "S104",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "07af62e91f5178d9538d90c310f66fc9fa73f0dc",
+      "path": "research_task_records/RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION/TP2-032D4712B5CB0E5D2376.json",
+      "sha256": "5e20459df838709d0d2657ddcf80decbcdbc5f32ff93fcfc47b7ca54477c0b48",
+      "blob_sha1": "3584ef76f5058b56c3bd163afa853c62d6f1487b",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "RB immutable blind branch-pattern task and parent-objective binding",
+        "zh-CN": "RB 不可变盲分支模式任务与母目标绑定"
+      }
+    },
+    {
+      "id": "S105",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "07af62e91f5178d9538d90c310f66fc9fa73f0dc",
+      "path": "research_tasks/RB_ENTERPRISE_DEGREE6_CM24_BLIND_BRANCH_PATTERN_COMPLETION_20260828.md",
+      "sha256": "0249807db62a8e2753a0eb38cce1a0afb1d5bc17ffce02117a8ebcba0bbe15aa",
+      "blob_sha1": "3127e4eb3b2e987075f453d773a3bb21a5c8f09c",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "RB blind branch-pattern taskbook; metadata-only map intake",
+        "zh-CN": "RB 盲分支模式任务书；建图仅取其元数据"
+      }
+    },
+    {
+      "id": "S106",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "07af62e91f5178d9538d90c310f66fc9fa73f0dc",
+      "path": "research_execution_records/RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION/ER-B78C668C38B9A9C54D9D.json",
+      "sha256": "0ed326244a2cc38c179bff4c70464aa2045faf21fdcc94eb1cb86e170a62b82d",
+      "blob_sha1": "2bcde3d0ad6c7e6c132776699fc3ce978b5b2c7a",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "RB immutable execution intent; not a substitute for the winning claim",
+        "zh-CN": "RB 不可变执行意向；不替代实际 winning claim"
       }
     }
   ],
