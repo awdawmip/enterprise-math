@@ -1,0 +1,61 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-CM24-UR-EXTERNAL-PRIOR-ART-AUDIT",
+  "registry_key": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-CM24-UR-EXTERNAL-PRIOR-ART-AUDIT",
+  "publication_id": "TP2-E133E3FC788A867C5BAD",
+  "publication_generation": 1,
+  "supersedes_publication_id": null,
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "taskbook_path": "research_tasks/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_CM24_UR_EXTERNAL_PRIOR_ART_AUDIT_20260908.md",
+  "taskbook_blob_sha1": "sha1:83e908eca0f8fd80f5520d69c5ea6cc0ec7cd641",
+  "publisher_role": "RESEARCH_DRIVER",
+  "publisher_id": "EM-DVR-3E669D",
+  "published_at": "2026-09-08T14:15:00+00:00",
+  "parent_objective_id": "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION",
+  "origin_kind": "DRIVER_ROADMAP",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-TERMINATING-JACOBI-JET-CERTIFICATE",
+  "claimable": true,
+  "effective_priority": "P1",
+  "effective_leverage": "HIGH",
+  "priority_source": "PUBLISHER_DECLARED",
+  "publisher_priority_request": "P1",
+  "publisher_leverage_request": "HIGH",
+  "owner": "research/enterprise-brc-half-inert-plus-cm24-ur-external-prior-art-audit",
+  "frontier": "Audit external literature and repositories for exact or partial antecedents of the CM(-24) inert supersingular unit-reciprocity certificate UR, separating exact duplication from partial antecedent, adjacent method, and no material match.",
+  "next_action": "Search task-specific sources for Sun A14(ii), truncated 2F1(1/6,1/3;1;1/2) inert-prime congruences, CM(-24) Hesse/Legendre Hasse derivative formulas, Dwork supersingular hypergeometric derivatives, Jacobi sums, Gross-Koblitz, and p-adic Gamma evaluations; freeze bibliographic evidence and an exact duplication classification.",
+  "research_value": "Prevent a future UR proof or reduction from being mislabeled as new when it may be a specialization of an existing supercongruence, supersingular hypergeometric derivative, or CM/Jacobi-sum theorem.",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "identity_lane": "EBP6URPA",
+  "source_refs": [
+    "research_returns/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE_RETURN_20260828.md",
+    "driver_reviews/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE_DRIVER_REVIEW_20260908.md",
+    "Zhi-Wei Sun, Open Conjectures on Congruences, arXiv:0911.5665, Conjecture A14(ii)"
+  ],
+  "dependencies": [
+    "RR-82F6383FB6634F72B457",
+    "DR-2EA60F5817976E662FA6"
+  ],
+  "evidence_status": "DRIVER_REVIEW_FOLLOWUP_V1",
+  "successor_gate": {
+    "new_information_gap": "The accepted mathematical reduction names UR precisely, but the repository contains no dedicated external-duplication audit for this exact reciprocal-scalar statement and normalization.",
+    "why_parent_result_does_not_close_it": "The parent research cites Sun A14(ii) and audits several proof technologies, but it does not classify whether UR itself, its Hesse CM(-24) derivative form, or an equivalent inert supersingular formula already appears externally.",
+    "discriminating_outcomes": [
+      "An exact external antecedent equivalent to UR is found and pinned.",
+      "Only a partial antecedent is found, with the missing normalization or inert-prime step identified exactly.",
+      "Adjacent methods are found but no material statement match is established.",
+      "A previously cited source is shown not to contain the claimed UR-strength statement."
+    ],
+    "kill_condition": "Do not infer novelty from failure to find a match. Do not treat title or keyword similarity as mathematical equivalence. Do not broaden into a generic survey unrelated to the exact UR normalization.",
+    "alternative_route_or_free_exploration_considered": "The current repository search found no dedicated UR prior-art task. Reusing the older broad reflected-product technology audit would leave the exact reciprocal-scalar duplication question unresolved, so a narrow external audit is justified.",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "The accepted review requires external duplication handling, and the mathematical successor is narrow enough that its literature firewall should be equally narrow and independently auditable."
+  }
+}
