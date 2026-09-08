@@ -1,0 +1,22 @@
+{
+  "status": "PASS_TARGETED_COMPOSITION_TESTS",
+  "date_utc": "2026-09-08",
+  "composition_parent": "15522052b267a757aee8c834aadf4a19b0ddc76e",
+  "author_patch_base": "6efc3fdbad07bddee88270d10fc0ca2554a1184c",
+  "concurrent_main_preservation": "Six intervening mathematics notes were retained by fast-forward; the affected control and test baseline bytes were unchanged.",
+  "production_sha256": {
+    "control_plane/check_result_review_binding_fault_isolated.py": "36e0ac115bfbaad79eddf7e61e8cfdac9be86763af8973a5c0f49ea5cdb93e45",
+    "tools/research_result_records.py": "e9138e122a4f583138ba1a4721353a355aa4a9e93e0af43f4c1589655d8ba1cb",
+    "tools/research_driver_queue.py": "3ef77cc9499492c73a46cf2c9c516a1a516be48f62273126deafd92d25675962"
+  },
+  "independent_static_review": "PASS: parameterized checker preserves the complete existing audit chain; both writer postchecks enter it; public raw audit and canonical bootstrap are unchanged. No recursion, double containment or broad error filtering.",
+  "root_execution": {
+    "cwd": "D:/em/integration-pfssv-review-20260908",
+    "command": "python -B -X utf8 -m unittest tests.test_result_writer_canonical_post_audit tests.test_superseded_result_audit_boundary_20260907 tests.test_result_review_binding_isolation_unittest tests.test_research_runtime_guard_cli_bootstrap tests.test_research_driver_queue_snapshot -v",
+    "tests": 24,
+    "elapsed_seconds_reported_by_unittest": 11.780,
+    "exit_code": 0,
+    "completion_tool_chunk": "b3a216"
+  },
+  "boundary": "These are actual bounded control tests and static independent review. They do not by themselves establish a successful production Driver review, followup publication, mathematical result, full-store benchmark or CI merge. Those require their own actual receipts."
+}

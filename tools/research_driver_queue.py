@@ -57,6 +57,15 @@ def queue(root: Path = ROOT) -> list[dict[str, Any]]:
 
     research_control_bootstrap.install(root)
 
+    from tools import research_dispatch
+
+    # Reuse dispatch's validated operational view for this read-only pass.
+    # Its context restores readers and rejects changed authority bytes on exit.
+    with research_dispatch._dispatch_result_read_snapshot(root):
+        return _queue_from_snapshot(root)
+
+
+def _queue_from_snapshot(root: Path) -> list[dict[str, Any]]:
     from tools import research_result_records
 
     heads = _head_publications(root)
