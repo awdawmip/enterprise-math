@@ -1,0 +1,41 @@
+{
+  "activity_id": "RA-D5C00DF7D77F4AA2ACE0",
+  "event_id": "NS-OPENAI-FORCING-AUDIT-20260909-D5C00D-01",
+  "executed_checks": {
+    "cases": 12,
+    "inequality_violation": 0,
+    "kind": "FINITE_FOURIER_FLOATING_POINT",
+    "max_directional_fd_error": 1.0179700407137233e-11,
+    "max_identity_error": 2.5242618801594815e-16,
+    "seed": 20260909
+  },
+  "findings": [
+    "Smooth force vanishes in a standard NS zoom; this does not remove forcing from the original trajectory.",
+    "For G=F_*+J+nu^2*K/4, G'+nu^3*Q/4 <= (I_NL)_+ + b(t)G with integrable b for smooth compact force.",
+    "Finite integral of (I_NL)_+/G implies continuation. A correct OpenAI compact singular candidate must violate this condition."
+  ],
+  "implementation": {
+    "commit": "c0f12c15b19fe0b3d872ed2b0b64c989ba9ac34b",
+    "git_blob_sha1": "4e0e146d6a4b2bb757da1edbdcec49e5a1aaebbb",
+    "path": "experiments/ns_openai_forcing_audit_d5c00d.py",
+    "sha256": "bb84ce19bdc9dd16e1dfefd29e8f3531ff958a3563af0fba88f2b52c23712e4a"
+  },
+  "not_performed": [
+    "Lean build",
+    "Comparator execution",
+    "full OpenAI proof audit",
+    "OpenAI candidate simulation",
+    "independent review"
+  ],
+  "note": {
+    "commit": "6927aaca1deefcae70eb3475a9b4c8434f5bd9c0",
+    "git_blob_sha1": "eb12f7807c68e5c8597b4f6e0c2237a036577b66",
+    "path": "research_notes/ns-openai-forcing-audit-20260909-d5c00d.md",
+    "repository": "awdawmip/enterprise-math",
+    "sha256": "274d8bd10beb9b31733d044fa2d04a5902b0e60ea38ec2ffb8de84d00000b758"
+  },
+  "openai_source_commit": "8937a8f4cbc7abaab5e9e97d1cc7f5d2319d9538",
+  "remaining": "Evaluate phase-resolved nonlinear injection of the actual candidate with uniform tail bounds; identify any genuinely unforced-only global constraint.",
+  "schema": "EM_RESEARCH_CHECKPOINT_V1",
+  "status": "TESTING_NOT_INDEPENDENTLY_REVIEWED"
+}
