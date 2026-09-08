@@ -1,17 +1,20 @@
 #!/usr/bin/env python3
-"""PFSSV gen2 Stage 1: exact substrate, not a scientific residual verdict.
+"""PFSSV gen2 exact substrate and capacity audit, not a residual verdict.
 
 Reuses the historical task sieve algorithm through the existing BRC facade.
-The only command runs the newly frozen bounded resource probe. Full-scale
-statistics, new blind tests and terminal research labels are not implemented.
+Commands run the frozen bounded probe or the separately published original-cell
+observation/capacity contract. Scientific screens, new blind tests and terminal
+research labels are not implemented.
 """
 from __future__ import annotations
 
 import argparse
+import base64
 from array import array
 from bisect import bisect_left, bisect_right
 from collections import Counter
 from dataclasses import asdict, is_dataclass
+import gzip
 import hashlib
 import itertools
 import json
@@ -19,6 +22,7 @@ from pathlib import Path
 import sys
 import time
 import tracemalloc
+import zlib
 
 REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO.joinpath("src")))
@@ -31,6 +35,8 @@ MAX_UPPER = 101_000_000
 SCALES = (10**6, 10**10, 10**14)
 MEMORY_CAP = 2 * 1024**3
 TRACE_CAP = 512 * 1024**2
+TRANSPORT_CAP = 50 * 1024**2
+TRACE_CHUNK_BYTES = 256 * 1024
 ARTIFACT = "research_artifacts/PFSSV_REVISION_20260908"
 
 
@@ -63,6 +69,131 @@ def _json_bytes(value) -> bytes:
     return (json.dumps(_encoded(value), sort_keys=True, separators=(",", ":")) + "\n").encode("utf-8")
 
 
+class TraceTransport:
+    """Lossless byte envelope; the mathematical trace records are unchanged."""
+    def __init__(self, stream, *, encoded: bool, byte_limit: int = TRANSPORT_CAP):
+        self.stream, self.encoded, self.byte_limit = stream, encoded, byte_limit
+        self.buffer = bytearray()
+        self.raw_hash = hashlib.sha256()
+        self.raw_bytes = self.container_bytes = self.sequence = 0
+        self.complete = self.failed = False
+        if encoded:
+            self._emit({"kind": "header", "schema": "PFSSV_TRACE_GZIP_BASE64_JSONL_V1",
+                        "raw_format": "PFSSV_NATIVE_TRACE_JSONL_V1", "chunk_raw_bytes": TRACE_CHUNK_BYTES,
+                        "compression": "gzip_mtime_0_level_6"})
+
+    def _emit(self, record):
+        payload = _json_bytes(record)
+        if self.container_bytes + len(payload) > self.byte_limit:
+            self.failed = True
+            raise ResourceBoundary("trace transport byte cap reached")
+        self.stream.write(payload)
+        self.container_bytes += len(payload)
+
+    def _chunk(self, raw: bytes):
+        self._emit({"kind": "chunk", "sequence": self.sequence, "raw_bytes": len(raw),
+                    "raw_sha256": hashlib.sha256(raw).hexdigest(),
+                    "gzip_base64": base64.b64encode(gzip.compress(raw, compresslevel=6, mtime=0)).decode("ascii")})
+        self.sequence += 1
+
+    def write(self, payload: bytes):
+        if self.complete or self.failed:
+            raise RuntimeError("trace transport is closed or failed")
+        self.raw_hash.update(payload)
+        self.raw_bytes += len(payload)
+        if not self.encoded:
+            self.stream.write(payload)
+            self.container_bytes += len(payload)
+            return
+        self.buffer.extend(payload)
+        while len(self.buffer) >= TRACE_CHUNK_BYTES:
+            self._chunk(bytes(self.buffer[:TRACE_CHUNK_BYTES]))
+            del self.buffer[:TRACE_CHUNK_BYTES]
+
+    def finish(self):
+        if self.complete or self.failed:
+            return
+        if self.encoded:
+            if self.buffer:
+                self._chunk(bytes(self.buffer))
+                self.buffer.clear()
+            self._emit({"kind": "footer", "chunk_count": self.sequence, "raw_bytes": self.raw_bytes,
+                        "raw_sha256": self.raw_hash.hexdigest()})
+        self.complete = True
+
+
+def decode_trace_transport(path: Path, output: Path | None = None) -> dict:
+    """Verify all ordered chunks and decode exact raw bytes, never evaluating math."""
+    whole = hashlib.sha256()
+    total = sequence = 0
+    short_chunk = footer = False
+    destination = None
+    try:
+        with path.open("rb") as source:
+            header_line = source.readline()
+            if not header_line.endswith(b"\n"):
+                raise ValueError("truncated trace transport header line")
+            header = json.loads(header_line)
+            expected = {"kind": "header", "schema": "PFSSV_TRACE_GZIP_BASE64_JSONL_V1",
+                        "raw_format": "PFSSV_NATIVE_TRACE_JSONL_V1", "chunk_raw_bytes": TRACE_CHUNK_BYTES,
+                        "compression": "gzip_mtime_0_level_6"}
+            if header != expected:
+                raise ValueError("invalid trace transport header")
+            if path.stat().st_size > TRANSPORT_CAP:
+                raise ValueError("trace transport exceeds authorized container budget")
+            if output is not None:
+                destination = output.open("xb")
+            for line in source:
+                if not line.endswith(b"\n"):
+                    raise ValueError("truncated trace transport record line")
+                row = json.loads(line)
+                if footer:
+                    raise ValueError("trailing trace transport records")
+                if row.get("kind") == "footer":
+                    if (type(row.get("chunk_count")) is not int or type(row.get("raw_bytes")) is not int
+                            or row["chunk_count"] != sequence or row["raw_bytes"] != total
+                            or row.get("raw_sha256") != whole.hexdigest()):
+                        raise ValueError("trace transport footer mismatch")
+                    footer = True
+                    continue
+                if (row.get("kind") != "chunk" or type(row.get("sequence")) is not int
+                        or row["sequence"] != sequence or short_chunk):
+                    raise ValueError("invalid trace transport sequence")
+                size = row.get("raw_bytes")
+                if type(size) is not int or not 1 <= size <= TRACE_CHUNK_BYTES:
+                    raise ValueError("invalid trace chunk size")
+                try:
+                    packed = base64.b64decode(row["gzip_base64"], validate=True)
+                    decoder = zlib.decompressobj(31)
+                    raw = decoder.decompress(packed, TRACE_CHUNK_BYTES + 1)
+                except (ValueError, KeyError, zlib.error) as exc:
+                    raise ValueError("invalid compressed trace chunk") from exc
+                if (len(raw) != size or not decoder.eof or decoder.unused_data or decoder.unconsumed_tail
+                        or hashlib.sha256(raw).hexdigest() != row.get("raw_sha256")):
+                    raise ValueError("trace chunk bytes or hash mismatch")
+                total += size
+                if total > TRACE_CAP:
+                    raise ValueError("decoded raw trace exceeds authorized budget")
+                whole.update(raw)
+                if destination is not None:
+                    destination.write(raw)
+                sequence += 1
+                short_chunk = size < TRACE_CHUNK_BYTES
+            if not footer:
+                raise ValueError("truncated trace transport: missing footer")
+        if destination is not None:
+            destination.close()
+        return {"status": "PASS_LOSSLESS_TRANSPORT_VERIFICATION", "encoding": expected["schema"],
+                "raw_bytes": total, "raw_sha256": whole.hexdigest(), "chunk_count": sequence,
+                "transport_bytes": path.stat().st_size,
+                "transport_sha256": hashlib.sha256(path.read_bytes()).hexdigest()}
+    except BaseException:
+        if destination is not None:
+            destination.close()
+            output.unlink()
+        raise
+
+
 def peak_memory_bytes() -> int:
     """Process peak working set on Windows, tracemalloc fallback elsewhere."""
     if sys.platform == "win32":
@@ -90,10 +221,15 @@ def peak_memory_bytes() -> int:
 
 class NativeTraceCapture:
     """Capture actual original native code-object returns, including nested calls."""
-    def __init__(self, path: Path, *, deadline_ns: int | None = None, byte_limit: int = TRACE_CAP):
+    def __init__(self, path: Path, *, deadline_ns: int | None = None, byte_limit: int = TRACE_CAP,
+                 replace_verified: bool = False, encoded_transport: bool = False,
+                 transport_limit: int = TRANSPORT_CAP):
         self.path = path
         self.deadline_ns = deadline_ns
         self.byte_limit = byte_limit
+        self.replace_verified = replace_verified
+        self.encoded_transport = encoded_transport
+        self.transport_limit = transport_limit
         self.calls = Counter()
         self.returns = Counter()
         self.seen = Counter()
@@ -106,11 +242,15 @@ class NativeTraceCapture:
         }
 
     def __enter__(self):
-        self.stream = self.path.open("xb")
         self.previous_profile = sys.getprofile()
         if self.previous_profile is not None:
-            self.stream.close()
             raise RuntimeError("refuse to replace an existing profiler")
+        self.stream = self.path.open("wb" if self.replace_verified else "xb")
+        try:
+            self.transport = TraceTransport(self.stream, encoded=self.encoded_transport, byte_limit=self.transport_limit)
+        except BaseException:
+            self.stream.close()
+            raise
         sys.setprofile(self._profile)
         return self
 
@@ -130,21 +270,28 @@ class NativeTraceCapture:
             payload = _json_bytes(record)
             if self.bytes + len(payload) > self.byte_limit:
                 raise ResourceBoundary("trace byte cap reached")
-            self.stream.write(payload)
+            self.transport.write(payload)
             self.bytes += len(payload)
             self.seen[digest] += 1
 
     def __exit__(self, *exc):
         sys.setprofile(self.previous_profile)
-        self.stream.close()
+        try:
+            self.transport.finish()
+        finally:
+            self.stream.close()
 
     def receipt(self):
         return {
             "native_code_object_calls": dict(self.calls),
             "native_code_object_trace_returns": dict(self.returns),
             "distinct_traces": len(self.seen), "all_trace_events": sum(self.seen.values()),
-            "trace_bytes": self.bytes,
+            "trace_bytes": self.path.stat().st_size,
             "trace_sha256": hashlib.sha256(self.path.read_bytes()).hexdigest(),
+            "raw_trace_bytes": self.transport.raw_bytes,
+            "raw_trace_sha256": self.transport.raw_hash.hexdigest(),
+            "encoding": "PFSSV_TRACE_GZIP_BASE64_JSONL_V1" if self.encoded_transport else "PFSSV_NATIVE_TRACE_JSONL_V1",
+            "transport_complete": self.transport.complete,
             "function_identity": [
                 {"name": name, "file": str(Path(code.co_filename).resolve()),
                  "line": code.co_firstlineno,
@@ -375,13 +522,23 @@ def shell_cell(prefix: PrimePrefix, X: int, num: int, den: int,
         rows.append({"p": p, "pi_p": pi_p, "qlo": lo, "qhi": hi, "count": count,
                      "q_prime_rank_first": first, "q_prime_rank_last": last,
                      "p_mod_30": residue, "q_mod_30_counts": channels, "bins": bins,
+                     "legacy_null_A_band": 7 if bins["overflow_u_gt_half"] and p**4 > X else bins["coarse_band"],
                      "small_trim": p > 31, "scale_trim": p**4 > X})
     if sum(map(sum, grid)) != totals["raw"]:
         raise AssertionError("joint prime-rank view lost mass")
     if sum(profiles["raw"]) + totals["overflow"] != totals["raw"]:
         raise AssertionError("raw domain/overflow accounting failed")
+    overflow_by_view = {"raw": totals["overflow"], "small_trim": 0, "scale_trim": 0}
+    for row in rows:
+        if row["bins"]["overflow_u_gt_half"]:
+            for name in ("small_trim", "scale_trim"):
+                overflow_by_view[name] += row["count"] if row[name] else 0
+    for name in ("small_trim", "scale_trim"):
+        if sum(profiles[name]) + overflow_by_view[name] != totals[name]:
+            raise AssertionError("trim profile/overflow mass accounting failed")
     return {"schema": "PFSSV_NATIVE_CELL_V2", "X": X, "num": num, "den": den, "upper": U,
             "totals": totals, "rows": rows, "geometrically_empty_rows": excluded,
+            "overflow_by_view": overflow_by_view,
             "zero_prime_count_rows": sum(row["count"] == 0 for row in rows),
             "profiles": {**profiles, "prime_rank_joint": grid},
             "prime_rank_caps": {"p": pcap, "q": qcap},
@@ -440,6 +597,54 @@ def null_a_capacity_witness(cell: dict) -> dict:
                             "scope": "Original scalar count surrogate can still be studied as such; this witness prevents calling every draw an exact factor-window occupancy model."}
     return {"status": "NO_WITNESS_IN_THIS_PROBE_CELL", "random_draws": 0,
             "scope": "No validity proof for other cells, finer coupling, or a joint null."}
+
+
+def null_a_complete_capacity_audit(cell: dict) -> dict:
+    """Audit every original band/p-residue/q-residue stratum, without sampling.
+
+    For each target, the maximum source channel count characterizes whether
+    any permitted assignment exceeds that target's integer residue capacity.
+    Historical overflow rows are explicitly tagged with the old band-7 rule
+    for this audit only; their log profiles remain separate overflow strata.
+    """
+    groups = {}
+    for row in cell["rows"]:
+        band = row["legacy_null_A_band"]
+        if band is not None:
+            groups.setdefault((band, row["p_mod_30"]), []).append(row)
+    records = []
+    failure_count = 0
+    for key, rows in sorted(groups.items()):
+        for residue in (1, 7, 11, 13, 17, 19, 23, 29):
+            source = max(rows, key=lambda row: row["q_mod_30_counts"][residue])
+            maximum = source["q_mod_30_counts"][residue]
+            targets = []
+            for target in rows:
+                rem = _divide(target["qlo"], 30).remainder
+                offset = _divide(residue + 30 - rem, 30).remainder
+                first = target["qlo"] + offset
+                capacity = 0 if first > target["qhi"] else _divide(target["qhi"] - first, 30).quotient + 1
+                observed = target["q_mod_30_counts"][residue]
+                if observed > capacity:
+                    raise AssertionError("observed channel exceeds exact integer residue capacity")
+                violates = maximum > capacity
+                failure_count += violates
+                targets.append({"p": target["p"], "qlo": target["qlo"], "qhi": target["qhi"],
+                                "observed_count": observed, "integer_residue_capacity": capacity,
+                                "positive_probability_violation": violates,
+                                "overflow_u_gt_half": target["bins"]["overflow_u_gt_half"]})
+            records.append({"coarse_band": key[0], "p_mod_30": key[1], "q_mod_30": residue,
+                            "size": len(rows), "source_maximum_p": source["p"],
+                            "source_maximum_count": maximum,
+                            "specified_source_to_target_probability": {"numerator": 1, "denominator": len(rows)},
+                            "targets": targets})
+    return {"schema": "PFSSV_NULL_A_EXACT_CAPACITY_AUDIT_V1",
+            "status": "MODEL_SUPPORT_FAILURE" if failure_count else "NO_CAPACITY_VIOLATION_IN_THIS_CELL",
+            "violating_target_channel_count": failure_count,
+            "stratum_channel_count": len(records), "strata": records,
+            "random_draws": 0, "counts_clipped": False, "rejection_sampling": False,
+            "band_boundary": "Original coarse band rule including explicitly tagged legacy overflow band7. This is not density-flat-bin clipping.",
+            "strength": "Exact original scalar-permutation reachability/capacity check. No violation is not a proof of a valid prime process, fine-density control, or joint null."}
 
 
 def serial_cell(cell: dict) -> bytes:
@@ -536,11 +741,165 @@ def resource_probe() -> int:
     return 0 if receipt["status"] == "PASS_STAGE1_BOUNDED_PROBE" else 1
 
 
+def _stage2_contract(artifact_dir: Path, published_commit: str, published_sha256: str) -> tuple[dict, str]:
+    """Consume the one published precompute contract, without inventing authority."""
+    raw = artifact_dir.joinpath("result_summary.json").read_bytes()
+    if len(published_commit) != 40 or any(c not in "0123456789abcdef" for c in published_commit):
+        raise ValueError("exact published precompute commit required")
+    if hashlib.sha256(raw).hexdigest() != published_sha256:
+        raise ValueError("published precompute content hash mismatch")
+    summary = json.loads(raw)
+    contract = summary["stage2_precompute_contract"]
+    if contract["mode"] != "EXACT_OBSERVATION_AND_DETERMINISTIC_CAPACITY_AUDIT":
+        raise ValueError("unexpected Stage 2 mode")
+    if contract["scientific_null_draws"] != 0 or contract["blind_holdout_claim"]:
+        raise ValueError("Stage 2 scientific/blindness scope violation")
+    if contract["cells"] != [[X, num, den] for X in
+            (100000, 300000, 1000000, 3000000, 10000000, 30000000, 100000000)
+            for num, den in ((1, 100), (3, 1000), (1, 1000))]:
+        raise ValueError("the complete original 21-cell design is required")
+    if not contract.get("stage1_published_commit"):
+        raise ValueError("published Stage 1 and precompute source bindings required")
+    for key, upper in (("time_limit_seconds", 1800), ("memory_limit_bytes", MEMORY_CAP),
+                       ("trace_limit_bytes", TRACE_CAP), ("trace_transport_limit_bytes", TRANSPORT_CAP)):
+        _natural(contract[key], key, 1)
+        if contract[key] > upper:
+            raise ValueError("Stage 2 resource limit exceeds authorization")
+    if contract["stage2_script_sha256"] != hashlib.sha256(Path(__file__).read_bytes()).hexdigest():
+        raise ValueError("Stage 2 script differs from published contract")
+    return contract, hashlib.sha256(raw).hexdigest()
+
+
+def observation_capacity_run(published_commit: str, published_sha256: str) -> int:
+    """Full observations only; a model failure cannot become a residual verdict."""
+    artifact_dir = REPO.joinpath(ARTIFACT)
+    binding = verify_sources(artifact_dir)
+    contract, precompute_sha = _stage2_contract(artifact_dir, published_commit, published_sha256)
+    for row in contract["stage1_replaceable_outputs"]:
+        if hashlib.sha256(artifact_dir.joinpath(row["name"]).read_bytes()).hexdigest() != row["sha256"]:
+            raise ValueError(f"pre-run Stage 1 output drift: {row['name']}")
+    for row in contract["retained_source_files"]:
+        if hashlib.sha256(REPO.joinpath(row["path"]).read_bytes()).hexdigest() != row["sha256"]:
+            raise ValueError(f"retained Stage 1 or Driver source drift: {row['path']}")
+    ledger = json.loads(artifact_dir.joinpath("discrepancy_ledger.json").read_bytes())
+    start = time.monotonic_ns()
+    deadline = start + contract["time_limit_seconds"] * 10**9
+    trace = NativeTraceCapture(artifact_dir.joinpath("native_trace.jsonl"), deadline_ns=deadline,
+                               byte_limit=contract["trace_limit_bytes"], replace_verified=True,
+                               encoded_transport=True, transport_limit=contract["trace_transport_limit_bytes"])
+    summary = {"schema": "PFSSV_STAGE2_OBSERVATION_SUMMARY_V1", "stage2_precompute_contract": contract,
+               "precompute_source": {"commit": published_commit, "sha256": precompute_sha},
+               "argv": sys.argv, "script_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+               "source_execution_record": binding["execution_record_id"],
+               "scientific_screen": "NOT_RUN_DRIVER_CAPACITY_GATE", "scientific_null_draws": 0,
+               "residual_hard_target": "OPEN", "blindness": "POST_EXPOSURE_REANALYSIS",
+               "cells": [], "failures": []}
+    tracemalloc.start()
+    try:
+        with trace, artifact_dir.joinpath("cell_profiles.jsonl").open("wb") as cells_out:
+            prefix = PrimePrefix(MAX_Q)
+            summary["prime_prefix"] = {"limit": prefix.limit, "prime_count": len(prefix.primes)}
+            coords = CoordinateBins()
+            if peak_memory_bytes() > contract["memory_limit_bytes"]:
+                raise ResourceBoundary("Stage 2 memory limit after full prime prefix")
+            for index, (X, num, den) in enumerate(contract["cells"]):
+                cell = shell_cell(prefix, X, num, den, coords)
+                audit = null_a_complete_capacity_audit(cell)
+                cell["null_A_capacity_audit"] = audit
+                cell["scientific_status"] = "OBSERVATION_AND_CAPACITY_AUDIT_ONLY"
+                cells_out.write(serial_cell(cell))
+                cells_out.flush()
+                summary["cells"].append({"X": X, "num": num, "den": den, "upper": cell["upper"],
+                    "totals": cell["totals"], "geometric_rows": len(cell["rows"]),
+                    "zero_prime_count_rows": cell["zero_prime_count_rows"],
+                    "empty_integer_windows": len(cell["geometrically_empty_rows"]),
+                    "overflow_by_view": cell["overflow_by_view"],
+                    "capacity_audit_status": audit["status"],
+                    "violating_target_channel_count": audit["violating_target_channel_count"],
+                    "stratum_channel_count": audit["stratum_channel_count"]})
+                peak = peak_memory_bytes()
+                if peak > contract["memory_limit_bytes"]:
+                    raise ResourceBoundary("Stage 2 memory cap reached")
+                print(json.dumps({"completed_cells": index + 1, "X": X, "width": [num, den],
+                                  "capacity_status": audit["status"], "trace_bytes": trace.bytes,
+                                  "elapsed_ns": time.monotonic_ns() - start, "peak_memory_bytes": peak}), flush=True)
+        summary["trace_roundtrip"] = decode_trace_transport(artifact_dir.joinpath("native_trace.jsonl"))
+        if (summary["trace_roundtrip"]["raw_sha256"] != trace.transport.raw_hash.hexdigest()
+                or summary["trace_roundtrip"]["raw_bytes"] != trace.bytes):
+            raise ValueError("decoded trace differs from original captured event bytes")
+        if time.monotonic_ns() >= deadline:
+            raise ResourceBoundary("Stage 2 time cap includes trace verification")
+        summary["status"] = "PASS_COMPLETE_21_CELL_OBSERVATION_AND_CAPACITY_AUDIT"
+    except (ResourceBoundary, PrecisionUnresolved, AssertionError, ValueError) as exc:
+        summary["status"] = "PARTIAL_STAGE2_BOUNDARY"
+        summary["failures"].append({"type": type(exc).__name__, "message": str(exc)})
+    finally:
+        summary["source_preservation_after"] = verify_sources(artifact_dir) == binding
+        summary["retained_source_preservation_after"] = all(
+            hashlib.sha256(REPO.joinpath(row["path"]).read_bytes()).hexdigest() == row["sha256"]
+            for row in contract["retained_source_files"])
+        if not summary["retained_source_preservation_after"]:
+            summary["status"] = "PARTIAL_STAGE2_BOUNDARY"
+            summary["failures"].append({"type": "ValueError", "message": "retained Stage 1 or Driver source drift"})
+        summary["cell_file_sha256"] = hashlib.sha256(artifact_dir.joinpath("cell_profiles.jsonl").read_bytes()).hexdigest()
+        summary["native_trace"] = trace.receipt()
+        summary["model_support_failure_cells"] = sum(c["capacity_audit_status"] == "MODEL_SUPPORT_FAILURE" for c in summary["cells"])
+        summary["joint_null"] = "NOT_DEFINED_NOT_AN_ADDED_ACCEPTANCE_GATE"
+        summary["elapsed_ns"] = time.monotonic_ns() - start
+        summary["peak_process_memory_bytes"] = peak_memory_bytes()
+        summary["peak_python_traced_bytes"] = tracemalloc.get_traced_memory()[1]
+        if summary["peak_process_memory_bytes"] > contract["memory_limit_bytes"] or time.monotonic_ns() >= deadline:
+            summary["status"] = "PARTIAL_STAGE2_BOUNDARY"
+            summary["failures"].append({"type": "ResourceBoundary", "message": "resource cap including receipt preparation"})
+        for item in ledger["items"]:
+            item["status"] = ("COMPLETE_OBSERVATION_REPAIR_RECOMPUTED_NOT_SCIENTIFIC_ACCEPTANCE"
+                              if not summary["failures"] and len(summary["cells"]) == 21
+                              else "PARTIAL_STAGE2_OBSERVATION_CHECK")
+        ledger["stage2_evidence"] = {"status": summary["status"], "completed_cells": len(summary["cells"]),
+            "precompute_source": summary["precompute_source"], "stage1_source": contract["stage1_published_commit"],
+            "model_support_failure_cells": summary["model_support_failure_cells"], "scientific_null_draws": 0,
+            "corrected_signed_null_profiles": "UNAVAILABLE_NOT_ZERO", "hard_target_status": "OPEN"}
+        artifact_dir.joinpath("discrepancy_ledger.json").write_bytes(_json_bytes(ledger))
+        summary["discrepancy_ledger_sha256"] = hashlib.sha256(artifact_dir.joinpath("discrepancy_ledger.json").read_bytes()).hexdigest()
+        artifact_dir.joinpath("result_summary.json").write_bytes(_json_bytes(summary))
+        artifact_dir.joinpath("generator_receipt.json").write_bytes(_json_bytes({
+            "schema": "PFSSV_STAGE2_GENERATOR_RECEIPT_V1", "status": summary["status"],
+            "completed_cells": len(summary["cells"]), "cell_file_sha256": summary["cell_file_sha256"],
+            "prime_prefix_limit": MAX_Q, "stage1_source": contract["stage1_published_commit"],
+            "actual_prime_prefix": summary.get("prime_prefix"),
+            "claim_id": binding["claim_id"], "scientific_null_draws": 0}))
+        artifact_dir.joinpath("native_runtime_receipt.json").write_bytes(_json_bytes({
+            "schema": "PFSSV_STAGE2_NATIVE_RUNTIME_RECEIPT_V1", "status": summary["status"],
+            "scope": "Exact original-cell observation and deterministic capacity audit only; no scientific residual screen",
+            "stage1_source": contract["stage1_published_commit"],
+            "method_harvest": "T0_BRC + T1_SCALE_ENUMERATION_VALUATION COMPOSE: actual BRC boundaries, complete prime prefix, cumulative-count window difference and lossless rank-bin intersections. No new primality theorem or global tool family.",
+            "elapsed_ns_including_trace_transport_and_verification": summary["elapsed_ns"],
+            "peak_process_memory_bytes": summary["peak_process_memory_bytes"],
+            "lossless_transport_verification": summary.get("trace_roundtrip"),
+            **summary["native_trace"]}))
+        tracemalloc.stop()
+    print(json.dumps({"status": summary["status"], "completed_cells": len(summary["cells"]),
+                      "model_support_failure_cells": summary["model_support_failure_cells"],
+                      "elapsed_ns": summary["elapsed_ns"], "failures": summary["failures"]}), flush=True)
+    return 0 if len(summary["cells"]) == 21 and not summary["failures"] else 1
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--resource-probe", action="store_true", required=True)
-    parser.parse_args()
-    return resource_probe()
+    modes = parser.add_mutually_exclusive_group(required=True)
+    modes.add_argument("--resource-probe", action="store_true")
+    modes.add_argument("--observation-capacity", action="store_true")
+    modes.add_argument("--verify-trace", type=Path, metavar="TRANSPORT_JSONL")
+    parser.add_argument("--decoded-output", type=Path)
+    parser.add_argument("--precompute-commit", default="")
+    parser.add_argument("--precompute-sha256", default="")
+    args = parser.parse_args()
+    if args.verify_trace is not None:
+        print(json.dumps(decode_trace_transport(args.verify_trace, args.decoded_output), sort_keys=True))
+        return 0
+    if args.decoded_output is not None:
+        parser.error("--decoded-output requires --verify-trace")
+    return resource_probe() if args.resource_probe else observation_capacity_run(args.precompute_commit, args.precompute_sha256)
 
 
 if __name__ == "__main__":

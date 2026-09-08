@@ -1,0 +1,123 @@
+{
+  "status": "PASS_ACTUAL_PROGRESS_AND_CONTINUED_AUTHORIZATION",
+  "started_at": "2026-09-08T11:26:00.351606+00:00",
+  "elapsed_seconds": 16.308029400010128,
+  "server_comments": 737,
+  "progress_comment_id": 5584381966,
+  "progress_created_at": "2026-09-08T11:24:30Z",
+  "source_commit": "01b6dd932f62fd3b0a6f3b06d29ff809b04ed62e",
+  "authorization": {
+    "authorized": true,
+    "task_id": "RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION",
+    "task_registration": {
+      "state": "IMMUTABLE_REGISTERED",
+      "registry_key": "RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION",
+      "publication_id": "TP2-2029B5CCC5EEC5F0132C",
+      "record_path": "research_task_records/RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION/TP2-2029B5CCC5EEC5F0132C.json",
+      "claimable": true
+    },
+    "owner_claim": {
+      "claim_id": "chatgpt-pfssv-r2-20260908T101753Z-456f906e",
+      "researcher_id": "EM-PFSSV-E500C7",
+      "owner_lease_until": "2026-09-08T13:24:30+00:00",
+      "server_comment_id": 5583750861,
+      "server_author_login": "awdawmip"
+    },
+    "execution_binding": {
+      "publication_id": "TP2-2029B5CCC5EEC5F0132C",
+      "claim_id": "chatgpt-pfssv-r2-20260908T101753Z-456f906e",
+      "researcher_id": "EM-PFSSV-E500C7",
+      "theorem_owner": "research/prime-factor-semiprime-shell-residual-validation",
+      "execution_branch": "research/pfssv-revision-em-pfssv-e500c7",
+      "execution_branch_base": "2aa103eee829b78fa7784674ec1be4c3c5052a79",
+      "allowed_outputs": [
+        "scripts/check_prime_factor_semiprime_shell_residual_validation_revision_20260908.py",
+        "tests/test_pfssv_revision_contract_20260908.py",
+        "research_artifacts/PFSSV_REVISION_20260908/correction_manifest.json",
+        "research_artifacts/PFSSV_REVISION_20260908/discrepancy_ledger.json",
+        "research_artifacts/PFSSV_REVISION_20260908/generator_receipt.json",
+        "research_artifacts/PFSSV_REVISION_20260908/cell_profiles.jsonl",
+        "research_artifacts/PFSSV_REVISION_20260908/null_ensembles.jsonl",
+        "research_artifacts/PFSSV_REVISION_20260908/result_summary.json",
+        "research_artifacts/PFSSV_REVISION_20260908/native_runtime_receipt.json",
+        "research_artifacts/PFSSV_REVISION_20260908/native_trace.jsonl",
+        "research_artifacts/PFSSV_REVISION_20260908/resource_probe.json",
+        "research_artifacts/PFSSV_REVISION_20260908/execution_authorization.json",
+        "research_artifacts/PFSSV_REVISION_20260908/continuation_state.json",
+        "research_artifacts/PFSSV_REVISION_20260908/native_substrate_plan.json",
+        "research_artifacts/PFSSV_REVISION_20260908/source_binding.json",
+        "research_returns/PRIME_FACTOR_SEMIPRIME_SHELL_RESIDUAL_VALIDATION_REVISION_RETURN_20260908.md",
+        "research_result_records/RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION/*",
+        "research_execution_records/RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION/ER-EB2A78D7B88A292B412B.json"
+      ],
+      "taskbook_blob_sha1": "sha1:e531ab46096e3b5f92cc3da6881deebc5459585f",
+      "binding_source": "IMMUTABLE_EXECUTION_RECORD_COMPATIBILITY",
+      "owner_lease_until": "2026-09-08T13:24:30+00:00",
+      "server_comment_id": 5583750861,
+      "server_author_login": "awdawmip",
+      "server_author_user_id": 30957095
+    },
+    "authorization_authority": "CURRENT_AUTHORIZED_WINNING_ISSUE_240_CLAIM",
+    "startup_transport": {
+      "schema": "ENTERPRISE_MATH_RESEARCH_STARTUP_TRANSPORT_V2",
+      "control_epoch": "EM-CONTROL-20260904-CANONICAL-DISPATCH-AUTHORITY-1",
+      "conversation_rebase_required": true,
+      "conversation_rebase": {
+        "mode": "ALWAYS_IDEMPOTENT_ON_CONTROL_ENTRY",
+        "control_epoch": "EM-CONTROL-20260904-CANONICAL-DISPATCH-AUTHORITY-1",
+        "cached_conversation_control_plan": "NONAUTHORITATIVE_REBASE_TO_CURRENT",
+        "preserve": [
+          "EXACT_TASK_AND_CURRENT_PUBLICATION_AUTHORITY",
+          "WINNING_CLAIM_AND_OWNER_SCOPE",
+          "HIGHEST_VERIFIED_DURABLE_FRONTIER",
+          "FROZEN_SOURCE_AND_BLINDNESS_RESTRICTIONS",
+          "THEOREM_STRENGTH_AND_TASK_LOCAL_SCOPE",
+          "NO_SORRY_NO_ADMIT_NO_CUSTOM_AXIOM_AND_OTHER_FROZEN_CONSTRAINTS"
+        ],
+        "discard": [
+          "PR_REQUIRED_FOR_START_PROGRESS_DURABILITY_OR_HANDOFF_UNLESS_EXACT_CURRENT_TASK_REQUIRES_IT",
+          "CI_WAIT_OR_REPEATED_CI_MONITOR_AS_CONVERSATION_BARRIER_WHEN_PENDING_NONBLOCKING",
+          "DRAFT_READY_TOGGLE_MERELY_TO_TRIGGER_VALIDATION",
+          "REMOTE_SEARCH_OR_FETCH_AGENTS_MD_MERELY_FOR_TASK_START",
+          "RESTART_VERIFIED_COMPLETE_WORK_BECAUSE_CONVERSATION_IS_OLD_RESUMED_OR_CONTEXT_IS_MISSING",
+          "CACHED_PREVIOUS_CONTROL_ROUTE_WHEN_CURRENT_CANONICAL_DISPATCH_OR_RUNTIME_DISAGREES",
+          "MANUAL_REPOSITORY_SCAN_OR_VISIBLE_TASK_RECORDS_AS_TASK_AVAILABILITY_AUTHORITY",
+          "TOP_PRIORITY_LEASED_IMPLIES_NO_TASK_WITHOUT_CANONICAL_DISPATCH",
+          "BACKLOG_FREE_OR_NAMED_RESEARCH_LINE_PRESENCE_IMPLIES_CLAIMABLE"
+        ],
+        "after_rebase": "RESUME_FROM_CURRENT_CANONICAL_DISPATCH_AND_HIGHEST_VERIFIED_DURABLE_FRONTIER",
+        "pr_default": "OPTIONAL_DURABLE_OR_REVIEW_SURFACE_NOT_CONVERSATION_GATE",
+        "ci_pending": "PENDING_NONBLOCKING_CONTINUE_PARENT_TASK",
+        "repeated_ci_poll_without_state_change": "FORBIDDEN_NO_PROGRESS_ACTION",
+        "taskbook_policy_digest_impact": "NONE_CONTROL_TRANSPORT_ONLY"
+      },
+      "task_availability_authority": {
+        "authority": "CANONICAL_RESEARCH_CONTROL_DISPATCH_OUTPUT_ONLY",
+        "canonical_entrypoint": "research_control_dispatch.py",
+        "manual_repository_scan": "NONAUTHORITATIVE_FOR_TASK_AVAILABILITY",
+        "visible_task_record": "PRESENCE_DOES_NOT_IMPLY_CLAIMABLE",
+        "visible_research_line": "PRESENCE_DOES_NOT_IMPLY_ORDINARY_FRESH_CANDIDATE",
+        "backlog_or_dormant": "NOT_FRESH_CANDIDATE",
+        "awaiting_review_blocked_complete": "NOT_FRESH_CANDIDATE",
+        "free_axiom_discovery": "SEPARATE_ROLE_ROUTE_NOT_ORDINARY_SCHEDULER_FALLBACK",
+        "higher_priority_leased": "EXCLUDE_FROM_FRESH_CANDIDATES_AND_CONTINUE_CANONICAL_SCAN",
+        "claim_rule": "CLAIM_ONLY_THE_EXACT_TARGET_RETURNED_BY_CURRENT_CANONICAL_DISPATCH",
+        "no_task_statement_rule": "MAY_ASSERT_NO_DISPATCH_ONLY_FROM_CURRENT_CANONICAL_NO_DISPATCH_ACTION",
+        "verify_liveness_rule": "VERIFY_SESSION_LIVENESS_IS_NOT_NO_DISPATCH_AND_MUST_NOT_BE_REPHRASED_AS_NO_TASK",
+        "manual_override_allowed": false
+      },
+      "agents_md": "INJECTED_CONTEXT_ONLY_DO_NOT_REMOTE_SEARCH_OR_FETCH_FOR_TASK_START",
+      "if_agents_context_unavailable": "PROCEED_FROM_CANONICAL_DISPATCH_TARGET_AND_EXACT_TASKBOOK",
+      "hot_start": [
+        "REBASE_CACHED_CONVERSATION_CONTROL_PLAN",
+        "CONSUME_CURRENT_CANONICAL_DISPATCH_DECISION",
+        "EXACT_DISPATCH_TARGET",
+        "EXACT_TASK_PUBLICATION_AND_TASKBOOK",
+        "FIRST_REQUIRED_DEPENDENCY",
+        "SUBSTANTIVE_RESEARCH"
+      ],
+      "remote_control_reads": "TRIGGERED_ONLY",
+      "taskbook_policy_digest_impact": "NONE_CONTROL_TRANSPORT_ONLY"
+    }
+  }
+}
