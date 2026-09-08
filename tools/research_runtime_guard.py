@@ -54,7 +54,56 @@ def _activity_gate(state: Mapping[str, Any], boundary: str, root: Path) -> dict[
         raise RuntimeAuthorizationError(f"research activity guard: {exc}") from exc
 
 
+def _is_control_only_pre_final_state(state: Mapping[str, Any]) -> bool:
+    if state.get("research_mode", state.get("mode")) not in (
+        "CONTROL_PLANE_MAINTENANCE", "RESEARCH_DRIVER", "FOUNDATION_STEWARD"
+    ):
+        return False
+    # Even empty formal/activity bindings retain the original routing checks.
+    return not any(key in state for key in (
+        "task", "task_id", "publication_id", "task_registration", "owner_claim",
+        "claim_id", "execution_scope", "execution_binding", "execution_record_id",
+        "execution_cohort_id", "execution_lane_id",
+        "activity_id", "activity_registration_source", "research_checkpoint_event_id"
+    ))
+
+
+def _control_only_pre_final_gate(state: Mapping[str, Any]) -> dict[str, Any]:
+    result = {
+        "authorized": False,
+        "authorization_authority": "CONTROL_ONLY_PRE_FINAL_NO_TASK_AUTHORITY",
+        "final_allowed": False,
+        "required_action": "EVALUATE_PARENT_LIVENESS",
+    }
+    liveness = state.get("parent_liveness")
+    if liveness is None:
+        return result
+    if not isinstance(liveness, Mapping):
+        raise RuntimeAuthorizationError("control-only PRE_FINAL: parent_liveness must be an object")
+    from tools import active_turn_liveness
+    try:
+        decision = active_turn_liveness.evaluate(liveness)
+    except ValueError as exc:
+        raise RuntimeAuthorizationError(f"control-only PRE_FINAL: {exc}") from exc
+    if liveness["parent_objective_complete"] and liveness["executable_next_actions"] > 0:
+        decision.update(
+            transition=active_turn_liveness.CONTROL_STATE_INCONSISTENT,
+            final_allowed=False,
+            required_action=active_turn_liveness.REQUIRED_ACTIONS[active_turn_liveness.CONTROL_STATE_INCONSISTENT],
+            reason="parent is marked complete while executable work remains",
+            continuation_lease_preserved=liveness.get("continuation_lease_active", False),
+        )
+    result.update(
+        parent_liveness=decision,
+        final_allowed=decision["final_allowed"],
+        required_action=decision["required_action"],
+    )
+    return result
+
+
 def pre_final_gate(state: Mapping[str, Any], *, root: Path = ROOT) -> dict[str, Any]:
+    if _is_control_only_pre_final_state(state):
+        return _control_only_pre_final_gate(state)
     if not _is_activity_state(state):
         return _core.pre_final_gate(state, root=root)
     result = _activity_gate(state, "pre-final", root)
@@ -392,6 +441,8 @@ def main() -> int:
         raise AssertionError(args.command)
 
     print(json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True))
+    if args.command == "pre-final" and _is_control_only_pre_final_state(state):
+        return 0 if result["final_allowed"] else 2
     if _is_activity_state(state) and args.command in ("authorize", "pre-final"):
         allowed = (result["activity_allowed"] and result["persistence_allowed"]) if args.command == "authorize" else result["final_allowed"]
         return 0 if allowed else 2

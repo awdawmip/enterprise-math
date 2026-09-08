@@ -1,0 +1,147 @@
+{
+  "schema": "OWNER_CONTROL_ONLY_PREFINAL_FIX_RECEIPT_V1",
+  "base_head": "078cdd53e5e96514907c041bf78546325fab0768",
+  "base_tree": "4ca54114a8298f6852d3346f02908f99cbcc725e",
+  "worktree": "D:\\em\\control-nontask-prefinal-compat-20260909",
+  "status": "V2_FROZEN_LOCAL_NOT_COMMITTED_OR_PUBLISHED",
+  "input_files": [
+    {
+      "path": "tools/research_runtime_guard.py",
+      "bytes": 17069,
+      "sha256": "4edd7725f0b46d8bc7430256c3f8995d78012de13d6ec06eb50ff9a28c72d172",
+      "git_blob_sha1": "56e3bd35cfd439969bb78d6e046df34752f226f8"
+    },
+    {
+      "path": "tests/test_control_only_pre_final.py",
+      "bytes": 9682,
+      "sha256": "e865de7e598ee882a133eccca41afa9e57aab353019b8a67b1f1eb841cd12485",
+      "git_blob_sha1": "f5739b2e192308e6b7cc6f7d60d10017d5121599"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 21554,
+      "sha256": "1c4db9702fe1b8dffb5250d62d31814cbeaa331f5511ec959b2ecbb938aa054b",
+      "git_blob_sha1": "6ca0e2a3ce89d44943865da91ddbc62165d0f2ee"
+    }
+  ],
+  "actual_commands": [
+    {
+      "argv": [
+        "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "-v",
+        "tests.test_control_only_pre_final",
+        "tests.test_research_activity_registration.ResearchActivityRegistrationTests.test_activity_does_not_bypass_task_claim_authority",
+        "tests.test_research_activity_registration.ResearchActivityRegistrationTests.test_pre_final_requires_current_checkpoint_and_preserves_parent_liveness",
+        "tests.test_research_activity_registration.ResearchActivityRegistrationTests.test_explicit_nonresearch_roles_do_not_get_relabelled_as_research_activity"
+      ],
+      "cwd": "D:\\em\\control-nontask-prefinal-compat-20260909",
+      "started_at_utc": "2026-09-08T17:18:58.646550+00:00",
+      "ended_at_utc": "2026-09-08T17:19:00.765735+00:00",
+      "elapsed_seconds": 2.1186095000011846,
+      "exit_code": 0,
+      "stdout_path": "D:\\em\\TEMP\\owner-control-prefinal-compat-20260909-f1ac19\\revision-2\\command-0.stdout.txt",
+      "stderr_path": "D:\\em\\TEMP\\owner-control-prefinal-compat-20260909-f1ac19\\revision-2\\command-0.stderr.txt",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "0c8c64bba54af63253b4538ac8c9b6911939d246bbe2ae3caa5a5858a62ada7d"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "cwd": "D:\\em\\control-nontask-prefinal-compat-20260909",
+      "started_at_utc": "2026-09-08T17:19:00.766737+00:00",
+      "ended_at_utc": "2026-09-08T17:19:00.911027+00:00",
+      "elapsed_seconds": 0.1442556000110926,
+      "exit_code": 0,
+      "stdout_path": "D:\\em\\TEMP\\owner-control-prefinal-compat-20260909-f1ac19\\revision-2\\command-1.stdout.txt",
+      "stderr_path": "D:\\em\\TEMP\\owner-control-prefinal-compat-20260909-f1ac19\\revision-2\\command-1.stderr.txt",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "test_summary": {
+    "new_focused": 13,
+    "existing_activity_regressions": 3,
+    "total": 16,
+    "result": "PASS"
+  },
+  "source_preservation": {
+    "all_old_functions_except_prefinal_and_cli_dispatch_byte_identical": {
+      "_is_activity_state": "1a236326eb089afae58732ffb3b821e8ed4abe9a7681e772d25923c3759a6350",
+      "_activity_gate": "c50307d52adf3cf1862eadbfe8a3ed8885948ff09c19b7e940b82a9cc5e7d725",
+      "_raise_firewall": "6ae4d879082032532ad1121a2e495c14b4ef160dca93c8e7b349072b8cf128f6",
+      "authorize_execution": "f92eb469600f692bf00ab6125264d2837dc9c790910ec7da1db0aa7bb62f48e0",
+      "_blind_binding": "970328a080989d05548c5f3073e1eb10807f5a97dd4213eb1d93a3bb9e2d327f",
+      "write_pre_math_stamp": "8a2b98e277c3d55c6d192aa1cecaa99983e67ef34a94dcb71fa61a9c001ddf3e",
+      "write_raw_freeze": "2ee4bc225b2a917362278754ae47589236c4fa325759f7e3416366107bb29b45",
+      "write_source_exposure": "a492e55854410faaa4f2ab23ca7d297da701f1aa74c7b62fadc06367cdfd8f80",
+      "_load_state": "c08453c81ef370e432c19d110e68c31ebe8ad5def343822014065527d778518b",
+      "_add_state": "edc2bd9dacad001ca595d707aa18b09906197c80da18778821bda496f3fda4aa",
+      "_events": "c9bb55c9f4a2444ccd5904a568bb8d42d8dc66e9b9a3c425907ad1572f4d25f5",
+      "_add_events_now": "a91813775a36c7f04e7d7d332ce3b20192a5723be15a824e4a3ae4cd26470967"
+    },
+    "old_prefinal_body_preserved_after_new_control_routing": true,
+    "main_changed_only_with_control_prefinal_exit_status": true,
+    "no_other_tracked_or_untracked_change_in_this_worktree": true,
+    "authorize_adopt_terminal_and_activity_permissions_not_modified": true
+  },
+  "boundaries": [
+    "Only three explicit control roles with neither formal nor activity binding keys use the primitive.",
+    "Any of eleven formal keys or three activity binding keys, including empty values, excludes this control-only route; existing routing is preserved.",
+    "Missing parent_liveness gives EVALUATE_PARENT_LIVENESS with final_allowed and authorized false.",
+    "All primitive required booleans, count, and optional lease types remain strict.",
+    "Complete plus executable work is CONTROL_STATE_INCONSISTENT with active continuation lease preserved.",
+    "Owner parent stays OPEN; standalone completed-objective positive is an isolated test fixture.",
+    "FREE/noncontrol activity permissions remain mandatory; no task/claim or authority is created.",
+    "session_id alone is valid control-session metadata and is not excluded."
+  ],
+  "original_failure_evidence": {
+    "path": "D:\\em\\TEMP\\owner-control-prefinal-compat-20260909-f1ac19\\reproduction.json",
+    "sha256": "2b7277dc48c5be99cdd0bb45a61fd93110541adf7c8533dd0a60d53dbb46a4f2",
+    "scope": "Pre1420/current public control-only PRE_FINAL both failed before this fix; primitive preserved OPEN liveness."
+  },
+  "root_owned_publication_protocol_review": {
+    "path": "D:\\em\\TEMP\\control-publication-boundary-20260909\\RESEARCH_TASK_PUBLICATION_PROTOCOL.md",
+    "sha256": "1599d670ae7b51c06a04ce6ecfa25a10aeda8378971d4b03ad1bd99ab19375aa",
+    "base_blob": "93bc11371be4399dee13f37eb2a8e16d060ab46d",
+    "decision": "BOUNDED_DIFF_PASS",
+    "observations": [
+      "Atomic direct-main writes remain allowed.",
+      "Single-file-only transport stages a complete pair before one main integration; PR is allowed, not universally required.",
+      "Exact taskbook/record readback, original publication preflight, permissions and orphan checker remain strict."
+    ],
+    "not_in_this_three_file_manifest": true
+  },
+  "remote_writes": false,
+  "mathematical_execution": false,
+  "global_knowledge_canonical": "c6d876842e979b185ae06a7216ceb261f752ce1a",
+  "v1_manifest": {
+    "path": "D:\\em\\TEMP\\owner-control-prefinal-compat-20260909-f1ac19\\implementation\\frozen-three-files.json",
+    "sha256": "1d84cb330fad936603b9b4be74e8409e68c024c202939bfbefdc52309910a58d",
+    "preserved": true
+  },
+  "v1_mixed_activity_failure": {
+    "path": "D:\\em\\TEMP\\owner-control-prefinal-compat-20260909-f1ac19\\revision-2\\v1-activity-mixture-reproduction.json",
+    "sha256": "fec5e93ef09d7d65878b8fac0a3dce65a44fafecc6786b767f3a4ec73f774ffc",
+    "actual_cases": 12
+  },
+  "v2_delta": {
+    "production": "Only control-only PRE_FINAL classification excludes the three activity binding keys, including empty values.",
+    "test": "One new test rejects the twelve reproduced mixed bindings while allowing an independent control session_id.",
+    "AGENTS": "The control-only route requires absence of formal and activity bindings; atomic publication line preserved.",
+    "all_other_v1_functions_byte_identical": true
+  },
+  "preparation_failure": {
+    "action": "Copy local focused runner using inline shell quoting",
+    "error": "Python SyntaxError: unexpected EOF while parsing",
+    "source_or_tests_executed_by_failed_attempt": false,
+    "recovery": "Simple literal replacement created separate v2 runner; actual succeeding invocation is recorded."
+  }
+}

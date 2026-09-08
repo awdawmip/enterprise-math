@@ -1,0 +1,114 @@
+{
+  "schema": "RB_BLIND_CANONICAL_DISPATCH_AND_WINNING_CLAIM_AUTHORIZATION_V1",
+  "status": "PASS_ACTUAL_CANONICAL_TARGET_AND_WINNING_CLAIM",
+  "started_at": "2026-09-08T13:45:25.180980+00:00",
+  "seconds": 5.6900817999994615,
+  "dispatch_receipt_sha256": "2087198cf720be527aac9bd1d198d2eba2a68236d6daa6399cb71db7456c6014",
+  "dispatch_at": "2026-09-08T13:37:58.782660+00:00",
+  "dispatch_action": "CLAIM_NEW_OWNER",
+  "source_commit": "07af62e91f5178d9538d90c310f66fc9fa73f0dc",
+  "server_comment_id": 5586114827,
+  "authorization": {
+    "authorized": true,
+    "task_id": "RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION",
+    "task_registration": {
+      "state": "IMMUTABLE_REGISTERED",
+      "registry_key": "RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION",
+      "publication_id": "TP2-032D4712B5CB0E5D2376",
+      "record_path": "research_task_records/RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION/TP2-032D4712B5CB0E5D2376.json",
+      "claimable": true
+    },
+    "owner_claim": {
+      "claim_id": "chatgpt-rb-blind-20260908-1943ccc582e1463bbcef0c6ab3c7db1b",
+      "researcher_id": "EM-HODGEH0O-82EF42",
+      "owner_lease_until": "2026-09-09T13:44:14+00:00",
+      "server_comment_id": 5586114827,
+      "server_author_login": "awdawmip"
+    },
+    "execution_binding": {
+      "publication_id": "TP2-032D4712B5CB0E5D2376",
+      "claim_id": "chatgpt-rb-blind-20260908-1943ccc582e1463bbcef0c6ab3c7db1b",
+      "researcher_id": "EM-HODGEH0O-82EF42",
+      "theorem_owner": "research/rb-enterprise-degree6-cm24-blind-branch-pattern-completion",
+      "execution_branch": "research/rb-blind-patterns-20260908",
+      "execution_branch_base": "3db36e3b996351ec04e2c6ec318448c8b1443b61",
+      "allowed_outputs": [
+        "research_returns/RB_ENTERPRISE_DEGREE6_CM24_BLIND_BRANCH_PATTERN_COMPLETION_RETURN_20260828.md",
+        "scripts/check_rb_blind_branch_patterns_20260908.py",
+        "tests/test_rb_blind_branch_patterns_20260908.py",
+        "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/*",
+        "research_result_records/RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION/*",
+        "research_execution_records/RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION/ER-B78C668C38B9A9C54D9D.json"
+      ],
+      "taskbook_blob_sha1": "sha1:3127e4eb3b2e987075f453d773a3bb21a5c8f09c",
+      "binding_source": "IMMUTABLE_EXECUTION_RECORD_COMPATIBILITY",
+      "owner_lease_until": "2026-09-09T13:44:14+00:00",
+      "server_comment_id": 5586114827,
+      "server_author_login": "awdawmip",
+      "server_author_user_id": 30957095
+    },
+    "authorization_authority": "CURRENT_AUTHORIZED_WINNING_ISSUE_240_CLAIM",
+    "startup_transport": {
+      "schema": "ENTERPRISE_MATH_RESEARCH_STARTUP_TRANSPORT_V2",
+      "control_epoch": "EM-CONTROL-20260904-CANONICAL-DISPATCH-AUTHORITY-1",
+      "conversation_rebase_required": true,
+      "conversation_rebase": {
+        "mode": "ALWAYS_IDEMPOTENT_ON_CONTROL_ENTRY",
+        "control_epoch": "EM-CONTROL-20260904-CANONICAL-DISPATCH-AUTHORITY-1",
+        "cached_conversation_control_plan": "NONAUTHORITATIVE_REBASE_TO_CURRENT",
+        "preserve": [
+          "EXACT_TASK_AND_CURRENT_PUBLICATION_AUTHORITY",
+          "WINNING_CLAIM_AND_OWNER_SCOPE",
+          "HIGHEST_VERIFIED_DURABLE_FRONTIER",
+          "FROZEN_SOURCE_AND_BLINDNESS_RESTRICTIONS",
+          "THEOREM_STRENGTH_AND_TASK_LOCAL_SCOPE",
+          "NO_SORRY_NO_ADMIT_NO_CUSTOM_AXIOM_AND_OTHER_FROZEN_CONSTRAINTS"
+        ],
+        "discard": [
+          "PR_REQUIRED_FOR_START_PROGRESS_DURABILITY_OR_HANDOFF_UNLESS_EXACT_CURRENT_TASK_REQUIRES_IT",
+          "CI_WAIT_OR_REPEATED_CI_MONITOR_AS_CONVERSATION_BARRIER_WHEN_PENDING_NONBLOCKING",
+          "DRAFT_READY_TOGGLE_MERELY_TO_TRIGGER_VALIDATION",
+          "REMOTE_SEARCH_OR_FETCH_AGENTS_MD_MERELY_FOR_TASK_START",
+          "RESTART_VERIFIED_COMPLETE_WORK_BECAUSE_CONVERSATION_IS_OLD_RESUMED_OR_CONTEXT_IS_MISSING",
+          "CACHED_PREVIOUS_CONTROL_ROUTE_WHEN_CURRENT_CANONICAL_DISPATCH_OR_RUNTIME_DISAGREES",
+          "MANUAL_REPOSITORY_SCAN_OR_VISIBLE_TASK_RECORDS_AS_TASK_AVAILABILITY_AUTHORITY",
+          "TOP_PRIORITY_LEASED_IMPLIES_NO_TASK_WITHOUT_CANONICAL_DISPATCH",
+          "BACKLOG_FREE_OR_NAMED_RESEARCH_LINE_PRESENCE_IMPLIES_CLAIMABLE"
+        ],
+        "after_rebase": "RESUME_FROM_CURRENT_CANONICAL_DISPATCH_AND_HIGHEST_VERIFIED_DURABLE_FRONTIER",
+        "pr_default": "OPTIONAL_DURABLE_OR_REVIEW_SURFACE_NOT_CONVERSATION_GATE",
+        "ci_pending": "PENDING_NONBLOCKING_CONTINUE_PARENT_TASK",
+        "repeated_ci_poll_without_state_change": "FORBIDDEN_NO_PROGRESS_ACTION",
+        "taskbook_policy_digest_impact": "NONE_CONTROL_TRANSPORT_ONLY"
+      },
+      "task_availability_authority": {
+        "authority": "CANONICAL_RESEARCH_CONTROL_DISPATCH_OUTPUT_ONLY",
+        "canonical_entrypoint": "research_control_dispatch.py",
+        "manual_repository_scan": "NONAUTHORITATIVE_FOR_TASK_AVAILABILITY",
+        "visible_task_record": "PRESENCE_DOES_NOT_IMPLY_CLAIMABLE",
+        "visible_research_line": "PRESENCE_DOES_NOT_IMPLY_ORDINARY_FRESH_CANDIDATE",
+        "backlog_or_dormant": "NOT_FRESH_CANDIDATE",
+        "awaiting_review_blocked_complete": "NOT_FRESH_CANDIDATE",
+        "free_axiom_discovery": "SEPARATE_ROLE_ROUTE_NOT_ORDINARY_SCHEDULER_FALLBACK",
+        "higher_priority_leased": "EXCLUDE_FROM_FRESH_CANDIDATES_AND_CONTINUE_CANONICAL_SCAN",
+        "claim_rule": "CLAIM_ONLY_THE_EXACT_TARGET_RETURNED_BY_CURRENT_CANONICAL_DISPATCH",
+        "no_task_statement_rule": "MAY_ASSERT_NO_DISPATCH_ONLY_FROM_CURRENT_CANONICAL_NO_DISPATCH_ACTION",
+        "verify_liveness_rule": "VERIFY_SESSION_LIVENESS_IS_NOT_NO_DISPATCH_AND_MUST_NOT_BE_REPHRASED_AS_NO_TASK",
+        "manual_override_allowed": false
+      },
+      "agents_md": "INJECTED_CONTEXT_ONLY_DO_NOT_REMOTE_SEARCH_OR_FETCH_FOR_TASK_START",
+      "if_agents_context_unavailable": "PROCEED_FROM_CANONICAL_DISPATCH_TARGET_AND_EXACT_TASKBOOK",
+      "hot_start": [
+        "REBASE_CACHED_CONVERSATION_CONTROL_PLAN",
+        "CONSUME_CURRENT_CANONICAL_DISPATCH_DECISION",
+        "EXACT_DISPATCH_TARGET",
+        "EXACT_TASK_PUBLICATION_AND_TASKBOOK",
+        "FIRST_REQUIRED_DEPENDENCY",
+        "SUBSTANTIVE_RESEARCH"
+      ],
+      "remote_control_reads": "TRIGGERED_ONLY",
+      "taskbook_policy_digest_impact": "NONE_CONTROL_TRANSPORT_ONLY"
+    }
+  },
+  "scope": "Control authority only. Blindness provenance and any applicable PRE_MATH requirement must be preserved separately. No blind verdict or new mathematical execution is asserted by this authorization."
+}

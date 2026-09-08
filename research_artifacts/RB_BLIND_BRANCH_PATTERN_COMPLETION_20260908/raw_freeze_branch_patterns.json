@@ -1,0 +1,642 @@
+{
+  "schema": "RB_BLIND_BRANCH_PATTERN_RAW_FREEZE_V1",
+  "phase": "BLIND_BRANCH_PATTERN_FREEZE",
+  "payload_sha256_convention": "SHA256 of UTF-8 JSON(payload), ensure_ascii=false, sort_keys=true, separators=(comma,colon), no trailing newline; file SHA is external and not self-referential.",
+  "payload_sha256": "45258b1482b73515d6057aa5bace2cf0828e1d61834f0e386c466fadaa036cc0",
+  "payload": {
+    "phase": "BLIND_BRANCH_PATTERN_FREEZE",
+    "frozen_at_utc": "2026-09-08T16:04:28.017752Z",
+    "primary_verdict": "BLIND_BRANCH_PATTERN_INCOMPLETE",
+    "task_id": "RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION",
+    "task_publication_id": "TP2-032D4712B5CB0E5D2376",
+    "researcher_id": "EM-HODGEH0O-82EF42",
+    "claim_id": "chatgpt-rb-blind-20260908-1943ccc582e1463bbcef0c6ab3c7db1b",
+    "execution_record_id": "ER-B78C668C38B9A9C54D9D",
+    "taskbook": {
+      "path": "research_tasks/RB_ENTERPRISE_DEGREE6_CM24_BLIND_BRANCH_PATTERN_COMPLETION_20260828.md",
+      "sha256": "0249807db62a8e2753a0eb38cce1a0afb1d5bc17ffce02117a8ebcba0bbe15aa",
+      "git_blob": "3127e4eb3b2e987075f453d773a3bb21a5c8f09c",
+      "bytes": 11476,
+      "source_commit": "3db36e3b996351ec04e2c6ec318448c8b1443b61"
+    },
+    "task_publication": {
+      "path": "research_task_records/RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION/TP2-032D4712B5CB0E5D2376.json",
+      "sha256": "5e20459df838709d0d2657ddcf80decbcdbc5f32ff93fcfc47b7ca54477c0b48",
+      "git_blob": "3584ef76f5058b56c3bd163afa853c62d6f1487b",
+      "bytes": 2586,
+      "source_commit": "3db36e3b996351ec04e2c6ec318448c8b1443b61"
+    },
+    "execution_record": {
+      "path": "research_execution_records/RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION/ER-B78C668C38B9A9C54D9D.json",
+      "sha256": "0ed326244a2cc38c179bff4c70464aa2045faf21fdcc94eb1cb86e170a62b82d",
+      "git_blob": "2bcde3d0ad6c7e6c132776699fc3ce978b5b2c7a",
+      "bytes": 1444,
+      "source_commit": "07af62e91f5178d9538d90c310f66fc9fa73f0dc",
+      "crlf_count": 24
+    },
+    "authorization_source": {
+      "claim_server_comment_id": 5586114827,
+      "claim_server_created_at_utc": "2026-09-08T13:44:14Z",
+      "receipt_path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/execution_authorization.json",
+      "receipt_sha256": "134414b20f551e2556d1ff49af21f7b227b29a30f7fe4e396d2936dd9297adfa",
+      "meaning": "Existing source-backed winning CLAIM and prior actual runtime PASS; this raw freeze creates no new claim, lease, authority or Driver verdict."
+    },
+    "blind_exposure_at_freeze": {
+      "mode": "TASKBOOK_BLIND_FORWARD",
+      "whitelisted_parent_sources": [
+        {
+          "path": "research_artifacts/RB_ENTERPRISE_DEGREE6_CM24_BLIND_REPLICATION/raw_freeze_reduction.json",
+          "commit": "c73816d3552b4247861e12e476101e94a4a2ce5a",
+          "git_blob": "9a397eb108beaf7ec00e297e70f5d854e803afc8",
+          "sha256": "0740e43ae09bc28fcb2facada23ea5e9fdfa535829e547eed27d2128dd6e8207",
+          "bytes": 5980,
+          "exposure": "FULL_CONTENT_READ_WHITELISTED",
+          "executed": false
+        },
+        {
+          "path": "scripts/check_rb_enterprise_degree6_cm24_blind_replication.py",
+          "commit": "c73816d3552b4247861e12e476101e94a4a2ce5a",
+          "git_blob": "fd389162bf3fc2607bc39cf3e9ed390d9053c094",
+          "sha256": "c3ad29911348934d28e136f95dbced12fa2b9a4ccab5b7f3c40e31d46911bfe5",
+          "bytes": 3763,
+          "exposure": "FULL_CONTENT_READ_WHITELISTED",
+          "executed": false
+        }
+      ],
+      "originating_explicit_X_Y_or_loadbearing_coefficients_read": false,
+      "originating_basepoint_twist_period_or_symbolic_replay_read": false,
+      "originating_object_journal_or_targeted_external_search_read": false,
+      "catalog_or_dedup_before_freeze": "DEFERRED_BY_EXACT_TASK_BLIND_FIRST_EXCEPTION",
+      "qualification": "Observed executing-context disclosure, not a proof about inaccessible history. Prior unrelated control/X6/H0O work and shared owner context were disclosed; no originating RB objects were supplied.",
+      "pre_math_stamp": "NOT_APPLICABLE: actual taskbook has prose BLIND_FORWARD and no source_firewall.mode=BLIND_INDEPENDENT. No canonical stamp has been created; the allowed parent sources were actually read before this freeze."
+    },
+    "published_checkpoint_chain": [
+      {
+        "checkpoint": "assignment",
+        "source_commit": "b8c4fb6c8e86080699c67b65b863e1ce791f1263",
+        "source_tree": "b60bd260861047b0388b721a4ca4fee69c5a38db",
+        "source_parent": "07af62e91f5178d9538d90c310f66fc9fa73f0dc",
+        "local_publication_manifest_sha256": "6087556392c501c5a882da3e9db61dc29ae6951b9d0d769c8dfa1b072e85f8e1",
+        "publication_evidence": "Root reported exact remote full-content and Git-blob readback; this assembler independently rechecks the original local publication bytes, not the network.",
+        "files": [
+          {
+            "path": "scripts/check_rb_blind_branch_patterns_20260908.py",
+            "sha256": "3cfb6b09016b8d41066245f2e9bd4d06d8b13d6a4bf13a06d2bf8d628bb42a81",
+            "git_blob": "4efab8d7f626313ccd28dc79b5ca973c42c60bf1",
+            "bytes": 6501
+          },
+          {
+            "path": "tests/test_rb_blind_branch_patterns_20260908.py",
+            "sha256": "4281d2769a1b15257168f8b02aeb629c69895a6c439525af6160291e8ff8dc71",
+            "git_blob": "b813fa9856c19c770fe8eacfc04316f58b5f6ae2",
+            "bytes": 2293
+          },
+          {
+            "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/source_binding.json",
+            "sha256": "516400d46ae5dd5a8aa2d25520021ee3a57dc839538746a550ad2a7bfae2a473",
+            "git_blob": "0d740e90e03eca30ce6a3160fe315b55ffe9337e",
+            "bytes": 1818
+          },
+          {
+            "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/branch_assignment_classification.md",
+            "sha256": "8cbb95a5fdacf6e146e9ab934b6228a78e0180d361807a651710a83db4f89770",
+            "git_blob": "105ec0bc1da83cd8012af0a76a6365eaa68b10cf",
+            "bytes": 6253
+          },
+          {
+            "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/branch_assignment_classification.json",
+            "sha256": "a83524c6b9b8cb6e00561c014e7129c614e9b1c46eedcbd9c9e79f2ff5ee89a0",
+            "git_blob": "a173e6e63a1f0820123e486e0c698ac6259a0bd4",
+            "bytes": 82957
+          },
+          {
+            "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/assignment_execution_receipt.json",
+            "sha256": "d33bc0f2ea583f763e999530ff2f024fa6046bf18670132114f1c4a641bb97f4",
+            "git_blob": "bde6170b850ebf968bbbb7a9c7f577b99e70188c",
+            "bytes": 5412
+          }
+        ]
+      },
+      {
+        "checkpoint": "squareclass_rr_corrected_v2",
+        "source_commit": "2a2b39cc41b96c827df83cbe42f6c1882da05894",
+        "source_tree": "9484e2813bdeaf07c13a16043b2fac1c48518ace",
+        "source_parent": "b8c4fb6c8e86080699c67b65b863e1ce791f1263",
+        "local_publication_manifest_sha256": "dd52d309a76fd0956d970779c694dd431ee57baab4ace64113e46b4a19a96d6f",
+        "publication_evidence": "Root reported exact remote full-content and Git-blob readback; this assembler independently rechecks the original local publication bytes, not the network.",
+        "files": [
+          {
+            "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/check_squareclass_rr.py",
+            "sha256": "32282b30357638b5f0a2b709a0c917b29711b43a4d7f407a113bfb6502ddf269",
+            "git_blob": "8eca623bebea2eea7305f9812e5adb0abeed3c0e",
+            "bytes": 13923
+          },
+          {
+            "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/test_squareclass_rr.py",
+            "sha256": "7e3a5945667ba3b51e2b6494e5316c04426e10e5b834e87cbe91d12050c1789d",
+            "git_blob": "a1d0873bb1e6a0f25d6b74ac9a16eb9edf209c0a",
+            "bytes": 4132
+          },
+          {
+            "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/squareclass_rr_reduction.md",
+            "sha256": "9fdf67629596121ffc05fad3c1d973d794a254f263a3d510b0f20eab5318cf22",
+            "git_blob": "54e833ec3208247c3241761fa8e01b6e4167c9dc",
+            "bytes": 14592
+          },
+          {
+            "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/squareclass_rr_certificate.json",
+            "sha256": "d861e5b4d9d5b562c7e2a972c56b30144f2cd41275963f80a3aa80c5f1d3a289",
+            "git_blob": "ea8f51789eea4ab853cafe3384c9ffe2b6fa8bf7",
+            "bytes": 121094
+          },
+          {
+            "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/squareclass_rr_execution_receipt.json",
+            "sha256": "dc2eeb7f59b3018242250c0aed1b2a470a4c50cdef90b6dc0d5340961b393fc4",
+            "git_blob": "2ef588bb467821339c9e19a3533ca14b83fd55e5",
+            "bytes": 5539
+          },
+          {
+            "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/execution_authorization.json",
+            "sha256": "134414b20f551e2556d1ff49af21f7b227b29a30f7fe4e396d2936dd9297adfa",
+            "git_blob": "f9417b8db58331647b347f0f7f1515300bfa68f5",
+            "bytes": 6625
+          },
+          {
+            "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/continuation_state_at_authorization.json",
+            "sha256": "54888833ace15c3dad1b3e8af2704a71ab2d41d5a94e57b74a78952f9afda270",
+            "git_blob": "53ae3d23c414e9234d00fcd87711186115d7f0f8",
+            "bytes": 3089
+          },
+          {
+            "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/continuation_state.json",
+            "sha256": "06509e14ce66bc553eebbdbaa46fb4324fac01ac5a2e638ca1c99a01165302c9",
+            "git_blob": "b9aa4cd96d67fc0984cc5a28eead2efee923d361",
+            "bytes": 4808
+          },
+          {
+            "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/squareclass_rr_frontier_binding.json",
+            "sha256": "fd790b40df941f29490ef5a95e2046dad83a67a2b0056f9fec7bd905f93b677d",
+            "git_blob": "372fc6ce01998685e13a519b18815036afb107c3",
+            "bytes": 1762
+          },
+          {
+            "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/squareclass_rr_execution_receipt_v2.json",
+            "sha256": "efe3c7cbca2abdb71fe15159603faf747822b2b16d352ba1175d0d190e699821",
+            "git_blob": "baa42223f514936e58d81b6b1a5510a4bde61760",
+            "bytes": 6582
+          }
+        ]
+      },
+      {
+        "checkpoint": "empty_fiber_obstruction",
+        "source_commit": "77858e87d1ac0b277ca3d1e242432928019f398f",
+        "source_tree": "4bf4032ff62ba2ad4e2f00ae8b2d1ab4b8548ded",
+        "source_parent": "2a2b39cc41b96c827df83cbe42f6c1882da05894",
+        "local_publication_manifest_sha256": "009e5fcb7d50bc09e81795fe1ceb32a50d87103288aecb1e765e5ece7b8c3a38",
+        "publication_evidence": "Root reported exact remote full-content and Git-blob readback; this assembler independently rechecks the original local publication bytes, not the network.",
+        "files": [
+          {
+            "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/check_empty_fiber_obstruction.py",
+            "sha256": "a9a2ea681fc744028e186e4195e9d906dec6afe4e82c9b01fcecb59ca026828c",
+            "git_blob": "ce67327fda61df74a9bd01d7d4982241faa04eda",
+            "bytes": 10088
+          },
+          {
+            "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/test_empty_fiber_obstruction.py",
+            "sha256": "420f90f52037a42179b9fcbdcc5948506aab019944680daaf636f78708206e3b",
+            "git_blob": "e43c20eec71aa4ce5151eab9e6363daf7d43fc5d",
+            "bytes": 2488
+          },
+          {
+            "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/empty_fiber_obstruction.md",
+            "sha256": "5512a8d2599b44ee483775fca7a7b54692b9bc1aa58fd4963c13580f31640d72",
+            "git_blob": "f9c4518680616ad5d39ab7772440f76f9151e583",
+            "bytes": 10821
+          },
+          {
+            "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/empty_fiber_obstruction_certificate.json",
+            "sha256": "1757b252b5926bcda198e4a652259e8d46da4cd3a32464ae66c09f3d403eafb9",
+            "git_blob": "764a6c5b529fbe6f1aaab97b0745fcce52f8e711",
+            "bytes": 32570
+          },
+          {
+            "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/empty_fiber_execution_receipt.json",
+            "sha256": "cf3a6e14a64b7f571c0edc7120e29ac42cdcf3fa81d5f23805b9c4530a67aff5",
+            "git_blob": "0229fb44b5041f0586a99eb3e6c28c6da4b6cdf6",
+            "bytes": 8162
+          },
+          {
+            "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/continuation_state.json",
+            "sha256": "beb5506908114df722c3a4cdc56a54c3a3336026dc108dce4ce2db5291caa43f",
+            "git_blob": "0b2205f40d3a5113899afb597768f595a36ed659",
+            "bytes": 4856
+          },
+          {
+            "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/empty_fiber_frontier_binding.json",
+            "sha256": "69edc327561544d166bb7e3ace812632b1f03dbb68cde116290dcdc58364e43d",
+            "git_blob": "864f0ab960c9dd420c4d89c22051955b59349c05",
+            "bytes": 1470
+          }
+        ]
+      },
+      {
+        "checkpoint": "twisted_critical_numerator",
+        "source_commit": "ad05f1ce0e1f06b64268681a1a57d08d2032e6ca",
+        "source_tree": "df9126919485824c50dc7aa9e5a1571a9a709f35",
+        "source_parent": "77858e87d1ac0b277ca3d1e242432928019f398f",
+        "local_publication_manifest_sha256": "d74b9decd585eae4d7f5530d7b013bdae07b6ed583018b3fef4b4825d2a03822",
+        "publication_evidence": "Root reported exact remote full-content and Git-blob readback; this assembler independently rechecks the original local publication bytes, not the network.",
+        "files": [
+          {
+            "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/check_twisted_critical_numerator.py",
+            "sha256": "c68b4c6183de5288313df53ab6bbfb95bd75a875c104b42ef56c6ba0e1961969",
+            "git_blob": "aba282bbf549768845b10bcd57e38bf45b29a18f",
+            "bytes": 7772
+          },
+          {
+            "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/twisted_critical_numerator.md",
+            "sha256": "2780d48772b018ba9579bb663b576fd5e9f12757397bc75666fd6cc330770d6b",
+            "git_blob": "52147de9d0d682f2613e5003e0c4368c9b912252",
+            "bytes": 6994
+          },
+          {
+            "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/twisted_critical_certificate.json",
+            "sha256": "a36593100cdc3a67465c45b1569222349575cda61660576595e4541df5056ef8",
+            "git_blob": "d1d76cc15c34f89dc5e4e10d441d05b1268a427f",
+            "bytes": 3921
+          },
+          {
+            "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/twisted_critical_execution_receipt.json",
+            "sha256": "4536ab21a087db6dc476c3661cae32db0db71520b6fe7bd1e244a4584a7343f4",
+            "git_blob": "bbc5a8990db50efd1156891818fdfc0749c5e73c",
+            "bytes": 3439
+          },
+          {
+            "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/continuation_state.json",
+            "sha256": "5fe34d87d5ca48c8077bb059a1099376c84abe603251a34ebef33f06507edde5",
+            "git_blob": "3ac8d1e4fb057cb165ecfb5466b6558f5bb23ed3",
+            "bytes": 5035
+          },
+          {
+            "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/twisted_critical_frontier_binding.json",
+            "sha256": "f779760e9823ea52bb67e9a97da3f6a6c6c51128f432574aea3192c8e31e530b",
+            "git_blob": "9677ad5b4007a3c03ea9fd147aae9aed6314e8dc",
+            "bytes": 1374
+          }
+        ]
+      }
+    ],
+    "effective_source_snapshot": [
+      {
+        "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/assignment_execution_receipt.json",
+        "sha256": "d33bc0f2ea583f763e999530ff2f024fa6046bf18670132114f1c4a641bb97f4",
+        "git_blob": "bde6170b850ebf968bbbb7a9c7f577b99e70188c",
+        "bytes": 5412,
+        "source_commit": "b8c4fb6c8e86080699c67b65b863e1ce791f1263",
+        "checkpoint": "assignment"
+      },
+      {
+        "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/branch_assignment_classification.json",
+        "sha256": "a83524c6b9b8cb6e00561c014e7129c614e9b1c46eedcbd9c9e79f2ff5ee89a0",
+        "git_blob": "a173e6e63a1f0820123e486e0c698ac6259a0bd4",
+        "bytes": 82957,
+        "source_commit": "b8c4fb6c8e86080699c67b65b863e1ce791f1263",
+        "checkpoint": "assignment"
+      },
+      {
+        "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/branch_assignment_classification.md",
+        "sha256": "8cbb95a5fdacf6e146e9ab934b6228a78e0180d361807a651710a83db4f89770",
+        "git_blob": "105ec0bc1da83cd8012af0a76a6365eaa68b10cf",
+        "bytes": 6253,
+        "source_commit": "b8c4fb6c8e86080699c67b65b863e1ce791f1263",
+        "checkpoint": "assignment"
+      },
+      {
+        "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/check_empty_fiber_obstruction.py",
+        "sha256": "a9a2ea681fc744028e186e4195e9d906dec6afe4e82c9b01fcecb59ca026828c",
+        "git_blob": "ce67327fda61df74a9bd01d7d4982241faa04eda",
+        "bytes": 10088,
+        "source_commit": "77858e87d1ac0b277ca3d1e242432928019f398f",
+        "checkpoint": "empty_fiber_obstruction"
+      },
+      {
+        "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/check_squareclass_rr.py",
+        "sha256": "32282b30357638b5f0a2b709a0c917b29711b43a4d7f407a113bfb6502ddf269",
+        "git_blob": "8eca623bebea2eea7305f9812e5adb0abeed3c0e",
+        "bytes": 13923,
+        "source_commit": "2a2b39cc41b96c827df83cbe42f6c1882da05894",
+        "checkpoint": "squareclass_rr_corrected_v2"
+      },
+      {
+        "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/check_twisted_critical_numerator.py",
+        "sha256": "c68b4c6183de5288313df53ab6bbfb95bd75a875c104b42ef56c6ba0e1961969",
+        "git_blob": "aba282bbf549768845b10bcd57e38bf45b29a18f",
+        "bytes": 7772,
+        "source_commit": "ad05f1ce0e1f06b64268681a1a57d08d2032e6ca",
+        "checkpoint": "twisted_critical_numerator"
+      },
+      {
+        "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/continuation_state.json",
+        "sha256": "5fe34d87d5ca48c8077bb059a1099376c84abe603251a34ebef33f06507edde5",
+        "git_blob": "3ac8d1e4fb057cb165ecfb5466b6558f5bb23ed3",
+        "bytes": 5035,
+        "source_commit": "ad05f1ce0e1f06b64268681a1a57d08d2032e6ca",
+        "checkpoint": "twisted_critical_numerator"
+      },
+      {
+        "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/continuation_state_at_authorization.json",
+        "sha256": "54888833ace15c3dad1b3e8af2704a71ab2d41d5a94e57b74a78952f9afda270",
+        "git_blob": "53ae3d23c414e9234d00fcd87711186115d7f0f8",
+        "bytes": 3089,
+        "source_commit": "2a2b39cc41b96c827df83cbe42f6c1882da05894",
+        "checkpoint": "squareclass_rr_corrected_v2"
+      },
+      {
+        "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/empty_fiber_execution_receipt.json",
+        "sha256": "cf3a6e14a64b7f571c0edc7120e29ac42cdcf3fa81d5f23805b9c4530a67aff5",
+        "git_blob": "0229fb44b5041f0586a99eb3e6c28c6da4b6cdf6",
+        "bytes": 8162,
+        "source_commit": "77858e87d1ac0b277ca3d1e242432928019f398f",
+        "checkpoint": "empty_fiber_obstruction"
+      },
+      {
+        "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/empty_fiber_frontier_binding.json",
+        "sha256": "69edc327561544d166bb7e3ace812632b1f03dbb68cde116290dcdc58364e43d",
+        "git_blob": "864f0ab960c9dd420c4d89c22051955b59349c05",
+        "bytes": 1470,
+        "source_commit": "77858e87d1ac0b277ca3d1e242432928019f398f",
+        "checkpoint": "empty_fiber_obstruction"
+      },
+      {
+        "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/empty_fiber_obstruction.md",
+        "sha256": "5512a8d2599b44ee483775fca7a7b54692b9bc1aa58fd4963c13580f31640d72",
+        "git_blob": "f9c4518680616ad5d39ab7772440f76f9151e583",
+        "bytes": 10821,
+        "source_commit": "77858e87d1ac0b277ca3d1e242432928019f398f",
+        "checkpoint": "empty_fiber_obstruction"
+      },
+      {
+        "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/empty_fiber_obstruction_certificate.json",
+        "sha256": "1757b252b5926bcda198e4a652259e8d46da4cd3a32464ae66c09f3d403eafb9",
+        "git_blob": "764a6c5b529fbe6f1aaab97b0745fcce52f8e711",
+        "bytes": 32570,
+        "source_commit": "77858e87d1ac0b277ca3d1e242432928019f398f",
+        "checkpoint": "empty_fiber_obstruction"
+      },
+      {
+        "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/execution_authorization.json",
+        "sha256": "134414b20f551e2556d1ff49af21f7b227b29a30f7fe4e396d2936dd9297adfa",
+        "git_blob": "f9417b8db58331647b347f0f7f1515300bfa68f5",
+        "bytes": 6625,
+        "source_commit": "2a2b39cc41b96c827df83cbe42f6c1882da05894",
+        "checkpoint": "squareclass_rr_corrected_v2"
+      },
+      {
+        "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/source_binding.json",
+        "sha256": "516400d46ae5dd5a8aa2d25520021ee3a57dc839538746a550ad2a7bfae2a473",
+        "git_blob": "0d740e90e03eca30ce6a3160fe315b55ffe9337e",
+        "bytes": 1818,
+        "source_commit": "b8c4fb6c8e86080699c67b65b863e1ce791f1263",
+        "checkpoint": "assignment"
+      },
+      {
+        "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/squareclass_rr_certificate.json",
+        "sha256": "d861e5b4d9d5b562c7e2a972c56b30144f2cd41275963f80a3aa80c5f1d3a289",
+        "git_blob": "ea8f51789eea4ab853cafe3384c9ffe2b6fa8bf7",
+        "bytes": 121094,
+        "source_commit": "2a2b39cc41b96c827df83cbe42f6c1882da05894",
+        "checkpoint": "squareclass_rr_corrected_v2"
+      },
+      {
+        "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/squareclass_rr_execution_receipt.json",
+        "sha256": "dc2eeb7f59b3018242250c0aed1b2a470a4c50cdef90b6dc0d5340961b393fc4",
+        "git_blob": "2ef588bb467821339c9e19a3533ca14b83fd55e5",
+        "bytes": 5539,
+        "source_commit": "2a2b39cc41b96c827df83cbe42f6c1882da05894",
+        "checkpoint": "squareclass_rr_corrected_v2"
+      },
+      {
+        "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/squareclass_rr_execution_receipt_v2.json",
+        "sha256": "efe3c7cbca2abdb71fe15159603faf747822b2b16d352ba1175d0d190e699821",
+        "git_blob": "baa42223f514936e58d81b6b1a5510a4bde61760",
+        "bytes": 6582,
+        "source_commit": "2a2b39cc41b96c827df83cbe42f6c1882da05894",
+        "checkpoint": "squareclass_rr_corrected_v2"
+      },
+      {
+        "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/squareclass_rr_frontier_binding.json",
+        "sha256": "fd790b40df941f29490ef5a95e2046dad83a67a2b0056f9fec7bd905f93b677d",
+        "git_blob": "372fc6ce01998685e13a519b18815036afb107c3",
+        "bytes": 1762,
+        "source_commit": "2a2b39cc41b96c827df83cbe42f6c1882da05894",
+        "checkpoint": "squareclass_rr_corrected_v2"
+      },
+      {
+        "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/squareclass_rr_reduction.md",
+        "sha256": "9fdf67629596121ffc05fad3c1d973d794a254f263a3d510b0f20eab5318cf22",
+        "git_blob": "54e833ec3208247c3241761fa8e01b6e4167c9dc",
+        "bytes": 14592,
+        "source_commit": "2a2b39cc41b96c827df83cbe42f6c1882da05894",
+        "checkpoint": "squareclass_rr_corrected_v2"
+      },
+      {
+        "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/test_empty_fiber_obstruction.py",
+        "sha256": "420f90f52037a42179b9fcbdcc5948506aab019944680daaf636f78708206e3b",
+        "git_blob": "e43c20eec71aa4ce5151eab9e6363daf7d43fc5d",
+        "bytes": 2488,
+        "source_commit": "77858e87d1ac0b277ca3d1e242432928019f398f",
+        "checkpoint": "empty_fiber_obstruction"
+      },
+      {
+        "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/test_squareclass_rr.py",
+        "sha256": "7e3a5945667ba3b51e2b6494e5316c04426e10e5b834e87cbe91d12050c1789d",
+        "git_blob": "a1d0873bb1e6a0f25d6b74ac9a16eb9edf209c0a",
+        "bytes": 4132,
+        "source_commit": "2a2b39cc41b96c827df83cbe42f6c1882da05894",
+        "checkpoint": "squareclass_rr_corrected_v2"
+      },
+      {
+        "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/twisted_critical_certificate.json",
+        "sha256": "a36593100cdc3a67465c45b1569222349575cda61660576595e4541df5056ef8",
+        "git_blob": "d1d76cc15c34f89dc5e4e10d441d05b1268a427f",
+        "bytes": 3921,
+        "source_commit": "ad05f1ce0e1f06b64268681a1a57d08d2032e6ca",
+        "checkpoint": "twisted_critical_numerator"
+      },
+      {
+        "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/twisted_critical_execution_receipt.json",
+        "sha256": "4536ab21a087db6dc476c3661cae32db0db71520b6fe7bd1e244a4584a7343f4",
+        "git_blob": "bbc5a8990db50efd1156891818fdfc0749c5e73c",
+        "bytes": 3439,
+        "source_commit": "ad05f1ce0e1f06b64268681a1a57d08d2032e6ca",
+        "checkpoint": "twisted_critical_numerator"
+      },
+      {
+        "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/twisted_critical_frontier_binding.json",
+        "sha256": "f779760e9823ea52bb67e9a97da3f6a6c6c51128f432574aea3192c8e31e530b",
+        "git_blob": "9677ad5b4007a3c03ea9fd147aae9aed6314e8dc",
+        "bytes": 1374,
+        "source_commit": "ad05f1ce0e1f06b64268681a1a57d08d2032e6ca",
+        "checkpoint": "twisted_critical_numerator"
+      },
+      {
+        "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/twisted_critical_numerator.md",
+        "sha256": "2780d48772b018ba9579bb663b576fd5e9f12757397bc75666fd6cc330770d6b",
+        "git_blob": "52147de9d0d682f2613e5003e0c4368c9b912252",
+        "bytes": 6994,
+        "source_commit": "ad05f1ce0e1f06b64268681a1a57d08d2032e6ca",
+        "checkpoint": "twisted_critical_numerator"
+      },
+      {
+        "path": "scripts/check_rb_blind_branch_patterns_20260908.py",
+        "sha256": "3cfb6b09016b8d41066245f2e9bd4d06d8b13d6a4bf13a06d2bf8d628bb42a81",
+        "git_blob": "4efab8d7f626313ccd28dc79b5ca973c42c60bf1",
+        "bytes": 6501,
+        "source_commit": "b8c4fb6c8e86080699c67b65b863e1ce791f1263",
+        "checkpoint": "assignment"
+      },
+      {
+        "path": "tests/test_rb_blind_branch_patterns_20260908.py",
+        "sha256": "4281d2769a1b15257168f8b02aeb629c69895a6c439525af6160291e8ff8dc71",
+        "git_blob": "b813fa9856c19c770fe8eacfc04316f58b5f6ae2",
+        "bytes": 2293,
+        "source_commit": "b8c4fb6c8e86080699c67b65b863e1ce791f1263",
+        "checkpoint": "assignment"
+      }
+    ],
+    "published_frontier_at_freeze": "ad05f1ce0e1f06b64268681a1a57d08d2032e6ca",
+    "exact_frontier": {
+      "raw_labelled_assignments": {
+        "4+2+0+0": 180,
+        "2+2+2+0": 360
+      },
+      "fixed_lambda_fixed_k_V4_orbits": {
+        "4+2+0+0": 45,
+        "2+2+2+0": 90
+      },
+      "cover_only_V4_plus_source_flip": {
+        "4+2+0+0": 33,
+        "2+2+2+0": 54
+      },
+      "transported_S4_plus_source_flip": {
+        "4+2+0+0": 11,
+        "2+2+2+0": 9
+      },
+      "symmetry_boundary": "Only the 45/90 quotient preserves the fixed lambda and fixed k problem. The source sign flip changes k; transported labels and cover-only quotients are not additional fixed-ODE identifications.",
+      "geometric_compatible_torsion_triples_per_assignment": 16,
+      "geometric_incompatible_torsion_triples_per_assignment": 48,
+      "geometric_components_before_new_obstruction": {
+        "4+2+0+0": 720,
+        "2+2+2+0": 1440,
+        "total": 2160
+      },
+      "excluded_geometric_components": {
+        "4+2+0+0_trivial_finite_empty_fiber_class": 180,
+        "2+2+2+0": 0
+      },
+      "remaining_geometric_components": {
+        "4+2+0+0": 540,
+        "2+2+2+0": 1440,
+        "total": 1980
+      },
+      "meaning_of_component": "A finite-indexed geometric square-class/RR parameter family over an algebraic closure, with variable pole class S, coefficients, and constants. These are not 1980 constructed maps, points, or a zero-dimensional solution list. Full original-field descent and explicit polynomial solving remain open."
+    },
+    "preserved_partial_theorems": [
+      {
+        "id": "ASSIGNMENT_CLASSIFICATION",
+        "statement": "Complete raw assignment enumeration and the parameter-preserving V4 orbit partition, with the source/transport distinctions above.",
+        "proof": "branch_assignment_classification.md",
+        "certificate": "branch_assignment_classification.json"
+      },
+      {
+        "id": "GEOMETRIC_SQUARECLASS_RR",
+        "statement": "After an actual V4 relabeling to an empty infinity fiber, compatible finite-fiber torsion triples satisfy T0+T1+Tlambda=O. The 16 geometric triples admit the recorded parity representatives and RR dimensions (1,2,3) or (2,2,2); constant square classes and descent are not solved. Coupled differences use X-(X-a)=a.",
+        "proof": "squareclass_rr_reduction.md",
+        "certificate": "squareclass_rr_certificate.json"
+      },
+      {
+        "id": "TRIVIAL_EMPTY_FIBER_OBSTRUCTION",
+        "statement": "In the 4+2 pattern, a geometrically trivial finite empty-fiber square class would give X=e+g^2 with deg(g)=3. The 3+1 branch-fiber split forces ten pole classes; local critical-point conditions at all three Q exclude every such class. For finite S=(u,v) the checked determinant is 2k(v-k)^2(18u+k^2), with all factors nonzero in the proved finite-class scope. This removes exactly 45*4=180 geometric components.",
+        "proof": "empty_fiber_obstruction.md",
+        "certificate": "empty_fiber_obstruction_certificate.json"
+      },
+      {
+        "id": "TWISTED_CRITICAL_NECESSARY_FILTER",
+        "statement": "For each remaining nontrivial empty-fiber class gamma=R-r_T on the normalized unramified cover zeta^2=gamma, deg(g)=6 and g=zeta*n/d. With D=2delta, W=t*n*d+gamma*((Dn)*d-n*(Dd)) is the correctly cleared critical numerator. W(rho*n,rho*d)=rho^2 W(n,d), and nonunit common frames must first be removed. Three critical constraints are necessary, not a solved RR/ODE system; no further components were removed.",
+        "proof": "twisted_critical_numerator.md",
+        "certificate": "twisted_critical_certificate.json"
+      }
+    ],
+    "required_output_matrix_at_freeze": [
+      {
+        "output": 1,
+        "state": "COMPLETE_IN_DECLARED_FIXED_PARAMETER_SYMMETRY_SCOPE"
+      },
+      {
+        "output": 2,
+        "state": "PARTIAL_GEOMETRIC_REPRESENTATIVES_AND_COMPATIBILITY; ORIGINAL_FIELD_CONSTANT_CLASSES_AND_DESCENT_OPEN"
+      },
+      {
+        "output": 3,
+        "state": "PARTIAL_180_COMPONENTS_EXCLUDED; 1980_RR_PARAMETER_COMPONENTS_UNSOLVED"
+      },
+      {
+        "output": 4,
+        "state": "NO_MAP_RECONSTRUCTED; EXPLICIT_X_Y_DEGREE_BASEPOINT_AND_TARGET_DATA_NOT_SUPPLIED"
+      },
+      {
+        "output": 5,
+        "state": "NECESSARY_FORMAL_IDENTITIES_AND_LOCAL_FILTERS_ONLY; NO_SURVIVING_MAP_FULL_ODE_OR_PULLBACK_VERIFICATION"
+      },
+      {
+        "output": 6,
+        "state": "NO_INDEPENDENT_PERIOD_SCALING_DERIVATION"
+      },
+      {
+        "output": 7,
+        "state": "BOTH_REMAINING_PATTERNS_NOT_EXCLUDED; NO_DEGREE6_NONEXISTENCE_CLAIM"
+      },
+      {
+        "output": 8,
+        "state": "THIS_MACHINE_READABLE_PHASE_AND_PAYLOAD_HASH_FREEZE; REMOTE_PERSISTENCE_PENDING_AT_CREATION"
+      },
+      {
+        "output": 9,
+        "state": "SCOPED_DETERMINISTIC_INTEGER_CHECKERS_AND_ACTUAL_RECEIPTS_PRESERVED; NOT_A_COMPLETE_MAP_SOLVER"
+      },
+      {
+        "output": 10,
+        "state": "NOT_STARTED_BEFORE_FREEZE; WAIT_FOR_OWNER_REMOTE_FREEZE_COMMIT_AND_EXACT_READBACK"
+      },
+      {
+        "output": 11,
+        "state": "TO_BE_WRITTEN_AFTER_THE_REQUIRED_BOUNDED_POSTFREEZE_COMPARISON"
+      }
+    ],
+    "primary_verdict_basis": "The exact taskbook explicitly permits BLIND_BRANCH_PATTERN_INCOMPLETE when the two-pattern problem has been reduced to a strictly smaller exact algebraic certificate but not completed. One full pattern has not been excluded. The distinct, stronger successor-gate outcome is not asserted.",
+    "hard_target": {
+      "id": "RB_ENTERPRISE_DEGREE6_CM24_BLIND_BRANCH_PATTERNS_COMPLETED_OR_REFUTED",
+      "satisfied": false
+    },
+    "unfinished_obligations": [
+      "Original-field definition and descent of the geometric half-point, torsion and constant square classes.",
+      "Explicit RR bases across every variable pole-class chart, local frame, denominator and cancellation gate.",
+      "Coupled difference equations and the independent full ODE for every surviving component.",
+      "Exact map/degree/basepoint/target and independent differential/period data if a map is reconstructed.",
+      "Whole-pattern obstruction proofs if the target is to be refuted."
+    ],
+    "old_error_preservation": {
+      "rejected_v1_squareclass_manifest_sha256": "b1c52b44f24e910bc922e12782a759d8d1df86ff0b4f4ed04c152da917c90385",
+      "rejected_v1_paper_sha256": "613822540e392af8f4eed93b3a7fba033aee0fd250a70d01c0547d38a51bdc0d",
+      "facts": "Root found four reversed RR difference signs. The corrected V2 paper/certificate/checker and actual five-test receipt are the active source; the old four-test receipt is preserved only as historical evidence. A duplicated python path caused one static command not to start; the subsequent correct-runtime static run passed. Neither failure is erased or relabeled PASS."
+    },
+    "arithmetic_and_reuse_boundary": "The completed checkers performed integer set/group and cleared-polynomial operations only. They did not evaluate ordinary quotients, roots, Fraction/float values, or BRC calls. Algebraic curve variables and formal radicals are not new native spatial axes; geometric compression retained parity/valuation data. The two whitelisted historical sources were read, not run. No generic tool/family or native migration is claimed.",
+    "postfreeze_gate": "Do not read originating objects or the broader catalog until root returns the actual immutable remote commit containing this exact freeze and confirms full-content readback. Any later comparison is a separately timestamped Phase-B record and cannot alter this payload or convert the incomplete result into reconstruction.",
+    "formal_status": "Researcher raw freeze only; no canonical Result/Review, Driver acceptance, Foundation, Working Truth or parent-objective closure.",
+    "global_knowledge_authoring_snapshot": "main@97fb3048dcb9ca1589006801d589525c31de7899",
+    "global_knowledge_authoring_lease": {
+      "verified_at_utc": "2026-09-08T15:57:36.9055005Z",
+      "expires_at_utc": "2026-09-08T21:57:36.9055005Z"
+    }
+  }
+}
