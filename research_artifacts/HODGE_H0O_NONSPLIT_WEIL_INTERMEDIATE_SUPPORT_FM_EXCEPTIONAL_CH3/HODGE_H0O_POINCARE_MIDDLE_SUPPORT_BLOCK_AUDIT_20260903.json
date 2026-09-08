@@ -1,0 +1,68 @@
+{
+  "schema": "HODGE_H0O_POINCARE_MIDDLE_SUPPORT_BLOCK_AUDIT_V1",
+  "task_id": "RS-HODGE-H0O-NONSPLIT-WEIL-INTERMEDIATE-SUPPORT-FM-EXCEPTIONAL-CH3",
+  "publication_id": "TP2-A314F727276CFF8CE168",
+  "researcher_id": "EM-HODGEH0O-D39219",
+  "date": "2026-09-03",
+  "frozen_target": {
+    "variety": "very-general non-split [-3] Weil sixfold A_gen",
+    "field": "K=Q(i)",
+    "dimension": 6,
+    "weil_blocks": "B_p=Lambda^p V_sigma tensor Lambda^(6-p) V_sigma_bar, p=0,...,6",
+    "exceptional_space": "W_K,C=B_0 direct-sum B_6",
+    "projector": "H0N Pi_W=P(u^*) with selector 1 on p=0,6 and 0 on p=1,...,5"
+  },
+  "declared_family": {
+    "polarization": "fixed K-compatible polarization lambda:A_gen->Ahat_gen; Rosati restricts to complex conjugation on K",
+    "poincare_kernel": "normalized Poincare line bundle P on A_gen x Ahat_gen",
+    "endo_kernel": "Q=(id_A x lambda)^* P on A_gen x A_gen",
+    "functor": "Psi_Q(F)=Rp2_*(p1^*F tensor^L Q), canonically Llambda^* Phi_P(F) by flat base change",
+    "source_class": "all coherent sheaves F pure of codimension 3 (dimension 3) on A_gen",
+    "wit_hypothesis": "NONE",
+    "output_type_hypothesis": "NONE; output is allowed to be an arbitrary derived object",
+    "semihomogeneous_hypothesis": "NONE"
+  },
+  "grr": {
+    "todd": "td(A_gen)=td(Ahat_gen)=1",
+    "formula": "ch(Phi_P(F))=p_Ahat*(p_A^*ch(F) exp(ell)), ell=c1(P)",
+    "degree_law": "H^{2j}(A)->H^{12-2j}(Ahat), hence ch_j maps to target ch_(6-j)",
+    "codim3_consequence": "target ch_3 receives exactly and only source ch_3",
+    "pure_support_leading_term": "for pure codim-3 F, ch_0=ch_1=ch_2=0 and ch_3(F)=[F]_cyc"
+  },
+  "block_map": {
+    "poincare": "B_p -> Bhat_(6-p)",
+    "polarization_pullback": "Bhat_q -> B_(6-q), from Rosati conjugation",
+    "endo_middle_transform": "T_lambda=lambda^* Phi_P^H sends B_p -> B_p",
+    "selector_consequence": "T_lambda preserves W_K=B_0+B_6 and its p=1,...,5 complement, so Pi_W T_lambda = T_lambda Pi_W on H^6",
+    "invertibility": "Phi_P^H is an integral cohomology isomorphism and lambda^* is a rational cohomology isomorphism for the isogeny lambda; hence T_lambda|W_K is invertible"
+  },
+  "terminal_theorem": {
+    "identity": "Pi_W(ch_3(Psi_Q(F))) = T_lambda(Pi_W(ch_3(F)))",
+    "pure_codim3_identity": "Pi_W(ch_3(Psi_Q(F))) = T_lambda(Pi_W([F]_cyc))",
+    "iff": "Pi_W(ch_3(Psi_Q(F))) != 0 iff Pi_W([F]_cyc) != 0",
+    "classification": "EXCEPTIONAL_SEED_CONSERVATION",
+    "no_new_seed": "This declared Poincare-polarization middle-support FM family cannot create the first exceptional algebraic seed. A positive output requires an algebraic source support cycle that is already exceptional.",
+    "missing_datum": "an explicitly algebraic codimension-3 support cycle gamma=[F]_cyc on the same non-split target with Pi_W(gamma)!=0"
+  },
+  "adversarial_audit": [
+    "No semihomogeneity is assumed or inferred; the proof is cohomological and applies regardless of target output type.",
+    "No WIT or single-cohomology-sheaf assumption is used; Chern character is taken for the derived output.",
+    "No divisor-algebra hypothesis is used. The source support cycle may be any algebraic codimension-3 cycle arising from a pure sheaf.",
+    "No split/discriminant-minus-one secant object is transported to the [-3] target.",
+    "The result does not show Pi_W([F])=0 for every algebraic support cycle; that would overclaim the unresolved algebraicity question.",
+    "A source with Pi_W([F])!=0 is not a counterexample to the theorem: it is exactly a pre-existing seed, and the FM transform only transports it."
+  ],
+  "finite_certificate": {
+    "checker": "research_checks/HODGE_H0O_NONSPLIT_WEIL_INTERMEDIATE_SUPPORT_FM_EXCEPTIONAL_CH3_CHECK_20260903.py",
+    "checks": 46,
+    "failures": 0,
+    "terminal_line": "HODGE_H0O_NONSPLIT_WEIL_INTERMEDIATE_SUPPORT_FM_EXCEPTIONAL_CH3_CHECK: PASS",
+    "scope": "finite verification of degree/block labels and the frozen H0N projector values only; it does not replace GRR or the geometric leading-cycle theorem"
+  },
+  "literature_control": {
+    "Markman_2502.03415": "sixfold algebraicity theorem is for discriminant -1; used only as a negative control, not transported to [-3]",
+    "Markman_2509.23403": "secant-sheaf strategy is explicitly split Weil type",
+    "Mostaed_2603.20268": "records discriminant/control obstructions in current sixfold frontier; no non-algebraicity inference is made here"
+  },
+  "terminal_classification": "POINCARE_POLARIZATION_PURE_MIDDLE_SUPPORT_FM_IS_EXCEPTIONAL_SEED_CONSERVING__NO_FIRST_SEED_GENERATION"
+}
