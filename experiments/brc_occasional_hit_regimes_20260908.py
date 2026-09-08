@@ -1,6 +1,6 @@
 """Fixed 16-bit BRC square-completion fixtures and bounded kernel timings.
 
-No target-input option, factor routine, multiplier search, or search fallback.
+No target-input option, multiplier search, or search fallback.
 Counts concern all declared integer states, not RSA or semiprime populations.
 """
 from __future__ import annotations
@@ -47,6 +47,19 @@ def native_input_batch(values):
     return checksum
 
 
+def verified_native_input_batch(values):
+    checksum = 0
+    for n in values:
+        a = isqrt(n) + 1
+        gap = a*a - n
+        b = isqrt(gap)
+        if b*b == gap:
+            left, right = a-b, a+b
+            if left > 1 and left*right == n:
+                checksum += left+right
+    return checksum
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--enterprise-root", type=Path, required=True)
@@ -84,6 +97,17 @@ def main():
         for n in values:
             a = isqrt(n) + 1
             checksum += get_root(a*a-n, 0)
+        return checksum
+
+    def verified_lookup_input_batch(values):
+        checksum = 0
+        for n in values:
+            a = isqrt(n) + 1
+            b = get_root(a*a-n, 0)
+            if b:
+                left, right = a-b, a+b
+                if left > 1 and left*right == n:
+                    checksum += left+right
         return checksum
 
     def existing_filter_batch(values):
@@ -145,6 +169,8 @@ def main():
     prime_seeds = [p for p in range(101, 252) if all(p%d for d in range(2, isqrt(p)+1))]
     semiprime_counts = {mode: {"attempts": 0, "hits": 0} for mode in ("D", "U")}
     semiprime_examples = {mode: [] for mode in ("D", "U")}
+    for mode in ("D", "U"):
+        populations["known_primes101_251", mode] = []
     for i, p in enumerate(prime_seeds):
         for q in prime_seeds[i+1:]:
             n = p*q
@@ -152,6 +178,8 @@ def main():
             state = point_cost_state(n, 1)
             mode = "D" if state.subtraction_cost <= state.target_root else "U"
             witness = ceiling_completion_square_witness(n, 1)
+            populations["known_primes101_251", mode].append((n, state.target_root,
+                state.subtraction_cost, state.addition_cost, witness[1] if witness else 0))
             semiprime_counts[mode]["attempts"] += 1
             if witness is not None:
                 a, b = witness
@@ -188,31 +216,36 @@ def main():
         ns = [row[0] for row in sample]
         gaps = [row[3] for row in sample]
         expected_checksum = sum(row[4] for row in sample)
+        expected_verified_checksum = sum(2*(row[1]+1) for row in sample if row[4])
+        repeats = max(REPEATS, ceil(SAMPLE_SIZE*REPEATS/len(sample)))
         methods = {
-            "hot_native_isqrt": (native_gap_batch, gaps),
-            "hot_bounded_lookup": (lookup_gap_batch, gaps),
-            "hot_existing_checked_filter": (existing_filter_batch, gaps),
-            "input_native_isqrt": (native_input_batch, ns),
-            "input_bounded_lookup": (lookup_input_batch, ns),
+            "hot_native_isqrt": (native_gap_batch, gaps, expected_checksum),
+            "hot_bounded_lookup": (lookup_gap_batch, gaps, expected_checksum),
+            "hot_existing_checked_filter": (existing_filter_batch, gaps, expected_checksum),
+            "input_native_isqrt": (native_input_batch, ns, expected_checksum),
+            "input_bounded_lookup": (lookup_input_batch, ns, expected_checksum),
+            "verified_input_native_isqrt": (verified_native_input_batch, ns, expected_verified_checksum),
+            "verified_input_bounded_lookup": (verified_lookup_input_batch, ns, expected_verified_checksum),
         }
-        for fn, values in methods.values():
-            assert fn(values) == expected_checksum
+        for fn, values, expected in methods.values():
+            assert fn(values) == expected
         timings = {name: [] for name in methods}
         for round_index in range(ROUNDS):
             names = list(methods)
             rng.shuffle(names)
             for name in names:
-                fn, values = methods[name]
+                fn, values, expected = methods[name]
                 start = perf_counter_ns()
                 checksum = 0
-                for _ in range(REPEATS):
+                for _ in range(repeats):
                     checksum += fn(values)
                 elapsed = perf_counter_ns() - start
-                assert checksum == expected_checksum*REPEATS
-                timings[name].append(elapsed/(REPEATS*len(values)))
+                assert checksum == expected*repeats
+                timings[name].append(elapsed/(repeats*len(values)))
         medians = {name: median(values) for name, values in timings.items()}
         hot_saving = medians["hot_native_isqrt"]-medians["hot_bounded_lookup"]
         input_saving = medians["input_native_isqrt"]-medians["input_bounded_lookup"]
+        verified_saving = medians["verified_input_native_isqrt"]-medians["verified_input_bounded_lookup"]
         context = ShortcutContext(n_bits=max(ns).bit_length(), states_materialized=True,
                                   expected_transitions=len(sample),
                                   shadow_tag=f"bounded-positive-completion|{band}|direction={mode}")
@@ -220,17 +253,28 @@ def main():
             ledger.record(context, "fixed_fixture_gap_lookup", hit=bool(row[4]),
                           probe_cost=medians["hot_bounded_lookup"],
                           saved_cost=medians["hot_native_isqrt"])
+        input_context = ShortcutContext(n_bits=max(ns).bit_length(), states_materialized=False,
+                                        expected_transitions=len(sample),
+                                        shadow_tag=f"bounded-positive-completion|{band}|direction={mode}")
+        for row in sample:
+            ledger.record(input_context, "fixed_fixture_verified_input_lookup", hit=bool(row[4]),
+                          probe_cost=medians["verified_input_bounded_lookup"],
+                          saved_cost=medians["verified_input_native_isqrt"])
         result_rows.append({
             "band": band, "direction": mode, "population_size": len(population),
             "population_square_completion_hits": sum(bool(row[4]) for row in population),
             "population_hit_rate": sum(bool(row[4]) for row in population)/len(population),
             "timing_sample_size": len(sample), "timing_sample_hits": sum(bool(row[4]) for row in sample),
+            "timing_batch_repeats": repeats,
             "ns_per_item_median": medians,
             "ns_per_item_rounds": timings,
             "hot_speed_ratio_native_over_lookup": medians["hot_native_isqrt"]/medians["hot_bounded_lookup"],
             "input_speed_ratio_native_over_lookup": medians["input_native_isqrt"]/medians["input_bounded_lookup"],
+            "verified_input_speed_ratio_native_over_lookup": medians["verified_input_native_isqrt"]/medians["verified_input_bounded_lookup"],
+            "verified_input_lookup_faster_rounds": sum(a>b for a,b in zip(timings["verified_input_native_isqrt"],timings["verified_input_bounded_lookup"])),
             "lookup_setup_break_even_items_hot": ceil(setup_ns/hot_saving) if hot_saving > 0 else None,
             "lookup_setup_break_even_items_input": ceil(setup_ns/input_saving) if input_saving > 0 else None,
+            "lookup_setup_break_even_items_verified_input": ceil(setup_ns/verified_saving) if verified_saving > 0 else None,
         })
 
     # One attempt is one exact completion-gap classification; no route is expanded.
@@ -252,10 +296,12 @@ def main():
         "rows": result_rows,
         "lookup_setup_ns_median": setup_ns, "lookup_entries": len(square_roots),
         "lookup_python_size_bytes_sum_including_keys_values": table_bytes,
-        "timing_contract": {"rounds": ROUNDS, "batch_repeats": REPEATS,
+        "timing_contract": {"rounds": ROUNDS, "minimum_batch_repeats": REPEATS,
+                            "minimum_observations_per_method_round": SAMPLE_SIZE*REPEATS,
                             "setup": "one-time table build timed separately; module import and observation logging excluded for both kernels",
                             "ledger": "costs in ns use batch median allocations; saved_cost is replaced square-root kernel cost, not estimated factorization work",
-                            "input_kernel": "includes native isqrt(N) and gap construction; all fixtures are nonsquares"},
+                            "input_kernel": "includes native isqrt(N) and gap construction; all fixtures are nonsquares",
+                            "verified_input_kernel": "also constructs the two witness factors, checks the smaller is nontrivial and checks their product; returns only an aggregate checksum on the fixed fixtures"},
         "ledger_existing_api": ledger.to_dict(),
         "executed_module_sha256": {name: sha256((args.enterprise_root/"src"/"enterprise_math"/name).read_bytes()).hexdigest() for name in module_names},
         "runtime": {"python": sys.version.split()[0], "platform": platform.platform()},
@@ -265,7 +311,7 @@ def main():
     (args.output_dir/"brc_occasional_hit_regimes_20260908.json").write_text(json.dumps(result, indent=2), encoding="utf-8")
     print(json.dumps({key: result[key] for key in ("checks", "lookup_entries", "lookup_setup_ns_median", "lookup_python_size_bytes_sum_including_keys_values", "known_construction_examples", "known_prime_product_cohort", "verdict")}, indent=2))
     for row in result_rows:
-        print(json.dumps({key: row[key] for key in ("band", "direction", "population_size", "population_square_completion_hits", "population_hit_rate", "ns_per_item_median", "hot_speed_ratio_native_over_lookup", "input_speed_ratio_native_over_lookup", "lookup_setup_break_even_items_hot", "lookup_setup_break_even_items_input")}))
+        print(json.dumps({key: row[key] for key in ("band", "direction", "population_size", "population_square_completion_hits", "population_hit_rate", "ns_per_item_median", "hot_speed_ratio_native_over_lookup", "input_speed_ratio_native_over_lookup", "verified_input_speed_ratio_native_over_lookup", "verified_input_lookup_faster_rounds", "lookup_setup_break_even_items_hot", "lookup_setup_break_even_items_input", "lookup_setup_break_even_items_verified_input")}))
 
 
 if __name__ == "__main__":
