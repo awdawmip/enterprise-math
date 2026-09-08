@@ -1,0 +1,388 @@
+# X6 determinant-7 exact minimum: scalar Gram optimum is killed by discriminant phase
+
+Status: `RESEARCH_NOTE / DURABLE FRONTIER / NONCANONICAL / NOT_FOUNDATION / NOT_WORKING_TRUTH`
+Date: `2026-09-08`
+Scope: `Enterprise Math / P000 X6 / one-step prime anisotropy / discriminant gluing`
+Parents:
+- `research_notes/x6_prime_discriminant_pairing_gluing_principle_20260908.md`
+- `research_notes/x6_p5_exact_minimum_golden_discriminant_gluing_20260908.md`
+Exact finite certificate:
+- `research_notes/certificates/x6_p7_sparse_gram_exact_certificate_20260908.py@91d8326a3a517dc89b94b5c49a0049f5fbd0001e`
+EM source snapshot before theorem write: `awdawmip/enterprise-math@91d8326a3a517dc89b94b5c49a0049f5fbd0001e`
+
+## 0. Theorem
+
+For every integer full-rank transport
+
+`A in M_6(Z)`
+
+with
+
+`|det A|=7`,
+
+let
+
+`G=A^T A`
+
+and
+
+`Delta_6(A)=6 tr(G^2)-tr(G)^2`.
+
+Then
+
+`boxed: Delta_6(A)>=68`.
+
+The bound is sharp.
+
+The proof has two qualitatively different stages:
+
+1. an exact sparse-Gram certificate shows that every **scalar integral Gram candidate** with determinant 49 and `Delta_6<68` is the same type, with `Delta_6=56`;
+2. discriminant-form arithmetic proves that this apparently better Gram type cannot be the Gram of any index-7 sublattice of the standard X6 integer lattice.
+
+An explicit determinant-7 integer transport with `Delta_6=68` then closes the theorem.
+
+This is the first prime in this route where the exact lower bound requires a genuine distinction between
+
+`ABSTRACT POSITIVE INTEGRAL GRAM`
+
+and
+
+`GRAM OF AN INDEX-p SUBLATTICE OF Z^6`.
+
+## 1. Low-defect forcing
+
+For an integral Gram matrix write
+
+`d_i=g_ii`,
+
+`D=sum_(i<j)(d_i-d_j)^2`,
+
+`M=sum_(i<j)g_ij^2`.
+
+Then exactly
+
+`Delta_6=D+12M`.
+
+Suppose
+
+`Delta_6<68`.
+
+Then
+
+`M<=5`.
+
+Hence every off-diagonal entry is in `{0,+/-1,+/-2}`, with at most one entry of absolute value 2; two such entries would already give `M>=8`.
+
+Also the diagonal range is at most 4. The pairwise-difference quantity D is translation-invariant, and the minimum D for six integers containing both 0 and 5 is
+
+`77>68`.
+
+Thus all candidate diagonals lie in a finite width-4 window.
+
+## 2. Why minimum diagonal at least 3 can be discarded
+
+Write
+
+`G=3I+E+R`,
+
+where E is the zero-diagonal off-diagonal matrix and R is diagonal nonnegative.
+
+Because
+
+`tr(E)=0`,
+
+`tr(E^2)=2M<=10`,
+
+any negative eigenvalue `-r` of E satisfies
+
+`2M >= r^2+r^2/5 = 6r^2/5`.
+
+Therefore
+
+`r^2<=25/3<9`,
+
+so
+
+`3I+E`
+
+is positive definite.
+
+Adding the diagonal nonnegative R keeps the matrix positive definite, and the determinant is strictly increasing in each diagonal coordinate because the corresponding principal cofactor is positive.
+
+The exact finite certificate enumerates every allowed E with `M<=5` and finds
+
+`min det(3I+E)=216`.
+
+Therefore a determinant-49 candidate below the defect bound cannot have every diagonal at least 3.
+
+Consequently its minimum diagonal is 1 or 2.
+
+## 3. Exact finite low-window certificate
+
+After the two analytic reductions above, only the following finite region remains:
+
+- minimum diagonal 1 or 2;
+- diagonal range at most 4;
+- `D+12M<68`;
+- exact integer off-diagonal squared mass `M<=5`.
+
+The result-specific certificate uses an exact fraction-free Bareiss determinant and no floating point.
+
+It checks exactly
+
+`1,150,826`
+
+symmetric integer matrices in this reduced window.
+
+Among them, exactly
+
+`384`
+
+have determinant 49.
+
+Every one of those 384 candidates has
+
+`Delta_6=56`
+
+and, up to coordinate permutation and independent sign switches on tree vertices, the same Gram type
+
+`G_false = H_7 direct_sum H_7`,
+
+where
+
+`H_7=[[2,1,-1],[1,2,0],[-1,0,3]]`,
+
+`det H_7=7`.
+
+Equivalently the sorted full diagonal is
+
+`(2,2,2,2,3,3)`,
+
+there are four unit off-diagonal entries, and the support graph is exactly two disconnected three-vertex paths, each with diagonal multiset `(2,2,3)` and the degree-two vertex on a diagonal-2 site.
+
+Thus there is only one abstract scalar Gram obstruction to proving the lower bound.
+
+## 4. The tempting Delta=56 Gram cannot occur in X6
+
+The discriminant group of H7 has order 7.
+
+Its adjugate is
+
+`adj(H_7)=[[6,-3,2],[-3,5,-1],[2,-1,3]]`.
+
+The first dual coordinate gives a cyclic discriminant generator with bilinear coefficient
+
+`6/7`,
+
+so the discriminant phase is
+
+`6=-1 (mod7)`.
+
+For two copies of H7, the discriminant group is `F_7^2` and an index-7 integral overlattice would require a nonzero isotropic vector satisfying
+
+`6x^2+6y^2=0 (mod7)`.
+
+Equivalently
+
+`x^2+y^2=0 (mod7)`.
+
+But `-1` is not a quadratic residue modulo 7.
+
+Hence the direct sum discriminant form contains **no nonzero isotropic order-7 subgroup**.
+
+Therefore
+
+`H_7 direct_sum H_7`
+
+admits no integral unimodular overlattice of index 7.
+
+If it were equal to `A^T A` for some integer `A` with `|det A|=7`, the lattice generated by the columns of A would be an index-7 sublattice of the standard unimodular lattice `Z^6`, and `Z^6` would provide precisely such an index-7 integral unimodular overlattice.
+
+Contradiction.
+
+Thus **every abstract determinant-49 Gram matrix with defect below 68 is arithmetically unrealizable as an X6 index-7 transport**.
+
+This is the decisive step.
+
+## 5. Exact equality construction
+
+Take
+
+`A_7=`
+
+`[[ 0,-1,-1, 0, 0,-1],`
+
+` [ 1, 0, 0, 0, 0, 0],`
+
+` [ 0, 1, 0,-1, 0,-1],`
+
+` [ 0, 0, 1, 0, 0,-1],`
+
+` [ 0, 0, 0,-1, 1, 1],`
+
+` [ 0, 0, 0, 1, 1, 0]]`.
+
+Then
+
+`|det A_7|=7`.
+
+Its Gram matrix is
+
+`G_7=[1] direct_sum H_{7,3} direct_sum K_{7,2}`,
+
+where
+
+`H_{7,3}=[[2,1,-1],[1,2,0],[-1,0,3]]`,
+
+`K_{7,2}=[[2,1],[1,4]]`.
+
+Both nontrivial blocks have determinant 7.
+
+The full diagonal multiset is
+
+`(1,2,2,3,2,4)`
+
+and there are three unit off-diagonal entries, giving
+
+`D=32`, `M=3`.
+
+Therefore
+
+`Delta_6(A_7)=32+36=68`.
+
+Combined with the obstruction above:
+
+`boxed: min_{|det A|=7} Delta_6(A)=68`.
+
+## 6. Equality geometry uses complementary determinant-7 phases
+
+The binary block
+
+`K_{7,2}=[[2,1],[1,4]]`
+
+has adjugate
+
+`[[4,-1],[-1,2]]`
+
+and discriminant coefficient 4.
+
+The ternary block H7 has coefficient 6.
+
+The gluing equation is
+
+`4x^2+6y^2=0 (mod7)`,
+
+or
+
+`4x^2-y^2=0`.
+
+This has nonzero solutions `y=+/-2x`.
+
+So the equality construction works because the rank-2 and rank-3 determinant-7 blocks have complementary discriminant phases.
+
+The false Delta=56 candidate fails because it tries to glue **two copies of the same phase**.
+
+Thus the exact p=7 minimum is not decided by scalar Gram balance alone. The discriminant phase is part of the admissibility constraint.
+
+## 7. Strong BRC witness: a numerically better state can be nonexistent
+
+At the scalar Gram observer:
+
+`Delta=56 < 68`.
+
+If one minimized only over positive integral Gram matrices, one would select H7 direct-sum H7 and obtain the wrong answer.
+
+At the actual X6 transport carrier, that state has no integral index-7 lift.
+
+Therefore:
+
+`ABSTRACT GRAM FEASIBILITY != X6 TRANSPORT FEASIBILITY`,
+
+`SCALAR COST MINIMUM != ADMISSIBLE MINIMUM`,
+
+`DISCRIMINANT PHASE IS A REQUIRED REPAIR COORDINATE`.
+
+This is stronger than ordinary provenance loss: the erased coordinate does not merely change the future; it decides whether the compressed apparent state exists in the native carrier at all.
+
+## 8. First four prime minima
+
+We now have exact one-step minima for the first four primes:
+
+| p | exact `delta_min(p)` | displayed active geometry | strict X6 closure exponent |
+| ---: | ---: | --- | ---: |
+| 2 | 8 | pair Hadamard / ranks `1+1` discriminant blocks | 3 |
+| 3 | 32 | A2 + common depth / ranks `2+1` | 6 |
+| 5 | 48 | double discriminant-5 golden gluing / ranks `2+2` | 3 |
+| 7 | 68 | determinant-7 ternary + binary complementary phases / ranks `3+2` | 6 |
+
+The one-step minima and the strict-closure character are visibly different observables.
+
+In particular:
+
+- p=5 is globally split (`tau=3`) but its local minimum is not Gaussian-pair conformal;
+- p=7 is globally inert (`tau=6`) but still admits a comparatively balanced one-step geometry after complementary-phase gluing.
+
+No closed formula for `delta_min(p)` is claimed.
+
+## 9. Emerging repair-rank/discriminant problem
+
+The exact results suggest replacing the naive question
+
+> Which prime has which preferred coordinate plane?
+
+with the more invariant question
+
+> Which low-rank determinant-p integral metric blocks, carrying which discriminant phase classes, can be paired and glued into an admissible index-p sublattice of X6 at minimum anisotropy cost?
+
+This separates three layers:
+
+1. local positive-definite determinant-p block geometry;
+2. discriminant-phase compatibility;
+3. global X6 index-p embedding.
+
+That three-layer decomposition is likely more reusable than prime-by-prime matrix guessing.
+
+## 10. Tool / method audit
+
+`T0_BRC`: `REUSE_APPLIED` — the discriminant phase and integral lift status are retained beyond the scalar Gram observer.
+
+`T6_OPERATION_SAFE_QUOTIENT`: `REUSE_APPLIED` — compression to Delta or even full abstract Gram is shown unsafe for admissibility.
+
+`T7_FINITE_SYMMETRY_EQUIVARIANCE`: `REUSE_APPLIED` — the certificate classifies up to coordinate/sign symmetry rather than declaring the displayed representative canonical.
+
+`T9_HOLONOMY_COCOYCLE_GLUING`: `COMPOSE_APPLIED` — the exact discriminant-form isotropy condition supplies the gluing obstruction/repair law.
+
+The Python file is a result-specific finite certificate and is classified `RESULT_ONLY`, not a new global tool family.
+
+## 11. Status ledger
+
+Exact proved:
+
+- `min_{|det A|=7} Delta_6(A)=68`;
+- exact certificate reduction to one false scalar Gram type below 68;
+- all lower scalar candidates have Delta56 and type `H7 direct_sum H7`;
+- that type has no order-7 isotropic discriminant glue and therefore no X6 index-7 lift;
+- explicit determinant-7 equality construction with complementary binary/ternary determinant-7 phases;
+- discriminant phase is necessary even to decide native admissibility, not merely future composition.
+
+Still open:
+
+- full equality-orbit classification at p=7;
+- a general non-enumerative lower-bound theorem for `delta_min(p)`;
+- whether exact minimizers for all odd primes lie on the isotropic projective branch quadric;
+- classification of minimum-cost determinant-p block pairs by rank, metric cost and discriminant phase;
+- next-prime p=11 behavior and whether total active rank reaches all six dimensions.
+
+## 12. Next research unit
+
+The highest-leverage continuation is no longer raw p=11 enumeration.
+
+Build a **determinant-p block-pair variational calculus**:
+
+- enumerate/classify primitive positive integral determinant-p forms of rank 1,2,3 (and rank 4 only when required);
+- attach discriminant phase square class;
+- define exact contribution to X6 `Delta_6` after unit-padding;
+- solve compatible-pair gluing under total active rank <=6;
+- compare the resulting lower envelope against direct X6 Gram minima.
+
+If that calculus reproduces p=2,3,5,7 without prime-specific casework, it becomes the first plausible general law for the geometric fiber of prime natural numbers.
