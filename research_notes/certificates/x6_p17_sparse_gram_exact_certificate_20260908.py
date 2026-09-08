@@ -23,10 +23,10 @@ TARGET_DET = 289
 
 
 def min_det_four_I_plus_E():
-    # Delta<72 still gives M<=5. Enumerate every admissible off-diagonal E and
-    # verify the minimum determinant at diagonal 4. The spectral argument from
-    # the p=7 note makes 4I+E positive definite; larger diagonals only increase
-    # determinant.
+    # Delta<72 gives M<=5. Enumerate every admissible off-diagonal E and
+    # verify the minimum determinant at diagonal 4. The same spectral argument
+    # used in the p=7 note makes 4I+E positive definite; larger diagonals only
+    # increase determinant.
     best = None
     for mass in range(6):
         for conf in CONFIGS[mass]:
@@ -68,60 +68,20 @@ def low_window_no_det_289():
 
 
 def explicit_det17_delta72():
+    # Exact equality representative obtained in the research derivation.
     a17 = [
-        [0, -1, -1, 0, 0, -1],
-        [1, 0, 0, 0, 0, 0],
-        [0, 1, 0, -1, 0, -1],
-        [0, 0, 1, 0, 0, -1],
-        [0, 0, 0, -1, 1, 1],
-        [0, 0, 0, 1, 1, 0],
+        [-1, -1,  0,  0,  0, -1],
+        [ 1, -1, -1,  0,  0,  0],
+        [ 0,  0,  0, -1,  1,  1],
+        [ 0,  1, -1,  0,  1, -1],
+        [ 0,  0,  0,  1,  1,  0],
+        [ 0,  0,  1, -1,  0, -1],
     ]
-    # The matrix above is the p=7 upper-bound representative, not p=17.
-    # Replace it below with the exact p=17 equality representative.
-    a17 = [
-        [ 1, 0,-1, 0, 0, 1],
-        [ 0, 1, 0, 0, 1, 0],
-        [ 0, 0, 1,-1,-1, 0],
-        [ 0, 0, 0, 1, 0, 0],
-        [ 0, 0, 0, 0, 1, 0],
-        [ 0, 0, 0, 0, 0, 1],
-    ]
-    # The compact matrix immediately above is only a mnemonic scaffold and is
-    # intentionally not used. Use the exact equality matrix from the research
-    # derivation:
-    a17 = [
-        [-1, 0, 0, 0, 0, 0],
-        [ 0,-1, 0, 0, 0, 0],
-        [ 0, 0,-1, 0, 0, 0],
-        [ 0, 0, 0,-1, 0, 0],
-        [ 0, 0, 0, 0,-1, 0],
-        [ 0, 0, 0, 0, 0,-17],
-    ]
-    # The diagonal placeholder above is deliberately overwritten as well; it
-    # makes accidental partial edits fail loudly if the final matrix is lost.
-    a17 = [
-        [ 0, 0,-1, 0, 0, 1],
-        [ 1, 0, 0, 0, 0, 0],
-        [ 0, 1, 0, 0, 0, 0],
-        [ 0, 0, 1, 0,-1, 0],
-        [ 0, 0, 0,-1, 1, 1],
-        [ 0, 0, 0, 1, 0, 1],
-    ]
-    # Final exact p=17 matrix, matching the theorem note:
-    a17 = [
-        [ 0, 0,-1, 0, 0, 1],
-        [ 1, 0, 0, 0, 0, 0],
-        [ 0, 1, 0, 0, 0, 0],
-        [ 0, 0, 1, 0,-1, 0],
-        [ 0, 0, 0,-1, 1, 1],
-        [ 0, 0, 0, 1, 0, 1],
-    ]
-    # Guard: this particular compact candidate is not assumed correct by eye;
-    # the assertions below are the source of truth. If it is not determinant
-    # 17 / Delta 72, execution fails rather than certifying a wrong result.
     assert abs(det_bareiss(a17)) == 17
+
     g = [[sum(a17[k][i] * a17[k][j] for k in range(D)) for j in range(D)] for i in range(D)]
     assert det_bareiss(g) == TARGET_DET
+
     tr = sum(g[i][i] for i in range(D))
     tr_g2 = sum(g[i][j] * g[j][i] for i in range(D) for j in range(D))
     delta = 6 * tr_g2 - tr * tr
@@ -132,7 +92,7 @@ def explicit_det17_delta72():
 if __name__ == "__main__":
     floor4 = min_det_four_I_plus_E()
     checked = low_window_no_det_289()
-    g = explicit_det17_delta72()
+    explicit_det17_delta72()
     print({
         "status": "EXACT_CERTIFICATE_PASSED",
         "min_det_4I_plus_E": floor4,
@@ -140,4 +100,5 @@ if __name__ == "__main__":
         "det289_candidates_with_delta_lt_72": 0,
         "explicit_det17_delta": 72,
         "conclusion": "min_{|det A|=17} Delta_6(A)=72",
+        "boundary": "Result-specific exact finite certificate; no Foundation promotion.",
     })
