@@ -3,8 +3,8 @@
   "authority": "SOURCE_INDEX_ONLY_NO_TASK_OR_THEOREM_AUTHORITY",
   "as_of_date": "2026-09-08",
   "main_source_commit": "aaf9b8125ba3294932b5c90d80f700e02799c88e",
-  "composition_base_commit": "a9f120f8292eb78d463da4eea53867a861fd99a5",
-  "latest_verified_frontier_main": "c27616a2e176c2d03000ad2e56a72280f8bd205a",
+  "composition_base_commit": "d4bad54522bc0abf63e11d1ec03977efdb6f57b6",
+  "latest_verified_frontier_main": "d4bad54522bc0abf63e11d1ec03977efdb6f57b6",
   "repositories": [
     "awdawmip/enterprise-math",
     "awdawmip/chatgpt-global-knowledge"
@@ -18,8 +18,8 @@
     "zh-CN": "先读 A0–A5 全局骨架，再看证据表与当前收尾/数学前沿。BRC 是跨方向有型工具；X6 只是 A5 一支。本图是可维护来源索引，不是新定理、全仓审计或任务领取队列。"
   },
   "freshness_note": {
-    "en": "Snapshot: 2026-09-08. The 20 foundation/router pins were checked against aaf9b812 and the a9f120 composition base. Later immutable updates: raw PR1390 main aa5683f; H0O PR1391 source capture main b3d39a9, review pending; p2 consumer PR1394 main c27616a2, with original source 3ac5a5dd retained. The A3 correction is published at 3ac5a5dd; its main admission and whole-PR955 formal review remain pending. GEO/Hodge routes beyond the exact H0O leaf require source refresh.",
-    "zh-CN": "快照：2026-09-08。20 个基础/路由 pin 已对 aaf9b812 与 a9f120 组合基线核字节。后续不可变更新：raw PR1390 入 main aa5683f；H0O PR1391 源捕获入 main b3d39a9、审查待办；p2 消费者 PR1394 入 main c27616a2，原源 3ac5a5dd 保留。A3 纠正已在 3ac5a5dd 发布，其主线准入与整份 PR955 正式审查仍待办。精确 H0O 叶子之外的 GEO/Hodge 路线需刷新来源。"
+    "en": "Snapshot: 2026-09-08. The 20 foundation/router pins remain frozen at aaf9b812. The map first entered main via PR1396 at dc401229. Later verified frontiers: raw PR1390 main aa5683f; H0O PR1391 main b3d39a9 source capture, formal review pending; p2 PR1394 main c27616a2; star/dual PR1398 main 167746c5. A3 correction PR1399 is integrated on main d4bad545, retaining source 3ac5a5dd; whole-PR955 formal Driver review remains pending. The original 19-entry owner portfolio is a source snapshot, not a repository total or live queue. Other GEO/Hodge routes require exact-source refresh.",
+    "zh-CN": "快照：2026-09-08。20 个基础/路由 pin 仍冻结于 aaf9b812。本图初版经 PR1396 在 dc401229 入 main。后续已核前沿：raw PR1390 入 main aa5683f；H0O PR1391 在 b3d39a9 捕获入 main、正式审查待办；p2 PR1394 入 main c27616a2；star/dual PR1398 入 main 167746c5。A3 纠正 PR1399 已入 main d4bad545，原源 3ac5a5dd 保留；整份 PR955 正式 Driver 审查仍待办。原 owner 19 项组合是来源快照，不是仓库总数或 live 队列；其他 GEO/Hodge 路线需精确来源刷新。"
   },
   "evidence_note": {
     "en": "Scope closure, a negative boundary, main integration, executable checks, Lean coverage and formal review are different facts. Arrows are typed below; CONTAINS is organizational, while dashed reuse edges do not assert a proved transfer. Historical Continuity never establishes a current claim.",
@@ -57,8 +57,8 @@
       "zh-CN": "既有归属或有界叶子，不表达定理蕴涵。"
     },
     "CONSUMES": {
-      "en": "A source declares use of the exact upstream contract in the stated scope.",
-      "zh-CN": "来源明确在所列范围使用上游精确合同。"
+      "en": "Read source/upstream → consuming downstream: A3→A4 means A4 uses A3 at the declared scope, not the reverse.",
+      "zh-CN": "按“来源/上游 → 使用它的下游”读取：A3→A4 表示 A4 在声明范围使用 A3，不是反向。"
     },
     "REUSE_IDENTIFIED": {
       "en": "Typed reuse is identified, without asserting execution or a new proved transfer.",
@@ -632,8 +632,8 @@
       },
       "evidence": {
         "mathematics": {
-          "en": "Internal paper PASS: sharp M≤(7/26)D; equal-mass fixed-weight min D=max(8P,24m−4P), m=max weights, within the star contract.",
-          "zh-CN": "内部纸面 PASS：star 合同内 sharp M≤(7/26)D；等质量固定权 min D=max(8P,24m−4P)，m 为最大正权。"
+          "en": "Within the fixed star, sharp M≤(7/26)D holds for arbitrary mass. At N=P with fixed strictly positive weights, min D=max(8P,24m−4P), m=max weights; internal paper reviews now classify original-space minimizers over all weight ranges.",
+          "zh-CN": "固定 star 内，任意质量有 sharp M≤(7/26)D。N=P 且固定严格正权时，min D=max(8P,24m−4P)，m 为最大正权；内部纸面复核现已分类全部权区间的原空间极小者。"
         },
         "lean": {
           "en": "No Lean claim.",
@@ -644,8 +644,8 @@
           "zh-CN": "纯纸面结果，不声称新增可执行核验。"
         },
         "publication": {
-          "en": "OWNER_SOURCE_PUBLISHED; main admission pending.",
-          "zh-CN": "OWNER_SOURCE_PUBLISHED；主线准入待办。"
+          "en": "MAIN_INTEGRATED via PR1398 at 167746c5. Three applicable CI workflows and 8 shards passed; publisher verified actual merge tree/parents against tested checkout 5f0c0bba. Historical owner paper pins are retained.",
+          "zh-CN": "PR1398 / 167746c5 已 MAIN_INTEGRATED。3 个适用 CI 工作流与 8 分片通过；发布者核实实际 merge tree/parents 与受测 checkout 5f0c0bba 一致。历史 owner 论文 pin 保留。"
         },
         "formal_review": {
           "en": "Internal bounded paper review only; no formal review or status promotion.",
@@ -653,18 +653,20 @@
         }
       },
       "frontier": {
-        "en": "No extension to arbitrary three-positive geometry; fixed-weight paper does not classify every minimizer above the 8P regime.",
-        "zh-CN": "不外推任意三正几何；固定权论文未分类 8P 区间外的全部极小者。"
+        "en": "This fixed-star, fixed-positive-weight, equal-mass classification is scope-closed. For m≥P/2, excess mass Δ=m−(w2+w3) is arbitrary finite nonnegative rational mass on all six punctured original coordinate lines through the dominant point; Δ=0 matches the old simplex boundary. General p3 geometry remains OPEN.",
+        "zh-CN": "固定 star、固定严格正权、等质量的分类范围已闭合。m≥P/2 时，额外质量 Δ=m−(w2+w3) 可任意有限地分布于经过主导点的全部六条去心原始坐标轴线上；Δ=0 与旧单纯形边界吻合。一般 p3 几何仍 OPEN。"
       },
       "next": {
-        "en": "Consolidate the already reviewed papers through the existing source/main path; do not restart the proof.",
-        "zh-CN": "沿已有源/main 路径合流已审论文，不重启证明。"
+        "en": "Reuse the admitted papers and their exact star contract, including the full six-axis minimizer classification; do not infer a general three-positive upper bound or start a new admission for the same work.",
+        "zh-CN": "复用已准入论文与精确 star 合同，包括完整六轴极小者分类；不推断一般三正上界，不为相同成果重启准入。"
       },
       "source_ids": [
         "S33",
-        "S34"
+        "S34",
+        "S36",
+        "S37"
       ],
-      "priority": "CURRENT_CLOSEOUT"
+      "priority": "INTEGRATED_REUSE"
     },
     {
       "id": "RAW_DUAL",
@@ -691,8 +693,8 @@
           "zh-CN": "本论文未实现拟议的有限核验接口。"
         },
         "publication": {
-          "en": "OWNER_SOURCE_PUBLISHED; main admission pending.",
-          "zh-CN": "OWNER_SOURCE_PUBLISHED；主线准入待办。"
+          "en": "MAIN_INTEGRATED in the PR1398 paper package at 167746c5; original owner source 6724f761 and the execution generation of the composition receipt remain distinct.",
+          "zh-CN": "已随 PR1398 纸面包在 167746c5 MAIN_INTEGRATED；原 owner 来源 6724f761 与组合回执的实际执行代次保持区分。"
         },
         "formal_review": {
           "en": "Internal paper review only; no formal task/Result/review authority.",
@@ -704,15 +706,16 @@
         "zh-CN": "不自动寻找最优对偶，不给统一 p3 界；压缩紧点可有无限原始纤维。"
       },
       "next": {
-        "en": "First consolidate the frozen paper; any later verifier must check complete tables, source binding and carrier budget.",
-        "zh-CN": "先合流冻结论文；后续核验器必须检查完整表、来源绑定与 carrier 预算。"
+        "en": "Reuse the admitted paper as a scoped certificate theorem. A later generic verifier still needs its own complete-table, source-binding and carrier-budget implementation; none is supplied by this admission.",
+        "zh-CN": "按有范围证书定理复用已准入论文；后续通用核验器仍需实现完整表、来源绑定与 carrier 预算检查，本次准入不提供该实现。"
       },
       "source_ids": [
         "S22",
         "S15",
-        "S33"
+        "S33",
+        "S37"
       ],
-      "priority": "CURRENT_CLOSEOUT"
+      "priority": "INTEGRATED_REUSE"
     },
     {
       "id": "A3_A4_REVIEW",
@@ -739,8 +742,8 @@
           "zh-CN": "旧有限证据保留为历史；纠正/建图未重跑。"
         },
         "publication": {
-          "en": "PR955 frozen source plus correction published at 3ac5a5dd; correction main admission pending.",
-          "zh-CN": "PR955 冻结源及 3ac5a5dd 纠正已发布；纠正入 main 待办。"
+          "en": "Correction MAIN_INTEGRATED via PR1399 at d4bad545; the original PR955 return and source correction 3ac5a5dd are preserved. This one-paper admission is not acceptance of the whole PR955 handoff.",
+          "zh-CN": "纠正已经 PR1399 在 d4bad545 MAIN_INTEGRATED；原 PR955 交回与纠正源 3ac5a5dd 保留。这一篇论文准入不是对整份 PR955 交回的接受。"
         },
         "formal_review": {
           "en": "Local rank clarification closed; whole PR955 formal Driver review remains pending.",
@@ -752,8 +755,8 @@
         "zh-CN": "不能把环境商秩等同可实现状态所需最少数据；不新建研究任务。"
       },
       "next": {
-        "en": "Review the original handoff with the narrow correction and preserve unrelated arguments.",
-        "zh-CN": "带着窄纠正审原交回，保留不受影响的论证。"
+        "en": "Finish the existing formal Driver review of PR955 using the admitted narrow correction; preserve the unaffected original arguments and do not repeat the completed source admission.",
+        "zh-CN": "使用已准入的窄纠正，收尾原 PR955 正式 Driver 审查；保留不受影响的原论证，不重复已完成源准入。"
       },
       "source_ids": [
         "S29",
@@ -1181,6 +1184,143 @@
         "S28"
       ],
       "priority": "CURRENT_CLOSEOUT"
+    },
+    {
+      "id": "OWNER_PORTFOLIO",
+      "kind": "branch",
+      "label": {
+        "en": "Original owner portfolio: 2 integrated, 17 in source",
+        "zh-CN": "原 owner 组合：2 项已入 main，17 项保留于源"
+      },
+      "scope": {
+        "en": "The original 20260907 shard snapshot: 19 candidates across native/raw/BRC operators, result-only records and two reference candidates that are not tools. This is not the repository-wide method count or a live task queue.",
+        "zh-CN": "原 20260907 分片快照的 19 项候选：native/raw/BRC 算子、纯结果及两个参考 candidate 非工具。这不是仓库方法总数，也不是 live 任务队列。"
+      },
+      "evidence": {
+        "mathematics": {
+          "en": "Mixed per-entry claims only. The portfolio count and classifications do not establish proof for all 19 entries.",
+          "zh-CN": "仅有逐项不同的来源声称；组合计数和分类不证明全部 19 项数学成立。"
+        },
+        "lean": {
+          "en": "No portfolio-wide Lean claim.",
+          "zh-CN": "无全组合 Lean 声称。"
+        },
+        "program": {
+          "en": "No portfolio-wide execution claim. Each API, native arithmetic boundary and receipt requires its own exact-source assessment when selected.",
+          "zh-CN": "无全组合执行声称；被实际选中时，逐项核对 API、原生算术边界与精确来源回执。"
+        },
+        "publication": {
+          "en": "PARTIAL_MAIN_INTEGRATION / OWNER_SOURCE_RETAINED. The exact c27616a2 shard contains only shell-length and one-positive; the other 17 original IDs remain in the published owner snapshot.",
+          "zh-CN": "PARTIAL_MAIN_INTEGRATION / OWNER_SOURCE_RETAINED。精确 c27616a2 分片仅纳入 shell-length 与 one-positive；原其余 17 个 ID 保留于已发布 owner 快照。"
+        },
+        "formal_review": {
+          "en": "No collective formal acceptance; classifications are not review dispositions.",
+          "zh-CN": "无组合级正式接受；分类不是审查处置。"
+        }
+      },
+      "frontier": {
+        "en": "Original 19 = 10 DOMAIN_OPERATOR + 7 RESULT_ONLY + 2 CANDIDATE_NOT_TOOL. After the two admitted DOMAIN_OPERATOR entries, the remaining 17 = 8 DOMAIN_OPERATOR + 7 RESULT_ONLY + 2 CANDIDATE_NOT_TOOL. Other p2/star admissions do not complete this original portfolio or PR1364.",
+        "zh-CN": "原 19 项 = 10 DOMAIN_OPERATOR＋7 RESULT_ONLY＋2 CANDIDATE_NOT_TOOL。扣除已入 main 的两项 DOMAIN_OPERATOR，剩余 17 项 = 8 DOMAIN_OPERATOR＋7 RESULT_ONLY＋2 CANDIDATE_NOT_TOOL。其他 p2/star 合流不关闭这个原组合或整个 PR1364。"
+      },
+      "next": {
+        "en": "Preserve the source branch and per-entry evidence. Only on an actual selection, assess canonical arithmetic/tool boundaries and decide reuse, revision, result-only retention or no promotion. Do not launch 17 admission attempts or convert the two reference candidates into tools.",
+        "zh-CN": "保留源分支和逐项证据。仅在实际选中时，按 canonical 算术/工具边界判断复用、修订、保持结果型或不推广；不启动 17 项准入，不把两个参考 candidate 变成工具。"
+      },
+      "source_ids": [
+        "S38",
+        "S39"
+      ],
+      "priority": "SOURCE_REFRESH",
+      "portfolio_snapshot": {
+        "scope": "ORIGINAL_20260907_SHARD_NOT_REPOSITORY_TOTAL_OR_LIVE_TASKS",
+        "original_count": 19,
+        "main_subset_count": 2,
+        "remaining_count": 17,
+        "original_classifications": {
+          "CANDIDATE_NOT_TOOL": 2,
+          "DOMAIN_OPERATOR": 10,
+          "RESULT_ONLY": 7
+        },
+        "remaining_classifications": {
+          "CANDIDATE_NOT_TOOL": 2,
+          "DOMAIN_OPERATOR": 8,
+          "RESULT_ONLY": 7
+        },
+        "main_method_ids": [
+          "candidate.x6.one_positive_raw_stability_certificate",
+          "candidate.x6.quadratic_shell_max_shortest_length"
+        ],
+        "remaining_method_rows": [
+          {
+            "method_id": "candidate.brc.finite_exchangeable_factorial_observer",
+            "classification": "DOMAIN_OPERATOR"
+          },
+          {
+            "method_id": "candidate.certificate.rational_interval_inertia",
+            "classification": "CANDIDATE_NOT_TOOL"
+          },
+          {
+            "method_id": "candidate.certificate.rational_nonnegative_phase1",
+            "classification": "CANDIDATE_NOT_TOOL"
+          },
+          {
+            "method_id": "candidate.x6.budgeted_noisy_recovery",
+            "classification": "DOMAIN_OPERATOR"
+          },
+          {
+            "method_id": "candidate.x6.finite_reverse_step_port_monitor",
+            "classification": "DOMAIN_OPERATOR"
+          },
+          {
+            "method_id": "candidate.x6.integer_histogram_realization",
+            "classification": "DOMAIN_OPERATOR"
+          },
+          {
+            "method_id": "candidate.x6.minimum_raw_query_plan",
+            "classification": "DOMAIN_OPERATOR"
+          },
+          {
+            "method_id": "candidate.x6.nonlinear_channel_gate_quotient",
+            "classification": "DOMAIN_OPERATOR"
+          },
+          {
+            "method_id": "candidate.x6.raw_joint_observer_recovery",
+            "classification": "DOMAIN_OPERATOR"
+          },
+          {
+            "method_id": "candidate.x6.shortest_path_valuation_spectrum",
+            "classification": "DOMAIN_OPERATOR"
+          },
+          {
+            "method_id": "result.analysis.two_sided_reciprocal_cusp_tail",
+            "classification": "RESULT_ONLY"
+          },
+          {
+            "method_id": "result.pp.finite_power_moment_lift_obstruction",
+            "classification": "RESULT_ONLY"
+          },
+          {
+            "method_id": "result.rh.energy_domain_correction",
+            "classification": "RESULT_ONLY"
+          },
+          {
+            "method_id": "result.rh.n8_reference_eta09_inertia",
+            "classification": "RESULT_ONLY"
+          },
+          {
+            "method_id": "result.x6.common_depth_first_return_tail",
+            "classification": "RESULT_ONLY"
+          },
+          {
+            "method_id": "result.x6.sparse_marginal_stability",
+            "classification": "RESULT_ONLY"
+          },
+          {
+            "method_id": "result.x6.weighted_minimum_trade",
+            "classification": "RESULT_ONLY"
+          }
+        ]
+      }
     }
   ],
   "edges": [
@@ -1909,6 +2049,62 @@
       "label": {
         "en": "Two-positive current-main composition receipt (original execution generation)",
         "zh-CN": "双正当前主线组合回执（原执行代次）"
+      }
+    },
+    {
+      "id": "S36",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "909ed4c3c81adca8d5d653994a83df316faf1365",
+      "path": "research_notes/OWNER_THREE_POSITIVE_STAR_DOMINANT_EQUALITY_REVIEW_20260908.md",
+      "sha256": "42e631101e44a5053c0170fbbe0122e6cf8fa182757c4c078fd772d3ee00c61e",
+      "blob_sha1": "2343318309d5c7ecb48a017ae45f2fbd04c002ba",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "Star dominant-weight minimizers: all six original axes",
+        "zh-CN": "star 主导权极小者：全部六条原始轴线"
+      }
+    },
+    {
+      "id": "S37",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "167746c563842d308cbed1c8c441b163c3a6d0f6",
+      "path": "experiments/20260908_owner_star_dual_results/current_main_composition_20260908.json",
+      "sha256": "6d3388a5dd2e31eedf903296d90f75b53299facfd298d4c4922a6b5d5021bc84",
+      "blob_sha1": "d8bb4c3b5e36bd7149e4c3d46a75968573cbe79e",
+      "verification": "PUBLISHED_RECEIPT_NOT_REEXECUTED",
+      "label": {
+        "en": "Star/dual current-main composition receipt (original execution generation)",
+        "zh-CN": "star/dual 当前主线组合回执（原执行代次）"
+      }
+    },
+    {
+      "id": "S38",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "909ed4c3c81adca8d5d653994a83df316faf1365",
+      "path": "research_method_inventory_addenda/20260907_owner_native_frontier_candidates.json",
+      "sha256": "9b9b1851602200bbb207681dbac444a7e745b2915d6f8851bc999fd3a028f115",
+      "blob_sha1": "753db749ca34b727ebfc7844dc5a91ba626c0ec2",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "Original owner 20260907 portfolio: 19 candidates",
+        "zh-CN": "原 owner 20260907 组合：19 项候选"
+      }
+    },
+    {
+      "id": "S39",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "c27616a2e176c2d03000ad2e56a72280f8bd205a",
+      "path": "research_method_inventory_addenda/20260907_owner_native_frontier_candidates.json",
+      "sha256": "8e9a8484054f620437efa2e9b81d00a6e62dd0fd4b9c335bd70eda327a6abef3",
+      "blob_sha1": "44a7a674e5d8f3d3b9f37eade7e5c6ceaea906e4",
+      "verification": "FROZEN_MAIN_SOURCE",
+      "label": {
+        "en": "Exact main subset of the original portfolio: two methods",
+        "zh-CN": "原组合的精确 main 子集：两项方法"
       }
     }
   ]

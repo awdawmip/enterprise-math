@@ -4,9 +4,9 @@
 
 先读 A0–A5 全局骨架，再看证据表与当前收尾/数学前沿。BRC 是跨方向有型工具；X6 只是 A5 一支。本图是可维护来源索引，不是新定理、全仓审计或任务领取队列。
 
-快照：2026-09-08。20 个基础/路由 pin 已对 aaf9b812 与 a9f120 组合基线核字节。后续不可变更新：raw PR1390 入 main aa5683f；H0O PR1391 源捕获入 main b3d39a9、审查待办；p2 消费者 PR1394 入 main c27616a2，原源 3ac5a5dd 保留。A3 纠正已在 3ac5a5dd 发布，其主线准入与整份 PR955 正式审查仍待办。精确 H0O 叶子之外的 GEO/Hodge 路线需刷新来源。
+快照：2026-09-08。20 个基础/路由 pin 仍冻结于 aaf9b812。本图初版经 PR1396 在 dc401229 入 main。后续已核前沿：raw PR1390 入 main aa5683f；H0O PR1391 在 b3d39a9 捕获入 main、正式审查待办；p2 PR1394 入 main c27616a2；star/dual PR1398 入 main 167746c5。A3 纠正 PR1399 已入 main d4bad545，原源 3ac5a5dd 保留；整份 PR955 正式 Driver 审查仍待办。原 owner 19 项组合是来源快照，不是仓库总数或 live 队列；其他 GEO/Hodge 路线需精确来源刷新。
 
-冻结主线来源: [`aaf9b8125ba3`](https://github.com/awdawmip/enterprise-math/commit/aaf9b8125ba3294932b5c90d80f700e02799c88e). 组合基线: `a9f120f8292eb78d463da4eea53867a861fd99a5`.
+冻结主线来源: [`aaf9b8125ba3`](https://github.com/awdawmip/enterprise-math/commit/aaf9b8125ba3294932b5c90d80f700e02799c88e). 组合基线: `d4bad54522bc0abf63e11d1ec03977efdb6f57b6`.
 
 ## 方向图
 
@@ -39,6 +39,7 @@ flowchart TB
   GEO8["GEO8 外部几何路线"]
   HODGE["Hodge 计划"]
   H0O["H0O 已捕获 Result 待审"]
+  OWNER_PORTFOLIO["原 owner 组合：2 项已入 main，17 项保留于源"]
   A3 -->|"CONSUMES"| A4
   BRC -->|"CONSUMES"| A4
   BRC -.->|"REUSE_IDENTIFIED"| A1
@@ -75,9 +76,9 @@ flowchart TB
 | **RAW_PAPER — raw 压缩与双正界**<br>有限有理 signed 差，先 Jordan 抵消；全部 20 张 raw 三轴 L1 范数。<br>[S12](#source-s12), [S15](#source-s15), [S16](#source-s16), [S17](#source-s17) | 压缩保各坐标边缘 L1，carrier≤(p+1)^6；p≤2 sharp 4M≤D；p=0/零差单独处理。 | 无 Lean 声称。 | 两项登记均 RESULT_ONLY、API 为空；证明证据在论文。 | 所引范围已在 MAIN。 | 已记录内部纸面独审；分片不赋予正式接受。 |
 | **RAW_EXT — 三条 raw 扩展已合流**<br>压缩证书、p≤2 矩形取等、p3 七点质量边界 probe。<br>[S23](#source-s23), [S31](#source-s31) | 非零 p≤2 取等为等权原始坐标矩形；七点 M=7,D=26 只给一般 p3 下界 7/26。 | 无 Lean 声称。 | 压缩：作者 18 例/360 表＋独立 5/100；有主组合回执。仅 audit_compression 是公开 API。 | PR1390 / aa5683f 已 MAIN_INTEGRATED；发布者核实适用 CI 与 8 分片通过。 | 候选分类保持；两条结果仍 RESULT_ONLY；无正式接受。 |
 | **P2_CONSUMER — 双正可执行消费者**<br>原始 raw signed X6、Jordan 后 p≤2；逐表精确检查与取等见证。<br>[S24](#source-s24), [S25](#source-s25), [S26](#source-s26), [S27](#source-s27), [S32](#source-s32), [S35](#source-s35) | 消费已有界/取等论文，不新增更广定理。 | 无 Lean 声称。 | 已记录独立 9 例/180 表和 19 个拒绝；可移植证据已发布；建图未重跑。 | PR1394 / c27616a2 已 MAIN_INTEGRATED。3 个适用 CI 工作流与 8 分片通过；发布者核实实际 merge tree/parents 与受测 checkout 7868d30a 一致。原作者/独审来源 3ac5a5dd 保留。 | 独立执行审查不等于正式数学接受。 |
-| **STAR — 三正 star 子类论文**<br>三个正点由同一基点沿三条不同轴单独变动得到；跨度可为任意非零 signed 整数。<br>[S33](#source-s33), [S34](#source-s34) | 内部纸面 PASS：star 合同内 sharp M≤(7/26)D；等质量固定权 min D=max(8P,24m−4P)，m 为最大正权。 | 无 Lean 声称。 | 纯纸面结果，不声称新增可执行核验。 | OWNER_SOURCE_PUBLISHED；主线准入待办。 | 仅内部有界纸面独审；无正式审查/状态提升。 |
-| **RAW_DUAL — 压缩有限对偶证书**<br>固定有限正支撑 S；压缩 carrier 上二十张完整有界整数表。<br>[S22](#source-s22), [S15](#source-s15), [S33](#source-s33) | 有界纸面 PASS：LD≥Σ a_s w_s+BN 及完整间隙恒等式；统一 M 界需 a_s≥A 且 B≥A。 | 无 Lean 声称。 | 本论文未实现拟议的有限核验接口。 | OWNER_SOURCE_PUBLISHED；主线准入待办。 | 仅内部纸面独审；无正式 task/Result/review 权威。 |
-| **A3_A4_REVIEW — PR955 审查与局部纠正**<br>冻结 generated-support 商/插值交回，保留原源。<br>[S29](#source-s29), [S30](#source-s30) | 局部纠正论文 PASS：im W=H、H/L=Z⊕Z/2；环境 Z4/L=Z²⊕Z/2；同商仍可异 Q0。 | 不新增 Lean 声称。 | 旧有限证据保留为历史；纠正/建图未重跑。 | PR955 冻结源及 3ac5a5dd 纠正已发布；纠正入 main 待办。 | 局部商秩澄清已闭合；整份 PR955 正式 Driver 审查仍待办。 |
+| **STAR — 三正 star 子类论文**<br>三个正点由同一基点沿三条不同轴单独变动得到；跨度可为任意非零 signed 整数。<br>[S33](#source-s33), [S34](#source-s34), [S36](#source-s36), [S37](#source-s37) | 固定 star 内，任意质量有 sharp M≤(7/26)D。N=P 且固定严格正权时，min D=max(8P,24m−4P)，m 为最大正权；内部纸面复核现已分类全部权区间的原空间极小者。 | 无 Lean 声称。 | 纯纸面结果，不声称新增可执行核验。 | PR1398 / 167746c5 已 MAIN_INTEGRATED。3 个适用 CI 工作流与 8 分片通过；发布者核实实际 merge tree/parents 与受测 checkout 5f0c0bba 一致。历史 owner 论文 pin 保留。 | 仅内部有界纸面独审；无正式审查/状态提升。 |
+| **RAW_DUAL — 压缩有限对偶证书**<br>固定有限正支撑 S；压缩 carrier 上二十张完整有界整数表。<br>[S22](#source-s22), [S15](#source-s15), [S33](#source-s33), [S37](#source-s37) | 有界纸面 PASS：LD≥Σ a_s w_s+BN 及完整间隙恒等式；统一 M 界需 a_s≥A 且 B≥A。 | 无 Lean 声称。 | 本论文未实现拟议的有限核验接口。 | 已随 PR1398 纸面包在 167746c5 MAIN_INTEGRATED；原 owner 来源 6724f761 与组合回执的实际执行代次保持区分。 | 仅内部纸面独审；无正式 task/Result/review 权威。 |
+| **A3_A4_REVIEW — PR955 审查与局部纠正**<br>冻结 generated-support 商/插值交回，保留原源。<br>[S29](#source-s29), [S30](#source-s30) | 局部纠正论文 PASS：im W=H、H/L=Z⊕Z/2；环境 Z4/L=Z²⊕Z/2；同商仍可异 Q0。 | 不新增 Lean 声称。 | 旧有限证据保留为历史；纠正/建图未重跑。 | 纠正已经 PR1399 在 d4bad545 MAIN_INTEGRATED；原 PR955 交回与纠正源 3ac5a5dd 保留。这一篇论文准入不是对整份 PR955 交回的接受。 | 局部商秩澄清已闭合；整份 PR955 正式 Driver 审查仍待办。 |
 | **NUMBER_THEORY — 数论主线**<br>Legendre 压力测试 P017、精度/算术应用及 Perfect Prime residual。<br>[S07](#source-s07), [S08](#source-s08), [S09](#source-s09) | P017 为 OPEN；已有结构结果不等于 Legendre 猜想证明。 | 逐项读取精确定理范围；无猜想级 Lean 声称。 | 来源记录可执行检查，建图未重跑。 | 所引范围已在 MAIN。 | 本索引不新增正式接受。 |
 | **PERFECT_PRIME — Perfect Prime AP residual / HCM0**<br>9 月 3 日 residual Mobius/Bernstein 系数正性交回。<br>[S18](#source-s18), [S19](#source-s19), [S20](#source-s20) | 交回给出 all-m signed squared-secant 系数表示与端点因子；正性归约到 HCM0。 | 本图未核定 Lean 覆盖。 | 更强完整 Hausdorff 模式仅有 m=2..10 有限证据。 | 所引范围已在 MAIN。 | Result 请求 Driver review；本轮未刷新该审查 operational 状态。 |
 | **P021 — 因果边界**<br>有限图与整数 expansion，消费 P018 观测/refinement。<br>[S07](#source-s07), [S08](#source-s08) | 规范可执行有限切片；P021 整体 OPEN。 | 不新增 Lean 声称，按原来源覆盖范围读取。 | 来源记录可执行检查，建图未重跑。 | 所引范围已在 MAIN。 | 本索引不新增正式接受。 |
@@ -87,6 +88,7 @@ flowchart TB
 | **GEO8 — GEO8 外部几何路线**<br>已有历史方向；未取最新精确 Result/review。<br>[S21](#source-s21) | SOURCE_REFRESH_REQUIRED；不声称当下闭合。 | SOURCE_REFRESH_REQUIRED。 | SOURCE_REFRESH_REQUIRED。 | 仅历史指针；不推断当下 main/owner 状态。 | SOURCE_REFRESH_REQUIRED；不推断 live claim。 |
 | **HODGE — Hodge 计划**<br>已有计划；H0O 是一个有界叶子，不代表整个计划。<br>[S21](#source-s21), [S28](#source-s28) | 其余路线：SOURCE_REFRESH_REQUIRED。 | SOURCE_REFRESH_REQUIRED。 | 未做全计划程序审计。 | 本轮只新核实下述 H0O 捕获。 | 不推断全计划接受或 claim。 |
 | **H0O — H0O 已捕获 Result 待审**<br>同一 nonsplit target 上 pure codim-3 Poincare-polarization 中间支撑族。<br>[S28](#source-s28) | 原 Result 声明 NEGATIVE_BOUNDARY：此族不能创造首个 exceptional seed。 | 不新增 Lean 声称。 | 原产物/Execution record 保留；18 项捕获控制检查不是新增数学重放。 | PR1391 / b3d39a9 已 MAIN_SOURCE_CAPTURED。旧 PR1148 作为重复源关闭，不是数学闭合。 | 已核快照为 canonical FROZEN_RETURN / AWAITING_REVIEW、claim null；正式 Driver 审查待办。 |
+| **OWNER_PORTFOLIO — 原 owner 组合：2 项已入 main，17 项保留于源**<br>原 20260907 分片快照的 19 项候选：native/raw/BRC 算子、纯结果及两个参考 candidate 非工具。这不是仓库方法总数，也不是 live 任务队列。<br>[S38](#source-s38), [S39](#source-s39) | 仅有逐项不同的来源声称；组合计数和分类不证明全部 19 项数学成立。 | 无全组合 Lean 声称。 | 无全组合执行声称；被实际选中时，逐项核对 API、原生算术边界与精确来源回执。 | PARTIAL_MAIN_INTEGRATION / OWNER_SOURCE_RETAINED。精确 c27616a2 分片仅纳入 shell-length 与 one-positive；原其余 17 个 ID 保留于已发布 owner 快照。 | 无组合级正式接受；分类不是审查处置。 |
 
 ## 未完前沿与已有下一步
 
@@ -94,9 +96,7 @@ flowchart TB
 
 | 阅读优先级 | 节点 | 未完项 / 限定边界 | 已有下一步 |
 | --- | --- | --- | --- |
-| 当前收尾 | STAR | 不外推任意三正几何；固定权论文未分类 8P 区间外的全部极小者。 | 沿已有源/main 路径合流已审论文，不重启证明。 |
-| 当前收尾 | RAW_DUAL | 不自动寻找最优对偶，不给统一 p3 界；压缩紧点可有无限原始纤维。 | 先合流冻结论文；后续核验器必须检查完整表、来源绑定与 carrier 预算。 |
-| 当前收尾 | A3_A4_REVIEW | 不能把环境商秩等同可实现状态所需最少数据；不新建研究任务。 | 带着窄纠正审原交回，保留不受影响的论证。 |
+| 当前收尾 | A3_A4_REVIEW | 不能把环境商秩等同可实现状态所需最少数据；不新建研究任务。 | 使用已准入的窄纠正，收尾原 PR955 正式 Driver 审查；保留不受影响的原论证，不重复已完成源准入。 |
 | 当前收尾 | H0O | 无非代数性声称；真正混合的其他核或显式 exceptional cycles 仍开放。 | 在精确范围审保留的 TP2-A314F727276CFF8CE168 / RR-FB3CF77C4F611FDED79B；不从图中重新 claim/研究。 |
 | 已有数学前沿 | NUMBER_THEORY | centered prime-radius 有 left-prime/size 假设，不推出普遍对称素数对或 Goldbach。 | 与 X6 子支并列保留 P017/Perfect Prime 原有数学前沿。 |
 | 已有数学前沿 | PERFECT_PRIME | HCM0 / signed-secant Hausdorff lift 与母 determinant nonvanishing 仍 OPEN。 | 核实当前交接后，从精确 residual/HCM0 缺口续接；不重启已否定 block/inertia 路线。 |
@@ -106,8 +106,11 @@ flowchart TB
 | 被选中时刷新精确来源 | GEO7 | 历史闭合/再验证措辞不是当前 verdict。 | 该既有路线被选中时，仅刷新一个精确当前来源/交接。 |
 | 被选中时刷新精确来源 | GEO8 | 历史闭合/再验证措辞不是当前 verdict。 | 该既有路线被选中时，仅刷新一个精确当前来源/交接。 |
 | 被选中时刷新精确来源 | HODGE | 不把 H0O 种子守恒外推为 Hodge/非代数性定理。 | 收尾 H0O 审查；其他路线按各自精确来源刷新。 |
+| 被选中时刷新精确来源 | OWNER_PORTFOLIO | 原 19 项 = 10 DOMAIN_OPERATOR＋7 RESULT_ONLY＋2 CANDIDATE_NOT_TOOL。扣除已入 main 的两项 DOMAIN_OPERATOR，剩余 17 项 = 8 DOMAIN_OPERATOR＋7 RESULT_ONLY＋2 CANDIDATE_NOT_TOOL。其他 p2/star 合流不关闭这个原组合或整个 PR1364。 | 保留源分支和逐项证据。仅在实际选中时，按 canonical 算术/工具边界判断复用、修订、保持结果型或不推广；不启动 17 项准入，不把两个参考 candidate 变成工具。 |
 | 已合流，复用不重做 | RAW_EXT | 低层 pushforward 不保证任意输入保范数；无一般 p3 上界；等质量 probe 仅覆盖指定对称族。 | 复用已合流 API/源包；继续区分来源与实际执行代次。 |
 | 已合流，复用不重做 | P2_CONSUMER | 本次仅闭合有界工具准入子流程；p≤2 与原始 raw 坐标合同保持。入 main 不新增更高 p 定理或正式数学接受。 | 复用已准入消费者及精确登记 API/证据；保留原源与主组合回执，不重复已完成准入。 |
+| 已合流，复用不重做 | STAR | 固定 star、固定严格正权、等质量的分类范围已闭合。m≥P/2 时，额外质量 Δ=m−(w2+w3) 可任意有限地分布于经过主导点的全部六条去心原始坐标轴线上；Δ=0 与旧单纯形边界吻合。一般 p3 几何仍 OPEN。 | 复用已准入论文与精确 star 合同，包括完整六轴极小者分类；不推断一般三正上界，不为相同成果重启准入。 |
+| 已合流，复用不重做 | RAW_DUAL | 不自动寻找最优对偶，不给统一 p3 界；压缩紧点可有无限原始纤维。 | 按有范围证书定理复用已准入论文；后续通用核验器仍需实现完整表、来源绑定与 carrier 预算检查，本次准入不提供该实现。 |
 | 方向与范围内既有成果 | A0 | 范围闭合不代表任意新算子自动满足旧恒等式。 | 扩展前复用精确算子合同和原定理。 |
 | 方向与范围内既有成果 | A1 | 不自动得到物理时间箭头或热力学熵定理。 | 将物理解释与确定性定理分开验证。 |
 | 方向与范围内既有成果 | A2 | P018/P023/P024 整体仍开放；状态依赖与高维语言需精确合同。 | 只推进明确语言/观测缺口；部分操作保留 enabledness。 |
@@ -121,7 +124,7 @@ flowchart TB
 ## 有型别的关系
 
 - `CONTAINS`: 既有归属或有界叶子，不表达定理蕴涵。
-- `CONSUMES`: 来源明确在所列范围使用上游精确合同。
+- `CONSUMES`: 按“来源/上游 → 使用它的下游”读取：A3→A4 表示 A4 在声明范围使用 A3，不是反向。
 - `REUSE_IDENTIFIED`: 已识别有型复用，不宣称执行或新增已证传递。
 
 | 从 → 到 | 型别 | 精确含义 / 边界 | 来源 |
@@ -258,6 +261,18 @@ source ID 在此解析，SHA256 固定文件字节；不可变文件链接不证
 
 <a id="source-s35"></a>
 - **S35** [双正当前主线组合回执（原执行代次）](https://github.com/awdawmip/enterprise-math/blob/c27616a2e176c2d03000ad2e56a72280f8bd205a/experiments/20260908_owner_two_positive_stability/current_main_composition_20260908.json); `PUBLISHED_RECEIPT_NOT_REEXECUTED`; SHA256 `12678881fee7a0074da3bc77a9baed5ed52858041f9d9a0a7a9839f003f90ae2`.
+
+<a id="source-s36"></a>
+- **S36** [star 主导权极小者：全部六条原始轴线](https://github.com/awdawmip/enterprise-math/blob/909ed4c3c81adca8d5d653994a83df316faf1365/research_notes/OWNER_THREE_POSITIVE_STAR_DOMINANT_EQUALITY_REVIEW_20260908.md); `PUBLISHED_PIN_READBACK`; SHA256 `42e631101e44a5053c0170fbbe0122e6cf8fa182757c4c078fd772d3ee00c61e`.
+
+<a id="source-s37"></a>
+- **S37** [star/dual 当前主线组合回执（原执行代次）](https://github.com/awdawmip/enterprise-math/blob/167746c563842d308cbed1c8c441b163c3a6d0f6/experiments/20260908_owner_star_dual_results/current_main_composition_20260908.json); `PUBLISHED_RECEIPT_NOT_REEXECUTED`; SHA256 `6d3388a5dd2e31eedf903296d90f75b53299facfd298d4c4922a6b5d5021bc84`.
+
+<a id="source-s38"></a>
+- **S38** [原 owner 20260907 组合：19 项候选](https://github.com/awdawmip/enterprise-math/blob/909ed4c3c81adca8d5d653994a83df316faf1365/research_method_inventory_addenda/20260907_owner_native_frontier_candidates.json); `PUBLISHED_PIN_READBACK`; SHA256 `9b9b1851602200bbb207681dbac444a7e745b2915d6f8851bc999fd3a028f115`.
+
+<a id="source-s39"></a>
+- **S39** [原组合的精确 main 子集：两项方法](https://github.com/awdawmip/enterprise-math/blob/c27616a2e176c2d03000ad2e56a72280f8bd205a/research_method_inventory_addenda/20260907_owner_native_frontier_candidates.json); `FROZEN_MAIN_SOURCE`; SHA256 `8e9a8484054f620437efa2e9b81d00a6e62dd0fd4b9c335bd70eda327a6abef3`.
 
 ## 维护方法
 
