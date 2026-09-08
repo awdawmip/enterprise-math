@@ -345,12 +345,18 @@ def audit(root: Path = ROOT) -> list[str]:
 
 
 def main() -> int:
+    # Bootstrap patches the canonical module, which need not be this facade
+    # instance when invoked as __main__ or by a historical bare import.
+    from control_plane import research_control_bootstrap
+    from tools import research_task_records as canonical
+
+    research_control_bootstrap.install(ROOT)
     # The strict CLI resolves global build_record/audit functions dynamically.
     # Patch only for this call so duplicate facade imports never stack.
     previous_audit = _core.audit
     previous_build_record = _core.build_record
-    _core.audit = audit
-    _core.build_record = build_record
+    _core.audit = canonical.audit
+    _core.build_record = canonical.build_record
     try:
         return _core.main()
     finally:

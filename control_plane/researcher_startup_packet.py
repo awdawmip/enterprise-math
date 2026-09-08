@@ -195,12 +195,24 @@ def _task_projection(
     )
 
 
-def _serialized_size(value: dict[str, Any]) -> int:
-    return len(
-        json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode(
-            "utf-8"
-        )
+def _serialized_packet(value: dict[str, Any]) -> bytes:
+    """Use the same readable UTF-8 LF bytes for budgeting and CLI output."""
+    return (json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True) + "\n").encode(
+        "utf-8"
     )
+
+
+def _serialized_size(value: dict[str, Any]) -> int:
+    return len(_serialized_packet(value))
+
+
+def _annotate_packet_size(packet: dict[str, Any]) -> int:
+    packet["packet_bytes"] = 0
+    while True:
+        size = _serialized_size(packet)
+        if packet["packet_bytes"] == size:
+            return size
+        packet["packet_bytes"] = size
 
 
 def build_packet(receipt: dict[str, Any], root: Path = ROOT) -> dict[str, Any]:
@@ -276,19 +288,18 @@ def build_packet(receipt: dict[str, Any], root: Path = ROOT) -> dict[str, Any]:
             "required_task_sections": list(TASK_SECTIONS),
         }
 
-        if _serialized_size(packet) > hard_max and packet["task"]["projection"] is not None:
-            packet["task"]["projection"] = None
-            packet["task"]["projection_mode"] = "EXACT_TASKBOOK_REQUIRED_PACKET_BUDGET"
-
-    size = _serialized_size(packet)
-    _require(size <= hard_max, f"startup packet exceeds {hard_max} bytes: {size}")
-    packet["packet_bytes"] = size
-    # packet_bytes changes the serialized size by a few bytes; re-check the final object.
-    final_size = _serialized_size(packet)
-    packet["packet_bytes"] = final_size
+    size = _annotate_packet_size(packet)
+    if (
+        size > hard_max
+        and packet["task"] is not None
+        and packet["task"]["projection"] is not None
+    ):
+        packet["task"]["projection"] = None
+        packet["task"]["projection_mode"] = "EXACT_TASKBOOK_REQUIRED_PACKET_BUDGET"
+        size = _annotate_packet_size(packet)
     _require(
-        _serialized_size(packet) <= hard_max,
-        f"startup packet exceeds {hard_max} bytes after size annotation",
+        size <= hard_max,
+        f"startup packet exceeds {hard_max} bytes: {size}",
     )
     return packet
 
@@ -303,10 +314,7 @@ def main() -> int:
     receipt = _load_json(args.receipt)
     packet = build_packet(receipt, args.root.resolve())
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(
-        json.dumps(packet, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
-    )
+    args.output.write_bytes(_serialized_packet(packet))
     print(
         json.dumps(
             {
