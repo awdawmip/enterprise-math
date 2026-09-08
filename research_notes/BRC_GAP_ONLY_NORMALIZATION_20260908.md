@@ -1,4 +1,4 @@
-# Completion-gap-only state normalization
+# Separate downward-remainder and completion-gap normalization
 
 Researcher: `EM-HME-0CE4FD / TASK_RESEARCH`  
 Global read snapshot: `dd32c654bc48def291fcb1383c87ecdaa342493c`  
@@ -8,6 +8,8 @@ Status: exact representation result and fixed archived-state audit; no theorem p
 ## Result and supplied information
 
 The existing odd-N ceiling-state reduction can be expressed using only the multiplier and its already prepared completion gap. The ceiling-root coordinate is unnecessary for selecting this reduction. On the 60 previously saved public-puzzle states, the two representations agree exactly. Seven states have a modularly impossible square gap, and three additional records duplicate a surviving normalized state, leaving 50 distinct predicate inputs in the completed batch.
+
+Keeping the downward remainder R separately gives another exact state map. Its nonzero reductions necessarily end in D; the corresponding completion-gap reductions necessarily end in U. These are two distinct preservation contracts. They provide a structural reason to retain separate state populations and separate residual coordinates.
 
 The supplied state is
 
@@ -68,6 +70,64 @@ Two exact modular exits match the existing source implementation:
 - If m'=4 mod 8, maximality makes a' odd. Since N is odd, A'=a'^2-m'N=5 mod 8, which is not a square residue.
 
 These are inherited exact rules, not a newly independent filtering method. Otherwise the reduction returns the normalized multiplier and gap. It preserves the square predicate for every valid supplied state, not merely the audited finite set.
+
+## The downward-remainder branch and the direction law
+
+Start instead from the valid floor state
+
+\[
+mN=J^2+R,\qquad J=\lfloor\sqrt{mN}\rfloor,\quad0\le R\le2J.
+\]
+
+If 4 divides m, then R=-J^2 mod 4. Consequently 4 divides R exactly when J is even. The operation
+
+\[
+(m,R)\longmapsto(m/4,R/4)
+\]
+
+needs no J read to select it, and its associated root is exactly J/2. The floor inequality J<=sqrt(mN)<J+1 becomes
+
+\[
+J/2\le\sqrt{(m/4)N}<J/2+1/2.
+\]
+
+Thus the normalized pair is a valid floor state. Repeating k>=1 legal divisions gives m'=m/4^k, J'=J/2^k, R'=R/4^k. For R>0,
+
+\[
+0<R'\le\frac{2J}{4^k}=2^{1-k}J'\le J',
+\]
+
+so the result is necessarily **D**.
+
+For the completion-gap branch, a nonsquare immediate-ceiling state satisfies 1<=A<=2a-2. After k>=1 legal divisions,
+
+\[
+0<A'\le\frac{2a-2}{4^k}<a'.
+\]
+
+Therefore A'<=a'-1, which is exactly **U**: with J'=a'-1 and R'=2a'-1-A', one has R'>J'. Zero remainder/gap remains Z in both branches.
+
+These direction laws require only a positive integer target and a valid supplied state. Odd N is needed for the earlier source-specific modular exits, not for the scaling inequalities.
+
+For a nonsquare state with 4|m, exactly one branch permits its first division. The alternatives are J even with R=0 mod 4, or J odd with a=J+1 even and A=0 mod 4. Squares are the separate Z boundary where both can divide. This complementarity does not infer either residual for free from the other.
+
+| Supplied coordinate | Exact property preserved by division | Nonzero result after at least one division |
+|---|---|---|
+| (m,R) | Floor-state identity and floor-root location | D |
+| (m,A) | Ceiling-state identity, ceiling location and square-gap witness | U |
+
+The R operation does not claim preservation of the immediate ceiling-square predicate. Accordingly, its possibly new representative is used only to verify the transported floor identity; this audit performs no new square-witness query there. D/U describes distance within a square basin, and a direction change by itself is not evidence of easier factorization.
+
+On the same 60 archived public states:
+
+| Public input | R reductions, all ending D | A reductions, all ending U |
+|---|---:|---:|
+| RSA-270 | 5 | 5 |
+| RSA-896 | 9 | 1 |
+| RSA-2048 | 6 | 4 |
+| Total | 20 | 10 |
+
+The R reductions comprise 15 U->D and five D->D transitions. The A reductions comprise two D->U and eight U->U transitions. Together they account for the 30 saved positions with 4|m. These are exact state transformations of previously prepared data, not 30 new candidate observations. The positive and zero-gap controls also satisfy both direction laws wherever their respective division applies.
 
 ## Existing-tool reuse
 
@@ -147,4 +207,4 @@ python brc_gap_only_normalization_20260908.py --enterprise-root <existing-checko
 
 The two pinned input JSON files must sit alongside the checker. The script accepts an execution-source path and an output path only. Companion JSON records all state classifications, exact normalized gaps, source comparisons and constructive controls.
 
-The usable result is a precise division of information: a prepared completion gap suffices for this state normalization, while D/U labels and N-to-gap preparation have separate roles and costs. Full library verification and the broader active research objective remain unfinished.
+The usable result is a precise division of information: R and A each permit a root-free normalization with a different preserved property and a provable D/U output. A additionally supports the existing witness-preserving reduction. Preparing the coordinate and paying for normalization remain separate costs. Full library verification and the broader active research objective remain unfinished.
