@@ -26,6 +26,33 @@ def prime_seed(value):
     return value >= 2 and all(value%d for d in range(2, isqrt(value)+1))
 
 
+def audit_mod15_positive_families():
+    # Fixed constructive audit, not a readout dispatcher for external inputs.
+    coefficients = {1: (8, 1, 120, 1), 4: (24, 5, 40, 13),
+                    11: (24, 19, 40, 27), 14: (8, 7, 120, 119)}
+    assert {r for r in range(15) if r*r % 15 == 1} == set(coefficients)
+    rows = []
+    for r, (u1, u0, v1, v0) in coefficients.items():
+        prime_examples = []
+        for k in range(1, 17):
+            u, v, c = u1*k+u0, v1*k+v0, 15*k+r
+            n = u*v
+            t, remainder = divmod(c*c-1, 15)
+            assert remainder == 0 and n == 64*t+1 and n < FIXTURE_BOUND
+            assert 15*n == (8*c)**2-49 and 1 < u < v
+            if r in (4, 11):
+                assert v < 2*u
+            if prime_seed(u) and prime_seed(v):
+                prime_examples.append({"k": k, "N": n, "known_pair": [u, v]})
+        rows.append({"c_mod_15": r, "factor_coefficients": [u1, u0, v1, v0],
+                     "positive_checks": 16, "factor_ratio_below_two": r in (4, 11),
+                     "known_prime_pair_count": len(prime_examples), "prime_examples": prime_examples})
+    assert (24*4+5)*(40*4+13) == 17473
+    assert (24*5+19)*(40*5+27) == 31553
+    return {"rows": rows, "positive_class_checks": 64, "balanced_class_checks": 32,
+            "observation_stage": "classification after a certified square hit; not a front-gate predictor"}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--enterprise-root", type=Path, required=True)
@@ -207,6 +234,7 @@ def main():
         "executed_neighbor_module_sha256": sha256(module.read_bytes()).hexdigest(),
         "checks": dict(checks), "positive_family_summary": family_summary,
         "positive_family_sha256": sha256(json.dumps(families, sort_keys=True).encode()).hexdigest(),
+        "mod15_positive_classification": audit_mod15_positive_families(),
         "known_prime_product_counts": dict(counts),
         "known_prime_product_direction_counts": {key: dict(value) for key, value in direction_counts.items()},
         "additional_known_prime_product_witnesses": added,
