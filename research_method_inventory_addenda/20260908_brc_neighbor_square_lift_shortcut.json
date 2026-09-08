@@ -23,6 +23,7 @@
         "src/enterprise_math/brc_neighbor_square_lift_shortcut.py",
         "tests/test_brc_neighbor_square_lift_shortcut.py",
         "experiments/brc_neighbor_square_lift_probe.py",
+        "experiments/brc_neighbor_distance_balanced_probe.py",
         "research_notes/BRC_NEIGHBOR_SQUARE_LIFT_SHORTCUT_20260908.md",
         "research_notes/BRC_NEIGHBOR_DISTANCE_COMPRESSION_20260908.md",
         "research_artifacts/brc_neighbor_square_lift_probe_20260908.csv",
@@ -62,7 +63,7 @@
         "return immediately to the ordinary exact fallback on a miss"
       ],
       "core_law": "If N=a^2 t+epsilon*d with epsilon in {+1,-1} and m=2a-epsilon*d, then mN=a^2(mt+1)-(a-epsilon*d)^2. Therefore mt+1=c^2 gives mN=(ac)^2-(a-epsilon*d)^2. For a0=2^k satisfying 2(a0/2)+D<=H<2a0+D and 2D<a0^2, every beyond-H power-of-two candidate with |d|<=D shares the unique signed residue d determined by N mod a0^2. If that residue lies outside D, no higher power-of-two level can revive a candidate. For H=100,D=64 the exact start level is a0=32, so the full radius-64 distance search reduces to one N mod1024 low-bit observation plus at most one v2 chain.",
-      "hard_boundary": "This remains a specialization of classical multiplier-Fermat/difference-of-squares inside T0_BRC. The local-window compression removes distance-scan overhead but does not increase the mathematical density of square hits. Balanced finite samples show rare horizon-extending hits and no hits in a 20,000-sample 24-bit-prime cohort for D<=256. It must not replace a complete scan, must not trigger open-ended distance/horizon expansion after a miss, and establishes no asymptotic factorization improvement."
+      "hard_boundary": "This remains a specialization of classical multiplier-Fermat/difference-of-squares inside T0_BRC. The local-window compression removes distance-scan overhead but does not increase the mathematical density of square hits. The committed balanced diagnostic has one horizon-extending hit in the 1009..4999-prime cohort and no hits in the larger 10007..50000 or random-24-bit-prime cohorts at H=100,D=64. It must not replace a complete scan, must not trigger open-ended distance/horizon expansion after a miss, and establishes no asymptotic factorization improvement."
     }
   ]
 }
