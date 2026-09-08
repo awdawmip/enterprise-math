@@ -1,0 +1,68 @@
+{
+  "schema": "EM_RESULT_SPECIFIC_VERIFICATION_V1",
+  "record_id": "FINDING-EM-PDE-JITTER-INITIAL-CERTIFICATE-20260909",
+  "activity_id": "RA-076944AE1950A916ACC95399",
+  "proof_source": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "246c6de883f0a7ffd8c2fe0f8fc09b663c25e7b6",
+    "path": "research_notes/ns-jitter-initial-data-certificate-20260909.md",
+    "sha256": "41f86e6aa8d1113444f16ac5d4f97e228ef1dc6a178602ca5279906faf52f99e",
+    "git_blob_sha1": "db3a72e6203398e3a876b31a0285679a21e6e131"
+  },
+  "checker_sha256": "e95d2509aeab142593d6d4bcf375c16bebbd007a55f8428fb7fdd472c4b86363",
+  "verification": {
+    "status": "PASSED",
+    "scope": "Exact algebra and finite Fourier certificates; no PDE simulation or arbitrary-data claim",
+    "inherited_sha256": "ac6a0a34994c85832bde55e38e195e9552df308906f1a4c4460d3dbdafb1db59",
+    "algebra": {
+      "completed_square_identity": true,
+      "optimal_c_in_constant_weight_family": "1/4",
+      "max_dissipation_coefficient": "1/4",
+      "mixed_Young_constant": 108,
+      "Gronwall_constant": 216,
+      "heat_initial_exponent_constant": 54
+    },
+    "A3_example": {
+      "initial_mode_count": 8,
+      "rank": 3,
+      "helicity": "initially positive only",
+      "K_a": "6*sqrt(2)",
+      "K_b": "4*sqrt(2)",
+      "nonlinear_output_count": 12,
+      "output_squared_radii": [
+        6,
+        10,
+        14
+      ],
+      "input_heat_rates": [
+        10
+      ],
+      "J_coefficient": "sqrt(14)/80 + 3*sqrt(10)/100 + sqrt(6)/16",
+      "R_coefficient": "3*sqrt(14)/245 + 7*sqrt(10)/250 + sqrt(6)/20",
+      "J_decimal": 0.29473215606367426,
+      "R_decimal": 0.2568344745231463,
+      "opposite_helicity_output_present": true,
+      "opposite_helicity_source_squared": "-117*sqrt(2)/70 + 6*sqrt(14)/49 + 7*sqrt(10)/25 + sqrt(6)/2"
+    },
+    "mixed_helicity_boundary": {
+      "J_total_initial": "0",
+      "full_heat_residual_R": "1/16",
+      "conclusion": "J alone cannot replace the full heat residual for mixed initial helicities."
+    },
+    "finite_reference_residual": {
+      "orders_checked": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "all_ordered_feedback_terms_retained": true
+    }
+  },
+  "limits": [
+    "Analytic proof is in the source note. Finite checks do not prove the infinite-dimensional continuation step.",
+    "No independent peer review, formalization, or arbitrary-data regularity claim.",
+    "Checker and unchanged inherited module are in the accompanying research ZIP."
+  ]
+}
