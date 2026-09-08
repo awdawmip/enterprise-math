@@ -4,9 +4,9 @@
 
 Read A0–A5 for the global structure, then the evidence table and current closeout/frontier rows. BRC is a typed cross-direction tool; X6 is one A5 branch. This is a maintained source index, not a new theorem, full-repository audit or task-claim queue.
 
-Snapshot: 2026-09-08. The 20 foundation/router pins remain frozen at aaf9b812. The map first entered main via PR1396 at dc401229. Later verified frontiers: raw PR1390 main aa5683f; H0O PR1391 main b3d39a9 source capture, formal review pending; p2 PR1394 main c27616a2; star/dual PR1398 main 167746c5. A3 correction PR1399 is integrated on main d4bad545, retaining source 3ac5a5dd; whole-PR955 formal Driver review remains pending. The original 19-entry owner portfolio is a source snapshot, not a repository total or live queue. Other GEO/Hodge routes require exact-source refresh.
+Snapshot: 2026-09-08. The 20 foundation/router pins remain frozen at aaf9b812. The map first entered main via PR1396 at dc401229. Later verified frontiers: raw PR1390 main aa5683f; H0O PR1391 main b3d39a9 source capture, formal review pending; p2 PR1394 main c27616a2; star/dual PR1398 main 167746c5. A3 correction PR1399 is integrated on main d4bad545, retaining source 3ac5a5dd; whole-PR955 formal Driver review remains pending. The original 19-entry owner portfolio is a source snapshot, not a repository total or live queue. Other GEO/Hodge routes require exact-source refresh. Weighted trade PR1401 is on main 86f753be. The full canonical catalog comparison there finds exactly 3 of the original 19 objects on main and 16 retained in source; it does not merely subtract one shard. Owner b506f92a publishes the 57-template paper and partial valuation-digits BRC DIV checkpoint as SOURCE_ONLY. The observed main advance to fa9cb29 adds one RH paper only; this map has not reviewed or indexed that paper.
 
-Frozen main source: [`aaf9b8125ba3`](https://github.com/awdawmip/enterprise-math/commit/aaf9b8125ba3294932b5c90d80f700e02799c88e). Composition base: `d4bad54522bc0abf63e11d1ec03977efdb6f57b6`.
+Frozen main source: [`aaf9b8125ba3`](https://github.com/awdawmip/enterprise-math/commit/aaf9b8125ba3294932b5c90d80f700e02799c88e). Composition base: `86f753beee249887457d032e44937e1e475bbc8e`.
 
 ## Direction map
 
@@ -39,7 +39,10 @@ flowchart TB
   GEO8["GEO8 external geometry route"]
   HODGE["Hodge program"]
   H0O["H0O captured Result awaiting review"]
-  OWNER_PORTFOLIO["Original owner portfolio: 2 integrated, 17 in source"]
+  OWNER_PORTFOLIO["Original owner portfolio: 3 integrated, 16 retained in source"]
+  WEIGHTED_TRADE["Eight-positive weighted trade classified"]
+  P3_TEMPLATES["Three-positive support templates"]
+  VALUATION_DIGITS["Valuation digits local BRC division migration"]
   A3 -->|"CONSUMES"| A4
   BRC -->|"CONSUMES"| A4
   BRC -.->|"REUSE_IDENTIFIED"| A1
@@ -57,6 +60,15 @@ flowchart TB
   NUMBER_THEORY -->|"CONTAINS"| PERFECT_PRIME
   A2 -->|"CONSUMES"| E001
   HODGE -->|"CONTAINS"| H0O
+  X6 -->|"CONTAINS"| WEIGHTED_TRADE
+  OWNER_PORTFOLIO -->|"CONTAINS"| WEIGHTED_TRADE
+  X6 -->|"CONTAINS"| P3_TEMPLATES
+  RAW_PAPER -->|"CONSUMES"| P3_TEMPLATES
+  RAW_DUAL -->|"CONSUMES"| P3_TEMPLATES
+  NUMBER_THEORY -->|"CONTAINS"| VALUATION_DIGITS
+  BRC -->|"CONSUMES"| VALUATION_DIGITS
+  OWNER_PORTFOLIO -->|"CONTAINS"| VALUATION_DIGITS
+  X6 -->|"CONTAINS"| VALUATION_DIGITS
 ```
 
 ## Comparable evidence at the stated scope
@@ -88,7 +100,10 @@ These are source statements and recorded receipts, not new checks performed by t
 | **GEO8 — GEO8 external geometry route**<br>Existing historical direction; latest exact result/review not retrieved.<br>[S21](#source-s21) | SOURCE_REFRESH_REQUIRED; no present closure assertion. | SOURCE_REFRESH_REQUIRED. | SOURCE_REFRESH_REQUIRED. | Historical pointers only; present main/owner status not inferred. | SOURCE_REFRESH_REQUIRED; no live claim inferred. |
 | **HODGE — Hodge program**<br>Existing program; H0O is one bounded leaf, not the entire program.<br>[S21](#source-s21), [S28](#source-s28) | Other routes: SOURCE_REFRESH_REQUIRED. | SOURCE_REFRESH_REQUIRED. | No whole-program executable audit performed. | Only the H0O capture below was newly verified. | No program-wide acceptance or claim inference. |
 | **H0O — H0O captured Result awaiting review**<br>Pure codimension-3 Poincare-polarization intermediate support family on the same nonsplit target.<br>[S28](#source-s28) | Original Result declares NEGATIVE_BOUNDARY: this family cannot create the first exceptional seed. | No new Lean claim. | Original output/Execution record preserved; 18 capture control checks are not a new mathematical replay. | MAIN_SOURCE_CAPTURED at b3d39a9 via PR1391. Old PR1148 closed as duplicated source, not mathematical closure. | Canonical FROZEN_RETURN / AWAITING_REVIEW, claim null at the verified snapshot; formal Driver review pending. |
-| **OWNER_PORTFOLIO — Original owner portfolio: 2 integrated, 17 in source**<br>The original 20260907 shard snapshot: 19 candidates across native/raw/BRC operators, result-only records and two reference candidates that are not tools. This is not the repository-wide method count or a live task queue.<br>[S38](#source-s38), [S39](#source-s39) | Mixed per-entry claims only. The portfolio count and classifications do not establish proof for all 19 entries. | No portfolio-wide Lean claim. | No portfolio-wide execution claim. Each API, native arithmetic boundary and receipt requires its own exact-source assessment when selected. | PARTIAL_MAIN_INTEGRATION / OWNER_SOURCE_RETAINED. The exact c27616a2 shard contains only shell-length and one-positive; the other 17 original IDs remain in the published owner snapshot. | No collective formal acceptance; classifications are not review dispositions. |
+| **OWNER_PORTFOLIO — Original owner portfolio: 3 integrated, 16 retained in source**<br>The original 20260907 shard snapshot: 19 candidates across native/raw/BRC operators, result-only records and two reference candidates that are not tools. This is not the repository-wide method count or a live task queue.<br>[S38](#source-s38), [S39](#source-s39), [S42](#source-s42), [S43](#source-s43), [S52](#source-s52) | Mixed per-entry claims only. The portfolio count and classifications do not establish proof for all 19 entries. | No portfolio-wide Lean claim. | No portfolio-wide execution claim. Each API, native arithmetic boundary and receipt requires its own exact-source assessment when selected. | PARTIAL_MAIN_INTEGRATION / OWNER_SOURCE_RETAINED. Full-catalog exact-object comparison at main 86f753be identifies shell-length, one-positive and weighted_minimum_trade as the three original IDs integrated. The other 16 remain in the original published owner snapshot. | No collective formal acceptance; classifications are not review dispositions. |
+| **WEIGHTED_TRADE — Eight-positive weighted trade classified**<br>Nonzero finite raw X6 signed difference; all 20 three-axis marginals zero; exactly eight positive spatial sites.<br>[S40](#source-s40), [S41](#source-s41), [S42](#source-s42), [S43](#source-s43) | RESULT_ONLY: exactly eight negative sites, one common absolute weight and the source-defined four-bit parity structure. This closes the eight-positive/more-negative and delete-light-point mechanism. | No new Lean coverage is asserted. | Metadata-only registration/current-main receipt is published; no historical checker or mathematical consumer was replayed for this map; api=[]. | MAIN via PR1401 at 86f753be; the indexed receipt retains its original eb90 composition generation. | Owner source/index evidence only; no new formal Task/Result/Driver acceptance. |
+| **P3_TEMPLATES — Three-positive support templates**<br>Three distinct post-Jordan positive sites in one raw X6 chart; point labels and weights move together. Projected address fibers and full original Cell fibers remain distinct notions.<br>[S44](#source-s44), [S45](#source-s45), [S15](#source-s15), [S22](#source-s22) | 57 unweighted support templates (64 minus 7 degenerate); retain the ordered weight vector modulo each template stabilizer and track the original fresh fibers. | No new Lean coverage is asserted. | The source paper retains the original bounded integer type count; publication did not rerun it. No LP, raw population/weight enumeration, old consumer replay or new API. | SOURCE_ONLY at owner b506f92a. The paper and source-review receipt are published; the receipt retains its prepublication execution/review generation. No main admission or formal acceptance. | Owner source/index evidence only; no new formal Task/Result/Driver acceptance. |
+| **VALUATION_DIGITS — Valuation digits local BRC division migration**<br>Local digits routine within the original shortest-path valuation-spectrum source method; this is not whole-spectrum native compliance.<br>[S38](#source-s38), [S46](#source-s46), [S47](#source-s47), [S48](#source-s48), [S49](#source-s49), [S50](#source-s50), [S51](#source-s51), [S52](#source-s52) | Existing valuation/digit definitions and caller contracts retained; no new theorem or family is claimed. | No new Lean coverage is asserted. | Published portable replay records 288 native DIV-facade evaluations, 10 valid digit cases, 8 standalone rejections and 11 pre-histogram caller boundaries. Source metadata/static validation is a separate receipt. This map reruns neither; no full-spectrum regression was run. | SOURCE_ONLY: the local digits substitution and its evidence package are applied/published at owner b506f92a. No main or formal admission; the older nineteen-object snapshot remains pinned separately. | Owner source/index evidence only; no new formal Task/Result/Driver acceptance. |
 
 ## Unfinished frontier and existing next action
 
@@ -98,19 +113,22 @@ Reading order only; this is not the live task-selection queue.
 | --- | --- | --- | --- |
 | Current closeout | A3_A4_REVIEW | Do not equate an ambient quotient rank with the minimal realizable state data; no new research assignment. | Finish the existing formal Driver review of PR955 using the admitted narrow correction; preserve the unaffected original arguments and do not repeat the completed source admission. |
 | Current closeout | H0O | No non-algebraicity claim; other genuinely mixing kernels or explicit exceptional cycles remain open. | Review preserved TP2-A314F727276CFF8CE168 / RR-FB3CF77C4F611FDED79B at its exact scope; do not re-claim or re-research from this map. |
+| Current closeout | VALUATION_DIGITS | Primality, histogram/Fraction arithmetic and broad imports remain separate boundaries. The helper can collect a local trace; the unchanged public spectrum API neither returns nor persists digit traces. Local evidence is not whole-spectrum or transitive native compliance. | Preserve the local migration and its actual caller boundary; continue only an explicitly selected unfinished spectrum interface. |
 | Existing mathematical frontier | NUMBER_THEORY | Centered prime-radius results have left-prime/size hypotheses and imply neither universal symmetric pairs nor Goldbach. | Keep the existing P017/Perfect Prime mathematical frontier visible alongside the X6 branch. |
 | Existing mathematical frontier | PERFECT_PRIME | HCM0 / signed-secant Hausdorff lift and mother-determinant nonvanishing remain OPEN. | Resume from the exact residual/HCM0 gap after current handoff verification; do not restart the rejected block/inertia route. |
 | Existing mathematical frontier | P021 | Causal focusing, direction/witness composition and physical interpretation remain open. | Continue a specified finite causal/observation contract without importing a physical theorem. |
 | Existing mathematical frontier | E001 | Not a universal constitutive/mechanics theorem; finite readings do not recover an unknown continuous curve. | Bind any application to actual measurements and the existing falsification contract. |
+| Existing mathematical frontier | P3_TEMPLATES | The carrier bound 2^nC*3^(sum nP)*4^nD does not supply a uniform p3 bound. Fresh coordinates generally represent infinite original fibers; proof relabeling is not a native operation. | Retain these as the existing finite geometric boundary for future compressed-dual work, with full weight parameters and raw-table identities. |
 | Refresh exact source when selected | GEO6 | Historical closure/revalidation language is not a current verdict. | Refresh one exact current source/handoff if this existing route is selected. |
 | Refresh exact source when selected | GEO7 | Historical closure/revalidation language is not a current verdict. | Refresh one exact current source/handoff if this existing route is selected. |
 | Refresh exact source when selected | GEO8 | Historical closure/revalidation language is not a current verdict. | Refresh one exact current source/handoff if this existing route is selected. |
 | Refresh exact source when selected | HODGE | Do not generalize H0O seed-conservation to a Hodge/non-algebraicity theorem. | Finish H0O review; refresh other routes only on their own exact source. |
-| Refresh exact source when selected | OWNER_PORTFOLIO | Original 19 = 10 DOMAIN_OPERATOR + 7 RESULT_ONLY + 2 CANDIDATE_NOT_TOOL. After the two admitted DOMAIN_OPERATOR entries, the remaining 17 = 8 DOMAIN_OPERATOR + 7 RESULT_ONLY + 2 CANDIDATE_NOT_TOOL. Other p2/star admissions do not complete this original portfolio or PR1364. | Preserve the source branch and per-entry evidence. Only on an actual selection, assess canonical arithmetic/tool boundaries and decide reuse, revision, result-only retention or no promotion. Do not launch 17 admission attempts or convert the two reference candidates into tools. |
+| Refresh exact source when selected | OWNER_PORTFOLIO | Original 19 = 10 DOMAIN_OPERATOR + 7 RESULT_ONLY + 2 CANDIDATE_NOT_TOOL. The remaining 16 = 8 DOMAIN_OPERATOR + 6 RESULT_ONLY + 2 CANDIDATE_NOT_TOOL. A local digits migration does not complete its whole spectrum method. Other p2/star admissions do not close the original portfolio or PR1364. | Keep the source branch and per-entry evidence. Select an existing unfinished unit only when authorized, preserving canonical arithmetic and result-only boundaries. Do not launch 16 admission attempts or turn the two reference candidates into tools. |
 | Integrated; reuse without repeating | RAW_EXT | A low-level pushforward has no arbitrary-input norm guarantee; no general p3 upper bound. Equal-mass probe covers its symmetric family only. | Reuse the integrated API/source package; retain source and execution-generation distinctions. |
 | Integrated; reuse without repeating | P2_CONSUMER | This closes the bounded tool-admission subflow only; p≤2 and the original raw-coordinate contract remain binding. Main integration does not add a higher-p theorem or formal mathematical acceptance. | Reuse the admitted consumer and its exact registered API/evidence; preserve the source and main-composition receipts without repeating completed admission. |
 | Integrated; reuse without repeating | STAR | This fixed-star, fixed-positive-weight, equal-mass classification is scope-closed. For m≥P/2, excess mass Δ=m−(w2+w3) is arbitrary finite nonnegative rational mass on all six punctured original coordinate lines through the dominant point; Δ=0 matches the old simplex boundary. General p3 geometry remains OPEN. | Reuse the admitted papers and their exact star contract, including the full six-axis minimizer classification; do not infer a general three-positive upper bound or start a new admission for the same work. |
 | Integrated; reuse without repeating | RAW_DUAL | No automatic optimal-dual search or universal p3 bound; tight compressed points can have infinite original fibers. | Reuse the admitted paper as a scoped certificate theorem. A later generic verifier still needs its own complete-table, source-binding and carrier-budget implementation; none is supplied by this admission. |
+| Integrated; reuse without repeating | WEIGHTED_TRADE | The unrestricted best stability constant for p<=7 remains OPEN. RESULT_ONLY supplies no new executable API or primitive negative BRC. | Reuse the closed trade structure when the same all20/p=8 contract is present; keep the general raw-stability gap separate. |
 | Direction and scoped established results | A0 | Scope closure does not make every newly proposed operator obey the old identities. | Reuse the exact operator contract and theorem before extending it. |
 | Direction and scoped established results | A1 | No automatic physical time-arrow or thermodynamic-entropy theorem. | Keep any physical interpretation distinct from the deterministic theorem. |
 | Direction and scoped established results | A2 | P018/P023/P024 remain open programs; state-dependent and higher-dimensional languages need exact contracts. | Continue only a specified language/observation gap; preserve enabledness for partial operations. |
@@ -146,6 +164,15 @@ Reading order only; this is not the live task-selection queue.
 | NUMBER_THEORY → PERFECT_PRIME | `CONTAINS` | Existing number-theoretic residual route; no inferred theorem dependence on X6. | [S19](#source-s19) |
 | A2 → E001 | `CONSUMES` | Measured refinement consumes actual new finite observations, not interpolated continuum data. | [S08](#source-s08) |
 | HODGE → H0O | `CONTAINS` | One exact frozen negative-boundary Result awaiting mathematical review. | [S28](#source-s28) |
+| X6 → WEIGHTED_TRADE | `CONTAINS` | Bounded raw X6 kernel classification; no closure of the whole X6 program. | [S40](#source-s40), [S41](#source-s41) |
+| OWNER_PORTFOLIO → WEIGHTED_TRADE | `CONTAINS` | This exact result is one of the original nineteen method objects and is now on main. | [S38](#source-s38), [S42](#source-s42) |
+| X6 → P3_TEMPLATES | `CONTAINS` | A three-positive raw support classification, not a new global family. | [S44](#source-s44) |
+| RAW_PAPER → P3_TEMPLATES | `CONSUMES` | Template carrier sizes use the existing positive-support compression theorem and its all20 norm contract. | [S15](#source-s15), [S44](#source-s44) |
+| RAW_DUAL → P3_TEMPLATES | `CONSUMES` | The template paper uses the existing finite-dual input/fiber contract to state the future boundary; it does not execute or produce a uniform dual. | [S22](#source-s22), [S44](#source-s44) |
+| NUMBER_THEORY → VALUATION_DIGITS | `CONTAINS` | Existing valuation arithmetic subdirection; not a new number-theoretic theorem. | [S46](#source-s46), [S50](#source-s50) |
+| BRC → VALUATION_DIGITS | `CONSUMES` | The local digits replacement calls the existing canonical BRC DIV facade; no whole-spectrum compliance follows. | [S46](#source-s46), [S50](#source-s50) |
+| OWNER_PORTFOLIO → VALUATION_DIGITS | `CONTAINS` | A bounded implementation slice of the original valuation-spectrum candidate, which remains among the sixteen source entries. | [S38](#source-s38), [S46](#source-s46) |
+| X6 → VALUATION_DIGITS | `CONTAINS` | The existing source method concerns shortest-path valuation spectra in X6; this edge asserts no new geometric implication. | [S38](#source-s38), [S46](#source-s46) |
 
 ## Immutable source pins and evidence depth
 
@@ -273,6 +300,45 @@ Source IDs resolve below; SHA256 values pin file contents. An immutable file lin
 
 <a id="source-s39"></a>
 - **S39** [Exact main subset of the original portfolio: two methods](https://github.com/awdawmip/enterprise-math/blob/c27616a2e176c2d03000ad2e56a72280f8bd205a/research_method_inventory_addenda/20260907_owner_native_frontier_candidates.json); `FROZEN_MAIN_SOURCE`; SHA256 `8e9a8484054f620437efa2e9b81d00a6e62dd0fd4b9c335bd70eda327a6abef3`.
+
+<a id="source-s40"></a>
+- **S40** [Weighted minimum trade paper on main](https://github.com/awdawmip/enterprise-math/blob/86f753beee249887457d032e44937e1e475bbc8e/research_notes/OWNER_WEIGHTED_TRADE_FRONTIER_20260907.md); `FROZEN_MAIN_SOURCE`; SHA256 `520a41ee878aeb1d1c546a7c088ae1c86f0acbe8292d7356d00436322b6f20be`.
+
+<a id="source-s41"></a>
+- **S41** [Weighted trade independent paper audit on main](https://github.com/awdawmip/enterprise-math/blob/86f753beee249887457d032e44937e1e475bbc8e/research_notes/OWNER_WEIGHTED_TRADE_INDEPENDENT_AUDIT_20260907.md); `FROZEN_MAIN_SOURCE`; SHA256 `bafe071af7d04a7734641410cd5820342ab307ddcef1a0e5cfd89f38bb0d2aa9`.
+
+<a id="source-s42"></a>
+- **S42** [One exact RESULT_ONLY weighted trade method object](https://github.com/awdawmip/enterprise-math/blob/86f753beee249887457d032e44937e1e475bbc8e/research_method_inventory_addenda/20260908_owner_weighted_trade_result.json); `FROZEN_MAIN_SOURCE`; SHA256 `c8ff8390990f2f54186edb57159a4f87d87b982f651f8bf984c2208f0e211065`.
+
+<a id="source-s43"></a>
+- **S43** [Weighted trade current-main composition receipt: original eb90 execution](https://github.com/awdawmip/enterprise-math/blob/86f753beee249887457d032e44937e1e475bbc8e/experiments/20260908_owner_weighted_trade_result/current_main_composition_20260908.json); `PUBLISHED_RECEIPT_NOT_REEXECUTED`; SHA256 `a2a39182fdebe7cd082af08a5ca394409fd02f570402d40e447bf23fafb78959`.
+
+<a id="source-s44"></a>
+- **S44** [Three-positive support template source paper](https://github.com/awdawmip/enterprise-math/blob/b506f92a117ec4f2e9b9b1a792fddb349a74b24d/research_notes/OWNER_THREE_POSITIVE_RAW_SUPPORT_TEMPLATE_REVIEW_20260908.md); `PUBLISHED_PIN_READBACK`; SHA256 `b614f83ef1e722409020de4489a99aa057088819507b5a05fde7a27b91a7b4cb`.
+
+<a id="source-s45"></a>
+- **S45** [Template paper source-review receipt: original generation](https://github.com/awdawmip/enterprise-math/blob/b506f92a117ec4f2e9b9b1a792fddb349a74b24d/experiments/owner_three_positive_support_templates_20260908/source_review.json); `PUBLISHED_RECEIPT_NOT_REEXECUTED`; SHA256 `09a304cfb8a2432d4abcecd55a3a0867f74ed83fbb33104ce34128c78293f293`.
+
+<a id="source-s46"></a>
+- **S46** [Applied local digits BRC DIV replacement](https://github.com/awdawmip/enterprise-math/blob/b506f92a117ec4f2e9b9b1a792fddb349a74b24d/research_notes/owner_arithmetic_20260907.py); `PUBLISHED_PIN_READBACK`; SHA256 `209c5f38dee8dcd0f61b895ef3c2b1e3d4e2b46724bb3bf7326dd210f813b2ce`.
+
+<a id="source-s47"></a>
+- **S47** [Partial digit migration and evidence-generation contract](https://github.com/awdawmip/enterprise-math/blob/b506f92a117ec4f2e9b9b1a792fddb349a74b24d/experiments/owner_valuation_digits_brc_20260908/README.md); `PUBLISHED_PIN_READBACK`; SHA256 `05973fc9f1bf246f7d9cefdda746650be4d400cc6aa65169e147d8daa7daa9ee`.
+
+<a id="source-s48"></a>
+- **S48** [Digits source metadata and local helper static receipt](https://github.com/awdawmip/enterprise-math/blob/b506f92a117ec4f2e9b9b1a792fddb349a74b24d/experiments/owner_valuation_digits_brc_20260908/source_validation.json); `PUBLISHED_RECEIPT_NOT_REEXECUTED`; SHA256 `0ff6659d19a65aac3d11360e4b16ed77c40b7947093d02caed21cb72796aca57`.
+
+<a id="source-s49"></a>
+- **S49** [Digits portable replay receipt: original recorded run](https://github.com/awdawmip/enterprise-math/blob/b506f92a117ec4f2e9b9b1a792fddb349a74b24d/experiments/owner_valuation_digits_brc_20260908/portable_replay/replay_receipt.json); `PUBLISHED_RECEIPT_NOT_REEXECUTED`; SHA256 `b94c15c5a677ad95f1922a595dccb7f336ac1e7ed4242d513f83bc9ff9394f4b`.
+
+<a id="source-s50"></a>
+- **S50** [Digits replay: actual native calls and bounded caller evidence](https://github.com/awdawmip/enterprise-math/blob/b506f92a117ec4f2e9b9b1a792fddb349a74b24d/experiments/owner_valuation_digits_brc_20260908/portable_replay/review.json); `PUBLISHED_RECEIPT_NOT_REEXECUTED`; SHA256 `c6074a591732d7c8240467cdcb43f55ac3605f1212f182015a6d61fcb67cc5bf`.
+
+<a id="source-s51"></a>
+- **S51** [Digits owner source adoption and preserved historical failures](https://github.com/awdawmip/enterprise-math/blob/b506f92a117ec4f2e9b9b1a792fddb349a74b24d/experiments/owner_valuation_digits_brc_20260908/owner_adoption.json); `PUBLISHED_RECEIPT_NOT_REEXECUTED`; SHA256 `d46e78e0db66716faa544d0ebf4562c7a40490dccfcf0899f87c3dfcb484ac66`.
+
+<a id="source-s52"></a>
+- **S52** [Owner source shard with one scoped digits update; original snapshot retained](https://github.com/awdawmip/enterprise-math/blob/b506f92a117ec4f2e9b9b1a792fddb349a74b24d/research_method_inventory_addenda/20260907_owner_native_frontier_candidates.json); `PUBLISHED_PIN_READBACK`; SHA256 `495076a74441e94e3fdd0d1c84799fa01e56baf80fcae13569d47b28a50a1e18`.
 
 ## Maintenance
 
