@@ -1,22 +1,50 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-076944AE1950A916ACC95399",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "60525d11c002c0334e87fcbb206891c0e9455aef",
+          "path": "research_notes/ns-viscous-jitter-certificate-20260909.json",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "71f54cd771ff418682fda0abcef8da1d73868d5463db40a563146727ba2830c6",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "7a94b0441da99513ac57e29adea696e5b1acf2f3",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/60525d11c002c0334e87fcbb206891c0e9455aef/research_notes/ns-viscous-jitter-certificate-20260909.json",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "local-observation-turn280",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-076944AE1950A916ACC95399/readbacks/aca912427b4f6a8eae7694ca67951dc41a4f1f3994f748c53564e9d290be3540.json",
+          "verification_receipt_sha256": "aca912427b4f6a8eae7694ca67951dc41a4f1f3994f748c53564e9d290be3540"
+        }
+      ],
+      "event_id": "NS-VISCOUS-JITTER-20260909-01",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-09-08T22:57:24.068132+00:00",
   "registration_key": "session:local-ns-jitter-901c9f34161ce0f1:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-DIRECT-F00A51",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "local-ns-jitter-901c9f34161ce0f1",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-09-08T22:57:24.068132+00:00",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
