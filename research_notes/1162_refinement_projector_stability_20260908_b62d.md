@@ -180,7 +180,7 @@ Define for m>=1
 
 `b_m(N)=2^(2m-1) N^(-2m) Tr[(L_N^+)^m]`.
 
-For the cycle the known exact finite trace/cosecant identities give a polynomial in `N^(-2)` of degree m. The first three are
+For the cycle the exact finite polynomial structure is now refounded separately in `research_notes/1162_cycle_forest_refoundation_even_zeta_20260908_b62d.md` from rooted-forest coefficients and Newton identities, without trigonometric diagonalization. The first three are
 
 `b_1(N)=1/6 - 1/(6N^2)`,
 
@@ -196,7 +196,7 @@ Therefore the derivative-free dyadic projectors give, for every finite N,
 
 `-b_3(N)/2835 + 4b_3(2N)/135 - 64b_3(4N)/135 + 4096b_3(8N)/2835 = 1/945`.
 
-These constants are the finite discrete coefficients later identified in the classical angular compatibility layer with `zeta(2m)/pi^(2m)`.
+These constants are finite discrete coefficients later identified in the classical angular compatibility layer with `zeta(2m)/pi^(2m)`.
 
 ## 9. Approximate refinement cocycle rigidity for the Basel scalar
 
@@ -225,21 +225,52 @@ If the cocycle law in both orders has defect at most epsilon, then
 
 For p,q>=2 this is at most `32epsilon/9`. Hence even the cross-refinement fixed-point consistency has a finite roughness bound.
 
-## 10. Prior-art boundary
+## 10. Integer-coefficient form and finite falsifiers
+
+For integer q the projector can be written without fractional eigenvalues:
+
+`Pi_(m,q)
+ = [product_{r=1}^m (q^(2r)E_q-I)] / [product_{r=1}^m(q^(2r)-1)]`.
+
+The corresponding exact model annihilator is the integer-coefficient operator
+
+`mathfrak A_(m,q)=product_{r=0}^m(q^(2r)E_q-I)`.
+
+Thus the entire model test and fixed-point extraction can be performed in integer/rational arithmetic.
+
+For dyadic refinement:
+
+`m=1: 4 f(4N)-5 f(2N)+f(N)=0`,
+
+`m=2: 64 f(8N)-84 f(4N)+21 f(2N)-f(N)=0`.
+
+These use three and four actual scales respectively and require no interpolation between them.
+
+There is also an exact cross-q falsifier. For any sequence in the declared degree-m correction class and any p,q>1,
+
+`Pi_(m,p)f(N)=Pi_(m,q)f(N)=a_0`.
+
+If uniform readout/model residual bounds on the two refinement orbits are epsilon_p and epsilon_q, then for integer p,q>=2,
+
+`|Pi_(m,p) fhat - Pi_(m,q) fhat| < 2 epsilon_p + 2 epsilon_q`.
+
+A larger observed discrepancy falsifies at least one of: the correction model, the common readout semantics, or the stated error envelope. Thus redundancy across distinct integer refinements is a finite robustness test rather than an additional smoothness assumption.
+
+## 11. Prior-art boundary
 
 The cancellation mechanism is a geometric-grid instance of classical Richardson/Romberg extrapolation; that general method and its need for an asymptotic/error expansion are established prior art. Stability of generalized Richardson extrapolation has also been studied in the numerical-analysis literature. No novelty claim is made for extrapolation itself.
 
-The project-level candidate synthesis is narrower: exact cycle spectral-trace quotient invariants, an explicit rough-observer factorization, the order-uniform `<2` absolute-noise bound for integer refinement, the singular q->1 limit as the quantitative boundary against microscopic differentiation, and the finite trace-defect realization of the Basel coefficient 1/6.
+The project-level candidate synthesis is narrower: exact cycle spectral-trace quotient invariants, an explicit rough-observer factorization, the order-uniform `<2` absolute-noise bound for integer refinement, the singular q->1 limit as the quantitative boundary against microscopic differentiation, the integer-coefficient finite falsifiers, and the finite trace-defect realization of the Basel coefficient 1/6.
 
-## 11. BRC resolution
+## 12. BRC resolution
 
-REUSE_APPLIED: observer/future-operation factorization and information-loss audit from the account BRC priority contract. The nuisance amplitudes are explicitly labeled and quotientable because the finite projector kills them under the declared future language. Residual out-of-model information is retained through the annihilator and error envelope.
+REUSE_APPLIED: observer/future-operation factorization and information-loss audit from the account BRC priority contract. The nuisance amplitudes are explicitly labeled and quotientable because the finite projector kills them under the declared future language. Residual out-of-model information is retained through the annihilator, cross-q discrepancy and error envelope.
 
 NOT_APPLICABLE: positive-weight recurrent BRC machinery; the projector has alternating signed coefficients and is a linear quotient, not positive branch mass.
 
 ## Next
 
-1. Replace the imported higher-m cycle cosecant formulas by a purely finite graph/forest or characteristic-polynomial derivation, avoiding trigonometric diagonalization.
-2. Develop cross-q redundancy as a finite falsifier of the correction model.
+1. Use the rooted-forest coefficient representation to derive further finite combinatorial meaning for the rational invariant sequence `1/6,1/90,1/945,...`.
+2. Quantify structural perturbations of the cycle Laplacian separately from sample/readout error; do not merge operator roughness with observation noise.
 3. Determine whether the `<2` uniform refinement stability and q->1 singularity already have an exact published extrapolation-theory analogue; do not claim priority before this check.
 4. Keep the classical angular identification with zeta/pi typed as compatibility, not native promotion.
