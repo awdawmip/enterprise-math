@@ -1,0 +1,62 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "task_id": "RS-A3-A4-GENERATED-SUPPORT",
+  "registry_key": "RS-A3-A4-GENERATED-SUPPORT",
+  "publication_id": "TP2-A60A8F985112CCF96B3B",
+  "publication_generation": 2,
+  "supersedes_publication_id": "TP2-F4F7A34423E2D6CDC0CF",
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "taskbook_path": "research_tasks/A3_A4_GENERATED_SUPPORT_FROZEN_DRIVER_REVIEW_20260908.md",
+  "taskbook_blob_sha1": "sha1:7142ba6b87830c38b0a4d00294b1fef2c75111d5",
+  "publisher_role": "RESEARCH_DRIVER",
+  "publisher_id": "EM-DVR-01E1D9",
+  "published_at": "2026-09-08T00:04:11.635371+00:00",
+  "parent_objective_id": "LEGACY_CONTROL_CUTOVER_RS_A3_A4_GENERATED_SUPPORT",
+  "origin_kind": "MAINTENANCE",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "kind": "RESEARCH",
+  "task_lineage": "MAINTENANCE",
+  "parent_task_id": null,
+  "claimable": true,
+  "effective_priority": "P2",
+  "effective_leverage": "HIGH",
+  "priority_source": "PUBLISHER_DECLARED",
+  "publisher_priority_request": "P2",
+  "publisher_leverage_request": "HIGH",
+  "owner": "bridge/a3-a4-generated-support-v3",
+  "frontier": "Advance only genuinely cross-owner A3-to-A4 statements after B01-B06, using query-scoped quotient-module precision and interpolation/cancellation boundaries.",
+  "next_action": "Driver review the existing frozen PR #955 handoff at 684754b69d1767a4c38b6c56af3fa2d0a43cc62c, resolve any narrowly identified review clarification, and record an explicit accepted, returned, or deferred disposition under the current contract. Preserve the delivered frontier; do not dispatch it as a fresh research claim. A new research successor requires its own concrete trigger and publication.",
+  "research_value": "Advance only genuinely cross-owner A3-to-A4 statements after B01-B06, using query-scoped quotient-module precision and interpolation/cancellation boundaries.",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "identity_lane": "A3",
+  "source_refs": [
+    "bridge/a3-a4-generated-support-v3",
+    "Research Relay #82",
+    "https://github.com/awdawmip/enterprise-math/blob/684754b69d1767a4c38b6c56af3fa2d0a43cc62c/research_returns/A3_A4_GENERATED_SUPPORT_QUOTIENT_INTERPOLATION_RETURN_20260830.md",
+    "https://github.com/awdawmip/enterprise-math/blob/684754b69d1767a4c38b6c56af3fa2d0a43cc62c/research_checks/A3_A4_GENERATED_SUPPORT_QUOTIENT_INTERPOLATION_CHECK_20260830.py",
+    "https://github.com/awdawmip/enterprise-math/blob/684754b69d1767a4c38b6c56af3fa2d0a43cc62c/research_artifacts/A3_A4_GENERATED_SUPPORT_QUOTIENT_INTERPOLATION/certificate_20260830.json",
+    "https://github.com/awdawmip/enterprise-math/blob/f179a3a53470d563eff2ef52a079e293824bfb44/research_task_records/RS-A3-A4-GENERATED-SUPPORT/TP2-F4F7A34423E2D6CDC0CF.json"
+  ],
+  "dependencies": [
+    {
+      "target": "canonical A3/A4 first bridge slice",
+      "action": "CONSUME",
+      "satisfied": true
+    }
+  ],
+  "evidence_status": "LEGACY_FROZEN_RETURN_PENDING_DRIVER_REVIEW",
+  "successor_gate": null,
+  "migration_source": {
+    "archive_branch": "archive/legacy-control-plane-pre-v2-20260902",
+    "source_commit": "ce629e24e5af59128e25af87075c6622413684e0",
+    "legacy_runtime_state": "HANDOFF_READY",
+    "legacy_dispatch_state": "NEEDS_DISPATCH",
+    "legacy_claim_id": null
+  }
+}

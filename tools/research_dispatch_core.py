@@ -125,7 +125,7 @@ def registered_definition(record: dict[str, Any], root: Path = ROOT) -> dict[str
     state = str(meta.get("base_state") or "READY")
     if record.get("claimable") is True and state in {"DRAFT", "BACKLOG"}:
         state = "READY"
-    if state not in {"BACKLOG", "READY", "HANDOFF_READY", "BLOCKED", "DONE", "SUPERSEDED"}:
+    if state not in {"BACKLOG", "READY", "HANDOFF_READY", "FROZEN_RETURN", "BLOCKED", "DONE", "SUPERSEDED"}:
         state = "READY" if record.get("claimable") is True else "BACKLOG"
     last_progress_at = meta.get("last_progress_at") or record.get("published_at")
     if not isinstance(last_progress_at, str) or not last_progress_at:
