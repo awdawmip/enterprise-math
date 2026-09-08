@@ -1,0 +1,138 @@
+{
+  "command": [
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\em\\TEMP\\state-resume-20260908\\invoke_followup_recovery.py"
+  ],
+  "cwd": "D:\\em\\integration-pfssv-review-20260908",
+  "started_at": "2026-09-08T09:52:12.474158+00:00",
+  "elapsed_seconds": 41.35880770000222,
+  "exit_code": 0,
+  "review_id": "DR-FDDA90E2280E08CA5A35",
+  "existing_review_sha256": "7a5f46bfabd0dbe15cd305f10556b6d62ee9c90325f27891c8f5e0abeb148b6f",
+  "remote_main_binding": "9764628cd26e492a39a73701f924a7ce3f949ed3",
+  "local_base": "a2816cd2b626856e5602fda83ceac3e81d199b8c",
+  "remote_delta_only_added_notes": [
+    "A\tresearch_notes/1162_cycle_forest_refoundation_even_zeta_20260908_b62d.md",
+    "A\tresearch_notes/1162_equal_subdivision_roughness_rg_20260908_b62d.md",
+    "A\tresearch_notes/1162_exact_weighted_cycle_roughness_defect_20260908_b62d.md",
+    "A\tresearch_notes/1162_forest_jet_discrete_roughness_carrier_20260908_b62d.md",
+    "A\tresearch_notes/1162_higher_m_positive_defect_nogo_20260908_b62d.md",
+    "A\tresearch_notes/1162_persistent_roughness_local_energy_20260908_b62d.md",
+    "A\tresearch_notes/1162_refinement_projector_stability_20260908_b62d.md",
+    "A\tresearch_notes/1162_structural_roughness_bridge_20260908_b62d.md",
+    "A\tresearch_notes/1162_unequal_subdivision_port_dynamics_20260908_b62d.md",
+    "A\tresearch_notes/RH_FRACTIONAL_NODE_ROUGH_BRC_INTERPOLATION_CORRECTION_20260908.md",
+    "A\tresearch_notes/RH_GROWING_HEATH_BROWN_BRC_CRITICAL_DEPTH_20260908.md"
+  ],
+  "production_sha256": {
+    "control_plane/research_driver_followup_transaction.py": "d4044645190abe6160d5c40497066c6bd1b913e0afa3a7ab61080a7b7cf59981",
+    "research_driver_followup_guard.py": "cfb0e7ea83dcb3fd7e3d04a6c2e8603f3f1880ed95d69dee378b92ec50833e91",
+    "tools/research_result_records.py": "401bcb6890cf5fcaf19c5994b6aef8178217b6c51ed520170ee5c05c6e5890d3",
+    "control_plane/check_driver_followup_nonoperational_review_fault_isolated.py": "43dac31bb89f87beb81085e6decb95f80d8783b842dffc319d30933fcdc59642"
+  },
+  "bootstrap": "Existing canonical research_control_bootstrap.install(root), then guard.main materialize; existing DR reused, no second review.",
+  "stdout": {
+    "bytes": 4353,
+    "sha256": "db07dd61a8dfc616ef802b6c2dbe5d1431eccc52869206dcf1dd1a8520bc4c16"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout_packet": {
+    "canonical_promotion_granted": false,
+    "created_at": "2026-09-08T09:52:25.354611+00:00",
+    "decision": "TASK_SET_PUBLISHED",
+    "driver_id": "EM-DVR-01E1D9",
+    "foundation_authority_granted": false,
+    "gate_decisions": [
+      {
+        "decision": "NOT_REQUIRED",
+        "evidence_refs": [
+          "driver_reviews/PFSSV_FROZEN_RETURN_REVISION_REQUEST_20260908.md",
+          "research_artifacts/PFSSV_DRIVER_REVIEW_20260908/INDEPENDENT_REVIEW.md"
+        ],
+        "gate": "MATHEMATICAL_CONTINUATION",
+        "reason": "The next action repairs the unchanged hard target within the same task. No density-respecting second-order successor question is authorized by this spec."
+      },
+      {
+        "decision": "NOT_REQUIRED",
+        "evidence_refs": [
+          "driver_reviews/PFSSV_FROZEN_RETURN_REVISION_REQUEST_20260908.md",
+          "research_artifacts/PFSSV_DRIVER_REVIEW_20260908/INDEPENDENT_REVIEW.md"
+        ],
+        "gate": "LEAN_FORMALIZATION",
+        "reason": "This REQUEST_REVISION or RETURN_TO_OWNER does not accept a theorem or request L4/Foundation admission; the current gap is the empirical experiment and its required outputs."
+      },
+      {
+        "decision": "NOT_REQUIRED",
+        "evidence_refs": [
+          "driver_reviews/PFSSV_FROZEN_RETURN_REVISION_REQUEST_20260908.md",
+          "research_artifacts/PFSSV_DRIVER_REVIEW_20260908/INDEPENDENT_REVIEW.md"
+        ],
+        "gate": "EXTERNAL_PRIOR_ART_DUPLICATION",
+        "reason": "No acceptance, novelty claim, or new method registration is made. This bounded revision checks compliance with the already published task."
+      },
+      {
+        "decision": "NOT_REQUIRED",
+        "evidence_refs": [
+          "driver_reviews/PFSSV_FROZEN_RETURN_REVISION_REQUEST_20260908.md",
+          "research_artifacts/PFSSV_DRIVER_REVIEW_20260908/INDEPENDENT_REVIEW.md"
+        ],
+        "gate": "INDEPENDENT_REPLICATION",
+        "reason": "This spec returns the original hard-target defects for correction; it does not certify independent replication or publish a separate replication task. Any later acceptance must re-evaluate evidence and independence."
+      },
+      {
+        "decision": "NOT_REQUIRED",
+        "evidence_refs": [
+          "driver_reviews/PFSSV_FROZEN_RETURN_REVISION_REQUEST_20260908.md",
+          "research_artifacts/PFSSV_DRIVER_REVIEW_20260908/INDEPENDENT_REVIEW.md"
+        ],
+        "gate": "INTEGRATION_OR_TOOL_HARVEST",
+        "reason": "The reviewed RR declares RESULT_ONLY. No executable-tool harvest, integration, or promotion is approved by this revision request."
+      },
+      {
+        "decision": "NOT_REQUIRED",
+        "evidence_refs": [
+          "driver_reviews/PFSSV_FROZEN_RETURN_REVISION_REQUEST_20260908.md",
+          "research_artifacts/PFSSV_DRIVER_REVIEW_20260908/INDEPENDENT_REVIEW.md"
+        ],
+        "gate": "ADVERSARIAL_AUDIT",
+        "reason": "The immediate action is to correct the three specifically reported defects within one REVISION task, rather than publish a duplicate audit task. The corrected return remains subject to a new actual Driver review; this choice does not certify the repair."
+      }
+    ],
+    "packet_id": "DFU-19973107B48580C086E7",
+    "parent_objective_id": "PROGRESSIVE_PLANE_PRIME_SEMIPRIME_COORDINATE_DISCOVERY",
+    "policy": "AUTO_PUBLISH_TASKSET_OR_PARENT_CLOSE_V1",
+    "result_id": "RR-3287C6124F8D8A1F0901",
+    "review_destination_class": "NONE",
+    "review_disposition": "REQUEST_REVISION",
+    "review_id": "DR-FDDA90E2280E08CA5A35",
+    "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_FOLLOWUP_V1",
+    "source_next_control_plane_recommendation": "Driver review this as a clean negative decomposition. If accepted, close the naive semiprime factor-shell occupancy route at RESIDUE_OR_DENSITY_ARTIFACT strength; publish any density-respecting second-order residual experiment only as a separate successor task rather than upgrading this result.",
+    "source_publication_id": "TP2-8EE46AA7741B8867DAF3",
+    "task_id": "RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION",
+    "task_publications": [
+      {
+        "publication_id": "TP2-2029B5CCC5EEC5F0132C",
+        "task_id": "RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION",
+        "task_role": "REVISION"
+      }
+    ],
+    "working_truth_granted": false,
+    "record_path": "research_driver_followups/DR-FDDA90E2280E08CA5A35/DFU-19973107B48580C086E7.json"
+  },
+  "verified_persisted_paths": [
+    "research_result_reviews/RR-3287C6124F8D8A1F0901/DR-FDDA90E2280E08CA5A35.json",
+    "research_tasks/PRIME_FACTOR_SEMIPRIME_SHELL_RESIDUAL_VALIDATION_REVISION_20260908.md",
+    "research_task_records/RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION/TP2-2029B5CCC5EEC5F0132C.json",
+    "research_driver_followups/DR-FDDA90E2280E08CA5A35/DFU-19973107B48580C086E7.json"
+  ],
+  "successful_attempt_not_failed_candidate": true,
+  "identity_note": "Publication and packet IDs are deterministic without timestamps. This successful attempt reused IDs seen in the completely rolled-back earlier attempt, with the new actual timestamp and different content bytes. Success is established by this exit-zero receipt and persisted byte bindings, not by the IDs alone.",
+  "new_claim_or_session_created": false,
+  "scientific_hard_target_closed": false
+}
