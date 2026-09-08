@@ -1,0 +1,169 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+  "date": "2026-09-08",
+  "authority": "FRONTIER_ROUTING_ONLY_EXACT_SOURCES_CONTROL",
+  "provenance": {
+    "scope": "Owner auxiliary source metadata harvest; one new paper result and two existing result references.",
+    "source_branch": "research/em-owner-20260907",
+    "source_pull_request": "https://github.com/awdawmip/enterprise-math/pull/1364",
+    "source_commit": "df8dec38cf081737aa7ae2fbdf515504dbed1c20",
+    "source_tree": "bb94cb04e075b853b794da98c701e460c1780a00",
+    "prior_published_snapshots": {
+      "star_results_available_at": "f67c8d991cb8781f03285925a30cfefee743d3c9",
+      "compressed_paper_available_at": "6724f761dd2aff998892a331efb5649d835b0f8d"
+    },
+    "official_claim": null,
+    "formal_result": null,
+    "formal_driver_or_steward_acceptance": null,
+    "foundation_mutation": false,
+    "working_truth_granted": false,
+    "new_global_tool_family": false
+  },
+  "availability": {
+    "loader": "tools/enterprise_toolbox.py",
+    "preferred_lookup": "python -B -X utf8 tools/enterprise_toolbox.py --json methods <exact need>",
+    "registration_validator": "experiments/20260908_owner_star_dual_results/validate_registration.py",
+    "registration_receipt": "experiments/20260908_owner_star_dual_results/validation.json",
+    "cross_branch_rule": "Source publication is not main admission. Reuse the two star method IDs from their exact original shard; do not duplicate their objects in this shard. A later main bundle can validate the three loaded RESULT_ONLY records against its own dynamic prior inventory and these frozen paper pins, without importing all unrelated source-only catalog entries.",
+    "formal_acceptance_inferred_from_indexing": false
+  },
+  "bundle_source_sha256": {
+    "research_notes/OWNER_COMPRESSED_RAW_DUAL_CERTIFICATE_REVIEW_20260908.md": "193e5833b3d59e434ff656779839501af6ddd6ece9a40b6fe36aad406071bbdc",
+    "research_notes/OWNER_THREE_POSITIVE_STAR_SHARP_STABILITY_REVIEW_20260908.md": "6a809986a77a5cc21deb8cdb4062af13d44993fc465b073111eaacf5f7671fe1",
+    "research_notes/OWNER_THREE_POSITIVE_STAR_WEIGHT_PROFILE_REVIEW_20260908.md": "fe5169d2e5e093d21753ad27994825ecf4f58d9ea2fa19d042dd445e78b6e0e6",
+    "research_notes/OWNER_THREE_POSITIVE_EQUAL_MASS_STRUCTURAL_REVIEW_20260908.md": "47f12081c02090cc19de25b2c8ed234b6ed8a5ed300ea4fb13df4d8ff71dcda8",
+    "research_notes/OWNER_POSITIVE_SUPPORT_RAW_COMPRESSION_REVIEW_20260908.md": "2cb061262e713859fd419871d0be9e4d5041698a01a46a55bd5ef5fc3f7e38b4",
+    "experiments/owner_positive_support_compression_20260908/check_positive_support_compression.py": "f7e31ef40a2af4da1eaf0726068b212bb5efd66e82056ef91c8ee29581853660",
+    "research_notes/OWNER_THREE_POSITIVE_RAW_STABILITY_PROBE_20260908.md": "53f56fe00300a38690de9fc831353f5b24623bf1982f6ba4113d7aac602a6a59"
+  },
+  "reused_existing_results": [
+    {
+      "method_id": "result.x6.three_positive_star_raw_stability",
+      "catalog_ref": "research_method_inventory_addenda/20260908_owner_star_stability_results.json",
+      "catalog_sha256": "2ab6c7249446ae4c258f19e2a38104633213eeeed7289ea4d53a0fc2e0bbbe82",
+      "method_object_sha256": "82973630a6cee5cb5aed3da04d2d5035eb566ce0343fdfd690d3c2b7fad6384f",
+      "source_refs": [
+        "research_notes/OWNER_THREE_POSITIVE_STAR_SHARP_STABILITY_REVIEW_20260908.md"
+      ],
+      "source_sha256": {
+        "research_notes/OWNER_THREE_POSITIVE_STAR_SHARP_STABILITY_REVIEW_20260908.md": "6a809986a77a5cc21deb8cdb4062af13d44993fc465b073111eaacf5f7671fe1"
+      }
+    },
+    {
+      "method_id": "result.x6.three_positive_star_fixed_weight_stability",
+      "catalog_ref": "research_method_inventory_addenda/20260908_owner_star_stability_results.json",
+      "catalog_sha256": "2ab6c7249446ae4c258f19e2a38104633213eeeed7289ea4d53a0fc2e0bbbe82",
+      "method_object_sha256": "ecfd96ec633a6f072f09882c03acd9a5b27991b72dd4258fa6b301a04b449a51",
+      "source_refs": [
+        "research_notes/OWNER_THREE_POSITIVE_EQUAL_MASS_STRUCTURAL_REVIEW_20260908.md",
+        "research_notes/OWNER_THREE_POSITIVE_STAR_WEIGHT_PROFILE_REVIEW_20260908.md"
+      ],
+      "source_sha256": {
+        "research_notes/OWNER_THREE_POSITIVE_EQUAL_MASS_STRUCTURAL_REVIEW_20260908.md": "47f12081c02090cc19de25b2c8ed234b6ed8a5ed300ea4fb13df4d8ff71dcda8",
+        "research_notes/OWNER_THREE_POSITIVE_STAR_WEIGHT_PROFILE_REVIEW_20260908.md": "fe5169d2e5e093d21753ad27994825ecf4f58d9ea2fa19d042dd445e78b6e0e6"
+      }
+    }
+  ],
+  "methods": [
+    {
+      "method_id": "result.x6.compressed_raw_dual_certificate",
+      "name": "Compressed raw X6 integer dual bound and original equality fibers / 压缩 raw X6 整数对偶界与原始取等纤维",
+      "classification": "RESULT_ONLY",
+      "family_id": null,
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "api": [],
+      "description": "Paper theorem composing positive-support raw compression with complete finite integer table potentials. It transfers a verified compressed-carrier linear bound to arbitrary finite original negative support and supplies the full gap and the precise equality-fiber conditions. 这是纸面条件定理，未实现通用对偶验证器。",
+      "triggers": [
+        "compressed raw X6 integer dual certificate positive support finite carrier",
+        "X6 正支撑压缩 raw 有限整数对偶证书 原空间取等纤维"
+      ],
+      "source_refs": [
+        "research_notes/OWNER_COMPRESSED_RAW_DUAL_CERTIFICATE_REVIEW_20260908.md"
+      ],
+      "dependency_refs": [
+        "research_notes/OWNER_POSITIVE_SUPPORT_RAW_COMPRESSION_REVIEW_20260908.md",
+        "experiments/owner_positive_support_compression_20260908/check_positive_support_compression.py",
+        "research_notes/OWNER_THREE_POSITIVE_EQUAL_MASS_STRUCTURAL_REVIEW_20260908.md",
+        "research_notes/OWNER_THREE_POSITIVE_STAR_SHARP_STABILITY_REVIEW_20260908.md",
+        "research_notes/OWNER_THREE_POSITIVE_STAR_WEIGHT_PROFILE_REVIEW_20260908.md"
+      ],
+      "source_sha256": {
+        "research_notes/OWNER_COMPRESSED_RAW_DUAL_CERTIFICATE_REVIEW_20260908.md": "193e5833b3d59e434ff656779839501af6ddd6ece9a40b6fe36aad406071bbdc",
+        "research_notes/OWNER_POSITIVE_SUPPORT_RAW_COMPRESSION_REVIEW_20260908.md": "2cb061262e713859fd419871d0be9e4d5041698a01a46a55bd5ef5fc3f7e38b4",
+        "experiments/owner_positive_support_compression_20260908/check_positive_support_compression.py": "f7e31ef40a2af4da1eaf0726068b212bb5efd66e82056ef91c8ee29581853660",
+        "research_notes/OWNER_THREE_POSITIVE_EQUAL_MASS_STRUCTURAL_REVIEW_20260908.md": "47f12081c02090cc19de25b2c8ed234b6ed8a5ed300ea4fb13df4d8ff71dcda8",
+        "research_notes/OWNER_THREE_POSITIVE_STAR_SHARP_STABILITY_REVIEW_20260908.md": "6a809986a77a5cc21deb8cdb4062af13d44993fc465b073111eaacf5f7671fe1",
+        "research_notes/OWNER_THREE_POSITIVE_STAR_WEIGHT_PROFILE_REVIEW_20260908.md": "fe5169d2e5e093d21753ad27994825ecf4f58d9ea2fa19d042dd445e78b6e0e6"
+      },
+      "validation_refs": [
+        "research_notes/OWNER_COMPRESSED_RAW_DUAL_CERTIFICATE_REVIEW_20260908.md"
+      ],
+      "validation_kind": "ROOT_CANDIDATE_WITH_BOUNDED_INDEPENDENT_PAPER_REVIEW_SECTION_7_NOT_FORMAL_ACCEPTANCE",
+      "input_contract": "In one common external anchor and labelled raw integer X6 chart, aggregate two finite positive rational populations and Jordan-cancel first. Fix a nonempty positive support S with every w_s>0 and arbitrary finite negative population disjoint from S. Use the actual positive-support coordinate compression C=product_i(A_i union {max(A_i)+1}). Supply all twenty complete integer tables b_I:C_I->Z, integer L>0 and B>=0, with |b_I|<=L and F(z)=sum_I b_I(z_I)<=-B for every z in C minus S. The positive potentials a_s=F(s) may be signed and nonuniform.",
+      "output_contract": "The paper proves L*D>=sum_s(a_s*w_s)+B*N for every finite original negative population, with a full nonnegative table/negative-site gap. Equality requires all table gaps zero and original negative support inside phi^(-1)({F=-B}); a tight point has a singleton original fiber exactly when all its coordinates lie in their A_i. A uniform L*D>=A*M follows only with the additional positive A, all a_s>=A and B>=A conditions, with its own extra equality terms. The S-empty branch is D=20*N=20*M, and zero difference has no ratio.",
+      "core_law": "Raw compression preserves P,N and each of twenty marginal L1 norms because every positive projected address has a singleton fiber and other fibers combine only nonpositive mass. The finite table pairing proves the conditional linear bound and exact gap; pullback preserves the original raw semantics and exposes rather than erases non-singleton equality fibers.",
+      "result_scope": {
+        "post_jordan_positive_support_fixed_finite_nonempty": true,
+        "same_external_anchor_and_labelled_raw_x6_chart": true,
+        "positive_rational_population_weights": true,
+        "arbitrary_finite_original_negative_support_disjoint_from_S": true,
+        "signed_difference_is_analysis_not_negative_brc_primitive": true,
+        "coordinate_carrier": "A_i={s_i:s in S}; c_i=max(A_i)+1; C=product_i(A_i union {c_i})",
+        "compression_preserves_P_N_and_each_raw_marginal_L1": true,
+        "table_contract": "all twenty complete b_I:C_I->Z; integer L>0; |b_I|<=L",
+        "potential_contract": "F=sum_I b_I; integer B>=0; F(z)<=-B for every z in C minus S",
+        "positive_potentials": "a_s=F(s); signed and nonuniform values allowed",
+        "linear_bound": "L*D >= sum_s(a_s*w_s)+B*N",
+        "B_zero_allowed": true,
+        "uniform_M_bound_requires": "integer A>0; every a_s>=A; B>=A",
+        "uniform_bound": "L*D >= A*M",
+        "uniform_coefficient": "native unevaluated DIV(L,A) only after A>0",
+        "full_linear_gap": "sum_(I,t)(L*abs(h'_I(t))-b_I(t)*h'_I(t))+sum_(z in C minus S)((-F(z)-B)*n'(z))",
+        "linear_equality_iff": "all table-address gaps vanish and every actual negative compressed point has F=-B",
+        "original_negative_support": "subset phi^(-1)(Z), where Z={z in C minus S:F(z)=-B}",
+        "singleton_fiber_iff": "every coordinate of the compressed point belongs to its A_i",
+        "all_tight_fibers_singleton_sufficient_condition": "Z subset product_i A_i",
+        "support_condition_alone_classifies_equality": false,
+        "uniform_equality_extra_conditions": "all a_s=A; if N>0 also B=A, in addition to the linear equality conditions",
+        "empty_positive_support_branch": "D=20*N=20*M; no max(empty set)",
+        "zero_difference_ratio_defined": false,
+        "budget_exhaustion_means_mathematical_falsehood": false,
+        "finite_carrier_complete_check_required_for_future_certificate": true,
+        "generic_dual_verifier_implemented": false,
+        "all_three_positive_sharp_bound_proved": false,
+        "optimal_certificate_search_provided": false,
+        "main_question_closed": false,
+        "formal_result_or_working_truth_granted": false
+      },
+      "hard_boundary": "RESULT_ONLY with no API and no new tool family. No generic dual verifier, optimal dual search, carrier enumeration or new arithmetic runtime is implemented here. Full verification of a supplied finite certificate would still be required; a few samples or a budget overrun do not prove or refute the theorem. B=0 and signed/nonuniform a_s remain linear bounds and do not automatically yield a positive uniform M coefficient. A tight-set support condition alone does not classify all equality weights; a failed all-Z singleton check does not preclude every possible further classification. This is not an all-p3 sharp theorem or closure of the parent research question. Signed analysis is not a negative native BRC primitive, and no microscopic/history recovery, formal Result, Working Truth or main admission is granted.",
+      "reuse_resolution": {
+        "coverage_verdict": "EXTEND_EXISTING_TOOL",
+        "matched_toolsets": [
+          "T0_BRC"
+        ],
+        "matched_method_ids": [
+          "result.x6.positive_support_raw_l1_compression",
+          "candidate.x6.positive_support_raw_compression_certificate",
+          "result.x6.three_positive_star_raw_stability",
+          "result.x6.three_positive_star_fixed_weight_stability"
+        ],
+        "reuse_resolution_state": "EXTEND_EXISTING_TOOL",
+        "how_applied_or_why_not": "The already reviewed paper composes positive-support compression, raw projection contracts and existing concrete star table-dual examples. This harvest exposes that conditional theorem and reuses the two already registered star IDs without copying their method objects. No mathematical implementation is executed.",
+        "coverage_is_not_execution": true
+      },
+      "note": "The p3 probe is retained only as an already registered boundary/example dependency of the star papers; this record does not duplicate result.x6.three_positive_raw_mass_boundary. The old two star result objects remain byte-identical in their original shard.",
+      "tags": [
+        "X6",
+        "raw",
+        "positive-support-compression",
+        "integer-dual",
+        "finite-carrier",
+        "equality-fibers",
+        "RESULT_ONLY",
+        "T0_BRC-reuse"
+      ]
+    }
+  ]
+}

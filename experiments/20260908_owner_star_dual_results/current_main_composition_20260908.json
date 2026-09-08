@@ -1,0 +1,562 @@
+{
+  "schema": "OWNER_STAR_DUAL_CURRENT_MAIN_COMPOSITION_V1",
+  "status": "PASS_LOCAL_SOURCE_COMPOSITION_PENDING_OWNER_L4_ADMISSION",
+  "created_utc": "2026-09-08T03:02:13.350095+00:00",
+  "base_commit": "c27616a2e176c2d03000ad2e56a72280f8bd205a",
+  "base_tree": "1469373d8727bc1e67b9515b7528405706ea5ce1",
+  "tested_input": {
+    "kind": "EXACT_BASE_PLUS_NINE_STAGED_SOURCE_ADDITIONS",
+    "tree": "b1c2a404aed3f011555f66a0c074f706aa174e7e",
+    "head_during_validation": "c27616a2e176c2d03000ad2e56a72280f8bd205a",
+    "composition_receipt_present_during_validation": false
+  },
+  "minimum_closure_plan": {
+    "sha256": "b992ab33c33a912a68cf5f54c4d97e3a13754fb23bb7431eb55bd8e4023c658f",
+    "historical_plan_base": "b3d39a9ccb0bef7ca9d9eec74eb6175ac4ed0e26",
+    "actual_validation_base": "c27616a2e176c2d03000ad2e56a72280f8bd205a",
+    "source_plan_was_not_a_current_main_assertion": true
+  },
+  "source_publications": {
+    "old_four_papers_and_star_shard": {
+      "commit": "df8dec38cf081737aa7ae2fbdf515504dbed1c20",
+      "local_equivalent": "5bda96d65a8234426a924f59bf43ff5fd41ac092"
+    },
+    "three_metadata_files": {
+      "commit": "dd37041eb4f6cef8fbccba186c255049cc1dc9ca",
+      "local_equivalent": "9d3e9006c7d54037b8e3c0c7afee8491b4f7cd80",
+      "tree": "e2089791c267b1288bfb0eb3aed364c058bd5e13"
+    },
+    "dominant_supplement": {
+      "commit": "909ed4c3c81adca8d5d653994a83df316faf1365",
+      "local_equivalent": "0b45bbacfd7df7f8b0f678bf57ea136e75b18891",
+      "tree": "6f7a6294828c75f27352fea7f32eeb37199abe15"
+    }
+  },
+  "transported_files": {
+    "research_notes/OWNER_COMPRESSED_RAW_DUAL_CERTIFICATE_REVIEW_20260908.md": {
+      "sha256": "193e5833b3d59e434ff656779839501af6ddd6ece9a40b6fe36aad406071bbdc",
+      "git_blob_sha1": "f5c3dce075c7fc73846dc409363d93e532bdfea1",
+      "bytes": 12357,
+      "source": {
+        "commit": "df8dec38cf081737aa7ae2fbdf515504dbed1c20",
+        "equivalent_local_commit": "5bda96d65a8234426a924f59bf43ff5fd41ac092"
+      }
+    },
+    "research_notes/OWNER_THREE_POSITIVE_STAR_SHARP_STABILITY_REVIEW_20260908.md": {
+      "sha256": "6a809986a77a5cc21deb8cdb4062af13d44993fc465b073111eaacf5f7671fe1",
+      "git_blob_sha1": "5b6fea6391484f4df7c5c16dcd45ff27199a6f40",
+      "bytes": 9170,
+      "source": {
+        "commit": "df8dec38cf081737aa7ae2fbdf515504dbed1c20",
+        "equivalent_local_commit": "5bda96d65a8234426a924f59bf43ff5fd41ac092"
+      }
+    },
+    "research_notes/OWNER_THREE_POSITIVE_STAR_WEIGHT_PROFILE_REVIEW_20260908.md": {
+      "sha256": "fe5169d2e5e093d21753ad27994825ecf4f58d9ea2fa19d042dd445e78b6e0e6",
+      "git_blob_sha1": "d9a6ba5fc2690b92cc54e0dc5785603b4625d288",
+      "bytes": 10789,
+      "source": {
+        "commit": "df8dec38cf081737aa7ae2fbdf515504dbed1c20",
+        "equivalent_local_commit": "5bda96d65a8234426a924f59bf43ff5fd41ac092"
+      }
+    },
+    "research_notes/OWNER_THREE_POSITIVE_EQUAL_MASS_STRUCTURAL_REVIEW_20260908.md": {
+      "sha256": "47f12081c02090cc19de25b2c8ed234b6ed8a5ed300ea4fb13df4d8ff71dcda8",
+      "git_blob_sha1": "b171b9bafb1ccb52ee45fe21a1ef28a6309dd2b7",
+      "bytes": 8980,
+      "source": {
+        "commit": "df8dec38cf081737aa7ae2fbdf515504dbed1c20",
+        "equivalent_local_commit": "5bda96d65a8234426a924f59bf43ff5fd41ac092"
+      }
+    },
+    "research_method_inventory_addenda/20260908_owner_star_stability_results.json": {
+      "sha256": "2ab6c7249446ae4c258f19e2a38104633213eeeed7289ea4d53a0fc2e0bbbe82",
+      "git_blob_sha1": "a85077aceafde7b4b3ddbdf2e503093a9c0bdc16",
+      "bytes": 12740,
+      "source": {
+        "commit": "df8dec38cf081737aa7ae2fbdf515504dbed1c20",
+        "equivalent_local_commit": "5bda96d65a8234426a924f59bf43ff5fd41ac092"
+      }
+    },
+    "research_method_inventory_addenda/20260908_owner_star_dual_results.json": {
+      "sha256": "315c5a24869c96d6532363a88c80c723c12454658cae78eaf937984a5aaed30c",
+      "git_blob_sha1": "f375cc96efa50831ec5b552d44dffb4c52430c17",
+      "bytes": 13360,
+      "source": {
+        "commit": "dd37041eb4f6cef8fbccba186c255049cc1dc9ca",
+        "equivalent_local_commit": "9d3e9006c7d54037b8e3c0c7afee8491b4f7cd80"
+      }
+    },
+    "experiments/20260908_owner_star_dual_results/validate_registration.py": {
+      "sha256": "9791683551bad8da3cacb24f627f35d12d80b3ad0d3f93b25138a907fdef7173",
+      "git_blob_sha1": "325947cb590ae7192a963185860f9bb254c290d1",
+      "bytes": 15133,
+      "source": {
+        "commit": "dd37041eb4f6cef8fbccba186c255049cc1dc9ca",
+        "equivalent_local_commit": "9d3e9006c7d54037b8e3c0c7afee8491b4f7cd80"
+      }
+    },
+    "experiments/20260908_owner_star_dual_results/validation.json": {
+      "sha256": "130793c19a038d17964cce811fa00e612f632621f19a36038136fb1835e9c9ca",
+      "git_blob_sha1": "af19cbebea19503a9ab3b9204138b397b8ebb606",
+      "bytes": 22200,
+      "source": {
+        "commit": "dd37041eb4f6cef8fbccba186c255049cc1dc9ca",
+        "equivalent_local_commit": "9d3e9006c7d54037b8e3c0c7afee8491b4f7cd80"
+      }
+    },
+    "research_notes/OWNER_THREE_POSITIVE_STAR_DOMINANT_EQUALITY_REVIEW_20260908.md": {
+      "sha256": "42e631101e44a5053c0170fbbe0122e6cf8fa182757c4c078fd772d3ee00c61e",
+      "git_blob_sha1": "2343318309d5c7ecb48a017ae45f2fbd04c002ba",
+      "bytes": 14869,
+      "source": {
+        "commit": "909ed4c3c81adca8d5d653994a83df316faf1365",
+        "equivalent_local_commit": "0b45bbacfd7df7f8b0f678bf57ea136e75b18891"
+      }
+    }
+  },
+  "source_registration_receipt_preserved": {
+    "path": "experiments/20260908_owner_star_dual_results/validation.json",
+    "sha256": "130793c19a038d17964cce811fa00e612f632621f19a36038136fb1835e9c9ca",
+    "meaning": "Historical author metadata execution on its recorded source inventory; not a current main run."
+  },
+  "current_commands": [
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "experiments/20260908_owner_star_dual_results/validate_registration.py",
+        "--root",
+        "D:\\em\\integration-star-dual-main-20260908"
+      ],
+      "cwd": "D:\\em\\integration-star-dual-main-20260908",
+      "started_utc": "2026-09-08T03:02:11.974418+00:00",
+      "elapsed_seconds": 0.25,
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "{\"exact_queries\": 6, \"mathematical_consumers_executed\": false, \"mode\": \"READ_ONLY\", \"new_results\": 1, \"observed_prior_methods\": 104, \"reused_results\": 2, \"source_pins\": 7, \"status\": \"PASS_ONE_NEW_AND_TWO_REUSED_RESULT_ONLY_REGISTRATIONS\"}\r\n",
+      "stderr": "",
+      "stdout_sha256": "44af0188a80363e8416cbf21a2dcb404da1d8610295b676e5745dc88d61fe3ac",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/check_exact_arithmetic_policy.py",
+        "experiments/20260908_owner_star_dual_results/validate_registration.py"
+      ],
+      "cwd": "D:\\em\\integration-star-dual-main-20260908",
+      "started_utc": "2026-09-08T03:02:12.222622+00:00",
+      "elapsed_seconds": 0.125,
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "EXACT_ARITHMETIC_POLICY: PASS (1 files)\r\n",
+      "stderr": "",
+      "stdout_sha256": "60692051191ed57639e632a287f458edf152218bed61e3bc580f41d7c72215b6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "cwd": "D:\\em\\integration-star-dual-main-20260908",
+      "started_utc": "2026-09-08T03:02:12.337799+00:00",
+      "elapsed_seconds": 0.06199999999807915,
+      "exit_code": 0,
+      "timeout": false,
+      "stdout": "",
+      "stderr": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "registration_summary": {
+    "exact_queries": 6,
+    "mathematical_consumers_executed": false,
+    "mode": "READ_ONLY",
+    "new_results": 1,
+    "observed_prior_methods": 104,
+    "reused_results": 2,
+    "source_pins": 7,
+    "status": "PASS_ONE_NEW_AND_TWO_REUSED_RESULT_ONLY_REGISTRATIONS"
+  },
+  "seven_registration_source_pins": {
+    "research_notes/OWNER_COMPRESSED_RAW_DUAL_CERTIFICATE_REVIEW_20260908.md": {
+      "sha256": "193e5833b3d59e434ff656779839501af6ddd6ece9a40b6fe36aad406071bbdc",
+      "git_blob_sha1": "f5c3dce075c7fc73846dc409363d93e532bdfea1",
+      "bytes": 12357
+    },
+    "research_notes/OWNER_THREE_POSITIVE_STAR_SHARP_STABILITY_REVIEW_20260908.md": {
+      "sha256": "6a809986a77a5cc21deb8cdb4062af13d44993fc465b073111eaacf5f7671fe1",
+      "git_blob_sha1": "5b6fea6391484f4df7c5c16dcd45ff27199a6f40",
+      "bytes": 9170
+    },
+    "research_notes/OWNER_THREE_POSITIVE_STAR_WEIGHT_PROFILE_REVIEW_20260908.md": {
+      "sha256": "fe5169d2e5e093d21753ad27994825ecf4f58d9ea2fa19d042dd445e78b6e0e6",
+      "git_blob_sha1": "d9a6ba5fc2690b92cc54e0dc5785603b4625d288",
+      "bytes": 10789
+    },
+    "research_notes/OWNER_THREE_POSITIVE_EQUAL_MASS_STRUCTURAL_REVIEW_20260908.md": {
+      "sha256": "47f12081c02090cc19de25b2c8ed234b6ed8a5ed300ea4fb13df4d8ff71dcda8",
+      "git_blob_sha1": "b171b9bafb1ccb52ee45fe21a1ef28a6309dd2b7",
+      "bytes": 8980
+    },
+    "research_notes/OWNER_POSITIVE_SUPPORT_RAW_COMPRESSION_REVIEW_20260908.md": {
+      "sha256": "2cb061262e713859fd419871d0be9e4d5041698a01a46a55bd5ef5fc3f7e38b4",
+      "git_blob_sha1": "02b25a1fa576ca869a6ff3fa6de330edaa47db0c",
+      "bytes": 13609
+    },
+    "experiments/owner_positive_support_compression_20260908/check_positive_support_compression.py": {
+      "sha256": "f7e31ef40a2af4da1eaf0726068b212bb5efd66e82056ef91c8ee29581853660",
+      "git_blob_sha1": "8a1e9ee686bd67579cecf8594376a96f591f087d",
+      "bytes": 27039
+    },
+    "research_notes/OWNER_THREE_POSITIVE_RAW_STABILITY_PROBE_20260908.md": {
+      "sha256": "53f56fe00300a38690de9fc831353f5b24623bf1982f6ba4113d7aac602a6a59",
+      "git_blob_sha1": "544dc57e67ed8935b5fe00d64fcb8cfdd3692d5e",
+      "bytes": 7382
+    }
+  },
+  "old_star_shard_preserved": {
+    "path": "research_method_inventory_addenda/20260908_owner_star_stability_results.json",
+    "sha256": "2ab6c7249446ae4c258f19e2a38104633213eeeed7289ea4d53a0fc2e0bbbe82",
+    "git_blob_sha1": "a85077aceafde7b4b3ddbdf2e503093a9c0bdc16",
+    "bytes": 12740,
+    "reused_method_ids": [
+      "result.x6.three_positive_star_raw_stability",
+      "result.x6.three_positive_star_fixed_weight_stability"
+    ],
+    "full_method_object_sha256": {
+      "result.x6.three_positive_star_raw_stability": "82973630a6cee5cb5aed3da04d2d5035eb566ce0343fdfd690d3c2b7fad6384f",
+      "result.x6.three_positive_star_fixed_weight_stability": "ecfd96ec633a6f072f09882c03acd9a5b27991b72dd4258fa6b301a04b449a51"
+    }
+  },
+  "dominant_paper_supplement": {
+    "path": "research_notes/OWNER_THREE_POSITIVE_STAR_DOMINANT_EQUALITY_REVIEW_20260908.md",
+    "sha256": "42e631101e44a5053c0170fbbe0122e6cf8fa182757c4c078fd772d3ee00c61e",
+    "git_blob_sha1": "2343318309d5c7ecb48a017ae45f2fbd04c002ba",
+    "bytes": 14869,
+    "source_commit": "909ed4c3c81adca8d5d653994a83df316faf1365",
+    "fixed_weight_source": {
+      "path": "research_notes/OWNER_THREE_POSITIVE_STAR_WEIGHT_PROFILE_REVIEW_20260908.md",
+      "sha256": "fe5169d2e5e093d21753ad27994825ecf4f58d9ea2fa19d042dd445e78b6e0e6"
+    },
+    "independent_bounded_paper_review": "PASS: zero-potential set is all six punctured coordinate lines through q1; three unique projected fibers force s,w2,w3; per-table sign compatibility gives the full eta family.",
+    "scope": "Fixed original-coordinate star; fixed strictly positive rational weights; N=P; m>=s=w2+w3. Every minimizer is s*delta_c+w2*delta_r12+w3*delta_r13+eta, where eta has mass m-s on those six punctured lines.",
+    "boundary": "m=s is unique. Combined with the prior balanced simplex, this completes the minimizer classification only for fixed-star/fixed-positive-weight/equal-mass input.",
+    "old_paper_and_metadata_historical_scope_statements_preserved": true,
+    "new_api_or_registry_method_created_for_supplement": false,
+    "all_three_positive_geometry_solved": false,
+    "formal_acceptance_granted": false,
+    "mathematical_programs_or_old_examples_replayed": false
+  },
+  "protected_baseline": {
+    "observed_file_count": 4670,
+    "all_original_file_blobs_preserved": true,
+    "inventory_sources": {
+      "research_method_inventory.json": {
+        "sha256": "f6b221bcd7050ddea5965bcb80d6cf64c98e99d23f9ae6cbadb8e23a390f7402",
+        "observed_method_count": 25
+      },
+      "research_method_inventory_addenda/20260823_tool_discovery_six_return.json": {
+        "sha256": "f10fcf0f094b56351a39ad057397c8fc67da0eb00dbafab4f7c0ff9f9142308f",
+        "observed_method_count": 6
+      },
+      "research_method_inventory_addenda/20260825_triaxial_directional_defect_t1.json": {
+        "sha256": "481fe53126daa383651e2419545fbd1b7132654b76404d96fca6ff9eadb88243",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260826_diagonal_quotient_normalization.json": {
+        "sha256": "08bfbb6c03ca3cd75ef336d30fa09017fd02c01b028ce8f7fefbeb2a4b8509ba",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260826_quadratic_packet_equivariant_section_harvest.json": {
+        "sha256": "572fa9bbaf52d64473a46c47fe12cc04ce8fa4d5ca9d10aca43116f5ee56fe62",
+        "observed_method_count": 3
+      },
+      "research_method_inventory_addenda/20260827_native_trisector_coupled_closure_harvest.json": {
+        "sha256": "0c1bad1e5d613108b49bdf443a30e5169ab4247771697a95eadca72eed4a5e60",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260828_nonly_valuation_wall_gcd_extractor.json": {
+        "sha256": "074c2010bf7d0fa688b3bd53b90cb7533f87e39067105fae487a1da96ec3601a",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260828_p018_quotient_root_atlas_carry_harvest.json": {
+        "sha256": "6f5caaddf707d1e2a10a34b88c327f26857e3ef7755dd318cd11c72601a2a294",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260902_brc_weighted_finite_recurrent.json": {
+        "sha256": "3b52a716a672502fe78f413cb76ed5232f311364ca54d1af1fb4bebc2934e5d2",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260902_brc_weighted_foundation.json": {
+        "sha256": "84321f5f995f950ef56de61f7c95487f2a187ca485d86d8adce86b2056f14dd9",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260903_brc_critical_degeneracy_foundation.json": {
+        "sha256": "dde07b2897f6d2faccbd0ff8e6435fbf3dfb7cf56e79f626b5996778839d4c2f",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260903_brc_critical_orbit_foundation.json": {
+        "sha256": "93221c006d8579c881e185b55e807e1b6627c9db9081aa5254504f680b0e3a00",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260903_brc_critical_ratio_jet_foundation.json": {
+        "sha256": "49b2cf7236b3d6e4f3691eef33bced9bbf6c23163d488799cd772804044a7f3e",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260903_brc_recurrent_interaction_foundation.json": {
+        "sha256": "ad7cee458bb23f5c599d9368a97be2a2b54a97f77b4db53b4db66904c351c3ca",
+        "observed_method_count": 3
+      },
+      "research_method_inventory_addenda/20260903_brc_recurrent_port_foundation.json": {
+        "sha256": "37951e8bf2c34f62a173dc4753155cbfd1b7f5cb3a8ffcdb88a23b121ba45453",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260903_brc_reducible_critical_jet_foundation.json": {
+        "sha256": "9c875c60db3e71b36ee3e307441d5fb4ec539d6a2503f2bd2629cd1b7559a1e8",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260903_brc_universal_histogram_foundation.json": {
+        "sha256": "7e5f3e60a96bde1b5104be2100a5f8033e8fc8dade2e5fba00f941a6360f7db6",
+        "observed_method_count": 2
+      },
+      "research_method_inventory_addenda/20260903_cyclic_rotation_refinement.json": {
+        "sha256": "5852506bf0ad9fc848667fc4a8a0f4f89511b2fd20cde2c6149582cacc33c026",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260903_euler_dyadic_cayley_bridge.json": {
+        "sha256": "2cef40d366a3f6f124d1d4227df2b110906c4dff9d1099f4ea4f9ca9854296e2",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260903_euler_native_bisector.json": {
+        "sha256": "65bcb6bb6b1dd54b5c22b8fdf0e9002a070a7b518a3959752687451d6c9c7824",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260903_euler_pythagorean_spinor_cayley.json": {
+        "sha256": "282cc2c94c5bf7ba8388d0f5b05732e5f7e4586ccb83e47aff1db2047738f648",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260903_euler_rotation_refinement.json": {
+        "sha256": "f7c3d95898efa09be562549dc4eda80ed97db11560d1fd66d3a193c568f3edd3",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260903_tetrahedral_residual_pell_extraction.json": {
+        "sha256": "1cc8323db6e63c4a505124df0c24b2b6880c7277672a6dc3f601f6c6cbe5aca6",
+        "observed_method_count": 2
+      },
+      "research_method_inventory_addenda/20260904_brc_newton_fiber_quotient_foundation.json": {
+        "sha256": "a43044d11a2f8ff30ecfe58b35b35a52500b8f23923182eade06551b8169b7f2",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260904_brc_newton_handoff_resonance_foundation.json": {
+        "sha256": "9465e83afe76ae3124b6677073f6fb2e3d1102f6e84ed80926d292aafa4cd491",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260904_brc_newton_observer_lattice_foundation.json": {
+        "sha256": "38b273ae107001a305afe9d9b52ef5186c148021c004d62c17ae397b1cacef4a",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260904_brc_newton_quadratic_selector_foundation.json": {
+        "sha256": "a20ccc67d94955cdfea920bc100060fe2adf59341cf38d5838bd98882e161645",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260904_brc_newton_recursion_foundation.json": {
+        "sha256": "dd12fdc68468967345cb36d0a5e5cc513be056d74032b8ed266c76c15a5d1078",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260904_brc_newton_schedule_strata_foundation.json": {
+        "sha256": "cfb9c4d6dbc00ce4fa85953d13eac36eb5efb4e931ad6dc8e7d19f05f750a785",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260904_brc_newton_selector_chambers_foundation.json": {
+        "sha256": "c2e0a40faf64bb6fc35ea3e3d46b752aac4b2c40cbc95782b857fb3e2211dea2",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260904_euler_cell_polygon_pi.json": {
+        "sha256": "f34b730a67bceb7cf3f362ad00a9e6b17f10f9c3ca1311e306bcb3d5b27ee086",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260904_euler_character_completion.json": {
+        "sha256": "e00c173be83ee98b8925e48e0ce15756300d6c0c533dded491f14be2820df9ef",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260904_euler_fcc_chirality.json": {
+        "sha256": "4bbbb84caecf9c143449ffc5fc3e20f3c4db5c0a1315001ed086bf0fa7491f62",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260906_brc_admissible_multiplier_scan.json": {
+        "sha256": "678463c53b884d28f85455824ecb8c2c3e32aaadc4c2bf2b881c0b775e2f2cc9",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260906_brc_fixed_wheel_complexity_boundary.json": {
+        "sha256": "20f31207c1891b6bc39f2f20073ac1a19cf7d2b8032b3e8e389c9bec58a27142",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260906_brc_mod8_sparse_transition.json": {
+        "sha256": "c8fd124597975502a047733969ea60742e897a22ab4d123892db4401390eab66",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260906_brc_multiplier_2adic_strip_reduction.json": {
+        "sha256": "56b1e6b8e9fd8e5c2feae718a265715941f8f39a74760c4a5e1ce304b29cf844",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260906_brc_multiplier_basin.json": {
+        "sha256": "29c202899aacbf644aa0b215516a2163ac07f94ce81ea77211da10f02e55b675",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260906_brc_multiplier_priority_jump.json": {
+        "sha256": "419c5731cdb1b16d4548d85166758c3617afc127a20845798eebc6a6aa4889fd",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260906_brc_multiplier_square_content.json": {
+        "sha256": "b6ed081eb3057da252b318cbce6e90a8545136208e5ce6e802713264ddb772ce",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260906_brc_multiplier_transition.json": {
+        "sha256": "8a81805adeac495ffcbf7e0b69d7b13811a781ad67f7886b14eb1008de5f3a1f",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260906_brc_multiplier_vertical_wheel.json": {
+        "sha256": "7d2e2c5eefa05c43b6fb445dd3f5d35962ba89a40544736c543c956de8b16bd0",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260906_brc_priority_vertical_scheduler.json": {
+        "sha256": "fe27c826a528e63f286bed49493983ed914d8deeb12b27112971f51e17c93478",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260906_brc_smooth_relation_lattice.json": {
+        "sha256": "3ad38aa3554703c2bb06c8988b284e5336f7cf7c632b83bc0b47eff131cb7202",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260906_brc_square_gap_prefilter.json": {
+        "sha256": "c1623e5c9605433214fdf74fab0a9c2352fcd3b8d17369fd13caa17a34ecb490",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260907_brc_energy_scaled_cross_coordinate.json": {
+        "sha256": "457dcaa206df762770789b9a4e056bc26ae3aea12c4eecb0706abca7995b1b5f",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260907_brc_error_linearization_pell.json": {
+        "sha256": "427947aa8bf9076ee705c4c60204f00140b98deee5d0ff7ddda43393176f0741",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260907_brc_linear_deep_tail.json": {
+        "sha256": "e761ee09fe7f2aebfc7b638ab8805521cbc5ada3c652a96525f461887c4a8d7b",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260907_brc_opportunistic_shortcut_portfolio.json": {
+        "sha256": "97dc7bd08bdb94397f254f21f179961b3ff1a589d95aac656ac280ad80abd2ba",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260907_brc_pairwise_multiplier_transport.json": {
+        "sha256": "99eb575204cdff598e97adf6f8b5aab4f309a10e878c38230d353ee96fed6376",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260907_brc_phase_fourth_moment.json": {
+        "sha256": "e870c8333669953d0955df23be4e739b2ef3a5432861929087c8afc0eea3f962",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260907_brc_phase_quotient_remainder.json": {
+        "sha256": "b337ee602ed4d4d47f4810b307639cf6db83fe43a4e9d44e9bb84a92d1ae3c55",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260907_brc_phase_root_recurrence.json": {
+        "sha256": "ebad4a0635c1ff48822c13ecb7f76a2018572aa7ed70d0485ced719f43842b42",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260907_brc_quotient_jet_tail.json": {
+        "sha256": "dafb9f86674d2192feb43fcb4485887cc6239cebb830d204a6e8fdb13f98ea7e",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260907_brc_square_gap_cascade.json": {
+        "sha256": "da112b01e3a59804c5685ad48507a13da303a95dd45bc3c46a9dd65456d07a52",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260907_brc_square_increment_difference_jet.json": {
+        "sha256": "6d8b3632d7f3aeb97d05d8252a2af5c488f8034793187b1a9c889d61d935cdea",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260907_brc_table_free_tail.json": {
+        "sha256": "e0a64725b1034ffc7a4259ea13f576900a70c54b83f5d8f2ee82568aede203f6",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260907_owner_native_frontier_candidates.json": {
+        "sha256": "8e9a8484054f620437efa2e9b81d00a6e62dd0fd4b9c335bd70eda327a6abef3",
+        "observed_method_count": 2
+      },
+      "research_method_inventory_addenda/20260908_brc_neighbor_square_lift_shortcut.json": {
+        "sha256": "7abd3e26cdb00542bbca531835fbf819b80443bf33dc0fb04bb92b54d5032907",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260908_divisor_layer_lift_probe.json": {
+        "sha256": "1209438bd078c7fa71d8b488e586dc10208f4c749731a36224cb0e93509806d6",
+        "observed_method_count": 1
+      },
+      "research_method_inventory_addenda/20260908_owner_raw_stability_extensions.json": {
+        "sha256": "506bc35b11c211f351d26ac0f19e1f3ba09b841521cfb49302067f69b293b571",
+        "observed_method_count": 3
+      },
+      "research_method_inventory_addenda/20260908_owner_raw_stability_results.json": {
+        "sha256": "b1d4d216f76bde3fa2964912db68c96d5ff68b661ce793054e18df44048e95eb",
+        "observed_method_count": 2
+      },
+      "research_method_inventory_addenda/20260908_owner_two_positive_stability.json": {
+        "sha256": "5d7949d79809595bd51e6053426e7cbdadaa6601dc9c6901af6cde0816c2a917",
+        "observed_method_count": 1
+      }
+    },
+    "all_preexisting_method_objects_and_order_preserved": true,
+    "observed_prior_methods_before_all_additions": 102,
+    "counts_are_observations_not_permanent_contracts": true,
+    "historical_coverage_catalog_differences": {
+      "enterprise_toolbox_registry.json": {
+        "historical_source_sha256": "f2281d98a05aa23feaa4b163e7ab37a41f30ecbb84f499b0b820443bcfa97170",
+        "current_main_sha256": "d8a0a7e6e2090def201175d9f42da1b1c2a56e80fe5a5220ab5c6c8e12da10e6",
+        "interpretation": "Paper-recorded historical tool-coverage/catalog snapshot, not a mathematical source or a required replay input of the new registration validator.",
+        "action": "Existing main bytes retained; historical source coverage is not a runtime import requirement."
+      },
+      "research_method_inventory_addenda/20260907_owner_native_frontier_candidates.json": {
+        "historical_source_sha256": "9b9b1851602200bbb207681dbac444a7e745b2915d6f8851bc999fd3a028f115",
+        "current_main_sha256": "8e9a8484054f620437efa2e9b81d00a6e62dd0fd4b9c335bd70eda327a6abef3",
+        "interpretation": "Paper-recorded historical tool-coverage/catalog snapshot, not a mathematical source or a required replay input of the new registration validator.",
+        "action": "Existing main bytes retained; historical source coverage is not a runtime import requirement."
+      }
+    },
+    "optional_old_source_validator_and_receipt_not_imported": [
+      "experiments/owner_star_stability_harvest_20260908/validate_registration.py",
+      "experiments/owner_star_stability_harvest_20260908/validation.json"
+    ]
+  },
+  "evidence_boundary": {
+    "result_only_api_empty_for_all_three_registrations": true,
+    "six_queries_are_metadata_lookup_not_mathematical_execution": true,
+    "old_author_and_independent_paper_proofs_are_historical": true,
+    "new_dominant_review_is_paper_only": true,
+    "mathematical_imports_consumers_enumeration_or_proof_programs_executed": false,
+    "new_formal_result_or_claim_or_working_truth_or_theorem_status_granted": false,
+    "remote_publication_or_main_admission_performed_by_this_receipt": false,
+    "remaining_gates": [
+      "Owner independent admission review",
+      "Required CI on eventual published tree",
+      "Owner-controlled mathematical L4 main admission"
+    ]
+  },
+  "format_static": {
+    "utf8_lf_no_bom_eof_newline_no_trailing_whitespace": true,
+    "json_python_syntax": "PASS",
+    "exact_arithmetic_policy": "PASS",
+    "staged_diff_check": "PASS"
+  },
+  "registration_authoring_global_knowledge_sync": "main@31d06a1 / GLOBAL_KNOWLEDGE_V1",
+  "composition_execution_global_knowledge_sync": "main@4545a5b / GLOBAL_KNOWLEDGE_V1"
+}
