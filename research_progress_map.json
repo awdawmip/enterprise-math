@@ -1,0 +1,1915 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_PROGRESS_MAP_V1",
+  "authority": "SOURCE_INDEX_ONLY_NO_TASK_OR_THEOREM_AUTHORITY",
+  "as_of_date": "2026-09-08",
+  "main_source_commit": "aaf9b8125ba3294932b5c90d80f700e02799c88e",
+  "composition_base_commit": "a9f120f8292eb78d463da4eea53867a861fd99a5",
+  "latest_verified_frontier_main": "c27616a2e176c2d03000ad2e56a72280f8bd205a",
+  "repositories": [
+    "awdawmip/enterprise-math",
+    "awdawmip/chatgpt-global-knowledge"
+  ],
+  "title": {
+    "en": "Enterprise Math research progress map",
+    "zh-CN": "进取数论研究进度图"
+  },
+  "scope_note": {
+    "en": "Read A0–A5 for the global structure, then the evidence table and current closeout/frontier rows. BRC is a typed cross-direction tool; X6 is one A5 branch. This is a maintained source index, not a new theorem, full-repository audit or task-claim queue.",
+    "zh-CN": "先读 A0–A5 全局骨架，再看证据表与当前收尾/数学前沿。BRC 是跨方向有型工具；X6 只是 A5 一支。本图是可维护来源索引，不是新定理、全仓审计或任务领取队列。"
+  },
+  "freshness_note": {
+    "en": "Snapshot: 2026-09-08. The 20 foundation/router pins were checked against aaf9b812 and the a9f120 composition base. Later immutable updates: raw PR1390 main aa5683f; H0O PR1391 source capture main b3d39a9, review pending; p2 consumer PR1394 main c27616a2, with original source 3ac5a5dd retained. The A3 correction is published at 3ac5a5dd; its main admission and whole-PR955 formal review remain pending. GEO/Hodge routes beyond the exact H0O leaf require source refresh.",
+    "zh-CN": "快照：2026-09-08。20 个基础/路由 pin 已对 aaf9b812 与 a9f120 组合基线核字节。后续不可变更新：raw PR1390 入 main aa5683f；H0O PR1391 源捕获入 main b3d39a9、审查待办；p2 消费者 PR1394 入 main c27616a2，原源 3ac5a5dd 保留。A3 纠正已在 3ac5a5dd 发布，其主线准入与整份 PR955 正式审查仍待办。精确 H0O 叶子之外的 GEO/Hodge 路线需刷新来源。"
+  },
+  "evidence_note": {
+    "en": "Scope closure, a negative boundary, main integration, executable checks, Lean coverage and formal review are different facts. Arrows are typed below; CONTAINS is organizational, while dashed reuse edges do not assert a proved transfer. Historical Continuity never establishes a current claim.",
+    "zh-CN": "范围闭合、负向边界、入 main、程序检查、Lean 覆盖与正式审查是不同事实。边的型别见下表；CONTAINS 仅表示归属，虚线复用边不声称已证传递。历史 Continuity 不能建立当前 claim。"
+  },
+  "maintenance_note": {
+    "en": "Edit only research_progress_map.json for graph content; retain semantic IDs and immutable source pins, then regenerate both documents. Update factual rows from exact source/receipt evidence, keeping old source links when they remain provenance. CURRENT_CLOSEOUT means consolidation/review of existing work; MATHEMATICAL_FRONTIER means an existing unresolved mathematical gap, not an instruction to claim it. A completed bounded leaf does not close its parent program. Use current canonical runtime for actual handoff/claim decisions.",
+    "zh-CN": "图内容只编辑 research_progress_map.json，保留语义 ID 与不可变来源 pin，再生成两份文档。依据精确来源/回执更新事实；仍作 provenance 的旧链接保留。CURRENT_CLOSEOUT 表示已有工作合流/审查；MATHEMATICAL_FRONTIER 表示已有数学缺口，不是领取指令。有界叶子完成不关闭父计划；实际交接/领取仍使用当前 canonical runtime。"
+  },
+  "verification_levels": {
+    "FROZEN_MAIN_SOURCE": {
+      "en": "File bytes checked at the frozen main; mathematical wording is a source declaration, not a fresh proof run.",
+      "zh-CN": "已核冻结主线文件字节；数学措辞属于来源声明，不是本轮新证明执行。"
+    },
+    "PUBLISHED_PIN_READBACK": {
+      "en": "Exact published content pin inspected; publication readback supplied by the owner. No mathematical rerun by this index.",
+      "zh-CN": "已查看精确已发布内容 pin，发布回读由 owner 提供；本索引未重跑数学。"
+    },
+    "PUBLISHED_RECEIPT_NOT_REEXECUTED": {
+      "en": "A published execution receipt is indexed with its original execution generation, not relabelled as a new run.",
+      "zh-CN": "索引已发布执行回执及其原执行代次，不改称新运行。"
+    },
+    "RETURN_DECLARATION_NOT_REVIEW": {
+      "en": "Frozen return/Result declaration only; this does not itself supply formal review acceptance.",
+      "zh-CN": "仅冻结交回/Result 声明，本身不提供正式审查接受。"
+    },
+    "HISTORICAL_ROUTING_ONLY": {
+      "en": "Historical route pointer; not current mathematical/claim/review authority.",
+      "zh-CN": "历史路线指针，不是当前数学/claim/review 权威。"
+    }
+  },
+  "edge_types": {
+    "CONTAINS": {
+      "en": "Existing organizational home or bounded leaf; no theorem implication.",
+      "zh-CN": "既有归属或有界叶子，不表达定理蕴涵。"
+    },
+    "CONSUMES": {
+      "en": "A source declares use of the exact upstream contract in the stated scope.",
+      "zh-CN": "来源明确在所列范围使用上游精确合同。"
+    },
+    "REUSE_IDENTIFIED": {
+      "en": "Typed reuse is identified, without asserting execution or a new proved transfer.",
+      "zh-CN": "已识别有型复用，不宣称执行或新增已证传递。"
+    }
+  },
+  "priority_labels": {
+    "CURRENT_CLOSEOUT": {
+      "en": "Current closeout",
+      "zh-CN": "当前收尾"
+    },
+    "MATHEMATICAL_FRONTIER": {
+      "en": "Existing mathematical frontier",
+      "zh-CN": "已有数学前沿"
+    },
+    "SOURCE_REFRESH": {
+      "en": "Refresh exact source when selected",
+      "zh-CN": "被选中时刷新精确来源"
+    },
+    "INTEGRATED_REUSE": {
+      "en": "Integrated; reuse without repeating",
+      "zh-CN": "已合流，复用不重做"
+    },
+    "ONGOING_DIRECTION": {
+      "en": "Direction and scoped established results",
+      "zh-CN": "方向与范围内既有成果"
+    }
+  },
+  "nodes": [
+    {
+      "id": "A0",
+      "kind": "home",
+      "label": {
+        "en": "Primitive discrete state algebra",
+        "zh-CN": "原始离散状态代数"
+      },
+      "scope": {
+        "en": "Roots/collapse, quotient-remainder, basin/gap and scale; P001–P009.",
+        "zh-CN": "根/坍缩、商余、盆/间隙与尺度；P001–P009。"
+      },
+      "evidence": {
+        "mathematics": {
+          "en": "Canonical scoped answers to P001–P009.",
+          "zh-CN": "P001–P009 在各自合同内已有规范答案。"
+        },
+        "lean": {
+          "en": "Catalog records T001–T015 root-Lean coverage; exact original statements only.",
+          "zh-CN": "目录记载 T001–T015 的 root Lean 覆盖，仅限原始精确命题。"
+        },
+        "program": {
+          "en": "Source reports executable checks; not rerun for this map.",
+          "zh-CN": "来源记录可执行检查，建图未重跑。"
+        },
+        "publication": {
+          "en": "MAIN at the pinned source scope.",
+          "zh-CN": "所引范围已在 MAIN。"
+        },
+        "formal_review": {
+          "en": "No new formal acceptance in this index.",
+          "zh-CN": "本索引不新增正式接受。"
+        }
+      },
+      "frontier": {
+        "en": "Scope closure does not make every newly proposed operator obey the old identities.",
+        "zh-CN": "范围闭合不代表任意新算子自动满足旧恒等式。"
+      },
+      "next": {
+        "en": "Reuse the exact operator contract and theorem before extending it.",
+        "zh-CN": "扩展前复用精确算子合同和原定理。"
+      },
+      "source_ids": [
+        "S01",
+        "S07",
+        "S10"
+      ],
+      "priority": "ONGOING_DIRECTION"
+    },
+    {
+      "id": "A1",
+      "kind": "home",
+      "label": {
+        "en": "Dynamics and history coalescence",
+        "zh-CN": "动力学与历史合流"
+      },
+      "scope": {
+        "en": "Deterministic kernels, collisions and stabilization; P010/P011/P019/P020.",
+        "zh-CN": "确定性核、碰撞与稳定化；P010/P011/P019/P020。"
+      },
+      "evidence": {
+        "mathematics": {
+          "en": "Scoped collision/irreversibility results and stabilization classification.",
+          "zh-CN": "已有精确碰撞/不可逆性结果与稳定化分类。"
+        },
+        "lean": {
+          "en": "P020 well-founded partial-order stabilization is source-recorded Lean checked.",
+          "zh-CN": "P020 良基偏序稳定化由来源记载为 Lean 已核。"
+        },
+        "program": {
+          "en": "Source reports executable checks; not rerun for this map.",
+          "zh-CN": "来源记录可执行检查，建图未重跑。"
+        },
+        "publication": {
+          "en": "MAIN at the pinned source scope.",
+          "zh-CN": "所引范围已在 MAIN。"
+        },
+        "formal_review": {
+          "en": "No new formal acceptance in this index.",
+          "zh-CN": "本索引不新增正式接受。"
+        }
+      },
+      "frontier": {
+        "en": "No automatic physical time-arrow or thermodynamic-entropy theorem.",
+        "zh-CN": "不自动得到物理时间箭头或热力学熵定理。"
+      },
+      "next": {
+        "en": "Keep any physical interpretation distinct from the deterministic theorem.",
+        "zh-CN": "将物理解释与确定性定理分开验证。"
+      },
+      "source_ids": [
+        "S07",
+        "S08"
+      ],
+      "priority": "ONGOING_DIRECTION"
+    },
+    {
+      "id": "A2",
+      "kind": "home",
+      "label": {
+        "en": "Observation and future-safe quotient",
+        "zh-CN": "观测与未来安全商"
+      },
+      "scope": {
+        "en": "Declared future/action language; P018/P023/P024.",
+        "zh-CN": "已声明未来/动作语言；P018/P023/P024。"
+      },
+      "evidence": {
+        "mathematics": {
+          "en": "Bounded quotient-root action basis and canonical partial-operation extension.",
+          "zh-CN": "有界 quotient-root 动作基与规范部分操作扩展。"
+        },
+        "lean": {
+          "en": "Action-basis theorem: LEAN_CHECKED_MAIN. Partial-operation extension: NOT LEAN-CHECKED.",
+          "zh-CN": "动作基定理：LEAN_CHECKED_MAIN；部分操作扩展：NOT LEAN-CHECKED。"
+        },
+        "program": {
+          "en": "Source reports executable checks; not rerun for this map.",
+          "zh-CN": "来源记录可执行检查，建图未重跑。"
+        },
+        "publication": {
+          "en": "MAIN at the pinned source scope.",
+          "zh-CN": "所引范围已在 MAIN。"
+        },
+        "formal_review": {
+          "en": "No new formal acceptance in this index.",
+          "zh-CN": "本索引不新增正式接受。"
+        }
+      },
+      "frontier": {
+        "en": "P018/P023/P024 remain open programs; state-dependent and higher-dimensional languages need exact contracts.",
+        "zh-CN": "P018/P023/P024 整体仍开放；状态依赖与高维语言需精确合同。"
+      },
+      "next": {
+        "en": "Continue only a specified language/observation gap; preserve enabledness for partial operations.",
+        "zh-CN": "只推进明确语言/观测缺口；部分操作保留 enabledness。"
+      },
+      "source_ids": [
+        "S07",
+        "S08",
+        "S09"
+      ],
+      "priority": "ONGOING_DIRECTION"
+    },
+    {
+      "id": "A3",
+      "kind": "home",
+      "label": {
+        "en": "Structured relation-state algebra",
+        "zh-CN": "结构关系态代数"
+      },
+      "scope": {
+        "en": "Weighted relation field, lattice, scale/rank; richer than an unproved functional-kernel reduction.",
+        "zh-CN": "加权关系场、格、尺度/秩；未经证明不降格为普通函数核。"
+      },
+      "evidence": {
+        "mathematics": {
+          "en": "Canonical executable core; broader theorem claims keep their own WIP/canonical status.",
+          "zh-CN": "规范可执行核心；更广定理保留各自 WIP/规范状态。"
+        },
+        "lean": {
+          "en": "No new Lean claim; consult exact source coverage.",
+          "zh-CN": "不新增 Lean 声称，按原来源覆盖范围读取。"
+        },
+        "program": {
+          "en": "Source reports executable checks; not rerun for this map.",
+          "zh-CN": "来源记录可执行检查，建图未重跑。"
+        },
+        "publication": {
+          "en": "MAIN at the pinned source scope.",
+          "zh-CN": "所引范围已在 MAIN。"
+        },
+        "formal_review": {
+          "en": "No new formal acceptance in this index.",
+          "zh-CN": "本索引不新增正式接受。"
+        }
+      },
+      "frontier": {
+        "en": "The PR955 handoff is one review leaf, not completion of A3.",
+        "zh-CN": "PR955 交接只是一条审查叶子，不代表 A3 完成。"
+      },
+      "next": {
+        "en": "Consume the explicit A3→A4 bridge and finish the existing PR955 review scope.",
+        "zh-CN": "消费已有 A3→A4 bridge，收尾原 PR955 审查范围。"
+      },
+      "source_ids": [
+        "S08",
+        "S13"
+      ],
+      "priority": "ONGOING_DIRECTION"
+    },
+    {
+      "id": "A4",
+      "kind": "home",
+      "label": {
+        "en": "Admissible support and correspondence",
+        "zh-CN": "可容许支撑与对应"
+      },
+      "scope": {
+        "en": "Finite multivalued relations, MAY/MUST support, witnesses and Boolean BRC.",
+        "zh-CN": "有限多值关系、MAY/MUST 支撑、见证与 Boolean BRC。"
+      },
+      "evidence": {
+        "mathematics": {
+          "en": "R023 Boolean support core is canonical at its declared type.",
+          "zh-CN": "R023 Boolean 支撑核心在其声明型别内规范化。"
+        },
+        "lean": {
+          "en": "R023 Boolean core: source-recorded LEAN_CHECKED_MAIN.",
+          "zh-CN": "R023 Boolean 核心：来源记载 LEAN_CHECKED_MAIN。"
+        },
+        "program": {
+          "en": "Source reports executable checks; not rerun for this map.",
+          "zh-CN": "来源记录可执行检查，建图未重跑。"
+        },
+        "publication": {
+          "en": "MAIN at the pinned source scope.",
+          "zh-CN": "所引范围已在 MAIN。"
+        },
+        "formal_review": {
+          "en": "No new formal acceptance in this index.",
+          "zh-CN": "本索引不新增正式接受。"
+        }
+      },
+      "frontier": {
+        "en": "Boolean support forgets multiplicity, provenance, weights and signed cancellation.",
+        "zh-CN": "Boolean 支撑遗忘重数、来源、权重与 signed 抵消。"
+      },
+      "next": {
+        "en": "Choose the support or weighted/provenance type explicitly at each interface.",
+        "zh-CN": "每次接口明确选择支撑型或加权/来源型。"
+      },
+      "source_ids": [
+        "S08",
+        "S13"
+      ],
+      "priority": "ONGOING_DIRECTION"
+    },
+    {
+      "id": "A5",
+      "kind": "home",
+      "label": {
+        "en": "Enterprise coordinates and intrinsic geometry",
+        "zh-CN": "进取坐标系与内禀几何"
+      },
+      "scope": {
+        "en": "P022 geometry, exact graph distance/Barlow growth; X6 is one branch.",
+        "zh-CN": "P022 几何、精确图距离/Barlow 增长；X6 只是其中一支。"
+      },
+      "evidence": {
+        "mathematics": {
+          "en": "Canonical executable geometry slices; the whole P022 remains OPEN.",
+          "zh-CN": "规范可执行几何切片；P022 整体仍 OPEN。"
+        },
+        "lean": {
+          "en": "No new Lean claim; consult exact source coverage.",
+          "zh-CN": "不新增 Lean 声称，按原来源覆盖范围读取。"
+        },
+        "program": {
+          "en": "Source reports executable checks; not rerun for this map.",
+          "zh-CN": "来源记录可执行检查，建图未重跑。"
+        },
+        "publication": {
+          "en": "MAIN at the pinned source scope.",
+          "zh-CN": "所引范围已在 MAIN。"
+        },
+        "formal_review": {
+          "en": "No new formal acceptance in this index.",
+          "zh-CN": "本索引不新增正式接受。"
+        }
+      },
+      "frontier": {
+        "en": "A representation/readout is not automatically a state isometry or a physical interpretation.",
+        "zh-CN": "表示/读出不自动成为状态等距或物理解释。"
+      },
+      "next": {
+        "en": "Route geometry work through its exact coordinate and observation contract.",
+        "zh-CN": "按精确坐标与观测合同续接几何研究。"
+      },
+      "source_ids": [
+        "S02",
+        "S07",
+        "S08"
+      ],
+      "priority": "ONGOING_DIRECTION"
+    },
+    {
+      "id": "BRC",
+      "kind": "tool",
+      "label": {
+        "en": "BRC typed cross-direction tools",
+        "zh-CN": "BRC 跨方向有型工具"
+      },
+      "scope": {
+        "en": "Boolean support; positive weighted branches/histograms; signed analysis has its own contract.",
+        "zh-CN": "Boolean 支撑、正权分支/直方图；signed 分析具有独立合同。"
+      },
+      "evidence": {
+        "mathematics": {
+          "en": "Native chain through critical degeneracy; WBRC-T39–T42 source status: PROVED_MAIN_BACKED_EXECUTABLE_CHECKED.",
+          "zh-CN": "原生链推进至 critical degeneracy；WBRC-T39–T42 来源状态为 PROVED_MAIN_BACKED_EXECUTABLE_CHECKED。"
+        },
+        "lean": {
+          "en": "Boolean R023 only where stated; no all-BRC Lean claim.",
+          "zh-CN": "仅在明确范围内引用 Boolean R023；不声称全部 BRC 已 Lean。"
+        },
+        "program": {
+          "en": "Source reports executable checks; not rerun for this map.",
+          "zh-CN": "来源记录可执行检查，建图未重跑。"
+        },
+        "publication": {
+          "en": "MAIN at the pinned source scope.",
+          "zh-CN": "所引范围已在 MAIN。"
+        },
+        "formal_review": {
+          "en": "No new formal acceptance in this index.",
+          "zh-CN": "本索引不新增正式接受。"
+        }
+      },
+      "frontier": {
+        "en": "Total mass cannot recover critical tie multiplicity; general algebraic correction is not rational LN.",
+        "zh-CN": "总质量不能恢复 critical tie 重数；一般代数修正不是 rational LN。"
+      },
+      "next": {
+        "en": "Reuse/compose the exact existing type; do not invent a synonymous global family.",
+        "zh-CN": "按现有精确型别复用/组合，不另建同义 global family。"
+      },
+      "source_ids": [
+        "S02",
+        "S03",
+        "S06",
+        "S08",
+        "S11",
+        "S14"
+      ],
+      "priority": "ONGOING_DIRECTION"
+    },
+    {
+      "id": "X6",
+      "kind": "branch",
+      "label": {
+        "en": "X6 raw spatial readouts",
+        "zh-CN": "X6 原始空间读出"
+      },
+      "scope": {
+        "en": "Same anchor, labelled signed Cell torsor; centered three-axis slice.",
+        "zh-CN": "同一锚点、带标号 signed Cell torsor；centered 三轴切片。"
+      },
+      "evidence": {
+        "mathematics": {
+          "en": "Current P000-bound native foundation types.",
+          "zh-CN": "当前 P000-bound 原生 foundation 型别。"
+        },
+        "lean": {
+          "en": "No new Lean claim; consult exact source coverage.",
+          "zh-CN": "不新增 Lean 声称，按原来源覆盖范围读取。"
+        },
+        "program": {
+          "en": "Source reports executable checks; not rerun for this map.",
+          "zh-CN": "来源记录可执行检查，建图未重跑。"
+        },
+        "publication": {
+          "en": "MAIN at the pinned source scope.",
+          "zh-CN": "所引范围已在 MAIN。"
+        },
+        "formal_review": {
+          "en": "No new formal acceptance in this index.",
+          "zh-CN": "本索引不新增正式接受。"
+        }
+      },
+      "frontier": {
+        "en": "can3 alone loses common offset. Raw analysis does not reconstruct microscopic BRC or branch history.",
+        "zh-CN": "can3 单独会丢 common offset；raw 分析不重建微观 BRC 或分支历史。"
+      },
+      "next": {
+        "en": "Keep Spatial6 identity, Jordan cancellation and the exact declared raw observations bound together.",
+        "zh-CN": "绑定 Spatial6 身份、Jordan 抵消与明确 raw 观测。"
+      },
+      "source_ids": [
+        "S02",
+        "S04",
+        "S05"
+      ],
+      "priority": "ONGOING_DIRECTION"
+    },
+    {
+      "id": "RAW_PAPER",
+      "kind": "branch",
+      "label": {
+        "en": "Raw compression and two-positive bound",
+        "zh-CN": "raw 压缩与双正界"
+      },
+      "scope": {
+        "en": "Finite rational signed difference after Jordan cancellation; all 20 raw three-axis L1 norms.",
+        "zh-CN": "有限有理 signed 差，先 Jordan 抵消；全部 20 张 raw 三轴 L1 范数。"
+      },
+      "evidence": {
+        "mathematics": {
+          "en": "Compression preserves coordinate-marginal L1; carrier ≤(p+1)^6. For p≤2, sharp 4M≤D; p=0/zero treated separately.",
+          "zh-CN": "压缩保各坐标边缘 L1，carrier≤(p+1)^6；p≤2 sharp 4M≤D；p=0/零差单独处理。"
+        },
+        "lean": {
+          "en": "No Lean claim.",
+          "zh-CN": "无 Lean 声称。"
+        },
+        "program": {
+          "en": "These two registrations are RESULT_ONLY with empty APIs; proof is paper evidence.",
+          "zh-CN": "两项登记均 RESULT_ONLY、API 为空；证明证据在论文。"
+        },
+        "publication": {
+          "en": "MAIN at the pinned source scope.",
+          "zh-CN": "所引范围已在 MAIN。"
+        },
+        "formal_review": {
+          "en": "Internal paper review recorded; no formal acceptance assigned by the shard.",
+          "zh-CN": "已记录内部纸面独审；分片不赋予正式接受。"
+        }
+      },
+      "frontier": {
+        "en": "Carrier bound is not support count; no native isometry/history preservation or p≥3 theorem.",
+        "zh-CN": "carrier 上界不是支撑数；不保原生等距/历史，不给 p≥3 定理。"
+      },
+      "next": {
+        "en": "Consume the exact two-result contracts; separate later equality/tool extensions.",
+        "zh-CN": "消费这两个精确结果合同；分开后续取等/工具扩展。"
+      },
+      "source_ids": [
+        "S12",
+        "S15",
+        "S16",
+        "S17"
+      ],
+      "priority": "ONGOING_DIRECTION"
+    },
+    {
+      "id": "RAW_EXT",
+      "kind": "branch",
+      "label": {
+        "en": "Three raw extensions integrated",
+        "zh-CN": "三条 raw 扩展已合流"
+      },
+      "scope": {
+        "en": "Compression certificate; p≤2 equality rectangle; p3 seven-point mass-boundary probe.",
+        "zh-CN": "压缩证书、p≤2 矩形取等、p3 七点质量边界 probe。"
+      },
+      "evidence": {
+        "mathematics": {
+          "en": "Nonzero p≤2 equality is an equal-weight original-coordinate rectangle. Seven-point M=7,D=26 gives only a general p3 lower bound 7/26.",
+          "zh-CN": "非零 p≤2 取等为等权原始坐标矩形；七点 M=7,D=26 只给一般 p3 下界 7/26。"
+        },
+        "lean": {
+          "en": "No Lean claim.",
+          "zh-CN": "无 Lean 声称。"
+        },
+        "program": {
+          "en": "Compression: author 18 cases/360 tables + independent 5/100; main combination receipt. Only audit_compression is public API.",
+          "zh-CN": "压缩：作者 18 例/360 表＋独立 5/100；有主组合回执。仅 audit_compression 是公开 API。"
+        },
+        "publication": {
+          "en": "MAIN_INTEGRATED via PR1390 at aa5683f; applicable CI and 8 shards passed per publisher readback.",
+          "zh-CN": "PR1390 / aa5683f 已 MAIN_INTEGRATED；发布者核实适用 CI 与 8 分片通过。"
+        },
+        "formal_review": {
+          "en": "Candidate classifications preserved; two results remain RESULT_ONLY; no formal acceptance.",
+          "zh-CN": "候选分类保持；两条结果仍 RESULT_ONLY；无正式接受。"
+        }
+      },
+      "frontier": {
+        "en": "A low-level pushforward has no arbitrary-input norm guarantee; no general p3 upper bound. Equal-mass probe covers its symmetric family only.",
+        "zh-CN": "低层 pushforward 不保证任意输入保范数；无一般 p3 上界；等质量 probe 仅覆盖指定对称族。"
+      },
+      "next": {
+        "en": "Reuse the integrated API/source package; retain source and execution-generation distinctions.",
+        "zh-CN": "复用已合流 API/源包；继续区分来源与实际执行代次。"
+      },
+      "source_ids": [
+        "S23",
+        "S31"
+      ],
+      "priority": "INTEGRATED_REUSE"
+    },
+    {
+      "id": "P2_CONSUMER",
+      "kind": "frontier",
+      "label": {
+        "en": "Two-positive executable consumer",
+        "zh-CN": "双正可执行消费者"
+      },
+      "scope": {
+        "en": "Original raw signed X6, post-Jordan p≤2; exact per-table checks and equality witness.",
+        "zh-CN": "原始 raw signed X6、Jordan 后 p≤2；逐表精确检查与取等见证。"
+      },
+      "evidence": {
+        "mathematics": {
+          "en": "Consumes existing bound/equality papers; adds no wider theorem.",
+          "zh-CN": "消费已有界/取等论文，不新增更广定理。"
+        },
+        "lean": {
+          "en": "No Lean claim.",
+          "zh-CN": "无 Lean 声称。"
+        },
+        "program": {
+          "en": "Independent 9 cases/180 tables and 19 rejections recorded; portable evidence published. Not rerun by the map.",
+          "zh-CN": "已记录独立 9 例/180 表和 19 个拒绝；可移植证据已发布；建图未重跑。"
+        },
+        "publication": {
+          "en": "MAIN_INTEGRATED via PR1394 at c27616a2. Three applicable CI workflows and 8 shards passed; publisher verified the actual merge tree/parents against tested checkout 7868d30a. Original author/independent source 3ac5a5dd is retained.",
+          "zh-CN": "PR1394 / c27616a2 已 MAIN_INTEGRATED。3 个适用 CI 工作流与 8 分片通过；发布者核实实际 merge tree/parents 与受测 checkout 7868d30a 一致。原作者/独审来源 3ac5a5dd 保留。"
+        },
+        "formal_review": {
+          "en": "Independent execution review is not formal mathematical acceptance.",
+          "zh-CN": "独立执行审查不等于正式数学接受。"
+        }
+      },
+      "frontier": {
+        "en": "This closes the bounded tool-admission subflow only; p≤2 and the original raw-coordinate contract remain binding. Main integration does not add a higher-p theorem or formal mathematical acceptance.",
+        "zh-CN": "本次仅闭合有界工具准入子流程；p≤2 与原始 raw 坐标合同保持。入 main 不新增更高 p 定理或正式数学接受。"
+      },
+      "next": {
+        "en": "Reuse the admitted consumer and its exact registered API/evidence; preserve the source and main-composition receipts without repeating completed admission.",
+        "zh-CN": "复用已准入消费者及精确登记 API/证据；保留原源与主组合回执，不重复已完成准入。"
+      },
+      "source_ids": [
+        "S24",
+        "S25",
+        "S26",
+        "S27",
+        "S32",
+        "S35"
+      ],
+      "priority": "INTEGRATED_REUSE"
+    },
+    {
+      "id": "STAR",
+      "kind": "frontier",
+      "label": {
+        "en": "Three-positive star subclass papers",
+        "zh-CN": "三正 star 子类论文"
+      },
+      "scope": {
+        "en": "Three positive points obtained by three distinct single-axis changes from a common base; arbitrary nonzero signed spans.",
+        "zh-CN": "三个正点由同一基点沿三条不同轴单独变动得到；跨度可为任意非零 signed 整数。"
+      },
+      "evidence": {
+        "mathematics": {
+          "en": "Internal paper PASS: sharp M≤(7/26)D; equal-mass fixed-weight min D=max(8P,24m−4P), m=max weights, within the star contract.",
+          "zh-CN": "内部纸面 PASS：star 合同内 sharp M≤(7/26)D；等质量固定权 min D=max(8P,24m−4P)，m 为最大正权。"
+        },
+        "lean": {
+          "en": "No Lean claim.",
+          "zh-CN": "无 Lean 声称。"
+        },
+        "program": {
+          "en": "Paper-only results; no new executable verification claimed.",
+          "zh-CN": "纯纸面结果，不声称新增可执行核验。"
+        },
+        "publication": {
+          "en": "OWNER_SOURCE_PUBLISHED; main admission pending.",
+          "zh-CN": "OWNER_SOURCE_PUBLISHED；主线准入待办。"
+        },
+        "formal_review": {
+          "en": "Internal bounded paper review only; no formal review or status promotion.",
+          "zh-CN": "仅内部有界纸面独审；无正式审查/状态提升。"
+        }
+      },
+      "frontier": {
+        "en": "No extension to arbitrary three-positive geometry; fixed-weight paper does not classify every minimizer above the 8P regime.",
+        "zh-CN": "不外推任意三正几何；固定权论文未分类 8P 区间外的全部极小者。"
+      },
+      "next": {
+        "en": "Consolidate the already reviewed papers through the existing source/main path; do not restart the proof.",
+        "zh-CN": "沿已有源/main 路径合流已审论文，不重启证明。"
+      },
+      "source_ids": [
+        "S33",
+        "S34"
+      ],
+      "priority": "CURRENT_CLOSEOUT"
+    },
+    {
+      "id": "RAW_DUAL",
+      "kind": "frontier",
+      "label": {
+        "en": "Compressed finite dual certificate",
+        "zh-CN": "压缩有限对偶证书"
+      },
+      "scope": {
+        "en": "Fixed finite positive support S; twenty complete bounded integer tables on its compressed carrier.",
+        "zh-CN": "固定有限正支撑 S；压缩 carrier 上二十张完整有界整数表。"
+      },
+      "evidence": {
+        "mathematics": {
+          "en": "Bounded paper PASS: LD≥Σ a_s w_s+BN and a complete gap identity. Uniform M bound needs a_s≥A and B≥A.",
+          "zh-CN": "有界纸面 PASS：LD≥Σ a_s w_s+BN 及完整间隙恒等式；统一 M 界需 a_s≥A 且 B≥A。"
+        },
+        "lean": {
+          "en": "No Lean claim.",
+          "zh-CN": "无 Lean 声称。"
+        },
+        "program": {
+          "en": "Proposed finite verification interface is not implemented by this paper.",
+          "zh-CN": "本论文未实现拟议的有限核验接口。"
+        },
+        "publication": {
+          "en": "OWNER_SOURCE_PUBLISHED; main admission pending.",
+          "zh-CN": "OWNER_SOURCE_PUBLISHED；主线准入待办。"
+        },
+        "formal_review": {
+          "en": "Internal paper review only; no formal task/Result/review authority.",
+          "zh-CN": "仅内部纸面独审；无正式 task/Result/review 权威。"
+        }
+      },
+      "frontier": {
+        "en": "No automatic optimal-dual search or universal p3 bound; tight compressed points can have infinite original fibers.",
+        "zh-CN": "不自动寻找最优对偶，不给统一 p3 界；压缩紧点可有无限原始纤维。"
+      },
+      "next": {
+        "en": "First consolidate the frozen paper; any later verifier must check complete tables, source binding and carrier budget.",
+        "zh-CN": "先合流冻结论文；后续核验器必须检查完整表、来源绑定与 carrier 预算。"
+      },
+      "source_ids": [
+        "S22",
+        "S15",
+        "S33"
+      ],
+      "priority": "CURRENT_CLOSEOUT"
+    },
+    {
+      "id": "A3_A4_REVIEW",
+      "kind": "frontier",
+      "label": {
+        "en": "PR955 review with local correction",
+        "zh-CN": "PR955 审查与局部纠正"
+      },
+      "scope": {
+        "en": "Frozen generated-support quotient/interpolation return, unchanged original source.",
+        "zh-CN": "冻结 generated-support 商/插值交回，保留原源。"
+      },
+      "evidence": {
+        "mathematics": {
+          "en": "Local correction paper PASS: im W=H, H/L=Z⊕Z/2; ambient Z4/L=Z²⊕Z/2. Same quotient can have different Q0.",
+          "zh-CN": "局部纠正论文 PASS：im W=H、H/L=Z⊕Z/2；环境 Z4/L=Z²⊕Z/2；同商仍可异 Q0。"
+        },
+        "lean": {
+          "en": "No new Lean claim.",
+          "zh-CN": "不新增 Lean 声称。"
+        },
+        "program": {
+          "en": "Old finite evidence remains historical; no replay for the correction/map.",
+          "zh-CN": "旧有限证据保留为历史；纠正/建图未重跑。"
+        },
+        "publication": {
+          "en": "PR955 frozen source plus correction published at 3ac5a5dd; correction main admission pending.",
+          "zh-CN": "PR955 冻结源及 3ac5a5dd 纠正已发布；纠正入 main 待办。"
+        },
+        "formal_review": {
+          "en": "Local rank clarification closed; whole PR955 formal Driver review remains pending.",
+          "zh-CN": "局部商秩澄清已闭合；整份 PR955 正式 Driver 审查仍待办。"
+        }
+      },
+      "frontier": {
+        "en": "Do not equate an ambient quotient rank with the minimal realizable state data; no new research assignment.",
+        "zh-CN": "不能把环境商秩等同可实现状态所需最少数据；不新建研究任务。"
+      },
+      "next": {
+        "en": "Review the original handoff with the narrow correction and preserve unrelated arguments.",
+        "zh-CN": "带着窄纠正审原交回，保留不受影响的论证。"
+      },
+      "source_ids": [
+        "S29",
+        "S30"
+      ],
+      "priority": "CURRENT_CLOSEOUT"
+    },
+    {
+      "id": "NUMBER_THEORY",
+      "kind": "branch",
+      "label": {
+        "en": "Number-theoretic program",
+        "zh-CN": "数论主线"
+      },
+      "scope": {
+        "en": "Legendre pressure tests (P017), precision/arithmetic applications and Perfect Prime residual work.",
+        "zh-CN": "Legendre 压力测试 P017、精度/算术应用及 Perfect Prime residual。"
+      },
+      "evidence": {
+        "mathematics": {
+          "en": "P017 is OPEN; substantial structural results are not a Legendre conjecture proof.",
+          "zh-CN": "P017 为 OPEN；已有结构结果不等于 Legendre 猜想证明。"
+        },
+        "lean": {
+          "en": "Use each exact theorem scope; no conjecture-level Lean claim.",
+          "zh-CN": "逐项读取精确定理范围；无猜想级 Lean 声称。"
+        },
+        "program": {
+          "en": "Source reports executable checks; not rerun for this map.",
+          "zh-CN": "来源记录可执行检查，建图未重跑。"
+        },
+        "publication": {
+          "en": "MAIN at the pinned source scope.",
+          "zh-CN": "所引范围已在 MAIN。"
+        },
+        "formal_review": {
+          "en": "No new formal acceptance in this index.",
+          "zh-CN": "本索引不新增正式接受。"
+        }
+      },
+      "frontier": {
+        "en": "Centered prime-radius results have left-prime/size hypotheses and imply neither universal symmetric pairs nor Goldbach.",
+        "zh-CN": "centered prime-radius 有 left-prime/size 假设，不推出普遍对称素数对或 Goldbach。"
+      },
+      "next": {
+        "en": "Keep the existing P017/Perfect Prime mathematical frontier visible alongside the X6 branch.",
+        "zh-CN": "与 X6 子支并列保留 P017/Perfect Prime 原有数学前沿。"
+      },
+      "source_ids": [
+        "S07",
+        "S08",
+        "S09"
+      ],
+      "priority": "MATHEMATICAL_FRONTIER"
+    },
+    {
+      "id": "PERFECT_PRIME",
+      "kind": "frontier",
+      "label": {
+        "en": "Perfect Prime AP residual / HCM0",
+        "zh-CN": "Perfect Prime AP residual / HCM0"
+      },
+      "scope": {
+        "en": "The September 3 residual Mobius/Bernstein coefficient-positivity return.",
+        "zh-CN": "9 月 3 日 residual Mobius/Bernstein 系数正性交回。"
+      },
+      "evidence": {
+        "mathematics": {
+          "en": "Return gives all-m signed squared-secant coefficient representation and endpoint factors; positivity reduced to HCM0.",
+          "zh-CN": "交回给出 all-m signed squared-secant 系数表示与端点因子；正性归约到 HCM0。"
+        },
+        "lean": {
+          "en": "No Lean coverage verified here.",
+          "zh-CN": "本图未核定 Lean 覆盖。"
+        },
+        "program": {
+          "en": "Stronger full Hausdorff pattern has finite m=2..10 evidence only.",
+          "zh-CN": "更强完整 Hausdorff 模式仅有 m=2..10 有限证据。"
+        },
+        "publication": {
+          "en": "MAIN at the pinned source scope.",
+          "zh-CN": "所引范围已在 MAIN。"
+        },
+        "formal_review": {
+          "en": "Result requests Driver review; current operational review not refreshed.",
+          "zh-CN": "Result 请求 Driver review；本轮未刷新该审查 operational 状态。"
+        }
+      },
+      "frontier": {
+        "en": "HCM0 / signed-secant Hausdorff lift and mother-determinant nonvanishing remain OPEN.",
+        "zh-CN": "HCM0 / signed-secant Hausdorff lift 与母 determinant nonvanishing 仍 OPEN。"
+      },
+      "next": {
+        "en": "Resume from the exact residual/HCM0 gap after current handoff verification; do not restart the rejected block/inertia route.",
+        "zh-CN": "核实当前交接后，从精确 residual/HCM0 缺口续接；不重启已否定 block/inertia 路线。"
+      },
+      "source_ids": [
+        "S18",
+        "S19",
+        "S20"
+      ],
+      "priority": "MATHEMATICAL_FRONTIER"
+    },
+    {
+      "id": "P021",
+      "kind": "branch",
+      "label": {
+        "en": "Causal boundary",
+        "zh-CN": "因果边界"
+      },
+      "scope": {
+        "en": "Finite graph plus integer expansion, consuming P018 observation/refinement.",
+        "zh-CN": "有限图与整数 expansion，消费 P018 观测/refinement。"
+      },
+      "evidence": {
+        "mathematics": {
+          "en": "Canonical executable finite slice; P021 overall OPEN.",
+          "zh-CN": "规范可执行有限切片；P021 整体 OPEN。"
+        },
+        "lean": {
+          "en": "No new Lean claim; consult exact source coverage.",
+          "zh-CN": "不新增 Lean 声称，按原来源覆盖范围读取。"
+        },
+        "program": {
+          "en": "Source reports executable checks; not rerun for this map.",
+          "zh-CN": "来源记录可执行检查，建图未重跑。"
+        },
+        "publication": {
+          "en": "MAIN at the pinned source scope.",
+          "zh-CN": "所引范围已在 MAIN。"
+        },
+        "formal_review": {
+          "en": "No new formal acceptance in this index.",
+          "zh-CN": "本索引不新增正式接受。"
+        }
+      },
+      "frontier": {
+        "en": "Causal focusing, direction/witness composition and physical interpretation remain open.",
+        "zh-CN": "causal focusing、方向/witness 复合及物理解释仍开放。"
+      },
+      "next": {
+        "en": "Continue a specified finite causal/observation contract without importing a physical theorem.",
+        "zh-CN": "在明确有限因果/观测合同内续接，不偷渡物理定理。"
+      },
+      "source_ids": [
+        "S07",
+        "S08"
+      ],
+      "priority": "MATHEMATICAL_FRONTIER"
+    },
+    {
+      "id": "E001",
+      "kind": "branch",
+      "label": {
+        "en": "Engineering and physical interpretation",
+        "zh-CN": "工程与物理解释"
+      },
+      "scope": {
+        "en": "Material impulse, tick order, measured-polyline refinement and finite residual conservation.",
+        "zh-CN": "材料冲量、tick order、测量折线 refinement 与有限 residual conservation。"
+      },
+      "evidence": {
+        "mathematics": {
+          "en": "Canonical executable finite slices; P016 closed only at falsification-protocol scope.",
+          "zh-CN": "规范可执行有限切片；P016 仅 falsification 协议范围闭合。"
+        },
+        "lean": {
+          "en": "No new Lean claim; consult exact source coverage.",
+          "zh-CN": "不新增 Lean 声称，按原来源覆盖范围读取。"
+        },
+        "program": {
+          "en": "Source reports executable checks; not rerun for this map.",
+          "zh-CN": "来源记录可执行检查，建图未重跑。"
+        },
+        "publication": {
+          "en": "MAIN at the pinned source scope.",
+          "zh-CN": "所引范围已在 MAIN。"
+        },
+        "formal_review": {
+          "en": "No new formal acceptance in this index.",
+          "zh-CN": "本索引不新增正式接受。"
+        }
+      },
+      "frontier": {
+        "en": "Not a universal constitutive/mechanics theorem; finite readings do not recover an unknown continuous curve.",
+        "zh-CN": "不是通用材料本构/力学定理；有限读出不能恢复未知连续曲线。"
+      },
+      "next": {
+        "en": "Bind any application to actual measurements and the existing falsification contract.",
+        "zh-CN": "应用绑定实际测量与已有 falsification 合同。"
+      },
+      "source_ids": [
+        "S07",
+        "S08"
+      ],
+      "priority": "MATHEMATICAL_FRONTIER"
+    },
+    {
+      "id": "GEO6",
+      "kind": "branch",
+      "label": {
+        "en": "GEO6 external geometry route",
+        "zh-CN": "GEO6 外部几何路线"
+      },
+      "scope": {
+        "en": "Existing historical direction; latest exact result/review not retrieved.",
+        "zh-CN": "已有历史方向；未取最新精确 Result/review。"
+      },
+      "evidence": {
+        "mathematics": {
+          "en": "SOURCE_REFRESH_REQUIRED; no present closure assertion.",
+          "zh-CN": "SOURCE_REFRESH_REQUIRED；不声称当下闭合。"
+        },
+        "lean": {
+          "en": "SOURCE_REFRESH_REQUIRED.",
+          "zh-CN": "SOURCE_REFRESH_REQUIRED。"
+        },
+        "program": {
+          "en": "SOURCE_REFRESH_REQUIRED.",
+          "zh-CN": "SOURCE_REFRESH_REQUIRED。"
+        },
+        "publication": {
+          "en": "Historical pointers only; present main/owner status not inferred.",
+          "zh-CN": "仅历史指针；不推断当下 main/owner 状态。"
+        },
+        "formal_review": {
+          "en": "SOURCE_REFRESH_REQUIRED; no live claim inferred.",
+          "zh-CN": "SOURCE_REFRESH_REQUIRED；不推断 live claim。"
+        }
+      },
+      "frontier": {
+        "en": "Historical closure/revalidation language is not a current verdict.",
+        "zh-CN": "历史闭合/再验证措辞不是当前 verdict。"
+      },
+      "next": {
+        "en": "Refresh one exact current source/handoff if this existing route is selected.",
+        "zh-CN": "该既有路线被选中时，仅刷新一个精确当前来源/交接。"
+      },
+      "source_ids": [
+        "S21"
+      ],
+      "priority": "SOURCE_REFRESH"
+    },
+    {
+      "id": "GEO7",
+      "kind": "branch",
+      "label": {
+        "en": "GEO7 external geometry route",
+        "zh-CN": "GEO7 外部几何路线"
+      },
+      "scope": {
+        "en": "Existing historical direction; latest exact result/review not retrieved.",
+        "zh-CN": "已有历史方向；未取最新精确 Result/review。"
+      },
+      "evidence": {
+        "mathematics": {
+          "en": "SOURCE_REFRESH_REQUIRED; no present closure assertion.",
+          "zh-CN": "SOURCE_REFRESH_REQUIRED；不声称当下闭合。"
+        },
+        "lean": {
+          "en": "SOURCE_REFRESH_REQUIRED.",
+          "zh-CN": "SOURCE_REFRESH_REQUIRED。"
+        },
+        "program": {
+          "en": "SOURCE_REFRESH_REQUIRED.",
+          "zh-CN": "SOURCE_REFRESH_REQUIRED。"
+        },
+        "publication": {
+          "en": "Historical pointers only; present main/owner status not inferred.",
+          "zh-CN": "仅历史指针；不推断当下 main/owner 状态。"
+        },
+        "formal_review": {
+          "en": "SOURCE_REFRESH_REQUIRED; no live claim inferred.",
+          "zh-CN": "SOURCE_REFRESH_REQUIRED；不推断 live claim。"
+        }
+      },
+      "frontier": {
+        "en": "Historical closure/revalidation language is not a current verdict.",
+        "zh-CN": "历史闭合/再验证措辞不是当前 verdict。"
+      },
+      "next": {
+        "en": "Refresh one exact current source/handoff if this existing route is selected.",
+        "zh-CN": "该既有路线被选中时，仅刷新一个精确当前来源/交接。"
+      },
+      "source_ids": [
+        "S21"
+      ],
+      "priority": "SOURCE_REFRESH"
+    },
+    {
+      "id": "GEO8",
+      "kind": "branch",
+      "label": {
+        "en": "GEO8 external geometry route",
+        "zh-CN": "GEO8 外部几何路线"
+      },
+      "scope": {
+        "en": "Existing historical direction; latest exact result/review not retrieved.",
+        "zh-CN": "已有历史方向；未取最新精确 Result/review。"
+      },
+      "evidence": {
+        "mathematics": {
+          "en": "SOURCE_REFRESH_REQUIRED; no present closure assertion.",
+          "zh-CN": "SOURCE_REFRESH_REQUIRED；不声称当下闭合。"
+        },
+        "lean": {
+          "en": "SOURCE_REFRESH_REQUIRED.",
+          "zh-CN": "SOURCE_REFRESH_REQUIRED。"
+        },
+        "program": {
+          "en": "SOURCE_REFRESH_REQUIRED.",
+          "zh-CN": "SOURCE_REFRESH_REQUIRED。"
+        },
+        "publication": {
+          "en": "Historical pointers only; present main/owner status not inferred.",
+          "zh-CN": "仅历史指针；不推断当下 main/owner 状态。"
+        },
+        "formal_review": {
+          "en": "SOURCE_REFRESH_REQUIRED; no live claim inferred.",
+          "zh-CN": "SOURCE_REFRESH_REQUIRED；不推断 live claim。"
+        }
+      },
+      "frontier": {
+        "en": "Historical closure/revalidation language is not a current verdict.",
+        "zh-CN": "历史闭合/再验证措辞不是当前 verdict。"
+      },
+      "next": {
+        "en": "Refresh one exact current source/handoff if this existing route is selected.",
+        "zh-CN": "该既有路线被选中时，仅刷新一个精确当前来源/交接。"
+      },
+      "source_ids": [
+        "S21"
+      ],
+      "priority": "SOURCE_REFRESH"
+    },
+    {
+      "id": "HODGE",
+      "kind": "branch",
+      "label": {
+        "en": "Hodge program",
+        "zh-CN": "Hodge 计划"
+      },
+      "scope": {
+        "en": "Existing program; H0O is one bounded leaf, not the entire program.",
+        "zh-CN": "已有计划；H0O 是一个有界叶子，不代表整个计划。"
+      },
+      "evidence": {
+        "mathematics": {
+          "en": "Other routes: SOURCE_REFRESH_REQUIRED.",
+          "zh-CN": "其余路线：SOURCE_REFRESH_REQUIRED。"
+        },
+        "lean": {
+          "en": "SOURCE_REFRESH_REQUIRED.",
+          "zh-CN": "SOURCE_REFRESH_REQUIRED。"
+        },
+        "program": {
+          "en": "No whole-program executable audit performed.",
+          "zh-CN": "未做全计划程序审计。"
+        },
+        "publication": {
+          "en": "Only the H0O capture below was newly verified.",
+          "zh-CN": "本轮只新核实下述 H0O 捕获。"
+        },
+        "formal_review": {
+          "en": "No program-wide acceptance or claim inference.",
+          "zh-CN": "不推断全计划接受或 claim。"
+        }
+      },
+      "frontier": {
+        "en": "Do not generalize H0O seed-conservation to a Hodge/non-algebraicity theorem.",
+        "zh-CN": "不把 H0O 种子守恒外推为 Hodge/非代数性定理。"
+      },
+      "next": {
+        "en": "Finish H0O review; refresh other routes only on their own exact source.",
+        "zh-CN": "收尾 H0O 审查；其他路线按各自精确来源刷新。"
+      },
+      "source_ids": [
+        "S21",
+        "S28"
+      ],
+      "priority": "SOURCE_REFRESH"
+    },
+    {
+      "id": "H0O",
+      "kind": "frontier",
+      "label": {
+        "en": "H0O captured Result awaiting review",
+        "zh-CN": "H0O 已捕获 Result 待审"
+      },
+      "scope": {
+        "en": "Pure codimension-3 Poincare-polarization intermediate support family on the same nonsplit target.",
+        "zh-CN": "同一 nonsplit target 上 pure codim-3 Poincare-polarization 中间支撑族。"
+      },
+      "evidence": {
+        "mathematics": {
+          "en": "Original Result declares NEGATIVE_BOUNDARY: this family cannot create the first exceptional seed.",
+          "zh-CN": "原 Result 声明 NEGATIVE_BOUNDARY：此族不能创造首个 exceptional seed。"
+        },
+        "lean": {
+          "en": "No new Lean claim.",
+          "zh-CN": "不新增 Lean 声称。"
+        },
+        "program": {
+          "en": "Original output/Execution record preserved; 18 capture control checks are not a new mathematical replay.",
+          "zh-CN": "原产物/Execution record 保留；18 项捕获控制检查不是新增数学重放。"
+        },
+        "publication": {
+          "en": "MAIN_SOURCE_CAPTURED at b3d39a9 via PR1391. Old PR1148 closed as duplicated source, not mathematical closure.",
+          "zh-CN": "PR1391 / b3d39a9 已 MAIN_SOURCE_CAPTURED。旧 PR1148 作为重复源关闭，不是数学闭合。"
+        },
+        "formal_review": {
+          "en": "Canonical FROZEN_RETURN / AWAITING_REVIEW, claim null at the verified snapshot; formal Driver review pending.",
+          "zh-CN": "已核快照为 canonical FROZEN_RETURN / AWAITING_REVIEW、claim null；正式 Driver 审查待办。"
+        }
+      },
+      "frontier": {
+        "en": "No non-algebraicity claim; other genuinely mixing kernels or explicit exceptional cycles remain open.",
+        "zh-CN": "无非代数性声称；真正混合的其他核或显式 exceptional cycles 仍开放。"
+      },
+      "next": {
+        "en": "Review preserved TP2-A314F727276CFF8CE168 / RR-FB3CF77C4F611FDED79B at its exact scope; do not re-claim or re-research from this map.",
+        "zh-CN": "在精确范围审保留的 TP2-A314F727276CFF8CE168 / RR-FB3CF77C4F611FDED79B；不从图中重新 claim/研究。"
+      },
+      "source_ids": [
+        "S28"
+      ],
+      "priority": "CURRENT_CLOSEOUT"
+    }
+  ],
+  "edges": [
+    {
+      "id": "E01",
+      "from": "A3",
+      "to": "A4",
+      "type": "CONSUMES",
+      "scope": {
+        "en": "A4 explicit executable bridge consumes the A3 relation-state slice.",
+        "zh-CN": "A4 明确可执行 bridge 消费 A3 关系态切片。"
+      },
+      "source_ids": [
+        "S08",
+        "S13"
+      ]
+    },
+    {
+      "id": "E02",
+      "from": "BRC",
+      "to": "A4",
+      "type": "CONSUMES",
+      "scope": {
+        "en": "Boolean split/image/recoalescence support interface only.",
+        "zh-CN": "仅 Boolean split/image/recoalescence 支撑接口。"
+      },
+      "source_ids": [
+        "S08",
+        "S13"
+      ]
+    },
+    {
+      "id": "E03",
+      "from": "BRC",
+      "to": "A1",
+      "type": "REUSE_IDENTIFIED",
+      "scope": {
+        "en": "Typed branch histories/recurrent tools are reusable; this edge asserts no new dynamics theorem transfer.",
+        "zh-CN": "有型分支历史/recurrent 工具可复用；此边不宣称新增动力学定理传递。"
+      },
+      "source_ids": [
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "id": "E04",
+      "from": "BRC",
+      "to": "A2",
+      "type": "REUSE_IDENTIFIED",
+      "scope": {
+        "en": "Observation compression must explicitly retain the required branch/histogram data.",
+        "zh-CN": "观测压缩必须显式保留所需分支/直方图数据。"
+      },
+      "source_ids": [
+        "S03",
+        "S08"
+      ]
+    },
+    {
+      "id": "E05",
+      "from": "BRC",
+      "to": "X6",
+      "type": "CONSUMES",
+      "scope": {
+        "en": "X6 analysis consumes the native signed-BRC/Cell contract; negative analysis weights are not negative primitive populations.",
+        "zh-CN": "X6 分析消费原生 signed-BRC/Cell 合同；负分析权不是负 primitive 人口。"
+      },
+      "source_ids": [
+        "S02",
+        "S05"
+      ]
+    },
+    {
+      "id": "E06",
+      "from": "A5",
+      "to": "X6",
+      "type": "CONTAINS",
+      "scope": {
+        "en": "X6 is an A5 geometry branch, not a replacement global skeleton.",
+        "zh-CN": "X6 是 A5 几何子支，不替换全局骨架。"
+      },
+      "source_ids": [
+        "S02",
+        "S08"
+      ]
+    },
+    {
+      "id": "E07",
+      "from": "X6",
+      "to": "RAW_PAPER",
+      "type": "CONSUMES",
+      "scope": {
+        "en": "Raw results require the same anchor, labelled coordinates and Jordan cancellation.",
+        "zh-CN": "raw 结果要求同锚点、带标号坐标及 Jordan 抵消。"
+      },
+      "source_ids": [
+        "S05",
+        "S15"
+      ]
+    },
+    {
+      "id": "E08",
+      "from": "RAW_PAPER",
+      "to": "RAW_EXT",
+      "type": "CONSUMES",
+      "scope": {
+        "en": "Certificate/equality/probe extend existing raw-stability contracts, with separate classifications.",
+        "zh-CN": "证书/取等/probe 扩展现有 raw 稳定性合同，保留独立分类。"
+      },
+      "source_ids": [
+        "S15",
+        "S31"
+      ]
+    },
+    {
+      "id": "E09",
+      "from": "RAW_EXT",
+      "to": "P2_CONSUMER",
+      "type": "CONSUMES",
+      "scope": {
+        "en": "Consumer uses the existing p≤2 bound and equality paper.",
+        "zh-CN": "消费者使用已有 p≤2 界与取等论文。"
+      },
+      "source_ids": [
+        "S24",
+        "S32"
+      ]
+    },
+    {
+      "id": "E10",
+      "from": "RAW_EXT",
+      "to": "STAR",
+      "type": "CONSUMES",
+      "scope": {
+        "en": "Star papers refine the seven-point probe in a specified positive-support geometry only.",
+        "zh-CN": "star 论文仅在指定正支撑几何内细化七点 probe。"
+      },
+      "source_ids": [
+        "S31",
+        "S33",
+        "S34"
+      ]
+    },
+    {
+      "id": "E11",
+      "from": "RAW_PAPER",
+      "to": "RAW_DUAL",
+      "type": "CONSUMES",
+      "scope": {
+        "en": "Paper uses exact compression and complete raw-table dual pairing; no generic new family.",
+        "zh-CN": "论文使用精确压缩与完整 raw 表对偶配对；无新的通用 family。"
+      },
+      "source_ids": [
+        "S15",
+        "S22"
+      ]
+    },
+    {
+      "id": "E12",
+      "from": "A3",
+      "to": "A3_A4_REVIEW",
+      "type": "CONTAINS",
+      "scope": {
+        "en": "Existing A3/A4 review handoff leaf.",
+        "zh-CN": "既有 A3/A4 审查交接叶子。"
+      },
+      "source_ids": [
+        "S29",
+        "S30"
+      ]
+    },
+    {
+      "id": "E13",
+      "from": "A2",
+      "to": "P021",
+      "type": "CONSUMES",
+      "scope": {
+        "en": "Finite causal boundary explicitly consumes P018 observation/refinement.",
+        "zh-CN": "有限因果边界明确消费 P018 观测/refinement。"
+      },
+      "source_ids": [
+        "S07",
+        "S08"
+      ]
+    },
+    {
+      "id": "E14",
+      "from": "A2",
+      "to": "NUMBER_THEORY",
+      "type": "CONSUMES",
+      "scope": {
+        "en": "Scoped P018 centered-prime-radius application; not a Goldbach/Legendre proof.",
+        "zh-CN": "有范围 P018 centered-prime-radius 应用；不是 Goldbach/Legendre 证明。"
+      },
+      "source_ids": [
+        "S08"
+      ]
+    },
+    {
+      "id": "E15",
+      "from": "NUMBER_THEORY",
+      "to": "PERFECT_PRIME",
+      "type": "CONTAINS",
+      "scope": {
+        "en": "Existing number-theoretic residual route; no inferred theorem dependence on X6.",
+        "zh-CN": "既有数论 residual 路线；不推断其定理依赖 X6。"
+      },
+      "source_ids": [
+        "S19"
+      ]
+    },
+    {
+      "id": "E16",
+      "from": "A2",
+      "to": "E001",
+      "type": "CONSUMES",
+      "scope": {
+        "en": "Measured refinement consumes actual new finite observations, not interpolated continuum data.",
+        "zh-CN": "测量 refinement 消费实际新增有限观测，不是插值连续体数据。"
+      },
+      "source_ids": [
+        "S08"
+      ]
+    },
+    {
+      "id": "E17",
+      "from": "HODGE",
+      "to": "H0O",
+      "type": "CONTAINS",
+      "scope": {
+        "en": "One exact frozen negative-boundary Result awaiting mathematical review.",
+        "zh-CN": "一条精确冻结负向边界 Result，等待数学审查。"
+      },
+      "source_ids": [
+        "S28"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S01",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "aaf9b8125ba3294932b5c90d80f700e02799c88e",
+      "path": "README.md",
+      "sha256": "6a7346a84bdd0bf133681c4ee0f59591c459ca925c95471d70edf8f8c6301fc9",
+      "blob_sha1": "680734d8596e1413465ec32854c545664ca974e6",
+      "verification": "FROZEN_MAIN_SOURCE",
+      "label": {
+        "en": "README.md",
+        "zh-CN": "README.md"
+      }
+    },
+    {
+      "id": "S02",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "aaf9b8125ba3294932b5c90d80f700e02799c88e",
+      "path": "definitions/00_CURRENT_NATIVE_FOUNDATION.md",
+      "sha256": "b98bcb492b322bcc8e5c04a36143a16b0d203238e6917b564db03f6a683fe6f5",
+      "blob_sha1": "997f8b4a1d27bc7645959967b217972aa2454ef4",
+      "verification": "FROZEN_MAIN_SOURCE",
+      "label": {
+        "en": "definitions/00_CURRENT_NATIVE_FOUNDATION.md",
+        "zh-CN": "definitions/00_CURRENT_NATIVE_FOUNDATION.md"
+      }
+    },
+    {
+      "id": "S03",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "aaf9b8125ba3294932b5c90d80f700e02799c88e",
+      "path": "definitions/ENTERPRISE_BRC_CRITICAL_DEGENERACY_THEOREM_LEDGER_20260903.json",
+      "sha256": "a6db22636708a30963417edd1a3a749e5e271c57a5fc1beee4cdee85210093bf",
+      "blob_sha1": "cc8c7c98c568619a1a5278e7b13e03cdcafbee5a",
+      "verification": "FROZEN_MAIN_SOURCE",
+      "label": {
+        "en": "definitions/ENTERPRISE_BRC_CRITICAL_DEGENERACY_THEOREM_LEDGER_20260903.json",
+        "zh-CN": "definitions/ENTERPRISE_BRC_CRITICAL_DEGENERACY_THEOREM_LEDGER_20260903.json"
+      }
+    },
+    {
+      "id": "S04",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "aaf9b8125ba3294932b5c90d80f700e02799c88e",
+      "path": "definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md",
+      "sha256": "f5f637a97154c9516053efde1c0222ba444eb68cc5afebc9b347ff9b042e1515",
+      "blob_sha1": "b0988c9fa0f2f7c3314784673cf21a2df2340ebe",
+      "verification": "FROZEN_MAIN_SOURCE",
+      "label": {
+        "en": "definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md",
+        "zh-CN": "definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md"
+      }
+    },
+    {
+      "id": "S05",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "aaf9b8125ba3294932b5c90d80f700e02799c88e",
+      "path": "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md",
+      "sha256": "519a16725156be5461c6e28a0dcef664e267cff4e85120cfb257d5d540ec459e",
+      "blob_sha1": "d5afee11cea0ace14a11f984e6374a95d399a953",
+      "verification": "FROZEN_MAIN_SOURCE",
+      "label": {
+        "en": "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md",
+        "zh-CN": "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md"
+      }
+    },
+    {
+      "id": "S06",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "aaf9b8125ba3294932b5c90d80f700e02799c88e",
+      "path": "docs/ENTERPRISE_TOOLBOX_REGISTRY.md",
+      "sha256": "1a94e1728586d6a0add42bbb5fb9788281f0c057b132c93cfe5b174fde8c15e9",
+      "blob_sha1": "b2f7517791c75e1f16aa05a2bea445b2b730eea4",
+      "verification": "FROZEN_MAIN_SOURCE",
+      "label": {
+        "en": "docs/ENTERPRISE_TOOLBOX_REGISTRY.md",
+        "zh-CN": "docs/ENTERPRISE_TOOLBOX_REGISTRY.md"
+      }
+    },
+    {
+      "id": "S07",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "aaf9b8125ba3294932b5c90d80f700e02799c88e",
+      "path": "docs/PROBLEM_STATUS.zh-CN.md",
+      "sha256": "2841b3a7effc0dc579bc7cf3ed619c27706fce2be3e6c81a728a5b3fd1124a98",
+      "blob_sha1": "6f728c2f4273c8886183ae42733e5237ea96edd6",
+      "verification": "FROZEN_MAIN_SOURCE",
+      "label": {
+        "en": "docs/PROBLEM_STATUS.zh-CN.md",
+        "zh-CN": "docs/PROBLEM_STATUS.zh-CN.md"
+      }
+    },
+    {
+      "id": "S08",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "aaf9b8125ba3294932b5c90d80f700e02799c88e",
+      "path": "docs/RESEARCH_COMMON_SURFACE.en.md",
+      "sha256": "c27a61db61b3a759e235ff65e422ec6d96069e9dab1da8809de278eb7f97e7c8",
+      "blob_sha1": "8fb1dcd91bbe51162956d897cfe49d6223deffaa",
+      "verification": "FROZEN_MAIN_SOURCE",
+      "label": {
+        "en": "docs/RESEARCH_COMMON_SURFACE.en.md",
+        "zh-CN": "docs/RESEARCH_COMMON_SURFACE.en.md"
+      }
+    },
+    {
+      "id": "S09",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "aaf9b8125ba3294932b5c90d80f700e02799c88e",
+      "path": "docs/ROADMAP.zh-CN.md",
+      "sha256": "54666215710011efa341a50e0b3bfd73b676d60eb2e2fbe70979321f012b722e",
+      "blob_sha1": "a001eb56f89dd0cc2b47eed97405c166cb8d80e0",
+      "verification": "FROZEN_MAIN_SOURCE",
+      "label": {
+        "en": "docs/ROADMAP.zh-CN.md",
+        "zh-CN": "docs/ROADMAP.zh-CN.md"
+      }
+    },
+    {
+      "id": "S10",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "aaf9b8125ba3294932b5c90d80f700e02799c88e",
+      "path": "docs/THEOREMS.zh-CN.md",
+      "sha256": "e7d180cf616f5538e6135a893297a9d24cadfea704801d2d1a99cdc26ba98457",
+      "blob_sha1": "02685ec07ab10aa3a699265cbdf912de17e733fd",
+      "verification": "FROZEN_MAIN_SOURCE",
+      "label": {
+        "en": "docs/THEOREMS.zh-CN.md",
+        "zh-CN": "docs/THEOREMS.zh-CN.md"
+      }
+    },
+    {
+      "id": "S11",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "aaf9b8125ba3294932b5c90d80f700e02799c88e",
+      "path": "enterprise_toolbox_registry.json",
+      "sha256": "d8a0a7e6e2090def201175d9f42da1b1c2a56e80fe5a5220ab5c6c8e12da10e6",
+      "blob_sha1": "a2ff80764f1d93be629980300efbfccff73868e6",
+      "verification": "FROZEN_MAIN_SOURCE",
+      "label": {
+        "en": "enterprise_toolbox_registry.json",
+        "zh-CN": "enterprise_toolbox_registry.json"
+      }
+    },
+    {
+      "id": "S12",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "aaf9b8125ba3294932b5c90d80f700e02799c88e",
+      "path": "experiments/owner_raw_stability_harvest_20260908/validate_registration.py",
+      "sha256": "bfd8fa0bf33a047318d37809020b796e728b5d604e4861222cea3f469bc28983",
+      "blob_sha1": "a397b84d042cb150090ed1b7b22a84f39fc6dd59",
+      "verification": "FROZEN_MAIN_SOURCE",
+      "label": {
+        "en": "experiments/owner_raw_stability_harvest_20260908/validate_registration.py",
+        "zh-CN": "experiments/owner_raw_stability_harvest_20260908/validate_registration.py"
+      }
+    },
+    {
+      "id": "S13",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "aaf9b8125ba3294932b5c90d80f700e02799c88e",
+      "path": "research_common_surface.json",
+      "sha256": "3a2e9da23c98ab0e7daf7292bc8da8a78bcb237221dbf01d40ad377454e7f74e",
+      "blob_sha1": "ab66264e0b78cbfbfc530f9ffbff33df2f0f687e",
+      "verification": "FROZEN_MAIN_SOURCE",
+      "label": {
+        "en": "research_common_surface.json",
+        "zh-CN": "research_common_surface.json"
+      }
+    },
+    {
+      "id": "S14",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "aaf9b8125ba3294932b5c90d80f700e02799c88e",
+      "path": "research_method_inventory.json",
+      "sha256": "f6b221bcd7050ddea5965bcb80d6cf64c98e99d23f9ae6cbadb8e23a390f7402",
+      "blob_sha1": "9c855ac0a8477174ce29e6de482c1b36bc0ef7d3",
+      "verification": "FROZEN_MAIN_SOURCE",
+      "label": {
+        "en": "research_method_inventory.json",
+        "zh-CN": "research_method_inventory.json"
+      }
+    },
+    {
+      "id": "S15",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "aaf9b8125ba3294932b5c90d80f700e02799c88e",
+      "path": "research_method_inventory_addenda/20260908_owner_raw_stability_results.json",
+      "sha256": "b1d4d216f76bde3fa2964912db68c96d5ff68b661ce793054e18df44048e95eb",
+      "blob_sha1": "a37488ff5cd636794f74fe7594b965b3c17a82db",
+      "verification": "FROZEN_MAIN_SOURCE",
+      "label": {
+        "en": "research_method_inventory_addenda/20260908_owner_raw_stability_results.json",
+        "zh-CN": "research_method_inventory_addenda/20260908_owner_raw_stability_results.json"
+      }
+    },
+    {
+      "id": "S16",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "aaf9b8125ba3294932b5c90d80f700e02799c88e",
+      "path": "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_BOUND_REVIEW_20260908.md",
+      "sha256": "1bb732a50cccbbec6c8c11950104c62eed9afc15f326fcc39d9142bd13b24a35",
+      "blob_sha1": "f0cd625451218dafce5db9f3b589a6111033f5f8",
+      "verification": "FROZEN_MAIN_SOURCE",
+      "label": {
+        "en": "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_BOUND_REVIEW_20260908.md",
+        "zh-CN": "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_BOUND_REVIEW_20260908.md"
+      }
+    },
+    {
+      "id": "S17",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "aaf9b8125ba3294932b5c90d80f700e02799c88e",
+      "path": "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_INDEPENDENT_AUDIT_20260908.md",
+      "sha256": "f610e3d642b53279efa91dec15ad3b392270768f73ad0a31edf38212b60be61c",
+      "blob_sha1": "7468f8e09da6aa787f8824645a62a1b13dfcfe68",
+      "verification": "FROZEN_MAIN_SOURCE",
+      "label": {
+        "en": "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_INDEPENDENT_AUDIT_20260908.md",
+        "zh-CN": "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_INDEPENDENT_AUDIT_20260908.md"
+      }
+    },
+    {
+      "id": "S18",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "aaf9b8125ba3294932b5c90d80f700e02799c88e",
+      "path": "research_result_records/RS-PERFECT-PRIME-AP-RESIDUAL-MOBIUS-BERNSTEIN-COEFFICIENT-POSITIVITY/RR-23D512CBD58341BB6BDB.json",
+      "sha256": "c9e89b1b54d21e196ac6ba23a810d4f701bedc9b879b9d3d2fee8cb3dea40a21",
+      "blob_sha1": "e5ed3c63d3f9cc0449bf6d6e1ba7efee270fa1b2",
+      "verification": "FROZEN_MAIN_SOURCE",
+      "label": {
+        "en": "research_result_records/RS-PERFECT-PRIME-AP-RESIDUAL-MOBIUS-BERNSTEIN-COEFFICIENT-POSITIVITY/RR-23D512CBD58341BB6BDB.json",
+        "zh-CN": "research_result_records/RS-PERFECT-PRIME-AP-RESIDUAL-MOBIUS-BERNSTEIN-COEFFICIENT-POSITIVITY/RR-23D512CBD58341BB6BDB.json"
+      }
+    },
+    {
+      "id": "S19",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "aaf9b8125ba3294932b5c90d80f700e02799c88e",
+      "path": "research_returns/PERFECT_PRIME_AP_RESIDUAL_MOBIUS_BERNSTEIN_COEFFICIENT_POSITIVITY_RETURN_20260903.md",
+      "sha256": "617b34abac20d524023933a09777b85aa4220e1962283586c1c2121d3031b28d",
+      "blob_sha1": "19a0bcf5eee3c6100443d66ed9a53d2979a5ace0",
+      "verification": "FROZEN_MAIN_SOURCE",
+      "label": {
+        "en": "research_returns/PERFECT_PRIME_AP_RESIDUAL_MOBIUS_BERNSTEIN_COEFFICIENT_POSITIVITY_RETURN_20260903.md",
+        "zh-CN": "research_returns/PERFECT_PRIME_AP_RESIDUAL_MOBIUS_BERNSTEIN_COEFFICIENT_POSITIVITY_RETURN_20260903.md"
+      }
+    },
+    {
+      "id": "S20",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "aaf9b8125ba3294932b5c90d80f700e02799c88e",
+      "path": "research_task_records/RS-PERFECT-PRIME-AP-RESIDUAL-MOBIUS-BERNSTEIN-COEFFICIENT-POSITIVITY/TP2-8C910B14D7B854905F6E.json",
+      "sha256": "16283a9087c8a84685f418de70f5c6592188c0dd97e4cd929cdaca31717df62e",
+      "blob_sha1": "cdd39d1d29cb1d14136cdb3edb70f9e2b3d4fa36",
+      "verification": "FROZEN_MAIN_SOURCE",
+      "label": {
+        "en": "research_task_records/RS-PERFECT-PRIME-AP-RESIDUAL-MOBIUS-BERNSTEIN-COEFFICIENT-POSITIVITY/TP2-8C910B14D7B854905F6E.json",
+        "zh-CN": "research_task_records/RS-PERFECT-PRIME-AP-RESIDUAL-MOBIUS-BERNSTEIN-COEFFICIENT-POSITIVITY/TP2-8C910B14D7B854905F6E.json"
+      }
+    },
+    {
+      "id": "S21",
+      "kind": "git_file",
+      "repository": "awdawmip/chatgpt-global-knowledge",
+      "commit": "a624e4dad38f144ff748892c1e08f134eb396007",
+      "path": "projects/enterprise-math/DRIVER_CONTINUITY.md",
+      "sha256": "494c7c3df7594dffbadee810f78d9b70f2d189de19b0fe80ec29bfd4b42e72b8",
+      "blob_sha1": "9fd8a7b7db138079144ea1bfa52801cb40e392ed",
+      "verification": "HISTORICAL_ROUTING_ONLY",
+      "label": {
+        "en": "Historical Driver Continuity",
+        "zh-CN": "历史 Driver Continuity"
+      }
+    },
+    {
+      "id": "S22",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "6724f761dd2aff998892a331efb5649d835b0f8d",
+      "path": "research_notes/OWNER_COMPRESSED_RAW_DUAL_CERTIFICATE_REVIEW_20260908.md",
+      "sha256": "193e5833b3d59e434ff656779839501af6ddd6ece9a40b6fe36aad406071bbdc",
+      "blob_sha1": "f5c3dce075c7fc73846dc409363d93e532bdfea1",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "Compressed raw dual certificate paper",
+        "zh-CN": "压缩 raw 对偶证书论文"
+      }
+    },
+    {
+      "id": "S23",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "aa5683f158b993f8a3aa7e4e6bbfcf426768cd75",
+      "path": "experiments/owner_raw_stability_extensions_harvest_20260908/current_main_composition_20260908.json",
+      "sha256": "0d93b2484c07bce5c5fd7e9d598c0a089952c7c63e1de3e487741f6a9f6f00fe",
+      "blob_sha1": "354cfde85d5b4dfae7d8e8ca7e31b3c1036c42c5",
+      "verification": "PUBLISHED_RECEIPT_NOT_REEXECUTED",
+      "label": {
+        "en": "Raw extension composition receipt (execution at its recorded input)",
+        "zh-CN": "raw 扩展组合回执（执行输入见回执）"
+      }
+    },
+    {
+      "id": "S24",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "3ac5a5dd0e3b62f489cf1a5a1739b63b90c53b8f",
+      "path": "experiments/owner_two_positive_stability_20260908/check_two_positive_stability.py",
+      "sha256": "3fe2fa6c824b7cff1fca4ad9a3f0235fc008c2a00b152893559eed54d2f63da7",
+      "blob_sha1": "7049569438bb97699a7fcfd811795b6197be464e",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "Two-positive consumer",
+        "zh-CN": "双正消费者"
+      }
+    },
+    {
+      "id": "S25",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "3ac5a5dd0e3b62f489cf1a5a1739b63b90c53b8f",
+      "path": "experiments/owner_two_positive_stability_20260908/certificate.json",
+      "sha256": "244e9cd7844e391b3f19cdbebaaad36fd70ddf14c97701252847ca2a50761e7e",
+      "blob_sha1": "4fbdc44eba56c956c18a9e1b9a62ea99e048b285",
+      "verification": "PUBLISHED_RECEIPT_NOT_REEXECUTED",
+      "label": {
+        "en": "Two-positive author certificate",
+        "zh-CN": "双正作者证书"
+      }
+    },
+    {
+      "id": "S26",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "3ac5a5dd0e3b62f489cf1a5a1739b63b90c53b8f",
+      "path": "experiments/owner_two_positive_stability_20260908/independent_review_20260908/README.md",
+      "sha256": "c01d49cd12927db32cb14a515707ebf4e4c72214caf47f2229bc7eaff9e2490a",
+      "blob_sha1": "8a4f749895b537231cb9e87ce9c4882e8152fb56",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "Two-positive portable independent review",
+        "zh-CN": "双正可移植独审"
+      }
+    },
+    {
+      "id": "S27",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "3ac5a5dd0e3b62f489cf1a5a1739b63b90c53b8f",
+      "path": "experiments/owner_two_positive_stability_20260908/independent_review_20260908/validation.json",
+      "sha256": "513f65ccf2c08796adadfd2ebeafb4fd8fb4f2fb6b540d913af537a51df479ac",
+      "blob_sha1": "5212df5e208ada5b4d4e227e59df800c88d8bac4",
+      "verification": "PUBLISHED_RECEIPT_NOT_REEXECUTED",
+      "label": {
+        "en": "Two-positive independent execution receipt",
+        "zh-CN": "双正独立执行回执"
+      }
+    },
+    {
+      "id": "S28",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "b3d39a9ccb0bef7ca9d9eec74eb6175ac4ed0e26",
+      "path": "research_result_records/RS-HODGE-H0O-NONSPLIT-WEIL-INTERMEDIATE-SUPPORT-FM-EXCEPTIONAL-CH3/RR-FB3CF77C4F611FDED79B.json",
+      "sha256": "41acd75fe81e00f1561d6076c5b8987da829079b751f55b9a6adf152c6433657",
+      "blob_sha1": "909731b2cf44088860e00fb87f7b53d34eb5e98c",
+      "verification": "RETURN_DECLARATION_NOT_REVIEW",
+      "label": {
+        "en": "H0O original Result captured unchanged on main",
+        "zh-CN": "H0O 原 Result 原字节捕获入 main"
+      }
+    },
+    {
+      "id": "S29",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "684754b69d1767a4c38b6c56af3fa2d0a43cc62c",
+      "path": "research_returns/A3_A4_GENERATED_SUPPORT_QUOTIENT_INTERPOLATION_RETURN_20260830.md",
+      "sha256": "f954f4f7038e01c064e6188ddac15fa4ee49394958a2b938da5f1a42052477d5",
+      "blob_sha1": "6c5007e2f60e87bdcdf03f2759bdcef55806826d",
+      "verification": "RETURN_DECLARATION_NOT_REVIEW",
+      "label": {
+        "en": "PR955 frozen return",
+        "zh-CN": "PR955 冻结交回"
+      }
+    },
+    {
+      "id": "S30",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "3ac5a5dd0e3b62f489cf1a5a1739b63b90c53b8f",
+      "path": "research_notes/OWNER_A3_A4_QUOTIENT_IMAGE_CORRECTION_20260908.md",
+      "sha256": "cbed25b3548323770b973430df4ccbd9c31a8f772886b6fd8a1d4d3ea42bdafb",
+      "blob_sha1": "a73304d84681588118ea89682f9bc8caecc444b9",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "A3/A4 realizable-image quotient correction",
+        "zh-CN": "A3/A4 可实现像商纠正"
+      }
+    },
+    {
+      "id": "S31",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "aa5683f158b993f8a3aa7e4e6bbfcf426768cd75",
+      "path": "research_method_inventory_addenda/20260908_owner_raw_stability_extensions.json",
+      "sha256": "506bc35b11c211f351d26ac0f19e1f3ba09b841521cfb49302067f69b293b571",
+      "blob_sha1": "6ce5ac1cfe55213b3164f085e960d96e0a54a178",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "Three raw extensions: exact classifications and APIs",
+        "zh-CN": "三条 raw 扩展：精确分类与 API"
+      }
+    },
+    {
+      "id": "S32",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "3ac5a5dd0e3b62f489cf1a5a1739b63b90c53b8f",
+      "path": "experiments/owner_two_positive_stability_20260908/README.md",
+      "sha256": "929dedf2a8f5ac05b965406ad15eca1ecab27c05d9586fdbdf2406af2843c327",
+      "blob_sha1": "c8c6f22777ca0de3025baedac3222c54d942c307",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "Two-positive consumer contract",
+        "zh-CN": "双正消费者合同"
+      }
+    },
+    {
+      "id": "S33",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "6724f761dd2aff998892a331efb5649d835b0f8d",
+      "path": "research_notes/OWNER_THREE_POSITIVE_STAR_SHARP_STABILITY_REVIEW_20260908.md",
+      "sha256": "6a809986a77a5cc21deb8cdb4062af13d44993fc465b073111eaacf5f7671fe1",
+      "blob_sha1": "5b6fea6391484f4df7c5c16dcd45ff27199a6f40",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "Star subclass sharp bound and equality paper",
+        "zh-CN": "star 子类 sharp 界与取等论文"
+      }
+    },
+    {
+      "id": "S34",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "6724f761dd2aff998892a331efb5649d835b0f8d",
+      "path": "research_notes/OWNER_THREE_POSITIVE_STAR_WEIGHT_PROFILE_REVIEW_20260908.md",
+      "sha256": "fe5169d2e5e093d21753ad27994825ecf4f58d9ea2fa19d042dd445e78b6e0e6",
+      "blob_sha1": "d9a6ba5fc2690b92cc54e0dc5785603b4625d288",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "Star fixed-weight equal-mass profile paper",
+        "zh-CN": "star 固定权等质量轮廓论文"
+      }
+    },
+    {
+      "id": "S35",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "c27616a2e176c2d03000ad2e56a72280f8bd205a",
+      "path": "experiments/20260908_owner_two_positive_stability/current_main_composition_20260908.json",
+      "sha256": "12678881fee7a0074da3bc77a9baed5ed52858041f9d9a0a7a9839f003f90ae2",
+      "blob_sha1": "0cbcff43d7425b5f623c2c0125969032aaaee019",
+      "verification": "PUBLISHED_RECEIPT_NOT_REEXECUTED",
+      "label": {
+        "en": "Two-positive current-main composition receipt (original execution generation)",
+        "zh-CN": "双正当前主线组合回执（原执行代次）"
+      }
+    }
+  ]
+}

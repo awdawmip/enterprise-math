@@ -5,6 +5,8 @@
 
 目的：让每条研究路线共享一份紧凑的可复用数学、canonical executable/formal 资产、负向边界、活跃接口警报与实时路由。本文件是路由器，不替代精确定理文档或证明。
 
+- [研究进度图：证据、未完前沿与下一步](RESEARCH_PROGRESS_MAP.zh-CN.md) — 由 `tools/render_research_progress_map.py` 生成。
+
 ## 1. 强制预检
 
 开展实质性的 L1/L2/L3 研究前：
