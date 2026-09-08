@@ -73,6 +73,23 @@ Reuse all 406 distinct prime pairs from `[101,251]`, with factors known at fixtu
 
 The two additional certificates are `17473=101*173` in D and `31553=139*227` in U. Their verified sums are 274 and 366. Thus this channel contributes positive cases in both initial populations. The union is an offline comparison of hit sets, not a newly deployed routing or target-attack workflow.
 
+## Positive classes with moderately balanced factors
+
+For the fixed `a=8`, `epsilon=+1` branch, a certified square satisfies `c²=15t+1`. Its residue modulo 15 is one of `1,4,11,14`. Writing `c=15k+r` exposes four positive classes:
+
+| r | Explicit source-integer factorization |
+|---|---|
+| 1 | `(8k+1)(120k+1)` |
+| 4 | `(24k+5)(40k+13)` |
+| 11 | `(24k+19)(40k+27)` |
+| 14 | `(8k+7)(120k+119)` |
+
+Every row follows by expansion of `N=64(c²-1)/15+1`. For `k>=1`, the middle two classes satisfy `1<v/u<2`. In the r=4 class, `v-u=16k+8>0` and `2u-v=8k-3>0`; in the r=11 class, the latter difference is `8k+11>0`. Both ratios tend to `5/3`.
+
+The two added cohort hits are exactly r=4, k=4 and r=11, k=5. Thus the observed extra coverage is supported by explicit moderately balanced positive families, not only by the more imbalanced first parametrization. The fixed audit checks all four classes for `1<=k<=16`, including 32 balanced constructions. These overlap some earlier fixtures and are not added to the 406-input denominator.
+
+The residue `c mod 15` is a classification of a certified success. It is not assumed available as a free predictor before the square test. This is an explicit specialization of the existing multiplier split, with no new method-novelty claim.
+
 ## Cost with unsuccessful observations included
 
 A separate background contains every odd integer from 4097 through 8191: 2,048 inputs spanning complete low-bit periods. Exactly 128 pass the gate; four produce verified proper decompositions. These inputs and the prime-pair cohort are reported separately.
