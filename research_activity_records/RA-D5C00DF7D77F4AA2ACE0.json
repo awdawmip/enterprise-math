@@ -1,13 +1,50 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-D5C00DF7D77F4AA2ACE0",
-  "registration_key": "session:local-chat-ns-openai-audit-d5c00df7d77f4aa2ace0:TASK_RESEARCH",
-  "registration_origin": {"kind": "LIVE_SESSION", "source_tracking_key": null},
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "7773f38ae555eebbbec2b880debe2bff1d7201b2",
+          "path": "research_notes/ns-openai-forcing-audit-d5c00d.checkpoint.json",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "eb714dede0b9e1b2fcae031875b2dd1ba8cc841c8754a1ce54fae2ddb6f53f78",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "e28fb672ec3aa4aa766ff05831e1947b8ae0519e",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/7773f38ae555eebbbec2b880debe2bff1d7201b2/research_notes/ns-openai-forcing-audit-d5c00d.checkpoint.json",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "local-observation-turn100-full-checkpoint",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-D5C00DF7D77F4AA2ACE0/readbacks/3e530cdebd5f33e1909464617b7141dccd708bfcf7009702b73082fd4ed21845.json",
+          "verification_receipt_sha256": "3e530cdebd5f33e1909464617b7141dccd708bfcf7009702b73082fd4ed21845"
+        }
+      ],
+      "event_id": "NS-OPENAI-FORCING-AUDIT-20260909-D5C00D-01",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
   "mode": "TASK_RESEARCH",
-  "researcher_id": "EM-DIRECT-D5C00D",
-  "session_id": "local-chat-ns-openai-audit-d5c00df7d77f4aa2ace0",
-  "session_state": "KNOWN",
   "recorded_at": "2026-09-08T23:25:53.054969+00:00",
-  "authority": {"task_registration": false, "claim": false, "review": false, "working_truth": false, "mathematical_acceptance": false},
-  "checkpoints": []
+  "registration_key": "session:local-chat-ns-openai-audit-d5c00df7d77f4aa2ace0:TASK_RESEARCH",
+  "registration_origin": {
+    "kind": "LIVE_SESSION",
+    "source_tracking_key": null
+  },
+  "researcher_id": "EM-DIRECT-D5C00D",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
+  "session_id": "local-chat-ns-openai-audit-d5c00df7d77f4aa2ace0",
+  "session_state": "KNOWN"
 }
