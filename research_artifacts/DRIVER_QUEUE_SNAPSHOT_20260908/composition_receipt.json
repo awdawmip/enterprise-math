@@ -1,0 +1,46 @@
+{
+  "schema": "EM_DRIVER_QUEUE_SNAPSHOT_COMPOSITION_V1",
+  "scope": "READ_ONLY_QUEUE_NO_NEW_AUTHORITY",
+  "fixture_and_import_tests": "8 tests PASS in author worktree; independent code review PASS",
+  "before": {
+    "status": "TIME_BOUND_INCOMPLETE",
+    "process_id": 8284,
+    "command": "\"C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe\" -B -X utf8 -m tools.research_driver_queue list --limit 12",
+    "started_at": "2026-09-08T07:00:53.3264890Z",
+    "stopped_at": "2026-09-08T07:24:47.0747818Z",
+    "reason": "Bounded read-only baseline; canonical task dispatch already completed. Independent snapshot reuse repair in progress. No queue rows or empty-queue conclusion obtained."
+  },
+  "after": {
+    "started_at": "2026-09-08T07:41:02.574386+00:00",
+    "elapsed_seconds": 139.25688210000226,
+    "argv": [
+      "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "tools/research_driver_queue.py",
+      "list",
+      "--limit",
+      "12"
+    ],
+    "exit_code": 0,
+    "queue_facade_sha256": "3ef77cc9499492c73a46cf2c9c516a1a516be48f62273126deafd92d25675962",
+    "base_tree": "a01024c608e8e64165d1c05faf5b18cf9e779c3e",
+    "stdout_sha256": "a018f1b79d8197dcb9822c16c1ce7b596ad78ee6c21cf9a7302d2d920b03e5b2",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "row_count": 12,
+    "scope": "Actual read-only current-store direct CLI; 12-row display limit; preserved authority snapshot boundaries"
+  },
+  "comparison_limit": "The baseline did not complete, and the timed repaired tree additionally contains the recovered PFSSV source Result. This is an observed completion improvement, not an exact same-tree throughput benchmark or a whole-output equivalence proof. Fixture comparison preserves output equality and sorting. Twelve displayed rows are not the total queue size.",
+  "production_sha256": "3ef77cc9499492c73a46cf2c9c516a1a516be48f62273126deafd92d25675962",
+  "preserved_boundaries": [
+    "operational Result and review sources",
+    "same-generation siblings",
+    "state and priority ordering",
+    "exact source/authority validation",
+    "reader restoration on exception",
+    "source-set and byte drift rejection on context exit"
+  ],
+  "published_display_line_endings": "LF derivative of preserved actual stdout",
+  "published_display_sha256": "fe4000e2d98724e5c2f6dbea6e717d62d11bd1dffa227f35d3ec373c5ed9885d"
+}

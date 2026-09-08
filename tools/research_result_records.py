@@ -153,6 +153,13 @@ def audit(root: Path = ROOT) -> list[str]:
     return errors
 
 
+def _canonical_transaction_audit(root: Path = ROOT) -> list[str]:
+    """Use the exact pinned operational audit; retain raw history diagnostics."""
+    from control_plane import check_result_review_binding_fault_isolated
+
+    return check_result_review_binding_fault_isolated.audit(root)
+
+
 def _parallel_results(root: Path = ROOT) -> dict[str, dict[str, Any]]:
     return result_map(root)
 
@@ -471,7 +478,7 @@ def command_freeze_transactional(args: argparse.Namespace) -> int:
     try:
         _write_tx.commit(
             [_write_tx.PlannedFile(out, _write_tx.json_bytes(record))],
-            postcheck=lambda: audit(ROOT),
+            postcheck=lambda: _canonical_transaction_audit(ROOT),
         )
     except _write_tx.ImmutableWriteTransactionError as exc:
         raise ResultRecordError(f"result transaction failed with no committed candidate: {exc}") from exc
@@ -551,7 +558,7 @@ def command_review_with_authority(args: argparse.Namespace) -> int:
     try:
         _write_tx.commit(
             [_write_tx.PlannedFile(out, _write_tx.json_bytes(record))],
-            postcheck=lambda: audit(ROOT),
+            postcheck=lambda: _canonical_transaction_audit(ROOT),
         )
     except _write_tx.ImmutableWriteTransactionError as exc:
         raise ResultRecordError(f"review transaction failed with no committed candidate: {exc}") from exc

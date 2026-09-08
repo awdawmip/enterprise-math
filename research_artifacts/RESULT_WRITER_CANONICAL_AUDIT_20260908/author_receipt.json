@@ -1,0 +1,95 @@
+{
+  "status": "PASS_BOUNDED_LOCAL_REPAIR",
+  "executed_at_utc": "2026-09-08T08:30:53.279922+00:00",
+  "scope": "CONTROL_PLANE_MAINTENANCE; two existing writer postchecks consume the complete existing exact-pinned checker; no authority, record or mathematical changes",
+  "base_sha": "6efc3fdbad07bddee88270d10fc0ca2554a1184c",
+  "base_tree": "a01024c608e8e64165d1c05faf5b18cf9e779c3e",
+  "global_canonical_context_sha": "3ba96df2520adb0a8a8f505e4a8c381a4a465215",
+  "global_context_is_not_write_authority": true,
+  "production_frozen_before_root_actual_transaction": true,
+  "failure_source": {
+    "root_reported_actual_command_chunk": "0f1790",
+    "root_reported_exit_code": 1,
+    "target_result_id": "RR-3287C6124F8D8A1F0901",
+    "outcome": "raw historical errors caused postcheck rollback; no committed candidate",
+    "independently_reproduced": "r4 test_old_raw_postcheck_reproduces_rollback and freeze comparison using real TEMP transactions"
+  },
+  "final_execution": {
+    "argv": [
+      "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "-m",
+      "unittest",
+      "tests.test_result_writer_canonical_post_audit",
+      "tests.test_superseded_result_audit_boundary_20260907",
+      "tests.test_result_review_binding_isolation_unittest",
+      "-v"
+    ],
+    "cwd": "D:\\em\\control-review-writer-audit-20260908",
+    "exit_code": 0,
+    "elapsed_seconds": 13.937000000005355,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "4c36bd56b057f15dba7493aaae390f5347f9bdaa628039b3592c39d99ec734f2",
+    "test_sha256": "3ddb4e22072d877029153bb320ab04668e4cdf237a480384ac3ca39dd265a503"
+  },
+  "tests": {
+    "new_tests": 8,
+    "existing_tests": 8,
+    "total": 16,
+    "unittest_elapsed_seconds": 13.465,
+    "positive": "Real pinned RR68 historical errors are strictly visible but canonical checker accepts unrelated valid review/freeze; prior source bytes and review retained.",
+    "negative": [
+      "old raw audit postcheck rolls back review and freeze",
+      "unregistered invalid Result remains rejected; transaction removes only its own candidate",
+      "registered Result blob drift rejected",
+      "unused/stale exact suppression rejected",
+      "candidate Result digest, artifact digest, publication binding, disposition and duplicate review rejected before commit",
+      "inactive Driver and unknown Result rejected before commit"
+    ]
+  },
+  "fixture_boundary": {
+    "source": "Actual immutable RR68 + PFSSV Result/execution/artifact bytes, exact RR68 superseded row and lineage, exact PFSSV compatibility row; existing real source-backed Driver authority copied to TEMP",
+    "scheduler_bootstrap": "Test substitutes only general task-scheduler startup with the three real Result/review adapter installations; no active-Driver, candidate validation, strict audit, isolation filter or immutable transaction is mocked",
+    "review_phase": "Second immutable review fixture avoids creating task/followup state; root independently executes actual first-review plus followup transaction",
+    "not_run_here": [
+      "actual PFSSV source write",
+      "full current-store queue",
+      "full reference or all-shard CI",
+      "mathematical execution"
+    ]
+  },
+  "preservation": {
+    "receipt": "preservation.json",
+    "sha256": "198426d22706477ac1039e4b877645fd9f3d17b443066afa108a35d93f40db51",
+    "baseline_entries": 4717,
+    "all_other_baseline_entries_byte_identical": 4715,
+    "public_audit_and_startup_unchanged": true,
+    "candidate_and_transaction_validation_sources_unchanged": true
+  },
+  "retained_attempts": [
+    {
+      "receipt": "r0-fixture-smoke.json",
+      "outcome": "FAIL: small fixture initially omitted existing exact PFSSV compatibility repair; added original exact row only"
+    },
+    {
+      "receipt": "r1-fixture-smoke.json",
+      "outcome": "FAIL: generic scheduler bootstrap required unrelated task-semantic registry; bounded Result fixture uses actual Result/review adapters"
+    },
+    {
+      "receipt": "r2-fixture-suite.json",
+      "outcome": "FAIL: test root forwarding lost installed wrapper markers; functools.wraps preserves marker so canonical installation does not replace fixture default root"
+    },
+    {
+      "receipt": "r3-fixture-suite.json",
+      "outcome": "PASS: initial seven transaction tests"
+    },
+    {
+      "receipt": "r4-focused-suite.json",
+      "outcome": "PASS: final eight new plus eight existing tests"
+    }
+  ],
+  "raw_audit_default": "Unchanged, retains historical diagnostic errors; no double containment",
+  "repositories_modified": "Only three listed source/test paths; no git add, commit, push, PR, source Result/review/registry write"
+}

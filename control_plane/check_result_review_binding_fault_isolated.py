@@ -15,23 +15,23 @@ from control_plane import research_result_record_audit_fault_isolation as result
 from control_plane import research_result_authority_fault_isolation as result_authority_isolation
 
 
-def audit() -> list[str]:
+def audit(root: Path = ROOT) -> list[str]:
     errors: list[str] = []
     try:
-        binding_rows = binding_isolation.validated_quarantines(ROOT)
-        binding_isolation.install(ROOT)
+        binding_rows = binding_isolation.validated_quarantines(root)
+        binding_isolation.install(root)
 
-        review_rows = review_audit_isolation.validated_rows(ROOT)
-        review_audit_isolation.install(ROOT)
+        review_rows = review_audit_isolation.validated_rows(root)
+        review_audit_isolation.install(root)
 
-        result_audit_isolation.validated_rows(ROOT)
-        result_authority_isolation.install(ROOT)
+        result_audit_isolation.validated_rows(root)
+        result_authority_isolation.install(root)
 
         from tools import research_result_records
 
         operational_review_ids = {
             str(item.get("review_id"))
-            for item in research_result_records.iter_reviews(ROOT)
+            for item in research_result_records.iter_reviews(root)
             if isinstance(item.get("review_id"), str)
         }
         leaked_binding = sorted(set(binding_rows) & operational_review_ids)
@@ -45,9 +45,9 @@ def audit() -> list[str]:
                 f"{review_audit_isolation.QUARANTINE_FILE}: invalid reviews remain operational: {leaked_invalid}"
             )
 
-        strict_errors = research_result_records.audit(ROOT)
+        strict_errors = research_result_records.audit(root)
         errors.extend(result_authority_isolation.audit_against(
-            result_audit_isolation.audit_against(strict_errors, ROOT), ROOT
+            result_audit_isolation.audit_against(strict_errors, root), root
         ))
     except Exception as exc:
         errors.append(str(exc))
