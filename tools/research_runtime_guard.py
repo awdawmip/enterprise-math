@@ -23,9 +23,58 @@ from control_plane.research_runtime_guard_core import *  # noqa: F401,F403
 from control_plane import research_runtime_guard_core as _core
 from control_plane import research_source_firewall as _firewall
 from control_plane import research_startup_transport as _startup
+from tools import research_activity as _activity
 
 ROOT = _core.ROOT
 RuntimeAuthorizationError = _core.RuntimeAuthorizationError
+
+
+def _is_activity_state(state: Mapping[str, Any]) -> bool:
+    # Activity metadata cannot opt a task/claim out of its original authority checks.
+    if any(key in state for key in (
+        "task", "task_id", "publication_id", "task_registration", "owner_claim",
+        "execution_scope", "execution_binding", "execution_record_id"
+    )):
+        return False
+    return state.get("research_mode", state.get("mode")) not in (
+        "CONTROL_PLANE_MAINTENANCE", "RESEARCH_DRIVER", "FOUNDATION_STEWARD"
+    )
+
+
+def _activity_gate(state: Mapping[str, Any], boundary: str, root: Path) -> dict[str, Any]:
+    try:
+        result = _activity.guard(activity_id=state.get("activity_id"), boundary=boundary,
+            event_id=state.get("research_checkpoint_event_id"), session_id=state.get("session_id"),
+            registration_source=state.get("activity_registration_source"),
+            new_semantic_progress=state.get("new_semantic_progress", True), root=root)
+        result["authorized"] = False
+        result["authorization_authority"] = "ACTIVITY_BOOKKEEPING_ONLY_NO_TASK_AUTHORITY"
+        return result
+    except (ValueError, OSError) as exc:
+        raise RuntimeAuthorizationError(f"research activity guard: {exc}") from exc
+
+
+def pre_final_gate(state: Mapping[str, Any], *, root: Path = ROOT) -> dict[str, Any]:
+    if not _is_activity_state(state):
+        return _core.pre_final_gate(state, root=root)
+    result = _activity_gate(state, "pre-final", root)
+    result["final_allowed"] = False
+    if result["activity_allowed"] and result["persistence_allowed"]:
+        liveness = state.get("parent_liveness")
+        if not isinstance(liveness, Mapping):
+            result["required_action"] = "EVALUATE_PARENT_LIVENESS"
+        else:
+            from tools import active_turn_liveness
+            result["parent_liveness"] = active_turn_liveness.evaluate(liveness)
+            if liveness["parent_objective_complete"] and liveness["executable_next_actions"] > 0:
+                result["parent_liveness"].update(
+                    transition=active_turn_liveness.CONTROL_STATE_INCONSISTENT,
+                    final_allowed=False,
+                    required_action=active_turn_liveness.REQUIRED_ACTIONS[active_turn_liveness.CONTROL_STATE_INCONSISTENT],
+                    reason="parent is marked complete while executable work remains")
+            result["final_allowed"] = result["parent_liveness"]["final_allowed"]
+            result["required_action"] = result["parent_liveness"]["required_action"]
+    return result
 
 
 def _raise_firewall(exc: Exception) -> None:
@@ -40,6 +89,8 @@ def authorize_execution(
     root: Path = ROOT,
 ) -> dict[str, Any]:
     """Authorize the existing winning CLAIM, then enforce opt-in PRE_MATH."""
+    if _is_activity_state(state):
+        return _activity_gate(state, "startup", root)
     result = _startup.attach(
         _core.authorize_execution(state, events=events, now=now, root=root)
     )
@@ -294,7 +345,7 @@ def main() -> int:
     if args.command == "authorize":
         result = authorize_execution(state, events=events, now=parsed_now)
     elif args.command == "pre-final":
-        result = _core.pre_final_gate(state)
+        result = pre_final_gate(state)
     elif args.command == "terminal":
         result = _core.apply_terminal_event(state, args.event)
     elif args.command == "adopt":
@@ -341,6 +392,9 @@ def main() -> int:
         raise AssertionError(args.command)
 
     print(json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True))
+    if _is_activity_state(state) and args.command in ("authorize", "pre-final"):
+        allowed = (result["activity_allowed"] and result["persistence_allowed"]) if args.command == "authorize" else result["final_allowed"]
+        return 0 if allowed else 2
     return 0
 
 

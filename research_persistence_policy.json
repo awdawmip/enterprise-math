@@ -77,5 +77,23 @@
     "GLOBAL_JOURNAL_CAN_SUBSTITUTE_FOR_PROJECT_ARTIFACT": false,
     "JOURNAL_ONLY_STATE": "SYNC_DEBT",
     "PERSISTENCE_IMPLIES_PROMOTION": false
+  },
+  "activity_entrypoint": {
+    "tool": "tools/research_activity.py",
+    "protocol": "docs/RESEARCH_ACTIVITY_PROTOCOL.md",
+    "runtime_guard": "tools/research_runtime_guard.py",
+    "record_store": "research_activity_records/<RA-id>.json",
+    "owner_overview": "research_control_dispatch.py:research_activity_overview",
+    "includes": ["DIRECT_TASK_RESEARCH", "FREE_AXIOM_DISCOVERY_PHASE_A", "RETROSPECTIVE_SOURCE_TRACKING"],
+    "question_required": false,
+    "activity_is_formal_task_or_claim": false,
+    "registration_visibility_requires_immutable_em_readback": true,
+    "source_branch_implies_canonical_owner_visibility": false,
+    "checkpoint_update_requires_expected_sha256": true,
+    "event_id_conflict_overwrites_history": false,
+    "unknown_publication_action": "VERIFY_EM_PUBLICATION",
+    "kb_only_state": "SYNC_DEBT",
+    "observed_connector_json_is_server_signed": false,
+    "retrospective_unknown_session_may_be_invented": false
   }
 }
