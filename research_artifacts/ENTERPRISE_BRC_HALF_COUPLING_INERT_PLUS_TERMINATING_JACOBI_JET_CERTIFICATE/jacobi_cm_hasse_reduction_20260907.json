@@ -1,0 +1,45 @@
+{
+  "schema": "ENTERPRISE_BRC_EBP6JT_CM_HASSE_REDUCTION_V2",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-TERMINATING-JACOBI-JET-CERTIFICATE",
+  "publication_id": "TP2-A19C97A703AF47D1CBEC",
+  "claim_id": "chatgpt-ebp6jt-20260907-1010-sol7f3a",
+  "researcher_id": "EM-EBP6JT-25C94A",
+  "hard_target_disposition": "ACHIEVED_BY_STRICT_REDUCTION",
+  "scope": "p=6m+1 prime; p mod 24 in {13,19}; m mod 4 in {2,3}",
+  "proved": {
+    "QL": "H_m(z)=Q_m(1-z) in F_p[z], P_{2m}(T)=Q_m(T^2)",
+    "CM0": "Q_m(1/2)=0 mod p",
+    "SIMPLE": "Q_m'(1/2) != 0 mod p",
+    "JT0_REDUCTION": "JT0 iff (g/p)(-6Q_m'(1/2))=1 mod p",
+    "JT2_REDUCTION": "JT2 iff UR and LIFT; Phi_xx remains inside g/p mod p^2"
+  },
+  "cm_data": {
+    "hesse_j_specialization": "2417472 +/- 1707264 sqrt(2)",
+    "hilbert_class_polynomial_D_minus_24": "X^2-4834944X+14670139392",
+    "cm_field": "Q(sqrt(-6))",
+    "target_splitting": "(-6/p)=-1"
+  },
+  "open_certificates": {
+    "UR": "g/p = -1/(6Q_m'(1/2)) mod p",
+    "LIFT": "((g/p)h-1)/p = R_p mod p"
+  },
+  "mechanisms_tested": [
+    "terminating quadratic hypergeometric/Legendre transport",
+    "Hesse Hasse invariant + discriminant -24 CM + Deuring supersingular reduction",
+    "finite WZ/creative-microscoping search with no matching close",
+    "ordinary split CM ASD direct-instantiation no-go on inert primes"
+  ],
+  "regression": {
+    "prime_limit_exclusive": 2000,
+    "target_primes_checked": 77,
+    "class_13_count": 40,
+    "class_19_count": 37,
+    "failures": 0,
+    "finite_evidence_only_for": ["UR", "LIFT"]
+  },
+  "provenance": {
+    "recovered_prior_execution_branch": "research/enterprise-brc-half-inert-plus-terminating-jacobi-jet-certificate-em-ebp6jt-7a4c21",
+    "current_revalidation": "exact regression independently rerun and proof checked against current frozen parent interface",
+    "novelty_claim": "NONE"
+  }
+}
