@@ -1,0 +1,55 @@
+{
+  "action": "CLAIM_NEW_OWNER",
+  "control_epoch": "EM-CONTROL-20260904-CANONICAL-DISPATCH-AUTHORITY-1",
+  "diagnostics": {
+    "load_policy": "TRIGGERED_ONLY",
+    "receipt_path": "control_plane/chatgpt_dispatch_receipts/chatgpt-20260908T020200Z-ur-successor-sol.json"
+  },
+  "generated_at": "2026-09-08T02:10:00Z",
+  "kind": "RESEARCH",
+  "new_claim_required": true,
+  "owner_claim_preserved": false,
+  "packet_bytes": 2986,
+  "read_plan": {
+    "first_dependency_ref": null,
+    "forbidden": [
+      "REMOTE_FETCH_AGENTS_MD_FOR_ORDINARY_START",
+      "FULL_DISPATCH_RECEIPT_ON_ORDINARY_START",
+      "CURRENT_CONTROL_AUTHORITY_ON_ORDINARY_START",
+      "ISSUE_240_FULL_COMMENT_STREAM_IN_CONVERSATION",
+      "HIGH_FANOUT_DIRECTORY_OR_RECURSIVE_TREE_DISCOVERY"
+    ],
+    "if_first_dependency_unknown": "TASK_UNDERSTANDING_THEN_BOUNDED_TARGETED_SEARCH_ONLY",
+    "remote_source_reads_before_substantive_math_max": 2
+  },
+  "reason": "fresh canonical task selector returned a dispatchable target",
+  "request_id": "chatgpt-20260908T020200Z-ur-successor-sol",
+  "schema": "ENTERPRISE_MATH_RESEARCHER_STARTUP_PACKET_V1",
+  "source_sha": "3198c3a8d73cac9587dd0f622212c5e6e4085389",
+  "task": {
+    "claim_id": null,
+    "dispatch_state": "NEEDS_DISPATCH",
+    "frontier": "Independently reconstruct or refute, under a blind-forward protocol, a degree-6 algebraic map from the frozen genus-4 source D to the principal discriminant -24 CM elliptic target with the prescribed principal differential direction, without access to the existing explicit map or its symbolic replay.",
+    "identity_lane": "RBV2REP",
+    "lease_until": null,
+    "next_action": "Using only the task-local blind inputs, reconstruct the degree-6 map by exact algebraic geometry or function-field methods; freeze an explicit X/Y candidate or a rigorous refutation, its branch divisor, target elliptic equation, pullback differential coefficient, period-scaling derivation, and SHA256 before any unblinding or broader repository/literature comparison.",
+    "owner": "research/rb-enterprise-degree6-cm24-blind-replication",
+    "projection": null,
+    "projection_mode": "EXACT_TASKBOOK_REQUIRED_PACKET_BUDGET",
+    "publication_id": "TP2-9F1A3C0DEFAED8B6E247",
+    "publication_record_path": "research_task_records/RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-REPLICATION/TP2-9F1A3C0DEFAED8B6E247.json",
+    "required_task_sections": [
+      "Mother question",
+      "Frozen inputs and scope",
+      "Hard target and required outputs",
+      "Research value to preserve",
+      "Success, kill, and return criteria"
+    ],
+    "researcher_id": null,
+    "state": "HANDOFF_READY",
+    "task_id": "RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-REPLICATION",
+    "taskbook_blob_sha1": "sha1:ad69e1166254cb4bb32fd9490f9ed1c5c92f8b41",
+    "taskbook_path": "research_tasks/RAMANUJAN_BORWEIN_ENTERPRISE_DEGREE6_CM24_BLIND_REPLICATION_20260827.md",
+    "title": "Ramanujan–Borwein × Enterprise Degree-6 CM(-24) Blind Reconstruction"
+  }
+}
