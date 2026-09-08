@@ -19,11 +19,7 @@ Positive capacity, Taylor-shift identities, and coordinate changes must not be c
 
 ## 1. Correction to the pointwise prime-adapted vector field
 
-Let
-
-`P=P(s,y)`
-
-and consider
+Let `P=P(s,y)` and consider
 
 `nabla = partial_z + A(s,y) partial_s`.
 
@@ -45,39 +41,31 @@ Freeze:
 
 ## 2. Self-adapted connection is pure gauge
 
-Do not restrict to `z=-1`. Define
-
-`q=z P(s,y)`.
-
-The exact level-set vector field is
+Define `q=zP(s,y)`. The exact level-set vector field is
 
 `D_z = partial_z - P/(z P_s) partial_s`,
 
-for which
-
-`D_z q=0`.
+for which `D_z q=0`.
 
 Likewise, the exact horizontal lift of the y-direction preserving q is
 
 `D_y = partial_y - P_y/P_s partial_s`,
 
-and
+and `D_y q=0`.
 
-`D_y q=0`.
-
-In coordinates `(q,z,y)`, these are simply coordinate derivatives at fixed q. Therefore
+In coordinates `(q,z,y)`, these are coordinate derivatives at fixed q, hence
 
 `[D_z,D_y]=0`
 
-identically wherever the coordinate chart is valid.
+wherever the chart is valid.
 
-Hence any curvature obtained by comparing `D_z` with the bare `partial_y` is a coordinate artifact caused by failing to horizontally lift the y-motion.
+Therefore curvature obtained by comparing `D_z` with bare `partial_y` is a coordinate artifact caused by failing to horizontally lift the y-motion.
 
 Freeze:
 
 `SELF_ADAPTED_PRIME_CONNECTION = PURE_GAUGE`.
 
-Consequence: bounded holonomy of a connection defined using the exact unknown prime source itself cannot supply new RH content.
+A connection defined using the exact unknown prime source itself cannot supply new RH content merely through holonomy.
 
 ---
 
@@ -85,23 +73,19 @@ Consequence: bounded holonomy of a connection defined using the exact unknown pr
 
 A non-tautological comparison must be fixed before seeing the discrete primes.
 
-Put
+Put `eta=log y`. For the finite logarithmic prime window `(e^eta,e^(u eta)]`, define
 
-`eta=log y`,
+`P_0(s;eta,u)=int_(e^eta)^(e^(u eta)) t^(-s)/log(t) dt`
 
-and for a finite logarithmic prime window `(e^eta,e^(u eta)]` define the continuous prime-density channel
+so that
 
-`P_0(s;eta,u)=int_(e^eta)^(e^(u eta)) t^(-s)/log(t) dt`.
+`P_0(s;eta,u)=int_1^u exp(-(s-1)eta v) dv/v`.
 
-After `t=e^(eta v)`, this becomes
-
-`P_0(s;eta,u)=int_1^u exp(-(s-1) eta v) dv/v`.
-
-Define, with u held fixed,
+At fixed u define
 
 `D_0 = partial_eta - (s-1)/eta partial_s`.
 
-Since `xi=(s-1)eta` is invariant under `D_0`,
+Since `xi=(s-1)eta` is invariant,
 
 `D_0 P_0(s;eta,u)=0`
 
@@ -111,24 +95,19 @@ This operator depends only on the continuum density `dt/log t`, not on actual pr
 
 ### Higher Euler power-sum channels
 
-For the j-th channel,
+For
 
-`P_0(j s;eta,u)=int_1^u exp(-(j s-1)eta v) dv/v`.
+`P_0(j s;eta,u)=int_1^u exp(-(j s-1)eta v) dv/v`,
 
-Because
+one has
 
 `D_0((j s-1)eta)=j-1`,
 
-one gets the exact formula
+hence
 
 `D_0 P_0(j s;eta,u)=-(j-1) int_1^u exp(-(j s-1)eta v) dv`.
 
-Thus:
-
-- j=1 is the unique continuum-null channel;
-- every j>=2 leaves an explicit stable residual.
-
-This is a source-independent reappearance of the existing project statement
+Thus j=1 is uniquely null, while j>=2 leaves an explicit residual. This is a source-independent reappearance of
 
 `MOBIUS_PRIME_CRITICAL_RANK = 1`.
 
@@ -136,19 +115,13 @@ This is a source-independent reappearance of the existing project statement
 
 ## 4. Prime-discrete defect isolated exactly
 
-Define the actual finite prime channel
+Define
 
-`P_pi(s;eta,u)=sum_(e^eta < p <= e^(u eta)) p^(-s)`.
+`P_pi(s;eta,u)=sum_(e^eta < p <= e^(u eta)) p^(-s)`
 
-Write
-
-`Delta_pi=P_pi-P_0`.
-
-Then
+and `Delta_pi=P_pi-P_0`. Then
 
 `D_0 P_pi = D_0 Delta_pi`.
-
-So `D_0` removes the continuum prime-density carrier exactly and exposes only the prime-discrete defect.
 
 Equivalently, at fixed `xi=(s-1)eta`, define the scaled harmonic prime measure
 
@@ -162,15 +135,15 @@ whereas the continuum carrier is
 
 `int_1^u e^(-xi v) dv/v`.
 
-Hence `D_0` is the scale derivative of the discrepancy between the actual ordered prime-location measure and the fixed measure `dv/v`.
+Hence `D_0` is the scale derivative of the discrepancy between actual ordered prime-location mass and the fixed measure `dv/v`.
 
-This is a diagnostic interface, not yet an estimate.
+This is a diagnostic interface, not an estimate.
 
 ---
 
 ## 5. Explicit zeta-zero response: diagnostic-only no-go
 
-For one explicit-formula zero mode, use the finite-window model
+For one explicit-formula zero mode, let
 
 `Z_rho(s;eta,u)=int_1^u exp((rho-s)eta v) dv/v`.
 
@@ -178,19 +151,17 @@ Since
 
 `D_0((rho-s)eta)=rho-1`,
 
-we get
+we obtain
 
-`D_0 Z_rho = (rho-1) int_1^u exp((rho-s)eta v) dv`.
+`D_0 Z_rho=(rho-1) int_1^u exp((rho-s)eta v) dv`.
 
-Therefore the continuum-flat operator annihilates only the main-density mode `rho=1`.
-
-Every nontrivial zeta zero has a nonzero transfer factor `rho-1`.
+Therefore the continuum-flat operator annihilates only the main-density mode `rho=1`; every nontrivial zeta zero has nonzero transfer factor `rho-1`.
 
 Freeze:
 
 `CONTINUUM_FLAT_CONNECTION_IS_ZERO_TRANSPARENT`.
 
-Consequently, controlling its defect at RH strength still requires controlling the zeta-zero locations; no automatic cancellation has been created.
+Controlling this defect at RH strength still requires controlling zero locations.
 
 ---
 
@@ -198,25 +169,23 @@ Consequently, controlling its defect at RH strength still requires controlling t
 
 Let
 
-`F(z,s)=prod_p (1+z p^(-s))`
+`F(z,s)=prod_p(1+z p^(-s))`.
 
-in the absolutely convergent region and continue by the standard Selberg-Delange factorization. For bounded z,
+Standard Selberg-Delange factorization gives, for bounded z,
 
 `F(z,s)=zeta(s)^z G(z,s)`,
 
-where `G(z,s)` is holomorphic and nonzero in `Re(s)>1/2` away from the standard boundary issues, because all Euler channels with multiplicity >=2 are absorbed into an absolutely convergent factor.
+with the remainder factor holomorphic/nonzero in the relevant `Re(s)>1/2` region after separating the first prime channel. One convenient logarithmic form is
 
-A direct logarithmic form is
+`log G(z,s)=sum_(m>=2) [((-1)^(m+1) z^m-z)/m] P(ms)`.
 
-`log G(z,s)=sum_(m>=2) [((-1)^(m+1) z^m - z)/m] P(m s)`.
-
-Near a nontrivial zero `rho` of zeta,
+Near a nontrivial zero rho,
 
 `F(z,s) ~ (s-rho)^z * nonzero analytic factor`
 
 for fixed `z != 0`.
 
-Therefore changing the degree marker from the Möbius point `z=-1` to any fixed nonzero `z` changes only the algebraic/logarithmic singularity order. It does NOT change the horizontal exponent `Re(rho)` carried into Perron/Mellin asymptotics.
+Therefore changing the degree marker changes singularity/log order but not the horizontal exponent `Re(rho)` entering Perron/Mellin asymptotics.
 
 Freeze:
 
@@ -224,122 +193,142 @@ Freeze:
 
 Consequences:
 
-1. Moving partway from `z=-1` toward `z=0` cannot produce any fixed power saving `x^{-delta}` against an off-critical zero.
-2. Only the exact endpoint `z=0` removes the zeta-zero singularity.
-3. A continuous parity-to-positive homotopy can at best change logarithmic powers unless it reaches `z=0` exactly.
-
-This matches the general Selberg-Delange/fake-Mobius literature, where zeta powers govern the leading analytic singularity.
+1. moving partway from `z=-1` toward `z=0` cannot create a fixed power saving against an off-critical zero;
+2. only the exact endpoint `z=0` removes the zeta-zero singularity;
+3. parity-to-positive homotopy at fixed nonzero z changes logarithmic powers, not the critical abscissa.
 
 ---
 
-## 7. Finite-order mixed differential annihilators cannot regularize the zero set
+## 7. Fixed finite-order mixed differential annihilators cannot regularize the zero set
 
-At `z=-1`,
-
-`F(-1,s)=1/zeta(s)`.
-
-Near a simple nontrivial zero `rho`,
+At `z=-1`, `F(-1,s)=1/zeta(s)`. Near a simple nontrivial zero rho,
 
 `F(-1,s) ~ c/(s-rho)`.
 
 The first z-derivative introduces the unique critical logarithmic channel; higher z-derivatives have leading behavior
 
-`partial_z^k F(-1,s) = F(-1,s) [L_1(s)^k + lower log degree]`,
+`partial_z^k F(-1,s)=F(-1,s)[L_1(s)^k + lower log degree]`,
 
-where `L_1(s)` has the same prime-zeta logarithmic singularity at rho, while the higher Euler channels are locally stable.
+where `L_1` has the prime-zeta logarithmic singularity at rho, while higher Euler channels are locally stable. s-derivatives raise pole order.
 
-Likewise, s-derivatives raise pole order.
+Hence a nonzero fixed finite-order constant-coefficient operator
 
-Hence any nonzero fixed finite-order constant-coefficient operator
+`D=sum_(a<=A,b<=B)c_(a,b) partial_s^a partial_z^b`
 
-`D=sum_(a<=A,b<=B) c_(a,b) partial_s^a partial_z^b`
-
-leaves a nonremovable pole/log singularity at every generic zeta zero. Taking the maximal s-order and then maximal z-log degree gives a triangular leading singularity that cannot be canceled by lower-order terms unless the corresponding coefficients vanish recursively.
+leaves a nonremovable pole/log singularity at generic zeta zeros. Maximal s-order and then maximal log degree form a triangular leading singularity that lower-order terms cannot cancel unless coefficients vanish recursively.
 
 Freeze for this declared operator class:
 
 `FIXED_FINITE_ORDER_SOURCE_INDEPENDENT_MIXED_ANNIHILATOR != RH_REGULARIZER`.
 
-This is the differential-operator version of the earlier fixed-depth/fixed-label BRC no-go.
-
 ---
 
 ## 8. Infinite translation identity and the meaning of Alladi jets
 
-The only source-independent degree-marker operator that removes the zero singularity exactly is the full translation to z=0:
+The exact source-independent degree-marker operation removing the zero singularity is the full translation to z=0:
 
-`exp(partial_z) F(z,s)|_(z=-1) = F(0,s)=1`.
+`exp(partial_z)F(z,s)|_(z=-1)=F(0,s)=1`.
 
-For the regularized primitive extractor
+For
 
 `R(z,s)=(F(z,s)-1)/z`,
 
-we have
+one has
 
-`exp(partial_z) R(z,s)|_(z=-1)=R(0,s)=P(s)`.
+`exp(partial_z)R(z,s)|_(z=-1)=R(0,s)=P(s)`.
 
-Thus the Alladi/Taylor jet hierarchy is exactly a finite-order approximation to a unit translation in the degree-marker coordinate.
+Thus the Alladi/Taylor jet hierarchy is a finite-order approximation to unit translation in degree-marker space.
 
-For a formal expansion
+For
 
-`R(z)=sum_(r>=1) e_r z^(r-1)`,
+`R(z)=sum_(r>=1)e_r z^(r-1)`,
 
-the K-jet Taylor truncation at z=-1 has the exact coefficient identity
+the K-jet truncation has the exact identity
 
 `sum_(k=0)^K R^(k)(-1)/k!`
-`= e_1 + sum_(r>=K+2) (-1)^(r-1+K) C(r-2,K) e_r`.
+`=e_1+sum_(r>=K+2)(-1)^(r-1+K) C(r-2,K)e_r`.
 
-Therefore:
-
-- the primitive prime channel `e_1` is selected exactly;
-- all arities `2,...,K+1` cancel exactly;
-- the entire remainder is arity `>K+1` with the familiar binomial/Bonferroni weight.
-
-This identifies the project primitive-selector with a provenance-preserving version of truncated inclusion-exclusion.
+Therefore the primitive prime channel is selected, arities `2,...,K+1` cancel exactly, and the remainder is arity `>K+1` with the binomial/Bonferroni weight.
 
 Freeze:
 
 `ALLADI_HIGH_ORDER_JETS = FINITE_TRANSLATION / BONFERRONI_PRIMITIVE_EXTRACTION`.
 
-The measure-valued Alladi form still preserves ordered-prime provenance and is richer than a scalar sieve weight, but the scalar cancellation mechanism itself is not an escape from the classical parity barrier.
+The measure-valued form still retains ordered-prime provenance, but the scalar cancellation itself is not an escape from sieve parity.
 
 ---
 
-## 9. New frontier after the no-go stack
+## 9. Finite translation remainder retains the full zero singularity
 
-The following routes are now frozen as insufficient by themselves:
+The positive high-arity capacity of the finite Taylor remainder must not be confused with analytic harmlessness.
+
+Near a simple zeta zero rho, use
+
+`F(z,s)=zeta(s)^z G(z,s)`.
+
+For fixed k,
+
+`(1/k!) partial_z^k F(-1,s)`
+
+has leading local form
+
+`[G(-1,rho)/(zeta'(rho)(s-rho))] * [log(s-rho)^k/k! + O(log(s-rho)^(k-1))]`.
+
+Therefore every finite K Taylor truncation at z=-1 still contains a singularity of the form
+
+`(s-rho)^(-1) log(s-rho)^K`
+
+at highest logarithmic degree.
+
+Since the full infinite translation equals the regular function `F(0,s)=1`, the exact Taylor remainder must carry the opposite singularity. Hence:
+
+`FINITE_K_HIGH_ARITY_REMAINDER_RETAINS_ZERO_CRITICALITY`.
+
+This remains true even when a positive/factorial capacity bound makes the high-arity remainder small in a Perron-near-1 or counting norm.
+
+Freeze the norm boundary:
+
+`POSITIVE_CAPACITY_SMALL != SIGNED_ANALYTIC_CRITICALITY_SMALL`.
+
+This explains why the previously obtained `K~log x/(2loglog x)` square-root positive tail estimate does not itself provide an analytic continuation or zero-free conclusion in `Re s>1/2`.
+
+---
+
+## 10. New frontier after the no-go stack
+
+Frozen as insufficient by themselves:
 
 - self-adapted prime connection / holonomy;
-- fixed finite-order mixed `(s,z)` differential annihilators;
+- fixed finite-order mixed `(s,z)` annihilators;
 - any fixed nonzero degree-marker homotopy `z in (-1,0)`;
 - fixed-depth X6/fixed-label arithmetic transport;
-- scalar finite Taylor/Bonferroni extraction without growing provenance.
+- scalar finite Taylor/Bonferroni extraction;
+- treating a high-arity tail as analytically harmless merely because its positive capacity is small.
 
 A viable Enterprise route must therefore have all of:
 
 1. fixed X6 local width;
 2. BRC/provenance depth growing with scale;
-3. source-independent coefficients (no operator defined from the exact unknown prime discrepancy itself);
+3. source-independent coefficients;
 4. nonlocal retention of the ordered-prime chain, not only factor-count moments;
-5. a genuinely collective mechanism, because individual zeta-zero modes are not killed by any fixed finite-order local filter.
+5. a genuinely collective mechanism acting on signed/phase coherence, not only positive capacity;
+6. an explicit norm bridge from provenance-level cancellation to the critical analytic/Riesz norm.
 
-The next smallest unresolved object is:
+The next smallest unresolved object remains
 
-`GROWING_DEPTH_ORDERED_PRIME_PROVENANCE_TRANSFER`.
+`GROWING_DEPTH_ORDERED_PRIME_PROVENANCE_TRANSFER`,
 
-Concretely, study the full ordered-prime chain behind Alladi's measure-valued duality at depth
+at depth
 
-`K(x) ~ log x/(2 loglog x)`,
+`K(x)~log x/(2loglog x)`.
 
-and ask whether the joint provenance/shuffle structure supplies a collective contraction that is absent after scalar Bonferroni compression.
-
-Do NOT return to a self-adapted connection unless an invariant is defined independently of the actual prime source.
+The key new requirement is that the transfer must control the signed analytic remainder itself, not merely the number/mass of arity>K Cells.
 
 ---
 
-## 10. Prior-art references checked
+## 11. Prior-art references checked
 
-- Selberg-Delange factorization for squarefree degree-marked series `sum mu^2(n) z^omega(n) n^-s = zeta(s)^z G(s,z)`; standard analytic number theory, also summarized in modern references and MathOverflow discussions.
+- Selberg-Delange factorization for `sum mu^2(n) z^omega(n)n^-s = zeta(s)^z G(s,z)`; standard analytic number theory, also present in modern references on fake Möbius functions and Selberg-Delange.
 - Alladi & Sengupta (2026), `Duality Between Prime Factors and The Prime Number Theorem For Arithmetic Progressions -- Higher Order Dualities`, arXiv:2604.17832.
 - Y. Alamoudi (2026), `On subradically sifted sums related to Alladi's higher order duality between prime factors`, arXiv:2601.10636.
 - O. Gorodetsky (2023), `Smooth numbers and the Dickman rho function`, Journal d'Analyse Mathematique 151.
