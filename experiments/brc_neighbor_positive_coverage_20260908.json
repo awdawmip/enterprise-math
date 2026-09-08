@@ -475,5 +475,204 @@
     "downstream_savings": "UNMEASURED",
     "saved_cost_zero_is_placeholder": true,
     "eligible_for_adaptive_reordering": false
+  },
+  "mod15_positive_classification": {
+    "rows": [
+      {
+        "c_mod_15": 1,
+        "factor_coefficients": [
+          8,
+          1,
+          120,
+          1
+        ],
+        "positive_checks": 16,
+        "factor_ratio_below_two": false,
+        "known_prime_pair_count": 3,
+        "prime_examples": [
+          {
+            "k": 2,
+            "N": 4097,
+            "known_pair": [
+              17,
+              241
+            ]
+          },
+          {
+            "k": 5,
+            "N": 24641,
+            "known_pair": [
+              41,
+              601
+            ]
+          },
+          {
+            "k": 11,
+            "N": 117569,
+            "known_pair": [
+              89,
+              1321
+            ]
+          }
+        ]
+      },
+      {
+        "c_mod_15": 4,
+        "factor_coefficients": [
+          24,
+          5,
+          40,
+          13
+        ],
+        "positive_checks": 16,
+        "factor_ratio_below_two": true,
+        "known_prime_pair_count": 4,
+        "prime_examples": [
+          {
+            "k": 1,
+            "N": 1537,
+            "known_pair": [
+              29,
+              53
+            ]
+          },
+          {
+            "k": 4,
+            "N": 17473,
+            "known_pair": [
+              101,
+              173
+            ]
+          },
+          {
+            "k": 7,
+            "N": 50689,
+            "known_pair": [
+              173,
+              293
+            ]
+          },
+          {
+            "k": 16,
+            "N": 254017,
+            "known_pair": [
+              389,
+              653
+            ]
+          }
+        ]
+      },
+      {
+        "c_mod_15": 11,
+        "factor_coefficients": [
+          24,
+          19,
+          40,
+          27
+        ],
+        "positive_checks": 16,
+        "factor_ratio_below_two": true,
+        "known_prime_pair_count": 6,
+        "prime_examples": [
+          {
+            "k": 1,
+            "N": 2881,
+            "known_pair": [
+              43,
+              67
+            ]
+          },
+          {
+            "k": 2,
+            "N": 7169,
+            "known_pair": [
+              67,
+              107
+            ]
+          },
+          {
+            "k": 5,
+            "N": 31553,
+            "known_pair": [
+              139,
+              227
+            ]
+          },
+          {
+            "k": 8,
+            "N": 73217,
+            "known_pair": [
+              211,
+              347
+            ]
+          },
+          {
+            "k": 11,
+            "N": 132161,
+            "known_pair": [
+              283,
+              467
+            ]
+          },
+          {
+            "k": 13,
+            "N": 181057,
+            "known_pair": [
+              331,
+              547
+            ]
+          }
+        ]
+      },
+      {
+        "c_mod_15": 14,
+        "factor_coefficients": [
+          8,
+          7,
+          120,
+          119
+        ],
+        "positive_checks": 16,
+        "factor_ratio_below_two": false,
+        "known_prime_pair_count": 4,
+        "prime_examples": [
+          {
+            "k": 2,
+            "N": 8257,
+            "known_pair": [
+              23,
+              359
+            ]
+          },
+          {
+            "k": 3,
+            "N": 14849,
+            "known_pair": [
+              31,
+              479
+            ]
+          },
+          {
+            "k": 5,
+            "N": 33793,
+            "known_pair": [
+              47,
+              719
+            ]
+          },
+          {
+            "k": 12,
+            "N": 160577,
+            "known_pair": [
+              103,
+              1559
+            ]
+          }
+        ]
+      }
+    ],
+    "positive_class_checks": 64,
+    "balanced_class_checks": 32,
+    "observation_stage": "classification after a certified square hit; not a front-gate predictor"
   }
 }
