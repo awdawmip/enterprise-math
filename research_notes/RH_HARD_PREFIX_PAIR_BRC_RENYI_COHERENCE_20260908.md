@@ -1,19 +1,19 @@
-# RH hard-prefix Pair-BRC Renyi coherence hierarchy
+# RH hard-prefix Pair-BRC collision coherence and fixed-Renyi hierarchy — Mellin-corrected
 
-Status: `RESEARCH FRONTIER / EXACT REFORMULATION / NOT A PROOF OF RH`
+Status: `RESEARCH FRONTIER / EXACT RH-EQUIVALENT FAMILY / NOT A PROOF OF RH`
 Date: `2026-09-08`
 Project: `Enterprise Math / 进取数论`
-Scope: `Mertens / hard-prefix Pair-BRC / collision coherence / Renyi moments / self-correlation`
+Scope: `Mertens / hard-prefix Pair-BRC / collision coherence / fixed Renyi moments / self-correlation`
 
-## 0. Purpose
+## 0. Correction
 
-This note fuses three previously separate objects:
+An earlier version stated that one had to let the Renyi order `q->infinity` to recover RH from dyadic averaged collision coherence. That conclusion used only the generic 1-Lipschitz moment-to-sup inequality.
 
-1. the hard-prefix Mertens criterion;
-2. the positive Pair-BRC parity/collision histogram;
-3. the growing-order cumulative-flux moment hierarchy.
+After Mellin audit, the correct statement is stronger:
 
-The result is a hard-cut analogue of the Riesz Pair-BRC collision criterion, together with a Renyi ladder that interpolates between averaged collision coherence and RH-strength pointwise coherence.
+**any one fixed `q>=1` at the natural all-scale subpolynomial collision-coherence bound is already RH-equivalent.**
+
+Growing q remains a valid concentration hierarchy but is not necessary for RH equivalence.
 
 ---
 
@@ -23,33 +23,31 @@ For squarefree integers `m,n<=t`, let `S_m,S_n` be their prime-support sets and
 
 `r=|S_m triangle S_n|`.
 
-Define the positive histogram
+Define
 
-`H_{t,r}=sum_{m,n<=t, |S_m triangle S_n|=r} mu(m)^2 mu(n)^2`
+`H_{t,r}=sum_{m,n<=t, |S_m triangle S_n|=r}mu(m)^2mu(n)^2`
 
-and its polynomial
+and
 
-`H_t(z)=sum_{r>=0}H_{t,r}z^r`.
+`H_t(z)=sum_rH_{t,r}z^r`.
 
 Let
 
 `Q(t)=sum_{n<=t}mu(n)^2`.
 
-Then exactly:
+Then exactly
 
 `H_t(1)=Q(t)^2`,
 
 `H_t(0)=Q(t)`,
 
-because distance zero means the squarefree prime supports are identical and hence `m=n`, and
+`H_t(-1)=M(t)^2`.
 
-`H_t(-1)=M(t)^2`,
-
-because
+Reason for the last identity:
 
 `(-1)^|S_m triangle S_n|=mu(m)mu(n)`
 
-for squarefree m,n.
+on squarefree cells.
 
 Freeze:
 
@@ -57,37 +55,31 @@ Freeze:
 
 ---
 
-## 2. Hard-prefix collision coherence is exactly RH strength
+## 2. Pointwise collision coherence is the classical RH criterion
 
 Define
 
-`Gamma(t)=H_t(-1)/H_t(0)=M(t)^2/Q(t) >=0`.
+`Gamma(t)=H_t(-1)/H_t(0)=M(t)^2/Q(t)>=0`.
 
-The classical squarefree count gives
+Since
 
-`Q(t)=(6/pi^2)t+O(sqrt(t))`.
+`Q(t)=(6/pi^2)t+O(sqrt t)`,
 
-Therefore
+we have
 
 `RH <=> Gamma(t)=t^o(1)`.
 
-Equivalently, for every eps>0,
+Equivalently, for every epsilon,
 
-`H_t(-1) <= t^eps H_t(0)`
+`H_t(-1)<=t^eps H_t(0)`
 
 (up to epsilon renaming).
 
-This is the hard-prefix counterpart of the previously derived Riesz shell criterion
-
-`H_x(-1) <= x^eps H_x(0)`.
-
-The common semantics is:
-
-`SIGNED PARITY OUTPUT <= SUBPOLYNOMIAL * EXACT POSITIVE COLLISION`.
+This is the hard-prefix analogue of the Riesz Pair-BRC collision-coherence criterion.
 
 ---
 
-## 3. Exact relation to Mobius self-feedback correlation
+## 3. Exact self-feedback identity
 
 The discrete identity
 
@@ -95,150 +87,153 @@ The discrete identity
 
 sums to
 
-`M(t)^2=Q(t)+2 sum_{n<=t}mu(n)M(n-1)`.
+`M(t)^2=Q(t)+2sum_{n<=t}mu(n)M(n-1)`.
 
-Hence
+Therefore
 
 `sum_{n<=t}mu(n)M(n-1)`
 `=[H_t(-1)-H_t(0)]/2`.
 
-Thus the hard self-correlation of Mobius against its own cumulative state is exactly the off-diagonal parity defect relative to Pair-BRC collision.
+So the hard Mobius self-feedback correlation is exactly the off-diagonal parity defect relative to positive collision.
 
-Freeze:
-
-`MOBIUS_SELF_FEEDBACK = (PAIR_PARITY - COLLISION)/2`.
-
-A 2026 paper by Gordon Vincent Chavez studies logarithmically weighted correlations of `mu(n)` with `M(n-1)` and obtains formulas under RH plus simplicity assumptions. This is prior art adjacent to the self-feedback language, but it does not supply the unconditional hard-cut estimate required here.
+A 2026 paper by Gordon Vincent Chavez studies logarithmically weighted correlations of `mu(n)` with `M(n-1)` under RH plus simplicity assumptions. It is prior art adjacent to this self-feedback formulation but does not give the unconditional hard-cut estimate.
 
 ---
 
-## 4. Renyi coherence on dyadic scale
+## 4. Fixed-q dyadic Renyi coherence
 
-For `q>=1`, define
+For fixed `q>=1`, define
 
-`R_q(X)= [ (1/X) sum_{X<t<=2X} Gamma(t)^q ]^(1/q)`.
+`R_q(X)=[(1/X)sum_{X<t<=2X}Gamma(t)^q]^(1/q)`.
 
-Since `Q(t) asymp X` uniformly for `X<t<=2X`,
+Since `Q(t)asymp X` uniformly on the dyadic interval,
 
 `R_q(X)^(1/2)`
 
-is equivalent up to absolute constants to the normalized `2q`-moment
+is equivalent up to absolute constants to
 
-`[ (1/X)sum_{X<t<=2X}|M(t)|^(2q) ]^(1/(2q)) / sqrt(X)`.
+`[(1/X)sum_{X<t<=2X}|M(t)|^(2q)]^(1/(2q))/sqrt(X)`.
 
-Therefore the cumulative-flux moment-to-sup inequality implies:
+Hence the natural fixed-q collision-coherence bound
 
-If for fixed q
+`R_q(X)<=X^o(1)`
 
-`R_q(X)<=X^o(1)`,
-
-then
-
-`max_{X<t<=2X}|M(t)| <= X^[(q+1)/(2q+1)+o(1)]`.
-
-Examples:
-
-- q=1 -> exponent 2/3;
-- q=2 -> exponent 3/5;
-- q=3 -> exponent 4/7;
-- q->infinity -> exponent 1/2.
+is exactly the natural square-root `L^(2q)` flux bound on that dyadic scale.
 
 ---
 
-## 5. Growing-Renyi RH criterion
+## 5. Any fixed q natural Renyi bound is RH-equivalent
 
-Let `q(X)->infinity` arbitrarily slowly. Then
+Assume for one fixed `q>=1` and every epsilon that
 
-`RH`
+`R_q(X)<<_eps X^eps`
 
-is equivalent to the existence of such a q(X) with
+on all large dyadic X.
 
-`R_{q(X)}(X)=X^o(1)`
+Then, because `Q(t)asymp X`,
 
-for dyadic X.
+`sum_{X<t<=2X}|M(t)|^(2q)`
+`<<_eps X^(q+1+eps)`
 
-Proof:
+(after harmless epsilon renaming).
 
-- RH gives `Gamma(t)=t^o(1)` pointwise, hence every Renyi average is subpolynomial.
-- Conversely `R_q=X^o(1)` gives the square-root normalized cumulative-flux `2q` moment at scale `X^o(1)`. The 1-Lipschitz property of M converts this to pointwise exponent
+The fixed-p Mellin argument with `p=2q` gives absolute convergence of
 
-`1/2+1/(4q+2)+o(1)`,
+`int_1^infinity M(t)t^(-s-1)dt`
 
-which tends to `1/2` as q(X)->infinity.
+for every `Re(s)>1/2`. Hence `1/zeta(s)` is holomorphic there and RH follows.
 
-Freeze:
+Conversely RH gives pointwise `Gamma(t)=t^o(1)`, hence every fixed-q Renyi average is subpolynomial.
 
-`RH = GROWING_RENYI_HARD_PAIR_COLLISION_COHERENCE`.
+Therefore for every fixed `q>=1`,
 
-This is an RH-equivalent reformulation, not a proof.
+`RH <=> R_q(X)=X^o(1)`
 
----
+in the all-scale epsilon-family sense.
 
-## 6. Positive final observer and replica typing
+In particular, **q=1 already suffices**:
 
-Every `Gamma(t)^q` is nonnegative. For integer q the numerator is
+`RH <=> (1/X)sum_{X<t<=2X}Gamma(t) = X^o(1)`.
 
-`M(t)^(2q)=H_t(-1)^q`.
-
-Thus the final Renyi readout is positive even though the parity endpoint `z=-1` internally uses the signed Mobius character.
-
-The q in this hierarchy is a **replica/moment order**. It is not:
-
-- X6 spatial dimension;
-- factor-provenance depth;
-- number of native force directions.
-
-The current branch therefore has three separate scales:
-
-`X6 width = 6 fixed`,
-
-`factor provenance depth ~ log N/loglog N (depending on observer)`,
-
-`Renyi replica order q -> infinity arbitrarily slowly`.
-
----
-
-## 7. First serious weaker target
-
-The q=1 statement
-
-`(1/X)sum_{X<t<=2X} Gamma(t) <= X^o(1)`
-
-is equivalent, up to `Q(t)asymp X`, to
+Since `Q(t)asymp X`, this is equivalent to
 
 `sum_{X<t<=2X}M(t)^2 <= X^(2+o(1))`.
 
-By the moment-to-sup inequality this would imply
+Freeze:
 
-`M(X)<=X^(2/3+o(1))`.
-
-This is already a genuine fixed-power improvement over current unconditional Mertens bounds. It should therefore be treated as a major theorem target, not as an easy averaging step.
+`FIXED_RENYI_PAIR_COHERENCE_AT_NATURAL_SCALE = RH_EQUIVALENT`.
 
 ---
 
-## 8. Short-interval boundary
+## 6. Generic pointwise ladder remains a valid but weaker statement
 
-Current almost-all short-interval Mobius estimates control increments
+If one deliberately ignores the Mellin/Dirichlet identity and uses only that M is 1-Lipschitz, then the same fixed-q moment bound yields
+
+`max|M(t)| <= X^[(q+1)/(2q+1)+o(1)]`.
+
+Examples:
+
+- q=1 -> 2/3;
+- q=2 -> 3/5;
+- q=3 -> 4/7.
+
+These are correct **generic metric consequences**, not the full Möbius arithmetic consequence.
+
+There is no contradiction: the RH implication from fixed q uses all scales plus the exact Mellin identity.
+
+---
+
+## 7. Positive final observer
+
+Every `Gamma(t)^q` is nonnegative. Thus q=1 already gives a fully positive final averaged observer:
+
+`average_t [PAIR_PARITY/COLLISION]`.
+
+The internal evaluation `H_t(-1)` uses Möbius parity, but after squaring it is positive.
+
+This is a particularly small positive RH carrier:
+
+`q=1 HARD-PREFIX PAIR-BRC AVERAGED COLLISION COHERENCE`.
+
+---
+
+## 8. Relation to Weak Mertens
+
+A stronger uniform estimate
+
+`sum_{t<=X}M(t)^2=O(X^2)`
+
+implies by dyadic decomposition
+
+`int_1^X(M(t)/t)^2dt=O(log X)`,
+
+the classical Weak Mertens Conjecture. WMC is known to imply RH and stronger conclusions such as simplicity of zeros and convergence of a negative-zero-moment sum.
+
+The present criterion permits `X^o(1)` slack and is used only as an RH equivalence; it should not be conflated with WMC.
+
+---
+
+## 9. Short-interval boundary
+
+Current short-interval Mobius results control increments
 
 `Delta_H M(x)=M(x+H)-M(x)`
 
-with logarithmic or qualitative savings over H. Such estimates are invariant under adding a constant to M and hence do not directly control the zero-frequency/global cumulative level.
+with logarithmic or qualitative savings over H. Deterministic chaining still gives only log-scale global savings, and these local estimates do not directly provide the fixed-q natural collision-coherence bound.
 
-Deterministically chaining `X/H` bounds of size `H/log^c X` only produces `X/log^c X`, not a fixed power.
+A transfer to q=1 would already be RH-strength by the Mellin argument. Therefore any such claimed transfer must be audited as a potential RH proof, not a weak averaging lemma.
 
-Therefore
+Freeze:
 
-`SHORT_INTERVAL_LOCAL_UNIFORMITY != q=1 PAIR-RENYI COHERENCE`.
-
-A successful transfer would require new cancellation among the block drifts themselves or an equivalent low-frequency theorem.
+`SHORT_INTERVAL_LOCAL_UNIFORMITY -> q=1 NATURAL PAIR-RENYI` is an RH-strength missing bridge.
 
 ---
 
-## 9. Prior-art boundary
+## 10. Prior-art boundary
 
-- The Mertens RH criterion is classical.
-- Verjovsky 2026 (arXiv:2607.25002) gives an analogous high-local-moment RH criterion for normalized Mobius Fourier polynomials.
-- Chavez 2026 studies logarithmically weighted correlations between Mobius and its partial sums under additional hypotheses.
-- The present contribution is the project-internal organization of hard-prefix Pair-BRC collision coherence, its exact self-feedback identity, and its fusion with the cumulative-flux Renyi ladder.
+- Mertens and Weak Mertens criteria are classical.
+- Verjovsky 2026 gives related Fourier/Laplace moment RH criteria.
+- Chavez 2026 studies logarithmically weighted Mobius/partial-sum correlations under additional hypotheses.
+- The project contribution here is the hard-prefix Pair-BRC collision organization and its exact fusion with the fixed-q positive flux moments.
 
-No historical novelty is asserted without a broader literature audit.
+No historical novelty is asserted without broader audit.
