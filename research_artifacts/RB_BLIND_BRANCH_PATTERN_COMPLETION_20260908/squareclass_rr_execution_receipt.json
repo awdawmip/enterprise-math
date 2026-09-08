@@ -1,0 +1,117 @@
+{
+  "schema": "RB_BLIND_SQUARECLASS_RR_EXECUTION_V1",
+  "recorded_at": "2026-09-08 14:36:08 UTC",
+  "runs": [
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/check_squareclass_rr.py",
+        "--write"
+      ],
+      "cwd": "D:/em/research-rb-blind-20260908",
+      "tool_result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "556d83",
+          "wall_time_seconds": 2.0533262,
+          "exit_code": 0,
+          "original_token_count": 70,
+          "output": "{\"RR_or_ODE_solution_claimed\": false, \"cleared_integer_identities\": 2, \"compatible_twists\": 16, \"components\": {\"2+2+2+0\": 1440, \"4+2+0+0\": 720}, \"incompatible_torsion_triples\": 48, \"sha256\": \"e5fd0f12abaf11201de208daaf8c7d526aa077a764d3a522b6f38a0c8b7476e6\", \"status\": \"PASS\"}\r\n"
+        }
+      }
+    },
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_exact_arithmetic_policy.py",
+        "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/check_squareclass_rr.py"
+      ],
+      "cwd": "D:/em/research-rb-blind-20260908",
+      "tool_result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "a26625",
+          "wall_time_seconds": 1.9690995,
+          "exit_code": 0,
+          "original_token_count": 11,
+          "output": "EXACT_ARITHMETIC_POLICY: PASS (1 files)\r\n"
+        }
+      }
+    },
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/check_squareclass_rr.py"
+      ],
+      "cwd": "D:/em/research-rb-blind-20260908",
+      "tool_result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "4f84ed",
+          "wall_time_seconds": 1.2586420999999999,
+          "exit_code": 0,
+          "original_token_count": 70,
+          "output": "{\"RR_or_ODE_solution_claimed\": false, \"cleared_integer_identities\": 2, \"compatible_twists\": 16, \"components\": {\"2+2+2+0\": 1440, \"4+2+0+0\": 720}, \"incompatible_torsion_triples\": 48, \"sha256\": \"e5fd0f12abaf11201de208daaf8c7d526aa077a764d3a522b6f38a0c8b7476e6\", \"status\": \"PASS\"}\r\n"
+        }
+      }
+    },
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "research_artifacts.RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908.test_squareclass_rr",
+        "-v"
+      ],
+      "cwd": "D:/em/research-rb-blind-20260908",
+      "tool_result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "b33dbb",
+          "wall_time_seconds": 3.8269398,
+          "exit_code": 0,
+          "original_token_count": 252,
+          "output": "test_default_is_byte_preserving_and_rejects_output_corruption (research_artifacts.RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908.test_squareclass_rr.SquareclassRRBoundaries.test_default_is_byte_preserving_and_rejects_output_corruption) ... ok\r\ntest_frozen_input_drift_is_rejected (research_artifacts.RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908.test_squareclass_rr.SquareclassRRBoundaries.test_frozen_input_drift_is_rejected) ... ok\r\ntest_integer_vector_field_preserves_the_curve_relation (research_artifacts.RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908.test_squareclass_rr.SquareclassRRBoundaries.test_integer_vector_field_preserves_the_curve_relation) ... ok\r\ntest_nonconstant_and_rank_degenerate_quotients_are_distinguished (research_artifacts.RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908.test_squareclass_rr.SquareclassRRBoundaries.test_nonconstant_and_rank_degenerate_quotients_are_distinguished) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.174s\r\n\r\nOK\r\n"
+        }
+      }
+    },
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_exact_arithmetic_policy.py",
+        "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/check_squareclass_rr.py",
+        "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/test_squareclass_rr.py"
+      ],
+      "cwd": "D:/em/research-rb-blind-20260908",
+      "tool_result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "b537ce",
+          "wall_time_seconds": 1.1778645,
+          "exit_code": 0,
+          "original_token_count": 11,
+          "output": "EXACT_ARITHMETIC_POLICY: PASS (2 files)\r\n"
+        }
+      }
+    }
+  ],
+  "result": "PASS_BOUNDED_FORMAL_IDENTITIES_AND_METADATA_NOT_RR_SOLUTION",
+  "arithmetic": "Only integer polynomial formal rewrites and finite labels; no quotient/root/rational-function value or BRC evaluation.",
+  "exclusions_boundary": "R-only ansatz, and the explicitly restricted trivial-empty-fiber/pole-class-3O subfamily. No whole assignment or original-field descent excluded.",
+  "tool_log_boundary": "Tool combined output retained; separate stdout/stderr streams were not captured."
+}

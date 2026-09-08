@@ -1,0 +1,126 @@
+{
+  "schema": "RB_BLIND_EMPTY_FIBER_ACTUAL_EXECUTION_V1",
+  "recorded_at": "2026-09-08 15:06:49 UTC",
+  "runs": [
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/check_empty_fiber_obstruction.py",
+        "--write"
+      ],
+      "cwd": "D:/em/research-rb-blind-20260908",
+      "tool_result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "919333",
+          "wall_time_seconds": 0.6438948,
+          "exit_code": 0,
+          "original_token_count": 75,
+          "output": "{\"certificate_sha256\": \"1757b252b5926bcda198e4a652259e8d46da4cd3a32464ae66c09f3d403eafb9\", \"counts\": {\"excluded_4_plus_2\": 180, \"remaining_4_plus_2\": 540, \"remaining_total\": 1980, \"untouched_2_plus_2_plus_2\": 1440}, \"integer_identities\": 3, \"no_RR_solution_or_unblinding\": true, \"status\": \"PASS\"}\r\n"
+        }
+      }
+    },
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_exact_arithmetic_policy.py",
+        "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/check_empty_fiber_obstruction.py"
+      ],
+      "cwd": "D:/em/research-rb-blind-20260908",
+      "tool_result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "a90c10",
+          "wall_time_seconds": 0.6232551,
+          "exit_code": 0,
+          "original_token_count": 11,
+          "output": "EXACT_ARITHMETIC_POLICY: PASS (1 files)\r\n"
+        }
+      }
+    },
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/check_empty_fiber_obstruction.py"
+      ],
+      "cwd": "D:/em/research-rb-blind-20260908",
+      "tool_result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "42e8f9",
+          "wall_time_seconds": 0.8072359,
+          "exit_code": 0,
+          "original_token_count": 75,
+          "output": "{\"certificate_sha256\": \"1757b252b5926bcda198e4a652259e8d46da4cd3a32464ae66c09f3d403eafb9\", \"counts\": {\"excluded_4_plus_2\": 180, \"remaining_4_plus_2\": 540, \"remaining_total\": 1980, \"untouched_2_plus_2_plus_2\": 1440}, \"integer_identities\": 3, \"no_RR_solution_or_unblinding\": true, \"status\": \"PASS\"}\r\n"
+        }
+      }
+    },
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "research_artifacts.RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908.test_empty_fiber_obstruction",
+        "-v"
+      ],
+      "cwd": "D:/em/research-rb-blind-20260908",
+      "tool_result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "eb05d7",
+          "wall_time_seconds": 2.1880257,
+          "exit_code": 0,
+          "original_token_count": 218,
+          "output": "test_default_replay_preserves_and_rejects_corrupted_output (research_artifacts.RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908.test_empty_fiber_obstruction.EmptyFiberObstructionBoundaries.test_default_replay_preserves_and_rejects_corrupted_output) ... ok\r\ntest_degree_three_parity_forces_three_plus_one_branch_fiber (research_artifacts.RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908.test_empty_fiber_obstruction.EmptyFiberObstructionBoundaries.test_degree_three_parity_forces_three_plus_one_branch_fiber) ... ok\r\ntest_pinned_corrected_checker_or_certificate_drift_is_rejected (research_artifacts.RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908.test_empty_fiber_obstruction.EmptyFiberObstructionBoundaries.test_pinned_corrected_checker_or_certificate_drift_is_rejected) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.032s\r\n\r\nOK\r\n"
+        }
+      }
+    },
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_exact_arithmetic_policy.py",
+        "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/check_empty_fiber_obstruction.py",
+        "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/test_empty_fiber_obstruction.py"
+      ],
+      "cwd": "D:/em/research-rb-blind-20260908",
+      "tool_result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "8decc3",
+          "wall_time_seconds": 0.7166867,
+          "exit_code": 0,
+          "original_token_count": 11,
+          "output": "EXACT_ARITHMETIC_POLICY: PASS (2 files)\r\n"
+        }
+      }
+    }
+  ],
+  "initial_determinant_probe": {
+    "chunk_id": "633b04",
+    "wall_time_seconds": 0.7374933,
+    "exit_code": 0,
+    "original_token_count": 440,
+    "output": "{\r\n  \"variable_aliases\": {\r\n    \"R\": \"u\",\r\n    \"t\": \"v\"\r\n  },\r\n  \"determinant\": [\r\n    {\r\n      \"coefficient\": 2,\r\n      \"powers\": {\r\n        \"a\": 0,\r\n        \"b\": 0,\r\n        \"c\": 0,\r\n        \"d\": 0,\r\n        \"e\": 0,\r\n        \"f\": 0,\r\n        \"R\": 0,\r\n        \"t\": 0,\r\n        \"k\": 5,\r\n        \"s\": 0\r\n      }\r\n    },\r\n    {\r\n      \"coefficient\": -4,\r\n      \"powers\": {\r\n        \"a\": 0,\r\n        \"b\": 0,\r\n        \"c\": 0,\r\n        \"d\": 0,\r\n        \"e\": 0,\r\n        \"f\": 0,\r\n        \"R\": 0,\r\n        \"t\": 1,\r\n        \"k\": 4,\r\n        \"s\": 0\r\n      }\r\n    },\r\n    {\r\n      \"coefficient\": 30,\r\n      \"powers\": {\r\n        \"a\": 0,\r\n        \"b\": 0,\r\n        \"c\": 0,\r\n        \"d\": 0,\r\n        \"e\": 0,\r\n        \"f\": 0,\r\n        \"R\": 1,\r\n        \"t\": 0,\r\n        \"k\": 3,\r\n        \"s\": 0\r\n      }\r\n    },\r\n    {\r\n      \"coefficient\": -72,\r\n      \"powers\": {\r\n        \"a\": 0,\r\n        \"b\": 0,\r\n        \"c\": 0,\r\n        \"d\": 0,\r\n        \"e\": 0,\r\n        \"f\": 0,\r\n        \"R\": 1,\r\n        \"t\": 1,\r\n        \"k\": 2,\r\n        \"s\": 0\r\n      }\r\n    },\r\n    {\r\n      \"coefficient\": -108,\r\n      \"powers\": {\r\n        \"a\": 0,\r\n        \"b\": 0,\r\n        \"c\": 0,\r\n        \"d\": 0,\r\n        \"e\": 0,\r\n        \"f\": 0,\r\n        \"R\": 2,\r\n        \"t\": 0,\r\n        \"k\": 1,\r\n        \"s\": 0\r\n      }\r\n    },\r\n    {\r\n      \"coefficient\": 2,\r\n      \"powers\": {\r\n        \"a\": 0,\r\n        \"b\": 0,\r\n        \"c\": 0,\r\n        \"d\": 0,\r\n        \"e\": 0,\r\n        \"f\": 0,\r\n        \"R\": 3,\r\n        \"t\": 0,\r\n        \"k\": 3,\r\n        \"s\": 0\r\n      }\r\n    },\r\n    {\r\n      \"coefficient\": 36,\r\n      \"powers\": {\r\n        \"a\": 0,\r\n        \"b\": 0,\r\n        \"c\": 0,\r\n        \"d\": 0,\r\n        \"e\": 0,\r\n        \"f\": 0,\r\n        \"R\": 4,\r\n        \"t\": 0,\r\n        \"k\": 1,\r\n        \"s\": 0\r\n      }\r\n    }\r\n  ]\r\n}\r\n"
+  },
+  "initial_determinant_probe_boundary": "Actual stdin integer-polynomial expansion used the already-permitted task-local ring module; it is exploration evidence, not an independent replay or a numerical map evaluation.",
+  "status": "PASS_BOUNDED_INTEGER_IDENTITIES_AND_PAPER_OBSTRUCTION_CANDIDATE",
+  "scope": "Three integer identities, coefficient-alteration rejection, twenty triple sums, per-assignment excluded twists, 3 focused tests and selected static gate. No historical source generator, map, field descent or period computation.",
+  "arithmetic": "No actual division, root, rational-function value or BRC evaluation.",
+  "boundary": "Raw freeze and unblinding have not happened; this is not a formal Result/Driver verdict.",
+  "tool_log_boundary": "Combined tool output preserved; separate stdout/stderr was not captured."
+}
