@@ -139,6 +139,8 @@ Do not infer `NO_TASK` / `NO_DISPATCH` merely because the fresh selector returns
 
 Immediately before final-channel output, evaluate PRE_FINAL through `tools/research_runtime_guard.py`; `tools/active_turn_liveness.py` remains the primitive liveness evaluator.
 
+For explicit `RESEARCH_DRIVER`, `FOUNDATION_STEWARD`, or `CONTROL_PLANE_MAINTENANCE` work without formal task, claim, execution-binding, or research-activity binding fields, pass the original `parent_liveness` object to the same `pre-final` entrypoint. It evaluates control flow only and grants no task or research authority. Missing parent liveness requires evaluation; a completed control subflow does not complete an OPEN research parent. Inputs carrying formal or activity bindings retain the existing routing checks and cannot use this control-only path. Do not invent a task/claim or mark the parent complete to report a control checkpoint.
+
 `PARENT_OBJECTIVE_OPEN + EXECUTABLE_NEXT_ACTION -> FINAL_ALLOWED=false`.
 
 `RUNTIME_FINAL_ALLOWED_FALSE -> FINAL_CHANNEL_FORBIDDEN`.
@@ -166,6 +168,8 @@ Compatibility vocabulary only: `OFFICIAL_NEW_TASK -> CANONICAL_TASK_REGISTRY_REC
 `OWNER_LEASE != SESSION_LIVENESS`.
 
 Publication is a capture subflow and grants no mathematical truth, Working Truth, Foundation status, canonical promotion, or Driver authority. A stale session adopts the existing winning claim only after durable-frontier verification; it never creates a second claim.
+
+Taskbook + matching immutable publication record must reach `main` together; see `docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md` for atomic Git-data writes or complete branch/PR integration when transport only supports single-file calls.
 
 The pre-V2 control surface is physically absent from `main`. Its exact bytes and task lineage are preserved by `control_plane/legacy_control_migration_manifest.json` on `archive/legacy-control-plane-pre-v2-20260902`; normal execution does not need avoidance instructions for those files.
 

@@ -58,6 +58,16 @@ When the local canonical publication command cannot be executed, an authorized r
 
 If equivalent preflight is unavailable, the only valid output is a non-executable draft or handoff. A later green CI run may detect a defect, but cannot retroactively authorize an invalid publication.
 
+## Publish the taskbook and record together
+
+The canonical visibility boundary is one complete taskbook plus its matching immutable publication record. Preparation may normalize the taskbook to a publishable envelope; it does not make that taskbook safe to upload alone to `main`.
+
+For direct-main publication, build one commit containing both exact files, then advance the branch without force from the observed parent. With Git data tools, create the complete tree and commit before updating the ref. If the parent moves, preserve the candidate, reload the affected paths, reconcile concurrent changes, and retry from the new parent. Never expose a `PUBLISHED_REGISTERED` taskbook on main while planning to upload its record in a later commit.
+
+When the available connector can write only one file per call, stage the files on a task-owned branch. Verify the completed branch contains the exact taskbook blob and its valid record before one complete integration into main. A PR and merge are allowed for this transport; sequential file writes on main are not an atomic publication. An incomplete staged branch is not claimable canonical task authority.
+
+Read both files back at the resulting immutable commit and verify the record's taskbook digest. Existing unrelated task records, branches and research are preserved. The same rule applies to every new or superseding publication generation; lightweight activity registration remains the separate small entrypoint defined by `docs/RESEARCH_ACTIVITY_PROTOCOL.md`.
+
 After publication, fresh execution uses one authenticated Issue #240 CLAIM envelope and routes through `research_control_dispatch.py`. CI is a backstop, not publication authorization, and does not keep a chat turn alive.
 
 The completed pre-V2 task migration is recorded in `control_plane/legacy_control_migration_manifest.json`; old publication surfaces are not present on `main`. Known schema-valid semantic-preservation faults are removed from operational selection by `research_task_semantic_integrity_quarantines.json` until an authorized superseding generation repairs them.
