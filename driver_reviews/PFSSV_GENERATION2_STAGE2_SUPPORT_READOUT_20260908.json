@@ -1,0 +1,1327 @@
+{
+  "schema": "PFSSV_STAGE2_FROZEN_OUTPUT_READOUT_V1",
+  "generated_at_utc": "2026-09-08T11:57:26.110395+00:00",
+  "argv": [
+    "D:/em/TEMP/pfssv-stage1-20260908/summarize-stage2-frozen-outputs.py",
+    "D:/em/TEMP/pfssv-stage1-20260908/stage2-actual-frozen-source",
+    "D:/em/TEMP/pfssv-stage1-20260908/stage2-frozen-readout.json"
+  ],
+  "script_sha256": "72d3f29d9c789e5d4c31879b4ce03caef08737ea3b4ecae9324e63029ebf6a87",
+  "input_cell_profiles_sha256": "f681dd201b2fa1949e0961e7b4e1d5d22ddb4de33e09c4ad0582499b4a9b2885",
+  "input_result_summary_sha256": "1b6cf5586f7854b184ff3892a86fee3971362fb47f71fccd0bd0b8286fcf14c6",
+  "scope": "Integer joins, count aggregation and consistency checks on immutable executed outputs; no generation or null sampling.",
+  "cells": [
+    {
+      "X": 100000,
+      "width": [
+        1,
+        100
+      ],
+      "upper": 101000,
+      "totals": {
+        "diagonal": 1,
+        "overflow": 1,
+        "raw": 237,
+        "scale_trim": 91,
+        "small_trim": 70
+      },
+      "overflow_by_view": {
+        "raw": 1,
+        "scale_trim": 1,
+        "small_trim": 1
+      },
+      "geometric_rows": 66,
+      "zero_total_rows": 15,
+      "geometrically_empty_windows": 0,
+      "capacity_status": "MODEL_SUPPORT_FAILURE",
+      "stratum_channel_count": 352,
+      "all_violating_target_channels": 25,
+      "positive_total_target_violating_channels": 14,
+      "zero_total_target_violating_channels": 11,
+      "first_positive_subset_witness": {
+        "coarse_band": 6,
+        "p_mod_30": 13,
+        "q_mod_30": 11,
+        "source_p": 193,
+        "source_total_row_count": 2,
+        "source_channel_count": 1,
+        "target_p": 163,
+        "target_total_row_count": 2,
+        "target_observed_channel_count": 0,
+        "target_qlo": 614,
+        "target_qhi": 619,
+        "target_integer_residue_capacity": 0,
+        "specified_assignment_probability_full_support": {
+          "denominator": 2,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": {
+          "numerator": 1,
+          "denominator": 2
+        }
+      },
+      "first_zero_total_target_witness": {
+        "coarse_band": 5,
+        "p_mod_30": 19,
+        "q_mod_30": 19,
+        "source_p": 109,
+        "source_total_row_count": 1,
+        "source_channel_count": 1,
+        "target_p": 139,
+        "target_total_row_count": 0,
+        "target_observed_channel_count": 0,
+        "target_qlo": 720,
+        "target_qhi": 726,
+        "target_integer_residue_capacity": 0,
+        "specified_assignment_probability_full_support": {
+          "denominator": 2,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": null
+      }
+    },
+    {
+      "X": 100000,
+      "width": [
+        3,
+        1000
+      ],
+      "upper": 100300,
+      "totals": {
+        "diagonal": 0,
+        "overflow": 0,
+        "raw": 74,
+        "scale_trim": 29,
+        "small_trim": 23
+      },
+      "overflow_by_view": {
+        "raw": 0,
+        "scale_trim": 0,
+        "small_trim": 0
+      },
+      "geometric_rows": 65,
+      "zero_total_rows": 34,
+      "geometrically_empty_windows": 0,
+      "capacity_status": "MODEL_SUPPORT_FAILURE",
+      "stratum_channel_count": 352,
+      "all_violating_target_channels": 4,
+      "positive_total_target_violating_channels": 0,
+      "zero_total_target_violating_channels": 4,
+      "first_positive_subset_witness": null,
+      "first_zero_total_target_witness": {
+        "coarse_band": 5,
+        "p_mod_30": 19,
+        "q_mod_30": 19,
+        "source_p": 109,
+        "source_total_row_count": 1,
+        "source_channel_count": 1,
+        "target_p": 139,
+        "target_total_row_count": 0,
+        "target_observed_channel_count": 0,
+        "target_qlo": 720,
+        "target_qhi": 721,
+        "target_integer_residue_capacity": 0,
+        "specified_assignment_probability_full_support": {
+          "denominator": 2,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": null
+      }
+    },
+    {
+      "X": 100000,
+      "width": [
+        1,
+        1000
+      ],
+      "upper": 100100,
+      "totals": {
+        "diagonal": 0,
+        "overflow": 0,
+        "raw": 25,
+        "scale_trim": 12,
+        "small_trim": 9
+      },
+      "overflow_by_view": {
+        "raw": 0,
+        "scale_trim": 0,
+        "small_trim": 0
+      },
+      "geometric_rows": 48,
+      "zero_total_rows": 30,
+      "geometrically_empty_windows": 17,
+      "capacity_status": "MODEL_SUPPORT_FAILURE",
+      "stratum_channel_count": 304,
+      "all_violating_target_channels": 1,
+      "positive_total_target_violating_channels": 0,
+      "zero_total_target_violating_channels": 1,
+      "first_positive_subset_witness": null,
+      "first_zero_total_target_witness": {
+        "coarse_band": 6,
+        "p_mod_30": 17,
+        "q_mod_30": 29,
+        "source_p": 167,
+        "source_total_row_count": 1,
+        "source_channel_count": 1,
+        "target_p": 197,
+        "target_total_row_count": 0,
+        "target_observed_channel_count": 0,
+        "target_qlo": 508,
+        "target_qhi": 508,
+        "target_integer_residue_capacity": 0,
+        "specified_assignment_probability_full_support": {
+          "denominator": 2,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": null
+      }
+    },
+    {
+      "X": 300000,
+      "width": [
+        1,
+        100
+      ],
+      "upper": 303000,
+      "totals": {
+        "diagonal": 0,
+        "overflow": 0,
+        "raw": 610,
+        "scale_trim": 226,
+        "small_trim": 208
+      },
+      "overflow_by_view": {
+        "raw": 0,
+        "scale_trim": 0,
+        "small_trim": 0
+      },
+      "geometric_rows": 101,
+      "zero_total_rows": 7,
+      "geometrically_empty_windows": 0,
+      "capacity_status": "MODEL_SUPPORT_FAILURE",
+      "stratum_channel_count": 392,
+      "all_violating_target_channels": 122,
+      "positive_total_target_violating_channels": 106,
+      "zero_total_target_violating_channels": 16,
+      "first_positive_subset_witness": {
+        "coarse_band": 3,
+        "p_mod_30": 19,
+        "q_mod_30": 23,
+        "source_p": 79,
+        "source_total_row_count": 4,
+        "source_channel_count": 2,
+        "target_p": 109,
+        "target_total_row_count": 3,
+        "target_observed_channel_count": 1,
+        "target_qlo": 2753,
+        "target_qhi": 2779,
+        "target_integer_residue_capacity": 1,
+        "specified_assignment_probability_full_support": {
+          "denominator": 2,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": {
+          "numerator": 1,
+          "denominator": 2
+        }
+      },
+      "first_zero_total_target_witness": {
+        "coarse_band": 6,
+        "p_mod_30": 7,
+        "q_mod_30": 7,
+        "source_p": 277,
+        "source_total_row_count": 3,
+        "source_channel_count": 1,
+        "target_p": 337,
+        "target_total_row_count": 0,
+        "target_observed_channel_count": 0,
+        "target_qlo": 891,
+        "target_qhi": 899,
+        "target_integer_residue_capacity": 0,
+        "specified_assignment_probability_full_support": {
+          "denominator": 4,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": null
+      }
+    },
+    {
+      "X": 300000,
+      "width": [
+        3,
+        1000
+      ],
+      "upper": 300900,
+      "totals": {
+        "diagonal": 0,
+        "overflow": 0,
+        "raw": 183,
+        "scale_trim": 63,
+        "small_trim": 58
+      },
+      "overflow_by_view": {
+        "raw": 0,
+        "scale_trim": 0,
+        "small_trim": 0
+      },
+      "geometric_rows": 101,
+      "zero_total_rows": 49,
+      "geometrically_empty_windows": 0,
+      "capacity_status": "MODEL_SUPPORT_FAILURE",
+      "stratum_channel_count": 392,
+      "all_violating_target_channels": 30,
+      "positive_total_target_violating_channels": 7,
+      "zero_total_target_violating_channels": 23,
+      "first_positive_subset_witness": {
+        "coarse_band": 3,
+        "p_mod_30": 23,
+        "q_mod_30": 23,
+        "source_p": 83,
+        "source_total_row_count": 2,
+        "source_channel_count": 1,
+        "target_p": 113,
+        "target_total_row_count": 2,
+        "target_observed_channel_count": 0,
+        "target_qlo": 2655,
+        "target_qhi": 2662,
+        "target_integer_residue_capacity": 0,
+        "specified_assignment_probability_full_support": {
+          "denominator": 2,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": {
+          "numerator": 1,
+          "denominator": 2
+        }
+      },
+      "first_zero_total_target_witness": {
+        "coarse_band": 5,
+        "p_mod_30": 1,
+        "q_mod_30": 13,
+        "source_p": 211,
+        "source_total_row_count": 1,
+        "source_channel_count": 1,
+        "target_p": 181,
+        "target_total_row_count": 0,
+        "target_observed_channel_count": 0,
+        "target_qlo": 1658,
+        "target_qhi": 1662,
+        "target_integer_residue_capacity": 0,
+        "specified_assignment_probability_full_support": {
+          "denominator": 3,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": null
+      }
+    },
+    {
+      "X": 300000,
+      "width": [
+        1,
+        1000
+      ],
+      "upper": 300300,
+      "totals": {
+        "diagonal": 0,
+        "overflow": 0,
+        "raw": 65,
+        "scale_trim": 25,
+        "small_trim": 24
+      },
+      "overflow_by_view": {
+        "raw": 0,
+        "scale_trim": 0,
+        "small_trim": 0
+      },
+      "geometric_rows": 91,
+      "zero_total_rows": 59,
+      "geometrically_empty_windows": 10,
+      "capacity_status": "MODEL_SUPPORT_FAILURE",
+      "stratum_channel_count": 392,
+      "all_violating_target_channels": 8,
+      "positive_total_target_violating_channels": 0,
+      "zero_total_target_violating_channels": 8,
+      "first_positive_subset_witness": null,
+      "first_zero_total_target_witness": {
+        "coarse_band": 3,
+        "p_mod_30": 19,
+        "q_mod_30": 23,
+        "source_p": 109,
+        "source_total_row_count": 1,
+        "source_channel_count": 1,
+        "target_p": 79,
+        "target_total_row_count": 0,
+        "target_observed_channel_count": 0,
+        "target_qlo": 3798,
+        "target_qhi": 3801,
+        "target_integer_residue_capacity": 0,
+        "specified_assignment_probability_full_support": {
+          "denominator": 2,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": null
+      }
+    },
+    {
+      "X": 1000000,
+      "width": [
+        1,
+        100
+      ],
+      "upper": 1010000,
+      "totals": {
+        "diagonal": 0,
+        "overflow": 0,
+        "raw": 1960,
+        "scale_trim": 683,
+        "small_trim": 683
+      },
+      "overflow_by_view": {
+        "raw": 0,
+        "scale_trim": 0,
+        "small_trim": 0
+      },
+      "geometric_rows": 168,
+      "zero_total_rows": 5,
+      "geometrically_empty_windows": 0,
+      "capacity_status": "MODEL_SUPPORT_FAILURE",
+      "stratum_channel_count": 448,
+      "all_violating_target_channels": 248,
+      "positive_total_target_violating_channels": 231,
+      "zero_total_target_violating_channels": 17,
+      "first_positive_subset_witness": {
+        "coarse_band": 3,
+        "p_mod_30": 7,
+        "q_mod_30": 17,
+        "source_p": 127,
+        "source_total_row_count": 11,
+        "source_channel_count": 3,
+        "target_p": 157,
+        "target_total_row_count": 6,
+        "target_observed_channel_count": 0,
+        "target_qlo": 6370,
+        "target_qhi": 6433,
+        "target_integer_residue_capacity": 2,
+        "specified_assignment_probability_full_support": {
+          "denominator": 2,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": {
+          "numerator": 1,
+          "denominator": 2
+        }
+      },
+      "first_zero_total_target_witness": {
+        "coarse_band": 6,
+        "p_mod_30": 29,
+        "q_mod_30": 17,
+        "source_p": 449,
+        "source_total_row_count": 3,
+        "source_channel_count": 1,
+        "target_p": 599,
+        "target_total_row_count": 0,
+        "target_observed_channel_count": 0,
+        "target_qlo": 1670,
+        "target_qhi": 1686,
+        "target_integer_residue_capacity": 0,
+        "specified_assignment_probability_full_support": {
+          "denominator": 5,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": null
+      }
+    },
+    {
+      "X": 1000000,
+      "width": [
+        3,
+        1000
+      ],
+      "upper": 1003000,
+      "totals": {
+        "diagonal": 0,
+        "overflow": 0,
+        "raw": 585,
+        "scale_trim": 203,
+        "small_trim": 203
+      },
+      "overflow_by_view": {
+        "raw": 0,
+        "scale_trim": 0,
+        "small_trim": 0
+      },
+      "geometric_rows": 168,
+      "zero_total_rows": 58,
+      "geometrically_empty_windows": 0,
+      "capacity_status": "MODEL_SUPPORT_FAILURE",
+      "stratum_channel_count": 448,
+      "all_violating_target_channels": 209,
+      "positive_total_target_violating_channels": 105,
+      "zero_total_target_violating_channels": 104,
+      "first_positive_subset_witness": {
+        "coarse_band": 2,
+        "p_mod_30": 19,
+        "q_mod_30": 29,
+        "source_p": 79,
+        "source_total_row_count": 3,
+        "source_channel_count": 2,
+        "target_p": 109,
+        "target_total_row_count": 3,
+        "target_observed_channel_count": 0,
+        "target_qlo": 9175,
+        "target_qhi": 9201,
+        "target_integer_residue_capacity": 1,
+        "specified_assignment_probability_full_support": {
+          "denominator": 2,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": {
+          "numerator": 1,
+          "denominator": 2
+        }
+      },
+      "first_zero_total_target_witness": {
+        "coarse_band": 3,
+        "p_mod_30": 17,
+        "q_mod_30": 17,
+        "source_p": 137,
+        "source_total_row_count": 3,
+        "source_channel_count": 1,
+        "target_p": 167,
+        "target_total_row_count": 0,
+        "target_observed_channel_count": 0,
+        "target_qlo": 5989,
+        "target_qhi": 6005,
+        "target_integer_residue_capacity": 0,
+        "specified_assignment_probability_full_support": {
+          "denominator": 2,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": null
+      }
+    },
+    {
+      "X": 1000000,
+      "width": [
+        1,
+        1000
+      ],
+      "upper": 1001000,
+      "totals": {
+        "diagonal": 0,
+        "overflow": 0,
+        "raw": 196,
+        "scale_trim": 69,
+        "small_trim": 69
+      },
+      "overflow_by_view": {
+        "raw": 0,
+        "scale_trim": 0,
+        "small_trim": 0
+      },
+      "geometric_rows": 168,
+      "zero_total_rows": 99,
+      "geometrically_empty_windows": 0,
+      "capacity_status": "MODEL_SUPPORT_FAILURE",
+      "stratum_channel_count": 448,
+      "all_violating_target_channels": 113,
+      "positive_total_target_violating_channels": 40,
+      "zero_total_target_violating_channels": 73,
+      "first_positive_subset_witness": {
+        "coarse_band": 3,
+        "p_mod_30": 7,
+        "q_mod_30": 13,
+        "source_p": 157,
+        "source_total_row_count": 1,
+        "source_channel_count": 1,
+        "target_p": 127,
+        "target_total_row_count": 2,
+        "target_observed_channel_count": 0,
+        "target_qlo": 7875,
+        "target_qhi": 7881,
+        "target_integer_residue_capacity": 0,
+        "specified_assignment_probability_full_support": {
+          "denominator": 2,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": {
+          "numerator": 1,
+          "denominator": 2
+        }
+      },
+      "first_zero_total_target_witness": {
+        "coarse_band": 2,
+        "p_mod_30": 23,
+        "q_mod_30": 19,
+        "source_p": 83,
+        "source_total_row_count": 1,
+        "source_channel_count": 1,
+        "target_p": 113,
+        "target_total_row_count": 0,
+        "target_observed_channel_count": 0,
+        "target_qlo": 8850,
+        "target_qhi": 8858,
+        "target_integer_residue_capacity": 0,
+        "specified_assignment_probability_full_support": {
+          "denominator": 2,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": null
+      }
+    },
+    {
+      "X": 3000000,
+      "width": [
+        1,
+        100
+      ],
+      "upper": 3030000,
+      "totals": {
+        "diagonal": 1,
+        "overflow": 3,
+        "raw": 5826,
+        "scale_trim": 2126,
+        "small_trim": 2257
+      },
+      "overflow_by_view": {
+        "raw": 3,
+        "scale_trim": 3,
+        "small_trim": 3
+      },
+      "geometric_rows": 270,
+      "zero_total_rows": 0,
+      "geometrically_empty_windows": 0,
+      "capacity_status": "MODEL_SUPPORT_FAILURE",
+      "stratum_channel_count": 464,
+      "all_violating_target_channels": 304,
+      "positive_total_target_violating_channels": 304,
+      "zero_total_target_violating_channels": 0,
+      "first_positive_subset_witness": {
+        "coarse_band": 3,
+        "p_mod_30": 17,
+        "q_mod_30": 1,
+        "source_p": 197,
+        "source_total_row_count": 20,
+        "source_channel_count": 4,
+        "target_p": 257,
+        "target_total_row_count": 13,
+        "target_observed_channel_count": 2,
+        "target_qlo": 11674,
+        "target_qhi": 11789,
+        "target_integer_residue_capacity": 3,
+        "specified_assignment_probability_full_support": {
+          "denominator": 3,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": {
+          "numerator": 1,
+          "denominator": 3
+        }
+      },
+      "first_zero_total_target_witness": null
+    },
+    {
+      "X": 3000000,
+      "width": [
+        3,
+        1000
+      ],
+      "upper": 3009000,
+      "totals": {
+        "diagonal": 1,
+        "overflow": 1,
+        "raw": 1743,
+        "scale_trim": 629,
+        "small_trim": 666
+      },
+      "overflow_by_view": {
+        "raw": 1,
+        "scale_trim": 1,
+        "small_trim": 1
+      },
+      "geometric_rows": 270,
+      "zero_total_rows": 45,
+      "geometrically_empty_windows": 0,
+      "capacity_status": "MODEL_SUPPORT_FAILURE",
+      "stratum_channel_count": 464,
+      "all_violating_target_channels": 681,
+      "positive_total_target_violating_channels": 516,
+      "zero_total_target_violating_channels": 165,
+      "first_positive_subset_witness": {
+        "coarse_band": 2,
+        "p_mod_30": 17,
+        "q_mod_30": 1,
+        "source_p": 107,
+        "source_total_row_count": 9,
+        "source_channel_count": 3,
+        "target_p": 167,
+        "target_total_row_count": 6,
+        "target_observed_channel_count": 1,
+        "target_qlo": 17965,
+        "target_qhi": 18017,
+        "target_integer_residue_capacity": 2,
+        "specified_assignment_probability_full_support": {
+          "denominator": 3,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": {
+          "numerator": 1,
+          "denominator": 3
+        }
+      },
+      "first_zero_total_target_witness": {
+        "coarse_band": 5,
+        "p_mod_30": 7,
+        "q_mod_30": 11,
+        "source_p": 457,
+        "source_total_row_count": 4,
+        "source_channel_count": 1,
+        "target_p": 547,
+        "target_total_row_count": 0,
+        "target_observed_channel_count": 0,
+        "target_qlo": 5485,
+        "target_qhi": 5500,
+        "target_integer_residue_capacity": 0,
+        "specified_assignment_probability_full_support": {
+          "denominator": 5,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": null
+      }
+    },
+    {
+      "X": 3000000,
+      "width": [
+        1,
+        1000
+      ],
+      "upper": 3003000,
+      "totals": {
+        "diagonal": 0,
+        "overflow": 0,
+        "raw": 583,
+        "scale_trim": 209,
+        "small_trim": 219
+      },
+      "overflow_by_view": {
+        "raw": 0,
+        "scale_trim": 0,
+        "small_trim": 0
+      },
+      "geometric_rows": 269,
+      "zero_total_rows": 135,
+      "geometrically_empty_windows": 0,
+      "capacity_status": "MODEL_SUPPORT_FAILURE",
+      "stratum_channel_count": 464,
+      "all_violating_target_channels": 475,
+      "positive_total_target_violating_channels": 182,
+      "zero_total_target_violating_channels": 293,
+      "first_positive_subset_witness": {
+        "coarse_band": 1,
+        "p_mod_30": 7,
+        "q_mod_30": 29,
+        "source_p": 67,
+        "source_total_row_count": 5,
+        "source_channel_count": 2,
+        "target_p": 97,
+        "target_total_row_count": 4,
+        "target_observed_channel_count": 0,
+        "target_qlo": 30928,
+        "target_qhi": 30958,
+        "target_integer_residue_capacity": 1,
+        "specified_assignment_probability_full_support": {
+          "denominator": 2,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": {
+          "numerator": 1,
+          "denominator": 2
+        }
+      },
+      "first_zero_total_target_witness": {
+        "coarse_band": 3,
+        "p_mod_30": 1,
+        "q_mod_30": 7,
+        "source_p": 241,
+        "source_total_row_count": 2,
+        "source_channel_count": 1,
+        "target_p": 181,
+        "target_total_row_count": 0,
+        "target_observed_channel_count": 0,
+        "target_qlo": 16575,
+        "target_qhi": 16591,
+        "target_integer_residue_capacity": 0,
+        "specified_assignment_probability_full_support": {
+          "denominator": 3,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": null
+      }
+    },
+    {
+      "X": 10000000,
+      "width": [
+        1,
+        100
+      ],
+      "upper": 10100000,
+      "totals": {
+        "diagonal": 3,
+        "overflow": 13,
+        "raw": 18161,
+        "scale_trim": 6522,
+        "small_trim": 7459
+      },
+      "overflow_by_view": {
+        "raw": 13,
+        "scale_trim": 13,
+        "small_trim": 13
+      },
+      "geometric_rows": 449,
+      "zero_total_rows": 0,
+      "geometrically_empty_windows": 0,
+      "capacity_status": "MODEL_SUPPORT_FAILURE",
+      "stratum_channel_count": 504,
+      "all_violating_target_channels": 723,
+      "positive_total_target_violating_channels": 723,
+      "zero_total_target_violating_channels": 0,
+      "first_positive_subset_witness": {
+        "coarse_band": 4,
+        "p_mod_30": 23,
+        "q_mod_30": 29,
+        "source_p": 443,
+        "source_total_row_count": 23,
+        "source_channel_count": 5,
+        "target_p": 683,
+        "target_total_row_count": 18,
+        "target_observed_channel_count": 3,
+        "target_qlo": 14642,
+        "target_qhi": 14787,
+        "target_integer_residue_capacity": 4,
+        "specified_assignment_probability_full_support": {
+          "denominator": 6,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": {
+          "numerator": 1,
+          "denominator": 6
+        }
+      },
+      "first_zero_total_target_witness": null
+    },
+    {
+      "X": 10000000,
+      "width": [
+        3,
+        1000
+      ],
+      "upper": 10030000,
+      "totals": {
+        "diagonal": 2,
+        "overflow": 4,
+        "raw": 5472,
+        "scale_trim": 1950,
+        "small_trim": 2240
+      },
+      "overflow_by_view": {
+        "raw": 4,
+        "scale_trim": 4,
+        "small_trim": 4
+      },
+      "geometric_rows": 448,
+      "zero_total_rows": 26,
+      "geometrically_empty_windows": 0,
+      "capacity_status": "MODEL_SUPPORT_FAILURE",
+      "stratum_channel_count": 504,
+      "all_violating_target_channels": 1137,
+      "positive_total_target_violating_channels": 1012,
+      "zero_total_target_violating_channels": 125,
+      "first_positive_subset_witness": {
+        "coarse_band": 3,
+        "p_mod_30": 1,
+        "q_mod_30": 13,
+        "source_p": 271,
+        "source_total_row_count": 12,
+        "source_channel_count": 4,
+        "target_p": 331,
+        "target_total_row_count": 7,
+        "target_observed_channel_count": 2,
+        "target_qlo": 30212,
+        "target_qhi": 30302,
+        "target_integer_residue_capacity": 3,
+        "specified_assignment_probability_full_support": {
+          "denominator": 3,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": {
+          "numerator": 1,
+          "denominator": 3
+        }
+      },
+      "first_zero_total_target_witness": {
+        "coarse_band": 6,
+        "p_mod_30": 7,
+        "q_mod_30": 7,
+        "source_p": 1297,
+        "source_total_row_count": 3,
+        "source_channel_count": 1,
+        "target_p": 1867,
+        "target_total_row_count": 0,
+        "target_observed_channel_count": 0,
+        "target_qlo": 5357,
+        "target_qhi": 5372,
+        "target_integer_residue_capacity": 0,
+        "specified_assignment_probability_full_support": {
+          "denominator": 11,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": null
+      }
+    },
+    {
+      "X": 10000000,
+      "width": [
+        1,
+        1000
+      ],
+      "upper": 10010000,
+      "totals": {
+        "diagonal": 1,
+        "overflow": 1,
+        "raw": 1832,
+        "scale_trim": 660,
+        "small_trim": 754
+      },
+      "overflow_by_view": {
+        "raw": 1,
+        "scale_trim": 1,
+        "small_trim": 1
+      },
+      "geometric_rows": 447,
+      "zero_total_rows": 146,
+      "geometrically_empty_windows": 0,
+      "capacity_status": "MODEL_SUPPORT_FAILURE",
+      "stratum_channel_count": 504,
+      "all_violating_target_channels": 1506,
+      "positive_total_target_violating_channels": 854,
+      "zero_total_target_violating_channels": 652,
+      "first_positive_subset_witness": {
+        "coarse_band": 1,
+        "p_mod_30": 7,
+        "q_mod_30": 13,
+        "source_p": 97,
+        "source_total_row_count": 7,
+        "source_channel_count": 3,
+        "target_p": 127,
+        "target_total_row_count": 7,
+        "target_observed_channel_count": 0,
+        "target_qlo": 78741,
+        "target_qhi": 78818,
+        "target_integer_residue_capacity": 2,
+        "specified_assignment_probability_full_support": {
+          "denominator": 2,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": {
+          "numerator": 1,
+          "denominator": 2
+        }
+      },
+      "first_zero_total_target_witness": {
+        "coarse_band": 4,
+        "p_mod_30": 19,
+        "q_mod_30": 7,
+        "source_p": 499,
+        "source_total_row_count": 2,
+        "source_channel_count": 1,
+        "target_p": 619,
+        "target_total_row_count": 0,
+        "target_observed_channel_count": 0,
+        "target_qlo": 16156,
+        "target_qhi": 16171,
+        "target_integer_residue_capacity": 0,
+        "specified_assignment_probability_full_support": {
+          "denominator": 3,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": null
+      }
+    },
+    {
+      "X": 30000000,
+      "width": [
+        1,
+        100
+      ],
+      "upper": 30300000,
+      "totals": {
+        "diagonal": 4,
+        "overflow": 18,
+        "raw": 52396,
+        "scale_trim": 18137,
+        "small_trim": 22419
+      },
+      "overflow_by_view": {
+        "raw": 18,
+        "scale_trim": 18,
+        "small_trim": 18
+      },
+      "geometric_rows": 727,
+      "zero_total_rows": 0,
+      "geometrically_empty_windows": 0,
+      "capacity_status": "MODEL_SUPPORT_FAILURE",
+      "stratum_channel_count": 504,
+      "all_violating_target_channels": 916,
+      "positive_total_target_violating_channels": 916,
+      "zero_total_target_violating_channels": 0,
+      "first_positive_subset_witness": {
+        "coarse_band": 5,
+        "p_mod_30": 1,
+        "q_mod_30": 23,
+        "source_p": 1171,
+        "source_total_row_count": 26,
+        "source_channel_count": 6,
+        "target_p": 1831,
+        "target_total_row_count": 15,
+        "target_observed_channel_count": 2,
+        "target_qlo": 16385,
+        "target_qhi": 16548,
+        "target_integer_residue_capacity": 5,
+        "specified_assignment_probability_full_support": {
+          "denominator": 13,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": {
+          "numerator": 1,
+          "denominator": 13
+        }
+      },
+      "first_zero_total_target_witness": null
+    },
+    {
+      "X": 30000000,
+      "width": [
+        3,
+        1000
+      ],
+      "upper": 30090000,
+      "totals": {
+        "diagonal": 2,
+        "overflow": 3,
+        "raw": 15664,
+        "scale_trim": 5411,
+        "small_trim": 6676
+      },
+      "overflow_by_view": {
+        "raw": 3,
+        "scale_trim": 3,
+        "small_trim": 3
+      },
+      "geometric_rows": 725,
+      "zero_total_rows": 13,
+      "geometrically_empty_windows": 0,
+      "capacity_status": "MODEL_SUPPORT_FAILURE",
+      "stratum_channel_count": 504,
+      "all_violating_target_channels": 1381,
+      "positive_total_target_violating_channels": 1343,
+      "zero_total_target_violating_channels": 38,
+      "first_positive_subset_witness": {
+        "coarse_band": 3,
+        "p_mod_30": 13,
+        "q_mod_30": 7,
+        "source_p": 523,
+        "source_total_row_count": 14,
+        "source_channel_count": 5,
+        "target_p": 613,
+        "target_total_row_count": 15,
+        "target_observed_channel_count": 1,
+        "target_qlo": 48940,
+        "target_qhi": 49086,
+        "target_integer_residue_capacity": 4,
+        "specified_assignment_probability_full_support": {
+          "denominator": 5,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": {
+          "numerator": 1,
+          "denominator": 5
+        }
+      },
+      "first_zero_total_target_witness": {
+        "coarse_band": 7,
+        "p_mod_30": 1,
+        "q_mod_30": 7,
+        "source_p": 3271,
+        "source_total_row_count": 4,
+        "source_channel_count": 1,
+        "target_p": 4621,
+        "target_total_row_count": 0,
+        "target_observed_channel_count": 0,
+        "target_qlo": 6493,
+        "target_qhi": 6511,
+        "target_integer_residue_capacity": 0,
+        "specified_assignment_probability_full_support": {
+          "denominator": 30,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": null
+      }
+    },
+    {
+      "X": 30000000,
+      "width": [
+        1,
+        1000
+      ],
+      "upper": 30030000,
+      "totals": {
+        "diagonal": 1,
+        "overflow": 1,
+        "raw": 5201,
+        "scale_trim": 1805,
+        "small_trim": 2222
+      },
+      "overflow_by_view": {
+        "raw": 1,
+        "scale_trim": 1,
+        "small_trim": 1
+      },
+      "geometric_rows": 724,
+      "zero_total_rows": 136,
+      "geometrically_empty_windows": 0,
+      "capacity_status": "MODEL_SUPPORT_FAILURE",
+      "stratum_channel_count": 504,
+      "all_violating_target_channels": 2715,
+      "positive_total_target_violating_channels": 1953,
+      "zero_total_target_violating_channels": 762,
+      "first_positive_subset_witness": {
+        "coarse_band": 2,
+        "p_mod_30": 17,
+        "q_mod_30": 23,
+        "source_p": 227,
+        "source_total_row_count": 11,
+        "source_channel_count": 3,
+        "target_p": 347,
+        "target_total_row_count": 9,
+        "target_observed_channel_count": 0,
+        "target_qlo": 86456,
+        "target_qhi": 86541,
+        "target_integer_residue_capacity": 2,
+        "specified_assignment_probability_full_support": {
+          "denominator": 4,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": {
+          "numerator": 1,
+          "denominator": 4
+        }
+      },
+      "first_zero_total_target_witness": {
+        "coarse_band": 5,
+        "p_mod_30": 1,
+        "q_mod_30": 1,
+        "source_p": 1171,
+        "source_total_row_count": 4,
+        "source_channel_count": 1,
+        "target_p": 1831,
+        "target_total_row_count": 0,
+        "target_observed_channel_count": 0,
+        "target_qlo": 16385,
+        "target_qhi": 16400,
+        "target_integer_residue_capacity": 0,
+        "specified_assignment_probability_full_support": {
+          "denominator": 13,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": null
+      }
+    },
+    {
+      "X": 100000000,
+      "width": [
+        1,
+        100
+      ],
+      "upper": 101000000,
+      "totals": {
+        "diagonal": 4,
+        "overflow": 20,
+        "raw": 167952,
+        "scale_trim": 58534,
+        "small_trim": 75029
+      },
+      "overflow_by_view": {
+        "raw": 20,
+        "scale_trim": 20,
+        "small_trim": 20
+      },
+      "geometric_rows": 1233,
+      "zero_total_rows": 0,
+      "geometrically_empty_windows": 0,
+      "capacity_status": "MODEL_SUPPORT_FAILURE",
+      "stratum_channel_count": 512,
+      "all_violating_target_channels": 941,
+      "positive_total_target_violating_channels": 941,
+      "zero_total_target_violating_channels": 0,
+      "first_positive_subset_witness": {
+        "coarse_band": 5,
+        "p_mod_30": 13,
+        "q_mod_30": 19,
+        "source_p": 1783,
+        "source_total_row_count": 54,
+        "source_channel_count": 12,
+        "target_p": 2953,
+        "target_total_row_count": 26,
+        "target_observed_channel_count": 4,
+        "target_qlo": 33864,
+        "target_qhi": 34202,
+        "target_integer_residue_capacity": 11,
+        "specified_assignment_probability_full_support": {
+          "denominator": 19,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": {
+          "numerator": 1,
+          "denominator": 19
+        }
+      },
+      "first_zero_total_target_witness": null
+    },
+    {
+      "X": 100000000,
+      "width": [
+        3,
+        1000
+      ],
+      "upper": 100300000,
+      "totals": {
+        "diagonal": 2,
+        "overflow": 3,
+        "raw": 50326,
+        "scale_trim": 17464,
+        "small_trim": 22437
+      },
+      "overflow_by_view": {
+        "raw": 3,
+        "scale_trim": 3,
+        "small_trim": 3
+      },
+      "geometric_rows": 1231,
+      "zero_total_rows": 0,
+      "geometrically_empty_windows": 0,
+      "capacity_status": "MODEL_SUPPORT_FAILURE",
+      "stratum_channel_count": 512,
+      "all_violating_target_channels": 3270,
+      "positive_total_target_violating_channels": 3270,
+      "zero_total_target_violating_channels": 0,
+      "first_positive_subset_witness": {
+        "coarse_band": 4,
+        "p_mod_30": 7,
+        "q_mod_30": 23,
+        "source_p": 1627,
+        "source_total_row_count": 22,
+        "source_channel_count": 6,
+        "target_p": 1747,
+        "target_total_row_count": 17,
+        "target_observed_channel_count": 1,
+        "target_qlo": 57241,
+        "target_qhi": 57412,
+        "target_integer_residue_capacity": 5,
+        "specified_assignment_probability_full_support": {
+          "denominator": 12,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": {
+          "numerator": 1,
+          "denominator": 12
+        }
+      },
+      "first_zero_total_target_witness": null
+    },
+    {
+      "X": 100000000,
+      "width": [
+        1,
+        1000
+      ],
+      "upper": 100100000,
+      "totals": {
+        "diagonal": 0,
+        "overflow": 0,
+        "raw": 16827,
+        "scale_trim": 5818,
+        "small_trim": 7523
+      },
+      "overflow_by_view": {
+        "raw": 0,
+        "scale_trim": 0,
+        "small_trim": 0
+      },
+      "geometric_rows": 1229,
+      "zero_total_rows": 89,
+      "geometrically_empty_windows": 0,
+      "capacity_status": "MODEL_SUPPORT_FAILURE",
+      "stratum_channel_count": 512,
+      "all_violating_target_channels": 3281,
+      "positive_total_target_violating_channels": 2883,
+      "zero_total_target_violating_channels": 398,
+      "first_positive_subset_witness": {
+        "coarse_band": 3,
+        "p_mod_30": 1,
+        "q_mod_30": 17,
+        "source_p": 631,
+        "source_total_row_count": 16,
+        "source_channel_count": 4,
+        "target_p": 991,
+        "target_total_row_count": 10,
+        "target_observed_channel_count": 1,
+        "target_qlo": 100909,
+        "target_qhi": 101009,
+        "target_integer_residue_capacity": 3,
+        "specified_assignment_probability_full_support": {
+          "denominator": 8,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": {
+          "numerator": 1,
+          "denominator": 8
+        }
+      },
+      "first_zero_total_target_witness": {
+        "coarse_band": 6,
+        "p_mod_30": 1,
+        "q_mod_30": 13,
+        "source_p": 3301,
+        "source_total_row_count": 4,
+        "source_channel_count": 1,
+        "target_p": 4861,
+        "target_total_row_count": 0,
+        "target_observed_channel_count": 0,
+        "target_qlo": 20572,
+        "target_qhi": 20592,
+        "target_integer_residue_capacity": 0,
+        "specified_assignment_probability_full_support": {
+          "denominator": 33,
+          "numerator": 1
+        },
+        "specified_assignment_probability_positive_subset": null
+      }
+    }
+  ],
+  "totals": {
+    "completed_cells": 21,
+    "model_support_failure_cells": 21,
+    "cells_with_positive_subset_witness": 18,
+    "cells_with_zero_total_target_witness": 16,
+    "violating_cell_target_channels": 18090,
+    "positive_subset_violating_cell_target_channels": 15400,
+    "zero_total_target_violating_cell_target_channels": 2690
+  },
+  "interpretation": [
+    "A positive-subset witness has both source and target with positive total observed row count. Removing zero-total rows leaves that specified assignment reachable in the declared stratum. This is not a replay of old floating-point code or random draws.",
+    "Zero-total-target witnesses require those target rows to be retained. These are reported separately, not used to explain away the positive-subset obstruction.",
+    "Counts concern cell/target/residue violations and can overlap across widths; their sum is not a count of distinct primes, independent trials or a p-value.",
+    "The count surrogate remains mathematically defined. Failure is of its universal factor-window occupancy interpretation, not a theorem excluding all conditional randomization or genuine residual structure.",
+    "No scientific corrected/signed/null vectors were computed; unavailability is not zero. Already exposed holdouts remain post-exposure. Hard target and formal Result acceptance remain open."
+  ]
+}

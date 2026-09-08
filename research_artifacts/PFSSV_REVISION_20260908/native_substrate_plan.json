@@ -1,0 +1,125 @@
+{
+  "schema": "PFSSV_NATIVE_SUBSTRATE_PLAN_V1",
+  "frozen_at_utc": "2026-09-08T10:39:58.528352+00:00",
+  "scope": "New task-local copy of historical PFSSV algorithm; no edits to original sources or general-purpose arithmetic facade.",
+  "typed_base": {
+    "I0": "Integer arrays/ordered prime indices and serialization labels.",
+    "N0": "Task-declared exact integer prime factor pairs and product shell relation.",
+    "N1": "Declared sieve, trim, stratification and PRNG operations.",
+    "N2": "Counts, rank and BRC interval log-bin readouts; declared S3 diagnostic orbit.",
+    "N3": "First-order density surrogate/statistical interpretation, not foundational promotion."
+  },
+  "source_binding": "source_binding.json",
+  "reuse_plan": [
+    {
+      "ids": [
+        "T0_BRC",
+        "T5_PRECISION_REFINEMENT",
+        "P007_DISCRETE_DIVISION"
+      ],
+      "entrypoints": [
+        "enterprise_math.exact_arithmetic.division(n,d)",
+        "brc_evaluate_division(expr)",
+        "brc_is_integral(expr)",
+        "root(n,degree)",
+        "brc_evaluate_root(expr)",
+        "brc_scaled_evaluate(expr,scale)",
+        "brc_scaled_evaluate_root(expr,scale)"
+      ],
+      "resolution": "REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE",
+      "why": "Source/interface identified; execution withheld pending actual claim/ER/PRE_MATH, not an environment or mathematical capability gap. Planned COMPOSE with the task-specific original algorithm."
+    },
+    {
+      "ids": [
+        "T0_BRC",
+        "T5_PRECISION_REFINEMENT"
+      ],
+      "entrypoints": [
+        "enterprise_math.brc_logarithm.ln(DivisionExpr)",
+        "logarithm(argument,base)",
+        "brc_evaluate_ln(expr,scale)",
+        "brc_evaluate_log(expr,scale)"
+      ],
+      "resolution": "REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE",
+      "why": "Actual existing positive-rational interval interface, no invocation this turn. Nested coordinate/statistical interval composition is task-local and must be checked after authorization."
+    },
+    {
+      "ids": [
+        "domain.prime_toolkit",
+        "classical.bounded_primality",
+        "classical.prime_enumeration"
+      ],
+      "entrypoints": [
+        "enterprise_math.prime_toolkit.bounded_primality(n) -> legendre.is_prime",
+        "bounded_prime_enumeration(limit) -> legendre.primes_up_to"
+      ],
+      "resolution": "EXTEND_EXISTING_TOOL",
+      "why": "Exact CLASSICAL_BASELINE, but owners use direct isqrt/% and return no BRC certificate; not a ready native or high-throughput pipeline. Preserve as explicitly classical reference only. Migrate original task sieve locally through available BRC arithmetic; no new global family."
+    },
+    {
+      "ids": [
+        "p018.first_factor_shell"
+      ],
+      "entrypoints": [
+        "enterprise_math.prime_toolkit.first_factor_shell(k,prime) -> factor_precision.first_factor_shell"
+      ],
+      "resolution": "NOT_APPLICABLE",
+      "why": "Least-factor shell inside k^2<n<(k+1)^2, not the task multiplicative semiprime shell; direct % owner remains legacy. Do not substitute a different shell contract."
+    },
+    {
+      "ids": [
+        "T1_SCALE_ENUMERATION_VALUATION"
+      ],
+      "entrypoints": [
+        "DELTA",
+        "GEN",
+        "VAL",
+        "MOBIUS",
+        "LOCAL"
+      ],
+      "resolution": "REUSE_APPLIED",
+      "why": "Use only its declared count/shell distinction to organize exact cumulative counts/window differences; no universal Ehrhart or prime-count algorithm follows. Pi indices are cumulative counts on the complete ordered prime prefix, not matrix-rank tools."
+    },
+    {
+      "ids": [
+        "T7_FINITE_SYMMETRY_EQUIVARIANCE"
+      ],
+      "entrypoints": [
+        "enterprise_math.finite_symmetry.validate_finite_group_action",
+        "orbit",
+        "orbit_partition"
+      ],
+      "resolution": "REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE",
+      "why": "Existing finite action interface for the diagnostic S3 orbit; no execution, full sample-wide action expansion unnecessary, no quotient changes to primary data."
+    }
+  ],
+  "arithmetic_boundaries": [
+    "DIV facade accepts nonnegative numerator/positive denominator only; retain signed residual sign separately. Cross-multiplication may compare unevaluated ratios. Every materialized quotient/remainder/root carries actual facade trace.",
+    "brc_evaluate_log accepts positive rational argument/base. Density-flat log(log(p)/log(X)) composition must propagate certified endpoint intervals; feeding one rounded u as if it were exact is invalid. Refine until a bin/gate is separated, otherwise mark unresolved.",
+    "Keep all legitimate shell p<=sqrt(U). p*p>X is an overflow/diagonal-region diagnostic outside u<=1/2; separately account for it in raw/rank and the declared density-flat domain rather than silently clipping into last bin.",
+    "NumPy fixed-width indices/count arrays require explicit safe bounds; arbitrary-precision Python ints for products, accumulated exact moments and certificate arithmetic. Float readouts cannot make native gate decisions; external floating oracles require explicit error semantics and never substitute for native evidence.",
+    "No existing facade label or static-only PASS proves transitive runtime compliance; record direct dependencies and actual calls. BRC Boolean support does not recover erased multiplicity or infer an ontology change."
+  ],
+  "stage_1_implementation": [
+    "Boolean sieve marking with only root and slice-length evaluations through actual BRC; bounded uint32 prime-address storage, Python int products/counts.",
+    "Complete prime-prefix rank and q-rank intervals; exact integer per-bin joint-rank occupancy by interval intersections.",
+    "BRC log intervals propagated through monotone coordinate transforms, with finite refinement budget and explicit unresolved outcome.",
+    "Actual native function code-object call counters and returned trace capture; content-addressed dedup records include repeat counts/references, no silent discarded trace evidence.",
+    "Full cell serialization roundtrip preserves all raw profiles and every supplied corrected/residual vector; absent Stage 1 scientific vectors explicitly unavailable."
+  ],
+  "not_claimed": [
+    "A new primality theorem or native-certified legacy Prime Toolkit chain.",
+    "Fresh blinded holdout; general residual refutation; full 21-cell computation."
+  ],
+  "authorization": {
+    "server_comment_id": 5583750861,
+    "er": "ER-EB2A78D7B88A292B412B",
+    "canonical_runtime_pass": true,
+    "blind_pre_math_stamp": null
+  },
+  "prior_preparation": {
+    "path": "D:\\em\\TEMP\\pfssv-gen2-startup-preparation-20260908-EM-PFSSV-E500C7\\PREPARATION.json",
+    "sha256": "1d762ab3330521011408a782338fee86df9d4d919fe815a8c41c2c513e68c643",
+    "read_only_historical_generation": true
+  }
+}

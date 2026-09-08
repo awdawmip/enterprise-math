@@ -1,0 +1,306 @@
+{
+  "schema": "PFSSV_STAGE1_INDEPENDENT_BOUNDED_REVIEW_RECEIPT_V1",
+  "record_kind": "MEMORIALIZATION_OF_ALREADY_COMPLETED_READ_ONLY_REVIEW",
+  "review_date": "2026-09-08",
+  "preparation_clock_observed_utc": "2026-09-08T11:35:27Z",
+  "reviewer": "execution_gate_review internal assistant; not a formal Driver reviewer",
+  "conclusion": "PASS_WITHIN_STAGE1_BOUNDED_SCOPE",
+  "substantive_blockers": [],
+  "new_execution_or_revalidation_during_memorialization": false,
+  "authoring_global_knowledge_snapshot": {
+    "canonical_sha": "ca9cd753e298ccf9524393faf33047d9b5246d07",
+    "previously_read_entries": [
+      "00_BOOTSTRAP.md",
+      "OPERATING_MANUAL.md",
+      "CODEX_SYNC_PROTOCOL.md"
+    ],
+    "previously_established_lease_expires_utc": "2026-09-08T11:47:32.3443076Z",
+    "meaning": "Actual authoring read snapshot; not a claim that this is the latest remote main."
+  },
+  "frozen_input": {
+    "publication_manifest": "D:/em/TEMP/pfssv-stage1-20260908/stage1-publication.json",
+    "publication_manifest_sha256": "47c0e0ca4e0fd26e0eb5c16d08902cc3ba63f561d73587ebf4a7a920012a8bc5",
+    "snapshot_root": "D:/em/TEMP/pfssv-stage1-20260908/frozen-source",
+    "local_baseline": "2aa103eee829b78fa7784674ec1be4c3c5052a79",
+    "parent_remote_execution_commit": "4dc38cc6cdd6c59922a6ee37b108bed49cf8c9d2",
+    "root_reported_stage1_source_commit": "01b6dd932f62fd3b0a6f3b06d29ff809b04ed62e",
+    "remote_readback_by_this_reviewer": false,
+    "independently_checked_file_count": 11,
+    "all_manifest_sha256_and_byte_lengths_matched": true,
+    "primary_files": [
+      {
+        "path": "scripts/check_prime_factor_semiprime_shell_residual_validation_revision_20260908.py",
+        "sha256": "37684dece1a454858ca5e89b5cb63ed88a65a2b6f86862aee5e89a30e51bde56",
+        "blob": "c8a40de0a63805dba5ca5890442f8478bf7aa86a",
+        "bytes": 26615
+      },
+      {
+        "path": "tests/test_pfssv_revision_contract_20260908.py",
+        "sha256": "ea5cbe7c5a2da743df9b03ba9d49c4b8b54d7a7c9f94f8c66e731f2a6a2fbe0e",
+        "blob": "062cd627cd12de98886e60481cecf124b50903e8",
+        "bytes": 8204
+      },
+      {
+        "path": "research_artifacts/PFSSV_REVISION_20260908/cell_profiles.jsonl",
+        "sha256": "d9bf98bf8e8778492e8dfbb8211cbd2c8b2297c7bb80aaac5103b45ed6f11bca",
+        "blob": "d4016609498fd2be7d5e523ab85134529f7e00e8",
+        "bytes": 84725
+      },
+      {
+        "path": "research_artifacts/PFSSV_REVISION_20260908/resource_probe.json",
+        "sha256": "5abb0c6c19050b8559f18e5daef86c11572cfe5968f6f192b0da96676e83e19e",
+        "blob": "d03836ce50cf91097ba0a16e137e37679e0d7991",
+        "bytes": 3369
+      }
+    ]
+  },
+  "immutable_dependencies_read": {
+    "git_commit": "2aa103eee829b78fa7784674ec1be4c3c5052a79",
+    "read_mechanism": "git show of exact immutable objects through D:/em/control-execution-prepare-audit-20260908; no editing research-tree reads",
+    "old_null_a": {
+      "path": "scripts/check_prime_factor_semiprime_shell_residual_validation.py",
+      "sha256": "8772484435d77abf74e87a6f053a0edaf4fa9395bdbade93ede2413083f22140",
+      "blob": "c2e6319ab0f52a2ac7d0ad4845d345c96177eb8d",
+      "relevant_lines": "64-108, especially positive mask 71-72, grouping 94-99, independent channel permutation 103-108"
+    },
+    "native_contracts": [
+      {
+        "path": "src/enterprise_math/exact_arithmetic.py",
+        "sha256": "f4f8feead82dc53a35e5fec495b31e46e64820f7b115c9efd6034063e68f8ad6",
+        "read_lines": "210-252"
+      },
+      {
+        "path": "src/enterprise_math/brc_logarithm.py",
+        "sha256": "cb9ce27bbea7ac9d264c8e013c4f3d0ef830842feae7ec63fe5dc39de79b8343",
+        "read_lines": "489-555"
+      }
+    ]
+  },
+  "independent_static_findings": {
+    "brc_interval_propagation": "Conservative monotone interval bounds; equal bin endpoints required; exact right endpoint handled; bounded refinement otherwise raises PrecisionUnresolved.",
+    "rank_and_support": "Complete-prime-prefix pi coordinates; integer-window support retains zero prime counts; exact interval grid; empty integer windows and overflow separately recorded.",
+    "frozen_script_lines": {
+      "native_capture": "91-154",
+      "rank_and_sieve": "165-206,227-235",
+      "interval_bins": "238-326",
+      "shell_rank_support": "329-392",
+      "null_capacity": "407-442"
+    },
+    "no_stage2_source_read": true,
+    "no_new_numeric_run": true,
+    "no_probe_or_test_rerun": true
+  },
+  "witness": {
+    "probe_input": {
+      "X": 2000003,
+      "num": 1,
+      "den": 1000,
+      "upper": 2002003
+    },
+    "stratum": {
+      "coarse_band": 2,
+      "p_mod_30": 7,
+      "q_mod_30": 17
+    },
+    "group_size": 2,
+    "rows": [
+      {
+        "p": 97,
+        "total_count": 2,
+        "qlo": 20619,
+        "qhi": 20639,
+        "pi_p": 25,
+        "q_rank_first": 2325,
+        "q_rank_last": 2326,
+        "q_residue_17_count": 1
+      },
+      {
+        "p": 127,
+        "total_count": 2,
+        "qlo": 15749,
+        "qhi": 15763,
+        "pi_p": 31,
+        "q_rank_first": 1837,
+        "q_rank_last": 1838,
+        "q_residue_17_count": 0
+      }
+    ],
+    "original_positive_mask_boundary": "Both total counts are 2, so both remain under the original counts>0 mask. This exact two-row counterexample also survives the historical mask.",
+    "target_first_integer_residue_17": 15767,
+    "target_integer_residue_capacity": 0,
+    "assigned_source_count": 1,
+    "labelled_source_to_target_probability": {
+      "numerator": 1,
+      "denominator": 2
+    },
+    "scope": "A permitted draw cannot always be interpreted as exact factor-window occupancy. This does not repair the null or dismiss all scalar-surrogate analysis.",
+    "random_draws": 0
+  },
+  "existing_trace_inspection": {
+    "path": "D:/em/TEMP/pfssv-stage1-20260908/frozen-source/research_artifacts/PFSSV_REVISION_20260908/native_trace.jsonl",
+    "sha256": "160c1321da7b706e1201247f61269e08e46ef7b4e656e17de867303378e38572",
+    "blob": "e6b4fe748a16f5e0e4e332cb3b8004ed4c720dcf",
+    "bytes": 5803940,
+    "definitions": 6495,
+    "references": 19,
+    "events": 6514,
+    "per_function_events": {
+      "brc_evaluate_division": 5861,
+      "brc_evaluate_root": 8,
+      "brc_evaluate_log": 645
+    },
+    "matches_author_recorded_calls_and_returns": true,
+    "every_definition_digest_recomputed": true,
+    "every_reference_resolved_to_preceding_definition": true,
+    "integrity_errors": [],
+    "selected_actual_trace_lines": [
+      {
+        "line": 703,
+        "operation": "DIV(97,30)",
+        "quotient": 3,
+        "remainder": 7
+      },
+      {
+        "line": 877,
+        "operation": "DIV(127,30)",
+        "quotient": 4,
+        "remainder": 7
+      },
+      {
+        "line": 6513,
+        "operation": "DIV(15749,30)",
+        "quotient": 524,
+        "remainder": 29
+      },
+      {
+        "line": 6514,
+        "operation": "DIV(18,30)",
+        "quotient": 0,
+        "remainder": 18
+      }
+    ],
+    "evidence_boundary": "Parsed existing trace metadata and checked its digests/references; did not rerun native operations. Actual code-object call counts originate in the author's frozen profiler receipt. No brc_evaluate_ln execution is claimed."
+  },
+  "existing_author_executions": [
+    {
+      "name": "selected_static_policy_gate",
+      "receipt": "D:/em/TEMP/pfssv-stage1-20260908/static-1.json",
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_exact_arithmetic_policy.py",
+        "scripts/check_prime_factor_semiprime_shell_residual_validation_revision_20260908.py",
+        "tests/test_pfssv_revision_contract_20260908.py"
+      ],
+      "exit_code": 0,
+      "elapsed_ns": 172000000,
+      "result": "EXACT_ARITHMETIC_POLICY: PASS (2 files)",
+      "stdout": {
+        "path": "D:/em/TEMP/pfssv-stage1-20260908/static-1.stdout.txt",
+        "sha256": "6853a5c4fbfc2de59bf759a2c668127cec1db9cdfef90d879764dfca2fa0ddaa"
+      },
+      "stderr": {
+        "path": "D:/em/TEMP/pfssv-stage1-20260908/static-1.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "author_contract_tests",
+      "receipt": "D:/em/TEMP/pfssv-stage1-20260908/contracts-1.json",
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "tests.test_pfssv_revision_contract_20260908",
+        "-v"
+      ],
+      "exit_code": 0,
+      "elapsed_ns": 750000000,
+      "unittest_reported_seconds": "0.032",
+      "test_count": 11,
+      "result": "PASS",
+      "stdout": {
+        "path": "D:/em/TEMP/pfssv-stage1-20260908/contracts-1.stdout.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "D:/em/TEMP/pfssv-stage1-20260908/contracts-1.stderr.txt",
+        "sha256": "98bc9a0777b1f6a1b7b00dc6f6c87f3bf2af3853f24360936fb7c1aa6eed1724"
+      }
+    },
+    {
+      "name": "author_bounded_probe",
+      "receipt": "D:/em/TEMP/pfssv-stage1-20260908/probe-1.json",
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "scripts/check_prime_factor_semiprime_shell_residual_validation_revision_20260908.py",
+        "--resource-probe"
+      ],
+      "exit_code": 0,
+      "elapsed_ns": 5781000000,
+      "internal_elapsed_ns": 5422000000,
+      "result": "PASS_STAGE1_BOUNDED_PROBE",
+      "stdout": {
+        "path": "D:/em/TEMP/pfssv-stage1-20260908/probe-1.stdout.txt",
+        "sha256": "81384994d61dc7c8dd8f22106d5914bad0679dc43da6e0c2a1511f25cda7f3a4"
+      },
+      "stderr": {
+        "path": "D:/em/TEMP/pfssv-stage1-20260908/probe-1.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "observed": {
+        "rows": 223,
+        "zero_count_rows": 116,
+        "raw_pairs": 393,
+        "prime_prefix_limit": 1001001,
+        "prime_prefix_count": 78573,
+        "peak_process_memory_bytes": 31055872
+      }
+    }
+  ],
+  "independent_observation_tool_chunks": [
+    {
+      "chunk": "a80855",
+      "action": "Read the frozen publication manifest; clock observed 2026-09-08 11:28:38 UTC."
+    },
+    {
+      "chunk": "baa3a2",
+      "action": "Hash and size checks of all 11 frozen files; read frozen script lines 1-380."
+    },
+    {
+      "chunk": "645c82",
+      "action": "Read remaining frozen script and full frozen test."
+    },
+    {
+      "chunk": "24e170",
+      "action": "Parse frozen receipts and selected existing witness rows; verify existing trace definition hashes, prior references and event counts."
+    },
+    {
+      "chunk": "a0efc8",
+      "action": "Read pinned original Null A immutable Git source; verify its SHA256 and obtain exact Git blob."
+    },
+    {
+      "chunk": "e84897",
+      "action": "Read exact original Null A grouping and native entrypoint contracts; inspect existing author argv, stdout/stderr and hashes."
+    }
+  ],
+  "independent_raw_log_boundary": "The original independent read-only observations are tool outputs identified above. No standalone raw independent stdout log was created during that review; this receipt does not invent one. The author execution logs listed here already existed and were actually read and hash-compared.",
+  "exclusions": [
+    "Full original 21-cell scientific computation",
+    "512/4096 screen",
+    "Repaired Null A",
+    "Joint-rank null",
+    "New blind holdout",
+    "Transitive native compliance of all imports",
+    "Formal Driver verdict or hard-target acceptance"
+  ],
+  "files_modified_during_original_review": []
+}

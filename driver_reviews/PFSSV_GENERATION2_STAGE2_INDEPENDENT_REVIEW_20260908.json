@@ -1,0 +1,592 @@
+{
+  "schema": "PFSSV_STAGE2_INDEPENDENT_OUTPUT_AND_RETURN_REVIEW_V1",
+  "status": "PASS_WITHIN_OBSERVATION_AND_NEGATIVE_BOUNDARY_SCOPE",
+  "reviewer": "execution_gate_review internal assistant; no formal Driver authority exercised",
+  "review_date": "2026-09-08",
+  "recommendation": {
+    "candidate_terminal_verdict": "NEGATIVE_BOUNDARY",
+    "method_harvest": "RESULT_ONLY",
+    "mother_hard_target": "OPEN",
+    "parent_objective": "OPEN",
+    "scope": "Exact observation corrections and scalar-null occupancy-interpretation obstruction; not original scientific task completion."
+  },
+  "substantive_blockers": [],
+  "authoring_global_knowledge_sync": {
+    "canonical_sha": "b0b335fd88315416c70cd042ee2addc1a0bb680a",
+    "marker": "Global-Knowledge-Sync: main@b0b335f / GLOBAL_KNOWLEDGE_V1",
+    "mode": "BEFORE_WRITE_REFRESHED",
+    "fetched_at_utc": "2026-09-08T12:11:56.0764294+00:00",
+    "lease_expires_at_utc": "2026-09-08T18:11:56.0764294+00:00",
+    "three_entries_actually_read": true,
+    "shipped_script_sha256": "f11fda350ae622c605106ce220514e0ff8e0fa49e073d401b7c4def5b163b5a1"
+  },
+  "independent_execution": {
+    "argv": [
+      "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "-"
+    ],
+    "cwd": "D:/em",
+    "source_transport": "PowerShell literal here-string piped to the listed Python stdin; embedded source is normalized LF text.",
+    "normalized_stdin_source": "from pathlib import Path\nfrom collections import Counter,defaultdict\nimport base64,hashlib,json,re,subprocess,time,zlib\nstart=time.monotonic_ns()\nbase=Path('D:/em/TEMP/pfssv-stage1-20260908')\nrepo='D:/em/control-execution-prepare-audit-20260908'\nref='f662d48f4615fe6d08a55225c7c36ecd15f91518'\npins={}\ndef load_bytes(path,expected):\n    p=Path(path); b=p.read_bytes(); h=hashlib.sha256(b).hexdigest()\n    assert h==expected,(str(p),h,expected)\n    pins[p.as_posix()]={'sha256':h,'bytes':len(b)}\n    return b\nm=json.loads(load_bytes(base.joinpath('stage2-actual-publication.json'),'8c5db3a9ea21b5a43324051066b786cb92872afce80970c4bd567cb1b24dc5a5'))\nrd=json.loads(load_bytes(base.joinpath('stage2-frozen-readout.json'),'37991c535f70111bec3f8e37218561a12ab7b7f8bfee0997d27a50e99bc64fb9'))\nret=load_bytes('D:/em/research-pfssv-revision-20260908/research_returns/PRIME_FACTOR_SEMIPRIME_SHELL_RESIDUAL_VALIDATION_REVISION_RETURN_20260908.md','907783453bed7593872901bdaaadffe8c3f91f29e3dd8460a4bd330a72de7fc9').decode()\ndata={}\nfor f in m['files']:\n    b=load_bytes(f['frozen_path'],f['sha256']); assert len(b)==f['bytes']; data[Path(f['path']).name]=b\nsummary=json.loads(data['result_summary.json']); native=json.loads(data['native_runtime_receipt.json'])\ngenerator=json.loads(data['generator_receipt.json']); ledger=json.loads(data['discrepancy_ledger.json'])\nexpected=[(X,n,d) for X in (100000,300000,1000000,3000000,10000000,30000000,100000000) for n,d in ((1,100),(3,1000),(1,1000))]\ncells=[json.loads(line) for line in data['cell_profiles.jsonl'].splitlines()]\nassert len(cells)==21 and [(c['X'],c['num'],c['den']) for c in cells]==expected\nassert [(c['X'],*c['width']) for c in rd['cells']]==expected\nassert [(c['X'],c['num'],c['den']) for c in summary['cells']]==expected\npcpath='research_artifacts/PFSSV_REVISION_20260908/result_summary.json'\npc=subprocess.check_output(['git','-C',repo,'show',ref+':'+pcpath])\nassert hashlib.sha256(pc).hexdigest()==m['precompute_sha256']=='7a7e8fe1a11fe157130c4fdf93638db08f54095f6ae5adf20be663d10edf036b'\nassert json.loads(pc)['stage2_precompute_contract']==summary['stage2_precompute_contract']\nassert [tuple(c) for c in summary['stage2_precompute_contract']['cells']]==expected\nspath='scripts/check_prime_factor_semiprime_shell_residual_validation_revision_20260908.py'\nsource=subprocess.check_output(['git','-C',repo,'show',ref+':'+spath])\nassert hashlib.sha256(source).hexdigest()==m['source_script_sha256']==summary['script_sha256']\nsource_blob=subprocess.check_output(['git','-C',repo,'rev-parse',ref+':'+spath],text=True).strip()\ntable=[]; grand=Counter(); checked_rows=checked_strata=checked_targets=0; positives=[]; zero_only=[]; first_positive=None\nfor i,c in enumerate(cells):\n    rows=c['rows']; byp={r['p']:r for r in rows}; assert len(byp)==len(rows)\n    checked_rows+=len(rows)\n    ps=sorted([r['p'] for r in rows]+[r['p'] for r in c['geometrically_empty_rows']])\n    assert len(set(ps))==len(ps)==c['prime_rank_caps']['p']\n    ranks={p:j+1 for j,p in enumerate(ps)}\n    groups=defaultdict(list); vectors={k:[0]*24 for k in ('raw','small_trim','scale_trim','density_flat')}\n    for r in rows:\n        assert r['pi_p']==ranks[r['p']] and r['qlo']<=r['qhi']\n        assert type(r['count']) is int and r['count']>=0\n        assert len(r['q_mod_30_counts'])==30 and all(type(v) is int and v>=0 for v in r['q_mod_30_counts'])\n        assert sum(r['q_mod_30_counts'])==r['count']==r['q_prime_rank_last']-r['q_prime_rank_first']+1\n        assert 1<=r['q_prime_rank_first']<=c['prime_rank_caps']['q']+1 and 0<=r['q_prime_rank_last']<=c['prime_rank_caps']['q']\n        assert r['small_trim']==(r['p']>31) and r['scale_trim']==(r['p']**4>c['X'])\n        assert r['bins']['overflow_u_gt_half']==(r['p']*r['p']>c['X'])\n        for name,v in vectors.items():\n            index=r['bins'][name]\n            if index is not None: assert type(index) is int and 0<=index<24; v[index]+=r['count']\n        band=7 if r['bins']['overflow_u_gt_half'] and r['scale_trim'] else r['bins']['coarse_band']\n        assert r['legacy_null_A_band']==band\n        if band is not None: groups[(band,r['p_mod_30'])].append(r)\n    for name in vectors: assert c['profiles'][name]==vectors[name]\n    assert c['totals']['raw']==sum(r['count'] for r in rows)\n    assert c['zero_prime_count_rows']==sum(r['count']==0 for r in rows)\n    for name in ('small_trim','scale_trim'): assert c['totals'][name]==sum(r['count'] for r in rows if r[name])\n    for name in ('raw','small_trim','scale_trim'): assert sum(vectors[name])+c['overflow_by_view'][name]==c['totals'][name]\n    assert c['totals']['overflow']==sum(r['count'] for r in rows if r['bins']['overflow_u_gt_half'])\n    assert c['totals']['diagonal']==sum(c['X']<r['p']*r['p']<=c['upper'] for r in rows)\n    grid=c['profiles']['prime_rank_joint']\n    assert len(grid)==24 and all(len(row)==24 for row in grid) and sum(map(sum,grid))==c['totals']['raw']\n    assert all(c[k] is None for k in ('corrected_profiles','signed_residual_profiles','null_profiles'))\n    audit=c['null_A_capacity_audit']; counts=Counter()\n    assert audit['random_draws']==0 and not audit['counts_clipped'] and not audit['rejection_sampling']\n    keys=[(s['coarse_band'],s['p_mod_30'],s['q_mod_30']) for s in audit['strata']]\n    assert len(keys)==len(set(keys))==audit['stratum_channel_count']\n    assert set(keys)=={(b,p,r) for b,p in groups for r in (1,7,11,13,17,19,23,29)}\n    for s in audit['strata']:\n        checked_strata+=1; group=groups[(s['coarse_band'],s['p_mod_30'])]; residue=s['q_mod_30']\n        assert s['size']==len(group) and s['specified_source_to_target_probability']=={'numerator':1,'denominator':len(group)}\n        assert s['source_maximum_p'] in {r['p'] for r in group}\n        src=byp[s['source_maximum_p']]\n        maximum=max(r['q_mod_30_counts'][residue] for r in group)\n        assert src['q_mod_30_counts'][residue]==s['source_maximum_count']==maximum\n        assert len(s['targets'])==len(group) and {t['p'] for t in s['targets']}=={r['p'] for r in group}\n        for t in s['targets']:\n            checked_targets+=1; r=byp[t['p']]\n            assert (t['qlo'],t['qhi'])==(r['qlo'],r['qhi']) and t['observed_count']==r['q_mod_30_counts'][residue]\n            assert t['overflow_u_gt_half']==r['bins']['overflow_u_gt_half']\n            assert type(t['integer_residue_capacity']) is int and 0<=t['observed_count']<=t['integer_residue_capacity']\n            violation=maximum>t['integer_residue_capacity']; assert t['positive_probability_violation']==violation\n            if violation:\n                assert src['count']>0 and src['p']!=r['p']\n                cat='positive' if r['count']>0 else 'zero'; counts['all']+=1; counts[cat]+=1\n                if first_positive is None and cat=='positive':\n                    first_positive={'cell':list(expected[i]),'source_p':src['p'],'source_total':src['count'],'source_channel_count':maximum,'target_p':r['p'],'target_total':r['count'],'target_window':[r['qlo'],r['qhi']],'capacity':t['integer_residue_capacity'],'stratum':[s['coarse_band'],s['p_mod_30'],residue],'full_size':len(group),'positive_size':sum(x['count']>0 for x in group)}\n    assert counts['all']==audit['violating_target_channel_count']>0 and audit['status']=='MODEL_SUPPORT_FAILURE'\n    d=rd['cells'][i]; z=summary['cells'][i]\n    assert (d['all_violating_target_channels'],d['positive_total_target_violating_channels'],d['zero_total_target_violating_channels'])==(counts['all'],counts['positive'],counts['zero'])\n    assert d['totals']==z['totals']==c['totals'] and d['geometric_rows']==z['geometric_rows']==len(rows)\n    assert d['zero_total_rows']==c['zero_prime_count_rows'] and z['violating_target_channel_count']==counts['all']\n    (positives if counts['positive'] else zero_only).append(list(expected[i]))\n    grand.update(counts)\n    table.append([c['X'],str(c['num'])+'/'+str(c['den']),c['totals']['raw'],c['totals']['small_trim'],c['totals']['scale_trim'],c['zero_prime_count_rows'],counts['all'],counts['positive'],counts['zero']])\nassert len(positives)==18 and zero_only==[[100000,3,1000],[100000,1,1000],[300000,1,1000]]\nassert (grand['all'],grand['positive'],grand['zero'])==(18090,15400,2690)\nassert (rd['totals']['violating_cell_target_channels'],rd['totals']['positive_subset_violating_cell_target_channels'],rd['totals']['zero_total_target_violating_cell_target_channels'])==(18090,15400,2690)\nreturn_table=[]\nfor line in ret.splitlines():\n    if line.startswith('|'):\n        p=[v.strip() for v in line.strip().strip('|').split('|')]\n        if len(p)==9 and p[0].isdigit(): return_table.append([int(p[0]),p[1],*[int(v) for v in p[2:]]])\nassert return_table==table\nfence=chr(96)*3; front=json.loads(re.search(fence+r'json\\s*(.*?)'+fence,ret,re.S).group(1))\nassert front['terminal_verdict']=='NEGATIVE_BOUNDARY' and front['method_harvest']=='RESULT_ONLY'\nassert summary['residual_hard_target']==ledger['hard_target_status']=='OPEN'\nassert summary['scientific_null_draws']==generator['scientific_null_draws']==0\nassert summary['scientific_screen']=='NOT_RUN_DRIVER_CAPACITY_GATE' and summary['joint_null']=='NOT_DEFINED_NOT_AN_ADDED_ACCEPTANCE_GATE'\n\ntrace=data.pop('native_trace.jsonl'); raw_hash=hashlib.sha256(); raw_total=chunks=refs=0; definitions={}; events=Counter(); carry=b''; footer=short=False\nlines=trace.splitlines(keepends=True)\nassert lines[0].endswith(b'\\n') and json.loads(lines[0])=={'kind':'header','schema':'PFSSV_TRACE_GZIP_BASE64_JSONL_V1','raw_format':'PFSSV_NATIVE_TRACE_JSONL_V1','chunk_raw_bytes':262144,'compression':'gzip_mtime_0_level_6'}\nfor line in lines[1:]:\n    assert line.endswith(b'\\n') and not footer\n    r=json.loads(line)\n    if r['kind']=='footer':\n        assert r['chunk_count']==chunks and r['raw_bytes']==raw_total and r['raw_sha256']==raw_hash.hexdigest()\n        footer=True; continue\n    assert r['kind']=='chunk' and r['sequence']==chunks and not short\n    packed=base64.b64decode(r['gzip_base64'],validate=True); decoder=zlib.decompressobj(31); raw=decoder.decompress(packed,262145)\n    assert decoder.eof and not decoder.unused_data and not decoder.unconsumed_tail\n    assert 1<=len(raw)<=262144 and len(raw)==r['raw_bytes'] and hashlib.sha256(raw).hexdigest()==r['raw_sha256']\n    short=len(raw)<262144; raw_hash.update(raw); raw_total+=len(raw); chunks+=1\n    parts=(carry+raw).split(b'\\n'); carry=parts.pop()\n    for line0 in parts:\n        e=json.loads(line0)\n        if 'trace_id' in e:\n            digest=e['trace_id']; body={'function':e['function'],'trace':e['trace']}\n            assert set(e)=={'trace_id','function','trace'} and digest not in definitions\n            assert hashlib.sha256((json.dumps(body,sort_keys=True,separators=(',',':'))+'\\n').encode()).hexdigest()==digest\n            definitions[digest]=e['function']\n        else:\n            assert set(e)=={'trace_ref'}; digest=e['trace_ref']; refs+=1; assert digest in definitions\n        events[definitions[digest]]+=1\nassert footer and not carry and chunks==385 and raw_total==100831585\nassert raw_hash.hexdigest()=='d230e70c3ffd99ff882324e7af5cffc80f41f6ca10da35356934a4851ae34669'\nassert len(definitions)==99846 and refs==202772 and sum(events.values())==302618\nassert dict(events)=={'brc_evaluate_division':293797,'brc_evaluate_root':22,'brc_evaluate_log':8799}\nassert dict(events)==native['native_code_object_calls']==native['native_code_object_trace_returns']==m['native_trace']['native_code_object_calls']\nassert raw_hash.hexdigest()==native['raw_trace_sha256'] and hashlib.sha256(trace).hexdigest()==native['trace_sha256']\ninv=json.loads(load_bytes(m['actual_invocation_receipt_path'],m['actual_invocation_receipt_sha256']))\nassert inv==m['actual_invocation']\nstdout=load_bytes(inv['stdout_path'],inv['stdout_sha256']); stderr=load_bytes(inv['stderr_path'],inv['stderr_sha256'])\nprogress=[json.loads(line) for line in stdout.splitlines()]\nassert inv['exit_code']==0 and not inv['timed_out'] and not stderr and len(progress)==22\nassert [p['completed_cells'] for p in progress[:-1]]==list(range(1,22))\nassert [(p['X'],*p['width']) for p in progress[:-1]]==expected\nassert progress[-1]['completed_cells']==progress[-1]['model_support_failure_cells']==21 and progress[-1]['failures']==[]\nprint(json.dumps({'schema':'PFSSV_STAGE2_INDEPENDENT_METADATA_CHECK_V1','status':'PASS','source_commit':ref,'source_script_sha256':hashlib.sha256(source).hexdigest(),'source_script_blob':source_blob,'precompute_object_equal':True,'input_pins':pins,'cells':21,'rows_checked':checked_rows,'stratum_channels_checked':checked_strata,'targets_checked':checked_targets,'table':table,'positive_cells':len(positives),'zero_only_cells':zero_only,'violation_totals':dict(grand),'first_positive_witness':first_positive,'candidate_classification':front,'unavailable_vector_cells':21,'trace':{'transport_sha256':hashlib.sha256(trace).hexdigest(),'transport_bytes':len(trace),'raw_sha256':raw_hash.hexdigest(),'raw_bytes':raw_total,'chunks':chunks,'definitions':len(definitions),'references':refs,'events':dict(events),'all_definition_hashes_and_prior_refs_valid':True},'author_invocation':inv,'author_progress_lines_checked':21,'independent_elapsed_ns':time.monotonic_ns()-start,'scope':'Frozen-table joins and count/profile aggregation; existing trace byte decoding and identity checks. No generator/native evaluation, mathematical experiment, random draws, test rerun, or formal authority action.'},sort_keys=True))\n",
+    "tool_chunk_id": "d933fe",
+    "exit_code": 0,
+    "tool_wall_time_seconds": 6.4675444,
+    "captured_combined_tool_output": "{\"author_invocation\": {\"argv\": [\"C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe\", \"-B\", \"-X\", \"utf8\", \"scripts/check_prime_factor_semiprime_shell_residual_validation_revision_20260908.py\", \"--observation-capacity\", \"--precompute-commit\", \"f662d48f4615fe6d08a55225c7c36ecd15f91518\", \"--precompute-sha256\", \"7a7e8fe1a11fe157130c4fdf93638db08f54095f6ae5adf20be663d10edf036b\"], \"cwd\": \"D:\\\\em\\\\research-pfssv-revision-20260908\", \"elapsed_ns\": 224922000000, \"ended_at_utc\": \"2026-09-08T11:53:51.350972+00:00\", \"exit_code\": 0, \"external_timeout_seconds\": 1800, \"frozen_input_sha256\": {\"research_artifacts/PFSSV_REVISION_20260908/result_summary.json\": \"7a7e8fe1a11fe157130c4fdf93638db08f54095f6ae5adf20be663d10edf036b\", \"scripts/check_prime_factor_semiprime_shell_residual_validation_revision_20260908.py\": \"a6a604207d189c10ba8146ca8e9897b4ce9b62b38b38682044a0f981f74e8cc0\", \"tests/test_pfssv_revision_contract_20260908.py\": \"4b6e4ce41d0580fd4d697e673e9ad1d0456a3176957a9ead28f30a2cc64a6c61\"}, \"pid\": 9040, \"schema\": \"PFSSV_STAGE2_ACTUAL_INVOCATION_RECEIPT_V1\", \"scientific_scope\": \"One original21 observation/capacity invocation; zero scientific random null draws; no retry.\", \"source_commit\": \"f662d48f4615fe6d08a55225c7c36ecd15f91518\", \"started_at_utc\": \"2026-09-08T11:50:06.436916+00:00\", \"status\": \"EXIT_ZERO\", \"stderr_bytes\": 0, \"stderr_path\": \"D:\\\\em\\\\TEMP\\\\pfssv-stage1-20260908\\\\stage2-run-once.stderr.log\", \"stderr_sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\", \"stdout_bytes\": 4090, \"stdout_path\": \"D:\\\\em\\\\TEMP\\\\pfssv-stage1-20260908\\\\stage2-run-once.stdout.log\", \"stdout_sha256\": \"3f7f03fd6f97efc228fba55d63a74e1095401f115afb97d6f0f6d247dc9ee572\", \"timed_out\": false, \"wrapper_sha256\": \"28f243ab91390d898c44454d568798df16978461a82633bbad90dd259ec8ed99\"}, \"author_progress_lines_checked\": 21, \"candidate_classification\": {\"execution_record_id\": \"ER-EB2A78D7B88A292B412B\", \"hard_target_disposition\": \"PARTIAL_OBSERVATION_COMPLETE_NULL_SUPPORT_FAILURE_HARD_TARGET_OPEN\", \"independence\": \"SHARED_AMBIENT_CONTEXT_DISCLOSED\", \"method_harvest\": \"RESULT_ONLY\", \"publication_id\": \"TP2-2029B5CCC5EEC5F0132C\", \"source_exposure\": \"NONBLIND_DISCLOSED\", \"task_id\": \"RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION\", \"terminal_verdict\": \"NEGATIVE_BOUNDARY\"}, \"cells\": 21, \"first_positive_witness\": {\"capacity\": 0, \"cell\": [100000, 1, 100], \"full_size\": 2, \"positive_size\": 2, \"source_channel_count\": 1, \"source_p\": 193, \"source_total\": 2, \"stratum\": [6, 13, 11], \"target_p\": 163, \"target_total\": 2, \"target_window\": [614, 619]}, \"independent_elapsed_ns\": 5641000000, \"input_pins\": {\"D:/em/TEMP/pfssv-stage1-20260908/stage2-actual-frozen-source/research_artifacts/PFSSV_REVISION_20260908/cell_profiles.jsonl\": {\"bytes\": 15697354, \"sha256\": \"f681dd201b2fa1949e0961e7b4e1d5d22ddb4de33e09c4ad0582499b4a9b2885\"}, \"D:/em/TEMP/pfssv-stage1-20260908/stage2-actual-frozen-source/research_artifacts/PFSSV_REVISION_20260908/discrepancy_ledger.json\": {\"bytes\": 1741, \"sha256\": \"425ab5d81b4e518b41c7f4093445f3895f606578efe460087c06aecf33bdcc7b\"}, \"D:/em/TEMP/pfssv-stage1-20260908/stage2-actual-frozen-source/research_artifacts/PFSSV_REVISION_20260908/generator_receipt.json\": {\"bytes\": 452, \"sha256\": \"df6fa969b236d81c9e0b1b240e5ee76ebc8ca6b855b5e49023e17a8aa74f0409\"}, \"D:/em/TEMP/pfssv-stage1-20260908/stage2-actual-frozen-source/research_artifacts/PFSSV_REVISION_20260908/native_runtime_receipt.json\": {\"bytes\": 2600, \"sha256\": \"bbad0969b9e3713f71fc3f1b407db4a65b271dc74d0b0b8b26e890d270aded3c\"}, \"D:/em/TEMP/pfssv-stage1-20260908/stage2-actual-frozen-source/research_artifacts/PFSSV_REVISION_20260908/native_trace.jsonl\": {\"bytes\": 29555979, \"sha256\": \"efc2bedcda8da81f9948098943815011024c2c6d2e7711f209151ed983192fa4\"}, \"D:/em/TEMP/pfssv-stage1-20260908/stage2-actual-frozen-source/research_artifacts/PFSSV_REVISION_20260908/result_summary.json\": {\"bytes\": 18798, \"sha256\": \"1b6cf5586f7854b184ff3892a86fee3971362fb47f71fccd0bd0b8286fcf14c6\"}, \"D:/em/TEMP/pfssv-stage1-20260908/stage2-actual-publication.json\": {\"bytes\": 35093, \"sha256\": \"8c5db3a9ea21b5a43324051066b786cb92872afce80970c4bd567cb1b24dc5a5\"}, \"D:/em/TEMP/pfssv-stage1-20260908/stage2-frozen-readout.json\": {\"bytes\": 39139, \"sha256\": \"37991c535f70111bec3f8e37218561a12ab7b7f8bfee0997d27a50e99bc64fb9\"}, \"D:/em/TEMP/pfssv-stage1-20260908/stage2-run-once.json\": {\"bytes\": 1923, \"sha256\": \"0fbb9ab65c82211b84af21717c5d95bf9471b1dba9e2a5568aaac3e5094bcf15\"}, \"D:/em/TEMP/pfssv-stage1-20260908/stage2-run-once.stderr.log\": {\"bytes\": 0, \"sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}, \"D:/em/TEMP/pfssv-stage1-20260908/stage2-run-once.stdout.log\": {\"bytes\": 4090, \"sha256\": \"3f7f03fd6f97efc228fba55d63a74e1095401f115afb97d6f0f6d247dc9ee572\"}, \"D:/em/research-pfssv-revision-20260908/research_returns/PRIME_FACTOR_SEMIPRIME_SHELL_RESIDUAL_VALIDATION_REVISION_RETURN_20260908.md\": {\"bytes\": 21833, \"sha256\": \"907783453bed7593872901bdaaadffe8c3f91f29e3dd8460a4bd330a72de7fc9\"}}, \"positive_cells\": 18, \"precompute_object_equal\": true, \"rows_checked\": 8998, \"schema\": \"PFSSV_STAGE2_INDEPENDENT_METADATA_CHECK_V1\", \"scope\": \"Frozen-table joins and count/profile aggregation; existing trace byte decoding and identity checks. No generator/native evaluation, mathematical experiment, random draws, test rerun, or formal authority action.\", \"source_commit\": \"f662d48f4615fe6d08a55225c7c36ecd15f91518\", \"source_script_blob\": \"6b7711d8dc4e1d9e8e6abeaa00ed80a66910e4cc\", \"source_script_sha256\": \"a6a604207d189c10ba8146ca8e9897b4ce9b62b38b38682044a0f981f74e8cc0\", \"status\": \"PASS\", \"stratum_channels_checked\": 9480, \"table\": [[100000, \"1/100\", 237, 70, 91, 15, 25, 14, 11], [100000, \"3/1000\", 74, 23, 29, 34, 4, 0, 4], [100000, \"1/1000\", 25, 9, 12, 30, 1, 0, 1], [300000, \"1/100\", 610, 208, 226, 7, 122, 106, 16], [300000, \"3/1000\", 183, 58, 63, 49, 30, 7, 23], [300000, \"1/1000\", 65, 24, 25, 59, 8, 0, 8], [1000000, \"1/100\", 1960, 683, 683, 5, 248, 231, 17], [1000000, \"3/1000\", 585, 203, 203, 58, 209, 105, 104], [1000000, \"1/1000\", 196, 69, 69, 99, 113, 40, 73], [3000000, \"1/100\", 5826, 2257, 2126, 0, 304, 304, 0], [3000000, \"3/1000\", 1743, 666, 629, 45, 681, 516, 165], [3000000, \"1/1000\", 583, 219, 209, 135, 475, 182, 293], [10000000, \"1/100\", 18161, 7459, 6522, 0, 723, 723, 0], [10000000, \"3/1000\", 5472, 2240, 1950, 26, 1137, 1012, 125], [10000000, \"1/1000\", 1832, 754, 660, 146, 1506, 854, 652], [30000000, \"1/100\", 52396, 22419, 18137, 0, 916, 916, 0], [30000000, \"3/1000\", 15664, 6676, 5411, 13, 1381, 1343, 38], [30000000, \"1/1000\", 5201, 2222, 1805, 136, 2715, 1953, 762], [100000000, \"1/100\", 167952, 75029, 58534, 0, 941, 941, 0], [100000000, \"3/1000\", 50326, 22437, 17464, 0, 3270, 3270, 0], [100000000, \"1/1000\", 16827, 7523, 5818, 89, 3281, 2883, 398]], \"targets_checked\": 69536, \"trace\": {\"all_definition_hashes_and_prior_refs_valid\": true, \"chunks\": 385, \"definitions\": 99846, \"events\": {\"brc_evaluate_division\": 293797, \"brc_evaluate_log\": 8799, \"brc_evaluate_root\": 22}, \"raw_bytes\": 100831585, \"raw_sha256\": \"d230e70c3ffd99ff882324e7af5cffc80f41f6ca10da35356934a4851ae34669\", \"references\": 202772, \"transport_bytes\": 29555979, \"transport_sha256\": \"efc2bedcda8da81f9948098943815011024c2c6d2e7711f209151ed983192fa4\"}, \"unavailable_vector_cells\": 21, \"violation_totals\": {\"all\": 18090, \"positive\": 15400, \"zero\": 2690}, \"zero_only_cells\": [[100000, 3, 1000], [100000, 1, 1000], [300000, 1, 1000]]}\r\n",
+    "raw_output_boundary": "This is the captured tool output text. Its own hash is not represented as an independently saved operating-system raw stdout file.",
+    "result": {
+      "author_invocation": {
+        "argv": [
+          "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "scripts/check_prime_factor_semiprime_shell_residual_validation_revision_20260908.py",
+          "--observation-capacity",
+          "--precompute-commit",
+          "f662d48f4615fe6d08a55225c7c36ecd15f91518",
+          "--precompute-sha256",
+          "7a7e8fe1a11fe157130c4fdf93638db08f54095f6ae5adf20be663d10edf036b"
+        ],
+        "cwd": "D:\\em\\research-pfssv-revision-20260908",
+        "elapsed_ns": 224922000000,
+        "ended_at_utc": "2026-09-08T11:53:51.350972+00:00",
+        "exit_code": 0,
+        "external_timeout_seconds": 1800,
+        "frozen_input_sha256": {
+          "research_artifacts/PFSSV_REVISION_20260908/result_summary.json": "7a7e8fe1a11fe157130c4fdf93638db08f54095f6ae5adf20be663d10edf036b",
+          "scripts/check_prime_factor_semiprime_shell_residual_validation_revision_20260908.py": "a6a604207d189c10ba8146ca8e9897b4ce9b62b38b38682044a0f981f74e8cc0",
+          "tests/test_pfssv_revision_contract_20260908.py": "4b6e4ce41d0580fd4d697e673e9ad1d0456a3176957a9ead28f30a2cc64a6c61"
+        },
+        "pid": 9040,
+        "schema": "PFSSV_STAGE2_ACTUAL_INVOCATION_RECEIPT_V1",
+        "scientific_scope": "One original21 observation/capacity invocation; zero scientific random null draws; no retry.",
+        "source_commit": "f662d48f4615fe6d08a55225c7c36ecd15f91518",
+        "started_at_utc": "2026-09-08T11:50:06.436916+00:00",
+        "status": "EXIT_ZERO",
+        "stderr_bytes": 0,
+        "stderr_path": "D:\\em\\TEMP\\pfssv-stage1-20260908\\stage2-run-once.stderr.log",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_bytes": 4090,
+        "stdout_path": "D:\\em\\TEMP\\pfssv-stage1-20260908\\stage2-run-once.stdout.log",
+        "stdout_sha256": "3f7f03fd6f97efc228fba55d63a74e1095401f115afb97d6f0f6d247dc9ee572",
+        "timed_out": false,
+        "wrapper_sha256": "28f243ab91390d898c44454d568798df16978461a82633bbad90dd259ec8ed99"
+      },
+      "author_progress_lines_checked": 21,
+      "candidate_classification": {
+        "execution_record_id": "ER-EB2A78D7B88A292B412B",
+        "hard_target_disposition": "PARTIAL_OBSERVATION_COMPLETE_NULL_SUPPORT_FAILURE_HARD_TARGET_OPEN",
+        "independence": "SHARED_AMBIENT_CONTEXT_DISCLOSED",
+        "method_harvest": "RESULT_ONLY",
+        "publication_id": "TP2-2029B5CCC5EEC5F0132C",
+        "source_exposure": "NONBLIND_DISCLOSED",
+        "task_id": "RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION",
+        "terminal_verdict": "NEGATIVE_BOUNDARY"
+      },
+      "cells": 21,
+      "first_positive_witness": {
+        "capacity": 0,
+        "cell": [
+          100000,
+          1,
+          100
+        ],
+        "full_size": 2,
+        "positive_size": 2,
+        "source_channel_count": 1,
+        "source_p": 193,
+        "source_total": 2,
+        "stratum": [
+          6,
+          13,
+          11
+        ],
+        "target_p": 163,
+        "target_total": 2,
+        "target_window": [
+          614,
+          619
+        ]
+      },
+      "independent_elapsed_ns": 5641000000,
+      "input_pins": {
+        "D:/em/TEMP/pfssv-stage1-20260908/stage2-actual-frozen-source/research_artifacts/PFSSV_REVISION_20260908/cell_profiles.jsonl": {
+          "bytes": 15697354,
+          "sha256": "f681dd201b2fa1949e0961e7b4e1d5d22ddb4de33e09c4ad0582499b4a9b2885"
+        },
+        "D:/em/TEMP/pfssv-stage1-20260908/stage2-actual-frozen-source/research_artifacts/PFSSV_REVISION_20260908/discrepancy_ledger.json": {
+          "bytes": 1741,
+          "sha256": "425ab5d81b4e518b41c7f4093445f3895f606578efe460087c06aecf33bdcc7b"
+        },
+        "D:/em/TEMP/pfssv-stage1-20260908/stage2-actual-frozen-source/research_artifacts/PFSSV_REVISION_20260908/generator_receipt.json": {
+          "bytes": 452,
+          "sha256": "df6fa969b236d81c9e0b1b240e5ee76ebc8ca6b855b5e49023e17a8aa74f0409"
+        },
+        "D:/em/TEMP/pfssv-stage1-20260908/stage2-actual-frozen-source/research_artifacts/PFSSV_REVISION_20260908/native_runtime_receipt.json": {
+          "bytes": 2600,
+          "sha256": "bbad0969b9e3713f71fc3f1b407db4a65b271dc74d0b0b8b26e890d270aded3c"
+        },
+        "D:/em/TEMP/pfssv-stage1-20260908/stage2-actual-frozen-source/research_artifacts/PFSSV_REVISION_20260908/native_trace.jsonl": {
+          "bytes": 29555979,
+          "sha256": "efc2bedcda8da81f9948098943815011024c2c6d2e7711f209151ed983192fa4"
+        },
+        "D:/em/TEMP/pfssv-stage1-20260908/stage2-actual-frozen-source/research_artifacts/PFSSV_REVISION_20260908/result_summary.json": {
+          "bytes": 18798,
+          "sha256": "1b6cf5586f7854b184ff3892a86fee3971362fb47f71fccd0bd0b8286fcf14c6"
+        },
+        "D:/em/TEMP/pfssv-stage1-20260908/stage2-actual-publication.json": {
+          "bytes": 35093,
+          "sha256": "8c5db3a9ea21b5a43324051066b786cb92872afce80970c4bd567cb1b24dc5a5"
+        },
+        "D:/em/TEMP/pfssv-stage1-20260908/stage2-frozen-readout.json": {
+          "bytes": 39139,
+          "sha256": "37991c535f70111bec3f8e37218561a12ab7b7f8bfee0997d27a50e99bc64fb9"
+        },
+        "D:/em/TEMP/pfssv-stage1-20260908/stage2-run-once.json": {
+          "bytes": 1923,
+          "sha256": "0fbb9ab65c82211b84af21717c5d95bf9471b1dba9e2a5568aaac3e5094bcf15"
+        },
+        "D:/em/TEMP/pfssv-stage1-20260908/stage2-run-once.stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "D:/em/TEMP/pfssv-stage1-20260908/stage2-run-once.stdout.log": {
+          "bytes": 4090,
+          "sha256": "3f7f03fd6f97efc228fba55d63a74e1095401f115afb97d6f0f6d247dc9ee572"
+        },
+        "D:/em/research-pfssv-revision-20260908/research_returns/PRIME_FACTOR_SEMIPRIME_SHELL_RESIDUAL_VALIDATION_REVISION_RETURN_20260908.md": {
+          "bytes": 21833,
+          "sha256": "907783453bed7593872901bdaaadffe8c3f91f29e3dd8460a4bd330a72de7fc9"
+        }
+      },
+      "positive_cells": 18,
+      "precompute_object_equal": true,
+      "rows_checked": 8998,
+      "schema": "PFSSV_STAGE2_INDEPENDENT_METADATA_CHECK_V1",
+      "scope": "Frozen-table joins and count/profile aggregation; existing trace byte decoding and identity checks. No generator/native evaluation, mathematical experiment, random draws, test rerun, or formal authority action.",
+      "source_commit": "f662d48f4615fe6d08a55225c7c36ecd15f91518",
+      "source_script_blob": "6b7711d8dc4e1d9e8e6abeaa00ed80a66910e4cc",
+      "source_script_sha256": "a6a604207d189c10ba8146ca8e9897b4ce9b62b38b38682044a0f981f74e8cc0",
+      "status": "PASS",
+      "stratum_channels_checked": 9480,
+      "table": [
+        [
+          100000,
+          "1/100",
+          237,
+          70,
+          91,
+          15,
+          25,
+          14,
+          11
+        ],
+        [
+          100000,
+          "3/1000",
+          74,
+          23,
+          29,
+          34,
+          4,
+          0,
+          4
+        ],
+        [
+          100000,
+          "1/1000",
+          25,
+          9,
+          12,
+          30,
+          1,
+          0,
+          1
+        ],
+        [
+          300000,
+          "1/100",
+          610,
+          208,
+          226,
+          7,
+          122,
+          106,
+          16
+        ],
+        [
+          300000,
+          "3/1000",
+          183,
+          58,
+          63,
+          49,
+          30,
+          7,
+          23
+        ],
+        [
+          300000,
+          "1/1000",
+          65,
+          24,
+          25,
+          59,
+          8,
+          0,
+          8
+        ],
+        [
+          1000000,
+          "1/100",
+          1960,
+          683,
+          683,
+          5,
+          248,
+          231,
+          17
+        ],
+        [
+          1000000,
+          "3/1000",
+          585,
+          203,
+          203,
+          58,
+          209,
+          105,
+          104
+        ],
+        [
+          1000000,
+          "1/1000",
+          196,
+          69,
+          69,
+          99,
+          113,
+          40,
+          73
+        ],
+        [
+          3000000,
+          "1/100",
+          5826,
+          2257,
+          2126,
+          0,
+          304,
+          304,
+          0
+        ],
+        [
+          3000000,
+          "3/1000",
+          1743,
+          666,
+          629,
+          45,
+          681,
+          516,
+          165
+        ],
+        [
+          3000000,
+          "1/1000",
+          583,
+          219,
+          209,
+          135,
+          475,
+          182,
+          293
+        ],
+        [
+          10000000,
+          "1/100",
+          18161,
+          7459,
+          6522,
+          0,
+          723,
+          723,
+          0
+        ],
+        [
+          10000000,
+          "3/1000",
+          5472,
+          2240,
+          1950,
+          26,
+          1137,
+          1012,
+          125
+        ],
+        [
+          10000000,
+          "1/1000",
+          1832,
+          754,
+          660,
+          146,
+          1506,
+          854,
+          652
+        ],
+        [
+          30000000,
+          "1/100",
+          52396,
+          22419,
+          18137,
+          0,
+          916,
+          916,
+          0
+        ],
+        [
+          30000000,
+          "3/1000",
+          15664,
+          6676,
+          5411,
+          13,
+          1381,
+          1343,
+          38
+        ],
+        [
+          30000000,
+          "1/1000",
+          5201,
+          2222,
+          1805,
+          136,
+          2715,
+          1953,
+          762
+        ],
+        [
+          100000000,
+          "1/100",
+          167952,
+          75029,
+          58534,
+          0,
+          941,
+          941,
+          0
+        ],
+        [
+          100000000,
+          "3/1000",
+          50326,
+          22437,
+          17464,
+          0,
+          3270,
+          3270,
+          0
+        ],
+        [
+          100000000,
+          "1/1000",
+          16827,
+          7523,
+          5818,
+          89,
+          3281,
+          2883,
+          398
+        ]
+      ],
+      "targets_checked": 69536,
+      "trace": {
+        "all_definition_hashes_and_prior_refs_valid": true,
+        "chunks": 385,
+        "definitions": 99846,
+        "events": {
+          "brc_evaluate_division": 293797,
+          "brc_evaluate_log": 8799,
+          "brc_evaluate_root": 22
+        },
+        "raw_bytes": 100831585,
+        "raw_sha256": "d230e70c3ffd99ff882324e7af5cffc80f41f6ca10da35356934a4851ae34669",
+        "references": 202772,
+        "transport_bytes": 29555979,
+        "transport_sha256": "efc2bedcda8da81f9948098943815011024c2c6d2e7711f209151ed983192fa4"
+      },
+      "unavailable_vector_cells": 21,
+      "violation_totals": {
+        "all": 18090,
+        "positive": 15400,
+        "zero": 2690
+      },
+      "zero_only_cells": [
+        [
+          100000,
+          3,
+          1000
+        ],
+        [
+          100000,
+          1,
+          1000
+        ],
+        [
+          300000,
+          1,
+          1000
+        ]
+      ]
+    }
+  },
+  "source_review": {
+    "script_sha256": "a6a604207d189c10ba8146ca8e9897b4ce9b62b38b38682044a0f981f74e8cc0",
+    "source_commit": "f662d48f4615fe6d08a55225c7c36ecd15f91518",
+    "source_blob": "6b7711d8dc4e1d9e8e6abeaa00ed80a66910e4cc",
+    "exact_stage1_ast_preserved": [
+      "_divide",
+      "_root",
+      "PrimePrefix",
+      "bounded_trial_prime",
+      "rank_edges",
+      "_rank_bin",
+      "_scaled_log",
+      "CoordinateBins"
+    ],
+    "inspected_stage2_definitions": [
+      "TraceTransport",
+      "decode_trace_transport",
+      "NativeTraceCapture",
+      "null_a_complete_capacity_audit",
+      "_stage2_contract",
+      "observation_capacity_run",
+      "shell_cell overflow and legacy-audit-band additions"
+    ],
+    "tool_chunk_id": "25cee0",
+    "original_taskbook": {
+      "commit": "2aa103eee829b78fa7784674ec1be4c3c5052a79",
+      "path": "research_tasks/PRIME_FACTOR_SEMIPRIME_SHELL_RESIDUAL_VALIDATION_20260827.md",
+      "sha256": "b4e6011b736026ab2a5fc247f8a3750163cd33909fe25cf04bec6391078157d3",
+      "read_tool_chunk": "334eb7"
+    }
+  },
+  "original_obligation_assessment": [
+    {
+      "number": 1,
+      "state": "OBSERVATION_DELIVERED_BOUNDED_INDEPENDENT_SPOTCHECK_PATH_RETAINED",
+      "limit": "No exhaustive second 21-cell enumeration."
+    },
+    {
+      "number": 2,
+      "state": "REVISION_PRECOMPUTE_PRESERVED_EXPOSURE_DISCLOSED",
+      "limit": "Original blind chronology cannot be recreated."
+    },
+    {
+      "number": 3,
+      "state": "OBSERVATION_PROFILES_DELIVERED_SCIENTIFIC_CORRECTIONS_UNAVAILABLE",
+      "limit": "All21 corrected/signed/null values null, not zero."
+    },
+    {
+      "number": 4,
+      "state": "CAPACITY_OBSTRUCTION_DELIVERED_TWO_NULL_SCIENTIFIC_COMPARISON_UNMET",
+      "limit": "No512/4096 screen; no inference of independent Null B failure."
+    },
+    {
+      "number": 5,
+      "state": "SCIENTIFIC_RESIDUAL_PHASE_CORRELATION_NOT_RUN"
+    },
+    {
+      "number": 6,
+      "state": "FAMILY_WISE_THRESHOLD_NULL_RANK_EFFECT_SIZE_NOT_RUN"
+    },
+    {
+      "number": 7,
+      "state": "POST_EXPOSURE_ONLY_NOT_BLIND"
+    },
+    {
+      "number": 8,
+      "state": "PARTIAL_NEGATIVE_BOUNDARY_RETURN_ONLY_ORIGINAL_STRONG_CLASSIFICATION_UNMET"
+    }
+  ],
+  "current_exact_author_checks": {
+    "publication_metadata": {
+      "path": "D:/em/TEMP/pfssv-stage1-20260908/stage2-publication-eof.json",
+      "sha256": "307856ecead78e6775f6cf83162e3f63c622e1c853f82c8063716191b149e9ce"
+    },
+    "tests": {
+      "receipt_path": "D:/em/TEMP/pfssv-stage1-20260908/stage2-contracts-eof-final.json",
+      "receipt_sha256": "0e2f1c1551eb8eb26e988e281355fd10df07c8506d7cc360da352e8d1399d7f1",
+      "script_sha256": "a6a604207d189c10ba8146ca8e9897b4ce9b62b38b38682044a0f981f74e8cc0",
+      "test_sha256": "4b6e4ce41d0580fd4d697e673e9ad1d0456a3176957a9ead28f30a2cc64a6c61",
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "tests.test_pfssv_revision_contract_20260908",
+        "-v"
+      ],
+      "exit_code": 0,
+      "test_count": 18,
+      "unittest_seconds": "0.087",
+      "process_elapsed_ns": 547000000,
+      "stdout_path": "D:/em/TEMP/pfssv-stage1-20260908/stage2-contracts-eof-final.stdout.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_path": "D:/em/TEMP/pfssv-stage1-20260908/stage2-contracts-eof-final.stderr.log",
+      "stderr_sha256": "2063feba41b4af8738c0ed410143321727d81e70cb9f6693bf69b74f077fa398",
+      "logs_actually_read_and_hash_checked": true,
+      "replayed_by_reviewer": false
+    },
+    "static": {
+      "receipt_path": "D:/em/TEMP/pfssv-stage1-20260908/stage2-static-eof-final.json",
+      "receipt_sha256": "d2ea7fdff35b452e9bc043428e92e8dda97d453c3b39c4d928578ce594ba13d2",
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_exact_arithmetic_policy.py",
+        "scripts/check_prime_factor_semiprime_shell_residual_validation_revision_20260908.py",
+        "tests/test_pfssv_revision_contract_20260908.py"
+      ],
+      "exit_code": 0,
+      "selected_files": 2,
+      "process_elapsed_ns": 172000000,
+      "stdout_path": "D:/em/TEMP/pfssv-stage1-20260908/stage2-static-eof-final.stdout.log",
+      "stdout_sha256": "6853a5c4fbfc2de59bf759a2c668127cec1db9cdfef90d879764dfca2fa0ddaa",
+      "stderr_path": "D:/em/TEMP/pfssv-stage1-20260908/stage2-static-eof-final.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "logs_actually_read_and_hash_checked": true,
+      "replayed_by_reviewer": false
+    },
+    "read_tool_chunk": "900a33",
+    "historical_boundary": "The initially inspected stage2-contracts-2/static-2 and docstring checkpoint use older hashes. Their retained historical PASS was not substituted for the EOF-fixed exact published source."
+  },
+  "limitations": [
+    "Source preservation checks for all34 protected and5 retained source files are the author's frozen pre/post receipt evidence; this reviewer did not rescan the live research tree.",
+    "Capacity values were bound to every frozen source/target/window and checked against source maxima and violation flags; the formula was statically reviewed. The reviewer did not rerun the arithmetic capacity generator.",
+    "The displayed first positive witness additionally has an immediate hand-checkable zero-capacity interval.",
+    "No scientific null draws, fresh native math evaluation, new prime enumeration, test rerun, statistical screen, fresh blind holdout, formal Result/Driver record, or GitHub write.",
+    "No new joint q-rank null is imposed as an original hard gate.",
+    "This is not a universal rejection of scalar surrogates or conditional randomization, or a theorem refuting semiprime residual structure."
+  ],
+  "orchestration_history": [
+    {
+      "status": "PRE_EXECUTION_JS_PARSE_FAILURE",
+      "reason": "A JavaScript template literal initially included a Markdown-fence literal. The tool rejected the wrapper before invoking a subprocess; no input or source file was changed.",
+      "then": "A corrected bounded metadata/byte checker ran once successfully, chunk d933fe."
+    }
+  ],
+  "remote_writes": false,
+  "source_files_modified": false,
+  "formal_authority_action": false
+}

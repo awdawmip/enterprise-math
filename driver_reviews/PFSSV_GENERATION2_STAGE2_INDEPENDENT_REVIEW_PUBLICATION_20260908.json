@@ -1,0 +1,39 @@
+{
+  "schema": "PFSSV_STAGE2_INDEPENDENT_REVIEW_PUBLICATION_COPY_V1",
+  "scope": "Format-only publication copy; no semantic change, no mathematical or audit rerun.",
+  "original": {
+    "path": "D:\\em\\TEMP\\pfssv-stage2-independent-review-20260908\\review.md",
+    "sha256": "23a8c541ad29243cf4519217638bb1bf4bffb0d42cfe00d32bc27193752ce569",
+    "bytes": 7923,
+    "git_blob_sha1": "8aebef7e423c34d1604b0e93f3b3a019d5dd1671"
+  },
+  "publication": {
+    "path": "D:\\em\\TEMP\\pfssv-stage2-independent-review-20260908\\publication-review.md",
+    "sha256": "c55b5ce9174b6c720c86dfcb9a3a131a67fb902840dbe8a84f0168c73e855f14",
+    "bytes": 7921,
+    "git_blob_sha1": "55bc0f6347b5f788d44665816ce367d3abaea4e7"
+  },
+  "unchanged_receipt": {
+    "path": "D:\\em\\TEMP\\pfssv-stage2-independent-review-20260908\\receipt.json",
+    "sha256": "ca4fa2ef101f00d8890c06161a768e874f3b9eef267c747801e5a66f8658bb78",
+    "bytes": 41025
+  },
+  "sole_change": {
+    "line_1based": 3,
+    "operation": "Remove exactly two trailing ASCII spaces immediately before LF on Status line",
+    "removed_hex": "2020",
+    "old_line": "Status: **PASS_WITHIN_OBSERVATION_AND_NEGATIVE_BOUNDARY_SCOPE**  \n",
+    "new_line": "Status: **PASS_WITHIN_OBSERVATION_AND_NEGATIVE_BOUNDARY_SCOPE**\n",
+    "byte_count_delta": -2,
+    "unified_diff": "--- review.md\n+++ publication-review.md\n@@ -1,6 +1,6 @@\n # PFSSV Stage 2 — independent output and candidate-return review\n \n-Status: **PASS_WITHIN_OBSERVATION_AND_NEGATIVE_BOUNDARY_SCOPE**  \n+Status: **PASS_WITHIN_OBSERVATION_AND_NEGATIVE_BOUNDARY_SCOPE**\n Reviewer: execution_gate_review, internal independent review; no formal Driver authority exercised.\n \n ## Exact reviewed inputs\n"
+  },
+  "checks": {
+    "original_frozen_sha_match": true,
+    "receipt_frozen_sha_match": true,
+    "unique_status_line_match": true,
+    "only_two_ascii_spaces_removed": true,
+    "original_and_receipt_preserved": true,
+    "prior_checks_not_rerun": true,
+    "mathematics_not_run": true
+  }
+}

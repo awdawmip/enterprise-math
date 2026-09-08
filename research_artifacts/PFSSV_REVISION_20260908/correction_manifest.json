@@ -1,0 +1,136 @@
+{
+  "schema": "PFSSV_CORRECTION_MANIFEST_V2",
+  "frozen_at_utc": "2026-09-08T10:39:58.528352+00:00",
+  "task_id": "RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION",
+  "publication_id": "TP2-2029B5CCC5EEC5F0132C",
+  "claim_id": "chatgpt-pfssv-r2-20260908T101753Z-456f906e",
+  "researcher_id": "EM-PFSSV-E500C7",
+  "stage": "STAGE_1_SUBSTRATE_ONLY_NOT_SCIENTIFIC_SCREEN",
+  "source_exposure": {
+    "status": "SOURCE_EXPOSED_POST_EXPOSURE_REANALYSIS",
+    "old_holdout_scales": [
+      30000000,
+      100000000
+    ],
+    "old_holdout_results_read": true,
+    "blind_pre_math_stamp": null,
+    "new_blindness_claim": false,
+    "old_chronology_independently_reverified": false
+  },
+  "frozen_original_design": {
+    "hard_target": "SEMIPRIME_FACTOR_SHELL_CROSS_SCALE_RESIDUAL_STRUCTURE_VALIDATED_OR_REFUTED",
+    "discovery": [
+      100000,
+      300000,
+      1000000,
+      3000000,
+      10000000
+    ],
+    "historically_exposed_holdouts": [
+      30000000,
+      100000000
+    ],
+    "widths": [
+      "1/100",
+      "3/1000",
+      "1/1000"
+    ],
+    "cells": 21,
+    "bins": 24,
+    "null_A_replicates": 512,
+    "null_B_replicates": 4096,
+    "trims": [
+      "p>31",
+      "p**4>X"
+    ],
+    "no_new_second_order_route": true
+  },
+  "eight_output_obligations": [
+    {
+      "id": 1,
+      "output": "Exact generator and independent spot checks",
+      "file": "generator_receipt.json",
+      "plan": "Migrate a NEW copy of original sieve/shell code. BRC ROOT for integer bounds, BRC DIV for U/qlo/qhi/remainders; exact product comparisons and Python-int counts. Keep all geometrically nonempty windows, including count=0. Full prime-prefix indices certify pi(p),pi(q). After authorization, use a bounded independent BRC trial-divisor path for fixed new spot samples; do not rerun the two archived audit cells as new evidence."
+    },
+    {
+      "id": 2,
+      "output": "Immutable correction manifest",
+      "file": "correction_manifest.json",
+      "plan": "Pin all historical sources plus new generation/ER; retain original scales/seeds/family definitions, explicitly freeze changes before the NEW computation only; record the original holdout outcomes/source already exposed. No claim of restored preregistration."
+    },
+    {
+      "id": 3,
+      "output": "All per-cell raw/corrected occupancy views",
+      "file": "cell_profiles.jsonl",
+      "plan": "Persist complete raw/two-trim/density-flat vectors and genuine two-dimensional prime-rank occupancy, coordinate edges, complete p-window/rank endpoint table, zero support, residue channels, diagonal and overflow totals. Keep (p,q,0) and its distinct S3 orbit as derived diagnostic; do not multiply the primary sample weight by orbit size. Record correction definition/normalization explicitly for each view; unavailable corrected view stays unavailable."
+    },
+    {
+      "id": 4,
+      "output": "Both original independent null families",
+      "file": "null_ensembles.jsonl",
+      "plan": "Reuse Null A family and original stratum logic on all eligible positions, retaining zero rows. Persist support masks, stratum membership, permutation seeds and actual ensemble integer profiles. Null B remains phase-destroying surrogate; it cannot repair Null A. Audit geometrical/residue capacity violations and lost fine-window coupling; no assertion that adding zero rows proves a correct unconditional scientific null. Do not invent q-rank allocation by silently reusing scalar p counts."
+    },
+    {
+      "id": 5,
+      "output": "Fixed-coordinate signed cross-scale profiles",
+      "file": "result_summary.json + cell_profiles.jsonl",
+      "plan": "Persist every cell residual/uncertainty interval plus scale/width composites, signed phase/correlation and correction profiles, not selected bin/max only. True pi(q) is required, not row order. Cache coordinate certificates by X,p; reuse the same frozen edges across comparable views."
+    },
+    {
+      "id": 6,
+      "output": "Family-wise threshold and full gate ledger",
+      "file": "result_summary.json",
+      "plan": "Compute original max-statistic rule under both preserved families; exact empirical ranks are symbolic integer ratios/BRC readouts. Record tie rule, zero variance and any interval-overlapping threshold as UNRESOLVED. The corrected ensemble yields a post-exposure recalculation, never the old threshold under another model. Failure to reconstruct the old chronology/null scope stays explicit."
+    },
+    {
+      "id": 7,
+      "output": "Honest holdout assessment",
+      "file": "result_summary.json",
+      "plan": "Evaluate the two same exposed scales only after new correction choices freeze. Call this POST_EXPOSURE_REANALYSIS. Their original blindness is a historical source claim, not independently reverified. New seed/reviewer/branch/generation cannot restore blindness. Original blind-acceptance gate cannot be claimed newly discharged."
+    },
+    {
+      "id": 8,
+      "output": "Replacement return and discrepancy ledger",
+      "file": "revision return + discrepancy_ledger.json",
+      "plan": "Separate preserved historical numbers, newly executed corrections, applicable narrow conclusions, and unresolved hard-target residue. Derive numeric gates from data; distinguish process exit, arithmetic checks, empirical screen, provenance and Driver acceptance. No hard-coded PASS or NONE; partial/BLOCKED is the valid output when a required gate remains unfulfilled."
+    }
+  ],
+  "scientific_state": "NOT_RUN",
+  "source_binding": "source_binding.json",
+  "coordinate_contract": {
+    "native_input": "Exact integer primes p<=q, X<p*q<=floor(X*(den+num)/den), encoded (p,q,0).",
+    "support": "Every prime p<=floor(sqrt(U)) with nonempty INTEGER q interval. Zero q-prime count never removes geometric support. Geometrically empty p rows explicitly enumerated as excluded.",
+    "rank": "Each p and each q uses one-based index in the COMPLETE prime prefix, hence actual pi(p),pi(q). Store full q-rank interval, not surviving p row order. Joint 24x24 diagnostic grid uses per-cell geometric caps pi(floor(sqrt(U))) and pi(floor(U/2)); exact unnormalised ranks remain stored.",
+    "log_profiles": "Preserve original raw log profile, small trim, scale trim and density-flat z on their declared domains. BRC-certified interval bin decisions. p*p>X retained as a separate overflow stratum in raw/rank; no clipping into u<=1/2. Exact right endpoints use final bin by declared endpoint convention.",
+    "orbit": "Distinct permutations of (p,q,0) are diagnostic only; never multiply primary pair weight by orbit cardinality.",
+    "corrected_and_residual": "NOT_COMPUTED_STAGE_1; schema must retain all supplied vectors rather than drop them. No fabricated zero corrected arrays."
+  },
+  "native_coordinate_scales": [
+    1000000,
+    10000000000,
+    100000000000000
+  ],
+  "resource_probe": {
+    "X": 2000003,
+    "width_numerator": 1,
+    "width_denominator": 1000,
+    "new_cell_not_original_21": true,
+    "deadline_seconds": 60,
+    "memory_limit_bytes": 2147483648,
+    "trace_limit_bytes": 536870912,
+    "full_run_authorized": false
+  },
+  "budget": {
+    "full_invocation_seconds": 1800,
+    "memory_bytes": 2147483648,
+    "trace_bytes": 536870912,
+    "resource_exhaustion": "PARTIAL_RESOURCE_BOUNDARY_NO_SILENT_PRECISION_OR_SCOPE_REDUCTION"
+  },
+  "holdout_gate": "NOT_RECOVERABLE_AS_NEW_BLIND_TEST",
+  "no_new_family": true,
+  "negative_boundaries": [
+    "Adding zero rows alone does not prove Null A controls fine-window coupling.",
+    "Null B cannot repair a scientifically wrong Null A.",
+    "All profiles or process exit 0 do not constitute Driver acceptance."
+  ]
+}
