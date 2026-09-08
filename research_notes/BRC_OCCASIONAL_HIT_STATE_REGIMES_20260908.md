@@ -114,29 +114,32 @@ All 156 positive fixtures verify both `S` and this scaled moment, with an indepe
 
 ## 6. A measured small-range speed specialist
 
-The timed experiment compares equivalent square-completion observation kernels on deterministic samples of 2,048 states from each band/direction. It uses seven rounds in shuffled method order and eight batch repetitions per round.
+The timed experiment compares equivalent square-completion observation kernels on deterministic samples of 2,048 states from each complete-integer band/direction, followed by all 163 D and 243 U members of the known-prime-product cohort. It uses seven rounds in shuffled method order. Each method/round processes at least 16,384 observations: eight batch repetitions for the large samples, 101 for the 163-member cohort, and 68 for the 243-member cohort.
 
 For this fixed experiment only, every completion gap satisfies `1 <= A <= 510`. A 22-entry dictionary stores exact roots of the squares in that interval. The harness cannot accept an external target or enlarge its fixture domain through a command-line parameter.
 
-Two cost contexts are measured separately:
+Three cost contexts are measured separately:
 
 - **Gap already available:** compare lookup with native `isqrt(A)` followed by exact square verification.
 - **Input observation included:** both paths first compute native `isqrt(N)` and the completion gap; then compare the same two square tests.
+- **Witness verification included:** also form the two proposed factors, require the smaller to exceed one, and verify their product against `N`. This is the primary complete-path timing for the fixed fixtures.
 
 The existing checked filter API is also measured, but the minimal native kernel is the main speed reference, so API validation overhead is not credited as a new mathematical gain.
 
 Final recorded run, CPython 3.14.6 on the host Windows runtime:
 
-| Root band | Direction | Gap available: native / lookup | Input observation included: native / lookup |
-|---|---|---:|---:|
-| `16..128` | D | 1.272x | 1.134x |
-| `16..128` | U | 1.293x | 1.074x |
-| `129..255` | D | 1.259x | 1.147x |
-| `129..255` | U | 1.281x | 1.184x |
+| Fixed population | Direction | Native verified ns/input | Lookup verified ns/input | Native / lookup | Faster lookup rounds |
+|---|---|---:|---:|---:|---:|
+| Integer band `16..128` | D | 178.339 | 157.275 | 1.134x | 6/7 |
+| Integer band `16..128` | U | 185.553 | 165.332 | 1.122x | 7/7 |
+| Integer band `129..255` | D | 220.471 | 184.320 | 1.196x | 6/7 |
+| Integer band `129..255` | U | 191.357 | 164.838 | 1.161x | 7/7 |
+| Prime seeds `[101,251]` | D | 223.416 | 190.822 | 1.171x | 7/7 |
+| Prime seeds `[101,251]` | U | 221.811 | 199.153 | 1.114x | 5/7 |
 
-The table build median is 1,900 ns. Summing the Python dictionary/key/value object sizes gives 2,400 bytes. In this run, measured table setup is recovered after roughly 98--110 observations when gaps are already available, or 61--147 input observations. Import and logging costs are outside both timed kernels; setup is reported separately. The saved cost in the ledger is the replaced square-test kernel cost, not speculative factorization time saved.
+The table build median is 1,800 ns. Summing the Python dictionary/key/value object sizes gives 2,400 bytes. In this run, measured setup is recovered after roughly 50--90 verified input observations; the two known-prime-product populations give 56 and 80 observations. Import and logging costs are outside both timed kernels; setup is reported separately. The ledger preserves separate materialized-gap and verified-input records. Its saved cost is the measured replaced kernel cost, not speculative downstream work saved.
 
-These measurements support keeping a warm, bounded small-gap lookup as a local specialist. They measure square-completion observation only and do not establish a large-number factorization speedup. The fixture band, gap bound, setup amortization and host runtime are part of the result. A single cold observation is a different cost context.
+These measurements support keeping a warm, bounded small-gap lookup as a local specialist. They measure one completion attempt, including exact witness verification in the primary path, on the declared small fixtures; they do not establish a large-number factorization speedup. The fixture band, gap bound, setup amortization and host runtime are part of the result. A single cold observation is a different cost context. All raw rounds and the intermediate kernel timings remain in the certificate, including rounds where the lookup is slower.
 
 ## 7. Reproduction, artifacts and continuation
 
