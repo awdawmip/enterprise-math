@@ -46,6 +46,7 @@ flowchart TB
   PP_MOMENT_NOGO["Perfect Prime m3 普通幂矩 no-go"]
   INJECTIVE_AXIS_RAW["正支撑单射轴的 raw 稳定性"]
   PFSSV_SHELL["素因子半素数薄壳审查与整改"]
+  PFSSV_FINITE_WINDOW["有限窗 null 合同与可辨识性"]
   A3 -->|"CONSUMES"| A4
   BRC -->|"CONSUMES"| A4
   BRC -.->|"REUSE_IDENTIFIED"| A1
@@ -78,6 +79,8 @@ flowchart TB
   X6 -->|"CONTAINS"| INJECTIVE_AXIS_RAW
   P3_TEMPLATES -->|"CONSUMES"| INJECTIVE_AXIS_RAW
   NUMBER_THEORY -->|"CONTAINS"| PFSSV_SHELL
+  BRC -->|"CONSUMES"| PFSSV_SHELL
+  PFSSV_SHELL -->|"CONTAINS"| PFSSV_FINITE_WINDOW
 ```
 
 ## 同一范围内的证据对照
@@ -115,7 +118,8 @@ flowchart TB
 | **VALUATION_DIGITS — valuation digits 局部 BRC 除法迁移**<br>原 shortest-path valuation-spectrum 源方法中的局部 digits 例程；不等于全谱原生合规。<br>[S38](#source-s38), [S46](#source-s46), [S47](#source-s47), [S48](#source-s48), [S49](#source-s49), [S50](#source-s50), [S51](#source-s51), [S52](#source-s52) | 保留既有 valuation/digit 定义与调用合同，不声称新定理或 family。 | 不新增 Lean 覆盖声称。 | 已发布可移植重放记录 288 次原生 DIV facade 求值、10 个合法 digit 案例、8 个独立拒绝及 11 个进入 histogram 前的 caller 边界。源元数据/静态检查另有回执；本图均未重跑，未执行全谱回归。 | SOURCE_ONLY：局部 digits 替换及证据包已在 owner b506f92a 应用/发布；未入 main、无正式准入；旧十九对象快照另行固定保留。 | 仅 owner 来源/索引证据，不新增正式 Task/Result/Driver 接受。 |
 | **PP_MOMENT_NOGO — Perfect Prime m3 普通幂矩 no-go**<br>正 q0 归一化后的精确历史 m=3 cofactor 列；普通幂矩表示与有限可交换阶乘观测分开。<br>[S53](#source-s53), [S54](#source-s54), [S55](#source-s55), [S56](#source-s56), [S57](#source-s57), [S58](#source-s58), [S59](#source-s59), [S60](#source-s60), [S61](#source-s61) | RESULT_ONLY 源结果：28 个允许的有限交替差分均正，但二次多项式的平方读出为负，排除实线上正普通幂矩测度；非负 beta 合同下的有限 BRC 恒等式仍成立。 | 不新增 Lean 覆盖声称。 | 仅冻结的历史 Fraction 审计及同代 JSON，不是新原生 BRC facade 数值证据。JSON 保存七个正 beta 并记录 28 格检查，未逐项保存全部 28 个值；纯元数据回执须独立，不导入或重跑该审计。 纯元数据查询与两项拒绝有独立冻结回执；新 helper 静态检查仅选择 validator.py。 | 已经 PR1404 在 44243768 以 MAIN RESULT_ONLY 合流；九文件承载保留原 method 对象、空 API 和 null family。实际合并树与受测组合相同，不增加可执行有限 BRC 消费者或正式接受。 | 本结果索引不建立正式 Task/Result/Driver 接受、Working Truth 或 Foundation 状态。 |
 | **INJECTIVE_AXIS_RAW — 正支撑单射轴的 raw 稳定性**<br>同一 anchor 和带实际轴标签的 raw X6 chart，有限 Jordan 正负人口；一条实际物理轴在全部正支撑上单射，不用混合坐标伪造新轴。<br>[S62](#source-s62), [S63](#source-s63), [S64](#source-s64), [S65](#source-s65), [S44](#source-s44), [S45](#source-s45) | 任意有限正支点数的纸面证明：全部二十张 raw 表给出 D>=10P-2N+10&#124;P-N&#124;+12N_empty>=4M。恰三正 q_i=(a_i,r_i) 且 a_i 互异时，将 R={r_i} 去重，置 W_r=sum_(j:r_j=r)w_j；取等当且仅当 n=sum c_(i,r)delta_(a_i,r)，c>=0，仅允许 Ham(r,r_i)=1，行和 w_i、列和 W_r。整个单射轴类有非零六 Cell 的 sharp 1/4 见证。 | 未声称新增 Lean 证明或覆盖。 | 仅纸面；未执行或新增消费者、LP、求流程序、模板枚举、数值重放，也未扩展既有 p<=1/p<=2 程序输入域。 | 已在 owner 528ea6aa 以 SOURCE_ONLY 发布论文、逐字相同的独立审稿归档及 source-adoption 回执。回执保留原 TEMP 准备状态与审查时点，发布不将其改称新执行；未作数学主线准入。 | 仅内部纸面审阅，不建立正式 Task/Result/Driver 接受、Working Truth、Foundation 或 API。 |
-| **PFSSV_SHELL — 素因子半素数薄壳审查与整改**<br>既有 PFSSV 任务：精确 p<=q、X<pq<=floor((1+eta)X) 薄壳，以 D(pq)=(p,q,0) 作派生 min-zero 素因子坐标表示；S3 展开仅作显示诊断，不建立新原生点本体或度量。这是数论实验收尾，不是 X6 结果。<br>[S66](#source-s66), [S67](#source-s67), [S68](#source-s68), [S69](#source-s69), [S70](#source-s70), [S71](#source-s71), [S72](#source-s72), [S73](#source-s73), [S74](#source-s74), [S75](#source-s75), [S76](#source-s76), [S77](#source-s77) | 冻结作者回传将选中特征解释为 RESIDUE_OR_DENSITY_ARTIFACT 并声称无剩余。独立审查不认可硬目标完整闭合：基线支撑、必需素数秩坐标和持久化 profiles 均有具体缺口。既有筛选不足以支持新 residual candidate；本审查也未证明所有注册残差结构均不存在。 | 不新增 Lean 定理或覆盖声称。 | 原实验为历史 NumPy 执行。另有归档的非盲独审运行两个已公开 X=100000 discovery 小 cell（eta=1/100、1/1000），独立核素数至 50500，raw 计数为 237、25，并确认掩码／rank／序列化缺口。未重放 5050 万筛、全部 21 个 cell 或 holdout。本次图更新不执行数学，不声称原生 BRC 证书、新 API 或新盲测。 | PR1406 已在 main 6efc3fdb 恢复原七文件，保留 source 1cac434c 字节。独审、Driver REQUEST_REVISION 及同 task generation-2 followup 已在 source fc6d7bc6ed4c92363b8abd4889575bef69a9328f 发布，现已由 PR1408 合入 main be350eb1b0eeb2a9a07a23a43ee3c8170e93b4b4。这里只完成 Driver 整改登记；科学硬目标仍未闭合，不声称整改后的实验已完成或已获接受。 | 已发布 Driver 审查 DR-FDDA90E2280E08CA5A35 要求修订原 Result，不接受硬目标完整闭合；真实成功 followup DFU-19973107B48580C086E7 已为同 task 发布 TP2-2029B5CCC5EEC5F0132C。不声称科研整改已完成、新 claim、Working Truth、canonical promotion 或父目标闭合。 |
+| **PFSSV_SHELL — 素因子半素数薄壳审查与整改**<br>既有 PFSSV 任务：精确 p<=q、X<pq<=floor((1+eta)X) 薄壳，以 D(pq)=(p,q,0) 作派生 min-zero 素因子坐标表示；S3 展开仅作显示诊断，不建立新原生点本体或度量。这是数论实验收尾，不是 X6 结果。<br>[S66](#source-s66), [S67](#source-s67), [S68](#source-s68), [S69](#source-s69), [S70](#source-s70), [S71](#source-s71), [S72](#source-s72), [S73](#source-s73), [S74](#source-s74), [S75](#source-s75), [S76](#source-s76), [S77](#source-s77), [S78](#source-s78), [S79](#source-s79), [S80](#source-s80), [S81](#source-s81), [S82](#source-s82), [S83](#source-s83), [S84](#source-s84), [S85](#source-s85), [S86](#source-s86), [S87](#source-s87), [S88](#source-s88), [S89](#source-s89), [S90](#source-s90), [S91](#source-s91), [S92](#source-s92) | 确定性容量审计在原 21 个 scale/width cells 全部记录 MODEL_SUPPORT_FAILURE。18 格具有通过旧 mask 的 positive-total target 反例；3 格此次仅见 zero-total target 反例：X=100000 的 eta=3/1000、1/1000，以及 X=300000 的 eta=1/1000。18090 条失败 table entries（positive-target 15400、zero-target 2690）不是独立试验，也不是 p 值。这限定 Null A 的精确占据解释，不证明残差结构不存在，也不禁止声明范围内的 scalar count surrogate。 | 不新增 Lean 定理或覆盖声称。 | 保留 Stage1 单独固定的新单 cell probe 与独审。Stage2 实际记录在内部 224.453 秒内完成原 21 格精确观测及确定性容量审计，科学随机 null 抽样为零。至 50500000 的完整 prefix 含 3029296 个素数。canonical 调用与返回一致为 302618 次（DIV 293797、ROOT 22、LOG 8799）；回执记录 raw trace 100831585 bytes、无损容器 29555979 bytes，peak process memory 180793344 bytes。这些是来源执行回执，建图未重跑数学或数值；它们不构成 512/4096 residual 筛选或新盲 holdout。 | 原恢复仍为 PR1406/main 6efc3fdb，此前整改登记为 PR1408/main be350eb1。Stage1、预计算和 Stage2 实际结果仍分别绑定 01b6dd93、f662d48f、a82ced7b。canonical Result RR-BDA72F26E3786AD69EA5 已在 24d31456 发布；不可变 Driver 审查及 follow-up 已在 436995cfda7b5aaf7b7531a7ce5237753ab1b458 发布。PR1411 已合入 main 4d5c4992d0b1e1719b000cf23d0666b6f8b58bf3，实际树及有序父提交与已核 CI 组合一致。旧候选回传标题保留为冻结前历史，不代表当前状态。 | DR-A833B5898809BEEDA41D 对 RR-BDA72F26E3786AD69EA5 的判定为 ACCEPTED/ARCHIVE、在 TASK 范围终局：接受修正后的 21 格观测及有界 Null A 占据容量障碍。DFU-32BE5124B006B15987BB 记录一项 continuation 的 TASK_SET_PUBLISHED。闭合的是该冻结代次，不是残差硬目标或 parent Objective；不授予 Working Truth、canonical/Foundation promotion、新 API 或一般残差反驳。 |
+| **PFSSV_FINITE_WINDOW — 有限窗 null 合同与可辨识性**<br>同一素数/半素数 parent 下的已发布 continuation RS-PFSSV-FINITE-WINDOW-NULL-IDENTIFIABILITY。区分有限整数槽容量、素性、行/通道 margins、共享 q 地址一致性及条件样本空间。引入的概率律是附加诊断假设；派生 S3/rank/density-flat 坐标不建立新原生本体。<br>[S87](#source-s87), [S88](#source-s88), [S89](#source-s89), [S90](#source-s90), [S91](#source-s91), [S92](#source-s92) | 已发布的是合同/可辨识性问题，尚未建立新答案。可接受输出包括：带有限推断目标的明确有限支撑合同；满足同一约束而目标分布不同的两种概率律，以证明不可辨识；或精确的缺失假设障碍。仅满足容量既不证明交换性，也不证明对确定性素数数据的有效性。 | 此任务尚未发布 Lean 定理、形式化或新覆盖。 | 在发布快照中，新任务没有 claim、ER 或执行。已接受的原 21 格输出是输入，不是此 continuation 的执行。此任务不授权 512/4096 筛选、新盲实验或全范围数值重跑；后续任何有界算术核验须保留适用的原生工具和精确 trace 合同。 | TP2-38717785C4ADF3A12A49 已于 2026-09-08T12:40:31.877466+00:00 经 DFU-32BE5124B006B15987BB 不可变发布，在同 parent 下作为 PFSSV 任务的 CONTINUATION。发布记录为 claimable=true、owner=taskbook/unassigned。source 436995cf 已经 PR1411 入 main 4d5c4992d0b1e1719b000cf23d0666b6f8b58bf3。入主线不表示此任务已执行；本图不领取任务，也不提供当前 runtime 权限。 | 前代已有 ACCEPTED/ARCHIVE 审查，合法 follow-up 发布了这个新问题；该决定不是后继任务的 Result 或接受。此处不声称后继 Result、Driver 判词、Working Truth、API 或 Foundation promotion。 |
 
 ## 未完前沿与已有下一步
 
@@ -126,12 +130,13 @@ flowchart TB
 | 当前收尾 | A3_A4_REVIEW | 不能把环境商秩等同可实现状态所需最少数据；不新建研究任务。 | 使用已准入的窄纠正，收尾原 PR955 正式 Driver 审查；保留不受影响的原论证，不重复已完成源准入。 |
 | 当前收尾 | H0O | 无非代数性声称；真正混合的其他核或显式 exceptional cycles 仍开放。 | 在精确范围审保留的 TP2-A314F727276CFF8CE168 / RR-FB3CF77C4F611FDED79B；不从图中重新 claim/研究。 |
 | 当前收尾 | VALUATION_DIGITS | 素性、histogram/Fraction 算术及广泛导入仍有独立边界。helper 可收集局部 trace；未变更的 public 谱 API 不返回或持久化 digit trace。局部证据不是全谱或传递原生合规。 | 保留局部迁移及实际 caller 边界；仅继续被明确选中的既有谱未完接口。 |
-| 当前收尾 | PFSSV_SHELL | 三项必需整改：(1) 明确全几何支撑与声明的条件性 null，因为 counts>0 目前也选择 null／平滑基线的位置；(2) 实现所要求的 (pi(p),pi(q)) 视图，不能用幸存行序号替代；(3) 持久化逐 cell 完整 raw／corrected profiles 与带符号相位输出，科学 gate 按实际数据计算。条件随机化不因“有条件”本身失效，但当前设计未建立完整占据／纯密度解释。 | 仅按 TP2-2029B5CCC5EEC5F0132C 的精确任务书和当前 canonical 领取／恢复路由续接既有未完范围。保留原七文件及原实验代次；对已打开 holdout 的再分析仍是事后分析，本图不授予 claim，也不启动新盲测。 |
+| 当前收尾 | PFSSV_SHELL | 有限观测/容量单元现已按 RESULT_ONLY 接受并归档，复用既有 T0+T1 组合。残差硬目标及 PROGRESSIVE_PLANE_PRIME_SEMIPRIME_COORDINATE_DISCOVERY 仍为 OPEN。corrected/signed 科学残差、有效双 null 比较、family-wise 校准与原盲测门槛仍未完成；unavailable 向量不是零。不追加新的 joint-null 原任务门槛，也不由已接受的支撑边界推出素数过程结论。 | 保留已接受代次及其精确来源/trace 证据。已发布 continuation RS-PFSSV-FINITE-WINDOW-NULL-IDENTIFIABILITY 首先处理支撑、共享 q 地址一致性、明确的概率律和交换性前提。它范围独立、发布时尚未执行；后续领取须由当前 canonical runtime 决定。不得因任务闭合重复原 21 格或推定科学筛选、盲性重置、二阶补救路线。 |
 | 已有数学前沿 | NUMBER_THEORY | centered prime-radius 有 left-prime/size 假设，不推出普遍对称素数对或 Goldbach。 | 与 X6 子支并列保留 P017/Perfect Prime 原有数学前沿。 |
 | 已有数学前沿 | PERFECT_PRIME | 全 m 有限完全单调性/HCM0 及母 determinant 非消失仍 OPEN。正普通幂矩 lift 已在 m3 被单独否定；有条件的有限 BRC 阶乘表示不是被否定的 lift。 | 核实当前交接，仅从精确既有 residual/HCM0 缺口续接。保留有限阶乘观测合同，不重启已否定 block/inertia 或普通幂矩测度路线。 |
 | 已有数学前沿 | P021 | causal focusing、方向/witness 复合及物理解释仍开放。 | 在明确有限因果/观测合同内续接，不偷渡物理定理。 |
 | 已有数学前沿 | E001 | 不是通用材料本构/力学定理；有限读出不能恢复未知连续曲线。 | 应用绑定实际测量与已有 falsification 合同。 |
 | 已有数学前沿 | P3_TEMPLATES | 载体界 2^nC*3^(sum nP)*4^nD 本身不给出统一 p3 界。另有 source-only 单射轴论文对 41 个 nD>=1 模板证明 D>=4M；余 16 个不在其假设内。fresh 坐标可对应无限原纤维；证明重标记不是原生操作，也不推出每模板 sharp。 | 复用既有 57 模板几何、有序权参数和 raw 表身份，结合单独限定范围的单射轴结果；保留其他模板的既有成果，本图不启动枚举、求解器或新研究问题。 |
+| 已有数学前沿 | PFSSV_FINITE_WINDOW | 判定已声明的几何、residue 与一阶约束究竟识别什么，以及哪些概率律或不变性前提不可缺少。区分人为约定的 scalar surrogate、共享地址占据和关于素数的推断。硬目标 FINITE_WINDOW_NULL_CONTRACT_IDENTIFIABLE_OR_EXACTLY_OBSTRUCTED 尚为开放、未执行。 | 在真实 canonical 分配后，固定冻结 Result 与已审 prior art；写出有型语义矩阵、共享地址/窗口映射、条件变量、权重、归一化及假设/已证交换性。在科学抽样前返回有限合同、构造性不可辨识或精确障碍。拒绝按已暴露结果拟合选择概率律、忽略容量/重叠和追溯性盲性；仅满足容量不打开后继实验。 |
 | 被选中时刷新精确来源 | GEO6 | 历史闭合/再验证措辞不是当前 verdict。 | 该既有路线被选中时，仅刷新一个精确当前来源/交接。 |
 | 被选中时刷新精确来源 | GEO7 | 历史闭合/再验证措辞不是当前 verdict。 | 该既有路线被选中时，仅刷新一个精确当前来源/交接。 |
 | 被选中时刷新精确来源 | GEO8 | 历史闭合/再验证措辞不是当前 verdict。 | 该既有路线被选中时，仅刷新一个精确当前来源/交接。 |
@@ -194,6 +199,8 @@ flowchart TB
 | X6 → INJECTIVE_AXIS_RAW | `CONTAINS` | 带明确实际轴假设的 raw 坐标稳定性子方向，不建立新 family。 | [S62](#source-s62) |
 | P3_TEMPLATES → INJECTIVE_AXIS_RAW | `CONSUMES` | p3 适用范围消费既有 D 型坐标分型及 41/16 计数；任意 p 不等式本身不依赖枚举。 | [S44](#source-s44), [S45](#source-s45), [S62](#source-s62) |
 | NUMBER_THEORY → PFSSV_SHELL | `CONTAINS` | 既有半素数素因子坐标实验归于算术主线。仅表示组织归属，不声称依赖 Legendre／Perfect Prime 定理、已执行 BRC，或从 A2 商／A5／X6 几何结果传递定理。 | [S66](#source-s66) |
+| BRC → PFSSV_SHELL | `CONSUMES` | 仅表示分别记录的 Stage1 probe 与 Stage2 原 21 格观测/容量审计实际调用 canonical T0 DIV/ROOT/LOG；后者记录 DIV 293797、ROOT 22、LOG 8799 次，返回数对应一致。这是在既有 T0+T1 COMPOSE/RESULT_ONLY 边界内消费 T0 底层，不认证 residual/null 科学筛选、全部依赖、新 API/本体或 A5/X6 定理。 | [S78](#source-s78), [S79](#source-s79), [S80](#source-s80), [S81](#source-s81), [S83](#source-s83), [S84](#source-s84), [S85](#source-s85) |
+| PFSSV_SHELL → PFSSV_FINITE_WINDOW | `CONTAINS` | 仅表示有界 continuation 的组织关系：已接受 PFSSV 代次及其明确支撑缺口，对应同 parent 下独立发布的有限窗合同任务。它不是定理蕴涵、执行证据、新 null 概率律或后续实验授权。 | [S88](#source-s88), [S89](#source-s89), [S90](#source-s90), [S91](#source-s91), [S92](#source-s92) |
 
 ## 不可变来源与证据深度
 
@@ -435,6 +442,51 @@ source ID 在此解析，SHA256 固定文件字节；不可变文件链接不证
 
 <a id="source-s77"></a>
 - **S77** [已提交 PFSSV Driver followup 包](https://github.com/awdawmip/enterprise-math/blob/fc6d7bc6ed4c92363b8abd4889575bef69a9328f/research_driver_followups/DR-FDDA90E2280E08CA5A35/DFU-19973107B48580C086E7.json); `PUBLISHED_PIN_READBACK`; SHA256 `9ca06c55a0e6e802e6cc60aa8dd252aecfb84776d75ba7d006f8874ec8ebb8ae`.
+
+<a id="source-s78"></a>
+- **S78** [PFSSV Stage1 真实单 cell 资源探针](https://github.com/awdawmip/enterprise-math/blob/01b6dd932f62fd3b0a6f3b06d29ff809b04ed62e/research_artifacts/PFSSV_REVISION_20260908/resource_probe.json); `PUBLISHED_RECEIPT_NOT_REEXECUTED`; SHA256 `5abb0c6c19050b8559f18e5daef86c11572cfe5968f6f192b0da96676e83e19e`.
+
+<a id="source-s79"></a>
+- **S79** [PFSSV Stage1 canonical DIV/ROOT/LOG 调用回执](https://github.com/awdawmip/enterprise-math/blob/01b6dd932f62fd3b0a6f3b06d29ff809b04ed62e/research_artifacts/PFSSV_REVISION_20260908/native_runtime_receipt.json); `PUBLISHED_RECEIPT_NOT_REEXECUTED`; SHA256 `05c3d57e9c5fe598902d488060481cdd46c6ab6dd414292d80d8c9094af887bb`.
+
+<a id="source-s80"></a>
+- **S80** [PFSSV Stage1 独立有界源码审查](https://github.com/awdawmip/enterprise-math/blob/f662d48f4615fe6d08a55225c7c36ecd15f91518/driver_reviews/PFSSV_GENERATION2_STAGE1_INDEPENDENT_REVIEW_20260908.md); `PUBLISHED_PIN_READBACK`; SHA256 `b1b0e43f0f7901349531d88567da44d361adb1a90d670b7d12025d70944dedb2`.
+
+<a id="source-s81"></a>
+- **S81** [PFSSV Stage1 独审回执与范围](https://github.com/awdawmip/enterprise-math/blob/f662d48f4615fe6d08a55225c7c36ecd15f91518/driver_reviews/PFSSV_GENERATION2_STAGE1_INDEPENDENT_REVIEW_20260908.json); `PUBLISHED_RECEIPT_NOT_REEXECUTED`; SHA256 `e6565106ab565883971c5b6f1b12fd9cf7acafff09c838029927b0303b77df2c`.
+
+<a id="source-s82"></a>
+- **S82** [PFSSV Stage2 预计算续接记录；不是 21-cell 结果回执](https://github.com/awdawmip/enterprise-math/blob/f662d48f4615fe6d08a55225c7c36ecd15f91518/research_artifacts/PFSSV_REVISION_20260908/continuation_state.json); `PUBLISHED_PIN_READBACK`; SHA256 `fa293c9694815265130eb904ca62327f1c10e2edfc2c65e339e7aaf9f1e5c270`.
+
+<a id="source-s83"></a>
+- **S83** [PFSSV Stage2 原 21 格实际观测/容量结果回执](https://github.com/awdawmip/enterprise-math/blob/a82ced7bb227471c1b16fecb5a5e3d7ff72a5536/research_artifacts/PFSSV_REVISION_20260908/result_summary.json); `PUBLISHED_RECEIPT_NOT_REEXECUTED`; SHA256 `1b6cf5586f7854b184ff3892a86fee3971362fb47f71fccd0bd0b8286fcf14c6`.
+
+<a id="source-s84"></a>
+- **S84** [PFSSV Stage2 实际 DIV/ROOT/LOG 调用与无损 trace 回执](https://github.com/awdawmip/enterprise-math/blob/a82ced7bb227471c1b16fecb5a5e3d7ff72a5536/research_artifacts/PFSSV_REVISION_20260908/native_runtime_receipt.json); `PUBLISHED_RECEIPT_NOT_REEXECUTED`; SHA256 `bbad0969b9e3713f71fc3f1b407db4a65b271dc74d0b0b8b26e890d270aded3c`.
+
+<a id="source-s85"></a>
+- **S85** [PFSSV gen2 候选 NEGATIVE_BOUNDARY 回传；Result/Driver 待处理](https://github.com/awdawmip/enterprise-math/blob/a82ced7bb227471c1b16fecb5a5e3d7ff72a5536/research_returns/PRIME_FACTOR_SEMIPRIME_SHELL_RESIDUAL_VALIDATION_REVISION_RETURN_20260908.md); `RETURN_DECLARATION_NOT_REVIEW`; SHA256 `907783453bed7593872901bdaaadffe8c3f91f29e3dd8460a4bd330a72de7fc9`.
+
+<a id="source-s86"></a>
+- **S86** [PFSSV Stage2 冻结输出读数：positive/zero target 边界](https://github.com/awdawmip/enterprise-math/blob/a82ced7bb227471c1b16fecb5a5e3d7ff72a5536/driver_reviews/PFSSV_GENERATION2_STAGE2_SUPPORT_READOUT_20260908.json); `PUBLISHED_RECEIPT_NOT_REEXECUTED`; SHA256 `37991c535f70111bec3f8e37218561a12ab7b7f8bfee0997d27a50e99bc64fb9`.
+
+<a id="source-s87"></a>
+- **S87** [PFSSV gen2 canonical 冻结 Result：有界负向结果](https://github.com/awdawmip/enterprise-math/blob/24d314560a35cefe14d240deb3b44ed7cc24fa38/research_result_records/RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION/RR-BDA72F26E3786AD69EA5.json); `RETURN_DECLARATION_NOT_REVIEW`; SHA256 `45b8a21d91df9a87a2e1fc2370f795c2b3bb61526361d2c1508b7341a58b8a26`.
+
+<a id="source-s88"></a>
+- **S88** [PFSSV gen2 不可变 Driver ACCEPTED/ARCHIVE 审查记录](https://github.com/awdawmip/enterprise-math/blob/436995cfda7b5aaf7b7531a7ce5237753ab1b458/research_result_reviews/RR-BDA72F26E3786AD69EA5/DR-A833B5898809BEEDA41D.json); `PUBLISHED_PIN_READBACK`; SHA256 `6e2cfa35a01dc55caac02a3c6542e15a160d2c541a7a07f289eb3248e649ec06`.
+
+<a id="source-s89"></a>
+- **S89** [PFSSV gen2 Driver 接受范围与 parent OPEN 边界](https://github.com/awdawmip/enterprise-math/blob/436995cfda7b5aaf7b7531a7ce5237753ab1b458/driver_reviews/PFSSV_GENERATION2_STAGE2_DRIVER_REVIEW_20260908.md); `PUBLISHED_PIN_READBACK`; SHA256 `73937658968aaa1666e5b86ac072a8d488b0d8951f91ea59dcde48c4a53bc252`.
+
+<a id="source-s90"></a>
+- **S90** [PFSSV 已接受 Result 的 follow-up：一项已发布 continuation](https://github.com/awdawmip/enterprise-math/blob/436995cfda7b5aaf7b7531a7ce5237753ab1b458/research_driver_followups/DR-A833B5898809BEEDA41D/DFU-32BE5124B006B15987BB.json); `PUBLISHED_PIN_READBACK`; SHA256 `47512031898feeee524ce18a6ce3eeb7088da6205fe9e751671dde334407d9a3`.
+
+<a id="source-s91"></a>
+- **S91** [PFSSV 有限窗可辨识性：不可变任务发布](https://github.com/awdawmip/enterprise-math/blob/436995cfda7b5aaf7b7531a7ce5237753ab1b458/research_task_records/RS-PFSSV-FINITE-WINDOW-NULL-IDENTIFIABILITY/TP2-38717785C4ADF3A12A49.json); `PUBLISHED_PIN_READBACK`; SHA256 `b96ae295f68d08dba29a32a0bc191078411c2b7fe2260b7c3ab440270eca861d`.
+
+<a id="source-s92"></a>
+- **S92** [PFSSV 有限窗合同与可辨识性任务范围；尚未执行](https://github.com/awdawmip/enterprise-math/blob/436995cfda7b5aaf7b7531a7ce5237753ab1b458/research_tasks/PFSSV_FINITE_WINDOW_NULL_IDENTIFIABILITY_20260908.md); `PUBLISHED_PIN_READBACK`; SHA256 `d357f54587345679f80c0cc90360c620c6b96a0336e1941cf992fb117dbeb7af`.
 
 ## 维护方法
 
