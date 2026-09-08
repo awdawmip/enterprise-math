@@ -67,6 +67,17 @@ def test_neighborhood_keeps_all_layers() -> None:
     assert 6 in profile.strong_encoder_layers
 
 
+def test_modal_layer_ties_choose_the_smallest_layer() -> None:
+    for n, layers, modal, encoder in (
+        (21, ((20, 6), (22, 4)), 4, None),
+        (62, ((60, 12), (63, 6), (64, 7)), 6, 3),
+    ):
+        profile = neighborhood_profile(n, 2)
+        assert profile.layers == layers, n
+        assert profile.modal_layer == modal, n
+        assert squarefree_prime_layer_encoder(2, profile.modal_layer) == encoder, n
+
+
 def test_small_range_radius2_opportunity_counts() -> None:
     # Frozen exact finite diagnostic for 20 <= n < 1000.
     semiprimes = [n for n in range(20, 1000) if is_squarefree_semiprime_small(n)]
@@ -85,4 +96,4 @@ def test_small_range_radius2_opportunity_counts() -> None:
     assert any_forcing == 181
     assert strong == 146
     assert tau6 == 118
-    assert modal_strong == 47
+    assert modal_strong == 45
