@@ -1,0 +1,118 @@
+{
+  "schema": "RB_BLIND_ASSIGNMENT_ACTUAL_EXECUTION_V1",
+  "phase": "BLIND_FORWARD_PROGRESS_NOT_FINAL_RAW_FREEZE",
+  "researcher_id": "EM-HODGEH0O-82EF42",
+  "claim_id": "chatgpt-rb-blind-20260908-1943ccc582e1463bbcef0c6ab3c7db1b",
+  "runs": [
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "scripts/check_rb_blind_branch_patterns_20260908.py",
+        "--write"
+      ],
+      "cwd": "D:/em/research-rb-blind-20260908",
+      "tool_result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "2be27a",
+          "wall_time_seconds": 0.5691383,
+          "exit_code": 0,
+          "original_token_count": 109,
+          "output": "{\"certificate_sha256\": \"a83524c6b9b8cb6e00561c014e7129c614e9b1c46eedcbd9c9e79f2ff5ee89a0\", \"counts\": {\"2+2+2+0\": {\"cover_only_S4_and_source_flip\": 9, \"cover_only_V4_and_source_flip\": 54, \"fixed_lambda_fixed_k_V4\": 90, \"label_transport_S4\": 15, \"raw\": 360}, \"4+2+0+0\": {\"cover_only_S4_and_source_flip\": 11, \"cover_only_V4_and_source_flip\": 33, \"fixed_lambda_fixed_k_V4\": 45, \"label_transport_S4\": 15, \"raw\": 180}}, \"status\": \"PASS\"}\r\n"
+        }
+      }
+    },
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_exact_arithmetic_policy.py",
+        "scripts/check_rb_blind_branch_patterns_20260908.py"
+      ],
+      "cwd": "D:/em/research-rb-blind-20260908",
+      "tool_result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "104304",
+          "wall_time_seconds": 0.5968295,
+          "exit_code": 0,
+          "original_token_count": 11,
+          "output": "EXACT_ARITHMETIC_POLICY: PASS (1 files)\r\n"
+        }
+      }
+    },
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "scripts/check_rb_blind_branch_patterns_20260908.py"
+      ],
+      "cwd": "D:/em/research-rb-blind-20260908",
+      "tool_result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "fc4bb3",
+          "wall_time_seconds": 2.0167829,
+          "exit_code": 0,
+          "original_token_count": 109,
+          "output": "{\"certificate_sha256\": \"a83524c6b9b8cb6e00561c014e7129c614e9b1c46eedcbd9c9e79f2ff5ee89a0\", \"counts\": {\"2+2+2+0\": {\"cover_only_S4_and_source_flip\": 9, \"cover_only_V4_and_source_flip\": 54, \"fixed_lambda_fixed_k_V4\": 90, \"label_transport_S4\": 15, \"raw\": 360}, \"4+2+0+0\": {\"cover_only_S4_and_source_flip\": 11, \"cover_only_V4_and_source_flip\": 33, \"fixed_lambda_fixed_k_V4\": 45, \"label_transport_S4\": 15, \"raw\": 180}}, \"status\": \"PASS\"}\r\n"
+        }
+      }
+    },
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "tests.test_rb_blind_branch_patterns_20260908",
+        "-v"
+      ],
+      "cwd": "D:/em/research-rb-blind-20260908",
+      "tool_result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "c7ed5b",
+          "wall_time_seconds": 5.1489536,
+          "exit_code": 0,
+          "original_token_count": 168,
+          "output": "test_default_replay_rejects_tampered_certificate_without_rewriting (tests.test_rb_blind_branch_patterns_20260908.BlindBranchAssignments.test_default_replay_rejects_tampered_certificate_without_rewriting) ... ok\r\ntest_fixed_parameter_candidates_are_not_cover_only_candidates (tests.test_rb_blind_branch_patterns_20260908.BlindBranchAssignments.test_fixed_parameter_candidates_are_not_cover_only_candidates) ... ok\r\ntest_source_binding_drift_is_rejected (tests.test_rb_blind_branch_patterns_20260908.BlindBranchAssignments.test_source_binding_drift_is_rejected) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.203s\r\n\r\nOK\r\n"
+        }
+      }
+    },
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_exact_arithmetic_policy.py",
+        "scripts/check_rb_blind_branch_patterns_20260908.py",
+        "tests/test_rb_blind_branch_patterns_20260908.py"
+      ],
+      "cwd": "D:/em/research-rb-blind-20260908",
+      "tool_result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "c29c1d",
+          "wall_time_seconds": 1.9910512,
+          "exit_code": 0,
+          "original_token_count": 11,
+          "output": "EXACT_ARITHMETIC_POLICY: PASS (2 files)\r\n"
+        }
+      }
+    }
+  ],
+  "scope": "Finite branch-assignment classification, source-byte and output-byte rejection only. Whitelisted historical checker was not executed. No RR/ODE/map or period result is asserted.",
+  "native_arithmetic": "Integer enumeration and comparisons only; actual division, remainder, root and BRC evaluation counts all zero.",
+  "tool_log_boundary": "The tool preserves a combined output string; separate stdout/stderr streams were not captured in these runs."
+}
