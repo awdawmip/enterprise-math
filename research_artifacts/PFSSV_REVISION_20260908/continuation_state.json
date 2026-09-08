@@ -4,7 +4,7 @@
     "status": "OPEN"
   },
   "task_registration": {
-    "state": "IMMUTABLE_REGISTERED",
+    "state": "CLAIMABLE",
     "registry_key": "RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION",
     "publication_id": "TP2-2029B5CCC5EEC5F0132C",
     "record_path": "research_task_records/RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION/TP2-2029B5CCC5EEC5F0132C.json",
@@ -12,7 +12,7 @@
   },
   "task": {
     "task_id": "RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION",
-    "status": "IN_PROGRESS"
+    "status": "COMPLETE"
   },
   "owner_claim": {
     "claim_id": "chatgpt-pfssv-r2-20260908T101753Z-456f906e",
@@ -23,18 +23,24 @@
   },
   "session": {
     "session_id": "codex-pfssv-gen2-integration-admission-check-20260908",
-    "status": "ACTIVE"
+    "status": "ACTIVE",
+    "last_activity_at": "2026-09-08T12:25:53.138918+00:00"
   },
   "durable_frontier": {
-    "source_commit": "01b6dd932f62fd3b0a6f3b06d29ff809b04ed62e",
-    "review_id": "DR-FDDA90E2280E08CA5A35",
+    "source_commit": "24d314560a35cefe14d240deb3b44ed7cc24fa38",
+    "review_id": "DR-A833B5898809BEEDA41D",
     "publication_id": "TP2-2029B5CCC5EEC5F0132C",
     "progress_comment_id": 5584381966,
-    "frontier": "PASS_STAGE1_BOUNDED_PROBE_WITH_CAPACITY_WITNESS"
+    "frontier": "RESULT_ACCEPTED_AT_BOUNDED_TASK_SCOPE_WITH_VALID_FOLLOWUP",
+    "owner_head": "a82ced7bb227471c1b16fecb5a5e3d7ff72a5536",
+    "result_id": "RR-BDA72F26E3786AD69EA5",
+    "handoff_comment_id": 5585033864,
+    "review_disposition": "ACCEPTED",
+    "driver_followup_id": "DFU-32BE5124B006B15987BB"
   },
-  "current_unfinished_unit": "Freeze and execute original 21-cell exact observation and deterministic Null A capacity audit",
-  "next_action": "Publish the Stage2 precompute contract and source, then execute the bounded observation/capacity unit with lossless complete trace transport.",
-  "terminal_scope": null,
+  "current_unfinished_unit": "Finite-window null contract/identifiability successor and remaining owner portfolio review",
+  "next_action": "Publish the actual review and registered follow-up as one verified source transaction; integrate and route the first unfinished successor unit under its own winning claim while continuing bounded pending-result review.",
+  "terminal_scope": "TASK",
   "final_allowed": false,
   "control": {
     "continuation_lease_active": true
@@ -72,5 +78,7 @@
     "server_comment_id": 5583750861,
     "server_author_login": "awdawmip",
     "server_author_user_id": 30957095
-  }
+  },
+  "runtime_phase": "REEVALUATE_PARENT",
+  "registration_authenticated": true
 }
