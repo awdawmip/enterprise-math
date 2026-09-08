@@ -46,6 +46,7 @@ PRIOR_REUSE_IDS = [
     "result.x6.two_positive_raw_stability",
     "result.x6.two_positive_equality_rectangle",
 ]
+SOURCE_ONLY_COVERAGE_REUSE_IDS = ["candidate.x6.raw_joint_observer_recovery"]
 SCOPE = {
     "post_jordan_positive_support_at_most": 2,
     "positive_integer_population_numerators": True,
@@ -89,7 +90,8 @@ def inventory_snapshot(root):
     return {path.relative_to(root).as_posix(): path.read_bytes() for path in paths}
 
 
-def validate(root):
+def validate(root, catalog_context="source"):
+    require(catalog_context in {"source", "main"}, "unknown catalog context")
     root = root.resolve()
     before = inventory_snapshot(root)
     require(SHARD in before, "candidate shard missing")
@@ -165,7 +167,10 @@ def validate(root):
     actual_prior = [item for item in loaded if item["method_id"] != METHOD_ID]
     require(actual_prior == prior, "prior method object/order changed")
     prior_by_id = {item["method_id"]: item for item in prior}
-    require(all(mid in prior_by_id for mid in PRIOR_REUSE_IDS), "expected reused method absent")
+    missing_reuse_ids = [mid for mid in PRIOR_REUSE_IDS if mid not in prior_by_id]
+    source_only_coverage_ids = SOURCE_ONLY_COVERAGE_REUSE_IDS if catalog_context == "main" else []
+    unexpected_missing = [mid for mid in missing_reuse_ids if mid not in source_only_coverage_ids]
+    require(not unexpected_missing, "expected reused method absent: " + ", ".join(unexpected_missing))
     family_before = [item for item in prior if item.get("family_id") == "T0_BRC"]
     require([item for item in actual_prior if item.get("family_id") == "T0_BRC"]
             == family_before, "prior BRC family changed")
@@ -221,6 +226,9 @@ def validate(root):
         "created_utc": datetime.now(timezone.utc).isoformat(),
         "python": sys.version.split()[0], "argv": sys.argv, "repository_root": str(root),
         "method_id": METHOD_ID, "source_commit": SOURCE_COMMIT, "source_tree": SOURCE_TREE,
+        "catalog_context": catalog_context,
+        "source_only_coverage_reference_ids": source_only_coverage_ids,
+        "missing_reuse_ids": missing_reuse_ids,
         "executed_script_sha256": digest(script_bytes), "shard_sha256": digest(before[SHARD]),
         "canonical_loader_sha256": digest(loader_bytes), "tool_registry_sha256": digest(registry_bytes),
         "loaded_exactly_once": True, "actual_api_signature": signature,
@@ -232,7 +240,7 @@ def validate(root):
                    "observed_method_count": len(json.loads(data).get("methods", []))}
             for path, data in prior_bytes.items()},
         "protected_reused_method_object_sha256": {
-            mid: object_digest(prior_by_id[mid]) for mid in PRIOR_REUSE_IDS},
+            mid: object_digest(prior_by_id[mid]) for mid in PRIOR_REUSE_IDS if mid in prior_by_id},
         "prior_brc_family_object_view_sha256": object_digest(family_before),
         "observed_prior_brc_family_count": len(family_before),
         "observed_prior_method_count": len(prior), "observed_total_method_count": len(loaded),
@@ -249,9 +257,11 @@ def validate(root):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[2])
+    parser.add_argument("--catalog-context", choices=("source", "main"), default="source",
+                        help="main permits only the declared source-only coverage reference to be absent")
     parser.add_argument("--write", action="store_true", help="write the actual registration receipt")
     args = parser.parse_args()
-    report = validate(args.root)
+    report = validate(args.root, args.catalog_context)
     if args.write:
         args.root.joinpath(REPORT).write_text(
             json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
@@ -259,6 +269,9 @@ def main():
                       "method_id": METHOD_ID, "source_pins": len(FILE_PINS), "runtime_pins": 16,
                       "exact_queries": len(report["queries"]),
                       "actual_api_signature": report["actual_api_signature"],
+                      "catalog_context": report["catalog_context"],
+                      "source_only_coverage_reference_ids": report["source_only_coverage_reference_ids"],
+                      "missing_reuse_ids": report["missing_reuse_ids"],
                       "observed_prior_methods": report["observed_prior_method_count"],
                       "mathematical_consumers_executed": False}, sort_keys=True))
     return 0
