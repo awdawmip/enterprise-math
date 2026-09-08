@@ -1,0 +1,38 @@
+--- a/research_notes/owner_arithmetic_20260907.py
++++ b/research_notes/owner_arithmetic_20260907.py
+@@ -16,6 +16,11 @@
+     histogram_recoalesce,
+     histogram_serial,
+ )
++from enterprise_math.exact_arithmetic import (
++    BRCDivisionTrace,
++    brc_evaluate_division,
++    division,
++)
+ from enterprise_math.legendre import is_prime
+ 
+ 
+@@ -31,10 +36,21 @@
+     return value
+ 
+ 
+-def digits_lsd(n: int, p: int) -> tuple[int, ...]:
++def digits_lsd(
++    n: int,
++    p: int,
++    *,
++    arithmetic_trace: list[BRCDivisionTrace] | None = None,
++) -> tuple[int, ...]:
++    """Return low-first digits; optionally retain each local BRC DIV trace."""
++    n = _integer("n", n, 0)
++    p = _integer("p", p, 2)
+     digits = []
+     while n:
+-        n, digit = divmod(n, p)
++        trace = brc_evaluate_division(division(n, p))
++        if arithmetic_trace is not None:
++            arithmetic_trace.append(trace)
++        n, digit = trace.quotient, trace.remainder
+         digits.append(digit)
+     return tuple(digits or [0])
+ 

@@ -1,0 +1,22 @@
+{
+  "origin": "Exact exec_command tool results captured after execution; no second test run.",
+  "prepare": {
+    "exit_code": 0,
+    "tool_chunk_id": "ac2b0e",
+    "tool_wall_time_seconds": 3.7164970999999998
+  },
+  "review": {
+    "exit_code": 0,
+    "tool_chunk_id": "bef857",
+    "tool_wall_time_seconds": 0.6862812,
+    "actual_argv": [
+      "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "D:\\em\\TEMP\\owner-valuation-digits-brc-assessment-20260908T0405Z\\review.py"
+    ],
+    "review_json_sha256": "9e0bcc45502a2f14c9939d2229f4ecf90921534d820c90be3df7404e68e227ed",
+    "tool_stdout": "{\"status\": \"PASS_BOUNDED_DIGITS_MIGRATION_ONLY\", \"valid_digit_cases\": 10, \"standalone_rejections\": 8, \"caller_boundary_cases\": 11, \"native_calls\": {\"division\": 288, \"brc_evaluate_division\": 288, \"euclidean_state\": 288, \"multiple_collapse\": 288, \"integer_quotient\": 576}, \"elapsed_seconds\": 0.09959030000027269, \"review_sha256\": \"9e0bcc45502a2f14c9939d2229f4ecf90921534d820c90be3df7404e68e227ed\"}\n"
+  }
+}

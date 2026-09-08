@@ -1,0 +1,43 @@
+{
+  "status": "PASS_BOUNDED_DIGITS_MIGRATION_ONLY",
+  "scope": "TEMP_ONLY_NO_SOURCE_WRITE_NO_COMMIT_NO_PUBLICATION",
+  "files": {
+    "prepare.py": {
+      "sha256": "35ea7b7a291ad8eaa12dfe6ce9f884e7102fcae997e1a1715490be02284bb21d",
+      "bytes": 4569
+    },
+    "review.py": {
+      "sha256": "0289460c3a3901a2e2c3bf4e9b5f1efca0b8c085d5b324aafac70030e8254033",
+      "bytes": 15100
+    },
+    "owner_arithmetic_20260907.candidate.py": {
+      "sha256": "209c5f38dee8dcd0f61b895ef3c2b1e3d4e2b46724bb3bf7326dd210f813b2ce",
+      "bytes": 5686
+    },
+    "digits_lsd_brc.patch": {
+      "sha256": "1ac2dc1ec0cf318702fb8135f94f34ea155b145cf689242f81d0705c05ee8c01",
+      "bytes": 1029
+    },
+    "inputs.json": {
+      "sha256": "bbe226b98157154b9ac69bc32887acdd2bbf22f6615589837df248ff934ed8eb",
+      "bytes": 3403
+    },
+    "review.json": {
+      "sha256": "9e0bcc45502a2f14c9939d2229f4ecf90921534d820c90be3df7404e68e227ed",
+      "bytes": 17293
+    },
+    "REVIEW.md": {
+      "sha256": "e06e3ddd3dbf7ab792c53e18a6cfe8e2c5621652aa1390bd62bb98e0196b886b",
+      "bytes": 7489
+    },
+    "execution-tool-receipt.json": {
+      "sha256": "16c4331ee9dd73603793630a23dc3a578f2ab4d6862afcb37154ebc04fbc8b1d",
+      "bytes": 1135
+    },
+    "original_validation_preservation.json": {
+      "sha256": "a8af905f2487b8e9de1e32015dff1fcaf8e7dc0d5beeeac1072a8865c4a7f8d0",
+      "bytes": 658
+    }
+  },
+  "packaging_note": "Initial generic trailing-whitespace assertion rejected the standard unified-diff blank context marker (a single space). No semantic or test failure; preserved the valid patch bytes and scoped the packaging rule to allow only that required diff marker. The math review was not rerun."
+}

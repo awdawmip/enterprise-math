@@ -24,22 +24,6 @@
       "status": "INTERNAL_PAPER_AND_FINITE_CONSUMER_REVIEW_PASS_FORMAL_ACCEPTANCE_ABSENT",
       "existing_eighteen_method_objects_unchanged": true,
       "main_admission": "SEPARATE_CURRENT_MAIN_L4_REQUIRED"
-    },
-    "valuation_digits_brc_checkpoint": {
-      "date": "2026-09-08",
-      "scope": "EXACT_LOCAL_DIGIT_SUBSTITUTION_PARTIAL_RUNTIME_EVIDENCE",
-      "original_nineteen_method_snapshot": {
-        "source_commit": "909ed4c3c81adca8d5d653994a83df316faf1365",
-        "shard_sha256": "9b9b1851602200bbb207681dbac444a7e745b2915d6f8851bc999fd3a028f115",
-        "immutable_shard_url": "https://github.com/awdawmip/enterprise-math/blob/909ed4c3c81adca8d5d653994a83df316faf1365/research_method_inventory_addenda/20260907_owner_native_frontier_candidates.json"
-      },
-      "modified_method_id": "candidate.x6.shortest_path_valuation_spectrum",
-      "other_eighteen_method_objects_unchanged": true,
-      "package_manifest_ref": "experiments/owner_valuation_digits_brc_20260908/package_manifest.json",
-      "package_manifest_sha256": "75227505bbaff25d6915e6b91c7c72ac3baf2f8d1dcedbbde9e492894c80cf86",
-      "source_metadata_validation_ref": "experiments/owner_valuation_digits_brc_20260908/source_validation.json",
-      "formal_acceptance": null,
-      "main_admission": "SEPARATE_CURRENT_MAIN_L4_REQUIRED"
     }
   },
   "availability": {
@@ -355,62 +339,13 @@
       "runtime": "Python Fraction and repository src.",
       "validation_refs": [
         "research_notes/owner_arithmetic_20260907_check.py",
-        "research_notes/owner_arithmetic_20260907_results.json",
-        "experiments/owner_valuation_digits_brc_20260908/REVIEW.md",
-        "experiments/owner_valuation_digits_brc_20260908/review.py",
-        "experiments/owner_valuation_digits_brc_20260908/review.json",
-        "experiments/owner_valuation_digits_brc_20260908/inputs.json",
-        "experiments/owner_valuation_digits_brc_20260908/replay.py",
-        "experiments/owner_valuation_digits_brc_20260908/README.md",
-        "experiments/owner_valuation_digits_brc_20260908/package_manifest.json",
-        "experiments/owner_valuation_digits_brc_20260908/validate_source.py"
+        "research_notes/owner_arithmetic_20260907_results.json"
       ],
       "source_sha256": {
         "research_notes/OWNER_ARITHMETIC_FRONTIER_20260907.md": "7bc15c47d2505001234f2e630b300f561ca935be5d1076c6d9fb45b839dbae88",
-        "research_notes/owner_arithmetic_20260907.py": "209c5f38dee8dcd0f61b895ef3c2b1e3d4e2b46724bb3bf7326dd210f813b2ce",
+        "research_notes/owner_arithmetic_20260907.py": "71f0214cc414c9d1291facd3ec8a727989fafe1bc21e0db5001b7d5e5655a79d",
         "research_notes/owner_arithmetic_20260907_check.py": "4fa11c530976ea1b64c68d79d110c3d1d0b10081ef6758f0e7a9e7874ab6e3c4",
-        "research_notes/owner_arithmetic_20260907_results.json": "6f720cb6068601f488b3e84bd3918806fd7db942581c745413a2af91db371a17",
-        "experiments/owner_valuation_digits_brc_20260908/REVIEW.md": "e06e3ddd3dbf7ab792c53e18a6cfe8e2c5621652aa1390bd62bb98e0196b886b",
-        "experiments/owner_valuation_digits_brc_20260908/review.py": "0289460c3a3901a2e2c3bf4e9b5f1efca0b8c085d5b324aafac70030e8254033",
-        "experiments/owner_valuation_digits_brc_20260908/review.json": "9e0bcc45502a2f14c9939d2229f4ecf90921534d820c90be3df7404e68e227ed",
-        "experiments/owner_valuation_digits_brc_20260908/inputs.json": "bbe226b98157154b9ac69bc32887acdd2bbf22f6615589837df248ff934ed8eb",
-        "experiments/owner_valuation_digits_brc_20260908/replay.py": "302f33974db48814a5af9c2d23652800ff9ff030b3acae38a097437f7c83e76d",
-        "experiments/owner_valuation_digits_brc_20260908/README.md": "05973fc9f1bf246f7d9cefdda746650be4d400cc6aa65169e147d8daa7daa9ee",
-        "experiments/owner_valuation_digits_brc_20260908/package_manifest.json": "75227505bbaff25d6915e6b91c7c72ac3baf2f8d1dcedbbde9e492894c80cf86",
-        "experiments/owner_valuation_digits_brc_20260908/validate_source.py": "448781b723886f9ca1c7cecc0a5ca31e6a77fba20b47b343522dba92c8a5e2d7"
-      },
-      "partial_runtime_evidence": {
-        "status": "INTERNAL_DIGIT_DIV_MIGRATION_ONLY",
-        "scope": "Internal digits_lsd for integer n >= 0 and base p >= 2; least-significant-first tuple preserved, including n=0 -> (0,).",
-        "reuse_resolution_state": "REUSE_EXECUTED",
-        "interface": "division -> brc_evaluate_division -> BRCDivisionTrace",
-        "trace_access": "Optional helper arithmetic_trace collector; unchanged public caller passes no collector.",
-        "public_api_returns_or_persists_digit_trace": false,
-        "whole_runtime_certified": false,
-        "full_signed_spectrum_replayed": false,
-        "broad_package_import_chain_audited": false,
-        "unchanged_public_api_carry_and_output_source": true,
-        "remaining_dependencies": "Existing primality and WeightHistogram/Fraction arithmetic remain separately scoped; this checkpoint does not certify them.",
-        "historical_full_spectrum_validation": {
-          "source_commit": "909ed4c3c81adca8d5d653994a83df316faf1365",
-          "module_sha256": "71f0214cc414c9d1291facd3ec8a727989fafe1bc21e0db5001b7d5e5655a79d",
-          "checker_ref": "research_notes/owner_arithmetic_20260907_check.py",
-          "result_ref": "research_notes/owner_arithmetic_20260907_results.json",
-          "rerun_for_current_module": false,
-          "immutable_module_url": "https://github.com/awdawmip/enterprise-math/blob/909ed4c3c81adca8d5d653994a83df316faf1365/research_notes/owner_arithmetic_20260907.py"
-        },
-        "local_validation": {
-          "receipt_ref": "experiments/owner_valuation_digits_brc_20260908/review.json",
-          "receipt_sha256": "9e0bcc45502a2f14c9939d2229f4ecf90921534d820c90be3df7404e68e227ed",
-          "actual_facade_calls": 288,
-          "case_counts": {
-            "fixed_digits": 10,
-            "invalid_standalone": 8,
-            "pre_histogram_caller": 11
-          },
-          "execution_generation": "Original TEMP run preserved unchanged; relocating this package is not a new execution.",
-          "portable_replay_entry": "experiments/owner_valuation_digits_brc_20260908/replay.py"
-        }
+        "research_notes/owner_arithmetic_20260907_results.json": "6f720cb6068601f488b3e84bd3918806fd7db942581c745413a2af91db371a17"
       }
     },
     {

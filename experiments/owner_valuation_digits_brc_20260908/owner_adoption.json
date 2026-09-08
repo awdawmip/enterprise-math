@@ -1,0 +1,283 @@
+{
+  "schema": "OWNER_VALUATION_DIGITS_SOURCE_ADOPTION_V1",
+  "status": "PRE_PUBLICATION_SOURCE_CHECKPOINT",
+  "driver_id": "EM-DVR-01E1D9",
+  "driver_lane": "CONTROL_PLANE",
+  "source_base_commit": "909ed4c3c81adca8d5d653994a83df316faf1365",
+  "source_base_tree": "6f7a6294828c75f27352fea7f32eeb37199abe15",
+  "agent_frozen_metadata": {
+    "status": "PASS_EXACT_PARTIAL_DIGIT_MIGRATION_READY_FOR_OWNER_PUBLICATION",
+    "fixed_published_source": "909ed4c3c81adca8d5d653994a83df316faf1365",
+    "fixed_local_source": "0b45bbacfd7df7f8b0f678bf57ea136e75b18891",
+    "observed_owner_head": "0b45bbacfd7df7f8b0f678bf57ea136e75b18891",
+    "controlled_existing_paths": [
+      "research_notes/owner_arithmetic_20260907.py",
+      "research_method_inventory_addenda/20260907_owner_native_frontier_candidates.json"
+    ],
+    "new_package_paths": 23,
+    "old_nineteen_shard_sha256": "9b9b1851602200bbb207681dbac444a7e745b2915d6f8851bc999fd3a028f115",
+    "other_eighteen_raw_method_objects_unchanged": true,
+    "api_classification_family_math_contract_unchanged": true,
+    "source_validation_receipt_sha256": "0ff6659d19a65aac3d11360e4b16ed77c40b7947093d02caed21cb72796aca57",
+    "source_validation_exit_code": 0,
+    "source_validation_tool_chunk": "5987c7",
+    "original_computation_receipt_sha256": "9e0bcc45502a2f14c9939d2229f4ecf90921534d820c90be3df7404e68e227ed",
+    "original_computation_generation_preserved": true,
+    "portable_replay_receipt_path": "D:\\em\\TEMP\\owner-valuation-digits-brc-replay-20260908T0435Z\\replay_receipt.json",
+    "portable_replay_receipt_sha256": "b94c15c5a677ad95f1922a595dccb7f336ac1e7ed4242d513f83bc9ff9394f4b",
+    "portable_replay_new_review_sha256": "c6074a591732d7c8240467cdcb43f55ac3605f1212f182015a6d61fcb67cc5bf",
+    "portable_replay_native_facade_calls": 288,
+    "portable_replay_math_inputs_and_script_unchanged": true,
+    "fresh_replay_manifest_delta": [
+      "source_worktree"
+    ],
+    "frozen_git_blobs_preserved": 8,
+    "archived_files_byte_preserved": 18,
+    "frozen_crlf_files": 0,
+    "gitattributes_added": false,
+    "initial_precondition_failure": {
+      "tool_chunk": "b1dbb3",
+      "exit_code": 1,
+      "reason": "An assumed CRLF snapshot was disproved by direct bytes; stopped before the two controlled paths were changed. Continued with zero CRLF files and no attributes override."
+    },
+    "initial_metadata_failure": {
+      "tool_chunk": "c2eb35",
+      "exit_code": 1,
+      "reason": "Existing ASCII tokenizer gives no bare Han-only query tokens. Kept loader/triggers unchanged and used a disclosed exact-method-ID-anchored Chinese query. Only new validator/README pins were updated before its PASS run."
+    },
+    "whole_runtime_certified": false,
+    "public_api_returns_or_persists_digit_trace": false,
+    "full_spectrum_or_old_checker_executed": false,
+    "formal_acceptance": null,
+    "git_add_commit_push_performed": false,
+    "parent_parallel_paper_paths_touched": false,
+    "full_manifest_sha256": "ac8c90ac97eb94c8c76c283d10655f74df1be9208f9aa25ee75dd653ef454b16",
+    "total_bytes": 269897,
+    "files": [
+      {
+        "path": "research_notes/owner_arithmetic_20260907.py",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "97a0cf727187530eb0135dcb85b8d8395dc5327f",
+        "sha256": "209c5f38dee8dcd0f61b895ef3c2b1e3d4e2b46724bb3bf7326dd210f813b2ce",
+        "bytes": 5686
+      },
+      {
+        "path": "research_method_inventory_addenda/20260907_owner_native_frontier_candidates.json",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "d1cc534366b50b098583a49a99875cd07f232576",
+        "sha256": "495076a74441e94e3fdd0d1c84799fa01e56baf80fcae13569d47b28a50a1e18",
+        "bytes": 69259
+      },
+      {
+        "path": "experiments/owner_valuation_digits_brc_20260908/README.md",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "31b4613c49572f0902287b6ec404a874a5c34a6f",
+        "sha256": "05973fc9f1bf246f7d9cefdda746650be4d400cc6aa65169e147d8daa7daa9ee",
+        "bytes": 4126
+      },
+      {
+        "path": "experiments/owner_valuation_digits_brc_20260908/REVIEW.md",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "7e4fd013812caa1a770e7705069edfce89004a5e",
+        "sha256": "e06e3ddd3dbf7ab792c53e18a6cfe8e2c5621652aa1390bd62bb98e0196b886b",
+        "bytes": 7489
+      },
+      {
+        "path": "experiments/owner_valuation_digits_brc_20260908/digits_lsd_brc.patch",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "35d5fb4b6fb3ea8e6c2422eaa66ecad48720a936",
+        "sha256": "1ac2dc1ec0cf318702fb8135f94f34ea155b145cf689242f81d0705c05ee8c01",
+        "bytes": 1029
+      },
+      {
+        "path": "experiments/owner_valuation_digits_brc_20260908/execution-tool-receipt.json",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "98c8a84eff7ca61c36f1e04eb366abf364f3c7c2",
+        "sha256": "16c4331ee9dd73603793630a23dc3a578f2ab4d6862afcb37154ebc04fbc8b1d",
+        "bytes": 1135
+      },
+      {
+        "path": "experiments/owner_valuation_digits_brc_20260908/freeze.json",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "fb10d67a9e0a377bf20f5af1c1f248bbce381414",
+        "sha256": "dc73d845ded0a23edfd2e16d8c5299a7a6ab6d15930bcf8da980ea7a7ef99496",
+        "bytes": 1703
+      },
+      {
+        "path": "experiments/owner_valuation_digits_brc_20260908/frozen/exact_arithmetic_runtime_policy.json",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "595e433bf274d13933b7a620ab4b464047af84a6",
+        "sha256": "0fdb8eddc09d9e734ddd91b52d6c3c18c9d6036837dfe9fee0bbdbdb7d44b2aa",
+        "bytes": 7516
+      },
+      {
+        "path": "experiments/owner_valuation_digits_brc_20260908/frozen/research_method_inventory_addenda/20260907_owner_native_frontier_candidates.json",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "753db749ca34b727ebfc7844dc5a91ba626c0ec2",
+        "sha256": "9b9b1851602200bbb207681dbac444a7e745b2915d6f8851bc999fd3a028f115",
+        "bytes": 64307
+      },
+      {
+        "path": "experiments/owner_valuation_digits_brc_20260908/frozen/research_notes/owner_arithmetic_20260907.py",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "c64cbbd1edeaf4a386fe904a2735daa9f490bbc9",
+        "sha256": "71f0214cc414c9d1291facd3ec8a727989fafe1bc21e0db5001b7d5e5655a79d",
+        "bytes": 5204
+      },
+      {
+        "path": "experiments/owner_valuation_digits_brc_20260908/frozen/src/enterprise_math/brc_histogram.py",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1",
+        "sha256": "256ef167e2aee651c042195522a0013ba619f265f9e4d8fa24f07d3399695a67",
+        "bytes": 8138
+      },
+      {
+        "path": "experiments/owner_valuation_digits_brc_20260908/frozen/src/enterprise_math/core.py",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "cdb8ace10e4cc8bba13b70f4da306313efb24819",
+        "sha256": "d2814d1d31eb195905f05136f250fcac2232b8cfc7dc6c9797000733ddebe636",
+        "bytes": 2176
+      },
+      {
+        "path": "experiments/owner_valuation_digits_brc_20260908/frozen/src/enterprise_math/division.py",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "bf0b1a6b6aeccc94578d11509c5bcd12ff930cb5",
+        "sha256": "4421c6dc9acfaa61492137951e543973c010c6a127655126152cc18763cc35e9",
+        "bytes": 1849
+      },
+      {
+        "path": "experiments/owner_valuation_digits_brc_20260908/frozen/src/enterprise_math/exact_arithmetic.py",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "35ea95b0916494b83a92386e3e313928362dd79e",
+        "sha256": "f4f8feead82dc53a35e5fec495b31e46e64820f7b115c9efd6034063e68f8ad6",
+        "bytes": 11908
+      },
+      {
+        "path": "experiments/owner_valuation_digits_brc_20260908/frozen/src/enterprise_math/legendre.py",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "e49f9d3286fb7b34653778429e0ced0cebf5389f",
+        "sha256": "4abc91137f2102a9946e2551f45ffc7d1cbf74d08519dcf1fa2753549cad37ed",
+        "bytes": 9619
+      },
+      {
+        "path": "experiments/owner_valuation_digits_brc_20260908/inputs.json",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "52e681ddd84d99fe5ffad6873212342eece8e8ae",
+        "sha256": "bbe226b98157154b9ac69bc32887acdd2bbf22f6615589837df248ff934ed8eb",
+        "bytes": 3403
+      },
+      {
+        "path": "experiments/owner_valuation_digits_brc_20260908/original_validation_preservation.json",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "7670919836c904edc5efabd59075f2aa61d465c7",
+        "sha256": "a8af905f2487b8e9de1e32015dff1fcaf8e7dc0d5beeeac1072a8865c4a7f8d0",
+        "bytes": 658
+      },
+      {
+        "path": "experiments/owner_valuation_digits_brc_20260908/owner_arithmetic_20260907.candidate.py",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "97a0cf727187530eb0135dcb85b8d8395dc5327f",
+        "sha256": "209c5f38dee8dcd0f61b895ef3c2b1e3d4e2b46724bb3bf7326dd210f813b2ce",
+        "bytes": 5686
+      },
+      {
+        "path": "experiments/owner_valuation_digits_brc_20260908/package_manifest.json",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "17127aa76530108a124daab33558cc9e64523f67",
+        "sha256": "75227505bbaff25d6915e6b91c7c72ac3baf2f8d1dcedbbde9e492894c80cf86",
+        "bytes": 4818
+      },
+      {
+        "path": "experiments/owner_valuation_digits_brc_20260908/prepare.py",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "31ae33a9c06f7c9ab4aa80edd76784a3bb236d83",
+        "sha256": "35ea7b7a291ad8eaa12dfe6ce9f884e7102fcae997e1a1715490be02284bb21d",
+        "bytes": 4569
+      },
+      {
+        "path": "experiments/owner_valuation_digits_brc_20260908/replay.py",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "435cb47071aabd4683a487988eb490d4cb8ca714",
+        "sha256": "302f33974db48814a5af9c2d23652800ff9ff030b3acae38a097437f7c83e76d",
+        "bytes": 4064
+      },
+      {
+        "path": "experiments/owner_valuation_digits_brc_20260908/review.json",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "05a712fc624245efd7b0bc87640593ee084e735a",
+        "sha256": "9e0bcc45502a2f14c9939d2229f4ecf90921534d820c90be3df7404e68e227ed",
+        "bytes": 17293
+      },
+      {
+        "path": "experiments/owner_valuation_digits_brc_20260908/review.py",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "5a3e66046dc64ad42d7bda76ed296f59ce4a7669",
+        "sha256": "0289460c3a3901a2e2c3bf4e9b5f1efca0b8c085d5b324aafac70030e8254033",
+        "bytes": 15100
+      },
+      {
+        "path": "experiments/owner_valuation_digits_brc_20260908/source_validation.json",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "671ec6fa9f43b821da4c8afa6ce4a25a89d65a56",
+        "sha256": "0ff6659d19a65aac3d11360e4b16ed77c40b7947093d02caed21cb72796aca57",
+        "bytes": 5937
+      },
+      {
+        "path": "experiments/owner_valuation_digits_brc_20260908/validate_source.py",
+        "mode": "100644",
+        "type": "blob",
+        "blob": "9898b80b23229e919b64ea88ad85d3630cb3d0b4",
+        "sha256": "448781b723886f9ca1c7cecc0a5ca31e6a77fba20b47b343522dba92c8a5e2d7",
+        "bytes": 7225
+      }
+    ]
+  },
+  "portable_replay_archives": [
+    {
+      "path": "experiments/owner_valuation_digits_brc_20260908/portable_replay/replay_receipt.json",
+      "bytes": 1683,
+      "sha256": "b94c15c5a677ad95f1922a595dccb7f336ac1e7ed4242d513f83bc9ff9394f4b",
+      "blob": "c9c302f1ac4beabc3e4635188e82033c0d28570b"
+    },
+    {
+      "path": "experiments/owner_valuation_digits_brc_20260908/portable_replay/review.json",
+      "bytes": 17269,
+      "sha256": "c6074a591732d7c8240467cdcb43f55ac3605f1212f182015a6d61fcb67cc5bf",
+      "blob": "f337cb21bd3dafb74a01f5c653f7be46e0d47d74"
+    }
+  ],
+  "boundaries": [
+    "Internal digits_lsd DIV migration only. No public trace return or persistence.",
+    "Original review, inputs, and execution receipt remain byte-identical; portable replay is a separate generation.",
+    "First CRLF precondition and first metadata-query failures remain in the frozen metadata above.",
+    "No full spectrum, broad enterprise_math initializer, or historical full checker replay was performed.",
+    "Other eighteen raw method objects and public API contracts remain unchanged.",
+    "Source publication, main admission, and formal acceptance are separate facts; this pre-publication receipt claims none of them."
+  ],
+  "formal_acceptance": null,
+  "whole_runtime_certified": false
+}

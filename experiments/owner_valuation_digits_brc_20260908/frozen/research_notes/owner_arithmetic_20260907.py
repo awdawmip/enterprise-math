@@ -16,11 +16,6 @@ from enterprise_math.brc_histogram import (
     histogram_recoalesce,
     histogram_serial,
 )
-from enterprise_math.exact_arithmetic import (
-    BRCDivisionTrace,
-    brc_evaluate_division,
-    division,
-)
 from enterprise_math.legendre import is_prime
 
 
@@ -36,21 +31,10 @@ def _integer(name: str, value: int, minimum: int) -> int:
     return value
 
 
-def digits_lsd(
-    n: int,
-    p: int,
-    *,
-    arithmetic_trace: list[BRCDivisionTrace] | None = None,
-) -> tuple[int, ...]:
-    """Return low-first digits; optionally retain each local BRC DIV trace."""
-    n = _integer("n", n, 0)
-    p = _integer("p", p, 2)
+def digits_lsd(n: int, p: int) -> tuple[int, ...]:
     digits = []
     while n:
-        trace = brc_evaluate_division(division(n, p))
-        if arithmetic_trace is not None:
-            arithmetic_trace.append(trace)
-        n, digit = trace.quotient, trace.remainder
+        n, digit = divmod(n, p)
         digits.append(digit)
     return tuple(digits or [0])
 

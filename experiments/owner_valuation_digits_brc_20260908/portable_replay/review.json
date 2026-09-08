@@ -1,0 +1,473 @@
+{
+  "status": "PASS_BOUNDED_DIGITS_MIGRATION_ONLY",
+  "started_utc": "2026-09-08T04:30:24.940576+00:00",
+  "completed_utc": "2026-09-08T04:30:25.010237+00:00",
+  "elapsed_seconds": 0.06984209999791346,
+  "argv": [
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\em\\TEMP\\owner-valuation-digits-brc-replay-20260908T0435Z\\review.py"
+  ],
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "executed_script_sha256": "0289460c3a3901a2e2c3bf4e9b5f1efca0b8c085d5b324aafac70030e8254033",
+  "inputs_manifest_sha256": "b5cfa186f6cafea3c29159c86937cca448f634dbfac8bad77cedb7ee65c2e18e",
+  "candidate_sha256": "209c5f38dee8dcd0f61b895ef3c2b1e3d4e2b46724bb3bf7326dd210f813b2ce",
+  "published_source": "909ed4c3c81adca8d5d653994a83df316faf1365",
+  "actual_local_source": "0b45bbacfd7df7f8b0f678bf57ea136e75b18891",
+  "actual_local_tree": "6f7a6294828c75f27352fea7f32eeb37199abe15",
+  "captured_source_pins": {
+    "research_notes/owner_arithmetic_20260907.py": {
+      "sha256": "71f0214cc414c9d1291facd3ec8a727989fafe1bc21e0db5001b7d5e5655a79d",
+      "bytes": 5204,
+      "blob": "c64cbbd1edeaf4a386fe904a2735daa9f490bbc9"
+    },
+    "src/enterprise_math/exact_arithmetic.py": {
+      "sha256": "f4f8feead82dc53a35e5fec495b31e46e64820f7b115c9efd6034063e68f8ad6",
+      "bytes": 11908,
+      "blob": "35ea95b0916494b83a92386e3e313928362dd79e"
+    },
+    "src/enterprise_math/division.py": {
+      "sha256": "4421c6dc9acfaa61492137951e543973c010c6a127655126152cc18763cc35e9",
+      "bytes": 1849,
+      "blob": "bf0b1a6b6aeccc94578d11509c5bcd12ff930cb5"
+    },
+    "src/enterprise_math/core.py": {
+      "sha256": "d2814d1d31eb195905f05136f250fcac2232b8cfc7dc6c9797000733ddebe636",
+      "bytes": 2176,
+      "blob": "cdb8ace10e4cc8bba13b70f4da306313efb24819"
+    },
+    "exact_arithmetic_runtime_policy.json": {
+      "sha256": "0fdb8eddc09d9e734ddd91b52d6c3c18c9d6036837dfe9fee0bbdbdb7d44b2aa",
+      "bytes": 7516,
+      "blob": "595e433bf274d13933b7a620ab4b464047af84a6"
+    },
+    "research_method_inventory_addenda/20260907_owner_native_frontier_candidates.json": {
+      "sha256": "9b9b1851602200bbb207681dbac444a7e745b2915d6f8851bc999fd3a028f115",
+      "bytes": 64307,
+      "blob": "753db749ca34b727ebfc7844dc5a91ba626c0ec2"
+    },
+    "src/enterprise_math/brc_histogram.py": {
+      "sha256": "256ef167e2aee651c042195522a0013ba619f265f9e4d8fa24f07d3399695a67",
+      "bytes": 8138,
+      "blob": "9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1"
+    },
+    "src/enterprise_math/legendre.py": {
+      "sha256": "4abc91137f2102a9946e2551f45ffc7d1cbf74d08519dcf1fa2753549cad37ed",
+      "bytes": 9619,
+      "blob": "e49f9d3286fb7b34653778429e0ced0cebf5389f"
+    }
+  },
+  "native_code_object_identities": {
+    "division": {
+      "module": "enterprise_math.exact_arithmetic",
+      "qualname": "division",
+      "loaded_file": "D:\\em\\TEMP\\owner-valuation-digits-brc-replay-20260908T0435Z\\frozen\\src\\enterprise_math\\exact_arithmetic.py",
+      "first_line": 167,
+      "loaded_file_sha256": "f4f8feead82dc53a35e5fec495b31e46e64820f7b115c9efd6034063e68f8ad6"
+    },
+    "brc_evaluate_division": {
+      "module": "enterprise_math.exact_arithmetic",
+      "qualname": "brc_evaluate_division",
+      "loaded_file": "D:\\em\\TEMP\\owner-valuation-digits-brc-replay-20260908T0435Z\\frozen\\src\\enterprise_math\\exact_arithmetic.py",
+      "first_line": 210,
+      "loaded_file_sha256": "f4f8feead82dc53a35e5fec495b31e46e64820f7b115c9efd6034063e68f8ad6"
+    },
+    "euclidean_state": {
+      "module": "enterprise_math.division",
+      "qualname": "euclidean_state",
+      "loaded_file": "D:\\em\\TEMP\\owner-valuation-digits-brc-replay-20260908T0435Z\\frozen\\src\\enterprise_math\\division.py",
+      "first_line": 37,
+      "loaded_file_sha256": "4421c6dc9acfaa61492137951e543973c010c6a127655126152cc18763cc35e9"
+    },
+    "multiple_collapse": {
+      "module": "enterprise_math.division",
+      "qualname": "multiple_collapse",
+      "loaded_file": "D:\\em\\TEMP\\owner-valuation-digits-brc-replay-20260908T0435Z\\frozen\\src\\enterprise_math\\division.py",
+      "first_line": 27,
+      "loaded_file_sha256": "4421c6dc9acfaa61492137951e543973c010c6a127655126152cc18763cc35e9"
+    },
+    "integer_quotient": {
+      "module": "enterprise_math.division",
+      "qualname": "integer_quotient",
+      "loaded_file": "D:\\em\\TEMP\\owner-valuation-digits-brc-replay-20260908T0435Z\\frozen\\src\\enterprise_math\\division.py",
+      "first_line": 20,
+      "loaded_file_sha256": "4421c6dc9acfaa61492137951e543973c010c6a127655126152cc18763cc35e9"
+    }
+  },
+  "actual_native_code_object_call_counts": {
+    "division": 288,
+    "brc_evaluate_division": 288,
+    "euclidean_state": 288,
+    "multiple_collapse": 288,
+    "integer_quotient": 576
+  },
+  "valid_digit_cases": [
+    {
+      "id": "zero",
+      "input_bit_lengths": [
+        0,
+        2
+      ],
+      "input_sha256": "2e6baab69658873b6271448066028b49900a349985e6216b22556f8a36d790fa",
+      "output_sha256": "347e134044832de1bd72323743f7e2d5fc8d213fa627c5567877af4e2c79fd05",
+      "digit_count": 1,
+      "trace_count": 0,
+      "calls": {
+        "division": 0,
+        "brc_evaluate_division": 0,
+        "euclidean_state": 0,
+        "multiple_collapse": 0,
+        "integer_quotient": 0
+      },
+      "full_trace_digest_hex_integer_encoding": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "status": "PASS"
+    },
+    {
+      "id": "one",
+      "input_bit_lengths": [
+        1,
+        2
+      ],
+      "input_sha256": "357cc0f6ca83a227e7460d81720a544375861fbda7803040f80d453790d8c8df",
+      "output_sha256": "5001bcba2767fca4ee2619ea2d7c147cfa1e60ce916393b4a0f1da89a3c31263",
+      "digit_count": 1,
+      "trace_count": 1,
+      "calls": {
+        "division": 1,
+        "brc_evaluate_division": 1,
+        "euclidean_state": 1,
+        "multiple_collapse": 1,
+        "integer_quotient": 2
+      },
+      "full_trace_digest_hex_integer_encoding": "84d0beb9306ebaa9555042671e57c9f6f450bae1c81b66e8b43cfe553fde7649",
+      "status": "PASS"
+    },
+    {
+      "id": "below_base",
+      "input_bit_lengths": [
+        2,
+        2
+      ],
+      "input_sha256": "368a56730547da92830df7a2c24767e3a0fcb765b57efec89e1293a643986ae2",
+      "output_sha256": "34baa1b71cad6b655c16af90de1fd87e16be4f23a18793f11282f72757bd05d5",
+      "digit_count": 1,
+      "trace_count": 1,
+      "calls": {
+        "division": 1,
+        "brc_evaluate_division": 1,
+        "euclidean_state": 1,
+        "multiple_collapse": 1,
+        "integer_quotient": 2
+      },
+      "full_trace_digest_hex_integer_encoding": "25d148c25dc4615533a084d99e443ef7e58bb112311c9e478f8168ae2a3c6122",
+      "status": "PASS"
+    },
+    {
+      "id": "exact_base",
+      "input_bit_lengths": [
+        2,
+        2
+      ],
+      "input_sha256": "b0be918a5b366da6536af06fe60f566b483616237ab953455b888d0aa1382368",
+      "output_sha256": "6b1d74b09bd1051bc6070d7a421215703f65451200a4f4e9a27c240a6a786893",
+      "digit_count": 2,
+      "trace_count": 2,
+      "calls": {
+        "division": 2,
+        "brc_evaluate_division": 2,
+        "euclidean_state": 2,
+        "multiple_collapse": 2,
+        "integer_quotient": 4
+      },
+      "full_trace_digest_hex_integer_encoding": "15f022d00e47ad7ff259e9b5a6b2b998a4a8f80fb1316b25ecd3c9b549fb64bc",
+      "status": "PASS"
+    },
+    {
+      "id": "below_power",
+      "input_bit_lengths": [
+        12,
+        2
+      ],
+      "input_sha256": "d688a507048f393b6d7f1f678646b25ec04a47f9c3e23499159bcf90287f6d3f",
+      "output_sha256": "9112891d7afe2b369cf201db550eec25c31e5ee61b51e2f771b722f21db722ce",
+      "digit_count": 7,
+      "trace_count": 7,
+      "calls": {
+        "division": 7,
+        "brc_evaluate_division": 7,
+        "euclidean_state": 7,
+        "multiple_collapse": 7,
+        "integer_quotient": 14
+      },
+      "full_trace_digest_hex_integer_encoding": "62a3ac93b57283e8637edbfa2b405179b0f7075df127d3c709e4a8e2e653ba4b",
+      "status": "PASS"
+    },
+    {
+      "id": "exact_power",
+      "input_bit_lengths": [
+        12,
+        2
+      ],
+      "input_sha256": "4a2f33862a5877148acf92fea28ed24005418e757fc5998a7a78887daac2603e",
+      "output_sha256": "f85b280e450a352d6f2d8a11c4dba979b889c65c848e3523e3bb86d09c6e3a31",
+      "digit_count": 8,
+      "trace_count": 8,
+      "calls": {
+        "division": 8,
+        "brc_evaluate_division": 8,
+        "euclidean_state": 8,
+        "multiple_collapse": 8,
+        "integer_quotient": 16
+      },
+      "full_trace_digest_hex_integer_encoding": "321c6aa8505ee0e1e8bf1a8436aa6a660ae1d79bb07bb6b5e95b72924aaca2cd",
+      "status": "PASS"
+    },
+    {
+      "id": "mixed_base31",
+      "input_bit_lengths": [
+        21,
+        5
+      ],
+      "input_sha256": "7b3205c538fbf3696a4f3d160ca9e13ed1449a03e62701e69535f439186b9c02",
+      "output_sha256": "79a2c27a4b03a8343155c3a2fc151040ef9508582ca57cc7fa0829b08a26f196",
+      "digit_count": 5,
+      "trace_count": 5,
+      "calls": {
+        "division": 5,
+        "brc_evaluate_division": 5,
+        "euclidean_state": 5,
+        "multiple_collapse": 5,
+        "integer_quotient": 10
+      },
+      "full_trace_digest_hex_integer_encoding": "5e027bcddbfb2e1608c15468a7ce1e12e9a786b9b2e90bc0add48cb334dc169c",
+      "status": "PASS"
+    },
+    {
+      "id": "default_256_digit_cap_minus_one",
+      "input_bit_lengths": [
+        256,
+        2
+      ],
+      "input_sha256": "d9ac61b62162a15776cb4dacf1986b806a8cf2ce830f0764b42c913acb941c8e",
+      "output_sha256": "51303d0797ed692d71e9063ec2f5f794e818808ce04399da93899d7f7e0c6818",
+      "digit_count": 256,
+      "trace_count": 256,
+      "calls": {
+        "division": 256,
+        "brc_evaluate_division": 256,
+        "euclidean_state": 256,
+        "multiple_collapse": 256,
+        "integer_quotient": 512
+      },
+      "full_trace_digest_hex_integer_encoding": "826b388728a727d60565df18258c347f5ab30ed4bc82b90410cde9fc2f296e81",
+      "status": "PASS"
+    },
+    {
+      "id": "helper_composite_base",
+      "input_bit_lengths": [
+        6,
+        3
+      ],
+      "input_sha256": "add5d29f46c315e68bc5323273e1e29664a09fb0fae9cf237e285311dde34a69",
+      "output_sha256": "fcd2d7f9f3757e85d2e3cb8a1ce9bc24ef700fd157e4d7434bfada9c33a084bd",
+      "digit_count": 3,
+      "trace_count": 3,
+      "calls": {
+        "division": 3,
+        "brc_evaluate_division": 3,
+        "euclidean_state": 3,
+        "multiple_collapse": 3,
+        "integer_quotient": 6
+      },
+      "full_trace_digest_hex_integer_encoding": "c6dfeb35ff242a299a37fb28e220c80cd5af14b051a70aab23b3fb7dd7427807",
+      "status": "PASS"
+    },
+    {
+      "id": "helper_large_integer_outside_public_prime_budget",
+      "input_bit_lengths": [
+        17001,
+        17002
+      ],
+      "input_sha256": "77a57e226b0f9aeedc1f01b4ec6a0853e2316d7220274311d32a2e9521f240a8",
+      "output_sha256": "6c2646023ed4716784d726ca51ae6c76f6e6c546539fa748c8bd34b0350bb015",
+      "digit_count": 1,
+      "trace_count": 1,
+      "calls": {
+        "division": 1,
+        "brc_evaluate_division": 1,
+        "euclidean_state": 1,
+        "multiple_collapse": 1,
+        "integer_quotient": 2
+      },
+      "full_trace_digest_hex_integer_encoding": "d1199c779ad2cf9106515f56dae8badb7c0b74e404ae099bf5c4ad79ca0ab090",
+      "status": "PASS"
+    }
+  ],
+  "invalid_standalone_helper_rejections": [
+    {
+      "id": "negative_n",
+      "exception": "ValueError",
+      "message": "n must be at least 0"
+    },
+    {
+      "id": "bool_n",
+      "exception": "TypeError",
+      "message": "n must be an integer"
+    },
+    {
+      "id": "noninteger_n",
+      "exception": "TypeError",
+      "message": "n must be an integer"
+    },
+    {
+      "id": "base_zero",
+      "exception": "ValueError",
+      "message": "p must be at least 2"
+    },
+    {
+      "id": "base_one",
+      "exception": "ValueError",
+      "message": "p must be at least 2"
+    },
+    {
+      "id": "negative_base",
+      "exception": "ValueError",
+      "message": "p must be at least 2"
+    },
+    {
+      "id": "bool_base",
+      "exception": "TypeError",
+      "message": "p must be an integer"
+    },
+    {
+      "id": "noninteger_base",
+      "exception": "TypeError",
+      "message": "p must be an integer"
+    }
+  ],
+  "caller_pre_histogram_cases": [
+    {
+      "id": "zero_routes_to_histogram",
+      "exception": "HistogramBoundaryReached",
+      "facade_calls": 0,
+      "finite_stub_prime_queries": [
+        2
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "last_allowed_small_digit_budget",
+      "exception": "HistogramBoundaryReached",
+      "facade_calls": 4,
+      "finite_stub_prime_queries": [
+        2
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "negative_radius",
+      "exception": "ValueError",
+      "facade_calls": 0,
+      "finite_stub_prime_queries": [],
+      "status": "PASS"
+    },
+    {
+      "id": "bool_radius",
+      "exception": "TypeError",
+      "facade_calls": 0,
+      "finite_stub_prime_queries": [],
+      "status": "PASS"
+    },
+    {
+      "id": "composite_prime",
+      "exception": "ValueError",
+      "facade_calls": 0,
+      "finite_stub_prime_queries": [
+        4
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "bool_prime",
+      "exception": "TypeError",
+      "facade_calls": 0,
+      "finite_stub_prime_queries": [],
+      "status": "PASS"
+    },
+    {
+      "id": "prime_budget",
+      "exception": "ComputationBudgetExceeded",
+      "facade_calls": 0,
+      "finite_stub_prime_queries": [],
+      "status": "PASS"
+    },
+    {
+      "id": "small_digit_budget_boundary",
+      "exception": "ComputationBudgetExceeded",
+      "facade_calls": 0,
+      "finite_stub_prime_queries": [
+        2
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "default_digit_budget_boundary",
+      "exception": "ComputationBudgetExceeded",
+      "facade_calls": 0,
+      "finite_stub_prime_queries": [
+        2
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "invalid_max_prime",
+      "exception": "ValueError",
+      "facade_calls": 0,
+      "finite_stub_prime_queries": [],
+      "status": "PASS"
+    },
+    {
+      "id": "invalid_max_digits",
+      "exception": "ValueError",
+      "facade_calls": 0,
+      "finite_stub_prime_queries": [],
+      "status": "PASS"
+    }
+  ],
+  "unchanged_definitions_sha256": {
+    "_integer": "3765056a2e3cd188c472f902e1bd840eca4523fc651cb173624dad7db3832b61",
+    "ComputationBudgetExceeded": "461eabf358d317d82f1e3b14ba27c6a80a6492d27a750f2ffa4d5f6b65144d94",
+    "_digit_coefficients": "8c587c7f8f7e95f6a7641666eab06ac241cb313372c23b401f19195a4c0a601b",
+    "SignedValuationSpectrum": "a580c2f10edf0ebbeabef7912f3b17e9e257ba9addabd14bb8f7352486019f2d",
+    "signed_valuation_spectrum": "1f27588c2c9f168593b59068c375b9d61feb449050ad44d3f98b434a6d117680"
+  },
+  "unchanged_carry_and_output_suffix_sha256": "95caf8052024cf27b9b8156eee104ca7139c4a85043de8d7160f01f5ccc5006b",
+  "protected_selected_source_worktree_hashes": {
+    "research_notes/owner_arithmetic_20260907.py": "71f0214cc414c9d1291facd3ec8a727989fafe1bc21e0db5001b7d5e5655a79d",
+    "src/enterprise_math/exact_arithmetic.py": "f4f8feead82dc53a35e5fec495b31e46e64820f7b115c9efd6034063e68f8ad6",
+    "src/enterprise_math/division.py": "4421c6dc9acfaa61492137951e543973c010c6a127655126152cc18763cc35e9",
+    "src/enterprise_math/core.py": "d2814d1d31eb195905f05136f250fcac2232b8cfc7dc6c9797000733ddebe636",
+    "exact_arithmetic_runtime_policy.json": "0fdb8eddc09d9e734ddd91b52d6c3c18c9d6036837dfe9fee0bbdbdb7d44b2aa",
+    "research_method_inventory_addenda/20260907_owner_native_frontier_candidates.json": "9b9b1851602200bbb207681dbac444a7e745b2915d6f8851bc999fd3a028f115",
+    "src/enterprise_math/brc_histogram.py": "256ef167e2aee651c042195522a0013ba619f265f9e4d8fa24f07d3399695a67",
+    "src/enterprise_math/legendre.py": "4abc91137f2102a9946e2551f45ffc7d1cbf74d08519dcf1fa2753549cad37ed"
+  },
+  "integer_decimal_limit_before_after": [
+    4300,
+    4300
+  ],
+  "local_static_digits_no_divmod_or_division_operators": true,
+  "before_guard": "Original divmod entry blocked before it computed; old invalid nonterminating inputs not run.",
+  "trace_visibility": "Optional helper collector receives every native BRCDivisionTrace; unchanged public API supplies none and neither returns nor persists digit traces.",
+  "limits": [
+    "Not a whole valuation tool V2 compliance result or mathematical L4 admission.",
+    "No full spectrum, carry loop, signed output, primality implementation, histogram arithmetic, or Fraction chain was executed.",
+    "Caller tests use an explicit finite primality stub and stop at the first histogram constructor.",
+    "Full package __init__ was not executed; exact three-file facade dependency island loaded by a test namespace.",
+    "Valid-domain preservation follows Euclidean uniqueness plus unchanged downstream bytes; not a new complete signed-output runtime comparison.",
+    "Standalone helper invalid-input rejection is a separate tightening; helper has no new resource cap, public limits remain unchanged.",
+    "Large/composite helper cases do not relax public prime or digit budgets."
+  ]
+}
