@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "D:\em\research-pfn-20260908\tools\research_execution_records.py", line 427, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "D:\em\research-pfn-20260908\tools\research_execution_records.py", line 422, in main
+    return args.func(args)
+           ^^^^^^^^^^^^^^^
+  File "D:\em\research-pfn-20260908\tools\research_execution_records.py", line 369, in command_prepare
+    record = prepare_intent(
+             ^^^^^^^^^^^^^^^
+  File "D:\em\research-pfn-20260908\tools\research_execution_records.py", line 220, in prepare_intent
+    record = current_task_record(task_id, root)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\em\research-pfn-20260908\tools\research_execution_records.py", line 145, in current_task_record
+    record = research_task_records.current_records(root).get(task_id)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\em\research-pfn-20260908\control_plane\research_task_records_impl.py", line 174, in current_records
+    raise TaskRecordError(
+control_plane.research_task_records_impl.TaskRecordError: publication fork for RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE: ['TP2-3F6A92D8C1E740B5A2C9', 'TP2-4A84B81FD5CAB8CD0359', 'TP2-FBDBDBE1C5BDF65F97A0']
