@@ -1,0 +1,43 @@
+{
+  "schema": "NOLLM_HEX_OBSERVER_AUDIT_CHECKPOINT_V1",
+  "status": "FINITE_CHECKS_AND_DERIVATIONS_NOT_PROMOTED",
+  "event_id": "NOLLM-LAYER-MEASURE-AUDIT-20260909-C6C82",
+  "activity_id": "RA-nollm-hecke-views-20260909-c6c82",
+  "note": {
+    "commit": "9c24cbbfb5ddeaa16c6a2c5f222f7a697f2dc91e",
+    "path": "research_notes/nollm_layer_observer_measure_audit_20260909_c6c82.md",
+    "git_blob_sha1": "9e17742b38ac7977e3cc15c7ac6140075283ad6b",
+    "sha256": "f0dc1323cb78bb7b4be8b25151b4ee624a0724a112de98a912097d7311f61b6b"
+  },
+  "code": {
+    "commit": "c39e5b58766e214af50966e6fe279eb7c7d7af3b",
+    "path": "experiments/nollm_hecke_layer_views_20260909_c6c82.py",
+    "git_blob_sha1": "2bffcb42e21e67c96a0ab07dd95ec0ddc3f5e1a1",
+    "sha256": "ab10be88cd4d827a90976aa8a32963a690abdd6b151c46e4c5ba915273637a7e"
+  },
+  "checks": {
+    "local_count_cases": 500,
+    "hnf_r_range": [
+      0,
+      8
+    ],
+    "digit_candidates": 256,
+    "endpoint_residues_each": 390625,
+    "original_axis_ratio": 3.788961510834,
+    "compact_axis_ratio": 1.726374382772,
+    "original_hull_occupied_fraction": 0.363012457426,
+    "compact_hull_occupied_fraction": 0.621358343023,
+    "pooled_common5_at_X_1000000": "1315981693/822468118437",
+    "run": "PASS"
+  },
+  "derivations": {
+    "fixed_p_power_index_thickness_exponent": "d*(d-1), d>=2",
+    "pooled_index_le_X_content_exponent": "d*d, d>=2"
+  },
+  "limits": [
+    "radix depth is not Nollm physical-layer index",
+    "second moments do not prove uniformity",
+    "optimum restricted to the 256 declared digit choices",
+    "left matrix prefixes need not be a nested Hecke walk"
+  ]
+}
