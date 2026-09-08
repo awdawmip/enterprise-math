@@ -1,0 +1,79 @@
+{
+  "schema": "PCF7_FIXED_PROBE_ZERO_VALUE_STATEMENT_CORRECTION_REPLICATION_CERTIFICATE_V1",
+  "task_id": "RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION-STATEMENT-CORRECTION",
+  "publication_id": "TP2-C4DB35B43FE7334D2B63",
+  "researcher_id": "EM-PCF7FIX-B7C214",
+  "claim_id": "CLAIM-PCF7FIX-20260906T0632Z-CHATGPT-03",
+  "execution_branch_base": "326b7d51a840e184e3fe650ad59f694fcbe66c4d",
+  "replicated_frontier": {
+    "pr": 1137,
+    "result_id": "RR-87B7B98EEFD0D8525BEC",
+    "prior_researcher_id": "EM-PCF7FIX-EAA0A6",
+    "hard_target": "PCF7_FIXED_PROBE_ZERO_VALUE_STATEMENT_CORRECTED_WITH_MAIN_THEOREM_PRESERVED"
+  },
+  "brc_observer_audit": {
+    "resolution": "REUSE_APPLIED",
+    "population": "256 frozen fixed probes: four families for each seed s=0,...,63",
+    "branch_identity": "(probe family, seed s, exact integer value)",
+    "coarse_observer": "union/product of prime supports of nonzero fixed probe integers",
+    "information_erased": "whether a probe value is exactly zero",
+    "failure_witness": "|1^6-1|=0 has empty/nonapplicable prime support but gcd(N,0)=N",
+    "repair_coordinate": "zero/nonzero branch flag retained beside nonzero prime-support data",
+    "safe_post_repair_statement": "nonzero avoided-support probe -> gcd 1; zero probe -> gcd N; neither is a proper factor"
+  },
+  "zero_probe_census": {
+    "seed_range": [0,63],
+    "probe_family_count_per_seed": 4,
+    "total_probe_instances": 256,
+    "nonzero_probe_instances": 255,
+    "zero_probe_instances": 1,
+    "zero_probe": {
+      "family": "|s^6-1|",
+      "seed": 1,
+      "value": 0
+    },
+    "uniqueness_reason": "for nonnegative integer s, s^2+1>0, s^2+s+1>0, s^6+1>0, and s^6=1 iff s=1"
+  },
+  "balanced_semiprime_witness": {
+    "p": 10007,
+    "q": 10009,
+    "N": 100160063,
+    "balanced": true,
+    "all_255_nonzero_probes_avoid_p_and_q": true,
+    "all_255_nonzero_probe_gcds": 1,
+    "zero_probe_gcd": 100160063,
+    "proper_factor_returned": false
+  },
+  "source_checker": {
+    "path": "research_checks/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_CHECK_20260831.py",
+    "git_blob_sha1": "sha1:b2a53c365f442fb2915cd869b77b62d9ce8a9ec8",
+    "byte_change_required": false,
+    "semantic_reason": "fixed_probe_values() removes zero only from the support object and the final gcd=1 assertion is guarded by `if v`, so it never asserts gcd(N,0)=1",
+    "replay_required": true
+  },
+  "mathematical_delta": {
+    "scope": "ONLY_FIXED_PROBE_ZERO_VALUE_PROSE",
+    "before": "avoiding support was stated as forcing every fixed-family gcd to 1",
+    "after": "nonzero avoided-support probes give gcd 1; zero probe gives gcd N",
+    "main_polynomial_prefix_obstruction_changed": false,
+    "L_equals_N_classification_changed": false,
+    "T1_T5_changed": false,
+    "sealed_PCF2_benchmark_changed": false,
+    "campaign_model_changed": false
+  },
+  "promotion_guards": {
+    "new_factoring_algorithm": false,
+    "generic_factorization_speedup": false,
+    "universal_factorization_lower_bound": false,
+    "new_benchmark_result": false,
+    "novelty_claim": false,
+    "working_truth": false,
+    "foundation": false,
+    "canonical_promotion": false
+  },
+  "verdict": {
+    "replication": "PASS_REPRODUCED_EXACT_LOCAL_CORRECTION",
+    "mismatch": null,
+    "recommended_control_action": "Driver may accept PR #1137 / RR-87B7B98EEFD0D8525BEC at exact statement-repair strength only."
+  }
+}
