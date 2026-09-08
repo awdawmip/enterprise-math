@@ -13,8 +13,10 @@ import unittest
 from unittest import mock
 
 from control_plane import check_result_review_binding_fault_isolated as checker
+from control_plane import research_control_bootstrap as bootstrap
 from control_plane import research_result_record_audit_fault_isolation as result_isolation
 from tools import research_result_records as records
+from tests.test_research_task_record_compatibility import _write_semantic_fixture
 
 
 REPO = Path(__file__).resolve().parents[1]
@@ -28,12 +30,21 @@ DRIVER_ID = "EM-DVR-01E1D9"
 REVIEWED_AT = "2026-09-08T07:50:00+00:00"
 
 
+def setUpModule():
+    # Standalone runs must retain the same task selectors as the complete shard.
+    bootstrap.install(REPO)
+
+
 class ResultWriterCanonicalPostAuditTests(unittest.TestCase):
     def setUp(self):
         temporary = tempfile.TemporaryDirectory(prefix="em-result-writer-post-audit-")
         self.addCleanup(temporary.cleanup)
         self.root = Path(temporary.name)
         self.source_bytes = {}
+        # Freeze validates the current publication through the real persistent
+        # semantic/followup selectors. Supply their required, independently
+        # pinned semantic fixture; its unrelated task remains nonoperational.
+        _write_semantic_fixture(self.root)
 
         def capture(relative):
             source = REPO.joinpath(relative)
@@ -113,8 +124,8 @@ class ResultWriterCanonicalPostAuditTests(unittest.TestCase):
 
         # Forward legacy no-argument writer reads to this fixture. The actual
         # builders, validators, active-Driver check, checker and transaction run.
-        # This Result-only fixture installs the real Result/review adapters;
-        # unrelated task-scheduler registries are outside this transaction test.
+        # Install the real Result/review adapters on this root while retaining
+        # the bootstrapped task selectors and their source-backed fixture above.
         self._install_result_fixture_view()
         result_map, iter_reviews, review_result = records.result_map, records.iter_reviews, records.review_result
 

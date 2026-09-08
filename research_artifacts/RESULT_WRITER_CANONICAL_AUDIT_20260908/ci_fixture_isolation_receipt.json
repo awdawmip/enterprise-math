@@ -1,0 +1,133 @@
+{
+  "status": "PASS_PACKAGE_AND_ACTUAL_SHARD_IMPORT_COMPATIBILITY_SINGLE_FILE_FROZEN",
+  "base_commit": "2a2aa993129ca1cf15b57ce4aaedaeb76cf13a68",
+  "base_tree": "a1f0a9c86a1ebe7c203a41e790635bc238e66aee",
+  "worktree": "D:/em/fixture-result-writer-post-audit-20260908",
+  "changed_paths": [
+    "tests/test_result_writer_canonical_post_audit.py"
+  ],
+  "delta_from_previous_freeze": "Only prepend tests. to the helper import; no production or assertion change.",
+  "previous_frozen_manifest": {
+    "path": "D:/em/TEMP/owner-result-writer-fixture-isolation-20260908/frozen-single-file.json",
+    "sha256": "990cd8e4fe3a9c48ddf887f1b919051fe4ad97f097618bf1252cff43331de454",
+    "preserved": true
+  },
+  "entry_runs": [
+    {
+      "name": "package-unittest-after",
+      "status": "PASS",
+      "argv": [
+        "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "tests.test_result_writer_canonical_post_audit",
+        "-v"
+      ],
+      "cwd": "D:\\em\\fixture-result-writer-post-audit-20260908",
+      "PYTHONPATH": null,
+      "exit_code": 0,
+      "elapsed_seconds": 8.937999999994645,
+      "timeout_seconds": 120,
+      "input_sha256": "ea89ad453771f48512f77ef801e35287f771fc66a4b08b244e95e021066ab29f",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "f21734544346a9a5033fa800d6d5ce083c9de850b56f3786276065be1d319efa"
+    },
+    {
+      "name": "actual-shard-loader-after",
+      "status": "PASS",
+      "argv": [
+        "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-c",
+        "import unittest; from scripts import run_unittest_shard as runner; runner.research_control_bootstrap.install(runner.ROOT); suite=runner.load_file_suite(runner.TEST_ROOT.joinpath('test_result_writer_canonical_post_audit.py')); print('ACTUAL_SHARD_LOADER_CASES',suite.countTestCases(),flush=True); result=unittest.TextTestRunner(verbosity=2).run(suite); raise SystemExit(not result.wasSuccessful())"
+      ],
+      "cwd": "D:\\em\\fixture-result-writer-post-audit-20260908",
+      "PYTHONPATH": "D:\\em\\fixture-result-writer-post-audit-20260908\\src",
+      "exit_code": 0,
+      "elapsed_seconds": 11.906000000002678,
+      "timeout_seconds": 120,
+      "input_sha256": "ea89ad453771f48512f77ef801e35287f771fc66a4b08b244e95e021066ab29f",
+      "stdout_sha256": "88efa6fe2bae47eeedafb85575b6977c4c55bc641990343e22989615301af9b7",
+      "stderr_sha256": "f2ab19eb86de0c6dda3665ed64be0e54b23f7944adce2fc59dd56c7e9fa40968"
+    }
+  ],
+  "original_package_import_failure": "before-package-import.json",
+  "protected_code_and_helper": {
+    "tools/research_result_records.py": {
+      "worktree_sha256": "e9138e122a4f583138ba1a4721353a355aa4a9e93e0af43f4c1589655d8ba1cb",
+      "base_git_sha256": "e9138e122a4f583138ba1a4721353a355aa4a9e93e0af43f4c1589655d8ba1cb",
+      "exact_base_bytes": true,
+      "base_blob_sha1": "765a14ddb1fb7bd63033b94e5e6d22f66d116304"
+    },
+    "control_plane/research_result_records_impl.py": {
+      "worktree_sha256": "0699677c915527c048b852df1902399df0f4ff1a26fd8d4768420442053b9624",
+      "base_git_sha256": "0699677c915527c048b852df1902399df0f4ff1a26fd8d4768420442053b9624",
+      "exact_base_bytes": true,
+      "base_blob_sha1": "a0d3a3816cb8f839d3fd974e8386701fe5f463e1"
+    },
+    "control_plane/check_result_review_binding_fault_isolated.py": {
+      "worktree_sha256": "36e0ac115bfbaad79eddf7e61e8cfdac9be86763af8973a5c0f49ea5cdb93e45",
+      "base_git_sha256": "36e0ac115bfbaad79eddf7e61e8cfdac9be86763af8973a5c0f49ea5cdb93e45",
+      "exact_base_bytes": true,
+      "base_blob_sha1": "6018b8737fe78a037128578c31a1ec4b8f7dd92e"
+    },
+    "control_plane/research_task_semantic_integrity_fault_isolation.py": {
+      "worktree_sha256": "936c8e250c9194c0496b39b2327ff457312ea71319c73baab9f11ea23b5da15e",
+      "base_git_sha256": "936c8e250c9194c0496b39b2327ff457312ea71319c73baab9f11ea23b5da15e",
+      "exact_base_bytes": true,
+      "base_blob_sha1": "37eb83c77d8afd53f5c2a8e9a6d7cfeecaf988cc"
+    },
+    "control_plane/research_driver_followup_fault_isolation.py": {
+      "worktree_sha256": "3b08000a4c61bf1df2a46f06bc4e0d8dad50138d3d12dc05b773dd51cc00d2d2",
+      "base_git_sha256": "3b08000a4c61bf1df2a46f06bc4e0d8dad50138d3d12dc05b773dd51cc00d2d2",
+      "exact_base_bytes": true,
+      "base_blob_sha1": "5482cd15665e08b7b99219d80ce7bd7314dc713e"
+    },
+    "control_plane/research_control_bootstrap.py": {
+      "worktree_sha256": "87e703148f5ed4089476da408bfe012bf23922922c70f61b6d07229ba14a451f",
+      "base_git_sha256": "87e703148f5ed4089476da408bfe012bf23922922c70f61b6d07229ba14a451f",
+      "exact_base_bytes": true,
+      "base_blob_sha1": "9fb58e05ede5027a684f09e1c37c0f4aba84fc3d"
+    },
+    "tests/test_research_task_record_compatibility.py": {
+      "worktree_sha256": "f3d1c52c6f8d604ff657e39d91f08402d40d81079b2401da6b6e473c840620b9",
+      "base_git_sha256": "f3d1c52c6f8d604ff657e39d91f08402d40d81079b2401da6b6e473c840620b9",
+      "exact_base_bytes": true,
+      "base_blob_sha1": "4594ba753015401c32fabead8b44766d2d3d1e23"
+    }
+  },
+  "old_semantic_negative_evidence": "../semantic-pin-negative.json; historical previous-input execution, not relabelled as rerun",
+  "original_methods_and_assertions": "unchanged from previous freeze, which verified all 12 existing methods/helpers excluding setUp against base",
+  "unrun": "No complete shard, CI matrix or remote execution",
+  "no_commit_or_remote_write": true,
+  "evidence_files": {
+    "actual-shard-loader-after.json": "ef5a4758396b58238095824213421e02be7d859a6f9484f7739de3be9df8fe14",
+    "actual-shard-loader-after.stderr.log": "f2ab19eb86de0c6dda3665ed64be0e54b23f7944adce2fc59dd56c7e9fa40968",
+    "actual-shard-loader-after.stdout.log": "88efa6fe2bae47eeedafb85575b6977c4c55bc641990343e22989615301af9b7",
+    "before-package-import.json": "63309f2f2a96f9f4d7bcee13f9f051a80b5ea8524a0368a4211b83026ff41cdf",
+    "before-package-import.stderr.log": "0aac6751f27b0b96746605aad662bd6a52feb1fcc7d571e5a7221a448d36924e",
+    "before-package-import.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "package-unittest-after.json": "d4d4b1f0bf2b72c54e1edc7b4483cbf8a4fc73c5429e9847e54e671aa4d80a1f",
+    "package-unittest-after.stderr.log": "f21734544346a9a5033fa800d6d5ce083c9de850b56f3786276065be1d319efa",
+    "package-unittest-after.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "two-entry-runs.json": "f3602edfc2de023665738aca4e32df4276720e90d863c409782615ad02eaad98"
+  },
+  "file": {
+    "path": "tests/test_result_writer_canonical_post_audit.py",
+    "sha256": "ea89ad453771f48512f77ef801e35287f771fc66a4b08b244e95e021066ab29f",
+    "blob_sha1": "25ee04d62e38bf7f1529fb0a60ac7124406d6e29",
+    "bytes": 13934,
+    "encoding": "UTF8_LF_NO_BOM_EOF_LF_NO_TRAILING_SPACE"
+  },
+  "ci_initial_failure": {
+    "pr": 1407,
+    "head": "f3a5152e1080e55e27162d4723af5d2e34e0e9b2",
+    "job": 101996313206,
+    "cause": "Full-shard task-selector bootstrap requires a real pinned semantic fixture; missing registry rejected freeze."
+  }
+}
