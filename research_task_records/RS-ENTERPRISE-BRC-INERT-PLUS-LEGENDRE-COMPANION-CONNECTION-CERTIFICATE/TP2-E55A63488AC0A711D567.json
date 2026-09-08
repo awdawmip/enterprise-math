@@ -1,0 +1,63 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "task_id": "RS-ENTERPRISE-BRC-INERT-PLUS-LEGENDRE-COMPANION-CONNECTION-CERTIFICATE",
+  "registry_key": "RS-ENTERPRISE-BRC-INERT-PLUS-LEGENDRE-COMPANION-CONNECTION-CERTIFICATE",
+  "publication_id": "TP2-E55A63488AC0A711D567",
+  "publication_generation": 1,
+  "supersedes_publication_id": null,
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "taskbook_path": "research_tasks/ENTERPRISE_BRC_INERT_PLUS_LEGENDRE_COMPANION_CONNECTION_CERTIFICATE_20260909.md",
+  "taskbook_blob_sha1": "sha1:28322d39b2dcff86584acf4222a93bddfce1ec36",
+  "publisher_role": "RESEARCHER",
+  "publisher_id": "EM-URLEG-7C42A1",
+  "published_at": "2026-09-08T16:45:58+00:00",
+  "parent_objective_id": "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION",
+  "origin_kind": "DIRECT_USER_DIRECTION",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-TERMINATING-JACOBI-JET-CERTIFICATE",
+  "claimable": true,
+  "effective_priority": "P2",
+  "effective_leverage": "MEDIUM",
+  "priority_source": "RESEARCHER_DEFAULT",
+  "publisher_priority_request": "P2",
+  "publisher_leverage_request": "MEDIUM",
+  "owner": "research/enterprise-brc-inert-plus-legendre-companion-connection",
+  "frontier": "Prove, refute, or strictly reduce the finite Legendre-companion connection LC for inert-plus primes, which is exactly equivalent to the remaining first-digit unit-reciprocity certificate UR and hence to JT0 under the frozen parent CM0/SIMPLE facts.",
+  "next_action": "Start from the persisted UR-Legendre companion frontier. Expand the exact p-term deformation F_p(epsilon) at epsilon=p/6 to first p-adic order while retaining both F_p(0)/p and the resurrected post-termination tail, then identify the resulting finite scalar with -t W_{n-1}(t)/6 or isolate the smallest exact obstruction.",
+  "research_value": "Close the first p-adic digit by proving or refuting the exact finite connection between the divided p-truncated hypergeometric value g/p and the Legendre companion W_{n-1}; a proof closes UR and JT0 without reopening CM0/SIMPLE or the larger LIFT/JT2 interface.",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "identity_lane": "EBP6UR",
+  "source_refs": [
+    "research_artifacts/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE/ur_legendre_companion_connection_frontier_20260909.json@f6ac88de1e02e2b0f1b05e673a5cb3802c4e680f",
+    "research_result_records/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-TERMINATING-JACOBI-JET-CERTIFICATE/RR-82F6383FB6634F72B457.json@f6ac88de1e02e2b0f1b05e673a5cb3802c4e680f",
+    "research_returns/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE_RETURN_20260828.md@f6ac88de1e02e2b0f1b05e673a5cb3802c4e680f",
+    "research_task_records/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-TERMINATING-JACOBI-JET-CERTIFICATE/TP2-A19C97A703AF47D1CBEC.json@f6ac88de1e02e2b0f1b05e673a5cb3802c4e680f"
+  ],
+  "dependencies": [
+    "research_result_records/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-TERMINATING-JACOBI-JET-CERTIFICATE/RR-82F6383FB6634F72B457.json@f6ac88de1e02e2b0f1b05e673a5cb3802c4e680f",
+    "research_returns/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE_RETURN_20260828.md@f6ac88de1e02e2b0f1b05e673a5cb3802c4e680f",
+    "research_artifacts/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE/ur_legendre_companion_connection_frontier_20260909.json@f6ac88de1e02e2b0f1b05e673a5cb3802c4e680f"
+  ],
+  "evidence_status": "PARENT_STRICT_REDUCTION_DURABLE / UR_IFF_LC_EXACT_REDUCTION_PERSISTED / LC_UNPROVED",
+  "successor_gate": {
+    "new_information_gap": "The parent task reduced JT0 to UR but did not express or prove the finite connection from the divided hypergeometric sum g/p to the Legendre second-solution companion polynomial. The persisted successor frontier proves UR is exactly equivalent to the smaller LC congruence g/p = -t W_{n-1}(t)/6 mod p.",
+    "why_parent_result_does_not_close_it": "CM0 and SIMPLE determine the reciprocal target scalar but do not evaluate g/p. The parent's finite regression cannot supply the missing all-prime finite connection, and its second-digit LIFT interface is strictly larger than needed for the first digit.",
+    "discriminating_outcomes": [
+      "Prove LC uniformly for both target residue classes, which closes UR and JT0 under the frozen parent equivalence.",
+      "Produce and independently recompute an exact counterexample to LC, which refutes UR and JT0 on the corresponding prime.",
+      "Strictly reduce LC to one smaller finite telescoping, parameter-derivative, or companion-connection identity whose equivalence includes the base divided digit and resurrected tail.",
+      "Prove a precise route-specific no-go that rules out a proposed finite connection mechanism without reopening the larger JT2 interface."
+    ],
+    "kill_condition": "Any independently recomputed exact counterexample kills LC. Any purported proof route that drops F_p(0)/p, discards the post-termination first-order tail, replaces the finite p-term object by an uncontrolled infinite derivative, or relies only on a larger finite scan is non-closing.",
+    "alternative_route_or_free_exploration_considered": "Alternatives considered were leaving the parent at the conjectural UR boundary, attacking the second-digit LIFT immediately, reassigning the broad weighted supercongruence, or returning to unrestricted hypergeometric exploration. LC is smaller than UR as an executable finite identity and is a prerequisite for a clean LIFT continuation.",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "The parent task is terminal at its authorized strict-reduction scope. LC introduces a new finite first-order parameter-connection interface with explicit cutoff and base-quotient guards, so a separate bounded continuation preserves completed CM0/SIMPLE/JT2-reduction work and gives a new owner a single falsifiable target."
+  }
+}
