@@ -1,0 +1,38 @@
+{
+  "schema": "PFSSV_DISCREPANCY_LEDGER_V1",
+  "source_review_sha256": "53db4b935131fe33f9b084ba4014fad29af2c141aab2cb400fee063a1d01ec6a",
+  "items": [
+    {
+      "id": "OBSERVED_SUPPORT_LEAKAGE",
+      "original_lines": "64-85",
+      "required_change": "Geometrically eligible zero-count windows retained",
+      "status": "STAGE1_IMPLEMENTATION_CONTRACT_CHECKED_FULL_REGISTERED_SCOPE_NOT_RUN"
+    },
+    {
+      "id": "SURVIVING_ROW_RANK_IS_NOT_PI_PAIR",
+      "original_lines": "128-129",
+      "required_change": "Full-prefix actual pi(p),pi(q), independent of observed row survival",
+      "status": "STAGE1_IMPLEMENTATION_CONTRACT_CHECKED_FULL_REGISTERED_SCOPE_NOT_RUN"
+    },
+    {
+      "id": "FULL_PROFILES_DISCARDED",
+      "original_lines": "178-187",
+      "required_change": "Serialize complete vectors and signed/corrected outputs; distinguish NOT_COMPUTED",
+      "status": "STAGE1_IMPLEMENTATION_CONTRACT_CHECKED_FULL_REGISTERED_SCOPE_NOT_RUN"
+    }
+  ],
+  "additional_boundaries": [
+    "Invalid generic 64-bit MR claim",
+    "u<=1/2 versus p<=sqrt(U) overflow",
+    "Hardcoded PASS/terminal classes",
+    "Old holdout exposure cannot be reset"
+  ],
+  "hard_target_status": "OPEN",
+  "stage1_evidence": {
+    "static": "PASS_TWO_FILES",
+    "contracts": "PASS_11_TESTS",
+    "probe": "PASS_ONE_NEW_CELL",
+    "native_source_trace": "native_runtime_receipt.json",
+    "remaining": "Full original 21-cell data and original-model audit pending. Stage1 is not hard-target acceptance."
+  }
+}

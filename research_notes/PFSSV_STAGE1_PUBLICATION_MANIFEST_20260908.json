@@ -1,0 +1,295 @@
+{
+  "schema": "PFSSV_STAGE1_FROZEN_PACKAGE_V1",
+  "frozen_at_utc": "2026-09-08T11:04:08.822023+00:00",
+  "local_baseline": "2aa103eee829b78fa7784674ec1be4c3c5052a79",
+  "parent_remote_execution_commit": "4dc38cc6cdd6c59922a6ee37b108bed49cf8c9d2",
+  "task_id": "RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION",
+  "publication_id": "TP2-2029B5CCC5EEC5F0132C",
+  "claim_id": "chatgpt-pfssv-r2-20260908T101753Z-456f906e",
+  "researcher_id": "EM-PFSSV-E500C7",
+  "files": [
+    {
+      "path": "scripts/check_prime_factor_semiprime_shell_residual_validation_revision_20260908.py",
+      "source_path": "D:\\em\\research-pfssv-revision-20260908\\scripts\\check_prime_factor_semiprime_shell_residual_validation_revision_20260908.py",
+      "frozen_path": "D:\\em\\TEMP\\pfssv-stage1-20260908\\frozen-source\\scripts\\check_prime_factor_semiprime_shell_residual_validation_revision_20260908.py",
+      "sha256": "37684dece1a454858ca5e89b5cb63ed88a65a2b6f86862aee5e89a30e51bde56",
+      "blob": "c8a40de0a63805dba5ca5890442f8478bf7aa86a",
+      "bytes": 26615,
+      "utf8": true,
+      "cr_count": 0,
+      "bom": false,
+      "eof_lf": true
+    },
+    {
+      "path": "tests/test_pfssv_revision_contract_20260908.py",
+      "source_path": "D:\\em\\research-pfssv-revision-20260908\\tests\\test_pfssv_revision_contract_20260908.py",
+      "frozen_path": "D:\\em\\TEMP\\pfssv-stage1-20260908\\frozen-source\\tests\\test_pfssv_revision_contract_20260908.py",
+      "sha256": "ea5cbe7c5a2da743df9b03ba9d49c4b8b54d7a7c9f94f8c66e731f2a6a2fbe0e",
+      "blob": "062cd627cd12de98886e60481cecf124b50903e8",
+      "bytes": 8204,
+      "utf8": true,
+      "cr_count": 0,
+      "bom": false,
+      "eof_lf": true
+    },
+    {
+      "path": "research_artifacts/PFSSV_REVISION_20260908/correction_manifest.json",
+      "source_path": "D:\\em\\research-pfssv-revision-20260908\\research_artifacts\\PFSSV_REVISION_20260908\\correction_manifest.json",
+      "frozen_path": "D:\\em\\TEMP\\pfssv-stage1-20260908\\frozen-source\\research_artifacts\\PFSSV_REVISION_20260908\\correction_manifest.json",
+      "sha256": "fe907aa65dd713a57acb327bebb43cf89c4630ac261e8a4a3b25474b2fc33d1c",
+      "blob": "6923b67ad7dcb94e87289de58b451c76658f161b",
+      "bytes": 7655,
+      "utf8": true,
+      "cr_count": 0,
+      "bom": false,
+      "eof_lf": true
+    },
+    {
+      "path": "research_artifacts/PFSSV_REVISION_20260908/native_substrate_plan.json",
+      "source_path": "D:\\em\\research-pfssv-revision-20260908\\research_artifacts\\PFSSV_REVISION_20260908\\native_substrate_plan.json",
+      "frozen_path": "D:\\em\\TEMP\\pfssv-stage1-20260908\\frozen-source\\research_artifacts\\PFSSV_REVISION_20260908\\native_substrate_plan.json",
+      "sha256": "fe9dce879b8d735c060aa2dd9018b8ac1002cb8f5b4e5b0d114d9642d629b694",
+      "blob": "b0d5311da8c8b9836b9ede2f0144382332ed2275",
+      "bytes": 6809,
+      "utf8": true,
+      "cr_count": 0,
+      "bom": false,
+      "eof_lf": true
+    },
+    {
+      "path": "research_artifacts/PFSSV_REVISION_20260908/source_binding.json",
+      "source_path": "D:\\em\\research-pfssv-revision-20260908\\research_artifacts\\PFSSV_REVISION_20260908\\source_binding.json",
+      "frozen_path": "D:\\em\\TEMP\\pfssv-stage1-20260908\\frozen-source\\research_artifacts\\PFSSV_REVISION_20260908\\source_binding.json",
+      "sha256": "0466d085c9cfd83f11e72756751f0e9d74da18deb9bdb584af93af14a8458a2b",
+      "blob": "f70687d42b673d93998e87712890d4b45fd10c6d",
+      "bytes": 6734,
+      "utf8": true,
+      "cr_count": 0,
+      "bom": false,
+      "eof_lf": true
+    },
+    {
+      "path": "research_artifacts/PFSSV_REVISION_20260908/discrepancy_ledger.json",
+      "source_path": "D:\\em\\research-pfssv-revision-20260908\\research_artifacts\\PFSSV_REVISION_20260908\\discrepancy_ledger.json",
+      "frozen_path": "D:\\em\\TEMP\\pfssv-stage1-20260908\\frozen-source\\research_artifacts\\PFSSV_REVISION_20260908\\discrepancy_ledger.json",
+      "sha256": "7c371d7f97b81c35f48f10c2c5f9ec36b3b42d00a37887edfb6fc11fd603627d",
+      "blob": "2a13104d7171ee5f8e69d7b863029311907a0226",
+      "bytes": 1506,
+      "utf8": true,
+      "cr_count": 0,
+      "bom": false,
+      "eof_lf": true
+    },
+    {
+      "path": "research_artifacts/PFSSV_REVISION_20260908/generator_receipt.json",
+      "source_path": "D:\\em\\research-pfssv-revision-20260908\\research_artifacts\\PFSSV_REVISION_20260908\\generator_receipt.json",
+      "frozen_path": "D:\\em\\TEMP\\pfssv-stage1-20260908\\frozen-source\\research_artifacts\\PFSSV_REVISION_20260908\\generator_receipt.json",
+      "sha256": "ce092e45493dcc57fb80860cc34517cc300accb1464f01c4cfce95890ea4f676",
+      "blob": "e9fc6c2b2300b3d3dbad0a0d416e7559e1c29a02",
+      "bytes": 704,
+      "utf8": true,
+      "cr_count": 0,
+      "bom": false,
+      "eof_lf": true
+    },
+    {
+      "path": "research_artifacts/PFSSV_REVISION_20260908/cell_profiles.jsonl",
+      "source_path": "D:\\em\\research-pfssv-revision-20260908\\research_artifacts\\PFSSV_REVISION_20260908\\cell_profiles.jsonl",
+      "frozen_path": "D:\\em\\TEMP\\pfssv-stage1-20260908\\frozen-source\\research_artifacts\\PFSSV_REVISION_20260908\\cell_profiles.jsonl",
+      "sha256": "d9bf98bf8e8778492e8dfbb8211cbd2c8b2297c7bb80aaac5103b45ed6f11bca",
+      "blob": "d4016609498fd2be7d5e523ab85134529f7e00e8",
+      "bytes": 84725,
+      "utf8": true,
+      "cr_count": 0,
+      "bom": false,
+      "eof_lf": true
+    },
+    {
+      "path": "research_artifacts/PFSSV_REVISION_20260908/native_runtime_receipt.json",
+      "source_path": "D:\\em\\research-pfssv-revision-20260908\\research_artifacts\\PFSSV_REVISION_20260908\\native_runtime_receipt.json",
+      "frozen_path": "D:\\em\\TEMP\\pfssv-stage1-20260908\\frozen-source\\research_artifacts\\PFSSV_REVISION_20260908\\native_runtime_receipt.json",
+      "sha256": "05c3d57e9c5fe598902d488060481cdd46c6ab6dd414292d80d8c9094af887bb",
+      "blob": "74df40d6c1db78b1ec752f3043c592bd6a549b06",
+      "bytes": 2924,
+      "utf8": true,
+      "cr_count": 0,
+      "bom": false,
+      "eof_lf": true
+    },
+    {
+      "path": "research_artifacts/PFSSV_REVISION_20260908/native_trace.jsonl",
+      "source_path": "D:\\em\\research-pfssv-revision-20260908\\research_artifacts\\PFSSV_REVISION_20260908\\native_trace.jsonl",
+      "frozen_path": "D:\\em\\TEMP\\pfssv-stage1-20260908\\frozen-source\\research_artifacts\\PFSSV_REVISION_20260908\\native_trace.jsonl",
+      "sha256": "160c1321da7b706e1201247f61269e08e46ef7b4e656e17de867303378e38572",
+      "blob": "e6b4fe748a16f5e0e4e332cb3b8004ed4c720dcf",
+      "bytes": 5803940,
+      "utf8": true,
+      "cr_count": 0,
+      "bom": false,
+      "eof_lf": true
+    },
+    {
+      "path": "research_artifacts/PFSSV_REVISION_20260908/resource_probe.json",
+      "source_path": "D:\\em\\research-pfssv-revision-20260908\\research_artifacts\\PFSSV_REVISION_20260908\\resource_probe.json",
+      "frozen_path": "D:\\em\\TEMP\\pfssv-stage1-20260908\\frozen-source\\research_artifacts\\PFSSV_REVISION_20260908\\resource_probe.json",
+      "sha256": "5abb0c6c19050b8559f18e5daef86c11572cfe5968f6f192b0da96676e83e19e",
+      "blob": "d03836ce50cf91097ba0a16e137e37679e0d7991",
+      "bytes": 3369,
+      "utf8": true,
+      "cr_count": 0,
+      "bom": false,
+      "eof_lf": true
+    }
+  ],
+  "actual_checks": [
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_exact_arithmetic_policy.py",
+        "scripts/check_prime_factor_semiprime_shell_residual_validation_revision_20260908.py",
+        "tests/test_pfssv_revision_contract_20260908.py"
+      ],
+      "exit_code": 0,
+      "elapsed_ns": 172000000,
+      "stdout_sha256": "6853a5c4fbfc2de59bf759a2c668127cec1db9cdfef90d879764dfca2fa0ddaa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "tests.test_pfssv_revision_contract_20260908",
+        "-v"
+      ],
+      "exit_code": 0,
+      "elapsed_ns": 750000000,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "98bc9a0777b1f6a1b7b00dc6f6c87f3bf2af3853f24360936fb7c1aa6eed1724"
+    },
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "scripts/check_prime_factor_semiprime_shell_residual_validation_revision_20260908.py",
+        "--resource-probe"
+      ],
+      "exit_code": 0,
+      "status": "COMPLETED",
+      "elapsed_ns": 5781000000,
+      "stdout_sha256": "81384994d61dc7c8dd8f22106d5914bad0679dc43da6e0c2a1511f25cda7f3a4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "script_sha256": "37684dece1a454858ca5e89b5cb63ed88a65a2b6f86862aee5e89a30e51bde56"
+    }
+  ],
+  "log_directory": "D:\\em\\TEMP\\pfssv-stage1-20260908",
+  "source_preservation": {
+    "pinned_files": 34,
+    "all_byte_equal": true,
+    "old_seven_and_current_er_unchanged": true
+  },
+  "probe_summary": {
+    "status": "PASS_STAGE1_BOUNDED_PROBE",
+    "elapsed_ns": 5422000000,
+    "peak_process_memory_bytes": 31055872,
+    "prime_prefix_limit": 1001001,
+    "prime_prefix_count": 78573,
+    "rows": 223,
+    "zero_prime_count_rows": 116,
+    "totals": {
+      "diagonal": 0,
+      "overflow": 0,
+      "raw": 393,
+      "scale_trim": 148,
+      "small_trim": 152
+    },
+    "null_A_capacity_audit": {
+      "assignment_probability": {
+        "denominator": 2,
+        "numerator": 1
+      },
+      "null_repaired": false,
+      "random_draws": 0,
+      "scope": "Original scalar count surrogate can still be studied as such; this witness prevents calling every draw an exact factor-window occupancy model.",
+      "source_count": 1,
+      "source_p": 97,
+      "status": "REACHABLE_INTEGER_RESIDUE_CAPACITY_VIOLATION",
+      "stratum": {
+        "coarse_band": 2,
+        "p_mod_30": 7,
+        "q_mod_30": 17
+      },
+      "stratum_size": 2,
+      "target_integer_residue_capacity": 0,
+      "target_observed_count": 0,
+      "target_p": 127,
+      "target_qhi": 15763,
+      "target_qlo": 15749
+    },
+    "native_trace": {
+      "all_trace_events": 6514,
+      "deduplication": "Every actual returned trace has one definition or an exact trace_ref event; repeated calls are counted. Large integers use reversible integer_hex encoding.",
+      "distinct_traces": 6495,
+      "function_identity": [
+        {
+          "file": "D:\\em\\research-pfssv-revision-20260908\\src\\enterprise_math\\exact_arithmetic.py",
+          "file_sha256": "f4f8feead82dc53a35e5fec495b31e46e64820f7b115c9efd6034063e68f8ad6",
+          "line": 210,
+          "name": "brc_evaluate_division"
+        },
+        {
+          "file": "D:\\em\\research-pfssv-revision-20260908\\src\\enterprise_math\\exact_arithmetic.py",
+          "file_sha256": "f4f8feead82dc53a35e5fec495b31e46e64820f7b115c9efd6034063e68f8ad6",
+          "line": 236,
+          "name": "brc_evaluate_root"
+        },
+        {
+          "file": "D:\\em\\research-pfssv-revision-20260908\\src\\enterprise_math\\brc_logarithm.py",
+          "file_sha256": "cb9ce27bbea7ac9d264c8e013c4f3d0ef830842feae7ec63fe5dc39de79b8343",
+          "line": 452,
+          "name": "brc_evaluate_ln"
+        },
+        {
+          "file": "D:\\em\\research-pfssv-revision-20260908\\src\\enterprise_math\\brc_logarithm.py",
+          "file_sha256": "cb9ce27bbea7ac9d264c8e013c4f3d0ef830842feae7ec63fe5dc39de79b8343",
+          "line": 489,
+          "name": "brc_evaluate_log"
+        }
+      ],
+      "native_code_object_calls": {
+        "brc_evaluate_division": 5861,
+        "brc_evaluate_log": 645,
+        "brc_evaluate_root": 8
+      },
+      "native_code_object_trace_returns": {
+        "brc_evaluate_division": 5861,
+        "brc_evaluate_log": 645,
+        "brc_evaluate_root": 8
+      },
+      "trace_bytes": 5803940,
+      "trace_sha256": "160c1321da7b706e1201247f61269e08e46ef7b4e656e17de867303378e38572"
+    }
+  },
+  "observed_filesystem_execution_time": {
+    "trace_file_created_at_utc": "2026-09-08T10:59:24.588595+00:00",
+    "resource_receipt_written_at_utc": "2026-09-08T10:59:30.045139+00:00",
+    "time_kind": "Observed filesystem timestamps; not invented command start timestamps. Actual monotonic invocation and process durations are in checked receipts."
+  },
+  "assessment": {
+    "stage1": "PASS_BOUNDED_NATIVE_SUBSTRATE",
+    "full_21_ready": "Generator/observed-rank substrate is ready for owner-directed Stage2 adaptation. Full scientific screen is not implemented or authorized.",
+    "owner_stage2_direction": "Original 21-cell exact observation + deterministic per-stratum/residue capacity audit only; no 512/4096 screen.",
+    "runtime_projection": "One probe 5.422s/31MB/5.8MB trace at 223 rows; original 21-cell trace likely exceeds 50MiB. Aggregate row count, log-cache reuse and full 50.5m prime storage are not yet measured. Request an explicit Stage2 trace path before the full run; cap512MiB remains, no dropped traces."
+  },
+  "remote_writes_by_this_agent": false,
+  "full_21_cells_run": false,
+  "stage1_original_snapshots_retained": true
+}
