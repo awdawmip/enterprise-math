@@ -1,0 +1,143 @@
+<!-- ENTERPRISE_MATH_TASK_V1
+{
+  "task_id": "RS-RB-CM24-SOURCE-EXPOSED-EXACT-MAP-CERTIFICATE",
+  "title": "RB CM(-24) source-exposed exact map certificate",
+  "kind": "RESEARCH",
+  "owner": "taskbook/unassigned",
+  "base_state": "READY",
+  "priority": "P1",
+  "leverage": "HIGH",
+  "frontier": "The blind INCOMPLETE stage excludes 180 geometric components but leaves 1980 parameter families. The exact historical N/D source is now recovered; only a structural comparison exists. Its location among frozen divisor/square-class cases, cancellation of its common base point, degree-six map, full frozen ODE, target equation and pullback differential remain to be independently checked under an explicitly source-exposed scope.",
+  "next_action": "Freeze the restored formula and algebraic-field embedding as data, bind its four special fibers to the frozen divisor/square-class cases, and construct one exact certificate or exact failed-identity boundary for basepoint cancellation, degree six, target curve, complete frozen ODE and pullback differential. Do not use a partial subset as a PASS.",
+  "dependencies": [],
+  "source_refs": [
+    "https://github.com/awdawmip/enterprise-math/blob/bdef46f3f0309f41c8c9837a2be55c3523328058/research_result_records/RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION/RR-34B2213BDFE75A5795CC.json",
+    "https://github.com/awdawmip/enterprise-math/blob/bdef46f3f0309f41c8c9837a2be55c3523328058/research_task_records/RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION/TP2-032D4712B5CB0E5D2376.json",
+    "https://github.com/awdawmip/enterprise-math/blob/bdef46f3f0309f41c8c9837a2be55c3523328058/research_tasks/RB_ENTERPRISE_DEGREE6_CM24_BLIND_BRANCH_PATTERN_COMPLETION_20260828.md",
+    "https://github.com/awdawmip/enterprise-math/blob/bdef46f3f0309f41c8c9837a2be55c3523328058/research_returns/RB_ENTERPRISE_DEGREE6_CM24_BLIND_BRANCH_PATTERN_COMPLETION_RETURN_20260828.md",
+    "https://github.com/awdawmip/enterprise-math/blob/c73816d3552b4247861e12e476101e94a4a2ce5a/research_artifacts/RB_ENTERPRISE_DEGREE6_CM24_BLIND_REPLICATION/raw_freeze_reduction.json",
+    "https://github.com/awdawmip/enterprise-math/blob/bdef46f3f0309f41c8c9837a2be55c3523328058/research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/raw_freeze_branch_patterns.json",
+    "https://github.com/awdawmip/enterprise-math/blob/bdef46f3f0309f41c8c9837a2be55c3523328058/research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/squareclass_rr_reduction.md",
+    "https://github.com/awdawmip/enterprise-math/blob/bdef46f3f0309f41c8c9837a2be55c3523328058/research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/empty_fiber_obstruction.md",
+    "https://github.com/awdawmip/enterprise-math/blob/bdef46f3f0309f41c8c9837a2be55c3523328058/research_notes/RB_CM24_ORIGIN_EXPLICIT_MAP_20260827.md",
+    "https://github.com/awdawmip/enterprise-math/blob/bdef46f3f0309f41c8c9837a2be55c3523328058/research_notes/RB_CM24_ORIGIN_SYMBOLIC_REPLAY_CLAIM_20260827.md",
+    "https://github.com/awdawmip/enterprise-math/blob/bdef46f3f0309f41c8c9837a2be55c3523328058/research_notes/RB_CM24_ORIGIN_HOSTILE_AUDIT_AND_BLIND_PACKET_20260827.md",
+    "https://github.com/awdawmip/enterprise-math/blob/bdef46f3f0309f41c8c9837a2be55c3523328058/research_notes/OWNER_RB_ORIGIN_RECOVERY_COMPARISON_20260909.md",
+    "https://github.com/awdawmip/enterprise-math/blob/396b9e59c62a8770cb1d208f14f13fe60b3ec2f5/research_artifacts/RB_DRIVER_REVIEW_20260909/external_prior_work.md"
+  ],
+  "evidence_status": "DRIVER_REVIEW_FOLLOWUP_V1",
+  "last_progress_ref": null,
+  "last_progress_at": null,
+  "hard_block": null,
+  "tags": [
+    "MATHEMATICAL_CONTINUATION",
+    "DRIVER_AUTO_FOLLOWUP",
+    "SOURCE_EXPOSED",
+    "EXACT_MAP_CERTIFICATE",
+    "RESULT_ONLY",
+    "NO_BLIND_VERDICT"
+  ],
+  "claim_lease_minutes": 120,
+  "created_by_role": "RESEARCH_DRIVER",
+  "task_authority": "PUBLISHED_REGISTERED",
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "publication_template": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "registry_key": "RS-RB-CM24-SOURCE-EXPOSED-EXACT-MAP-CERTIFICATE",
+  "parent_objective_id": "RB_ENTERPRISE_THEOREM_PACKAGE_V2_INDEPENDENT_VALIDATION",
+  "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
+  "final_response_identity_policy": "INHERIT_GLOBAL",
+  "identity_lane": "RBCM24MAP",
+  "origin_kind": "DRIVER_ROADMAP",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION",
+  "successor_gate": {
+    "new_information_gap": "The recovered explicit formula has not been located in the surviving frozen divisor/square-class cases or independently verified for all map, ODE, target and differential gates.",
+    "why_parent_result_does_not_close_it": "RR-34B2213BDFE75A5795CC is an INCOMPLETE geometric reduction. Later source recovery verifies provenance and conditional normalization only; it does not prove the formula identities or map degree.",
+    "discriminating_outcomes": [
+      "The pinned formula has a certified surviving divisor/square-class placement and, after all common-base-point cancellation, gives an exact degree-six map satisfying the target equation, full frozen ODE and pullback differential.",
+      "An exact nonzero remainder, wrong degree, unresolved base point, incompatible component or differential normalization refutes a named claim of this pinned formula under the declared embedding.",
+      "The bounded run produces a strictly identified unresolved algebraic subproblem; all solved and unsolved gates are frozen separately with an INCOMPLETE verdict, not a weakened PASS."
+    ],
+    "kill_condition": "Stop the affected proof path on a source-pin mismatch, unsupported field/embedding change, identity contradiction, unauthorized arithmetic or loss of divisor/valuation data. Preserve the counterexample and failure receipt; never alter the frozen target, silently choose a different formula, or relabel exposure as blindness.",
+    "alternative_route_or_free_exploration_considered": "A new broad 1980-family search, replay of the completed blind classification, and immediate period-index computation are less discriminating at this point. One restored explicit candidate gives a finite exact map/ODE test; period homology and exhaustive family classification remain separate information gaps.",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "The original blind scope is frozen and must remain immutable. This new stage explicitly allows the recovered coefficients and therefore needs its own source-exposed task, claim and ER; parent closure is unjustified while degree/map and period/classification gaps remain."
+  },
+  "policy_review": {
+    "policy_set": "research_taskbook_policy.json",
+    "policy_digest": "sha256:1f84e78de591605da6106f3f14ffad3cd7fad66aa5bf67e29beb44906b976c8a",
+    "review_state": "PASS",
+    "temporary_overrides": []
+  }
+}
+-->
+
+# RB CM(-24) source-exposed exact map certificate
+
+Status: `READY / DRIVER REVIEW FOLLOW-UP / PENDING IMMUTABLE PUBLICATION`
+
+## 0. Mother question
+
+Does the exact recovered CM(-24) N/D formula, with its declared algebraic embedding and Y construction, define the required degree-six map with the full frozen ODE, target-curve equation and pullback differential, and where does it lie in the frozen divisor/square-class classification? This asks about this pinned formula, not all surviving maps.
+
+## 1. Frozen inputs and scope
+
+This is SOURCE_EXPOSED / NONBLIND_DISCLOSED. The originating formula is an explicit input. Preserve the original blind raw freeze, earlier return, Result, and source-recovery chronology. Historical PASS statements are claims to check, not Working Truth or a proof premise.
+
+The frozen carrier is D: w^4=(R+2)^2 R(R^2-3), with C: t^2=R^3-3R and w^2=(R+2)t. Keep the exact k=-i*3^(1/4)*(sqrt(6)-2) embedding and lambda=35+24sqrt(2)-20sqrt(3)-14sqrt(6). The curve labels R,t,w are symbolic task coordinates, not an identification with the six Enterprise native axes. The later recovered field declaration includes i; expose every algebraic generator/relation and any further exact extension required for Y or the differential constant.
+
+Source pins, read selectively as each proof step requires them:
+- `research_result_records/RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION/RR-34B2213BDFE75A5795CC.json` @ `bdef46f3f0309f41c8c9837a2be55c3523328058`; SHA256 `dc6839fa2d039415d6e5e4021b5476057038512abf28c7fc6ae886ab587dfd3f`.
+- `research_task_records/RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION/TP2-032D4712B5CB0E5D2376.json` @ `bdef46f3f0309f41c8c9837a2be55c3523328058`; SHA256 `5e20459df838709d0d2657ddcf80decbcdbc5f32ff93fcfc47b7ca54477c0b48`.
+- `research_tasks/RB_ENTERPRISE_DEGREE6_CM24_BLIND_BRANCH_PATTERN_COMPLETION_20260828.md` @ `bdef46f3f0309f41c8c9837a2be55c3523328058`; SHA256 `0249807db62a8e2753a0eb38cce1a0afb1d5bc17ffce02117a8ebcba0bbe15aa`.
+- `research_returns/RB_ENTERPRISE_DEGREE6_CM24_BLIND_BRANCH_PATTERN_COMPLETION_RETURN_20260828.md` @ `bdef46f3f0309f41c8c9837a2be55c3523328058`; SHA256 `0ffa4e70c3b0955ff0720d82a7ee26ac398c0740cf0e0ad2cc716c8df8af7611`.
+- `research_artifacts/RB_ENTERPRISE_DEGREE6_CM24_BLIND_REPLICATION/raw_freeze_reduction.json` @ `c73816d3552b4247861e12e476101e94a4a2ce5a`; SHA256 `0740e43ae09bc28fcb2facada23ea5e9fdfa535829e547eed27d2128dd6e8207`.
+- `research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/raw_freeze_branch_patterns.json` @ `bdef46f3f0309f41c8c9837a2be55c3523328058`; SHA256 `a9bac29196d70c40e0b08eb9efc23a3a5c07add447479bca979a11b885bec9b2`.
+- `research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/squareclass_rr_reduction.md` @ `bdef46f3f0309f41c8c9837a2be55c3523328058`; SHA256 `9fdf67629596121ffc05fad3c1d973d794a254f263a3d510b0f20eab5318cf22`.
+- `research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/empty_fiber_obstruction.md` @ `bdef46f3f0309f41c8c9837a2be55c3523328058`; SHA256 `5512a8d2599b44ee483775fca7a7b54692b9bc1aa58fd4963c13580f31640d72`.
+- `research_notes/RB_CM24_ORIGIN_EXPLICIT_MAP_20260827.md` @ `bdef46f3f0309f41c8c9837a2be55c3523328058`; SHA256 `d72563af774b53ba25518e5768ee1c986b82e3fb935e4f35efdef74f4ac82291`.
+- `research_notes/RB_CM24_ORIGIN_SYMBOLIC_REPLAY_CLAIM_20260827.md` @ `bdef46f3f0309f41c8c9837a2be55c3523328058`; SHA256 `28085412628f2ed56ee87d7081b0489336f5a614a6ca57e054326c073aa7d1b3`.
+- `research_notes/RB_CM24_ORIGIN_HOSTILE_AUDIT_AND_BLIND_PACKET_20260827.md` @ `bdef46f3f0309f41c8c9837a2be55c3523328058`; SHA256 `f2b94217dc2c0e3f70e3687801548def7abccd1d36433d92cec6d651017cb333`.
+- `research_notes/OWNER_RB_ORIGIN_RECOVERY_COMPARISON_20260909.md` @ `bdef46f3f0309f41c8c9837a2be55c3523328058`; SHA256 `b5bcbf0862b4b010ed3f4742f2b1873b326e1ca3bf03f1f81942a633afe8e1c6`.
+
+Use the restored explicit-map capsule for actual N,D and the historical replay/hostile-audit capsules for claims and discrepancies only. The post-freeze comparison note does not establish any load-bearing formula identity. Preserve fixed-lambda/fixed-k labels, distinguish target V4 from transported anharmonic/source-flip equivalences, and do not infer fixed-k equivalence from t -> -t.
+
+Before general helper construction, resolve the applicable existing native exact-arithmetic/BRC and polynomial/divisor capabilities. Preserve integer content, valuations, multiplicity, exceptional points and denominators before quotienting or cancellation. Typed native DIV/ROOT applies only within its proven domain; complex algebraic constants must remain exact formal extensions, not be forced into a nonnegative facade. Any execution must follow the current source arithmetic policy, declare resource/trace bounds in its new ER, and retain actual traces and failure receipts. No decorative BRC calls, new global family, legacy Fraction replay or floating fit may substitute for exact proof. No mathematical execution is granted by this draft taskbook.
+
+## 工具复用与命名模型边界
+
+本任务是明确的 `SOURCE_EXPOSED` 核验；恢复来源、旧 raw freeze 与旧 Result 均保持不可变。本工具条款不授予 claim 或预先接受数学结论。
+
+已在 EM `bdef46f3f0309f41c8c9837a2be55c3523328058` 通过真实 `tools/enterprise_toolbox.py --help` 与三条 `--json coverage` 查询命中 `T0_BRC`、`T5_PRECISION_REFINEMENT`、`T6_OPERATION_SAFE_QUOTIENT`。实际返回 `REUSE_CANDIDATE_FOUND` 只表示覆盖候选，不是数学执行。不要为同一机制创建新工具族。
+
+1. **T0 与 exact DIV/ROOT。** 有意义的非负整数除法/根节点沿用 `src/enterprise_math/exact_arithmetic.py` 的 `division` / `root`；需要物化时沿 `brc_evaluate_division` / `brc_evaluate_root` 保留真实 trace。若声称精确整数值，须满足 `brc_integer_value` / `brc_root_integer_value` 的整除/完全幂拒绝边界。一般曲线函数 `N/D`、复代数系数和选定嵌入不属于这两个整数节点的直接输入域。
+2. **保留分支信息。** 正权 BRC 的 count/total/dominant 或 Boolean support 不能代替复系数恒等式，也不能擦除系数嵌入、平方类与分支符号。`brc_rational_holonomy.py` 的正有理数骨架分解不是曲线函数域平方类下降。
+3. **T5 仅有限精度。** 本次最小精确主张不需要精度投影；若另有有限尺度读数，先声明 `coarse | fine`、保留 `precision_detail` 与可重构 exact state。小数、采样或有限精度稳定不构成恒等式/度数/周期证明。
+4. **T6 先声明再取商。** 明示固定参数和系数域/嵌入、分支/除子标签，以及后续基点、度数、微分观察；不得未经下降证明就商掉它们。`operation_quotient.py` / `predictive_quotient.py` 只对已给定有限封闭状态与操作/观察语言提供有限检验，不能把有限代表或有限 horizon 当作全部参数族证书。
+5. **局部 field-checker 优先。** 接收既有 RB `check_squareclass_rr.py` / `test_squareclass_rr.py` 的精确接口交接后，复用它实际覆盖的身份、标签和证据格式；先对齐系数域、嵌入、分母/排除集、共同基点及微分约定。不得把局部检查通过扩写为完整 RR/ODE、映射度数、周期缩放或定理包完成；不得将其重新命名成新通用 curve 工具。
+6. **P000 不改型。** 命名代数模型的 `R,t,w` 不自动是原生六轴或 Spatial6 Cell。保留当前 P000/X6 与 carrier、observer、Path-formal/BRC 装饰的型别边界，不额外制造 native 编码前提。
+
+本条款仅在合同层采用 T0/T6 (`REUSE_APPLIED`)；当前最小主张不适用的 T5 和越界替代记 `NOT_APPLICABLE`。只有后继真实运行适用 API 后才能补 `REUSE_EXECUTED` 及实测来源/调用回执；当前未运行任何数学程序，不声称 `COMPOSE_APPLIED`、环境不可执行或全局能力缺口已证实。
+
+## 2. Hard target and required outputs
+
+Hard target: RB_CM24_PINNED_SOURCE_EXACT_MAP_CERTIFIED_OR_EXACT_FAILURE.
+
+All of these gates are part of one hard target; none may be dropped merely because another is easier:
+1. Exact source binding, coefficient-field/embedding declaration and explicit X=N/D and Y construction; record every convention/normalization discrepancy without repairing history.
+2. Divisors and parity/square classes of all four special fibers, including constants/half-points and exceptional points. Identify the branch assignment/component against the frozen classification; separate geometric placement from original-field descent. A surviving-component identification must be proved, not inferred from a 4+2 count.
+3. Analyze and cancel every common base point in the actual linear system, with multiplicities and behavior at infinity/branch points. Prove the resulting degree-six map and degree-six descended X in the correct curve/function-field senses; a generic-polynomial leading degree is not a map-degree proof.
+4. Verify the actual target elliptic equation exactly, with the fixed lambda and every twist/scaling constant made explicit. Give the target j-invariant and its exact relation to the declared model without numeric fitting.
+5. Verify the complete frozen ODE, not just necessary critical-numerator filters: (R+2)*t*(delta X)^2 = K_ODE*(t+k)^2*X*(X-1)*(X-lambda), delta=t*d/dR, for an explicitly certified nonzero constant K_ODE independent of R,t. Renaming the constant here only distinguishes it from the coefficient field.
+6. Verify the full pullback invariant differential against phi=(dR/w)*(1+k/t), including its nonzero scalar, direction/sign/embedding, regularity and all canceled exceptional points. Squaring alone is insufficient to settle an unsquared differential sign or Y choice.
+7. Supply exact proof and a deterministic, source-bound checker/receipt for all load-bearing identities plus meaningful tamper/normalization counterchecks. Record imports/native arithmetic identities, resource limits, full actual outputs and unresolved cases; no CI status stands in for mathematical proof.
+8. Freeze a gate-by-gate certificate or exact obstruction and a durable return at research_returns/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_CERTIFICATE_RETURN_20260909.md. Put dedicated artifacts under research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/ and any dedicated checker/test under task-specific names chosen in the new ER before execution.
+
+The period integer/homology index and an independent derivation of (B1/Omega_P)^2, exhaustive completion of all 1980 parameter families, and exclusion of a whole remaining pattern are explicitly NOT completed by this certificate. They remain named OPEN parent gaps because they require different information, not because the map/ODE target has been weakened.
+
+## 3. Research value to preserve
+
+Preserve every original raw source and failed check generation. A valid one-formula certificate may resolve its map/ODE ambiguity but cannot retroactively become a blind reconstruction, validate an entire theorem package, or close the parent. An exact failure locates a claim of the pinned formula; it does not imply that no other map exists. Keep RESULT_ONLY as the default harvest unless a separately proven reusable capability and current coverage justify another classification.
+
+## 4. Success, kill, and return criteria
+
+PASS only when every exact-map gate above is proved and independently checked at its stated scope. EXACT_FAILURE requires a reproducible algebraic counterexample/nonzero remainder or proved divisor/degree/differential contradiction to a named pinned claim. Otherwise return INCOMPLETE with the first unresolved gate and the full preserved frontier. Keep the hard target unchanged on failure or resource exhaustion; do not present basepoint/degree success alone as a complete certificate. A verdict is evidence for the current standard review and publication process; it does not itself grant a claim, research execution or mathematical authority. Parent remains OPEN until its separate unresolved gaps receive their own lawful decisions.
