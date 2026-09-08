@@ -381,7 +381,9 @@ def command_prepare(args: argparse.Namespace) -> int:
     )
     path = ROOT / "research_execution_records" / _safe(args.task_id, "task_id") / f"{record['execution_record_id']}.json"
     _save_exclusive(path, record)
-    errors = audit()
+    from control_plane import research_execution_record_audit_fault_isolation
+
+    errors = research_execution_record_audit_fault_isolation.audit(ROOT)
     if errors:
         raise ExecutionRecordError("execution record created but audit failed: " + "; ".join(errors))
     print(json.dumps({**record, "record_path": path.relative_to(ROOT).as_posix()}, ensure_ascii=False, indent=2))
