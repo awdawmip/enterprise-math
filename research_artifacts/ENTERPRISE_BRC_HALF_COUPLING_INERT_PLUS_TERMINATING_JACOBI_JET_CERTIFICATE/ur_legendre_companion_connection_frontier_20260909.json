@@ -1,0 +1,71 @@
+{
+  "schema": "ENTERPRISE_BRC_UR_LEGENDRE_COMPANION_CONNECTION_FRONTIER_V1",
+  "state": "CANDIDATE_SUCCESSOR_FRONTIER / EXACT_EQUIVALENCE_REDUCTION / LC_UNPROVED",
+  "recorded_at": "2026-09-09T00:36:00+08:00",
+  "researcher_id": "EM-URLEG-7C42A1",
+  "parent": {
+    "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-TERMINATING-JACOBI-JET-CERTIFICATE",
+    "publication_id": "TP2-A19C97A703AF47D1CBEC",
+    "result_id": "RR-82F6383FB6634F72B457",
+    "return_path": "research_returns/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE_RETURN_20260828.md",
+    "parent_disposition": "SUCCESS_BY_STRICT_REDUCTION / CM0_AND_SIMPLE_PROVED / JT0_IFF_UR / JT2_IFF_UR_PLUS_LIFT"
+  },
+  "domain": "prime p congruent to 13 or 19 modulo 24; m=(p-1)/6; n=(p-1)/3=2m; t^2=1/2",
+  "frozen_parent_facts": {
+    "CM0": "P_n(t)=Q_m(1/2)=0 mod p",
+    "SIMPLE": "P_n'(t)=2t Q_m'(1/2) is nonzero mod p",
+    "UR": "g/p = -1/(6 Q_m'(1/2)) mod p",
+    "JT0_equivalence": "JT0 iff UR"
+  },
+  "legendre_companion": {
+    "second_solution": "mathcalQ_n(t) = (1/2) P_n(t) log((1+t)/(1-t)) - W_{n-1}(t)",
+    "companion_polynomial": "W_{n-1}(t) = sum_{j=1}^n P_{j-1}(t) P_{n-j}(t)/j",
+    "wronskian": "P_n(t) mathcalQ_n'(t) - mathcalQ_n(t) P_n'(t) = 1/(1-t^2)",
+    "at_CM_root": "mathcalQ_n(t)=-W_{n-1}(t)=-2/P_n'(t)",
+    "exact_scalar_identity": "-t W_{n-1}(t)/6 = -1/(6 Q_m'(1/2)) because P_n'(t)=2t Q_m'(1/2) and t^2=1/2"
+  },
+  "new_exact_reduction": {
+    "LC": "g/p = -t W_{n-1}(t)/6 mod p",
+    "equivalence": "JT0 iff UR iff LC",
+    "proof_status": "The UR-to-LC equivalence is exact from the standard finite companion formula and Legendre Wronskian together with frozen CM0/SIMPLE. The all-prime LC congruence itself is not proved here."
+  },
+  "finite_hypergeometric_form": {
+    "g": "sum_{k=0}^{p-1} (1/6)_k (1/3)_k / (2^k (k!)^2)",
+    "centered_parameters": "1/6 = -n/2 + p/6; 1/3 = (n+1)/2 - p/6",
+    "deformation": "F_p(epsilon)=sum_{k=0}^{p-1} (-n/2+epsilon)_k ((n+1)/2-epsilon)_k/(2^k(k!)^2), so g=F_p(p/6)",
+    "quadratic_center": "F_p(0) terminates and is the quadratic Legendre value P_n(t) with t^2=1/2"
+  },
+  "critical_guards": [
+    "Do not replace the p-term finite sum by an infinite hypergeometric derivative: after epsilon leaves zero, terms beyond the centered terminating cutoff reappear at first p-adic order.",
+    "Do not discard F_p(0)/p. CM0 gives divisibility modulo p, not vanishing of its divided p-adic digit; LC must combine this base quotient with the first parameter deformation.",
+    "Do not use the parent 77-prime regression as proof of LC or UR.",
+    "Do not reopen CM0, SIMPLE, finite Clausen tails, harmonic blocks, or the second-digit LIFT before LC/UR closes."
+  ],
+  "direct_finite_recomputation": {
+    "status": "FALSIFICATION_ONLY",
+    "method": "exact rational B_k sum for g combined with exact rational Legendre recurrence for W_{n-1}, then reduction modulo p",
+    "samples": [
+      {"p": 13, "g_over_p_mod_p": 11, "minus_tW_over_6_mod_p": 11},
+      {"p": 19, "g_over_p_mod_p": 8, "minus_tW_over_6_mod_p": 8},
+      {"p": 37, "g_over_p_mod_p": 23, "minus_tW_over_6_mod_p": 23},
+      {"p": 43, "g_over_p_mod_p": 31, "minus_tW_over_6_mod_p": 31},
+      {"p": 61, "g_over_p_mod_p": 24, "minus_tW_over_6_mod_p": 24},
+      {"p": 67, "g_over_p_mod_p": 61, "minus_tW_over_6_mod_p": 61}
+    ],
+    "inherited_parent_regression": "RR-82F6383FB6634F72B457 records zero UR failures for all 77 target primes below 2000; this remains finite evidence only."
+  },
+  "open_hard_target": "Prove or refute LC uniformly for both residue classes. The preferred proof must derive the finite p-truncated first parameter variation, including the resurrected tail and base divided digit, and identify the surviving finite term with the Legendre companion W_{n-1}.",
+  "route_candidates": [
+    "finite parameter-derivative / terminating hypergeometric connection formula with explicit cutoff control",
+    "creative telescoping or finite WZ certificate for the difference between g/p and -t W_{n-1}/6",
+    "discrete Legendre Green/Wronskian identity that absorbs the divided CM value and parameter derivative in one finite relation",
+    "finite-field or Jacobi-sum realization only if it computes the same LC scalar rather than reintroducing the larger JT2 interface"
+  ],
+  "no_claims": [
+    "no all-prime proof of LC",
+    "no all-prime proof of UR or JT0",
+    "no proof of LIFT or JT2",
+    "no proof of Sun A14(ii)",
+    "no Working Truth or Foundation authority"
+  ]
+}
