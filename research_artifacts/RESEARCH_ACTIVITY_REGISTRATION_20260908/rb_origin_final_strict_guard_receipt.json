@@ -1,0 +1,97 @@
+{
+  "status": "PASS",
+  "kind": "READ_ONLY_STRICT_HISTORICAL_PERSISTENCE_VERIFICATION",
+  "started_at_utc": "2026-09-08T17:50:55.350374+00:00",
+  "elapsed_seconds": 0.1506876000057673,
+  "global_knowledge_snapshot": "96f2e78132f42039d6c3f255030ef3791f0af5da",
+  "publication_commit": "20a1fe807a7c30376098685ec3f3d62650ab0e42",
+  "publication_tree": "cf176d48139f38022792d6f3ccc5fa99eda51b03",
+  "activity_id": "RA-3AA99FDD73D4DE233E1F81E5",
+  "record_path": "research_activity_records/RA-3AA99FDD73D4DE233E1F81E5.json",
+  "record_sha256": "7b9cfd3e9eae122791ee9dea59c85022a9db2d1585b748a53de40e615675b9fb",
+  "record_blob_sha1": "2e2248cbc5c3c408fd6aac284ef0f1cb6c943b6a",
+  "actual_managed_archive": {
+    "path": "D:\\em\\TEMP\\rb-origin-activity-repair-20260909-8kshverp\\actual-new-record-publication-readback.json",
+    "sha256": "3e90355091f6088b0c2418d4326a7a076ed52f9d7b75dfc17d220372da9d51ed"
+  },
+  "observation_provenance": "Original actual_response preserved in full; observation_id is a local archival label, not a server call ID or authenticated signature.",
+  "actual_command": {
+    "argv": [
+      "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "D:\\em\\control-research-activity-registration-20260908\\tools\\research_activity.py",
+      "--root",
+      "D:\\em\\TEMP\\rb-origin-activity-repair-20260909-8kshverp\\candidate",
+      "guard",
+      "--activity-id",
+      "RA-3AA99FDD73D4DE233E1F81E5",
+      "--boundary",
+      "checkpoint",
+      "--event-id",
+      "EM_SOURCE_RECOVERY_4044E5EC_20260909",
+      "--registration-json",
+      "D:\\em\\TEMP\\rb-origin-final-guard-20260909-20a1\\actual-registration-pin.json"
+    ],
+    "exit_code": 0,
+    "timeout": false,
+    "stdout_path": "D:\\em\\TEMP\\rb-origin-final-guard-20260909-20a1\\guard.stdout.json",
+    "stdout_sha256": "e13c2b981b93364a39ccb11585195d3e487da8e1c087bff32ceee40c499f1c06",
+    "stderr_path": "D:\\em\\TEMP\\rb-origin-final-guard-20260909-20a1\\guard.stderr.log",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "guard": {
+    "activity_allowed": false,
+    "activity_id": "RA-3AA99FDD73D4DE233E1F81E5",
+    "authority": {
+      "claim": false,
+      "mathematical_acceptance": false,
+      "review": false,
+      "task_registration": false,
+      "working_truth": false
+    },
+    "boundary": "checkpoint",
+    "canonical_owner_visibility": "VERIFY_CANONICAL_INTAKE_IF_PUBLISHED_ONLY_ON_A_BRANCH",
+    "mode": "UNKNOWN_RESEARCH",
+    "persistence_allowed": true,
+    "record_path": "research_activity_records/RA-3AA99FDD73D4DE233E1F81E5.json",
+    "record_sha256": "7b9cfd3e9eae122791ee9dea59c85022a9db2d1585b748a53de40e615675b9fb",
+    "register_command": "python tools/research_activity.py register --session-id <session> --researcher-id <resolved-id> --mode <TASK_RESEARCH|FREE_AXIOM_DISCOVERY>",
+    "registration_source": "https://github.com/awdawmip/enterprise-math/blob/20a1fe807a7c30376098685ec3f3d62650ab0e42/research_activity_records/RA-3AA99FDD73D4DE233E1F81E5.json",
+    "registration_visibility": "IMMUTABLE_EM_RECORD_OBSERVED",
+    "required_action": "RETROSPECTIVE_TRACKING_ONLY_REGISTER_CURRENT_LIVE_SESSION_TO_RESEARCH",
+    "source_links": [
+      "https://github.com/awdawmip/enterprise-math/blob/4044e5ec5935be96f358b4e1d8a0e3a92e6a1276/research_notes/RB_CM24_ORIGIN_EXPLICIT_MAP_20260827.md",
+      "https://github.com/awdawmip/enterprise-math/blob/4044e5ec5935be96f358b4e1d8a0e3a92e6a1276/research_notes/RB_CM24_ORIGIN_SYMBOLIC_REPLAY_CLAIM_20260827.md",
+      "https://github.com/awdawmip/enterprise-math/blob/4044e5ec5935be96f358b4e1d8a0e3a92e6a1276/research_notes/RB_CM24_ORIGIN_HOSTILE_AUDIT_AND_BLIND_PACKET_20260827.md"
+    ],
+    "sync_debt_events": []
+  },
+  "old_sync_debt_event_preserved_and_explicitly_repaired": true,
+  "initial_receipt_harness_diagnostic": "D:\\em\\TEMP\\rb-origin-final-guard-20260909-20a1\\initial-receipt-harness\\diagnostic.json",
+  "historical_unknown_session_preserved": true,
+  "all_authority_flags_false": true,
+  "protected_files_before": {
+    "D:\\em\\TEMP\\rb-origin-activity-repair-20260909-8kshverp\\candidate\\research_activity_records\\RA-3AA99FDD73D4DE233E1F81E5.json": "7b9cfd3e9eae122791ee9dea59c85022a9db2d1585b748a53de40e615675b9fb",
+    "D:\\em\\TEMP\\rb-origin-activity-repair-20260909-8kshverp\\candidate\\research_activity_records\\RA-3AA99FDD73D4DE233E1F81E5\\readbacks\\b6fd1ecae3b2ad9fba9aa682c44004b605535d7696a02879508aa68ea5425274.json": "b6fd1ecae3b2ad9fba9aa682c44004b605535d7696a02879508aa68ea5425274",
+    "D:\\em\\TEMP\\rb-origin-activity-repair-20260909-8kshverp\\candidate\\research_activity_records\\RA-3AA99FDD73D4DE233E1F81E5\\readbacks\\7afe24fa27c48b1782a0cb3f3d35f9d79b140c0dca3b958e27fec8f6cff48cca.json": "7afe24fa27c48b1782a0cb3f3d35f9d79b140c0dca3b958e27fec8f6cff48cca",
+    "D:\\em\\TEMP\\rb-origin-activity-repair-20260909-8kshverp\\candidate\\research_activity_records\\RA-3AA99FDD73D4DE233E1F81E5\\readbacks\\67b1fefd7370e71298f331dcaef00ab70d70efeb686e0dedc21b1b3819ab07e4.json": "67b1fefd7370e71298f331dcaef00ab70d70efeb686e0dedc21b1b3819ab07e4",
+    "D:\\em\\TEMP\\rb-origin-activity-repair-20260909-8kshverp\\frozen-record-and-three-sidecars.json": "88329f9305d58b1d905a91967f932e1595d5637e67ab9072eb393fd26b3a80a2",
+    "D:\\em\\TEMP\\rb-origin-activity-repair-20260909-8kshverp\\repair-helper-receipt.json": "21185b0bfb11cb2d6f1311b224a7a4e2ca7f0931a3a546a88425984d62952bb6",
+    "D:\\em\\TEMP\\rb-origin-activity-repair-20260909-8kshverp\\actual-new-record-publication-readback.json": "3e90355091f6088b0c2418d4326a7a076ed52f9d7b75dfc17d220372da9d51ed",
+    "D:\\em\\control-research-activity-registration-20260908\\tools\\research_activity.py": "5c35556af36ac20ab701f71fe11c7d42ce27bcfd2a8c7e58c80d2e482ebd234a"
+  },
+  "protected_files_after": {
+    "D:\\em\\TEMP\\rb-origin-activity-repair-20260909-8kshverp\\candidate\\research_activity_records\\RA-3AA99FDD73D4DE233E1F81E5.json": "7b9cfd3e9eae122791ee9dea59c85022a9db2d1585b748a53de40e615675b9fb",
+    "D:\\em\\TEMP\\rb-origin-activity-repair-20260909-8kshverp\\candidate\\research_activity_records\\RA-3AA99FDD73D4DE233E1F81E5\\readbacks\\b6fd1ecae3b2ad9fba9aa682c44004b605535d7696a02879508aa68ea5425274.json": "b6fd1ecae3b2ad9fba9aa682c44004b605535d7696a02879508aa68ea5425274",
+    "D:\\em\\TEMP\\rb-origin-activity-repair-20260909-8kshverp\\candidate\\research_activity_records\\RA-3AA99FDD73D4DE233E1F81E5\\readbacks\\7afe24fa27c48b1782a0cb3f3d35f9d79b140c0dca3b958e27fec8f6cff48cca.json": "7afe24fa27c48b1782a0cb3f3d35f9d79b140c0dca3b958e27fec8f6cff48cca",
+    "D:\\em\\TEMP\\rb-origin-activity-repair-20260909-8kshverp\\candidate\\research_activity_records\\RA-3AA99FDD73D4DE233E1F81E5\\readbacks\\67b1fefd7370e71298f331dcaef00ab70d70efeb686e0dedc21b1b3819ab07e4.json": "67b1fefd7370e71298f331dcaef00ab70d70efeb686e0dedc21b1b3819ab07e4",
+    "D:\\em\\TEMP\\rb-origin-activity-repair-20260909-8kshverp\\frozen-record-and-three-sidecars.json": "88329f9305d58b1d905a91967f932e1595d5637e67ab9072eb393fd26b3a80a2",
+    "D:\\em\\TEMP\\rb-origin-activity-repair-20260909-8kshverp\\repair-helper-receipt.json": "21185b0bfb11cb2d6f1311b224a7a4e2ca7f0931a3a546a88425984d62952bb6",
+    "D:\\em\\TEMP\\rb-origin-activity-repair-20260909-8kshverp\\actual-new-record-publication-readback.json": "3e90355091f6088b0c2418d4326a7a076ed52f9d7b75dfc17d220372da9d51ed",
+    "D:\\em\\control-research-activity-registration-20260908\\tools\\research_activity.py": "5c35556af36ac20ab701f71fe11c7d42ce27bcfd2a8c7e58c80d2e482ebd234a"
+  },
+  "protected_bytes_unchanged": true,
+  "scope": "No writes to activity records, sidecars, source capsules, prior evidence, repository, or remote; no mathematics or claim. Branch publication is verified; canonical-main owner visibility is not claimed by this guard."
+}

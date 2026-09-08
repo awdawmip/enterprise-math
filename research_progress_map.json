@@ -1803,42 +1803,42 @@
       "id": "RB_BLIND_BRANCH_PATTERNS",
       "kind": "frontier",
       "label": {
-        "en": "RB blind branch-pattern assignment coverage",
-        "zh-CN": "RB 盲分支模式 assignment 覆盖"
+        "en": "RB incomplete Result and recovered originating source",
+        "zh-CN": "RB 未完成 Result 与已恢复的原始来源"
       },
       "scope": {
-        "en": "Existing task RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION / TP2-032D4712B5CB0E5D2376. This published BLIND_FORWARD progress covers assignments for 4+2+0+0 and 2+2+2+0, not reconstruction of the originating map.",
-        "zh-CN": "既有任务 RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION / TP2-032D4712B5CB0E5D2376。此次已发布 BLIND_FORWARD 进展覆盖 4+2+0+0 与 2+2+2+0 的 assignment，不是 originating map 的重建。"
+        "en": "Existing task RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION / TP2-032D4712B5CB0E5D2376. The published BLIND_FORWARD stage returns BLIND_BRANCH_PATTERN_INCOMPLETE for 4+2+0+0 and 2+2+2+0; it does not reconstruct the originating map or satisfy the hard target.",
+        "zh-CN": "既有任务 RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION / TP2-032D4712B5CB0E5D2376。已发布 BLIND_FORWARD 阶段对 4+2+0+0 与 2+2+2+0 回传 BLIND_BRANCH_PATTERN_INCOMPLETE；未重建 originating map，未满足硬目标。"
       },
       "evidence": {
         "mathematics": {
-          "en": "Assignment coverage is complete at the published scope: raw 180 / 360; at fixed lambda and k, quotienting only by target V4 gives 45 / 90 candidates. The cover-only 33 / 54 and coarser 11 / 9 do not count as fixed-parameter ODE candidates.",
-          "zh-CN": "已发布范围内 assignment 覆盖完成：原始 180 / 360；固定 lambda 与 k 时只按 target V4 取商，得到 45 / 90 个候选。cover-only 的 33 / 54 与更粗的 11 / 9 不能计作固定参数 ODE 候选。"
+          "en": "Assignment coverage remains complete: raw 180 / 360; fixed lambda and k permit only target V4 quotienting, giving 45 / 90 candidates. Cover-only 33 / 54 and coarser 11 / 9 are not fixed-parameter ODE candidates. The partial square-class/RR frontier and empty-fiber obstruction exclude 180 parameter components in 4+2, leaving 540 there and 1440 in 2+2+2: 1980 unsolved parameter families, not 1980 maps or a finite solution set. Twisted critical conditions are necessary filters, not a solved full ODE.",
+          "zh-CN": "assignment 覆盖保持完成：原始 180 / 360；固定 lambda 与 k 时仅可按 target V4 取商，得到 45 / 90 个候选。cover-only 33 / 54 与更粗 11 / 9 不是固定参数 ODE 候选。局部 square-class/RR 前沿与空纤维阻碍排除 4+2 中 180 个参数组件，仍余 4+2 的 540 与 2+2+2 的 1440：合计 1980 个未解参数族，不是 1980 个映射或有限解集。twisted critical 条件只是必要过滤，尚未解完整 ODE。"
         },
         "lean": {
           "en": "No Lean proof or formalized classification is claimed by this checkpoint.",
           "zh-CN": "本检查点不声称 Lean 证明或形式化分类。"
         },
         "program": {
-          "en": "The published receipt records certificate construction/read-only replay, three focused tests and exact-arithmetic policy PASS. Integer enumeration/comparisons only; DIV, ROOT and BRC calls are zero in this step. Historical mathematical checker was read, not executed; this map reruns none of these checks.",
-          "zh-CN": "已发布回执记录证书生成/只读重放、三项定向测试及精确算术策略 PASS。本步骤只有整数枚举/比较，DIV、ROOT 和 BRC 调用均为零。历史数学 checker 只读未执行；建图未重跑这些检查。"
+          "en": "Published partial certificates record assignment enumeration, corrected square-class/RR identities, the empty-fiber obstruction and twisted critical-numerator checks at their original executions. Their integer enumeration and cleared-polynomial checks are not a full map solver, BRC invocation or native certificate. The stage-return receipt checks bytes and metadata only. This map reruns no mathematics and adds no program-verified full solution.",
+          "zh-CN": "已发布局部证书记录 assignment 枚举、修正后的 square-class/RR 恒等式、空纤维阻碍及 twisted critical numerator 检查的原始执行。整数枚举与清分母形式多项式检查不是完整映射求解器、BRC 调用或原生证书。阶段回传回执只检查字节和元数据；本图不重跑数学，不增加程序已验证的完整解。"
         },
         "publication": {
-          "en": "Six-file source checkpoint b8c4fb6c8e86080699c67b65b863e1ce791f1263; execution-intent source 07af62e91f5178d9538d90c310f66fc9fa73f0dc. This indexes actual published progress, not full-package main admission or a final mathematical return.",
-          "zh-CN": "六文件来源检查点 b8c4fb6c8e86080699c67b65b863e1ce791f1263；执行意向来源 07af62e91f5178d9538d90c310f66fc9fa73f0dc。这里只索引真实已发布进展，不声称全定理包主线准入或最终数学交回。"
+          "en": "Canonical RR-34B2213BDFE75A5795CC was published at c41722e67875b175461feee2aeb78a90da581793 and included through PR1414 in main 1d09e71197e41e32e82e03aa22e54cc551da34dc. It binds the fd9b81c9 stage return; the 7791ddf5 blind raw freeze remains immutable. The subsequently recovered three historical source capsules are published at 4044e5ec5935be96f358b4e1d8a0e3a92e6a1276; the Owner comparison and repaired historical activity RA-3AA99FDD73D4DE233E1F81E5 are published at 20a1fe807a7c30376098685ec3f3d62650ab0e42. The actual record readback and strict guard establish three EM sources and no remaining sync debt, with UNKNOWN original session and persistence permission only. This does not establish mathematical acceptance or live research authority.",
+          "zh-CN": "Canonical RR-34B2213BDFE75A5795CC 已发布于 c41722e67875b175461feee2aeb78a90da581793，并经 PR1414 纳入 main 1d09e71197e41e32e82e03aa22e54cc551da34dc。它绑定 fd9b81c9 阶段回传；7791ddf5 盲 raw freeze 保持不可变。后来恢复的三份历史来源 capsule 已发布于 4044e5ec5935be96f358b4e1d8a0e3a92e6a1276；Owner 比较与修复后的历史活动 RA-3AA99FDD73D4DE233E1F81E5 已发布于 20a1fe807a7c30376098685ec3f3d62650ab0e42。记录真实回读与严格 guard 核验了三份 EM 来源及同步债清零；原会话仍为 UNKNOWN，仅通过持久性检查。这不构成数学接受或当前研究活动权威。"
         },
         "formal_review": {
-          "en": "No final raw freeze, unblinding, canonical Result or Driver acceptance at this checkpoint; parent OPEN. Source_binding records limited observed BLIND_FORWARD exposure, not a fabricated BLIND_INDEPENDENT/PRE_MATH authorization.",
-          "zh-CN": "本检查点尚未终局 raw freeze、未解盲、未生成 canonical Result、无 Driver 接受；父目标 OPEN。source_binding 记录有限可观察的 BLIND_FORWARD 暴露范围，不伪造 BLIND_INDEPENDENT/PRE_MATH 授权。"
+          "en": "The immutable Result records NEGATIVE_BOUNDARY / NOT_SATISFIED and BLIND_BRANCH_PATTERN_INCOMPLETE; formal Driver review is still pending and parent RB_ENTERPRISE_THEOREM_PACKAGE_V2_INDEPENDENT_VALIDATION remains OPEN. SOURCE_COMPARISON_UNRESOLVED is the historical state in fd9b81c9 and at the Result freeze on 2026-09-08T17:08:07.465027Z. Later Owner evidence changes the source-location status to SOURCE_LOCATOR_RECOVERED / STRUCTURAL_COMPARISON_ONLY. It does not create a comparison PASS, independent formula verification or blind reconstruction. The prior limited BLIND_FORWARD exposure declaration remains; no BLIND_INDEPENDENT/PRE_MATH authorization is added.",
+          "zh-CN": "不可变 Result 记录 NEGATIVE_BOUNDARY / NOT_SATISFIED 及 BLIND_BRANCH_PATTERN_INCOMPLETE；正式 Driver 审核仍待办，母目标 RB_ENTERPRISE_THEOREM_PACKAGE_V2_INDEPENDENT_VALIDATION 仍 OPEN。SOURCE_COMPARISON_UNRESOLVED 是 fd9b81c9 与 2026-09-08T17:08:07.465027Z Result 冻结时的历史状态。后来 Owner 证据将来源定位状态更新为 SOURCE_LOCATOR_RECOVERED / STRUCTURAL_COMPARISON_ONLY，不构成比较 PASS、原公式独立验证或盲重建。原有限 BLIND_FORWARD 暴露声明保留，不增加 BLIND_INDEPENDENT/PRE_MATH 授权。"
         }
       },
       "frontier": {
-        "en": "Square-class and Riemann–Roch constraints and their intersection with the frozen ODE remain in progress. Assignment counts alone do not prove an exact map, impossibility, scaling or period conclusion; source-flip and label-transport reductions cannot erase fixed-k partners.",
-        "zh-CN": "square-class、Riemann–Roch 约束及其与冻结 ODE 的交集仍在研。assignment 计数本身不证明精确映射、不可能性、缩放或周期结论；source-flip 与标签搬运的约简不能抹去固定 k 的伙伴。"
+        "en": "BLIND_BRANCH_PATTERN_INCOMPLETE. The 180 excluded parameter components and 540 + 1440 = 1980 unresolved parameter families are unchanged; they are not 1980 maps. Original-field square-class/constant descent, complete RR bases and all regular-frame charts, and coupled fiber equations/full ODE remain open. The originating explicit formula is now locatable in the restored dated journals, but it has not been independently verified or bound to a surviving frozen divisor/square-class component. Historical replay/PASS claims do not establish degree, basepoint, differential or period scaling, nor a whole-pattern exclusion.",
+        "zh-CN": "BLIND_BRANCH_PATTERN_INCOMPLETE。已排除的 180 个参数组件及 540 + 1440 = 1980 个未解参数族保持原结论；后者不是 1980 个映射。原域 square-class/常数下降、完整 RR 基与全部正则 frame 图表、联立纤维方程/完整 ODE 仍未解决。原显式公式现可从恢复的带日期日志定位，但尚未经独立验证，也未绑定到存活的冻结除子/square-class 组件。历史 replay/PASS 声称不构成度数、基点、微分或周期缩放验证，也未排除任一整个模式。"
       },
       "next": {
-        "en": "Continue the existing durable frontier under the actual Issue240 claim 5586114827, researcher EM-HODGEH0O-82EF42, subject to canonical runtime. Preserve blind-source restrictions and freeze the permitted exact reconstruction or obstruction before unblinding. This map makes no new claim, priority or scheduling decision and supplies no originating formula to the researcher.",
-        "zh-CN": "在实际 Issue240 claim 5586114827、研究员 EM-HODGEH0O-82EF42 的既有持久化前沿上续研，并遵守 canonical runtime。保留盲来源限制，在解盲前冻结许可范围内的精确重建或阻碍。本图不新增 claim、优先级或调度决定，也不向研究员提供 originating 公式。"
+        "en": "Driver review of the bounded incomplete NEGATIVE_BOUNDARY Result remains the next control decision. Any further comparison must have an explicit source-exposed scope: bind the restored N/D to the frozen divisor/square-class cases and independently audit the residual basepoint, degree, differential and period claims. Preserve the original raw freeze, return and Result bytes. Source recovery does not restart blind work, extend the solver or create a successor automatically. This map changes no claim, lease or scheduling authority and closes no parent objective.",
+        "zh-CN": "下一控制决策仍是 Driver 审核这个有界、未完成的 NEGATIVE_BOUNDARY Result。后续比较须明确采用 source-exposed 范围：把恢复的 N/D 绑定到冻结除子/square-class 情形，独立核验剩余基点、度数、微分及周期声称。保留原 raw freeze、回传与 Result 字节；来源恢复不自动重启盲研究、扩展求解器或创建后继。本图不改变 claim、lease 或调度权限，不关闭父目标。"
       },
       "source_ids": [
         "S98",
@@ -1849,9 +1849,21 @@
         "S103",
         "S104",
         "S105",
-        "S106"
+        "S106",
+        "S107",
+        "S108",
+        "S109",
+        "S110",
+        "S111",
+        "S112",
+        "S113",
+        "S114",
+        "S115",
+        "S116",
+        "S117",
+        "S118"
       ],
-      "priority": "MATHEMATICAL_FRONTIER"
+      "priority": "CURRENT_CLOSEOUT"
     }
   ],
   "edges": [
@@ -3834,6 +3846,174 @@
       "label": {
         "en": "RB immutable execution intent; not a substitute for the winning claim",
         "zh-CN": "RB 不可变执行意向；不替代实际 winning claim"
+      }
+    },
+    {
+      "id": "S107",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "7791ddf5c969bb580cff04b1cb742ec3f9d8a9b9",
+      "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/raw_freeze_branch_patterns.json",
+      "sha256": "a9bac29196d70c40e0b08eb9efc23a3a5c07add447479bca979a11b885bec9b2",
+      "blob_sha1": "3a002caa7c085a34c3a41c271564cec53ac4bc83",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "RB immutable pre-comparison raw freeze; partial frontier",
+        "zh-CN": "RB 比较前不可变 raw freeze；局部前沿"
+      }
+    },
+    {
+      "id": "S108",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "fd9b81c9a872a5a5e8d9a06e11c6e124fbad153d",
+      "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/continuation_state.json",
+      "sha256": "6bca00c77641fabf340b525576df81ae737d9e4f755ea3147c4a2398c3970cfd",
+      "blob_sha1": "1df7d1191c9e4b8c8012a20c6798ec44be8f9710",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "RB incomplete stage continuation metadata",
+        "zh-CN": "RB 未完成阶段的续接元数据"
+      }
+    },
+    {
+      "id": "S109",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "fd9b81c9a872a5a5e8d9a06e11c6e124fbad153d",
+      "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/post_freeze_comparison.json",
+      "sha256": "faa8b0e3ad72b58271e2829e33d452c60c1061fac0fe1d95661aaea84b41b439",
+      "blob_sha1": "e3598b06987983523057c11fffbb3e0836b76225",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "RB bounded post-freeze source queries; comparison unresolved",
+        "zh-CN": "RB 冻结后有界来源查询；比较未解决"
+      }
+    },
+    {
+      "id": "S110",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "fd9b81c9a872a5a5e8d9a06e11c6e124fbad153d",
+      "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/post_freeze_comparison.md",
+      "sha256": "fdfb8813555c3c24e3e7e4bc8c33110331d0d43bd09563de3c48ca60f05cbb65",
+      "blob_sha1": "583db34b9c5b09e17454e6b2dd2038f07e1509c8",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "RB post-freeze comparison scope and explicit source debt",
+        "zh-CN": "RB 冻结后比较范围与明确来源缺口"
+      }
+    },
+    {
+      "id": "S111",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "fd9b81c9a872a5a5e8d9a06e11c6e124fbad153d",
+      "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/stage_return_integrity_receipt.json",
+      "sha256": "cc29664749437a5f33e860f31c289797a5c69864e4784ae019a9d76fee3dd6af",
+      "blob_sha1": "69c6fc5a9d64cbfa8d98f763547480dcf19517da",
+      "verification": "PUBLISHED_RECEIPT_NOT_REEXECUTED",
+      "label": {
+        "en": "RB recorded stage-return integrity checks; no mathematical rerun",
+        "zh-CN": "RB 已记录阶段回传完整性检查；未重跑数学"
+      }
+    },
+    {
+      "id": "S112",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "fd9b81c9a872a5a5e8d9a06e11c6e124fbad153d",
+      "path": "research_returns/RB_ENTERPRISE_DEGREE6_CM24_BLIND_BRANCH_PATTERN_COMPLETION_RETURN_20260828.md",
+      "sha256": "0ffa4e70c3b0955ff0720d82a7ee26ac398c0740cf0e0ad2cc716c8df8af7611",
+      "blob_sha1": "19e606654f1251a05e45622304d085e6db2d5f44",
+      "verification": "RETURN_DECLARATION_NOT_REVIEW",
+      "label": {
+        "en": "RB BLIND_BRANCH_PATTERN_INCOMPLETE stage return",
+        "zh-CN": "RB BLIND_BRANCH_PATTERN_INCOMPLETE 阶段回传"
+      }
+    },
+    {
+      "id": "S113",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "c41722e67875b175461feee2aeb78a90da581793",
+      "path": "research_result_records/RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION/RR-34B2213BDFE75A5795CC.json",
+      "sha256": "dc6839fa2d039415d6e5e4021b5476057038512abf28c7fc6ae886ab587dfd3f",
+      "blob_sha1": "610efa3b01bed2473f265388bf08a3aff90ccd47",
+      "verification": "RETURN_DECLARATION_NOT_REVIEW",
+      "label": {
+        "en": "RB canonical NEGATIVE_BOUNDARY Result; not a Driver acceptance",
+        "zh-CN": "RB canonical NEGATIVE_BOUNDARY Result；不是 Driver 接受"
+      }
+    },
+    {
+      "id": "S114",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "4044e5ec5935be96f358b4e1d8a0e3a92e6a1276",
+      "path": "research_notes/RB_CM24_ORIGIN_EXPLICIT_MAP_20260827.md",
+      "sha256": "d72563af774b53ba25518e5768ee1c986b82e3fb935e4f35efdef74f4ac82291",
+      "blob_sha1": "8d4753e90410b71725f60b6aef3701bf97feb30c",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "Recovered original explicit-map journal; historical claims remain unverified",
+        "zh-CN": "恢复的原显式映射日志；历史声称仍未经本次验证"
+      }
+    },
+    {
+      "id": "S115",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "4044e5ec5935be96f358b4e1d8a0e3a92e6a1276",
+      "path": "research_notes/RB_CM24_ORIGIN_SYMBOLIC_REPLAY_CLAIM_20260827.md",
+      "sha256": "28085412628f2ed56ee87d7081b0489336f5a614a6ca57e054326c073aa7d1b3",
+      "blob_sha1": "abebf119e153da82a8e71c85f07bc425dbd089fc",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "Recovered historical symbolic-replay claim; no fresh replay",
+        "zh-CN": "恢复的历史符号 replay 声称；未进行本次重播"
+      }
+    },
+    {
+      "id": "S116",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "4044e5ec5935be96f358b4e1d8a0e3a92e6a1276",
+      "path": "research_notes/RB_CM24_ORIGIN_HOSTILE_AUDIT_AND_BLIND_PACKET_20260827.md",
+      "sha256": "f2b94217dc2c0e3f70e3687801548def7abccd1d36433d92cec6d651017cb333",
+      "blob_sha1": "f093e51577435d645288dcae5926f38665a0b277",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "Recovered historical hostile audit and blind packet",
+        "zh-CN": "恢复的历史 hostile audit 与 blind packet"
+      }
+    },
+    {
+      "id": "S117",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "20a1fe807a7c30376098685ec3f3d62650ab0e42",
+      "path": "research_notes/OWNER_RB_ORIGIN_RECOVERY_COMPARISON_20260909.md",
+      "sha256": "b5bcbf0862b4b010ed3f4742f2b1873b326e1ca3bf03f1f81942a633afe8e1c6",
+      "blob_sha1": "2daa0de398fb23a133af828c54c98c25661d08aa",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "Owner source-locator recovery and structural comparison only",
+        "zh-CN": "Owner 来源定位恢复及仅限结构的比较"
+      }
+    },
+    {
+      "id": "S118",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "20a1fe807a7c30376098685ec3f3d62650ab0e42",
+      "path": "research_activity_records/RA-3AA99FDD73D4DE233E1F81E5.json",
+      "sha256": "7b9cfd3e9eae122791ee9dea59c85022a9db2d1585b748a53de40e615675b9fb",
+      "blob_sha1": "2e2248cbc5c3c408fd6aac284ef0f1cb6c943b6a",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "Historical source activity: verified EM repair, unknown original session, no live authority",
+        "zh-CN": "历史来源活动：EM 修复已核验，原会话未知，无当前活动权威"
       }
     }
   ],
