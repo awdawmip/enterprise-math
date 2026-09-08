@@ -11,6 +11,7 @@ The live runtime is current-only. Task definitions come from immutable V2 task-p
 Canonical tools:
 
 - `research_control_dispatch.py` — recovery-aware top-level router;
+- `tools/research_activity.py` — lightweight live/retrospective activity registration and EM-source persistence tracking; it creates no formal task, claim, review or mathematical authority;
 - `tools/research_dispatch.py` — fresh task selector;
 - `tools/research_dispatch_core.py` — implementation behind the current dispatch facade, not an additional live entrypoint;
 - `tools/research_driver_queue.py` — read-only discovery of frozen Results awaiting Driver review, review synthesis or follow-up; it creates no claim or review authority;

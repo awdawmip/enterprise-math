@@ -37,6 +37,7 @@ from tools import research_dispatch
 from tools import research_lane_dispatch
 from tools import research_runtime
 from tools import research_runtime_reducer
+from tools import research_activity
 
 ROOT = Path(__file__).resolve().parent
 research_control_bootstrap.install(ROOT)
@@ -378,6 +379,10 @@ def route_control(
         result["quarantined_tasks"] = sorted(set(fork_quarantines) | set(integrity_quarantines))
         result["publication_fork_quarantines"] = fork_quarantines
         result["task_integrity_quarantines"] = integrity_quarantines
+    # Owner bookkeeping is separate from candidate selection and claim liveness.
+    activities = research_activity.overview(root, limit=20)
+    if activities["items"] or activities["has_more"]:
+        result["research_activity_overview"] = activities
     return result
 
 

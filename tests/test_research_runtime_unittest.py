@@ -210,6 +210,7 @@ class ResearchRuntimeTransitionTests(unittest.TestCase):
             set(runtime["repository_tool_paths"]),
             {
                 "tools/active_turn_liveness.py",
+                "tools/research_activity.py",
                 "tools/research_cohort_runtime.py",
                 "tools/research_dispatch.py",
                 "tools/research_dispatch_core.py",

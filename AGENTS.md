@@ -197,6 +197,16 @@ Exact marker:
 
 Do not use `DIRECT` as a visible researcher scope. If `Global-Knowledge-Sync:` is emitted, identity appears immediately before it.
 
+### Lightweight research activity registration
+
+Canonical schema, connector-only examples, and commands: `docs/RESEARCH_ACTIVITY_PROTOCOL.md`.
+
+Every conversation beginning substantive research, including direct `TASK_RESEARCH` and FREE Phase A, must first record a lightweight activity with `tools/research_activity.py register` and persist its unique `research_activity_records/<RA-id>.json` to Enterprise Math. No question, task publication, claim, current-result lookup, or discovery agenda is required for this bookkeeping. Activity registration grants none of those authorities. Existing formal task/claim runtime authority remains mandatory for official tasks.
+
+Use `tools/research_runtime_guard.py authorize` with the non-task activity state at startup, and `pre-final` with the current semantic checkpoint event and original parent-liveness inputs before a substantive final response. An unregistered conversation receives `REGISTER_RESEARCH_ACTIVITY`; local-only registration requires an immutable EM full-file connector readback before the activity gate opens. A record on a source branch is not automatically visible in canonical main: provide its exact link to owner and retain the pending intake distinction. Connector-only hosts may create the same schema through managed GitHub transport, using a stable unique activity path and non-force CAS; they need not wait for a PR or CI merely to record an activity.
+
+Checkpoint updates require the expected old record SHA-256 and a unique event ID. Preserve previous checkpoints; a new exact repair event resolves a named prior sync debt. Imported connector observations must include actual repo/ref/path, full response content, and blob; an observation ID is local provenance, not a fabricated tool-call ID or server signature. A KB-only checkpoint remains `SYNC_DEBT`; persistence never promotes mathematics. Owner/Driver can inspect `tools/research_activity.py list --limit 20` and the canonical dispatch `research_activity_overview`, which is bookkeeping only and never puts FREE activity in the claim queue. Retrospective source capture records an explicitly unknown original session instead of inventing a session or claim.
+
 ## 4. FREE_AXIOM_DISCOVERY
 
 FREE Phase A receives the **primitive substrate**, not the current-result catalog and not a suggestion menu.

@@ -1,0 +1,26 @@
+{
+  "arguments": {
+    "path": "research_notes/1162_higher_m_positive_defect_nogo_20260908_b62d.md",
+    "ref": "12fe333b4a8e52f66f1835e4d096260f2e274826",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "owner-activity-backfill-20260908-6",
+  "observed_at_utc": "2026-09-08 15:31:21 UTC",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# #1162 — no-go for a naive positive roughness defect beyond the Basel inverse trace\n\nStatus: RESEARCH_NOTE / EXACT FINITE COUNTEREXAMPLE / NOT_PROMOTED\nResearcher-ID: EM-DIRECT-B62D\nResearch-Mode: TASK_RESEARCH\nProgress-Event-ID: 1162-higher-m-positive-defect-nogo-20260908-b62d\nDate: 2026-09-08\n\n## 1. Question\n\nThe Basel/m=1 weighted-cycle readout has the exact form\n\n`beta_1(rough)=beta_1(uniform)-D`, `D>=0`.\n\nDoes the same one-sided positive-defect picture extend to higher normalized inverse moments\n\n`beta_m=2^(2m-1) Tr[(L^+)^m]/(N S)^m`?\n\nThe answer is no, already for a four-cycle and an arbitrarily small finite roughness perturbation.\n\n## 2. Exact alternating C4 family\n\nFix total resistance S=1 and take the positive edge resistances\n\n`g(t)=(1/4+t, 1/4-t, 1/4+t, 1/4-t)`,\n\nwith `|t|<1/4`.\n\nLet `L(t)` be the corresponding weighted cycle Laplacian with conductances `1/g_i(t)`.\n\nDirect finite characteristic-polynomial algebra gives\n\n`det(lambda I-L(t))\n = lambda (4lambda t-lambda+8)(4lambda t+lambda-8)\n   (16lambda t^2-lambda+16)/[(4t-1)^2(4t+1)^2]`.\n\nNo derivative in t is used to establish the formulas below; they are exact rational functions/polynomials in t.\n\n## 3. m=1 versus m=2\n\nFor the scale-free first inverse moment,\n\n`beta_1(t)=2 Tr(L(t)^+)/4 = (5-16t^2)/32\n          =5/32 - t^2/2`.\n\nThus any nonzero alternating roughness lowers the Basel inverse-trace readout, consistent with the exact nonnegative defect theorem.\n\nBut the second inverse moment is\n\n`beta_2(t)=8 Tr[(L(t)^+)^2]/16\n          =(16t^2+3)^2/512`\n\nor\n\n`beta_2(t)=9/512 + 3t^2/16 + t^4/2`.\n\nHence for every `0<|t|<1/4`,\n\n`beta_2(t)>beta_2(0)`.\n\nThe uniform cycle is therefore not a global upper envelope for the second inverse moment; in this direction it is a strict local minimum.\n\nFor completeness the third normalized inverse moment is\n\n`beta_3(t)=17/8192 + 45t^2/512 + 3t^4/32 - t^6/2`,\n\nso its leading roughness response is also upward.\n\n## 4. Consequence\n\nThere cannot be a universal extension of the Basel formula of the form\n\n`beta_m(rough)=beta_m(uniform)-D_m(rough)`\n\nwith one nonnegative defect `D_m>=0` for every positive weighted cycle when `m>=2`, because the explicit `C4` family already violates the required sign at `m=2`.\n\nThus the positive repair coordinate `D` from the Basel inverse trace is genuinely order-specific. Higher inverse moments require signed and/or higher-moment repair information.\n\nThis also blocks an invalid BRC shortcut: positivity proved for the m=1 roughness carrier must not be propagated to the m=2 or m=3 observers merely because they use the same underlying weighted cycle.\n\n## 5. Why m=1 is structurally special\n\nAt m=1 the trace of the pseudoinverse is proportional to the Kirchhoff index, hence to a sum of pairwise effective resistances. On a cycle each pair resistance is the quadratic concave function `s(1-s)` of an arc-resistance fraction s. That exact quadratic concavity produced the sum-of-squares defect.\n\nFor `Tr[(L^+)^m]`, m>=2, this pairwise effective-resistance linearization is absent. The explicit C4 counterexample shows that no sign-preserving inheritance should be assumed.\n\n## 6. BRC typing\n\nREUSE_APPLIED: observer typing. The m=1 positive roughness repair coordinate is valid only for the declared m=1 output. Changing the future observer to higher inverse moments invalidates that collapse. The C4 family is an exact information-loss witness.\n\nNo positive weighted BRC compression is applied to the higher-m correction before its sign structure is resolved.\n\n## 7. Next\n\n1. Seek a finite signed/tensor roughness carrier for m=2 under equal subdivision.\n2. Determine whether rooted-forest coefficients provide a natural finite hierarchy of repair coordinates for higher moments.\n3. Preserve the m=1 positive defect as a special Basel theorem rather than a generic inverse-spectrum principle.\n",
+      "display_title": "1162_higher_m_positive_defect_nogo_20260908_b62d.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/12fe333b4a8e52f66f1835e4d096260f2e274826/research_notes/1162_higher_m_positive_defect_nogo_20260908_b62d.md",
+      "encoding": "utf-8",
+      "sha": "c133986fb664a807f731a22cd440b9d76136a781"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

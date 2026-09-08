@@ -1,0 +1,26 @@
+{
+  "arguments": {
+    "path": "research_notes/1162_persistent_roughness_local_energy_20260908_b62d.md",
+    "ref": "9764628cd26e492a39a73701f924a7ce3f949ed3",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "owner-activity-backfill-20260908-4",
+  "observed_at_utc": "2026-09-08 15:31:21 UTC",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# #1162 — local positive formula and exact range of the persistent roughness memory\n\nStatus: RESEARCH_NOTE / FINITE LOCAL ROUGHNESS ENERGY / NOT_PROMOTED\nResearcher-ID: EM-DIRECT-B62D\nResearch-Mode: TASK_RESEARCH\nProgress-Event-ID: 1162-persistent-roughness-local-energy-20260908-b62d\nDate: 2026-09-08\n\n## 1. Setting\n\nContinue the exact equal-subdivision roughness law. Let normalized positive cycle gaps satisfy `sum_i g_i=1`. Put\n\n`delta_i=g_i-1/N`,\n\n`e_(i+1)-e_i=delta_i`,\n\n`x_i=e_i-e_bar`.\n\nThe exact defect and local variance are\n\n`D=(2/N)sum_i x_i^2`,\n\n`V=(1/N)sum_i(x_(i+1)-x_i)^2`.\n\nThe persistent equal-subdivision memory is `H=D-V/3`.\n\n## 2. Local positive formula\n\nExpanding the nearest-neighbor difference gives\n\n`H=(1/N)[2sum x_i^2 -(1/3)sum(x_(i+1)-x_i)^2]`\n\nand therefore\n\n`H=(1/(3N))[4sum x_i^2+2sum x_i x_(i+1)]`.\n\nEquivalently, in manifestly positive local form,\n\n`H=(1/(3N)) sum_i[(x_i+x_(i+1))^2+2x_i^2]`.\n\nThus H is not a hidden continuum remainder: it is an explicit finite nearest-neighbor quadratic energy of the cumulative gap discrepancy.\n\nThe formula immediately proves `H>=0`, with equality only when every x_i=0, hence every normalized gap is `1/N`.\n\nIt also gives `H>=D/3`, consistent with the earlier bound `V<=2D`.\n\n## 3. Exact global range on the gap simplex\n\nThe map from the normalized gap vector g to the centered cumulative vector x is linear, and the displayed H is a positive quadratic form. Hence H is convex on the closed probability simplex `g_i>=0`, `sum g_i=1`.\n\nEvery simplex vertex corresponds to putting all normalized resistance on one edge. By cyclic symmetry all vertices have the same H. Convexity therefore yields\n\n`H(g) <= H(vertex)`.\n\nAt a vertex,\n\n`D=(N^2-1)/(6N^2)`,\n\n`V=(N-1)/N^2`,\n\nso\n\n`H_max=(N-1)^2/(6N^2)`.\n\nTherefore\n\n`0 <= H <= (N-1)^2/(6N^2) < 1/6`.\n\nFor strictly positive gaps the upper boundary is not attained.\n\n## 4. Range of the rough refinement fixed point\n\nUnder repeated equal subdivision the scale-free inverse-trace readout converges along the exact finite refinement orbit to\n\n`C_rough=1/6-H`.\n\nConsequently\n\n`(2N-1)/(6N^2) <= C_rough <= 1/6`\n\non the closed gap simplex, with strict lower inequality for strictly positive gaps.\n\nThus the persistent roughness memory can shift the Basel fixed point substantially, but cannot make the scale-free fixed point negative.\n\n## 5. BRC meaning\n\nH is a concrete repair coordinate that is:\n- finite;\n- positive;\n- local in the cumulative-discrepancy state;\n- invariant under equal subdivision;\n- sufficient to separate the universal uniform coefficient `1/6` from the rough family fixed point `C_rough`.\n\nNo microscopic derivative or smooth interpolation is involved.\n\n## 6. Next\n\n1. Compare this local H energy with the project-native permitted roughness/gauge relations.\n2. Determine whether analogous finite local quadratic/tensor energies appear in the forest jet for m>=2, noting the exact positive-defect no-go at m=2.\n",
+      "display_title": "1162_persistent_roughness_local_energy_20260908_b62d.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/9764628cd26e492a39a73701f924a7ce3f949ed3/research_notes/1162_persistent_roughness_local_energy_20260908_b62d.md",
+      "encoding": "utf-8",
+      "sha": "23d5178edea230a0bcb89037face6d826cf9e61c"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
