@@ -1,0 +1,471 @@
+{
+  "actual_commands": [
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\em\\owner-20260907\\experiments\\owner_two_positive_stability_20260908\\independent_review_20260908\\review_two_positive.py",
+        "--root",
+        "D:\\em\\owner-20260907",
+        "--output",
+        "D:\\em\\TEMP\\owner-two-positive-portable-20260908-jeegon7j\\actual-replay"
+      ],
+      "cwd": "D:\\em\\owner-20260907",
+      "elapsed_seconds": 0.720949,
+      "exit_code": 0,
+      "input_head": "50859d654729c56f8e4c098fa2a8605768b80edf",
+      "input_metadata_sha256": "57a90c8aa99f22d51cbb8bd905cf9700900ecdb4f56b081cacaf8d713841548c",
+      "input_tree": "d4567b3a5dc4c222c10ff44c03efc805af299a71",
+      "label": "portable_replay",
+      "removed_inherited_env": [
+        "PYTHONPATH",
+        "PYTHONSTARTUP",
+        "PYTHONOPTIMIZE"
+      ],
+      "script_sha256": "37c831a0b51dbd6cd16e9657d3f402f7903af7deaa205ce17772639b6af3b51e",
+      "source_kind": "published-path candidate overlay; nineteen byte pins, not clean HEAD assertion",
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "{\"status\": \"PASS\", \"cases\": 9, \"tables\": 180, \"local_rejections\": 18, \"source_drift_rejection\": true, \"protected_paths\": 19, \"evidence_sha256\": \"80c13584fe2fc016945baa89ad46346a743eb584c40ac35603ac8f4ef7bfa0c1\"}\r\n",
+      "stdout_sha256": "4133311d69146085ae3286d54cc76125b1ba174fe1f74c3191423c347108c112",
+      "timeout": false,
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_exact_arithmetic_policy.py",
+        "D:\\em\\owner-20260907\\experiments\\owner_two_positive_stability_20260908\\independent_review_20260908\\review_two_positive.py"
+      ],
+      "cwd": "D:\\em\\owner-20260907",
+      "elapsed_seconds": 0.122643,
+      "exit_code": 0,
+      "input_head": "50859d654729c56f8e4c098fa2a8605768b80edf",
+      "input_metadata_sha256": "57a90c8aa99f22d51cbb8bd905cf9700900ecdb4f56b081cacaf8d713841548c",
+      "input_tree": "d4567b3a5dc4c222c10ff44c03efc805af299a71",
+      "label": "selected_arithmetic_policy",
+      "removed_inherited_env": [
+        "PYTHONPATH",
+        "PYTHONSTARTUP",
+        "PYTHONOPTIMIZE"
+      ],
+      "script_sha256": "37c831a0b51dbd6cd16e9657d3f402f7903af7deaa205ce17772639b6af3b51e",
+      "source_kind": "published-path candidate overlay; nineteen byte pins, not clean HEAD assertion",
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "EXACT_ARITHMETIC_POLICY: PASS (1 files)\r\n",
+      "stdout_sha256": "60692051191ed57639e632a287f458edf152218bed61e3bc580f41d7c72215b6",
+      "timeout": false,
+      "timeout_seconds": 60
+    }
+  ],
+  "adaptation_proof": {
+    "bundled_metadata_sha256": "57a90c8aa99f22d51cbb8bd905cf9700900ecdb4f56b081cacaf8d713841548c",
+    "declared_adaptations": [
+      "CLI argparse import",
+      "portable locations and bundled pin input",
+      "hash-pinned compact metadata instead of local full-content manifest",
+      "size plus existing exact SHA check replaces embedded duplicate full text",
+      "accurate replay-input and historical provenance receipt fields",
+      "mark fixed global knowledge value as authoring snapshot",
+      "explicit root/output CLI binding"
+    ],
+    "duplicate_manifest_full_text_replaced_by_pinned_sha256_and_size_for_same_three_files": true,
+    "hardcoded_machine_path_literals_removed": true,
+    "historical_script_sha256": "122a87bc28a8ddbe7cb8c07b4c1e09f99ed60f2c025f3e9df8c839551bb5d78a",
+    "main_execution_and_mathematical_checks_block_byte_identical": true,
+    "portable_script_sha256": "37c831a0b51dbd6cd16e9657d3f402f7903af7deaa205ce17772639b6af3b51e",
+    "source_pin_set_same_sixteen": true,
+    "unchanged_function_or_class_AST": [
+      "require",
+      "sha",
+      "write_json",
+      "protected_snapshot",
+      "oracle",
+      "OnePass",
+      "expected_div",
+      "audit_case",
+      "rejection"
+    ]
+  },
+  "artifact_policy": {
+    "full_case_tables_in_this_source_package": false,
+    "full_case_tables_regenerated_by_the_script_in_explicit_output_directory": true,
+    "old_full_manifest_or_TEMP_files_needed_for_replay": false,
+    "scope": "Bundled metadata plus nineteen pinned files in the supplied source checkout; historical paths in this receipt describe an actual past run and are not executable dependencies."
+  },
+  "committed_or_pushed_by_reviewer": false,
+  "comparison_to_historical_run": {
+    "all_eighteen_local_rejections_equal": true,
+    "all_mathematical_checks_block_byte_identical": true,
+    "canonical_call_counts_equal": true,
+    "case_count": 9,
+    "complete_case_outputs_byte_identical": true,
+    "complete_case_outputs_bytes": 227160,
+    "complete_case_outputs_sha256": "8377b0a65346d6b137d5820edbc6ddcb2be79d29d033ef8cf2e618af188d3375",
+    "old_complete_case_outputs_sha256": "8377b0a65346d6b137d5820edbc6ddcb2be79d29d033ef8cf2e618af188d3375",
+    "raw_table_count": 180
+  },
+  "execution_evidence": {
+    "author_full_manifest_required_for_replay": false,
+    "author_manifest_provenance_sha256": "ccfdfc7365685e5e4270ca7cd9d48802993f7e627f07914abe087f68399a7105",
+    "author_saved_counts": {
+      "cases": 17,
+      "rejections": 18,
+      "tables": 340
+    },
+    "authority": "internal auxiliary independent execution audit; no formal Result, Driver verdict, Foundation or new theorem",
+    "calls": {
+      "DIV": 64,
+      "Spatial6_init": 2124,
+      "joint_projection": 485,
+      "native_restore": 1040,
+      "native_slice": 1040,
+      "old_boundary": 3,
+      "population": 30,
+      "raw_projection": 485
+    },
+    "cases": [
+      {
+        "D": 8273153554255617868983008432299507701873690283447163912225368429446311715550180068658483561349865846704311797996005892990494607142525675800342567010930760478881504606029054999488050624099750939339790755426321297478858807972510657577430552150649899640468901338121294090979219428234512847003533414175726178693610069347755095659695353545360529790683181065043538446867918248788742705333365840422466199773229341881841562551926235483545177894989221351527346588987721531194144175285969973689640218042094418808237706900648114671371775300698367651383174442595695957899162146670906778789201530522867749937550298524431256635047984,
+        "M": 2068288388563904467245752108074876925468422570861790978056342107361577928887545017164620890337466461676077949499001473247623651785631418950085641752732690119720376151507263749872012656024937734834947688856580324369714701993127664394357638037662474910117225334530323522744804857058628211750883353543931544673402517336938773914923838386340132447670795266260884611716979562197185676333341460105616549943307335470460390637981558870886294473747305337881836647246930382798536043821492493422410054510523604702059426725162028667842943825174591912845793610648923989474790536667726694697300382630716937484387574631107814158761996,
+        "N": 1034144194281952233622876054037438462734211285430895489028171053680788964443772508582310445168733230838038974749500736623811825892815709475042820876366345059860188075753631874936006328012468867417473844428290162184857350996563832197178819018831237455058612667265161761372402428529314105875441676771965772336701258668469386957461919193170066223835397633130442305858489781098592838166670730052808274971653667735230195318990779435443147236873652668940918323623465191399268021910746246711205027255261802351029713362581014333921471912587295956422896805324461994737395268333863347348650191315358468742193787315553907079380998,
+        "P": 1034144194281952233622876054037438462734211285430895489028171053680788964443772508582310445168733230838038974749500736623811825892815709475042820876366345059860188075753631874936006328012468867417473844428290162184857350996563832197178819018831237455058612667265161761372402428529314105875441676771965772336701258668469386957461919193170066223835397633130442305858489781098592838166670730052808274971653667735230195318990779435443147236873652668940918323623465191399268021910746246711205027255261802351029713362581014333921471912587295956422896805324461994737395268333863347348650191315358468742193787315553907079380998,
+        "branch": "FOUR_H_SIXTEEN_L_DUAL",
+        "input_iterations": [
+          1,
+          1
+        ],
+        "name": "split_generators_cancel_bigint_rectangle",
+        "p": 2,
+        "sharp": true,
+        "tables_checked": 20
+      },
+      {
+        "D": 72,
+        "M": 12,
+        "N": 6,
+        "P": 6,
+        "branch": "FOUR_H_SIXTEEN_L_DUAL",
+        "input_iterations": [
+          1,
+          1
+        ],
+        "name": "balanced_unequal_corners",
+        "p": 2,
+        "sharp": false,
+        "tables_checked": 20
+      },
+      {
+        "D": 140,
+        "M": 10,
+        "N": 7,
+        "P": 3,
+        "branch": "AVOIDING_TABLE_COUNT",
+        "input_iterations": [
+          1,
+          1
+        ],
+        "name": "d1_third_endpoint_negative_excess",
+        "p": 2,
+        "sharp": false,
+        "tables_checked": 20
+      },
+      {
+        "D": 160,
+        "M": 10,
+        "N": 5,
+        "P": 5,
+        "branch": "AVOIDING_TABLE_COUNT",
+        "input_iterations": [
+          1,
+          1
+        ],
+        "name": "d4_two_endpoint_mix",
+        "p": 2,
+        "sharp": false,
+        "tables_checked": 20
+      },
+      {
+        "D": 280,
+        "M": 14,
+        "N": 7,
+        "P": 7,
+        "branch": "AVOIDING_TABLE_COUNT",
+        "input_iterations": [
+          1,
+          1
+        ],
+        "name": "d6_can3_only_collapse",
+        "p": 2,
+        "sharp": false,
+        "tables_checked": 20
+      },
+      {
+        "D": 40,
+        "M": 4,
+        "N": 2,
+        "P": 2,
+        "branch": "REUSED_P_LE_1_BOUNDARY",
+        "input_iterations": [
+          1,
+          1
+        ],
+        "name": "p1_cancellation_at_positive_site",
+        "p": 1,
+        "sharp": false,
+        "tables_checked": 20
+      },
+      {
+        "D": 100,
+        "M": 5,
+        "N": 5,
+        "P": 0,
+        "branch": "REUSED_P_LE_1_BOUNDARY",
+        "input_iterations": [
+          1,
+          1
+        ],
+        "name": "p0_after_shared_cancellation",
+        "p": 0,
+        "sharp": false,
+        "tables_checked": 20
+      },
+      {
+        "D": 0,
+        "M": 0,
+        "N": 0,
+        "P": 0,
+        "branch": "REUSED_P_LE_1_BOUNDARY",
+        "input_iterations": [
+          1,
+          1
+        ],
+        "name": "zero_after_duplicate_cancellation",
+        "p": 0,
+        "sharp": false,
+        "tables_checked": 20
+      },
+      {
+        "D": 200,
+        "M": 10,
+        "N": 0,
+        "P": 10,
+        "branch": "FOUR_H_SIXTEEN_L_DUAL",
+        "input_iterations": [
+          1,
+          1
+        ],
+        "name": "p2_no_negative_population",
+        "p": 2,
+        "sharp": false,
+        "tables_checked": 20
+      }
+    ],
+    "consumer_sha256": "3fe2fa6c824b7cff1fca4ad9a3f0235fc008c2a00b152893559eed54d2f63da7",
+    "forbidden_calls": [],
+    "independent_tables": 180,
+    "input_metadata_sha256": "57a90c8aa99f22d51cbb8bd905cf9700900ecdb4f56b081cacaf8d713841548c",
+    "observation_boundary": "after canonical imports; finite calls, not import initialization, all transitive code or all C internals",
+    "observed_code_objects": {
+      "DIV": {
+        "co_code_sha256": "ac34c5e7814e8868b458e6e2d46da898331194adb15fd5612ebd03d0858e7200",
+        "module": "enterprise_math.exact_arithmetic",
+        "source": "D:\\em\\owner-20260907\\src\\enterprise_math\\exact_arithmetic.py"
+      },
+      "Spatial6_init": {
+        "co_code_sha256": "6e443c1aec8fc81b0187f88a3d62322029b1613b587008f751665b00ef619589",
+        "module": "x6_signed",
+        "source": "D:\\em\\owner-20260907\\experiments\\x6_signed_native_spatial_v16_20260905\\x6_signed.py"
+      },
+      "joint_projection": {
+        "co_code_sha256": "c3ead1024f756bab1d5b653a2708b288572b11164c187cedac389f23829c14f7",
+        "module": "check_one_positive_stability",
+        "source": "D:\\em\\owner-20260907\\experiments\\owner_one_positive_stability_20260908\\check_one_positive_stability.py"
+      },
+      "native_restore": {
+        "co_code_sha256": "baa6e4b0283d82e3201267b154085b8aa95643a086948949168534cbb776b1c5",
+        "module": "x6_signed",
+        "source": "D:\\em\\owner-20260907\\experiments\\x6_signed_native_spatial_v16_20260905\\x6_signed.py"
+      },
+      "native_slice": {
+        "co_code_sha256": "c2a9c05c3ffee7dbc826b418642885505c906d92fbb9e1216962079bd44dfd57",
+        "module": "x6_signed",
+        "source": "D:\\em\\owner-20260907\\experiments\\x6_signed_native_spatial_v16_20260905\\x6_signed.py"
+      },
+      "old_boundary": {
+        "co_code_sha256": "856284b984c0ff4ceb776446bd0ce2381531f75e1284ecaef1be1f92d9a17021",
+        "module": "check_one_positive_stability",
+        "source": "D:\\em\\owner-20260907\\experiments\\owner_one_positive_stability_20260908\\check_one_positive_stability.py"
+      },
+      "population": {
+        "co_code_sha256": "d309a72d294559f0cbc52164692726d47c9195620d171a462674d059bf3765fe",
+        "module": "check_one_positive_stability",
+        "source": "D:\\em\\owner-20260907\\experiments\\owner_one_positive_stability_20260908\\check_one_positive_stability.py"
+      },
+      "raw_projection": {
+        "co_code_sha256": "09cf3e4117caa7cc9eaa6260f7fe85449c8bb0c58e959109d0256534c07751a4",
+        "module": "check_one_positive_stability",
+        "source": "D:\\em\\owner-20260907\\experiments\\owner_one_positive_stability_20260908\\check_one_positive_stability.py"
+      }
+    },
+    "protected_bytes_and_mtimes_unchanged": true,
+    "protected_paths": {
+      "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md": "519a16725156be5461c6e28a0dcef664e267cff4e85120cfb257d5d540ec459e",
+      "exact_arithmetic_runtime_policy.json": "0fdb8eddc09d9e734ddd91b52d6c3c18c9d6036837dfe9fee0bbdbdb7d44b2aa",
+      "experiments/owner_one_positive_stability_20260908/check_one_positive_stability.py": "283c0b64e995077d01e5b42114ffd5791bafadeb5f175b4df17118ee1a9d5878",
+      "experiments/owner_two_positive_stability_20260908/README.md": "929dedf2a8f5ac05b965406ad15eca1ecab27c05d9586fdbdf2406af2843c327",
+      "experiments/owner_two_positive_stability_20260908/certificate.json": "244e9cd7844e391b3f19cdbebaaad36fd70ddf14c97701252847ca2a50761e7e",
+      "experiments/owner_two_positive_stability_20260908/check_two_positive_stability.py": "3fe2fa6c824b7cff1fca4ad9a3f0235fc008c2a00b152893559eed54d2f63da7",
+      "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py": "6f0d79a519c53fed1300b3fabf500c34e30aa46cdd63b409fa6ecc115071ecb4",
+      "experiments/x6_signed_native_spatial_v16_20260905/x6_signed.py": "e48b6f2133edc588fde98b1b0f02ce27fecda915b152b7901300898920d52b8e",
+      "research_notes/OWNER_ONE_POSITIVE_STABILITY_20260907.md": "b49eac9291c7b6a6ec458a133700ee17a4573972e58787a976871512746dd4e7",
+      "research_notes/OWNER_ONE_POSITIVE_STABILITY_INDEPENDENT_AUDIT_20260908.md": "f6fe6713fb46bc0fd9c6626333cb44afd14c88b13b7f7d99fe8f928859434038",
+      "research_notes/OWNER_TWO_POSITIVE_EQUALITY_CLASSIFICATION_REVIEW_20260908.md": "1a50237cb4a92a3ec2ef7168b7bd8e90598f69aba394217221f24c83fa810ec7",
+      "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_BOUND_REVIEW_20260908.md": "1bb732a50cccbbec6c8c11950104c62eed9afc15f326fcc39d9142bd13b24a35",
+      "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_INDEPENDENT_AUDIT_20260908.md": "f610e3d642b53279efa91dec15ad3b392270768f73ad0a31edf38212b60be61c",
+      "research_notes/OWNER_X6_STABILITY_20260907.md": "2915e70210dce5bc136c915e45e96a7c8a1f6dd414fae1590a4687f41bff3127",
+      "src/enterprise_math/__init__.py": "bf974df0ef0f57991947d061cb300e835e53bc79ff5667e4229fcc7a6cadbdcc",
+      "src/enterprise_math/core.py": "d2814d1d31eb195905f05136f250fcac2232b8cfc7dc6c9797000733ddebe636",
+      "src/enterprise_math/division.py": "4421c6dc9acfaa61492137951e543973c010c6a127655126152cc18763cc35e9",
+      "src/enterprise_math/exact_arithmetic.py": "f4f8feead82dc53a35e5fec495b31e46e64820f7b115c9efd6034063e68f8ad6",
+      "tools/check_exact_arithmetic_policy.py": "d5629502352e8207a4616368858e68dec1c259e8a0c635769163784dc8bd01fa"
+    },
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "rejections": [
+      {
+        "exception": "AssertionError",
+        "message": "raw table set or order differs from all twenty slices",
+        "name": "missing_twentieth_table"
+      },
+      {
+        "exception": "AssertionError",
+        "message": "raw table set or order differs from all twenty slices",
+        "name": "duplicate_axes"
+      },
+      {
+        "exception": "AssertionError",
+        "message": "raw table rows disagree with the actual Jordan projection",
+        "name": "wrong_retained_offset"
+      },
+      {
+        "exception": "AssertionError",
+        "message": "raw table rows disagree with the actual Jordan projection",
+        "name": "wrong_can3_component"
+      },
+      {
+        "exception": "AssertionError",
+        "message": "raw table rows disagree with the actual Jordan projection",
+        "name": "diagonal_shift_preserves_can3_but_changes_raw"
+      },
+      {
+        "exception": "AssertionError",
+        "message": "raw table L1 disagrees with the actual Jordan projection",
+        "name": "changed_raw_norm"
+      },
+      {
+        "exception": "AssertionError",
+        "message": "raw table rows disagree with the actual Jordan projection",
+        "name": "discard_explicit_zero_address"
+      },
+      {
+        "exception": "AssertionError",
+        "message": "reported rectangle disagrees with original Jordan coordinates and masses",
+        "name": "false_original_corner_from_can3"
+      },
+      {
+        "exception": "AssertionError",
+        "message": "reported rectangle disagrees with original Jordan coordinates and masses",
+        "name": "false_mass_normalization"
+      },
+      {
+        "exception": "AssertionError",
+        "message": "reported sharp flag disagrees with the nonzero raw gap",
+        "name": "support_only_false_sharp"
+      },
+      {
+        "exception": "ValueError",
+        "message": "common denominator must be a strictly positive integer",
+        "name": "boolean_denominator"
+      },
+      {
+        "exception": "ValueError",
+        "message": "common denominator must be a strictly positive integer",
+        "name": "subclass_denominator"
+      },
+      {
+        "exception": "ValueError",
+        "message": "common denominator must be a strictly positive integer",
+        "name": "string_denominator"
+      },
+      {
+        "exception": "ValueError",
+        "message": "each population numerator must be a strictly positive integer",
+        "name": "boolean_weight"
+      },
+      {
+        "exception": "ValueError",
+        "message": "each population numerator must be a strictly positive integer",
+        "name": "subclass_weight"
+      },
+      {
+        "exception": "ValueError",
+        "message": "each population numerator must be a strictly positive integer",
+        "name": "negative_weight"
+      },
+      {
+        "exception": "ValueError",
+        "message": "canonical Spatial6 input required",
+        "name": "cell_subclass"
+      },
+      {
+        "exception": "ValueError",
+        "message": "aggregated difference is outside p(f)<=2",
+        "name": "true_p3_after_aggregation"
+      }
+    ],
+    "review_script_authoring_global_knowledge_snapshot": "main@31d06a1 / GLOBAL_KNOWLEDGE_V1",
+    "script_sha256": "37c831a0b51dbd6cd16e9657d3f402f7903af7deaa205ce17772639b6af3b51e",
+    "source_drift_subprocess": {
+      "argv": [
+        "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\em\\TEMP\\owner-two-positive-portable-20260908-jeegon7j\\actual-replay\\pin-drift-fixture\\experiments\\owner_two_positive_stability_20260908\\check_two_positive_stability.py"
+      ],
+      "cwd": "D:\\em\\TEMP\\owner-two-positive-portable-20260908-jeegon7j\\actual-replay\\pin-drift-fixture",
+      "exit_code": 1,
+      "stderr_sha256": "55d6f995b2761b1688f6d90539f2d377d89968581a26d5cf4a9a3413a1dd3d90",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "source_root": "D:\\em\\owner-20260907",
+    "status": "PASS"
+  },
+  "formal_math_status_changes": false,
+  "input_metadata": "author_input_pins.json",
+  "preservation": {
+    "complete_historical_review_package_bytes_and_mtimes_unchanged": true,
+    "complete_historical_review_package_file_count": 19,
+    "history_snapshot_after_sha256": "8a2e0c431428b24fe4433cdc288ff6aea4ac9ba6dea49e3c044e5fcda420ce5a",
+    "history_snapshot_before_sha256": "8a2e0c431428b24fe4433cdc288ff6aea4ac9ba6dea49e3c044e5fcda420ce5a",
+    "input_snapshot_after_sha256": "6bc494be10bfdf577b1b9e22ceac201dbb494fb9b8e4a67e4427c2bd689d5ac7",
+    "input_snapshot_before_sha256": "6bc494be10bfdf577b1b9e22ceac201dbb494fb9b8e4a67e4427c2bd689d5ac7",
+    "nineteen_original_inputs_bytes_and_mtimes_unchanged": true
+  },
+  "protected_original_source_changes": false,
+  "replay_entry": "experiments/owner_two_positive_stability_20260908/independent_review_20260908/review_two_positive.py",
+  "review_script_authoring_global_knowledge_snapshot": "main@31d06a1 / GLOBAL_KNOWLEDGE_V1",
+  "schema": "OWNER_TWO_POSITIVE_PORTABLE_INDEPENDENT_REPLAY_V1",
+  "source_drift_actual_output": {
+    "stderr": "Traceback (most recent call last):\r\n  File \"D:\\em\\TEMP\\owner-two-positive-portable-20260908-jeegon7j\\actual-replay\\pin-drift-fixture\\experiments\\owner_two_positive_stability_20260908\\check_two_positive_stability.py\", line 38, in <module>\r\n    _verify_sources(EXTRA_SOURCE_SHA256)\r\n  File \"D:\\em\\TEMP\\owner-two-positive-portable-20260908-jeegon7j\\actual-replay\\pin-drift-fixture\\experiments\\owner_two_positive_stability_20260908\\check_two_positive_stability.py\", line 34, in _verify_sources\r\n    _require(actual == pins, \"reviewed source SHA256 drifted\")\r\n  File \"D:\\em\\TEMP\\owner-two-positive-portable-20260908-jeegon7j\\actual-replay\\pin-drift-fixture\\experiments\\owner_two_positive_stability_20260908\\check_two_positive_stability.py\", line 29, in _require\r\n    raise AssertionError(message)\r\nAssertionError: reviewed source SHA256 drifted\r\n",
+    "stdout": ""
+  },
+  "status": "PASS",
+  "version": "path-adaptation-v1"
+}
