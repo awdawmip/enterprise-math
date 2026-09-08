@@ -1147,8 +1147,8 @@
       "id": "H0O",
       "kind": "frontier",
       "label": {
-        "en": "H0O captured Result awaiting review",
-        "zh-CN": "H0O 已捕获 Result 待审"
+        "en": "H0O theorem-preserving contract revision",
+        "zh-CN": "H0O 保留定理的合同整改"
       },
       "scope": {
         "en": "Pure codimension-3 Poincare-polarization intermediate support family on the same nonsplit target.",
@@ -1156,8 +1156,8 @@
       },
       "evidence": {
         "mathematics": {
-          "en": "Original Result declares NEGATIVE_BOUNDARY: this family cannot create the first exceptional seed.",
-          "zh-CN": "原 Result 声明 NEGATIVE_BOUNDARY：此族不能创造首个 exceptional seed。"
+          "en": "Preserve the scoped identity Pi_W(ch_3(Psi_Q(F)))=T_lambda(Pi_W([F]_cyc)) and its nonzero equivalence with invertible T_lambda. It cannot create exceptional output from zero exceptional input; this does not prove universal zero projection or family non-instantiability.",
+          "zh-CN": "保留限定范围的恒等式 Pi_W(ch_3(Psi_Q(F)))=T_lambda(Pi_W([F]_cyc)) 及 T_lambda 可逆给出的非零等价。它不能从零 exceptional 输入创造非零输出；这不证明全族投影为零或该族不可实例化。"
         },
         "lean": {
           "en": "No new Lean claim.",
@@ -1168,24 +1168,29 @@
           "zh-CN": "原产物/Execution record 保留；18 项捕获控制检查不是新增数学重放。"
         },
         "publication": {
-          "en": "MAIN_SOURCE_CAPTURED at b3d39a9 via PR1391. Old PR1148 closed as duplicated source, not mathematical closure.",
-          "zh-CN": "PR1391 / b3d39a9 已 MAIN_SOURCE_CAPTURED。旧 PR1148 作为重复源关闭，不是数学闭合。"
+          "en": "Original source capture remains PR1391 / b3d39a9; PR1148 closed as duplicate source, not mathematical closure. The Driver review and same-TaskID generation-2 REVISION were published at 3db36e3b and integrated by PR1412 into main a8ac21f9e1b1685dcefe3631f6f754e5425f7d4e.",
+          "zh-CN": "原来源捕获仍为 PR1391 / b3d39a9；PR1148 作为重复源关闭，不是数学闭合。Driver 审查和同 TaskID 的第二代 REVISION 已发布于 3db36e3b，并由 PR1412 合入 main a8ac21f9e1b1685dcefe3631f6f754e5425f7d4e。"
         },
         "formal_review": {
-          "en": "Canonical FROZEN_RETURN / AWAITING_REVIEW, claim null at the verified snapshot; formal Driver review pending.",
-          "zh-CN": "已核快照为 canonical FROZEN_RETURN / AWAITING_REVIEW、claim null；正式 Driver 审查待办。"
+          "en": "DR-59B956C38543808B4146 records REQUEST_REVISION / destination NONE / terminal=false at 2026-09-08T13:07:35Z. This preserves the theorem and requests correction of unsupported satisfaction/closure labels; it grants no theorem acceptance or hard-target completion.",
+          "zh-CN": "DR-59B956C38543808B4146 于 2026-09-08T13:07:35Z 记录 REQUEST_REVISION / destination NONE / terminal=false。保留定理并要求纠正无充分证据的满足/闭合标签，不授予定理接受或硬目标完成。"
         }
       },
       "frontier": {
-        "en": "No non-algebraicity claim; other genuinely mixing kernels or explicit exceptional cycles remain open.",
-        "zh-CN": "无非代数性声称；真正混合的其他核或显式 exceptional cycles 仍开放。"
+        "en": "Original output 4 remains unmet: no positive exceptional output, whole-family zero-projection theorem, or exact target-side family non-instantiability theorem is established. Exceptional source-cycle existence remains unresolved; parent HODGE_SPECIAL_OPEN_FRONTIER_ALGEBRAICITY_MECHANISM stays OPEN. No non-algebraicity, H1 or all-kernel conclusion follows.",
+        "zh-CN": "原输出 4 仍未满足：非零 exceptional 输出、全族零投影定理、目标侧该族不可实例化的精确定理，三项均未建立。exceptional 源支撑循环的存在性仍未决；父目标 HODGE_SPECIAL_OPEN_FRONTIER_ALGEBRAICITY_MECHANISM 保持 OPEN。不推出非代数性、H1 或全核结论。"
       },
       "next": {
-        "en": "Review preserved TP2-A314F727276CFF8CE168 / RR-FB3CF77C4F611FDED79B at its exact scope; do not re-claim or re-research from this map.",
-        "zh-CN": "在精确范围审保留的 TP2-A314F727276CFF8CE168 / RR-FB3CF77C4F611FDED79B；不从图中重新 claim/研究。"
+        "en": "DFU-55A50DE009218A7E6CF2 publishes the same-TaskID REVISION TP2-853EE36ED78FF34CC992 at 2026-09-08T13:07:52Z; unclaimed and unexecuted at this update. Preserve all six original obligations, account for the three terminal alternatives, and return a theorem-preserving correction with a nonempty residue if the hard target remains unproved. No new kernel search or replay of the historical 46 checks; use canonical runtime for any later claim.",
+        "zh-CN": "DFU-55A50DE009218A7E6CF2 于 2026-09-08T13:07:52Z 发布同 TaskID 的 REVISION TP2-853EE36ED78FF34CC992；本次更新时尚未领取、未执行。保留原六项义务，逐项核清三个终局，若硬目标仍未证明，则交回保留定理且有非空未决项的纠正。不搜索新核，不重放历史 46 项检查；后续领取须走 canonical runtime。"
       },
       "source_ids": [
-        "S28"
+        "S28",
+        "S93",
+        "S94",
+        "S95",
+        "S96",
+        "S97"
       ],
       "priority": "CURRENT_CLOSEOUT"
     },
@@ -3518,6 +3523,76 @@
       "label": {
         "en": "PFSSV finite-window contract and identifiability task scope; unexecuted",
         "zh-CN": "PFSSV 有限窗合同与可辨识性任务范围；尚未执行"
+      }
+    },
+    {
+      "id": "S93",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "3db36e3b996351ec04e2c6ec318448c8b1443b61",
+      "path": "research_result_reviews/RR-FB3CF77C4F611FDED79B/DR-59B956C38543808B4146.json",
+      "sha256": "e36b7a3069031babeb72f729c28f065825d7dc825aa7284cece3e629043d5630",
+      "blob_sha1": "f1f879c3f78cb3fdd8c3ceecb62ff769d7ac5584",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "H0O immutable Driver REQUEST_REVISION record",
+        "zh-CN": "H0O 不可变 Driver REQUEST_REVISION 记录"
+      }
+    },
+    {
+      "id": "S94",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "3db36e3b996351ec04e2c6ec318448c8b1443b61",
+      "path": "research_driver_followups/DR-59B956C38543808B4146/DFU-55A50DE009218A7E6CF2.json",
+      "sha256": "0ee3bfc1393c6baf6a99ab837c3b04448ecead9d1cae23b596d11c0de0903100",
+      "blob_sha1": "c85662cb17d35c8bbe72d43a303c9ff78f30b5ab",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "H0O same-task REVISION follow-up packet",
+        "zh-CN": "H0O 同任务 REVISION 后续包"
+      }
+    },
+    {
+      "id": "S95",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "3db36e3b996351ec04e2c6ec318448c8b1443b61",
+      "path": "research_task_records/RS-HODGE-H0O-NONSPLIT-WEIL-INTERMEDIATE-SUPPORT-FM-EXCEPTIONAL-CH3/TP2-853EE36ED78FF34CC992.json",
+      "sha256": "72d79a6c97950ea4cb90fff46de6354a5a2b63696738508dd428334ef8f67207",
+      "blob_sha1": "70ca523b90438c8d1e85dbe4bc6881d178be4d2f",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "H0O generation-2 immutable revision publication",
+        "zh-CN": "H0O 第二代不可变整改发布记录"
+      }
+    },
+    {
+      "id": "S96",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "3db36e3b996351ec04e2c6ec318448c8b1443b61",
+      "path": "research_tasks/HODGE_H0O_CONTRACT_ALIGNMENT_REVISION_20260908.md",
+      "sha256": "04352a60dfb61a7c8e7926e54bd6c9edc7725a0420abda7fe8d1e3b34d407e35",
+      "blob_sha1": "9646c6985973b7978cb7e49608d1d272e5e1a643",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "H0O theorem-preserving contract-alignment revision scope",
+        "zh-CN": "H0O 保留定理的合同对齐整改范围"
+      }
+    },
+    {
+      "id": "S97",
+      "kind": "git_file",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "3db36e3b996351ec04e2c6ec318448c8b1443b61",
+      "path": "driver_reviews/HODGE_H0O_CONTRACT_ALIGNMENT_REVISION_REQUEST_20260908.md",
+      "sha256": "d7e40f5229ce0c8c687117e99e34d60bef0b7fdacf9255bd74f0e15c9e9f1894",
+      "blob_sha1": "0a81e3fc18625780375572ff542101fc8db142c9",
+      "verification": "PUBLISHED_PIN_READBACK",
+      "label": {
+        "en": "H0O Driver decision: retained theorem and unmet terminal alternatives",
+        "zh-CN": "H0O Driver 判词：保留定理与未满足的终局选项"
       }
     }
   ],

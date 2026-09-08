@@ -38,7 +38,7 @@ flowchart TB
   GEO7["GEO7 外部几何路线"]
   GEO8["GEO8 外部几何路线"]
   HODGE["Hodge 计划"]
-  H0O["H0O 已捕获 Result 待审"]
+  H0O["H0O 保留定理的合同整改"]
   OWNER_PORTFOLIO["原 owner 组合：4 项已入 main，15 项保留于源"]
   WEIGHTED_TRADE["八正点加权 trade 已分类"]
   P3_TEMPLATES["三正支撑模板"]
@@ -111,7 +111,7 @@ flowchart TB
 | **GEO7 — GEO7 外部几何路线**<br>已有历史方向；未取最新精确 Result/review。<br>[S21](#source-s21) | SOURCE_REFRESH_REQUIRED；不声称当下闭合。 | SOURCE_REFRESH_REQUIRED。 | SOURCE_REFRESH_REQUIRED。 | 仅历史指针；不推断当下 main/owner 状态。 | SOURCE_REFRESH_REQUIRED；不推断 live claim。 |
 | **GEO8 — GEO8 外部几何路线**<br>已有历史方向；未取最新精确 Result/review。<br>[S21](#source-s21) | SOURCE_REFRESH_REQUIRED；不声称当下闭合。 | SOURCE_REFRESH_REQUIRED。 | SOURCE_REFRESH_REQUIRED。 | 仅历史指针；不推断当下 main/owner 状态。 | SOURCE_REFRESH_REQUIRED；不推断 live claim。 |
 | **HODGE — Hodge 计划**<br>已有计划；H0O 是一个有界叶子，不代表整个计划。<br>[S21](#source-s21), [S28](#source-s28) | 其余路线：SOURCE_REFRESH_REQUIRED。 | SOURCE_REFRESH_REQUIRED。 | 未做全计划程序审计。 | 本轮只新核实下述 H0O 捕获。 | 不推断全计划接受或 claim。 |
-| **H0O — H0O 已捕获 Result 待审**<br>同一 nonsplit target 上 pure codim-3 Poincare-polarization 中间支撑族。<br>[S28](#source-s28) | 原 Result 声明 NEGATIVE_BOUNDARY：此族不能创造首个 exceptional seed。 | 不新增 Lean 声称。 | 原产物/Execution record 保留；18 项捕获控制检查不是新增数学重放。 | PR1391 / b3d39a9 已 MAIN_SOURCE_CAPTURED。旧 PR1148 作为重复源关闭，不是数学闭合。 | 已核快照为 canonical FROZEN_RETURN / AWAITING_REVIEW、claim null；正式 Driver 审查待办。 |
+| **H0O — H0O 保留定理的合同整改**<br>同一 nonsplit target 上 pure codim-3 Poincare-polarization 中间支撑族。<br>[S28](#source-s28), [S93](#source-s93), [S94](#source-s94), [S95](#source-s95), [S96](#source-s96), [S97](#source-s97) | 保留限定范围的恒等式 Pi_W(ch_3(Psi_Q(F)))=T_lambda(Pi_W([F]_cyc)) 及 T_lambda 可逆给出的非零等价。它不能从零 exceptional 输入创造非零输出；这不证明全族投影为零或该族不可实例化。 | 不新增 Lean 声称。 | 原产物/Execution record 保留；18 项捕获控制检查不是新增数学重放。 | 原来源捕获仍为 PR1391 / b3d39a9；PR1148 作为重复源关闭，不是数学闭合。Driver 审查和同 TaskID 的第二代 REVISION 已发布于 3db36e3b，并由 PR1412 合入 main a8ac21f9e1b1685dcefe3631f6f754e5425f7d4e。 | DR-59B956C38543808B4146 于 2026-09-08T13:07:35Z 记录 REQUEST_REVISION / destination NONE / terminal=false。保留定理并要求纠正无充分证据的满足/闭合标签，不授予定理接受或硬目标完成。 |
 | **OWNER_PORTFOLIO — 原 owner 组合：4 项已入 main，15 项保留于源**<br>原 20260907 分片快照的 19 项候选：native/raw/BRC 算子、纯结果及两个参考 candidate 非工具。这不是仓库方法总数，也不是 live 任务队列。<br>[S38](#source-s38), [S39](#source-s39), [S42](#source-s42), [S43](#source-s43), [S52](#source-s52), [S57](#source-s57), [S59](#source-s59), [S61](#source-s61) | 仅有逐项不同的来源声称；组合计数和分类不证明全部 19 项数学成立。 | 无全组合 Lean 声称。 | 无全组合执行声称；被实际选中时，逐项核对 API、原生算术边界与精确来源回执。 | PARTIAL_MAIN_INTEGRATION / OWNER_SOURCE_RETAINED。main44243768 的完整 canonical 目录及全部直接 addenda 中恰有四个原对象逐项完全相同：shell-length、one-positive、weighted_minimum_trade、PP finite_power_moment_lift_obstruction；其余十五项保留于原已发布 owner 快照。 | 无组合级正式接受；分类不是审查处置。 |
 | **WEIGHTED_TRADE — 八正点加权 trade 已分类**<br>非零有限 raw X6 signed 差；全部 20 张三轴边缘为零；恰八个正空间支点。<br>[S40](#source-s40), [S41](#source-s41), [S42](#source-s42), [S43](#source-s43) | RESULT_ONLY：恰八个负点、共同绝对权及来源定义的四位 parity 结构；闭合八正点/更多负点及删除轻点机制。 | 不新增 Lean 覆盖声称。 | 已发布纯元数据登记/当前主线组合回执；本图未重跑历史 checker 或数学消费者；api=[]。 | 经 PR1401 在 86f753be 入 MAIN；所引回执保留原 eb90 组合代次。 | 仅 owner 来源/索引证据，不新增正式 Task/Result/Driver 接受。 |
 | **P3_TEMPLATES — 三正支撑模板**<br>同一 raw X6 chart 中三个不同的 post-Jordan 正点；点标签与正权同步搬运。投影地址纤维与完整原始 Cell 纤维保持区分。<br>[S44](#source-s44), [S45](#source-s45), [S15](#source-s15), [S22](#source-s22), [S62](#source-s62), [S63](#source-s63), [S64](#source-s64) | 57 个无权支撑模板（64 减 7 个退化）；保留有序权向量及模板 stabilizer，并追踪原始 fresh 纤维。 | 不新增 Lean 覆盖声称。 | 源论文保留原有界整数类型计数，发布时未重跑。无 LP、raw 人口/权重枚举、旧消费者重跑或新 API。 | 已在 owner b506f92a 发布，层级为 SOURCE_ONLY。论文及源审查回执已发布，回执保留原发布前执行/审查代次；未入 main、无正式接受。 | 仅 owner 来源/索引证据，不新增正式 Task/Result/Driver 接受。 |
@@ -128,7 +128,7 @@ flowchart TB
 | 阅读优先级 | 节点 | 未完项 / 限定边界 | 已有下一步 |
 | --- | --- | --- | --- |
 | 当前收尾 | A3_A4_REVIEW | 不能把环境商秩等同可实现状态所需最少数据；不新建研究任务。 | 使用已准入的窄纠正，收尾原 PR955 正式 Driver 审查；保留不受影响的原论证，不重复已完成源准入。 |
-| 当前收尾 | H0O | 无非代数性声称；真正混合的其他核或显式 exceptional cycles 仍开放。 | 在精确范围审保留的 TP2-A314F727276CFF8CE168 / RR-FB3CF77C4F611FDED79B；不从图中重新 claim/研究。 |
+| 当前收尾 | H0O | 原输出 4 仍未满足：非零 exceptional 输出、全族零投影定理、目标侧该族不可实例化的精确定理，三项均未建立。exceptional 源支撑循环的存在性仍未决；父目标 HODGE_SPECIAL_OPEN_FRONTIER_ALGEBRAICITY_MECHANISM 保持 OPEN。不推出非代数性、H1 或全核结论。 | DFU-55A50DE009218A7E6CF2 于 2026-09-08T13:07:52Z 发布同 TaskID 的 REVISION TP2-853EE36ED78FF34CC992；本次更新时尚未领取、未执行。保留原六项义务，逐项核清三个终局，若硬目标仍未证明，则交回保留定理且有非空未决项的纠正。不搜索新核，不重放历史 46 项检查；后续领取须走 canonical runtime。 |
 | 当前收尾 | VALUATION_DIGITS | 素性、histogram/Fraction 算术及广泛导入仍有独立边界。helper 可收集局部 trace；未变更的 public 谱 API 不返回或持久化 digit trace。局部证据不是全谱或传递原生合规。 | 保留局部迁移及实际 caller 边界；仅继续被明确选中的既有谱未完接口。 |
 | 当前收尾 | PFSSV_SHELL | 有限观测/容量单元现已按 RESULT_ONLY 接受并归档，复用既有 T0+T1 组合。残差硬目标及 PROGRESSIVE_PLANE_PRIME_SEMIPRIME_COORDINATE_DISCOVERY 仍为 OPEN。corrected/signed 科学残差、有效双 null 比较、family-wise 校准与原盲测门槛仍未完成；unavailable 向量不是零。不追加新的 joint-null 原任务门槛，也不由已接受的支撑边界推出素数过程结论。 | 保留已接受代次及其精确来源/trace 证据。已发布 continuation RS-PFSSV-FINITE-WINDOW-NULL-IDENTIFIABILITY 首先处理支撑、共享 q 地址一致性、明确的概率律和交换性前提。它范围独立、发布时尚未执行；后续领取须由当前 canonical runtime 决定。不得因任务闭合重复原 21 格或推定科学筛选、盲性重置、二阶补救路线。 |
 | 已有数学前沿 | NUMBER_THEORY | centered prime-radius 有 left-prime/size 假设，不推出普遍对称素数对或 Goldbach。 | 与 X6 子支并列保留 P017/Perfect Prime 原有数学前沿。 |
@@ -487,6 +487,21 @@ source ID 在此解析，SHA256 固定文件字节；不可变文件链接不证
 
 <a id="source-s92"></a>
 - **S92** [PFSSV 有限窗合同与可辨识性任务范围；尚未执行](https://github.com/awdawmip/enterprise-math/blob/436995cfda7b5aaf7b7531a7ce5237753ab1b458/research_tasks/PFSSV_FINITE_WINDOW_NULL_IDENTIFIABILITY_20260908.md); `PUBLISHED_PIN_READBACK`; SHA256 `d357f54587345679f80c0cc90360c620c6b96a0336e1941cf992fb117dbeb7af`.
+
+<a id="source-s93"></a>
+- **S93** [H0O 不可变 Driver REQUEST_REVISION 记录](https://github.com/awdawmip/enterprise-math/blob/3db36e3b996351ec04e2c6ec318448c8b1443b61/research_result_reviews/RR-FB3CF77C4F611FDED79B/DR-59B956C38543808B4146.json); `PUBLISHED_PIN_READBACK`; SHA256 `e36b7a3069031babeb72f729c28f065825d7dc825aa7284cece3e629043d5630`.
+
+<a id="source-s94"></a>
+- **S94** [H0O 同任务 REVISION 后续包](https://github.com/awdawmip/enterprise-math/blob/3db36e3b996351ec04e2c6ec318448c8b1443b61/research_driver_followups/DR-59B956C38543808B4146/DFU-55A50DE009218A7E6CF2.json); `PUBLISHED_PIN_READBACK`; SHA256 `0ee3bfc1393c6baf6a99ab837c3b04448ecead9d1cae23b596d11c0de0903100`.
+
+<a id="source-s95"></a>
+- **S95** [H0O 第二代不可变整改发布记录](https://github.com/awdawmip/enterprise-math/blob/3db36e3b996351ec04e2c6ec318448c8b1443b61/research_task_records/RS-HODGE-H0O-NONSPLIT-WEIL-INTERMEDIATE-SUPPORT-FM-EXCEPTIONAL-CH3/TP2-853EE36ED78FF34CC992.json); `PUBLISHED_PIN_READBACK`; SHA256 `72d79a6c97950ea4cb90fff46de6354a5a2b63696738508dd428334ef8f67207`.
+
+<a id="source-s96"></a>
+- **S96** [H0O 保留定理的合同对齐整改范围](https://github.com/awdawmip/enterprise-math/blob/3db36e3b996351ec04e2c6ec318448c8b1443b61/research_tasks/HODGE_H0O_CONTRACT_ALIGNMENT_REVISION_20260908.md); `PUBLISHED_PIN_READBACK`; SHA256 `04352a60dfb61a7c8e7926e54bd6c9edc7725a0420abda7fe8d1e3b34d407e35`.
+
+<a id="source-s97"></a>
+- **S97** [H0O Driver 判词：保留定理与未满足的终局选项](https://github.com/awdawmip/enterprise-math/blob/3db36e3b996351ec04e2c6ec318448c8b1443b61/driver_reviews/HODGE_H0O_CONTRACT_ALIGNMENT_REVISION_REQUEST_20260908.md); `PUBLISHED_PIN_READBACK`; SHA256 `d7e40f5229ce0c8c687117e99e34d60bef0b7fdacf9255bd74f0e15c9e9f1894`.
 
 ## 维护方法
 
