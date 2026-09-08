@@ -1,0 +1,120 @@
+{
+  "schema": "RB_BLIND_SQUARECLASS_RR_SIGN_CORRECTION_EXECUTION_V2",
+  "recorded_at": "2026-09-08 14:49:33 UTC",
+  "prior_manifest_sha256": "b1c52b44f24e910bc922e12782a759d8d1df86ff0b4f4ed04c152da917c90385",
+  "prior_paper_sha256": "613822540e392af8f4eed93b3a7fba033aee0fd250a70d01c0547d38a51bdc0d",
+  "prior_review_status": "REJECTED_DRAFT_FOUR_RR_DIFFERENCES_REVERSED",
+  "correction": "Four paper equations use X-(X-a)=a; actual integer polynomial regression now covers values, common denominators, and rejection of reversed sign.",
+  "runs": [
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/check_squareclass_rr.py",
+        "--write"
+      ],
+      "cwd": "D:/em/research-rb-blind-20260908",
+      "tool_result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "6e9dad",
+          "wall_time_seconds": 0.7338275,
+          "exit_code": 0,
+          "original_token_count": 70,
+          "output": "{\"RR_or_ODE_solution_claimed\": false, \"cleared_integer_identities\": 2, \"compatible_twists\": 16, \"components\": {\"2+2+2+0\": 1440, \"4+2+0+0\": 720}, \"incompatible_torsion_triples\": 48, \"sha256\": \"d861e5b4d9d5b562c7e2a972c56b30144f2cd41275963f80a3aa80c5f1d3a289\", \"status\": \"PASS\"}\r\n"
+        }
+      }
+    },
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "research_artifacts.RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908.test_squareclass_rr",
+        "-v"
+      ],
+      "cwd": "D:/em/research-rb-blind-20260908",
+      "tool_result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "5357e7",
+          "wall_time_seconds": 1.1169604,
+          "exit_code": 0,
+          "original_token_count": 310,
+          "output": "test_default_is_byte_preserving_and_rejects_output_corruption (research_artifacts.RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908.test_squareclass_rr.SquareclassRRBoundaries.test_default_is_byte_preserving_and_rejects_output_corruption) ... ok\r\ntest_frozen_input_drift_is_rejected (research_artifacts.RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908.test_squareclass_rr.SquareclassRRBoundaries.test_frozen_input_drift_is_rejected) ... ok\r\ntest_integer_vector_field_preserves_the_curve_relation (research_artifacts.RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908.test_squareclass_rr.SquareclassRRBoundaries.test_integer_vector_field_preserves_the_curve_relation) ... ok\r\ntest_nonconstant_and_rank_degenerate_quotients_are_distinguished (research_artifacts.RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908.test_squareclass_rr.SquareclassRRBoundaries.test_nonconstant_and_rank_degenerate_quotients_are_distinguished) ... ok\r\ntest_rr_difference_uses_values_and_rejects_reversed_sign (research_artifacts.RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908.test_squareclass_rr.SquareclassRRBoundaries.test_rr_difference_uses_values_and_rejects_reversed_sign) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 5 tests in 0.059s\r\n\r\nOK\r\n"
+        }
+      }
+    },
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_exact_arithmetic_policy.py",
+        "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/check_squareclass_rr.py",
+        "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/test_squareclass_rr.py"
+      ],
+      "cwd": "D:/em/research-rb-blind-20260908",
+      "tool_result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "fda4ff",
+          "wall_time_seconds": 0.8897351,
+          "exit_code": 1,
+          "original_token_count": 124,
+          "output": "&: \r\nLine |\r\n   2 |  & 'C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime …\r\n     |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n     | The term 'C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python/python.exe' is not recognized as a name of a cmdlet, function, script file, or executable program.\r\nCheck the spelling of the name, or if a path was included, verify that the path is correct and try again.\r\n"
+        }
+      }
+    },
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/check_squareclass_rr.py"
+      ],
+      "cwd": "D:/em/research-rb-blind-20260908",
+      "tool_result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "7352a7",
+          "wall_time_seconds": 0.4799544,
+          "exit_code": 0,
+          "original_token_count": 70,
+          "output": "{\"RR_or_ODE_solution_claimed\": false, \"cleared_integer_identities\": 2, \"compatible_twists\": 16, \"components\": {\"2+2+2+0\": 1440, \"4+2+0+0\": 720}, \"incompatible_torsion_triples\": 48, \"sha256\": \"d861e5b4d9d5b562c7e2a972c56b30144f2cd41275963f80a3aa80c5f1d3a289\", \"status\": \"PASS\"}\r\n"
+        }
+      }
+    },
+    {
+      "argv": [
+        "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_exact_arithmetic_policy.py",
+        "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/check_squareclass_rr.py",
+        "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/test_squareclass_rr.py"
+      ],
+      "cwd": "D:/em/research-rb-blind-20260908",
+      "tool_result": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "9dd57e",
+          "wall_time_seconds": 0.4492101,
+          "exit_code": 0,
+          "original_token_count": 11,
+          "output": "EXACT_ARITHMETIC_POLICY: PASS (2 files)\r\n"
+        }
+      }
+    }
+  ],
+  "first_static_attempt": "Not run: executable path had a duplicated python directory. Corrected exact runtime invocation subsequently passed; original shell failure retained.",
+  "mathematical_boundary": "No RR solution, map, descent or unblinding. Earlier classification inputs and authority preserved."
+}
