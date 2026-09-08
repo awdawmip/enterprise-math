@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/ns-openai-forcing-audit-d5c00d.checkpoint.json",
+    "ref": "7773f38ae555eebbbec2b880debe2bff1d7201b2",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-observation-turn100-full-checkpoint",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"activity_id\": \"RA-D5C00DF7D77F4AA2ACE0\",\n  \"event_id\": \"NS-OPENAI-FORCING-AUDIT-20260909-D5C00D-01\",\n  \"executed_checks\": {\n    \"cases\": 12,\n    \"inequality_violation\": 0,\n    \"kind\": \"FINITE_FOURIER_FLOATING_POINT\",\n    \"max_directional_fd_error\": 1.0179700407137233e-11,\n    \"max_identity_error\": 2.5242618801594815e-16,\n    \"seed\": 20260909\n  },\n  \"findings\": [\n    \"Smooth force vanishes in a standard NS zoom; this does not remove forcing from the original trajectory.\",\n    \"For G=F_*+J+nu^2*K/4, G'+nu^3*Q/4 <= (I_NL)_+ + b(t)G with integrable b for smooth compact force.\",\n    \"Finite integral of (I_NL)_+/G implies continuation. A correct OpenAI compact singular candidate must violate this condition.\"\n  ],\n  \"implementation\": {\n    \"commit\": \"c0f12c15b19fe0b3d872ed2b0b64c989ba9ac34b\",\n    \"git_blob_sha1\": \"4e0e146d6a4b2bb757da1edbdcec49e5a1aaebbb\",\n    \"path\": \"experiments/ns_openai_forcing_audit_d5c00d.py\",\n    \"sha256\": \"bb84ce19bdc9dd16e1dfefd29e8f3531ff958a3563af0fba88f2b52c23712e4a\"\n  },\n  \"not_performed\": [\n    \"Lean build\",\n    \"Comparator execution\",\n    \"full OpenAI proof audit\",\n    \"OpenAI candidate simulation\",\n    \"independent review\"\n  ],\n  \"note\": {\n    \"commit\": \"6927aaca1deefcae70eb3475a9b4c8434f5bd9c0\",\n    \"git_blob_sha1\": \"eb12f7807c68e5c8597b4f6e0c2237a036577b66\",\n    \"path\": \"research_notes/ns-openai-forcing-audit-20260909-d5c00d.md\",\n    \"repository\": \"awdawmip/enterprise-math\",\n    \"sha256\": \"274d8bd10beb9b31733d044fa2d04a5902b0e60ea38ec2ffb8de84d00000b758\"\n  },\n  \"openai_source_commit\": \"8937a8f4cbc7abaab5e9e97d1cc7f5d2319d9538\",\n  \"remaining\": \"Evaluate phase-resolved nonlinear injection of the actual candidate with uniform tail bounds; identify any genuinely unforced-only global constraint.\",\n  \"schema\": \"EM_RESEARCH_CHECKPOINT_V1\",\n  \"status\": \"TESTING_NOT_INDEPENDENTLY_REVIEWED\"\n}\n",
+      "display_title": "ns-openai-forcing-audit-d5c00d.checkpoint.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/7773f38ae555eebbbec2b880debe2bff1d7201b2/research_notes/ns-openai-forcing-audit-d5c00d.checkpoint.json",
+      "encoding": "utf-8",
+      "sha": "e28fb672ec3aa4aa766ff05831e1947b8ae0519e"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
