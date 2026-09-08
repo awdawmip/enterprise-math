@@ -1,137 +1,147 @@
-# Correction: Möbius W1 transport is an RH consequence, not an RH equivalence
+# Second correction: Möbius W1 transport is RH-equivalent with the full epsilon family
 
-Status: `CORRECTION / EXACT`
+Status: `CORRECTION OF CORRECTION / EXACT`
 Date: `2026-09-08`
 Project: `Enterprise Math / 进取数论`
-Scope: `RH / Möbius quantile transport / earthmover W1 / Mertens`
+Scope: `RH / Möbius transport / earthmover W1 / Mellin continuation`
 
-## 0. Purpose
+## 0. Retraction of the previous version
 
-A research discussion on 2026-09-06 over-stated the one-dimensional earthmover/W1 formulation by calling the dyadic bound
+The first version of this file claimed that
 
-`int_X^(2X) |M(t)| dt <<_eps X^(3/2+eps)`
+`int_X^(2X)|M(t)|dt <<_eps X^(3/2+eps)`
 
-RH-equivalent.
+was only an RH consequence and not an RH equivalence. That conclusion was based solely on the generic 1-Lipschitz spike inequality for M and ignored the arithmetic Mellin identity
 
-The cut-flux/optimal-transport identity behind that formulation is correct, and RH implies the displayed bound. The converse is false: an L1 bound of this size permits pointwise Mertens spikes of order `X^(3/4+o(1))`.
+`1/zeta(s)=s int_1^infinity M(x)x^(-s-1)dx`.
 
-This note freezes the corrected logical status so later research does not use the false equivalence.
+That omission was decisive. The previous version is retracted.
+
+The spike argument remains correct as a **generic pointwise conversion**: an L1 bound at one scale only forces a `3/4`-type pointwise exponent for an arbitrary 1-Lipschitz sequence. But the Möbius cumulative function has additional global analytic structure, and the family of W1 bounds at all scales with arbitrary epsilon gives absolute Mellin convergence in every half-plane `Re(s)>1/2`.
+
+Freeze:
+
+`GENERIC_LIPSCHITZ_CONSEQUENCE != ARITHMETIC_MELLIN_CONSEQUENCE`.
 
 ---
 
-## 1. Exact cut-flux identity
+## 1. Exact one-dimensional cut-flux identity
 
-Let positive Möbius Cells and negative Möbius Cells carry unit masses. On a finite interval with balanced endpoint bookkeeping, any transport plan from `mu=+1` mass to `mu=-1` mass has net signed flux across the cut at location `t` equal to the cumulative charge to the left, namely a Mertens discrepancy (with the appropriate interval/basepoint normalization).
+Let positive Möbius Cells and negative Möbius Cells carry unit masses. On the integer line, the net signed flux across the cut at location t is the cumulative charge
 
-For the global prefix version the charge is
+`M(t)=sum_{n<=t}mu(n)`.
 
-`M(t)=sum_{n<=t} mu(n)`.
+Every transport plan has absolute cost at least the L1 norm of this cut flux, and the monotone same-rank transport attains equality. Thus, with standard finite-boundary bookkeeping,
 
-Therefore the absolute transport cost satisfies
-
-`Cost >= int |M(t)| dt`.
-
-The monotone same-rank transport realizes equality in one dimension. Thus the one-dimensional W1/earthmover cost is exactly the L1 norm of the cumulative charge.
+`W1_Mobius = int |M(t)|dt`.
 
 Freeze:
 
 `1D_MONOTONE_MOBIUS_TRANSPORT_COST = L1_CUMULATIVE_MERTENS_FLUX`.
 
-This is an exact optimal-transport identity.
-
 ---
 
-## 2. RH implies the W1 bound
+## 2. RH implies the dyadic W1 bound
 
 RH is equivalent to
 
 `M(t)=O_eps(t^(1/2+eps))`
 
-for every `eps>0`.
+for every eps>0. Hence
 
-Hence on a dyadic interval
+`int_X^(2X)|M(t)|dt <<_eps X^(3/2+eps)`.
 
-`int_X^(2X)|M(t)|dt`
-`<<_eps X * X^(1/2+eps)`
-`= X^(3/2+eps)`.
+---
+
+## 3. The dyadic W1 epsilon-family implies RH
+
+Assume that for every eps>0,
+
+`int_X^(2X)|M(t)|dt <<_eps X^(3/2+eps)`
+
+uniformly for large dyadic X.
+
+Fix `sigma>1/2`. Choose
+
+`0<eps<sigma-1/2`.
+
+On a dyadic interval `[X,2X]`,
+
+`int_X^(2X)|M(t)|t^(-sigma-1)dt`
+`<=X^(-sigma-1) int_X^(2X)|M(t)|dt`
+`<< X^(1/2-sigma+eps)`.
+
+The exponent is strictly negative. Summing over dyadic X shows
+
+`int_1^infinity |M(t)|t^(-sigma-1)dt < infinity`.
+
+The convergence is locally uniform on compact subsets of `Re(s)>1/2` after choosing eps below the distance to the boundary. Therefore
+
+`F(s)=s int_1^infinity M(t)t^(-s-1)dt`
+
+is holomorphic in `Re(s)>1/2`.
+
+For `Re(s)>1`, classical partial summation gives
+
+`F(s)=sum mu(n)n^-s=1/zeta(s)`.
+
+By analytic continuation, `1/zeta(s)` is holomorphic in `Re(s)>1/2`. Hence zeta has no zero there. The functional equation and zero symmetry give RH.
 
 Therefore
 
-`RH => DYADIC_W1_MOBIUS_COST << X^(3/2+eps)`.
+`RH <=> for every eps>0, dyadic W1(X)<<_eps X^(3/2+eps)`.
+
+Freeze:
+
+`MOBIUS_W1_EPSILON_FAMILY = RH_EQUIVALENT`.
 
 ---
 
-## 3. The converse fails
+## 4. Why the spike argument did not contradict this
 
-The arithmetic function `M(n)` changes by
+M is 1-Lipschitz, so a local spike of height H forces L1 area `>>H^2`. Therefore the W1 estimate at a **single scale**, viewed only as a metric inequality, yields at best
 
-`M(n)-M(n-1)=mu(n) in {-1,0,1}`.
+`H<<X^(3/4+o(1))`.
 
-Hence it is 1-Lipschitz on the integer line.
+This does not contradict the RH equivalence because the Mellin argument uses:
 
-Suppose `|M(n0)|=H`. Then for every integer `n` with `|n-n0|<=H/2`,
+1. the W1 estimate on every large dyadic scale;
+2. arbitrary epsilon slack;
+3. the exact Möbius Dirichlet/Mellin identity.
 
-`|M(n)|>=H/2`
+A generic Lipschitz sequence does not possess item 3.
 
-unless the dyadic boundary truncates the interval. Away from a boundary this forces L1 area `>>H^2`; at a boundary one obtains the same conclusion after using the adjacent dyadic interval, up to constants.
+Thus there are two valid implication mechanisms:
 
-Thus a uniform family of dyadic bounds
+- metric/local: `W1 -> 3/4` by spike control;
+- arithmetic/global: `W1 epsilon-family -> RH` by Mellin continuation.
 
-`int_X^(2X)|M(t)|dt << X^(3/2+eps)`
-
-can imply at best, by this spike argument,
-
-`|M(X)| << X^(3/4+eps/2)`
-
-(up to harmless epsilon renaming and boundary bookkeeping).
-
-It does **not** imply
-
-`M(X)=O_eps(X^(1/2+eps))`.
-
-Freeze correction:
-
-`DYADIC_W1_BOUND_AT_X^(3/2) != RH_EQUIVALENCE`.
-
-Correct logical relation:
-
-`RH => W1_X^(3/2+eps)`,
-
-while the W1 bound plus only the intrinsic unit-increment property gives a `3/4`-type pointwise exponent, not `1/2`.
+The second is stronger only because it uses Möbius-specific global analytic structure.
 
 ---
 
-## 4. What remains RH-equivalent
+## 5. Correct transport hierarchy
 
-The same-rank **L-infinity** interlacing formulation remains the relevant pointwise transport reformulation:
+Do not order W1 and Winfinity merely by their generic norm strength when discussing RH equivalence.
 
-if `a_j` lists squarefree `mu=+1` Cells and `b_j` lists squarefree `mu=-1` Cells in increasing order, then square-root-scale control
+For arbitrary transport states,
 
-`|a_j-b_j|=O_eps(j^(1/2+eps))`
+`W1` is weaker than `Winfinity`.
 
-is equivalent, after using squarefree counting asymptotics, to the usual Mertens RH bound.
+For the special Möbius cumulative state, however, the all-scale epsilon-family
 
-Thus:
+`W1(X)<<_eps X^(3/2+eps)`
 
-- `W_infinity / maximal rank displacement` is RH-strength;
-- `W_1 / total displacement` at the natural averaged scale is strictly weaker.
+already forces RH through Mellin continuation.
 
-Do not substitute one for the other.
+The same warning applies to higher Lp flux moments: generic moment-to-sup inequalities and arithmetic RH-equivalence can have different logical strength.
 
 ---
 
-## 5. Research implication
+## 6. Audit rule
 
-The earlier idea of proving RH by merely controlling the **total** monotone transport cost is insufficient.
+Any future claim that a positive averaged Mertens quantity is weaker than RH must be checked not only by local spike constructions but also against
 
-Any transport-based RH route must control either:
+`1/zeta(s)=s int_1^infinity M(x)x^(-s-1)dx`.
 
-1. the maximal same-rank displacement;
-2. a sufficiently high moment of displacement whose moment-to-sup conversion loses only `X^o(1)`;
-3. or an independent arithmetic regularity principle strong enough to prevent `X^(3/4)`-height localized flux spikes.
-
-This correction strengthens the observer hierarchy:
-
-`BOOLEAN LOCAL REACHABILITY < W1 MASS TRANSPORT < WINFINITY RANK INTERLACING (RH STRENGTH)`.
-
-No claim is made here that intermediate Wp moments for finite p are RH-equivalent.
+If the proposed all-scale bound makes this integral absolutely convergent for every `Re(s)>1/2`, then it is already RH-strength even if a purely metric pointwise conversion appears weaker.
