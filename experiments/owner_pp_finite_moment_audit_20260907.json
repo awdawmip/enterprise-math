@@ -1,0 +1,125 @@
+{
+  "schema": "owner_pp_finite_moment_independent_audit_v1",
+  "status": "PASS",
+  "scope": "m=3 original model; finite-HCM repair identities; no all-m conclusion",
+  "arithmetic": "Python standard-library fractions.Fraction; no floating point",
+  "provenance": {
+    "audit_source_sha256": "3497b9093612a90c69db13f67f7cba3896c7ed4d626c8ebf4ff6699cdce30b00",
+    "legacy_check_path": "research_checks/PERFECT_PRIME_AP_RESIDUAL_MOBIUS_BERNSTEIN_COEFFICIENT_POSITIVITY_CHECK_20260903.py",
+    "legacy_check_sha256": "05f75c3ae61b76ce8194df9a9d6305b1d5615f206fc0647f336e4f2ca0a412f9",
+    "frozen_return_path": "research_returns/PERFECT_PRIME_AP_RESIDUAL_MOBIUS_BERNSTEIN_COEFFICIENT_POSITIVITY_RETURN_20260903.md",
+    "frozen_return_sha256": "617b34abac20d524023933a09777b85aa4220e1962283586c1c2121d3031b28d",
+    "global_knowledge_canonical": "4fa7d7d0c19a5e80a681b33c8ee2ab643ce97563"
+  },
+  "model_binding": {
+    "m": 3,
+    "n": 2,
+    "D": 5,
+    "d": 6,
+    "route_1": "direct Q[t] 5x5 cofactor Leibniz expansion (120 permutations)",
+    "route_2": "legacy cb_q_coefficients(3), 126 candidate signed-secant subsets",
+    "routes_agree": true,
+    "q_coefficients_interpolation_called": false,
+    "tau_coefficients": [
+      "0",
+      "0",
+      "243/68068000",
+      "-39038329377/8337129280480000",
+      "1352161539/517834116800000",
+      "-30535947/44847387200000",
+      "342355383/5413720312000000",
+      "-43130259/41685646402400000",
+      "81/106340934700000"
+    ],
+    "q_coefficients": [
+      "243/68068000",
+      "-39038329377/8337129280480000",
+      "1352161539/517834116800000",
+      "-30535947/44847387200000",
+      "342355383/5413720312000000",
+      "-43130259/41685646402400000",
+      "81/106340934700000"
+    ],
+    "normalizing_mass_q0": "243/68068000",
+    "h_raw": [
+      "243/68068000",
+      "13012776459/16674258560960000",
+      "450720513/2589170584000000",
+      "30535947/896947744000000",
+      "114118461/27068601560000000",
+      "14376753/83371292804800000",
+      "81/106340934700000"
+    ],
+    "h_normalized": [
+      "1",
+      "1445864051/6614047440",
+      "50080057/1027026000",
+      "4900831/513912000",
+      "12679829/10737090000",
+      "1597417/33070237200",
+      "1/4686825"
+    ]
+  },
+  "positive_power_moment_obstruction": {
+    "p_coefficients_ascending": [
+      "-3/10",
+      "8/7",
+      "1"
+    ],
+    "p_squared_coefficients_ascending": [
+      "9/100",
+      "-24/35",
+      "173/245",
+      "16/7",
+      "1"
+    ],
+    "normalized_L_h_p_squared": "-7205915063/2893645755000",
+    "raw_L_h_p_squared": "-64853235567/7294988120420000000",
+    "leading_3x3_hankel_determinant": "-447963348953257251895594859/184525273837044841388688000000000",
+    "conclusion": "No positive Borel measure on R with these moments; in particular none on [0,1]"
+  },
+  "finite_branch_repair": {
+    "all_28_finite_difference_cells_strictly_positive": true,
+    "beta": [
+      "10556649/42826000",
+      "717613749/12248236000",
+      "14109273/805805000",
+      "107403201/17497480000",
+      "81513853/75159630000",
+      "1590361/33070237200",
+      "1/4686825"
+    ],
+    "count_weights_w": [
+      "10556649/42826000",
+      "2152841247/6124118000",
+      "42327819/161161000",
+      "107403201/874874000",
+      "81513853/5010642000",
+      "1590361/5511706200",
+      "1/4686825"
+    ],
+    "total_mass": "1",
+    "binary_label_words": 64,
+    "cylinder_readouts_checked": 28,
+    "normalization": "h=h_raw/q0; qbar=q/q0; Bhatbar=Bhat/q0; d is label length, not spatial dimension",
+    "qbar_coefficients": [
+      "1",
+      "-1445864051/1102341240",
+      "50080057/68468400",
+      "-4900831/25695600",
+      "12679829/715806000",
+      "-1597417/5511706200",
+      "1/4686825"
+    ],
+    "Bhatbar_coefficients": [
+      "1",
+      "5168183389/1102341240",
+      "101120872627/11023412400",
+      "129463911/13459600",
+      "17508337731/3062059000",
+      "11210446089/6124118000",
+      "10556649/42826000"
+    ],
+    "HCM0_identity_and_strict_positivity_preserved": true
+  }
+}
