@@ -913,64 +913,88 @@
       "population_hit_rate": 0.04695181907571288,
       "timing_sample_size": 2048,
       "timing_sample_hits": 88,
+      "timing_batch_repeats": 8,
       "ns_per_item_median": {
-        "hot_native_isqrt": 80.755615234375,
-        "hot_bounded_lookup": 63.4765625,
-        "hot_existing_checked_filter": 777.032470703125,
-        "input_native_isqrt": 187.713623046875,
-        "input_bounded_lookup": 165.52734375
+        "hot_native_isqrt": 80.462646484375,
+        "hot_bounded_lookup": 63.09814453125,
+        "hot_existing_checked_filter": 779.058837890625,
+        "input_native_isqrt": 210.53466796875,
+        "input_bounded_lookup": 158.880615234375,
+        "verified_input_native_isqrt": 178.338623046875,
+        "verified_input_bounded_lookup": 157.275390625
       },
       "ns_per_item_rounds": {
         "hot_native_isqrt": [
+          80.511474609375,
+          80.4443359375,
           80.6640625,
-          80.755615234375,
-          78.28369140625,
-          84.503173828125,
-          99.176025390625,
-          80.87158203125,
-          80.6884765625
+          78.717041015625,
+          85.369873046875,
+          80.462646484375,
+          80.401611328125
         ],
         "hot_bounded_lookup": [
-          63.57421875,
-          74.993896484375,
-          61.419677734375,
-          63.4033203125,
-          64.154052734375,
-          63.4765625,
-          63.19580078125
+          63.76953125,
+          63.46435546875,
+          63.43994140625,
+          63.09814453125,
+          61.82861328125,
+          61.70654296875,
+          62.774658203125
         ],
         "hot_existing_checked_filter": [
-          756.5185546875,
-          768.45703125,
-          772.55859375,
-          778.62548828125,
-          777.032470703125,
-          785.8154296875,
-          792.041015625
+          779.058837890625,
+          797.430419921875,
+          791.986083984375,
+          751.42822265625,
+          745.623779296875,
+          776.7578125,
+          790.80810546875
         ],
         "input_native_isqrt": [
-          197.91259765625,
-          175.30517578125,
-          173.956298828125,
-          187.713623046875,
-          221.612548828125,
-          184.869384765625,
-          190.643310546875
+          194.854736328125,
+          216.0888671875,
+          213.22021484375,
+          193.61572265625,
+          227.471923828125,
+          190.643310546875,
+          210.53466796875
         ],
         "input_bounded_lookup": [
-          174.072265625,
-          172.9736328125,
-          155.255126953125,
-          162.109375,
-          175.6591796875,
-          165.52734375,
-          162.24365234375
+          162.8662109375,
+          157.82470703125,
+          158.89892578125,
+          158.880615234375,
+          179.754638671875,
+          157.861328125,
+          156.573486328125
+        ],
+        "verified_input_native_isqrt": [
+          189.19677734375,
+          178.338623046875,
+          182.43408203125,
+          176.861572265625,
+          176.94091796875,
+          174.49951171875,
+          184.112548828125
+        ],
+        "verified_input_bounded_lookup": [
+          156.439208984375,
+          157.275390625,
+          182.745361328125,
+          154.656982421875,
+          167.78564453125,
+          152.301025390625,
+          161.60888671875
         ]
       },
-      "hot_speed_ratio_native_over_lookup": 1.2722115384615384,
-      "input_speed_ratio_native_over_lookup": 1.1340339233038348,
-      "lookup_setup_break_even_items_hot": 110,
-      "lookup_setup_break_even_items_input": 86
+      "hot_speed_ratio_native_over_lookup": 1.2751982975430451,
+      "input_speed_ratio_native_over_lookup": 1.3251123660251238,
+      "verified_input_speed_ratio_native_over_lookup": 1.1339257994411673,
+      "verified_input_lookup_faster_rounds": 6,
+      "lookup_setup_break_even_items_hot": 104,
+      "lookup_setup_break_even_items_input": 35,
+      "lookup_setup_break_even_items_verified_input": 86
     },
     {
       "band": "J16_128",
@@ -979,65 +1003,89 @@
       "population_square_completion_hits": 879,
       "population_hit_rate": 0.10803834808259587,
       "timing_sample_size": 2048,
-      "timing_sample_hits": 221,
+      "timing_sample_hits": 213,
+      "timing_batch_repeats": 8,
       "ns_per_item_median": {
-        "hot_native_isqrt": 80.9814453125,
-        "hot_bounded_lookup": 62.615966796875,
-        "hot_existing_checked_filter": 774.9267578125,
-        "input_native_isqrt": 189.886474609375,
-        "input_bounded_lookup": 176.8798828125
+        "hot_native_isqrt": 82.72705078125,
+        "hot_bounded_lookup": 65.380859375,
+        "hot_existing_checked_filter": 773.79150390625,
+        "input_native_isqrt": 201.55029296875,
+        "input_bounded_lookup": 161.126708984375,
+        "verified_input_native_isqrt": 185.552978515625,
+        "verified_input_bounded_lookup": 165.33203125
       },
       "ns_per_item_rounds": {
         "hot_native_isqrt": [
-          83.270263671875,
-          83.154296875,
-          80.9814453125,
-          79.57763671875,
-          80.828857421875,
-          80.6640625,
-          87.70751953125
+          82.40966796875,
+          82.72705078125,
+          82.80029296875,
+          80.33447265625,
+          90.88134765625,
+          95.52001953125,
+          82.3974609375
         ],
         "hot_bounded_lookup": [
-          64.12353515625,
-          62.53662109375,
-          62.896728515625,
-          62.359619140625,
-          62.29248046875,
-          62.615966796875,
-          62.65869140625
+          65.380859375,
+          65.29541015625,
+          81.402587890625,
+          64.471435546875,
+          63.189697265625,
+          78.2958984375,
+          76.165771484375
         ],
         "hot_existing_checked_filter": [
-          784.613037109375,
-          774.9267578125,
-          764.84375,
-          752.349853515625,
-          805.987548828125,
-          771.038818359375,
-          846.93603515625
+          788.232421875,
+          790.911865234375,
+          786.42578125,
+          772.027587890625,
+          773.79150390625,
+          766.02783203125,
+          767.1142578125
         ],
         "input_native_isqrt": [
-          188.18359375,
-          191.717529296875,
-          179.425048828125,
-          191.888427734375,
-          178.857421875,
-          194.781494140625,
-          189.886474609375
+          202.313232421875,
+          193.475341796875,
+          213.031005859375,
+          195.404052734375,
+          195.233154296875,
+          201.55029296875,
+          207.098388671875
         ],
         "input_bounded_lookup": [
-          164.312744140625,
-          176.8798828125,
-          187.51220703125,
-          163.95263671875,
-          162.85400390625,
-          184.27734375,
-          182.80029296875
+          192.596435546875,
+          158.45947265625,
+          159.808349609375,
+          172.564697265625,
+          161.126708984375,
+          168.75,
+          158.4228515625
+        ],
+        "verified_input_native_isqrt": [
+          185.552978515625,
+          204.0771484375,
+          183.807373046875,
+          197.149658203125,
+          186.41357421875,
+          180.2734375,
+          184.68017578125
+        ],
+        "verified_input_bounded_lookup": [
+          165.53955078125,
+          164.24560546875,
+          163.580322265625,
+          176.824951171875,
+          173.175048828125,
+          165.33203125,
+          162.7685546875
         ]
       },
-      "hot_speed_ratio_native_over_lookup": 1.2933034408811774,
-      "input_speed_ratio_native_over_lookup": 1.0735334713595583,
+      "hot_speed_ratio_native_over_lookup": 1.265309932785661,
+      "input_speed_ratio_native_over_lookup": 1.2508807151786052,
+      "verified_input_speed_ratio_native_over_lookup": 1.1223050797401064,
+      "verified_input_lookup_faster_rounds": 7,
       "lookup_setup_break_even_items_hot": 104,
-      "lookup_setup_break_even_items_input": 147
+      "lookup_setup_break_even_items_input": 45,
+      "lookup_setup_break_even_items_verified_input": 90
     },
     {
       "band": "J129_255",
@@ -1047,64 +1095,88 @@
       "population_hit_rate": 0.02993766404199475,
       "timing_sample_size": 2048,
       "timing_sample_hits": 65,
+      "timing_batch_repeats": 8,
       "ns_per_item_median": {
-        "hot_native_isqrt": 95.1416015625,
-        "hot_bounded_lookup": 75.5615234375,
-        "hot_existing_checked_filter": 818.95751953125,
-        "input_native_isqrt": 217.877197265625,
-        "input_bounded_lookup": 189.9658203125
+        "hot_native_isqrt": 98.065185546875,
+        "hot_bounded_lookup": 75.006103515625,
+        "hot_existing_checked_filter": 811.077880859375,
+        "input_native_isqrt": 224.27978515625,
+        "input_bounded_lookup": 188.177490234375,
+        "verified_input_native_isqrt": 220.47119140625,
+        "verified_input_bounded_lookup": 184.320068359375
       },
       "ns_per_item_rounds": {
         "hot_native_isqrt": [
-          106.231689453125,
-          98.44970703125,
-          94.769287109375,
-          94.158935546875,
-          95.59326171875,
-          91.30859375,
-          95.1416015625
+          129.47998046875,
+          98.065185546875,
+          94.04296875,
+          94.95849609375,
+          100.0244140625,
+          98.406982421875,
+          91.265869140625
         ],
         "hot_bounded_lookup": [
-          95.10498046875,
-          75.5615234375,
-          71.636962890625,
-          72.015380859375,
-          80.438232421875,
-          71.08154296875,
-          78.01513671875
+          78.814697265625,
+          72.71728515625,
+          71.533203125,
+          73.4619140625,
+          75.006103515625,
+          76.129150390625,
+          96.0693359375
         ],
         "hot_existing_checked_filter": [
-          862.530517578125,
-          813.909912109375,
-          818.95751953125,
-          797.69287109375,
-          830.230712890625,
-          789.14794921875,
-          849.871826171875
+          811.077880859375,
+          848.089599609375,
+          817.02880859375,
+          814.239501953125,
+          809.6435546875,
+          798.541259765625,
+          804.01611328125
         ],
         "input_native_isqrt": [
-          532.65380859375,
-          287.322998046875,
-          217.877197265625,
-          215.850830078125,
-          204.2236328125,
-          210.64453125,
-          261.834716796875
+          286.328125,
+          224.2431640625,
+          216.015625,
+          245.99609375,
+          224.27978515625,
+          214.031982421875,
+          225.08544921875
         ],
         "input_bounded_lookup": [
-          186.62109375,
-          204.180908203125,
-          181.884765625,
-          261.737060546875,
-          177.96630859375,
-          189.9658203125,
-          211.920166015625
+          245.6787109375,
+          183.148193359375,
+          188.177490234375,
+          198.0224609375,
+          180.877685546875,
+          170.269775390625,
+          197.515869140625
+        ],
+        "verified_input_native_isqrt": [
+          234.344482421875,
+          288.92822265625,
+          217.6513671875,
+          220.47119140625,
+          239.3798828125,
+          198.236083984375,
+          202.166748046875
+        ],
+        "verified_input_bounded_lookup": [
+          197.894287109375,
+          191.73583984375,
+          172.05810546875,
+          174.0478515625,
+          174.053955078125,
+          209.478759765625,
+          184.320068359375
         ]
       },
-      "hot_speed_ratio_native_over_lookup": 1.2591276252019385,
-      "input_speed_ratio_native_over_lookup": 1.146928415370775,
-      "lookup_setup_break_even_items_hot": 98,
-      "lookup_setup_break_even_items_input": 69
+      "hot_speed_ratio_native_over_lookup": 1.3074294084140288,
+      "input_speed_ratio_native_over_lookup": 1.191852356394538,
+      "verified_input_speed_ratio_native_over_lookup": 1.1961323222623266,
+      "verified_input_lookup_faster_rounds": 6,
+      "lookup_setup_break_even_items_hot": 79,
+      "lookup_setup_break_even_items_input": 50,
+      "lookup_setup_break_even_items_verified_input": 50
     },
     {
       "band": "J129_255",
@@ -1113,108 +1185,380 @@
       "population_square_completion_hits": 1687,
       "population_hit_rate": 0.06918471128608925,
       "timing_sample_size": 2048,
-      "timing_sample_hits": 138,
+      "timing_sample_hits": 137,
+      "timing_batch_repeats": 8,
       "ns_per_item_median": {
-        "hot_native_isqrt": 81.38427734375,
-        "hot_bounded_lookup": 63.525390625,
-        "hot_existing_checked_filter": 767.852783203125,
-        "input_native_isqrt": 201.788330078125,
-        "input_bounded_lookup": 170.458984375
+        "hot_native_isqrt": 80.2734375,
+        "hot_bounded_lookup": 63.555908203125,
+        "hot_existing_checked_filter": 771.728515625,
+        "input_native_isqrt": 212.982177734375,
+        "input_bounded_lookup": 166.00341796875,
+        "verified_input_native_isqrt": 191.357421875,
+        "verified_input_bounded_lookup": 164.837646484375
       },
       "ns_per_item_rounds": {
         "hot_native_isqrt": [
-          79.937744140625,
-          79.74853515625,
-          92.022705078125,
-          81.646728515625,
-          81.38427734375,
-          81.793212890625,
-          80.462646484375
+          103.69873046875,
+          92.816162109375,
+          78.8330078125,
+          78.875732421875,
+          80.224609375,
+          80.2734375,
+          86.334228515625
         ],
         "hot_bounded_lookup": [
-          64.056396484375,
-          62.24365234375,
-          63.525390625,
-          63.80615234375,
-          63.494873046875,
-          63.519287109375,
-          64.12353515625
+          61.7919921875,
+          67.15087890625,
+          61.541748046875,
+          64.63623046875,
+          63.19580078125,
+          81.658935546875,
+          63.555908203125
         ],
         "hot_existing_checked_filter": [
-          765.509033203125,
-          811.444091796875,
-          761.846923828125,
-          786.81640625,
-          767.852783203125,
-          770.355224609375,
-          761.75537109375
+          779.327392578125,
+          768.353271484375,
+          763.397216796875,
+          780.194091796875,
+          764.312744140625,
+          771.728515625,
+          815.252685546875
         ],
         "input_native_isqrt": [
-          204.437255859375,
-          188.87939453125,
-          192.3583984375,
-          183.1787109375,
-          214.2578125,
-          201.788330078125,
-          202.1484375
+          230.328369140625,
+          205.450439453125,
+          205.322265625,
+          247.1923828125,
+          227.5390625,
+          212.982177734375,
+          201.4892578125
         ],
         "input_bounded_lookup": [
-          170.458984375,
-          188.5498046875,
-          171.56982421875,
-          167.230224609375,
-          168.377685546875,
-          191.32080078125,
-          163.226318359375
+          243.32275390625,
+          165.826416015625,
+          166.00341796875,
+          159.24072265625,
+          167.572021484375,
+          164.019775390625,
+          175.03662109375
+        ],
+        "verified_input_native_isqrt": [
+          200.06103515625,
+          188.65966796875,
+          181.683349609375,
+          196.148681640625,
+          194.3115234375,
+          191.357421875,
+          187.469482421875
+        ],
+        "verified_input_bounded_lookup": [
+          177.9541015625,
+          160.528564453125,
+          157.757568359375,
+          181.304931640625,
+          162.799072265625,
+          183.60595703125,
+          164.837646484375
         ]
       },
-      "hot_speed_ratio_native_over_lookup": 1.281129900076864,
-      "input_speed_ratio_native_over_lookup": 1.1837940418218276,
-      "lookup_setup_break_even_items_hot": 107,
-      "lookup_setup_break_even_items_input": 61
+      "hot_speed_ratio_native_over_lookup": 1.2630365888792856,
+      "input_speed_ratio_native_over_lookup": 1.2829987499080815,
+      "verified_input_speed_ratio_native_over_lookup": 1.1608842152034657,
+      "verified_input_lookup_faster_rounds": 7,
+      "lookup_setup_break_even_items_hot": 108,
+      "lookup_setup_break_even_items_input": 39,
+      "lookup_setup_break_even_items_verified_input": 68
+    },
+    {
+      "band": "known_primes101_251",
+      "direction": "D",
+      "population_size": 163,
+      "population_square_completion_hits": 48,
+      "population_hit_rate": 0.294478527607362,
+      "timing_sample_size": 163,
+      "timing_sample_hits": 48,
+      "timing_batch_repeats": 101,
+      "ns_per_item_median": {
+        "hot_native_isqrt": 98.73048654558707,
+        "hot_bounded_lookup": 69.45271214237988,
+        "hot_existing_checked_filter": 826.4532588228147,
+        "input_native_isqrt": 225.15944846018346,
+        "input_bounded_lookup": 172.24078236044463,
+        "verified_input_native_isqrt": 223.41614529551114,
+        "verified_input_bounded_lookup": 190.82184292048836
+      },
+      "ns_per_item_rounds": {
+        "hot_native_isqrt": [
+          98.73048654558707,
+          97.39415659357347,
+          95.99101014395919,
+          98.76085768086011,
+          112.45823968899957,
+          127.44943205977039,
+          95.64477920184656
+        ],
+        "hot_bounded_lookup": [
+          70.78296786733888,
+          68.27431209378607,
+          69.0578873838304,
+          69.45271214237988,
+          80.02186721739659,
+          75.5330134240418,
+          68.34112859138675
+        ],
+        "hot_existing_checked_filter": [
+          820.5734070339549,
+          826.4532588228147,
+          807.7203425864059,
+          846.2613132478892,
+          850.0151855676365,
+          828.676425924801,
+          799.8967381400716
+        ],
+        "input_native_isqrt": [
+          224.39409585130292,
+          210.812124157201,
+          225.48138249407762,
+          226.07058251837455,
+          231.0332260219887,
+          225.15944846018346,
+          225.09870618963737
+        ],
+        "input_bounded_lookup": [
+          187.42027576990827,
+          166.23337180343802,
+          172.52019680495656,
+          170.52177610399076,
+          172.24078236044463,
+          175.42367733705885,
+          171.03201117657778
+        ],
+        "verified_input_native_isqrt": [
+          222.48071432910163,
+          221.61209986029277,
+          238.32837271457208,
+          251.72204336998118,
+          223.41614529551114,
+          227.67417846079087,
+          216.0541821053271
+        ],
+        "verified_input_bounded_lookup": [
+          199.3318350239932,
+          190.82184292048836,
+          199.39865152159388,
+          189.75277895887749,
+          214.13472635607118,
+          189.04816862054304,
+          189.61914596367612
+        ]
+      },
+      "hot_speed_ratio_native_over_lookup": 1.4215497638621655,
+      "input_speed_ratio_native_over_lookup": 1.3072365636902243,
+      "verified_input_speed_ratio_native_over_lookup": 1.1708101225529206,
+      "verified_input_lookup_faster_rounds": 7,
+      "lookup_setup_break_even_items_hot": 62,
+      "lookup_setup_break_even_items_input": 35,
+      "lookup_setup_break_even_items_verified_input": 56
+    },
+    {
+      "band": "known_primes101_251",
+      "direction": "U",
+      "population_size": 243,
+      "population_square_completion_hits": 108,
+      "population_hit_rate": 0.4444444444444444,
+      "timing_sample_size": 243,
+      "timing_sample_hits": 108,
+      "timing_batch_repeats": 68,
+      "ns_per_item_median": {
+        "hot_native_isqrt": 94.54732510288066,
+        "hot_bounded_lookup": 65.8557250060518,
+        "hot_existing_checked_filter": 811.2624061970467,
+        "input_native_isqrt": 214.8390220285645,
+        "input_bounded_lookup": 160.0702009198741,
+        "verified_input_native_isqrt": 221.81069958847738,
+        "verified_input_bounded_lookup": 199.15274751876058
+      },
+      "ns_per_item_rounds": {
+        "hot_native_isqrt": [
+          117.17501815541031,
+          101.27693052529654,
+          91.8724279835391,
+          94.54732510288066,
+          93.45800048414428,
+          94.59573953038006,
+          92.48366013071896
+        ],
+        "hot_bounded_lookup": [
+          64.2398934882595,
+          64.40329218106996,
+          88.33817477608328,
+          66.39433551198258,
+          65.8557250060518,
+          65.62575647542968,
+          66.21883321229727
+        ],
+        "hot_existing_checked_filter": [
+          815.2384410554345,
+          819.0692326313241,
+          823.9651416122005,
+          808.2667634955217,
+          811.2624061970467,
+          809.9491648511256,
+          791.0917453401114
+        ],
+        "input_native_isqrt": [
+          223.98934882595015,
+          227.1362866134108,
+          214.66957153231664,
+          213.11425804889856,
+          212.89034132171386,
+          214.8390220285645,
+          226.64609053497944
+        ],
+        "input_bounded_lookup": [
+          158.81142580488986,
+          160.39699830549503,
+          156.85064149116437,
+          161.26845800048415,
+          160.0702009198741,
+          160.02178649237473,
+          175.7201646090535
+        ],
+        "verified_input_native_isqrt": [
+          217.3021060275962,
+          217.25974340353426,
+          217.45945291696927,
+          228.95787944807552,
+          222.0164609053498,
+          221.81069958847738,
+          246.01791333817476
+        ],
+        "verified_input_bounded_lookup": [
+          227.12418300653596,
+          196.75018155410314,
+          193.17961752602275,
+          199.15274751876058,
+          223.25102880658437,
+          208.18809005083514,
+          193.59719196320503
+        ]
+      },
+      "hot_speed_ratio_native_over_lookup": 1.435673589413711,
+      "input_speed_ratio_native_over_lookup": 1.3421550094517958,
+      "verified_input_speed_ratio_native_over_lookup": 1.113771727239577,
+      "verified_input_lookup_faster_rounds": 5,
+      "lookup_setup_break_even_items_hot": 63,
+      "lookup_setup_break_even_items_input": 33,
+      "lookup_setup_break_even_items_verified_input": 80
     }
   ],
-  "lookup_setup_ns_median": 1900,
+  "lookup_setup_ns_median": 1800,
   "lookup_entries": 22,
   "lookup_python_size_bytes_sum_including_keys_values": 2400,
   "timing_contract": {
     "rounds": 7,
-    "batch_repeats": 8,
+    "minimum_batch_repeats": 8,
+    "minimum_observations_per_method_round": 16384,
     "setup": "one-time table build timed separately; module import and observation logging excluded for both kernels",
     "ledger": "costs in ns use batch median allocations; saved_cost is replaced square-root kernel cost, not estimated factorization work",
-    "input_kernel": "includes native isqrt(N) and gap construction; all fixtures are nonsquares"
+    "input_kernel": "includes native isqrt(N) and gap construction; all fixtures are nonsquares",
+    "verified_input_kernel": "also constructs the two witness factors, checks the smaller is nontrivial and checks their product; returns only an aggregate checksum on the fixed fixtures"
   },
   "ledger_existing_api": {
+    "<256|256-4095|mat0|mem0|imb0|gap0|pis0|shadow=bounded-positive-completion|J129_255|direction=D": {
+      "fixed_fixture_verified_input_lookup": {
+        "attempts": 2048,
+        "hits": 65,
+        "total_probe_cost": 377487.5,
+        "total_saved_cost": 451525.0
+      }
+    },
+    "<256|256-4095|mat0|mem0|imb0|gap0|pis0|shadow=bounded-positive-completion|J129_255|direction=U": {
+      "fixed_fixture_verified_input_lookup": {
+        "attempts": 2048,
+        "hits": 137,
+        "total_probe_cost": 337587.5,
+        "total_saved_cost": 391900.0
+      }
+    },
+    "<256|256-4095|mat0|mem0|imb0|gap0|pis0|shadow=bounded-positive-completion|J16_128|direction=D": {
+      "fixed_fixture_verified_input_lookup": {
+        "attempts": 2048,
+        "hits": 88,
+        "total_probe_cost": 322100.0,
+        "total_saved_cost": 365237.5
+      }
+    },
+    "<256|256-4095|mat0|mem0|imb0|gap0|pis0|shadow=bounded-positive-completion|J16_128|direction=U": {
+      "fixed_fixture_verified_input_lookup": {
+        "attempts": 2048,
+        "hits": 213,
+        "total_probe_cost": 338600.0,
+        "total_saved_cost": 380012.5
+      }
+    },
     "<256|256-4095|mat1|mem0|imb0|gap0|pis0|shadow=bounded-positive-completion|J129_255|direction=D": {
       "fixed_fixture_gap_lookup": {
         "attempts": 2048,
         "hits": 65,
-        "total_probe_cost": 154750.0,
-        "total_saved_cost": 194850.0
+        "total_probe_cost": 153612.5,
+        "total_saved_cost": 200837.5
       }
     },
     "<256|256-4095|mat1|mem0|imb0|gap0|pis0|shadow=bounded-positive-completion|J129_255|direction=U": {
       "fixed_fixture_gap_lookup": {
         "attempts": 2048,
-        "hits": 138,
-        "total_probe_cost": 130100.0,
-        "total_saved_cost": 166675.0
+        "hits": 137,
+        "total_probe_cost": 130162.5,
+        "total_saved_cost": 164400.0
       }
     },
     "<256|256-4095|mat1|mem0|imb0|gap0|pis0|shadow=bounded-positive-completion|J16_128|direction=D": {
       "fixed_fixture_gap_lookup": {
         "attempts": 2048,
         "hits": 88,
-        "total_probe_cost": 130000.0,
-        "total_saved_cost": 165387.5
+        "total_probe_cost": 129225.0,
+        "total_saved_cost": 164787.5
       }
     },
     "<256|256-4095|mat1|mem0|imb0|gap0|pis0|shadow=bounded-positive-completion|J16_128|direction=U": {
       "fixed_fixture_gap_lookup": {
         "attempts": 2048,
-        "hits": 221,
-        "total_probe_cost": 128237.5,
-        "total_saved_cost": 165850.0
+        "hits": 213,
+        "total_probe_cost": 133900.0,
+        "total_saved_cost": 169425.0
+      }
+    },
+    "<256|64-255|mat0|mem0|imb0|gap0|pis0|shadow=bounded-positive-completion|known_primes101_251|direction=D": {
+      "fixed_fixture_verified_input_lookup": {
+        "attempts": 163,
+        "hits": 48,
+        "total_probe_cost": 31103.960396039703,
+        "total_saved_cost": 36416.83168316833
+      }
+    },
+    "<256|64-255|mat0|mem0|imb0|gap0|pis0|shadow=bounded-positive-completion|known_primes101_251|direction=U": {
+      "fixed_fixture_verified_input_lookup": {
+        "attempts": 243,
+        "hits": 108,
+        "total_probe_cost": 48394.11764705896,
+        "total_saved_cost": 53900.000000000335
+      }
+    },
+    "<256|64-255|mat1|mem0|imb0|gap0|pis0|shadow=bounded-positive-completion|known_primes101_251|direction=D": {
+      "fixed_fixture_gap_lookup": {
+        "attempts": 163,
+        "hits": 48,
+        "total_probe_cost": 11320.792079207913,
+        "total_saved_cost": 16093.06930693063
+      }
+    },
+    "<256|64-255|mat1|mem0|imb0|gap0|pis0|shadow=bounded-positive-completion|known_primes101_251|direction=U": {
+      "fixed_fixture_gap_lookup": {
+        "attempts": 243,
+        "hits": 108,
+        "total_probe_cost": 16002.941176470536,
+        "total_saved_cost": 22974.99999999999
       }
     }
   },
