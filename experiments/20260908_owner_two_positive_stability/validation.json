@@ -1,0 +1,335 @@
+{
+  "schema": "OWNER_TWO_POSITIVE_EXECUTABLE_REGISTRATION_VALIDATION_V1",
+  "status": "PASS_ONE_PUBLISHED_P2_EXECUTABLE_REGISTRATION",
+  "created_utc": "2026-09-08T02:09:05.946574+00:00",
+  "python": "3.12.14",
+  "argv": [
+    "experiments/20260908_owner_two_positive_stability/validate_registration.py",
+    "--root",
+    "D:\\em\\owner-20260907",
+    "--write"
+  ],
+  "repository_root": "D:\\em\\owner-20260907",
+  "method_id": "candidate.x6.two_positive_raw_stability_certificate",
+  "source_commit": "3ac5a5dd0e3b62f489cf1a5a1739b63b90c53b8f",
+  "source_tree": "7c0085e8382cf17d4dce61fbf9d3983999a09049",
+  "executed_script_sha256": "862f5e9e94c9a7d9e709106a51d36bab1c3acbe1b75d2f951d9fb7c07670480c",
+  "shard_sha256": "5d7949d79809595bd51e6053426e7cbdadaa6601dc9c6901af6cde0816c2a917",
+  "canonical_loader_sha256": "321625e6e2d2fa95a25c81d3bc2588cee1b26b16c70d10dd28f4f0da3c2b49b0",
+  "tool_registry_sha256": "f2281d98a05aa23feaa4b163e7ab37a41f30ecbb84f499b0b820443bcfa97170",
+  "loaded_exactly_once": true,
+  "actual_api_signature": "(case_id, mu_atoms, nu_atoms, denominator=1)",
+  "public_exports": [
+    "audit_two_positive_stability"
+  ],
+  "canonical_api_origin": "experiments/owner_two_positive_stability_20260908/check_two_positive_stability.py",
+  "queries": [
+    {
+      "language": "en",
+      "query": "two positive support raw X6 stability certificate",
+      "matching_score": 25,
+      "returned_method_ids": [
+        "candidate.x6.two_positive_raw_stability_certificate",
+        "candidate.x6.one_positive_raw_stability_certificate",
+        "candidate.x6.positive_support_raw_compression_certificate",
+        "result.x6.two_positive_equality_rectangle",
+        "result.x6.two_positive_raw_stability",
+        "result.x6.positive_support_raw_l1_compression",
+        "result.x6.sparse_marginal_stability",
+        "result.x6.three_positive_star_raw_stability",
+        "candidate.x6.raw_joint_observer_recovery",
+        "result.x6.three_positive_raw_mass_boundary",
+        "result.x6.three_positive_star_fixed_weight_stability",
+        "t0.weighted_brc_critical_degeneracy"
+      ]
+    },
+    {
+      "language": "zh-CN",
+      "query": "X6 双正支点 raw 二十表 稳定性 矩形取等 证书",
+      "matching_score": 10,
+      "returned_method_ids": [
+        "candidate.x6.two_positive_raw_stability_certificate",
+        "candidate.x6.one_positive_raw_stability_certificate",
+        "candidate.x6.positive_support_raw_compression_certificate",
+        "candidate.x6.raw_joint_observer_recovery",
+        "result.x6.positive_support_raw_l1_compression",
+        "result.x6.three_positive_raw_mass_boundary",
+        "result.x6.three_positive_star_fixed_weight_stability",
+        "result.x6.three_positive_star_raw_stability",
+        "result.x6.two_positive_equality_rectangle",
+        "result.x6.two_positive_raw_stability",
+        "candidate.x6.budgeted_noisy_recovery",
+        "candidate.x6.finite_reverse_step_port_monitor"
+      ]
+    }
+  ],
+  "source_files_sha256": {
+    "experiments/owner_two_positive_stability_20260908/check_two_positive_stability.py": "3fe2fa6c824b7cff1fca4ad9a3f0235fc008c2a00b152893559eed54d2f63da7",
+    "experiments/owner_two_positive_stability_20260908/certificate.json": "244e9cd7844e391b3f19cdbebaaad36fd70ddf14c97701252847ca2a50761e7e",
+    "experiments/owner_two_positive_stability_20260908/README.md": "929dedf2a8f5ac05b965406ad15eca1ecab27c05d9586fdbdf2406af2843c327",
+    "experiments/owner_two_positive_stability_20260908/independent_review_20260908/review_two_positive.py": "37c831a0b51dbd6cd16e9657d3f402f7903af7deaa205ce17772639b6af3b51e",
+    "experiments/owner_two_positive_stability_20260908/independent_review_20260908/author_input_pins.json": "57a90c8aa99f22d51cbb8bd905cf9700900ecdb4f56b081cacaf8d713841548c",
+    "experiments/owner_two_positive_stability_20260908/independent_review_20260908/README.md": "c01d49cd12927db32cb14a515707ebf4e4c72214caf47f2229bc7eaff9e2490a",
+    "experiments/owner_two_positive_stability_20260908/independent_review_20260908/validation.json": "513f65ccf2c08796adadfd2ebeafb4fd8fb4f2fb6b540d913af537a51df479ac"
+  },
+  "runtime_and_proof_sha256": {
+    "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md": "519a16725156be5461c6e28a0dcef664e267cff4e85120cfb257d5d540ec459e",
+    "exact_arithmetic_runtime_policy.json": "0fdb8eddc09d9e734ddd91b52d6c3c18c9d6036837dfe9fee0bbdbdb7d44b2aa",
+    "experiments/owner_one_positive_stability_20260908/check_one_positive_stability.py": "283c0b64e995077d01e5b42114ffd5791bafadeb5f175b4df17118ee1a9d5878",
+    "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py": "6f0d79a519c53fed1300b3fabf500c34e30aa46cdd63b409fa6ecc115071ecb4",
+    "experiments/x6_signed_native_spatial_v16_20260905/x6_signed.py": "e48b6f2133edc588fde98b1b0f02ce27fecda915b152b7901300898920d52b8e",
+    "research_notes/OWNER_ONE_POSITIVE_STABILITY_20260907.md": "b49eac9291c7b6a6ec458a133700ee17a4573972e58787a976871512746dd4e7",
+    "research_notes/OWNER_ONE_POSITIVE_STABILITY_INDEPENDENT_AUDIT_20260908.md": "f6fe6713fb46bc0fd9c6626333cb44afd14c88b13b7f7d99fe8f928859434038",
+    "research_notes/OWNER_TWO_POSITIVE_EQUALITY_CLASSIFICATION_REVIEW_20260908.md": "1a50237cb4a92a3ec2ef7168b7bd8e90598f69aba394217221f24c83fa810ec7",
+    "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_BOUND_REVIEW_20260908.md": "1bb732a50cccbbec6c8c11950104c62eed9afc15f326fcc39d9142bd13b24a35",
+    "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_INDEPENDENT_AUDIT_20260908.md": "f610e3d642b53279efa91dec15ad3b392270768f73ad0a31edf38212b60be61c",
+    "research_notes/OWNER_X6_STABILITY_20260907.md": "2915e70210dce5bc136c915e45e96a7c8a1f6dd414fae1590a4687f41bff3127",
+    "src/enterprise_math/__init__.py": "bf974df0ef0f57991947d061cb300e835e53bc79ff5667e4229fcc7a6cadbdcc",
+    "src/enterprise_math/core.py": "d2814d1d31eb195905f05136f250fcac2232b8cfc7dc6c9797000733ddebe636",
+    "src/enterprise_math/division.py": "4421c6dc9acfaa61492137951e543973c010c6a127655126152cc18763cc35e9",
+    "src/enterprise_math/exact_arithmetic.py": "f4f8feead82dc53a35e5fec495b31e46e64820f7b115c9efd6034063e68f8ad6",
+    "tools/check_exact_arithmetic_policy.py": "d5629502352e8207a4616368858e68dec1c259e8a0c635769163784dc8bd01fa"
+  },
+  "all_twenty_three_source_pins_unchanged": true,
+  "protected_inventory_sources": {
+    "research_method_inventory.json": {
+      "sha256_before_and_after": "f6b221bcd7050ddea5965bcb80d6cf64c98e99d23f9ae6cbadb8e23a390f7402",
+      "observed_method_count": 25
+    },
+    "research_method_inventory_addenda/20260823_tool_discovery_six_return.json": {
+      "sha256_before_and_after": "f10fcf0f094b56351a39ad057397c8fc67da0eb00dbafab4f7c0ff9f9142308f",
+      "observed_method_count": 6
+    },
+    "research_method_inventory_addenda/20260825_triaxial_directional_defect_t1.json": {
+      "sha256_before_and_after": "481fe53126daa383651e2419545fbd1b7132654b76404d96fca6ff9eadb88243",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260826_diagonal_quotient_normalization.json": {
+      "sha256_before_and_after": "08bfbb6c03ca3cd75ef336d30fa09017fd02c01b028ce8f7fefbeb2a4b8509ba",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260826_quadratic_packet_equivariant_section_harvest.json": {
+      "sha256_before_and_after": "572fa9bbaf52d64473a46c47fe12cc04ce8fa4d5ca9d10aca43116f5ee56fe62",
+      "observed_method_count": 3
+    },
+    "research_method_inventory_addenda/20260827_native_trisector_coupled_closure_harvest.json": {
+      "sha256_before_and_after": "0c1bad1e5d613108b49bdf443a30e5169ab4247771697a95eadca72eed4a5e60",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260828_nonly_valuation_wall_gcd_extractor.json": {
+      "sha256_before_and_after": "074c2010bf7d0fa688b3bd53b90cb7533f87e39067105fae487a1da96ec3601a",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260828_p018_quotient_root_atlas_carry_harvest.json": {
+      "sha256_before_and_after": "6f5caaddf707d1e2a10a34b88c327f26857e3ef7755dd318cd11c72601a2a294",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260902_brc_weighted_finite_recurrent.json": {
+      "sha256_before_and_after": "3b52a716a672502fe78f413cb76ed5232f311364ca54d1af1fb4bebc2934e5d2",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260902_brc_weighted_foundation.json": {
+      "sha256_before_and_after": "84321f5f995f950ef56de61f7c95487f2a187ca485d86d8adce86b2056f14dd9",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260903_brc_critical_degeneracy_foundation.json": {
+      "sha256_before_and_after": "dde07b2897f6d2faccbd0ff8e6435fbf3dfb7cf56e79f626b5996778839d4c2f",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260903_brc_critical_orbit_foundation.json": {
+      "sha256_before_and_after": "93221c006d8579c881e185b55e807e1b6627c9db9081aa5254504f680b0e3a00",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260903_brc_critical_ratio_jet_foundation.json": {
+      "sha256_before_and_after": "49b2cf7236b3d6e4f3691eef33bced9bbf6c23163d488799cd772804044a7f3e",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260903_brc_recurrent_interaction_foundation.json": {
+      "sha256_before_and_after": "ad7cee458bb23f5c599d9368a97be2a2b54a97f77b4db53b4db66904c351c3ca",
+      "observed_method_count": 3
+    },
+    "research_method_inventory_addenda/20260903_brc_recurrent_port_foundation.json": {
+      "sha256_before_and_after": "37951e8bf2c34f62a173dc4753155cbfd1b7f5cb3a8ffcdb88a23b121ba45453",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260903_brc_reducible_critical_jet_foundation.json": {
+      "sha256_before_and_after": "9c875c60db3e71b36ee3e307441d5fb4ec539d6a2503f2bd2629cd1b7559a1e8",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260903_brc_universal_histogram_foundation.json": {
+      "sha256_before_and_after": "7e5f3e60a96bde1b5104be2100a5f8033e8fc8dade2e5fba00f941a6360f7db6",
+      "observed_method_count": 2
+    },
+    "research_method_inventory_addenda/20260903_cyclic_rotation_refinement.json": {
+      "sha256_before_and_after": "5852506bf0ad9fc848667fc4a8a0f4f89511b2fd20cde2c6149582cacc33c026",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260903_euler_dyadic_cayley_bridge.json": {
+      "sha256_before_and_after": "2cef40d366a3f6f124d1d4227df2b110906c4dff9d1099f4ea4f9ca9854296e2",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260903_euler_native_bisector.json": {
+      "sha256_before_and_after": "65bcb6bb6b1dd54b5c22b8fdf0e9002a070a7b518a3959752687451d6c9c7824",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260903_euler_pythagorean_spinor_cayley.json": {
+      "sha256_before_and_after": "282cc2c94c5bf7ba8388d0f5b05732e5f7e4586ccb83e47aff1db2047738f648",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260903_euler_rotation_refinement.json": {
+      "sha256_before_and_after": "f7c3d95898efa09be562549dc4eda80ed97db11560d1fd66d3a193c568f3edd3",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260903_tetrahedral_residual_pell_extraction.json": {
+      "sha256_before_and_after": "1cc8323db6e63c4a505124df0c24b2b6880c7277672a6dc3f601f6c6cbe5aca6",
+      "observed_method_count": 2
+    },
+    "research_method_inventory_addenda/20260904_brc_newton_fiber_quotient_foundation.json": {
+      "sha256_before_and_after": "a43044d11a2f8ff30ecfe58b35b35a52500b8f23923182eade06551b8169b7f2",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260904_brc_newton_handoff_resonance_foundation.json": {
+      "sha256_before_and_after": "9465e83afe76ae3124b6677073f6fb2e3d1102f6e84ed80926d292aafa4cd491",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260904_brc_newton_observer_lattice_foundation.json": {
+      "sha256_before_and_after": "38b273ae107001a305afe9d9b52ef5186c148021c004d62c17ae397b1cacef4a",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260904_brc_newton_quadratic_selector_foundation.json": {
+      "sha256_before_and_after": "a20ccc67d94955cdfea920bc100060fe2adf59341cf38d5838bd98882e161645",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260904_brc_newton_recursion_foundation.json": {
+      "sha256_before_and_after": "dd12fdc68468967345cb36d0a5e5cc513be056d74032b8ed266c76c15a5d1078",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260904_brc_newton_schedule_strata_foundation.json": {
+      "sha256_before_and_after": "cfb9c4d6dbc00ce4fa85953d13eac36eb5efb4e931ad6dc8e7d19f05f750a785",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260904_brc_newton_selector_chambers_foundation.json": {
+      "sha256_before_and_after": "c2e0a40faf64bb6fc35ea3e3d46b752aac4b2c40cbc95782b857fb3e2211dea2",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260904_euler_cell_polygon_pi.json": {
+      "sha256_before_and_after": "f34b730a67bceb7cf3f362ad00a9e6b17f10f9c3ca1311e306bcb3d5b27ee086",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260904_euler_character_completion.json": {
+      "sha256_before_and_after": "e00c173be83ee98b8925e48e0ce15756300d6c0c533dded491f14be2820df9ef",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260904_euler_fcc_chirality.json": {
+      "sha256_before_and_after": "4bbbb84caecf9c143449ffc5fc3e20f3c4db5c0a1315001ed086bf0fa7491f62",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260906_brc_admissible_multiplier_scan.json": {
+      "sha256_before_and_after": "678463c53b884d28f85455824ecb8c2c3e32aaadc4c2bf2b881c0b775e2f2cc9",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260906_brc_fixed_wheel_complexity_boundary.json": {
+      "sha256_before_and_after": "20f31207c1891b6bc39f2f20073ac1a19cf7d2b8032b3e8e389c9bec58a27142",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260906_brc_mod8_sparse_transition.json": {
+      "sha256_before_and_after": "c8fd124597975502a047733969ea60742e897a22ab4d123892db4401390eab66",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260906_brc_multiplier_2adic_strip_reduction.json": {
+      "sha256_before_and_after": "56b1e6b8e9fd8e5c2feae718a265715941f8f39a74760c4a5e1ce304b29cf844",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260906_brc_multiplier_basin.json": {
+      "sha256_before_and_after": "29c202899aacbf644aa0b215516a2163ac07f94ce81ea77211da10f02e55b675",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260906_brc_multiplier_priority_jump.json": {
+      "sha256_before_and_after": "419c5731cdb1b16d4548d85166758c3617afc127a20845798eebc6a6aa4889fd",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260906_brc_multiplier_square_content.json": {
+      "sha256_before_and_after": "b6ed081eb3057da252b318cbce6e90a8545136208e5ce6e802713264ddb772ce",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260906_brc_multiplier_transition.json": {
+      "sha256_before_and_after": "8a81805adeac495ffcbf7e0b69d7b13811a781ad67f7886b14eb1008de5f3a1f",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260906_brc_multiplier_vertical_wheel.json": {
+      "sha256_before_and_after": "7d2e2c5eefa05c43b6fb445dd3f5d35962ba89a40544736c543c956de8b16bd0",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260906_brc_priority_vertical_scheduler.json": {
+      "sha256_before_and_after": "fe27c826a528e63f286bed49493983ed914d8deeb12b27112971f51e17c93478",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260906_brc_smooth_relation_lattice.json": {
+      "sha256_before_and_after": "3ad38aa3554703c2bb06c8988b284e5336f7cf7c632b83bc0b47eff131cb7202",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260906_brc_square_gap_prefilter.json": {
+      "sha256_before_and_after": "c1623e5c9605433214fdf74fab0a9c2352fcd3b8d17369fd13caa17a34ecb490",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260907_brc_error_linearization_pell.json": {
+      "sha256_before_and_after": "427947aa8bf9076ee705c4c60204f00140b98deee5d0ff7ddda43393176f0741",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260907_brc_linear_deep_tail.json": {
+      "sha256_before_and_after": "e761ee09fe7f2aebfc7b638ab8805521cbc5ada3c652a96525f461887c4a8d7b",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260907_brc_pairwise_multiplier_transport.json": {
+      "sha256_before_and_after": "99eb575204cdff598e97adf6f8b5aab4f309a10e878c38230d353ee96fed6376",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260907_brc_phase_quotient_remainder.json": {
+      "sha256_before_and_after": "b337ee602ed4d4d47f4810b307639cf6db83fe43a4e9d44e9bb84a92d1ae3c55",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260907_brc_square_gap_cascade.json": {
+      "sha256_before_and_after": "da112b01e3a59804c5685ad48507a13da303a95dd45bc3c46a9dd65456d07a52",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260907_brc_table_free_tail.json": {
+      "sha256_before_and_after": "e0a64725b1034ffc7a4259ea13f576900a70c54b83f5d8f2ee82568aede203f6",
+      "observed_method_count": 1
+    },
+    "research_method_inventory_addenda/20260907_owner_native_frontier_candidates.json": {
+      "sha256_before_and_after": "9b9b1851602200bbb207681dbac444a7e745b2915d6f8851bc999fd3a028f115",
+      "observed_method_count": 19
+    },
+    "research_method_inventory_addenda/20260908_owner_raw_stability_extensions.json": {
+      "sha256_before_and_after": "506bc35b11c211f351d26ac0f19e1f3ba09b841521cfb49302067f69b293b571",
+      "observed_method_count": 3
+    },
+    "research_method_inventory_addenda/20260908_owner_raw_stability_results.json": {
+      "sha256_before_and_after": "b1d4d216f76bde3fa2964912db68c96d5ff68b661ce793054e18df44048e95eb",
+      "observed_method_count": 2
+    },
+    "research_method_inventory_addenda/20260908_owner_star_stability_results.json": {
+      "sha256_before_and_after": "2ab6c7249446ae4c258f19e2a38104633213eeeed7289ea4d53a0fc2e0bbbe82",
+      "observed_method_count": 2
+    }
+  },
+  "protected_reused_method_object_sha256": {
+    "candidate.x6.one_positive_raw_stability_certificate": "38b45125b0ddea16077087d601b8dd54cfa9541ff2c9fa43a5b4b1f8a175dabc",
+    "candidate.x6.positive_support_raw_compression_certificate": "440a24e0f4759087b9bd97b498f30172ad3f8126ea16b5a3162d69a6e91cb445",
+    "candidate.x6.raw_joint_observer_recovery": "bdf84e0908be09c76d7e32c0938e73fe78544a95611fdd93f8803d265d2b2481",
+    "result.x6.two_positive_raw_stability": "c14d25b1ac678da6399acb9eedee073428a72b9a264729c219c0d5e92784fcc5",
+    "result.x6.two_positive_equality_rectangle": "4773f827fb0cd8846c01c6f4d13098459b68ac8c4d32d8621c53088394f6ee37"
+  },
+  "prior_brc_family_object_view_sha256": "e04eb63ff70f09e73f1094625d4b6b60fee86b28737a6fa7b2ceb9a954681595",
+  "observed_prior_brc_family_count": 47,
+  "observed_prior_method_count": 112,
+  "observed_total_method_count": 113,
+  "observed_counts_are_not_permanent_source_or_main_assertions": true,
+  "complete_prior_inventory_bytes_and_objects_unchanged": true,
+  "mathematical_consumers_executed": false,
+  "historical_case_datasets_replayed": false,
+  "guarded_consumer_calls": [],
+  "import_observation_boundary": "Canonical public modules were imported for signature inspection. Historical enterprise_math/Fraction initialization remains; this is not a transitive arithmetic migration or a mathematical proof run.",
+  "formal_result_or_working_truth_or_main_admission_granted": false,
+  "registration_authoring_global_knowledge_sync": "main@31d06a1 / GLOBAL_KNOWLEDGE_V1"
+}

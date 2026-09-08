@@ -1,0 +1,187 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+  "date": "2026-09-08",
+  "authority": "FRONTIER_ROUTING_ONLY_EXACT_SOURCES_CONTROL",
+  "provenance": {
+    "scope": "Owner auxiliary source method harvest of an already published tool; no formal research-role activation by this registration.",
+    "source_branch": "research/em-owner-20260907",
+    "source_pull_request": "https://github.com/awdawmip/enterprise-math/pull/1364",
+    "source_commit": "3ac5a5dd0e3b62f489cf1a5a1739b63b90c53b8f",
+    "source_tree": "7c0085e8382cf17d4dce61fbf9d3983999a09049",
+    "local_equivalent_commit": "27ff32a88d9a5f7f17ffce72e6f2eebf813b1935",
+    "formal_driver_or_steward_acceptance": null,
+    "official_claim": null,
+    "formal_result": null,
+    "foundation_mutation": false,
+    "new_global_tool_family": false,
+    "working_truth_granted": false
+  },
+  "availability": {
+    "loader": "tools/enterprise_toolbox.py",
+    "preferred_lookup": "python -B -X utf8 tools/enterprise_toolbox.py --json methods <exact need>",
+    "cross_branch_rule": "Read the seven executable/evidence files and sixteen dependencies from the immutable source commit. Source registration is separate from main admission. Future integration aligns objects by method_id rather than duplicating this candidate.",
+    "formal_acceptance_inferred_from_indexing": false
+  },
+  "methods": [
+    {
+      "method_id": "candidate.x6.two_positive_raw_stability_certificate",
+      "name": "Two-positive raw X6 stability certificate / 双正支点 raw X6 稳定性证书",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "description": "Existing published executable for two positive support raw X6 stability certificate: aggregate positive populations, form the Jordan difference, verify all twenty raw marginals, D >= 4*M, and the original-coordinate equal-weight rectangle equality classification. 双正支点、二十张 raw 表、整数不等式与矩形取等的既有可执行证书登记。",
+      "scope": "Finite positive populations in a common externally supplied anchor and labelled integer X6 chart, with at most two Jordan-positive sites after aggregation and cancellation.",
+      "triggers": [
+        "two positive support raw X6 stability certificate",
+        "X6 双正支点 raw 二十表 稳定性 矩形取等 证书"
+      ],
+      "capabilities": [
+        "canonical Spatial6 positive populations and post-cancellation Jordan support",
+        "complete twenty raw three-axis tables with reversible joint can3 plus offset",
+        "integer D >= 4*M certificate for p<=2 including p<=1, p=0 and zero-difference boundaries",
+        "original-coordinate equal-weight checkerboard rectangle equality",
+        "native literal unevaluated, unreduced DivisionExpr ratios"
+      ],
+      "api": [
+        "audit_two_positive_stability"
+      ],
+      "api_signatures": {
+        "audit_two_positive_stability": "(case_id, mu_atoms, nu_atoms, denominator=1)"
+      },
+      "implementation_ref": "experiments/owner_two_positive_stability_20260908/check_two_positive_stability.py",
+      "input_contract": [
+        "mu_atoms and nu_atoms are finite populations of canonical Spatial6 points with strictly positive exact-int numerator weights; duplicate points are aggregated before common population cancellation.",
+        "denominator is a strictly positive exact int; booleans and int subclasses are rejected. The common mass unit is the existing unevaluated DIV(1,s).",
+        "All atoms must belong to the same externally established anchor and labelled raw integer chart. Signed values describe the analytical difference of two positive BRC populations, never a negative native branch.",
+        "The post-Jordan positive support must have size at most two. The existing one-positive audit is called only on its p<=1 branch."
+      ],
+      "output_contract": [
+        "Full integer Jordan ledger and all twenty ordered raw marginal tables, including joint can3 addresses and common offsets; can3-alone is insufficient.",
+        "Integer M, D, D-4*M and the scope-appropriate proof branch; the nonzero equality flag is checked against actual original-coordinate rectangle corners and equal absolute numerator weights.",
+        "Native literal DivisionExpr nodes for common unit and displayed masses/ratios remain unevaluated and unreduced. M=D=0 has no ratio."
+      ],
+      "executable_scope": {
+        "post_jordan_positive_support_at_most": 2,
+        "positive_integer_population_numerators": true,
+        "strict_positive_integer_common_denominator": true,
+        "same_external_anchor_and_labelled_raw_x6_chart_required": true,
+        "aggregate_then_cancel_before_support_check": true,
+        "signed_difference_is_analysis_only": true,
+        "complete_ordered_raw_three_axis_tables": 20,
+        "joint_can3_plus_common_offset_required": true,
+        "integer_bound": "D >= 4*M",
+        "nonzero_equality": "original-coordinate equal-weight checkerboard rectangle",
+        "literal_unreduced_unevaluated_division_expr": true,
+        "zero_difference_ratio": null,
+        "p_le_1_uses_existing_audit_case_only_in_its_scope": true,
+        "extends_to_three_positive_support": false,
+        "recovers_microscopic_branch_history": false,
+        "formal_result_created": false,
+        "working_truth_granted": false,
+        "main_admission_inferred": false
+      },
+      "hard_boundary": "This source-only candidate registers an already published bounded consumer. It adds no theorem, family, formal Result, Working Truth, or main admission. It does not certify p>=3, infer anchor/branch history, replace raw coordinates by can3 alone, evaluate a rational quotient, or claim transitive migration of historical Fraction initialization. Finite author/reviewer cases are retained evidence, not a universal proof substitute.",
+      "source_refs": [
+        "experiments/owner_two_positive_stability_20260908/check_two_positive_stability.py",
+        "experiments/owner_two_positive_stability_20260908/certificate.json",
+        "experiments/owner_two_positive_stability_20260908/README.md",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/review_two_positive.py",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/author_input_pins.json",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/README.md",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/validation.json"
+      ],
+      "runtime_refs": [
+        "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md",
+        "exact_arithmetic_runtime_policy.json",
+        "experiments/owner_one_positive_stability_20260908/check_one_positive_stability.py",
+        "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py",
+        "experiments/x6_signed_native_spatial_v16_20260905/x6_signed.py",
+        "research_notes/OWNER_ONE_POSITIVE_STABILITY_20260907.md",
+        "research_notes/OWNER_ONE_POSITIVE_STABILITY_INDEPENDENT_AUDIT_20260908.md",
+        "research_notes/OWNER_TWO_POSITIVE_EQUALITY_CLASSIFICATION_REVIEW_20260908.md",
+        "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_BOUND_REVIEW_20260908.md",
+        "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_INDEPENDENT_AUDIT_20260908.md",
+        "research_notes/OWNER_X6_STABILITY_20260907.md",
+        "src/enterprise_math/__init__.py",
+        "src/enterprise_math/core.py",
+        "src/enterprise_math/division.py",
+        "src/enterprise_math/exact_arithmetic.py",
+        "tools/check_exact_arithmetic_policy.py"
+      ],
+      "source_sha256": {
+        "experiments/owner_two_positive_stability_20260908/check_two_positive_stability.py": "3fe2fa6c824b7cff1fca4ad9a3f0235fc008c2a00b152893559eed54d2f63da7",
+        "experiments/owner_two_positive_stability_20260908/certificate.json": "244e9cd7844e391b3f19cdbebaaad36fd70ddf14c97701252847ca2a50761e7e",
+        "experiments/owner_two_positive_stability_20260908/README.md": "929dedf2a8f5ac05b965406ad15eca1ecab27c05d9586fdbdf2406af2843c327",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/review_two_positive.py": "37c831a0b51dbd6cd16e9657d3f402f7903af7deaa205ce17772639b6af3b51e",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/author_input_pins.json": "57a90c8aa99f22d51cbb8bd905cf9700900ecdb4f56b081cacaf8d713841548c",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/README.md": "c01d49cd12927db32cb14a515707ebf4e4c72214caf47f2229bc7eaff9e2490a",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/validation.json": "513f65ccf2c08796adadfd2ebeafb4fd8fb4f2fb6b540d913af537a51df479ac",
+        "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md": "519a16725156be5461c6e28a0dcef664e267cff4e85120cfb257d5d540ec459e",
+        "exact_arithmetic_runtime_policy.json": "0fdb8eddc09d9e734ddd91b52d6c3c18c9d6036837dfe9fee0bbdbdb7d44b2aa",
+        "experiments/owner_one_positive_stability_20260908/check_one_positive_stability.py": "283c0b64e995077d01e5b42114ffd5791bafadeb5f175b4df17118ee1a9d5878",
+        "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py": "6f0d79a519c53fed1300b3fabf500c34e30aa46cdd63b409fa6ecc115071ecb4",
+        "experiments/x6_signed_native_spatial_v16_20260905/x6_signed.py": "e48b6f2133edc588fde98b1b0f02ce27fecda915b152b7901300898920d52b8e",
+        "research_notes/OWNER_ONE_POSITIVE_STABILITY_20260907.md": "b49eac9291c7b6a6ec458a133700ee17a4573972e58787a976871512746dd4e7",
+        "research_notes/OWNER_ONE_POSITIVE_STABILITY_INDEPENDENT_AUDIT_20260908.md": "f6fe6713fb46bc0fd9c6626333cb44afd14c88b13b7f7d99fe8f928859434038",
+        "research_notes/OWNER_TWO_POSITIVE_EQUALITY_CLASSIFICATION_REVIEW_20260908.md": "1a50237cb4a92a3ec2ef7168b7bd8e90598f69aba394217221f24c83fa810ec7",
+        "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_BOUND_REVIEW_20260908.md": "1bb732a50cccbbec6c8c11950104c62eed9afc15f326fcc39d9142bd13b24a35",
+        "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_INDEPENDENT_AUDIT_20260908.md": "f610e3d642b53279efa91dec15ad3b392270768f73ad0a31edf38212b60be61c",
+        "research_notes/OWNER_X6_STABILITY_20260907.md": "2915e70210dce5bc136c915e45e96a7c8a1f6dd414fae1590a4687f41bff3127",
+        "src/enterprise_math/__init__.py": "bf974df0ef0f57991947d061cb300e835e53bc79ff5667e4229fcc7a6cadbdcc",
+        "src/enterprise_math/core.py": "d2814d1d31eb195905f05136f250fcac2232b8cfc7dc6c9797000733ddebe636",
+        "src/enterprise_math/division.py": "4421c6dc9acfaa61492137951e543973c010c6a127655126152cc18763cc35e9",
+        "src/enterprise_math/exact_arithmetic.py": "f4f8feead82dc53a35e5fec495b31e46e64820f7b115c9efd6034063e68f8ad6",
+        "tools/check_exact_arithmetic_policy.py": "d5629502352e8207a4616368858e68dec1c259e8a0c635769163784dc8bd01fa"
+      },
+      "validation_refs": [
+        "experiments/owner_two_positive_stability_20260908/certificate.json",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/README.md",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/validation.json"
+      ],
+      "validation_contract": {
+        "registration_validator": "experiments/20260908_owner_two_positive_stability/validate_registration.py",
+        "registration_receipt": "experiments/20260908_owner_two_positive_stability/validation.json",
+        "registration_checks": "Exact source/dependency pins, canonical loader queries, actual public signature import, and preservation of prior catalog bytes/objects only.",
+        "historical_author_evidence": "17 cases / 340 raw tables / 18 input rejects; original certificate retained at its immutable source pin.",
+        "historical_independent_evidence": "9 independent cases / 180 raw tables / 19 rejects including fresh-process source-pin drift; portable review receipt retained at its immutable source pin.",
+        "historical_mathematical_cases_replayed_by_registration": false
+      },
+      "reuse_resolution": {
+        "coverage_verdict": "EXTEND_EXISTING_TOOL",
+        "matched_method_ids": [
+          "candidate.x6.one_positive_raw_stability_certificate",
+          "candidate.x6.positive_support_raw_compression_certificate",
+          "candidate.x6.raw_joint_observer_recovery",
+          "result.x6.two_positive_raw_stability",
+          "result.x6.two_positive_equality_rectangle"
+        ],
+        "matched_toolsets": [
+          "T0_BRC"
+        ],
+        "reuse_resolution_state": "EXTEND_EXISTING_TOOL",
+        "resolution": "Register the existing p2 consumer in the same X6/raw BRC family. Keep the one-positive and raw-compression executables and both p2 RESULT_ONLY records unchanged; their paper scope is not an executable API duplicate.",
+        "execution_boundary": "The published consumer already composes canonical X6, one-positive population/raw projection and native DIV. This registration imports the actual public module only to inspect its API; it does not claim to execute those mathematical capabilities again."
+      },
+      "runtime_constraints": {
+        "canonical_imports_required": true,
+        "arbitrary_precision_integer_mass_numerators": true,
+        "division_expr": "native symbolic, unevaluated and unreduced",
+        "historical_fraction_initialization_transitively_migrated": false,
+        "anchoring_is_a_caller_provenance_requirement": true
+      },
+      "tags": [
+        "X6",
+        "raw",
+        "two-positive",
+        "p<=2",
+        "stability",
+        "rectangle-equality",
+        "positive-BRC-populations",
+        "symbolic-DIV",
+        "source-only-candidate"
+      ]
+    }
+  ]
+}
