@@ -1,0 +1,63 @@
+{
+  "schema": "PFSSV_EXPERIMENT_MANIFEST_V1",
+  "task_id": "RS-PRIME-FACTOR-SEMIPRIME-SHELL-RESIDUAL-VALIDATION",
+  "publication_id": "TP2-8EE46AA7741B8867DAF3",
+  "claim_id": "chatgpt-pfssv-20260827-2132",
+  "researcher_id": "EM-PFSSV-9C27A1",
+  "frozen_before_holdout": true,
+  "freeze_stage": "PRE_DISCOVERY",
+  "discovery_scales": [100000, 300000, 1000000, 3000000, 10000000],
+  "holdout_scales": [30000000, 100000000],
+  "shell_widths": [
+    {"numerator": 1, "denominator": 100},
+    {"numerator": 3, "denominator": 1000},
+    {"numerator": 1, "denominator": 1000}
+  ],
+  "shell_rule": "X < p*q <= floor(X*(denominator+numerator)/denominator), p<=q, p and q exact primes",
+  "exact_integer_reference": "deterministic sieve-generated prime table; shell bounds use integer division only",
+  "independent_spotcheck": "deterministic 64-bit Miller-Rabin primality plus direct product-bound verification on a fixed hash-selected sample",
+  "views": {
+    "raw": "factor pair (p,q), plus derived S3 orbit for visualization only",
+    "small_factor_trim": "p > 31",
+    "scale_trim": "p^4 > X (exact integer equivalent of p > X^(1/4))",
+    "prime_rank": "normalized pi(p) rank among scale-trim eligible p values",
+    "density_flat": "u=log(p)/log(X), z=log(3*u/(1-u))/log(3), restricted to 1/4<u<=1/2"
+  },
+  "density_flat_rationale": "first-order semiprime shell intensity in u is proportional to 1/(u*(1-u)); the stated logit transform is its normalized CDF on [1/4,1/2]",
+  "profile_bins": 24,
+  "coarse_log_bands": 8,
+  "residue_control": 30,
+  "primary_profile": "24-bin density-flat z occupancy on the exact scale-trim set",
+  "null_A": {
+    "name": "band_residue_local_density_permutation",
+    "replicates": 512,
+    "seed": 20260827,
+    "procedure": "for each scale/width, decompose each eligible p's exact q-interval count by q mod 30; within each (coarse u-band, p mod 30, q mod 30) stratum, independently permute those channel counts across eligible p positions; then recombine into the 24-bin z profile",
+    "preserves": ["eligible p positions", "coarse logarithmic p density", "p mod 30", "q mod 30 channel totals", "per-channel q-count multiset", "exact shell margins through observed interval counts"]
+  },
+  "null_B": {
+    "name": "cross_scale_cyclic_phase_surrogate",
+    "replicates": 4096,
+    "seed": 20260828,
+    "procedure": "after Null-A standardization, independently apply a uniformly random nonzero cyclic shift to each scale-width residual profile before cross-scale aggregation",
+    "preserves": ["within-profile residual shape", "one-dimensional amplitude distribution", "factor-margin profile"],
+    "destroys": ["shared cross-scale phase"]
+  },
+  "standardization": "per scale-width-bin Z=(observed-NullA_mean)/max(NullA_sd,1e-12)",
+  "discovery_statistic": "A_b = arithmetic mean of Z over all 5 discovery scales and all 3 widths; T=max_b abs(A_b)",
+  "familywise_threshold": "99th empirical percentile of the same max statistic under each null family",
+  "feature_selection_rule": "b_star=argmax_b abs(A_b), ties to smallest b; sign=sign(A_b_star)",
+  "discovery_consistency_gate": {
+    "scale_sign": "at least 4 of 5 scale composites (mean over widths at b_star) share the selected sign",
+    "width_sign": "at least 2 of 3 width composites (mean over scales at b_star) share the selected sign",
+    "nulls": "T exceeds the 99th empirical familywise threshold under both Null A and Null B"
+  },
+  "holdout_rule": "freeze b_star and sign after discovery; for each holdout scale compute H=mean over 3 widths of the Null-A-standardized Z at b_star using that holdout's own preregistered Null-A ensemble; both holdout H values must have the frozen sign and abs(H)>=1.645",
+  "terminal_class_priority": [
+    "CROSS_SCALE_RESIDUAL_CANDIDATE",
+    "DETERMINISTIC_SMALL_FACTOR_ARTIFACT",
+    "RESIDUE_OR_DENSITY_ARTIFACT",
+    "NO_STABLE_RESIDUAL_STRUCTURE_AT_TESTED_SCALES"
+  ],
+  "secondary_channels_forbidden_until_primary_freeze": ["next_prime_gap", "semiprime_gap", "carry", "holonomy", "Prime_Fusion_phase"]
+}

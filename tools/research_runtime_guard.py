@@ -11,8 +11,13 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys as _sys
 from pathlib import Path
 from typing import Any, Mapping
+
+_BOOT_ROOT = Path(__file__).resolve().parents[1]
+if str(_BOOT_ROOT) not in _sys.path:
+    _sys.path.insert(0, str(_BOOT_ROOT))
 
 from control_plane.research_runtime_guard_core import *  # noqa: F401,F403
 from control_plane import research_runtime_guard_core as _core
