@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/ns-viscous-jitter-certificate-20260909.json",
+    "ref": "60525d11c002c0334e87fcbb206891c0e9455aef",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-observation-turn280",
+  "result": {
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"EM_RESULT_SPECIFIC_VERIFICATION_V1\",\n  \"record_id\": \"FINDING-EM-PDE-VISCOUS-JITTER-BUDGET-20260909\",\n  \"activity_id\": \"RA-076944AE1950A916ACC95399\",\n  \"proof_source\": {\n    \"repository\": \"awdawmip/enterprise-math\",\n    \"commit\": \"f797247d78e24ee8451c3df1f10e8b71f67958ff\",\n    \"path\": \"research_notes/ns-viscous-jitter-budget-20260909.md\",\n    \"sha256\": \"6c323957860acbaf2a3041987f52032bfc0b93b181f8e03b061c5e2fa3d7bf2a\",\n    \"git_blob_sha1\": \"d4d12c2079b6aff74feea4f71edd0a493c83440b\"\n  },\n  \"checker_sha256\": \"b278df8a38a90b9e51dc8033d4947329d2664ce5acd1f5fb025748758e4e3d1c\",\n  \"status\": \"PASSED\",\n  \"scope\": \"Analytic lemma checks and finite/numerical regressions only\",\n  \"inherited_code_sha256\": \"ac6a0a34994c85832bde55e38e195e9552df308906f1a4c4460d3dbdafb1db59\",\n  \"algebra\": {\n    \"energy_identity\": true,\n    \"weighted_side_identity\": true,\n    \"matrix_characteristic_polynomial\": \"-G**2*y**2*(-k + p)*(-p + q) + (lambda + nu*q**2)*(k**2*nu + lambda)\",\n    \"combined_PDE_energy_cancellation\": true,\n    \"peak_gain_formula\": true\n  },\n  \"smooth_zero_jitter_birth\": {\n    \"initial_modes\": 4,\n    \"nonlinear_outputs\": 4,\n    \"A_second_coefficient_exact\": \"-3*sqrt(5)/10 - 3/8 + 3*sqrt(2)/8 + 69*sqrt(10)/320\",\n    \"J_second_coefficient_exact\": \"-sqrt(5)/40 - 1/32 + sqrt(2)/32 + 23*sqrt(10)/1280\",\n    \"J_second_coefficient_decimal\": 0.013864651092815044,\n    \"injection_exponent\": \"2/t + O(1)\",\n    \"meaning\": \"Smooth local PDE solution starts with J=0, J=j2*t^2+O(t^3); this is birth, not blow-up.\"\n  },\n  \"regressions\": {\n    \"exact_budget_quadrature_tests\": 120,\n    \"max_budget_formula_error\": 1.4210854715202004e-14,\n    \"full_nonlinear_isolated_triad_trajectories\": 18,\n    \"max_actual_to_bound_squared_ratio\": 1.0,\n    \"max_energy_ledger_error\": 3.1345450679509668e-09,\n    \"numerical_tests_are_not_proofs\": true\n  }\n}\n",
+      "display_title": "ns-viscous-jitter-certificate-20260909.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/60525d11c002c0334e87fcbb206891c0e9455aef/research_notes/ns-viscous-jitter-certificate-20260909.json",
+      "encoding": "utf-8",
+      "sha": "7a94b0441da99513ac57e29adea696e5b1acf2f3"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
