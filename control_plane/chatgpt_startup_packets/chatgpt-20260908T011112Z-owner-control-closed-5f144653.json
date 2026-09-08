@@ -1,0 +1,61 @@
+{
+  "action": "CLAIM_NEW_OWNER",
+  "control_epoch": "EM-CONTROL-20260904-CANONICAL-DISPATCH-AUTHORITY-1",
+  "diagnostics": {
+    "load_policy": "TRIGGERED_ONLY",
+    "receipt_path": "control_plane/chatgpt_dispatch_receipts/chatgpt-20260908T011112Z-owner-control-closed-5f144653.json"
+  },
+  "generated_at": "2026-09-08T01:12:29Z",
+  "kind": "RESEARCH",
+  "new_claim_required": true,
+  "owner_claim_preserved": false,
+  "packet_bytes": 7638,
+  "read_plan": {
+    "first_dependency_ref": "research_returns/HODGE_H0N_NONSPLIT_WEIL_EXCEPTIONAL_CH3_SEED_OBJECT_RETURN_20260902.md",
+    "forbidden": [
+      "REMOTE_FETCH_AGENTS_MD_FOR_ORDINARY_START",
+      "FULL_DISPATCH_RECEIPT_ON_ORDINARY_START",
+      "CURRENT_CONTROL_AUTHORITY_ON_ORDINARY_START",
+      "ISSUE_240_FULL_COMMENT_STREAM_IN_CONVERSATION",
+      "HIGH_FANOUT_DIRECTORY_OR_RECURSIVE_TREE_DISCOVERY"
+    ],
+    "if_first_dependency_unknown": "TASK_UNDERSTANDING_THEN_BOUNDED_TARGETED_SEARCH_ONLY",
+    "remote_source_reads_before_substantive_math_max": 2
+  },
+  "reason": "fresh canonical task selector returned a dispatchable target",
+  "request_id": "chatgpt-20260908T011112Z-owner-control-closed-5f144653",
+  "schema": "ENTERPRISE_MATH_RESEARCHER_STARTUP_PACKET_V1",
+  "source_sha": "a9f120f8292eb78d463da4eea53867a861fd99a5",
+  "task": {
+    "claim_id": null,
+    "dispatch_state": "NEEDS_DISPATCH",
+    "frontier": "H0N isolates an exact algebraic projector Pi_W onto the exceptional Weil space and proves zero exceptional ch_3 for several natural divisor-generated and semihomogeneous source families, while explicitly leaving genuinely non-semihomogeneous Fourier–Mukai outputs with intermediate support unresolved.",
+    "identity_lane": "HODGEH0O",
+    "lease_until": null,
+    "next_action": "DRIVER_REVIEW frozen H0O negative boundary. Verify the exact Poincare-polarization middle-support block argument and Result RR-FB3CF77C4F611FDED79B; if accepted, freeze seed-conservation for this declared family. Do not infer non-algebraicity or H1. Repo-wide CI failures on this PR are attributed to unrelated pre-existing publication-envelope and research_scheduler import defects documented on PR #1148.",
+    "owner": "research/hodge-h0o-intermediate-support-fm-exceptional-ch3",
+    "projection": {
+      "Frozen inputs and scope": "Use the H0N exact target model and its algebraic spectral projector `Pi_W` only at the strength accepted by Driver review: `Pi_W` isolates the exceptional two-dimensional Weil space in degree six, annihilates the divisor-cube line, and is a separator rather than a seed.\n\nPreserve the H0N negative boundary. Semihomogeneous outputs, finite shifts/direct sums/extensions/cones built from them, divisor-generated inputs, and determinantal classes whose Chern data already lie in the divisor algebra are not to be rediscovered as new work.\n\nChoose and freeze before calculation one explicit target-side Fourier–Mukai setup `Phi_P : D^b(X) -> D^b(A_gen)` or an endo-Fourier–Mukai kernel on `A_gen`, together with the source object class, support dimension/codimension, WIT/cohomological-amplitude hypotheses if used, and the exact GRR pushforward formula. The output family must not be certified semihomogeneous by the hypotheses; otherwise it falls back into H0N.\n\nKnown split or discriminant-minus-one cycle constructions may be used only as negative controls. They may not be transported or relabeled onto the non-split target without an independently valid target-side construction.",
+      "Hard target and required outputs": "Hard target:\n\n`NONSPLIT_WEIL_INTERMEDIATE_SUPPORT_FM_EXCEPTIONAL_CH3_SEED_OR_EXACT_NO_GO_CLASSIFIED`.\n\nRequired outputs:\n\n1. a typed specification of the chosen Fourier–Mukai kernel, source family, support geometry, and target output;\n2. an exact GRR decomposition of the degree-six / codimension-three contribution to `ch(Phi_P(F))`;\n3. a blockwise computation against the H0N `B_p` decomposition or an equivalent exact test for `Pi_W`;\n4. at least one terminal theorem:\n   - an explicit algebraic/derived output `E` with `Pi_W(ch_3(E)) != 0`;\n   - a theorem that every output in the declared family has `Pi_W(ch_3)=0`;\n   - an exact proof that the declared family cannot be instantiated on the fixed non-split target, with the missing datum named;\n5. adversarial tests against hidden semihomogeneity, divisor-algebra collapse, imported split data, and unsupported support/WIT assumptions;\n6. finite symbolic checks only where they certify a finite reduction; they must not replace the unbounded GRR or geometric argument.\n\nA positive result must identify an actually algebraic/derived source object and cannot consist only of applying `Pi_W` to an unspecified algebraic class.",
+      "Mother question": "For the fixed very-general non-split Weil sixfold with `K=Q(i)` and discriminant class `[-3]`, does a genuinely non-semihomogeneous Fourier–Mukai construction with controlled intermediate support produce a target-side algebraic or derived object `E` with `Pi_W(ch_3(E)) != 0`, or does Grothendieck–Riemann–Roch force zero exceptional projection for the declared family?\n\nThis task asks only about one explicitly typed intermediate-support Fourier–Mukai family. It does not ask for a theorem about all derived objects or all correspondences.",
+      "Research value to preserve": "H0N converts the open sixfold problem into an exact separator plus a list of broad natural source families that provably miss the exceptional component. H0O preserves that progress and attacks the sharpest remaining structured gap: Fourier–Mukai outputs whose intermediate support prevents immediate reduction to the semihomogeneous/divisor-algebra formulas already closed.\n\nEither outcome is useful. A nonzero seed would supply the first target-side bridge into `W_K`; a family-level no-go would eliminate a major unresolved construction route without making any non-algebraicity claim.",
+      "Success, kill, and return criteria": "Positive success requires an explicit target-side object in the frozen family and a theorem that its exceptional `ch_3` projection is nonzero.\n\nNegative success requires a theorem-level obstruction for the entire declared intermediate-support family, with all support, WIT, smoothness, and GRR hypotheses stated exactly.\n\nA precise target-side instantiation obstruction is also terminal if it names the missing kernel/support datum and gives a falsifiable unblock condition.\n\nKill the route on the first valid terminal theorem. Do not expand the task to arbitrary correspondences, arbitrary derived categories, all Fourier–Mukai kernels, H1, the full Hodge conjecture, or non-algebraicity of `W_K`."
+    },
+    "projection_mode": "INLINE_EXACT_TASKBOOK_SECTIONS",
+    "publication_id": "TP2-A314F727276CFF8CE168",
+    "publication_record_path": "research_task_records/RS-HODGE-H0O-NONSPLIT-WEIL-INTERMEDIATE-SUPPORT-FM-EXCEPTIONAL-CH3/TP2-A314F727276CFF8CE168.json",
+    "required_task_sections": [
+      "Mother question",
+      "Frozen inputs and scope",
+      "Hard target and required outputs",
+      "Research value to preserve",
+      "Success, kill, and return criteria"
+    ],
+    "researcher_id": null,
+    "state": "HANDOFF_READY",
+    "task_id": "RS-HODGE-H0O-NONSPLIT-WEIL-INTERMEDIATE-SUPPORT-FM-EXCEPTIONAL-CH3",
+    "taskbook_blob_sha1": "sha1:fe7148295f8abf45c31f1dd8478e07cea745f6d3",
+    "taskbook_path": "research_tasks/HODGE_H0O_NONSPLIT_WEIL_INTERMEDIATE_SUPPORT_FM_EXCEPTIONAL_CH3_20260902.md",
+    "title": "HODGE H0O — Non-Split Weil Sixfold Intermediate-Support Fourier–Mukai Exceptional ch3 Gate"
+  }
+}
