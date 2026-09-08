@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/ns-jitter-initial-data-verification-20260909.json",
+    "ref": "ff3e5cb93b32f7c74b6c93bb391bfbae17433b3f",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-observation-turn302",
+  "result": {
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"EM_RESULT_SPECIFIC_VERIFICATION_V1\",\n  \"record_id\": \"FINDING-EM-PDE-JITTER-INITIAL-CERTIFICATE-20260909\",\n  \"activity_id\": \"RA-076944AE1950A916ACC95399\",\n  \"proof_source\": {\n    \"repository\": \"awdawmip/enterprise-math\",\n    \"commit\": \"246c6de883f0a7ffd8c2fe0f8fc09b663c25e7b6\",\n    \"path\": \"research_notes/ns-jitter-initial-data-certificate-20260909.md\",\n    \"sha256\": \"41f86e6aa8d1113444f16ac5d4f97e228ef1dc6a178602ca5279906faf52f99e\",\n    \"git_blob_sha1\": \"db3a72e6203398e3a876b31a0285679a21e6e131\"\n  },\n  \"checker_sha256\": \"e95d2509aeab142593d6d4bcf375c16bebbd007a55f8428fb7fdd472c4b86363\",\n  \"verification\": {\n    \"status\": \"PASSED\",\n    \"scope\": \"Exact algebra and finite Fourier certificates; no PDE simulation or arbitrary-data claim\",\n    \"inherited_sha256\": \"ac6a0a34994c85832bde55e38e195e9552df308906f1a4c4460d3dbdafb1db59\",\n    \"algebra\": {\n      \"completed_square_identity\": true,\n      \"optimal_c_in_constant_weight_family\": \"1/4\",\n      \"max_dissipation_coefficient\": \"1/4\",\n      \"mixed_Young_constant\": 108,\n      \"Gronwall_constant\": 216,\n      \"heat_initial_exponent_constant\": 54\n    },\n    \"A3_example\": {\n      \"initial_mode_count\": 8,\n      \"rank\": 3,\n      \"helicity\": \"initially positive only\",\n      \"K_a\": \"6*sqrt(2)\",\n      \"K_b\": \"4*sqrt(2)\",\n      \"nonlinear_output_count\": 12,\n      \"output_squared_radii\": [\n        6,\n        10,\n        14\n      ],\n      \"input_heat_rates\": [\n        10\n      ],\n      \"J_coefficient\": \"sqrt(14)/80 + 3*sqrt(10)/100 + sqrt(6)/16\",\n      \"R_coefficient\": \"3*sqrt(14)/245 + 7*sqrt(10)/250 + sqrt(6)/20\",\n      \"J_decimal\": 0.29473215606367426,\n      \"R_decimal\": 0.2568344745231463,\n      \"opposite_helicity_output_present\": true,\n      \"opposite_helicity_source_squared\": \"-117*sqrt(2)/70 + 6*sqrt(14)/49 + 7*sqrt(10)/25 + sqrt(6)/2\"\n    },\n    \"mixed_helicity_boundary\": {\n      \"J_total_initial\": \"0\",\n      \"full_heat_residual_R\": \"1/16\",\n      \"conclusion\": \"J alone cannot replace the full heat residual for mixed initial helicities.\"\n    },\n    \"finite_reference_residual\": {\n      \"orders_checked\": [\n        1,\n        2,\n        3,\n        4,\n        5\n      ],\n      \"all_ordered_feedback_terms_retained\": true\n    }\n  },\n  \"limits\": [\n    \"Analytic proof is in the source note. Finite checks do not prove the infinite-dimensional continuation step.\",\n    \"No independent peer review, formalization, or arbitrary-data regularity claim.\",\n    \"Checker and unchanged inherited module are in the accompanying research ZIP.\"\n  ]\n}\n",
+      "display_title": "ns-jitter-initial-data-verification-20260909.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/ff3e5cb93b32f7c74b6c93bb391bfbae17433b3f/research_notes/ns-jitter-initial-data-verification-20260909.json",
+      "encoding": "utf-8",
+      "sha": "ec7e2b9de79acf34b95439dba6729a5863fdf35b"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
