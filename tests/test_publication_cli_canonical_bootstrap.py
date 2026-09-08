@@ -48,12 +48,22 @@ class PublicationCliCanonicalBootstrapTests(unittest.TestCase):
         cls.runs = []
         # Copy tracked source once so the real bootstrap sees every existing
         # source pin. This is a test fixture, not a replacement policy registry.
+        source_head = subprocess.check_output(
+            ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True
+        ).strip()
         paths = subprocess.check_output(["git", "ls-files", "-z"], cwd=ROOT)
         for name in paths.decode("utf-8").split("\0"):
             if name:
                 target = cls.root.joinpath(name)
                 target.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copyfile(ROOT.joinpath(name), target)
+                if name == "tests/test_p017_mirror_cross.py" and not ROOT.joinpath(name).exists():
+                    # quality.yml deliberately removes this heavy test before
+                    # sharding. Retain its exact source bytes without running it.
+                    target.write_bytes(subprocess.check_output(
+                        ["git", "cat-file", "blob", f"{source_head}:{name}"], cwd=ROOT
+                    ))
+                else:
+                    shutil.copyfile(ROOT.joinpath(name), target)
         cls.facade_sha256 = hashlib.sha256(
             cls.root.joinpath("tools/research_task_records.py").read_bytes()
         ).hexdigest()
