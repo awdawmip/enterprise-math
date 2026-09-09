@@ -545,7 +545,10 @@ def _assigned_research_route(
         return blocked("assigned researcher cannot take a foreign owner's claim")
     if definition.get("dependencies") != []:
         return blocked("nonempty dependencies lack a supported canonical satisfaction proof; no dependency bypass")
-    if state.get("dispatch_state") not in {"NEEDS_DISPATCH", "LEASED"} or state.get("hard_block"):
+    # The canonical reducer distinguishes an actual control block from a
+    # taskbook's descriptive mathematical bottleneck in the same legacy field.
+    # Do not override its derived state with an untyped truthiness test.
+    if state.get("dispatch_state") not in {"NEEDS_DISPATCH", "LEASED"}:
         return blocked(f"assigned research target retains canonical state {state.get('dispatch_state')}")
     observation = observations.get(request["task_id"])
     activity = _owner_scope_activity(state, observation)

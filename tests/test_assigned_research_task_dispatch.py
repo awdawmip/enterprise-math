@@ -280,12 +280,51 @@ class AssignedResearchTaskDispatchTests(unittest.TestCase):
                 self.assertEqual(result["selection_status"], "BLOCKED")
                 self.assertEqual(result["target"]["dispatch_state"], "BLOCKED")
                 self.assertFalse(result["new_claim_required"])
-        for changes in ({"hard_block": {"reason": "prerequisite"}}, {"execution_cohort_id": "COH-FIXTURE"}):
+        for changes in ({"state": "BLOCKED", "dispatch_state": "BLOCKED",
+                         "hard_block": {"missing_object": "prerequisite", "owner": "fixture-owner",
+                                        "necessity": "required input", "unblock_condition": "accepted input"}},
+                        {"execution_cohort_id": "COH-FIXTURE"}):
             self.assertEqual(self.route(state={**self.state, **changes})["selection_status"], "BLOCKED")
         for change in ({"claimable": False}, {"kind": "GOVERNANCE"}):
             write_json(self.publication_path, {**self.publication, **change})
             with self.assertRaisesRegex(router.ControlDispatchError, "claimable RESEARCH"):
                 self.route()
+
+    def test_real_reducer_preserves_mathematical_bottleneck_on_claimable_task(self):
+        original = self.book.read_text(encoding="utf-8")
+        for base_state in ("READY", "HANDOFF_READY"):
+            with self.subTest(base_state=base_state):
+                meta, body = research_taskbook.split_taskbook(original)
+                meta.update(base_state=base_state, hard_block="QTF3_FIXED_POINT_NORMALIZATION_SCALAR")
+                self.book.write_text(research_taskbook.render_taskbook(meta, body), encoding="utf-8")
+                self.publication["taskbook_blob_sha1"] = router.research_task_records.taskbook_blob(self.book)
+                write_json(self.publication_path, self.publication)
+                before = self.book.read_bytes()
+                result = self.route(real_reducer=True)
+                self.assertEqual(result["target"]["dispatch_state"], "NEEDS_DISPATCH")
+                self.assertEqual(result["action"], "CLAIM_NEW_OWNER")
+                self.assertEqual(result["target"]["hard_block"], "QTF3_FIXED_POINT_NORMALIZATION_SCALAR")
+                self.assertTrue(result["assigned_research_selection"]["eligible"])
+                self.assertFalse(result["assigned_research_selection"]["execution_authorized"])
+                self.assertIsNone(result["target"]["claim_id"])
+                self.assertEqual(self.book.read_bytes(), before)
+
+    def test_real_reducer_keeps_complete_control_hard_block_closed(self):
+        meta, body = research_taskbook.split_taskbook(self.book.read_text(encoding="utf-8"))
+        hard_block = {"missing_object": "accepted prerequisite", "owner": "fixture-owner",
+                      "necessity": "execution needs the exact input", "unblock_condition": "accepted input"}
+        meta.update(base_state="BLOCKED", hard_block=hard_block)
+        self.book.write_text(research_taskbook.render_taskbook(meta, body), encoding="utf-8")
+        self.publication["taskbook_blob_sha1"] = router.research_task_records.taskbook_blob(self.book)
+        write_json(self.publication_path, self.publication)
+        before = self.book.read_bytes()
+        result = self.route(real_reducer=True)
+        self.assertEqual(result["action"], "NO_DISPATCH")
+        self.assertEqual(result["selection_status"], "BLOCKED")
+        self.assertEqual(result["target"]["hard_block"], hard_block)
+        self.assertFalse(result["new_claim_required"])
+        self.assertIsNone(result["required_guard"])
+        self.assertEqual(self.book.read_bytes(), before)
 
     def test_nonempty_or_malformed_dependencies_stay_blocked_without_rewriting_task(self):
         original = self.book.read_text(encoding="utf-8")
