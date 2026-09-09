@@ -1,0 +1,59 @@
+{
+  "schema": "EM_X6_RESEARCH_CHECKPOINT_V1",
+  "activity_id": "RA-X6CM-F01144F76207",
+  "event_id": "X6CM-NATIVE-GROWTH-20260909-03",
+  "status": "EXPLICIT_MODEL_PROOFS_AND_EXACT_REGRESSION_NOT_ADMITTED",
+  "source_snapshot": "d40aa672623d6fc82af4cbb60964e6a628267e62",
+  "frontier": [
+    "A cyclic face-snake gives a bijection N0 -> Z6 with signed unit edges; every odd-side cube is a complete centered prefix.",
+    "The occupied radius divided by N^(1/6) tends to sqrt(6)/2; radial inward step proportion tends to 1/2 without revisiting Cells.",
+    "For a fixed index-q native lattice, each coset count differs from N/q by at most 6q(floor(N^(1/6))+1)^5; side divisible by q gives exact uniformity.",
+    "Six unoriented axis step frequencies tend to 1/6, but finite prefixes and the selected deterministic frame are not automatically isotropic.",
+    "The common-phase posterior interval lift becomes an actual Cell process with each marked step a wait or one native edge, moving probability 1/2.",
+    "Fixed-modulus native CRT joint observations coexist with phase-history observations without identifying their maps.",
+    "Complete boxes satisfy an exact coordinate-radix law at sixth-power cardinalities; scalar sZ6 is not identified with the earlier chosen L(s^6)."
+  ],
+  "verification": {
+    "distinct_cells": 262144,
+    "native_edges": 262143,
+    "prefix_rank_roundtrips": 4957,
+    "large_integer_roundtrips": 80,
+    "local_snake_boxes": 363,
+    "native_couplings": 150,
+    "t6_history_horizon": 40,
+    "t6_classes": 490,
+    "crt_side6_pair_population": 46656,
+    "crt_each_of_six_pairs": 7776,
+    "rectangular_radix_pairs": 144,
+    "six_axis_radix_checks": 1000,
+    "arithmetic": "exact integers/rationals"
+  },
+  "artifacts": [
+    {
+      "path": "research_notes/x6_native_growth_phase_lift_and_residue_uniformity_20260909.md",
+      "sha256": "af16def81eb259013e05e98d9874115ecad819e14ff58907f2363088151f455a",
+      "git_blob_sha1": "2ddb7a1243201ab4d010946eb283bfb78aa0749d",
+      "bytes": 17776
+    },
+    {
+      "path": "experiments/x6_native_growth_20260909/verify.py",
+      "sha256": "08a849daf2b962dbea8aebb9cf4e1973795e85792d56e36677ba87f2f6c41777",
+      "git_blob_sha1": "01db1ef95bc120491e36653c45c88f6728e602f5",
+      "bytes": 14641
+    },
+    {
+      "path": "experiments/x6_native_growth_20260909/results.json",
+      "sha256": "74874b38ea7f7477fa8f233ef7155abdf5cbe56d9c6df145804b3b687da35696",
+      "git_blob_sha1": "ecb61c8843fb214ecab4cb1da36d6b23b4c7952b",
+      "bytes": 5041
+    }
+  ],
+  "not_claimed": [
+    "unique native dynamics",
+    "changing-modulus uniformity",
+    "all-integer multiplicative spatial compatibility",
+    "new space-filling-curve theory",
+    "formal proof or Foundation admission"
+  ],
+  "next_unit": "Compare the fixed occupied prefixes S_N with the earlier L(n) under actual native-metric radix/transport maps for non-sixth-power counts; keep ordering and geometric obstructions distinct."
+}
