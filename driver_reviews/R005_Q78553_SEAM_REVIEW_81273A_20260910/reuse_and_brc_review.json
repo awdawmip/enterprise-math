@@ -1,0 +1,48 @@
+{
+  "schema": "R005_DRIVER_REUSE_AND_BRC_REVIEW_V1",
+  "driver_id": "EM-DVR-81273A",
+  "method_harvest": "RESULT_ONLY",
+  "independence": "NONBLIND_SHARED_AMBIENT_CONTEXT_DISCLOSED",
+  "resolutions": [
+    {
+      "asset": "Accepted R005 scanner",
+      "outcome": "REUSE_EXECUTED",
+      "evidence": "driver_reviews/R005_Q78553_SEAM_REVIEW_81273A_20260910/checks/accepted_scanner.run.json",
+      "sha256": "6fe2dc9fe05ac16ef2bbd1919d3d03fc5b36037d010ca95afeafb62f4958d3f5"
+    },
+    {
+      "asset": "Existing libprimesieve 7.5 / official Python 2.3.0",
+      "outcome": "REUSE_APPLIED",
+      "evidence": "research_artifacts/R005_Q78553_CATALOGUE_050E43_20260910/construction_full/run.run.json"
+    },
+    {
+      "asset": "Frozen archive and source-input verifiers",
+      "outcome": "REUSE_EXECUTED",
+      "evidence": [
+        "driver_reviews/R005_Q78553_SEAM_REVIEW_81273A_20260910/checks/archives.run.json",
+        "driver_reviews/R005_Q78553_SEAM_REVIEW_81273A_20260910/checks/source_inputs.run.json"
+      ]
+    },
+    {
+      "asset": "Elementary integer checks and independent Eratosthenes basis",
+      "outcome": "COMPOSE_APPLIED",
+      "evidence": "driver_reviews/R005_Q78553_SEAM_REVIEW_81273A_20260910/checks/independent-frozen-evidence.json"
+    },
+    {
+      "asset": "Canonical tool coverage for this task",
+      "outcome": "REUSE_APPLIED",
+      "evidence": "research_artifacts/R005_Q78553_CATALOGUE_050E43_20260910/tool-coverage.json",
+      "boundary": "Coverage lookup is not itself tool use; actual executions above supply use. No general-purpose new mechanism is being introduced."
+    }
+  ],
+  "brc": {
+    "carrier": "Coverage-labeled internal gap events plus ordered first/last prime ports, counts, maxima and source hashes.",
+    "combination": "Union of within-block events together with explicit serial last-to-first bridge events, before threshold projection.",
+    "observer": "Only the frozen >=916 gap-start catalogue and accepted q78553 shadow map; all future smaller-gap or arbitrary prime-array queries are outside this retained observer.",
+    "provenance_loss_boundary": "Counts and first occurrences alone lose positions. Array digests authenticate a replay but do not store the arrays. Completeness relies on the recorded complete generation and code invariant, checked by count references and bounded independent replications.",
+    "mathematical_scope": "Finite positive integer data; no signed mass, recurrent or asymptotic conclusion."
+  },
+  "new_tool_family": false,
+  "working_truth": false,
+  "foundation_promotion": false
+}
