@@ -1,0 +1,33 @@
+{
+  "schema": "R005A_CONSECUTIVE_PRIME_GAP_CATALOG_V1",
+  "source_id": "R005_Q78553_COMPLETE_SEGMENTED_SIEVE_050E43",
+  "coverage_start": 1291005053866735,
+  "coverage_end": 1294364244470160,
+  "complete_for_gap_ge": 916,
+  "max_gap_bound": 730,
+  "max_gap_bound_start": 1291000000000027,
+  "max_gap_bound_end": 1294999999999942,
+  "completeness_attestation": true,
+  "rows": [],
+  "rows_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "construction_audit_path": "research_artifacts/R005_Q78553_CATALOGUE_050E43_20260910/construction_audit.json",
+  "attestation_basis": {
+    "kind": "COMPLETE_FINITE_SEGMENTED_ERATOSTHENES_CONSTRUCTION_WITH_ALL_PAIR_STITCHING",
+    "covered_integer_interval_half_open": [
+      1291000000000000,
+      1295000000000000
+    ],
+    "recorded_prime_count": 114956492689,
+    "audited_consecutive_pair_count": 114956492688,
+    "independent_count_checks": 4,
+    "construction_audit_sha256": "66674175f3e75ce125aa08b9aa156c7c7bfa1d28d7e3ed8cbe4edab2fafadf09",
+    "independent_witness_verification_sha256": "4ee17c6cbe929cb84611ae1cd2b96a5ee8ee1b18ced7ea3a9226fafac830f149",
+    "run_manifest_sha256": "31cccc0b8afdc78fd9194ec4b332ee84d5ace9cd64a1fd4bdf2bea8c1ca93004",
+    "source_code_sha256": {
+      "sieve_block.py": "9c71ef57bbff563865351ba8227d480f3b96774c4882a8fd71067cc24aa8f21e",
+      "construct_catalogue.py": "b69b432aa7c8c13a4525ba734adcfea091a47390ab2fe4efd9fbff8f49820c4f"
+    },
+    "scope": "Exact frozen task gap-start band; no result for another q and no Driver acceptance implied.",
+    "execution_assumptions": "Recorded execution of pinned numerical libraries and task adapter; this is a finite computational certificate, not a formal compiler/hardware verification."
+  }
+}

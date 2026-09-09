@@ -1,0 +1,150 @@
+{
+  "schema": "R005_FULL_CONSTRUCTION_INDEPENDENT_AUDIT_V1",
+  "status": "PASS",
+  "checked_at": "2026-09-09T19:20:26.283092+00:00",
+  "block_count": 4000,
+  "scan_half_open": [
+    1291000000000000,
+    1295000000000000
+  ],
+  "task_gap_start_band": [
+    1291005053866735,
+    1294364244470160
+  ],
+  "covered_gap_start_interval": [
+    1291000000000027,
+    1294999999999942
+  ],
+  "prime_count": 114956492689,
+  "internal_pair_count": 114956488689,
+  "cross_block_pair_count": 3999,
+  "all_pair_count": 114956492688,
+  "independent_count_cells": [
+    {
+      "lower_inclusive": 1291000000000000,
+      "upper_exclusive": 1292000000000000,
+      "pi_lower": 38237568055394,
+      "pi_upper": 38266308001575,
+      "expected_prime_count": 28739946181,
+      "boundary_conversion": "Both integer endpoints are even and >2; pi(U)-pi(L) equals the prime count in [L,U).",
+      "observed_prime_count": 28739946181,
+      "count_match": true,
+      "first_prime": 1291000000000027,
+      "last_prime": 1291999999999993,
+      "max_within_cell_observed_gap": {
+        "start": 1291613244264199,
+        "gap": 720,
+        "end": 1291613244264919,
+        "origin": "internal",
+        "block_index": 613
+      }
+    },
+    {
+      "lower_inclusive": 1292000000000000,
+      "upper_exclusive": 1293000000000000,
+      "pi_lower": 38266308001575,
+      "pi_upper": 38295047549945,
+      "expected_prime_count": 28739548370,
+      "boundary_conversion": "Both integer endpoints are even and >2; pi(U)-pi(L) equals the prime count in [L,U).",
+      "observed_prime_count": 28739548370,
+      "count_match": true,
+      "first_prime": 1292000000000069,
+      "last_prime": 1292999999999927,
+      "max_within_cell_observed_gap": {
+        "start": 1292271366466303,
+        "gap": 730,
+        "end": 1292271366467033,
+        "origin": "internal",
+        "block_index": 1271
+      }
+    },
+    {
+      "lower_inclusive": 1293000000000000,
+      "upper_exclusive": 1294000000000000,
+      "pi_lower": 38295047549945,
+      "pi_upper": 38323786390762,
+      "expected_prime_count": 28738840817,
+      "boundary_conversion": "Both integer endpoints are even and >2; pi(U)-pi(L) equals the prime count in [L,U).",
+      "observed_prime_count": 28738840817,
+      "count_match": true,
+      "first_prime": 1293000000000019,
+      "last_prime": 1293999999999983,
+      "max_within_cell_observed_gap": {
+        "start": 1293859122475723,
+        "gap": 720,
+        "end": 1293859122476443,
+        "origin": "internal",
+        "block_index": 2859
+      }
+    },
+    {
+      "lower_inclusive": 1294000000000000,
+      "upper_exclusive": 1295000000000000,
+      "pi_lower": 38323786390762,
+      "pi_upper": 38352524548083,
+      "expected_prime_count": 28738157321,
+      "boundary_conversion": "Both integer endpoints are even and >2; pi(U)-pi(L) equals the prime count in [L,U).",
+      "observed_prime_count": 28738157321,
+      "count_match": true,
+      "first_prime": 1294000000000003,
+      "last_prime": 1294999999999943,
+      "max_within_cell_observed_gap": {
+        "start": 1294683761084111,
+        "gap": 726,
+        "end": 1294683761084837,
+        "origin": "internal",
+        "block_index": 3683
+      }
+    }
+  ],
+  "all_four_independent_counts_match": true,
+  "global_max_observed_gap": {
+    "start": 1292271366466303,
+    "gap": 730,
+    "end": 1292271366467033,
+    "origin": "internal",
+    "block_index": 1271
+  },
+  "all_gaps_at_least_916": [],
+  "task_gap_rows": [],
+  "cross_cell_pairs": [
+    {
+      "start": 1291999999999993,
+      "end": 1292000000000069,
+      "gap": 76,
+      "origin": "cross_block",
+      "left_block": 999,
+      "right_block": 1000
+    },
+    {
+      "start": 1292999999999927,
+      "end": 1293000000000019,
+      "gap": 92,
+      "origin": "cross_block",
+      "left_block": 1999,
+      "right_block": 2000
+    },
+    {
+      "start": 1293999999999983,
+      "end": 1294000000000003,
+      "gap": 20,
+      "origin": "cross_block",
+      "left_block": 2999,
+      "right_block": 3000
+    }
+  ],
+  "all_cross_block_gaps_above_916": [],
+  "source_code_sha256": {
+    "sieve_block.py": "9c71ef57bbff563865351ba8227d480f3b96774c4882a8fd71067cc24aa8f21e",
+    "construct_catalogue.py": "b69b432aa7c8c13a4525ba734adcfea091a47390ab2fe4efd9fbff8f49820c4f"
+  },
+  "implementation_versions": [
+    [
+      "7.5",
+      "2.3.0",
+      "1.26.4",
+      "3.9.13"
+    ]
+  ],
+  "attestation_not_yet_granted": "Independent endpoint/interior witnesses and final scanner remain separate steps."
+}
