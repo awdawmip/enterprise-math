@@ -7,7 +7,7 @@
   "base_state": "BLOCKED",
   "priority": "P1",
   "leverage": "HIGH",
-  "frontier": "The current diagonal Result is ready for Driver acceptance and two bounded continuations cover the diagonal elliptic-fiber and off-diagonal equal-area branches. No independent cross-branch verification yet certifies their load-bearing arithmetic, reconstruction filters and common typing boundary.",
+  "frontier": "The diagonal fixed-locus Result is Driver-accepted at exact genus-one obstruction strength, and two bounded continuations cover the diagonal elliptic-fiber and off-diagonal equal-area branches. No independent cross-branch verification yet certifies the continuation Results, their reconstruction filters and common typing boundary.",
   "next_action": "After both continuation Results are Driver-accepted, independently reexecute their decisive symbolic and exact-arithmetic obligations, audit branch compatibility and current P000/observer preservation, and return VERIFIED_COMPATIBLE, REVISION_REQUIRED, EXACT_COUNTEREXAMPLE or INTERFACE_NARROWING_REQUIRED.",
   "dependencies": [
     {"task_id": "RS-P000-P11-DIAGONAL-ELLIPTIC-FIBER-PRIMITIVE-ARITHMETIC", "required_artifact": "Driver-accepted immutable Result"},
@@ -44,7 +44,7 @@
   "parent_task_id": "RS-P000-P11-DIAGONAL-ELLIPTIC-FIBER-PRIMITIVE-ARITHMETIC",
   "successor_gate": {
     "new_information_gap": "The diagonal and off-diagonal continuations will be developed by task researchers and reviewed within one line, but their key arithmetic reductions, primitive filters and P000/observer boundaries require an independent evidential check before final synthesis.",
-    "why_parent_result_does_not_close_it": "A Driver acceptance of the current diagonal Result and future line reviews do not create independent replication. The two continuation tasks also have distinct carriers whose compatibility cannot be inferred from either result alone.",
+    "why_parent_result_does_not_close_it": "Driver acceptance of the fixed-locus parent and future line reviews do not create independent replication. The two continuation tasks also have distinct carriers whose compatibility cannot be inferred from either result alone.",
     "discriminating_outcomes": [
       "independent reexecution verifies the load-bearing reductions and the two branch results are compatible at a common derived-arithmetic boundary",
       "one or more exact proof, reconstruction, primitive-filter or P000 typing defects require revision",
