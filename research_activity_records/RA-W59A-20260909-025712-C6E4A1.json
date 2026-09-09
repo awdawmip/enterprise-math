@@ -1,19 +1,50 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-W59A-20260909-025712-C6E4A1",
-  "registration_key": "session:local-chat-w59a-20260909-025712-c6e4a1:FREE_AXIOM_DISCOVERY",
-  "registration_origin": {"kind": "LIVE_SESSION", "source_tracking_key": null},
-  "mode": "FREE_AXIOM_DISCOVERY",
-  "researcher_id": "EM-FREE-W59A",
-  "session_id": "local-chat-w59a-20260909-025712-c6e4a1",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-09-09T02:57:12Z",
   "authority": {
-    "task_registration": false,
     "claim": false,
+    "mathematical_acceptance": false,
     "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
+    "task_registration": false,
+    "working_truth": false
   },
-  "checkpoints": []
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "5c78f2b1eaf71f4bc362d5dce0b375942bf8286d",
+          "path": "research_notes/WALLIS_SINE_POSTERIOR_CERTIFICATES_20260909.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "3879e612e8163be7d2e7486de599076227199f9d59a14777aed88c975de3b2b9",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "1a1e4c212fbf22117a7370c2c4a9e67015250a04",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/5c78f2b1eaf71f4bc362d5dce0b375942bf8286d/research_notes/WALLIS_SINE_POSTERIOR_CERTIFICATES_20260909.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "local-w59a-readback-response-turn38",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-W59A-20260909-025712-C6E4A1/readbacks/8609daf3501e1fcda0fd1581eb119a19bfb5cede68b5c86d984e687be858b849.json",
+          "verification_receipt_sha256": "8609daf3501e1fcda0fd1581eb119a19bfb5cede68b5c86d984e687be858b849"
+        }
+      ],
+      "event_id": "W59A-POSTERIOR-20260909-C6E4A1",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "FREE_AXIOM_DISCOVERY",
+  "recorded_at": "2026-09-09T02:57:12Z",
+  "registration_key": "session:local-chat-w59a-20260909-025712-c6e4a1:FREE_AXIOM_DISCOVERY",
+  "registration_origin": {
+    "kind": "LIVE_SESSION",
+    "source_tracking_key": null
+  },
+  "researcher_id": "EM-FREE-W59A",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
+  "session_id": "local-chat-w59a-20260909-025712-c6e4a1",
+  "session_state": "KNOWN"
 }
