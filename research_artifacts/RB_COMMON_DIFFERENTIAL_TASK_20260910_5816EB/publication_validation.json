@@ -1,0 +1,92 @@
+{
+  "schema": "RB_COMMON_DIFFERENTIAL_TASK_PUBLICATION_VALIDATION_V1",
+  "task_id": "RS-RB-CM24-COMMON-DIFFERENTIAL-RIGIDITY",
+  "publication_id": "TP2-F588CAD6A9583BB015B3",
+  "prepared_and_published_by_current_public_cli": true,
+  "prepare_run": {
+    "argv": [
+      "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "tools/research_task_records.py",
+      "prepare",
+      "--taskbook",
+      "research_tasks/RB_CM24_COMMON_DIFFERENTIAL_RIGIDITY_20260910.md",
+      "--publisher-role",
+      "RESEARCH_DRIVER",
+      "--parent-objective-id",
+      "RB_ENTERPRISE_THEOREM_PACKAGE_V2_INDEPENDENT_VALIDATION"
+    ],
+    "cwd": "D:\\em\\review-rb-six-block-5816eb-20260910",
+    "started_at": "2026-09-09T21:34:34.479703+00:00",
+    "elapsed_seconds": 4.916981600021245,
+    "exit_code": 0,
+    "stdout_sha256": "83ba717becc5a83fb151bec462e329d46e823dbb9ad47a3703d1dd448ae4027e",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "executed_current_public_facade": true,
+    "canonical_control_content_snapshot": "a9e2c8df19a45eec5450b56b6bd5ed5ea7a815ee",
+    "control_unchanged_through_inspected_main": "f928e6a621449aa2ff1ad920818d83c56342f015"
+  },
+  "publish_run": {
+    "argv": [
+      "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "tools/research_task_records.py",
+      "publish",
+      "--taskbook",
+      "research_tasks/RB_CM24_COMMON_DIFFERENTIAL_RIGIDITY_20260910.md",
+      "--publisher-role",
+      "RESEARCH_DRIVER",
+      "--publisher-id",
+      "EM-DVR-5816EB",
+      "--research-value",
+      "Decide or bound a source-exposed universal differential constraint before per-system elimination, retaining scalar, twist, descent and finite-isogeny data."
+    ],
+    "cwd": "D:\\em\\review-rb-six-block-5816eb-20260910",
+    "started_at": "2026-09-09T21:35:10.925016+00:00",
+    "elapsed_seconds": 8.246366600011243,
+    "exit_code": 0,
+    "stdout_sha256": "164faea01ced90754d4bb28be84f632ad62713c46720a9335a50b185dfdcb75f",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "executed_current_public_facade": true,
+    "canonical_control_content_snapshot": "a9e2c8df19a45eec5450b56b6bd5ed5ea7a815ee",
+    "control_unchanged_through_inspected_main": "f928e6a621449aa2ff1ad920818d83c56342f015"
+  },
+  "local_record_creation_does_not_establish_remote_visibility": true,
+  "publication_parent_observed": "07447e86ebe76839eee00495a3f02f8932a8a2a2",
+  "immutable_inputs_and_control_reconciled_from": "f928e6a621449aa2ff1ad920818d83c56342f015",
+  "artifact_pins": [
+    {
+      "path": "research_tasks/RB_CM24_COMMON_DIFFERENTIAL_RIGIDITY_20260910.md",
+      "sha256": "sha256:383cddcc1808c75f8ae2c42524f48a04b5d59f36209425949722420ad4d2ed8f",
+      "git_blob_sha1": "sha1:24a77eb8fa7067a63ebc722896e8cc65feba178f"
+    },
+    {
+      "path": "research_task_records/RS-RB-CM24-COMMON-DIFFERENTIAL-RIGIDITY/TP2-F588CAD6A9583BB015B3.json",
+      "sha256": "sha256:aa6eeb442ca82e24d1923cb086952f2a47aeb0650eed2303cbb96312f2c497be",
+      "git_blob_sha1": "sha1:9229c5b67c71804c8e7b0d74c6b4b2f68ddc258f"
+    },
+    {
+      "path": "research_artifacts/RB_COMMON_DIFFERENTIAL_TASK_20260910_5816EB/decision_and_reuse.md",
+      "sha256": "sha256:9febf8dd20979cd749e17e6a46fc8e7587959ac4e6b518f011618577bd3e9d03",
+      "git_blob_sha1": "sha1:8879ae42885e0c9fd218b58bb00777ade9944609"
+    },
+    {
+      "path": "research_artifacts/RB_COMMON_DIFFERENTIAL_TASK_20260910_5816EB/driver_candidate_unreviewed.md",
+      "sha256": "sha256:4178343465d910ea6c40577d2e03b41032194d4d46ae9cd2dab490ae7021b489",
+      "git_blob_sha1": "sha1:cfe723ffd930075cf454b2398855a434604e87a9"
+    },
+    {
+      "path": "research_artifacts/RB_COMMON_DIFFERENTIAL_TASK_20260910_5816EB/input_manifest.json",
+      "sha256": "sha256:b9f968cd755c6fba4ba9edd21989a1ea5c8375c4aa4fec31aa649ed0773c30c8",
+      "git_blob_sha1": "sha1:3df3426ef1de6f6579d3b78fe400fde48c5e3530"
+    }
+  ],
+  "review_policy_digest": "sha256:b3d44e7cb736426e48b7994d280192f2f48ddde306af1d7ad80db2012c00864b",
+  "policy_review_machine_result": "PASS",
+  "no_task_claim_or_execution_created": true,
+  "no_mathematical_acceptance": true
+}
