@@ -1,0 +1,59 @@
+{
+  "adjacent_kernel_tv_and_quadratic_cost_checks": 200,
+  "cyclic_crt_pair_checks": 59,
+  "exact_additive_and_multiplicative_carry_cases": 20200,
+  "excluded_claims": [
+    "unique native selector",
+    "CRT uniformity preserved by rank-phase repair",
+    "native cell adjacency or equidistribution",
+    "new Polya or Farey theorem",
+    "state-free composition",
+    "independent review",
+    "Foundation admission"
+  ],
+  "exhaustive_scaled_coupling_tables": {
+    "2": {
+      "minimum_support": 4,
+      "table_count": 7
+    },
+    "3": {
+      "minimum_support": 6,
+      "table_count": 415
+    }
+  },
+  "finite_horizon_state_counts": {
+    "10": 32,
+    "100": 3044,
+    "20": 128,
+    "40": 490,
+    "60": 1102
+  },
+  "general_minimum_support_pair_checks": 1600,
+  "locality_observer": "explicit ordered rank, not native X6 metric",
+  "memoryless_2_to_4_wrong_coarsening_mass": "1/6",
+  "memoryless_vs_common_phase_2_to_4_total_variation": "1/6",
+  "posterior_interval_chain_horizon": 40,
+  "posterior_interval_state_count": 490,
+  "rank_6_canonical_crt_pair_support": 6,
+  "rank_6_floor_pair_support": 4,
+  "reuse": {
+    "git_blob_sha1": "384d166f642fb65c53fc7f2431f43dc99880693a",
+    "methods": [
+      "coarsest_one_step_repair",
+      "descends_through",
+      "fiber_constancy_witness",
+      "class_count"
+    ],
+    "source": "src/enterprise_math/composition_safe_collapse.py",
+    "state": "REUSE_EXECUTED",
+    "tool": "T6_OPERATION_SAFE_QUOTIENT"
+  },
+  "source_snapshot": "bcaaffe18fe17656a4f926a86907957b88387b0a",
+  "status": "PASS_EXACT_FINITE_REGRESSION_NOT_FORMAL_PROOF_OR_ADMISSION",
+  "t6_final_signature_classes": 1102,
+  "t6_q3_to_q4_witness_phases": [
+    "1/120",
+    "119/472"
+  ],
+  "t6_refinement_horizon": 60
+}

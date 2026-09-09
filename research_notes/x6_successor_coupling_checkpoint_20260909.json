@@ -1,0 +1,56 @@
+{
+  "schema": "EM_X6_RESEARCH_CHECKPOINT_V1",
+  "activity_id": "RA-X6CM-F01144F76207",
+  "event_id": "X6CM-SUCCESSOR-COUPLING-20260909-02",
+  "status": "DECLARED_MODEL_PROOFS_AND_EXACT_REGRESSION_NOT_ADMITTED",
+  "source_snapshot": "bcaaffe18fe17656a4f926a86907957b88387b0a",
+  "frontier": [
+    "For coprime quotient sizes n,n+1, common-translation-equivariant kernels are uniquely uniform and erase old-residue predictability. This is not a no-go for microscopic local motion.",
+    "Any coupling of uniform m and n populations needs at least m+n-gcd(m,n) positive edges; interval overlap attains it. Sparse reweighting is not lossless CRT-population compression.",
+    "The unique ordered nearest-neighbor successor kernel has 2n edges and total-variation distance (n-1)/(n+1) from independent CRT uniformity.",
+    "Memoryless composition from ordered layers 2 to 4 violates floor(X4/2)=X2 with exact probability 1/6, despite correct adjacent marginals.",
+    "Posterior rational intervals restore the full common-phase finite-dimensional law with at most two children per state; observing all layers through H has exactly sum(phi(k), k=1..H) minimal signature classes.",
+    "The phase-floor repair is a different refinement interface: its (2,3) pair support is 4 while canonical CRT support is 6; no relabeling identifies them."
+  ],
+  "verification": {
+    "general_pairs": 1600,
+    "adjacent_checks": 200,
+    "crt_instances": 59,
+    "small_tables": 422,
+    "t6_horizon": 60,
+    "t6_classes": 1102,
+    "carry_cases": 20200,
+    "interval_update_horizon": 40,
+    "interval_states": 490,
+    "arithmetic": "exact integers/rationals",
+    "reused_tool_blob": "384d166f642fb65c53fc7f2431f43dc99880693a"
+  },
+  "artifacts": [
+    {
+      "path": "experiments/x6_successor_coupling_20260909/results.json",
+      "sha256": "7ae73998d04f3926f2edefa78d4640a4878c87d60b534b555bc64ae290044fa1",
+      "git_blob_sha1": "9ffe6756122d937449795e6e5723947981703023",
+      "bytes": 1748
+    },
+    {
+      "path": "experiments/x6_successor_coupling_20260909/verify.py",
+      "sha256": "fcaf0871cbbcd48f1d3468be6a3deb834e5c5a152ff32ecfa8664485e4feca2e",
+      "git_blob_sha1": "f4446c87a5fb95b4ee5b045cb42bd27a32ee84e2",
+      "bytes": 11387
+    },
+    {
+      "path": "research_notes/x6_successor_coupling_memory_and_crt_obstruction_20260909.md",
+      "sha256": "709fc2e27c61d279b87331fbd946d4bd43f52522b97422e9727cd699abd25bf2",
+      "git_blob_sha1": "c393e271d0ecb796e122fe0c59ce5ea94388255f",
+      "bytes": 14745
+    }
+  ],
+  "not_claimed": [
+    "native Cell placement or equidistribution",
+    "uniform CRT measure retained by sparse/phase law",
+    "constant-bit infinite-state precision",
+    "new Polya/Farey mathematics",
+    "independent review or Foundation admission"
+  ],
+  "next_unit": "Choose and type the required uniformity before coupling a posterior interval register to actual X6 Cell transitions; preserve natural quotient and ordered observer as separate structures."
+}
