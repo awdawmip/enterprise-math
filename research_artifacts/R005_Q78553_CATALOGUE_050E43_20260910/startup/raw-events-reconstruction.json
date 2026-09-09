@@ -1,0 +1,13 @@
+{
+  "schema": "R005_RAW_SERVER_EVENT_LOSSLESS_DELTA_V1",
+  "base_source_commit": "0d0344880a4cbb2b78ae8a5a074758fc3392c70f",
+  "base_path": "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/formal_research_entry_57ccce_20260909/assigned_full_raw_comments.json.gz",
+  "base_decoded_sha256": "27685ee027cb993d9cf322a4b1c4a05b35696f2d962639c5dbe5de4dcd679ae2",
+  "base_count": 765,
+  "delta_path": "research_artifacts/R005_Q78553_CATALOGUE_050E43_20260910/startup/raw-events-observed-delta.json",
+  "delta_count": 10,
+  "result_count": 775,
+  "result_exact_sha256": "55d82941b3ad775ed68bf0eddb5811f4e0dfbbc6161a19b4d34251fc8b90c64e",
+  "exact_reconstruction_matches": true,
+  "method": "Decode source gzip; index by actual integer comment id; replace/add each unchanged actual server envelope from delta; sort by id; serialize with json.dumps(indent=2, ensure_ascii=False) plus newline. Every target envelope was independently fetched in this actual worker; no normalized wrapper supplies authorization fields."
+}
