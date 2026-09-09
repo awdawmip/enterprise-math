@@ -1,0 +1,67 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "task_id": "RS-EMW59A-JT2-INDEPENDENT-CERTIFICATE-AUDIT",
+  "registry_key": "RS-EMW59A-JT2-INDEPENDENT-CERTIFICATE-AUDIT",
+  "publication_id": "TP2-E9598E6BD0C25FB031D8",
+  "publication_generation": 1,
+  "supersedes_publication_id": null,
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "taskbook_path": "research_tasks/EMW59A_JT2_INDEPENDENT_CERTIFICATE_AUDIT_20260909.md",
+  "taskbook_blob_sha1": "sha1:3f59ec5365fd8eca5f4ec3d23c7840459c4fd10b",
+  "publisher_role": "RESEARCHER",
+  "publisher_id": "EM-FREE-W59A",
+  "published_at": "2026-09-09T04:11:39.921477+00:00",
+  "parent_objective_id": "EM-FREE-W59A-JT2-RAMANUJAN-LEGENDRE",
+  "origin_kind": "DIRECT_USER_DIRECTION",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-EMW59A-JT2-UR-SUN-PARITY-DEFECT",
+  "claimable": true,
+  "effective_priority": "P2",
+  "effective_leverage": "MEDIUM",
+  "priority_source": "RESEARCHER_DEFAULT",
+  "publisher_priority_request": "P2",
+  "publisher_leverage_request": "MEDIUM",
+  "owner": "taskbook/unassigned",
+  "frontier": "UR and QTF3 are published proof obligations; compatible uniform certificates and exact original JT2 source have not yet been independently verified.",
+  "next_action": "After both immutable proof returns exist, recover their exact sources and perform the claim-by-claim compatibility audit, recording missing original inputs explicitly.",
+  "research_value": "Independent proof and precision audit prevents two unresolved or incompatible certificates from being treated as a proof of the original JT2 theorem.",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "identity_lane": "RW59AUDIT",
+  "source_refs": [
+    "research_notes/EMW59A_JT2_COMPLETE_RELEASE_AND_DRIVER_HANDOFF_20260909.md",
+    "https://github.com/awdawmip/enterprise-math/blob/587e6ee4a138c34de9d87bc90e06f17d7fe1b910/research_notes/EM_FREE_W59A_JT2_UR_QTF3_STATE_MACHINE_HANDOFF_20260909.md",
+    "https://github.com/awdawmip/chatgpt-global-knowledge/blob/f48cd4d076f61a5b804a7617158359e198b2fd5d/journal/progressive-number-theory/2026-09-09/20260909T105443%2B0800-ur-legendre-barycentric-lift.md"
+  ],
+  "dependencies": [
+    {
+      "task_id": "RS-EMW59A-JT2-UR-SUN-PARITY-DEFECT",
+      "required_artifact": "immutable proof return"
+    },
+    {
+      "task_id": "RS-EMW59A-JT2-QTF3-FIXED-POINT",
+      "required_artifact": "immutable proof return"
+    }
+  ],
+  "evidence_status": "PREDECESSOR_REPORTED_FRONTIER_WITH_EXPLICIT_PROOF_SOURCE_GAPS",
+  "successor_gate": {
+    "new_information_gap": "Proof compatibility and exact JT2 reduction evidence are not implied by either isolated lemma.",
+    "why_parent_result_does_not_close_it": "The existing tasks target two different precisions and do not supply an independent combined audit.",
+    "discriminating_outcomes": [
+      "uniform compatible proof",
+      "normalization or scope mismatch",
+      "exact counterexample",
+      "missing original theorem source"
+    ],
+    "kill_condition": "Any unsupported division, unmatched prime scope, or missing original target blocks positive combined certification.",
+    "alternative_route_or_free_exploration_considered": "Author-only checking, a direct independent proof, and closing a falsified route were considered; independent verification preserves a distinct evidential function.",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "A bounded independent audit avoids self-certification and makes the later synthesis reproducible without this chat."
+  }
+}

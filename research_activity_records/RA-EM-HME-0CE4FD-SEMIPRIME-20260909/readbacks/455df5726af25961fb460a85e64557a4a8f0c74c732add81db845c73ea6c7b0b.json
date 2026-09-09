@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/BRC_FIXED_PACKET_RSA_GENERATION_PROBABILITY_20260909.md",
+    "ref": "c4139b9b1532b756bfa1b950dcf5bc33965569e1",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "EM-HME-0CE4FD-RSA-HITPROB-NOTE-20260909",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# 固定残差候选包在标准 RSA-2048 生成模型中的命中概率\n\n本记录回答用户对上一轮六个结构化半素数的理论命中概率问题。在双素数、两因子各为 1024 位的 RSA-2048 生成模型中，那六个精确构造族的概率为 0；更强地，上一轮原样固定的 m=1 残差候选包也不可能返回真因子。结论不依赖均匀采样、随机独立性或经验零命中次数。\n\nResearcher-ID: EM-HME-0CE4FD / TASK_RESEARCH\n\nResearch-Activity-ID: RA-EM-HME-0CE4FD-SEMIPRIME-20260909\n\nActivity path: research_activity_records/RA-EM-HME-0CE4FD-SEMIPRIME-20260909.json\n\nSession: em-hme-0ce4fd-semiprime-20260909（沿用本地稳定记账标识，不是经过认证的服务端会话 ID）\n\nGlobal-Knowledge-Sync: main@f17e37c152e110e312f8153f7ec298e6c007f41c / GLOBAL_KNOWLEDGE_V1\n\nProject parent: 90427205c6d94ae3b7edf4af3e8b951070a3c079；研究材料沿用 draft PR #1403。\n\n## 生成模型与精确事件\n\n定义 G 为有效素数对 (p,q) 的集合，其中 N=pq，p、q 是不同的 1024 位奇素数。因此 2^1023≤p,q<2^1024，且较大因子/较小因子<2。还可要求 N 恰为 2048 位、公开指数互素条件和实现的其他生成约束；以下结论在施加这些约束后仍成立。\n\n这是明确的生成支持集模型，未声称所有实际软件共享一个精确均匀分布。NIST FIPS 186-5 第 5.1 节要求两个素数各占模数位数的一半；附录 A.1.1 还规定额外生成条件。本证明只使用更弱的等位数事实，不使用素数间距限制或随机数发生器强度。核对来源：[NIST FIPS 186-5](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf)，第 16 页及第 35 页；[现行出版记录](https://csrc.nist.gov/pubs/fips/186-5/final)，访问日期 2026-09-09。\n\n定义 H 为固定源码 `brc_residual_candidate_families_20260908.py` 的 `_complete(N)` 在 m=1 返回一个经整除和乘积验证的真因子。原始源码 Git blob 为 `e8ea67310094c517b5a882d5e2e1709be975c675`，本轮已读并重新核对该 blob。固定参数没有变动：\n\n- J=floor(sqrt(N))，R=N−J²，A=(J+1)²−N。\n- D 使用 R≤J，候选 h=(R+c²)/b，c∈{1,2,3}。\n- U 使用 R>J，候选 h=(A−c²)/b，c∈{2,3,4}。\n- b∈{1,3,5,7}；候选必须为整数且满足 1<h<N 及 h|N。\n\n奇偶过滤、查询顺序和提前返回只会减少候选，不影响下述必要条件。增加根余数筛选的版本属于该事件的子集。该 H 不包含其他 BRC 乘数、隐藏矩方法或整个分解工具库。\n\n## 六个精确构造族\n\n上轮关系为 q=4p+5、4p+9、4p+7、4p+11、16p+11、16p+13。它们全部满足 q/p>4，因而与 G 的因子比<2 没有交集。\n\n所以六族的并集 F 满足 P(F|G)=0。上轮每个乘积确为 2048 位，但其因子位数为 1023/1025 或 1022/1026。这与“两个素数各为 1024 位”的生成支持集不同；构造的可行性不能给出该支持集中的非零命中率。\n\n## 完整候选包的精确证明\n\n事实上，以下证明适用于任意两个不同的奇素数 p、q≥17，只要较大因子/较小因子<2。\n\n假设 H 成功，记它返回的真因子为 h，另一因子为 g=N/h。由于 N 是半素数，h 和 g 都是奇素数。h 不必是较小因子；两种返回方向均包含在证明中。\n\n在 D 状态令 E=J、τ=+1；在 U 状态令 E=J+1、τ=−1。成功候选的定义在两种状态下统一成\n\n\\[\nN=E^2+\\tau b h-c^2. \\tag{1}\n\\]\n\n因此 E²≡c² (mod h)。h 为素数，且 1≤c≤4<h，故\n\n\\[\nE\\equiv c\\quad\\text{或}\\quad E\\equiv-c\\pmod h. \\tag{2}\n\\]\n\n由 h/2<g<2h，及 E 为 sqrt(hg) 的向下或向上取整，得到\n\n\\[\nh/2-1<E<3h/2+1.\n\\]\n\n因为 h≥17，这推出 4<E<2h−4。所以在 c<E<2h−c 这个区间内，式 (2) 只允许\n\n\\[\nE=h+\\sigma c,\\qquad \\sigma\\in\\{-1,+1\\}. \\tag{3}\n\\]\n\n将式 (3) 代入式 (1)：\n\n\\[\nhg=(h+\\sigma c)^2+\\tau b h-c^2\n=h(h+2\\sigma c+\\tau b),\n\\]\n\n即\n\n\\[\ng=h+2\\sigma c+\\tau b. \\tag{4}\n\\]\n\nh 和 b 都为奇数，2σc 为偶数，故式 (4) 的右侧为偶数；但 g 是大于 2 的奇素数，矛盾。由此 H∩G 为空。证明同时涵盖 D/U、两种根同余符号、所有固定 b/c 和任一因子返回方向。\n\n这里关键是半素数因子 h 的素性、奇数系数 b、小修正 c 以及根相对因子的范围。若 h 为合数，E²≡c² 可能有更多平方根；若改变参数或对 mN 而非 N 开方，也必须重新推导。没有将这个结论外推到一般 BRC。\n\n## 概率与重复尝试\n\n令 μ 为 G 上任意实际生成分布，包括不均匀或相关生成；只要输出仍在 G 内，则\n\n\\[\nP_\\mu(H)=\\sum_{(p,q)\\in G}\\mu(p,q)\\,\\mathbf 1_H(p,q)=0.\n\\]\n\n因此当前固定包的命中概率严格为 0，根筛选版也为 0；任意有限数量的这类有效密钥，其“至少一个被当前固定包命中”的概率仍为 0。这不需要独立性假设，更不是由有限样本的 0 次成功推算出来的置信上界。\n\n上轮约 11–16 微秒是特定正例上的条件运行成本。总体概率须先看生成支持集与命中条件的交集；本次交集为空。不能用 6/6 构造成功、候选数/素数总数、随机剩余独立假设或生日碰撞公式替代这个检查。\n\n对于“所有可能的捷径”的总概率，当前没有统一定义的成功事件及覆盖计数，本记录不给出一个伪精确数字。其他参数族或其他工具需分别建立自身事件 H_i，在生成分布内计算其概率和交集；本次未进行相关扩展或分解尝试。\n\n## 执行与证据范围\n\n本轮仅核对标准、固定源码和作代数推导。未生成新素数、重跑计时、随机抽样 RSA 模数或调用公开挑战分解程序。理论证明是上述明确假设下的人工推导，不是正式证明器证书；远端持久化也不授予 Foundation、Working Truth 或数学验收状态。上一轮素性结果、六个样本和计时文件保持原始记录。\n",
+      "display_title": "BRC_FIXED_PACKET_RSA_GENERATION_PROBABILITY_20260909.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/c4139b9b1532b756bfa1b950dcf5bc33965569e1/research_notes/BRC_FIXED_PACKET_RSA_GENERATION_PROBABILITY_20260909.md",
+      "encoding": "utf-8",
+      "sha": "516733168b6e891ff3432a69408680ef56dd306e"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
