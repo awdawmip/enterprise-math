@@ -1,0 +1,71 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "task_id": "RS-EMW59A-JT2-FINAL-INTEGRATION",
+  "registry_key": "RS-EMW59A-JT2-FINAL-INTEGRATION",
+  "publication_id": "TP2-F786E9B728C556CCCCF0",
+  "publication_generation": 1,
+  "supersedes_publication_id": null,
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "taskbook_path": "research_tasks/EMW59A_JT2_FINAL_INTEGRATION_20260909.md",
+  "taskbook_blob_sha1": "sha1:c2c6b45371e87e7667e22499b73080d5a532a173",
+  "publisher_role": "RESEARCHER",
+  "publisher_id": "EM-FREE-W59A",
+  "published_at": "2026-09-09T04:11:39.921477+00:00",
+  "parent_objective_id": "EM-FREE-W59A-JT2-RAMANUJAN-LEGENDRE",
+  "origin_kind": "DIRECT_USER_DIRECTION",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-EMW59A-JT2-INDEPENDENT-CERTIFICATE-AUDIT",
+  "claimable": true,
+  "effective_priority": "P2",
+  "effective_leverage": "MEDIUM",
+  "priority_source": "RESEARCHER_DEFAULT",
+  "publisher_priority_request": "P2",
+  "publisher_leverage_request": "MEDIUM",
+  "owner": "taskbook/unassigned",
+  "frontier": "The route-level implication to JT2 is not yet a standalone source-faithful proof; both minimal certificates and their compatibility audit remain prerequisites.",
+  "next_action": "Once the line Driver binds a positive independent audit and the exact original theorem source, compose the two certificates into a standalone JT2 proof with an explicit assumption and precision ledger.",
+  "research_value": "Preserve the exact end-to-end JT2 proof obligation now, gated by accepted uniform certificates and original-source recovery rather than postponing its publication until this chat is gone.",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "identity_lane": "RW59JT2",
+  "source_refs": [
+    "research_notes/EMW59A_JT2_COMPLETE_RELEASE_AND_DRIVER_HANDOFF_20260909.md",
+    "https://github.com/awdawmip/enterprise-math/blob/587e6ee4a138c34de9d87bc90e06f17d7fe1b910/research_notes/EM_FREE_W59A_JT2_UR_QTF3_STATE_MACHINE_HANDOFF_20260909.md",
+    "https://github.com/awdawmip/chatgpt-global-knowledge/blob/f48cd4d076f61a5b804a7617158359e198b2fd5d/journal/progressive-number-theory/2026-09-09/20260909T105443%2B0800-ur-legendre-barycentric-lift.md"
+  ],
+  "dependencies": [
+    {
+      "task_id": "RS-EMW59A-JT2-UR-SUN-PARITY-DEFECT",
+      "required_artifact": "accepted uniform proof"
+    },
+    {
+      "task_id": "RS-EMW59A-JT2-QTF3-FIXED-POINT",
+      "required_artifact": "accepted p^3 proof or proved equivalent LIFT"
+    },
+    {
+      "task_id": "RS-EMW59A-JT2-INDEPENDENT-CERTIFICATE-AUDIT",
+      "required_artifact": "VERIFIED_COMPATIBLE audit and recovered original JT2 source"
+    }
+  ],
+  "evidence_status": "PREDECESSOR_REPORTED_FRONTIER_WITH_EXPLICIT_PROOF_SOURCE_GAPS",
+  "successor_gate": {
+    "new_information_gap": "Uniform proof of the original JT2 theorem is a separate logical composition obligation.",
+    "why_parent_result_does_not_close_it": "A compatibility audit checks inputs but does not write or certify every implication to the final theorem.",
+    "discriminating_outcomes": [
+      "full original JT2 proof",
+      "conditional theorem with exact residual",
+      "source recovery gap",
+      "counterexample to a claimed bridge"
+    ],
+    "kill_condition": "Any unrecovered original conclusion or unmatched normalization prevents an unconditional theorem.",
+    "alternative_route_or_free_exploration_considered": "Direct JT2 proof and closing a disproved reduction remain alternatives; the present synthesis is conditional on the two certificate route surviving audit.",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "The user requires this downstream task to exist before the chat ends; explicit blocking avoids premature execution."
+  }
+}

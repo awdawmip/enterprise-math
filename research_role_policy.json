@@ -104,6 +104,23 @@
     "task_publication": "Uses the same immutable task publication transaction as Researcher and Driver publication; later task execution normally receives a Researcher CLAIM identity."
   },
   "driver_operating_contract": "docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md",
+  "delegated_driver_orchestration": {
+    "protocol": "docs/CODEX_RESEARCH_ORCHESTRATION.en.md",
+    "role": "RESEARCH_DRIVER",
+    "scopes": ["PORTFOLIO_OWNER", "RESEARCH_LINE"],
+    "activation": "EXPLICIT_CURRENT_USER_AUTHORIZATION_OR_OWNER_DELEGATION_WITHIN_THAT_AUTHORIZATION",
+    "own_identity_and_current_activation_required": true,
+    "owner_responsibility": "PORTFOLIO_DIRECTION_CROSS_LINE_SYNTHESIS_SPLITS_AND_CONTROL_COORDINATION",
+    "line_driver_responsibility": "CONTINUOUS_REVIEW_TASK_PUBLICATION_DISPATCH_FORMALIZATION_AND_AUTHORIZED_LINE_INTEGRATION",
+    "routine_line_review_requires_owner_reaudit": false,
+    "author_self_check_is_independent_review": false,
+    "researcher_execution": "BOUNDED_EPHEMERAL_WITH_DURABLE_HANDOFF",
+    "driver_continuity": "PREFER_SAME_AGENT_AND_RECOVER_FROM_COMPACT_DURABLE_DOSSIER",
+    "cross_line_authority_requires_owner_scope": true,
+    "dossier_is_task_or_claim_authority": false,
+    "changes_existing_promotion_or_source_firewall_gates": false,
+    "creates_background_automation": false
+  },
   "research_identity": {
     "protocol": "docs/RESEARCH_IDENTITY_PROTOCOL.md",
     "state_machine": "research_identity_state_machine.json",

@@ -1,0 +1,30 @@
+{
+  "schema": "EM_RESULT_SPECIFIC_VERIFICATION_V1",
+  "record_id": "FINDING-EM-PDE-SPECTRAL-REFERENCE-20260909",
+  "activity_id": "RA-076944AE1950A916ACC95399",
+  "proof_source": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "d292207f37dae71d84ded8629c827887cb6ffec9",
+    "path": "research_notes/ns-spectral-reference-20260909.md",
+    "git_blob_sha1": "e1b8d70548245a34ed18b34718f6bf404e2386a1"
+  },
+  "verification": {
+    "status": "PASSED",
+    "scope": "analytic Fourier block and tail proofs plus finite directed-interval core certificate",
+    "exact_six_channel_isometry": true,
+    "complex_block_regressions": 800,
+    "interval_core_dimension": 64,
+    "core_upper": "-31/125",
+    "core_tail_coupling_upper": "53/1000",
+    "tail_upper": "-319/500",
+    "whole_operator_upper": "-6/25",
+    "two_by_two_exact_margin": "3/8000",
+    "causal_antiderivative_checks": 15,
+    "infinite_tail_is_analytic_not_truncated": true
+  },
+  "limits": [
+    "Interval arithmetic is computer-assisted, not proof-assistant formalization.",
+    "No arbitrary-data Navier-Stokes regularity claim.",
+    "The explicit critical bilinear constant was supplied in the subsequent record."
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "task_id": "RH-ROAD-TAIL-20260909",
+  "title": "Composite-road scale-adapted escaping-tail estimate",
+  "kind": "RESEARCH",
+  "owner": "taskbook/unassigned",
+  "base_state": "READY",
+  "priority": "P2",
+  "leverage": "MEDIUM",
+  "frontier": "Finite road identities and spectral interfaces do not yet yield a uniform bound on sum_(N>=M(a)) B_(a,N)^2/N^2 as a decreases to zero.",
+  "next_action": "Consume predecessor returns, choose a declared M(a) and a dyadic or logarithmic shell decomposition, and prove the first bound with explicit dependence on a and shell scale.",
+  "dependencies": [
+    "RH-ROAD-AUDIT-20260909",
+    "RH-ROAD-KERNEL-20260909"
+  ],
+  "source_refs": [
+    "research_handoffs/COMPOSITE_ROAD_RH_20260909/START_HERE.md",
+    "research_handoffs/COMPOSITE_ROAD_RH_20260909/source_manifest.json",
+    "research_handoffs/COMPOSITE_ROAD_RH_20260909/stage2_verify.py",
+    "research_notes/COMPOSITE_ROAD_RH_BOUNDARY_LAYER_20260906.md",
+    "research_notes/COMPOSITE_ROAD_RH_BOUNDARY_SLOPE_CLOSURE_20260906.md",
+    "research_notes/COMPOSITE_ROAD_RH_COMPLETED_SCHUR_PICK_20260906.md",
+    "research_notes/COMPOSITE_ROAD_RH_DISCRETE_L2_NONCOMMUTATION_20260906.md",
+    "research_notes/COMPOSITE_ROAD_RH_FUTURE_PORT_POSITIVE_DEFORMATION_20260906.md",
+    "research_notes/COMPOSITE_ROAD_RH_PENETRATION_JET_HIERARCHY_20260906.md",
+    "research_notes/COMPOSITE_ROAD_RH_PURE_POSITIVE_ENERGY_20260906.md",
+    "research_notes/COMPOSITE_ROAD_RH_RAMANUJAN_PHASE_COHERENCE_20260906.md"
+  ],
+  "evidence_status": "RESEARCH_DERIVATIONS_PENDING_INDEPENDENT_AUDIT_WITH_REPRODUCED_FINITE_CERTIFICATES",
+  "last_progress_ref": null,
+  "last_progress_at": null,
+  "hard_block": null,
+  "tags": [
+    "RH",
+    "composite-road",
+    "full-integer-population",
+    "signed-phase",
+    "source-handoff"
+  ],
+  "claim_lease_minutes": 120,
+  "created_by_role": "RESEARCHER",
+  "task_authority": "PUBLISHED_REGISTERED",
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "publication_template": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "registry_key": "RH-ROAD-TAIL-20260909",
+  "parent_objective_id": "OBJ-RH-COMPOSITE-ROAD-20260905",
+  "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
+  "final_response_identity_policy": "INHERIT_GLOBAL",
+  "identity_lane": "RH-ROAD",
+  "origin_kind": "DIRECT_USER_DIRECTION",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RH-ROAD-KERNEL-20260909",
+  "successor_gate": {
+    "new_information_gap": "The full-road energy has no unconditional scale-adapted O(a) control as thickness goes to zero and horizon escapes to infinity.",
+    "why_parent_result_does_not_close_it": "An exact anchored kernel or finite safe interface does not bound the arithmetic coefficient-weighted infinite tail uniformly in a.",
+    "discriminating_outcomes": [
+      "Uniform unconditional full-road energy bound",
+      "New quantitative partial tail bound with all parameter dependence",
+      "Counterexample to a specified sufficient estimate with preserved alternative"
+    ],
+    "kill_condition": "Reject any bound using RH-equivalent exclusion, losing phase or interchanging the limits without proof; do not reject the research population.",
+    "alternative_route_or_free_exploration_considered": "Compare direct Green-energy shells and anchored Ramanujan kernels; the prior Nyman Schur-gain condition remains an unproved alternative.",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "Uniform arithmetic tail control is a different theorem obligation from audit or kernel algebra and needs its own falsifiable scope."
+  },
+  "origin_research_provenance": "EM-FREE-C4A91D; user-selected classical arithmetic research; ANCHOR_EXPOSED; no raw axiom candidate promoted",
+  "policy_review": {
+    "policy_set": "research_taskbook_policy.json",
+    "review_state": "PASS",
+    "temporary_overrides": [],
+    "policy_digest": "sha256:1f84e78de591605da6106f3f14ffad3cd7fad66aa5bf67e29beb44906b976c8a"
+  }
+}

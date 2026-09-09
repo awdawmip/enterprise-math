@@ -6,7 +6,9 @@ silently stop.  Reviews created after the policy cutover must be followed by one
 immutable follow-up packet.  The packet either:
 
 * pins one or more post-review immutable task publications (the normal case); or
-* proves that the canonical parent Objective is already CLOSED.
+* proves that the canonical parent Objective is already CLOSED; or
+* closes a satisfied Task and records a concrete return to the portfolio queue,
+  without closing its parent Objective.
 
 The packet explicitly evaluates formalization, external prior-art/duplication,
 independent replication, integration/tool harvest, adversarial audit, and
@@ -39,7 +41,8 @@ POLICY = "AUTO_PUBLISH_TASKSET_OR_PARENT_CLOSE_V1"
 # User-directed cutover: reviews at/after 2026-08-27 17:19 Asia/Taipei.
 CUTOVER_REVIEWED_AT = "2026-08-27T09:19:00+00:00"
 
-DECISIONS = {"TASK_SET_PUBLISHED", "PARENT_OBJECTIVE_CLOSURE"}
+TASK_SCOPE_DECISION = "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION"
+DECISIONS = {"TASK_SET_PUBLISHED", "PARENT_OBJECTIVE_CLOSURE", TASK_SCOPE_DECISION}
 GATE_DECISIONS = {"REQUIRED", "SATISFIED_BY_REVIEWED_RESULT", "NOT_REQUIRED"}
 GATES = (
     "MATHEMATICAL_CONTINUATION",
@@ -197,6 +200,92 @@ def _objective_head(parent_objective_id: str, root: Path) -> dict[str, Any] | No
     return research_objective_records.current_head(parent_objective_id, root)
 
 
+def _task_scope_continuation(
+    review: dict[str, Any], result: dict[str, Any], *, terminal_scope: Any,
+    continuation: Any, tasks: list[Any], gates: dict[str, dict[str, Any]],
+    root: Path, current_publication_required: bool = False,
+) -> dict[str, Any]:
+    """Validate the completed-Task decision; grant no parent or claim authority."""
+    if review.get("disposition") != "ACCEPTED":
+        raise DriverFollowupError("TASK-scope closure requires ACCEPTED review authority")
+    if result.get("terminal_verdict") not in {"PASS", "SUCCESS"}:
+        raise DriverFollowupError("TASK-scope closure requires a PASS/SUCCESS Result")
+    if result.get("hard_target_disposition") != "SATISFIED":
+        raise DriverFollowupError("TASK-scope closure requires hard_target_disposition SATISFIED")
+    if terminal_scope != "TASK":
+        raise DriverFollowupError("completed-Task follow-up requires terminal_scope TASK")
+    if current_publication_required:
+        current = research_task_records.current_records(root).get(str(result.get("task_id")))
+        if current is None or current.get("publication_id") != result.get("publication_id"):
+            raise DriverFollowupError("TASK-scope closure requires the current operational Task publication")
+    if tasks:
+        raise DriverFollowupError("TASK-scope portfolio continuation cannot publish new tasks")
+    if any(row["decision"] == "REQUIRED" for row in gates.values()):
+        raise DriverFollowupError("TASK-scope closure cannot leave REQUIRED follow-up gates")
+    fields = {
+        "source_result_id", "parent_objective_id", "action", "dispatcher",
+        "next_action", "remaining_parent_scope", "evidence_refs",
+    }
+    if not isinstance(continuation, dict) or set(continuation) != fields:
+        raise DriverFollowupError("portfolio_continuation requires the exact typed continuation fields")
+    if continuation["source_result_id"] != result.get("result_id"):
+        raise DriverFollowupError("portfolio continuation Result mismatch")
+    parent = _source_parent_objective(review, result, root)
+    if continuation["parent_objective_id"] != parent:
+        raise DriverFollowupError("portfolio continuation parent Objective mismatch")
+    if continuation["action"] != "REEVALUATE_CANONICAL_PORTFOLIO":
+        raise DriverFollowupError("portfolio continuation must reevaluate the canonical portfolio")
+    if continuation["dispatcher"] != "research_control_dispatch.py":
+        raise DriverFollowupError("portfolio continuation must use research_control_dispatch.py")
+    if not isinstance(continuation["next_action"], str) or not continuation["next_action"].strip():
+        raise DriverFollowupError("portfolio continuation requires a concrete next_action")
+    for field in ("remaining_parent_scope", "evidence_refs"):
+        values = continuation[field]
+        if (not isinstance(values, list) or not values
+                or any(not isinstance(item, str) or not item.strip() for item in values)
+                or len(values) != len(set(values))):
+            raise DriverFollowupError(f"portfolio continuation {field} requires nonempty unique strings")
+    return dict(continuation)
+
+
+def _result_record_pin(
+    review: dict[str, Any], result: dict[str, Any], root: Path,
+) -> tuple[str, str]:
+    relative = result.get("_record_path")
+    if not isinstance(relative, str) or not relative:
+        raise DriverFollowupError("TASK-scope closure requires a persisted current Result")
+    path = (root / relative).resolve()
+    if not path.is_relative_to(root.resolve()) or not path.is_file():
+        raise DriverFollowupError("TASK-scope Result path is not a repository-local file")
+    relative = path.relative_to(root.resolve()).as_posix()
+    digest = "sha256:" + hashlib.sha256(path.read_bytes()).hexdigest()
+    if review.get("review_authority_kind") == "REVIEW_SYNTHESIS":
+        ids = review.get("source_review_ids")
+        if not isinstance(ids, list) or not ids or len(ids) != len(set(ids)):
+            raise DriverFollowupError("TASK-scope synthesis requires its exact source review set")
+        sources = [item for item in result_impl.iter_reviews(root) if item.get("review_id") in ids]
+        if {item.get("review_id") for item in sources} != set(ids) or len(sources) != len(ids):
+            raise DriverFollowupError("TASK-scope source reviews are unavailable or duplicated")
+    else:
+        sources = [review]
+    for source in sources:
+        if (source.get("result_id") != result.get("result_id")
+                or source.get("result_record_path") != relative
+                or source.get("result_record_sha256") != digest):
+            raise DriverFollowupError("TASK-scope review does not pin current Result bytes")
+    return relative, digest
+
+
+def _parent_status_at_materialization(parent: str, root: Path) -> str:
+    head = _objective_head(parent, root)
+    if head is None:
+        return "ABSENT_NOT_CLOSED"
+    status = head.get("objective_status")
+    if status not in {"OPEN", "PARKED"}:
+        raise DriverFollowupError("TASK-scope portfolio continuation requires an open/unclosed parent; use canonical parent closure for CLOSED")
+    return str(status)
+
+
 def _gate_map(value: Any) -> dict[str, dict[str, Any]]:
     if not isinstance(value, list) or len(value) != len(GATES):
         raise DriverFollowupError(
@@ -314,6 +403,8 @@ def build_packet(
     driver_id: str,
     created_at: str,
     root: Path = ROOT,
+    terminal_scope: str | None = None,
+    portfolio_continuation: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     reviews = review_map(root)
     results = result_map(root)
@@ -360,10 +451,25 @@ def build_packet(
         "foundation_authority_granted": False,
         "canonical_promotion_granted": False,
     }
+    if decision == TASK_SCOPE_DECISION:
+        continuation = _task_scope_continuation(
+            review, result, terminal_scope=terminal_scope,
+            continuation=portfolio_continuation, tasks=rows, gates=gates, root=root,
+            current_publication_required=True,
+        )
+        path, digest = _result_record_pin(review, result, root)
+        value.update(
+            terminal_scope="TASK", portfolio_continuation=continuation,
+            source_result_record_path=path, source_result_record_sha256=digest,
+            parent_status_at_materialization=_parent_status_at_materialization(parent, root),
+            parent_completion_granted=False, parent_final_granted=False,
+        )
     return value
 
 
-def validate_packet(packet: dict[str, Any], root: Path = ROOT) -> None:
+def validate_packet(
+    packet: dict[str, Any], root: Path = ROOT, *, current_publication_required: bool = False,
+) -> None:
     if packet.get("schema") != SCHEMA:
         raise DriverFollowupError("wrong follow-up packet schema")
     if packet.get("policy") != POLICY:
@@ -432,6 +538,22 @@ def validate_packet(packet: dict[str, Any], root: Path = ROOT) -> None:
             raise DriverFollowupError(
                 f"required follow-up gates have no matching published task role: {missing}"
             )
+    elif decision == TASK_SCOPE_DECISION:
+        _task_scope_continuation(
+            review, result, terminal_scope=packet.get("terminal_scope"),
+            continuation=packet.get("portfolio_continuation"), tasks=rows, gates=gates, root=root,
+            current_publication_required=current_publication_required,
+        )
+        path, digest = _result_record_pin(review, result, root)
+        if packet.get("source_result_record_path") != path or packet.get("source_result_record_sha256") != digest:
+            raise DriverFollowupError("TASK-scope current Result record digest/path drift")
+        # This is a frozen observation, not a live parent status assertion. A
+        # later independent Objective update must not reopen this completed Task.
+        if packet.get("parent_status_at_materialization") not in {"OPEN", "PARKED", "ABSENT_NOT_CLOSED"}:
+            raise DriverFollowupError("TASK-scope packet must record an unclosed parent observation")
+        for flag in ("parent_completion_granted", "parent_final_granted"):
+            if packet.get(flag) is not False:
+                raise DriverFollowupError("TASK-scope packet cannot grant parent completion/final")
     else:
         if rows:
             raise DriverFollowupError("PARENT_OBJECTIVE_CLOSURE cannot carry task publications")
@@ -582,11 +704,11 @@ def state_for_review(review_id: str, root: Path = ROOT) -> dict[str, Any]:
         "review_id": review_id,
         "required": True,
         "ready": True,
-        "state": (
-            "FOLLOWUP_TASKSET_READY"
-            if packet.get("decision") == "TASK_SET_PUBLISHED"
-            else "PARENT_OBJECTIVE_CLOSED"
-        ),
+        "state": {
+            "TASK_SET_PUBLISHED": "FOLLOWUP_TASKSET_READY",
+            "PARENT_OBJECTIVE_CLOSURE": "PARENT_OBJECTIVE_CLOSED",
+            TASK_SCOPE_DECISION: "TASK_SCOPE_CLOSED_PORTFOLIO_CONTINUATION",
+        }[packet["decision"]],
         "packet": packet,
     }
 
@@ -712,6 +834,11 @@ def materialize(
     created_at: str | None = None,
     root: Path = ROOT,
 ) -> dict[str, Any]:
+    if spec.get("decision") == TASK_SCOPE_DECISION:
+        # The public and storage entry points share the same candidate-first,
+        # exact-byte transaction for this new decision.
+        from control_plane.research_driver_followup_transaction import materialize as transactional
+        return transactional(review_id=review_id, spec=spec, created_at=created_at, root=root)
     review = review_map(root).get(review_id)
     if review is None:
         raise DriverFollowupError(f"unknown review_id: {review_id}")

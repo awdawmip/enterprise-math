@@ -1,0 +1,45 @@
+{
+  "schema": "X6_FACTOR_LAYER_RESEARCH_HANDOFF_V1",
+  "status": "CURRENT",
+  "parent_objective_id": "OBJ-X6-FACTOR-LAYER-20260906",
+  "prepared_at": "2026-09-09T10:27:09+08:00",
+  "primary_source": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "84ccdcba0525155be29e8a0f89a4b05885e76686",
+    "path": "research_notes/20260906T122500+0800-x6-layer-frobenius-multiresolution-progress.md",
+    "git_blob_sha1": "b5154af019d4f7d437341562e4b22b0b2d327304",
+    "status": "RESEARCH_NOTE_FINITE_EVIDENCE_PLUS_EXACT_DERIVATIONS"
+  },
+  "global_knowledge_snapshot": {
+    "repository": "awdawmip/chatgpt-global-knowledge",
+    "commit": "56f4458ab96b6e2012e104d82b06c3cbb6300121",
+    "note": "Use global journals for provenance/history when needed; the Enterprise Math primary source above is the task-local startup surface."
+  },
+  "published_tasks": [
+    {
+      "task_id": "X6-FAC-AUDIT-20260909",
+      "publication_id": "TP2-A791A4490CC57388583C",
+      "taskbook_path": "research_tasks/X6-FAC-AUDIT-20260909.md",
+      "dependencies": []
+    },
+    {
+      "task_id": "X6-FAC-SPECIAL-20260909",
+      "publication_id": "TP2-22254233344E2E3276E6",
+      "taskbook_path": "research_tasks/X6-FAC-SPECIAL-20260909.md",
+      "dependencies": [
+        "X6-FAC-AUDIT-20260909"
+      ]
+    },
+    {
+      "task_id": "X6-FAC-OBSERVER-20260909",
+      "publication_id": "TP2-EA5E33E894410CFFFDD1",
+      "taskbook_path": "research_tasks/X6-FAC-OBSERVER-20260909.md",
+      "dependencies": [
+        "X6-FAC-AUDIT-20260909"
+      ]
+    }
+  ],
+  "generic_factoring_status": "REJECTED_AT_CURRENT_FRONTIER",
+  "retained_route": "ONE_FINE_LAYER_TO_DIVISOR_QUOTIENTS_AND_CYCLOTOMIC_OBSERVERS_FOR_SPECIAL_FROBENIUS_OR_DEPENDENCY_FAMILIES",
+  "reopen_generic_only_if": "NEW_X6_BRC_OBSERVER_BREAKS_R_APPROX_P_SCALE_WALL_OR_TOTAL_WORK_BECOMES_SUB_BARRIER"
+}

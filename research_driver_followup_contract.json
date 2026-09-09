@@ -1,8 +1,8 @@
 {
   "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_FOLLOWUP_CONTRACT_V1",
-  "status": "ACTIVE_CANONICAL_CANDIDATE_V1_3",
-  "effective": "2026-08-28",
-  "user_direction": "EVERY_NEW_OPERATIONAL_DRIVER_REVIEW_AUTHORITY_MUST_MATERIALIZE_NEXT_TASKBOOK_OR_TASKSET_UNLESS_CANONICAL_PARENT_OBJECTIVE_IS_ALREADY_CLOSED",
+  "status": "ACTIVE_CANONICAL_CANDIDATE_V1_4",
+  "effective": "2026-09-09",
+  "user_direction": "EVERY_NEW_OPERATIONAL_DRIVER_REVIEW_AUTHORITY_REQUIRES_ONE_TYPED_FOLLOWUP_PACKET_TASKSET_PARENT_CLOSURE_OR_SATISFIED_TASK_PORTFOLIO_CONTINUATION",
   "canonical_guard": "research_driver_followup_guard.py",
   "storage_materialization_primitive": "research_driver_followup.py",
   "review_authority": "research_review_evidence.py",
@@ -12,8 +12,8 @@
   "packet_store": "research_driver_followups/<review-authority-id>/<packet-id>.json",
   "task_publication_authority": "research_task_records/<task-id>/<publication-id>.json",
   "source_review_store": "research_result_reviews/<result-id>/<review-id>.json",
-  "purpose": "Prevent Driver-review stalls without reintroducing latest-review-wins. Follow-up consumes the single operational review authority produced by the exact-set review reducer. One immutable review is authority directly; two or more immutable reviews first require exact-set intake, two reference passes and review synthesis. Only that synthesis may drive follow-up. Any operational authority created after the exact d1514b1 cutover cannot terminalize ordinary or parallel runtime authority until a valid follow-up taskset is immutably published, or the current parent Objective is already canonically CLOSED. Existing concurrent control assets may satisfy a gate only by explicit pinned evidence so the rule never creates duplicate work merely to satisfy itself.",
-  "decisions": ["TASK_SET_PUBLISHED", "PARENT_OBJECTIVE_CLOSURE"],
+  "purpose": "Prevent Driver-review stalls without reintroducing latest-review-wins. Follow-up consumes the single operational review authority produced by the exact-set review reducer. One immutable review is authority directly; two or more immutable reviews first require exact-set intake, two reference passes and review synthesis. Only that synthesis may drive follow-up. Any operational authority created after the exact d1514b1 cutover cannot terminalize ordinary or parallel runtime authority until a valid follow-up taskset is immutably published, the current parent Objective is already canonically CLOSED, or a satisfied successful Task is accepted at TASK scope with an explicit return to the existing canonical portfolio queue. The latter grants no parent completion or final authority. Existing concurrent control assets may satisfy a gate only by explicit pinned evidence so the rule never creates duplicate work merely to satisfy itself.",
+  "decisions": ["TASK_SET_PUBLISHED", "PARENT_OBJECTIVE_CLOSURE", "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION"],
   "canonical_gates": [
     "MATHEMATICAL_CONTINUATION",
     "LEAN_FORMALIZATION",
@@ -58,8 +58,11 @@
     "NEW_REVIEW_CANNOT_BACKDATE_ITSELF_INTO_LEGACY_COMPATIBILITY",
     "EVERY_GOVERNED_OPERATIONAL_REVIEW_AUTHORITY_REQUIRES_EXACTLY_ONE_FOLLOWUP_PACKET",
     "TASK_SET_PUBLISHED_REQUIRES_ONE_OR_MORE_IMMUTABLE_POST_AUTHORITY_TASK_PUBLICATIONS",
-    "PARENT_OBJECTIVE_CLOSURE_IS_THE_ONLY_ZERO_TASK_EXCEPTION",
-    "ZERO_TASK_EXCEPTION_REQUIRES_CURRENT_CANONICAL_PARENT_OBJECTIVE_HEAD_CLOSED",
+    "PARENT_OBJECTIVE_CLOSURE_REQUIRES_CURRENT_CANONICAL_PARENT_OBJECTIVE_HEAD_CLOSED",
+    "TASK_SCOPE_CLOSURE_REQUIRES_ACCEPTED_PASS_OR_SUCCESS_SATISFIED_RESULT_AND_TASK_SCOPE",
+    "TASK_SCOPE_PORTFOLIO_CONTINUATION_PINS_CURRENT_RESULT_BYTES_AND_PARENT_SCOPE_WITH_CANONICAL_DISPATCH_ACTION",
+    "TASK_SCOPE_CLOSURE_GRANTS_NO_PARENT_COMPLETION_FINAL_WORKING_TRUTH_OR_FOUNDATION_AUTHORITY",
+    "ABSENT_PARENT_HEAD_IS_ABSENT_NOT_CLOSED_AND_IS_NEVER_SYNTHESIZED",
     "EVERY_OPERATIONAL_REVIEW_AUTHORITY_EVALUATES_THE_EXACT_CANONICAL_GATE_SET",
     "REQUIRED_GATE_REQUIRES_AT_LEAST_ONE_PUBLISHED_TASK_WITH_MATCHING_ROLE",
     "SATISFIED_BY_REVIEWED_RESULT_REQUIRES_EXPLICIT_EVIDENCE_REFS",
@@ -119,7 +122,7 @@
     "first_review_command": "python tools/research_result_records.py review ... --followup-spec <json>",
     "second_or_later_review_command": "python tools/research_result_records.py review ... WITHOUT --followup-spec; exact-set review authority reopens",
     "synthesis_recovery_command": "python research_driver_followup_guard.py materialize --review-authority-id <review-or-synthesis-authority-id> --spec <json>",
-    "first_review_transaction": "preflight gate/task specifications; create the first immutable review; automatically publish missing follow-up taskbook(s) and immutable publication record(s); then create one immutable authority follow-up packet",
+    "first_review_transaction": "preflight gate/task or satisfied-Task continuation specifications; create the first immutable review; materialize the selected typed decision and exactly one immutable authority follow-up packet; only TASK_SET_PUBLISHED creates new taskbooks/publications",
     "multiple_review_transaction": "create the additional immutable source review; do not publish source-specific follow-up; resolve exact-set review authority through two reference passes and synthesis; then materialize follow-up for the synthesis authority",
     "failure_semantics": "fail closed; operational review authority remains nonterminal until a valid packet exists. Any already-created partial publication remains immutable evidence and is never silently rolled back.",
     "publisher_role": "RESEARCH_DRIVER",
@@ -143,5 +146,47 @@
     "backdating_can_create_legacy_exemption": false,
     "post_cutover_review_synthesis_is_governed": true,
     "future_hardening": "source-backed active Driver authorization remains a separate independent hardening layer; it must not weaken this frozen-ID cutover"
+  },
+  "completed_task_portfolio_return": {
+    "decision": "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION",
+    "eligibility": {
+      "current_operational_publication_required": true,
+      "current_publication_check_boundary": "FIRST_REVIEW_PREFLIGHT_AND_TRANSACTION_PRE_POST_CAS_NOT_RETROACTIVE_HISTORICAL_INVALIDATION",
+      "review_disposition": "ACCEPTED",
+      "result_terminal_verdict": [
+        "PASS",
+        "SUCCESS"
+      ],
+      "hard_target_disposition": "SATISFIED",
+      "packet_terminal_scope": "TASK"
+    },
+    "new_tasks": 0,
+    "required_gates_must_be_empty": true,
+    "portfolio_continuation_fields": [
+      "source_result_id",
+      "parent_objective_id",
+      "action",
+      "dispatcher",
+      "next_action",
+      "remaining_parent_scope",
+      "evidence_refs"
+    ],
+    "action": "REEVALUATE_CANONICAL_PORTFOLIO",
+    "dispatcher": "research_control_dispatch.py",
+    "result_pin": [
+      "source_result_record_path",
+      "source_result_record_sha256"
+    ],
+    "parent_status_at_materialization": [
+      "OPEN",
+      "PARKED",
+      "ABSENT_NOT_CLOSED"
+    ],
+    "parent_observation_semantics": "Frozen observation only. Later canonical parent updates do not reopen the completed Task. Current parent liveness must be recomputed independently; no parent record is fabricated.",
+    "parent_completion_granted": false,
+    "parent_final_granted": false,
+    "no_new_claim_or_task_authority": true,
+    "runtime_state": "TASK_SCOPE_CLOSED_PORTFOLIO_CONTINUATION",
+    "recovery": "Use the existing public materialize command for the existing operational review authority; never repeat a persisted first review."
   }
 }

@@ -76,9 +76,9 @@ Default checkpoint behavior:
 3. return branch, commit SHA, exact paths, inventory, frontier and next action;
 4. record the HANDOFF `progress_ref` against that durable commit/path when scheduler coordination is required;
 5. keep the branch/tag reachable until the material is accepted, superseded or deliberately archived;
-6. do not open a PR solely to obtain a locator, trigger CI, produce a conversation stopping point or create a review queue item.
+6. a model may use its normal branch/PR/merge workflow without a separate necessity test; neither PR creation nor CI waiting is a universal checkpoint prerequisite or a conversation stopping point.
 
-Open or update at most one PR for a bounded owner generation only when:
+A bounded owner generation may normally use one PR for coherent review/integration. Reasons include the model's normal publication workflow or:
 
 - the exact task explicitly requires a PR;
 - an authorized Driver has begun actual review/integration;
@@ -86,6 +86,10 @@ Open or update at most one PR for a bounded owner generation only when:
 - the PR discussion surface itself is needed for a bounded decision.
 
 An existing PR may remain a useful locator or review surface, but pending CI, mergeability or review does not suspend independent parent work.
+
+`MERGE_ADMISSION_CHECKS_REMAIN_REQUIRED`.
+
+Choosing a PR workflow does not waive applicable validation or integration gates. A failed required merge check is resolved or the merge is deferred; it is not a reason to discard independent research work.
 
 ## 5. Required handoff manifest
 
@@ -125,6 +129,8 @@ After a Researcher execution ends:
 6. open a review/integration PR only when that bounded subflow actually begins.
 
 A successor receives the persisted handoff packet plus exact governing task authority. It is not expected to share the predecessor's hidden conversational state.
+
+The receiving line Driver retains review continuity across researchers and records accepted obligations and unresolved issues in its dossier. Once required material passes applicable durable-handoff checks, the temporary researcher may finish under its original task/PRE_FINAL rules; it need not remain alive for the rest of the line. Canonical readback does not require an additional private Driver acknowledgment, and FREE does not gain a Driver-approval prerequisite. Ordinary delivery and review go directly to the line Driver where assigned rather than through the portfolio Owner. Discarding researcher runtime context never authorizes deletion of durable evidence.
 
 ## 8. Voice/oral continuity
 

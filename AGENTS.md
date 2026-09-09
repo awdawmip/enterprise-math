@@ -25,6 +25,17 @@ Exact research-role authority:
 - `research_identity_state_machine.json`;
 - `foundation_steward.json` when Steward authority is active.
 
+### Owner and persistent line Drivers
+
+For the user's delegated multi-agent research program, apply `docs/CODEX_RESEARCH_ORCHESTRATION.en.md` (Chinese: `docs/CODEX_RESEARCH_ORCHESTRATION.zh-CN.md`). Owner and line Driver are scopes of the existing `RESEARCH_DRIVER` role.
+
+- Owner owns portfolio direction, cross-line synthesis/splits/closure, and control-plane coordination.
+- Delegate a whole bounded research line to one explicitly activated Driver. Reuse that Driver for continuous review, task publication/dispatch, formalization routing, and ordinary source integration; do not send every return to Owner for another mathematical review.
+- Use temporary researchers for bounded tasks; require durable evidence before their execution ends. A Driver who authored a claim obtains another reviewer's decisive review.
+- Keep a compact durable line dossier and incremental review ledger. Restore from verified frontiers after compaction; persistence is responsibility, not a promise of an immortal agent session.
+- Owner receives semantic milestones and cross-line decisions, not every raw log. Respect actual concurrency limits and disjoint write scopes.
+- Existing identities, lightweight activity registration, V2 tasks, claims, execution authorization, immutable Result/Driver records, source firewalls, and promotion gates remain authoritative. A dossier is not a second task registry.
+
 ### Narrow control-authority precedence
 
 Before interpreting or mutating any of these control fields, read:

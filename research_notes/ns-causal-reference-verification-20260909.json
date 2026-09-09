@@ -1,0 +1,52 @@
+{
+  "schema": "EM_RESULT_SPECIFIC_VERIFICATION_V1",
+  "record_id": "FINDING-EM-PDE-CAUSAL-REFERENCE-MHD-20260909",
+  "activity_id": "RA-076944AE1950A916ACC95399",
+  "proof_source": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "6b8b49d6fa9da6d14ce18ade92ab8514ca2478a6",
+    "path": "research_notes/ns-causal-reference-mhd-20260909.md",
+    "sha256": "83ffa4d93effb9427ac5831666274fc31fb551d4656579dfbda5801caed27176",
+    "git_blob_sha1": "bc1c8f14e20bbdbe01c97f97fd1f29c275e9d0ee"
+  },
+  "checker_source": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "3e5bc8b5e4aa7e3310fc94741b90157fccda014f",
+    "path": "research_notes/ns-causal-reference-certificate-20260909.py",
+    "sha256": "8becf8b0f4686aaf61410c4e7f882f46ea8260c2023c33dc5cdfb992caad6ad5",
+    "git_blob_sha1": "56ee6e80f1aa67b308328609f5ddf334c672917e"
+  },
+  "verification": {
+    "status": "PASSED",
+    "scope": "Analytic proofs in note; finite exact algebra and scalar regression in executable; no PDE simulation",
+    "weighted_integrating_factor_identity": true,
+    "reference_residual_terms": "(1-theta)B11+theta(B12+B21)+theta^2B22",
+    "benchmark_residual": "q^4(1-theta)^2/16+(sqrt(2)+1/sqrt(10))*q^6*theta^2/864",
+    "benchmark_reference_action": "9q^4/8+q^6*theta^2/36+3q^8*theta^4/8192",
+    "constructive_damping": "D=1+(sqrt(2)+1/sqrt(10))*q^2/54+6C0^4q^6+(81/1024)C0^4q^8; theta=1/D; score(theta)/score(0)<=exp(-1/D)<1",
+    "full_correction_residual_ratio_q8": 2.0508934262399205,
+    "high_precision_scalar_regressions": 15,
+    "rank3_NS": {
+      "initial_modes": 8,
+      "first_response_packets": 20,
+      "next_source_packets": 130,
+      "split_cross_Grams_zero": true,
+      "log_score_derivative_at_zero": -2
+    },
+    "MHD": {
+      "viscosity_equals_diffusivity": true,
+      "direct_sum_C0_bound_verified": true,
+      "initial_rank": 3,
+      "source_packets_per_component": 12,
+      "input_rate": 4,
+      "K": "sqrt(2)*(3A^2+B^2)",
+      "heat_residual": "(11sqrt(6)/576+3sqrt(2)/64+1/8)*A^2B^2"
+    }
+  },
+  "limits": [
+    "No arbitrary-data global regularity for NS or MHD.",
+    "No numerical domain Sobolev constant C0 certified.",
+    "General weighted Gram integration is proved but not implemented as validated numerical quadrature.",
+    "Existing a posteriori NS and MHD methods are acknowledged; no historical priority claimed."
+  ]
+}

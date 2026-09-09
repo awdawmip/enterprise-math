@@ -10,6 +10,22 @@ Enterprise Math is an open research program attempting to rebuild mathematical f
 
 > **Non-mathematical reader entry:** [The World Through Enterprise Math](docs/THE_WORLD_IN_ENTERPRISE_MATH.en.md) — no advanced mathematics required; follow the worldview from precision and time to space, quantum phenomena, the universe, and extreme causal questions.
 
+> **Current Navier–Stokes logic audit:** [A logical rebuttal: why engineered residual forcing does not answer the unforced \(f\equiv0\) problem](docs/OPENAI_NS_F0_LOGIC_REBUTTAL.en.md). The underlying target-leakage pattern is now an active project rule in the [Enterprise Math Logic Blacklist](docs/LOGIC_BLACKLIST.en.md).
+
+## Position clarification: smoothness cannot make the final judgment about nature
+
+**We believe the world's substrate is not a continuum, but discrete, finitely distinguishable states and their evolution. Whenever an argument depends decisively on infinite divisibility, infinitely precise states, or arbitrarily high-order smooth structure at a singularity, collapse, or scale limit, we do not accept it as a final proof of nature's actual mechanism.** This is Enterprise Math's ontological position and admission principle for explanations of nature, not a universal conclusion already established by experiment.
+
+The object of this refusal is precise: we reject the direct promotion of validity inside a continuous model into necessity in the real world. We do not classify every mathematical argument using calculus as logically false. Smooth continuous tools may remain at an explicitly typed effective-model or conditional-mathematics layer. Their use to describe nature must separately specify the correspondence between discrete states and continuous readouts, the applicable scales, and error bounds and propagation through the decisive evolution. A smooth extension or a quantity vanishing in a limit cannot replace those obligations.
+
+Three questions must therefore remain separate: **whether the deduction is valid within the model, whether the formalization faithfully expresses the intended target, and whether that target applies to nature.** Proof assistants such as Lean can check deductions within a formal system; that check does not itself establish the system's correspondence with reality. Rejecting a model's ontological status does not produce a counterexample to a theorem inside it. Disagreeing with a continuity premise does not establish the opposite mathematical conclusion.
+
+The same standard binds our own work. The classical \(f\equiv0\) Navier–Stokes equations remain a continuous effective model. Research on that mathematical statement must honor its definitions and proof obligations: "the world is discrete" is not a substitute for a proof, and adding forcing cannot complete the unforced target. Research on nature's native self-state evolution must first specify discrete states, update rules, resolution, and a testable meaning of instability, then establish a bridge to continuous readouts. **Self-state instability is our present research proposition, not a theorem obtained automatically by rejecting continuity; instability does not automatically mean finite-time blowup.**
+
+Ontological admission is separate from the [Logic Blacklist](docs/LOGIC_BLACKLIST.en.md): the former assesses entitlement to explain nature; the latter assesses reasoning defects such as target substitution. This position applies to every author, including Enterprise Math, regardless of whether we favor a particular result.
+
+**Continuity may be a tool, but it cannot become nature's substrate without justification. Smoothness may be a model property, but it cannot replace the actual mechanism at the decisive step.**
+
 ## Manifesto: the foundation of the mathematical building must be rebuilt
 
 We choose to state the position plainly.

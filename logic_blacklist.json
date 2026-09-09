@@ -1,0 +1,49 @@
+{
+  "schema": "ENTERPRISE_MATH_LOGIC_BLACKLIST_V1",
+  "status": "ACTIVE",
+  "effective": "2026-09-09",
+  "authority": "PROJECT_LEVEL_RESEARCH_LOGIC",
+  "human_sources": [
+    "docs/LOGIC_BLACKLIST.en.md",
+    "docs/LOGIC_BLACKLIST.zh-CN.md"
+  ],
+  "entries": [
+    {
+      "id": "LB-01-TARGET-IMPRINTED-RESIDUAL-COMPLETION",
+      "status": "ACTIVE",
+      "name": "TARGET_IMPRINTED_RESIDUAL_COMPLETION",
+      "applies_when": "The stated target requires an exact global zero-residual or zero-forcing identity, or an equivalent exact autonomous closure.",
+      "blacklisted_pattern": [
+        "Prescribe or construct a candidate already carrying the desired endpoint behavior.",
+        "Define the residual, correction, forcing, or defect from that candidate so the modified equation holds.",
+        "Prove only that the repair term is small, decaying, flat at a selected point, zero to high order, or negligible after a selected limiting/rescaling procedure.",
+        "Treat that weaker property as if the original exact zero-residual target had been derived or as evidence of endogenous autonomous instability."
+      ],
+      "logical_defects": [
+        "TARGET_LEAKAGE",
+        "QUANTIFIER_MISMATCH",
+        "LOCAL_TO_GLOBAL_SUBSTITUTION",
+        "WITNESS_CONTAMINATION",
+        "SEMANTIC_TARGET_SUBSTITUTION"
+      ],
+      "formal_freezes": [
+        "ALL_JETS_ZERO_AT_ONE_POINT_DOES_NOT_IMPLY_GLOBAL_ZERO_IDENTITY",
+        "RESCALED_RESIDUAL_TENDS_TO_ZERO_DOES_NOT_IMPLY_ORIGINAL_RESIDUAL_IDENTICALLY_ZERO",
+        "FORMAL_VERIFICATION_DOES_NOT_IMPLY_SEMANTIC_TARGET_EQUIVALENCE"
+      ],
+      "allowed_boundary": "If the theorem explicitly existentially quantifies the residual/forcing/correction and permits it to be chosen, residual completion is not automatically invalid for that theorem. It carries no authority toward a stronger zero-residual target without a separate bridge theorem proving the exact zero identity.",
+      "navier_stokes_specialization": {
+        "lane": "UNFORCED_F_EQ_ZERO",
+        "invariant": "FORCING_IDENTICALLY_ZERO_FROM_PREMISE_TO_CONCLUSION",
+        "forbidden_route": "DESIRED_SINGULAR_PROFILE -> DEFINE_NS_RESIDUAL_AS_FORCE -> PROVE_FORCE_FLAT_OR_SMALL -> CLAIM_ENDOGENOUS_BLOWUP",
+        "mandatory_distinctions": [
+          "FLAT_AT_SINGULAR_POINT != ZERO_FORCE",
+          "ZOOM_LIMIT_UNFORCED != ORIGINAL_TRAJECTORY_UNFORCED",
+          "FORCED_BREAKDOWN_WITNESS != UNFORCED_SELF_INSTABILITY"
+        ],
+        "research_direction": "AUTONOMOUS_SELF_STATE_INSTABILITY",
+        "research_direction_is_theorem": false
+      }
+    }
+  ]
+}
