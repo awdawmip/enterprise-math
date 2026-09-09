@@ -1,0 +1,62 @@
+{
+  "schema": "NOLLM_TWO_INERT_511_CHECKPOINT_V1",
+  "event_id": "NOLLM-TWO-INERT-511-20260909-C6C82",
+  "activity_id": "RA-nollm-hecke-views-20260909-c6c82",
+  "status": "DERIVED_AND_EXACT_FINITE_CHECKED_NOT_PROMOTED",
+  "note": {
+    "commit": "f3118d5bdbceca07bcc4f1395db19c676c109713",
+    "path": "research_notes/nollm_two_inert_5_11_boundary_field_20260909_c6c82.md",
+    "git_blob_sha1": "15797472e1a513b52a677339487d8cd5a1081fd3"
+  },
+  "code": {
+    "commit": "c49d46d33ee9a5103b608bcc02713c0b11c8bdfe",
+    "path": "experiments/nollm_two_inert_511_20260909_c6c82.py",
+    "git_blob_sha1": "dbff8993949d167a7f795f5a1a3c475b1109df20",
+    "sha256": "db00742a81241d10883299253307fb1ee7831b7703bf710f88288606998f53b4"
+  },
+  "negative_control": {
+    "commit": "a97fa04b4f3e860c8f4228cedd182ccddbad04c6",
+    "path": "experiments/nollm_two_inert_511_negative_control_20260909_c6c82.py",
+    "sha256": "79daba7be5b0393be9ed1ed39af7c0dc087ec501d616c391de10bdb8fccaa958",
+    "naive_classes": 1373,
+    "expected_and_repaired": 1375
+  },
+  "checks": {
+    "normalized_sublattices": 91,
+    "joint_projective_pairs_reached": 72,
+    "phase_states": 288,
+    "sign_transition_cases": 4896,
+    "split_exception_primes": 15,
+    "atlas_sections": 182,
+    "atlas_point_appearances": 107198,
+    "primitive_edges": 597,
+    "primitive_parents": 21621,
+    "actual_exponent_sections": 84,
+    "actual_point_appearances": 1352566,
+    "largest_section": 275275,
+    "actual_chain_edges": 122,
+    "actual_parents": 27728,
+    "permutation_runs": 108,
+    "order_mismatches": 0,
+    "convex_hull_lattice_holes": 0,
+    "candidate_maxima": {
+      "5": 17,
+      "7": 19,
+      "11": 29,
+      "13": 31,
+      "19": 43
+    },
+    "all_checks": "PASS"
+  },
+  "results_sha256": "a485caa5f6e1936d5cef3d9c0071f1ac682fa8186937982e527de15cd01df41e",
+  "phase_certificate_sha256": "c96c90c2c898f1c58c7ebb6ac5eaa23142813009b61fced34b4aadc1108f8328",
+  "stencil_certificate_sha256": "5b35bb3702a6b19b7e54ed1afb673392acf0632803373bea61a1e8947c0ec4a7",
+  "limits": [
+    "quotient capacity multiplication is not ordinary scalar-label multiplication",
+    "new anchors migrate some earlier boundary addresses",
+    "91 counts normalized sublattices, not minimal similarity classes",
+    "three reachable unit-thin 55 lattices have minimum basis ratio 55",
+    "locality is in the current basis; no physical fanout<=7 for 11/13/19",
+    "no Nollm runtime, Working Truth, or Foundation promotion"
+  ]
+}
