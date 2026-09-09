@@ -1,6 +1,6 @@
 # Enterprise BRC inert-plus D=-24 UR successor handoff — 2026-09-09
 
-Status: `PARENT_ACCEPTED / UR SUCCESSOR PUBLISHED-PACKET / LIFT DEFERRED`
+Status: `PARENT_ACCEPTED / UR SUCCESSOR PUBLISHED-PACKET / UNREVIEWED CHISHOLM PRIOR-ART AUDIT / LIFT DEFERRED`
 
 Driver: `EM-DVR-CJ7F3A`
 
@@ -20,6 +20,55 @@ Start here before doing mathematics:
 - Structurally independent regression checker: `scripts/check_enterprise_brc_half_coupling_inert_plus_terminating_jacobi_jet_certificate_independent.py`
 
 The accepted predecessor is terminal at strict-reduction scope. Do not reclaim or replay the old Jacobi-jet task.
+
+## Unreviewed 2026-09-08 prior-art closure branch — audit before spending effort on a new UR proof
+
+A non-main research continuation predates this publication and must not be lost merely because it never reached Driver acceptance. Its current immutable branch head is
+
+`research/jt0-ur-chisholm-closure-lift-frontier-20260908@9a1d0b374564abfcc888458b79c1030d52da924c`.
+
+Read these two artifacts before beginning a fresh UR derivation:
+
+- `research_artifacts/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE/ur_chisholm_closure_lift_frontier_20260908.md@9a1d0b374564abfcc888458b79c1030d52da924c`;
+- `research_artifacts/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE/height2_frobenius_second_digit_reduction_20260908.md@9a1d0b374564abfcc888458b79c1030d52da924c`.
+
+That continuation makes a potentially task-closing prior-art claim. It identifies the frozen weighted Ramanujan truncation
+
+\[
+W_p=\sum_{k=0}^{p-1}
+\frac{(1/2)_k(1/3)_k(2/3)_k}{(k!)^3}
+(6k+1)2^{-k}
+\]
+
+with the `d=3`, `lambda=1/2`, `a=6` CM specialization in Sarah Chisholm, Alyson Deines, Ling Long, Gabriele Nebe and Holly Swisher, *p-Adic Analogues of Ramanujan Type Formulas for 1/pi*, Mathematics 1 (2013), DOI `10.3390/math1010009`. Their Theorem 1 gives the weighted truncation modulo `p^2` with the ordinary/supersingular sign. On the target lane the continuation computes `sgn=-1` and `((1-lambda)/p)=((1/2)/p)=-1`, hence proposes
+
+\[
+W_p\equiv p\pmod{p^2}.
+\]
+
+Together with the frozen project bridge `(JT0) <=> W_p = p (mod p^2)` and `(JT0) <=> (UR)`, this would prove `JT0` and `UR` for every target prime.
+
+**Authority boundary:** this is `UNREVIEWED_PRIOR_ART_CLOSURE_CANDIDATE`, not an accepted theorem status. The current immutable publication correctly remains `UR_OPEN`. The new researcher must independently check the exact `d=3, lambda=1/2, a=6` specialization, all theorem hypotheses, the project bridge to `JT0`, and both target residue classes. If the audit passes, freeze a Result and route it to Driver review instead of re-proving UR by a longer route. If it fails, record the exact failed hypothesis or normalization and continue with `UR-L` / `UR-LEG` below.
+
+The same branch also contains a corrected second-digit reduction. In the quartic-normalized local coordinate it defines the height-2 Frobenius digit
+
+\[
+\mathcal F_p=U^2-e_a-e_b\pmod p
+\]
+
+and the complete weighted-comparison digit
+
+\[
+\chi_p=\frac{W_p+\widetilde{\mathfrak a}_p\widetilde{\mathfrak b}_p}{p^2}\pmod p,
+\]
+
+then derives at the declared LIFT observer
+
+\[
+LIFT\iff \chi_p\equiv U^2-e_a-e_b\pmod p.
+\]
+
+That corrected artifact explicitly withdraws an earlier unsupported split into separate twist and Clausen digits. Treat the two-coordinate `FROB2/COMPARE2` interface as unreviewed provenance that may become useful only after the first-digit closure is accepted.
 
 ## What is already theorem-level at the accepted predecessor
 
@@ -66,7 +115,7 @@ where, once `UR` holds,
 LIFT:\;\Delta_p\equiv R_p\pmod p.
 \]
 
-`UR`, `LIFT`, `JT0`, `JT2` and Sun A14(ii) remain open at theorem level.
+At the current accepted-control level, `UR`, `LIFT`, `JT0`, `JT2` and Sun A14(ii) remain open at theorem level until a new Result/Review changes that status.
 
 ## New UR frontier from the 2026-09-09 continuation
 
@@ -104,13 +153,13 @@ A further ordinary-Legendre candidate isolated in this continuation is
 \tag{UR-LEG}
 \]
 
-The intended first attack is to derive the divided-value identity behind `UR-LEG` from Zhi-Hong Sun's generalized Legendre polynomial at \(a=-1/3\), use the \(p\)-adic three-term parameter recurrence at the Frobenius pair \(t,-t\), eliminate the neighboring parameters by parity/reflection, and differentiate. If that derivation fails, record the exact failed coefficient or precision step rather than treating `UR-LEG` as established.
+If the prior-art audit above does not close UR, the intended first attack is to derive the divided-value identity behind `UR-LEG` from Zhi-Hong Sun's generalized Legendre polynomial at \(a=-1/3\), use the \(p\)-adic three-term parameter recurrence at the Frobenius pair \(t,-t\), eliminate the neighboring parameters by parity/reflection, and differentiate. If that derivation fails, record the exact failed coefficient or precision step rather than treating `UR-LEG` as established.
 
 ## Deferred second-digit packet — not yet claimable
 
 The accepted Driver review requires `LIFT` to wait until `UR` closes. Preserve the following as a deferred route, not a theorem and not an independently executable task.
 
-Let \(F_p\) denote the truncated \((1/6,1/3)\) side of the quadratic transform and consider its \(p^3\) defect against \(L_p\). The continuation found the candidate structure
+Let \(F_p\) denote the truncated \((1/6,1/3)\) side of the quadratic transform and consider its \(p^3\) defect against \(L_p\). The 2026-09-09 continuation found the candidate structure
 \[
 L_p(u)-F_p(4u(1-u))
 \equiv p^2u^p r_p(u)\pmod{p^3},
@@ -149,16 +198,18 @@ Do not publish the `LIFT/QTF3` successor until the `UR` task has a terminal acce
 
 ## Mechanism ledger
 
-Already exhausted or bounded:
+Already exhausted, bounded, or available only as unreviewed provenance:
 
 - terminating quadratic/Legendre transport: useful and retained;
 - Hesse Hasse invariant + discriminant \(-24\) CM + Deuring: closes `CM0`, do not reopen;
 - Legendre differential equation: closes simple-root transversality, do not reopen;
+- Chisholm--Deines--Long--Nebe--Swisher Theorem 1 specialization: **audit-first unreviewed prior-art closure candidate for UR/JT0**;
+- corrected quartic-coordinate height-2 Frobenius reduction at `9a1d0b3...`: unreviewed provenance for the deferred LIFT stage;
 - finite WZ/creative-microscoping search: no matching all-prime `UR`/`LIFT` close found;
 - ordinary split-CM ASD/unit-root instantiation: structural mismatch on the inert target lane;
 - finite prime scans: regression/falsification only.
 
-Live mechanisms for `UR`:
+Live mechanisms if the prior-art audit does not already close `UR`:
 
 - generalized-Legendre \(p\)-adic recurrence at \(a=-1/3\) with \(t,-t\) parity/Frobenius elimination;
 - supersingular Frobenius/Wronskian or Jacobi-sum computation of the divided-period/derivative unit;
@@ -173,7 +224,8 @@ Unsafe compression: positive total mass or magnitude-only summaries; they erase 
 ## Immediate next action for the new researcher
 
 1. Read the accepted Result/Review and this handoff.
-2. Reprove the quadratic-transform bridge to `UR-L`, including the base-field descent of \(L_p(u)/p\).
-3. Derive or falsify `UR-LEG` exactly.
-4. If `UR-LEG` survives, attack it through the generalized-Legendre recurrence and a distinct Frobenius/Wronskian route.
-5. Return a uniform proof, exact counterexample, or a strictly smaller exact residue. Do not reopen `CM0`, `SIMPLE`, or the old harmonic/tail interface.
+2. **Audit the unreviewed Chisholm 2013 specialization and the frozen bridge to `JT0/UR` first.** If valid, freeze the all-prime UR/JT0 closure as a Result for Driver review rather than re-proving it.
+3. If that audit fails, record the exact normalization/hypothesis failure, then reprove the quadratic-transform bridge to `UR-L`, including the base-field descent of \(L_p(u)/p\).
+4. Derive or falsify `UR-LEG` exactly and, if it survives, attack it through the generalized-Legendre recurrence plus a distinct Frobenius/Wronskian route.
+5. Preserve the Sep-8 `FROB2/COMPARE2` reduction and the Sep-9 `QTF3` packet for the deferred second-digit successor after UR receives terminal acceptance.
+6. Return a uniform proof, exact counterexample, or a strictly smaller exact residue. Do not reopen `CM0`, `SIMPLE`, or the old harmonic/tail interface.
