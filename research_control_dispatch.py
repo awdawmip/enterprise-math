@@ -35,6 +35,7 @@ from control_plane import research_publication_fault_isolation
 from control_plane import research_task_integrity_fault_isolation
 from control_plane import research_startup_transport
 from control_plane import research_task_assignment
+from control_plane import research_dependency_release
 from tools import research_dispatch
 from tools import research_lane_dispatch
 from tools import research_runtime
@@ -515,57 +516,62 @@ def _assigned_research_route(
         state = research_dispatch.reduce_definition(
             definition, events, now=now, root=root,
             default_lease_minutes=int(policy.get("default_claim_lease_minutes", 120)))
-    if state.get("task_id") != request["task_id"] or state.get("publication_id") != request["publication_id"]:
-        raise ControlDispatchError("assignment derived state changed its exact task/publication")
-    evidence.update(taskbook_blob_sha1=publication["taskbook_blob_sha1"],
-                    mode="CURRENT_FORWARD_REVALIDATION" if request["expected_claim_id"]
-                    else "ASSIGNED_RESEARCH_FRESH_DISPATCH")
-    result = {
-        "surface": ORDINARY_TASK, "selection_scope": "ASSIGNED_RESEARCH_TASK",
-        "target": state, "target_key": request["task_id"],
-        "claim_id": state.get("claim_id"), "researcher_id": request["researcher_id"],
-        "session_id": request["session_id"], "assigned_research_selection": evidence,
-    }
+        if state.get("task_id") != request["task_id"] or state.get("publication_id") != request["publication_id"]:
+            raise ControlDispatchError("assignment derived state changed its exact task/publication")
+        evidence.update(taskbook_blob_sha1=publication["taskbook_blob_sha1"],
+                        mode="CURRENT_FORWARD_REVALIDATION" if request["expected_claim_id"]
+                        else "ASSIGNED_RESEARCH_FRESH_DISPATCH")
+        result = {
+            "surface": ORDINARY_TASK, "selection_scope": "ASSIGNED_RESEARCH_TASK",
+            "target": state, "target_key": request["task_id"],
+            "claim_id": state.get("claim_id"), "researcher_id": request["researcher_id"],
+            "session_id": request["session_id"], "assigned_research_selection": evidence,
+        }
 
-    def blocked(reason: str) -> dict[str, Any]:
-        # This scoped refusal never asserts that the global selector has no work.
-        return {**result, "action": research_runtime.NO_DISPATCH,
-                "selection_status": "BLOCKED", "new_claim_required": False,
-                "owner_claim_preserved": bool(state.get("claim_id")),
-                "target": {**state, "dispatch_state": "BLOCKED",
-                           "assignment_block": reason},
-                "reason": reason, "required_guard": None,
-                "assigned_research_selection": {**evidence, "eligible": False}}
+        def blocked(reason: str) -> dict[str, Any]:
+            # This scoped refusal never asserts that the global selector has no work.
+            return {**result, "action": research_runtime.NO_DISPATCH,
+                    "selection_status": "BLOCKED", "new_claim_required": False,
+                    "owner_claim_preserved": bool(state.get("claim_id")),
+                    "target": {**state, "dispatch_state": "BLOCKED",
+                               "assignment_block": reason},
+                    "reason": reason, "required_guard": None,
+                    "assigned_research_selection": {**evidence, "eligible": False}}
 
-    if state.get("kind") != "RESEARCH" or state.get("execution_cohort_id"):
-        return blocked("assigned research entry cannot replace the existing cohort-lane flow")
-    if state.get("claim_id") != request["expected_claim_id"]:
-        return blocked("assigned target owner changed; refresh the exact claim without replacing it")
-    if state.get("claim_id") and state.get("researcher_id") != request["researcher_id"]:
-        return blocked("assigned researcher cannot take a foreign owner's claim")
-    if definition.get("dependencies") != []:
-        return blocked("nonempty dependencies lack a supported canonical satisfaction proof; no dependency bypass")
-    # The canonical reducer distinguishes an actual control block from a
-    # taskbook's descriptive mathematical bottleneck in the same legacy field.
-    # Do not override its derived state with an untyped truthiness test.
-    if state.get("dispatch_state") not in {"NEEDS_DISPATCH", "LEASED"}:
-        return blocked(f"assigned research target retains canonical state {state.get('dispatch_state')}")
-    observation = observations.get(request["task_id"])
-    activity = _owner_scope_activity(state, observation)
-    decision = research_runtime.dispatch_decision(state, session_last_activity_at=activity, now=now)
-    if (decision["action"] == research_runtime.KEEP_CURRENT_SESSION
-            and (observation or {}).get("session_id") != request["session_id"]):
-        decision = {"action": "VERIFY_SESSION_LIVENESS", "owner_claim_preserved": True,
-                    "new_claim_required": False}
-    return {**result, **decision, "selection_status": "ELIGIBLE",
-            "assigned_research_selection": {**evidence, "eligible": True},
-            "required_guard": ("tools/research_runtime_guard.py adopt"
-                               if decision["action"] == research_runtime.ADOPT_OWNER_CLAIM
-                               else "tools/research_runtime_guard.py authorize"),
-            "next_control_steps": (["tools/research_execution_records.py prepare", "Issue 240 CLAIM",
-                                    "tools/research_runtime_guard.py authorize"]
-                                   if decision["action"] == research_runtime.CLAIM_NEW_OWNER else []),
-            "reason": "Exact source-authorized Driver assignment to this researcher/session; global ranking is unchanged."}
+        if state.get("kind") != "RESEARCH" or state.get("execution_cohort_id"):
+            return blocked("assigned research entry cannot replace the existing cohort-lane flow")
+        if state.get("claim_id") != request["expected_claim_id"]:
+            return blocked("assigned target owner changed; refresh the exact claim without replacing it")
+        if state.get("claim_id") and state.get("researcher_id") != request["researcher_id"]:
+            return blocked("assigned researcher cannot take a foreign owner's claim")
+        if definition.get("dependencies") != []:
+            try:
+                dependency_proof = research_dependency_release.resolve(definition, events, now=now, root=root)
+            except research_dependency_release.DependencyReleaseError as exc:
+                return blocked(f"assigned research dependencies: {exc}")
+            evidence["dependency_release"] = research_dependency_release.compact(dependency_proof)
+            result["dependency_release_evidence"] = dependency_proof
+        # The canonical reducer distinguishes an actual control block from a
+        # taskbook's descriptive mathematical bottleneck in the same legacy field.
+        # Do not override its derived state with an untyped truthiness test.
+        if state.get("dispatch_state") not in {"NEEDS_DISPATCH", "LEASED"}:
+            return blocked(f"assigned research target retains canonical state {state.get('dispatch_state')}")
+        observation = observations.get(request["task_id"])
+        activity = _owner_scope_activity(state, observation)
+        decision = research_runtime.dispatch_decision(state, session_last_activity_at=activity, now=now)
+        if (decision["action"] == research_runtime.KEEP_CURRENT_SESSION
+                and (observation or {}).get("session_id") != request["session_id"]):
+            decision = {"action": "VERIFY_SESSION_LIVENESS", "owner_claim_preserved": True,
+                        "new_claim_required": False}
+        return {**result, **decision, "selection_status": "ELIGIBLE",
+                "assigned_research_selection": {**evidence, "eligible": True},
+                "required_guard": ("tools/research_runtime_guard.py adopt"
+                                   if decision["action"] == research_runtime.ADOPT_OWNER_CLAIM
+                                   else "tools/research_runtime_guard.py authorize"),
+                "next_control_steps": (["tools/research_execution_records.py prepare", "Issue 240 CLAIM",
+                                        "tools/research_runtime_guard.py authorize"]
+                                       if decision["action"] == research_runtime.CLAIM_NEW_OWNER else []),
+                "reason": "Exact source-authorized Driver assignment to this researcher/session; global ranking is unchanged."}
 
 
 def route_control(
