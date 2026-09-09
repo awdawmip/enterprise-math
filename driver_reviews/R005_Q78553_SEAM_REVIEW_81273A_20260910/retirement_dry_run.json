@@ -1,0 +1,210 @@
+{
+  "schema": "R005_GOVERNANCE_RETIREMENT_PROSPECTIVE_CANONICAL_DRY_RUN_V1",
+  "checked_at": "2026-09-09T21:49:10.175671+00:00",
+  "current_source_snapshot": "f26db9901f034bbd3a3dae0c03061064ba99caf1",
+  "classification": "PROSPECTIVE_STATE_TRANSITION_ONLY_NOT_AUTHENTICATED_EVENT_OR_EXECUTION",
+  "active_driver_authority": "DA-80BDA97466C306DAD3C3",
+  "canonical_primitive": "tools/research_runtime_reducer.py:reduce_task",
+  "reducer_sha256": "b44513708ea9099e369aa445769a6db56fb3b78f68dfcd6692f6b7a782ea0c55",
+  "policy_sha256": "dc2fa7a9ce8cc5b968e2ef9284f610fb93adfab303b1beffc021a0ad068519a0",
+  "cases": [
+    {
+      "task_id": "GV-R005-DEFICIT-SHADOW-CORRECTION-REVIEW",
+      "publication_id": "TP2-86F63B5AAD1C97EC80FE",
+      "actual_before": {
+        "task_id": "GV-R005-DEFICIT-SHADOW-CORRECTION-REVIEW",
+        "state": "BLOCKED",
+        "claim_id": null,
+        "actor": null,
+        "researcher_id": null,
+        "last_researcher_id": null,
+        "identity_source": null,
+        "lease_until": null,
+        "hard_block": {
+          "missing_object": "immutable Result from RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION",
+          "owner": "GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER",
+          "necessity": "The review must bind the replacement Result and final artifact bytes rather than the abandoned Sep-3 package.",
+          "unblock_condition": "A new correction Result is durably frozen and its exact record/artifact bindings are available."
+        },
+        "last_progress_ref": "research_activity_records/RA-PR1140-P8H4Q2-20260909.json",
+        "last_progress_at": "2026-09-09T05:57:46+00:00",
+        "next_action": "After the correction Result exists, refresh its exact bytes and source head, review only the executable/evidence repair and unchanged DSI boundary, record ACCEPTED or REVISION_REQUIRED at exact strength, and on acceptance release the q=78553 seam task.",
+        "ignored_events": [],
+        "dispatch_state": "BLOCKED",
+        "title": "R005 deficit-shadow correction exact Driver review",
+        "kind": "GOVERNANCE",
+        "owner": "governance",
+        "priority": "P1",
+        "leverage": "HIGH",
+        "frontier": "The DSI mathematics is auditable at structural-reduction strength, but operational acceptance is blocked until the separate correction task freezes a new Result whose scanner, positive attested regression, transcript and manifest bind exact final bytes.",
+        "source_refs": [
+          "research_activity_records/RA-PR1140-P8H4Q2-20260909.json",
+          "git:awdawmip/enterprise-math@f9e2a611b45631c43effce36b7300c6f9a56b77b:docs/R005A_P2_DEFICIT_SHADOW_INVERSION_20260902.md"
+        ],
+        "registration_source": "IMMUTABLE_TASK_RECORD",
+        "publication_id": "TP2-86F63B5AAD1C97EC80FE",
+        "event_authentication": "NO_RUNTIME_EVENT",
+        "last_server_comment_id": null,
+        "last_server_author_login": null,
+        "identity_lane": "R005DRV2"
+      },
+      "prospective_after": {
+        "task_id": "GV-R005-DEFICIT-SHADOW-CORRECTION-REVIEW",
+        "state": "SUPERSEDED",
+        "claim_id": null,
+        "actor": null,
+        "researcher_id": null,
+        "last_researcher_id": null,
+        "identity_source": null,
+        "lease_until": null,
+        "hard_block": {
+          "missing_object": "immutable Result from RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION",
+          "owner": "GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER",
+          "necessity": "The review must bind the replacement Result and final artifact bytes rather than the abandoned Sep-3 package.",
+          "unblock_condition": "A new correction Result is durably frozen and its exact record/artifact bindings are available."
+        },
+        "last_progress_ref": "research_activity_records/RA-PR1140-P8H4Q2-20260909.json",
+        "last_progress_at": "2026-09-09T21:49:10.175671+00:00",
+        "next_action": "This bounded old governance instruction is superseded by the completed accepted records and reviewed q78553 route. Recover from the exact retirement assessment and current line dossier; preserve the persistent Driver identity and open mathematical parents. Do not re-dispatch completed repair/review/enumeration or infer a next-q authorization.",
+        "ignored_events": [],
+        "dispatch_state": "COMPLETE"
+      },
+      "pure_canonical_transition_passed": true,
+      "existing_live_claim": false
+    },
+    {
+      "task_id": "GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER",
+      "publication_id": "TP2-291A3B7B1EB6C763F71E",
+      "actual_before": {
+        "task_id": "GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER",
+        "state": "READY",
+        "claim_id": null,
+        "actor": null,
+        "researcher_id": null,
+        "last_researcher_id": null,
+        "identity_source": null,
+        "lease_until": null,
+        "hard_block": null,
+        "last_progress_ref": "driver_handoffs/EM_DVR_P8H4Q2_R005_PR1140_STATE_POINTER_20260909.json",
+        "last_progress_at": "2026-09-09T09:52:00+00:00",
+        "next_action": "Resume from the publication fork as the smallest unfinished control unit: preserve both immutable correction heads, satisfy the existing parallel-evidence and operational-selection contracts, establish one lawful operational correction contract without choosing by timestamp, then route the executable-binding repair. After an immutable correction Result exists, perform only the narrow exact-byte Driver review; on acceptance release the already-published q=78553 exact-916 catalogue/seam task, while keeping K=2822453183433 until actual seam closure.",
+        "ignored_events": [
+          {
+            "index": 0,
+            "reason": "PROGRESS requires the current live claim_id"
+          },
+          {
+            "index": 682,
+            "reason": "registered CLAIM execution intent publication_id does not match current task publication"
+          }
+        ],
+        "dispatch_state": "NEEDS_DISPATCH",
+        "title": "R005 Prime Algorithm Lab persistent line Driver \u2014 fork-aware continuation",
+        "kind": "GOVERNANCE",
+        "owner": "governance",
+        "priority": "P1",
+        "leverage": "HIGH",
+        "frontier": "PR #1140 remains at f9e2a611b45631c43effce36b7300c6f9a56b77b with Driver review 5097275954 still REVISION_REQUIRED_EXECUTABLE_BINDING_ONLY. The R005 correction and q=78553 downstream tasks are already published, but correction task RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION is fail-closed on the exact two-head publication fork TP2-2C524413EC9774383AF1 / TP2-ADD82532ACD19FC01D53; no operational correction publication is currently selected.",
+        "source_refs": [
+          "driver_handoffs/EM_DVR_P8H4Q2_R005_PR1140_STATE_CHECKPOINT_20260909.md",
+          "driver_handoffs/EM_DVR_P8H4Q2_R005_PR1140_STATE_POINTER_20260909.json",
+          "research_notes/OWNER_R005_PUBLICATION_FORK_ISOLATION_20260909.md",
+          "research_task_publication_quarantines.json",
+          "research_activity_records/RA-PR1140-P8H4Q2-20260909.json",
+          "git:awdawmip/enterprise-math@f9e2a611b45631c43effce36b7300c6f9a56b77b:research_returns/RS-R005-PRIME-ALGORITHM-LAB_GITHUB_SYNC_20260903.md"
+        ],
+        "registration_source": "IMMUTABLE_TASK_RECORD",
+        "publication_id": "TP2-291A3B7B1EB6C763F71E",
+        "event_authentication": "GITHUB_SERVER_COMMENT_ENVELOPE",
+        "last_server_comment_id": 5600334678,
+        "last_server_author_login": "awdawmip",
+        "identity_lane": "R005DRV1"
+      },
+      "prospective_after": {
+        "task_id": "GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER",
+        "state": "SUPERSEDED",
+        "claim_id": null,
+        "actor": null,
+        "researcher_id": null,
+        "last_researcher_id": null,
+        "identity_source": null,
+        "lease_until": null,
+        "hard_block": null,
+        "last_progress_ref": "driver_handoffs/EM_DVR_P8H4Q2_R005_PR1140_STATE_POINTER_20260909.json",
+        "last_progress_at": "2026-09-09T21:49:10.175671+00:00",
+        "next_action": "This bounded old governance instruction is superseded by the completed accepted records and reviewed q78553 route. Recover from the exact retirement assessment and current line dossier; preserve the persistent Driver identity and open mathematical parents. Do not re-dispatch completed repair/review/enumeration or infer a next-q authorization.",
+        "ignored_events": [],
+        "dispatch_state": "COMPLETE"
+      },
+      "pure_canonical_transition_passed": true,
+      "existing_live_claim": false
+    },
+    {
+      "task_id": "GV-R005-Q78553-SEAM-CLOSURE-REVIEW-AND-ROUTE",
+      "publication_id": "TP2-D43B87B08CE6E6D3FD41",
+      "actual_before": {
+        "task_id": "GV-R005-Q78553-SEAM-CLOSURE-REVIEW-AND-ROUTE",
+        "state": "BLOCKED",
+        "claim_id": null,
+        "actor": null,
+        "researcher_id": null,
+        "last_researcher_id": null,
+        "identity_source": null,
+        "lease_until": null,
+        "hard_block": {
+          "missing_object": "immutable Result from RS-R005-Q78553-EXACT-916-GAP-CATALOG-SEAM-CLOSURE",
+          "owner": "GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER",
+          "necessity": "The Driver can update the certified R005 frontier and choose the next route only from the exact returned catalogue/computation evidence.",
+          "unblock_condition": "The q=78553 seam task freezes an immutable Result and the persistent R005 Driver binds its exact current record."
+        },
+        "last_progress_ref": "git:awdawmip/enterprise-math@f9e2a611b45631c43effce36b7300c6f9a56b77b:docs/R005A_P2_DEFICIT_SHADOW_INVERSION_20260902.md",
+        "last_progress_at": "2026-09-03T02:24:45+00:00",
+        "next_action": "After the q=78553 Result is frozen, refresh its exact bytes and source head, audit catalogue completeness and candidate evidence, record the exact Driver disposition, update the certified R005 frontier if justified, then evaluate closure, same-line continuation, another route or a separately justified successor.",
+        "ignored_events": [],
+        "dispatch_state": "BLOCKED",
+        "title": "R005 q=78553 seam terminal Driver review and next-frontier route",
+        "kind": "GOVERNANCE",
+        "owner": "governance",
+        "priority": "P1",
+        "leverage": "HIGH",
+        "frontier": "The q=78553 seam has a precise three-way terminal research contract, but no immutable Result yet exists. The next mathematical frontier must not be selected until that Result is reviewed at exact catalogue/computation strength.",
+        "source_refs": [
+          "git:awdawmip/enterprise-math@f9e2a611b45631c43effce36b7300c6f9a56b77b:docs/R005A_P2_DEFICIT_SHADOW_INVERSION_20260902.md"
+        ],
+        "registration_source": "IMMUTABLE_TASK_RECORD",
+        "publication_id": "TP2-D43B87B08CE6E6D3FD41",
+        "event_authentication": "NO_RUNTIME_EVENT",
+        "last_server_comment_id": null,
+        "last_server_author_login": null,
+        "identity_lane": "R005DRV3"
+      },
+      "prospective_after": {
+        "task_id": "GV-R005-Q78553-SEAM-CLOSURE-REVIEW-AND-ROUTE",
+        "state": "SUPERSEDED",
+        "claim_id": null,
+        "actor": null,
+        "researcher_id": null,
+        "last_researcher_id": null,
+        "identity_source": null,
+        "lease_until": null,
+        "hard_block": {
+          "missing_object": "immutable Result from RS-R005-Q78553-EXACT-916-GAP-CATALOG-SEAM-CLOSURE",
+          "owner": "GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER",
+          "necessity": "The Driver can update the certified R005 frontier and choose the next route only from the exact returned catalogue/computation evidence.",
+          "unblock_condition": "The q=78553 seam task freezes an immutable Result and the persistent R005 Driver binds its exact current record."
+        },
+        "last_progress_ref": "git:awdawmip/enterprise-math@f9e2a611b45631c43effce36b7300c6f9a56b77b:docs/R005A_P2_DEFICIT_SHADOW_INVERSION_20260902.md",
+        "last_progress_at": "2026-09-09T21:49:10.175671+00:00",
+        "next_action": "This bounded old governance instruction is superseded by the completed accepted records and reviewed q78553 route. Recover from the exact retirement assessment and current line dossier; preserve the persistent Driver identity and open mathematical parents. Do not re-dispatch completed repair/review/enumeration or infer a next-q authorization.",
+        "ignored_events": [],
+        "dispatch_state": "COMPLETE"
+      },
+      "pure_canonical_transition_passed": true,
+      "existing_live_claim": false
+    }
+  ],
+  "actual_events_posted": 0,
+  "server_envelope_or_id_invented": false,
+  "required_next_boundary": "Publish the precise retirement assessment; send genuine events with that immutable progress_ref; require actual unedited OWNER envelopes and canonical authenticated replay before claiming retirement.",
+  "native_projection_note": "SUPERSEDE retains the older last_progress_ref/hard_block fields; the new durable progress_ref is carried by the actual authenticated event. No control code is modified to rewrite that history."
+}

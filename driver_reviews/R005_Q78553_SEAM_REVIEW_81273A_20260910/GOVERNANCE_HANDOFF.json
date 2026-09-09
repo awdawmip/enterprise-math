@@ -1,0 +1,220 @@
+{
+  "schema": "R005_EXISTING_GOVERNANCE_STATE_RECONCILIATION_HANDOFF_V1",
+  "created_at": "2026-09-09T21:40:31.296789+00:00",
+  "driver_id": "EM-DVR-81273A",
+  "canonical_evaluation_source": "e642f5864211197a6be5d1199f34454ed34540e5",
+  "preserving_graph_main": "07447e86ebe76839eee00495a3f02f8932a8a2a2",
+  "canonical_runtime_receipt": "driver_reviews/R005_Q78553_SEAM_REVIEW_81273A_20260910/portfolio_reevaluation.json",
+  "existing_governance_nodes": [
+    {
+      "task_id": "GV-R005-DEFICIT-SHADOW-CORRECTION-REVIEW",
+      "publication_id": "TP2-86F63B5AAD1C97EC80FE",
+      "canonical_state": "BLOCKED",
+      "canonical_dispatch_state": "BLOCKED",
+      "claim_id": null,
+      "old_displayed_next_action": "After the correction Result exists, refresh its exact bytes and source head, review only the executable/evidence repair and unchanged DSI boundary, record ACCEPTED or REVISION_REQUIRED at exact strength, and on acceptance release the q=78553 seam task.",
+      "old_hard_block": {
+        "missing_object": "immutable Result from RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION",
+        "owner": "GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER",
+        "necessity": "The review must bind the replacement Result and final artifact bytes rather than the abandoned Sep-3 package.",
+        "unblock_condition": "A new correction Result is durably frozen and its exact record/artifact bindings are available."
+      },
+      "missing_result_assertion": "immutable Result from RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION",
+      "existing_satisfied_artifact_sources": [
+        {
+          "artifact": "Correction Result",
+          "path": "research_result_records/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION/RR-566554389F6F36576DE2.json",
+          "canonical_source": "dbf8ee926870f6c8398d6e64fd205e0fc1013ecd",
+          "sha256": "5dc2a43840b2878013281cc49f4956c893754b4feab50148dbea2c75d8f5fc62",
+          "git_blob_sha1": "aea04ecd76c5f6effe92726ae08d64c512f73131"
+        },
+        {
+          "artifact": "Accepted exact correction review",
+          "path": "research_result_reviews/RR-566554389F6F36576DE2/DR-7605C20CFE02E3900E8D.json",
+          "canonical_source": "dbf8ee926870f6c8398d6e64fd205e0fc1013ecd",
+          "sha256": "b790a85a7ece97cdab33c5a483c8ecced259c397d974d0935cdfb57aa10b70bf",
+          "git_blob_sha1": "857a06bb38b7079bdd8a9d84ef98bad165f9e90e"
+        },
+        {
+          "artifact": "Task-local correction follow-up",
+          "path": "research_driver_followups/DR-7605C20CFE02E3900E8D/DFU-192EC00B45DD90358773.json",
+          "canonical_source": "dbf8ee926870f6c8398d6e64fd205e0fc1013ecd",
+          "sha256": "c90d45c1b17f9dadce602ec4646ee4d4e97f5663590626e7820674ddc36782d7",
+          "git_blob_sha1": "3b8bb3ac5fa53749508013b52935ac4cf85f1360"
+        },
+        {
+          "artifact": "Actual seam dependency release",
+          "url": "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-5602494875"
+        }
+      ],
+      "scope_note": "The stated missing Result and substantive review artifacts now exist; the existing GOV task's runtime state is deliberately preserved for Owner control reconciliation."
+    },
+    {
+      "task_id": "GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER",
+      "publication_id": "TP2-291A3B7B1EB6C763F71E",
+      "canonical_state": "READY",
+      "canonical_dispatch_state": "NEEDS_DISPATCH",
+      "claim_id": null,
+      "old_displayed_next_action": "Resume from the publication fork as the smallest unfinished control unit: preserve both immutable correction heads, satisfy the existing parallel-evidence and operational-selection contracts, establish one lawful operational correction contract without choosing by timestamp, then route the executable-binding repair. After an immutable correction Result exists, perform only the narrow exact-byte Driver review; on acceptance release the already-published q=78553 exact-916 catalogue/seam task, while keeping K=2822453183433 until actual seam closure.",
+      "old_hard_block": null,
+      "missing_result_assertion": null,
+      "existing_satisfied_artifact_sources": [
+        {
+          "artifact": "Real correction publication-fork resolution",
+          "path": "research_parallel_syntheses/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION/PS-R005-81273A-OPERATIONAL-20260909.json",
+          "canonical_source": "d8dc1d37ca1ef7fc910d084eee36e5ab177cd03c",
+          "sha256": "32c9aa6fca6d0b6aeddda02cfc3ff3943f338ac6a82df70ae6071dfd160a71f0",
+          "git_blob_sha1": "2c9bd54a86b2ed7c4b03a2e5f3af061b42c6c27d"
+        },
+        {
+          "artifact": "Accepted correction review/follow-up",
+          "path": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/FINAL_DRIVER_REVIEW.md",
+          "canonical_source": "dbf8ee926870f6c8398d6e64fd205e0fc1013ecd",
+          "sha256": "24a1e3397e7f292f9922355d69a2e88769c3949154789dd53c22e13a8ccfeea5",
+          "git_blob_sha1": "b240f6e865f1ba8abab7672bcf32742b7fce3f09"
+        },
+        {
+          "artifact": "Accepted exact seam review and continuation",
+          "path": "driver_reviews/R005_Q78553_SEAM_REVIEW_81273A_20260910/REVIEW.md",
+          "canonical_source": "e642f5864211197a6be5d1199f34454ed34540e5",
+          "sha256": "26023b80717f6dc66aa96d46672281b691036943eca4bb14ef07f03a7445d60a",
+          "git_blob_sha1": "61b706a3507419633046dc3b6e24a4824a170ac6"
+        },
+        {
+          "artifact": "Current Driver dossier",
+          "path": "driver_reviews/R005_LINE_DOSSIER.md",
+          "canonical_source": "e642f5864211197a6be5d1199f34454ed34540e5",
+          "sha256": "b7ac1bc5760e34e000f18e81c4eeac4b642a991c8e664f4dab7cb8daab14a092",
+          "git_blob_sha1": "69b2fa8779231e431d8cfbb5764705eb0a6869a8"
+        }
+      ],
+      "scope_note": "Displayed recovery/review subflows are evidenced complete. Persistent line responsibility and the mathematical parents are not asserted closed."
+    },
+    {
+      "task_id": "GV-R005-Q78553-SEAM-CLOSURE-REVIEW-AND-ROUTE",
+      "publication_id": "TP2-D43B87B08CE6E6D3FD41",
+      "canonical_state": "BLOCKED",
+      "canonical_dispatch_state": "BLOCKED",
+      "claim_id": null,
+      "old_displayed_next_action": "After the q=78553 Result is frozen, refresh its exact bytes and source head, audit catalogue completeness and candidate evidence, record the exact Driver disposition, update the certified R005 frontier if justified, then evaluate closure, same-line continuation, another route or a separately justified successor.",
+      "old_hard_block": {
+        "missing_object": "immutable Result from RS-R005-Q78553-EXACT-916-GAP-CATALOG-SEAM-CLOSURE",
+        "owner": "GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER",
+        "necessity": "The Driver can update the certified R005 frontier and choose the next route only from the exact returned catalogue/computation evidence.",
+        "unblock_condition": "The q=78553 seam task freezes an immutable Result and the persistent R005 Driver binds its exact current record."
+      },
+      "missing_result_assertion": "immutable Result from RS-R005-Q78553-EXACT-916-GAP-CATALOG-SEAM-CLOSURE",
+      "existing_satisfied_artifact_sources": [
+        {
+          "artifact": "Exact immutable q78553 Result",
+          "path": "research_result_records/RS-R005-Q78553-EXACT-916-GAP-CATALOG-SEAM-CLOSURE/RR-4C604AB2F135EDA932CB.json",
+          "canonical_source": "f928e6a621449aa2ff1ad920818d83c56342f015",
+          "sha256": "f8114a88ec3566fab477ea7c093ae35dec00fa53148d5f7a41c4de07cdcd5eec",
+          "git_blob_sha1": "dada488146abf7d728eedc2c6bf3e882e5ff888e"
+        },
+        {
+          "artifact": "Actual ACCEPTED Driver review",
+          "path": "research_result_reviews/RR-4C604AB2F135EDA932CB/DR-FE4AE58014E40219CADA.json",
+          "canonical_source": "e642f5864211197a6be5d1199f34454ed34540e5",
+          "sha256": "002e1417699bfdce0bbd825f5550a9f45893e0a8cc341426cb01d1e9acd28fae",
+          "git_blob_sha1": "84de25eaad1c9fd78299e38245361fd11f31f89a"
+        },
+        {
+          "artifact": "Actual six-gate Task closure and portfolio continuation",
+          "path": "research_driver_followups/DR-FE4AE58014E40219CADA/DFU-5A5D77BA55AACF022526.json",
+          "canonical_source": "e642f5864211197a6be5d1199f34454ed34540e5",
+          "sha256": "41956564b23acba2a88c4926e96b28806f2ebe2b11a694a45645e61fb7a09fee",
+          "git_blob_sha1": "a2a3a80f486ce6517b4a4c964096aaa1120780d5"
+        },
+        {
+          "artifact": "Exact finite frontier and ordinary review",
+          "path": "driver_reviews/R005_Q78553_SEAM_REVIEW_81273A_20260910/REVIEW.md",
+          "canonical_source": "e642f5864211197a6be5d1199f34454ed34540e5",
+          "sha256": "26023b80717f6dc66aa96d46672281b691036943eca4bb14ef07f03a7445d60a",
+          "git_blob_sha1": "61b706a3507419633046dc3b6e24a4824a170ac6"
+        }
+      ],
+      "scope_note": "The stated missing Result and substantive review artifacts now exist; the existing GOV task's runtime state is deliberately preserved for Owner control reconciliation."
+    }
+  ],
+  "research_task_states": [
+    {
+      "task_id": "RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION",
+      "publication_id": "TP2-ADD82532ACD19FC01D53",
+      "state": "DONE",
+      "dispatch_state": "COMPLETE",
+      "claim_id": null
+    },
+    {
+      "task_id": "RS-R005-Q78553-EXACT-916-GAP-CATALOG-SEAM-CLOSURE",
+      "publication_id": "TP2-09D6ECE7F315F0766FE1",
+      "state": "DONE",
+      "dispatch_state": "COMPLETE",
+      "claim_id": null
+    }
+  ],
+  "next_owner_control_unit": "Reconcile these existing GOV state/display assertions against the exact already-admitted Result/DR/DFU and dossier evidence under the current control contract. Preserve the persistent line role and both parents; do not obtain a second mathematical review, replay completed units or manufacture DONE/Result/CLAIM merely to clear a label.",
+  "side_effects": {
+    "governance_states_changed": false,
+    "new_claims": 0,
+    "new_results": 0,
+    "new_tasks": 0,
+    "mathematical_parent_closed": false
+  },
+  "research_direction_assessment": {
+    "completed_current_scope": "The entire exact q78553 seam is accepted through k=2826122804521.",
+    "new_structural_obstacle_observed_in_this_return": false,
+    "unresolved_parent": "The broader prime-algorithm/p=2 question remains open, but this finite result alone does not identify or justify a new structural research task.",
+    "automatic_next_q_or_larger_enumeration": false,
+    "preferred_option": "Close this bounded finite phase, preserve the accepted frontier and let Owner coordinate the existing control work and already-published cross-line obligations.",
+    "cross_line_dispatch_observation": {
+      "action": "CLAIM_NEW_OWNER",
+      "target_key": "RS-PRIME-FACTOR-SEMIPRIME-SHELL-SECOND-ORDER-DENSITY-NULL",
+      "target": {
+        "task_id": "RS-PRIME-FACTOR-SEMIPRIME-SHELL-SECOND-ORDER-DENSITY-NULL",
+        "state": "HANDOFF_READY",
+        "claim_id": null,
+        "actor": null,
+        "researcher_id": null,
+        "last_researcher_id": "EM-PFSS2-A927C4",
+        "identity_source": null,
+        "lease_until": null,
+        "hard_block": null,
+        "last_progress_ref": "RR-3287C6124F8D8A1F0901",
+        "last_progress_at": "2026-08-28T04:56:00+00:00",
+        "next_action": "Freeze the conditional microcell and wheel-cyclic surrogate generators plus the 32-bin cross-scale coherence statistic before evaluating new holdout scales; then run exact discovery reanalysis and reserve 3e8 and 1e9 as untouched holdouts.",
+        "ignored_events": [
+          {
+            "index": 676,
+            "reason": "registered CLAIM publication_id does not match current task publication"
+          }
+        ],
+        "dispatch_state": "NEEDS_DISPATCH",
+        "title": "Prime-Factor Semiprime Shell Second-Order Density/Covariance Null",
+        "kind": "RESEARCH",
+        "owner": "research/prime-factor-semiprime-shell-second-order-density-null",
+        "priority": "P2",
+        "leverage": "MEDIUM",
+        "frontier": "Determine whether any factor-coordinate semiprime-shell residual survives nulls that preserve exact local q-prime density, wheel residues, shell-overlap covariance, and empirical short-gap structure, rather than only first-order smooth density.",
+        "source_refs": [],
+        "registration_source": "IMMUTABLE_TASK_RECORD",
+        "publication_id": "TP2-D44C166C4C87CEC167E7",
+        "event_authentication": "GITHUB_SERVER_COMMENT_ENVELOPE",
+        "last_server_comment_id": 5586874288,
+        "last_server_author_login": "awdawmip",
+        "identity_lane": "PFSS2"
+      },
+      "reason": "fresh canonical task selector returned a dispatchable target"
+    },
+    "cross_line_authority_note": "The selected PFSS2 task is outside this Driver's only RELAY research whitelist. No assignment or claim is made; Owner must perform its normal scope and durable-frontier checks before staffing it."
+  },
+  "takeover": {
+    "source_records_are_authority": true,
+    "same_driver_id": "EM-DVR-81273A",
+    "authority_record": "DA-80BDA97466C306DAD3C3",
+    "researcher_execution_finished": true,
+    "one_shot_return_fully_persisted": true,
+    "no_private_researcher_contact_required": true,
+    "owner_requested_end_after_source_GK_and_handoff": true
+  }
+}
