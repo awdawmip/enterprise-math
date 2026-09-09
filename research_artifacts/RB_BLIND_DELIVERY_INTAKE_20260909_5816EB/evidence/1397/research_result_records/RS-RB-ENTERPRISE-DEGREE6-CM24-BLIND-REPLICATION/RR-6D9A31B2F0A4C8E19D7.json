@@ -1,0 +1,65 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-6D9A31B2F0A4C8E19D7",
+  "task_id": "RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-REPLICATION",
+  "publication_id": "TP2-9F1A3C0DEFAED8B6E247",
+  "execution_record_id": "ER-RBV2REP6D9A31",
+  "claim_id": "chatgpt-rbv2rep-20260908-1012-sol6d9a31",
+  "taskbook_path": "research_tasks/RAMANUJAN_BORWEIN_ENTERPRISE_DEGREE6_CM24_BLIND_REPLICATION_20260827.md",
+  "taskbook_blob_sha1": "sha1:ad69e1166254cb4bb32fd9490f9ed1c5c92f8b41",
+  "execution_branch": "research/rb-enterprise-degree6-cm24-blind-replication-em-rbv2rep-6d9a31",
+  "execution_branch_base": "3198c3a8d73cac9587dd0f622212c5e6e4085389",
+  "return_path": "research_returns/RB_ENTERPRISE_DEGREE6_CM24_BLIND_REPLICATION_RETURN_20260827.md",
+  "return_blob_sha1": "sha1:7ea7c0b0683efaa36ab26b375c9bafdc07fb571e",
+  "return_sha256": null,
+  "owner_head": "27da4ba24ce37ebe09aff95166c54d1d783ab529",
+  "researcher_id": "EM-RBV2REP-6D9A31",
+  "frozen_at": "2026-09-08T10:55:00+08:00",
+  "terminal_verdict": "INCOMPLETE_EXACT_REDUCTION",
+  "primary_verdict": "BLIND_INCOMPLETE_EXACT_REDUCTION",
+  "hard_target_disposition": "NOT_CLOSED",
+  "blind_firewall_status": "PHASE_A_FIREWALL_PRESERVED_NOT_UNBLINDED",
+  "raw_freeze": {
+    "path": "research_artifacts/RB_ENTERPRISE_DEGREE6_CM24_BLIND_REPLICATION/blind_phase_a_reduction_20260908.json",
+    "git_blob_sha1": "sha1:09c295b0ec5cf83a1117253c993ed90503054234",
+    "canonical_sha256_without_sha256_field": "sha256:00ff201f10f57b0760f2aba36447065a0fcb2ef6f41948dc677a39b3b087d5e6",
+    "phase_marker": "BLIND_INCOMPLETE_EXACT_REDUCTION_FROZEN"
+  },
+  "checker": {
+    "path": "scripts/check_rb_enterprise_degree6_cm24_blind_replication.py",
+    "git_blob_sha1": "sha1:27f997466fe99677aca65a0cf6e4aab9d9210427",
+    "expected_stdout": "RB_CM24_BLIND_PHASE_A_REDUCTION_CHECK_PASS"
+  },
+  "unresolved_residue": "DEGREE6_QUOTIENT_MAP_ON_C_WITH_CM24_BRANCH_CROSS_RATIO. The blind run did not reconstruct a degree-6 map and did not prove nonexistence. It strictly reduced the task to solving the descended degree-6 Hurwitz/square-class system on C:t^2=R^3-3R over Q(i,3^(1/4),sqrt2), with branch square-class h=(R+2)t, cross-ratio lambda*, and remaining simple ramification over the three reduced points t=-k.",
+  "output_manifest": [
+    {
+      "path": "research_returns/RB_ENTERPRISE_DEGREE6_CM24_BLIND_REPLICATION_RETURN_20260827.md",
+      "git_blob_sha1": "sha1:7ea7c0b0683efaa36ab26b375c9bafdc07fb571e",
+      "sha256": null
+    },
+    {
+      "path": "research_artifacts/RB_ENTERPRISE_DEGREE6_CM24_BLIND_REPLICATION/blind_phase_a_reduction_20260908.json",
+      "git_blob_sha1": "sha1:09c295b0ec5cf83a1117253c993ed90503054234",
+      "sha256": "sha256:00ff201f10f57b0760f2aba36447065a0fcb2ef6f41948dc677a39b3b087d5e6"
+    },
+    {
+      "path": "scripts/check_rb_enterprise_degree6_cm24_blind_replication.py",
+      "git_blob_sha1": "sha1:27f997466fe99677aca65a0cf6e4aab9d9210427",
+      "sha256": null
+    }
+  ],
+  "method_harvest": "NO_TOOL_PAYLOAD",
+  "independence_status": "BLIND_PHASE_A_INDEPENDENT_REDUCTION_WITH_FIREWALL_PRESERVED",
+  "source_exposure_status": "BLIND_FORWARD_NOT_UNBLINDED",
+  "brc_reuse_status": "REUSE_APPLIED_AS_BRANCH_FIBER_OBSERVER_DISCIPLINE_ONLY",
+  "non_claims": [
+    "no reconstructed degree-6 map",
+    "no algebraically equivalent reconstructed map",
+    "no proof of nonexistence",
+    "no target twist constant",
+    "no imported period-scaling value",
+    "no post-freeze unblinding or originating formula comparison"
+  ],
+  "next_control_plane_recommendation": "Driver may accept this as BLIND_INCOMPLETE_EXACT_REDUCTION and dispatch a successor Phase A run on the smaller descended Hurwitz/square-class system without exposing the withheld formula. Do not unblind this branch if a clean blind successor is desired.",
+  "driver_review_required": true
+}

@@ -1,0 +1,150 @@
+{
+  "canonical_payload": {
+    "blind_firewall": {
+      "originating_common_base_point_seen": false,
+      "originating_explicit_map_seen": false,
+      "originating_period_scaling_answer_seen": false,
+      "originating_symbolic_replay_seen": false,
+      "originating_twist_constant_seen": false,
+      "status": "INTACT_AT_FREEZE"
+    },
+    "branch_divisor_of_D_over_E0": {
+      "L": "(R+2)*t",
+      "degree": 6,
+      "div_R_plus_2": "P_+ + P_- - 2*O, P_±=(-2, ±i*sqrt(2))",
+      "div_t": "T0 + T+ + T- - 3*O, T0=(0,0), T±=(±sqrt(3),0)",
+      "odd_support": [
+        "O",
+        "T0",
+        "T+",
+        "T-",
+        "P+",
+        "P-"
+      ],
+      "statement": "These six and only these six points branch in the quadratic extension K(E0)(w)/K(E0)."
+    },
+    "claim_id": "chatgpt-rbv2rep-degree6-cm24-20260908-1012-a61f3c",
+    "coefficient_field": "Q(i, 3^(1/4), sqrt(2))",
+    "complete_degree6_riemann_roch_search_space": {
+      "case_Q": {
+        "L5_basis": [
+          "1",
+          "R",
+          "t",
+          "R^2",
+          "R*t"
+        ],
+        "L7_basis_after_multiplication": [
+          "1",
+          "R",
+          "t",
+          "R^2",
+          "R*t",
+          "R^3",
+          "R^2*t"
+        ],
+        "auxiliary_section": "h=(t+s)/(R-q)",
+        "line_bundle": "O(5O+Q), Q=(q,s), s^2=q^3-3q",
+        "presentation": "After multiplying both pencil sections by R-q, obtain Abar,Bbar in L(7O) with the single common base point -Q=(q,-s); dividing by R-q recovers a degree-6 pencil.",
+        "system": "Unknown Abar,Bbar,q,s,C; impose E0(q,s), Abar(q,-s)=Bbar(q,-s)=0, exactly one common finite base point, reduced degree 6, and the master identity."
+      },
+      "case_Z": {
+        "basis": [
+          "1",
+          "R",
+          "t",
+          "R^2",
+          "R*t",
+          "R^3"
+        ],
+        "line_bundle": "O(6O)",
+        "system": "Take A,B in L(6O), remove common base points, require degree(A/B)=6 and impose the master identity."
+      },
+      "completeness": "Every degree-6 line bundle on E0 is uniquely O(5O+Q); hence Case Z (Q=O) and Case Q (Q!=O) exhaust degree-6 functions over the allowed field, up to changing the two generators of the pencil.",
+      "pole_orders_at_O": {
+        "R": 2,
+        "t": 3
+      }
+    },
+    "derived_exact_constants": {
+      "k_squared": "12*sqrt(2)-10*sqrt(3)",
+      "lambda_factorization": "lambda=((sqrt(3)-sqrt(2))*(2-sqrt(3)))^2",
+      "ramification_cubic": "R^3-3*R-k^2=0 (equivalently t=-k)",
+      "ramification_cubic_discriminant": "216*(-73+30*sqrt(6)) != 0",
+      "target_cm_class": "principal discriminant -24 (identification uses frozen task input plus exact j computation)",
+      "target_j": "2417472+1707264*sqrt(2)",
+      "target_j_minpoly": "J^2-4834944*J+14670139392"
+    },
+    "differential_divisor": {
+      "multiplicity": "six simple zeros total",
+      "ramification_consequence": "For any f:D->E with f^eta=c*phi, Ram(f) is exactly these six simple zeros.",
+      "statement": "phi is holomorphic and nonzero at all six branch points; away from them its zeros are exactly t=-k.",
+      "zero_base_points_on_E0": "q_i=(r_i,-k), where r_i are the three distinct roots of R^3-3R-k^2",
+      "zeros_on_D": "the two unbranched lifts of each q_i"
+    },
+    "equivariance_reduction": {
+      "descended_function": "X=x∘f descends through D->E0 and has degree 6.",
+      "reason": "f∘sigma and [-1]∘f pull back the invariant differential to the same form -c*phi, hence differ by a translation; a half-translation centers the involution.",
+      "statement": "After a target translation, f∘sigma=[-1]∘f for sigma(w)=-w."
+    },
+    "explicit_map": null,
+    "frozen_inputs_reexpressed": {
+      "double_cover": "w^2=(R+2)*t",
+      "intermediate_E0": "t=w^2/(R+2), t^2=R^3-3R",
+      "lambda": "35+24*sqrt(2)-20*sqrt(3)-14*sqrt(6)",
+      "principal_differential": "phi=(dR/w)*(1+k/t), k=-i*3^(1/4)*(sqrt(6)-2)",
+      "required_degree": 6,
+      "source_D": "w^4=(R+2)^2*R*(R^2-3)"
+    },
+    "hurwitz_parity_certificate": {
+      "branch_points_unramified_for_X": true,
+      "counts": "If m_v is the number of branch points over v, then every m_v is even and sum_v m_v=6.",
+      "forced_equality": [
+        "Every non-branch point over 0,1,lambda,infinity has multiplicity exactly 2.",
+        "Each q_i is a simple critical point of X.",
+        "No q_i maps to 0,1,lambda,infinity.",
+        "There is no remaining ramification."
+      ],
+      "nonspecial_critical_points": "the three q_i with t=-k contribute at least 3",
+      "parity_rule": "For each special fiber of X, points in the six-point branch set occur with odd multiplicity and all non-branch points occur with even multiplicity.",
+      "riemann_hurwitz_total": 12,
+      "special_fiber_ramification_lower_bound": "sum_v (6-m_v)/2 = 9",
+      "special_values": [
+        "0",
+        "1",
+        "lambda",
+        "infinity"
+      ]
+    },
+    "master_identity_reduction": {
+      "derivation": "delta=2*t*d/dR + 3*(R^2-1)*d/dt on K(E0), so dF=(delta F)*dR/(2t).",
+      "identity": "(R+2)*t*W^2 = C*(t+k)^2*A*B*(A-B)*(A-lambda*B) in K(E0).",
+      "logical_status": "Together with nonconstancy and degree(X)=6, the identity is necessary and sufficient for the centered equivariant correspondence to an algebraic twist of the prescribed Legendre target.",
+      "presentation": "X=A/B, W=(delta A)*B-A*(delta B).",
+      "pullback": "dX/Ytilde=phi/2",
+      "reconstruction_formula": "Ytilde=w*(delta X)/(t+k)",
+      "target_twist": "Ytilde^2=C*X*(X-1)*(X-lambda)"
+    },
+    "period_scaling": {
+      "B1": "B(1/24,5/24)",
+      "Omega_P": "pi*theta_3(exp(-pi*sqrt(6)))^2",
+      "firewall_note": "No originating value of (B1/Omega_P)^2 was imported.",
+      "ratio_squared": null,
+      "status": "NOT_DERIVED_NO_EXPLICIT_MAP"
+    },
+    "phase": "BLIND_RECONSTRUCTION_FROZEN",
+    "primary_verdict": "BLIND_INCOMPLETE_EXACT_REDUCTION",
+    "publication_id": "TP2-9F1A3C0DEFAED8B6E247",
+    "refutation": null,
+    "researcher_id": "EM-RBV2REP-A61F3C",
+    "residual_exact_problem": {
+      "statement": "Solve or prove inconsistent the two exhaustive finite algebraic systems Case Z / Case Q subject to the master identity and the forced Hurwitz fiber pattern.",
+      "strictly_smaller_than_original": true
+    },
+    "schema": "RB_ENTERPRISE_DEGREE6_CM24_BLIND_RECONSTRUCTION_FREEZE_V1",
+    "task_id": "RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-REPLICATION"
+  },
+  "hash_algorithm": "SHA256",
+  "hash_scope": "UTF-8 canonical JSON serialization of canonical_payload with sort_keys=true, separators=(',',':'), ensure_ascii=false",
+  "raw_freeze_sha256": "cebc5192a77c063f08878f5176f2c8c3ae2928fa3c0c1e67c503f4a205eadbd7"
+}

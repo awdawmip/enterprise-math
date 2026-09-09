@@ -1,0 +1,55 @@
+{
+  "schema": "RB_INTAKE_CANDIDATE_RUNTIME_PROJECTION_V1",
+  "source_main_before_capture": "108ac80d4af9a1ebe19cc613aaccb7402564100e",
+  "local_validation_base": "b99bbae93b1b14b5900817210d7a4a161508aa09",
+  "scope": "Exact unchanged current task/reducer plus the new post-CLAIM ER and conservative source Result; remote main has not yet received this candidate.",
+  "actual_entrypoint": "tools.research_dispatch.reduce_definition",
+  "elapsed_seconds": 4.75771179998992,
+  "state": {
+    "task_id": "RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-REPLICATION",
+    "state": "FROZEN_RETURN",
+    "claim_id": null,
+    "actor": null,
+    "researcher_id": null,
+    "last_researcher_id": "EM-RBV2REP-A61F3C",
+    "identity_source": null,
+    "lease_until": null,
+    "hard_block": null,
+    "last_progress_ref": "User requested independent blind replication of a closed theorem-package candidate; explicit formula withheld.",
+    "last_progress_at": "2026-08-27T21:16:00+08:00",
+    "next_action": "Driver review required before terminal closure or researcher redispatch",
+    "ignored_events": [
+      {
+        "index": 2,
+        "reason": "task is not dispatchable"
+      },
+      {
+        "index": 562,
+        "reason": "registered HANDOFF scope contract: terminal_candidate is legacy-only after cutover"
+      },
+      {
+        "index": 563,
+        "reason": "registered HANDOFF scope contract: explicit machine scope required after cutover"
+      }
+    ],
+    "dispatch_state": "AWAITING_REVIEW",
+    "title": "Ramanujan–Borwein × Enterprise Degree-6 CM(-24) Blind Reconstruction",
+    "kind": "RESEARCH",
+    "owner": "research/rb-enterprise-degree6-cm24-blind-replication",
+    "priority": "P2",
+    "leverage": "MEDIUM",
+    "frontier": "Independently reconstruct or refute, under a blind-forward protocol, a degree-6 algebraic map from the frozen genus-4 source D to the principal discriminant -24 CM elliptic target with the prescribed principal differential direction, without access to the existing explicit map or its symbolic replay.",
+    "source_refs": [],
+    "registration_source": "IMMUTABLE_TASK_RECORD",
+    "publication_id": "TP2-9F1A3C0DEFAED8B6E247",
+    "event_authentication": "GITHUB_SERVER_COMMENT_ENVELOPE",
+    "last_server_comment_id": 5578453645,
+    "last_server_author_login": "awdawmip",
+    "identity_lane": "RBV2REP",
+    "result_id": "RR-5BA6B8E6F611D72FA4F6",
+    "result_record_path": "research_result_records/RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-REPLICATION/RR-5BA6B8E6F611D72FA4F6.json"
+  },
+  "new_claim_created": false,
+  "new_mathematics_executed_for_result_capture": false,
+  "parent_closed": false
+}

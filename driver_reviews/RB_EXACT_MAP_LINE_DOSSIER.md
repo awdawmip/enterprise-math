@@ -35,10 +35,16 @@ The RR SHA256 remains `ca06619946487457e101aabfe1beb88b945077571d17cda19191a9cf4
 
 ## Open parent obligations and reuse / 母线未解义务与复用
 
-- Period integer, integral homology index, an independent derivation of `(B1/Omega_P)^2`, and exhaustive resolution of the remaining **1980 parameter families** remain open. The count is not 1980 mappings.
+- Period integer, integral homology index, and an independent derivation of `(B1/Omega_P)^2` remain open. The **1980 parameter families within the analyzed 4+2 and 2+2+2 strata** remain unresolved; they are not 1980 mappings. Global exhaustiveness additionally requires repair of the cited six-point-block exclusion, whose auxiliary even-divisor classification omitted an allowed torsion-point pole.
 - Existing [T0/T5/T6 coverage](https://github.com/awdawmip/enterprise-math/blob/3a2ad00fefc463792a76ae5a16a0b2aa7c35c32c/driver_reviews/RB_SOURCE_EXPOSED_TOOL_COVERAGE_20260909/DRIVER_TOOL_GAP_MEMO.md) supports reuse and composition at its typed limits. Positive natural-number counts do not erase complex coefficients, square classes or branch signs; this local field checker is not a general curve solver.
-- The historical blind-replication task is a separate intake. Its competing durable returns must not be overwritten by whole-branch selection. The winning-prefix owner remains unknown in the bounded recovery evidence; no replacement claim or fresh blind work has been started.
+- The historical blind-replication task now has a [complete prefix and parallel source intake](../research_artifacts/RB_BLIND_DELIVERY_INTAKE_20260909_5816EB/README.md):637 server envelopes identify A61F3C as the last valid claimant and show that6D9A31 did not win the overlapping race. The earlier7C42A1 and later A61F3C winning leases expired;6D9A31 never acquired that overlapping owner scope. No new claim or blind work was started. The original HANDOFF scope caused a control block. After-CLAIM ER-5E1ADD59EDC659786DA9 and conservative Result RR-5BA6B8E6F611D72FA4F6 preserve the three A61 outputs and route them to Driver review; the other return and old null-hash RR remain separately preserved, non-operational evidence.
 - Task success does not automatically justify a successor. At the next real RB dispatch boundary, use canonical dispatch and current exact event/session evidence to evaluate an already-published unfinished obligation, scoped closure, or another existing portfolio direction.
+
+## Blind-source dependency correction / 旧盲源依赖修正
+
+The [impact review](../research_artifacts/RB_BLIND_DELIVERY_INTAKE_20260909_5816EB/DEPENDENCY_IMPACT_REVIEW.md) separates two defects. A61/6D omitted the special-Q local degree4 case already retained by the original7C source. The archived RR and empty-fiber proofs explicitly cover that case, so their conditional two-pattern results remain usable. Separately, the old six-block exclusion used an incomplete even-divisor half-section space. U=R^3+2Rt+R^2-3 is independently checked as a counterexample to that auxiliary classification, not as a global six-block map.
+
+Keep the180/360 B-assignment counts,45/90 fixed-V4 candidates,16-way square-class compatibility and180 empty-fiber exclusions at their actual two-pattern scope. Keep1980 as the remaining parameter components of those strata. Repair the six-block proof before claiming global pattern exhaustiveness. The concrete accepted source-exposed map has its own fully checked fibers and retains its original exact scope.
 
 ## Recovery entry / 接替入口
 
