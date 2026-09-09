@@ -1,0 +1,125 @@
+{
+  "schema": "R005_REAL_GOVERNANCE_EXECUTION_AUTHORIZATION_V1",
+  "state_input": {
+    "task": {
+      "task_id": "GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER"
+    },
+    "owner_claim": {
+      "claim_id": "chatgpt-r005-driver-20260909-81273a",
+      "researcher_id": "EM-DVR-81273A"
+    }
+  },
+  "main_publication_authority": "d8dc1d37ca1ef7fc910d084eee36e5ab177cd03c",
+  "intent_source_commit": "39578a6309cc80246c7a402c9af66f1cca1bb97c",
+  "raw_event_count": 639,
+  "raw_event_sha256": "b26d1528a28207c713769f8d3126a233d15f94524257dfe5b32ff591619b2047",
+  "performed_after_actual_claim": true,
+  "current_role": "RESEARCH_DRIVER",
+  "scope": "Existing R005 line governance only; no Researcher claim transfer or mathematical execution authorization.",
+  "canonical_guard_result": {
+    "authorized": true,
+    "task_id": "GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER",
+    "task_registration": {
+      "state": "IMMUTABLE_REGISTERED",
+      "registry_key": "GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER",
+      "publication_id": "TP2-01F3666E599C6A96058D",
+      "record_path": "research_task_records/GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER/TP2-01F3666E599C6A96058D.json",
+      "claimable": true
+    },
+    "owner_claim": {
+      "claim_id": "chatgpt-r005-driver-20260909-81273a",
+      "researcher_id": "EM-DVR-81273A",
+      "owner_lease_until": "2026-09-09T16:03:16+00:00",
+      "server_comment_id": 5600067816,
+      "server_author_login": "awdawmip"
+    },
+    "execution_binding": {
+      "publication_id": "TP2-01F3666E599C6A96058D",
+      "claim_id": "chatgpt-r005-driver-20260909-81273a",
+      "researcher_id": "EM-DVR-81273A",
+      "theorem_owner": "governance",
+      "execution_branch": "driver/r005-line-81273a-20260909",
+      "execution_branch_base": "d8dc1d37ca1ef7fc910d084eee36e5ab177cd03c",
+      "allowed_outputs": [
+        "driver_reviews/R005_LINE_DRIVER_81273A_20260909/*",
+        "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/*",
+        "driver_reviews/R005_LINE_DOSSIER.md",
+        "research_execution_records/GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER/*",
+        "research_result_records/GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER/*",
+        "research_result_reviews/RR-566554389F6F36576DE2/*",
+        "research_driver_followups/*/*",
+        "research_task_records/GV-R005-*/*",
+        "research_task_records/RS-R005-*/*",
+        "research_tasks/R005*"
+      ],
+      "taskbook_blob_sha1": "sha1:ad40df46adc1db6d6b84a15f26e3a7ae0aeeb76e",
+      "binding_source": "IMMUTABLE_EXECUTION_RECORD_COMPATIBILITY",
+      "owner_lease_until": "2026-09-09T16:03:16+00:00",
+      "server_comment_id": 5600067816,
+      "server_author_login": "awdawmip",
+      "server_author_user_id": 30957095
+    },
+    "authorization_authority": "CURRENT_AUTHORIZED_WINNING_ISSUE_240_CLAIM",
+    "startup_transport": {
+      "schema": "ENTERPRISE_MATH_RESEARCH_STARTUP_TRANSPORT_V2",
+      "control_epoch": "EM-CONTROL-20260904-CANONICAL-DISPATCH-AUTHORITY-1",
+      "conversation_rebase_required": true,
+      "conversation_rebase": {
+        "mode": "ALWAYS_IDEMPOTENT_ON_CONTROL_ENTRY",
+        "control_epoch": "EM-CONTROL-20260904-CANONICAL-DISPATCH-AUTHORITY-1",
+        "cached_conversation_control_plan": "NONAUTHORITATIVE_REBASE_TO_CURRENT",
+        "preserve": [
+          "EXACT_TASK_AND_CURRENT_PUBLICATION_AUTHORITY",
+          "WINNING_CLAIM_AND_OWNER_SCOPE",
+          "HIGHEST_VERIFIED_DURABLE_FRONTIER",
+          "FROZEN_SOURCE_AND_BLINDNESS_RESTRICTIONS",
+          "THEOREM_STRENGTH_AND_TASK_LOCAL_SCOPE",
+          "NO_SORRY_NO_ADMIT_NO_CUSTOM_AXIOM_AND_OTHER_FROZEN_CONSTRAINTS"
+        ],
+        "discard": [
+          "PR_REQUIRED_FOR_START_PROGRESS_DURABILITY_OR_HANDOFF_UNLESS_EXACT_CURRENT_TASK_REQUIRES_IT",
+          "CI_WAIT_OR_REPEATED_CI_MONITOR_AS_CONVERSATION_BARRIER_WHEN_PENDING_NONBLOCKING",
+          "DRAFT_READY_TOGGLE_MERELY_TO_TRIGGER_VALIDATION",
+          "REMOTE_SEARCH_OR_FETCH_AGENTS_MD_MERELY_FOR_TASK_START",
+          "RESTART_VERIFIED_COMPLETE_WORK_BECAUSE_CONVERSATION_IS_OLD_RESUMED_OR_CONTEXT_IS_MISSING",
+          "CACHED_PREVIOUS_CONTROL_ROUTE_WHEN_CURRENT_CANONICAL_DISPATCH_OR_RUNTIME_DISAGREES",
+          "MANUAL_REPOSITORY_SCAN_OR_VISIBLE_TASK_RECORDS_AS_TASK_AVAILABILITY_AUTHORITY",
+          "TOP_PRIORITY_LEASED_IMPLIES_NO_TASK_WITHOUT_CANONICAL_DISPATCH",
+          "BACKLOG_FREE_OR_NAMED_RESEARCH_LINE_PRESENCE_IMPLIES_CLAIMABLE"
+        ],
+        "after_rebase": "RESUME_FROM_CURRENT_CANONICAL_DISPATCH_AND_HIGHEST_VERIFIED_DURABLE_FRONTIER",
+        "pr_default": "OPTIONAL_DURABLE_OR_REVIEW_SURFACE_NOT_CONVERSATION_GATE",
+        "ci_pending": "PENDING_NONBLOCKING_CONTINUE_PARENT_TASK",
+        "repeated_ci_poll_without_state_change": "FORBIDDEN_NO_PROGRESS_ACTION",
+        "taskbook_policy_digest_impact": "NONE_CONTROL_TRANSPORT_ONLY"
+      },
+      "task_availability_authority": {
+        "authority": "CANONICAL_RESEARCH_CONTROL_DISPATCH_OUTPUT_ONLY",
+        "canonical_entrypoint": "research_control_dispatch.py",
+        "manual_repository_scan": "NONAUTHORITATIVE_FOR_TASK_AVAILABILITY",
+        "visible_task_record": "PRESENCE_DOES_NOT_IMPLY_CLAIMABLE",
+        "visible_research_line": "PRESENCE_DOES_NOT_IMPLY_ORDINARY_FRESH_CANDIDATE",
+        "backlog_or_dormant": "NOT_FRESH_CANDIDATE",
+        "awaiting_review_blocked_complete": "NOT_FRESH_CANDIDATE",
+        "free_axiom_discovery": "SEPARATE_ROLE_ROUTE_NOT_ORDINARY_SCHEDULER_FALLBACK",
+        "higher_priority_leased": "EXCLUDE_FROM_FRESH_CANDIDATES_AND_CONTINUE_CANONICAL_SCAN",
+        "claim_rule": "CLAIM_ONLY_THE_EXACT_TARGET_RETURNED_BY_CURRENT_CANONICAL_DISPATCH",
+        "no_task_statement_rule": "MAY_ASSERT_NO_DISPATCH_ONLY_FROM_CURRENT_CANONICAL_NO_DISPATCH_ACTION",
+        "verify_liveness_rule": "VERIFY_SESSION_LIVENESS_IS_NOT_NO_DISPATCH_AND_MUST_NOT_BE_REPHRASED_AS_NO_TASK",
+        "manual_override_allowed": false
+      },
+      "agents_md": "INJECTED_CONTEXT_ONLY_DO_NOT_REMOTE_SEARCH_OR_FETCH_FOR_TASK_START",
+      "if_agents_context_unavailable": "PROCEED_FROM_CANONICAL_DISPATCH_TARGET_AND_EXACT_TASKBOOK",
+      "hot_start": [
+        "REBASE_CACHED_CONVERSATION_CONTROL_PLAN",
+        "CONSUME_CURRENT_CANONICAL_DISPATCH_DECISION",
+        "EXACT_DISPATCH_TARGET",
+        "EXACT_TASK_PUBLICATION_AND_TASKBOOK",
+        "FIRST_REQUIRED_DEPENDENCY",
+        "SUBSTANTIVE_RESEARCH"
+      ],
+      "remote_control_reads": "TRIGGERED_ONLY",
+      "taskbook_policy_digest_impact": "NONE_CONTROL_TRANSPORT_ONLY"
+    }
+  }
+}

@@ -58,6 +58,7 @@ _RAW_AUDIT = _impl.__dict__["_history_original_audit"]
 
 _RESULT_ALIAS_TARGETS = {
     "terminal_verdict": _impl.TERMINAL_VERDICTS,
+    "hard_target_disposition": {"SATISFIED"},
     "method_harvest": _impl.METHOD_HARVEST,
     "independence_status": _impl.INDEPENDENCE_STATUS,
     "source_exposure_status": _impl.SOURCE_EXPOSURE_STATUS,
@@ -192,6 +193,92 @@ def _apply_aliases(
         seen.add(field)
 
 
+def _named_success_alias_guard(
+    item: dict[str, Any], row: dict[str, Any], root: Path
+) -> None:
+    """Bind a named historical success to its exact published task definition.
+
+    This normalizes an author's spelling only. Accepted review, current Task,
+    TASK terminal scope and every follow-up gate remain separate requirements.
+    """
+    aliases = row.get("field_aliases")
+    targeted = [a for a in aliases if isinstance(a, dict)
+                and a.get("field") == "hard_target_disposition"] if isinstance(aliases, list) else []
+    witness = row.get("hard_target_success_witness")
+    if not targeted:
+        if witness is not None:
+            raise ResultRecordError("named-success witness requires a hard-target alias")
+        return
+    if len(targeted) != 1:
+        raise ResultRecordError("named-success normalization requires exactly one hard-target alias")
+    alias = targeted[0]
+    name = alias.get("from")
+    generic = {"SATISFIED", "PARTIAL", "INCOMPLETE", "NOT_SATISFIED", "UNSATISFIED",
+               "NEGATIVE_BOUNDARY", "NO_GO", "PASS", "SUCCESS", "FAIL", "FAILED", "BLOCKED"}
+    if (not isinstance(name, str) or name in generic or len(name) < 4
+            or not name.isascii() or not name[0].isalpha()
+            or name != name.upper() or not name.replace("_", "").isalnum()
+            or alias.get("to") != "SATISFIED"):
+        raise ResultRecordError("hard-target alias requires a named task success, not a generic outcome")
+    required = {"task_id", "publication_id", "publication_record_path",
+                "publication_record_blob_sha1", "taskbook_path", "taskbook_blob_sha1",
+                "declared_success_line"}
+    if not isinstance(witness, dict) or set(witness) != required:
+        raise ResultRecordError("hard-target alias requires the exact published-success witness fields")
+    if row.get("result_id") != item.get("result_id"):
+        raise ResultRecordError("named-success Result identity mismatch")
+
+    def local_file(relative: Any) -> Path:
+        if not isinstance(relative, str) or not relative:
+            raise ResultRecordError("named-success witness has no repository-local path")
+        candidate = Path(relative)
+        path = (root / candidate).resolve()
+        if (candidate.is_absolute() or ".." in candidate.parts
+                or not path.is_relative_to(root.resolve()) or not path.is_file()):
+            raise ResultRecordError("named-success witness path is not a repository-local file")
+        return path
+
+    raw = _load_object(local_file(row.get("record_path")), "named-success Result")
+    for field in ("result_id", "task_id", "publication_id", "terminal_verdict", "hard_target_disposition"):
+        if raw.get(field) != item.get(field):
+            raise ResultRecordError(f"named-success view differs from immutable Result: {field}")
+    if raw.get("terminal_verdict") not in {"PASS", "SUCCESS"}:
+        raise ResultRecordError("named-success normalization requires an original PASS/SUCCESS Result")
+    if raw.get("hard_target_disposition") != name:
+        raise ResultRecordError("named-success alias differs from the original hard-target spelling")
+    for field in ("task_id", "publication_id"):
+        if not isinstance(witness[field], str) or witness[field] != raw.get(field):
+            raise ResultRecordError(f"named-success witness {field} mismatch")
+    expected_publication_path = (
+        f"research_task_records/{witness['task_id']}/{witness['publication_id']}.json"
+    )
+    if witness["publication_record_path"] != expected_publication_path:
+        raise ResultRecordError("named-success witness publication path mismatch")
+    publication_path = local_file(expected_publication_path)
+    if not _impl._same_git_blob_identity(_impl._blob(publication_path), witness["publication_record_blob_sha1"]):
+        raise ResultRecordError("named-success publication blob drift")
+    publication = _load_object(publication_path, "named-success publication")
+    if publication.get("record_schema") != "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2":
+        raise ResultRecordError("named-success witness requires an immutable V2 publication")
+    for field in ("task_id", "publication_id", "taskbook_path", "taskbook_blob_sha1"):
+        if publication.get(field) != witness[field]:
+            raise ResultRecordError(f"named-success publication {field} mismatch")
+    book_path = local_file(witness["taskbook_path"])
+    if not _impl._same_git_blob_identity(_impl._blob(book_path), witness["taskbook_blob_sha1"]):
+        raise ResultRecordError("named-success taskbook blob drift")
+    from tools import research_taskbook
+    metadata, body = research_taskbook.split_taskbook(book_path.read_text(encoding="utf-8"))
+    if metadata.get("task_id") != raw.get("task_id"):
+        raise ResultRecordError("named-success taskbook Task identity mismatch")
+    lines = [line.strip() for line in body.splitlines()]
+    declaration = witness["declared_success_line"]
+    prefix = f"Success is exactly `{name}`:"
+    if (f"Hard target: `{name}`." not in lines or not isinstance(declaration, str)
+            or not declaration.startswith(prefix) or not declaration[len(prefix):].strip()
+            or declaration not in lines):
+        raise ResultRecordError("named-success witness does not match the frozen hard target and success declaration")
+
+
 def _repair_result_return_artifact(
     item: dict[str, Any], rel: Any, *, id_label: str, root: Path
 ) -> None:
@@ -296,6 +383,7 @@ def _normalize_result_item(item: dict[str, Any], row: dict[str, Any], root: Path
     value = copy.deepcopy(item)
     rid = str(item.get("result_id"))
     _record_blob_guard(value, row, path_field="_record_path", id_label=rid, root=root)
+    _named_success_alias_guard(value, row, root)
     _apply_aliases(
         value,
         row.get("field_aliases"),

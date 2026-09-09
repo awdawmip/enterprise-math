@@ -1,0 +1,635 @@
+{
+  "schema": "R005_MAIN_ADMISSION_RECEIPT_V1",
+  "base": "e9f7310b192a07431ccc15597afdfd2c6091113d",
+  "source_head": "14fe9ed92b024d3699b238a21de556d7b6d3e266",
+  "main": "d8dc1d37ca1ef7fc910d084eee36e5ab177cd03c",
+  "parents": [
+    "e9f7310b192a07431ccc15597afdfd2c6091113d",
+    "14fe9ed92b024d3699b238a21de556d7b6d3e266"
+  ],
+  "tree": "7c155c0d629b4b99a6390e03967e2edba41c5090",
+  "write": {
+    "tool": "GitHub.update_ref",
+    "force": false,
+    "success": true
+  },
+  "checks": {
+    "workflow_runs": [
+      {
+        "id": 34336678207,
+        "name": "bilingual-sync",
+        "status": "completed",
+        "conclusion": "success",
+        "run_number": 8539,
+        "jobs_url": "https://api.github.com/repos/awdawmip/enterprise-math/actions/runs/34336678207/jobs",
+        "logs_url": "https://api.github.com/repos/awdawmip/enterprise-math/actions/runs/34336678207/logs",
+        "workflow_id": 329833702
+      },
+      {
+        "id": 34336678211,
+        "name": "reference-integrity",
+        "status": "completed",
+        "conclusion": "success",
+        "run_number": 8532,
+        "jobs_url": "https://api.github.com/repos/awdawmip/enterprise-math/actions/runs/34336678211/jobs",
+        "logs_url": "https://api.github.com/repos/awdawmip/enterprise-math/actions/runs/34336678211/logs",
+        "workflow_id": 329853291
+      },
+      {
+        "id": 34336678220,
+        "name": "quality",
+        "status": "completed",
+        "conclusion": "success",
+        "run_number": 8538,
+        "jobs_url": "https://api.github.com/repos/awdawmip/enterprise-math/actions/runs/34336678220/jobs",
+        "logs_url": "https://api.github.com/repos/awdawmip/enterprise-math/actions/runs/34336678220/logs",
+        "workflow_id": 329844042
+      }
+    ]
+  },
+  "full_readback_checks": [
+    {
+      "path": "research_driver_authority_records/EM-DVR-81273A/DA-207C4345BD4091D3059F.json",
+      "expected_blob": "6000d8215ac625a0fa73dab489ed6b4a0aa8605a",
+      "actual_blob": "6000d8215ac625a0fa73dab489ed6b4a0aa8605a",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 2493,
+      "expected_sha256": "094d4e0a604407795e8ae6e02d194efecd71c74e222414f675c48a49774a70b1"
+    },
+    {
+      "path": "experiments/r005a_p2_gap_shadow_inversion.py",
+      "expected_blob": "1d3d19adc13652bf343972c5eb3ac95684bb8c8a",
+      "actual_blob": "1d3d19adc13652bf343972c5eb3ac95684bb8c8a",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 12289,
+      "expected_sha256": "6fe2dc9fe05ac16ef2bbd1919d3d03fc5b36037d010ca95afeafb62f4958d3f5"
+    },
+    {
+      "path": "experiments/r005a_p2_gap_shadow_inversion_regression.py",
+      "expected_blob": "ece824a71c884b09033f1666581a71afe86822a0",
+      "actual_blob": "ece824a71c884b09033f1666581a71afe86822a0",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 8145,
+      "expected_sha256": "3286c62f6ac7ab3a14c214e462ef8a8e3ad19f780873253ff906f46d8ba394be"
+    },
+    {
+      "path": "research_execution_records/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION/ER-932CC977692631CF047E.json",
+      "expected_blob": "ccc6c1dcaf9d12109cdc6d5ba83d7116b93bb17e",
+      "actual_blob": "ccc6c1dcaf9d12109cdc6d5ba83d7116b93bb17e",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 1329,
+      "expected_sha256": "ba456ccf1f3ec484558bd90ff73230e7a602b84bdcbe05d474f05b56eaf9c93e"
+    },
+    {
+      "path": "research_result_records/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION/RR-566554389F6F36576DE2.json",
+      "expected_blob": "aea04ecd76c5f6effe92726ae08d64c512f73131",
+      "actual_blob": "aea04ecd76c5f6effe92726ae08d64c512f73131",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 3435,
+      "expected_sha256": "5dc2a43840b2878013281cc49f4956c893754b4feab50148dbea2c75d8f5fc62"
+    },
+    {
+      "path": "research_returns/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION_20260904.md",
+      "expected_blob": "8f8850a7a848755af842043bf572df434f1ea35c",
+      "actual_blob": "8f8850a7a848755af842043bf572df434f1ea35c",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 4432,
+      "expected_sha256": "ccdfd06dc29149354c54dac27bb4d6155f3f596dcf5407501bdb03f9fea2ab1a"
+    },
+    {
+      "path": "research_artifacts/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION_20260904/artifact_manifest.json",
+      "expected_blob": "290519893c6db3829bcfd2ac8cf8ae18131cd66f",
+      "actual_blob": "290519893c6db3829bcfd2ac8cf8ae18131cd66f",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 2212,
+      "expected_sha256": "568956930360968d6e8004046598824f432b812a58e1c854d68f5ac6134eb144"
+    },
+    {
+      "path": "research_artifacts/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION_20260904/focused_regression_output.json",
+      "expected_blob": "4bf7d82b52185f1ffc8bf357d719c29c00406768",
+      "actual_blob": "4bf7d82b52185f1ffc8bf357d719c29c00406768",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 734,
+      "expected_sha256": "5a9fe4f053df4b886a3b0d2e1a26b9c2ec25ef592840220f2ccffc0773d4b6f8"
+    },
+    {
+      "path": "research_artifacts/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION_20260904/validation_transcript.txt",
+      "expected_blob": "fc929d83bc57a4068ef8786c5e66520c9ae3756d",
+      "actual_blob": "fc929d83bc57a4068ef8786c5e66520c9ae3756d",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 3552,
+      "expected_sha256": "30fa91f56a21a2a677486375a3386fef4459f55a00794fac1c8b6904f00f540e"
+    },
+    {
+      "path": "research_parallel_intakes/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION/PI-R005-81273A-20260909.json",
+      "expected_blob": "048c253ee6afb2f97d93bb05e14b31f326631e51",
+      "actual_blob": "048c253ee6afb2f97d93bb05e14b31f326631e51",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 8246,
+      "expected_sha256": "d2e8ba493cbd20f52854caa6efec5441794308352c5f91565699555a682b51da"
+    },
+    {
+      "path": "research_parallel_reference_passes/PI-R005-81273A-20260909/RP-R005-81273A-SEMANTIC-20260909.json",
+      "expected_blob": "4994565d6556e5e68c9ded72a2c6283d7192daf2",
+      "actual_blob": "4994565d6556e5e68c9ded72a2c6283d7192daf2",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 6098,
+      "expected_sha256": "0c8f1e23b750bfa9bdabebfee82acac6a9855b1638aa67f146eff3a418e5ff7b"
+    },
+    {
+      "path": "research_parallel_reference_passes/PI-R005-81273A-20260909/RP-R005-81273A-ADVERSARIAL-20260909.json",
+      "expected_blob": "316898e2de122eb799e7d187b1e4c1ce1f5d67db",
+      "actual_blob": "316898e2de122eb799e7d187b1e4c1ce1f5d67db",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 5209,
+      "expected_sha256": "90abdbb4e1fcf71f768a6e1eebbb9acc4ecd21aa11986a7256ff2b0217425e9b"
+    },
+    {
+      "path": "research_parallel_syntheses/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION/PS-R005-81273A-OPERATIONAL-20260909.json",
+      "expected_blob": "2c9bd54a86b2ed7c4b03a2e5f3af061b42c6c27d",
+      "actual_blob": "2c9bd54a86b2ed7c4b03a2e5f3af061b42c6c27d",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 4183,
+      "expected_sha256": "32c9aa6fca6d0b6aeddda02cfc3ff3943f338ac6a82df70ae6071dfd160a71f0"
+    },
+    {
+      "path": "research_task_publication_resolutions.json",
+      "expected_blob": "b00d5e64b6baef76e27e6c28f61bd57c2ca37b19",
+      "actual_blob": "b00d5e64b6baef76e27e6c28f61bd57c2ca37b19",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 2840,
+      "expected_sha256": "a71ec3b3c6897f8323c2ab832f2bd59d656962b5a14c52db437979d076d822d3"
+    },
+    {
+      "path": "research_task_publication_quarantines.json",
+      "expected_blob": "35b496df2cacc85eed12464d9596ebf5e4e8dbef",
+      "actual_blob": "35b496df2cacc85eed12464d9596ebf5e4e8dbef",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 5113,
+      "expected_sha256": "2486ce2d0a7995fab99ebebdd50a09d39829ebbac4625af4b7eadcfbeaf8e95c"
+    },
+    {
+      "path": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/REVIEW.md",
+      "expected_blob": "1a3a98bf596ea921fc0852b2683f25aa099f3054",
+      "actual_blob": "1a3a98bf596ea921fc0852b2683f25aa099f3054",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 7037,
+      "expected_sha256": "079aaa3e46a4e18daa8ba2e0aee4b73deff6ea28f30bef653997d69de63aca25"
+    },
+    {
+      "path": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/attested_scan.stderr",
+      "expected_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "actual_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 0,
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/attested_scan.stdout.json",
+      "expected_blob": "d624e0774de1a9b96efbfd83ef4449b5805315c9",
+      "actual_blob": "d624e0774de1a9b96efbfd83ef4449b5805315c9",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 897,
+      "expected_sha256": "16ba73c6e0c81ef0bd0064bf33becf2ed437d9e8684807241ad5910447ecc83d"
+    },
+    {
+      "path": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/attested_scan_run.json",
+      "expected_blob": "6ea7cca63ecce4ea03324aeb0fa1d73038571eb2",
+      "actual_blob": "6ea7cca63ecce4ea03324aeb0fa1d73038571eb2",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 1206,
+      "expected_sha256": "76d40dcbc7f97bda857d3b0b88d88c114c6eb445dcf04d22de678364fff31f20"
+    },
+    {
+      "path": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/candidate_runtime_preflight.json",
+      "expected_blob": "35c3db2fbf0143bba4798a8a5696335f4aa36123",
+      "actual_blob": "35c3db2fbf0143bba4798a8a5696335f4aa36123",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 13967,
+      "expected_sha256": "7d66d6b8c40f2ae9a5424bc18d32206eeeca82917024357a56336713a07d5e3b"
+    },
+    {
+      "path": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/check_attested_scan_path.py",
+      "expected_blob": "7b302e8c95975d7dadb9738252ea1a0ae228e0e6",
+      "actual_blob": "7b302e8c95975d7dadb9738252ea1a0ae228e0e6",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 4240,
+      "expected_sha256": "1d155c9ce8f92e473979b812a580251673454b4fca0b94f68a86699c49849843"
+    },
+    {
+      "path": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/focused_regression.stderr",
+      "expected_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "actual_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 0,
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/focused_regression.stdout",
+      "expected_blob": "054e602ea343c7d7ccf7a7132cad555fe0888fef",
+      "actual_blob": "054e602ea343c7d7ccf7a7132cad555fe0888fef",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 753,
+      "expected_sha256": "7382c3a2962046ca83b95fd6c33d713909343b12016f2c8614110ad35e597477"
+    },
+    {
+      "path": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/immutable_read_integrity.json",
+      "expected_blob": "ae5d19db724d8ddd85e0462140d0e532464b6d49",
+      "actual_blob": "ae5d19db724d8ddd85e0462140d0e532464b6d49",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 9873,
+      "expected_sha256": "ce7c5d7a02716b0cc8e6c0b7843f5cdb6ebcb105898151fd7fb6813e3d3791a6"
+    },
+    {
+      "path": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/owner_recovery_input.json",
+      "expected_blob": "5d8e55416341bd97bc49bb0c13c802bfa37a6e71",
+      "actual_blob": "5d8e55416341bd97bc49bb0c13c802bfa37a6e71",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 820,
+      "expected_sha256": "fc6aeb7862ac3d60ba103d5b75a852a83fea824fe759824877ae1bf4f990899c"
+    },
+    {
+      "path": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/py_compile.stderr",
+      "expected_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "actual_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 0,
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/py_compile.stdout",
+      "expected_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "actual_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 0,
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/r005_server_envelopes.json",
+      "expected_blob": "1b6e32e8d1bc63416ab9e7ab8e7da8b083a146b7",
+      "actual_blob": "1b6e32e8d1bc63416ab9e7ab8e7da8b083a146b7",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 16277,
+      "expected_sha256": "af729d979e3f19789b8e2712fa4ce4a1af729f5df2f0d94e575b1087583d80e3"
+    },
+    {
+      "path": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/regression_source.diff",
+      "expected_blob": "17a3e3d83c5e579839800ef3228c90f813912c66",
+      "actual_blob": "17a3e3d83c5e579839800ef3228c90f813912c66",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 4751,
+      "expected_sha256": "7e4d4a40ca95516ab7f4ab10645408077e0df57fa5e8a21ff51ff33ed1fa8e10"
+    },
+    {
+      "path": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/result_manifest_validation.json",
+      "expected_blob": "0c0293dce08fa5eb7b0251107b846693f1d12c71",
+      "actual_blob": "0c0293dce08fa5eb7b0251107b846693f1d12c71",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 259,
+      "expected_sha256": "357fa3da2c0176b1cfa6f2b89e29bc4a1cde1a5875d0cebedf263b480db09ef6"
+    },
+    {
+      "path": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/scanner_source.diff",
+      "expected_blob": "9b26ee514d5e97e462a625da785147c689a66f02",
+      "actual_blob": "9b26ee514d5e97e462a625da785147c689a66f02",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 1198,
+      "expected_sha256": "9991be772cd95188090f0a44b25b4f572d924f54d88ef5e1df23edc35bcf72e2"
+    },
+    {
+      "path": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/source_revalidation.json",
+      "expected_blob": "e7fb35fbb57b8fee626abbcd36465745f019811f",
+      "actual_blob": "e7fb35fbb57b8fee626abbcd36465745f019811f",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 2557,
+      "expected_sha256": "5d90528579342ece5d2eaf3777ca35aa252aab7a600e3f1aba50574d8d1bb4e2"
+    },
+    {
+      "path": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/review_evidence_manifest.json",
+      "expected_blob": "0fd74f0c9449cdee1c89caea6fb13364621ebf03",
+      "actual_blob": "0fd74f0c9449cdee1c89caea6fb13364621ebf03",
+      "blob_match": true,
+      "full_content_match": true,
+      "expected_bytes": 9572,
+      "expected_sha256": "8009e3643f10d0d41fafbb136f068a7c8bb58faf3eb64ebbf3847d39118e7e0d"
+    }
+  ],
+  "scope": {
+    "repository_full_name": "awdawmip/enterprise-math",
+    "base": "e9f7310b192a07431ccc15597afdfd2c6091113d",
+    "head": "d8dc1d37ca1ef7fc910d084eee36e5ab177cd03c",
+    "status": "ahead",
+    "ahead_by": 3,
+    "behind_by": 0,
+    "total_commits": 3,
+    "too_large": null,
+    "base_commit": {
+      "sha": "e9f7310b192a07431ccc15597afdfd2c6091113d",
+      "url": "https://api.github.com/repos/awdawmip/enterprise-math/commits/e9f7310b192a07431ccc15597afdfd2c6091113d",
+      "html_url": "https://github.com/awdawmip/enterprise-math/commit/e9f7310b192a07431ccc15597afdfd2c6091113d"
+    },
+    "merge_base_commit": {
+      "sha": "e9f7310b192a07431ccc15597afdfd2c6091113d",
+      "url": "https://api.github.com/repos/awdawmip/enterprise-math/commits/e9f7310b192a07431ccc15597afdfd2c6091113d",
+      "html_url": "https://github.com/awdawmip/enterprise-math/commit/e9f7310b192a07431ccc15597afdfd2c6091113d"
+    },
+    "files": [
+      {
+        "filename": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/REVIEW.md",
+        "status": "added",
+        "additions": 131,
+        "deletions": 0,
+        "changes": 131,
+        "previous_filename": null
+      },
+      {
+        "filename": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/attested_scan.stderr",
+        "status": "added",
+        "additions": 0,
+        "deletions": 0,
+        "changes": 0,
+        "previous_filename": null
+      },
+      {
+        "filename": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/attested_scan.stdout.json",
+        "status": "added",
+        "additions": 23,
+        "deletions": 0,
+        "changes": 23,
+        "previous_filename": null
+      },
+      {
+        "filename": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/attested_scan_run.json",
+        "status": "added",
+        "additions": 20,
+        "deletions": 0,
+        "changes": 20,
+        "previous_filename": null
+      },
+      {
+        "filename": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/candidate_runtime_preflight.json",
+        "status": "added",
+        "additions": 244,
+        "deletions": 0,
+        "changes": 244,
+        "previous_filename": null
+      },
+      {
+        "filename": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/check_attested_scan_path.py",
+        "status": "added",
+        "additions": 92,
+        "deletions": 0,
+        "changes": 92,
+        "previous_filename": null
+      },
+      {
+        "filename": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/focused_regression.stderr",
+        "status": "added",
+        "additions": 0,
+        "deletions": 0,
+        "changes": 0,
+        "previous_filename": null
+      },
+      {
+        "filename": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/focused_regression.stdout",
+        "status": "added",
+        "additions": 19,
+        "deletions": 0,
+        "changes": 19,
+        "previous_filename": null
+      },
+      {
+        "filename": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/immutable_read_integrity.json",
+        "status": "added",
+        "additions": 163,
+        "deletions": 0,
+        "changes": 163,
+        "previous_filename": null
+      },
+      {
+        "filename": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/owner_recovery_input.json",
+        "status": "added",
+        "additions": 18,
+        "deletions": 0,
+        "changes": 18,
+        "previous_filename": null
+      },
+      {
+        "filename": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/py_compile.stderr",
+        "status": "added",
+        "additions": 0,
+        "deletions": 0,
+        "changes": 0,
+        "previous_filename": null
+      },
+      {
+        "filename": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/py_compile.stdout",
+        "status": "added",
+        "additions": 0,
+        "deletions": 0,
+        "changes": 0,
+        "previous_filename": null
+      },
+      {
+        "filename": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/r005_server_envelopes.json",
+        "status": "added",
+        "additions": 314,
+        "deletions": 0,
+        "changes": 314,
+        "previous_filename": null
+      },
+      {
+        "filename": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/regression_source.diff",
+        "status": "added",
+        "additions": 128,
+        "deletions": 0,
+        "changes": 128,
+        "previous_filename": null
+      },
+      {
+        "filename": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/result_manifest_validation.json",
+        "status": "added",
+        "additions": 7,
+        "deletions": 0,
+        "changes": 7,
+        "previous_filename": null
+      },
+      {
+        "filename": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/review_evidence_manifest.json",
+        "status": "added",
+        "additions": 201,
+        "deletions": 0,
+        "changes": 201,
+        "previous_filename": null
+      },
+      {
+        "filename": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/scanner_source.diff",
+        "status": "added",
+        "additions": 26,
+        "deletions": 0,
+        "changes": 26,
+        "previous_filename": null
+      },
+      {
+        "filename": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/source_revalidation.json",
+        "status": "added",
+        "additions": 63,
+        "deletions": 0,
+        "changes": 63,
+        "previous_filename": null
+      },
+      {
+        "filename": "experiments/r005a_p2_gap_shadow_inversion.py",
+        "status": "added",
+        "additions": 348,
+        "deletions": 0,
+        "changes": 348,
+        "previous_filename": null
+      },
+      {
+        "filename": "experiments/r005a_p2_gap_shadow_inversion_regression.py",
+        "status": "added",
+        "additions": 257,
+        "deletions": 0,
+        "changes": 257,
+        "previous_filename": null
+      },
+      {
+        "filename": "research_artifacts/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION_20260904/artifact_manifest.json",
+        "status": "added",
+        "additions": 45,
+        "deletions": 0,
+        "changes": 45,
+        "previous_filename": null
+      },
+      {
+        "filename": "research_artifacts/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION_20260904/focused_regression_output.json",
+        "status": "added",
+        "additions": 19,
+        "deletions": 0,
+        "changes": 19,
+        "previous_filename": null
+      },
+      {
+        "filename": "research_artifacts/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION_20260904/validation_transcript.txt",
+        "status": "added",
+        "additions": 68,
+        "deletions": 0,
+        "changes": 68,
+        "previous_filename": null
+      },
+      {
+        "filename": "research_driver_authority_records/EM-DVR-81273A/DA-207C4345BD4091D3059F.json",
+        "status": "added",
+        "additions": 31,
+        "deletions": 0,
+        "changes": 31,
+        "previous_filename": null
+      },
+      {
+        "filename": "research_execution_records/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION/ER-932CC977692631CF047E.json",
+        "status": "added",
+        "additions": 24,
+        "deletions": 0,
+        "changes": 24,
+        "previous_filename": null
+      },
+      {
+        "filename": "research_parallel_intakes/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION/PI-R005-81273A-20260909.json",
+        "status": "added",
+        "additions": 134,
+        "deletions": 0,
+        "changes": 134,
+        "previous_filename": null
+      },
+      {
+        "filename": "research_parallel_reference_passes/PI-R005-81273A-20260909/RP-R005-81273A-ADVERSARIAL-20260909.json",
+        "status": "added",
+        "additions": 70,
+        "deletions": 0,
+        "changes": 70,
+        "previous_filename": null
+      },
+      {
+        "filename": "research_parallel_reference_passes/PI-R005-81273A-20260909/RP-R005-81273A-SEMANTIC-20260909.json",
+        "status": "added",
+        "additions": 96,
+        "deletions": 0,
+        "changes": 96,
+        "previous_filename": null
+      },
+      {
+        "filename": "research_parallel_syntheses/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION/PS-R005-81273A-OPERATIONAL-20260909.json",
+        "status": "added",
+        "additions": 89,
+        "deletions": 0,
+        "changes": 89,
+        "previous_filename": null
+      },
+      {
+        "filename": "research_result_records/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION/RR-566554389F6F36576DE2.json",
+        "status": "added",
+        "additions": 58,
+        "deletions": 0,
+        "changes": 58,
+        "previous_filename": null
+      },
+      {
+        "filename": "research_returns/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION_20260904.md",
+        "status": "added",
+        "additions": 89,
+        "deletions": 0,
+        "changes": 89,
+        "previous_filename": null
+      },
+      {
+        "filename": "research_task_publication_quarantines.json",
+        "status": "modified",
+        "additions": 0,
+        "deletions": 15,
+        "changes": 15,
+        "previous_filename": null
+      },
+      {
+        "filename": "research_task_publication_resolutions.json",
+        "status": "modified",
+        "additions": 34,
+        "deletions": 1,
+        "changes": 35,
+        "previous_filename": null
+      }
+    ]
+  }
+}
