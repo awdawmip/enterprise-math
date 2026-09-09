@@ -2,7 +2,7 @@
 
 Status: `OPEN / CORRECTION TASK CLOSED / Q78553 READY FOR CLAIM`  
 Current Driver: `EM-DVR-81273A`  
-Current forward authority: `DA-80BDA97466C306DAD3C3` / Owner comment `5605970384`  
+Current forward authority: `DA-80BDA97466C306DAD3C3` / Owner comment `5605970384`
 Persistent governance: `GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER` /
 `TP2-291A3B7B1EB6C763F71E` (generation 2)
 
