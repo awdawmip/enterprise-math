@@ -1,0 +1,37 @@
+name: composite-rh-handoff-publication-once
+on:
+  push:
+    branches: ['handoff/composite-rh-20260909-c4a91d']
+    paths: ['handoff_requests/composite_rh_20260909/request.json']
+permissions:
+  contents: write
+concurrency:
+  group: composite-rh-handoff-publication-20260909
+  cancel-in-progress: false
+jobs:
+  publish-on-owned-branch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Run unchanged canonical preflight and publication tools
+        run: python handoff_requests/composite_rh_20260909/publish_once.py
+      - name: Commit only the validated handoff transaction
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research_handoffs/COMPOSITE_ROAD_RH_20260909 handoff_requests/composite_rh_20260909 research_activity_records/RA-C4A91D-RH-HANDOFF-20260909.json research_activity_records/RA-C4A91D-RH-HANDOFF-20260909
+          for id in RH-ROAD-AUDIT-20260909 RH-ROAD-KERNEL-20260909 RH-ROAD-TAIL-20260909; do
+            git add "research_tasks/$id.md" "research_task_records/$id"
+          done
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Publish audited composite-road RH successor taskset and durable source handoff'
+          git push origin "HEAD:refs/heads/handoff/composite-rh-20260909-c4a91d"
