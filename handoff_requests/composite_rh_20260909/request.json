@@ -1,0 +1,46 @@
+{
+  "schema": "COMPOSITE_RH_PUBLICATION_REQUEST_V1",
+  "request_id": "composite-rh-handoff-20260909-c4a91d-v1",
+  "task_spec_git_blob_sha1": "48c9a7d2fcd2a5730c518b5b0723d91186abe2bb",
+  "checkpoint_source": {
+    "em_sources": [{
+      "repository": "awdawmip/enterprise-math",
+      "commit": "415dbb1317cfe5eb257946843452f8dd70776e19",
+      "path": "research_handoffs/COMPOSITE_ROAD_RH_20260909/stage2_recheck.json",
+      "sha256": "0680ff7f9d2bd5d1ad4c7a4a9a8196d485ccf21c9a4ea4a3d7e83139e8ea4f5b",
+      "readback": {
+        "tool_name": "github_fetch_file",
+        "observation_id": "local-observation-turn145-composite-rh-recheck",
+        "transport_note": "The actual flattened GitHub.fetch_file content object is preserved under structuredContent without changing its fields. This wrapper and observation ID are local provenance, not a server signature.",
+        "arguments": {"repository_full_name": "awdawmip/enterprise-math", "path": "research_handoffs/COMPOSITE_ROAD_RH_20260909/stage2_recheck.json", "ref": "415dbb1317cfe5eb257946843452f8dd70776e19"},
+        "result": {"structuredContent": {
+          "content": "{\n  \"prime_only_lower_squared\": \"549980544461335314637000615/22936449866115041739513080208\",\n  \"candidate_intervals\": {\n    \"10\": [\n      \"238598165411963/10000000000000000\",\n      \"238619925900129411963/10000010000000000000000\"\n    ],\n    \"60\": [\n      \"114871466661211/10000000000000000\",\n      \"6959420990178109399312101903847180047457/602740401800231854192793760000000000000000\"\n    ],\n    \"100\": [\n      \"25504305775939/2500000000000000\",\n      \"11628619870241667643730020973145155195649921435175868163847036878602819752945530563128684493/1131290803484048019172597846307354690462905457003828125281347287972504366821888000000000000000\"\n    ]\n  },\n  \"status\": \"EXACT_CHECK_PASS\"\n}\n",
+          "encoding": "utf-8",
+          "sha": "933231807db85dc6cdd426465173acafd07c6f11",
+          "display_url": "https://github.com/awdawmip/enterprise-math/blob/415dbb1317cfe5eb257946843452f8dd70776e19/research_handoffs/COMPOSITE_ROAD_RH_20260909/stage2_recheck.json",
+          "display_title": "stage2_recheck.json"
+        }}
+      }
+    }],
+    "kb_sources": ["awdawmip/chatgpt-global-knowledge@bb649a26fd04db9bee3cf237b7c0d0311f99e7d2:journal/enterprise-math/2026-09-05/20260905T073134Z-composite-residue-rh-stage2-c4a91d.md"]
+  },
+  "activity_registration_source": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "d614039b5dba3c931dc4cfedc94cb3c99d413516",
+    "path": "research_activity_records/RA-C4A91D-RH-HANDOFF-20260909.json",
+    "sha256": "71c958fc6f0acf189531bae24fbcc87673f23d03484b07c493573efe69de616d",
+    "readback": {
+      "tool_name": "github_fetch_file",
+      "observation_id": "local-observation-turn127-rh-activity-registration",
+      "transport_note": "The actual flattened GitHub.fetch_file content object is preserved under structuredContent without changing its fields. This wrapper and observation ID are local provenance, not a server signature.",
+      "arguments": {"repository_full_name": "awdawmip/enterprise-math", "path": "research_activity_records/RA-C4A91D-RH-HANDOFF-20260909.json", "ref": "d614039b5dba3c931dc4cfedc94cb3c99d413516"},
+      "result": {"structuredContent": {
+        "content": "{\n  \"schema\": \"ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1\",\n  \"activity_id\": \"RA-C4A91D-RH-HANDOFF-20260909\",\n  \"registration_key\": \"session:local-chat-c4a91d-rh-handoff-20260909:FREE_AXIOM_DISCOVERY\",\n  \"registration_origin\": {\"kind\": \"LIVE_SESSION\", \"source_tracking_key\": null},\n  \"mode\": \"FREE_AXIOM_DISCOVERY\",\n  \"researcher_id\": \"EM-FREE-C4A91D\",\n  \"session_id\": \"local-chat-c4a91d-rh-handoff-20260909\",\n  \"session_state\": \"KNOWN\",\n  \"recorded_at\": \"2026-09-09T01:54:47Z\",\n  \"authority\": {\"task_registration\": false, \"claim\": false, \"review\": false, \"working_truth\": false, \"mathematical_acceptance\": false},\n  \"checkpoints\": []\n}\n",
+        "encoding": "utf-8",
+        "sha": "b5dd1ebd98f43b14da434ab8fd285eec5bbe998c",
+        "display_url": "https://github.com/awdawmip/enterprise-math/blob/d614039b5dba3c931dc4cfedc94cb3c99d413516/research_activity_records/RA-C4A91D-RH-HANDOFF-20260909.json",
+        "display_title": "RA-C4A91D-RH-HANDOFF-20260909.json"
+      }}
+    }
+  }
+}
