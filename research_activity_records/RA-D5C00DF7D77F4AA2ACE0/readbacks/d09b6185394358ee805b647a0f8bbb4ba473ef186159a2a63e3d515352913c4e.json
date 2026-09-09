@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/ns-f0-discrete-transfer-20260909-d5c00d.results.json",
+    "ref": "427729999dc09a56083e146c938c89701e41f15b",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-observation-turn313-finite-discrete-transfer",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"ENTERPRISE_MATH_RESEARCH_CHECKPOINT_V1\",\n  \"event_id\": \"NS-F0-DISCRETE-TRANSFER-20260909-D5C00D-06\",\n  \"researcher_id\": \"EM-DIRECT-D5C00D\",\n  \"research_activity_id\": \"RA-D5C00DF7D77F4AA2ACE0\",\n  \"status\": \"EXACT_FINITE_MODEL_CERTIFICATE_NOT_NS_BLOWUP_PROOF\",\n  \"report_kind\": \"Summary of actually executed rational checks; raw results reproducible by the pinned checker\",\n  \"source\": {\n    \"repository\": \"awdawmip/enterprise-math\",\n    \"note_commit\": \"006e72f9cd3358881e5bf99a02ae9f7ca515a6a1\",\n    \"note_path\": \"research_notes/ns-f0-discrete-transfer-20260909-d5c00d.md\",\n    \"note_sha256\": \"fee52d9a812e866bf2f18f5168261eba91c1bd5e805a660fa07de7695b0f7fdd\",\n    \"note_git_blob\": \"30924962a81d621171d70311debcfb4f2dad58a2\",\n    \"code_commit\": \"9fd171fef6efeb60df9b717fd2354cef62beee6d\",\n    \"code_path\": \"experiments/ns_f0_discrete_transfer_d5c00d.py\",\n    \"code_sha256\": \"b3feb31d191fe17148a7c14505ddbb98aa5eb274a31c9053158a680a26460bdb\",\n    \"code_git_blob\": \"bbea2bcac499c53339634cdbc13250915b43a552\",\n    \"raw_result_sha256\": \"20d58d606c4d78deb0b30509ec0cd3f7ed500b875b2504b426db3dea3cedb182\"\n  },\n  \"parameters\": {\"nu\": \"1\", \"theta\": \"1/64\", \"delta\": \"1/4\", \"M\": 2},\n  \"executed\": {\n    \"exact_forward_solve\": true,\n    \"energy_before\": \"10649/16\",\n    \"energy_after\": \"10265/16\",\n    \"energy_change\": \"-24\",\n    \"critical_change\": \"240*sqrt(2)-288 > 48\",\n    \"witness_rounding_defect\": \"0\",\n    \"witness_missing_mode_defect\": \"0\",\n    \"cutoffs_checked\": [2, 3, 5, 8],\n    \"same_initial_modal_energies_opposite_next_transfer\": true,\n    \"positive_phase_critical_change\": \"-8971/32+(825/4)*sqrt(2)+(289/16)*sqrt(5)\",\n    \"negative_phase_critical_change\": \"1253/8-(855/4)*sqrt(2)+(25/4)*sqrt(5)\",\n    \"extra_exact_cases\": 24,\n    \"discrete_Gram_identities\": 24,\n    \"rounding_only_positive_Gram_defect\": true,\n    \"quantized_steps_to_exact_zero\": 96,\n    \"proved_integer_step_bound\": 42596,\n    \"trajectory_steps_with_nonzero_cutoff_defect\": 56,\n    \"seed\": 20260909,\n    \"arithmetic\": \"Fraction-based Gaussian rationals and rational square-root enclosures; no floating-point sign decisions\"\n  },\n  \"nonclaims\": [\n    \"No independent review or Lean build\",\n    \"Not general three-dimensional Navier-Stokes\",\n    \"Not native six-dimensional dynamics\",\n    \"No Lyapunov instability or finite-time singularity\",\n    \"No infinite-cutoff, vanishing-step, or physical bridge\"\n  ],\n  \"next\": \"Extend the phase-aware discrete Gram and explicit defect ledger to a genuinely three-direction coupled carrier without assuming coherent-feedback summability.\"\n}\n",
+      "display_title": "ns-f0-discrete-transfer-20260909-d5c00d.results.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/427729999dc09a56083e146c938c89701e41f15b/research_notes/ns-f0-discrete-transfer-20260909-d5c00d.results.json",
+      "encoding": "utf-8",
+      "sha": "c115b86796a88dfe1262ac2b4786d7727716f16e"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
