@@ -1,4 +1,4 @@
-# Research Return �� R005-A deficit-shadow executable binding correction
+# Research Return — R005-A deficit-shadow executable binding correction
 
 Task: `RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION`  
 Publication: `TP2-ADD82532ACD19FC01D53`  
