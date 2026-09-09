@@ -1,0 +1,192 @@
+{
+  "schema": "BOUNDED_CONTROL_GOVERNANCE_REVIEW_RECEIPT_V1",
+  "created_at": "2026-09-09T03:55:39.536833+00:00",
+  "status": "PASS_AT_STATED_READ_ONLY_SCOPE",
+  "classification": "CONTROL_PLANE_MAINTENANCE",
+  "reviewer": "/root/execution_gate_review",
+  "research_claim_liveness_event": false,
+  "worktree": "D:\\em\\control-codex-research-methodology-20260909",
+  "base": "69d5b1ee44360f770257c461115f1b7cef64f100",
+  "owner_reported_published_revisions": [
+    "ee10fab887750d60271d70dea819229b7abd48b4",
+    "374286f55e00c532636ffe8e4c7d7a5a9b0026e1"
+  ],
+  "final_exit_delta_remote_publication": "NOT_INDEPENDENTLY_OBSERVED",
+  "publication_v2": {
+    "path": "D:\\em\\TEMP\\codex-research-methodology-20260909\\publication-v2.json",
+    "sha256": "410c319d13d1fe6c3c9505603e11ff0a9a71f807ae2dcb57a10975bd3072e30f"
+  },
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 22946,
+      "sha256": "7ae44346ca21412bf8c72c8a9b253de26b875d9011d8bce9d5a3cf6fd4305187",
+      "blob": "c6744d99d11fad840ac77e766f71e7771477c2d3",
+      "same_bytes_as_v2_publication": true
+    },
+    {
+      "path": "research_architecture.json",
+      "bytes": 16823,
+      "sha256": "3bf8a0dcee8ff2704c650173da717c2d26212ed56545a09d089a79f9b6b3b472",
+      "blob": "64ecc734473bd8351006fcdd46efe95c5e6f67dd",
+      "same_bytes_as_v2_publication": true
+    },
+    {
+      "path": "research_role_policy.json",
+      "bytes": 17705,
+      "sha256": "e642ae9c41709938ebd1e955eacdce48e6b83d40d6ac0a793b8222c9a78c215f",
+      "blob": "e3800cc592f2edeb0315788ff4662ab7756d7ac8",
+      "same_bytes_as_v2_publication": true
+    },
+    {
+      "path": "docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md",
+      "bytes": 14705,
+      "sha256": "5d503f66f56ad561373c9f3d6872688c1bd95198c526bb149ecf7a7dc1dccc3e",
+      "blob": "3dd795128770dc38437ce3b5d1b5af1ee8fab5a2",
+      "same_bytes_as_v2_publication": true
+    },
+    {
+      "path": "docs/RESEARCHER_DURABLE_HANDOFF_PROTOCOL.md",
+      "bytes": 6920,
+      "sha256": "267db0a865ca755fda7844ab3be7ebb92132f40d56b6386aebb723c206051c58",
+      "blob": "a0d44e338aec4b96d6589c12690623f03a1b1f6f",
+      "same_bytes_as_v2_publication": false
+    },
+    {
+      "path": "bilingual_pairs.json",
+      "bytes": 12515,
+      "sha256": "ae19f7ee50f8b01498898a48698fcbbcab75fdc6875e2fdda31cf88397c03667",
+      "blob": "610978792333811d9c0bee9ce87044f2ad3b4e69",
+      "same_bytes_as_v2_publication": true
+    },
+    {
+      "path": "docs/CODEX_RESEARCH_ORCHESTRATION.en.md",
+      "bytes": 17492,
+      "sha256": "58dd56b3872ba54575e8cd6aeaf3c074786bd705f4bc1438409bce1b45b6fabb",
+      "blob": "c991b88e1095c46f37622a223475431f8150d8fe",
+      "same_bytes_as_v2_publication": false
+    },
+    {
+      "path": "docs/CODEX_RESEARCH_ORCHESTRATION.zh-CN.md",
+      "bytes": 14918,
+      "sha256": "8df4a397f110bcfafeca92cb8bb25245e51080354a6e3748f8a0c598005c7ea1",
+      "blob": "3a6553bab39d78b252d07a733f66bfa471dd2b15",
+      "same_bytes_as_v2_publication": false
+    },
+    {
+      "path": "templates/RESEARCH_LINE_DOSSIER.md",
+      "bytes": 2949,
+      "sha256": "604511ae50f410a915746abf016682dab6144c39cce8774cae603eb669cb98d0",
+      "blob": "090a5a25b420057e3a3bcbc01d6820035117b0be",
+      "same_bytes_as_v2_publication": true
+    },
+    {
+      "path": "templates/RESEARCH_DELEGATION_PACKETS.md",
+      "bytes": 5075,
+      "sha256": "7e8456e04b7c939efa97b128e7e2667d65c2236793591409870d8a16e0d06d54",
+      "blob": "e270d4ee6d0c554f793ad98e9c0cd707b0571cfc",
+      "same_bytes_as_v2_publication": true
+    },
+    {
+      "path": "control_plane/check_github_flow_liveness.py",
+      "bytes": 4575,
+      "sha256": "6785d0a1a352f13555638c8854d710180d5916288bf70154adc1420f44f3e351",
+      "blob": "d98aac0f8a3eb2925ae44f391317b6b20d34309a",
+      "same_bytes_as_v2_publication": true
+    }
+  ],
+  "final_exit_delta_paths": [
+    "docs/RESEARCHER_DURABLE_HANDOFF_PROTOCOL.md",
+    "docs/CODEX_RESEARCH_ORCHESTRATION.en.md",
+    "docs/CODEX_RESEARCH_ORCHESTRATION.zh-CN.md"
+  ],
+  "independent_static_checks": {
+    "eleven_file_pins_match": true,
+    "unchanged_v2_content_files": 8,
+    "three_exit_delta_pins_match": true,
+    "old_role_architecture_json_semantics_preserved": {
+      "research_architecture.json": true,
+      "research_role_policy.json": true
+    }
+  },
+  "resolved_decision_issues": [
+    {
+      "id": "RETIRED_PR_NECESSITY_TEXT_GATE",
+      "location": "control_plane/check_github_flow_liveness.py:91",
+      "resolution": "Normal PR workflow permitted; original no-PR-required and merge admission obligations preserved."
+    },
+    {
+      "id": "FREE_EXIT_MUST_NOT_WAIT_FOR_PRIVATE_DRIVER_REPLY",
+      "location": "docs/CODEX_RESEARCH_ORCHESTRATION.en.md:83",
+      "resolution": "Applicable durable readback suffices, under original task/PRE_FINAL rules; FREE has no new Driver approval."
+    }
+  ],
+  "remaining_blocking_findings": [],
+  "owner_actual_checks_not_rerun": {
+    "existing_contract_tests": {
+      "count": 40,
+      "passed": true,
+      "duration_seconds": 0.111,
+      "tool_chunk": "e7ec64",
+      "command": "python -B -X utf8 verify_methodology.py",
+      "runner": "unittest plus unchanged zero-argument test functions; pytest unavailable"
+    },
+    "bilingual": {
+      "pairs": 128,
+      "passed": true,
+      "tool_chunk": "09f163"
+    },
+    "whitespace": {
+      "passed": true,
+      "tool_chunk": "7fef9b"
+    },
+    "github_flow_liveness": {
+      "passed": true,
+      "tool_chunk": "892e3c",
+      "prior_failure": "PR1442 ee10fab / job102327894130 / retired PR necessity phrase"
+    },
+    "scope": {
+      "non_target_role_and_architecture_semantics_preserved": true,
+      "old_pair_order_preserved": true,
+      "relative_links_resolve": true
+    }
+  },
+  "owner_final_exit_delta_checks_not_rerun": {
+    "bilingual": {
+      "tool_chunk": "f5bedf",
+      "exit_code": 0,
+      "pairs": 128
+    },
+    "github_flow_liveness": {
+      "tool_chunk": "650942",
+      "exit_code": 0
+    },
+    "diff_check": {
+      "tool_chunk": "1970aa",
+      "exit_code": 0
+    }
+  },
+  "independent_read_tool_chunks": [
+    "c8449a",
+    "a4c156",
+    "89afc2",
+    "25e541"
+  ],
+  "global_knowledge_authoring_snapshot": {
+    "canonical": "3ad395d666b488e89f4e1cef56ec8fbdf9732a18",
+    "lease_expires_at": "2026-09-09T05:10:38.9780682Z",
+    "scope": "Previously actually read/reused current-session snapshot; not a new write authorization."
+  },
+  "review": {
+    "path": "D:\\em\\TEMP\\codex-research-methodology-independent-review-20260909\\REVIEW.md",
+    "sha256": "a12f0bb71a5f23846c4b2b4521e494b3293a9faa0fdee6c00a70150b0dc9a1a3",
+    "bytes": 3315
+  },
+  "limitations": [
+    "No mathematics or tests rerun",
+    "No full repository scan",
+    "No remote mutation or independent remote content retrieval",
+    "No runtime ACL implementation claim",
+    "No formal Driver verdict"
+  ]
+}
