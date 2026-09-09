@@ -80,6 +80,21 @@ A later 2026-09-06 recovery attempt claimed the original Q30 task as:
 
 That later claim did not produce a result record on main. It is continuity provenance only.
 
+## Current recovery package available for comparison
+
+A subsequent recovery package is available in open PR `#1366` and is useful continuity evidence for this gate. It is **not** mathematical acceptance and is not a substitute for the gate's own replay.
+
+- PR: `#1366` — `research: recover completed P000 Q30 n=14 collision frontier`
+- branch: `research/p000-phil-q30-return-profile-1wl-n14-em-p000q30-d67de2`
+- researcher: `EM-P000Q30-D67DE2`
+- claim: `CLAIM-P000Q30-20260907T0800Z-CHATGPT-02`
+- execution: `ER-9EF9871C713F5C79FA92`
+- result: `RR-23FD8C3BE3A3F95C2D4B`
+- result path on that branch: `research_result_records/RS-P000-PHILOSOPHY-FIRST-RETURN-PROFILE-1WL-N14-COLLISION-FRONTIER/RR-23FD8C3BE3A3F95C2D4B.json`
+- return path on that branch: `research_returns/P000_PHILOSOPHY_FIRST_RETURN_PROFILE_1WL_N14_COLLISION_FRONTIER_RETURN_20260907.md`
+
+That recovery result reports `SUCCESS` at the same bounded terminal state and independently rechecks all seven persisted sector sums/global totals while marking the legacy monolithic r=14 pointer `SUPERSEDED`. Consume it as an additional reproducibility/provenance cross-check; the current gate still owns the decision whether the evidence is recoverable under current policy.
+
 ## Observer/BRC boundary
 
 Preserve every primitive-return-profile initial color, every ordinary 1-WL neighbor-multiset refinement branch, and the full anonymous stable packet. Use hashes only as integrity digests. Kernel/orbit coordinates establish exhaustive enumeration; they are not graph identity and not a stronger observer.
