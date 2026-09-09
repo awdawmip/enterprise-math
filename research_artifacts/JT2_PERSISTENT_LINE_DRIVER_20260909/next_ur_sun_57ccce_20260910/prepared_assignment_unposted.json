@@ -1,0 +1,37 @@
+{
+  "schema": "JT2_EXISTING_UR_ASSIGNMENT_PREPARATION_V1",
+  "state": "UNPOSTED_REQUIRES_ACTUAL_RESEARCHER_RESUME",
+  "prepared_at": "2026-09-09T19:10:51.233Z",
+  "source_main": "734855d537c9dad6e6611accb381641222d79f6d",
+  "already_published_task": true,
+  "new_task_publication": false,
+  "proposed_receiver": "EM-JT2-EF9380",
+  "receiver_liveness_asserted": false,
+  "assignment_comment_id": null,
+  "canonical_positive_selection_asserted": false,
+  "claim_or_execution_authorization_created": false,
+  "actual_capacity_observation": {
+    "source": "Most recent actual collaboration.list_agents result in this Driver turn",
+    "running": [
+      "/root",
+      "/root/jt2_line_recover",
+      "/root/r005_line_reconcile/q78553_catalogue_research",
+      "/root/rb_line_recover"
+    ],
+    "available_slots": 0
+  },
+  "next_required_action": "After a slot is actually free, resume the existing EF9380 researcher and confirm the actual session. Only then publish the real event, re-read the server envelope and fresh complete events, run current assigned-research selection, and let the researcher perform prepare/CLAIM/authorization. Preserve an existing legal winner.",
+  "prepared_event_body": {
+    "schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1",
+    "event": "ASSIGN_RESEARCH_TASK",
+    "driver_id": "EM-DVR-57CCCE",
+    "driver_authority_record_id": "DA-4EE3132EDE68C56B33EE",
+    "driver_authority_source_comment_id": 5602746982,
+    "task_id": "RS-EMW59A-JT2-UR-SUN-PARITY-DEFECT",
+    "publication_id": "TP2-22F5729C777040ECA121",
+    "parent_objective_id": "EM-FREE-W59A-JT2-RAMANUJAN-LEGENDRE",
+    "researcher_id": "EM-JT2-EF9380",
+    "session_id": "local:codex-agent:jt2-bounded-reference-review:20260909:EF9380",
+    "executor_role": "RESEARCHER"
+  }
+}
