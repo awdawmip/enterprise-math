@@ -52,3 +52,7 @@ Keep the180/360 B-assignment counts,45/90 fixed-V4 candidates,16-way square-clas
 2. Consume the immutable RR/DR/DFU and preserved task outputs. Do not replay the completed mathematics, Result freeze or formal review merely because private chat context is missing.
 3. Keep current control policy separate from the frozen mathematical source. Control quarantine of an unrelated publication fork selects no mathematical winner and closes no research parent.
 4. Report semantic milestones and any cross-line decision to Owner. Ordinary RB review and source integration remain the resident Driver's responsibility; Owner need not repeat the same mathematical review.
+
+## 2026-09-10 forward research-delegation scope
+
+The same Driver conversation resumes EM-DVR-5816EB responsibility after its completed intake unit; no uninterrupted liveness is asserted. Actual Owner AUTHORIZE5605063002 adds only the RB parent whitelist and is captured as DA-2539C64910905D49A203. Prior DA94 and historical review authority remain immutable. No typed GOV field existed to preserve or replace. The [forward-delegation packet](RB_LINE_RESEARCH_DELEGATION_20260910_5816EB/README.md) prepares the existing TP2-8B673D783D3FBC81E124 with unchanged book/blob pins. A real recipient/session and actual assigned selection, own CLAIM and runtime authorization remain required before mathematical execution; this preparation creates none of them.
