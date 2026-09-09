@@ -1,140 +1,90 @@
 # 合数道路 RH 路线：新研究员交接入口
 
 Prepared: 2026-09-09
-Provenance researcher: `EM-FREE-C4A91D / ANCHOR_EXPOSED`
-Source read head: `awdawmip/enterprise-math@9d7c4c6eafc5479a6795a128fc0288fc893bed3c`
-Status: **STATE-MACHINE PUBLICATION PACKAGE / NO RH PROOF / NO FOUNDATION ADMISSION**
+Provenance researcher: `EM-FREE-C4A91D / FREE_AXIOM_DISCOVERY / ANCHOR_EXPOSED`
+Status: `STATE-MACHINE HANDOFF / NO RH PROOF / NO FOUNDATION ADMISSION`
 
-本文件是合数道路 RH 路线的正式交接入口。下列 S0–S7 的历史研究已有不可变远端来源；本文件负责把这些来源、修正关系和后续正式任务连接起来。精确仓库、提交、路径和已读到的 blob 哈希见 `artifacts/composite_road_rh/handoff_20260909/source_index.json`。
+本文件是“合数是路，素数是坑”RH 路线的正式交接入口。新领取任务的研究员不需要恢复前任聊天；从本文件、来源索引和各任务书即可继续。
 
-## 先读什么
+## 1. 最高研究约束
 
-先读 S0 中的9月5日整数余数坐标证书，再以 **S5（已修正版正道路能量）→S6（离散范数／逃逸尺度）→S7（固定起点相位耦合）** 为当前研究入口。S3 是已修正的边界斜率论证，S2 提供补全 Schur/Pick 接口，S4 说明绝对值控制的可达区域。S1 是有限尾部端口和道路形变的原始来源，使用时必须同时消费 S3/S5 后来的修正。
+用户锁定：**合数是路，素数是坑；路都没有了，光盯着坑有啥用。不允许轻易判定冗余。**
 
-这次不是要求重新从 Euler 乘积开始，也不是要求重新搜索上一轮已经冻结的有理系数。
+机器语义由当前 `definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json` 控制。因子可重建不等于观察方向冗余；固定窗口小量、有限阶导数消失、数值系数接近零，都不是全局冗余证书。完整整数总体、联合合数方向、符号、相位、起点与尺度信息默认保留，除非有 observer-specific 的精确下降/张成/未来操作安全证书。
 
-## 用户锁定的研究姿态
+## 2. 已完成且不要重做的阶段
 
-> 合数是路，素数是坑，路都没有了，光盯着坑有啥用，不允许轻易判定冗余。
+精确来源与不可变提交见：
 
-完整整数总体、合数联合观察方向、符号、相位、起点及尺度必须显式保留。因子可重建不等于允许观察者的线性张成完备。有限窗口无贡献、有限阶导数消失、数值系数接近零，都不是全局冗余证书。当前最高约束以源仓库机器合同为准；本交接不修改 P000，也不把研究比喻当成已证数学命题。
+`artifacts/composite_road_rh/handoff_20260909/source_index.json`。
 
-## 1. 已完成并可复核的整数证书
+推荐阅读顺序：`S0 -> S5 -> S6 -> S7 -> S3 -> S2 -> S4 -> S1`。
 
-定义 r_n(m)=(m mod n)/n、w_m=1/[m(m+1)]，以及
+其中：
 
-    E(c)=sum_{m>=1} w_m |1-sum_n c_n r_n(m)|^2.
+- `S0`：9月5日余数坐标、合数6不可删除下界、prime-only 对偶证书与完整有理数验证器；本次重跑记录为 `artifacts/composite_road_rh/handoff_20260909/verification/stage2_certificate_rerun.json`，状态 `EXACT_CHECK_PASS`。
+- `S5`：修正版正道路能量 `Q_a` 与有限 Green 恒等式，是当前原始道路能量入口。
+- `S6`：离散 midpoint discrepancy 与 thickness/horizon 极限不交换，明确提出 escaping-horizon 尾项。
+- `S7`：Ramanujan 频率分解；平移平均丢失交叉相位，当前需要 fixed-origin/anchored coherence。
+- `S3`：修正版边界斜率；必须区分 raw road energy `Q_a` 与 completed Schur energy `Delta_a`。
+- `S2`：补全 `xi(s)/xi(s+a)` 的 Schur/Pick 等价接口；不能把条件正性当无条件证明。
+- `S4`：正道路绝对控制只能到 `Re(s)>1-a`，说明纯绝对值路线的穿透边界。
+- `S1`：有限 future-road port、正道路变形与 calibration capacity 的早期来源；必须与后续修正一起消费。
 
-S0 给出：
+不要重做：冻结有理候选搜索、Euler 恒等式换名、原始 Weil 自动 PSD 捷径、直接认定 `Q_a=Delta_a`、用 fixed-horizon 小系数判合数冗余。
 
-- 坐标提取器 L_n(y)=sum_{d|n} mu(n/d)(y_d-y_(d-1))，y_0=0，满足 L_n(r_k)=-delta_(n,k)。误差趋零要求每个固定 n 的 c_n→-mu(n)。
-- E(c)>=|1+c_6|^2/92。永久省略6或限制所有系数非负都会留下正误差下界。
-- 30格整数对偶证书约束任意多个素数坐标，其下界为 549980544461335314637000615/22936449866115041739513080208 >0.0239。
-- 九个整数坐标2..10的明确有理方案的完整无限误差小于0.023861969，严格优于所有素数专用线性方案。
-- 2..100的明确有理方案的完整无限误差小于0.010279073<1/92。
+## 3. 当前真正的未解决单元
 
-本轮对原包12个文件的 SHA-256 核验全部通过，原 `durable_certificate.py` 未改写重跑，输出 `EXACT_CHECK_PASS`。详见本包 `artifacts/composite_road_rh/handoff_20260909/verification/`。这不是独立的文献首创审查，也不是无限尺度收敛证明。
+正道路权重：
 
-## 2. 后续已经建立的全整数道路对象
+`R_a(n)=sum_{d|n} mu(d)/d^a = product_{p|n}(1-p^(-a))`, `a>0`。
 
-对 a>0：
+定义 `c_a=1/zeta(1+a)`, `S_a(x)=sum_{n<=x}R_a(n)`, `E_a(x)=S_a(x)-c_a x`，当前原始道路能量为
 
-    R_a(n)=sum_{d|n} mu(d)/d^a=product_{p|n}(1-p^(-a)), R_a(1)=1;
-    c_a=1/zeta(1+a);
-    S_a(x)=sum_{n<=x} R_a(n);
-    E_a(x)=S_a(x)-c_a*x; E_0=1_[1,infinity).
+`Q_a = integral_0^infinity |E_a(x)-1_[1,infinity)(x)|^2 dx/x^2`。
 
-每个 n>=2 都贡献正道路质量，没有先筛掉合数。第一边界导数 R'_0(n)=Lambda(n) 仅观察一个层级；具有 omega(n) 个不同素因子的整数在第 omega(n) 阶才首次出现，不能用低阶导数把它们判成冗余。
+结合已核对的经典接口，当前无条件目标是直接取得 `Q_a=O(a)` as `a downarrow 0`；这是 RH 等价目标，不是已完成证明。
 
-原始道路能量为
+离散形式使用
 
-    Q_a = integral_0^infinity |E_a(x)-E_0(x)|^2 dx/x^2.
+`B_(a,N)=S_a(N)-1-c_a(N+1/2)`
 
-S5 的研究论证结合 Burnol 经典判据，把无条件目标写为 Q_a=O(a) as a↓0。这是 RH 等价目标，不是已达到的估计。可用离散量
+及 `sum B_(a,N)^2/N^2`。真正困难集中在两处：
 
-    B_(a,N)=S_a(N)-1-c_a*(N+1/2);
-    D_a=sum_{N>=1} B_(a,N)^2/N^2
+1. **anchored cross-frequency coherence**：保留不同有理频率之间被 translation averaging 删除的交叉相位，并且保留 `-1-c_a/2` 常数通道；
+2. **escaping horizon**：寻找 `M(a)->infinity` 并严格控制 `sum_{N>=M(a)} B_(a,N)^2/N^2`，不能用有限计算外推无限尾项。
 
-替代，保留精确格权及 c_a^2/12 修正。S6 给出与 Q_a 的双侧常数比较，故 O(a) 目标等价。
+## 4. 修正边界
 
-## 3. 必须继承的修正，不可退回旧版本
+`Z_a(s)=zeta(s)/zeta(s+a)`，而 `C_a(s)=xi(s)/xi(s+a)=K_a(s)Z_a(s)`。
 
-### 原始能量不等于补全能量
+`Q_a` 对应 raw `Z_a`；补全 Schur 能量 `Delta_a` 对应 `C_a`。两者不相等。当前修正版只在相应条件下通过显式 completion error 比较它们。有限 raw-road 否证阈值必须使用修正后的 `U_road(a)`，不能直接使用更小的 completed bound `U_comp(a)`。
 
-    Z_a(s)=zeta(s)/zeta(s+a);
-    C_a(s)=xi(s)/xi(s+a)=K_a(s)*Z_a(s).
+同样，平移平均后的 diagonal power spectrum 不能自动替代 anchored observer；如果未来要做压缩，必须证明实际 observer-preservation，而不是仅凭“平均量无条件有限、完整量等价 RH”来下结论。
 
-Q_a 对应临界线上的 |1-Z_a|^2，不是 |1-C_a|^2。后者记为 Delta_a。旧笔记中二者直接相等的写法已撤回。
+## 5. 已正式准备的三个状态机任务
 
-S3/S5 的修正版在 RH 条件下通过显式完成误差 A(a)=O(a) 得到
+三项任务共同属于父目标：`OBJ-RH-COMPOSITE-ROAD-UNIFORM-ENERGY`，研究者发布默认运行等级均为 `P2/MEDIUM`。publication 只使任务进入正式可领取定义，不授予 CLAIM、Working Truth、Foundation 或 theorem promotion。
 
-    |sqrt(Q_a)-sqrt(Delta_a)|<=A(a).
+- `RS-RH-COMPOSITE-ROAD-BASELINE-AUDIT`
+  - Publication: `TP2-139EE61FF11BE2292C79`
+  - Taskbook blob: `sha1:0085aef36d9c3a9b952cf42684ed5a1a38abb075`
+  - 语义：`REPLAY`，独立核查修正版研究基线，不伪造历史父任务。
 
-因此原始能量的有限否证阈值必须是
+- `RS-RH-COMPOSITE-ROAD-ANCHORED-COHERENCE`
+  - Publication: `TP2-18F1587AE8A5F365AE29`
+  - Taskbook blob: `sha1:b574649f66b9c3b6cb86da2772cb92cc056614f5`
+  - 语义：`CONTINUATION`，父任务为 baseline audit；构造 fixed-origin rational-frequency cross-phase kernel 与安全 tail interface。
 
-    U_road(a)=[sqrt(U_comp(a))+A(a)]^2,
-    U_comp(a)=2[1-xi(1)/xi(1+a)],
+- `RS-RH-COMPOSITE-ROAD-ESCAPING-TAIL`
+  - Publication: `TP2-C026B13F6E5D1516A91C`
+  - Taskbook blob: `sha1:52ffd0e28ddc36762b64dde3d2f0cbf84523549d`
+  - 语义：`CONTINUATION`，父任务为 baseline audit；研究尺度增长的 Green-energy 尾项与严格误差预算。
 
-不能直接拿较小的 U_comp 当 Q_a 的上界。独立核查应限定小 a 的统一区间，并检查端点、Gamma因子与积分主控，不把修正后的论证视作免检公理。
+后两个任务之间不是互相依赖关系；它们只消费 baseline audit 的可用结论，可并行推进。
 
-### 原始 Weil 算术矩阵不自动半正定
+## 6. 新研究员的执行纪律
 
-S0 的 n=4 二阶例子已否定“非负算术权重便使实际 Weil 平移相关矩阵半正定”的捷径。真正 Gram 与实际 Weil 平移形式必须区分。
+先读本文件和 source index，再读自己领取的 taskbook。所有旧研究笔记仍保持原有 theorem status，不因本次状态机登记自动升级。任何有限数值证书、条件于 RH 的推导、RH 等价 reformulation 和无条件 theorem 必须分别标记。
 
-### 平移平均不保留原始起点相位
-
-S7 的平移平均使不同有理频率的交叉项消失。它的无条件对角方差估计不能直接代替固定起点的道路能量。
-
-逻辑边界：仅凭“一个结论无条件、另一个等价RH”不足以证明严格不等价；任务应给出实际的观察者非保留证书或明确缺失的尾项／极限交换定理。平均的谱公式可以使用，但不能把它冒充完整固定起点观察量。
-
-## 4. 当前最近的数学缺口
-
-设 u_a(n)=R_a(n)-c_a。S7 的 Ramanujan 展开为
-
-    u_a(n)=c_a sum_{q>=2,squarefree} beta_a(q)c_q(n),
-    beta_a(q)=mu(q)/product_{p|q}(p^(1+a)-1).
-
-固定起点需要保留完整核
-
-    K(theta,phi)=sum_{N>=1} h_N(theta)*conj(h_N(phi))/N^2,
-    h_N(theta)=sum_{n=1}^N exp(i*n*theta).
-
-此处 theta、phi 是非零有理频率。必须先在有限频率、有限 N 的共同截断上证明恒等式；靠近0频率、相邻频率以及双重极限是核心，不能未经主控就交换无穷和。
-
-离散目标实际使用
-
-    B_(a,N)=sum_{n=1}^N u_a(n)-1-c_a/2,
-
-所以相位核还需常数目标与其交叉项，不能遗漏 -1-c_a/2。
-
-另一侧的明确缺口是，寻找 M(a)→∞ 并控制
-
-    sum_{N>=M(a)} B_(a,N)^2/N^2,
-
-与前缀预算合起来达到 O(a)，或给出更弱但足够的衰减准则。增加有限N、得到更多小数、或者证明平均功率谱有限都不闭合这个问题。
-
-## 5. 三个拟发布任务的关系
-
-以下三项已按 V2 不可变任务发布准备并绑定 publication ID；publication 本身不创建 CLAIM、Result、Working Truth 或 Foundation 权限。
-
-- baseline: `TP2-82BC9960A5B836FD3482`
-- anchored coherence: `TP2-73113351B079E4C69773`
-- escaping tail: `TP2-D1ACB20E7A867101E84D`
-
-1. RS-RH-COMPOSITE-ROAD-BASELINE-AUDIT：独立基线审计任务，读取已有修正版与冻结证书。它不是伪造一个历史上已完成的正式父任务；审计交付是条件清单、修正核对和原复现证据，不是重新宣称首创。
-2. RS-RH-COMPOSITE-ROAD-ANCHORED-COHERENCE：以上述正式基线审计任务为父项的 CONTINUATION，构造固定起点耦合核及保真分块／尾部接口。
-3. RS-RH-COMPOSITE-ROAD-ESCAPING-TAIL：同一父项的 CONTINUATION，研究逃逸尺度、有限Green能量与经认证的尾项预算。
-
-后两项只有在基线审计可消费时执行；二者之间没有人为设置互相阻塞。按任务自己的证据完成相应验收，不因宏观RH仍开放而把有限成果写成失败，也不因有限任务完成而把RH写成已证。
-
-## 6. 不要重做与必须核查
-
-不要重做：冻结有理候选搜索、重复Euler恒等式、原始Weil自动PSD捷径、直接把 Q_a 认作 Delta_a、以固定窗口小系数判合数冗余。
-
-必须核查：条件定理中的RH前提，绝对控制仅到 Re(s)>1-a 的边界，起点/中心化常数，频率与厚度极限的顺序，所有无限尾项及统一常数，旧笔记和修正版之间的确切作用域。
-
-## 7. 出处与接续权限
-
-S0 的来源是先前实际研究日志，S1–S7 已存在于进取数论源仓库的不可变提交。这些研究笔记的状态不因本次交接升级为 Working Truth 或 Foundation。
-
-本交接与三份任务书必须和各自不可变 publication record 一起在同一远端事务中验证。只有合入 `main` 并完成回读后，才可报告“已发布到状态机”。
+如果发现旧结论错误，返回最小受影响作用域与修正证据；不要把整条合数道路路线一次性判废，也不要为了维持路线而掩盖反例。
