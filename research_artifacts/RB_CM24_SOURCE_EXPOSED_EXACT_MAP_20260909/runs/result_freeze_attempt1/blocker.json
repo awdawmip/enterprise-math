@@ -1,0 +1,60 @@
+{
+  "schema": "RB_CM24_CANONICAL_RESULT_FREEZE_BLOCKER_V1",
+  "status": "BLOCKED_BEFORE_RECORD_CONSTRUCTION",
+  "control_commit": "663299da0f5544e636de2b3d39aa63250c86258f",
+  "source_commit": "e8b66ced566afaa35c570360cacc64e570578a58",
+  "return_sha256": "f0a6c1e2690a9a98fb8f4f7c4a8e7e7149e6f229b21393e176d0aa33ee61fc27",
+  "execution_receipt_sha256": "d5495b7faf82eb8e25fd555dd62bad4a4d750bf0a04673d8f41d27794d87ffd4",
+  "actual_exit_code": 1,
+  "actual_elapsed_nanoseconds": 7145272800,
+  "error": "ERROR: output artifact is outside execution authorization: research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/checkpoints/full_map_v3_binding.json",
+  "location": "control_plane/research_result_records_impl.py:127-135",
+  "cause": "The Result writer handles a suffix star by testing rel.startswith(rule[:-1]); a suffix double-star leaves one literal star in the prefix. The immutable ER contains checkpoints/** and runs/**. The first declared checkpoint therefore fails before result_id calculation, candidate preflight, or transaction/postcheck.",
+  "record_created": false,
+  "candidate_preflight_reached": false,
+  "write_transaction_or_postcheck_reached": false,
+  "rr_id": null,
+  "er_changed": false,
+  "output_paths_omitted_to_bypass_gate": false,
+  "source_outputs": 80,
+  "control_and_source_unchanged": true,
+  "inputs_and_logs": [
+    {
+      "path": "D:\\em\\TEMP\\rb-cm24-result-freeze-20260909\\prepare_and_freeze.py",
+      "sha256": "fb64da5730c72c255c06dbf5117f4ed21e58c1daaee391f0807932608fab86be",
+      "bytes": 9241
+    },
+    {
+      "path": "D:\\em\\TEMP\\rb-cm24-result-freeze-20260909\\source-and-control-pins.json",
+      "sha256": "2856210a865a58817443ecbedb4b8b4544b724d270f258f46493d8ddb9192b7f",
+      "bytes": 26754
+    },
+    {
+      "path": "D:\\em\\TEMP\\rb-cm24-result-freeze-20260909\\freeze-argv.json",
+      "sha256": "d6b2f5d395f98be55edb292b2e1b486b2bdba4a780728142a95bdf7f19cb5e3d",
+      "bytes": 10050
+    },
+    {
+      "path": "D:\\em\\TEMP\\rb-cm24-result-freeze-20260909\\receipt.json",
+      "sha256": "7eadc01f52be269ad4d68b6387fdb0eff70fe7b7440d01817a664323e863aa09",
+      "bytes": 10965
+    },
+    {
+      "path": "D:\\em\\TEMP\\rb-cm24-result-freeze-20260909\\freeze.stdout",
+      "sha256": "85b213cb4745fe7940ff773237ac1fa98d4bd04147f6bc6a18d34c013a4c9ff0",
+      "bytes": 158
+    },
+    {
+      "path": "D:\\em\\TEMP\\rb-cm24-result-freeze-20260909\\freeze.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "source_code_pin": {
+    "path": "control_plane/research_result_records_impl.py",
+    "sha256": "0699677c915527c048b852df1902399df0f4ff1a26fd8d4768420442053b9624",
+    "blob": "a0d3a3816cb8f839d3fd974e8386701fe5f463e1",
+    "bytes": 29969
+  },
+  "handoff": "Owner to resolve the exact output-pattern contract/consumer mismatch. This author has not changed the ER, writer, scope, or existing published mathematics. No retry of unchanged inputs."
+}

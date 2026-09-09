@@ -1,0 +1,429 @@
+{
+  "schema": "RB_CM24_FINAL_EIGHT_GATE_HANDOFF_V1",
+  "assembled_at_utc": "2026-09-09T02:44:17.109131+00:00",
+  "operation": "METADATA_AND_DURABLE_RETURN_ONLY_NO_NEW_MATHEMATICAL_EXECUTION",
+  "task_id": "RS-RB-CM24-SOURCE-EXPOSED-EXACT-MAP-CERTIFICATE",
+  "publication_id": "TP2-554AC43234E8E297A6E9",
+  "researcher_id": "EM-HODGEH0O-82EF42",
+  "execution_record_id": "ER-BDAB13EB167775B80BE7",
+  "claim_id": "chatgpt-rb-cm24-source-exposed-20260909-e227c807e7ed441c80b53420f8158ff7",
+  "execution_branch": "research/rb-cm24-source-exposed-20260909",
+  "execution_branch_base": "3a00ea191ad0380bf341af746a825e0b0c474874",
+  "authorization_intent_source_commit": "40f461da6cdde159a2364f686440bdffd31e77e1",
+  "latest_published_mathematical_source": {
+    "commit": "d275ed2a52dffe5aa7571b7e05e31d0253934bb6",
+    "tree": "0e69a2f54900c9364d3bfe34d7c679576841b8a9",
+    "parent": "b4979a4ac29534f1d2e4af82dee2cbf97b543933",
+    "publication_manifest_sha256": "843bc000fd927108c72d792a86f5a77ede2e6afe16e2b3dda4f0ec0901d9cdc6",
+    "files": 40,
+    "bytes": 2456357,
+    "remote_readback": "Owner reported actual complete content and Git blob readback; this metadata action did not repeat remote reads."
+  },
+  "author_outcome": {
+    "outcome": "PASS_AT_PINNED_SOURCE_EXPOSED_EXACT_MAP_SCOPE",
+    "hard_target_disposition": "SATISFIED",
+    "result_scope": "RESULT_ONLY",
+    "eight_taskbook_gates": "ADDRESSED_IN_NAMED_DURABLE_RETURN",
+    "formal_rr_created": false,
+    "formal_driver_verdict_created": false,
+    "parent": "OPEN",
+    "blindness": "SOURCE_EXPOSED_NONBLIND_DISCLOSED"
+  },
+  "durable_return": {
+    "path": "research_returns/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_CERTIFICATE_RETURN_20260909.md",
+    "sha256": "f0a6c1e2690a9a98fb8f4f7c4a8e7e7149e6f229b21393e176d0aa33ee61fc27",
+    "blob": "fc046ac6023f6f14c9248eeb5f3d1ecde971c876",
+    "bytes": 11594
+  },
+  "evidence": [
+    {
+      "path": "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/source_freeze.json",
+      "sha256": "85946a8cb4e736021cef6cd311c8cfffbde1cce34fe728255db4b6703f5887f2",
+      "blob": "0b9483b0ae641792233a0bb84eafef3d43743a6d",
+      "bytes": 4405
+    },
+    {
+      "path": "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/source_exposure_log.json",
+      "sha256": "52f8f3dc5cc267e388d536b921202e614e24aa3670394f7a142652320d758395",
+      "blob": "a533a4703f64ec49893ed911e248abd94ac2c598",
+      "bytes": 620
+    },
+    {
+      "path": "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/execution_policy.json",
+      "sha256": "93dac753734e3ba942879a48694c3d1cc3b2fa9d5a462f5d873a5e26a959e598",
+      "blob": "03c23c98b7c8d5d202de0e85922a6a82e84543ed",
+      "bytes": 2367
+    },
+    {
+      "path": "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/execution_authorization.json",
+      "sha256": "9f227d6944bdb96ff59e7d5d116d958b05bc7ea7bd38920e8955ff875185903d",
+      "blob": "8b6d93abb75e5b736452f398a8d97ede7bcdcdd9",
+      "bytes": 10573
+    },
+    {
+      "path": "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/reuse_resolution.json",
+      "sha256": "e4d6516a73df630d37abbb6dc25a9ea30bf698c120c81934e0c31a2b5d5e8d88",
+      "blob": "69fd2c5a5e28479d17d44a246b4e42660f2fa6cb",
+      "bytes": 2323
+    },
+    {
+      "path": "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/check_exact_map.py",
+      "sha256": "58c57974e3bf74e17a9a4ff4063d3d6ab676b378521b1dba6dfba26ec38f05b6",
+      "blob": "fa9d4ca93b41d0542521bcbb5b4b575f801c2adb",
+      "bytes": 44268
+    },
+    {
+      "path": "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/test_exact_map.py",
+      "sha256": "41a805d1a57e9422b3a8bfeac8257b8c61231524157514fcf4389a761de712e6",
+      "blob": "952c1f0d6da626ed7975607aa459c4426ce5d07c",
+      "bytes": 5827
+    },
+    {
+      "path": "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/exact_map_proof.md",
+      "sha256": "7c8c480af589fcd875488a8031db4e6adb1cc1a144adee2950a2e16b74866f12",
+      "blob": "e59d75e39b8e6a1b2116eb5980ca35c1a417d747",
+      "bytes": 23768
+    },
+    {
+      "path": "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/exact_map_certificate.json",
+      "sha256": "bbb33d3e80274af0eb09aeef6bb6d5009745048849c6e8b93026a6410bac0e5e",
+      "blob": "13d265e3f3bceb978a4507549824db73eea8224d",
+      "bytes": 533112
+    },
+    {
+      "path": "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/runs/placement_v3_final/receipt.json",
+      "sha256": "b02c0cc64126fab7bac3c355d24db2fc816a068e7408ca9c7c28a07744570c26",
+      "blob": "de226ba89085171b64747130f57762cc9a576bae",
+      "bytes": 4035
+    },
+    {
+      "path": "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/runs/placement_v3_final/replay.py",
+      "sha256": "b4edde18445aefdbc1cfb6c2a6f6dd76d550030830fd9d79d642c70e7cf36081",
+      "blob": "3a34509df22a12a87b62284ab43e76a27c04d189",
+      "bytes": 4465
+    },
+    {
+      "path": "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/checkpoints/placement_source_binding.json",
+      "sha256": "722628192d82a4ec5d277c3a07d4f6aea84276edada30e692c88a2853746d3d1",
+      "blob": "9875291809728a30034d34477de24b3b44f2854e",
+      "bytes": 2087
+    },
+    {
+      "path": "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/checkpoints/owner_complete_fibers_placement_v3.md",
+      "sha256": "61681db697d06e9d6a9e1ce3fb2725360c6fb048b1ad6fc171d06d2a6525fdf2",
+      "blob": "a1dd0dff8c0fb2bc3ba1a321faf7107111786c4b",
+      "bytes": 5879
+    },
+    {
+      "path": "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/checkpoints/peer_review_v3/REVIEW.md",
+      "sha256": "0bb42450087e1d5d726ccd226923744ab373c6febda8ebee28eeaeff7787f18e",
+      "blob": "f4cabe16b9e19c8336a2308014f3a3ba9b44b74d",
+      "bytes": 13241
+    },
+    {
+      "path": "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/checkpoints/peer_review_v3/receipt.json",
+      "sha256": "e30709d55be0c8e88508d59439f636f15cef42fffe2ca336124c5087c7ea60d5",
+      "blob": "477e1a7ce1509fd4d35a9aa75a21bf4e00e9afd6",
+      "bytes": 32592
+    },
+    {
+      "path": "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/checkpoints/peer_review_v3/collect_read_evidence.py",
+      "sha256": "d89822b8615c42b7c2cc35645f498eabd65353f883b8229fce9729868bf35223",
+      "blob": "bcb5f27791ebf758bcb08a466326fa4d97cd17a9",
+      "bytes": 10145
+    },
+    {
+      "path": "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/checkpoints/peer_review_v3/frozen-review-manifest.json",
+      "sha256": "c082f083c238b3ef5f966d0486b6e2d9da3f1603344aa43628c868d50b07bd67",
+      "blob": "7db38146a48b0401f4e2f94a52fb32f2284723a4",
+      "bytes": 1201
+    }
+  ],
+  "runtime_source_pins": [
+    {
+      "path": "research_notes/RB_CM24_ORIGIN_EXPLICIT_MAP_20260827.md",
+      "sha256": "d72563af774b53ba25518e5768ee1c986b82e3fb935e4f35efdef74f4ac82291",
+      "blob": "8d4753e90410b71725f60b6aef3701bf97feb30c",
+      "bytes": 8855,
+      "source_commit": "3a00ea191ad0380bf341af746a825e0b0c474874"
+    },
+    {
+      "path": "research_notes/RB_CM24_ORIGIN_HOSTILE_AUDIT_AND_BLIND_PACKET_20260827.md",
+      "sha256": "f2b94217dc2c0e3f70e3687801548def7abccd1d36433d92cec6d651017cb333",
+      "blob": "f093e51577435d645288dcae5926f38665a0b277",
+      "bytes": 6290,
+      "source_commit": "3a00ea191ad0380bf341af746a825e0b0c474874"
+    },
+    {
+      "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/check_squareclass_rr.py",
+      "sha256": "32282b30357638b5f0a2b709a0c917b29711b43a4d7f407a113bfb6502ddf269",
+      "blob": "8eca623bebea2eea7305f9812e5adb0abeed3c0e",
+      "bytes": 13923,
+      "source_commit": "3a00ea191ad0380bf341af746a825e0b0c474874"
+    },
+    {
+      "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/test_squareclass_rr.py",
+      "sha256": "7e3a5945667ba3b51e2b6494e5316c04426e10e5b834e87cbe91d12050c1789d",
+      "blob": "a1d0873bb1e6a0f25d6b74ac9a16eb9edf209c0a",
+      "bytes": 4132,
+      "source_commit": "3a00ea191ad0380bf341af746a825e0b0c474874"
+    },
+    {
+      "path": "exact_arithmetic_runtime_policy.json",
+      "sha256": "0fdb8eddc09d9e734ddd91b52d6c3c18c9d6036837dfe9fee0bbdbdb7d44b2aa",
+      "blob": "595e433bf274d13933b7a620ab4b464047af84a6",
+      "bytes": 7516,
+      "source_commit": "3a00ea191ad0380bf341af746a825e0b0c474874"
+    },
+    {
+      "path": "src/enterprise_math/exact_arithmetic.py",
+      "sha256": "f4f8feead82dc53a35e5fec495b31e46e64820f7b115c9efd6034063e68f8ad6",
+      "blob": "35ea95b0916494b83a92386e3e313928362dd79e",
+      "bytes": 11908,
+      "source_commit": "3a00ea191ad0380bf341af746a825e0b0c474874"
+    },
+    {
+      "path": "research_tasks/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_CERTIFICATE_20260909.md",
+      "sha256": "2bab68e1b51431162696b689fc91295d4d96f3cb357b444e1173ad67cd9f41c9",
+      "blob": "b88c72b0ed6d3f92410adc7d29632b4f0b8a4778",
+      "bytes": 18993,
+      "source_commit": "3a00ea191ad0380bf341af746a825e0b0c474874"
+    },
+    {
+      "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/branch_assignment_classification.json",
+      "sha256": "a83524c6b9b8cb6e00561c014e7129c614e9b1c46eedcbd9c9e79f2ff5ee89a0",
+      "git_blob": "a173e6e63a1f0820123e486e0c698ac6259a0bd4",
+      "bytes": 82957,
+      "source_commit": "3a00ea191ad0380bf341af746a825e0b0c474874"
+    },
+    {
+      "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/squareclass_rr_certificate.json",
+      "sha256": "d861e5b4d9d5b562c7e2a972c56b30144f2cd41275963f80a3aa80c5f1d3a289",
+      "git_blob": "ea8f51789eea4ab853cafe3384c9ffe2b6fa8bf7",
+      "bytes": 121094,
+      "source_commit": "3a00ea191ad0380bf341af746a825e0b0c474874"
+    },
+    {
+      "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/squareclass_rr_reduction.md",
+      "sha256": "9fdf67629596121ffc05fad3c1d973d794a254f263a3d510b0f20eab5318cf22",
+      "git_blob": "54e833ec3208247c3241761fa8e01b6e4167c9dc",
+      "bytes": 14592,
+      "source_commit": "3a00ea191ad0380bf341af746a825e0b0c474874"
+    },
+    {
+      "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/empty_fiber_obstruction.md",
+      "sha256": "5512a8d2599b44ee483775fca7a7b54692b9bc1aa58fd4963c13580f31640d72",
+      "git_blob": "f9c4518680616ad5d39ab7772440f76f9151e583",
+      "bytes": 10821,
+      "source_commit": "3a00ea191ad0380bf341af746a825e0b0c474874"
+    },
+    {
+      "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/raw_freeze_branch_patterns.json",
+      "sha256": "a9bac29196d70c40e0b08eb9efc23a3a5c07add447479bca979a11b885bec9b2",
+      "git_blob": "3a002caa7c085a34c3a41c271564cec53ac4bc83",
+      "bytes": 35592,
+      "source_commit": "3a00ea191ad0380bf341af746a825e0b0c474874"
+    }
+  ],
+  "actual_author_execution": {
+    "receipt": {
+      "path": "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/runs/placement_v3_final/receipt.json",
+      "sha256": "b02c0cc64126fab7bac3c355d24db2fc816a068e7408ca9c7c28a07744570c26",
+      "blob": "de226ba89085171b64747130f57762cc9a576bae",
+      "bytes": 4035
+    },
+    "commands": [
+      {
+        "label": "certificate",
+        "argv": [
+          "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "D:\\em\\research-rb-cm24-source-exposed-20260909\\research_artifacts\\RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909\\check_exact_map.py",
+          "--root",
+          "D:\\em\\research-rb-cm24-source-exposed-20260909",
+          "--output",
+          "D:\\em\\research-rb-cm24-source-exposed-20260909\\research_artifacts\\RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909\\runs\\placement_v3_final\\certificate.json",
+          "--write"
+        ],
+        "cwd": "D:\\em\\research-rb-cm24-source-exposed-20260909",
+        "started_at": "2026-09-09T02:14:57.641269+00:00",
+        "finished_at": "2026-09-09T02:14:58.446668+00:00",
+        "elapsed_nanoseconds": 797000000,
+        "outer_timeout_seconds": 600,
+        "exit_code": 0,
+        "timed_out": false,
+        "stdout_sha256": "1533043603b1f3e9ee1c1d0f4bea0f3099fd434dd709c852f64341803a195bad",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "label": "focused-tests",
+        "argv": [
+          "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "-m",
+          "unittest",
+          "research_artifacts.RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909.test_exact_map",
+          "-v"
+        ],
+        "cwd": "D:\\em\\research-rb-cm24-source-exposed-20260909",
+        "started_at": "2026-09-09T02:14:58.446668+00:00",
+        "finished_at": "2026-09-09T02:15:01.346360+00:00",
+        "elapsed_nanoseconds": 2906000000,
+        "outer_timeout_seconds": 600,
+        "exit_code": 0,
+        "timed_out": false,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "34816491f93cd8bcb61f6ffc5738d6a9798205ebd405227ac056d2888ace4abd"
+      },
+      {
+        "label": "selected-static",
+        "argv": [
+          "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+          "-B",
+          "-X",
+          "utf8",
+          "tools/check_exact_arithmetic_policy.py",
+          "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/check_exact_map.py",
+          "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/test_exact_map.py"
+        ],
+        "cwd": "D:\\em\\research-rb-cm24-source-exposed-20260909",
+        "started_at": "2026-09-09T02:15:01.346360+00:00",
+        "finished_at": "2026-09-09T02:15:01.556357+00:00",
+        "elapsed_nanoseconds": 204000000,
+        "outer_timeout_seconds": 600,
+        "exit_code": 0,
+        "timed_out": false,
+        "stdout_sha256": "6853a5c4fbfc2de59bf759a2c668127cec1db9cdfef90d879764dfca2fa0ddaa",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "focused_tests_passed": 13,
+    "unittest_elapsed_seconds_as_reported": "0.880",
+    "selected_static_files": [
+      "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/check_exact_map.py",
+      "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/test_exact_map.py"
+    ],
+    "new_execution_during_this_handoff": false,
+    "memory_boundary": "Each mathematics child applies its existing Windows Job 4096 MiB cap; this runner records no measured peak."
+  },
+  "independent_peer_evidence": {
+    "review": {
+      "path": "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/checkpoints/peer_review_v3/REVIEW.md",
+      "sha256": "0bb42450087e1d5d726ccd226923744ab373c6febda8ebee28eeaeff7787f18e",
+      "blob": "f4cabe16b9e19c8336a2308014f3a3ba9b44b74d",
+      "bytes": 13241
+    },
+    "receipt": {
+      "path": "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/checkpoints/peer_review_v3/receipt.json",
+      "sha256": "e30709d55be0c8e88508d59439f636f15cef42fffe2ca336124c5087c7ea60d5",
+      "blob": "477e1a7ce1509fd4d35a9aa75a21bf4e00e9afd6",
+      "bytes": 32592
+    },
+    "scope": "Source-exposed independent paper and code-semantic review plus actual read-only metadata collection; not blind rediscovery or independent mathematical execution.",
+    "collection_started_at": "2026-09-09T02:29:31.046317+00:00",
+    "collection_finished_at": "2026-09-09T02:29:31.184848+00:00",
+    "actual_argv": [
+      "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "D:/em/TEMP/rb-cm24-full-v3-independent-review-20260909/collect_read_evidence.py"
+    ],
+    "mathematical_execution_by_reviewer": false,
+    "author_tests_reexecuted_by_reviewer": false,
+    "copied_original_bytes": true,
+    "historical_absolute_paths": "Original reviewer receipt and collector retain their actual TEMP invocation paths; the four original files are bundled without alteration."
+  },
+  "program_checked_directly": [
+    "Full original function-field ODE and nonzero remainders under source mutations.",
+    "Norm and exact coprimality premises for the complete special fibers and common section base point.",
+    "Actual Y numerator sign and denominator-factor mutations in the unsquared cleared identity.",
+    "All three square-class reconstructions for intermediate x prime.",
+    "Canonical z full ODE and Wz factor, tangent-half-point premises, and the pinned old representative row."
+  ],
+  "reviewed_paper_deductions_not_separate_program_checks": [
+    "Degree-16 coefficient field and function-field embedding.",
+    "Local valuations, common base divisor, both degree-six maps, and global regular differential.",
+    "All three canonical z transported scalar/function representatives.",
+    "S is the class of the complete L-defined divisor E_l; 2S=-B0 is a consequence and does not select a unique half-point by itself.",
+    "Picard/RR interpretation and dimensions (3,1,2), including the actual general pole class.",
+    "The canonical unsquared eta identity and sign."
+  ],
+  "retained_boundaries": [
+    "One recovered explicit formula, not all 1980 parameter families or a restored blind Result.",
+    "The source coefficient field includes i; no descent to the smaller historically stated field is claimed.",
+    "Individual cubic fiber points are not asserted L-rational; their complete divisors are L-defined.",
+    "Period integer, homology index and independently derived normalization of (B1/Omega_P)^2 remain open.",
+    "No new generic tool family/API, formal Result, Driver disposition, Working Truth or Foundation promotion is created here.",
+    "Natural-number divisions and root evaluations are not requested; BRC executions are zero, not an omitted arithmetic evaluation."
+  ],
+  "historical_status_preservation": {
+    "v3_40_files_unchanged": true,
+    "v3_historical_incomplete_preserved": true,
+    "explanation": "The v3 checkpoint predated the final peer report and this return. This new aggregate adds later evidence without rewriting the earlier source/certificate/proof labels or rerunning mathematics to change a label.",
+    "old_return_draft": {
+      "path": "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/checkpoints/return_draft_v3.md",
+      "sha256": "1f1c3be52befd291823a1a9b9cc9484cdda930107a80eda2f7877632867e6119",
+      "blob": "e6b70cdefaae4dda90b12ea501d7c606bd46fbc9",
+      "bytes": 9336
+    },
+    "old_er": {
+      "path": "research_execution_records/RS-RB-CM24-SOURCE-EXPOSED-EXACT-MAP-CERTIFICATE/ER-BDAB13EB167775B80BE7.json",
+      "sha256": "29538d5466433a0a555dc1973cfd3c3eb6646604aa4fd0377882ae12f2970db5",
+      "blob": "db329f0b85fb1913a104aa7e1c7375e565c9e7a8",
+      "bytes": 2177
+    },
+    "original_authorization": {
+      "path": "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/execution_authorization.json",
+      "sha256": "9f227d6944bdb96ff59e7d5d116d958b05bc7ea7bd38920e8955ff875185903d",
+      "blob": "8b6d93abb75e5b736452f398a8d97ede7bcdcdd9",
+      "bytes": 10573
+    }
+  },
+  "actual_renewed_runtime_authorization": {
+    "receipt": {
+      "path": "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/runs/authorization_renewal_20260909T020747/receipt.json",
+      "sha256": "51080d52cf710a1949de65e7e598f7bb89c068889feefc5643df8675ad22826a",
+      "blob": "e2a01cfd2f4050e3b3c6f5d71b88067db1588cd0",
+      "bytes": 1307
+    },
+    "stdout": {
+      "path": "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/runs/authorization_renewal_20260909T020747/stdout.json",
+      "sha256": "b95be762aa1f70bce1702ec00f0d5666db4f9154fb187748d9f56af6c61570b2",
+      "blob": "79a05a2a59834ca8ecd4f9c05385ebe9c2c50b52",
+      "bytes": 6528
+    },
+    "raw_events": {
+      "path": "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/runs/authorization_renewal_20260909T020747/raw-server-comments.json",
+      "sha256": "4f09dd64496d56dd8ced938556dab16ff320b9b5f0e3b17702f499cd5c4e8afd",
+      "blob": "0166955bcac646e5c1e8ec929bbe69e4f8d73b8c",
+      "bytes": 15478
+    },
+    "authorized": true,
+    "owner_lease_until": "2026-09-09T04:07:47+00:00",
+    "actual_progress_comment": 5594683307,
+    "progress_created_at": "2026-09-09T02:07:47Z",
+    "actual_execution_started_at": "2026-09-09T02:23:03.636733+00:00",
+    "actual_execution_finished_at": "2026-09-09T02:23:22.191614+00:00",
+    "actual_argv": [
+      "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "D:\\em\\TEMP\\rb-cm24-source-exposed-intent-20260909\\formal_authorize_entry.py",
+      "authorize",
+      "--state-file",
+      "D:\\em\\TEMP\\rb-cm24-activity-geometry-checkpoint-20260909\\hume-renewed-authorization-input.json",
+      "--events",
+      "D:\\em\\TEMP\\rb-cm24-activity-geometry-checkpoint-20260909\\actual-renewal-raw-comments.json"
+    ],
+    "exit_code": 0,
+    "not_session_liveness": true
+  },
+  "next_action": "Owner publishes this immutable return/review/receipt package. Only after actual remote persistence may the current canonical helper prepare a Result; no invented RR or Driver ID.",
+  "registration_authoring_global_knowledge_sync": "main@3ad395d666b488e89f4e1cef56ec8fbdf9732a18 / GLOBAL_KNOWLEDGE_V1; authoring context, not a future replay lease"
+}

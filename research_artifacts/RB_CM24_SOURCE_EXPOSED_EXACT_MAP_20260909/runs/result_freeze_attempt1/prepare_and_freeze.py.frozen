@@ -1,0 +1,132 @@
+"""Stage published task artifacts on fixed current control, then use canonical CLI."""
+import hashlib
+import io
+import json
+import subprocess
+import sys
+import tarfile
+import time
+from datetime import datetime, timezone
+from pathlib import Path
+
+ROOT = Path('D:/em/integration-rb-cm24-result-freeze-20260909')
+OUT = Path('D:/em/TEMP/rb-cm24-result-freeze-20260909')
+BASE = '663299da0f5544e636de2b3d39aa63250c86258f'
+SOURCE = 'e8b66ced566afaa35c570360cacc64e570578a58'
+TASK = 'RS-RB-CM24-SOURCE-EXPOSED-EXACT-MAP-CERTIFICATE'
+P = 'research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/'
+RET = 'research_returns/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_CERTIFICATE_RETURN_20260909.md'
+ER = 'research_execution_records/' + TASK + '/ER-BDAB13EB167775B80BE7.json'
+TP = 'research_task_records/' + TASK + '/TP2-554AC43234E8E297A6E9.json'
+BOOK = 'research_tasks/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_CERTIFICATE_20260909.md'
+
+def now():
+    return datetime.now(timezone.utc).isoformat()
+
+def describe(raw, path):
+    return {'path': path, 'sha256': hashlib.sha256(raw).hexdigest(),
+            'blob': hashlib.sha1(b'blob ' + str(len(raw)).encode() + b'\0' + raw).hexdigest(),
+            'bytes': len(raw)}
+
+def pin(rel):
+    return describe(ROOT.joinpath(rel).read_bytes(), rel)
+
+def save(name, obj):
+    with OUT.joinpath(name).open('xb') as handle:
+        handle.write((json.dumps(obj, indent=2, ensure_ascii=False) + '\n').encode('utf-8'))
+
+def git(*args):
+    proc = subprocess.run(['git', '-C', str(ROOT), *args], capture_output=True, timeout=120)
+    if proc.returncode:
+        raise RuntimeError(proc.stderr.decode('utf-8', errors='replace'))
+    return proc.stdout
+
+OUT.mkdir(parents=True, exist_ok=True)
+assert git('rev-parse', 'HEAD').decode().strip() == BASE
+for rel in [TP, BOOK]:
+    assert ROOT.joinpath(rel).read_bytes() == git('show', SOURCE + ':' + rel), rel
+source_tree = git('ls-tree', '-r', '-z', SOURCE, '--', P, RET, ER)
+expected = {}
+for line in source_tree.split(b'\0'):
+    if line:
+        meta, rel = line.split(b'\t', 1)
+        mode, kind, blob = meta.decode().split()
+        assert kind == 'blob' and mode == '100644'
+        expected[rel.decode('utf-8')] = blob
+archive = git('archive', '--format=tar', SOURCE, '--', P, RET, ER)
+staged = []
+with tarfile.open(fileobj=io.BytesIO(archive), mode='r:') as stream:
+    for member in stream:
+        if member.isdir():
+            continue
+        assert member.isfile() and member.name in expected, member.name
+        target = ROOT.joinpath(member.name)
+        target.resolve().relative_to(ROOT.resolve())
+        raw = stream.extractfile(member).read()
+        item = describe(raw, member.name)
+        assert item['blob'] == expected[member.name], member.name
+        if member.name == ER and target.exists():
+            assert target.read_bytes() == raw, 'current ER source drift'
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(raw)
+        staged.append(item)
+assert len(staged) == len(expected)
+assert pin(RET)['sha256'] == 'f0a6c1e2690a9a98fb8f4f7c4a8e7e7149e6f229b21393e176d0aa33ee61fc27'
+assert pin(P + 'execution_receipt.json')['sha256'] == 'd5495b7faf82eb8e25fd555dd62bad4a4d750bf0a04673d8f41d27794d87ffd4'
+assert pin(ER)['sha256'] == '29538d5466433a0a555dc1973cfd3c3eb6646604aa4fd0377882ae12f2970db5'
+control_paths = ['tools/research_result_records.py', 'control_plane/research_result_records_impl.py', 'control_plane/research_result_records_compat_runtime.py', 'control_plane/research_immutable_candidate_validation.py', 'control_plane/immutable_write_transaction.py', 'control_plane/check_result_review_binding_fault_isolated.py', 'research_result_contract.json', 'control_plane/current_control_authority.json']
+control = []
+for rel in control_paths:
+    assert ROOT.joinpath(rel).read_bytes() == git('show', BASE + ':' + rel), rel
+    control.append(pin(rel))
+output_paths = sorted(rel for rel in expected if rel != ER)
+save('source-and-control-pins.json', {'schema': 'RB_CM24_RESULT_SOURCE_AND_CONTROL_PREPARATION_V1', 'prepared_at': now(), 'control_snapshot': BASE, 'control_tree': git('rev-parse', 'HEAD^{tree}').decode().strip(), 'source_commit': SOURCE, 'source_tree': git('rev-parse', SOURCE + '^{tree}').decode().strip(), 'source_files': staged, 'control_files': control, 'taskbook_and_publication_equal_between_source_and_control': [pin(BOOK), pin(TP)], 'scope': 'Fixed local candidate only; Owner will refresh authority before remote CAS. No claim or math is recreated.'})
+args = [sys.executable, '-B', '-X', 'utf8', 'tools/research_result_records.py', 'freeze',
+    '--execution-record-id', 'ER-BDAB13EB167775B80BE7',
+    '--return-path', RET,
+    '--output-paths-json', json.dumps(output_paths, ensure_ascii=False),
+    '--owner-head', SOURCE,
+    '--terminal-verdict', 'PASS',
+    '--hard-target-disposition', 'SATISFIED',
+    '--unresolved-residue', 'This SATISFIED disposition is limited to RB_CM24_PINNED_SOURCE_EXACT_MAP_CERTIFIED_OR_EXACT_FAILURE. Parent period integer, homology index, independently derived normalization of (B1/Omega_P)^2, and exhaustive resolution of the remaining 1980 parameter families remain OPEN. No restored blindness, smaller-field descent, global API, Working Truth, or Foundation claim.',
+    '--method-harvest', 'RESULT_ONLY',
+    '--independence-status', 'SHARED_AMBIENT_CONTEXT_DISCLOSED',
+    '--source-exposure-status', 'NONBLIND_DISCLOSED',
+    '--next-control-plane-recommendation', 'Driver review the completed eight-gate pinned source-exposed exact-map certificate at TASK scope. Keep the parent OPEN and resume the existing canonical queue; do not infer a new followup task or parent closure from this Result. Formal disposition is reserved to the Driver.']
+save('freeze-argv.json', {'argv': args, 'cwd': str(ROOT), 'outer_timeout_seconds': 600, 'new_claim': False, 'new_math': False})
+result_dir = ROOT.joinpath('research_result_records', TASK)
+before = {str(p.relative_to(ROOT)): p.read_bytes() for p in result_dir.glob('*.json')} if result_dir.exists() else {}
+print('Published source staged and pinned; canonical freeze starting.', flush=True)
+started = now()
+t0 = time.perf_counter_ns()
+try:
+    proc = subprocess.run(args, cwd=ROOT, capture_output=True, timeout=600)
+    stdout, stderr, code, timed_out = proc.stdout, proc.stderr, proc.returncode, False
+except subprocess.TimeoutExpired as exc:
+    stdout, stderr, code, timed_out = exc.stdout or b'', exc.stderr or b'', None, True
+elapsed = time.perf_counter_ns() - t0
+finished = now()
+OUT.joinpath('freeze.stdout').write_bytes(stdout)
+OUT.joinpath('freeze.stderr').write_bytes(stderr)
+after = {str(p.relative_to(ROOT)): p.read_bytes() for p in result_dir.glob('*.json')} if result_dir.exists() else {}
+assert all(after.get(rel) == raw for rel, raw in before.items()), 'preexisting Result changed'
+for item in staged + control:
+    assert pin(item['path'])['sha256'] == item['sha256'], item['path']
+new_paths = sorted(set(after) - set(before))
+receipt = {'schema': 'RB_CM24_ACTUAL_CANONICAL_RESULT_FREEZE_RECEIPT_V1', 'started_at': started, 'finished_at': finished, 'elapsed_nanoseconds': elapsed, 'argv': args, 'cwd': str(ROOT), 'outer_timeout_seconds': 600, 'exit_code': code, 'timed_out': timed_out, 'stdout': describe(stdout, 'freeze.stdout'), 'stderr': describe(stderr, 'freeze.stderr'), 'control_snapshot': BASE, 'source_commit': SOURCE, 'new_result_paths': new_paths, 'preexisting_results_unchanged': True, 'source_and_control_bytes_unchanged': True, 'new_mathematical_execution': False, 'remote_writes': False}
+save('receipt.json', receipt)
+if code != 0:
+    print(json.dumps(receipt, ensure_ascii=False, indent=2))
+    print(stdout.decode('utf-8', errors='replace')[-16000:])
+    print(stderr.decode('utf-8', errors='replace')[-16000:])
+    raise SystemExit(1)
+record = json.loads(stdout)
+assert len(new_paths) == 1 and record['record_path'].replace('\\', '/') == new_paths[0].replace('\\', '/')
+rr_path = record['record_path']
+raw = ROOT.joinpath(rr_path).read_bytes()
+stored = json.loads(raw)
+assert stored['owner_head'] == SOURCE and stored['terminal_verdict'] == 'PASS'
+assert stored['hard_target_disposition'] == 'SATISFIED' and stored['method_harvest'] == 'RESULT_ONLY'
+assert len(stored['output_manifest']) == len(output_paths)
+save('publication.json', {'schema': 'RB_CM24_RESULT_RECORD_LOCAL_PUBLICATION_V1', 'prepared_at': now(), 'expected_source_parent': SOURCE, 'execution_branch': stored['execution_branch'], 'task_id': TASK, 'result_id': stored['result_id'], 'control_snapshot': BASE, 'control_snapshot_is_permanent_write_authority': False, 'actual_receipt': describe(OUT.joinpath('receipt.json').read_bytes(), 'receipt.json'), 'output_count': len(stored['output_manifest']), 'files': [{**describe(raw, rr_path), 'content': raw.decode('utf-8')}], 'total_files': 1, 'total_bytes': len(raw), 'remote_mutation': False, 'driver_review_created': False})
+print(json.dumps({'status': 'PASS', 'result_id': stored['result_id'], 'record': describe(raw, rr_path), 'receipt': describe(OUT.joinpath('receipt.json').read_bytes(), 'receipt.json'), 'publication': describe(OUT.joinpath('publication.json').read_bytes(), 'publication.json'), 'output_count': len(stored['output_manifest'])}, indent=2))

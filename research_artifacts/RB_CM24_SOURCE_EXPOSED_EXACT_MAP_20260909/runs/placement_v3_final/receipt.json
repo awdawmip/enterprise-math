@@ -1,0 +1,94 @@
+{
+  "schema": "RB_CM24_ACTUAL_V3_RUNNER_RECEIPT_V1",
+  "source_pins": {
+    "check_exact_map.py": {
+      "sha256": "58c57974e3bf74e17a9a4ff4063d3d6ab676b378521b1dba6dfba26ec38f05b6",
+      "bytes": 44268
+    },
+    "test_exact_map.py": {
+      "sha256": "41a805d1a57e9422b3a8bfeac8257b8c61231524157514fcf4389a761de712e6",
+      "bytes": 5827
+    },
+    "exact_map_proof.md": {
+      "sha256": "7c8c480af589fcd875488a8031db4e6adb1cc1a144adee2950a2e16b74866f12",
+      "bytes": 23768
+    }
+  },
+  "runner_sha256": "b4edde18445aefdbc1cfb6c2a6f6dd76d550030830fd9d79d642c70e7cf36081",
+  "commands": [
+    {
+      "label": "certificate",
+      "argv": [
+        "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\em\\research-rb-cm24-source-exposed-20260909\\research_artifacts\\RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909\\check_exact_map.py",
+        "--root",
+        "D:\\em\\research-rb-cm24-source-exposed-20260909",
+        "--output",
+        "D:\\em\\research-rb-cm24-source-exposed-20260909\\research_artifacts\\RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909\\runs\\placement_v3_final\\certificate.json",
+        "--write"
+      ],
+      "cwd": "D:\\em\\research-rb-cm24-source-exposed-20260909",
+      "started_at": "2026-09-09T02:14:57.641269+00:00",
+      "finished_at": "2026-09-09T02:14:58.446668+00:00",
+      "elapsed_nanoseconds": 797000000,
+      "outer_timeout_seconds": 600,
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout_sha256": "1533043603b1f3e9ee1c1d0f4bea0f3099fd434dd709c852f64341803a195bad",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "focused-tests",
+      "argv": [
+        "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "research_artifacts.RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909.test_exact_map",
+        "-v"
+      ],
+      "cwd": "D:\\em\\research-rb-cm24-source-exposed-20260909",
+      "started_at": "2026-09-09T02:14:58.446668+00:00",
+      "finished_at": "2026-09-09T02:15:01.346360+00:00",
+      "elapsed_nanoseconds": 2906000000,
+      "outer_timeout_seconds": 600,
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "34816491f93cd8bcb61f6ffc5738d6a9798205ebd405227ac056d2888ace4abd"
+    },
+    {
+      "label": "selected-static",
+      "argv": [
+        "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "tools/check_exact_arithmetic_policy.py",
+        "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/check_exact_map.py",
+        "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/test_exact_map.py"
+      ],
+      "cwd": "D:\\em\\research-rb-cm24-source-exposed-20260909",
+      "started_at": "2026-09-09T02:15:01.346360+00:00",
+      "finished_at": "2026-09-09T02:15:01.556357+00:00",
+      "elapsed_nanoseconds": 204000000,
+      "outer_timeout_seconds": 600,
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout_sha256": "6853a5c4fbfc2de59bf759a2c668127cec1db9cdfef90d879764dfca2fa0ddaa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "selected_sources_unchanged": true,
+  "complete": true,
+  "all_pass": true,
+  "memory_boundary": "Each mathematics child applies its existing Windows Job 4096 MiB cap; this runner records no measured peak.",
+  "earlier_evidence": "This new stored runner was not the runner for v1 or the initial v3 explorations. Their original inline execution provenance remains separate.",
+  "certificate_sha256": "bbb33d3e80274af0eb09aeef6bb6d5009745048849c6e8b93026a6410bac0e5e",
+  "certificate_bytes": 533112
+}
