@@ -7,7 +7,7 @@
   "base_state": "READY",
   "priority": "P1",
   "leverage": "HIGH",
-  "frontier": "The P11 arithmetic line has a completed but previously unreviewed diagonal elliptic-fiber Result and now requires one durable line owner to review returns, route two remaining mathematical branches, release independent verification and final integration, and preserve current P000/observer boundaries across short-lived researchers.",
+  "frontier": "The P11 arithmetic line now has a Driver-accepted diagonal elliptic-fiber Result and requires one durable line owner to review returns, route two remaining mathematical branches, release independent verification and final integration, and preserve current P000/observer boundaries across short-lived researchers.",
   "next_action": "An explicitly activated Research Driver opens the complete line dossier, accepts responsibility for the P11 arithmetic line, preserves existing evidence and owners, routes the two READY research tasks, reviews their returns, releases blocked verification/integration gates when satisfied, and keeps the dossier replacement-ready.",
   "dependencies": [],
   "source_refs": [
