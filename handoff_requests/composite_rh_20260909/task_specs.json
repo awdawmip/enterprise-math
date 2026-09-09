@@ -1,0 +1,59 @@
+{
+  "schema": "COMPOSITE_RH_HANDOFF_TASKSET_V1",
+  "parent_objective_id": "OBJ-RH-COMPOSITE-ROAD-20260905",
+  "publisher_role": "RESEARCHER",
+  "publisher_id": "EM-FREE-C4A91D",
+  "source_snapshot": "9d7c4c6eafc5479a6795a128fc0288fc893bed3c",
+  "tasks": [
+    {
+      "task_id": "RH-ROAD-AUDIT-20260909",
+      "title": "Composite-road RH proof-chain and correction audit",
+      "task_lineage": "REPLAY",
+      "parent_task_id": null,
+      "dependencies": [],
+      "frontier": "The Sep 6 positive-road, raw/completed comparison, boundary-slope and phase claims exist as researcher derivations but lack one independent source-and-proof audit.",
+      "next_action": "Read research_handoffs/COMPOSITE_ROAD_RH_20260909/START_HERE.md and source_manifest.json; classify each claim by assumptions and independently check the raw/completed comparison before consuming any RH-equivalence rate.",
+      "research_value": "Recover a trustworthy common frontier and prevent successors from using withdrawn Weil positivity or raw/completed thresholds; preserve the complete composite-inclusive certificate chain.",
+      "successor_gate": null,
+      "body": "# 合数道路 RH：证明链独立审计\n\n## 0. Mother question\n\n当前全整数道路研究链中，哪些论断已经有充分证明，哪些依赖 RH、零点单性或未证的交换极限，哪些必须修正？形成无需旧聊天即可消费的证据图。\n\n## 1. Frozen inputs and scope\n\n先读 research_handoffs/COMPOSITE_ROAD_RH_20260909/START_HERE.md 与 source_manifest.json，运行 stage2_verify.py。研究原件冻结在 EM commit 9d7c4c6eafc5479a6795a128fc0288fc893bed3c。Sep 5 完整证明在 GK commit bb649a26fd04db9bee3cf237b7c0d0311f99e7d2 的 journal/enterprise-math/2026-09-05/20260905T073134Z-composite-residue-rh-stage2-c4a91d.md。\n本任务为用户明确请求的有源独立复核，不是盲验证。历史来源为 EM-FREE-C4A91D 的用户选题研究，ANCHOR_EXPOSED，没有新的原始公理获得认可。旧作者的 PROVED 标签只作为待审论断。保留完整整数、合数联合方向、符号相位及当前根公理和最高保留合同。通用执行与持久化规则直接继承项目，不在此重设。\n范围覆盖 manifest 中全部 COMPOSITE_ROAD_RH_*_20260906.md 笔记和 Sep 5 余数证书。外部母定理须核对一手原文确切假设，尤其 Báez-Duarte math/0202141、Burnol math/0202166 及实际使用的其他文献。\n\n## 2. Hard target and required outputs\n\n输出 research_notes/RH_ROAD_AUDIT_20260909/RETURN.md、claim_audit.json、必要的最小独立检查程序及运行证据。\n逐条审计零尾 Nyman 归一化、L_n 提取器与统一下界、R_a 和 Burnol 函数恒等式的收敛区、raw Q_a 与 completed Delta_a 的比较、A(a)=O(a) 范围及 U_road 阈值、边界斜率的重数及求和/极限、离散端点项、Ramanujan 展开与平移平均交换。\n特别检查：两个量满足不同充分条件，不足以单独证明观察者不可约。相位丢失须给同功率异相位有限见证，或降为对角化擦除了交叉项、是否足够控制固定起点量尚缺证明。\nclaim_audit.json 每项含 statement、source_commit/path/blob、assumptions、proof_or_counterexample、status、downstream_action；状态为 VERIFIED_DERIVATION、CLASSICAL_INPUT_VERIFIED、CONDITIONAL、REPAIR_REQUIRED 或 UNRESOLVED。有限回归不是普遍证明。保留原件，以附加纠错修复历史。\n\n## 3. Research value to preserve\n\n输出可信最小依赖链。某个强斜率论断失败时，仍保留有限 Green 恒等式、坐标刚性、严格分离证书及独立谱核定义，明确可继续的后续。发布方已经复核的机械计算不包装为新发现。\n\n## 4. Success, kill, and return criteria\n\n成功要求所有消费节点状态明确，至少独立核验 raw/completed 误差链及全道路离散判据范围。反例、缺失引理或循环论证也是有效结果，但须给最小定位和下游影响。只为明确待审断言扩展证据，不扩展无关文献或重复计算。不能删去引用中的条件假设。未闭合断言记录最小缺口，不宣告整条合数路线无用。任务返回不等于 RH 完成。\n"
+    },
+    {
+      "task_id": "RH-ROAD-KERNEL-20260909",
+      "title": "Composite-road anchored spectral kernel and phase-safe tail interface",
+      "task_lineage": "CONTINUATION",
+      "parent_task_id": "RH-ROAD-AUDIT-20260909",
+      "dependencies": ["RH-ROAD-AUDIT-20260909"],
+      "frontier": "The current spectrum retains modal powers, but RH-sensitive anchored off-diagonal rational-frequency coherence has not been bounded.",
+      "next_action": "After consuming the audit return, derive the finite-horizon double-frequency kernel and construct a same-power phase witness before any diagonal or tail quotient.",
+      "research_value": "Turn the preserved composite road into a precise anchored spectral interface, including the phase coupling erased by translation averaging.",
+      "successor_gate": {
+        "new_information_gap": "Translation-averaged power loses off-diagonal phase; the anchored double-frequency kernel lacks uniform near-resonance and tail-port bounds.",
+        "why_parent_result_does_not_close_it": "A proof-chain audit can validate or correct inputs but supplies neither the new anchored kernel estimates nor a certified phase-preserving compression.",
+        "discriminating_outcomes": ["Closed kernel formula with uniform resonance/cutoff bounds", "Explicit same-power different-anchored-energy witness", "Quantified obstruction to a specified proposed tail compression"],
+        "kill_condition": "Reject the specific compression if it removes nonzero anchored coupling or its uniform constant diverges; retain the full field and report the witness.",
+        "alternative_route_or_free_exploration_considered": "The direct finite Green-energy route remains available; compare it to rational frequencies without forcing a positive-recurrent interpretation.",
+        "why_new_stage_or_task_is_better_than_same_task_or_closure": "This is a distinct analytic interface after source auditing, with separate outputs and no need to repeat historical finite certificates."
+      },
+      "body": "# 合数道路 RH：固定起点谱核与保相位尾接口\n\n## 0. Mother question\n\n对 h_N(theta)=sum_(n=1)^N exp(i*n*theta)，如何把 K(theta,phi)=sum_(N>=1)h_N(theta)conjugate(h_N(phi))/N^2 做成保留固定起点跨频率相位、可证明截断误差的接口？\n\n## 1. Frozen inputs and scope\n\n共同入口为 research_handoffs/COMPOSITE_ROAD_RH_20260909/START_HERE.md 和 source_manifest.json；冻结 EM 源 9d7c4c6eafc5479a6795a128fc0288fc893bed3c，旧证明及全部证书按入口恢复。正式父任务 RH-ROAD-AUDIT-20260909；执行前消费其带作用域清单。这是预发布的条件后续，不断言父任务已完成，不把作者标签或待审的道路斜率当作前提。\n频率来自 2*pi*r/q 的既约有理频率。完整道路 n 人口不得被谱系数支撑条件替代。保留合数道路、符号相位及当前最高联合关系规则；历史用户选题来源与 ANCHOR_EXPOSED 状态保持，未引入新的公理。通用角色和持久化规则继承项目合同。\n\n## 2. Hard target and required outputs\n\n输出 research_notes/RH_ROAD_KERNEL_20260909/RETURN.md、kernel_contract.json 和独立可重复的截断/相位见证检查。\n推导 K 的闭式或同等精确表达，证明非零频率收敛、Hermitian 性及对角项。给 theta->0、phi->0、theta-phi->0 和分母增长的一致估计。截断误差须带明确参数依赖，不把固定频率常数称为全 q 一致。\n构造至少一对有限系数族，逐模功率完全相同而固定起点二次能量不同，独立说明功率不能恢复相位观察。分离低频、近共振和远尾，给保留未来端口耦合的 Schur/Feshbach 或等价接口；每次压缩记录保留及擦除信息。\n按当前工具策略核查并复用 T6/T8 或已有谱尾接口，源查询不是执行，有限正权工具不能充当无限复相位抵消引理。足够的已有接口只复用或扩展，不新建同义工具。\n\n## 3. Research value to preserve\n\n近共振常数、固定起点相位见证和尾耦合接口独立于 RH 成败可复用，把道路背景不可轻删转成可检验的观察者条件。\n\n## 4. Success, kill, and return criteria\n\n成功须超过形式级数：至少带范围的核表达、严格相位见证及一个定量截断或尾耦合结果。若商丢失观察量，返回反例和修复坐标，不能反称原方向冗余。禁止平移平均后直接等同固定起点范数，禁止有限 PSD 或固定 q 界升级到无限尺度统一界。常数失控须改变划分或报告准确障碍；交接最小未完成单位，不宣称 RH 已证。\n"
+    },
+    {
+      "task_id": "RH-ROAD-TAIL-20260909",
+      "title": "Composite-road scale-adapted escaping-tail estimate",
+      "task_lineage": "CONTINUATION",
+      "parent_task_id": "RH-ROAD-KERNEL-20260909",
+      "dependencies": ["RH-ROAD-AUDIT-20260909", "RH-ROAD-KERNEL-20260909"],
+      "frontier": "Finite road identities and spectral interfaces do not yet yield a uniform bound on sum_(N>=M(a)) B_(a,N)^2/N^2 as a decreases to zero.",
+      "next_action": "Consume predecessor returns, choose a declared M(a) and a dyadic or logarithmic shell decomposition, and prove the first bound with explicit dependence on a and shell scale.",
+      "research_value": "Attack the unresolved infinite-scale obstacle without erasing composite interactions, confusing finite certificates with RH, or repeating already closed derivations.",
+      "successor_gate": {
+        "new_information_gap": "The full-road energy has no unconditional scale-adapted O(a) control as thickness goes to zero and horizon escapes to infinity.",
+        "why_parent_result_does_not_close_it": "An exact anchored kernel or finite safe interface does not bound the arithmetic coefficient-weighted infinite tail uniformly in a.",
+        "discriminating_outcomes": ["Uniform unconditional full-road energy bound", "New quantitative partial tail bound with all parameter dependence", "Counterexample to a specified sufficient estimate with preserved alternative"],
+        "kill_condition": "Reject any bound using RH-equivalent exclusion, losing phase or interchanging the limits without proof; do not reject the research population.",
+        "alternative_route_or_free_exploration_considered": "Compare direct Green-energy shells and anchored Ramanujan kernels; the prior Nyman Schur-gain condition remains an unproved alternative.",
+        "why_new_stage_or_task_is_better_than_same_task_or_closure": "Uniform arithmetic tail control is a different theorem obligation from audit or kernel algebra and needs its own falsifiable scope."
+      },
+      "body": "# 合数道路 RH：尺度适配的逃逸尾估计\n\n## 0. Mother question\n\n令 R_a(n)=prod_(p|n)(1-p^-a)，c_a=1/zeta(1+a)，S_a(N)=sum_(n<=N)R_a(n)，B_(a,N)=S_a(N)-1-c_a(N+1/2)。能否不借 RH 或等价零点排除估计，控制 D_a=sum_(N>=1)B_(a,N)^2/N^2，尤其 N>=M(a)->infinity 的尾部？\n\n## 1. Frozen inputs and scope\n\n先读 research_handoffs/COMPOSITE_ROAD_RH_20260909/START_HERE.md 及 source_manifest.json。研究原件钉在 EM 9d7c4c6eafc5479a6795a128fc0288fc893bed3c，完整旧证明与程序按入口恢复。父任务为 RH-ROAD-KERNEL-20260909，运行依赖它和 RH-ROAD-AUDIT-20260909；预发布不代表前置已完成。只消费有效的带范围返回，目标与 RH 的联系取决于审计的经典桥。\n保留全整数道路、联合合数观察量、符号及固定起点相位；当前最高保留合同和 P000 不变。历史用户选题来源及 ANCHOR_EXPOSED 状态不变；没有原始公理被提升。通用执行与持久化规则继承项目。\n\n## 2. Hard target and required outputs\n\n输出 research_notes/RH_ROAD_TAIL_20260909/RETURN.md、bound_ledger.json、必要精确或区间检查，以及可接手的单一最小缺口。\n声明 M(a)、a 范围、壳区间、常数与允许交换的求和/极限，分别控制前缀和尾部。完整目标是充分小 a 时 D_a<=C*a 的无条件统一界；可以先完成严格非平凡的子范围估计，或给所选充分条件的精确障碍。\n允许固定起点谱核或直接有限 Green 核 1/max(m,n)-1/N。任何跨频率、合数联合项删除都须有适合观察量与尺度的证书，平移平均功率有限不替代固定起点尾界。\n旧 Nyman 二倍尺度增益 h_N* S_N^-1 h_N >= eta*d_N^2/log N 仍只是未证充分目标，不宣称必要；否定它不等于否定 RH。有限拟合小不证明无限尾部小，数值发现与误差证书分开。\n\n## 3. Research value to preserve\n\n有明确 a、M 和频率依赖的新界，或准确说明常数为何失控的机制，都能缩小真正缺口。无论结果如何，完整背景、符号和相位保持可恢复。\n\n## 4. Success, kill, and return criteria\n\n有效返回至少包含新定量已证估计、严格反例/障碍，或全部依赖明确且唯一未证引理隔离的条件定理。仅改名、重述等价式、扩大有限实验或列愿望不算完成。\n若循环使用 RH、把 fixed-horizon O_M(a^2) 当成全局 O(a)，或用平均化消去难项，撤回该推论并保留原对象。常数不受控不得隐藏在 O 符号中。完整 O(a) 未闭合时明确 RH 未证，并交接剩余估计。\n"
+    }
+  ]
+}
