@@ -1,0 +1,50 @@
+{
+  "activity_command": [
+    "python",
+    "tools/research_activity.py",
+    "register",
+    "--mode",
+    "TASK_RESEARCH",
+    "--session-id",
+    "01a086fb-8cfd-7cb0-86ae-680ed4aa5275",
+    "--researcher-id",
+    "EM-RB-1EB0B6"
+  ],
+  "activity_id": "RA-0FF9BA2BED0EBBE6C0614714",
+  "activity_path": "research_activity_records/RA-0FF9BA2BED0EBBE6C0614714.json",
+  "authority": {
+    "assign_received": false,
+    "claim": false,
+    "execution_record": false,
+    "mathematical_execution_started": false,
+    "runtime_authorized": false
+  },
+  "global_knowledge_commit": "7489bbd4e4c6ecaabb9f9bd37009d66f0e199f19",
+  "identity_command": [
+    "python",
+    "tools/research_identity.py",
+    "allocate",
+    "--task",
+    "RS-RB-SIX-BLOCK-COMPLETE-HALF-SECTION-OBSTRUCTION-REPAIR",
+    "--role",
+    "RESEARCHER",
+    "--lane",
+    "RB"
+  ],
+  "identity_path": "research_identity_records/EM-RB-1EB0B6/identity.json",
+  "observed_at": "2026-09-09T16:28:07.671886+00:00",
+  "researcher_id": "EM-RB-1EB0B6",
+  "schema": "RB_RESEARCHER_STARTUP_OBSERVATION_V1",
+  "session_id": "01a086fb-8cfd-7cb0-86ae-680ed4aa5275",
+  "session_id_source": {
+    "environment_variable": "CODEX_THREAD_ID",
+    "kind": "TOOL_EXPOSED_ENVIRONMENT_VALUE",
+    "raw_value_preserved": true,
+    "tool": "exec_command"
+  },
+  "source_base_commit": "49528a2287319f6e518c7363b182afac0b951a35",
+  "source_branch": "research/rb-six-block-repair-01a086fb-20260910",
+  "status": "STARTUP_BOOKKEEPING_ONLY_AWAITING_EXACT_ASSIGN_AND_MAIN_DA",
+  "task_id": "RS-RB-SIX-BLOCK-COMPLETE-HALF-SECTION-OBSTRUCTION-REPAIR",
+  "task_publication_id": "TP2-8B673D783D3FBC81E124"
+}

@@ -1,0 +1,1157 @@
+{
+  "query": "exact integer polynomial function field derivation BRC DIV",
+  "verdict": "REUSE_CANDIDATE_FOUND",
+  "tool_families": [
+    {
+      "score": 10,
+      "id": "T0_BRC",
+      "name": "BRC",
+      "status": "PREEXISTING_CANONICAL_TOOL_FAMILY",
+      "scope": "support/result/provenance-valued composition; use exact current BRC definitions",
+      "triggers": [
+        "BRC",
+        "support",
+        "Boolean result",
+        "path formal",
+        "branch",
+        "recoalescence",
+        "multipath"
+      ],
+      "capabilities": [
+        "support algebra",
+        "path/result projection",
+        "multipath composition",
+        "provenance-aware result semantics"
+      ],
+      "hard_boundary": "Use exact current BRC typing; do not infer erased provenance from Boolean support."
+    },
+    {
+      "score": 6,
+      "id": "T10_LOCAL_REDISTRIBUTION_TOPPLING",
+      "name": "Local Redistribution / Toppling / Potential Calculus",
+      "status": "DRIVER_ACCEPTED_NEW_GLOBAL_TOOL_FAMILY",
+      "api": [
+        "VALIDATE_TOPPLING",
+        "INCIDENCE",
+        "DIV",
+        "LAPLACIAN",
+        "FIRE",
+        "STABILIZE",
+        "ODOMETER",
+        "LEAST_ACTION_CERT",
+        "REDUCED_LAPLACIAN",
+        "EQUIVALENCE_CLASS",
+        "OBSTRUCTION"
+      ],
+      "triggers": [
+        "toppling",
+        "chip firing",
+        "sandpile",
+        "local redistribution",
+        "stabilization",
+        "odometer",
+        "least action",
+        "reduced Laplacian",
+        "sink",
+        "conservative defect",
+        "potential"
+      ],
+      "capabilities": [
+        "legal integer local redistribution",
+        "strict termination witness",
+        "order-independent stabilization",
+        "odometer",
+        "least-action certificate",
+        "sink dissipation accounting",
+        "reduced-Laplacian/cokernel invariant"
+      ],
+      "hard_boundary": "A graph-Laplacian identity alone is not the tool. The caller must declare the toppling carrier, legality and semantics; sinkless/inaccessible systems may fail to terminate; potential is not automatically geometry or energy.",
+      "source_methods": [
+        "src/enterprise_math/discrete_laplacian_chip_firing.py"
+      ],
+      "known_specializations": [
+        "T5 mixed-radix carry/toppling",
+        "weighted Dirichlet/flow variational layer from RS-TD-IE"
+      ],
+      "driver_review": "driver_reviews/TOOL_DISCOVERY_SIX_RETURN_DRIVER_INTAKE_20260823.md",
+      "result": "research_notes/TOOL_DISCOVERY_DISCRETE_LAPLACIAN_CHIP_FIRING_POTENTIAL_RESULT_20260823.md"
+    },
+    {
+      "score": 6,
+      "id": "T12_IDEMPOTENT_PATH_CLOSURE_BELLMAN",
+      "name": "Idempotent Path Closure / Bellman Fixed-Point Calculus",
+      "status": "DRIVER_ACCEPTED_NEW_ENTERPRISE_TOOL_INTERFACE",
+      "api": [
+        "VALIDATE_SEMIRING",
+        "WEIGHTED_RELATION",
+        "COMPOSE",
+        "PATH_VALUE",
+        "POWER",
+        "CLOSURE",
+        "RESIDUAL_LEFT",
+        "RESIDUAL_RIGHT",
+        "BELLMAN_OPERATOR",
+        "LEAST_FIXED_POINT",
+        "GREATEST_FIXED_POINT",
+        "OPTIMAL_PATH_CERT",
+        "UNBOUNDED_CYCLE_CERT",
+        "OBSTRUCTION"
+      ],
+      "triggers": [
+        "tropical",
+        "min-plus",
+        "max-plus",
+        "idempotent semiring",
+        "Kleene star",
+        "path closure",
+        "all-path envelope",
+        "Bellman",
+        "fixed point",
+        "residuation",
+        "weighted path"
+      ],
+      "capabilities": [
+        "semiring matrix path composition",
+        "fixed-length path envelopes",
+        "all-path closure under exact cycle/completeness hypotheses",
+        "improving-cycle certificate",
+        "Bellman least/greatest fixed points",
+        "matrix residual inequality solving with P008 ownership retained"
+      ],
+      "hard_boundary": "Weights must be explicitly declared. Residuation/Galois adjunction alone remains P008-owned. Improving cycles or incomplete carriers may obstruct a finite closure; a path envelope is not automatically a metric.",
+      "implementation_status": "INTERFACE_AND_EXACT_CHECKER_ACCEPTED_NO_PRODUCTION_MODULE_YET",
+      "driver_review": "driver_reviews/TOOL_DISCOVERY_SIX_RETURN_DRIVER_INTAKE_20260823.md",
+      "result": "research_notes/TOOL_DISCOVERY_TROPICAL_RESIDUATION_IDEMPOTENT_CLOSURE_RESULT_20260823.md"
+    },
+    {
+      "score": 6,
+      "id": "T5_PRECISION_REFINEMENT",
+      "name": "Integer Precision / Refinement Calculus",
+      "status": "HARVESTED_PREEXISTING_DERIVED_TOOL_FAMILY",
+      "triggers": [
+        "precision",
+        "refinement",
+        "coarse",
+        "fine",
+        "projection",
+        "detail",
+        "carry",
+        "borrow",
+        "mixed radix",
+        "scale chain",
+        "graded transport"
+      ],
+      "capabilities": [
+        "exact projection/recomposition",
+        "fiber detail",
+        "carry/borrow",
+        "precision-chain decomposition",
+        "graded transport",
+        "nonlinear projection defect"
+      ],
+      "hard_boundary": "finite integer precision only unless a separate theorem supplies continuum/limit semantics",
+      "source_methods": [
+        "src/enterprise_math/precision.py",
+        "src/enterprise_math/graded_precision.py",
+        "src/enterprise_math/precision_system.py",
+        "src/enterprise_math/precision_proof.py"
+      ]
+    },
+    {
+      "score": 3,
+      "id": "T11_DISCRETE_MORSE_CHAIN_REDUCTION",
+      "name": "Discrete Morse / Acyclic-Matching Chain Reduction",
+      "status": "DRIVER_ACCEPTED_NEW_ENTERPRISE_TOOL_INTERFACE",
+      "api": [
+        "VALIDATE_CHAIN_COMPLEX",
+        "MATCH",
+        "ACYCLIC",
+        "CANCELLABLE_PAIR",
+        "CANCEL",
+        "MORSE_REDUCE",
+        "CRITICAL_GENERATORS",
+        "MORSE_BOUNDARY",
+        "PROJECT",
+        "LIFT",
+        "HOMOLOGY_CERT",
+        "OBSTRUCTION"
+      ],
+      "triggers": [
+        "discrete Morse",
+        "acyclic matching",
+        "chain complex",
+        "critical generators",
+        "Morse reduction",
+        "unit cancellation",
+        "chain homotopy",
+        "homology compression"
+      ],
+      "capabilities": [
+        "exact adjacent-grade matching validation",
+        "closed-gradient obstruction",
+        "unit-incidence cancellation",
+        "critical-generator reduction",
+        "exact reduced boundary",
+        "projection/lift/homotopy strong-deformation-retract certificate"
+      ],
+      "hard_boundary": "Requires an explicit finite free chain complex. Over Z only unit pivots plus/minus 1 cancel. Homology equivalence is not T6 operation safety, and greedy matching is not canonical or optimal by default.",
+      "source_methods": [
+        "src/enterprise_math/discrete_morse_collapse.py"
+      ],
+      "driver_review": "driver_reviews/TOOL_DISCOVERY_SIX_RETURN_DRIVER_INTAKE_20260823.md",
+      "result": "research_notes/TOOL_DISCOVERY_DISCRETE_MORSE_ACYCLIC_MATCHING_RESULT_20260823.md"
+    },
+    {
+      "score": 3,
+      "id": "T1_SCALE_ENUMERATION_VALUATION",
+      "name": "Enterprise Scale Enumeration / Valuation Calculus",
+      "status": "ACCEPTED_DERIVED_TOOL",
+      "api": [
+        "DELTA",
+        "GEN",
+        "VAL",
+        "MOBIUS",
+        "LOCAL"
+      ],
+      "triggers": [
+        "scale",
+        "shell",
+        "count",
+        "enumeration",
+        "growth",
+        "finite difference",
+        "generating function",
+        "valuation",
+        "inclusion-exclusion",
+        "Mobius",
+        "basin"
+      ],
+      "capabilities": [
+        "scale enumeration",
+        "shell extraction",
+        "finite-difference certificates",
+        "rational-series/recurrence compression",
+        "valuation and local-to-global overlap correction"
+      ],
+      "hard_boundary": "NO_UNIVERSAL_NATIVE_EHRHART_POLYNOMIALITY",
+      "driver_review": "driver_reviews/TOOL_DISCOVERY_NATIVE_VALUATION_EHRHART_BRION_DRIVER_REVIEW_20260822.md",
+      "result": "research_notes/TOOL_DISCOVERY_NATIVE_VALUATION_EHRHART_BRION_CALCULUS_REPORT_20260822.md",
+      "subtools": [
+        {
+          "id": "T1_TRIAXIAL_DIRECTIONAL_DEFECT",
+          "classification": "GLOBAL_SUBTOOL",
+          "status": "DRIVER_ACCEPTED_NARROWED_EXECUTABLE",
+          "api": [
+            "DECLARE_FRAME",
+            "DIFF1",
+            "RHOMBUS2",
+            "TRIPLE_DEFECT",
+            "XRAY_KERNEL_CERT",
+            "FRAME_WIDTH",
+            "MULTIFRAME_UNIQUENESS",
+            "EXPOSED_AUGMENT",
+            "FULL_ADJOINT",
+            "CHIRALITY_ADJOINT",
+            "COMPRESSED_GRAM",
+            "GRAM_FACTOR"
+          ],
+          "triggers": [
+            "triaxial directional difference",
+            "rhombus defect",
+            "triple defect",
+            "ghost kernel",
+            "native-hex tomography",
+            "frame-width uniqueness",
+            "exposed-vertex augmentation"
+          ],
+          "capabilities": [
+            "primitive/canonical frame declaration with explicit unoriented deduplication",
+            "shared tomography and Hive/rhombus directional-defect core",
+            "native-hex kernel/uniqueness certificates",
+            "exposed-vertex unimodular augmentation",
+            "typed full adjoint",
+            "characteristic-sensitive compressed Gram diagnostic"
+          ],
+          "hard_boundary": "FULL_ADJOINT != COMPRESSED_GRAM; native-hex/support-compatible width scope only; endpoint coalescence != trace identity; verified coefficient characteristics 0,2,3,5,7 on the adjoint/Gram integration path; Y-Delta, binary/nonlinear tomography, Foundation mutation, width-theorem extension and new top-level family promotion are forbidden.",
+          "source_methods": [
+            "src/enterprise_math/triaxial_directional_defect.py",
+            "src/enterprise_math/_triaxial_directional_defect_core.py"
+          ],
+          "tests": [
+            "tests/test_triaxial_directional_defect_integration.py"
+          ],
+          "driver_review": "driver_reviews/TRIAXIAL_DIRECTIONAL_DEFECT_INDEPENDENT_TOOL_VERIFICATION_DRIVER_REVIEW_20260825.md@f364c75d55e8018bcea80bdf00fc025f2ad7dd02"
+        }
+      ]
+    },
+    {
+      "score": 3,
+      "id": "T2_BLOCK_FINITE_CERTIFICATE",
+      "name": "Enterprise Block Finite-Certificate Calculus",
+      "status": "ACCEPTED_DERIVED_TOOL",
+      "triggers": [
+        "compatibility",
+        "constraint",
+        "certificate",
+        "Helly",
+        "local-to-global",
+        "intersection",
+        "obstruction",
+        "feasible",
+        "gluing"
+      ],
+      "capabilities": [
+        "bounded failure certificate",
+        "bad-block extraction",
+        "success witness assembly",
+        "independent-block max-law"
+      ],
+      "core_law": "INDEPENDENT_BLOCK_COMPOSITION -> GLOBAL_CERTIFICATE_NUMBER <= MAX_LOCAL_CERTIFICATE_NUMBER",
+      "hard_boundary": "propagating coupling can force unbounded minimal obstruction size even on bounded local domains/arity and path/tree interaction graphs",
+      "driver_review": "driver_reviews/TOOL_DISCOVERY_ENTERPRISE_HELLY_RADON_DRIVER_REVIEW_20260822.md",
+      "result": "research_notes/TOOL_DISCOVERY_ENTERPRISE_HELLY_RADON_CERTIFICATE_CALCULUS_RESULT_20260822.md",
+      "known_specializations": [
+        "src/enterprise_math/box_collapse.py"
+      ]
+    },
+    {
+      "score": 3,
+      "id": "T3_TYPED_INCIDENCE_CIRCUIT",
+      "name": "Typed Incidence Circuit Calculus",
+      "status": "ACCEPTED_DERIVED_TOOL_SCOPE_NARROWED",
+      "api": [
+        "SIGN",
+        "CIRCUITS",
+        "ELIMINATE",
+        "SEPARATE",
+        "DUAL",
+        "REALIZATION_CHECK"
+      ],
+      "triggers": [
+        "circuit",
+        "cocircuit",
+        "cycle",
+        "cut",
+        "separator",
+        "path difference",
+        "provenance defect",
+        "reroute",
+        "incidence"
+      ],
+      "capabilities": [
+        "signed cycle certificates",
+        "circuit elimination",
+        "minimal cut/cocircuit",
+        "same-endpoint path-defect decomposition",
+        "metric-erasure realization check"
+      ],
+      "hard_boundary": "DIRECTION_ONLY_SIGNED_CIRCUIT_NOT_DERIVED",
+      "driver_review": "driver_reviews/TOOL_DISCOVERY_NATIVE_ORIENTED_MATROID_DRIVER_REVIEW_20260822.md",
+      "result": "research_notes/TOOL_DISCOVERY_NATIVE_ORIENTED_MATROID_CIRCUIT_CALCULUS_RESULT_20260822.md"
+    }
+  ],
+  "methods": [
+    {
+      "score": 12,
+      "method_id": "t0.brc_table_free_tail",
+      "name": "BRC table-free certified multiplier tail",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE_STORAGE_FRONTIER",
+      "source_refs": [
+        "src/enterprise_math/brc_table_free_tail.py",
+        "tests/test_brc_table_free_tail.py",
+        "experiments/brc_table_free_tail_benchmark.py",
+        "research_notes/BRC_TABLE_FREE_TAIL_20260907.md",
+        "research_artifacts/brc_table_free_tail_benchmark_20260907.csv"
+      ],
+      "api": [
+        "TableFreeTailState",
+        "binomial_half_coefficients",
+        "scaled_even_truncation",
+        "lower_increment",
+        "two_correction_certificate",
+        "transport_certified_tail"
+      ],
+      "triggers": [
+        "BRC table-free tail",
+        "multiplier predictor storage",
+        "m greater than 100",
+        "short-step multiplier tail",
+        "alternating binomial predictor",
+        "two-correction certificate"
+      ],
+      "capabilities": [
+        "exact h=1,2 root/remainder transport with no sqrt-ratio predictor table when certified",
+        "arbitrary even-order alternating half-binomial lower predictor",
+        "exact integer certificate for at most two BRC basin corrections",
+        "tail frontier scaling O(N^(1/(2K+1))) for fixed even degree K",
+        "explicit CPU-negative benchmark boundary for current Python implementation"
+      ],
+      "core_law": "For x=h/m in (0,1] and even K, the alternating binomial truncation L_K(x) is below sqrt(1+x)-1 and its error is at most binom(1/2,K+1)x^(K+1). Thus d=floor(J L_K) is a lower root-increment predictor. If binom(1/2,K+1) J (h/m)^(K+1)+h/(2m)<=1, then at most two odd BRC basin crossings recover the exact (m+h) root/remainder state.",
+      "hard_boundary": "Storage/predictor-dependence result, not a Python performance win. High-order exact polynomial evaluation was slower than optimized isqrt in the finite benchmark. It does not reduce the multiplier search count, does not change Hart/Lehman asymptotic factorization complexity, does not establish RSA-scale practicality, and does not modify Foundation state."
+    },
+    {
+      "score": 12,
+      "method_id": "t0.weighted_brc_critical_degeneracy",
+      "name": "Exact BRC critical-degeneracy graph, asymptotic correction and root-selector calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "source_refs": [
+        "definitions/ENTERPRISE_BRC_CRITICAL_DEGENERACY_FOUNDATION_20260903.md",
+        "definitions/ENTERPRISE_BRC_CRITICAL_DEGENERACY_THEOREM_LEDGER_20260903.json",
+        "src/enterprise_math/brc_critical_degeneracy.py",
+        "PR #1166",
+        "PR #1167",
+        "PR #1168"
+      ],
+      "api": [
+        "CriticalDegeneracyAnalysis",
+        "CriticalRootSelector",
+        "CriticalLogCorrectionState",
+        "critical_degeneracy_analysis",
+        "criticality_polynomial",
+        "smallest_positive_root_selector",
+        "critical_log_correction_state",
+        "critical_graph_shaped",
+        "critical_log_zero",
+        "critical_log_threshold_analysis",
+        "critical_log_less_than_rational",
+        "critical_log_bounds",
+        "critical_log_correction_from_branches"
+      ],
+      "triggers": [
+        "large moment recurrent asymptotic",
+        "tropical critical graph",
+        "dominant branch tie multiplicity",
+        "critical degeneracy matrix",
+        "subleading recurrent log correction",
+        "criticality polynomial root selector",
+        "multi critical BRC correction"
+      ],
+      "capabilities": [
+        "construct exact dominant edge weights, tie multiplicities and critical graph from explicit positive-rational branches",
+        "construct the non-negative integer critical-degeneracy matrix K",
+        "construct exact integer p_K(z)=det(I-zK)",
+        "select the smallest positive rational or irrational root using rational-root deflation and Sturm isolation",
+        "test the exact zero-correction structural law",
+        "compare critical log correction against rational LN thresholds by reusing finite-recurrent stability",
+        "produce existing rational BRC LN lower/upper expressions from an algebraic root interval"
+      ],
+      "core_law": "For explicit positive-rational branch moment matrices, rho(W^(m))/mu^m -> rho(K); the exact subleading log state is Gamma_crit=-ln z_c with z_c the smallest positive root of det(I-zK).",
+      "hard_boundary": "Leading max-cycle asymptotics and general perturbation/root theory are classical. No floating eigensolver/root is an exact certificate; no general algebraic-log materializer, signed/amplitude extension, infinite-state extension or runtime-speedup claim is made. Aggregated total mass is not critical-degeneracy complete."
+    },
+    {
+      "score": 9,
+      "method_id": "candidate.x6.one_positive_raw_stability_certificate",
+      "name": "Sharp one-positive-support raw X6 stability with an integer and symbolic DIV consumer",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "source_refs": [
+        "research_notes/OWNER_ONE_POSITIVE_STABILITY_20260907.md",
+        "research_notes/OWNER_ONE_POSITIVE_STABILITY_INDEPENDENT_AUDIT_20260908.md",
+        "experiments/owner_one_positive_stability_20260908/check_one_positive_stability.py"
+      ],
+      "api": [
+        "audit_case"
+      ],
+      "triggers": [
+        "one positive support raw X6 stability certificate",
+        "sharp three twentieth one tenth raw marginal mass bound",
+        "单正支点原始二十表稳定性"
+      ],
+      "input_contract": "Two finite positive spatial mass populations in one shared external anchor and labelled signed X6 frame; exact positive integer numerators and one positive integer common denominator. Aggregate and cancel equal Cells first, then require at most one positive site in the signed difference. D is the sum of all twenty complete raw three-axis marginal L1 norms.",
+      "output_contract": "Complete raw and joint (can3, per-slice common offset) tables; post-cancellation P/N, L1 and D; exact integer comparisons for L1 <= (3/20)D and, when total masses agree, L1 <= (1/10)D. Constants, masses and nonzero ratios remain literal canonical unevaluated DIV nodes. Zero has no ratio. The consumer also checks the two distinct nonzero equality conditions.",
+      "core_law": "For f=P delta_q - nu after cancellation, every table has norm abs(P-N+a_I)+a_I and sum_I a_I >= 10N. The sharp 3/20 constant requires N=2P, negative sites on individual axis lines and equal six-axis aggregate negative masses. The sharp equal-mass 1/10 constant only requires single-axis negative sites; axis aggregates need not be equal.",
+      "hard_boundary": "Raw addresses or jointly retained can3 and common offset are mandatory; can3 alone is insufficient. Shared chart provenance is a caller premise. The signed difference is analytical bookkeeping, not a negative BRC branch. No branch history/count/max-weight recovery, general p<=7 constant, global novelty, formal acceptance or Foundation promotion follows. Finite tests audit the consumer; the separate paper carries the all-input proof.",
+      "reuse_resolution": {
+        "coverage_verdict": "COMPOSE_EXISTING_TOOLS",
+        "matched_tool_or_method_ids": [
+          "T0_BRC"
+        ],
+        "reuse_resolution_state": "COMPOSE_APPLIED",
+        "how_applied_or_why_not": "Uses existing canonical signed X6 Cell, signed BRC support/unit-step interfaces, raw joint slice reconstruction and exact_arithmetic.division/compare_divisions. The existing raw stability source supplies observation typing; the separately audited one-positive proof sharpens its restricted support case. No quotient or root evaluation is requested, so no collapse trace is fabricated.",
+        "hard_boundary_checked": "Positive population numerators remain integer states; denominator nodes stay unreduced. Historical canonical module initialization is outside the bounded main-ledger observation and is not claimed migrated. No transitive runtime certificate is inferred from a static or finite-call audit."
+      },
+      "runtime": "Python arbitrary-precision integers, canonical Spatial6 and DivisionExpr identities, and twelve pinned paper/native/arithmetic source dependencies. audit_case performs finite raw-table aggregation and returns a certificate; it does not materialize a quotient or a root.",
+      "validation_refs": [
+        "experiments/owner_one_positive_stability_20260908/certificate.json",
+        "experiments/owner_one_positive_stability_20260908/README.md",
+        "experiments/owner_one_positive_stability_20260908/independent_review_20260908/review.py",
+        "experiments/owner_one_positive_stability_20260908/independent_review_20260908/review.json",
+        "experiments/owner_one_positive_stability_20260908/independent_review_20260908/REVIEW.md"
+      ],
+      "source_sha256": {
+        "research_notes/OWNER_ONE_POSITIVE_STABILITY_20260907.md": "b49eac9291c7b6a6ec458a133700ee17a4573972e58787a976871512746dd4e7",
+        "research_notes/OWNER_ONE_POSITIVE_STABILITY_INDEPENDENT_AUDIT_20260908.md": "f6fe6713fb46bc0fd9c6626333cb44afd14c88b13b7f7d99fe8f928859434038",
+        "experiments/owner_one_positive_stability_20260908/check_one_positive_stability.py": "283c0b64e995077d01e5b42114ffd5791bafadeb5f175b4df17118ee1a9d5878",
+        "experiments/owner_one_positive_stability_20260908/certificate.json": "11fd30fcc2894ffdcd7ed43e1266b65dc063aa12b57f9f5b653eb9d437bc3010",
+        "experiments/owner_one_positive_stability_20260908/README.md": "91f4c918eead64e0efb32f24577c9e4db081412131ccf4b22313a0ae96e4d820",
+        "experiments/owner_one_positive_stability_20260908/independent_review_20260908/review.py": "785f60ee9f66445e1675c19f7a93981355819c674001ad4eb85bf26c09c1d010",
+        "experiments/owner_one_positive_stability_20260908/independent_review_20260908/review.json": "2bb0c93ce92aff98f7f5e3dc2d1cfb74481bbbc1121288ab54b0512ef29ae47c",
+        "experiments/owner_one_positive_stability_20260908/independent_review_20260908/REVIEW.md": "8a72e04a80dcbf93556690438f8cc51229ff95bebdf5a81d57ae2ca6139f5076"
+      }
+    },
+    {
+      "score": 9,
+      "method_id": "t0.brc_error_linearization_pell",
+      "name": "BRC error linearization / Pell-Pade tail transport",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_error_linearization_pell.py",
+        "tests/test_brc_error_linearization_pell.py",
+        "experiments/brc_error_linearization_pell_benchmark.py",
+        "research_notes/BRC_ERROR_LINEARIZATION_PELL_20260907.md",
+        "research_artifacts/brc_error_linearization_pell_benchmark_20260907.csv"
+      ],
+      "api": [
+        "PellTailState",
+        "post_truncation_derivative_ratio",
+        "brc_gap_after_crossings",
+        "pell_pade_pair",
+        "pell_linear_recurrence_next",
+        "pell_two_correction_certificate",
+        "transport_pell_tail"
+      ],
+      "triggers": [
+        "BRC predictor error",
+        "differentiate BRC error",
+        "recursive BRC linear law",
+        "Pell Pade square root predictor",
+        "table-free multiplier tail",
+        "error linearization"
+      ],
+      "capabilities": [
+        "exact affine post-truncation derivative ratio (1+x)E^(n+1)/E^n=1/2-n",
+        "exact recursive BRC gap orbit with second difference -2 and third difference 0",
+        "exact integer Pell-Pade lower approximant to sqrt((m+h)/m) for h=1,2",
+        "second-order linear recurrence in Pade order X_(n+2)=(4m+2h)X_(n+1)-h^2 X_n",
+        "sqrt-free Pell norm identity (m+h)B_n^2-mA_n^2=h^(2n+1)",
+        "exact integer <=2-correction certificate J h^(2n+1)<=m A_n B_n",
+        "certified table-free BRC root/remainder transport"
+      ],
+      "core_law": "For E_K=sqrt(1+x)-1-P_K, derivatives above order K satisfy (1+x)E_K^(n+1)/E_K^n=1/2-n, while ordinary BRC correction gaps satisfy G_q=G_0-q(2a+q). The diagonal Pade/Pell approximant obtained from (1+sqrt(1+x))^(2n+1)=P_n+sqrt(1+x)Q_n yields homogenized integers A_n,B_n with (m+h)B_n^2-mA_n^2=h^(2n+1). This makes A_n/B_n a rigorous lower sqrt-ratio predictor and gives the exact sufficient certificate J h^(2n+1)<=m A_n B_n for at most two BRC basin corrections.",
+      "hard_boundary": "Classical Pade/Pell approximation is prior art. The current contribution is exact BRC composition, certification, and error-linearization bookkeeping. The Python reference path is substantially faster than the previous high-order Taylor table-free tail but still slower than direct optimized isqrt on isolated steps. No asymptotic factorization speedup, RSA-practicality, optimal multiplier order, or Foundation promotion is claimed."
+    },
+    {
+      "score": 9,
+      "method_id": "t0.brc_multiplier_basin",
+      "name": "BRC multiplier basin / squarefree phase calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_multiplier_basin.py",
+        "tests/test_brc_multiplier_basin.py",
+        "research_notes/BRC_MULTIPLIER_BASIN_SCAN_20260906.md",
+        "research_notes/BRC_MULTIPLIER_BASIN_THEOREMS_20260906.md",
+        "research_artifacts/brc_multiplier_scan_m1_100_k5_5000.csv"
+      ],
+      "api": [
+        "point_cost_state",
+        "multiplier_basin_profile",
+        "square_multiplier_law",
+        "nonsquare_stable_support_law",
+        "endpoint_resonance_defect",
+        "squarefree_decomposition",
+        "squarefree_composition_state"
+      ],
+      "triggers": [
+        "BRC multiplier",
+        "multiply then collapse",
+        "square basin multiplier",
+        "collapse add subtract cost",
+        "Beatty support",
+        "Pell endpoint resonance",
+        "squarefree multiplier phase",
+        "multiplier basin multiplicity"
+      ],
+      "capabilities": [
+        "exact integer-only multiplier-induced BRC point cost state",
+        "exact source-basin to target-support multiplicity histogram",
+        "full-range square multiplier support law H=min(s,2k+1)",
+        "balanced dense square-refinement multiplicities q or q+1",
+        "stable non-square Beatty support with exact Pell endpoint correction",
+        "exact squarefree-core plus finite square-refinement phase composition",
+        "explicit Boolean-support versus remainder/multiplicity observer-loss witness"
+      ],
+      "core_law": "For m=s^2, a source square-root basin of size N=2k+1 occupies exactly min(s,N) target roots; when s<=N the support is consecutive and multiplicities are the balanced q/q+1 partition. For fixed non-square m in the eventual no-skip regime, H_m(k)=Delta_m(k)+1-1[D_m(k+1)<m], where Delta is a two-valued Beatty increment and the exceptional D<m set is generalized-Pell and zero-density. For m=a^2 d, retaining the d-stage root/remainder (y,rho) gives exact final root ay+u and remainder a^2 rho-2ayu-u^2 with 0<=u<a.",
+      "hard_boundary": "Finite/exact integer BRC calculus only. The Pell count uses classical Pell-unit theory; no factorization speedup, asymptotic complexity improvement, Foundation promotion, signed cancellation semantics, or recovery of erased remainder/provenance is claimed. The non-square closed support formula requires the declared sufficient no-skip regime m<=4k^2; outside it use multiplier_basin_profile rather than extrapolating the formula."
+    },
+    {
+      "score": 9,
+      "method_id": "t0.brc_multiplier_transition",
+      "name": "BRC consecutive-multiplier root/remainder transition",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_multiplier_transition.py",
+        "src/enterprise_math/brc_multiplier_transition_table.py",
+        "tests/test_brc_multiplier_transition.py",
+        "experiments/brc_multiplier_transition_benchmark.py",
+        "research_notes/BRC_MULTIPLIER_TRANSITION_RECURRENCE_20260906.md",
+        "research_artifacts/brc_multiplier_transition_benchmark_20260906.csv"
+      ],
+      "api": [
+        "MultiplierRootState",
+        "initial_multiplier_root_state",
+        "next_multiplier_root_state",
+        "multiplier_root_state_sequence",
+        "transition_table_mode",
+        "transition_correction_histogram",
+        "static_transition_payload_bytes"
+      ],
+      "triggers": [
+        "BRC multiplier recurrence",
+        "m to m+1 root update",
+        "avoid repeated isqrt",
+        "multiplier root transition",
+        "root remainder transport",
+        "dyadic multiplier predictor"
+      ],
+      "capabilities": [
+        "exact fixed-N multiplier root/remainder sequence through m=100 with only one initial N-dependent root materialization",
+        "checked-in 99-entry dyadic gamma predictor table for N up to 4096 bits",
+        "exact precision specialization by right shift from one high-precision table",
+        "cached exact predictor fallback above the static cap",
+        "proved at-most-two local BRC odd-width correction steps per transition",
+        "exact ceiling completion gap directly from retained root/remainder",
+        "composition with classical square-residue prefilter without semantic conflation"
+      ],
+      "core_law": "With gamma_m=sqrt((m+1)/m)-1, choose B so J_m<2^(B-1), C_m=floor(2^B gamma_m), d0=floor(C_m J_m/2^B). Then J_(m+1)-(J_m+d0) is in {0,1,2}. The provisional remainder is R_m+N-d0(2J_m+d0); subtracting successive odd basin widths at most twice yields exactly R_(m+1).",
+      "hard_boundary": "Finite exact integer multiplier scan only; checked-in static performance fast path N<=4096 bits and m<=100. Larger-N predictor generation is cached but no one-off speed claim is made. Performance evidence is environment-specific constant-factor timing. No asymptotic factorization speedup, no novelty claim for multiplier-Fermat/Lehman square-gap factoring, no recovery after erasing R_m, and no Foundation promotion."
+    },
+    {
+      "score": 9,
+      "method_id": "t0.brc_pairwise_multiplier_transport",
+      "name": "BRC pairwise multiplier root/remainder transport",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_pairwise_multiplier_transport.py",
+        "tests/test_brc_pairwise_multiplier_transport.py",
+        "experiments/brc_pairwise_multiplier_transport_benchmark.py",
+        "research_notes/BRC_PAIRWISE_MULTIPLIER_TRANSPORT_20260907.md",
+        "research_artifacts/brc_pairwise_multiplier_transport_benchmark_20260907.csv"
+      ],
+      "api": [
+        "PairwiseMultiplierRootState",
+        "pairwise_correction_bound",
+        "pairwise_scale_constant",
+        "transport_multiplier_root_state",
+        "pairwise_multiplier_order_states",
+        "pairwise_prioritized_odd_multiplier_states"
+      ],
+      "triggers": [
+        "BRC pairwise multiplier transport",
+        "nonmonotone multiplier order",
+        "priority multiplier state reuse",
+        "bidirectional multiplier jump",
+        "reuse previous BRC root remainder"
+      ],
+      "capabilities": [
+        "exact integer root/remainder transport between arbitrary source and target multipliers <=100",
+        "one-sided lower predictor with exact odd-basin correction",
+        "safe correction bound ceil(sqrt(t/m))+1, hence <=11 globally and <=2 for downward jumps",
+        "exact nonmonotone structural-priority state stream with one initial N-dependent root",
+        "cached source-target dyadic scale constants with no new checked-in predictor payload",
+        "explicit negative audit for simple N-modular/root/remainder/phase adaptive routing shadows"
+      ],
+      "core_law": "Given mN=J^2+R and beta=sqrt(t/m), A=floor(2^B beta), q=floor(AJ/2^B) is a lower target-root candidate with sqrt(tN)-q < beta+3/2. Therefore at most ceil(beta)+1 BRC odd-width crossings recover floor(sqrt(tN)); G=tN-q^2 is computed exactly as R+(t-m)N-(q-J)(2J+q-J), valid for both upward and downward multiplier moves.",
+      "hard_boundary": "Finite exact multiplier<=100 reference surface. Pairwise scale constants are cached runtime data. The simple N-dependent shadow features tested in the accompanying note are finite negative evidence only, not an independence theorem. Difference-of-squares/multiplier-Fermat/Lehman mathematics remains classical; no optimal multiplier order, asymptotic factorization speedup, or Foundation promotion is claimed."
+    },
+    {
+      "score": 9,
+      "method_id": "t0.brc_phase_fourth_moment",
+      "name": "BRC fourth-order fixed-phase lifted-moment transport",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_phase_fourth_moment.py",
+        "tests/test_brc_phase_fourth_moment.py",
+        "experiments/brc_phase_fourth_moment_benchmark.py",
+        "research_notes/BRC_PHASE_FOURTH_MOMENT_20260907.md",
+        "research_artifacts/brc_phase_fourth_moment_benchmark_20260907.csv"
+      ],
+      "api": [
+        "FourthPhaseMomentState",
+        "FourthPhaseMomentTracker",
+        "fourth_phase_tail_sufficient",
+        "fourth_phase_tail_threshold",
+        "aligned_fourth_phase_tail_threshold",
+        "phase_fourth_difference_bounds",
+        "phase_fourth_candidate_gap",
+        "odd_n_fourth_phase_tail_states",
+        "reused_reciprocal_table_bytes"
+      ],
+      "triggers": [
+        "BRC fourth phase difference",
+        "N one seventh multiplier tail",
+        "fixed phase lifted moment",
+        "remove unbounded dynamic products",
+        "early phase root recurrence"
+      ],
+      "capabilities": [
+        "exact unbounded odd-N mod-8 root/remainder transport from an m^7>=128N tail",
+        "cubic phase-root extrapolation from four labeled exact phase states",
+        "exact target residual using the signed remainder jet and a four-coordinate lifted quadratic moment carrier",
+        "uniform integer fourth-difference correction bound -347..7",
+        "negative correction recovery using the existing 1024-byte normalized reciprocal table with at most two estimate increments and one adjacent-candidate comparison",
+        "nineteen fixed seed-root transitions followed by recurrence with no further target square roots",
+        "moment updates whose new products use only a bounded correction or fixed small coefficients",
+        "exact completion-gap preservation for the BALANCED zero-false-negative square-residue cascade"
+      ],
+      "core_law": "For (m+8i)N=J_i^2+R_i, i=0..3, let u=Delta J_0, v=Delta^2 J_0, w=Delta^3 J_0 and C=4J_3-6J_2+4J_1-J_0. Then (m+32)N-C^2=-R_0+4R_1-6R_2+4R_3-2(4uw+3v^2+12vw+6w^2). Under m^7>=128N, e=Delta^4J_0 lies in [-347,7]. The lifted moments UW,V2,VW,W2 update using only bounded e, and the existing Round-13 reciprocal table recovers the dominant negative correction exactly.",
+      "observer_contract": "Retain four labeled phase triples plus the ordered finite-difference and quadratic-moment state. A root-only, remainder-total, Boolean-support, or unlabeled phase quotient cannot reproduce the exact residual or completion-gap future operation.",
+      "hard_boundary": "Exact integer transport on the declared odd-N fixed-phase tail. Nineteen direct-root seeds must be amortized by a long stream. Finite timing crossover is runtime-dependent. The result does not reduce the multiplier horizon, change Lehman/Hart factorization complexity, imply RSA practicality, mutate Foundation, or create a new top-level BRC family."
+    },
+    {
+      "score": 9,
+      "method_id": "t0.brc_phase_root_recurrence",
+      "name": "BRC fixed-phase root/remainder third-difference transport",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_phase_root_recurrence.py",
+        "tests/test_brc_phase_root_recurrence.py",
+        "experiments/brc_phase_root_recurrence_benchmark.py",
+        "research_notes/BRC_PHASE_ROOT_RECURRENCE_20260907.md",
+        "research_artifacts/brc_phase_root_recurrence_benchmark_20260907.csv"
+      ],
+      "api": [
+        "PhaseRootRemainderState",
+        "PhaseRootRemainderTracker",
+        "phase_root_candidate_gap",
+        "phase_root_third_difference_bounds",
+        "odd_n_phase_root_tail_states",
+        "reused_reciprocal_table_bytes"
+      ],
+      "triggers": [
+        "BRC phase root recurrence",
+        "third finite difference multiplier root",
+        "remove order-one quotient after warmup",
+        "reuse reciprocal table for BRC correction",
+        "fixed mod-8 phase root remainder"
+      ],
+      "capabilities": [
+        "exact unbounded fixed-phase root/remainder transport after fourteen order-one seed transitions",
+        "quadratic extrapolation of each mod-8 phase root from three labeled exact phase states",
+        "exact target residual G=R0-3R1+3R2-6b(b-a) without target square root or q(2J+q)",
+        "uniform common-tail integer correction bound -3..387",
+        "reuse of the existing 1024-byte normalized reciprocal table for constant-comparison phase closure",
+        "preservation of the exact completion gap for composition with the zero-false-negative BALANCED square-residue cascade",
+        "optional exact lifted product state using only bounded-correction multipliers, retained as a CPU-negative alternative"
+      ],
+      "core_law": "For phase-spaced states (m+8i)N=J_i^2+R_i, let a=J_1-J_0, b=J_2-J_1 and C=3J_2-3J_1+J_0. Then (m+24)N-C^2=R_0-3R_1+3R_2-6b(b-a). On 4m^5>=N, e=J_3-C is the integer third phase difference and satisfies -3<=e<=387. For C>=75078, floor(G/(2C+1)) lies in {e,e+1}; the existing Round-13 1 KiB lower-reciprocal table recovers that floor with at most two increments, and one sign check yields the exact (J_3,R_3).",
+      "observer_contract": "Retain three labeled phase triples (m_i,J_i,R_i). Roots alone, Boolean support, or an unlabeled aggregate are inadequate because the exact residual and future completion-gap observer depend on the individual remainders and phase order.",
+      "hard_boundary": "Exact integer transport only on the already-certified odd-N order-one deep tail and fixed mod-8 representative phases. The finite performance crossover is runtime-dependent; direct division remains appropriate for smaller operands. This does not reduce the multiplier horizon, change Lehman/Hart factorization complexity, imply RSA practicality, or create a new top-level BRC family."
+    },
+    {
+      "score": 9,
+      "method_id": "t0.brc_square_gap_prefilter",
+      "name": "BRC square-gap quadratic-residue prefilter",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "CLASSICAL_BASELINE_COMPOSED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_square_gap_tables.py",
+        "src/enterprise_math/brc_square_gap_prefilter.py",
+        "tests/test_brc_square_gap_prefilter.py",
+        "experiments/brc_multiplier_factor_bridge.py",
+        "experiments/brc_square_residue_static_table_benchmark.py",
+        "research_notes/BRC_MULTIPLIER_FACTOR_BRIDGE_20260906.md",
+        "research_notes/BRC_SQUARE_RESIDUE_STATIC_TABLE_BENCHMARK_20260906.md",
+        "research_artifacts/brc_multiplier_square_gap_prefilter_20260906.csv",
+        "research_artifacts/brc_square_residue_static_table_benchmark_20260906.csv"
+      ],
+      "api": [
+        "DEFAULT_SQUARE_RESIDUE_MODULUS",
+        "STRONG_SQUARE_RESIDUE_MODULUS",
+        "square_residue_table",
+        "square_residue_mask",
+        "square_residue_count",
+        "square_residue_payload_bytes",
+        "passes_square_residue_filter",
+        "filtered_square_root",
+        "ceiling_completion_cost",
+        "ceiling_completion_square_witness"
+      ],
+      "triggers": [
+        "BRC square gap",
+        "completion cost square",
+        "quadratic residue prefilter",
+        "difference of squares",
+        "multiplier Fermat",
+        "square test table",
+        "static square residue table"
+      ],
+      "capabilities": [
+        "checked-in exact packed quadratic-residue tables for moduli 4032 and 20160",
+        "deterministic cached fallback table generation for arbitrary positive moduli",
+        "zero-false-negative rejection of impossible square gaps",
+        "exact integer square-root confirmation on survivors",
+        "typed separation of BRC next-square addition cost from ceiling-square Fermat completion cost",
+        "immediate square-gap witness surface for classical difference-of-squares composition",
+        "runtime benchmark surface separating gap-only second-root savings from full ceiling-gap pipeline cost"
+      ],
+      "core_law": "If an integer value is a square then its residue modulo M belongs to the precomputed quadratic-residue table Q_M. Therefore Q_M[value mod M]=0 safely rejects squarehood before exact isqrt confirmation. For M=4032 the table has 192 live residue classes out of 4032 (1/21) and a 504-byte raw payload; for M=20160 it has 576 live classes out of 20160 (1/35) and a 2520-byte raw payload.",
+      "hard_boundary": "Quadratic-residue filtering, Fermat difference of squares, and Lehman-style multiplier use are classical prior art. Passing the residue filter is not a square certificate. Rejection percentage is not runtime speedup: on the checked small-integer semiprime sample direct Python isqrt was faster, while deterministic larger-integer timing showed the table becomes useful; full ceiling-gap pipeline gains were only about 1.2-1.4x in the tested big-integer ranges because ceil(sqrt(mN)) remains on the critical path. Timings are environment-dependent diagnostics, not complexity theorems. Coarse BRC basin support/Pell resonance remains unpromoted as a selector."
+    },
+    {
+      "score": 9,
+      "method_id": "t0.weighted_brc_critical_orbits",
+      "name": "Critical BRC word, primitive-orbit and Euler-prefix arithmetic",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "source_refs": [
+        "definitions/ENTERPRISE_BRC_CRITICAL_ORBIT_FOUNDATION_20260903.md",
+        "definitions/ENTERPRISE_BRC_CRITICAL_ORBIT_THEOREM_LEDGER_20260903.json",
+        "src/enterprise_math/brc_critical_orbits.py",
+        "PR #1173",
+        "PR #1174"
+      ],
+      "api": [
+        "CriticalOrbitPrefix",
+        "critical_word_counts",
+        "critical_primitive_orbit_counts",
+        "critical_zeta_coefficients",
+        "critical_euler_coefficients",
+        "critical_orbit_prefix"
+      ],
+      "triggers": [
+        "critical dominant word count",
+        "critical multiplicity automaton",
+        "primitive periodic orbit",
+        "critical zeta Euler product",
+        "Mobius primitive orbit count",
+        "residual critical multiplicity growth"
+      ],
+      "capabilities": [
+        "exact total and based-closed critical dominant branch-word counts from integer K",
+        "exact primitive periodic-orbit counts by Mobius inversion",
+        "exact determinant-zeta reciprocal coefficients",
+        "exact truncated primitive-orbit Euler-product coefficients with determinant cross-check",
+        "verified finite prefix bundling of total/closed/primitive/zeta data"
+      ],
+      "core_law": "For the canonical integer critical-degeneracy matrix K, T_n=tr(K^n)=sum_{d|n}dP_d and 1/det(I-zK)=product_n(1-z^n)^(-P_n); all data are exact rational-gauge invariants because K itself is gauge invariant.",
+      "hard_boundary": "Primitive periodic edge-word orbits are not WBRC-T29 simple feedback-support circuits and P_n are not arithmetic prime counts. Classical dynamical-zeta/entropy structure only; no runtime orbit-enumeration speedup, Shannon-probability or infinite-state claim."
+    },
+    {
+      "score": 9,
+      "method_id": "t0.weighted_brc_finite_recurrent",
+      "name": "Finite recurrent positive Weighted-BRC rational gauge calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "source_refs": [
+        "definitions/ENTERPRISE_BRC_FINITE_RECURRENT_FOUNDATION_20260902.md",
+        "definitions/ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json",
+        "research_notes/BRC_FINITE_RECURRENT_RATIONAL_GAUGE_STABILITY_20260902.md",
+        "src/enterprise_math/brc_weighted_recurrent.py",
+        "tests/test_brc_weighted_recurrent.py",
+        "PR #1112",
+        "main@9d91c769bd3d3086b6f27a843cbf4341659c9b88"
+      ],
+      "api": [
+        "FiniteRecurrentMassAnalysis",
+        "finite_recurrent_mass_analysis",
+        "recurrent_mass_power",
+        "gauge_recurrent_mass_matrix",
+        "verify_recurrent_integer_stable_certificate",
+        "verify_recurrent_integer_divergence_certificate"
+      ],
+      "triggers": [
+        "finite recurrent BRC",
+        "weighted cycle",
+        "positive recurrent mass",
+        "rational transition matrix",
+        "integer stability certificate",
+        "gauge row sum",
+        "recurrent star",
+        "multiplicity driven instability",
+        "finite SCC"
+      ],
+      "capabilities": [
+        "exact finite non-negative rational transition-mass powers",
+        "exact recurrent total-mass stability decision without floating spectral materialization",
+        "exact rational Neumann star and canonical mass potential on the stable side",
+        "positive rational state-gauge normalization to row-subcritical form",
+        "pure integer stable-certificate verification after denominator clearing",
+        "pure integer divergence-certificate verification",
+        "one-state reduction to the existing S<1 recurrent law"
+      ],
+      "core_law": "For finite W in M_n(Q_{>=0}), total all-depth mass is finite iff exists h>0 rational with Wh<h. Then W^star=(I-W)^-1 exactly and x=W^star 1 is the canonical potential. After W=A/D, stability iff exists positive integer h with Ah<Dh; otherwise a nonzero y>=0 exists with y^T A>=D y^T. A positive diagonal gauge localizes stability to row sums <1 and preserves closed-cycle products.",
+      "hard_boundary": "Finite non-negative rational total-mass projection only. No infinite-state theorem, signed/amplitude cancellation, complex recurrence, arbitrary-real exact-weight promise, probability/Markov semantics, or claim that dominant-path contraction alone implies total-mass stability."
+    }
+  ],
+  "executable_modules": [
+    {
+      "score": 6,
+      "id": "module:box_conflict_repair",
+      "name": "box_conflict_repair.py",
+      "description": "Exact multibody common-target repair for axis-aligned integer boxes.",
+      "source_ref": "src/enterprise_math/box_conflict_repair.py",
+      "api": [
+        "box_conflict_edges",
+        "deletion_set_is_vertex_cover",
+        "common_target_exists_after_deletions",
+        "minimum_common_target_deletion_sets",
+        "box_contains_point",
+        "target_first_common_target_repair",
+        "BoxConflictRepair",
+        "BoxTargetOccupancyRepair"
+      ],
+      "triggers": [
+        "box conflict repair"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 6,
+      "id": "module:brc_critical_degeneracy",
+      "name": "brc_critical_degeneracy.py",
+      "description": "Exact critical-degeneracy BRC analysis and log-correction selectors.",
+      "source_ref": "src/enterprise_math/brc_critical_degeneracy.py",
+      "api": [
+        "critical_degeneracy_analysis",
+        "criticality_polynomial",
+        "smallest_positive_root_selector",
+        "critical_log_correction_state",
+        "critical_graph_shaped",
+        "critical_log_zero",
+        "critical_log_threshold_analysis",
+        "critical_log_less_than_rational",
+        "critical_log_bounds",
+        "critical_log_correction_from_branches",
+        "CriticalDegeneracyAnalysis",
+        "CriticalRootSelector",
+        "CriticalLogCorrectionState"
+      ],
+      "triggers": [
+        "brc critical degeneracy"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 6,
+      "id": "module:brc_critical_orbits",
+      "name": "brc_critical_orbits.py",
+      "description": "Exact critical-word and primitive-orbit arithmetic for Enterprise BRC.",
+      "source_ref": "src/enterprise_math/brc_critical_orbits.py",
+      "api": [
+        "critical_word_counts",
+        "critical_primitive_orbit_counts",
+        "critical_zeta_coefficients",
+        "critical_euler_coefficients",
+        "critical_orbit_prefix",
+        "CriticalOrbitPrefix"
+      ],
+      "triggers": [
+        "brc critical orbits"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 6,
+      "id": "module:brc_critical_ratio_jet",
+      "name": "brc_critical_ratio_jet.py",
+      "description": "Exact powered critical gauges and finite branch-ratio jets for Weighted-BRC.",
+      "source_ref": "src/enterprise_math/brc_critical_ratio_jet.py",
+      "api": [
+        "powered_critical_gauge",
+        "critical_ratio_jet",
+        "full_powered_ratio_jet",
+        "critical_ratio_first_response",
+        "PoweredCriticalGauge",
+        "CriticalRatioJet",
+        "FullPoweredRatioJet",
+        "CriticalRatioResponseState"
+      ],
+      "triggers": [
+        "brc critical ratio jet"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 6,
+      "id": "module:brc_energy_difference_jet_tail",
+      "name": "brc_energy_difference_jet_tail.py",
+      "description": "Exact finite-difference transport of E=q(2J+q) on the BRC tail.",
+      "source_ref": "src/enterprise_math/brc_energy_difference_jet_tail.py",
+      "api": [
+        "root_stride_third_difference",
+        "root_third_difference_bound_sufficient",
+        "square_increment_third_difference",
+        "EnergyJetSeedSample",
+        "EnergyDifferenceJetOrbit",
+        "EnergyDifferenceJetTailStep",
+        "EnergyDifferenceJetTailScanner"
+      ],
+      "triggers": [
+        "brc energy difference jet tail"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 6,
+      "id": "module:brc_energy_scaled_cross_tail",
+      "name": "brc_energy_scaled_cross_tail.py",
+      "description": "Scaled cross-coordinate implementation of the exact BRC energy jet.",
+      "source_ref": "src/enterprise_math/brc_energy_scaled_cross_tail.py",
+      "api": [
+        "scaled_cross_from_mixed",
+        "mixed_from_scaled_cross",
+        "square_increment_scaled_cross_third_difference",
+        "next_scaled_cross",
+        "ScaledCrossEnergyOrbit",
+        "ScaledCrossEnergyTailScanner"
+      ],
+      "triggers": [
+        "brc energy scaled cross tail"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 6,
+      "id": "module:brc_error_linearization_pell",
+      "name": "brc_error_linearization_pell.py",
+      "description": "Exact error linearization and table-free Pell/Padé BRC tail transport.",
+      "source_ref": "src/enterprise_math/brc_error_linearization_pell.py",
+      "api": [
+        "post_truncation_derivative_ratio",
+        "brc_gap_after_crossings",
+        "pell_pade_pair",
+        "pell_linear_recurrence_next",
+        "pell_two_correction_certificate",
+        "transport_pell_tail",
+        "MultiplierStateLike",
+        "PellTailState"
+      ],
+      "triggers": [
+        "brc error linearization pell"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 6,
+      "id": "module:brc_feedback",
+      "name": "brc_feedback.py",
+      "description": "Exact positive-rational BRC feedback condensation and interaction tools.",
+      "source_ref": "src/enterprise_math/brc_feedback.py",
+      "api": [
+        "feedback_event",
+        "feedback_event_kernel",
+        "feedback_condensation",
+        "feedback_additive_radius",
+        "conditional_feedback_kernel",
+        "feedback_subset_zeta_factors",
+        "feedback_mobius_interaction_factors",
+        "feedback_interaction_girth",
+        "feedback_circuit_atoms",
+        "FeedbackEvent",
+        "FeedbackCondensationAnalysis",
+        "FeedbackCircuitAtom"
+      ],
+      "triggers": [
+        "brc feedback"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 6,
+      "id": "module:brc_histogram",
+      "name": "brc_histogram.py",
+      "description": "Exact finite positive-rational branch-weight histogram BRC carrier.",
+      "source_ref": "src/enterprise_math/brc_histogram.py",
+      "api": [
+        "weight_histogram",
+        "histogram_recoalesce",
+        "histogram_serial",
+        "leading_recoalesce",
+        "leading_serial",
+        "dominant_degeneracy_error_bound",
+        "power_sum_root_polynomial",
+        "LeadingPair",
+        "WeightHistogram"
+      ],
+      "triggers": [
+        "brc histogram"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 6,
+      "id": "module:brc_linear_deep_tail",
+      "name": "brc_linear_deep_tail.py",
+      "description": "Exact order-1 Pell/Padé BRC transport on the long multiplier tail.",
+      "source_ref": "src/enterprise_math/brc_linear_deep_tail.py",
+      "api": [
+        "odd_n_multiplier_is_representative",
+        "next_odd_n_representative_multiplier",
+        "order1_pell_pair",
+        "order1_two_correction_certificate",
+        "linear_tail_sufficient",
+        "common_mod8_linear_tail_sufficient",
+        "linear_tail_threshold",
+        "common_mod8_linear_tail_threshold",
+        "transport_order1_linear_tail",
+        "odd_n_linear_deep_tail_states",
+        "MultiplierStateLike",
+        "LinearDeepTailState"
+      ],
+      "triggers": [
+        "brc linear deep tail"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 6,
+      "id": "module:brc_mod8_sparse_transition",
+      "name": "brc_mod8_sparse_transition.py",
+      "description": "Exact sparse BRC root transport over the odd-N mod-8 representative scan.",
+      "source_ref": "src/enterprise_math/brc_mod8_sparse_transition.py",
+      "api": [
+        "compile_two_step_gamma_constants",
+        "odd_n_sparse_multiplier_root_sequence",
+        "sparse_transition_table_mode",
+        "SparseMultiplierRootState"
+      ],
+      "triggers": [
+        "brc mod8 sparse transition"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 6,
+      "id": "module:brc_moment_transfer",
+      "name": "brc_moment_transfer.py",
+      "description": "Exact integer-moment and rational length-marker BRC transfer tools.",
+      "source_ref": "src/enterprise_math/brc_moment_transfer.py",
+      "api": [
+        "moment_transition_matrix",
+        "moment_matrix_power",
+        "moment_walk_series_coefficients",
+        "finite_moment_signature",
+        "moment_star_at_z",
+        "moment_port_kernel_at_z",
+        "equal_loop_moment_critical_z",
+        "FiniteMomentSignature"
+      ],
+      "triggers": [
+        "brc moment transfer"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    }
+  ],
+  "next_rule": "Inspect semantic preconditions and hard boundaries before deciding REUSE / COMPOSE / EXTEND_EXISTING_TOOL."
+}

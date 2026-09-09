@@ -1,0 +1,67 @@
+{
+  "schema": "RB_SIX_BLOCK_RESEARCHER_CLOSEOUT_V1",
+  "researcher_id": "EM-RB-1EB0B6",
+  "task_id": "RS-RB-SIX-BLOCK-COMPLETE-HALF-SECTION-OBSTRUCTION-REPAIR",
+  "recorded_at": "2026-09-09T17:46:17.146671+00:00",
+  "source_commit": "a1a45349bc81c31f5c57ba2ef89c5ab45419710d",
+  "result_id": "RR-ADD4970017D408BAE050",
+  "result_commit": "70f9c9b82600fe4bde26025033f7909f1b88a0c2",
+  "handoff_manifest_commit": "8cdda8857f8b284a640d9b6f0466d911b7b7be35",
+  "handoff_manifest_path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/handoff_manifest.json",
+  "handoff_manifest_sha256": "e467bb0f3e35637c73188128a48854246af773dacc45dba6ec5c6d81e652466e",
+  "activity_source_commit": "8cdda8857f8b284a640d9b6f0466d911b7b7be35",
+  "activity_record_sha256": "132c689a21d14e57d0a0dded93ec06e39c7c9b2c9cd24f3400a6a4ea68a448ae",
+  "activity_gate": {
+    "activity_allowed": true,
+    "activity_id": "RA-0FF9BA2BED0EBBE6C0614714",
+    "authority": {
+      "claim": false,
+      "mathematical_acceptance": false,
+      "review": false,
+      "task_registration": false,
+      "working_truth": false
+    },
+    "boundary": "pre-final",
+    "canonical_owner_visibility": "VERIFY_CANONICAL_INTAKE_IF_PUBLISHED_ONLY_ON_A_BRANCH",
+    "mode": "TASK_RESEARCH",
+    "persistence_allowed": true,
+    "record_path": "research_activity_records/RA-0FF9BA2BED0EBBE6C0614714.json",
+    "record_sha256": "132c689a21d14e57d0a0dded93ec06e39c7c9b2c9cd24f3400a6a4ea68a448ae",
+    "register_command": "python tools/research_activity.py register --session-id <session> --researcher-id <resolved-id> --mode <TASK_RESEARCH|FREE_AXIOM_DISCOVERY>",
+    "registration_source": "https://github.com/awdawmip/enterprise-math/blob/8cdda8857f8b284a640d9b6f0466d911b7b7be35/research_activity_records/RA-0FF9BA2BED0EBBE6C0614714.json",
+    "registration_visibility": "IMMUTABLE_EM_RECORD_OBSERVED",
+    "required_action": "CONTINUE_ACTIVITY",
+    "source_links": [
+      "https://github.com/awdawmip/enterprise-math/blob/a1a45349bc81c31f5c57ba2ef89c5ab45419710d/research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/PROOF.md",
+      "https://github.com/awdawmip/enterprise-math/blob/a1a45349bc81c31f5c57ba2ef89c5ab45419710d/research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/integer-certificate.json",
+      "https://github.com/awdawmip/enterprise-math/blob/70f9c9b82600fe4bde26025033f7909f1b88a0c2/research_result_records/RS-RB-SIX-BLOCK-COMPLETE-HALF-SECTION-OBSTRUCTION-REPAIR/RR-ADD4970017D408BAE050.json"
+    ],
+    "sync_debt_events": []
+  },
+  "handoff_event": {
+    "comment_id": 5606218231,
+    "html_url": "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-5606218231",
+    "created_at": "2026-09-09T17:43:21Z",
+    "updated_at": "2026-09-09T17:43:21Z",
+    "body_sha256": "3769fcb6f12cf60afdf37f202726c021eb2f978f523fd1d4308d9a1035cd8746",
+    "server_author_login": "awdawmip",
+    "server_author_user_id": 30957095,
+    "author_association": "OWNER"
+  },
+  "pre_final": {
+    "canonical_final_allowed": true,
+    "continuation_lease_preserved": false,
+    "final_allowed": true,
+    "reason": "user explicitly requested a terminal interaction boundary",
+    "registration_authenticated": true,
+    "registration_authority": "IMMUTABLE_TASK_RECORD",
+    "required_action": "RETURN_FINAL",
+    "terminal_scope": "TASK",
+    "transition": "FINAL_ALLOWED"
+  },
+  "researcher_phase": "FROZEN_RETURN_AWAITING_DRIVER_REVIEW",
+  "parent_status": "OPEN",
+  "next_action": "Root restores the same line Driver EM-DVR-5816EB for ordinary independent review; temporary researcher may finish after durable closeout publication",
+  "canonical_EM_main_admission": "PENDING_SOURCE_INTAKE",
+  "mathematical_acceptance_granted": false
+}
