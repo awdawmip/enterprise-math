@@ -1,6 +1,6 @@
 # R005 Prime Algorithm Lab line dossier
 
-Status: `OPEN / CORRECTION TASK CLOSED / Q78553 READY FOR CLAIM`  
+Status: `OPEN / CORRECTION TASK CLOSED / Q78553 RESEARCH RUNNING`  
 Current Driver: `EM-DVR-81273A`  
 Current forward authority: `DA-80BDA97466C306DAD3C3` / Owner comment `5605970384`
 Persistent governance: `GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER` /
@@ -70,15 +70,33 @@ and adds exactly one research-parent whitelist:
 governance/source responsibility and is not added to that research whitelist.
 Old DA records and all accepted Correction records are unchanged.
 
-The directed research entry now consumes the original typed dependency release
-through PR1463's `control_plane/research_dependency_release.py`. A current real
-772-comment unassigned-target check validated the original release and found
-`NEEDS_DISPATCH` with no claimant. It is not an assignment or execution grant.
-One actual researcher will supply its own identity/session/RA before a real
-Driver ASSIGN and researcher-owned prepare/CLAIM/authorize sequence. Until the
-execution slot is actually available, no worker or recipient is invented.
-The standalone packet is
+The existing typed dependency release was consumed by the actual worker's current
+canonical assigned selection. The standalone packet and its earlier unassigned
+preparation proof remain unchanged historical evidence:
 `driver_reviews/R005_Q78553_RESEARCH_HANDOFF_20260910_81273A/RESEARCHER_HANDOFF.md`.
+
+Actual researcher `EM-R005Q53-050E43` supplied its own identity, session and
+`RA-0DA1C30C5794D50A34B7F18B`; the activity reached main
+`0d0344880a4cbb2b78ae8a5a074758fc3392c70f`. Driver ASSIGN `5606399286`
+at `2026-09-09T17:58:06Z` binds that recipient. The receiver independently
+performed `CLAIM_NEW_OWNER`, prepare, actual CLAIM `5606578580` at
+`2026-09-09T18:11:48Z`, and runtime authorization on a complete source
+snapshot. Its claim is `r005q53-050e43-20260910`, execution
+`ER-8ABFD24CCC477A03ED13`, and branch
+`research/r005-q78553-catalogue-050e43-20260910`.
+
+The first bare authorize CLI returned the existing global P000 fork error.
+Its original failure remains in the startup package. The same current code's
+documented canonical bootstrap returned exit 0, `authorized=true`, and
+`CURRENT_AUTHORIZED_WINNING_ISSUE_240_CLAIM`, with owner lease through
+`2026-09-10T00:11:48Z`. This required no rule edit, new isolation or second
+CLAIM. Mathematical work began after that actual authorization.
+
+Worker startup source `ec8275ee4bf0a7ff9da925dcfd96bcec3c09f1df` preserves the exact entry records
+and original command outputs. The Driver's independently checked summary is
+`driver_reviews/R005_Q78553_RESEARCH_HANDOFF_20260910_81273A/actual_researcher_startup_receipt.json`; original worker evidence is under
+`research_artifacts/R005_Q78553_CATALOGUE_050E43_20260910/startup/`. The full 775 raw server envelopes reconstruct byte-for-byte from
+the existing canonical base and the ten actual incremental envelopes.
 
 The exact accepted-review artifact condition identified by
 `GV-R005-DEFICIT-SHADOW-CORRECTION-REVIEW` / `TP2-86F63B5AAD1C97EC80FE`
@@ -89,18 +107,21 @@ the existing catalogue/seam publication. Canonical replay returned
 The release receipt and original server envelope are in
 `driver_reviews/R005_LINE_DRIVER_81273A_20260909/`.
 
-The next researcher must use the existing task's canonical selection, identity,
-activity, claim and execution-authorization entry before mathematical work.
-No researcher or current-generation governance claim was created here.
-This dossier does not fabricate a separate governance Result or DONE event.
+This is an actual researcher startup checkpoint. It creates no separate
+governance Result, DONE event or current-generation governance claim.
+The earlier release state above is historical; the current researcher claim
+and actual authorization now govern the bounded mathematical execution.
 
 Existing later nodes remain:
 `RS-R005-Q78553-EXACT-916-GAP-CATALOG-SEAM-CLOSURE` /
 `TP2-09D6ECE7F315F0766FE1`, and
 `GV-R005-Q78553-SEAM-CLOSURE-REVIEW-AND-ROUTE` /
-`TP2-D43B87B08CE6E6D3FD41`. The research task is now ready for a real claimant;
-the terminal seam review remains gated on an actual seam Result. Current
-runtime and source pins must be refreshed at execution time.
+`TP2-D43B87B08CE6E6D3FD41`. The researcher is now executing the existing
+task; the terminal seam review remains gated on an actual seam Result.
+Root explicitly requested this Driver's startup source/GK/PRE_FINAL closeout
+and release of its running seat. Restore the same Driver `EM-DVR-81273A`
+on the actual worker handoff for ordinary independent review. This resource
+handoff neither stops the worker nor closes a mathematical parent.
 
 ## Frozen mathematical boundary and evidence
 
