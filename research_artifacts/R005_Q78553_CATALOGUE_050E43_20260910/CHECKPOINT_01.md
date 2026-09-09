@@ -69,7 +69,10 @@ cross-boundary consecutive-prime pairs. Aggregating only counts cannot recover g
 A certified zero count would support emptiness; a positive count alone cannot support shadow inversion.
 No recurrent, signed-amplitude, or weighted critical-asymptotic claim is introduced.
 
-The canonical toolbox coverage is recorded in tool-coverage.json.
+The canonical toolbox coverage is recorded in tool-coverage.json as a UTF-8 view.
+Its exact original Windows CP936 stdout is preserved losslessly in
+tool-coverage.original-windows-stdout.base64.txt; decoding that base64 reproduces
+Git blob 781e683ea41a037224c7e236c2ce71e03792099c.
 The accepted R005 scanner is REUSE_APPLIED and will be REUSE_EXECUTED on any justified final catalogue.
 Existing primesieve is REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE on the host's Python 3.14;
 an isolated compatible official runtime is being used to resolve that execution mismatch.
