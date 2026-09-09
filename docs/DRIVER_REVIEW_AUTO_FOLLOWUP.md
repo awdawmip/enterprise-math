@@ -108,9 +108,44 @@ head. The distinct completed-Task decision below leaves the parent unclosed.
 
 `TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION` creates no new Task. It is available
 only to an `ACCEPTED` operational Driver review of a current-publication `PASS` or `SUCCESS` Result
-whose exact `hard_target_disposition` is `SATISFIED`. `terminal_scope: TASK`
+whose hard target is explicitly satisfied. The Result may carry literal
+`hard_target_disposition: SATISFIED`, or the reviewing Driver may supply the
+exact report-bound assessment below for a descriptive Result value. `terminal_scope: TASK`
 belongs to the Driver packet, not the historical Result. Incomplete, partial,
 negative-boundary, activity-only and non-accepted returns cannot use this route.
+
+For the report-bound route, the Driver writes exactly one standalone HTML
+comment in the review Markdown. Its JSON has exactly these fields:
+
+```json
+{
+  "schema": "ENTERPRISE_MATH_DRIVER_TASK_COMPLETION_ASSESSMENT_V1",
+  "driver_id": "<the reviewing Driver>",
+  "task_id": "<current Task>",
+  "publication_id": "<current TP2>",
+  "result_id": "<current RR>",
+  "result_record_sha256": "sha256:<digest of the unchanged raw Result bytes>",
+  "original_hard_target_disposition": "<exact original Result field>",
+  "disposition": "SATISFIED",
+  "terminal_scope": "TASK",
+  "assessment": "<the Driver's explicit completion judgment, conditions and bounded evidence>"
+}
+```
+
+Enclose that JSON between a line containing
+`<!-- ENTERPRISE_MATH_DRIVER_TASK_COMPLETION_ASSESSMENT_V1` and a line containing
+`-->`. The normal review writer binds the entire report by its path, Git blob,
+SHA-256 and derived DR identity. Both first-review preflight and later packet
+validation verify those bytes and the current raw Result digest. First-review
+preflight uses the genuine validated review candidate before creating a DR;
+it never requires a pre-existing DR or substitutes a placeholder report.
+
+This is the Driver's explicit assessment, not a parser interpreting a Result
+description or a global success alias. Duplicate blocks/JSON keys, mismatched
+identities or pins, synthetic reviews and explicit incomplete/negative target
+values are refused. The immutable Result remains unchanged. The existing DFU
+schema already binds that Result and review; no replacement Result, task,
+claim or new registry is created by this route.
 
 All six gates retain their existing rules and evidence requirements. No gate
 may remain `REQUIRED`; use a real taskset for a gate that needs new work.

@@ -407,8 +407,9 @@ def _preflight_first_review_followup(
     disposition: str,
     destination_class: str,
     spec: dict[str, Any],
+    review_candidate: dict[str, Any] | None = None,
 ) -> None:
-    probe_review = {
+    probe_review = review_candidate if review_candidate is not None else {
         "review_id": "DR-PREFLIGHT",
         "result_id": result["result_id"],
         "task_id": result["task_id"],
@@ -527,13 +528,6 @@ def command_review_with_authority(args: argparse.Namespace) -> int:
                 "the first immutable review becomes operational immediately and requires --followup-spec"
             )
         spec, spec_path = _load_followup_spec(args.followup_spec)
-        _preflight_first_review_followup(
-            result=result,
-            driver_id=args.driver_id,
-            disposition=args.disposition,
-            destination_class=args.destination_class,
-            spec=spec,
-        )
     elif args.followup_spec:
         raise ResultRecordError(
             "a second-or-later review reopens exact-set review authority; "
@@ -571,6 +565,16 @@ def command_review_with_authority(args: argparse.Namespace) -> int:
         _candidate_validation.require_valid_review_candidate(record, root=ROOT)
     except _candidate_validation.ImmutableCandidateValidationError as exc:
         raise ResultRecordError(f"review candidate preflight failed: {exc}") from exc
+
+    if spec is not None:
+        # The explicit completion route reads the real report and Result pins.
+        # Validate the genuine candidate before any immutable DR is persisted;
+        # a placeholder review cannot stand in for those bindings.
+        _preflight_first_review_followup(
+            result=result, driver_id=args.driver_id, disposition=args.disposition,
+            destination_class=args.destination_class, spec=spec,
+            review_candidate=record,
+        )
 
     out = REVIEW_ROOT / _safe_id(args.result_id, "result_id") / f"{record['review_id']}.json"
     try:

@@ -42,6 +42,7 @@ POLICY = "AUTO_PUBLISH_TASKSET_OR_PARENT_CLOSE_V1"
 CUTOVER_REVIEWED_AT = "2026-08-27T09:19:00+00:00"
 
 TASK_SCOPE_DECISION = "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION"
+TASK_COMPLETION_ASSESSMENT_SCHEMA = "ENTERPRISE_MATH_DRIVER_TASK_COMPLETION_ASSESSMENT_V1"
 DECISIONS = {"TASK_SET_PUBLISHED", "PARENT_OBJECTIVE_CLOSURE", TASK_SCOPE_DECISION}
 GATE_DECISIONS = {"REQUIRED", "SATISFIED_BY_REVIEWED_RESULT", "NOT_REQUIRED"}
 GATES = (
@@ -211,7 +212,12 @@ def _task_scope_continuation(
     if result.get("terminal_verdict") not in {"PASS", "SUCCESS"}:
         raise DriverFollowupError("TASK-scope closure requires a PASS/SUCCESS Result")
     if result.get("hard_target_disposition") != "SATISFIED":
-        raise DriverFollowupError("TASK-scope closure requires hard_target_disposition SATISFIED")
+        if str(result.get("hard_target_disposition", "")).strip().upper() in {
+            "PARTIAL", "PARTIALLY_SATISFIED", "INCOMPLETE", "NOT_SATISFIED", "UNSATISFIED",
+            "NEGATIVE_BOUNDARY", "NO_GO", "FAIL", "FAILED", "BLOCKED",
+        }:
+            raise DriverFollowupError("TASK-scope closure requires SATISFIED; an explicit incomplete or negative target cannot be retyped")
+        _driver_task_completion_assessment(review, result, root)
     if terminal_scope != "TASK":
         raise DriverFollowupError("completed-Task follow-up requires terminal_scope TASK")
     if current_publication_required:
@@ -274,6 +280,81 @@ def _result_record_pin(
                 or source.get("result_record_sha256") != digest):
             raise DriverFollowupError("TASK-scope review does not pin current Result bytes")
     return relative, digest
+
+
+def _driver_task_completion_assessment(
+    review: dict[str, Any], result: dict[str, Any], root: Path,
+) -> dict[str, Any]:
+    """Read the reviewing Driver's explicit judgment, never infer it from prose.
+
+    The immutable DR already binds its report bytes and the current raw Result.
+    A first-review candidate has those same pins before transactional creation.
+    This path adds no Result normalization or independent review authority.
+    """
+    if (review.get("record_schema") != result_impl.REVIEW_SCHEMA
+            or review.get("review_authority_kind") not in {None, "IMMUTABLE_REVIEW"}):
+        raise DriverFollowupError("explicit Task completion requires an immutable Driver review")
+    result_path, result_digest = _result_record_pin(review, result, root)
+    raw_result = _load(root / result_path)
+    for field in ("result_id", "task_id", "publication_id", "terminal_verdict", "hard_target_disposition"):
+        if raw_result.get(field) != result.get(field):
+            raise DriverFollowupError(f"Task completion assessment differs from raw Result: {field}")
+
+    relative = review.get("review_path")
+    if not isinstance(relative, str) or not relative:
+        raise DriverFollowupError("Task completion assessment requires the pinned review report")
+    candidate = Path(relative)
+    report_path = (root / candidate).resolve()
+    if (candidate.is_absolute() or ".." in candidate.parts
+            or not report_path.is_relative_to(root.resolve()) or not report_path.is_file()):
+        raise DriverFollowupError("Task completion assessment report must be repository-local")
+    report_bytes = report_path.read_bytes()
+    report_blob = result_impl._blob(report_path)
+    if (not result_impl._same_git_blob_identity(report_blob, review.get("review_blob_sha1"))
+            or "sha256:" + hashlib.sha256(report_bytes).hexdigest() != review.get("review_sha256")):
+        raise DriverFollowupError("Task completion assessment review report bytes drifted")
+    expected_review = result_impl.review_id(
+        str(result["result_id"]), str(review.get("driver_id")),
+        str(review.get("review_blob_sha1")), str(review.get("disposition")),
+    )
+    if review.get("review_id") != expected_review:
+        raise DriverFollowupError("Task completion assessment review identity differs from its report")
+
+    pattern = rf"(?ms)^<!-- {TASK_COMPLETION_ASSESSMENT_SCHEMA}\s*\n(.*?)\n-->\s*$"
+    blocks = re.findall(pattern, report_bytes.decode("utf-8"))
+    if len(blocks) != 1:
+        raise DriverFollowupError(
+            "TASK-scope closure requires hard_target_disposition SATISFIED or exactly one "
+            "pinned Driver Task completion assessment")
+
+    def unique_fields(pairs):
+        value = {}
+        for key, item in pairs:
+            if key in value:
+                raise DriverFollowupError("duplicate Driver Task completion assessment field")
+            value[key] = item
+        return value
+
+    try:
+        assessment = json.loads(blocks[0], object_pairs_hook=unique_fields)
+    except (ValueError, TypeError) as exc:
+        raise DriverFollowupError(f"invalid Driver Task completion assessment: {exc}") from exc
+    expected = {
+        "schema": TASK_COMPLETION_ASSESSMENT_SCHEMA,
+        "driver_id": review.get("driver_id"),
+        "task_id": raw_result["task_id"], "publication_id": raw_result["publication_id"],
+        "result_id": raw_result["result_id"], "result_record_sha256": result_digest,
+        "original_hard_target_disposition": raw_result["hard_target_disposition"],
+        "disposition": "SATISFIED", "terminal_scope": "TASK",
+    }
+    if not isinstance(assessment, dict) or set(assessment) != set(expected) | {"assessment"}:
+        raise DriverFollowupError("Driver Task completion assessment requires exact typed fields")
+    for field, value in expected.items():
+        if assessment.get(field) != value:
+            raise DriverFollowupError(f"Driver Task completion assessment binding mismatch: {field}")
+    if not isinstance(assessment["assessment"], str) or not assessment["assessment"].strip():
+        raise DriverFollowupError("Driver Task completion assessment requires an explicit bounded judgment")
+    return assessment
 
 
 def _parent_status_at_materialization(parent: str, root: Path) -> str:
