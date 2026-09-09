@@ -1,0 +1,22 @@
+{
+  "schema": "RB_SIX_BLOCK_COMPLETE_HALF_SECTION_PROBLEM_V1",
+  "task_id": "RS-RB-SIX-BLOCK-COMPLETE-HALF-SECTION-OBSTRUCTION-REPAIR",
+  "publication_id": "TP2-8B673D783D3FBC81E124",
+  "researcher_id": "EM-RB-1EB0B6",
+  "execution_record_id": "ER-023A3343CE7FA4FA2AEE",
+  "field": "K=Q(i,3^(1/4),sqrt(2)); named algebraic-model coordinates; no new native axes",
+  "coefficient_scope": "K and every algebraic extension; nonzero arithmetic constant factors retained",
+  "curve": "t^2=R^3-3R",
+  "F": "(R+2)*t",
+  "branch_divisor": "O+(0,0)+(sqrt(3),0)+(-sqrt(3),0)+(-2,i*sqrt(2))+(-2,-i*sqrt(2))",
+  "k": "-i*3^(1/4)*(sqrt(6)-2)",
+  "k_squared_coefficients": {"sqrt2": 12, "sqrt3": -10},
+  "lambda": "35+24*sqrt(2)-20*sqrt(3)-14*sqrt(6)",
+  "full_G": "a*R^3+b*R^2+c*R+d+(e*R+f)*t",
+  "pole_and_basepoint_conditions": "a != 0; G nonzero at all five finite B points; hence X=G/F has exactly six simple poles B",
+  "integer_derivation": "D=2delta; D(R)=2t; D(t)=3*(R^2-1)",
+  "integer_derivation_squared_factor": 4,
+  "full_fixed_k_ODE": "(F*D(G)-G*D(F))^2=4*K_ODE*(t+k)^2*G*(G-F)*(G-lambda*F)",
+  "K_ODE_scope": "Nonzero coefficient-field constant, independent of R and t",
+  "source_restrictions": "SOURCE_EXPOSED; existing four complete sectors; no historical 180/360 replay; accepted concrete map and 80 pins untouched"
+}

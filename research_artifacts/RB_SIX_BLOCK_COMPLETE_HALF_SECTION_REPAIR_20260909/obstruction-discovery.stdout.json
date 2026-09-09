@@ -1,0 +1,20 @@
+{
+  "sympy_version": "1.14.0",
+  "ODE": "N^2 = 4*K_ODE*(t+k)^2*G*(G-F)*(G-lambda*F)",
+  "leading_pole_condition": "a != 0 and 4*K_ODE*a=1",
+  "torsion_remainder_H": "72*R**2 + 144*R + 36",
+  "torsion_coefficient_constraints": [
+    "-72*a + b*k**2",
+    "a*(3*k**2 - 144) + c*k**2",
+    "-36*a + d*k**2"
+  ],
+  "critical_R2_coefficient": "6*a*k**2 - 18*a - b*k**2 - 12*b - 6*c - 6*d",
+  "integer_elimination_identity_residual": "0",
+  "forced_frozen_condition": "k**4 - 12*k**2 - 324",
+  "frozen_k_squared": "12*u - 10*v",
+  "frozen_obstruction": "-240*u*v - 144*u + 120*v + 264",
+  "obstruction_norm_over_Q": "58351435776",
+  "norm_cofactor_after_v_relation": "23123460096*u**2 + 28824698880",
+  "norm_cofactor_remainder": "0",
+  "critical_cubic_discriminant_factor": "240*u*v - 584"
+}

@@ -1,0 +1,15 @@
+# Minimal replay and review packet
+
+1. Read `PROOF.md` sections 1–6 and `problem.json`. This is the complete larger-space fixed-k exclusion; the old six-block argument is only the defective source being repaired.
+2. From the repository root run `python research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/check_complete_obstruction.py`. It uses standard Python and the pinned repository integer ring/BRC modules. It recomputes and byte-compares the frozen certificate. Do not run `--write` merely to hide a mismatch.
+3. Check the exact pole and nonvanishing hypotheses before the cancellation at the two-torsion points. Check the three distinct roots before concluding the critical remainder is zero. The final contradiction uses only the mandatory R² coefficient, not a restricted ansatz.
+4. The four-sector expansions, constant factors, ordered target labels, lift condition and full factor-four ODE are written explicitly in the proof. An ODE obstruction on all `L(6O)` functions covers these smaller permitted sectors without solving or sampling them.
+5. `source-bindings.json`, `integer-check-final.run.json`, `integer-check-final.stdout.txt`, and `integer-certificate.json` carry the exact proof source and real validation evidence. `FILE_MANIFEST.json` inventories the frozen package. The final handoff manifest will name the immutable source and Result commits.
+
+Historical execution provenance is in `runtime/`: the actual ASSIGN, actual current selector input/output, prepared ER, real server CLAIM, and successful current-bootstrap/runtime-guard output. The execution source snapshot was `b41ba7950014018af7c35f092643558207b6039d`. The retained source branch began with the real startup source at `91f447622012f12cc508bdd7751018a92e72bb29`; the ER was published at `8e858628e276e250786478f8d310cb0b755689cc`. Historical runtime evidence is an audit record, not a live lease for another conversation. A later researcher must use current authoritative routing and must not recreate or borrow this CLAIM/session.
+
+The initial sparse checkout was insufficient for an unrelated existing audit attachment and was replaced by a complete checkout before selection. The direct bare runtime guard invocation lacked the current canonical bootstrap and failed; the actual successful invocation used the shipped `research_control_bootstrap.install` followed by the shipped `research_runtime_guard.main` in the same interpreter. Both failure and success outputs are preserved. No validator was changed or bypassed.
+
+SymPy 1.14.0 and mpmath 1.3.0 were installed only under the temporary path recorded by the exploratory `.run.json` files. They are unnecessary for the final checker. Its integer norm certificate is an explicit polynomial ideal identity, not a CAS zero assertion adopted as a premise.
+
+The ordinary reviewing Driver is `EM-DVR-5816EB`. Review/admission and any subsequent line decision remain with that Driver. The task has no unresolved mathematical unit after the exclusion proof; the RB parent remains open for its separate period, homology and normalization obligations. The proof requires no future private conversation context.
