@@ -1,31 +1,24 @@
 <!-- ENTERPRISE_MATH_TASK_V1
 {
   "task_id": "P3R-PACHNER-OBSTRUCTION-PROFILE",
-  "title": "Pachner-covariant arithmetic obstruction profile",
+  "title": "Pachner transport of Q-row codes and arithmetic factor width",
   "kind": "RESEARCH",
   "owner": "taskbook/unassigned",
   "base_state": "READY",
   "priority": "P3",
   "leverage": "MEDIUM",
-  "frontier": "Bare triangulation scalar monotonicity is ruled out by Pachner reversibility; it is unknown whether an enlarged-state or covariant branch-obstruction profile transforms locally enough to guide simplification.",
-  "next_action": "Analyze one 2-3 and one 1-4 Pachner move at the level of matching matrices and branch-cokernel data, looking for an exact local transport rule or a small counterexample that kills covariance.",
+  "frontier": "Bare move-monotone scalar entropy is impossible by reversibility; the viable open question is whether local bistellar moves admit provenance-safe transport of Q-row codes and whether directed simplification toward lower dual-treewidth/arithmetic factor width is useful.",
+  "next_action": "Analyze explicit 2-3 and 1-4 moves as local extension/puncturing/shortening operations on Q-matching row codes and repair-state observers, and test whether the resulting factor-width change is locally computable and useful.",
   "dependencies": [],
   "source_refs": [
-    "awdawmip/enterprise-math@cd79471e16df9b4afd924ccae76a626eeb31ec9a:research_notes/POINCARE_BRC_ARITHMETIC_OBSERVER_HANDOFF_20260909.md",
-    "awdawmip/chatgpt-global-knowledge@c63167f2f911e2425b8a70b0aabcc90574425235:knowledge/projects/enterprise-math/poincare-brc-normal-surface-arithmetic-observer-20260905.md"
+    "awdawmip/enterprise-math@3359de19ffb776ebfaa59bc7443b171b23d35f4d:research_notes/POINCARE_BRC_CORRECTED_FRONTIER_HANDOFF_20260909.md",
+    "awdawmip/chatgpt-global-knowledge@8acfeac504eee85f6fbb66018470ad233ef33ff7:knowledge/projects/enterprise-math/poincare-brc-normal-surface-arithmetic-observer-20260905.md"
   ],
-  "evidence_status": "PROVED_BARE_SCALAR_NO_GO_PLUS_OPEN_COVARIANT_PROFILE",
+  "evidence_status": "PROVED_BARE_SCALAR_NO_GO_PLUS_OPEN_Q_CODE_TRANSPORT_AND_WIDTH_ROUTE",
   "last_progress_ref": null,
   "last_progress_at": null,
   "hard_block": null,
-  "tags": [
-    "poincare",
-    "pachner",
-    "bistellar-moves",
-    "BRC",
-    "cokernel",
-    "exploratory"
-  ],
+  "tags": ["poincare","pachner","Q-matching","coding-theory","treewidth","BRC","factor-width","exploratory"],
   "claim_lease_minutes": 120,
   "created_by_role": "RESEARCHER",
   "task_authority": "PUBLISHED_REGISTERED",
@@ -49,32 +42,32 @@
 }
 -->
 
-# Pachner-covariant arithmetic obstruction profile
+# Pachner transport of Q-row codes and arithmetic factor width
 
-Status: `READY / PUBLISHED-INTENT / EXPLORATORY-LOWER-PRIORITY`
+Status: `READY / SUPERSEDING-GENERATION / EXPLORATORY-LOWER-PRIORITY`
 
 ## 0. Mother question
 
-After the no-go for a strictly decreasing scalar of the bare triangulation, is there a useful Pachner-covariant arithmetic obstruction profile on an enlarged recognition state that transports branch-lattice information across local bistellar moves?
+Can local Pachner moves transport the corrected Q-row-code / repair-state arithmetic observer by exact local operations, and can directed simplification toward lower dual-treewidth or arithmetic factor width reduce recognition cost without inventing a forbidden universal entropy?
 
 ## 1. Frozen inputs and scope
 
-Assume only the proved reversibility no-go from the durable handoff: a nonconstant scalar of the bare triangulation cannot strictly decrease under every nontrivial Pachner move. Therefore study covariance or directed-protocol quantities, not an impossible universal scalar entropy.
+The bare scalar no-go is fixed: Pachner moves are reversible, so no nonconstant scalar of the triangulation alone can strictly decrease under every nontrivial move. Study local covariance and directed protocols instead.
 
-Restrict the first pass to explicit 2-3/3-2 and 1-4/4-1 local moves and the induced changes in normal-surface matching matrices, branch choices, cokernel classes, p-primary support, and BRC surviving search mass. Preserve enough provenance to distinguish a change of triangulation from a topological invariant.
+Use the corrected Q-matching code, repair states, prime-local Euler cosets, and treewidth-FPT factor structure. Preserve branch/repair provenance. Begin only with explicit 2-3/3-2 and 1-4/4-1 moves. Candidate transports may use local extension, puncturing, shortening, or repair coordinates, but must be proved to preserve the declared observer.
 
 ## 2. Hard target and required outputs
 
-For at least one move family, derive an exact local relation between pre-move and post-move integer systems, or produce a minimal counterexample showing that no useful bounded local transport of the proposed obstruction data exists. If transport exists only after adding repair coordinates, state the smallest such enlarged state and which observer it preserves.
+For at least one Pachner move family, derive the exact pre/post relation between Q-matching rows, coordinate blocks, and repair-state data, or give a minimal counterexample showing that no bounded local transport adequate for the observer exists.
 
-Return concrete matrices/examples, not only analogy with Ricci flow or entropy. Any candidate directed quantity must state the orientation/simplification protocol under which monotonicity is claimed.
+Define any proposed arithmetic factor-width precisely and compare it with dual-treewidth on explicit examples. If a directed simplification heuristic is proposed, state its orientation and measure whether it lowers the exact dynamic-program state space or observer cost. Do not call search-mass or width statistics topological invariants unless invariance is separately proved.
 
 ## 3. Research value to preserve
 
-A positive covariance law could connect the arithmetic-observer route to triangulation simplification and explain how certificates survive representation changes. A sharp negative result is equally useful because it prevents spending research effort on a discrete-Perelman analogy that reversibility or local instability forbids.
+A positive local transport law could make arithmetic certificates reusable across triangulation simplification and connect the code-theoretic observer to known width-based 3-manifold algorithms. A negative result can kill a broad class of discrete-Perelman analogies early.
 
 ## 4. Success, kill, and return criteria
 
-SUCCESS is an exact nontrivial transport/covariance law with explicit hypotheses and a useful preserved observer. KILL the direction if small Pachner examples show branch-cokernel information changes without any bounded local repair adequate for recognition, or if the only preserved data collapse to already-known trivial topological invariants.
+SUCCESS is an exact nontrivial transport law or a reproducible directed-width reduction with a proved observer interface. KILL a covariance claim if a small Pachner example changes the relevant code/repair information in a way not recoverable by the proposed local state. KILL a width heuristic if it merely renames dual-treewidth without improving observer execution or if computing it costs more than it saves.
 
-Return the smallest counterexample or the smallest sufficient enlarged state. Stop before promoting any search-complexity statistic to a topological invariant.
+Return the smallest sufficient enlarged state or the smallest counterexample. Do not claim a universal Pachner monotone.

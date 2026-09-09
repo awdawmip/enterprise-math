@@ -1,32 +1,24 @@
 <!-- ENTERPRISE_MATH_TASK_V1
 {
   "task_id": "P3R-NONABELIAN-FINITE-OBSERVER",
-  "title": "Non-abelian finite-field observer for homology 3-spheres",
+  "title": "Dependent non-abelian finite-field cross-check for homology 3-spheres",
   "kind": "RESEARCH",
   "owner": "taskbook/unassigned",
   "base_state": "READY",
-  "priority": "P2",
-  "leverage": "HIGH",
-  "frontier": "The abelian observer wall is established, but there is not yet one Enterprise-compatible exact pipeline from a homology 3-sphere group presentation to a finite-field non-sphericity certificate with assumptions and witness-prime provenance fully typed.",
-  "next_action": "Specify the smallest finite-field representation certificate and checker for a nontrivial irreducible SL(2,F_q) image, then map the Zentner/Heusener-Zentner/Kuperberg theorem dependencies and GRH tags into that interface.",
+  "priority": "P3",
+  "leverage": "MEDIUM",
+  "frontier": "Finite-field representation certificates remain useful for non-sphericity cross-checks, but the general Zentner/Heusener-Zentner route depends on geometrization and therefore cannot close an independent Poincare reproof.",
+  "next_action": "Package the finite-field representation checker and map the exact geometrization/GRH dependency chain so the route can be used as a correctly tagged algorithmic cross-check without circular proof claims.",
   "dependencies": [],
   "source_refs": [
-    "awdawmip/enterprise-math@cd79471e16df9b4afd924ccae76a626eeb31ec9a:research_notes/POINCARE_BRC_ARITHMETIC_OBSERVER_HANDOFF_20260909.md",
-    "awdawmip/chatgpt-global-knowledge@c63167f2f911e2425b8a70b0aabcc90574425235:knowledge/projects/enterprise-math/poincare-brc-normal-surface-arithmetic-observer-20260905.md"
+    "awdawmip/enterprise-math@3359de19ffb776ebfaa59bc7443b171b23d35f4d:research_notes/POINCARE_BRC_CORRECTED_FRONTIER_HANDOFF_20260909.md",
+    "awdawmip/chatgpt-global-knowledge@8acfeac504eee85f6fbb66018470ad233ef33ff7:knowledge/projects/enterprise-math/poincare-brc-normal-surface-arithmetic-observer-20260905.md"
   ],
-  "evidence_status": "ESTABLISHED_EXTERNAL_THEOREM_ROUTE_PLUS_OPEN_ENTERPRISE_CERTIFICATE_PIPELINE",
+  "evidence_status": "EXTERNAL_REPRESENTATION_ROUTE_ESTABLISHED_BUT_GEOMETRIZATION_DEPENDENT_FOR_GENERAL_CLOSURE",
   "last_progress_ref": null,
   "last_progress_at": null,
   "hard_block": null,
-  "tags": [
-    "poincare",
-    "homology-sphere",
-    "fundamental-group",
-    "SL2",
-    "finite-field",
-    "groebner",
-    "witness-prime"
-  ],
+  "tags": ["poincare","homology-sphere","fundamental-group","SL2","finite-field","cross-check","geometrization-dependency"],
   "claim_lease_minutes": 120,
   "created_by_role": "RESEARCHER",
   "task_authority": "PUBLISHED_REGISTERED",
@@ -50,32 +42,34 @@
 }
 -->
 
-# Non-abelian finite-field observer for homology 3-spheres
+# Dependent non-abelian finite-field cross-check for homology 3-spheres
 
-Status: `READY / PUBLISHED-INTENT / NONABELIAN-CERTIFICATE`
+Status: `READY / SUPERSEDING-GENERATION / DEPENDENCY-TYPED-CROSS-CHECK`
 
 ## 0. Mother question
 
-Can the known representation-theoretic non-sphericity route for integer homology 3-spheres be expressed as a compact exact finite-field observer/certificate pipeline that complements the abelian normal-surface pruning layer?
+Can the known representation-theoretic non-sphericity route be packaged as a small exact finite-field certificate/checker while making its geometrization and GRH dependencies impossible to confuse with an independent proof of Poincaré?
 
 ## 1. Frozen inputs and scope
 
-Use the durable handoff's information-loss wall: integral homology and Smith data cannot distinguish S^3 from the Poincaré homology sphere, so a non-abelian layer is mandatory for this route. Preserve the exact hypotheses and conclusion strength of the Zentner, Heusener–Zentner, and Kuperberg-type results; GRH-conditional and unconditional components must remain separately labeled.
+The abelian observer wall remains valid: integral homology cannot distinguish S^3 from the Poincaré homology sphere. Non-abelian finite representations are therefore informative cross-checks.
 
-Reuse the existing Gröbner certificate bridge for algebraic search/check separation and the existing effective witness-prime facade when its hypotheses match. Do not equate existence of a finite quotient with triviality/nontriviality of every presentation without the theorem connecting the certificate to the target manifold class.
+However the general theorem chain from a non-spherical integer homology 3-sphere to an irreducible SL(2,C) representation and the resulting recognition algorithm uses geometrization in the general case. Preserve this dependency explicitly. If an effective finite-field reduction uses a witness-prime theorem with GRH, carry that assumption separately from the geometrization dependence.
+
+Reuse the existing Gröbner-certificate and effective witness-prime interfaces when their hypotheses match. Do not present this route as the missing non-circular bridge.
 
 ## 2. Hard target and required outputs
 
-Define a certificate format starting from an explicit finite presentation of pi_1(M) and ending with matrices over a finite field that satisfy all relators and witness a nontrivial/irreducible representation adequate for the stated non-sphericity theorem. Supply a deterministic checker for the finite-field matrix relations and the nontriviality/irreducibility condition used.
+Define a finite certificate from a presentation of pi_1(M) to matrices over a finite field satisfying all relators and the exact nontriviality/irreducibility condition required by the cited theorem. Supply a deterministic checker for those finite-field relations.
 
-Document the theorem dependency chain from a non-spherical integer homology 3-sphere to existence of the complex representation, reduction to a finite field/witness prime, and the resulting certificate. State every number-field, discriminant, ramification, and GRH assumption needed by the chosen effective bound. Include S^3 and the Poincaré homology sphere as control cases and at least one additional homology-sphere example if practical.
+Produce a dependency ledger from the manifold hypothesis through complex representation existence, algebraic reduction, witness-prime selection, and finite certificate. Mark each edge as unconditional, geometrization-dependent, GRH-conditional, or merely algorithmic. Include S^3 and the Poincaré homology sphere as control cases and an additional documented example if practical.
 
 ## 3. Research value to preserve
 
-This route supplies the non-abelian information that the branch-cokernel observer necessarily loses. A successful finite certificate would produce a two-sided recognition architecture: arithmetic branch pruning on the surface side and finite non-sphericity witnesses on the group side.
+Even though it cannot supply an independent Poincaré proof, this route is a useful negative-certificate and regression channel for the broader recognition program. Explicit dependency typing prevents a sophisticated circularity error from re-entering later synthesis.
 
 ## 4. Success, kill, and return criteria
 
-SUCCESS requires an exact finite certificate/checker and a source-audited theorem chain that states whether the result is unconditional or conditional. KILL any step that silently assumes faithful reduction, irreducibility preservation, a small witness prime, or a GRH hypothesis not supplied by the cited theorem.
+SUCCESS requires an exact finite checker plus a source-audited dependency ledger. KILL any claimed independent-closure conclusion as soon as geometrization or an equivalent Poincaré-strength input appears in the theorem chain. Reject any effective small-prime statement whose number-field, ramification, discriminant, or GRH assumptions are not certified.
 
-If a fully effective pipeline is blocked by discriminant/field-construction complexity, return that as the smallest obstruction together with the strongest still-valid non-effective certificate statement. Stop before claiming a new Poincaré proof or a complexity-class improvement not actually established.
+If the finite certificate is practical but the effective prime bound is not, return the strongest valid non-effective/effective split. Stop with this route classified as cross-check unless a genuinely non-circular theorem is separately proved.

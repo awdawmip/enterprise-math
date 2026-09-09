@@ -1,31 +1,24 @@
 <!-- ENTERPRISE_MATH_TASK_V1
 {
   "task_id": "P3R-NORMAL-SURFACE-COKERNEL-PRUNING",
-  "title": "Normal-surface cokernel pruning benchmark",
+  "title": "Canonical-Q repair-state arithmetic pruning benchmark",
   "kind": "RESEARCH",
   "owner": "taskbook/unassigned",
   "base_state": "READY",
   "priority": "P1",
   "leverage": "HIGH",
-  "frontier": "Unknown whether exact integer-cokernel / mod-p^k separators prune enough partial quadrilateral branches in real 3-sphere-recognition instances to justify integration.",
-  "next_action": "Build a minimal exact adapter from a triangulation plus partial quadrilateral assignment to M_beta,b, generate a separating character when b is outside the integer image, and benchmark first-pruned depth and removed leaf mass on a controlled census.",
+  "frontier": "The corrected subtree certificate uses canonical quadrilateral candidates plus repair states tau; it is unknown whether prime-local Euler-row dependence and exact gcd/valuation fallbacks prune enough real recognition branches to justify integration.",
+  "next_action": "Prototype the repair-state observer on one-vertex Regina control triangulations: construct B, G_tau, good-prime d_{p,tau}, track surviving repair states S_beta, and measure exact first-pruned branch mass before stronger feasibility tests.",
   "dependencies": [],
   "source_refs": [
-    "awdawmip/enterprise-math@cd79471e16df9b4afd924ccae76a626eeb31ec9a:research_notes/POINCARE_BRC_ARITHMETIC_OBSERVER_HANDOFF_20260909.md",
-    "awdawmip/chatgpt-global-knowledge@c63167f2f911e2425b8a70b0aabcc90574425235:knowledge/projects/enterprise-math/poincare-brc-normal-surface-arithmetic-observer-20260905.md"
+    "awdawmip/enterprise-math@3359de19ffb776ebfaa59bc7443b171b23d35f4d:research_notes/POINCARE_BRC_CORRECTED_FRONTIER_HANDOFF_20260909.md",
+    "awdawmip/chatgpt-global-knowledge@8acfeac504eee85f6fbb66018470ad233ef33ff7:knowledge/projects/enterprise-math/poincare-brc-normal-surface-arithmetic-observer-20260905.md"
   ],
-  "evidence_status": "PROVED_SUBTREE_PRUNING_DERIVATION_PLUS_UNMEASURED_ALGORITHMIC_IMPACT",
+  "evidence_status": "CORRECTED_PROVED_REPAIR_STATE_SUBTREE_CERTIFICATE_PLUS_UNMEASURED_ALGORITHMIC_IMPACT",
   "last_progress_ref": null,
   "last_progress_at": null,
   "hard_block": null,
-  "tags": [
-    "poincare",
-    "3-sphere-recognition",
-    "normal-surfaces",
-    "BRC",
-    "smith-normal-form",
-    "modular-pruning"
-  ],
+  "tags": ["poincare","3-sphere-recognition","normal-surfaces","canonical-Q","repair-state","BRC","modular-pruning","gcd-valuation"],
   "claim_lease_minutes": 120,
   "created_by_role": "RESEARCHER",
   "task_authority": "PUBLISHED_REGISTERED",
@@ -49,32 +42,34 @@
 }
 -->
 
-# Normal-surface cokernel pruning benchmark
+# Canonical-Q repair-state arithmetic pruning benchmark
 
-Status: `READY / PUBLISHED-INTENT / EXPERIMENTAL-INTEGRATION`
+Status: `READY / SUPERSEDING-GENERATION / EXPERIMENTAL-INTEGRATION`
 
 ## 0. Mother question
 
-Does the exact branch-cokernel obstruction produce practically significant early pruning in normal-surface branch traversal for 3-sphere recognition, beyond the feasibility and domination tests already used by existing implementations?
+Do the corrected canonical-Q arithmetic observers—prime-local repair-state Euler dependence followed by exact gcd/valuation tests—produce practically significant early subtree pruning in normal-surface search for 3-sphere recognition?
 
 ## 1. Frozen inputs and scope
 
-Start from the durable Poincaré BRC handoff and preserve its theorem-strength boundaries. Use standard normal-surface matching equations, per-tetrahedron quadrilateral branching, and the target Euler-characteristic equation for a 2-sphere. For a partial branch beta, construct the relaxed integer matrix M_beta by deleting only already-forbidden quadrilateral columns. Reuse the existing Smith/local-support, modular exact linear algebra, and finite-observer-completeness interfaces where adequate.
+Use the corrected durable handoff, not the historical raw-standard-coordinate chi=2 relaxation. A closed triangulation has trivial triangle-only vertex-link spheres, so raw standard matching plus chi=2 is not an adequate nontrivial-sphere observer.
 
-The benchmark population must include controlled triangulations of S^3, lens spaces, the Poincaré homology sphere, and a documented sample of hyperbolic homology spheres or comparable census manifolds. Record triangulation sizes and provenance. Do not infer a topological invariant from branch-search statistics, and do not treat omega_beta=0 as a sphere-existence certificate.
+Use quadrilateral matching matrix B and canonical repair states tau that select one zero triangle coordinate around each global triangulation vertex. For each good odd prime p, derive d_{p,tau} by finite-field elimination of triangle coordinates. At partial branch beta, a repair state is killed when d_{p,tau,beta} lies in the row span of B_beta. Prune the whole branch only when every possible repair state is certified dead, i.e. the surviving repair-state set S_beta is empty.
+
+After the cheap prime layer, optionally use the exact Euler-image generator g_{beta,tau}, its divisibility/valuation obstruction, and only then stronger cone or semigroup tests when justified. Preserve branch and repair-state provenance.
 
 ## 2. Hard target and required outputs
 
-Produce an executable exact adapter that, for each visited partial branch beta, can return either UNKNOWN/SURVIVES or a verified finite separator (p^k,y) satisfying y^T M_beta = 0 mod p^k and y^T b != 0 mod p^k. Integrate or faithfully simulate this check at a branch-traversal point early enough to measure real pruning.
+Implement or faithfully prototype the exact observer against documented Regina triangulations. At minimum include small S^3 controls, lens spaces, the Poincaré homology sphere, and one hyperbolic control family. For every tested triangulation record n, vertex count, repair-state count, chosen good primes, visited branch nodes, first-pruned nodes, surviving-repair-state bitset sizes, exact removed labeled branch mass, observer cost, and baseline search cost.
 
-Return a benchmark table with at least: tetrahedron count n, number of visited partial nodes, first-pruned depths, number of separator hits, exact removed ternary leaf mass sum 3^(n-|beta|) over first-pruned antichain nodes, separator moduli, time spent in the observer, and total traversal cost with/without the observer under the same baseline. Include at least one preserved example certificate that a small independent checker can verify.
+Preserve at least one explicit row-dependence certificate and one exact gcd/valuation certificate. Compare observer-on versus observer-off under the same search order. Report bad-prime rank failures rather than silently using them.
 
 ## 3. Research value to preserve
 
-This is the direct test of whether the strongest new arithmetic observation from the originating Poincaré reroute is merely correct or algorithmically useful. A negative benchmark is also valuable because it kills the route before deeper integration; a positive benchmark can become a reusable exact prefilter for normal/almost-normal search.
+This is the direct empirical test of the corrected arithmetic contribution. A positive regime can become a reusable exact prefilter; a negative result can kill the integration route while preserving the theorem-level observer for other uses. The benchmark also determines whether the more expensive affine-semigroup-hole layer is worth implementing.
 
 ## 4. Success, kill, and return criteria
 
-SUCCESS requires reproducible exact certificates and a documented nontrivial pruning effect on at least one non-toy family without changing the recognized topology. STRONG SUCCESS requires consistent early subtree removal whose saved search cost materially exceeds observer cost on a meaningful census slice.
+SUCCESS requires reproducible sound certificates and nontrivial pruning on a non-toy family without changing recognition outcomes. STRONG SUCCESS requires saved search cost that materially exceeds observer cost across a documented useful regime.
 
-KILL the integration direction if exact separators almost never fire before existing cheap feasibility tests, or if their computation consistently costs more than the search they remove. If results are mixed, return the discriminating manifold/triangulation features rather than averaging them away. Stop after the benchmark establishes a clear useful regime, a clear no-go regime, or the smallest specific unresolved implementation blocker.
+KILL expensive integration if repair-state coverage rarely becomes empty before existing cheap tests, or if observer overhead consistently dominates removed search. If performance correlates with dual-treewidth, vertex count, prime choice, or manifold family, return those discriminating features rather than a single average. Do not claim a new Poincaré proof or a worst-case complexity improvement from empirical pruning alone.

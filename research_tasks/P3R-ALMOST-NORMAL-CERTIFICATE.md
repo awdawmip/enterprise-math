@@ -1,31 +1,24 @@
 <!-- ENTERPRISE_MATH_TASK_V1
 {
   "task_id": "P3R-ALMOST-NORMAL-CERTIFICATE",
-  "title": "Exact modular certificates for normal and almost-normal branches",
+  "title": "Exact canonical-Q and QO arithmetic certificates",
   "kind": "RESEARCH",
   "owner": "taskbook/unassigned",
   "base_state": "READY",
   "priority": "P2",
   "leverage": "HIGH",
-  "frontier": "The branch-cokernel and descendant-pruning derivations are mathematically clear, but the exact certificate interface, incremental-update conditions, and almost-normal octagon coordinate adapter are not yet packaged as a reusable verified theorem/checker.",
-  "next_action": "Write the exact integer theorem statements and a reference certificate checker, then derive the octagonal almost-normal inhomogeneous target matrix and test the checker on small hand-verified examples.",
+  "frontier": "The corrected certificate is repair-state typed and lives in Q/QO coordinates; the exact theorem/checker package, bad-prime boundary, gcd/valuation fallback, and octagon correction are not yet packaged for independent reuse.",
+  "next_action": "State and verify the prime-local repair-state row-dependence theorem and global S_beta-empty pruning rule, then package exact gcd/valuation and QO octagon correction certificates in one deterministic checker interface.",
   "dependencies": [],
   "source_refs": [
-    "awdawmip/enterprise-math@cd79471e16df9b4afd924ccae76a626eeb31ec9a:research_notes/POINCARE_BRC_ARITHMETIC_OBSERVER_HANDOFF_20260909.md",
-    "awdawmip/chatgpt-global-knowledge@c63167f2f911e2425b8a70b0aabcc90574425235:knowledge/projects/enterprise-math/poincare-brc-normal-surface-arithmetic-observer-20260905.md"
+    "awdawmip/enterprise-math@3359de19ffb776ebfaa59bc7443b171b23d35f4d:research_notes/POINCARE_BRC_CORRECTED_FRONTIER_HANDOFF_20260909.md",
+    "awdawmip/chatgpt-global-knowledge@8acfeac504eee85f6fbb66018470ad233ef33ff7:knowledge/projects/enterprise-math/poincare-brc-normal-surface-arithmetic-observer-20260905.md"
   ],
-  "evidence_status": "PROVED_CORE_DERIVATION_PLUS_OPEN_FORMAL_CERTIFICATE_AND_ALMOST_NORMAL_ADAPTER",
+  "evidence_status": "CORRECTED_PROVED_Q_REPAIR_STATE_THEOREMS_PLUS_OPEN_CERTIFICATE_PACKAGING_AND_QO_ADAPTER",
   "last_progress_ref": null,
   "last_progress_at": null,
   "hard_block": null,
-  "tags": [
-    "poincare",
-    "almost-normal-surfaces",
-    "certificate",
-    "BRC",
-    "integer-lattice",
-    "formalization"
-  ],
+  "tags": ["poincare","canonical-Q","almost-normal-surfaces","QO","repair-state","certificate","BRC","valuation"],
   "claim_lease_minutes": 120,
   "created_by_role": "RESEARCHER",
   "task_authority": "PUBLISHED_REGISTERED",
@@ -49,32 +42,34 @@
 }
 -->
 
-# Exact modular certificates for normal and almost-normal branches
+# Exact canonical-Q and QO arithmetic certificates
 
-Status: `READY / PUBLISHED-INTENT / EXACT-CERTIFICATE`
+Status: `READY / SUPERSEDING-GENERATION / EXACT-CERTIFICATE`
 
 ## 0. Mother question
 
-Can the branch-cokernel obstruction be packaged as a small exact certificate system, including safe incremental reuse down the branch tree and the octagonal almost-normal stage of Rubinstein–Thompson recognition?
+Can the corrected repair-state arithmetic observers be packaged as small exact certificates and checkers for both quadrilateral normal-surface search and quadrilateral-octagon almost-normal search?
 
 ## 1. Frozen inputs and scope
 
-Preserve the originating derivations: if b is outside im_Z(M_beta), a finite cyclic quotient supplies a prime-power character separator; descendants only delete columns, so the same equality-relaxation nonmembership persists. Keep the distinction between integer-image infeasibility and nonnegative/admissible surface existence.
+Use the corrected canonical-Q formulation. Do not use raw standard-coordinate chi=2 as a nontrivial-sphere certificate. The finite-field layer is valid only for repair states tau and good odd primes p for which H_tau=[T;G_tau] has full triangle-column rank and therefore yields a certified prime-local Euler row d_{p,tau}.
 
-Extend only to explicitly defined normal or octagonal almost-normal coordinate systems. Do not claim that a separator decides connectedness, nontriviality, simple connectedness, or final 3-sphere recognition. Reuse existing exact Smith/local-support and modular arithmetic machinery instead of creating a parallel generic algebra package.
+At a partial Q branch beta, row dependence of d_{p,tau,beta} on B_beta kills only the state (beta,tau). Global branch pruning requires all repair states dead. Descendant safety comes from column deletion preserving the row-dependence witness. The exact integer layer uses the image subgroup gZ of the Euler homomorphism on ker_Z(B_beta), with descendant divisibility and p-adic monotonicity.
+
+For QO coordinates, fix the exceptional octagon location/type explicitly and carry its linear Euler correction. Do not infer final sphere recognition, connectedness, or simple connectivity merely from these arithmetic certificates.
 
 ## 2. Hard target and required outputs
 
-Return precise theorem statements for: branch-cokernel necessity, finite p^k character separation, descendant monotonicity, and the exact conditions under which a cached separator remains valid after additional column deletions or coordinate restriction.
+Return exact statements and independently checkable certificate formats for: good-prime validation; construction/verification of d_{p,tau}; row-dependence witness; surviving repair-state aggregation; descendant reuse; exact g-divisibility/valuation obstruction; and the determinantal-divisor formula in the rank-increasing case.
 
-Provide a deterministic certificate format and checker taking M,b,p,k,y and verifying y^T M = 0 mod p^k and y^T b != 0 mod p^k. Derive the target equation for a fixed exceptional octagon location/type and show exactly how the same certificate interface applies. Include small regression examples covering: torsion obstruction, free-part obstruction reduced to a finite prime quotient, a surviving branch with no false rejection, and an almost-normal example.
+Provide deterministic checkers with regression cases for a valid kill, a bad-prime rejection, a state that survives, overlapping repair states, and a descendant reuse. Extend the same interface to one explicit QO almost-normal example with the octagon correction visible in the certificate.
 
 ## 3. Research value to preserve
 
-A compact checker separates expensive search from trusted verification and makes the arithmetic observer reusable by multiple recognition algorithms. Even if the benchmark route is weak, the exact separator/monotonicity package is a clean theorem-level bridge between integer topology encodings and finite observers.
+This task turns the corrected mathematical insight into a trusted portable interface. It is useful even if empirical speedup is modest, because it separates expensive search from small exact verification and prevents later implementations from reintroducing the vertex-link/Euler-projection error.
 
 ## 4. Success, kill, and return criteria
 
-SUCCESS requires a self-contained exact certificate specification plus proofs/derivations sufficient for independent checking and at least one working implementation or formal skeleton. KILL any proposed incremental shortcut that fails under column deletion, row changes, Euler-characteristic normalization, or octagon-coordinate translation; retain a counterexample.
+SUCCESS requires a self-contained theorem/certificate package that another researcher can use without the originating conversation, including every rank and repair-state hypothesis. KILL any shortcut that uses a rank-dropping prime, treats one killed repair state as a dead branch, assumes Euler descends through bare Q projection, or loses the octagon correction.
 
-Return separately what is proved, what is implementation-verified, and what remains conjectural. Stop when the normal and almost-normal certificate boundaries are explicit enough that another researcher can use them without the originating conversation.
+Return proved derivations, executable/formal verification status, and unresolved implementation gaps separately. Stop when normal and QO certificate semantics are exact and regression-tested, even if no speed claim is available.
