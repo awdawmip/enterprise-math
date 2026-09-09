@@ -1,0 +1,57 @@
+{
+  "schema": "EM_NATIVE_EVENT_CAPACITY_CHECKPOINT_V1",
+  "event_id": "NS-NATIVE-EVENT-CAPACITY-20260909-D5C00D-13",
+  "status": "TESTING_ORDINARY_PROOFS_AND_EXECUTED_EXACT_CHECKS",
+  "source_snapshot": "c6afd5639e3dc42699af392bd527aecf8f79fb6f",
+  "artifacts": [
+    {
+      "path": "research_notes/ns-native-event-capacity-20260909-d5c00d.md",
+      "sha256": "c9782ff558117820e7af594f3c6a11378ec987243d2e8cb8d48effb24c92b4df",
+      "git_blob_sha1": "c092fd5e20aa910a1c3009791f03e46be2518a7e"
+    },
+    {
+      "path": "experiments/ns_native_event_capacity_d5c00d.py",
+      "sha256": "3663fb915693a643c647a1499bf4b6853d2ada0b3406999d4ab67acf5c76b55f",
+      "git_blob_sha1": "70e5cec37847d34fe0c4bcc4f5305fd224fca08d"
+    },
+    {
+      "path": "research_notes/ns-native-event-capacity-20260909-d5c00d.results.json",
+      "sha256": "ae81320d319611d16902cc585c2e7a6aa3fb781c674f5a79650c56c14e66041a",
+      "git_blob_sha1": "5896b77136f3f8ffa352b33c732f1d537c9bae62"
+    },
+    {
+      "path": "research_notes/ns-native-event-capacity-microstep-20260909-d5c00d.md",
+      "sha256": "3a04c662adf21caf36ecdcd33a525417dfda1d2d03e0e717f113d0f28a35d50d",
+      "git_blob_sha1": "7acff175fbcbd19db1a760e1b46f5392e983d207"
+    },
+    {
+      "path": "experiments/ns_native_event_tick_d5c00d.py",
+      "sha256": "4b6b69c66dc1e44a67813ce5e51051f5c42a02a5133fe999586bd050aa45c2fa",
+      "git_blob_sha1": "36a2d1a5a110d07fda35fd32f19ea4b63322914b"
+    },
+    {
+      "path": "research_notes/ns-native-event-capacity-microstep-20260909-d5c00d.results.json",
+      "sha256": "38f5f1c1d17e645ce4fcc12fd531622b8f77e36eb81793114603f066c2473375",
+      "git_blob_sha1": "b1fcf6a55ca9ff953e9cd53f60727c23464274e7"
+    }
+  ],
+  "theorems": [
+    "Exact integer full-use inverse and parity criterion for the declared four-triple one-use capacity interface.",
+    "For symmetric q: fractional optimum 2q, integer optimum 2q-(q mod 2), invariant optimum 4 floor(q/2).",
+    "A deterministic S4-equivariant fair event controller needs at least 24 states; ordered frames attain the bound.",
+    "Specified six-token router has exact period 20 macro-events / 40 native ticks."
+  ],
+  "executed": {
+    "capacities": 15625,
+    "allocations": 13447,
+    "initial_router_states": 17280,
+    "fresh_rerun_bytes_identical": true,
+    "current_state_microstates": 34560,
+    "individual_particle_edges": 207360
+  },
+  "nonclaims": [
+    "No force admissibility, viscosity, physical f=0 or NS result.",
+    "No independent review, Lean build or Foundation promotion."
+  ],
+  "read_contract": "Full read data determining guards AND outputs must be invariant for the disjoint-write commutation result; guard-only version is false (executed counterexample)."
+}

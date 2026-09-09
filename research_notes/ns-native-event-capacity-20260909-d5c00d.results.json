@@ -1,0 +1,253 @@
+{
+  "schema": "EM_NATIVE_EVENT_CAPACITY_RESULTS_V1",
+  "event_id": "NS-NATIVE-EVENT-CAPACITY-20260909-D5C00D-13",
+  "perfect_utilization": {
+    "capacities_checked": 15625,
+    "exactly_decomposable": 117
+  },
+  "symmetric_capacity": {
+    "profiles": [
+      {
+        "q": 0,
+        "fractional_max": 0,
+        "integer_max": 0,
+        "maximizer_count": 1,
+        "max_invariant_events": 0
+      },
+      {
+        "q": 1,
+        "fractional_max": 2,
+        "integer_max": 1,
+        "maximizer_count": 4,
+        "max_invariant_events": 0
+      },
+      {
+        "q": 2,
+        "fractional_max": 4,
+        "integer_max": 4,
+        "maximizer_count": 1,
+        "max_invariant_events": 4
+      },
+      {
+        "q": 3,
+        "fractional_max": 6,
+        "integer_max": 5,
+        "maximizer_count": 4,
+        "max_invariant_events": 4
+      },
+      {
+        "q": 4,
+        "fractional_max": 8,
+        "integer_max": 8,
+        "maximizer_count": 1,
+        "max_invariant_events": 8
+      },
+      {
+        "q": 5,
+        "fractional_max": 10,
+        "integer_max": 9,
+        "maximizer_count": 4,
+        "max_invariant_events": 8
+      },
+      {
+        "q": 6,
+        "fractional_max": 12,
+        "integer_max": 12,
+        "maximizer_count": 1,
+        "max_invariant_events": 12
+      },
+      {
+        "q": 7,
+        "fractional_max": 14,
+        "integer_max": 13,
+        "maximizer_count": 4,
+        "max_invariant_events": 12
+      },
+      {
+        "q": 8,
+        "fractional_max": 16,
+        "integer_max": 16,
+        "maximizer_count": 1,
+        "max_invariant_events": 16
+      },
+      {
+        "q": 9,
+        "fractional_max": 18,
+        "integer_max": 17,
+        "maximizer_count": 4,
+        "max_invariant_events": 16
+      },
+      {
+        "q": 10,
+        "fractional_max": 20,
+        "integer_max": 20,
+        "maximizer_count": 1,
+        "max_invariant_events": 20
+      },
+      {
+        "q": 11,
+        "fractional_max": 22,
+        "integer_max": 21,
+        "maximizer_count": 4,
+        "max_invariant_events": 20
+      },
+      {
+        "q": 12,
+        "fractional_max": 24,
+        "integer_max": 24,
+        "maximizer_count": 1,
+        "max_invariant_events": 24
+      }
+    ],
+    "allocations_checked": 13447,
+    "capacity_covariance_equalities": 40341
+  },
+  "token_provenance": [
+    {
+      "n": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "x": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "labelled_batches": 64
+    },
+    {
+      "n": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "x": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "labelled_batches": 4
+    },
+    {
+      "n": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "x": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "labelled_batches": 1
+    },
+    {
+      "n": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "x": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "labelled_batches": 486
+    }
+  ],
+  "complete_palette": {
+    "triples": 20,
+    "optimal_batches": 10,
+    "S6_batch_covariance_equalities": 7200,
+    "fixed_maximal_batches": 0
+  },
+  "signed_closure": {
+    "coefficient_tuples_checked": 2401,
+    "closed": [
+      [
+        -3,
+        3,
+        3,
+        -3
+      ],
+      [
+        -2,
+        2,
+        2,
+        -2
+      ],
+      [
+        -1,
+        1,
+        1,
+        -1
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        -1,
+        -1,
+        1
+      ],
+      [
+        2,
+        -2,
+        -2,
+        2
+      ],
+      [
+        3,
+        -3,
+        -3,
+        3
+      ]
+    ],
+    "minimum_nonzero_net_block_resources_per_axis": 2
+  },
+  "autonomous_router": {
+    "internal_order_states": 24,
+    "order_phase_pairs": 48,
+    "rotor_covariance_equalities": 576,
+    "macro_steps_checked": 480,
+    "nonzero_native_microsteps_checked": 2880,
+    "initial_frame_token_states_checked": 17280,
+    "macro_full_state_period": 20,
+    "native_tick_full_state_period": 40,
+    "S6_transported_template_checks": 720,
+    "translation_checks": 3,
+    "four_event_particle_permutation_cycle_type": [
+      5,
+      1
+    ]
+  },
+  "scope": [
+    "Explicit reservation and packet-routing candidate, not a force law",
+    "No local TRIADIC_CLOSURE_E admissibility inferred from resource arithmetic",
+    "No viscosity, physical f=0, instability, or NS theorem",
+    "No force or energy assigned to temporary position-sum changes",
+    "Fractional allocation is a comparison, never an executable event",
+    "No Lean or independent review; no historical novelty assertion"
+  ]
+}
