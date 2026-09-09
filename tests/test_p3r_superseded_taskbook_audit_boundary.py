@@ -4,14 +4,19 @@ from __future__ import annotations
 import copy
 import json
 from pathlib import Path
+import subprocess
+import sys
 import tempfile
 import unittest
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from control_plane import research_task_record_audit_fault_isolation as isolation
 from control_plane import research_task_records_impl as core
 from tools import research_task_records as public
 
-ROOT = Path(__file__).resolve().parents[1]
 GENERATIONS = {
     'P3R-ALMOST-NORMAL-CERTIFICATE': ('TP2-436750BA0167CACD2DE0', 'TP2-67A0D169F01CFF865430'),
     'P3R-NONABELIAN-FINITE-OBSERVER': ('TP2-BEFF685705EC4E711719', 'TP2-5A4F26DCA4706C3B933A'),
@@ -50,8 +55,8 @@ class P3RSupersededTaskbookBoundaryTests(unittest.TestCase):
             (json.dumps(self.registry, indent=2) + '\n').encode('utf-8'))
 
     def raw_errors(self):
-        # The public facade explicitly preserves this raw implementation handle.
-        # Use it even if another test installed canonical compatibility wrappers.
+        # The facade preserves the real raw implementation. Each case runs in a
+        # fresh process so its globals have no parent-suite canonical adapters.
         return public._STRICT_AUDIT(self.root)
 
     def test_exact_four_old_errors_only_and_current_generations_unchanged(self):
@@ -120,5 +125,22 @@ class P3RSupersededTaskbookBoundaryTests(unittest.TestCase):
             isolation.validated_rows(self.root)
 
 
+def _fresh_process_case(name):
+    def execute(self):
+        result = subprocess.run(
+            [sys.executable, '-B', '-X', 'utf8', str(Path(__file__).resolve()), name],
+            cwd=ROOT, capture_output=True, text=True, encoding='utf-8', timeout=60,
+        )
+        self.assertEqual(0, result.returncode, result.stdout + result.stderr)
+    return execute
+
+
 if __name__ == '__main__':
-    unittest.main()
+    selected = ['P3RSupersededTaskbookBoundaryTests.' + sys.argv[1]] if len(sys.argv) == 2 else []
+    unittest.main(argv=[sys.argv[0], *selected, '-v'])
+else:
+    # Other control tests legitimately install process-global runtime adapters.
+    # Keep the seven raw-audit assertions in their own processes, without
+    # weakening their source, supersession, pin, or error-set checks.
+    for _case in unittest.defaultTestLoader.getTestCaseNames(P3RSupersededTaskbookBoundaryTests):
+        setattr(P3RSupersededTaskbookBoundaryTests, _case, _fresh_process_case(_case))
