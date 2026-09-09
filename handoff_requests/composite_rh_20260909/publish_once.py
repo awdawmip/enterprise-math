@@ -35,6 +35,10 @@ def save(path: Path, data: object) -> None:
 def main() -> None:
     if os.environ.get('GITHUB_REF_NAME') != BRANCH:
         raise RuntimeError('Publisher restricted to its dedicated branch')
+    # Match the canonical CLI startup before using its in-process lookup API.
+    # This consumes existing fork resolutions; it does not change any records.
+    from control_plane import research_control_bootstrap
+    research_control_bootstrap.install(ROOT)
     request = json.loads((HERE / 'request.json').read_text())
     if request.get('schema') != 'COMPOSITE_RH_PUBLICATION_REQUEST_V1':
         raise RuntimeError('Invalid request schema')
