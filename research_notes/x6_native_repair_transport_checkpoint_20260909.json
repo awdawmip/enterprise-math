@@ -1,0 +1,59 @@
+{
+  "schema": "EM_X6_RESEARCH_CHECKPOINT_V1",
+  "activity_id": "RA-X6CM-F01144F76207",
+  "event_id": "X6CM-REPAIR-TRANSPORT-20260909-05",
+  "status": "DECLARED_MODEL_PROOFS_AND_INTEGER_DUAL_CERTIFICATES_NOT_ADMITTED",
+  "source_snapshot": "03210b30b4264c5d432b5e940054fded2b652019",
+  "artifact_commit": "27edb4c077c1a37f610844c53d82b8d9cb632192",
+  "frontier": [
+    "Minimum total native unit-step cost of an unrestricted transversal repair equals an assignment in the finite Cayley quotient.",
+    "An optimal total-cost solution can keep one original point in every occupied coset and move exactly the collision deficit many points.",
+    "The same minimum total cost admits a no-physical-collision relay of native unit moves, at the price of extra internal steps and possibly moving more labels.",
+    "A bounded maximum displacement is characterized by the weighted-fiber Hall condition; minimal moved count and minimal maximum displacement can conflict.",
+    "For the old and conjugate chains at p congruent to 3 mod 4, minimum repair cost divided by p squared tends to 1/4. Ignoring any fixed subset of native coordinates yields a separate volume lower bound.",
+    "Adaptive compact cyclic kernels can have much lower costs but remain different lattices and retain their cross-base divisibility obstruction. Box-constrained repair needs a different cost observer."
+  ],
+  "verification": {
+    "adaptive_cases": 93,
+    "inert_cases": 10,
+    "boxed_cases": 10,
+    "brute_assignment_candidates": 5038,
+    "hall_radius_checks": 90,
+    "p67_old_cost": 1087,
+    "p67_adaptive_cost": 24,
+    "p67_adaptive_box_cost": 28,
+    "certification": "integer assignment dual inequalities and equality with candidate cost"
+  },
+  "artifacts": [
+    {
+      "path": "experiments/x6_native_repair_transport_20260909/results.json",
+      "bytes": 5855,
+      "sha256": "51f3c06d0bc24359dbfdd289f33642ff4dd585b7e5074af9d067754fce4d24ca",
+      "git_blob_sha1": "14de44b3d93b120132ecb367e6fba59fcad83f63"
+    },
+    {
+      "path": "experiments/x6_native_repair_transport_20260909/verify.py",
+      "bytes": 11375,
+      "sha256": "dd9be0ed0eb0814ebc98323c2f7c31b8db1482665b963f27d30a9b06d922a35a",
+      "git_blob_sha1": "d614aada84c281ec722c2dc8165d7484b0a17a38"
+    },
+    {
+      "path": "research_notes/x6_native_repair_transport_and_visibility_obstruction_20260909.md",
+      "bytes": 11869,
+      "sha256": "59a52e0cea64b709dd886a489dea994ac6f75f94d928b9f8286534f24c0dbd9e",
+      "git_blob_sha1": "f6f4e46052bcb74b82ef843b64b08db0d3e857ba"
+    }
+  ],
+  "recovered_prior": {
+    "commit": "141f8e547192b6ae9448c614664cc5023eca3ecd",
+    "manifest": "research_notes/x6_radix_bridge_checkpoint_20260909.json",
+    "source_status": "four original files published; regression output byte-identical to recovered bundle"
+  },
+  "not_claimed": [
+    "Foundation admission",
+    "global compact divisor-compatible family",
+    "strict one-clock-step local growth",
+    "new assignment or Hall theorem"
+  ],
+  "next_unit": "Control native-visible prime-step geometry and quotient distances in a divisor-compatible family, then test joint CRT composition rather than changing the quotient silently."
+}
