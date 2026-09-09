@@ -1,0 +1,23 @@
+{
+  "actual_call_path": [
+    "load_catalog",
+    "validate_catalog_for_seam:coverage+max_bound+consecutive_rows",
+    "scan_gap_shadows"
+  ],
+  "brute_force_failures": 963,
+  "catalog_rows": 2188,
+  "catalog_scope": "SYNTHETIC_SMALL_FINITE_CASE_ONLY",
+  "completeness_attestation": true,
+  "exact_scan_failures": 963,
+  "negative_controls": {
+    "completeness_attestation": "completeness_attestation must be true",
+    "coverage_end": "catalog coverage does not contain required gap-start band [101784,181077]",
+    "max_gap_bound_end": "max-gap bound does not cover the required gap-start band"
+  },
+  "q78553_catalog_supplied": false,
+  "q78553_frontier_extended": false,
+  "reviewer_id": "EM-DVR-81273A",
+  "schema": "R005_DRIVER_ATTESTED_SCAN_PATH_REVIEW_V1",
+  "source_sha256": "6fe2dc9fe05ac16ef2bbd1919d3d03fc5b36037d010ca95afeafb62f4958d3f5",
+  "status": "PASS"
+}

@@ -1,0 +1,89 @@
+{
+  "schema": "ENTERPRISE_MATH_PARALLEL_SYNTHESIS_V1",
+  "synthesis_id": "PS-R005-81273A-OPERATIONAL-20260909",
+  "intake_id": "PI-R005-81273A-20260909",
+  "task_id": "RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION",
+  "publication_ids": [
+    "TP2-2C524413EC9774383AF1",
+    "TP2-ADD82532ACD19FC01D53"
+  ],
+  "result_ids": [
+    "RR-566554389F6F36576DE2"
+  ],
+  "evidence_set_sha256": "sha256:3b064e4877f9e63c89a0586ce26ee07897b5f1df55a5cc6985562329b78a665e",
+  "reference_pass_ids": [
+    "RP-R005-81273A-SEMANTIC-20260909",
+    "RP-R005-81273A-ADVERSARIAL-20260909"
+  ],
+  "disposition": "RESELECT_OPERATIONAL_WITHOUT_REJECTING_OTHERS",
+  "operational_publication_id": "TP2-ADD82532ACD19FC01D53",
+  "retained_parallel_publication_ids": [
+    "TP2-2C524413EC9774383AF1",
+    "TP2-ADD82532ACD19FC01D53"
+  ],
+  "synthesized_by": "EM-DVR-81273A",
+  "synthesized_at": "2026-09-09T09:33:00.367483+00:00",
+  "task_terminal": false,
+  "decision_reason": "Use the publication already bound to the real completed Correction execution/Result, retain all alternate publication evidence, and satisfy the union of validation obligations. This is continuity selection, not truth/quality/timestamp selection or a parent merger.",
+  "preserved_parent_obligations": [
+    {
+      "parent_objective_id": "OBJ-R005-PRIME-ALGORITHM-LAB",
+      "publication_id": "TP2-ADD82532ACD19FC01D53",
+      "responsibility": "Retain the old owner and source lineage, frozen DSI boundary, explicit early-max-bound negative test, final argv/exit/path transcript and byte-count/SHA requirements; review the completed old-head Correction Result."
+    },
+    {
+      "parent_objective_id": "OBJ-R005-PRIME-ALGORITHM-LAB-RELAY-20260909",
+      "publication_id": "TP2-2C524413EC9774383AF1",
+      "responsibility": "The persistent line Driver remains responsible for consuming the existing distinct Correction Result, exact correction Driver review, and existing downstream gate decisions. No parent change or original Result relabeling occurs."
+    }
+  ],
+  "preserved_relay_controls": [
+    {
+      "task_id": "GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER",
+      "publication_id": "TP2-01F3666E599C6A96058D"
+    },
+    {
+      "task_id": "GV-R005-DEFICIT-SHADOW-CORRECTION-REVIEW",
+      "publication_id": "TP2-86F63B5AAD1C97EC80FE"
+    },
+    {
+      "task_id": "RS-R005-Q78553-EXACT-916-GAP-CATALOG-SEAM-CLOSURE",
+      "publication_id": "TP2-09D6ECE7F315F0766FE1"
+    },
+    {
+      "task_id": "GV-R005-Q78553-SEAM-CLOSURE-REVIEW-AND-ROUTE",
+      "publication_id": "TP2-D43B87B08CE6E6D3FD41"
+    }
+  ],
+  "execution_contract": {
+    "source_commit": "f9e2a611b45631c43effce36b7300c6f9a56b77b",
+    "completed_repair_head": "1d9823dfe6ba9301e936740da847ac3c682fe0a2",
+    "correction_result_id": "RR-566554389F6F36576DE2",
+    "execution_record_id": "ER-932CC977692631CF047E",
+    "claim_id": "chatgpt-r005a-fix-20260904-0746",
+    "researcher_id": "EM-R005AFIX-754384",
+    "state": "AWAITING_EXACT_DRIVER_REVIEW",
+    "next_action": "Consume the recovered completed correction Result and exact final-byte review evidence; do not dispatch duplicate scanner repair. Resolve the source-specific follow-up-label boundary under Owner control coordination before task-terminal runtime or downstream gate release."
+  },
+  "frozen_mathematical_boundary": {
+    "DSI1_DSI2_DSI3": "UNCHANGED",
+    "q": 78553,
+    "certified_k_max": 2822453183433,
+    "complete_exact_gap": 916,
+    "required_gap_start_band": [
+      1291005053866735,
+      1294364244470160
+    ],
+    "q78553_status": "OPEN_CATALOGUE_COMPLETENESS_OBLIGATION",
+    "new_catalogue_acquired": false
+  },
+  "immutability": "No taskbook, Task publication, old Result, execution record, old claim, or parent objective is modified. Newly introduced review evidence is clearly identified as Driver-authored review only.",
+  "driver_id": "EM-DVR-81273A",
+  "driver_authority_record_id": "DA-207C4345BD4091D3059F",
+  "driver_authority_source_comment_id": 5599483429,
+  "working_truth_granted": false,
+  "foundation_authority_granted": false,
+  "canonical_promotion_granted": false,
+  "successor_triggered": false,
+  "parent_closure_granted": false
+}

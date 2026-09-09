@@ -1,0 +1,26 @@
+--- f9e2a611/experiments/r005a_p2_gap_shadow_inversion.py
++++ 1d9823df/experiments/r005a_p2_gap_shadow_inversion.py
+@@ -205,13 +205,12 @@
+     complete_ge = int(metadata.get("complete_for_gap_ge", 10**30))
+     max_gap_bound = int(metadata.get("max_gap_bound", 10**30))
+     max_bound_start = int(metadata.get("max_gap_bound_start", 0))
+-    max_bound_end = int(metada.get("max_gap_bound_end", -1))
++    max_bound_end = int(metadata.get("max_gap_bound_end", -1))
+ 
+     if coverage_start > seam.required_gap_start_min or coverage_end < seam.required_gap_start_max:
+         raise CatalogError(
+             "catalog coverage does not contain required gap-start band "
+-            f
+-[{seam.required_gap_start_min},{seam.required_gap_start_max}]"
++            f"[{seam.required_gap_start_min},{seam.required_gap_start_max}]"
+         )
+     if complete_ge > seam.required_complete_gap_ge:
+         raise CatalogError(
+@@ -265,7 +264,6 @@
+                 d = G - D
+                 if d < 1:
+                     continue
+-                # Exact gap-shadow equivalence: prime-free iff g > D+t.
+                 if row.gap > D + t:
+                     hits[k] = {
+                         "k": k,
