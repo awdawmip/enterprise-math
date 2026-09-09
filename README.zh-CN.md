@@ -10,6 +10,8 @@
 
 > **非数学读者入口：** [进取数论眼中的世界](docs/THE_WORLD_IN_ENTERPRISE_MATH.zh-CN.md) — 不需要高等数学，从精度、时间、空间一直读到量子、宇宙与极端因果问题。
 
+> **当前 Navier–Stokes 逻辑审计：** [对 OpenAI 构造的逻辑反驳：为什么“先造目标、再用残差定义外力”不能回答无外力 \(f\equiv0\) 问题](docs/OPENAI_NS_F0_LOGIC_REBUTTAL.zh-CN.md)。其对应的“目标泄漏式残差补全”已正式进入[进取数论逻辑黑名单](docs/LOGIC_BLACKLIST.zh-CN.md)。
+
 ## 宣言：数学大楼的根基需要重建
 
 我们选择把立场说清楚。
