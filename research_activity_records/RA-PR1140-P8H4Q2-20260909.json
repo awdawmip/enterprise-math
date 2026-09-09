@@ -35,6 +35,35 @@
       ],
       "state": "VERIFY_EM_PUBLICATION",
       "repairs_event_id": null
+    },
+    {
+      "event_id": "PR1140_BLOCKED_STATE_AND_R005_FORK_ISOLATION_OBSERVED_20260909T1609+08",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "620d60948a6b3c6930bf5c5ec1b49cdee8926671",
+          "path": "driver_handoffs/EM_DVR_P8H4Q2_R005_PR1140_STATE_POINTER_20260909.json",
+          "sha256": "55e605cadd7ca43455ef3873bffad2676219a855157c24b2f3f10902bf9fd921",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "observation_id": "local-github-fetch-file-turn117-pr1140-state-pointer",
+            "call_id": null,
+            "git_blob_sha1": "3863228cc1df1e57fee30324c288a286ba2e9729",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/620d60948a6b3c6930bf5c5ec1b49cdee8926671/driver_handoffs/EM_DVR_P8H4Q2_R005_PR1140_STATE_POINTER_20260909.json",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false
+          },
+          "verification_receipt": "research_activity_records/RA-PR1140-P8H4Q2-20260909/readbacks/c546151c1800eb22d31c7d3289d314c7cb2fd13c871dd4127fe3720908d0469d.json",
+          "verification_receipt_sha256": "c546151c1800eb22d31c7d3289d314c7cb2fd13c871dd4127fe3720908d0469d"
+        }
+      ],
+      "kb_sources": [
+        "GLOBAL_KNOWLEDGE_V1 main@80a896a4c383"
+      ],
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": "PR1140_BLOCKED_STATE_AND_R005_FORK_ISOLATION_20260909T1609+08"
     }
   ]
 }
