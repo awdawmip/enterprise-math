@@ -1,0 +1,125 @@
+{
+  "kind": "BOUNDARY_LIMITED_DRIVER_PRIOR_ART_REVIEW",
+  "reviewer": "EM-DVR-A4187A",
+  "review_date_utc": "2026-09-09",
+  "tool": "web.run",
+  "target_result_id": "RR-F79FA3D36EF85CC4C6CE",
+  "target_result_source_commit": "d8250f17396f0da6af98b12eaae8de74a85ffccb",
+  "target_result_sha256": "ca06619946487457e101aabfe1beb88b945077571d17cda19191a9cf48291ed6",
+  "source_proof_commit": "d275ed2a52dffe5aa7571b7e05e31d0253934bb6",
+  "source_proof_sha256": "7c8c480af589fcd875488a8031db4e6adb1cc1a144adee2950a2e16b74866f12",
+  "query_count": 10,
+  "queries": [
+    {
+      "q": "\"2417472\" \"1707264\" elliptic"
+    },
+    {
+      "q": "\"Fermat curve\" \"24\" elliptic quotient degree 6"
+    },
+    {
+      "q": "\"(x+2)\" \"x^3-3*x\" elliptic cover"
+    },
+    {
+      "q": "\"genus 4\" \"degree 6\" elliptic subcover"
+    },
+    {
+      "q": "\"2417472\" elliptic curve",
+      "domains": [
+        "arxiv.org",
+        "lmfdb.org",
+        "math.mit.edu"
+      ]
+    },
+    {
+      "q": "\"1707264\" elliptic curve"
+    },
+    {
+      "q": "Fermat curves elliptic factors Jacobian complex multiplication Aoki",
+      "domains": [
+        "arxiv.org",
+        "projecteuclid.org",
+        "numdam.org",
+        "cambridge.org"
+      ]
+    },
+    {
+      "q": "genus four elliptic subcovers explicit equations split Jacobians",
+      "domains": [
+        "arxiv.org",
+        "msp.org",
+        "projecteuclid.org"
+      ]
+    },
+    {
+      "q": "Koblitz \"Gamma function identities and elliptic differentials on Fermat curves\"",
+      "domains": [
+        "projecteuclid.org",
+        "dukeupress.edu"
+      ]
+    },
+    {
+      "q": "\"genus four\" \"2417472\""
+    }
+  ],
+  "primary_observations": [
+    {
+      "url": "https://www.impan.pl/shop/en/publication/transaction/download/product/83663",
+      "identifier": "Imin Chen (2010), DOI 10.4064/aa143-4-3",
+      "portion_read": "Title page and printed p.352 CM table",
+      "classification": "PARTIAL_ANTECEDENT_EXACT_J_INVARIANT",
+      "map_equivalence_checked": false
+    },
+    {
+      "url": "https://www.lmfdb.org/EllipticCurve/2.2.8.1/3969.2/c/1",
+      "portion_read": "Indexed primary snippet; direct open returned browser challenge",
+      "classification": "PARTIAL_ANTECEDENT_ACCESS_LIMITED",
+      "challenge_bypassed": false,
+      "map_equivalence_checked": false
+    },
+    {
+      "url": "https://doi.org/10.4153/CJM-1978-099-6",
+      "portion_read": "Cambridge primary publisher extract and bibliographic metadata",
+      "classification": "ADJACENT_ESTABLISHED_METHOD",
+      "full_paper_equivalence_audit": false
+    },
+    {
+      "url": "https://arxiv.org/abs/1510.05674v1",
+      "portion_read": "Author abstract / submission metadata",
+      "classification": "ADJACENT_CONSTRUCTION",
+      "full_paper_equivalence_audit": false
+    },
+    {
+      "url": "https://stacks.math.columbia.edu/tag/0BXZ",
+      "portion_read": "Lemma 53.2.2 and proof",
+      "classification": "EXACT_STANDARD_METHOD_REUSE",
+      "specific_map_certificate_proved_by_reference": false
+    }
+  ],
+  "no_material_exact_full_certificate_match_identified_within_observed_scope": true,
+  "global_novelty_proved": false,
+  "arithmetic_or_mathematical_execution_performed": false,
+  "formal_driver_record_created": false,
+  "raw_web_responses_retained_locally_not_redistributed": true,
+  "local_raw_observation_receipts": [
+    {
+      "filename": "priorart-search-1-actual.json",
+      "sha256": "7923869110262938f5d0943f1166eb92c9e73d202d709b06c5f0eca6f0d1aabe"
+    },
+    {
+      "filename": "priorart-search-2-actual.json",
+      "sha256": "d5ae0854f049f350b48b5c6f1bc6ba5cf663a05818639b2c83452d9a20e58a9a"
+    },
+    {
+      "filename": "priorart-primary-1-actual.json",
+      "sha256": "0488e40edc52998e9a61f9f30a88946a2f1ec10a8bdf8870b2b809805e15f8d8"
+    },
+    {
+      "filename": "priorart-primary-2-actual.json",
+      "sha256": "f92b798ba015632a7cd0859a0994c9a086daee072913efdb36f9aa51d725b131"
+    },
+    {
+      "filename": "priorart-primary-3-actual.json",
+      "sha256": "158d74b9edf7c690228e07cfa980b736a49bea14666c35268d41b85a2c6790aa"
+    }
+  ]
+}
