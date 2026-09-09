@@ -1,0 +1,174 @@
+# W59A: a posteriori completion brackets and uniformly conditioned dyadic filters
+
+Status: FREE_RESEARCH / PROVED_DERIVATION_RELATIVE_TO_RECOVERED_DAH / NOT_FOUNDATION
+Researcher-ID: EM-FREE-W59A / FREE_AXIOM_DISCOVERY
+Research-Activity-ID: RA-W59A-20260909-025712-C6E4A1
+Progress-Event-ID: W59A-POSTERIOR-20260909-C6E4A1
+Date: 2026-09-09
+Source project: awdawmip/enterprise-math, issue #1159
+Session key: local-chat-w59a-20260909-025712-c6e4a1 (locally assigned, not a platform session ID)
+
+## 0. Recovery, scope and provenance
+
+User explicitly resumed W59A, not a fresh blind-discovery session. Blindness status: ANCHOR_EXPOSED / EXPLICIT_CONTINUATION. The historical GLOBAL short ref 542bde7 could not be resolved by the connector; no verification of that ref is claimed.
+
+Verified previous mathematical frontier: branch free/1159-internal-phase-euler-w59a at 9e6e9abe813aa17a7eff1ee8278e2f0e9f73312c, specifically:
+- research_notes/WALLIS_SINE_DYADIC_ANNIHILATION_HIERARCHY_20260904.md, blob a25af164609175c4092019fd44fde452df0dfb23;
+- research_notes/WALLIS_SINE_INTERNAL_PHASE_QUANTIZATION_EULER_PRODUCT_20260904.md.
+
+The old internal Euler-product route and arbitrary-order lower hierarchy are not represented here as new discoveries or new Foundation admissions. This note completes a new bounded continuation unit: an all-level a posteriori upper certificate, uniform perturbation control, and a rational executable witness.
+
+Control inputs: GLOBAL main@530c67e561b34c3dad75ede2879895dcf876b963; EM control snapshot e16c5a875d4098f260f3d17283368b20b02c774c. Current locked P000 is assumed and unchanged. The finite spectral algebra is not asserted to be a uniquely derived six-axis primitive physical realization.
+
+## 1. Recovered definitions and a target-free coarse bound
+
+S(x)=sum_{n>=0} (-1)^n x^(2n+1)/(2n+1)!, and tau is its first positive zero. The recovered phase theorem identifies the first Dirichlet radius as
+
+    T_q = q sqrt(a_q) = 2q S(tau/(2q)),  q integer >= 2.
+
+No value of pi is an input. On 0<x<=2, alternating-series control gives S(x)>x-x^3/6>0. At x=4, the even partial sum P_4(4)=-268/405<0 bounds S(4) from above. Thus 2<tau<4. In conjunction with the recovered addition laws, no second zero occurs before 2tau.
+
+Define E_0(q)=T_q and
+
+    E_m(q) = [4^m E_(m-1)(2q)-E_(m-1)(q)]/(4^m-1).
+
+The recovered exact filter response is
+
+    lambda_(m,n) = product_{r=1}^m (4^(r-n)-1)/(4^r-1).
+
+It annihilates n=1,...,m, and lambda_(m,m+1)=(-1)^m 4^[-m(m+1)/2]. The same formula includes m=0 by empty products.
+
+## 2. W59A-POST-01: all-level a posteriori upper bound
+
+For m>=0 and integer q>=2 define the positive INTEGER
+
+    b_m(q) = 4^m q^2 (2m+4)(2m+5) - (4^(m+2)-1)/3.
+
+Then
+
+    E_m(q) < E_(m+1)(q) < tau
+      < U_m(q) := E_(m+1)(q) + [E_(m+1)(q)-E_m(q)]/b_m(q).       (POST-1)
+
+The certificate uses the actually observed consecutive-depth gap, not an unknown power of tau. No additional spectral sample beyond those already used by E_(m+1) is required.
+
+### Proof
+
+Write y=tau/(2q), delta_m=tau-E_m(q),
+
+    A_m = tau 4^[-m(m+1)/2] y^(2m+2)/(2m+3)!,
+    h_m = 4^[-(m+1)],
+    C_m = (2m+4)(2m+5),
+    kappa_m = (4/3)(1-h_m).
+
+Since 0<y<1, the exact filtered sine tail is strictly alternating with decreasing magnitudes. Its first two terms imply
+
+    A_m [1-kappa_m y^2/C_m] < delta_m < A_m.
+
+Moreover A_(m+1)/A_m = h_m y^2/C_m. Therefore
+
+    0 < delta_(m+1)/delta_m
+      < h_m y^2/(C_m-kappa_m y^2)
+      < 4 h_m/(q^2 C_m-4 kappa_m)
+      = 1/[b_m(q)+1].                                      (POST-2)
+
+The second inequality uses y^2<4/q^2 and the monotonicity of the rational function on this domain. All denominators are positive. This proves delta_(m+1)<delta_m and, putting d_m=E_(m+1)-E_m,
+
+    d_m=delta_m-delta_(m+1)>b_m delta_(m+1).
+
+This is (POST-1). The proof is uniform in m and q, not inferred from the finite test range.
+
+At q=2 the first b_m are 75, 651, 4523, 27819, 158379. For example:
+
+    E_2(2)<tau<E_2(2)+[E_2(2)-E_1(2)]/651.
+
+## 3. W59A-POST-02: uniform conditioning, including the upper endpoint
+
+Let E_m(q)=sum_{j=0}^m w_(m,j) T_(2^j q). The coefficient polynomial is
+
+    p_m(z)=product_{r=1}^m (4^r z-1)/(4^r-1).
+
+Every subset contribution to coefficient j has sign (-1)^(m-j). Thus no cancellation occurs within a fixed j, and
+
+    K_m := sum_j |w_(m,j)|
+         = product_{r=1}^m (4^r+1)/(4^r-1)
+         <= 357/181 < 2.                                  (POST-3)
+
+For the uniform bound, retain the first two factors, whose product is 17/9. For r>=3 put a_r=2/(4^r-1). Then sum_{r>=3} a_r<=8/189. For nonnegative a_r with sum s<1,
+
+    product(1+a_r) <= product(1-a_r)^(-1) <= (1-s)^(-1).
+
+The tail is consequently at most 189/181. The cases m=0,1 are immediate.
+
+For the upper endpoint U_m, the old and new coefficient signs are opposite on shared indices. Hence its coefficient norm is exactly
+
+    K^U_m = K_(m+1) + [K_(m+1)+K_m]/b_m(q).
+
+At m=0, b_0(q)>=75, giving K^U_0<=383/225<2. At m>=1, b_m(q)>=651, giving
+
+    K^U_m <= (357/181)(1+2/651) = 233121/117831 < 2.          (POST-4)
+
+Consequently a simultaneous absolute perturbation of at most epsilon in each retained T-value changes either endpoint by less than 2 epsilon, uniformly over every extrapolation depth. This is an absolute data-conditioning result; it does not certify arbitrary floating implementations, relative accuracy of tiny gaps, or low cost of expanded algebraic-number representations.
+
+## 4. Actual BRC reuse and observer boundary
+
+Current sources checked at the EM control snapshot:
+- tool_invocation_policy.json;
+- enterprise_toolbox_registry.json (T0_BRC, T5_PRECISION_REFINEMENT);
+- research_method_inventory.json (precision.integer_projection_calculus);
+- definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json;
+- src/enterprise_math/brc_weighted.py (cwm_edge, cwm_recoalesce, cwm_propagate).
+
+REUSE_APPLIED: the exact CWM alternative law (+,+,max) and serial componentwise product apply to the positive magnitude envelope of the actual filter expansion. Each factor has two alternatives, magnitudes 1/(4^r-1) and 4^r/(4^r-1). Serial composition gives 2^m labeled contributions and total mass K_m, exactly (POST-3).
+
+Carrier: subset identity J, retained refinement shift j=|J|, exact rational magnitude, and sign (-1)^(m-j). Observer: the signed shifted operator and its absolute perturbation envelope. Allowed future operations: evaluation on the retained scale data and the error monomials. Aggregation by j is safe because both the operator shift and sign agree in a fiber. Total-only compression across different j is NOT safe.
+
+Negative control: for m=1 the signed response on q^-2 is zero, whereas replacing coefficients by their absolute values yields 2/(3q^2)>0. Positive Weighted-BRC alone does not prove signed cancellation. The signed polynomial law supplies that separate step.
+
+COMPOSE_APPLIED / DOMAIN_OPERATOR: reuse the already frozen dyadic annihilation hierarchy and T5's exact-precision discipline. This is a domain certificate strengthening, not a new general-purpose tool family. The executable-source keyword search returned incomplete results; no exhaustive absence-of-tools or historical novelty claim is made. No current general BRC implementation is claimed to have been executed by this note; its exact declared mathematical laws were applied.
+
+External comparison: NIST DLMF 3.5(iii) records the classical even-power Romberg extrapolation mechanism, and 3.9 distinguishes acceleration from merely preserving a limit. Neither the generic extrapolation mechanism nor its historical priority is claimed here.
+
+## 5. W59A-POST-03: rational endpoint implementation and exact checks
+
+For dyadic q the recovered inverse-decimation law is
+
+    a_2=2,  a_(2q)=2-sqrt(4-a_q).
+
+Avoid the subtraction of nearly equal numbers by carrying s_q=T_q^2=q^2 a_q:
+
+    s_2=8,
+    s_(2q)=4s_q/[2+sqrt(4-s_q/q^2)].                         (POST-5)
+
+The checker encloses every square root on a binary rational grid using integer isqrt, propagates outward intervals, and evaluates signed linear combinations with sign-aware endpoints. It never evaluates pi, sin or cos. No decimal target constant is stored in its input.
+
+Artifacts in the same branch:
+- experiments/w59a_posterior_20260909/certifier.py
+  SHA256 f9c04e5313b158198e232fb1234d157d238f1987dcc0c23363db99fc437d1e6c
+- experiments/w59a_posterior_20260909/certificate_100digits.json
+  SHA256 a666db1b853ff23801b260e21aaee72a9c886fe4e0563ed6ea848c9a849c30dc
+
+Executed command:
+
+    python certifier.py --digits 100 --output certificate_100digits.json
+
+Observed result: q=2, pair m=14 and m+1=15, 464 binary fractional bits, b_14(2)=1132439710379, 16 scale values T_2 through T_65536. The native rational interval width is approximately 1.459392701196e-112; endpoint interval-rounding width is approximately 4.03e-139. These displayed scientific numbers are readouts, not inputs.
+
+Outward decimal enclosure, with exact width 10^-100:
+
+    3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679
+    < tau <
+    3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170680
+
+Independent exact check: at these rational endpoints, P_47(lower)>0 and P_48(upper)<0. Alternating-series bounds and the first-zero interval (2,4) therefore verify root enclosure independently of the posterior-ratio implementation. The sign partial sums use only rational arithmetic. The checker additionally verifies all annihilation moments through m=24, the norm identity, the posterior ratio identity for q in {2,3,4,8,17,64}, outward square-root arithmetic, and the signed-erasure negative control. These finite tests corroborate but do not replace the all-level proof above. Only the reported 100-digit run is claimed, not a benchmark for every accepted command-line precision.
+
+## 6. Normalization boundary and next unresolved unit
+
+A precise selection obstruction remains separate from the precision problem. For rational c>0, scale the finite Dirichlet matrix to c L_M. Then
+
+    det[c L_M-(x^2/M^2)I]/[c^(M-1) M] = F_M(x/sqrt(c)).
+
+The limit has first positive root sqrt(c) tau. Rational matrix data, reflection sectors and mode ordering survive. Therefore those properties alone cannot fix the absolute completion scale. This is a normalization freedom, NOT a counterexample to the dimensionless sine product or to P000. No claim is made that every scaled matrix is a physically admissible primitive EM model.
+
+Next exact research unit: identify an explicit native composite-path/boundary construction that selects the unscaled transfer law and its time/step normalization, or establish the narrower remaining normalization freedom for that declared carrier. Do not spend this continuation proving or disproving P000, and do not represent a two-component transfer state as a primitive two-force balance.
+
+No Lean proof or independent project admission is claimed for POST-01/02. This owner-branch checkpoint is durable research provenance, not Foundation, Working Truth, a formal task claim, or a merged-main mathematical result.
