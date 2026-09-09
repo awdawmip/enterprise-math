@@ -1,0 +1,26 @@
+{
+  "schema": "R005_ACTUAL_COMMAND_RUN_V1",
+  "argv": [
+    "python",
+    "-c",
+    "from control_plane import research_control_bootstrap; research_control_bootstrap.install(); from tools import research_runtime_guard; raise SystemExit(research_runtime_guard.main())",
+    "pre-final",
+    "--state-file",
+    "D:/em/TEMP/r005-q78553-researcher-20260910/final-runtime-state.json"
+  ],
+  "cwd": "D:\\em\\r005-q78553-research-050e43-20260910",
+  "started_at": "2026-09-09T20:14:38.211847+00:00",
+  "completed_at": "2026-09-09T20:14:43.636890+00:00",
+  "elapsed_seconds": 5.425092899997253,
+  "exit_code": 0,
+  "stdout": {
+    "path": "research_artifacts\\R005_Q78553_CATALOGUE_050E43_20260910\\runtime_pre_final.stdout.log",
+    "bytes": 377,
+    "sha256": "096185e3f475406a2d35f57cd219b5ee38a539768b371d0a3cd725b89576713e"
+  },
+  "stderr": {
+    "path": "research_artifacts\\R005_Q78553_CATALOGUE_050E43_20260910\\runtime_pre_final.stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}
