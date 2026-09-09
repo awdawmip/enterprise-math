@@ -1,0 +1,66 @@
+{
+  "schema": "NOLLM_511_PHASE_CONTROL_CHECKPOINT_V1",
+  "event_id": "NOLLM-511-PHASE-CONTROL-20260909-C6C82",
+  "activity_id": "RA-nollm-hecke-views-20260909-c6c82",
+  "status": "DERIVED_AND_EXACT_FINITE_CERTIFIED_NOT_PROMOTED",
+  "note": {
+    "commit": "1cf707e717515190868144fe5c6d486984021ddd",
+    "path": "research_notes/nollm_511_phase_control_dual_chart_20260909_c6c82.md",
+    "git_blob_sha1": "5f0e5335141469490d28eb63a4f4ead5ab3007db",
+    "sha256": "61ed8e1c81953a69d457900676b493adffcf4407e0d7d76dab25a5066421b90d"
+  },
+  "minimax_code": {
+    "commit": "3ddd768bb83e9a5eed607882a0d3b32be58d8aa8",
+    "path": "experiments/nollm_511_phase_minimax_20260909_c6c82.py",
+    "git_blob_sha1": "b5253277edf9e6e713e233bb759ba94a3d74ed45",
+    "sha256": "b2e7bf896a243597dd35976df2d89398ff9d6fe7a26b93d791339c21b79dda33"
+  },
+  "transport_code": {
+    "commit": "c89a08d5852864fbbf86b8d509f7bc7926af6cc2",
+    "path": "experiments/nollm_511_phase_transport_20260909_c6c82.py",
+    "git_blob_sha1": "585f73bcb2fd324f52c070b724b4b7db9c90699b",
+    "sha256": "63ab661e4c9cb0abe91aeefa4e7d8f01e340ac72f4e116382dbe0971dc44ad5e"
+  },
+  "checks": {
+    "base_lattice_minima": 91,
+    "phase_states": 288,
+    "all_initial_pairs": 72,
+    "max_shortest_thin_reach": 8,
+    "two_chart_offsets": 72,
+    "three_chart_pairs": 2485,
+    "one_chart_worst_K": 55,
+    "two_chart_exact_score": 52,
+    "two_chart_worst_K": 2.9178930157468606,
+    "three_chart_exact_score": 31,
+    "three_chart_worst_K": 2.32059031611661,
+    "selected_offset": [
+      1,
+      11
+    ],
+    "phase_commutation_checks": 4896,
+    "paired_atlas_sections": 182,
+    "residue_roundtrips": 107198,
+    "actual_exponent_sections": 53,
+    "actual_refinement_edges": 107,
+    "actual_parents": 21755,
+    "permutation_runs": 60,
+    "order_mismatches": 0,
+    "canonical_readout_candidates": 9,
+    "canonical_rational_bound_cases": 256,
+    "thin_example_moved_points": 54,
+    "thin_example_points": 55,
+    "original_neighbor_pairs": 54,
+    "preserved_original_neighbor_pairs": 0,
+    "packaged_replay_byte_identical": true,
+    "run": "PASS"
+  },
+  "result_sha256": "2f2f08a03b8c36c2c4224693c92ecd28f5027388fc6ca2bb3f8d40b46d08172d",
+  "limits": [
+    "fixed prime-chain and translated-chart family only",
+    "chart switch changes planar embedding, not just viewing angle",
+    "labelled positions and nearest-neighbor relations need not survive transport",
+    "basis anisotropy differs from cloud covariance",
+    "not ordinary integer-label multiplication",
+    "no runtime or theorem promotion"
+  ]
+}
