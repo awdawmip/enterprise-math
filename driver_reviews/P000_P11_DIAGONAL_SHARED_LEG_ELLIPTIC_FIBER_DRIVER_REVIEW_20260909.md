@@ -5,9 +5,9 @@ Driver-ID: `EM-DVR-WLE3X6`
 Result: `RR-764F6E463528167708E9`  
 Publication: `TP2-51DFEBDCCCB1C845F8EF`  
 Disposition: `ACCEPTED`  
-Primary destination: `RS-P000-P11-DIAGONAL-ELLIPTIC-FIBER-PRIMITIVE-ARITHMETIC / TP2-B3250EF0A45C0A518620`  
-Parallel mathematical destination: `RS-P000-P11-OFF-DIAGONAL-EQUAL-AREA-FIBER-PRODUCT / TP2-9DC601673FE51BD96550`  
-Persistent line governance: `GV-P000-P11-ARITHMETIC-PERSISTENT-LINE-DRIVER / TP2-42B487D62586145ED857`
+Primary destination: `RS-P000-P11-DIAGONAL-ELLIPTIC-FIBER-PRIMITIVE-ARITHMETIC / TP2-FB7F5A1D6B6C6BCCD62D`  
+Parallel mathematical destination: `RS-P000-P11-OFF-DIAGONAL-EQUAL-AREA-FIBER-PRODUCT / TP2-74D161216AAF385EE27F`  
+Persistent line governance: `GV-P000-P11-ARITHMETIC-PERSISTENT-LINE-DRIVER / TP2-685CCCAD015EBB859280`
 
 ## Verdict
 
@@ -63,6 +63,6 @@ Two distinct mathematical information gaps remain and are published in parallel:
 
 Closure after the current Result, continuing only the diagonal branch, continuing only the off-diagonal branch, and independent/free exploration were all considered. The two-branch release is justified because `h=0` and `h!=0` are disjoint structural components of the already-accepted simultaneous arithmetic object and pose different exact arithmetic questions. Neither task exists merely because the preceding task passed.
 
-A separate independent audit is published but blocked until both branch Results are Driver-accepted. Final integration is also published but blocked on both branch Results plus the independent audit. A persistent line-Driver governance task is published so that short-lived researchers can return bounded results to one durable reviewer/router without forcing the Owner to reconstruct the local proof chain.
+A separate independent audit is published as `TP2-0EF61A32E6D06E8879DE` but remains blocked until both branch Results are Driver-accepted. Final integration is published as `TP2-5E02B5D6961B23083533` and remains blocked on both branch Results plus the independent audit. Persistent line governance is published as `TP2-685CCCAD015EBB859280` so that short-lived researchers can return bounded results to one durable reviewer/router without forcing the Owner to reconstruct the local proof chain.
 
 Method harvest: `RESULT_ONLY`. No Working Truth, Foundation status or native-geometric promotion is granted.
