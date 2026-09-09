@@ -215,10 +215,20 @@ def _apply_followup_gate(
             "driver_followup_error": followup.get("error"),
             "driver_followup": followup.get("packet"),
         }
+    scope = {}
+    packet = followup.get("packet")
+    if isinstance(packet, dict) and packet.get("decision") == _followup_impl.TASK_SCOPE_DECISION:
+        scope = {
+            "terminal_scope": "TASK",
+            "portfolio_continuation": packet["portfolio_continuation"],
+            "parent_completion_granted": False,
+            "parent_final_granted": False,
+        }
     return {
         **reduced,
         "driver_followup_state": followup.get("state"),
         "driver_followup": followup.get("packet"),
+        **scope,
     }
 
 
@@ -438,6 +448,14 @@ def _preflight_first_review_followup(
             raise ResultRecordError(
                 f"required follow-up gates have no matching task role: {missing}"
             )
+    elif decision == _followup_impl.TASK_SCOPE_DECISION:
+        _followup_impl._task_scope_continuation(
+            probe_review, result, terminal_scope=spec.get("terminal_scope"),
+            continuation=spec.get("portfolio_continuation"), tasks=tasks, gates=gates, root=ROOT,
+            current_publication_required=True,
+        )
+        parent = _followup_impl._source_parent_objective(probe_review, result, ROOT)
+        _followup_impl._parent_status_at_materialization(parent, ROOT)
     elif tasks:
         raise ResultRecordError("PARENT_OBJECTIVE_CLOSURE follow-up cannot include tasks")
 
