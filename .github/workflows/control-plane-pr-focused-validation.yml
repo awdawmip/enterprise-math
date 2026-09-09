@@ -6,7 +6,9 @@ on:
       - 'tools/research_dispatch.py'
       - 'research_control_dispatch.py'
       - 'control_plane/research_task_assignment.py'
+      - 'control_plane/research_dependency_release.py'
       - 'tests/test_assigned_research_task_dispatch.py'
+      - 'tests/test_research_dependency_release.py'
       - 'tools/research_runtime.py'
       - 'tools/research_runtime_reducer.py'
       - '.github/workflows/chatgpt-control-dispatch-bridge.yml'
@@ -33,6 +35,7 @@ jobs:
           python-version: '3.12'
       - run: |
           python -m unittest -v tests.test_assigned_research_task_dispatch
+          python -m unittest -v tests.test_research_dependency_release
           python -m unittest -v tests.test_assigned_governance_driver_dispatch
           python -m unittest -v tests.test_control_plane_adversarial_simulation
           python -m unittest -v tests.test_chatgpt_dispatch_bridge_replay_guard
