@@ -1,0 +1,58 @@
+{
+  "source_commit": "179504d2e0d2a954a19e48de89335ccba906b99a",
+  "main_commit": "405ad7932368c07ff8dc0f670e19164352666530",
+  "first_main_commit": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Action completed."
+      }
+    ],
+    "structuredContent": {
+      "sha": "e91f08794c16fb60dfc38e286fc6d9d6fc10c080"
+    },
+    "isError": false
+  },
+  "first_ref_response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "GitHub API error 422: {\"message\":\"Update is not a fast forward\",\"documentation_url\":\"https://docs.github.com/rest/git/refs#update-a-reference\",\"status\":\"422\"}"
+      }
+    ],
+    "structuredContent": {
+      "error": "GitHub API error 422: {\"message\":\"Update is not a fast forward\",\"documentation_url\":\"https://docs.github.com/rest/git/refs#update-a-reference\",\"status\":\"422\"}",
+      "error_code": "INVALID_ARGUMENT",
+      "error_data": {
+        "message": "Update is not a fast forward",
+        "documentation_url": "https://docs.github.com/rest/git/refs#update-a-reference",
+        "status": "422"
+      }
+    },
+    "isError": true
+  },
+  "second_main_commit": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Action completed."
+      }
+    ],
+    "structuredContent": {
+      "sha": "405ad7932368c07ff8dc0f670e19164352666530"
+    },
+    "isError": false
+  },
+  "second_ref_response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Action completed."
+      }
+    ],
+    "structuredContent": {
+      "success": true
+    },
+    "isError": false
+  }
+}
