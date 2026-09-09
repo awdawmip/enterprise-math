@@ -1,0 +1,59 @@
+{
+  "schema": "JT2_QTF3_SIX_OUTPUT_SOURCE_MAP_V1",
+  "task_id": "RS-EMW59A-JT2-QTF3-FIXED-POINT",
+  "publication_id": "TP2-C2C9DDEB2D65387D115E",
+  "execution_record_id": "ER-9296C35569234F638D8F",
+  "claim_id": "qtf3-ef9380-20260909-152943",
+  "researcher_id": "EM-JT2-EF9380",
+  "proof_original_author": "EM-DVR-57CCCE",
+  "proof_original_commit": "08ad2fe0fac52949207ddc3559ad70a1b95b577a",
+  "prior_non_author_review_commit": "6fa23a3bcb01b13413827fa20e736fea8b9503d8",
+  "new_independent_review": false,
+  "return_path": "research_returns/EMW59A_JT2_QTF3_FIXED_POINT_RETURN_EF9380_20260909.md",
+  "outputs": [
+    {
+      "number": 1,
+      "status": "SATISFIED_BY_MINIMUM_FINITE_RESIDUAL_INPUT",
+      "return_section": "Output 1",
+      "evidence": "Q2 divisibility and exact zero prefix separately; D=p^2 u^p r, degree r<=p-2; exact reflection difference degree<=p-1.",
+      "ode_claim": "Not used or newly validated; the current task's source intake explicitly permits the finite-invariant route."
+    },
+    {
+      "number": 2,
+      "status": "SATISFIED_BY_EQUIVALENT_EXACT_INVARIANT",
+      "return_section": "Output 2",
+      "evidence": "High-degree comparison in F_p[u] gives rbar(u)+rbar(1-u)=0."
+    },
+    {
+      "number": 3,
+      "status": "SATISFIED_ZERO_FIXED_POINT_SCALAR",
+      "return_section": "Output 3",
+      "evidence": "At u=1/2, 2 is a unit, so rbar(1/2)=0."
+    },
+    {
+      "number": 4,
+      "status": "SATISFIED_EXACT_P3_TRUNCATED_TARGET",
+      "return_section": "Output 4",
+      "evidence": "D(1/2)=p^2(1/2)^p r(1/2) lies in p^3R; L_p(1/2)=F_p(1), both cutoff p-1."
+    },
+    {
+      "number": 5,
+      "status": "SATISFIED_PROVEN_BROADER_SCOPE",
+      "return_section": "Output 5",
+      "evidence": "p>3 and p=1 mod6 from Q2; contains p=13,19 mod24. No all-prime claim."
+    },
+    {
+      "number": 6,
+      "status": "CONDITIONAL_BRANCH_NOT_TRIGGERED",
+      "return_section": "Output 6",
+      "evidence": "The normalization scalar is proved zero on the delivered scope; no missing datum or fabricated obstruction."
+    }
+  ],
+  "unchanged_boundaries": [
+    "Not a global p^3 polynomial identity",
+    "Not old weighted LIFT",
+    "Not Sun adjacent-value elimination or minimal obstruction",
+    "No mother-objective closure",
+    "Driver review and final audit/integration remain required"
+  ]
+}
