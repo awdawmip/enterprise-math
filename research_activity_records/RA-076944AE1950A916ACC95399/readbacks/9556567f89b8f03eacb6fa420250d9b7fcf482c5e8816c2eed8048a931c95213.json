@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/brc-critical-lattice-gram-newton-20260909/verification_manifest.json",
+    "ref": "54e53880a7403039cf7faa46855357b37d9ebc16",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-observation-turn347",
+  "result": {
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"EM_RESULT_SPECIFIC_VERIFICATION_V1\",\n  \"record_id\": \"FINDING-EM-PDE-CRITICAL-LATTICE-GRAM-NEWTON-20260909\",\n  \"activity_id\": \"RA-076944AE1950A916ACC95399\",\n  \"proof_source\": {\n    \"repository\": \"awdawmip/enterprise-math\",\n    \"commit\": \"6de9c3195577d7a96907341c5594ae827fc26376\",\n    \"path\": \"research_notes/brc-critical-lattice-gram-newton-20260909.md\",\n    \"git_blob_sha1\": \"cb6cddfd4b9a263b85ecc90f6b3bb194582e0a47\"\n  },\n  \"lattice_checker\": {\n    \"commit\": \"f47dd79fad0d583dbade9b7fd0c3630045740444\",\n    \"path\": \"research_notes/brc-critical-lattice-gram-newton-20260909/certify_lattice_constant.py\"\n  },\n  \"lattice_result\": {\n    \"commit\": \"532e13d57143d76f6056b4bbcacb8ea917c374b2\",\n    \"path\": \"research_notes/brc-critical-lattice-gram-newton-20260909/lattice_constant_verification.json\",\n    \"git_blob_sha1\": \"c796af74ddbbbca099a811a0d13e5bed9bd3387e\",\n    \"status\": \"PASS\",\n    \"certified_constant\": \"9503/1000\",\n    \"near_lattice_points\": 894,\n    \"octahedral_classes\": 277,\n    \"infinite_tail\": \"analytic cube comparison plus exact Riesz integral\"\n  },\n  \"newton_checker\": {\n    \"commit\": \"4f16f983a9dacfdbae2216ee718a5aa7b289f8d8\",\n    \"path\": \"research_notes/brc-critical-lattice-gram-newton-20260909/newton_descent_check.py\"\n  },\n  \"newton_result\": {\n    \"commit\": \"1a2e9130c1ead7efb8d53b305f111e7fdcf25453\",\n    \"path\": \"research_notes/brc-critical-lattice-gram-newton-20260909/newton_descent_verification.json\",\n    \"git_blob_sha1\": \"84bd68dd7e034fd6fef23057d95611c51829f978\",\n    \"status\": \"PASS\",\n    \"analytic_identity\": \"f_(v+theta h)=(1-theta)f_v+theta^2 B(h,h)\",\n    \"safe_score_step\": \"theta<=min(1/2,(1-M)/(2rho)) when M<1\"\n  },\n  \"limits\": [\n    \"The constant is valid but not claimed sharp.\",\n    \"Random Newton regressions are diagnostics; the proof is analytic.\",\n    \"No independent review or arbitrary-data Navier-Stokes/MHD regularity claim.\"\n  ]\n}\n",
+      "display_title": "verification_manifest.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/54e53880a7403039cf7faa46855357b37d9ebc16/research_notes/brc-critical-lattice-gram-newton-20260909/verification_manifest.json",
+      "encoding": "utf-8",
+      "sha": "b844c2a94e5827a500e3fc3c345580cdd416b241"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
