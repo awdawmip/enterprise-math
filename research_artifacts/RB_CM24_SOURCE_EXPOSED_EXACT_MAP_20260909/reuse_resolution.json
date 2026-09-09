@@ -1,0 +1,27 @@
+{
+  "schema": "RB_CM24_TASK_LOCAL_REUSE_RESOLUTION_V1",
+  "resolution": "EXTEND_EXISTING_TOOL",
+  "method_scope": "Existing RB task-local integer polynomial helper; no new global tool family or advertised API.",
+  "actually_executed_import": "research_artifacts.RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908.check_squareclass_rr",
+  "actual_calls_from_certificate": {
+    "actual_integer_divisions": 0,
+    "actual_reused_api_calls": {
+      "add": 168,
+      "multiply": 1051,
+      "rr_fiber_difference": 20,
+      "scale": 42,
+      "twice_delta": 3
+    },
+    "actual_root_evaluations": 0,
+    "brc_evaluations": 0,
+    "largest_normalized_support": 128,
+    "largest_observed_coefficient_bits": 49,
+    "operations": "Integer coefficient additions/multiplications and monic algebraic relation rewrites; function denominators and scalar denominator 4 unevaluated."
+  },
+  "extension": "Three explicit monic coefficient relations in the same exponent-tuple carrier; all old sources unchanged.",
+  "T0_BRC": "REUSE_APPLIED policy/materialization boundary; no actual natural quotient or root requested, BRC evaluations zero.",
+  "T6_OPERATION_SAFE_QUOTIENT": "REUSE_APPLIED: explicit field/curve ideal, actual basis proof, preserved coefficients/valuation/domain data before cancellation. No generic finite-horizon checker was executed.",
+  "T5_PRECISION_REFINEMENT": "NOT_APPLICABLE: no precision projection or numerical readout.",
+  "legacy_import_boundary": "The reused module imports only its declared stdlib modules. No Fraction/SymPy/arbitrary numerical library is called by this proof path. This is not a claim that all legacy imports elsewhere migrated.",
+  "source_freeze_sha256": "85946a8cb4e736021cef6cd311c8cfffbde1cce34fe728255db4b6703f5887f2"
+}
