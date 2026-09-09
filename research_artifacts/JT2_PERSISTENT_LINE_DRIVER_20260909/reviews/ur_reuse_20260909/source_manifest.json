@@ -1,0 +1,176 @@
+{
+  "schema": "JT2_UR_REUSE_SOURCE_MANIFEST_V1",
+  "recorded_at": "2026-09-09T06:15:38.199984+00:00",
+  "author": {
+    "driver_id": "EM-DVR-C777E7",
+    "mode": "DRIVER_AUTHORED_MATHEMATICAL_CANDIDATE",
+    "independent_review": "PENDING",
+    "formal_driver_acceptance": false
+  },
+  "registration_authoring_global_knowledge_sync": "main@5f14819ce71e1732ab1517df7b9e73064dc512bd",
+  "earlier_recovery_snapshot": {
+    "commit": "7894372ffc0b39513736ea74c607b4d8ea3e82f9",
+    "path": "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/source_ledger.json",
+    "bytes": 13734,
+    "sha256": "e6de1201e6eeef363fe7cbc129f98c7fa71205c04de9189dff5051875b2efcd3",
+    "blob": "d0d524ce6f5c21d3ab4b333651576e8cb574be2e",
+    "historical_status_preserved": "SOURCE_RECOVERY_WITH_UNPROVED_TRANSPORT"
+  },
+  "candidate_paper": {
+    "path": "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/ur_reuse_20260909/driver_authored_transport_candidate.md",
+    "bytes": 12560,
+    "sha256": "063ac8f6f31f83f0b9e16a3a3520aebd52527eb8237a28f07a833fa0f6d28eee",
+    "blob": "c6f2396307f5f8599374ac507532d107363512a3"
+  },
+  "exact_source_pins_from_prior_immutable_readbacks": [
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "6058e8fa69cc8c9a3e571d05bc6cbb8b4565c5aa",
+      "path": "research_returns/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE_RETURN_20260828.md",
+      "bytes": 9953,
+      "sha256": "54ab94a1899f649ae1488bececaa7c57aafbc89aef44bdd1e40cc0b45590e827",
+      "blob": "cf36004694dc2c8c9134e2e1e989c076b88e4c03",
+      "id": "EBP6JT_RETURN",
+      "relation": "SUPPORTING_PRIOR_PROOF_CM0_SIMPLE_JT2_UR_LIFT",
+      "read_scope": "full §§1–11; no regression rerun or independent mathematical acceptance"
+    },
+    {
+      "id": "PR1383_UR_CLOSURE",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "9a1d0b374564abfcc888458b79c1030d52da924c",
+      "path": "research_artifacts/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE/ur_chisholm_closure_lift_frontier_20260908.md",
+      "bytes": 10380,
+      "sha256": "1f4e8207a969a5ccf151e9f60d5eece93249d655b46c78a23a8c71e77ce1e6e6",
+      "blob": "fdac56b533ea2b4c0be40247b008e00da828a817",
+      "relation": "SOURCE_ONLY_PRIOR_ART_CLOSURE_CANDIDATE_NOT_ACCEPTED_BY_THIS_DRIVER",
+      "read_scope": "full candidate paper; primary cited theorem/hypotheses not independently rechecked",
+      "observed_pr_state": "OPEN_UNMERGED"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "6058e8fa69cc8c9a3e571d05bc6cbb8b4565c5aa",
+      "path": "research_artifacts/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_FINITE_JACOBI_HARMONIC_IDENTITIES/jacobi_jet_certificate_20260827.json",
+      "bytes": 5647,
+      "sha256": "78b1b1ef2fd98e2aa1c6b19d3df3b0e5a0ed1082a21b6d2fcbe4e25e70ee3dd3",
+      "blob": "55637445ed5e48e7253e0bd7a3f9812501fc7f0e",
+      "id": "JACOBI_JET_PREDECESSOR",
+      "relation": "SUPPORTING_PRIOR_JET_AND_CLAUSEN_INTERFACE",
+      "read_scope": "full; finite regression not rerun"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "6058e8fa69cc8c9a3e571d05bc6cbb8b4565c5aa",
+      "path": "research_tasks/EMW59A_JT2_UR_SUN_PARITY_DEFECT_GEN2_20260909.md",
+      "bytes": 5900,
+      "sha256": "fe4693d36ca3f5ae2139df4556d00933b6e9d894779113681b45cd8b4f99711c",
+      "blob": "7d77a7c1ff08f75b74b38c586e37a9deb8c7518f",
+      "id": "RS-EMW59A-JT2-UR-SUN-PARITY-DEFECT_BOOK",
+      "relation": "CONTROLLING_TASK_CONTRACT",
+      "read_scope": "full Driver/UR/QTF3 contracts; audit/integration gate fields and scope"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "6058e8fa69cc8c9a3e571d05bc6cbb8b4565c5aa",
+      "path": "research_tasks/EMW59A_JT2_QTF3_FIXED_POINT_GEN2_20260909.md",
+      "bytes": 5788,
+      "sha256": "cc5cd50d5bbd94cb41e7d4bc0123634a5a57e235cecdc919bed723b9981d83e0",
+      "blob": "329d20a93b798f25002fef2b1b28a4cb34dc672c",
+      "id": "RS-EMW59A-JT2-QTF3-FIXED-POINT_BOOK",
+      "relation": "CONTROLLING_TASK_CONTRACT",
+      "read_scope": "full Driver/UR/QTF3 contracts; audit/integration gate fields and scope"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "587e6ee4a138c34de9d87bc90e06f17d7fe1b910",
+      "path": "research_notes/EM_FREE_W59A_JT2_UR_QTF3_STATE_MACHINE_HANDOFF_20260909.md",
+      "bytes": 6258,
+      "sha256": "60a0f1e6016559c7598b9bf9644c41e6a554fadec141121db4c5d14d4ac8988e",
+      "blob": "48cfda2d4f49c88ff2efd0ca013d9806c2e8d216",
+      "id": "W59A_SOURCE_HANDOFF",
+      "relation": "SUPPORTING_PREDECESSOR_REDUCTION_CLAIMS",
+      "read_scope": "full; not independent theorem revalidation"
+    },
+    {
+      "repository": "awdawmip/chatgpt-global-knowledge",
+      "commit": "f48cd4d076f61a5b804a7617158359e198b2fd5d",
+      "path": "journal/progressive-number-theory/2026-09-09/20260909T105443+0800-ur-legendre-barycentric-lift.md",
+      "bytes": 2584,
+      "sha256": "9de9af4a8ea8c26e65bf46fd70d6704201f921319065c283b17fea9e33604712",
+      "blob": "856094e72311165e5ce0deb948ac079abe2b5c4e",
+      "id": "BARYCENTRIC_ORIGIN",
+      "relation": "SUPPORTING_ORIGIN_DERIVATION_NOT_PROJECT_AUTHORITY",
+      "read_scope": "full"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "6058e8fa69cc8c9a3e571d05bc6cbb8b4565c5aa",
+      "path": "research_artifacts/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE/ur_legendre_companion_connection_frontier_20260909.json",
+      "bytes": 4529,
+      "sha256": "29d4dd1100fb839c42a704fb1409aa4d1cf5decf395185bc938fe58e85ebd672",
+      "blob": "44ab21a2b5a607fbb26b1b602c61fe3ae6a5a9e9",
+      "id": "UR_COMPANION",
+      "relation": "SUPPORTING_SOURCE_RECOVERY_LOCATOR_NOT_LC_PROOF",
+      "read_scope": "full metadata/derivation declaration; no numerical replay"
+    }
+  ],
+  "primary_sources": [
+    {
+      "id": "DLMF_QUADRATIC",
+      "url": "https://dlmf.nist.gov/15.8.E18",
+      "locator": "15.8.18; normalized Gauss quadratic transformation at u=0",
+      "actual_read": "Primary web formula and nearby parameter/domain text; formal specialization in candidate §2 is Driver-authored.",
+      "immutable_response_hash": null
+    },
+    {
+      "id": "CHISHOLM_THEOREM_1",
+      "url": "https://www.mdpi.com/2227-7390/1/1/9",
+      "doi": "10.3390/math1010009",
+      "locator": "Theorem 1; d=3 model in §2; (3.4) Clausen identity; p^3 remarks",
+      "actual_read": "Primary publisher text returned through cached web search after direct open/PDF errors. The theorem and relevant conventions were read; no independent proof replication.",
+      "immutable_response_hash": null
+    },
+    {
+      "id": "SUN_V5",
+      "url": "https://arxiv.org/html/1101.5386v5",
+      "version": "1101.5386v5",
+      "locator": "P_n(a,x) definition; Theorem 2.1, Corollary 2.1 and Theorem 2.2",
+      "actual_read": "Exact recurrence/derivative/reflection statements in versioned primary text, specialized on paper.",
+      "immutable_response_hash": null
+    },
+    {
+      "id": "BORWEIN_A6",
+      "url": "https://carmamaths.org/jon/Preprints/Papers/Submitted%20Papers/Elliptic%20moments/pi-agm.pdf",
+      "bytes": 2951284,
+      "sha256": "2ea662124501c5a1604c96c705da10049e0dd81824562f3b48853672bb53ca71",
+      "blob": "85489e64077c4b1e078c8fffc4c68dbff49bdf81",
+      "title": "Jonathan M. Borwein and Peter B. Borwein, Pi and the AGM",
+      "locator": "Printed pp.185–186: (5.5.28i), (5.5.29)–(5.5.30), (5.5.33)–(5.5.34); p.190 Exercises 19(b)(ii), 20(b)(i)",
+      "pdf_page_indices_actually_visually_read_for_this_pin": [
+        99,
+        100,
+        102
+      ],
+      "actual_read": "Image-only PDF rendered locally, then the complete relevant paired pages visually read. Exact published parameter values are consumed; the exercises are not independently reproved.",
+      "publication_boundary": "No full PDF or rendered page image is included in the source package."
+    }
+  ],
+  "source_relation_update": {
+    "prior_PR_to_current_UR": "Candidate finite p^2 transport and primary a=6 convention now supplied; independent review pending.",
+    "old_CM0_SIMPLE": "Retained prior proof inputs, not rerun or independently promoted in this review.",
+    "current_Sun_task": "Value conclusion has a candidate reuse route; outputs 3 and 6 have not been established.",
+    "QTF3_and_LIFT": "No p^3 bridge, residual-space normalization or exact R_p reconstruction supplied."
+  },
+  "independent_review_questions": [
+    "Verify (Q2): low coefficients are exact, high coefficients have both forced p factors, and the two labeled ports preserve the ring and precision.",
+    "Verify (C2), CM0 division by p, the derivative sign and the t-unit transport to UR-SLOPE; distinguish reciprocal use of SIMPLE.",
+    "Check Theorem 1 d=3 model, good reduction, inert signs and the Borwein N=2/s=1/6 coefficient ratio b_s/a_s=6.",
+    "Check that the new proof does not silently supply the Sun adjacent-value elimination or claim a minimal obstruction merely from missing evidence.",
+    "Check the QTF3 fixed-address/precision mismatch and retention of G_p mod p^2, reflected R_p and second-digit LIFT.",
+    "Keep source recovery, Driver-authored candidate, non-author review and formal V2 acceptance as separate generations."
+  ],
+  "new_math_program_executed": false,
+  "new_api_or_family": false,
+  "formal_task_or_result_changed": false,
+  "parent_objectives_changed": false,
+  "wallis_sine_issue_1159_in_scope": false
+}
