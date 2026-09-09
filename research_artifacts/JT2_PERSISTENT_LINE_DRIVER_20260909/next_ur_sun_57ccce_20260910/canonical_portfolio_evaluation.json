@@ -1,0 +1,759 @@
+{
+  "schema": "JT2_QTF3_ACTUAL_POST_REVIEW_PORTFOLIO_EVALUATION_V1",
+  "started_at": "2026-09-09T19:04:41.729944+00:00",
+  "ended_at": "2026-09-09T19:09:30.447906+00:00",
+  "elapsed_seconds": 288.72109000000637,
+  "canonical_main": "734855d537c9dad6e6611accb381641222d79f6d",
+  "canonical_tree": "33f25e1d55d6ca90591994ef45e907fd45292a38",
+  "full_actual_raw_events_sha256": "sha256:55d82941b3ad775ed68bf0eddb5811f4e0dfbbc6161a19b4d34251fc8b90c64e",
+  "full_canonical_state_count": 231,
+  "canonical_route": {
+    "action": "CLAIM_NEW_OWNER",
+    "surface": "ORDINARY_TASK",
+    "target": {
+      "task_id": "RS-PRIME-FACTOR-SEMIPRIME-SHELL-SECOND-ORDER-DENSITY-NULL",
+      "state": "HANDOFF_READY",
+      "claim_id": null,
+      "actor": null,
+      "researcher_id": null,
+      "last_researcher_id": "EM-PFSS2-A927C4",
+      "identity_source": null,
+      "lease_until": null,
+      "hard_block": null,
+      "last_progress_ref": "RR-3287C6124F8D8A1F0901",
+      "last_progress_at": "2026-08-28T04:56:00+00:00",
+      "next_action": "Freeze the conditional microcell and wheel-cyclic surrogate generators plus the 32-bin cross-scale coherence statistic before evaluating new holdout scales; then run exact discovery reanalysis and reserve 3e8 and 1e9 as untouched holdouts.",
+      "ignored_events": [
+        {
+          "index": 676,
+          "reason": "registered CLAIM publication_id does not match current task publication"
+        }
+      ],
+      "dispatch_state": "NEEDS_DISPATCH",
+      "title": "Prime-Factor Semiprime Shell Second-Order Density/Covariance Null",
+      "kind": "RESEARCH",
+      "owner": "research/prime-factor-semiprime-shell-second-order-density-null",
+      "priority": "P2",
+      "leverage": "MEDIUM",
+      "frontier": "Determine whether any factor-coordinate semiprime-shell residual survives nulls that preserve exact local q-prime density, wheel residues, shell-overlap covariance, and empirical short-gap structure, rather than only first-order smooth density.",
+      "source_refs": [],
+      "registration_source": "IMMUTABLE_TASK_RECORD",
+      "publication_id": "TP2-D44C166C4C87CEC167E7",
+      "event_authentication": "GITHUB_SERVER_COMMENT_ENVELOPE",
+      "last_server_comment_id": 5586874288,
+      "last_server_author_login": "awdawmip",
+      "identity_lane": "PFSS2"
+    },
+    "target_key": "RS-PRIME-FACTOR-SEMIPRIME-SHELL-SECOND-ORDER-DENSITY-NULL",
+    "owner_claim_preserved": false,
+    "new_claim_required": true,
+    "reason": "fresh canonical task selector returned a dispatchable target",
+    "startup_transport": {
+      "schema": "ENTERPRISE_MATH_RESEARCH_STARTUP_TRANSPORT_V2",
+      "control_epoch": "EM-CONTROL-20260904-CANONICAL-DISPATCH-AUTHORITY-1",
+      "conversation_rebase_required": true,
+      "conversation_rebase": {
+        "mode": "ALWAYS_IDEMPOTENT_ON_CONTROL_ENTRY",
+        "control_epoch": "EM-CONTROL-20260904-CANONICAL-DISPATCH-AUTHORITY-1",
+        "cached_conversation_control_plan": "NONAUTHORITATIVE_REBASE_TO_CURRENT",
+        "preserve": [
+          "EXACT_TASK_AND_CURRENT_PUBLICATION_AUTHORITY",
+          "WINNING_CLAIM_AND_OWNER_SCOPE",
+          "HIGHEST_VERIFIED_DURABLE_FRONTIER",
+          "FROZEN_SOURCE_AND_BLINDNESS_RESTRICTIONS",
+          "THEOREM_STRENGTH_AND_TASK_LOCAL_SCOPE",
+          "NO_SORRY_NO_ADMIT_NO_CUSTOM_AXIOM_AND_OTHER_FROZEN_CONSTRAINTS"
+        ],
+        "discard": [
+          "PR_REQUIRED_FOR_START_PROGRESS_DURABILITY_OR_HANDOFF_UNLESS_EXACT_CURRENT_TASK_REQUIRES_IT",
+          "CI_WAIT_OR_REPEATED_CI_MONITOR_AS_CONVERSATION_BARRIER_WHEN_PENDING_NONBLOCKING",
+          "DRAFT_READY_TOGGLE_MERELY_TO_TRIGGER_VALIDATION",
+          "REMOTE_SEARCH_OR_FETCH_AGENTS_MD_MERELY_FOR_TASK_START",
+          "RESTART_VERIFIED_COMPLETE_WORK_BECAUSE_CONVERSATION_IS_OLD_RESUMED_OR_CONTEXT_IS_MISSING",
+          "CACHED_PREVIOUS_CONTROL_ROUTE_WHEN_CURRENT_CANONICAL_DISPATCH_OR_RUNTIME_DISAGREES",
+          "MANUAL_REPOSITORY_SCAN_OR_VISIBLE_TASK_RECORDS_AS_TASK_AVAILABILITY_AUTHORITY",
+          "TOP_PRIORITY_LEASED_IMPLIES_NO_TASK_WITHOUT_CANONICAL_DISPATCH",
+          "BACKLOG_FREE_OR_NAMED_RESEARCH_LINE_PRESENCE_IMPLIES_CLAIMABLE"
+        ],
+        "after_rebase": "RESUME_FROM_CURRENT_CANONICAL_DISPATCH_AND_HIGHEST_VERIFIED_DURABLE_FRONTIER",
+        "pr_default": "OPTIONAL_DURABLE_OR_REVIEW_SURFACE_NOT_CONVERSATION_GATE",
+        "ci_pending": "PENDING_NONBLOCKING_CONTINUE_PARENT_TASK",
+        "repeated_ci_poll_without_state_change": "FORBIDDEN_NO_PROGRESS_ACTION",
+        "taskbook_policy_digest_impact": "NONE_CONTROL_TRANSPORT_ONLY"
+      },
+      "task_availability_authority": {
+        "authority": "CANONICAL_RESEARCH_CONTROL_DISPATCH_OUTPUT_ONLY",
+        "canonical_entrypoint": "research_control_dispatch.py",
+        "manual_repository_scan": "NONAUTHORITATIVE_FOR_TASK_AVAILABILITY",
+        "visible_task_record": "PRESENCE_DOES_NOT_IMPLY_CLAIMABLE",
+        "visible_research_line": "PRESENCE_DOES_NOT_IMPLY_ORDINARY_FRESH_CANDIDATE",
+        "backlog_or_dormant": "NOT_FRESH_CANDIDATE",
+        "awaiting_review_blocked_complete": "NOT_FRESH_CANDIDATE",
+        "free_axiom_discovery": "SEPARATE_ROLE_ROUTE_NOT_ORDINARY_SCHEDULER_FALLBACK",
+        "higher_priority_leased": "EXCLUDE_FROM_FRESH_CANDIDATES_AND_CONTINUE_CANONICAL_SCAN",
+        "claim_rule": "CLAIM_ONLY_THE_EXACT_TARGET_RETURNED_BY_CURRENT_CANONICAL_DISPATCH",
+        "no_task_statement_rule": "MAY_ASSERT_NO_DISPATCH_ONLY_FROM_CURRENT_CANONICAL_NO_DISPATCH_ACTION",
+        "verify_liveness_rule": "VERIFY_SESSION_LIVENESS_IS_NOT_NO_DISPATCH_AND_MUST_NOT_BE_REPHRASED_AS_NO_TASK",
+        "manual_override_allowed": false
+      },
+      "agents_md": "INJECTED_CONTEXT_ONLY_DO_NOT_REMOTE_SEARCH_OR_FETCH_FOR_TASK_START",
+      "if_agents_context_unavailable": "PROCEED_FROM_CANONICAL_DISPATCH_TARGET_AND_EXACT_TASKBOOK",
+      "hot_start": [
+        "REBASE_CACHED_CONVERSATION_CONTROL_PLAN",
+        "CONSUME_CURRENT_CANONICAL_DISPATCH_DECISION",
+        "EXACT_DISPATCH_TARGET",
+        "EXACT_TASK_PUBLICATION_AND_TASKBOOK",
+        "FIRST_REQUIRED_DEPENDENCY",
+        "SUBSTANTIVE_RESEARCH"
+      ],
+      "remote_control_reads": "TRIGGERED_ONLY",
+      "taskbook_policy_digest_impact": "NONE_CONTROL_TRANSPORT_ONLY"
+    },
+    "quarantined_tasks": [
+      "RS-GEO6-NATIVE-RELATION-SELECTOR-CORE",
+      "RS-GEO6-NATIVE-TRANSLATION-FOLNER-SEMANTICS",
+      "RS-GEO6-OBJECTIVE-SEMANTIC-SELECTOR-SYNTHESIS",
+      "RS-GEO6-PHYSICAL-REFINEMENT-SUPPORT-TRANSPORT-CORE",
+      "RS-GEO7-BORSUK-6D-DIAMETER-PARTITION-NATIVE-BRIDGE",
+      "RS-N-COUPLED-ASYMMETRIC-SINGULARIZATION-PRIMITIVE",
+      "RS-N-COUPLED-CRT-PRODUCT-NATURALITY-BREAK-WITHOUT-SUPPORT-EXPOSURE",
+      "RS-N-COUPLED-NONRING-SINGULARIZATION-PRIOR-ART-AUDIT",
+      "RS-N-COUPLED-PUBLIC-N-DISTRIBUTIONAL-NONEXTERNALIZABILITY",
+      "RS-N-COUPLED-SCALAR-CLEAN-NONAUTOMORPHIC-FITTING-SUPPORT-CHANGE",
+      "RS-NOLLM-EISENSTEIN-ROTATION-ATLAS",
+      "RS-P000-6D-ROTATION-PRIOR-ART-DUPLICATION-AUDIT",
+      "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+      "RS-P000-PHILOSOPHY-FIRST-RETURN-PROFILE-1WL-N13-COLLISION-FRONTIER",
+      "RS-P022-OBSERVATION-HISTORY",
+      "RS-PERFECT-PRIME-AP-CHRISTOFFEL-J-TRANSVERSALITY-DEFORMATION",
+      "RS-PERFECT-PRIME-AP-FIXED-POINT-COMPOUND-NO-RECROSSING",
+      "RS-PERFECT-PRIME-AP-GSTP-EXTERIOR-CONE-CERTIFICATE",
+      "RS-PERFECT-PRIME-AP-RESIDUAL-MOBIUS-BERNSTEIN-COEFFICIENT-POSITIVITY",
+      "RS-PERFECT-PRIME-AP-SIGNED-SECANT-HCM0-HAUSDORFF-LIFT",
+      "RS-PERFECT-PRIME-BETA-BERNSTEIN-OSCILLATION-ORDER-MAP",
+      "RS-PERFECT-PRIME-BETA-BERNSTEIN-PRINCIPAL-ANGLE-EXTERIOR-POWER",
+      "RS-PERFECT-PRIME-BETA-BERNSTEIN-PRIOR-ART-AUDIT",
+      "RS-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M-PROOF",
+      "RS-R043C4-NATIVE-INTERFACE-LINK-SEPARATOR-CLOSURE",
+      "RS-SEMIPRIME-RESIDUAL-PRIORITY-HART-STREAMING-COST-AUDIT",
+      "RS-SEMIPRIME-SQUARE-SHELL-RESIDUAL-PRIORITY-PRIOR-ART-AUDIT",
+      "RS-SHOR-FAST-ROUGH-INTERVAL-GCD",
+      "RS-SIMPLE-LOOP-R4-MACRO-DEPTH-CLASSIFICATION",
+      "RS-X6-CELL-CHANNEL-INTERNAL-STATE",
+      "RS-X6-NATIVE-ROTATION-DYNAMICS",
+      "RS-X6-NATIVE-TIME-DYNAMICS",
+      "RS-X6-NONFCC-SLICE-REALIZATION",
+      "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+      "RS-X6-UPPER-STRUCTURE-INTEGRATION"
+    ],
+    "publication_fork_quarantines": [
+      "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+      "RS-P000-PHILOSOPHY-FIRST-RETURN-PROFILE-1WL-N13-COLLISION-FRONTIER",
+      "RS-P022-OBSERVATION-HISTORY",
+      "RS-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M-PROOF",
+      "RS-R043C4-NATIVE-INTERFACE-LINK-SEPARATOR-CLOSURE"
+    ],
+    "task_integrity_quarantines": [
+      "RS-GEO6-NATIVE-RELATION-SELECTOR-CORE",
+      "RS-GEO6-NATIVE-TRANSLATION-FOLNER-SEMANTICS",
+      "RS-GEO6-OBJECTIVE-SEMANTIC-SELECTOR-SYNTHESIS",
+      "RS-GEO6-PHYSICAL-REFINEMENT-SUPPORT-TRANSPORT-CORE",
+      "RS-GEO7-BORSUK-6D-DIAMETER-PARTITION-NATIVE-BRIDGE",
+      "RS-N-COUPLED-ASYMMETRIC-SINGULARIZATION-PRIMITIVE",
+      "RS-N-COUPLED-CRT-PRODUCT-NATURALITY-BREAK-WITHOUT-SUPPORT-EXPOSURE",
+      "RS-N-COUPLED-NONRING-SINGULARIZATION-PRIOR-ART-AUDIT",
+      "RS-N-COUPLED-PUBLIC-N-DISTRIBUTIONAL-NONEXTERNALIZABILITY",
+      "RS-N-COUPLED-SCALAR-CLEAN-NONAUTOMORPHIC-FITTING-SUPPORT-CHANGE",
+      "RS-NOLLM-EISENSTEIN-ROTATION-ATLAS",
+      "RS-P000-6D-ROTATION-PRIOR-ART-DUPLICATION-AUDIT",
+      "RS-PERFECT-PRIME-AP-CHRISTOFFEL-J-TRANSVERSALITY-DEFORMATION",
+      "RS-PERFECT-PRIME-AP-FIXED-POINT-COMPOUND-NO-RECROSSING",
+      "RS-PERFECT-PRIME-AP-GSTP-EXTERIOR-CONE-CERTIFICATE",
+      "RS-PERFECT-PRIME-AP-RESIDUAL-MOBIUS-BERNSTEIN-COEFFICIENT-POSITIVITY",
+      "RS-PERFECT-PRIME-AP-SIGNED-SECANT-HCM0-HAUSDORFF-LIFT",
+      "RS-PERFECT-PRIME-BETA-BERNSTEIN-OSCILLATION-ORDER-MAP",
+      "RS-PERFECT-PRIME-BETA-BERNSTEIN-PRINCIPAL-ANGLE-EXTERIOR-POWER",
+      "RS-PERFECT-PRIME-BETA-BERNSTEIN-PRIOR-ART-AUDIT",
+      "RS-SEMIPRIME-RESIDUAL-PRIORITY-HART-STREAMING-COST-AUDIT",
+      "RS-SEMIPRIME-SQUARE-SHELL-RESIDUAL-PRIORITY-PRIOR-ART-AUDIT",
+      "RS-SHOR-FAST-ROUGH-INTERVAL-GCD",
+      "RS-SIMPLE-LOOP-R4-MACRO-DEPTH-CLASSIFICATION",
+      "RS-X6-CELL-CHANNEL-INTERNAL-STATE",
+      "RS-X6-NATIVE-ROTATION-DYNAMICS",
+      "RS-X6-NATIVE-TIME-DYNAMICS",
+      "RS-X6-NONFCC-SLICE-REALIZATION",
+      "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+      "RS-X6-UPPER-STRUCTURE-INTEGRATION"
+    ],
+    "research_activity_overview": {
+      "scope": "OWNER_BOOKKEEPING_ONLY_NOT_CLAIM_QUEUE",
+      "items": [
+        {
+          "activity_id": "RA-076944AE1950A916ACC95399",
+          "mode": "TASK_RESEARCH",
+          "session_state": "KNOWN",
+          "researcher_id": "EM-DIRECT-F00A51",
+          "registration_origin": {
+            "kind": "LIVE_SESSION",
+            "source_tracking_key": null
+          },
+          "required_action": "INSPECT_RECORDED_FRONTIER",
+          "sync_debt_events": [],
+          "recorded_repair_events": [],
+          "source_links": [
+            "https://github.com/awdawmip/enterprise-math/blob/60525d11c002c0334e87fcbb206891c0e9455aef/research_notes/ns-viscous-jitter-certificate-20260909.json",
+            "https://github.com/awdawmip/enterprise-math/blob/ff3e5cb93b32f7c74b6c93bb391bfbae17433b3f/research_notes/ns-jitter-initial-data-verification-20260909.json",
+            "https://github.com/awdawmip/enterprise-math/blob/df3ba43d94851be596d330070847fc27bdc70ac1/research_notes/ns-causal-reference-verification-20260909.json",
+            "https://github.com/awdawmip/enterprise-math/blob/c7dcf6a4d34c8a178c5a252abe7c2111819ab589/research_notes/ns-critical-hermitian-tail-verification-20260909.json",
+            "https://github.com/awdawmip/enterprise-math/blob/54e53880a7403039cf7faa46855357b37d9ebc16/research_notes/brc-critical-lattice-gram-newton-20260909/verification_manifest.json",
+            "https://github.com/awdawmip/enterprise-math/blob/5b766c503f8eabd13910fd1b6739b068e13af41a/research_notes/ns-causal-inverse-newton-basin-20260909/verification_manifest.json",
+            "https://github.com/awdawmip/enterprise-math/blob/6cf0edabb2b1d5551ba30e8efc27044363d9ed1f/research_notes/ns-inexact-newton-error-ledger-20260909/verification_manifest.json"
+          ],
+          "record_path": "research_activity_records/RA-076944AE1950A916ACC95399.json"
+        },
+        {
+          "activity_id": "RA-0DA1C30C5794D50A34B7F18B",
+          "mode": "TASK_RESEARCH",
+          "session_state": "KNOWN",
+          "researcher_id": "EM-R005Q53-050E43",
+          "registration_origin": {
+            "kind": "LIVE_SESSION",
+            "source_tracking_key": null
+          },
+          "required_action": "INSPECT_RECORDED_FRONTIER",
+          "sync_debt_events": [],
+          "recorded_repair_events": [],
+          "source_links": [],
+          "record_path": "research_activity_records/RA-0DA1C30C5794D50A34B7F18B.json"
+        },
+        {
+          "activity_id": "RA-3AA99FDD73D4DE233E1F81E5",
+          "mode": "UNKNOWN_RESEARCH",
+          "session_state": "UNKNOWN",
+          "researcher_id": "EM-FREE-1LAVKW",
+          "registration_origin": {
+            "kind": "RETROSPECTIVE_SOURCE",
+            "source_tracking_key": "gk-progress-series:EM-FREE-1LAVKW:EXPLICIT-DEGREE6-CM24:20260827"
+          },
+          "required_action": "VERIFY_RECORDED_DEBT_REPAIR",
+          "sync_debt_events": [
+            "HISTORICAL_GK_ONLY_20260827_EXPLICIT_DEGREE6_CM24"
+          ],
+          "recorded_repair_events": [
+            {
+              "event_id": "EM_SOURCE_RECOVERY_4044E5EC_20260909",
+              "repairs_event_id": "HISTORICAL_GK_ONLY_20260827_EXPLICIT_DEGREE6_CM24"
+            }
+          ],
+          "source_links": [
+            "https://github.com/awdawmip/enterprise-math/blob/4044e5ec5935be96f358b4e1d8a0e3a92e6a1276/research_notes/RB_CM24_ORIGIN_EXPLICIT_MAP_20260827.md",
+            "https://github.com/awdawmip/enterprise-math/blob/4044e5ec5935be96f358b4e1d8a0e3a92e6a1276/research_notes/RB_CM24_ORIGIN_SYMBOLIC_REPLAY_CLAIM_20260827.md",
+            "https://github.com/awdawmip/enterprise-math/blob/4044e5ec5935be96f358b4e1d8a0e3a92e6a1276/research_notes/RB_CM24_ORIGIN_HOSTILE_AUDIT_AND_BLIND_PACKET_20260827.md"
+          ],
+          "record_path": "research_activity_records/RA-3AA99FDD73D4DE233E1F81E5.json"
+        },
+        {
+          "activity_id": "RA-4588971B9850DC4D5F1ECAB5",
+          "mode": "UNKNOWN_RESEARCH",
+          "session_state": "UNKNOWN",
+          "researcher_id": null,
+          "registration_origin": {
+            "kind": "RETROSPECTIVE_SOURCE",
+            "source_tracking_key": "gk-progress-event:EM-20260908-COUNT-METRIC-SIXTH-ROOT"
+          },
+          "required_action": "INSPECT_RECORDED_FRONTIER",
+          "sync_debt_events": [],
+          "recorded_repair_events": [],
+          "source_links": [
+            "https://github.com/awdawmip/enterprise-math/blob/48c30ef0fbddcbc1fc64ea38ec251f867723063c/research_notes/count_metric_split_sixth_root_naturals_20260908.md"
+          ],
+          "record_path": "research_activity_records/RA-4588971B9850DC4D5F1ECAB5.json"
+        },
+        {
+          "activity_id": "RA-513D918CB570B356EA4C94D4",
+          "mode": "TASK_RESEARCH",
+          "session_state": "KNOWN",
+          "researcher_id": "EM-JT2-EF9380",
+          "registration_origin": {
+            "kind": "LIVE_SESSION",
+            "source_tracking_key": null
+          },
+          "required_action": "INSPECT_RECORDED_FRONTIER",
+          "sync_debt_events": [],
+          "recorded_repair_events": [],
+          "source_links": [
+            "https://github.com/awdawmip/enterprise-math/blob/8bb5790f3ae1f49cfdb780e94eea78d0192c59c3/research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/advisory_ef9380_20260909/reference_review.md",
+            "https://github.com/awdawmip/enterprise-math/blob/8bb5790f3ae1f49cfdb780e94eea78d0192c59c3/research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/advisory_ef9380_20260909/manifest.json",
+            "https://github.com/awdawmip/enterprise-math/blob/6fa23a3bcb01b13413827fa20e736fea8b9503d8/research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/qtf3_advisory_ef9380_20260909/reference_review.md",
+            "https://github.com/awdawmip/enterprise-math/blob/6fa23a3bcb01b13413827fa20e736fea8b9503d8/research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/qtf3_advisory_ef9380_20260909/manifest.json",
+            "https://github.com/awdawmip/enterprise-math/blob/de204cc92f9f7ce4aea63338d2979a745c11d32c/research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/cm_two_port_advisory_ef9380_20260909/reference_review.md",
+            "https://github.com/awdawmip/enterprise-math/blob/de204cc92f9f7ce4aea63338d2979a745c11d32c/research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/cm_two_port_advisory_ef9380_20260909/manifest.json",
+            "https://github.com/awdawmip/enterprise-math/blob/6c492e88b00100827826769f86b5092da193e250/research_returns/EMW59A_JT2_QTF3_FIXED_POINT_RETURN_EF9380_20260909.md",
+            "https://github.com/awdawmip/enterprise-math/blob/6c492e88b00100827826769f86b5092da193e250/research_artifacts/JT2_QTF3_FORMAL_EF9380_20260909/source_manifest.json",
+            "https://github.com/awdawmip/enterprise-math/blob/6c492e88b00100827826769f86b5092da193e250/research_artifacts/JT2_QTF3_FORMAL_EF9380_20260909/six_outputs.json",
+            "https://github.com/awdawmip/enterprise-math/blob/7d772f34a2f4a5d3091db1044db3b20c4673816c/research_result_records/RS-EMW59A-JT2-QTF3-FIXED-POINT/RR-69FC34FA8AE1E91244F2.json",
+            "https://github.com/awdawmip/enterprise-math/blob/56a8a56a976e90f8217a1ddaf775bb286d5caa1d/research_execution_records/RS-EMW59A-JT2-QTF3-FIXED-POINT/ER-9296C35569234F638D8F.json",
+            "https://github.com/awdawmip/enterprise-math/blob/56a8a56a976e90f8217a1ddaf775bb286d5caa1d/research_artifacts/JT2_QTF3_FORMAL_EF9380_20260909/authorization/authorize-receipt.json"
+          ],
+          "record_path": "research_activity_records/RA-513D918CB570B356EA4C94D4.json"
+        },
+        {
+          "activity_id": "RA-74A9C419A9A15ABB48FCCC01",
+          "mode": "TASK_RESEARCH",
+          "session_state": "KNOWN",
+          "researcher_id": "EM-DIRECT-FC7F53",
+          "registration_origin": {
+            "kind": "LIVE_SESSION",
+            "source_tracking_key": null
+          },
+          "required_action": "INSPECT_RECORDED_FRONTIER",
+          "sync_debt_events": [],
+          "recorded_repair_events": [],
+          "source_links": [],
+          "record_path": "research_activity_records/RA-74A9C419A9A15ABB48FCCC01.json"
+        },
+        {
+          "activity_id": "RA-75C91063128F84C663313372",
+          "mode": "TASK_RESEARCH",
+          "session_state": "KNOWN",
+          "researcher_id": "EM-DVR-BSJ393",
+          "registration_origin": {
+            "kind": "LIVE_SESSION",
+            "source_tracking_key": null
+          },
+          "required_action": "INSPECT_RECORDED_FRONTIER",
+          "sync_debt_events": [],
+          "recorded_repair_events": [],
+          "source_links": [],
+          "record_path": "research_activity_records/RA-75C91063128F84C663313372.json"
+        },
+        {
+          "activity_id": "RA-7D3C9A1255A6E9B4F21C7D",
+          "mode": "FREE_AXIOM_DISCOVERY",
+          "session_state": "KNOWN",
+          "researcher_id": "EM-FREE-7D3C9A",
+          "registration_origin": {
+            "kind": "LIVE_SESSION",
+            "source_tracking_key": null
+          },
+          "required_action": "INSPECT_RECORDED_FRONTIER",
+          "sync_debt_events": [],
+          "recorded_repair_events": [],
+          "source_links": [],
+          "record_path": "research_activity_records/RA-7D3C9A1255A6E9B4F21C7D.json"
+        },
+        {
+          "activity_id": "RA-81196A3A34AE5695CB527CFF",
+          "mode": "TASK_RESEARCH",
+          "session_state": "KNOWN",
+          "researcher_id": "EM-HODGEH0O-82EF42",
+          "registration_origin": {
+            "kind": "LIVE_SESSION",
+            "source_tracking_key": null
+          },
+          "required_action": "INSPECT_RECORDED_FRONTIER",
+          "sync_debt_events": [],
+          "recorded_repair_events": [],
+          "source_links": [
+            "https://github.com/awdawmip/enterprise-math/blob/341f36bb53c25d97c3ae533a71c92ad273a7b904/research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/checkpoints/identity_v1_checkpoint.json",
+            "https://github.com/awdawmip/enterprise-math/blob/341f36bb53c25d97c3ae533a71c92ad273a7b904/research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/runs/identity_v1/receipt.json",
+            "https://github.com/awdawmip/enterprise-math/blob/12ab6940f1a769efc8b3c75472d407a89a17f2ca/research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/checkpoints/geometry_v2_binding.json",
+            "https://github.com/awdawmip/enterprise-math/blob/12ab6940f1a769efc8b3c75472d407a89a17f2ca/research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/runs/geometry_v2/receipt.json",
+            "https://github.com/awdawmip/enterprise-math/blob/d275ed2a52dffe5aa7571b7e05e31d0253934bb6/research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/checkpoints/full_map_v3_binding.json",
+            "https://github.com/awdawmip/enterprise-math/blob/d275ed2a52dffe5aa7571b7e05e31d0253934bb6/research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/runs/placement_v3_final/receipt.json",
+            "https://github.com/awdawmip/enterprise-math/blob/f5cb0b28311acbf73874d51a3b1cea15526be2d4/research_result_records/RS-RB-CM24-SOURCE-EXPOSED-EXACT-MAP-CERTIFICATE/RR-F79FA3D36EF85CC4C6CE.json",
+            "https://github.com/awdawmip/enterprise-math/blob/b99bbae93b1b14b5900817210d7a4a161508aa09/research_result_reviews/RR-F79FA3D36EF85CC4C6CE/DR-7D70258F6D39E9B6B00D.json",
+            "https://github.com/awdawmip/enterprise-math/blob/b99bbae93b1b14b5900817210d7a4a161508aa09/research_driver_followups/DR-7D70258F6D39E9B6B00D/DFU-A69948076248192A8C4C.json"
+          ],
+          "record_path": "research_activity_records/RA-81196A3A34AE5695CB527CFF.json"
+        },
+        {
+          "activity_id": "RA-9A24FFEED0D3F830C030D780",
+          "required_action": "REPAIR_ACTIVITY_RECORD",
+          "error": "invalid researcher_id"
+        },
+        {
+          "activity_id": "RA-A6BD031C3CDEAD477CCCD6B2",
+          "mode": "UNKNOWN_RESEARCH",
+          "session_state": "UNKNOWN",
+          "researcher_id": "EM-DIRECT-B62D",
+          "registration_origin": {
+            "kind": "RETROSPECTIVE_SOURCE",
+            "source_tracking_key": "em-source-series:1162:EM-DIRECT-B62D:20260908"
+          },
+          "required_action": "INSPECT_RECORDED_FRONTIER",
+          "sync_debt_events": [],
+          "recorded_repair_events": [],
+          "source_links": [
+            "https://github.com/awdawmip/enterprise-math/blob/9a12bd06643f58948d61b78a42f7426b98ea3e47/research_notes/1162_unequal_subdivision_order2_finite_port_jet_20260908_b62d.md",
+            "https://github.com/awdawmip/enterprise-math/blob/e6e86195ee6c5cac9dd55ac2afa714fc448c2c5c/research_notes/1162_series_path_all_order_port_composition_20260908_b62d.md",
+            "https://github.com/awdawmip/enterprise-math/blob/16c0dc57842873215848dd0eb5901b37ce661310/research_notes/1162_all_order_equal_subdivision_schur_modes_20260908_b62d.md",
+            "https://github.com/awdawmip/enterprise-math/blob/9764628cd26e492a39a73701f924a7ce3f949ed3/research_notes/1162_persistent_roughness_local_energy_20260908_b62d.md",
+            "https://github.com/awdawmip/enterprise-math/blob/ebe36caa6054184ba3a1750cd160d90ada1fc782/research_notes/1162_forest_jet_discrete_roughness_carrier_20260908_b62d.md",
+            "https://github.com/awdawmip/enterprise-math/blob/f5fdb0c010c9a559a34bcdad020bd92236860ee7/research_notes/1162_unequal_subdivision_port_dynamics_20260908_b62d.md",
+            "https://github.com/awdawmip/enterprise-math/blob/12fe333b4a8e52f66f1835e4d096260f2e274826/research_notes/1162_higher_m_positive_defect_nogo_20260908_b62d.md",
+            "https://github.com/awdawmip/enterprise-math/blob/368b22c16e81e0fda56fcfc05578068c45216002/research_notes/1162_equal_subdivision_roughness_rg_20260908_b62d.md",
+            "https://github.com/awdawmip/enterprise-math/blob/f67fded00294b39d02a45e0f11bc77f47b2e4131/research_notes/1162_structural_roughness_bridge_20260908_b62d.md"
+          ],
+          "record_path": "research_activity_records/RA-A6BD031C3CDEAD477CCCD6B2.json"
+        },
+        {
+          "activity_id": "RA-C2CB061D5551B5E1E72F708A",
+          "mode": "TASK_RESEARCH",
+          "session_state": "UNKNOWN",
+          "researcher_id": "EM-HME-0CE4FD",
+          "registration_origin": {
+            "kind": "RETROSPECTIVE_SOURCE",
+            "source_tracking_key": "em-source-branch:research/brc-state-separation-em-hme-0ce4fd-20260908"
+          },
+          "required_action": "INSPECT_RECORDED_FRONTIER",
+          "sync_debt_events": [],
+          "recorded_repair_events": [],
+          "source_links": [
+            "https://github.com/awdawmip/enterprise-math/blob/48722250860b0727c4e4668a8caccb833ca10edb/research_notes/BRC_RESIDUAL_CANDIDATE_FAMILIES_20260908.md"
+          ],
+          "record_path": "research_activity_records/RA-C2CB061D5551B5E1E72F708A.json"
+        },
+        {
+          "activity_id": "RA-C4A91D-RH-HANDOFF-20260909",
+          "mode": "FREE_AXIOM_DISCOVERY",
+          "session_state": "KNOWN",
+          "researcher_id": "EM-FREE-C4A91D",
+          "registration_origin": {
+            "kind": "LIVE_SESSION",
+            "source_tracking_key": null
+          },
+          "required_action": "INSPECT_RECORDED_FRONTIER",
+          "sync_debt_events": [],
+          "recorded_repair_events": [],
+          "source_links": [
+            "https://github.com/awdawmip/enterprise-math/blob/415dbb1317cfe5eb257946843452f8dd70776e19/research_handoffs/COMPOSITE_ROAD_RH_20260909/stage2_recheck.json"
+          ],
+          "record_path": "research_activity_records/RA-C4A91D-RH-HANDOFF-20260909.json"
+        },
+        {
+          "activity_id": "RA-CA08D3B2885E72A164969479",
+          "mode": "TASK_RESEARCH",
+          "session_state": "KNOWN",
+          "researcher_id": "EM-DVR-G6K2P9",
+          "registration_origin": {
+            "kind": "LIVE_SESSION",
+            "source_tracking_key": null
+          },
+          "required_action": "INSPECT_RECORDED_FRONTIER",
+          "sync_debt_events": [],
+          "recorded_repair_events": [],
+          "source_links": [],
+          "record_path": "research_activity_records/RA-CA08D3B2885E72A164969479.json"
+        },
+        {
+          "activity_id": "RA-CHATGPT-DRIVER-Q30-CLOSEOUT-20260909",
+          "mode": "TASK_RESEARCH",
+          "session_state": "KNOWN",
+          "researcher_id": "EM-DRIVER-01",
+          "registration_origin": {
+            "kind": "LIVE_SESSION",
+            "source_tracking_key": null
+          },
+          "required_action": "VERIFY_EM_PUBLICATION",
+          "sync_debt_events": [
+            "P000_Q30_N14_RECOVERY_GATE_PUBLISHED_20260909"
+          ],
+          "recorded_repair_events": [],
+          "source_links": [
+            "https://github.com/awdawmip/enterprise-math/blob/bec5d45afe41fb412ea9b526e3ae88b3ae8efac1/research_notes/P000_Q30_N14_EVIDENCE_RECOVERY_HANDOFF_20260909.md"
+          ],
+          "record_path": "research_activity_records/RA-CHATGPT-DRIVER-Q30-CLOSEOUT-20260909.json"
+        },
+        {
+          "activity_id": "RA-D43346D516355CBB676B63C1",
+          "required_action": "REPAIR_ACTIVITY_RECORD",
+          "error": "invalid researcher_id"
+        },
+        {
+          "activity_id": "RA-D5C00DF7D77F4AA2ACE0",
+          "mode": "TASK_RESEARCH",
+          "session_state": "KNOWN",
+          "researcher_id": "EM-DIRECT-D5C00D",
+          "registration_origin": {
+            "kind": "LIVE_SESSION",
+            "source_tracking_key": null
+          },
+          "required_action": "INSPECT_RECORDED_FRONTIER",
+          "sync_debt_events": [],
+          "recorded_repair_events": [],
+          "source_links": [
+            "https://github.com/awdawmip/enterprise-math/blob/7773f38ae555eebbbec2b880debe2bff1d7201b2/research_notes/ns-openai-forcing-audit-d5c00d.checkpoint.json",
+            "https://github.com/awdawmip/enterprise-math/blob/0d53d921e64f15a9515de2f0e9702f2bf69e0556/research_notes/ns-openai-flat-force-residual-transmutation-d5c00d.checkpoint.json",
+            "https://github.com/awdawmip/enterprise-math/blob/b4695f2ec3bbcbbc2cd1f7c4f9e0828c9e441daf/research_notes/ns-f0-logic-blacklist-d5c00d.checkpoint.json",
+            "https://github.com/awdawmip/enterprise-math/blob/427729999dc09a56083e146c938c89701e41f15b/research_notes/ns-f0-discrete-transfer-20260909-d5c00d.results.json",
+            "https://github.com/awdawmip/enterprise-math/blob/d4f561dc66ac75756dff211c70aaae2b36b9d9d9/research_notes/ns-f0-full3d-d5c00d.checkpoint.json",
+            "https://github.com/awdawmip/enterprise-math/blob/141fe316e86c893ad5f409b785f24463b32a58da/research_notes/ns-native-coordinate-coherence-d5c00d.checkpoint.json",
+            "https://github.com/awdawmip/enterprise-math/blob/0327a493fda41377bfed7b320722cd48ed3b7e8c/research_notes/ns-native-ternary-coherence-20260909-d5c00d.results.json",
+            "https://github.com/awdawmip/enterprise-math/blob/6f119ea99021f83141321a5241dcb33b70f5af44/research_notes/ns-native-density-port-d5c00d.checkpoint.json",
+            "https://github.com/awdawmip/enterprise-math/blob/610448dd46bd74c59abd61d2e1c760e58c5df91c/research_notes/ns-native-microclosure-recovery-d5c00d.checkpoint.json",
+            "https://github.com/awdawmip/enterprise-math/blob/610448dd46bd74c59abd61d2e1c760e58c5df91c/research_notes/ns-native-incidence-family-d5c00d.checkpoint.json",
+            "https://github.com/awdawmip/enterprise-math/blob/21f33f468c3f1be676a501e1779a8bb04c3234de/research_notes/ns-native-atlas-closure-recovery-d5c00d.checkpoint.json",
+            "https://github.com/awdawmip/enterprise-math/blob/21f33f468c3f1be676a501e1779a8bb04c3234de/research_notes/ns-native-event-capacity-d5c00d.checkpoint.json",
+            "https://github.com/awdawmip/enterprise-math/blob/b295fae28459c053ca2ab2fdbe3e55724342336e/research_notes/ns-native-joint-history-recovery-d5c00d.checkpoint.json",
+            "https://github.com/awdawmip/enterprise-math/blob/b295fae28459c053ca2ab2fdbe3e55724342336e/research_notes/ns-native-causal-return-d5c00d.checkpoint.json"
+          ],
+          "record_path": "research_activity_records/RA-D5C00DF7D77F4AA2ACE0.json"
+        },
+        {
+          "activity_id": "RA-EBP6JT-25C94A-20260909-HANDOFF",
+          "mode": "TASK_RESEARCH",
+          "session_state": "KNOWN",
+          "researcher_id": "EM-EBP6JT-25C94A",
+          "registration_origin": {
+            "kind": "LIVE_SESSION",
+            "source_tracking_key": null
+          },
+          "required_action": "INSPECT_RECORDED_FRONTIER",
+          "sync_debt_events": [],
+          "recorded_repair_events": [],
+          "source_links": [],
+          "record_path": "research_activity_records/RA-EBP6JT-25C94A-20260909-HANDOFF.json"
+        },
+        {
+          "activity_id": "RA-ED57445DEB6CD03150685A3C",
+          "mode": "TASK_RESEARCH",
+          "session_state": "KNOWN",
+          "researcher_id": "EM-DVR-57CCCE",
+          "registration_origin": {
+            "kind": "LIVE_SESSION",
+            "source_tracking_key": null
+          },
+          "required_action": "INSPECT_RECORDED_FRONTIER",
+          "sync_debt_events": [],
+          "recorded_repair_events": [],
+          "source_links": [
+            "https://github.com/awdawmip/enterprise-math/blob/08ad2fe0fac52949207ddc3559ad70a1b95b577a/research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/research/qtf3_reflection_degree_57ccce_20260909/qtf3_reflection_degree_candidate.md",
+            "https://github.com/awdawmip/enterprise-math/blob/08ad2fe0fac52949207ddc3559ad70a1b95b577a/research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/research/qtf3_reflection_degree_57ccce_20260909/next_observer_contract.md",
+            "https://github.com/awdawmip/enterprise-math/blob/08ad2fe0fac52949207ddc3559ad70a1b95b577a/research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/research/qtf3_reflection_degree_57ccce_20260909/manifest.json",
+            "https://github.com/awdawmip/enterprise-math/blob/3b319f7ab4f83c31add0cc0f4d0e76a843330404/research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/research/qtf3_reflection_degree_57ccce_20260909/cm_two_port_transport_candidate.md"
+          ],
+          "record_path": "research_activity_records/RA-ED57445DEB6CD03150685A3C.json"
+        },
+        {
+          "activity_id": "RA-EM-HME-0CE4FD-SEMIPRIME-20260909",
+          "mode": "TASK_RESEARCH",
+          "session_state": "KNOWN",
+          "researcher_id": "EM-HME-0CE4FD",
+          "registration_origin": {
+            "kind": "LIVE_SESSION",
+            "source_tracking_key": null
+          },
+          "required_action": "INSPECT_RECORDED_FRONTIER",
+          "sync_debt_events": [],
+          "recorded_repair_events": [],
+          "source_links": [
+            "https://github.com/awdawmip/enterprise-math/blob/90427205c6d94ae3b7edf4af3e8b951070a3c079/research_notes/BRC_PROVED_SEMIPRIME2048_BENCHMARK_20260909.md",
+            "https://github.com/awdawmip/enterprise-math/blob/c4139b9b1532b756bfa1b950dcf5bc33965569e1/research_notes/BRC_FIXED_PACKET_RSA_GENERATION_PROBABILITY_20260909.md",
+            "https://github.com/awdawmip/enterprise-math/blob/52b8b2345048f602e4b7f6f75af8867d2c1276f9/research_notes/BRC_EQUAL_BIT_PRODUCT_GAP_LAYERS_20260909.md"
+          ],
+          "record_path": "research_activity_records/RA-EM-HME-0CE4FD-SEMIPRIME-20260909.json"
+        }
+      ],
+      "has_more": true,
+      "limit": 20,
+      "next_cursor": "RA-EM-HME-0CE4FD-SEMIPRIME-20260909",
+      "verification_scope": "RECORDED_METADATA_ONLY_SOURCE_BYTES_REVALIDATED_BY_ACTIVITY_GUARD",
+      "visibility": "THIS_CHECKOUT_ONLY_NOT_A_REMOTE_BRANCH_DISCOVERY",
+      "entrypoint": "python tools/research_activity.py list --limit 20"
+    }
+  },
+  "parent_objective_id": "EM-FREE-W59A-JT2-RAMANUJAN-LEGENDRE",
+  "parent_states": [
+    {
+      "task_id": "GV-EMW59A-JT2-PERSISTENT-LINE-DRIVER",
+      "state": "HANDOFF_READY",
+      "claim_id": null,
+      "actor": null,
+      "researcher_id": null,
+      "last_researcher_id": "EM-DVR-C777E7",
+      "identity_source": null,
+      "lease_until": null,
+      "hard_block": null,
+      "last_progress_ref": "https://github.com/awdawmip/enterprise-math/blob/754870b836528223f7dd58588685050091f67c21/research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/ur_reuse_20260909/brc_interface_and_review_packet.md",
+      "last_progress_at": "2026-09-09T07:00:53+00:00",
+      "next_action": "Non-author paper/source review of frozen Driver-authored finite p² transport candidate 9e3a41dc and recovered a=6 convention; perform forward assigned-GOV entry revalidation using the actual new authorization. Preserve Sun outputs 3/6, QTF3/LIFT, both parent tasks and the original CLAIM/ER; no independent acceptance or duplicate mathematical task.",
+      "ignored_events": [],
+      "dispatch_state": "NEEDS_DISPATCH",
+      "title": "JT2 persistent line Driver and complete research handoff",
+      "kind": "GOVERNANCE",
+      "owner": "governance",
+      "priority": "P2",
+      "leverage": "MEDIUM",
+      "frontier": "The two mathematical tasks exist but no complete line-level review, source-recovery, dependency-release and final-integration responsibility has been published for a replacement conversation.",
+      "source_refs": [
+        "research_notes/EMW59A_JT2_COMPLETE_RELEASE_AND_DRIVER_HANDOFF_20260909.md",
+        "https://github.com/awdawmip/enterprise-math/blob/587e6ee4a138c34de9d87bc90e06f17d7fe1b910/research_notes/EM_FREE_W59A_JT2_UR_QTF3_STATE_MACHINE_HANDOFF_20260909.md",
+        "https://github.com/awdawmip/chatgpt-global-knowledge/blob/f48cd4d076f61a5b804a7617158359e198b2fd5d/journal/progressive-number-theory/2026-09-09/20260909T105443%2B0800-ur-legendre-barycentric-lift.md"
+      ],
+      "registration_source": "IMMUTABLE_TASK_RECORD",
+      "publication_id": "TP2-80471D3D94AE75EFD0AC",
+      "event_authentication": "GITHUB_SERVER_COMMENT_ENVELOPE",
+      "last_server_comment_id": 5597593924,
+      "last_server_author_login": "awdawmip",
+      "identity_lane": "RW59DRV"
+    },
+    {
+      "task_id": "RS-EMW59A-JT2-FINAL-INTEGRATION",
+      "state": "BLOCKED",
+      "claim_id": null,
+      "actor": null,
+      "researcher_id": null,
+      "last_researcher_id": null,
+      "identity_source": null,
+      "lease_until": null,
+      "hard_block": {
+        "missing_object": "Positive independent compatibility audit, both accepted proof certificates, and exact original JT2 theorem/reduction sources",
+        "owner": "GV-EMW59A-JT2-PERSISTENT-LINE-DRIVER",
+        "necessity": "Local proof candidates cannot establish an unspecified or incompatible global target.",
+        "unblock_condition": "The activated line Driver records the exact accepted UR/QTF3 revisions, a VERIFIED_COMPATIBLE independent audit, and recovered original JT2/CM0/transversality proof pins; otherwise keep BLOCKED."
+      },
+      "last_progress_ref": "research_notes/EMW59A_JT2_COMPLETE_RELEASE_AND_DRIVER_HANDOFF_20260909.md",
+      "last_progress_at": "2026-09-09T04:11:39.921477+00:00",
+      "next_action": "Once the line Driver binds a positive independent audit and the exact original theorem source, compose the two certificates into a standalone JT2 proof with an explicit assumption and precision ledger.",
+      "ignored_events": [],
+      "dispatch_state": "BLOCKED",
+      "title": "JT2 final integration of verified UR and QTF3 certificates",
+      "kind": "RESEARCH",
+      "owner": "taskbook/unassigned",
+      "priority": "P2",
+      "leverage": "MEDIUM",
+      "frontier": "The route-level implication to JT2 is not yet a standalone source-faithful proof; both minimal certificates and their compatibility audit remain prerequisites.",
+      "source_refs": [
+        "research_notes/EMW59A_JT2_COMPLETE_RELEASE_AND_DRIVER_HANDOFF_20260909.md",
+        "https://github.com/awdawmip/enterprise-math/blob/587e6ee4a138c34de9d87bc90e06f17d7fe1b910/research_notes/EM_FREE_W59A_JT2_UR_QTF3_STATE_MACHINE_HANDOFF_20260909.md",
+        "https://github.com/awdawmip/chatgpt-global-knowledge/blob/f48cd4d076f61a5b804a7617158359e198b2fd5d/journal/progressive-number-theory/2026-09-09/20260909T105443%2B0800-ur-legendre-barycentric-lift.md"
+      ],
+      "registration_source": "IMMUTABLE_TASK_RECORD",
+      "publication_id": "TP2-F786E9B728C556CCCCF0",
+      "event_authentication": "NO_RUNTIME_EVENT",
+      "last_server_comment_id": null,
+      "last_server_author_login": null,
+      "identity_lane": "RW59JT2"
+    },
+    {
+      "task_id": "RS-EMW59A-JT2-INDEPENDENT-CERTIFICATE-AUDIT",
+      "state": "BLOCKED",
+      "claim_id": null,
+      "actor": null,
+      "researcher_id": null,
+      "last_researcher_id": null,
+      "identity_source": null,
+      "lease_until": null,
+      "hard_block": {
+        "missing_object": "Immutable UR and QTF3 proof returns with reproducible artifacts",
+        "owner": "GV-EMW59A-JT2-PERSISTENT-LINE-DRIVER",
+        "necessity": "Independent certificate verification needs the actual returned proofs, not only their task specifications.",
+        "unblock_condition": "The explicitly activated line Driver binds both exact returned Result/artifact revisions and an independent verifier, then authorizes this bounded audit."
+      },
+      "last_progress_ref": "research_notes/EMW59A_JT2_COMPLETE_RELEASE_AND_DRIVER_HANDOFF_20260909.md",
+      "last_progress_at": "2026-09-09T04:11:39.921477+00:00",
+      "next_action": "After both immutable proof returns exist, recover their exact sources and perform the claim-by-claim compatibility audit, recording missing original inputs explicitly.",
+      "ignored_events": [],
+      "dispatch_state": "BLOCKED",
+      "title": "JT2 independent certificate, precision and scope audit",
+      "kind": "RESEARCH",
+      "owner": "taskbook/unassigned",
+      "priority": "P2",
+      "leverage": "MEDIUM",
+      "frontier": "UR and QTF3 are published proof obligations; compatible uniform certificates and exact original JT2 source have not yet been independently verified.",
+      "source_refs": [
+        "research_notes/EMW59A_JT2_COMPLETE_RELEASE_AND_DRIVER_HANDOFF_20260909.md",
+        "https://github.com/awdawmip/enterprise-math/blob/587e6ee4a138c34de9d87bc90e06f17d7fe1b910/research_notes/EM_FREE_W59A_JT2_UR_QTF3_STATE_MACHINE_HANDOFF_20260909.md",
+        "https://github.com/awdawmip/chatgpt-global-knowledge/blob/f48cd4d076f61a5b804a7617158359e198b2fd5d/journal/progressive-number-theory/2026-09-09/20260909T105443%2B0800-ur-legendre-barycentric-lift.md"
+      ],
+      "registration_source": "IMMUTABLE_TASK_RECORD",
+      "publication_id": "TP2-E9598E6BD0C25FB031D8",
+      "event_authentication": "NO_RUNTIME_EVENT",
+      "last_server_comment_id": null,
+      "last_server_author_login": null,
+      "identity_lane": "RW59AUDIT"
+    },
+    {
+      "task_id": "RS-EMW59A-JT2-QTF3-FIXED-POINT",
+      "state": "DONE",
+      "claim_id": null,
+      "actor": null,
+      "researcher_id": null,
+      "last_researcher_id": "EM-JT2-EF9380",
+      "identity_source": null,
+      "lease_until": null,
+      "hard_block": "QTF3_FIXED_POINT_NORMALIZATION_SCALAR",
+      "last_progress_ref": "https://github.com/awdawmip/enterprise-math/blob/e57660f71a9fc78c1422134d5a4942b8cee23da2/research_artifacts/JT2_QTF3_FORMAL_EF9380_20260909/handoff_manifest.json",
+      "last_progress_at": "2026-09-09T16:21:48+00:00",
+      "next_action": "Restore line Driver EM-DVR-57CCCE for ordinary review of RR-69FC34FA8AE1E91244F2 and exact source/ER/activity bundle. Preserve original Q2/proof/review provenance; no repeated proof, new Task, old LIFT or Sun closure.",
+      "ignored_events": [
+        {
+          "index": 0,
+          "reason": "unknown event type: 'ASSIGN_RESEARCH_TASK'"
+        }
+      ],
+      "result_id": "RR-69FC34FA8AE1E91244F2",
+      "terminal_scope": "RESEARCH_RETURN_FROZEN_AWAITING_DRIVER_REVIEW",
+      "handoff_scope": "FROZEN_RETURN_AWAITING_DRIVER_REVIEW",
+      "dispatch_state": "COMPLETE",
+      "title": "JT2 QTF3 fixed-point quadratic-transform lift",
+      "kind": "RESEARCH",
+      "owner": "taskbook/unassigned",
+      "priority": "P2",
+      "leverage": "MEDIUM",
+      "frontier": "The p^3 quadratic-transform defect has been compressed to a reflection-compatible inhomogeneous hypergeometric differential equation. At u=1/2 the remaining lift is a single normalization scalar; the unresolved target is equality of the two truncated hypergeometric sums modulo p^3.",
+      "source_refs": [
+        "research_notes/EMW59A_JT2_COMPLETE_RELEASE_AND_DRIVER_HANDOFF_20260909.md",
+        "research_notes/EM_FREE_W59A_JT2_UR_QTF3_STATE_MACHINE_HANDOFF_20260909.md",
+        "global-knowledge:awdawmip/chatgpt-global-knowledge@f48cd4d076f61a5b804a7617158359e198b2fd5d:journal/progressive-number-theory/2026-09-09/20260909T105443+0800-ur-legendre-barycentric-lift.md"
+      ],
+      "registration_source": "IMMUTABLE_TASK_RECORD",
+      "publication_id": "TP2-C2C9DDEB2D65387D115E",
+      "event_authentication": "GITHUB_SERVER_COMMENT_ENVELOPE",
+      "last_server_comment_id": 5605141392,
+      "last_server_author_login": "awdawmip",
+      "identity_lane": "RW59QT",
+      "result_record_path": "research_result_records/RS-EMW59A-JT2-QTF3-FIXED-POINT/RR-69FC34FA8AE1E91244F2.json",
+      "driver_disposition": "ACCEPTED",
+      "review_id": "DR-AFDE2D77A7C405150E8F"
+    },
+    {
+      "task_id": "RS-EMW59A-JT2-UR-SUN-PARITY-DEFECT",
+      "state": "READY",
+      "claim_id": null,
+      "actor": null,
+      "researcher_id": null,
+      "last_researcher_id": null,
+      "identity_source": null,
+      "lease_until": null,
+      "hard_block": "SUN_PARITY_DEFECT_SLOPE_VALUE_ELIMINATION",
+      "last_progress_ref": "research_notes/EM_FREE_W59A_JT2_UR_QTF3_STATE_MACHINE_HANDOFF_20260909.md",
+      "last_progress_at": "2026-09-09T11:03:17+08:00",
+      "next_action": "At the t and -t Frobenius ports, write Sun's a=-1/3 p^3 parameter recurrence together with its x-derivative, retain the p^2 even/odd defect coordinates for the center and adjacent parameters, and eliminate the adjacent values to derive the slope-value congruence.",
+      "ignored_events": [],
+      "dispatch_state": "NEEDS_DISPATCH",
+      "title": "JT2 UR-Legendre via Sun parity-defect elimination",
+      "kind": "RESEARCH",
+      "owner": "taskbook/unassigned",
+      "priority": "P2",
+      "leverage": "MEDIUM",
+      "frontier": "CM0 and simple-root transversality are closed; the divided-value formula has been reduced by the barycentric generalized-Legendre lift. The remaining UR obstruction is the local slope-value congruence 3 P_{p-1}(-1/3,t) P_n'(t) == -p t (mod p^2), with p^2 parity defects at the Frobenius ports still to be eliminated.",
+      "source_refs": [
+        "research_notes/EMW59A_JT2_COMPLETE_RELEASE_AND_DRIVER_HANDOFF_20260909.md",
+        "research_notes/EM_FREE_W59A_JT2_UR_QTF3_STATE_MACHINE_HANDOFF_20260909.md",
+        "global-knowledge:awdawmip/chatgpt-global-knowledge@f48cd4d076f61a5b804a7617158359e198b2fd5d:journal/progressive-number-theory/2026-09-09/20260909T105443+0800-ur-legendre-barycentric-lift.md",
+        "https://arxiv.org/abs/1101.5386"
+      ],
+      "registration_source": "IMMUTABLE_TASK_RECORD",
+      "publication_id": "TP2-22F5729C777040ECA121",
+      "event_authentication": "NO_RUNTIME_EVENT",
+      "last_server_comment_id": null,
+      "last_server_author_login": null,
+      "identity_lane": "RW59UR"
+    }
+  ],
+  "parent_filter_semantics": "Full current canonical definitions and actual event stream were reduced first. This report filters the output only for the delegated parent; it does not narrow or rewrite dispatcher inputs.",
+  "new_assignment_or_claim_or_execution_authorization": false,
+  "receiver_liveness_asserted": false
+}
