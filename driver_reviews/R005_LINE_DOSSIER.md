@@ -1,6 +1,6 @@
 # R005 Prime Algorithm Lab line dossier
 
-Status: `OPEN / CORRECTION FORMALLY ACCEPTED / EXPLICIT SEAM RELEASE PENDING`  
+Status: `OPEN / CORRECTION TASK CLOSED / Q78553 READY FOR CLAIM`  
 Current Driver: `EM-DVR-81273A`  
 Current forward authority: `DA-3E248473AB80A4E6287D` / Owner comment `5602100278`  
 Persistent governance: `GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER` /
@@ -32,6 +32,11 @@ transaction. It closes only the successful Correction Task and returns to the
 existing portfolio, creating no new task or parent closure. Owner's canonical
 PR1455 compatibility preserves the raw Result while recognizing its exact
 taskbook-declared success spelling. The raw named label and bytes are unchanged.
+The actual review and follow-up reached main
+`dbf8ee926870f6c8398d6e64fd205e0fc1013ecd` through PR1459, with all 12 paths
+fully read back and all source CI successful. Original PR1201 was then closed
+as fully consumed by the recovered-source and exact-review integrations;
+its branch, commit, Result and execution provenance remain intact.
 
 ## Ownership and current execution
 
@@ -59,18 +64,27 @@ recovery pointer, not a background-process promise.
 
 ## Next action
 
-1. Admit and read back the actual accepted review and follow-up with exact raw
-   Result binding; the source transaction completed successfully.
-2. Continue the existing `GV-R005-DEFICIT-SHADOW-CORRECTION-REVIEW` /
-   `TP2-86F63B5AAD1C97EC80FE` and release the existing catalogue/seam task only
-   through its explicit accepted-review gate and current runtime.
+The exact accepted-review artifact condition identified by
+`GV-R005-DEFICIT-SHADOW-CORRECTION-REVIEW` / `TP2-86F63B5AAD1C97EC80FE`
+is fulfilled by the actual Correction review above. Owner-authenticated
+`UNBLOCK` comment `5602494875` at `2026-09-09T13:17:41Z` explicitly released
+the existing catalogue/seam publication. Canonical replay returned
+`HANDOFF_READY / NEEDS_DISPATCH`, `claim_id=null`, and `hard_block=null`.
+The release receipt and original server envelope are in
+`driver_reviews/R005_LINE_DRIVER_81273A_20260909/`.
+
+The next researcher must use the existing task's canonical selection, identity,
+activity, claim and execution-authorization entry before mathematical work.
+No researcher or current-generation governance claim was created here.
+This dossier does not fabricate a separate governance Result or DONE event.
 
 Existing later nodes remain:
 `RS-R005-Q78553-EXACT-916-GAP-CATALOG-SEAM-CLOSURE` /
 `TP2-09D6ECE7F315F0766FE1`, and
 `GV-R005-Q78553-SEAM-CLOSURE-REVIEW-AND-ROUTE` /
-`TP2-D43B87B08CE6E6D3FD41`. Their gate state must be read at execution time;
-this dossier releases neither.
+`TP2-D43B87B08CE6E6D3FD41`. The research task is now ready for a real claimant;
+the terminal seam review remains gated on an actual seam Result. Current
+runtime and source pins must be refreshed at execution time.
 
 ## Frozen mathematical boundary and evidence
 
