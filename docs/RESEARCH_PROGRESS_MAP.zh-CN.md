@@ -4,9 +4,9 @@
 
 先读 A0–A5 全局骨架，再看证据表与当前收尾/数学前沿。BRC 是跨方向有型工具；X6 只是 A5 一支。本图是可维护来源索引，不是新定理、全仓审计或任务领取队列。
 
-快照：2026-09-08。20 个基础/路由 pin 仍冻结于 aaf9b812。本图初版经 PR1396 在 dc401229 入 main。后续已核前沿：raw PR1390 入 main aa5683f；H0O PR1391 在 b3d39a9 捕获入 main、正式审查待办；p2 PR1394 入 main c27616a2；star/dual PR1398 入 main 167746c5。A3 纠正 PR1399 已入 main d4bad545，原源 3ac5a5dd 保留；整份 PR955 正式 Driver 审查仍待办。原 owner 19 项组合是来源快照，不是仓库总数或 live 队列；其他 GEO/Hodge 路线需精确来源刷新。 weighted trade PR1401 已入 main 86f753be；该代全 canonical 目录比较确认原 19 对象中恰 3 项入 main、16 项保留于源，并非仅减某一个分片。owner b506f92a 已将 57 模板论文与局部 valuation-digits BRC DIV 检查点以 SOURCE_ONLY 发布。所观察 main 前进至 fa9cb29 仅新增一篇 RH 论文；本图未审阅或纳入该论文。 PP PR1404 现已合流于 44243768，实际树与受测组合相同。精确全目录比较确认原 19 对象中 4 项入 main、15 项保留于源（8 DOMAIN、5 RESULT、2 参考候选）。owner528ea6aa 另以 SOURCE_ONLY 发布单射轴不等式及 p3 取等 flow 论文/审稿/adoption；归档回执保留发布前时点。本次图更新不重跑数学，不提升 API 或正式审查。
+快照：2026-09-08。20 个基础/路由 pin 仍冻结于 aaf9b812。本图初版经 PR1396 在 dc401229 入 main。后续已核前沿：raw PR1390 入 main aa5683f；H0O PR1391 在 b3d39a9 捕获入 main、正式审查待办；p2 PR1394 入 main c27616a2；star/dual PR1398 入 main 167746c5。A3 纠正 PR1399 已入 main d4bad545，原源 3ac5a5dd 保留；整份 PR955 正式 Driver 审查仍待办。原 owner 19 项组合是来源快照，不是仓库总数或 live 队列；其他 GEO/Hodge 路线需精确来源刷新。 weighted trade PR1401 已入 main 86f753be；该代全 canonical 目录比较确认原 19 对象中恰 3 项入 main、16 项保留于源，并非仅减某一个分片。owner b506f92a 已将 57 模板论文与局部 valuation-digits BRC DIV 检查点以 SOURCE_ONLY 发布。所观察 main 前进至 fa9cb29 仅新增一篇 RH 论文；本图未审阅或纳入该论文。 PP PR1404 现已合流于 44243768，实际树与受测组合相同。精确全目录比较确认原 19 对象中 4 项入 main、15 项保留于源（8 DOMAIN、5 RESULT、2 参考候选）。owner528ea6aa 另以 SOURCE_ONLY 发布单射轴不等式及 p3 取等 flow 论文/审稿/adoption；归档回执保留发布前时点。本次图更新不重跑数学，不提升 API 或正式审查。 2026-09-09 局部更新：依据 canonical 任务 pin 及 7894372f 上的 SOURCE_ONLY 驾驶员接管记录纳入 JT2。仅新增 JT2 节点与组织归属边；保留节点、证据 pin 及各自观察日期，没有重新审计。组合基线仅指此次增量采用的图，不是新的全仓证据快照。
 
-冻结主线来源: [`aaf9b8125ba3`](https://github.com/awdawmip/enterprise-math/commit/aaf9b8125ba3294932b5c90d80f700e02799c88e). 组合基线: `4424376809ddb7c41180453fa85f29a72d585a3e`.
+冻结主线来源: [`aaf9b8125ba3`](https://github.com/awdawmip/enterprise-math/commit/aaf9b8125ba3294932b5c90d80f700e02799c88e). 组合基线: `5f20e925447ed964189515c7a737a696f86068c7`.
 
 ## 方向图
 
@@ -50,6 +50,7 @@ flowchart TB
   RB_ENTERPRISE_THEOREM_PACKAGE_V2_INDEPENDENT_VALIDATION["RB × 进取数论独立验证路线"]
   RB_BLIND_BRANCH_PATTERNS["RB 未完成阶段已接受归档"]
   RB_SOURCE_EXPOSED_EXACT_MAP["RB 精确映射任务获 Driver 接受；源准入待办"]
+  JT2_PERSISTENT_LINE["JT2 / Ramanujan–Legendre 路线"]
   A3 -->|"CONSUMES"| A4
   BRC -->|"CONSUMES"| A4
   BRC -.->|"REUSE_IDENTIFIED"| A1
@@ -86,6 +87,7 @@ flowchart TB
   PFSSV_SHELL -->|"CONTAINS"| PFSSV_FINITE_WINDOW
   RB_ENTERPRISE_THEOREM_PACKAGE_V2_INDEPENDENT_VALIDATION -->|"CONTAINS"| RB_BLIND_BRANCH_PATTERNS
   RB_BLIND_BRANCH_PATTERNS -->|"CONTAINS"| RB_SOURCE_EXPOSED_EXACT_MAP
+  NUMBER_THEORY -->|"CONTAINS"| JT2_PERSISTENT_LINE
 ```
 
 ## 同一范围内的证据对照
@@ -128,6 +130,7 @@ flowchart TB
 | **RB_ENTERPRISE_THEOREM_PACKAGE_V2_INDEPENDENT_VALIDATION — RB × 进取数论独立验证路线**<br>仅组织性母节点，精确绑定已发布任务的 RB_ENTERPRISE_THEOREM_PACKAGE_V2_INDEPENDENT_VALIDATION。本节点只索引子任务检查点，不报告整个 Ramanujan–Borwein × 进取数论定理包的深度或完成度。<br>[S104](#source-s104), [S105](#source-s105) | 只对应子任务的 assignment 覆盖范围，不推断全路线定理、精确映射、ODE 解或完备性结论。 | 本检查点不增加母路线的 Lean 覆盖。 | 子任务有已发布的有限整数枚举回执；本图未审计整个 RB 定理包的程序。 | 既有不可变任务发布已指明该母目标；补入图节点只是来源索引，不是新任务发布或定理包准入。 | 父目标 OPEN；子任务进展检查点不赋予母路线接受、终局 raw freeze 或闭合。 |
 | **RB_BLIND_BRANCH_PATTERNS — RB 未完成阶段已接受归档**<br>既有任务 RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION / TP2-032D4712B5CB0E5D2376。已发布 BLIND_FORWARD 阶段对 4+2+0+0 与 2+2+2+0 回传 BLIND_BRANCH_PATTERN_INCOMPLETE；未重建 originating map，未满足硬目标。<br>[S98](#source-s98), [S99](#source-s99), [S100](#source-s100), [S101](#source-s101), [S102](#source-s102), [S103](#source-s103), [S104](#source-s104), [S105](#source-s105), [S106](#source-s106), [S107](#source-s107), [S108](#source-s108), [S109](#source-s109), [S110](#source-s110), [S111](#source-s111), [S112](#source-s112), [S113](#source-s113), [S114](#source-s114), [S115](#source-s115), [S116](#source-s116), [S117](#source-s117), [S118](#source-s118), [S119](#source-s119), [S120](#source-s120), [S121](#source-s121), [S122](#source-s122) | assignment 覆盖保持完成：原始 180 / 360；固定 lambda 与 k 时仅可按 target V4 取商，得到 45 / 90 个候选。cover-only 33 / 54 与更粗 11 / 9 不是固定参数 ODE 候选。局部 square-class/RR 前沿与空纤维阻碍排除 4+2 中 180 个参数组件，仍余 4+2 的 540 与 2+2+2 的 1440：合计 1980 个未解参数族，不是 1980 个映射或有限解集。twisted critical 条件只是必要过滤，尚未解完整 ODE。 | 本检查点不声称 Lean 证明或形式化分类。 | 已发布局部证书记录 assignment 枚举、修正后的 square-class/RR 恒等式、空纤维阻碍及 twisted critical numerator 检查的原始执行。整数枚举与清分母形式多项式检查不是完整映射求解器、BRC 调用或原生证书。阶段回传回执只检查字节和元数据；本图不重跑数学，不增加程序已验证的完整解。 | RR-34B2213BDFE75A5795CC 与恢复来源历史保持不可变。主线提交 3a00ea191ad0380bf341af746a825e0b0c474874 原子记录 DR-EBB9B39761FE6E86D57D、DFU-AE59D6971E88DE79B661，以及单独发布的 source-exposed 任务 TP2-554AC43234E8E297A6E9。原 raw freeze 与公式来源恢复时序均保留；来源转存本身未验证公式。 | DR-EBB9B39761FE6E86D57D 在 TASK / RESULT_ONLY 范围为 ACCEPTED / ARCHIVE，接受任务允许的 BLIND_BRANCH_PATTERN_INCOMPLETE / NEGATIVE_BOUNDARY 约简；重建/反驳硬目标仍 NOT SATISFIED。1980 项是未解的有索引参数问题，不是映射、已证非空解或已断言不可约组件。母目标 RB_ENTERPRISE_THEOREM_PACKAGE_V2_INDEPENDENT_VALIDATION 仍 OPEN。SOURCE_COMPARISON_UNRESOLVED 保留为旧冻结时的真实状态；后来来源恢复及新任务明确属于 source-exposed，不是盲验证。 |
 | **RB_SOURCE_EXPOSED_EXACT_MAP — RB 精确映射任务获 Driver 接受；源准入待办**<br>RS-RB-CM24-SOURCE-EXPOSED-EXACT-MAP-CERTIFICATE / TP2-554AC43234E8E297A6E9。独立发布的 CONTINUATION，只核一条固定恢复公式，明确 SOURCE_EXPOSED / NONBLIND_DISCLOSED；不重开盲分类，不覆盖全部存活族。<br>[S113](#source-s113), [S114](#source-s114), [S115](#source-s115), [S116](#source-s116), [S117](#source-s117), [S119](#source-s119), [S120](#source-s120), [S121](#source-s121), [S122](#source-s122), [S123](#source-s123), [S124](#source-s124), [S125](#source-s125), [S126](#source-s126), [S127](#source-s127), [S128](#source-s128), [S129](#source-s129), [S130](#source-s130), [S131](#source-s131), [S132](#source-s132), [S133](#source-s133), [S134](#source-s134), [S135](#source-s135), [S136](#source-s136), [S137](#source-s137), [S138](#source-s138), [S139](#source-s139), [S140](#source-s140), [S141](#source-s141) | 源暴露 v3 证明给出系数域基与非零见证、共同基点消去、全部四个特殊纤维除子、X 在 C 上及映射 D 到 E 两项六次度数、目标 j/模型关系，以及含符号和异常点正则性的未平方微分。它包含显式半点与 x′ 的三组 L 上常数/函数重构。canonical z 的类传送、Picard 类 S、RR 除子及 eta 关系是绑定精确正规形证据的纸面推导，不全是分别直接执行的程序求值。这是一条完整代数候选，不是存活族的穷尽分类。 | 不声称 Lean 证明或形式化精确映射结果。 | 既有 canonical 授权绑定 claim comment 5593861263 与 ER-BDAB13EB167775B80BE7；本图不授予当前 lease。已发布的 placement_v3_final 回执记录证书生成、13 项 focused tests 与选定两文件算术策略门禁均 exit 0。精确检查包括未代入临界除子的完整冻结 ODE、纤维范数/互素恒等式、半点、x′ 的全部三组 L 上常数/函数对，以及第二个 V4 变换 z 的完整 ODE 与 Wz 符号。几何赋值和 canonical z/Picard/eta 推论保留其纸面解释边界。这些是已记录的研究员执行，不是本次新增独立重放。已发布工具覆盖审阅支持组合既有能力，不证明原生 BRC 执行或新工具族。 | 任务书/TP2、活动、ER 与常驻 Driver 激活已在主线。数学 owner 来源保持 e8b66ced566afaa35c570360cacc64e570578a58。canonical 作者 Result RR-F79FA3D36EF85CC4C6CE 已真实冻结并发布于 d8250f17396f0da6af98b12eaae8de74a85ffccb。实际 Driver 审核、后续包与事务证据已发布于 b99bbae93b1b14b5900817210d7a4a161508aa09。此快照中 PR1426 主线准入仍待办，不把源分支记录写成主线已生效。 | canonical 首次审核事务已成功：DR-7D70258F6D39E9B6B00D 为 ACCEPTED / ARCHIVE，DFU-A69948076248192A8C4C 使用 TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION、terminal_scope TASK，未新建任务；六项审查关卡均已处理。单公式八门 RESULT_ONLY 任务获接受；物化时父状态为 ABSENT_NOT_CLOSED，父完成与父最终返回权限均为 false。源准入另行处理，历史盲阶段和 v3 INCOMPLETE 标签不改。不授予 Lean、Working Truth、Foundation、全局 API 或父目标闭合。 |
+| **JT2_PERSISTENT_LINE — JT2 / Ramanujan–Legendre 路线**<br>EM-FREE-W59A-JT2-RAMANUJAN-LEGENDRE：恢复 Jacobi-jet 来源、当前 UR 与 QTF3 义务，以及有先决条件的独立审查和集成。与 W59A Wallis/sine、P017 素数间隙猜想分开。<br>[JT2_DRIVER_DOSSIER](#source-jt2_driver_dossier), [JT2_DRIVER_SOURCE_LEDGER](#source-jt2_driver_source_ledger), [JT2_DRIVER_REVIEW_LEDGER](#source-jt2_driver_review_ledger), [JT2_OWNER_INDEX_BRIEF](#source-jt2_owner_index_brief), [JT2_GV_TASKBOOK](#source-jt2_gv_taskbook), [JT2_GV_PUBLICATION](#source-jt2_gv_publication) | 驾驶员已恢复 RR-82F6383FB6634F72B457 绑定的 CM0、单根与 JT2/UR+LIFT 原证明文本。PR1383 提供旧 UR 候选；其定理适用性和到 gen2 的运输仍待审。恢复来源不构成新证明。 | 本次接管与建图均未声称 Lean 证书。 | 驾驶员核对二十项不可变来源及 taskbook/Result 绑定；未重跑旧 77 素数检查，未声称新增数学工具执行。 | 五项任务发布已有 canonical 来源。DA/ER 已在 main405ad793 回读；新 dossier 与增量账本已发布于源 7894372f。本图 pin 不把这些源文件提升为 main，也不证明当前 live claim。 | 常驻驾驶员 EM-DVR-C777E7 负责连续审查。本次接管未新增数学 Result/Driver 接受；独立审查及最终集成保留前置门槛。 |
 
 ## 未完前沿与已有下一步
 
@@ -141,6 +144,7 @@ flowchart TB
 | 当前收尾 | PFSSV_SHELL | 有限观测/容量单元现已按 RESULT_ONLY 接受并归档，复用既有 T0+T1 组合。残差硬目标及 PROGRESSIVE_PLANE_PRIME_SEMIPRIME_COORDINATE_DISCOVERY 仍为 OPEN。corrected/signed 科学残差、有效双 null 比较、family-wise 校准与原盲测门槛仍未完成；unavailable 向量不是零。不追加新的 joint-null 原任务门槛，也不由已接受的支撑边界推出素数过程结论。 | 保留已接受代次及其精确来源/trace 证据。已发布 continuation RS-PFSSV-FINITE-WINDOW-NULL-IDENTIFIABILITY 首先处理支撑、共享 q 地址一致性、明确的概率律和交换性前提。它范围独立、发布时尚未执行；后续领取须由当前 canonical runtime 决定。不得因任务闭合重复原 21 格或推定科学筛选、盲性重置、二阶补救路线。 |
 | 当前收尾 | RB_BLIND_BRANCH_PATTERNS | 180 项排除与仍余 540 + 1440 = 1980 参数族保留原有限数学强度；全部族分类与原域下降仍 OPEN。恢复的一条公式现对应独立登记的精确映射任务，但不解决周期整数/同调指数、绝对周期比、任一整个剩余模式或父定理包。 | 后续按独立有效执行绑定推进已发布的 source-exposed 精确映射 continuation；保留已归档盲阶段，不重新领取或改写。周期指数与全部 1980 项分类缺口继续 OPEN，不为它们虚构已登记后继任务。本图不授予 claim 或调度权限。 |
 | 当前收尾 | RB_SOURCE_EXPOSED_EXACT_MAP | 数学回传、canonical Result 冻结及实际 TASK 范围 Driver 事务已完成并在源中持久化。此处收尾剩余主线准入，然后重新评估既有任务队列。周期整数/同调指数、独立绝对归一化和剩余 1980 参数族仍属 OPEN 父范围；该数字计数参数族，不计数映射。共享控制准入故障不是未解数学关卡。 | 按适用检查收录 PR1426 精确来源，核对实际主线 Result/Driver 投影，并执行已登记的既有任务队列重评估。保留全部 80 个原输出 pin 和完整审查来源；不重做已完成数学，不因 PASS 自动创建后继，也不把 TASK 接受当作母路线闭合。 |
+| 当前收尾 | JT2_PERSISTENT_LINE | 在 mod-p² 精度核对旧 g 与当前 B(t)，保留素数范围、可除性、导数单位及双 Frobenius 端口。本次接管未证明所指出的 B(t)=g 桥接。QTF3 的 u=1/2 本身不提供 u=(1−t)/2 的运输或旧 LIFT 归一化；Sun 任务六项输出仍有约束力。 | 由同一驾驶员先审恢复出的 PR1383 候选及精确接口，再决定是否派发 UR 证明工作。两个母路线复用来源恢复，保留各自任务身份与 OPEN 边界；真正新增共享任务或合并母路线须另作 Owner 决定。 |
 | 已有数学前沿 | NUMBER_THEORY | centered prime-radius 有 left-prime/size 假设，不推出普遍对称素数对或 Goldbach。 | 与 X6 子支并列保留 P017/Perfect Prime 原有数学前沿。 |
 | 已有数学前沿 | PERFECT_PRIME | 全 m 有限完全单调性/HCM0 及母 determinant 非消失仍 OPEN。正普通幂矩 lift 已在 m3 被单独否定；有条件的有限 BRC 阶乘表示不是被否定的 lift。 | 核实当前交接，仅从精确既有 residual/HCM0 缺口续接。保留有限阶乘观测合同，不重启已否定 block/inertia 或普通幂矩测度路线。 |
 | 已有数学前沿 | P021 | causal focusing、方向/witness 复合及物理解释仍开放。 | 在明确有限因果/观测合同内续接，不偷渡物理定理。 |
@@ -214,6 +218,7 @@ flowchart TB
 | PFSSV_SHELL → PFSSV_FINITE_WINDOW | `CONTAINS` | 仅表示有界 continuation 的组织关系：已接受 PFSSV 代次及其明确支撑缺口，对应同 parent 下独立发布的有限窗合同任务。它不是定理蕴涵、执行证据、新 null 概率律或后续实验授权。 | [S88](#source-s88), [S89](#source-s89), [S90](#source-s90), [S91](#source-s91), [S92](#source-s92) |
 | RB_ENTERPRISE_THEOREM_PACKAGE_V2_INDEPENDENT_VALIDATION → RB_BLIND_BRANCH_PATTERNS | `CONTAINS` | 只表达不可变任务发布中的组织性母目标绑定，不表达定理蕴涵、全路线深度、BRC 执行或推测的 originating-map 关系。 | [S104](#source-s104), [S105](#source-s105) |
 | RB_BLIND_BRANCH_PATTERNS → RB_SOURCE_EXPOSED_EXACT_MAP | `CONTAINS` | 不可变 followup 与 TP2.parent_task_id 确认这是已归档未完成阶段的有界 continuation，冻结 Result 与除子/square-class 前沿是声明输入。该组织/来源关系不是定理蕴涵、runtime 依赖门禁、执行回执或恢复映射的证明。 | [S120](#source-s120), [S121](#source-s121), [S122](#source-s122) |
+| NUMBER_THEORY → JT2_PERSISTENT_LINE | `CONTAINS` | 仅表示数论研究的组织归属；不蕴涵 P017、不合并 Wallis/sine、不传递任一母路线的完成状态。 | [JT2_GV_TASKBOOK](#source-jt2_gv_taskbook), [JT2_DRIVER_SOURCE_LEDGER](#source-jt2_driver_source_ledger) |
 
 ## 不可变来源与证据深度
 
@@ -647,6 +652,24 @@ source ID 在此解析，SHA256 固定文件字节；不可变文件链接不证
 
 <a id="source-s141"></a>
 - **S141** [实际成功的 canonical 审核事务；未重跑数学](https://github.com/awdawmip/enterprise-math/blob/b99bbae93b1b14b5900817210d7a4a161508aa09/research_artifacts/RB_ROUTE_DRIVER_20260909/final_review_attempt1/receipt.json); `PUBLISHED_PIN_READBACK`; SHA256 `79697d9eaa49456146aa4fb760a8c860a36a1598dd485ec33e3159f73c62e8df`.
+
+<a id="source-jt2_driver_dossier"></a>
+- **JT2_DRIVER_DOSSIER** [JT2 常驻驾驶员来源恢复 dossier；无新增数学接受](https://github.com/awdawmip/enterprise-math/blob/7894372ffc0b39513736ea74c607b4d8ea3e82f9/research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/dossier.md); `PUBLISHED_PIN_READBACK`; SHA256 `bc8f6ea333e2b42bb06bf9b3f68a9ce466c16ec8a5485c26d2fbc9a954441b2c`.
+
+<a id="source-jt2_driver_source_ledger"></a>
+- **JT2_DRIVER_SOURCE_LEDGER** [JT2 二十项恢复来源 pin 与有型复用缺口](https://github.com/awdawmip/enterprise-math/blob/7894372ffc0b39513736ea74c607b4d8ea3e82f9/research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/source_ledger.json); `PUBLISHED_PIN_READBACK`; SHA256 `e6de1201e6eeef363fe7cbc129f98c7fa71205c04de9189dff5051875b2efcd3`.
+
+<a id="source-jt2_driver_review_ledger"></a>
+- **JT2_DRIVER_REVIEW_LEDGER** [旧 UR、gen2 UR 与 QTF3 取值地址的增量对账](https://github.com/awdawmip/enterprise-math/blob/7894372ffc0b39513736ea74c607b4d8ea3e82f9/research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/review_ledger.md); `PUBLISHED_PIN_READBACK`; SHA256 `f827f1e15abbd0e2ea413f24996f024c56d8d4c49c84c279bdc3fc8b14c875b6`.
+
+<a id="source-jt2_owner_index_brief"></a>
+- **JT2_OWNER_INDEX_BRIEF** [驾驶员已发布的 Owner 交接；来源恢复而非最终审查](https://github.com/awdawmip/enterprise-math/blob/7894372ffc0b39513736ea74c607b4d8ea3e82f9/research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/owner_index_brief.json); `PUBLISHED_PIN_READBACK`; SHA256 `175c8cbec5780f1de65141d4ea35a40046dd25731c2c55ec6d80f07bf1103353`.
+
+<a id="source-jt2_gv_taskbook"></a>
+- **JT2_GV_TASKBOOK** [canonical JT2 整线驾驶员任务书](https://github.com/awdawmip/enterprise-math/blob/6058e8fa69cc8c9a3e571d05bc6cbb8b4565c5aa/research_tasks/EMW59A_JT2_PERSISTENT_LINE_DRIVER_20260909.md); `FROZEN_MAIN_SOURCE`; SHA256 `cb8b60f4276fcfb57c0a4119ca3a5a45ad22807ed181f384eeb98721903cb0b9`.
+
+<a id="source-jt2_gv_publication"></a>
+- **JT2_GV_PUBLICATION** [JT2 驾驶员任务的不可变 V2 发布记录](https://github.com/awdawmip/enterprise-math/blob/6058e8fa69cc8c9a3e571d05bc6cbb8b4565c5aa/research_task_records/GV-EMW59A-JT2-PERSISTENT-LINE-DRIVER/TP2-80471D3D94AE75EFD0AC.json); `FROZEN_MAIN_SOURCE`; SHA256 `1ff73e9e670ddf75542bfbe54e36d2e0dd55e85b6187f6aed30f2a308062a4e2`.
 
 ## 维护方法
 
