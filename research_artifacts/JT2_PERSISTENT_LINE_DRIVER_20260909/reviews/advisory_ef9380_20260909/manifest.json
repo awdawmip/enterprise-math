@@ -1,0 +1,219 @@
+{
+  "schema": "JT2_BOUNDED_REFERENCE_REVIEW_MANIFEST_V1",
+  "clock_observation_before_report_materialization": "2026-09-09T08:43:09Z",
+  "report": {
+    "path": "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/advisory_ef9380_20260909/reference_review.md",
+    "sha256": "42b7f2e0aa1a97fa17682b7d48f0eb2b55ccb6cf3dff302274ef24d5e036b8a2",
+    "blob": "b2acbf48e086b802672e16eda7d8ac5c6d61d8af",
+    "bytes": 8446
+  },
+  "reviewer": {
+    "researcher_id": "EM-JT2-EF9380",
+    "role": "RESEARCHER",
+    "mode": "TASK_RESEARCH",
+    "activity_id": "RA-513D918CB570B356EA4C94D4",
+    "session_id": "local:codex-agent:jt2-bounded-reference-review:20260909:EF9380",
+    "session_id_kind": "LOCAL_STABLE_KEY_NOT_SERVER_ID",
+    "author_of_frozen_candidate": false,
+    "shared_context": "Delegation, supplied candidate/source/control context and readbacks exposed. No clean/blind independence claim.",
+    "identity_registration_repository": "awdawmip/chatgpt-global-knowledge",
+    "identity_registration_commit": "7dde2469c861ca9b516191f894921201e998ec5a",
+    "identity_registration_path": "projects/enterprise-math/researchers/EM-JT2-EF9380.json"
+  },
+  "control": {
+    "global_bootstrap_read_sha": "0707cda0dddf5cf9c5330efef7e3f5c860dbf97c",
+    "global_before_write_snapshot": "f4a5ea6ddb864389c68ec24c3d286bc170486305",
+    "enterprise_main_read_sha": "527a120450a549b8b2ae96bd9891fc5e622ede64",
+    "local_checkout_role": "old 4caf workspace, not current-main authority; current activity/identity/runtime/liveness script blob identities were compared",
+    "script_blobs": {
+      "tools/research_activity.py": "91425f02b70dd49a067454883ab53b4adae8fa7f",
+      "tools/research_identity.py": "b3236ceca19f4db6322b3bf49568cfde2a664fcc",
+      "tools/research_runtime_guard.py": "56e3bd35cfd439969bb78d6e046df34752f226f8",
+      "tools/active_turn_liveness.py": "7361b9a10b88b01fadf0147a0097480601c8c841"
+    },
+    "direct_full_connector_reads": [
+      "docs/RESEARCH_ACTIVITY_PROTOCOL.md",
+      "research_identity_state_machine.json",
+      "research_role_policy.json",
+      "research_architecture.json",
+      "research_persistence_policy.json",
+      "tools/research_activity.py",
+      "tools/research_identity.py",
+      "tools/research_runtime_guard.py"
+    ],
+    "native_git": "LOCAL_ONLY; GIT_NO_LAZY_FETCH=1; no reset/checkout/push/fetch of EM",
+    "branch": "research/jt2-advisory-ef9380-20260909",
+    "em_main_writes": false,
+    "canonical_owner_visibility": "PENDING_INTAKE_SOURCE_BRANCH_ONLY"
+  },
+  "assignment": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "411eeab086ce2ba79968deb1d1bd04ae0ce7de82",
+    "path": "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/recovery/57ccce_20260909/advisory_review_assignment.json",
+    "blob": "f8e0bdb4d27b0990452ad5d4883d4ffa3f6e849c",
+    "read_scope": "Own full connector read; earlier waiting-for-RB arrangement replaced only by current explicit delegated instruction."
+  },
+  "candidate_inputs": [
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "9e3a41dc9909ad98c789bb8d53a27addd0649eaa",
+      "path": "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/ur_reuse_20260909/driver_authored_transport_candidate.md",
+      "sha256": "063ac8f6f31f83f0b9e16a3a3520aebd52527eb8237a28f07a833fa0f6d28eee",
+      "blob": "c6f2396307f5f8599374ac507532d107363512a3",
+      "read_scope": "FULL_LOCAL_COPY; byte-matched parent actual frozen-1-readback.json"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "9e3a41dc9909ad98c789bb8d53a27addd0649eaa",
+      "path": "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/ur_reuse_20260909/source_manifest.json",
+      "sha256": "58f5400335b80839a44c25482febb68a3b452dd1e3f4bf4dfcd894e2a205131a",
+      "blob": "6cd848c0d59ae02fd97bbbc0ec474cfbdfca8f77",
+      "read_scope": "FULL_LOCAL_COPY; byte-matched parent actual frozen-2-readback.json"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "9e3a41dc9909ad98c789bb8d53a27addd0649eaa",
+      "path": "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/ur_reuse_20260909/read_receipt.json",
+      "sha256": "459236e1a8f9d25c83ae2384c26a3ab38819f690851ded1b95579f3958e852bf",
+      "blob": "f412840fdd7de64bcc4854ae79331bf775756ff6",
+      "read_scope": "FULL_LOCAL_COPY; byte-matched parent actual frozen-3-readback.json"
+    }
+  ],
+  "candidate_input_observation_root": "D:/em/TEMP/jt2-line-recover-20260909",
+  "readback_integrity": "All three supplied full response structuredContent.content bytes matched the local file, stated SHA256 and returned Git blob. The reviewer reused these actual earlier responses and did not claim new tool calls.",
+  "auxiliary": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "9e4b5bdf832d47b7c0e5c211fe8143376b786a68",
+    "path": "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/ur_reuse_20260909/brc_interface_and_review_packet.md",
+    "blob": "03c0bcd1571bfd911d62cd546a2332a4b1e91705",
+    "read_scope": "Own full connector read, including controlling section 4 and paper-interface sections 2-3"
+  },
+  "current_task_contract_reads": [
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "527a120450a549b8b2ae96bd9891fc5e622ede64",
+      "path": "research_tasks/EMW59A_JT2_UR_SUN_PARITY_DEFECT_GEN2_20260909.md",
+      "sha256": "fe4693d36ca3f5ae2139df4556d00933b6e9d894779113681b45cd8b4f99711c",
+      "blob": "7d77a7c1ff08f75b74b38c586e37a9deb8c7518f",
+      "read_scope": "OWN_FULL_CONNECTOR_READ; exact same blob as candidate source pin"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "527a120450a549b8b2ae96bd9891fc5e622ede64",
+      "path": "research_tasks/EMW59A_JT2_QTF3_FIXED_POINT_GEN2_20260909.md",
+      "sha256": "cc5cd50d5bbd94cb41e7d4bc0123634a5a57e235cecdc919bed723b9981d83e0",
+      "blob": "329d20a93b798f25002fef2b1b28a4cb34dc672c",
+      "read_scope": "OWN_FULL_CONNECTOR_READ; exact same blob as candidate source pin"
+    }
+  ],
+  "inherited_only": [
+    {
+      "id": "EBP6JT_RETURN",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "6058e8fa69cc8c9a3e571d05bc6cbb8b4565c5aa",
+      "path": "research_returns/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE_RETURN_20260828.md",
+      "sha256": "54ab94a1899f649ae1488bececaa7c57aafbc89aef44bdd1e40cc0b45590e827",
+      "scope": "CM0/SIMPLE/CM identification and reduction input, prior JT2/UR/LIFT; no proof reopened and no 77-prime replay"
+    },
+    {
+      "id": "OTHER_OLD_PINS",
+      "scope": "Barycentric lift, old predecessor/PR1383/Jacobi/handoff/companion pins are inherited through the supplied candidate manifest; original sources not newly read or promoted."
+    }
+  ],
+  "primary_reads": [
+    {
+      "id": "DLMF_QUADRATIC",
+      "url": "https://dlmf.nist.gov/15.8.E18",
+      "locator": "Equation 15.8.18, neighboring domain Re(z)<1/2; normalized formal identity at zero",
+      "read_method": "OWN_WEB_PRIMARY_FORMULA",
+      "immutable_hash": null
+    },
+    {
+      "id": "CHISHOLM_AUTHOR_MANUSCRIPT",
+      "url": "https://www.math.rwth-aachen.de/~Gabriele.Nebe/papers/Ramanujan.pdf",
+      "local_pdf": "D:/em/TEMP/jt2-bounded-reference-review-20260909/chisholm-author-draft-observed.pdf",
+      "sha256": "6e67a4039ab055308a6f222769f3042968726e93a4ad136c787c725e1a34b4cd",
+      "pdf_page_indices_visually_read": [
+        2,
+        3,
+        4
+      ],
+      "printed_pages": [
+        3,
+        4,
+        5
+      ],
+      "locator": "Section 2 model/normalization; Theorem 1 and remarks; equation (3.4)",
+      "read_method": "OWN_PRIMARY_WEB_TEXT_AND_LOCAL_PDF_RENDER_VIEW_IMAGE",
+      "version_limit": "Author-hosted draft has placeholder publication header; not byte-matched or text-matched to final publisher version."
+    },
+    {
+      "id": "CHISHOLM_PUBLISHER",
+      "url": "https://www.mdpi.com/2227-7390/1/1/9",
+      "locator": "Publisher metadata/search result only; direct body/PDF retrieval failed and later body access returned 429",
+      "status": "FINAL_THEOREM_VERSION_NOT_INDEPENDENTLY_MATCHED",
+      "fallback_limit": "LSU download returned 403; no theorem conclusion inferred from those failures."
+    },
+    {
+      "id": "SUN_V5",
+      "url": "https://arxiv.org/html/1101.5386v5",
+      "locator": "Definition (1.1), Lemma 2.1, Theorem 2.1, Corollary 2.1, Theorem 2.2 and nearby proof text",
+      "read_method": "OWN_VERSIONED_PRIMARY_WEB_TEXT",
+      "immutable_hash": null
+    },
+    {
+      "id": "BORWEIN_PI_AGM",
+      "url": "https://carmamaths.org/jon/Preprints/Papers/Submitted%20Papers/Elliptic%20moments/pi-agm.pdf",
+      "local_pdf": "D:/em/TEMP/jt2-persistent-driver-intake-20260909/borwein-pi-agm-observed.pdf",
+      "sha256": "2ea662124501c5a1604c96c705da10049e0dd81824562f3b48853672bb53ca71",
+      "pdf_page_indices_visually_read": [
+        99,
+        100,
+        102
+      ],
+      "printed_pages": [
+        184,
+        185,
+        186,
+        187,
+        190,
+        191
+      ],
+      "locator": "(5.5.28i), (5.5.29)-(5.5.30), (5.5.33)-(5.5.34); Ex.19(b)(ii),20(b)(i)",
+      "read_method": "OWN_VIEW_IMAGE_OF_SUPPLIED_SCANS; own PDF and PNG hash checks",
+      "scan_sha256": {
+        "99": "b833c7d71ed4496f9f4efb4177b56226c30751845050429c9ee5ffbe75a2201e",
+        "100": "aa19c81b2a0cc7e30879634d85f4c4ef188f8860192a0469ae44a0118d0e65ca",
+        "102": "c2365612fd5bdb56a4341d54e0e794a729cac40282ed3bbe4cab535377667d15"
+      },
+      "limit": "Printed exact values consumed; exercises not independently proved. PDF/scans not republished."
+    }
+  ],
+  "point_outcomes": [
+    "Q1_QUALIFIED_PASS_FINITE_P2_TRUNCATIONS",
+    "Q2_QUALIFIED_PASS_INHERITED_CM0_SIMPLE",
+    "Q3_QUALIFIED_PASS_AUTHOR_MANUSCRIPT_FINAL_PUBLISHER_VERSION_UNMATCHED",
+    "Q4_QUALIFIED_PASS_PRINTED_EXACT_VALUES",
+    "Q5_SCOPE_PASS_SUN_OUTPUT3_AND_CONDITIONAL6_UNDISCHARGED",
+    "Q6_SCOPE_PASS_QTF3_LIFT_P3_UNVERIFIED"
+  ],
+  "mathematical_execution": {
+    "paper_review": true,
+    "native_brc_api": false,
+    "new_math_program": false,
+    "old_77_prime_scan": false,
+    "new_tool": false,
+    "proved_minimal_obstruction": false,
+    "lift_proof": false
+  },
+  "disposition": {
+    "bounded_advisory_goal": "COMPLETE_ON_SOURCE_READBACK",
+    "formal_acceptance": false,
+    "formal_driver_disposition": false,
+    "sun_task_complete": false,
+    "qtf3_task_complete": false,
+    "jt2_mother_line_complete": false,
+    "parent_tasks_combined": false,
+    "original_result_audit_gates": "UNCHANGED"
+  }
+}
