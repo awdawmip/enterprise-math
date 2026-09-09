@@ -130,7 +130,7 @@ After a Researcher execution ends:
 
 A successor receives the persisted handoff packet plus exact governing task authority. It is not expected to share the predecessor's hidden conversational state.
 
-The receiving line Driver retains review continuity across researchers and records accepted obligations and unresolved issues in its dossier. Once required material is durable and readable, the temporary researcher may finish; it need not remain alive for the rest of the line. Ordinary delivery and review go directly to that Driver rather than through the portfolio Owner. Discarding researcher runtime context never authorizes deletion of durable evidence.
+The receiving line Driver retains review continuity across researchers and records accepted obligations and unresolved issues in its dossier. Once required material passes applicable durable-handoff checks, the temporary researcher may finish under its original task/PRE_FINAL rules; it need not remain alive for the rest of the line. Canonical readback does not require an additional private Driver acknowledgment, and FREE does not gain a Driver-approval prerequisite. Ordinary delivery and review go directly to the line Driver where assigned rather than through the portfolio Owner. Discarding researcher runtime context never authorizes deletion of durable evidence.
 
 ## 8. Voice/oral continuity
 

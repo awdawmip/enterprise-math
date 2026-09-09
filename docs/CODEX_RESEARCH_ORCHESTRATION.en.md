@@ -80,7 +80,7 @@ A task packet must stand alone: mother question, task/publication binding, exact
 
 Formal research still uses actual registration, claim, and execution authorization. FREE starts with lightweight activity registration without first selecting a question or claiming a formal task. A delivery includes conclusions and conditions, proof/code/actual run evidence, failed or unresolved obligations, source exposure, actual tool use, exact remote locators, and the smallest next action.
 
-Once the Driver confirms that future-needed material is durable, readable, and properly scoped, the researcher may finish without waiting for all subsequent line work. Later work can reuse the same agent or start a new researcher from the handoff. Discarding runtime context never means deleting evidence, branches, or history; do not assume a finished researcher can be contacted again.
+Once future-needed material passes applicable durable-handoff checks, or the Driver confirms that it is readable and properly scoped, the researcher may finish under the original task/PRE_FINAL rules. When canonical readback already establishes delivery, do not add a wait for private Driver acknowledgment; mathematical review and subsequent line work may continue afterward. This adds no Driver approval to FREE. Later work can reuse the same agent or start a new researcher from the handoff. Discarding runtime context never means deleting evidence, branches, or history; do not assume a finished researcher can be contacted again.
 
 ## 7. The Enterprise mathematical method
 
