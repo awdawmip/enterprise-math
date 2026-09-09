@@ -1,0 +1,137 @@
+{
+  "schema": "R005_ACTUAL_FIRST_REVIEW_AND_FOLLOWUP_TRANSACTION_V1",
+  "write_authority_parent": "98962ea762a76c4ac456ef93255de4122f7979c3",
+  "branch": "driver/r005-correction-review-81273a-20260909",
+  "base_main": "bcaaffe18fe17656a4f926a86907957b88387b0a",
+  "result_record_path": "research_result_records/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION/RR-566554389F6F36576DE2.json",
+  "result_record_blob_sha1": "sha1:aea04ecd76c5f6effe92726ae08d64c512f73131",
+  "result_record_sha256": "sha256:5dc2a43840b2878013281cc49f4956c893754b4feab50148dbea2c75d8f5fc62",
+  "refreshed_result_bytes_used": true,
+  "result_changed_in_transaction": false,
+  "argv": [
+    "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+    "tools/research_result_records.py",
+    "review",
+    "--result-id",
+    "RR-566554389F6F36576DE2",
+    "--driver-id",
+    "EM-DVR-81273A",
+    "--disposition",
+    "ACCEPTED",
+    "--review-path",
+    "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/FINAL_DRIVER_REVIEW.md",
+    "--destination-class",
+    "NONE",
+    "--followup-spec",
+    "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/formal_followup_spec.json"
+  ],
+  "cwd": "D:\\em\\r005-line-reconcile-81273a-20260909",
+  "started_at": "2026-09-09T12:59:42.834560+00:00",
+  "finished_at": "2026-09-09T13:00:26.535508+00:00",
+  "exit_code": 0,
+  "stdout_path": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/formal_transaction/review.stdout.json",
+  "stdout_sha256": "aaec7a4b25449ac0f40b4ef23528c9c146c7839c4aa05c4728529dc77bc93b7d",
+  "stderr_path": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/formal_transaction/review.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "governance_claim_created": false,
+  "review_id": "DR-7605C20CFE02E3900E8D",
+  "followup": {
+    "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_FOLLOWUP_V1",
+    "policy": "AUTO_PUBLISH_TASKSET_OR_PARENT_CLOSE_V1",
+    "packet_id": "DFU-192EC00B45DD90358773",
+    "review_id": "DR-7605C20CFE02E3900E8D",
+    "result_id": "RR-566554389F6F36576DE2",
+    "task_id": "RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION",
+    "source_publication_id": "TP2-ADD82532ACD19FC01D53",
+    "driver_id": "EM-DVR-81273A",
+    "review_disposition": "ACCEPTED",
+    "review_destination_class": "NONE",
+    "parent_objective_id": "OBJ-R005-PRIME-ALGORITHM-LAB",
+    "source_next_control_plane_recommendation": "DRIVER_REVIEW_NO_MATH_DELTA_EXECUTABLE_BINDING_REPAIR; IF_ACCEPTED_CLOSE_THE_EXECUTABLE_EVIDENCE_OBJECTION_AT_THE_EXISTING_R005A_MATHEMATICAL_STRENGTH; DO_NOT_EXTEND_Q78553_FRONTIER",
+    "decision": "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION",
+    "gate_decisions": [
+      {
+        "gate": "MATHEMATICAL_CONTINUATION",
+        "decision": "SATISFIED_BY_EXISTING_CONTROL_ASSET",
+        "reason": "The executable correction is complete; the distinct catalogue/seam obligation is already published and remains blocked until the exact correction review and its governing release requirements are satisfied. No duplicate task or parent rebinding is requested.",
+        "evidence_refs": [
+          "research_task_records/RS-R005-Q78553-EXACT-916-GAP-CATALOG-SEAM-CLOSURE/TP2-09D6ECE7F315F0766FE1.json",
+          "research_parallel_syntheses/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION/PS-R005-81273A-OPERATIONAL-20260909.json"
+        ]
+      },
+      {
+        "gate": "LEAN_FORMALIZATION",
+        "decision": "NOT_REQUIRED",
+        "reason": "This is Python executable/evidence repair with no new mathematical theorem or L4 promotion; DSI statements remain frozen.",
+        "evidence_refs": [
+          "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/REVIEW.md"
+        ]
+      },
+      {
+        "gate": "EXTERNAL_PRIOR_ART_DUPLICATION",
+        "decision": "SATISFIED_BY_REVIEWED_RESULT",
+        "reason": "Bounded exact task/function and method queries plus the primary Python compilation reference classify the repair as reuse of standard software validation. No mathematical novelty is asserted. The recovered prior exact repair is consumed rather than duplicated.",
+        "evidence_refs": [
+          "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/prior_art_review.json",
+          "https://docs.python.org/3/library/py_compile.html"
+        ]
+      },
+      {
+        "gate": "INDEPENDENT_REPLICATION",
+        "decision": "SATISFIED_BY_REVIEWED_RESULT",
+        "reason": "The current non-author Driver independently reran final-byte compilation and the stored focused regression and executed the additional true-attested nonempty catalogue path. Shared recovery context is disclosed; this is not clean-context mathematical replication.",
+        "evidence_refs": [
+          "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/source_revalidation.json",
+          "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/attested_scan_run.json"
+        ]
+      },
+      {
+        "gate": "INTEGRATION_OR_TOOL_HARVEST",
+        "decision": "SATISFIED_BY_REVIEWED_RESULT",
+        "reason": "The existing corrected source and all Result artifacts are preserved byte-for-byte. Method harvest remains RESULT_ONLY; no global tool registration or theorem promotion is introduced.",
+        "evidence_refs": [
+          "research_result_records/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION/RR-566554389F6F36576DE2.json",
+          "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/result_manifest_validation.json"
+        ]
+      },
+      {
+        "gate": "ADVERSARIAL_AUDIT",
+        "decision": "SATISFIED_BY_REVIEWED_RESULT",
+        "reason": "The review checks exact source differences, the positive full validation/scan path, early coverage, early max-bound coverage and false-attestation rejection, while preserving immutable evidence and both parent boundaries.",
+        "evidence_refs": [
+          "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/attested_scan.stdout.json",
+          "research_parallel_reference_passes/PI-R005-81273A-20260909/RP-R005-81273A-ADVERSARIAL-20260909.json"
+        ]
+      }
+    ],
+    "task_publications": [],
+    "created_at": "2026-09-09T12:59:59.768589+00:00",
+    "working_truth_granted": false,
+    "foundation_authority_granted": false,
+    "canonical_promotion_granted": false,
+    "terminal_scope": "TASK",
+    "portfolio_continuation": {
+      "source_result_id": "RR-566554389F6F36576DE2",
+      "parent_objective_id": "OBJ-R005-PRIME-ALGORITHM-LAB",
+      "action": "REEVALUATE_CANONICAL_PORTFOLIO",
+      "dispatcher": "research_control_dispatch.py",
+      "next_action": "Consume the accepted exact Correction Result under its original parent and continue the existing relay-owned Correction Driver review and gate sequence. Preserve both parents, verify the actual current existing task/runtime before any release, and do not reissue the completed scanner repair.",
+      "remaining_parent_scope": [
+        "q=78553 remains open with certified k<=2822453183433 until an accepted complete exact-916 catalogue/seam result changes that boundary.",
+        "The relay parent remains independently open and retains the persistent line Driver, correction-review, catalogue/seam and final-review responsibilities."
+      ],
+      "evidence_refs": [
+        "research_parallel_syntheses/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION/PS-R005-81273A-OPERATIONAL-20260909.json",
+        "research_task_records/GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER/TP2-291A3B7B1EB6C763F71E.json",
+        "research_task_records/GV-R005-DEFICIT-SHADOW-CORRECTION-REVIEW/TP2-86F63B5AAD1C97EC80FE.json",
+        "research_task_records/RS-R005-Q78553-EXACT-916-GAP-CATALOG-SEAM-CLOSURE/TP2-09D6ECE7F315F0766FE1.json"
+      ]
+    },
+    "source_result_record_path": "research_result_records/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION/RR-566554389F6F36576DE2.json",
+    "source_result_record_sha256": "sha256:5dc2a43840b2878013281cc49f4956c893754b4feab50148dbea2c75d8f5fc62",
+    "parent_status_at_materialization": "ABSENT_NOT_CLOSED",
+    "parent_completion_granted": false,
+    "parent_final_granted": false,
+    "record_path": "research_driver_followups/DR-7605C20CFE02E3900E8D/DFU-192EC00B45DD90358773.json"
+  }
+}
