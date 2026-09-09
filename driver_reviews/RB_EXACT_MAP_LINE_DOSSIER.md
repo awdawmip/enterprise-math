@@ -1,48 +1,48 @@
-# RB exact map and subsequent validation / RB 精确映射与后续验证
+# RB exact-map resident line dossier / RB 精确映射常驻路线
 
-This is a routing dossier for the resident Driver. Canonical Task, execution, Result and Driver records remain the authority. Snapshot: 2026-09-09; no claim is transferred by this document.
+This is a routing and recovery dossier, not a second task registry or theorem certificate. Current Task, execution, Result, Driver authority and review records control their own boundaries.
 
-## Current charter / 当前委托
+Snapshot: `0f4fc206e6c3a950cdd7c7587a455bfc829d8a33`, after the actual admission of [PR1426](https://github.com/awdawmip/enterprise-math/pull/1426). Integration preserves the 80 original Result output pins and all immutable RR/DR/DFU bytes. The main-admission receipt is [the main-admission receipt](../research_artifacts/RB_ROUTE_DRIVER_20260909/forward_recovery_5816eb/main_admission.md).
 
-- Line: `RB_EXACT_MAP`; parent `RB_ENTERPRISE_THEOREM_PACKAGE_V2_INDEPENDENT_VALIDATION` remains **OPEN**. The [published taskbook](https://github.com/awdawmip/enterprise-math/blob/3a00ea191ad0380bf341af746a825e0b0c474874/research_tasks/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_CERTIFICATE_20260909.md) fixes the present eight obligations.
-- Value and scope: a reproducible certificate for the recovered, source-exposed algebraic map. Preserve the P000 foundation and the named algebraic-model boundary; no claim about a new native ontology, tool family or global API.
-- Owner delegated route publication, continuous review, task assignment and line-local closure to resident Driver **EM-DVR-A4187A**. The actual [Issue 240 AUTHORIZE event](https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-5595285539) and [DA-75797DFEA9964CF554B6](https://github.com/awdawmip/enterprise-math/blob/28b1dfed2a804f5dfbba36bd32d3509a8b88b33d/research_driver_authority_records/EM-DVR-A4187A/DA-75797DFEA9964CF554B6.json) are separate from this routing statement. The DA/RA/map source PR is [1440](https://github.com/awdawmip/enterprise-math/pull/1440); main intake is pending in this snapshot.
-- Continuity locator: `/root/control_fixture_recovery` in the current host; a durable replacement host locator is UNKNOWN. Logical line responsibility persists between bounded execution turns and does not reserve a continuously running slot.
-- Escalate a proposed route merger/split, changed mother question, cross-line source conflict or control-core defect to Owner. Ordinary review and source publication stay with the line Driver.
+## Driver and scope / 责任与范围
 
-## Verified frontier / 已验证前沿
+- Resident line: `RB_EXACT_MAP`. The parent `RB_ENTERPRISE_THEOREM_PACKAGE_V2_INDEPENDENT_VALIDATION` remains **OPEN**.
+- The current recovery conversation uses its own Driver `EM-DVR-5816EB`, under actual [Owner AUTHORIZE5598116783](https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-5598116783) and [DA-94E01EB6F5E633C743EB](../research_driver_authority_records/EM-DVR-5816EB/DA-94E01EB6F5E633C743EB.json). This is forward succession for the existing RB line, not continued liveness of the lost prior handle.
+- Previous `EM-DVR-A4187A` / `DA-75797DFEA9964CF554B6` and its accepted review remain original provenance. No Researcher claim is transferred or created by this dossier or the succession authorization. A conversation label does not establish independent or blind research.
+- Scope covers continuous RB review, ordinary source integration, existing-task routing and source-grounded knowledge capture. Cross-line ownership, shared Foundation semantics and expansion beyond the delegated RB line return to Owner. The RB authorization grants no formal JT2 adjudication authority.
 
-| Obligation | Exact scope and evidence level | Durable source | Remaining boundary |
-| --- | --- | --- | --- |
-| Field, full ODE, basepoints and degrees | Exact author computation plus paper/code review; both `degree(X)=6` and `degree(D→E)=6` are explicit | [Final return, eight gates](https://github.com/awdawmip/enterprise-math/blob/e8b66ced566afaa35c570360cacc64e570578a58/research_returns/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_CERTIFICATE_RETURN_20260909.md) | No minimal/smaller coefficient-field assertion; no restored blindness |
-| Four fibers, half point, square classes, descent and unsquared differential | Three `x'` reconstructions and canonical `z` ODE/V4 checks are program evidence; canonical `z` transport, valuation/divisor and Picard/RR `S,η` conclusions are paper deductions | [Pinned proof](https://github.com/awdawmip/enterprise-math/blob/d275ed2a52dffe5aa7571b7e05e31d0253934bb6/research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/exact_map_proof.md), [independent review](https://github.com/awdawmip/enterprise-math/blob/e8b66ced566afaa35c570360cacc64e570578a58/research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/checkpoints/peer_review_v3/REVIEW.md) | L-defined divisors do not imply that every individual support point is L-rational; no formal-kernel proof |
-| Current task return | Author PASS / SATISFIED at the pinned task scope, RESULT_ONLY; real RR freeze succeeded | [Published execution receipt](https://github.com/awdawmip/enterprise-math/blob/e8b66ced566afaa35c570360cacc64e570578a58/research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/execution_receipt.json); [RR source record](../research_result_records/RS-RB-CM24-SOURCE-EXPOSED-EXACT-MAP-CERTIFICATE/RR-F79FA3D36EF85CC4C6CE.json) | Source/main integration and immutable Driver disposition are separate next actions |
+## Verified task frontier / 已核实任务前沿
 
-- Task `RS-RB-CM24-SOURCE-EXPOSED-EXACT-MAP-CERTIFICATE`; publication `TP2-554AC43234E8E297A6E9`; ER `ER-BDAB13EB167775B80BE7`; author `EM-HODGEH0O-82EF42`; claim `chatgpt-rb-cm24-source-exposed-20260909-e227c807e7ed441c80b53420f8158ff7`. No Driver claim is inferred from the author claim.
-- Mathematical owner head is fixed at `e8b66ced566afaa35c570360cacc64e570578a58` on `research/rb-cm24-source-exposed-20260909`, [PR 1426](https://github.com/awdawmip/enterprise-math/pull/1426). A later metadata/control merge must not be described as new mathematical execution.
-- Actual RR `RR-F79FA3D36EF85CC4C6CE`, SHA256 `ca06619946487457e101aabfe1beb88b945077571d17cda19191a9cf48291ed6`, frozen at `2026-09-09T03:35:22.289215+00:00`, binds the unchanged 80-output manifest and the final return. No DR/DFU exists for this Result in this snapshot.
-- Consume the existing 13-test author run, the two-file static check and the independent paper/code review without claiming that the present Driver replayed them. Author and peer shared published context; this is source-exposed, NONBLIND evidence.
-- Existing [T0/T5/T6 coverage review](https://github.com/awdawmip/enterprise-math/blob/3a2ad00fefc463792a76ae5a16a0b2aa7c35c32c/driver_reviews/RB_SOURCE_EXPOSED_TOOL_COVERAGE_20260909/DRIVER_TOOL_GAP_MEMO.md) recommends composition, not a new family. BRC evaluation count is zero here; positive natural-number counting cannot erase complex coefficients, square classes or branch signs. The task-local field checker is not a general curve solver.
+Task `RS-RB-CM24-SOURCE-EXPOSED-EXACT-MAP-CERTIFICATE`, publication `TP2-554AC43234E8E297A6E9`, and execution `ER-BDAB13EB167775B80BE7` remain fixed. Mathematical owner head is `e8b66ced566afaa35c570360cacc64e570578a58`; later source/control/admission commits are not new mathematical executions.
 
-## Incremental review ledger / 增量审核账册
-
-| Issue | Decision and resolving evidence | Dependencies |
+| Obligation | Accepted evidence and exact boundary | Source |
 | --- | --- | --- |
-| RB-MAP-EIGHT-GATES | Author return and Carver paper/code review report the task gates satisfied; Driver formal disposition remains pending | Exact e8b return / peer, RR F79 above; original blind INCOMPLETE and historical v3 INCOMPLETE bytes remain unchanged |
-| RB-RR-OUTPUT-GLOB | First freeze rejected before a Result was created: 7.145 s, not a mathematical failure. Retry with the already reviewed, published [matcher source 886ec8](https://github.com/awdawmip/enterprise-math/commit/886ec8bc187275fa50edb2595d4a164d89bab5ea) succeeded in 13.3269674 s | [Attempt 1 receipt](../research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/runs/result_freeze_attempt1/receipt.json), [attempt 2 receipt](../research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/runs/result_freeze_attempt2/receipt.json); later archival files do not alter the RR's 80-output list |
-| RB-TASK-CLOSEOUT | Use the canonical task-scope closure route once its published control contract is available; zero newly invented tasks and an OPEN parent must both remain explicit | Carver owns the control implementation; no shadow review record or forced parent closure |
+| Coefficient field, full fixed-k ODE, all common basepoints, and both degrees | All eight task gates are satisfied at the declared source-exposed scope, including `degree(X)=6` and `degree(D→E)=6`; no smaller coefficient-field or global family claim | [Final return](https://github.com/awdawmip/enterprise-math/blob/e8b66ced566afaa35c570360cacc64e570578a58/research_returns/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_CERTIFICATE_RETURN_20260909.md) |
+| Complete special fibers, half-points, square classes, descent and unsquared differential | Exact author program evidence plus independent paper/code review; canonical-z transport, valuation/divisor and Picard/RR interpretation remain paper deductions where stated. An L-defined divisor need not have every support point L-rational | [Pinned proof](https://github.com/awdawmip/enterprise-math/blob/d275ed2a52dffe5aa7571b7e05e31d0253934bb6/research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/exact_map_proof.md), [peer review](https://github.com/awdawmip/enterprise-math/blob/e8b66ced566afaa35c570360cacc64e570578a58/research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/checkpoints/peer_review_v3/REVIEW.md) |
+| Immutable return and formal Driver decision | `RR-F79FA3D36EF85CC4C6CE`, `DR-7D70258F6D39E9B6B00D`, `DFU-A69948076248192A8C4C`: ACCEPTED / ARCHIVE, task scope only | [RR](../research_result_records/RS-RB-CM24-SOURCE-EXPOSED-EXACT-MAP-CERTIFICATE/RR-F79FA3D36EF85CC4C6CE.json), [DR](../research_result_reviews/RR-F79FA3D36EF85CC4C6CE/DR-7D70258F6D39E9B6B00D.json), [DFU](../research_driver_followups/DR-7D70258F6D39E9B6B00D/DFU-A69948076248192A8C4C.json) |
 
-## Portfolio interfaces / 路线间接口
+The RR SHA256 remains `ca06619946487457e101aabfe1beb88b945077571d17cda19191a9cf48291ed6`. It binds 80 original outputs. Author and peer used published context: this is **SOURCE_EXPOSED / NONBLIND** evidence. The present recovery checked source integrity without rerunning the mathematics or claiming an independent computational replay. No formal-kernel proof, Working Truth, Foundation admission or new tool family is granted.
 
-- Supplies a bounded, source-exposed exact-map certificate and reusable local evidence. It does not supply a complete RB theorem package, a new native tool, Working Truth or Foundation.
-- Parent residue: the period integer, homology index, independent normalization of `(B1/Omega_P)^2`, and exhaustive resolution of the remaining **1980 parameter families** stay OPEN. The count is not 1980 mappings.
-- Original provenance remains: the earlier blind assignment/source-locator work, recovered historical source capsules, source-exposed continuation, author returns and peer records are distinct stages.
-- After this task is formally closed, inspect the existing line queue once and choose the smallest registered unfinished obligation. Do not automatically register a new task merely to make a zero-task closeout packet nonempty. A proposed change of route remains an Owner decision.
+## Incremental review ledger / 增量审查账册
 
-## Handoff / 接替入口
+| Issue | Decision and preserved evidence | Remaining action |
+| --- | --- | --- |
+| RB-MAP-EIGHT-GATES | The frozen task return and independent paper/code review discharged all eight gates; formal DR is ACCEPTED / ARCHIVE | Consume the accepted frontier; reopen only an affected obligation if new evidence warrants it |
+| RB-RR-OUTPUT-GLOB | Historical first freeze rejected before writing a Result in 7.145 seconds. The unchanged-output retry passed canonical postcheck in 13.3269674 seconds after the matcher repair | Preserve both [first attempt](../research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/runs/result_freeze_attempt1/receipt.json) and [second attempt](../research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/runs/result_freeze_attempt2/receipt.json); no retry |
+| RB-TASK-CLOSEOUT | Actual canonical review transaction completed in 65.5 seconds. The followup is `TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION`, `terminal_scope=TASK`, no new task publication | `parent_status_at_materialization=ABSENT_NOT_CLOSED`; both parent completion and parent final authority remain false |
+| RB-SOURCE-MAIN-ADMISSION | Original 104 RB source paths were retained; exact new source/main checks and merge are recorded in the admission receipt | Ordinary source integration is complete at the snapshot above; it does not strengthen the accepted mathematics |
+| RB-DRIVER-FORWARD-RECOVERY | New conversation identity and actual Owner event establish the successor's provenance; the [recovery intake](../research_artifacts/RB_ROUTE_DRIVER_20260909/forward_recovery_5816eb/recovery_intake.json) checked all 80 output hashes and the original source tree | Preserve the old Driver's immutable signatures and every Researcher ownership boundary |
 
-1. Reconcile PR 1440's exact DA/RA/map head `28b1dfed2a804f5dfbba36bd32d3509a8b88b33d`. Eight source files have actual full-content/blob readback. The third RA event has six verified source links and no synchronization debt; bookkeeping passes with all five authority flags false. Main intake must be checked separately.
-2. Keep the original two RA events and third v3 event unchanged. A final-return/Result/Driver completion checkpoint belongs in a new event after those actual publications.
-3. Integrate main metadata and the published matcher dependency into PR 1426, retain all immutable math/ER/RR bytes, and consume applicable CI. Current known shared-base gates are four P3R taskbook/publication drifts (Carver) and two unregistered bilingual pairs (Owner). Do not relax their checks or edit their historical sources from this route.
-4. Refresh the exact mutation-parent RR, recompute its digest, apply the canonical first-review and task-scope closeout transaction with current Driver authority, then record actual DR/DFU/runtime results. Parent remains OPEN.
-5. Persist the bounded queue decision and update this opening packet. A replacement Driver must recheck canonical records, unresolved remote outcomes and current control dependencies before retrying a mutation.
+## Open parent obligations and reuse / 母线未解义务与复用
+
+- Period integer, integral homology index, an independent derivation of `(B1/Omega_P)^2`, and exhaustive resolution of the remaining **1980 parameter families** remain open. The count is not 1980 mappings.
+- Existing [T0/T5/T6 coverage](https://github.com/awdawmip/enterprise-math/blob/3a2ad00fefc463792a76ae5a16a0b2aa7c35c32c/driver_reviews/RB_SOURCE_EXPOSED_TOOL_COVERAGE_20260909/DRIVER_TOOL_GAP_MEMO.md) supports reuse and composition at its typed limits. Positive natural-number counts do not erase complex coefficients, square classes or branch signs; this local field checker is not a general curve solver.
+- The historical blind-replication task is a separate intake. Its competing durable returns must not be overwritten by whole-branch selection. The winning-prefix owner remains unknown in the bounded recovery evidence; no replacement claim or fresh blind work has been started.
+- Task success does not automatically justify a successor. At the next real RB dispatch boundary, use canonical dispatch and current exact event/session evidence to evaluate an already-published unfinished obligation, scoped closure, or another existing portfolio direction.
+
+## Recovery entry / 接替入口
+
+1. Reconcile the current remote source/main state and scoped Driver authority. A remembered PR or handle does not establish liveness or successful remote publication.
+2. Consume the immutable RR/DR/DFU and preserved task outputs. Do not replay the completed mathematics, Result freeze or formal review merely because private chat context is missing.
+3. Keep current control policy separate from the frozen mathematical source. Control quarantine of an unrelated publication fork selects no mathematical winner and closes no research parent.
+4. Report semantic milestones and any cross-line decision to Owner. Ordinary RB review and source integration remain the resident Driver's responsibility; Owner need not repeat the same mathematical review.
