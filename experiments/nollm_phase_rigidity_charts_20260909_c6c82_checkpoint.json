@@ -1,0 +1,42 @@
+{
+  "schema": "NOLLM_PHASE_RIGIDITY_CHARTS_CHECKPOINT_V1",
+  "event_id": "NOLLM-PHASE-RIGIDITY-CHARTS-20260909-C6C82",
+  "activity_id": "RA-nollm-hecke-views-20260909-c6c82",
+  "status": "RECOVERED_SOURCE_PUBLISHED_RESEARCH_NOT_PROMOTED",
+  "recovered_on": "2026-09-10",
+  "note": {
+    "commit": "e59f44244bce8745cb806e5331b183f6666615ae",
+    "path": "research_notes/nollm_phase_rigidity_charts_20260909_c6c82.md",
+    "git_blob_sha1": "64b06cfa23fca749f625788d887fddd7c27761cb",
+    "sha256": "18b4d52cd6ac10176ed978870a3cb1656abf16590560f1a5da9abffb2da5c33c"
+  },
+  "code": {
+    "commit": "2a74de1525713fd17b145e632777e2021815034b",
+    "path": "experiments/nollm_phase_rigidity_charts_20260909_c6c82.py",
+    "git_blob_sha1": "1467b17c9fbcb3a99ace77093c7874b258b93967",
+    "sha256": "4690d7a3bf882b7682b628f02799f000e442f0f86d4ed9b5f5ab5f7522b1fcdf"
+  },
+  "results_sha256": "8352584cb7e93c68f7b4f16eaace6666fc0b8b38c6ebdd16178bdeddea575209",
+  "checks_from_original_verified_local_run": {
+    "complete_sections": 72,
+    "section_point_appearances": 3960,
+    "prime_line_invariance_cases": 1152,
+    "CRT_pair_transport_checks": 47520,
+    "CRT_composition_checks": 570240,
+    "direct_projection": {"source_points": 55, "distinct_target_classes": 27},
+    "explicit_CRT_relabel": {"source_points": 55, "distinct_target_points": 55, "unchanged": 3, "moved": 52, "max_displacement_Q": 475},
+    "ambient_lift": {"index": 605, "source_index": 55, "fiber_size": 11, "all_12_views_reconstructed": true},
+    "restricted_chart_sets": 232,
+    "worst_roundness_squared": ["20593444/9075", "172/25", "13468/3025", "364/121"],
+    "original_rerun_results_byte_identical": true
+  },
+  "recovery_verification": "Exact prior note and code bytes match the Git blob hashes read back from the publication commits. Original research is not reported as newly executed in this recovery.",
+  "limits": [
+    "fixed split-generator and nested-family assumptions",
+    "multi-chart bound is restricted to both inert directions active",
+    "Voronoi radius ratio is not a covariance or singular-value ratio",
+    "fixed-index CRT relabeling is not natural ambient quotient identity",
+    "605-state lower bound requires preserving all ambient cross-chart readouts",
+    "no scalar-label multiplication or runtime integration"
+  ]
+}
