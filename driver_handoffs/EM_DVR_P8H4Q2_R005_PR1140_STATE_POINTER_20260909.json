@@ -1,0 +1,63 @@
+{
+  "activity_id": "RA-PR1140-P8H4Q2-20260909",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review_acceptance": false,
+    "successor_release": false,
+    "task_publication": false,
+    "working_truth": false
+  },
+  "correction": {
+    "operational_publication_id": null,
+    "publication_ids": [
+      "TP2-2C524413EC9774383AF1",
+      "TP2-ADD82532ACD19FC01D53"
+    ],
+    "publication_state": "UNRESOLVED_PUBLICATION_FORK",
+    "runtime": "BLOCKED_FAIL_CLOSED",
+    "task_id": "RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION"
+  },
+  "driver_id": "EM-DVR-P8H4Q2",
+  "gates": {
+    "correction_review": {
+      "publication_id": "TP2-86F63B5AAD1C97EC80FE",
+      "state": "BLOCKED",
+      "task_id": "GV-R005-DEFICIT-SHADOW-CORRECTION-REVIEW"
+    },
+    "q78553_seam": {
+      "publication_id": "TP2-09D6ECE7F315F0766FE1",
+      "state": "BLOCKED",
+      "task_id": "RS-R005-Q78553-EXACT-916-GAP-CATALOG-SEAM-CLOSURE"
+    },
+    "terminal_review": {
+      "publication_id": "TP2-D43B87B08CE6E6D3FD41",
+      "state": "BLOCKED",
+      "task_id": "GV-R005-Q78553-SEAM-CLOSURE-REVIEW-AND-ROUTE"
+    }
+  },
+  "math_boundary": {
+    "certified_frontier_k": 2822453183433,
+    "dsi_reopened": false,
+    "gap_start_band": [
+      1291005053866735,
+      1294364244470160
+    ],
+    "q": 78553,
+    "q78553_closed": false
+  },
+  "pr": {
+    "disposition": "REVISION_REQUIRED_EXECUTABLE_BINDING_ONLY",
+    "driver_review_id": 5097275954,
+    "head": "f9e2a611b45631c43effce36b7300c6f9a56b77b",
+    "number": 1140
+  },
+  "recorded_at": "2026-09-09T16:09:00+08:00",
+  "schema": "ENTERPRISE_MATH_DRIVER_STATE_CHECKPOINT_V1",
+  "scope": "R005_PR1140_CONTROL_PLANE_ONLY",
+  "source_note": {
+    "commit": "823beea55079dace336e0e0f26b67e15bd05ebf7",
+    "path": "driver_handoffs/EM_DVR_P8H4Q2_R005_PR1140_STATE_CHECKPOINT_20260909.md",
+    "sha256": "7b34bf059e5f15701948969a6915f7d2eb3dacd34bec3cbd7b88d1d7c738ef6a"
+  }
+}
