@@ -1,0 +1,47 @@
+{
+  "schema": "JT2_QTF3_DRIVER_REVIEW_PREPARATION_MANIFEST_V1",
+  "observed_at": "2026-09-09T17:35:14.035120+00:00",
+  "driver_id": "EM-DVR-57CCCE",
+  "result_id": "RR-69FC34FA8AE1E91244F2",
+  "result_record_sha256": "sha256:45f7267d289aeacb3eddc98bac71e6db665424458a7726c7874dbfd05209a5f9",
+  "status": "PREPARED_REVIEW_EVIDENCE_NOT_OPERATIONAL_DR_OR_DFU",
+  "prepared_assets": [
+    {
+      "path": "driver_reviews/JT2_QTF3_DRIVER_REVIEW_57CCCE_20260910.md",
+      "sha256": "sha256:97e92be60bfa01b2dfb70dc9c19a495ef12d1f10ea6742bd6f97f0d306928138",
+      "git_blob_sha1": "sha1:adaec5b62760fe8040d4ca9b7a322884eec87d44",
+      "size_bytes": 9435
+    },
+    {
+      "path": "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/qtf3_formal_review_57ccce_20260910/followup_spec.json",
+      "sha256": "sha256:263417dc14d3e7c0863e0a7e63708cfbcf1dd8981468dc1dbc4ba036a2c5563d",
+      "git_blob_sha1": "sha1:ba4b526b195c57e3aa394d814cde8af17c075308",
+      "size_bytes": 8245
+    },
+    {
+      "path": "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/qtf3_formal_review_57ccce_20260910/literal_closure_probe_receipt.json",
+      "sha256": "sha256:7361f30ed235e9aaf4db6969fb875832a9cfbd295b3be192db74a1162ac99753",
+      "git_blob_sha1": "sha1:6365d32740391fb1f1c9bf441bf0379de812b941",
+      "size_bytes": 701
+    },
+    {
+      "path": "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/qtf3_formal_review_57ccce_20260910/worker_bundle_verification.json",
+      "sha256": "sha256:8acab617c940d4241875be6c0967645499ebd4e56bba6a55a95541cae74a7598",
+      "git_blob_sha1": "sha1:18d6ca37562a30ef284f2ae467af031af03da1be",
+      "size_bytes": 13417
+    },
+    {
+      "path": "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/qtf3_formal_review_57ccce_20260910/worker_main_intake_receipt.json",
+      "sha256": "sha256:f32893f4ea06976149ad70672bd4064d6d16ec0ceb280ed6ac81987993e0063e",
+      "git_blob_sha1": "sha1:cb8730354a6ab570ba8303f44d36130280ed25a9",
+      "size_bytes": 608
+    }
+  ],
+  "structural_preparation_checks": "PASS: unique typed block, exact original Result digest and identity, six unique gate rows, zero new tasks, matching parent and scope.",
+  "canonical_first_review_preflight": "NOT_RUN: awaits Root-published typed Driver assessment interface; local structural checks are not a substitute.",
+  "new_review_record_created": false,
+  "new_followup_packet_created": false,
+  "original_result_modified": false,
+  "prior_art_source_commit": "82019e8814dfb53a4745a0835482b451a1e3e348",
+  "original_worker_main_intake": "2c63e66e9ec4c66f3ed9807ac883037a0542d785"
+}
