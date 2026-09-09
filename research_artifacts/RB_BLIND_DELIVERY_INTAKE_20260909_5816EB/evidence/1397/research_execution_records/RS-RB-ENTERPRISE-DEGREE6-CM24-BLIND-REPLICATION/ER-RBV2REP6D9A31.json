@@ -1,0 +1,52 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_EXECUTION_RECORD_V1",
+  "record_state": "BLIND_INCOMPLETE_EXACT_REDUCTION_FROZEN",
+  "execution_record_id": "ER-RBV2REP6D9A31",
+  "task_id": "RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-REPLICATION",
+  "publication_id": "TP2-9F1A3C0DEFAED8B6E247",
+  "taskbook_path": "research_tasks/RAMANUJAN_BORWEIN_ENTERPRISE_DEGREE6_CM24_BLIND_REPLICATION_20260827.md",
+  "taskbook_blob_sha1": "sha1:ad69e1166254cb4bb32fd9490f9ed1c5c92f8b41",
+  "claim_id": "chatgpt-rbv2rep-20260908-1012-sol6d9a31",
+  "researcher_id": "EM-RBV2REP-6D9A31",
+  "theorem_owner": "research/rb-enterprise-degree6-cm24-blind-replication",
+  "execution_branch": "research/rb-enterprise-degree6-cm24-blind-replication-em-rbv2rep-6d9a31",
+  "execution_branch_base": "3198c3a8d73cac9587dd0f622212c5e6e4085389",
+  "prepared_at": "2026-09-08T10:12:00+08:00",
+  "frozen_at": "2026-09-08T10:58:00+08:00",
+  "phase": "PHASE_A_BLIND",
+  "blind_firewall": {
+    "status": "PRESERVED",
+    "unblinding_performed": false,
+    "forbidden_sources_consumed": []
+  },
+  "primary_verdict": "BLIND_INCOMPLETE_EXACT_REDUCTION",
+  "hard_target_disposition": "NOT_CLOSED",
+  "strictly_smaller_unresolved_unit": "DEGREE6_QUOTIENT_MAP_ON_C_WITH_CM24_BRANCH_CROSS_RATIO",
+  "validated_identities": [
+    "k^2=12*sqrt(2)-10*sqrt(3)",
+    "lambda*=((2-sqrt(3))*(sqrt(3)-sqrt(2)))^2",
+    "j(lambda*) satisfies j^2-4834944*j+14670139392=0",
+    "disc(R^3-3R-k^2)=216*(-73+30*sqrt(6)) != 0",
+    "U0=((t+k)/w)^2 yields only the degenerate square family U0*(U0-A)^2",
+    "conjugate ratio q=(t+k)/(t-k) fails the R=-2 square-cancellation necessary condition"
+  ],
+  "output_manifest": [
+    {
+      "path": "research_returns/RB_ENTERPRISE_DEGREE6_CM24_BLIND_REPLICATION_RETURN_20260827.md",
+      "git_blob_sha1": "sha1:7ea7c0b0683efaa36ab26b375c9bafdc07fb571e",
+      "sha256": "sha256:2b5ad1425321f90a05adfd7fd024239b65f29d56547337e449f901d27fd7aec5"
+    },
+    {
+      "path": "research_artifacts/RB_ENTERPRISE_DEGREE6_CM24_BLIND_REPLICATION/blind_phase_a_reduction_20260908.json",
+      "git_blob_sha1": "sha1:09c295b0ec5cf83a1117253c993ed90503054234",
+      "sha256": "sha256:3a479a93af7bc43489fbd28aaa7a083904f282b11611d17f1398b1e118ecb753"
+    },
+    {
+      "path": "scripts/check_rb_enterprise_degree6_cm24_blind_replication.py",
+      "git_blob_sha1": "sha1:27f997466fe99677aca65a0cf6e4aab9d9210427",
+      "sha256": "sha256:bf0afcdee04cb45c4404b73f0898e8ce1f183c3c795eb7cdbad2a1d1b68322eb"
+    }
+  ],
+  "next_action": "Continue Phase A from the descended degree-6 Hurwitz/square-class system on C:t^2=R^3-3R without unblinding, prioritizing three-pair allocations of the six h-branch points across target 2-torsion fibers.",
+  "hard_block": "FULL_MAP_NOT_RECONSTRUCTED; NO_NONEXISTENCE_PROOF"
+}

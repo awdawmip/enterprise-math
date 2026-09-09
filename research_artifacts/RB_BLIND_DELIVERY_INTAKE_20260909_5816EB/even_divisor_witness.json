@@ -1,0 +1,115 @@
+{
+  "schema": "RB_EVEN_DIVISOR_WITNESS_EXCERPT_V1",
+  "author_driver_id": "EM-DVR-5816EB",
+  "source_status": "PENDING_NONAUTHOR_PAPER_REVIEW",
+  "source_modules": {
+    "src/enterprise_math/exact_arithmetic.py": {
+      "git_blob_sha1": "35ea95b0916494b83a92386e3e313928362dd79e",
+      "sha256": "f4f8feead82dc53a35e5fec495b31e46e64820f7b115c9efd6034063e68f8ad6"
+    },
+    "src/enterprise_math/operation_quotient.py": {
+      "git_blob_sha1": "758a65de02a434446936cd7e37b2ae604eade863",
+      "sha256": "39e62738077eaddb2a3b19a679d0e6a2e7a3415cee7cffa894fe810bb034927e"
+    },
+    "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/check_squareclass_rr.py": {
+      "git_blob_sha1": "8eca623bebea2eea7305f9812e5adb0abeed3c0e",
+      "sha256": "32282b30357638b5f0a2b709a0c917b29711b43a4d7f407a113bfb6502ddf269"
+    }
+  },
+  "witness": {
+    "curve": "t^2=R^3-3R",
+    "U": "R^3+2*R*t+R^2-3",
+    "identity": "R*U=(R^2+t)^2",
+    "identity_residual": [],
+    "tamper_U_plus_1_residual": [
+      {
+        "coefficient": -1,
+        "powers": {
+          "a": 0,
+          "b": 0,
+          "c": 0,
+          "d": 0,
+          "e": 0,
+          "f": 0,
+          "R": 1,
+          "t": 0,
+          "k": 0,
+          "s": 0
+        }
+      }
+    ],
+    "polynomial": [
+      {
+        "coefficient": -3,
+        "powers": {
+          "a": 0,
+          "b": 0,
+          "c": 0,
+          "d": 0,
+          "e": 0,
+          "f": 0,
+          "R": 0,
+          "t": 0,
+          "k": 0,
+          "s": 0
+        }
+      },
+      {
+        "coefficient": 2,
+        "powers": {
+          "a": 0,
+          "b": 0,
+          "c": 0,
+          "d": 0,
+          "e": 0,
+          "f": 0,
+          "R": 1,
+          "t": 1,
+          "k": 0,
+          "s": 0
+        }
+      },
+      {
+        "coefficient": 1,
+        "powers": {
+          "a": 0,
+          "b": 0,
+          "c": 0,
+          "d": 0,
+          "e": 0,
+          "f": 0,
+          "R": 2,
+          "t": 0,
+          "k": 0,
+          "s": 0
+        }
+      },
+      {
+        "coefficient": 1,
+        "powers": {
+          "a": 0,
+          "b": 0,
+          "c": 0,
+          "d": 0,
+          "e": 0,
+          "f": 0,
+          "R": 3,
+          "t": 0,
+          "k": 0,
+          "s": 0
+        }
+      }
+    ],
+    "t_coefficient": "2*R",
+    "paper_arguments_separate": [
+      "U=R*(R+t/R)^2 as a function-field identity.",
+      "div(R)=2[T0]-2[O], and T0 is nonzero two-torsion, so [R] is geometrically nontrivial.",
+      "U is regular at finite points and has pole order exactly 6 at O.",
+      "Thus U has even divisor, lies in L(6O), and has nontrivial square class [R], but it has a nonzero t term.",
+      "The half-section R+t/R lies in L(2O+T0), not L(2O); the zero of R cancels its pole at T0."
+    ],
+    "status": "Auxiliary classification counterexample with exact polynomial check; geometric/divisor proof is a separately stated paper argument pending independent review.",
+    "global_six_block_map_constructed": false,
+    "frozen_lambda_six_block_existence_or_nonexistence_decided": false
+  }
+}

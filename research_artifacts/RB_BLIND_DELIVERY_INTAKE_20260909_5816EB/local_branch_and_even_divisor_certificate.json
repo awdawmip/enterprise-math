@@ -1,0 +1,7320 @@
+{
+  "schema": "RB_LOCAL_BRANCH_AND_EVEN_DIVISOR_AUDIT_V1",
+  "classification": "FINITE_LOCAL_TYPES_AND_EXACT_AUXILIARY_IDENTITY_ONLY",
+  "source_scope": "Current source-exposed Driver audit; not a clean blind reconstruction and not a global map construction.",
+  "interfaces_reused": {
+    "T0_BRC": "REUSE_EXECUTED: exact integer degree ratios and residual pair counts",
+    "T6_OPERATION_SAFE_QUOTIENT": "REUSE_EXECUTED: refines checks that total-only observations do not determine the needed local type",
+    "ARCHIVED_TASK_LOCAL_INTEGER_RING": "REUSE_EXECUTED: polynomial identity and exact tamper residual"
+  },
+  "source_modules": {
+    "src/enterprise_math/exact_arithmetic.py": {
+      "git_blob_sha1": "35ea95b0916494b83a92386e3e313928362dd79e",
+      "sha256": "f4f8feead82dc53a35e5fec495b31e46e64820f7b115c9efd6034063e68f8ad6"
+    },
+    "src/enterprise_math/operation_quotient.py": {
+      "git_blob_sha1": "758a65de02a434446936cd7e37b2ae604eade863",
+      "sha256": "39e62738077eaddb2a3b19a679d0e6a2e7a3415cee7cffa894fe810bb034927e"
+    },
+    "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/check_squareclass_rr.py": {
+      "git_blob_sha1": "8eca623bebea2eea7305f9812e5adb0abeed3c0e",
+      "sha256": "32282b30357638b5f0a2b709a0c917b29711b43a4d7f407a113bfb6502ddf269"
+    }
+  },
+  "local_degree_law": "e_X*e_pi=e_target_x*e_f; Q has e_f=2 and B has e_f=1",
+  "local_types": [
+    {
+      "type": "B_SPECIAL",
+      "e_pi": 2,
+      "e_f": 1,
+      "e_target_x": 2,
+      "e_X": 1
+    },
+    {
+      "type": "Q_ORDINARY",
+      "e_pi": 1,
+      "e_f": 2,
+      "e_target_x": 1,
+      "e_X": 2
+    },
+    {
+      "type": "Q_SPECIAL",
+      "e_pi": 1,
+      "e_f": 2,
+      "e_target_x": 2,
+      "e_X": 4
+    },
+    {
+      "type": "OTHER_SPECIAL",
+      "e_pi": 1,
+      "e_f": 1,
+      "e_target_x": 2,
+      "e_X": 2
+    },
+    {
+      "type": "OTHER_ORDINARY",
+      "e_pi": 1,
+      "e_f": 1,
+      "e_target_x": 1,
+      "e_X": 1
+    }
+  ],
+  "rejected_B_ordinary": {
+    "integral": false,
+    "trace": {
+      "numerator": 1,
+      "denominator": 2,
+      "quotient": 0,
+      "remainder": 1,
+      "collapsed_numerator": 0,
+      "evaluation_kind": "BRC_DIVISION_EVALUATION"
+    },
+    "strict_integer_readout_rejected": true
+  },
+  "brc_exact_input_cache": [
+    {
+      "numerator": 0,
+      "denominator": 2,
+      "value": 0,
+      "trace": {
+        "numerator": 0,
+        "denominator": 2,
+        "quotient": 0,
+        "remainder": 0,
+        "collapsed_numerator": 0,
+        "evaluation_kind": "BRC_DIVISION_EVALUATION"
+      }
+    },
+    {
+      "numerator": 1,
+      "denominator": 1,
+      "value": 1,
+      "trace": {
+        "numerator": 1,
+        "denominator": 1,
+        "quotient": 1,
+        "remainder": 0,
+        "collapsed_numerator": 1,
+        "evaluation_kind": "BRC_DIVISION_EVALUATION"
+      }
+    },
+    {
+      "numerator": 2,
+      "denominator": 1,
+      "value": 2,
+      "trace": {
+        "numerator": 2,
+        "denominator": 1,
+        "quotient": 2,
+        "remainder": 0,
+        "collapsed_numerator": 2,
+        "evaluation_kind": "BRC_DIVISION_EVALUATION"
+      }
+    },
+    {
+      "numerator": 2,
+      "denominator": 2,
+      "value": 1,
+      "trace": {
+        "numerator": 2,
+        "denominator": 2,
+        "quotient": 1,
+        "remainder": 0,
+        "collapsed_numerator": 2,
+        "evaluation_kind": "BRC_DIVISION_EVALUATION"
+      }
+    },
+    {
+      "numerator": 4,
+      "denominator": 1,
+      "value": 4,
+      "trace": {
+        "numerator": 4,
+        "denominator": 1,
+        "quotient": 4,
+        "remainder": 0,
+        "collapsed_numerator": 4,
+        "evaluation_kind": "BRC_DIVISION_EVALUATION"
+      }
+    },
+    {
+      "numerator": 4,
+      "denominator": 2,
+      "value": 2,
+      "trace": {
+        "numerator": 4,
+        "denominator": 2,
+        "quotient": 2,
+        "remainder": 0,
+        "collapsed_numerator": 4,
+        "evaluation_kind": "BRC_DIVISION_EVALUATION"
+      }
+    },
+    {
+      "numerator": 6,
+      "denominator": 2,
+      "value": 3,
+      "trace": {
+        "numerator": 6,
+        "denominator": 2,
+        "quotient": 3,
+        "remainder": 0,
+        "collapsed_numerator": 6,
+        "evaluation_kind": "BRC_DIVISION_EVALUATION"
+      }
+    }
+  ],
+  "native_division_calls": 9,
+  "population": {
+    "three_named_q_points": true,
+    "target_labels": {
+      "-1": "ordinary",
+      "0": "0",
+      "1": "1",
+      "2": "lambda",
+      "3": "infinity"
+    },
+    "raw_placements_per_occupancy": 125,
+    "valid_local_placements": 141,
+    "histograms_by_number_special_q": {
+      "6+0+0+0": {
+        "0": 1,
+        "1": 9,
+        "2": 18,
+        "3": 6
+      },
+      "4+2+0+0": {
+        "0": 1,
+        "1": 9,
+        "2": 18,
+        "3": 6
+      },
+      "2+2+2+0": {
+        "0": 1,
+        "1": 12,
+        "2": 36,
+        "3": 24
+      }
+    },
+    "rejected_degree_overflow": {
+      "6+0+0+0": 91,
+      "4+2+0+0": 91,
+      "2+2+2+0": 52
+    },
+    "six_block_globally_excluded_here": false,
+    "old_180_360_assignment_search_reexecuted": false,
+    "counts_are_global_maps_or_irreducible_components": false
+  },
+  "observer_check": {
+    "fine_refines_total": true,
+    "total_refines_fine": false,
+    "same_total_different_local_type": [
+      {
+        "pattern": "4+2+0+0",
+        "B_occupancies": [
+          4,
+          2,
+          0,
+          0
+        ],
+        "q_target_labels": [
+          -1,
+          -1,
+          -1
+        ],
+        "q_special_per_fiber": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "ordinary_double_points_per_special_fiber": [
+          1,
+          2,
+          3,
+          3
+        ],
+        "q_local_degrees": [
+          2,
+          2,
+          2
+        ],
+        "q_local_parameter_valuations": [
+          {
+            "coordinate": "X-X(Q)",
+            "order": 2
+          },
+          {
+            "coordinate": "X-X(Q)",
+            "order": 2
+          },
+          {
+            "coordinate": "X-X(Q)",
+            "order": 2
+          }
+        ],
+        "special_ramification": 9,
+        "ordinary_q_ramification": 3,
+        "total_ramification": 12,
+        "global_map_constructed": false
+      },
+      {
+        "pattern": "4+2+0+0",
+        "B_occupancies": [
+          4,
+          2,
+          0,
+          0
+        ],
+        "q_target_labels": [
+          1,
+          -1,
+          -1
+        ],
+        "q_special_per_fiber": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "ordinary_double_points_per_special_fiber": [
+          1,
+          0,
+          3,
+          3
+        ],
+        "q_local_degrees": [
+          4,
+          2,
+          2
+        ],
+        "q_local_parameter_valuations": [
+          {
+            "coordinate": "X-target_special_value",
+            "order": 4
+          },
+          {
+            "coordinate": "X-X(Q)",
+            "order": 2
+          },
+          {
+            "coordinate": "X-X(Q)",
+            "order": 2
+          }
+        ],
+        "special_ramification": 10,
+        "ordinary_q_ramification": 2,
+        "total_ramification": 12,
+        "global_map_constructed": false
+      }
+    ],
+    "boundary": "Only the declared finite observation relation was tested; no undeclared future operation or infinite/global equivalence is certified."
+  },
+  "states": [
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        -1,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        3,
+        3,
+        3
+      ],
+      "q_local_degrees": [
+        2,
+        2,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 9,
+      "ordinary_q_ramification": 3,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        -1,
+        1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        1,
+        3,
+        3
+      ],
+      "q_local_degrees": [
+        2,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        -1,
+        2
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        3,
+        1,
+        3
+      ],
+      "q_local_degrees": [
+        2,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        -1,
+        3
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        3,
+        3,
+        1
+      ],
+      "q_local_degrees": [
+        2,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        1,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        1,
+        3,
+        3
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        1,
+        2
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        1,
+        1,
+        3
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        1,
+        3
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        1,
+        3,
+        1
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        2,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        3,
+        1,
+        3
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        2,
+        1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        1,
+        1,
+        3
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        2,
+        3
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        3,
+        1,
+        1
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        3,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        3,
+        3,
+        1
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        3,
+        1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        1,
+        3,
+        1
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        3,
+        2
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        3,
+        1,
+        1
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        1,
+        -1,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        1,
+        3,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        1,
+        -1,
+        2
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        1,
+        1,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        1,
+        -1,
+        3
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        1,
+        3,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        1,
+        2,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        1,
+        1,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        1,
+        2,
+        3
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        1,
+        3,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        1,
+        3,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        1,
+        3,
+        2
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        2,
+        -1,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        3,
+        1,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        2,
+        -1,
+        1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        1,
+        1,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        2,
+        -1,
+        3
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        3,
+        1,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        2,
+        1,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        1,
+        1,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        2,
+        1,
+        3
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        2,
+        3,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        3,
+        1,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        2,
+        3,
+        1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        3,
+        -1,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        3,
+        3,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        3,
+        -1,
+        1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        1,
+        3,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        3,
+        -1,
+        2
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        3,
+        1,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        3,
+        1,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        1,
+        3,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        3,
+        1,
+        2
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        3,
+        2,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        3,
+        1,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "6+0+0+0",
+      "B_occupancies": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        3,
+        2,
+        1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        -1,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        2,
+        3,
+        3
+      ],
+      "q_local_degrees": [
+        2,
+        2,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 9,
+      "ordinary_q_ramification": 3,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        -1,
+        1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        0,
+        3,
+        3
+      ],
+      "q_local_degrees": [
+        2,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        -1,
+        2
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        2,
+        1,
+        3
+      ],
+      "q_local_degrees": [
+        2,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        -1,
+        3
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        2,
+        3,
+        1
+      ],
+      "q_local_degrees": [
+        2,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        1,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        0,
+        3,
+        3
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        1,
+        2
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        0,
+        1,
+        3
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        1,
+        3
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        0,
+        3,
+        1
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        2,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        2,
+        1,
+        3
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        2,
+        1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        0,
+        1,
+        3
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        2,
+        3
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        2,
+        1,
+        1
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        3,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        2,
+        3,
+        1
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        3,
+        1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        0,
+        3,
+        1
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        3,
+        2
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        2,
+        1,
+        1
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        1,
+        -1,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        0,
+        3,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        1,
+        -1,
+        2
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        0,
+        1,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        1,
+        -1,
+        3
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        0,
+        3,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        1,
+        2,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        0,
+        1,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        1,
+        2,
+        3
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        1,
+        3,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        0,
+        3,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        1,
+        3,
+        2
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        2,
+        -1,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        2,
+        1,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        2,
+        -1,
+        1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        0,
+        1,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        2,
+        -1,
+        3
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        2,
+        1,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        2,
+        1,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        0,
+        1,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        2,
+        1,
+        3
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        2,
+        3,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        2,
+        1,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        2,
+        3,
+        1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        3,
+        -1,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        2,
+        3,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        3,
+        -1,
+        1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        0,
+        3,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        3,
+        -1,
+        2
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        2,
+        1,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        3,
+        1,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        0,
+        3,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        3,
+        1,
+        2
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        3,
+        2,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        2,
+        1,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "4+2+0+0",
+      "B_occupancies": [
+        4,
+        2,
+        0,
+        0
+      ],
+      "q_target_labels": [
+        3,
+        2,
+        1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        -1,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        2,
+        2,
+        3
+      ],
+      "q_local_degrees": [
+        2,
+        2,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 9,
+      "ordinary_q_ramification": 3,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        -1,
+        0
+      ],
+      "q_special_per_fiber": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        2,
+        2,
+        3
+      ],
+      "q_local_degrees": [
+        2,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        -1,
+        1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        0,
+        2,
+        3
+      ],
+      "q_local_degrees": [
+        2,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        -1,
+        2
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        2,
+        0,
+        3
+      ],
+      "q_local_degrees": [
+        2,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        -1,
+        3
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        2,
+        2,
+        1
+      ],
+      "q_local_degrees": [
+        2,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        0,
+        -1
+      ],
+      "q_special_per_fiber": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        2,
+        2,
+        3
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        0,
+        1
+      ],
+      "q_special_per_fiber": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        0,
+        2,
+        3
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        0,
+        2
+      ],
+      "q_special_per_fiber": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        2,
+        0,
+        3
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        0,
+        3
+      ],
+      "q_special_per_fiber": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        2,
+        2,
+        1
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        1,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        0,
+        2,
+        3
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        1,
+        0
+      ],
+      "q_special_per_fiber": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        0,
+        2,
+        3
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        1,
+        2
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        0,
+        0,
+        3
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        1,
+        3
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        0,
+        2,
+        1
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        2,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        2,
+        0,
+        3
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        2,
+        0
+      ],
+      "q_special_per_fiber": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        2,
+        0,
+        3
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        2,
+        1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        0,
+        0,
+        3
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        2,
+        3
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        2,
+        0,
+        1
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        3,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        2,
+        2,
+        1
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        3,
+        0
+      ],
+      "q_special_per_fiber": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        2,
+        2,
+        1
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        3,
+        1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        0,
+        2,
+        1
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        -1,
+        3,
+        2
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        2,
+        0,
+        1
+      ],
+      "q_local_degrees": [
+        2,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        0,
+        -1,
+        -1
+      ],
+      "q_special_per_fiber": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        2,
+        2,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        0,
+        -1,
+        1
+      ],
+      "q_special_per_fiber": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        0,
+        2,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        0,
+        -1,
+        2
+      ],
+      "q_special_per_fiber": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        2,
+        0,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        0,
+        -1,
+        3
+      ],
+      "q_special_per_fiber": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        2,
+        2,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        0,
+        1,
+        -1
+      ],
+      "q_special_per_fiber": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        0,
+        2,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        0,
+        1,
+        2
+      ],
+      "q_special_per_fiber": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        0,
+        1,
+        3
+      ],
+      "q_special_per_fiber": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        0,
+        2,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        0,
+        2,
+        -1
+      ],
+      "q_special_per_fiber": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        2,
+        0,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        0,
+        2,
+        1
+      ],
+      "q_special_per_fiber": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        0,
+        2,
+        3
+      ],
+      "q_special_per_fiber": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        2,
+        0,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        0,
+        3,
+        -1
+      ],
+      "q_special_per_fiber": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        2,
+        2,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        0,
+        3,
+        1
+      ],
+      "q_special_per_fiber": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        0,
+        2,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        0,
+        3,
+        2
+      ],
+      "q_special_per_fiber": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        2,
+        0,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        1,
+        -1,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        0,
+        2,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        1,
+        -1,
+        0
+      ],
+      "q_special_per_fiber": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        0,
+        2,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        1,
+        -1,
+        2
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        0,
+        0,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        1,
+        -1,
+        3
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        0,
+        2,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        1,
+        0,
+        -1
+      ],
+      "q_special_per_fiber": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        0,
+        2,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        1,
+        0,
+        2
+      ],
+      "q_special_per_fiber": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        1,
+        0,
+        3
+      ],
+      "q_special_per_fiber": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        0,
+        2,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        1,
+        2,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        0,
+        0,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        1,
+        2,
+        0
+      ],
+      "q_special_per_fiber": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        1,
+        2,
+        3
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        0,
+        0,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        1,
+        3,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        0,
+        2,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        1,
+        3,
+        0
+      ],
+      "q_special_per_fiber": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        0,
+        2,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        1,
+        3,
+        2
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        0,
+        0,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        2,
+        -1,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        2,
+        0,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        2,
+        -1,
+        0
+      ],
+      "q_special_per_fiber": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        2,
+        0,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        2,
+        -1,
+        1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        0,
+        0,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        2,
+        -1,
+        3
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        2,
+        0,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        2,
+        0,
+        -1
+      ],
+      "q_special_per_fiber": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        2,
+        0,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        2,
+        0,
+        1
+      ],
+      "q_special_per_fiber": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        2,
+        0,
+        3
+      ],
+      "q_special_per_fiber": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        2,
+        0,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        2,
+        1,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        0,
+        0,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        2,
+        1,
+        0
+      ],
+      "q_special_per_fiber": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        2,
+        1,
+        3
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        0,
+        0,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        2,
+        3,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        2,
+        0,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        2,
+        3,
+        0
+      ],
+      "q_special_per_fiber": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        2,
+        0,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        2,
+        3,
+        1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        0,
+        0,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        3,
+        -1,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        2,
+        2,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 10,
+      "ordinary_q_ramification": 2,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        3,
+        -1,
+        0
+      ],
+      "q_special_per_fiber": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        2,
+        2,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        3,
+        -1,
+        1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        0,
+        2,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        3,
+        -1,
+        2
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        2,
+        0,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        2,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        3,
+        0,
+        -1
+      ],
+      "q_special_per_fiber": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        2,
+        2,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        3,
+        0,
+        1
+      ],
+      "q_special_per_fiber": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        0,
+        2,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        3,
+        0,
+        2
+      ],
+      "q_special_per_fiber": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        2,
+        0,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        3,
+        1,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        0,
+        2,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        3,
+        1,
+        0
+      ],
+      "q_special_per_fiber": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        0,
+        2,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        3,
+        1,
+        2
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        0,
+        0,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        3,
+        2,
+        -1
+      ],
+      "q_special_per_fiber": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        2,
+        0,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        2
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-X(Q)",
+          "order": 2
+        }
+      ],
+      "special_ramification": 11,
+      "ordinary_q_ramification": 1,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        3,
+        2,
+        0
+      ],
+      "q_special_per_fiber": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        0,
+        2,
+        0,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    },
+    {
+      "pattern": "2+2+2+0",
+      "B_occupancies": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "q_target_labels": [
+        3,
+        2,
+        1
+      ],
+      "q_special_per_fiber": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "ordinary_double_points_per_special_fiber": [
+        2,
+        0,
+        0,
+        1
+      ],
+      "q_local_degrees": [
+        4,
+        4,
+        4
+      ],
+      "q_local_parameter_valuations": [
+        {
+          "coordinate": "X",
+          "order": -4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        },
+        {
+          "coordinate": "X-target_special_value",
+          "order": 4
+        }
+      ],
+      "special_ramification": 12,
+      "ordinary_q_ramification": 0,
+      "total_ramification": 12,
+      "global_map_constructed": false
+    }
+  ],
+  "even_divisor_witness": {
+    "curve": "t^2=R^3-3R",
+    "U": "R^3+2*R*t+R^2-3",
+    "identity": "R*U=(R^2+t)^2",
+    "identity_residual": [],
+    "tamper_U_plus_1_residual": [
+      {
+        "coefficient": -1,
+        "powers": {
+          "a": 0,
+          "b": 0,
+          "c": 0,
+          "d": 0,
+          "e": 0,
+          "f": 0,
+          "R": 1,
+          "t": 0,
+          "k": 0,
+          "s": 0
+        }
+      }
+    ],
+    "polynomial": [
+      {
+        "coefficient": -3,
+        "powers": {
+          "a": 0,
+          "b": 0,
+          "c": 0,
+          "d": 0,
+          "e": 0,
+          "f": 0,
+          "R": 0,
+          "t": 0,
+          "k": 0,
+          "s": 0
+        }
+      },
+      {
+        "coefficient": 2,
+        "powers": {
+          "a": 0,
+          "b": 0,
+          "c": 0,
+          "d": 0,
+          "e": 0,
+          "f": 0,
+          "R": 1,
+          "t": 1,
+          "k": 0,
+          "s": 0
+        }
+      },
+      {
+        "coefficient": 1,
+        "powers": {
+          "a": 0,
+          "b": 0,
+          "c": 0,
+          "d": 0,
+          "e": 0,
+          "f": 0,
+          "R": 2,
+          "t": 0,
+          "k": 0,
+          "s": 0
+        }
+      },
+      {
+        "coefficient": 1,
+        "powers": {
+          "a": 0,
+          "b": 0,
+          "c": 0,
+          "d": 0,
+          "e": 0,
+          "f": 0,
+          "R": 3,
+          "t": 0,
+          "k": 0,
+          "s": 0
+        }
+      }
+    ],
+    "t_coefficient": "2*R",
+    "paper_arguments_separate": [
+      "U=R*(R+t/R)^2 as a function-field identity.",
+      "div(R)=2[T0]-2[O], and T0 is nonzero two-torsion, so [R] is geometrically nontrivial.",
+      "U is regular at finite points and has pole order exactly 6 at O.",
+      "Thus U has even divisor, lies in L(6O), and has nontrivial square class [R], but it has a nonzero t term.",
+      "The half-section R+t/R lies in L(2O+T0), not L(2O); the zero of R cancels its pole at T0."
+    ],
+    "status": "Auxiliary classification counterexample with exact polynomial check; geometric/divisor proof is a separately stated paper argument pending independent review.",
+    "global_six_block_map_constructed": false,
+    "frozen_lambda_six_block_existence_or_nonexistence_decided": false
+  }
+}

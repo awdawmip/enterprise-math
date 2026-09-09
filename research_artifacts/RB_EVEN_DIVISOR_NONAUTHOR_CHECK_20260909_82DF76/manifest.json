@@ -1,0 +1,70 @@
+{
+  "schema": "RB_EVEN_DIVISOR_NONAUTHOR_CHECK_MANIFEST_V1",
+  "status": "QUALIFIED_PASS_AUXILIARY_CLASSIFICATION_COUNTEREXAMPLE_ONLY",
+  "researcher_id": "EM-DIRECT-82DF76",
+  "research_role": "RESEARCHER",
+  "research_mode": "TASK_RESEARCH",
+  "activity_id": "RA-RB-EVEN-NONAUTHOR-82DF76-20260909",
+  "formal_task_id": null,
+  "claim_id": null,
+  "session_id": "codex-local-rb-even-nonauthor-82df76-20260909",
+  "session_id_kind": "LOCALLY_ASSIGNED_NOT_AUTHENTICATED_PLATFORM_ID",
+  "independence": {
+    "witness_author": false,
+    "source_exposed": true,
+    "clean_blind_claim": false,
+    "formal_review_authority": false,
+    "wider_explicit_map_source_opened": false
+  },
+  "source_branch": "research/rb-even-nonauthor-82df76-20260909",
+  "control_snapshot": "6a2006821783c558761d17049cd0d07fc51d47d0",
+  "input_packet": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "a945597ae63b3ad7cd94581467c835208072332a",
+    "directory": "research_artifacts/RB_BLIND_DELIVERY_INTAKE_20260909_5816EB/",
+    "files": [
+      {
+        "path": "INDEPENDENT_CHECK_PACKET.md",
+        "git_blob_sha1": "392d26a9922feb33ab329418217ba8ddac665fc8",
+        "sha256": "7d4e4d15f46d809d72ddc27b1177d569b482aac67795e34464ebd0f0511d93b8"
+      },
+      {
+        "path": "EVEN_DIVISOR_WITNESS.md",
+        "git_blob_sha1": "2eacb3f3fec3176d9e6779e61c7d8ca963f12bf9",
+        "sha256": "ec9b485b0c8a34469f4fd0b221de462fefaac2461619ed50801dd0264fcc1666"
+      },
+      {
+        "path": "even_divisor_witness.json",
+        "git_blob_sha1": "c3b4e9f59125941908e7b442fd5bb76a0a49de44",
+        "sha256": "06c9bb744e9e8ae46afd892b850bd9f28cc80e46b5f6c41ab8f0c94587786858"
+      }
+    ]
+  },
+  "target": {
+    "commit": "c73816d3552b4247861e12e476101e94a4a2ce5a",
+    "path": "research_artifacts/RB_ENTERPRISE_DEGREE6_CM24_BLIND_REPLICATION/raw_freeze_reduction.json",
+    "git_blob_sha1": "9a397eb108beaf7ec00e297e70f5d854e803afc8",
+    "projected_field": "payload.exact_reduction.six_block_obstruction"
+  },
+  "report": {
+    "path": "research_artifacts/RB_EVEN_DIVISOR_NONAUTHOR_CHECK_20260909_82DF76/REPORT.md",
+    "sha256": "f0249389489502f17a9c0085f977a8140e574bffd2e8effdfbc21f3484e9690a"
+  },
+  "checked_by_reviewer": [
+    "symbolic expansion",
+    "finite regularity and exact pole order",
+    "even divisor and geometric nonsquare proof",
+    "exclusion of undersized templates",
+    "five finite B-point evaluations",
+    "Riemann-Roch basis and valuation equivalence"
+  ],
+  "author_program_rerun": false,
+  "full_six_block_problem_solved": false,
+  "global_map_constructed": false,
+  "mathematical_acceptance": false,
+  "canonical_main_intake": "PENDING_OWNER_INTAKE",
+  "error_record": "One local field projection used exact_reduction without its outer payload wrapper and raised TypeError. Corrected by projecting the already fetched response; no remote retry.",
+  "startup_registration_commit": "38007a7424cbbfafcebdd422e89dce85e7e94ca6",
+  "startup_registration_git_blob_sha1": "6fd4e17c08e37ca7aaa9ee8a8c1cdc35f14e022a",
+  "startup_guard": "CONTINUE_ACTIVITY / IMMUTABLE_EM_RECORD_OBSERVED"
+}

@@ -1,0 +1,99 @@
+{
+  "schema": "RB_REVIEWED_INTAKE_RUNTIME_PROJECTION_V1",
+  "candidate_only_until_remote_main_admission": true,
+  "source_before_review": "610123ed59fab638abcaf6ee013df2bfcdcac419",
+  "review_id": "DR-471BD65662D7933A46E8",
+  "followup_id": "DFU-3AB16F03E2C9FBFFA5E7",
+  "old_task_hard_target_satisfied": false,
+  "old_task_parked": true,
+  "new_task_is_source_exposed_repair_not_blind_replay": true,
+  "new_claim_created": false,
+  "parent_closed": false,
+  "states": {
+    "RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-REPLICATION": {
+      "task_id": "RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-REPLICATION",
+      "state": "DONE",
+      "claim_id": null,
+      "actor": null,
+      "researcher_id": null,
+      "last_researcher_id": "EM-RBV2REP-A61F3C",
+      "identity_source": null,
+      "lease_until": null,
+      "hard_block": null,
+      "last_progress_ref": "User requested independent blind replication of a closed theorem-package candidate; explicit formula withheld.",
+      "last_progress_at": "2026-08-27T21:16:00+08:00",
+      "next_action": "Using only the task-local blind inputs, reconstruct the degree-6 map by exact algebraic geometry or function-field methods; freeze an explicit X/Y candidate or a rigorous refutation, its branch divisor, target elliptic equation, pullback differential coefficient, period-scaling derivation, and SHA256 before any unblinding or broader repository/literature comparison.",
+      "ignored_events": [
+        {
+          "index": 2,
+          "reason": "task is not dispatchable"
+        },
+        {
+          "index": 562,
+          "reason": "registered HANDOFF scope contract: terminal_candidate is legacy-only after cutover"
+        },
+        {
+          "index": 563,
+          "reason": "registered HANDOFF scope contract: explicit machine scope required after cutover"
+        }
+      ],
+      "dispatch_state": "COMPLETE",
+      "title": "Ramanujan–Borwein × Enterprise Degree-6 CM(-24) Blind Reconstruction",
+      "kind": "RESEARCH",
+      "owner": "research/rb-enterprise-degree6-cm24-blind-replication",
+      "priority": "P2",
+      "leverage": "MEDIUM",
+      "frontier": "Independently reconstruct or refute, under a blind-forward protocol, a degree-6 algebraic map from the frozen genus-4 source D to the principal discriminant -24 CM elliptic target with the prescribed principal differential direction, without access to the existing explicit map or its symbolic replay.",
+      "source_refs": [],
+      "registration_source": "IMMUTABLE_TASK_RECORD",
+      "publication_id": "TP2-9F1A3C0DEFAED8B6E247",
+      "event_authentication": "GITHUB_SERVER_COMMENT_ENVELOPE",
+      "last_server_comment_id": 5578453645,
+      "last_server_author_login": "awdawmip",
+      "identity_lane": "RBV2REP",
+      "result_id": "RR-5BA6B8E6F611D72FA4F6",
+      "result_record_path": "research_result_records/RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-REPLICATION/RR-5BA6B8E6F611D72FA4F6.json",
+      "driver_disposition": "PARKED",
+      "review_id": "DR-471BD65662D7933A46E8"
+    },
+    "RS-RB-SIX-BLOCK-COMPLETE-HALF-SECTION-OBSTRUCTION-REPAIR": {
+      "task_id": "RS-RB-SIX-BLOCK-COMPLETE-HALF-SECTION-OBSTRUCTION-REPAIR",
+      "state": "READY",
+      "claim_id": null,
+      "actor": null,
+      "researcher_id": null,
+      "last_researcher_id": null,
+      "identity_source": null,
+      "lease_until": null,
+      "hard_block": null,
+      "last_progress_ref": "TP2-8B673D783D3FBC81E124",
+      "last_progress_at": "2026-09-09T12:07:45.195398+00:00",
+      "next_action": "Form the complete four-type even-divisor pencil for the six-point branch block, preserve constant square classes and the full fixed-k ODE, and prove the exclusion or produce an exact fully verified fixed-k counterexample; do not rerun old blind reductions or the180/360 enumeration.",
+      "ignored_events": [],
+      "dispatch_state": "NEEDS_DISPATCH",
+      "title": "RB six-block obstruction repair with complete half-section spaces",
+      "kind": "RESEARCH",
+      "owner": "taskbook/unassigned",
+      "priority": "P1",
+      "leverage": "HIGH",
+      "frontier": "The local special-Q degrees2/4 are recovered, and a non-author check confirms that the cited six-block exclusion omitted allowed half-section poles at nonzero two-torsion. Its global exclusion conclusion is not established by that argument; the conditional two-pattern results and concrete accepted map remain intact.",
+      "source_refs": [
+        "https://github.com/awdawmip/enterprise-math/blob/610123ed59fab638abcaf6ee013df2bfcdcac419/research_result_records/RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-REPLICATION/RR-5BA6B8E6F611D72FA4F6.json",
+        "https://github.com/awdawmip/enterprise-math/blob/610123ed59fab638abcaf6ee013df2bfcdcac419/research_artifacts/RB_BLIND_DELIVERY_INTAKE_20260909_5816EB/parallel_source_manifest.json",
+        "https://github.com/awdawmip/enterprise-math/blob/610123ed59fab638abcaf6ee013df2bfcdcac419/research_artifacts/RB_BLIND_DELIVERY_INTAKE_20260909_5816EB/DEPENDENCY_IMPACT_REVIEW.md",
+        "https://github.com/awdawmip/enterprise-math/blob/61dedaa3528fc32757e1a7c8636b5167da2e959b/research_artifacts/RB_EVEN_DIVISOR_NONAUTHOR_CHECK_20260909_82DF76/REPORT.md",
+        "https://github.com/awdawmip/enterprise-math/blob/c73816d3552b4247861e12e476101e94a4a2ce5a/research_artifacts/RB_ENTERPRISE_DEGREE6_CM24_BLIND_REPLICATION/raw_freeze_reduction.json",
+        "https://github.com/awdawmip/enterprise-math/blob/108ac80d4af9a1ebe19cc613aaccb7402564100e/research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/squareclass_rr_reduction.md",
+        "https://github.com/awdawmip/enterprise-math/blob/108ac80d4af9a1ebe19cc613aaccb7402564100e/research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/empty_fiber_obstruction.md",
+        "https://github.com/awdawmip/enterprise-math/blob/610123ed59fab638abcaf6ee013df2bfcdcac419/research_artifacts/RB_BLIND_DELIVERY_INTAKE_20260909_5816EB/TOOL_REUSE_RESOLUTION.md"
+      ],
+      "registration_source": "IMMUTABLE_TASK_RECORD",
+      "publication_id": "TP2-8B673D783D3FBC81E124",
+      "event_authentication": "NO_RUNTIME_EVENT",
+      "last_server_comment_id": null,
+      "last_server_author_login": null,
+      "identity_lane": "RB6FIX"
+    }
+  },
+  "elapsed_seconds": 12.728356599982362
+}

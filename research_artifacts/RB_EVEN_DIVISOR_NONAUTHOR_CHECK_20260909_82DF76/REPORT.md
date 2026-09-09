@@ -1,0 +1,33 @@
+# Qualified non-author check of the RB even-divisor witness
+
+Status: QUALIFIED_PASS_AUXILIARY_CLASSIFICATION_COUNTEREXAMPLE_ONLY.
+Researcher-ID: EM-DIRECT-82DF76.
+Research-Role: RESEARCHER. Research-Mode: TASK_RESEARCH.
+Research-Activity-ID: RA-RB-EVEN-NONAUTHOR-82DF76-20260909.
+Session: codex-local-rb-even-nonauthor-82df76-20260909 (locally assigned key, not an authenticated platform session ID).
+No formal Task, CLAIM, Driver verdict, Working Truth, or Foundation authority is asserted.
+
+This reviewer did not author U. The review is source-exposed: the requesting Driver's candidate and proposed arguments were supplied, and the three-file packet at a945597ae63b3ad7cd94581467c835208072332a was read. The reviewer gives the following independent paper derivation; the supplied executable PASS is not a premise. No blind program was rerun and no wider explicit-map source was opened. The exact original target was projected from its existing JSON response at payload.exact_reduction.six_block_obstruction; the outer payload wrapper corrects the abbreviated field path in the request.
+
+Work geometrically over an algebraically closed field of characteristic zero. The cubic R^3-3R has distinct roots, so its smooth projective curve C has genus one, with O at infinity and ord_O(R)=-2, ord_O(t)=-3.
+
+1. **Identity, regularity, and pole.** Direct expansion gives
+   (R^2+t)^2=R^4+2R^2t+(R^3-3R)=R(R^3+2Rt+R^2-3)=RU.
+   U is a polynomial in affine coordinates, hence regular at every finite point. Its four displayed terms have pole orders 6,5,4,0 at O; the unique order-six term cannot cancel. Thus ord_O(U)=-6 and U belongs to L(6O).
+
+2. **Even divisor and nontrivial class.** At T0=(0,0), t is a local parameter and R has order two. Therefore div(R)=2T0-2O. Put q=R+t/R. Then U=Rq^2 and div(U)=div(R)+2div(q), which is even at every point. Moreover [U]=[R] in the geometric function-field square-class group. If R were a square, a square root would have divisor T0-O; this would be a nonconstant function with a single simple pole. It contradicts l(O)=1 (equivalently, a genus-one curve admits no degree-one map to P1). Hence the class remains nontrivial after algebraic closure.
+
+3. **The smaller templates fail.** L(2O)=<1,R>. Every (R-r)(a+bR)^2, for r=0,+sqrt(3),-sqrt(3), lies in the rational subfield in R. But U has t coefficient 2R, which is nonzero in the unique decomposition k(R) plus t*k(R). Thus U has none of these forms, including scalar multiples. Its nontrivial geometric square class also excludes every square from L(3O).
+
+4. **The five specified finite B points are avoided.** Substitution gives U(T0)=-3; U(T+) =3sqrt(3); U(T-)=-3sqrt(3). At P±=(-2,±i*sqrt(2)), U=-7-4t and t^2=-2. The product of these two values is 49-16*(-2)=81, so both are nonzero. This checks precisely the five points specified in the packet.
+
+5. **Correct half-section space.** For each root r, div(R-r)=2T_r-2O. The function z=t/(R-r) has a simple pole at T_r and a simple pole at O, and no other poles. Hence 1,R,z lie in L(2O+T_r). They are independent: z has a finite pole, while 1 and R do not. Riemann--Roch gives l(2O+T_r)=3, proving the stated basis. More precisely, for a nonzero U=(R-r)q^2, regularity away from O and ord_O(U)>=-6 are equivalent to
+   ord_P(q)>=0 for P outside {O,T_r}, ord_T_r(q)>=-1, and ord_O(q)>=-2.
+   Thus this entire fixed geometric square-class sector is (R-r)L(2O+T_r)^2, not (R-r)L(2O)^2. The witness q=R+t/R has the allowed pole at T0. Over a non-algebraically-closed base, constants and the rationality of T_r must be tracked; this report makes no stronger unsplit-base classification.
+
+6. **Exact consequence.** U refutes the quoted exhaustive auxiliary classification, and specifically invalidates its assertion that every non-square type has no t term. Consequently that six-block exclusion proof has a gap. U alone is not a triple G,G-F,G-lambda*F and does not satisfy or solve the complete pencil/ODE problem. This review neither refutes nor proves the six-block map-exclusion theorem and constructs no global map.
+
+Method boundary: positive-weighted BRC is NOT_APPLICABLE here: the selected algebraic review specifies no positive branch population with alternative/serial composition. The adequate exact carrier is the function field together with full integer valuations and its R/t decomposition. Divisor parity and square class are used only for their stated outputs; neither discards the t coefficient needed for template exclusion. No new tool family is claimed. P000 was loaded and remains the project premise; these are typed algebraic-curve statements, with no new native-geometry or world-dimension assertion.
+
+Validation: independent symbolic expansion, local-order/divisor arguments, Riemann--Roch, and exact point substitution above. The supplied integer-polynomial execution and U+1 tamper were inspected as author provenance, not rerun or credited as this reviewer's execution. A single local projection attempt initially omitted the JSON payload wrapper and raised TypeError; the saved response was then projected at the correct field without repeating remote retrieval. Source publication is on this reviewer's branch; canonical intake and mathematical acceptance remain separate.
+

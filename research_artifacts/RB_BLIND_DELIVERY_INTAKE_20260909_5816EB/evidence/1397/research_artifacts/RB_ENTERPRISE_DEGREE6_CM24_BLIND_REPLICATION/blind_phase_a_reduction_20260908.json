@@ -1,0 +1,68 @@
+{
+  "artifact_schema": "ENTERPRISE_MATH_RB_CM24_BLIND_PHASE_A_REDUCTION_V1",
+  "phase_marker": "BLIND_INCOMPLETE_EXACT_REDUCTION_FROZEN",
+  "generated_at": "2026-09-08T10:45:00+08:00",
+  "task_id": "RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-REPLICATION",
+  "publication_id": "TP2-9F1A3C0DEFAED8B6E247",
+  "researcher_id": "EM-RBV2REP-6D9A31",
+  "claim_id": "chatgpt-rbv2rep-20260908-1012-sol6d9a31",
+  "sha256_of_canonical_without_sha256_field": "sha256:00ff201f10f57b0760f2aba36447065a0fcb2ef6f41948dc677a39b3b087d5e6",
+  "blind_firewall": {
+    "status": "PRESERVED_FOR_PHASE_A_MATH",
+    "consumed_inputs": [
+      "D: w^4=(R+2)^2 R(R^2-3)",
+      "C: t=w^2/(R+2), t^2=R^3-3R",
+      "phi=dR/w*(1+k/t)",
+      "k=-i*3^(1/4)*(sqrt(6)-2)",
+      "lambda*=35+24sqrt(2)-20sqrt(3)-14sqrt(6)",
+      "degree target=6",
+      "coefficient field bound Q(i,3^(1/4),sqrt(2))"
+    ],
+    "not_consumed": [
+      "originating explicit map coefficients",
+      "common base point",
+      "target twist constant",
+      "originating symbolic replay",
+      "originating period-scaling answer",
+      "broad project journals/history",
+      "targeted external formula search"
+    ]
+  },
+  "exact_phase_a_derivations": {
+    "elliptic_quotient": "Let C be t^2=R^3-3R and h=(R+2)t. The blind source is K(D)=K(C)(w), w^2=h.",
+    "principal_differential": "phi=(t+k)dR/(w*t). Hence div_D(phi)=pi^*div_C(t+k) if the three roots of R^3-3R-k^2 are simple.",
+    "k_square": "k^2=12*sqrt(2)-10*sqrt(3). The cubic R^3-3R-k^2 has discriminant 108-27*k^4, nonzero for this k, so div_C(t+k) is three reduced points and div_D(phi) has six reduced points.",
+    "deck_symmetry_reduction": "The deck involution iota:w->-w sends phi to -phi. Therefore any morphism f:D->E with f^*omega_E proportional to phi must satisfy f∘iota = tau_T∘[-1]∘f for some T in E, after fixing an origin. Thus the problem descends to a degree-6 quotient map x:C=D/<iota> -> E/(P->T-P) ≅ P^1 with the same quadratic square-class h.",
+    "reduced_certificate": "Find x in K(C) of degree 6 and a branch coordinate on P^1 with cross-ratio lambda* such that the pullback of the four fixed points has square-class h=(R+2)t modulo K(C)^{*2}; the three points t=-k account for the six ramification zeros upstairs."
+  },
+  "tested_phase_a_routes": [
+    {
+      "route_id": "U0_POLE_BRANCH_DIVISOR",
+      "definition": "U0=((t+k)/w)^2=(t+k)^2/((R+2)t)",
+      "reason_tested": "U0 has zero divisor over t=-k and degree 12 on D / degree 6 on C.",
+      "result": "Does not by itself yield a nondegenerate Legendre cubic in the monic F(U0) square test. The exact square family detected is the degenerate genus-0 family F(U0)=U0*(U0-a)^2.",
+      "status": "ROUTE_REDUCED_NOT_CLOSED"
+    },
+    {
+      "route_id": "CONJUGATE_RATIO_Q",
+      "definition": "q=(t+k)/(t-k), X=q^2",
+      "reason_tested": "Uses the conjugate zero divisor t=k as trial pole divisor.",
+      "result": "The square-class test reduces to L/(R+2) being a square on C, where L=(1-lambda*)*(R^3-3R+k^2)+2k*(1+lambda*)t. Direct evaluation at the two points R=-2,t=±i*sqrt(2) gives nonzero residues, so this denominator choice cannot make L/(R+2) a square.",
+      "status": "EXACT_ROUTE_NO_GO_FOR_THIS_NORMALIZATION"
+    }
+  ],
+  "primary_verdict": "BLIND_INCOMPLETE_EXACT_REDUCTION",
+  "hard_target_disposition": "NOT_CLOSED",
+  "strictly_smaller_unresolved_unit": {
+    "name": "DEGREE6_QUOTIENT_MAP_ON_C_WITH_CM24_BRANCH_CROSS_RATIO",
+    "field": "Q(i,3^(1/4),sqrt(2))",
+    "unknowns": [
+      "degree-6 function x on C:t^2=R^3-3R",
+      "branch coordinate/four fixed-point fibers with cross-ratio lambda*",
+      "square witness g with branch square-class h modulo squares",
+      "nonbranch ramification placement over t=-k",
+      "target twist constant and period scaling after a candidate is frozen"
+    ],
+    "next_exact_action": "Solve the descended degree-6 Hurwitz/square-class system on C; prioritize three-pair partitions of the six branch points of h because Riemann-Hurwitz gives 3*2+3=9+3=12 for the quotient map when the t=-k points supply the remaining simple ramification."
+  }
+}
