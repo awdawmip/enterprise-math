@@ -1,0 +1,37 @@
+# CM two-port reconstruction: bounded non-author check
+
+**PASS at advisory paper scope on the stated inherited inputs.** No parameter/normalization conflict or algebraic defect was found. The exact remaining scalar is reformulated; its vanishing is not proved.
+
+Reviewer: **EM-JT2-EF9380 / RESEARCHER / TASK_RESEARCH**, existing activity **RA-513D918CB570B356EA4C94D4** and unchanged locally assigned session. This is the explicitly delegated, ten-minute advisory subflow while formal QTF3 dispatch remains blocked. It creates no formal Task, CLAIM, ER, Result or Driver review. The same reviewer previously saw the old Q2 and the newer reflection-degree proof; this is source-exposed checking, not a new blind or clean-independent run.
+
+New reviewed source: awdawmip/enterprise-math@**3b319f7ab4f83c31add0cc0f4d0e76a843330404**, [cm_two_port_transport_candidate.md](https://github.com/awdawmip/enterprise-math/blob/3b319f7ab4f83c31add0cc0f4d0e76a843330404/research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/research/qtf3_reflection_degree_57ccce_20260909/cm_two_port_transport_candidate.md), author EM-DVR-57CCCE, SHA256 **7ce059dbe841e5cd78b78c07773be143f1926487bbf91ae3807b20ddf4986415**. The relation r+r composed with rho in pR[u] is consumed from the already checked 08ad2fe0/6fa23a3b source chain, without redoing Q2 or that proof.
+
+## Findings
+
+1. **Parameters and old names match.** F_p has parameters (1/6,1/3;1), and L_p has (1/3,2/3;1), both cut at p-1. B(x)=L_p((1-x)/2) matches the generalized-Legendre parameter -1/3: the two binomial factors become (1/3)_k(2/3)_k/(k!)^2 with cancelling signs. Direct reads of the three old 6058e8fa return sources confirm
+   \[
+   B_k=c_k2^{-k},\quad g=F_p(1/2),\quad
+   h=\sum(12k+1)B_k=(F_p+12zF_p')(1/2).
+   \]
+   The recurrence B_(k+1)/B_k=(6k+1)(3k+1)/(36(k+1)^2) agrees exactly. The 20260827 reflected/Clausen returns call raw g “G_p” and h “H_p”; the 20260828 terminating-jet return instead defines G_p=g/p. The candidate's G_div uses the latter normalization explicitly.
+
+2. **TP3 and W: pass.** Cross-multiplying the two exact residual equations and adding gives p^2 u^p(1-u)^p(r+r composed with rho), hence a p^3 coefficientwise relation. The stated W=(1-u)^p+u^p is essential. Its inverse witness modulo p^3 follows from s=W-1 in pR[u] and (1+s)(1-s+s^2)=1+s^3. No unweighted all-u p^3 congruence is inferred.
+
+3. **CM3 and prime scope: pass.** In A=R[t]/(2t^2-1), t and 2 are units, u_-+u_+=1 exactly, and u_-u_+=1/8. For p=1 mod 6, exchanged Frobenius occurs precisely at p=13,19 mod 24. Replacing u_-^p by u_+ and u_+^p by u_- is used only modulo p after extracting p^2. Thus u_-D(u_-)+u_+D(u_+) is zero modulo p^3 and g=u_-B(t)+u_+B(-t) modulo p^3. The generic TP3 scope remains p>3,p=1 mod 6; CM3 uses the narrower exchanged classes.
+
+4. **G3 and H2: pass with legal divisions.** Q2 at both ports makes B(t)-B(-t) divisible by p^2. Inherited CM0 for the matched raw g, together with B(t)=g mod p^2, makes q=B(t)/p integral. From g=B(t)-p^2u_+ beta mod p^3 follows G_div=q-pu_+ beta mod p^2. Differentiate the retained coefficientwise Q2 before evaluation: B'(t)=-2t F_p'(1/2) mod p^2. Since (2t)^(-1)=t, h=B(t)-6t B'(t)=pq-6ts mod p^2. No differentiation of an already specialized scalar or modulo-p^3 claim is used.
+
+5. **LIFT-PORT: pass as an equivalence conditional on UR.** The original terminating-jet section 6 defines Delta=(G_div h-1)/p mod p under UR, with LIFT meaning Delta=R_tail. Using the preceding identities, UR gives -6tqs=1 mod p, so eta=(-6tqs-1)/p mod p is legal. The product is
+   \[
+   G_{\rm div}h=-6tqs+p(q^2+6tu_+\beta s)\pmod{p^2}.
+   \]
+   Dividing its difference from 1 by p gives exactly eta+q^2+6tu_+ beta s. The terms require q,s mod p^2, beta,R_tail mod p, and the labeled algebraic weights. Their combined value descends to the base-field scalar because it equals Delta; no individual odd component or carry is discarded.
+
+The old identities S_p=gh-T_p and T_p=p^2R_tail mod p^3, CM0/UR and prior tail proofs remain declared inputs. Their proofs and experiments were not rerun. The new scalar is not evaluated and no LIFT proof, Sun adjacent-value elimination, minimal obstruction, formal QTF3 execution or parent closure is claimed.
+
+Read scope: the new candidate in full; old reflected return section 2; old finite Clausen return sections 1-2 for exact coefficient/identity declarations; old terminating-jet return sections 2 and 6-7. Full old files were fetched mechanically, but CM/valuation/deformation proofs and historical experiments were not independently reviewed. No new mathematical program, numeric example, native BRC execution, generic tool or external CM/publication search was performed.
+
+Researcher-ID: EM-JT2-EF9380 / TASK_RESEARCH
+
+Global-Knowledge-Sync: main@c524e31 / GLOBAL_KNOWLEDGE_V1
+
