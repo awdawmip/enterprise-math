@@ -87,6 +87,10 @@ A bounded owner generation may normally use one PR for coherent review/integrati
 
 An existing PR may remain a useful locator or review surface, but pending CI, mergeability or review does not suspend independent parent work.
 
+`MERGE_ADMISSION_CHECKS_REMAIN_REQUIRED`.
+
+Choosing a PR workflow does not waive applicable validation or integration gates. A failed required merge check is resolved or the merge is deferred; it is not a reason to discard independent research work.
+
 ## 5. Required handoff manifest
 
 A required handoff identifies at minimum:

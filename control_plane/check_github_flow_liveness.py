@@ -89,8 +89,12 @@ def check() -> None:
         "durable handoff must not require opening a Pull Request",
     )
     require(
-        "do not open a pr solely to obtain a locator" in handoff.lower(),
-        "handoff protocol must forbid PR creation used only as storage or CI trigger",
+        "normal branch/pr/merge workflow without a separate necessity test" in handoff.lower(),
+        "handoff protocol must allow the normal PR workflow without a separate necessity gate",
+    )
+    require(
+        "MERGE_ADMISSION_CHECKS_REMAIN_REQUIRED" in handoff,
+        "an optional PR workflow must preserve applicable merge-admission checks",
     )
 
     taskbook = read("docs/RESEARCH_TASKBOOK_AUTHORING_AND_REVIEW.md")
