@@ -76,9 +76,9 @@ Default checkpoint behavior:
 3. return branch, commit SHA, exact paths, inventory, frontier and next action;
 4. record the HANDOFF `progress_ref` against that durable commit/path when scheduler coordination is required;
 5. keep the branch/tag reachable until the material is accepted, superseded or deliberately archived;
-6. do not open a PR solely to obtain a locator, trigger CI, produce a conversation stopping point or create a review queue item.
+6. a model may use its normal branch/PR/merge workflow without a separate necessity test; neither PR creation nor CI waiting is a universal checkpoint prerequisite or a conversation stopping point.
 
-Open or update at most one PR for a bounded owner generation only when:
+A bounded owner generation may normally use one PR for coherent review/integration. Reasons include the model's normal publication workflow or:
 
 - the exact task explicitly requires a PR;
 - an authorized Driver has begun actual review/integration;
@@ -125,6 +125,8 @@ After a Researcher execution ends:
 6. open a review/integration PR only when that bounded subflow actually begins.
 
 A successor receives the persisted handoff packet plus exact governing task authority. It is not expected to share the predecessor's hidden conversational state.
+
+The receiving line Driver retains review continuity across researchers and records accepted obligations and unresolved issues in its dossier. Once required material is durable and readable, the temporary researcher may finish; it need not remain alive for the rest of the line. Ordinary delivery and review go directly to that Driver rather than through the portfolio Owner. Discarding researcher runtime context never authorizes deletion of durable evidence.
 
 ## 8. Voice/oral continuity
 
