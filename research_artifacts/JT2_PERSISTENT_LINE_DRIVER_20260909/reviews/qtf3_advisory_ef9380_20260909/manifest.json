@@ -1,0 +1,121 @@
+{
+  "schema": "JT2_QTF3_BOUNDED_NONAUTHOR_REFERENCE_REVIEW_V1",
+  "outcome": "PASS_PAPER_REVIEW_ON_EXPLICIT_Q2_INPUTS_NO_FORMAL_ACCEPTANCE",
+  "report": {
+    "path": "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/qtf3_advisory_ef9380_20260909/reference_review.md",
+    "bytes": 5196,
+    "sha256": "a8bfc15cfaa438ff0538dc66ec14f471308896a9e9d46aa1085598bbe95d0c44",
+    "blob": "d7a1aab47c06d837379b56af7bcfcf529f67c0e6"
+  },
+  "reviewer": {
+    "researcher_id": "EM-JT2-EF9380",
+    "role": "RESEARCHER",
+    "mode": "TASK_RESEARCH",
+    "activity_id": "RA-513D918CB570B356EA4C94D4",
+    "session_id": "local:codex-agent:jt2-bounded-reference-review:20260909:EF9380",
+    "session_id_kind": "REUSED_LOCAL_STABLE_KEY_NOT_SERVER_ID",
+    "authorship": "Did not contribute to the new EM-DVR-57CCCE argument before receiving it; reviewed old Q2 input in the prior bounded assignment.",
+    "exposure": "SOURCE_EXPOSED; prior Q2 review and shared line-control context disclosed; no clean/blind independence assertion"
+  },
+  "startup": {
+    "current_main_observed": "c2464a2154263815b6d1658e84d15045bf9dbc55",
+    "activity_path": "research_activity_records/RA-513D918CB570B356EA4C94D4.json",
+    "activity_sha256": "05c62cd0fa48a1ab1f28468d1abbacd2bda3c719b1afa9f73c9a50002f28b31c",
+    "activity_blob": "50852927d3eb55570c071518a5f584c89b066c28",
+    "full_activity_readback_before_math": true,
+    "session_match": true,
+    "activity_allowed": true,
+    "persistence_allowed": true,
+    "formal_authorized": false,
+    "previous_checkpoint_preserved": "JT2-ADVISORY-EF9380-SIX-POINT-REVIEW-20260909",
+    "new_event_id": "JT2-ADVISORY-EF9380-QTF3-REFLECTION-DEGREE-20260909"
+  },
+  "control": {
+    "global_knowledge_read_sha": "f4a5ea6ddb864389c68ec24c3d286bc170486305",
+    "global_entry_files": "Byte-identical to the three already-read canonical bootstrap/manual/sync files at 0707cda, verified by local Git diff exit 0.",
+    "current_runtime_script_blobs": {
+      "tools/research_activity.py": "91425f02b70dd49a067454883ab53b4adae8fa7f",
+      "tools/research_runtime_guard.py": "56e3bd35cfd439969bb78d6e046df34752f226f8",
+      "tools/active_turn_liveness.py": "7361b9a10b88b01fadf0147a0097480601c8c841",
+      "tools/research_identity.py": "b3236ceca19f4db6322b3bf49568cfde2a664fcc"
+    },
+    "branch": "research/jt2-advisory-ef9380-20260909",
+    "em_main_mutation": false
+  },
+  "inputs": [
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "08ad2fe0fac52949207ddc3559ad70a1b95b577a",
+      "path": "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/research/qtf3_reflection_degree_57ccce_20260909/qtf3_reflection_degree_candidate.md",
+      "blob": "bb28fc0028f588bdce58222b15136733dca8c4f4",
+      "read_scope": "OWN_FULL_IMMUTABLE_CONNECTOR_READ",
+      "sha256": "b01d1edba35e7e508dd7ff47523c1ef4ee7b1a137d8b59d880b1e0f00733c189"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "08ad2fe0fac52949207ddc3559ad70a1b95b577a",
+      "path": "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/research/qtf3_reflection_degree_57ccce_20260909/next_observer_contract.md",
+      "blob": "84324f754c0ce8f13a53c79eb73f967919a251dc",
+      "read_scope": "FULL_CONNECTOR_READ_FOR_CONTEXT; separate LIFT formulas not reviewed or accepted",
+      "sha256": "2e4f3369a59e351f0c1a5dc1343946044c2285be6e500793014e4010f9815dc9"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "08ad2fe0fac52949207ddc3559ad70a1b95b577a",
+      "path": "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/research/qtf3_reflection_degree_57ccce_20260909/manifest.json",
+      "blob": "a7a8455d06804ee82a40898df08e32fa0d684af8",
+      "read_scope": "OWN_FULL_IMMUTABLE_CONNECTOR_READ",
+      "sha256": "e64887cbaf570917867c40834ea678c8c25bcb49e1da86e9774e7788d1080da8"
+    }
+  ],
+  "consumed_old_Q2": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "9e3a41dc9909ad98c789bb8d53a27addd0649eaa",
+    "path": "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/ur_reuse_20260909/driver_authored_transport_candidate.md",
+    "sha256": "063ac8f6f31f83f0b9e16a3a3520aebd52527eb8237a28f07a833fa0f6d28eee",
+    "read_scope": "Section 2 re-read from the supplied earlier byte-verified local copy; own fresh SHA256 match. Consume both coefficientwise p^2 divisibility and exact zero prefix separately; no old proof replay.",
+    "prior_review_commit": "8bb5790f3ae1f49cfdb780e94eea78d0192c59c3",
+    "prior_review_is_new_lemma_review": false
+  },
+  "task_contract": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "c2464a2154263815b6d1658e84d15045bf9dbc55",
+    "path": "research_tasks/EMW59A_JT2_QTF3_FIXED_POINT_GEN2_20260909.md",
+    "blob": "329d20a93b798f25002fef2b1b28a4cb34dc672c",
+    "sha256": "cc5cd50d5bbd94cb41e7d4bc0123634a5a57e235cecdc919bed723b9981d83e0",
+    "read_scope": "OWN_FULL_CONNECTOR_READ; alternative finite invariant and target/output boundaries only"
+  },
+  "checked_chain": [
+    "R=Z_(p), p-1 truncation and p-unit denominators",
+    "p^2 divisibility and exact degree-below-p zero prefix are separate consumed facts",
+    "E=D/p^2=u^p r integral, degree r at most p-2",
+    "phi is exactly reflection invariant, giving degree(E-E composed with rho) at most p-1",
+    "Frobenius used only modulo p; high-degree coefficient separation forces rbar+rbar composed with rho=0",
+    "2-unit fixed point yields D(1/2) in p^3 R",
+    "Specialization p>3 and p=1 mod6 only; no all-u p^3 identity or old LIFT implication"
+  ],
+  "author_metadata_boundary": "Candidate manifest's post-argument authoring registration timing is disclosed and is not backdated or independently converted into a pre-math gate.",
+  "execution": {
+    "paper_reasoning": true,
+    "new_mathematical_program": false,
+    "numerical_examples": false,
+    "old_77_prime_replay": false,
+    "new_tool": false,
+    "native_brc_api": false,
+    "external_CM_or_publication_search": false
+  },
+  "reuse": {
+    "classification": "REUSE_APPLIED_AT_PAPER_SCOPE",
+    "interface": "Existing T0/T6 retained-input and operation-safe quotient discipline; exact prefix, finite degree, sign and reflection kept through p^2 division and mod-p observation"
+  },
+  "scope": {
+    "formal_qtf3_task_execution": false,
+    "new_claim": false,
+    "formal_result": false,
+    "formal_driver_disposition": false,
+    "old_LIFT_accepted": false,
+    "sun_output3_or_conditional6_closed": false,
+    "parent_objectives_closed": false,
+    "prior_report_changed": false
+  }
+}

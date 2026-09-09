@@ -1,0 +1,28 @@
+{
+  "schema": "JT2_CANONICAL_FORMAL_RESEARCH_ENTRY_NEGATIVE_PROBE_V1",
+  "canonical_snapshot": "6a2006821783c558761d17049cd0d07fc51d47d0",
+  "entry_blob": "395701e9fb6be13f64b65910824b383ada6a5f74",
+  "contract_blob": "5fd3456b139cb8192330effe43e6aa2568bfd8f7",
+  "authority_router_blob": "b874d2d228833eef034a0a56b586f7b5b10ebd43",
+  "argv": [
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\em\\control-assigned-gov-driver-entry-20260909\\research_control_dispatch.py",
+    "--events",
+    "D:\\em\\TEMP\\jt2-persistent-driver-intake-20260909\\ur-brc-interface-coverage\\merged-current-raw-comments.json",
+    "--kind",
+    "RESEARCH",
+    "--assigned-driver-task",
+    "D:\\em\\TEMP\\jt2-line-recover-20260909\\assigned-gov-research-kind-probe.json"
+  ],
+  "started_at": "2026-09-09T11:17:50.489681+00:00",
+  "elapsed_seconds": 6.455182800011244,
+  "exit_code": 1,
+  "stdout": "ERROR: assigned Driver entry is GOVERNANCE only\r\n",
+  "stderr": "",
+  "events_input_sha256": "9952c52a7eda75a7b824dd7258d27d9999025086bf72eef02925c4a8457bf9d0",
+  "input_scope": "Actual archived raw Issue240 envelopes; used only for a negative kind-discrimination probe, not asserted fresh or globally complete.",
+  "probe_boundary": "Documented assigned-GOV request shape under --kind RESEARCH. Expected kind rejection occurs before task/owner/authority-state selection. No live availability, CLAIM, liveness, priority change or execution permission is inferred."
+}
