@@ -1,0 +1,64 @@
+{
+  "schema": "R005_DRIVER_BOUNDED_EXTERNAL_PRIOR_ART_REVIEW_V1",
+  "reviewed_at": "2026-09-09T20:53:05.753563+00:00",
+  "driver_id": "EM-DVR-81273A",
+  "queries": [
+    {
+      "surface": "web search",
+      "query": "\"1291005053866735\" \"1294364244470160\"",
+      "scope": "exact frozen band"
+    },
+    {
+      "surface": "web search",
+      "query": "\"R005\" \"q78553\" \"prime\"",
+      "scope": "exact task/label"
+    },
+    {
+      "surface": "web search",
+      "query": "\"consecutive prime gaps\" \"916\" \"Oliveira\"",
+      "scope": "known table and first-occurrence antecedents"
+    }
+  ],
+  "primary_sources": [
+    {
+      "url": "https://sweet.ua.pt/tos/primes.html",
+      "classification": "EXISTING_REFERENCE_METHOD_AND_DATA",
+      "assessment": "Published exact pi values use combinatorial counting methods; the selected 1e12 table is stated to have a Goldbach-project cross-check. Independent current TLS download matches the frozen compressed and decoded hashes and all five integer pi entries. The third li(x) column is approximate and is not used."
+    },
+    {
+      "url": "https://sweet.ua.pt/tos/gaps.html",
+      "classification": "PARTIAL_ANTECEDENT",
+      "assessment": "The public projection supplies first positions and aggregate counts. Its described global computation does not turn that projection into every repeated gap position in the required band."
+    },
+    {
+      "url": "https://cs.uwaterloo.ca/journals/JIS/VOL6/Nicely/nicely2.html",
+      "classification": "PARTIAL_ANTECEDENT",
+      "assessment": "The primary Nyman-Nicely 2003 publication studies first-occurrence and maximal gaps in a broad containing interval. It is not this task's complete local repeated-gap catalogue."
+    },
+    {
+      "url": "https://pypi.org/project/primesieve/2.3.0/",
+      "classification": "EXACT_EXISTING_IMPLEMENTATION_REUSED",
+      "assessment": "Official existing Python binding and wheel, not a new generation algorithm. Fresh PyPI metadata matches the recorded Windows cp39 wheel SHA256; installed numerical sources/binaries match the recorded official wheels."
+    },
+    {
+      "url": "https://github.com/kimwalisch/primesieve",
+      "classification": "EXISTING_GENERAL_METHOD",
+      "assessment": "Segmented Eratosthenes with wheel/bucket optimizations is existing machinery. No new sieve or general tool family is claimed."
+    }
+  ],
+  "no_material_exact_duplicate_established": true,
+  "no_match_is_novelty_proof": false,
+  "conclusion": "Task-local finite verification with explicit existing machinery and data. No mathematical novelty, new general mechanism or global prime-gap theorem is inferred from these bounded queries.",
+  "independent_count_download": {
+    "url": "https://sweet.ua.pt/tos/primes/1d12.txt.gz",
+    "http_status": 200,
+    "certificate_validation": "DEFAULT_WINDOWS_TLS_NO_BYPASS",
+    "bytes": 183534,
+    "sha256": "4b98cbfffa074b533ecbb4b793ddb3a315cfa567626169611f5c432384950042"
+  },
+  "fresh_pypi_wheel": {
+    "filename": "primesieve-2.3.0-cp39-cp39-win_amd64.whl",
+    "bytes": 164444,
+    "sha256": "0a9c047f357a4b63b4cbb0d62cdab6a5a9e193d0a1e6609dd5c2563649cf6aed"
+  }
+}

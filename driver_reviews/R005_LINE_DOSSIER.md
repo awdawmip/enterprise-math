@@ -1,12 +1,23 @@
 # R005 Prime Algorithm Lab line dossier
 
-Status: `OPEN / CORRECTION TASK CLOSED / Q78553 RESEARCH RUNNING`  
+Status: `OPEN / CORRECTION TASK CLOSED / Q78553 TASK CLOSED`  
 Current Driver: `EM-DVR-81273A`  
 Current forward authority: `DA-80BDA97466C306DAD3C3` / Owner comment `5605970384`
 Persistent governance: `GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER` /
 `TP2-291A3B7B1EB6C763F71E` (generation 2)
 
 ## Current frontier
+
+Latest finite result: `Q78553_SEAM_CERTIFIED_CLOSED`, with accepted endpoint
+`k <= 2826122804521` at finite recorded-computation strength. Original
+`RR-4C604AB2F135EDA932CB` is bound to actual
+`DR-FE4AE58014E40219CADA` and `DFU-5A5D77BA55AACF022526`.
+The latter closes only the exact q78553 Research Task and returns to the
+existing relay portfolio; it creates no new task or parent closure.
+The review and current evidence are in
+`driver_reviews/R005_Q78553_SEAM_REVIEW_81273A_20260910/`.
+
+The operational correction foundation remains:
 
 Main `d8dc1d37ca1ef7fc910d084eee36e5ab177cd03c` restored a lawful operational
 publication contract. `TP2-ADD82532ACD19FC01D53` is operational;
@@ -65,76 +76,66 @@ recovery pointer, not a background-process promise.
 ## Next action
 
 The current Driver authority preserves the generation-2 governance assignment
-and adds exactly one research-parent whitelist:
-`OBJ-R005-PRIME-ALGORITHM-LAB-RELAY-20260909`. The original parent retains its
-governance/source responsibility and is not added to that research whitelist.
-Old DA records and all accepted Correction records are unchanged.
+and exactly one research-parent whitelist:
+`OBJ-R005-PRIME-ALGORITHM-LAB-RELAY-20260909`. The original
+`OBJ-R005-PRIME-ALGORITHM-LAB` retains its distinct source/governance
+responsibility. No generation-2 governance CLAIM was manufactured.
 
-The existing typed dependency release was consumed by the actual worker's current
-canonical assigned selection. The standalone packet and its earlier unassigned
-preparation proof remain unchanged historical evidence:
-`driver_reviews/R005_Q78553_RESEARCH_HANDOFF_20260910_81273A/RESEARCHER_HANDOFF.md`.
+Real worker `EM-R005Q53-050E43` completed the bounded existing
+`RS-R005-Q78553-EXACT-916-GAP-CATALOG-SEAM-CLOSURE /
+TP2-09D6ECE7F315F0766FE1` through its actual identity/RA, ASSIGN5606399286,
+CLAIM5606578580 and ER-8ABFD24CCC477A03ED13. Its real HANDOFF5607899511
+froze the return awaiting Driver review; that return is now accepted by the
+ordinary same-Driver review, not re-dispatched. Original worker scientific
+source is `2b73da21eac990abfd28593de1b552a4c3525f98`, Result transaction
+`002bf990429c483c5061f8909e3e82299494c910`, and final retained closeout
+`a8a8b3257d3a380f5671ed6ecd9eaff12f4b84f8`.
+All 105 science outputs and the raw Result remain unchanged. The final worker
+source reached main `f928e6a621449aa2ff1ad920818d83c56342f015` before
+the actual first-review transaction, preserving the current-Result binding.
 
-Actual researcher `EM-R005Q53-050E43` supplied its own identity, session and
-`RA-0DA1C30C5794D50A34B7F18B`; the activity reached main
-`0d0344880a4cbb2b78ae8a5a074758fc3392c70f`. Driver ASSIGN `5606399286`
-at `2026-09-09T17:58:06Z` binds that recipient. The receiver independently
-performed `CLAIM_NEW_OWNER`, prepare, actual CLAIM `5606578580` at
-`2026-09-09T18:11:48Z`, and runtime authorization on a complete source
-snapshot. Its claim is `r005q53-050e43-20260910`, execution
-`ER-8ABFD24CCC477A03ED13`, and branch
-`research/r005-q78553-catalogue-050e43-20260910`.
+Actual review `DR-FE4AE58014E40219CADA` at 2026-09-09T20:56:26Z is
+ACCEPTED, and its public first-review transaction generated
+`DFU-5A5D77BA55AACF022526` with all six gates,
+`TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION`, and zero new tasks.
+The current runtime check reports Task TERMINAL and the valid follow-up
+ready for Task-scope closure; the mathematical parent is not closed.
 
-The first bare authorize CLI returned the existing global P000 fork error.
-Its original failure remains in the startup package. The same current code's
-documented canonical bootstrap returned exit 0, `authorized=true`, and
-`CURRENT_AUTHORIZED_WINNING_ISSUE_240_CLAIM`, with owner lease through
-`2026-09-10T00:11:48Z`. This required no rule edit, new isolation or second
-CLAIM. Mathematical work began after that actual authorization.
-
-Worker startup source `ec8275ee4bf0a7ff9da925dcfd96bcec3c09f1df` preserves the exact entry records
-and original command outputs. The Driver's independently checked summary is
-`driver_reviews/R005_Q78553_RESEARCH_HANDOFF_20260910_81273A/actual_researcher_startup_receipt.json`; original worker evidence is under
-`research_artifacts/R005_Q78553_CATALOGUE_050E43_20260910/startup/`. The full 775 raw server envelopes reconstruct byte-for-byte from
-the existing canonical base and the ten actual incremental envelopes.
-
-The exact accepted-review artifact condition identified by
-`GV-R005-DEFICIT-SHADOW-CORRECTION-REVIEW` / `TP2-86F63B5AAD1C97EC80FE`
-is fulfilled by the actual Correction review above. Owner-authenticated
-`UNBLOCK` comment `5602494875` at `2026-09-09T13:17:41Z` explicitly released
-the existing catalogue/seam publication. Canonical replay returned
-`HANDOFF_READY / NEEDS_DISPATCH`, `claim_id=null`, and `hard_block=null`.
-The release receipt and original server envelope are in
-`driver_reviews/R005_LINE_DRIVER_81273A_20260909/`.
-
-This is an actual researcher startup checkpoint. It creates no separate
-governance Result, DONE event or current-generation governance claim.
-The earlier release state above is historical; the current researcher claim
-and actual authorization now govern the bounded mathematical execution.
-
-Existing later nodes remain:
-`RS-R005-Q78553-EXACT-916-GAP-CATALOG-SEAM-CLOSURE` /
-`TP2-09D6ECE7F315F0766FE1`, and
-`GV-R005-Q78553-SEAM-CLOSURE-REVIEW-AND-ROUTE` /
-`TP2-D43B87B08CE6E6D3FD41`. The researcher is now executing the existing
-task; the terminal seam review remains gated on an actual seam Result.
-Root explicitly requested this Driver's startup source/GK/PRE_FINAL closeout
-and release of its running seat. Restore the same Driver `EM-DVR-81273A`
-on the actual worker handoff for ordinary independent review. This resource
-handoff neither stops the worker nor closes a mathematical parent.
+The concrete next route is current canonical portfolio reevaluation after
+integration of these records, preserving the existing terminal
+`GV-R005-Q78553-SEAM-CLOSURE-REVIEW-AND-ROUTE /
+TP2-D43B87B08CE6E6D3FD41` obligation. This review, exact finite endpoint
+and explicit route supply its substantive artifacts. A separate governance
+Result, DONE event or CLAIM is not fabricated merely to rewrite bookkeeping.
+No next q, automatic successor, Working Truth or Foundation admission is
+authorized by the successful seam result. Broader line direction remains
+with the open original/relay portfolio and Owner coordination.
 
 ## Frozen mathematical boundary and evidence
 
-DSI1/DSI2/DSI3 and q=78553 are unchanged. The certified frontier remains
-`k <= 2822453183433`; a complete independently auditable exact-916 consecutive
-prime-gap catalogue is still required for starts
-`[1291005053866735,1294364244470160]`. No catalogue was obtained here. BRC is
-`NOT_APPLICABLE` to the publication and byte-binding correction; method harvest
-remains `RESULT_ONLY`. No Working Truth, Foundation status, mathematical
-promotion, parent closure or q=78553 extension is granted.
+DSI1/DSI2/DSI3, q=78553, Q=6170573809, G=916 and d_max=2 are unchanged.
+The completed seam is exactly
+`2822453183434 <= k <= 2826122804521`, extending the accepted contiguous
+prefix from `2822453183433` to `2826122804521`.
+The complete exact-916 catalogue for starts
+`[1291005053866735,1294364244470160]` is empty, and its actual maximum gap
+is 730. The accepted scanner's actual Driver rerun is byte-identical to the
+worker's frozen stdout and reports zero failures.
 
-Recover first from
-`driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/REVIEW.md`,
-the immutable mixed intake/reference/synthesis records, and
-`driver_reviews/R005_LINE_DRIVER_81273A_20260909/`. Do not repeat the scanner
-repair or DSI derivation merely because an earlier conversation is unavailable.
+The ordinary review independently reconstructed all 4000 archived block
+records, all 3999 boundary pairs, four independently redownloaded pi-table
+counts, all seven important gap certificates with 14 exact endpoint
+trial-division checks, and all 1535 odd-interior factor witnesses.
+It also checked distribution bytes, bounded adapter/reducer cases and the
+exact scanner output. The full 4e12 production interval was not rerun.
+This is finite recorded-computation strength, not formal compiler/hardware
+verification or a global p=2 theorem.
+
+BRC preserves the labeled threshold observer and serial boundary ports;
+method harvest remains `RESULT_ONLY`. No new tool family, mathematical
+L4, Working Truth, Foundation, parent closure or next-q result is granted.
+
+Recover from `driver_reviews/R005_Q78553_SEAM_REVIEW_81273A_20260910/REVIEW.md`,
+the actual Result/DR/DFU records and the worker's immutable final manifest.
+Do not repeat the accepted scanner/DSI repair or completed full enumeration
+because an earlier private conversation is unavailable.
