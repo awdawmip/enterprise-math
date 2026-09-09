@@ -1,0 +1,105 @@
+{
+  "schema": "EM_RESULT_SPECIFIC_VERIFICATION_V1",
+  "record_id": "FINDING-EM-PDE-INEXACT-NEWTON-ERROR-LEDGER-20260909",
+  "activity_id": "RA-076944AE1950A916ACC95399",
+  "proof_source": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "8c39f2b5d6a0b792e657cc6365def90a46e84945",
+    "path": "research_notes/ns-inexact-newton-error-ledger-20260909.md",
+    "sha256": "a0cd94637909a216aad7b891fcaad41b17ea6687fb695080665065137b0c43bb",
+    "git_blob_sha1": "0e0ac50c2055ba6e3a3f8e7e47658fc05806e43f"
+  },
+  "checker_source": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "9712a5c63541be0afc6906c82c1d8ae83a8a3e04",
+    "path": "research_notes/ns-inexact-newton-error-ledger-20260909/certify_inexact.py",
+    "sha256": "ecbf2ee09067a786050460960e2a62885616a2fceea4c09824634f88b7406f1c",
+    "git_blob_sha1": "61e8be4287373e9e0a8ed063d2d2b8ce8421e5b7"
+  },
+  "exact_packet_source": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "7551d59943111c6f633fd32559fdc30284d7287e",
+    "path": "research_notes/ns-inexact-newton-error-ledger-20260909/exact_packets.py",
+    "sha256": "0ffab938427c4827700876fbd9f9c371a59d07aa89edefd5a6447071ec48d25d",
+    "git_blob_sha1": "bfe8cea9975dae711f259ad76ff68c94e080c33f"
+  },
+  "full_generated_verification_sha256": "c2e54c16c7732e22cf17f41fe711129a92d560a3db79cc77219a14bfee75fe5c",
+  "verification": {
+    "status": "PASS",
+    "scope": "two actually executed finite inexact updates with full Fourier output residuals; analytic all-mode error bounds",
+    "initial_data": {
+      "rank": 3,
+      "initial_modes": 8,
+      "amplitude": "1/10",
+      "nu": "1",
+      "wavevectors": [
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          -2,
+          0
+        ]
+      ],
+      "initial_helicity": "+"
+    },
+    "packet_counts": {
+      "v1": 8,
+      "v2": 20,
+      "v3": 196,
+      "n4": 804,
+      "n5": 1822,
+      "n6": 7138
+    },
+    "full_final_residual_packets": 8284,
+    "full_final_residual_modes": 496,
+    "inherited_oracle_agreement": true,
+    "all_nonlinear_and_linear_residual_identities_checked": true,
+    "no_time_or_space_sampling": true,
+    "exact_coefficient_field": "Q(sqrt(2), i)",
+    "final_norms": "outward rational square-root intervals; final sixth-degree cross term bounded by triangle",
+    "nonlinear_residual_norm_upper": [
+      "507/100000",
+      "51/400000",
+      "381/100000000"
+    ],
+    "actual_linear_forcing_relative_upper": "3/100",
+    "forcing_ratio_decimal_readouts": [
+      0.025145267766100873,
+      0.029759767334975505
+    ],
+    "certified_true_trajectory_error_radii": [
+      "7/1000",
+      "61/100000",
+      "19/1000000"
+    ],
+    "new_reference_envelopes": [
+      "507/100000",
+      "2599/500000"
+    ],
+    "inherited_causal_inverse_bound": "33/10",
+    "inherited_quadratic_bound": "128/5",
+    "conditional_adaptive_forcing": "eps_n <= (256/33) E_n^2 implies E_(n+1) <= 80 E_n^2 within the specified trust tube",
+    "adaptive_future_PDE_steps_executed": false
+  },
+  "limits": [
+    "Two finite all-output inexact steps were executed; later adaptive inner solves were not executed.",
+    "The sharper error concerns changing references, not a new arbitrary-initial-data theorem.",
+    "Exact rational Gram arithmetic is not independent review or proof-assistant formalization.",
+    "The inherited all-mode causal inverse and C*=9.503 are analytic dependencies.",
+    "The last degree-six cross-generation norm is bounded by triangle after its exact Gram; it is not discarded."
+  ]
+}
