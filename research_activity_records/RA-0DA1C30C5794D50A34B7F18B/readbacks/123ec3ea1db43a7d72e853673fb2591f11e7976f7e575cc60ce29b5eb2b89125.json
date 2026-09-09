@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_artifacts/R005_Q78553_CATALOGUE_050E43_20260910/pilot/independent-validation.json",
+    "ref": "dbbe3da5f02901671c19f2a2bffc7049c8c6c2e3",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-r005q53-c02-source-2-050E43",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "{\r\n  \"schema\": \"R005_PRIMESIEVE_ADAPTER_INDEPENDENT_VALIDATION_V1\",\r\n  \"all_passed\": true,\r\n  \"checks\": [\r\n    {\r\n      \"check\": \"plain_independent_Eratosthenes_all_primes_through_100000\",\r\n      \"prime_count\": 9592,\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"independent_deterministic_u64_Miller_Rabin_every_integer\",\r\n      \"lower\": 1189459969823483,\r\n      \"upper_exclusive\": 1189459969828399,\r\n      \"prime_count\": 111,\r\n      \"large_gaps\": [\r\n        {\r\n          \"start\": 1189459969825483,\r\n          \"gap\": 916,\r\n          \"end\": 1189459969826399\r\n        }\r\n      ],\r\n      \"matched_complete_sequence_sha256\": \"16692dbfb21c5957300db0b671ced97d7404675d42edfa2018284fbce120bbe4\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"independent_deterministic_u64_Miller_Rabin_every_integer\",\r\n      \"lower\": 1291005053864735,\r\n      \"upper_exclusive\": 1291005053868735,\r\n      \"prime_count\": 121,\r\n      \"large_gaps\": [],\r\n      \"matched_complete_sequence_sha256\": \"48746c08592a3c9da3385c2269a5d272a01032a262839c6c756cdd051341ab81\",\r\n      \"passed\": true\r\n    },\r\n    {\r\n      \"check\": \"known_real_916_gap_split_inside_composite_interior\",\r\n      \"cut\": 1189459969825883,\r\n      \"boundary_pair\": {\r\n        \"start\": 1189459969825483,\r\n        \"gap\": 916,\r\n        \"end\": 1189459969826399\r\n      },\r\n      \"passed\": true\r\n    }\r\n  ],\r\n  \"scope\": \"Validates adapter semantics and representative high-range outputs; this is not full task-band coverage.\"\r\n}\r\n",
+      "display_title": "independent-validation.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/dbbe3da5f02901671c19f2a2bffc7049c8c6c2e3/research_artifacts/R005_Q78553_CATALOGUE_050E43_20260910/pilot/independent-validation.json",
+      "encoding": "utf-8",
+      "sha": "38386c3e1fffe408a658672099e32c274619256c"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
