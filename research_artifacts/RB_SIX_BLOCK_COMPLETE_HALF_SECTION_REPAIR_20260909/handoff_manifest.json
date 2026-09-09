@@ -1,0 +1,104 @@
+{
+  "schema": "RB_SIX_BLOCK_COMPLETE_RESEARCH_HANDOFF_V1",
+  "task_id": "RS-RB-SIX-BLOCK-COMPLETE-HALF-SECTION-OBSTRUCTION-REPAIR",
+  "publication_id": "TP2-8B673D783D3FBC81E124",
+  "researcher_id": "EM-RB-1EB0B6",
+  "session_id": "01a086fb-8cfd-7cb0-86ae-680ed4aa5275",
+  "session_source": "Unchanged CODEX_THREAD_ID observed by this researcher exec tool",
+  "surface": "GITHUB",
+  "repository": "awdawmip/enterprise-math",
+  "retained_branch": "research/rb-six-block-repair-01a086fb-20260910",
+  "recorded_at": "2026-09-09T17:40:30.372297+00:00",
+  "proof_source_commit": "a1a45349bc81c31f5c57ba2ef89c5ab45419710d",
+  "proof_tree": "e0a9197563c187cc030ededfda245c564922486b",
+  "proof_tree_independently_reconstructed": true,
+  "source_file_manifest": {
+    "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/FILE_MANIFEST.json",
+    "sha256": "a6fbbee52155319f5b9b63fa1d3e1c0ed9fdda61e7abd14f5d813cacfb5f65d0",
+    "scope": "55 entries plus the manifest itself, all at proof_source_commit"
+  },
+  "proof": {
+    "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/PROOF.md",
+    "sha256": "7788981dfd75bf01c533d8ae80a6be5b3e104ec87bf877cba8db6297fc81eaf9"
+  },
+  "checker": {
+    "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/check_complete_obstruction.py",
+    "sha256": "158f5de39a881ca00de9e0b0315245968a06f9b8166b1eb14d4b92181d5fa79f",
+    "command": "python research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/check_complete_obstruction.py",
+    "dependencies": "Standard Python plus pinned repository integer ring and BRC modules; no SymPy"
+  },
+  "certificate": {
+    "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/integer-certificate.json",
+    "sha256": "401b7f27b5d43e754ec0de3d932892ad8cd1b77091ab65cd2ccf29a12c0693e8",
+    "integer_identity_checks": 26,
+    "tamper_checks": 6
+  },
+  "return_path": "research_returns/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_OBSTRUCTION_REPAIR_RETURN_20260909.md",
+  "result": {
+    "result_id": "RR-ADD4970017D408BAE050",
+    "commit": "70f9c9b82600fe4bde26025033f7909f1b88a0c2",
+    "path": "research_result_records/RS-RB-SIX-BLOCK-COMPLETE-HALF-SECTION-OBSTRUCTION-REPAIR/RR-ADD4970017D408BAE050.json",
+    "sha256": "c93778b2ad46f99334ae71aa4305012daa13a5b051e27f7276e2b931c01200e9",
+    "git_blob_sha1": "db0c7be2edfa970c5469c2f2b4e6446329c9ebf4",
+    "researcher_verdict": "PASS",
+    "driver_review_required": true,
+    "accepted_by_driver": false
+  },
+  "execution": {
+    "execution_record_id": "ER-023A3343CE7FA4FA2AEE",
+    "ER_source_commit": "8e858628e276e250786478f8d310cb0b755689cc",
+    "assignment_comment_id": 5605317025,
+    "claim_comment_id": 5605439472,
+    "claim_id": "rb-six-block-repair-1eb0b6-20260910",
+    "runtime_source_snapshot": "b41ba7950014018af7c35f092643558207b6039d",
+    "runtime_inputs_outputs": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime",
+    "runtime_authorization_authority": "CURRENT_AUTHORIZED_WINNING_ISSUE_240_CLAIM"
+  },
+  "activity": {
+    "activity_id": "RA-0FF9BA2BED0EBBE6C0614714",
+    "path": "research_activity_records/RA-0FF9BA2BED0EBBE6C0614714.json",
+    "sha256": "132c689a21d14e57d0a0dded93ec06e39c7c9b2c9cd24f3400a6a4ea68a448ae",
+    "git_blob_sha1": "9d7b892e955d4915d6b49da184aa74627d54fa36",
+    "publication_relation": "Updated record and exact source-observation sidecars are published in the same commit as this handoff manifest",
+    "checkpoint_event_id": "RB-SIX-BLOCK-FULL-ODE-EXCLUSION-1EB0B6-20260910",
+    "checkpoint_state": "EM_REPRESENTED",
+    "canonical_main_visibility": "PENDING_OWNED_SOURCE_BRANCH_INTAKE"
+  },
+  "global_knowledge_journal": {
+    "repository": "awdawmip/chatgpt-global-knowledge",
+    "commit": "efa0f508f827b7c02a8ba5cc543d2886e85f8d4b",
+    "path": "journal/enterprise-math/2026-09-10/20260910T013635+0800-rb-six-block-full-ode-exclusion-1eb0b6.md",
+    "role": "Progress capture, not mathematical acceptance"
+  },
+  "durable_frontier": "Complete fixed-k exclusion on the whole L(6O) pencil, hence all four half-section sectors and arithmetic constants, over the algebraic closure",
+  "decisive_identity": "k^2*C2+(k^2+12)*Lb+6*Lc+6*Ld=6*a*(k^4-12*k^2-324)",
+  "nonzero_frozen_norm": 58351435776,
+  "smallest_unresolved_mathematical_unit": null,
+  "next_action": "Ordinary independent review by the same line Driver EM-DVR-5816EB; Root will restore that Driver after this temporary researcher completes handoff",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "independence_status": "SHARED_AMBIENT_CONTEXT_DISCLOSED",
+  "method_harvest": "RESULT_ONLY",
+  "parent_objective": {
+    "id": "RB_ENTERPRISE_THEOREM_PACKAGE_V2_INDEPENDENT_VALIDATION",
+    "status": "OPEN",
+    "unchanged_obligations": [
+      "4+2 and 2+2+2 parameter components",
+      "period integer",
+      "homology index",
+      "independent absolute normalization"
+    ]
+  },
+  "preserved": [
+    "Accepted concrete map and 80 source/output pins",
+    "All prior U/half-section provenance",
+    "Conditional 180/360 and remaining1980 scope"
+  ],
+  "do_not_replay": [
+    "Old blind intake or alleged clean-blind reconstruction",
+    "180/360 assignment enumeration",
+    "Accepted concrete-map reconstruction",
+    "This researcher identity, ASSIGN, CLAIM or historical runtime authorization"
+  ],
+  "publication_or_review_authority_granted": false,
+  "future_private_chat_required": false
+}
