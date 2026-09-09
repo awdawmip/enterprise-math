@@ -1,0 +1,63 @@
+{
+  "schema": "R005_DRIVER_SOURCE_REVALIDATION_V1",
+  "reviewer_id": "EM-DVR-81273A",
+  "frozen_source_head": "1d9823dfe6ba9301e936740da847ac3c682fe0a2",
+  "runs": [
+    {
+      "label": "py_compile",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "-m",
+        "py_compile",
+        "experiments/r005a_p2_gap_shadow_inversion.py",
+        "experiments/r005a_p2_gap_shadow_inversion_regression.py"
+      ],
+      "cwd": "D:\\em\\r005-line-reconcile-81273a-20260909",
+      "started_at": "2026-09-09T09:23:59.726541+00:00",
+      "finished_at": "2026-09-09T09:23:59.899057+00:00",
+      "exit_code": 0,
+      "stdout_path": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/py_compile.stdout",
+      "stderr_path": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/py_compile.stderr",
+      "source_files": [
+        {
+          "path": "experiments/r005a_p2_gap_shadow_inversion.py",
+          "bytes": 12289,
+          "sha256": "6fe2dc9fe05ac16ef2bbd1919d3d03fc5b36037d010ca95afeafb62f4958d3f5"
+        },
+        {
+          "path": "experiments/r005a_p2_gap_shadow_inversion_regression.py",
+          "bytes": 8145,
+          "sha256": "3286c62f6ac7ab3a14c214e462ef8a8e3ad19f780873253ff906f46d8ba394be"
+        }
+      ]
+    },
+    {
+      "label": "focused_regression",
+      "argv": [
+        "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "experiments/r005a_p2_gap_shadow_inversion_regression.py"
+      ],
+      "cwd": "D:\\em\\r005-line-reconcile-81273a-20260909",
+      "started_at": "2026-09-09T09:23:59.899856+00:00",
+      "finished_at": "2026-09-09T09:24:00.285234+00:00",
+      "exit_code": 0,
+      "stdout_path": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/focused_regression.stdout",
+      "stderr_path": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/focused_regression.stderr",
+      "source_files": [
+        {
+          "path": "experiments/r005a_p2_gap_shadow_inversion.py",
+          "bytes": 12289,
+          "sha256": "6fe2dc9fe05ac16ef2bbd1919d3d03fc5b36037d010ca95afeafb62f4958d3f5"
+        },
+        {
+          "path": "experiments/r005a_p2_gap_shadow_inversion_regression.py",
+          "bytes": 8145,
+          "sha256": "3286c62f6ac7ab3a14c214e462ef8a8e3ad19f780873253ff906f46d8ba394be"
+        }
+      ]
+    }
+  ],
+  "saved_regression_json_semantically_equal": true,
+  "saved_regression_bytes_equal": false,
+  "mathematics_reopened": false
+}

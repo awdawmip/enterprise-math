@@ -3,5 +3,38 @@
   "status": "ACTIVE",
   "purpose": "Provide a bounded operational binding when one task has multiple simultaneously valid immutable publication heads. This overlay preserves every publication as research evidence. It may select one publication for current runtime continuity, but that selection is not a truth, quality, priority, or canonical-mathematics judgment.",
   "compatibility_note": "The field name quarantined_publication_ids is retained only because the current compatibility reducer expects it. Semantically these IDs are RETAINED_PARALLEL_PUBLICATIONS: they remain immutable, reviewable, referenceable, and eligible for later KEEP_PARALLEL / MERGE / SPLIT / operational-reselection. Detailed historical reference-process metadata remains recoverable in Git history; this current router keeps only the live operational bindings and their decisive provenance.",
-  "resolutions": []
+  "resolutions": [
+    {
+      "task_id": "RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION",
+      "operational_publication_id": "TP2-ADD82532ACD19FC01D53",
+      "canonical_publication_id": "TP2-ADD82532ACD19FC01D53",
+      "quarantined_publication_ids": [
+        "TP2-2C524413EC9774383AF1"
+      ],
+      "legacy_alias_semantics": "canonical_publication_id equals the operational selector only; quarantined_publication_ids is a compatibility alias for retained nonoperational parallel evidence, not an evidence rejection or live fork quarantine.",
+      "retained_parallel_publication_ids": [
+        "TP2-2C524413EC9774383AF1",
+        "TP2-ADD82532ACD19FC01D53"
+      ],
+      "parallel_intake_id": "PI-R005-81273A-20260909",
+      "parallel_synthesis_id": "PS-R005-81273A-OPERATIONAL-20260909",
+      "evidence_set_sha256": "sha256:3b064e4877f9e63c89a0586ce26ee07897b5f1df55a5cc6985562329b78a665e",
+      "reference_process": {
+        "pass_1_id": "RP-R005-81273A-SEMANTIC-20260909",
+        "pass_2_id": "RP-R005-81273A-ADVERSARIAL-20260909",
+        "same_reviewer": true,
+        "shared_context_disclosed": true
+      },
+      "resolved_at": "2026-09-09T09:33:00.368010+00:00",
+      "reason": "Exact-source continuity restoration backed by mixed intake, semantic pass, adversarial/control pass and authorized synthesis. Original completed Correction Result remains attached to the old head; the relay alternate and both parents remain preserved. This selects no mathematical truth and releases no successor.",
+      "driver_id": "EM-DVR-81273A",
+      "driver_authority_record_id": "DA-207C4345BD4091D3059F",
+      "driver_authority_source_comment_id": 5599483429,
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false,
+      "parent_closure_granted": false
+    }
+  ]
 }

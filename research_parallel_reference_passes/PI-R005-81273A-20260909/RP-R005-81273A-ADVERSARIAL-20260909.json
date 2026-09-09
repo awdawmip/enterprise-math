@@ -1,0 +1,70 @@
+{
+  "schema": "ENTERPRISE_MATH_PARALLEL_REFERENCE_PASS_V1",
+  "pass_id": "RP-R005-81273A-ADVERSARIAL-20260909",
+  "intake_id": "PI-R005-81273A-20260909",
+  "pass_number": 2,
+  "pass_kind": "ADVERSARIAL_CONTROL_CROSSCHECK",
+  "task_id": "RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION",
+  "publication_ids": [
+    "TP2-2C524413EC9774383AF1",
+    "TP2-ADD82532ACD19FC01D53"
+  ],
+  "result_ids": [
+    "RR-566554389F6F36576DE2"
+  ],
+  "evidence_set_sha256": "sha256:3b064e4877f9e63c89a0586ce26ee07897b5f1df55a5cc6985562329b78a665e",
+  "reviewer_id": "EM-DVR-81273A",
+  "independence_status": "SHARED_CONTROL_CONTEXT_DISCLOSED",
+  "context_disclosure": "Same reviewer and shared context as pass 1. This pass separately challenges source-set completeness, operational ownership, obligation loss, immutable record retention, and parent/authority leakage. It is not a claim of two independent research executions.",
+  "started_at": "2026-09-09T09:33:00.236579+00:00",
+  "completed_at": "2026-09-09T09:33:00.366838+00:00",
+  "findings_summary": "The two sources have compatible repair intent but DIFFERENT_SCOPE in control provenance and nonidentical validation/disposition details. The recovered Sep-4 Result belongs to the old head and records a real completed handoff; it is not an active worker and is not reparented. Selecting the old head preserves executable/Result continuity while retaining the Sep-9 relay as parallel evidence and keeping its independent parent and review duties explicit. No current result acceptance, new claim, task termination, seam release or truth authority follows from selection. The successful old Result uses a task-specific hard-target label, which is not silently mapped to the current literal SATISFIED follow-up code.",
+  "relationship_class": "COMPATIBLE_COMPLEMENTARY_WITH_DIFFERENT_CONTROL_SCOPE",
+  "adversarial_checks": [
+    {
+      "challenge": "Could newer publication time silently replace the old head?",
+      "finding": "NO. Both generation-1 records are unsuperseded, immutable, and retained exactly."
+    },
+    {
+      "challenge": "Could old-head selection discard relay-parent or new-Result obligations?",
+      "finding": "NO. Both parent objective IDs are preserved. RR-566554389F6F36576DE2 is the separately frozen Correction Result required relative to the abandoned source, and is explicitly carried into the relay without rewriting its original publication or parent."
+    },
+    {
+      "challenge": "Could the old Result be absent merely because main lacks its directory?",
+      "finding": "NO. Actual server CLAIM5533593735/HANDOFF5533667142 and PR1201 head1d9823df prove a durable existing Result. Its exact source/manifest has been verified and is included in this evidence set."
+    },
+    {
+      "challenge": "Would a fresh researcher erase the winning claim or replay the repair?",
+      "finding": "No new CLAIM, adoption, transfer or scanner repair is part of this recovery. The recorded completed handoff and original author remain unchanged. Any later actual claim requires the current canonical live-entry rules."
+    },
+    {
+      "challenge": "Does true attestation merely avoid the scanner?",
+      "finding": "The original regression tests true validation and synthetic scanning separately. The Driver supplement joins load_catalog, true-attested coverage/maxbound/row verification, and scan on 2188 nonempty synthetic rows; all963 failures agree with enumeration. The supplemental test is separate review evidence and does not rewrite the old Result."
+    },
+    {
+      "challenge": "Are the required negative controls or exact final-byte evidence weakened?",
+      "finding": "No. Existing max-bound-end-short and false-attestation regressions pass; reviewer also executes coverage-end-short. All six Result outputs and five artifact-manifest entries match, and actual final-byte argv/cwd/exit/log evidence is preserved."
+    },
+    {
+      "challenge": "Can this operational synthesis grant acceptance or close any parent?",
+      "finding": "NO. It sets task_terminal=false and all truth/Foundation/promotion/successor/parent-closure flags false. Immutable Driver review and follow-up remain separate."
+    },
+    {
+      "challenge": "Can the old named hard-target label be edited to SATISFIED to force follow-up?",
+      "finding": "NO. The original Result is byte-identical. Current literal follow-up eligibility is a distinct Owner control-plane boundary after this intake."
+    }
+  ],
+  "retained_parent_objective_ids": [
+    "OBJ-R005-PRIME-ALGORITHM-LAB",
+    "OBJ-R005-PRIME-ALGORITHM-LAB-RELAY-20260909"
+  ],
+  "recommendation": "RESELECT_OPERATIONAL_WITHOUT_REJECTING_OTHERS: use TP2-ADD82532ACD19FC01D53 for current Result/review continuity, keep TP2-2C524413EC9774383AF1 and both parents intact, and remove only the exact R005 fork quarantine atomically with the backed resolution.",
+  "driver_id": "EM-DVR-81273A",
+  "driver_authority_record_id": "DA-207C4345BD4091D3059F",
+  "driver_authority_source_comment_id": 5599483429,
+  "working_truth_granted": false,
+  "foundation_authority_granted": false,
+  "canonical_promotion_granted": false,
+  "successor_triggered": false,
+  "parent_closure_granted": false
+}

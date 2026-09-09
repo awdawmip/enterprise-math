@@ -1,0 +1,128 @@
+--- f9e2a611/experiments/r005a_p2_gap_shadow_inversion_regression.py
++++ 1d9823df/experiments/r005a_p2_gap_shadow_inversion_regression.py
+@@ -51,7 +51,6 @@
+ 
+ 
+ def test_gap_shadow_equivalence() -> int:
+-    # Exhaustively test the exact equivalence over many rational square intervals.
+     primes = sieve(20_000)
+     checks = 0
+     for Q in range(2, 80):
+@@ -100,7 +99,6 @@
+ 
+ 
+ def test_synthetic_shadow_scanner() -> tuple[int, int]:
+-    # Generic small exact analogue of the q^2 seam: compare inversion to k-enumeration.
+     Q = 47 * 47
+     G = 20
+     k_lo = 15_000
+@@ -111,7 +109,6 @@
+     max_gap = max(b - a for a, b in zip(primes, primes[1:]) if n_lo - 10 <= a <= n_hi)
+     G = max(G, max_gap)
+ 
+-    # Exact brute failures.
+     failures: set[int] = set()
+     dmax = 0
+     for k in range(k_lo, k_hi + 1):
+@@ -124,7 +121,6 @@
+         if i == bisect_right(primes, U // Q):
+             failures.add(k)
+ 
+-    # Minimal seam-like object, preserving scanner contract.
+     from r005a_p2_gap_shadow_inversion import Seam
+     threshold = G - dmax + 1
+     if threshold > 1 and threshold % 2:
+@@ -175,31 +171,59 @@
+     }
+ 
+ 
+-def test_catalog_fail_closed() -> str:
+-    seam = build_seam(78553)
++def catalog_fixture(seam, *, attestation: bool = True, max_gap_bound_end: int | None = None):
+     rows: list[GapRow] = []
+     data = {
+         "schema": "R005A_CONSECUTIVE_PRIME_GAP_CATALOG_V1",
+-        "source_id": "regression-incomplete",
++        "source_id": "regression-catalog-path",
+         "coverage_start": seam.required_gap_start_min,
+         "coverage_end": seam.required_gap_start_max,
+-        "complete_for_gap_ge": 916,
+-        "max_gap_bound": 916,
++        "complete_for_gap_ge": seam.required_complete_gap_ge,
++        "max_gap_bound": seam.gap_bound,
+         "max_gap_bound_start": seam.required_gap_start_min,
+-        "max_gap_bound_end": seam.required_gap_start_max,
+-        "completeness_attestation": False,
++        "max_gap_bound_end": (
++            seam.required_gap_start_max if max_gap_bound_end is None else max_gap_bound_end
++        ),
++        "completeness_attestation": attestation,
+         "rows_sha256": canonical_rows_sha256(rows),
+         "rows": [],
+     }
++    return data
++
++
++def validate_fixture(data, seam) -> None:
+     with tempfile.TemporaryDirectory() as td:
+         p = Path(td) / "c.json"
+         p.write_text(json.dumps(data), encoding="utf-8")
+         metadata, loaded = load_catalog(p)
+-        try:
+-            validate_catalog_for_seam(metadata, loaded, seam, verify_rows=True)
+-        except ValueError as exc:
+-            assert "completeness_attestation" in str(exc)
+-            return str(exc)
++        validate_catalog_for_seam(metadata, loaded, seam, verify_rows=True)
++
++
++def test_catalog_true_attestation_positive_path() -> str:
++    seam = build_seam(78553)
++    validate_fixture(catalog_fixture(seam), seam)
++    return "true-attestation positive validation path reached"
++
++
++def test_catalog_max_bound_coverage_rejected() -> str:
++    seam = build_seam(78553)
++    data = catalog_fixture(seam, max_gap_bound_end=seam.required_gap_start_max - 1)
++    try:
++        validate_fixture(data, seam)
++    except ValueError as exc:
++        assert "max-gap bound does not cover" in str(exc)
++        return str(exc)
++    raise AssertionError("insufficient max-gap-bound coverage was not rejected")
++
++
++def test_catalog_fail_closed() -> str:
++    seam = build_seam(78553)
++    data = catalog_fixture(seam, attestation=False)
++    try:
++        validate_fixture(data, seam)
++    except ValueError as exc:
++        assert "completeness_attestation" in str(exc)
++        return str(exc)
+     raise AssertionError("incomplete catalog was not rejected")
+ 
+ 
+@@ -209,9 +233,11 @@
+     deficit_checks = test_deficit_formula()
+     synthetic_failures, synthetic_rows = test_synthetic_shadow_scanner()
+     frontier = test_q_frontiers()
++    positive_path = test_catalog_true_attestation_positive_path()
++    max_bound_rejection = test_catalog_max_bound_coverage_rejected()
+     fail_closed = test_catalog_fail_closed()
+     result = {
+-        "schema": "R005A_P2_GAP_SHADOW_REGRESSION_RESULT_V1",
++        "schema": "R005A_P2_GAP_SHADOW_REGRESSION_RESULT_V2",
+         "status": "PASS",
+         "floor_square_inverse": "exhaustive Q<=79,m<300",
+         "gap_shadow_equivalence_checks": shadow_checks,
+@@ -219,6 +245,8 @@
+         "synthetic_scanner_failure_count": synthetic_failures,
+         "synthetic_large_gap_rows": synthetic_rows,
+         "frontier": frontier,
++        "true_attestation_positive_path": positive_path,
++        "max_gap_bound_coverage_rejection": max_bound_rejection,
+         "fail_closed_message": fail_closed,
+         "p85": P85,
+     }

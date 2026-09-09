@@ -1,0 +1,96 @@
+{
+  "schema": "ENTERPRISE_MATH_PARALLEL_REFERENCE_PASS_V1",
+  "pass_id": "RP-R005-81273A-SEMANTIC-20260909",
+  "intake_id": "PI-R005-81273A-20260909",
+  "pass_number": 1,
+  "pass_kind": "SEMANTIC_EVIDENCE_CROSSCHECK",
+  "task_id": "RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION",
+  "publication_ids": [
+    "TP2-2C524413EC9774383AF1",
+    "TP2-ADD82532ACD19FC01D53"
+  ],
+  "result_ids": [
+    "RR-566554389F6F36576DE2"
+  ],
+  "evidence_set_sha256": "sha256:3b064e4877f9e63c89a0586ce26ee07897b5f1df55a5cc6985562329b78a665e",
+  "reviewer_id": "EM-DVR-81273A",
+  "independence_status": "SHARED_CONTROL_CONTEXT_DISCLOSED",
+  "context_disclosure": "The same Driver is performing both logically distinct passes after reading the Owner recovery packet, both immutable taskbooks and the recovered PR1201 Result. This is not clean-context independent research. This Driver did not author the scanner repair or its Result; its supplemental code is review-only validation.",
+  "started_at": "2026-09-09T09:28:55.501956+00:00",
+  "completed_at": "2026-09-09T09:28:55.502890+00:00",
+  "findings_summary": "Each publication is internally coherent at its own immutable source pins. The Sep-3 head preserves old-parent ownership, an explicit early-max-bound negative control, exact argv/exit/path evidence and per-file byte counts/SHA-256. The Sep-9 head preserves relay-parent duty, actual attested coverage/max-bound/scan exercise and a separate immutable Correction Result. Neither source authorizes mathematics or q=78553 extension. PR1201 already supplied that separate Correction Result under the old head. Its complete output digest chain and recovered final bytes revalidate successfully.",
+  "per_route": [
+    {
+      "publication_id": "TP2-ADD82532ACD19FC01D53",
+      "parent_objective_id": "OBJ-R005-PRIME-ALGORITHM-LAB",
+      "provenance_verdict": "VALID_RETAIN",
+      "scope": "NO_MATH_DELTA executable/evidence correction from f9e2a611; old owner scope preserved.",
+      "evidence_strength": "Published task plus independently byte-verified researcher correction Result RR-566554389F6F36576DE2, not theorem/seam acceptance.",
+      "requirements_retained": [
+        "metada->metadata and coverage syntax repair",
+        "true-attestation positive validation",
+        "max_gap_bound_end one-unit-early rejection",
+        "final py_compile and focused suite with argv/exit/paths",
+        "all changed artifact bytes and SHA-256",
+        "old exact hard-target and return dispositions"
+      ],
+      "typed_defects": [
+        "Result was not yet visible on main; prior relay recovery omitted the completed branch.",
+        "The source claim of only two corrections omits removal of a nonexecuting scanner comment; executable delta remains limited to the two repairs."
+      ],
+      "survives_pass1": true
+    },
+    {
+      "publication_id": "TP2-2C524413EC9774383AF1",
+      "parent_objective_id": "OBJ-R005-PRIME-ALGORITHM-LAB-RELAY-20260909",
+      "provenance_verdict": "VALID_RETAIN",
+      "scope": "Same frozen executable/evidence correction plus relay review and downstream responsibility.",
+      "evidence_strength": "Published relay task. It does not itself prove a missing/finished repair or transfer another owner.",
+      "requirements_retained": [
+        "actual completeness_attestation=true coverage/max-bound/scan path",
+        "separate immutable Correction Result",
+        "exact unchanged DSI/q/frontier/band",
+        "relay-owned exact Correction review and downstream gate"
+      ],
+      "typed_defects": [
+        "Does not repeat the old early-max-bound negative and per-file byte-count details.",
+        "Own Task hard-target/terminal strings differ from the old head; they remain source labels and are not rewritten."
+      ],
+      "survives_pass1": true
+    }
+  ],
+  "result_audit": {
+    "result_id": "RR-566554389F6F36576DE2",
+    "record_git_blob_sha1": "aea04ecd76c5f6effe92726ae08d64c512f73131",
+    "output_manifest_entries_verified": 6,
+    "artifact_manifest_entries_verified": 5,
+    "py_compile_exit": 0,
+    "focused_regression_exit": 0,
+    "focused_regression_json_reproduced": true,
+    "platform_stdout_line_endings": "Windows rerun stdout is CRLF while the preserved Sep-4 JSON is LF; parsed output is identical and no original bytes are rewritten.",
+    "supplemental_attested_pipeline": "load_catalog -> validate_catalog_for_seam(coverage,max_bound,verify_rows=True) -> scan_gap_shadows on 2188 actual synthetic rows, 963 exact failures equal brute enumeration; coverage/max_bound/false-attestation negatives reject.",
+    "supplemental_evidence": [
+      "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/source_revalidation.json",
+      "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/attested_scan_run.json",
+      "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/attested_scan.stdout.json"
+    ],
+    "new_result_obligation": "RR-566554389F6F36576DE2 is already a distinct immutable Correction Result for the abandoned f9e2a611 package. Reuse this newly recovered completion under its original publication and author; do not invent a second scanner repair or redate/reparent the Result."
+  },
+  "survivor_publication_ids": [
+    "TP2-2C524413EC9774383AF1",
+    "TP2-ADD82532ACD19FC01D53"
+  ],
+  "survivor_result_ids": [
+    "RR-566554389F6F36576DE2"
+  ],
+  "brc_reuse_resolution": "NOT_APPLICABLE: control publication/byte-binding collision; no new mathematical carrier, quotient or tool family is created.",
+  "recommendation": "Advance both publications and the recovered immutable Correction Result to adversarial/control pass 2. Preserve the union of operational evidence obligations without rewriting either taskbook, Result or parent objective.",
+  "driver_id": "EM-DVR-81273A",
+  "driver_authority_record_id": "DA-207C4345BD4091D3059F",
+  "driver_authority_source_comment_id": 5599483429,
+  "working_truth_granted": false,
+  "foundation_authority_granted": false,
+  "canonical_promotion_granted": false,
+  "successor_triggered": false,
+  "parent_closure_granted": false
+}

@@ -1,0 +1,68 @@
+R005-A DEFICIT-SHADOW EXECUTABLE BINDING CORRECTION — VALIDATION TRANSCRIPT
+Date: 2026-09-04 (Asia/Taipei)
+Task: RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION
+Publication: TP2-ADD82532ACD19FC01D53
+Researcher: EM-R005AFIX-754384
+Claim: chatgpt-r005a-fix-20260904-0746
+Claim server comment: Issue #240 comment 5533593735, created_at 2026-09-03T23:46:28Z
+Execution branch: research/r005a-fix-chatgpt-20260904-754384
+Execution base: 746be8ced2bbc3ffa89b601f881e9cf86a2d7a43
+Frozen mathematical source: f9e2a611b45631c43effce36b7300c6f9a56b77b
+
+Scope
+-----
+NO_MATH_DELTA integrity repair only. The scanner was materialized from the exact frozen source commit because the source scanner/regression were not present on the current main execution base. Only the two published executable defects were corrected: (1) metada -> metadata for max_gap_bound_end and (2) the malformed coverage diagnostic f-string. The focused regression was extended only to exercise the previously untested completeness_attestation=true validation path and to reject max_gap_bound_end coverage ending one unit too early.
+
+Final byte identities tested and pushed
+---------------------------------------
+experiments/r005a_p2_gap_shadow_inversion.py
+  bytes: 12289
+  git_blob_sha1: sha1:1d3d19adc13652bf343972c5eb3ac95684bb8c8a
+  sha256: sha256:6fe2dc9fe05ac16ef2bbd1919d3d03fc5b36037d010ca95afeafb62f4958d3f5
+
+experiments/r005a_p2_gap_shadow_inversion_regression.py
+  bytes: 8145
+  git_blob_sha1: sha1:ece824a71c884b09033f1666581a71afe86822a0
+  sha256: sha256:3286c62f6ac7ab3a14c214e462ef8a8e3ad19f780873253ff906f46d8ba394be
+
+The Git blob SHA-1 values above were independently recomputed from the locally executed bytes and exactly match the GitHub branch blob IDs returned after persistence.
+
+Commands executed on those exact bytes
+---------------------------------------
+cd /tmp/r005fix/experiments
+python3 -m py_compile r005a_p2_gap_shadow_inversion.py r005a_p2_gap_shadow_inversion_regression.py
+EXIT_STATUS=0
+
+python3 r005a_p2_gap_shadow_inversion_regression.py > /tmp/r005fix/regression_output.json
+EXIT_STATUS=0
+
+Focused regression output identity
+----------------------------------
+bytes: 734
+git_blob_sha1: sha1:4bf7d82b52185f1ffc8bf357d719c29c00406768
+sha256: sha256:5a9fe4f053df4b886a3b0d2e1a26b9c2ec25ef592840220f2ccffc0773d4b6f8
+repository path: research_artifacts/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION_20260904/focused_regression_output.json
+
+Regression summary
+------------------
+status: PASS
+floor-square inverse: exhaustive Q<=79, m<300
+gap-shadow equivalence checks: 54165
+deficit formula checks: 1008
+synthetic scanner failures matched: 963
+synthetic large-gap rows: 2188
+true-attestation positive path: reached successfully
+max-gap-bound negative path: rejected with "max-gap bound does not cover the required gap-start band"
+legacy fail-closed path: rejected with "completeness_attestation must be true"
+q=78553 d_max remains: 2
+q=78553 required start remains: 1291005053866735
+q=78553 required end remains: 1294364244470160
+
+Mathematical boundary
+---------------------
+No DSI theorem, q=78553 arithmetic constant, certified endpoint, catalogue obligation, or search semantics was changed. The certified frontier remains k <= 2822453183433. q=78553 remains blocked on a complete independently auditable exact-916-gap catalogue for starts [1291005053866735,1294364244470160].
+
+Disposition
+-----------
+NO_MATH_DELTA_EXECUTABLE_BINDING_REPAIRED
+Driver review remains required before terminal closure or any canonical/Working-Truth promotion.
