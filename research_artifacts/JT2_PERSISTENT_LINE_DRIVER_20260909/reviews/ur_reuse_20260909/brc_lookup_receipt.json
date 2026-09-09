@@ -1,0 +1,1408 @@
+{
+  "schema": "JT2_EXISTING_BRC_INTERFACE_LOOKUP_V1",
+  "recorded_at": "2026-09-09T06:39:18.257790+00:00",
+  "observed_main_snapshot": "562df4628f1896bd0faca3706efbacdb78f189d0",
+  "actual_argv": [
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\em\\TEMP\\jt2-persistent-driver-intake-20260909\\query_existing_brc_interfaces.py"
+  ],
+  "metadata_tree_argv": [
+    "git",
+    "-C",
+    "D:\\em\\driver-jt2-persistent-line-20260909",
+    "ls-tree",
+    "-r",
+    "562df4628f1896bd0faca3706efbacdb78f189d0",
+    "tools/enterprise_toolbox.py",
+    "enterprise_toolbox_registry.json",
+    "research_method_inventory.json",
+    "research_method_inventory_addenda"
+  ],
+  "metadata_tree_exit": 0,
+  "metadata_blob_argv": [
+    "git",
+    "-C",
+    "D:\\em\\driver-jt2-persistent-line-20260909",
+    "cat-file",
+    "--batch"
+  ],
+  "metadata_blob_exit": 0,
+  "initial_archive_failure_preserved": "initial-archive-failure.json",
+  "recovery": "All 69 selected metadata blobs were already locally present; read their exact Git blobs directly after archive failed on a separate promisor object. No remote lazy fetch or metadata change.",
+  "scope": "Current exact metadata router with complete current base/addenda metadata; two bounded queries. No executable mathematical module discovery or import, no mathematical consumer.",
+  "loaded_methods": 107,
+  "loaded_addenda": 66,
+  "queries": [
+    {
+      "query": "precision valuation quotient division remainder",
+      "tool_families": [
+        {
+          "score": 34,
+          "id": "T5_PRECISION_REFINEMENT",
+          "name": "Integer Precision / Refinement Calculus",
+          "status": "HARVESTED_PREEXISTING_DERIVED_TOOL_FAMILY",
+          "triggers": [
+            "precision",
+            "refinement",
+            "coarse",
+            "fine",
+            "projection",
+            "detail",
+            "carry",
+            "borrow",
+            "mixed radix",
+            "scale chain",
+            "graded transport"
+          ],
+          "capabilities": [
+            "exact projection/recomposition",
+            "fiber detail",
+            "carry/borrow",
+            "precision-chain decomposition",
+            "graded transport",
+            "nonlinear projection defect"
+          ],
+          "hard_boundary": "finite integer precision only unless a separate theorem supplies continuum/limit semantics",
+          "source_methods": [
+            "src/enterprise_math/precision.py",
+            "src/enterprise_math/graded_precision.py",
+            "src/enterprise_math/precision_system.py",
+            "src/enterprise_math/precision_proof.py"
+          ]
+        },
+        {
+          "score": 31,
+          "id": "T6_OPERATION_SAFE_QUOTIENT",
+          "name": "Operation-Safe Quotient / Predictive Refinement Calculus",
+          "status": "HARVESTED_PREEXISTING_DERIVED_TOOL_FAMILY",
+          "triggers": [
+            "quotient",
+            "collapse",
+            "projection",
+            "future observation",
+            "predictive",
+            "descent",
+            "congruence",
+            "stable partition",
+            "operation family",
+            "coarse graining"
+          ],
+          "capabilities": [
+            "fiber-constancy witness",
+            "descent test",
+            "coarsest repair",
+            "predictive partition",
+            "operation-family closure",
+            "safe-operation census"
+          ],
+          "hard_boundary": "the preserved observation/operation language must be declared; the calculus does not choose what distinctions are semantically disposable",
+          "source_methods": [
+            "src/enterprise_math/predictive_quotient.py",
+            "src/enterprise_math/composition_safe_collapse.py",
+            "src/enterprise_math/operation_quotient.py",
+            "src/enterprise_math/partial_operation_quotient.py",
+            "src/enterprise_math/safe_operation_algebra.py"
+          ]
+        },
+        {
+          "score": 18,
+          "id": "T4_FINITE_FIBER_CAPACITY_COLLISION_MINIMA",
+          "name": "Finite Fiber Capacity / Collision-Minima Calculus",
+          "status": "ACCEPTED_TOOL_COMPOSITION_NOVELTY_DOWNGRADED",
+          "api": [
+            "RAW_CAPACITY",
+            "QUOTIENT_CAPACITY",
+            "FIBER_FREE",
+            "COLLISION_DEFECT",
+            "COLLISION_WITNESS",
+            "REPRESENTATIVE_PACKING_COVERING",
+            "SUCCESSIVE_COLLISION_MINIMA"
+          ],
+          "triggers": [
+            "fiber",
+            "quotient capacity",
+            "collision",
+            "representative",
+            "compression",
+            "packing",
+            "covering",
+            "minima",
+            "same observation"
+          ],
+          "capabilities": [
+            "fiber capacity",
+            "collision defect",
+            "equal-fiber witness",
+            "optimal one-representative-per-fiber compression",
+            "first collision scales"
+          ],
+          "hard_boundary": "semantic observation/quotient must already be declared or derived; the tool cannot invent pi to force a capacity theorem",
+          "prior_enterprise_machinery": [
+            "predictive quotient",
+            "operation quotient",
+            "function/relation collision spectra",
+            "finite preimage multiplicity"
+          ],
+          "driver_review": "driver_reviews/TOOL_DISCOVERY_NATIVE_GEOMETRY_OF_NUMBERS_DRIVER_REVIEW_20260822.md",
+          "result": "research_notes/TOOL_DISCOVERY_NATIVE_GEOMETRY_OF_NUMBERS_MINIMA_CALCULUS_RESULT_20260822.md"
+        },
+        {
+          "score": 18,
+          "id": "T8_RELATION_OBSERVABLE_SPECTRUM",
+          "name": "Relation Observable / Spectrum Calculus",
+          "status": "HARVESTED_PREEXISTING_DERIVED_TOOL_FAMILY",
+          "triggers": [
+            "relation",
+            "correspondence",
+            "multivalued",
+            "support",
+            "observable",
+            "branching",
+            "overlap",
+            "spectrum",
+            "common target",
+            "set-valued future"
+          ],
+          "capabilities": [
+            "powerset-valued future signatures",
+            "raw-vs-observed branching audit",
+            "relation collision spectra",
+            "relation-safe quotient test",
+            "capacity-weighted relation invariants"
+          ],
+          "hard_boundary": "relation branching, observable nondeterminism and quotient safety are different questions and may not be conflated",
+          "source_methods": [
+            "src/enterprise_math/relation_observable_signature.py",
+            "src/enterprise_math/relational_spectrum.py",
+            "src/enterprise_math/relation_observable_composition.py",
+            "src/enterprise_math/relation_future_powerset.py",
+            "src/enterprise_math/weighted_relation_field.py",
+            "src/enterprise_math/relation_lattice.py"
+          ]
+        }
+      ],
+      "methods": [
+        {
+          "score": 39,
+          "method_id": "t5_t7_t9.euler_rotation_refinement",
+          "name": "Cell-gate dyadic rotation refinement / target-free Viete checker",
+          "classification": "PROJECT_SUBTOOL_COMPOSITION",
+          "family_ids": [
+            "T5_PRECISION_REFINEMENT",
+            "T7_FINITE_SYMMETRY_EQUIVARIANCE",
+            "T9_HOLONOMY_COCOYCLE_GLUING"
+          ],
+          "status": "EXECUTABLE_EXTRACTED_REGRESSION_CHECKED_NOT_PROMOTED",
+          "source_refs": [
+            "research_notes/EULER_CELL_GATE_DYADIC_ROTATION_TOWER_20260903.md",
+            "src/enterprise_math/euler_rotation_refinement.py",
+            "tests/test_euler_rotation_refinement.py"
+          ],
+          "api": [
+            "phase_order",
+            "minimal_cyclic_order",
+            "coarse_embed",
+            "element_order",
+            "distinguished_root_order",
+            "root_square_certificate",
+            "quarter_turn_roots",
+            "phase_birth_level",
+            "phase_kind",
+            "cell_gate_cycle",
+            "rotation_level_certificate",
+            "rotation_tower_certificates",
+            "required_nonlocal_phase_states",
+            "symmetric_trace",
+            "antisymmetric_trace",
+            "viete_product",
+            "rotation_pi_approximant",
+            "rotation_pi_viete_form",
+            "completion_tail_bound"
+          ],
+          "triggers": [
+            "Euler formula geometry",
+            "Cell gate rotation",
+            "C6 C12 C24 refinement",
+            "dyadic root of reversal",
+            "quarter-turn emergence",
+            "Viete nested radical",
+            "target-free precision pi",
+            "rotation chirality obstruction"
+          ],
+          "capabilities": [
+            "certify the minimal cyclic order 6*2^m",
+            "certify 2*u_(m+1)=iota_m(u_m) for the three-step root state",
+            "locate the first quarter-turn in the actual Cell-gate C12 layer",
+            "show reflection exchanges the two quarter-turn roots",
+            "classify Cell, gate, and higher-transition birth levels",
+            "compute target-free nested-radical traces and Viete products",
+            "produce monotone rotation-pi approximants without importing classical pi",
+            "produce a target-free algebraic completion-tail bound"
+          ],
+          "core_law": "For Gamma_m=Z/(6*2^m), iota_m(k)=2k and u_m=3, ord(u_m)=2^(m+1) and 2*u_(m+1)=iota_m(u_m). The compatible character traces satisfy c_(m+1)^2=(1+c_m)/2 and 2/prod_{j=2}^m c_j=2^m s_m.",
+          "hard_boundary": "The first C6-to-C12 refinement has an actual Cell/gate incidence realization. Levels beyond C12 are transition/history refinements unless separately physically realized. The checker does not identify carrier directions with P000 native axes, derive a global operation-safe rotation quotient, or prove the classical analytic identity pi_rot=pi. No Driver review or shared-tool promotion is requested by this addendum."
+        },
+        {
+          "score": 31,
+          "method_id": "precision.integer_projection_calculus",
+          "name": "Integer precision projection/detail/carry calculus",
+          "classification": "GLOBAL_SUBTOOL",
+          "family_id": "T5_PRECISION_REFINEMENT",
+          "status": "CANONICAL_MAIN_EXECUTABLE",
+          "source_refs": [
+            "src/enterprise_math/precision.py",
+            "src/enterprise_math/graded_precision.py"
+          ],
+          "triggers": [
+            "precision",
+            "coarse",
+            "fine",
+            "projection",
+            "detail",
+            "carry",
+            "borrow",
+            "mixed radix",
+            "graded transport"
+          ],
+          "capabilities": [
+            "project/recompose",
+            "nested detail",
+            "carry/borrow",
+            "precision chains",
+            "degree transport",
+            "nonlinear projection defect"
+          ]
+        },
+        {
+          "score": 27,
+          "method_id": "t5_t6_t7_t9.cyclic_rotation_refinement",
+          "name": "Cyclic gate-phase refinement / carry / Euler-Viete certificate",
+          "classification": "PROJECT_SUBTOOL_COMPOSITION",
+          "family_ids": [
+            "T5_PRECISION_REFINEMENT",
+            "T6_OPERATION_SAFE_QUOTIENT",
+            "T7_FINITE_SYMMETRY_EQUIVARIANCE",
+            "T9_HOLONOMY_COCOYCLE_GLUING"
+          ],
+          "status": "EXECUTABLE_EXTRACTED_REGRESSION_CHECKED_FREE_RESEARCH",
+          "source_refs": [
+            "definitions/ENTERPRISE_EULER_GATE_ROTATION_THEOREM_LEDGER_20260903.json",
+            "research_notes/EULER_GATE_CYCLE_CARRY_SPECTRAL_COMPLETION_20260903.md",
+            "src/enterprise_math/cyclic_rotation_refinement.py",
+            "tests/test_cyclic_rotation_refinement.py"
+          ],
+          "api": [
+            "refinement_embedding",
+            "refinement_coordinates",
+            "refined_index",
+            "refinement_carry",
+            "add_refinement_coordinates",
+            "refinement_extension_splits",
+            "splitting_section_generator",
+            "element_order",
+            "half_turn",
+            "half_turn_roots_after_refinement",
+            "positive_half_arc_root",
+            "dyadic_modulus",
+            "dyadic_half_turn_root",
+            "trace_coordinates",
+            "trace_coordinate",
+            "viete_factors",
+            "rotation_pi_approximant",
+            "rotation_completion_enclosure",
+            "effective_character",
+            "euler_even_odd",
+            "finite_euler_coordinates"
+          ],
+          "triggers": [
+            "cyclic rotation refinement",
+            "six-gate Cell link",
+            "orientation phase",
+            "dyadic angle refinement",
+            "binary phase carry",
+            "non-split C_N to C_2N extension",
+            "quarter-turn emergence",
+            "Euler formula geometry",
+            "Viete nested radicals",
+            "rotation precision pi",
+            "cycle spectral decimation"
+          ],
+          "capabilities": [
+            "exact even-state embedding C_N into C_2N",
+            "exact coarse/detail coordinate decomposition",
+            "binary carry law verification",
+            "split versus non-split refinement test",
+            "iterated half-turn root order certificate",
+            "pi-free Decimal trace recursion",
+            "finite Viete rotation approximants",
+            "finite algebraic completion enclosure",
+            "external archimedean Euler-character consistency check"
+          ],
+          "core_law": "Barycentric phase refinement has j=2k+epsilon and (k,e)+(l,f)=(k+l+e*f,e+f mod 2); for the coherent chiral half-turn root tower the normalized trace satisfies c_(m+1)^2=(1+c_m)/2 and its Viete product defines an increasing finite rotation-completion sequence without using the target value of pi.",
+          "hard_boundary": "Carrier/readout and finite algebraic layer only. The tool does not prove that every native Cell trajectory factors through the gate phase, does not derive an archimedean U(1) metric from native length, and does not identify the cyclic carry C2 with the tetrahedral residual C2. The effective_character API deliberately uses the classical complex exponential only as an external bridge check."
+        },
+        {
+          "score": 24,
+          "method_id": "domain.precision.quotient_root_atlas_carry",
+          "name": "Exact quotient-root atlas and ternary state-count carry operator",
+          "classification": "DOMAIN_OPERATOR",
+          "family_id": "T1_SCALE_ENUMERATION_VALUATION",
+          "supporting_family_ids": [
+            "T4_FINITE_FIBER_CAPACITY_COLLISION_MINIMA",
+            "T5_PRECISION_REFINEMENT"
+          ],
+          "status": "DRIVER_ADMITTED_DOMAIN_OPERATOR",
+          "source_refs": [
+            "research_notes/P018_QUOTIENT_ROOT_ATLAS_TERNARY_CARRY_DRIVER_ACCEPTED_THEOREM_NODE_20260828.md",
+            "research_notes/P018_QUOTIENT_ROOT_ATLAS_TERNARY_CARRY_THEOREM_TOOL_HARVEST_20260828.md",
+            "driver_reviews/P018_TERNARY_CARRY_THRESHOLD_TO_CARDINALITY_DRIVER_REVIEW_20260827.md",
+            "driver_reviews/P018_QUOTIENT_ROOT_ATLAS_CARRY_DOMAIN_OPERATOR_ADMISSION_20260828.md",
+            "EnterpriseMath/Precision/RootStateAtlasCardinality.lean",
+            "src/enterprise_math/p018_root_state_decomposition.py",
+            "src/enterprise_math/p018_root_state_carry.py",
+            "tests/test_p018_root_state_decomposition.py",
+            "tests/test_p018_root_state_carry.py",
+            "tests/test_p018_root_state_exact_count.py"
+          ],
+          "api": [
+            "state_coalescence_horizon",
+            "exact_distinct_root_state_count",
+            "quotient_root_state_decomposition",
+            "horizon_state_carry",
+            "ternary_state_count_carry",
+            "ternary_state_count_band"
+          ],
+          "triggers": [
+            "quotient root atlas",
+            "floor quotient root",
+            "distinct quotient-root states",
+            "coalescence horizon",
+            "denominator atlas",
+            "root-state cardinality",
+            "horizon carry",
+            "ternary count carry",
+            "compressed denominator scan"
+          ],
+          "capabilities": [
+            "compute the exact state-specific coalescence horizon and high-denominator cutoff",
+            "certify the high injective chart and contiguous forced low-root chart",
+            "compute exact distinct quotient-root state cardinality without a full denominator scan",
+            "certify the unique optional horizon state by a binary boundary carry",
+            "compress the exact count to a three-valued threshold carry",
+            "materialize the compressed root-state atlas for regression or downstream finite reasoning"
+          ],
+          "core_law": "For n>=1 and r>=1, with H=R_(r+1)(r*n-1) and D=floor(n/(H+1)^r), the quotient-root atlas R_r(floor(n/d)), 1<=d<=n, is the disjoint union of an injective D-state high chart and the forced low interval 1..H-1 plus at most the horizon H. Hence |S|+1=D+H+kappa; with q=floor(H/r) the three-point D-band compresses this to |S|+1=H+q+tau with tau in {0,1,2} selected by two exact thresholds.",
+          "hard_boundary": "DOMAIN_OPERATOR only. The carrier is the finite positive-denominator quotient-root atlas. Do not generalize to arbitrary floor maps or quotient semigroups, do not infer prime/factoring/Legendre or continuum claims, do not erase the H=0 branch, and do not treat the ternary state-count carry as a universal T5 carry law. No Foundation mutation follows."
+        },
+        {
+          "score": 24,
+          "method_id": "logic.triangular_gauge_normalization",
+          "name": "Triangular gauge normalization proof schema",
+          "classification": "CANDIDATE_NOT_TOOL",
+          "family_id": "T5_PRECISION_REFINEMENT",
+          "status": "PROOF_SCHEMA_REUSE_ONLY",
+          "source_refs": [
+            "research_notes/QUADRATIC_PACKET_LOGIC_TOOL_HARVEST_20260826.md",
+            "research_returns/QUADRATIC_PACKET_HIGHER_JET_AUTOMORPHISM_NO_SECTION_AUDIT_RAW_20260825.md"
+          ],
+          "triggers": [
+            "triangular normalization",
+            "unit gauge",
+            "recursive modular normal form",
+            "coefficient-by-coefficient reduction"
+          ],
+          "capabilities": [
+            "recognize triangular gauge action",
+            "derive recursive mod-q normal form",
+            "derive uniqueness by degree induction",
+            "derive orbit count when independent residue ranges are proved"
+          ],
+          "note": "Do not create a new tool family yet. Current evidence is one strong application plus overlap with ordinary integer precision/modular normalization. Promote only after a second independent application family supports a stable reusable API."
+        }
+      ]
+    },
+    {
+      "query": "quotient factor through composition repair future-safe",
+      "tool_families": [
+        {
+          "score": 25,
+          "id": "T6_OPERATION_SAFE_QUOTIENT",
+          "name": "Operation-Safe Quotient / Predictive Refinement Calculus",
+          "status": "HARVESTED_PREEXISTING_DERIVED_TOOL_FAMILY",
+          "triggers": [
+            "quotient",
+            "collapse",
+            "projection",
+            "future observation",
+            "predictive",
+            "descent",
+            "congruence",
+            "stable partition",
+            "operation family",
+            "coarse graining"
+          ],
+          "capabilities": [
+            "fiber-constancy witness",
+            "descent test",
+            "coarsest repair",
+            "predictive partition",
+            "operation-family closure",
+            "safe-operation census"
+          ],
+          "hard_boundary": "the preserved observation/operation language must be declared; the calculus does not choose what distinctions are semantically disposable",
+          "source_methods": [
+            "src/enterprise_math/predictive_quotient.py",
+            "src/enterprise_math/composition_safe_collapse.py",
+            "src/enterprise_math/operation_quotient.py",
+            "src/enterprise_math/partial_operation_quotient.py",
+            "src/enterprise_math/safe_operation_algebra.py"
+          ]
+        },
+        {
+          "score": 18,
+          "id": "T4_FINITE_FIBER_CAPACITY_COLLISION_MINIMA",
+          "name": "Finite Fiber Capacity / Collision-Minima Calculus",
+          "status": "ACCEPTED_TOOL_COMPOSITION_NOVELTY_DOWNGRADED",
+          "api": [
+            "RAW_CAPACITY",
+            "QUOTIENT_CAPACITY",
+            "FIBER_FREE",
+            "COLLISION_DEFECT",
+            "COLLISION_WITNESS",
+            "REPRESENTATIVE_PACKING_COVERING",
+            "SUCCESSIVE_COLLISION_MINIMA"
+          ],
+          "triggers": [
+            "fiber",
+            "quotient capacity",
+            "collision",
+            "representative",
+            "compression",
+            "packing",
+            "covering",
+            "minima",
+            "same observation"
+          ],
+          "capabilities": [
+            "fiber capacity",
+            "collision defect",
+            "equal-fiber witness",
+            "optimal one-representative-per-fiber compression",
+            "first collision scales"
+          ],
+          "hard_boundary": "semantic observation/quotient must already be declared or derived; the tool cannot invent pi to force a capacity theorem",
+          "prior_enterprise_machinery": [
+            "predictive quotient",
+            "operation quotient",
+            "function/relation collision spectra",
+            "finite preimage multiplicity"
+          ],
+          "driver_review": "driver_reviews/TOOL_DISCOVERY_NATIVE_GEOMETRY_OF_NUMBERS_DRIVER_REVIEW_20260822.md",
+          "result": "research_notes/TOOL_DISCOVERY_NATIVE_GEOMETRY_OF_NUMBERS_MINIMA_CALCULUS_RESULT_20260822.md"
+        },
+        {
+          "score": 18,
+          "id": "T8_RELATION_OBSERVABLE_SPECTRUM",
+          "name": "Relation Observable / Spectrum Calculus",
+          "status": "HARVESTED_PREEXISTING_DERIVED_TOOL_FAMILY",
+          "triggers": [
+            "relation",
+            "correspondence",
+            "multivalued",
+            "support",
+            "observable",
+            "branching",
+            "overlap",
+            "spectrum",
+            "common target",
+            "set-valued future"
+          ],
+          "capabilities": [
+            "powerset-valued future signatures",
+            "raw-vs-observed branching audit",
+            "relation collision spectra",
+            "relation-safe quotient test",
+            "capacity-weighted relation invariants"
+          ],
+          "hard_boundary": "relation branching, observable nondeterminism and quotient safety are different questions and may not be conflated",
+          "source_methods": [
+            "src/enterprise_math/relation_observable_signature.py",
+            "src/enterprise_math/relational_spectrum.py",
+            "src/enterprise_math/relation_observable_composition.py",
+            "src/enterprise_math/relation_future_powerset.py",
+            "src/enterprise_math/weighted_relation_field.py",
+            "src/enterprise_math/relation_lattice.py"
+          ]
+        },
+        {
+          "score": 18,
+          "id": "T9_HOLONOMY_COCOYCLE_GLUING",
+          "name": "Holonomy / Cocycle / Gluing-Obstruction Calculus",
+          "status": "HARVESTED_PREEXISTING_PLUS_RECENT_DERIVED_TOOL_FAMILY",
+          "triggers": [
+            "holonomy",
+            "cocycle",
+            "loop transport",
+            "route dependence",
+            "chart transition",
+            "gluing obstruction",
+            "torsor",
+            "groupoid",
+            "defect transport"
+          ],
+          "capabilities": [
+            "staged-vs-direct transport check",
+            "loop defect/holonomy readout",
+            "cocycle obstruction",
+            "strict-gluing no-go",
+            "route-independent quotient diagnosis"
+          ],
+          "hard_boundary": "nonzero holonomy diagnoses failure of strict global trivialization; it does not by itself identify a unique repaired global object or promote transport data to N0",
+          "source_methods": [
+            "src/enterprise_math/precision_holonomy.py",
+            "src/enterprise_math/precision_signed_holonomy.py",
+            "src/enterprise_math/p023_borrow_cocycle.py",
+            "src/enterprise_math/material_loop_identity.py",
+            "driver_reviews/R063_STAGE4_THREE_SECTOR_C4_PROCESS_GLOBALIZATION_DRIVER_REVIEW_20260822.md"
+          ]
+        }
+      ],
+      "methods": [
+        {
+          "score": 46,
+          "method_id": "quotient.composition_safe_collapse",
+          "name": "Composition-safe collapse repair",
+          "classification": "GLOBAL_SUBTOOL",
+          "family_id": "T6_OPERATION_SAFE_QUOTIENT",
+          "status": "CANONICAL_MAIN_EXECUTABLE",
+          "source_refs": [
+            "src/enterprise_math/composition_safe_collapse.py"
+          ],
+          "triggers": [
+            "collapse",
+            "quotient",
+            "factor through",
+            "descent",
+            "future-safe",
+            "repair"
+          ],
+          "capabilities": [
+            "fiber constancy witness",
+            "descends-through test",
+            "coarsest repair",
+            "stable future partition"
+          ]
+        },
+        {
+          "score": 24,
+          "method_id": "t0.brc_multiplier_square_content",
+          "name": "BRC multiplier square-content scan reduction",
+          "classification": "GLOBAL_SUBTOOL",
+          "family_id": "T0_BRC",
+          "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+          "source_refs": [
+            "src/enterprise_math/brc_multiplier_square_content.py",
+            "tests/test_brc_multiplier_square_content.py",
+            "research_notes/BRC_MULTIPLIER_SQUARE_CONTENT_REDUCTION_20260906.md",
+            "src/enterprise_math/brc_multiplier_basin.py",
+            "src/enterprise_math/brc_multiplier_priority_jump.py"
+          ],
+          "api": [
+            "SquareContentReduction",
+            "odd_n_square_content_scan_reduction",
+            "jump_state_square_content_reduction"
+          ],
+          "triggers": [
+            "BRC square content",
+            "squareful multiplier",
+            "multiplier common scale",
+            "ceiling root gcd",
+            "dynamic multiplier quotient",
+            "gap-test redundancy"
+          ],
+          "capabilities": [
+            "exact one-shot stripping of every multiplier square factor whose root divides the known BRC ceiling root",
+            "exact immediate-ceiling witness preservation under m->m/g^2 and x->x/g",
+            "same gcd-factor preservation under declared gcd(n,m)=1",
+            "canonical reuse of m=a^2 d squarefree decomposition",
+            "composition with the existing exact odd-N 2-adic state representative",
+            "state-level IRREDUNDANT/REDUCED/IMPOSSIBLE classification before gap squarehood testing"
+          ],
+          "core_law": "Write m=a^2 d with d squarefree and x=ceil(sqrt(mn)). Under gcd(n,m)=1, g=gcd(a,x) divides the square root y of every successful completion gap y^2=x^2-mn. Dividing m,x,y by g^2,g,g yields the exact immediate ceiling witness at m/g^2, and gcd(x-y,n)=gcd(x/g-y/g,n). After this one-shot normalization gcd(a/g,x/g)=1, so all square content visible in the current ceiling root has been removed.",
+          "hard_boundary": "Requires an already-known exact ceiling root and declared gcd(n,m)=1; a nontrivial multiplier gcd should be handled as a factor witness before this reduction. Squareful multipliers are not statically discardable: states with gcd(square-content-root,ceiling-root)=1 can be genuine first hits. Common-factor scaling is elementary prior art; no novelty priority, asymptotic factorization speedup, or Foundation promotion is claimed."
+        },
+        {
+          "score": 21,
+          "method_id": "t0.brc_phase_root_recurrence",
+          "name": "BRC fixed-phase root/remainder third-difference transport",
+          "classification": "GLOBAL_SUBTOOL",
+          "family_id": "T0_BRC",
+          "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+          "source_refs": [
+            "src/enterprise_math/brc_phase_root_recurrence.py",
+            "tests/test_brc_phase_root_recurrence.py",
+            "experiments/brc_phase_root_recurrence_benchmark.py",
+            "research_notes/BRC_PHASE_ROOT_RECURRENCE_20260907.md",
+            "research_artifacts/brc_phase_root_recurrence_benchmark_20260907.csv"
+          ],
+          "api": [
+            "PhaseRootRemainderState",
+            "PhaseRootRemainderTracker",
+            "phase_root_candidate_gap",
+            "phase_root_third_difference_bounds",
+            "odd_n_phase_root_tail_states",
+            "reused_reciprocal_table_bytes"
+          ],
+          "triggers": [
+            "BRC phase root recurrence",
+            "third finite difference multiplier root",
+            "remove order-one quotient after warmup",
+            "reuse reciprocal table for BRC correction",
+            "fixed mod-8 phase root remainder"
+          ],
+          "capabilities": [
+            "exact unbounded fixed-phase root/remainder transport after fourteen order-one seed transitions",
+            "quadratic extrapolation of each mod-8 phase root from three labeled exact phase states",
+            "exact target residual G=R0-3R1+3R2-6b(b-a) without target square root or q(2J+q)",
+            "uniform common-tail integer correction bound -3..387",
+            "reuse of the existing 1024-byte normalized reciprocal table for constant-comparison phase closure",
+            "preservation of the exact completion gap for composition with the zero-false-negative BALANCED square-residue cascade",
+            "optional exact lifted product state using only bounded-correction multipliers, retained as a CPU-negative alternative"
+          ],
+          "core_law": "For phase-spaced states (m+8i)N=J_i^2+R_i, let a=J_1-J_0, b=J_2-J_1 and C=3J_2-3J_1+J_0. Then (m+24)N-C^2=R_0-3R_1+3R_2-6b(b-a). On 4m^5>=N, e=J_3-C is the integer third phase difference and satisfies -3<=e<=387. For C>=75078, floor(G/(2C+1)) lies in {e,e+1}; the existing Round-13 1 KiB lower-reciprocal table recovers that floor with at most two increments, and one sign check yields the exact (J_3,R_3).",
+          "observer_contract": "Retain three labeled phase triples (m_i,J_i,R_i). Roots alone, Boolean support, or an unlabeled aggregate are inadequate because the exact residual and future completion-gap observer depend on the individual remainders and phase order.",
+          "hard_boundary": "Exact integer transport only on the already-certified odd-N order-one deep tail and fixed mod-8 representative phases. The finite performance crossover is runtime-dependent; direct division remains appropriate for smaller operands. This does not reduce the multiplier horizon, change Lehman/Hart factorization complexity, imply RSA practicality, or create a new top-level BRC family."
+        },
+        {
+          "score": 21,
+          "method_id": "t0.brc_quotient_jet_tail",
+          "name": "BRC stride-8 quotient/remainder jet tail",
+          "classification": "GLOBAL_SUBTOOL",
+          "family_id": "T0_BRC",
+          "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+          "source_refs": [
+            "src/enterprise_math/brc_quotient_jet_tail.py",
+            "tests/test_brc_quotient_jet_tail.py",
+            "experiments/brc_quotient_jet_benchmark.py",
+            "research_notes/BRC_QUOTIENT_JET_TAIL_20260907.md",
+            "research_artifacts/brc_quotient_jet_benchmark_20260907.csv"
+          ],
+          "api": [
+            "QuotientJetOrbit",
+            "QuotientJetTailStep",
+            "QuotientJetTailScanner",
+            "outgoing_sparse_step",
+            "quotient_jet_bound_sufficient",
+            "quotient_jet_tail_threshold",
+            "QuotientJetTailScanner.advance_inplace"
+          ],
+          "triggers": [
+            "BRC quotient jet",
+            "avoid linear-tail division",
+            "stride-8 multiplier quotient recurrence",
+            "quotient remainder transport",
+            "fifteen seed divisions",
+            "division-free BRC tail"
+          ],
+          "capabilities": [
+            "decompose the odd-N mod-8 sparse multiplier stream into five fixed-step residue orbits",
+            "seed every orbit with three exact Euclidean quotient samples, exactly fifteen divisions total",
+            "quadratically extrapolate the next quotient and recover the exact quotient/remainder by at most four signed denominator repairs",
+            "prove the quotient third-difference correction interval [-4,4] under the common linear tail and m>=962h",
+            "retain exact quotient remainder and bounded first/second finite-difference repair coordinates",
+            "avoid a fresh large-integer quotient division and generic quotient-times-denominator product after seeding",
+            "compose with the order-one linear BRC root closure and the staged square-gap residue cascade",
+            "provide an allocation-free in-place scan path for large-integer hot loops",
+            "operate without a multiplier-horizon table or upper multiplier bound"
+          ],
+          "core_law": "For one fixed source residue class modulo 8, let q_m=floor(2hJ_m/(4m+h)) and rho_m be the exact Euclidean remainder. Consecutive visits differ by 8. Under 4m^5>=N and m>=962h, the smooth third-difference plus source-root phase has magnitude below one, while the floor phase contributes strictly between -4 and 4; hence epsilon=q_(m+8)-3q_m+3q_(m-8)-q_(m-16) lies in [-4,4]. Carrying rho and P=(Delta q+Delta^2 q)(D+32) yields the exact provisional residual S=rho+2h(J'-J)-32q-P, normalized by at most four additions/subtractions of D'=D+32. Five orbits times three samples require fifteen seed divisions; all later quotient states are exact recurrence states.",
+          "hard_boundary": "This extends t0.brc_linear_deep_tail and composes with t0.brc_square_gap_cascade; it is not a new top-level tool family. The proof controls exact multiplier-state transport only and does not shorten a Lehman/Hart-style search horizon or establish a factorization-complexity improvement. Finite Python benchmarks favor the jet only for sufficiently large integers (around 4096 bits in the committed environment); small-size routing should retain native division. The exact quotient remainder must not be collapsed to quotient-only or a fitted real trend."
+        },
+        {
+          "score": 21,
+          "method_id": "t0.weighted_brc_cwm",
+          "name": "Weighted BRC CWM / log-multiplicity calculus",
+          "classification": "GLOBAL_SUBTOOL",
+          "family_id": "T0_BRC",
+          "status": "FOUNDATION_ADMITTED_EXECUTABLE",
+          "source_refs": [
+            "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md",
+            "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json",
+            "src/enterprise_math/brc_weighted.py",
+            "tests/test_brc_weighted_foundation_tool.py",
+            "research_notes/BRC_FOUNDATION_RETROFIT_REGRESSION_20260902.md"
+          ],
+          "api": [
+            "CWMState",
+            "CWM_ZERO",
+            "CWM_ONE",
+            "cwm_edge",
+            "cwm_recoalesce",
+            "cwm_propagate",
+            "cwm_from_positive_weights",
+            "is_positive_path_realizable",
+            "boolean_support",
+            "effective_multiplicity",
+            "multiplicity_surplus_expr",
+            "dominant_log_expr",
+            "total_log_expr",
+            "future_cwm_equivalent",
+            "projective_scale",
+            "gauge_scale",
+            "compensate_incoming_weight",
+            "OneStateRecurrentCWM",
+            "one_state_recurrent_cwm"
+          ],
+          "triggers": [
+            "weighted BRC",
+            "branch multiplicity",
+            "positive branch weight",
+            "path count total dominant",
+            "CWM",
+            "effective multiplicity",
+            "log surplus",
+            "ln k multiplicity",
+            "weighted recoalescence",
+            "weighted future quotient",
+            "projective gauge quotient",
+            "positive recurrent branches",
+            "multiplicity-driven divergence"
+          ],
+          "capabilities": [
+            "exact positive-rational branch recoalescence and propagation through one CWM carrier",
+            "exact positive-path realizability test",
+            "Boolean support forgetful readout",
+            "effective multiplicity E=W/M and symbolic BRC LN surplus readout",
+            "all-prefix future-CWM safe equivalence",
+            "projective future scaling and incoming-weight compensation",
+            "one-state multi-loop exact recurrence and stable geometric closure",
+            "typed deterministic degeneration with E=1 and zero log surplus"
+          ],
+          "core_law": "Positive finite branch systems carry CWM=(C,W,M) with alternative recoalescence (+,+,max) and serial propagation by componentwise multiplication; E=W/M and Delta=ln(E) measure multiplicity beyond the dominant path. Equal k-way recoalescence has Delta=ln k. For one-state loops total mass is stable iff S=sum q_i<1, not merely max q_i<1.",
+          "hard_boundary": "Positive Weighted-BRC does not represent signed/amplitude cancellation, does not recover erased branch provenance from Boolean support, does not make LN/LOG primitive state, and does not provide a general SCC/Perron-Frobenius/spectral-radius theorem. Deterministic single-path problems reduce to E=1, Delta=0 and should not be artificially reinterpreted as multiplicity problems."
+        }
+      ]
+    }
+  ],
+  "selected_current_objects": [
+    {
+      "method_id": "precision.integer_projection_calculus",
+      "name": "Integer precision projection/detail/carry calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T5_PRECISION_REFINEMENT",
+      "status": "CANONICAL_MAIN_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/precision.py",
+        "src/enterprise_math/graded_precision.py"
+      ],
+      "triggers": [
+        "precision",
+        "coarse",
+        "fine",
+        "projection",
+        "detail",
+        "carry",
+        "borrow",
+        "mixed radix",
+        "graded transport"
+      ],
+      "capabilities": [
+        "project/recompose",
+        "nested detail",
+        "carry/borrow",
+        "precision chains",
+        "degree transport",
+        "nonlinear projection defect"
+      ]
+    },
+    {
+      "method_id": "quotient.composition_safe_collapse",
+      "name": "Composition-safe collapse repair",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T6_OPERATION_SAFE_QUOTIENT",
+      "status": "CANONICAL_MAIN_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/composition_safe_collapse.py"
+      ],
+      "triggers": [
+        "collapse",
+        "quotient",
+        "factor through",
+        "descent",
+        "future-safe",
+        "repair"
+      ],
+      "capabilities": [
+        "fiber constancy witness",
+        "descends-through test",
+        "coarsest repair",
+        "stable future partition"
+      ]
+    },
+    {
+      "method_id": "symmetry.finite_group_action",
+      "name": "Finite symmetry/orbit/equivariance calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T7_FINITE_SYMMETRY_EQUIVARIANCE",
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "source_refs": [
+        "src/enterprise_math/finite_symmetry.py",
+        "driver_reviews/R064_PHASEA_N0_FIRST_LOCAL_INTERACTION_CARRIER_DRIVER_REVIEW_20260822.md"
+      ],
+      "triggers": [
+        "symmetry",
+        "group action",
+        "orbit",
+        "stabilizer",
+        "equivariant map",
+        "canonical choice",
+        "relabeling"
+      ],
+      "capabilities": [
+        "orbit partition",
+        "stabilizer",
+        "fixed points",
+        "canonical-choice obstruction",
+        "equivariant-map count/enumeration"
+      ]
+    },
+    {
+      "method_id": "holonomy.precision_defect_transport",
+      "name": "Discrete defect transport/holonomy/cocycle calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T9_HOLONOMY_COCOYCLE_GLUING",
+      "status": "CANONICAL_MAIN_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/precision_holonomy.py",
+        "src/enterprise_math/precision_signed_holonomy.py",
+        "src/enterprise_math/p023_borrow_cocycle.py",
+        "src/enterprise_math/material_loop_identity.py"
+      ],
+      "triggers": [
+        "holonomy",
+        "cocycle",
+        "defect transport",
+        "loop",
+        "coherence",
+        "route dependence",
+        "gluing defect"
+      ],
+      "capabilities": [
+        "defect transport",
+        "staged/direct coherence",
+        "holonomy composition",
+        "cocycle/loop obstruction"
+      ]
+    }
+  ],
+  "selected_current_families": [
+    {
+      "id": "T0_BRC",
+      "name": "BRC",
+      "status": "PREEXISTING_CANONICAL_TOOL_FAMILY",
+      "scope": "support/result/provenance-valued composition; use exact current BRC definitions",
+      "triggers": [
+        "BRC",
+        "support",
+        "Boolean result",
+        "path formal",
+        "branch",
+        "recoalescence",
+        "multipath"
+      ],
+      "capabilities": [
+        "support algebra",
+        "path/result projection",
+        "multipath composition",
+        "provenance-aware result semantics"
+      ],
+      "hard_boundary": "Use exact current BRC typing; do not infer erased provenance from Boolean support."
+    },
+    {
+      "id": "T5_PRECISION_REFINEMENT",
+      "name": "Integer Precision / Refinement Calculus",
+      "status": "HARVESTED_PREEXISTING_DERIVED_TOOL_FAMILY",
+      "triggers": [
+        "precision",
+        "refinement",
+        "coarse",
+        "fine",
+        "projection",
+        "detail",
+        "carry",
+        "borrow",
+        "mixed radix",
+        "scale chain",
+        "graded transport"
+      ],
+      "capabilities": [
+        "exact projection/recomposition",
+        "fiber detail",
+        "carry/borrow",
+        "precision-chain decomposition",
+        "graded transport",
+        "nonlinear projection defect"
+      ],
+      "hard_boundary": "finite integer precision only unless a separate theorem supplies continuum/limit semantics",
+      "source_methods": [
+        "src/enterprise_math/precision.py",
+        "src/enterprise_math/graded_precision.py",
+        "src/enterprise_math/precision_system.py",
+        "src/enterprise_math/precision_proof.py"
+      ]
+    },
+    {
+      "id": "T6_OPERATION_SAFE_QUOTIENT",
+      "name": "Operation-Safe Quotient / Predictive Refinement Calculus",
+      "status": "HARVESTED_PREEXISTING_DERIVED_TOOL_FAMILY",
+      "triggers": [
+        "quotient",
+        "collapse",
+        "projection",
+        "future observation",
+        "predictive",
+        "descent",
+        "congruence",
+        "stable partition",
+        "operation family",
+        "coarse graining"
+      ],
+      "capabilities": [
+        "fiber-constancy witness",
+        "descent test",
+        "coarsest repair",
+        "predictive partition",
+        "operation-family closure",
+        "safe-operation census"
+      ],
+      "hard_boundary": "the preserved observation/operation language must be declared; the calculus does not choose what distinctions are semantically disposable",
+      "source_methods": [
+        "src/enterprise_math/predictive_quotient.py",
+        "src/enterprise_math/composition_safe_collapse.py",
+        "src/enterprise_math/operation_quotient.py",
+        "src/enterprise_math/partial_operation_quotient.py",
+        "src/enterprise_math/safe_operation_algebra.py"
+      ]
+    }
+  ],
+  "snapshot_pins": [
+    {
+      "path": "enterprise_toolbox_registry.json",
+      "bytes": 16866,
+      "sha256": "d8a0a7e6e2090def201175d9f42da1b1c2a56e80fe5a5220ab5c6c8e12da10e6",
+      "blob": "a2ff80764f1d93be629980300efbfccff73868e6"
+    },
+    {
+      "path": "research_method_inventory.json",
+      "bytes": 16564,
+      "sha256": "f6b221bcd7050ddea5965bcb80d6cf64c98e99d23f9ae6cbadb8e23a390f7402",
+      "blob": "9c855ac0a8477174ce29e6de482c1b36bc0ef7d3"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260823_tool_discovery_six_return.json",
+      "bytes": 5446,
+      "sha256": "f10fcf0f094b56351a39ad057397c8fc67da0eb00dbafab4f7c0ff9f9142308f",
+      "blob": "8aa29754cc5c8cfcef6edc46b86081ad1cf4f5fe"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260825_triaxial_directional_defect_t1.json",
+      "bytes": 2239,
+      "sha256": "481fe53126daa383651e2419545fbd1b7132654b76404d96fca6ff9eadb88243",
+      "blob": "422562255c3c6a64e8fc1d263f4ccbbf0d253959"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260826_diagonal_quotient_normalization.json",
+      "bytes": 1798,
+      "sha256": "08bfbb6c03ca3cd75ef336d30fa09017fd02c01b028ce8f7fefbeb2a4b8509ba",
+      "blob": "6edba304eb4fb8e5e7434687932b95d7ec2399e9"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260826_quadratic_packet_equivariant_section_harvest.json",
+      "bytes": 4140,
+      "sha256": "572fa9bbaf52d64473a46c47fe12cc04ce8fa4d5ca9d10aca43116f5ee56fe62",
+      "blob": "a40cb67e0b44f4540e0493be377d43f76aa815d4"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260827_native_trisector_coupled_closure_harvest.json",
+      "bytes": 2717,
+      "sha256": "0c1bad1e5d613108b49bdf443a30e5169ab4247771697a95eadca72eed4a5e60",
+      "blob": "d83ec11f8180b845b48d93e2fa31b8d7d286d27e"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260828_nonly_valuation_wall_gcd_extractor.json",
+      "bytes": 3394,
+      "sha256": "074c2010bf7d0fa688b3bd53b90cb7533f87e39067105fae487a1da96ec3601a",
+      "blob": "910c9c716841dc302f8c850067bd9c76d3806d62"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260828_p018_quotient_root_atlas_carry_harvest.json",
+      "bytes": 3621,
+      "sha256": "6f5caaddf707d1e2a10a34b88c327f26857e3ef7755dd318cd11c72601a2a294",
+      "blob": "182072ad37cf60c480f07a237ef83ee107a20e1b"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260902_brc_weighted_finite_recurrent.json",
+      "bytes": 2764,
+      "sha256": "3b52a716a672502fe78f413cb76ed5232f311364ca54d1af1fb4bebc2934e5d2",
+      "blob": "08086aecf8ce6c301993696ae0bbbb7d8e2fb74f"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260902_brc_weighted_foundation.json",
+      "bytes": 3675,
+      "sha256": "84321f5f995f950ef56de61f7c95487f2a187ca485d86d8adce86b2056f14dd9",
+      "blob": "152b416b4dbef5c827f80b34125f336d771dc8ef"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260903_brc_critical_degeneracy_foundation.json",
+      "bytes": 3021,
+      "sha256": "dde07b2897f6d2faccbd0ff8e6435fbf3dfb7cf56e79f626b5996778839d4c2f",
+      "blob": "83cc9fb7518e66f5a0102ac08a08d9a881393dda"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260903_brc_critical_orbit_foundation.json",
+      "bytes": 2333,
+      "sha256": "93221c006d8579c881e185b55e807e1b6627c9db9081aa5254504f680b0e3a00",
+      "blob": "592555611b5c8718eef693cbcde47c4830a49315"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260903_brc_critical_ratio_jet_foundation.json",
+      "bytes": 2314,
+      "sha256": "49b2cf7236b3d6e4f3691eef33bced9bbf6c23163d488799cd772804044a7f3e",
+      "blob": "bafdec7ce48e1f5c881039f5a7b890af704bd26c"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260903_brc_recurrent_interaction_foundation.json",
+      "bytes": 6814,
+      "sha256": "ad7cee458bb23f5c599d9368a97be2a2b54a97f77b4db53b4db66904c351c3ca",
+      "blob": "8c087204a13592341c46e30c372fc8a30ca66c0c"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260903_brc_recurrent_port_foundation.json",
+      "bytes": 2368,
+      "sha256": "37951e8bf2c34f62a173dc4753155cbfd1b7f5cb3a8ffcdb88a23b121ba45453",
+      "blob": "20060640b469d2f753583fff8bf2be0a41b9593d"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260903_brc_reducible_critical_jet_foundation.json",
+      "bytes": 2488,
+      "sha256": "9c875c60db3e71b36ee3e307441d5fb4ec539d6a2503f2bd2629cd1b7559a1e8",
+      "blob": "078cba914632777b33fb1547d5ec1747797a72cd"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260903_brc_universal_histogram_foundation.json",
+      "bytes": 4203,
+      "sha256": "7e5f3e60a96bde1b5104be2100a5f8033e8fc8dade2e5fba00f941a6360f7db6",
+      "blob": "f8f4df8f6f9045f83609458d70024796159be06c"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260903_cyclic_rotation_refinement.json",
+      "bytes": 3331,
+      "sha256": "5852506bf0ad9fc848667fc4a8a0f4f89511b2fd20cde2c6149582cacc33c026",
+      "blob": "02de88ce004d3db2280e2fa3836128cdd11f3c32"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260903_euler_dyadic_cayley_bridge.json",
+      "bytes": 1392,
+      "sha256": "2cef40d366a3f6f124d1d4227df2b110906c4dff9d1099f4ea4f9ca9854296e2",
+      "blob": "aa6b847529b953d129af27209265017c7c917d74"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260903_euler_native_bisector.json",
+      "bytes": 1302,
+      "sha256": "65bcb6bb6b1dd54b5c22b8fdf0e9002a070a7b518a3959752687451d6c9c7824",
+      "blob": "1a4626618ce9e0b43eb6f069e157edc8f6033464"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260903_euler_pythagorean_spinor_cayley.json",
+      "bytes": 3115,
+      "sha256": "282cc2c94c5bf7ba8388d0f5b05732e5f7e4586ccb83e47aff1db2047738f648",
+      "blob": "43eb481ffa357586a8bc08431ffdeae4713fd40a"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260903_euler_rotation_refinement.json",
+      "bytes": 3021,
+      "sha256": "f7c3d95898efa09be562549dc4eda80ed97db11560d1fd66d3a193c568f3edd3",
+      "blob": "bff4d575974820f9d1dc52271031a3ebf8f8059d"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260903_tetrahedral_residual_pell_extraction.json",
+      "bytes": 4741,
+      "sha256": "1cc8323db6e63c4a505124df0c24b2b6880c7277672a6dc3f601f6c6cbe5aca6",
+      "blob": "add7bf88973ee822acb54f5f01da7dfbe6284b01"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260904_brc_newton_fiber_quotient_foundation.json",
+      "bytes": 2791,
+      "sha256": "a43044d11a2f8ff30ecfe58b35b35a52500b8f23923182eade06551b8169b7f2",
+      "blob": "06a545050ea0e2b55941fff57948b19ebae0cee3"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260904_brc_newton_handoff_resonance_foundation.json",
+      "bytes": 3110,
+      "sha256": "9465e83afe76ae3124b6677073f6fb2e3d1102f6e84ed80926d292aafa4cd491",
+      "blob": "6fa7b72887601789d8cb23b3a9b8b4d4132b6eb1"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260904_brc_newton_observer_lattice_foundation.json",
+      "bytes": 3069,
+      "sha256": "38b273ae107001a305afe9d9b52ef5186c148021c004d62c17ae397b1cacef4a",
+      "blob": "b6214928b1abf4425aca43ecc462dd0e2b02d463"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260904_brc_newton_quadratic_selector_foundation.json",
+      "bytes": 4141,
+      "sha256": "a20ccc67d94955cdfea920bc100060fe2adf59341cf38d5838bd98882e161645",
+      "blob": "56c008fc1a353b0355150171e7b31afe7189ead5"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260904_brc_newton_recursion_foundation.json",
+      "bytes": 3349,
+      "sha256": "dd12fdc68468967345cb36d0a5e5cc513be056d74032b8ed266c76c15a5d1078",
+      "blob": "b0707a1837bdd3ea7ff0af3adff996757a5b7073"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260904_brc_newton_schedule_strata_foundation.json",
+      "bytes": 3302,
+      "sha256": "cfb9c4d6dbc00ce4fa85953d13eac36eb5efb4e931ad6dc8e7d19f05f750a785",
+      "blob": "5c0ccccaf5549f6c0ead2bbfde4fe26b1ec3a20c"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260904_brc_newton_selector_chambers_foundation.json",
+      "bytes": 3254,
+      "sha256": "c2e0a40faf64bb6fc35ea3e3d46b752aac4b2c40cbc95782b857fb3e2211dea2",
+      "blob": "41443424dfba067bf95a19eb273e580150d22194"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260904_euler_cell_polygon_pi.json",
+      "bytes": 1628,
+      "sha256": "f34b730a67bceb7cf3f362ad00a9e6b17f10f9c3ca1311e306bcb3d5b27ee086",
+      "blob": "e7643401ebd88dcee7b580f66537ae2d38891506"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260904_euler_character_completion.json",
+      "bytes": 1681,
+      "sha256": "e00c173be83ee98b8925e48e0ce15756300d6c0c533dded491f14be2820df9ef",
+      "blob": "66908369b0c7ce171b117c27b663e1e95ca0750a"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260904_euler_fcc_chirality.json",
+      "bytes": 2637,
+      "sha256": "4bbbb84caecf9c143449ffc5fc3e20f3c4db5c0a1315001ed086bf0fa7491f62",
+      "blob": "19cf3811e580de5e791d0f3e36bbbe5199f214e3"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260906_brc_admissible_multiplier_scan.json",
+      "bytes": 3539,
+      "sha256": "678463c53b884d28f85455824ecb8c2c3e32aaadc4c2bf2b881c0b775e2f2cc9",
+      "blob": "1cf0804a0b186a16f1a9cab79298896860c2be45"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260906_brc_fixed_wheel_complexity_boundary.json",
+      "bytes": 2700,
+      "sha256": "20f31207c1891b6bc39f2f20073ac1a19cf7d2b8032b3e8e389c9bec58a27142",
+      "blob": "c54692eb1cd77954846765364e531ee6a52ef211"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260906_brc_mod8_sparse_transition.json",
+      "bytes": 3206,
+      "sha256": "c8fd124597975502a047733969ea60742e897a22ab4d123892db4401390eab66",
+      "blob": "9ac4e1446534f31a6e9778b26f8fc994689551b6"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260906_brc_multiplier_2adic_strip_reduction.json",
+      "bytes": 2746,
+      "sha256": "56b1e6b8e9fd8e5c2feae718a265715941f8f39a74760c4a5e1ce304b29cf844",
+      "blob": "d3420bab242c8531c00b29478cc27eb18c767a2d"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260906_brc_multiplier_basin.json",
+      "bytes": 3496,
+      "sha256": "29c202899aacbf644aa0b215516a2163ac07f94ce81ea77211da10f02e55b675",
+      "blob": "d8cee067d783d9d61fc0bf836240b296db9aa6e0"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260906_brc_multiplier_priority_jump.json",
+      "bytes": 4129,
+      "sha256": "419c5731cdb1b16d4548d85166758c3617afc127a20845798eebc6a6aa4889fd",
+      "blob": "b167e6edba0889f698d62d8b51aa875635f4d998"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260906_brc_multiplier_square_content.json",
+      "bytes": 3121,
+      "sha256": "b6ed081eb3057da252b318cbce6e90a8545136208e5ce6e802713264ddb772ce",
+      "blob": "371305e0b7d8771a58be4ea7cd8d87aa5ad6caa3"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260906_brc_multiplier_transition.json",
+      "bytes": 3283,
+      "sha256": "8a81805adeac495ffcbf7e0b69d7b13811a781ad67f7886b14eb1008de5f3a1f",
+      "blob": "b400d9e7bb563b609facc387cf081202bd63619c"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260906_brc_multiplier_vertical_wheel.json",
+      "bytes": 3179,
+      "sha256": "7d2e2c5eefa05c43b6fb445dd3f5d35962ba89a40544736c543c956de8b16bd0",
+      "blob": "04a09f2344b0047413513d5a1e7b7b7521d4318d"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260906_brc_priority_vertical_scheduler.json",
+      "bytes": 3602,
+      "sha256": "fe27c826a528e63f286bed49493983ed914d8deeb12b27112971f51e17c93478",
+      "blob": "6dbc8444844e2bc412a3dd8e63bf47c2e4ad94f2"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260906_brc_smooth_relation_lattice.json",
+      "bytes": 3799,
+      "sha256": "3ad38aa3554703c2bb06c8988b284e5336f7cf7c632b83bc0b47eff131cb7202",
+      "blob": "0d84b70282ad7eefb6b093ad3f7d57117a8f8cf2"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260906_brc_square_gap_prefilter.json",
+      "bytes": 4066,
+      "sha256": "c1623e5c9605433214fdf74fab0a9c2352fcd3b8d17369fd13caa17a34ecb490",
+      "blob": "7835667696e248a2ae6a707b2dbc80b1f794f2cf"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260907_brc_energy_scaled_cross_coordinate.json",
+      "bytes": 3834,
+      "sha256": "457dcaa206df762770789b9a4e056bc26ae3aea12c4eecb0706abca7995b1b5f",
+      "blob": "4e3e1c5e892a090936a286da872bd3a93a4168ad"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260907_brc_error_linearization_pell.json",
+      "bytes": 3350,
+      "sha256": "427947aa8bf9076ee705c4c60204f00140b98deee5d0ff7ddda43393176f0741",
+      "blob": "651dc7261f9951811a6b8570b84c4d9a39109dcd"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260907_brc_linear_deep_tail.json",
+      "bytes": 3310,
+      "sha256": "e761ee09fe7f2aebfc7b638ab8805521cbc5ada3c652a96525f461887c4a8d7b",
+      "blob": "7d423cd622879c27afd5279f1bb6174ba87af4d6"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260907_brc_opportunistic_shortcut_portfolio.json",
+      "bytes": 4586,
+      "sha256": "97dc7bd08bdb94397f254f21f179961b3ff1a589d95aac656ac280ad80abd2ba",
+      "blob": "c00174bc6bc9de5959b84021f2a92a467c8cbb6c"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260907_brc_pairwise_multiplier_transport.json",
+      "bytes": 3306,
+      "sha256": "99eb575204cdff598e97adf6f8b5aab4f309a10e878c38230d353ee96fed6376",
+      "blob": "5a8e943c07afca174d0bd2fc4ce4d062240a6b89"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260907_brc_phase_fourth_moment.json",
+      "bytes": 4160,
+      "sha256": "e870c8333669953d0955df23be4e739b2ef3a5432861929087c8afc0eea3f962",
+      "blob": "61902e8747f0333b99c5a2637d759f20a36a92ba"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260907_brc_phase_quotient_remainder.json",
+      "bytes": 3530,
+      "sha256": "b337ee602ed4d4d47f4810b307639cf6db83fe43a4e9d44e9bb84a92d1ae3c55",
+      "blob": "2d3165b11b88f723de792c12c1925709316bfc7d"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260907_brc_phase_root_recurrence.json",
+      "bytes": 4037,
+      "sha256": "ebad4a0635c1ff48822c13ecb7f76a2018572aa7ed70d0485ced719f43842b42",
+      "blob": "3ffaa6ce4c1010d642c87cf00f14ae21d5d5872c"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260907_brc_quotient_jet_tail.json",
+      "bytes": 4107,
+      "sha256": "dafb9f86674d2192feb43fcb4485887cc6239cebb830d204a6e8fdb13f98ea7e",
+      "blob": "c19813e8298bffe41b9bfb32dbb47f0cc3c0ad38"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260907_brc_square_gap_cascade.json",
+      "bytes": 3227,
+      "sha256": "da112b01e3a59804c5685ad48507a13da303a95dd45bc3c46a9dd65456d07a52",
+      "blob": "32c394a72d8124df03e820942898864c5cc00320"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260907_brc_square_increment_difference_jet.json",
+      "bytes": 4256,
+      "sha256": "6d8b3632d7f3aeb97d05d8252a2af5c488f8034793187b1a9c889d61d935cdea",
+      "blob": "54972102c1b71bc62b6f6102f3d35b0d7998efdf"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260907_brc_table_free_tail.json",
+      "bytes": 2967,
+      "sha256": "e0a64725b1034ffc7a4259ea13f576900a70c54b83f5d8f2ee82568aede203f6",
+      "blob": "914c85079080810380935c3eeebc7f32cfc5de3c"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260907_owner_native_frontier_candidates.json",
+      "bytes": 17135,
+      "sha256": "8e9a8484054f620437efa2e9b81d00a6e62dd0fd4b9c335bd70eda327a6abef3",
+      "blob": "44a7a674e5d8f3d3b9f37eade7e5c6ceaea906e4"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260908_brc_neighbor_square_lift_shortcut.json",
+      "bytes": 4577,
+      "sha256": "7abd3e26cdb00542bbca531835fbf819b80443bf33dc0fb04bb92b54d5032907",
+      "blob": "31c6682e89b77efb782399d41e24daedcdf3450f"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260908_divisor_layer_lift_probe.json",
+      "bytes": 3026,
+      "sha256": "1209438bd078c7fa71d8b488e586dc10208f4c749731a36224cb0e93509806d6",
+      "blob": "328f3461114589787a6adea8140af7ea04692ba5"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260908_owner_pp_moment_result.json",
+      "bytes": 16306,
+      "sha256": "808d322fcea01f94519bd3010f1b6eaa48032a4dd192b1920eec622635ed2e2a",
+      "blob": "a2238ef5e7a51fd2ebaf918b95bfb480ca2e0be8"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260908_owner_raw_stability_extensions.json",
+      "bytes": 21280,
+      "sha256": "506bc35b11c211f351d26ac0f19e1f3ba09b841521cfb49302067f69b293b571",
+      "blob": "6ce5ac1cfe55213b3164f085e960d96e0a54a178"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260908_owner_raw_stability_results.json",
+      "bytes": 10415,
+      "sha256": "b1d4d216f76bde3fa2964912db68c96d5ff68b661ce793054e18df44048e95eb",
+      "blob": "a37488ff5cd636794f74fe7594b965b3c17a82db"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260908_owner_star_dual_results.json",
+      "bytes": 13360,
+      "sha256": "315c5a24869c96d6532363a88c80c723c12454658cae78eaf937984a5aaed30c",
+      "blob": "f375cc96efa50831ec5b552d44dffb4c52430c17"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260908_owner_star_stability_results.json",
+      "bytes": 12740,
+      "sha256": "2ab6c7249446ae4c258f19e2a38104633213eeeed7289ea4d53a0fc2e0bbbe82",
+      "blob": "a85077aceafde7b4b3ddbdf2e503093a9c0bdc16"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260908_owner_two_positive_stability.json",
+      "bytes": 14024,
+      "sha256": "5d7949d79809595bd51e6053426e7cbdadaa6601dc9c6901af6cde0816c2a917",
+      "blob": "cbb4b1965dece9af797084f5f494a6697c2b7d49"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260908_owner_weighted_trade_result.json",
+      "bytes": 10626,
+      "sha256": "c8ff8390990f2f54186edb57159a4f87d87b982f651f8bf984c2208f0e211065",
+      "blob": "27bdbfd796dbfec6c67f1c881289c9b56f6e387b"
+    },
+    {
+      "path": "tools/enterprise_toolbox.py",
+      "bytes": 10720,
+      "sha256": "d0f0383a344194133a303f6758142bfd4ecd56deb35a3008f4bf6009ccf6892b",
+      "blob": "56ad1ee65527f28065d6aec89a802a8e029f0c6e"
+    }
+  ],
+  "status": "METADATA_LOOKUP_PASS_SEMANTIC_REUSE_CLASSIFICATION_REQUIRED"
+}

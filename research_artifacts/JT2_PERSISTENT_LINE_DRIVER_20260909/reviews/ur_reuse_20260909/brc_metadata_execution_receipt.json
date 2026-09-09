@@ -1,0 +1,76 @@
+{
+  "schema": "JT2_BRC_INTERFACE_METADATA_EXECUTION_V1",
+  "recorded_at": "2026-09-09T06:44:20.816333+00:00",
+  "scope": "Metadata lookup and static interface reads only; no mathematical program",
+  "successful_lookup": {
+    "tool_chunk": "3f2f42",
+    "exit": 0,
+    "reported_elapsed_seconds": 0.8765631,
+    "argv": [
+      "C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "D:\\em\\TEMP\\jt2-persistent-driver-intake-20260909\\query_existing_brc_interfaces.py"
+    ],
+    "runner_pin": {
+      "bytes": 5481,
+      "sha256": "90fb8dd5b42354c8e528edaedae6dbc1c8007412fb0a682b28dcc807817a3d21",
+      "blob": "7f28fc3aa08d6fb552c9c9b81263df21734622a3"
+    },
+    "output_pin": {
+      "bytes": 62853,
+      "sha256": "dbab7ee5325888d85c2220166bdb9c92995366718018a6b8b9bb3c2000329401",
+      "blob": "074f31dc2d718e232b257c986789371c84902708"
+    }
+  },
+  "initial_archive_failure": {
+    "tool_chunk": "9dbfdd",
+    "exit": 1,
+    "reported_elapsed_seconds": 7.7395861,
+    "scope": "Metadata snapshot extraction; no mathematics executed",
+    "error": "AssertionError: warning: lazy fetching disabled; some objects may not be available\nfatal: could not fetch 2aa9450ee598d892d2df7ab3dbe0100ad23102ae from promisor remote",
+    "preserved_original_script": "query_existing_brc_interfaces.py before any retry adjustment"
+  },
+  "initial_runner_pin": {
+    "bytes": 4418,
+    "sha256": "486e27bb4e3aed707620fe37c39b422122160f4225e0b524ed361431167a8a18",
+    "blob": "bf2ddd229d37296acbb38553561dcad828ac4b4e"
+  },
+  "metadata_presence_check": {
+    "snapshot": "562df4628f1896bd0faca3706efbacdb78f189d0",
+    "metadata_files": 69,
+    "missing": [],
+    "stderr": ""
+  },
+  "source_interface_reads": [
+    {
+      "path": "src/enterprise_math/precision.py",
+      "commit": "562df4628f1896bd0faca3706efbacdb78f189d0",
+      "bytes": 11558,
+      "sha256": "d8a19c7e4a319b5e9b17b66a1b5ef4ac563bd984815c7355bd73784e0bc521d8",
+      "blob": "0f028d00b2126b7a3b13bcfb8db627fc542af195",
+      "read_scope": "Full relevant source/protocol read; not imported or executed."
+    },
+    {
+      "path": "src/enterprise_math/composition_safe_collapse.py",
+      "commit": "562df4628f1896bd0faca3706efbacdb78f189d0",
+      "bytes": 8804,
+      "sha256": "a5031cbd860dbb9195e02fa872dc1abbc10e2b27f47a397125749b8078474529",
+      "blob": "384d166f642fb65c53fc7f2431f43dc99880693a",
+      "read_scope": "Full relevant source/protocol read; not imported or executed."
+    },
+    {
+      "path": "docs/EXACT_ARITHMETIC_BRC_RUNTIME_PROTOCOL.md",
+      "commit": "562df4628f1896bd0faca3706efbacdb78f189d0",
+      "bytes": 5782,
+      "sha256": "007ecf39bd3d18247d1b80006503390b04d3eecd39e32c399f7f9b4e50532560",
+      "blob": "ccc45e61a1b76dec34d6e779b93e12d1f380724d",
+      "read_scope": "Full relevant source/protocol read; not imported or executed."
+    }
+  ],
+  "no_mathematical_module_execution": true,
+  "paper_reuse_is_not_runtime_reuse": true,
+  "independent_review": "PENDING",
+  "raw_tool_log_boundary": "Tool chunks/exit/reported elapsed are actual observed tool results. No missing original on-disk stdout is represented as having been captured."
+}
