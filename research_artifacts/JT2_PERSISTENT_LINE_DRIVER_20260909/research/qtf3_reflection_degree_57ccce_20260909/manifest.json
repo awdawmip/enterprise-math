@@ -1,0 +1,135 @@
+{
+  "schema": "JT2_QTF3_REFLECTION_DEGREE_CANDIDATE_MANIFEST_V1",
+  "author": {
+    "driver_id": "EM-DVR-57CCCE",
+    "role": "RESEARCH_DRIVER",
+    "authorship": "NEW_PROOF_AUTHOR",
+    "independent_review": "PENDING",
+    "authority_record_id": "DA-CF7B14E71B9E90E956F8",
+    "authority_source_comment_id": 5598240466
+  },
+  "activity": {
+    "activity_id": "RA-ED57445DEB6CD03150685A3C",
+    "mode": "TASK_RESEARCH",
+    "identity_handle": "EM-DVR-57CCCE",
+    "registration_commit": "e1faffe7b035dc998b99c665f08ec0068e449c5f",
+    "record_path": "research_activity_records/RA-ED57445DEB6CD03150685A3C.json",
+    "local_session_key": "local:codex-agent:jt2-line-recover:driver-math-candidate:20260909:57CCCE",
+    "registration_timing": "The argument first arose while organizing the Driver's next-observer contract. Actual math-authoring bookkeeping was added at the first authoring checkpoint on 2026-09-09T10:19:12.638202Z. No pre-math startup gate is claimed retroactively.",
+    "authority_boundary": "Activity records authoring metadata only; Driver role and source authority remain explicit. No official QTF3 Task CLAIM, execution record, Result or Working Truth is granted."
+  },
+  "artifacts": [
+    {
+      "path": "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/research/qtf3_reflection_degree_57ccce_20260909/qtf3_reflection_degree_candidate.md",
+      "bytes": 6359,
+      "sha256": "b01d1edba35e7e508dd7ff47523c1ef4ee7b1a137d8b59d880b1e0f00733c189"
+    },
+    {
+      "path": "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/research/qtf3_reflection_degree_57ccce_20260909/next_observer_contract.md",
+      "bytes": 7607,
+      "sha256": "2e4f3369a59e351f0c1a5dc1343946044c2285be6e500793014e4010f9815dc9"
+    }
+  ],
+  "candidate_claim": {
+    "scope": "All primes p>3 with p=6m+1",
+    "statement": "L_p(1/2) == F_p(1) mod p^3 for the exact p-1 truncations",
+    "method": "Finite reflection-degree lemma after a proved p^2 factor and an exact zero prefix",
+    "new_mathematical_program": false,
+    "numerical_tests": false,
+    "old_77_prime_replay": false,
+    "formal_acceptance": false
+  },
+  "declared_consumed_inputs": [
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "9e3a41dc9909ad98c789bb8d53a27addd0649eaa",
+      "path": "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/ur_reuse_20260909/driver_authored_transport_candidate.md",
+      "sha256": "063ac8f6f31f83f0b9e16a3a3520aebd52527eb8237a28f07a833fa0f6d28eee",
+      "scope": "Q2 coefficientwise p^2 divisibility AND exact vanishing of all D coefficients below p; finite truncation degrees. No CM/weighted theorem is used by the new fixed-point proof."
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "8bb5790f3ae1f49cfdb780e94eea78d0192c59c3",
+      "path": "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/advisory_ef9380_20260909/reference_review.md",
+      "sha256": "42b7f2e0aa1a97fa17682b7d48f0eb2b55ccb6cf3dff302274ef24d5e036b8a2",
+      "scope": "Qualified non-author support for the old p^2 input; not a review of this new p^3 argument."
+    }
+  ],
+  "new_exact_source_recovery": [
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "6058e8fa69cc8c9a3e571d05bc6cbb8b4565c5aa",
+      "path": "research_returns/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_REFLECTED_DERIVATIVE_PRODUCT_BRIDGE_RETURN_20260827.md",
+      "blob": "3fedf7bef09b426037840721855f9a9d05558a0b",
+      "sha256": "f2dde9c2d0411285d7cd449bd2853fae87b83b0c2a00cd4f57dcfcfe47a96483",
+      "bytes": 10919,
+      "read_scope": "Section2 definitions of R_p, C_r, old raw G_p/H_p; full file fetched mechanically, proof/experiments not replayed.",
+      "transport": "One initial transient connector failure; subsequent actual full-file read succeeded."
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "6058e8fa69cc8c9a3e571d05bc6cbb8b4565c5aa",
+      "path": "research_returns/ENTERPRISE_BRC_HALF_COUPLING_INERT_FINITE_CLAUSEN_DERIVATIVE_BRIDGE_RETURN_20260827.md",
+      "blob": "c8c2423e8569a3da27b41bb7f602b4b781bb2a79",
+      "sha256": "64e097cda5caf710aba34505fe30276c89ec48f021ba4e085867856b59315f8a",
+      "bytes": 11606,
+      "read_scope": "Section1 exact finite identity and section3 reflected-tail conclusion; source interfaces consumed, valuation proof and prime computation not rerun."
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "6058e8fa69cc8c9a3e571d05bc6cbb8b4565c5aa",
+      "path": "research_returns/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE_RETURN_20260828.md",
+      "blob": "cf36004694dc2c8c9134e2e1e989c076b88e4c03",
+      "sha256": "54ab94a1899f649ae1488bececaa7c57aafbc89aef44bdd1e40cc0b45590e827",
+      "read_scope": "Sections2,6,7 defining divided G_p, h, LIFT and retained precision. CM0/SIMPLE proof not reopened."
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "587e6ee4a138c34de9d87bc90e06f17d7fe1b910",
+      "path": "research_notes/EM_FREE_W59A_JT2_UR_QTF3_STATE_MACHINE_HANDOFF_20260909.md",
+      "blob": "48cfda2d4f49c88ff2efd0ca013d9806c2e8d216",
+      "read_scope": "Current handoff including Sun defects and asserted QTF3 differential route. New proof bypasses that differential identity rather than certifying it."
+    }
+  ],
+  "reuse": {
+    "classification": "REUSE_APPLIED_AT_PAPER_SCOPE",
+    "families": [
+      "T0 typed branch/provenance/positive rational carrier",
+      "T6 operation-safe quotient and retained future-observer data"
+    ],
+    "weighted_source": {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "e9f7310b192a07431ccc15597afdfd2c6091113d",
+      "path": "definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json",
+      "blob": "f375a059fa4af8c6eefaddb4d4a8689a0c063674",
+      "read_scope": "Typed multiplicity, exact positive rational carrier, provenance/observer and signed boundary commitments."
+    },
+    "native_api_executed": false,
+    "new_tool_direction": false,
+    "confirmed_capability_gap": false
+  },
+  "existing_task": {
+    "task_id": "RS-EMW59A-JT2-QTF3-FIXED-POINT",
+    "publication_id": "TP2-C2C9DDEB2D65387D115E",
+    "taskbook_blob": "329d20a93b798f25002fef2b1b28a4cb34dc672c",
+    "formal_task_execution_claimed": false,
+    "task_completion_claimed": false
+  },
+  "remaining": [
+    "Non-author review of the new finite reflection-degree lemma and specialization.",
+    "Sun output3 and conditional output6 under their current exact task.",
+    "Actual p^3 weighted/address-preserving implication to old LIFT; fixed-point QTF3 alone is not declared sufficient.",
+    "Current runtime/task authority before any formal execution or Result creation."
+  ],
+  "boundaries": {
+    "parent_ids_preserved": [
+      "EM-FREE-W59A-JT2-RAMANUJAN-LEGENDRE",
+      "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION"
+    ],
+    "candidate_mod_p3_polynomial_identity": false,
+    "old_LIFT_proved": false,
+    "formal_driver_review_created": false,
+    "new_task_or_duplicate_claim": false,
+    "slot_use": "No new worker spawned; Owner's current R005/RB allocation preserved."
+  }
+}
