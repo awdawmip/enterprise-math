@@ -1,0 +1,86 @@
+{
+  "checker": {
+    "bounded_search_used_as_universal_proof": false,
+    "file_sha256": "eeb30b94312661ac264b98ea0e24a168b40543c68b813d10e961d1cfb72542fa",
+    "local_replay": "PASS",
+    "path": "research_checks/COHERENT_BRC_F7_RANK_TWO_BALANCED_MIXING_EXISTENCE_AND_SELECTOR_CLASSIFICATION_REVISION_CHECK_20260903.py",
+    "payload_sha256": "b81e60d2e5f649d11c17f685f644b107ca08f303932c87de45076e1f9ff09794"
+  },
+  "claim_id": "chatgpt-cbrc-f7-revision-20260903-83a1d4",
+  "corrected_exhaustion": [
+    {
+      "case": "ZERO_BLOCK",
+      "status": "CLOSED",
+      "subcases": [
+        "P=0/R=0 -> direct A0 failure",
+        "Q=0/S=0 -> constant first difference -> period -> contradiction"
+      ]
+    },
+    {
+      "case": "RANK2_RANK2_ROW",
+      "mechanism": "adjugate saturation -> all second differences constant on a dilation -> finite-index quadratic -> A0 coefficient contradiction",
+      "status": "CLOSED"
+    },
+    {
+      "case": "RANK2_RANK1_ROW",
+      "mechanism": "hub line; J orbit gives full quadratic unless old/new eigenaxis; old hub killed by nonnegativity+A0, new hub killed by old-row support singularity or full quadratic",
+      "status": "CLOSED"
+    },
+    {
+      "case": "ALL_FOUR_RANK1",
+      "mechanism": "rank-one determinant factorization -> integral channel bases; J conjugacy mixed=>quadratic, triangular=>period, diagonal=>A0 failure, off-diagonal swap impossible in GL2Z conjugacy",
+      "status": "CLOSED"
+    }
+  ],
+  "disposition": "OLD_LEMMA_3_3_STANDALONE_RETRACTED_TASK_LEVEL_NO_GO_REPROVED",
+  "old_lemma_counterexample": {
+    "A": [
+      [1, 0, 0, 0],
+      [0, 0, 0, 1],
+      [0, 0, 1, 0],
+      [0, 1, 0, 0]
+    ],
+    "f": "f(n,m)=n^2+|m|",
+    "properties": [
+      "A in GL_4(Z), det=-1",
+      "f direct-sum conservation exact",
+      "J-even",
+      "period-free",
+      "not finite-index quadratic",
+      "not whole-slot block-monomial",
+      "A0 fails"
+    ]
+  },
+  "period_branch": {
+    "dependency": "accepted F4 rank-one free-block theorem",
+    "note": "pair-period exactness uses nonnegative constant-first-difference elimination",
+    "status": "CLOSED"
+  },
+  "provenance": {
+    "F8_authorized": false,
+    "fresh_target_leak_audit_pass_claimed": false,
+    "revision_mode": "POST_FREEZE_THEOREM_REPAIR_ONLY"
+  },
+  "publication_id": "TP2-6F3A8C21D4B7095E1F62",
+  "quadratic_branch": {
+    "A0_contradiction": "alpha(a^2+c^2)+beta(b^2+d^2)=alpha with alpha>0,beta>=0,a,c!=0",
+    "exact_integration": "subtract binomial quadratic; residual has zero second differences and is affine",
+    "status": "CLOSED"
+  },
+  "researcher_id": "EM-CBRCF7-83A1D4",
+  "reviewed_result_id": "RR-7435C09299E80E4BAE04",
+  "schema": "CBRC_F7_THEOREM_REPAIR_PROOF_OBLIGATIONS_V1",
+  "task_id": "RS-CBRC-F7-RANK-TWO-BALANCED-MIXING-EXISTENCE-AND-SELECTOR-CLASSIFICATION",
+  "ten_ablations": {
+    "A10_force_f_spectator": "NO_GO_PERSISTS",
+    "A1_drop_A0": "EXACT_SURVIVOR_EXISTS",
+    "A2_drop_positive_separation": "EXACT_SURVIVOR_EXISTS",
+    "A3_drop_unary_invariance": "EXACT_SURVIVOR_EXISTS",
+    "A4_drop_global_conservation": "EXACT_MARKED_AUTOMORPHISM_EXISTS",
+    "A5_drop_balance": "NO_GO_PERSISTS",
+    "A6_drop_invertibility": "CURRENT_PROOF_OPENS_OUTSIDE_SCOPE",
+    "A7_drop_marker_equivalence": "NO_EFFECT_ON_EXISTENCE",
+    "A8_drop_orientation_equivalence": "NO_EFFECT_ON_EXISTENCE",
+    "A9_drop_named_tau_preservation": "NO_GO_PERSISTS"
+  }
+}
