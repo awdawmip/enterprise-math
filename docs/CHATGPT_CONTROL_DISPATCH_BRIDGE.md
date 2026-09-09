@@ -196,3 +196,85 @@ If the returned action is:
 `research_control_dispatch.py` accepts an optional `--events` path. The underlying canonical event loader intentionally treats an omitted path as an empty event stream and otherwise accepts only raw authenticated Issue #240 comment objects. Therefore a connector-only caller must not run or mentally emulate the router without first materializing the live Issue #240 server-comment stream. This bridge makes that prerequisite mechanical and auditable.
 
 The per-request receipt layer additionally prevents connector sessions from depending on a mutable single latest-output file when multiple requests overlap. The replay guard prevents workflow maintenance from impersonating request production. Both are transport durability only; all semantic routing authority remains with the canonical router and its current repository contracts.
+
+## Driver assignment of an existing research task
+
+A line Driver may choose an existing current RESEARCH task inside an explicitly authorized parent scope and delegate it to a distinct researcher/session. Use `assigned_research_task`, or locally `--kind RESEARCH --assigned-research-task request.json`. This is separate from `assigned_driver_task`, which still selects only a dependency-free GOV task for the Driver itself. The two request fields are mutually exclusive. Ordinary global and cohort selection are unchanged.
+
+The capability check found that a cohort is not an equivalent ordinary assignment: it requires at least two disjoint execution lanes plus the parallel reference/synthesis flow. `tools/research_execution_records.py prepare` produces a claim intent but does not establish a Driver's selection authority. The research assignment entry composes the existing TP2, Driver authority, authenticated event stream, canonical reducer, and runtime recovery instead of creating another task registry.
+
+### Source authority and exact assignment
+
+The Owner's actual, unedited Driver `AUTHORIZE` source body must contain this additional typed field:
+
+```json
+{
+  "research_task_delegation_scope": {
+    "parent_objective_ids": ["<exact authorized parent objective ID>"]
+  }
+}
+```
+
+This is an extension of the existing full AUTHORIZE event and its immutable DA capture, not a standalone authorization record. It is a nonempty duplicate-free list of exact identifiers. Wildcards, prefixes, generic Driver authority, `reason` prose, and an `assigned_governance_task` binding do not imply research delegation scope. When a prospective AUTHORIZE replaces an earlier one, preserve any still-authorized typed GOV binding in the new source body. Do not rewrite the old DA or earlier execution evidence.
+
+An active Driver then posts an actual Issue 240 event through the authorized connected service. The following is an illustrative shape only: replace every placeholder and numeric example with the actual identity, current source pins and server IDs; never publish these examples as fabricated evidence.
+
+```json
+{
+  "schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1",
+  "event": "ASSIGN_RESEARCH_TASK",
+  "driver_id": "<issuing Driver-ID>",
+  "driver_authority_record_id": "<current DA-ID>",
+  "driver_authority_source_comment_id": 12345,
+  "task_id": "<current Task-ID>",
+  "publication_id": "<exact current TP2-ID>",
+  "parent_objective_id": "<exact authorized parent ID>",
+  "researcher_id": "<receiving Researcher-ID>",
+  "session_id": "<receiving session ID>",
+  "executor_role": "RESEARCHER"
+}
+```
+
+The existing raw-comment loader supplies the server comment ID, body digest, author and creation/update times. The entry verifies exact server-author authorization, an unedited envelope, authority active before the assignment, the current DA pin and the authorized parent. Assignment events are selection evidence; the task/claim reducer does not treat them as CLAIM, PROGRESS or liveness events.
+
+`session_id` uses the existing runtime's opaque nonblank-string contract and is retained exactly, including colons or slashes in real session keys. Only task/publication/parent identifiers use their identifier syntax. Do not rename or invent a session to make an assignment pass.
+
+Use the actual returned assignment comment ID and body SHA-256 in the request:
+
+```json
+{
+  "schema": "ENTERPRISE_MATH_ASSIGNED_RESEARCH_TASK_REQUEST_V1",
+  "assignment_comment_id": 12346,
+  "assignment_body_sha256": "sha256:<actual assignment body SHA-256>",
+  "driver_id": "<issuing Driver-ID>",
+  "driver_authority_record_id": "<current DA-ID>",
+  "driver_authority_record_sha256": "sha256:<actual complete DA file SHA-256>",
+  "task_id": "<current Task-ID>",
+  "publication_id": "<exact current TP2-ID>",
+  "parent_objective_id": "<exact authorized parent ID>",
+  "researcher_id": "<receiving Researcher-ID>",
+  "session_id": "<receiving session ID>",
+  "executor_role": "RESEARCHER",
+  "expected_claim_id": null
+}
+```
+
+For the connector bridge, put this object in `assigned_research_task` of the existing request envelope. For local execution, use the current raw Issue 240 snapshot:
+
+```text
+python research_control_dispatch.py --kind RESEARCH --events actual-issue-240-comments.json --assigned-research-task request.json
+```
+
+The returned `assigned_research_selection` binds the exact task, TP2, taskbook blob, source assignment comment/body digest, current DA digest, recipient/session and verification time. The compact startup packet retains that evidence. The Driver can deliver this real canonical selection to the designated researcher without waiting for global priority ranking to choose the task by chance.
+
+### Claim, dependency and recovery boundaries
+
+The assignment reserves no task and grants no claim or execution. On `CLAIM_NEW_OWNER`, the receiving researcher still completes the existing activity/identity requirements, current execution `prepare`, actual server-authenticated CLAIM, and runtime `authorize`. A concurrent ordinary claimant may win first; refresh the source state and preserve that winning owner. A request whose `expected_claim_id` differs from current state is blocked. A foreign researcher's claim is never transferred through this entry.
+
+For the same winning researcher, pass its actual `expected_claim_id`. Current exact task/claim activity plus a matching session may yield `KEEP_CURRENT_SESSION`. Missing or foreign-session activity yields `VERIFY_SESSION_LIVENESS`. Independently observed stale owner scope may yield `ADOPT_OWNER_CLAIM`; the existing adoption guard still verifies the durable frontier. Neither the Driver's assignment event nor a long owner lease is session-liveness evidence.
+
+This bounded release supports an exact empty dependency list. The current source has no generic canonical satisfaction rule for arbitrary nonempty dependency descriptions, so every nonempty or malformed dependency value returns scoped `NO_DISPATCH`, `selection_status: BLOCKED`, and a blocked target. The result concerns the requested task only; it does not assert that the global queue is empty. Do not remove dependencies or narrow the task to make the entry accept it. Canonical quarantine, parent closure/parking, hard blocks, pending Result/review state and cohort ownership remain enforced by the existing reducer.
+
+A superseded TP2, changed taskbook bytes, or replaced/revoked Driver authority cannot be used as a current assignment. No current task is inferred from an old assignment or ER. Multiple active assignments for the same exact task/publication fail closed; creation time does not choose a winner. Before replacing an assignment under the same DA, its issuing Driver appends `REVOKE_RESEARCH_TASK_ASSIGNMENT` with the same task/publication/parent and Driver authority fields plus `assignment_comment_id` naming the actual earlier event. Then it issues a new exact assignment. Another Driver's revocation cannot erase that event, and neither revocation nor reassignment changes a winning claim.
+
+An already completed proof may be declared as input at its actual source revision, author, time and evidence level. The subsequent formal execution and Result must record their own real provenance. Selection receipts always set `preclaim_selection_reconstructed: false` and `execution_authorized: false`; they do not imply that an earlier CLAIM or ER existed, accept mathematics, or close a parent objective.
