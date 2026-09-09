@@ -1,0 +1,36 @@
+{
+  "schema": "JT2_UR_ACTUAL_HANDOFF_REDUCER_RECEIPT_V1",
+  "actual_source_root": "52775e4f53b4a34210341f7ac07f7c6c2d3834df",
+  "entrypoint": "unchanged canonical bootstrap -> registered_definition -> load_events -> authenticated filter -> registered filter -> reduce_task",
+  "started_at": "2026-09-09T21:28:50.911669+00:00",
+  "elapsed_seconds": 4.986336200003279,
+  "raw_count": 779,
+  "raw_sha256": "52b4b45e64fec123ff999b2b569d26281e94e136fbab41488e2f0becf9f39df3",
+  "authentication_ignored": [],
+  "registration_ignored": [],
+  "state": {
+    "task_id": "RS-EMW59A-JT2-UR-SUN-PARITY-DEFECT",
+    "state": "CLAIMED",
+    "claim_id": "ur-sun-ef9380-20260910-201847",
+    "actor": null,
+    "researcher_id": "EM-JT2-EF9380",
+    "last_researcher_id": "EM-JT2-EF9380",
+    "identity_source": "EVENT",
+    "lease_until": "2026-09-10T20:23:45+00:00",
+    "hard_block": "SUN_PARITY_DEFECT_SLOPE_VALUE_ELIMINATION",
+    "last_progress_ref": "research_notes/EM_FREE_W59A_JT2_UR_QTF3_STATE_MACHINE_HANDOFF_20260909.md",
+    "last_progress_at": "2026-09-09T11:03:17+08:00",
+    "next_action": "At the t and -t Frobenius ports, write Sun's a=-1/3 p^3 parameter recurrence together with its x-derivative, retain the p^2 even/odd defect coordinates for the center and adjacent parameters, and eliminate the adjacent values to derive the slope-value congruence.",
+    "ignored_events": [
+      {
+        "index": 0,
+        "reason": "unknown event type: 'ASSIGN_RESEARCH_TASK'"
+      },
+      {
+        "index": 2,
+        "reason": "HANDOFF requires next_action"
+      }
+    ],
+    "dispatch_state": "LEASED"
+  }
+}

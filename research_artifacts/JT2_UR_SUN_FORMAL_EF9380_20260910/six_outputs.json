@@ -1,0 +1,44 @@
+{
+  "schema": "JT2_UR_SIX_OUTPUT_MAP_V1",
+  "task_id": "RS-EMW59A-JT2-UR-SUN-PARITY-DEFECT",
+  "publication_id": "TP2-22F5729C777040ECA121",
+  "execution_record_id": "ER-D9A31C2F856C87718DC2",
+  "scope": "p>3,p=3n+1,p mod24 in {13,19},2t²=1,CM0/SIMPLE/BL inherited",
+  "uniform_target_proved": false,
+  "outputs": [
+    {
+      "number": 1,
+      "status": "EXACT_EQUIVALENCE_PROVED_VANISHING_OPEN",
+      "certificate": "NORM-JET / epsilon_p=0"
+    },
+    {
+      "number": 2,
+      "status": "PROVED",
+      "certificate": "Integral alpha(x), beta(x), gamma(x); coefficientwise DEF-ELIM and BALANCE"
+    },
+    {
+      "number": 3,
+      "status": "EXACT_ELIMINATION_PROVED_NORMALIZATION_OPEN",
+      "certificate": "A-ELIM, C-ELIM and exact differentiated finite boundary S-DERIV; no parity defect set to zero"
+    },
+    {
+      "number": 4,
+      "status": "CONDITIONAL_IMPLICATION_PROVED",
+      "certificate": "BL multiplied by P_n'(t) once epsilon_p vanishes"
+    },
+    {
+      "number": 5,
+      "status": "SOURCE_FAITHFUL_CONDITIONAL_EQUIVALENCE_PROVED",
+      "certificate": "G_div=g_raw/p=lambda mod p; Q_m'=d/(2t); epsilon_p=3(1-G_div*(-6Q_m'))"
+    },
+    {
+      "number": 6,
+      "status": "EXACT_ADDITIONAL_NORM_JET_IDENTITY_RETURNED",
+      "certificate": "9P_n(t)P_n'(t)=p(2 integral_0^t P_n(v)^2 dv+3t) mod p²; one base-field scalar; degree<=2n+1<p",
+      "not_claimed": "Uniform residual vanishing, full-system logical independence, globally minimal new axiom"
+    }
+  ],
+  "terminal_scope": "RESEARCH_RETURN_FROZEN_AWAITING_DRIVER_REVIEW",
+  "next_frontier": "Prove or refute NORM-JET on the unchanged prime/CM scope; ordinary line Driver review first."
+}
+
