@@ -1,0 +1,54 @@
+{
+  "schema": "EM_X6_RESEARCH_CHECKPOINT_V1",
+  "activity_id": "RA-X6CM-F01144F76207",
+  "event_id": "X6CM-RADIX-SHAPE-20260909-04",
+  "status": "EXPLICIT_MODEL_PROOFS_AND_EXACT_REGRESSION_NOT_ADMITTED",
+  "source_snapshot": "6cf0edabb2b1d5551ba30e8efc27044363d9ed1f",
+  "frontier": [
+    "A fixed cubic limit with submacroscopic digit cluster excludes integer linear radix factors except sixth powers, even with scale-dependent integer matrices; index 2 has sharp auxiliary Hausdorff lower coefficient (2-2^(1/6))/2.",
+    "The old L(5^6) similarity lattice sees only 9261 residues in the 15625-point cube, forcing at least 6364 representative changes. Old inert-prime first steps force linear-width transversals.",
+    "A new base-b cyclic kernel has index N, a compact digit transversal, a six-by-six integer basis with determinant N and Frobenius square <=11b^2, and a uniform coarse condition-number bound. This is not the old L(N).",
+    "For this new quotient, keeping one old point per observed residue and filling missing residues gives an optimal-in-count repair of the fixed prefix, moving at most b^6-N=O(N^(5/6)) points with O(1) mean l1 displacement.",
+    "The repaired marked process has exact uniform current-N residues and nonlocal-step probability O(N^(-1/6)), but not strict unit steps or nested occupancy.",
+    "Five explicit integer carries preserve same-base radix arithmetic; the vector (3,-1,0,0,0,0) proves Lambda_66 is not contained in Lambda_2 after the selected base changes."
+  ],
+  "verification": {
+    "bases": 407,
+    "digit_points": 32896,
+    "gaussian_population": 15625,
+    "boundary_prefixes": 138,
+    "carry_cases": 15078,
+    "same_base_divisibility": 966,
+    "marked_pair_laws": 32,
+    "arithmetic": "exact integers/rationals",
+    "reused_T6_blob": "384d166f642fb65c53fc7f2431f43dc99880693a"
+  },
+  "artifacts": [
+    {
+      "path": "experiments/x6_radix_shape_bridge_20260909/results.json",
+      "sha256": "ada179344520d6dfd59fdb9aad9dbf05e71bc5201a7611b6fd8226eea1f4f541",
+      "git_blob_sha1": "4e49dfaa40c8c4be607ad93f1de150dad8c91359",
+      "bytes": 6688
+    },
+    {
+      "path": "experiments/x6_radix_shape_bridge_20260909/verify.py",
+      "sha256": "82cc90019322277b6c6d39c189b0a65e804c89c0f57dd65f96e78cf65076574f",
+      "git_blob_sha1": "b5c0ab609996602abde904887bc6ca53b3843bf9",
+      "bytes": 12547
+    },
+    {
+      "path": "research_notes/x6_radix_shape_rigidity_and_boundary_sections_20260909.md",
+      "sha256": "71073fd7045fe2f44b916c462843f720748ee42a07d4b9dbe568770d474ede8d",
+      "git_blob_sha1": "24e705eba9c0c03e02a3dfb456f6079a41ae9b15",
+      "bytes": 15279
+    }
+  ],
+  "not_claimed": [
+    "all natural arithmetic realized by the original fixed Cell path",
+    "new kernel equals old L(N)",
+    "strict local repaired process",
+    "all-scale divisibility after changing base",
+    "independent review or Foundation promotion"
+  ],
+  "next_unit": "Seek a shape-controlled divisor-compatible lattice filtration and explicit reversible scale-change carry; preserve the fixed-prefix rigidity obstruction and distinguish identity from observer labels."
+}

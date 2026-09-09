@@ -1,0 +1,320 @@
+{
+  "arithmetic": "exact integers/rationals",
+  "boundary_repair": {
+    "prefixes_checked": 138,
+    "samples": [
+      {
+        "N": 2,
+        "available_boundary_bound": 62,
+        "base": 2,
+        "mean_l1_repair": "0",
+        "moved": 0
+      },
+      {
+        "N": 3,
+        "available_boundary_bound": 61,
+        "base": 2,
+        "mean_l1_repair": "0",
+        "moved": 0
+      },
+      {
+        "N": 63,
+        "available_boundary_bound": 1,
+        "base": 2,
+        "mean_l1_repair": "2/63",
+        "moved": 1
+      },
+      {
+        "N": 64,
+        "available_boundary_bound": 0,
+        "base": 2,
+        "mean_l1_repair": "0",
+        "moved": 0
+      },
+      {
+        "N": 65,
+        "available_boundary_bound": 664,
+        "base": 3,
+        "mean_l1_repair": "18/13",
+        "moved": 17
+      },
+      {
+        "N": 128,
+        "available_boundary_bound": 601,
+        "base": 3,
+        "mean_l1_repair": "67/64",
+        "moved": 30
+      },
+      {
+        "N": 729,
+        "available_boundary_bound": 0,
+        "base": 3,
+        "mean_l1_repair": "0",
+        "moved": 0
+      },
+      {
+        "N": 730,
+        "available_boundary_bound": 3366,
+        "base": 4,
+        "mean_l1_repair": "271/146",
+        "moved": 188
+      },
+      {
+        "N": 15625,
+        "available_boundary_bound": 0,
+        "base": 5,
+        "mean_l1_repair": "0",
+        "moved": 0
+      },
+      {
+        "N": 15626,
+        "available_boundary_bound": 31030,
+        "base": 6,
+        "mean_l1_repair": "37868/7813",
+        "moved": 6016
+      },
+      {
+        "N": 20000,
+        "available_boundary_bound": 26656,
+        "base": 6,
+        "mean_l1_repair": "2699/1000",
+        "moved": 4296
+      }
+    ]
+  },
+  "carry_and_divisibility": {
+    "carry_cases": 15078,
+    "changing_base_nesting_failure": {
+      "large_index": 66,
+      "large_residue": 0,
+      "small_index": 2,
+      "small_residue": 1,
+      "vector": [
+        3,
+        -1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "nonzero_carry_examples": [
+      {
+        "base": 2,
+        "carries": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "i": 0,
+        "j": 1,
+        "m": 2
+      },
+      {
+        "base": 2,
+        "carries": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "i": 1,
+        "j": 1,
+        "m": 2
+      },
+      {
+        "base": 2,
+        "carries": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "i": 0,
+        "j": 1,
+        "m": 2
+      },
+      {
+        "base": 2,
+        "carries": [
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "i": 0,
+        "j": 2,
+        "m": 2
+      }
+    ],
+    "same_base_divisibility_cases": 966
+  },
+  "compact_cyclic_lattice": {
+    "bases_checked": 407,
+    "basis_Frobenius_bound": "||A||_F^2 <= 11 b^2",
+    "condition_number_bound": "kappa_2(A) < 64*11^3 for n>1",
+    "digit_points_checked": 32896,
+    "not_the_old_L_family": true
+  },
+  "cube_width_regression": {
+    "constant_type": "proved limit, not floating-point certification",
+    "index2_sharp_asymptotic_Hausdorff_linf_constant": "(2-2^(1/6))/2",
+    "integer_rows_checked": 15625
+  },
+  "excluded_claims": [
+    "Foundation admission",
+    "independent review",
+    "new general self-affine theorem",
+    "replacement equals old L(n)",
+    "one new Cell at every repaired time",
+    "uniformly bounded individual repair",
+    "all-modulus divisor compatibility across base changes",
+    "ordinary 1+1 differs from 2"
+  ],
+  "marked_repair": {
+    "nonlocal_examples": [
+      {
+        "mean_l1_step": "13/10",
+        "n": 4,
+        "nonlocal_mass": "1/5"
+      },
+      {
+        "mean_l1_step": "73/30",
+        "n": 5,
+        "nonlocal_mass": "8/15"
+      },
+      {
+        "mean_l1_step": "65/42",
+        "n": 6,
+        "nonlocal_mass": "1/3"
+      },
+      {
+        "mean_l1_step": "17/14",
+        "n": 7,
+        "nonlocal_mass": "1/7"
+      },
+      {
+        "mean_l1_step": "7/9",
+        "n": 8,
+        "nonlocal_mass": "1/9"
+      }
+    ],
+    "one_native_step_not_claimed": true,
+    "pair_laws_checked": 32
+  },
+  "old_gaussian_cube": {
+    "fiber_histogram": {
+      "1": 4913,
+      "2": 3468,
+      "4": 816,
+      "8": 64
+    },
+    "minimum_point_replacements": 6364,
+    "missing_residues": 6364,
+    "occupied_residues": 9261,
+    "population": 15625,
+    "replacement_fraction": "6364/15625",
+    "t6_cell_identity_witness": [
+      [
+        -2,
+        -2,
+        -2,
+        -2,
+        -2,
+        2
+      ],
+      [
+        -2,
+        -2,
+        -2,
+        -2,
+        1,
+        -2
+      ]
+    ]
+  },
+  "old_inert_prime_witnesses": [
+    {
+      "minimum_replacements": 1,
+      "p": 3,
+      "prefix_residues": 2,
+      "transversal_width_lower_bound": 2
+    },
+    {
+      "minimum_replacements": 5,
+      "p": 7,
+      "prefix_residues": 2,
+      "transversal_width_lower_bound": 6
+    },
+    {
+      "minimum_replacements": 9,
+      "p": 11,
+      "prefix_residues": 2,
+      "transversal_width_lower_bound": 10
+    },
+    {
+      "minimum_replacements": 17,
+      "p": 19,
+      "prefix_residues": 2,
+      "transversal_width_lower_bound": 18
+    },
+    {
+      "minimum_replacements": 41,
+      "p": 43,
+      "prefix_residues": 2,
+      "transversal_width_lower_bound": 42
+    },
+    {
+      "minimum_replacements": 124,
+      "p": 127,
+      "prefix_residues": 3,
+      "transversal_width_lower_bound": 126
+    },
+    {
+      "minimum_replacements": 248,
+      "p": 251,
+      "prefix_residues": 3,
+      "transversal_width_lower_bound": 250
+    },
+    {
+      "minimum_replacements": 500,
+      "p": 503,
+      "prefix_residues": 3,
+      "transversal_width_lower_bound": 502
+    },
+    {
+      "minimum_replacements": 1015,
+      "p": 1019,
+      "prefix_residues": 4,
+      "transversal_width_lower_bound": 1018
+    }
+  ],
+  "reuse": {
+    "T6_methods": [
+      "fiber_constancy_witness",
+      "coarsest_one_step_repair",
+      "class_count"
+    ],
+    "families": [
+      "T6_OPERATION_SAFE_QUOTIENT"
+    ],
+    "parent_constructions": [
+      "native point/stream",
+      "old local_basis/basis"
+    ],
+    "resolution": "REUSE_EXECUTED"
+  },
+  "source_blobs": {
+    "arithmetic": "f4f46d080719adc2e59bc31c0d24d16c01dcd2a2",
+    "native": "01db1ef95bc120491e36653c45c88f6728e602f5",
+    "reuse": "384d166f642fb65c53fc7f2431f43dc99880693a"
+  },
+  "source_snapshot": "6cf0edabb2b1d5551ba30e8efc27044363d9ed1f",
+  "status": "PASS_EXACT_DOMAIN_REGRESSION_NOT_FORMAL_PROOF_OR_ADMISSION",
+  "sympy_version": "1.14.0"
+}
