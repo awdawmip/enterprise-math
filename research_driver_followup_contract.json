@@ -1,7 +1,7 @@
 {
   "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_FOLLOWUP_CONTRACT_V1",
-  "status": "ACTIVE_CANONICAL_CANDIDATE_V1_4",
-  "effective": "2026-09-09",
+  "status": "ACTIVE_CANONICAL_CANDIDATE_V1_5",
+  "effective": "2026-09-10",
   "user_direction": "EVERY_NEW_OPERATIONAL_DRIVER_REVIEW_AUTHORITY_REQUIRES_ONE_TYPED_FOLLOWUP_PACKET_TASKSET_PARENT_CLOSURE_OR_SATISFIED_TASK_PORTFOLIO_CONTINUATION",
   "canonical_guard": "research_driver_followup_guard.py",
   "storage_materialization_primitive": "research_driver_followup.py",
@@ -59,7 +59,9 @@
     "EVERY_GOVERNED_OPERATIONAL_REVIEW_AUTHORITY_REQUIRES_EXACTLY_ONE_FOLLOWUP_PACKET",
     "TASK_SET_PUBLISHED_REQUIRES_ONE_OR_MORE_IMMUTABLE_POST_AUTHORITY_TASK_PUBLICATIONS",
     "PARENT_OBJECTIVE_CLOSURE_REQUIRES_CURRENT_CANONICAL_PARENT_OBJECTIVE_HEAD_CLOSED",
-    "TASK_SCOPE_CLOSURE_REQUIRES_ACCEPTED_PASS_OR_SUCCESS_SATISFIED_RESULT_AND_TASK_SCOPE",
+    "TASK_SCOPE_CLOSURE_REQUIRES_ACCEPTED_PASS_OR_SUCCESS_TASK_WITH_LITERAL_OR_PINNED_EXPLICIT_DRIVER_SATISFACTION",
+    "EXPLICIT_DRIVER_TASK_COMPLETION_PRESERVES_RAW_RESULT_AND_REQUIRES_ITS_CURRENT_DIGEST_AND_THE_IMMUTABLE_REVIEW_REPORT_PINS",
+    "EXPLICIT_INCOMPLETE_OR_NEGATIVE_TARGET_DISPOSITIONS_CANNOT_BE_RETYPED_BY_COMPLETION_ASSESSMENT",
     "TASK_SCOPE_PORTFOLIO_CONTINUATION_PINS_CURRENT_RESULT_BYTES_AND_PARENT_SCOPE_WITH_CANONICAL_DISPATCH_ACTION",
     "TASK_SCOPE_CLOSURE_GRANTS_NO_PARENT_COMPLETION_FINAL_WORKING_TRUTH_OR_FOUNDATION_AUTHORITY",
     "ABSENT_PARENT_HEAD_IS_ABSENT_NOT_CLOSED_AND_IS_NEVER_SYNTHESIZED",
@@ -157,7 +159,29 @@
         "PASS",
         "SUCCESS"
       ],
-      "hard_target_disposition": "SATISFIED",
+      "hard_target_satisfaction": {
+        "literal_result_value": "SATISFIED",
+        "alternative": "PINNED_EXPLICIT_DRIVER_TASK_COMPLETION_ASSESSMENT",
+        "assessment_schema": "ENTERPRISE_MATH_DRIVER_TASK_COMPLETION_ASSESSMENT_V1",
+        "source": "EXACTLY_ONE_TYPED_HTML_COMMENT_IN_THE_IMMUTABLE_DR_BOUND_REVIEW_REPORT",
+        "required_fields": [
+          "schema", "driver_id", "task_id", "publication_id", "result_id",
+          "result_record_sha256", "original_hard_target_disposition",
+          "disposition", "terminal_scope", "assessment"
+        ],
+        "disposition": "SATISFIED",
+        "terminal_scope": "TASK",
+        "report_binding": ["review_path", "review_blob_sha1", "review_sha256", "review_id"],
+        "raw_result_digest_required": true,
+        "original_result_fields_preserved": true,
+        "requirement_prose_interpreted": false,
+        "synthetic_review_allowed": false,
+        "first_review_preflight": "GENUINE_VALIDATED_REVIEW_CANDIDATE_BEFORE_IMMUTABLE_CREATION",
+        "ineligible_explicit_target_values": [
+          "PARTIAL", "PARTIALLY_SATISFIED", "INCOMPLETE", "NOT_SATISFIED", "UNSATISFIED",
+          "NEGATIVE_BOUNDARY", "NO_GO", "FAIL", "FAILED", "BLOCKED"
+        ]
+      },
       "packet_terminal_scope": "TASK"
     },
     "new_tasks": 0,

@@ -5,6 +5,9 @@ on:
     paths:
       - 'tools/research_dispatch.py'
       - 'research_control_dispatch.py'
+      - 'research_driver_followup.py'
+      - 'tools/research_result_records.py'
+      - 'tests/test_task_scope_portfolio_followup.py'
       - 'control_plane/research_task_assignment.py'
       - 'control_plane/research_dependency_release.py'
       - 'tests/test_assigned_research_task_dispatch.py'
@@ -36,6 +39,7 @@ jobs:
       - run: |
           python -m unittest -v tests.test_assigned_research_task_dispatch
           python -m unittest -v tests.test_research_dependency_release
+          python -m unittest -v tests.test_task_scope_portfolio_followup
           python -m unittest -v tests.test_assigned_governance_driver_dispatch
           python -m unittest -v tests.test_control_plane_adversarial_simulation
           python -m unittest -v tests.test_chatgpt_dispatch_bridge_replay_guard

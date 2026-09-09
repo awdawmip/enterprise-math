@@ -14,7 +14,8 @@ import unittest
 REPO = Path(__file__).resolve().parents[1]
 CASES = ("open_parent", "absent_parent", "parked_parent", "invalid_specs", "invalid_driver", "historical_generation",
          "review_pin_race", "duplicate_packet_race", "result_pin_postcheck",
-         "second_review_race", "packet_bytes_race", "publication_pin_postcheck")
+         "second_review_race", "packet_bytes_race", "publication_pin_postcheck",
+         "assessment_success", "assessment_invalid", "assessment_report_drift")
 
 
 def run_case(case):
@@ -61,6 +62,8 @@ def run_case(case):
         result = {k: v for k, v in records.result_map(root)[fixture.TARGET_ID].items() if not k.startswith('_')}
         result.update(result_id='RR-TASK-SCOPE-FIXTURE', terminal_verdict='PASS', hard_target_disposition='SATISFIED',
                       unresolved_residue='Parent classification remains open outside this Task.')
+        if case.startswith('assessment_'):
+            result['hard_target_disposition'] = 'ACHIEVED_BY_THE_FROZEN_FINITE_PROOF'
         # Do not rewrite a legacy normalized record under its exact legacy pin.
         # This is a new TEMP Result, backed by the fixture's copied ER/outputs.
         root.joinpath(fixture.TARGET_PATH).unlink()
@@ -125,13 +128,75 @@ def run_case(case):
         args.disposition = 'ACCEPTED'
         args.followup_spec = str(spec_path)
         args.followup_created_at = '2026-09-08T08:00:00+00:00'
+        original_result_bytes = target_path.read_bytes()
+        assessment = {
+            'schema': impl.TASK_COMPLETION_ASSESSMENT_SCHEMA,
+            'driver_id': args.driver_id, 'task_id': result['task_id'],
+            'publication_id': result['publication_id'], 'result_id': result['result_id'],
+            'result_record_sha256': 'sha256:' + hashlib.sha256(original_result_bytes).hexdigest(),
+            'original_hard_target_disposition': result['hard_target_disposition'],
+            'disposition': 'SATISFIED', 'terminal_scope': 'TASK',
+            'assessment': 'The reviewing Driver confirms the exact finite Task under its frozen assumptions; the parent remains open.',
+        }
+
+        def assessment_text(value):
+            return ('# Temporary Driver review\n\n<!-- ' + impl.TASK_COMPLETION_ASSESSMENT_SCHEMA
+                    + '\n' + json.dumps(value, ensure_ascii=False, indent=2) + '\n-->\n')
+
+        if case.startswith('assessment_'):
+            setup.review_path.write_text(assessment_text(assessment), encoding='utf-8')
         guard._bind_guard(root)
         captured = io.StringIO()
         rejected = []
         with mock.patch.object(guard, 'baseline_audit', side_effect=lambda _root=root: baseline_audit(REPO)), \
              mock.patch.object(records, '_install_canonical_write_view', side_effect=lambda: bootstrap.install(root)), \
              contextlib.redirect_stdout(captured):
-            if case in {'invalid_specs', 'invalid_driver', 'historical_generation'}:
+            if case == 'assessment_invalid':
+                variants = []
+                for field, value in (
+                    ('schema', 'WRONG'), ('driver_id', 'EM-DVR-OTHER'),
+                    ('task_id', 'TASK-OTHER'), ('publication_id', 'TP2-OTHER'),
+                    ('result_id', 'RR-OTHER'), ('result_record_sha256', 'sha256:' + '0' * 64),
+                    ('original_hard_target_disposition', 'DIFFERENT'),
+                    ('disposition', 'PARTIAL'), ('terminal_scope', 'PARENT'), ('assessment', ''),
+                ):
+                    variants.append((field, assessment_text({**assessment, field: value})))
+                variants.extend([
+                    ('missing_field', assessment_text({k: v for k, v in assessment.items() if k != 'assessment'})),
+                    ('extra_field', assessment_text({**assessment, 'parent_completion_granted': True})),
+                    ('duplicate_block', assessment_text(assessment) + assessment_text(assessment)),
+                    ('duplicate_key', assessment_text(assessment).replace('{\n', '{\n  "disposition": "SATISFIED",\n', 1)),
+                    ('malformed_json', assessment_text(assessment).replace('{\n', '{ INVALID\n', 1)),
+                    ('no_block', '# No explicit Driver assessment.\n'),
+                ])
+                for label, text in variants:
+                    setup.review_path.write_text(text, encoding='utf-8')
+                    with mock.patch.object(records._write_tx, 'commit', wraps=records._write_tx.commit) as commit:
+                        try:
+                            records.command_review_with_authority(args)
+                        except ValueError as exc:
+                            assert 'assessment' in str(exc), (label, str(exc))
+                        else:
+                            raise AssertionError('invalid Driver assessment was accepted: ' + label)
+                        commit.assert_not_called()
+                    rejected.append(label)
+                for negative in ('PARTIAL', 'INCOMPLETE', 'NEGATIVE_BOUNDARY'):
+                    changed_result = {**result, 'hard_target_disposition': negative}
+                    write(target_path.relative_to(root).as_posix(), changed_result)
+                    changed_assessment = {**assessment, 'original_hard_target_disposition': negative,
+                                          'result_record_sha256': 'sha256:' + hashlib.sha256(target_path.read_bytes()).hexdigest()}
+                    setup.review_path.write_text(assessment_text(changed_assessment), encoding='utf-8')
+                    with mock.patch.object(records._write_tx, 'commit', wraps=records._write_tx.commit) as commit:
+                        with unittest.TestCase().assertRaisesRegex(ValueError, 'cannot be retyped'):
+                            records.command_review_with_authority(args)
+                        commit.assert_not_called()
+                    rejected.append('explicit_' + negative)
+                target_path.write_bytes(original_result_bytes)
+                assert target_path.read_bytes() == original_result_bytes
+                assert not list(root.joinpath('research_result_reviews', result['result_id']).glob('*.json'))
+                assert not list(root.joinpath('research_driver_followups').glob('*/*.json'))
+                print_value = {'case': case, 'status': 'PASS', 'rejected_before_write': rejected}
+            elif case in {'invalid_specs', 'invalid_driver', 'historical_generation'}:
                 # Each rejection enters the real public first-review command.
                 # No write candidate or permission/claim adapter is substituted.
                 changes = [
@@ -192,6 +257,9 @@ def run_case(case):
                     if case == 'review_pin_race':
                         target_path.write_bytes(target_path.read_bytes() + b'\n')
                         altered.append(target_path)
+                    elif case == 'assessment_report_drift':
+                        setup.review_path.write_bytes(setup.review_path.read_bytes() + b'\n')
+                        altered.append(setup.review_path)
                     return original_materialize(**kwargs)
 
                 def postcheck_with_race(local_root):
@@ -226,12 +294,13 @@ def run_case(case):
                         assert records.command_review_with_authority(args) == 0
                     except ValueError as exc:
                         failure = str(exc)
-                if case.endswith('race') or case in {'result_pin_postcheck', 'publication_pin_postcheck'}:
+                if case.endswith('race') or case in {'result_pin_postcheck', 'publication_pin_postcheck', 'assessment_report_drift'}:
                     expected = {'review_pin_race': 'current Result bytes',
                                 'duplicate_packet_race': 'unique exact review packet',
                                 'result_pin_postcheck': 'current Result bytes',
                                 'second_review_race': 'unknown review',
                                 'publication_pin_postcheck': 'current operational Task publication',
+                                'assessment_report_drift': 'review',
                                 'packet_bytes_race': 'frozen candidate bytes'}[case]
                     assert failure and expected in failure, (case, failure)
                     # The committed first DR stays; only the transaction's own
@@ -270,6 +339,16 @@ def run_case(case):
                 assert state['parent_final_granted'] is False
                 assert packet['parent_status_at_materialization'] == parent_status
                 assert packet['source_result_record_sha256'] == 'sha256:' + hashlib.sha256(target_path.read_bytes()).hexdigest()
+                if case == 'assessment_success':
+                    assert target_path.read_bytes() == original_result_bytes
+                    assert result['hard_target_disposition'] == 'ACHIEVED_BY_THE_FROZEN_FINITE_PROOF'
+                    review = impl.review_map(root)[packet['review_id']]
+                    for changes in ({'review_authority_kind': 'REVIEW_SYNTHESIS'},
+                                    {'record_schema': 'SYNTHETIC'}, {'review_id': 'DR-OTHER'},
+                                    {'review_path': '../outside.md'}, {'review_sha256': 'sha256:' + '0' * 64}):
+                        with unittest.TestCase().assertRaises(ValueError):
+                            impl._driver_task_completion_assessment({**review, **changes},
+                                                                   records.result_map(root)[result['result_id']], root)
                 head = objectives.current_head(parent, root)
                 assert (head is None if parent_status == 'ABSENT_NOT_CLOSED' else head['objective_status'] == parent_status)
                 assert not packet['task_publications']

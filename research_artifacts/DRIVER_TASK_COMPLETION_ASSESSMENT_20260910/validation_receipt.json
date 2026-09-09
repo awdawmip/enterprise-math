@@ -1,0 +1,83 @@
+{
+  "validation": {
+    "scope": "LOCAL_CONTROL_REGRESSION_ONLY",
+    "source_base": "e5c9cc27e82d65bfd7a2b518ff76a1cb64572e35",
+    "argv": [
+      "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "-m",
+      "unittest",
+      "-v",
+      "tests.test_task_scope_portfolio_followup",
+      "tests.test_result_writer_canonical_post_audit",
+      "tests.test_research_driver_followup",
+      "tests.test_named_success_result_compatibility"
+    ],
+    "cwd": "D:\\em\\control-driver-task-completion-assessment-20260910",
+    "started_at": "2026-09-09T18:03:13.696410+00:00",
+    "elapsed_seconds": 114.08391950000077,
+    "exit_code": 0,
+    "source_sha256": {
+      "research_driver_followup.py": "2989771975160cec079b0974c237c9184800cbe5bd9bac7ed729382519738f06",
+      "tools/research_result_records.py": "3276fa8de23ff1b95c54e18d9fe00194b142e66ed7f663bb533f20d008d7d291",
+      "tests/test_task_scope_portfolio_followup.py": "df36235bb8e2e8a78b29f5d4742033be2fbf77062c37e919f02f083929c8a712",
+      "research_driver_followup_contract.json": "a5e182002ae54feae9c0016116c5ccc6ffd655cb4246d4c5bd5c86968823b974",
+      "docs/DRIVER_REVIEW_AUTO_FOLLOWUP.md": "63df877c97d4c1876c6c454e34df710698579b9ab13f360c47db127bc4168bcb",
+      ".github/workflows/control-plane-pr-focused-validation.yml": "409dcb74057a3cec14644ff905df8cb0d4bec3f7e98b5aed2ac07d4b2a805ff3"
+    },
+    "source_unchanged_during_run": true,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "9eb4daa006ed19de14ab0f6c89c175cad49510d069f62d732364a3d3968b4261"
+  },
+  "test_count": 52,
+  "actual_source_binding_inspection": {
+    "scope": "READ_ONLY_SOURCE_DOCUMENT_AND_RESULT_BINDING_INSPECTION",
+    "source_observations": [
+      {
+        "label": "RR",
+        "source": "2c63e66e9ec4c66f3ed9807ac883037a0542d785",
+        "path": "research_result_records/RS-EMW59A-JT2-QTF3-FIXED-POINT/RR-69FC34FA8AE1E91244F2.json",
+        "blob": "14d89853f268724d49331984b16ce2421b94bb45",
+        "sha256": "45f7267d289aeacb3eddc98bac71e6db665424458a7726c7874dbfd05209a5f9"
+      },
+      {
+        "label": "REPORT",
+        "source": "906807f067d0d1f8498ad4f9784a991289a855ad",
+        "path": "driver_reviews/JT2_QTF3_DRIVER_REVIEW_57CCCE_20260910.md",
+        "blob": "adaec5b62760fe8040d4ca9b7a322884eec87d44",
+        "sha256": "97e92be60bfa01b2dfb70dc9c19a495ef12d1f10ea6742bd6f97f0d306928138"
+      }
+    ],
+    "statement_fields": [
+      "assessment",
+      "disposition",
+      "driver_id",
+      "original_hard_target_disposition",
+      "publication_id",
+      "result_id",
+      "result_record_sha256",
+      "schema",
+      "task_id",
+      "terminal_scope"
+    ],
+    "bindings_match": true,
+    "driver_review_performed_by_root": false,
+    "driver_review_record_created": false,
+    "followup_created": false,
+    "full_current_review_preflight_executed": false,
+    "result_bytes_changed": false
+  },
+  "first_prototype": "REJECTED: placeholder preflight review lacked real pins; corrected by using the genuine validated review candidate before immutable creation",
+  "initial_three_cases_after_candidate_fix": "PASS",
+  "full_final_tests": "PASS",
+  "root_driver_review_performed": false,
+  "first_source_ci": {
+    "source": "0be37c29d30620c9998fdbfccba943fb2d8656a0",
+    "quality_run": 34385953442,
+    "failed_job": 102582223010,
+    "failure": "Existing named-success refusal-message prefix changed; refusal behavior remained closed.",
+    "repair": "Preserve the historical hard_target_disposition SATISFIED prefix; add the eleven-case named-success suite to final local validation."
+  }
+}
