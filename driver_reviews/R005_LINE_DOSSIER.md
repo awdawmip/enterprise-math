@@ -101,15 +101,28 @@ ACCEPTED, and its public first-review transaction generated
 The current runtime check reports Task TERMINAL and the valid follow-up
 ready for Task-scope closure; the mathematical parent is not closed.
 
-The concrete next route is current canonical portfolio reevaluation after
-integration of these records, preserving the existing terminal
-`GV-R005-Q78553-SEAM-CLOSURE-REVIEW-AND-ROUTE /
-TP2-D43B87B08CE6E6D3FD41` obligation. This review, exact finite endpoint
-and explicit route supply its substantive artifacts. A separate governance
-Result, DONE event or CLAIM is not fabricated merely to rewrite bookkeeping.
-No next q, automatic successor, Working Truth or Foundation admission is
-authorized by the successful seam result. Broader line direction remains
-with the open original/relay portfolio and Owner coordination.
+The actual canonical portfolio reevaluation is complete. Both R005 Research
+Tasks are DONE/COMPLETE with no claimant. The three old bounded GOV
+instructions were assessed against their exact taskbooks and retired through
+real authenticated SUPERSEDE events: correction review5609272647,
+persistent continuation5609273004, and terminal seam review5609273398.
+Canonical replay gives SUPERSEDED / COMPLETE for all three, with no claimant.
+Their original publication/taskbook bytes, before-states, old missing-Result
+assertions and exact satisfied sources remain in
+`driver_reviews/R005_Q78553_SEAM_REVIEW_81273A_20260910/GOVERNANCE_HANDOFF.json`.
+The actual event envelopes and replay are retained beside that handoff.
+No fabricated DONE, Governance Result, Task or CLAIM was used. Retirement
+covers those completed bounded instructions; the Driver identity, line
+responsibility and both mathematical parents remain active/open.
+
+The selected global research target is the existing PFSS2 second-order null
+task, outside this Driver's RELAY-only research scope; this Driver made no
+assignment or claim. No new structural obstacle was demonstrated inside the
+completed q78553 task, so no automatic next-q enumeration or new task follows.
+The bounded finite phase and its native governance retirement are complete.
+Owner coordinates the next existing line/cross-line obligations, with the
+reviewed options and takeover in
+`driver_reviews/R005_Q78553_SEAM_REVIEW_81273A_20260910/PORTFOLIO_ROUTE.md`.
 
 ## Frozen mathematical boundary and evidence
 
