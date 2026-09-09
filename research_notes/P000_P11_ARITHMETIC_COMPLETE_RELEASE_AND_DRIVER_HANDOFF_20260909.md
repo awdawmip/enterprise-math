@@ -11,7 +11,7 @@ The P11 arithmetic-collision line is no longer waiting on the September 2 fixed-
 
 Task `RS-P000-SIX-AXIS-P11-DIAGONAL-SHARED-LEG-PYTHAGOREAN-TRIPLE` was claimed on 2026-09-04 by `EM-P000P11D2-9C3167` and returned immutable Result `RR-764F6E463528167708E9` / execution `ER-865FBCA0D0FB305FF943`.
 
-Driver review `DR-25501B833217149B9A1C` now accepts that Result at exactly the following derived-arithmetic strength:
+Driver review `DR-25501B833217149B9A1C` accepts that Result at exactly the following derived-arithmetic strength:
 
 - exact `h=0` shared-leg triple-of-Pythagorean-equations interface with parity/AP reconstruction;
 - primitive quotient by the gcd of all sixteen recovered outer roots;
@@ -64,7 +64,7 @@ Target: preserve both labeled equal-area triangle factors and classify primitive
 ### BLOCKED independent audit
 
 Task: `RS-P000-P11-ARITHMETIC-LINE-INDEPENDENT-AUDIT`  
-Publication: `TP2-0EF61A32E6D06E8879DE`  
+Publication: `TP2-4E0EE03CCD6B6126A1D7`  
 Block: requires Driver-accepted exact Results from both mathematical tasks and an actually independent verifier.  
 Role: independently reexecute load-bearing arithmetic, primitive filters, branch compatibility, current P000 typing and observer-safe quotient claims.
 
@@ -78,7 +78,7 @@ Role: integrate the strongest compatible derived theorem package and force an ex
 ### READY persistent line Driver governance
 
 Task: `GV-P000-P11-ARITHMETIC-PERSISTENT-LINE-DRIVER`  
-Publication: `TP2-685CCCAD015EBB859280`  
+Publication: `TP2-DADE86E9FDCEE59234D7`  
 Kind: `GOVERNANCE`  
 Role: one explicitly activated Research Driver owns this local line's review/routing continuity, releases blocked gates, republishes revisions when needed and keeps this dossier replacement-ready.
 
@@ -103,7 +103,7 @@ The active line Driver must:
 
 There are three READY objects in the line package:
 
-1. `GV-P000-P11-ARITHMETIC-PERSISTENT-LINE-DRIVER / TP2-685CCCAD015EBB859280` — activate a persistent line Driver when such a governance owner is selected;
+1. `GV-P000-P11-ARITHMETIC-PERSISTENT-LINE-DRIVER / TP2-DADE86E9FDCEE59234D7` — activate a persistent line Driver when such a governance owner is selected;
 2. `RS-P000-P11-DIAGONAL-ELLIPTIC-FIBER-PRIMITIVE-ARITHMETIC / TP2-FB7F5A1D6B6C6BCCD62D` — available to a bounded task researcher;
 3. `RS-P000-P11-OFF-DIAGONAL-EQUAL-AREA-FIBER-PRODUCT / TP2-74D161216AAF385EE27F` — available to a separate bounded task researcher.
 
