@@ -1,0 +1,43 @@
+{
+  "schema": "NOLLM_SPLIT_PRIME_EXTENSION_CHECKPOINT_V1",
+  "event_id": "NOLLM-SPLIT-EXTENSION-20260909-C6C82",
+  "activity_id": "RA-nollm-hecke-views-20260909-c6c82",
+  "status": "DERIVED_AND_EXACT_FINITE_CHECKED_NOT_PROMOTED",
+  "note": {
+    "commit": "1772bdf67e9ace59823a47a096401d69e83c4390",
+    "path": "research_notes/nollm_split_prime_boundary_extension_20260909_c6c82.md",
+    "git_blob_sha1": "166add39b7288f6209e6ee55a495c42826da3610"
+  },
+  "code": {
+    "commit": "b8c099329b1949becf544599e86fcf32045ccebc",
+    "path": "experiments/nollm_split_prime_extension_20260909_c6c82.py",
+    "git_blob_sha1": "3bd5664868a2b235d10e33bf167a0b7bbda2e842",
+    "sha256": "0efac96492fcfa12980ef2c1e9ea80b22b4936a5401dd31d01b7fe6a9c10bda6"
+  },
+  "checks": {
+    "phase_certificates": 48,
+    "complete_sections": 51,
+    "enumerated_points_sum": 997575,
+    "largest_section": 415625,
+    "convex_hull_lattice_holes": 0,
+    "refinement_edges": 89,
+    "parents_checked": 45175,
+    "matrix_diamonds": 288,
+    "permutation_runs": 132,
+    "descendant_appearances_across_orders": 3187800,
+    "order_mismatches": 0,
+    "candidate_maxima": {"5": 17, "7": 19, "13": 27, "19": 43},
+    "old_19_selector_failure_verified": true,
+    "rerun_results_byte_identical": true,
+    "run": "PASS"
+  },
+  "results_sha256": "5044d68810eaec619a1cc9f41e32ec6ddf128d37276465777cd7408ac12d37e3",
+  "limits": [
+    "quotient refinement is not scalar-label multiplication",
+    "new anchors may migrate predecessor boundary addresses",
+    "split-prime extension keeps the specified 7/19 generators and only one inert direction",
+    "candidate cost grows with prime; current-basis locality only",
+    "physical fanout<=7 for 13/19 is not implemented",
+    "no runtime, Working Truth or Foundation promotion"
+  ]
+}
