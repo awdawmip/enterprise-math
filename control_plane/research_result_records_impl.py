@@ -127,6 +127,9 @@ def _relative(path: Path, root: Path) -> str:
 def _allowed_output(rel: str, allowed: list[str]) -> bool:
     for raw in allowed:
         rule = raw.strip().replace("\\", "/")
+        # An intent's recursive directory scope includes all descendants.
+        if rule.endswith("/**") and rel.startswith(rule[:-2]):
+            return True
         if rule.endswith("*") and rel.startswith(rule[:-1]):
             return True
         if rule.endswith("/") and rel.startswith(rule):
