@@ -24,6 +24,7 @@ obeyed when already injected by the host; it is not a remote task-start prerequi
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from datetime import datetime, timezone
 from pathlib import Path
@@ -38,6 +39,8 @@ from tools import research_lane_dispatch
 from tools import research_runtime
 from tools import research_runtime_reducer
 from tools import research_activity
+from tools import research_task_records
+import research_driver_authority
 
 ROOT = Path(__file__).resolve().parent
 research_control_bootstrap.install(ROOT)
@@ -51,6 +54,7 @@ SESSION_ACTIVITY_KINDS = frozenset(
 )
 ORDINARY_TASK = "ORDINARY_TASK"
 COHORT_LANE = "COHORT_LANE"
+ASSIGNED_DRIVER_SCHEMA = "ENTERPRISE_MATH_ASSIGNED_GOVERNANCE_DRIVER_REQUEST_V1"
 
 
 class ControlDispatchError(ValueError):
@@ -142,6 +146,10 @@ def parse_session_observations(
             "activity_evidence_kind": str(evidence_kind),
             "last_verified_activity_at": activity.strip(),
         }
+        if "session_id" in row:
+            if not isinstance(row["session_id"], str) or not row["session_id"].strip():
+                raise ControlDispatchError(f"observations[{index}].session_id is invalid")
+            result[key]["session_id"] = row["session_id"]
     return result
 
 
@@ -347,6 +355,128 @@ def route_from_candidates(
     }
 
 
+def _assigned_driver_route(
+    request: Mapping[str, Any],
+    events: list[dict[str, Any]],
+    *,
+    observations: Mapping[str, Mapping[str, str]],
+    now,
+    kind: str,
+    root: Path,
+) -> dict[str, Any]:
+    """Narrow explicit GOV delegation through the existing authority/reducer.
+
+    The request does not grant delegation: its exact target must occur in the
+    current source-backed Driver AUTHORIZE body. This read-only route neither
+    claims work nor authorizes execution, and cannot repair past selection facts.
+    """
+    required = {
+        "schema", "driver_id", "task_id", "publication_id", "parent_objective_id",
+        "driver_authority_record_id", "driver_authority_record_sha256",
+        "expected_claim_id", "session_id",
+    }
+    if not isinstance(request, Mapping) or set(request) != required:
+        raise ControlDispatchError("assigned Driver request requires exactly the typed fields")
+    if request["schema"] != ASSIGNED_DRIVER_SCHEMA or kind != "GOVERNANCE":
+        raise ControlDispatchError("assigned Driver entry is GOVERNANCE only")
+    for field in required - {"expected_claim_id"}:
+        if not isinstance(request[field], str) or not request[field].strip():
+            raise ControlDispatchError(f"assigned Driver request missing {field}")
+    expected_claim = request["expected_claim_id"]
+    if expected_claim is not None and (not isinstance(expected_claim, str) or not expected_claim.strip()):
+        raise ControlDispatchError("expected_claim_id must be null or an exact nonempty claim ID")
+    try:
+        authority = research_driver_authority.require_active_driver(
+            request["driver_id"], now.isoformat(), root)
+    except research_driver_authority.DriverAuthorityError as exc:
+        raise ControlDispatchError(str(exc)) from exc
+    if authority is None or authority["authority_record_id"] != request["driver_authority_record_id"]:
+        raise ControlDispatchError("assigned Driver must pin its current ACTIVE authority")
+    authority_bytes = root.joinpath(authority["_record_path"]).read_bytes()
+    authority_sha = "sha256:" + hashlib.sha256(authority_bytes).hexdigest()
+    if authority_sha != request["driver_authority_record_sha256"]:
+        raise ControlDispatchError("assigned Driver authority bytes changed")
+    scope = {key: request[key] for key in ("task_id", "publication_id", "parent_objective_id")}
+    source = json.loads(authority["source_body"])
+    if source.get("assigned_governance_task") != scope:
+        raise ControlDispatchError("current AUTHORIZE source lacks this exact typed GOV delegation")
+
+    publication = research_task_records.current_records(root).get(request["task_id"])
+    if (not isinstance(publication, dict)
+            or any(publication.get(key) != value for key, value in scope.items())
+            or publication.get("record_state") != "ACTIVE"
+            or publication.get("claimable") is not True
+            or publication.get("kind") != "GOVERNANCE"
+            or publication.get("owner") != "governance"):
+        raise ControlDispatchError("assigned target is not the exact current claimable GOV publication")
+    book = root.joinpath(publication["taskbook_path"])
+    if research_task_records.taskbook_blob(book) != publication.get("taskbook_blob_sha1"):
+        raise ControlDispatchError("assigned target taskbook does not match frozen publication")
+    definitions = [item for item in research_dispatch.merged_definitions(root)
+                   if item.get("task_id") == request["task_id"]]
+    if len(definitions) != 1 or definitions[0].get("publication_id") != request["publication_id"]:
+        raise ControlDispatchError("assigned target lacks one canonical registered definition")
+    definition = definitions[0]
+    # This first assigned-entry contract covers the explicit dependency-free
+    # line-Driver GOV task. Do not infer completion of other dependency models.
+    if definition.get("dependencies") != []:
+        raise ControlDispatchError("assigned GOV dependencies require canonical dependency resolution; no bypass")
+    if definition.get("parent_objective_id") != publication["parent_objective_id"]:
+        raise ControlDispatchError("assigned target canonical parent binding differs")
+    # Same canonical overlays as effective_states, bounded to the one explicitly
+    # delegated target. No priority ranking or reduction of unrelated tasks.
+    policy = research_runtime_reducer.load_policy(root)
+    with research_dispatch._dispatch_result_read_snapshot(root):
+        state = research_dispatch.reduce_definition(
+            definition, events, now=now, root=root,
+            default_lease_minutes=int(policy.get("claim_lease_minutes", 120)))
+    if state.get("task_id") != request["task_id"] or state.get("publication_id") != request["publication_id"]:
+        raise ControlDispatchError("assigned target missing from canonical derived state")
+    if state.get("kind") != "GOVERNANCE" or state.get("execution_cohort_id"):
+        raise ControlDispatchError("assigned entry cannot select research or cohort lanes")
+    if state.get("dispatch_state") not in {"NEEDS_DISPATCH", "LEASED"}:
+        raise ControlDispatchError(f"assigned target is not executable: {state.get('dispatch_state')}")
+    if state.get("hard_block"):
+        raise ControlDispatchError("assigned target retains a canonical hard block")
+    if state.get("claim_id") != expected_claim:
+        raise ControlDispatchError("assigned target owner changed; preserve the current claim")
+    if expected_claim is not None and state.get("researcher_id") != request["driver_id"]:
+        raise ControlDispatchError("assigned Driver cannot take another owner's live claim")
+
+    observation = observations.get(request["task_id"])
+    activity = _owner_scope_activity(state, observation)
+    decision = research_runtime.dispatch_decision(state, session_last_activity_at=activity, now=now)
+    # Exact owner activity can prove an owner is active, but does not transfer
+    # that activity to a different caller session. Stale adoption remains guarded.
+    if (decision["action"] == research_runtime.KEEP_CURRENT_SESSION
+            and (observation or {}).get("session_id") != request["session_id"]):
+        decision = {"action": "VERIFY_SESSION_LIVENESS", "owner_claim_preserved": True,
+                    "new_claim_required": False}
+    result = {
+        **decision, "surface": ORDINARY_TASK, "target": state,
+        "target_key": request["task_id"],
+        "claim_id": state.get("claim_id"), "researcher_id": request["driver_id"],
+        "required_guard": ("tools/research_runtime_guard.py adopt"
+                           if decision["action"] == research_runtime.ADOPT_OWNER_CLAIM
+                           else "tools/research_runtime_guard.py authorize"),
+        "reason": "Exact explicitly delegated GOV target; ordinary priority ranking is unchanged outside this entry.",
+        "assigned_driver_selection": {
+            "schema": ASSIGNED_DRIVER_SCHEMA, **scope,
+            "driver_id": request["driver_id"], "session_id": request["session_id"],
+            "authority_record_id": authority["authority_record_id"],
+            "authority_record_sha256": authority_sha,
+            "authority_source_comment_id": authority["source_comment_id"],
+            "validated_at": now.isoformat(),
+            "mode": "CURRENT_FORWARD_REVALIDATION" if expected_claim else "ASSIGNED_GOVERNANCE_FRESH_DISPATCH",
+            "expected_claim_id": expected_claim,
+            "preclaim_selection_reconstructed": False,
+            "execution_authorized": False,
+            "parent_completion_granted": False,
+        },
+    }
+    return result
+
+
 def route_control(
     events: list[dict[str, Any]],
     *,
@@ -354,8 +484,12 @@ def route_control(
     observations: Mapping[str, Mapping[str, str]] | None = None,
     kind: str = "RESEARCH",
     root: Path = ROOT,
+    assigned_driver_task: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
     observations = observations or {}
+    if assigned_driver_task is not None:
+        return research_startup_transport.attach(_assigned_driver_route(
+            assigned_driver_task, events, observations=observations, now=now, kind=kind, root=root))
     # One immutable derived task-state snapshot per canonical dispatch.  The old
     # route recomputed the full Issue #240 stream independently for leased-owner,
     # fresh-task, and fresh-lane selection.  Reusing one snapshot is semantics-
@@ -410,12 +544,25 @@ def main() -> int:
     group = parser.add_mutually_exclusive_group()
     group.add_argument("--session-observations", type=Path)
     group.add_argument("--session-observations-json")
+    assigned = parser.add_mutually_exclusive_group()
+    assigned.add_argument("--assigned-driver-task", type=Path)
+    assigned.add_argument("--assigned-driver-task-json")
     args = parser.parse_args()
 
     events = research_dispatch.load_events(args.events)
     now = research_runtime.parse_time(args.now) if args.now else datetime.now(timezone.utc)
     observations = _load_observation_payload(args)
-    result = route_control(events, now=now, observations=observations, kind=args.kind)
+    assignment = None
+    if args.assigned_driver_task:
+        assignment = json.loads(args.assigned_driver_task.read_text(encoding="utf-8"))
+    elif args.assigned_driver_task_json:
+        assignment = json.loads(args.assigned_driver_task_json)
+    if (args.assigned_driver_task or args.assigned_driver_task_json) and not isinstance(assignment, dict):
+        raise ControlDispatchError("assigned Driver input must be an object")
+    if assignment is not None and args.events is None:
+        raise ControlDispatchError("assigned Driver route requires the actual Issue 240 event snapshot")
+    result = route_control(events, now=now, observations=observations, kind=args.kind,
+                           assigned_driver_task=assignment)
     print(json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True))
     return 2 if result.get("action") == research_runtime.NO_DISPATCH else 0
 

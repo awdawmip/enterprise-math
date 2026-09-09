@@ -1,0 +1,172 @@
+{
+  "schema": "EM_X6_DENSITY_PORT_RESULTS_V1",
+  "event_id": "NS-NATIVE-DENSITY-PORT-20260909-D5C00D-10",
+  "status": "CANDIDATE_LAW_ORDINARY_PROOFS_EXACT_CHECKS_NOT_INDEPENDENTLY_REVIEWED",
+  "law_id": "X6-DENSITY-PORT-1",
+  "ternary_score_cases": 23296,
+  "nontrivial_local_cases": 960,
+  "initial_l1": 2,
+  "first_tick_l1": 34,
+  "first_tick_collision_count": 8,
+  "wake_ages": [
+    {
+      "age": 1,
+      "l1": 32,
+      "changed_cells": 25,
+      "collisions_creating_this_age": 8,
+      "certified_distinguished_holes": 16
+    },
+    {
+      "age": 2,
+      "l1": 288,
+      "changed_cells": 201,
+      "collisions_creating_this_age": 64,
+      "certified_distinguished_holes": 16
+    },
+    {
+      "age": 3,
+      "l1": 1472,
+      "changed_cells": 984,
+      "collisions_creating_this_age": 296,
+      "certified_distinguished_holes": 16
+    },
+    {
+      "age": 4,
+      "l1": 5664,
+      "changed_cells": 3649,
+      "collisions_creating_this_age": 1048,
+      "certified_distinguished_holes": 16
+    },
+    {
+      "age": 5,
+      "l1": 17312,
+      "changed_cells": 10923,
+      "collisions_creating_this_age": 2912,
+      "certified_distinguished_holes": 16
+    },
+    {
+      "age": 6,
+      "l1": 44224,
+      "changed_cells": 27450,
+      "collisions_creating_this_age": 6728,
+      "certified_distinguished_holes": 16
+    },
+    {
+      "age": 7,
+      "l1": 108384,
+      "changed_cells": 65285,
+      "collisions_creating_this_age": 16040,
+      "certified_distinguished_holes": 16
+    }
+  ],
+  "frontier_hole_checks": 112,
+  "generic_full_x6_runs": [
+    {
+      "tick": 1,
+      "l1": 34,
+      "changed_cells": 27,
+      "collisions": 8,
+      "proved_lower_bound": 34
+    },
+    {
+      "tick": 2,
+      "l1": 322,
+      "changed_cells": 228,
+      "collisions": 72,
+      "proved_lower_bound": 66
+    },
+    {
+      "tick": 3,
+      "l1": 1794,
+      "changed_cells": 1212,
+      "collisions": 368,
+      "proved_lower_bound": 98
+    },
+    {
+      "tick": 4,
+      "l1": 7458,
+      "changed_cells": 4861,
+      "collisions": 1416,
+      "proved_lower_bound": 130
+    },
+    {
+      "tick": 5,
+      "l1": 24770,
+      "changed_cells": 15784,
+      "collisions": 4328,
+      "proved_lower_bound": 162
+    }
+  ],
+  "all_S6_first_step_covariance_checks": 720,
+  "translation_checks": 3,
+  "stream_only_control_ticks": 7,
+  "finite_mass_zero_background_checks": [
+    {
+      "tick": 1,
+      "mass": 4,
+      "occupied_cells": 4,
+      "collisions": 1
+    },
+    {
+      "tick": 2,
+      "mass": 4,
+      "occupied_cells": 4,
+      "collisions": 0
+    },
+    {
+      "tick": 3,
+      "mass": 4,
+      "occupied_cells": 4,
+      "collisions": 0
+    },
+    {
+      "tick": 4,
+      "mass": 4,
+      "occupied_cells": 4,
+      "collisions": 0
+    },
+    {
+      "tick": 5,
+      "mass": 4,
+      "occupied_cells": 4,
+      "collisions": 0
+    },
+    {
+      "tick": 6,
+      "mass": 4,
+      "occupied_cells": 4,
+      "collisions": 0
+    },
+    {
+      "tick": 7,
+      "mass": 4,
+      "occupied_cells": 4,
+      "collisions": 0
+    },
+    {
+      "tick": 8,
+      "mass": 4,
+      "occupied_cells": 4,
+      "collisions": 0
+    }
+  ],
+  "proved_for_all_t": "D_t = 2 + sum_{a=1}^t D(w_a) >= 32*t+2",
+  "finite_population_family": "For every T, background restricted to [-R,R]^6, R=3*T+3, gives D_T>=32*T+2 by radius-two dependency locality.",
+  "pointwise_channel_bound": 2,
+  "finite_box_check": {
+    "radius": 2,
+    "initial_occupied_cells": 15625,
+    "particles_in_each_run": 46875,
+    "initial_l1_difference": 2,
+    "one_tick_l1_difference": 34,
+    "same_zero_background_law": true
+  },
+  "nonclaims": [
+    "not a TRIADIC_CLOSURE_E or physical force-law certificate",
+    "no viscosity or Navier-Stokes bridge",
+    "no finite-time blowup",
+    "no fixed-finite-state Lyapunov instability claim",
+    "no independent review or Lean build",
+    "no historical novelty claim"
+  ]
+}

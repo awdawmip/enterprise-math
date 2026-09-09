@@ -71,6 +71,61 @@ A real request-producing push must use a fresh `request_id`. Reusing an already-
 
 `session_observations` is optional. If supplied, it must already satisfy the exact owner-scope liveness contract accepted by `research_control_dispatch.py`. Generic conversation activity must never be converted into an observation by this bridge.
 
+### Explicit assignment of a registered line-Driver GOV task
+
+An Owner may delegate an exact registered governance task to an activated Driver
+through this same canonical router. This bounded entry covers dependency-free,
+task-global `GOVERNANCE` publications. Ordinary priority selection is unchanged.
+Nonempty dependency models, blocked or closed tasks, non-open parent gates,
+cohort lanes and pending Result reviews cannot use this entry to bypass their gates.
+
+The current source-backed `AUTHORIZE` event must contain the typed field
+`assigned_governance_task` with exactly `task_id`, `publication_id` and
+`parent_objective_id`. Its existing immutable DA record preserves the whole
+authenticated `source_body`. The event's `driver_id` identifies the delegate.
+Reason prose is not parsed as a grant, and the request below cannot grant its own
+delegation. A new real AUTHORIZE may record an already explicit Owner delegation
+prospectively; retain all older DA/CLAIM/ER and omitted-selection evidence.
+
+Add an `assigned_driver_task` object to the existing V1 connector request with
+`kind: "GOVERNANCE"`. No new request path or second task registry is needed:
+
+```json
+{
+  "schema": "ENTERPRISE_MATH_ASSIGNED_GOVERNANCE_DRIVER_REQUEST_V1",
+  "driver_id": "EM-DVR-EXAMPLE",
+  "task_id": "GV-EXAMPLE",
+  "publication_id": "TP2-EXAMPLE",
+  "parent_objective_id": "OBJ-EXAMPLE",
+  "driver_authority_record_id": "DA-EXAMPLE",
+  "driver_authority_record_sha256": "sha256:EXACT_CURRENT_DA_FILE_DIGEST",
+  "expected_claim_id": null,
+  "session_id": "actual-calling-session"
+}
+```
+
+The example IDs are structural examples, not live authority. Use exact current
+values. Local execution accepts the same object through
+`research_control_dispatch.py --events <actual-issue-240-snapshot.json> --kind GOVERNANCE --assigned-driver-task <request.json>`
+or `--assigned-driver-task-json`. The bridge always supplies the current raw
+server-comment stream and includes validated assignment provenance in both the
+immutable receipt and the compact packet, retaining its 8192-byte limit.
+
+For an unowned target, `expected_claim_id` is explicitly null. A returned
+`CLAIM_NEW_OWNER` still requires the existing execution-intent/real-CLAIM/runtime
+authorization sequence. A route is not execution authority.
+
+For the same Driver's existing winning owner, supply its exact `expected_claim_id`;
+the current claim, ER and owner lease are preserved. `KEEP_CURRENT_SESSION`
+requires an existing supported activity kind bound to that exact task/claim and
+an explicit matching `session_id` in the session observation. Missing/foreign
+session evidence returns `VERIFY_SESSION_LIVENESS`. Independently stale evidence
+returns `ADOPT_OWNER_CLAIM` and still requires the existing adoption guard. Generic
+Driver activity, claim creation and control publication do not refresh task
+liveness. The receipt marks this as current forward revalidation, never as a
+reconstructed pre-claim selector result. No route closes a parent objective or
+grants mathematical acceptance, Working Truth or Foundation authority.
+
 ## Request-producing push
 
 For a `push` event, the bridge defines request production mechanically over the complete GitHub push range:

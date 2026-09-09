@@ -1,0 +1,25 @@
+{
+  "law_id": "X6-DENSITY-PORT-1",
+  "status": "EXPLICIT_TEST_LAW_NOT_SELECTED_NATIVE_PHYSICS",
+  "frozen_at": "2026-09-09T06:34:08.637563+00:00",
+  "state": "nonnegative integer counts on signed-axis channels over full Z6",
+  "collision": "Only local total 3, additive first moment sigma*e_j, neutral pair l != j. Choose m outside {j,l} only if N(z+e_m)+N(z-e_m) has a unique maximum over that four-axis set. Otherwise retain local counts. Replace neutral pair l with pair m. All reads use old state.",
+  "streaming": "Each channel sigma*e_i moves one primitive step sigma*e_i.",
+  "additional_constitutive_choices": [
+    "count-three gate",
+    "neighbor-total score",
+    "unique-maximum routing",
+    "wait on tie",
+    "collision then streaming"
+  ],
+  "no_claims": [
+    "not derived uniquely from P000",
+    "ternary count gate is not TRIADIC_CLOSURE_E",
+    "source-free count law is not already f=0 Navier-Stokes",
+    "no physical momentum or viscosity calibration",
+    "not a classical NS solver"
+  ],
+  "parent_code_git_blob": "5dd5e0bce49c5d37360d34e0f9013830f7600357",
+  "native_source": "562df4628f1896bd0faca3706efbacdb78f189d0",
+  "global_source": "202e522ea31357275ece35d7ddb9d9ffe3e1d99c"
+}

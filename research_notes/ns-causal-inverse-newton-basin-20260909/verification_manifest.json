@@ -1,0 +1,121 @@
+{
+  "schema": "EM_RESULT_SPECIFIC_VERIFICATION_V1",
+  "record_id": "FINDING-EM-PDE-CAUSAL-INVERSE-NEWTON-BASIN-20260909",
+  "activity_id": "RA-076944AE1950A916ACC95399",
+  "proof_source": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "c26297984a9178e45235ca9226b673af8cd7805e",
+    "path": "research_notes/ns-causal-inverse-newton-basin-20260909.md",
+    "sha256": "fb0b41093eceb5b6482e67c0ccc16f31e15e3ff1134a7ecac5494e348fa5a80f",
+    "git_blob_sha1": "32678f3cc52733af6b2ebe81dfbd390b91e41f0b"
+  },
+  "checker_source": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "8deed83f4798a3ac704cb961280cd9d38f6caadf",
+    "path": "research_notes/ns-causal-inverse-newton-basin-20260909/certify_causal_inverse.py",
+    "sha256": "dd57913f750827891bec223239ce2ae4ffff9769857664fa256b083db76405dc",
+    "git_blob_sha1": "242e45374518ace022cf95e587a312af5b13cb22"
+  },
+  "inherited_source": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "525084c8ae448ae233d9af48fc42e4ae93e14d79",
+    "path": "research_notes/ns-causal-inverse-newton-basin-20260909/inherited_fourier.py",
+    "sha256": "ac6a0a34994c85832bde55e38e195e9552df308906f1a4c4460d3dbdafb1db59",
+    "git_blob_sha1": "a769566cd54ee65d5816e00160ba315fc545ab95"
+  },
+  "verification": {
+    "status": "PASS",
+    "scope": "ordinary analytic theorem plus exact finite Fourier/rational verification; not PDE simulation",
+    "inherited_fourier_sha256": "ac6a0a34994c85832bde55e38e195e9552df308906f1a4c4460d3dbdafb1db59",
+    "algebra": {
+      "running_energy_integral_bound": "integral XQ <= ||w||_X^4/(2c)",
+      "trajectory_bilinear_constant": "C_star/sqrt(2c)",
+      "quadratic_Newton_remainder_identity": true
+    },
+    "example": {
+      "viscosity": "1",
+      "amplitude": "1/10",
+      "wavevectors": [
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          -2,
+          0
+        ]
+      ],
+      "initial_rank": 3,
+      "initial_helicity": "+",
+      "initial_modes": 8,
+      "first_source_packets": 12,
+      "first_response_packets": 20,
+      "linear_defect_packets": 130,
+      "cR_exact": "3*sqrt(14)/245 + 7*sqrt(10)/250 + sqrt(6)/20",
+      "c3_exact": "17*sqrt(42)/202836480 + 13*sqrt(34)/84272400 + sqrt(26)/346112 + 11/43200 + 9449*sqrt(10)/17280000 + 757223*sqrt(14)/1452124800 + 321119*sqrt(6)/316108800 + 325286597*sqrt(2)/46942156800",
+      "cR_decimal": 0.2568344745231463,
+      "c3_decimal": 0.01623924550025455,
+      "growth_integral_upper": "523/500",
+      "exp_growth_upper": "57/20",
+      "inverse_norm_upper": "33/10",
+      "quadratic_feedback_bound": "128/5",
+      "first_Newton_response_norm_upper": "11/2000",
+      "finite_response_to_exact_inverse_error_upper": "33/78125",
+      "four_alpha_eta": "352/625",
+      "certified_global_trajectory_radius": "7/1000",
+      "ball_inclusion_margin": "307/1250000",
+      "contraction_factor_upper": "224/625",
+      "raw_inverse_test_q_lower": "82731/50000",
+      "scalar_Newton_majorant_steps": [
+        {
+          "n": 1,
+          "majorant_radius_decimal": 0.0055
+        },
+        {
+          "n": 2,
+          "majorant_radius_decimal": 0.006577951002227172
+        },
+        {
+          "n": 3,
+          "majorant_radius_decimal": 0.0066228036055447645
+        },
+        {
+          "n": 4,
+          "majorant_radius_decimal": 0.0066228815295629965
+        },
+        {
+          "n": 5,
+          "majorant_radius_decimal": 0.006622881529798198
+        },
+        {
+          "n": 6,
+          "majorant_radius_decimal": 0.006622881529798198
+        }
+      ],
+      "compared_with": "raw residual norm times this inverse bound only, not all previous criteria"
+    },
+    "limits": [
+      "No arbitrary-data regularity or historical novelty claim.",
+      "The causal inverse existence and infinite-tail control are analytic, not finite-mode extrapolation.",
+      "Newton convergence is proved in the note; no infinite-dimensional Newton simulation was executed.",
+      "Only the specified smooth periodic A3 input and its proved neighborhood are certified.",
+      "C_star=9.503 depends on the inherited lattice proof, rerun separately unchanged."
+    ]
+  },
+  "parent_reruns": {
+    "lattice_constant": "PASS: unchanged exact checker; C*=9503/1000",
+    "newton_descent_algebra": "PASS: unchanged checker"
+  }
+}
