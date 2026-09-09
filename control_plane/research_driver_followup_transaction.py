@@ -56,7 +56,10 @@ def _validate_packet_candidate(
     import research_driver_followup as impl
     from control_plane import research_driver_followup_fault_isolation as isolation
 
-    impl.validate_packet(packet, root)
+    if packet.get("decision") == impl.TASK_SCOPE_DECISION:
+        impl.validate_packet(packet, root, current_publication_required=True)
+    else:
+        impl.validate_packet(packet, root)
     path = root / "research_driver_followups" / packet["review_id"] / f"{packet['packet_id']}.json"
     related = [
         row for row in isolation._raw_packets(root)
@@ -183,20 +186,25 @@ def materialize(
     impl._forced_gate_rules(review, result, normalized_gates)
     timestamp = impl._now(created_at)
 
-    if decision == "PARENT_OBJECTIVE_CLOSURE":
+    if decision in {"PARENT_OBJECTIVE_CLOSURE", impl.TASK_SCOPE_DECISION}:
         if task_specs:
             raise DriverFollowupTransactionError(
-                "parent closure spec cannot include tasks"
+                "zero-task follow-up spec cannot include tasks"
             )
-        head = impl._objective_head(parent, root)
-        if head is None or head.get("objective_status") != "CLOSED":
-            raise DriverFollowupTransactionError(
-                "parent Objective must already be canonically CLOSED before no-task exception"
-            )
+        if decision == "PARENT_OBJECTIVE_CLOSURE":
+            head = impl._objective_head(parent, root)
+            if head is None or head.get("objective_status") != "CLOSED":
+                raise DriverFollowupTransactionError(
+                    "parent Objective must already be canonically CLOSED before no-task exception"
+                )
         if any(row["decision"] == "REQUIRED" for row in normalized_gates.values()):
             raise DriverFollowupTransactionError(
-                "parent closure cannot leave REQUIRED gates"
+                "zero-task follow-up cannot leave REQUIRED gates"
             )
+        extra = {}
+        if decision == impl.TASK_SCOPE_DECISION:
+            extra = {"terminal_scope": spec.get("terminal_scope"),
+                     "portfolio_continuation": spec.get("portfolio_continuation")}
         packet = impl.build_packet(
             review_id=review_id,
             decision=decision,
@@ -205,6 +213,7 @@ def materialize(
             driver_id=str(review["driver_id"]),
             created_at=timestamp,
             root=root,
+            **extra,
         )
         out = root / "research_driver_followups" / review_id / f"{packet['packet_id']}.json"
         planned = _tx.PlannedFile(out, _packet_bytes(packet))
