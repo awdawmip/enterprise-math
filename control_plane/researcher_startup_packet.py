@@ -263,6 +263,12 @@ def build_packet(receipt: dict[str, Any], root: Path = ROOT) -> dict[str, Any]:
     if "assigned_driver_selection" in route:
         packet["assigned_driver_selection"] = route["assigned_driver_selection"]
         packet["required_guard"] = route.get("required_guard")
+    if "assigned_research_selection" in route:
+        packet["assigned_research_selection"] = route["assigned_research_selection"]
+        packet["selection_scope"] = route.get("selection_scope")
+        packet["selection_status"] = route.get("selection_status")
+        packet["required_guard"] = route.get("required_guard")
+        packet["next_control_steps"] = route.get("next_control_steps", [])
     if isinstance(target, dict) and target.get("task_id"):
         publication, publication_path = _publication_for_target(root, target)
         projection, metadata = _task_projection(root, publication)

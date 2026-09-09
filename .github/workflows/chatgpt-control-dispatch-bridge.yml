@@ -71,6 +71,11 @@ jobs:
             test "$kind" = "GOVERNANCE"
             jq -e '.assigned_driver_task | type == "object"' "$REQUEST_PATH" >/dev/null
           fi
+          if jq -e 'has("assigned_research_task")' "$REQUEST_PATH" >/dev/null; then
+            test "$kind" = "RESEARCH"
+            jq -e '.assigned_research_task | type == "object"' "$REQUEST_PATH" >/dev/null
+            jq -e 'has("assigned_driver_task") | not' "$REQUEST_PATH" >/dev/null
+          fi
           echo "REQUEST_ID=$request_id" >> "$GITHUB_ENV"
           echo "DISPATCH_KIND=$kind" >> "$GITHUB_ENV"
           echo "IMMUTABLE_RECEIPT_PATH=$RECEIPT_DIR/$request_id.json" >> "$GITHUB_ENV"
@@ -121,6 +126,9 @@ jobs:
           assigned_args=()
           if jq -e 'has("assigned_driver_task")' "$REQUEST_PATH" >/dev/null; then
             assigned_args=(--assigned-driver-task-json "$(jq -c '.assigned_driver_task' "$REQUEST_PATH")")
+          fi
+          if jq -e 'has("assigned_research_task")' "$REQUEST_PATH" >/dev/null; then
+            assigned_args=(--assigned-research-task-json "$(jq -c '.assigned_research_task' "$REQUEST_PATH")")
           fi
           set +e
           if [[ -n "$session_observations" ]]; then

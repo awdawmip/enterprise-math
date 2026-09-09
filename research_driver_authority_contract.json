@@ -36,6 +36,19 @@
     "creates_or_renews_claim": false,
     "grants_execution_or_mathematical_acceptance": false
   },
+  "optional_research_task_delegation_scope": {
+    "location": "AUTHORIZE source_body.research_task_delegation_scope",
+    "fields": ["parent_objective_ids"],
+    "parent_objective_ids": "Nonempty duplicate-free list of exact parent IDs; wildcards, prefixes and prose are not scope",
+    "consumer": "research_control_dispatch.py assigned_research_task_entry",
+    "meaning": "The source-authorized Driver may prospectively assign current registered RESEARCH tasks within these exact parents to a distinct RESEARCHER/session through authenticated Issue 240 assignment events",
+    "existing_assigned_governance_task_implies_research_scope": false,
+    "reason_prose_implies_research_scope": false,
+    "current_authority_rechecked": true,
+    "changed_authority_record_requires_new_assignment": true,
+    "creates_or_renews_claim": false,
+    "grants_execution_or_mathematical_acceptance": false
+  },
   "core_invariants": [
     "DRIVER_ID_SYNTAX_IS_NOT_DRIVER_AUTHORITY",
     "GLOBAL_KNOWLEDGE_IS_NOT_PROJECT_RUNTIME_AUTHORITY",
