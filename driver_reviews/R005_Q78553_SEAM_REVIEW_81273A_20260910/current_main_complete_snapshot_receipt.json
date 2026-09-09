@@ -1,0 +1,737 @@
+{
+  "schema": "R005_DRIVER_COMPLETE_CURRENT_SNAPSHOT_V1",
+  "commit": "0a3de47e91ed0c8c5fd3d5ef3a36ef0e630bb7ec",
+  "tree": "d8fc75555efaa67599fe193fbf1fcc895cb8e81b",
+  "parents": [
+    "52775e4f53b4a34210341f7ac07f7c6c2d3834df",
+    "00ec779f18256e0e31543a43930ca865251a58ff"
+  ],
+  "base": "52775e4f53b4a34210341f7ac07f7c6c2d3834df",
+  "branch": "driver/r005-q78553-seam-review-81273a-20260910",
+  "worktree": "D:\\em\\r005-q78553-review-81273a-20260910",
+  "provider_was_read_only": true,
+  "delta_count": 120,
+  "whole_tree_matches_actual_main": true,
+  "imports": [
+    {
+      "path": "driver_reviews/RB_EXACT_MAP_LINE_DOSSIER.md",
+      "sha": "7f7dd753c1b5a0b30239c31c0c8bfe6a529d1083",
+      "bytes": 14784,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "driver_reviews/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_FOLLOWUP_SPEC_20260910_5816EB.json",
+      "sha": "99437d7b888e1cc047e2b35308adf537bd6067e5",
+      "bytes": 6693,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "driver_reviews/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REVIEW_20260910_5816EB.md",
+      "sha": "1d892c7b4162e877929a8ff6e29a82733088672a",
+      "bytes": 11097,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_activity_records/RA-0FF9BA2BED0EBBE6C0614714.json",
+      "sha": "9d7b892e955d4915d6b49da184aa74627d54fa36",
+      "bytes": 5005,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_activity_records/RA-0FF9BA2BED0EBBE6C0614714/readbacks/32f31fb1ba9842e4883e1a8aa728b3f7dd426552669d6af913a060dfa0d3aace.json",
+      "sha": "188de83b0cf60738e7ba3188ed23efb1562a4937",
+      "bytes": 17910,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_activity_records/RA-0FF9BA2BED0EBBE6C0614714/readbacks/a7a0943a600000fc53e2d141b4cfbacb96964dcbfaef8142a81da1a8f1ac3dce.json",
+      "sha": "a9add453dcf45b3ef2873e8c37cd9568a1ab67f1",
+      "bytes": 15611,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_activity_records/RA-0FF9BA2BED0EBBE6C0614714/readbacks/ed331001bb315abf4b203578fe1963a1477d08707329bba337e8a1914e8fd292.json",
+      "sha": "3159d1ff4fce823272f95f3eb514d42cd1453928",
+      "bytes": 20377,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/FILE_MANIFEST.json",
+      "sha": "cb15a988a48026d325948e911ce3119eb674e5a3",
+      "bytes": 17371,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/PROOF.md",
+      "sha": "c76e1658d4db079a199c69059231bef5dd949257",
+      "bytes": 14202,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/REPLAY_AND_REVIEW.md",
+      "sha": "768499857d505add49a96ca4dfff2192bd6ad7f2",
+      "bytes": 3167,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/TOOL_REUSE_RESOLUTION.md",
+      "sha": "0e10dc516b78b32ede9f7783bfab097a70033881",
+      "bytes": 3494,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/check_complete_obstruction.py",
+      "sha": "fbc915981b3ef0e90c14bd402edca8bc1e4f8990",
+      "bytes": 10306,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/closeout/activity-guard.run.json",
+      "sha": "a7da4e5de06a8a89d5df0f54619ad93c0217e64d",
+      "bytes": 623,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/closeout/activity-guard.stderr.txt",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/closeout/activity-guard.stdout.json",
+      "sha": "a3e2b551aecfb4d30d41dbf3fdeab3a6096f73c6",
+      "bytes": 1676,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/closeout/activity-registration-source.json",
+      "sha": "473b0a112cc640724701cff23a86f53785a4818b",
+      "bytes": 6449,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/closeout/closeout_summary.json",
+      "sha": "9bbc288bae7559479c547d70e956ce93e2d8b0c5",
+      "bytes": 3830,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/closeout/handoff-manifest.readback.json",
+      "sha": "bef6836874f7e271f1b6f7c4011baceab6fc42e2",
+      "bytes": 6942,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/closeout/handoff-preflight-tail.readback.json",
+      "sha": "dc9ea3e6f6ebe10d1771982b27962b29284186cb",
+      "bytes": 21555,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/closeout/handoff-raw-comment.json",
+      "sha": "bfcae8260da5a53906d3ea4443b1200643fb9490",
+      "bytes": 5649,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/closeout/handoff-raw.readback.json",
+      "sha": "530db58a5adbb421ad8cea8886aba8e13ddcc00c",
+      "bytes": 11805,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/closeout/pre-final-state.json",
+      "sha": "116061edccfa4fe4ad6b42e51375f85f5f7110ab",
+      "bytes": 9304,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/closeout/pre-final.run.json",
+      "sha": "6ad0a121fb1da820fccd848d0bd4680ea4266c87",
+      "bytes": 605,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/closeout/pre-final.stderr.txt",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/closeout/pre-final.stdout.json",
+      "sha": "47814d508f5dd6fce663d427b9c12f8941f01ab2",
+      "bytes": 377,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/critical-pencil.run.json",
+      "sha": "9199b2324159b43add9c7d5f34ddabaa7c3a618c",
+      "bytes": 386,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/critical-pencil.stderr.txt",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/critical-pencil.stdout.json",
+      "sha": "966122b50009c8f4ef4450ac4b3feff00b605161",
+      "bytes": 1573,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/derive_critical_pencil.py",
+      "sha": "a45a281cb7503eb1187c0156c8271546f926efdc",
+      "bytes": 1117,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/derive_obstruction.py",
+      "sha": "e14e25d4f79a673e9cf7083c7c6609450cd1b0e3",
+      "bytes": 1947,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/frozen_inputs/raw_freeze_reduction.json",
+      "sha": "9a397eb108beaf7ec00e297e70f5d854e803afc8",
+      "bytes": 5980,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/frozen_inputs/raw_freeze_reduction.readback.json",
+      "sha": "4bc65c45c84288565218ff20abadb3735d4259c6",
+      "bytes": 7112,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/handoff_manifest.json",
+      "sha": "d2b82a4c28544ca81468ade1721fc76dfd4a2b6d",
+      "bytes": 5589,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/integer-certificate.json",
+      "sha": "79fa6ae98c60b3439f2bb517fa8b7ef68b51fea2",
+      "bytes": 14865,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/integer-check-final.run.json",
+      "sha": "4db9bbe2bc019e007126a40270cae67419498666",
+      "bytes": 414,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/integer-check-final.stderr.txt",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/integer-check-final.stdout.txt",
+      "sha": "26810c3c5b18693fbe75f11b1a5182ebd7cf6116",
+      "bytes": 169,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/integer-check.run.json",
+      "sha": "de9e1008b9217446d3b2ab5e75e799b38875ebb4",
+      "bytes": 414,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/integer-check.stderr.txt",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/integer-check.stdout.txt",
+      "sha": "61d48a2206fdd5a1ea1dfe500967bada17d5671c",
+      "bytes": 169,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/obstruction-discovery.run.json",
+      "sha": "4e707ec9b913578d9265061ea64a52cc94c73b11",
+      "bytes": 382,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/obstruction-discovery.stderr.txt",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/obstruction-discovery.stdout.json",
+      "sha": "201f1d69d5be0536655b6c6bb4f139bff3620816",
+      "bytes": 807,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/problem.json",
+      "sha": "6f6b14c2a6a456c3a688f50d5cdd76517368455a",
+      "bytes": 1322,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/publication_readbacks/FILE_MANIFEST.json.readback.json",
+      "sha": "c45409a3945741e82b51a722a2e085c1284a4703",
+      "bytes": 19696,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/publication_readbacks/PROOF.md.readback.json",
+      "sha": "98502f68814e308adaff4563627a0b77e3df479d",
+      "bytes": 15611,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/publication_readbacks/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_OBSTRUCTION_REPAIR_RETURN_20260909.md.readback.json",
+      "sha": "c83a605a084d0d08749751d5d5824464b8ba08a7",
+      "bytes": 4640,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/publication_readbacks/activity-checkpoint-sources.json",
+      "sha": "c19bf759a877c6ec257f88d86417259ac1879528",
+      "bytes": 55585,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/publication_readbacks/activity-checkpoint.run.json",
+      "sha": "972db0d8a38be1b489c5615658f000ba68f67261",
+      "bytes": 699,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/publication_readbacks/activity-checkpoint.stderr.txt",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/publication_readbacks/activity-checkpoint.stdout.json",
+      "sha": "2d53609a2bfa504d386b11bfda3e4cad092ee183",
+      "bytes": 5617,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/publication_readbacks/authorize-canonical.stdout.json.readback.json",
+      "sha": "83ec440d5ee9b6049fe2378686ae14f89d0018a2",
+      "bytes": 6722,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/publication_readbacks/check_complete_obstruction.py.readback.json",
+      "sha": "a0dcdad7ab61a82519ee26a8ce6364660599a041",
+      "bytes": 11400,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/publication_readbacks/claim-raw-comment.json.readback.json",
+      "sha": "8bbf597b6e3e9f512886815c41ecf5ea0af64907",
+      "bytes": 6441,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/publication_readbacks/integer-certificate.json.readback.json",
+      "sha": "6ddbd973e8e0ce08f1201986d7deff85214b1d8e",
+      "bytes": 17910,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/publication_readbacks/knowledge-journal.readback.json",
+      "sha": "73d00957187889992667993af6b3a3d81ba3d009",
+      "bytes": 3891,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/publication_readbacks/problem.json.readback.json",
+      "sha": "24e5be12f0a2ad0facd4a5e0509ad216455f7200",
+      "bytes": 2255,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/publication_readbacks/result-freeze.run.json",
+      "sha": "f6cbdc812e3bbe8659541d5a24e48dd131b0ba1d",
+      "bytes": 7493,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/publication_readbacks/result-freeze.stderr.txt",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/publication_readbacks/result-freeze.stdout.json",
+      "sha": "3c8b37c05e799b1b667b02a962749b17458b2e51",
+      "bytes": 18840,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/publication_readbacks/result-immutable.readback.json",
+      "sha": "17be103e60050589a2764bf5c61e94c9e15ecfc0",
+      "bytes": 20377,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/publication_readbacks/selection-claim-boundary.stdout.json.readback.json",
+      "sha": "e7abfee8e2b56da6410152896ce2293f8b9354f3",
+      "bytes": 10646,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/publication_readbacks/whole-source-tree-verification.json",
+      "sha": "db8420850678632fd2e1731ada810cee1650d1de",
+      "bytes": 721,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/assigned_request.json",
+      "sha": "9afc88e8fc5a4ebcea1aabb9e114a14b439c58e5",
+      "bytes": 785,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/assignment-raw-comment.json",
+      "sha": "2cb29341104d05c20c3d03c993a4bad2fd83fecd",
+      "bytes": 4563,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/authorize-canonical.run.json",
+      "sha": "f2091426709e05ffb024abb21a280d2387341ab8",
+      "bytes": 821,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/authorize-canonical.stderr.txt",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/authorize-canonical.stdout.json",
+      "sha": "e682052a17087c9660b0b4fe961f684d98420410",
+      "bytes": 5358,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/authorize.run.json",
+      "sha": "0b744b12ce549301ecca6ddaf6e267ccf17d228e",
+      "bytes": 503,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/authorize.stderr.txt",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/authorize.stdout.json",
+      "sha": "97ec8b00dde05eff0ae365bd72b0b4a4398ab1c3",
+      "bytes": 195,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/claim-body.json",
+      "sha": "02eb6c46b78922d01ab1c29bdd26c18122b649ea",
+      "bytes": 955,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/claim-raw-comment.json",
+      "sha": "4fb5a776f9fea9bf59ec7dea49b337748658244e",
+      "bytes": 5006,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/da-claim-boundary.readback.json",
+      "sha": "af9a6752faacdcb031a0ddd9a7c8091cc4e9e638",
+      "bytes": 3524,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/events-after-claim-tail.readback.json",
+      "sha": "627450e852ba588db6fa89f2c59da7e7814af92a",
+      "bytes": 19441,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/events-after-claim.json",
+      "sha": "d26b3329b6ee0e0d55711f51873a03646de22f6b",
+      "bytes": 56842,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/events-before-claim.json",
+      "sha": "6de3523c7624516b7a0d1c410e959605a0fffdec",
+      "bytes": 51627,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/events-claim-boundary.json",
+      "sha": "6de3523c7624516b7a0d1c410e959605a0fffdec",
+      "bytes": 51627,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/events-claim-boundary.readback.json",
+      "sha": "a4334f0df0192f40e6dc949c532c9a0fb074cc7d",
+      "bytes": 96975,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/execution-intent.readback.json",
+      "sha": "970952eff55869f748209584a631e9650b17ecaa",
+      "bytes": 2074,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/execution-policy.json",
+      "sha": "2221fd80652ed586ed2b6e0a3b2a77e11e8c9c02",
+      "bytes": 1188,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/prepare.run.json",
+      "sha": "3ceb598ed1bad8e0d00f14f09f3aee8c372cc13b",
+      "bytes": 891,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/prepare.stderr.txt",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/prepare.stdout.json",
+      "sha": "798b85181cca2f6bc126b7149bb7694ea8fe65ea",
+      "bytes": 1199,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/runtime-state.json",
+      "sha": "e8e1de82886898daca180d42dbd2139e6e3c68b0",
+      "bytes": 493,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/selection-before-claim.run.json",
+      "sha": "ea3f5fcbc3a1019d241d3a2ca2f88d34488982e9",
+      "bytes": 476,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/selection-before-claim.stderr.txt",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/selection-before-claim.stdout.json",
+      "sha": "696f81d302ff3f2c42ef4c51e4f48f866c247bdf",
+      "bytes": 9023,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/selection-claim-boundary.run.json",
+      "sha": "7124e42b699ee4d9aad68c7cea751aef573c3cae",
+      "bytes": 478,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/selection-claim-boundary.stderr.txt",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/runtime/selection-claim-boundary.stdout.json",
+      "sha": "8cd2eead43536b2974e3c608ade976f723779b9c",
+      "bytes": 9023,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/source-bindings.json",
+      "sha": "c9820719727a6e5fe08fb59729546656b75681b8",
+      "bytes": 3183,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/tool-coverage.json",
+      "sha": "3208536a9af81ca310c99477e3cd75b23aab6f66",
+      "bytes": 57510,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/tool-coverage.run.json",
+      "sha": "e8a5331523375e0a5ddafc5dcb6446dd07575da2",
+      "bytes": 323,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_REPAIR_20260909/tool-coverage.utf8.json",
+      "sha": "4996beb5931753384db92243b24078c8d90eeabf",
+      "bytes": 57522,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_DRIVER_REVIEW_20260910_5816EB/canonical_control_snapshot.json",
+      "sha": "ca481c9277b81d5f860b26285cb9b6fce7958b2a",
+      "bytes": 575,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_DRIVER_REVIEW_20260910_5816EB/formal-review-actual-receipt.json",
+      "sha": "e56a8187f0f6d62351b6c721317fa7abe758d869",
+      "bytes": 1922,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_DRIVER_REVIEW_20260910_5816EB/formal-review-attempt1-actual-receipt.json",
+      "sha": "0ea4ec97481b1419fc6de6f0e37890e4a9e31541",
+      "bytes": 1578,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_DRIVER_REVIEW_20260910_5816EB/formal-review-attempt1.stderr.txt",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_DRIVER_REVIEW_20260910_5816EB/formal-review-attempt1.stdout.json",
+      "sha": "47a54b6ce74a926e92551bf7389482dbf7f4458f",
+      "bytes": 62,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_DRIVER_REVIEW_20260910_5816EB/formal-review.stderr.txt",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_DRIVER_REVIEW_20260910_5816EB/formal-review.stdout.json",
+      "sha": "ac570912fca9c0c45f76bece06e47e77af40e3b0",
+      "bytes": 9973,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_DRIVER_REVIEW_20260910_5816EB/non_utf8_transport_exception.json",
+      "sha": "4db5036f91b886a7f66c8ad841c8db2e2fb6b5ce",
+      "bytes": 813,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_DRIVER_REVIEW_20260910_5816EB/portfolio_direction.md",
+      "sha": "3bcb5aec02c5c4c17d1c7fd8ecd413ad5a406b76",
+      "bytes": 3228,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_DRIVER_REVIEW_20260910_5816EB/portfolio_tool_coverage.json",
+      "sha": "95c77eb307c356110379413dc3a523a3bab7f500",
+      "bytes": 47969,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_DRIVER_REVIEW_20260910_5816EB/portfolio_tool_coverage.run.json",
+      "sha": "b1c3e08558a0fdf556604087211fd1b219f6c5ba",
+      "bytes": 934,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_DRIVER_REVIEW_20260910_5816EB/portfolio_tool_coverage.stderr.txt",
+      "sha": "e6bff5079031c41add8ca526cd2bae6e2d27570c",
+      "bytes": 161,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_DRIVER_REVIEW_20260910_5816EB/prior_art_review.md",
+      "sha": "f8effb357072879a76db2f9a3e12eae853c37a84",
+      "bytes": 2965,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_DRIVER_REVIEW_20260910_5816EB/replay.stderr.txt",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_DRIVER_REVIEW_20260910_5816EB/replay.stdout.txt",
+      "sha": "26810c3c5b18693fbe75f11b1a5182ebd7cf6116",
+      "bytes": 169,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_DRIVER_REVIEW_20260910_5816EB/replay_receipt.json",
+      "sha": "269120db3cb0a6307fffe467d18f7443ef3e9010",
+      "bytes": 18223,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_artifacts/RB_SIX_BLOCK_DRIVER_REVIEW_20260910_5816EB/source_intake_manifest.json",
+      "sha": "62b46316ee885c29eb9e6a7a42796373cd0bb1b5",
+      "bytes": 36987,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_driver_followups/DR-5AE91265A50B7D0B5F9F/DFU-B44F4018DACEEFD71E08.json",
+      "sha": "e30df8a1edd10f3ba7daf64469fccdb85fd35e55",
+      "bytes": 8049,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_execution_records/RS-RB-SIX-BLOCK-COMPLETE-HALF-SECTION-OBSTRUCTION-REPAIR/ER-023A3343CE7FA4FA2AEE.json",
+      "sha": "cc9b593bbbf7f856825949371cf1aa977dda32a7",
+      "bytes": 1065,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_identity_records/EM-RB-1EB0B6/identity.json",
+      "sha": "5fd20091022e7182c03047ccc77d7f934fce3b96",
+      "bytes": 731,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_identity_records/EM-RB-1EB0B6/startup_observation.json",
+      "sha": "1263290eb745ebf9751b573900a49c0494788c58",
+      "bytes": 1636,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_identity_records/EM-RB-1EB0B6/startup_readbacks.json",
+      "sha": "472289182e87ffd0d6ebcafbb59de969c879a43c",
+      "bytes": 7357,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_result_records/RS-RB-SIX-BLOCK-COMPLETE-HALF-SECTION-OBSTRUCTION-REPAIR/RR-ADD4970017D408BAE050.json",
+      "sha": "db0c7be2edfa970c5469c2f2b4e6446329c9ebf4",
+      "bytes": 18401,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_result_reviews/RR-ADD4970017D408BAE050/DR-5AE91265A50B7D0B5F9F.json",
+      "sha": "8f0e42f27a7c8cb124202f2bf428e86398cec622",
+      "bytes": 1213,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    },
+    {
+      "path": "research_returns/RB_SIX_BLOCK_COMPLETE_HALF_SECTION_OBSTRUCTION_REPAIR_RETURN_20260909.md",
+      "sha": "9a099db115b3e0e170e53e48b0a18f186fd4887d",
+      "bytes": 3703,
+      "provider": "D:\\em\\review-rb-six-block-5816eb-20260910"
+    }
+  ]
+}
