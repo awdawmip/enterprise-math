@@ -26,3 +26,9 @@ Each `evidence/<group>/` keeps the original repository-relative layout and bytes
 The full observed Issue240 prefix is compressed in `server_prefix.json.gz`; its uncompressed SHA256 is572581ca3a6760d9cdc570c0af6187c87a8bdde3c1aded8334770b65278d0432. The [neutral prefix manifest](server_prefix_manifest.json) records `since=2026-08-27T13:15:59Z`,32 nonempty pages and page33 EOF, through ID5598240466/server-created2026-09-09T07:51:59Z. These are observations, not server-signed attestation IDs or coverage of later events. The full cache contains other control context and must not be fed as a clean blind research packet.
 
 `provenance/` preserves the actual public ER/Result CLI argv, outputs, timestamps, exit codes and hashes. The Result postcheck passed on the explicitly named local validation base. Actual current-main source CI and admission are separate from that local result and from mathematical review.
+
+## Formal review and next registered unit
+
+The public review transaction produced DR-471BD65662D7933A46E8 / DFU-3AB16F03E2C9FBFFA5E7: **PARKED / ARCHIVE** for the old incomplete attempt, and **TASK_SET_PUBLISHED** for exactly one source-exposed proof repair, `RS-RB-SIX-BLOCK-COMPLETE-HALF-SECTION-OBSTRUCTION-REPAIR` / `TP2-8B673D783D3FBC81E124`. This is not a PASS/SATISFIED task closure and does not close the parent. [The post-review candidate state](review_runtime_projection.json) parks the old task and leaves the new task unclaimed. The old after-capture AWAITING_REVIEW projection remains a preserved earlier checkpoint.
+
+The correction follows the independently confirmed auxiliary half-section defect; it is not another blind map reconstruction or a task created merely because a prior run passed. The full fixed-k exclusion/correspondence conditions remain required. Source publication and current-main admission are separately recorded by the actual PR/merge receipts.
