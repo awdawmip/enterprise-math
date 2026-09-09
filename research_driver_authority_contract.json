@@ -26,6 +26,16 @@
   "source_of_truth": "GITHUB_ISSUE_240_SERVER_COMMENT_METADATA",
   "global_knowledge_runtime_authority": false,
   "github_app_runtime_authority": false,
+  "optional_assigned_governance_task": {
+    "location": "AUTHORIZE source_body.assigned_governance_task",
+    "fields": ["task_id", "publication_id", "parent_objective_id"],
+    "consumer": "research_control_dispatch.py assigned_governance_driver_entry",
+    "meaning": "Explicit exact GOV task delegation to the source event's driver_id; generic Driver authority and reason prose do not imply this binding",
+    "preserved_source": "Existing immutable DA record captures the entire authenticated source_body; no separate assignment registry",
+    "replacement_or_revocation": "Current ACTIVE authority is rechecked at routing time; historical actions retain their original evidence",
+    "creates_or_renews_claim": false,
+    "grants_execution_or_mathematical_acceptance": false
+  },
   "core_invariants": [
     "DRIVER_ID_SYNTAX_IS_NOT_DRIVER_AUTHORITY",
     "GLOBAL_KNOWLEDGE_IS_NOT_PROJECT_RUNTIME_AUTHORITY",

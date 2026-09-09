@@ -67,6 +67,10 @@ jobs:
             test "$(jq -r '.session_observations.schema // empty' "$REQUEST_PATH")" = "ENTERPRISE_MATH_SESSION_LIVENESS_OBSERVATIONS_V2"
             jq -e '.session_observations.observations | type == "array"' "$REQUEST_PATH" >/dev/null
           fi
+          if jq -e 'has("assigned_driver_task")' "$REQUEST_PATH" >/dev/null; then
+            test "$kind" = "GOVERNANCE"
+            jq -e '.assigned_driver_task | type == "object"' "$REQUEST_PATH" >/dev/null
+          fi
           echo "REQUEST_ID=$request_id" >> "$GITHUB_ENV"
           echo "DISPATCH_KIND=$kind" >> "$GITHUB_ENV"
           echo "IMMUTABLE_RECEIPT_PATH=$RECEIPT_DIR/$request_id.json" >> "$GITHUB_ENV"
@@ -114,17 +118,23 @@ jobs:
         run: |
           set -euo pipefail
           session_observations="$(jq -c '.session_observations // empty' "$REQUEST_PATH")"
+          assigned_args=()
+          if jq -e 'has("assigned_driver_task")' "$REQUEST_PATH" >/dev/null; then
+            assigned_args=(--assigned-driver-task-json "$(jq -c '.assigned_driver_task' "$REQUEST_PATH")")
+          fi
           set +e
           if [[ -n "$session_observations" ]]; then
             python research_control_dispatch.py \
               --events /tmp/em-dispatch/issue-240-comments.json \
               --kind "$DISPATCH_KIND" \
+              "${assigned_args[@]}" \
               --session-observations-json "$session_observations" \
               > /tmp/em-dispatch/route.json
           else
             python research_control_dispatch.py \
               --events /tmp/em-dispatch/issue-240-comments.json \
               --kind "$DISPATCH_KIND" \
+              "${assigned_args[@]}" \
               > /tmp/em-dispatch/route.json
           fi
           rc=$?
