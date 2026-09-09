@@ -1,0 +1,105 @@
+{
+  "schema": "RB_CM24_SOURCE_EXPOSED_FORMULA_FREEZE_V1",
+  "frozen_at_utc": "2026-09-09T00:36:14.120116+00:00",
+  "task_id": "RS-RB-CM24-SOURCE-EXPOSED-EXACT-MAP-CERTIFICATE",
+  "execution_record_id": "ER-BDAB13EB167775B80BE7",
+  "source_exposure": "SOURCE_EXPOSED_NONBLIND_DISCLOSED",
+  "historical_formula_claims_are_not_accepted_premises": true,
+  "coefficient_embedding": {
+    "field": "Q(i,alpha,beta)",
+    "relations": [
+      "i^2=-1",
+      "alpha^4=3",
+      "beta^2=2"
+    ],
+    "embedding": [
+      "i is the positive imaginary unit",
+      "alpha is the positive real fourth root of 3",
+      "beta is the positive real square root of 2"
+    ],
+    "sqrt3": "alpha^2",
+    "sqrt6": "alpha^2*beta",
+    "evaluated_algebraic_roots": 0
+  },
+  "source_pins": [
+    {
+      "path": "research_notes/RB_CM24_ORIGIN_EXPLICIT_MAP_20260827.md",
+      "sha256": "d72563af774b53ba25518e5768ee1c986b82e3fb935e4f35efdef74f4ac82291",
+      "blob": "8d4753e90410b71725f60b6aef3701bf97feb30c",
+      "bytes": 8855,
+      "source_commit": "3a00ea191ad0380bf341af746a825e0b0c474874"
+    },
+    {
+      "path": "research_notes/RB_CM24_ORIGIN_HOSTILE_AUDIT_AND_BLIND_PACKET_20260827.md",
+      "sha256": "f2b94217dc2c0e3f70e3687801548def7abccd1d36433d92cec6d651017cb333",
+      "blob": "f093e51577435d645288dcae5926f38665a0b277",
+      "bytes": 6290,
+      "source_commit": "3a00ea191ad0380bf341af746a825e0b0c474874"
+    },
+    {
+      "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/check_squareclass_rr.py",
+      "sha256": "32282b30357638b5f0a2b709a0c917b29711b43a4d7f407a113bfb6502ddf269",
+      "blob": "8eca623bebea2eea7305f9812e5adb0abeed3c0e",
+      "bytes": 13923,
+      "source_commit": "3a00ea191ad0380bf341af746a825e0b0c474874"
+    },
+    {
+      "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/test_squareclass_rr.py",
+      "sha256": "7e3a5945667ba3b51e2b6494e5316c04426e10e5b834e87cbe91d12050c1789d",
+      "blob": "a1d0873bb1e6a0f25d6b74ac9a16eb9edf209c0a",
+      "bytes": 4132,
+      "source_commit": "3a00ea191ad0380bf341af746a825e0b0c474874"
+    },
+    {
+      "path": "exact_arithmetic_runtime_policy.json",
+      "sha256": "0fdb8eddc09d9e734ddd91b52d6c3c18c9d6036837dfe9fee0bbdbdb7d44b2aa",
+      "blob": "595e433bf274d13933b7a620ab4b464047af84a6",
+      "bytes": 7516,
+      "source_commit": "3a00ea191ad0380bf341af746a825e0b0c474874"
+    },
+    {
+      "path": "src/enterprise_math/exact_arithmetic.py",
+      "sha256": "f4f8feead82dc53a35e5fec495b31e46e64820f7b115c9efd6034063e68f8ad6",
+      "blob": "35ea95b0916494b83a92386e3e313928362dd79e",
+      "bytes": 11908,
+      "source_commit": "3a00ea191ad0380bf341af746a825e0b0c474874"
+    },
+    {
+      "path": "research_tasks/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_CERTIFICATE_20260909.md",
+      "sha256": "2bab68e1b51431162696b689fc91295d4d96f3cb357b444e1173ad67cd9f41c9",
+      "blob": "b88c72b0ed6d3f92410adc7d29632b4f0b8a4778",
+      "bytes": 18993,
+      "source_commit": "3a00ea191ad0380bf341af746a825e0b0c474874"
+    }
+  ],
+  "formula": {
+    "carrier": "t^2=R^3-3R; w^2=(R+2)*t",
+    "k": "-i*alpha*(alpha^2*beta-2)",
+    "lambda": "35+24*beta-20*alpha^2-14*alpha^2*beta",
+    "uN": "-2*alpha^2*beta-3+2*alpha^2+3*beta",
+    "LN": "3*(2+beta+alpha^2+alpha^2*beta)",
+    "uD": "-3-alpha^2*beta+beta+alpha^2",
+    "MD": "alpha^2*beta-2*alpha^2-3*beta",
+    "QD": "R^2+(6-3*beta-alpha^2+alpha^2*beta)*R+18-18*beta-12*alpha^2+6*alpha^2*beta",
+    "N": "(R+2)*(3*(alpha^2-1)*t+i*alpha*uN*(R+alpha^2)*(R-LN))",
+    "D0": "t*QD+i*alpha*uD*R*(R-alpha^2)*(R-MD)",
+    "C4": "-i*alpha*(9+3*beta+2*alpha^2+4*alpha^2*beta)",
+    "C": "C4/4 (symbolic; no quotient evaluation)",
+    "delta": "t*d/dR along t^2=R^3-3R",
+    "twice_delta": "D=2*delta, D(R)=2*t, D(t)=3*R^2-3",
+    "W": "D(N)*D0-N*D(D0)",
+    "X": "N/D0 (unevaluated function-field fraction)",
+    "Y": "w*W/(2*(t+k)*D0^2) (unevaluated; exact original Y convention)",
+    "target": "Y^2=(C4/4)*X*(X-1)*(X-lambda)",
+    "ODE_cleared": "(R+2)*t*W^2-C4*(t+k)^2*N*(N-D0)*(N-lambda*D0)*D0=0",
+    "pullback": "dX/Y=((t+k)/(w*t))*dR"
+  },
+  "validation_state": "FORMULAS_FROZEN_BEFORE_NEW_CHECKER_EXECUTION_NOT_IDENTITY_PASS",
+  "not_claimed": [
+    "independent blind derivation",
+    "degree or basepoint verification",
+    "period/homology index",
+    "all surviving component classification",
+    "formal Result/Driver acceptance"
+  ]
+}
