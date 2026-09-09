@@ -30,6 +30,8 @@ Local validation used an explicitly bounded snapshot: local base4caf plus the 33
 
 The actual R005 six-gate read-only preflight then passed through the canonical compatibility view. The Result file still hashes to the original `5dc2a438...`; only the returned view uses `SATISFIED`. No formal review or follow-up was written by this preflight. The Driver remains responsible for the fresh exact-byte first-review transaction and main/GK persistence after this compatibility source is available.
 
+The first shared CI run found a unit-fixture isolation error: prior tests had installed the full canonical current-publication view, while one new scope-unit fixture contained only its three immutable source inputs and therefore lacked `research_task_semantic_integrity_quarantines.json`. The named-spelling unit now stays within the scope guard it is testing. Current-publication and historical-generation rejection remain covered by the existing public transaction suite and the actual R005 full preflight; no production rule was relaxed. This failure and the subsequent verification are kept separate from the earlier isolated passing run.
+
 Local receipts: `D:/em/TEMP/r005-result-success-alias-20260909/prepared-snapshot-receipt.json` and `actual-preflight-receipt.json`. Remote source and final-main readbacks are recorded separately when performed. No new mathematical computation, theorem acceptance or global CI success is asserted here.
 
 Global-Knowledge-Sync: main@5f14819 / GLOBAL_KNOWLEDGE_V1

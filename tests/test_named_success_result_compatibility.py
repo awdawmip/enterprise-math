@@ -145,8 +145,13 @@ class NamedSuccessCompatibilityTests(unittest.TestCase):
 
     def test_raw_result_stays_blocked_until_explicit_normalization(self):
         review, continuation, gates = self.completed_scope_inputs()
+        # This is the named-spelling/scope unit, with three immutable inputs.
+        # Full current-publication routing needs the complete canonical runtime
+        # registries and is covered by the existing public transaction suite
+        # plus the actual R005 preflight; do not inherit another test's global
+        # bootstrap into this deliberately small source fixture.
         args = dict(terminal_scope="TASK", continuation=continuation, tasks=[], gates=gates,
-                    root=self.root, current_publication_required=True)
+                    root=self.root)
         with self.assertRaisesRegex(followup.DriverFollowupError, "hard_target_disposition SATISFIED"):
             followup._task_scope_continuation(review, self.item, **args)
         self.assertEqual(continuation, followup._task_scope_continuation(review, self.normalize(), **args))
