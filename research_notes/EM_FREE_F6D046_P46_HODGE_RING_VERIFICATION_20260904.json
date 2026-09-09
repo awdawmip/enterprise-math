@@ -1,0 +1,65 @@
+{
+  "schema": "EM_FREE_F6D046_P46_HODGE_RING_VERIFICATION_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "research_units": [
+    "EM-FREE-F6D046-R31-P46-HODGE-GENERIC-PEL-POINT",
+    "EM-FREE-F6D046-R32-P46-NS-RANK-ALL-POWERS",
+    "EM-FREE-F6D046-R33-P46-EXPLICIT-HODGE-NUMBERS-ALL-POWERS"
+  ],
+  "all_passed": true,
+  "check_count": 23,
+  "checks": {
+    "n1_expected_vector": true,
+    "n1_poincare_symmetry": true,
+    "n1_picard_rank": true,
+    "n1_top_and_bottom": true,
+    "n2_expected_vector": true,
+    "n2_poincare_symmetry": true,
+    "n2_picard_rank": true,
+    "n2_top_and_bottom": true,
+    "n3_expected_vector": true,
+    "n3_poincare_symmetry": true,
+    "n3_picard_rank": true,
+    "n3_top_and_bottom": true,
+    "n4_expected_vector": true,
+    "n4_poincare_symmetry": true,
+    "n4_picard_rank": true,
+    "n4_top_and_bottom": true,
+    "n5_expected_vector": true,
+    "n5_poincare_symmetry": true,
+    "n5_picard_rank": true,
+    "n5_top_and_bottom": true,
+    "NS_rank_formula": true,
+    "PEL_domain_dimension": true,
+    "P46_non_CM_from_MT_noncommutative": true
+  },
+  "formula": "h(n,r)=sum_{lambda partition r, length(lambda)<=4, lambda_1<=n} dim(S_{lambda_conjugate} C^n)^2",
+  "NS_rank": "rho(P46^n)=n^2",
+  "PEL": {
+    "field": "Q(i)",
+    "signature": [3,1],
+    "domain_complex_dimension": 3,
+    "Mumford_Tate": "GU(3,1)",
+    "Hodge_generic": true
+  },
+  "vectors": {
+    "1": [1,1,1,1,1],
+    "2": [1,4,10,20,35,20,10,4,1],
+    "3": [1,9,45,165,495,846,994,846,495,165,45,9,1],
+    "4": [1,16,136,816,3876,12368,27608,44912,53382,44912,27608,12368,3876,816,136,16,1],
+    "5": [1,25,325,2925,20475,102879,373275,1005075,2035800,3093100,3550756,3093100,2035800,1005075,373275,102879,20475,2925,325,25,1]
+  },
+  "full_local_output": {
+    "filename": "EM_FREE_F6D046_P46_HODGE_RING_VERIFICATION_20260904.json",
+    "sha256": "89e09d55fb65af9b8764af6e3550d88b8be5055d00fa8d0dd3e243f5ed61e14a",
+    "note": "repository verifier recomputes all partition contributions"
+  },
+  "classification": [
+    "DERIVED_HODGE_GENERIC_THEOREM",
+    "NS_RANK_N_SQUARED",
+    "EXPLICIT_HODGE_CLASS_HILBERT_FUNCTION",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION",
+    "P000_UNCHANGED"
+  ]
+}

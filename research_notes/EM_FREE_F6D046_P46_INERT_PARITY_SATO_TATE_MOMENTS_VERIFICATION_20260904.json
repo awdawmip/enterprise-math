@@ -1,0 +1,52 @@
+{
+  "schema": "EM_FREE_F6D046_P46_INERT_PARITY_SATO_TATE_MOMENTS_VERIFICATION_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "research_units": [
+    "EM-FREE-F6D046-R34-P46-INERT-FROBENIUS-PARITY",
+    "EM-FREE-F6D046-R35-P46-ODD-DEGREE-POINT-COUNT-EQUALITY",
+    "EM-FREE-F6D046-R36-P46-SATO-TATE-TRACE-MOMENTS"
+  ],
+  "all_passed": true,
+  "check_count": 14,
+  "checks": {
+    "p7_polynomial_even": true,
+    "p7_root_ratio_minus_one_forced": true,
+    "anticommutation_pairs_eigenvalues_plus_minus": true,
+    "odd_power_traces_zero": true,
+    "odd_extension_point_counts_equal": true,
+    "inert_root_ratio_certificate_fails_at_m2": true,
+    "ordinary_simple_inert_implies_not_absolutely_simple": true,
+    "outer_component_trace_zero": true,
+    "outer_component_characteristic_polynomial_even": true,
+    "component_density_half": true,
+    "moment_formula_partition_squares": true,
+    "moments_expected_k0_to_k12": true,
+    "small_k_factorial_law": true,
+    "small_even_moments": true
+  },
+  "inert_prime_law": {
+    "condition": "good p congruent 3 mod 4",
+    "anticommutation": "F_p I = - I F_p",
+    "characteristic_polynomial": "f_p(X)=f_p(-X)",
+    "odd_power_traces": 0,
+    "odd_extension_point_counts": "#C46(F_{p^(2m+1)})=#E(F_{p^(2m+1)})"
+  },
+  "absolute_simplicity_boundary": {
+    "unconditional": "the R15 sufficient root-ratio certificate fails at m=2",
+    "ordinary_simple_case": "not absolutely simple",
+    "nonordinary_case": "parity alone is insufficient; compute the Honda-Tate division index"
+  },
+  "Haar_trace_measure": "(1/2) law(2 Re Tr U), U Haar in U(4), plus (1/2) delta_0",
+  "moment_formula": "M_2k=(1/2)*binom(2k,k)*sum_{lambda partition k, length<=4}(f^lambda)^2 for k>=1; M_odd=0; M_0=1",
+  "even_moments_k0_to_12": [1,1,6,60,840,14994,320628,7862712,214439940,6364552480,202371376064,6814010356608,240816860286912],
+  "classification": [
+    "DERIVED_INERT_FROBENIUS_PARITY",
+    "ODD_DEGREE_POINT_COUNT_IDENTITY",
+    "INERT_ROOT_RATIO_CERTIFICATE_OBSTRUCTION",
+    "SATO_TATE_HAAR_MOMENTS",
+    "NOT_ANALYTIC_EQUIDISTRIBUTION",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION",
+    "P000_UNCHANGED"
+  ]
+}

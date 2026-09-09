@@ -1,0 +1,43 @@
+{
+  "schema": "EM_FREE_F6D046_R28_R30_FULL_SATO_TATE_AUDIT_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "date": "2026-09-04",
+  "research_units": [
+    "EM-FREE-F6D046-R28-P46-ENDOMORPHISM-FIELD-QI",
+    "EM-FREE-F6D046-R29-P46-FULL-MONODROMY-NORMALIZER",
+    "EM-FREE-F6D046-R30-P46-FULL-SATO-TATE-U4-C2"
+  ],
+  "axiom_gate": {
+    "opened": false,
+    "verdict": "DERIVED_NOT_AXIOM",
+    "reason": "The result is a descent, normalizer, and compact-form classification of a single derived Prym object."
+  },
+  "correction_gate": {
+    "incorrect_intermediate_value": "ST^0=U(3)xU(1)",
+    "correct_value": "ST^0=U(4)",
+    "reason": "Sato-Tate uses a maximal compact of Hg(C)=GL4(C); U(3)xU(1) is instead a maximal compact of Hg(R)=U(3,1).",
+    "downstream_effect": "Mumford-Tate, monodromy, Hodge, and Tate conclusions unchanged"
+  },
+  "proof_gates": {
+    "endomorphism_field_Qi": "PASS",
+    "full_l_adic_normalizer": "PASS",
+    "MTC_to_AST": "PASS_EXTERNAL_THEOREM",
+    "component_group_C2": "PASS",
+    "compact_normalizer_model": "PASS_19_EXACT_MATRIX_AND_DESCENT_CHECKS",
+    "semidirect_splitting": "PASS"
+  },
+  "hard_boundaries": [
+    "The group is classified up to conjugacy in USp(8).",
+    "Analytic Haar equidistribution is not asserted.",
+    "The real Hodge-domain compact subgroup U(3)xU(1) must not be confused with ST^0.",
+    "No new axiom or Foundation primitive is proposed.",
+    "P000 remains unchanged."
+  ],
+  "classification": [
+    "DERIVED_DESCENT_AND_COMPONENT_THEOREM",
+    "CORRECTION_AWARE",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION",
+    "P000_UNCHANGED"
+  ]
+}

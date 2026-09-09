@@ -1,0 +1,28 @@
+{
+  "schema": "EM_FREE_F6D046_X0_12_THREE_SIGNATURE_CHARACTER_VERIFICATION_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "research_unit": "EM-FREE-F6D046-R4-X0-12-THREE-SIGNATURE-CHARACTER-COCYCLE",
+  "all_passed": true,
+  "check_count": 59,
+  "verified_blocks": {
+    "modular_curve_indices_and_genera": 15,
+    "signature_4_and_3_elliptic_lifts": 13,
+    "signature_2_cusp_lift": 12,
+    "character_group_and_cech_cocycle": 8,
+    "riemann_hurwitz_and_intermediate_genera": 6,
+    "symmetric_power_parity_and_fixed_covector_boundary": 5
+  },
+  "derived": {
+    "base": "X0(12)",
+    "cover_degrees_to_signature_2_3_4": [4, 6, 8],
+    "character_rank": 2,
+    "character_group": "(Z/2)^2",
+    "branch_counts": {"chi2": 2, "chi4": 4, "chi2chi4": 6, "union": 6},
+    "minimal_simultaneous_linearization_degree": 4,
+    "intermediate_genera": [0, 1, 2],
+    "compactified_common_cover_genus": 3,
+    "cech_2_defect": "TRIVIAL",
+    "symmetric_power_rule": "EVEN_KILLS_QUADRATIC_TWISTS__ODD_RETAINS"
+  },
+  "reproduce": "python scripts/verify_em_free_f6d046_x0_12_three_signature_characters.py"
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "EM_FREE_F6D046_X0_12_THREE_SIGNATURE_CHARACTER_EVIDENCE_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "research_unit": "EM-FREE-F6D046-R4-X0-12-THREE-SIGNATURE-CHARACTER-COCYCLE",
+  "parent_candidate": "EM-FREE-F6D046-C1-ROTATIONAL-PERIOD-WRONSKIAN",
+  "base_curve": {"name":"X0(12)","genus":0,"cusps":6,"elliptic_order_2_points":0,"elliptic_order_3_points":0,"index":24},
+  "signature_carriers": {
+    "2":{"level":4,"cover_degree":4,"relative_character":"chi2"},
+    "3":{"level":3,"cover_degree":6,"relative_character":"1"},
+    "4":{"level":2,"cover_degree":8,"relative_character":"chi4"}
+  },
+  "characters": {
+    "chi2":{"order":2,"branch_kind":"two cusps above the denominator-2 cusp of X0(4)","branch_count":2,"intermediate_cover_genus":0},
+    "chi4":{"order":2,"branch_kind":"four interior double preimages of the order-2 elliptic point of X0(2)","branch_count":4,"intermediate_cover_genus":1},
+    "chi2chi4":{"order":2,"branch_kind":"disjoint union of chi2 and chi4 branch loci","branch_count":6,"intermediate_cover_genus":2}
+  },
+  "character_group": {"isomorphism_type":"(Z/2)^2","rank":2,"joint_kernel_index":4},
+  "cech": {"transitions":{"23":"chi2","34":"chi4","24":"chi2chi4"},"triple_product":"1","associator_obstruction":"TRIVIAL","remaining_obstruction_layer":"H1 character span of rank 2"},
+  "simultaneous_kernel_cover": {"galois_group":"(Z/2)^2","degree":4,"total_branch_points":6,"inertia_order_each":2,"compactified_genus":3},
+  "symmetric_power": {"law":"Sym^m(chi tensor L)=chi^m tensor Sym^m(L)","even":"quadratic twists disappear","odd":"quadratic characters remain","clausen_rank3":"unified on X0(12)"},
+  "boundaries": [
+    "cocycle coherence does not make the H1 character classes vanish",
+    "symmetric-square twist cancellation does not trivialize common monodromy",
+    "no nonzero global flat evaluation covector follows",
+    "no P000 six-dimensional lift or complement coupling is determined"
+  ]
+}

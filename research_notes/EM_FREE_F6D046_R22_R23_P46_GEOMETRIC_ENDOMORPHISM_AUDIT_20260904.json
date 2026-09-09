@@ -1,0 +1,43 @@
+{
+  "schema": "EM_FREE_F6D046_R22_R23_AUDIT_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "candidate_lineage": "EM-FREE-F6D046-C1-ROTATIONAL-PERIOD-WRONSKIAN",
+  "research_units": [
+    "EM-FREE-F6D046-R22-P46-CORRECTED-ABSOLUTE-SIMPLICITY",
+    "EM-FREE-F6D046-R23-P46-ASYMMETRIC-ENDOMORPHISM-INTERSECTION"
+  ],
+  "axiom_gate": {
+    "new_axiom_candidate_opened": false,
+    "verdict": "DERIVED_NOT_AXIOM",
+    "reasons": [
+      "The conclusions follow from explicit good reductions, finite Frobenius certificates, and standard Honda-Tate/Tate specialization theory.",
+      "The arithmetic certificates concern one derived Prym object and do not supply a new primitive law.",
+      "The result neither modifies nor constrains the truth of P000."
+    ]
+  },
+  "correction_gate": {
+    "p7_absolute_simplicity_claim_permitted": false,
+    "failure_witness": "m=2, root quotient -1",
+    "replacement_route": "p=17 exact absolute-simplicity certificate"
+  },
+  "theorem_gate": {
+    "P46_geometrically_simple": true,
+    "End0_P46_equals_Qi": true,
+    "all_certificate_checks_passed": true,
+    "End_integral_P46_equals_Zi": true,
+    "Aut_Qbar_C46_equals_C4_via_R17_dependency": true
+  },
+  "scope_limits": [
+    "This does not determine the Mumford-Tate group by itself.",
+    "This does not make the Prym or common-cover construction foundational.",
+    "The unfinished R20 canonical-net enumeration remains only an optional independent cross-check, not a dependency of the now-closed curve automorphism theorem.",
+    "The equality End(P46)=Z[i] follows formally from End^0=Q(i) plus the already-realized Z[i] action; no conductor ambiguity remains because Z[i] is maximal."
+  ],
+  "P000": "UNCHANGED_AND_UNCHALLENGED",
+  "classification": [
+    "DERIVED_GEOMETRIC_THEOREM",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION",
+    "P000_UNCHANGED"
+  ]
+}

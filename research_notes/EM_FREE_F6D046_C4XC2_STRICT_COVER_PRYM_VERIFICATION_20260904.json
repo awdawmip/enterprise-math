@@ -1,0 +1,23 @@
+{
+  "schema": "EM_FREE_F6D046_C4XC2_STRICT_COVER_PRYM_VERIFICATION_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "research_unit": "EM-FREE-F6D046-R10-C4XC2-STRICT-COVER-PRYM",
+  "all_passed": true,
+  "check_count": 30,
+  "derived": {
+    "strict_model": ["r^4=A(t)/144", "q^2=D(t)/24"],
+    "geometric_deck_group": "C4 x C2",
+    "degree_over_X0_6": 8,
+    "compact_genus": 9,
+    "elliptic_quotient_genus": 1,
+    "intermediate_genera": [3, 3, 5],
+    "prym_dimensions": [2, 2, 4],
+    "jacobian_isogeny": "JX x JE^2 ~ JC6 x JC4 x JC46"
+  },
+  "boundaries": {
+    "principal_polarization_split_claimed": false,
+    "further_simple_factorization_claimed": false,
+    "even_tensor_erases_full_deck_group_claimed": false
+  },
+  "reproduce": "python scripts/verify_em_free_f6d046_c4xc2_strict_cover_prym.py"
+}

@@ -1,0 +1,67 @@
+{
+  "schema": "EM_FREE_F6D046_R2_CROSS_SIGNATURE_ORBIT_AUDIT_V1",
+  "date": "2026-09-04",
+  "researcher_id": "EM-FREE-F6D046",
+  "mode": "FREE_AXIOM_DISCOVERY_PHASE_B",
+  "parent_candidate_id": "EM-FREE-F6D046-C1-ROTATIONAL-PERIOD-WRONSKIAN",
+  "research_unit_id": "EM-FREE-F6D046-R2-CROSS-SIGNATURE-JET-ORBIT",
+  "candidate_reopened": false,
+  "question": "Can cross-signature Ramanujan first-jet covectors yield a nontrivial invariant or new axiom?",
+  "findings": {
+    "unrestricted_first_jet": "TRANSITIVE_ON_B_NONZERO_AT_FIXED_SCALAR",
+    "only_first_order_stratification": ["B_ZERO", "B_NONZERO"],
+    "equation_rigidification_required": true,
+    "quadratic_chain_invariant": "ODD_PART_OF_ELLIPTIC_PROJECTIVE_MONODROMY_ORDER",
+    "level2_value": 1,
+    "level3_value": 3,
+    "quadratic_component_equal": false,
+    "direct_finite_pullback_either_direction": false,
+    "common_cover_span_status": "OPEN_NOT_EXCLUDED"
+  },
+  "axiom_gate": {
+    "verdict": "REJECT_AS_NEW_AXIOM",
+    "reasons": [
+      "The first-jet orbit collapse is an explicit analytic-germ construction from the chain rule.",
+      "The rigidified obstruction is derived from standard hypergeometric local exponents and ramified pullback behavior.",
+      "The odd-part invariant is an elementary consequence of ramification indices e in {1,2}.",
+      "No irreducible primitive rule beyond P000 is required."
+    ],
+    "classification": [
+      "DERIVED_NO_GO",
+      "PRIOR_ART_METHOD_SPECIALIZATION",
+      "EXACT_ORBIT_OBSTRUCTION",
+      "NOT_FOUNDATION"
+    ],
+    "parent_candidate_state": "UNCHANGED_DERIVED_NOT_AXIOM"
+  },
+  "p000_boundary": {
+    "p000_assumed": true,
+    "p000_modified": false,
+    "six_dimensional_lift_derived": false,
+    "new_minimum_slice_gluing_input": [
+      "FIRST_JET_PAIRING",
+      "DIFFERENTIAL_EQUATION_OR_LOCAL_SYSTEM_PROVENANCE",
+      "CORRESPONDENCE_DIRECTION_AND_RAMIFICATION"
+    ],
+    "four_dimensional_complement_underdetermination_remains": true
+  },
+  "method_harvest": {
+    "classification": "RESULT_ONLY",
+    "new_global_tool_family": false,
+    "result_specific_verifier": "verify_em_free_f6d046_cross_signature_jet_orbits.py",
+    "reuse": [
+      {"id": "T9_HOLONOMY_COCOYCLE_GLUING", "state": "REUSE_APPLIED"},
+      {"id": "T7_FINITE_SYMMETRY_EQUIVARIANCE", "state": "NOT_APPLICABLE"}
+    ]
+  },
+  "verification": {
+    "all_passed": true,
+    "check_count": 20,
+    "output": "EM_FREE_F6D046_CROSS_SIGNATURE_JET_ORBIT_VERIFICATION_20260904.json"
+  },
+  "next_frontier": {
+    "name": "COMMON_COVER_SPAN_COVECTOR_TRANSPORT",
+    "hard_target": "Construct or exclude a minimal common-cover span for the a=1/4 and a=1/3 period local systems and compare pulled-back inverse-pi covectors including holonomy.",
+    "axiom_gate_reopen_condition": "Only if the common-cover comparison yields a canonical covector selection not explained by standard modular/pullback naturality."
+  }
+}

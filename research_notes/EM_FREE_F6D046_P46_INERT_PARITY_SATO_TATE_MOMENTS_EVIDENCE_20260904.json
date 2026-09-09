@@ -1,0 +1,72 @@
+{
+  "schema": "EM_FREE_F6D046_P46_INERT_PARITY_SATO_TATE_MOMENTS_EVIDENCE_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "date": "2026-09-04",
+  "research_units": [
+    "EM-FREE-F6D046-R34-P46-INERT-FROBENIUS-PARITY",
+    "EM-FREE-F6D046-R35-P46-ODD-DEGREE-POINT-COUNT-EQUALITY",
+    "EM-FREE-F6D046-R36-P46-SATO-TATE-TRACE-MOMENTS"
+  ],
+  "inputs": {
+    "endomorphism_field": "Q(i)",
+    "geometric_endomorphism_generator": "I with I^2=-1",
+    "full_Sato_Tate_group": "U(4) semidirect C2",
+    "component_map": "Gal(Q(i)/Q)"
+  },
+  "inert_prime_theorem": {
+    "condition": "good p congruent 3 mod 4",
+    "anticommutation": "F_p I = - I F_p",
+    "eigenvalue_pairing": "alpha occurs iff -alpha occurs with the same multiplicity",
+    "characteristic_polynomial": "f_p(X)=f_p(-X)",
+    "odd_power_traces": 0,
+    "odd_extension_point_count_identity": "#C46(F_{p^(2m+1)})=#E(F_{p^(2m+1)}) for every m>=0"
+  },
+  "absolute_simplicity_boundary": {
+    "unconditional": "the R15 root-ratio sufficient certificate fails at m=2 because alpha/(-alpha)=-1",
+    "ordinary_simple_case": "ordinary simple inert reduction is not absolutely simple",
+    "nonordinary_case": "parity alone does not determine geometric simplicity; Honda-Tate division index must be computed",
+    "p7": "the even polynomial explains the m=2 certificate failure but does not alone classify the actual Honda-Tate decomposition"
+  },
+  "component_distribution": {
+    "split_primes": "p congruent 1 mod 4, identity component",
+    "inert_primes": "p congruent 3 mod 4, outer component",
+    "Dirichlet_Chebotarev_density_each": "1/2"
+  },
+  "compact_trace": {
+    "identity_component": "T=2 Re Tr(U), U Haar in U(4)",
+    "outer_component": "T=0 identically",
+    "Haar_pushforward": "mu_T=(1/2)mu_{2 Re Tr U(4)}+(1/2)delta_0"
+  },
+  "moment_formula": {
+    "odd_moments": 0,
+    "M0": 1,
+    "even": "M_{2k}=(1/2) binom(2k,k) sum_{lambda partition k, length(lambda)<=4} (f^lambda)^2 for k>=1",
+    "small_k": "M_{2k}=(1/2)(2k)!/k! for 1<=k<=4",
+    "M_2k_k0_to_12": [1,1,6,60,840,14994,320628,7862712,214439940,6364552480,202371376064,6814010356608,240816860286912]
+  },
+  "verification": {
+    "source": "scripts/verify_em_free_f6d046_p46_inert_parity_moments.py",
+    "output": "research_notes/EM_FREE_F6D046_P46_INERT_PARITY_SATO_TATE_MOMENTS_VERIFICATION_20260904.json",
+    "note_sha256": "f9fa52fd2d605ec5e52fe0fbdcea03de7561717811a0cbcdd60ec5310a1eaf4a",
+    "script_sha256": "a253f5bdb6b1e5fdcc4be04abe070a02c5ae60e166f4d7f54118dbbb2e1ffdfb",
+    "output_sha256": "6a79a6c923b4b0c3be36c78ed689a531fe43d4020c87e6f692b3eecf0eefa2ae",
+    "all_passed": true,
+    "check_count": 14
+  },
+  "boundary": {
+    "analytic_Sato_Tate_equidistribution": "NOT_ASSERTED",
+    "nonordinary_inert_absolute_simplicity": "NOT_CLASSIFIED_BY_PARITY_ALONE",
+    "P000": "UNCHANGED"
+  },
+  "classification": [
+    "DERIVED_INERT_FROBENIUS_PARITY",
+    "ODD_DEGREE_POINT_COUNT_IDENTITY",
+    "INERT_ROOT_RATIO_CERTIFICATE_OBSTRUCTION",
+    "SATO_TATE_HAAR_MOMENTS",
+    "CORRECTION_AWARE",
+    "NOT_ANALYTIC_EQUIDISTRIBUTION",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION",
+    "P000_UNCHANGED"
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "schema": "EM_FREE_F6D046_P46_TWO_PRIME_MAXIMAL_MONODROMY_VERIFICATION_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "research_units": [
+    "EM-FREE-F6D046-R25B-P17-MAXIMAL-FROBENIUS-TORUS",
+    "EM-FREE-F6D046-R26B-TWO-PRIME-ALL-ELL-MONODROMY"
+  ],
+  "all_passed": true,
+  "check_count": 17,
+  "checks": {
+    "norm_factorization": true,
+    "constant_norm": true,
+    "g17_irreducible_over_Qi": true,
+    "resolvent_factorization": true,
+    "resolvent_quadratic_irreducible_over_Qi": true,
+    "transitive_group_C4_or_D4": true,
+    "partition_product_ratio_trace": true,
+    "partition_ratio_nontorsion": true,
+    "determinant_phase_nontorsion": true,
+    "pairwise_ratio_certificate_dependency_p17": true,
+    "two_dimensional_module_excluded": true,
+    "sign_module_excluded": true,
+    "trivial_module_excluded": true,
+    "relation_lattice_zero": true,
+    "angle_rank_4": true,
+    "frobenius_torus_dimension_5": true,
+    "two_prime_cover_all_ell": true
+  },
+  "g17": "X**4 + X**3*(6 + 2*I) + X**2*(4 + 16*I) + X*(-74 + 78*I) - 255 + 136*I",
+  "f17": "X**8 + 12*X**7 + 48*X**6 - 36*X**5 - 814*X**4 - 612*X**3 + 13872*X**2 + 58956*X + 83521",
+  "resolvent": "Y**3 - 4*Y**2 - 16*I*Y**2 + 436*Y - 96*I*Y + 752 + 832*I",
+  "linear_factor": "Y + 4 + 16*I",
+  "quadratic_factor": "Y**2 + Y*(-8 - 32*I) - 60 + 32*I",
+  "certificates": {
+    "g17_mod_(5,i-2)": {
+      "prime": 5,
+      "degree": 4,
+      "polynomial_low": [2,2,1,0,1],
+      "x_l_degree_remainder": [0,1],
+      "gcds": {"2":[1]}
+    },
+    "resolvent_quadratic_mod_(5,i-2)": {
+      "prime": 5,
+      "degree": 2,
+      "polynomial_low": [4,3,1],
+      "x_l_degree_remainder": [0,1],
+      "gcds": {"2":[1]}
+    }
+  },
+  "preserved_partition": {
+    "sum_of_block_products": "-4 - 16*I",
+    "product_of_block_products": "-255 + 136*I",
+    "ratio_trace": "-18/17",
+    "reason_nontorsion": "a rational algebraic integer must be an integer"
+  },
+  "determinant_phase": {
+    "u17": "(-255+136*i)/289",
+    "norm": 1,
+    "not_in_roots_of_unity_Qi": true
+  },
+  "module_decomposition": "Q^4 = Q*1 direct_sum Q*epsilon direct_sum W2 for either C4 or D4",
+  "two_prime_selector": {
+    "ell_not_29": 29,
+    "ell_29": 17
+  },
+  "conclusion": "G_ell^0=GU_Q(i)(V,h)_Qell for every ell without Larsen-Pink rank independence",
+  "classification": [
+    "DERIVED_TWO_PRIME_MAXIMAL_TORUS_CERTIFICATE",
+    "ALL_ELL_DIRECT_MONODROMY",
+    "PROOF_DEPENDENCY_STRENGTHENING",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION",
+    "P000_UNCHANGED"
+  ]
+}

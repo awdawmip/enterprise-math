@@ -1,0 +1,72 @@
+{
+  "schema": "EM_FREE_F6D046_P46_FULL_SATO_TATE_EVIDENCE_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "date": "2026-09-04",
+  "research_units": [
+    "EM-FREE-F6D046-R28-P46-ENDOMORPHISM-FIELD-QI",
+    "EM-FREE-F6D046-R29-P46-FULL-MONODROMY-NORMALIZER",
+    "EM-FREE-F6D046-R30-P46-FULL-SATO-TATE-U4-C2"
+  ],
+  "inputs": {
+    "geometric_endomorphism_ring": "Z[i]",
+    "connected_l_adic_monodromy": "GU_Q(i)(V,h) for every ell",
+    "mumford_tate_group": "GU_Q(i)(V,h)",
+    "hodge_group_real_form": "U(3,1)",
+    "hodge_group_complexification": "GL4(C)"
+  },
+  "endomorphism_descent": {
+    "deck_generator": "sigma(t,v,m)=(t,-v,i*m)",
+    "sigma_square": "(t,v,m)->(t,v,-m)",
+    "complex_conjugation": "c*sigma*c^-1=sigma^-1",
+    "action_on_I": "c*I*c^-1=-I",
+    "minimal_endomorphism_field": "Q(i)",
+    "galois_group": "C2"
+  },
+  "full_monodromy": {
+    "normalizer_exact_sequence": "1 -> GU_K(V,h) -> N_GSp(K) -> Aut_Qell-alg(K tensor Qell) -> 1",
+    "component_witness": "complex conjugation acts nontrivially on K",
+    "conclusion": "G_ell=N_GSp(K tensor Qell) for every ell",
+    "component_group": "C2"
+  },
+  "algebraic_sato_tate": {
+    "MTC_implies_AST": true,
+    "twisted_lefschetz_group": "N_Sp(V)(Q(i))",
+    "AST_group": "N_Sp(V)(Q(i))",
+    "component_group": "C2"
+  },
+  "compact_group": {
+    "identity_component": "U(4)",
+    "important_correction": "U(3)xU(1) is the maximal compact of the real noncompact Hodge group U(3,1), not the Sato-Tate identity component; ST^0 is the compact form of Hg_C=GL4(C), namely U(4)",
+    "embedding": "iota(A)=diag(A,bar(A)) in USp(8)",
+    "outer_component_matrix": "J=[[0,I4],[-I4,0]]",
+    "normalizer": "iota(U4) disjoint_union iota(U4)J",
+    "split_representative": "S=iota(B)J with B=[[0,I2],[-I2,0]], B^2=-I4, S^2=I8",
+    "component_action": "alpha(A)=B*bar(A)*B^-1",
+    "full_group": "U(4) semidirect_alpha C2",
+    "component_group": "C2"
+  },
+  "external_theorem_support": [
+    "Cantoral Farfan--Commelin: Mumford-Tate implies algebraic Sato-Tate",
+    "Banaszak--Cantoral Farfan: for fully Lefschetz type with connected identity Lefschetz group, pi0(ST)=Gal(K_e/K) under the splitting hypotheses; the explicit order-two compact representative supplies the split extension here"
+  ],
+  "verification": {
+    "source": "scripts/verify_em_free_f6d046_p46_full_sato_tate.py",
+    "output": "research_notes/EM_FREE_F6D046_P46_FULL_SATO_TATE_VERIFICATION_20260904.json",
+    "local_output_sha256": "a43efd8c27e49fdf0bbc6efd343a9a1b31270aab7f90582595900c0759a289c1",
+    "all_passed": true,
+    "check_count": 19
+  },
+  "boundary": {
+    "analytic_equidistribution": "NOT_ASSERTED",
+    "group_classification": "PROVED_UP_TO_CONJUGACY_IN_USp(8)",
+    "P000": "UNCHANGED"
+  },
+  "classification": [
+    "DERIVED_ENDOMORPHISM_FIELD_THEOREM",
+    "FULL_MONODROMY_NORMALIZER",
+    "SATO_TATE_U4_SEMIDIRECT_C2",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION",
+    "P000_UNCHANGED"
+  ]
+}

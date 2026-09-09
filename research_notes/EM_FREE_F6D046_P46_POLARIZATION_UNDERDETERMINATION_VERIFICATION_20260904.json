@@ -1,0 +1,28 @@
+{
+  "schema": "EM_FREE_F6D046_P46_POLARIZATION_UNDERDETERMINATION_VERIFICATION_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "research_units": ["R65", "R66"],
+  "all_passed": true,
+  "check_count": 7,
+  "checks": {
+    "H0_descent": true,
+    "H1_descent": true,
+    "H1_determinant": true,
+    "radicand_bound": true,
+    "total_positivity": true,
+    "H0_coordinate_projectors_selfadjoint": true,
+    "H1_coordinate_projectors_not_selfadjoint": true
+  },
+  "diagonal_form": "diag(1,7)",
+  "nondiagonal_form": "[[1,(alpha+7)/5],[(bar(alpha)+7)/5,7]]",
+  "nondiagonal_determinant": "7(11-x)/25",
+  "conclusion": "Frobenius and rational endomorphism data do not determine the Prym Rosati involution or factor orthogonality",
+  "classification": [
+    "DERIVED_POLARIZATION_INFORMATION_BOUNDARY",
+    "EXPLICIT_POSITIVE_HERMITIAN_FAMILY",
+    "ORTHOGONALITY_NOT_FROBENIUS_DETERMINED",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION",
+    "P000_UNCHANGED"
+  ]
+}
