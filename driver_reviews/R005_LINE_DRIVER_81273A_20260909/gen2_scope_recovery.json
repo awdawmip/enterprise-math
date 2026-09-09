@@ -1,0 +1,235 @@
+{
+  "schema": "R005_GENERATION2_SCOPE_RECOVERY_V1",
+  "control_snapshot": "1576703fba46910a7d1d1d5b00cde300dfe541a8",
+  "source_driver_authority": "DA-3E248473AB80A4E6287D",
+  "source_authorize_comment_id": 5602100278,
+  "verified_at": "2026-09-09T12:54:07.856036+00:00",
+  "request": {
+    "schema": "ENTERPRISE_MATH_ASSIGNED_GOVERNANCE_DRIVER_REQUEST_V1",
+    "driver_id": "EM-DVR-81273A",
+    "task_id": "GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER",
+    "publication_id": "TP2-291A3B7B1EB6C763F71E",
+    "parent_objective_id": "OBJ-R005-PRIME-ALGORITHM-LAB-RELAY-20260909",
+    "driver_authority_record_id": "DA-3E248473AB80A4E6287D",
+    "driver_authority_record_sha256": "sha256:e6fb90395f948441bf9b5c9b4475c8450520152f34e6c7d1d6eac096db9dc2f0",
+    "expected_claim_id": null,
+    "session_id": "codex-r005-line-reconcile-81273a-20260909"
+  },
+  "canonical_current_decision": {
+    "action": "CLAIM_NEW_OWNER",
+    "owner_claim_preserved": false,
+    "new_claim_required": true,
+    "registration_gate_required": true,
+    "surface": "ORDINARY_TASK",
+    "target": {
+      "task_id": "GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER",
+      "state": "READY",
+      "claim_id": null,
+      "actor": null,
+      "researcher_id": null,
+      "last_researcher_id": null,
+      "identity_source": null,
+      "lease_until": null,
+      "hard_block": null,
+      "last_progress_ref": "driver_handoffs/EM_DVR_P8H4Q2_R005_PR1140_STATE_POINTER_20260909.json",
+      "last_progress_at": "2026-09-09T09:52:00+00:00",
+      "next_action": "Resume from the publication fork as the smallest unfinished control unit: preserve both immutable correction heads, satisfy the existing parallel-evidence and operational-selection contracts, establish one lawful operational correction contract without choosing by timestamp, then route the executable-binding repair. After an immutable correction Result exists, perform only the narrow exact-byte Driver review; on acceptance release the already-published q=78553 exact-916 catalogue/seam task, while keeping K=2822453183433 until actual seam closure.",
+      "ignored_events": [
+        {
+          "index": 0,
+          "reason": "PROGRESS requires the current live claim_id"
+        },
+        {
+          "index": 576,
+          "reason": "registered CLAIM execution intent publication_id does not match current task publication"
+        }
+      ],
+      "dispatch_state": "NEEDS_DISPATCH",
+      "title": "R005 Prime Algorithm Lab persistent line Driver \u2014 fork-aware continuation",
+      "kind": "GOVERNANCE",
+      "owner": "governance",
+      "priority": "P1",
+      "leverage": "HIGH",
+      "frontier": "PR #1140 remains at f9e2a611b45631c43effce36b7300c6f9a56b77b with Driver review 5097275954 still REVISION_REQUIRED_EXECUTABLE_BINDING_ONLY. The R005 correction and q=78553 downstream tasks are already published, but correction task RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION is fail-closed on the exact two-head publication fork TP2-2C524413EC9774383AF1 / TP2-ADD82532ACD19FC01D53; no operational correction publication is currently selected.",
+      "source_refs": [
+        "driver_handoffs/EM_DVR_P8H4Q2_R005_PR1140_STATE_CHECKPOINT_20260909.md",
+        "driver_handoffs/EM_DVR_P8H4Q2_R005_PR1140_STATE_POINTER_20260909.json",
+        "research_notes/OWNER_R005_PUBLICATION_FORK_ISOLATION_20260909.md",
+        "research_task_publication_quarantines.json",
+        "research_activity_records/RA-PR1140-P8H4Q2-20260909.json",
+        "git:awdawmip/enterprise-math@f9e2a611b45631c43effce36b7300c6f9a56b77b:research_returns/RS-R005-PRIME-ALGORITHM-LAB_GITHUB_SYNC_20260903.md"
+      ],
+      "registration_source": "IMMUTABLE_TASK_RECORD",
+      "publication_id": "TP2-291A3B7B1EB6C763F71E",
+      "event_authentication": "GITHUB_SERVER_COMMENT_ENVELOPE",
+      "last_server_comment_id": 5600334678,
+      "last_server_author_login": "awdawmip",
+      "identity_lane": "R005DRV1"
+    },
+    "target_key": "GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER",
+    "claim_id": null,
+    "researcher_id": "EM-DVR-81273A",
+    "required_guard": "tools/research_runtime_guard.py authorize",
+    "reason": "Exact explicitly delegated GOV target; ordinary priority ranking is unchanged outside this entry.",
+    "assigned_driver_selection": {
+      "schema": "ENTERPRISE_MATH_ASSIGNED_GOVERNANCE_DRIVER_REQUEST_V1",
+      "task_id": "GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER",
+      "publication_id": "TP2-291A3B7B1EB6C763F71E",
+      "parent_objective_id": "OBJ-R005-PRIME-ALGORITHM-LAB-RELAY-20260909",
+      "driver_id": "EM-DVR-81273A",
+      "session_id": "codex-r005-line-reconcile-81273a-20260909",
+      "authority_record_id": "DA-3E248473AB80A4E6287D",
+      "authority_record_sha256": "sha256:e6fb90395f948441bf9b5c9b4475c8450520152f34e6c7d1d6eac096db9dc2f0",
+      "authority_source_comment_id": 5602100278,
+      "validated_at": "2026-09-09T12:54:07.856036+00:00",
+      "mode": "ASSIGNED_GOVERNANCE_FRESH_DISPATCH",
+      "expected_claim_id": null,
+      "preclaim_selection_reconstructed": false,
+      "execution_authorized": false,
+      "parent_completion_granted": false
+    },
+    "startup_transport": {
+      "schema": "ENTERPRISE_MATH_RESEARCH_STARTUP_TRANSPORT_V2",
+      "control_epoch": "EM-CONTROL-20260904-CANONICAL-DISPATCH-AUTHORITY-1",
+      "conversation_rebase_required": true,
+      "conversation_rebase": {
+        "mode": "ALWAYS_IDEMPOTENT_ON_CONTROL_ENTRY",
+        "control_epoch": "EM-CONTROL-20260904-CANONICAL-DISPATCH-AUTHORITY-1",
+        "cached_conversation_control_plan": "NONAUTHORITATIVE_REBASE_TO_CURRENT",
+        "preserve": [
+          "EXACT_TASK_AND_CURRENT_PUBLICATION_AUTHORITY",
+          "WINNING_CLAIM_AND_OWNER_SCOPE",
+          "HIGHEST_VERIFIED_DURABLE_FRONTIER",
+          "FROZEN_SOURCE_AND_BLINDNESS_RESTRICTIONS",
+          "THEOREM_STRENGTH_AND_TASK_LOCAL_SCOPE",
+          "NO_SORRY_NO_ADMIT_NO_CUSTOM_AXIOM_AND_OTHER_FROZEN_CONSTRAINTS"
+        ],
+        "discard": [
+          "PR_REQUIRED_FOR_START_PROGRESS_DURABILITY_OR_HANDOFF_UNLESS_EXACT_CURRENT_TASK_REQUIRES_IT",
+          "CI_WAIT_OR_REPEATED_CI_MONITOR_AS_CONVERSATION_BARRIER_WHEN_PENDING_NONBLOCKING",
+          "DRAFT_READY_TOGGLE_MERELY_TO_TRIGGER_VALIDATION",
+          "REMOTE_SEARCH_OR_FETCH_AGENTS_MD_MERELY_FOR_TASK_START",
+          "RESTART_VERIFIED_COMPLETE_WORK_BECAUSE_CONVERSATION_IS_OLD_RESUMED_OR_CONTEXT_IS_MISSING",
+          "CACHED_PREVIOUS_CONTROL_ROUTE_WHEN_CURRENT_CANONICAL_DISPATCH_OR_RUNTIME_DISAGREES",
+          "MANUAL_REPOSITORY_SCAN_OR_VISIBLE_TASK_RECORDS_AS_TASK_AVAILABILITY_AUTHORITY",
+          "TOP_PRIORITY_LEASED_IMPLIES_NO_TASK_WITHOUT_CANONICAL_DISPATCH",
+          "BACKLOG_FREE_OR_NAMED_RESEARCH_LINE_PRESENCE_IMPLIES_CLAIMABLE"
+        ],
+        "after_rebase": "RESUME_FROM_CURRENT_CANONICAL_DISPATCH_AND_HIGHEST_VERIFIED_DURABLE_FRONTIER",
+        "pr_default": "OPTIONAL_DURABLE_OR_REVIEW_SURFACE_NOT_CONVERSATION_GATE",
+        "ci_pending": "PENDING_NONBLOCKING_CONTINUE_PARENT_TASK",
+        "repeated_ci_poll_without_state_change": "FORBIDDEN_NO_PROGRESS_ACTION",
+        "taskbook_policy_digest_impact": "NONE_CONTROL_TRANSPORT_ONLY"
+      },
+      "task_availability_authority": {
+        "authority": "CANONICAL_RESEARCH_CONTROL_DISPATCH_OUTPUT_ONLY",
+        "canonical_entrypoint": "research_control_dispatch.py",
+        "manual_repository_scan": "NONAUTHORITATIVE_FOR_TASK_AVAILABILITY",
+        "visible_task_record": "PRESENCE_DOES_NOT_IMPLY_CLAIMABLE",
+        "visible_research_line": "PRESENCE_DOES_NOT_IMPLY_ORDINARY_FRESH_CANDIDATE",
+        "backlog_or_dormant": "NOT_FRESH_CANDIDATE",
+        "awaiting_review_blocked_complete": "NOT_FRESH_CANDIDATE",
+        "free_axiom_discovery": "SEPARATE_ROLE_ROUTE_NOT_ORDINARY_SCHEDULER_FALLBACK",
+        "higher_priority_leased": "EXCLUDE_FROM_FRESH_CANDIDATES_AND_CONTINUE_CANONICAL_SCAN",
+        "claim_rule": "CLAIM_ONLY_THE_EXACT_TARGET_RETURNED_BY_CURRENT_CANONICAL_DISPATCH",
+        "no_task_statement_rule": "MAY_ASSERT_NO_DISPATCH_ONLY_FROM_CURRENT_CANONICAL_NO_DISPATCH_ACTION",
+        "verify_liveness_rule": "VERIFY_SESSION_LIVENESS_IS_NOT_NO_DISPATCH_AND_MUST_NOT_BE_REPHRASED_AS_NO_TASK",
+        "manual_override_allowed": false
+      },
+      "agents_md": "INJECTED_CONTEXT_ONLY_DO_NOT_REMOTE_SEARCH_OR_FETCH_FOR_TASK_START",
+      "if_agents_context_unavailable": "PROCEED_FROM_CANONICAL_DISPATCH_TARGET_AND_EXACT_TASKBOOK",
+      "hot_start": [
+        "REBASE_CACHED_CONVERSATION_CONTROL_PLAN",
+        "CONSUME_CURRENT_CANONICAL_DISPATCH_DECISION",
+        "EXACT_DISPATCH_TARGET",
+        "EXACT_TASK_PUBLICATION_AND_TASKBOOK",
+        "FIRST_REQUIRED_DEPENDENCY",
+        "SUBSTANTIVE_RESEARCH"
+      ],
+      "remote_control_reads": "TRIGGERED_ONLY",
+      "taskbook_policy_digest_impact": "NONE_CONTROL_TRANSPORT_ONLY"
+    }
+  },
+  "general_driver_review_authority_active": true,
+  "current_generation_execution_claim_created": false,
+  "current_generation_execution_authorized": false,
+  "current_generation_claim_id": null,
+  "historical_generation1_claim": {
+    "publication_id": "TP2-01F3666E599C6A96058D",
+    "claim_id": "chatgpt-r005-driver-20260909-81273a",
+    "execution_record_id": "ER-F29063A96EF177C0F91F",
+    "historical_bytes_preserved": true,
+    "not_transferred_or_renamed": true
+  },
+  "correction_result_state": {
+    "state": "AWAITING_DRIVER_REVIEW",
+    "result": {
+      "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+      "result_id": "RR-566554389F6F36576DE2",
+      "task_id": "RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION",
+      "publication_id": "TP2-ADD82532ACD19FC01D53",
+      "execution_record_id": "ER-932CC977692631CF047E",
+      "claim_id": "chatgpt-r005a-fix-20260904-0746",
+      "taskbook_path": "research_tasks/R005A_DEFICIT_SHADOW_EXECUTABLE_BINDING_CORRECTION_20260903.md",
+      "taskbook_blob_sha1": "sha1:5b186a65ee10eaf4e650a272a50a7dc91089c6c3",
+      "execution_branch": "research/r005a-fix-chatgpt-20260904-754384",
+      "execution_branch_base": "746be8ced2bbc3ffa89b601f881e9cf86a2d7a43",
+      "return_path": "research_returns/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION_20260904.md",
+      "return_blob_sha1": "sha1:8f8850a7a848755af842043bf572df434f1ea35c",
+      "return_sha256": "sha256:ccdfd06dc29149354c54dac27bb4d6155f3f596dcf5407501bdb03f9fea2ab1a",
+      "owner_head": "f1a6a24326c1f60d2dd8b6404c18c4331431906a",
+      "researcher_id": "EM-R005AFIX-754384",
+      "frozen_at": "2026-09-03T23:55:00+00:00",
+      "terminal_verdict": "PASS",
+      "hard_target_disposition": "SATISFIED",
+      "unresolved_residue": "DRIVER_REVIEW_REQUIRED; Q78553_REMAINS_BLOCKED_ON_COMPLETE_INDEPENDENTLY_AUDITABLE_EXACT_916_GAP_CATALOGUE_FOR_STARTS_[1291005053866735,1294364244470160]",
+      "output_manifest": [
+        {
+          "path": "experiments/r005a_p2_gap_shadow_inversion.py",
+          "git_blob_sha1": "sha1:1d3d19adc13652bf343972c5eb3ac95684bb8c8a",
+          "sha256": "sha256:6fe2dc9fe05ac16ef2bbd1919d3d03fc5b36037d010ca95afeafb62f4958d3f5"
+        },
+        {
+          "path": "experiments/r005a_p2_gap_shadow_inversion_regression.py",
+          "git_blob_sha1": "sha1:ece824a71c884b09033f1666581a71afe86822a0",
+          "sha256": "sha256:3286c62f6ac7ab3a14c214e462ef8a8e3ad19f780873253ff906f46d8ba394be"
+        },
+        {
+          "path": "research_artifacts/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION_20260904/focused_regression_output.json",
+          "git_blob_sha1": "sha1:4bf7d82b52185f1ffc8bf357d719c29c00406768",
+          "sha256": "sha256:5a9fe4f053df4b886a3b0d2e1a26b9c2ec25ef592840220f2ccffc0773d4b6f8"
+        },
+        {
+          "path": "research_artifacts/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION_20260904/validation_transcript.txt",
+          "git_blob_sha1": "sha1:fc929d83bc57a4068ef8786c5e66520c9ae3756d",
+          "sha256": "sha256:30fa91f56a21a2a677486375a3386fef4459f55a00794fac1c8b6904f00f540e"
+        },
+        {
+          "path": "research_artifacts/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION_20260904/artifact_manifest.json",
+          "git_blob_sha1": "sha1:290519893c6db3829bcfd2ac8cf8ae18131cd66f",
+          "sha256": "sha256:568956930360968d6e8004046598824f432b812a58e1c854d68f5ac6134eb144"
+        },
+        {
+          "path": "research_returns/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION_20260904.md",
+          "git_blob_sha1": "sha1:8f8850a7a848755af842043bf572df434f1ea35c",
+          "sha256": "sha256:ccdfd06dc29149354c54dac27bb4d6155f3f596dcf5407501bdb03f9fea2ab1a"
+        }
+      ],
+      "method_harvest": "RESULT_ONLY",
+      "independence_status": "NOT_APPLICABLE",
+      "source_exposure_status": "NONBLIND_DISCLOSED",
+      "next_control_plane_recommendation": "DRIVER_REVIEW_NO_MATH_DELTA_EXECUTABLE_BINDING_REPAIR; IF_ACCEPTED_CLOSE_THE_EXECUTABLE_EVIDENCE_OBJECTION_AT_THE_EXISTING_R005A_MATHEMATICAL_STRENGTH; DO_NOT_EXTEND_Q78553_FRONTIER",
+      "driver_review_required": true,
+      "_record_path": "research_result_records/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION/RR-566554389F6F36576DE2.json"
+    },
+    "review": null,
+    "terminal": false,
+    "review_parallel_state": "NO_REVIEW",
+    "parallel_review_ids": []
+  },
+  "routing_conclusion": "Continue non-claim line Driver review under the explicit active role. The current GOV generation is eligible for a new claim but none is created merely because the publication changed. Its older fork narrative is already discharged by main d8dc; preserve the completed correction.",
+  "working_truth_granted": false,
+  "foundation_authority_granted": false,
+  "canonical_promotion_granted": false,
+  "parent_closure_granted": false
+}
