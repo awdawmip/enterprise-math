@@ -369,3 +369,69 @@ REUSE_APPLIED: exact heat-Gram metric from audit 1; OpenAI axis-germ and exterio
 prefix theorems; BRC typed provenance.
 COMPOSE_APPLIED: source scaling cell + Sobolev critical norm + prior forced
 Gronwall gate.
+
+## 6A. A sharper cubic gate: the critical helical transfer itself must have logarithmic exposure
+
+The same critical-norm lower bound gives a stronger and more route-native
+necessary condition before returning to the quintic `Gamma_NL`.
+
+Audit 1 used the exact critical identity
+
+`K'/2 + nu*Q3 = Pcrit + <Lambda u,g>`,
+
+where here `Q3=||u||_(Hdot^3/2)^2` and
+
+`Pcrit =
+  2 <Lambda u_+, C(u_-)> - 2 <Lambda u_-, C(u_+)>`.
+
+Pair the force at the weaker duality level:
+
+`|<Lambda u,g>|
+ <= sqrt(Q3) * ||g||_(Hdot^-1/2)
+ <= (nu/2) Q3 + (1/(2nu)) ||g||_(Hdot^-1/2)^2`.
+
+The final compact force is smooth, so the last coefficient is integrable on
+every finite interval. Since (A2.1) makes `K(t)->infinity`, choose a late `t0`
+with `K>=1`. Then
+
+`K'/(2K)
+ <= (Pcrit)_+/K
+    + ||g||_(Hdot^-1/2)^2/(2nu K)`.
+
+The final term has finite integral. Integrating and using
+`K(t)>=c(1-t)^(-8h/3)` yields
+
+`integral_[t0,t] (Pcrit(s))_+/K(s) ds
+ >= (4h/3)*log(1/(1-t)) - C`.                         (A2.4)
+
+Hence
+
+`limsup_(t->1-) (1-t)*(Pcrit(t))_+/K(t) >= 4h/3`.     (A2.5)
+
+This cubic gate is closer to the existing helical/q4 route than the quintic
+`Gamma_NL` gate. It says that a correct OpenAI candidate must exhibit persistent
+positive **critical cross-helicity transfer per logarithmic time**, even though
+its direct smooth force cannot supply that logarithmic exposure.
+
+In logarithmic endpoint time `s=-log(1-t)`, (A2.4) says the long-time average of
+
+`(1-t)*(Pcrit)_+/K`
+
+has lower asymptotic exposure `>=4h/3` in the cumulative sense. No pointwise
+monotonicity is asserted.
+
+This suggests a lower-complexity next ledger:
+expand `Pcrit` with `u=b+w` before attacking all 24 quintic `I_NL` branches.
+There are two helical outer signs, while the quadratic commutator branch has
+`bb`, ordered `bw/wb`, and `ww` provenance. Helical projection is itself
+nonlocal, so zero-germ support still cannot be used to discard mixed branches.
+
+For the unforced problem this is especially sharp. With `g=0`, the same identity
+has no direct forcing term at all. Thus an unforced regularity route can aim to
+bound the cumulative normalized positive transfer
+
+`Theta=(Pcrit)_+/K`
+
+using a genuinely full-network constraint. The isolated viscous triad exposure
+bound is compatible with such a strategy, but it does not sum over overlapping
+triads without a common coherent metric.
