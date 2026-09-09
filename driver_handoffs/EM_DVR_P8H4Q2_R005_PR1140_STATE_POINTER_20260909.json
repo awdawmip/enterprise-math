@@ -9,55 +9,128 @@
     "working_truth": false
   },
   "correction": {
-    "operational_publication_id": null,
+    "operational_publication_id": "TP2-ADD82532ACD19FC01D53",
     "publication_ids": [
       "TP2-2C524413EC9774383AF1",
       "TP2-ADD82532ACD19FC01D53"
     ],
-    "publication_state": "UNRESOLVED_PUBLICATION_FORK",
-    "runtime": "BLOCKED_FAIL_CLOSED",
-    "task_id": "RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION"
+    "publication_state": "RESOLVED_OPERATIONAL_SELECTION",
+    "runtime": "NOT_REEVALUATED_BY_THIS_CHECKPOINT",
+    "task_id": "RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION",
+    "result_id": "RR-566554389F6F36576DE2",
+    "result_record_blob_sha1": "aea04ecd76c5f6effe92726ae08d64c512f73131",
+    "review_id": "DR-7605C20CFE02E3900E8D",
+    "review_record_blob_sha1": "857a06bb38b7079bdd8a9d84ef98bad165f9e90e",
+    "review_disposition": "ACCEPTED",
+    "accepted_strength": "DEFICIT_SHADOW_STRUCTURAL_REDUCTION_WITH_EXECUTABLE_BINDING_REPAIRED",
+    "reviewer_driver_id": "EM-DVR-81273A",
+    "reviewer_authority_record_id": "DA-3E248473AB80A4E6287D",
+    "reviewer_authority_source_comment_id": 5602100278,
+    "completed_repair_head": "1d9823dfe6ba9301e936740da847ac3c682fe0a2",
+    "canonical_recovery_commit": "d8dc1d37ca1ef7fc910d084eee36e5ab177cd03c",
+    "parallel_synthesis_id": "PS-R005-81273A-OPERATIONAL-20260909",
+    "original_execution_record_id": "ER-932CC977692631CF047E",
+    "original_claim_id": "chatgpt-r005a-fix-20260904-0746",
+    "original_researcher_id": "EM-R005AFIX-754384",
+    "existing_execution_bindings_unchanged": true
   },
   "driver_id": "EM-DVR-P8H4Q2",
+  "driver_identity_scope": "USER_REQUESTED_PERSISTENT_CONTINUITY_ID_NOT_A_NEW_ACTIVATION",
+  "driver_task": {
+    "task_id": "GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER",
+    "publication_id": "TP2-291A3B7B1EB6C763F71E",
+    "publication_generation": 2,
+    "publication_record_blob_sha1": "4cb31903901f337d6a7c09846cfe162f5bff5c55",
+    "taskbook_blob_sha1": "e2018892bbb6d325aef5b7ec4bc98a76695741c8",
+    "existing_owner_assignment_preserved": true,
+    "runtime_claim_not_created_or_reassigned": true
+  },
   "gates": {
     "correction_review": {
       "publication_id": "TP2-86F63B5AAD1C97EC80FE",
-      "state": "BLOCKED",
-      "task_id": "GV-R005-DEFICIT-SHADOW-CORRECTION-REVIEW"
+      "state": "ACCEPTED_CORRECTION_RESULT_AVAILABLE",
+      "task_id": "GV-R005-DEFICIT-SHADOW-CORRECTION-REVIEW",
+      "relay_runtime_consumption_verified": false
     },
     "q78553_seam": {
       "publication_id": "TP2-09D6ECE7F315F0766FE1",
-      "state": "BLOCKED",
-      "task_id": "RS-R005-Q78553-EXACT-916-GAP-CATALOG-SEAM-CLOSURE"
+      "state": "EXPLICIT_RUNTIME_RELEASE_NOT_VERIFIED",
+      "task_id": "RS-R005-Q78553-EXACT-916-GAP-CATALOG-SEAM-CLOSURE",
+      "predecessor_acceptance_record_id": "DR-7605C20CFE02E3900E8D",
+      "release_granted_by_this_checkpoint": false
     },
     "terminal_review": {
       "publication_id": "TP2-D43B87B08CE6E6D3FD41",
-      "state": "BLOCKED",
+      "state": "REQUIRES_Q78553_SEAM_RESULT",
       "task_id": "GV-R005-Q78553-SEAM-CLOSURE-REVIEW-AND-ROUTE"
     }
   },
   "math_boundary": {
     "certified_frontier_k": 2822453183433,
     "dsi_reopened": false,
+    "dsi_strength": "PREVIOUSLY_REVIEWED_STRUCTURAL_REDUCTION",
     "gap_start_band": [
       1291005053866735,
       1294364244470160
     ],
+    "exact_consecutive_prime_gap": 916,
+    "shadow_floors_per_gap": [
+      "a",
+      "a+1"
+    ],
+    "catalogue_scope": "EVERY_EXACT_916_GAP_IN_THE_FROZEN_BAND_NOT_ONLY_RECORD_OR_FIRST_OCCURRENCE_GAPS",
     "q": 78553,
-    "q78553_closed": false
+    "q78553_closed": false,
+    "frontier_change_requires": "ACCEPTED_ACTUAL_Q78553_SEAM_RESULT"
   },
   "pr": {
     "disposition": "REVISION_REQUIRED_EXECUTABLE_BINDING_ONLY",
+    "disposition_scope": "HISTORICAL_ORIGINAL_REVIEW_NOT_CURRENT_CORRECTION_VERDICT",
     "driver_review_id": 5097275954,
     "head": "f9e2a611b45631c43effce36b7300c6f9a56b77b",
     "number": 1140
   },
-  "recorded_at": "2026-09-09T16:09:00+08:00",
+  "parent_objectives": {
+    "original_correction": "OBJ-R005-PRIME-ALGORITHM-LAB",
+    "relay": "OBJ-R005-PRIME-ALGORITHM-LAB-RELAY-20260909",
+    "merged_or_closed_by_this_checkpoint": false
+  },
+  "verified_completed_units": [
+    "EXACT_TWO_HEAD_OPERATIONAL_SELECTION_RECORDED",
+    "ORIGINAL_CORRECTION_RESULT_RECOVERED",
+    "FORMAL_EXACT_BYTE_CORRECTION_REVIEW_ACCEPTED"
+  ],
+  "current_unfinished_unit": "Consume the accepted correction under the existing relay gate and verify current q78553 release/claim state before any authorized release or catalogue continuation.",
+  "next_action": "Recover current Owner/Driver and execution bindings; consume DR-7605C20CFE02E3900E8D rather than repeat repair or review; use the existing q78553 task and preserve any valid durable catalogue frontier. This checkpoint neither releases nor claims that task.",
+  "do_not_repeat": [
+    "ALREADY_RESOLVED_PUBLICATION_FORK",
+    "COMPLETED_SCANNER_REPAIR",
+    "ACCEPTED_EXACT_BYTE_REVIEW_WITHOUT_NEW_CONTRARY_EVIDENCE",
+    "ALREADY_REVIEWED_DSI_MATHEMATICS"
+  ],
+  "control_rebase": {
+    "stale_pointer_blob_sha1": "3863228cc1df1e57fee30324c288a286ba2e9729",
+    "stale_fork_state_superseded_by": "research_task_publication_resolutions.json",
+    "historical_revision_state_superseded_for_corrected_result_by": "DR-7605C20CFE02E3900E8D",
+    "unchanged_original_pr_head_does_not_cancel_accepted_successor_result": true
+  },
+  "recorded_at": "2026-09-09T13:56:01+00:00",
   "schema": "ENTERPRISE_MATH_DRIVER_STATE_CHECKPOINT_V1",
   "scope": "R005_PR1140_CONTROL_PLANE_ONLY",
+  "source_snapshot": "bd88c3ee7f5fa120e878027d813a64cf99ad5dc2",
+  "verification_boundary": "Immutable source/publication/result/review metadata and checkpoint byte integrity checked; no mathematical, scanner, full runtime or repository-wide test rerun is claimed.",
   "source_note": {
-    "commit": "823beea55079dace336e0e0f26b67e15bd05ebf7",
-    "path": "driver_handoffs/EM_DVR_P8H4Q2_R005_PR1140_STATE_CHECKPOINT_20260909.md",
-    "sha256": "7b34bf059e5f15701948969a6915f7d2eb3dacd34bec3cbd7b88d1d7c738ef6a"
-  }
+    "commit": "25c8beee848175cf3b6e2398269ea3a0718cf910",
+    "path": "driver_handoffs/EM_DVR_P8H4Q2_R005_PR1140_TASK_MACHINE_READBACK_20260909.md",
+    "git_blob_sha1": "6e5e590a4dafa9ca5a77c7a0c6a62a785bc0b6ce",
+    "sha256": "ebf2089b21b126c49e7c2c6ddd2b6d1741b2c95c18f9915dae93264654a1a715"
+  },
+  "source_refs": [
+    "research_task_publication_resolutions.json",
+    "research_task_publication_quarantines.json",
+    "research_parallel_syntheses/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION/PS-R005-81273A-OPERATIONAL-20260909.json",
+    "research_result_records/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION/RR-566554389F6F36576DE2.json",
+    "research_result_reviews/RR-566554389F6F36576DE2/DR-7605C20CFE02E3900E8D.json",
+    "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/FINAL_DRIVER_REVIEW.md"
+  ]
 }
