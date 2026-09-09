@@ -1,0 +1,26 @@
+{
+  "schema": "R005_SCANNER_RESULT_PATH_DELIVERY_SUPPLEMENT_V1",
+  "driver_id": "EM-DVR-81273A",
+  "science_source": "2b73da21eac990abfd28593de1b552a4c3525f98",
+  "result_source": "002bf990429c483c5061f8909e3e82299494c910",
+  "worker_final_head": "a8a8b3257d3a380f5671ed6ecd9eaff12f4b84f8",
+  "issue": "The frozen Return links accepted_scanner_result.json, but that path is absent from its science commit and 105-file manifest. The complete original JSON bytes already exist in the frozen accepted-scanner.stdout.log.",
+  "repaired_path": "research_artifacts/R005_Q78553_CATALOGUE_050E43_20260910/accepted_scanner_result.json",
+  "immutable_source_path": "research_artifacts/R005_Q78553_CATALOGUE_050E43_20260910/accepted-scanner.stdout.log",
+  "immutable_blob_sha1": "787cb7523a98d582a96cc657cc3b367b94e43013",
+  "sha256": "8eeb7a2fbf77a7fa422b5ef349b3b43fa710fa5fecd62f95d7f551198c39948c",
+  "bytes": 1205,
+  "original_worker_local_output_same_bytes": true,
+  "independent_driver_scanner_output_same_bytes": true,
+  "driver_execution": {
+    "started_at": "2026-09-09T20:38:16.411493+00:00",
+    "exit_code": 0,
+    "skip_verification": false,
+    "status": "CERTIFIED_UNDER_ATTESTED_CATALOG",
+    "candidate_failures": 0
+  },
+  "resolution": "Add the referenced path using the already immutable output blob. Preserve every existing science/Result/Return byte and the historical missing-path observation. This is faithful delivery repair of existing content, not replacement research or a new Result.",
+  "result_record_modified": false,
+  "original_105_outputs_modified": false,
+  "frontier_advanced_by_this_supplement": false
+}

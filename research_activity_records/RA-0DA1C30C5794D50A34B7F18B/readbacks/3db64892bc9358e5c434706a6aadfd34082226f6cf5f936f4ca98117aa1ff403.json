@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_artifacts/R005_Q78553_CATALOGUE_050E43_20260910/CHECKPOINT_02_RUNNING.md",
+    "ref": "dbbe3da5f02901671c19f2a2bffc7049c8c6c2e3",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-r005q53-c02-source-0-050E43",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# Pilot validated; complete construction running\n\nStatus: SUBSTANTIVE CHECKPOINT / NO CATALOGUE ATTESTATION / NO K EXTENSION.\n\nThe actual authorized EM-R005Q53-050E43 session continues claim\nr005q53-050e43-20260910 for the same q78553 task and TP2 publication.\nThe first startup source is ec8275ee4bf0a7ff9da925dcfd96bcec3c09f1df,\nadmitted by the Driver at be148cac0be0034e498cd90297ae52c4e773f883.\nNo startup replay or replacement CLAIM occurred.\n\nThe unchanged official libprimesieve 7.5 / Python binding 2.3.0 environment\nsuccessfully generated a 100000000-integer pilot and a 1000000000-integer pilot\nnear the target. The latter contained 28736005 primes, had maximum internal gap\n520, and took 1.284655 seconds in its actual adapter run. No >=916 gap appeared\nin that finite block. Its full ordered prime-sequence SHA-256 is in pilot/1e9.json.\nThe smaller pilot is not added again to full coverage because it lies inside\nthe reused billion-integer block.\n\nIndependent adapter checks all passed: an independent sieve through 100000,\nevery integer in two high-range windows checked by deterministic uint64\nMiller-Rabin, and a real 916-gap deliberately split between two blocks.\nThe complete raw validation output and actual argv/exit/stream digests are retained.\n\nThe production run is now executing 4000 disjoint blocks with three worker\nprocesses, covering [1291000000000000,1295000000000000).\nIt reuses the already observed first billion-integer block.\nThese are ordinary numeric processes, not additional research agents.\nconstruction_full/run_manifest.json fixes actual parameters and source byte hashes.\nA frozen stdout prefix is included as progress evidence; it does not claim\nthat later unobserved blocks have completed.\n\nThe first complete trillion-integer cell [1291000000000000,1292000000000000)\nhas already passed its independent count check: 28739946181 primes exactly,\nmaximum observed within-cell gap 720, and no internal gap >=916. The actual\ncell check and its raw command evidence are retained. This does not certify\nthe remaining three cells or the complete seam.\n\nFour independent published count differences require a total of\n114956492689 primes. The final reduction will retain every block's maximum gap,\nall internal rows >=916, and each cross-block prime pair. The proof obligation\nand exact observer limits are in METHOD_AND_COMPLETENESS.md.\nFull coverage, source/count audit and independent dangerous-row checks remain open.\n\nThe original K <=2822453183433 boundary remains in force. No next q, final seam\noutcome, first failing k, Working Truth, Foundation promotion or parent closure\nis asserted in this checkpoint.\n",
+      "display_title": "CHECKPOINT_02_RUNNING.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/dbbe3da5f02901671c19f2a2bffc7049c8c6c2e3/research_artifacts/R005_Q78553_CATALOGUE_050E43_20260910/CHECKPOINT_02_RUNNING.md",
+      "encoding": "utf-8",
+      "sha": "3e7f716d68a6125335170b83b62896e79e080239"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
