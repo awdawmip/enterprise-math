@@ -1,0 +1,62 @@
+{
+  "parent_objective": {
+    "status": "COMPLETE",
+    "scope": "THIS_AUTHORIZED_RESEARCHER_DELIVERY_ONLY",
+    "description": "Prepare, claim, authorize, deliver current QTF3 six outputs with ER/RR/activity and durable handoff, and notify /root to restore the line Driver.",
+    "canonical_mother_objective_id": "EM-FREE-W59A-JT2-RAMANUJAN-LEGENDRE",
+    "canonical_mother_status": "OPEN"
+  },
+  "task_registration": {
+    "state": "FROZEN",
+    "registry_key": "RS-EMW59A-JT2-QTF3-FIXED-POINT",
+    "publication_id": "TP2-C2C9DDEB2D65387D115E"
+  },
+  "task": {
+    "task_id": "RS-EMW59A-JT2-QTF3-FIXED-POINT",
+    "status": "FROZEN",
+    "result_id": "RR-69FC34FA8AE1E91244F2",
+    "driver_review_required": true
+  },
+  "owner_claim": {
+    "claim_id": null,
+    "previous_claim_id": "qtf3-ef9380-20260909-152943",
+    "last_researcher_id": "EM-JT2-EF9380",
+    "released_by_handoff_comment_id": 5605141392
+  },
+  "session": {
+    "session_id": "local:codex-agent:jt2-bounded-reference-review:20260909:EF9380",
+    "researcher_id": "EM-JT2-EF9380",
+    "actual_recovery_observed_at": "2026-09-09T15:29:43Z",
+    "terminated": false,
+    "owner_scope_liveness_after_handoff_claimed": false
+  },
+  "durable_frontier": {
+    "repository": "awdawmip/enterprise-math",
+    "branch": "research/qtf3-formal-ef9380-20260909-152943",
+    "commit": "d1b014309e463acc248f5a581f6d58396cd32a7a",
+    "handoff_manifest_commit": "e57660f71a9fc78c1422134d5a4942b8cee23da2",
+    "return_commit": "6c492e88b00100827826769f86b5092da193e250",
+    "result_commit": "7d772f34a2f4a5d3091db1044db3b20c4673816c",
+    "full_readbacks_verified": true,
+    "handoff_comment_id": 5605141392
+  },
+  "current_unfinished_unit": null,
+  "next_action": null,
+  "next_external_action": {
+    "owner_role": "RESEARCH_DRIVER",
+    "description": "Root restores EM-DVR-57CCCE for ordinary Result review; no researcher work remains in this assigned delivery."
+  },
+  "terminal_scope": "TASK",
+  "final_allowed": false,
+  "control": {
+    "continuation_lease_active": true,
+    "user_requested_stop_pause_review_or_wait": false,
+    "parent_hard_blocker": false,
+    "platform_or_tool_hard_limit": false,
+    "independent_safe_work_exhausted": true,
+    "same_action_repeated_without_state_change": false,
+    "supported_alternative_available": false,
+    "parent_state_recomputed_without_change": false
+  },
+  "root_notification": "Actual collaboration.send_message to /root completed after full delivery and accepted HANDOFF; no private Driver acknowledgement required."
+}

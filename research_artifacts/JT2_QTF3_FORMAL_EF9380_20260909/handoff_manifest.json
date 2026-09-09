@@ -1,0 +1,66 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCHER_DURABLE_HANDOFF_V1",
+  "task_id": "RS-EMW59A-JT2-QTF3-FIXED-POINT",
+  "publication_id": "TP2-C2C9DDEB2D65387D115E",
+  "researcher_id": "EM-JT2-EF9380",
+  "session_id": "local:codex-agent:jt2-bounded-reference-review:20260909:EF9380",
+  "execution_record_id": "ER-9296C35569234F638D8F",
+  "claim_id": "qtf3-ef9380-20260909-152943",
+  "result_id": "RR-69FC34FA8AE1E91244F2",
+  "durable_surface": "GITHUB",
+  "repository": "awdawmip/enterprise-math",
+  "branch": "research/qtf3-formal-ef9380-20260909-152943",
+  "branch_base": "03210b30b4264c5d432b5e940054fded2b652019",
+  "return_source": {
+    "commit": "6c492e88b00100827826769f86b5092da193e250",
+    "path": "research_returns/EMW59A_JT2_QTF3_FIXED_POINT_RETURN_EF9380_20260909.md",
+    "bytes": 8971,
+    "sha256": "b0e62dd621a1908a0c15bdbcf052d775ea2fe7a2331ded1ae127fba30fed81d5",
+    "blob": "72941a9b14304686e279f9ec6e19eac58ad61853"
+  },
+  "result_source": {
+    "commit": "7d772f34a2f4a5d3091db1044db3b20c4673816c",
+    "path": "research_result_records/RS-EMW59A-JT2-QTF3-FIXED-POINT/RR-69FC34FA8AE1E91244F2.json",
+    "bytes": 7132,
+    "sha256": "45f7267d289aeacb3eddc98bac71e6db665424458a7726c7874dbfd05209a5f9",
+    "blob": "14d89853f268724d49331984b16ce2421b94bb45"
+  },
+  "execution_authority_source": {
+    "commit": "56a8a56a976e90f8217a1ddaf775bb286d5caa1d",
+    "path": "research_artifacts/JT2_QTF3_FORMAL_EF9380_20260909/authorization/authorize-receipt.json",
+    "sha256": "a2210d6a3beba49ae36f3a2a3dd8981c639aeb5d482912b3c02a2261768a5826"
+  },
+  "inventory": {
+    "six_output_map": "research_artifacts/JT2_QTF3_FORMAL_EF9380_20260909/six_outputs.json",
+    "source_manifest": "research_artifacts/JT2_QTF3_FORMAL_EF9380_20260909/source_manifest.json",
+    "full_input_readbacks": "research_artifacts/JT2_QTF3_FORMAL_EF9380_20260909/inputs/full-readbacks.json",
+    "frozen_output_inventory": "The RR output_manifest enumerates all19 immutable execution/result artifacts with exact hashes.",
+    "full_actual_event_archive": "research_artifacts/JT2_QTF3_FORMAL_EF9380_20260909/authorization/canonical-postclaim-full-raw-comments.json.gz"
+  },
+  "activity": {
+    "activity_id": "RA-513D918CB570B356EA4C94D4",
+    "record_path": "research_activity_records/RA-513D918CB570B356EA4C94D4.json",
+    "record_sha256": "823ffd64e3c7bd416dbf6d75e80a238ec4904bdafa00b7d96e43e717e13e3b36",
+    "events_count": 4,
+    "new_event_id": "JT2-QTF3-FORMAL-DELIVERY-EF9380-20260909-152943",
+    "new_state": "EM_REPRESENTED",
+    "prior_three_events_preserved": true,
+    "publication": "Published atomically with this handoff manifest; exact containing commit supplied by the final delivery receipt."
+  },
+  "frontier": "All six current QTF3 task outputs delivered through the already checked finite reflection-degree invariant; RR PASS is frozen and requires Driver review.",
+  "evidence_level": "SOURCE_GROUNDED_PAPER_PROOF; NOT_INDEPENDENT; NONBLIND_DISCLOSED",
+  "source_authorship": {
+    "Q2": "EM-DVR-C777E7@9e3a41dc9909ad98c789bb8d53a27addd0649eaa",
+    "QTF3_proof": "EM-DVR-57CCCE@08ad2fe0fac52949207ddc3559ad70a1b95b577a",
+    "prior_QTF3_review": "EM-JT2-EF9380@6fa23a3bcb01b13413827fa20e736fea8b9503d8"
+  },
+  "scope_limits": [
+    "Fixed point only, p>3 and p=1 mod6",
+    "No global p3 polynomial identity",
+    "No old weighted LIFT or Sun3/6 closure",
+    "No Working Truth/Foundation/Driver acceptance",
+    "Both original mother objectives and final audit/integration remain separate"
+  ],
+  "smallest_next_action": "Notify /root to restore the same line Driver EM-DVR-57CCCE; Driver consumes this exact Result bundle for ordinary review. No new proof or new Task requested.",
+  "required_after_executor_ends": "All required return/source/ER/RR/authorization/readbacks persisted; local cache contains uncompressed raw archive but durable gzip is complete and byte-verified."
+}

@@ -1,0 +1,118 @@
+{
+  "schema": "JT2_QTF3_ACTUAL_EXECUTION_AUTHORIZATION_RECEIPT_V1",
+  "source_main": "03210b30b4264c5d432b5e940054fded2b652019",
+  "execution_root": "D:\\em\\qtf3-formal-ef9380-20260909-152943",
+  "started_at": "2026-09-09T15:41:00.770689+00:00",
+  "elapsed_seconds": 15.539388700010022,
+  "canonical_bootstrap": "control_plane.research_control_bootstrap.install(root), unchanged shipped implementation",
+  "entrypoint": "tools.research_runtime_guard.authorize_execution(state, events=actual_parsed_server_stream, root=root); now omitted",
+  "events_path": "research_artifacts/JT2_QTF3_FORMAL_EF9380_20260909/authorization/canonical-postclaim-full-raw-comments.json",
+  "events_sha256": "c7e48d242918a780edee545ba0e469cc0a506c0e7dd987e51aa5b502f3112e9b",
+  "raw_comment_count": 767,
+  "nonoperational_missing_schema_comment_id": 5604487338,
+  "valid_claim_comment_id": 5604575105,
+  "previous_comment_edited": false,
+  "stdout_sha256": "0c9f76c4bb284aadb500d046a568e0269d5dffbd0c408d966f792f87c9a5e7a1",
+  "result": {
+    "authorized": true,
+    "task_id": "RS-EMW59A-JT2-QTF3-FIXED-POINT",
+    "task_registration": {
+      "state": "IMMUTABLE_REGISTERED",
+      "registry_key": "RS-EMW59A-JT2-QTF3-FIXED-POINT",
+      "publication_id": "TP2-C2C9DDEB2D65387D115E",
+      "record_path": "research_task_records/RS-EMW59A-JT2-QTF3-FIXED-POINT/TP2-C2C9DDEB2D65387D115E.json",
+      "claimable": true
+    },
+    "owner_claim": {
+      "claim_id": "qtf3-ef9380-20260909-152943",
+      "researcher_id": "EM-JT2-EF9380",
+      "owner_lease_until": "2026-09-09T17:40:04+00:00",
+      "server_comment_id": 5604575105,
+      "server_author_login": "awdawmip"
+    },
+    "execution_binding": {
+      "publication_id": "TP2-C2C9DDEB2D65387D115E",
+      "claim_id": "qtf3-ef9380-20260909-152943",
+      "researcher_id": "EM-JT2-EF9380",
+      "theorem_owner": "EM-FREE-W59A-JT2-RAMANUJAN-LEGENDRE",
+      "execution_branch": "research/qtf3-formal-ef9380-20260909-152943",
+      "execution_branch_base": "03210b30b4264c5d432b5e940054fded2b652019",
+      "allowed_outputs": [
+        "research_returns/EMW59A_JT2_QTF3_FIXED_POINT_RETURN_EF9380_20260909.md",
+        "research_artifacts/JT2_QTF3_FORMAL_EF9380_20260909/",
+        "research_execution_records/RS-EMW59A-JT2-QTF3-FIXED-POINT/ER-9296C35569234F638D8F.json",
+        "research_result_records/RS-EMW59A-JT2-QTF3-FIXED-POINT/",
+        "research_activity_records/RA-513D918CB570B356EA4C94D4.json",
+        "research_activity_records/RA-513D918CB570B356EA4C94D4/readbacks/"
+      ],
+      "taskbook_blob_sha1": "sha1:329d20a93b798f25002fef2b1b28a4cb34dc672c",
+      "binding_source": "IMMUTABLE_EXECUTION_RECORD_COMPATIBILITY",
+      "owner_lease_until": "2026-09-09T17:40:04+00:00",
+      "server_comment_id": 5604575105,
+      "server_author_login": "awdawmip",
+      "server_author_user_id": 30957095
+    },
+    "authorization_authority": "CURRENT_AUTHORIZED_WINNING_ISSUE_240_CLAIM",
+    "startup_transport": {
+      "schema": "ENTERPRISE_MATH_RESEARCH_STARTUP_TRANSPORT_V2",
+      "control_epoch": "EM-CONTROL-20260904-CANONICAL-DISPATCH-AUTHORITY-1",
+      "conversation_rebase_required": true,
+      "conversation_rebase": {
+        "mode": "ALWAYS_IDEMPOTENT_ON_CONTROL_ENTRY",
+        "control_epoch": "EM-CONTROL-20260904-CANONICAL-DISPATCH-AUTHORITY-1",
+        "cached_conversation_control_plan": "NONAUTHORITATIVE_REBASE_TO_CURRENT",
+        "preserve": [
+          "EXACT_TASK_AND_CURRENT_PUBLICATION_AUTHORITY",
+          "WINNING_CLAIM_AND_OWNER_SCOPE",
+          "HIGHEST_VERIFIED_DURABLE_FRONTIER",
+          "FROZEN_SOURCE_AND_BLINDNESS_RESTRICTIONS",
+          "THEOREM_STRENGTH_AND_TASK_LOCAL_SCOPE",
+          "NO_SORRY_NO_ADMIT_NO_CUSTOM_AXIOM_AND_OTHER_FROZEN_CONSTRAINTS"
+        ],
+        "discard": [
+          "PR_REQUIRED_FOR_START_PROGRESS_DURABILITY_OR_HANDOFF_UNLESS_EXACT_CURRENT_TASK_REQUIRES_IT",
+          "CI_WAIT_OR_REPEATED_CI_MONITOR_AS_CONVERSATION_BARRIER_WHEN_PENDING_NONBLOCKING",
+          "DRAFT_READY_TOGGLE_MERELY_TO_TRIGGER_VALIDATION",
+          "REMOTE_SEARCH_OR_FETCH_AGENTS_MD_MERELY_FOR_TASK_START",
+          "RESTART_VERIFIED_COMPLETE_WORK_BECAUSE_CONVERSATION_IS_OLD_RESUMED_OR_CONTEXT_IS_MISSING",
+          "CACHED_PREVIOUS_CONTROL_ROUTE_WHEN_CURRENT_CANONICAL_DISPATCH_OR_RUNTIME_DISAGREES",
+          "MANUAL_REPOSITORY_SCAN_OR_VISIBLE_TASK_RECORDS_AS_TASK_AVAILABILITY_AUTHORITY",
+          "TOP_PRIORITY_LEASED_IMPLIES_NO_TASK_WITHOUT_CANONICAL_DISPATCH",
+          "BACKLOG_FREE_OR_NAMED_RESEARCH_LINE_PRESENCE_IMPLIES_CLAIMABLE"
+        ],
+        "after_rebase": "RESUME_FROM_CURRENT_CANONICAL_DISPATCH_AND_HIGHEST_VERIFIED_DURABLE_FRONTIER",
+        "pr_default": "OPTIONAL_DURABLE_OR_REVIEW_SURFACE_NOT_CONVERSATION_GATE",
+        "ci_pending": "PENDING_NONBLOCKING_CONTINUE_PARENT_TASK",
+        "repeated_ci_poll_without_state_change": "FORBIDDEN_NO_PROGRESS_ACTION",
+        "taskbook_policy_digest_impact": "NONE_CONTROL_TRANSPORT_ONLY"
+      },
+      "task_availability_authority": {
+        "authority": "CANONICAL_RESEARCH_CONTROL_DISPATCH_OUTPUT_ONLY",
+        "canonical_entrypoint": "research_control_dispatch.py",
+        "manual_repository_scan": "NONAUTHORITATIVE_FOR_TASK_AVAILABILITY",
+        "visible_task_record": "PRESENCE_DOES_NOT_IMPLY_CLAIMABLE",
+        "visible_research_line": "PRESENCE_DOES_NOT_IMPLY_ORDINARY_FRESH_CANDIDATE",
+        "backlog_or_dormant": "NOT_FRESH_CANDIDATE",
+        "awaiting_review_blocked_complete": "NOT_FRESH_CANDIDATE",
+        "free_axiom_discovery": "SEPARATE_ROLE_ROUTE_NOT_ORDINARY_SCHEDULER_FALLBACK",
+        "higher_priority_leased": "EXCLUDE_FROM_FRESH_CANDIDATES_AND_CONTINUE_CANONICAL_SCAN",
+        "claim_rule": "CLAIM_ONLY_THE_EXACT_TARGET_RETURNED_BY_CURRENT_CANONICAL_DISPATCH",
+        "no_task_statement_rule": "MAY_ASSERT_NO_DISPATCH_ONLY_FROM_CURRENT_CANONICAL_NO_DISPATCH_ACTION",
+        "verify_liveness_rule": "VERIFY_SESSION_LIVENESS_IS_NOT_NO_DISPATCH_AND_MUST_NOT_BE_REPHRASED_AS_NO_TASK",
+        "manual_override_allowed": false
+      },
+      "agents_md": "INJECTED_CONTEXT_ONLY_DO_NOT_REMOTE_SEARCH_OR_FETCH_FOR_TASK_START",
+      "if_agents_context_unavailable": "PROCEED_FROM_CANONICAL_DISPATCH_TARGET_AND_EXACT_TASKBOOK",
+      "hot_start": [
+        "REBASE_CACHED_CONVERSATION_CONTROL_PLAN",
+        "CONSUME_CURRENT_CANONICAL_DISPATCH_DECISION",
+        "EXACT_DISPATCH_TARGET",
+        "EXACT_TASK_PUBLICATION_AND_TASKBOOK",
+        "FIRST_REQUIRED_DEPENDENCY",
+        "SUBSTANTIVE_RESEARCH"
+      ],
+      "remote_control_reads": "TRIGGERED_ONLY",
+      "taskbook_policy_digest_impact": "NONE_CONTROL_TRANSPORT_ONLY"
+    }
+  }
+}

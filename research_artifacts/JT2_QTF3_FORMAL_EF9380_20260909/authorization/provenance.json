@@ -1,0 +1,77 @@
+{
+  "schema": "JT2_QTF3_EXECUTION_PROVENANCE_V1",
+  "task_id": "RS-EMW59A-JT2-QTF3-FIXED-POINT",
+  "publication_id": "TP2-C2C9DDEB2D65387D115E",
+  "researcher_id": "EM-JT2-EF9380",
+  "session_id": "local:codex-agent:jt2-bounded-reference-review:20260909:EF9380",
+  "session_id_kind": "ORIGINAL_LOCAL_STABLE_KEY_NOT_AUTHENTICATED_PLATFORM_ID",
+  "actual_recovery_observed_at": "2026-09-09T15:29:43Z",
+  "continuous_liveness_after_prior_capacity_failure_claimed": false,
+  "execution_record_id": "ER-9296C35569234F638D8F",
+  "prepared_at": "2026-09-09T15:32:55.445109+00:00",
+  "claim_id": "qtf3-ef9380-20260909-152943",
+  "effective_claim": {
+    "comment_id": 5604575105,
+    "created_at": "2026-09-09T15:40:04Z",
+    "updated_at": "2026-09-09T15:40:04Z",
+    "schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1",
+    "unique_accepted_winner": true,
+    "owner_lease_until": "2026-09-09T17:40:04+00:00"
+  },
+  "failed_attempts": [
+    {
+      "comment_id": 5604487338,
+      "created_at": "2026-09-09T15:33:58Z",
+      "cause": "Required scheduler schema omitted; canonical parser returned no event, so no ownership existed from this comment.",
+      "edited": false,
+      "deleted": false,
+      "history_preserved": true
+    },
+    {
+      "scope": "Initial bare authorize CLI invocation",
+      "cause": "Canonical in-process bootstrap had not been installed; unrelated retained P000 publication fork caused exit1.",
+      "policy_or_task_changed": false
+    },
+    {
+      "scope": "Bootstrap-installed authorization with original malformed post",
+      "cause": "No valid parsed CLAIM; task remained READY with claim_id null.",
+      "policy_or_task_changed": false
+    }
+  ],
+  "authorization": {
+    "receipt_path": "research_artifacts/JT2_QTF3_FORMAL_EF9380_20260909/authorization/authorize-receipt.json",
+    "stdout_path": "research_artifacts/JT2_QTF3_FORMAL_EF9380_20260909/authorization/authorize.stdout.json",
+    "stdout_sha256": "0c9f76c4bb284aadb500d046a568e0269d5dffbd0c408d966f792f87c9a5e7a1",
+    "started_at": "2026-09-09T15:41:00.770689+00:00",
+    "elapsed_seconds": 15.539388700010022,
+    "now_override": false,
+    "current_bootstrap_installed": true,
+    "authorized": true
+  },
+  "raw_event_archive": {
+    "path": "research_artifacts/JT2_QTF3_FORMAL_EF9380_20260909/authorization/canonical-postclaim-full-raw-comments.json.gz",
+    "format": "gzip; mtime=0",
+    "compressed_bytes": 346406,
+    "compressed_sha256": "f19c1508c964b2eb2bcfe4228f7c0773738015e10b574381217ec3337ecce193",
+    "compressed_git_blob": "353aa6b4c42414ca5baab494a9d665065a880fb6",
+    "uncompressed_bytes": 4205859,
+    "uncompressed_sha256": "c7e48d242918a780edee545ba0e469cc0a506c0e7dd987e51aa5b502f3112e9b",
+    "raw_comment_count": 767,
+    "base_raw_count": 765,
+    "current_increment_count": 2,
+    "comment_objects_mutated": false
+  },
+  "branch": "research/qtf3-formal-ef9380-20260909-152943",
+  "branch_base": "03210b30b4264c5d432b5e940054fded2b652019",
+  "theorem_owner": "EM-FREE-W59A-JT2-RAMANUJAN-LEGENDRE",
+  "allowed_outputs": [
+    "research_returns/EMW59A_JT2_QTF3_FIXED_POINT_RETURN_EF9380_20260909.md",
+    "research_artifacts/JT2_QTF3_FORMAL_EF9380_20260909/",
+    "research_execution_records/RS-EMW59A-JT2-QTF3-FIXED-POINT/ER-9296C35569234F638D8F.json",
+    "research_result_records/RS-EMW59A-JT2-QTF3-FIXED-POINT/",
+    "research_activity_records/RA-513D918CB570B356EA4C94D4.json",
+    "research_activity_records/RA-513D918CB570B356EA4C94D4/readbacks/"
+  ],
+  "source_generation_boundary": "Execution/CLAIM/Result are new. Old Q2 and the 57CCCE p3 proof, prior non-author reviews and ordinary source intake retain original authors, times and evidence levels. No new independent proof/review is claimed.",
+  "mathematical_result_created_at_this_checkpoint": false
+}
