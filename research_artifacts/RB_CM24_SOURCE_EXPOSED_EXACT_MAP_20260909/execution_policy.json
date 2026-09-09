@@ -1,0 +1,36 @@
+{
+  "schema": "RB_CM24_SOURCE_EXPOSED_EXECUTION_PLAN_V1",
+  "task_id": "RS-RB-CM24-SOURCE-EXPOSED-EXACT-MAP-CERTIFICATE",
+  "publication_id": "TP2-554AC43234E8E297A6E9",
+  "researcher_id": "EM-HODGEH0O-82EF42",
+  "execution_branch": "research/rb-cm24-source-exposed-20260909",
+  "execution_branch_base": "3a00ea191ad0380bf341af746a825e0b0c474874",
+  "status": "PRE_EXECUTION_PLAN_NOT_A_MATHEMATICAL_RUN_OR_AUTHORIZATION",
+  "source_exposure": "SOURCE_EXPOSED_NONBLIND_DISCLOSED",
+  "er_linkage": "This file is explicitly allowed by the canonical ER. Resource and trace fields are supplemental plan metadata, not fields claimed to exist in the canonical ER schema.",
+  "limits_per_mathematical_command": {
+    "wall_time_seconds": 600,
+    "memory_limit_mib": 4096,
+    "trace_max_bytes": 67108864,
+    "trace_max_records": 250000,
+    "integer_bit_length_limit": 65536
+  },
+  "enforcement": "Before any mathematical run the dedicated checker/runner must enforce these limits, stop on exhaustion and preserve the actual error and partial frontier; no truncation may be reported as an exact PASS.",
+  "arithmetic": {
+    "symbolic_exact_integer_coefficient_extensions": "Explicit monic generator relations and symbolic denominators with exact cross multiplication; declare the actual field embedding and exceptional set before reduction.",
+    "actual_integer_division_or_root": "Only applicable existing exact_arithmetic BRC facade with full actual trace. No decorative BRC calls.",
+    "forbidden_substitutes": [
+      "legacy Fraction replay",
+      "float fit",
+      "private namespace replacement",
+      "silently dropped valuations or basepoints",
+      "ordinary materialized division or root outside the existing facade"
+    ]
+  },
+  "trace": {
+    "archive_prefix": "research_artifacts/RB_CM24_SOURCE_EXPOSED_EXACT_MAP_20260909/runs/",
+    "policy": "Store exact invocation, tool/input hashes, exit code, timestamps, full stdout/stderr and every applicable actual BRC trace. Zero applicable BRC evaluations must be stated, not disguised as executed reuse."
+  },
+  "scope": "All eight taskbook gates remain mandatory for PASS. Membership/basepoint/degree alone is a checkpoint. Exact failure or INCOMPLETE preserves every unresolved gate. Period/homology and exhaustive 1980-family completion remain outside this execution.",
+  "mathematics_started": false
+}
