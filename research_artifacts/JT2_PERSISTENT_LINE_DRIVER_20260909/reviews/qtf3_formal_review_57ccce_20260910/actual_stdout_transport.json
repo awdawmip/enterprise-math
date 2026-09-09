@@ -1,0 +1,12 @@
+{
+  "schema": "JT2_QTF3_ACTUAL_STDOUT_TRANSPORT_V1",
+  "run_source_commit": "f403028a8714d14ee29f74dd60ef6afaaa0c1144",
+  "run_receipt_path": "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/qtf3_formal_review_57ccce_20260910/actual_first_review_run.json",
+  "actual_stdout_sha256": "sha256:cd83846d8be291b5fbbae5ad564e90cf76cadde7bf80c2152b70601b69ad4ebd",
+  "actual_stdout_size_bytes": 11418,
+  "actual_stdout_base64_path": "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/qtf3_formal_review_57ccce_20260910/actual_first_review_stdout.raw.base64.txt",
+  "normalized_text_path": "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/qtf3_formal_review_57ccce_20260910/actual_first_review_stdout.json",
+  "normalized_text_sha256": "sha256:838c0adafbd8468f3661788d3125874609b9a66857f9724a2d9fef996997d5ed",
+  "normalized_text_semantics": "The first source intake used Python read_text and retained an LF-normalized JSON text view of Windows stdout. Its semantic JSON is the exact successful helper output, but its byte digest differs from the run receipt's original CRLF byte stream. The accompanying base64 is the original stream and decodes to the run receipt hash.",
+  "correction": "Explicit source transport clarification. No existing report, Result, DR, DFU, run receipt or mathematical decision is changed."
+}
