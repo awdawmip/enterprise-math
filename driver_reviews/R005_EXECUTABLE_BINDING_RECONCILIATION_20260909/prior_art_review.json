@@ -1,0 +1,31 @@
+{
+  "schema": "R005_BOUNDED_EXTERNAL_DUPLICATION_REVIEW_V1",
+  "reviewer_id": "EM-DVR-81273A",
+  "reviewed_on": "2026-09-09",
+  "result_id": "RR-566554389F6F36576DE2",
+  "scope": "Executable/evidence maintenance only. DSI mathematics is frozen and no mathematical novelty or new general tool is claimed by this correction.",
+  "search_surface": "web search, with exact task/function and method-specific queries; primary Python documentation for the existing compilation mechanism",
+  "queries": [
+    "\"r005a_p2_gap_shadow_inversion\"",
+    "\"bounded-deficit\" \"prime-gap\" \"shadow\"",
+    "site:docs.python.org/3/library/py_compile.html py_compile invalid syntax"
+  ],
+  "returned_primary_candidate": {
+    "title": "Python py_compile documentation",
+    "url": "https://docs.python.org/3/library/py_compile.html",
+    "classification": "ADJACENT_STANDARD_SOFTWARE_MECHANISM",
+    "finding": "py_compile compiles the explicitly named source files and its command-line exit is nonzero when a file cannot be compiled. This is standard Python validation, not a new tool introduced by R005."
+  },
+  "exact_or_partial_external_duplicate": "No exact R005 task/function or bounded-deficit shadow match was returned in this bounded query result. This does not establish novelty and is not an exhaustive mathematical prior-art review.",
+  "internal_duplication_finding": "PR1201/RR-566554389F6F36576DE2 already completed the exact requested correction. Reuse its immutable source instead of constructing or dispatching a duplicate scanner repair.",
+  "reuse_resolution": "REUSE_EXECUTED",
+  "reused_assets": [
+    "The existing source scanner and regression at 1d9823dfe6ba9301e936740da847ac3c682fe0a2",
+    "Python standard-library py_compile",
+    "The existing repository parallel-evidence, publication-selection and Result-binding mechanisms"
+  ],
+  "brc_applicability": "NOT_APPLICABLE to the control collision and exact-byte repair",
+  "new_mathematical_method_claim": false,
+  "new_tool_claim": false,
+  "novelty_inferred_from_search_absence": false
+}

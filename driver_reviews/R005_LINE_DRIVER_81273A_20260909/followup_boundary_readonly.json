@@ -1,0 +1,49 @@
+{
+  "schema": "R005_READ_ONLY_FOLLOWUP_LABEL_BOUNDARY_V1",
+  "source_commit": "57107d23b0c82fd4ee4ffed295b7af619f4eab79",
+  "source_review_artifact": "driver_reviews/R005_EXECUTABLE_BINDING_RECONCILIATION_20260909/REVIEW.md",
+  "result_record_path": "research_result_records/RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION/RR-566554389F6F36576DE2.json",
+  "result_record_sha256": "sha256:5dc2a43840b2878013281cc49f4956c893754b4feab50148dbea2c75d8f5fc62",
+  "result_record_blob_sha1": "sha1:aea04ecd76c5f6effe92726ae08d64c512f73131",
+  "raw_hard_target_disposition": "R005_DEFICIT_SHADOW_EXECUTABLE_BINDING_CORRECTED_AND_BYTE_REVALIDATED",
+  "terminal_verdict": "PASS",
+  "proposed_review_decision": {
+    "disposition": "ACCEPTED",
+    "driver_id": "EM-DVR-81273A",
+    "result_id": "RR-566554389F6F36576DE2",
+    "task_id": "RS-R005-DEFICIT-SHADOW-EXECUTABLE-BINDING-CORRECTION",
+    "publication_id": "TP2-ADD82532ACD19FC01D53"
+  },
+  "terminal_scope": "TASK",
+  "contract_pins": [
+    {
+      "path": "research_driver_followup.py",
+      "sha": "4bf9980001fb7a9a6006d6f132ea4aad042a0dce",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/57107d23b0c82fd4ee4ffed295b7af619f4eab79/research_driver_followup.py"
+    },
+    {
+      "path": "research_driver_followup_contract.json",
+      "sha": "8dc2d9f0a2bd68ba21685c152849bed874db9e06",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/57107d23b0c82fd4ee4ffed295b7af619f4eab79/research_driver_followup_contract.json"
+    },
+    {
+      "path": "research_result_control_replacements.py",
+      "sha": "ac85f8e8fa4a3e421fa5d7ffbc051c83e8dc7d8a",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/57107d23b0c82fd4ee4ffed295b7af619f4eab79/research_result_control_replacements.py"
+    },
+    {
+      "path": "research_result_control_replacement_contract.json",
+      "sha": "d64a2b6aadff55dba4d7f9d74f14a7a8e8fbed77",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/57107d23b0c82fd4ee4ffed295b7af619f4eab79/research_result_control_replacement_contract.json"
+    }
+  ],
+  "probe_function": "research_driver_followup._task_scope_continuation",
+  "no_formal_transaction_performed": true,
+  "no_source_bytes_changed": true,
+  "unreached_fields": "Continuation and six-gate validation are intentionally not claimed as passed by this minimal label-boundary reproducer.",
+  "read_only_outcome": {
+    "exception_type": "DriverFollowupError",
+    "message": "TASK-scope closure requires hard_target_disposition SATISFIED",
+    "boundary_reproduced": true
+  }
+}
