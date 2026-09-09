@@ -23,6 +23,18 @@
     "record_store": "research_task_records/<task-id>/<publication-id>.json",
     "tool": "tools/research_task_records.py",
     "human_protocol": "docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md",
+    "driver_task_machine_handoff": {
+      "responsibility": "RESEARCH_DRIVER_PUBLISHES_DRIVER_TASKS_TO_CANONICAL_TASK_MACHINE",
+      "task_machine": "IMMUTABLE_V2_TASK_PUBLICATION_PLUS_LIVE_DISPATCH",
+      "required_takeover_context": [
+        "CURRENT_STATE",
+        "COMPLETED_WORK",
+        "REMAINING_WORK",
+        "EVIDENCE_AND_ARTIFACT_LOCATIONS",
+        "TAKEOVER_CONDITIONS"
+      ],
+      "successor_requirement": "ANOTHER_DRIVER_OR_EXECUTOR_CAN_CLAIM_AND_CONTINUE_WITHOUT_HIDDEN_PREDECESSOR_CHAT_STATE"
+    },
     "remote_manual_transport_fallback_allowed": true,
     "remote_manual_validation_fallback_allowed": false,
     "remote_manual_equivalent_preflight_required": true,
@@ -225,6 +237,7 @@
     "RESEARCH_DRIVER": [
       "DRIVER_CONTINUITY_IS_ROUTING_ONLY",
       "IMMUTABLE_V2_TASK_AUTHORITY",
+      "PUBLISH_DRIVER_TASKS_TO_CANONICAL_TASK_MACHINE_WITH_DURABLE_TAKEOVER_CONTEXT",
       "RESEARCH_CONTROL_DISPATCH_IS_LIVE_ENTRYPOINT",
       "TOOL_REUSE_RESOLUTION_BEFORE_NEW_TOOL_DIRECTION",
       "REVIEW_RECORD_WRITE_REFRESHES_REMOTE_HEAD_AND_EXACT_RESULT_BYTES_BEFORE_RECOMPUTING_BINDING",
