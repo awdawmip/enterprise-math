@@ -48,7 +48,7 @@
   },
   "policy_review": {
     "policy_set": "research_taskbook_policy.json",
-    "policy_digest": "sha256:1f84e78de591605da6106f3f14ffad3cd7fad66aa5bf67e29beb44906b976c8a",
+    "policy_digest": "sha256:b3d44e7cb736426e48b7994d280192f2f48ddde306af1d7ad80db2012c00864b",
     "review_state": "PASS",
     "temporary_overrides": []
   }
