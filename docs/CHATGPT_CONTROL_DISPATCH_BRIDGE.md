@@ -237,6 +237,8 @@ An active Driver then posts an actual Issue 240 event through the authorized con
 
 The existing raw-comment loader supplies the server comment ID, body digest, author and creation/update times. The entry verifies exact server-author authorization, an unedited envelope, authority active before the assignment, the current DA pin and the authorized parent. Assignment events are selection evidence; the task/claim reducer does not treat them as CLAIM, PROGRESS or liveness events.
 
+`session_id` uses the existing runtime's opaque nonblank-string contract and is retained exactly, including colons or slashes in real session keys. Only task/publication/parent identifiers use their identifier syntax. Do not rename or invent a session to make an assignment pass.
+
 Use the actual returned assignment comment ID and body SHA-256 in the request:
 
 ```json

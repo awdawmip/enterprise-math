@@ -195,6 +195,7 @@
     "assignment_binding": ["task_id", "publication_id", "parent_objective_id", "driver_id", "driver_authority_record_id", "driver_authority_source_comment_id", "researcher_id", "session_id", "executor_role"],
     "request_additional_pins": ["assignment_comment_id", "assignment_body_sha256", "driver_authority_record_sha256", "expected_claim_id"],
     "executor_role": "RESEARCHER; distinct from the issuing Driver",
+    "session_binding": "Existing runtime opaque nonblank string, preserved exactly; task/publication/parent ID syntax is not a session syntax restriction",
     "selection_evidence": "assigned_research_selection with source comment/body digest, current DA digest, exact TP2/taskbook blob, recipient/session, check time and explicit no-execution/no-retrospective-selection flags",
     "conflicting_assignments": "FAIL_CLOSED; issuer explicitly revokes its earlier exact assignment before replacement; no recency winner",
     "superseded_publication_or_changed_da": "REJECT_OLD_ASSIGNMENT; preserve original provenance and existing execution-generation rules",

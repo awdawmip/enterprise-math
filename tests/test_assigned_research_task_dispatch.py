@@ -216,6 +216,19 @@ class AssignedResearchTaskDispatchTests(unittest.TestCase):
         with self.assertRaisesRegex(assignment.AssignmentError, "absent"):
             assignment.resolve(self.request, [raw_event], now=NOW, root=self.root)
 
+    def test_existing_colon_session_is_opaque_and_preserved_exactly(self):
+        sessions = ["local:codex-agent:jt2-bounded-reference-review:20260909:EF9380",
+                    " opaque/session:key?version=2 "]
+        for session in sessions:
+            raw = self.comment(session_id=session)
+            request = {**self.request, "session_id": session, "assignment_body_sha256": self.body_hash(raw)}
+            selected = self.route(request=request, comments=[raw])
+            self.assertEqual(selected["action"], "CLAIM_NEW_OWNER")
+            self.assertEqual(selected["session_id"], session)
+            self.assertEqual(selected["assigned_research_selection"]["session_id"], session)
+            with self.assertRaisesRegex(router.ControlDispatchError, "receiving researcher/session"):
+                self.route(request={**request, "session_id": session + ":changed"}, comments=[raw])
+
     def test_da_bytes_drift_revoke_and_replacement_do_not_reauthorize_old_assignment(self):
         original = self.authority_path.read_bytes()
         self.authority_path.write_bytes(original + b"\n")

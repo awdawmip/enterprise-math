@@ -39,15 +39,22 @@ def _require(condition: bool, message: str) -> None:
         raise AssignmentError(message)
 
 
+def _session_id(value: Any) -> bool:
+    # Match parse_session_observations: a nonblank opaque string retained exactly.
+    # Existing session keys may contain colons, slashes or other non-ID syntax.
+    return isinstance(value, str) and bool(value.strip())
+
+
 def validate_request(request: Mapping[str, Any], *, kind: str) -> dict[str, Any]:
     _require(isinstance(request, Mapping) and set(request) == _REQUEST_FIELDS,
              "research assignment request requires exactly the typed fields")
     _require(request["schema"] == SCHEMA and kind == "RESEARCH",
              "research assignment entry requires kind RESEARCH and its own schema")
-    for field in _REQUEST_FIELDS - {"assignment_comment_id", "expected_claim_id"}:
+    for field in _REQUEST_FIELDS - {"assignment_comment_id", "expected_claim_id", "session_id"}:
         value = request[field]
         _require(isinstance(value, str) and bool(value) and value == value.strip(),
                  f"research assignment request missing or malformed {field}")
+    _require(_session_id(request["session_id"]), "research assignment requires a nonblank opaque session_id")
     _require(type(request["assignment_comment_id"]) is int and request["assignment_comment_id"] > 0,
              "assignment_comment_id must be an actual positive server comment ID")
     for field in ("assignment_body_sha256", "driver_authority_record_sha256"):
@@ -62,7 +69,7 @@ def validate_request(request: Mapping[str, Any], *, kind: str) -> dict[str, Any]
              and not recipient.startswith(("EM-DVR-", "EM-DRIVER-", "EM-STW-"))
              and recipient != request["driver_id"],
              "assignment recipient must be a distinct typed RESEARCHER identity")
-    for field in (*_SCOPE, "session_id"):
+    for field in _SCOPE:
         _require(bool(_ID.fullmatch(request[field])), f"malformed exact {field}")
     return dict(request)
 
@@ -165,7 +172,7 @@ def resolve(
                     or recipient != recipient.upper() or not research_identity.valid_execution_id(recipient)
                     or recipient.startswith(("EM-DVR-", "EM-DRIVER-", "EM-STW-"))
                     or recipient == event.get("driver_id")
-                    or not isinstance(session, str) or not _ID.fullmatch(session)):
+                    or not _session_id(session)):
                 invalid[cid] = "assignment requires a distinct exact researcher/session binding"
                 continue
             active[cid] = event
