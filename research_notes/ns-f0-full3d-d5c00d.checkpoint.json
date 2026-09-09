@@ -1,0 +1,100 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_CHECKPOINT_V1",
+  "event_id": "NS-F0-FULL3D-20260909-D5C00D-07",
+  "researcher_id": "EM-DIRECT-D5C00D",
+  "research_activity_id": "RA-D5C00DF7D77F4AA2ACE0",
+  "status": "FINITE_ALGEBRA_PROOFS_EXACT_CHECKS_NOT_INDEPENDENTLY_REVIEWED",
+  "report_kind": "Summary of executed checks; complete raw results reproducible from code and bundled in the research package",
+  "sources": {
+    "note": {
+      "path": "research_notes/ns-f0-full3d-no-cutoff-20260909-d5c00d.md",
+      "sha256": "8afe229dc0c8a3054c19e8c1e8e9be21e4a9eb45726aff6310931138bcfc3e64",
+      "git_blob_sha1": "3dd79d3a32c63d643ee0994f52b5a903edf5d64a"
+    },
+    "code": {
+      "path": "experiments/ns_f0_full3d_d5c00d.py",
+      "sha256": "cc22e5cca3634999d8d87087295d59ff22f868fae7738d11fe272e5910fa67e1",
+      "git_blob_sha1": "1f0cee53b82f7ade7fd83822de5ffcb6ba122dfe"
+    }
+  },
+  "raw_results_sha256": "5a70f27ac69d1fa64fc245a6fa8522d4e3cbf6730667af2fb91fcafd46766c68",
+  "parameters": {
+    "nu": "1",
+    "cap": "1/4096",
+    "delta": "1/64",
+    "reference_eta": "1/4096"
+  },
+  "executed": {
+    "paired_same_modal_energies": true,
+    "paired_same_step": "1/4096",
+    "paired_energy_change": "-1259/256",
+    "positive_K_change_bounds": [
+      14,
+      15
+    ],
+    "negative_K_change_bounds": [
+      -26,
+      -25
+    ],
+    "initial_modes": 12,
+    "first_step_modes": 36,
+    "new_modes_preserved": 24,
+    "signed_vortex_stretching": [
+      196608,
+      -196608
+    ],
+    "trajectory_steps": 12,
+    "final_modes": 74,
+    "final_energy": "6201937/1024",
+    "cumulative_K_change_bounds": [
+      183,
+      184
+    ],
+    "spectral_cutoff_applied": false,
+    "quantization_erased_ports": [
+      0,
+      168,
+      168,
+      172,
+      172,
+      170,
+      170,
+      250,
+      284,
+      278,
+      318,
+      362
+    ],
+    "extinction_observed_in_large_run": false,
+    "fixed_grid_extinction_step_bound": 25165824,
+    "small_data_steps": 16,
+    "small_data_a": "1/5",
+    "small_data_dissipation_bound": "1/4",
+    "small_data_nonlinearity_bound": "1/20",
+    "random_exact_cases": 12,
+    "cauchy_determinant_cases": 6,
+    "gram_budget_exact": true,
+    "initial_ordered_packets": 72,
+    "initial_output_rate_groups": 44,
+    "nonzero_temporal_defect_explicit": true,
+    "arithmetic": "Gaussian rational and rational radical bounds; no floating-point sign decisions"
+  },
+  "derived": [
+    "No-cutoff solenoidal full-output adaptive recurrence with strict energy descent.",
+    "For X_-1(u0)<=a<nu: X_-1(um)+(nu-a)sum h X_1<=a and sum h X_-1(N)<=a^2/(nu-a).",
+    "Arbitrary finite Cauchy packet Gram is positive and has exact linear-reference decrement.",
+    "Strict energy descent on this fixed grid implies eventual extinction, even with expanding frequency support."
+  ],
+  "prior_art": {
+    "small_data_mechanism": "Lei-Lin 2011, DOI 10.1002/cpa.20361; arXiv:1203.2699",
+    "cauchy_determinant": "NIST DLMF 1.3.14"
+  },
+  "nonclaims": [
+    "continuum NS proof",
+    "arbitrary-data stability",
+    "physical/native-six-dimensional dynamics",
+    "independent review",
+    "Lean validation"
+  ],
+  "next": "Large-data phase-coherent cumulative feedback/temporal/quantization bound; keep all output/rate provenance and fixed reference metric."
+}
