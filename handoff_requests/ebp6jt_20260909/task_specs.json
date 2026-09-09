@@ -1,0 +1,83 @@
+{
+  "schema": "EBP6JT_SUCCESSOR_TASK_SPECS_V1",
+  "publisher_role": "RESEARCHER",
+  "publisher_id": "EM-EBP6JT-25C94A",
+  "parent_objective_id": "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION",
+  "handoff_commit": "399f2b5af8dcc993d7cb88f036c10f1c0029ebb6",
+  "tasks": [
+    {
+      "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-UR-LEGENDRE-RECIPROCITY",
+      "filename": "ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_UR_LEGENDRE_RECIPROCITY_20260909.md",
+      "title": "Enterprise BRC Inert-Plus UR-Legendre Reciprocity",
+      "owner": "research/enterprise-brc-half-inert-plus-ur-legendre-reciprocity",
+      "priority": "P1",
+      "leverage": "HIGH",
+      "identity_lane": "EBP6UR",
+      "frontier": "For p=6m+1 with p mod 24 in {13,19}, independently validate the ordinary-Legendre reformulation of the frozen unit reciprocity UR and then prove, refute, or strictly reduce UR without reopening the eliminated harmonic or Clausen-tail bookkeeping.",
+      "next_action": "Start from the immutable 2026-09-09 handoff and the frozen 2026-09-07 return. First derive or falsify the candidate congruence (P_{2n}(t)+2P_n(t))P_n'(t)=-pt mod p^2 for n=(p-1)/3 and t^2=1/2 as an exact equivalent of UR; only after that attack it by the generalized-Legendre p^3 parameter recurrence and a structurally distinct Frobenius/Wronskian route.",
+      "evidence_status": "PARENT_CM0_AND_SIMPLE_PROVED / UR_OPEN / ORDINARY_LEGENDRE_EQUIVALENCE_CANDIDATE_REQUIRES_REVALIDATION",
+      "research_value": "The parent reduced the first p-adic digit to one supersingular divided-period reciprocity. The candidate ordinary-Legendre form removes the remaining parameter jet and could expose a classical recurrence or Wronskian proof; even a clean falsification would identify the exact minimal first-digit obstruction.",
+      "source_refs": [
+        "research_handoffs/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_JACOBI_JET_20260909/RESEARCH_HANDOFF.md@399f2b5af8dcc993d7cb88f036c10f1c0029ebb6",
+        "research_handoffs/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_JACOBI_JET_20260909/source_manifest.json@399f2b5af8dcc993d7cb88f036c10f1c0029ebb6",
+        "research_returns/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE_RETURN_20260828.md@a722292873eba2449f0959fad7b766a12741ff47",
+        "research_artifacts/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE/jacobi_cm_hasse_reduction_20260907.json@a722292873eba2449f0959fad7b766a12741ff47"
+      ],
+      "dependencies": [
+        "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-TERMINATING-JACOBI-JET-CERTIFICATE/TP2-A19C97A703AF47D1CBEC",
+        "research_handoffs/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_JACOBI_JET_20260909/RESEARCH_HANDOFF.md@399f2b5af8dcc993d7cb88f036c10f1c0029ebb6"
+      ],
+      "tags": ["p-adic", "inert-plus", "Legendre", "supersingular", "unit-reciprocity", "Frobenius", "BRC"],
+      "successor_gate": {
+        "new_information_gap": "The parent proved the CM Hasse zero and its simplicity but left JT0 exactly equivalent to the nonzero unit reciprocity UR. The 2026-09-09 continuation suggests a smaller ordinary-Legendre mod-p^2 identity, but its exact equivalence and all-prime proof are not yet established.",
+        "why_parent_result_does_not_close_it": "CM supersingularity determines the zero and transverse derivative but does not identify the divided p-adic period g/p with the inverse derivative. The parent scan verifies UR only finitely and the new ordinary-Legendre formula is not yet theorem-level.",
+        "discriminating_outcomes": [
+          "Prove the candidate ordinary-Legendre identity is exactly equivalent to UR and prove it for both target residue classes.",
+          "Refute the candidate equivalence or identity by an independently recomputed exact counterexample while preserving the parent UR statement.",
+          "Strictly reduce UR to one smaller recurrence, Wronskian, Jacobi-sum, or Frobenius scalar identity with exact equivalence and no return to eliminated harmonic arrays."
+        ],
+        "kill_condition": "Any independently verified target-prime counterexample kills the candidate identity. A proof that the proposed parameter-shift step is not equivalent to UR also kills that formulation and requires returning the corrected minimal UR certificate rather than forcing the formula.",
+        "alternative_route_or_free_exploration_considered": "Closing the parent at strict-reduction scope, attacking the second p-adic digit in parallel, and returning to independent/free hypergeometric exploration were considered. This continuation is retained because UR is already a single exact first-digit obstruction and the new ordinary-Legendre form may remove the last parameter dependence.",
+        "why_new_stage_or_task_is_better_than_same_task_or_closure": "The parent task already achieved its permitted strict-reduction endpoint and froze CM0/SIMPLE. A separate successor prevents those solved components from being replayed and gives one owner a sharply falsifiable first-digit target while a sibling can attack the independent p^3 lift."
+      },
+      "body": "# Enterprise BRC Inert-Plus UR-Legendre Reciprocity\n\nStatus: `PUBLISHED_REGISTERED / CONTINUATION / FIRST-DIGIT RECIPROCITY`\n\n## Mother question\n\nFor every prime `p=6m+1` with `p mod 24 in {13,19}`, prove, refute, or strictly reduce the frozen first-digit unit reciprocity\n\n`UR: (g/p)(-6Q_m'(1/2)) = 1 mod p`,\n\nstarting by independently validating whether, for `n=(p-1)/3` and `t^2=1/2`, it is exactly equivalent to\n\n`(P_{2n}(t)+2P_n(t)) P_n'(t) = -p t mod p^2`.\n\nThe ordinary-Legendre formula is a candidate reduction, not an input theorem.\n\n## Frozen inputs and scope\n\nConsume the immutable 2026-09-09 handoff before doing new work. Freeze the parent's terminating quadratic/Legendre transport, the discriminant `-24` CM Hasse zero, the simple-root lemma, and the reconstruction that retains the cutoff-sensitive second parameter derivative inside `g/p`. Do not reopen the Clausen tail or separate harmonic-block arrays unless an exact contradiction is found.\n\nBoth residue classes are required. Zhi-Wei Sun A14(ii) remains conjectural and cannot be used as proof. The Mao-Pan quadratic congruence and generalized-Legendre identities may be used only at their proved precision. Preserve the two Frobenius ports, p-adic valuation data and derivative provenance through every quotient.\n\n## Hard target and required outputs\n\n1. Give a complete derivation or exact counterexample for the claimed equivalence between `UR` and the ordinary-Legendre congruence.\n2. If the equivalence survives, prove, refute, or strictly reduce that congruence uniformly for both target classes.\n3. Test the generalized-Legendre parameter recurrence at `a=-1/3` through the required p-adic digit, including its derivative, and test one structurally distinct Frobenius, Wronskian or Jacobi-sum mechanism unless the first route closes the target.\n4. Preserve exact p-adic precision and the supersingular transverse derivative; finite computation is regression or falsification support only.\n5. Return a deterministic checker and the smallest exact residue if the all-prime identity remains open.\n\n## Research value to preserve\n\nThe parent has already removed the value-zero problem and all obsolete harmonic bookkeeping. `UR` is the sole first-digit obstruction. A valid ordinary-Legendre reformulation would convert it into one classical value-derivative congruence at a supersingular point, creating a substantially cleaner interface for recurrence, Wronskian or finite-field methods.\n\n## Success, kill, and return criteria\n\nSuccess is an all-prime proof of `UR` for both target classes, with the ordinary-Legendre equivalence proved if that route is used. An independently verified counterexample to the candidate identity kills only that candidate unless it also evaluates `UR` itself. A strictly smaller exact recurrence or Frobenius scalar certificate is a valid terminal reduction if equivalence is proved. Stop rather than expanding a finite prime scan, assuming Sun A14(ii), or returning to the eliminated parent arrays."
+    },
+    {
+      "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-QTF3-LIFT",
+      "filename": "ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_QTF3_LIFT_20260909.md",
+      "title": "Enterprise BRC Inert-Plus QTF3 Frobenius Lift",
+      "owner": "research/enterprise-brc-half-inert-plus-qtf3-lift",
+      "priority": "P1",
+      "leverage": "HIGH",
+      "identity_lane": "EBP6Q3",
+      "frontier": "For p=6m+1 with p mod 24 in {13,19}, rigorously determine the third p-adic digit of the terminating quadratic transform at the supersingular fixed point, prove or refute the observed Frobenius defect-line constraint, and connect the result exactly to the inherited second-digit LIFT certificate.",
+      "next_action": "Start from the immutable 2026-09-09 handoff. Re-derive coefficientwise the p^3 quadratic-transform defect and the proposed residual differential equation before using either; then prove or refute reflection-oddness/eigenline confinement and determine whether the stronger fixed-point QTF3 congruence holds uniformly. Finally express the inherited LIFT scalar in the resulting defect coordinate.",
+      "evidence_status": "PARENT_JT2_REDUCED_TO_UR_PLUS_LIFT / QTF3_EIGENLINE_FINITE_PATTERN / RESIDUAL_DIFFERENTIAL_REDUCTION_REQUIRES_REVALIDATION",
+      "research_value": "This task isolates the second p-adic digit in the natural Frobenius quadratic extension. Proving the defect eigenline or the stronger fixed-point p^3 transform would replace an opaque reflected-tail scalar by one geometric lift coordinate and may close the remaining JT2 digit once UR is available.",
+      "source_refs": [
+        "research_handoffs/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_JACOBI_JET_20260909/RESEARCH_HANDOFF.md@399f2b5af8dcc993d7cb88f036c10f1c0029ebb6",
+        "research_handoffs/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_JACOBI_JET_20260909/source_manifest.json@399f2b5af8dcc993d7cb88f036c10f1c0029ebb6",
+        "research_returns/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE_RETURN_20260828.md@a722292873eba2449f0959fad7b766a12741ff47",
+        "scripts/check_enterprise_brc_half_coupling_inert_plus_terminating_jacobi_jet_certificate.py@a722292873eba2449f0959fad7b766a12741ff47"
+      ],
+      "dependencies": [
+        "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-TERMINATING-JACOBI-JET-CERTIFICATE/TP2-A19C97A703AF47D1CBEC",
+        "research_handoffs/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_JACOBI_JET_20260909/RESEARCH_HANDOFF.md@399f2b5af8dcc993d7cb88f036c10f1c0029ebb6"
+      ],
+      "tags": ["p-adic", "inert-plus", "quadratic-transform", "Frobenius", "p3", "LIFT", "BRC"],
+      "successor_gate": {
+        "new_information_gap": "The parent compressed the second digit to one scalar LIFT but did not identify its Frobenius or quadratic-transform content. The 2026-09-09 continuation found a stable defect-line pattern and a candidate residual differential equation, neither yet proved uniformly.",
+        "why_parent_result_does_not_close_it": "The parent reconstruction retains the correct second-order parameter contribution but supplies no p^3 quadratic-transform theorem at the supersingular fixed point and no formula identifying the reflected scalar with a Frobenius defect coordinate.",
+        "discriminating_outcomes": [
+          "Prove the stronger fixed-point p^3 quadratic-transform congruence uniformly and derive its exact consequence for LIFT.",
+          "Prove only the weaker Frobenius eigenline confinement of the p^3 defect and reduce LIFT to its one remaining base-field scalar.",
+          "Produce an independently verified target-prime counterexample to QTF3 or the eigenline pattern, then freeze the corrected smallest second-digit defect identity."
+        ],
+        "kill_condition": "A verified counterexample kills the corresponding QTF3 or eigenline statement. Failure of the proposed residual differential equation under exact symbolic recomputation kills that route without altering the frozen parent LIFT certificate.",
+        "alternative_route_or_free_exploration_considered": "Closing the parent at strict-reduction scope, waiting for the first-digit UR proof, and returning to unrestricted p-adic hypergeometric exploration were considered. This sibling remains valuable because the transform defect can be studied independently and may supply a reusable supersingular p^3 mechanism.",
+        "why_new_stage_or_task_is_better_than_same_task_or_closure": "The parent task already froze the exact scalar decomposition. Splitting the second digit gives a separate owner a precise p^3 transform problem without coupling progress to the first-digit reciprocity and prevents repeated work on the solved CM-zero and parameter-jet reductions."
+      },
+      "body": "# Enterprise BRC Inert-Plus QTF3 Frobenius Lift\n\nStatus: `PUBLISHED_REGISTERED / CONTINUATION / SECOND-DIGIT LIFT`\n\n## Mother question\n\nFor every prime `p=6m+1` with `p mod 24 in {13,19}`, prove, refute, or strictly reduce the p-adic quadratic-transform lift at the supersingular fixed point, and connect the resulting defect exactly to the frozen second-digit certificate\n\n`LIFT: ((g/p)h-1)/p = R_p mod p`.\n\nThe observed defect-line confinement and the stronger fixed-point mod-`p^3` transform are research targets, not input theorems.\n\n## Frozen inputs and scope\n\nConsume the immutable 2026-09-09 handoff before new work. Freeze the parent's exact `JT2 <=> UR + LIFT` reconstruction, CM Hasse zero, simple transversality, and cutoff-sensitive `g/p mod p^2`. Do not reopen the eliminated Clausen tail or harmonic-block arrays.\n\nWork in the unramified quadratic extension with `t^2=1/2` and `u=(1-t)/2`, retaining both Frobenius ports `u` and `1-u`. Re-derive the proposed p^3 defect equation symbolically before depending on it. Finite computation may falsify or regress candidate statements but does not establish uniform p-adic congruences.\n\n## Hard target and required outputs\n\n1. Derive coefficientwise the p^3 defect of the terminating Mao-Pan quadratic transform at the relevant parameters and verify or refute the proposed residual differential equation.\n2. Prove or refute the observed confinement of the normalized defect to the Frobenius eigenline `(1+sqrt(2))F_p`.\n3. Determine whether the stronger fixed-point p^3 transform congruence holds for both target classes; if not, identify the smallest exact correction scalar.\n4. Express the inherited `LIFT` certificate exactly in the proved defect coordinate, separating any dependence on the sibling `UR` task.\n5. Preserve p-adic valuation, derivative and port provenance; return a deterministic exact checker and the smallest live scalar if the full lift remains open.\n\n## Research value to preserve\n\nThe parent second digit is already one scalar but its structure is opaque. The quadratic-transform defect lives naturally on the inert Frobenius pair. A uniform eigenline theorem or fixed-point p^3 lift would expose the second digit as a one-coordinate supersingular phenomenon and could be reusable beyond this single Ramanujan-type congruence.\n\n## Success, kill, and return criteria\n\nSuccess is a uniform proof of the p^3 transform statement strong enough to evaluate `LIFT`, or an exact weaker eigenline theorem that strictly reduces `LIFT` to one base-field scalar. An independently verified counterexample kills the corresponding candidate and must be preserved with the corrected defect. A route-specific symbolic no-go is valuable only if it leaves a smaller exact p-adic certificate. Do not substitute a larger finite scan, assume the sibling `UR`, or reopen the frozen parent bookkeeping."
+    }
+  ]
+}
