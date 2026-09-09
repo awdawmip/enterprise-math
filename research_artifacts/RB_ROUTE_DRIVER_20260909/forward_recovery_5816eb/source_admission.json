@@ -1,0 +1,241 @@
+{
+  "schema": "RB_SOURCE_ADMISSION_FRONTIER_V1",
+  "classification": "READY_FOR_FINAL_CURRENT_MAIN_COMBINATION",
+  "driver_id": "EM-DVR-5816EB",
+  "source_commit": "f2122203c34ff954f4f592ce4a5188fa78f3754d",
+  "source_tree": "cdf749aec3997934128e2fba5b8e207ae09d24b5",
+  "source_parents": [
+    "e36c460afa81025b3b5ca3e3508bb934c08ae324",
+    "527a120450a549b8b2ae96bd9891fc5e622ede64",
+    "dcb5d3ccb656555b0d2eab64921ee68576375ca6"
+  ],
+  "validated_base": "527a120450a549b8b2ae96bd9891fc5e622ede64",
+  "validated_base_tree": "f15d3aa1eca5556c47c6203ce4b37300ccd220e8",
+  "source_delta": {
+    "total_added_paths": 106,
+    "deleted_paths": 0,
+    "original_rb_source_paths_preserved": 104,
+    "new_forward_recovery_paths": 2,
+    "intervening_main_delta_paths": 70,
+    "path_overlap": []
+  },
+  "result_integrity": {
+    "result_id": "RR-F79FA3D36EF85CC4C6CE",
+    "result_sha256": "ca06619946487457e101aabfe1beb88b945077571d17cda19191a9cf48291ed6",
+    "original_output_pins": 80,
+    "review_id": "DR-7D70258F6D39E9B6B00D",
+    "followup_id": "DFU-A69948076248192A8C4C",
+    "full_rr_dr_dfu_authority_readbacks": "EXACT_MATCH",
+    "mathematical_reexecution": false
+  },
+  "workflow_runs": [
+    {
+      "id": 34326655274,
+      "name": "bilingual-sync",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 8514,
+      "jobs_url": "https://api.github.com/repos/awdawmip/enterprise-math/actions/runs/34326655274/jobs",
+      "logs_url": "https://api.github.com/repos/awdawmip/enterprise-math/actions/runs/34326655274/logs",
+      "workflow_id": 329833702
+    },
+    {
+      "id": 34326655234,
+      "name": "reference-integrity",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 8507,
+      "jobs_url": "https://api.github.com/repos/awdawmip/enterprise-math/actions/runs/34326655234/jobs",
+      "logs_url": "https://api.github.com/repos/awdawmip/enterprise-math/actions/runs/34326655234/logs",
+      "workflow_id": 329853291
+    },
+    {
+      "id": 34326655246,
+      "name": "quality",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 8513,
+      "jobs_url": "https://api.github.com/repos/awdawmip/enterprise-math/actions/runs/34326655246/jobs",
+      "logs_url": "https://api.github.com/repos/awdawmip/enterprise-math/actions/runs/34326655246/logs",
+      "workflow_id": 329844042
+    }
+  ],
+  "actual_reference_run": {
+    "id": 34326655234,
+    "head_sha": "f2122203c34ff954f4f592ce4a5188fa78f3754d",
+    "head_branch": "research/rb-cm24-source-exposed-20260909",
+    "event": "pull_request",
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-09-09T07:59:05Z",
+    "updated_at": "2026-09-09T08:00:01Z",
+    "pull_requests": [
+      {
+        "url": "https://api.github.com/repos/awdawmip/enterprise-math/pulls/1426",
+        "id": 4479960224,
+        "number": 1426,
+        "head": {
+          "ref": "research/rb-cm24-source-exposed-20260909",
+          "sha": "f2122203c34ff954f4f592ce4a5188fa78f3754d",
+          "repo": {
+            "id": 1327488200,
+            "url": "https://api.github.com/repos/awdawmip/enterprise-math",
+            "name": "enterprise-math"
+          }
+        },
+        "base": {
+          "ref": "main",
+          "sha": "527a120450a549b8b2ae96bd9891fc5e622ede64",
+          "repo": {
+            "id": 1327488200,
+            "url": "https://api.github.com/repos/awdawmip/enterprise-math",
+            "name": "enterprise-math"
+          }
+        }
+      }
+    ]
+  },
+  "actual_check_runs": [
+    {
+      "id": 102386281899,
+      "name": "test",
+      "head_sha": "f2122203c34ff954f4f592ce4a5188fa78f3754d",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T08:02:21Z",
+      "completed_at": "2026-09-09T08:02:24Z",
+      "details_url": "https://github.com/awdawmip/enterprise-math/actions/runs/34326655246/job/102386281899"
+    },
+    {
+      "id": 102385413293,
+      "name": "heavy-regression",
+      "head_sha": "f2122203c34ff954f4f592ce4a5188fa78f3754d",
+      "status": "completed",
+      "conclusion": "skipped",
+      "started_at": "2026-09-09T07:59:17Z",
+      "completed_at": "2026-09-09T07:59:16Z",
+      "details_url": "https://github.com/awdawmip/enterprise-math/actions/runs/34326655246/job/102385413293"
+    },
+    {
+      "id": 102385411851,
+      "name": "unit-shard (2)",
+      "head_sha": "f2122203c34ff954f4f592ce4a5188fa78f3754d",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T07:59:18Z",
+      "completed_at": "2026-09-09T08:00:50Z",
+      "details_url": "https://github.com/awdawmip/enterprise-math/actions/runs/34326655246/job/102385411851"
+    },
+    {
+      "id": 102385411824,
+      "name": "unit-shard (7)",
+      "head_sha": "f2122203c34ff954f4f592ce4a5188fa78f3754d",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T07:59:19Z",
+      "completed_at": "2026-09-09T08:00:28Z",
+      "details_url": "https://github.com/awdawmip/enterprise-math/actions/runs/34326655246/job/102385411824"
+    },
+    {
+      "id": 102385411760,
+      "name": "unit-shard (4)",
+      "head_sha": "f2122203c34ff954f4f592ce4a5188fa78f3754d",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T07:59:18Z",
+      "completed_at": "2026-09-09T08:00:36Z",
+      "details_url": "https://github.com/awdawmip/enterprise-math/actions/runs/34326655246/job/102385411760"
+    },
+    {
+      "id": 102385411755,
+      "name": "unit-shard (1)",
+      "head_sha": "f2122203c34ff954f4f592ce4a5188fa78f3754d",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T07:59:18Z",
+      "completed_at": "2026-09-09T08:02:19Z",
+      "details_url": "https://github.com/awdawmip/enterprise-math/actions/runs/34326655246/job/102385411755"
+    },
+    {
+      "id": 102385411749,
+      "name": "unit-shard (5)",
+      "head_sha": "f2122203c34ff954f4f592ce4a5188fa78f3754d",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T07:59:18Z",
+      "completed_at": "2026-09-09T08:00:19Z",
+      "details_url": "https://github.com/awdawmip/enterprise-math/actions/runs/34326655246/job/102385411749"
+    },
+    {
+      "id": 102385411743,
+      "name": "unit-shard (6)",
+      "head_sha": "f2122203c34ff954f4f592ce4a5188fa78f3754d",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T07:59:18Z",
+      "completed_at": "2026-09-09T08:00:48Z",
+      "details_url": "https://github.com/awdawmip/enterprise-math/actions/runs/34326655246/job/102385411743"
+    },
+    {
+      "id": 102385411709,
+      "name": "unit-shard (3)",
+      "head_sha": "f2122203c34ff954f4f592ce4a5188fa78f3754d",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T07:59:19Z",
+      "completed_at": "2026-09-09T08:02:00Z",
+      "details_url": "https://github.com/awdawmip/enterprise-math/actions/runs/34326655246/job/102385411709"
+    },
+    {
+      "id": 102385411704,
+      "name": "unit-shard (0)",
+      "head_sha": "f2122203c34ff954f4f592ce4a5188fa78f3754d",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T07:59:19Z",
+      "completed_at": "2026-09-09T08:01:55Z",
+      "details_url": "https://github.com/awdawmip/enterprise-math/actions/runs/34326655246/job/102385411704"
+    },
+    {
+      "id": 102385363203,
+      "name": "check",
+      "head_sha": "f2122203c34ff954f4f592ce4a5188fa78f3754d",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T07:59:08Z",
+      "completed_at": "2026-09-09T07:59:18Z",
+      "details_url": "https://github.com/awdawmip/enterprise-math/actions/runs/34326655274/job/102385363203"
+    },
+    {
+      "id": 102385363142,
+      "name": "check",
+      "head_sha": "f2122203c34ff954f4f592ce4a5188fa78f3754d",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T07:59:08Z",
+      "completed_at": "2026-09-09T08:00:00Z",
+      "details_url": "https://github.com/awdawmip/enterprise-math/actions/runs/34326655234/job/102385363142"
+    },
+    {
+      "id": 102385362741,
+      "name": "classify",
+      "head_sha": "f2122203c34ff954f4f592ce4a5188fa78f3754d",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T07:59:08Z",
+      "completed_at": "2026-09-09T07:59:16Z",
+      "details_url": "https://github.com/awdawmip/enterprise-math/actions/runs/34326655246/job/102385362741"
+    }
+  ],
+  "original_readback_urls": [
+    "https://api.github.com/repos/awdawmip/enterprise-math/actions/runs/34326655234",
+    "https://api.github.com/repos/awdawmip/enterprise-math/commits/f2122203c34ff954f4f592ce4a5188fa78f3754d/check-runs"
+  ],
+  "local_complete_raw_readback_receipt": {
+    "path": "D:/em/TEMP/rb-line-recovery-5816EB/source-admission-publication-and-ci.json",
+    "sha256": "c2b53016c7e170e755691d32bd6fdc269529a61562c0fd7b149ce07161ec0f05"
+  },
+  "main_admission": "PENDING_AT_THIS_SOURCE_CHECKPOINT",
+  "parent_objective_closed": false,
+  "next_action": "After Owner and JT2 bounded main windows release, refresh main and source once, audit actual intervening path/semantic delta, compose the final exact tree, and merge by non-force expected-parent update; no mathematical replay or repeated CI signature."
+}
