@@ -2,7 +2,7 @@
 
 Status: `OPEN / CORRECTION TASK CLOSED / Q78553 READY FOR CLAIM`  
 Current Driver: `EM-DVR-81273A`  
-Current forward authority: `DA-3E248473AB80A4E6287D` / Owner comment `5602100278`  
+Current forward authority: `DA-80BDA97466C306DAD3C3` / Owner comment `5605970384`
 Persistent governance: `GV-R005-PRIME-ALGORITHM-LAB-PERSISTENT-LINE-DRIVER` /
 `TP2-291A3B7B1EB6C763F71E` (generation 2)
 
@@ -63,6 +63,22 @@ Owner lease and conversation liveness are separate; this dossier is a durable
 recovery pointer, not a background-process promise.
 
 ## Next action
+
+The current Driver authority preserves the generation-2 governance assignment
+and adds exactly one research-parent whitelist:
+`OBJ-R005-PRIME-ALGORITHM-LAB-RELAY-20260909`. The original parent retains its
+governance/source responsibility and is not added to that research whitelist.
+Old DA records and all accepted Correction records are unchanged.
+
+The directed research entry now consumes the original typed dependency release
+through PR1463's `control_plane/research_dependency_release.py`. A current real
+772-comment unassigned-target check validated the original release and found
+`NEEDS_DISPATCH` with no claimant. It is not an assignment or execution grant.
+One actual researcher will supply its own identity/session/RA before a real
+Driver ASSIGN and researcher-owned prepare/CLAIM/authorize sequence. Until the
+execution slot is actually available, no worker or recipient is invented.
+The standalone packet is
+`driver_reviews/R005_Q78553_RESEARCH_HANDOFF_20260910_81273A/RESEARCHER_HANDOFF.md`.
 
 The exact accepted-review artifact condition identified by
 `GV-R005-DEFICIT-SHADOW-CORRECTION-REVIEW` / `TP2-86F63B5AAD1C97EC80FE`
