@@ -14,6 +14,7 @@ Candidate lifecycle: `research_axiom_candidate_state_machine.json`
 Tool invocation: `tool_invocation_policy.json`
 Review write authority: `research_review_write_authority.json`
 Promotion liveness: `docs/GOVERNANCE_MAINTENANCE_LIVENESS.md`
+Multi-agent line organization: `docs/CODEX_RESEARCH_ORCHESTRATION.en.md`
 
 ## 1. Purpose
 
@@ -26,6 +27,8 @@ Core separation:
 Task publication is not a Driver monopoly. Driver authority begins at portfolio/truth/promotion decisions.
 
 A Driver conversation exposes `Driver-ID` only after explicit Driver activation in the current conversation.
+
+For a user-authorized delegated program, the portfolio Owner and each line Driver use the same role with explicit scopes. The Owner sets direction and combines/splits lines; a persistent line Driver owns task publication, researcher dispatch, incremental review, formalization routing, and ordinary integration throughout its delegated line. An explicit Owner delegation under that current user authorization activates only the named scope and requires the receiving Driver's own identity/activation records. Routine line decisions do not return to the Owner for duplicate mathematical review. See the line organization protocol for durable dossiers, author/reviewer separation, and escalation triggers.
 
 ## 2. Active parent objective
 
@@ -65,7 +68,7 @@ All post-cutover official tasks—Researcher, audited Free Researcher, Driver, o
 - `tools/research_task_records.py`;
 - immutable `research_task_records/<task-id>/<publication-id>.json`.
 
-`research_task_records/<task-id>/<publication-id>.json` and `tools/research_task_records.py` are historical migration provenance. They are **not** post-cutover publication authority.
+The immutable records and tool above are current post-cutover publication authority. Historical pre-V2 material remains on the archive named by `control_plane/current_control_authority.json`.
 
 Freeze:
 
@@ -184,12 +187,12 @@ Choose one of: continue same task; publish/select a justified successor; return 
 For each meaningful return:
 
 1. **Intake** — role/mode, immutable task/object, origin/lineage, parent objective and decision required.
-2. **Evidence audit** — decisive current evidence only.
+2. **Evidence audit** — the persistent line reviewer audits new evidence and affected dependencies against its prior ledger; use an independent reviewer for obligations the Driver authored and other required independent checks. The Owner does not repeat ordinary line review.
 3. **Task-authority audit** — ensure any newly executable post-cutover task has exact immutable V2 publication authority.
 4. **Method harvest / tool dedup** — include reuse resolution, not coverage lookup alone.
 5. **Verdict** — separate mathematical status from workflow/tool status.
 6. **Route** — continue/close/reprioritize/replicate/Foundation/toolkit/promotion.
-7. **Persist** — update only changed semantic surfaces; if materializing an immutable review record, obey the write-boundary transaction in §11.1 before the remote mutation.
+7. **Persist** — the line Driver integrates its authorized source changes and maintains a compact durable line dossier; update only changed semantic surfaces. If materializing an immutable review record, obey the write-boundary transaction in §11.1 before the remote mutation.
 8. **Resume parent** — if open, execute the next routed action in the same turn.
 9. **User completion** — final only when the parent is terminal or no executable action remains under active-turn rules.
 
@@ -223,6 +226,8 @@ A binding mismatch does not change the Driver disposition. Preserve the immutabl
 Driver Continuity is routing state only, never theorem evidence or task existence authority.
 
 Canonical post-cutover task existence is immutable V2 publication. Continuity may summarize portfolio decisions but cannot make a task executable by itself.
+
+Each line can link a dossier made from `templates/RESEARCH_LINE_DOSSIER.md`. Keep the accepted frontier, unresolved review issues, exact source versions, tool interfaces, and next action there. Prefer resuming the same available Driver; if replacement is necessary, verify those records and continue the smallest unfinished unit without replaying completed work. A long-lived responsibility does not imply an always-running process or guaranteed hidden context retention.
 
 ## 13. Foundation / scheduler boundaries
 
