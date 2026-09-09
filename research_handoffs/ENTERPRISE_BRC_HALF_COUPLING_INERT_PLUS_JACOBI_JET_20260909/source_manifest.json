@@ -1,0 +1,43 @@
+{
+  "schema": "ENTERPRISE_BRC_EBP6JT_SUCCESSOR_HANDOFF_V1",
+  "status": "DURABLE_RESEARCH_HANDOFF",
+  "parent_task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-TERMINATING-JACOBI-JET-CERTIFICATE",
+  "parent_publication_id": "TP2-A19C97A703AF47D1CBEC",
+  "researcher_id": "EM-EBP6JT-25C94A",
+  "frozen_parent_execution": {
+    "commit": "a722292873eba2449f0959fad7b766a12741ff47",
+    "return_path": "research_returns/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE_RETURN_20260828.md",
+    "artifact_path": "research_artifacts/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE/jacobi_cm_hasse_reduction_20260907.json",
+    "checker_path": "scripts/check_enterprise_brc_half_coupling_inert_plus_terminating_jacobi_jet_certificate.py",
+    "execution_record_path": "research_execution_records/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-TERMINATING-JACOBI-JET-CERTIFICATE/ER-0E7A6ED487BA644FCD10.json"
+  },
+  "earlier_independent_execution": {
+    "commit": "b93574bd6df37eaec211883fa7f09be575e63814",
+    "branch": "research/enterprise-brc-half-inert-plus-terminating-jacobi-jet-certificate-em-ebp6jt-7a4c21"
+  },
+  "proved_frontier": [
+    "terminating quadratic/Legendre transport H_m(z)=Q_m(1-z) mod p",
+    "CM Hasse zero Q_m(1/2)=0 mod p for p mod 24 in {13,19}",
+    "simple transversality Q_m'(1/2)!=0 mod p",
+    "JT0 iff UR: (g/p)(-6Q_m'(1/2))=1 mod p",
+    "JT2 iff UR plus LIFT, with cutoff-sensitive Phi_xx retained inside g/p mod p^2"
+  ],
+  "new_unproved_frontiers": [
+    {
+      "id": "UR-LEGENDRE",
+      "statement": "For n=(p-1)/3 and t^2=1/2, candidate (P_{2n}(t)+2P_n(t))P_n'(t)=-pt mod p^2; exact equivalence to UR must be independently revalidated before theorem use.",
+      "status": "CANDIDATE_STRICT_REDUCTION_NOT_THEOREM"
+    },
+    {
+      "id": "QTF3",
+      "statement": "The p^3 quadratic-transform defect empirically lies in (1+sqrt(2))F_p; a working residual differential equation suggests reflection-odd forcing. Symbolic derivation and exact connection to LIFT remain open.",
+      "status": "COMPUTATIONAL_PATTERN_AND_WORKING_DERIVATION_NOT_THEOREM"
+    }
+  ],
+  "regression": {
+    "target_primes_below_2000": 77,
+    "frozen_parent_failures": 0,
+    "interpretation": "finite falsification/regression only for open UR/LIFT"
+  },
+  "handoff_rule": "New researchers must consume the frozen parent execution and this handoff before reopening prior reductions."
+}
