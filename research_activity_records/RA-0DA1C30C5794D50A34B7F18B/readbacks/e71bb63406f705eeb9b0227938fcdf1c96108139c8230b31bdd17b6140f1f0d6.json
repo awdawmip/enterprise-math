@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_artifacts/R005_Q78553_CATALOGUE_050E43_20260910/catalogue.json",
+    "ref": "2b73da21eac990abfd28593de1b552a4c3525f98",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-r005q53-final-source-4-050E43",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "{\r\n  \"schema\": \"R005A_CONSECUTIVE_PRIME_GAP_CATALOG_V1\",\r\n  \"source_id\": \"R005_Q78553_COMPLETE_SEGMENTED_SIEVE_050E43\",\r\n  \"coverage_start\": 1291005053866735,\r\n  \"coverage_end\": 1294364244470160,\r\n  \"complete_for_gap_ge\": 916,\r\n  \"max_gap_bound\": 730,\r\n  \"max_gap_bound_start\": 1291000000000027,\r\n  \"max_gap_bound_end\": 1294999999999942,\r\n  \"completeness_attestation\": true,\r\n  \"rows\": [],\r\n  \"rows_sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\r\n  \"construction_audit_path\": \"research_artifacts/R005_Q78553_CATALOGUE_050E43_20260910/construction_audit.json\",\r\n  \"attestation_basis\": {\r\n    \"kind\": \"COMPLETE_FINITE_SEGMENTED_ERATOSTHENES_CONSTRUCTION_WITH_ALL_PAIR_STITCHING\",\r\n    \"covered_integer_interval_half_open\": [\r\n      1291000000000000,\r\n      1295000000000000\r\n    ],\r\n    \"recorded_prime_count\": 114956492689,\r\n    \"audited_consecutive_pair_count\": 114956492688,\r\n    \"independent_count_checks\": 4,\r\n    \"construction_audit_sha256\": \"66674175f3e75ce125aa08b9aa156c7c7bfa1d28d7e3ed8cbe4edab2fafadf09\",\r\n    \"independent_witness_verification_sha256\": \"4ee17c6cbe929cb84611ae1cd2b96a5ee8ee1b18ced7ea3a9226fafac830f149\",\r\n    \"run_manifest_sha256\": \"31cccc0b8afdc78fd9194ec4b332ee84d5ace9cd64a1fd4bdf2bea8c1ca93004\",\r\n    \"source_code_sha256\": {\r\n      \"sieve_block.py\": \"9c71ef57bbff563865351ba8227d480f3b96774c4882a8fd71067cc24aa8f21e\",\r\n      \"construct_catalogue.py\": \"b69b432aa7c8c13a4525ba734adcfea091a47390ab2fe4efd9fbff8f49820c4f\"\r\n    },\r\n    \"scope\": \"Exact frozen task gap-start band; no result for another q and no Driver acceptance implied.\",\r\n    \"execution_assumptions\": \"Recorded execution of pinned numerical libraries and task adapter; this is a finite computational certificate, not a formal compiler/hardware verification.\"\r\n  }\r\n}\r\n",
+      "display_title": "catalogue.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/2b73da21eac990abfd28593de1b552a4c3525f98/research_artifacts/R005_Q78553_CATALOGUE_050E43_20260910/catalogue.json",
+      "encoding": "utf-8",
+      "sha": "2312657ee9a40cc00bbee3182a5b3157ec2d6b75"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
