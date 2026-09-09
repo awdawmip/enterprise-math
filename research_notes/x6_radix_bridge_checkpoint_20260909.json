@@ -1,0 +1,59 @@
+{
+  "schema": "EM_X6_RESEARCH_CHECKPOINT_V1",
+  "activity_id": "RA-X6CM-F01144F76207",
+  "event_id": "X6CM-RADIX-BRIDGE-20260909-04",
+  "status": "DECLARED_MODEL_PROOFS_AND_EXACT_REGRESSION_NOT_ADMITTED",
+  "source_snapshot": "6cf0edabb2b1d5551ba30e8efc27044363d9ed1f",
+  "frontier": [
+    "All-base fixed-frame ordered affine radix x_(a+mb)=x_a+A_m x_b forces x_k=k*x_1.",
+    "An integer similarity lattice with Gram s^2 I has the axis-aligned s-box as a transversal iff the lattice is sZ^d.",
+    "The frozen one-chirality chain at 5^6 has only 9261 represented cosets; 6364 Cell replacements are necessary and attainable absent geometric constraints.",
+    "A separately declared conjugate-alternating chain preserves index and lcm compatibility and has L_alt(s^6)=sZ6 for every positive s.",
+    "General quotient radix requires current-frame relative digit sets; canonicalization carries preserve exact coordinates, not merely quotient labels.",
+    "Current non-sixth-power occupancy mismatch remains: index 3 still maps three Cells to two cosets."
+  ],
+  "verification": {
+    "prefix_indices_checked": 96,
+    "cube5_cells_enumerated": 15625,
+    "conjugate_chain_local_checks": 162,
+    "scalar_cube_sides_checked": [
+      1,
+      25
+    ],
+    "lcm_intersections": 144,
+    "relative_radix_pairs": 144,
+    "relative_radix_states": 6084,
+    "nonzero_radix_carries": 542,
+    "carry_cocycle_cases": 320,
+    "rank_radix_pairs": 576,
+    "rank_associativity_cases": 1080,
+    "arithmetic": "exact integers/rationals"
+  },
+  "artifacts": [
+    {
+      "path": "experiments/x6_radix_bridge_20260909/results.json",
+      "bytes": 10949,
+      "sha256": "d193cfb77618bd3af54dbe79d5ab314bbeba478665edbf455bb8a2d4baa9a8a9",
+      "git_blob_sha1": "6f66116bc411803a0dd0f53fde5abe2cbccab7d7"
+    },
+    {
+      "path": "experiments/x6_radix_bridge_20260909/verify.py",
+      "bytes": 11222,
+      "sha256": "1d3e3ae2dd9361518fc81938b02767fef9ea61dcaebcb91f43ad73f24a255907",
+      "git_blob_sha1": "3d4eafd8d6124b9ff711889a44423becd3da223b"
+    },
+    {
+      "path": "research_notes/x6_cube_radix_rigidity_and_conjugate_repair_20260909.md",
+      "bytes": 13429,
+      "sha256": "0c217f953c7f247ed9d43017429c2cd7ee755ea6352826c3b39ece72417dde2c",
+      "git_blob_sha1": "f419021a262747cfe7d15ee55af3f77b57ff093e"
+    }
+  ],
+  "not_claimed": [
+    "Foundation admission",
+    "unique native dynamics",
+    "all prefixes are lattice transversals",
+    "fixed-frame spatial compatibility for all bases"
+  ],
+  "next_unit": "Quantify native-distance costs of repairing non-sixth-power S_n into representatives of L_alt(n), preserving local growth and relative frames."
+}
