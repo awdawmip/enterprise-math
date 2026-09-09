@@ -45,13 +45,21 @@ remain available under their own checks.
 
 ## Verification and handoff
 
-The final implementation passed 41 local tests across real first-review/task
-closure, candidate rollback and existing follow-up authority. The new cases
+The final implementation passed 52 local tests across real first-review/task
+closure, candidate rollback, existing follow-up authority and named-success
+compatibility. The new cases
 exercise the full first-review and materialization path, nineteen malformed or
 ineligible assessment variants, report drift after the first DR, synthetic
 review rejection, unchanged raw Result bytes and an open parent. Existing
 publication/result/packet races and required-gate checks also pass. Final source
-hashes remained unchanged throughout the recorded 109.668-second run.
+hashes remained unchanged throughout the recorded 114.084-second run.
+
+The first source passed the focused remote workflow, but one of 373 tests in
+the full-quality shard detected a changed refusal-message prefix in the old
+named-success path. The result still refused closure. The follow-up patch
+retains that historical diagnostic prefix; the final expanded local suite
+includes all eleven named-success compatibility tests. No acceptance check was
+relaxed to fix the failure.
 
 The [validation receipt](../research_artifacts/DRIVER_TASK_COMPLETION_ASSESSMENT_20260910/validation_receipt.json)
 also records read-only byte and field inspection of the actual Result and the

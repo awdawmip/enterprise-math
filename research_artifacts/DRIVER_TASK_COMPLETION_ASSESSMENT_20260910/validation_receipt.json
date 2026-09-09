@@ -12,14 +12,15 @@
       "-v",
       "tests.test_task_scope_portfolio_followup",
       "tests.test_result_writer_canonical_post_audit",
-      "tests.test_research_driver_followup"
+      "tests.test_research_driver_followup",
+      "tests.test_named_success_result_compatibility"
     ],
     "cwd": "D:\\em\\control-driver-task-completion-assessment-20260910",
-    "started_at": "2026-09-09T17:45:05.212398+00:00",
-    "elapsed_seconds": 109.66771489998791,
+    "started_at": "2026-09-09T18:03:13.696410+00:00",
+    "elapsed_seconds": 114.08391950000077,
     "exit_code": 0,
     "source_sha256": {
-      "research_driver_followup.py": "b344828c14a5f5ca58254f343c6333019e225d88f8d3bb1963f91988ae9a57d6",
+      "research_driver_followup.py": "2989771975160cec079b0974c237c9184800cbe5bd9bac7ed729382519738f06",
       "tools/research_result_records.py": "3276fa8de23ff1b95c54e18d9fe00194b142e66ed7f663bb533f20d008d7d291",
       "tests/test_task_scope_portfolio_followup.py": "df36235bb8e2e8a78b29f5d4742033be2fbf77062c37e919f02f083929c8a712",
       "research_driver_followup_contract.json": "a5e182002ae54feae9c0016116c5ccc6ffd655cb4246d4c5bd5c86968823b974",
@@ -28,9 +29,9 @@
     },
     "source_unchanged_during_run": true,
     "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "stderr_sha256": "695351b96666e85ba105d1d3b6971525f5d6c504637ea55cacd5a20dc3293629"
+    "stderr_sha256": "9eb4daa006ed19de14ab0f6c89c175cad49510d069f62d732364a3d3968b4261"
   },
-  "test_count": 41,
+  "test_count": 52,
   "actual_source_binding_inspection": {
     "scope": "READ_ONLY_SOURCE_DOCUMENT_AND_RESULT_BINDING_INSPECTION",
     "source_observations": [
@@ -71,5 +72,12 @@
   "first_prototype": "REJECTED: placeholder preflight review lacked real pins; corrected by using the genuine validated review candidate before immutable creation",
   "initial_three_cases_after_candidate_fix": "PASS",
   "full_final_tests": "PASS",
-  "root_driver_review_performed": false
+  "root_driver_review_performed": false,
+  "first_source_ci": {
+    "source": "0be37c29d30620c9998fdbfccba943fb2d8656a0",
+    "quality_run": 34385953442,
+    "failed_job": 102582223010,
+    "failure": "Existing named-success refusal-message prefix changed; refusal behavior remained closed.",
+    "repair": "Preserve the historical hard_target_disposition SATISFIED prefix; add the eleven-case named-success suite to final local validation."
+  }
 }

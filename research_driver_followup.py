@@ -216,7 +216,7 @@ def _task_scope_continuation(
             "PARTIAL", "PARTIALLY_SATISFIED", "INCOMPLETE", "NOT_SATISFIED", "UNSATISFIED",
             "NEGATIVE_BOUNDARY", "NO_GO", "FAIL", "FAILED", "BLOCKED",
         }:
-            raise DriverFollowupError("TASK-scope closure requires SATISFIED; an explicit incomplete or negative target cannot be retyped")
+            raise DriverFollowupError("TASK-scope closure requires hard_target_disposition SATISFIED; an explicit incomplete or negative target cannot be retyped")
         _driver_task_completion_assessment(review, result, root)
     if terminal_scope != "TASK":
         raise DriverFollowupError("completed-Task follow-up requires terminal_scope TASK")
@@ -293,7 +293,9 @@ def _driver_task_completion_assessment(
     """
     if (review.get("record_schema") != result_impl.REVIEW_SCHEMA
             or review.get("review_authority_kind") not in {None, "IMMUTABLE_REVIEW"}):
-        raise DriverFollowupError("explicit Task completion requires an immutable Driver review")
+        raise DriverFollowupError(
+            "TASK-scope closure requires hard_target_disposition SATISFIED or an explicit "
+            "assessment bound to an immutable Driver review")
     result_path, result_digest = _result_record_pin(review, result, root)
     raw_result = _load(root / result_path)
     for field in ("result_id", "task_id", "publication_id", "terminal_verdict", "hard_target_disposition"):
