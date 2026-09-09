@@ -50,35 +50,35 @@ BRC is first-line where the selected P11 carrier admits typed branching/observer
 ### READY mathematical task A
 
 Task: `RS-P000-P11-DIAGONAL-ELLIPTIC-FIBER-PRIMITIVE-ARITHMETIC`  
-Publication: `TP2-B3250EF0A45C0A518620`  
+Publication: `TP2-FB7F5A1D6B6C6BCCD62D`  
 Role: continue the accepted diagonal branch from exact genus-one reduction to uniform fiber arithmetic.  
 Target: prove an infinite primitive family, a uniform primitive classification, or the smallest exact uniform obstruction.
 
 ### READY mathematical task B
 
 Task: `RS-P000-P11-OFF-DIAGONAL-EQUAL-AREA-FIBER-PRODUCT`  
-Publication: `TP2-9DC601673FE51BD96550`  
+Publication: `TP2-74D161216AAF385EE27F`  
 Role: return to the complementary `h!=0` branch of the accepted simultaneous C1/C2 component.  
 Target: preserve both labeled equal-area triangle factors and classify primitive off-diagonal families/components or isolate the exact higher arithmetic obstruction.
 
 ### BLOCKED independent audit
 
 Task: `RS-P000-P11-ARITHMETIC-LINE-INDEPENDENT-AUDIT`  
-Publication: `TP2-724376ECAEBB4A49002B`  
+Publication: `TP2-0EF61A32E6D06E8879DE`  
 Block: requires Driver-accepted exact Results from both mathematical tasks and an actually independent verifier.  
 Role: independently reexecute load-bearing arithmetic, primitive filters, branch compatibility, current P000 typing and observer-safe quotient claims.
 
 ### BLOCKED final integration
 
 Task: `RS-P000-P11-ARITHMETIC-COLLISION-FINAL-INTEGRATION`  
-Publication: `TP2-597878DCC5AA08E7FEA8`  
+Publication: `TP2-5E02B5D6961B23083533`  
 Block: requires both accepted branch Results plus an accepted independent audit.  
 Role: integrate the strongest compatible derived theorem package and force an explicit close, park or justified split decision.
 
 ### READY persistent line Driver governance
 
 Task: `GV-P000-P11-ARITHMETIC-PERSISTENT-LINE-DRIVER`  
-Publication: `TP2-42B487D62586145ED857`  
+Publication: `TP2-685CCCAD015EBB859280`  
 Kind: `GOVERNANCE`  
 Role: one explicitly activated Research Driver owns this local line's review/routing continuity, releases blocked gates, republishes revisions when needed and keeps this dossier replacement-ready.
 
@@ -103,9 +103,9 @@ The active line Driver must:
 
 There are three READY objects in the line package:
 
-1. `GV-P000-P11-ARITHMETIC-PERSISTENT-LINE-DRIVER` — activate a persistent line Driver when such a governance owner is selected;
-2. `RS-P000-P11-DIAGONAL-ELLIPTIC-FIBER-PRIMITIVE-ARITHMETIC` — available to a bounded task researcher;
-3. `RS-P000-P11-OFF-DIAGONAL-EQUAL-AREA-FIBER-PRODUCT` — available to a separate bounded task researcher.
+1. `GV-P000-P11-ARITHMETIC-PERSISTENT-LINE-DRIVER / TP2-685CCCAD015EBB859280` — activate a persistent line Driver when such a governance owner is selected;
+2. `RS-P000-P11-DIAGONAL-ELLIPTIC-FIBER-PRIMITIVE-ARITHMETIC / TP2-FB7F5A1D6B6C6BCCD62D` — available to a bounded task researcher;
+3. `RS-P000-P11-OFF-DIAGONAL-EQUAL-AREA-FIBER-PRODUCT / TP2-74D161216AAF385EE27F` — available to a separate bounded task researcher.
 
 The independent audit and final integration must remain blocked until their exact evidence conditions are satisfied.
 
