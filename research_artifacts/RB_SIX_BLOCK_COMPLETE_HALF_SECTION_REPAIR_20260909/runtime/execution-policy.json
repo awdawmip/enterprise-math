@@ -1,0 +1,26 @@
+{
+  "schema": "RB_SIX_BLOCK_EXACT_EXECUTION_POLICY_V1",
+  "researcher_id": "EM-RB-1EB0B6",
+  "execution_record_id": "ER-023A3343CE7FA4FA2AEE",
+  "recorded_at": "2026-09-09T16:48:57.346664+00:00",
+  "mathematical_scope": "All four complete half-section sectors; frozen k, lambda, full ODE; no180/360 re-enumeration",
+  "resource_limits": {
+    "concurrent_mathematical_processes": 1,
+    "per_symbolic_process_timeout_seconds": 180,
+    "initial_exact_elimination_budget_seconds": 900,
+    "owner_lease_expires_at": "2026-09-09T18:43:50+00:00"
+  },
+  "trace_requirements": [
+    "Preserve exact source hashes and unchanged imported task-local primitives",
+    "Keep literal commands, exit codes, stdout, stderr and elapsed times",
+    "Keep every symbolic residual and denominator/saturation condition",
+    "Record exact unfinished unit if a bounded computation times out",
+    "Paper completeness is separate from finite checker success"
+  ],
+  "scope_exclusions": [
+    "No historical claim/session reconstruction",
+    "No imported clean-blindness claim",
+    "No old assignment enumeration replay",
+    "No parent closure or period/homology assertion"
+  ]
+}
