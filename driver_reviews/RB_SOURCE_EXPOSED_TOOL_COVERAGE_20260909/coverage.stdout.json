@@ -1,0 +1,1227 @@
+{
+  "query": "BRC Spatial6 operation safe quotient rational map basepoint valuation square class descent",
+  "verdict": "REUSE_CANDIDATE_FOUND",
+  "tool_families": [
+    {
+      "score": 29,
+      "id": "T6_OPERATION_SAFE_QUOTIENT",
+      "name": "Operation-Safe Quotient / Predictive Refinement Calculus",
+      "status": "HARVESTED_PREEXISTING_DERIVED_TOOL_FAMILY",
+      "triggers": [
+        "quotient",
+        "collapse",
+        "projection",
+        "future observation",
+        "predictive",
+        "descent",
+        "congruence",
+        "stable partition",
+        "operation family",
+        "coarse graining"
+      ],
+      "capabilities": [
+        "fiber-constancy witness",
+        "descent test",
+        "coarsest repair",
+        "predictive partition",
+        "operation-family closure",
+        "safe-operation census"
+      ],
+      "hard_boundary": "the preserved observation/operation language must be declared; the calculus does not choose what distinctions are semantically disposable",
+      "source_methods": [
+        "src/enterprise_math/predictive_quotient.py",
+        "src/enterprise_math/composition_safe_collapse.py",
+        "src/enterprise_math/operation_quotient.py",
+        "src/enterprise_math/partial_operation_quotient.py",
+        "src/enterprise_math/safe_operation_algebra.py"
+      ]
+    },
+    {
+      "score": 18,
+      "id": "T4_FINITE_FIBER_CAPACITY_COLLISION_MINIMA",
+      "name": "Finite Fiber Capacity / Collision-Minima Calculus",
+      "status": "ACCEPTED_TOOL_COMPOSITION_NOVELTY_DOWNGRADED",
+      "api": [
+        "RAW_CAPACITY",
+        "QUOTIENT_CAPACITY",
+        "FIBER_FREE",
+        "COLLISION_DEFECT",
+        "COLLISION_WITNESS",
+        "REPRESENTATIVE_PACKING_COVERING",
+        "SUCCESSIVE_COLLISION_MINIMA"
+      ],
+      "triggers": [
+        "fiber",
+        "quotient capacity",
+        "collision",
+        "representative",
+        "compression",
+        "packing",
+        "covering",
+        "minima",
+        "same observation"
+      ],
+      "capabilities": [
+        "fiber capacity",
+        "collision defect",
+        "equal-fiber witness",
+        "optimal one-representative-per-fiber compression",
+        "first collision scales"
+      ],
+      "hard_boundary": "semantic observation/quotient must already be declared or derived; the tool cannot invent pi to force a capacity theorem",
+      "prior_enterprise_machinery": [
+        "predictive quotient",
+        "operation quotient",
+        "function/relation collision spectra",
+        "finite preimage multiplicity"
+      ],
+      "driver_review": "driver_reviews/TOOL_DISCOVERY_NATIVE_GEOMETRY_OF_NUMBERS_DRIVER_REVIEW_20260822.md",
+      "result": "research_notes/TOOL_DISCOVERY_NATIVE_GEOMETRY_OF_NUMBERS_MINIMA_CALCULUS_RESULT_20260822.md"
+    },
+    {
+      "score": 18,
+      "id": "T8_RELATION_OBSERVABLE_SPECTRUM",
+      "name": "Relation Observable / Spectrum Calculus",
+      "status": "HARVESTED_PREEXISTING_DERIVED_TOOL_FAMILY",
+      "triggers": [
+        "relation",
+        "correspondence",
+        "multivalued",
+        "support",
+        "observable",
+        "branching",
+        "overlap",
+        "spectrum",
+        "common target",
+        "set-valued future"
+      ],
+      "capabilities": [
+        "powerset-valued future signatures",
+        "raw-vs-observed branching audit",
+        "relation collision spectra",
+        "relation-safe quotient test",
+        "capacity-weighted relation invariants"
+      ],
+      "hard_boundary": "relation branching, observable nondeterminism and quotient safety are different questions and may not be conflated",
+      "source_methods": [
+        "src/enterprise_math/relation_observable_signature.py",
+        "src/enterprise_math/relational_spectrum.py",
+        "src/enterprise_math/relation_observable_composition.py",
+        "src/enterprise_math/relation_future_powerset.py",
+        "src/enterprise_math/weighted_relation_field.py",
+        "src/enterprise_math/relation_lattice.py"
+      ]
+    },
+    {
+      "score": 18,
+      "id": "T9_HOLONOMY_COCOYCLE_GLUING",
+      "name": "Holonomy / Cocycle / Gluing-Obstruction Calculus",
+      "status": "HARVESTED_PREEXISTING_PLUS_RECENT_DERIVED_TOOL_FAMILY",
+      "triggers": [
+        "holonomy",
+        "cocycle",
+        "loop transport",
+        "route dependence",
+        "chart transition",
+        "gluing obstruction",
+        "torsor",
+        "groupoid",
+        "defect transport"
+      ],
+      "capabilities": [
+        "staged-vs-direct transport check",
+        "loop defect/holonomy readout",
+        "cocycle obstruction",
+        "strict-gluing no-go",
+        "route-independent quotient diagnosis"
+      ],
+      "hard_boundary": "nonzero holonomy diagnoses failure of strict global trivialization; it does not by itself identify a unique repaired global object or promote transport data to N0",
+      "source_methods": [
+        "src/enterprise_math/precision_holonomy.py",
+        "src/enterprise_math/precision_signed_holonomy.py",
+        "src/enterprise_math/p023_borrow_cocycle.py",
+        "src/enterprise_math/material_loop_identity.py",
+        "driver_reviews/R063_STAGE4_THREE_SECTOR_C4_PROCESS_GLOBALIZATION_DRIVER_REVIEW_20260822.md"
+      ]
+    },
+    {
+      "score": 10,
+      "id": "T0_BRC",
+      "name": "BRC",
+      "status": "PREEXISTING_CANONICAL_TOOL_FAMILY",
+      "scope": "support/result/provenance-valued composition; use exact current BRC definitions",
+      "triggers": [
+        "BRC",
+        "support",
+        "Boolean result",
+        "path formal",
+        "branch",
+        "recoalescence",
+        "multipath"
+      ],
+      "capabilities": [
+        "support algebra",
+        "path/result projection",
+        "multipath composition",
+        "provenance-aware result semantics"
+      ],
+      "hard_boundary": "Use exact current BRC typing; do not infer erased provenance from Boolean support."
+    },
+    {
+      "score": 9,
+      "id": "T5_PRECISION_REFINEMENT",
+      "name": "Integer Precision / Refinement Calculus",
+      "status": "HARVESTED_PREEXISTING_DERIVED_TOOL_FAMILY",
+      "triggers": [
+        "precision",
+        "refinement",
+        "coarse",
+        "fine",
+        "projection",
+        "detail",
+        "carry",
+        "borrow",
+        "mixed radix",
+        "scale chain",
+        "graded transport"
+      ],
+      "capabilities": [
+        "exact projection/recomposition",
+        "fiber detail",
+        "carry/borrow",
+        "precision-chain decomposition",
+        "graded transport",
+        "nonlinear projection defect"
+      ],
+      "hard_boundary": "finite integer precision only unless a separate theorem supplies continuum/limit semantics",
+      "source_methods": [
+        "src/enterprise_math/precision.py",
+        "src/enterprise_math/graded_precision.py",
+        "src/enterprise_math/precision_system.py",
+        "src/enterprise_math/precision_proof.py"
+      ]
+    },
+    {
+      "score": 7,
+      "id": "T1_SCALE_ENUMERATION_VALUATION",
+      "name": "Enterprise Scale Enumeration / Valuation Calculus",
+      "status": "ACCEPTED_DERIVED_TOOL",
+      "api": [
+        "DELTA",
+        "GEN",
+        "VAL",
+        "MOBIUS",
+        "LOCAL"
+      ],
+      "triggers": [
+        "scale",
+        "shell",
+        "count",
+        "enumeration",
+        "growth",
+        "finite difference",
+        "generating function",
+        "valuation",
+        "inclusion-exclusion",
+        "Mobius",
+        "basin"
+      ],
+      "capabilities": [
+        "scale enumeration",
+        "shell extraction",
+        "finite-difference certificates",
+        "rational-series/recurrence compression",
+        "valuation and local-to-global overlap correction"
+      ],
+      "hard_boundary": "NO_UNIVERSAL_NATIVE_EHRHART_POLYNOMIALITY",
+      "driver_review": "driver_reviews/TOOL_DISCOVERY_NATIVE_VALUATION_EHRHART_BRION_DRIVER_REVIEW_20260822.md",
+      "result": "research_notes/TOOL_DISCOVERY_NATIVE_VALUATION_EHRHART_BRION_CALCULUS_REPORT_20260822.md",
+      "subtools": [
+        {
+          "id": "T1_TRIAXIAL_DIRECTIONAL_DEFECT",
+          "classification": "GLOBAL_SUBTOOL",
+          "status": "DRIVER_ACCEPTED_NARROWED_EXECUTABLE",
+          "api": [
+            "DECLARE_FRAME",
+            "DIFF1",
+            "RHOMBUS2",
+            "TRIPLE_DEFECT",
+            "XRAY_KERNEL_CERT",
+            "FRAME_WIDTH",
+            "MULTIFRAME_UNIQUENESS",
+            "EXPOSED_AUGMENT",
+            "FULL_ADJOINT",
+            "CHIRALITY_ADJOINT",
+            "COMPRESSED_GRAM",
+            "GRAM_FACTOR"
+          ],
+          "triggers": [
+            "triaxial directional difference",
+            "rhombus defect",
+            "triple defect",
+            "ghost kernel",
+            "native-hex tomography",
+            "frame-width uniqueness",
+            "exposed-vertex augmentation"
+          ],
+          "capabilities": [
+            "primitive/canonical frame declaration with explicit unoriented deduplication",
+            "shared tomography and Hive/rhombus directional-defect core",
+            "native-hex kernel/uniqueness certificates",
+            "exposed-vertex unimodular augmentation",
+            "typed full adjoint",
+            "characteristic-sensitive compressed Gram diagnostic"
+          ],
+          "hard_boundary": "FULL_ADJOINT != COMPRESSED_GRAM; native-hex/support-compatible width scope only; endpoint coalescence != trace identity; verified coefficient characteristics 0,2,3,5,7 on the adjoint/Gram integration path; Y-Delta, binary/nonlinear tomography, Foundation mutation, width-theorem extension and new top-level family promotion are forbidden.",
+          "source_methods": [
+            "src/enterprise_math/triaxial_directional_defect.py",
+            "src/enterprise_math/_triaxial_directional_defect_core.py"
+          ],
+          "tests": [
+            "tests/test_triaxial_directional_defect_integration.py"
+          ],
+          "driver_review": "driver_reviews/TRIAXIAL_DIRECTIONAL_DEFECT_INDEPENDENT_TOOL_VERIFICATION_DRIVER_REVIEW_20260825.md@f364c75d55e8018bcea80bdf00fc025f2ad7dd02"
+        }
+      ]
+    },
+    {
+      "score": 6,
+      "id": "T11_DISCRETE_MORSE_CHAIN_REDUCTION",
+      "name": "Discrete Morse / Acyclic-Matching Chain Reduction",
+      "status": "DRIVER_ACCEPTED_NEW_ENTERPRISE_TOOL_INTERFACE",
+      "api": [
+        "VALIDATE_CHAIN_COMPLEX",
+        "MATCH",
+        "ACYCLIC",
+        "CANCELLABLE_PAIR",
+        "CANCEL",
+        "MORSE_REDUCE",
+        "CRITICAL_GENERATORS",
+        "MORSE_BOUNDARY",
+        "PROJECT",
+        "LIFT",
+        "HOMOLOGY_CERT",
+        "OBSTRUCTION"
+      ],
+      "triggers": [
+        "discrete Morse",
+        "acyclic matching",
+        "chain complex",
+        "critical generators",
+        "Morse reduction",
+        "unit cancellation",
+        "chain homotopy",
+        "homology compression"
+      ],
+      "capabilities": [
+        "exact adjacent-grade matching validation",
+        "closed-gradient obstruction",
+        "unit-incidence cancellation",
+        "critical-generator reduction",
+        "exact reduced boundary",
+        "projection/lift/homotopy strong-deformation-retract certificate"
+      ],
+      "hard_boundary": "Requires an explicit finite free chain complex. Over Z only unit pivots plus/minus 1 cancel. Homology equivalence is not T6 operation safety, and greedy matching is not canonical or optimal by default.",
+      "source_methods": [
+        "src/enterprise_math/discrete_morse_collapse.py"
+      ],
+      "driver_review": "driver_reviews/TOOL_DISCOVERY_SIX_RETURN_DRIVER_INTAKE_20260823.md",
+      "result": "research_notes/TOOL_DISCOVERY_DISCRETE_MORSE_ACYCLIC_MATCHING_RESULT_20260823.md"
+    }
+  ],
+  "methods": [
+    {
+      "score": 34,
+      "method_id": "t0.weighted_brc_newton_fiber_quotient",
+      "name": "Exact BRC Newton residual fiber-sum operation-safe quotient",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "implementation": "src/enterprise_math/brc_newton_fiber_quotient.py",
+      "foundation": "definitions/ENTERPRISE_BRC_NEWTON_FIBER_QUOTIENT_FOUNDATION_20260904.md",
+      "theorem_ledger": "definitions/ENTERPRISE_BRC_NEWTON_FIBER_QUOTIENT_THEOREM_LEDGER_20260904.json",
+      "source_refs": [
+        "PR #1196",
+        "WBRC-T55",
+        "src/enterprise_math/operation_quotient.py"
+      ],
+      "triggers": [
+        "newton fiber quotient",
+        "newton provenance quotient",
+        "residual jet compression",
+        "fiber sum",
+        "operation safe quotient",
+        "source provenance",
+        "brc quotient"
+      ],
+      "capabilities": [
+        "map fixed source Taylor positions to exact residual (scale,degree) coordinates",
+        "compute complete residual fiber-sum signatures",
+        "decide full-residual observer equivalence",
+        "return within-fiber transfer generators and exact rank/kernel dimensions",
+        "project to the weaker current edge-only observer",
+        "apply one exact within-fiber provenance transfer"
+      ],
+      "typed_inputs": [
+        "fixed RationalValuationScale theta",
+        "fixed positive Newton multiplicity",
+        "finite labeled source Taylor positions with source scales and degrees",
+        "rational algebraic-compression coefficients"
+      ],
+      "typed_outputs": [
+        "residual Newton coordinates",
+        "fiber partition",
+        "full residual coefficient signature",
+        "observer equivalence",
+        "kernel transfer basis",
+        "observer rank and kernel dimension"
+      ],
+      "reuse": [
+        "t0.weighted_brc_newton_handoff_resonance",
+        "t0.weighted_brc_newton_recursion",
+        "T6_OPERATION_SAFE_QUOTIENT principle only"
+      ],
+      "hard_boundary": "Minimality is for the complete residual Newton-jet observer only. Edge-only or provenance-sensitive observers have different quotients. Different residual scales or Taylor degrees do not merge. Algebraic coefficient cancellation is not signed branch-mass cancellation."
+    },
+    {
+      "score": 27,
+      "method_id": "quotient.operation_family_closure",
+      "name": "Operation-family quotient closure and safe-operation census",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T6_OPERATION_SAFE_QUOTIENT",
+      "status": "CANONICAL_MAIN_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/operation_quotient.py",
+        "src/enterprise_math/partial_operation_quotient.py",
+        "src/enterprise_math/safe_operation_algebra.py"
+      ],
+      "triggers": [
+        "operation quotient",
+        "operation congruence",
+        "family descends",
+        "stable family partition",
+        "safe operation"
+      ],
+      "capabilities": [
+        "operation descent",
+        "family refinement",
+        "stable family partition",
+        "safe-operation count",
+        "descent obstruction"
+      ]
+    },
+    {
+      "score": 27,
+      "method_id": "t0.weighted_brc_cwm",
+      "name": "Weighted BRC CWM / log-multiplicity calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_ADMITTED_EXECUTABLE",
+      "source_refs": [
+        "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md",
+        "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json",
+        "src/enterprise_math/brc_weighted.py",
+        "tests/test_brc_weighted_foundation_tool.py",
+        "research_notes/BRC_FOUNDATION_RETROFIT_REGRESSION_20260902.md"
+      ],
+      "api": [
+        "CWMState",
+        "CWM_ZERO",
+        "CWM_ONE",
+        "cwm_edge",
+        "cwm_recoalesce",
+        "cwm_propagate",
+        "cwm_from_positive_weights",
+        "is_positive_path_realizable",
+        "boolean_support",
+        "effective_multiplicity",
+        "multiplicity_surplus_expr",
+        "dominant_log_expr",
+        "total_log_expr",
+        "future_cwm_equivalent",
+        "projective_scale",
+        "gauge_scale",
+        "compensate_incoming_weight",
+        "OneStateRecurrentCWM",
+        "one_state_recurrent_cwm"
+      ],
+      "triggers": [
+        "weighted BRC",
+        "branch multiplicity",
+        "positive branch weight",
+        "path count total dominant",
+        "CWM",
+        "effective multiplicity",
+        "log surplus",
+        "ln k multiplicity",
+        "weighted recoalescence",
+        "weighted future quotient",
+        "projective gauge quotient",
+        "positive recurrent branches",
+        "multiplicity-driven divergence"
+      ],
+      "capabilities": [
+        "exact positive-rational branch recoalescence and propagation through one CWM carrier",
+        "exact positive-path realizability test",
+        "Boolean support forgetful readout",
+        "effective multiplicity E=W/M and symbolic BRC LN surplus readout",
+        "all-prefix future-CWM safe equivalence",
+        "projective future scaling and incoming-weight compensation",
+        "one-state multi-loop exact recurrence and stable geometric closure",
+        "typed deterministic degeneration with E=1 and zero log surplus"
+      ],
+      "core_law": "Positive finite branch systems carry CWM=(C,W,M) with alternative recoalescence (+,+,max) and serial propagation by componentwise multiplication; E=W/M and Delta=ln(E) measure multiplicity beyond the dominant path. Equal k-way recoalescence has Delta=ln k. For one-state loops total mass is stable iff S=sum q_i<1, not merely max q_i<1.",
+      "hard_boundary": "Positive Weighted-BRC does not represent signed/amplitude cancellation, does not recover erased branch provenance from Boolean support, does not make LN/LOG primitive state, and does not provide a general SCC/Perron-Frobenius/spectral-radius theorem. Deterministic single-path problems reduce to E=1, Delta=0 and should not be artificially reinterpreted as multiplicity problems."
+    },
+    {
+      "score": 27,
+      "method_id": "t0.weighted_brc_newton_observer_lattice",
+      "name": "Exact BRC Newton observer lattice and frozen-horizon observability",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "implementation": "src/enterprise_math/brc_newton_observer_lattice.py",
+      "foundation": "definitions/ENTERPRISE_BRC_NEWTON_OBSERVER_LATTICE_FOUNDATION_20260904.md",
+      "theorem_ledger": "definitions/ENTERPRISE_BRC_NEWTON_OBSERVER_LATTICE_THEOREM_LEDGER_20260904.json",
+      "source_refs": [
+        "PR #1202",
+        "WBRC-T56",
+        "T6_OPERATION_SAFE_QUOTIENT principle"
+      ],
+      "triggers": [
+        "newton observer lattice",
+        "edge only observer",
+        "full residual observer",
+        "future observation quotient",
+        "frozen newton schedule",
+        "finite horizon observability",
+        "observer lease",
+        "newton context compression"
+      ],
+      "capabilities": [
+        "construct canonical coordinate-projection observers on T56 residual coordinates",
+        "compute observer signatures, equivalence, joins, meets and rank/kernel dimensions",
+        "compare full-residual and edge-only safe quotients",
+        "apply exact rational Newton substitutions for a declared frozen schedule",
+        "compute scale-one edge signatures over a finite declared horizon",
+        "construct exact observability matrices and prefix rank/kernel profiles"
+      ],
+      "typed_inputs": [
+        "finite T56 residual coordinate universe",
+        "declared coordinate observer subset",
+        "finite rational residual coefficient state",
+        "declared frozen Newton schedule of rational roots, positive multiplicities and RationalValuationScale factors"
+      ],
+      "typed_outputs": [
+        "coordinate-observer signature and equivalence",
+        "observer join/meet and kernel dimension",
+        "scheduled residual coefficient state",
+        "finite-horizon edge signature",
+        "exact rational observability matrix",
+        "horizon rank and kernel-dimension profile"
+      ],
+      "reuse": [
+        "t0.weighted_brc_newton_fiber_quotient",
+        "t0.weighted_brc_newton_handoff_resonance",
+        "T6 future-observation principle only"
+      ],
+      "hard_boundary": "Coordinate observers do not classify arbitrary nonlinear observers. Frozen scheduled substitutions do not certify that perturbed states autonomously select the same roots, multiplicities or scales. Longer declared horizons can only refine or preserve the safe quotient."
+    },
+    {
+      "score": 26,
+      "method_id": "quotient.composition_safe_collapse",
+      "name": "Composition-safe collapse repair",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T6_OPERATION_SAFE_QUOTIENT",
+      "status": "CANONICAL_MAIN_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/composition_safe_collapse.py"
+      ],
+      "triggers": [
+        "collapse",
+        "quotient",
+        "factor through",
+        "descent",
+        "future-safe",
+        "repair"
+      ],
+      "capabilities": [
+        "fiber constancy witness",
+        "descends-through test",
+        "coarsest repair",
+        "stable future partition"
+      ]
+    },
+    {
+      "score": 24,
+      "method_id": "candidate.x6.two_positive_raw_stability_certificate",
+      "name": "Two-positive raw X6 stability certificate / 双正支点 raw X6 稳定性证书",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "description": "Existing published executable for two positive support raw X6 stability certificate: aggregate positive populations, form the Jordan difference, verify all twenty raw marginals, D >= 4*M, and the original-coordinate equal-weight rectangle equality classification. 双正支点、二十张 raw 表、整数不等式与矩形取等的既有可执行证书登记。",
+      "scope": "Finite positive populations in a common externally supplied anchor and labelled integer X6 chart, with at most two Jordan-positive sites after aggregation and cancellation.",
+      "triggers": [
+        "two positive support raw X6 stability certificate",
+        "X6 双正支点 raw 二十表 稳定性 矩形取等 证书"
+      ],
+      "capabilities": [
+        "canonical Spatial6 positive populations and post-cancellation Jordan support",
+        "complete twenty raw three-axis tables with reversible joint can3 plus offset",
+        "integer D >= 4*M certificate for p<=2 including p<=1, p=0 and zero-difference boundaries",
+        "original-coordinate equal-weight checkerboard rectangle equality",
+        "native literal unevaluated, unreduced DivisionExpr ratios"
+      ],
+      "api": [
+        "audit_two_positive_stability"
+      ],
+      "api_signatures": {
+        "audit_two_positive_stability": "(case_id, mu_atoms, nu_atoms, denominator=1)"
+      },
+      "implementation_ref": "experiments/owner_two_positive_stability_20260908/check_two_positive_stability.py",
+      "input_contract": [
+        "mu_atoms and nu_atoms are finite populations of canonical Spatial6 points with strictly positive exact-int numerator weights; duplicate points are aggregated before common population cancellation.",
+        "denominator is a strictly positive exact int; booleans and int subclasses are rejected. The common mass unit is the existing unevaluated DIV(1,s).",
+        "All atoms must belong to the same externally established anchor and labelled raw integer chart. Signed values describe the analytical difference of two positive BRC populations, never a negative native branch.",
+        "The post-Jordan positive support must have size at most two. The existing one-positive audit is called only on its p<=1 branch."
+      ],
+      "output_contract": [
+        "Full integer Jordan ledger and all twenty ordered raw marginal tables, including joint can3 addresses and common offsets; can3-alone is insufficient.",
+        "Integer M, D, D-4*M and the scope-appropriate proof branch; the nonzero equality flag is checked against actual original-coordinate rectangle corners and equal absolute numerator weights.",
+        "Native literal DivisionExpr nodes for common unit and displayed masses/ratios remain unevaluated and unreduced. M=D=0 has no ratio."
+      ],
+      "executable_scope": {
+        "post_jordan_positive_support_at_most": 2,
+        "positive_integer_population_numerators": true,
+        "strict_positive_integer_common_denominator": true,
+        "same_external_anchor_and_labelled_raw_x6_chart_required": true,
+        "aggregate_then_cancel_before_support_check": true,
+        "signed_difference_is_analysis_only": true,
+        "complete_ordered_raw_three_axis_tables": 20,
+        "joint_can3_plus_common_offset_required": true,
+        "integer_bound": "D >= 4*M",
+        "nonzero_equality": "original-coordinate equal-weight checkerboard rectangle",
+        "literal_unreduced_unevaluated_division_expr": true,
+        "zero_difference_ratio": null,
+        "p_le_1_uses_existing_audit_case_only_in_its_scope": true,
+        "extends_to_three_positive_support": false,
+        "recovers_microscopic_branch_history": false,
+        "formal_result_created": false,
+        "working_truth_granted": false,
+        "main_admission_inferred": false
+      },
+      "hard_boundary": "This source-only candidate registers an already published bounded consumer. It adds no theorem, family, formal Result, Working Truth, or main admission. It does not certify p>=3, infer anchor/branch history, replace raw coordinates by can3 alone, evaluate a rational quotient, or claim transitive migration of historical Fraction initialization. Finite author/reviewer cases are retained evidence, not a universal proof substitute.",
+      "source_refs": [
+        "experiments/owner_two_positive_stability_20260908/check_two_positive_stability.py",
+        "experiments/owner_two_positive_stability_20260908/certificate.json",
+        "experiments/owner_two_positive_stability_20260908/README.md",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/review_two_positive.py",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/author_input_pins.json",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/README.md",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/validation.json"
+      ],
+      "runtime_refs": [
+        "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md",
+        "exact_arithmetic_runtime_policy.json",
+        "experiments/owner_one_positive_stability_20260908/check_one_positive_stability.py",
+        "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py",
+        "experiments/x6_signed_native_spatial_v16_20260905/x6_signed.py",
+        "research_notes/OWNER_ONE_POSITIVE_STABILITY_20260907.md",
+        "research_notes/OWNER_ONE_POSITIVE_STABILITY_INDEPENDENT_AUDIT_20260908.md",
+        "research_notes/OWNER_TWO_POSITIVE_EQUALITY_CLASSIFICATION_REVIEW_20260908.md",
+        "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_BOUND_REVIEW_20260908.md",
+        "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_INDEPENDENT_AUDIT_20260908.md",
+        "research_notes/OWNER_X6_STABILITY_20260907.md",
+        "src/enterprise_math/__init__.py",
+        "src/enterprise_math/core.py",
+        "src/enterprise_math/division.py",
+        "src/enterprise_math/exact_arithmetic.py",
+        "tools/check_exact_arithmetic_policy.py"
+      ],
+      "source_sha256": {
+        "experiments/owner_two_positive_stability_20260908/check_two_positive_stability.py": "3fe2fa6c824b7cff1fca4ad9a3f0235fc008c2a00b152893559eed54d2f63da7",
+        "experiments/owner_two_positive_stability_20260908/certificate.json": "244e9cd7844e391b3f19cdbebaaad36fd70ddf14c97701252847ca2a50761e7e",
+        "experiments/owner_two_positive_stability_20260908/README.md": "929dedf2a8f5ac05b965406ad15eca1ecab27c05d9586fdbdf2406af2843c327",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/review_two_positive.py": "37c831a0b51dbd6cd16e9657d3f402f7903af7deaa205ce17772639b6af3b51e",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/author_input_pins.json": "57a90c8aa99f22d51cbb8bd905cf9700900ecdb4f56b081cacaf8d713841548c",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/README.md": "c01d49cd12927db32cb14a515707ebf4e4c72214caf47f2229bc7eaff9e2490a",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/validation.json": "513f65ccf2c08796adadfd2ebeafb4fd8fb4f2fb6b540d913af537a51df479ac",
+        "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md": "519a16725156be5461c6e28a0dcef664e267cff4e85120cfb257d5d540ec459e",
+        "exact_arithmetic_runtime_policy.json": "0fdb8eddc09d9e734ddd91b52d6c3c18c9d6036837dfe9fee0bbdbdb7d44b2aa",
+        "experiments/owner_one_positive_stability_20260908/check_one_positive_stability.py": "283c0b64e995077d01e5b42114ffd5791bafadeb5f175b4df17118ee1a9d5878",
+        "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py": "6f0d79a519c53fed1300b3fabf500c34e30aa46cdd63b409fa6ecc115071ecb4",
+        "experiments/x6_signed_native_spatial_v16_20260905/x6_signed.py": "e48b6f2133edc588fde98b1b0f02ce27fecda915b152b7901300898920d52b8e",
+        "research_notes/OWNER_ONE_POSITIVE_STABILITY_20260907.md": "b49eac9291c7b6a6ec458a133700ee17a4573972e58787a976871512746dd4e7",
+        "research_notes/OWNER_ONE_POSITIVE_STABILITY_INDEPENDENT_AUDIT_20260908.md": "f6fe6713fb46bc0fd9c6626333cb44afd14c88b13b7f7d99fe8f928859434038",
+        "research_notes/OWNER_TWO_POSITIVE_EQUALITY_CLASSIFICATION_REVIEW_20260908.md": "1a50237cb4a92a3ec2ef7168b7bd8e90598f69aba394217221f24c83fa810ec7",
+        "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_BOUND_REVIEW_20260908.md": "1bb732a50cccbbec6c8c11950104c62eed9afc15f326fcc39d9142bd13b24a35",
+        "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_INDEPENDENT_AUDIT_20260908.md": "f610e3d642b53279efa91dec15ad3b392270768f73ad0a31edf38212b60be61c",
+        "research_notes/OWNER_X6_STABILITY_20260907.md": "2915e70210dce5bc136c915e45e96a7c8a1f6dd414fae1590a4687f41bff3127",
+        "src/enterprise_math/__init__.py": "bf974df0ef0f57991947d061cb300e835e53bc79ff5667e4229fcc7a6cadbdcc",
+        "src/enterprise_math/core.py": "d2814d1d31eb195905f05136f250fcac2232b8cfc7dc6c9797000733ddebe636",
+        "src/enterprise_math/division.py": "4421c6dc9acfaa61492137951e543973c010c6a127655126152cc18763cc35e9",
+        "src/enterprise_math/exact_arithmetic.py": "f4f8feead82dc53a35e5fec495b31e46e64820f7b115c9efd6034063e68f8ad6",
+        "tools/check_exact_arithmetic_policy.py": "d5629502352e8207a4616368858e68dec1c259e8a0c635769163784dc8bd01fa"
+      },
+      "validation_refs": [
+        "experiments/owner_two_positive_stability_20260908/certificate.json",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/README.md",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/validation.json"
+      ],
+      "validation_contract": {
+        "registration_validator": "experiments/20260908_owner_two_positive_stability/validate_registration.py",
+        "registration_receipt": "experiments/20260908_owner_two_positive_stability/validation.json",
+        "registration_checks": "Exact source/dependency pins, canonical loader queries, actual public signature import, and preservation of prior catalog bytes/objects only.",
+        "historical_author_evidence": "17 cases / 340 raw tables / 18 input rejects; original certificate retained at its immutable source pin.",
+        "historical_independent_evidence": "9 independent cases / 180 raw tables / 19 rejects including fresh-process source-pin drift; portable review receipt retained at its immutable source pin.",
+        "historical_mathematical_cases_replayed_by_registration": false
+      },
+      "reuse_resolution": {
+        "coverage_verdict": "EXTEND_EXISTING_TOOL",
+        "matched_method_ids": [
+          "candidate.x6.one_positive_raw_stability_certificate",
+          "candidate.x6.positive_support_raw_compression_certificate",
+          "candidate.x6.raw_joint_observer_recovery",
+          "result.x6.two_positive_raw_stability",
+          "result.x6.two_positive_equality_rectangle"
+        ],
+        "matched_toolsets": [
+          "T0_BRC"
+        ],
+        "reuse_resolution_state": "EXTEND_EXISTING_TOOL",
+        "resolution": "Register the existing p2 consumer in the same X6/raw BRC family. Keep the one-positive and raw-compression executables and both p2 RESULT_ONLY records unchanged; their paper scope is not an executable API duplicate.",
+        "execution_boundary": "The published consumer already composes canonical X6, one-positive population/raw projection and native DIV. This registration imports the actual public module only to inspect its API; it does not claim to execute those mathematical capabilities again."
+      },
+      "runtime_constraints": {
+        "canonical_imports_required": true,
+        "arbitrary_precision_integer_mass_numerators": true,
+        "division_expr": "native symbolic, unevaluated and unreduced",
+        "historical_fraction_initialization_transitively_migrated": false,
+        "anchoring_is_a_caller_provenance_requirement": true
+      },
+      "tags": [
+        "X6",
+        "raw",
+        "two-positive",
+        "p<=2",
+        "stability",
+        "rectangle-equality",
+        "positive-BRC-populations",
+        "symbolic-DIV",
+        "source-only-candidate"
+      ]
+    },
+    {
+      "score": 24,
+      "method_id": "t0.brc_multiplier_square_content",
+      "name": "BRC multiplier square-content scan reduction",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_multiplier_square_content.py",
+        "tests/test_brc_multiplier_square_content.py",
+        "research_notes/BRC_MULTIPLIER_SQUARE_CONTENT_REDUCTION_20260906.md",
+        "src/enterprise_math/brc_multiplier_basin.py",
+        "src/enterprise_math/brc_multiplier_priority_jump.py"
+      ],
+      "api": [
+        "SquareContentReduction",
+        "odd_n_square_content_scan_reduction",
+        "jump_state_square_content_reduction"
+      ],
+      "triggers": [
+        "BRC square content",
+        "squareful multiplier",
+        "multiplier common scale",
+        "ceiling root gcd",
+        "dynamic multiplier quotient",
+        "gap-test redundancy"
+      ],
+      "capabilities": [
+        "exact one-shot stripping of every multiplier square factor whose root divides the known BRC ceiling root",
+        "exact immediate-ceiling witness preservation under m->m/g^2 and x->x/g",
+        "same gcd-factor preservation under declared gcd(n,m)=1",
+        "canonical reuse of m=a^2 d squarefree decomposition",
+        "composition with the existing exact odd-N 2-adic state representative",
+        "state-level IRREDUNDANT/REDUCED/IMPOSSIBLE classification before gap squarehood testing"
+      ],
+      "core_law": "Write m=a^2 d with d squarefree and x=ceil(sqrt(mn)). Under gcd(n,m)=1, g=gcd(a,x) divides the square root y of every successful completion gap y^2=x^2-mn. Dividing m,x,y by g^2,g,g yields the exact immediate ceiling witness at m/g^2, and gcd(x-y,n)=gcd(x/g-y/g,n). After this one-shot normalization gcd(a/g,x/g)=1, so all square content visible in the current ceiling root has been removed.",
+      "hard_boundary": "Requires an already-known exact ceiling root and declared gcd(n,m)=1; a nontrivial multiplier gcd should be handled as a factor witness before this reduction. Squareful multipliers are not statically discardable: states with gcd(square-content-root,ceiling-root)=1 can be genuine first hits. Common-factor scaling is elementary prior art; no novelty priority, asymptotic factorization speedup, or Foundation promotion is claimed."
+    },
+    {
+      "score": 24,
+      "method_id": "t0.brc_phase_root_recurrence",
+      "name": "BRC fixed-phase root/remainder third-difference transport",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_phase_root_recurrence.py",
+        "tests/test_brc_phase_root_recurrence.py",
+        "experiments/brc_phase_root_recurrence_benchmark.py",
+        "research_notes/BRC_PHASE_ROOT_RECURRENCE_20260907.md",
+        "research_artifacts/brc_phase_root_recurrence_benchmark_20260907.csv"
+      ],
+      "api": [
+        "PhaseRootRemainderState",
+        "PhaseRootRemainderTracker",
+        "phase_root_candidate_gap",
+        "phase_root_third_difference_bounds",
+        "odd_n_phase_root_tail_states",
+        "reused_reciprocal_table_bytes"
+      ],
+      "triggers": [
+        "BRC phase root recurrence",
+        "third finite difference multiplier root",
+        "remove order-one quotient after warmup",
+        "reuse reciprocal table for BRC correction",
+        "fixed mod-8 phase root remainder"
+      ],
+      "capabilities": [
+        "exact unbounded fixed-phase root/remainder transport after fourteen order-one seed transitions",
+        "quadratic extrapolation of each mod-8 phase root from three labeled exact phase states",
+        "exact target residual G=R0-3R1+3R2-6b(b-a) without target square root or q(2J+q)",
+        "uniform common-tail integer correction bound -3..387",
+        "reuse of the existing 1024-byte normalized reciprocal table for constant-comparison phase closure",
+        "preservation of the exact completion gap for composition with the zero-false-negative BALANCED square-residue cascade",
+        "optional exact lifted product state using only bounded-correction multipliers, retained as a CPU-negative alternative"
+      ],
+      "core_law": "For phase-spaced states (m+8i)N=J_i^2+R_i, let a=J_1-J_0, b=J_2-J_1 and C=3J_2-3J_1+J_0. Then (m+24)N-C^2=R_0-3R_1+3R_2-6b(b-a). On 4m^5>=N, e=J_3-C is the integer third phase difference and satisfies -3<=e<=387. For C>=75078, floor(G/(2C+1)) lies in {e,e+1}; the existing Round-13 1 KiB lower-reciprocal table recovers that floor with at most two increments, and one sign check yields the exact (J_3,R_3).",
+      "observer_contract": "Retain three labeled phase triples (m_i,J_i,R_i). Roots alone, Boolean support, or an unlabeled aggregate are inadequate because the exact residual and future completion-gap observer depend on the individual remainders and phase order.",
+      "hard_boundary": "Exact integer transport only on the already-certified odd-N order-one deep tail and fixed mod-8 representative phases. The finite performance crossover is runtime-dependent; direct division remains appropriate for smaller operands. This does not reduce the multiplier horizon, change Lehman/Hart factorization complexity, imply RSA practicality, or create a new top-level BRC family."
+    },
+    {
+      "score": 24,
+      "method_id": "t0.brc_square_increment_difference_jet",
+      "name": "BRC square-increment finite-difference jet tail",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_energy_difference_jet_tail.py",
+        "src/enterprise_math/brc_quotient_jet_tail.py",
+        "tests/test_brc_energy_difference_jet_tail.py",
+        "experiments/brc_energy_difference_jet_benchmark.py",
+        "research_notes/BRC_ENERGY_DIFFERENCE_JET_TAIL_20260907.md",
+        "research_artifacts/brc_energy_difference_jet_benchmark_20260907.csv"
+      ],
+      "api": [
+        "EnergyJetSeedSample",
+        "EnergyDifferenceJetOrbit",
+        "EnergyDifferenceJetTailStep",
+        "EnergyDifferenceJetTailScanner",
+        "root_stride_third_difference",
+        "root_third_difference_bound_sufficient",
+        "square_increment_third_difference"
+      ],
+      "triggers": [
+        "BRC square increment jet",
+        "eliminate q times 2J plus q",
+        "general-multiplication-free BRC tail",
+        "energy finite difference multiplier transport",
+        "root third difference bound",
+        "compose quotient jet with square-gap tables"
+      ],
+      "capabilities": [
+        "retain exact E=q(2J+q) on each of the five fixed-step mod-8 source orbits",
+        "prove the exact third-difference product identity coupling quotient and root jets",
+        "prove the sharp common-tail root third-difference interval [-3,387]",
+        "reuse the quotient-jet intervals epsilon in [-4,4] and Delta^2 q in [-2,98]",
+        "retain the sole unbounded mixed product (Delta q)(Delta^2 J) and transport it using only bounded-coefficient multiplications",
+        "after fifteen quotient divisions and fifteen direct square-increment seed products, perform no fresh division and no multiplication of two N-growing operands",
+        "preserve exact multiplier root/remainder states with at most two ordinary BRC root corrections",
+        "compose unchanged with the BALANCED 4032/12155/12673 square-gap residue cascade"
+      ],
+      "core_law": "On one stride-8 source orbit let s=nabla q, a=nabla^2 q, t=nabla J, u=nabla^2 J, e=nabla^3 q_new, w=nabla^3 J_new and E=q(2J+q). Then nabla^3 E_new = e(2(J+q+s+a+t+u+w)+e)+2w(q+s+a)+6(su+a(s+t)). The quotient jet gives e in [-4,4] and a in [-2,98]. For J=floor(sqrt(mN)), the common tail 4m^5>=N gives 0<Delta_8^3 sqrt(mN)<=384; floor phase contributes strictly between -4 and 4, hence w lies in the sharp integer interval [-3,387]. Retaining M=su and updating M_new=M+s w+(a+e)u+(a+e)w means every post-seed product has a fixed bounded integer factor.",
+      "hard_boundary": "This is an exact multiplier-state execution optimization extending t0.brc_quotient_jet_tail; it does not shorten a Lehman/Hart-style multiplier horizon, change factor-search complexity, establish RSA practicality, or create a new top-level BRC family. Finite CPython timings favor the difference jet only for sufficiently large integers (near parity at 4096 bits and favorable at 8192/16384 bits in the committed run); smaller inputs should retain the fresh native product. The exact quotient remainder, root finite differences, energy finite differences, and mixed provenance coordinate must not be collapsed."
+    },
+    {
+      "score": 24,
+      "method_id": "t0.weighted_brc_histogram",
+      "name": "Exact positive-rational branch-weight histogram and leading-pair calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "source_refs": [
+        "definitions/ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_FOUNDATION_20260903.md",
+        "definitions/ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_THEOREM_LEDGER_20260903.json",
+        "src/enterprise_math/brc_histogram.py",
+        "PR #1155",
+        "PR #1157"
+      ],
+      "api": [
+        "LeadingPair",
+        "WeightHistogram",
+        "weight_histogram",
+        "histogram_recoalesce",
+        "histogram_serial",
+        "leading_recoalesce",
+        "leading_serial",
+        "dominant_degeneracy_error_bound",
+        "power_sum_root_polynomial"
+      ],
+      "triggers": [
+        "explicit positive branch weights",
+        "exact weight histogram",
+        "moment completeness",
+        "dominant degeneracy",
+        "strongest path multiplicity",
+        "prime valuation branch histogram"
+      ],
+      "capabilities": [
+        "exact finite histogram recoalescence and serial convolution",
+        "count total-mass dominant-mass and integer-moment readouts",
+        "exact prime-valuation histogram terms",
+        "dominant weight plus tie multiplicity quotient",
+        "exact finite dominant-degeneracy error bound",
+        "Newton root-polynomial recovery from finite power sums"
+      ],
+      "core_law": "N[Q_{>0}^x] is the exact common positive branch carrier; C,W,M and all integer moments are typed projections, and Lead(H)=(M,d) is an exact quotient.",
+      "hard_boundary": "Equal-weight branch labels/provenance are not retained. Finite exact representation is not a runtime-complexity theorem. Signed/amplitude and arbitrary irrational/complex weights are outside scope."
+    },
+    {
+      "score": 21,
+      "method_id": "domain.diagonal_translation_quotient_normalization",
+      "name": "Diagonal-translation quotient / min-zero canonicalization",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T6_OPERATION_SAFE_QUOTIENT",
+      "status": "DRIVER_ACCEPTED_TYPED_SPECIALIZATION",
+      "source_refs": [
+        "src/enterprise_math/diagonal_quotient.py",
+        "scripts/diagonal_quotient_normalization_check.py",
+        "definitions/ENTERPRISE_DERIVED_DIAGONAL_DISPLACEMENT_QUOTIENT_20260826.md",
+        "research_notes/DIAGONAL_GAUGE_DERIVED_DISPLACEMENT_THEOREM_PACKAGE_20260826.md"
+      ],
+      "triggers": [
+        "diagonal shift",
+        "common translation",
+        "Z^3 / Z(1,1,1)",
+        "canonical representative",
+        "min-zero normalization",
+        "quotient section",
+        "gauge normalization",
+        "derived displacement"
+      ],
+      "capabilities": [
+        "exact common-translation class test",
+        "canonical nonnegative min-zero representative",
+        "Z^2 quotient chart",
+        "transported quotient addition",
+        "transported quotient inverse",
+        "finite regression certificate"
+      ],
+      "note": "This operator canonicalizes a declared diagonal Z-action; it does not decide whether the quotient is semantically admissible. In current Enterprise geometry it is admitted for the separately typed derived G1 displacement layer A_D/G_D and is forbidden as an automatic primitive native-point A_E quotient. No new T-family is created."
+    },
+    {
+      "score": 21,
+      "method_id": "domain.precision.quotient_root_atlas_carry",
+      "name": "Exact quotient-root atlas and ternary state-count carry operator",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T1_SCALE_ENUMERATION_VALUATION",
+      "supporting_family_ids": [
+        "T4_FINITE_FIBER_CAPACITY_COLLISION_MINIMA",
+        "T5_PRECISION_REFINEMENT"
+      ],
+      "status": "DRIVER_ADMITTED_DOMAIN_OPERATOR",
+      "source_refs": [
+        "research_notes/P018_QUOTIENT_ROOT_ATLAS_TERNARY_CARRY_DRIVER_ACCEPTED_THEOREM_NODE_20260828.md",
+        "research_notes/P018_QUOTIENT_ROOT_ATLAS_TERNARY_CARRY_THEOREM_TOOL_HARVEST_20260828.md",
+        "driver_reviews/P018_TERNARY_CARRY_THRESHOLD_TO_CARDINALITY_DRIVER_REVIEW_20260827.md",
+        "driver_reviews/P018_QUOTIENT_ROOT_ATLAS_CARRY_DOMAIN_OPERATOR_ADMISSION_20260828.md",
+        "EnterpriseMath/Precision/RootStateAtlasCardinality.lean",
+        "src/enterprise_math/p018_root_state_decomposition.py",
+        "src/enterprise_math/p018_root_state_carry.py",
+        "tests/test_p018_root_state_decomposition.py",
+        "tests/test_p018_root_state_carry.py",
+        "tests/test_p018_root_state_exact_count.py"
+      ],
+      "api": [
+        "state_coalescence_horizon",
+        "exact_distinct_root_state_count",
+        "quotient_root_state_decomposition",
+        "horizon_state_carry",
+        "ternary_state_count_carry",
+        "ternary_state_count_band"
+      ],
+      "triggers": [
+        "quotient root atlas",
+        "floor quotient root",
+        "distinct quotient-root states",
+        "coalescence horizon",
+        "denominator atlas",
+        "root-state cardinality",
+        "horizon carry",
+        "ternary count carry",
+        "compressed denominator scan"
+      ],
+      "capabilities": [
+        "compute the exact state-specific coalescence horizon and high-denominator cutoff",
+        "certify the high injective chart and contiguous forced low-root chart",
+        "compute exact distinct quotient-root state cardinality without a full denominator scan",
+        "certify the unique optional horizon state by a binary boundary carry",
+        "compress the exact count to a three-valued threshold carry",
+        "materialize the compressed root-state atlas for regression or downstream finite reasoning"
+      ],
+      "core_law": "For n>=1 and r>=1, with H=R_(r+1)(r*n-1) and D=floor(n/(H+1)^r), the quotient-root atlas R_r(floor(n/d)), 1<=d<=n, is the disjoint union of an injective D-state high chart and the forced low interval 1..H-1 plus at most the horizon H. Hence |S|+1=D+H+kappa; with q=floor(H/r) the three-point D-band compresses this to |S|+1=H+q+tau with tau in {0,1,2} selected by two exact thresholds.",
+      "hard_boundary": "DOMAIN_OPERATOR only. The carrier is the finite positive-denominator quotient-root atlas. Do not generalize to arbitrary floor maps or quotient semigroups, do not infer prime/factoring/Legendre or continuum claims, do not erase the H=0 branch, and do not treat the ternary state-count carry as a universal T5 carry law. No Foundation mutation follows."
+    }
+  ],
+  "executable_modules": [
+    {
+      "score": 21,
+      "id": "module:brc_newton_fiber_quotient",
+      "name": "brc_newton_fiber_quotient.py",
+      "description": "Exact full-residual Newton fiber-sum quotient for Weighted-BRC.",
+      "source_ref": "src/enterprise_math/brc_newton_fiber_quotient.py",
+      "api": [
+        "newton_fiber_coordinate",
+        "newton_fiber_quotient_analysis",
+        "newton_fiber_sum_signature",
+        "newton_fiber_equivalent",
+        "newton_fiber_edge_signature",
+        "apply_newton_fiber_transfer",
+        "NewtonFiberPosition",
+        "NewtonFiberCoordinate",
+        "NewtonFiberClass",
+        "NewtonFiberQuotientAnalysis"
+      ],
+      "triggers": [
+        "brc newton fiber quotient"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 21,
+      "id": "module:brc_phase_quotient_remainder",
+      "name": "brc_phase_quotient_remainder.py",
+      "description": "Exact phase-wise quotient/remainder transport for the order-1 BRC tail.",
+      "source_ref": "src/enterprise_math/brc_phase_quotient_remainder.py",
+      "api": [
+        "phase_second_difference_bounds",
+        "reciprocal_seed_table",
+        "PhaseQuotientResult",
+        "PhaseQuotientRemainderTracker"
+      ],
+      "triggers": [
+        "brc phase quotient remainder"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 21,
+      "id": "module:brc_quotient_jet_tail",
+      "name": "brc_quotient_jet_tail.py",
+      "description": "Exact quotient/remainder jet for the order-1 linear BRC multiplier tail.",
+      "source_ref": "src/enterprise_math/brc_quotient_jet_tail.py",
+      "api": [
+        "outgoing_sparse_step",
+        "quotient_jet_bound_sufficient",
+        "quotient_jet_tail_threshold",
+        "QuotientJetOrbit",
+        "QuotientJetTailStep",
+        "QuotientJetTailScanner"
+      ],
+      "triggers": [
+        "brc quotient jet tail"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 21,
+      "id": "module:composition_safe_collapse",
+      "name": "composition_safe_collapse.py",
+      "description": "Finite quotient calculus for composition-safe collapse (P023 research branch).",
+      "source_ref": "src/enterprise_math/composition_safe_collapse.py",
+      "api": [
+        "canonical_class_ids",
+        "fiber_constancy_witness",
+        "descends_through",
+        "induced_map",
+        "coarsest_one_step_repair",
+        "refines",
+        "one_step_transition_refinement",
+        "transition_compatible",
+        "future_partition_sequence",
+        "stable_future_partition",
+        "future_signature",
+        "same_future_observations",
+        "class_count"
+      ],
+      "triggers": [
+        "composition safe collapse"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 21,
+      "id": "module:operation_quotient",
+      "name": "operation_quotient.py",
+      "description": "Finite operation-family closure for P023 composition-safe collapse.",
+      "source_ref": "src/enterprise_math/operation_quotient.py",
+      "api": [
+        "refines",
+        "operation_descends",
+        "family_descends",
+        "family_refinement_step",
+        "family_future_partition_sequence",
+        "stable_family_partition",
+        "apply_word",
+        "operation_words",
+        "word_observation_signature",
+        "class_count"
+      ],
+      "triggers": [
+        "operation quotient"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 21,
+      "id": "module:partial_operation_quotient",
+      "name": "partial_operation_quotient.py",
+      "description": "Finite future-safe quotients for deterministic partial operation families.",
+      "source_ref": "src/enterprise_math/partial_operation_quotient.py",
+      "api": [
+        "partition_refines",
+        "partitions_equivalent",
+        "partial_operation_descends",
+        "partial_family_descends",
+        "partial_family_refinement_step",
+        "partial_family_future_partition_sequence",
+        "stable_partial_family_partition",
+        "apply_partial_word",
+        "partial_word_observation_signature",
+        "partial_family_horizon_partition",
+        "stable_partial_family_is_coarsest_compatible",
+        "PartialWordResult"
+      ],
+      "triggers": [
+        "partial operation quotient"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 18,
+      "id": "module:diagonal_quotient",
+      "name": "diagonal_quotient.py",
+      "description": "Typed diagonal-translation quotient normalization.",
+      "source_ref": "src/enterprise_math/diagonal_quotient.py",
+      "api": [
+        "as_triple",
+        "diagonal_shift",
+        "canonical_min_zero",
+        "is_canonical_min_zero",
+        "diagonal_chart",
+        "same_diagonal_class",
+        "class_shift",
+        "compose_canonical",
+        "inverse_canonical",
+        "identity_canonical"
+      ],
+      "triggers": [
+        "diagonal quotient"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 18,
+      "id": "module:material_future_precision",
+      "name": "material_future_precision.py",
+      "description": "Material-observable future precision as a strict quotient of raw escape depth.",
+      "source_ref": "src/enterprise_math/material_future_precision.py",
+      "api": [
+        "material_response_word",
+        "material_visible_deficit_cap",
+        "compile_material_future_precision",
+        "full_material_future_signature",
+        "material_future_class_count",
+        "permutation_symmetric_material_future_class_count",
+        "MaterialFuturePrecisionState"
+      ],
+      "triggers": [
+        "material future precision"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 18,
+      "id": "module:material_future_quotient",
+      "name": "material_future_quotient.py",
+      "description": "Future-language sufficiency of the E001 material branch bit.",
+      "source_ref": "src/enterprise_math/material_future_quotient.py",
+      "api": [
+        "material_future_signature",
+        "branch_bit_future_equivalent",
+        "MaterialFutureSignature"
+      ],
+      "triggers": [
+        "material future quotient"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 18,
+      "id": "module:material_word_quotient",
+      "name": "material_word_quotient.py",
+      "description": "Finite behavioral quotient of E001 material operator words.",
+      "source_ref": "src/enterprise_math/material_word_quotient.py",
+      "api": [
+        "material_word_signature",
+        "material_word_behavior",
+        "material_words_equivalent",
+        "compose_material_words",
+        "verify_equivalence_congruence",
+        "MaterialWordBehavior"
+      ],
+      "triggers": [
+        "material word quotient"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 18,
+      "id": "module:p018_power_basin",
+      "name": "p018_power_basin.py",
+      "description": "All-power quotient transport for Enterprise Math P018.",
+      "source_ref": "src/enterprise_math/p018_power_basin.py",
+      "api": [
+        "power_basin_quotient_window",
+        "whole_basin_strict_root_descent",
+        "power_basin_quotient_transport",
+        "iterated_power_basin_quotient_transport"
+      ],
+      "triggers": [
+        "p018 power basin"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 18,
+      "id": "module:predictive_quotient",
+      "name": "predictive_quotient.py",
+      "description": "Finite predictive quotient compiler for Enterprise Math engineering probes.",
+      "source_ref": "src/enterprise_math/predictive_quotient.py",
+      "api": [
+        "partition_blocks",
+        "partition_block_count",
+        "restricted_block_count",
+        "observation_partition",
+        "refine_predictive_partition",
+        "finite_horizon_partition",
+        "predictive_block_profile",
+        "stable_predictive_partition",
+        "distinguishing_horizon",
+        "quotient_transition_table",
+        "quotient_observation_table",
+        "StablePredictiveQuotient"
+      ],
+      "triggers": [
+        "predictive quotient"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    }
+  ],
+  "next_rule": "Inspect semantic preconditions and hard boundaries before deciding REUSE / COMPOSE / EXTEND_EXISTING_TOOL."
+}
