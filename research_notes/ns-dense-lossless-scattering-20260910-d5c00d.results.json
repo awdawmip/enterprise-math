@@ -1,0 +1,49 @@
+{
+  "schema": "EM_DENSE_LOSSLESS_SCATTERING_RESULTS_V1",
+  "event_id": "NS-DENSE-LOSSLESS-SCATTERING-20260910-D5C00D-17",
+  "status": "EXACT_FINITE_ALGEBRA_TEST_MODEL_NOT_PHYSICAL_ADMISSION",
+  "householder": {"H00": "1/2", "H0port": "-1/4", "dense_background_fixed": true},
+  "infinite_no_return": [
+    {"n": 0, "cavity_amplitude": "1", "visible_energy": "1", "residual_energy": "0"},
+    {"n": 1, "cavity_amplitude": "1/2", "visible_energy": "1/4", "residual_energy": "3/4"},
+    {"n": 2, "cavity_amplitude": "1/4", "visible_energy": "1/16", "residual_energy": "15/16"},
+    {"n": 3, "cavity_amplitude": "1/8", "visible_energy": "1/64", "residual_energy": "63/64"},
+    {"n": 4, "cavity_amplitude": "1/16", "visible_energy": "1/256", "residual_energy": "255/256"},
+    {"n": 5, "cavity_amplitude": "1/32", "visible_energy": "1/1024", "residual_energy": "1023/1024"},
+    {"n": 6, "cavity_amplitude": "1/64", "visible_energy": "1/4096", "residual_energy": "4095/4096"},
+    {"n": 7, "cavity_amplitude": "1/128", "visible_energy": "1/16384", "residual_energy": "16383/16384"},
+    {"n": 8, "cavity_amplitude": "1/256", "visible_energy": "1/65536", "residual_energy": "65535/65536"},
+    {"n": 9, "cavity_amplitude": "1/512", "visible_energy": "1/262144", "residual_energy": "262143/262144"},
+    {"n": 10, "cavity_amplitude": "1/1024", "visible_energy": "1/1048576", "residual_energy": "1048575/1048576"}
+  ],
+  "finite_ring_return": [
+    {"L": 5, "first_no_return_steps": 5, "first_return_cavity_amplitude": "49/64", "predicted": "49/64"},
+    {"L": 7, "first_no_return_steps": 7, "first_return_cavity_amplitude": "193/256", "predicted": "193/256"},
+    {"L": 11, "first_no_return_steps": 11, "first_return_cavity_amplitude": "3073/4096", "predicted": "3073/4096"}
+  ],
+  "phase_fiber_counterexample": {"same_per_slot_positive_energies": true, "next_cavity_amplitudes": ["1/4", "3/4"], "next_visible_energies": ["1/16", "9/16"], "fiber_constancy": false},
+  "bulk_heat_memory": {"visible_energy": ["1", "1/4", "7/64", "403/4096", "9553/65536"], "two_tick_exact_operator": "T=I+Delta_X6/16", "T2_center_if_residual_reset": "7/64", "actual_four_tick_center": "1/64", "fourth_tick_visible_backflow": "3105/65536", "full_relative_quadratic_conserved": true},
+  "finite_unitary_semigroup_obstruction": {"periodic_side": 4, "strict_heat_eigenvalue": "7/8", "finite_dimensional_exact_all_time_unitary_dilation": "impossible_by_recurrence_proof"},
+  "quantum_relation_transport": {
+    "path": [[0,0,0,0,0,0],[1,0,0,0,0,0],[1,0,1,0,0,0],[1,-1,1,0,0,0],[1,-1,1,0,0,1]],
+    "primitive_edges": 4,
+    "records": [
+      {"tick":0,"endpoint":[0,0,0,0,0,0]},
+      {"tick":1,"endpoint":[1,0,0,0,0,0]},
+      {"tick":2,"endpoint":[1,0,1,0,0,0]},
+      {"tick":3,"endpoint":[1,-1,1,0,0,0]},
+      {"tick":4,"endpoint":[1,-1,1,0,0,1]}
+    ],
+    "partial_transpose_principal_minor":"-1/4",
+    "chi_hilbert_schmidt_sq":"3/4",
+    "CHSH_correlations":["3/5","3/5","4/5","-4/5"],
+    "CHSH":"14/5"
+  },
+  "nonclaims": [
+    "Dense means a discrete field of resident degrees of freedom; no continuum density is assumed.",
+    "The 13-mode Householder scatterer is a constitutive test law, not derived from P000.",
+    "The conserved quadratic is not identified with complete physical energy.",
+    "Quantum tensor products, Born observables and SWAP are added comparison assumptions.",
+    "No primitive-force, viscosity, Navier-Stokes, superluminal-signalling, or quantum-origin theorem."
+  ]
+}

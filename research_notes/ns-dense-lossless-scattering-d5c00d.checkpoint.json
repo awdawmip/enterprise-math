@@ -1,0 +1,51 @@
+{
+  "schema": "EM_DENSE_LOSSLESS_SCATTERING_CHECKPOINT_V1",
+  "event_id": "NS-DENSE-LOSSLESS-SCATTERING-20260910-D5C00D-17",
+  "status": "TESTING_ORDINARY_PROOFS_AND_EXECUTED_EXACT_CHECKS",
+  "source_snapshot": "3c5abd9dd2b0756dbb89c9eb13dc4396f1843fa7",
+  "artifacts": [
+    {
+      "path": "research_notes/ns-dense-lossless-scattering-20260910-d5c00d.md",
+      "sha256": "cff9cd890014235d0f0e4b83d6c9daed08941f3abb100232435a7f939ff3fd78",
+      "git_blob_sha1": "44bc6e69d2ac8646945538f0e54a0560bd277d28"
+    },
+    {
+      "path": "experiments/ns_dense_lossless_scattering_d5c00d/check_lossless_scattering.py",
+      "sha256": "8ce2fb134711be617264bbca5b10ae12778dc70f4b3d21d8f55bd2e8690e20a4",
+      "git_blob_sha1": "5fd967645efec41cb6f2315fb0ea8eb7d27b55d3"
+    },
+    {
+      "path": "research_notes/ns-dense-lossless-scattering-20260910-d5c00d.results.json",
+      "sha256": "604a70bbb85cabcfe29102461d8473f45b812f106257864f1df0353d756ee18d",
+      "git_blob_sha1": "a0360779c923cd91d1e44ed0e8cbb14f1b276ef8"
+    }
+  ],
+  "theorems": [
+    "The 13-mode Householder-plus-primitive-streaming candidate is exactly reversible and conserves the full relative quadratic on X6.",
+    "A dense stationary background f_v=beta, a=-6 beta is fixed; finite-norm deviations evolve losslessly.",
+    "For the no-return localized scatterer, E_visible(n)=4^{-n} and E_residual(n)=1-4^{-n} exactly, with no sink.",
+    "For finite directed cycles of length L, the same decay holds through n=L and the first return gives a_{L+1}=3/4+2^{-(L+1)}.",
+    "For the translation-invariant bulk candidate with zero residual input, the exact two-tick resolved map is T=I+Delta_X6/16, but P U^4 J != T^2; retained residual causes backflow.",
+    "No finite-dimensional closed unitary dilation can reproduce a strict contractive eigenmode T^n exactly for all n; side-4 X6 T has eigenvalue 7/8.",
+    "Per-slot positive residual energies do not determine the next visible energy: phase/sign-related states give 1/16 versus 9/16.",
+    "Under explicit quantum assumptions, a Bell joint relation is transported along any primitive X6 path by local SWAPs while total excitation, PPT negativity witness, and CHSH=14/5 are preserved."
+  ],
+  "executed": {
+    "householder_inner_products": 169,
+    "infinite_formula_max_tick": 10,
+    "finite_ring_lengths": [5,7,11],
+    "bulk_native_ticks": 4,
+    "bulk_visible_backflow": "3105/65536",
+    "bell_primitive_edges": 4,
+    "CHSH": "14/5",
+    "fresh_local_run": true
+  },
+  "nonclaims": [
+    "No primitive-force or native-mechanical admission.",
+    "The conserved quadratic is not identified with complete physical energy.",
+    "The Householder scatterer is a constitutive test law, not derived from P000.",
+    "Quantum tensor products, Born semantics and SWAP are explicit added assumptions; no quantum-origin theorem.",
+    "No exact all-time heat semigroup, viscosity, Navier-Stokes theorem, superluminal signal, independent review or Lean build."
+  ],
+  "next": "Replace the test scatterer by a legally typed native triadic force/exchange mechanism and test whether its resolved two-tick compression retains a positive X6 Laplacian coefficient without residual erasure."
+}
