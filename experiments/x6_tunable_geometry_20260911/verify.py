@@ -109,7 +109,9 @@ def verify(root: Path):
     flags = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(flags)
     flags.configure(root)
+    c = flags.c
 
+    # Tunable local-good-set algebra. r^6 = 2 eps / (5(1+eps)).
     r6 = Fraction(2) * EPS / (5 * (1 + EPS))
     bad_fraction = Fraction(5, 2) * r6
     good_fraction = 1 - bad_fraction
@@ -117,7 +119,7 @@ def verify(root: Path):
     assert good_fraction == Fraction(200, 201)
     assert conditioning == 1 + EPS
     assert r6 == Fraction(2, 1005)
-    assert r6 < Fraction(1, 64)
+    assert r6 < Fraction(1, 64)  # weaker threshold than the old r=1/2 lock gate
 
     frontier = 6*GAMMA - (1 + BETA + EPS)
     assert frontier == Fraction(49, 200)
@@ -126,6 +128,7 @@ def verify(root: Path):
     single_crit = (1 + BETA + EPS) / 6
     assert single_crit == Fraction(401, 1200)
 
+    # Exact injectivity of projective witness line -> Krylov s-plane in frozen small blocks.
     injectivity = []
     penultimate = []
     for p in (2, 3, 13):
@@ -137,6 +140,7 @@ def verify(root: Path):
             assert len(set(sigs)) == len(lines)
             injectivity.append({'p': p, 'f': f, 's': s, 'projective_lines': len(lines),
                                 'distinct_krylov_signatures': len(set(sigs))})
+        # At s=f-1 each event annihilator is a single dual line; injectivity + equal cardinality => bijection.
         if f > 1:
             P = (p**f - 1)//(p-1)
             assert len(lines) == P
@@ -144,6 +148,7 @@ def verify(root: Path):
                                 'seed_atoms': P, 'event_atoms_per_witness': 1,
                                 'union_bound_after_signature_dedup': 'exact'})
 
+    # Actual old-threshold penultimate candidate catalogs: event-signature dedup is exact locally.
     catalogs = []
     for p in (17, 19, 31, 277):
         q, uu = quotient_u(flags, p)
@@ -160,6 +165,7 @@ def verify(root: Path):
             sigs.add(sig)
             mult[sig] = mult.get(sig, 0) + 1
         P = (p**f - 1)//(p-1)
+        # penultimate annihilator events are distinct singleton seed atoms
         raw_num = len(vv)
         dedup_num = len(sigs)
         assert dedup_num <= raw_num//2
@@ -171,6 +177,7 @@ def verify(root: Path):
                          'exact_union_numerator_after_signature_dedup': dedup_num,
                          'seed_atom_denominator': P})
 
+    # p=2,f=3 penultimate: all 2^7-1 nonempty witness subsets have exact first union bound.
     p = 2
     _, uu = quotient_u(flags, p)
     lines = list(projective(p, 3))
@@ -179,6 +186,7 @@ def verify(root: Path):
     subset_checks = 0
     for mask in range(1, 1 << 7):
         chosen = {sigs[i] for i in range(7) if (mask >> i) & 1}
+        # each distinct signature is one distinct seed atom
         assert len(chosen) == mask.bit_count()
         subset_checks += 1
 
