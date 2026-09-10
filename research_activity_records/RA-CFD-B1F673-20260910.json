@@ -1,13 +1,50 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-CFD-B1F673-20260910",
-  "registration_key": "session:local-chat-cfd-b1f673-20260910:TASK_RESEARCH",
-  "registration_origin": {"kind": "LIVE_SESSION", "source_tracking_key": null},
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "e40e5303234c5e8bd725528aad9bff9edf0c059d",
+          "path": "research_notes/CFD-B1F673/main/summary.json",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "797bfd668f30d084ea9eeeae1a2310d5287123af6ba6fdca92b3a3b0ae779bac",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "7808b5ee3aa164642ad3fe1f4549ad471ca33762",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/e40e5303234c5e8bd725528aad9bff9edf0c059d/research_notes/CFD-B1F673/main/summary.json",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "local-observation-turn141-CFD-B1F673",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-CFD-B1F673-20260910/readbacks/98caf23308d0cb1740dfb3513b72fc12a89d506f236a8dfe43bc34937130352e.json",
+          "verification_receipt_sha256": "98caf23308d0cb1740dfb3513b72fc12a89d506f236a8dfe43bc34937130352e"
+        }
+      ],
+      "event_id": "CFD-B1F673-FULL-TRAJECTORY-01",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
   "mode": "TASK_RESEARCH",
-  "researcher_id": "EM-CFD-B1F673",
-  "session_id": "local-chat-cfd-b1f673-20260910",
-  "session_state": "KNOWN",
   "recorded_at": "2026-09-10T08:39:15.059302+00:00",
-  "authority": {"task_registration": false, "claim": false, "review": false, "working_truth": false, "mathematical_acceptance": false},
-  "checkpoints": []
+  "registration_key": "session:local-chat-cfd-b1f673-20260910:TASK_RESEARCH",
+  "registration_origin": {
+    "kind": "LIVE_SESSION",
+    "source_tracking_key": null
+  },
+  "researcher_id": "EM-CFD-B1F673",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
+  "session_id": "local-chat-cfd-b1f673-20260910",
+  "session_state": "KNOWN"
 }
