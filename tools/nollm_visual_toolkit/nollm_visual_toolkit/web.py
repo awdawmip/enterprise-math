@@ -19,6 +19,7 @@ from pathlib import Path
 from typing import Iterable, Sequence
 
 from .core import VERSION, demo_hex, demo_x6, fingerprint, html, validate
+from .multiplicative import DEFAULT_SEED, config_fingerprint, multiplicative_config, multiplicative_html
 
 SITE_SCHEMA = "NOLLM_VISUAL_SITE_V1"
 _SLUG_RE = re.compile(r"[^A-Za-z0-9._-]+")
@@ -108,13 +109,45 @@ def build_site(
         "pages": pages,
         "observer_boundary": "Static HTML preview only; native identities and source coordinates are unchanged.",
     }
+    _write_site(out, manifest)
+    return manifest
+
+
+
+def _write_site(out: Path, manifest: dict[str, object]) -> None:
     (out / "manifest.json").write_text(
         json.dumps(manifest, ensure_ascii=False, sort_keys=True, indent=2) + "\n",
         encoding="utf-8",
     )
-    (out / "index.html").write_text(_landing_page(title, pages), encoding="utf-8")
-    return manifest
+    (out / "index.html").write_text(_landing_page(str(manifest["title"]), manifest["pages"]), encoding="utf-8")
 
+
+def add_multiplicative_page(
+    manifest: dict[str, object],
+    out_dir: str | Path,
+    *,
+    count: int = 65536,
+    seed: int = DEFAULT_SEED,
+    label: str = "multiplicative-field",
+) -> dict[str, object]:
+    """Add a self-contained multiplicative-field observer to an existing generated site."""
+    out = Path(out_dir)
+    if manifest.get("schema") != SITE_SCHEMA or not isinstance(manifest.get("pages"), list):
+        raise ValueError("Expected a NOLLM_VISUAL_SITE_V1 manifest")
+    used = {Path(str(page["href"])).stem.casefold() for page in manifest["pages"]}
+    slug = _dedupe_slug(_slug(label, "multiplicative-field"), used)
+    href = f"{slug}.html"
+    config = multiplicative_config(count=count, seed=seed)
+    multiplicative_html(out / href, count=count, seed=seed)
+    manifest["pages"].append({
+        "label": label,
+        "href": href,
+        "kind": "multiplicative-field-observer",
+        "records": count,
+        "sha256": config_fingerprint(config),
+    })
+    _write_site(out, manifest)
+    return manifest
 
 def demo_site(
     out_dir: str | Path,
@@ -122,11 +155,16 @@ def demo_site(
     hex_count: int = 65536,
     include_x6: bool = True,
     title: str = "Nollm Visual Preview",
+    include_multiplicative: bool = False,
+    multiplicative_seed: int = DEFAULT_SEED,
 ) -> dict[str, object]:
     datasets: list[tuple[str, dict]] = [(f"hex-{hex_count}", demo_hex(hex_count))]
     if include_x6:
         datasets.append(("x6-729", demo_x6()))
-    return build_site(datasets, out_dir, title=title)
+    manifest = build_site(datasets, out_dir, title=title)
+    if include_multiplicative:
+        add_multiplicative_page(manifest, out_dir, count=hex_count, seed=multiplicative_seed)
+    return manifest
 
 
 def _is_loopback_host(host: str) -> bool:
@@ -139,7 +177,7 @@ def _is_loopback_host(host: str) -> bool:
 
 
 class _PreviewHandler(SimpleHTTPRequestHandler):
-    server_version = "NollmPreview/0.3"
+    server_version = "NollmPreview/0.4"
 
     def log_message(self, fmt: str, *args: object) -> None:
         if getattr(self.server, "quiet", False):
@@ -215,11 +253,14 @@ def preview_server(
     server.daemon_threads = True
     server.quiet = quiet
     server.single_file = single_file
-    _, bound_port = server.server_address[:2]
+    bound_host, bound_port = server.server_address[:2]
     shown_host = host
     if host in {"0.0.0.0", "::"}:
         shown_host = "127.0.0.1" if host == "0.0.0.0" else "[::1]"
-    suffix = "/" if target.is_dir() else "/" + urllib.parse.quote(target.name)
+    if target.is_dir():
+        suffix = "/"
+    else:
+        suffix = "/" + urllib.parse.quote(target.name)
     url = f"http://{shown_host}:{bound_port}{suffix}"
     thread = threading.Thread(target=server.serve_forever, name="nollm-viz-preview", daemon=True)
     thread.start()

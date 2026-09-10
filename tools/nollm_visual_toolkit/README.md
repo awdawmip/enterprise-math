@@ -1,138 +1,170 @@
-# Nollm Visual Toolkit 0.3.0
+# Nollm Visual Toolkit 0.4.0
 
-**Research workbench / important research infrastructure candidate.**
+**Research workbench / important research infrastructure candidate.**  
 [中文说明](README.zh-CN.md)
 
-An offline, inspectable tool for integer hex-carrier studies and explicitly supplied six-component X6 data. It separates **record identity, observation, and rendering**. Version 0.3.0 adds a complete static-web generation and local-preview workflow while preserving the 0.2.0 observer contract. This is software infrastructure, not mathematical admission, a production Nollm integration, or a claim that six dimensions embed injectively in three.
+Offline, reproducible visualization for typed hex/X6 data plus a dedicated **Multiplicative Memory Field Lab**. The toolkit separates **arithmetic/native identity, observer coordinates, and rendering**. It is research infrastructure, not mathematical admission and not a production Nollm runtime change.
 
 ## Quick start
-
-From this directory, with Python 3.10 or later:
 
 ```sh
 python -m pip install .
 
-# Generate one self-contained workbench and preview it locally.
+# Existing typed hex/X6 workbench
 nollm-viz demo --out study.html --preview
 
-# Generate a static landing page plus both built-in demo workbenches.
-nollm-viz site --out preview-site --preview
+# Complete static site: hex + X6 + multiplicative field observer
+nollm-viz site --out preview-site --with-field --preview
+
+# Standalone Multiplicative Memory Field Lab
+nollm-viz field --out multiplicative.html --count 65536 --preview
 ```
 
-`--preview` writes the artifact first, then starts a local HTTP server bound to `127.0.0.1` and asks the default browser to open it. Press Ctrl-C to stop. Generated workbench pages remain self-contained: no CDN, telemetry, account, or remote service is required.
+The generated pages are self-contained and do not require a CDN, account, telemetry endpoint, or remote service. Local preview binds to `127.0.0.1` by default; non-loopback binding still requires explicit `--allow-remote`.
 
-Generation without a server remains available:
+## 0.4.0: Multiplicative Memory Field Lab
+
+The new field page implements a deliberately typed research observer for integers `0..N-1`.
+
+### Arithmetic carrier retained before visualization
+
+For every positive integer,
+
+```text
+n = product p^v_p(n)
+A(n) = sum v_p(n) * h_seed(p)
+```
+
+where `h_seed(p)` is a deterministic unsigned 32-bit prime-phase code and `h_seed(2)=0`. `A(n)` is kept as an **unwrapped integer accumulator**, so serial multiplication satisfies the exact carrier law
+
+```text
+A(ab) = A(a) + A(b)
+```
+
+whenever the product is in the declared population. Zero remains a special absorbing state and is excluded from logarithmic identities. Prime valuations/identity are the carrier; the following polar coordinates are observers only.
+
+### Multiplicative observer
+
+For `n>0`, the page draws
+
+```text
+r(n) = n^alpha
+theta(n) = frame_strength * (pi/4) * log2(n)
+         + phase_strength * 2*pi*A(n)/2^32
+```
+
+The default `alpha=1/2` is the two-dimensional equal-area density candidate. The page also draws the 16 native-frame reference spokes at 22.5 degrees, preserving the distinction between the current Nollm frame schedule and the research prime-phase observer.
+
+Interactive controls include:
+
+- population size and deterministic prime-phase seed;
+- radial exponent, frame strength, and prime-phase strength;
+- `Frame only`, `Prime phase`, and `Hybrid` presets;
+- prime/composite, residue class, `Omega(n)`, `v2(n)`, and prime-phase coloring;
+- point lookup with exact factorization and integer phase accumulator;
+- multiplication traces `n, mn, m^2 n, ...`;
+- angular sector CV and equal-area radial CV diagnostics;
+- angular CV normalized by the independent-uniform occupancy benchmark `sqrt((S-1)/B)`;
+- PNG and configuration export.
+
+A canvas point is only an observer location. Pixel overlap never merges arithmetic identities.
+
+### Finite default diagnostic
+
+For the verified 65,536-point default, with 64 angular sectors and blocks of 1024 consecutive positive integers:
+
+- hybrid angular CV: `0.2344`;
+- independent-uniform occupancy scale: `sqrt(63/1024)`;
+- hybrid CV / iid scale: `0.945`;
+- frame-only CV / iid scale: `27.696`;
+- equal-area radial CV at `alpha=1/2`: `0.0001`.
+
+These are finite observer diagnostics for the fixed implementation/seed, **not an asymptotic theorem or a proof of optimal uniformity**.
+
+## Static research sites and preview
+
+Existing 0.3.0 web generation remains available:
 
 ```sh
-nollm-viz demo --out study.html
-nollm-viz render data.json --out study.html
+# Built-in hex + X6 pages
 nollm-viz site --out preview-site
-```
 
-## Web generation and preview
+# Add the multiplicative observer
+nollm-viz site --out preview-site --with-field
 
-### Single workbench
+# Customize field population and seed
+nollm-viz site --out preview-site --with-field --field-count 65536 --field-seed 814210
 
-```sh
-nollm-viz render data.json --out study.html --preview
-nollm-viz render data.csv  --out study.html
-```
+# Multiple user datasets plus the field observer
+nollm-viz site run-a.json run-b.csv --out comparison-site --with-field --title "Experiment comparison"
 
-Each HTML document embeds the complete canonicalized dataset, its SHA-256 fingerprint, and the workbench program. Dataset titles and fields remain data payloads; they are not executed as HTML or JavaScript.
-
-### Static research site
-
-```sh
-# No inputs: built-in 65,536-integer hex demo plus 729-state X6 demo.
-nollm-viz site --out preview-site
-
-# Multiple user datasets become separate workbench pages under one landing page.
-nollm-viz site run-a.json run-b.csv --out comparison-site --title "Experiment comparison"
-
-# Smaller built-in site, with optional X6 omission.
-nollm-viz site --out quick-site --hex-count 4096 --no-x6
-```
-
-The generated directory contains:
-
-- `index.html` — a responsive landing page with an embedded workbench preview switcher;
-- one self-contained workbench HTML per dataset;
-- `manifest.json` using `NOLLM_VISUAL_SITE_V1`, recording toolkit version, page name, data kind, record count, and canonical dataset fingerprint.
-
-The landing-page iframe is only an observer/page switcher. It does not merge datasets or rewrite identities. Each workbench can still be opened and distributed independently. For the same ordered datasets and title, site metadata and the landing page are deterministic: no timestamp, host path, or random value is embedded.
-
-### Preview an existing HTML file or site directory
-
-```sh
-nollm-viz preview study.html
+# Preview any generated HTML/site
+nollm-viz preview multiplicative.html
 nollm-viz preview preview-site
-nollm-viz preview preview-site --port 8000 --no-open
 ```
 
-The default is `--host 127.0.0.1 --port 0`; port 0 selects a free local port. Single-file preview is scoped to that HTML file and does not expose sibling files in its directory. Directory preview intentionally serves the selected site directory. Non-loopback binding is rejected unless it is explicit:
+The site landing page switches self-contained observer pages. It does not compose datasets or change identities. `manifest.json` remains `NOLLM_VISUAL_SITE_V1`; multiplicative pages are recorded as `kind="multiplicative-field-observer"` with a deterministic configuration fingerprint.
 
-```sh
-nollm-viz preview preview-site --host 0.0.0.0 --port 8000 --allow-remote
-```
+## Existing typed workbench
 
-That expands the access boundary and should only be used on a trusted network.
+The existing observer contract is unchanged:
 
-## Workbench capabilities
+- native hex cells, rotatable A2 cube-plane observation, and explicit layer stacks;
+- explicit six-component X6 input with six FCC carrier line families / twelve signed rays;
+- slices, lookup, projection-collision audit, neighborhoods, integer-label multiplication trajectories;
+- Q16 quotient/remainder, residue classes, prime/background and custom numeric layers;
+- lossless documented JSON/CSV round trips, PNG/SVG observer exports, and dataset-bound view sessions.
 
-- Hexagonal cells, rotatable A2 cube-plane observation, and explicitly typed layer stacks.
-- Six FCC carrier line families / twelve signed rays for supplied X6 coordinates, plus selected-three-coordinate observation and a true slice option. Full six-component records remain available.
-- Integer, prime/background, remainder classes, Q16 quotient/remainder, one-unit weight difference, valuation and custom numeric layers.
-- Exact coordinate slices, slice animation, camera rotation, coordinate and ID/number lookup, coincident-record cycling, neighborhoods and multiplication trajectories.
-- Existing relation edges remain data; filtering is nondestructive. Prime display retains the composite background. Zero valuation is null, not a fabricated finite value.
-- JSON and documented CSV round trips, PNG capture, visible-glyph SVG export, and dataset-bound view sessions. SVG does not promise the complete UI, legend or relation overlay. PNG pixels are not an inverse-data format.
-- Integer validation, projection collision audit and deterministic data generation. All displayed records are submitted to rendering without sampling; finite screen pixels can overlap.
+Hex and X6 source coordinates are never inferred from one another. The A2 `(q,r,-q-r)` display plane is not six independent native dimensions. The X6-to-3D drawing convention remains an observer, not a completed global native/FCC bridge.
 
-Optional Matplotlib export remains available with `python -m pip install '.[static]'`.
-
-## Coordinate and observer contract
-
-The hex demo uses `F(4n+d)=2 R60 F(n)+(d&1,d>>1)`, with `R60(q,r)=(-r,q+r)`. Its six nearest-neighbor directions belong to a two-dimensional A2 implementation carrier. `(q,r,-q-r)` is a plane in three display coordinates, not six independent native spatial axes. The synthetic radix depth in the demo is **not** a Nollm physical layer.
-
-For X6, all six signed integer components are required. The six drawing vectors are `(1,1,0)`, `(1,-1,0)`, `(1,0,1)`, `(1,0,-1)`, `(0,1,1)`, `(0,1,-1)`. Their linear sum is a **declared 3D display observer**, not the completed global native/FCC bridge. Native components, IDs, relations and metadata are retained. Multiple identities at one projected center are explicitly grouped, never merged. A three-coordinate observation is not a native slice unless omitted relative components are zero.
-
-This follows the current project boundary in `definitions/00_CURRENT_NATIVE_FOUNDATION.md`, `definitions/P000_FCC_PRIMARY_COORDINATE_CARRIER_20260829.md`, and `definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json`. Screen coordinates, camera orientation, Euclidean rendering, and web preview do not redefine native axes, metric, time, or Cell identity. No project definition is modified by this tool.
-
-## Data
-
-```json
-{"schema":"NOLLM_VISUAL_DATA_V2","kind":"hex","title":"Example","metadata":{},"records":[{"id":"object-A","n":9,"coord":[2,3],"fields":{"score":7}}],"relations":[]}
-```
-
-Use `kind: "x6"` and exactly six supplied coordinates for X6. IDs must be unique strings, not row numbers; `n` is optional. Records can contain `layer` and arbitrary JSON metadata. Relationships use existing `source` and `target` IDs. Integer coordinates are limited to ±1,000,000 and the current tool accepts 1–200,000 records; general JSON integers must be exactly representable by browser numbers. These are implementation limits, not native-space limits. Nonfinite floats and incomplete coordinates are rejected.
-
-CSV begins with `#nollm-meta=<JSON>` and columns `id,coord_json,extra_json`. Use the tool exporter rather than an arbitrary flattened CSV. It preserves extra record fields, metadata, relations and nulls. A view-session fingerprint describes its browser-normalized dataset, not a server signature; canonical JSON bytes and original source bytes remain separate provenance. The included SHA-256 fallback is a standard fingerprint implementation, not a cryptographic novelty or authentication mechanism.
+## CLI reference
 
 ```sh
 nollm-viz validate data.json
+nollm-viz render data.json --out study.html --preview
 nollm-viz convert data.json --out data.csv
 nollm-viz profile data.json --axis s --out slices.json
 nollm-viz import-legacy interactive_65536.html --out recovered.json
+
+nollm-viz field --out field.html --count 65536 --seed 814210 \
+  --alpha 0.5 --frame-strength 1 --phase-strength 1 \
+  --certificate carrier.json
 ```
 
-The legacy importer decodes a JSON literal only; it does not execute HTML or JavaScript. The prototype's zero valuation sentinel is repaired to null. The standard-library API is available from `nollm_visual_toolkit`; 0.3.0 also exports `build_site`, `demo_site`, `preview_server`, and `serve_preview`.
+The `--certificate` output is a bounded exact arithmetic-carrier check. It does not certify infinite-scale uniformity.
 
-## Verification and limits
+## Verification
 
-```sh
-python -m unittest discover -s tests -v
-```
+0.4.0 local verification:
 
-The 0.3.0 offline regression ran 36 unit tests: 35 passed and one optional Matplotlib static-export test was skipped because Matplotlib was not installed in the current execution environment. All 10 new web-generation/preview tests passed. An installed-CLI smoke also completed `demo -> validate -> site`, checking generated artifacts, dataset fingerprint preservation, and the `NOLLM_VISUAL_SITE_V1` manifest.
+- 45 unit tests discovered: 44 passed; one optional Matplotlib test skipped because Matplotlib was unavailable;
+- 7 multiplicative-field unit tests passed;
+- 12 web/site tests passed, including multiplicative-page integration;
+- 21 Chromium multiplicative-field acceptance checks passed on the full 65,536-point population with zero page errors and zero network requests;
+- Python/browser prime-phase codes matched for selected primes;
+- a 65,536-population finite exact carrier certificate checked 16,384 bounded products with zero accumulator-additivity failures;
+- CLI `field` and `site --with-field` smoke passed;
+- the 0.4.0 wheel built and contains `multiplicative.py`, `web.py`, and `workbench.html`.
 
-The 43 Chromium UI checks recorded for 0.2.0 remain prior evidence for the unchanged workbench front-end logic; they were not relabeled as a new browser certification for this web-shell increment. Native iOS Safari, physical touch hardware, arbitrary third-party datasets, repository-wide CI, live Nollm workloads, and performance at the 200,000-record limit remain **uncertified**.
+The prior 0.2/0.3 typed workbench browser evidence is retained separately; it is not relabeled as a new full-front-end certification. Native iOS Safari, physical touchscreen behavior, repository-wide CI, live Nollm workloads, and production performance remain uncertified.
 
-Large SVG export or frequent animated redraws may be slow. Timing/animation is an observer aid, not simulation of native time. Multiplication trajectories follow declared integer labels; they do not prove that coordinate multiplication implements ordinary integer multiplication. The local preview server is a research convenience, not a production web server.
+## BRC / claim boundary
+
+BRC is **applied** to the multiplicative-field research surface:
+
+- population: the declared finite integer interval;
+- carrier: integer identity and sparse prime valuations, with exact integer prime-phase accumulator;
+- serial composition: ordinary multiplication;
+- observers: radius, angle, color, CV, pixel positions;
+- information-loss guard: observer coordinates never replace the arithmetic carrier;
+- status: finite executable research observer, not theorem promotion.
+
+The deterministic phase hash is a research choice, not canonical number theory. Finite CV measurements are not asymptotic claims.
 
 ## Version boundary
 
-- **0.2.0** introduced explicitly typed hex/X6 modes and repaired local zoom, row-index identity assumptions, zero valuation, projection identity loss, and dataset-bound session restoration.
-- **0.3.0** preserves those mathematical/observer contracts and adds static-site generation, embedded landing-page preview, a manifest, localhost HTTP preview, single-file access scoping, explicit non-loopback opt-in, and continuous `demo/render/site --preview` workflows.
-
-BRC is `NOT_APPLICABLE` to this HTTP/static-page engineering layer; this increment does not compress or replace the integer, coordinate, valuation, relation, or other mathematical carriers.
+- **0.2.0**: typed hex/X6 workbench and identity-preserving observer fixes.
+- **0.3.0**: deterministic static-site generation and bounded localhost preview.
+- **0.4.0**: exact arithmetic-carrier-backed Multiplicative Memory Field Lab, field/site CLI integration, and full-population browser acceptance for the new page.
 
 License: MIT, inherited from Enterprise Math.

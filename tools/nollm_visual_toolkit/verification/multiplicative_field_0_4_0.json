@@ -1,0 +1,95 @@
+{
+  "schema": "NOLLM_MULTIPLICATIVE_FIELD_VERIFICATION_V1",
+  "toolkit_version": "0.4.0",
+  "activity_id": "RA-nollm-web-preview-20260910-c6c82",
+  "scope": "Multiplicative Memory Field Lab, exact arithmetic carrier, web/site integration, CLI, and package build.",
+  "brc": {
+    "resolution": "EXTEND_EXISTING_TOOL",
+    "population": "finite integers 0..N-1; default N=65536",
+    "carrier": "integer n, sparse prime valuations, unwrapped integer prime-phase accumulator",
+    "serial_composition": "ordinary multiplication",
+    "observers": [
+      "radius n^alpha",
+      "additive angle observer",
+      "color layers",
+      "sector CV",
+      "equal-area radial CV",
+      "canvas pixels"
+    ],
+    "information_loss_guard": "observer coordinates never replace arithmetic identity/valuation carrier"
+  },
+  "results": {
+    "unit_tests_discovered": 45,
+    "unit_tests_passed": 44,
+    "unit_tests_skipped_optional_matplotlib": 1,
+    "multiplicative_unit_tests_passed": 7,
+    "web_site_tests_passed": 12,
+    "browser_multiplicative_checks_passed": 21,
+    "browser_page_errors": [],
+    "browser_network_requests": [],
+    "carrier_pairs_checked": 16384,
+    "carrier_additivity_failures": [],
+    "cli_field_smoke": "PASS",
+    "cli_site_with_field_smoke": "PASS",
+    "wheel_build": "PASS"
+  },
+  "finite_observer_diagnostic": {
+    "default_hybrid": {
+      "N": 65536,
+      "seed": 814210,
+      "alpha": 0.5,
+      "frameStrength": 1,
+      "phaseStrength": 1,
+      "selected": 3,
+      "trace": [],
+      "angularCV": "0.2344",
+      "angularToIid": "0.945",
+      "radialCV": "0.0001"
+    },
+    "frame_only": {
+      "N": 65536,
+      "seed": 814210,
+      "alpha": 0.5,
+      "frameStrength": 1,
+      "phaseStrength": 0,
+      "selected": 3,
+      "trace": [],
+      "angularCV": "6.8697",
+      "angularToIid": "27.696",
+      "radialCV": "0.0001"
+    },
+    "hybrid_restored": {
+      "N": 65536,
+      "seed": 814210,
+      "alpha": 0.5,
+      "frameStrength": 1,
+      "phaseStrength": 1,
+      "selected": 3,
+      "trace": [],
+      "angularCV": "0.2344",
+      "angularToIid": "0.945",
+      "radialCV": "0.0001"
+    }
+  },
+  "claim_boundary": {
+    "mathematical_acceptance": false,
+    "nollm_runtime_modified": false,
+    "data_schema_changed": false,
+    "hex_carrier_changed": false,
+    "x6_projection_changed": false,
+    "asymptotic_uniformity_proved": false,
+    "deterministic_prime_phase_canonical_number_theory": false
+  },
+  "local_environment": {
+    "python": "3.13.5",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+    "matplotlib": "not installed; optional test skipped",
+    "chromium": "Playwright /usr/bin/chromium"
+  },
+  "limits": [
+    "Finite executable verification only; no asymptotic theorem.",
+    "Native iOS Safari and physical touch not certified.",
+    "Repository-wide CI not run in this local verification.",
+    "Canvas pixel overlap is an observer effect and never merges carrier identities."
+  ]
+}

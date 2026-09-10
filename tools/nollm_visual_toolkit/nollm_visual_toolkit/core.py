@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 SCHEMA = "NOLLM_VISUAL_DATA_V2"
-VERSION = "0.3.0"
+VERSION = "0.4.0"
 MAX_POINTS = 200_000
 MAX_COORD = 1_000_000  # Ensures browser integer geometry remains exact.
 MAX_SAFE = 2**53 - 1
@@ -95,7 +95,6 @@ def fingerprint(data: dict[str, Any]) -> str:
 def read_data(path: str | Path) -> dict[str, Any]:
     path = Path(path)
     if path.suffix.lower() == ".csv":
-        # Meta and extra JSON columns make a CSV round trip lossless, including relations.
         text = path.read_text(encoding="utf-8-sig")
         first, sep, rest = text.partition("\n")
         if not sep or not first.startswith("#nollm-meta="):
@@ -219,7 +218,6 @@ def project_x6(coord: Iterable[int], axes: Iterable[int] | None = None) -> tuple
         if len(selected) != 3 or len(set(selected)) != 3 or any(i not in range(6) for i in selected):
             raise ValueError("Choose three distinct axes in 0..5")
         return tuple(c[i] for i in selected)
-    # A declared display convention, NOT the completed global native-to-FCC bridge.
     return tuple(sum(c[i]*FCC_AXES[i][j] for i in range(6)) for j in range(3))
 
 

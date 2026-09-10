@@ -14,7 +14,7 @@ class WebTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             p = c.html(c.demo_hex(4), Path(d) / 'a.html')
             text = p.read_text(encoding='utf-8')
-            self.assertIn('0.3.0', text)
+            self.assertIn(c.VERSION, text)
             self.assertNotIn('0.2.0', text)
 
     def test_demo_site_is_complete_and_deterministic(self):
@@ -96,6 +96,22 @@ class WebTests(unittest.TestCase):
             stored = json.loads((Path(d) / 'manifest.json').read_text(encoding='utf-8'))
             self.assertEqual(stored, manifest)
             self.assertEqual(stored['toolkit_version'], c.VERSION)
+
+    def test_add_multiplicative_page(self):
+        with tempfile.TemporaryDirectory() as d:
+            out=Path(d)
+            manifest=w.demo_site(out,hex_count=8,include_x6=False)
+            w.add_multiplicative_page(manifest,out,count=256,seed=123)
+            self.assertEqual(manifest['pages'][-1]['kind'],'multiplicative-field-observer')
+            self.assertEqual(manifest['pages'][-1]['records'],256)
+            self.assertTrue((out/manifest['pages'][-1]['href']).exists())
+            stored=json.loads((out/'manifest.json').read_text())
+            self.assertEqual(stored,manifest)
+
+    def test_demo_site_can_include_multiplicative(self):
+        with tempfile.TemporaryDirectory() as d:
+            manifest=w.demo_site(d,hex_count=128,include_x6=True,include_multiplicative=True,multiplicative_seed=7)
+            self.assertEqual([p['kind'] for p in manifest['pages']],['hex','x6','multiplicative-field-observer'])
 
 
 if __name__ == '__main__':

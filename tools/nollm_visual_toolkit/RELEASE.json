@@ -1,7 +1,7 @@
 {
   "schema": "NOLLM_VISUAL_TOOLKIT_RELEASE_V1",
   "name": "Nollm Visual Toolkit",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "status": "RESEARCH_TOOL_RELEASE",
   "importance": "IMPORTANT_RESEARCH_INFRASTRUCTURE_USER_REQUESTED",
   "researcher_id": "EM-DIRECT-C6C82",
@@ -14,115 +14,165 @@
     "hex_carrier_changed": false,
     "x6_projection_changed": false,
     "full_global_x6_fcc_bridge_completed": false,
+    "multiplicative_field_is_observer_not_native_identity": true,
+    "finite_uniformity_probe_not_asymptotic_theorem": true,
     "native_ios_safari_certified": false,
     "full_repository_ci_run": false,
     "preview_server_production_ready": false
   },
   "features": [
-    "self-contained HTML workbench generation",
-    "deterministic multi-dataset static site generation",
-    "responsive index.html with embedded iframe preview switching",
-    "NOLLM_VISUAL_SITE_V1 manifest with dataset fingerprints",
-    "localhost HTTP preview with free-port selection",
-    "single-file preview scoped to the selected HTML artifact",
-    "explicit opt-in required for non-loopback preview binding",
-    "demo/render/site --preview continuous generation-to-preview workflow"
+    "Multiplicative Memory Field Lab as a self-contained research observer",
+    "integer identity and sparse prime-valuation carrier separated from polar rendering",
+    "exact unwrapped integer prime-phase accumulator with deterministic per-prime phase codes",
+    "configurable radial exponent, frame strength, phase strength, seed, sectors and block size",
+    "Frame-only, Prime-phase and Hybrid observer presets",
+    "multiplication trajectories, factorization lookup, angular sector CV and equal-area radial CV",
+    "iid occupancy reference sqrt((sectors-1)/block) and angular-CV/reference ratio",
+    "PNG/config export, pan/zoom and observer rotation",
+    "field CLI generator and static-site inclusion via --with-field",
+    "existing static-site generation and localhost preview retained from 0.3.0"
   ],
+  "brc": {
+    "resolution": "EXTEND_EXISTING_TOOL",
+    "population": "finite integers 0..N-1",
+    "carrier": [
+      "integer identity",
+      "sparse prime valuations",
+      "exact unwrapped integer prime-phase accumulator"
+    ],
+    "serial_composition": "ordinary multiplication within the finite population",
+    "observers": [
+      "radius",
+      "angle",
+      "color",
+      "sector CV",
+      "equal-area radial CV",
+      "canvas projection"
+    ],
+    "preservation": "observer coordinates never replace arithmetic carrier; finite visual statistics do not promote to infinite theorems"
+  },
   "verification": {
-    "unit_tests_discovered": 36,
-    "unit_tests_passed": 35,
+    "unit_tests_discovered": 45,
+    "unit_tests_passed": 44,
     "unit_tests_skipped_optional_matplotlib": 1,
-    "new_web_tests_passed": 10,
-    "cli_smoke": "PASS",
-    "wheel_build_and_web_module_inclusion": "PASS",
-    "browser_acceptance_new_run": false,
-    "browser_acceptance_inherited_checks": 43,
-    "browser_acceptance_inherited_path": "verification/acceptance.json",
-    "all_65536_legacy_coordinates_and_fields_equal_from_0_2_0": true,
-    "x6_demo_explicit_records": 729,
-    "x6_exact_projection_collision_groups": 135
+    "new_multiplicative_tests": 7,
+    "browser_multiplicative_checks_passed": 21,
+    "browser_page_errors": 0,
+    "browser_network_requests": 0,
+    "full_field_records": 65536,
+    "carrier_products_checked": 16384,
+    "carrier_additivity_failures": 0,
+    "browser_python_phase_code_match": "PASS",
+    "cli_field_generation": "PASS",
+    "site_with_field": "PASS",
+    "wheel_build": "PASS"
+  },
+  "finite_default_probe": {
+    "population": 65536,
+    "seed": 814210,
+    "radial_exponent": 0.5,
+    "sectors": 64,
+    "block_size": 1024,
+    "iid_occupancy_reference": "sqrt(63/1024)",
+    "hybrid_angular_cv": 0.2344,
+    "hybrid_angular_to_iid": 0.945,
+    "hybrid_equal_area_radial_cv": 0.0001,
+    "frame_only_angular_cv": 6.8697,
+    "frame_only_angular_to_iid": 27.696,
+    "frame_only_equal_area_radial_cv": 0.0001,
+    "status": "FINITE_BROWSER_OBSERVATION_ONLY_NOT_ASYMPTOTIC_THEOREM"
   },
   "baseline": {
-    "version": "0.2.0",
-    "workbench_frontend_source_unchanged": true,
+    "version": "0.3.0",
+    "workbench_html_unchanged": true,
     "workbench_html_git_blob_sha1": "507d39ea055942ab777d09b562c0f6c17152c4d6",
-    "browser_acceptance_git_blob_sha1": "9cc1059b465d0036fd8374892e88e3a15d2e3bc3",
-    "note": "The 43 Chromium checks are inherited evidence for unchanged workbench front-end logic and are not relabeled as a new 0.3.0 browser certification."
+    "web_preview_preserved": true
   },
-  "observer_guards": [
-    "A2 carrier has two degrees of freedom; not native X6",
-    "X6 input requires six explicit signed components",
-    "display projection never merges raw identities",
-    "prime views retain composite background",
-    "camera and synthetic layer height are observer-only",
-    "JSON and tool CSV retain raw fields, relations and provenance",
-    "web generation and preview do not rewrite source identities, coordinates or relations",
-    "landing-page iframe switching is an observer shell, not dataset composition"
-  ],
   "increment_files": [
     {
       "path": "README.md",
-      "git_blob_sha1": "a7ce35697b1850f839fe753c934e7fd740785c8a"
+      "bytes": 7661,
+      "sha256": "8ef618a4db8cb13dd2013239042543945575665c5c80871a7339368e1c80f64a",
+      "git_blob_sha1": "d4b09c1d9e951419d104409b68e67ac5ccb3f9a6"
     },
     {
       "path": "README.zh-CN.md",
-      "git_blob_sha1": "8a7a477095616dc4379467c2dd4397fce37760c7"
-    },
-    {
-      "path": "nollm_visual_toolkit/__init__.py",
-      "git_blob_sha1": "145a2ae4e8dae0b7ff5dc5101502385d3942cfb9"
-    },
-    {
-      "path": "nollm_visual_toolkit/__main__.py",
-      "git_blob_sha1": "f80885ff53d1a377e5706cda81e21a93eea24c5e"
-    },
-    {
-      "path": "nollm_visual_toolkit/core.py",
-      "git_blob_sha1": "7d7ee36b401e10469cb0a3c6a4a9fa33ba0f903e"
-    },
-    {
-      "path": "nollm_visual_toolkit/web.py",
-      "git_blob_sha1": "331007287f69b8b1411a92acdf449f4321129a87"
+      "bytes": 6794,
+      "sha256": "f39f39b2e9dfb22bc303cbe1555800117ce577f214227b2b11b404dc7e4de1e4",
+      "git_blob_sha1": "c52a69aea4ee8bd22667694ac25510ac021fe14b"
     },
     {
       "path": "pyproject.toml",
-      "git_blob_sha1": "b499ca3af9c6e0525ea407de9ad7582e04f2c9fe"
+      "bytes": 694,
+      "sha256": "abe8f1a98a32bb964d8a3f6e3e7a3749501ab51b9efe912f871f2e28adef1b53",
+      "git_blob_sha1": "24225159bfacf3b3ba65e23d6b22565b9bfe6ac2"
+    },
+    {
+      "path": "nollm_visual_toolkit/__init__.py",
+      "bytes": 678,
+      "sha256": "b214d2f67c7dc8880b5913c6d825bb437c5ab682a22290954c2060b8fecdff43",
+      "git_blob_sha1": "b68ee1d64874cdc934ab09a330216d5e3ffddfa5"
+    },
+    {
+      "path": "nollm_visual_toolkit/__main__.py",
+      "bytes": 6705,
+      "sha256": "a388579f1edad31f7e6223f353b10a6c09c2dcce0c4f9370d37666df685ac5e1",
+      "git_blob_sha1": "19d6cf054883bfd82f088adc783433a897171e6b"
+    },
+    {
+      "path": "nollm_visual_toolkit/core.py",
+      "bytes": 13097,
+      "sha256": "da1f31f0089efccedaecf40f7ab3a073a71c46694ec50b99a8f58e530dc75376",
+      "git_blob_sha1": "36c85d4b6bc25be67be6e98dd3ef1732b23647cd"
+    },
+    {
+      "path": "nollm_visual_toolkit/web.py",
+      "bytes": 11990,
+      "sha256": "6203089c9b8a27299372f49bddc75a71ed3ece24b512c58dd2c67a3309c42460",
+      "git_blob_sha1": "4c6253cc93c70735f459154b218c1763c3ad2a42"
+    },
+    {
+      "path": "nollm_visual_toolkit/multiplicative.py",
+      "bytes": 22470,
+      "sha256": "9e6335226a7da0f3e48ec1cc35afc4213c0e65ab3d1765a01dc3e3b0db3df23e",
+      "git_blob_sha1": "3281c3dc65ae454e3dc1d8f6f39654dfb01f7237"
     },
     {
       "path": "tests/test_web.py",
-      "git_blob_sha1": "ea8de1e1cfc07cfab1c90fa46c181b515c74f024"
+      "bytes": 5751,
+      "sha256": "51f1ebabf7bf53021f92dc34078325b47ea64616816c19f58b5e2214d420765e",
+      "git_blob_sha1": "b5cf2fa6d16f50651ac7f12cd2cd90f79f0a1af6"
     },
     {
-      "path": "verification/web_preview_0_3_0.json",
-      "git_blob_sha1": "2b682cb034d5485d163502e726393e9da872984f"
-    }
-  ],
-  "sources": [
-    {
-      "repository": "awdawmip/enterprise-math",
-      "path": "definitions/P000_FCC_PRIMARY_COORDINATE_CARRIER_20260829.md",
-      "git_blob_sha1": "bb867b68bea6a18e7a0651e901ad954063ecd38b"
+      "path": "tests/test_multiplicative.py",
+      "bytes": 2530,
+      "sha256": "1357bbb4022520ff315ba0499d7390c16b036ef736131895775449fde3adfeaa",
+      "git_blob_sha1": "7c3a4bf54a40af3235893a8177692a0b9cecb910"
     },
     {
-      "repository": "awdawmip/enterprise-math",
-      "path": "definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json",
-      "git_blob_sha1": "3923890d77a02d84b772f789e6912dd14f220d14"
+      "path": "tests/browser_multiplicative.py",
+      "bytes": 4422,
+      "sha256": "3c71e05b9b39da22b469f15b2a4c4b14c28feec3d5f62ceda3b131a3e22ea137",
+      "git_blob_sha1": "68582a89ba775205f1bf0286c2b9ddc58b34b053"
     },
     {
-      "kind": "prior_conversation_artifact",
-      "name": "interactive_65536.html",
-      "sha256": "c8e7aa6c9108df2c05093414c48616cc5a78979df94597856e86e76ae1245825"
+      "path": "verification/multiplicative_field_0_4_0.json",
+      "bytes": 2975,
+      "sha256": "6853f0d2d01bd65fdeeb4ebca55ec7a487d612816d6a5518b3e973a1331d4002",
+      "git_blob_sha1": "92bb7e85f5a065aa01f96769011e59548778f48c"
     }
   ],
   "verification_artifacts": [
     "verification/acceptance.json",
-    "verification/web_preview_0_3_0.json"
+    "verification/web_preview_0_3_0.json",
+    "verification/multiplicative_field_0_4_0.json"
   ],
   "limits": [
-    "Native iOS Safari and physical touchscreen behavior are not certified.",
-    "The local preview server is for research inspection and is not a production web server.",
-    "Repository-wide CI was not run as part of the local 0.3.0 verification.",
-    "The optional Matplotlib static-export test was skipped in the 0.3.0 local verification environment because Matplotlib was unavailable.",
-    "No semantic-memory, PB-scale, or theorem-strength claim follows from this web tooling increment."
+    "The deterministic prime-phase mixer is an engineering/research choice, not canonical number theory.",
+    "Finite angular/radial statistics do not establish asymptotic equidistribution.",
+    "The polar field is an observer and does not replace integer identity, prime valuations, or Nollm native geometry.",
+    "Zero is an absorbing special state and is not represented as an invertible similarity.",
+    "Native iOS Safari, physical touch hardware, repository-wide CI, live Nollm semantic workloads, and 200000-point worst-case performance are not certified.",
+    "No theorem-strength, semantic-memory, PB-scale, or production-runtime claim follows from this release."
   ]
 }
