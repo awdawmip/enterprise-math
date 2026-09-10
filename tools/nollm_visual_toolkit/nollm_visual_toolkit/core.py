@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 SCHEMA = "NOLLM_VISUAL_DATA_V2"
-VERSION = "0.2.0"
+VERSION = "0.3.0"
 MAX_POINTS = 200_000
 MAX_COORD = 1_000_000  # Ensures browser integer geometry remains exact.
 MAX_SAFE = 2**53 - 1
@@ -300,7 +300,7 @@ def html(data: dict[str, Any], path: str | Path) -> Path:
     validate(data)
     payload = canonical_bytes(data).decode("utf-8").replace("<", "\\u003c")
     template = Path(__file__).with_name("workbench.html").read_text(encoding="utf-8")
-    text = template.replace("__PAYLOAD__", payload).replace("__FINGERPRINT__", fingerprint(data))
+    text = template.replace("0.2.0", VERSION).replace("__PAYLOAD__", payload).replace("__FINGERPRINT__", fingerprint(data))
     path = Path(path); path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(text, encoding="utf-8")
     return path

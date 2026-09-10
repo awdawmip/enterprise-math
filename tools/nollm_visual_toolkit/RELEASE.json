@@ -1,26 +1,53 @@
 {
   "schema": "NOLLM_VISUAL_TOOLKIT_RELEASE_V1",
   "name": "Nollm Visual Toolkit",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "status": "RESEARCH_TOOL_RELEASE",
   "importance": "IMPORTANT_RESEARCH_INFRASTRUCTURE_USER_REQUESTED",
   "researcher_id": "EM-DIRECT-C6C82",
-  "activity_id": "RA-nollm-visual-workbench-20260910-c6c82",
+  "activity_id": "RA-nollm-web-preview-20260910-c6c82",
   "publication_path": "tools/nollm_visual_toolkit",
   "claim_boundary": {
     "mathematical_acceptance": false,
     "nollm_runtime_modified": false,
+    "data_schema_changed": false,
+    "hex_carrier_changed": false,
+    "x6_projection_changed": false,
     "full_global_x6_fcc_bridge_completed": false,
     "native_ios_safari_certified": false,
-    "full_repository_ci_run": false
+    "full_repository_ci_run": false,
+    "preview_server_production_ready": false
   },
+  "features": [
+    "self-contained HTML workbench generation",
+    "deterministic multi-dataset static site generation",
+    "responsive index.html with embedded iframe preview switching",
+    "NOLLM_VISUAL_SITE_V1 manifest with dataset fingerprints",
+    "localhost HTTP preview with free-port selection",
+    "single-file preview scoped to the selected HTML artifact",
+    "explicit opt-in required for non-loopback preview binding",
+    "demo/render/site --preview continuous generation-to-preview workflow"
+  ],
   "verification": {
-    "unit_tests_passed": 26,
-    "browser_acceptance_checks_passed": 43,
-    "all_65536_legacy_coordinates_and_fields_equal": true,
+    "unit_tests_discovered": 36,
+    "unit_tests_passed": 35,
+    "unit_tests_skipped_optional_matplotlib": 1,
+    "new_web_tests_passed": 10,
+    "cli_smoke": "PASS",
+    "wheel_build_and_web_module_inclusion": "PASS",
+    "browser_acceptance_new_run": false,
+    "browser_acceptance_inherited_checks": 43,
+    "browser_acceptance_inherited_path": "verification/acceptance.json",
+    "all_65536_legacy_coordinates_and_fields_equal_from_0_2_0": true,
     "x6_demo_explicit_records": 729,
-    "x6_exact_projection_collision_groups": 135,
-    "wheel_install_and_template_inclusion": "PASS"
+    "x6_exact_projection_collision_groups": 135
+  },
+  "baseline": {
+    "version": "0.2.0",
+    "workbench_frontend_source_unchanged": true,
+    "workbench_html_git_blob_sha1": "507d39ea055942ab777d09b562c0f6c17152c4d6",
+    "browser_acceptance_git_blob_sha1": "9cc1059b465d0036fd8374892e88e3a15d2e3bc3",
+    "note": "The 43 Chromium checks are inherited evidence for unchanged workbench front-end logic and are not relabeled as a new 0.3.0 browser certification."
   },
   "observer_guards": [
     "A2 carrier has two degrees of freedom; not native X6",
@@ -28,7 +55,47 @@
     "display projection never merges raw identities",
     "prime views retain composite background",
     "camera and synthetic layer height are observer-only",
-    "JSON and tool CSV retain raw fields, relations and provenance"
+    "JSON and tool CSV retain raw fields, relations and provenance",
+    "web generation and preview do not rewrite source identities, coordinates or relations",
+    "landing-page iframe switching is an observer shell, not dataset composition"
+  ],
+  "increment_files": [
+    {
+      "path": "README.md",
+      "git_blob_sha1": "a7ce35697b1850f839fe753c934e7fd740785c8a"
+    },
+    {
+      "path": "README.zh-CN.md",
+      "git_blob_sha1": "8a7a477095616dc4379467c2dd4397fce37760c7"
+    },
+    {
+      "path": "nollm_visual_toolkit/__init__.py",
+      "git_blob_sha1": "145a2ae4e8dae0b7ff5dc5101502385d3942cfb9"
+    },
+    {
+      "path": "nollm_visual_toolkit/__main__.py",
+      "git_blob_sha1": "f80885ff53d1a377e5706cda81e21a93eea24c5e"
+    },
+    {
+      "path": "nollm_visual_toolkit/core.py",
+      "git_blob_sha1": "7d7ee36b401e10469cb0a3c6a4a9fa33ba0f903e"
+    },
+    {
+      "path": "nollm_visual_toolkit/web.py",
+      "git_blob_sha1": "331007287f69b8b1411a92acdf449f4321129a87"
+    },
+    {
+      "path": "pyproject.toml",
+      "git_blob_sha1": "b499ca3af9c6e0525ea407de9ad7582e04f2c9fe"
+    },
+    {
+      "path": "tests/test_web.py",
+      "git_blob_sha1": "ea8de1e1cfc07cfab1c90fa46c181b515c74f024"
+    },
+    {
+      "path": "verification/web_preview_0_3_0.json",
+      "git_blob_sha1": "2b682cb034d5485d163502e726393e9da872984f"
+    }
   ],
   "sources": [
     {
@@ -47,84 +114,15 @@
       "sha256": "c8e7aa6c9108df2c05093414c48616cc5a78979df94597856e86e76ae1245825"
     }
   ],
-  "files": [
-    {
-      "path": ".gitignore",
-      "bytes": 62,
-      "sha256": "5fb69de95dde0d39a0faf121bdaafeb584e51675039b84e7fd8ade80ed8b4caf",
-      "git_blob_sha1": "c91da22997d1abcbf699eea6cc369a0572a51e21"
-    },
-    {
-      "path": "LICENSE",
-      "bytes": 1098,
-      "sha256": "061a421af2d6557eaf1171d74ede5415ab0d2946f02c2fa09710eca894d4b1a3",
-      "git_blob_sha1": "1de769adb293902d6690944c1ae4ea0e868f5096"
-    },
-    {
-      "path": "README.md",
-      "bytes": 7011,
-      "sha256": "52e1290c0cc41258aa85ce0a293683d5dea0dc5b9fdc1868ae263b67cec10fd4",
-      "git_blob_sha1": "f93282979986c8b2f82854426085fa5e8217b350"
-    },
-    {
-      "path": "README.zh-CN.md",
-      "bytes": 5890,
-      "sha256": "96f533131e09a9764029a6576d24c4fda59f7b76aa6eea33c96b85f8037d8741",
-      "git_blob_sha1": "18700bdb6f99e8dd5f87fa880ac44bd3380e954c"
-    },
-    {
-      "path": "nollm_visual_toolkit/__init__.py",
-      "bytes": 348,
-      "sha256": "e489adfeac97d8b93ab96052996280e71b7bdac4e1f19bf46ff2f33df2cf794b",
-      "git_blob_sha1": "6b594389c037998130f70eb824ccd81ce6173ac9"
-    },
-    {
-      "path": "nollm_visual_toolkit/__main__.py",
-      "bytes": 2490,
-      "sha256": "f86c1d8859075d3853a68e90f6d95790f30f949077b0985e7227c577e8e1d05a",
-      "git_blob_sha1": "5eab8bd017d92bb7d9fccc2cb6a39c7f1ac1c58e"
-    },
-    {
-      "path": "nollm_visual_toolkit/core.py",
-      "bytes": 13246,
-      "sha256": "2881687fb12649f7c0e70666cf7c0788a3ad8e5803ddd7174ad7c2243ae1c9ef",
-      "git_blob_sha1": "b79e8f36ba5b2fc13f1c8c3d4a7a072722997e94"
-    },
-    {
-      "path": "nollm_visual_toolkit/static.py",
-      "bytes": 1790,
-      "sha256": "c930bb16f648df9ee28e347a0384b0d714b8052388ccc398d12cd5f03fd1a7ac",
-      "git_blob_sha1": "ca681e72c22a9fddd19c38803db62128b992867c"
-    },
-    {
-      "path": "nollm_visual_toolkit/workbench.html",
-      "bytes": 37953,
-      "sha256": "7e911f49a400725e190a5ef63f436f980447ea95f5038e535466d177d33684b3",
-      "git_blob_sha1": "507d39ea055942ab777d09b562c0f6c17152c4d6"
-    },
-    {
-      "path": "pyproject.toml",
-      "bytes": 661,
-      "sha256": "77b51a3c472c809a312d784a8948f53e4db367de4cdfd7438790d8805f7a7ba3",
-      "git_blob_sha1": "01325d1ef7df4d02171f0e5d326bdce0cdf21df9"
-    },
-    {
-      "path": "tests/browser_smoke.py",
-      "bytes": 9240,
-      "sha256": "8fc4023e3cc3069a4070b5563b0f148b21a9a2b97e465e9f9e59cda4486ba84c",
-      "git_blob_sha1": "2831d33abe4847033da524347c20e8742dbcbb13"
-    },
-    {
-      "path": "tests/test_core.py",
-      "bytes": 7877,
-      "sha256": "d70fce4ebeea5f996cce41e89a698bfd47b6bb904f262165cfdb4e125b47c3d5",
-      "git_blob_sha1": "5cae799c079e3b976a91c789114cf84581462762"
-    },
-    {
-      "path": "verification/acceptance.json",
-      "bytes": 2307,
-      "sha256": "e5bc997b87344edd5f716b67a86d08b3c5a4ae191cda84b8da192cb08fc6ae7c",
-      "git_blob_sha1": "9cc1059b465d0036fd8374892e88e3a15d2e3bc3"
-    }
+  "verification_artifacts": [
+    "verification/acceptance.json",
+    "verification/web_preview_0_3_0.json"
+  ],
+  "limits": [
+    "Native iOS Safari and physical touchscreen behavior are not certified.",
+    "The local preview server is for research inspection and is not a production web server.",
+    "Repository-wide CI was not run as part of the local 0.3.0 verification.",
+    "The optional Matplotlib static-export test was skipped in the 0.3.0 local verification environment because Matplotlib was unavailable.",
+    "No semantic-memory, PB-scale, or theorem-strength claim follows from this web tooling increment."
   ]
 }
