@@ -1,0 +1,96 @@
+{
+  "schema": "EM_RESULT_SPECIFIC_VERIFICATION_V1",
+  "record_id": "FINDING-EM-PDE-ANGULAR-LATTICE-CERTIFICATE-20260910",
+  "activity_id": "RA-076944AE1950A916ACC95399",
+  "proof_source": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "a67ffdc91da6f8a570b5cfdbf0bf34be15d827ec",
+    "path": "research_notes/ns-angular-lattice-certificate-20260910.md",
+    "sha256": "31696520250fc72e381b87fe4f00ac7dbc2f8ba52f46210072d3cb463a2b8e14",
+    "git_blob_sha1": "049fed81b930c56d1f4dd2e43a9ddaad4405aa04"
+  },
+  "angular_checker": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "2129cf62feb1b9ac44781a981139a243dbb2edeb",
+    "path": "research_notes/ns-angular-lattice-certificate-20260910/certify_angular_constant.py",
+    "sha256": "ba2eef915f28d95ead5328380402956088bcf12eb7b1a41e8509d53a6ad48fe6",
+    "git_blob_sha1": "8458072930a8be1a77f08ebc05dc19d92b9fa164"
+  },
+  "bridge_checker": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "04d93588fc13bc634affb9f2c6565c0ae9fbdf27",
+    "path": "research_notes/ns-angular-lattice-certificate-20260910/certify_bridge.py",
+    "sha256": "ae48b597bd81fa12455f76545a1b505228b3013a739a74cbd3dcbeafcb72b72d",
+    "git_blob_sha1": "cb94df251b1e481259571a0534cae16a22831551"
+  },
+  "verification": {
+    "status": "PASS",
+    "certified_bilinear_constant": "1521/200",
+    "previous_constant": "9503/1000",
+    "relative_improvement": "146/731",
+    "near_points": 894,
+    "output_symmetry_classes": 277,
+    "near_cap": "19383/1000",
+    "near_max_class": [
+      1,
+      1,
+      1
+    ],
+    "continuum_angular_moments": [
+      "pi^3/K",
+      "2*pi^2/K",
+      "pi^3/(2*K)"
+    ],
+    "tail_upper_readout": 38.44826227018989,
+    "total_squared_upper_readout": 57.831262270189896,
+    "squared_margin": "3245946106004273408800733/681530600185823232000000000",
+    "cases": [
+      {
+        "amplitude": "4/25",
+        "inverse_upper": "200630557/50000000",
+        "alpha_upper": "311451679/12500000",
+        "eta_upper": "84899757/10000000000",
+        "radius": "13/1000",
+        "inclusion_margin": "3739969999/12500000000000",
+        "four_alpha_eta": "26442171864342003/31250000000000000",
+        "contraction": "4048871827/6250000000",
+        "off_family_perturbation_radius": "430497/10000000000"
+      },
+      {
+        "amplitude": "1/6",
+        "inverse_upper": "2675157/625000",
+        "alpha_upper": "2657803363/100000000",
+        "eta_upper": "92307779/10000000000",
+        "radius": "9/500",
+        "inclusion_margin": "3948480097/25000000000000",
+        "four_alpha_eta": "245335925457260777/250000000000000000",
+        "contraction": "23920230267/25000000000",
+        "off_family_perturbation_radius": "213039/10000000000"
+      }
+    ],
+    "uniform_amplitude_interval": [
+      "0",
+      "1/6"
+    ],
+    "interval_verified_by_monotonicity": true,
+    "correction_packets": 216,
+    "full_linear_defect_packets": 772,
+    "full_linear_defect_modes": 144,
+    "full_outputs_retained": true,
+    "clean_directory_rerun": "PASS; all non-timing fields identical",
+    "PDE_sampling": false,
+    "parent_scalar_blob": "4551bd83edab7453bda993582eed098cb8073519",
+    "parent_packet_sha256": "0ffab938427c4827700876fbd9f9c371a59d07aa89edefd5a6447071ec48d25d"
+  },
+  "generated_outputs": {
+    "output/angular_constant.json": "3ba3888d8b8b82d7af4249c2ca140e32691d4c77b48dc06f3d6948432d02c4dc",
+    "output/bridge.json": "b0cffcb70acb680fa2fa94b47e48fd1274715bd5113f9142e7c9aee24b6898f2",
+    "output/clean_rerun.json": "35bbf052905b0b0f3d78ccdbfe223be554653de8d3c1fce02b5fad87bae942d9"
+  },
+  "limits": [
+    "Constant is valid, not claimed sharp or historically new.",
+    "Full NS implications use inherited analytic causal-inverse and contraction proofs.",
+    "The old fixed-alpha obstruction remains valid for its old constants.",
+    "Not independently reviewed; not arbitrary-data NS regularity or native X6 dynamics."
+  ]
+}
