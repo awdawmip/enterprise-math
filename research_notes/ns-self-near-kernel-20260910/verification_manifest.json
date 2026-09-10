@@ -1,0 +1,32 @@
+{
+  "schema": "EM_RESULT_SPECIFIC_VERIFICATION_V1",
+  "record_id": "FINDING-EM-PDE-SELF-NEAR-KERNEL-20260910",
+  "activity_id": "RA-076944AE1950A916ACC95399",
+  "status": "PASS",
+  "mathematical_status": "TESTING / NOT_INDEPENDENTLY_REVIEWED",
+  "proof_source": {
+    "commit": "8e348e9cd92976860830cdbc94ef6281e0d1d71c",
+    "path": "research_notes/ns-self-near-kernel-20260910.md"
+  },
+  "checker_sources": [
+    {"commit":"e34c60262fb5be065643156409f0f0e7c50bb095","path":"research_notes/ns-self-near-kernel-20260910/certify_selfnear.py"},
+    {"commit":"342b5733c2df3f777575e048c0810c6d798beb7b","path":"research_notes/ns-self-near-kernel-20260910/certify_family_0191.py"}
+  ],
+  "verification": {
+    "near_lattice_points": 894,
+    "output_symmetry_classes": 571,
+    "near_squared_upper": "18/5",
+    "self_constant": "91/20",
+    "endpoint_amplitude": "191/1000",
+    "trajectory_radius": "123/5000",
+    "off_family_initial_perturbation_radius": "3/100000",
+    "all_frequency_outputs_retained": true,
+    "PDE_time_sampling": false,
+    "clean_local_rerun": "PASS"
+  },
+  "limits": [
+    "The far self tail and family response algebra are inherited analytic dependencies and remain unreviewed research notes.",
+    "The remote checker files preserve the verified source but require the pinned parent package layout to execute unchanged.",
+    "No arbitrary-data regularity, optimal constant, historical priority, or Foundation promotion is claimed."
+  ]
+}
