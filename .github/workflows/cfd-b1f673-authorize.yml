@@ -19,7 +19,7 @@ jobs:
         with:
           ref: research/cfd-b1f673-main-20260910
           path: work
-      - name: Invoke unchanged canonical guard against actual server comments
+      - name: Invoke canonical bootstrap and unchanged guard against actual server comments
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
@@ -37,7 +37,16 @@ jobs:
           (root/'state.json').write_text(json.dumps(state))
           PY
           set +e
-          python control/tools/research_runtime_guard.py authorize --state-file "$RUNNER_TEMP/state.json" --events "$RUNNER_TEMP/events.json" > "$RUNNER_TEMP/guard-output.txt" 2>&1
+          python - <<'PY' > "$RUNNER_TEMP/guard-output.txt" 2>&1
+          import os, sys, runpy
+          from pathlib import Path
+          sys.path.insert(0, str(Path('control').resolve()))
+          from control_plane.research_control_bootstrap import install
+          install()
+          root = Path(os.environ['RUNNER_TEMP'])
+          sys.argv = ['control/tools/research_runtime_guard.py','authorize','--state-file',str(root/'state.json'),'--events',str(root/'events.json')]
+          runpy.run_path('control/tools/research_runtime_guard.py',run_name='__main__')
+          PY
           code=$?
           set -e
           export GUARD_EXIT_CODE="$code"
@@ -50,16 +59,22 @@ jobs:
           raw = (root/'guard-output.txt').read_text()
           try: result = json.loads(raw)
           except ValueError: result = None
-          value = {'schema':'CFD_EXACT_CANONICAL_GUARD_OBSERVATION_V1','task_id':'RS-CFD-SPECTRAL-HYBRID-20260910','claim_id':'CFD-B1F673-20260910-MAIN','control_main_sha':os.environ['CONTROL_SHA'],'execution_source_sha':os.environ['EXECUTION_SHA'],'observed_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'server_comments_sha256':hashlib.sha256((root/'events.json').read_bytes()).hexdigest(),'server_comment_count':len(json.loads((root/'events.json').read_text())),'guard_exit_code':int(os.environ['GUARD_EXIT_CODE']),'guard_result':result,'raw_guard_output':raw,'workflow_run_id':os.environ['GITHUB_RUN_ID']}
+          value = {'schema':'CFD_EXACT_CANONICAL_GUARD_OBSERVATION_V1','task_id':'RS-CFD-SPECTRAL-HYBRID-20260910','claim_id':'CFD-B1F673-20260910-MAIN','control_main_sha':os.environ['CONTROL_SHA'],'execution_source_sha':os.environ['EXECUTION_SHA'],'observed_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'server_comments_sha256':hashlib.sha256((root/'events.json').read_bytes()).hexdigest(),'server_comment_count':len(json.loads((root/'events.json').read_text())),'canonical_bootstrap':'control_plane.research_control_bootstrap.install','guard_exit_code':int(os.environ['GUARD_EXIT_CODE']),'guard_result':result,'raw_guard_output':raw,'workflow_run_id':os.environ['GITHUB_RUN_ID']}
           out = Path('work/research_notes/CFD-B1F673/main/runtime_authorization.json')
           out.parent.mkdir(parents=True,exist_ok=True)
-          out.write_text(json.dumps(value,indent=2)+'\n')
-          print(json.dumps(value,indent=2))
+          if out.exists():
+              old = json.loads(out.read_text())
+              preserved = out.with_name('runtime_authorization_'+str(old['workflow_run_id'])+'.json')
+              if not preserved.exists(): preserved.write_text(out.read_text())
+          payload = json.dumps(value,indent=2)+'\n'
+          out.write_text(payload)
+          out.with_name('runtime_authorization_'+os.environ['GITHUB_RUN_ID']+'.json').write_text(payload)
+          print(payload)
           PY
           cd work
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add research_notes/CFD-B1F673/main/runtime_authorization.json
-          git commit -m '[EM-CFD-B1F673] preserve actual canonical runtime authorization observation'
+          git add research_notes/CFD-B1F673/main/runtime_authorization*.json
+          git commit -m '[EM-CFD-B1F673] preserve actual canonical bootstrap/runtime authorization observation'
           git push origin HEAD:refs/heads/research/cfd-b1f673-main-20260910
           exit "$code"
