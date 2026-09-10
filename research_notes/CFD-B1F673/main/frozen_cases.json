@@ -1,0 +1,19 @@
+{
+  "status":"FROZEN_BEFORE_EXECUTION_NOT_ADAPTED_TO_TEST_OUTCOMES",
+  "scope":"unforced periodic 3D velocity; serial rFFT; 2pi domain; retained |ki|<=n//3-1; float64; RK4; no pruning",
+  "sparse_limit":384,"viscosity":0.01,"dt":0.001,"steps":10,"repeats":5,
+  "tolerance_relative_trajectory":2e-11,
+  "cases":[
+    {"n":32,"input":"shear","s":2,"seed":null},
+    {"n":32,"input":"random","s":32,"seed":700101},
+    {"n":32,"input":"random","s":128,"seed":700102},
+    {"n":32,"input":"random","s":512,"seed":700103},
+    {"n":32,"input":"random","s":4096,"seed":700104},
+    {"n":64,"input":"shear","s":2,"seed":null},
+    {"n":64,"input":"random","s":128,"seed":800101},
+    {"n":64,"input":"random","s":8192,"seed":800102}
+  ],
+  "exclusions":["GPU","MPI","actual spectralDNS/FFTW/shenfun execution","rigorous interval arithmetic","PDE validation","unresolved mode/timestep error certificate"],
+  "complete_cost_includes":["engine setup","validation","support detection","allocations","nonlinear kernels","projection","diffusion","RK4 algebra","finite-result checks"],
+  "complete_cost_excludes":["shared initial input generation","first JIT/cache warmup","reporting-only diagnostics"]
+}
