@@ -1,0 +1,69 @@
+{
+  "schema": "NOLLM_65536_IMAGE_CHECKPOINT_V1",
+  "event_id": "NOLLM-65536-IMAGE-INVERSE-20260910-C6C82",
+  "activity_id": "RA-nollm-hecke-views-20260909-c6c82",
+  "status": "EXACT_FINITE_CHECKED_NOT_PROMOTED",
+  "population": [
+    0,
+    65535
+  ],
+  "number_of_labels": 65536,
+  "raw16_scalar_images": 52,
+  "occupancy_masks": 3,
+  "label_images_each_unique_count": 65536,
+  "png_roundtrip_exact": true,
+  "prime_count": 6542,
+  "hex_ray_prime_counts": [
+    52,
+    28,
+    36,
+    24,
+    36,
+    20
+  ],
+  "q16_one_unit_change_count": 32767,
+  "q16_one_unit_change_max": 1,
+  "remainder_periods": {
+    "2730": 32768,
+    "2731": 65536,
+    "49152": 4
+  },
+  "phase_rounding_deficit_histogram": {
+    "0": 14337,
+    "1": 32768,
+    "2": 18431
+  },
+  "row_mod_prime_rays": [
+    3,
+    5,
+    17
+  ],
+  "morton_doubling_identities_pass": true,
+  "all_data_pngs_rerun_byte_identical": 55,
+  "browser_inverse_picking_checks": 36,
+  "hashes": {
+    "experiment.py": "90bddfe8b28899fca7af9c0045f1fcb90f4958cb3bb22554339e875771d88691",
+    "research_note.md": "7bc636141052000d1956690d4999da92fab49f00218f704f336e06f336c29647",
+    "results.json": "09de77ac801c865b1677413f7049632fc6df837b95fb04f5a3f8ef8739d71fa3",
+    "image_ray_analysis.json": "4ecee08628e063f8a798099ee8539417cbdcc1c2e2f9ed15036ce677419befdb",
+    "raw_manifest.json": "4bf8fcd77f4589233e2f9f64b22740a9df4c28c31f642b61df594b8b6f9207cb",
+    "rerun_verification.json": "daeb54258a773207e3b87f0a447a1efb34b2903e4a1c7a50022ab47639e86243",
+    "viewer_test.json": "27af21c3776825144d28649e3379e229800ba508191cc5dc63363b9232ed2d36"
+  },
+  "limits": [
+    "0..65535 is a chosen integer population, not65536 existing memories.",
+    "65536 itself is not included.",
+    "Raw16 PNGs, masks and decoded arrays are the data; pseudo-color previews are not.",
+    "No general prime theorem, Nollm production mapping, or semantic quality claim."
+  ],
+  "note": {
+    "path": "research_notes/nollm_65536_image_inverse_20260910_c6c82.md",
+    "commit": "258c4383e45efcdca6293b0c65d1ea8af4273d33",
+    "git_blob_sha1": "0952bb9bb60a43abf7bd392d45e1cfc36e9c172b"
+  },
+  "code": {
+    "path": "experiments/nollm_65536_image_atlas_20260910_c6c82.py",
+    "commit": "16c6b491572c95bdb8d09731af81e37ceb002c71",
+    "git_blob_sha1": "8b4707989f2b1d22edb949ad8850e8ae5543b13f"
+  }
+}
