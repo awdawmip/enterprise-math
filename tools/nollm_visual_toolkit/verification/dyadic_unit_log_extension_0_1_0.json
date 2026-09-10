@@ -1,0 +1,42 @@
+{
+  "schema": "NOLLM_DYADIC_UNIT_LOG_EXTENSION_VERIFICATION_V1",
+  "version": "0.1.0",
+  "parent_toolkit_version": "0.3.0",
+  "activity_id": "RA-nollm-multiplication-field-20260911-c6c82",
+  "status": "RESEARCH_TOOL_EXTENSION_WITH_PROVED_DECLARED_PHASE_IDENTITIES",
+  "verification": {
+    "unit_tests_passed": 8,
+    "focused_chromium_checks_passed": 12,
+    "page_errors": 0,
+    "external_requests": 0,
+    "direct_unit_log_equals_prime_table_adapter_for_all_65536": true,
+    "phase_11_bits": {"M":2048,"p2_tick":256,"occupied_2d":58486,"angular_cv":0.00681309774269435,"exact_multiplication_failures":0},
+    "phase_16_bits": {"M":65536,"p2_tick":8192,"occupied_2d":57520,"angular_cv":0.028286781995903912,"exact_multiplication_failures":0}
+  },
+  "mathematical_verifier": {
+    "path": "research_notes/nollm_dyadic_unit_log_phase_20260911/verify.py",
+    "local_pass": true,
+    "bitwise_dlog_exact_cases": 8184,
+    "multiplication_pairs_checked": 90462,
+    "dyadic_histogram_formula_grid": "b=3..8; L=b+2..b+6; zero failures"
+  },
+  "proved_scope": {
+    "carrier": "(v_2, eps, t mod 2^b) with odd u=(-1)^eps 5^t mod 2^(b+2)",
+    "composition": "componentwise multiplication-to-addition law",
+    "histogram": "H(a)=2^(L-b)-2+R(a), R>=0, sum R=2^(b+1)-1 for dyadic 1<=n<2^L, L>=b+2",
+    "tv_bound": "(2^(b+1)-1)/(2^L-1)",
+    "critical_scale": "b=L/2+O(1) implies O(N^-1/2) global phase discrepancy on these dyadic populations"
+  },
+  "finite_display": {
+    "N_65536_b11_cell_eps_v2_distinct": 64863,
+    "N_65536_b11_cell_eps_v2_collision_groups": 665,
+    "N_1000001_b13_cell_eps_v2_distinct": 988931,
+    "N_1000001_b13_cell_eps_v2_collision_groups": 10837
+  },
+  "boundaries": [
+    "2D hex rendering and collision counts are floating observer evidence",
+    "integer identity is retained and display collisions are never merged",
+    "no Nollm runtime, X6 definition or physical layer change",
+    "not Foundation admission and not an asymptotic occupancy theorem"
+  ]
+}
