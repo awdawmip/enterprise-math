@@ -1,0 +1,60 @@
+{
+  "schema": "EM_X6_RESEARCH_CHECKPOINT_V1",
+  "activity_id": "RA-X6CM-F01144F76207",
+  "event_id": "X6CM-CYCLOTOMIC-COMPATIBILITY-20260910-06",
+  "status": "ADDITIONAL_MODEL_PROOFS_AND_INTEGER_CERTIFICATES_NOT_ADMITTED",
+  "source_snapshot": "e59f44244bce8745cb806e5331b183f6666615ae",
+  "artifact_commit": "de67c8acc51f991e23ba1035e1aecdb2d1c40838",
+  "frontier": [
+    "For the explicitly added order-seven integer operator U, every invariant index-N lattice has native successive-minima ratio at most sqrt(7), shortest length at least sqrt(6/7) N^(1/6), and quotient diameter at most 18 sqrt(7) floor(N^(1/6)). U is not a native Q-isometry.",
+    "A single ideal family J(N) has exact index, product, gcd/lcm and relative multiplication diamonds on the set v_p(N) divisible by ord_7(p), with p=7 unrestricted. It does not cover every integer or preserve every earlier scalar-box node.",
+    "The shape constants survive arbitrary allowed cross-prime products. Native optimal total repair costs include 43:1, 127:47, 1247:683, and 3053:1565.",
+    "Of 63 binary linear observations, exactly 14 need 8 states and 49 need 64 states for the coarsest U-safe refinement; the general projective spectrum is proved and checked at p=2,3,5,7.",
+    "Freezing a six-coordinate integer base restores divisibility but forces a persistent short vector and linearly increasing average repair costs. Fixed base two gives W(1247)=11265 and quotient diameter 1385 at 88537, versus 683 and 13 for the new family."
+  ],
+  "verification": {
+    "prime_factor_degree_checks": 35,
+    "ideal_indices_checked": 24,
+    "product_gcd_lcm_pairs": 81,
+    "multiplication_diamonds": 48,
+    "norm_trace_checks": 120,
+    "binary_t6_observers": 63,
+    "projective_kernels_checked": 23941,
+    "new_ideal_matching_cases": 19,
+    "fixed_base_matching_cases": 3,
+    "crt_pairs": 1247,
+    "triple_prime_graph_vertices": 88537,
+    "matching_certificate": "existing exact integer primal/dual checker reused unchanged",
+    "artifact_readback": "all three immutable Git blob IDs match executed or semantics-preserving serialized local bytes"
+  },
+  "artifacts": [
+    {
+      "path": "research_notes/x6_cyclotomic_shape_control_and_index_gate_20260910.md",
+      "bytes": 15627,
+      "sha256": "56fce8844086a82d7208ed0a44949f522e73787fc9a3d5e4defa04fc5996e3d8",
+      "git_blob_sha1": "fdab10f9925d715d2329d94e2869d7771befa1a4"
+    },
+    {
+      "path": "experiments/x6_cyclotomic_compatibility_20260910/verify.py",
+      "bytes": 14675,
+      "sha256": "b187c2bedfdaee3cce8378532b043c5bfbb9b7fe5a6424d2053f80af217b3f7a",
+      "git_blob_sha1": "0d4ea1d29281236c80ae8502de7d75a5d76c39e9"
+    },
+    {
+      "path": "experiments/x6_cyclotomic_compatibility_20260910/results.json",
+      "bytes": 5699,
+      "sha256": "fc59fd316b7f5ab517d7ac271f525e4098b4bf72e46fce3e40ef37025fae7e30",
+      "git_blob_sha1": "af0516778393b86858227637811e30964469a1fd"
+    }
+  ],
+  "not_claimed": [
+    "all-positive-integer compatibility",
+    "native rotation admission for U",
+    "O(1) average repair",
+    "vanishing changed-point fraction",
+    "unchanged nested prefixes or scalar milestones",
+    "new general ideal-lattice theory",
+    "independent review or Foundation promotion"
+  ],
+  "next_unit": "Insert non-U-invariant intermediate prime-index states or retained auxiliary data across the exact index gate; bound their defect and native repair under mixed-prime composition."
+}
