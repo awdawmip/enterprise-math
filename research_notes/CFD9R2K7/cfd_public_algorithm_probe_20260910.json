@@ -1,0 +1,74 @@
+{
+  "schema": "EM_EXPLORATORY_EXPERIMENT_CHECKPOINT_V1",
+  "event_id": "CFD9R2K7-public-cfd-probe-20260910",
+  "activity_id": "RA-CFD9R2K7-public-spectral-probe-20260910",
+  "status": "EXPLORATORY_NOT_INDEPENDENTLY_REVIEWED_NOT_MATHEMATICAL_PROMOTION",
+  "source_read_commit": "902318ee8a5dd5065fa43710c3521898bec4120b",
+  "scope": "Classical effective-model 2D periodic zero-mean vorticity, finite Galerkin box; not native P000 fluid derivation, not 3D certification.",
+  "brc_audit": {
+    "source": "definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json",
+    "carrier": "Integer input/output wavevectors and complex amplitudes; ordered pair branches.",
+    "observer": "Every nonlinear output coefficient in the retained Galerkin box.",
+    "safe_aggregation": "Sum (p,q) and (q,p) with full signed coefficients; keep p+q and conjugate modes. Rebuild a support plan whenever support changes.",
+    "applied": "Observer/provenance audit and exact integer zero tests.",
+    "not_applicable": "Positive Weighted-BRC recurrence theorems do not establish signed/complex cancellation or Navier-Stokes stability. No theorem/tool performance novelty is claimed."
+  },
+  "public_sources": [
+    {"repository": "google/jax-cfd", "path": "jax_cfd/spectral/equations.py", "git_blob": "85dbe5d32742826ee3a3ae0208fc77e0c8255ec7", "target": "NavierStokes2D.explicit_terms"},
+    {"repository": "spectralDNS/spectralDNS", "path": "spectralDNS/solvers/NS.py", "git_blob": "6a11909d1e2c1d529d382952c4c9d77e7073645c", "target": "getConvection; compare existing Vortex form, not only Standard"},
+    {"url": "https://dedalus-project.readthedocs.io/en/latest/pages/examples/ivp_2d_shear_flow.html"},
+    {"url": "https://basilisk.fr/src/navier-stokes/centered.h"},
+    {"url": "https://pycodegen.pages.i10git.cs.fau.de/lbmpy/notebooks/demo_streaming_patterns.html"}
+  ],
+  "finite_map": {
+    "domain": "[0,2*pi)^2; nonzero integer wavevectors; output |kx|,|ky|<=K",
+    "velocity": "u_hat(p)=(i*py,-i*px)*w_p/(px^2+py^2)",
+    "ordered_rhs": "N(w)_k=-sum_{p+q=k} (px*qy-py*qx)/|p|^2 * w_p*w_q",
+    "unordered_pair_coefficient": "(px*qy-py*qx)*(|p|^2-|q|^2)/(|p|^2*|q|^2)",
+    "zero_tests": "Integer cross product zero or squared lengths equal; retain complex amplitudes otherwise.",
+    "proof": "Expand -u.grad(w) in Fourier coefficients, then add the ordered (p,q) and (q,p) contributions. The p=q contribution vanishes. This is standard algebra, not a new physical model.",
+    "fft": "Four real inverse FFT fields (u,v,wx,wy), physical product -(u*wx+v*wy), one forward real FFT. Pad to M=next_fast_len(3K+1)>3K, extract the same retained box."
+  },
+  "experiment": {
+    "implementation": "Independent NumPy/SciPy/Numba reference, not actual JAX-CFD, Dedalus or spectralDNS runtime.",
+    "environment": "Python 3.13.5; NumPy 2.3.5; SciPy 1.17.0; Numba 0.65.1; FFT workers=1; no fastmath; JIT warmup excluded; median of 9 timing groups; shared container.",
+    "dynamic_cost": "Includes exact nonzero extraction and pair computation every RHS call. No magnitude pruning.",
+    "fixed_plan_cost": "One-time plan construction reported separately; cannot reuse after support changes.",
+    "K32_retained65_padded98_rows": [
+      {"signed_modes":32,"fft_ms":0.6282016666669202,"dynamic_ms":0.046382600000072216},
+      {"signed_modes":128,"fft_ms":0.8010614782612581,"dynamic_ms":0.0997347199998444},
+      {"signed_modes":512,"fft_ms":0.9732900416672408,"dynamic_ms":1.5876173999970433},
+      {"signed_modes":2048,"fft_ms":0.7012763809519758,"dynamic_ms":20.37391400000388}
+    ],
+    "all_kernel_tests_max_relative_l2_below":1.22e-15,
+    "checks": "Conjugacy, instantaneous inviscid energy/enstrophy derivatives, one analytic Fourier coefficient, same-shell zero nonlinearity. Floating tests, not interval proof.",
+    "integration": {
+      "K":16,"viscosity":0.01,"forcing":0,"dt":0.001,"rk4_steps":5,"initial_signed_modes":8,
+      "first_step_stage_supports":[8,26,80,282],"step_end_supports":[800,1088,1088,1088,1088],
+      "final_relative_l2_sparse_vs_fft":1.3482178864702098e-18,
+      "simple_hybrid_threshold":128,"hybrid_five_steps_ms":3.597460000008823,"fft_five_steps_ms":3.3689143333314555,
+      "finding":"Exact sparsity rapidly fills; simple hybrid did not deliver end-to-end speedup. Many new nonzero coefficients are tiny."
+    }
+  },
+  "exact_input_pruning_envelope": {
+    "decomposition":"w=a+r",
+    "rectangular_magnitude":"m(z)=|Re(z)|+|Im(z)|",
+    "A":"sum_p ((|px|+|py|)/|p|^2)*m(z_p)",
+    "B":"sum_p max(|px|,|py|)*m(z_p)",
+    "bound":"sum_k |N(w)_k-N(a)_k| <= A(a)B(r)+A(r)B(a)+A(r)B(r)",
+    "proof":"Use |p cross q| <= (|px|+|py|)*max(|qx|,|qy|), submultiplicativity of rectangular magnitude, expand the bilinear map at a+r, and sum. Restricting output cannot increase this absolute-sum bound.",
+    "arithmetic":"Treat saved binary64 coefficient components as exact dyadic rationals; Fraction computes A,B and bound exactly. Display rounded upward.",
+    "snapshot":"Fifth RK4 state from integration above; keep conjugate pair if max pair magnitude >=1e-8.",
+    "nonzero_before":1088,"nonzero_after":50,"bound_rounded_up":3.728548842190364e-7,
+    "observed_float_rhs_l1_difference":4.223889237197084e-8,"bound_build_ms":18.827441000041745,
+    "exclusions":"No floating kernel-roundoff bound, time-discretization bound, unresolved-mode bound, physical-model validation, or independent mathematical review. Rational audit currently costs more than FFT."
+  },
+  "delivered_artifact_sha256": {
+    "probe.py":"c69a5fee88b2453543e2e05f19ba5527fdebbf920e5794cf9d8cd7f8c3d1c95d",
+    "results.json":"a99ffbbe2c82f8e7e41fd191c6ab366889e9d9858ee1b7dda0d142b3e16dc61c",
+    "tail_audit.py":"3d1e96f6d3436415d53a30c125e27f841784b4cc647a5c7bb73120e0e0b7f6ec",
+    "tail_results.json":"061c4d5731a423aaa19f6249de400df9f978a57ce746f5f493f79e3255e72433",
+    "snapshot_coefficients.json":"263e0cf552c6b58fa0f4959b92d77e67c6eec08a30c86b499e8f8747dac1b4c2"
+  },
+  "next":"Develop cheap rigorously outward-rounded/blockwise pruning envelopes, include support/plan/audit/fallback costs, then test complete held-out 2D flows against a mature public solver. Do not promote a sparse-input microbenchmark to industrial acceleration."
+}
