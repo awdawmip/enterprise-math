@@ -1,0 +1,79 @@
+{
+  "schema": "EM_RESULT_SPECIFIC_VERIFICATION_V1",
+  "record_id": "FINDING-EM-PDE-COSET-CAUSAL-BLOCK-20260910",
+  "activity_id": "RA-076944AE1950A916ACC95399",
+  "event_id": "NS-COSET-CAUSAL-BLOCK-20260910-15",
+  "proof_source": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "76cb92d7aab123c5d8704af15ba3487ccd7a395a",
+    "path": "research_notes/ns-coset-causal-block-20260910.md",
+    "sha256": "3e7322157bfa3c4415cd2b5cd54f30ff44da88a998fbc444244bc5c2601c7d55",
+    "git_blob_sha1": "2249712c52b2c3495e6566129fd4c7fd7fef10ef"
+  },
+  "checker_source": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "a6f6815223658e6135bbe9c19e477e08fcc3f18e",
+    "path": "research_notes/ns-coset-causal-block-20260910/certify_coset.py",
+    "sha256": "f53482572c2503e7fe92c532fbf3976eea1a81c2ca434db8c25deacfeb57a1cc",
+    "git_blob_sha1": "83011f1b53e49f6f9953f2d5301df0a3e4acdae0"
+  },
+  "full_generated_result_sha256": "63f601a250ecf4ab6da41383e1d769755108855aeeed962189ba793cc53b9e1c",
+  "verification": {
+    "status": "PASS",
+    "analytic_dependency": "symmetric convection C_s=909/200 and inherited all-mode causal inverse",
+    "character": "(k1+k2+k3) mod 2",
+    "exact_character_tests": 15376,
+    "sector_minimum_squared_radii": [
+      2,
+      1
+    ],
+    "complete_linear_defect_packets": 772,
+    "complete_linear_defect_outputs": 144,
+    "odd_odd_feedback_nonzero_and_retained": true,
+    "no_frequency_decimation": true,
+    "no_PDE_time_space_sampling": true,
+    "mixed_family": {
+      "range": "0<=a/nu<=1/5",
+      "arbitrary_smooth_solenoidal_mean_zero_initial_perturbation_radius": "nu/10000",
+      "even_inverse_upper": "3919/1000",
+      "odd_inverse_upper": "741/125",
+      "even_feedback_upper": "291/20",
+      "odd_feedback_upper": "2201/100",
+      "even_radius": "nu/50",
+      "odd_radius": "nu/200",
+      "weights": [
+        1,
+        2
+      ],
+      "contraction_upper": "19809/20000",
+      "total_trajectory_squared_radius": "17nu^2/40000",
+      "even_margin_lower_readout": 0.00011385464425687849,
+      "odd_margin_lower_readout": 8.462014063658477e-05
+    },
+    "invariant_even_family": {
+      "range": "0<=a/nu<=213/1000",
+      "perturbation_requires_even_frequency_parity": true,
+      "perturbation_radius": "nu/100000",
+      "inverse_upper": "547/125",
+      "feedback_upper": "406/25",
+      "trajectory_radius": "29nu/1000",
+      "contraction_upper": "5887/6250",
+      "margin_lower_readout": 7.026272833039297e-05
+    },
+    "shared_scalar_obstruction": {
+      "at_amplitude": "1/5",
+      "fixed_feedback": "2201/100",
+      "linear_response_norm_lower": "12843/1000000",
+      "four_alpha_lower": "28267443/25000000",
+      "not_a_blowup_claim": true
+    },
+    "clean_directory_rerun": "PASS; all non-timing fields identical",
+    "independent_peer_review": false
+  },
+  "limits": [
+    "Restricted periodic families, not arbitrary-initial-data NS regularity.",
+    "The .213 endpoint does not include arbitrary parity-breaking perturbations.",
+    "Parity sectors are not helicities or primitive force counts.",
+    "Analytic parent results remain TESTING, not proof-assistant formalization."
+  ]
+}
