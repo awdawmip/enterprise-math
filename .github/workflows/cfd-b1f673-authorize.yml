@@ -1,0 +1,65 @@
+name: CFD B1F673 exact claim authorization
+on:
+  push:
+    branches: [research/cfd-b1f673-main-20260910]
+    paths: [.github/workflows/cfd-b1f673-authorize.yml]
+permissions:
+  contents: write
+  issues: read
+jobs:
+  authorize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: control
+      - uses: actions/checkout@v4
+        with:
+          ref: research/cfd-b1f673-main-20260910
+          path: work
+      - name: Invoke unchanged canonical guard against actual server comments
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh api --paginate --slurp 'repos/awdawmip/enterprise-math/issues/240/comments?per_page=100' > "$RUNNER_TEMP/pages.json"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          root = Path(os.environ['RUNNER_TEMP'])
+          pages = json.loads((root/'pages.json').read_text())
+          assert isinstance(pages, list) and all(isinstance(x,list) for x in pages)
+          (root/'events.json').write_text(json.dumps([x for p in pages for x in p]))
+          state = {'task': {'task_id':'RS-CFD-SPECTRAL-HYBRID-20260910'}, 'owner_claim': {'claim_id':'CFD-B1F673-20260910-MAIN','researcher_id':'EM-CFD-B1F673'}, 'session_id':'local-chat-cfd-b1f673-20260910', 'activity_id':'RA-CFD-B1F673-20260910', 'research_mode':'TASK_RESEARCH'}
+          (root/'state.json').write_text(json.dumps(state))
+          PY
+          set +e
+          python control/tools/research_runtime_guard.py authorize --state-file "$RUNNER_TEMP/state.json" --events "$RUNNER_TEMP/events.json" > "$RUNNER_TEMP/guard-output.txt" 2>&1
+          code=$?
+          set -e
+          export GUARD_EXIT_CODE="$code"
+          export CONTROL_SHA="$(git -C control rev-parse HEAD)"
+          export EXECUTION_SHA="$(git -C work rev-parse HEAD)"
+          python - <<'PY'
+          import json, os, hashlib, datetime
+          from pathlib import Path
+          root = Path(os.environ['RUNNER_TEMP'])
+          raw = (root/'guard-output.txt').read_text()
+          try: result = json.loads(raw)
+          except ValueError: result = None
+          value = {'schema':'CFD_EXACT_CANONICAL_GUARD_OBSERVATION_V1','task_id':'RS-CFD-SPECTRAL-HYBRID-20260910','claim_id':'CFD-B1F673-20260910-MAIN','control_main_sha':os.environ['CONTROL_SHA'],'execution_source_sha':os.environ['EXECUTION_SHA'],'observed_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'server_comments_sha256':hashlib.sha256((root/'events.json').read_bytes()).hexdigest(),'server_comment_count':len(json.loads((root/'events.json').read_text())),'guard_exit_code':int(os.environ['GUARD_EXIT_CODE']),'guard_result':result,'raw_guard_output':raw,'workflow_run_id':os.environ['GITHUB_RUN_ID']}
+          out = Path('work/research_notes/CFD-B1F673/main/runtime_authorization.json')
+          out.parent.mkdir(parents=True,exist_ok=True)
+          out.write_text(json.dumps(value,indent=2)+'\n')
+          print(json.dumps(value,indent=2))
+          PY
+          cd work
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research_notes/CFD-B1F673/main/runtime_authorization.json
+          git commit -m '[EM-CFD-B1F673] preserve actual canonical runtime authorization observation'
+          git push origin HEAD:refs/heads/research/cfd-b1f673-main-20260910
+          exit "$code"
