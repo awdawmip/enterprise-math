@@ -1,0 +1,24 @@
+{
+  "schema": "CFD_PRIOR_ART_PUBLICATION_PREFLIGHT_V1",
+  "status": "PASS_SCOPED_EQUIVALENT_PREFLIGHT",
+  "current_main_at_preflight": "018dd6e6e460858b26ea36089941b461e0fc1e6b",
+  "prior_batch_preflight_commit": "3f776d410698eb19264915f0b29436420831c2e2",
+  "policy_digest": "sha256:b3d44e7cb736426e48b7994d280192f2f48ddde306af1d7ad80db2012c00864b",
+  "policy_drift_check": "compare 3f776d4..018dd6e showed no policy-input or task-publication-contract file changes",
+  "task_id": "RS-CFD-PRIOR-ART-AUDIT-20260910",
+  "publication_id": "TP2-ABB0F0E69389742569BF",
+  "taskbook_blob_sha1": "sha1:1ca8a48ee98acd018d99f2c8f740f5313d9b1443",
+  "checks": [
+    "frontmatter parsed",
+    "required publication metadata present",
+    "five mandatory body sections nonempty",
+    "origin/lineage valid",
+    "no fixed runtime identity fields",
+    "current policy digest retained",
+    "conflict/restatement regexes no hit",
+    "new task id not present in current V2 records"
+  ],
+  "errors": [],
+  "independent_review": false,
+  "mathematical_acceptance": false
+}
