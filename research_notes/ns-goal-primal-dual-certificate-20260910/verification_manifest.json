@@ -1,0 +1,111 @@
+{
+  "schema": "EM_RESULT_SPECIFIC_VERIFICATION_V1",
+  "record_id": "FINDING-EM-PDE-GOAL-PRIMAL-DUAL-CERTIFICATE-20260910",
+  "activity_id": "RA-076944AE1950A916ACC95399",
+  "proof_source": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "2a3874b05c03dda1f41e51f609ade7ef6223f6dd",
+    "path": "research_notes/ns-goal-primal-dual-certificate-20260910.md",
+    "sha256": "dcc9a7e8459593cde11cb5f777c9aa44561f37d9f63758e6c26705f1d89ee22c",
+    "git_blob_sha1": "37d9f40be276dccca96f75c1afa1a2c6694225af"
+  },
+  "checker_source": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "56182ae045297ae5f696e4712a784dd00b18e65e",
+    "path": "research_notes/ns-goal-primal-dual-certificate-20260910/certify_goal.py",
+    "sha256": "954caee644e7a251e7a4631bf94cdca32dd19cd14d7d9577506235b2f59c9a81",
+    "git_blob_sha1": "2318d15a0563d746390ccca94d700945d0183a31"
+  },
+  "full_output_sha256": "654e280ed3afde495259498040dd0003e68c172525d9ee37029abc411cdc10a6",
+  "verification": {
+    "status": "PASS",
+    "scope": "finite primal-dual certificates with inherited analytic all-mode NS implications",
+    "cases": [
+      {
+        "kind": "fewer_packets",
+        "amplitude": "3/20",
+        "labels": [
+          "first",
+          8,
+          6,
+          14
+        ],
+        "inverse_upper": "73/20",
+        "alpha_upper": "57/2",
+        "eta_rational_upper": "42693979/5000000000",
+        "certified_radius": "3/200",
+        "inclusion_margin": "243521/5000000000",
+        "contraction_upper": "171/200",
+        "off_family_initial_perturbation_radius": "385197/50000000000",
+        "correction_packets": 90,
+        "full_defect_packets": 498,
+        "full_defect_modes": 132,
+        "primal_upper_readout": 0.008538795766437825,
+        "dual_lower_readout": 0.008538795766409478,
+        "primal_dual_gap_upper": "2834772365993691658437/100000000000000000000000000000000000"
+      },
+      {
+        "kind": "expanded_datum",
+        "amplitude": "19/125",
+        "labels": [
+          "first",
+          8,
+          6,
+          14,
+          2
+        ],
+        "inverse_upper": "92862737/25000000",
+        "alpha_upper": "1441074971/50000000",
+        "eta_rational_upper": "10829877/1250000000",
+        "certified_radius": "17/1000",
+        "inclusion_margin": "334253381/50000000000000",
+        "contraction_upper": "24498274507/25000000000",
+        "off_family_initial_perturbation_radius": "1039067/1000000000000",
+        "correction_packets": 118,
+        "full_defect_packets": 566,
+        "full_defect_modes": 136,
+        "primal_upper_readout": 0.00866390154373542,
+        "dual_lower_readout": 0.008663901543615554,
+        "primal_dual_gap_upper": "599326703420043985083/5000000000000000000000000000000000"
+      },
+      {
+        "kind": "dictionary_obstruction",
+        "amplitude": "4/25",
+        "labels": [
+          "first",
+          2,
+          6,
+          8,
+          10,
+          14,
+          16,
+          18,
+          24,
+          26,
+          34,
+          42
+        ],
+        "inverse_upper": "200630557/50000000",
+        "alpha_upper": "1556725999/50000000",
+        "correction_packets": 216,
+        "full_defect_packets": 886,
+        "full_defect_modes": 184,
+        "primal_upper_readout": 0.008976838844540645,
+        "dual_lower_readout": 0.008976838843980506,
+        "primal_dual_gap_upper": "56013938556451645151737/100000000000000000000000000000000000"
+      }
+    ],
+    "all_dual_constraints_rationally_verified": true,
+    "full_output_Gram_independently_recomputed": true,
+    "real_solenoidal_zero_initial_trials": true,
+    "optimization_is_not_proof_oracle": true,
+    "PDE_time_space_sampling": false,
+    "clean_directory_rerun": "PASS; all non-timing output fields identical"
+  },
+  "limits": [
+    "No arbitrary-data NS regularity or historical novelty claim.",
+    "The dual obstruction applies only to the fixed reference, finite dictionary, norm majorant and inverse bound.",
+    "The arbitrary smooth off-family perturbation result is a small neighborhood only.",
+    "Not independently reviewed; inherited C*=9.503 and causal inverse remain analytic dependencies."
+  ]
+}
