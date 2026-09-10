@@ -4,7 +4,7 @@ Status: RESEARCH_NOTE / ELEMENTARY_DERIVATIONS_AND_EXACT_FINITE_CERTIFICATES / N
 Progress-Event-ID: NOLLM-NEIGHBOR-LOCALITY-20260910-C6C82
 Researcher-ID: EM-DIRECT-C6C82
 Research-Activity-ID: RA-nollm-hecke-views-20260909-c6c82
-Session: local-chat-nollm-hecke-views-20260909-c6c82 (locally assigned continuity key, not a server ID)
+Session: local-chat-nollm-hecke-20260909-c6c82 (locally assigned continuity key, not a server ID)
 Mode: TASK_RESEARCH / direct user continuation / no formal Task-ID or CLAIM
 Date: 2026-09-10
 Source snapshot: enterprise-math@89f8ed2df9e7d5ebe42612e063b50f6be5ee315e
