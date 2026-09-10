@@ -1,0 +1,68 @@
+{
+  "schema": "NOLLM_NATIVE_COVERAGE_AUDIT_CHECKPOINT_V1",
+  "event_id": "NOLLM-NATIVE-COVERAGE-AUDIT-20260910-C6C82",
+  "activity_id": "RA-nollm-hecke-views-20260909-c6c82",
+  "status": "ISOLATED_PINNED_SOURCE_CHECKED_NOT_PROMOTED",
+  "nollm_snapshot": "91bd14ab394e87931b45baaaa87671f30fcfd706",
+  "note": {
+    "commit": "16c8daad1e0f3db5c3399d5a085ccbd70f9d4476",
+    "path": "research_notes/nollm_native_coverage_audit_20260910_c6c82.md",
+    "git_blob_sha1": "523b8dc681706a3ea292570562cfd3d525f5f2aa",
+    "sha256": "9e42ccbb60ad39b17218ae1fedd9169c50011e20872ad35b77706de69ef4a048"
+  },
+  "code": {
+    "commit": "20b06e9977da1a453b4f378bf9a0aced6b901587",
+    "path": "experiments/nollm_native_coverage_audit_20260910_c6c82/experiment.py",
+    "git_blob_sha1": "772776343ed549bab97d4315b4769e593f2b4fcc",
+    "sha256": "033f1b50643ea4d5e597537c7e658090f1c3e39e66461ec807f12da636a214b5"
+  },
+  "harness": {
+    "commit": "5b2cf2350c12131c71153ddecb58901bd601c176",
+    "path": "experiments/nollm_native_coverage_audit_20260910_c6c82/kernel_harness.py",
+    "git_blob_sha1": "44676c27410c6703b99994febedb7dce4083f8d6",
+    "sha256": "7b737f0ed053cc829af79d1358aca3e29e40b55da6aeef7163c8e483253f250e"
+  },
+  "results": {
+    "commit": "b5b537a051ad54acbbff58345a27cde8afc81bc1",
+    "path": "experiments/nollm_native_coverage_audit_20260910_c6c82/results_reference.json",
+    "git_blob_sha1": "2ad386f1372ff56ecfc4f20c7ff9620d8c6a27a2",
+    "sha256": "fbab9f3e3c7818f4aa823c7b39e72a160f909613c986d25ce75e07b3c4fd9203"
+  },
+  "checks": {
+    "verified_source_files": 4,
+    "coverage_source_cells": 1027,
+    "directed_expansions": 2054,
+    "positive_relations": 7946,
+    "no_direct_reverse_relations": 66,
+    "minimum_reverse_failure_radius": 4,
+    "coverage_only_recall_runs": 102,
+    "additional_origin_budget_grid_cases": 36,
+    "depth8_support_cells": 617,
+    "beam1_native_cells": 3,
+    "beam1_filter_first_cells": 9,
+    "beam1_native_budget_exhausted": false,
+    "beam32_native_cells": 131,
+    "beam32_filter_first_cells": 187,
+    "wide_beam_same_results": true,
+    "synthetic_bridge_budget_counterexample": true,
+    "native_coverage_plus_test_bridges_counterexample": true,
+    "hybrid_beam": 4096,
+    "hybrid_depth": 3,
+    "hybrid_native_target_found": false,
+    "hybrid_resource_aware_target_found": true,
+    "hybrid_maximum_score_q16": 2730,
+    "hybrid_exhaustive_path_appearances": 528,
+    "hybrid_dp_state_appearances": 132,
+    "two_final_runs_six_files_byte_identical": true,
+    "run": "PASS"
+  },
+  "raw_pretty_results_sha256": "564a8d9cca438dc9277cfd7f208b7d01eed9ae8ba204f4c0aba4c0db72fde0e0",
+  "limits": [
+    "AST import isolation with fixtures; not full NollmCore/provider integration",
+    "Native scan uses coverage_up/down only; Bridge cases are explicit test inputs",
+    "Code permits fanout8, scan observes at most7; compiled7 is a different interface",
+    "No live Nollm mutation, external correctness index, semantic data, wire or throughput timing",
+    "Filter-order candidate alone does not repair remaining-bridge-state dominance",
+    "Research note and exact checks do not create theorem or Foundation acceptance"
+  ]
+}
