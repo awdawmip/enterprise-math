@@ -2,7 +2,7 @@
   "schema": "CFD_TASK_PUBLICATION_COMPLETION_PREFLIGHT_V1",
   "status": "PASS_SCOPED_EQUIVALENT_PREFLIGHT",
   "at": "2026-09-10T22:16:02+08:00",
-  "source_main_before_transaction": "3c5abd9dd2b0756dbb89c9eb13dc4396f1843fa7",
+  "source_main_before_transaction": "bd5aebfc68dc51a70d626b5d197162c5dc347dce",
   "policy_digest": "sha256:b3d44e7cb736426e48b7994d280192f2f48ddde306af1d7ad80db2012c00864b",
   "policy_input_state": {
     "evidence": "compare 23b3261258f6a6c381f1f2f5667a84c20152f7f3..3c5abd9dd2b0756dbb89c9eb13dc4396f1843fa7 showed no changes to research_taskbook_policy.json or its declared policy_inputs",
@@ -69,5 +69,11 @@
   ],
   "claims_granted": false,
   "mathematical_acceptance_granted": false,
-  "working_truth_granted": false
+  "working_truth_granted": false,
+  "concurrent_rebase_check": {
+    "previous_base": "3c5abd9dd2b0756dbb89c9eb13dc4396f1843fa7",
+    "current_main": "bd5aebfc68dc51a70d626b5d197162c5dc347dce",
+    "compare_result": "nine concurrent commits touched only disjoint research_notes/ns-* paths; no policy input, CFD task record, taskbook, or preserved CFD source path overlap",
+    "action": "reconstruct one complete publication commit on current main; non-force ref update only"
+  }
 }
