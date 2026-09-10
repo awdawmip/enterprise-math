@@ -1,0 +1,65 @@
+{
+  "schema": "EM_X6_RESEARCH_CHECKPOINT_V1",
+  "activity_id": "RA-X6CM-F01144F76207",
+  "event_id": "X6CM-INTERMEDIATE-FLAGS-20260910-07",
+  "status": "DECLARED_MODEL_PROOFS_AND_EXACT_CERTIFICATES_NOT_ADMITTED",
+  "source_snapshot": "a12be839318bded31998207ee18ef76762b7a856",
+  "artifact_commit": "2c12d40f41bc0b8e2dda14e9a22ecb50544375f7",
+  "frontier": [
+    "A fixed prime-local cyclic flag extends the previous ideal family to a lattice M(N) of every positive index, preserving divisibility, gcd/lcm, relative integer multiplication diamonds, and all previously admitted ideal nodes.",
+    "For every additive index-N lattice under the same fixed U-future observer, N_h=N product_{p|N} p^min(h,(-v_p(N)) mod f_p) divides the exact h-step signature count. One constructed M family attains equality for all N and h.",
+    "The invariant core of M(N) is J(N_plus) and its invariant envelope is J(N_minus). Native shape and mean-repair bounds inherit explicit factors from unfinished prime blocks, not a uniform all-integer constant.",
+    "The selected binary flag fits S2, S4, S8 without relocation; all seven seeds in the selected irreducible block are information-optimal, but only two fit both initial prefixes at zero cost.",
+    "Native repair costs and future information differ: N=67 costs 22 signed unit steps but needs 300763 full future states; N=6 costs one step but needs 5832 states.",
+    "Intermediate lattices are not ideals: M(2)M(2)=R rather than M(4); x^2 in M(2) has norm one. A co-moving quotient changes the observer and is not a counterexample to the fixed-observer lower bound."
+  ],
+  "verification": {
+    "local_flag_nodes": 180,
+    "integer_index_bases": 130,
+    "finite_horizon_kernel_identities": 780,
+    "invariant_envelopes": 130,
+    "gcd_lcm_pairs": 256,
+    "relative_multiplication_diamonds": 64,
+    "arbitrary_lattice_lower_bound_checks": 270,
+    "arbitrary_lattices": 45,
+    "T6_current_indices": 9,
+    "T6_microstates": 14561,
+    "binary_seeds": 7,
+    "native_repair_instances": 27,
+    "envelope_norm_cases": 60,
+    "largest_index_basis_only": 142684498944,
+    "matching_certificate": "unchanged parent integer primal/dual inequalities and equal objectives",
+    "readback": "All three immutable Git blob IDs match local artifact bytes; report-only Markdown separator differences reconciled without mathematical edits."
+  },
+  "artifacts": [
+    {
+      "path": "research_notes/x6_all_index_flags_and_minimum_future_information_20260910.md",
+      "bytes": 15704,
+      "sha256": "21af8e16d2ff0097b48dab57335809ebc745509e625af3b67188a88de7aa32b2",
+      "git_blob_sha1": "3977cbe226cebf26e739b5b26927c88158847ba1"
+    },
+    {
+      "path": "experiments/x6_intermediate_flags_20260910/verify.py",
+      "bytes": 11223,
+      "sha256": "039fb24b6b32aa7599d6dcf56146f5bfd90c2f42ff3d9abc3cb15f11ea3eb146",
+      "git_blob_sha1": "c41fdd1a468d8d7ee52c96c3a739dd59c78892ec"
+    },
+    {
+      "path": "experiments/x6_intermediate_flags_20260910/results.json",
+      "bytes": 9072,
+      "sha256": "df9ccb7f8def5bf61b1bf24c9e5cd4e83bd918d371353e247a844875c9f83aad",
+      "git_blob_sha1": "1b7ba9d856333a5975c51ebc1bd09386bd89f4ac"
+    }
+  ],
+  "not_claimed": [
+    "native isometry for U",
+    "ideal multiplication at intermediate indices",
+    "uniform all-integer native shape constants",
+    "O(1) average repair",
+    "strict unit-step or nested representative growth",
+    "unique seed selection",
+    "general mathematical novelty",
+    "independent review or Foundation admission"
+  ],
+  "next_unit": "Optimize prime-local seeds within the same ideal blocks under the sharp information bound, then test native shape and repair costs across mixed unfinished primes without changing observer semantics."
+}
