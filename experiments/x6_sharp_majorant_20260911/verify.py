@@ -65,6 +65,7 @@ def verify(limit: int) -> dict:
         sumtau += tau(n)
         if n in targets:
             bound = 16 * n * Fraction.from_float((1 + math.log(n)) ** float(C))
+            # Floating expression is diagnostic only; theorem is symbolic.
             snapshots.append({
                 'X': n,
                 'mean_F_float': float(sumF / n),
@@ -73,12 +74,18 @@ def verify(limit: int) -> dict:
                 'below_diagnostic_bound': float(sumF) <= float(bound),
             })
 
+    # The safe Boolean observer {exists nonzero short vector} may quotient z~-z.
+    # Synthetic symmetric witness set: 10 nonzero vectors represented by 5 pairs.
     signed = [(i,) for i in range(1, 6)] + [(-i,) for i in range(1, 6)]
     classes = {tuple(abs(x) for x in z) for z in signed}
     assert len(signed) == 2 * len(classes) == 10
 
+    # Exact summability exponent for the polynomial window at gamma=3/8, beta=1.
+    # Weighted dyadic term is O(k^{-1-margin} (log k)^c) for alpha=1/7.
     exponent = BETA + C - 6 * GAMMA + ALPHA_WITNESS
     assert exponent == -1 - margin
+
+    # Critical single-target threshold gamma=41/118: polynomial window exponent zero.
     assert 6 * GAMMA_CRIT == 1 + BETA + C
 
     return {
