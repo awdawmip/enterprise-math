@@ -1,0 +1,130 @@
+{
+  "schema": "NOLLM_VISUAL_TOOLKIT_RELEASE_V1",
+  "name": "Nollm Visual Toolkit",
+  "version": "0.2.0",
+  "status": "RESEARCH_TOOL_RELEASE",
+  "importance": "IMPORTANT_RESEARCH_INFRASTRUCTURE_USER_REQUESTED",
+  "researcher_id": "EM-DIRECT-C6C82",
+  "activity_id": "RA-nollm-visual-workbench-20260910-c6c82",
+  "publication_path": "tools/nollm_visual_toolkit",
+  "claim_boundary": {
+    "mathematical_acceptance": false,
+    "nollm_runtime_modified": false,
+    "full_global_x6_fcc_bridge_completed": false,
+    "native_ios_safari_certified": false,
+    "full_repository_ci_run": false
+  },
+  "verification": {
+    "unit_tests_passed": 26,
+    "browser_acceptance_checks_passed": 43,
+    "all_65536_legacy_coordinates_and_fields_equal": true,
+    "x6_demo_explicit_records": 729,
+    "x6_exact_projection_collision_groups": 135,
+    "wheel_install_and_template_inclusion": "PASS"
+  },
+  "observer_guards": [
+    "A2 carrier has two degrees of freedom; not native X6",
+    "X6 input requires six explicit signed components",
+    "display projection never merges raw identities",
+    "prime views retain composite background",
+    "camera and synthetic layer height are observer-only",
+    "JSON and tool CSV retain raw fields, relations and provenance"
+  ],
+  "sources": [
+    {
+      "repository": "awdawmip/enterprise-math",
+      "path": "definitions/P000_FCC_PRIMARY_COORDINATE_CARRIER_20260829.md",
+      "git_blob_sha1": "bb867b68bea6a18e7a0651e901ad954063ecd38b"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "path": "definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json",
+      "git_blob_sha1": "3923890d77a02d84b772f789e6912dd14f220d14"
+    },
+    {
+      "kind": "prior_conversation_artifact",
+      "name": "interactive_65536.html",
+      "sha256": "c8e7aa6c9108df2c05093414c48616cc5a78979df94597856e86e76ae1245825"
+    }
+  ],
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 62,
+      "sha256": "5fb69de95dde0d39a0faf121bdaafeb584e51675039b84e7fd8ade80ed8b4caf",
+      "git_blob_sha1": "c91da22997d1abcbf699eea6cc369a0572a51e21"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1098,
+      "sha256": "061a421af2d6557eaf1171d74ede5415ab0d2946f02c2fa09710eca894d4b1a3",
+      "git_blob_sha1": "1de769adb293902d6690944c1ae4ea0e868f5096"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7011,
+      "sha256": "52e1290c0cc41258aa85ce0a293683d5dea0dc5b9fdc1868ae263b67cec10fd4",
+      "git_blob_sha1": "f93282979986c8b2f82854426085fa5e8217b350"
+    },
+    {
+      "path": "README.zh-CN.md",
+      "bytes": 5890,
+      "sha256": "96f533131e09a9764029a6576d24c4fda59f7b76aa6eea33c96b85f8037d8741",
+      "git_blob_sha1": "18700bdb6f99e8dd5f87fa880ac44bd3380e954c"
+    },
+    {
+      "path": "nollm_visual_toolkit/__init__.py",
+      "bytes": 348,
+      "sha256": "e489adfeac97d8b93ab96052996280e71b7bdac4e1f19bf46ff2f33df2cf794b",
+      "git_blob_sha1": "6b594389c037998130f70eb824ccd81ce6173ac9"
+    },
+    {
+      "path": "nollm_visual_toolkit/__main__.py",
+      "bytes": 2490,
+      "sha256": "f86c1d8859075d3853a68e90f6d95790f30f949077b0985e7227c577e8e1d05a",
+      "git_blob_sha1": "5eab8bd017d92bb7d9fccc2cb6a39c7f1ac1c58e"
+    },
+    {
+      "path": "nollm_visual_toolkit/core.py",
+      "bytes": 13246,
+      "sha256": "2881687fb12649f7c0e70666cf7c0788a3ad8e5803ddd7174ad7c2243ae1c9ef",
+      "git_blob_sha1": "b79e8f36ba5b2fc13f1c8c3d4a7a072722997e94"
+    },
+    {
+      "path": "nollm_visual_toolkit/static.py",
+      "bytes": 1790,
+      "sha256": "c930bb16f648df9ee28e347a0384b0d714b8052388ccc398d12cd5f03fd1a7ac",
+      "git_blob_sha1": "ca681e72c22a9fddd19c38803db62128b992867c"
+    },
+    {
+      "path": "nollm_visual_toolkit/workbench.html",
+      "bytes": 37953,
+      "sha256": "7e911f49a400725e190a5ef63f436f980447ea95f5038e535466d177d33684b3",
+      "git_blob_sha1": "507d39ea055942ab777d09b562c0f6c17152c4d6"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 661,
+      "sha256": "77b51a3c472c809a312d784a8948f53e4db367de4cdfd7438790d8805f7a7ba3",
+      "git_blob_sha1": "01325d1ef7df4d02171f0e5d326bdce0cdf21df9"
+    },
+    {
+      "path": "tests/browser_smoke.py",
+      "bytes": 9240,
+      "sha256": "8fc4023e3cc3069a4070b5563b0f148b21a9a2b97e465e9f9e59cda4486ba84c",
+      "git_blob_sha1": "2831d33abe4847033da524347c20e8742dbcbb13"
+    },
+    {
+      "path": "tests/test_core.py",
+      "bytes": 7877,
+      "sha256": "d70fce4ebeea5f996cce41e89a698bfd47b6bb904f262165cfdb4e125b47c3d5",
+      "git_blob_sha1": "5cae799c079e3b976a91c789114cf84581462762"
+    },
+    {
+      "path": "verification/acceptance.json",
+      "bytes": 2307,
+      "sha256": "e5bc997b87344edd5f716b67a86d08b3c5a4ae191cda84b8da192cb08fc6ae7c",
+      "git_blob_sha1": "9cc1059b465d0036fd8374892e88e3a15d2e3bc3"
+    }
+  ]
+}
