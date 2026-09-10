@@ -1,0 +1,40 @@
+{
+  "schema": "NOLLM_MULTIPLICATION_LAB_VERIFICATION_V1",
+  "lab_version": "0.1.0",
+  "base_toolkit_version": "0.3.0",
+  "researcher_id": "EM-DIRECT-C6C82",
+  "activity_id": "RA-nollm-web-preview-20260910-c6c82",
+  "source_snapshot": "37639d34fdffe4a03d7a94f33f11ba3ac78c46f2",
+  "baseline_core_blob": "7d7ee36b401e10469cb0a3c6a4a9fa33ba0f903e",
+  "unit_tests_passed": 18,
+  "browser_checks_passed": 48,
+  "population": 65536,
+  "exact_factorizations_checked": 65535,
+  "positive_pairs_k2_to_127": 289958,
+  "new_browser_run": true,
+  "browser_navigation": "host-supplied documents + actual srcdoc iframe; no native file-navigation claim",
+  "raw_dataset_unchanged": true,
+  "data_sha256": "94df92927ff6952c86344ee2f38b428d273c7e749cb41343e25d5c2c5ae51160",
+  "golden_baseline": {
+    "angular_cv": 0.19938280415160933,
+    "occupied_cells": 47491,
+    "collision_groups": 11009,
+    "excess_identities_if_collapsed": 18045,
+    "max_cell_load": 9,
+    "multiplication_pairs": 16383,
+    "exact_failures": 0
+  },
+  "limits": [
+    "Finite chosen model; phase multiplication holds by construction",
+    "Floating display quantization, not native geometric certification",
+    "No X6 upgrade, physical-layer claim, production integration or full repository CI",
+    "Native iOS Safari and physical touch not tested"
+  ],
+  "files": [
+    {"path":"nollm_visual_toolkit/multiplication_lab.py","sha256":"316c61cfcffac7c505ca4d7b6f6a89560d09ce4bce0ab716441e0e3b1210f4b9","git_blob_sha1":"2ab1f8733e7896411d1f6bc386176c7bbf7fa220","bytes":10762},
+    {"path":"nollm_visual_toolkit/multiplication_ui.py","sha256":"d33163c9a9dd5ee5e4a121d5bb231a2603e4a0e88743a16a4b38b3a7837b3703","git_blob_sha1":"e11e881dff2b1a1f259b260c4f7d85ec184dd41a","bytes":22850},
+    {"path":"tests/test_multiplication_lab.py","sha256":"07cef57584a651082a71d01407f58776120be517fe8a7a19fa1ed3ba65c92e8c","git_blob_sha1":"97f5ed8fee674b3d10cf36eaaec62f71f5dbfe52","bytes":5278},
+    {"path":"tests/browser_multiplication.py","sha256":"731eb969cfc72ab40ddac04ae0920efe5213a3a6b2c3cc43ce262b74c7193546","git_blob_sha1":"ff478c0ce9fdca633e455401f1398bbde10beeba","bytes":9269}
+  ],
+  "note": "This verification record preserves the original finite run. Publication is tracked separately by the current research activity checkpoint."
+}
