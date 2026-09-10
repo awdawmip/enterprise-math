@@ -1,0 +1,71 @@
+{
+  "schema": "NOLLM_FINITE_CARRY_ROUTING_CHECKPOINT_V1",
+  "event_id": "NOLLM-FINITE-CARRY-ROUTING-20260910-C6C82",
+  "activity_id": "RA-nollm-hecke-views-20260909-c6c82",
+  "status": "DERIVED_AND_EXACT_FINITE_CHECKED_NOT_PROMOTED",
+  "note": {
+    "commit": "6a771b279a255e7eb034529ef85e2f91d0fdd7c2",
+    "path": "research_notes/nollm_finite_carry_routing_20260910_c6c82.md",
+    "git_blob_sha1": "4b53c0a057b49d1efa141449dff2634866102950",
+    "sha256": "f4ce76bd6fcab1f5fca85fc46fcbf7bc1b903164b8fb05f49455a7c954d0986b"
+  },
+  "code": {
+    "commit": "d6e245338af5314bdbd20c4acf6e528b87421c73",
+    "path": "experiments/nollm_finite_carry_routing_20260910_c6c82.py",
+    "git_blob_sha1": "9b781073e7fa5a9ccbf1934bbc908630c6e0c14b",
+    "sha256": "0bf4e28f978777ac0d25e964f25398a440c499448462f018e7e0718206972940"
+  },
+  "fabric_code": {
+    "commit": "955b8b04034591aef97cacdbad6237f114f8e117",
+    "path": "experiments/nollm_permutation_fabric_20260910_c6c82.py",
+    "git_blob_sha1": "40c3f267def92dedc150a1127880e76e00b346b6",
+    "sha256": "2d9e0e10f3e5229237417b80311475fca50f0dd548c54e7b208ca09d63a29515"
+  },
+  "results_sha256": "e31dab24b9178d057cad2457e533944668273f75109f46168f9eb9fdb932e4e8",
+  "fabric_results_sha256": "4ed2d5329e3bc12881a3ea57aa2b058a1c561dd6a55487f4cd76221a8da62789",
+  "checks": {
+    "carry_states_U5_U11_each_direction": 22,
+    "carry_states_C11_each_direction": 30,
+    "minimal_tower_states_U5": 264,
+    "minimal_tower_states_U11": 462,
+    "minimal_tower_states_C11": 790,
+    "full_word_class_checks": 65976,
+    "prefix_checks": 66816,
+    "inverse_word_checks": 32988,
+    "additive_generator_checks": 131952,
+    "vector_digit_checks": 1080,
+    "product_interleavings": 1200,
+    "deep_samples": 840,
+    "maximum_sample_depth": 257,
+    "tree_terminal_states": 3025,
+    "tree_nodes": 6721,
+    "tree_max_degree": 3,
+    "complete_routed_messages": 18150,
+    "tree_max_hops": 28,
+    "tree_mean_hops": "108/5",
+    "tree_maximum_edge_load": 4840,
+    "fabric_width": 4096,
+    "fabric_switches": 47104,
+    "fabric_stages_per_direction": 23,
+    "fabric_direction_passes": 6,
+    "fabric_serial_stage_budget_excluding_configuration": 138,
+    "fabric_small_random_permutation_tests": 176,
+    "fabric_test_token_endpoints": 12700,
+    "all_actual_fabric_endpoints_and_intermediate_stage_occupancies": "PASS",
+    "tree_and_fabric_exact_aggregation": true,
+    "both_programs_rerun_byte_identical_results": true,
+    "run": "PASS"
+  },
+  "derived_scope": [
+    "cofinal joint-plane bounded two-way additive locality requires one common integer-unimodular matrix",
+    "finite carry invariant and exact all-depth streaming realization for the selected 5/11 chart maps",
+    "single-root congestion is exactly 8N/5 total messages across the declared cut"
+  ],
+  "limits": [
+    "controller states are not memory capacity or simultaneous branches",
+    "logical router hops and switch stages are not physical hex-grid distance or measured time",
+    "distributed fabric pays O(K log K) switch/control cost and unmeasured interstage wire lengths",
+    "deep sample depth is not complete enumeration",
+    "no ordinary integer-label multiplication embedding, semantic evaluation, runtime change or theorem promotion"
+  ]
+}
