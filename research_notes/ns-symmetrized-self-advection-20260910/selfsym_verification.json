@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "record_id": "FINDING-EM-PDE-SYMMETRIZED-SELF-ADVECTION-20260910",
+  "scope": "normalized T3, real solenoidal zero-mean fields; quadratic self-advection and its real symmetric polarization",
+  "parent_checker_sha256": "9ed03b1f3aff165f7a624ed58518d1ac89ae5f21042b7fd22d2cfdf147104368",
+  "parent_executed_unchanged": true,
+  "near_squared_upper": "37/5",
+  "far_squared_upper": "62003356548290251911587120911572831191/3626860363525628692824853787443200000",
+  "far_readout": 17.09560069415452,
+  "total_squared_upper": "88842123238379904238491038938652511191/3626860363525628692824853787443200000",
+  "total_squared_readout": 24.49560069415452,
+  "self_constant": "99/20",
+  "self_constant_readout": 4.95,
+  "continuum_self_kernel": "3*pi^3/16",
+  "whole_space_unitary_self_constant": "sqrt(6)/16",
+  "cube_average_identity": "avg_Q N = N + Delta N/24 + 29 K^2/360",
+  "laplacian_nonnegative_identity": "Delta N=4K^2[3(z-K/2)^2+3x^2+8y^2+K^2/4]",
+  "symmetric_bilinear_extension": "B_s(f,g)=(B(f,g)+B(g,f))/2 has same constant by real polarization and scale optimization",
+  "limits": [
+    "Self/symmetric constant does not replace the 6.45 constant for an arbitrary ordered B(f,g).",
+    "Not claimed optimal.",
+    "No arbitrary-data NS regularity.",
+    "Prior 6.45 parent remains unreviewed dependency."
+  ]
+}
