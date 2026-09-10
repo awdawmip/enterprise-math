@@ -1,0 +1,75 @@
+{
+  "schema": "CFD_LOCAL_HANDOFF_TO_CANONICAL_TASKSET_V1",
+  "status": "CURRENT_MAPPING_AFTER_RECOVERY",
+  "historical_bundle": "CFD_任务待发布包与主任务检查点_20260910.zip",
+  "historical_snapshot_path": "research_notes/CFD-B1F673/legacy_local_handoff_20260910/",
+  "parent_objective_id": "OBJ-CFD-TRUSTWORTHY-ACCELERATION-20260910",
+  "main_task_claim_preserved": {
+    "task_id": "RS-CFD-SPECTRAL-HYBRID-20260910",
+    "publication_id": "TP2-C3B717C14153D5AC45BF",
+    "claim_id": "CFD-B1F673-20260910-MAIN",
+    "researcher_id": "EM-CFD-B1F673",
+    "checkpoint_commit": "e40e5303234c5e8bd725528aad9bff9edf0c059d"
+  },
+  "mappings": [
+    {
+      "old": "RS-CFD-HYBRID-RAW-VORTEX",
+      "current": [
+        "RS-CFD-SPECTRAL-HYBRID-20260910"
+      ]
+    },
+    {
+      "old": "RS-CFD-CANCELLATION-ENVELOPE",
+      "current": [
+        "RS-CFD-ROUNDING-ENVELOPE-20260910",
+        "RS-CFD-CANCELLATION-GROUPS-20260910"
+      ],
+      "note": "old combined concern split into rounding and cancellation tasks"
+    },
+    {
+      "old": "RS-CFD-TRAJECTORY-CERTIFICATION",
+      "current": [
+        "RS-CFD-TRAJECTORY-VERIFY-20260910"
+      ]
+    },
+    {
+      "old": "RS-CFD-INDEPENDENT-BENCHMARK-REVIEW",
+      "current": [
+        "RS-CFD-TRAJECTORY-VERIFY-20260910"
+      ],
+      "note": "independent complete-solver/trajectory verification consolidated"
+    },
+    {
+      "old": "RS-CFD-ITHACA-ROM-OBSERVERS",
+      "current": [
+        "RS-CFD-ROM-ITHACA-20260910"
+      ]
+    },
+    {
+      "old": "RS-CFD-BASILISK-OBSERVERS-AMR",
+      "current": [
+        "RS-CFD-AMR-BASILISK-20260910"
+      ]
+    },
+    {
+      "old": "RS-CFD-OPENFOAM-PRESSURE-PORTS",
+      "current": [
+        "RS-CFD-PRESSURE-GAMG-20260910"
+      ]
+    },
+    {
+      "old": "RS-CFD-LBM-SEMANTIC-GATES",
+      "current": [
+        "RS-CFD-LBM-CODEGEN-20260910"
+      ]
+    },
+    {
+      "old": "RS-CFD-PRIOR-ART-AUDIT",
+      "current": [
+        "RS-CFD-PRIOR-ART-AUDIT-20260910"
+      ],
+      "publication_id": "TP2-ABB0F0E69389742569BF"
+    }
+  ],
+  "note": "Historical files retain their original DRAFT_NOT_PUBLISHED observations and are provenance only; current authority is the immutable V2 records on main."
+}
