@@ -1,0 +1,79 @@
+{
+  "schema": "CFD_TASK_PUBLICATION_COMPLETION_PREFLIGHT_V1",
+  "status": "PASS_SCOPED_EQUIVALENT_PREFLIGHT",
+  "at": "2026-09-10T22:16:02+08:00",
+  "source_main_before_transaction": "bd5aebfc68dc51a70d626b5d197162c5dc347dce",
+  "policy_digest": "sha256:b3d44e7cb736426e48b7994d280192f2f48ddde306af1d7ad80db2012c00864b",
+  "policy_input_state": {
+    "evidence": "compare 23b3261258f6a6c381f1f2f5667a84c20152f7f3..3c5abd9dd2b0756dbb89c9eb13dc4396f1843fa7 showed no changes to research_taskbook_policy.json or its declared policy_inputs",
+    "prior_verified_preflight": "research_notes/CFD-B1F673/publication_preflight.json"
+  },
+  "dedup": {
+    "already_canonical_task_count": 8,
+    "already_canonical": [
+      "RS-CFD-SPECTRAL-HYBRID-20260910",
+      "RS-CFD-ROUNDING-ENVELOPE-20260910",
+      "RS-CFD-CANCELLATION-GROUPS-20260910",
+      "RS-CFD-TRAJECTORY-VERIFY-20260910",
+      "RS-CFD-ROM-ITHACA-20260910",
+      "RS-CFD-AMR-BASILISK-20260910",
+      "RS-CFD-PRESSURE-GAMG-20260910",
+      "RS-CFD-LBM-CODEGEN-20260910"
+    ],
+    "independent_benchmark_mapping": "RS-CFD-INDEPENDENT-BENCHMARK-REVIEW -> RS-CFD-TRAJECTORY-VERIFY-20260910",
+    "new_publications_only": [
+      "RS-CFD-TRAJECTORY-CERTIFICATION-20260910",
+      "RS-CFD-PRIOR-ART-AUDIT-20260910"
+    ]
+  },
+  "historical_bundle": {
+    "local_archive_sha256": "e57da1c40035b39eb55f6ee692a4b5cbbffa91d2c1ab7fa62e1559c37270e606",
+    "local_archive_size": 64364,
+    "repository_preserved_text_paths": [
+      "research_notes/CFD-B1F673/prior_chat_bundle_20260910/README.md",
+      "research_notes/CFD-B1F673/prior_chat_bundle_20260910/prior_local_main_results.json",
+      "research_notes/CFD-B1F673/prior_chat_bundle_20260910/prior_taskset_manifest.json",
+      "research_notes/CFD-B1F673/prior_chat_bundle_20260910/RAW_VORTEX_INTERFACE.md"
+    ],
+    "existing_exact_probe": "research_notes/CFD-B1F673/prior_3d/probe.py"
+  },
+  "tasks": [
+    {
+      "task_id": "RS-CFD-TRAJECTORY-CERTIFICATION-20260910",
+      "publication_id": "TP2-F8AF12B61806F4DEC845",
+      "taskbook_path": "research_tasks/RS-CFD-TRAJECTORY-CERTIFICATION-20260910.md",
+      "taskbook_blob_sha1": "sha1:05887c36872c788a5a829008f403be9a35b274b6",
+      "audit_errors": [],
+      "policy_preflight": "PASS"
+    },
+    {
+      "task_id": "RS-CFD-PRIOR-ART-AUDIT-20260910",
+      "publication_id": "TP2-C136200E29852C806DED",
+      "taskbook_path": "research_tasks/RS-CFD-PRIOR-ART-AUDIT-20260910.md",
+      "taskbook_blob_sha1": "sha1:cc2b81f23a104106a5edbaca69697ca735187078",
+      "audit_errors": [],
+      "policy_preflight": "PASS"
+    }
+  ],
+  "manual_equivalent_checks": [
+    "frontmatter parsed",
+    "mandatory body sections nonempty",
+    "origin/lineage checked",
+    "continuation successor gate complete",
+    "fixed runtime identity fields absent",
+    "policy conflict/restatement regex checked",
+    "current policy digest matched",
+    "exact taskbook Git blob computed",
+    "record semantic fields copied",
+    "target task ids verified absent on current main"
+  ],
+  "claims_granted": false,
+  "mathematical_acceptance_granted": false,
+  "working_truth_granted": false,
+  "concurrent_rebase_check": {
+    "previous_base": "3c5abd9dd2b0756dbb89c9eb13dc4396f1843fa7",
+    "current_main": "bd5aebfc68dc51a70d626b5d197162c5dc347dce",
+    "compare_result": "nine concurrent commits touched only disjoint research_notes/ns-* paths; no policy input, CFD task record, taskbook, or preserved CFD source path overlap",
+    "action": "reconstruct one complete publication commit on current main; non-force ref update only"
+  }
+}
