@@ -1,0 +1,60 @@
+{
+  "schema": "EM_X6_RESEARCH_CHECKPOINT_V1",
+  "activity_id": "RA-X6CM-F01144F76207",
+  "event_id": "X6CM-WITNESS-OVERLAP-20260911-13",
+  "status": "DECLARED_MODEL_PROOFS_AND_EXACT_FINITE_CERTIFICATES_NOT_ADMITTED",
+  "source_snapshot": "a45dfb6438e8ac01086d6a775be2d36e3abde207",
+  "artifact_commit": "f4a28c6f2a07999551062e78b2000940ef07c705",
+  "consumed_concurrent_event": "X6CM-TUNABLE-GEOMETRY-20260911-12",
+  "frontier": [
+    "All irreducible local Krylov overlap dimensions are counted exactly by reduced polynomial ratios and trace duality. This extends, rather than repeats, the already recorded projective injectivity and penultimate disjointness result.",
+    "Event-support deduplication extends the sign quotient; at N=275 and Q<=4, 242 sign classes give 236 distinct nonempty events. Original vector provenance is retained.",
+    "In one 519498-configuration ensemble varying only good blocks (5,0) and (11,0), N=55 and Q<=1 has exact union probability 2994/28861 instead of first moment 3124/28861. A rank-certified cap Y<=2 makes the factorial second correction exact.",
+    "For N=605 and Q<=3, a classical Hunter tree bound attains the exact probability 42880/259749 versus first moment 45298/259749. At Q<=2, pairwise events are disjoint and first moment 1562/28861 is already exact.",
+    "After event deduplication, a raw-uniform equal-dimension product stratum with minimum active prime p has optimal tree bound between mu*(1-1/p) and mu. This is a scoped limitation, not a universal second-moment obstruction.",
+    "Divisor containment bounds a whole variable-radius multiplier window by one enlarged-radius event at the starting lattice. This removes the sum of arithmetic multiplier weights. At critical alpha=6*gamma-1-beta-c, logarithmic thinning only requires eta>1, improving eta>1+c.",
+    "The same window domination applies to tunable epsilon. At epsilon=1/200, gamma=3/8 and beta=1, alpha=49/200 is reached with a (1+log k)^eta denominator for any eta>1. The open gamma>1/3 and alpha<1/4 power frontiers are not newly improved or closed."
+  ],
+  "verification": {
+    "ratio_spectrum_rank_checks": 84602,
+    "pair_rank_seed_count_checks": 88898,
+    "common_seed_configurations": 519498,
+    "finite_target_radius_cases": 12,
+    "T6_event_quotients": 12,
+    "triple_rank_caps": 20,
+    "exclusive_pair_ranks": 630,
+    "preserved_locks": 4,
+    "new_locks": 0,
+    "arithmetic": "integer, modular rank and Fraction; no floating probability certificates",
+    "artifact_readback": "All three immutable Git blob IDs match local proved/executed bytes."
+  },
+  "artifacts": [
+    {
+      "path": "research_notes/x6_witness_overlap_and_divisor_window_20260911.md",
+      "bytes": 15162,
+      "sha256": "3c20308ffcfb2623d73dcbc3a07b0df37823a1215739a87f11dd398e75c221c4",
+      "git_blob_sha1": "1a77211195eb5c8d0ae369d2e0b0581e84df3a97"
+    },
+    {
+      "path": "experiments/x6_witness_overlap_20260911/verify.py",
+      "bytes": 10961,
+      "sha256": "2f950c6ef24af6ffb408b4b504f61146b163ab93326e66cfa9c5363e7c9a4d5c",
+      "git_blob_sha1": "d8245adbd708a1a6eee641215c5128712d7c42fc"
+    },
+    {
+      "path": "experiments/x6_witness_overlap_20260911/results.json",
+      "bytes": 13403,
+      "sha256": "1b52cef108e6600faaa3893408bd28a2f42755fd78b0b713053b345f61fc1efc",
+      "git_blob_sha1": "9304bb51af82ec93ed07410b879694d7b129aaea"
+    }
+  ],
+  "not_claimed": [
+    "new global logarithmic-power improvement",
+    "uniform every-integer geometry",
+    "constant native repair cost",
+    "native isometry for U",
+    "all-ratio statistics equal actual short-ball statistics",
+    "independent review or Foundation promotion"
+  ],
+  "next_unit": "Bound the actual short-ball ratio/annihilator overlap population across growing mixed indices, rather than assuming full-field ratio statistics apply uniformly; retain four locks and all composites."
+}
