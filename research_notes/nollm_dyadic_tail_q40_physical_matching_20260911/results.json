@@ -1,0 +1,86 @@
+{
+  "heuristic_future_optimization": {
+    "final_empty_children": 1968,
+    "initial_empty_children": 5439,
+    "moves": 2128,
+    "rounds": 73,
+    "status": "HEURISTIC_ONLY"
+  },
+  "identity_two_step_matching": {
+    "depth_hist": {
+      "0": 1023,
+      "1": 1024,
+      "2": 2048,
+      "3": 4096,
+      "4": 8192,
+      "5": 16384,
+      "6": 32768
+    },
+    "direction": "coverage_down",
+    "level_summaries": [
+      {"candidate_cells": 8126, "children": 6144, "complete": true, "level": 1, "matching": 6144, "parents": 3072},
+      {"candidate_cells": 13655, "children": 10240, "complete": true, "level": 2, "matching": 10240, "parents": 5120},
+      {"candidate_cells": 22386, "children": 16384, "complete": true, "level": 3, "matching": 16384, "parents": 8192},
+      {"candidate_cells": 34585, "children": 24576, "complete": true, "level": 4, "matching": 24576, "parents": 12288},
+      {"candidate_cells": 49426, "children": 32768, "complete": true, "level": 5, "matching": 32768, "parents": 16384},
+      {
+        "augment_repairs": [["((-4, -40), 47)", true], ["((28, -44), 59)", true], ["((-33, -11), 33)", true]],
+        "candidate_cells": 59830,
+        "children": 32768,
+        "complete": true,
+        "greedy_failed": 3,
+        "greedy_matched": 32765,
+        "level": 6,
+        "matching": 32768,
+        "parents": 32768
+      }
+    ],
+    "steps_per_tail_bit": 2,
+    "unique_physical_entries": 65535
+  },
+  "locality_after_identity_only_matching": {
+    "x2": {
+      "depth_drop_fraction": 0.013547867063492064,
+      "depth_drop_max_hex_distance": 306,
+      "depth_drop_pairs": 32256,
+      "depth_drop_two_step_support_ok": 437,
+      "same_depth_hex_hist": {"2": 511},
+      "same_depth_pairs": 511
+    },
+    "x5": {"le16": 10867, "le4": 2395, "le8": 5741, "max": 52, "p50": 10, "p95": 23, "p99": 29, "pairs": 13107}
+  },
+  "population": {"L": 16, "N": 65536, "base_b": 8, "positive_integers": 65535},
+  "schema": "NOLLM_DYADIC_TAIL_Q40_PHYSICAL_MATCHING_RESEARCH_V1",
+  "status": {
+    "finite_certificate": true,
+    "infinite_theorem": false,
+    "nollm_runtime_modified": false,
+    "three_step_full_hierarchy": "UNRESOLVED",
+    "three_step_level1_local_feasibility": "PASS",
+    "two_step_identity_capacity": "PASS",
+    "two_step_x2_relation_preservation": "FAIL_EMPTY_CANDIDATES"
+  },
+  "three_step_future": {
+    "level1_complete": true,
+    "level1_matching": 6144,
+    "level2_children": 10240,
+    "level2_empty_after_valid_level1": 5439,
+    "level2_x2_constrained": 8724
+  },
+  "x2_depth_boundary": {
+    "1": {"empty": 5092, "max_support": 7, "min_intersection": 0},
+    "2": {"empty": 402, "max_support": 20, "min_intersection": 0},
+    "3": {"empty": 0, "max_support": 43, "min_intersection": 2},
+    "minimal_tested_zero_empty_steps": 3
+  },
+  "x2_two_step_obstruction": {
+    "base_pair_multiplicity_hist": {"1": 70, "2": 166},
+    "empty_distinct_base_pairs": 236,
+    "empty_prefix_candidates": 402,
+    "empty_relative_direction_distinct_base_pairs": {
+      "(-2,0)": 38, "(-2,2)": 33, "(0,-2)": 47, "(0,2)": 47, "(2,-2)": 33, "(2,0)": 38
+    },
+    "level1_children": 6144,
+    "x2_constrained_prefix_nodes": 5396
+  }
+}
