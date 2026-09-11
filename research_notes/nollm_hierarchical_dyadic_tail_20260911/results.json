@@ -1,0 +1,19 @@
+{
+  "schema": "NOLLM_HIERARCHICAL_DYADIC_TAIL_VERIFICATION_V1",
+  "status": "EXACT_DECLARED_HIERARCHICAL_IDENTITY_AND_LOCAL_UPDATE_CERTIFICATE",
+  "population": {"L":16,"N":65536,"positive":65535},
+  "base": {"b":8,"M":256,"R0":43,"outer_R":74,"base_distinct_cells":4095,"base_max_fiber":64},
+  "identity": {"hierarchical_states":65535,"injective":true,"reconstruction_failures":0,"tail_depth_histogram":{"0":1023,"1":1024,"2":2048,"3":4096,"4":8192,"5":16384,"6":32768},"max_tail_depth":6,"weighted_tail_bits":328704,"average_tail_depth":5.015701533531701},
+  "generator_locality": {
+    "times_5":{"pairs":13107,"base_distance_histogram":{"1":12243,"2":864},"tail_hamming_histogram":{"0":13056,"1":51},"low_base_wraps":51,"max_tail_bit_flips":1},
+    "times_2":{"pairs":32767,"base_distance_histogram":{"2":32767},"retained_tail_hamming_histogram":{"0":16895,"1":15872},"source_tail_depth_histogram":{"0":511,"1":512,"2":1024,"3":2048,"4":4096,"5":8192,"6":16384},"rule":"delete top tail level when d>0; among retained levels at most one Gray bit toggles"},
+    "minus_1_abstract":{"declared_base_states":8192,"base_distance_histogram":{"1":8192}}
+  },
+  "proof_scope": {
+    "identity":"(base cell,d,Gray(q)) reconstructs (v,eps,t0,q), then exact odd u modulo 2^(B+2)>u",
+    "times_5":"BRGC is cyclic; q changes only on low t0 wrap, so at most one tail bit toggles",
+    "times_2":"precision depth drops by one; Gray bits below new top are unchanged except the new top retained bit, hence <=1 toggle",
+    "geometry":"base annulus uses integer ring map at b=8; x5 <=2 cells, x2=2 cells, sign flip=1 cell"
+  },
+  "boundaries":["integer identity retained","not Nollm runtime mapping","not X6","no semantic recall theorem","Q40 physical observer measured separately"]
+}
