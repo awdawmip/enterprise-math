@@ -81,6 +81,57 @@ class RuntimeReducerTests(unittest.TestCase):
         ]
         self.assertEqual("RS-H", rr.select_state(states, policy)["task_id"])
 
+    def test_superseded_blocked_task_exposes_its_retirement_evidence(self):
+        old_block = {
+            "missing_object": "an immutable review result",
+            "owner": "line Driver",
+            "necessity": "review the returned evidence",
+            "unblock_condition": "the exact review is published",
+        }
+        source_task = {
+            **task("GV-OLD-REVIEW", state="BLOCKED"),
+            "kind": "GOVERNANCE",
+            "hard_block": old_block,
+            "last_progress_ref": "old-review-input.md",
+        }
+        retirement = event(
+            "SUPERSEDE",
+            "2026-09-01T00:10:00+00:00",
+            claim_id=None,
+            task_id="GV-OLD-REVIEW",
+            progress_ref="completed-review-retirement.md",
+            next_action="Continue the open portfolio",
+        )
+        state = rr.reduce_task(
+            source_task,
+            [retirement],
+            default_lease_minutes=30,
+            now=self.now("2026-09-01T00:11:00+00:00"),
+        )
+        self.assertEqual("SUPERSEDED", state["state"])
+        self.assertEqual("COMPLETE", state["dispatch_state"])
+        self.assertIsNone(state["hard_block"])
+        self.assertIsNone(state["claim_id"])
+        self.assertIsNone(state["lease_until"])
+        self.assertEqual("completed-review-retirement.md", state["last_progress_ref"])
+        self.assertEqual(retirement["at"], state["last_progress_at"])
+        self.assertEqual("Continue the open portfolio", state["next_action"])
+        # The current projection changes; the frozen task and event remain intact.
+        self.assertEqual(old_block, source_task["hard_block"])
+        self.assertEqual("old-review-input.md", source_task["last_progress_ref"])
+        self.assertEqual("completed-review-retirement.md", retirement["progress_ref"])
+
+    def test_supersede_without_new_reference_preserves_previous_evidence(self):
+        state = rr.reduce_task(
+            {**task(), "last_progress_ref": "existing-evidence.md"},
+            [event("SUPERSEDE", "2026-09-01T00:10:00+00:00", claim_id=None)],
+            default_lease_minutes=30,
+            now=self.now("2026-09-01T00:11:00+00:00"),
+        )
+        self.assertEqual("COMPLETE", state["dispatch_state"])
+        self.assertEqual("existing-evidence.md", state["last_progress_ref"])
+        self.assertEqual("continue", state["next_action"])
+
 
 if __name__ == "__main__":
     unittest.main()
