@@ -1,0 +1,23 @@
+{
+  "schema":"NOLLM_HIERARCHICAL_DYADIC_TAIL_EXTENSION_V1",
+  "version":"0.1.0",
+  "activity_id":"RA-nollm-multiplication-field-20260911-c6c82",
+  "status":"EXACT_HIERARCHICAL_IDENTITY_AND_LOCAL_UPDATE_CERTIFICATE_PLUS_FINITE_BASE_Q40_OBSERVER",
+  "population":{"L":16,"N":65536,"positive":65535},
+  "base":{"b":8,"M":256,"R0":43,"conservative_outer_R":74,"distinct_base_cells":4095,"max_base_fiber":64},
+  "identity":{"hierarchical_states":65535,"injective":true,"max_tail_depth":6,"total_tail_bits":328704,"average_tail_depth":5.015701533531701},
+  "generator_locality":{
+    "times_5":{"pairs":13107,"base_distance_histogram":{"1":12243,"2":864},"tail_hamming_histogram":{"0":13056,"1":51},"max_tail_bit_flips":1},
+    "times_2":{"pairs":32767,"base_distance_histogram":{"2":32767},"retained_tail_hamming_histogram":{"0":16895,"1":15872},"max_retained_tail_bit_flips":1},
+    "minus_1_abstract":{"declared_base_states":8192,"base_distance_histogram":{"1":8192}}
+  },
+  "finite_q40_base_observer":{
+    "source_nollm_main":"88d63b32329fbbcd18028de1ac83b2db3c988e33",
+    "coverage_up":{"times_2":{"one_step_overlap_ratio":0.26981414227729117,"one_step_max_hausdorff":3,"two_step_overlap_ratio":1.0,"two_step_max_hausdorff":3},"times_5":{"one_step_overlap_ratio":0.9442282749675746,"one_step_max_hausdorff":3,"two_step_overlap_ratio":1.0,"two_step_max_hausdorff":3}},
+    "coverage_down":{"times_2":{"one_step_overlap_ratio":0.05264442884609516,"one_step_max_hausdorff":3,"two_step_overlap_ratio":0.9298989837336344,"two_step_max_hausdorff":4},"times_5":{"one_step_overlap_ratio":0.9340810254062715,"one_step_max_hausdorff":3,"two_step_overlap_ratio":0.9890135042343786,"two_step_max_hausdorff":4}}
+  },
+  "exact_laws":["B_v=max(b,L-v-2); t=t0+2^b q; tail Gray(q)=q xor (q>>1)","hierarchical state (base annulus cell,d,Gray(q)) reconstructs every n in 1..2^L-1","x5 changes base by <=2 and toggles at most one tail bit","x2 changes base by exactly 2, drops one tail level when present, and changes at most one retained Gray bit","tail depth 0 count=2^(b+2)-1; depth j>=1 count=2^(b+j+1)","total tail bits=(D-1)2^L+2^(b+2), D=L-b-2"],
+  "brc":{"resolution":"COMPOSE_APPLIED","retained":"integer identity and explicit Gray tail before geometry/coverage observation","loss_witness":"base-only b=8 has 4095 cells and max fiber 64; no identity merge is authorized"},
+  "boundaries":["the Gray tail remains a typed auxiliary coordinate, not yet a Nollm single physical entry","Q40 figures observe only the base annulus geometry","no Nollm runtime, coordinate contract or X6 definition is modified","no semantic recall or infinite-scale packing theorem is claimed"],
+  "next":"construct a level-by-level two-step-Q40 descendant matching that turns each tail bit into actual one-entry geometry; two adjacent Nollm intervals have area/density factor 2 and therefore the right binary capacity, but matching feasibility is not yet proved"
+}
