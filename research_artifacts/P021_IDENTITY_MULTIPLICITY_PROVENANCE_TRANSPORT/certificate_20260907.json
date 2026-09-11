@@ -1,0 +1,130 @@
+{
+  "schema": "P021_IDENTITY_MULTIPLICITY_PROVENANCE_CERTIFICATE_V1",
+  "status": "PASS",
+  "task_id": "RS-P021-FOCUSING-DIRECTION",
+  "publication_id": "TP2-B1E5DDBA1F327733882C",
+  "claim_id": "chatgpt-p021-20260907-1018-8f31c2",
+  "researcher_id": "EM-P021-8F31C2",
+  "theorem_scope": "finite-horizon normalized common-order class-level direction supports",
+  "checker_sha256": "sha256:e837c70e0889e210158433265befdf7711c991e372dc591facf0278d1fc4b6f8",
+  "verified_claims": [
+    "support(integer path-count product) equals Boolean composition",
+    "D_{r+1}=D_r A_{r+1}+K_{r+1} with K_{r+1}=B_r A_{r+1}-supp(B_r A_{r+1})",
+    "under one common order M_h(i,j)<=binom(h+d-1,d), d=rank(j)-rank(i)",
+    "full upper-triangular zeta template attains equality",
+    "D_h=0 iff every reachable endpoint pair has at most one class-level path",
+    "minimal two-label repeated upper-triangular family has M_h=[[1,h],[0,1]] while Boolean support is constant"
+  ],
+  "exhaustive_common_order_sequences": [
+    {
+      "n": 1,
+      "h": 1,
+      "sequences": 1,
+      "max_endpoint_multiplicity": 1
+    },
+    {
+      "n": 1,
+      "h": 2,
+      "sequences": 1,
+      "max_endpoint_multiplicity": 1
+    },
+    {
+      "n": 1,
+      "h": 3,
+      "sequences": 1,
+      "max_endpoint_multiplicity": 1
+    },
+    {
+      "n": 2,
+      "h": 1,
+      "sequences": 2,
+      "max_endpoint_multiplicity": 1
+    },
+    {
+      "n": 2,
+      "h": 2,
+      "sequences": 4,
+      "max_endpoint_multiplicity": 2
+    },
+    {
+      "n": 2,
+      "h": 3,
+      "sequences": 8,
+      "max_endpoint_multiplicity": 3
+    },
+    {
+      "n": 3,
+      "h": 1,
+      "sequences": 8,
+      "max_endpoint_multiplicity": 1
+    },
+    {
+      "n": 3,
+      "h": 2,
+      "sequences": 64,
+      "max_endpoint_multiplicity": 3
+    },
+    {
+      "n": 3,
+      "h": 3,
+      "sequences": 512,
+      "max_endpoint_multiplicity": 6
+    }
+  ],
+  "sharp_zeta_checks": 48,
+  "minimal_two_label_family": [
+    {
+      "h": 1,
+      "count_1_to_2": 1,
+      "boolean_support_1_to_2": 1,
+      "erased_extra_provenance": 0
+    },
+    {
+      "h": 2,
+      "count_1_to_2": 2,
+      "boolean_support_1_to_2": 1,
+      "erased_extra_provenance": 1
+    },
+    {
+      "h": 3,
+      "count_1_to_2": 3,
+      "boolean_support_1_to_2": 1,
+      "erased_extra_provenance": 2
+    },
+    {
+      "h": 4,
+      "count_1_to_2": 4,
+      "boolean_support_1_to_2": 1,
+      "erased_extra_provenance": 3
+    },
+    {
+      "h": 5,
+      "count_1_to_2": 5,
+      "boolean_support_1_to_2": 1,
+      "erased_extra_provenance": 4
+    },
+    {
+      "h": 6,
+      "count_1_to_2": 6,
+      "boolean_support_1_to_2": 1,
+      "erased_extra_provenance": 5
+    },
+    {
+      "h": 7,
+      "count_1_to_2": 7,
+      "boolean_support_1_to_2": 1,
+      "erased_extra_provenance": 6
+    },
+    {
+      "h": 8,
+      "count_1_to_2": 8,
+      "boolean_support_1_to_2": 1,
+      "erased_extra_provenance": 7
+    }
+  ],
+  "boundaries": [
+    "This certificate does not re-prove the prior common-order identity theorem.",
+    "Class-level path counts do not determine fine-witness multiplicities unless a separate refinement theorem supplies that bridge.",
+    "No physical focusing, curvature, GR, asymptotic-in-n, or infinite-horizon claim is made."
+  ]
+}
