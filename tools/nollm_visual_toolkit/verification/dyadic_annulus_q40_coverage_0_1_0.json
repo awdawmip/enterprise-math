@@ -1,0 +1,32 @@
+{
+  "schema": "NOLLM_DYADIC_ANNULUS_Q40_COVERAGE_EXTENSION_V1",
+  "version": "0.1.0",
+  "activity_id": "RA-nollm-multiplication-field-20260911-c6c82",
+  "status": "EXACT_DECLARED_CARRIER_DERIVATION_PLUS_EXHAUSTIVE_FINITE_Q40_OBSERVER",
+  "source": {"nollm_main":"88d63b32329fbbcd18028de1ac83b2db3c988e33","approximate_coverage_blob":"fb1f19515b888ed9f01417b5e857c2146c418a66","coverage_contract_blob":"f08885e526248597edbd840b134bf7dbb26e1420","fixed_point_blob":"9ea00e3c84a82f480c692a6ca0ca717a579dab60"},
+  "population": {"L":16,"N":65536,"positive":65535},
+  "exact_results": {
+    "annulus_embedding":{"M":2048,"R0":342,"max_h":31,"states":65536,"t_plus_1_distance_histogram":{"1":62432,"2":3104},"h_plus_1_distance_histogram":{"1":63488},"h_plus_2_distance_histogram":{"2":61440}},
+    "carrier_identity_formula":"U(L,b)=(L-b)*2^(b+1)-1 for 0<=b<=L-2",
+    "max_fiber_formula":"2^(L-b-2)","b11_distinct_carriers":20479,"b14_distinct_carriers":65535
+  },
+  "finite_q40_summary": {
+    "11": {
+      "coverage_up":{"times_2":{"one_step_overlap_ratio":0.28183843501083405,"one_step_max_hausdorff":3,"two_step_overlap_ratio":1.0,"two_step_max_hausdorff":3},"times_5":{"one_step_overlap_ratio":0.99145494773785,"one_step_max_hausdorff":3,"two_step_overlap_ratio":1.0,"two_step_max_hausdorff":2}},
+      "coverage_down":{"times_2":{"one_step_overlap_ratio":0.060945463423566396,"one_step_max_hausdorff":3,"two_step_overlap_ratio":0.9069490646076845,"two_step_max_hausdorff":4},"times_5":{"one_step_overlap_ratio":0.9905394064240483,"one_step_max_hausdorff":3,"two_step_overlap_ratio":0.9984740978103304,"two_step_max_hausdorff":4}}
+    },
+    "14": {
+      "coverage_up":{"times_2":{"one_step_overlap_ratio":0.27533799249244667,"one_step_max_hausdorff":3,"two_step_overlap_ratio":1.0,"two_step_max_hausdorff":3},"times_5":{"one_step_overlap_ratio":0.9993133440146487,"one_step_max_hausdorff":2,"two_step_overlap_ratio":1.0,"two_step_max_hausdorff":2}},
+      "coverage_down":{"times_2":{"one_step_overlap_ratio":0.05984679708243049,"one_step_max_hausdorff":3,"two_step_overlap_ratio":0.9061861018707846,"two_step_max_hausdorff":4},"times_5":{"one_step_overlap_ratio":0.9992370489051652,"one_step_max_hausdorff":3,"two_step_overlap_ratio":0.9996948195620661,"two_step_max_hausdorff":4}}
+    }
+  },
+  "verification": {"default_verifier":"PASS after endpoint correction","coverage_batches":16,"pair_scope":"all positive n with multiplier*n<65536","times5_pairs_corrected":13107,"q40_origin_witness":"PASS","worker_memory_policy":"bounded 8192 caches; sharded batch execution"},
+  "brc": {"resolution":"REUSE_APPLIED","retained":"complete integer identity plus (v2,eps,t) before A2/Q40 observers","compression_witness":"U(L,b)=(L-b)2^(b+1)-1; critical b is many-to-one; do not merge identities","support_only_q40_observer":"hit support is adequate because MIN_HIT_COUNT=1; Q16 retained for separate weight witness"},
+  "boundaries": ["annulus locality and carrier-count formulas are exact for the declared finite model","Q40 coverage statistics are exhaustive finite measurements on N=65536 for b=11 and b=14","coverage reproduction uses exact published integer constants and rounding, not Nollm package execution","no production geometry, runtime, semantic placement or X6 definition is modified","support locality is not a semantic-recall theorem or infinite-scale theorem"],
+  "files": [
+    {"path":"nollm_dyadic_annulus_q40_coverage_20260911.md","bytes":9978,"sha256":"0a12c1610446fc0ead9d7db1417397d08336364353f837aab1058aa85873cf28"},
+    {"path":"verify.py","bytes":16472,"sha256":"b9da5afb59d01af66b0da2ca545d51573a7d5cc39a1e1a94f379f08978d6ba00"},
+    {"path":"coverage_relation_batches.json","bytes":7815,"sha256":"41bc4721b601d2e6342b7f89c69e34c4b0cd0e4f3734259625645363462cade0"},
+    {"path":"results.json","bytes":12015,"sha256":"693c2ae9c125f4252f5bff8c6c7dc428537b272a832ccedeb45c0f2b79f90a9c"}
+  ]
+}

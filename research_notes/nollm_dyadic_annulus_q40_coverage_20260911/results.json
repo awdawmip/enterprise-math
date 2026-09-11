@@ -1,0 +1,59 @@
+{
+  "schema": "NOLLM_DYADIC_ANNULUS_Q40_COVERAGE_VERIFICATION_V1",
+  "status": "EXACT_ANNULUS_DERIVATION_PLUS_FINITE_PRODUCTION_KERNEL_OBSERVER",
+  "source": {"nollm_main":"88d63b32329fbbcd18028de1ac83b2db3c988e33","approximate_coverage_blob":"fb1f19515b888ed9f01417b5e857c2146c418a66","coverage_contract_blob":"f08885e526248597edbd840b134bf7dbb26e1420","fixed_point_blob":"9ea00e3c84a82f480c692a6ca0ca717a579dab60"},
+  "population": {"L":16,"N":65536,"positive":65535},
+  "annulus_embedding": {"M":2048,"R0":342,"max_h":31,"states":65536,"t_plus_1_distance_histogram":{"1":62432,"2":3104},"h_plus_1_distance_histogram":{"1":63488},"h_plus_2_distance_histogram":{"2":61440}},
+  "carrier_identity_formula": {
+    "law":"U(L,b)=(L-b)*2^(b+1)-1 for 0<=b<=L-2","max_fiber":"2^(L-b-2)",
+    "formula_grid":[
+      {"b":6,"M":64,"distinct_carriers":1279,"formula":1279,"max_fiber":256,"annulus_R0":11,"annulus_outer_R":42},
+      {"b":7,"M":128,"distinct_carriers":2303,"formula":2303,"max_fiber":128,"annulus_R0":22,"annulus_outer_R":53},
+      {"b":8,"M":256,"distinct_carriers":4095,"formula":4095,"max_fiber":64,"annulus_R0":43,"annulus_outer_R":74},
+      {"b":9,"M":512,"distinct_carriers":7167,"formula":7167,"max_fiber":32,"annulus_R0":86,"annulus_outer_R":117},
+      {"b":10,"M":1024,"distinct_carriers":12287,"formula":12287,"max_fiber":16,"annulus_R0":171,"annulus_outer_R":202},
+      {"b":11,"M":2048,"distinct_carriers":20479,"formula":20479,"max_fiber":8,"annulus_R0":342,"annulus_outer_R":373},
+      {"b":12,"M":4096,"distinct_carriers":32767,"formula":32767,"max_fiber":4,"annulus_R0":683,"annulus_outer_R":714},
+      {"b":13,"M":8192,"distinct_carriers":49151,"formula":49151,"max_fiber":2,"annulus_R0":1366,"annulus_outer_R":1397},
+      {"b":14,"M":16384,"distinct_carriers":65535,"formula":65535,"max_fiber":1,"annulus_R0":2731,"annulus_outer_R":2762}
+    ],
+    "critical_note":"b≈L/2 is geometrically compact but many-to-one; retain integer identity or an explicit repair coordinate"
+  },
+  "experiments": {
+    "11": {
+      "M":2048,"R0":342,"outer_R":373,"distinct_integer_carriers":20479,"positive_integers":65535,
+      "source_generator_distances":{"times_2":{"pairs":32767,"histogram":{"2":32767},"max_distance":2},"times_5":{"pairs":13107,"histogram":{"1":12983,"2":124},"max_distance":2}},
+      "q40_coverage": {
+        "coverage_up": {
+          "times_2":{"one_step":{"pairs":32767,"overlap_count":9235,"overlap_ratio":0.28183843501083405,"minimum_support_distance_histogram":{"0":9235,"1":23532},"hausdorff_histogram":{"1":2927,"2":29614,"3":226},"max_hausdorff":3},"two_steps":{"pairs":32767,"overlap_count":32767,"overlap_ratio":1.0,"minimum_support_distance_histogram":{"0":32767},"hausdorff_histogram":{"1":6206,"2":26385,"3":176},"max_hausdorff":3}},
+          "times_5":{"one_step":{"pairs":13107,"overlap_count":12995,"overlap_ratio":0.99145494773785,"minimum_support_distance_histogram":{"0":12995,"1":112},"hausdorff_histogram":{"1":12051,"2":1054,"3":2},"max_hausdorff":3},"two_steps":{"pairs":13107,"overlap_count":13107,"overlap_ratio":1.0,"minimum_support_distance_histogram":{"0":13107},"hausdorff_histogram":{"1":11839,"2":1268},"max_hausdorff":2}}
+        },
+        "coverage_down": {
+          "times_2":{"one_step":{"pairs":32767,"overlap_count":1997,"overlap_ratio":0.060945463423566396,"minimum_support_distance_histogram":{"0":1997,"1":26825,"2":3945},"hausdorff_histogram":{"2":9724,"3":23043},"max_hausdorff":3},"two_steps":{"pairs":32767,"overlap_count":29718,"overlap_ratio":0.9069490646076845,"minimum_support_distance_histogram":{"0":29718,"1":3049},"hausdorff_histogram":{"2":529,"3":20852,"4":11386},"max_hausdorff":4}},
+          "times_5":{"one_step":{"pairs":13107,"overlap_count":12983,"overlap_ratio":0.9905394064240483,"minimum_support_distance_histogram":{"0":12983,"1":99,"2":25},"hausdorff_histogram":{"1":3502,"2":9481,"3":124},"max_hausdorff":3},"two_steps":{"pairs":13107,"overlap_count":13087,"overlap_ratio":0.9984740978103304,"minimum_support_distance_histogram":{"0":13087,"1":20},"hausdorff_histogram":{"1":703,"2":10182,"3":2155,"4":67},"max_hausdorff":4}}
+        }
+      }
+    },
+    "14": {
+      "M":16384,"R0":2731,"outer_R":2762,"distinct_integer_carriers":65535,"positive_integers":65535,
+      "source_generator_distances":{"times_2":{"pairs":32767,"histogram":{"2":32767},"max_distance":2},"times_5":{"pairs":13107,"histogram":{"1":13097,"2":10},"max_distance":2}},
+      "q40_coverage": {
+        "coverage_up": {
+          "times_2":{"one_step":{"pairs":32767,"overlap_count":9022,"overlap_ratio":0.27533799249244667,"minimum_support_distance_histogram":{"0":9022,"1":23745},"hausdorff_histogram":{"1":2833,"2":29671,"3":263},"max_hausdorff":3},"two_steps":{"pairs":32767,"overlap_count":32767,"overlap_ratio":1.0,"minimum_support_distance_histogram":{"0":32767},"hausdorff_histogram":{"1":5842,"2":26709,"3":216},"max_hausdorff":3}},
+          "times_5":{"one_step":{"pairs":13107,"overlap_count":13098,"overlap_ratio":0.9993133440146487,"minimum_support_distance_histogram":{"0":13098,"1":9},"hausdorff_histogram":{"1":12211,"2":896},"max_hausdorff":2},"two_steps":{"pairs":13107,"overlap_count":13107,"overlap_ratio":1.0,"minimum_support_distance_histogram":{"0":13107},"hausdorff_histogram":{"0":2,"1":11928,"2":1177},"max_hausdorff":2}}
+        },
+        "coverage_down": {
+          "times_2":{"one_step":{"pairs":32767,"overlap_count":1961,"overlap_ratio":0.05984679708243049,"minimum_support_distance_histogram":{"0":1961,"1":26816,"2":3990},"hausdorff_histogram":{"2":9462,"3":23305},"max_hausdorff":3},"two_steps":{"pairs":32767,"overlap_count":29693,"overlap_ratio":0.9061861018707846,"minimum_support_distance_histogram":{"0":29693,"1":3074},"hausdorff_histogram":{"2":469,"3":20761,"4":11537},"max_hausdorff":4}},
+          "times_5":{"one_step":{"pairs":13107,"overlap_count":13097,"overlap_ratio":0.9992370489051652,"minimum_support_distance_histogram":{"0":13097,"1":6,"2":4},"hausdorff_histogram":{"1":3544,"2":9553,"3":10},"max_hausdorff":3},"two_steps":{"pairs":13107,"overlap_count":13103,"overlap_ratio":0.9996948195620661,"minimum_support_distance_histogram":{"0":13103,"1":4},"hausdorff_histogram":{"1":704,"2":10397,"3":1998,"4":8},"max_hausdorff":4}}
+        }
+      }
+    }
+  },
+  "claim_boundary": [
+    "annulus locality and carrier-count formulas are exact for the declared finite model",
+    "Q40 coverage statistics are exhaustive finite measurements on N=65536 for b=11 and b=14",
+    "coverage reproduction uses exact published integer constants and rounding, not Nollm package execution",
+    "no production geometry, runtime, semantic placement or X6 definition is modified",
+    "support locality is not a semantic-recall theorem or infinite-scale theorem"
+  ]
+}
