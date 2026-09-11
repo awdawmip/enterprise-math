@@ -1,0 +1,107 @@
+{
+  "schema": "ENTERPRISE_MATH_CONJECTURE_REGISTRY_GENERATION_V1",
+  "generation": "BACKFILL-20260907-G3",
+  "status": "ACTIVE_GENERATION",
+  "effective": "2026-09-07",
+  "parent_snapshot": "conjecture_registry.json@BACKFILL-20260906-G2",
+  "governing_policy": "docs/CONJECTURE_ASSET_GOVERNANCE.md",
+  "scanner_policy": "conjecture_scanner_policy.json",
+  "assets_added": [
+    {
+      "id": "CJ-TH-20260907-001",
+      "kind": "CONJECTURAL_THEOREM",
+      "title": "Inert-plus terminating Jacobi-jet supercongruence certificate",
+      "statement_or_tool_contract": {
+        "statement": "For every prime p congruent to 13 or 19 modulo 24, write p=6m+1. With Phi_m(x,z)=sum_{k=0}^{6m} (-x)_k(-2x)_k z^k/(k!)^2, Psi_m=(1+12 z d/dz)Phi_m, a=Phi/p-Phi_x/6, and the frozen reflected scalar R_p from the Enterprise BRC half-coupling interface, all evaluated at (x,z)=(m,1/2), the terminating certificate (a+p Phi_xx/72)(Psi-p Psi_x/6) congruent 1+p R_p modulo p^2 holds."
+      },
+      "claim_scope": "Only primes p congruent to 13 or 19 modulo 24 and the exact frozen Enterprise BRC half-coupling/Jacobi-jet definitions in the cited artifact. This is the project-facing plus-class a=1 reduction; it does not assert all of Sun A14(ii), all primes, or higher prime powers.",
+      "epistemic_status": "EMPIRICALLY_VALIDATED",
+      "lifecycle_status": "ACTIVE",
+      "dependencies": {
+        "proved": [
+          "Exact termwise identification of F0,F1,F2,J0,J1 with the x-jet of Phi_m/Psi_m",
+          "Exact equivalence of the parent R0+R1 pair to the single mod-p^2 Jacobi-jet certificate",
+          "Exact Jacobi-polynomial base-value formulas at z=1/2",
+          "Frozen reflected-tail correction producing R_p"
+        ],
+        "conjectural": []
+      },
+      "validation": {
+        "validated_envelope": "All relevant plus-inert primes p<2000 in the frozen checker: 77 primes total, 40 in class 13 mod 24 and 37 in class 19 mod 24.",
+        "evidence_type": [
+          "EXACT_BOUNDED_EXHAUSTIVE",
+          "SYMBOLIC_DERIVATION_PARTIAL",
+          "LITERATURE_ANALOGUE"
+        ],
+        "sample_size_or_exhaustive_count": "77 relevant primes below 2000; zero exact-jet, R0, or R1 failures",
+        "exactness": "EXACT_ON_VALIDATED_FINITE_ENVELOPE_PLUS_UNPROVED_INFINITE_EXTENSION",
+        "independence": "SHARED_DISCOVERY_CONTEXT_DISCLOSED",
+        "evidence_refs": [
+          "research_artifacts/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_FINITE_JACOBI_HARMONIC_IDENTITIES/jacobi_jet_certificate_20260827.json",
+          "scripts/check_enterprise_brc_half_coupling_inert_plus_finite_jacobi_harmonic_identities.py",
+          "Zhi-Wei Sun, Open Conjectures on Congruences, arXiv:0911.5665, Conjecture A14(ii)"
+        ],
+        "summary": "The finite regression is exact for the tested bound and the algebraic reduction to one terminating certificate is exact, but no all-prime proof or counterexample is known in the audited project material. The parent artifact explicitly forbids promoting the finite regression to theorem."
+      },
+      "known_failures": [],
+      "source_refs": [
+        "research_artifacts/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_FINITE_JACOBI_HARMONIC_IDENTITIES/jacobi_jet_certificate_20260827.json",
+        "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-TERMINATING-JACOBI-JET-CERTIFICATE",
+        "TP2-A19C97A703AF47D1CBEC",
+        "Zhi-Wei Sun, Open Conjectures on Congruences, arXiv:0911.5665, Conjecture A14(ii)"
+      ],
+      "downstream_refs": [
+        "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-TERMINATING-JACOBI-JET-CERTIFICATE"
+      ],
+      "falsifier_or_kill_condition": "An exact relevant prime for which the frozen mod-p^2 certificate fails, or a proof that one of the exact reductions used to define the project-facing certificate is invalid under its stated definitions.",
+      "promotion_target": "Prove the registered all-prime-class certificate, preferably through a terminating creative-microscoping/WZ certificate or an independent Frobenius/Jacobi-sum transversality theorem. Finite regression alone cannot prove the infinite prime-class statement.",
+      "priority": {
+        "downstream_impact": "HIGH_ACTIVE_TASK",
+        "empirical_stability": "77_OF_77_EXACT_FINITE_REGRESSION",
+        "structural_centrality": "HIGH_BRC_SUPERCONGRUENCE_ROUTE",
+        "expected_proof_cost": "MEDIUM_TO_HIGH",
+        "falsification_risk": "MEDIUM",
+        "proof_queue_tier": "P0"
+      },
+      "registered_at": "2026-09-07",
+      "last_reviewed_at": "2026-09-07",
+      "version": 1,
+      "notes": "Registered from an exact internal reduction of an explicitly unproved inherited supercongruence target. The internal reduced certificate, not the entire external conjecture family, is the canonical Enterprise asset."
+    }
+  ],
+  "assets_state_changed": [],
+  "nonconjecture_classifications_added": [
+    {
+      "source": "research_notes/BRC_SQUARE_GAP_CASCADE_20260907.md",
+      "classification": "PROVED_EXACT_FILTER_PLUS_EXPERIMENTAL_PERFORMANCE",
+      "reason": "Zero-miss square-gap/CRT correctness is exact for the stated filter; table size and runtime/crossover are engineering evidence, not an unproved mathematical claim."
+    },
+    {
+      "source": "research_notes/BRC_LINEAR_DEEP_TAIL_20260907.md",
+      "classification": "PROVED_EXACT_TRANSPORT_PLUS_BENCHMARKED_UTILITY",
+      "reason": "The merged lane records exact deep-tail/transport structure and a certified predictor; finite pipeline speed does not create a conjectural soundness dependency."
+    },
+    {
+      "source": "recent BRC square-content / 2-adic / mod-8 / pairwise / table-free / Pell-tail multiplier chain through 2026-09-07",
+      "classification": "PROVED_OR_CERTIFIED_BRC_TOOLCHAIN",
+      "reason": "The advertised mathematical transformations are exact/certified. Empirical performance remains separate from correctness."
+    },
+    {
+      "source": "BRC squarefree-kernel multiplier compression experiment through merge 2d2e2fc4c0051b2e04c8fd653aa45e49c8d1d16a",
+      "classification": "REFUTED_CANDIDATE_NO_SURVIVING_RESTRICTED_LAW",
+      "reason": "The repository records a reproducible negative decision and no production promotion; G3 found no narrower frozen mathematical law worth preserving as a live conjecture."
+    },
+    {
+      "source": "BRC simple N-shadow adaptive routing audit in pairwise multiplier transport research",
+      "classification": "NEGATIVE_EMPIRICAL_ROUTING_DECISION",
+      "reason": "The routing proposal is retained as a negative audit, not as a stable conjectural tool contract."
+    }
+  ],
+  "totals_after_generation": {
+    "conjectural_theorems": 6,
+    "conjectural_tools": 1,
+    "total_conjecture_assets": 7,
+    "deliberate_nonconjecture_classifications": 16
+  },
+  "audit": "research_notes/CONJECTURE_BACKFILL_AUDIT_G3_20260907.md"
+}
