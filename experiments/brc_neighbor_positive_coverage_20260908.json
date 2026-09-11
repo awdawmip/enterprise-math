@@ -1,0 +1,678 @@
+{
+  "researcher_id": "EM-HME-0CE4FD",
+  "global_snapshot": "618b0d18a0da1cb144e15a90a1e3fc819cae7c54",
+  "parent_project_frontier": "a85bf8e00893ea0967601d9364d339769a716388",
+  "scope": "fixed toy constructions below 2^19; algebraic certificates and offline hit-set comparison; no target workflow",
+  "population_contract": "positive families, a fixed known-prime-product cohort, and complete low-bit periods are reported separately",
+  "observer_contract": "one fixed a=8 branch uses N mod 64 to select at most one sign, then one square test and exact product verification",
+  "maximum_constructed_N": 280575,
+  "executed_neighbor_module_sha256": "fdf1e5c4ee4a032fb732d9653f0a7fd9cf738bd62b1a7af50eb53588e7864490",
+  "checks": {
+    "positive_family_certificates": 96,
+    "prior_known_prime_product_cohort": 406,
+    "background_observations": 2048,
+    "background_exact_trigger_count": 128
+  },
+  "positive_family_summary": [
+    {
+      "a": 2,
+      "positive_constructed_count": 32,
+      "known_prime_pair_count": 14,
+      "additional_prime_pair_count": 12,
+      "prime_direction_counts": {
+        "U": 7,
+        "D": 7
+      },
+      "examples": [
+        {
+          "a": 2,
+          "epsilon": 1,
+          "k": 3,
+          "N": 133,
+          "known_pair": [
+            7,
+            19
+          ],
+          "m": 3,
+          "t": 33,
+          "c": 10,
+          "J": 11,
+          "R": 12,
+          "direction": "U",
+          "known_prime_pair": true,
+          "also_direct_completion": false
+        },
+        {
+          "a": 2,
+          "epsilon": 1,
+          "k": 5,
+          "N": 341,
+          "known_pair": [
+            11,
+            31
+          ],
+          "m": 3,
+          "t": 85,
+          "c": 16,
+          "J": 18,
+          "R": 17,
+          "direction": "D",
+          "known_prime_pair": true,
+          "also_direct_completion": false
+        },
+        {
+          "a": 2,
+          "epsilon": 1,
+          "k": 6,
+          "N": 481,
+          "known_pair": [
+            13,
+            37
+          ],
+          "m": 3,
+          "t": 120,
+          "c": 19,
+          "J": 21,
+          "R": 40,
+          "direction": "U",
+          "known_prime_pair": true,
+          "also_direct_completion": false
+        }
+      ]
+    },
+    {
+      "a": 4,
+      "positive_constructed_count": 32,
+      "known_prime_pair_count": 9,
+      "additional_prime_pair_count": 9,
+      "prime_direction_counts": {
+        "D": 7,
+        "U": 2
+      },
+      "examples": [
+        {
+          "a": 4,
+          "epsilon": 1,
+          "k": 1,
+          "N": 145,
+          "known_pair": [
+            5,
+            29
+          ],
+          "m": 7,
+          "t": 9,
+          "c": 8,
+          "J": 12,
+          "R": 1,
+          "direction": "D",
+          "known_prime_pair": true,
+          "also_direct_completion": false
+        },
+        {
+          "a": 4,
+          "epsilon": 1,
+          "k": 4,
+          "N": 1921,
+          "known_pair": [
+            17,
+            113
+          ],
+          "m": 7,
+          "t": 120,
+          "c": 29,
+          "J": 43,
+          "R": 72,
+          "direction": "U",
+          "known_prime_pair": true,
+          "also_direct_completion": false
+        },
+        {
+          "a": 4,
+          "epsilon": 1,
+          "k": 7,
+          "N": 5713,
+          "known_pair": [
+            29,
+            197
+          ],
+          "m": 7,
+          "t": 357,
+          "c": 50,
+          "J": 75,
+          "R": 88,
+          "direction": "U",
+          "known_prime_pair": true,
+          "also_direct_completion": false
+        }
+      ]
+    },
+    {
+      "a": 8,
+      "positive_constructed_count": 32,
+      "known_prime_pair_count": 5,
+      "additional_prime_pair_count": 5,
+      "prime_direction_counts": {
+        "D": 1,
+        "U": 4
+      },
+      "examples": [
+        {
+          "a": 8,
+          "epsilon": 1,
+          "k": 2,
+          "N": 4097,
+          "known_pair": [
+            17,
+            241
+          ],
+          "m": 15,
+          "t": 64,
+          "c": 31,
+          "J": 64,
+          "R": 1,
+          "direction": "D",
+          "known_prime_pair": true,
+          "also_direct_completion": false
+        },
+        {
+          "a": 8,
+          "epsilon": 1,
+          "k": 5,
+          "N": 24641,
+          "known_pair": [
+            41,
+            601
+          ],
+          "m": 15,
+          "t": 385,
+          "c": 76,
+          "J": 156,
+          "R": 305,
+          "direction": "U",
+          "known_prime_pair": true,
+          "also_direct_completion": false
+        },
+        {
+          "a": 8,
+          "epsilon": 1,
+          "k": 11,
+          "N": 117569,
+          "known_pair": [
+            89,
+            1321
+          ],
+          "m": 15,
+          "t": 1837,
+          "c": 166,
+          "J": 342,
+          "R": 605,
+          "direction": "U",
+          "known_prime_pair": true,
+          "also_direct_completion": false
+        }
+      ]
+    }
+  ],
+  "positive_family_sha256": "83e0c638f80b116451bed8ba2834a8a46d53e85393c045671d3b4e4bcf8ecb6d",
+  "known_prime_product_counts": {
+    "inputs": 406,
+    "triggered": 26,
+    "direct_hits": 156,
+    "neighbor_hits": 2,
+    "additional_hits": 2,
+    "offline_union_hits": 158
+  },
+  "known_prime_product_direction_counts": {
+    "D": {
+      "inputs": 163,
+      "triggered": 6,
+      "direct_hits": 48,
+      "neighbor_hits": 1,
+      "additional_hits": 1,
+      "offline_union_hits": 49
+    },
+    "U": {
+      "inputs": 243,
+      "triggered": 20,
+      "direct_hits": 108,
+      "neighbor_hits": 1,
+      "additional_hits": 1,
+      "offline_union_hits": 109
+    }
+  },
+  "additional_known_prime_product_witnesses": [
+    {
+      "N": 17473,
+      "known_pair": [
+        101,
+        173
+      ],
+      "J": 132,
+      "R": 49,
+      "direction": "D",
+      "observation": [
+        1,
+        273,
+        15,
+        4096,
+        64,
+        101,
+        173
+      ],
+      "verified_S": 274
+    },
+    {
+      "N": 31553,
+      "known_pair": [
+        139,
+        227
+      ],
+      "J": 177,
+      "R": 224,
+      "direction": "U",
+      "observation": [
+        1,
+        493,
+        15,
+        7396,
+        86,
+        227,
+        139
+      ],
+      "verified_S": 366
+    }
+  ],
+  "background": {
+    "definition": "all odd N from 4097 through 8191",
+    "inputs": 2048,
+    "triggers": 128,
+    "verified_hits": [
+      {
+        "N": 4097,
+        "observation": [
+          1,
+          64,
+          15,
+          961,
+          31,
+          241,
+          17
+        ]
+      },
+      {
+        "N": 4607,
+        "observation": [
+          -1,
+          72,
+          17,
+          1225,
+          35,
+          271,
+          17
+        ]
+      },
+      {
+        "N": 4929,
+        "observation": [
+          1,
+          77,
+          15,
+          1156,
+          34,
+          53,
+          93
+        ]
+      },
+      {
+        "N": 7169,
+        "observation": [
+          1,
+          112,
+          15,
+          1681,
+          41,
+          107,
+          67
+        ]
+      }
+    ]
+  },
+  "timings": [
+    {
+      "population": "uniform_odd_background",
+      "inputs": 2048,
+      "triggers": 128,
+      "verified_hits": 4,
+      "hit_rate": 0.001953125,
+      "ns_per_input_median": {
+        "gate_only": 70.721435546875,
+        "complete_observation": 194.573974609375
+      },
+      "ns_per_input_rounds": {
+        "gate_only": [
+          69.561767578125,
+          70.648193359375,
+          70.538330078125,
+          258.355712890625,
+          70.721435546875,
+          74.08447265625,
+          181.427001953125
+        ],
+        "complete_observation": [
+          192.63916015625,
+          192.822265625,
+          192.85888671875,
+          200.927734375,
+          194.573974609375,
+          209.820556640625,
+          214.910888671875
+        ]
+      },
+      "batch_repeats": 8,
+      "conditional_break_even_saved_ns_per_hit": 99621.875
+    },
+    {
+      "population": "prior_known_prime_product_cohort",
+      "inputs": 406,
+      "triggers": 26,
+      "verified_hits": 2,
+      "hit_rate": 0.0049261083743842365,
+      "ns_per_input_median": {
+        "gate_only": 71.58476510873483,
+        "complete_observation": 220.34723056590173
+      },
+      "ns_per_input_rounds": {
+        "gate_only": [
+          72.35371861107774,
+          71.32043734230446,
+          71.12219151748168,
+          71.21831070527455,
+          71.89715246906164,
+          71.83107052745405,
+          71.58476510873483
+        ],
+        "complete_observation": [
+          199.5674636549321,
+          378.87180103328126,
+          198.67836116784812,
+          198.14369818575034,
+          303.1959629941127,
+          220.34723056590173,
+          221.78301093355762
+        ]
+      },
+      "batch_repeats": 41,
+      "conditional_break_even_saved_ns_per_hit": 44730.48780487805
+    },
+    {
+      "population": "constructed_positive_a8",
+      "inputs": 32,
+      "triggers": 32,
+      "verified_hits": 32,
+      "hit_rate": 1.0,
+      "ns_per_input_median": {
+        "gate_only": 69.384765625,
+        "complete_observation": 1677.99072265625
+      },
+      "ns_per_input_rounds": {
+        "gate_only": [
+          69.384765625,
+          69.549560546875,
+          69.34814453125,
+          148.321533203125,
+          69.873046875,
+          69.195556640625,
+          68.83544921875
+        ],
+        "complete_observation": [
+          1659.6435546875,
+          1699.96337890625,
+          1494.873046875,
+          1557.916259765625,
+          1958.367919921875,
+          1677.99072265625,
+          1772.1923828125
+        ]
+      },
+      "batch_repeats": 512,
+      "conditional_break_even_saved_ns_per_hit": 1677.99072265625
+    }
+  ],
+  "existing_ledger_cost_only": {
+    "<256|<64|mat0|mem0|imb0|gap0|pis0|shadow=fixed-a8|constructed_positive_a8": {
+      "bounded_neighbor_observation": {
+        "attempts": 32,
+        "hits": 32,
+        "total_probe_cost": 53695.703125,
+        "total_saved_cost": 0.0
+      }
+    },
+    "<256|<64|mat0|mem0|imb0|gap0|pis0|shadow=fixed-a8|prior_known_prime_product_cohort": {
+      "bounded_neighbor_observation": {
+        "attempts": 406,
+        "hits": 2,
+        "total_probe_cost": 89460.97560975683,
+        "total_saved_cost": 0.0
+      }
+    },
+    "<256|<64|mat0|mem0|imb0|gap0|pis0|shadow=fixed-a8|uniform_odd_background": {
+      "bounded_neighbor_observation": {
+        "attempts": 2048,
+        "hits": 4,
+        "total_probe_cost": 398487.5,
+        "total_saved_cost": 0.0
+      }
+    }
+  },
+  "cost_contract": "ns/input includes all misses; imports and fixture preparation are excluded; threshold c/h assumes equal downstream saving per hit and is not measured net benefit",
+  "runtime": {
+    "python": "3.14.6",
+    "platform": "Windows-10-10.0.19044-SP0"
+  },
+  "verdict": "PASS_POSITIVE_NEIGHBOR_FAMILY_AND_INCREMENTAL_FIXED_COHORT_COVERAGE",
+  "ledger_contract": {
+    "usage": "COUNTS_AND_PROBE_COSTS_ONLY",
+    "downstream_savings": "UNMEASURED",
+    "saved_cost_zero_is_placeholder": true,
+    "eligible_for_adaptive_reordering": false
+  },
+  "mod15_positive_classification": {
+    "rows": [
+      {
+        "c_mod_15": 1,
+        "factor_coefficients": [
+          8,
+          1,
+          120,
+          1
+        ],
+        "positive_checks": 16,
+        "factor_ratio_below_two": false,
+        "known_prime_pair_count": 3,
+        "prime_examples": [
+          {
+            "k": 2,
+            "N": 4097,
+            "known_pair": [
+              17,
+              241
+            ]
+          },
+          {
+            "k": 5,
+            "N": 24641,
+            "known_pair": [
+              41,
+              601
+            ]
+          },
+          {
+            "k": 11,
+            "N": 117569,
+            "known_pair": [
+              89,
+              1321
+            ]
+          }
+        ]
+      },
+      {
+        "c_mod_15": 4,
+        "factor_coefficients": [
+          24,
+          5,
+          40,
+          13
+        ],
+        "positive_checks": 16,
+        "factor_ratio_below_two": true,
+        "known_prime_pair_count": 4,
+        "prime_examples": [
+          {
+            "k": 1,
+            "N": 1537,
+            "known_pair": [
+              29,
+              53
+            ]
+          },
+          {
+            "k": 4,
+            "N": 17473,
+            "known_pair": [
+              101,
+              173
+            ]
+          },
+          {
+            "k": 7,
+            "N": 50689,
+            "known_pair": [
+              173,
+              293
+            ]
+          },
+          {
+            "k": 16,
+            "N": 254017,
+            "known_pair": [
+              389,
+              653
+            ]
+          }
+        ]
+      },
+      {
+        "c_mod_15": 11,
+        "factor_coefficients": [
+          24,
+          19,
+          40,
+          27
+        ],
+        "positive_checks": 16,
+        "factor_ratio_below_two": true,
+        "known_prime_pair_count": 6,
+        "prime_examples": [
+          {
+            "k": 1,
+            "N": 2881,
+            "known_pair": [
+              43,
+              67
+            ]
+          },
+          {
+            "k": 2,
+            "N": 7169,
+            "known_pair": [
+              67,
+              107
+            ]
+          },
+          {
+            "k": 5,
+            "N": 31553,
+            "known_pair": [
+              139,
+              227
+            ]
+          },
+          {
+            "k": 8,
+            "N": 73217,
+            "known_pair": [
+              211,
+              347
+            ]
+          },
+          {
+            "k": 11,
+            "N": 132161,
+            "known_pair": [
+              283,
+              467
+            ]
+          },
+          {
+            "k": 13,
+            "N": 181057,
+            "known_pair": [
+              331,
+              547
+            ]
+          }
+        ]
+      },
+      {
+        "c_mod_15": 14,
+        "factor_coefficients": [
+          8,
+          7,
+          120,
+          119
+        ],
+        "positive_checks": 16,
+        "factor_ratio_below_two": false,
+        "known_prime_pair_count": 4,
+        "prime_examples": [
+          {
+            "k": 2,
+            "N": 8257,
+            "known_pair": [
+              23,
+              359
+            ]
+          },
+          {
+            "k": 3,
+            "N": 14849,
+            "known_pair": [
+              31,
+              479
+            ]
+          },
+          {
+            "k": 5,
+            "N": 33793,
+            "known_pair": [
+              47,
+              719
+            ]
+          },
+          {
+            "k": 12,
+            "N": 160577,
+            "known_pair": [
+              103,
+              1559
+            ]
+          }
+        ]
+      }
+    ],
+    "positive_class_checks": 64,
+    "balanced_class_checks": 32,
+    "observation_stage": "classification after a certified square hit; not a front-gate predictor"
+  }
+}
