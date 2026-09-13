@@ -1,0 +1,78 @@
+{
+  "schema": "R037_REVIEW_EVIDENCE_MATRIX_V1",
+  "task_id": "RS-R037-R033-R034-INDEPENDENT-ALGORITHM-DATA-REPLICATION-AUDIT",
+  "publication_id": "TP2-FEE5990D460CCB106345",
+  "claim_id": "CLAIM-R037-20260906T0652Z-CHATGPT-05",
+  "researcher_id": "EM-R037-5F8E99",
+  "execution_branch": "research/r037-replication-review-em-r037-5f8e99-20260906",
+  "execution_branch_base": "9bc95577902f14e1539b1849ed9c4e31a155fa54",
+  "review_target": {
+    "pull_request": 812,
+    "head": "87d617a90d81b6197d521699512e1894db4346d8"
+  },
+  "verdict": "PASS_MATHEMATICAL_AUDIT_WITH_PROVENANCE_QUALIFICATION",
+  "checks": [
+    {
+      "id": "FCC_SHELL_VOLUME_DIFFERENCE",
+      "result": "PASS",
+      "evidence": "For A_r=10r^2+2 and V_r=(10r^3+15r^2+11r+3)/3, symbolic differencing gives V_r-V_{r-1}=A_r."
+    },
+    {
+      "id": "MACRO_LIMITS",
+      "result": "PASS",
+      "evidence": {
+        "fcc": "lim A_r^3/V_r^2 = 90",
+        "hcp": "lim A_r^3/V_r^2 = 189/2"
+      }
+    },
+    {
+      "id": "RADIAL_FOURTH_MOMENT",
+      "result": "PASS",
+      "evidence": "R'=R+1+2a, E[a|X]=0 and E[a^2|X]=R/3 imply E[(R')^2|X]=R^2+(10/3)R+1 and M4=(5n^2-2n)/3."
+    },
+    {
+      "id": "RADIAL_SIXTH_DIFFERENCE",
+      "result": "PASS",
+      "evidence": "Using the independently frozen HCP cubic transfer -1/432 gives per-step HCP/FCC sixth-moment difference -1/54 after the initial step; both closed forms satisfy the resulting recurrence and M6_HCP-M6_FCC=-(n-1)/54."
+    },
+    {
+      "id": "BARLOW_ROOT_GAUGE",
+      "result": "PASS_SCOPED",
+      "scope": "Legal ideal bi-infinite Barlow stackings with uniform nearest-neighbor walk; root return probabilities and root local spectral measure only.",
+      "evidence": "Basal Fourier transform leaves stacking dependence only in hopping phases of a Jacobi operator on the cycle-free layer line Z. A root-preserving diagonal unitary removes every edge phase, yielding the same fiber J_q=alpha(q)I+beta(q)(S+S*)."
+    },
+    {
+      "id": "R033_ALL_RADIUS_S2",
+      "result": "NOT_PROMOTED",
+      "evidence": "Independent exact certificate covers r=0..20 only; no all-radius induction/shelling was supplied."
+    },
+    {
+      "id": "NONPERIODIC_POINTWISE_HEAT_KERNEL_LOCAL_CLT",
+      "result": "NOT_PROMOTED",
+      "evidence": "The momentum-dependent Barlow gauge is not a physical-coordinate vertex permutation and does not imply pointwise nonperiodic heat-kernel equality or a uniform local CLT."
+    },
+    {
+      "id": "R034_STRICT_BLIND_PROVENANCE",
+      "result": "FAIL_LABEL_ONLY",
+      "evidence": "A partial frozen R034 experiment patch was exposed during owner-head metadata lookup before independent implementation was complete. The frozen script was not executed/imported as the computation engine, but strict zero-exposure provenance is irrecoverably lost for this run."
+    }
+  ],
+  "ci": {
+    "pr812_head_check_run_count": 19,
+    "observed_primary_test_success": true,
+    "observed_primary_check_success": true,
+    "failure_conclusion_found_in_inspected_payload": false,
+    "cancelled_conclusion_found_in_inspected_payload": false
+  },
+  "mathematical_mismatch_found": false,
+  "direction_change_required": false,
+  "strict_r034_provenance_clean": false,
+  "driver_recommendation": "Accept PR #812 mathematical evidence grades at their declared scopes. Do not label the combined R034 run provenance-clean blind independent replication. If that strict provenance label is itself an acceptance gate, reissue only R034 to a fresh zero-exposure executor; otherwise no R033/R034 mathematical replay is needed.",
+  "guards": [
+    "NO_ALL_RADIUS_S2_PROMOTION_FROM_R_LE_20",
+    "NO_POINTWISE_NONPERIODIC_HEAT_KERNEL_OR_LOCAL_CLT_PROMOTION",
+    "NO_CLASSICAL_PI_IDENTITY_FROM_5_2_OR_21_8_READOUTS",
+    "NO_WORKING_TRUTH_OR_FOUNDATION_PROMOTION",
+    "NO_PROVENANCE_CLEAN_BLIND_LABEL_FOR_THIS_R034_RUN"
+  ]
+}
