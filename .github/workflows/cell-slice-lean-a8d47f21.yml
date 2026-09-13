@@ -1,0 +1,52 @@
+name: cell-slice-lean-a8d47f21
+
+on:
+  push:
+    branches: ['research/cell-slice-lean-20260913-a8d47f21']
+    paths:
+      - 'research_notes/cell_slice_lean_20260913_a8d47f21/**'
+      - '.github/workflows/cell-slice-lean-a8d47f21.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  formal-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Install exact project Lean toolchain
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(tr -d '\r\n' < lean-toolchain)" = 'leanprover/lean4:v4.33.0-rc2'
+          curl --fail --location --retry 2 --max-time 240 \
+            'https://github.com/leanprover/lean4/releases/download/v4.33.0-rc2/lean-4.33.0-rc2-linux.tar.zst' \
+            -o "$RUNNER_TEMP/lean.tar.zst"
+          echo '48010c7d6264dc992574e9b0e09ece1f9c648e8f5106066b2cdb6834a6a60a6c  '"$RUNNER_TEMP/lean.tar.zst" | sha256sum -c -
+          mkdir -p "$RUNNER_TEMP/lean-dist"
+          tar --zstd -xf "$RUNNER_TEMP/lean.tar.zst" -C "$RUNNER_TEMP/lean-dist" --strip-components=1
+          echo "$RUNNER_TEMP/lean-dist/bin" >> "$GITHUB_PATH"
+      - name: Compile and audit proof dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          proof='research_notes/cell_slice_lean_20260913_a8d47f21/SliceCodec.lean'
+          lean --version
+          git rev-parse HEAD
+          sha256sum "$proof"
+          if grep -nE '\b(sorry|admit|axiom|native_decide)\b' "$proof"; then
+            echo 'Forbidden proof placeholder or trusted computation found.'
+            exit 1
+          fi
+          lean -o "$RUNNER_TEMP/SliceCodec.olean" "$proof" 2>&1 | tee "$RUNNER_TEMP/lean-check.log"
+          if grep -E 'sorryAx|Lean.ofReduceBool|Lean.trustCompiler' "$RUNNER_TEMP/lean-check.log"; then
+            echo 'Unexpected trusted proof dependency.'
+            exit 1
+          fi
+          test -s "$RUNNER_TEMP/SliceCodec.olean"
+          echo 'CELL_SLICE_LEAN_KERNEL_CHECK_PASSED'
