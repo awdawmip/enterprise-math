@@ -4,36 +4,97 @@ on:
     branches: ['maintenance/nonnegative-coordinate-contract-20260913-a8d47f21']
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   audit:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      PYTHONPATH: src
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
-          persist-credentials: false
-      - name: Inventory coordinate contract surfaces
+          persist-credentials: true
+      - name: Apply narrow current-coordinate migration and validate idempotence
         run: |
-          python - <<'PY'
-          import subprocess,re,json
-          from pathlib import Path
-          files=subprocess.check_output(['git','ls-files','-z']).decode().split('\0')
-          name=re.compile(r'(coordinate|spatial|axis|slice|origin|p000|packet_path|project_definition|native_semantics|cell_address)',re.I)
-          term=re.compile(r'(CELL_COORDINATE_ZERO|CENTERED_THREE_AXIS_SLICE_ZERO|NATIVE_CELL_ORIGIN|origin_type|current_coordinate_atlas|coordinate_contract|SIGNED_Z|final_address|final_coordinates)',re.I)
-          for f in files:
-              p=Path(f)
-              if not p.is_file() or p.suffix not in {'.json','.md','.py','.lean','.toml'}: continue
-              if p.parts[0] not in {'definitions','src','tests','tools','EnterpriseMath','docs','templates'} and len(p.parts)>1: continue
-              if f=='AGENTS.md': continue
-              text=p.read_text(errors='replace')
-              hits=[(i+1,s[:190]) for i,s in enumerate(text.splitlines()) if term.search(s)]
-              if name.search(p.name) or hits:
-                  print(json.dumps({'file':f,'lines':len(text.splitlines()),'hits':hits[:8]},ensure_ascii=False))
-          print('COORDINATE_INVENTORY_FINISHED')
-          PY
-      - name: Verify supplied contract migration
-        if: ${{ hashFiles('tools/apply_coordinate_address_contract.py') != '' }}
-        run: |
+          set -euo pipefail
+          python tools/apply_coordinate_address_contract.py --apply
+          git diff --binary > "$RUNNER_TEMP/first.patch"
+          python tools/apply_coordinate_address_contract.py --apply
+          git diff --binary > "$RUNNER_TEMP/second.patch"
+          cmp "$RUNNER_TEMP/first.patch" "$RUNNER_TEMP/second.patch"
           python tools/apply_coordinate_address_contract.py --check
+          python - <<'PY'
+          import json,subprocess
+          from pathlib import Path
+          old=json.loads(subprocess.check_output(['git','show','HEAD:p000_reality_foundation.json']))
+          new=json.loads(Path('p000_reality_foundation.json').read_text())
+          assert old['axioms']==new['axioms']
+          print('P000_AXIOMS_IDENTICAL_TO_PRE_MIGRATION_HEAD')
+          PY
+      - name: Public package, schema and old geometry compatibility
+        run: |
+          set -euo pipefail
+          python -m pip install 'jsonschema==4.25.1'
           python -m unittest discover -s tests -p 'test_cell_address_contract.py' -v
+          python - <<'PY'
+          import enterprise_math as em
+          from pathlib import Path
+          import subprocess,sys,json
+          assert em.FinalCellAddress is not None
+          assert em.integer_nth_root(20000,2)==141
+          assert em.collapse(20000,2)==19881
+          print('PUBLIC_PACKAGE_AND_INTEGER_CORE_SMOKE_PASSED')
+          files=sorted(p for p in Path('tests').glob('test_*.py')
+              if p.name!='test_cell_address_contract.py' and any(x in p.name for x in
+                 ('geometry','p000','x6','coordinate','origin','relational_axis','diagonal_quotient','operation_quotient')))
+          print('OLD_TARGETED_TEST_FILES='+json.dumps([str(p) for p in files]))
+          for p in files:
+              subprocess.run([sys.executable,'-m','unittest','discover','-s','tests','-p',p.name,'-v'],check=True)
+          PY
+      - name: Install the exact pinned project Lean toolchain
+        run: |
+          set -euo pipefail
+          test "$(tr -d '\r\n' < lean-toolchain)" = 'leanprover/lean4:v4.33.0-rc2'
+          curl --fail --location --retry 2 --max-time 240 'https://github.com/leanprover/lean4/releases/download/v4.33.0-rc2/lean-4.33.0-rc2-linux.tar.zst' -o "$RUNNER_TEMP/lean.tar.zst"
+          echo '48010c7d6264dc992574e9b0e09ece1f9c648e8f5106066b2cdb6834a6a60a6c  '"$RUNNER_TEMP/lean.tar.zst" | sha256sum -c -
+          mkdir -p "$RUNNER_TEMP/lean-dist"
+          tar --zstd -xf "$RUNNER_TEMP/lean.tar.zst" -C "$RUNNER_TEMP/lean-dist" --strip-components=1
+          echo "$RUNNER_TEMP/lean-dist/bin" >> "$GITHUB_PATH"
+      - name: Compile migrated proof and public Lean interface
+        run: |
+          set -euo pipefail
+          lean --version
+          export LEAN_PATH="$RUNNER_TEMP/coordinate-lean"
+          mkdir -p "$LEAN_PATH/EnterpriseMath/CellAddress"
+          for module in ThreeRegionSlice Contract; do
+            source="EnterpriseMath/CellAddress/$module.lean"
+            if grep -nE '\b(sorry|admit|axiom|native_decide)\b' "$source"; then exit 1; fi
+            lean -o "$LEAN_PATH/EnterpriseMath/CellAddress/$module.olean" "$source" 2>&1 | tee "$RUNNER_TEMP/$module.log"
+            if grep -E 'sorryAx|Lean.ofReduceBool|Lean.trustCompiler' "$RUNNER_TEMP/$module.log"; then exit 1; fi
+            test -s "$LEAN_PATH/EnterpriseMath/CellAddress/$module.olean"
+          done
+          echo 'COORDINATE_PUBLIC_INTERFACE_LEAN_PASSED'
+      - name: Publish only validated generated surfaces to owned staging branch
+        if: github.ref == 'refs/heads/maintenance/nonnegative-coordinate-contract-20260913-a8d47f21'
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import subprocess
+          allowed=set(subprocess.check_output(['python','tools/apply_coordinate_address_contract.py','--publish-paths'],text=True).splitlines())
+          dirty=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          untracked=set(subprocess.check_output(['git','ls-files','--others','--exclude-standard'],text=True).splitlines())
+          assert dirty <= allowed, sorted(dirty-allowed)
+          assert untracked <= allowed, sorted(untracked-allowed)
+          subprocess.run(['git','add','--',*sorted(allowed)],check=True)
+          PY
+          if git diff --cached --quiet; then
+            echo "VALIDATED_CURRENT_COMMIT=$(git rev-parse HEAD)"
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Apply validated public nonnegative coordinate contract to current authority surfaces'
+          git push origin HEAD:refs/heads/staging/nonnegative-coordinates-20260913-a8d47f21
+          echo "VALIDATED_GENERATED_COMMIT=$(git rev-parse HEAD)"
+          git show --stat --oneline HEAD

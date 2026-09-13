@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Enterprise Math final Cell address V1",
+  "description": "Only the registered fixed two-generator slice. No silent projection of full X6. Exact-integer runtime validation is additionally required.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "codec", "version", "frame", "coordinates"],
+  "properties": {
+    "schema": {"const": "EM_CELL_ADDRESS_V1"},
+    "codec": {"const": "three_region_slice_v1"},
+    "version": {"type": "integer", "const": 1},
+    "frame": {"const": "X6_FIXED_E1_E2_CHART"},
+    "coordinates": {
+      "type": "array", "minItems": 6, "maxItems": 6,
+      "items": {"type": "integer", "minimum": 0},
+      "oneOf": [
+        {"prefixItems": [{"const": 0}, {"type": "integer", "minimum": 1}, {"type": "integer", "minimum": 1}, {"const": 0}, {"const": 0}, {"const": 0}], "items": false},
+        {"prefixItems": [{"type": "integer", "minimum": 1}, {"const": 0}, {"type": "integer", "minimum": 1}, {"const": 0}, {"const": 0}, {"const": 0}], "items": false},
+        {"prefixItems": [{"type": "integer", "minimum": 1}, {"type": "integer", "minimum": 1}, {"const": 0}, {"const": 0}, {"const": 0}, {"const": 0}], "items": false}
+      ]
+    }
+  }
+}
