@@ -38,6 +38,7 @@ Exact mathematical claims are controlled by the exact canonical definition actua
 The exact native X6 spatial model is routed through
 `definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md` and P000.
 Six native spatial axis labels and existing forward/reverse operations are unchanged.
+P000 continues to define the Enterprise native right-angle relation as 120 degrees; this relation is independent of the final-address sign convention.
 Raw signed charts are internal mathematical carriers. Their zero labels a chosen
 Cell anchor; it does not prescribe a physical global center or the display origin.
 A display origin may lie in a gap and display axes need not pass through Cell
