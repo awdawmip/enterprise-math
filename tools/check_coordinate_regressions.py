@@ -45,15 +45,15 @@ def main():
         new_fail={k:v for k,v in new.items() if v is not None}
         assert new_fail.keys() <= old_fail.keys(),'New failing test: '+repr(new_fail.keys()-old_fail.keys())
         for key,value in new_fail.items():
-            # Compare failure messages, not the surrounding traceback location.
-            assert value.split('\n',1)[0]==old_fail[key].split('\n',1)[0],('Changed failure',key)
+            # Only the checkout path is normalized; every failure message and
+            # detail must match, not merely a generic AssertionError heading.
+            assert value==old_fail[key],('Changed failure',key,value,old_fail[key])
         result={'status':'NO_NEW_COORDINATE_REGRESSION','baseline_commit':BASE,
           'tests_executed_each':len(old),'baseline_failures':len(old_fail),
           'candidate_failures':len(new_fail),'candidate_passed':len(new)-len(new_fail),
           'complete_suite_green':not new_fail,
-          'retained_failures':[{'test':'.'.join(k),'message':v.split('\n',1)[0]} for k,v in new_fail.items()]}
+          'retained_failures':[{'test':'.'.join(k),'detail':v} for k,v in new_fail.items()]}
         print(json.dumps(result,ensure_ascii=False,indent=2),flush=True)
-        for key,value in new_fail.items():print('UNCHANGED_BASELINE_FAILURE',key,value,flush=True)
     finally:
         subprocess.run(['git','worktree','remove','--force',str(base)],cwd=ROOT,check=True)
 

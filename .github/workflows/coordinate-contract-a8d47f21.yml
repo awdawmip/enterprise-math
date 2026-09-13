@@ -1,38 +1,78 @@
-name: coordinate-contract-a8d47f21
+name: cell-address-contract
 on:
   push:
-    branches: ['maintenance/nonnegative-coordinate-contract-20260913-a8d47f21']
+    branches: ['main', 'maintenance/nonnegative-coordinate-contract-20260913-a8d47f21']
+    paths:
+      - 'coordinate_address_contract.json'
+      - 'coordinate_contract_migration_manifest.json'
+      - 'COORDINATE_ADDRESS_CONVENTION*'
+      - 'schemas/cell_address.schema.json'
+      - 'EnterpriseMath/CellAddress/**'
+      - 'src/enterprise_math/cell_address.py'
+      - 'src/enterprise_math/_cell_slice_codec.py'
+      - 'src/enterprise_math/geometry.py'
+      - 'src/enterprise_math/__init__.py'
+      - 'tools/*coordinate*'
+      - 'tools/validate_cell_address.py'
+      - 'tests/test_cell_address_contract.py'
+      - 'p000_reality_foundation.json'
+      - 'project_definition.json'
+      - 'PROJECT_DEFINITION*'
+      - 'README*'
+      - '*relational_axis*'
+      - '*RELATIONAL_AXIS*'
+      - '*packet_path*'
+      - '*PACKET_PATH*'
+      - 'native_semantics_admissibility.json'
+      - 'research_common_surface.json'
+      - 'definitions/**'
+      - 'EnterpriseMath.lean'
+      - 'lean-toolchain'
+      - 'GEOMETRIC_TOOL_REFOUNDATION_POLICY.md'
+      - '.github/workflows/coordinate-contract-a8d47f21.yml'
+  pull_request:
+    paths:
+      - 'coordinate_address_contract.json'
+      - 'coordinate_contract_migration_manifest.json'
+      - 'COORDINATE_ADDRESS_CONVENTION*'
+      - 'schemas/cell_address.schema.json'
+      - 'EnterpriseMath/CellAddress/**'
+      - 'src/enterprise_math/cell_address.py'
+      - 'src/enterprise_math/_cell_slice_codec.py'
+      - 'src/enterprise_math/geometry.py'
+      - 'src/enterprise_math/__init__.py'
+      - 'tools/*coordinate*'
+      - 'tools/validate_cell_address.py'
+      - 'tests/test_cell_address_contract.py'
+      - 'p000_reality_foundation.json'
+      - 'project_definition.json'
+      - 'PROJECT_DEFINITION*'
+      - 'README*'
+      - '*relational_axis*'
+      - '*RELATIONAL_AXIS*'
+      - '*packet_path*'
+      - '*PACKET_PATH*'
+      - 'native_semantics_admissibility.json'
+      - 'research_common_surface.json'
+      - 'definitions/**'
+      - 'EnterpriseMath.lean'
+      - 'lean-toolchain'
+      - 'GEOMETRIC_TOOL_REFOUNDATION_POLICY.md'
+      - '.github/workflows/coordinate-contract-a8d47f21.yml'
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
 jobs:
-  audit:
+  contract-and-formal-check:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
       PYTHONPATH: src
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-        with:
-          persist-credentials: true
-      - name: Apply narrow current-coordinate migration and validate idempotence
-        run: |
-          set -euo pipefail
-          python tools/apply_coordinate_address_contract.py --apply
-          git diff --binary > "$RUNNER_TEMP/first.patch"
-          python tools/apply_coordinate_address_contract.py --apply
-          git diff --binary > "$RUNNER_TEMP/second.patch"
-          cmp "$RUNNER_TEMP/first.patch" "$RUNNER_TEMP/second.patch"
-          python tools/apply_coordinate_address_contract.py --check
-          python - <<'PY'
-          import json,subprocess
-          from pathlib import Path
-          old=json.loads(subprocess.check_output(['git','show','HEAD:p000_reality_foundation.json']))
-          new=json.loads(Path('p000_reality_foundation.json').read_text())
-          assert old['axioms']==new['axioms']
-          print('P000_AXIOMS_IDENTICAL_TO_PRE_MIGRATION_HEAD')
-          PY
-      - name: Public package and nonnegative schema checks
+      - name: Check shared constraints without modifying repository files
+        run: python tools/apply_coordinate_address_contract.py --check
+      - name: Validate runtime, schema and original package entry
         run: |
           set -euo pipefail
           python -m pip install 'jsonschema==4.25.1' 'pytest==8.3.5'
@@ -44,9 +84,9 @@ jobs:
           assert em.collapse(20000,2)==19881
           print('PUBLIC_PACKAGE_AND_INTEGER_CORE_SMOKE_PASSED')
           PY
-      - name: Compare old regressions with exact original main
+      - name: No new failures against exact pre-migration regression baseline
         run: python tools/check_coordinate_regressions.py
-      - name: Install the exact pinned project Lean toolchain
+      - name: Install exact project Lean toolchain
         run: |
           set -euo pipefail
           test "$(tr -d '\r\n' < lean-toolchain)" = 'leanprover/lean4:v4.33.0-rc2'
@@ -55,40 +95,20 @@ jobs:
           mkdir -p "$RUNNER_TEMP/lean-dist"
           tar --zstd -xf "$RUNNER_TEMP/lean.tar.zst" -C "$RUNNER_TEMP/lean-dist" --strip-components=1
           echo "$RUNNER_TEMP/lean-dist/bin" >> "$GITHUB_PATH"
-      - name: Compile migrated proof and public Lean interface
+      - name: Compile registered proof and public interface; reject proof placeholders
         run: |
           set -euo pipefail
           lean --version
+          git rev-parse HEAD
           export LEAN_PATH="$RUNNER_TEMP/coordinate-lean"
           mkdir -p "$LEAN_PATH/EnterpriseMath/CellAddress"
           for module in ThreeRegionSlice Contract; do
             source="EnterpriseMath/CellAddress/$module.lean"
+            sha256sum "$source"
             if grep -nE '\b(sorry|admit|axiom|native_decide)\b' "$source"; then exit 1; fi
             lean -o "$LEAN_PATH/EnterpriseMath/CellAddress/$module.olean" "$source" 2>&1 | tee "$RUNNER_TEMP/$module.log"
             if grep -E 'sorryAx|Lean.ofReduceBool|Lean.trustCompiler' "$RUNNER_TEMP/$module.log"; then exit 1; fi
             test -s "$LEAN_PATH/EnterpriseMath/CellAddress/$module.olean"
           done
+          git diff --exit-code
           echo 'COORDINATE_PUBLIC_INTERFACE_LEAN_PASSED'
-      - name: Publish only validated generated surfaces to owned staging branch
-        if: github.ref == 'refs/heads/maintenance/nonnegative-coordinate-contract-20260913-a8d47f21'
-        run: |
-          set -euo pipefail
-          python - <<'PY'
-          import subprocess
-          allowed=set(subprocess.check_output(['python','tools/apply_coordinate_address_contract.py','--publish-paths'],text=True).splitlines())
-          dirty=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
-          untracked=set(subprocess.check_output(['git','ls-files','--others','--exclude-standard'],text=True).splitlines())
-          assert dirty <= allowed, sorted(dirty-allowed)
-          assert untracked <= allowed, sorted(untracked-allowed)
-          subprocess.run(['git','add','--',*sorted(allowed)],check=True)
-          PY
-          if git diff --cached --quiet; then
-            echo "VALIDATED_CURRENT_COMMIT=$(git rev-parse HEAD)"
-            exit 0
-          fi
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'Apply validated public nonnegative coordinate contract to current authority surfaces'
-          git push origin HEAD:refs/heads/staging/nonnegative-coordinates-20260913-a8d47f21
-          echo "VALIDATED_GENERATED_COMMIT=$(git rev-parse HEAD)"
-          git show --stat --oneline HEAD
