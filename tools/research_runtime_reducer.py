@@ -460,10 +460,13 @@ def reduce_task(
 
         if kind == "SUPERSEDE":
             state["state"] = "SUPERSEDED"
+            state["hard_block"] = None
             state["claim_id"] = None
             state["actor"] = None
             release_claim_identity(state)
             state["lease_until"] = None
+            if event.get("progress_ref"):
+                state["last_progress_ref"] = event["progress_ref"]
             state["last_progress_at"] = event["at"]
             if event.get("next_action"):
                 state["next_action"] = event["next_action"]
