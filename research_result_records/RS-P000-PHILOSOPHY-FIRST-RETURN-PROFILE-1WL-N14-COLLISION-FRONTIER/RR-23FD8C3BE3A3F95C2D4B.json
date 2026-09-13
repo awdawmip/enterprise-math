@@ -1,0 +1,45 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-23FD8C3BE3A3F95C2D4B",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-RETURN-PROFILE-1WL-N14-COLLISION-FRONTIER",
+  "publication_id": "TP2-8969646E7FF5FB8A9F5D",
+  "execution_record_id": "ER-9EF9871C713F5C79FA92",
+  "claim_id": "CLAIM-P000Q30-20260907T0800Z-CHATGPT-02",
+  "taskbook_path": "research_tasks/P000_PHILOSOPHY_FIRST_RETURN_PROFILE_1WL_N14_COLLISION_FRONTIER_POSTREVIEW_20260903.md",
+  "taskbook_blob_sha1": "sha1:f60e805aea561a56399f00655f16889894fad29f",
+  "execution_branch": "research/p000-phil-q30-return-profile-1wl-n14-em-p000q30-d67de2",
+  "execution_branch_base": "fd532560af31b36c736bb4bd21e75c8326835541",
+  "return_path": "research_returns/P000_PHILOSOPHY_FIRST_RETURN_PROFILE_1WL_N14_COLLISION_FRONTIER_RETURN_20260907.md",
+  "return_blob_sha1": "sha1:ee3d94eb873e6fab6a9a71d4ffca76549ff775ad",
+  "return_sha256": "sha256:74cfe86f35517d1c0d258547e28aed24a34908bb58936123079f1836905ebc8d",
+  "owner_head": "e2b2077df97ea2642f1855530bd90abaaa2501f8",
+  "researcher_id": "EM-P000Q30-D67DE2",
+  "frozen_at": "2026-09-07T08:16:00+00:00",
+  "terminal_verdict": "SUCCESS",
+  "terminal_state": "RETURN_PROFILE_1WL_COLLISION_FREE_LOWER_BOUND_EXTENDED_THROUGH_N14",
+  "hard_target_disposition": "P000_RETURN_PROFILE_1WL_N14_FIRST_COLLISION_OR_EXACT_LOWER_BOUND_CLASSIFIED / PROVED_AT_BOUNDED_SCOPE / RETURN_PROFILE_1WL_COLLISION_FREE_LOWER_BOUND_EXTENDED_THROUGH_N14",
+  "unresolved_residue": "The first stable equal-packet nonisomorphic collision, if any, remains unknown for n>=15. No universal reconstruction theorem, canonical-label theorem, stronger observable, Working Truth, Foundation, L4, canonical promotion, or novelty claim is authorized by this result.",
+  "output_manifest": [
+    {
+      "path": "research_returns/P000_PHILOSOPHY_FIRST_RETURN_PROFILE_1WL_N14_COLLISION_FRONTIER_RETURN_20260907.md",
+      "git_blob_sha1": "sha1:ee3d94eb873e6fab6a9a71d4ffca76549ff775ad",
+      "sha256": "sha256:74cfe86f35517d1c0d258547e28aed24a34908bb58936123079f1836905ebc8d"
+    },
+    {
+      "path": "research_artifacts/P000_PHILOSOPHY_FIRST_RETURN_PROFILE_1WL_N14_COLLISION_FRONTIER/P000_Q30_N14_RECOVERY_AUDIT_20260907.json",
+      "git_commit_pin": "40bfaa37aacb3581aa92a5d46c4557a1fd6f579b"
+    },
+    {
+      "path": "scripts/check_p000_philosophy_first_return_profile_1wl_n14_collision_frontier.py",
+      "git_commit_pin": "6d77ffdec0d004ad9416a1ec1d009c8e048d7d62"
+    }
+  ],
+  "checker_summary": "PASS Q30 n=14 recovery audit: representatives=56972 normalized_connected=26406647416800 stable_packets=56972 collision=0; legacy_r14_pointer=SUPERSEDED",
+  "method_harvest": "RESULT_ONLY",
+  "method_reuse": "Recovers the prior exact Q30 kernel/orbit certificate pinned at b90378c332e0dbf80aad0c09d363047abb2ee2f3 and independently rechecks all seven persisted automorphism-weighted sector sums and totals. The frozen primitive-return-profile initialized ordinary 1-WL observer is unchanged; hashes remain integrity-only.",
+  "independence_status": "RECOVERY_AUDIT_WITH_PINNED_PRIOR_GRAPH_LEVEL_EVIDENCE",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "DRIVER_REVIEW the exact n=14 collision-free extension at bounded strength only. If accepted and the parent first-failure objective remains open, n=15 must be separately gated and published; do not continue inside Q30 or infer universal reconstruction, canonical labeling, Working Truth, Foundation, L4, or novelty.",
+  "driver_review_required": true,
+  "recovery_note": "This Result materializes already-computed terminal Q30 mathematics after interrupted prior executions. The current arithmetic/provenance checker passed independently. Certificate V2's stale monolithic P000_Q30_N14_KERNELS_R14_V1.json persistence pointer is explicitly SUPERSEDED by the pinned five-shard r=14 reconstruction package plus direct graph-level replay supplement/checker; no mathematical identity is delegated to hashes."
+}
