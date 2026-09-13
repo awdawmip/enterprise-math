@@ -35,7 +35,7 @@ jobs:
       - name: Public package, schema and old geometry compatibility
         run: |
           set -euo pipefail
-          python -m pip install 'jsonschema==4.25.1'
+          python -m pip install 'jsonschema==4.25.1' 'pytest==8.3.5'
           python -m unittest discover -s tests -p 'test_cell_address_contract.py' -v
           python - <<'PY'
           import enterprise_math as em
@@ -44,13 +44,13 @@ jobs:
           assert em.FinalCellAddress is not None
           assert em.integer_nth_root(20000,2)==141
           assert em.collapse(20000,2)==19881
-          print('PUBLIC_PACKAGE_AND_INTEGER_CORE_SMOKE_PASSED')
+          print('PUBLIC_PACKAGE_AND_INTEGER_CORE_SMOKE_PASSED',flush=True)
           files=sorted(p for p in Path('tests').glob('test_*.py')
               if p.name!='test_cell_address_contract.py' and any(x in p.name for x in
                  ('geometry','p000','x6','coordinate','origin','relational_axis','diagonal_quotient','operation_quotient')))
-          print('OLD_TARGETED_TEST_FILES='+json.dumps([str(p) for p in files]))
-          for p in files:
-              subprocess.run([sys.executable,'-m','unittest','discover','-s','tests','-p',p.name,'-v'],check=True)
+          print('OLD_TARGETED_TEST_FILES='+json.dumps([str(p) for p in files]),flush=True)
+          assert files
+          subprocess.run([sys.executable,'-m','pytest','-q',*[str(p) for p in files]],check=True)
           PY
       - name: Install the exact pinned project Lean toolchain
         run: |
