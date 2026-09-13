@@ -20,6 +20,13 @@
       "priority_class": "PROJECT_HIGHEST_RESEARCH_CONSTRAINT_BELOW_P000_ONTOLOGY",
       "scope": "ALL_ENTERPRISE_MATH_ROLES_AND_SUBSTANTIVE_RESEARCH",
       "load_policy": "MANDATORY_AFTER_P000_AND_BEFORE_ANY_INFORMATION_REDUCING_PROJECTION_OR_FACTOR_COLLAPSE"
+    },
+    {
+      "contract_id": "FINAL_CELL_ADDRESS_CONSTRAINT",
+      "path": "coordinate_address_contract.json",
+      "authority_kind": "DIRECT_USER_INTERFACE_CONSTRAINT",
+      "scope": "ALL_FINAL_CELL_ADDRESS_OUTPUT_AND_INPUT",
+      "load_policy": "BEFORE_INTERPRETING_OR_SERIALIZING_FINAL_CELL_ADDRESSES"
     }
   ],
   "axioms": {
@@ -83,11 +90,19 @@
       "off_native_axis_apparent_segment": {
         "primitive": false,
         "structural_representation": "COMPOSITE_NATIVE_PATH",
-        "observer_aliases": ["JITTER", "MULTIPATH"],
+        "observer_aliases": [
+          "JITTER",
+          "MULTIPATH"
+        ],
         "jitter_definition": "OBSERVER_LEVEL_ALTERNATION_OR_MICROSTEP_VARIATION_ACROSS_NATIVE_PATH_REALIZATIONS",
         "multipath_definition": "PROVENANCE_PRESERVING_FAMILY_OR_SEQUENCE_OF_NATIVE_AXIS_STEPS_REALIZING_ONE_COARSE_DIRECTIONAL_READOUT",
         "single_diagonal_segment_status": "EFFECTIVE_COARSE_GRAINED_READOUT_ONLY",
-        "must_preserve_before_safe_quotient": ["ORDERED_NATIVE_STEPS", "BRANCH_IDENTITY", "MULTIPLICITY", "PROVENANCE"]
+        "must_preserve_before_safe_quotient": [
+          "ORDERED_NATIVE_STEPS",
+          "BRANCH_IDENTITY",
+          "MULTIPLICITY",
+          "PROVENANCE"
+        ]
       }
     },
     "native_coordinate_origin": {
@@ -95,7 +110,8 @@
       "coordinate_zero": "CHOSEN_NATIVE_CELL_ANCHOR",
       "coordinate_zero_is_native_cell": true,
       "coordinate_zero_is_chart_relative": true,
-      "legacy_triple_boundary_O_E": "CARRIER_INCIDENCE_VERTEX_NOT_NATIVE_ORIGIN"
+      "legacy_triple_boundary_O_E": "CARRIER_INCIDENCE_VERTEX_NOT_NATIVE_ORIGIN",
+      "scope": "INTERNAL_RAW_CHART_ONLY_NOT_FINAL_DISPLAY_ORIGIN"
     },
     "centered_three_axis_slice": {
       "native_slice": "AFFINE_SUBTORSOR_OF_X6_ON_THREE_SELECTED_SIGNED_AXES",
@@ -125,6 +141,12 @@
         "interpretation": "COARSE_GRAINED_OR_PROJECTED_TRIADIC_BALANCE",
         "triadic_lift_required": true
       }
+    },
+    "final_cell_address": {
+      "contract": "coordinate_address_contract.json",
+      "negative_fields_allowed": false,
+      "display_origin_is_cell": false,
+      "native_zero_cell_preserved": true
     }
   },
   "machine_invariants": [
@@ -196,7 +218,15 @@
     "ROTATION_IS_PRIMARY_GEOMETRIC_OPERATION=true",
     "TIME_AXIS!=SPATIAL_AXIS",
     "TIME_TRACKS_RELATIONAL_CHANGE=true",
-    "OLD_THREE_DIMENSIONAL_WORLD_ONTOLOGY=SUPERSEDED"
+    "OLD_THREE_DIMENSIONAL_WORLD_ONTOLOGY=SUPERSEDED",
+    "FINAL_CELL_ADDRESS_FIELD_DOMAIN=NONNEGATIVE_INTEGER",
+    "FINAL_CELL_ADDRESS_FIELD_COUNT=6",
+    "FINAL_CELL_ADDRESS!=RAW_SPATIAL_CHART",
+    "DISPLAY_REFERENCE!=NATIVE_CELL",
+    "DISPLAY_AXIS_OR_ORIGIN_AS_OPERATIONAL_NODE=FORBIDDEN",
+    "ADDRESS_BOUNDARY_CROSSING_FORCED_INCREMENT=false",
+    "INACTIVE_ZERO_REQUIRES_LOSSLESS_CODEC=true",
+    "UNREGISTERED_FULL_X6_ADDRESS_CODEC=REJECT"
   ],
   "research_semantics": {
     "assumption_mode": "UNCONDITIONAL_PROJECT_STARTING_AXIOM",
@@ -259,5 +289,14 @@
     "TREAT_SELECTED_THREE_AXIS_OBSERVER_AS_PROOF_OF_SLICE_MEMBERSHIP",
     "REQUIRE_PROOF_OR_FALSIFICATION_OF_P000_DIRECTION_OR_BALANCE_AXIOMS",
     "EXPORT_P000_INTERNAL_AXIOMS_AS_ESTABLISHED_EXTERNAL_SCIENTIFIC_CONSENSUS"
-  ]
+  ],
+  "coordinate_address_contract": "coordinate_address_contract.json",
+  "coordinate_address_scope": {
+    "final_address": "SIX_NONNEGATIVE_FIELDS_WITH_REGISTERED_LOSSLESS_CODEC",
+    "raw_coordinate_and_displacement": "EXISTING_SIGNED_INTERNAL_MATHEMATICS_UNCHANGED",
+    "legacy_coordinate_zero_keys": "RAW_CHART_ZERO_NOT_DISPLAY_ORIGIN",
+    "display_origin_and_axes_operational": false,
+    "crossing_forces_increment": false,
+    "proof_scope": "REGISTERED_FIXED_TWO_GENERATOR_SLICE_NOT_FULL_X6"
+  }
 }

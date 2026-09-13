@@ -387,3 +387,18 @@ __all__ = [
     "lattice2_sphere",
     "lattice2_ball",
 ]
+
+# Public nonnegative Cell address interface (2026-09-13).
+from .cell_address import (
+    FinalCellAddress,
+    encode_raw_slice,
+    decode_raw_slice,
+    step_cell,
+    cell_step_distance,
+    cell_squared_distance,
+    validate_cell_address,
+)
+__all__ += [
+    "FinalCellAddress", "encode_raw_slice", "decode_raw_slice", "step_cell",
+    "cell_step_distance", "cell_squared_distance", "validate_cell_address",
+]

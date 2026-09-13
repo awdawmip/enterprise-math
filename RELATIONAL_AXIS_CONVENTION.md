@@ -1,5 +1,12 @@
 # Enterprise Math Relational Axis Convention
 
+<!-- EM_FINAL_CELL_ADDRESS_CONTRACT_V1 -->
+## Final Cell address interface (2026-09-13)
+
+All final Cell addresses obey [`coordinate_address_contract.json`](coordinate_address_contract.json): six nonnegative integer fields; inactive zero only without identity loss; display origin/axes are nonoperational; crossing does not force +1. Existing signed raw charts, displacements, inverse actions and their zero remain separately typed internal mathematics, not final address output. The verified three-region codec covers only a fixed two-generator slice, not arbitrary full X6. Existing coordinate-zero statements below concern RAW_CHART_ZERO, not display-origin placement.
+<!-- END_EM_FINAL_CELL_ADDRESS_CONTRACT_V1 -->
+
+
 Status: `PROJECT_LEVEL_AXIS_AND_ORIENTATION_FREEZE`
 Date: `2026-08-16`
 Mode: `REFOUND, NOT REJECT`

@@ -1,5 +1,12 @@
 # Enterprise Math Project Definition
 
+<!-- EM_FINAL_CELL_ADDRESS_CONTRACT_V1 -->
+## Final Cell address interface (2026-09-13)
+
+All final Cell addresses obey [`coordinate_address_contract.json`](coordinate_address_contract.json): six nonnegative integer fields; inactive zero only without identity loss; display origin/axes are nonoperational; crossing does not force +1. Existing signed raw charts, displacements, inverse actions and their zero remain separately typed internal mathematics, not final address output. The verified three-region codec covers only a fixed two-generator slice, not arbitrary full X6. Existing coordinate-zero statements below concern RAW_CHART_ZERO, not display-origin placement.
+<!-- END_EM_FINAL_CELL_ADDRESS_CONTRACT_V1 -->
+
+
 Status: `ACTIVE / PROJECT-LEVEL DEFINITION / V4`
 Date: `2026-08-22`
 Driver: `CONTROL_PLANE`
@@ -26,49 +33,39 @@ FREE axiom-discovery primitive router:
 
 Exact mathematical claims are controlled by the exact canonical definition actually used by the task.
 
-## 1. Current Enterprise plane
+## 1. Current spatial and display types
 
-- `O_E=0`;
-- origin = triple boundary intersection of three circle cells;
-- `ENTERPRISE_CELL=CIRCLE_CELL`;
-- nearest-center spacing `D_CENTER=1`;
-- `R_CELL=1/sqrt(3)`;
-- native axes = three positive rays `E_1,E_2,E_3`;
-- `ENTERPRISE_RIGHT_ANGLE=120_DEGREES`;
-- the axes are pairwise `ENTERPRISE_ORTHOGONAL`;
-- `ENTERPRISE_PLANE_DIMENSION=3` is project-native dimension semantics.
+The exact native X6 spatial model is routed through
+`definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md` and P000.
+Six native spatial axis labels and existing forward/reverse operations are unchanged.
+Raw signed charts are internal mathematical carriers. Their zero labels a chosen
+Cell anchor; it does not prescribe a physical global center or the display origin.
+A display origin may lie in a gap and display axes need not pass through Cell
+centers. Neither is a Cell, path vertex or operational source.
 
 ## 2. Current coordinates and length
 
-Native addresses:
+The mandatory final address contract is `coordinate_address_contract.json`.
+Final Cell addresses have six nonnegative integer fields, a registered codec,
+version and explicit fixed frame. Inactive zero is allowed only losslessly.
+Unknown or omitted spatial information is not zero. Public digits are addresses,
+not automatically raw components whose difference defines distance.
 
-`A_E={(a,b,c) in N_0^3 : min(a,b,c)=0}`.
-
-Positive two-axis charts:
-
-- `S_12={(a,b,0)}`;
-- `S_23={(0,b,c)}`;
-- `S_31={(a,0,c)}`.
-
-Inside a native `120°` sector:
-
-`L_E^2=a^2+b^2`.
-
-For a canonical triple:
-
-`L_E(a,b,c)^2=a^2+b^2+c^2`.
-
-Carrier relations are used only at explicitly typed implementation/classical layers and do not automatically define native identity or native metric.
+The registered `three_region_slice_v1` covers a fixed two-generator slice only.
+Its forms are `(0,b,c,0,0,0)`, `(a,0,c,0,0,0)`, `(a,b,0,0,0,0)`, with
+positive active values. No complete full-X6 codec is asserted. Other inputs must
+be rejected or await a verified registered codec, never silently projected.
 
 ## 3. Current line and point-to-point structure
 
-`ENTERPRISE_LINE_IDENTITY=NATIVE_COMPONENT_TRACE`.
-
-One trace may have multiple discrete single-cell path representatives; path-letter count is not native line length.
-
-Arbitrary points use the current **directed native line gauge**.
-
-For an unordered endpoint pair, the canonical datum is the bidirectional trace pair plus bidirectional length spectrum. Current premises do not uniquely select a canonical symmetric scalar metric.
+Preserve the native signed displacement metric and primitive adjacency. Evaluate
+metrics on decoded Cells, not raw address digits. Crossing a display boundary
+neither adds a vertex nor imposes +1; the verified boundary table includes both
+equal-value transfer and adjusted-value cases. Preserve actual edge identity,
+ordered paths, BRC multiplicity, ports, weights, boundaries and initial conditions.
+Path-letter count and native component length remain different quantities.
+The current signed metric is reversal symmetric; historical directed min-zero
+gauges are lower-information observer readouts, not a replacement native metric.
 
 ## 4. BRC
 
@@ -118,7 +115,7 @@ A deviation must be derived, reproducible and testable.
 
 ## 8. Current project stack
 
-`NUMBER -> PRECISION -> DISCRETE STATE -> RELATION/PATH/BRC -> THREE-POSITIVE-AXIS ENTERPRISE COORDINATES -> REBUILT GEOMETRY -> TRIG/ANALYSIS -> CLASSICAL COMPATIBILITY/CORRECTION -> PHYSICS -> ENGINEERING`.
+`NUMBER -> PRECISION -> DISCRETE STATE -> RELATION/PATH/BRC -> NONNEGATIVE CELL ADDRESSES OVER TYPED NATIVE RELATIONS -> REBUILT GEOMETRY -> TRIG/ANALYSIS -> CLASSICAL COMPATIBILITY/CORRECTION -> PHYSICS -> ENGINEERING`.
 
 > **Do not tear down old mathematics; give it a better foundation.**
 

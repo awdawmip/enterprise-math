@@ -16,41 +16,32 @@
     "exact_claim_rule": "EXACT_CURRENT_CANONICAL_DEFINITION_CONTROLS"
   },
   "current_native_plane": {
-    "enterprise_dimension": 3,
-    "axis_count": 3,
-    "axis_semantics": "THREE_POSITIVE_NATIVE_RAYS",
-    "origin": 0,
-    "origin_type": "TRIPLE_CIRCLE_CELL_BOUNDARY_INTERSECTION",
-    "cell_type": "CIRCLE_CELL_IDENTIFIED_BY_DISCRETE_CENTER",
-    "nearest_center_spacing": 1,
-    "cell_radius": "1/sqrt(3)",
-    "neighbor_cells_overlap_positive_area": true,
-    "gap_free_cover": true,
-    "right_angle_degrees": 120,
-    "right_sector_count_per_turn": 3,
-    "pairwise_enterprise_orthogonal": true
+    "foundation": "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md",
+    "native_axis_count": 6,
+    "slice_model": "EXPLICIT_SELECTED_NATIVE_SUBSPACE",
+    "raw_spatial_chart": "Z^6",
+    "raw_zero": "CHOSEN_CELL_ANCHOR",
+    "display_origin_type": "NONOPERATIONAL_REFERENCE_MAY_LIE_IN_GAP",
+    "carrier_circle_footprint_is_native_cell_identity": false
   },
   "current_coordinate_atlas": {
-    "carrier": "N_0^3",
-    "canonical_condition": "min(a,b,c)=0",
-    "charts": {
-      "S_12": "{(a,b,0):a,b>=0}",
-      "S_23": "{(0,b,c):b,c>=0}",
-      "S_31": "{(a,0,c):a,c>=0}"
-    },
-    "sector_pythagorean_law": "L_E^2=a^2+b^2 on the two active coordinates",
-    "canonical_origin_length_squared": "a^2+b^2+c^2"
+    "contract": "coordinate_address_contract.json",
+    "final_field_domain": "N_0^6_VALID_CODEC_IMAGE",
+    "registered_codec": "three_region_slice_v1",
+    "registered_scope": "FIXED_TWO_NATIVE_GENERATOR_SLICE",
+    "full_x6_codec_registered": false,
+    "crossing_forces_increment": false,
+    "raw_signed_chart_is_final_address": false
   },
   "carrier_typing": {
     "rule": "IMPLEMENTATION_OR_CLASSICAL_CARRIER_RELATIONS_DO_NOT_AUTOMATICALLY_DEFINE_NATIVE_IDENTITY_OR_METRIC"
   },
   "current_line_and_distance": {
-    "line_identity": "NATIVE_COMPONENT_TRACE",
-    "one_line_may_have_multiple_discrete_path_representatives": true,
-    "point_to_point_length_object": "DIRECTED_NATIVE_LINE_GAUGE",
-    "unoriented_structure": "BIDIRECTIONAL_CANONICAL_TRACE_PAIR",
-    "orientation_free_length_data": "BIDIRECTIONAL_LENGTH_SPECTRUM",
-    "canonical_symmetric_scalar_metric_derived": false
+    "foundation": "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md",
+    "native_metric": "SUM_OF_SIGNED_DISPLACEMENT_COMPONENT_SQUARES",
+    "symmetric": true,
+    "address_digits_are_metric_components": false,
+    "path_and_component_length_distinct": true
   },
   "brc": {
     "name": "Branch-Recoalescence Collapse",
@@ -65,9 +56,8 @@
   },
   "worldview_alignment": {
     "protected_source": "我眼中的世界.md",
-    "current_spatial_worldview": "THREE_POSITIVE_AXIS_ENTERPRISE_PLANE",
-    "origin": 0,
-    "enterprise_right_angle_degrees": 120
+    "modification_by_address_migration": false,
+    "project_spatial_authority": "p000_reality_foundation.json"
   },
   "definition_not_inherited": {
     "concepts_may_be_retained": true,
@@ -93,7 +83,16 @@
     "SYSTEMATIC_DEVIATION",
     "NONRECOVERY"
   ],
-  "canonical_stack": "NUMBER -> PRECISION -> DISCRETE_STATE -> RELATION_PATH_BRC -> THREE_POSITIVE_AXIS_ENTERPRISE_COORDINATES -> REBUILT_GEOMETRY -> TRIG_ANALYSIS -> CLASSICAL_COMPATIBILITY_CORRECTION -> PHYSICS -> ENGINEERING",
+  "canonical_stack": "NUMBER -> PRECISION -> DISCRETE_STATE -> RELATION_PATH_BRC -> NONNEGATIVE_CELL_ADDRESSES_OVER_NATIVE_RELATIONS -> REBUILT_GEOMETRY -> TRIG_ANALYSIS -> CLASSICAL_COMPATIBILITY_CORRECTION -> PHYSICS -> ENGINEERING",
   "canonical_slogan": "Do not tear down old mathematics; give it a better foundation.",
-  "history_access": "GIT_HISTORY_OR_EXPLICIT_HISTORICAL_RECORDS_ONLY_WHEN_REQUESTED"
+  "history_access": "GIT_HISTORY_OR_EXPLICIT_HISTORICAL_RECORDS_ONLY_WHEN_REQUESTED",
+  "coordinate_address_contract": "coordinate_address_contract.json",
+  "coordinate_address_scope": {
+    "final_address": "SIX_NONNEGATIVE_FIELDS_WITH_REGISTERED_LOSSLESS_CODEC",
+    "raw_coordinate_and_displacement": "EXISTING_SIGNED_INTERNAL_MATHEMATICS_UNCHANGED",
+    "legacy_coordinate_zero_keys": "RAW_CHART_ZERO_NOT_DISPLAY_ORIGIN",
+    "display_origin_and_axes_operational": false,
+    "crossing_forces_increment": false,
+    "proof_scope": "REGISTERED_FIXED_TWO_GENERATOR_SLICE_NOT_FULL_X6"
+  }
 }

@@ -1,3 +1,4 @@
+import EnterpriseMath.CellAddress.Contract
 import EnterpriseMath.Arithmetic.IntegerRoot
 import EnterpriseMath.Arithmetic.CollapseGap
 import EnterpriseMath.Arithmetic.RootMultiplicativity

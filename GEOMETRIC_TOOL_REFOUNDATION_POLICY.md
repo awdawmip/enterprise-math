@@ -1,5 +1,12 @@
 # GEOMETRIC TOOL REFOUNDATION POLICY
 
+<!-- EM_FINAL_CELL_ADDRESS_CONTRACT_V1 -->
+## Final Cell address interface (2026-09-13)
+
+All final Cell addresses obey [`coordinate_address_contract.json`](coordinate_address_contract.json): six nonnegative integer fields; inactive zero only without identity loss; display origin/axes are nonoperational; crossing does not force +1. Existing signed raw charts, displacements, inverse actions and their zero remain separately typed internal mathematics, not final address output. The verified three-region codec covers only a fixed two-generator slice, not arbitrary full X6. Existing coordinate-zero statements below concern RAW_CHART_ZERO, not display-origin placement.
+<!-- END_EM_FINAL_CELL_ADDRESS_CONTRACT_V1 -->
+
+
 Status: `ACTIVE / DRIVER-FROZEN PROJECT POLICY / V2`
 Date: 2026-08-21
 Driver: `CONTROL_PLANE`
@@ -25,28 +32,14 @@ Keep the concepts; withhold automatic promotion of classical definitions into th
 
 ## Current native-plane authority
 
-The current plane foundation is not the historical six-direction/60-degree signed-axis model.
-
-Freeze the current routing facts:
-
-- `ENTERPRISE_PLANE_DIMENSION = 3`;
-- `ENTERPRISE_NATIVE_AXES = THREE_POSITIVE_RAYS`;
-- `NO_NATIVE_NEGATIVE_AXES_REQUIRED`;
-- `O_E = 0` and the origin is a triple circle-cell boundary intersection;
-- native cells are overlapping circle cells identified by discrete centers;
-- nearest center spacing is `1`;
-- cell radius is `1/sqrt(3)`;
-- the three positive axes cut the plane into three native right sectors;
-- `ENTERPRISE_RIGHT_ANGLE = 120_DEGREES`;
-- the axes are pairwise `ENTERPRISE_ORTHOGONAL` in the Enterprise sense;
-- canonical sector coordinates satisfy `min(a,b,c)=0` in `N_0^3`;
-- the sector Pythagorean law is `L_E^2=a^2+b^2` on the two active coordinates.
-
-The old rule
-
-`three undirected axes -> six native directed directions -> alternating signs every 60 degrees`
-
-is historical/superseded as the native plane foundation.
+Use `definitions/00_CURRENT_NATIVE_FOUNDATION.md` and the exact X6/slice
+definitions for native spatial mathematics. Use `coordinate_address_contract.json`
+for final address and display-origin semantics. Native six-axis identity, signed
+internal displacements and reverse operations are not twelve address fields.
+The final address fields are nonnegative. A plotting origin is nonoperational;
+old raw coordinate-zero Cells are retained. Circle footprints and their triple
+incidences are classical carrier readouts, not a compulsory native origin.
+The verified three-region codec is scoped to a fixed two-generator slice.
 
 ## Geometry layers
 
@@ -114,9 +107,12 @@ In particular:
 
 ## Current line/distance boundary
 
-Do not equate discrete path-letter count with native length.
-
-One native component trace may have many path representatives. The current arbitrary-point point-to-point object is a directed native line gauge and is generally reversal-asymmetric. The canonical unoriented datum is a bidirectional trace pair / length spectrum, not a uniquely chosen symmetric scalar metric.
+Preserve the current signed component metric and path rules from the exact X6
+and centered-slice definitions. Do not equate path-step count with component
+length. Directed min-zero gauges and bidirectional spectra survive at their
+historical observer scopes, not as current native metric restrictions. Final
+address digits require a registered decoder; ordinary digit differences are not
+a native distance formula. Boundary crossing does not force a numeric increment.
 
 ## BRC boundary
 
@@ -130,15 +126,11 @@ Component typing must be fixed before carrier enrichment. Unlabeled endpoint rea
 
 ## Worldview boundary
 
-The protected account worldview was directly updated by the user on 2026-08-21 and now uses the same current three-positive-axis / 120-degree spatial foundation.
-
-Therefore:
-
-- `OLD_6D_12_DIRECTION_WORLD_MODEL = SUPERSEDED_BY_USER`;
-- `OLD_60_DEGREE_ALTERNATING_SIGN_PLANE = SUPERSEDED_BY_USER`;
-- no active project/worldview layer may reintroduce that old plane ontology as a current native premise.
-
-Historical references remain provenance only.
+The protected account worldview remains a separate directly user-controlled
+source. This address-only migration does not edit it or promote a carrier
+visualization into ontology. P000's current axioms and native dimension remain
+unchanged. Older spatial summaries cannot override current exact X6 definitions
+or the current final-address interface contract.
 
 ## Stage-specific premise rule
 

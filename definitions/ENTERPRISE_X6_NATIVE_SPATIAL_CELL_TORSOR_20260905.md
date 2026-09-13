@@ -1,5 +1,12 @@
 # Enterprise X6 native spatial Cell torsor
 
+<!-- EM_FINAL_CELL_ADDRESS_CONTRACT_V1 -->
+## Final Cell address interface (2026-09-13)
+
+All final Cell addresses obey [`coordinate_address_contract.json`](../coordinate_address_contract.json): six nonnegative integer fields; inactive zero only without identity loss; display origin/axes are nonoperational; crossing does not force +1. Existing signed raw charts, displacements, inverse actions and their zero remain separately typed internal mathematics, not final address output. The verified three-region codec covers only a fixed two-generator slice, not arbitrary full X6. Existing coordinate-zero statements below concern RAW_CHART_ZERO, not display-origin placement.
+<!-- END_EM_FINAL_CELL_ADDRESS_CONTRACT_V1 -->
+
+
 Status: `ACTIVE / FOUNDATION / P000-V5-BOUND / SIGNED-SIX-AXIS`
 Date: `2026-09-05`
 Authority: P000 V5 + direct user mandate to complete the six-axis theory/tool layer as common Enterprise Math foundation.
