@@ -1,0 +1,34 @@
+name: chatgpt-live-dispatch-probe-20260906
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/chatgpt-live-dispatch-probe-20260906.yml'
+
+permissions:
+  contents: read
+  issues: read
+
+jobs:
+  dispatch-probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run live canonical research dispatcher
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # post-PCF7-handoff dispatch
+          gh api --paginate --slurp 'repos/awdawmip/enterprise-math/issues/240/comments?per_page=100' | jq 'add' > issue240-comments.json
+          set +e
+          python research_control_dispatch.py --events issue240-comments.json --kind RESEARCH | tee dispatch-output.json
+          code=${PIPESTATUS[0]}
+          echo "DISPATCH_EXIT=${code}"
+          if [ "${code}" -ne 0 ] && [ "${code}" -ne 2 ]; then
+            exit "${code}"
+          fi
