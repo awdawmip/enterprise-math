@@ -1,0 +1,39 @@
+name: coordinate-contract-a8d47f21
+on:
+  push:
+    branches: ['maintenance/nonnegative-coordinate-contract-20260913-a8d47f21']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Inventory coordinate contract surfaces
+        run: |
+          python - <<'PY'
+          import subprocess,re,json
+          from pathlib import Path
+          files=subprocess.check_output(['git','ls-files','-z']).decode().split('\0')
+          name=re.compile(r'(coordinate|spatial|axis|slice|origin|p000|packet_path|project_definition|native_semantics|cell_address)',re.I)
+          term=re.compile(r'(CELL_COORDINATE_ZERO|CENTERED_THREE_AXIS_SLICE_ZERO|NATIVE_CELL_ORIGIN|origin_type|current_coordinate_atlas|coordinate_contract|SIGNED_Z|final_address|final_coordinates)',re.I)
+          for f in files:
+              p=Path(f)
+              if not p.is_file() or p.suffix not in {'.json','.md','.py','.lean','.toml'}: continue
+              if p.parts[0] not in {'definitions','src','tests','tools','EnterpriseMath','docs','templates'} and len(p.parts)>1: continue
+              if f=='AGENTS.md': continue
+              text=p.read_text(errors='replace')
+              hits=[(i+1,s[:190]) for i,s in enumerate(text.splitlines()) if term.search(s)]
+              if name.search(p.name) or hits:
+                  print(json.dumps({'file':f,'lines':len(text.splitlines()),'hits':hits[:8]},ensure_ascii=False))
+          print('COORDINATE_INVENTORY_FINISHED')
+          PY
+      - name: Verify supplied contract migration
+        if: ${{ hashFiles('tools/apply_coordinate_address_contract.py') != '' }}
+        run: |
+          python tools/apply_coordinate_address_contract.py --check
+          python -m unittest discover -s tests -p 'test_cell_address_contract.py' -v
