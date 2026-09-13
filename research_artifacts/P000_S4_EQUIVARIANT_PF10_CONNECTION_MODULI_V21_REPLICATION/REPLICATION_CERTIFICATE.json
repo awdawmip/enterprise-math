@@ -1,0 +1,125 @@
+{
+  "schema": "P000_S4_EQUIVARIANT_PF10_CONNECTION_MODULI_V21_REPLICATION_CERTIFICATE_V1",
+  "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+  "publication_id": "TP2-FBDBDBE1C5BDF65F97A0",
+  "researcher_id": "EM-P000FCC21R-A6E30E",
+  "claim_id": "CLAIM-P000FCC21R-20260906T0622Z-CHATGPT-02",
+  "execution_branch_base": "f2b6a751b82b1bc71389be1527da0f88dbf39117",
+  "replicated_frontier": {
+    "pr": 1051,
+    "result_id": "RR-6C813A97DB5DA06C9CCF",
+    "prior_researcher_id": "EM-P000FCC21R-61A4CE",
+    "terminal_class": "NONTRIVIAL_PF10_AND_NONFLAT_CONNECTION_MODULI_COMMON_MODEL_CLASSIFIED"
+  },
+  "independence": {
+    "method": "fresh exact enumeration from tetrahedral vertex permutations, induced six-edge action, legal seed equations, spanning-tree gauge normalization, simultaneous S6 conjugacy, and exact holonomy subgroup closure",
+    "frozen_checker_used_as_derivation_engine": false,
+    "frozen_certificate_used_as_target_claim_set": true,
+    "result": "REPRODUCED_EXACT"
+  },
+  "brc_observer_audit": {
+    "resolution": "REUSE_APPLIED",
+    "population": "12 legal raw connection seeds in S6 satisfying oriented-edge stabilizer and reverse-edge equations",
+    "branch_identity": "raw seed permutation t=T_AB",
+    "serial_composition": "carrier conjugation -> global connection -> spanning-tree gauge normalization -> holonomy",
+    "observed_outputs": [
+      "raw seed identity",
+      "gauge-class membership",
+      "three basis triangle holonomies",
+      "holonomy cycle type",
+      "holonomy subgroup order",
+      "flat/nonflat status",
+      "common-model witness"
+    ],
+    "compression_boundary": "12 raw seeds may be compressed to 8 gauge classes only after preserving raw-to-class mapping and holonomy fingerprints",
+    "information_erased_if_total_only": "which raw presentations are pure-gauge partners and why C4/C5 differ despite equal one-triangle cycle type",
+    "future_operations_preserved": [
+      "flatness classification",
+      "S4 holonomy covariance",
+      "common-model witness selection",
+      "Driver review of exact moduli closure"
+    ]
+  },
+  "pf10": {
+    "full_s4_vector_orbits": 1,
+    "full_s4_ordered_pair_orbits": 3,
+    "base_cell_stabilizer_order": 6,
+    "base_vector_orbits": [["E1","E2","E3"],["E4","E5","E6"]],
+    "base_ordered_pair_orbit_count": 8,
+    "I_slots": 2,
+    "O_slots": 2,
+    "M_slots": 8,
+    "total_raw_slots": 12,
+    "global_reconstruction_bijection": true,
+    "nonconstant_incidence_complement_witness": true
+  },
+  "connection": {
+    "kappa": "(E2 E3)(E4 E5)",
+    "lambda": "(E2 E4)(E3 E5)",
+    "legal_seed_equations": ["[t,kappa]=1","lambda t lambda=t^-1"],
+    "centralizer_order": 16,
+    "centralizer_involutions": 12,
+    "twisted_involution_bijection": true,
+    "raw_seed_count": 12,
+    "raw_identity_count": 1,
+    "raw_nonidentity_count": 11,
+    "raw_flat_count": 2,
+    "raw_nonflat_count": 10,
+    "raw_seed_forms": [
+      "id",
+      "(E2 E3)(E4 E5)",
+      "(E2 E4)(E3 E5)",
+      "(E2 E4 E3 E5)",
+      "(E2 E5 E3 E4)",
+      "(E2 E5)(E3 E4)",
+      "(E1 E6)",
+      "(E1 E6)(E2 E3)(E4 E5)",
+      "(E1 E6)(E2 E4)(E3 E5)",
+      "(E1 E6)(E2 E4 E3 E5)",
+      "(E1 E6)(E2 E5 E3 E4)",
+      "(E1 E6)(E2 E5)(E3 E4)"
+    ],
+    "gauge_class_count": 8,
+    "flat_gauge_class_count": 1,
+    "nonflat_gauge_class_count": 7,
+    "raw_index_partition": [[0,5],[1],[2],[3,4],[6,11],[7],[8],[9,10]],
+    "class_fingerprints": [
+      {"class":"C0","representative":"id","cycle_type":[1,1,1,1,1,1],"holonomy_subgroup_order":1,"flat":true},
+      {"class":"C1","representative":"(E2 E3)(E4 E5)","cycle_type":[4,2],"holonomy_subgroup_order":24,"flat":false},
+      {"class":"C2","representative":"(E2 E4)(E3 E5)","cycle_type":[2,2,1,1],"holonomy_subgroup_order":6,"flat":false},
+      {"class":"C3","representative":"(E2 E4 E3 E5)","cycle_type":[2,1,1,1,1],"holonomy_subgroup_order":6,"flat":false},
+      {"class":"C4","representative":"(E1 E6)","cycle_type":[2,2,2],"holonomy_subgroup_order":2,"flat":false},
+      {"class":"C5","representative":"(E1 E6)(E2 E3)(E4 E5)","cycle_type":[2,2,2],"holonomy_subgroup_order":6,"flat":false},
+      {"class":"C6","representative":"(E1 E6)(E2 E4)(E3 E5)","cycle_type":[4,1,1],"holonomy_subgroup_order":24,"flat":false},
+      {"class":"C7","representative":"(E1 E6)(E2 E4 E3 E5)","cycle_type":[5,1],"holonomy_subgroup_order":60,"flat":false}
+    ],
+    "carrier_holonomy_conjugacy_checks": 864
+  },
+  "common_model": {
+    "pf10": "Cell-incidence I_x, complement O_x, identity M_x",
+    "connection_seed": "(E1 E6)",
+    "global_connection_rule": "each Cell edge swaps that channel with its opposite tetrahedral channel",
+    "basis_triangle_holonomy": "(E1 E6)(E2 E5)(E3 E4)",
+    "same_model": true,
+    "nonconstant_pf10": true,
+    "nonidentity_connection": true,
+    "nonflat_connection": true,
+    "carrier_relations": ["a^3=id","b^2=id","(ab)^4=id"]
+  },
+  "guards": {
+    "P000_ROOT_ONTOLOGY_MUTATED": false,
+    "G15_GRAMMAR_MUTATED": false,
+    "GEN17_GATE_COUNT_OR_COST_MUTATED": false,
+    "GEN18_FULL_LIFT_FIBER_CRITERION_MUTATED": false,
+    "NO_KERNEL_QUOTIENT": true,
+    "TIME_FIXED": true,
+    "CARRIER_S4_EQUALS_COMPLETE_NATIVE_P000_ROTATION_GROUP": false,
+    "LOCAL_S6_GAUGE_PROMOTED_TO_NATIVE_AXIS_OR_ROTATION": false
+  },
+  "verdict": {
+    "mathematical_replication": "PASS",
+    "terminal_class_preserved": "NONTRIVIAL_PF10_AND_NONFLAT_CONNECTION_MODULI_COMMON_MODEL_CLASSIFIED",
+    "mismatch": null,
+    "recommended_control_action": "Driver may accept exact Gen21 moduli/common-model closure; do not reopen existence/nonflatness, and retain frozen Gen18 hidden-kernel/full-lift-fiber logic."
+  }
+}
