@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/RANDOM_CELL_COUNT_LINES_CERTIFICATE_20260913_A8D47F21.json",
+    "ref": "c262854d31be7a4f255de213a0a2a9a7ed4bc5de",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-observation-turn165-gridlines-a8d47f21",
+  "result": {
+    "structuredContent": {
+      "content": "{\n  \"event\": \"random-cell-count-lines-20260913-a8d47f21\",\n  \"status\": \"CONDITIONAL_TESTED_TWO_AXIS_CANDIDATE_NOT_FULL_X6\",\n  \"note_commit\": \"796e1140889f0ad558adbf2a978229be599cc320\",\n  \"note_path\": \"research_notes/RANDOM_CELL_COUNT_LINES_20260913_A8D47F21.md\",\n  \"note_sha256\": \"fdcdb71305582a64c28094b0ff77e848a572b2dffbd112b09091cef857304b71\",\n  \"seed\": 20260913,\n  \"code_rules\": {\n    \"A\": \"(a,b,0,0,0,0)\",\n    \"B\": \"(0,b,a,0,0,0)\",\n    \"C\": \"(0,0,0,0,b,a)\",\n    \"D\": \"(0,0,0,a,b,0)\"\n  },\n  \"proof\": \"Positive active counts make four distinct supports identify the region. Decode by x=7-a or 6+a and y=7-b or 6+b. Toward seam at count 1, change region and keep count 1; decoded change is one old unit step. Away increases and inward above 1 decreases. No origin vertex added.\",\n  \"endpoints\": [\n    [\n      2,\n      10,\n      4,\n      4\n    ],\n    [\n      6,\n      7,\n      7,\n      6\n    ],\n    [\n      1,\n      6,\n      7,\n      4\n    ],\n    [\n      9,\n      12,\n      3,\n      12\n    ],\n    [\n      3,\n      12,\n      1,\n      8\n    ],\n    [\n      8,\n      3,\n      7,\n      8\n    ]\n  ],\n  \"steps\": [\n    8,\n    2,\n    8,\n    6,\n    6,\n    6\n  ],\n  \"crossings\": [\n    1,\n    2,\n    1,\n    1,\n    0,\n    1\n  ],\n  \"brc_counts\": [\n    28,\n    2,\n    28,\n    1,\n    15,\n    6\n  ],\n  \"checks\": {\n    \"cells\": 144,\n    \"directed_edges\": 528,\n    \"endpoint_pairs\": 20736,\n    \"native_backend_calls\": 12,\n    \"equal_crossings\": 6,\n    \"invalid_rejections\": 7\n  },\n  \"negative_controls\": [\n    \"Pair (a,b) without support has four spatial aliases.\",\n    \"Forced +1 on each seam crossing skips one cell.\",\n    \"Raw slot L1 is not native distance.\"\n  ],\n  \"limits\": [\n    \"Two native axes only; square picture is not a metric/angle claim.\",\n    \"Six slots have regional address meanings, not six fixed global E_i components.\",\n    \"No full X6 atlas, Lean, full repository tests or production migration.\"\n  ],\n  \"checker_sha256\": \"f6055cf12baaed07a82ea0635b7f9b72cf3622f607991dcf0aa080dc5b107090\",\n  \"results_sha256\": \"35deaed5d54e38527ecd49e68164a0f6a23cbfd949c498c5ade4292b38343611\"\n}\n",
+      "display_title": "RANDOM_CELL_COUNT_LINES_CERTIFICATE_20260913_A8D47F21.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/c262854d31be7a4f255de213a0a2a9a7ed4bc5de/research_notes/RANDOM_CELL_COUNT_LINES_CERTIFICATE_20260913_A8D47F21.json",
+      "encoding": "utf-8",
+      "sha": "08c44fb6c0bdea1ae27cc0b94e8962e1cf9cabd0"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
