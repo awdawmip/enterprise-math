@@ -56,35 +56,18 @@ theorem decode_encode (p : Point) : decode (encode p) = p := by
     · simp only [decode]
       apply Prod.ext <;> dsimp <;> omega
 
+/-- Decoder injectivity is proved independently by the disjoint region inequalities. -/
+theorem decode_injective {p q : Code} (h : decode p = decode q) : p = q := by
+  cases p <;> cases q <;> simp only [decode, Prod.mk.injEq] at h
+  all_goals first | (congr 1 <;> omega) | omega
+
 theorem encode_decode (q : Code) : encode (decode q) = q := by
-  cases q with
-  | A b c =>
-    simp only [decode, encode]
-    split
-    · congr 1 <;> omega
-    · omega
-  | B a c =>
-    simp only [decode, encode]
-    split
-    · omega
-    · split
-      · congr 1 <;> omega
-      · omega
-  | C a b =>
-    simp only [decode, encode]
-    split
-    · omega
-    · split
-      · omega
-      · congr 1 <;> omega
+  apply decode_injective
+  exact decode_encode (decode q)
 
 theorem encode_injective {p q : Point} (h : encode p = encode q) : p = q := by
   have hh := congrArg decode h
   simpa only [decode_encode] using hh
-
-theorem decode_injective {p q : Code} (h : decode p = decode q) : p = q := by
-  have hh := congrArg encode h
-  simpa only [encode_decode] using hh
 
 theorem digits_injective {p q : Code} (h : digits p = digits q) : p = q := by
   cases p <;> cases q <;> simp_all [digits]
@@ -302,7 +285,6 @@ theorem trace_length (q : Code) (w : List Dir) : (codeTrace q w).length = w.leng
   | nil => rfl
   | cons d ds ih =>
     simp only [codeTrace, List.length_cons, ih]
-    omega
 
 /-- Weights are deliberately generic: the same ordered operations and edge
 readouts are preserved. This proves representation equality, not a new physics
