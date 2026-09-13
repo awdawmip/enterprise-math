@@ -59,19 +59,19 @@ theorem decode_encode (p : Point) : decode (encode p) = p := by
 theorem encode_decode (q : Code) : encode (decode q) = q := by
   cases q with
   | A b c =>
-    unfold decode encode
+    simp only [decode, encode]
     split
     · congr 1 <;> omega
     · omega
   | B a c =>
-    unfold decode encode
+    simp only [decode, encode]
     split
     · omega
     · split
       · congr 1 <;> omega
       · omega
   | C a b =>
-    unfold decode encode
+    simp only [decode, encode]
     split
     · omega
     · split
@@ -282,17 +282,225 @@ theorem embed_injective {p q : Point} (h : embed p = embed q) : p = q := by
   simp [embed] at h
   exact Prod.ext h.1 h.2
 
+/-- Trace carries every visited Cell; no crossing is silently erased. -/
+def nativeTrace : Point → List Dir → List Point
+  | p, [] => [p]
+  | p, d :: ds => p :: nativeTrace (nativeStep d p) ds
+
+def codeTrace : Code → List Dir → List Code
+  | q, [] => [q]
+  | q, d :: ds => q :: codeTrace (step d q) ds
+
+theorem trace_decode (q : Code) (w : List Dir) :
+    (codeTrace q w).map decode = nativeTrace (decode q) w := by
+  induction w generalizing q with
+  | nil => rfl
+  | cons d ds ih => simp only [codeTrace, nativeTrace, List.map_cons, ih, decode_step]
+
+theorem trace_length (q : Code) (w : List Dir) : (codeTrace q w).length = w.length + 1 := by
+  induction w generalizing q with
+  | nil => rfl
+  | cons d ds ih =>
+    simp only [codeTrace, List.length_cons, ih]
+    omega
+
+/-- Weights are deliberately generic: the same ordered operations and edge
+readouts are preserved. This proves representation equality, not a new physics
+model for signed/complex weights. -/
+def nativeWordWeight {α : Type} (one : α) (mul : α → α → α)
+    (weight : Point → Dir → α) : Point → List Dir → α
+  | _, [] => one
+  | p, d :: ds => mul (weight p d)
+      (nativeWordWeight one mul weight (nativeStep d p) ds)
+
+def codeWordWeight {α : Type} (one : α) (mul : α → α → α)
+    (weight : Point → Dir → α) : Code → List Dir → α
+  | _, [] => one
+  | q, d :: ds => mul (weight (decode q) d)
+      (codeWordWeight one mul weight (step d q) ds)
+
+theorem word_weight_preserved {α : Type} (one : α) (mul : α → α → α)
+    (weight : Point → Dir → α) (q : Code) (w : List Dir) :
+    codeWordWeight one mul weight q w = nativeWordWeight one mul weight (decode q) w := by
+  induction w generalizing q with
+  | nil => rfl
+  | cons d ds ih =>
+    simp only [codeWordWeight, nativeWordWeight, ih, decode_step]
+
+def nativeWeightedAccepted {α : Type} (zero one : α) (add mul : α → α → α)
+    (weight : Point → Dir → α) (p q : Point) : List (List Dir) → α
+  | [] => zero
+  | w :: ws => add
+      (if nativeWalk p w = q then nativeWordWeight one mul weight p w else zero)
+      (nativeWeightedAccepted zero one add mul weight p q ws)
+
+def codeWeightedAccepted {α : Type} (zero one : α) (add mul : α → α → α)
+    (weight : Point → Dir → α) (a b : Code) : List (List Dir) → α
+  | [] => zero
+  | w :: ws => add
+      (if codeWalk a w = b then codeWordWeight one mul weight a w else zero)
+      (codeWeightedAccepted zero one add mul weight a b ws)
+
+theorem weighted_brc_preserved {α : Type} (zero one : α) (add mul : α → α → α)
+    (weight : Point → Dir → α) (a b : Code) (ws : List (List Dir)) :
+    codeWeightedAccepted zero one add mul weight a b ws =
+      nativeWeightedAccepted zero one add mul weight (decode a) (decode b) ws := by
+  induction ws with
+  | nil => rfl
+  | cons w ws ih =>
+    simp only [codeWeightedAccepted, nativeWeightedAccepted, word_fiber_iff,
+      word_weight_preserved, ih]
+
+/-- A return has the same endpoint but remains a two-step history. -/
+theorem return_is_not_empty (q : Code) (d : Dir) :
+    codeWalk q [d, opposite d] = q ∧ ([d, opposite d] : List Dir).length = 2 := by
+  constructor
+  · exact step_reverse d q
+  · rfl
+
+/- Kernel-reduced full traces from the six user-visible test lines.
+These are supplementary finite fixtures; the universal proofs are above. -/
+theorem L1_full_trace :
+    (codeTrace (Code.A 0 3) [.e1p, .e1p, .e1p, .e1p, .e1p, .e1p]).map digits =
+    [
+      [0,1,4,0,0,0],
+      [1,0,4,0,0,0],
+      [2,0,4,0,0,0],
+      [3,0,4,0,0,0],
+      [4,0,4,0,0,0],
+      [5,0,4,0,0,0],
+      [6,0,4,0,0,0]
+    ] := by decide
+
+theorem L2_full_trace :
+    (codeTrace (Code.B 6 5) [.e2p, .e2p, .e2p, .e2p, .e2p, .e2p, .e2p, .e2p, .e2p, .e2p]).map digits =
+    [
+      [7,0,6,0,0,0],
+      [6,0,5,0,0,0],
+      [5,0,4,0,0,0],
+      [4,0,3,0,0,0],
+      [3,0,2,0,0,0],
+      [2,0,1,0,0,0],
+      [2,1,0,0,0,0],
+      [2,2,0,0,0,0],
+      [2,3,0,0,0,0],
+      [2,4,0,0,0,0],
+      [2,5,0,0,0,0]
+    ] := by decide
+
+theorem L3_full_trace :
+    (codeTrace (Code.A 9 5) [.e1p, .e1p, .e1p, .e1p, .e1p, .e1p, .e1p]).map digits =
+    [
+      [0,10,6,0,0,0],
+      [0,9,5,0,0,0],
+      [0,8,4,0,0,0],
+      [0,7,3,0,0,0],
+      [0,6,2,0,0,0],
+      [0,5,1,0,0,0],
+      [1,4,0,0,0,0],
+      [2,4,0,0,0,0]
+    ] := by decide
+
+theorem L4_full_trace :
+    (codeTrace (Code.B 4 8) [.e2p, .e2p, .e2p, .e2p, .e2p, .e2p, .e2p, .e2p, .e2p, .e2p, .e2p]).map digits =
+    [
+      [5,0,9,0,0,0],
+      [4,0,8,0,0,0],
+      [3,0,7,0,0,0],
+      [2,0,6,0,0,0],
+      [1,0,5,0,0,0],
+      [0,1,4,0,0,0],
+      [0,2,4,0,0,0],
+      [0,3,4,0,0,0],
+      [0,4,4,0,0,0],
+      [0,5,4,0,0,0],
+      [0,6,4,0,0,0],
+      [0,7,4,0,0,0]
+    ] := by decide
+
+theorem L5_full_trace :
+    (codeTrace (Code.A 9 6) [.e1p, .e2m, .e1p, .e1p, .e2m, .e1p, .e1p, .e2m, .e1p, .e2m, .e1p, .e1p, .e2m, .e1p]).map digits =
+    [
+      [0,10,7,0,0,0],
+      [0,9,6,0,0,0],
+      [0,8,6,0,0,0],
+      [0,7,5,0,0,0],
+      [0,6,4,0,0,0],
+      [0,5,4,0,0,0],
+      [0,4,3,0,0,0],
+      [0,3,2,0,0,0],
+      [0,2,2,0,0,0],
+      [0,1,1,0,0,0],
+      [1,0,2,0,0,0],
+      [2,0,2,0,0,0],
+      [3,0,2,0,0,0],
+      [4,0,3,0,0,0],
+      [5,0,3,0,0,0]
+    ] := by decide
+
+theorem L6_full_trace :
+    (codeTrace (Code.A 10 5) [.e2m, .e1p, .e2m, .e1p, .e2m, .e1p, .e2m, .e1p, .e2m, .e2m, .e1p, .e2m, .e1p, .e2m, .e1p, .e2m, .e1p, .e2m]).map digits =
+    [
+      [0,11,6,0,0,0],
+      [0,10,6,0,0,0],
+      [0,9,5,0,0,0],
+      [0,8,5,0,0,0],
+      [0,7,4,0,0,0],
+      [0,6,4,0,0,0],
+      [0,5,3,0,0,0],
+      [0,4,3,0,0,0],
+      [0,3,2,0,0,0],
+      [0,2,2,0,0,0],
+      [0,1,2,0,0,0],
+      [1,0,2,0,0,0],
+      [2,0,3,0,0,0],
+      [3,0,3,0,0,0],
+      [4,0,4,0,0,0],
+      [5,0,4,0,0,0],
+      [6,0,5,0,0,0],
+      [7,0,5,0,0,0],
+      [8,0,6,0,0,0]
+    ] := by decide
+
+#print axioms region_exhaustive
 #print axioms decode_encode
 #print axioms encode_decode
+#print axioms encode_injective
+#print axioms decode_injective
 #print axioms digits_injective
+#print axioms digits_length
+#print axioms digits_nonnegative
+#print axioms zero_marker_not_a_cell
 #print axioms decode_step
+#print axioms step_encode
+#print axioms native_reverse
 #print axioms step_reverse
 #print axioms equal_crossing_AB
+#print axioms equal_crossing_BC
 #print axioms adjusted_crossing_AC
+#print axioms L1_boundary
+#print axioms L3_boundary
+#print axioms not_always_increment
+#print axioms not_always_pure_permutation
 #print axioms decode_walk
+#print axioms walk_encode
 #print axioms word_fiber_iff
+#print axioms reachAt_iff
 #print axioms shortest_iff
 #print axioms brc_count_preserved
+#print axioms observer_preserved
 #print axioms metric_preserved
+#print axioms embed_injective
+#print axioms trace_decode
+#print axioms trace_length
+#print axioms word_weight_preserved
+#print axioms weighted_brc_preserved
+#print axioms return_is_not_empty
+#print axioms L1_full_trace
+#print axioms L2_full_trace
+#print axioms L3_full_trace
+#print axioms L4_full_trace
+#print axioms L5_full_trace
+#print axioms L6_full_trace
 
 end EnterpriseMath.CellAddress.ThreeRegionSlice
