@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/BRC_SHORTCUT_CONDITION_ALIGNMENT_20260915.md",
+    "ref": "7ea1f5e5b9d1cecf2eaa3deb861000e5662055c3",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "EM-HME-0CE4FD-SHORTCUT-CONDITION-CORRECTION-20260915",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# 构造条件纠正：从原残差捷径反推，取消等位数准入\n\n用户指出：“构造的数是要满足快捷条件的，你不能构造同位的。”上一轮把目标的大致因子位数照搬成辅助数的两个等位因子，并混入“因子已知但没有所需残差捷径”的比例组；这没有落实用户要求的构造方式。此前库的数字和检查结果保留为历史观察，不将其未命中用来否定用户现在要求的构造。\n\nResearcher-ID: EM-HME-0CE4FD / TASK_RESEARCH\n\nResearch-Activity-ID: RA-EM-HME-0CE4FD-SEMIPRIME-20260909\n\nActivity path: research_activity_records/RA-EM-HME-0CE4FD-SEMIPRIME-20260909.json\n\nGlobal-Knowledge-Sync: main@73282863250128a33c0473202f90b2b801e93fc1 / GLOBAL_KNOWLEDGE_V1\n\nProject parent: 43a4eb5d8ad897de96c67a767bd1501ff5940aaa；原 draft PR #1403 继续保留。P000 与正式数学状态不变。\n\n## 对齐到原来已验证的非等位残差条件\n\n令 F 为交给快捷接口的数，J=floor(sqrt(F))，R=F−J²，A=(J+1)²−F。选取两个明确模板：\n\n\\[\nF_D(x)=x(4x+5),\\qquad x\\ge3\\text{ 为奇数};\n\\]\n\n\\[\nJ=2x+1,\\qquad R=x-1,\\qquad \\boxed{R+1=x}.\n\\]\n\n以及\n\n\\[\nF_U(x)=x(4x+7),\\qquad x\\ge3\\text{ 为奇数};\n\\]\n\n\\[\nJ+1=2x+2,\\qquad A=x+4,\\qquad \\boxed{A-4=x}.\n\\]\n\n前者在 D，后者在 U。若需要 F 本身是半素数，必须进一步要求 x 与 4x+5（或 4x+7）分别为素数，不能仅知道一组乘积就称为满足该捷径。\n\n长度应由关系推导。比如 k≥4 且 3·2^(k−2)≤x≤2^k−3 时，x 为 k 位，而 4x+5、4x+7 为 k+2 位。不要另外强制两个因子同位，也不要只选两个不同位数的随机素数来代替这条等式。\n\n已核对的小例：1241=17×73，R=16，R+1=17；767=13×59，A=17，A−4=13。两对因子的位数分别是 5/7 和 4/6。\n\n现有大数记录也已有这两族的经证明正例：`brc_proved_semiprime2048_20260909.json` 的 case_01、case_03，因子均为 1023/1025 位。它们的既有素性和运行记录应复用，无须重新把它们换成等位数样本。\n\n## 条件施加于 M 还是 MN，必须分别定义\n\n如果要求辅助半素数 M 自身满足捷径，就构造 M=F_D(x) 或 F_U(x)，并验证素性及本身的 R+1/A−4 提取。M 满足条件并不自动使 MN 满足同一条件。\n\n如果要求乘后的整体 T=MN 必然满足，则需要\n\n\\[\nT=x(4x+c),\\qquad c\\in\\{5,7\\},\n\\qquad \\boxed{N\\mid x(4x+c)}.\n\\]\n\n这时 M=x(4x+c)/N 必须为整数。若 N=pq，p、q 为不同奇素数，且 gcd(c,N)=1，任何满足该式的 x 都有以下精确分类：\n\n- gcd(x,N)=N：整个原数留在 x 这一侧。\n- gcd(x,N)=1：由 N|x(4x+c) 可得 N|(4x+c)，整个原数留在另一侧。\n- 1<gcd(x,N)<N：此时已经得到原数的非平凡因子。\n\n所以“保证快捷式成立”还必须同时检查原因子是否分开。例子 x=N 给出 M_D=4N+5、M_U=4N+7，确实使 MN 分别进入这两条残差捷径，但快捷接口返回的是整个 N。当 gcd(c,N)=1 时，两侧对原数的 gcd 仍只有 N 和 1。\n\n以上是这两条模板的条件分析，不是对所有 BRC 构造的不可行性结论。本轮已向用户澄清“满足快捷条件”指辅助 M 还是乘积 MN；在该作用对象确认前，没有扩展公开 RSA 试验。\n\n## 小型实际核对\n\n复用原 `brc_residual_candidate_families_20260908.py` 的 `state_of` 和 `_complete`，没有更改候选包。原数取 N=143=11×13，仅用于说明两个作用对象的区别。\n\n| 观察 | 交给快捷接口的 F | D/U | R | A | 返回因子 | 与原 N 的 gcd |\n|---|---:|---|---:|---:|---:|---:|\n| 辅助 D 样本自身 | 1241 | D | 16 | 55 | 17 | — |\n| 辅助 U 样本自身 | 767 | U | 38 | 17 | 13 | — |\n| 143×1241 | 177463 | D | 222 | 621 | 无 | — |\n| 143×767 | 109681 | D | 120 | 543 | 无 | — |\n| 143×(4×143+5) | 82511 | D | 142 | 433 | 143 | 143 |\n| 143×(4×143+7) | 82797 | U | 428 | 147 | 143 | 143 |\n\n这六条观察只使用小整数，没有新的公开挑战查询或大素数生成。目的在于确认用的是正确残差条件及区分它的作用对象，不把“返回新乘积的一个因子”误报成“拆开原来的 N”。\n\n[机器可读结果](../experiments/brc_shortcut_condition_alignment_20260915.json) 保留精确数据。执行的残差包 blob 为 `e8ea67310094c517b5a882d5e2e1709be975c675`，原生整数根核心为 `2b7ab070868ef4a2b6d8b33f5e3bc69dbac62c07`。本记录是构造条件纠正和准备性核对；关于下一批应约束 M 或 MN 的用户澄清仍待接收。\n",
+      "display_title": "BRC_SHORTCUT_CONDITION_ALIGNMENT_20260915.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/7ea1f5e5b9d1cecf2eaa3deb861000e5662055c3/research_notes/BRC_SHORTCUT_CONDITION_ALIGNMENT_20260915.md",
+      "encoding": "utf-8",
+      "sha": "d03de2e192b55580bc1e1c5c95ec8368c9726501"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
