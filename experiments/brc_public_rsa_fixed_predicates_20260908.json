@@ -1,0 +1,196 @@
+{
+  "status": "COMPLETED_FIXED_PUBLIC_MATHEMATICAL_PREDICATE_OBSERVATIONS",
+  "researcher": "EM-HME-0CE4FD / TASK_RESEARCH",
+  "global_snapshot": "e76fdc883f9f4a3a93c1284340e38c55aeba0a6a",
+  "parent_project_frontier": "e0b6dcdf746a93b652c32d23db913c6e9f9dbf86",
+  "source_sha256": {
+    "brc_multiplier_basin.py": "6fe4551f053e6427c67aef1e70e837615d75aa5a52b7477bf6c9cb96fb9a7d3a",
+    "brc_square_gap_prefilter.py": "f8e178771a25221eaab16002b9ffacd188dc5f39be4948ec2b40ee3e22c9f716",
+    "brc_neighbor_square_lift_shortcut.py": "fdf1e5c4ee4a032fb732d9653f0a7fd9cf738bd62b1a7af50eb53588e7864490"
+  },
+  "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.19044-SP0",
+  "controls": {
+    "previous_direct_positive": {
+      "N": 299,
+      "witness": [
+        18,
+        5
+      ]
+    },
+    "previous_neighbor_parameter_positive": {
+      "N": 17473,
+      "parameters": [
+        273,
+        15,
+        4096
+      ]
+    }
+  },
+  "budget": {
+    "puzzle_integers": 3,
+    "direct_positions_per_puzzle": 1,
+    "fixed_neighbor_a": 8,
+    "neighbor_signs_per_puzzle_max": 1,
+    "reruns_for_timing": 0,
+    "search_fallbacks": 0
+  },
+  "cost_contract": {
+    "timing": "single observations on a warmed imported runtime; descriptive latency, not a stable benchmark",
+    "state_annotation": "separate existing-API call, not a required prerequisite of the low-bit gate",
+    "direct_call": "unchanged API call only; independent exact audit is outside its timer",
+    "neighbor_observation": "low-bit gate and result-record construction; qualifying parameter test if any",
+    "setup_and_source_acquisition": "outside observation timings",
+    "net_factorization_speedup": "UNMEASURED"
+  },
+  "records": [
+    {
+      "label": "RSA-270",
+      "source_pdf": "https://mysterytwister.org/media/challenges/pdf/mtc3-rsa-09-en.pdf",
+      "source_page": 3,
+      "source_read_date": "2026-09-08",
+      "decimal_blocks": [
+        "2331085303444075445276376569106805241456198124803054",
+        "4904294861196849591824513578286788836931857711641821",
+        "3919268572658314913060672626911354027609793166341626",
+        "6939465961964277442738866018768963134687040590667469",
+        "0312391074827760654864915192081269930976658751473545",
+        "6594993207"
+      ],
+      "N": "233108530344407544527637656910680524145619812480305449042948611968495918245135782867888369318577116418213919268572658314913060672626911354027609793166341626693946596196427744273886601876896313468704059066746903123910748277606548649151920812699309766587514735456594993207",
+      "decimal_sha256": "83b66aee65c8ffa8bbae104ad3c3e4f0723f854c105f6f29a831d11898e71432",
+      "decimal_digits": 270,
+      "bits": 895,
+      "state_annotation": {
+        "direction": "U",
+        "J": "482813142265625930763376488431181150619490263509894108487315213102945466683524668456076289060779194227182378545034418185695440504986116",
+        "R": "934369883212655377789335766940940316740046382195833801443749275931833679156085890050326551802928073824824739021144773250702399242227751",
+        "next_square_gap": "31256401318596483737417209921421984498934144823954415530881150274057254210963446861826026318630314629540018068924063120688481767744482",
+        "state_api_ns": 400500
+      },
+      "direct_completion": {
+        "status": "NO_WITNESS_THIS_OBSERVATION",
+        "call_ns": 375000,
+        "ceiling_positions_tested": 1,
+        "independent_square_check_agrees": true
+      },
+      "fixed_a8_parameter_condition": {
+        "status": "GATE_NOT_MET",
+        "a": 8,
+        "N_mod_64": 55,
+        "parameter_square_tests": 0,
+        "observation_ns": 1300
+      },
+      "complete_fiber_recurrence": {
+        "status": "NO_MULTIPOSITION_REUSE",
+        "reason": "one puzzle supplies no multi-position fiber interval; a singleton gives the same immediate-completion predicate"
+      },
+      "bounded_gap_lookup": {
+        "status": "INPUT_CONTRACT_NOT_MET",
+        "required_gap_max": 510,
+        "observed_gap_exceeds_bound": true
+      }
+    },
+    {
+      "label": "RSA-896",
+      "source_pdf": "https://mysterytwister.org/media/challenges/pdf/mtc3-rsa-10-en.pdf",
+      "source_page": 3,
+      "source_read_date": "2026-09-08",
+      "decimal_blocks": [
+        "4120234369866595438555313653325759481798116998443279",
+        "8284545562643387644556524842619809887042316184187926",
+        "1420247188869492560931776375033421130982397485150944",
+        "9091069102698610318627041148808669705649029036536588",
+        "6743373172081310410519086425479328260139125762403394",
+        "6373269391"
+      ],
+      "N": "412023436986659543855531365332575948179811699844327982845455626433876445565248426198098870423161841879261420247188869492560931776375033421130982397485150944909106910269861031862704114880866970564902903653658867433731720813104105190864254793282601391257624033946373269391",
+      "decimal_sha256": "621d201b5ba6a87cf699d8d4926c448e92fe0e08a4ac66b6a00a338ae891987f",
+      "decimal_digits": 270,
+      "bits": 896,
+      "state_annotation": {
+        "direction": "U",
+        "J": "641890517913031290367158694247431213848350708965527745725383861459208349761998340760496002652869842364477979109259399868000109376934083",
+        "R": "803912121970160271873242525443331451126765912729888228128987819140057324449905293399716715945457782360336413980629492222324549446218502",
+        "next_square_gap": "479868913855902308861074863051530976569935505201167263321779903778359375074091388121275289360281902368619544237889307513675669307649665",
+        "state_api_ns": 377900
+      },
+      "direct_completion": {
+        "status": "NO_WITNESS_THIS_OBSERVATION",
+        "call_ns": 388300,
+        "ceiling_positions_tested": 1,
+        "independent_square_check_agrees": true
+      },
+      "fixed_a8_parameter_condition": {
+        "status": "GATE_NOT_MET",
+        "a": 8,
+        "N_mod_64": 15,
+        "parameter_square_tests": 0,
+        "observation_ns": 1000
+      },
+      "complete_fiber_recurrence": {
+        "status": "NO_MULTIPOSITION_REUSE",
+        "reason": "one puzzle supplies no multi-position fiber interval; a singleton gives the same immediate-completion predicate"
+      },
+      "bounded_gap_lookup": {
+        "status": "INPUT_CONTRACT_NOT_MET",
+        "required_gap_max": 510,
+        "observed_gap_exceeds_bound": true
+      }
+    },
+    {
+      "label": "RSA-2048",
+      "source_pdf": "https://mysterytwister.org/media/challenges/pdf/mtc3-rsa-38-en.pdf",
+      "source_page": 3,
+      "source_read_date": "2026-09-08",
+      "decimal_blocks": [
+        "251959084756578934940271832400483985714292821262040320277",
+        "771378360436620207075955562640185258807844069182906412495",
+        "150821892985591491761845028084891200728449926873928072877",
+        "767359714183472702618963750149718246911650776133798590957",
+        "000973304597488084284017974291006424586918171951187461215",
+        "151726546322822168699875491824224336372590851418654620435",
+        "767984233871847744479207399342365848238242811981638150106",
+        "748104516603773060562016196762561338441436038339044149526",
+        "344321901146575444541784240209246165157233507787077498171",
+        "257724679629263863563732899121548314381678998850404453640",
+        "23527381951378636564391212010397122822120720357"
+      ],
+      "N": "25195908475657893494027183240048398571429282126204032027777137836043662020707595556264018525880784406918290641249515082189298559149176184502808489120072844992687392807287776735971418347270261896375014971824691165077613379859095700097330459748808428401797429100642458691817195118746121515172654632282216869987549182422433637259085141865462043576798423387184774447920739934236584823824281198163815010674810451660377306056201619676256133844143603833904414952634432190114657544454178424020924616515723350778707749817125772467962926386356373289912154831438167899885040445364023527381951378636564391212010397122822120720357",
+      "decimal_sha256": "b3c2468add10e2a0c4a251d9d2bac4ba04d4b3527156ceead43a1305e03f1fc0",
+      "decimal_digits": 617,
+      "bits": 2048,
+      "state_annotation": {
+        "direction": "D",
+        "J": "158732191050391204174482508661063007579358463444809715795726627753579970080749948404278643259568101132671402056190021464753419480472816840646168575222628934671405739213477439533870489791038973166834068736234020361664820266987726919453356824138007381985796493621233035112849373047484148339095287142097834807844",
+        "R": "149730827186590819409161975355863102499674499386960841184873248110419525705142414412560340457818822465695973580080183089801154577153055685206470161899420076208154943348665238647007714095089342669905666884517354400122833485897064098153958317993833609635063079613328500485188782423277886515290863800949716792021",
+        "next_square_gap": "167733554914191588939803041966262912659042427502658590406580007396740414456357482395996946061317379799646830532299859839705684383792577996085866988545837793134656535078289640420733265486988603663762470587950686323206807048078389740752755330282181154336529907629137569740509963671690410162899710483245952823668",
+        "state_api_ns": 2023600
+      },
+      "direct_completion": {
+        "status": "NO_WITNESS_THIS_OBSERVATION",
+        "call_ns": 1999600,
+        "ceiling_positions_tested": 1,
+        "independent_square_check_agrees": true
+      },
+      "fixed_a8_parameter_condition": {
+        "status": "GATE_NOT_MET",
+        "a": 8,
+        "N_mod_64": 37,
+        "parameter_square_tests": 0,
+        "observation_ns": 900
+      },
+      "complete_fiber_recurrence": {
+        "status": "NO_MULTIPOSITION_REUSE",
+        "reason": "one puzzle supplies no multi-position fiber interval; a singleton gives the same immediate-completion predicate"
+      },
+      "bounded_gap_lookup": {
+        "status": "INPUT_CONTRACT_NOT_MET",
+        "required_gap_max": 510,
+        "observed_gap_exceeds_bound": true
+      }
+    }
+  ],
+  "interpretation": "A non-hit describes only this fixed observation; retain the prior positive families. No general route verdict follows.",
+  "goal_status": "ACTIVE; this is the requested first fixed public-puzzle shortcut verification, not a complete library or factoring result"
+}
