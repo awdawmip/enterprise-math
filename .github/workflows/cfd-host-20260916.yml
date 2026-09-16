@@ -1,0 +1,66 @@
+name: CFD host 20260916 bounded preflight
+on:
+  push:
+    branches: [research/cfd-host-20260916-68a17c]
+    paths: [.github/workflows/cfd-host-20260916.yml]
+permissions:
+  contents: write
+  issues: read
+concurrency:
+  group: cfd-host-20260916-68a17c
+  cancel-in-progress: false
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: control
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          path: work
+      - name: Verify current exact task and prepare a prospective claim intent
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh api --paginate --slurp 'repos/awdawmip/enterprise-math/issues/240/comments?per_page=100' > "$RUNNER_TEMP/pages.json"
+          python - <<'PY'
+          import json, os, sys, hashlib, subprocess, datetime
+          from pathlib import Path
+          root = Path('control').resolve()
+          sys.path.insert(0, str(root))
+          import research_control_dispatch
+          from tools import research_dispatch, research_execution_records
+          now = datetime.datetime.now(datetime.timezone.utc)
+          pages = json.loads((Path(os.environ['RUNNER_TEMP'])/'pages.json').read_text())
+          raw = [row for page in pages for row in page]
+          ep = Path(os.environ['RUNNER_TEMP'])/'events.json'
+          ep.write_text(json.dumps(raw))
+          events = research_dispatch.load_events(ep)
+          states = research_dispatch.effective_states(events, now=now, root=root)
+          found = [s for s in states if s.get('task_id') == 'RS-CFD-SPECTRAL-HYBRID-20260910']
+          assert len(found) == 1, 'Exact task unavailable or ambiguous'
+          state = found[0]
+          report = {'schema':'CFD_USER_DIRECTED_RESUME_PREFLIGHT_V1', 'selection_authority':'EXPLICIT_CURRENT_USER_CONTINUATION_OF_NAMED_TASK_NOT_GLOBAL_PRIORITY_SELECTION', 'global_route_request':'chatgpt-20260916-cfd-resume-68a17c-v2', 'global_route_selected_different_task':True, 'control_sha':subprocess.check_output(['git','-C','control','rev-parse','HEAD'],text=True).strip(), 'source_sha':os.environ['GITHUB_SHA'], 'workflow_run_id':os.environ['GITHUB_RUN_ID'], 'observed_at':now.isoformat(), 'raw_server_comment_count':len(raw), 'raw_server_comments_sha256':hashlib.sha256(ep.read_bytes()).hexdigest(), 'canonical_exact_state':state, 'execution_authorized':False, 'new_claim_created':False}
+          if state.get('dispatch_state') == 'NEEDS_DISPATCH':
+              intent = research_execution_records.prepare_intent(task_id='RS-CFD-SPECTRAL-HYBRID-20260910', claim_id='CFD9R2K7-HOST-20260916', researcher_id='CFD9R2K7', theorem_owner='taskbook/unassigned', execution_branch='research/cfd-host-20260916-68a17c', execution_branch_base='d2984d1a0c5c8221ee103084dd3da68dd039dfaa', allowed_outputs=['research_notes/CFD9R2K7/host_20260916/','.github/workflows/cfd-host-20260916.yml'], owner_lease_minutes=180, prepared_at=now.isoformat(), root=root)
+              assert intent['publication_id'] == 'TP2-C3B717C14153D5AC45BF'
+              report['prospective_intent'] = intent
+              report['status'] = 'EXACT_TASK_NEEDS_DISPATCH_INTENT_PREPARED_NO_CLAIM'
+          else:
+              report['status'] = 'NO_NEW_CLAIM_CURRENT_STATE_REQUIRES_RECONCILIATION'
+          out = Path('work/research_notes/CFD9R2K7/host_20260916/preflight.json')
+          out.parent.mkdir(parents=True,exist_ok=True)
+          out.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+          print(json.dumps(report,ensure_ascii=False,indent=2))
+          PY
+          cd work
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research_notes/CFD9R2K7/host_20260916/preflight.json
+          git commit -m 'control: preserve actual exact CFD state and prospective intent'
+          git push origin HEAD:refs/heads/research/cfd-host-20260916-68a17c
