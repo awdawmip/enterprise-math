@@ -26,7 +26,7 @@ jobs:
         with:
           ref: ${{ github.sha }}
           path: work
-      - name: Authorize actual current claimant using the unchanged canonical guard
+      - name: Authorize current claim with unchanged canonical runtime guard
         id: guard
         env:
           GH_TOKEN: ${{ github.token }}
@@ -37,8 +37,7 @@ jobs:
           python - <<'PY'
           import json, os
           from pathlib import Path
-          p=Path(os.environ['RUNNER_TEMP'])
-          pages=json.loads((p/'pages.json').read_text())
+          p=Path(os.environ['RUNNER_TEMP']); pages=json.loads((p/'pages.json').read_text())
           (p/'events.json').write_text(json.dumps([r for page in pages for r in page]))
           state={'task':{'task_id':'RS-CFD-SPECTRAL-HYBRID-20260910'},'owner_claim':{'claim_id':'CFD9R2K7-HOST-20260916','researcher_id':'EM-CFD-49157B'},'session_id':'local-cfd-host-20260916-68a17c','activity_id':'RA-CFD-HOST-20260916-68a17c','research_mode':'TASK_RESEARCH'}
           (p/'state.json').write_text(json.dumps(state))
@@ -49,14 +48,12 @@ jobs:
           from pathlib import Path
           sys.path.insert(0,str(Path('control').resolve()))
           from control_plane.research_control_bootstrap import install
-          install()
-          p=Path(os.environ['RUNNER_TEMP'])
+          install(); p=Path(os.environ['RUNNER_TEMP'])
           sys.argv=['control/tools/research_runtime_guard.py','authorize','--state-file',str(p/'state.json'),'--events',str(p/'events.json')]
           runpy.run_path('control/tools/research_runtime_guard.py',run_name='__main__')
           PY
-          code=$?
+          export GUARD_EXIT_CODE="$?"
           set -e
-          export GUARD_EXIT_CODE="$code"
           python - <<'PY'
           import json,os,hashlib,subprocess,datetime
           from pathlib import Path
@@ -65,12 +62,17 @@ jobs:
           except ValueError: result=None
           value={'schema':'CFD_EXACT_CANONICAL_GUARD_OBSERVATION_V1','task_id':'RS-CFD-SPECTRAL-HYBRID-20260910','claim_id':'CFD9R2K7-HOST-20260916','researcher_id':'EM-CFD-49157B','source_sha':os.environ['GITHUB_SHA'],'control_sha':subprocess.check_output(['git','-C','control','rev-parse','HEAD'],text=True).strip(),'workflow_run_id':os.environ['GITHUB_RUN_ID'],'observed_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'guard_exit_code':int(os.environ['GUARD_EXIT_CODE']),'guard_result':result,'raw_guard_output':raw,'server_comment_count':len(json.loads((p/'events.json').read_text())),'server_comments_sha256':hashlib.sha256((p/'events.json').read_bytes()).hexdigest()}
           out=Path('work/research_notes/CFD9R2K7/host_20260916')/('authorization_'+os.environ['GITHUB_RUN_ID']+'.json')
-          out.write_text(json.dumps(value,indent=2)+'\n'); print(json.dumps(value,indent=2))
+          out.write_text(json.dumps(value,indent=2)+'\n')
+          print(json.dumps(value,indent=2))
+          assert int(os.environ['GUARD_EXIT_CODE']) == 0 and result and result.get('authorized') is True
           PY
-          exit "$code"
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: cfd-host-ubuntu24-py311-numpy126-shenfun430-scipy1153-v1
       - uses: actions/checkout@v4
         with:
           repository: spectralDNS/spectralDNS
@@ -82,68 +84,41 @@ jobs:
           ref: e40e5303234c5e8bd725528aad9bff9edf0c059d
           path: prior
           persist-credentials: false
-      - name: Install real MPI FFTW and pinned Python dependencies
+      - name: Install real MPI FFTW and version-compatible pinned dependencies
         id: dependencies
         run: |
           set -euo pipefail
           sudo apt-get update -qq
           sudo apt-get install -y -qq libopenmpi-dev openmpi-bin libfftw3-dev
-          python -m pip install 'numpy==1.26.4' 'scipy==1.13.1' 'sympy==1.13.3' 'Cython==3.0.12' 'setuptools<75' wheel
+          python -m pip install 'numpy==1.26.4' 'scipy==1.15.3' 'sympy==1.13.3' 'Cython==3.0.12' 'setuptools<75' wheel
           python -m pip install 'mpi4py==4.0.3' 'mpi4py-fft==2.0.6' 'shenfun==4.3.0' 'numba==0.61.2' 'h5py==3.12.1' 'PyYAML==6.0.2' 'psutil==6.1.1'
           python -m pip freeze > work/research_notes/CFD9R2K7/host_20260916/environment.txt
-      - name: Characterize original unmodified host
+      - name: Execute frozen native host matrix and native RK4 trajectories
+        id: benchmark
         run: |
-          python - <<'PY'
-          import sys,json,os,traceback,hashlib,subprocess,platform
-          from pathlib import Path
-          import numpy as np
-          sys.path.insert(0,str(Path('upstream').resolve()))
-          report={'schema':'CFD_ACTUAL_HOST_CHARACTERIZATION_V1','source_sha':os.environ['GITHUB_SHA'],'workflow_run_id':os.environ['GITHUB_RUN_ID'],'python':sys.version,'platform':platform.platform(),'spectraldns_commit':subprocess.check_output(['git','-C','upstream','rev-parse','HEAD'],text=True).strip(),'upstream_sources_modified':False,'cases':[]}
-          error=None
-          try:
-              import shenfun,mpi4py,mpi4py_fft,spectralDNS
-              from mpi4py import MPI
-              report['versions']={'shenfun':shenfun.__version__,'mpi4py':mpi4py.__version__,'mpi4py_fft':mpi4py_fft.__version__,'numpy':np.__version__,'spectralDNS':spectralDNS.__version__}
-              report['mpi_size']=MPI.COMM_WORLD.Get_size()
-              report['mpi_library']=MPI.Get_library_version()
-              for rule in ['2/3-rule','3/2-rule']:
-                  solver=spectralDNS.get_solver(parse_args=['--M','4','4','4','--dealias',rule,'--planner_effort','{"fft":"FFTW_ESTIMATE"}','--no-verbose','NS'])
-                  c=solver.get_context()
-                  c.U.fill(0); c.U[0].fill(1); solver.set_velocity(**c)
-                  q={'dealias':rule,'spectral_shape':list(c.U_hat.shape),'physical_shape':list(c.U.shape),'dealiased_shape':list(c.u_dealias.shape),'K_shapes':[list(x.shape) for x in c.K],'constant_forward_coefficient':[float(c.U_hat[0,0,0,0].real),float(c.U_hat[0,0,0,0].imag)],'mask_type':str(type(c.mask))}
-                  c.U_hat.fill(0); c.U_hat[0,0,1,0]=-0.5j; c.U_hat[0,0,-1,0]=0.5j
-                  solver.conv=solver.getConvection('Vortex')
-                  solver.ComputeRHS(c.dU,c.U_hat,solver,**c)
-                  solver.get_pressure(**c); solver.get_velocity(**c)
-                  q.update(pressure_proxy_max=float(np.max(np.abs(c.P_hat))),modified_pressure_real_max=float(np.max(np.abs(c.P))),velocity_real_max=float(np.max(np.abs(c.U))),rhs_max=float(np.max(np.abs(c.dU))))
-                  integrate=solver.getintegrator(c.dU,c.u,solver,c)
-                  integrate()
-                  q['native_RK4_one_step_finite']=bool(np.isfinite(c.u).all())
-                  report['cases'].append(q)
-              report['status']='ACTUAL_HOST_CHARACTERIZATION_PASS'
-          except Exception:
-              error=traceback.format_exc(); report['status']='ACTUAL_HOST_CHARACTERIZATION_FAILED'; report['error']=error
-          out=Path('work/research_notes/CFD9R2K7/host_20260916/host_characterization.json')
-          out.write_text(json.dumps(report,indent=2)+'\n'); print(json.dumps(report,indent=2))
-          if error: raise SystemExit(1)
-          PY
-      - name: Persist exact outputs and failure status without rewriting other work
+          set -euo pipefail
+          export CFD_UPSTREAM_ROOT="$GITHUB_WORKSPACE/upstream"
+          export CFD_PRIOR_ROOT="$GITHUB_WORKSPACE/prior"
+          python work/research_notes/CFD9R2K7/host_20260916/host_validation.py 2>&1 | tee work/research_notes/CFD9R2K7/host_20260916/native_run.log
+      - name: Persist bounded outputs including failures
         if: always()
         env:
           GUARD_OUTCOME: ${{ steps.guard.outcome }}
           DEPENDENCIES_OUTCOME: ${{ steps.dependencies.outcome }}
+          BENCHMARK_OUTCOME: ${{ steps.benchmark.outcome }}
         run: |
           python - <<'PY'
           import json,os,datetime
           from pathlib import Path
           p=Path('work/research_notes/CFD9R2K7/host_20260916'); p.mkdir(parents=True,exist_ok=True)
-          (p/('run_'+os.environ['GITHUB_RUN_ID']+'.json')).write_text(json.dumps({'source_sha':os.environ['GITHUB_SHA'],'workflow_run_id':os.environ['GITHUB_RUN_ID'],'guard_outcome':os.environ['GUARD_OUTCOME'],'dependencies_outcome':os.environ['DEPENDENCIES_OUTCOME'],'recorded_at':datetime.datetime.now(datetime.timezone.utc).isoformat()},indent=2)+'\n')
+          (p/('run_'+os.environ['GITHUB_RUN_ID']+'.json')).write_text(json.dumps({'source_sha':os.environ['GITHUB_SHA'],'workflow_run_id':os.environ['GITHUB_RUN_ID'],'guard_outcome':os.environ['GUARD_OUTCOME'],'dependencies_outcome':os.environ['DEPENDENCIES_OUTCOME'],'benchmark_outcome':os.environ['BENCHMARK_OUTCOME'],'recorded_at':datetime.datetime.now(datetime.timezone.utc).isoformat()},indent=2)+'\n')
           PY
           cd work
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          find research_notes/CFD9R2K7/host_20260916 -type d -name __pycache__ -prune -exec rm -rf {} +
           git add research_notes/CFD9R2K7/host_20260916/
-          git diff --cached --quiet || git commit -m 'cfd: preserve actual host characterization and canonical authorization'
+          git diff --cached --quiet || git commit -m 'cfd: preserve actual native host tests and canonical authorization'
           git push origin HEAD:refs/heads/research/cfd-host-20260916-68a17c
       - uses: actions/upload-artifact@v4
         if: always()

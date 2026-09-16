@@ -1,0 +1,12 @@
+{
+  "schema": "CFD_ACTUAL_HOST_CHARACTERIZATION_V1",
+  "source_sha": "fa4513a2ad171570fd35c71da121a3a5f28ae6b9",
+  "workflow_run_id": "35049008252",
+  "python": "3.11.16 (main, Aug 13 2026, 02:46:14) [GCC 13.3.0]",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "spectraldns_commit": "835b01b1e820b5c56559b9a028293e57526bfbf9",
+  "upstream_sources_modified": false,
+  "cases": [],
+  "status": "ACTUAL_HOST_CHARACTERIZATION_FAILED",
+  "error": "Traceback (most recent call last):\n  File \"<stdin>\", line 8, in <module>\n  File \"/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/shenfun/__init__.py\", line 38, in <module>\n    from . import chebyshev\n  File \"/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/shenfun/chebyshev/__init__.py\", line 2, in <module>\n    from . import la\n  File \"/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/shenfun/chebyshev/la.py\", line 6, in <module>\n    from shenfun.la import SparseMatrixSolver\n  File \"/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/shenfun/la.py\", line 13, in <module>\n    from shenfun.forms.arguments import Function\n  File \"/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/shenfun/forms/__init__.py\", line 2, in <module>\n    from .project import *\n  File \"/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/shenfun/forms/project.py\", line 5, in <module>\n    from shenfun.tensorproductspace import TensorProductSpace\n  File \"/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/shenfun/tensorproductspace.py\", line 15, in <module>\n    from shenfun.forms.arguments import Function, Array\n  File \"/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/shenfun/forms/arguments.py\", line 5, in <module>\n    from scipy.special import sph_harm_y, erf, airy, jn, gammaln\nImportError: cannot import name 'sph_harm_y' from 'scipy.special' (/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/scipy/special/__init__.py)\n"
+}
