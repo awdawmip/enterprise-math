@@ -1,0 +1,68 @@
+{
+  "schema": "NOLLM_VISUAL_WEB_PREVIEW_VERIFICATION_V1",
+  "toolkit_version": "0.3.0",
+  "activity_id": "RA-nollm-web-preview-20260910-c6c82",
+  "candidate_commit_before_verification_files": "bdb677cd10214a385dde89935c8afcf3ad3a8ca6",
+  "scope": "Static-site generation, localhost preview server, CLI integration, package inclusion, and unchanged mathematical/observer contracts.",
+  "results": {
+    "unit_tests_discovered": 36,
+    "unit_tests_passed": 35,
+    "unit_tests_skipped": 1,
+    "new_web_tests": 10,
+    "new_web_tests_passed": 10,
+    "cli_smoke": "PASS",
+    "wheel_build": "PASS",
+    "wheel_contains_workbench_html": true,
+    "wheel_contains_web_module": true,
+    "wheel_contains_cli_entrypoint": true
+  },
+  "commands": [
+    "PYTHONPATH=. python -m unittest discover -s tests -v",
+    "python -m pip install -e . --no-build-isolation",
+    "nollm-viz demo --kind hex --count 64 --out /tmp/nollm_cli/demo.html --data /tmp/nollm_cli/demo.json",
+    "nollm-viz validate /tmp/nollm_cli/demo.json",
+    "nollm-viz site /tmp/nollm_cli/demo.json --out /tmp/nollm_site_test --title 'CLI Preview Test'",
+    "python -m pip wheel . --no-deps --no-build-isolation -w /tmp/nollm_wheel"
+  ],
+  "local_environment": {
+    "python": "3.13.5",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+    "matplotlib": "not installed; optional static-export test skipped"
+  },
+  "cli_smoke_observation": {
+    "records": 64,
+    "demo_fingerprint_prefix": "5f02d134180b262d",
+    "site_schema": "NOLLM_VISUAL_SITE_V1",
+    "site_toolkit_version": "0.3.0"
+  },
+  "web_security_observations": [
+    "Default preview bind is loopback-only (127.0.0.1).",
+    "Non-loopback bind requires explicit allow_remote=True / --allow-remote.",
+    "Single-file preview rejects sibling-file requests.",
+    "Preview responses send Cache-Control: no-store, X-Content-Type-Options: nosniff, and Referrer-Policy: no-referrer.",
+    "Landing-page labels and titles are HTML-escaped; workbench data remains JSON payload.",
+    "Site generation embeds no timestamp, host path, random value, CDN, telemetry, or account dependency."
+  ],
+  "observer_boundary": {
+    "mathematical_acceptance": false,
+    "nollm_runtime_modified": false,
+    "data_schema_changed": false,
+    "hex_carrier_changed": false,
+    "x6_projection_changed": false,
+    "relation_semantics_changed": false,
+    "brc": "NOT_APPLICABLE_TO_HTTP_STATIC_PAGE_ENGINEERING_LAYER"
+  },
+  "browser_acceptance": {
+    "new_playwright_run": false,
+    "reason": "The workbench front-end implementation file is unchanged in this increment; only generated version labels change through the renderer. Existing 0.2.0 Chromium evidence is retained without being relabeled as a 0.3.0 browser certification.",
+    "inherited_evidence_path": "tools/nollm_visual_toolkit/verification/acceptance.json",
+    "inherited_evidence_blob": "9cc1059b465d0036fd8374892e88e3a15d2e3bc3",
+    "inherited_checks": 43
+  },
+  "limits": [
+    "Native iOS Safari and physical touch hardware were not tested.",
+    "The preview server is a research convenience, not a production web server.",
+    "Repository-wide CI was not run in the local verification environment.",
+    "The optional Matplotlib static-export test was skipped because the dependency was unavailable."
+  ]
+}

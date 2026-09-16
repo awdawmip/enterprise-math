@@ -1,0 +1,105 @@
+{
+  "schema": "NOLLM_MULTIPLICATIVE_LAB_RELEASE_V1",
+  "lab_version": "0.1.0",
+  "extends_toolkit": "0.3.0",
+  "activity_id": "RA-nollm-web-preview-20260910-c6c82",
+  "researcher_id": "EM-DIRECT-C6C82",
+  "status": "TESTED_RESEARCH_TOOL_EXTENSION",
+  "source_base": "37639d34fdffe4a03d7a94f33f11ba3ac78c46f2",
+  "population": 65536,
+  "phase_modulus": 65536,
+  "ordered_positive_pairs": 736957,
+  "verification": {
+    "extension_unit_tests_passed": 23,
+    "browser_checks_passed": 34,
+    "cli_generate_and_exhaustive_report": "PASS",
+    "python_js_phase_and_omega_mismatches": 0,
+    "python_js_default_hex_center_mismatches": 0,
+    "page_errors": [],
+    "external_requests": [],
+    "browser_mode": "Chromium via Playwright set_content; file/http navigation blocked by host",
+    "baseline_suite_rerun": false,
+    "repository_wide_ci_run": false,
+    "wheel_rebuilt": false,
+    "saved_html_reopened_with_same_session": true
+  },
+  "finite_comparison": [
+    {
+      "scheme": "valuation",
+      "area_sector_cv": 0.1348815222471061,
+      "distinct_phases": 6543,
+      "occupied_hex_centers": 44731,
+      "collision_groups": 12435,
+      "phase_failures": 0,
+      "omega_failures": 0
+    },
+    {
+      "scheme": "mixed",
+      "area_sector_cv": 0.051686573387124665,
+      "distinct_phases": 41023,
+      "occupied_hex_centers": 57380,
+      "collision_groups": 7456,
+      "phase_failures": 0,
+      "omega_failures": 0
+    },
+    {
+      "scheme": "spiral",
+      "area_sector_cv": 0.003774349217021225,
+      "distinct_phases": 65535,
+      "occupied_hex_centers": 53417,
+      "collision_groups": 12119,
+      "phase_failures": 736956,
+      "omega_failures": 0
+    },
+    {
+      "scheme": "radial",
+      "area_sector_cv": 5.567764367513738,
+      "distinct_phases": 1,
+      "occupied_hex_centers": 257,
+      "collision_groups": 256,
+      "phase_failures": 0,
+      "omega_failures": 0
+    }
+  ],
+  "boundaries": [
+    "Integer phase identities are distinct from double rendering and hex rounding.",
+    "No Nollm runtime, native X6, existing observer protocol, or theorem-admission changes.",
+    "Omega display height is not a physical layer.",
+    "Low finite CV is not an equidistribution theorem or randomness certificate.",
+    "No public website deployed; generated HTML is offline and local preview reuses existing 0.3.0 server.",
+    "Not certified on native iOS Safari.",
+    "All source identity labels survive projection collisions."
+  ],
+  "files": [
+    {
+      "path": "MULTIPLICATIVE_LAB.md",
+      "bytes": 6317,
+      "git_blob_sha1": "729a41bb8f5d77035bd04c2b6eb2ff1111b64519"
+    },
+    {
+      "path": "nollm_visual_toolkit/multiplicative.py",
+      "bytes": 11973,
+      "git_blob_sha1": "26ab7fb5dca1d2bc69e97eb04c0ee9c405437ea8"
+    },
+    {
+      "path": "nollm_visual_toolkit/multiplicative_lab.html",
+      "bytes": 28873,
+      "git_blob_sha1": "6619c5da7ad03f38766bfc383d60b5505cb863e0"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 703,
+      "git_blob_sha1": "f6bf9287c56ec74e58904023b8e80b9cf9882279"
+    },
+    {
+      "path": "tests/browser_multiplicative.py",
+      "bytes": 8455,
+      "git_blob_sha1": "a041a0202e3098e660282fb807675289cf37a528"
+    },
+    {
+      "path": "tests/test_multiplicative.py",
+      "bytes": 5707,
+      "git_blob_sha1": "2a15a228eb5f511869ed38a3b028fbb15e289f37"
+    }
+  ]
+}
