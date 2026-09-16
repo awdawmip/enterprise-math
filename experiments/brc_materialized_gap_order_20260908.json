@@ -1,0 +1,1545 @@
+{
+  "status": "COMPLETED_FIXED_PREPARED_STATE_ORDERING_EXPERIMENT",
+  "researcher": "EM-HME-0CE4FD / TASK_RESEARCH",
+  "global_snapshot": "b2d9ceff961c70ecb356721aafcb03d31396daeb",
+  "project_parent": "79c0ed559d177082ea20ed2c3e21fc5342821da4",
+  "source_sha256": {
+    "brc_opportunistic_shortcuts.py": "7e186c6b17b4b04c37af875c939a92907e929e8a19b2c0c818d3e3bc5f8b94e7",
+    "brc_multiplier_priority_jump.py": "ee4a01822ff9e5e33b602b5e834a6902dbd848d0258b981503cea3df513d1a0d",
+    "brc_square_gap_prefilter.py": "f8e178771a25221eaab16002b9ffacd188dc5f39be4948ec2b40ee3e22c9f716"
+  },
+  "input_certificates": {
+    "brc_public_rsa_fixed_predicates_20260908.json": "e56cfc8457e2398b5de3c90182c2b37824580ef3",
+    "brc_public_frozen_prefix_20260908.json": "c4b201e608167cfff96c5a141bd9e26b575dad69"
+  },
+  "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.19044-SP0",
+  "frozen_max_multiplier": 12,
+  "representative_set": [
+    1,
+    3,
+    5,
+    7,
+    8,
+    9,
+    11
+  ],
+  "fixed_orders": {
+    "structural": [
+      1,
+      9,
+      3,
+      5,
+      7,
+      8,
+      11
+    ],
+    "learned": [
+      1,
+      8,
+      3,
+      7,
+      9,
+      5,
+      11
+    ]
+  },
+  "public_records": [
+    {
+      "label": "RSA-270",
+      "bits": 895,
+      "source_pdf": "https://mysterytwister.org/media/challenges/pdf/mtc3-rsa-09-en.pdf",
+      "decimal_sha256": "83b66aee65c8ffa8bbae104ad3c3e4f0723f854c105f6f29a831d11898e71432",
+      "reused_positions": [
+        1,
+        3,
+        7,
+        8,
+        9
+      ],
+      "new_derived_positions": [
+        {
+          "source_multiplier": 80,
+          "target_multiplier": 5,
+          "root_divisor": 4,
+          "restoration_ns": 12300,
+          "projection_ns": 2200,
+          "J": "1079603006536216405436101690094121891776450867634135976675233053578845360528752870928707888650865494004418555934662819944246063739620306",
+          "R": "531781317534649146774486168220672714210592382692286423775684513151047576594753523633801577750539258181052813269860615915928529927432399",
+          "A": "1627424695537783664097717211967571069342309352575985529574781594006643144462752218223614199551191729827784298599465023972563597551808214",
+          "direction": "D",
+          "square_witness": null,
+          "independent_native_root_agrees": true
+        },
+        {
+          "source_multiplier": 99,
+          "target_multiplier": 11,
+          "root_divisor": 3,
+          "restoration_ns": 3900,
+          "projection_ns": 1800,
+          "J": "1601310036747563444748548095058954044161649015632769748617929814135538117771459220851722151207106773630465473585959776339971594177515039",
+          "R": "2154583016336797120841944455575545728435809138807229265684019709616951027785284408521996776914850712616622880581688957094974101473753756",
+          "A": "1048037057158329768655151734542362359887488892458310231551839918654125207757634033181447525499362834644308066590230595584969086881276323",
+          "direction": "U",
+          "square_witness": null,
+          "independent_native_root_agrees": true
+        }
+      ],
+      "prepared_gaps": {
+        "1": "31256401318596483737417209921421984498934144823954415530881150274057254210963446861826026318630314629540018068924063120688481767744482",
+        "3": "718071240658700568624035358445109017162169079860323440747248396377937589197303287900047446842687258352964940792672697868531947202355035",
+        "5": "1627424695537783664097717211967571069342309352575985529574781594006643144462752218223614199551191729827784298599465023972563597551808214",
+        "7": "1996291435772260435354608916802366766564444981171321433159766417816597608808130891183556403806546967919662724454602186964264794873403875",
+        "8": "1864138326151653791598459344717137821613985245878226856201095700799748600345971842694352877361275306375527270290692028987407109747763244",
+        "9": "281307611867368353636754889292797860490407303415589739777930352466515287898671021756434236867672831665860162620316568086196335909700338",
+        "11": "1048037057158329768655151734542362359887488892458310231551839918654125207757634033181447525499362834644308066590230595584969086881276323"
+      },
+      "gap_sorted_order": [
+        1,
+        9,
+        3,
+        11,
+        5,
+        8,
+        7
+      ],
+      "single_order_creation_ns": 27100,
+      "prepared_outcomes": {
+        "structural/native": [
+          null,
+          null,
+          7
+        ],
+        "structural/low12": [
+          null,
+          null,
+          7
+        ],
+        "learned/native": [
+          null,
+          null,
+          7
+        ],
+        "learned/low12": [
+          null,
+          null,
+          7
+        ],
+        "gap_sorted/native": [
+          null,
+          null,
+          7
+        ],
+        "gap_sorted/low12": [
+          null,
+          null,
+          7
+        ]
+      }
+    },
+    {
+      "label": "RSA-896",
+      "bits": 896,
+      "source_pdf": "https://mysterytwister.org/media/challenges/pdf/mtc3-rsa-10-en.pdf",
+      "decimal_sha256": "621d201b5ba6a87cf699d8d4926c448e92fe0e08a4ac66b6a00a338ae891987f",
+      "reused_positions": [
+        1,
+        3,
+        7,
+        8,
+        9
+      ],
+      "new_derived_positions": [
+        {
+          "source_multiplier": 80,
+          "target_multiplier": 5,
+          "root_divisor": 4,
+          "restoration_ns": 10800,
+          "projection_ns": 1600,
+          "J": "1435310832166084406464673289873199023560990265906473602728212560365612066426781722080426177736438859133133294673546583552932492899132583",
+          "R": "581015729388551509151141576177434769565436840833079183949173779263219989992386116605728283003054994489430237416079205798556658054095066",
+          "A": "2289605934943617303778205003568963277556543690979868021507251341468004142861177327555124072469822723776836351931013961307308327744170101",
+          "direction": "D",
+          "square_witness": null,
+          "independent_native_root_agrees": true
+        },
+        {
+          "source_multiplier": 99,
+          "target_multiplier": 11,
+          "root_divisor": 3,
+          "restoration_ns": 2800,
+          "projection_ns": 1500,
+          "J": "2128910004404426434892004076800533231322645862575928476105696119321555448158118311648928040964808878385029133918016086886238793764113162",
+          "R": "2337445183308869261936694968752541776629611578840582260046407355818792874031549237445488431598748106034425072562185667467917553764325057",
+          "A": "1920374825499983607847313184848524686015680146311274692164984882824318022284687385852367650330869650735633195273846506304560033763901268",
+          "direction": "U",
+          "square_witness": null,
+          "independent_native_root_agrees": true
+        }
+      ],
+      "prepared_gaps": {
+        "1": "479868913855902308861074863051530976569935505201167263321779903778359375074091388121275289360281902368619544237889307513675669307649665",
+        "3": "1229401919674172851353231270629583040606403749526564533112966050097970209862708774298054184708658866915887909121088827970237893409297763",
+        "5": "2289605934943617303778205003568963277556543690979868021507251341468004142861177327555124072469822723776836351931013961307308327744170101",
+        "7": "1790377284172126456393941524539893921605583926933951355913670354891254678681251223482695630287918428102178121036540590847464030616310807",
+        "8": "1151901348478384108805435054191654865204634754334145607576692074565111967997321631763097764769701100122242274441520313560568102555787241",
+        "9": "467477117224933037546721601979191506039315293017338895543715965249984277094832448528501588325318067130708023485447368415080367507242482",
+        "11": "1920374825499983607847313184848524686015680146311274692164984882824318022284687385852367650330869650735633195273846506304560033763901268"
+      },
+      "gap_sorted_order": [
+        9,
+        1,
+        8,
+        3,
+        7,
+        11,
+        5
+      ],
+      "single_order_creation_ns": 21400,
+      "prepared_outcomes": {
+        "structural/native": [
+          null,
+          null,
+          7
+        ],
+        "structural/low12": [
+          null,
+          null,
+          7
+        ],
+        "learned/native": [
+          null,
+          null,
+          7
+        ],
+        "learned/low12": [
+          null,
+          null,
+          7
+        ],
+        "gap_sorted/native": [
+          null,
+          null,
+          7
+        ],
+        "gap_sorted/low12": [
+          null,
+          null,
+          7
+        ]
+      }
+    },
+    {
+      "label": "RSA-2048",
+      "bits": 2048,
+      "source_pdf": "https://mysterytwister.org/media/challenges/pdf/mtc3-rsa-38-en.pdf",
+      "decimal_sha256": "b3c2468add10e2a0c4a251d9d2bac4ba04d4b3527156ceead43a1305e03f1fc0",
+      "reused_positions": [
+        1,
+        3,
+        7,
+        8,
+        9
+      ],
+      "new_derived_positions": [
+        {
+          "source_multiplier": 80,
+          "target_multiplier": 5,
+          "root_divisor": 4,
+          "restoration_ns": 7100,
+          "projection_ns": 3200,
+          "J": "354935969406158478552467031736909102950122806682484823055370244826339282838868155739944367229988988573076482637020568312648095278519116091359926746520320869250964215095634919631491197009457588911234666456889707863959402283738976869581395194758706778071856965163307013993198570896576499590673413529563488916541",
+          "R": "506685749095919022686643224089139606190819760322988064900830839692633627663938069877337883886723433243121125314646918410104384935569549889497608429155279582392862427958718037039372838178320476512626410332415042176444070655187133499957937486293606968016021031962623006555431451200804558682009660171560540197104",
+          "A": "203186189716397934418290839384678599709425853041981581209909649960044938013798241602550850573254543903031839959394218215191805621468682293222245063885362156109066002232551802223609555840594701309842922581364373551474733912290820239204852903223806588127692898363991021430965690592348440499337166887566437635979",
+          "direction": "U",
+          "square_witness": null,
+          "independent_native_root_agrees": true
+        },
+        {
+          "source_multiplier": 99,
+          "target_multiplier": 11,
+          "root_divisor": 3,
+          "restoration_ns": 5700,
+          "projection_ns": 3100,
+          "J": "526455119865157003712031884116366273735117012054392239694483352782567547606327198462734686806262210622147803787719060488239877842347241667995841931557959412687466180905423046448677091288800804952648752971756342967291843873862021212415109024089436680835579818079625431068025301546320785260861761378366446108129",
+          "R": "365494470671529430954783068712226961867655237519723867422406743153663344363946910508296113714632442536204419744569888157659116229785962888331886602061224140233301211804170749432899334097966542858498057922626053080954723945303222173475041167130570121724386907181458519157661176745872455909863534664152568043286",
+          "A": "687415769058784576469280699520505585602578786589060611966559962411471750848707486417173259897891978708091187830868232818820639454908520447659797261054694685141631150006675343464454848479635067046799448020886632853628963802420820251355176881048303239946772728977792342978389426346769114611859988092580324172973",
+          "direction": "D",
+          "square_witness": null,
+          "independent_native_root_agrees": true
+        }
+      ],
+      "prepared_gaps": {
+        "1": "167733554914191588939803041966262912659042427502658590406580007396740414456357482395996946061317379799646830532299859839705684383792577996085866988545837793134656535078289640420733265486988603663762470587950686323206807048078389740752755330282181154336529907629137569740509963671690410162899710483245952823668",
+        "3": "317127119631926801989176600987878743105278382232683253735254014899016909903016937246534207438424400030272265171740889959246735433679094239249102985945943570544517115503018505737775016960658884367856185638374318449464020211730054882293984056965923663080067520323287610767302069063932261580890811301285759830154",
+        "5": "203186189716397934418290839384678599709425853041981581209909649960044938013798241602550850573254543903031839959394218215191805621468682293222245063885362156109066002232551802223609555840594701309842922581364373551474733912290820239204852903223806588127692898363991021430965690592348440499337166887566437635979",
+        "7": "566725253139174373461180862009341212198460138503882224635347320036687160706014060949639898289771806632846799432678827991254587076437186226414258943550912458416808377166125283618855032355029573695061941839339726851335172572361464226245189392204492185440757906909721465291243860809344497730809286330424144735590",
+        "8": "217535061585122351379529580200952063764243918017912721426509180350581547067349186259732198021999417017784724181203064092866455628223729033927566880255900102118378026325059331617736601043578702803075187905369223355134654836981149415301862259255802912405897610776400943778706158851880324518392073419057971934225",
+        "9": "557208847925377075411332325729988168455231066855069018884860300049183909622717651138300654994447811400793062453558609768830642571296300920895791445576766530183474380423742126583376450636663593972857822874152054738872341830779146150054657027711586097113990206934839916987493434760308801431525671496626566565943",
+        "11": "687415769058784576469280699520505585602578786589060611966559962411471750848707486417173259897891978708091187830868232818820639454908520447659797261054694685141631150006675343464454848479635067046799448020886632853628963802420820251355176881048303239946772728977792342978389426346769114611859988092580324172973"
+      },
+      "gap_sorted_order": [
+        1,
+        5,
+        8,
+        3,
+        9,
+        7,
+        11
+      ],
+      "single_order_creation_ns": 20300,
+      "prepared_outcomes": {
+        "structural/native": [
+          null,
+          null,
+          7
+        ],
+        "structural/low12": [
+          null,
+          null,
+          7
+        ],
+        "learned/native": [
+          null,
+          null,
+          7
+        ],
+        "learned/low12": [
+          null,
+          null,
+          7
+        ],
+        "gap_sorted/native": [
+          null,
+          null,
+          7
+        ],
+        "gap_sorted/low12": [
+          null,
+          null,
+          7
+        ]
+      }
+    }
+  ],
+  "positive_controls": [
+    {
+      "kind": "saved_small",
+      "N_bits": 5,
+      "t": "3",
+      "materialization_ns": 4300,
+      "outcomes": {
+        "structural/native": {
+          "multiplier": 1,
+          "gap_root": "2",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "3"
+        },
+        "structural/low12": {
+          "multiplier": 1,
+          "gap_root": "2",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "3"
+        },
+        "learned/native": {
+          "multiplier": 1,
+          "gap_root": "2",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "3"
+        },
+        "learned/low12": {
+          "multiplier": 1,
+          "gap_root": "2",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "3"
+        },
+        "gap_sorted/native": {
+          "multiplier": 3,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "7"
+        },
+        "gap_sorted/low12": {
+          "multiplier": 3,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "7"
+        }
+      },
+      "prime_pair_claimed": false
+    },
+    {
+      "kind": "saved_small",
+      "N_bits": 6,
+      "t": "5",
+      "materialization_ns": 3300,
+      "outcomes": {
+        "structural/native": {
+          "multiplier": 1,
+          "gap_root": "3",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "5"
+        },
+        "structural/low12": {
+          "multiplier": 1,
+          "gap_root": "3",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "5"
+        },
+        "learned/native": {
+          "multiplier": 1,
+          "gap_root": "3",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "5"
+        },
+        "learned/low12": {
+          "multiplier": 1,
+          "gap_root": "3",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "5"
+        },
+        "gap_sorted/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "5"
+        },
+        "gap_sorted/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "5"
+        }
+      },
+      "prime_pair_claimed": false
+    },
+    {
+      "kind": "saved_small",
+      "N_bits": 7,
+      "t": "7",
+      "materialization_ns": 2400,
+      "outcomes": {
+        "structural/native": {
+          "multiplier": 1,
+          "gap_root": "4",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "7"
+        },
+        "structural/low12": {
+          "multiplier": 1,
+          "gap_root": "4",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "7"
+        },
+        "learned/native": {
+          "multiplier": 1,
+          "gap_root": "4",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "7"
+        },
+        "learned/low12": {
+          "multiplier": 1,
+          "gap_root": "4",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "7"
+        },
+        "gap_sorted/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "7"
+        },
+        "gap_sorted/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "7"
+        }
+      },
+      "prime_pair_claimed": false
+    },
+    {
+      "kind": "saved_small",
+      "N_bits": 8,
+      "t": "9",
+      "materialization_ns": 2400,
+      "outcomes": {
+        "structural/native": {
+          "multiplier": 1,
+          "gap_root": "5",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "9"
+        },
+        "structural/low12": {
+          "multiplier": 1,
+          "gap_root": "5",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "9"
+        },
+        "learned/native": {
+          "multiplier": 1,
+          "gap_root": "5",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "9"
+        },
+        "learned/low12": {
+          "multiplier": 1,
+          "gap_root": "5",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "9"
+        },
+        "gap_sorted/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "9"
+        },
+        "gap_sorted/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "9"
+        }
+      },
+      "prime_pair_claimed": false
+    },
+    {
+      "kind": "saved_small",
+      "N_bits": 8,
+      "t": "11",
+      "materialization_ns": 2200,
+      "outcomes": {
+        "structural/native": {
+          "multiplier": 3,
+          "gap_root": "5",
+          "predicate_positions": 3,
+          "proper_constructive_factor": "23"
+        },
+        "structural/low12": {
+          "multiplier": 3,
+          "gap_root": "5",
+          "predicate_positions": 3,
+          "proper_constructive_factor": "23"
+        },
+        "learned/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "11"
+        },
+        "learned/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "11"
+        },
+        "gap_sorted/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "11"
+        },
+        "gap_sorted/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "11"
+        }
+      },
+      "prime_pair_claimed": false
+    },
+    {
+      "kind": "saved_small",
+      "N_bits": 9,
+      "t": "13",
+      "materialization_ns": 2400,
+      "outcomes": {
+        "structural/native": {
+          "multiplier": 3,
+          "gap_root": "6",
+          "predicate_positions": 3,
+          "proper_constructive_factor": "27"
+        },
+        "structural/low12": {
+          "multiplier": 3,
+          "gap_root": "6",
+          "predicate_positions": 3,
+          "proper_constructive_factor": "27"
+        },
+        "learned/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "13"
+        },
+        "learned/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "13"
+        },
+        "gap_sorted/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "13"
+        },
+        "gap_sorted/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "13"
+        }
+      },
+      "prime_pair_claimed": false
+    },
+    {
+      "kind": "saved_small",
+      "N_bits": 9,
+      "t": "15",
+      "materialization_ns": 2400,
+      "outcomes": {
+        "structural/native": {
+          "multiplier": 3,
+          "gap_root": "7",
+          "predicate_positions": 3,
+          "proper_constructive_factor": "31"
+        },
+        "structural/low12": {
+          "multiplier": 3,
+          "gap_root": "7",
+          "predicate_positions": 3,
+          "proper_constructive_factor": "31"
+        },
+        "learned/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "15"
+        },
+        "learned/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "15"
+        },
+        "gap_sorted/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "15"
+        },
+        "gap_sorted/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "15"
+        }
+      },
+      "prime_pair_claimed": false
+    },
+    {
+      "kind": "saved_small",
+      "N_bits": 10,
+      "t": "17",
+      "materialization_ns": 2100,
+      "outcomes": {
+        "structural/native": {
+          "multiplier": 9,
+          "gap_root": "11",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "7"
+        },
+        "structural/low12": {
+          "multiplier": 9,
+          "gap_root": "11",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "7"
+        },
+        "learned/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "17"
+        },
+        "learned/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "17"
+        },
+        "gap_sorted/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "17"
+        },
+        "gap_sorted/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "17"
+        }
+      },
+      "prime_pair_claimed": false
+    },
+    {
+      "kind": "saved_small",
+      "N_bits": 10,
+      "t": "19",
+      "materialization_ns": 2200,
+      "outcomes": {
+        "structural/native": {
+          "multiplier": 3,
+          "gap_root": "9",
+          "predicate_positions": 3,
+          "proper_constructive_factor": "39"
+        },
+        "structural/low12": {
+          "multiplier": 3,
+          "gap_root": "9",
+          "predicate_positions": 3,
+          "proper_constructive_factor": "39"
+        },
+        "learned/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "19"
+        },
+        "learned/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "19"
+        },
+        "gap_sorted/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "19"
+        },
+        "gap_sorted/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "19"
+        }
+      },
+      "prime_pair_claimed": false
+    },
+    {
+      "kind": "saved_small",
+      "N_bits": 10,
+      "t": "21",
+      "materialization_ns": 2500,
+      "outcomes": {
+        "structural/native": {
+          "multiplier": 3,
+          "gap_root": "10",
+          "predicate_positions": 3,
+          "proper_constructive_factor": "43"
+        },
+        "structural/low12": {
+          "multiplier": 3,
+          "gap_root": "10",
+          "predicate_positions": 3,
+          "proper_constructive_factor": "43"
+        },
+        "learned/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "21"
+        },
+        "learned/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "21"
+        },
+        "gap_sorted/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "21"
+        },
+        "gap_sorted/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "21"
+        }
+      },
+      "prime_pair_claimed": false
+    },
+    {
+      "kind": "saved_small",
+      "N_bits": 11,
+      "t": "23",
+      "materialization_ns": 2200,
+      "outcomes": {
+        "structural/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 6,
+          "proper_constructive_factor": "23"
+        },
+        "structural/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 6,
+          "proper_constructive_factor": "23"
+        },
+        "learned/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "23"
+        },
+        "learned/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "23"
+        },
+        "gap_sorted/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "23"
+        },
+        "gap_sorted/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "23"
+        }
+      },
+      "prime_pair_claimed": false
+    },
+    {
+      "kind": "saved_small",
+      "N_bits": 11,
+      "t": "25",
+      "materialization_ns": 2400,
+      "outcomes": {
+        "structural/native": {
+          "multiplier": 5,
+          "gap_root": "5",
+          "predicate_positions": 4,
+          "proper_constructive_factor": "75"
+        },
+        "structural/low12": {
+          "multiplier": 5,
+          "gap_root": "5",
+          "predicate_positions": 4,
+          "proper_constructive_factor": "75"
+        },
+        "learned/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "25"
+        },
+        "learned/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "25"
+        },
+        "gap_sorted/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "25"
+        },
+        "gap_sorted/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "25"
+        }
+      },
+      "prime_pair_claimed": false
+    },
+    {
+      "kind": "saved_small",
+      "N_bits": 11,
+      "t": "27",
+      "materialization_ns": 2200,
+      "outcomes": {
+        "structural/native": {
+          "multiplier": 1,
+          "gap_root": "6",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "33"
+        },
+        "structural/low12": {
+          "multiplier": 1,
+          "gap_root": "6",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "33"
+        },
+        "learned/native": {
+          "multiplier": 1,
+          "gap_root": "6",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "33"
+        },
+        "learned/low12": {
+          "multiplier": 1,
+          "gap_root": "6",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "33"
+        },
+        "gap_sorted/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "27"
+        },
+        "gap_sorted/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "27"
+        }
+      },
+      "prime_pair_claimed": false
+    },
+    {
+      "kind": "saved_small",
+      "N_bits": 11,
+      "t": "29",
+      "materialization_ns": 2200,
+      "outcomes": {
+        "structural/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 6,
+          "proper_constructive_factor": "29"
+        },
+        "structural/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 6,
+          "proper_constructive_factor": "29"
+        },
+        "learned/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "29"
+        },
+        "learned/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "29"
+        },
+        "gap_sorted/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "29"
+        },
+        "gap_sorted/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "29"
+        }
+      },
+      "prime_pair_claimed": false
+    },
+    {
+      "kind": "saved_small",
+      "N_bits": 11,
+      "t": "31",
+      "materialization_ns": 2200,
+      "outcomes": {
+        "structural/native": {
+          "multiplier": 5,
+          "gap_root": "6",
+          "predicate_positions": 4,
+          "proper_constructive_factor": "93"
+        },
+        "structural/low12": {
+          "multiplier": 5,
+          "gap_root": "6",
+          "predicate_positions": 4,
+          "proper_constructive_factor": "93"
+        },
+        "learned/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "31"
+        },
+        "learned/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "31"
+        },
+        "gap_sorted/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "31"
+        },
+        "gap_sorted/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "31"
+        }
+      },
+      "prime_pair_claimed": false
+    },
+    {
+      "kind": "constructed_large",
+      "N_bits": 896,
+      "t": "363419362147803445274661903944002267176820680343659030140745099590319644056698961663095525356881782780381260803133088966767300814307329",
+      "materialization_ns": 24800,
+      "outcomes": {
+        "structural/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 6,
+          "proper_constructive_factor": "363419362147803445274661903944002267176820680343659030140745099590319644056698961663095525356881782780381260803133088966767300814307329"
+        },
+        "structural/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 6,
+          "proper_constructive_factor": "363419362147803445274661903944002267176820680343659030140745099590319644056698961663095525356881782780381260803133088966767300814307329"
+        },
+        "learned/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "363419362147803445274661903944002267176820680343659030140745099590319644056698961663095525356881782780381260803133088966767300814307329"
+        },
+        "learned/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "363419362147803445274661903944002267176820680343659030140745099590319644056698961663095525356881782780381260803133088966767300814307329"
+        },
+        "gap_sorted/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "363419362147803445274661903944002267176820680343659030140745099590319644056698961663095525356881782780381260803133088966767300814307329"
+        },
+        "gap_sorted/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "363419362147803445274661903944002267176820680343659030140745099590319644056698961663095525356881782780381260803133088966767300814307329"
+        }
+      },
+      "prime_pair_claimed": false
+    },
+    {
+      "kind": "constructed_large",
+      "N_bits": 2048,
+      "t": "89884656743115795386465259539451236680898848947115328636715040578866337902750481566354238661203768010560056939935696678829394884407208311246423715319737062188883946712432742638151109800623047059726541476042502884419075341171231440736956555270413618581675255342293149119973622969239858152417678164812112068609",
+      "materialization_ns": 53500,
+      "outcomes": {
+        "structural/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 6,
+          "proper_constructive_factor": "89884656743115795386465259539451236680898848947115328636715040578866337902750481566354238661203768010560056939935696678829394884407208311246423715319737062188883946712432742638151109800623047059726541476042502884419075341171231440736956555270413618581675255342293149119973622969239858152417678164812112068609"
+        },
+        "structural/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 6,
+          "proper_constructive_factor": "89884656743115795386465259539451236680898848947115328636715040578866337902750481566354238661203768010560056939935696678829394884407208311246423715319737062188883946712432742638151109800623047059726541476042502884419075341171231440736956555270413618581675255342293149119973622969239858152417678164812112068609"
+        },
+        "learned/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "89884656743115795386465259539451236680898848947115328636715040578866337902750481566354238661203768010560056939935696678829394884407208311246423715319737062188883946712432742638151109800623047059726541476042502884419075341171231440736956555270413618581675255342293149119973622969239858152417678164812112068609"
+        },
+        "learned/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "89884656743115795386465259539451236680898848947115328636715040578866337902750481566354238661203768010560056939935696678829394884407208311246423715319737062188883946712432742638151109800623047059726541476042502884419075341171231440736956555270413618581675255342293149119973622969239858152417678164812112068609"
+        },
+        "gap_sorted/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "89884656743115795386465259539451236680898848947115328636715040578866337902750481566354238661203768010560056939935696678829394884407208311246423715319737062188883946712432742638151109800623047059726541476042502884419075341171231440736956555270413618581675255342293149119973622969239858152417678164812112068609"
+        },
+        "gap_sorted/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "89884656743115795386465259539451236680898848947115328636715040578866337902750481566354238661203768010560056939935696678829394884407208311246423715319737062188883946712432742638151109800623047059726541476042502884419075341171231440736956555270413618581675255342293149119973622969239858152417678164812112068609"
+        }
+      },
+      "prime_pair_claimed": false
+    },
+    {
+      "kind": "constructed_large",
+      "N_bits": 8192,
+      "t": "522194440706576253345876355358312191289982124523691890192116741641976953985778728424413405967498779170445053357219631418993786719092896803631618043925682638972978488271854999170180795067191859157214035005927973113188159419698856372836167342172293308748403954352901852035642024370059304557233988891799014503343469488440893892973452815095130470299789726716411734651513348221529512507986199933857107770846917779942645743159118957217248367043905936319748237550094520674504208530837546834166925275516486044134775384991808184705966507606898412918594045916828375610659246423184062775112999150206172392431297837246097308511903252956622805412865917690043804311051417135098849101156584508839003337597742539960818209685142687562392007453579567729991395256699805775897135553415567045292136442139895777424891477161767258532611634530697452993846501061481697843891439474220308003706472837459911525285821188577408160690315522951458068463354171428220365223949985950890732881736611925133626529949897998045399734600887312408859224933727829625089164535236559716582775403784110923285873186648442456409760158728501220463308455437074192539205964902261490928669488824051563042951500651206733594863336608245755565801460390869016718045121902354170201577095169",
+      "materialization_ns": 434600,
+      "outcomes": {
+        "structural/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 6,
+          "proper_constructive_factor": "522194440706576253345876355358312191289982124523691890192116741641976953985778728424413405967498779170445053357219631418993786719092896803631618043925682638972978488271854999170180795067191859157214035005927973113188159419698856372836167342172293308748403954352901852035642024370059304557233988891799014503343469488440893892973452815095130470299789726716411734651513348221529512507986199933857107770846917779942645743159118957217248367043905936319748237550094520674504208530837546834166925275516486044134775384991808184705966507606898412918594045916828375610659246423184062775112999150206172392431297837246097308511903252956622805412865917690043804311051417135098849101156584508839003337597742539960818209685142687562392007453579567729991395256699805775897135553415567045292136442139895777424891477161767258532611634530697452993846501061481697843891439474220308003706472837459911525285821188577408160690315522951458068463354171428220365223949985950890732881736611925133626529949897998045399734600887312408859224933727829625089164535236559716582775403784110923285873186648442456409760158728501220463308455437074192539205964902261490928669488824051563042951500651206733594863336608245755565801460390869016718045121902354170201577095169"
+        },
+        "structural/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 6,
+          "proper_constructive_factor": "522194440706576253345876355358312191289982124523691890192116741641976953985778728424413405967498779170445053357219631418993786719092896803631618043925682638972978488271854999170180795067191859157214035005927973113188159419698856372836167342172293308748403954352901852035642024370059304557233988891799014503343469488440893892973452815095130470299789726716411734651513348221529512507986199933857107770846917779942645743159118957217248367043905936319748237550094520674504208530837546834166925275516486044134775384991808184705966507606898412918594045916828375610659246423184062775112999150206172392431297837246097308511903252956622805412865917690043804311051417135098849101156584508839003337597742539960818209685142687562392007453579567729991395256699805775897135553415567045292136442139895777424891477161767258532611634530697452993846501061481697843891439474220308003706472837459911525285821188577408160690315522951458068463354171428220365223949985950890732881736611925133626529949897998045399734600887312408859224933727829625089164535236559716582775403784110923285873186648442456409760158728501220463308455437074192539205964902261490928669488824051563042951500651206733594863336608245755565801460390869016718045121902354170201577095169"
+        },
+        "learned/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "522194440706576253345876355358312191289982124523691890192116741641976953985778728424413405967498779170445053357219631418993786719092896803631618043925682638972978488271854999170180795067191859157214035005927973113188159419698856372836167342172293308748403954352901852035642024370059304557233988891799014503343469488440893892973452815095130470299789726716411734651513348221529512507986199933857107770846917779942645743159118957217248367043905936319748237550094520674504208530837546834166925275516486044134775384991808184705966507606898412918594045916828375610659246423184062775112999150206172392431297837246097308511903252956622805412865917690043804311051417135098849101156584508839003337597742539960818209685142687562392007453579567729991395256699805775897135553415567045292136442139895777424891477161767258532611634530697452993846501061481697843891439474220308003706472837459911525285821188577408160690315522951458068463354171428220365223949985950890732881736611925133626529949897998045399734600887312408859224933727829625089164535236559716582775403784110923285873186648442456409760158728501220463308455437074192539205964902261490928669488824051563042951500651206733594863336608245755565801460390869016718045121902354170201577095169"
+        },
+        "learned/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 2,
+          "proper_constructive_factor": "522194440706576253345876355358312191289982124523691890192116741641976953985778728424413405967498779170445053357219631418993786719092896803631618043925682638972978488271854999170180795067191859157214035005927973113188159419698856372836167342172293308748403954352901852035642024370059304557233988891799014503343469488440893892973452815095130470299789726716411734651513348221529512507986199933857107770846917779942645743159118957217248367043905936319748237550094520674504208530837546834166925275516486044134775384991808184705966507606898412918594045916828375610659246423184062775112999150206172392431297837246097308511903252956622805412865917690043804311051417135098849101156584508839003337597742539960818209685142687562392007453579567729991395256699805775897135553415567045292136442139895777424891477161767258532611634530697452993846501061481697843891439474220308003706472837459911525285821188577408160690315522951458068463354171428220365223949985950890732881736611925133626529949897998045399734600887312408859224933727829625089164535236559716582775403784110923285873186648442456409760158728501220463308455437074192539205964902261490928669488824051563042951500651206733594863336608245755565801460390869016718045121902354170201577095169"
+        },
+        "gap_sorted/native": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "522194440706576253345876355358312191289982124523691890192116741641976953985778728424413405967498779170445053357219631418993786719092896803631618043925682638972978488271854999170180795067191859157214035005927973113188159419698856372836167342172293308748403954352901852035642024370059304557233988891799014503343469488440893892973452815095130470299789726716411734651513348221529512507986199933857107770846917779942645743159118957217248367043905936319748237550094520674504208530837546834166925275516486044134775384991808184705966507606898412918594045916828375610659246423184062775112999150206172392431297837246097308511903252956622805412865917690043804311051417135098849101156584508839003337597742539960818209685142687562392007453579567729991395256699805775897135553415567045292136442139895777424891477161767258532611634530697452993846501061481697843891439474220308003706472837459911525285821188577408160690315522951458068463354171428220365223949985950890732881736611925133626529949897998045399734600887312408859224933727829625089164535236559716582775403784110923285873186648442456409760158728501220463308455437074192539205964902261490928669488824051563042951500651206733594863336608245755565801460390869016718045121902354170201577095169"
+        },
+        "gap_sorted/low12": {
+          "multiplier": 8,
+          "gap_root": "1",
+          "predicate_positions": 1,
+          "proper_constructive_factor": "522194440706576253345876355358312191289982124523691890192116741641976953985778728424413405967498779170445053357219631418993786719092896803631618043925682638972978488271854999170180795067191859157214035005927973113188159419698856372836167342172293308748403954352901852035642024370059304557233988891799014503343469488440893892973452815095130470299789726716411734651513348221529512507986199933857107770846917779942645743159118957217248367043905936319748237550094520674504208530837546834166925275516486044134775384991808184705966507606898412918594045916828375610659246423184062775112999150206172392431297837246097308511903252956622805412865917690043804311051417135098849101156584508839003337597742539960818209685142687562392007453579567729991395256699805775897135553415567045292136442139895777424891477161767258532611634530697452993846501061481697843891439474220308003706472837459911525285821188577408160690315522951458068463354171428220365223949985950890732881736611925133626529949897998045399734600887312408859224933727829625089164535236559716582775403784110923285873186648442456409760158728501220463308455437074192539205964902261490928669488824051563042951500651206733594863336608245755565801460390869016718045121902354170201577095169"
+        }
+      },
+      "prime_pair_claimed": false
+    }
+  ],
+  "timing_rounds": 7,
+  "timing_repeats_per_case_per_round": 256,
+  "timings": [
+    {
+      "control_index": 15,
+      "N_bits": 896,
+      "raw_ns_per_evaluation": {
+        "structural/native": [
+          6701.171875,
+          6713.28125,
+          6737.5,
+          11548.4375,
+          6830.078125,
+          6758.59375,
+          6833.203125
+        ],
+        "structural/low12": [
+          4704.6875,
+          4833.59375,
+          4692.1875,
+          4733.203125,
+          9042.96875,
+          4701.171875,
+          4710.15625
+        ],
+        "learned/native": [
+          1585.546875,
+          1584.375,
+          1626.953125,
+          1585.9375,
+          1673.046875,
+          1592.578125,
+          1564.453125
+        ],
+        "learned/low12": [
+          1992.1875,
+          2001.953125,
+          2036.71875,
+          1995.3125,
+          2442.1875,
+          2003.515625,
+          1946.09375
+        ],
+        "gap_sorted/native": [
+          15181.640625,
+          15055.859375,
+          15107.421875,
+          15043.75,
+          15029.6875,
+          14728.515625,
+          14819.53125
+        ],
+        "gap_sorted/low12": [
+          17346.484375,
+          17226.171875,
+          20621.875,
+          18591.40625,
+          16871.875,
+          18689.84375,
+          17005.46875
+        ]
+      },
+      "median_ns": {
+        "structural/native": 6758.59375,
+        "structural/low12": 4710.15625,
+        "learned/native": 1585.9375,
+        "learned/low12": 2001.953125,
+        "gap_sorted/native": 15043.75,
+        "gap_sorted/low12": 17346.484375
+      },
+      "structural_over_sorted": {
+        "native": 0.449262567511425,
+        "low12": 0.271533767198865
+      },
+      "learned_over_sorted": {
+        "native": 0.10542168674698796,
+        "low12": 0.11540973269979958
+      }
+    },
+    {
+      "control_index": 16,
+      "N_bits": 2048,
+      "raw_ns_per_evaluation": {
+        "structural/native": [
+          18230.46875,
+          13480.859375,
+          13510.546875,
+          13833.203125,
+          16985.546875,
+          13670.3125,
+          13480.078125
+        ],
+        "structural/low12": [
+          4646.484375,
+          5320.703125,
+          7253.90625,
+          4514.0625,
+          4490.234375,
+          4442.1875,
+          4447.265625
+        ],
+        "learned/native": [
+          3003.125,
+          3410.546875,
+          3421.09375,
+          2955.078125,
+          3070.703125,
+          2955.859375,
+          2948.4375
+        ],
+        "learned/low12": [
+          1978.515625,
+          1966.015625,
+          1996.484375,
+          1982.8125,
+          1987.109375,
+          2023.046875,
+          2642.96875
+        ],
+        "gap_sorted/native": [
+          16900.78125,
+          15643.359375,
+          14841.40625,
+          15173.4375,
+          16144.53125,
+          15324.609375,
+          14862.5
+        ],
+        "gap_sorted/low12": [
+          17153.515625,
+          16304.296875,
+          24740.234375,
+          16508.59375,
+          16476.171875,
+          16268.75,
+          16417.578125
+        ]
+      },
+      "median_ns": {
+        "structural/native": 13670.3125,
+        "structural/low12": 4514.0625,
+        "learned/native": 3003.125,
+        "learned/low12": 1987.109375,
+        "gap_sorted/native": 15324.609375,
+        "gap_sorted/low12": 16476.171875
+      },
+      "structural_over_sorted": {
+        "native": 0.8920496546098748,
+        "low12": 0.27397520092937244
+      },
+      "learned_over_sorted": {
+        "native": 0.1959674747011292,
+        "low12": 0.12060504042295929
+      }
+    },
+    {
+      "control_index": 17,
+      "N_bits": 8192,
+      "raw_ns_per_evaluation": {
+        "structural/native": [
+          74587.890625,
+          76666.796875,
+          77182.421875,
+          73548.828125,
+          83742.1875,
+          75873.4375,
+          79398.828125
+        ],
+        "structural/low12": [
+          7269.140625,
+          7690.234375,
+          9722.265625,
+          7190.234375,
+          7174.609375,
+          7231.25,
+          7292.96875
+        ],
+        "learned/native": [
+          15129.296875,
+          14870.703125,
+          15654.296875,
+          16974.609375,
+          16057.421875,
+          14783.59375,
+          15541.40625
+        ],
+        "learned/low12": [
+          1972.65625,
+          2023.4375,
+          1980.078125,
+          1942.96875,
+          1955.078125,
+          2149.21875,
+          2039.84375
+        ],
+        "gap_sorted/native": [
+          15239.84375,
+          15012.109375,
+          16745.703125,
+          21303.125,
+          14736.71875,
+          20218.75,
+          14716.796875
+        ],
+        "gap_sorted/low12": [
+          16801.5625,
+          16323.046875,
+          16450.78125,
+          18269.140625,
+          16806.25,
+          17228.90625,
+          18476.953125
+        ]
+      },
+      "median_ns": {
+        "structural/native": 76666.796875,
+        "structural/low12": 7269.140625,
+        "learned/native": 15541.40625,
+        "learned/low12": 1980.078125,
+        "gap_sorted/native": 15239.84375,
+        "gap_sorted/low12": 16806.25
+      },
+      "structural_over_sorted": {
+        "native": 5.030681293894499,
+        "low12": 0.4325260319821495
+      },
+      "learned_over_sorted": {
+        "native": 1.0197877684933614,
+        "low12": 0.11781796206768315
+      }
+    }
+  ],
+  "complete_cost_constructive_observations": [
+    {
+      "control_index": 15,
+      "N_bits": 896,
+      "raw_ns": {
+        "structural": [
+          3826600,
+          2221600,
+          2226600,
+          2229100,
+          2762200
+        ],
+        "learned": [
+          749300,
+          738600,
+          732600,
+          729600,
+          750500
+        ]
+      },
+      "api_calls_per_round": {
+        "structural": [
+          6,
+          6,
+          6,
+          6,
+          6
+        ],
+        "learned": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      "median_ns": {
+        "structural": 2229100,
+        "learned": 738600
+      },
+      "structural_over_learned": 3.0180070403466015,
+      "learned_faster_rounds": 5,
+      "verified_constructive_factor": "363419362147803445274661903944002267176820680343659030140745099590319644056698961663095525356881782780381260803133088966767300814307329",
+      "witness_multiplier": 8,
+      "backend": "unchanged default witness API with modulus 4032"
+    },
+    {
+      "control_index": 16,
+      "N_bits": 2048,
+      "raw_ns": {
+        "structural": [
+          12163100,
+          13327500,
+          12740600,
+          12196200,
+          12412800
+        ],
+        "learned": [
+          4006700,
+          4185600,
+          5452400,
+          3970900,
+          4074100
+        ]
+      },
+      "api_calls_per_round": {
+        "structural": [
+          6,
+          6,
+          6,
+          6,
+          6
+        ],
+        "learned": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      "median_ns": {
+        "structural": 12412800,
+        "learned": 4074100
+      },
+      "structural_over_learned": 3.046758793353133,
+      "learned_faster_rounds": 5,
+      "verified_constructive_factor": "89884656743115795386465259539451236680898848947115328636715040578866337902750481566354238661203768010560056939935696678829394884407208311246423715319737062188883946712432742638151109800623047059726541476042502884419075341171231440736956555270413618581675255342293149119973622969239858152417678164812112068609",
+      "witness_multiplier": 8,
+      "backend": "unchanged default witness API with modulus 4032"
+    },
+    {
+      "control_index": 17,
+      "N_bits": 8192,
+      "raw_ns": {
+        "structural": [
+          411746300,
+          418130200,
+          415535800,
+          419669000,
+          410622600
+        ],
+        "learned": [
+          137314800,
+          136070000,
+          138760100,
+          138184200,
+          137030500
+        ]
+      },
+      "api_calls_per_round": {
+        "structural": [
+          6,
+          6,
+          6,
+          6,
+          6
+        ],
+        "learned": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      "median_ns": {
+        "structural": 415535800,
+        "learned": 137314800
+      },
+      "structural_over_learned": 3.026154500461713,
+      "learned_faster_rounds": 5,
+      "verified_constructive_factor": "522194440706576253345876355358312191289982124523691890192116741641976953985778728424413405967498779170445053357219631418993786719092896803631618043925682638972978488271854999170180795067191859157214035005927973113188159419698856372836167342172293308748403954352901852035642024370059304557233988891799014503343469488440893892973452815095130470299789726716411734651513348221529512507986199933857107770846917779942645743159118957217248367043905936319748237550094520674504208530837546834166925275516486044134775384991808184705966507606898412918594045916828375610659246423184062775112999150206172392431297837246097308511903252956622805412865917690043804311051417135098849101156584508839003337597742539960818209685142687562392007453579567729991395256699805775897135553415567045292136442139895777424891477161767258532611634530697452993846501061481697843891439474220308003706472837459911525285821188577408160690315522951458068463354171428220365223949985950890732881736611925133626529949897998045399734600887312408859224933727829625089164535236559716582775403784110923285873186648442456409760158728501220463308455437074192539205964902261490928669488824051563042951500651206733594863336608245755565801460390869016718045121902354170201577095169",
+      "witness_multiplier": 8,
+      "backend": "unchanged default witness API with modulus 4032"
+    }
+  ],
+  "catalog_ids_inspected": [
+    "structural_priority",
+    "learned_cover_prefix",
+    "ratio_cover_prefix",
+    "kernel13_prefix",
+    "gap_sort_if_materialized",
+    "low12_compact_gap_filter",
+    "table_free_tail",
+    "quotient_jet_large_bits",
+    "energy_jet_very_large_bits",
+    "gap_residue_jet_ultralarge",
+    "brc_shadow_telemetry",
+    "fibonacci_delete_storage_probe",
+    "pisano_metadata_probe"
+  ],
+  "reuse_resolution": "REUSE_EXECUTED for the unchanged complete prepared-gap sorter and existing static orders/LOW12 backend. Exact floor-root projection supplies the two explicitly named missing positions.",
+  "coverage": {
+    "public_integers": 3,
+    "new_derived_positions": 6,
+    "reused_positions_in_this_set": 15,
+    "new_source_witness_api_calls": 0,
+    "ceiling_advances": 0,
+    "appended_fallback_candidates": 0,
+    "positive_cases": 18,
+    "new_positive_cases_at_large_sizes": 3,
+    "timing_replays_are_new_hits": false
+  },
+  "cost_contract": {
+    "restoration": "The archive stores A, not the source J; isqrt(source_m*N+A) restoration is paid and reported separately.",
+    "projection": "Root division, target multiplication, remainder and gap formation; source J is already restored for this timer.",
+    "ordering": "Complete unchanged sorter for the fixed source representative set <=12; no partial map is treated as complete for <=100.",
+    "prepared_timing": "Square predicates on supplied gaps; dynamic gap-order creation included, static N-independent order creation amortized outside.",
+    "outside_prepared_timing": "State acquisition, imports, source verification, initial table setup, constructive factor verification, reporting and serialization.",
+    "controls": "Constructed integer factors; no large prime-pair or public challenge hit is inferred.",
+    "complete_cost_control_timing": "Three fixed positive integers, five paired single-run rounds; original API root/preparation work and gcd/product verification included. Static order construction, imports, table setup and input generation excluded.",
+    "complete_cost_control_api_calls": 120,
+    "not_claimed": "Public-RSA factorization speedup, independent coverage from reordering, universal preferred order, or a complete-cost gap-sort speedup."
+  },
+  "goal_status": "ACTIVE; fixed branch validation completed, public factoring effectiveness and broader library work remain unfinished"
+}

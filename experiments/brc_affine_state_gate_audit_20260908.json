@@ -1,0 +1,2600 @@
+{
+  "status": "VERIFIED_FIXED_AFFINE_STATE_MEMBERSHIP_AND_COST",
+  "researcher": "EM-HME-0CE4FD / TASK_RESEARCH",
+  "global_snapshot": "91cd38de772d892c0707ba356d7bbcecb44996bb",
+  "project_parent": "9fb93e7ef1988f2feaabdc76133af08490400ddd",
+  "source_blobs": {
+    "core.py": "2b7ab070868ef4a2b6d8b33f5e3bc69dbac62c07",
+    "brc_opportunistic_shortcuts.py": "1214aa09770893fb3de7f85b994d1994ff56bffe",
+    "brc_square_gap_prefilter.py": "42d4e9a397b56d9d371f034780ffc736d43e6d96",
+    "brc_square_gap_tables.py": "c25d73f9fda5dc78e407d52987c84016e421a96b"
+  },
+  "input_blobs": {
+    "brc_public_rsa_fixed_predicates_20260908.json": "e56cfc8457e2398b5de3c90182c2b37824580ef3",
+    "brc_kernel13_state_pairs_20260908.json": "6f66b17507bce5fd98909c263724c8da7b86a641"
+  },
+  "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.19044-SP0",
+  "membership_contract": {
+    "D": "For mN>c^2 and c>=0, R=J-c iff 4mN+4c+1 is square.",
+    "U": "For mN>0, A=1 iff mN+1 is square.",
+    "scope": "These two state subsets only. D membership does not guarantee a square completion gap.",
+    "flag": "bit 1: D strip membership; bit 2: U boundary membership",
+    "basis_pairs": [
+      [
+        1,
+        1
+      ],
+      [
+        13,
+        13
+      ],
+      [
+        56,
+        28
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        15,
+        15
+      ],
+      [
+        8,
+        4
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        24,
+        12
+      ],
+      [
+        120,
+        60
+      ],
+      [
+        88,
+        44
+      ],
+      [
+        105,
+        105
+      ],
+      [
+        33,
+        33
+      ],
+      [
+        7,
+        7
+      ]
+    ],
+    "power_of_two_omission": "For these pairs and odd N, H=1 mod 8, so the D-only 4096 filter is redundant. The U filter retains it.",
+    "large_phase_reduction": "N is reduced once per modulus inside each candidate call; all 13 pairs reuse those phases."
+  },
+  "table_setup": {
+    "static4032_first_lookup_ns": 14800,
+    "low12_cold_build_ns": 2525200,
+    "static_bytes": 504,
+    "low12_bytes": 2559,
+    "equal_source_generators": true
+  },
+  "public_observations": [
+    {
+      "label": "RSA-270",
+      "bits": 895,
+      "decimal_sha256": "83b66aee65c8ffa8bbae104ad3c3e4f0723f854c105f6f29a831d11898e71432",
+      "source_pdf": "https://mysterytwister.org/media/challenges/pdf/mtc3-rsa-09-en.pdf",
+      "existing_positions": 13,
+      "new_positions": 0,
+      "D_members": 0,
+      "U_members": 0,
+      "predicate_counters": {
+        "affine_static4032": {
+          "D_first_exit_mod_4032": 5,
+          "U_first_exit_mod_4032": 10,
+          "D_exact_root_calls": 8,
+          "D_members": 0,
+          "U_exact_root_calls": 3,
+          "U_members": 0
+        },
+        "affine_low12": {
+          "U_first_exit_mod_4096": 7,
+          "D_first_exit_mod_3465": 8,
+          "U_first_exit_mod_3465": 5,
+          "D_first_exit_mod_221": 4,
+          "D_first_exit_mod_12673": 1,
+          "U_first_exit_mod_12673": 1
+        }
+      },
+      "states": [
+        {
+          "kernel": 1,
+          "m": 1,
+          "c": 1,
+          "saved_direction": "U",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 13,
+          "m": 13,
+          "c": 13,
+          "saved_direction": "U",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 14,
+          "m": 56,
+          "c": 28,
+          "saved_direction": "U",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 3,
+          "m": 3,
+          "c": 3,
+          "saved_direction": "U",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 15,
+          "m": 15,
+          "c": 15,
+          "saved_direction": "D",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 2,
+          "m": 8,
+          "c": 4,
+          "saved_direction": "D",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 5,
+          "m": 5,
+          "c": 5,
+          "saved_direction": "D",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 6,
+          "m": 24,
+          "c": 12,
+          "saved_direction": "U",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 30,
+          "m": 120,
+          "c": 60,
+          "saved_direction": "U",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 22,
+          "m": 88,
+          "c": 44,
+          "saved_direction": "U",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 105,
+          "m": 105,
+          "c": 105,
+          "saved_direction": "D",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 33,
+          "m": 33,
+          "c": 33,
+          "saved_direction": "U",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 7,
+          "m": 7,
+          "c": 7,
+          "saved_direction": "D",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        }
+      ]
+    },
+    {
+      "label": "RSA-896",
+      "bits": 896,
+      "decimal_sha256": "621d201b5ba6a87cf699d8d4926c448e92fe0e08a4ac66b6a00a338ae891987f",
+      "source_pdf": "https://mysterytwister.org/media/challenges/pdf/mtc3-rsa-10-en.pdf",
+      "existing_positions": 13,
+      "new_positions": 0,
+      "D_members": 0,
+      "U_members": 0,
+      "predicate_counters": {
+        "affine_static4032": {
+          "D_first_exit_mod_4032": 7,
+          "U_first_exit_mod_4032": 12,
+          "D_exact_root_calls": 6,
+          "D_members": 0,
+          "U_exact_root_calls": 1,
+          "U_members": 0
+        },
+        "affine_low12": {
+          "D_first_exit_mod_3465": 12,
+          "U_first_exit_mod_3465": 7,
+          "U_first_exit_mod_4096": 6,
+          "D_first_exit_mod_221": 1
+        }
+      },
+      "states": [
+        {
+          "kernel": 1,
+          "m": 1,
+          "c": 1,
+          "saved_direction": "U",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 13,
+          "m": 13,
+          "c": 13,
+          "saved_direction": "U",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 14,
+          "m": 56,
+          "c": 28,
+          "saved_direction": "U",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 3,
+          "m": 3,
+          "c": 3,
+          "saved_direction": "D",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 15,
+          "m": 15,
+          "c": 15,
+          "saved_direction": "D",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 2,
+          "m": 8,
+          "c": 4,
+          "saved_direction": "U",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 5,
+          "m": 5,
+          "c": 5,
+          "saved_direction": "D",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 6,
+          "m": 24,
+          "c": 12,
+          "saved_direction": "D",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 30,
+          "m": 120,
+          "c": 60,
+          "saved_direction": "U",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 22,
+          "m": 88,
+          "c": 44,
+          "saved_direction": "U",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 105,
+          "m": 105,
+          "c": 105,
+          "saved_direction": "D",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 33,
+          "m": 33,
+          "c": 33,
+          "saved_direction": "D",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 7,
+          "m": 7,
+          "c": 7,
+          "saved_direction": "D",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        }
+      ]
+    },
+    {
+      "label": "RSA-2048",
+      "bits": 2048,
+      "decimal_sha256": "b3c2468add10e2a0c4a251d9d2bac4ba04d4b3527156ceead43a1305e03f1fc0",
+      "source_pdf": "https://mysterytwister.org/media/challenges/pdf/mtc3-rsa-38-en.pdf",
+      "existing_positions": 13,
+      "new_positions": 0,
+      "D_members": 0,
+      "U_members": 0,
+      "predicate_counters": {
+        "affine_static4032": {
+          "U_first_exit_mod_4032": 12,
+          "D_exact_root_calls": 9,
+          "D_members": 0,
+          "D_first_exit_mod_4032": 4,
+          "U_exact_root_calls": 1,
+          "U_members": 0
+        },
+        "affine_low12": {
+          "U_first_exit_mod_4096": 7,
+          "D_first_exit_mod_3465": 12,
+          "U_first_exit_mod_3465": 5,
+          "U_first_exit_mod_221": 1,
+          "D_first_exit_mod_221": 1
+        }
+      },
+      "states": [
+        {
+          "kernel": 1,
+          "m": 1,
+          "c": 1,
+          "saved_direction": "D",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 13,
+          "m": 13,
+          "c": 13,
+          "saved_direction": "U",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 14,
+          "m": 56,
+          "c": 28,
+          "saved_direction": "U",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 3,
+          "m": 3,
+          "c": 3,
+          "saved_direction": "D",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 15,
+          "m": 15,
+          "c": 15,
+          "saved_direction": "U",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 2,
+          "m": 8,
+          "c": 4,
+          "saved_direction": "U",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 5,
+          "m": 5,
+          "c": 5,
+          "saved_direction": "U",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 6,
+          "m": 24,
+          "c": 12,
+          "saved_direction": "U",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 30,
+          "m": 120,
+          "c": 60,
+          "saved_direction": "D",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 22,
+          "m": 88,
+          "c": 44,
+          "saved_direction": "U",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 105,
+          "m": 105,
+          "c": 105,
+          "saved_direction": "U",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 33,
+          "m": 33,
+          "c": 33,
+          "saved_direction": "U",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        },
+        {
+          "kernel": 7,
+          "m": 7,
+          "c": 7,
+          "saved_direction": "D",
+          "D_strip_member": false,
+          "U_boundary_member": false
+        }
+      ]
+    }
+  ],
+  "positive_checks": [
+    {
+      "kernel": 1,
+      "m": 1,
+      "c": 1,
+      "size_class": "small",
+      "N_bits": 6,
+      "assigned_state": "D",
+      "state_gate_flag": 1,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": true
+    },
+    {
+      "kernel": 13,
+      "m": 13,
+      "c": 13,
+      "size_class": "small",
+      "N_bits": 16,
+      "assigned_state": "D",
+      "state_gate_flag": 1,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": true
+    },
+    {
+      "kernel": 14,
+      "m": 56,
+      "c": 28,
+      "size_class": "small",
+      "N_bits": 18,
+      "assigned_state": "D",
+      "state_gate_flag": 1,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": false
+    },
+    {
+      "kernel": 3,
+      "m": 3,
+      "c": 3,
+      "size_class": "small",
+      "N_bits": 10,
+      "assigned_state": "D",
+      "state_gate_flag": 1,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": true
+    },
+    {
+      "kernel": 15,
+      "m": 15,
+      "c": 15,
+      "size_class": "small",
+      "N_bits": 16,
+      "assigned_state": "D",
+      "state_gate_flag": 1,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": true
+    },
+    {
+      "kernel": 2,
+      "m": 8,
+      "c": 4,
+      "size_class": "small",
+      "N_bits": 10,
+      "assigned_state": "D",
+      "state_gate_flag": 1,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": true
+    },
+    {
+      "kernel": 5,
+      "m": 5,
+      "c": 5,
+      "size_class": "small",
+      "N_bits": 12,
+      "assigned_state": "D",
+      "state_gate_flag": 1,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": false
+    },
+    {
+      "kernel": 6,
+      "m": 24,
+      "c": 12,
+      "size_class": "small",
+      "N_bits": 14,
+      "assigned_state": "D",
+      "state_gate_flag": 1,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": false
+    },
+    {
+      "kernel": 30,
+      "m": 120,
+      "c": 60,
+      "size_class": "small",
+      "N_bits": 21,
+      "assigned_state": "D",
+      "state_gate_flag": 1,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": true
+    },
+    {
+      "kernel": 22,
+      "m": 88,
+      "c": 44,
+      "size_class": "small",
+      "N_bits": 20,
+      "assigned_state": "D",
+      "state_gate_flag": 1,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": false
+    },
+    {
+      "kernel": 105,
+      "m": 105,
+      "c": 105,
+      "size_class": "small",
+      "N_bits": 25,
+      "assigned_state": "D",
+      "state_gate_flag": 1,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": false
+    },
+    {
+      "kernel": 33,
+      "m": 33,
+      "c": 33,
+      "size_class": "small",
+      "N_bits": 20,
+      "assigned_state": "D",
+      "state_gate_flag": 1,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": false
+    },
+    {
+      "kernel": 7,
+      "m": 7,
+      "c": 7,
+      "size_class": "small",
+      "N_bits": 13,
+      "assigned_state": "D",
+      "state_gate_flag": 1,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": true
+    },
+    {
+      "kernel": 1,
+      "m": 1,
+      "c": 1,
+      "size_class": "small",
+      "N_bits": 6,
+      "assigned_state": "U",
+      "state_gate_flag": 2,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": true
+    },
+    {
+      "kernel": 13,
+      "m": 13,
+      "c": 13,
+      "size_class": "small",
+      "N_bits": 16,
+      "assigned_state": "U",
+      "state_gate_flag": 2,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": true
+    },
+    {
+      "kernel": 14,
+      "m": 56,
+      "c": 28,
+      "size_class": "small",
+      "N_bits": 18,
+      "assigned_state": "U",
+      "state_gate_flag": 2,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": true
+    },
+    {
+      "kernel": 3,
+      "m": 3,
+      "c": 3,
+      "size_class": "small",
+      "N_bits": 10,
+      "assigned_state": "U",
+      "state_gate_flag": 2,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": true
+    },
+    {
+      "kernel": 15,
+      "m": 15,
+      "c": 15,
+      "size_class": "small",
+      "N_bits": 16,
+      "assigned_state": "U",
+      "state_gate_flag": 2,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": false
+    },
+    {
+      "kernel": 2,
+      "m": 8,
+      "c": 4,
+      "size_class": "small",
+      "N_bits": 10,
+      "assigned_state": "U",
+      "state_gate_flag": 2,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": false
+    },
+    {
+      "kernel": 5,
+      "m": 5,
+      "c": 5,
+      "size_class": "small",
+      "N_bits": 12,
+      "assigned_state": "U",
+      "state_gate_flag": 2,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": false
+    },
+    {
+      "kernel": 6,
+      "m": 24,
+      "c": 12,
+      "size_class": "small",
+      "N_bits": 14,
+      "assigned_state": "U",
+      "state_gate_flag": 2,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": false
+    },
+    {
+      "kernel": 30,
+      "m": 120,
+      "c": 60,
+      "size_class": "small",
+      "N_bits": 21,
+      "assigned_state": "U",
+      "state_gate_flag": 2,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": false
+    },
+    {
+      "kernel": 22,
+      "m": 88,
+      "c": 44,
+      "size_class": "small",
+      "N_bits": 20,
+      "assigned_state": "U",
+      "state_gate_flag": 2,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": false
+    },
+    {
+      "kernel": 105,
+      "m": 105,
+      "c": 105,
+      "size_class": "small",
+      "N_bits": 25,
+      "assigned_state": "U",
+      "state_gate_flag": 2,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": true
+    },
+    {
+      "kernel": 33,
+      "m": 33,
+      "c": 33,
+      "size_class": "small",
+      "N_bits": 20,
+      "assigned_state": "U",
+      "state_gate_flag": 2,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": false
+    },
+    {
+      "kernel": 7,
+      "m": 7,
+      "c": 7,
+      "size_class": "small",
+      "N_bits": 13,
+      "assigned_state": "U",
+      "state_gate_flag": 2,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": false
+    },
+    {
+      "kernel": 1,
+      "m": 1,
+      "c": 1,
+      "size_class": "large",
+      "N_bits": 2045,
+      "assigned_state": "D",
+      "state_gate_flag": 1,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": null
+    },
+    {
+      "kernel": 13,
+      "m": 13,
+      "c": 13,
+      "size_class": "large",
+      "N_bits": 2056,
+      "assigned_state": "D",
+      "state_gate_flag": 1,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": null
+    },
+    {
+      "kernel": 14,
+      "m": 56,
+      "c": 28,
+      "size_class": "large",
+      "N_bits": 2058,
+      "assigned_state": "D",
+      "state_gate_flag": 1,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": null
+    },
+    {
+      "kernel": 3,
+      "m": 3,
+      "c": 3,
+      "size_class": "large",
+      "N_bits": 2049,
+      "assigned_state": "D",
+      "state_gate_flag": 1,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": null
+    },
+    {
+      "kernel": 15,
+      "m": 15,
+      "c": 15,
+      "size_class": "large",
+      "N_bits": 2056,
+      "assigned_state": "D",
+      "state_gate_flag": 1,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": null
+    },
+    {
+      "kernel": 2,
+      "m": 8,
+      "c": 4,
+      "size_class": "large",
+      "N_bits": 2050,
+      "assigned_state": "D",
+      "state_gate_flag": 1,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": null
+    },
+    {
+      "kernel": 5,
+      "m": 5,
+      "c": 5,
+      "size_class": "large",
+      "N_bits": 2051,
+      "assigned_state": "D",
+      "state_gate_flag": 1,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": null
+    },
+    {
+      "kernel": 6,
+      "m": 24,
+      "c": 12,
+      "size_class": "large",
+      "N_bits": 2054,
+      "assigned_state": "D",
+      "state_gate_flag": 1,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": null
+    },
+    {
+      "kernel": 30,
+      "m": 120,
+      "c": 60,
+      "size_class": "large",
+      "N_bits": 2061,
+      "assigned_state": "D",
+      "state_gate_flag": 1,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": null
+    },
+    {
+      "kernel": 22,
+      "m": 88,
+      "c": 44,
+      "size_class": "large",
+      "N_bits": 2060,
+      "assigned_state": "D",
+      "state_gate_flag": 1,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": null
+    },
+    {
+      "kernel": 105,
+      "m": 105,
+      "c": 105,
+      "size_class": "large",
+      "N_bits": 2065,
+      "assigned_state": "D",
+      "state_gate_flag": 1,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": null
+    },
+    {
+      "kernel": 33,
+      "m": 33,
+      "c": 33,
+      "size_class": "large",
+      "N_bits": 2060,
+      "assigned_state": "D",
+      "state_gate_flag": 1,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": null
+    },
+    {
+      "kernel": 7,
+      "m": 7,
+      "c": 7,
+      "size_class": "large",
+      "N_bits": 2053,
+      "assigned_state": "D",
+      "state_gate_flag": 1,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": null
+    },
+    {
+      "kernel": 1,
+      "m": 1,
+      "c": 1,
+      "size_class": "large",
+      "N_bits": 2045,
+      "assigned_state": "U",
+      "state_gate_flag": 2,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": null
+    },
+    {
+      "kernel": 13,
+      "m": 13,
+      "c": 13,
+      "size_class": "large",
+      "N_bits": 2056,
+      "assigned_state": "U",
+      "state_gate_flag": 2,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": null
+    },
+    {
+      "kernel": 14,
+      "m": 56,
+      "c": 28,
+      "size_class": "large",
+      "N_bits": 2058,
+      "assigned_state": "U",
+      "state_gate_flag": 2,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": null
+    },
+    {
+      "kernel": 3,
+      "m": 3,
+      "c": 3,
+      "size_class": "large",
+      "N_bits": 2049,
+      "assigned_state": "U",
+      "state_gate_flag": 2,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": null
+    },
+    {
+      "kernel": 15,
+      "m": 15,
+      "c": 15,
+      "size_class": "large",
+      "N_bits": 2056,
+      "assigned_state": "U",
+      "state_gate_flag": 2,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": null
+    },
+    {
+      "kernel": 2,
+      "m": 8,
+      "c": 4,
+      "size_class": "large",
+      "N_bits": 2050,
+      "assigned_state": "U",
+      "state_gate_flag": 2,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": null
+    },
+    {
+      "kernel": 5,
+      "m": 5,
+      "c": 5,
+      "size_class": "large",
+      "N_bits": 2051,
+      "assigned_state": "U",
+      "state_gate_flag": 2,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": null
+    },
+    {
+      "kernel": 6,
+      "m": 24,
+      "c": 12,
+      "size_class": "large",
+      "N_bits": 2054,
+      "assigned_state": "U",
+      "state_gate_flag": 2,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": null
+    },
+    {
+      "kernel": 30,
+      "m": 120,
+      "c": 60,
+      "size_class": "large",
+      "N_bits": 2061,
+      "assigned_state": "U",
+      "state_gate_flag": 2,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": null
+    },
+    {
+      "kernel": 22,
+      "m": 88,
+      "c": 44,
+      "size_class": "large",
+      "N_bits": 2060,
+      "assigned_state": "U",
+      "state_gate_flag": 2,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": null
+    },
+    {
+      "kernel": 105,
+      "m": 105,
+      "c": 105,
+      "size_class": "large",
+      "N_bits": 2065,
+      "assigned_state": "U",
+      "state_gate_flag": 2,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": null
+    },
+    {
+      "kernel": 33,
+      "m": 33,
+      "c": 33,
+      "size_class": "large",
+      "N_bits": 2060,
+      "assigned_state": "U",
+      "state_gate_flag": 2,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": null
+    },
+    {
+      "kernel": 7,
+      "m": 7,
+      "c": 7,
+      "size_class": "large",
+      "N_bits": 2053,
+      "assigned_state": "U",
+      "state_gate_flag": 2,
+      "saved_positive_witness_retained": true,
+      "known_small_prime_pair": null
+    }
+  ],
+  "measurements": [
+    {
+      "name": "RSA-270",
+      "kind": "public_existing_packet",
+      "unit": "one N with 13 assigned (m,c) pairs",
+      "median_ns_per_group": {
+        "floor_source": 68112.5,
+        "affine_static4032": 46125.0,
+        "affine_low12": 24137.5
+      },
+      "raw_rounds": {
+        "floor_source": [
+          {
+            "round": 0,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 440100,
+            "ns_per_group": 55012.5
+          },
+          {
+            "round": 1,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 403400,
+            "ns_per_group": 50425.0
+          },
+          {
+            "round": 2,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 401000,
+            "ns_per_group": 50125.0
+          },
+          {
+            "round": 3,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 1652100,
+            "ns_per_group": 206512.5
+          },
+          {
+            "round": 4,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 746400,
+            "ns_per_group": 93300.0
+          },
+          {
+            "round": 5,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 544900,
+            "ns_per_group": 68112.5
+          },
+          {
+            "round": 6,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 413300,
+            "ns_per_group": 51662.5
+          },
+          {
+            "round": 7,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 1499700,
+            "ns_per_group": 187462.5
+          },
+          {
+            "round": 8,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 932700,
+            "ns_per_group": 116587.5
+          }
+        ],
+        "affine_static4032": [
+          {
+            "round": 0,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 356900,
+            "ns_per_group": 44612.5
+          },
+          {
+            "round": 1,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 344700,
+            "ns_per_group": 43087.5
+          },
+          {
+            "round": 2,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 381300,
+            "ns_per_group": 47662.5
+          },
+          {
+            "round": 3,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 379400,
+            "ns_per_group": 47425.0
+          },
+          {
+            "round": 4,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 369000,
+            "ns_per_group": 46125.0
+          },
+          {
+            "round": 5,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 361600,
+            "ns_per_group": 45200.0
+          },
+          {
+            "round": 6,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 353500,
+            "ns_per_group": 44187.5
+          },
+          {
+            "round": 7,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 450200,
+            "ns_per_group": 56275.0
+          },
+          {
+            "round": 8,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 818800,
+            "ns_per_group": 102350.0
+          }
+        ],
+        "affine_low12": [
+          {
+            "round": 0,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 189300,
+            "ns_per_group": 23662.5
+          },
+          {
+            "round": 1,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 185500,
+            "ns_per_group": 23187.5
+          },
+          {
+            "round": 2,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 186600,
+            "ns_per_group": 23325.0
+          },
+          {
+            "round": 3,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 202500,
+            "ns_per_group": 25312.5
+          },
+          {
+            "round": 4,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 192100,
+            "ns_per_group": 24012.5
+          },
+          {
+            "round": 5,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 626600,
+            "ns_per_group": 78325.0
+          },
+          {
+            "round": 6,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 193100,
+            "ns_per_group": 24137.5
+          },
+          {
+            "round": 7,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 422800,
+            "ns_per_group": 52850.0
+          },
+          {
+            "round": 8,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 210100,
+            "ns_per_group": 26262.5
+          }
+        ]
+      },
+      "speedup_vs_same_membership_floor": {
+        "floor_source": 1.0,
+        "affine_static4032": 1.4766937669376694,
+        "affine_low12": 2.821853961677887
+      },
+      "paired_faster_rounds": {
+        "affine_static4032": 9,
+        "affine_low12": 8
+      }
+    },
+    {
+      "name": "RSA-896",
+      "kind": "public_existing_packet",
+      "unit": "one N with 13 assigned (m,c) pairs",
+      "median_ns_per_group": {
+        "floor_source": 54087.5,
+        "affine_static4032": 37725.0,
+        "affine_low12": 21700.0
+      },
+      "raw_rounds": {
+        "floor_source": [
+          {
+            "round": 0,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 778400,
+            "ns_per_group": 97300.0
+          },
+          {
+            "round": 1,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 1937800,
+            "ns_per_group": 242225.0
+          },
+          {
+            "round": 2,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 432700,
+            "ns_per_group": 54087.5
+          },
+          {
+            "round": 3,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 426000,
+            "ns_per_group": 53250.0
+          },
+          {
+            "round": 4,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 600400,
+            "ns_per_group": 75050.0
+          },
+          {
+            "round": 5,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 417100,
+            "ns_per_group": 52137.5
+          },
+          {
+            "round": 6,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 424300,
+            "ns_per_group": 53037.5
+          },
+          {
+            "round": 7,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 1296800,
+            "ns_per_group": 162100.0
+          },
+          {
+            "round": 8,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 409100,
+            "ns_per_group": 51137.5
+          }
+        ],
+        "affine_static4032": [
+          {
+            "round": 0,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 712100,
+            "ns_per_group": 89012.5
+          },
+          {
+            "round": 1,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 301400,
+            "ns_per_group": 37675.0
+          },
+          {
+            "round": 2,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 280000,
+            "ns_per_group": 35000.0
+          },
+          {
+            "round": 3,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 2762800,
+            "ns_per_group": 345350.0
+          },
+          {
+            "round": 4,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 343100,
+            "ns_per_group": 42887.5
+          },
+          {
+            "round": 5,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 301800,
+            "ns_per_group": 37725.0
+          },
+          {
+            "round": 6,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 270700,
+            "ns_per_group": 33837.5
+          },
+          {
+            "round": 7,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 302000,
+            "ns_per_group": 37750.0
+          },
+          {
+            "round": 8,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 275100,
+            "ns_per_group": 34387.5
+          }
+        ],
+        "affine_low12": [
+          {
+            "round": 0,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 175000,
+            "ns_per_group": 21875.0
+          },
+          {
+            "round": 1,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 381500,
+            "ns_per_group": 47687.5
+          },
+          {
+            "round": 2,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 439300,
+            "ns_per_group": 54912.5
+          },
+          {
+            "round": 3,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 202000,
+            "ns_per_group": 25250.0
+          },
+          {
+            "round": 4,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 171500,
+            "ns_per_group": 21437.5
+          },
+          {
+            "round": 5,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 171800,
+            "ns_per_group": 21475.0
+          },
+          {
+            "round": 6,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 170700,
+            "ns_per_group": 21337.5
+          },
+          {
+            "round": 7,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 172700,
+            "ns_per_group": 21587.5
+          },
+          {
+            "round": 8,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 173600,
+            "ns_per_group": 21700.0
+          }
+        ]
+      },
+      "speedup_vs_same_membership_floor": {
+        "floor_source": 1.0,
+        "affine_static4032": 1.4337309476474487,
+        "affine_low12": 2.4925115207373274
+      },
+      "paired_faster_rounds": {
+        "affine_static4032": 8,
+        "affine_low12": 8
+      }
+    },
+    {
+      "name": "RSA-2048",
+      "kind": "public_existing_packet",
+      "unit": "one N with 13 assigned (m,c) pairs",
+      "median_ns_per_group": {
+        "floor_source": 108462.5,
+        "affine_static4032": 77462.5,
+        "affine_low12": 23462.5
+      },
+      "raw_rounds": {
+        "floor_source": [
+          {
+            "round": 0,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 974100,
+            "ns_per_group": 121762.5
+          },
+          {
+            "round": 1,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 867700,
+            "ns_per_group": 108462.5
+          },
+          {
+            "round": 2,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 881700,
+            "ns_per_group": 110212.5
+          },
+          {
+            "round": 3,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 995800,
+            "ns_per_group": 124475.0
+          },
+          {
+            "round": 4,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 3245100,
+            "ns_per_group": 405637.5
+          },
+          {
+            "round": 5,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 847600,
+            "ns_per_group": 105950.0
+          },
+          {
+            "round": 6,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 848700,
+            "ns_per_group": 106087.5
+          },
+          {
+            "round": 7,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 846500,
+            "ns_per_group": 105812.5
+          },
+          {
+            "round": 8,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 838900,
+            "ns_per_group": 104862.5
+          }
+        ],
+        "affine_static4032": [
+          {
+            "round": 0,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 1242100,
+            "ns_per_group": 155262.5
+          },
+          {
+            "round": 1,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 619400,
+            "ns_per_group": 77425.0
+          },
+          {
+            "round": 2,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 651700,
+            "ns_per_group": 81462.5
+          },
+          {
+            "round": 3,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 641700,
+            "ns_per_group": 80212.5
+          },
+          {
+            "round": 4,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 1005400,
+            "ns_per_group": 125675.0
+          },
+          {
+            "round": 5,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 609500,
+            "ns_per_group": 76187.5
+          },
+          {
+            "round": 6,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 616500,
+            "ns_per_group": 77062.5
+          },
+          {
+            "round": 7,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 619700,
+            "ns_per_group": 77462.5
+          },
+          {
+            "round": 8,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 604500,
+            "ns_per_group": 75562.5
+          }
+        ],
+        "affine_low12": [
+          {
+            "round": 0,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 183000,
+            "ns_per_group": 22875.0
+          },
+          {
+            "round": 1,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 187600,
+            "ns_per_group": 23450.0
+          },
+          {
+            "round": 2,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 193400,
+            "ns_per_group": 24175.0
+          },
+          {
+            "round": 3,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 184700,
+            "ns_per_group": 23087.5
+          },
+          {
+            "round": 4,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 192400,
+            "ns_per_group": 24050.0
+          },
+          {
+            "round": 5,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 192200,
+            "ns_per_group": 24025.0
+          },
+          {
+            "round": 6,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 191400,
+            "ns_per_group": 23925.0
+          },
+          {
+            "round": 7,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 184200,
+            "ns_per_group": 23025.0
+          },
+          {
+            "round": 8,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 187700,
+            "ns_per_group": 23462.5
+          }
+        ]
+      },
+      "speedup_vs_same_membership_floor": {
+        "floor_source": 1.0,
+        "affine_static4032": 1.4001936420848797,
+        "affine_low12": 4.622802344166223
+      },
+      "paired_faster_rounds": {
+        "affine_static4032": 8,
+        "affine_low12": 9
+      }
+    },
+    {
+      "name": "small_D",
+      "kind": "assigned_positive_cohort",
+      "unit": "13 distinct N, each with its one assigned (m,c) pair",
+      "median_ns_per_group": {
+        "floor_source": 19925.0,
+        "affine_static4032": 30100.0,
+        "affine_low12": 45587.5
+      },
+      "raw_rounds": {
+        "floor_source": [
+          {
+            "round": 0,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 160600,
+            "ns_per_group": 20075.0
+          },
+          {
+            "round": 1,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 159400,
+            "ns_per_group": 19925.0
+          },
+          {
+            "round": 2,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 157900,
+            "ns_per_group": 19737.5
+          },
+          {
+            "round": 3,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 157300,
+            "ns_per_group": 19662.5
+          },
+          {
+            "round": 4,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 158800,
+            "ns_per_group": 19850.0
+          },
+          {
+            "round": 5,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 159800,
+            "ns_per_group": 19975.0
+          },
+          {
+            "round": 6,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 158100,
+            "ns_per_group": 19762.5
+          },
+          {
+            "round": 7,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 170900,
+            "ns_per_group": 21362.5
+          },
+          {
+            "round": 8,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 160700,
+            "ns_per_group": 20087.5
+          }
+        ],
+        "affine_static4032": [
+          {
+            "round": 0,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 245000,
+            "ns_per_group": 30625.0
+          },
+          {
+            "round": 1,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 240900,
+            "ns_per_group": 30112.5
+          },
+          {
+            "round": 2,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 241200,
+            "ns_per_group": 30150.0
+          },
+          {
+            "round": 3,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 240300,
+            "ns_per_group": 30037.5
+          },
+          {
+            "round": 4,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 240700,
+            "ns_per_group": 30087.5
+          },
+          {
+            "round": 5,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 241800,
+            "ns_per_group": 30225.0
+          },
+          {
+            "round": 6,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 239500,
+            "ns_per_group": 29937.5
+          },
+          {
+            "round": 7,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 239800,
+            "ns_per_group": 29975.0
+          },
+          {
+            "round": 8,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 240800,
+            "ns_per_group": 30100.0
+          }
+        ],
+        "affine_low12": [
+          {
+            "round": 0,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 368000,
+            "ns_per_group": 46000.0
+          },
+          {
+            "round": 1,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 364700,
+            "ns_per_group": 45587.5
+          },
+          {
+            "round": 2,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 360600,
+            "ns_per_group": 45075.0
+          },
+          {
+            "round": 3,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 364300,
+            "ns_per_group": 45537.5
+          },
+          {
+            "round": 4,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 363000,
+            "ns_per_group": 45375.0
+          },
+          {
+            "round": 5,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 361500,
+            "ns_per_group": 45187.5
+          },
+          {
+            "round": 6,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 371300,
+            "ns_per_group": 46412.5
+          },
+          {
+            "round": 7,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 5895000,
+            "ns_per_group": 736875.0
+          },
+          {
+            "round": 8,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 367000,
+            "ns_per_group": 45875.0
+          }
+        ]
+      },
+      "speedup_vs_same_membership_floor": {
+        "floor_source": 1.0,
+        "affine_static4032": 0.6619601328903655,
+        "affine_low12": 0.43707156567041405
+      },
+      "paired_faster_rounds": {
+        "affine_static4032": 0,
+        "affine_low12": 0
+      }
+    },
+    {
+      "name": "small_U",
+      "kind": "assigned_positive_cohort",
+      "unit": "13 distinct N, each with its one assigned (m,c) pair",
+      "median_ns_per_group": {
+        "floor_source": 18137.5,
+        "affine_static4032": 29812.5,
+        "affine_low12": 44137.5
+      },
+      "raw_rounds": {
+        "floor_source": [
+          {
+            "round": 0,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 154200,
+            "ns_per_group": 19275.0
+          },
+          {
+            "round": 1,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 153300,
+            "ns_per_group": 19162.5
+          },
+          {
+            "round": 2,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 153400,
+            "ns_per_group": 19175.0
+          },
+          {
+            "round": 3,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 144900,
+            "ns_per_group": 18112.5
+          },
+          {
+            "round": 4,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 143600,
+            "ns_per_group": 17950.0
+          },
+          {
+            "round": 5,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 143700,
+            "ns_per_group": 17962.5
+          },
+          {
+            "round": 6,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 145100,
+            "ns_per_group": 18137.5
+          },
+          {
+            "round": 7,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 143800,
+            "ns_per_group": 17975.0
+          },
+          {
+            "round": 8,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 265100,
+            "ns_per_group": 33137.5
+          }
+        ],
+        "affine_static4032": [
+          {
+            "round": 0,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 235900,
+            "ns_per_group": 29487.5
+          },
+          {
+            "round": 1,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 237600,
+            "ns_per_group": 29700.0
+          },
+          {
+            "round": 2,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 237800,
+            "ns_per_group": 29725.0
+          },
+          {
+            "round": 3,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 239100,
+            "ns_per_group": 29887.5
+          },
+          {
+            "round": 4,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 239200,
+            "ns_per_group": 29900.0
+          },
+          {
+            "round": 5,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 238500,
+            "ns_per_group": 29812.5
+          },
+          {
+            "round": 6,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 249000,
+            "ns_per_group": 31125.0
+          },
+          {
+            "round": 7,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 238100,
+            "ns_per_group": 29762.5
+          },
+          {
+            "round": 8,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 428600,
+            "ns_per_group": 53575.0
+          }
+        ],
+        "affine_low12": [
+          {
+            "round": 0,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 351600,
+            "ns_per_group": 43950.0
+          },
+          {
+            "round": 1,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 351900,
+            "ns_per_group": 43987.5
+          },
+          {
+            "round": 2,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 352900,
+            "ns_per_group": 44112.5
+          },
+          {
+            "round": 3,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 354300,
+            "ns_per_group": 44287.5
+          },
+          {
+            "round": 4,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 353100,
+            "ns_per_group": 44137.5
+          },
+          {
+            "round": 5,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 354000,
+            "ns_per_group": 44250.0
+          },
+          {
+            "round": 6,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 353900,
+            "ns_per_group": 44237.5
+          },
+          {
+            "round": 7,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 351100,
+            "ns_per_group": 43887.5
+          },
+          {
+            "round": 8,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 386600,
+            "ns_per_group": 48325.0
+          }
+        ]
+      },
+      "speedup_vs_same_membership_floor": {
+        "floor_source": 1.0,
+        "affine_static4032": 0.6083857442348009,
+        "affine_low12": 0.4109317473803455
+      },
+      "paired_faster_rounds": {
+        "affine_static4032": 0,
+        "affine_low12": 0
+      }
+    },
+    {
+      "name": "large_D",
+      "kind": "assigned_positive_cohort",
+      "unit": "13 distinct N, each with its one assigned (m,c) pair",
+      "median_ns_per_group": {
+        "floor_source": 108375.0,
+        "affine_static4032": 178025.0,
+        "affine_low12": 152837.5
+      },
+      "raw_rounds": {
+        "floor_source": [
+          {
+            "round": 0,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 852900,
+            "ns_per_group": 106612.5
+          },
+          {
+            "round": 1,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 1880700,
+            "ns_per_group": 235087.5
+          },
+          {
+            "round": 2,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 1470700,
+            "ns_per_group": 183837.5
+          },
+          {
+            "round": 3,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 979400,
+            "ns_per_group": 122425.0
+          },
+          {
+            "round": 4,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 1288000,
+            "ns_per_group": 161000.0
+          },
+          {
+            "round": 5,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 866600,
+            "ns_per_group": 108325.0
+          },
+          {
+            "round": 6,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 855300,
+            "ns_per_group": 106912.5
+          },
+          {
+            "round": 7,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 867000,
+            "ns_per_group": 108375.0
+          },
+          {
+            "round": 8,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 855200,
+            "ns_per_group": 106900.0
+          }
+        ],
+        "affine_static4032": [
+          {
+            "round": 0,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 2848000,
+            "ns_per_group": 356000.0
+          },
+          {
+            "round": 1,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 901500,
+            "ns_per_group": 112687.5
+          },
+          {
+            "round": 2,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 868600,
+            "ns_per_group": 108575.0
+          },
+          {
+            "round": 3,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 1398900,
+            "ns_per_group": 174862.5
+          },
+          {
+            "round": 4,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 1424200,
+            "ns_per_group": 178025.0
+          },
+          {
+            "round": 5,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 1469200,
+            "ns_per_group": 183650.0
+          },
+          {
+            "round": 6,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 1930100,
+            "ns_per_group": 241262.5
+          },
+          {
+            "round": 7,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 875200,
+            "ns_per_group": 109400.0
+          },
+          {
+            "round": 8,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 5855300,
+            "ns_per_group": 731912.5
+          }
+        ],
+        "affine_low12": [
+          {
+            "round": 0,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 1249700,
+            "ns_per_group": 156212.5
+          },
+          {
+            "round": 1,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 1215500,
+            "ns_per_group": 151937.5
+          },
+          {
+            "round": 2,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 1222700,
+            "ns_per_group": 152837.5
+          },
+          {
+            "round": 3,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 1271000,
+            "ns_per_group": 158875.0
+          },
+          {
+            "round": 4,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 5824400,
+            "ns_per_group": 728050.0
+          },
+          {
+            "round": 5,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 1218100,
+            "ns_per_group": 152262.5
+          },
+          {
+            "round": 6,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 1214500,
+            "ns_per_group": 151812.5
+          },
+          {
+            "round": 7,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 1207700,
+            "ns_per_group": 150962.5
+          },
+          {
+            "round": 8,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 1247900,
+            "ns_per_group": 155987.5
+          }
+        ]
+      },
+      "speedup_vs_same_membership_floor": {
+        "floor_source": 1.0,
+        "affine_static4032": 0.6087628142114871,
+        "affine_low12": 0.709086448024863
+      },
+      "paired_faster_rounds": {
+        "affine_static4032": 2,
+        "affine_low12": 2
+      }
+    },
+    {
+      "name": "large_U",
+      "kind": "assigned_positive_cohort",
+      "unit": "13 distinct N, each with its one assigned (m,c) pair",
+      "median_ns_per_group": {
+        "floor_source": 104387.5,
+        "affine_static4032": 135525.0,
+        "affine_low12": 156975.0
+      },
+      "raw_rounds": {
+        "floor_source": [
+          {
+            "round": 0,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 834400,
+            "ns_per_group": 104300.0
+          },
+          {
+            "round": 1,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 835100,
+            "ns_per_group": 104387.5
+          },
+          {
+            "round": 2,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 833100,
+            "ns_per_group": 104137.5
+          },
+          {
+            "round": 3,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 848400,
+            "ns_per_group": 106050.0
+          },
+          {
+            "round": 4,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 836400,
+            "ns_per_group": 104550.0
+          },
+          {
+            "round": 5,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 834300,
+            "ns_per_group": 104287.5
+          },
+          {
+            "round": 6,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 833500,
+            "ns_per_group": 104187.5
+          },
+          {
+            "round": 7,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 1472900,
+            "ns_per_group": 184112.5
+          },
+          {
+            "round": 8,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 866100,
+            "ns_per_group": 108262.5
+          }
+        ],
+        "affine_static4032": [
+          {
+            "round": 0,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 1084200,
+            "ns_per_group": 135525.0
+          },
+          {
+            "round": 1,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 1079800,
+            "ns_per_group": 134975.0
+          },
+          {
+            "round": 2,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 4336000,
+            "ns_per_group": 542000.0
+          },
+          {
+            "round": 3,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 1086100,
+            "ns_per_group": 135762.5
+          },
+          {
+            "round": 4,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 1088500,
+            "ns_per_group": 136062.5
+          },
+          {
+            "round": 5,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 1080900,
+            "ns_per_group": 135112.5
+          },
+          {
+            "round": 6,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 1081900,
+            "ns_per_group": 135237.5
+          },
+          {
+            "round": 7,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 1118400,
+            "ns_per_group": 139800.0
+          },
+          {
+            "round": 8,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 1083500,
+            "ns_per_group": 135437.5
+          }
+        ],
+        "affine_low12": [
+          {
+            "round": 0,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 1249400,
+            "ns_per_group": 156175.0
+          },
+          {
+            "round": 1,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 1249200,
+            "ns_per_group": 156150.0
+          },
+          {
+            "round": 2,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 1247400,
+            "ns_per_group": 155925.0
+          },
+          {
+            "round": 3,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 1255800,
+            "ns_per_group": 156975.0
+          },
+          {
+            "round": 4,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 1261800,
+            "ns_per_group": 157725.0
+          },
+          {
+            "round": 5,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 1250500,
+            "ns_per_group": 156312.5
+          },
+          {
+            "round": 6,
+            "order_slot": 3,
+            "repeats": 8,
+            "total_ns": 3515500,
+            "ns_per_group": 439437.5
+          },
+          {
+            "round": 7,
+            "order_slot": 2,
+            "repeats": 8,
+            "total_ns": 1299400,
+            "ns_per_group": 162425.0
+          },
+          {
+            "round": 8,
+            "order_slot": 1,
+            "repeats": 8,
+            "total_ns": 1280800,
+            "ns_per_group": 160100.0
+          }
+        ]
+      },
+      "speedup_vs_same_membership_floor": {
+        "floor_source": 1.0,
+        "affine_static4032": 0.7702453421877883,
+        "affine_low12": 0.664994425863991
+      },
+      "paired_faster_rounds": {
+        "affine_static4032": 1,
+        "affine_low12": 1
+      }
+    }
+  ],
+  "cost_contract": {
+    "rounds": 9,
+    "repeats_per_round": 8,
+    "timed": "Complete state-membership calls including each N's modular reductions, candidate construction, roots when admitted, flag comparison and group result creation.",
+    "excluded": "Imports, source/input checks, expected-state restoration, table lookup/build, initial warmup, instrumentation and serialization.",
+    "positive_unit": "A 13-member cohort of distinct constructed N with one prescribed pair each; not directly comparable to the public one-N packet.",
+    "repetition_scope": "Same-process paired warm timing replays, not independent success observations or fresh-process benchmarks.",
+    "comparison_scope": "Same two state-membership predicates. No claimed factoring speedup or replacement of the full witness API."
+  },
+  "coverage": {
+    "public_inputs": 3,
+    "public_existing_positions": 39,
+    "new_public_positions": 0,
+    "new_state_predicates": 78,
+    "new_public_square_completion_witness_calls": 0,
+    "positive_state_checks": 52,
+    "retained_small_prime_pairs": 12,
+    "public_unique_positions_remain": 312,
+    "warm_public_position_visits_per_variant": 2808,
+    "warm_constructive_position_visits_per_variant": 3744,
+    "warmups_and_validation_are_additional_replays": true
+  },
+  "reuse_resolution": "COMPOSE_APPLIED: existing source floor completion and residue tables with the derived affine state criteria.",
+  "goal_status": "ACTIVE"
+}
