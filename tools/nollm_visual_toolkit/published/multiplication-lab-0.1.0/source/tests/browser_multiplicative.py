@@ -1,0 +1,88 @@
+"""Chromium acceptance for the dedicated offline page; no hosted deployment."""
+import argparse, json, sys, math
+from pathlib import Path
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
+from nollm_visual_toolkit import multiplicative as m
+from playwright.sync_api import sync_playwright
+
+def main():
+    p=argparse.ArgumentParser();p.add_argument('--out',type=Path,required=True);a=p.parse_args();a.out.mkdir(parents=True,exist_ok=True)
+    pagefile=m.render(a.out/'index.html');checks=[];errors=[];requests=[]
+    def ck(name,value):
+        assert value,name
+        checks.append(name);print('PASS',name,flush=True)
+    with sync_playwright() as pw:
+        b=pw.chromium.launch(headless=True,executable_path='/usr/bin/chromium',args=['--no-sandbox'])
+        page=b.new_page(viewport={'width':1600,'height':1060},accept_downloads=True)
+        page.on('pageerror',lambda e:errors.append(str(e)));page.on('request',lambda r:requests.append(r.url))
+        # Host blocks file/http navigation. Execute supplied HTML in a real Chromium document.
+        page.set_content(pagefile.read_text());page.wait_for_function('window.MulLab&&MulLab.status().drawn===65536')
+        status=lambda:page.evaluate('MulLab.status()')
+        ck('full_population_drawn',status()['drawn']==65536)
+        ck('zero_console_errors',not errors)
+        field=m.build_field();py=m.statistics(field);js=page.evaluate('MulLab.stats()')
+        ck('all_exact_density_bins_match_python',js['grid']==py['grid'])
+        ck('collision_count_matches_python',js['collision_groups']==py['collision_groups'])
+        ck('full_phase_and_omega_match',page.evaluate('MulLab.data().records.map(r=>[r.phase,r.omega])')==[[r['phase'],r['omega']]for r in field['records']])
+        coords=page.evaluate('MulLab.data().records.map(r=>r.coord)')
+        mismatch=sum(a!=r['coord']for a,r in zip(coords,field['records']))
+        ck('default_float_quantization_crosscheck',mismatch==0)
+        ck('identity_zero_null',page.evaluate('MulLab.data().records[0].phase')is None)
+        ck('initial_pair_exact_phase',status()['pair']['phase_defect']==0)
+        page.screenshot(path=str(a.out/'lab_continuous.png'))
+        page.locator('#scheme').select_option('spiral');page.wait_for_function('MulLab.status().phase_scheme==="spiral"')
+        ck('spiral_not_claimed_multiplicative',status()['pair']['phase_defect']!=0)
+        spiral=page.evaluate('MulLab.stats()');ck('spiral_density_matches_python',spiral['grid']==m.statistics(m.build_field(m.config(scheme='spiral')))['grid'])
+        page.screenshot(path=str(a.out/'lab_spiral.png'))
+        page.locator('#scheme').select_option('mixed')
+        mix=m.build_field(m.config(scheme='mixed'))
+        ck('mixed_full_phase_crosscheck',page.evaluate('MulLab.data().records.map(r=>r.phase)')==[r['phase']for r in mix['records']])
+        ck('mixed_density_crosscheck',page.evaluate('MulLab.stats().grid')==m.statistics(mix)['grid'])
+        ck('mixed_exact_pair',status()['pair']['phase_defect']==0)
+        page.screenshot(path=str(a.out/'lab_mixed.png'))
+        page.locator('#scheme').select_option('radial');ck('radial_phase_preserved',status()['pair']['phase_defect']==0)
+        ck('radial_uniformity_failure_visible',page.evaluate('MulLab.stats().area_sector_cv')>5)
+        page.locator('#scheme').select_option('valuation');page.locator('#prime').select_option('5');page.locator('#phaseNumber').fill('12345');page.locator('#setPhase').click()
+        ck('custom_prime_phase_used',page.evaluate('MulLab.data().records[5].phase')==12345)
+        ck('custom_pair_still_exact',status()['pair']['phase_defect']==0)
+        page.locator('#resetPhases').click();ck('default_phase_restored',page.evaluate('MulLab.data().records[5].phase')==field['records'][5]['phase'])
+        raw=page.evaluate('JSON.stringify(MulLab.data().records.map(r=>[r.n,r.phase]))')
+        page.locator('#view').select_option('stack');page.locator('[data-angle="120"]').click()
+        ck('camera_does_not_change_phase',page.evaluate('JSON.stringify(MulLab.data().records.map(r=>[r.n,r.phase]))')==raw)
+        page.wait_for_function('MulLab.status().drawn===65536');page.screenshot(path=str(a.out/'lab_layers.png'))
+        page.locator('#slice').check();page.locator('#layer').fill('3');page.locator('#layer').dispatch_event('input')
+        expected=sum(r['omega']==3 for r in field['records']);page.wait_for_function(f'MulLab.status().drawn==={expected}')
+        ck('exact_omega_slice',status()['drawn']==expected)
+        ck('slice_does_not_change_population_statistics',page.evaluate('MulLab.stats().positive_population')==65535)
+        page.locator('#slice').uncheck();page.locator('#view').select_option('hex');page.locator('#query').fill('3');page.locator('#find').click()
+        page.locator('#trace').click();ck('full_multiplication_trajectory',status()['path']==[3,12,48,192,768,3072,12288,49152])
+        page.locator('#a').fill('65535');page.locator('#b').fill('65535');page.locator('#multiply').click();ck('product_outside_no_wrap',not status()['pair']['in_range'] and status()['pair']['product']==4294836225)
+        page.locator('#a').fill('5');page.locator('#b').fill('7');page.locator('#multiply').click()
+        # Genuine canvas pointer interaction with a rendered endpoint.
+        page.locator('#view').select_option('ideal');page.locator('#fit').click();page.wait_for_timeout(150)
+        xy=page.evaluate('MulLab.projectId(12345)');box=page.locator('#fieldCanvas').bounding_box();page.mouse.click(box['x']+xy[0],box['y']+xy[1]);ck('pointer_identity_lookup',status()['selected']==12345)
+        saved=page.evaluate('MulLab.session()');page.locator('[data-angle="60"]').click();page.evaluate('s=>MulLab.restore(s)',saved);ck('session_roundtrip',page.evaluate('MulLab.session()')==saved)
+        bad=json.loads(json.dumps(saved));bad['view_state']['zoom']=-3
+        ck('bad_session_rejected_without_mutation',page.evaluate('s=>{try{MulLab.restore(s);return false;}catch(e){return true;}}',bad)and page.evaluate('MulLab.session()')==saved)
+        # Actual export, download, and reload as a second independent page.
+        page.locator('summary').click()
+        with page.expect_download() as dl:page.locator('#snapshot').click()
+        snapshot=a.out/'saved_snapshot.html';dl.value.save_as(snapshot)
+        q=b.new_page(viewport={'width':1600,'height':1060});q.on('pageerror',lambda e:errors.append(str(e)));q.set_content(snapshot.read_text());q.wait_for_function('window.MulLab&&MulLab.status().drawn===65536')
+        ck('exported_html_reopens_with_session',q.evaluate('MulLab.session()')==saved);q.close()
+        with page.expect_download()as dl:page.locator('#json').click()
+        dl.value.save_as(a.out/'exported_hex.json');export=json.loads((a.out/'exported_hex.json').read_text())
+        ck('export_v2_all_ids',len(export['records'])==65536 and export['records'][-1]['id']=='65535')
+        ck('export_preserves_phase_and_ideal',all('phase'in r['fields']and'ideal_x'in r['fields']for r in export['records']))
+        with page.expect_download()as dl:page.locator('#png').click()
+        dl.value.save_as(a.out/'canvas.png');ck('png_valid_signature',(a.out/'canvas.png').read_bytes().startswith(b'\x89PNG'))
+        page.locator('summary').click();page.set_viewport_size({'width':390,'height':844});page.wait_for_timeout(200)
+        ck('mobile_no_horizontal_overflow',page.evaluate('document.documentElement.scrollWidth<=innerWidth+1'))
+        ck('mobile_canvas_present',page.locator('#fieldCanvas').bounding_box()['height']>=430)
+        page.screenshot(path=str(a.out/'lab_mobile.png'),full_page=True)
+        ck('no_errors_final',not errors)
+        ck('no_external_requests',all(u.startswith('file:') or u.startswith('blob:') for u in requests))
+        b.close()
+    result={'schema':'NOLLM_MULTIPLICATIVE_BROWSER_ACCEPTANCE_V1','checks_passed':len(checks),'checks':checks,'page_errors':errors,'requests':requests,'browser':'Chromium / Playwright / supplied HTML via set_content','python_js_quantized_coordinate_mismatches':mismatch,'limits':['Host blocked file/http navigation; supplied-document execution only','Not native iOS Safari certification','Not Nollm runtime integration','Float geometry is not exact phase arithmetic']}
+    (a.out/'browser_acceptance.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');print(json.dumps(result,ensure_ascii=False))
+if __name__=='__main__':main()

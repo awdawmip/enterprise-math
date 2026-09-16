@@ -1,0 +1,39 @@
+{
+  "schema": "NOLLM_RECIPROCAL_PHASE_EXTENSION_VERIFICATION_V1",
+  "version": "0.1.0",
+  "parent_toolkit_version": "0.3.0",
+  "parent_multiplication_lab_version": "0.1.0",
+  "activity_id": "RA-nollm-multiplication-field-20260911-c6c82",
+  "status": "FINITE_RESEARCH_TOOL_EXTENSION",
+  "candidate": "a2=M/8; ap=p^{-1} mod M for odd primes",
+  "verification": {
+    "unit_tests_passed": 8,
+    "focused_chromium_checks_passed": 11,
+    "page_errors": 0,
+    "external_requests": 0,
+    "population_each_page": 65536,
+    "phase_11_bits": {"modulus": 2048, "p2_tick": 256, "occupied_cells": 57342, "exact_failures": 0},
+    "phase_16_bits": {"modulus": 65536, "p2_tick": 8192, "occupied_cells": 57339, "exact_failures": 0}
+  },
+  "architecture": {
+    "existing_multiplication_lab_rewritten": false,
+    "existing_workbench_rewritten": false,
+    "template_extension": "six exact marker substitutions at generation time; mismatch fails closed",
+    "source_data_preserved": true,
+    "preview_server_reused": "nollm_visual_toolkit.web.preview_server"
+  },
+  "claim_boundary": {
+    "multiplicative_phase": "exact by construction",
+    "polar_rendering": "floating observer",
+    "hex_quantization": "display observer, not native physical geometry",
+    "mathematical_acceptance": false,
+    "nollm_runtime_modified": false,
+    "x6_definition_modified": false,
+    "asymptotic_equidistribution_claim": false
+  },
+  "research_evidence": [
+    "research_notes/nollm_reciprocal_phase_20260911.md",
+    "research_notes/nollm_reciprocal_phase_20260911/verify.py",
+    "research_notes/nollm_reciprocal_phase_20260911/results_summary.json"
+  ]
+}
