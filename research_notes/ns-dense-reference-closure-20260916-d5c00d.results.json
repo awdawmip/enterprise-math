@@ -1,0 +1,101 @@
+{
+  "schema": "EM_DENSE_REFERENCE_CLOSURE_RESULTS_V1",
+  "event_id": "NS-DENSE-REFERENCE-CLOSURE-20260916-D5C00D-17",
+  "status": "EXACT_DERIVATIONS_AND_FINITE_TESTS_WITH_EXPLICIT_QUANTUM_ASSUMPTIONS",
+  "parent_sha256": "d7784336c350e5d3795c3c3163f55a1477752a264b842edc49af14cbdf0bddd1",
+  "sympy_version": "1.14.0",
+  "precision": {
+    "M": [
+      [-3, 6, 6, 0],
+      [2, 5, -4, 6],
+      [2, -4, 5, 6],
+      [8, 2, 2, -3]
+    ],
+    "M_mod3": [
+      [0, 0, 0, 0],
+      [2, 2, 2, 0],
+      [2, 2, 2, 0],
+      [2, 2, 2, 0]
+    ],
+    "persistent_residue": [0, 2, 2, 2],
+    "cycles_executed": 128,
+    "examples": [
+      {"cycles": 1, "amplitude_denominator": "9", "probability_denominator": "81", "last_amplitude": "8/9"},
+      {"cycles": 2, "amplitude_denominator": "81", "probability_denominator": "6561", "last_amplitude": "-40/81"},
+      {"cycles": 3, "amplitude_denominator": "729", "probability_denominator": "531441", "last_amplitude": "560/729"},
+      {"cycles": 4, "amplitude_denominator": "6561", "probability_denominator": "43046721", "last_amplitude": "1232/6561"},
+      {
+        "cycles": 128,
+        "amplitude_denominator": "139008452377144732764939786789661303114218850808529137991604824430036072629766435941001769154109609521811665540548899435521",
+        "probability_denominator": "19323349832288915105454068722019581055401465761603328550184537628902466746415537000017939429786029354390082329294586119505153509101332940884098040478728639542560550133727399482778062322407372338121043399668242276591791504658985882995272436541441",
+        "last_amplitude": "95879690149499918594557448317392599031626811097501444726685077349248108330563909893680200960418117119112890383404952506880/139008452377144732764939786789661303114218850808529137991604824430036072629766435941001769154109609521811665540548899435521"
+      }
+    ],
+    "claim": "Three amplitudes have exact reduced denominator 3^(2n) for every n>=1."
+  },
+  "single_copy": {
+    "old_X_Y_fail_local_number_commutation": true,
+    "diagonal_effect_basis_tests": 4,
+    "claim": "Under the declared no-asymmetric-reference measurement contract only number-block effects are available."
+  },
+  "two_copy": {
+    "full_source_excitation_number": 2,
+    "sector_weights": [
+      ["1/81", "8/81", "16/81"],
+      ["8/81", "32/81", "0"],
+      ["16/81", "0", "0"]
+    ],
+    "herald_probability": "32/81",
+    "conditional_CHSH": "14/5",
+    "unconditional_same_observables_CHSH": "778/405",
+    "all_rejected_flags_retained": true,
+    "setting_choice_after_herald_required": true,
+    "conditional_correlations": [["3/5", "3/5"], ["4/5", "-4/5"]],
+    "conditional_probabilities": [
+      {"settings": [0, 0], "probabilities": {"-1,-1": "2/5", "-1,1": "1/10", "1,-1": "1/10", "1,1": "2/5"}},
+      {"settings": [0, 1], "probabilities": {"-1,-1": "2/5", "-1,1": "1/10", "1,-1": "1/10", "1,1": "2/5"}},
+      {"settings": [1, 0], "probabilities": {"-1,-1": "9/20", "-1,1": "1/20", "1,-1": "1/20", "1,1": "9/20"}},
+      {"settings": [1, 1], "probabilities": {"-1,-1": "1/20", "-1,1": "9/20", "1,-1": "9/20", "1,1": "1/20"}}
+    ],
+    "block_effect_equivalence_tests": 36,
+    "measurement_branch_matrix_unit_tests": 128,
+    "actual_state_non_signalling_tests": 12,
+    "full_coherent_protocol": [
+      {"settings": [0, 0], "nonzero_amplitudes_by_stage": [9, 9, 21]},
+      {"settings": [0, 1], "nonzero_amplitudes_by_stage": [9, 9, 21]},
+      {"settings": [1, 0], "nonzero_amplitudes_by_stage": [9, 21, 35]},
+      {"settings": [1, 1], "nonzero_amplitudes_by_stage": [9, 21, 35]}
+    ],
+    "coherent_branch_checks": 208,
+    "finite_protocol_amplitude_grid_denominator": 90,
+    "finite_protocol_probability_grid_denominator": 8100
+  },
+  "joint_provenance": {
+    "same_single_copy_observation_for_all_k": true,
+    "symbolic_CHSH": "(6*k**2 + 8)/(k**2 + 4)",
+    "strict_margin": "4*k**2/(k**2 + 4)",
+    "rational_k_values": 45,
+    "outcome_probabilities_checked": 720,
+    "profiles": [
+      {"joint_sign_coherence": "0", "CHSH": "2", "a": "1", "b": "0", "sufficient_correlation_error_bound": "0"},
+      {"joint_sign_coherence": "1/4", "CHSH": "134/65", "a": "63/65", "b": "16/65", "sufficient_correlation_error_bound": "1/65"},
+      {"joint_sign_coherence": "1/2", "CHSH": "38/17", "a": "15/17", "b": "8/17", "sufficient_correlation_error_bound": "1/17"},
+      {"joint_sign_coherence": "1", "CHSH": "14/5", "a": "3/5", "b": "4/5", "sufficient_correlation_error_bound": "1/5"}
+    ]
+  },
+  "transport": {
+    "signed_native_neighbor_routes": 12,
+    "swap_basis_checks": 4,
+    "transported_joint_state_exact": true
+  },
+  "nonclaims": [
+    "No derivation of tensor products, Born measurements or native force law from P000.",
+    "Conservation alone does not impose the stronger reference-free local measurement contract.",
+    "Quantum amplitudes are not proved to be native ontic grid coordinates.",
+    "The heralded CHSH value is NOT the unconditional CHSH value.",
+    "Two-copy preparation requires retained relative coherence; independent dephasing removes it.",
+    "Degenerate pointer registers and controlled instruments are declared resources, not proved physical devices.",
+    "No uncontrolled precision rounding, erasure of failed flags, energy reservoir, or faster-than-light signalling.",
+    "No NS theorem, independent review, Lean build or historical-novelty claim."
+  ]
+}
