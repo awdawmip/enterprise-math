@@ -1,0 +1,12 @@
+{
+  "schema": "EM_EXPLICIT_PARTICLE_HOLE_EXTENSION_V1",
+  "status": "ADDED_COMPARISON_ASSUMPTION_NOT_RETROACTIVE_PARENT_RULE",
+  "parent_gate": "G on one-excitation sector; identity elsewhere",
+  "added_gate": "G also on ordered one-hole sector |011>,|101>,|110>; identity on |000>,|111>",
+  "construction": "U_dense = U_parent * X^tensor3 * U_parent * X^tensor3",
+  "reason": "Probe a fully occupied persistent finite lattice background rather than merely existing empty registers",
+  "specified_before_extension_tests": true,
+  "inherited_dynamics": "one-excitation walk unchanged",
+  "new_assertions_to_check": ["unitarity", "number conservation", "particle-hole symmetry", "one-hole walk equals one-excitation walk", "filled background is fixed"],
+  "scope": "Finite periodic lattice and finite-horizon no-wrap witnesses; not a derivation from P000 or nature"
+}

@@ -1,0 +1,350 @@
+{
+  "schema": "EM_CONSERVATIVE_NETWORK_PRECISION_RESULTS_V1",
+  "event_id": "NS-CONSERVATIVE-NETWORK-PRECISION-20260916-D5C00D-17",
+  "status": "EXACT_FINITE_CALCULATIONS_WITH_ORDINARY_PROOFS_NOT_NATIVE_PHYSICS",
+  "parent_file_sha256": "d7784336c350e5d3795c3c3163f55a1477752a264b842edc49af14cbdf0bddd1",
+  "law_sha256": "0faf8b6353dbafb70203f335a8944044f0ee46033de2b69b277d4e1cee8ad516",
+  "source_snapshot": "7101de468735f6e0b6a74c8f1bb1cf0fb29a8712",
+  "hole_extension_sha256": "80362e841aa44ea72eecc1f9d56bf07acac69d44b6f14c7547cbf9f9d1a7f52b",
+  "steps": 12,
+  "trajectory": [
+    {
+      "tick": 0,
+      "nonzero_modes": 1,
+      "nonzero_cells": 1,
+      "source_cell_probability": "1",
+      "coherent_vs_dephased_l1": "0",
+      "largest_numerator_bits": 1
+    },
+    {
+      "tick": 1,
+      "nonzero_modes": 3,
+      "nonzero_cells": 3,
+      "source_cell_probability": "1/9",
+      "coherent_vs_dephased_l1": "0",
+      "largest_numerator_bits": 2
+    },
+    {
+      "tick": 2,
+      "nonzero_modes": 9,
+      "nonzero_cells": 9,
+      "source_cell_probability": "1/81",
+      "coherent_vs_dephased_l1": "0",
+      "largest_numerator_bits": 3
+    },
+    {
+      "tick": 3,
+      "nonzero_modes": 27,
+      "nonzero_cells": 27,
+      "source_cell_probability": "1/729",
+      "coherent_vs_dephased_l1": "0",
+      "largest_numerator_bits": 4
+    },
+    {
+      "tick": 4,
+      "nonzero_modes": 81,
+      "nonzero_cells": 81,
+      "source_cell_probability": "1/6561",
+      "coherent_vs_dephased_l1": "0",
+      "largest_numerator_bits": 5
+    },
+    {
+      "tick": 5,
+      "nonzero_modes": 243,
+      "nonzero_cells": 243,
+      "source_cell_probability": "1/59049",
+      "coherent_vs_dephased_l1": "0",
+      "largest_numerator_bits": 6
+    },
+    {
+      "tick": 6,
+      "nonzero_modes": 729,
+      "nonzero_cells": 729,
+      "source_cell_probability": "1/531441",
+      "coherent_vs_dephased_l1": "0",
+      "largest_numerator_bits": 7
+    },
+    {
+      "tick": 7,
+      "nonzero_modes": 2187,
+      "nonzero_cells": 1215,
+      "source_cell_probability": "43/1594323",
+      "coherent_vs_dephased_l1": "0",
+      "largest_numerator_bits": 8
+    },
+    {
+      "tick": 8,
+      "nonzero_modes": 3645,
+      "nonzero_cells": 2025,
+      "source_cell_probability": "211/1594323",
+      "coherent_vs_dephased_l1": "704384/1594323",
+      "largest_numerator_bits": 10
+    },
+    {
+      "tick": 9,
+      "nonzero_modes": 6075,
+      "nonzero_cells": 3375,
+      "source_cell_probability": "2299/1594323",
+      "coherent_vs_dephased_l1": "3836416/4782969",
+      "largest_numerator_bits": 11
+    },
+    {
+      "tick": 10,
+      "nonzero_modes": 10125,
+      "nonzero_cells": 5625,
+      "source_cell_probability": "19363/1594323",
+      "coherent_vs_dephased_l1": "1189876480/1162261467",
+      "largest_numerator_bits": 14
+    },
+    {
+      "tick": 11,
+      "nonzero_modes": 16875,
+      "nonzero_cells": 9375,
+      "source_cell_probability": "178123/1594323",
+      "coherent_vs_dephased_l1": "36980834176/31381059609",
+      "largest_numerator_bits": 16
+    },
+    {
+      "tick": 12,
+      "nonzero_modes": 28125,
+      "nonzero_cells": 15625,
+      "source_cell_probability": "59377/531441",
+      "coherent_vs_dephased_l1": "360808905088/282429536481",
+      "largest_numerator_bits": 18
+    }
+  ],
+  "execution_corrections": [
+    "Used symbolic simplification before testing encoded-observable square identity; the original structural equality test rejected an unexpanded but identically zero expression. No gate or state was changed."
+  ],
+  "local_continuity_equalities": 38332,
+  "axis_covariance_equalities": 2880,
+  "translation_equalities": 24,
+  "general_signed_inputs_steps": 144,
+  "finite_torus_period": 27,
+  "finite_torus_steps_equal_without_wrap": 12,
+  "exact_reverse_echo": true,
+  "first_phase_sensitive_tick_for_this_seed": 8,
+  "native_swaps": {
+    "ring_cells": 7,
+    "registers": 14,
+    "basis_states": 16384,
+    "primitive_edge_swap_layer": true
+  },
+  "quantum_transport": {
+    "full_local_gate_dimension": 8,
+    "unitary": true,
+    "explicit_hole_extension": {
+      "parent_one_hole_gate_is_identity": true,
+      "new_gate_complement_symmetric": true,
+      "commutes_with_number": true,
+      "filled_and_empty_local_backgrounds_fixed": true,
+      "one_hole_equals_one_excitation": true
+    },
+    "commutes_with_number": true,
+    "encoded_two_lab_CHSH": "112/45",
+    "one_step_single_receiver_CHSH": "112/405",
+    "receiver_minor_formula": "-16*p^2/81",
+    "receiver_CHSH_formula": "112*p/45",
+    "explicit_six_qubit_receiver_trace": true,
+    "no_postselection": true,
+    "local_channel_non_signalling_cases": 3,
+    "receiver_records": [
+      {
+        "tick": 0,
+        "receiver_probability": "1",
+        "equatorial_CHSH": "112/45",
+        "PT_minor": "-16/81"
+      },
+      {
+        "tick": 1,
+        "receiver_probability": "1/9",
+        "equatorial_CHSH": "112/405",
+        "PT_minor": "-16/6561"
+      },
+      {
+        "tick": 2,
+        "receiver_probability": "1/81",
+        "equatorial_CHSH": "112/3645",
+        "PT_minor": "-16/531441"
+      },
+      {
+        "tick": 3,
+        "receiver_probability": "1/729",
+        "equatorial_CHSH": "112/32805",
+        "PT_minor": "-16/43046721"
+      },
+      {
+        "tick": 4,
+        "receiver_probability": "1/6561",
+        "equatorial_CHSH": "112/295245",
+        "PT_minor": "-16/3486784401"
+      },
+      {
+        "tick": 5,
+        "receiver_probability": "1/59049",
+        "equatorial_CHSH": "112/2657205",
+        "PT_minor": "-16/282429536481"
+      },
+      {
+        "tick": 6,
+        "receiver_probability": "1/531441",
+        "equatorial_CHSH": "112/23914845",
+        "PT_minor": "-16/22876792454961"
+      },
+      {
+        "tick": 7,
+        "receiver_probability": "43/1594323",
+        "equatorial_CHSH": "4816/71744535",
+        "PT_minor": "-29584/205891132094649"
+      },
+      {
+        "tick": 8,
+        "receiver_probability": "211/1594323",
+        "equatorial_CHSH": "23632/71744535",
+        "PT_minor": "-712336/205891132094649"
+      },
+      {
+        "tick": 9,
+        "receiver_probability": "2299/1594323",
+        "equatorial_CHSH": "257488/71744535",
+        "PT_minor": "-84566416/205891132094649"
+      },
+      {
+        "tick": 10,
+        "receiver_probability": "19363/1594323",
+        "equatorial_CHSH": "2168656/71744535",
+        "PT_minor": "-5998812304/205891132094649"
+      },
+      {
+        "tick": 11,
+        "receiver_probability": "178123/1594323",
+        "equatorial_CHSH": "19949776/71744535",
+        "PT_minor": "-507644850064/205891132094649"
+      },
+      {
+        "tick": 12,
+        "receiver_probability": "59377/531441",
+        "equatorial_CHSH": "6650224/23914845",
+        "PT_minor": "-56410050064/22876792454961"
+      }
+    ]
+  },
+  "four_port_precision": {
+    "integer_update_matrix": [
+      [
+        -3,
+        6,
+        6,
+        0
+      ],
+      [
+        2,
+        5,
+        -4,
+        6
+      ],
+      [
+        2,
+        -4,
+        5,
+        6
+      ],
+      [
+        8,
+        2,
+        2,
+        -3
+      ]
+    ],
+    "pairs_checked": 32,
+    "exact_denominator_formula": "9^t in components 2,3,4",
+    "mod3_residue_after_first_pair": [
+      0,
+      2,
+      2,
+      2
+    ],
+    "first_states": [
+      {
+        "pairs_of_gates": 1,
+        "state": [
+          "-1/3",
+          "2/9",
+          "2/9",
+          "8/9"
+        ]
+      },
+      {
+        "pairs_of_gates": 2,
+        "state": [
+          "11/27",
+          "44/81",
+          "44/81",
+          "-40/81"
+        ]
+      },
+      {
+        "pairs_of_gates": 3,
+        "state": [
+          "143/243",
+          "-130/729",
+          "-130/729",
+          "560/729"
+        ]
+      },
+      {
+        "pairs_of_gates": 4,
+        "state": [
+          "-949/2187",
+          "4088/6561",
+          "4088/6561",
+          "1232/6561"
+        ]
+      }
+    ],
+    "unit_norm": true,
+    "infinite_reachable_set_in_fixed_four_modes": true,
+    "not_closed_on_any_fixed_finite_amplitude_alphabet": true
+  },
+  "guarded_integer_quantum_readout_obstruction": {
+    "input_integer_vectors": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        3,
+        0,
+        0
+      ]
+    ],
+    "same_normalized_input_density": true,
+    "output_integer_vectors": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        -1,
+        2,
+        2
+      ]
+    ],
+    "first_output_probability": [
+      "1",
+      "1/9"
+    ],
+    "interpretation": "Guarded integer reflection does not descend through normalization to a pure quantum state update; retain scale or prove a different bridge."
+  },
+  "nonclaims": [
+    "Quantum tensors/amplitudes/Born rule are extra comparison assumptions.",
+    "Dense resident slots do not imply dense excitation or a derived force law.",
+    "Number conservation is not conservation of a full implementation Hamiltonian.",
+    "Neither rational amplitudes nor finite dimension imply fixed resolution.",
+    "Encoded-lab Bell measurements may require coherent phase references.",
+    "No physical force, NS conclusion, independent review or Lean validation.",
+    "An intentional inverse-sequence echo is not a claim of automatic global recurrence."
+  ]
+}
