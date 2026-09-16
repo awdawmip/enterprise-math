@@ -1,0 +1,112 @@
+{
+  "schema": "CFD_EXACT_CANONICAL_GUARD_OBSERVATION_V1",
+  "task_id": "RS-CFD-SPECTRAL-HYBRID-20260910",
+  "claim_id": "CFD9R2K7-HOST-20260916",
+  "researcher_id": "EM-CFD-49157B",
+  "source_sha": "6097ff85042839fde28c91a13f2857876a77566f",
+  "control_sha": "b9d5bcd182d64406f37c3d306fa88674de34f1b3",
+  "workflow_run_id": "35049511782",
+  "observed_at": "2026-09-16T02:50:31.183051+00:00",
+  "guard_exit_code": 0,
+  "guard_result": {
+    "authorization_authority": "CURRENT_AUTHORIZED_WINNING_ISSUE_240_CLAIM",
+    "authorized": true,
+    "execution_binding": {
+      "allowed_outputs": [
+        "research_notes/CFD9R2K7/host_20260916/",
+        ".github/workflows/cfd-host-20260916.yml"
+      ],
+      "binding_source": "LIVE_SELF_CONTAINED_CLAIM",
+      "claim_id": "CFD9R2K7-HOST-20260916",
+      "execution_branch": "research/cfd-host-20260916-68a17c",
+      "execution_branch_base": "d2984d1a0c5c8221ee103084dd3da68dd039dfaa",
+      "owner_lease_until": "2026-09-16T05:40:48+00:00",
+      "publication_id": "TP2-C3B717C14153D5AC45BF",
+      "researcher_id": "EM-CFD-49157B",
+      "server_author_login": "awdawmip",
+      "server_author_user_id": 30957095,
+      "server_comment_id": 5691221653,
+      "taskbook_blob_sha1": "sha1:a678a1769cf04df52520fe21b4404c0e59267689",
+      "theorem_owner": "taskbook/unassigned"
+    },
+    "owner_claim": {
+      "claim_id": "CFD9R2K7-HOST-20260916",
+      "owner_lease_until": "2026-09-16T05:40:48+00:00",
+      "researcher_id": "EM-CFD-49157B",
+      "server_author_login": "awdawmip",
+      "server_comment_id": 5691221653
+    },
+    "startup_transport": {
+      "agents_md": "INJECTED_CONTEXT_ONLY_DO_NOT_REMOTE_SEARCH_OR_FETCH_FOR_TASK_START",
+      "control_epoch": "EM-CONTROL-20260904-CANONICAL-DISPATCH-AUTHORITY-1",
+      "conversation_rebase": {
+        "after_rebase": "RESUME_FROM_CURRENT_CANONICAL_DISPATCH_AND_HIGHEST_VERIFIED_DURABLE_FRONTIER",
+        "cached_conversation_control_plan": "NONAUTHORITATIVE_REBASE_TO_CURRENT",
+        "ci_pending": "PENDING_NONBLOCKING_CONTINUE_PARENT_TASK",
+        "control_epoch": "EM-CONTROL-20260904-CANONICAL-DISPATCH-AUTHORITY-1",
+        "discard": [
+          "PR_REQUIRED_FOR_START_PROGRESS_DURABILITY_OR_HANDOFF_UNLESS_EXACT_CURRENT_TASK_REQUIRES_IT",
+          "CI_WAIT_OR_REPEATED_CI_MONITOR_AS_CONVERSATION_BARRIER_WHEN_PENDING_NONBLOCKING",
+          "DRAFT_READY_TOGGLE_MERELY_TO_TRIGGER_VALIDATION",
+          "REMOTE_SEARCH_OR_FETCH_AGENTS_MD_MERELY_FOR_TASK_START",
+          "RESTART_VERIFIED_COMPLETE_WORK_BECAUSE_CONVERSATION_IS_OLD_RESUMED_OR_CONTEXT_IS_MISSING",
+          "CACHED_PREVIOUS_CONTROL_ROUTE_WHEN_CURRENT_CANONICAL_DISPATCH_OR_RUNTIME_DISAGREES",
+          "MANUAL_REPOSITORY_SCAN_OR_VISIBLE_TASK_RECORDS_AS_TASK_AVAILABILITY_AUTHORITY",
+          "TOP_PRIORITY_LEASED_IMPLIES_NO_TASK_WITHOUT_CANONICAL_DISPATCH",
+          "BACKLOG_FREE_OR_NAMED_RESEARCH_LINE_PRESENCE_IMPLIES_CLAIMABLE"
+        ],
+        "mode": "ALWAYS_IDEMPOTENT_ON_CONTROL_ENTRY",
+        "pr_default": "OPTIONAL_DURABLE_OR_REVIEW_SURFACE_NOT_CONVERSATION_GATE",
+        "preserve": [
+          "EXACT_TASK_AND_CURRENT_PUBLICATION_AUTHORITY",
+          "WINNING_CLAIM_AND_OWNER_SCOPE",
+          "HIGHEST_VERIFIED_DURABLE_FRONTIER",
+          "FROZEN_SOURCE_AND_BLINDNESS_RESTRICTIONS",
+          "THEOREM_STRENGTH_AND_TASK_LOCAL_SCOPE",
+          "NO_SORRY_NO_ADMIT_NO_CUSTOM_AXIOM_AND_OTHER_FROZEN_CONSTRAINTS"
+        ],
+        "repeated_ci_poll_without_state_change": "FORBIDDEN_NO_PROGRESS_ACTION",
+        "taskbook_policy_digest_impact": "NONE_CONTROL_TRANSPORT_ONLY"
+      },
+      "conversation_rebase_required": true,
+      "hot_start": [
+        "REBASE_CACHED_CONVERSATION_CONTROL_PLAN",
+        "CONSUME_CURRENT_CANONICAL_DISPATCH_DECISION",
+        "EXACT_DISPATCH_TARGET",
+        "EXACT_TASK_PUBLICATION_AND_TASKBOOK",
+        "FIRST_REQUIRED_DEPENDENCY",
+        "SUBSTANTIVE_RESEARCH"
+      ],
+      "if_agents_context_unavailable": "PROCEED_FROM_CANONICAL_DISPATCH_TARGET_AND_EXACT_TASKBOOK",
+      "remote_control_reads": "TRIGGERED_ONLY",
+      "schema": "ENTERPRISE_MATH_RESEARCH_STARTUP_TRANSPORT_V2",
+      "task_availability_authority": {
+        "authority": "CANONICAL_RESEARCH_CONTROL_DISPATCH_OUTPUT_ONLY",
+        "awaiting_review_blocked_complete": "NOT_FRESH_CANDIDATE",
+        "backlog_or_dormant": "NOT_FRESH_CANDIDATE",
+        "canonical_entrypoint": "research_control_dispatch.py",
+        "claim_rule": "CLAIM_ONLY_THE_EXACT_TARGET_RETURNED_BY_CURRENT_CANONICAL_DISPATCH",
+        "free_axiom_discovery": "SEPARATE_ROLE_ROUTE_NOT_ORDINARY_SCHEDULER_FALLBACK",
+        "higher_priority_leased": "EXCLUDE_FROM_FRESH_CANDIDATES_AND_CONTINUE_CANONICAL_SCAN",
+        "manual_override_allowed": false,
+        "manual_repository_scan": "NONAUTHORITATIVE_FOR_TASK_AVAILABILITY",
+        "no_task_statement_rule": "MAY_ASSERT_NO_DISPATCH_ONLY_FROM_CURRENT_CANONICAL_NO_DISPATCH_ACTION",
+        "verify_liveness_rule": "VERIFY_SESSION_LIVENESS_IS_NOT_NO_DISPATCH_AND_MUST_NOT_BE_REPHRASED_AS_NO_TASK",
+        "visible_research_line": "PRESENCE_DOES_NOT_IMPLY_ORDINARY_FRESH_CANDIDATE",
+        "visible_task_record": "PRESENCE_DOES_NOT_IMPLY_CLAIMABLE"
+      },
+      "taskbook_policy_digest_impact": "NONE_CONTROL_TRANSPORT_ONLY"
+    },
+    "task_id": "RS-CFD-SPECTRAL-HYBRID-20260910",
+    "task_registration": {
+      "claimable": true,
+      "publication_id": "TP2-C3B717C14153D5AC45BF",
+      "record_path": "research_task_records/RS-CFD-SPECTRAL-HYBRID-20260910/TP2-C3B717C14153D5AC45BF.json",
+      "registry_key": "RS-CFD-SPECTRAL-HYBRID-20260910",
+      "state": "IMMUTABLE_REGISTERED"
+    }
+  },
+  "raw_guard_output": "{\n  \"authorization_authority\": \"CURRENT_AUTHORIZED_WINNING_ISSUE_240_CLAIM\",\n  \"authorized\": true,\n  \"execution_binding\": {\n    \"allowed_outputs\": [\n      \"research_notes/CFD9R2K7/host_20260916/\",\n      \".github/workflows/cfd-host-20260916.yml\"\n    ],\n    \"binding_source\": \"LIVE_SELF_CONTAINED_CLAIM\",\n    \"claim_id\": \"CFD9R2K7-HOST-20260916\",\n    \"execution_branch\": \"research/cfd-host-20260916-68a17c\",\n    \"execution_branch_base\": \"d2984d1a0c5c8221ee103084dd3da68dd039dfaa\",\n    \"owner_lease_until\": \"2026-09-16T05:40:48+00:00\",\n    \"publication_id\": \"TP2-C3B717C14153D5AC45BF\",\n    \"researcher_id\": \"EM-CFD-49157B\",\n    \"server_author_login\": \"awdawmip\",\n    \"server_author_user_id\": 30957095,\n    \"server_comment_id\": 5691221653,\n    \"taskbook_blob_sha1\": \"sha1:a678a1769cf04df52520fe21b4404c0e59267689\",\n    \"theorem_owner\": \"taskbook/unassigned\"\n  },\n  \"owner_claim\": {\n    \"claim_id\": \"CFD9R2K7-HOST-20260916\",\n    \"owner_lease_until\": \"2026-09-16T05:40:48+00:00\",\n    \"researcher_id\": \"EM-CFD-49157B\",\n    \"server_author_login\": \"awdawmip\",\n    \"server_comment_id\": 5691221653\n  },\n  \"startup_transport\": {\n    \"agents_md\": \"INJECTED_CONTEXT_ONLY_DO_NOT_REMOTE_SEARCH_OR_FETCH_FOR_TASK_START\",\n    \"control_epoch\": \"EM-CONTROL-20260904-CANONICAL-DISPATCH-AUTHORITY-1\",\n    \"conversation_rebase\": {\n      \"after_rebase\": \"RESUME_FROM_CURRENT_CANONICAL_DISPATCH_AND_HIGHEST_VERIFIED_DURABLE_FRONTIER\",\n      \"cached_conversation_control_plan\": \"NONAUTHORITATIVE_REBASE_TO_CURRENT\",\n      \"ci_pending\": \"PENDING_NONBLOCKING_CONTINUE_PARENT_TASK\",\n      \"control_epoch\": \"EM-CONTROL-20260904-CANONICAL-DISPATCH-AUTHORITY-1\",\n      \"discard\": [\n        \"PR_REQUIRED_FOR_START_PROGRESS_DURABILITY_OR_HANDOFF_UNLESS_EXACT_CURRENT_TASK_REQUIRES_IT\",\n        \"CI_WAIT_OR_REPEATED_CI_MONITOR_AS_CONVERSATION_BARRIER_WHEN_PENDING_NONBLOCKING\",\n        \"DRAFT_READY_TOGGLE_MERELY_TO_TRIGGER_VALIDATION\",\n        \"REMOTE_SEARCH_OR_FETCH_AGENTS_MD_MERELY_FOR_TASK_START\",\n        \"RESTART_VERIFIED_COMPLETE_WORK_BECAUSE_CONVERSATION_IS_OLD_RESUMED_OR_CONTEXT_IS_MISSING\",\n        \"CACHED_PREVIOUS_CONTROL_ROUTE_WHEN_CURRENT_CANONICAL_DISPATCH_OR_RUNTIME_DISAGREES\",\n        \"MANUAL_REPOSITORY_SCAN_OR_VISIBLE_TASK_RECORDS_AS_TASK_AVAILABILITY_AUTHORITY\",\n        \"TOP_PRIORITY_LEASED_IMPLIES_NO_TASK_WITHOUT_CANONICAL_DISPATCH\",\n        \"BACKLOG_FREE_OR_NAMED_RESEARCH_LINE_PRESENCE_IMPLIES_CLAIMABLE\"\n      ],\n      \"mode\": \"ALWAYS_IDEMPOTENT_ON_CONTROL_ENTRY\",\n      \"pr_default\": \"OPTIONAL_DURABLE_OR_REVIEW_SURFACE_NOT_CONVERSATION_GATE\",\n      \"preserve\": [\n        \"EXACT_TASK_AND_CURRENT_PUBLICATION_AUTHORITY\",\n        \"WINNING_CLAIM_AND_OWNER_SCOPE\",\n        \"HIGHEST_VERIFIED_DURABLE_FRONTIER\",\n        \"FROZEN_SOURCE_AND_BLINDNESS_RESTRICTIONS\",\n        \"THEOREM_STRENGTH_AND_TASK_LOCAL_SCOPE\",\n        \"NO_SORRY_NO_ADMIT_NO_CUSTOM_AXIOM_AND_OTHER_FROZEN_CONSTRAINTS\"\n      ],\n      \"repeated_ci_poll_without_state_change\": \"FORBIDDEN_NO_PROGRESS_ACTION\",\n      \"taskbook_policy_digest_impact\": \"NONE_CONTROL_TRANSPORT_ONLY\"\n    },\n    \"conversation_rebase_required\": true,\n    \"hot_start\": [\n      \"REBASE_CACHED_CONVERSATION_CONTROL_PLAN\",\n      \"CONSUME_CURRENT_CANONICAL_DISPATCH_DECISION\",\n      \"EXACT_DISPATCH_TARGET\",\n      \"EXACT_TASK_PUBLICATION_AND_TASKBOOK\",\n      \"FIRST_REQUIRED_DEPENDENCY\",\n      \"SUBSTANTIVE_RESEARCH\"\n    ],\n    \"if_agents_context_unavailable\": \"PROCEED_FROM_CANONICAL_DISPATCH_TARGET_AND_EXACT_TASKBOOK\",\n    \"remote_control_reads\": \"TRIGGERED_ONLY\",\n    \"schema\": \"ENTERPRISE_MATH_RESEARCH_STARTUP_TRANSPORT_V2\",\n    \"task_availability_authority\": {\n      \"authority\": \"CANONICAL_RESEARCH_CONTROL_DISPATCH_OUTPUT_ONLY\",\n      \"awaiting_review_blocked_complete\": \"NOT_FRESH_CANDIDATE\",\n      \"backlog_or_dormant\": \"NOT_FRESH_CANDIDATE\",\n      \"canonical_entrypoint\": \"research_control_dispatch.py\",\n      \"claim_rule\": \"CLAIM_ONLY_THE_EXACT_TARGET_RETURNED_BY_CURRENT_CANONICAL_DISPATCH\",\n      \"free_axiom_discovery\": \"SEPARATE_ROLE_ROUTE_NOT_ORDINARY_SCHEDULER_FALLBACK\",\n      \"higher_priority_leased\": \"EXCLUDE_FROM_FRESH_CANDIDATES_AND_CONTINUE_CANONICAL_SCAN\",\n      \"manual_override_allowed\": false,\n      \"manual_repository_scan\": \"NONAUTHORITATIVE_FOR_TASK_AVAILABILITY\",\n      \"no_task_statement_rule\": \"MAY_ASSERT_NO_DISPATCH_ONLY_FROM_CURRENT_CANONICAL_NO_DISPATCH_ACTION\",\n      \"verify_liveness_rule\": \"VERIFY_SESSION_LIVENESS_IS_NOT_NO_DISPATCH_AND_MUST_NOT_BE_REPHRASED_AS_NO_TASK\",\n      \"visible_research_line\": \"PRESENCE_DOES_NOT_IMPLY_ORDINARY_FRESH_CANDIDATE\",\n      \"visible_task_record\": \"PRESENCE_DOES_NOT_IMPLY_CLAIMABLE\"\n    },\n    \"taskbook_policy_digest_impact\": \"NONE_CONTROL_TRANSPORT_ONLY\"\n  },\n  \"task_id\": \"RS-CFD-SPECTRAL-HYBRID-20260910\",\n  \"task_registration\": {\n    \"claimable\": true,\n    \"publication_id\": \"TP2-C3B717C14153D5AC45BF\",\n    \"record_path\": \"research_task_records/RS-CFD-SPECTRAL-HYBRID-20260910/TP2-C3B717C14153D5AC45BF.json\",\n    \"registry_key\": \"RS-CFD-SPECTRAL-HYBRID-20260910\",\n    \"state\": \"IMMUTABLE_REGISTERED\"\n  }\n}\n",
+  "server_comment_count": 788,
+  "server_comments_sha256": "a378b133cd15acff43b9c70fe3033f3a8243a8731bbaa96481f1767b8aedf1d9"
+}

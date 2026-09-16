@@ -1,0 +1,15 @@
+cross1 not optimized
+cross2 not optimized
+RK4 not optimized
+ForwardEuler not optimized
+AB2 not optimized
+add_pressure_diffusion not optimized
+{"n": 16, "input": "shear", "seed": null, "ratio": 3.8652926743326472, "stats": {"sparse_calls": 49, "fft_calls": 0, "scan_calls": 49, "support_counts": [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2], "scan_seconds": 0.000702157999796782}}
+{"n": 16, "input": "taylor_green", "seed": null, "ratio": 1.0350573581574563, "stats": {"sparse_calls": 3, "fft_calls": 46, "scan_calls": 4, "support_counts": [8, 16, 72, 500], "scan_seconds": 6.457699998918542e-05}}
+{"n": 16, "input": "random32", "seed": 916601, "ratio": 1.0021566298234033, "stats": {"sparse_calls": 1, "fft_calls": 48, "scan_calls": 2, "support_counts": [32, 455], "scan_seconds": 3.5612999965906056e-05}}
+{"n": 16, "input": "edge", "seed": 916602, "ratio": 3.846019400130485, "stats": {"sparse_calls": 49, "fft_calls": 0, "scan_calls": 49, "support_counts": [4, 7, 11, 19, 33, 33, 33, 33, 33, 33, 33, 33], "scan_seconds": 0.0006968099999653532}}
+{"n": 32, "input": "shear", "seed": null, "ratio": 4.979887377422754, "stats": {"sparse_calls": 49, "fft_calls": 0, "scan_calls": 49, "support_counts": [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2], "scan_seconds": 0.0024269759999242524}}
+{"n": 32, "input": "taylor_green", "seed": null, "ratio": 1.0396676062153043, "stats": {"sparse_calls": 3, "fft_calls": 46, "scan_calls": 4, "support_counts": [8, 16, 72, 516], "scan_seconds": 0.00021214100001998304}}
+{"n": 32, "input": "random32", "seed": 916603, "ratio": 1.0185882843168876, "stats": {"sparse_calls": 1, "fft_calls": 48, "scan_calls": 2, "support_counts": [32, 459], "scan_seconds": 0.00012050099996940844}}
+{"n": 32, "input": "random256", "seed": 916604, "ratio": 0.9855401869221552, "stats": {"sparse_calls": 0, "fft_calls": 49, "scan_calls": 1, "support_counts": [256], "scan_seconds": 5.8487999979206506e-05}}
+PASS_BOUNDED_AUTHOR_NATIVE_HOST_TESTS
