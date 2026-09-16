@@ -1,0 +1,38 @@
+{
+  "schema": "EM_FINITE_RELATIONAL_STABILIZER_CHECKPOINT_V1",
+  "event_id": "NS-FINITE-RELATIONAL-STABILIZER-20260916-D5C00D-18",
+  "researcher_id": "EM-DIRECT-D5C00D",
+  "activity_id": "RA-D5C00DF7D77F4AA2ACE0",
+  "status": "TESTING_EXACT_FINITE_RELATION_CLOSURE",
+  "parent_event": "NS-DENSE-REFERENCE-CLOSURE-20260916-D5C00D-17",
+  "artifacts": [
+    {"path":"research_notes/ns-finite-relational-stabilizer-20260916-d5c00d.md","git_blob_sha1":"3bedd09d9b66bee86f854e9e17fa715f1807c184","sha256":"75bbd90e8043bd4baa875efc44bdc363fff4b4ebc0fdbff8b6e0a00015feaa80"},
+    {"path":"experiments/ns_finite_relation_d5c00d/check_stabilizer_relation.py","git_blob_sha1":"fdfc7820b74d789c21abacda3520ef8f1fb4d844","sha256":"6ff48da0bbd6a041f580696f464353216696bd21a27d0ac411b0e2dafe4202a4"},
+    {"path":"research_notes/ns-finite-relational-stabilizer-20260916-d5c00d.results.json","git_blob_sha1":"21a116f175ea330a1f127e3ebaa76378932c1308","sha256":"c7c74c381dab29b5465f67c432803d68edc257f66bd45c2ee4594b2007afbbed"}
+  ],
+  "results": {
+    "three_qubit_stabilizer_orbit": 1080,
+    "density_entry_max_denominator": 8,
+    "GHZ_Mermin": 4,
+    "deterministic_local_hidden_Mermin_bound": 2,
+    "incoherent_same_local_pair_readout_Mermin": 0,
+    "dual_rail_internal_modes": 6,
+    "logical_qubits": 3,
+    "pair_excitation_number_preserved": true,
+    "signed_native_steps_checked": 12,
+    "clean_rerun_byte_identical": true
+  },
+  "brc": {
+    "unsafe_quotient": "all one-qubit marginals plus pair-Z relations",
+    "retained_joint_coordinate": "global GHZ phase/stabilizer relation such as XXX",
+    "future_operation": "Mermin X/Y joint measurements",
+    "fiber_counterexample": "coherent GHZ and incoherent 000/111 mixture share the quotient but produce Mermin 4 versus 0"
+  },
+  "scope": [
+    "Stabilizer/Clifford/Born structure is an explicit external quantum-comparison assumption, not derived from P000.",
+    "Finite relation closure is for the three-logical-qubit stabilizer/Clifford plus Pauli-measurement subtheory, not universal quantum dynamics.",
+    "Six dual-rail modes are internal decorations, not the six native spatial axes.",
+    "No primitive TRIADIC_CLOSURE_E certification, physical energy account, Navier-Stokes theorem, independent review or Lean build."
+  ],
+  "next": "Construct or constrain a local autonomous finite X6 relation update whose native events generate/transport the retained joint coordinate while respecting no-signalling and Bell/Mermin constraints."
+}
