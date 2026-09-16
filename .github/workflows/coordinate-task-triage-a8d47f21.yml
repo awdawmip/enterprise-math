@@ -20,7 +20,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           python - <<'PY'
-          import os,json,pathlib,subprocess,zipfile,urllib.request,hashlib,sys,traceback
+          import os,json,pathlib,subprocess,zipfile,urllib.request,hashlib,sys,gzip,base64
           from datetime import datetime,timezone
           root=pathlib.Path.cwd();out=pathlib.Path(os.environ['RUNNER_TEMP'])/'coordinate-triage';out.mkdir()
           source=subprocess.check_output(['git','rev-parse','HEAD']).decode().strip()
@@ -43,13 +43,12 @@ jobs:
           (out/'current_task_states.json').write_text(json.dumps(rd.effective_states(events,now=now,root=root),ensure_ascii=False,indent=2))
           (out/'live_route.json').write_text(json.dumps(cd.route_control(events,now=now,kind='ANY',root=root),ensure_ascii=False,indent=2))
           before=tr.audit(root);(out/'baseline_publication_audit.json').write_text(json.dumps(before,ensure_ascii=False,indent=2))
-          paths=[p for p in subprocess.check_output(['git','ls-files','-z']).decode().split('\0') if p]
-          selected=[p for p in paths if p.startswith(('docs/','research_result_records/','research_result_reviews/','research_execution_records/','research_driver_followups/','research_objective_heads/','research_artifacts/')) and p.endswith(('.py','.json','.md','.lean','.txt','.csv'))]
-          with zipfile.ZipFile(out/'additional_sources.zip','w',zipfile.ZIP_DEFLATED) as z:
-              for p in selected:z.write(root/p,p)
-          spec_path=root/'research_inputs/coordinate_task_triage_20260916/task_specs.json'
+          spec_path=root/'research_inputs/coordinate_task_triage_20260916/task_specs.bundle.json'
           if spec_path.exists():
-              spec=json.loads(spec_path.read_text());added=[];validation=[]
+              bundle=json.loads(spec_path.read_text());assert bundle['encoding']=='gzip+base64'
+              raw=gzip.decompress(base64.b64decode(bundle['payload'],validate=True))
+              assert len(raw)==bundle['decoded_length'] and hashlib.sha256(raw).hexdigest()==bundle['decoded_sha256']
+              spec=json.loads(raw);(out/'decoded_task_specs.json').write_bytes(raw);added=[];validation=[]
               for task in spec['tasks']:
                   tid=task['meta']['task_id']
                   if tid in current:raise RuntimeError('Refusing duplicate task '+tid)
