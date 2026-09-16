@@ -1,0 +1,33 @@
+{
+  "schema": "PFSS2_FROZEN_EXECUTION_PROTOCOL_V1",
+  "task_id": "RS-PRIME-FACTOR-SEMIPRIME-SHELL-SECOND-ORDER-DENSITY-NULL",
+  "publication_id": "TP2-D44C166C4C87CEC167E7",
+  "taskbook_blob_sha1": "sha1:2d3fac6df6bd26aba8a4695346898150882e95de",
+  "researcher_id": "EM-PFSS2-71565A",
+  "claim_id": "PFSS2-20260916-864F46B6E9F1",
+  "winning_claim_comment_id": 5696624508,
+  "registration_activity": "RA-20260916-PFSS2-864f46b6e9f1",
+  "authority_check": "Canonical packet at 34a4e2be96841f620ed9a8ccc719bc8cd87049ca reports HANDOFF_READY. Complete Issue240 delta since packet generation contains only raw-JSON CLAIM 5696624508, server author awdawmip/30957095/OWNER, unedited, created 2026-09-16T11:21:38Z. Exact publication, intent and identity binding checked against current contracts. Earlier fenced comment 5696591033 was non-event prose and has no claim authority. This is a bounded snapshot-plus-authenticated-delta verification, not a claim that a local whole-repository runtime CLI was executed.",
+  "discovery_scales": [1000000, 3000000, 10000000, 30000000, 100000000],
+  "holdout_scales_unopened": [300000000, 1000000000],
+  "widths_rational": [[1,100],[3,1000],[1,1000]],
+  "replicates_per_null": 4096,
+  "seed_A": 2026091601,
+  "seed_B": 2026091602,
+  "rng": "NumPy/Numba MT19937; each replicate seed is (family_seed + replicate_index) mod 2^32; ascending strata, no draws for deterministic strata",
+  "integer_membership": "p prime; p^4>X; p^2<=floor(X*(den+num)/den); q integer in [max(p+1, floor(X/p)+1), floor(floor(X*(den+num)/den)/p)]; square locus reported separately",
+  "binning": "u=log(p)/log(X); xi=1+log(u/(1-u))/log(3); bin=min(31,max(0,floor(32*xi))). Nominal 32 equal bins on [0,1]; the narrow permitted xi>1 upper-shell overflow is folded into bin31 and separately counted, following the parent clipping convention. No bin choice is used to decide variance degeneracy.",
+  "null_A": "Nonempty integer cells [floor((1025/1024)^j),floor((1025/1024)^(j+1))) for j>=0, endpoints evaluated with exact rational integer powers; duplicates discarded. Within each cell and residue coprime to210 preserve exact observed prime count k and uniformly select k of N admissible locations without replacement. Fixed small primes 2,3,5,7 remain fixed. Full cells intersecting discovery q queries are generated. A single global indicator realization supplies all discovery scales and widths.",
+  "null_B": "Nonempty bands [210*floor((65/64)^j),210*floor((65/64)^(j+1))) for j>=0; [0,210) fixed. Endpoints evaluated exactly. In each full band uniformly choose a shift from multiples of210 modulo its length, rotating all observed prime locations together. Ascending bands, one shared indicator realization for all scales and widths. Extension to a larger q bound only appends bands.",
+  "moments_and_covariance": "Compute integer sample sums and squared sums; unbiased variance (R*sum(x^2)-sum(x)^2)/(R*(R-1)). Preserve exact overlap through shared indicators. Report full per-cell moments and covariance diagnostics, plus exact analytic degeneracy checks.",
+  "statistic": "z=(O-mu)/sigma; C[eta,b]=sum over five discovery scales z/sqrt(5); T=max(abs(C)); empirical 99% threshold is order statistic ceil(0.99*(4096-1)) in zero-based sorted replicates. No variance floor, zero-over-zero convention, scale deletion, bin deletion, or independent-bin noise is authorized.",
+  "undefined_statistic_gate": "A zero null variance is reported as zero. Any undefined required z leaves its C and the prescribed max statistic undefined; do not reinterpret undefined as zero, no survivor, or density artifact. Diagnose exact null support/covariance and deterministic replay. Stop before blind holdouts when no mathematically defined discovery selection can be frozen; return NULL_MODEL_MISSPECIFICATION if that gate is established. This is an operational failure branch, not a new surrogate or replacement significance test.",
+  "holdout_gate": "Only evaluate the two holdouts after a defined feature clears both family-wise discovery thresholds with required sign coherence. Freeze eta/bin/sign then use each null's predeclared one-sided99% threshold on each holdout. Undefined discovery cannot consume holdouts. No post-hoc stratum or new observable will be introduced.",
+  "independent_checks": "Reuse the parent sieve_primes implementation unchanged; compare selected exact intervals by independent trial division; audit cell-residue counts, B cyclic gap multiset and wheel residues; repeat RNG seeds and compare integer outputs; certify support widths using integer endpoints.",
+  "reuse": {
+    "parent_sieve": "REUSE_EXECUTED planned: scripts/check_prime_factor_semiprime_shell_residual_validation.py at 27a06aa03dda082879863c0aa55c8caa623cef0d, sieve_primes function only; parent nulls and its 1e-12 variance floor are not reused",
+    "BRC": "REUSE_APPLIED: retain complete location-labeled conditional branch families; the observer is the vector of exact shell occupancies and future operations are frozen interval queries. A singleton conditional branch fiber is deterministic, not positive evidence of cancellation. Counts and signed centered residuals are distinct carriers; no recurrent or infinite-scale claim.",
+    "coverage": "Exact parent executable and current toolbox/method index read. Connector code search returned incomplete/no-index results, not proof of absence. New code specializes the task's explicitly required conditional kernels; no new global tool family is claimed."
+  },
+  "status": "FROZEN_BEFORE_COMPUTATIONAL_DISCOVERY_AND_BEFORE_ANY_HOLDOUT_QUERY"
+}
