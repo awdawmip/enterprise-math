@@ -2,12 +2,12 @@ name: coordinate-task-triage-a8d47f21
 on:
   push:
     branches: ['maintenance/coordinate-task-triage-20260916-a8d47f21']
-    paths: ['.github/workflows/coordinate-task-triage-a8d47f21.yml', 'research_inputs/coordinate_task_triage_20260916/**']
+    paths: ['.github/workflows/coordinate-task-triage-a8d47f21.yml', 'research_inputs/coordinate_task_triage_20260916/task_specs.bundle.json']
 permissions:
-  contents: read
+  contents: write
   issues: read
 jobs:
-  snapshot-and-preflight:
+  canonical-prepublication-check:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -15,71 +15,71 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 1
-      - name: Exact current-state and publication preflight
+      - name: Verify specifications, audit tasks, prepare immutable blob objects only
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           python - <<'PY'
           import os,json,pathlib,subprocess,zipfile,urllib.request,hashlib,sys,gzip,base64
           from datetime import datetime,timezone
-          root=pathlib.Path.cwd();out=pathlib.Path(os.environ['RUNNER_TEMP'])/'coordinate-triage';out.mkdir()
+          root=pathlib.Path.cwd();out=pathlib.Path(os.environ['RUNNER_TEMP'])/'coordinate-publications';out.mkdir()
           source=subprocess.check_output(['git','rev-parse','HEAD']).decode().strip()
+          bundle=json.loads((root/'research_inputs/coordinate_task_triage_20260916/task_specs.bundle.json').read_text())
+          raw=gzip.decompress(base64.b64decode(''.join((root/p).read_text().strip() for p in bundle['payload_parts']),validate=True))
+          assert len(raw)==bundle['decoded_length'] and hashlib.sha256(raw).hexdigest()==bundle['decoded_sha256']
+          spec=json.loads(raw);(out/'decoded_task_specs.json').write_bytes(raw)
+          sys.path.insert(0,str(root))
+          from control_plane import research_control_bootstrap
+          research_control_bootstrap.install(root)
+          from tools import research_task_records as tr,research_taskbook as tb,research_dispatch as rd
+          before=tr.audit(root);assert not before,before
+          current=tr.current_records(root);added=[];validation=[]
+          for task in spec['tasks']:
+              tid=task['meta']['task_id'];assert tid not in current,'Duplicate task '+tid
+              path=root/task['path'];assert not path.exists(),str(path)
+              path.parent.mkdir(parents=True,exist_ok=True);path.write_text(tb.render_taskbook(task['meta'],task['body']))
+              commands=[['python','tools/research_task_records.py','prepare','--taskbook',task['path'],'--publisher-role','RESEARCHER','--parent-objective-id',spec['parent_objective_id']],['python','tools/research_taskbook.py','audit','--dispatch',task['path']],['python','tools/research_task_records.py','publish','--taskbook',task['path'],'--publisher-role','RESEARCHER','--publisher-id',spec['publisher_id'],'--research-value',task['research_value']]]
+              for command in commands:
+                  proc=subprocess.run(command,text=True,capture_output=True)
+                  validation.append({'task_id':tid,'command':command,'exit_code':proc.returncode,'stdout':proc.stdout,'stderr':proc.stderr})
+                  (out/'preflight_commands.json').write_text(json.dumps(validation,ensure_ascii=False,indent=2))
+                  assert proc.returncode==0,proc.stdout+'\n'+proc.stderr
+              row=tr.current_records(root)[tid];assert row['taskbook_blob_sha1']==tr.taskbook_blob(path)
+              added.extend([task['path'],row['_record_path']])
+          after=tr.audit(root);assert not after,after
+          publications={tid:r for tid,r in tr.current_records(root).items() if tid not in current}
+          (out/'new_publications.json').write_text(json.dumps(publications,ensure_ascii=False,indent=2))
+          with zipfile.ZipFile(out/'validated_publication_payload.zip','w',zipfile.ZIP_DEFLATED) as z:
+              for p in added:z.write(root/p,p)
+          headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','Content-Type':'application/json'}
+          # The only repository writes performed here are immutable blob creation.
+          # No ref, commit, task runtime event, or review is created by this job.
+          blobs=[]
+          for p in added:
+              data=(root/p).read_bytes();expected=hashlib.sha1(f'blob {len(data)}\0'.encode()+data).hexdigest()
+              req=urllib.request.Request('https://api.github.com/repos/awdawmip/enterprise-math/git/blobs',data=json.dumps({'content':base64.b64encode(data).decode(),'encoding':'base64'}).encode(),headers=headers,method='POST')
+              with urllib.request.urlopen(req,timeout=60) as res:got=json.load(res)
+              assert got['sha']==expected
+              blobs.append({'path':p,'mode':'100644','type':'blob','sha':got['sha'],'sha256':hashlib.sha256(data).hexdigest(),'bytes':len(data)})
+              (out/'prepared_blobs.json').write_text(json.dumps(blobs,ensure_ascii=False,indent=2))
           comments=[];page=1
           while True:
-              req=urllib.request.Request(f'https://api.github.com/repos/awdawmip/enterprise-math/issues/240/comments?per_page=100&page={page}',headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+              req=urllib.request.Request(f'https://api.github.com/repos/awdawmip/enterprise-math/issues/240/comments?per_page=100&page={page}',headers=headers)
               with urllib.request.urlopen(req,timeout=60) as res:batch=json.load(res)
               comments.extend(batch)
               if len(batch)<100:break
               page+=1
           events_path=out/'coordination_comments.json';events_path.write_text(json.dumps(comments,ensure_ascii=False))
-          sys.path.insert(0,str(root))
-          from control_plane import research_control_bootstrap
-          research_control_bootstrap.install(root)
-          from tools import research_task_records as tr,research_taskbook as tb,research_dispatch as rd
-          import research_control_dispatch as cd
-          events=rd.load_events(events_path);now=datetime.now(timezone.utc)
-          current=tr.current_records(root)
-          (out/'current_publications.json').write_text(json.dumps(current,ensure_ascii=False,indent=2))
-          (out/'current_task_states.json').write_text(json.dumps(rd.effective_states(events,now=now,root=root),ensure_ascii=False,indent=2))
-          (out/'live_route.json').write_text(json.dumps(cd.route_control(events,now=now,kind='ANY',root=root),ensure_ascii=False,indent=2))
-          before=tr.audit(root);(out/'baseline_publication_audit.json').write_text(json.dumps(before,ensure_ascii=False,indent=2))
-          spec_path=root/'research_inputs/coordinate_task_triage_20260916/task_specs.bundle.json'
-          if spec_path.exists():
-              bundle=json.loads(spec_path.read_text());assert bundle['encoding']=='gzip+base64'
-              raw=gzip.decompress(base64.b64decode(bundle['payload'],validate=True))
-              assert len(raw)==bundle['decoded_length'] and hashlib.sha256(raw).hexdigest()==bundle['decoded_sha256']
-              spec=json.loads(raw);(out/'decoded_task_specs.json').write_bytes(raw);added=[];validation=[]
-              for task in spec['tasks']:
-                  tid=task['meta']['task_id']
-                  if tid in current:raise RuntimeError('Refusing duplicate task '+tid)
-                  path=root/task['path']
-                  if path.exists():raise RuntimeError('Refusing existing taskbook '+str(path))
-                  path.parent.mkdir(parents=True,exist_ok=True)
-                  path.write_text(tb.render_taskbook(task['meta'],task['body']))
-                  commands=[['python','tools/research_task_records.py','prepare','--taskbook',task['path'],'--publisher-role','RESEARCHER','--parent-objective-id',spec['parent_objective_id']],['python','tools/research_taskbook.py','audit',task['path']],['python','tools/research_task_records.py','publish','--taskbook',task['path'],'--publisher-role','RESEARCHER','--publisher-id',spec['publisher_id'],'--research-value',task['research_value']]]
-                  for command in commands:
-                      proc=subprocess.run(command,text=True,capture_output=True)
-                      validation.append({'task_id':tid,'command':command,'exit_code':proc.returncode,'stdout':proc.stdout,'stderr':proc.stderr})
-                      (out/'preflight_commands.json').write_text(json.dumps(validation,ensure_ascii=False,indent=2))
-                      if proc.returncode:raise RuntimeError('Canonical preflight failed for '+tid+'\n'+proc.stdout+'\n'+proc.stderr)
-                  row=tr.current_records(root)[tid]
-                  assert row['taskbook_blob_sha1']==tr.taskbook_blob(path)
-                  added.extend([task['path'],row['_record_path']])
-              after=tr.audit(root)
-              (out/'after_publication_audit.json').write_text(json.dumps(after,ensure_ascii=False,indent=2))
-              new=sorted(set(after)-set(before))
-              if new:raise RuntimeError('New audit errors: '+repr(new))
-              with zipfile.ZipFile(out/'validated_publication_payload.zip','w',zipfile.ZIP_DEFLATED) as z:
-                  for p in added:z.write(root/p,p)
-              (out/'new_publications.json').write_text(json.dumps({tid:row for tid,row in tr.current_records(root).items() if tid not in current},ensure_ascii=False,indent=2))
-              (out/'post_preflight_states.json').write_text(json.dumps(rd.effective_states(events,now=datetime.now(timezone.utc),root=root),ensure_ascii=False,indent=2))
-          manifest={'snapshot_commit':source,'source_main':'d2984d1a0c5c8221ee103084dd3da68dd039dfaa','observed_at':now.isoformat(),'current_task_count':len(current),'comment_count':len(comments),'baseline_audit_errors':len(before),'files':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in out.iterdir() if p.is_file()}}
+          events=rd.load_events(events_path)
+          states=rd.effective_states(events,now=datetime.now(timezone.utc),root=root)
+          (out/'prepared_task_states.json').write_text(json.dumps([s for s in states if s['task_id'] in publications],ensure_ascii=False,indent=2))
+          manifest={'status':'CANONICAL_PREFLIGHT_PASS_BLOBS_PREPARED_NO_REF_UPDATE','snapshot_commit':source,'task_source_snapshot':'d2984d1a0c5c8221ee103084dd3da68dd039dfaa','validated_at':datetime.now(timezone.utc).isoformat(),'baseline_audit_errors':before,'candidate_audit_errors':after,'original_current_tasks':len(current),'candidate_current_tasks':len(tr.current_records(root)),'candidate_generations':len(tr.iter_records(root)),'new_tasks':len(publications),'files':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in out.iterdir() if p.is_file()}}
           (out/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2));print(json.dumps(manifest,ensure_ascii=False))
           PY
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
-          name: coordinate-task-triage-preflight
-          path: ${{ runner.temp }}/coordinate-triage/
+          name: coordinate-task-publication-preflight
+          path: ${{ runner.temp }}/coordinate-publications/
           retention-days: 7
           if-no-files-found: error
