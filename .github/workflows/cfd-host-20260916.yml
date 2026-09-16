@@ -62,8 +62,7 @@ jobs:
           except ValueError: result=None
           value={'schema':'CFD_EXACT_CANONICAL_GUARD_OBSERVATION_V1','task_id':'RS-CFD-SPECTRAL-HYBRID-20260910','claim_id':'CFD9R2K7-HOST-20260916','researcher_id':'EM-CFD-49157B','source_sha':os.environ['GITHUB_SHA'],'control_sha':subprocess.check_output(['git','-C','control','rev-parse','HEAD'],text=True).strip(),'workflow_run_id':os.environ['GITHUB_RUN_ID'],'observed_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'guard_exit_code':int(os.environ['GUARD_EXIT_CODE']),'guard_result':result,'raw_guard_output':raw,'server_comment_count':len(json.loads((p/'events.json').read_text())),'server_comments_sha256':hashlib.sha256((p/'events.json').read_bytes()).hexdigest()}
           out=Path('work/research_notes/CFD9R2K7/host_20260916')/('authorization_'+os.environ['GITHUB_RUN_ID']+'.json')
-          out.write_text(json.dumps(value,indent=2)+'\n')
-          print(json.dumps(value,indent=2))
+          out.write_text(json.dumps(value,indent=2)+'\n'); print(json.dumps(value,indent=2))
           assert int(os.environ['GUARD_EXIT_CODE']) == 0 and result and result.get('authorized') is True
           PY
       - uses: actions/setup-python@v5
@@ -92,14 +91,14 @@ jobs:
           sudo apt-get install -y -qq libopenmpi-dev openmpi-bin libfftw3-dev
           python -m pip install 'numpy==1.26.4' 'scipy==1.15.3' 'sympy==1.13.3' 'Cython==3.0.12' 'setuptools<75' wheel
           python -m pip install 'mpi4py==4.0.3' 'mpi4py-fft==2.0.6' 'shenfun==4.3.0' 'numba==0.61.2' 'h5py==3.12.1' 'PyYAML==6.0.2' 'psutil==6.1.1'
-          python -m pip freeze > work/research_notes/CFD9R2K7/host_20260916/environment.txt
-      - name: Execute frozen native host matrix and native RK4 trajectories
+          python -m pip freeze > work/research_notes/CFD9R2K7/host_20260916/environment_numba.txt
+      - name: Execute matched upstream-Numba native host comparison
         id: benchmark
         run: |
           set -euo pipefail
           export CFD_UPSTREAM_ROOT="$GITHUB_WORKSPACE/upstream"
           export CFD_PRIOR_ROOT="$GITHUB_WORKSPACE/prior"
-          python work/research_notes/CFD9R2K7/host_20260916/host_validation.py 2>&1 | tee work/research_notes/CFD9R2K7/host_20260916/native_run.log
+          python work/research_notes/CFD9R2K7/host_20260916/run_numba_variant.py 2>&1 | tee work/research_notes/CFD9R2K7/host_20260916/native_numba_run.log
       - name: Persist bounded outputs including failures
         if: always()
         env:
@@ -111,14 +110,14 @@ jobs:
           import json,os,datetime
           from pathlib import Path
           p=Path('work/research_notes/CFD9R2K7/host_20260916'); p.mkdir(parents=True,exist_ok=True)
-          (p/('run_'+os.environ['GITHUB_RUN_ID']+'.json')).write_text(json.dumps({'source_sha':os.environ['GITHUB_SHA'],'workflow_run_id':os.environ['GITHUB_RUN_ID'],'guard_outcome':os.environ['GUARD_OUTCOME'],'dependencies_outcome':os.environ['DEPENDENCIES_OUTCOME'],'benchmark_outcome':os.environ['BENCHMARK_OUTCOME'],'recorded_at':datetime.datetime.now(datetime.timezone.utc).isoformat()},indent=2)+'\n')
+          (p/('run_'+os.environ['GITHUB_RUN_ID']+'.json')).write_text(json.dumps({'source_sha':os.environ['GITHUB_SHA'],'workflow_run_id':os.environ['GITHUB_RUN_ID'],'variant':'upstream-numba','guard_outcome':os.environ['GUARD_OUTCOME'],'dependencies_outcome':os.environ['DEPENDENCIES_OUTCOME'],'benchmark_outcome':os.environ['BENCHMARK_OUTCOME'],'recorded_at':datetime.datetime.now(datetime.timezone.utc).isoformat()},indent=2)+'\n')
           PY
           cd work
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           find research_notes/CFD9R2K7/host_20260916 -type d -name __pycache__ -prune -exec rm -rf {} +
           git add research_notes/CFD9R2K7/host_20260916/
-          git diff --cached --quiet || git commit -m 'cfd: preserve actual native host tests and canonical authorization'
+          git diff --cached --quiet || git commit -m 'cfd: preserve upstream-Numba comparison without erasing default evidence'
           git push origin HEAD:refs/heads/research/cfd-host-20260916-68a17c
       - uses: actions/upload-artifact@v4
         if: always()
