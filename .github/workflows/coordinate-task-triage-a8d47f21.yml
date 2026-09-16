@@ -1,0 +1,78 @@
+name: coordinate-task-triage-a8d47f21
+on:
+  push:
+    branches: ['maintenance/coordinate-task-triage-20260916-a8d47f21']
+    paths: ['.github/workflows/coordinate-task-triage-a8d47f21.yml', 'research_inputs/coordinate_task_triage_20260916/**']
+permissions:
+  contents: read
+  issues: read
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Collect exact task-machine inputs and current publication heads
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import os, json, pathlib, subprocess, zipfile, urllib.request, hashlib
+          root=pathlib.Path.cwd(); out=pathlib.Path(os.environ['RUNNER_TEMP'])/'coordinate-triage';out.mkdir()
+          paths=subprocess.check_output(['git','ls-files','-z']).decode().split('\0'); paths=[p for p in paths if p]
+          source=subprocess.check_output(['git','rev-parse','HEAD']).decode().strip()
+          records=[]
+          for p in sorted((root/'research_task_records').glob('*/*.json')):
+              try:
+                  r=json.loads(p.read_text());r['_record_path']=str(p.relative_to(root));records.append(r)
+              except Exception as e: records.append({'_record_path':str(p.relative_to(root)),'parse_error':str(e)})
+          (out/'all_publications.json').write_text(json.dumps(records,ensure_ascii=False,indent=2))
+          import sys
+          sys.path.insert(0,str(root))
+          try:
+              from control_plane import research_control_bootstrap
+              research_control_bootstrap.install(root)
+              from tools import research_task_records
+              current=research_task_records.current_records(root)
+              (out/'current_publications.json').write_text(json.dumps(current,ensure_ascii=False,indent=2))
+          except Exception as e:
+              (out/'current_publications_error.txt').write_text(repr(e))
+          summaries={}
+          for folder in ['research_result_records','research_result_reviews','research_execution_records','research_driver_followups','research_objective_heads']:
+              rows=[]
+              for p in sorted((root/folder).rglob('*.json')):
+                  try:
+                      r=json.loads(p.read_text());rows.append({'path':str(p.relative_to(root)),'data':r})
+                  except Exception as e:rows.append({'path':str(p.relative_to(root)),'error':str(e)})
+              summaries[folder]=rows
+          (out/'runtime_records.json').write_text(json.dumps(summaries,ensure_ascii=False))
+          comments=[];page=1
+          while True:
+              req=urllib.request.Request(f'https://api.github.com/repos/awdawmip/enterprise-math/issues/240/comments?per_page=100&page={page}',headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+              with urllib.request.urlopen(req,timeout=60) as res: batch=json.load(res)
+              comments.extend(batch)
+              if len(batch)<100:break
+              page+=1
+          (out/'coordination_comments.json').write_text(json.dumps(comments,ensure_ascii=False))
+          prefixes=('tools/','control_plane/','templates/','research_task_records/','research_tasks/','research_roles/','research_identity_records/')
+          exact={'coordinate_address_contract.json','coordinate_contract_migration_manifest.json','research_progress_map.json','research_activity_records/RA-20260912-gap-origin-a8d47f21.json','docs/RESEARCH_ACTIVITY_PROTOCOL.md','docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md','docs/COORDINATE_CONTRACT_ROLLOUT_20260913.md','definitions/00_CURRENT_NATIVE_FOUNDATION.md','definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md','definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md','definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json','src/enterprise_math/cell_address.py','src/enterprise_math/_cell_slice_codec.py','tests/test_cell_address_contract.py','research_notes/CELL_SLICE_LEAN_VALIDATION_20260913_A8D47F21.md'}
+          selected=[]
+          for p in paths:
+              if p.startswith(prefixes) or p in exact or ('/' not in p and p.endswith(('.json','.py','.md'))) or (p.startswith('research_notes/') and any(k in p.lower() for k in ['coordinate','cell_address','cell_slice','gap_origin','nonnegative','hodge','fluid','ramanujan'])):
+                  selected.append(p)
+          with zipfile.ZipFile(out/'source_packet.zip','w',zipfile.ZIP_DEFLATED) as z:
+              for p in selected:z.write(root/p,p)
+          (out/'tracked_paths.json').write_text(json.dumps(paths,ensure_ascii=False))
+          manifest={'snapshot_commit':source,'mathematical_source_commit':'d2984d1a0c5c8221ee103084dd3da68dd039dfaa','publication_count':len(records),'coordination_comments':len(comments),'selected_files':len(selected),'files':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in out.iterdir() if p.is_file()}}
+          (out/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2))
+          print(json.dumps(manifest,ensure_ascii=False))
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: coordinate-task-triage-snapshot
+          path: ${{ runner.temp }}/coordinate-triage/
+          retention-days: 7
+          if-no-files-found: error
