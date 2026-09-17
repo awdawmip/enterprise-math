@@ -1,0 +1,62 @@
+{
+  "schema": "GBRC_DRIVER_PUBLICATION_PREFLIGHT_V1",
+  "status": "PASS_SCOPED_CANONICAL_EQUIVALENT_PREFLIGHT_NOT_GLOBAL_REPOSITORY_AUDIT",
+  "at": "2026-09-17T05:25:30+00:00",
+  "write_base_verified": "d9d7db8f175b39e7d4fb3cda5117c8a6f9bcd98b",
+  "source_program_commit": "9b3c656f310bed58e8c99c1754d09af5ae653413",
+  "canonical_sources": {
+    "tools/research_taskbook.py": "46e75a035680a4b5cd5f7ab4071c259c607e767e",
+    "control_plane/research_task_records_impl.py": "40f603244e69582bcff388eb6efd6044d51f6d76",
+    "research_objective_contract.json": "8ea2ddf9c7592eace7ff01f41bb305b66470731f",
+    "research_taskbook_policy.json": "c326d6eed8f89f0c7be3e0a767ccbfbcdf972358"
+  },
+  "policy_digest": "sha256:dd425305887871866cb2f0894885ff38359639e2de7750fa45e8c584e19feae4",
+  "tests": [
+    {"task_id":"RS-GBRC-R1-TYPED-CARRIER","draft_findings":[],"dispatch_findings":[],"body_and_blob_check":"PASS","record_semantic_field_match":"PASS"},
+    {"task_id":"RS-GBRC-R1-TRANSPORT-COMPOSITION","draft_findings":[],"dispatch_findings":[],"body_and_blob_check":"PASS","record_semantic_field_match":"PASS"},
+    {"task_id":"RS-GBRC-R1-OBSERVER-MEMORY","draft_findings":[],"dispatch_findings":[],"body_and_blob_check":"PASS","record_semantic_field_match":"PASS"},
+    {"task_id":"RS-GBRC-R1-POSITIVE-STABILITY","draft_findings":[],"dispatch_findings":[],"body_and_blob_check":"PASS","record_semantic_field_match":"PASS"},
+    {"task_id":"RS-GBRC-R1-NATIVE-GEOMETRY-BRIDGE","draft_findings":[],"dispatch_findings":[],"body_and_blob_check":"PASS","record_semantic_field_match":"PASS"},
+    {"task_id":"RS-GBRC-R1-INTEGRATION-FALSIFICATION","draft_findings":[],"dispatch_findings":[],"body_and_blob_check":"PASS","record_semantic_field_match":"PASS"},
+    {"task_id":"GV-GBRC-LINE-DRIVER-20260917","draft_findings":[],"dispatch_findings":[],"body_and_blob_check":"PASS","record_semantic_field_match":"PASS"},
+    {"task_id":"GV-GBRC-R1-REVIEW-GATE-20260917","draft_findings":[],"dispatch_findings":[],"body_and_blob_check":"PASS","record_semantic_field_match":"PASS"},
+    {"task_id":"GV-GBRC-SUCCESSOR-SYNTHESIS-20260917","draft_findings":[],"dispatch_findings":[],"body_and_blob_check":"PASS","record_semantic_field_match":"PASS"}
+  ],
+  "negative_regression_count": 20,
+  "negative_regressions": ["missing:created_by_role","missing:task_authority","missing:publication_contract","missing:publication_template","missing:registry_key","missing:parent_objective_id","missing:identity_policy","missing:final_response_identity_policy","missing:origin_kind","missing:policy_review","fixed:driver_id","fixed:researcher_id","fixed:execution_id","stale-digest","missing-body:Mother question","missing-body:Frozen inputs and scope","missing-body:Hard target and required outputs","missing-body:Research value to preserve","missing-body:Success, kill, and return criteria","unoverridden-policy-directive"],
+  "dependency_graph_acyclic": true,
+  "objective_preflight": {
+    "objective_id": "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS",
+    "objective_generation_id": "OG-7AE66316D7566C519AE0",
+    "status": "OPEN",
+    "objective_record_sha256": "sha256:5d35f889d3fdf01c80d6a9e547161be4b1b2e1f7c10d060b2c4519f2860bf6c1",
+    "head_and_selection_receipt": "PASS",
+    "driver_authority_record_id": "DA-9427956069B4769822F3",
+    "driver_authority_source_comment_id": 5708879427
+  },
+  "driver_assignment_preflight": {
+    "driver_id": "EM-DVR-GBRC01",
+    "assigned_governance_task": "GV-GBRC-LINE-DRIVER-20260917",
+    "publication_id": "TP2-82249061C7765A4DDD9B",
+    "assignment_authority_record_id": "DA-24BD8500C510B8AD9C1C",
+    "assignment_source_comment_id": 5709235871,
+    "execution_claim_created": false
+  },
+  "semantic_review": {
+    "origin": "Direct current user request to establish the Geometry–BRC residual systems line and publish first-round plus follow-up Driver tasks.",
+    "lineage": "Six first-round research tasks are NEW_DIRECTION/INTEGRATION as drafted; three follow-up tasks are governance INTEGRATION rather than speculative R2 mathematics.",
+    "successor_boundary": "No R2 research task is pre-published before R1 evidence. The successor-synthesis governance task may materialize same-route continuations only after the exact review gate exposes a concrete information gap.",
+    "native_boundary": "External tetrahedral fixtures and native project geometry remain distinct until R1-05 proves an admissible comparison.",
+    "truth": "Publication, objective selection and Driver assignment grant no theorem truth, Working Truth, Foundation status or canonical promotion."
+  },
+  "contention_check": {
+    "prior_snapshot": "7e4e137ee789f2be623b5594a2293972cf58ab15",
+    "current_base": "d9d7db8f175b39e7d4fb3cda5117c8a6f9bcd98b",
+    "intervening_changes": "Canonical task policy digest advanced to dd425305...; all nine GBRC taskbooks and TP2 publication ids were recomputed against the current policy snapshot. No existing GBRC objective/task publication was found on main.",
+    "target_paths_absent_at_preflight": true
+  },
+  "remote_readback_pending": true,
+  "claims_created": false,
+  "mathematical_acceptance_granted": false,
+  "policy_input_blobs_status": "STALE_LIST_RETIRED; policy_digest pinned from current canonical machine-preflight evidence at main@d9d7db8"
+}
