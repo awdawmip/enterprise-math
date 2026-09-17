@@ -27,6 +27,9 @@ POLICY_SCHEMA = "ENTERPRISE_MATH_RESEARCH_RUNTIME_POLICY_V2"
 DRIVER_REVIEW_TERMINAL_SCOPE = "RESEARCH_RETURN_FROZEN_AWAITING_DRIVER_REVIEW"
 HANDOFF_SCOPE_CONTINUATION = "CONTINUATION"
 HANDOFF_SCOPE_FROZEN_RETURN = "FROZEN_RETURN_AWAITING_DRIVER_REVIEW"
+# Forward enforcement clock; historical owner races before this remain replayable.
+LEGACY_HANDOFF_SCOPE_CUTOVER = datetime(2026, 9, 17, 4, 0, tzinfo=timezone.utc)
+HANDOFF_SCOPE_RECONCILIATION = "RECONCILE_HANDOFF_SCOPE"
 LEGACY_DRIVER_REVIEW_TERMINAL_CANDIDATES = {
     "SUCCESS_REVIEW_COMPLETE_AWAITING_DRIVER_DECISION",
 }
@@ -170,6 +173,7 @@ def validate_scheduler(config: dict[str, Any], owners: dict[str, Any]) -> list[s
         for field in ("frontier", "next_action", "last_progress_at"):
             if not isinstance(task.get(field), str) or not task[field].strip():
                 errors.append(f"{task_id}: missing {field}")
+
         if isinstance(task.get("last_progress_at"), str):
             try:
                 parse_time(task["last_progress_at"])
@@ -267,6 +271,115 @@ def live_claim_event_reason(state: dict[str, Any], event: dict[str, Any]) -> str
     return None
 
 
+
+def _handoff_obligation(
+    task: dict[str, Any], state: dict[str, Any], event: dict[str, Any] | None = None,
+) -> dict[str, Any] | None:
+    """Retain scope uncertainty, not a prose-inferred review/terminal verdict."""
+    if task.get("registration_source") != "IMMUTABLE_TASK_RECORD":
+        return None
+    if event is None and not (
+        task.get("base_state") == "HANDOFF_READY"
+        and task.get("evidence_status") == "LEGACY_CONTROL_MIGRATED_HANDOFF_READY"
+    ):
+        return None
+    meta = event.get("_github", {}) if event is not None else {}
+    return {
+        "progress_ref": state.get("last_progress_ref"),
+        "progress_at": state.get("last_progress_at"),
+        "server_comment_id": meta.get("comment_id"),
+    }
+
+
+def _handoff_reconciliation_reason(
+    task: dict[str, Any], state: dict[str, Any], event: dict[str, Any],
+    obligation: dict[str, Any] | None, at: datetime,
+) -> str | None:
+    """Validate a claimless, exact-frontier annotation; never grant Result authority.
+
+    The authorized source author attests the evidence binding. This pure reducer
+    checks its shape and immutable address, not remote bytes or mathematics.
+    """
+    prefix = "RECONCILE_HANDOFF_SCOPE: "
+    meta = event.get("_github")
+    if not isinstance(meta, dict) or not (
+        meta.get("server_authenticated") is True
+        and meta.get("control_authorized") is True
+        and meta.get("issue_number") == 240
+        and type(meta.get("comment_id")) is int
+        and meta["comment_id"] > 0
+        and meta.get("edited") is False
+    ):
+        return prefix + "requires the authorized unedited Issue 240 server envelope"
+    if task.get("registration_source") != "IMMUTABLE_TASK_RECORD":
+        return prefix + "requires an operational immutable task publication"
+    if event.get("publication_id") != task.get("publication_id") or not task.get("publication_id"):
+        return prefix + "publication_id mismatch"
+    if event.get("taskbook_blob_sha1") != task.get("taskbook_blob_sha1") or not task.get("taskbook_blob_sha1"):
+        return prefix + "taskbook blob mismatch"
+    try:
+        published = parse_time(task["publication_published_at"])
+        server_at = parse_time(meta["created_at"])
+    except (KeyError, TypeError, AttributeError, ValueError):
+        return prefix + "requires current publication and server clocks"
+    if at != server_at or at < published:
+        return prefix + "server time precedes current publication or differs from reducer clock"
+    if state.get("claim_id") or state.get("state") != "HANDOFF_READY" or state.get("hard_block"):
+        return prefix + "cannot replace a live owner, hard block or terminal/frozen state"
+    if obligation is None or event.get("source_handoff") != obligation:
+        return prefix + "source frontier mismatch or scope already resolved"
+    if event.get("handoff_scope") not in {HANDOFF_SCOPE_CONTINUATION, HANDOFF_SCOPE_FROZEN_RETURN}:
+        return prefix + "requires explicit continuation or frozen-return scope"
+    forbidden = {"result_id", "review_id", "driver_disposition", "terminal_verdict",
+                 "claim_id", "researcher_id", "execution_cohort_id", "execution_lane_id",
+                 "terminal_scope", "terminal_candidate"}
+    if forbidden.intersection(event):
+        return prefix + "must not create execution, review, Result or terminal authority"
+    evidence = event.get("source_evidence")
+    if not isinstance(evidence, dict) or set(evidence) != {
+        "repository", "commit", "path", "git_blob_sha1", "sha256"
+    }:
+        return prefix + "requires exact immutable source evidence"
+    if evidence["repository"] != "awdawmip/enterprise-math":
+        return prefix + "wrong source repository"
+    for key, size in (("commit", 40), ("git_blob_sha1", 40), ("sha256", 64)):
+        if not isinstance(evidence[key], str) or not re.fullmatch("[0-9a-f]{%d}" % size, evidence[key]):
+            return prefix + "invalid source " + key
+    path = evidence["path"]
+    if not isinstance(path, str) or not path or any(
+        part in {"", ".", ".."} for part in path.split("/")
+    ) or any(c in path for c in "\\:#?%"):
+        return prefix + "invalid source path"
+    url = "https://github.com/awdawmip/enterprise-math/blob/" + evidence["commit"] + "/" + path
+    if event.get("progress_ref") != url:
+        return prefix + "progress_ref must equal the exact immutable source URL"
+    if not isinstance(event.get("next_action"), str) or not event["next_action"].strip():
+        return prefix + "requires next_action"
+    return None
+
+
+def _project_unresolved_handoff(
+    task: dict[str, Any], state: dict[str, Any], obligation: dict[str, Any] | None,
+) -> None:
+    if obligation is None or state["state"] != "HANDOFF_READY" or state.get("claim_id"):
+        return
+    state["state"] = "BLOCKED"
+    state["hard_block"] = {
+        "code": "LEGACY_HANDOFF_SCOPE_UNRESOLVED",
+        "publication_id": task.get("publication_id"),
+        "taskbook_blob_sha1": task.get("taskbook_blob_sha1"),
+        "source_handoff": copy.deepcopy(obligation),
+        "missing_object": "an explicit continuation versus frozen-return scope for this exact frontier",
+        "owner": "control-plane/handoff-scope-reconciliation",
+        "necessity": "An untyped old handoff must not silently redispatch completed research.",
+        "unblock_condition": "Append an authorized exact-frontier RECONCILE_HANDOFF_SCOPE event with verified immutable source evidence, or consume the ordinary Result/review lifecycle.",
+    }
+    state["next_action"] = (
+        "Reconcile the exact legacy handoff scope without a new research CLAIM; "
+        "do not infer completion or review acceptance from prose."
+    )
+
+
 def reduce_task(
     task: dict[str, Any],
     events: Iterable[dict[str, Any]],
@@ -275,6 +388,11 @@ def reduce_task(
     now: datetime,
 ) -> dict[str, Any]:
     state = state_from_task(task)
+    scope_obligation = _handoff_obligation(task, state)
+    # Supplied only by the canonical operational Result adapter, never task JSON.
+    review_reopen = task.get("_handoff_scope_review_reopened_at")
+    review_reopen_at = parse_time(review_reopen) if isinstance(review_reopen, str) else None
+    review_reopen_consumed = False
     matching = [event for event in events if event.get("task_id") == task["task_id"]]
 
     last_event_time: datetime | None = None
@@ -292,12 +410,39 @@ def reduce_task(
             continue
         last_event_time = at
         expire_claim(state, at)
+        if review_reopen_at is not None and not review_reopen_consumed and at >= review_reopen_at:
+            scope_obligation = None
+            review_reopen_consumed = True
 
         kind = event.get("event")
         claim_id = event.get("claim_id")
         live_claim = state.get("claim_id")
 
+        if kind == HANDOFF_SCOPE_RECONCILIATION:
+            reason = _handoff_reconciliation_reason(task, state, event, scope_obligation, at)
+            if reason is not None:
+                ignore(state, index, reason)
+                continue
+            state["handoff_scope_reconciliation"] = {
+                "server_comment_id": event["_github"]["comment_id"],
+                "source_handoff": copy.deepcopy(scope_obligation),
+                "source_evidence": copy.deepcopy(event["source_evidence"]),
+            }
+            state["handoff_scope"] = event["handoff_scope"]
+            state["state"] = (
+                "FROZEN_RETURN" if event["handoff_scope"] == HANDOFF_SCOPE_FROZEN_RETURN
+                else "HANDOFF_READY"
+            )
+            state["last_progress_ref"] = event["progress_ref"]
+            state["last_progress_at"] = event["at"]
+            state["next_action"] = event["next_action"]
+            scope_obligation = None
+            continue
+
         if kind == "CLAIM":
+            if scope_obligation is not None and at >= LEGACY_HANDOFF_SCOPE_CUTOVER:
+                ignore(state, index, "CLAIM requires reconciliation of the unresolved legacy handoff scope")
+                continue
             if state["state"] not in {"READY", "HANDOFF_READY"} or live_claim:
                 ignore(state, index, "task is not dispatchable")
                 continue
@@ -346,6 +491,8 @@ def reduce_task(
             except RuntimeReducerError as exc:
                 ignore(state, index, str(exc))
                 continue
+            if event.get("progress_ref") and event["progress_ref"] != state.get("last_progress_ref"):
+                scope_obligation = None
             state["state"] = "IN_PROGRESS"
             if event.get("progress_ref"):
                 state["last_progress_ref"] = event["progress_ref"]
@@ -414,6 +561,11 @@ def reduce_task(
                 state["last_progress_ref"] = event["progress_ref"]
             state["last_progress_at"] = event["at"]
             state["next_action"] = next_action
+            scope_obligation = (
+                _handoff_obligation(task, state, event)
+                if state["state"] == "HANDOFF_READY" and handoff_scope is None
+                else None
+            )
             state["claim_id"] = None
             state["actor"] = None
             release_claim_identity(state)
@@ -425,6 +577,7 @@ def reduce_task(
             if not complete_hard_block(hard_block):
                 ignore(state, index, "HARD_BLOCK requires all four hard-block fields")
                 continue
+            scope_obligation = None
             state["state"] = "BLOCKED"
             state["hard_block"] = copy.deepcopy(hard_block)
             state["last_progress_at"] = event["at"]
@@ -472,6 +625,7 @@ def reduce_task(
         ignore(state, index, f"unknown event type: {kind!r}")
 
     expire_claim(state, now)
+    _project_unresolved_handoff(task, state, scope_obligation)
     state["lease_until"] = state["lease_until"].isoformat() if isinstance(state.get("lease_until"), datetime) else None
 
     if state["state"] in {"DONE", "SUPERSEDED"}:
