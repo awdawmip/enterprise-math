@@ -1,0 +1,27 @@
+{
+  "schema": "ENTERPRISE_MATH_DRIVER_HANDOFF_V1",
+  "driver_id": "EM-DVR-Q7M2",
+  "role": "RESEARCH_DRIVER",
+  "scope": "PFSS review and successor dispatch within portfolio authority; not primary control authority",
+  "recorded_at": "2026-09-17T06:12:00+00:00",
+  "source_head_before_transaction": "1a7c445fd5bebac16a25dc74e9a40ec19a937050",
+  "incremental_scan": {
+    "result_record_commits_since": "2026-09-10T00:00:00Z",
+    "new_frozen_results_found": ["RR-9F084B92BE8261F3A8D7","RR-4760E87D1D3AD2F6AFFA"],
+    "terminal_review_records_found_before_this_transaction": [],
+    "historical_closed_review_corpus_reaudited_from_scratch": false,
+    "reason": "Incremental Driver review uses persisted review records and new frozen result records; no claim is made that every historical closed review was re-proved."
+  },
+  "decisions": [
+    {"result_id":"RR-9F084B92BE8261F3A8D7","decision":"ACCEPTED_TASK_SCOPE_NULL_MODEL_MISSPECIFICATION","review_id":"DR-F4BDDF20DD147806600B","next_route":"RS-PFSS-JUSTIFIED-NONDEGENERATE-NULL-MECHANISM"},
+    {"result_id":"RR-4760E87D1D3AD2F6AFFA","decision":"ACCEPTED_BOUNDED_NEGATIVE_IDENTIFIABILITY_BOUNDARY","review_id":"DR-C3AECF00412A04FFA6A4","next_route":"RS-PFSS-JUSTIFIED-NONDEGENERATE-NULL-MECHANISM"}
+  ],
+  "published_tasks": [
+    {"task_id":"RS-PFSS-JUSTIFIED-NONDEGENERATE-NULL-MECHANISM","publication_id":"TP2-CED1A3712793223C0ABE","priority":"P1","expected_runtime_state":"READY","safe_takeover":"Fresh researcher identity may claim through canonical dispatch; Driver does not preclaim."},
+    {"task_id":"RS-PFSS-NONDEGENERATE-NULL-PREFLIGHT","publication_id":"TP2-45A34916AAD937D0DF61","priority":"P2","expected_runtime_state":"BLOCKED","dependency":"RS-PFSS-JUSTIFIED-NONDEGENERATE-NULL-MECHANISM must return ACCEPTED_MECHANISM before execution."}
+  ],
+  "issue_1479": {"observed_state":"CLOSED","remediation_commit":"8ff3142d4ca8ef0164c64d4961beb7bed973ffbb","action_this_run":"No duplicate route patch applied; pending frozen results are consumed as Driver review work."},
+  "preserved_boundaries": {"holdouts":[300000000,1000000000],"holdouts_accessed":false,"working_truth_granted":false,"foundation_changes":false,"researcher_claims_modified":false},
+  "cas_retry": {"first_update_result":"NON_FAST_FORWARD_ABORTED","new_base":"1a7c445fd5bebac16a25dc74e9a40ec19a937050","result_blobs_reverified":true},
+  "next_minimal_driver_action": "Read back canonical runtime for the two published tasks and scan for newly frozen unreviewed results; do not claim the research task as Driver."
+}
