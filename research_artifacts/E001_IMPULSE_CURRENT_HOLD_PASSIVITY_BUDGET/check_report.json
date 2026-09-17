@@ -1,0 +1,30 @@
+{
+  "schema": "ENTERPRISE_MATH_E001_CURRENT_HOLD_PASSIVITY_BUDGET_CHECK_V1",
+  "task_id": "RS-E001-IMPULSE-V2",
+  "researcher_id": "EM-E001-7C4A21",
+  "claim_id": "chatgpt-e001imp-20260830-2140-7c4a21",
+  "verdict": "PASS",
+  "law_grid_cases": 61776,
+  "schedule_pair_checks": 3374664,
+  "force_alphabet": [0, 1, 2, 3],
+  "cell_width_alphabet": [1, 2],
+  "peak_range": [1, 4],
+  "per_peak": [
+    {"peak": 1, "monotone_sequences": 10, "law_grid_cases": 200, "schedule_pair_checks": 200},
+    {"peak": 2, "monotone_sequences": 20, "law_grid_cases": 1600, "schedule_pair_checks": 6400},
+    {"peak": 3, "monotone_sequences": 35, "law_grid_cases": 9800, "schedule_pair_checks": 156800},
+    {"peak": 4, "monotone_sequences": 56, "law_grid_cases": 50176, "schedule_pair_checks": 3211264}
+  ],
+  "witnesses": {
+    "strong_two_state": {"static_loss2": 1, "current_loss2": -2},
+    "refinement_repair": {"static_loss2": 2, "coarse_loss2": -4, "full_loss2": 0}
+  },
+  "verified_claims": [
+    "exact_budget_identity",
+    "monotone_nonnegative_sampling_defects",
+    "coarsest_exact_global_minimum",
+    "fully_refined_exact_global_maximum",
+    "full_grid_sampling_defect_formula",
+    "universal_saved_schedule_passivity_iff_L0_ge_RK"
+  ]
+}
