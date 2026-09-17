@@ -1,0 +1,49 @@
+{
+  "schema": "HODGE_H0M_OBSTRUCTION_CANCELLATION_REGISTRY_V1",
+  "task_id": "RS-HODGE-H0M-WEIL-SIXFOLD-SEMIREGULARITY-OBSTRUCTION-CANCELLATION",
+  "frontier_model": "A_eta / Q(i) / discriminant [-3]",
+  "candidate_state_machine": [
+    "DEFORMATION_STATE",
+    "EXT2_OBSTRUCTION",
+    "SEMIREGULARITY_OR_TRACE_CHANNELS",
+    "CANCELLED_OR_SURVIVING_OBSTRUCTION",
+    "CLASS_TRANSPORT_STATUS"
+  ],
+  "instantiation_status": "BLOCKED_BEFORE_EXT2",
+  "reason": "No frontier algebraic/derived seed E with a certified W_K component is available. Ext groups for a nonexistent E are not assigned zero or synthesized.",
+  "standard_baseline": {
+    "semiregularity": "SOURCE_BASELINE",
+    "deformation_obstruction_theory": "SOURCE_BASELINE",
+    "enterprise_credit_rule": "A standard semiregularity theorem, even when written as a finite channel process, receives no Enterprise attribution."
+  },
+  "brc_gate": {
+    "resolution": "REUSE_APPLIED",
+    "source": "definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json @ fcdfc7634ee393d2b059e9e77d8d97dbf51b215b",
+    "carrier": {
+      "population": "the four mechanism branches M1-M4 on one frozen frontier model",
+      "branch_identity": "(mechanism, source provenance, discriminant class, carrier map)",
+      "observed_outputs": [
+        "exact discriminant class",
+        "existence of source object",
+        "obstruction survival/cancellation if defined",
+        "W_K class equality/spanning status"
+      ],
+      "future_operations": [
+        "K-compatible isogeny",
+        "K-equivariant Fourier-Mukai/duality where H^1 carrier identification is certified",
+        "Hecke within fixed unitary datum",
+        "deformation in fixed PEL component"
+      ],
+      "precision": "exact rational/norm-class data; no floating observer"
+    },
+    "information_retained": "mechanism provenance and discriminant label are never collapsed into a Boolean 'works/fails' before the exact defect is recorded.",
+    "signed_boundary": "Positive Weighted-BRC is not used to model Ext obstruction cancellation: signed/complex cancellation is outside its positive-mass carrier. BRC is used only for typed provenance/observer discipline here."
+  },
+  "null_control": {
+    "case": "missing frontier E",
+    "result": "No semiregularity channel exists to annihilate an obstruction. The process must return UNDEFINED_AT_SOURCE rather than automatic cancellation."
+  },
+  "finite_obstruction_matrix": "NOT_CONSTRUCTED",
+  "cancellation_claim": "NONE",
+  "smallest_unresolved_step": "Construct a frontier E or Z with a certified nonzero W_K component; only then form and calculate its Ext^2/semiregularity channel."
+}
