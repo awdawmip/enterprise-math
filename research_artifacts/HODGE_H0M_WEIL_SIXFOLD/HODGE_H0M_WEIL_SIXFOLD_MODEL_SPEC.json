@@ -1,0 +1,73 @@
+{
+  "schema": "HODGE_H0M_WEIL_SIXFOLD_MODEL_SPEC_V1",
+  "task_id": "RS-HODGE-H0M-WEIL-SIXFOLD-SEMIREGULARITY-OBSTRUCTION-CANCELLATION",
+  "frozen_before_cycle_search": true,
+  "freeze_time": "2026-09-17T04:19:00+00:00",
+  "K": {
+    "field": "Q(i)",
+    "ring_of_integers": "Z[i]",
+    "degree_over_Q": 2,
+    "conjugation": "i -> -i"
+  },
+  "rational_homology_datum": {
+    "V": "K^6",
+    "dim_K": 6,
+    "dim_Q": 12,
+    "lattice": "Lambda = Z[i]^6",
+    "hermitian_convention": "H is K-linear in the first variable and conjugate-linear in the second",
+    "hermitian_matrix_diagonal": [1, 1, 1, -1, -1, -3],
+    "real_signature": [3, 3],
+    "alternating_form": "E(x,y)=Tr_{K/Q}(i*H(x,y))",
+    "integrality_note": "For x,y in Z[i]^6, H(x,y) is in Z[i] and Tr(i H(x,y)) is an even integer; E is integral and nondegenerate.",
+    "riemann_domain": "The compatible complex structures form the nonempty U(3,3)/(U(3)xU(3)) domain; E(x,Jx)>0 on the standard base point and hence on its connected component."
+  },
+  "fine_moduli_instantiation": {
+    "level": "full level 3 (used only to obtain a fine PEL moduli cover)",
+    "component": "S_{-3}: connected PEL unitary component determined by (K,Lambda,H) and level 3",
+    "complex_dimension": 9,
+    "point": "eta = a geometric generic point of S_{-3}; fix an embedding of its algebraically closed residue field into C and base-change the universal abelian scheme to obtain A_eta/C.",
+    "genericity": "eta is fixed before any cycle search and lies outside every proper closed/special locus not equal to the whole component.",
+    "reason_for_generic_model": "avoids selecting a decomposable/CM/special positive-control point merely because a known cycle exists."
+  },
+  "discriminant": {
+    "definition": "det(H) modulo N_{K/Q}(K^*) in Q^*/N(K^*)",
+    "determinant": -3,
+    "class": "[-3]",
+    "solved_markman_class": "[-1]",
+    "ratio_to_solved_class": 3,
+    "norm_separation": {
+      "claim": "3 is not in N_{Q(i)/Q}(Q(i)^*)",
+      "certificate": "For Q(i), every rational norm has even valuation at primes p == 3 mod 4. v_3(3)=1 is odd.",
+      "conclusion": "[-3] != [-1]"
+    },
+    "also_not_trivial": "[-3] != [1] because norms from Q(i) are positive while -3 is negative."
+  },
+  "weil_type": {
+    "signature": [3, 3],
+    "cohomology_K_rank": 6,
+    "carrier": "W_K(A_eta)=wedge_K^6 H^1(A_eta,Q) subset H^6(A_eta,Q)",
+    "carrier_dimension_proof": [
+      "H^1(A_eta,Q) has K-dimension 6.",
+      "wedge_K^6 of a K-vector space of dimension 6 is one-dimensional over K.",
+      "[K:Q]=2, hence dim_Q W_K(A_eta)=2."
+    ],
+    "hodge_typing_proof": [
+      "After tensoring with C, K has the two embeddings sigma and conjugate-sigma and the determinant carrier splits into two complex determinant lines.",
+      "The Weil multiplicity condition gives dimensions (3,3) for the (1,0)/(0,1) pieces in each embedding component.",
+      "Therefore each determinant line has Hodge bidegree (3,3), so W_K(A_eta) is contained in H^{3,3}(A_eta)."
+    ]
+  },
+  "divisor_algebra_control": {
+    "generic_Neron_Severi_rank": 1,
+    "degree_6_divisor_generated_upper_bound": 1,
+    "weil_carrier_dimension": 2,
+    "source_supported_exceptionality": "The selected generic Weil-type scope retains the exceptional Weil subspace; it is not replaced by the single theta^3 divisor line.",
+    "firewall": "No divisor-product class is accepted as a generator for W_K(A_eta)."
+  },
+  "frontier_exclusion": {
+    "markman_discriminant_minus_one": "excluded by [-3] != [-1]",
+    "known_Q_sqrt_minus_3_trivial_sixfold_result": "not applicable because K=Q(i) and discriminant class is nontrivial",
+    "bounded_literature_audit": "CURRENTLY_OPEN_FRONTIER_AT_DECLARED_SCOPE",
+    "algebraicity_claim": "NOT_PROVED"
+  }
+}
