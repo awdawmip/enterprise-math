@@ -1,0 +1,225 @@
+{
+  "schema": "ENTERPRISE_MATH_CONTROL_PLANE_MAINTENANCE_AUDIT_V1",
+  "classification": "AUDIT_ONLY_NO_CONTROL_AUTHORITY",
+  "run_id": "CPM-20260917-123231Z-5C2E71",
+  "mode": "CONTROL_PLANE_MAINTENANCE",
+  "authority_grants": {
+    "researcher": false,
+    "driver": false,
+    "steward": false,
+    "claim": false,
+    "review": false,
+    "mathematical_acceptance": false
+  },
+  "global_knowledge_snapshot": {
+    "repository": "awdawmip/chatgpt-global-knowledge",
+    "main_sha": "d94bd8557706e3931555671a0450a5bc11c34ebd",
+    "loaded": [
+      "00_BOOTSTRAP.md",
+      "OPERATING_MANUAL.md",
+      "projects/enterprise-math/00_EM_PROJECT_BOOTSTRAP.md"
+    ]
+  },
+  "source_observation": {
+    "repository": "awdawmip/enterprise-math",
+    "initial_main_sha": "476d536b7f8b1897684b6b8ebb1c4eb24e0c5690",
+    "latest_verified_main_before_record_write": "01c732dc54065b601b509440973d64dc982143d5",
+    "initial_request_id": "chatgpt-20260917-autoA-run1-1202Z-8f3c7a21",
+    "initial_receipt_request_id": "chatgpt-20260917-autoA-run1-fresh-0659-d4f2a9c1",
+    "successful_replay_issue_240_comment_count": 828,
+    "successful_replay_issue_240_last_comment_id": 5713945957,
+    "successful_replay_issue_240_snapshot_sha256": "sha256:a48a1c5c5f4dc1372fb7c385773e8b01b16c878a7942d1671796f103cbedb7de"
+  },
+  "scan_scope": [
+    "AGENTS.md",
+    "control_plane/current_control_authority.json",
+    "control_plane/chatgpt_dispatch_request.json",
+    "control_plane/chatgpt_dispatch_receipt.json",
+    "control_plane/chatgpt_dispatch_receipts/chatgpt-20260917-autoA-run1-1202Z-8f3c7a21.json",
+    "control_plane/chatgpt_startup_packets/chatgpt-20260917-autoA-run1-1202Z-8f3c7a21.json",
+    "control_plane/research_driver_review_authority_compat_runtime.py",
+    "control_plane/research_driver_review_authority_fault_isolation.py",
+    "research_driver_authority.py",
+    "research_driver_authority_compatibility.json",
+    "research_driver_authority_records/EM-DVR-8BMNSD/DA-BB27C265630B98E7837C.json",
+    "research_driver_authority_records/EM-DVR-8E9BVB/DA-B6DD40BA062B9CE973CD.json",
+    ".github/workflows/chatgpt-control-dispatch-bridge.yml",
+    "GitHub Actions chatgpt-control-dispatch-bridge runs 35219076091 and 35222592740",
+    "GitHub Issue #240 authoritative event stream as consumed by successful replay through comment 5713945957",
+    "control_plane/audits/maintenance_runs/CPM-20260917-050455Z-3F1A9C.json",
+    "research_activity_records/RA-41fbc67e4f414058.json",
+    "research/pcf7fix-b603fa branch head 02de07c722c611c345f3b527dfe06d07af5d3fc6",
+    "research_returns/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_STATEMENT_CORRECTION_RETURN_20260917.md",
+    "Q30 recovery execution and subsequent Driver/review commits 1a7c445fd5bebac16a25dc74e9a40ec19a937050, 13f60552d267f9a64a615a11325ac4f52f8403e7, 8fb27a49eaca46f83b3d5c8f4485e1d9be41dbc4"
+  ],
+  "findings": [
+    {
+      "fingerprint": "DISPATCH_BRIDGE_ROUTER_FAILED|DRIVER_AUTHORITY_ID_COMPAT|DA-BB27C265630B98E7837C|DA-B6DD40BA062B9CE973CD",
+      "classification": "PROVEN_CONTROL_CONSUMER_FAILURE",
+      "status": "REPAIRED_AND_REPLAY_VERIFIED",
+      "evidence": {
+        "failed_workflow_run_id": 35219076091,
+        "failed_workflow_job_id": 105194485541,
+        "failed_source_sha": "476d536b7f8b1897684b6b8ebb1c4eb24e0c5690",
+        "failure_class": "control_plane.research_driver_review_authority_compat_runtime.DriverReviewAuthorityCompatRuntimeError",
+        "invalid_authority_records": [
+          {
+            "record_path": "research_driver_authority_records/EM-DVR-8BMNSD/DA-BB27C265630B98E7837C.json",
+            "record_blob_sha1": "sha1:192e2614987d9d50f6aec2f16b0462af9468e87c",
+            "raw_authority_record_id": "DA-BB27C265630B98E7837C",
+            "normalized_authority_record_id": "DA-6239A971A68FA28E2580",
+            "driver_id": "EM-DVR-8BMNSD",
+            "event": "AUTHORIZE",
+            "source_comment_id": 5713945743
+          },
+          {
+            "record_path": "research_driver_authority_records/EM-DVR-8E9BVB/DA-B6DD40BA062B9CE973CD.json",
+            "record_blob_sha1": "sha1:730184bf2ad342c29b62133f8fb6899e7dcdf767",
+            "raw_authority_record_id": "DA-B6DD40BA062B9CE973CD",
+            "normalized_authority_record_id": "DA-4CE3D1EE637CC9449911",
+            "driver_id": "EM-DVR-8E9BVB",
+            "event": "AUTHORIZE",
+            "source_comment_id": 5711063862
+          }
+        ]
+      },
+      "decision": "USE_BYTE_PINNED_DERIVED_ID_COMPATIBILITY_ONLY; DO_NOT REWRITE IMMUTABLE AUTHORITY EVENTS OR REVIEW DISPOSITIONS"
+    },
+    {
+      "fingerprint": "STRANDED_DISPATCH_REPLAY|UNCHANGED_REQUEST_WITHOUT_IMMUTABLE_RECEIPT",
+      "classification": "PROVEN_CONTROL_BRIDGE_PERSISTENCE_GAP",
+      "status": "REPAIRED_AND_REPLAY_VERIFIED",
+      "evidence": {
+        "request_id": "chatgpt-20260917-autoA-run1-1202Z-8f3c7a21",
+        "pre_repair_request_receipt_match": false,
+        "pre_repair_workflow_behavior": "PERSIST_ONLY_WHEN_REQUEST_PATH_CHANGED",
+        "repair_behavior": "IF REQUEST IS UNCHANGED AND ITS IMMUTABLE RECEIPT IS MISSING, REPLAY CANONICAL ROUTER AND PERSIST RECEIPT/STARTUP PACKET WITHOUT MUTATING REQUEST"
+      },
+      "decision": "REPLAY ORIGINAL REQUEST AFTER PURE_CONTROL_DEPENDENCY_REPAIR; DO NOT FABRICATE A NEW REQUEST OR CLAIM"
+    },
+    {
+      "fingerprint": "OWNER_SCOPE|RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION-STATEMENT-CORRECTION|CLM-PCF7FIX-0BFF2D2CD73646AD",
+      "classification": "VERIFIED_COMPLETE_RESEARCH_UNIT_AND_REVIEW_CLOSED",
+      "status": "DO_NOT_RECOVER_OR_REDISPATCH",
+      "evidence": {
+        "publication_id": "TP2-1C146C521C5946742C17",
+        "claim_id": "CLM-PCF7FIX-0BFF2D2CD73646AD",
+        "researcher_id": "EM-PCF7FIX-B603FA",
+        "activity_id": "RA-41fbc67e4f414058",
+        "execution_branch": "research/pcf7fix-b603fa",
+        "branch_result_commit": "02de07c722c611c345f3b527dfe06d07af5d3fc6",
+        "checkpoint_id": "CP-PCF7FIX-C4D07973",
+        "last_substantive_checkpoint_at": "2026-09-17T05:23:00Z",
+        "result_path": "research_returns/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_STATEMENT_CORRECTION_RETURN_20260917.md",
+        "independent_review_closure_commit": "8fb27a49eaca46f83b3d5c8f4485e1d9be41dbc4"
+      },
+      "decision": "PREVIOUS LIVENESS_UNKNOWN OBSERVATION IS SUPERSEDED BY DURABLE RESULT AND REVIEW CLOSURE; PRESERVE COMPLETED WORK"
+    },
+    {
+      "fingerprint": "RECOVERY|RS-P000-Q30-N14-EVIDENCE-RECOVERY-CANONICALIZATION-GATE|TP2-EB531E351C670702AD82",
+      "classification": "VERIFIED_RECOVERY_EXECUTED_AND_REVIEW_CLOSED",
+      "status": "NO_FURTHER_RECOVERY_ACTION",
+      "evidence": {
+        "recovery_execution_commit": "1a7c445fd5bebac16a25dc74e9a40ec19a937050",
+        "driver_integration_commit": "13f60552d267f9a64a615a11325ac4f52f8403e7",
+        "independent_review_closure_commit": "8fb27a49eaca46f83b3d5c8f4485e1d9be41dbc4"
+      },
+      "decision": "RECOVERY WAS ACTUALLY STARTED AND THEN CLOSED THROUGH DRIVER/INDEPENDENT REVIEW; DO NOT RESTART FROM ZERO"
+    },
+    {
+      "fingerprint": "RECOVERY_ENTRY|RS-P000-WEIGHTED-CORRELATION-INEQUALITY-EXPLICIT-BOUND|CLM-WCORR-W5-882CF1AB07E95E18",
+      "classification": "CANONICAL_RECOVERY_ROUTE_READY_EXISTING_CLAIM_ADOPTION",
+      "status": "RECOVERY_ENTRY_PERSISTED_EXECUTOR_TAKEOVER_UNVERIFIED",
+      "evidence": {
+        "request_id": "chatgpt-20260917-autoA-run1-1202Z-8f3c7a21",
+        "receipt_generated_at": "2026-09-17T12:54:39Z",
+        "receipt_source_sha": "3e60b95b1717d803bf999b846a84e2d491ceca30",
+        "router_exit_code": 0,
+        "route_action": "RECOVER_SCOPE",
+        "task_id": "RS-P000-WEIGHTED-CORRELATION-INEQUALITY-EXPLICIT-BOUND",
+        "publication_id": "TP2-B85C11803ED175070E66",
+        "claim_id": "CLM-WCORR-W5-882CF1AB07E95E18",
+        "previous_owner_researcher_id": "EM-WCORR-W5-91D7A6",
+        "owner_activity_id": "RA-dd8ea9d7e6eabb8a",
+        "recovery_mode": "ADOPT_EXISTING_CLAIM",
+        "original_result_path": "research_returns/P000_WEIGHTED_CORRELATION_INEQUALITY_EXPLICIT_BOUND_FINAL.md",
+        "prior_review_certificate": "reviews/REV-WCORR-BREADTH-80967A34622B.json",
+        "startup_packet_path": "control_plane/chatgpt_startup_packets/chatgpt-20260917-autoA-run1-1202Z-8f3c7a21.json"
+      },
+      "decision": "MAINTENANCE DOES NOT ADOPT THE CLAIM; QUALIFIED EXECUTOR MAY USE THE PERSISTED RECOVERY PACKET. NO POST-REPLAY AUTHENTICATED ADOPT OR DURABLE EXECUTION PROGRESS WAS VERIFIED IN THIS BOUNDED RUN."
+    }
+  ],
+  "repairs": [
+    {
+      "fingerprint": "DRIVER_AUTHORITY_ID_COMPATIBILITY",
+      "repair_kind": "EXACT_BLOB_PINNED_LEGACY_DERIVED_ID_ALIASES",
+      "published_commit": "5bdddc9eb79db67ba2a6b5e0e3ea64e11575c69a",
+      "path": "research_driver_authority_compatibility.json",
+      "immutable_authority_records_rewritten": false,
+      "review_disposition_changed": false
+    },
+    {
+      "fingerprint": "STRANDED_DISPATCH_REPLAY_PERSISTENCE",
+      "repair_kind": "CANONICAL_BRIDGE_REPLAY_FOR_UNCHANGED_REQUEST_WITH_MISSING_IMMUTABLE_RECEIPT",
+      "published_commit": "3e60b95b1717d803bf999b846a84e2d491ceca30",
+      "path": ".github/workflows/chatgpt-control-dispatch-bridge.yml",
+      "request_mutated": false,
+      "claim_created": false
+    },
+    {
+      "fingerprint": "REPLAY_PERSISTENCE_RESULT",
+      "repair_kind": "EXISTING_CANONICAL_CONSUMER_PERSISTED_RECEIPT_AND_STARTUP_PACKET",
+      "published_commit": "01c732dc54065b601b509440973d64dc982143d5",
+      "producer": "github-actions[bot]",
+      "request_id": "chatgpt-20260917-autoA-run1-1202Z-8f3c7a21"
+    }
+  ],
+  "validation": {
+    "failed_run": {
+      "workflow_run_id": 35219076091,
+      "conclusion": "failure"
+    },
+    "replay_run": {
+      "workflow_run_id": 35222592740,
+      "workflow_job_id": 105206165210,
+      "conclusion": "success"
+    },
+    "canonical_current_receipt_request_match": true,
+    "immutable_receipt_request_match": true,
+    "startup_packet_request_match": true,
+    "receipt_and_startup_source_sha_match": true,
+    "canonical_router_exit_code_zero": true,
+    "recovery_aware_route_observed": true,
+    "recovery_route_action": "RECOVER_SCOPE",
+    "recovery_route_mode": "ADOPT_EXISTING_CLAIM",
+    "formal_recovery_task_and_publication_identified": true
+  },
+  "stage_status": {
+    "repair_published": true,
+    "dispatch_or_recovery_claimability_verified": true,
+    "recovery_entry_persisted": true,
+    "executor_takeover_verified": false,
+    "new_real_research_progress_after_this_repair_verified": false
+  },
+  "acceptance": {
+    "control_consumer_recovered": true,
+    "request_receipt_startup_correspondence_recovered": true,
+    "recovery_aware_canonical_dispatch_operational": true,
+    "current_recovery_entry_ready": true,
+    "current_recovery_executor_takeover_proven": false,
+    "local_validation": "REMOTE_CANONICAL_REPLAY_SUCCESS_AND_IMMUTABLE_READBACK",
+    "limitations": [
+      "NO CLAIM OR ADOPT EVENT WAS CREATED BY CONTROL_PLANE_MAINTENANCE",
+      "NO MATHEMATICAL RESEARCH, THEOREM REVIEW, OR RESEARCH DIRECTION DECISION WAS PERFORMED",
+      "PCF7 AND Q30 PROGRESS/REVIEW COMMITS PREDATE THE TWO CONTROL REPAIR COMMITS AND ARE NOT ATTRIBUTED TO THIS REPAIR",
+      "EXECUTOR TAKEOVER OF THE CURRENT WCORR RECOVERY ROUTE WAS NOT VERIFIED IN THIS RUN",
+      "SCAN IS BOUNDED TO THE LISTED REPOSITORY, WORKFLOW, AND CONNECTOR-VISIBLE EVENT SURFACES; IT IS NOT A CLAIM OF VISIBILITY INTO ALL CHATS OR HIDDEN EXECUTION"
+    ]
+  },
+  "next_run_priority": [
+    "CHECK FOR AN AUTHENTICATED ADOPT OF CLM-WCORR-W5-882CF1AB07E95E18 AND EXACT-SCOPE ACTIVITY/CHECKPOINT/RESULT AFTER THE PERSISTED RECOVERY PACKET; DO NOT CREATE A SECOND CLAIM",
+    "IF WCORR REMAINS UNTAKEN, DISTINGUISH WAITING EXECUTOR FROM A NEW CONTROL CONSUMER FAILURE BEFORE ANY FURTHER PATCH",
+    "VERIFY REQUEST_RECEIPT_STARTUP CORRESPONDENCE FOR ANY NEWER REQUEST AND RE-ISOLATE ONLY NEW EXACT AUTHORITY ERROR SIGNATURES",
+    "DO NOT REDISPATCH PCF7 OR Q30 COMPLETED/FROZEN-THEN-REVIEWED WORK"
+  ]
+}
