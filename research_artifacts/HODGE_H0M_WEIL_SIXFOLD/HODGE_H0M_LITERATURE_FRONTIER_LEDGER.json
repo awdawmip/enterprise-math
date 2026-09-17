@@ -1,0 +1,64 @@
+{
+  "schema": "HODGE_H0M_LITERATURE_FRONTIER_LEDGER_V1",
+  "task_id": "RS-HODGE-H0M-WEIL-SIXFOLD-SEMIREGULARITY-OBSTRUCTION-CANCELLATION",
+  "frozen_at": "2026-09-17T04:18:00+00:00",
+  "classification": "CURRENTLY_OPEN_FRONTIER_AT_DECLARED_SCOPE",
+  "declared_scope": {
+    "dimension_complex": 6,
+    "K": "Q(i)",
+    "weil_signature": [3, 3],
+    "discriminant_class": "[-3] in Q^*/N_{Q(i)/Q}(Q(i)^*)",
+    "model": "geometric-generic member of the PEL unitary component fixed in HODGE_H0M_WEIL_SIXFOLD_MODEL_SPEC.json"
+  },
+  "primary_sources": [
+    {
+      "id": "arXiv:2502.03415",
+      "author": "Eyal Markman",
+      "title": "Cycles on abelian 2n-folds of Weil type from secant sheaves on abelian n-folds",
+      "url": "https://arxiv.org/abs/2502.03415",
+      "used_facts": [
+        "Theorem 1.5.1 proves algebraicity of Hodge-Weil classes for polarized abelian sixfolds of Weil type with discriminant -1 for every imaginary quadratic K.",
+        "The discriminant is det(H) modulo the norm subgroup Q^*/Nm(K^*); (n,K,det H) is a discrete moduli invariant.",
+        "The generic Weil-type abelian variety has cyclic Neron-Severi group and a 3-dimensional middle rational Hodge space."
+      ]
+    },
+    {
+      "id": "arXiv:2603.20268",
+      "author": "Amir Mostaed",
+      "title": "McMullen's Curve, the Weil Locus, and the Hodge Conjecture for Abelian Sixfolds",
+      "url": "https://arxiv.org/abs/2603.20268",
+      "used_facts": [
+        "For g=3, Markman's discriminant -1 result is the general solved locus stated there; outside this locus the Hodge conjecture for Weil classes on sixfolds remains completely open.",
+        "The paper isolates absence of K-secant structure and uncontrolled discriminant as independent obstructions to importing the known secant-sheaf theorem.",
+        "The discriminant is det(H) modulo Nm(K^*) and is not controlled in the paper's new rigid family."
+      ]
+    },
+    {
+      "id": "arXiv:2509.23079",
+      "author": "Eyal Markman",
+      "title": "Secant sheaves on abelian n-folds with real multiplication and Weil classes on abelian 2n-folds with complex multiplication",
+      "url": "https://arxiv.org/abs/2509.23079",
+      "used_facts": [
+        "The broader CM-field construction is conditional for algebraicity on semiregularity of the constructed object; the paper states that semiregularity has not been addressed there.",
+        "For a Weil-type action, wedge_K^d H^1 is one-dimensional over K and lies in H^{d/2,d/2} under the equal multiplicity condition."
+      ]
+    },
+    {
+      "id": "arXiv:2607.18341",
+      "authors": ["Bert van Geemen", "Antonio Rapagnetta"],
+      "title": "Hyperkähler sixfolds, abelian fourfolds of Weil type and a Hodge class",
+      "url": "https://arxiv.org/abs/2607.18341",
+      "used_facts": ["This July 2026 result concerns abelian fourfolds, not the sixfold frontier selected here."]
+    }
+  ],
+  "fresh_search_boundary": {
+    "date": "2026-09-17",
+    "queries": [
+      "\"Weil classes\" abelian sixfold Hodge conjecture discriminant 2026 arXiv",
+      "\"abelian sixfolds of Weil type\" 2026 Hodge conjecture arXiv",
+      "\"sixfold\" \"discriminant -1\" \"Weil type\" 2026"
+    ],
+    "result": "No later primary arXiv result closing the generic Q(i), discriminant [-3] sixfold case was found in this bounded search. This is a routing audit, not a proof of literature nonexistence."
+  },
+  "routing_conclusion": "Use discriminant [-3] over Q(i). Do not use any solved discriminant -1 secant cycle/sheaf as a frontier generator."
+}
