@@ -1,0 +1,16 @@
+{
+  "schema": "PCF7_FIXED_PROBE_CHECKER_REPLAY_V1",
+  "task_id": "RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION-STATEMENT-CORRECTION",
+  "publication_id": "TP2-1C146C521C5946742C17",
+  "checker_path": "research_checks/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_CHECK_20260831.py",
+  "byte_preserved": true,
+  "git_blob_sha1": "sha1:b2a53c365f442fb2915cd869b77b62d9ce8a9ec8",
+  "sha256": "sha256:8a878f62fd213177036d14704dcd4efd19cad5b7e6f40dd96f3f91531b3492d9",
+  "local_runtime": "Python 3.13.5",
+  "command": "python3 research_checks/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_CHECK_20260831.py",
+  "exit_code": 0,
+  "stdout": "PCF7_CHECK_PASS recurrence_terms=18 gcd_cases=108 pcf4_balanced_zero=1009x1013 fixed_probe_balanced_zero=10007x10009 amplification=PASS regime_order=PASS",
+  "stderr": "",
+  "checker_zero_handling": "fixed_probe_values excludes zero from support; replay assertion checks gcd=1 only under if v; thus zero is not falsely asserted to have gcd 1",
+  "result": "PASS"
+}
