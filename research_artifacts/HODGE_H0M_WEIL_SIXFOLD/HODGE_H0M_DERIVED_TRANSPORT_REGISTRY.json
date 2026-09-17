@@ -1,0 +1,70 @@
+{
+  "schema": "HODGE_H0M_DERIVED_TRANSPORT_REGISTRY_V1",
+  "task_id": "RS-HODGE-H0M-WEIL-SIXFOLD-SEMIREGULARITY-OBSTRUCTION-CANCELLATION",
+  "source_discriminant": "[-1]",
+  "target_discriminant": "[-3]",
+  "K": "Q(i)",
+  "quotient": "Q^*/N_{Q(i)/Q}(Q(i)^*)",
+  "lemmas": [
+    {
+      "name": "K_LINEAR_CHANGE_OF_BASIS",
+      "formula": "det(g^* H g) = N_{K/Q}(det g) * det(H)",
+      "consequence": "discriminant class is unchanged"
+    },
+    {
+      "name": "RATIONAL_SIMILITUDE_IN_EVEN_K_RANK",
+      "formula": "det(c H)=c^6 det(H)=N_{K/Q}(c^3) det(H) for c in Q^*",
+      "consequence": "discriminant class is unchanged"
+    },
+    {
+      "name": "DUALITY",
+      "formula": "det(H^{-1})=det(H)^{-1}; [d]^{-1}=[d] because d^2=N_{K/Q}(d) for d in Q^*",
+      "consequence": "duality does not change the discriminant class in the quotient"
+    }
+  ],
+  "operation_audit": [
+    {
+      "operation": "K-linear polarized isogeny / K-Hermitian similitude",
+      "carrier_identification": "YES",
+      "discriminant_transform": "unchanged",
+      "reaches_target": false
+    },
+    {
+      "operation": "Hecke correspondence inside the fixed U(H) PEL datum",
+      "carrier_identification": "YES",
+      "discriminant_transform": "the rational Hermitian space H is fixed; only lattice/level changes",
+      "reaches_target": false
+    },
+    {
+      "operation": "deformation inside a fixed Weil-type PEL component",
+      "carrier_identification": "YES via the W_K local subsystem",
+      "discriminant_transform": "constant discrete invariant",
+      "reaches_target": false
+    },
+    {
+      "operation": "duality A -> A^vee",
+      "carrier_identification": "YES at the rational dual level",
+      "discriminant_transform": "inverse class = same class",
+      "reaches_target": false
+    },
+    {
+      "operation": "K-equivariant Fourier-Mukai transform that supplies a certified H^1 K-similitude",
+      "carrier_identification": "CONDITIONAL_ON_CERTIFIED_K_SIMILITUDE",
+      "discriminant_transform": "unchanged when the stated carrier-identification hypothesis holds",
+      "reaches_target": false
+    },
+    {
+      "operation": "general Fourier-Mukai equivalence without K-linear H^1 identification",
+      "carrier_identification": "NO",
+      "discriminant_transform": "not accepted as a transport law for W_K",
+      "reaches_target": false
+    }
+  ],
+  "separation_certificate": {
+    "ratio_target_source": 3,
+    "is_norm": false,
+    "reason": "v_3(3)=1 is odd, while norms from Q(i) have even valuation at primes congruent to 3 mod 4."
+  },
+  "classification": "DISCRIMINANT_TRANSPORT_NO_GO_WITHIN_AUDITED_CARRIER_PRESERVING_OPERATIONS",
+  "scope_guard": "This is not a theorem that no conceivable algebraic correspondence can relate the two components. It is an exact no-go for the natural K-compatible transport operations audited by M3."
+}
