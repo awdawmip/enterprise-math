@@ -1,0 +1,20 @@
+{
+  "arguments": {
+    "end_line": null,
+    "path": "research_notes/pfn_null_identifiability_d67a51/verification_receipt.json",
+    "ref": "aa797af7e05247be440372cc476fe93919f92394",
+    "repository_full_name": "awdawmip/enterprise-math",
+    "start_line": null
+  },
+  "observation_id": "OBS-PFN-D67A51-RECEIPT-AA797AF7",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"PFSSV_FINITE_WINDOW_IDENTIFIABILITY_CHECK_V1\",\n  \"status\": \"PASS_EXACT_BOUNDED_NONIDENTIFIABILITY_WITNESS\",\n  \"random_draws\": 0,\n  \"checker_path\": \"research_checks/PFSSV_FINITE_WINDOW_NULL_IDENTIFIABILITY_D67A51.py\",\n  \"checker_sha256_local\": \"sha256:05a7063c0aa81d59e6590b86a9ee483ccee420b8fd85ac0a63a16d76fca33b7b\",\n  \"cell\": {\n    \"X\": 100000,\n    \"width\": \"1/100\",\n    \"upper\": 101000\n  },\n  \"frozen_cell_crosscheck\": {\n    \"geometric_rows\": 66,\n    \"zero_total_rows\": 15,\n    \"raw_prime_pair_incidences\": 237,\n    \"diagonal_incidences\": 1,\n    \"overflow_incidences\": 1\n  },\n  \"address_geometry\": {\n    \"integer_q_slots_union\": 2016,\n    \"unique_actual_prime_q_addresses\": 236,\n    \"shared_integer_addresses\": {\n      \"322\": [311, 313],\n      \"356\": [281, 283],\n      \"372\": [269, 271],\n      \"419\": [239, 241],\n      \"441\": [227, 229]\n    },\n    \"shared_actual_prime_addresses\": {\n      \"419\": [239, 241]\n    }\n  },\n  \"old_null_capacity_witness\": {\n    \"source_p\": 193,\n    \"source_window\": [519, 523],\n    \"source_row_primes\": [521, 523],\n    \"source_residue_11_prime_count\": 1,\n    \"target_p\": 163,\n    \"target_window\": [614, 619],\n    \"target_row_primes\": [617, 619],\n    \"target_residue_11_integer_capacity\": 0\n  },\n  \"shared_address_witness\": {\n    \"q\": 419,\n    \"residue_mod_30\": 29,\n    \"rows\": [239, 241],\n    \"p239_window\": [419, 422],\n    \"p241_window\": [415, 419],\n    \"residue_29_slot_count_in_union\": 69,\n    \"residue_29_actual_prime_address_count\": 29\n  },\n  \"two_compatible_laws\": {\n    \"common_conditioning\": \"exact occupied-address total K_r in every q mod 30 residue class, with one shared binary variable per integer q address\",\n    \"uniform_contract_probability_Z419_1\": {\n      \"numerator\": 29,\n      \"denominator\": 69\n    },\n    \"weighted_contract_probability_Z419_1\": {\n      \"numerator\": 29,\n      \"denominator\": 49\n    },\n    \"weighted_contract\": \"within residue 29, q=419 has weight 2 and every other address weight 1; all other residue fibers are uniform\",\n    \"same_support\": true,\n    \"same_residue_totals\": true,\n    \"different_target_distribution\": true\n  },\n  \"source_pins\": {\n    \"taskbook_blob_sha1\": \"sha1:7a96af089d96b37a559fa5c564f7ce5d3a5444ef\",\n    \"accepted_parent_result\": \"RR-BDA72F26E3786AD69EA5\",\n    \"accepted_parent_owner_head\": \"a82ced7bb227471c1b16fecb5a5e3d7ff72a5536\",\n    \"accepted_parent_result_commit\": \"24d314560a35cefe14d240deb3b44ed7cc24fa38\",\n    \"parent_native_trace_sha256\": \"sha256:efc2bedcda8da81f9948098943815011024c2c6d2e7711f209151ed983192fa4\"\n  }\n}\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/aa797af7e05247be440372cc476fe93919f92394/research_notes/pfn_null_identifiability_d67a51/verification_receipt.json",
+      "encoding": "utf-8",
+      "sha": "57eedaa3046a2227575c3dd8b08ce5aa05fece24"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
