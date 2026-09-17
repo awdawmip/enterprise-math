@@ -1,0 +1,42 @@
+{
+  "schema": "PCF7_FIXED_PROBE_ZERO_VALUE_STATEMENT_AUDIT_V1",
+  "task_id": "RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION-STATEMENT-CORRECTION",
+  "publication_id": "TP2-1C146C521C5946742C17",
+  "researcher_id": "EM-PCF7FIX-B603FA",
+  "claim_id": "CLM-PCF7FIX-0BFF2D2CD73646AD",
+  "source_return_path": "research_returns/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_RETURN_20260827.md",
+  "source_return_git_blob_sha1": "sha1:8d77415f0b88581300ec9ec37308ba78a762c025",
+  "driver_review_path": "driver_reviews/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_DRIVER_REVIEW_20260902.md",
+  "driver_review_git_blob_sha1": "sha1:b69abffe9af0538090048528e9d58dd5908dd5a4",
+  "before": "Let C be the product of all nonzero probe integers in a frozen family. Any two primes p,q outside the finite prime support of C give a semiprime N=pq on which every gcd is 1.",
+  "defect_witness": {
+    "family": "sixth_power_minus",
+    "seed": 1,
+    "probe_value": 0,
+    "identity": "gcd(N,0)=N for N>1"
+  },
+  "after": "For every nonzero fixed probe a whose prime support is avoided, gcd(N,a)=1; for every zero fixed probe, gcd(N,a)=N. Hence every output is in {1,N}, so no proper factor is returned.",
+  "brc_delta": {
+    "lost_carrier": "ZERO_FLAG(a)=[a=0]",
+    "unit_branch": "a!=0 and prime support avoided -> gcd=1",
+    "whole_object_branch": "a=0 -> gcd=N",
+    "proper_factor_observable": false
+  },
+  "mathematical_delta": "ZERO_PROBE_STATEMENT_ONLY",
+  "unchanged": [
+    "polynomial-prefix infinite balanced-semiprime obstruction",
+    "worst-case proper-split probability 0 for declared polynomial-prefix campaign model",
+    "L=N recurrence classification",
+    "T1-T5 theorem strength, with T5 prose corrected to trivial outputs {1,N}",
+    "sealed PCF2 benchmark boundary",
+    "no global factoring lower bound",
+    "no new factorization speedup"
+  ],
+  "local_audit": {
+    "runtime": "Python 3.13.5",
+    "range": "N=2..500; a=-50..50",
+    "pair_count": 50399,
+    "explicit_zero_probe_examples": 6,
+    "result": "PASS"
+  }
+}
