@@ -12,10 +12,27 @@
   "session_state": "KNOWN",
   "recorded_at": "2026-09-17T05:03:00Z",
   "authority": {
-    "creates_claim": false,
-    "creates_task": false,
-    "creates_review": false,
-    "creates_theorem_status": false
+    "task_registration": false,
+    "claim": false,
+    "review": false,
+    "working_truth": false,
+    "mathematical_acceptance": false
   },
-  "checkpoints": []
+  "checkpoints": [
+    {
+      "event_id": "pcf7fix-zero-statement-20260917-result",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "552a6a8f1d4cc915ac4996185bbbbdb7395a4554",
+          "path": "research_returns/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_STATEMENT_CORRECTION_RETURN_20260917.md",
+          "sha256": "b26f1e0f8ecc6202ff0fa85e1421f9ed10706e5e4f731d0d66664c41108af077",
+          "publication_state": "VERIFY_EM_PUBLICATION"
+        }
+      ],
+      "kb_sources": [],
+      "state": "VERIFY_EM_PUBLICATION",
+      "repairs_event_id": null
+    }
+  ]
 }
