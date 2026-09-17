@@ -1,0 +1,64 @@
+{
+  "schema": "GBRC_RESIDUAL_SYSTEMS_PUBLICATION_PREFLIGHT_V1",
+  "status": "PASS_SCOPED_CANONICAL_EQUIVALENT_PREFLIGHT_NOT_GLOBAL_REPOSITORY_AUDIT",
+  "at": "2026-09-17T05:31:04+00:00",
+  "source_snapshot": "d9d7db8f175b39e7d4fb3cda5117c8a6f9bcd98b",
+  "policy_digest": "sha256:dd425305887871866cb2f0894885ff38359639e2de7750fa45e8c584e19feae4",
+  "control_authority_source": "control_plane/current_control_authority.json",
+  "canonical_contracts": [
+    "research_task_publication_contract_v2.json",
+    "research_taskbook_contract.json",
+    "research_taskbook_policy.json",
+    "research_objective_contract.json",
+    "research_objective_records.py",
+    "research_objective_authority.py",
+    "research_driver_authority.py",
+    "tools/research_task_records.py",
+    "control_plane/research_task_records_impl.py"
+  ],
+  "driver_authority": {
+    "driver_id": "EM-DVR-4B13E4",
+    "authority_record_id": "DA-D45077B8D6685F9DA360",
+    "source_comment_id": 5709134358,
+    "authority_event": "AUTHORIZE",
+    "authority_created_at": "2026-09-17T05:16:18Z",
+    "publication_times_after_authorization": true
+  },
+  "objective_preflight": {
+    "target_head_absent_on_source_snapshot": true,
+    "initial_generation_open": true,
+    "expected_previous_generation_id": null,
+    "objective_generation_id": "OG-1012C66C67B7F797E30D",
+    "objective_record_sha256": "sha256:5f0a534acdafbbb433c921959706ddae77978911c374bd8c7f569763f423f56c",
+    "selection_receipt_complete": true,
+    "task_publication_after_selection": true
+  },
+  "task_preflight": {
+    "target_task_ids_absent_on_source_snapshot_tree": true,
+    "unique_task_ids": true,
+    "mandatory_body_sections_nonempty": true,
+    "placeholder_scan": "PASS",
+    "policy_conflict_scan": "PASS",
+    "origin_checks": "PASS",
+    "lineage_checks": "PASS",
+    "continuation_successor_gates_complete": true,
+    "forbidden_fixed_runtime_metadata_absent": true,
+    "dependency_graph_acyclic": true,
+    "taskbook_git_blob_sha1_recomputed": true,
+    "publication_ids_recomputed": true,
+    "record_semantic_field_match": true,
+    "parent_objective_generation_pin_match": true,
+    "new_task_count": 15
+  },
+  "semantic_review": {
+    "r1_provenance": "Six R1 task envelopes are lifted from the frozen 2026-09-16 GBRC taskpack without changing their mathematical target; publication state is updated to READY/BLOCKED according to evidence dependencies.",
+    "r2_provenance": "Six R2 tasks are new direct-user-directed continuations/integration units and remain blocked until reviewed R1 evidence exposes their stated information gaps.",
+    "driver_scope": "Three governance tasks provide persistent line routing, R1 evidence review/R2 gate disposition, and final portfolio synthesis. Publication does not itself create research execution ownership or result acceptance.",
+    "foundation_boundary": "P000 and native admissibility remain protected inputs; external tetrahedral, affine, quotient and positive-envelope constructions are not promoted into native premises.",
+    "tool_reuse": "P023, weighted BRC, current tool registry and tool invocation policy are explicit sources; R2 tasks require reuse/comparison before method novelty."
+  },
+  "limitations": [
+    "This is a scoped canonical-equivalent publication preflight performed against the exact source snapshot and current policy stamp; it is not represented as a whole-repository audit.",
+    "No research result, theorem review, execution claim or parent-level final disposition is created by this transaction."
+  ]
+}
