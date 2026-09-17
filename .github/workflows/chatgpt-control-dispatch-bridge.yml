@@ -7,6 +7,7 @@ on:
       - 'control_plane/chatgpt_dispatch_request.json'
       - 'control_plane/researcher_startup_packet.py'
       - 'research_context_budget.json'
+      - 'research_driver_authority_compatibility.json'
       - 'docs/CHATGPT_CONTROL_DISPATCH_BRIDGE.md'
   push:
     branches:
@@ -16,6 +17,7 @@ on:
       - 'control_plane/chatgpt_dispatch_request.json'
       - 'control_plane/researcher_startup_packet.py'
       - 'research_context_budget.json'
+      - 'research_driver_authority_compatibility.json'
 
 permissions:
   contents: write
@@ -93,9 +95,16 @@ jobs:
           fi
           if git diff --quiet "$before" "$GITHUB_SHA" -- "$REQUEST_PATH"; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "REQUEST_REPLAY_VALIDATION_ONLY source_sha=$GITHUB_SHA range=$before..$GITHUB_SHA"
+            if [[ -e "$IMMUTABLE_RECEIPT_PATH" ]]; then
+              echo "persist=false" >> "$GITHUB_OUTPUT"
+              echo "REQUEST_REPLAY_VALIDATION_ONLY source_sha=$GITHUB_SHA range=$before..$GITHUB_SHA"
+            else
+              echo "persist=true" >> "$GITHUB_OUTPUT"
+              echo "REQUEST_REPLAY_MISSING_RECEIPT source_sha=$GITHUB_SHA range=$before..$GITHUB_SHA request_id=$REQUEST_ID"
+            fi
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "persist=true" >> "$GITHUB_OUTPUT"
             echo "REQUEST_PRODUCING_PUSH source_sha=$GITHUB_SHA range=$before..$GITHUB_SHA"
           fi
 
@@ -207,7 +216,7 @@ jobs:
           cat /tmp/em-dispatch/startup-packet.json
 
       - name: Persist request receipt on main
-        if: github.event_name == 'push' && steps.request_change.outputs.changed == 'true'
+        if: github.event_name == 'push' && steps.request_change.outputs.persist == 'true'
         shell: bash
         run: |
           set -euo pipefail
