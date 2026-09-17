@@ -1,0 +1,73 @@
+{
+  "record_kind": "TASK_INTAKE_OBSERVATION_NOT_RESULT_OR_REVIEW",
+  "observed_at": "2026-09-17T03:44:25+00:00",
+  "researcher_id": "EM-DIRECT-F4D6FC",
+  "activity_id": "RA-20260917-F4D6FC7C",
+  "session_id_kind": "LOCALLY_ASSIGNED_STABLE_KEY_NOT_PLATFORM_AUTHENTICATED",
+  "user_objective": "领取新任务并研究",
+  "outcome": "NEW_RESEARCH_NOT_STARTED_DUPLICATE_RETURN_ROUTE_BLOCKER",
+  "requests": [
+    {
+      "request_id": "chatgpt-20260917-033622-f4d6fc7c-newtask",
+      "request_commit": "3e928f4a1e166adbc861430eb17ac157ecaab838",
+      "packet_blob_sha1": "847a295746e01f3372738706dc465b3ea6b5d4d7",
+      "packet_generated_at": "2026-09-17T03:38:05Z"
+    },
+    {
+      "request_id": "chatgpt-20260917-033622-f4d6fc7c-after-reconcile",
+      "request_commit": "f825e84193dea6d7d6d0d76280cad1a712a095e7",
+      "packet_blob_sha1": "f370745d51149a0a92626bf8f69a11b11783a65a",
+      "packet_generated_at": "2026-09-17T03:41:13Z"
+    }
+  ],
+  "same_returned_target": {
+    "task_id": "RS-PRIME-FACTOR-SEMIPRIME-SHELL-POSITIVE-SUPPORT-SECOND-ORDER-NULL",
+    "publication_id": "TP2-D8A51502065004783B7B",
+    "action": "CLAIM_NEW_OWNER",
+    "state": "HANDOFF_READY",
+    "dispatch_state": "NEEDS_DISPATCH",
+    "claim_id": null,
+    "next_action": "Consume existing completed researcher result RR-C9923DF28927FB56BC3C from PR #778; close this duplicate execution without overwrite and proceed to a genuinely dispatchable task."
+  },
+  "existing_return": {
+    "result_id": "RR-C9923DF28927FB56BC3C",
+    "pr_number": 778,
+    "pr_state_observed": "open",
+    "merged_observed": false,
+    "head_sha": "81dd7a01ecabff355b7435834fec40519317db7e",
+    "researcher_id": "EM-PFSS2R-C60E73",
+    "taskbook_blob_sha1": "40fffe74d015a8b9a4823a04632d5b7e509f72d5",
+    "result_record_blob_sha1": "d6622608f3b7a2f3f80443c2a4a612ac74289afa",
+    "return_path": "research_returns/PRIME_FACTOR_SEMIPRIME_SHELL_POSITIVE_SUPPORT_SECOND_ORDER_NULL_RETURN_20260828.md",
+    "return_blob_sha1": "03db464a718ddad82072087e45288f790a4c7a57",
+    "return_sha256": "328dbcd81b188aef02db20f303c9dc62c9b65f6ec55f37bada3653ac826d785b",
+    "reported_terminal_verdict": "REFUTED",
+    "reported_hard_target_disposition": "SECOND_ORDER_DENSITY_ARTIFACT",
+    "driver_review_required": true
+  },
+  "verification_scope": [
+    "Both exact packet request_id and source_sha values match this session actual request-producing commits.",
+    "The frozen taskbook blob matches the task publication packet and existing Result record.",
+    "The observed full return blob matches the existing Result manifest.",
+    "This is durable-frontier reconciliation, not independent replay or acceptance of the old numerical conclusion."
+  ],
+  "not_performed": [
+    "NEW_CLAIM",
+    "NEW_EXECUTION_RECORD",
+    "REPLAY_4096_REPLICATES",
+    "HOLDOUT_ACCESS",
+    "RESULT_SUBMISSION",
+    "DRIVER_REVIEW",
+    "TASK_STATE_OVERRIDE",
+    "THIRD_IDENTICAL_DISPATCH_REQUEST"
+  ],
+  "authority": {
+    "claim": false,
+    "review": false,
+    "working_truth": false,
+    "mathematical_acceptance": false,
+    "task_closure": false
+  },
+  "next_authorized_action": "Owner or authorized line Driver reconciles the existing unreviewed return with typed dispatch/Result state; after a genuinely changed live route, request canonical dispatch again. Preserve PR #778 and all original author, claim, frozen inputs and holdout boundaries.",
+  "inference_limit": "Two requests returned the same blocked target. This does not establish that the global task queue is empty."
+}
