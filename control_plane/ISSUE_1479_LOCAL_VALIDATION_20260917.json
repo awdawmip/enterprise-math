@@ -1,0 +1,45 @@
+{
+  "issue": 1479,
+  "classification": "NO_NEW_MATHEMATICS",
+  "source_snapshot": "40983769052b7bd6de2f6985bb5516e4f8d3a6ae",
+  "local_validation": {
+    "unit_tests": 45,
+    "differential_scenarios": 192,
+    "python_compile": "PASS",
+    "full_repository_suite": "NOT_RUN_NO_COMPLETE_LOCAL_CHECKOUT",
+    "remote_compute_used": false
+  },
+  "files": [
+    {
+      "path": "tools/research_runtime_reducer.py",
+      "sha256": "cf749973a7237496fbdc24bd1fc99dfc40d300cf4cbbb428e745871c27eca9ad",
+      "git_blob_sha1": "767b20a2b05e63c5e7ad20ac9af864e437a15e29",
+      "bytes": 31252
+    },
+    {
+      "path": "control_plane/research_handoff_scope_runtime.py",
+      "sha256": "19137093f83285414c3f581165359ab4f50c900c8acb02eada8de02c9c62d40e",
+      "git_blob_sha1": "9a6198d46255295993d7ec4a70334187aa966874",
+      "bytes": 1978
+    },
+    {
+      "path": "control_plane/research_control_bootstrap.py",
+      "sha256": "dc6a2e2bb38f4990f5bc49965a54e3c8b107348a577c91f09a201f39ebf11af3",
+      "git_blob_sha1": "1076230a48a70d9121e25e4fac7361ef77395255",
+      "bytes": 12901
+    },
+    {
+      "path": "tests/test_legacy_handoff_scope_reconciliation.py",
+      "sha256": "b8d5514df620f02b2a855eb051cfcd93ff7b3f06fde39f53f1c928a65a854568",
+      "git_blob_sha1": "db629b2beac8799bf3affc6c06d7551b45828484",
+      "bytes": 18277
+    },
+    {
+      "path": "docs/LEGACY_HANDOFF_SCOPE_RECONCILIATION.md",
+      "sha256": "c43d812f2ad92fb72d21f415474ec1854e784b30476ad4aab3838f7c73dc7f2a",
+      "git_blob_sha1": "c586cebd4d7a39506e583308775867b07bd45909",
+      "bytes": 5405
+    }
+  ],
+  "full_repository_validation": "NOT_RUN: connector-retrieved exact modules and local targeted tests; no complete local checkout"
+}

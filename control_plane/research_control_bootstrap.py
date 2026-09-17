@@ -47,6 +47,7 @@ from control_plane import research_driver_followup_fault_isolation
 from control_plane import research_driver_followup_transaction
 from control_plane import research_driver_review_authority_compat_runtime
 from control_plane import research_driver_review_authority_fault_isolation
+from control_plane import research_handoff_scope_runtime
 from control_plane import research_nonoperational_review_source_adapter
 from control_plane import research_parent_objective_dispatch_gate
 from control_plane import research_publication_fault_isolation
@@ -253,6 +254,7 @@ def install(root: Path = ROOT) -> None:
         research_dispatch._canonical_control_bootstrap_installed = True
 
     _install_operational_audit_views(root)
+    research_handoff_scope_runtime.install(root)
     research_parent_objective_dispatch_gate.install(root)
 
 
