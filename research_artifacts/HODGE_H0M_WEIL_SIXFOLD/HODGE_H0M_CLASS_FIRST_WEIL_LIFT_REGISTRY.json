@@ -1,0 +1,21 @@
+{
+  "schema": "HODGE_H0M_CLASS_FIRST_WEIL_LIFT_REGISTRY_V1",
+  "task_id": "RS-HODGE-H0M-WEIL-SIXFOLD-SEMIREGULARITY-OBSTRUCTION-CANCELLATION",
+  "target": "arbitrary w in W_K(A_eta), dim_Q=2",
+  "cycle_search_status": "NO_FRONTIER_CYCLE_CONSTRUCTED",
+  "known_positive_cycle_imported": false,
+  "divisor_product_used_as_weil_generator": false,
+  "rational_scaling_control": {
+    "conditional_statement": "If algebraic Q-cycles Z1,Z2 on A_eta had cycle classes forming a Q-basis w1,w2 of W_K, then for any w=a w1+b w2 with a,b in Q (including negative and denominator-bearing values), the algebraic Q-cycle a Z1+b Z2 would satisfy cl_Q(aZ1+bZ2)=w.",
+    "status": "FORMAL_LINEARITY_ONLY; no Z1,Z2 were found."
+  },
+  "target_leakage_audit": [
+    "No Markman discriminant -1 secant sheaf or cycle class is used as a frontier generator.",
+    "No Schoen/Markman cycle coefficient is copied into A_eta.",
+    "No Hodge/absolute-Hodge/Mumford-Tate condition is promoted to algebraicity.",
+    "The model and discriminant were frozen before cycle search."
+  ],
+  "classification": "EXACT_HARD_BLOCK_WITH_MISSING_OBJECT_AND_UNBLOCK_CONDITION",
+  "missing_object": "two independent frontier algebraic codimension-3 Q-cycle classes spanning W_K(A_eta), or one nonzero Weil class plus a certified K-action generating W_K",
+  "unblock_condition": "Construct such a cycle/sheaf on the fixed [-3] model and verify exact cycle-class equality without solved-locus target leakage."
+}
