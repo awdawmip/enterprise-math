@@ -1,0 +1,38 @@
+{
+  "schema": "HODGE_H0M_DISCRIMINANT_DEFECT_REGISTRY_V1",
+  "task_id": "RS-HODGE-H0M-WEIL-SIXFOLD-SEMIREGULARITY-OBSTRUCTION-CANCELLATION",
+  "frontier_model": "A_eta / Q(i) / discriminant [-3]",
+  "positive_control": "Markman secant-sheaf sixfold mechanism at discriminant [-1]",
+  "defects": [
+    {
+      "missing_object": "K-secant realization X x Pic^0(X) carrying the frontier [-3] hermitian discriminant",
+      "owner": "M1/M3",
+      "necessity": "The known sixfold source object is built from K-secant geometry producing the solved discriminant -1 Weil datum.",
+      "exact_defect": "The frontier class [-3] differs from [-1] by 3, which is not a Q(i)-norm; K-linear isogeny/similitude cannot change that quotient class.",
+      "unblock_condition": "Construct a new secant-like source geometry whose induced hermitian form has discriminant [-3], without importing the solved cycle."
+    },
+    {
+      "missing_object": "frontier coherent/derived object E with characteristic class having nonzero W_K(A_eta) component",
+      "owner": "M1/M2/M4",
+      "necessity": "Semiregularity transports algebraicity of characteristic classes of an existing algebraic/derived object; it does not create a starting algebraic class from the Hodge condition alone.",
+      "exact_defect": "No E on A_eta was constructed in this run and no audited source supplies one for the generic [-3] sixfold component.",
+      "unblock_condition": "Give an exact E (or algebraic codimension-3 Z) on A_eta, calculate its characteristic/cycle class, and prove a nonzero/spanning W_K component without target leakage."
+    },
+    {
+      "missing_object": "semiregularity map for a frontier E",
+      "owner": "M2",
+      "necessity": "A cancellation/transport claim requires the actual Ext^2 obstruction carrier and the semiregularity/trace map for the same E.",
+      "exact_defect": "Because no frontier E is available, Ext^1(E,E), Ext^2(E,E), and its semiregularity map are undefined rather than zero.",
+      "unblock_condition": "First construct E, then compute the relevant obstruction and semiregularity maps and show the required injectivity/annihilation at exact scope."
+    },
+    {
+      "missing_object": "carrier-preserving transport from solved [-1] sixfold to frontier [-3] sixfold",
+      "owner": "M3",
+      "necessity": "Importing the positive-control source requires an algebraic operation that both reaches A_eta and identifies its W_K carrier.",
+      "exact_defect": "All audited K-compatible isogeny/Hecke/deformation/similitude moves preserve the discriminant class; duality inverts it, which is the same class in Q^*/N(K^*).",
+      "unblock_condition": "Exhibit a new algebraic correspondence that changes the discriminant quotient class and prove its induced map identifies/spans W_K, or construct a frontier source directly."
+    }
+  ],
+  "Mumford_Tate_note": "Hodge/Mumford-Tate invariance of W_K is not an algebraicity theorem and is not treated as a substitute for a cycle.",
+  "classification": "EXACT_HARD_BLOCK_WITH_MISSING_OBJECT_AND_UNBLOCK_CONDITION"
+}
