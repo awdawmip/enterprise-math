@@ -1,0 +1,30 @@
+{
+  "schema": "EM_MANUAL_EQUIVALENT_TASK_PUBLICATION_PREFLIGHT_V1",
+  "status": "PASS",
+  "at": "2026-09-17T13:05:00+08:00",
+  "publisher_role": "RESEARCHER",
+  "publisher_id": "EM-DIRECT-F00A51",
+  "parent_objective_id": "EM-NS-BRC-JITTER-REGULARITY-PROGRAM-20260917",
+  "policy_set": "research_taskbook_policy.json",
+  "policy_digest": "sha256:dd425305887871866cb2f0894885ff38359639e2de7750fa45e8c584e19feae4",
+  "checks": [
+    "frontmatter JSON parsed",
+    "required dispatch metadata present",
+    "origin_kind allowed and source-preserving",
+    "task_lineage allowed; no continuation parent fabricated",
+    "forbidden fixed runtime identity fields absent",
+    "five mandatory body sections present and nonempty",
+    "current policy conflict/restatement patterns manually evaluated with no hits",
+    "task_authority/publication contract/template fields match current V2 publication contract",
+    "parent_objective_id and research_value route are nonempty",
+    "exact taskbook Git blobs pinned below"
+  ],
+  "taskbooks": [
+    {"task_id":"RS-NS-BRC-DRIVER-PORTFOLIO-20260917","path":"research_tasks/NS_BRC_DRIVER_PORTFOLIO_20260917.md","git_blob_sha1":"637da8c7b5c2d7a765827c1687bf01089661a6fd"},
+    {"task_id":"RS-NS-BRC-CAUSAL-SYMMETRIC-FEEDBACK-20260917","path":"research_tasks/NS_BRC_CAUSAL_SYMMETRIC_FEEDBACK_20260917.md","git_blob_sha1":"64f23d53294d05090e04a39e3e2ca6db32357fbb"},
+    {"task_id":"RS-NS-BRC-JITTER-ACTION-SUMMABILITY-20260917","path":"research_tasks/NS_BRC_JITTER_ACTION_SUMMABILITY_20260917.md","git_blob_sha1":"9041d4bc5598cd0e546a5b6a1be753993a35a699"},
+    {"task_id":"RS-NS-BRC-CERTIFIED-REFERENCE-ENGINE-20260917","path":"research_tasks/NS_BRC_CERTIFIED_REFERENCE_ENGINE_20260917.md","git_blob_sha1":"c137c0ec6d784ac0d921bfefc09950dcb354a56e"},
+    {"task_id":"RS-NS-BRC-INDEPENDENT-REPLICATION-20260917","path":"research_tasks/NS_BRC_INDEPENDENT_REPLICATION_20260917.md","git_blob_sha1":"58ec68a1fb27bd656e7a39f4154fa1b6f112f5d7"}
+  ],
+  "note": "This is the connector/manual equivalent preflight required when the local canonical publication command is unavailable. It does not grant theorem truth, Working Truth, Driver authority, or Foundation status. Canonical task existence still requires the matching immutable V2 records and complete integration into main."
+}
