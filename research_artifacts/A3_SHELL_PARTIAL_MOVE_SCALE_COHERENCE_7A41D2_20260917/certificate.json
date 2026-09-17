@@ -1,0 +1,40 @@
+{
+  "schema": "A3_PARTIAL_MOVE_SCALE_COHERENCE_CERTIFICATE_V1",
+  "task_id": "RS-A3-SHELL-PARTIAL-MOVE-SCALE-COHERENCE-REVISION",
+  "publication_id": "TP2-D2D715EB36415B0CA0C5",
+  "researcher_id": "EM-A3SCR-7A41D2",
+  "claim_id": "claim-A3SCR-autoA-20260917-064030-7a41d2",
+  "group": "S4_sign_twisted_on_A3",
+  "stabilizer": ["e", "(12)"],
+  "radial_defect_formula": {
+    "q": "n-d+1",
+    "r<q": "e",
+    "r=q": "g_lower",
+    "q<r<=n": "g_lower*g_upper^{-1}"
+  },
+  "frozen_regression": {
+    "n": 2,
+    "depth": 2,
+    "g_lower": "(23)",
+    "g_upper": "(23)",
+    "marker": [1, -1, 0, 0],
+    "upper_then_restrict": [1, -1, 0, 0],
+    "restrict_then_lower": [-1, 0, 1, 0],
+    "radial_double_coset_profile": ["C2", "C0"]
+  },
+  "finite_validation": {
+    "n_max": 4,
+    "raw_path_cases": 5760,
+    "global_H_quotient_cases": 5760,
+    "status": "PASS"
+  },
+  "alternating_depth2_profiles": [
+    [2, "C2", "C2"],
+    [3, "C0", "C2"],
+    [4, "C2", "C2"],
+    [5, "C0", "C2"],
+    [6, "C2", "C2"]
+  ],
+  "checker_sha256": "d9b9f6002aca78157a3548d7a2b78a44a05a0952e69ab4ff0abfdbdec8ab4a9c",
+  "result_sha256": "2d68fb4c8b9b3edc61a23fdf0065688ed99ec387f479fccb8fdb0cf1a7089a7a"
+}
