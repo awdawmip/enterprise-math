@@ -121,29 +121,14 @@ def rounded_hex(x: float, y: float) -> tuple[int, int]:
     return a,b
 
 
-def diagnostics(phi, scale: float = 1.0, bins: int = 64, *, exact_scale: int | None = None,
-                cell_scale: tuple[int, int] | None = None, cell_bits: int = 64,
-                cell_max_bits: int = 192, include_cell_certificates: bool = False) -> dict:
+def diagnostics(phi, scale: float = 1.0, bins: int = 64, *, exact_scale: int | None = None) -> dict:
     """Dual-readout migration: exact histogram statistic, legacy display cells.
 
     angular_cv_squared_exact is the authoritative histogram-only ratio. Pass
     exact_scale to materialize integer plus residual through Enterprise Math BRC.
     angular_cv and all polar-cell counts remain legacy approximate observers.
-    Pass cell_scale=(numerator, denominator) to execute the certified integer
-    cell path instead: no float trigonometry or legacy rounded_hex is executed.
-    The legacy scale argument must remain at its default in that mode. Explicit
-    unresolved cells return None counts, not guessed membership. Browser drawing
-    is a separately unmigrated observer. No source is inferred from a float.
     No histogram statistic identifies native X6 states or branch histories.
     """
-    if cell_scale is not None:
-        if (isinstance(scale, bool) or not isinstance(scale, (int, float)) or scale != 1
-                or not isinstance(cell_scale, tuple) or len(cell_scale) != 2):
-            raise ValueError('exact mode requires cell_scale=(integer, integer) and no legacy display scale')
-        from .certified_hex import exact_diagnostics
-        return exact_diagnostics(phi, *cell_scale, bins=bins, readout_scale=exact_scale,
-                                 initial_bits=cell_bits, max_bits=cell_max_bits,
-                                 include_certificates=include_cell_certificates)
     if exact_scale is not None and (isinstance(exact_scale, bool) or not isinstance(exact_scale, int) or exact_scale <= 0):
         raise ValueError('exact_scale must be a positive integer')
     if isinstance(scale,bool) or not isinstance(scale,(int,float)) or not math.isfinite(scale) or not 0.5 <= scale <= 3:
