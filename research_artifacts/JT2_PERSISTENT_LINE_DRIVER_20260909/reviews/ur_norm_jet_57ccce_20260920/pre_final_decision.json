@@ -1,0 +1,32 @@
+{
+  "schema": "JT2_UR_DRIVER_CONTROL_PRE_FINAL_V1",
+  "observed_at": "2026-09-19T20:36:20.432956+00:00",
+  "local_control_source": "35d15f3d2594c63583f9f9b3e41a22ccfb56418e",
+  "formal_review_main": "3f728c2f43adbde0fcc9e6d94267b3cd8324cd14",
+  "active_turn_liveness": {
+    "transition": "FINAL_ALLOWED_WITH_LIMIT",
+    "final_allowed": true,
+    "reason": "a platform/tool hard limit blocks all remaining executable work this turn",
+    "required_action": "RETURN_STRONGEST_RESULT_AND_EXPLICIT_PLATFORM_OR_TOOL_LIMIT",
+    "continuation_lease_preserved": true
+  },
+  "runtime_guard": {
+    "authorized": false,
+    "authorization_authority": "CONTROL_ONLY_PRE_FINAL_NO_TASK_AUTHORITY",
+    "final_allowed": true,
+    "required_action": "RETURN_STRONGEST_RESULT_AND_EXPLICIT_PLATFORM_OR_TOOL_LIMIT",
+    "parent_liveness": {
+      "transition": "FINAL_ALLOWED_WITH_LIMIT",
+      "final_allowed": true,
+      "reason": "a platform/tool hard limit blocks all remaining executable work this turn",
+      "required_action": "RETURN_STRONGEST_RESULT_AND_EXPLICIT_PLATFORM_OR_TOOL_LIMIT",
+      "continuation_lease_preserved": true
+    }
+  },
+  "main_window_held": false,
+  "new_claim_or_execution": false,
+  "parent_objective_complete": false,
+  "sync_debt": false,
+  "deadline_triggered_stop": false,
+  "terminal_basis": "Actual external code-admission/execution boundary after completed bounded ordinary Driver review; no mathematical closure."
+}
