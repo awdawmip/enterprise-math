@@ -1,0 +1,65 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "date": "2026-09-20",
+  "status": "EXTRACTED_EXECUTABLE_CANDIDATE_NOT_FOUNDATION",
+  "methods": [
+    {
+      "method_id": "t0.brc_conditional_distribution_lift",
+      "name": "Conditional-distribution and affine-action-mass BRC lift",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "EXTRACTED_EXECUTABLE_CANDIDATE_NOT_FOUNDATION",
+      "source_refs": [
+        "src/enterprise_math/brc_conditional_lift.py",
+        "tests/test_brc_conditional_lift.py",
+        "research_notes/heartbeat_brc_conditional_lift_20260920_AD0416/model.py",
+        "research_notes/heartbeat_brc_conditional_lift_20260920_AD0416/RESEARCH_NOTE.md",
+        "research_notes/heartbeat_brc_conditional_lift_20260920_AD0416/THEOREM_LEDGER.json"
+      ],
+      "api": [
+        "ConditionalLift",
+        "LiftCertificate",
+        "independence_witness",
+        "certify_conditional_lift",
+        "conditional_mass_matrix",
+        "conditional_mass_defect",
+        "lift_endpoint_measure",
+        "encode_endpoint_measure"
+      ],
+      "triggers": [
+        "conditional lift",
+        "left intertwining",
+        "conditional reconstruction",
+        "correlation residual",
+        "partial environment mixing"
+      ],
+      "capabilities": [
+        "exact product-measure obstruction witness",
+        "restricted-initialization mass and affine-mass intertwining certificates",
+        "joint endpoint input-family guard",
+        "signed mass-lift defect diagnostic",
+        "composition with existing control mass recurrence"
+      ],
+      "hard_boundary": "Fixed declared conditional family; not arbitrary pointwise lumping. Affine-mass loses individual branch-weight shape and path IDs. No automatic randomization, universal independence, free physical mixing or constant-bit memory.",
+      "theorem_refs": [
+        "HBRC-CL-001",
+        "HBRC-CL-002",
+        "HBRC-CL-003",
+        "HBRC-CL-004",
+        "HBRC-CL-005",
+        "HBRC-CL-006"
+      ],
+      "reuse_resolution": {
+        "state": "EXTEND_EXISTING_TOOL",
+        "executed": [
+          "brc_control_port",
+          "brc_control_mass",
+          "brc_transport",
+          "brc_histogram",
+          "brc_weighted_recurrent"
+        ],
+        "gap": "Existing interfaces certify strong point/effect quotients, not the fixed conditional-family left-intertwining identity."
+      }
+    }
+  ]
+}

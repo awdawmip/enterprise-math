@@ -1,0 +1,132 @@
+{
+  "status": "PASS",
+  "new_test_groups": 13,
+  "checks": {
+    "source_reuse": {
+      "verified_blobs": {
+        "brc_transport.py": "be1debe367263931bd5e93fd750be3ed54624fe1",
+        "brc_histogram.py": "9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1",
+        "brc_control_port.py": "44def6b8ac787e798d3cc2c6be16f873f91b9db8",
+        "brc_control_mass.py": "e8811e5f194fc57b294be7255214361fe99395d5",
+        "brc_weighted_recurrent.py": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb"
+      },
+      "executed_unchanged": true
+    },
+    "factorization": {
+      "product_tables": 150,
+      "gate_defect": "1/8",
+      "forgotten_common_cause_defect": "1/4"
+    },
+    "stability_witness": {
+      "held": "DIVERGENT",
+      "actual_reset": "STABLE",
+      "reset_total": "4",
+      "held_two_tick_mass": "45/64",
+      "false_product_two_tick_mass": "9/16",
+      "closed_form_checked_depths": 13
+    },
+    "joint_effect_boundary": {
+      "mass_passed": true,
+      "affine_mass_rejected": true,
+      "mass_only_input_check_insufficient_for_space": true
+    },
+    "six_phase_certificates": {
+      "raw_controls": 256,
+      "conditional_controls": 28,
+      "phases": 6,
+      "coefficient_equalities": 3072,
+      "strong_partition_rejected_phases": 6,
+      "all_phase_mass_row_signatures": 256,
+      "raw_branch_blocks": [
+        7392,
+        5792,
+        5792,
+        5792,
+        5792,
+        5792
+      ]
+    },
+    "refresh_removal": {
+      "failed_certificates": 6,
+      "reset_not_performed_by_compiler": true
+    },
+    "endpoint_oracle": {
+      "steps": 6,
+      "all_six_motion_axes_used": true,
+      "endpoint_support_sizes": [
+        [
+          24,
+          4
+        ],
+        [
+          48,
+          8
+        ],
+        [
+          96,
+          16
+        ],
+        [
+          192,
+          32
+        ],
+        [
+          384,
+          64
+        ],
+        [
+          768,
+          128
+        ]
+      ],
+      "raw_integer_residue_consistency": true,
+      "conditional_moment_checks": 6
+    },
+    "recurrent_reuse": {
+      "mass_steps": 60,
+      "raw_max_one_step_row_mass": "17/16",
+      "full_256_state_integer_certificate": true,
+      "time_periodic_potential_checks": 1536,
+      "cycle_quotient_size": 28,
+      "cycle_potential": "4096/3367",
+      "all_tick_total_for_admissible_unit_input": "4"
+    },
+    "defect_accounting": {
+      "finite_depths": 10,
+      "E": [
+        [
+          "-1/16",
+          "1/16"
+        ]
+      ],
+      "actual_star_defect_norm": "1",
+      "proved_star_norm_bound": "4/3",
+      "unsafe_certificate_not_granted": true
+    },
+    "support_boundary": {
+      "restricted_family_stable": true,
+      "unrepresented_state_unstable": true
+    },
+    "guard_rejections": 13,
+    "composed_observer_scopes": {
+      "conditional_joint_controls": 28,
+      "mass_only_controls": 1,
+      "scalar_recurrent_mass": "3/4",
+      "effect_merge_rejected": true
+    },
+    "partial_refresh": {
+      "exact_parameter_values": 102,
+      "threshold": "5/21",
+      "condition": "theta > 5/21",
+      "total_at_quarter": "112",
+      "total_at_half": "80/11",
+      "total_at_full": "4",
+      "exact_relation_quotient": 2,
+      "initial_joint_states": 4
+    }
+  },
+  "independent_review": false,
+  "full_project_tests": false,
+  "production_changed": false,
+  "scope": "finite exact conditional measures; no universal independence/complexity claim"
+}

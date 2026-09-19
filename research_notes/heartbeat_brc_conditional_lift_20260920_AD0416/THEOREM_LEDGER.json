@@ -1,0 +1,90 @@
+{
+  "schema": "HEARTBEAT_CONDITIONAL_LIFT_THEOREM_CANDIDATES_V1",
+  "date": "2026-09-20",
+  "status": "SCOPED_PROOFS_EXECUTABLE_CANDIDATES_NOT_FOUNDATION",
+  "world_id": "HEARTBEAT_WORLD",
+  "theorems": [
+    {
+      "id": "HBRC-CL-001",
+      "name": "Product-family test and hidden-cause mixing obstruction",
+      "assumptions": [
+        "finite nonnegative joint mass table M"
+      ],
+      "law": "T*M_ij=row_i*column_j for all entries iff M factors (T>0); hidden-cause mixing or joint gains can destroy this property.",
+      "proof_ref": "research_notes/heartbeat_brc_conditional_lift_20260920_AD0416/RESEARCH_NOTE.md#section-2",
+      "tool": "independence_witness",
+      "boundary": "No arbitrary Bayesian compression or independence guarantee.",
+      "test_ref": "tests/test_brc_conditional_lift.py"
+    },
+    {
+      "id": "HBRC-CL-002",
+      "name": "Conditional left-intertwining closure",
+      "assumptions": [
+        "finite nonnegative kernels W_t",
+        "fiber-stochastic fixed L with LP=I",
+        "admissible mu=alpha L",
+        "LW_t=Q_t L for every allowed phase"
+      ],
+      "law": "All finite mixed-time evolutions satisfy L product(W_t)=product(Q_t) L. With full-support L, all-start total-mass finiteness is equivalent; without it only represented starts are controlled.",
+      "proof_ref": "research_notes/heartbeat_brc_conditional_lift_20260920_AD0416/RESEARCH_NOTE.md#section-3",
+      "tool": "ConditionalLift/certify_conditional_lift",
+      "boundary": "Not the strong pointwise quotient WP=PQ; input restriction is essential.",
+      "test_ref": "tests/test_brc_conditional_lift.py"
+    },
+    {
+      "id": "HBRC-CL-003",
+      "name": "Affine-action-mass conditional lift",
+      "assumptions": [
+        "HBRC-CL-002",
+        "LW_f=Q_fL for every affine map f",
+        "micro-control and spatial position obey the declared conditional template"
+      ],
+      "law": "The full joint endpoint mass measure is reconstructible after each allowed boundary update; conditional degree-two moments follow through the existing ControlPacket interface.",
+      "proof_ref": "research_notes/heartbeat_brc_conditional_lift_20260920_AD0416/RESEARCH_NOTE.md#section-4",
+      "tool": "certify_conditional_lift(mode=affine_mass)",
+      "boundary": "No labeled-path or individual-weight histogram preservation.",
+      "test_ref": "tests/test_brc_conditional_lift.py"
+    },
+    {
+      "id": "HBRC-CL-004",
+      "name": "Six-phase residue/environment 256-to-28 conditional model",
+      "assumptions": [
+        "exact model.py rule",
+        "r equals first coordinate modulo4",
+        "environment uniform within its occupied-count fiber conditional on position",
+        "actual environment redistribution at each packet end"
+      ],
+      "law": "Six phases admit 256-to-28 affine-mass lifts. Removing redistribution rejects the lift. Reduced mass is further lumpable to scalar3/4; a positive periodic potential proves total mass4 from admissible unit input.",
+      "proof_ref": "research_notes/heartbeat_brc_conditional_lift_20260920_AD0416/RESEARCH_NOTE.md#section-5",
+      "tool": "ConditionalLift + ControlMassQuotient",
+      "boundary": "Not a universal minimum, a free redistribution or a production memory benchmark.",
+      "test_ref": "tests/test_brc_conditional_lift.py"
+    },
+    {
+      "id": "HBRC-CL-005",
+      "name": "Propagation of a failed-lift residual",
+      "assumptions": [
+        "finite matrices with E=LW-QL"
+      ],
+      "law": "LW^n-Q^nL=sum_j Q^j E W^(n-1-j); when row norms q,w<1, star discrepancy norm <= ||E||/((1-q)(1-w)).",
+      "proof_ref": "research_notes/heartbeat_brc_conditional_lift_20260920_AD0416/RESEARCH_NOTE.md#section-6",
+      "tool": "conditional_mass_defect",
+      "boundary": "Signed diagnostic residual is not a positive BRC weight or an exact quotient certificate.",
+      "test_ref": "tests/test_brc_conditional_lift.py"
+    },
+    {
+      "id": "HBRC-CL-006",
+      "name": "Partial redistribution exact stability threshold",
+      "assumptions": [
+        "four-state two-bit model W_theta=diag(9/8,3/8,3/8,9/8)*((1-theta)I+theta J/4)",
+        "theta rational in[0,1]"
+      ],
+      "law": "Equal/unequal two-class mass quotient is exact; all-depth mass finite iff theta>5/21. Uniform-start total on stable side is (16+48theta)/(21theta-5).",
+      "proof_ref": "research_notes/heartbeat_brc_conditional_lift_20260920_AD0416/RESEARCH_NOTE.md#section-9",
+      "tool": "ControlMassQuotient + finite_recurrent_mass_analysis",
+      "boundary": "5/21 belongs to this gain/retention model, not a universal heartbeat or physical constant.",
+      "test_ref": "tests/test_brc_conditional_lift.py"
+    }
+  ],
+  "independent_review": false
+}
