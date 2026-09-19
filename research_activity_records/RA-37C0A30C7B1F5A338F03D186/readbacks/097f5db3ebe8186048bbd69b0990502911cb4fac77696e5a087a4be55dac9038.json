@@ -1,0 +1,20 @@
+{
+  "arguments": {
+    "path": "research_notes/BRC_TRANSPORT_RESIDUAL_EXTRACTED_RESULT_20260919.md",
+    "ref": "2c3062af4de5a70c4a2e1c0b2599dc3a7b1ee2dc",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "normalization_note": "Canonical receipt action name; observed connector result preserved. Local envelope, not server-signed.",
+  "observation_id": "local-brc-transport-extract-readback-AD0416-01",
+  "observed_tool_name": "GitHub.fetch_file",
+  "result": {
+    "structuredContent": {
+      "content": "# BRC transport/residual extension — extracted reusable result\n\nStatus: `RESEARCH_RESULT_EXTRACT / TOOL_CANDIDATE / NOT_FOUNDATION`\nDate: `2026-09-19`\nSource research: `research_notes/brc_transport_extension_20260919_AD0416/RESEARCH_NOTE.md`\n\n## Result\n\nFor finite positive-rational BRC branches carrying a total rational affine action, use atoms\n\n`[w,A,b]`, with `w>0` and `x -> A x+b`.\n\nAlternative composition recoalesces identical `(w,A,b)` atoms by multiplicity. Serial composition, first left then right, is\n\n`[w,A,b] * [v,B,c] = [wv, BA, B b+c]`.\n\nThe law is associative and distributive. Forgetting affine effects is a homomorphism to the existing exact BRC `WeightHistogram` alternative/serial operations, so this is an extension of T0 BRC rather than a replacement carrier.\n\nThe weight/action association is essential: equal weight marginals plus equal action marginals do not determine future weighted observations.\n\nFor homogeneous second moment state\n\n`M(mu)=sum_x mu(x) [x;1][x;1]^T`,\n\nan affine effect histogram acts exactly by\n\n`L_H(M)=sum_(w,A,b) multiplicity*w*Abar*M*Abar^T`.\n\nTherefore fixed state-independent affine branch packets preserve exact degree-2 polynomial observations under arbitrary finite serial composition. In six spatial coordinates this symmetric homogeneous moment state has 28 independent rational entries. This is an observer-scoped exact contraction, not complete path-memory compression and not constant-bit memory.\n\n## Typed failure boundaries\n\n- Positive branch mass does not cancel merely because signed spatial displacement or first moment cancels.\n- Degree-2 moments do not preserve occupancy, thresholds, fourth moments, or arbitrary nonlinear recall.\n- Conditional/state-dependent weights, partial actions, typed ports, hidden-history access, or path-label-sensitive observers require a richer carrier or separate proof.\n- Rational inverse/comparison matrices are readout tools; they do not license fractional native Cell moves.\n- Mixed-radix quotient/remainder helpers preserve exact arithmetic identity but do not imply path dependence is universally necessary.\n\n## Extracted tool\n\n`src/enterprise_math/brc_transport.py`\n\nReusable interfaces:\n\n- `Affine`\n- `EffectHistogram`\n- `MomentState`\n- `point_moment`, `explicit_moment`\n- `factor_defect`\n- `euclidean_digits`, `recompose`\n\nRegression tests: `tests/test_brc_transport.py`.\n\nThe executable source is discoverable as a T0 BRC subtool. It remains a research-extracted executable candidate pending ordinary independent review/admission; this file does not promote any theorem to Foundation.\n",
+      "display_title": "BRC_TRANSPORT_RESIDUAL_EXTRACTED_RESULT_20260919.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/2c3062af4de5a70c4a2e1c0b2599dc3a7b1ee2dc/research_notes/BRC_TRANSPORT_RESIDUAL_EXTRACTED_RESULT_20260919.md",
+      "encoding": "utf-8",
+      "sha": "c9e799cc62603b3594a84b56a72c583cdeb64d0e"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
