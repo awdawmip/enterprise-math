@@ -1,0 +1,33 @@
+{
+  "observed_utc": "2026-09-19T20:32:36.954193+00:00",
+  "status": "OFFLINE_REVIEWED_PIN_DELTA_READY_LIVE_SERVICE_UNCHANGED",
+  "service_code_path": "D:\\em-research-mcp\\src\\control_transport.py",
+  "service_code_sha256": "8e35caf87452595911d5e18a9925182892691760e1fc339988b8865fbb4eb7c8",
+  "old_reviewed_source": "de49e82f7332b04c64fcce9d46b67c82bf4c55c5",
+  "proposed_reviewed_source": "35d15f3d2594c63583f9f9b3e41a22ccfb56418e",
+  "delta": [
+    {
+      "path": "control_plane/check_post_cutover_publication_envelope.py",
+      "old_blob": "3e977eb88777ad83ddb6ccc8127fd5993c7e5d79",
+      "reviewed_new_blob": "a0cb4822ea8c179c44110abe5b5aade136d3e7f5",
+      "review_evidence": "PR1468 / 115 local tests and publication/control checks"
+    },
+    {
+      "path": "control_plane/research_result_authority_fault_isolation.py",
+      "old_blob": "fafe9a99dc606001d0b3bd7aafc9c5664ed6fa3b",
+      "reviewed_new_blob": "fac58c7bc3186fa2cf6f6c84f44196e851ea84cc",
+      "review_evidence": "PR1493 / 83 tests + separate technical review"
+    },
+    {
+      "path": "tools/research_runtime_reducer.py",
+      "old_blob": "767b20a2b05e63c5e7ad20ac9af864e437a15e29",
+      "reviewed_new_blob": "d362907d241941664a75ea635fc71f862e0dfe41",
+      "review_evidence": "PR1468 / 115 local tests and publication/control checks"
+    }
+  ],
+  "old_policy_result": "UPSTREAM_CODE_REVIEW_REQUIRED: control_plane/check_post_cutover_publication_envelope.py, control_plane/research_result_authority_fault_isolation.py, tools/research_runtime_reducer.py",
+  "candidate_original_code_check": "PASS",
+  "all_other_config_fields_unchanged": true,
+  "live_update_performed": false,
+  "scope": "Exact reviewed-code pin proposal only. It grants no claim, executor, token or MCP checkpoint-write permission. Service operator admission remains pending."
+}
