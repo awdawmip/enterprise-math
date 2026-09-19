@@ -1,0 +1,77 @@
+{
+  "schema": "BRC_SHOR_DYADIC_MARGINAL_EVIDENCE_V1",
+  "event_id": "brc-shor-dyadic-marginal-20260920-6EF011",
+  "activity_id": "RA-6EF011C2E75C4A799606AFEA",
+  "status": "RESEARCH_CANDIDATE_NOT_ADMITTED",
+  "note": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "257f27f2534619dd2b00189f4edfc58bea851620",
+    "path": "research_notes/BRC_SHOR_DYADIC_MARGINAL_20260920_6EF011.md",
+    "sha256": "67deafc628608326d125553d0c82209cfdc9d61785e42e153a1f21dfd467e017",
+    "git_blob_sha1": "b0efb2a28f799f946a875d563924eb0189acafdc",
+    "readback_tool": "GitHub.fetch_file",
+    "local_observation_id": "stage6-source-turn93",
+    "github_code_publication": false,
+    "bundle_delivery_evidence": "External source PUBLICATION_EVIDENCE.json and final sync receipt; a bundle cannot contain its own future upload hash."
+  },
+  "drive_bundle": {
+    "file_id": "16-3efrqheHDVsDXJ1lieT9sxu-tG12r2",
+    "url": "https://drive.google.com/file/d/16-3efrqheHDVsDXJ1lieT9sxu-tG12r2/view",
+    "parent_id": "1IJ8iAXY5laK1lj-Y4NGWKEOdLofieHLa",
+    "file_name": "BRC_Shor_marginal_20260920.bundle",
+    "size": 336313,
+    "sha256": "65e9b14eb20282133f4585f3c4da7c114e0296eea51f8c6dc00c5adc5e823743",
+    "git_head": "926010f8216430023dd9756e1771b4ed15030d02",
+    "parents": [
+      "03d30d1741b2e044d0c9202786f65f9500bde3e4",
+      "121213c2e507d0ebc59d3082c729e826b7263939"
+    ],
+    "roundtrip_raw_bytes_identical": true,
+    "upload_observation": "turn94",
+    "raw_readback_observation": "turn95",
+    "complete_standalone_reproducer": true,
+    "full_enterprise_math_repository": false,
+    "github_code_publication_claimed": false
+  },
+  "validation": {
+    "fresh_clone_manifest_files": 81,
+    "fresh_clone_checks": "PASS",
+    "git_bundle_verify": "PASS",
+    "git_fsck": "PASS",
+    "local_working_trees_clean": true,
+    "independent_review": false,
+    "full_repo_or_lean": false,
+    "checks": {
+      "descriptor_checks": 10936,
+      "exact_alias_coefficient_checks": 32832,
+      "independent_fft_marginals": 1341,
+      "phase_interval_checks": 1404,
+      "first_harmonic_exact_checks": 1023,
+      "high_vs_low_bit_counterexamples": 1,
+      "conditioned_register_counterexamples": 1,
+      "explicit_resource_failures": 1,
+      "invalid_input_checks": 6,
+      "integer_only_candidate_audits": 1
+    },
+    "extra_checks": {
+      "certified_mass_oracle_reduction_checks": 7741,
+      "large_phase_enclosure_checks": 18,
+      "engineered_521_bit_nonuniform_descriptor_checks": 1
+    },
+    "boundary_checks": {
+      "general_divisor_alias_instances": 1625,
+      "high_bit_bias_bounds": 2047
+    },
+    "benchmark_rows": 14,
+    "timed_runs": 42,
+    "max_fft_absolute_error": 5.551115123125783e-16
+  },
+  "artifact_sha256": {
+    "MANIFEST.json": "275b742d600aff5bad59426aed0cb92ff95e4f4bbf4cc48457577ffa9b103850",
+    "marginal.py": "9b8724460d335faab8a58e30d4ec5c071508c7709694935b843c7b59d901aa0b",
+    "verification_results.json": "9cdbfb92b6b14b2898bcbee4452f38e4546afc55faca8481024546f1d774950b",
+    "extra_results.json": "8d37a6a5e23725d43a57eae7e9c846663ae6d70614f1baea22f07df6c2cdc7ee",
+    "benchmark_results.json": "505358c2dfd9680b46ca884d660a6a7c5738cb610099e3515e19b3339e2e98e3",
+    "boundary_results.json": "abe21b15bc8e9ca024a4692c04311ae324f6a31b7432cebd27aaf159398e3db5"
+  }
+}
