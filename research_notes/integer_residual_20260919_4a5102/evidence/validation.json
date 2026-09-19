@@ -1,0 +1,34 @@
+{
+  "schema": "EM_INTEGER_RESIDUAL_VALIDATION_V1",
+  "python": "3.13.5",
+  "tests_run": 31,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "success": true,
+  "enumerated_cases": {
+    "signed_reconstruction": 9639,
+    "refinement_semigroup": 3315,
+    "arithmetic_pair": 8281,
+    "large_integer_pair": 500,
+    "reciprocal_negation": 663,
+    "root_polynomial_certificate": 5285,
+    "interval_arithmetic": 1323,
+    "reciprocal_cycle_step": 6,
+    "modular_power_refinement": 400
+  },
+  "enumerated_case_total": 29412,
+  "source_commit": "a6ef14fdc1dec284f9ca40875ae3acfb85e1b4b7",
+  "coverage": "THREE_UNCHANGED_UPSTREAM_MODULES_PLUS_CANDIDATE_ADAPTER_AND_AST_INVENTORY_ONLY",
+  "full_repository_regression_executed": false,
+  "files": {
+    "src/enterprise_math/__init__.py": "884eb1dc521dec78cc7ee9a550a87c36f7666cc0f0f111588175e6b68a7764dc",
+    "src/enterprise_math/core.py": "d2814d1d31eb195905f05136f250fcac2232b8cfc7dc6c9797000733ddebe636",
+    "src/enterprise_math/division.py": "4421c6dc9acfaa61492137951e543973c010c6a127655126152cc18763cc35e9",
+    "src/enterprise_math/exact_arithmetic.py": "f4f8feead82dc53a35e5fec495b31e46e64820f7b115c9efd6034063e68f8ad6",
+    "src/enterprise_math/integer_residual.py": "7a424510ebf50d6a5a211d616bc1c932398bc8110d86a0773818997359a63765",
+    "tests/test_integer_residual.py": "c6cd7d0b9e49b6988887fcb158ddb0ecea4349106e602c6cd9e23beeaf7cec46",
+    "tools/audit_numeric_surface.py": "c6df202945a4ffdb4876144a87d478114feab81f40cc7671bf30fe4a230d643b",
+    "tools/run_validation.py": "0ff8dbff475a960db913fef8eb8dd50e358ca58d69827c3f11700b2105132eef"
+  }
+}
