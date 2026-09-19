@@ -1,0 +1,238 @@
+{
+  "status": "PASS",
+  "check_groups": 14,
+  "seed": 20260920,
+  "checks": {
+    "01_exact_source_reuse": {
+      "brc_transport.py": "be1debe367263931bd5e93fd750be3ed54624fe1",
+      "brc_histogram.py": "9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1",
+      "predictive_quotient.py": "f27d9ddf908f5b07051acfaf0c69f359d499b98b",
+      "heartbeat_algebra.py": "c8d0b73a805740075e9b485d53e3b9ab71636490",
+      "phase_algebra.py": "501e3d57021357630275762e989278a1ea29925d"
+    },
+    "02_local_gate_and_scale_lift": {
+      "exhaustive_local_cases": 93750,
+      "original_radix_lift_cases": 800
+    },
+    "03_equal_cost_and_joint_six_axis_law": {
+      "initial_parities": 64,
+      "channels": 32,
+      "fine_cost_per_12_ticks": 12,
+      "forward_twice": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        -2
+      ],
+      "return": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reverse_twice": [
+        -2,
+        -2,
+        -2,
+        -2,
+        -2,
+        2
+      ],
+      "sixfold_velocity_product": -1,
+      "all_nonempty_lower_order_sign_products_through_degree5": 0
+    },
+    "04_order_commutator": {
+      "adjacent_cases": 384,
+      "nonadjacent_ordered_cases": 1152,
+      "G1G2": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "G2G1": [
+        -1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "four_gate_residual": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "05_original_T6_minimum_and_boundary": {
+      "gate_only": [
+        32,
+        32,
+        32,
+        32
+      ],
+      "with_material_heartbeat": [
+        32,
+        64,
+        64,
+        64
+      ],
+      "sector_moment_entries": 896,
+      "parity_sector_entries": 1792,
+      "scope": "future displacement control, not full position identity"
+    },
+    "06_original_BRC_laws": {
+      "kernel_triples": 12,
+      "original_moment_comparisons": 12
+    },
+    "07_independent_path_oracle": {
+      "ensembles": 10,
+      "depth": 7,
+      "generated_labels": 7620,
+      "weights": "control-dependent 1/3 and 2/3"
+    },
+    "08_moment_failure_and_repair": {
+      "same_input_global_moments": true,
+      "output_means": [
+        [
+          "-1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    "09_shuffle_covariance": {
+      "controls": 32,
+      "orders_per_control": 720,
+      "orders_examined": 23040,
+      "one_sweep_endpoints": 62,
+      "two_sweep_paths": 518400,
+      "two_sweep_endpoints": 715,
+      "diagonal_per_sweep": "1",
+      "adjacent_offdiagonal_zero_control": "-1/3"
+    },
+    "10_long_exact_contraction": {
+      "sweeps": 60,
+      "ticks_and_fine_steps_per_path": 360,
+      "represented_schedule_count": "2753910271508939408646097283178478031054893938896576889683990720434523683592586564948214776631198305421231128576000000000000000000000000000000000000000000000000000000000000",
+      "not_enumerated": true,
+      "active_sectors": 1,
+      "mass": "1",
+      "mean": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "covariance": [
+        [
+          "60",
+          "-20",
+          "0",
+          "0",
+          "0",
+          "-20"
+        ],
+        [
+          "-20",
+          "60",
+          "-20",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-20",
+          "60",
+          "-20",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "-20",
+          "60",
+          "-20",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "-20",
+          "60",
+          "-20"
+        ],
+        [
+          "-20",
+          "0",
+          "0",
+          "0",
+          "-20",
+          "60"
+        ]
+      ]
+    },
+    "11_recurrent_guarded_moments": {
+      "ticks": 96,
+      "branches_represented": "79228162514264337593543950336",
+      "active_sectors": 32,
+      "independent_rationals": 896,
+      "max_rational_bit_length": 8,
+      "not_occupancy_or_full_provenance": true
+    },
+    "12_original_frame_covariance": {
+      "cases": 120,
+      "pure_frame_change_not_interaction": true
+    },
+    "13_typed_boundaries": {
+      "invalid_rejections": 14,
+      "64_class_heartbeat_fallback": true
+    },
+    "14_active_material_heartbeat": {
+      "signed_cases": 600,
+      "law": "X_6=2X_0-2*(X_0[0] mod2)*e6",
+      "distinct_material_states": 64,
+      "visible_parity_classes_after_sweep": 1,
+      "mean": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0"
+      ],
+      "covariance_first_last": "-1",
+      "last_variance": "2",
+      "full_coordinate_information_not_erased": true
+    }
+  },
+  "scope": "chosen Heartbeat World dyadic gate model; finite-control affine BRC extension",
+  "independent_review": false,
+  "full_project_tests": false,
+  "production_changed": false
+}
