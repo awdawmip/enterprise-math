@@ -1,8 +1,8 @@
-# T6 p19 order 9: recovered exact lattice and the independent (4,5) block
+# T6: complete maximal-p19 layer and the p17 zero-order frontier
 
 Task: `RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND` / `TP2-34B106D2512A298C9647`.
 Researcher: `EM-T6SM-B134BD`; execution record `ER-120BCED768F86DA406CC`.
-Status: `EXACT_INPUT_RECOVERED / (4,5) COMPLETE_RESEARCHER_CERTIFICATE / GLOBAL_T6_OPEN`.
+Status: `MAXIMAL_P19_AND_P17_Q0_CLEARED_AT_RESEARCHER_PROOF_STRENGTH / GLOBAL_T6_OPEN`.
 
 ## Reconciled source frontier
 
@@ -14,9 +14,14 @@ with `PROOF.md`, `order9_36_certificate.json`, and `verification.txt`. These rep
 and generated C++ (f6557d770faa22ff9088b95fbd372abc15f01e8039e76009d0187cea2ea5e8a9)
 are absent from that current artifact directory; a bounded exact-name source
 search returned no code result. That is a reproducibility gap, not a refutation.
-The prior (3,6) result remains **an authored clearance claim awaiting recovery or
-independent verification**. Its 335,374 cosets were not replayed here. This work
-recovers mathematical inputs and starts the separate (4,5) block.
+At intake the prior (3,6) result was classified as an authored clearance claim
+awaiting independent verification. After all genuinely new blocks below were
+finished, the Owner authorized one bounded independent check of that claim,
+conditional on the exact applicability gate and a60-second limit. The gate
+passed and `audit_prior_3_6.py` established the same bounded conclusion in15.031
+seconds over335374 primitive instances. This is a new reproducible verification,
+not recovery or byte reproduction of the missing old builder. The old archive
+gap remains, but the mathematical(3,6) gap now has this independent certificate.
 
 ## Carrier and elementary guards
 
@@ -48,6 +53,9 @@ multisets with exact order and exact side cost. It obtains 8124 order-4 states
 and 8506 order-5 states. Identical atoms on opposite sides are cancelled: this
 reduces total vertical order below9, already excluded by the frozen order0--8
 input. Global sign reversal exchanges (4,5) with (5,4), so one orientation suffices.
+The enumeration permits every coprime-to19 m fitting the budgets, even when it
+has a prime factor above19. This deliberately relaxes the maximal-prime
+condition; emptiness of the larger set suffices and no composite is pre-sieved.
 
 ## Exact homogeneous and affine inputs
 
@@ -150,8 +158,9 @@ the preceding proof yield the bounded conclusion:
 
     No primitive maximal-p19 order9 split(4,5) kernel meets both side budgets2331.
 
-This closes the new (4,5) block at researcher-proof/census strength, not the
-separate prior (3,6) independent-review gap and not the entire T6 target.
+This closes the new(4,5) block at researcher-proof/census strength. All counts
+refer to pattern-indexed affine-coset instances; distinct quotient classes are
+not asserted. This block alone would not close order9 or the entire T6 target.
 
 The input is durable as `input.json`, including the full basis, exact rational
 orthogonal data, atom representatives and saturation construction. Source
@@ -181,9 +190,9 @@ With that source directory on PYTHONPATH:
 A time budget stops only at a completed row boundary. The returned half-open
 completed-row interval is authoritative; resource exhaustion is never encoded
 as an empty unvisited interval. Future intervals must be disjoint and contiguous
-before their union is called complete. The separately retained (3,6) review gap,
-orders10--12, lower maximal primes and global T6 all remain outside this initial
-block certificate. No CI, persistence, source branch or self-check confers
+before their union is called complete. The complete layer uses the additional
+certificates below. Lower maximal primes and global T6 remain open. No CI,
+persistence, source branch or self-check confers
 Driver acceptance, Working Truth, Foundation promotion or global T6=2332.
 
 ## Independent higher-block reuse
@@ -199,6 +208,69 @@ primitive carrier; excluding them in an individual primitive block does not
 assert that the lower order after cancellation has already been independently
 reviewed. Higher-block certificates are separate and cannot resolve the old
 (3,6) source gap by themselves.
+
+All four new higher-block runs completed with no kernel:
+
+| Order | Split | Primitive instances | Oriented state pairs |
+| --- | --- | ---: | ---: |
+| 10 | (4,6) | 1724674 | 2128488 |
+| 10 | (5,5) | 21405127 | 36171765 |
+| 11 | (5,6) | 1513179 | 2228572 |
+| 12 | (6,6) | 20265 | 34191 |
+
+For the subsequently authorized(3,6) check the side residuals satisfy
+B+<=1230,B-<=147. The stronger threshold is4*(1230^2+147^2)=6138036; the
+actual exact D_i all exceed it. The independent run checks all1482*262 state
+pairs, removes52910 shared-atom pairs and excludes335374 primitive instances.
+
+`verify_layer.py` binds all six blocks to their actual input and producer
+digests and checks complete coverage, counts, symmetry and absent reported
+kernels. Its ledger `coverage_p19.json` has70285694 checked primitive instances
+over orders9--12, including the independent old-claim check. Mathematical
+verification requires the preceding completeness proof and replay of the
+actual producers, not merely successful metadata aggregation.
+
+The Task supplies global order0--8 as already verified frozen input; those
+orders were consumed without replay. Together with the six complete blocks,
+the valuation guard and the one-side order bound, every possible maximal-p19
+configuration below side mass2332 is excluded. This is the **researcher proof
+of the entire p19 layer**, still subject to independent Driver review.
+
+## Next prime: p17 q0 closes by a static bound
+
+The same arithmetic construction at p17 gives the saturated16-dimensional
+q0 lattice with weights17r-1 and index17^21. `p17_q0.py` treats LLL only as a
+proposal; `verify_p17_q0.py` independently consumes the resulting integer
+certificate without FLINT, rechecking determinant, every mixed congruence,
+unit Vandermonde minor and exact Gram-Schmidt data.
+
+The p17 valuation guard is elementary. Valuation3 would require a>=4913>2332.
+Valuation2 has a=289m,1<=m<=8. Every signed coefficient has absolute value<=8
+because9*288>2331. The six mod17 reciprocal checks form a Vandermonde-type
+code on eight distinct nonzero residues, so any nonzero coefficient vector
+mod17 has support at least7. A nonzero integer coefficient here cannot vanish
+mod17. The cheapest seven supported atoms cost at least
+289*(1+...+7)-7=8085>4662, contradicting the combined side budget. Thus the
+nonzero p17 layer also has valuation exactly1.
+
+For q0, any feasible u obeys||Wu||^2<=2*2331^2=10867122. Every exact
+Gram-Schmidt D_i of the recovered basis is strictly larger than10867122.
+For any nonzero integral lattice combination, let j be its highest nonzero
+coefficient. Its orthogonal b_j-star component has integer coefficient of
+absolute value at least1; hence its squared norm is at leastD_j. This proves
+q0 empty without enumeration, a search radius heuristic or a floating norm.
+The exact data and inequalities are in `p17_q0_certificate.json`, and the
+independent integer consumer reports PASS in `p17_validation.json`.
+
+The next genuine unfinished mathematical unit is **maximal p17 vertical
+order1**, split(0,1) up to sign. Per-side vertical order is at most8, since
+9*289+16>2331. Orders1--16 were not checked. The p19 flat nearest-plane shortcut
+must not be silently reused: its sufficient D_i>4R^2 gate must first hold for
+the new affine budgets; otherwise exact multi-candidate enumeration or another
+proved structural reduction is needed. No full p17 or global T6 equality follows.
+
+All coefficient JSON must be consumed with arbitrary-precision integer parsing
+(the supplied Python consumers do so), not rounded JavaScript Number values.
 
 Researcher-ID: EM-T6SM-B134BD / RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND
 Global-Knowledge-Sync: main@6043a5a / GLOBAL_KNOWLEDGE_V1
