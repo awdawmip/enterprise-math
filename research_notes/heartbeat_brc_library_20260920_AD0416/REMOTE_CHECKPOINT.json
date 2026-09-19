@@ -1,40 +1,64 @@
 {
-  "schema": "EM_HEARTBEAT_BRC_TOOLKIT_REMOTE_CHECKPOINT_V1",
-  "event_id": "heartbeat-brc-toolkit-and-occupancy-20260920-AD0416",
+  "schema": "EM_HEARTBEAT_BRC_TOOLKIT_REMOTE_CHECKPOINT_V2",
+  "event_id": "heartbeat-brc-toolkit-repair-and-occupancy-20260920-AD0416",
   "research_activity_id": "RA-37C0A30C7B1F5A338F03D186",
   "status": "REMOTE_MAIN_RESEARCH_CANDIDATE_NOT_FOUNDATION",
-  "commits": {
-    "toolkit": "23caa5594251216b3ba1115c3562b67ad0bde12f",
-    "occupancy": "4004fe4b585a356c45ddda9ff9ada1ee01d910ee"
-  },
-  "tools": [
+  "repaired_regression_commit": "23caa5594251216b3ba1115c3562b67ad0bde12f",
+  "repair_reason": "Parent main already contained richer V6 toolkit metadata/tests/theorem ledger. Restore stronger parent surfaces; core residue/contact source blobs were already identical.",
+  "retained_tools": [
     "src/enterprise_math/brc_residue_port.py",
     "src/enterprise_math/brc_residue_quotient.py",
     "src/enterprise_math/brc_contact_horizon.py",
-    "src/enterprise_math/brc_occupancy_horizon.py"
+    "src/enterprise_math/brc_control_port.py",
+    "src/enterprise_math/predictive_quotient.py"
   ],
-  "method_addenda": [
-    "research_method_inventory_addenda/20260920_brc_residue_port.json",
-    "research_method_inventory_addenda/20260920_brc_quotient_contact.json",
-    "research_method_inventory_addenda/20260920_brc_occupancy_horizon.json"
+  "deduplicated": [
+    "removed brc_occupancy_horizon.py as a redundant domain wrapper",
+    "removed its separate method addendum and separate theorem ledger"
   ],
-  "theorem_ledgers": [
-    "research_notes/heartbeat_brc_library_20260920_AD0416/THEOREM_LEDGER.json",
-    "research_notes/heartbeat_brc_occupancy_20260920_AD0416/THEOREM_LEDGER.json"
+  "new_results": [
+    "HBRC-ENV-005 phase-free C6 occupancy observer lattice",
+    "HBRC-ENV-006 use-once occupancy-count future growth"
   ],
   "validation": {
-    "prior_local_toolkit_suite": "12 groups PASS; 13 prior groups separately replayed",
-    "publication_smoke": "8 assertions PASS before publication",
-    "occupancy_exact_enumeration": "64 states; profiles 7/12/20/32/48/64/64 and 14 cyclic orbits",
-    "full_project_tests": false,
+    "local_exact_states": 64,
+    "profiles": {
+      "static_count": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "static_active": [
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        64
+      ],
+      "mutating_count": [
+        7,
+        12,
+        20,
+        32,
+        48,
+        64,
+        64
+      ]
+    },
+    "c6_orbits": 14,
+    "c6_nonempty_orbits": 13,
     "independent_review": false,
-    "lean": false,
-    "nollm_production_changed": false
+    "full_project_tests": false
   },
   "boundaries": [
-    "P000 and HEARTBEAT_WORLD ontology unchanged",
-    "research theorem candidates are not Foundation admission",
-    "observer/future-operation scoped quotients only",
-    "no constant-bit memory or semantic recall improvement claim"
+    "P000 unchanged",
+    "existing V6 theorem/tool strength preserved",
+    "new results are observer-scoped candidates, not Foundation"
   ]
 }
