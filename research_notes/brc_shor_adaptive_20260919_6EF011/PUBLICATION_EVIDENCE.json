@@ -1,0 +1,140 @@
+{
+  "schema": "BRC_SHOR_ADAPTIVE_REFERENCE_EVIDENCE_V1",
+  "event_id": "brc-shor-adaptive-five-channel-20260919-6EF011",
+  "status": "PASS_SCOPED_LOCAL_TESTS_NOT_INDEPENDENT_REVIEW",
+  "observed_at": "2026-09-19T12:32:28.620133+00:00",
+  "python_version": "3.13.5",
+  "candidate_inputs": [
+    "N",
+    "a"
+  ],
+  "coefficient_inputs": [
+    "N",
+    "a",
+    "Q",
+    "optional_block_size"
+  ],
+  "source_sha256": {
+    "collision_engine.py": "8e255853cf20254c1f48657649363029f293423e9b90edd74bf644020c517f63",
+    "verify_small.py": "77a740fb1e308b85ae09501923925379745fc040be9725f5cf23d35da720ba97",
+    "benchmark.py": "fcc110d5b6d4afdfb213ea9a9443d574cb84eaff817a57742eb245f85cd8d248",
+    "small_results.json": "42f76ca469af3ff7f531db34ccb0ea6fe4e3b53275e20ee6dadaf8759e26b894",
+    "benchmark_results.json": "10d13bf43279d316a94d8939b9b89a89ced29b3c56603aaeffd649732afe3021",
+    "isolated_candidate_runs.json": "98bdbd1c5c5c75c142c0ec808a61f91a023157a5a22dfec1ad6a7d47ba7e76f9",
+    "RESEARCH_NOTE.md": "45f41b1650a3a1d251b3f2de0d0a5d123d0ee5064a15bc93e22aac4d5fefdc60",
+    "README.md": "20b5761716502ccb062e189ff89a1250b7002c26dc1dc9854bd49f34b66af722"
+  },
+  "commands": [
+    "python verify_small.py",
+    "python benchmark.py",
+    "python -m py_compile collision_engine.py verify_small.py benchmark.py"
+  ],
+  "not_performed": [
+    "full_EM_regression",
+    "Lean_formalization",
+    "independent_review",
+    "full_quantum_circuit_fidelity_test",
+    "full_source_activity_guard_execution"
+  ],
+  "source_activity_transport": "current equivalent connector schema; hashes and immutable readbacks checked locally; no claim original full guard executed",
+  "small_counts": {
+    "fiber_vs_weighted_block_cases": 102180,
+    "adaptive_vs_brute_order_cases": 27397,
+    "pure_power_two_order_cases": 3717,
+    "nontrivial_odd_component_order_cases": 23680,
+    "monotone_integer_decoder_cases": 131328,
+    "unsafe_ragged_reuse_witness": {
+      "N": 3,
+      "a": 2,
+      "Q": 5,
+      "B": 4,
+      "wrong": 11,
+      "correct": 13
+    },
+    "finite_window_cut_cases": 4619,
+    "finite_window_max_nonzero_points": 5,
+    "finite_window_exact_rank_counts": {
+      "1": 1535,
+      "3": 1434,
+      "5": 1650
+    },
+    "unsafe_origin_cross_completion_witness": {
+      "Q": 64,
+      "L": 8,
+      "r_checker_only": [
+        35,
+        37
+      ],
+      "observed_origin_cross": [
+        [
+          0,
+          0
+        ]
+      ],
+      "naive_rank_one_K": 64,
+      "true_K": [
+        122,
+        118
+      ],
+      "earlier_dyadic_windows_indistinguishable": true
+    },
+    "error_handling_cases": 7,
+    "candidate_static_no_float_no_order_oracle_audit": "PASS"
+  },
+  "benchmark": {
+    "count": 16,
+    "max_input_bits": 40,
+    "checker_sympy_version": "1.14.0",
+    "timing_scope": "one local run per case; candidate core time excludes child startup; baseline in parent; not a controlled performance study",
+    "selected_rows": [
+      {
+        "N": 100160063,
+        "a": 2,
+        "order": 8345004,
+        "first_window": 8388608,
+        "K": 8475816,
+        "peak_residue_buckets": 2048,
+        "group_multiplications": 20451,
+        "modular_inversions": 24,
+        "candidate_seconds": 0.004221,
+        "basic_bsgs_seconds": 0.002071
+      },
+      {
+        "N": 10002200057,
+        "a": 2,
+        "order": 5001000018,
+        "first_window": 8589934592,
+        "K": 15767803740,
+        "peak_residue_buckets": 65536,
+        "group_multiplications": 655321,
+        "modular_inversions": 34,
+        "candidate_seconds": 0.238728,
+        "basic_bsgs_seconds": 0.112147
+      },
+      {
+        "N": 1000036000099,
+        "a": 2,
+        "order": 41668083336,
+        "first_window": 68719476736,
+        "K": 122822263536,
+        "peak_residue_buckets": 262144,
+        "group_multiplications": 1834966,
+        "modular_inversions": 37,
+        "candidate_seconds": 0.608858,
+        "basic_bsgs_seconds": 0.280452
+      },
+      {
+        "N": 1000036000099,
+        "a": 5,
+        "order": 166672333344,
+        "first_window": 274877906944,
+        "K": 491289054144,
+        "peak_residue_buckets": 524288,
+        "group_multiplications": 3669972,
+        "modular_inversions": 39,
+        "candidate_seconds": 1.324098,
+        "basic_bsgs_seconds": 0.634444
+      }
+    ]
+  }
+}
