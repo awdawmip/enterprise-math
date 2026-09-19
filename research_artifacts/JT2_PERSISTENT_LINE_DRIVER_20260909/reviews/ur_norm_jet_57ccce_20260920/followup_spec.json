@@ -1,0 +1,112 @@
+{
+  "decision": "TASK_SET_PUBLISHED",
+  "gate_decisions": [
+    {
+      "gate": "MATHEMATICAL_CONTINUATION",
+      "decision": "REQUIRED",
+      "reason": "Uniform UR vanishing is unproved. A justified new publication of the same Task focuses on the actual norm-jet evaluation while consuming completed elimination.",
+      "evidence_refs": [
+        "https://github.com/awdawmip/enterprise-math/blob/969846f1d451b3e086f34a19b217e333c8a90c8d/research_result_records/RS-EMW59A-JT2-UR-SUN-PARITY-DEFECT/RR-60983E048B55C2AC7F66.json",
+        "https://github.com/awdawmip/enterprise-math/blob/969846f1d451b3e086f34a19b217e333c8a90c8d/research_returns/EMW59A_JT2_UR_SUN_PARITY_DEFECT_RETURN_EF9380_20260910.md",
+        "https://github.com/awdawmip/enterprise-math/blob/969846f1d451b3e086f34a19b217e333c8a90c8d/research_task_records/RS-EMW59A-JT2-UR-SUN-PARITY-DEFECT/TP2-22F5729C777040ECA121.json"
+      ]
+    },
+    {
+      "gate": "LEAN_FORMALIZATION",
+      "decision": "NOT_REQUIRED",
+      "reason": "Only a source-grounded paper reduction is accepted into archive. No L4 or kernel-checked UR theorem is asserted.",
+      "evidence_refs": [
+        "https://github.com/awdawmip/enterprise-math/blob/969846f1d451b3e086f34a19b217e333c8a90c8d/research_result_records/RS-EMW59A-JT2-UR-SUN-PARITY-DEFECT/RR-60983E048B55C2AC7F66.json",
+        "driver_reviews/JT2_UR_NORM_JET_STAGE_REVIEW_57CCCE_20260920.md"
+      ]
+    },
+    {
+      "gate": "EXTERNAL_PRIOR_ART_DUPLICATION",
+      "decision": "SATISFIED_BY_EXISTING_CONTROL_ASSET",
+      "reason": "The companion completed bounded search records the exact target, actual queries, primary antecedents and limits; it makes no novelty or literature-resolution claim.",
+      "evidence_refs": [
+        "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/ur_norm_jet_57ccce_20260920/prior_art_review.md",
+        "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/ur_norm_jet_57ccce_20260920/prior_art_search.json"
+      ]
+    },
+    {
+      "gate": "INDEPENDENT_REPLICATION",
+      "decision": "NOT_REQUIRED",
+      "reason": "The task did not request a fresh independent rediscovery. The disclosed reduction receives ordinary non-author Driver inspection; the original independent combined-certificate audit remains a separate published task, not claimed complete here.",
+      "evidence_refs": [
+        "driver_reviews/JT2_UR_NORM_JET_STAGE_REVIEW_57CCCE_20260920.md",
+        "https://github.com/awdawmip/enterprise-math/blob/969846f1d451b3e086f34a19b217e333c8a90c8d/research_tasks/EMW59A_JT2_INDEPENDENT_CERTIFICATE_AUDIT_20260909.md"
+      ]
+    },
+    {
+      "gate": "INTEGRATION_OR_TOOL_HARVEST",
+      "decision": "NOT_REQUIRED",
+      "reason": "RESULT_ONLY is preserved. No new reusable toolkit or Foundation payload is proposed; original-target integration remains behind the existing proof/audit prerequisites.",
+      "evidence_refs": [
+        "https://github.com/awdawmip/enterprise-math/blob/969846f1d451b3e086f34a19b217e333c8a90c8d/research_result_records/RS-EMW59A-JT2-UR-SUN-PARITY-DEFECT/RR-60983E048B55C2AC7F66.json",
+        "https://github.com/awdawmip/enterprise-math/blob/969846f1d451b3e086f34a19b217e333c8a90c8d/research_tasks/EMW59A_JT2_FINAL_INTEGRATION_20260909.md"
+      ]
+    },
+    {
+      "gate": "ADVERSARIAL_AUDIT",
+      "decision": "SATISFIED_BY_EXISTING_CONTROL_ASSET",
+      "reason": "The Driver ledger checks the lost x^p component, its endpoint recovery, exact coefficient realizability, legal p divisions, scope and the distinction between equivalence and vanishing/independence. Later UR proof still needs its own review.",
+      "evidence_refs": [
+        "driver_reviews/JT2_UR_NORM_JET_STAGE_REVIEW_57CCCE_20260920.md",
+        "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/ur_norm_jet_57ccce_20260920/review_ledger.json"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "RS-EMW59A-JT2-UR-SUN-PARITY-DEFECT",
+      "title": "JT2 UR-Legendre: norm-jet scalar evaluation",
+      "taskbook_filename": "EMW59A_JT2_UR_NORM_JET_GEN3_20260920.md",
+      "task_role": "MATHEMATICAL_CONTINUATION",
+      "task_lineage": "CONTINUATION",
+      "parent_task_id": "RS-EMW59A-JT2-UR-SUN-PARITY-DEFECT",
+      "supersedes_publication_id": "TP2-22F5729C777040ECA121",
+      "successor_gate": {
+        "new_information_gap": "Evaluate the specified arithmetic scalar epsilon_p=9(P_n(t)/p)(P_n'(t)/t)-2I_n(t)/t-3 modulo p on every admissible prime. The reviewed return gives its exact equivalence to UR and a degree<=2n+1 certificate, but not its value.",
+        "why_parent_result_does_not_close_it": "The exact Sun/derivative elimination and degree-p normalization only produce EQUIV. No all-prime vanishing, admissible counterexample, or full-system logical-independence certificate is provided.",
+        "discriminating_outcomes": [
+          "A uniform exact proof of epsilon_p=0 and the original UR congruence",
+          "An exact admissible prime counterexample with all frozen hypotheses verified",
+          "A rigorously identified unresolved arithmetic step, explicitly PARTIAL and not another SUCCESS-by-reformulation claim"
+        ],
+        "kill_condition": "Reject a route that drops x^p, sets a p² defect to zero without proof, uses freely perturbed jets incompatible with fixed Legendre coefficients, divides by p before CM0, or treats finite examples/equivalent rewriting as uniform UR proof.",
+        "alternative_route_or_free_exploration_considered": "Considered continuing the unchanged gen2 instructions, a duplicate new Task-ID, the existing certificate audit/final integration, and independent unrelated exploration. Gen2's elimination is completed; audit/integration require a UR certificate as input. A new Task-ID is unnecessary. A revised publication of this same UR task preserves the exact mother question and consumes the verified reduction.",
+        "why_new_stage_or_task_is_better_than_same_task_or_closure": "This is a new generation of the same Task, not a new Task-ID or direction. It retains the uniform UR target, removes completed elimination from the to-do list, and makes the genuinely unevaluated norm-jet scalar the first action. Closure is unjustified while that scalar remains open."
+      },
+      "frontier": "Exact finite Sun parity/derivative elimination and Frobenius-aware Wronskian normalization are reviewed. The original UR target is equivalent to epsilon_p=0, with a degree<=2n+1<p norm-jet certificate; its all-prime value remains unknown.",
+      "next_action": "Use the exact specified P_n and its primitive I_n to seek a uniform arithmetic evaluation of epsilon_p on p=13,19 mod24, preserving the inherited CM0/SIMPLE scope. Consume the prior elimination and test any proposed new arithmetic relation against full polynomial realizability.",
+      "research_value": "Resolve the original UR unit-reciprocity obligation without replaying completed adjacent-value elimination; preserve a sharp exact falsifier if the target is false.",
+      "mother_question": "For every prime p>3 with p=13 or19 modulo24, n=(p-1)/3 and 2t²=1 on the exchanged Frobenius branch, does 3P_{p-1}(-1/3,t)P_n'(t)=-pt modulo p² hold?",
+      "frozen_inputs_and_scope": "Use the unchanged RR-60983E048B55C2AC7F66 and its repaired attachment source de3e3c02df785b2ac7c62623d9d5efaece0b15fa, the accompanying Driver stage review, and the original gen2 source handoff. Preserve p>3, p mod24 in {13,19}, n=(p-1)/3, R=Z_(p), A=R[t]/(2t²-1), CM0 and SIMPLE. Consume BL, A/C-ELIM, DEF-ELIM, FROB-NORM, EQUIV, the legal original G_div normalization and accepted QTF3. No old77-prime scan, retired harmonic-block reconstruction, QTF3 re-review, or free-jet perturbation is a default task. I_n is the exact polynomial primitive with I_n(0)=0. The same-task prior generation is TP2-22F5729C777040ECA121; this publication does not reopen an old claim or authorize execution.",
+      "hard_target_and_required_outputs": "Hard target remains the original uniform UR slope-value congruence. Deliver (1) a uniform proof or exact admissible counterexample to 9P_n(t)P_n'(t)=p(2I_n(t)+3t) modulo p²; (2) the corresponding conclusion for 3B(t)P_n'(t)=-pt and the original UR product through the accepted EQUIV/BL/coordinate bridge; (3) explicit preservation of p-integrality, exact prime scope, the x^p normalization and full polynomial realizability in every new argument; (4) if unresolved, the precise remaining arithmetic step and a truthful PARTIAL return, not a claim that an equivalent new scalar proves UR.",
+      "research_value_to_preserve": "A uniform proof closes the original UR obligation; an exact counterexample with all hypotheses checked is decisive negative evidence. A failed route should isolate genuine missing arithmetic information without discarding coefficients, valuations, ports or jets.",
+      "success_kill_and_return_criteria": "Success requires a uniform proof of the original target on the entire stated scope, or an exact admissible counterexample establishing its failure. Further reformulation, finite agreement or a generic rank/kernel observation is not success. Preserve all exact computations as finite evidence. If neither decisive outcome is reached, return PARTIAL with the smallest actual unfinished arithmetic step. Do not claim logical independence without an admissible full-system witness. No Working Truth/Foundation/L4 status or researcher execution authority is granted by this task publication.",
+      "dependencies": [],
+      "source_refs": [
+        "https://github.com/awdawmip/enterprise-math/blob/969846f1d451b3e086f34a19b217e333c8a90c8d/research_result_records/RS-EMW59A-JT2-UR-SUN-PARITY-DEFECT/RR-60983E048B55C2AC7F66.json",
+        "https://github.com/awdawmip/enterprise-math/blob/969846f1d451b3e086f34a19b217e333c8a90c8d/research_returns/EMW59A_JT2_UR_SUN_PARITY_DEFECT_RETURN_EF9380_20260910.md",
+        "https://github.com/awdawmip/enterprise-math/blob/969846f1d451b3e086f34a19b217e333c8a90c8d/research_task_records/RS-EMW59A-JT2-UR-SUN-PARITY-DEFECT/TP2-22F5729C777040ECA121.json",
+        "driver_reviews/JT2_UR_NORM_JET_STAGE_REVIEW_57CCCE_20260920.md",
+        "research_artifacts/JT2_PERSISTENT_LINE_DRIVER_20260909/reviews/ur_norm_jet_57ccce_20260920/prior_art_review.md"
+      ],
+      "priority": "P2",
+      "leverage": "MEDIUM",
+      "identity_lane": "RW59UR",
+      "claim_lease_minutes": 1440,
+      "hard_block": "UNIFORM_UR_NORM_JET_VANISHING",
+      "tags": [
+        "JT2",
+        "NORM_JET",
+        "SAME_TASK_NEW_GENERATION",
+        "UR_OPEN",
+        "RESULT_ONLY"
+      ],
+      "origin_kind": "DRIVER_ROADMAP"
+    }
+  ]
+}
