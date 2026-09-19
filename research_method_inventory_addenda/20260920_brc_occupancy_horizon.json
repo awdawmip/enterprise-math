@@ -1,0 +1,47 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "date": "2026-09-20",
+  "methods": [
+    {
+      "method_id": "t0.brc_heartbeat_occupancy_horizon",
+      "name": "Heartbeat World six-axis occupancy-horizon compiler",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "EXTRACTED_EXECUTABLE_CANDIDATE_NOT_FOUNDATION",
+      "source_refs": [
+        "src/enterprise_math/brc_occupancy_horizon.py",
+        "src/enterprise_math/predictive_quotient.py",
+        "docs/toolbox/BRC_HEARTBEAT_RESIDUE_TOOLKIT.md",
+        "research_notes/heartbeat_brc_occupancy_20260920_AD0416/THEOREM_LEDGER.json"
+      ],
+      "api": [
+        "OccupancyState",
+        "count_future_key",
+        "active_bit_future_key",
+        "mutating_count_class_count",
+        "static_active_bit_class_count",
+        "cyclic_pattern"
+      ],
+      "triggers": [
+        "occupancy horizon",
+        "environment port",
+        "heartbeat scan",
+        "future-safe occupancy compression",
+        "cyclic occupancy pattern"
+      ],
+      "capabilities": [
+        "exact six-axis occupancy future keys",
+        "closed-form predictive class count for mutating count observer",
+        "static active-bit horizon count",
+        "phase-free cyclic pattern canonicalization"
+      ],
+      "hard_boundary": "Six positive-axis Boolean channels under a declared cyclic scan. Not a many-body exclusion model, no negative-axis occupancy, no payload semantics, no claim that a phase-free symmetry quotient remains safe under phase-anchored mutations.",
+      "theorem_refs": [
+        "HBRC-OCC-001",
+        "HBRC-OCC-002",
+        "HBRC-OCC-003"
+      ]
+    }
+  ]
+}

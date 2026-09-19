@@ -1,0 +1,85 @@
+{
+  "schema": "HEARTBEAT_BRC_OCCUPANCY_THEOREM_CANDIDATES_V1",
+  "date": "2026-09-20",
+  "world_id": "HEARTBEAT_WORLD",
+  "status": "RESEARCH_THEOREM_CANDIDATES_NOT_FOUNDATION",
+  "theorems": [
+    {
+      "id": "HBRC-OCC-001",
+      "name_zh": "静态六轴扫描的观察依赖压缩",
+      "assumptions": [
+        "六个正原生轴布尔占用位",
+        "每拍只循环轮转，不改变占用"
+      ],
+      "law": "只观察总占用数时恒为7类；观察当前激活位的未来到h时有2^min(h+1,6)类，并在h=5达到64类。",
+      "tool": "static_tick / static_active_bit_class_count",
+      "boundary": "不同观察语言得到不同商；7类不保留方向图样。"
+    },
+    {
+      "id": "HBRC-OCC-002",
+      "name_zh": "六轴循环占用图样的14轨道",
+      "assumptions": [
+        "相位无关观察",
+        "等价关系仅为C6循环轴重标"
+      ],
+      "law": "64个二进制六轴图样在C6下共有14个轨道；除去全空背景后有13个非平凡轨道。Burnside计数=(64+2+4+8+4+2)/6=14。",
+      "tool": "cyclic_pattern",
+      "boundary": "若后续作用锚定当前相位或改变某一指定轴，该14类商未必安全。"
+    },
+    {
+      "id": "HBRC-OCC-003",
+      "name_zh": "用后标记心跳下总占用数的未来类增长律",
+      "assumptions": [
+        "每拍访问当前轴",
+        "若未占用则标记为占用",
+        "随后循环轮转",
+        "观察从当前到h步的总占用数"
+      ],
+      "law": "0<=h<=5 时最粗未来类数为 2^h*(7-h)，h>=5 时为64。当前总数加未来h次增量恢复前h个访问位，其余6-h位只剩总数；h=5时完整六位被确定。",
+      "tool": "mutating_count_class_count / count_future_key",
+      "boundary": "只适用于声明的use-once更新和count观察；不自动推广到一般环境动力学。"
+    }
+  ],
+  "validation": {
+    "local_exact_enumeration_states": 64,
+    "predictive_profiles": {
+      "static_count": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "static_active": [
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        64
+      ],
+      "mutating_count": [
+        7,
+        12,
+        20,
+        32,
+        48,
+        64,
+        64
+      ],
+      "mutating_cyclic_orbit": [
+        14,
+        39,
+        55,
+        60,
+        63,
+        64,
+        64
+      ]
+    },
+    "independent_review": false
+  }
+}
