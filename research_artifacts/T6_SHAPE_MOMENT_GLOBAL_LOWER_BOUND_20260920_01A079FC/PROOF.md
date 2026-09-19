@@ -2,7 +2,7 @@
 
 Task: `RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND` / `TP2-34B106D2512A298C9647`.
 Researcher: `EM-T6SM-B134BD`; execution record `ER-120BCED768F86DA406CC`.
-Status at initial checkpoint: `EXACT_INPUT_RECOVERED / (4,5) PARTIAL_CENSUS / GLOBAL_T6_OPEN`.
+Status: `EXACT_INPUT_RECOVERED / (4,5) COMPLETE_RESEARCHER_CERTIFICATE / GLOBAL_T6_OPEN`.
 
 ## Reconciled source frontier
 
@@ -26,6 +26,12 @@ shape observer is H_k=sum(e/(e+1))^k for k=0,...,6. By the binomial triangular
 change of coordinates, equality of these seven observers implies equality of
 the reciprocal moments sum a^(-k), k=0,...,6. No prime-only or logarithmic
 compression is used.
+
+The 18-dimensional lattice here is an auxiliary space of arithmetic
+coefficients, not an 18-axis native physical space. Its weighted quadratic
+form is a proof bound, not an additional native metric axiom. P000 is preserved.
+Choose the maximal prime only after cancelling common exponent atoms; removing
+such atoms preserves every H_k equality and weakens both side budgets.
 
 For maximal prime 19, a denominator with valuation at least 3 exceeds 2332.
 At valuation 2, a=361m has 1<=m<=6. Multiplying the six reciprocal equations by
@@ -69,6 +75,11 @@ lattice translate changes neither this affine class nor its potential completion
 `verify_input` reconstructs the congruences and Gram-Schmidt data from integers;
 the run path does not import FLINT or trust an LLL approximation.
 
+These mixed congruences are a necessary relaxation of the complete seven BRC
+observer equalities, not an equivalent replacement for them. Empty affine
+classes exclude full collisions. A surviving local class would still need
+the lower-prime and H0 completion and would be retained rather than discarded.
+
 ## Stronger separate-side sphere bound
 
 Let B+=2331-cost(V+) and B-=2331-cost(V-). Any feasible q0 completion satisfies
@@ -85,6 +96,11 @@ for order5 it is1823. Consequently B+<=869, B-<=508, and
 
 This is stronger than the total-l1 bound 1377^2. It does not erase either side
 budget: the final candidate also undergoes both original signed cost checks.
+The displayed number is an a priori upper bound on the squared norm of any
+feasible completion. It is not a claim that a feasible completion attains that
+norm. The maximal budget expression itself is obtained from the distinct
+single vertical atoms (q,r)=(4,1) and (5,1); their existence as vertical states
+does not assert that their affine class has a feasible q0 point.
 
 ## Flatness and exhaustive coordinate rejection
 
@@ -110,12 +126,32 @@ checked by the integer weighted norm and both original side budgets. A genuine
 modular kernel is returned and stops the run; it is not declared a full shape
 collision before lower-prime completion.
 
-## Initial exact interval
+## Complete exact (4,5) census
 
-`run_0000_0025.json` covers order-4 rows [0,25) against every order-5 state in
-the deterministic ordering specified by the source. It checks117474 primitive
-cosets;95176 pairs have a common vertical atom. Every primitive coset is
-rejected, with no modular kernel. This is not the whole (4,5) block.
+Three completed, disjoint, contiguous half-open intervals cover all8124
+order-4 rows against every one of the8506 order-5 states:
+
+| Order-4 rows | Primitive affine cosets checked | Shared-atom pairs |
+| --- | ---: | ---: |
+| [0,25) | 117474 | 95176 |
+| [25,2025) | 8737150 | 8274850 |
+| [2025,8124) | 36432451 | 15445643 |
+| Total | 45287075 | 23815669 |
+
+The total is69102744=8124*8506. All45287075 primitive cosets were rejected,
+with no modular kernel. Each complete run reports the same input SHA256
+`2c6be9c821faf2480e101bafbda191a0d334430e2fffc5bcf0dcaa0f3c726c27`
+and frozen core source SHA256
+`14f531a16ad338aee9fdd6d697cba64442e047570706ad2adaa6b460622382d1`.
+`verify_coverage.py` validates file hashes, exact ranges, pair counts and rejection
+counts and produces `coverage_4_5.json`. This metadata verifier does not replace
+independent execution of the mathematical checker. Researcher computation and
+the preceding proof yield the bounded conclusion:
+
+    No primitive maximal-p19 order9 split(4,5) kernel meets both side budgets2331.
+
+This closes the new (4,5) block at researcher-proof/census strength, not the
+separate prior (3,6) independent-review gap and not the entire T6 target.
 
 The input is durable as `input.json`, including the full basis, exact rational
 orthogonal data, atom representatives and saturation construction. Source
@@ -138,14 +174,31 @@ With that source directory on PYTHONPATH:
     python p19_order9.py verify
     python verify_candidate_transport.py
     python p19_order9.py run --start 0 --stop 25 --max-seconds 120 --output replay.json
+    python p19_order9.py run --start 25 --stop 2025 --max-seconds 300 --output replay2.json
+    python p19_order9.py run --start 2025 --stop 8124 --max-seconds 660 --output replay3.json
+    python verify_coverage.py
 
 A time budget stops only at a completed row boundary. The returned half-open
 completed-row interval is authoritative; resource exhaustion is never encoded
 as an empty unvisited interval. Future intervals must be disjoint and contiguous
 before their union is called complete. The separately retained (3,6) review gap,
 orders10--12, lower maximal primes and global T6 all remain outside this initial
-interval certificate. No CI, persistence, source branch or self-check confers
+block certificate. No CI, persistence, source branch or self-check confers
 Driver acceptance, Working Truth, Foundation promotion or global T6=2332.
+
+## Independent higher-block reuse
+
+One side cannot have order7: even its cheapest nonempty vertical state costs
+7*361+18>2331. Thus, after order9, the only primitive blocks up to sign are
+10:(4,6),(5,5);11:(5,6);12:(6,6). Their respective squared-radius upper bounds
+are776770,516128,279673,43218. All are below the already checked(4,5) flatness
+envelope. `higher_orders.py` reuses the frozen lattice verifier, state generator
+and exact candidate function unchanged. Equal-order blocks use j>i to remove
+only overall sign duplication. Shared atoms are absent from the normalized
+primitive carrier; excluding them in an individual primitive block does not
+assert that the lower order after cancellation has already been independently
+reviewed. Higher-block certificates are separate and cannot resolve the old
+(3,6) source gap by themselves.
 
 Researcher-ID: EM-T6SM-B134BD / RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND
 Global-Knowledge-Sync: main@6043a5a / GLOBAL_KNOWLEDGE_V1
