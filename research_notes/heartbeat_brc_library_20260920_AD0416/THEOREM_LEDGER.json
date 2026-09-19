@@ -1,5 +1,5 @@
 {
-  "schema": "HEARTBEAT_BRC_TOOLKIT_THEOREM_CANDIDATES_V5",
+  "schema": "HEARTBEAT_BRC_TOOLKIT_THEOREM_CANDIDATES_V6",
   "date": "2026-09-20",
   "world_id": "HEARTBEAT_WORLD",
   "status": "RESEARCH_THEOREM_CANDIDATES_NOT_FOUNDATION",
@@ -197,6 +197,30 @@
       "law": "The aligned 64-class quotient is unsafe. In the declared finite model the shape-observer predictive profile becomes (13,113,353,383,384,384), and an effect-valued local-axis packet refines all384 states.",
       "tool": "stable_predictive_partition/refine_control_partition",
       "boundary": "finite declared phase model, not a universal physical synchronization law"
+    },
+    {
+      "id": "HBRC-FULL-001",
+      "name": "full typed repair-coordinate ladder",
+      "assumptions": [
+        "finite raw control state r mod4 times six-channel local mask times local offset delta mod6",
+        "initial observer is 2-class macro residue times 13-class globally aligned D6 shape",
+        "SAFE/ROT/REF/MICRO/ABS/LOCAL packets as documented"
+      ],
+      "law": "Exact effect-valued class counts are 26 under symmetry-safe future, 52 with MICRO, 128 with globally phase-addressed ABS, 256 with MICRO+ABS, 768 with local-phase access, and1536 with MICRO+LOCAL.",
+      "tool": "ControlPacket/refine_control_partition",
+      "boundary": "finite declared product model; class counts are future-language dependent"
+    },
+    {
+      "id": "HBRC-FULL-002",
+      "name": "external-clock state nonmultiplication",
+      "assumptions": [
+        "global heartbeat phase is supplied by the time port",
+        "aligned physical mask is retained",
+        "macro residue class retained"
+      ],
+      "law": "The product state (macro residue class, aligned mask) has128 classes and is safe for globally framed effects even though the raw local representation has1536 states; a local-axis effect indexed by delta rejects this quotient and exact refinement gives768.",
+      "tool": "certify_control_partition/refine_control_partition",
+      "boundary": "does not apply if local offset evolves invisibly or is directly used by future operations"
     }
   ],
   "validation": {
@@ -207,8 +231,9 @@
     "full_project_tests": false,
     "nollm_production": false,
     "environment_suite": "3 tests + original 12 toolkit tests: 15 passed",
-    "total_theorem_candidates": 17,
+    "total_theorem_candidates": 19,
     "joint_suite": "3 additional tests; combined current local regression 18 passed",
-    "clock_phase_suite": "3 new tests; combined current local regression 21 passed"
+    "clock_phase_suite": "3 new tests; combined current local regression 21 passed",
+    "full_control_suite": "2 new 1536-state tests passed standalone; current grouped validated total 23 tests"
   }
 }
