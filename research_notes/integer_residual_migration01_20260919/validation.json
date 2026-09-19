@@ -1,0 +1,81 @@
+{
+  "schema": "EM_INTEGER_RESIDUAL_MIGRATION_SLICE_V1",
+  "slice": "01_angular_histogram_cv_squared",
+  "state": "LOCAL_VERIFIED_CANDIDATE_NOT_MAIN_INTEGRATED",
+  "source_repository": "awdawmip/enterprise-math",
+  "source_commit": "a06a465e3bd932981794feb60c8a7aa937ca72f6",
+  "researcher_id": "EM-DIRECT-4A5102",
+  "activity_id": "RA-1094DE57986E6E3FDCEA65DA",
+  "changed_source": {
+    "tools/nollm_visual_toolkit/nollm_visual_toolkit/angular_dispersion.py": {
+      "sha256": "49a1d9d48190fdf34a0faf36095e519275fcd9c0c6e25012665588b82d24fb3d",
+      "git_blob_sha1": "47973c12b2306e6ae8746a117c154795944ca696",
+      "bytes": 6241
+    },
+    "tools/nollm_visual_toolkit/nollm_visual_toolkit/multiplication_lab.py": {
+      "sha256": "fd6e53437c78c9b5e82f0ab9649ce0ae52957c848a20a399b2aba192ca397818",
+      "git_blob_sha1": "9c34319a84d92767f052d6d54416957ca450eda4",
+      "bytes": 11598
+    },
+    "tools/nollm_visual_toolkit/tests/test_angular_dispersion.py": {
+      "sha256": "695af56fe0f709c75055d8f660aa97a12282df20ac1656e6a033b5a99dcc1390",
+      "git_blob_sha1": "02e1cf699f8aa21b104f76df02f47dbd9bef8568",
+      "bytes": 10429
+    }
+  },
+  "baseline_blobs": {
+    "multiplication_lab.py": "d6ad61c5a53598875003d5927a812f9bcb37318c",
+    "toolkit_core.py": "7d7ee36b401e10469cb0a3c6a4a9fa33ba0f903e",
+    "test_multiplication_lab.py": "97f5ed8fee674b3d10cf36eaaec62f71f5dbfe52",
+    "exact_arithmetic.py": "35ea95b0916494b83a92386e3e313928362dd79e",
+    "core.py": "cdb8ace10e4cc8bba13b70f4da306313efb24819",
+    "division.py": "bf0b1a6b6aeccc94578d11509c5bcd12ff930cb5",
+    "check_exact_arithmetic_policy.py": "7db5594cb0d0ee128e9071841661f4fcb60706cf"
+  },
+  "validation": {
+    "python": "3.13.5",
+    "new_tests": 18,
+    "unchanged_upstream_selected_tests_before": 16,
+    "unchanged_upstream_selected_tests_after": 16,
+    "combined_reproducible_tests": 34,
+    "prior_prototype_regression_separate": 31,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "histograms": 1356,
+    "histogram_scales": 4068,
+    "comparison_pairs": 676,
+    "real_consumer_differential_scenarios": 27,
+    "all_legacy_fields_exactly_unchanged_in_scenarios": true,
+    "large_integer_float_alias_witness": "(2**80,1) versus (2**80+1,1): distinct CV squared, equal float readouts",
+    "exact_module_original_static_gate": "PASS",
+    "legacy_numeric_ast_nodes_unchanged": 36,
+    "legacy_module_whole_file_static_gate": "FAIL_KNOWN_UNMIGRATED"
+  },
+  "semantics": {
+    "source": "unreduced N=B*sum(c*c)-T*T; D=T*T; ordered counts preserved",
+    "readout": "scale*N=D*q+r, 0<=r<D; exact value q/scale+r/(D*scale)",
+    "value_equality_does_not_merge_histograms": true,
+    "default": "exact symbolic source always emitted; legacy angular_cv retained",
+    "explicit_residual": "diagnostics(..., exact_scale=positive_int) or AngularDispersion.readout; requires existing Enterprise Math BRC",
+    "standalone_without_enterprise_math": "symbolic source/compare supported; residual request raises, no float fallback",
+    "native_x6_upgrade": false
+  },
+  "limitations": [
+    "Source-slice validation only; full Enterprise Math and toolkit package initializers not executed",
+    "Two original HTML generation tests not selected; browser JavaScript and released HTML remain unchanged",
+    "Existing float angular_cv display and polar quantizer retained, not exact authority",
+    "No whole-repository audit/regression or independent review",
+    "No production-main merge or mathematical theorem admission",
+    "No vendored or replacement initializer; local isolated initializer is fixture only",
+    "Generated knowledge index rebuild not performed"
+  ],
+  "not_selected_original_tests": [
+    "test_generated_html_reproducible_and_offline",
+    "test_gallery_embeds_preview_without_network"
+  ],
+  "publication_policy": "Local execution; connector Git publication only; no hosted Actions requested",
+  "next_slice": "Migrate consumers of angular_cv ranking/thresholds to CV-squared exact comparison; then separately tackle declared polar-cell boundary certificates without upgrading A2 to X6.",
+  "publication_parent": "4a0f2e37f4bcc0c04b0bf5b72555020e28c54651",
+  "concurrency_check": "Compared source a06a465 to publication parent; only unrelated Heartbeat World files changed"
+}

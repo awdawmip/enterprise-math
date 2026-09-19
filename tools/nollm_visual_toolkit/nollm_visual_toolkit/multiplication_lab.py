@@ -10,6 +10,7 @@ import json
 import math
 from pathlib import Path
 from .core import demo_hex, canonical_bytes, fingerprint, integer
+from .angular_dispersion import AngularDispersion
 
 LAB_VERSION = '0.1.0'
 SCHEMA = 'NOLLM_MULTIPLICATION_LAB_V1'
@@ -120,7 +121,16 @@ def rounded_hex(x: float, y: float) -> tuple[int, int]:
     return a,b
 
 
-def diagnostics(phi, scale: float = 1.0, bins: int = 64) -> dict:
+def diagnostics(phi, scale: float = 1.0, bins: int = 64, *, exact_scale: int | None = None) -> dict:
+    """Dual-readout migration: exact histogram statistic, legacy display cells.
+
+    angular_cv_squared_exact is the authoritative histogram-only ratio. Pass
+    exact_scale to materialize integer plus residual through Enterprise Math BRC.
+    angular_cv and all polar-cell counts remain legacy approximate observers.
+    No histogram statistic identifies native X6 states or branch histories.
+    """
+    if exact_scale is not None and (isinstance(exact_scale, bool) or not isinstance(exact_scale, int) or exact_scale <= 0):
+        raise ValueError('exact_scale must be a positive integer')
     if isinstance(scale,bool) or not isinstance(scale,(int,float)) or not math.isfinite(scale) or not 0.5 <= scale <= 3:
         raise ValueError('display scale must be in 0.5..3')
     integer(bins,'bins',256)
@@ -134,10 +144,16 @@ def diagnostics(phi, scale: float = 1.0, bins: int = 64) -> dict:
             cell=rounded_hex(radius*math.cos(angle),radius*math.sin(angle))
         else: cell=(0,0)
         cells[cell]=cells.get(cell,0)+1; max_load=max(max_load,cells[cell])
+    exact_dispersion=AngularDispersion.from_counts(counts)
+    exact_record=exact_dispersion.as_record(scale=exact_scale)
+    # Historical display readout only; never use this value for exact decisions.
     mean=(len(phi)-1)/bins
     cv=math.sqrt(sum((c-mean)**2 for c in counts)/bins)/mean
     return {'population':len(phi),'angular_population':len(phi)-1,'angular_bins':bins,
-            'angular_counts':counts,'angular_cv':cv,'occupied_cells':len(cells),
+            'angular_counts':counts,'angular_cv':cv,
+            'angular_cv_squared_exact':exact_record,
+            'angular_cv_role':'LEGACY_FLOAT_DISPLAY_NOT_EXACT_EVIDENCE',
+            'occupied_cells':len(cells),
             'collision_groups':sum(c>1 for c in cells.values()),
             'excess_identities_if_collapsed':len(phi)-len(cells),'max_cell_load':max_load,
             'scale':scale,'quantizer':'float display observer; not a native/proven cell quantizer'}
