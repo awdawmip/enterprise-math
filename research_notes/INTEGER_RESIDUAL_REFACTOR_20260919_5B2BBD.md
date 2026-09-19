@@ -34,7 +34,7 @@ Structural residuals such as common depth, path labels and weight/action correla
 Execution command in the delivered standalone package: `python tools/run_local.py`. The runner checks the three original Git blobs/SHA256, then deliberately bypasses the full package initializer and executes the dependency slice. Full repository tests, full package import, production migration, Lean, independent review and controlled performance benchmarks were NOT run. Fraction is used only as an independent arithmetic oracle in the new tests; this is not independent researcher review.
 
 Exact implementation SHA256: `9dbe8caa37410ce97cf062d0253ff829c7b4783224a009b00930e79c57b5f1ef`.
-Exact test SHA256: `a4968d17b4bb8b360592cd670cb85a1b45d5bdf68d7ca5077464755120fac13c`.
+Exact test SHA256: `70d8581bc3eee8def79f1fc8746939abc87ec2cd9cc23079f278eb967ab50ff0`.
 Unchanged dependency Git blobs: core `cdb8ace10e4cc8bba13b70f4da306313efb24819`; division `bf0b1a6b6aeccc94578d11509c5bcd12ff930cb5`; exact_arithmetic `35ea95b0916494b83a92386e3e313928362dd79e`.
 
 ## Migration acceptance and smallest unfinished unit

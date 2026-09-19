@@ -7,7 +7,7 @@ from pathlib import Path
 from random import Random
 import unittest
 
-from enterprise_math import core, division, exact_arithmetic, integer_residual
+import importlib
 from enterprise_math.exact_arithmetic import (
     DivisionExpr, RootExpr, brc_scaled_evaluate, brc_scaled_evaluate_root,
 )
@@ -197,7 +197,8 @@ class IntegerResidualTests(unittest.TestCase):
 
     def test_core_static_inventory(self):
         # Exactly this tested dependency slice, not all repository Python modules.
-        paths=[Path(m.__file__) for m in (core, division, exact_arithmetic, integer_residual)]
+        paths=[Path(importlib.import_module("enterprise_math."+name).__file__)
+               for name in ("core", "division", "exact_arithmetic", "integer_residual")]
         for path in paths:
             for node in ast.walk(ast.parse(path.read_text())):
                 self.assertFalse(isinstance(node,ast.Constant) and isinstance(node.value,(float,complex)),(path,node))
