@@ -172,9 +172,10 @@ def make_payload(count: int = MAX_COUNT) -> dict:
 
 def build_lab(out: str | Path, *, count: int = MAX_COUNT) -> Path:
     from .multiplication_ui import TEMPLATE
+    from .angular_dispersion_browser import SCRIPT
     payload=make_payload(count)
     encoded=json.dumps(payload,ensure_ascii=False,separators=(',',':'),allow_nan=False).replace('<','\\u003c')
-    text=TEMPLATE.replace('__LAB_PAYLOAD__',encoded)
+    text=TEMPLATE.replace('__ANGULAR_EXACT_SCRIPT__',SCRIPT).replace('__LAB_PAYLOAD__',encoded)
     out=Path(out); out.parent.mkdir(parents=True,exist_ok=True)
     out.write_text(text,encoding='utf-8')
     return out

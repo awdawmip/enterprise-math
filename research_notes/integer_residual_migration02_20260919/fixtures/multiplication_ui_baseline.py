@@ -25,7 +25,7 @@ TEMPLATE = r'''<!doctype html>
 <label>显示 0 至 N<input id="limit" type="number" min="15" value="65535"></label><div class="row"><button id="prefix">应用范围</button><button id="all">全部数</button></div>
 <details><summary>保存与复现</summary><div class="row"><button id="saveHtml">保存当前网页</button><button id="png">导出 PNG</button></div><div class="row"><button id="report">报告 JSON</button><button id="source">原数据 V2</button></div><div class="row"><button id="session">保存配置</button><label>恢复配置<input id="file" type="file" accept=".json"></label></div><p class="hint">PNG 不能反解数据；报告保留相位表与源数据指纹。原 V2 可直接交给 nollm-viz site。</p></details><p id="err" role="alert"></p>
 </aside><section class="stage"><canvas id="fieldCanvas"></canvas><div id="hud"><span id="scene"></span><span id="count"></span></div><div id="legend"></div></section><aside>
-<div><h2>观察审计 · 当前完整范围</h2><div class="box"><div class="hint">64 扇区计数 CV² · 整数＋残差 / 排除 0</div><div class="metric" id="cv"></div><div class="hint" id="cvResidual"></div><div class="hint" id="cvLegacy"></div><div class="hint" id="angularScope"></div><canvas id="hist"></canvas><div class="hint">越低表示这次角向计数越接近均分，不代表局部无空洞。</div></div>
+<div><h2>观察审计 · 当前完整范围</h2><div class="box"><div class="hint">64 扇区计数 CV / 排除 0</div><div class="metric" id="cv"></div><canvas id="hist"></canvas><div class="hint">越低表示这次角向计数越接近均分，不代表局部无空洞。</div></div>
 <div class="box"><div class="hint">六角取整后：占用格 / 身份数</div><div class="metric" id="occupied"></div><div class="hint" id="overlap"></div></div>
 <div class="box"><div class="hint">所选 k 的全部可计算乘法对</div><pre id="audit"></pre></div></div>
 <div><h2>点选反查</h2><div class="row"><button id="next">同一量化格的下一身份</button></div><pre id="detail"></pre><div class="hint">同格不合并 ID。候选极坐标的整数相位恒等式由定义保证；浮点成图与取整不继承严格乘法。</div><h2>保留的边界</h2><p class="hint">零没有质因数分解或相位。R²=n 固定了径向计数；该计数不是新发现。六方向属于显示平面的 A2 载体；分层高度不是 Nollm 物理层。</p><p class="hint" id="fingerprint"></p></div>
@@ -33,7 +33,6 @@ TEMPLATE = r'''<!doctype html>
 <script id="payload" type="application/json">__LAB_PAYLOAD__</script><script id="initial" type="application/json">null</script>
 <script>
 'use strict';
-__ANGULAR_EXACT_SCRIPT__
 const P=JSON.parse(document.getElementById('payload').textContent), M=P.modulus, rows=P.data.records, N=rows.length, spf=P.spf;
 const $=id=>document.getElementById(id), canvas=$('fieldCanvas'), ctx=canvas.getContext('2d'), SQ=Math.sqrt(3);
 const DEFAULT={layout:'polar',mode:'golden',color:'mod3',quantized:false,stack:false,scale:1,zoom:1,yaw:0,pitch:0,limit:N-1,selected:3,k:4,overrides:{}};
@@ -61,13 +60,10 @@ function recompute(){
  for(let n=0;n<=S.limit;n++){
   let x,y,t;if(S.layout==='legacy'){const [q,r]=rows[n].coord;x=q+r/2;y=SQ*r/2;t=mod(Math.atan2(y,x)/(2*Math.PI),1);}else{t=n?phi[n]/M:0;const rad=n?S.scale*Math.sqrt(n):0;x=rad*Math.cos(2*Math.PI*t);y=rad*Math.sin(2*Math.PI*t);}
   const cell=S.layout==='legacy'?rows[n].coord.slice():roundHex(x,y),key=cell.join(',');if(!groups.has(key))groups.set(key,[]);groups.get(key).push(n);cells.push(cell);
-  if(n)hist[S.layout==='polar'?NollmAngularExact.phaseBin(phi[n],M,64):Math.min(63,Math.floor(t*64))]++;
+  if(n)hist[Math.min(63,Math.floor(t*64))]++;
   const z=S.stack?(rows[n].layer||0)*24:0;
   points.push([S.quantized?cell[0]+cell[1]/2:x,S.quantized?SQ*cell[1]/2:y,z]);rmax=Math.max(rmax,Math.hypot(x,y));
  }
- const angularExact=NollmAngularExact.fromCounts(hist,'1000000');
- const angularCountSource=S.layout==='polar'?'EXACT_MODULAR_PHASE_BINS':'APPROXIMATE_ATAN2_BINS';
- // Compatibility-only CV display; exact reports never consume this value.
  const mean=S.limit/64,cv=Math.sqrt(hist.reduce((a,c)=>a+(c-mean)**2,0)/64)/mean;
  const pairs=Math.floor(S.limit/S.k);let failed=0,witness=null,sumErr=0,maxErr=0;
  for(let n=1;n<=pairs;n++){
@@ -80,14 +76,9 @@ function recompute(){
   }
  }
  const sizes=[...groups.values()].map(a=>a.length);
- report={schema:'NOLLM_MULTIPLICATION_OBSERVATION_V1',lab_version:P.lab_version,data_sha256:P.data_sha256,population:S.limit+1,angular_population:S.limit,angular_bins:64,angular_counts:hist,angular_cv:cv,angular_cv_role:'LEGACY_FLOAT_DISPLAY_NOT_EXACT_EVIDENCE',angular_cv_squared_exact:angularExact,angular_count_source:angularCountSource,angular_exact_backend:'JS_BIGINT_BRC_DIVISION_PORT_V1',occupied_cells:groups.size,collision_groups:sizes.filter(n=>n>1).length,excess_identities_if_collapsed:S.limit+1-groups.size,max_cell_load:Math.max(...sizes),multiplier:S.k,multiplication_pairs:pairs,exact_failures:failed,first_witness:witness,quantized_relative_error_mean:S.layout==='polar'?sumErr/pairs:null,quantized_relative_error_max:S.layout==='polar'?maxErr:null,exact_scope:S.layout==='polar'?'phase ticks add and squared-radius labels multiply BY CONSTRUCTION':'exact complex multiplication of original Eisenstein coordinates',quantization_scope:'float display rounding; NOT original data or native production geometry',state:copy(S)};
+ report={schema:'NOLLM_MULTIPLICATION_OBSERVATION_V1',lab_version:P.lab_version,data_sha256:P.data_sha256,population:S.limit+1,angular_population:S.limit,angular_bins:64,angular_counts:hist,angular_cv:cv,occupied_cells:groups.size,collision_groups:sizes.filter(n=>n>1).length,excess_identities_if_collapsed:S.limit+1-groups.size,max_cell_load:Math.max(...sizes),multiplier:S.k,multiplication_pairs:pairs,exact_failures:failed,first_witness:witness,quantized_relative_error_mean:S.layout==='polar'?sumErr/pairs:null,quantized_relative_error_max:S.layout==='polar'?maxErr:null,exact_scope:S.layout==='polar'?'phase ticks add and squared-radius labels multiply BY CONSTRUCTION':'exact complex multiplication of original Eisenstein coordinates',quantization_scope:'float display rounding; NOT original data or native production geometry',state:copy(S)};
  bounds={min:[Infinity,Infinity,Infinity],max:[-Infinity,-Infinity,-Infinity]};for(const p of points)for(let j=0;j<3;j++){bounds.min[j]=Math.min(bounds.min[j],p[j]);bounds.max[j]=Math.max(bounds.max[j],p[j]);}
- const rd=angularExact.readout;
- $('cv').textContent=rd.integer+' / '+rd.scale;
- $('cvResidual').textContent='+ '+rd.residual_numerator+' / '+rd.residual_denominator;
- $('cvLegacy').textContent='兼容近似 CV ≈ '+cv.toFixed(5)+'（不作精确判据）';
- $('angularScope').textContent=S.layout==='polar'?'整数相位分箱；CV² 及残差精确。':'旧布局分箱仍用近似角度；仅对已得到的计数精确。';
- $('occupied').textContent=groups.size.toLocaleString()+' / '+(S.limit+1).toLocaleString();$('overlap').textContent=`${report.collision_groups.toLocaleString()} 个重叠组；若合并会少 ${report.excess_identities_if_collapsed.toLocaleString()} 个身份。本工具不合并。`;
+ $('cv').textContent=cv.toFixed(5);$('occupied').textContent=groups.size.toLocaleString()+' / '+(S.limit+1).toLocaleString();$('overlap').textContent=`${report.collision_groups.toLocaleString()} 个重叠组；若合并会少 ${report.excess_identities_if_collapsed.toLocaleString()} 个身份。本工具不合并。`;
  $('audit').textContent=JSON.stringify({范围内乘法对:pairs,精确条件失败:failed,条件:S.layout==='polar'?'相位整数可加（定义保证）':'原六角坐标直接相乘',首个反例:witness,取整后平均相对偏差:report.quantized_relative_error_mean},null,2);
  $('legend').textContent=S.color==='prime'?'亮色：素数；灰色：合数；0 与 1 不是素数。':S.color==='mod3'?'颜色：青绿 = 余数 0；橙 = 余数 1；紫 = 余数 2。':S.color==='q16'?'颜色：(2731 × n) mod 65536；原始整数仍可反查。':S.color==='load'?'颜色：同一量化格中的身份数；颜色高不代表源数据重复。':'颜色：整数标签 n；屏幕重合不合并身份。';
  detail();drawHistogram(hist);schedule();

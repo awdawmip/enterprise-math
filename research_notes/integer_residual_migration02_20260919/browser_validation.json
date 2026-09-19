@@ -1,0 +1,55 @@
+{
+  "schema": "M02_CHROMIUM_SUMMARY_V1",
+  "baseline_template_blob": "e11e881dff2b1a1f259b260c4f7d85ec184dd41a",
+  "comparison": "live original frozen template versus migrated template; identical payload generator unchanged in this slice",
+  "browser": "144.0.7559.96",
+  "entry": "actual generated HTML via Playwright set_content",
+  "json_download_roundtrip": true,
+  "saved_html_reload": true,
+  "source_data_unchanged": true,
+  "display_changes_do_not_change_exact_statistic": 3,
+  "embedded_gallery_preset": true,
+  "page_errors": [],
+  "network_requests": [],
+  "not_claimed": [
+    "file-URL navigation",
+    "Safari/iOS",
+    "full Enterprise Math initializer",
+    "whole repository tests",
+    "independent review"
+  ],
+  "legacy_unchanged": 72,
+  "exact_python_brc_matches": 72,
+  "scenario_matrix": {
+    "populations": [
+      16,
+      256,
+      4096,
+      65536
+    ],
+    "layouts": [
+      "polar",
+      "legacy"
+    ],
+    "phase_modes": [
+      "golden",
+      "rank",
+      "zero"
+    ],
+    "display_scales": [
+      0.5,
+      1,
+      3
+    ]
+  },
+  "execution_batches": [
+    54,
+    18
+  ],
+  "large_batch_json_and_reload_not_repeated": true,
+  "detailed_delivery_evidence": [
+    "evidence/migration02/live_browser_small.json",
+    "evidence/migration02/live_browser_large.json"
+  ],
+  "reproduction": "Frozen baseline UI is included and each run executes original and migrated pages against the unchanged payload generator; no external or precomputed report corpus is needed."
+}
