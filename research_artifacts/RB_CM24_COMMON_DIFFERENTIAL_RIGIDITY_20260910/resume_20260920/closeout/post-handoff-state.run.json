@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "-c",
+    "from control_plane import research_control_bootstrap; research_control_bootstrap.install(); import json,pathlib; from datetime import datetime,timezone; from tools import research_dispatch,research_task_records; root=pathlib.Path.cwd(); events=research_dispatch.load_events(root/'research_artifacts/RB_CM24_COMMON_DIFFERENTIAL_RIGIDITY_20260910/resume_20260920/closeout/events-after-handoff.json'); task=research_dispatch.registered_definition(research_task_records.current_records(root)['RS-RB-CM24-COMMON-DIFFERENTIAL-RIGIDITY'],root); print(json.dumps(research_dispatch.reduce_definition(task,events,now=datetime.now(timezone.utc),root=root),indent=2,default=str))"
+  ],
+  "cwd": "D:\\em\\rb-common-1eb0b6-resume-20260920",
+  "exit_code": 0,
+  "elapsed_seconds": 11.591300999978557,
+  "observed_at": "2026-09-19T20:27:34.986165+00:00"
+}

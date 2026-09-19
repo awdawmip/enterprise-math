@@ -1,0 +1,752 @@
+{
+  "CM_polynomial": [
+    14670139392,
+    -4834944,
+    1
+  ],
+  "accepted_j_coefficients": [
+    2417472,
+    1707264
+  ],
+  "brc_traces": [
+    {
+      "collapsed_numerator": 36,
+      "denominator": 6,
+      "evaluation_kind": "BRC_DIVISION_EVALUATION",
+      "numerator": 36,
+      "quotient": 6,
+      "remainder": 0
+    },
+    {
+      "collapsed_radicand": 4,
+      "degree": 2,
+      "evaluation_kind": "BRC_ROOT_EVALUATION",
+      "next_power": 9,
+      "radicand": 6,
+      "remainder": 2,
+      "root_index": 2
+    },
+    {
+      "collapsed_radicand": 36,
+      "degree": 2,
+      "evaluation_kind": "BRC_ROOT_EVALUATION",
+      "next_power": 49,
+      "radicand": 36,
+      "remainder": 0,
+      "root_index": 6
+    },
+    {
+      "collapsed_radicand": 25,
+      "degree": 2,
+      "evaluation_kind": "BRC_ROOT_EVALUATION",
+      "next_power": 36,
+      "radicand": 30,
+      "remainder": 5,
+      "root_index": 5
+    },
+    {
+      "collapsed_radicand": 9,
+      "degree": 2,
+      "evaluation_kind": "BRC_ROOT_EVALUATION",
+      "next_power": 16,
+      "radicand": 12,
+      "remainder": 3,
+      "root_index": 3
+    },
+    {
+      "collapsed_numerator": 6,
+      "denominator": 6,
+      "evaluation_kind": "BRC_DIVISION_EVALUATION",
+      "numerator": 6,
+      "quotient": 1,
+      "remainder": 0
+    },
+    {
+      "collapsed_numerator": 6,
+      "denominator": 1,
+      "evaluation_kind": "BRC_DIVISION_EVALUATION",
+      "numerator": 6,
+      "quotient": 6,
+      "remainder": 0
+    },
+    {
+      "collapsed_numerator": 6,
+      "denominator": 2,
+      "evaluation_kind": "BRC_DIVISION_EVALUATION",
+      "numerator": 6,
+      "quotient": 3,
+      "remainder": 0
+    },
+    {
+      "collapsed_numerator": 6,
+      "denominator": 3,
+      "evaluation_kind": "BRC_DIVISION_EVALUATION",
+      "numerator": 6,
+      "quotient": 2,
+      "remainder": 0
+    },
+    {
+      "collapsed_numerator": 6,
+      "denominator": 6,
+      "evaluation_kind": "BRC_DIVISION_EVALUATION",
+      "numerator": 6,
+      "quotient": 1,
+      "remainder": 0
+    }
+  ],
+  "checks": [
+    {
+      "name": "H_minus24_at_accepted_j",
+      "residual": []
+    },
+    {
+      "name": "identity_derivative",
+      "residual": []
+    },
+    {
+      "name": "identity_same_Legendre_twist",
+      "residual": []
+    },
+    {
+      "name": "T0_derivative",
+      "residual": []
+    },
+    {
+      "name": "T0_same_Legendre_twist",
+      "residual": []
+    },
+    {
+      "name": "T1_derivative",
+      "residual": []
+    },
+    {
+      "name": "T1_same_Legendre_twist",
+      "residual": []
+    },
+    {
+      "name": "Tlambda_derivative",
+      "residual": []
+    },
+    {
+      "name": "Tlambda_same_Legendre_twist",
+      "residual": []
+    },
+    {
+      "name": "inverse_twist_transport",
+      "residual": []
+    }
+  ],
+  "complete_norm_solutions": [
+    [
+      -6,
+      0
+    ],
+    [
+      6,
+      0
+    ]
+  ],
+  "field_domain": "geometric rigidity over algebraic closure of L; arithmetic formulas over declared K containing L",
+  "geometric_proof_is_not_replaced_by_this_certificate": true,
+  "no_primitive_f0_assumption": true,
+  "norm_equation": "a^2+6*b^2=36 with a,b integers",
+  "norm_gate_tests": [
+    {
+      "denominator": 7,
+      "name": "integrality_cannot_be_removed",
+      "nonintegral_traces": [
+        {
+          "collapsed_numerator": 28,
+          "denominator": 7,
+          "evaluation_kind": "BRC_DIVISION_EVALUATION",
+          "numerator": 30,
+          "quotient": 4,
+          "remainder": 2
+        },
+        {
+          "collapsed_numerator": 7,
+          "denominator": 7,
+          "evaluation_kind": "BRC_DIVISION_EVALUATION",
+          "numerator": 12,
+          "quotient": 1,
+          "remainder": 5
+        }
+      ],
+      "norm_denominator": 49,
+      "norm_numerator": 1764,
+      "numerator_pair": [
+        -30,
+        12
+      ]
+    },
+    {
+      "correct_order_norm": 216,
+      "name": "CM_field_cannot_be_omitted",
+      "wrong_gaussian_element": [
+        0,
+        6
+      ],
+      "wrong_order_norm": 36
+    },
+    {
+      "admissible_map": "[-1] composed with f0",
+      "difference_from_claimed_plus_phi": "-2 phi, nonzero by accepted phi input",
+      "name": "relative_scalar_cannot_be_fixed_to_one",
+      "pullback_scalar": -1
+    }
+  ],
+  "old_1980_enumeration_executed": false,
+  "old_RB_checker_mains_executed": false,
+  "possible_uncomputed_finite_factors": [
+    {
+      "actual_value_determined": false,
+      "curve_to_common_factor_degree": 1,
+      "finite_isogeny_degree": 6
+    },
+    {
+      "actual_value_determined": false,
+      "curve_to_common_factor_degree": 2,
+      "finite_isogeny_degree": 3
+    },
+    {
+      "actual_value_determined": false,
+      "curve_to_common_factor_degree": 3,
+      "finite_isogeny_degree": 2
+    },
+    {
+      "actual_value_determined": false,
+      "curve_to_common_factor_degree": 6,
+      "finite_isogeny_degree": 1
+    }
+  ],
+  "relative_scalars": [
+    -1,
+    1
+  ],
+  "ring_source_sha256": "32282b30357638b5f0a2b709a0c917b29711b43a4d7f407a113bfb6502ddf269",
+  "schema": "RB_COMMON_DIFFERENTIAL_EXACT_CERTIFICATE_V1",
+  "scope": "Integer/transport checks only; PROOF.md establishes all geometric and CM-identification hypotheses",
+  "square_cases": [
+    {
+      "absolute_b": 0,
+      "required_a_squared": 36,
+      "root_trace": {
+        "collapsed_radicand": 36,
+        "degree": 2,
+        "evaluation_kind": "BRC_ROOT_EVALUATION",
+        "next_power": 49,
+        "radicand": 36,
+        "remainder": 0,
+        "root_index": 6
+      }
+    },
+    {
+      "absolute_b": 1,
+      "required_a_squared": 30,
+      "root_trace": {
+        "collapsed_radicand": 25,
+        "degree": 2,
+        "evaluation_kind": "BRC_ROOT_EVALUATION",
+        "next_power": 36,
+        "radicand": 30,
+        "remainder": 5,
+        "root_index": 5
+      }
+    },
+    {
+      "absolute_b": 2,
+      "required_a_squared": 12,
+      "root_trace": {
+        "collapsed_radicand": 9,
+        "degree": 2,
+        "evaluation_kind": "BRC_ROOT_EVALUATION",
+        "next_power": 16,
+        "radicand": 12,
+        "remainder": 3,
+        "root_index": 3
+      }
+    }
+  ],
+  "status": "PASS_EXACT_FINITE_CHECKS",
+  "tamper_checks": [
+    {
+      "detected": true,
+      "name": "changed_H_constant_is_detected",
+      "residual": [
+        {
+          "coefficient": 1,
+          "powers": {
+            "R": 0,
+            "a": 0,
+            "b": 0,
+            "c": 0,
+            "d": 0,
+            "e": 0,
+            "f": 0,
+            "k": 0,
+            "s": 0,
+            "t": 0
+          }
+        }
+      ]
+    },
+    {
+      "detected": true,
+      "name": "identity_wrong_Y_sign_changes_unsquared_differential",
+      "residual": [
+        {
+          "coefficient": 2,
+          "powers": {
+            "R": 0,
+            "a": 0,
+            "b": 0,
+            "c": 0,
+            "d": 0,
+            "e": 0,
+            "f": 0,
+            "k": 0,
+            "s": 0,
+            "t": 0
+          }
+        }
+      ]
+    },
+    {
+      "detected": true,
+      "name": "T0_wrong_Y_sign_changes_unsquared_differential",
+      "residual": [
+        {
+          "coefficient": -2,
+          "powers": {
+            "R": 0,
+            "a": 0,
+            "b": 1,
+            "c": 0,
+            "d": 0,
+            "e": 0,
+            "f": 0,
+            "k": 0,
+            "s": 0,
+            "t": 0
+          }
+        }
+      ]
+    },
+    {
+      "detected": true,
+      "name": "T1_wrong_Y_sign_changes_unsquared_differential",
+      "residual": [
+        {
+          "coefficient": -2,
+          "powers": {
+            "R": 0,
+            "a": 0,
+            "b": 0,
+            "c": 0,
+            "d": 0,
+            "e": 0,
+            "f": 0,
+            "k": 0,
+            "s": 0,
+            "t": 0
+          }
+        },
+        {
+          "coefficient": 2,
+          "powers": {
+            "R": 0,
+            "a": 0,
+            "b": 1,
+            "c": 0,
+            "d": 0,
+            "e": 0,
+            "f": 0,
+            "k": 0,
+            "s": 0,
+            "t": 0
+          }
+        }
+      ]
+    },
+    {
+      "detected": true,
+      "name": "Tlambda_wrong_Y_sign_changes_unsquared_differential",
+      "residual": [
+        {
+          "coefficient": 2,
+          "powers": {
+            "R": 0,
+            "a": 0,
+            "b": 1,
+            "c": 0,
+            "d": 0,
+            "e": 0,
+            "f": 0,
+            "k": 0,
+            "s": 0,
+            "t": 0
+          }
+        },
+        {
+          "coefficient": -2,
+          "powers": {
+            "R": 0,
+            "a": 0,
+            "b": 2,
+            "c": 0,
+            "d": 0,
+            "e": 0,
+            "f": 0,
+            "k": 0,
+            "s": 0,
+            "t": 0
+          }
+        }
+      ]
+    },
+    {
+      "detected": true,
+      "name": "reciprocal_differential_multiplier_tamper",
+      "residual": [
+        {
+          "coefficient": -1,
+          "powers": {
+            "R": 0,
+            "a": 0,
+            "b": 0,
+            "c": 0,
+            "d": 1,
+            "e": 0,
+            "f": 0,
+            "k": 0,
+            "s": 0,
+            "t": 0
+          }
+        },
+        {
+          "coefficient": 1,
+          "powers": {
+            "R": 0,
+            "a": 0,
+            "b": 0,
+            "c": 2,
+            "d": 1,
+            "e": 0,
+            "f": 0,
+            "k": 0,
+            "s": 0,
+            "t": 0
+          }
+        }
+      ]
+    }
+  ],
+  "transports": [
+    {
+      "D": [
+        {
+          "coefficient": 1,
+          "powers": {
+            "R": 0,
+            "a": 0,
+            "b": 0,
+            "c": 0,
+            "d": 0,
+            "e": 0,
+            "f": 0,
+            "k": 0,
+            "s": 0,
+            "t": 0
+          }
+        }
+      ],
+      "N": [
+        {
+          "coefficient": 1,
+          "powers": {
+            "R": 1,
+            "a": 0,
+            "b": 0,
+            "c": 0,
+            "d": 0,
+            "e": 0,
+            "f": 0,
+            "k": 0,
+            "s": 0,
+            "t": 0
+          }
+        }
+      ],
+      "differential_and_Y_numerator_J": [
+        {
+          "coefficient": 1,
+          "powers": {
+            "R": 0,
+            "a": 0,
+            "b": 0,
+            "c": 0,
+            "d": 0,
+            "e": 0,
+            "f": 0,
+            "k": 0,
+            "s": 0,
+            "t": 0
+          }
+        }
+      ],
+      "name": "identity"
+    },
+    {
+      "D": [
+        {
+          "coefficient": 1,
+          "powers": {
+            "R": 1,
+            "a": 0,
+            "b": 0,
+            "c": 0,
+            "d": 0,
+            "e": 0,
+            "f": 0,
+            "k": 0,
+            "s": 0,
+            "t": 0
+          }
+        }
+      ],
+      "N": [
+        {
+          "coefficient": 1,
+          "powers": {
+            "R": 0,
+            "a": 0,
+            "b": 1,
+            "c": 0,
+            "d": 0,
+            "e": 0,
+            "f": 0,
+            "k": 0,
+            "s": 0,
+            "t": 0
+          }
+        }
+      ],
+      "differential_and_Y_numerator_J": [
+        {
+          "coefficient": -1,
+          "powers": {
+            "R": 0,
+            "a": 0,
+            "b": 1,
+            "c": 0,
+            "d": 0,
+            "e": 0,
+            "f": 0,
+            "k": 0,
+            "s": 0,
+            "t": 0
+          }
+        }
+      ],
+      "name": "T0"
+    },
+    {
+      "D": [
+        {
+          "coefficient": -1,
+          "powers": {
+            "R": 0,
+            "a": 0,
+            "b": 0,
+            "c": 0,
+            "d": 0,
+            "e": 0,
+            "f": 0,
+            "k": 0,
+            "s": 0,
+            "t": 0
+          }
+        },
+        {
+          "coefficient": 1,
+          "powers": {
+            "R": 1,
+            "a": 0,
+            "b": 0,
+            "c": 0,
+            "d": 0,
+            "e": 0,
+            "f": 0,
+            "k": 0,
+            "s": 0,
+            "t": 0
+          }
+        }
+      ],
+      "N": [
+        {
+          "coefficient": 1,
+          "powers": {
+            "R": 1,
+            "a": 0,
+            "b": 0,
+            "c": 0,
+            "d": 0,
+            "e": 0,
+            "f": 0,
+            "k": 0,
+            "s": 0,
+            "t": 0
+          }
+        },
+        {
+          "coefficient": -1,
+          "powers": {
+            "R": 0,
+            "a": 0,
+            "b": 1,
+            "c": 0,
+            "d": 0,
+            "e": 0,
+            "f": 0,
+            "k": 0,
+            "s": 0,
+            "t": 0
+          }
+        }
+      ],
+      "differential_and_Y_numerator_J": [
+        {
+          "coefficient": -1,
+          "powers": {
+            "R": 0,
+            "a": 0,
+            "b": 0,
+            "c": 0,
+            "d": 0,
+            "e": 0,
+            "f": 0,
+            "k": 0,
+            "s": 0,
+            "t": 0
+          }
+        },
+        {
+          "coefficient": 1,
+          "powers": {
+            "R": 0,
+            "a": 0,
+            "b": 1,
+            "c": 0,
+            "d": 0,
+            "e": 0,
+            "f": 0,
+            "k": 0,
+            "s": 0,
+            "t": 0
+          }
+        }
+      ],
+      "name": "T1"
+    },
+    {
+      "D": [
+        {
+          "coefficient": 1,
+          "powers": {
+            "R": 1,
+            "a": 0,
+            "b": 0,
+            "c": 0,
+            "d": 0,
+            "e": 0,
+            "f": 0,
+            "k": 0,
+            "s": 0,
+            "t": 0
+          }
+        },
+        {
+          "coefficient": -1,
+          "powers": {
+            "R": 0,
+            "a": 0,
+            "b": 1,
+            "c": 0,
+            "d": 0,
+            "e": 0,
+            "f": 0,
+            "k": 0,
+            "s": 0,
+            "t": 0
+          }
+        }
+      ],
+      "N": [
+        {
+          "coefficient": -1,
+          "powers": {
+            "R": 0,
+            "a": 0,
+            "b": 1,
+            "c": 0,
+            "d": 0,
+            "e": 0,
+            "f": 0,
+            "k": 0,
+            "s": 0,
+            "t": 0
+          }
+        },
+        {
+          "coefficient": 1,
+          "powers": {
+            "R": 1,
+            "a": 0,
+            "b": 1,
+            "c": 0,
+            "d": 0,
+            "e": 0,
+            "f": 0,
+            "k": 0,
+            "s": 0,
+            "t": 0
+          }
+        }
+      ],
+      "differential_and_Y_numerator_J": [
+        {
+          "coefficient": 1,
+          "powers": {
+            "R": 0,
+            "a": 0,
+            "b": 1,
+            "c": 0,
+            "d": 0,
+            "e": 0,
+            "f": 0,
+            "k": 0,
+            "s": 0,
+            "t": 0
+          }
+        },
+        {
+          "coefficient": -1,
+          "powers": {
+            "R": 0,
+            "a": 0,
+            "b": 2,
+            "c": 0,
+            "d": 0,
+            "e": 0,
+            "f": 0,
+            "k": 0,
+            "s": 0,
+            "t": 0
+          }
+        }
+      ],
+      "name": "Tlambda"
+    }
+  ]
+}

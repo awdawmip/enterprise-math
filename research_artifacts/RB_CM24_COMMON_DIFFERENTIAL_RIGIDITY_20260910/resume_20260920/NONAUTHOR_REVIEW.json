@@ -1,0 +1,107 @@
+{
+  "schema": "RB_DRIVER_CANDIDATE_DECISIVE_NONAUTHOR_CHECK_V1",
+  "original_author": "EM-DVR-5816EB",
+  "original_candidate_commit": "f26db9901f034bbd3a3dae0c03061064ba99caf1",
+  "original_candidate_path": "research_artifacts/RB_COMMON_DIFFERENTIAL_TASK_20260910_5816EB/driver_candidate_unreviewed.md",
+  "original_candidate_sha256": "4178343465d910ea6c40577d2e03b41032194d4d46ae9cd2dab490ae7021b489",
+  "original_candidate_status": "UNREVIEWED",
+  "checker_researcher_id": "EM-RB-1EB0B6",
+  "research_role": "RESEARCHER",
+  "task_id": "RS-RB-CM24-COMMON-DIFFERENTIAL-RIGIDITY",
+  "claim_id": "rb-common-1eb0b6-20260920",
+  "execution_record_id": "ER-F6F23D03479064A62FCD",
+  "source_exposure": "NONBLIND_DISCLOSED",
+  "context_independence": "SHARED_AMBIENT_CONTEXT_DISCLOSED",
+  "clean_blind_independence_claimed": false,
+  "decisive_non_author_reasoning_provided": true,
+  "proof_path": "research_artifacts/RB_CM24_COMMON_DIFFERENTIAL_RIGIDITY_20260910/resume_20260920/PROOF.md",
+  "proof_sha256": "ddb97eaa4cabaf956c69ef286cde9ac90224b7877c69f963dccdea93efa54829",
+  "assessment": "DRIVER_GEOMETRIC_CANDIDATE_VERIFIED_AS_STATED_WITH_ALL_LOAD_BEARING_GATES",
+  "canonical_driver_acceptance_granted": false,
+  "primary_result": "COMMON_CONSTRAINT_PROVED",
+  "checked_original_obligations": [
+    {
+      "id": "C1",
+      "author": "EM-DVR-5816EB",
+      "claim": "Proportional pullbacks give common connected kernel and shared dual elliptic image",
+      "assessment": "VERIFIED",
+      "proof_sections": [
+        "2",
+        "3",
+        "4"
+      ],
+      "repair_to_statement": false
+    },
+    {
+      "id": "C2",
+      "author": "EM-DVR-5816EB",
+      "claim": "Integral A=u u0-dagger satisfies A A-dagger=[36] without primitive/saturated assumptions",
+      "assessment": "VERIFIED",
+      "proof_sections": [
+        "2",
+        "3",
+        "4"
+      ],
+      "finite_isogeny_factor_discarded": false
+    },
+    {
+      "id": "C3",
+      "author": "EM-DVR-5816EB",
+      "claim": "Actual CM-order gate plus integral norm36 forces A=+/-[6]",
+      "assessment": "VERIFIED_WITH_EXACT_CM_HYPOTHESIS_DISCHARGED",
+      "dependencies": [
+        "Sutherland H_D root characterization",
+        "Lario D=-24 polynomial table",
+        "Local FLINT independent polynomial output",
+        "Native exact integer substitution and BRC complete norm bounds"
+      ],
+      "numeric_norm_check_is_CM_identification": false
+    },
+    {
+      "id": "C4",
+      "author": "EM-DVR-5816EB",
+      "claim": "Relative scalar and based homomorphism identity imply unbased f=epsilon f0+T",
+      "assessment": "VERIFIED",
+      "relative_scalar": "epsilon=+1 or -1, derived at the end",
+      "proof_sections": [
+        "6"
+      ]
+    },
+    {
+      "id": "C5",
+      "author": "EM-DVR-5816EB",
+      "claim": "Deck anti-equivariance restricts translation and target-twist transport retains its differential multiplier",
+      "assessment": "VERIFIED_AT_PUBLISHED_OBLIGATION_SCOPE",
+      "proof_sections": [
+        "6",
+        "7"
+      ]
+    }
+  ],
+  "researcher_contributions": [
+    {
+      "id": "N1",
+      "author": "EM-RB-1EB0B6",
+      "statement": "For declared K containing L, exact twist/Galois formulation: c=eta b, eta^2=d/C0; K-defined maps require eta in K and T in E0(K), equivalently d b^2=C0 with b in K*",
+      "status": "PROVED_DERIVATION_SUBMITTED_FOR_OTHER_REVIEW",
+      "acceptance_requires_other_appropriate_reviewer": true
+    },
+    {
+      "id": "N2",
+      "author": "EM-RB-1EB0B6",
+      "statement": "Application to all genuine full-degree/full-differential maps represented by the stored index: four X transforms; no such maps in the 2+2+2 stratum, with no claim that relaxed/degenerate loci are empty",
+      "status": "PROVED_APPLICATION_SUBMITTED_FOR_OTHER_REVIEW",
+      "acceptance_requires_other_appropriate_reviewer": true
+    }
+  ],
+  "material_repairs_to_original_candidate": [],
+  "retained_unresolved_or_unclaimed": [
+    "Actual finite primitive-factor or lattice index",
+    "Proper-subfield descent beyond the declared K containing L",
+    "Number of nonempty coefficient parameter systems or representation multiplicities",
+    "Parent period integer, homology index and independent absolute normalization"
+  ],
+  "review_routing": "An appropriate non-author reviewer must decide N1/N2 before acceptance; the original Driver cannot be the sole decisive checker of the original Driver-authored claims C1-C5. This artifact supplies their non-author check. Root coordinates rather than redoing mathematics.",
+  "parent_status": "OPEN",
+  "recorded_at": "2026-09-19T20:05:11.741092+00:00"
+}

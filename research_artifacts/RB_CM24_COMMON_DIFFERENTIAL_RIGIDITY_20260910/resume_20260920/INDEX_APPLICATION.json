@@ -1,0 +1,145 @@
+{
+  "schema": "RB_COMMON_DIFFERENTIAL_INDEX_APPLICATION_V1",
+  "status": "RESEARCHER_FORMULATED_COROLLARY_REQUIRES_OTHER_REVIEW",
+  "recorded_at": "2026-09-19T20:02:22.181095+00:00",
+  "source_pins": [
+    {
+      "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/branch_assignment_classification.json",
+      "reference_commit": "108ac80d4af9a1ebe19cc613aaccb7402564100e",
+      "sha256": "a83524c6b9b8cb6e00561c014e7129c614e9b1c46eedcbd9c9e79f2ff5ee89a0",
+      "git_blob_sha1": "a173e6e63a1f0820123e486e0c698ac6259a0bd4"
+    },
+    {
+      "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/squareclass_rr_certificate.json",
+      "reference_commit": "108ac80d4af9a1ebe19cc613aaccb7402564100e",
+      "sha256": "d861e5b4d9d5b562c7e2a972c56b30144f2cd41275963f80a3aa80c5f1d3a289",
+      "git_blob_sha1": "ea8f51789eea4ab853cafe3384c9ffe2b6fa8bf7"
+    },
+    {
+      "path": "research_artifacts/RB_BLIND_BRANCH_PATTERN_COMPLETION_20260908/empty_fiber_obstruction_certificate.json",
+      "reference_commit": "108ac80d4af9a1ebe19cc613aaccb7402564100e",
+      "sha256": "1757b252b5926bcda198e4a652259e8d46da4cd3a32464ae66c09f3d403eafb9",
+      "git_blob_sha1": "764a6c5b529fbe6f1aaab97b0745fcce52f8e711"
+    }
+  ],
+  "input_rows_read": {
+    "4+2": 45,
+    "2+2+2": 90
+  },
+  "all_rows_were_consumed_as_frozen_data": true,
+  "source_enumerators_executed": false,
+  "new_1980_search_executed": false,
+  "counts_consumed": {
+    "excluded_4_plus_2": 180,
+    "remaining_4_plus_2": 540,
+    "remaining_total": 1980,
+    "untouched_2_plus_2_plus_2": 1440
+  },
+  "accepted_map_match": {
+    "row_index_zero_based": 41,
+    "row": {
+      "RR_section_dimensions_0_1_lambda": [
+        3,
+        1,
+        2
+      ],
+      "compatible_geometric_twist_table_size": 16,
+      "finite_branch_blocks_0_1_lambda": [
+        [],
+        [
+          0,
+          3,
+          4,
+          5
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "fixed_parameter_representative": [
+        0,
+        3,
+        3,
+        0,
+        0,
+        0
+      ],
+      "infinity_empty_representative": [
+        1,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "target_V4_transport": [
+        1,
+        0,
+        3,
+        2
+      ]
+    }
+  },
+  "matched_exclusion_mask": {
+    "empty_finite_label": 0,
+    "excluded_geometric_twists": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        2,
+        2
+      ],
+      [
+        0,
+        3,
+        3
+      ]
+    ],
+    "infinity_empty_representative": [
+      1,
+      2,
+      2,
+      1,
+      1,
+      1
+    ]
+  },
+  "accepted_twists_with_fixed_halfpoint": [
+    2,
+    1,
+    3
+  ],
+  "accepted_twist_names": [
+    "Tplus",
+    "T0",
+    "Tminus"
+  ],
+  "application_hypotheses": [
+    "Same frozen D, k and lambda",
+    "Nonsingular target twist with nonzero coefficient",
+    "Genuine global cover morphism after all cancellations",
+    "Exact degree six",
+    "Full unsquared differential pullback with nonzero scalar",
+    "Deck anti-equivariance for the original X/Y cover form"
+  ],
+  "consequence_for_actual_maps": "Exactly the V4/sign orbit in PROOF sections6-7; all X coordinates among four explicit transforms of accepted X0",
+  "consequence_for_2_plus_2_plus_2": "No genuine maps satisfying every hypothesis; not a claim that relaxed equations or degenerate parameter points are empty",
+  "four_plus_two_boundary": "No count of nonempty parameter systems or coefficient representations; the same fixed representative/halfpoint normalization yields the accepted z",
+  "unresolved_or_unclaimed": [
+    "Proper-subfield descent outside K containing L",
+    "Representation multiplicity or complete per-row saturation",
+    "Actual finite primitive-factor index",
+    "Parent period integer, homology index and absolute normalization"
+  ],
+  "parent_status": "OPEN"
+}

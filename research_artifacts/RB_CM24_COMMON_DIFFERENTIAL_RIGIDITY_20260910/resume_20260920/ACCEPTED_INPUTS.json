@@ -1,0 +1,61 @@
+{
+  "schema": "RB_COMMON_DIFFERENTIAL_ACCEPTED_INPUT_SUMMARY_V1",
+  "source_commit": "0f4fc206e6c3a950cdd7c7587a455bfc829d8a33",
+  "source_freeze_sha256": "85946a8cb4e736021cef6cd311c8cfffbde1cce34fe728255db4b6703f5887f2",
+  "accepted_result": "RR-F79FA3D36EF85CC4C6CE",
+  "accepted_review": "DR-7D70258F6D39E9B6B00D",
+  "acceptance_overrides_historical_incomplete_header_at_exact_single_map_scope": true,
+  "original_formula_unchanged": {
+    "carrier": "t^2=R^3-3R; w^2=(R+2)*t",
+    "k": "-i*alpha*(alpha^2*beta-2)",
+    "lambda": "35+24*beta-20*alpha^2-14*alpha^2*beta",
+    "uN": "-2*alpha^2*beta-3+2*alpha^2+3*beta",
+    "LN": "3*(2+beta+alpha^2+alpha^2*beta)",
+    "uD": "-3-alpha^2*beta+beta+alpha^2",
+    "MD": "alpha^2*beta-2*alpha^2-3*beta",
+    "QD": "R^2+(6-3*beta-alpha^2+alpha^2*beta)*R+18-18*beta-12*alpha^2+6*alpha^2*beta",
+    "N": "(R+2)*(3*(alpha^2-1)*t+i*alpha*uN*(R+alpha^2)*(R-LN))",
+    "D0": "t*QD+i*alpha*uD*R*(R-alpha^2)*(R-MD)",
+    "C4": "-i*alpha*(9+3*beta+2*alpha^2+4*alpha^2*beta)",
+    "C": "C4/4 (symbolic; no quotient evaluation)",
+    "delta": "t*d/dR along t^2=R^3-3R",
+    "twice_delta": "D=2*delta, D(R)=2*t, D(t)=3*R^2-3",
+    "W": "D(N)*D0-N*D(D0)",
+    "X": "N/D0 (unevaluated function-field fraction)",
+    "Y": "w*W/(2*(t+k)*D0^2) (unevaluated; exact original Y convention)",
+    "target": "Y^2=(C4/4)*X*(X-1)*(X-lambda)",
+    "ODE_cleared": "(R+2)*t*W^2-C4*(t+k)^2*N*(N-D0)*(N-lambda*D0)*D0=0",
+    "pullback": "dX/Y=((t+k)/(w*t))*dR"
+  },
+  "original_embedding": {
+    "field": "Q(i,alpha,beta)",
+    "relations": [
+      "i^2=-1",
+      "alpha^4=3",
+      "beta^2=2"
+    ],
+    "embedding": [
+      "i is the positive imaginary unit",
+      "alpha is the positive real fourth root of 3",
+      "beta is the positive real square root of 2"
+    ],
+    "sqrt3": "alpha^2",
+    "sqrt6": "alpha^2*beta",
+    "evaluated_algebraic_roots": 0
+  },
+  "degree_f0": 6,
+  "unsquared_pullback": "f0*omega0=phi",
+  "j_invariant": "2417472+1707264 beta",
+  "deck_equivariance": "X0 fixed by sigma; Y0=w delta(X0)/(t+k) changes sign",
+  "branch_labels": [
+    0,
+    3,
+    3,
+    0,
+    0,
+    0
+  ],
+  "map_checkers_reexecuted": false,
+  "old_eighty_output_pins_recomputed": false,
+  "lattice_primitivity_assumed": false
+}
