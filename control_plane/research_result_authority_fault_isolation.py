@@ -4,6 +4,10 @@
 This registry does not correct Results, interpret Driver dispositions, resolve
 replacement edges, or grant an execution identity. Its raw audit error set and
 bound historical execution diagnostics are deliberately separate.
+
+A flat execution payload is usable only as exact frozen-manifest evidence for
+withholding authority. It remains absent from the canonical execution map; this
+module never imports, aliases or authorizes it.
 """
 from __future__ import annotations
 
@@ -20,6 +24,7 @@ SCHEMA = "ENTERPRISE_MATH_RESULT_CONTROL_AUTHORITY_QUARANTINE_V1"
 BASIS = "EXACT_INVALID_FROZEN_RESULT_CONTROL_AUTHORITY_WITHHELD"
 STATE = "RESULT_CONTROL_AUTHORITY_WITHHELD"
 LEGACY_BASIS = "BOUND_FROZEN_RESULT_EXACT_LEGACY_RECORD"
+FLAT_BASIS = "BOUND_FROZEN_RESULT_FLAT_EXECUTION_RECORD"
 _ACTIVE: ContextVar[tuple[Path, dict[str, dict[str, Any]]] | None] = ContextVar(
     "exact_result_authority_snapshot", default=None,
 )
@@ -98,7 +103,7 @@ def quarantine_rows(root: Path = ROOT) -> dict[str, dict[str, Any]]:
                 _fail(f"{rid}: cannot grant {flag}")
         _strings(row.get("allowed_result_audit_errors"), f"{rid}: raw errors")
         _strings(row.get("bound_legacy_diagnostic_errors"), f"{rid}: legacy diagnostics", empty=True)
-        if row.get("execution_identity_basis") not in {"CANONICAL_EXECUTION_RECORD_ID", LEGACY_BASIS}:
+        if row.get("execution_identity_basis") not in {"CANONICAL_EXECUTION_RECORD_ID", LEGACY_BASIS, FLAT_BASIS}:
             _fail(f"{rid}: invalid execution identity basis")
         if not isinstance(row.get("dependency_pins"), list) or not row["dependency_pins"]:
             _fail(f"{rid}: dependency pins required")
@@ -132,10 +137,15 @@ def _validated_rows(root: Path) -> dict[str, dict[str, Any]]:
         if result_sources[rid] != [row["record_path"]]:
             _fail(f"{rid}: complete raw Result source path set drift")
         task, pub, eid = row["task_id"], row["publication_id"], row["execution_record_id"]
+        execution_path = (
+            f"research_execution_records/{eid}.json"
+            if row["execution_identity_basis"] == FLAT_BASIS
+            else f"research_execution_records/{task}/{eid}.json"
+        )
         for field, expected in (
             ("record_path", f"research_result_records/{task}/{rid}.json"),
             ("publication_record_path", f"research_task_records/{task}/{pub}.json"),
-            ("execution_record_path", f"research_execution_records/{task}/{eid}.json"),
+            ("execution_record_path", execution_path),
         ):
             if row[field] != expected:
                 _fail(f"{rid}: {field} identity mismatch")
@@ -214,6 +224,22 @@ def _validated_rows(root: Path) -> dict[str, dict[str, Any]]:
             bridge = matching[0]
             if bridge.get("result_record_path") != row["record_path"] or bridge.get("result_record_blob_sha1") != row["record_blob_sha1"]:
                 _fail(f"{rid}: historical execution bridge Result pin mismatch")
+            diagnostic = [x.removeprefix(prefix) for x in impl.audit_result_record(result, execution, root)]
+        elif row["execution_identity_basis"] == FLAT_BASIS:
+            # A frozen manifest can bind a historically misplaced payload for
+            # diagnostics only. Never add this file to the execution map.
+            from tools import research_execution_records
+
+            if canonical is not None:
+                _fail(f"{rid}: flat frozen execution must remain absent from canonical map")
+            if (execution.get("record_schema") != research_execution_records.SCHEMA
+                    or execution.get("execution_record_id") != eid):
+                _fail(f"{rid}: flat frozen execution identity/schema mismatch")
+            bound = [item for item in manifest if item["path"] == row["execution_record_path"]]
+            pin = pins[row["execution_record_path"]]
+            if (len(bound) != 1 or bound[0].get("git_blob_sha1") != pin["git_blob_sha1"]
+                    or bound[0].get("sha256") != pin["sha256"]):
+                _fail(f"{rid}: frozen manifest lacks exact flat execution bytes")
             diagnostic = [x.removeprefix(prefix) for x in impl.audit_result_record(result, execution, root)]
         else:
             if execution.get("execution_record_id") != eid or canonical is None:
