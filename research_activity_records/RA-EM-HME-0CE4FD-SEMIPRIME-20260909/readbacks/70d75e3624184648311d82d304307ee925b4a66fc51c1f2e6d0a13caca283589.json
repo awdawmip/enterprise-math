@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/BRC_PAIRED_HIDDEN_PRIME_TRAPS_20260915.md",
+    "ref": "d0cf00805f7986393c539ff4dbae3a0366ef84f8",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "EM-HME-0CE4FD-PAIRED-HIDDEN-PRIME-TRAPS-20260915",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# 分别给隐藏素数配陷阱：交叉分组恢复成立，N-only 构造仍缺失\n\n用户明确方案为 pq=N，构造 a、b，使 K=ap、L=bq 分别满足快捷条件，再令 m=KL，并希望由 mN 恢复原 p、q。这解决了上一轮待澄清的作用对象问题：要研究的是分别绑定原隐藏素数的两个陷阱，不是继续生成无关联的等位数辅助库。\n\n本轮得到一个正的结构结论：对原来两条残差族使用相同仿射常数，KL 会自动出现有利的交叉分组；在 p<q<2p 的条件下，它确实能首次平方补足，并有 p、q 的直接恢复公式。两个规定小例通过了全部核对。但精确构造所需的 ab 或 m 仍依赖隐藏和 p+q，本轮没有得到仅由 N 计算它们的方法，也没有解出 RSA-270 或 RSA-2048 的实际因子。\n\nResearcher-ID: EM-HME-0CE4FD / TASK_RESEARCH\n\nResearch-Activity-ID: RA-EM-HME-0CE4FD-SEMIPRIME-20260909\n\nActivity path: research_activity_records/RA-EM-HME-0CE4FD-SEMIPRIME-20260909.json\n\nGlobal-Knowledge-Sync: main@73282863250128a33c0473202f90b2b801e93fc1 / GLOBAL_KNOWLEDGE_V1\n\nProject parent: 7ea1f5e5b9d1cecf2eaa3deb861000e5662055c3；沿用 draft PR #1403。P000 和正式数学状态不变。\n\n## 符号与构造条件\n\n为避免重复乘入 N，另外记实际乘数 t=ab。按用户的 m 定义，\n\n\\[\nK=ap,\\quad L=bq,\\quad m=KL=tN,\\quad mN=tN^2.\n\\]\n\n这里保留用户定义，不再请求重新选对象。下面的快速恢复直接作用于 m=KL；若手里给的是 mN，可先除以已知 N，回到 m。\n\n令 γ 为 5 或 7，取\n\n\\[\na=4p+\\gamma,\\qquad b=4q+\\gamma.\n\\]\n\nγ=5 时，K=p(4p+5)、L=q(4q+5) 属于 D 残差族，分别由 R_K+1、R_L+1 恢复 p、q。γ=7 时，它们属于 U 残差族，分别由 A_K−4、A_L−4 恢复 p、q。每个陷阱内部的两个因子不同位；不施加上一轮错误的等位数准入条件。公式本身不要求 a、b 是素数；两个执行小例额外满足其素性，因此 K、L 也确为半素数。\n\n本文 γ 是仿射常数 5/7；它与原候选包中的平方修正下标不是同一个变量。配套脚本用字段 c 记录本文的 γ。\n\n## 交叉分组与恢复公式\n\n相乘后交换已知辅助因子的分配，得到\n\n\\[\n\\boxed{m=KL=(pb)(qa)=(4N+\\gamma p)(4N+\\gamma q)}.\n\\]\n\n设 S=p+q，Δ=q−p，定义\n\n\\[\nH=4N+\\frac{\\gamma S}{2},\\qquad z=\\frac{\\gamma\\Delta}{2}.\n\\]\n\n因为 p、q 是不同奇数，H、z 都是整数，且\n\n\\[\nm=H^2-z^2.\n\\]\n\n如果 p<q<2p（两个等位素数满足此条件），则\n\n\\[\n\\frac{\\Delta^2}{N}=\\frac qp+\\frac pq-2<\\frac12.\n\\]\n\n于是对 γ=5 或 7，\n\n\\[\n0<z^2<\\frac{49}{8}N<8N<2H-1.\n\\]\n\n因此 (H−1)²<m<H²，证明 H 正是 ceil(sqrt(m))。这不是仅找到某处差平方表示，而是证明了第一处补足就成功。\n\n故给定正确数值的 m、N、γ，便可计算\n\n\\[\nH=\\lceil\\sqrt m\\rceil,\\qquad z=\\sqrt{H^2-m},\n\\]\n\n\\[\n\\boxed{p=\\frac{H-z-4N}{\\gamma},\\qquad\nq=\\frac{H+z-4N}{\\gamma}}.\n\\]\n\n这给出直接恢复，不需要再枚举因子。若采用 gcd 拉回，且 gcd(γ,N)=1，则两交叉因子对原 N 的 gcd 也分别是 p、q。\n\n对于用户写的 mN，除以已知 N 后执行同一恢复即可；多乘这一个 N 不补充构造 m 所缺的量。直接把 mN 放入首次补足或原残差包，不属于上面已证明的闭包性质；两个小例的这两种直接检查均未命中，但这不是全域不可能性结论。\n\n## 尚未打通的是 N-only 构造\n\n展开实际乘数：\n\n\\[\n\\boxed{t=ab=16N+4\\gamma S+\\gamma^2},\n\\qquad m=N(16N+4\\gamma S+\\gamma^2).\n\\]\n\n反过来，正确的 t 一旦已知，就立即给出\n\n\\[\n\\boxed{S=\\frac{t-16N-\\gamma^2}{4\\gamma}},\n\\]\n\n继而由 (S±sqrt(S²−4N))/2 恢复 p、q。甚至单独构造出满足 a=4p+γ 的 a，就已能计算 p=(a−γ)/4。\n\n所以现阶段不能把含未知 p、q 的 a、b 定义，直接当作已计算出的整数。组合后的快速恢复已经有证明；如何仅从 N 和公开长度信息生成正确 a、b 或 t，仍然是缺口。这个结论仅针对当前具体模板和已给出的构造步骤，不宣称其他 BRC 方案不可能。\n\n## 一个可计算替代量的精确诊断\n\n自然的 N-only 尝试是用 H0=ceil(sqrt(N)) 代替未知 S/2。令 A0=H0²−N，并计算\n\n\\[\nt_0=16N+8\\gamma H_0+\\gamma^2,\\qquad m_0=Nt_0,\n\\qquad X_0=4N+\\gamma H_0.\n\\]\n\n则有精确恒等式\n\n\\[\n\\boxed{X_0^2-m_0=\\gamma^2 A_0}.\n\\]\n\n对非平方 N≥256，X0 确为 ceil(sqrt(m0))。例如由 A0<2H0、H0≤N/16+1 和 γ≤7，得到 γ²A0<98H0≤49N/8+98<8N−1<2X0−1。\n\n所以这个替代的首次平方补足成功，当且仅当原 A0 就是平方。它只是把原补足量乘以一个平方，并未构造出缺失的精确配对乘积。若以 d=(p+q)/2−H0 表示原层差，则 t−t0=8γd；这个未确定的 d 仍需由 N 提取。\n\n本轮仅在下面两个小例中实际核对该替代，没有把它当作已满足用户前提的 RSA 构造去重复跑公开数。\n\n## 两个小例的执行证据\n\n所有 p、q、a、b 均在此前已保存的确定性小素数表中。构造阶段明确使用了已知 p、q；恢复函数只接收 N、m、γ。这一区分保留在机器记录中，因此这些数值是条件结构验证，不是 N-only 攻破 RSA。\n\n| γ | 原 p,q | a,b | K,L | m=KL | 首补 H,z | 恢复 p,q |\n|---|---|---|---|---:|---|---|\n| 5 | 149,251 | 601,1009 | 89549,253259 | 22679090191 | 150596,255 | 149,251 |\n| 7 | 139,241 | 563,971 | 78257,234011 | 18312998827 | 135326,357 | 139,241 |\n\n两个 K、L 内部的因子位数均为 8/10。它们均通过原残差快捷包；m 的交叉分组分别为 (150341,150851)、(134969,135683)，对原数的 gcd 和仿射恢复公式都给出原素因子。按用户 mN 定义再乘 N 后，先除掉 N 也恢复同一个 m 和同样的 p、q。\n\n两原数 N=37399、33499 的首次补足量分别为 237、357，均不是平方。N-only 替代 m0 的首次补足量为 5925=25×237、17493=49×357，也都不是平方。这说明配对的结构效果确实存在，同时检出了“用公开根替代真实均值”这一步没有满足原构造。\n\n## 来源与保留的下一步\n\n实际复用的接口为原残差包 `_complete`（blob `e8ea67310094c517b5a882d5e2e1709be975c675`）、BRC 状态接口（blob `4d03ded19b38f5aa13d3e873e911205d35be5c5f`）、平方补足接口（blob `42d4e9a397b56d9d371f034780ffc736d43e6d96`）和原生整数根核心（blob `2b7ab070868ef4a2b6d8b33f5e3bc69dbac62c07`）。上述组合明确保留了 K、L 的因子来源，未只看总乘积便假定存在可用恢复。\n\n[固定小例脚本](../experiments/brc_paired_hidden_prime_traps_20260915.py) 与 [完整记录](../experiments/brc_paired_hidden_prime_traps_20260915.json) 保存了全部参数、恢复结果、直接 mN 检查及替代量核对。原数均小于 2^16，无任意目标 CLI、乘数搜索或公开 RSA 查询，也不作性能或总体命中率声明。生产代码和此前公开挑战记录未改。\n\n此前关于作用对象的澄清已由用户的 K=ap、L=bq、m=KL 定义解决，不再等待该选择。当前剩余研究问题是得到正确配对乘数 t 的 N-only 生成方法；已经证明的交叉恢复不能被当成该生成方法已经存在。\n",
+      "display_title": "BRC_PAIRED_HIDDEN_PRIME_TRAPS_20260915.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/d0cf00805f7986393c539ff4dbae3a0366ef84f8/research_notes/BRC_PAIRED_HIDDEN_PRIME_TRAPS_20260915.md",
+      "encoding": "utf-8",
+      "sha": "5bbacb78b96351300869bc2c157060f7193e65c6"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

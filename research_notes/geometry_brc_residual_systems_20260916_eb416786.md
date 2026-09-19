@@ -1,0 +1,116 @@
+# Geometry–BRC residual accumulation systems: a first scoped framework
+
+Progress-Event-ID: `GBRC-RESIDUAL-FRAMEWORK-20260916-EB416786`
+Research-Activity-ID: `RA-geometry-brc-residual-20260916-eb416786`
+Researcher-ID: `EM-DIRECT-EB416786`
+Date: `2026-09-16`
+Status: `RESEARCH_PROPOSAL / CONDITIONAL ELEMENTARY DERIVATIONS / NOT FOUNDATION ADMISSION`
+User question: “我有一个想法，我们形成一套基于几何配合brc的残差累积系统论”.
+Source snapshot for existing project laws: `f96614831fc364baffabba8f369b807d49bc94f1`.
+The session key is locally assigned, not an authenticated platform session identifier. No formal task, CLAIM, review or mathematical acceptance is asserted.
+
+## 1. Research thesis and scope
+
+Proposed working title: 几何—BRC残差累积系统论.
+
+Study which fine distinctions a geometric observation omits, how those distinctions are transported through composable processes and branch families, when compression preserves the declared future observations, and under what assumptions an accumulated residual is controlled or feeds back into observable evolution.
+
+Geometry determines the carrier and transport; BRC preserves branch identity/multiplicity/positive weight and licenses observation-relative collapse; dynamics determines persistence, cancellation, growth and feedback. “Accumulation” means composition through time or scale, not necessarily monotone numerical growth.
+
+P000 is unchanged. An additive residual fiber or a low-dimensional example is not a claim that the native Cell space is a global vector space, or that a three-axis slice is the whole six-dimensional spatial ontology. No physical energy, force, entropy or continuum-limit law follows merely from naming a residual.
+
+## 2. Declare a problem before a scalar error
+
+Specify fine states or histories X, geometric cells/charts and admissible transitions, the current observation q, the complete permitted future-operation language including enabledness, branch identity and composition, and the precision/scale horizon. Positive rational weights are metadata; they are not automatically probabilities.
+
+An observation fiber q^{-1}(y) is generally a set, not a vector space. Thus a fine residual is first a distinction inside such a fiber; x minus a coarse state need not be defined. Different useful carriers include integer modules, torsion groups, ordered path words, signed/complex amplitudes and positive weighted branch profiles. These are not interchangeable.
+
+Keep apart: (a) retained fine-state information; (b) a local defect relative to a chosen reduced model; (c) the transported accumulated effect; (d) a future observable difference. A nonzero item in (a) need not ever produce (d) for the declared observer.
+
+## 3. Concrete reuse, not a new quotient engine
+
+REUSE_APPLIED: `docs/P023_COMPOSITION_SAFE_COLLAPSE.en.md`, especially P023-T01/T02. For a chosen future readout H, H factors through q exactly when q(x)=q(y) implies H(x)=H(y). If it fails, (q,H) is the coarsest one-step repair in the partition-refinement sense. For multiple partial operations, include legal/illegal outcomes and all declared continuation words.
+
+REUSE_APPLIED: `definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md`, WBRC-T01 and T06. Positive alternatives add counts and total mass and take the maximum dominant mass; compatible independent serial branch choices multiply these three coordinates. A full future CWM target vector, not a current total, governs its all-prefix-safe quotient. History-sensitive or amplitude-sensitive observations need a richer carrier.
+
+REUSE_APPLIED: the same source's finite recurrent interface. For a finite nonnegative rational matrix B, the positive recurrence star is finite iff there is positive rational h with Bh<h. This will be used only on a rigorously constructed positive residual-transfer envelope, not as a theorem about arbitrary signed or infinite systems.
+
+COMPOSE_APPLIED: attach an exact geometric transfer label to each branch and apply the existing positive branch laws alongside the affine transfer law below. This is a proposed specialization/integration, not a new top-level tool family. No executable BRC module or formal proof checker was run in this turn.
+
+## 4. Affine residual-transport subtheory
+
+Assume a declared transition really acts affinely on an abelian residual fiber: r' = T r + d, with T a homomorphism and d in the target fiber. This is a restricted interface. If future transport, enabledness or output depends on omitted data, enlarge the state; do not assert that every geometric dynamics has this form.
+
+Represent a transition by (T,d). For first A=(T_A,d_A), then B=(T_B,d_B), define
+
+(B after A) = (T_B T_A, T_B d_A + d_B).
+
+This law is associative: either parenthesization of three transitions gives
+
+(T_C T_B T_A, T_C T_B d_A + T_C d_B + d_C).
+
+It is ordinary affine composition, not a novel general algebraic theorem. Its application here records why old residuals must be transported into the new frame before addition.
+
+For r_{n+1}=T_n r_n+d_n, repeated substitution gives exactly
+
+r_n = (T_{n-1}...T_0)r_0 + sum_{j=0}^{n-1}(T_{n-1}...T_{j+1})d_j,
+
+with an empty product equal to the identity. Order matters when the transports do not commute. The ordinary sum of d_j is valid only under an appropriate trivialization/identity-transport condition.
+
+Branch alternatives remain labeled families of such maps. A serial composition pairs only admissible source/target branches and multiplies their positive weights. Aggregating equal transfer labels is licensed only for the actual future observation language: a future provenance or order query may still distinguish them. Positive weights must not be used to average a torsion-valued residual such as an element of Z/2 without separately defining a legitimate readout.
+
+## 5. Coordinate artifacts versus an unavoidable residual
+
+In a graph of abelian fibers, change reference by r'_v=r_v-a_v. An edge e:v->w then has
+
+d'_e = d_e + T_e a_v - a_w.
+
+All edge offsets can be removed by this reference change iff the simultaneous equations a_w=T_e a_v+d_e have a solution. Along each loop p based at v this implies
+
+(I-T_p)a_v=d_p.
+
+If T_p=I, nonzero d_p obstructs removal. If T_p is not I, nonzero d_p alone is not an obstruction: the affine loop might have a fixed point. This is a direct consequence of the displayed coordinate change, not a new cohomology claim. Do not identify every coordinate correction with intrinsic dynamics.
+
+## 6. Observation-relative memory: an existing exact test case
+
+The uploaded September 11 manuscript `Enterprise_Math_Research_Note_English.pdf`, “Tetrahedral endpoint-sum residuals and a non-split affine 2-torsion extension”, provides an existing test case, not newly established Foundation status. For zero-total vertex/edge lattices and the signless endpoint map, its residual is isomorphic as an abelian group to A2(Z) plus Z/2. The splitting is not equivariant under all tetrahedral permutations.
+
+Its mod-two residual coordinates have generator action
+
+s1(p,q,e)=(p,p+q,e+p),
+s2(p,q,e)=(q,p,e),
+s3(p,q,e)=(p,p+q,e),
+
+with arithmetic in F2. Along a word, e_n=e_0+sum of p_k over steps using s1, modulo two; p_k must be updated along the actual word. This iterative restatement follows by substitution, not a new classification theorem.
+
+The matching-only quotient remains valid for future tetrahedral permutations. A star-parity readout or integral-lift legality requires the extra bit per matching fiber. Therefore hidden information is not universally unsafe to discard, and a parity residual does not automatically grow monotonically or create visible displacement.
+
+The uploaded September 5 `THEORY.md` separately records the contextual path ledger z_end-z_start=p-D^T c, with signed flux p and accumulated chart corrections c. It gives same-count/same-flux histories with different endpoints. This is a useful earlier candidate example of why order and contextual transport matter. The file was not found at the root of current source main; no claim that its filename is a current repository path or that its full model has canonical admission is made.
+
+## 7. A conditional stability consequence of the existing finite BRC law
+
+For a normed residual subtheory, ||T_n||<=a<1 and ||d_n||<=epsilon imply
+
+||r_n|| <= a^n||r_0|| + epsilon(1-a^n)/(1-a).
+
+This follows directly by the triangle inequality and a geometric sum. It is not a norm on every discrete/torsion carrier, and pure rotations need not be contractive.
+
+For a finite, nonnegative residual-transfer envelope E_{n+1}<=B E_n+d_n, suppose h>0 is rational, Bh<=lambda h for lambda<1, and 0<=d_n<=epsilon h. In the weighted maximum norm ||E||_h=max_i E_i/h_i,
+
+||E_n||_h <= lambda^n||E_0||_h + epsilon(1-lambda^n)/(1-lambda).
+
+The proof is monotonicity: E<=||E||_h h, followed by the previous scalar recurrence. When B is finite nonnegative rational, the existing Bh<h certificate supplies such a lambda by taking max_i (Bh)_i/h_i.
+
+Two loops with positive transfer coefficient 3/5 each have every individual path factor (3/5)^n but total depth-n coefficient (6/5)^n. This illustrates a positive-envelope branching effect, not a probability-conservation contradiction. A divergent positive envelope does not prove divergence of an underlying signed/vector sum; cancellation may improve the actual dynamics. Conversely, cancellation at one observation does not establish future-safe branch collapse.
+
+For a growing sequence of geometric systems, finite certificates alone are insufficient: require compatible inter-scale maps, uniform lambda<1, uniformly controlled source injection and comparison norms. All-scale closure remains an explicit research target.
+
+## 8. What is established here and what remains to earn
+
+Established as conditional elementary derivations: affine composition/associativity; the transported accumulation formula; the reference-shift identity and necessary loop condition; the stated contraction and positive-envelope bounds. These are integrations/specializations of familiar algebra and the cited project interfaces, with no priority claim and no Lean or numerical validation asserted.
+
+Research targets: derive the smallest adequate residual carrier from an exact native geometric model rather than postulating one; prove closure under rotations, branching, composition and the chosen observations; distinguish removable coordinate defects from persistent obstructions; then establish uniform bounds across a declared scale family. A finite sufficient carrier is not guaranteed merely because complete history is sufficient.
+
+First bounded next problem: fix the tetrahedral residual carrier and a precise allowed observation language, build its geometry-tagged branch transfer description, and prove the minimal repair and compositional laws at that declared strength before extending to multiscale cells. Reuse the existing quotient engine rather than reimplementing partition refinement.
+
+Prior-art boundary: affine composition/cocycles and quotient factorization are established mathematics. Projection-induced memory is also studied by Mori–Zwanzig methods; see Lin, Tian, Perez and Livescu, arXiv:2205.05135. For the affine cocycle convention see Drutu and Mackay, “Actions of acylindrically hyperbolic groups on l1”, author manuscript, 2023. The proposed contribution must be a concrete geometric classification, smaller sufficient state, sharper bound or falsifiable consequence, not renaming these mechanisms.

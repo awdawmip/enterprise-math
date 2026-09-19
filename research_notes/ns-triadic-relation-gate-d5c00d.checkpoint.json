@@ -1,0 +1,97 @@
+{
+  "schema": "EM_TRIADIC_RELATION_GATE_CHECKPOINT_V1",
+  "event_id": "NS-TRIADIC-RELATION-GATE-20260916-D5C00D-20",
+  "researcher_id": "EM-DIRECT-D5C00D",
+  "activity_id": "RA-D5C00DF7D77F4AA2ACE0",
+  "status": "TESTING_EXACT_COMPARATOR_NOT_FORCE_ADMITTED",
+  "source_snapshot": "93c915c8f265ac19ada274cb34f02730c7ab91ca",
+  "parent_event": "NS-LOCAL-RELATION-PROPAGATION-20260916-D5C00D-19",
+  "artifacts": [
+    {
+      "path": "research_notes/ns-triadic-relation-gate-20260916-d5c00d.md",
+      "sha256": "85a686bae44a9f7d76785d9619550ac397c30b0b6fae09a5f115cbef65098ac3",
+      "git_blob_sha1": "6a45f08172fedb468e8cb90b3d4aecdad22876ee",
+      "bytes": 17583
+    },
+    {
+      "path": "experiments/ns_triadic_relation_d5c00d/check_triadic.py",
+      "sha256": "a05247ead62649f077da37267ed1f6ce73615221e3041da5a1edb509ed9d8514",
+      "git_blob_sha1": "74bf07f6c5f753c92dd5ff2d6bf675a65282e6da",
+      "bytes": 11987
+    },
+    {
+      "path": "experiments/ns_triadic_relation_d5c00d/law.json",
+      "sha256": "47cd04911dca2fbf052f4b4d65cf0889f6f6d69e63feb1a1a63081044a6c9c41",
+      "git_blob_sha1": "232f3fa0f9d56cda47d2bb340a976914f90f6e0b",
+      "bytes": 1034
+    },
+    {
+      "path": "research_notes/ns-triadic-relation-gate-20260916-d5c00d.results.json",
+      "sha256": "2ab3817f22ca5f78c1fa2740992017a95f0becbaa76fcb3b079cc87ad3b15b80",
+      "git_blob_sha1": "8dbe41f41fba5f4246eac26c93c06347ca391163",
+      "bytes": 2304
+    }
+  ],
+  "checks": {
+    "exact_conjugations": 1728,
+    "raw_row_cases": 13824,
+    "endpoint_permutation_equalities": 82944,
+    "orbit_states_reused": 1080,
+    "triple_gate_state_images": 29160,
+    "odd_gate_state_orbit": 1080,
+    "gauge_lifts": 64,
+    "gauge_steps_each": 4,
+    "all_XY_joint_probabilities": 64,
+    "signed_three_axis_routes": 960,
+    "nonzero_primitive_moves": 23040,
+    "rejected_nonlocal_gate": true
+  },
+  "results": {
+    "rows_after_R": [
+      [
+        -1,
+        "YXX"
+      ],
+      [
+        -1,
+        "XYX"
+      ],
+      [
+        -1,
+        "XXY"
+      ]
+    ],
+    "operator_cut_ranks": [
+      2,
+      2,
+      2
+    ],
+    "mermin": 4,
+    "classical_Mermin_bound": 2,
+    "mixture_Mermin": 0,
+    "pair_marginals_equal_opposite_phases": true,
+    "same_gate_after_opposite_phases": [
+      "111",
+      "000"
+    ],
+    "bare_excitation_after_gate": "3/2",
+    "dual_rail_each_pair_excitation": 1,
+    "dual_rail_total_excitation": 3,
+    "gate_density_period": 4,
+    "closed_router_ticks": 12,
+    "odd_weight_parity_invariant": true,
+    "CNOT_excluded_on_same_register_without_extra_resources": true,
+    "pair_circuit_decomposition_exists": true,
+    "density_entries_grid": "(Z+iZ)/8 for fixed three-qubit pure stabilizer orbit"
+  },
+  "fresh_directory_byte_identical": true,
+  "nonclaims": [
+    "All rules are explicit comparator assumptions, not P000-derived primitive force laws.",
+    "Three-party structural indispensability does not mean every state changes or the gate is elementary.",
+    "Reachability of all 1080 pure stabilizer states does not imply every Clifford channel can be implemented.",
+    "No measurement reset in the closed recurrent process; no irreversibility or instability inferred.",
+    "Conserved excitation is an indicator, not complete physical energy.",
+    "No local hidden-variable measurement model, NS theorem, independent review or Lean build."
+  ],
+  "next": "Derive or constrain a native interaction and measurement implementation; structural three-party rank and fixed-register stabilizer closure do not certify primitive TRIADIC_CLOSURE_E."
+}

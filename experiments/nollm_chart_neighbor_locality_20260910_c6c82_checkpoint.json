@@ -1,0 +1,85 @@
+{
+  "schema": "NOLLM_CHART_NEIGHBOR_LOCALITY_CHECKPOINT_V1",
+  "event_id": "NOLLM-NEIGHBOR-LOCALITY-20260910-C6C82",
+  "activity_id": "RA-nollm-hecke-views-20260909-c6c82",
+  "status": "DERIVED_AND_EXACT_FINITE_CHECKED_NOT_PROMOTED",
+  "note": {
+    "commit": "4b60cc6500d9ec5057528c2daf4be3cfcc84db63",
+    "path": "research_notes/nollm_chart_neighbor_locality_20260910_c6c82.md",
+    "git_blob_sha1": "8ff9741a6c9622915cff6e50f20602f56b5ef63e",
+    "sha256": "cc5e64194e795eec78e7827729dfb6e66c7f90c8ccb203860708e24a3aa46eb6"
+  },
+  "code": {
+    "commit": "f66eb4799a0ae1ef728cdb40e443fea122c2ff45",
+    "path": "experiments/nollm_chart_neighbor_locality_20260910_c6c82.py",
+    "git_blob_sha1": "1e391fc9942b9df2520b43d23a44787f9b698d23",
+    "sha256": "3e09fb193258ad328fcad8d5e7678a69234d719e57ed02cfedbee77d26e3778b"
+  },
+  "results_sha256": "923cbc9ba7e065f1e68d8c65cb2b4439bfe3d90346be4855ddc19e418455d56b",
+  "lift_certificate_sha256": "b9ab0e37273388352ca6a7ecf798c8e7601e22a76c0c0d074970cd65cfc58f1b",
+  "checks": {
+    "pair_depth_rows": 540,
+    "cross_rotation_orbit_zero_neighbor_cases": 378,
+    "complete_population_cases": 10,
+    "class_appearances": 45586,
+    "directed_edge_checks": 273516,
+    "pointwise_transported_edges": 181044,
+    "new_lift_naturality_classes": 16104,
+    "deep_exact_lattice_generator_checks": 24,
+    "deep_max_lattice_depth": 101,
+    "metric_crosschecks": 1542,
+    "synthetic_message_vertices": 121,
+    "wrong_untransported_message_vertices": 113,
+    "source_patch_edges": 12,
+    "unchanged_hex_target_patch_edges": 0,
+    "transported_target_patch_edges": 12,
+    "p11_original_forward_hops": [
+      6,
+      37,
+      717
+    ],
+    "p11_periods": [
+      11,
+      121,
+      1331
+    ],
+    "uniform_lift_bidirectional_hop_bound": 26,
+    "no_smaller_integer_lift_within_declared_class": true,
+    "rerun_byte_identical": true,
+    "run": "PASS"
+  },
+  "witness": {
+    "matrix": [
+      [
+        -4,
+        1
+      ],
+      [
+        21,
+        -5
+      ]
+    ],
+    "inverse": [
+      [
+        5,
+        1
+      ],
+      [
+        21,
+        4
+      ]
+    ],
+    "determinant": -1,
+    "first_digit_multiplier_mod11": 3
+  },
+  "limits": [
+    "ordinary research hex slice; not native Nollm implementation",
+    "geometric nearest neighbors are a proxy, no semantic data tested",
+    "additive/digit transports preserve different contracts",
+    "26-hop lift changes first numerical labels by factor 3 and reverses orientation",
+    "26 is only optimal among additive natural integer-unimodular lifts for this chart pair",
+    "single 11-tower locality is not global coprime-plane locality",
+    "transported six ports preserve graph degree, not physical one-hop cost",
+    "no integer-label multiplicative embedding or theorem promotion"
+  ]
+}

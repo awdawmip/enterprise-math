@@ -1,0 +1,75 @@
+{
+  "schema": "NOLLM_PHASE32_LAB_VERIFICATION_V1",
+  "experiment_version": "0.1.0",
+  "parent_toolkit_version": "0.3.0",
+  "activity_id": "RA-nollm-web-preview-20260910-c6c82",
+  "baseline_commit": "f93ffa83223466901fac05a48d3311b220fb5a99",
+  "unit_tests_passed": 17,
+  "browser_checks_passed": 39,
+  "population": 65536,
+  "positive_population_for_metrics": 65535,
+  "ordered_positive_pairs_with_product_in_range": 736957,
+  "phase_comparison_count_python_js": 196608,
+  "browser_page_errors": [],
+  "browser_external_requests": [],
+  "example_5_times_7": "exact phase defect 0 for both multiplicative schemes; rounded geometry is NOT exact",
+  "checks": [
+    "all factorizations reconstructed",
+    "exact modular phase products",
+    "single-prime phase perturbation follows valuation",
+    "camera leaves metrics/phase unchanged",
+    "all 65536 IDs preserved in data export",
+    "saved HTML reload restores configuration",
+    "no wrapping of out-of-range products",
+    "invalid config leaves current data intact",
+    "site pages deterministic and checksummed"
+  ],
+  "not_claimed": [
+    "native X6 mapping",
+    "Nollm runtime integration",
+    "infinite equidistribution",
+    "arbitrary multiplier low-cost arithmetic discovery",
+    "whole-repository CI",
+    "native iOS/Safari",
+    "re-execution of prior toolkit test suite",
+    "public web deployment"
+  ],
+  "precision": "uint32 phase exact; trigonometry, square roots, nearest A2 and pixels floating observer",
+  "files": [
+    {
+      "path": "nollm_visual_toolkit/phase32_lab.py",
+      "bytes": 11628,
+      "sha256": "a195429ddb83edc7f96e7557e01ceb856e033a647b6a12ff6991456a2944f28f",
+      "git_blob_sha1": "bfc0978413f199e0673f7dbb08466e69bef86781"
+    },
+    {
+      "path": "nollm_visual_toolkit/phase32_lab.html",
+      "bytes": 24858,
+      "sha256": "4430cee7647851b76455afda022486406cea6447884e6baa6f353cc52bdee5a7",
+      "git_blob_sha1": "1a557037c6949ba352181eb260439b4fccfb4505"
+    },
+    {
+      "path": "tests/test_phase32_lab.py",
+      "bytes": 4590,
+      "sha256": "f01ee48d26e2892144a90274de660cf2dd1dd57c7d30a540f1998c5a94abf83b",
+      "git_blob_sha1": "f154f442409709d9d23801338a9c37533c12ef8b"
+    },
+    {
+      "path": "tests/browser_phase32_lab.py",
+      "bytes": 6713,
+      "sha256": "f7ac3b3a0accad873dbfdb434f1fb6dcf0e02fd5e20c4f61c4a1bc9fbea9db70",
+      "git_blob_sha1": "907e5a470a3aee8a1ed40c1962e688760d31b756"
+    },
+    {
+      "path": "PHASE32_LAB.md",
+      "bytes": 6398,
+      "sha256": "b9d995b4128e1c6f38914e865cf44927080174c3a48ffe3a1571aeac0cbefc64",
+      "git_blob_sha1": "e8335bfb41bc1cb77bc08ebc6aecb768c174bd26"
+    }
+  ],
+  "preserved_baseline": {
+    "multiplicative.py": "26ab7fb5dca1d2bc69e97eb04c0ee9c405437ea8",
+    "multiplicative_lab.html": "6619c5da7ad03f38766bfc383d60b5505cb863e0",
+    "note": "Existing 16-bit experiment is preserved, not overwritten or reclassified as 32-bit."
+  }
+}

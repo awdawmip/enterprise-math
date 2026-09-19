@@ -1,0 +1,148 @@
+{
+  "schema": "ENTERPRISE_MATH_CONTROL_PLANE_MAINTENANCE_AUDIT_V1",
+  "classification": "AUDIT_ONLY_NO_CONTROL_AUTHORITY",
+  "run_id": "CPM-20260917-050455Z-3F1A9C",
+  "mode": "CONTROL_PLANE_MAINTENANCE",
+  "authority_grants": {
+    "researcher": false,
+    "driver": false,
+    "steward": false,
+    "claim": false,
+    "review": false,
+    "mathematical_acceptance": false
+  },
+  "global_knowledge_snapshot": {
+    "repository": "awdawmip/chatgpt-global-knowledge",
+    "main_sha": "fd846a8e45822fd256f3d9669281ec676bf82a17"
+  },
+  "source_observation": {
+    "repository": "awdawmip/enterprise-math",
+    "initial_main_sha": "95b287676ad6e1ef1e0611f0bc29fb60f12dd6e4",
+    "latest_verified_main_before_record_write": "22d33860853a729905b44ff921b82cbc21da1066",
+    "issue_240_last_verified_comment_id": 5708985481,
+    "concurrent_head_delta_after_dispatch_snapshot": {
+      "commit": "22d33860853a729905b44ff921b82cbc21da1066",
+      "message": "research: publish X6 all-index geometry Driver and two bounded successor tasks",
+      "dispatch_rescan_in_this_run": false,
+      "reason": "HEAD moved after the verified dispatch packet; no new control request was issued by maintenance and the new portfolio publication is queued for next incremental scan"
+    }
+  },
+  "scan_scope": [
+    "AGENTS.md",
+    "control_plane/current_control_authority.json",
+    "research_dispatch_contract.json",
+    "research_runtime_state_machine.json",
+    "active_turn_liveness.json",
+    "docs/OWNER_SCOPE_SESSION_LIVENESS_PROTOCOL.md",
+    "control_plane/chatgpt_dispatch_request.json",
+    "control_plane/chatgpt_dispatch_receipt.json",
+    "control_plane/chatgpt_dispatch_receipts/chatgpt-20260917-autoA-claimverify-ba00adc33d5c.json",
+    "control_plane/chatgpt_startup_packets/chatgpt-20260917-autoA-claimverify-ba00adc33d5c.json",
+    "GitHub Issue #240 comments through 5708985481",
+    "research_activity_records/RA-41fbc67e4f414058.json",
+    "research_task_records/RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION-STATEMENT-CORRECTION/TP2-1C146C521C5946742C17.json",
+    "recent main commits relevant to dispatch receipt generation and Driver intake"
+  ],
+  "findings": [
+    {
+      "fingerprint": "DISPATCH_REQUEST_RECEIPT_LAG|chatgpt-20260917-autoA-claimverify-ba00adc33d5c",
+      "classification": "TRANSIENT_CONTROL_CONSUMER_LAG",
+      "status": "SELF_CONVERGED_NO_MANUAL_PATCH",
+      "evidence": {
+        "mismatch_snapshot_sha": "95b287676ad6e1ef1e0611f0bc29fb60f12dd6e4",
+        "request_id_at_mismatch": "chatgpt-20260917-autoA-claimverify-ba00adc33d5c",
+        "stale_receipt_request_id": "chatgpt-20260917-autoA-run1-045926-3009dfc097",
+        "consumer_commit": "b95d01a5d20f28949039e15e2d1bc92176ee6255",
+        "converged_receipt_request_id": "chatgpt-20260917-autoA-claimverify-ba00adc33d5c",
+        "converged_generated_at": "2026-09-17T05:06:34Z",
+        "immutable_receipt_matches": true,
+        "startup_packet_matches": true
+      },
+      "action": "NO_WRITE_TO_SHARED_REQUEST_OR_RECEIPT; EXISTING_CONSUMER_COMPLETED"
+    },
+    {
+      "fingerprint": "OWNER_SCOPE|RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION-STATEMENT-CORRECTION|CLM-PCF7FIX-0BFF2D2CD73646AD",
+      "classification": "LIVENESS_UNKNOWN_NOT_STALE_AT_OBSERVATION",
+      "status": "WATCH_ONLY",
+      "evidence": {
+        "claim_comment_id": 5708985481,
+        "claim_created_at": "2026-09-17T05:04:38Z",
+        "claim_id": "CLM-PCF7FIX-0BFF2D2CD73646AD",
+        "researcher_id": "EM-PCF7FIX-B603FA",
+        "publication_id": "TP2-1C146C521C5946742C17",
+        "activity_id": "RA-41fbc67e4f414058",
+        "activity_recorded_at": "2026-09-17T05:03:00Z",
+        "activity_checkpoint_count": 0,
+        "declared_execution_branch": "research/pcf7fix-b603fa",
+        "execution_branch_ref_observation": "NOT_FOUND",
+        "durable_execution_progress_after_claim_verified": false
+      },
+      "decision": "DO_NOT_RECLAIM_OR_ADOPT_BEFORE_STALE_EVIDENCE; OWNER_LEASE_IS_NOT_SESSION_LIVENESS",
+      "next_check": "VERIFY_EXACT_TASK_CLAIM_PROGRESS_AND_BRANCH_AT_NEXT_RUN; IF STALE_WITH_VALID_CLAIM, USE CURRENT ADOPT_EXISTING_CLAIM PATH AND PRESERVE CLAIM"
+    },
+    {
+      "fingerprint": "RECOVERY_ENTRY|RS-P000-Q30-N14-EVIDENCE-RECOVERY-CANONICALIZATION-GATE|TP2-EB531E351C670702AD82",
+      "classification": "RECOVERY_ENTRY_READY_WAITING_EXECUTOR",
+      "status": "CANONICAL_DISPATCHABLE",
+      "evidence": {
+        "dispatch_request_id": "chatgpt-20260917-autoA-claimverify-ba00adc33d5c",
+        "dispatch_action": "CLAIM_NEW_OWNER",
+        "task_id": "RS-P000-Q30-N14-EVIDENCE-RECOVERY-CANONICALIZATION-GATE",
+        "publication_id": "TP2-EB531E351C670702AD82",
+        "startup_packet_path": "control_plane/chatgpt_startup_packets/chatgpt-20260917-autoA-claimverify-ba00adc33d5c.json",
+        "startup_state": "READY",
+        "claim_id": null,
+        "recovery_rule": "CONSUME_PERSISTED_HANDOFF_AND_OLD_CERTIFICATE_WITHOUT_RESTARTING_CENSUS"
+      },
+      "decision": "MAINTENANCE_DOES_NOT_CLAIM_RESEARCH_TASK; RECOVERY_ENTRY_IS_READY, EXECUTOR_TAKEOVER_NOT_YET_PROVEN"
+    },
+    {
+      "fingerprint": "FROZEN_RESULT_DRIVER_INTAKE|PFSSV|51abd74188058b40224d56bc176b04e82d7da3ce",
+      "classification": "DRIVER_INTAKE_OBSERVED",
+      "status": "NO_REDISPATCH_ACTION_FROM_MAINTENANCE",
+      "evidence": {
+        "main_commit": "51abd74188058b40224d56bc176b04e82d7da3ce",
+        "commit_message": "Driver intake: PFSSV finite-window frozen result"
+      },
+      "decision": "PRESERVE_DRIVER_REVIEW_BOUNDARY; DO_NOT_REOPEN_AS_ORDINARY_RESEARCH_FROM CONTROL_PLANE_MAINTENANCE"
+    }
+  ],
+  "existing_fault_isolation": {
+    "task_and_publication_quarantine_overlays_present": true,
+    "expanded_audit_performed": false,
+    "reason": "CURRENT_CANONICAL_DISPATCH_CONTINUED_TO_AN_UNRELATED_READY_TARGET; NO EVIDENCE THIS RUN REQUIRED GLOBAL QUARANTINE REPAIR"
+  },
+  "manual_control_mutations_this_run": [],
+  "repairs": [
+    {
+      "fingerprint": "DISPATCH_REQUEST_RECEIPT_LAG|chatgpt-20260917-autoA-claimverify-ba00adc33d5c",
+      "repair_kind": "EXISTING_CONSUMER_SELF_CONVERGENCE_VERIFIED",
+      "manual_patch": false,
+      "published_commit": "b95d01a5d20f28949039e15e2d1bc92176ee6255",
+      "readback_verified": true
+    }
+  ],
+  "acceptance": {
+    "formal_task_source_readable": true,
+    "dispatch_receipt_and_startup_packet_exact_request_match": true,
+    "fresh_dispatch_path_operational": true,
+    "recovery_entry_ready": true,
+    "recovery_executor_takeover_proven": false,
+    "pcf7_execution_progress_proven": false,
+    "local_validation": "JSON_PARSE_PASS",
+    "limitations": [
+      "NO CLAIM WAS CREATED BY MAINTENANCE",
+      "NO MATHEMATICAL REVIEW OR DIRECTION DECISION WAS PERFORMED",
+      "PCF7 OWNER-SCOPE LIVENESS REMAINS UNKNOWN UNTIL QUALIFYING EXACT-SCOPE ACTIVITY OR STALE CHECK",
+      "SCAN IS BOUNDED TO THE LISTED CURRENT CONTROL SURFACES; IT IS NOT A CLAIM OF VISIBILITY INTO ALL CHATS OR HIDDEN EXECUTION",
+      "MAIN ADVANCED TO 22d33860853a729905b44ff921b82cbc21da1066 AFTER THE VERIFIED DISPATCH PACKET; THE NEW X6 PORTFOLIO PUBLICATION WAS NOT RE-RUN THROUGH DISPATCH IN THIS CONTROL TURN"
+    ]
+  },
+  "next_run_priority": [
+    "VERIFY PCF7 EXACT OWNER-SCOPE LIVENESS USING TASK_RESEARCH_RESPONSE OR DURABLE_EXECUTION_PROGRESS ONLY",
+    "IF PCF7 IS STALE AND CLAIM REMAINS VALID, VERIFY HIGHEST DURABLE FRONTIER AND USE LEGAL ADOPT_EXISTING_CLAIM RECOVERY; DO NOT CREATE SECOND CLAIM",
+    "CHECK WHETHER Q30 RECOVERY ENTRY WAS ACTUALLY CLAIMED AND STARTED; IF NOT, DISTINGUISH WAITING EXECUTOR FROM CONTROL FAILURE",
+    "RECHECK REQUEST_RECEIPT_STARTUP CORRESPONDENCE ONLY IF A NEW REQUEST EXISTS OR A MISMATCH RECURS",
+    "LEAVE EXISTING QUARANTINES ISOLATED UNLESS A CURRENT EXACT DRIFT OR NEW ERROR SIGNATURE IS OBSERVED"
+  ]
+}

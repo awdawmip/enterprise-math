@@ -1,0 +1,140 @@
+            assert flags==sector
+            expected_probs=probs[2*i+j]['probabilities']
+            assert {f'{a},{b}':str(val) for (a,b),val in selected_out.items()}==expected_probs
+            finite_protocol.append({'settings':[i,j],
+                'nonzero_amplitudes_by_stage':[len(sparse_source),len(mid),len(final)]})
+
+    # Joint preparation provenance: common sign and independent signs have identical
+    # single-copy states and all number-sector weights but different encoded coherence.
+    Z=sp.diag(1,-1)
+    rho_minus=sp.kronecker_product(Z,sp.eye(2))*rho*sp.kronecker_product(Z,sp.eye(2))
+    copies=(rho,rho_minus)
+    k=sp.Symbol('k',real=True)
+    correlated=sp.zeros(16)
+    for s,t in product((-1,1),repeat=2):
+        rs=copies[0 if s==1 else 1];rt=copies[0 if t==1 else 1]
+        correlated += (1+k*s*t)/4 * reorder_copies(old,rs,rt)
+    correlated=sp.simplify(correlated)
+    assert old.ptrace(correlated,4,(0,2)) == single_deph
+    assert old.ptrace(correlated,4,(1,3)) == single_deph
+    assert sp.simplify(sp.trace(PP*correlated)-weight)==0
+    conditional=sp.simplify(PP*correlated*PP/weight)
+    expected=embedded.copy();expected[6,9]=expected[9,6]=k/2
+    expect_zero(conditional-expected)
+    assert correlated.subs(k,0)==reorder_copies(old,single_deph,single_deph)
+    assert sector_dephase(correlated.subs(k,1))==deph_joint
+
+    ll,rr,a,b=logical_ops(k)
+    assert sp.simplify(a*a+b*b-1)==0
+    symbolic_bell=sp.simplify(sum(sign*sp.trace(conditional*sp.kronecker_product(ll[i],rr[j]))
+        for i,j,sign in ((0,0,1),(0,1,1),(1,0,1),(1,1,-1))))
+    formula=2*(4+3*k*k)/(4+k*k)
+    assert sp.simplify(symbolic_bell-formula)==0
+    assert sp.simplify(formula-2-4*k*k/(4+k*k))==0
+    samples=sorted(set(sp.Rational(a,b) for b in range(1,9) for a in range(-b,b+1)))
+    profiles=[];prob_cases=0
+    for value in samples:
+        localstate=conditional.subs(k,value)
+        assert localstate.H==localstate and sp.trace(localstate)==1
+        assert (1+value)/2>=0 and (1-value)/2>=0
+        lhs,rhs,aa,bb=logical_ops(value)
+        bv,_,out=measure_statistics(localstate,lhs,rhs)
+        assert bv==formula.subs(k,value) and (bv>2)==(value!=0)
+        if value != 0:
+            error_bound=value*value/(4+value*value)
+            assert bv-4*(error_bound/2)>2
+        prob_cases += len(out)*4
+        if value in (0,sp.Rational(1,4),sp.Rational(1,2),1):
+            profiles.append({'joint_sign_coherence':str(value),'CHSH':str(bv),
+                             'a':str(aa),'b':str(bb),'sufficient_correlation_error_bound':str(value*value/(4+value*value))})
+
+    # The k=1 and k=0 sectors agree on one-site marginals but not on X_L tensor X_L.
+    logicalX=sp.zeros(4);logicalX[1,2]=logicalX[2,1]=1
+    assert sp.trace((conditional.subs(k,1)-conditional.subs(k,0))*sp.kronecker_product(logicalX,logicalX))==1
+    assignments=[a0*(b0+b1)+a1*(b0-b1) for a0,a1,b0,b1 in product((-1,1),repeat=4)]
+    assert set(assignments)=={-2,2}
+
+    # Reversible passive native transport: each local two-port register pair is
+    # translated one ±e_j step. Source slots remain, destination slots start at 00;
+    # SWAP gives a bijection conserving local total number, not copying states.
+    swap=old.perm_matrix(4,(2,3,0,1))
+    number4=sp.diag(*[i.bit_count() for i in range(16)])
+    assert swap*number4==number4*swap and swap*swap==sp.eye(16)
+    for i in range(4):
+        assert swap*sp.kronecker_product(old.basis(4,i),old.basis(4,0)) == sp.kronecker_product(old.basis(4,0),old.basis(4,i))
+    joint_transport = old.perm_matrix(6, (4,5,2,3,0,1))
+    before_transport = sp.kronecker_product(accepted,sp.diag(1,0,0,0))
+    after_transport = joint_transport * before_transport * joint_transport.H
+    assert old.ptrace(after_transport,6,(4,5,2,3)) == accepted
+    assert old.ptrace(after_transport,6,(0,1)) == sp.diag(1,0,0,0)
+    assert joint_transport.H * after_transport * joint_transport == before_transport
+    routes=0
+    for axis,sign in product(range(6),(-1,1)):
+        d=tuple(sign*int(j==axis) for j in range(6))
+        assert sum(abs(x) for x in d)==1
+        routes+=1
+
+    return {
+        'schema':'EM_DENSE_REFERENCE_CLOSURE_RESULTS_V1','event_id':EVENT,
+        'status':'EXACT_DERIVATIONS_AND_FINITE_TESTS_WITH_EXPLICIT_QUANTUM_ASSUMPTIONS',
+        'parent_sha256':EXPECTED,'sympy_version':sp.__version__,
+        'precision':{'M':M.tolist(),'M_mod3':mod3.tolist(),'persistent_residue':[0,2,2,2],
+                     'cycles_executed':denominator_steps,'examples':denom_report,
+                     'claim':'Three amplitudes have exact reduced denominator 3^(2n) for every n>=1.'},
+        'single_copy':{'old_X_Y_fail_local_number_commutation':True,
+                       'diagonal_effect_basis_tests':single_conserved_tests,
+                       'claim':'Under the declared no-asymmetric-reference measurement contract only number-block effects are available.'},
+        'two_copy':{'full_source_excitation_number':2,'sector_weights':[[str(x) for x in row] for row in sector],
+                    'herald_probability':str(weight),'conditional_CHSH':str(bell),
+                    'unconditional_same_observables_CHSH':str(rawbell),
+                    'all_rejected_flags_retained':True,'setting_choice_after_herald_required':True,
+                    'conditional_correlations':[[str(x) for x in row] for row in corr],
+                    'conditional_probabilities':probs,
+                    'block_effect_equivalence_tests':joint_observer_tests,
+                    'measurement_branch_matrix_unit_tests':instrument_tests,
+                    'actual_state_non_signalling_tests':non_signalling_tests,
+                    'full_coherent_protocol':finite_protocol,'coherent_branch_checks':finite_branch_checks,
+                    'finite_protocol_amplitude_grid_denominator':90,
+                    'finite_protocol_probability_grid_denominator':8100},
+        'joint_provenance':{'same_single_copy_observation_for_all_k':True,
+                            'symbolic_CHSH':str(formula),'strict_margin':str(4*k*k/(4+k*k)),
+                            'rational_k_values':len(samples),'outcome_probabilities_checked':prob_cases,
+                            'profiles':profiles},
+        'transport':{'signed_native_neighbor_routes':routes,'swap_basis_checks':4,'transported_joint_state_exact':True},
+        'nonclaims':[
+            'No derivation of tensor products, Born measurements or native force law from P000.',
+            'Conservation alone does not impose the stronger reference-free local measurement contract.',
+            'Quantum amplitudes are not proved to be native ontic grid coordinates.',
+            'The heralded CHSH value is NOT the unconditional CHSH value.',
+            'Two-copy preparation requires retained relative coherence; independent dephasing removes it.',
+            'Degenerate pointer registers and controlled instruments are declared resources, not proved physical devices.',
+            'No uncontrolled precision rounding, erasure of failed flags, energy reservoir, or faster-than-light signalling.',
+            'No NS theorem, independent review, Lean build or historical-novelty claim.'
+        ]
+    }
+
+
+def main():
+    if not __debug__:
+        raise RuntimeError('Run this checker without Python -O; exact assertions are required.')
+    p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--cycles',type=int,default=128)
+    p.add_argument('--output',type=Path,default=Path('results_17.json'))
+    args=p.parse_args()
+    if not 1<=args.cycles<=2048:
+        p.error('cycles must be between 1 and 2048')
+    data=run(args.cycles)
+    def encode(x):
+        if isinstance(x,sp.Integer):return int(x)
+        if isinstance(x,sp.Basic):return str(x)
+        raise TypeError(type(x).__name__)
+    text=json.dumps(data,ensure_ascii=False,indent=2,default=encode)+'\n'
+    args.output.parent.mkdir(parents=True,exist_ok=True)
+    args.output.write_text(text,encoding='utf-8')
+    print(json.dumps({'event_id':EVENT,'precision_cycles':args.cycles,
+                      'conditional_CHSH':data['two_copy']['conditional_CHSH'],
+                      'herald_probability':data['two_copy']['herald_probability'],
+                      'rational_k_values':data['joint_provenance']['rational_k_values'],
+                      'output':str(args.output)},ensure_ascii=False))
+
+if __name__=='__main__':main()

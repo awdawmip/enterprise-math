@@ -1,0 +1,50 @@
+{
+  "schema": "NOLLM_PRIME_POWER_CHART_TRANSPORT_CHECKPOINT_V1",
+  "event_id": "NOLLM-TOWER-CHART-TRANSPORT-20260910-C6C82",
+  "activity_id": "RA-nollm-hecke-views-20260909-c6c82",
+  "status": "DERIVED_AND_EXACT_FINITE_CHECKED_NOT_PROMOTED",
+  "note": {
+    "commit": "cc63021fd1c4f1bc762f409c8f242651b1db5a72",
+    "path": "research_notes/nollm_prime_power_chart_transport_20260910_c6c82.md",
+    "git_blob_sha1": "33d217575111a6cbb9f82dadb46dc1c4ed596804",
+    "sha256": "74971f493acd4ac6141beed0d6c2bba49d011f414906a846e9e49f50933e38c9"
+  },
+  "code": {
+    "commit": "c019c1dee6f52fec6db913f47672d4821e3d0414",
+    "path": "experiments/nollm_prime_power_chart_transport_20260910_c6c82.py",
+    "git_blob_sha1": "eea59aff0036ad1a048584a9b2f51f083632cc26",
+    "sha256": "f6f80926e626944203e4537345737bc64c470190d9da32f14290b907fbe2cb47"
+  },
+  "results_sha256": "f03914c62f16d15db481d42428c04bf73fd4b8e695c0c47d7e6708a1c4bf353e",
+  "checks": {
+    "fully_enumerated_pair_rows": 546,
+    "enumerated_class_appearances": 262050,
+    "naturality_checks": 264450,
+    "additive_generator_checks": 524100,
+    "chart_cocycle_matrix_checks": 13608,
+    "scalar_checks": 2400,
+    "product_refinement_checks": 52360,
+    "forward_fiber_parents": 1620,
+    "forward_fiber_children": 16884,
+    "digitwise_checks": 50652,
+    "joint_observer_checks": 30824,
+    "unchanged_predecessor_transport_agreements": 47520,
+    "deep_sample_and_matrix_max_depth": 101,
+    "even_fixed_classes_p11_depth2": 1,
+    "even_fixed_classes_p11_depth4": 1,
+    "rerun_results_byte_identical": true,
+    "run": "PASS"
+  },
+  "derived_scope": [
+    "explicit additive natural transports at every depth of the declared rotating towers",
+    "only zero can remain fixed at even checkpoints for any additive natural transport between distinct rotating charts",
+    "all ambient chart observations need exactly one extra base-p digit at odd depths, none at even depths"
+  ],
+  "limits": [
+    "prime-local CRT coordinates, not a single global rational or integer lattice map",
+    "identity means a declared coordinate isomorphism, not unchanged ambient positions",
+    "digitwise natural maps need not preserve addition",
+    "finite tests are not the source of the all-depth proof",
+    "no ordinary integer-label multiplication embedding, Nollm runtime integration, or theorem promotion"
+  ]
+}

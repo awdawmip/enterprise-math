@@ -1,0 +1,72 @@
+{
+  "schema": "EM_DENSE_TRIADIC_SCATTERING_GATE_RESULTS_V1",
+  "event_id": "NS-DENSE-TRIADIC-SCATTERING-GATE-20260910-D5C00D-18",
+  "S3_classes": [
+    [
+      1,
+      1,
+      "1",
+      "0"
+    ],
+    [
+      1,
+      -1,
+      "-1/3",
+      "2/3"
+    ],
+    [
+      -1,
+      1,
+      "1/3",
+      "-2/3"
+    ],
+    [
+      -1,
+      -1,
+      "-1",
+      "0"
+    ]
+  ],
+  "one_layer_cavity_triples": 66,
+  "one_layer_max_direct_ports": 2,
+  "bare_symmetric_axis_selector_exists": false,
+  "fair_order_orbit_bound": 720,
+  "cases": {
+    "(1, -1)": {
+      "diag": "-1/3",
+      "offdiag": "2/3",
+      "sum_preserving": true,
+      "center": "1/531441",
+      "each_neighbor": "-4/2187",
+      "laplacian_coefficient": "-4/2187",
+      "I_coefficient": "-11663/531441",
+      "resolved_order_classes": 1,
+      "residual_order_signatures": 720,
+      "dense_triad_background_fixed": true
+    },
+    "(-1, 1)": {
+      "diag": "1/3",
+      "offdiag": "-2/3",
+      "sum_preserving": false,
+      "center": "1/531441",
+      "each_neighbor": "4/2187",
+      "laplacian_coefficient": "4/2187",
+      "I_coefficient": "11665/531441",
+      "resolved_order_classes": 1,
+      "residual_order_signatures": 720,
+      "dense_triad_background_fixed": true
+    }
+  },
+  "positive_normalized_shape": {
+    "attenuation": "11665/531441",
+    "center": "1/11665",
+    "neighbor_each": "972/11665",
+    "operator": "I+(972/11665) Delta_X6"
+  },
+  "fresh_rerun_expected_deterministic": true,
+  "nonclaims": [
+    "algebraic triad != certified TRIADIC_CLOSURE_E",
+    "two-sweep compression != all-time heat law",
+    "no NS or viscosity theorem"
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "schema": "EM_TRIADIC_RELATION_GATE_RESULTS_V1",
+  "event_id": "NS-TRIADIC-RELATION-GATE-20260916-D5C00D-20",
+  "parents": {
+    "experiments/ns_finite_relation_d5c00d/check_stabilizer_relation.py": "6ff48da0bbd6a041f580696f464353216696bd21a27d0ac411b0e2dafe4202a4",
+    "experiments/ns_local_relation_d5c00d/check_local_relation.py": "e3ea2ebb040b00969a5896164978b92c4726bd53bc7f1c4e6784d08c573c98a7"
+  },
+  "checks": {
+    "exact_conjugations": 1728,
+    "raw_row_cases": 13824,
+    "endpoint_permutation_equalities": 82944,
+    "orbit_states_reused": 1080,
+    "triple_gate_state_images": 29160,
+    "odd_gate_state_orbit": 1080,
+    "gauge_lifts": 64,
+    "gauge_steps_each": 4,
+    "all_XY_joint_probabilities": 64,
+    "signed_three_axis_routes": 960,
+    "nonzero_primitive_moves": 23040,
+    "rejected_nonlocal_gate": true
+  },
+  "results": {
+    "rows_after_R": [
+      [
+        -1,
+        "YXX"
+      ],
+      [
+        -1,
+        "XYX"
+      ],
+      [
+        -1,
+        "XXY"
+      ]
+    ],
+    "operator_cut_ranks": [
+      2,
+      2,
+      2
+    ],
+    "mermin": 4,
+    "classical_Mermin_bound": 2,
+    "mixture_Mermin": 0,
+    "pair_marginals_equal_opposite_phases": true,
+    "same_gate_after_opposite_phases": [
+      "111",
+      "000"
+    ],
+    "bare_excitation_after_gate": "3/2",
+    "dual_rail_each_pair_excitation": 1,
+    "dual_rail_total_excitation": 3,
+    "gate_density_period": 4,
+    "closed_router_ticks": 12,
+    "odd_weight_parity_invariant": true,
+    "CNOT_excluded_on_same_register_without_extra_resources": true,
+    "pair_circuit_decomposition_exists": true,
+    "density_entries_grid": "(Z+iZ)/8 for fixed three-qubit pure stabilizer orbit"
+  },
+  "scope": [
+    "All rules are explicit comparator assumptions, not P000-derived primitive force laws.",
+    "Three-party structural indispensability does not mean every state changes or the gate is elementary.",
+    "Reachability of all 1080 pure stabilizer states does not imply every Clifford channel can be implemented.",
+    "No measurement reset in the closed recurrent process; no irreversibility or instability inferred.",
+    "Conserved excitation is an indicator, not complete physical energy.",
+    "No local hidden-variable measurement model, NS theorem, independent review or Lean build."
+  ]
+}

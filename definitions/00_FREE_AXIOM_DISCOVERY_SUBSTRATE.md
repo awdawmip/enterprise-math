@@ -1,5 +1,12 @@
 # Enterprise Math — FREE_AXIOM_DISCOVERY Primitive Substrate Router
 
+<!-- EM_FINAL_CELL_ADDRESS_CONTRACT_V1 -->
+## Public address typing only (2026-09-13)
+
+Before exporting a final Cell address, apply [`coordinate_address_contract.json`](../coordinate_address_contract.json): six nonnegative fields; inactive fields may be zero only losslessly; no operational display origin and no automatic boundary increment. This is an interface constraint, not a new discovery prior or an instruction to load theorem/result catalogs. Preserve this router's information firewall and all original P000 premises. Raw signed proof coordinates remain separate from final public addresses.
+<!-- END_EM_FINAL_CELL_ADDRESS_CONTRACT_V1 -->
+
+
 Status: `ACTIVE / CANONICAL FREE-DISCOVERY SUBSTRATE ROUTER / P000-BOUND / WEIGHTED-BRC-GLOBAL-TYPING`
 Effective: `2026-09-02`
 Research mode: `FREE_AXIOM_DISCOVERY`

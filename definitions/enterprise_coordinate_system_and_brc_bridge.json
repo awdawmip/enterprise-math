@@ -13,13 +13,9 @@
     "status": "SUPERSEDED"
   },
   "current_native_route": {
-    "origin": 0,
-    "axis_semantics": "THREE_POSITIVE_NATIVE_RAYS",
-    "native_negative_axes_required": false,
-    "right_angle_degrees": 120,
-    "address_carrier": "N_0^3",
-    "canonical_condition": "min(a,b,c)=0",
-    "foundation": "definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md"
+    "foundation": "definitions/00_CURRENT_NATIVE_FOUNDATION.md",
+    "final_address_contract": "coordinate_address_contract.json",
+    "historical_sections_are_current_authority": false
   },
   "retained_terminology": {
     "enterprise_coordinate_system": true,
@@ -28,5 +24,14 @@
     "brc_bridge_role": "TYPED_COLLAPSE_READOUT_BRIDGE_IF_SOURCE_AND_TARGET_SEMANTICS_ARE_EXPLICIT"
   },
   "current_brc_route": "definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md",
-  "warning": "Do not use the superseded signed-origin or six-direction fields as current native premises."
+  "warning": "Do not use the superseded signed-origin or six-direction fields as current native premises.",
+  "coordinate_address_contract": "coordinate_address_contract.json",
+  "coordinate_address_scope": {
+    "final_address": "SIX_NONNEGATIVE_FIELDS_WITH_REGISTERED_LOSSLESS_CODEC",
+    "raw_coordinate_and_displacement": "EXISTING_SIGNED_INTERNAL_MATHEMATICS_UNCHANGED",
+    "legacy_coordinate_zero_keys": "RAW_CHART_ZERO_NOT_DISPLAY_ORIGIN",
+    "display_origin_and_axes_operational": false,
+    "crossing_forces_increment": false,
+    "proof_scope": "REGISTERED_FIXED_TWO_GENERATOR_SLICE_NOT_FULL_X6"
+  }
 }

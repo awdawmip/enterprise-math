@@ -154,7 +154,7 @@ class RegisteredHandoffScopeGuardTests(unittest.TestCase):
         self.assertEqual("FROZEN_RETURN", state["state"])
         self.assertEqual("AWAITING_REVIEW", state["dispatch_state"])
 
-    def test_pre_cutover_plain_handoff_remains_legacy_compatible(self):
+    def test_pre_cutover_plain_handoff_preserves_unresolved_scope(self):
         state = self.reduce(
             [
                 claim(at="2026-09-07T02:18:00+00:00"),
@@ -168,8 +168,18 @@ class RegisteredHandoffScopeGuardTests(unittest.TestCase):
             ],
             "2026-09-07T02:19:30+00:00",
         )
-        self.assertEqual("HANDOFF_READY", state["state"])
-        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
+        # The current reconciliation contract covers recorded untyped handoffs;
+        # its forward CLAIM clock preserves old owners, not fresh redispatch.
+        self.assertEqual("BLOCKED", state["state"])
+        self.assertEqual("BLOCKED", state["dispatch_state"])
+        self.assertEqual("LEGACY_HANDOFF_SCOPE_UNRESOLVED", state["hard_block"]["code"])
+        self.assertEqual(2, state["hard_block"]["source_handoff"]["server_comment_id"])
+        self.assertEqual(
+            "2026-09-07T02:19:00+00:00",
+            state["hard_block"]["source_handoff"]["progress_at"],
+        )
+        self.assertIsNone(state["claim_id"])
+        self.assertEqual([], state["ignored_events"])
 
     def test_scoped_correction_before_expiry_supersedes_ambiguous_handoff(self):
         state = self.reduce(

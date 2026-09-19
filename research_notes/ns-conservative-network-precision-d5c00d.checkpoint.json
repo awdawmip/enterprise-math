@@ -1,0 +1,59 @@
+{
+  "schema": "EM_CONSERVATIVE_NETWORK_PRECISION_CHECKPOINT_V1",
+  "event_id": "NS-CONSERVATIVE-NETWORK-PRECISION-20260916-D5C00D-17",
+  "status": "TESTING_CONDITIONAL_PROOFS_AND_EXECUTED_EXACT_CHECKS",
+  "source_snapshot": "7101de468735f6e0b6a74c8f1bb1cf0fb29a8712",
+  "research_activity_id": "RA-D5C00DF7D77F4AA2ACE0",
+  "artifacts": [
+    {
+      "path": "research_notes/ns-conservative-network-precision-20260916-d5c00d.md",
+      "git_blob_sha1": "305f6ca788d6e0523de3ecb4e87107170da81caf",
+      "role": "published concise proof; expanded proof retained in reproducibility package"
+    },
+    {
+      "path": "experiments/ns_conservative_network_d5c00d/check_network.py",
+      "sha256": "79ae0be6aa533cb806f365ef8b9532b83584437ba38190bf6e8c95ae444875b4",
+      "git_blob_sha1": "e2c404575fc22321a7998c22d19ddda9cb9b49ff"
+    },
+    {
+      "path": "experiments/ns_conservative_network_d5c00d/law_specification.json",
+      "sha256": "0faf8b6353dbafb70203f335a8944044f0ee46033de2b69b277d4e1cee8ad516",
+      "git_blob_sha1": "fac896ccd6f91a6ad07d65738abdcda05ffe7ca1"
+    },
+    {
+      "path": "experiments/ns_conservative_network_d5c00d/hole_extension.json",
+      "sha256": "80362e841aa44ea72eecc1f9d56bf07acac69d44b6f14c7547cbf9f9d1a7f52b",
+      "git_blob_sha1": "d9fe16fc96914d2e178f82a5df1c4167a9ae0b2c"
+    },
+    {
+      "path": "research_notes/ns-conservative-network-precision-20260916-d5c00d.results.json",
+      "sha256": "8c3be8a2a2bb396e5b4f9a7ddc97eca55328e78d4dc9816c4baaac928c1c8f22",
+      "git_blob_sha1": "8d11a6eb6263ad4d4567a8c711b7cce3e953d500"
+    }
+  ],
+  "results": {
+    "source_probability_t6": "1/531441",
+    "source_probability_t7": "43/1594323",
+    "source_revival_ratio": "43/3",
+    "source_probability_t12": "59377/531441",
+    "first_phase_sensitive_tick": 8,
+    "four_fixed_port_reduced_denominator": "9^n, n>=1",
+    "integer_ray_observer_outputs": [
+      "1",
+      "1/9"
+    ],
+    "encoded_CHSH": "112/45",
+    "receiver_CHSH": "112*p/45",
+    "local_continuity_checks": 38332,
+    "final_nonzero_modes": 28125,
+    "four_port_exact_iterations": 32,
+    "fresh_rerun_byte_identical": true
+  },
+  "scope": [
+    "Particle-hole symmetry is a new explicit comparison assumption.",
+    "Quantum tensor products, coherent amplitudes and Born measurements are not derived from P000.",
+    "No fixed finite amplitude alphabet closes the four-port orbit.",
+    "No native force, complete physical Hamiltonian, NS theorem, Lean build or independent review."
+  ],
+  "next": "Construct a finite-resolution joint-state update and its operational measurement bridge, rather than discard coherence or hide an unbounded precision requirement."
+}

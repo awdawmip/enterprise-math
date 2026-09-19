@@ -1,0 +1,105 @@
+{
+  "schema": "HEARTBEAT_PHASE_ALGEBRA_VALIDATION_V1",
+  "status": "PASS",
+  "check_groups": 10,
+  "seed": 26091941,
+  "results": {
+    "source_identity": {
+      "full_files_checked": 5,
+      "hashes": {
+        "research/heartbeat_algebra.py": "c8d0b73a805740075e9b485d53e3b9ab71636490",
+        "vendor/enterprise_math/brc_transport.py": "be1debe367263931bd5e93fd750be3ed54624fe1",
+        "vendor/enterprise_math/brc_histogram.py": "9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1",
+        "vendor/enterprise_math/predictive_quotient.py": "f27d9ddf908f5b07051acfaf0c69f359d499b98b",
+        "definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json": "77bc5e6e018057063130b3999e3c0ccaaf4fa5f5"
+      }
+    },
+    "world_contract": {
+      "valid": true,
+      "invalid_mutations_rejected": 7
+    },
+    "transported_ring": {
+      "random_triples": 600,
+      "radices": [
+        2,
+        3,
+        4,
+        5,
+        7
+      ],
+      "depths": "0..12",
+      "two_product_algorithms_agree": true
+    },
+    "axis_relabeling": {
+      "positive_axis_permutations": 720,
+      "algebra_transported_not_fixed": true
+    },
+    "coarse_residue_product": {
+      "signed_pairs": 500,
+      "max_depth": 12,
+      "no_residue_dropped": true
+    },
+    "nonlinear_evolution_covariance": {
+      "initial_states": 3,
+      "steps_per_state": 8,
+      "material_U": "x*x+1",
+      "baseline_and_breathing_identical_material_evolution": true
+    },
+    "false_frame_dynamics_witness": {
+      "phase_depth": 1,
+      "encoded_material_one": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "correct_same_phase_product": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "incorrect_static_formula": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    "quadratic_moment_boundary": {
+      "equal_input_degree2_moments": true,
+      "next_first_moments": [
+        "1",
+        "1"
+      ],
+      "next_second_moments": [
+        "1",
+        "4"
+      ],
+      "moment_degree_sufficient_after_K_steps": "2^(K+1), not asserted minimal"
+    },
+    "joint_BRC_multiplication": {
+      "equal_input_marginals": true,
+      "shared_sign_product_mean": "1",
+      "independent_sign_product_mean": "0",
+      "positive_mass_preserved": true
+    },
+    "invalid_ports_and_domains": {
+      "rejected": 8,
+      "same_phase_later_time_not_same_event": true
+    }
+  },
+  "limits": [
+    "research adapter, not production or Foundation",
+    "no whole-project suite or independent referee",
+    "fixed frame program; no new physical law",
+    "no generic finite-memory guarantee",
+    "prior 15-group suite consumed, not recounted as this run"
+  ]
+}

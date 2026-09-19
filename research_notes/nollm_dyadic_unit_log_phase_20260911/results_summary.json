@@ -1,0 +1,59 @@
+{
+  "schema": "NOLLM_DYADIC_UNIT_LOG_PHASE_RESULT_V1",
+  "status": "PROVED_DERIVATION_IN_DECLARED_MODEL_PLUS_FINITE_DISPLAY_OBSERVER",
+  "local_verifier_passed": true,
+  "exact_checks": {
+    "bitwise_dlog_cases": 8184,
+    "multiplication_pairs": 90462,
+    "dyadic_histogram_formula_grid": "b=3..8, L=b+2..b+6, zero failures"
+  },
+  "proved": {
+    "carrier": "n=2^v u; u=(-1)^eps 5^t mod 2^(b+2); multiplication adds (v,eps,t)",
+    "histogram": "H_Lb(a)=2^(L-b)-2+R_Lb(a), R>=0, sum R=2^(b+1)-1 for L>=b+2",
+    "tv_bound": "TV <= (2^(b+1)-1)/(2^L-1)",
+    "fourier_bound": "same upper bound for every nontrivial phase Fourier coefficient",
+    "critical_scaling": "M=Theta(sqrt(N)) on dyadic N gives O(N^-1/2) global phase discrepancy",
+    "resolution_bond": "t_(b+1)=t_b+eta_b*2^b and exp(2pi i t_(b+1)/2^(b+1))^2=exp(2pi i t_b/2^b)"
+  },
+  "finite_display": {
+    "N_65536_b11": {
+      "M": 2048,
+      "angular_cv_64": 0.00681309774269435,
+      "occupied_2d": 58486,
+      "occupied_ratio_2d": 0.892425537109375,
+      "collision_groups_2d": 6082,
+      "maxload_2d": 8,
+      "occupied_cell_eps_v2": 64863,
+      "occupied_ratio_cell_eps_v2": 0.9897308349609375,
+      "collision_groups_cell_eps_v2": 665,
+      "maxload_cell_eps_v2": 3
+    },
+    "N_1000001_b13": {
+      "M": 8192,
+      "angular_cv_64": 0.0011877238736339353,
+      "occupied_2d": 891433,
+      "occupied_ratio_2d": 0.8914321085678915,
+      "collision_groups_2d": 93230,
+      "maxload_2d": 10,
+      "occupied_cell_eps_v2": 988931,
+      "occupied_ratio_cell_eps_v2": 0.9889300110699889,
+      "collision_groups_cell_eps_v2": 10837,
+      "maxload_cell_eps_v2": 4
+    },
+    "critical_power2_sweep": "N=2^10..2^20 with b=ceil(log2(2*pi*sqrt(N))); 2D occupied ratio approximately 0.8906..0.9053 and (cell,eps,v2) ratio approximately 0.9861..0.9911"
+  },
+  "tool_acceptance": {
+    "unit_tests": 8,
+    "focused_chromium_checks": 12,
+    "page_errors": 0,
+    "external_requests": 0,
+    "11bit": {"occupied": 58486, "angular_cv": 0.00681309774269435, "p2_tick": 256, "multiplication_failures": 0},
+    "16bit": {"occupied": 57520, "angular_cv": 0.028286781995903912, "p2_tick": 8192, "multiplication_failures": 0}
+  },
+  "boundary": [
+    "display hex occupancy uses floating trigonometry and rounding",
+    "source integer identity is never collapsed",
+    "no Nollm runtime or X6 definition change",
+    "not Foundation admission and not an asymptotic occupancy theorem"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "action": "CLAIM_NEW_OWNER",
+  "control_epoch": "EM-CONTROL-20260904-CANONICAL-DISPATCH-AUTHORITY-1",
+  "diagnostics": {
+    "load_policy": "TRIGGERED_ONLY",
+    "receipt_path": "control_plane/chatgpt_dispatch_receipts/chatgpt-20260917-autoA-1227-7f4c9d31.json"
+  },
+  "generated_at": "2026-09-17T04:30:40Z",
+  "kind": "RESEARCH",
+  "new_claim_required": true,
+  "owner_claim_preserved": false,
+  "packet_bytes": 3219,
+  "read_plan": {
+    "context_accounting": "PACKET_AND_EXTERNAL_TASKBOOK_ONLY_NOT_END_TO_END",
+    "dependency_ref_verification": "SOURCE_READ_REQUIRED_PRESERVE_DECLARED_REF",
+    "external_taskbook_bytes": 8905,
+    "first_dependency_ref": null,
+    "forbidden": [
+      "REMOTE_FETCH_AGENTS_MD_FOR_ORDINARY_START",
+      "FULL_DISPATCH_RECEIPT_ON_ORDINARY_START",
+      "CURRENT_CONTROL_AUTHORITY_ON_ORDINARY_START",
+      "ISSUE_240_FULL_COMMENT_STREAM_IN_CONVERSATION",
+      "HIGH_FANOUT_DIRECTORY_OR_RECURSIVE_TREE_DISCOVERY"
+    ],
+    "if_first_dependency_unknown": "TASK_UNDERSTANDING_THEN_BOUNDED_TARGETED_SEARCH_ONLY",
+    "packet_plus_external_taskbook_bytes": 12124,
+    "remote_source_reads_before_substantive_math_max": 2
+  },
+  "reason": "fresh canonical task selector returned a dispatchable target",
+  "request_id": "chatgpt-20260917-autoA-1227-7f4c9d31",
+  "schema": "ENTERPRISE_MATH_RESEARCHER_STARTUP_PACKET_V1",
+  "source_sha": "4ba32d9513dfda69d7102e1347f9af9be3eb1091",
+  "surface": "ORDINARY_TASK",
+  "target_key": "RS-PFSSV-FINITE-WINDOW-NULL-IDENTIFIABILITY",
+  "task": {
+    "claim_id": null,
+    "dispatch_state": "NEEDS_DISPATCH",
+    "frontier": "The original 21 corrected observation cells and scalar-null capacity audit are complete; their strong residual hard target is OPEN. A coherent, identifiable finite-window statistical law has not been specified.",
+    "identity_lane": "PFN",
+    "last_progress_at": "2026-09-08T13:30:39+00:00",
+    "last_progress_ref": "https://github.com/awdawmip/enterprise-math/commit/fabe2a359cc5f2460a59d08abe462b1bb24c2593",
+    "lease_until": null,
+    "next_action": "Remain in the canonical queue. Resume PFN from its prepared intent only when the current dispatcher selects this target and a new valid owner assignment is established. No PFN proof, witness, scientific sampling, Result or terminal verdict has been produced.",
+    "owner": "taskbook/unassigned",
+    "projection": null,
+    "projection_mode": "EXACT_TASKBOOK_REQUIRED",
+    "publication_id": "TP2-38717785C4ADF3A12A49",
+    "publication_record_path": "research_task_records/RS-PFSSV-FINITE-WINDOW-NULL-IDENTIFIABILITY/TP2-38717785C4ADF3A12A49.json",
+    "required_task_sections": [
+      "Mother question",
+      "Frozen inputs and scope",
+      "Hard target and required outputs",
+      "Research value to preserve",
+      "Success, kill, and return criteria"
+    ],
+    "researcher_id": null,
+    "state": "HANDOFF_READY",
+    "task_id": "RS-PFSSV-FINITE-WINDOW-NULL-IDENTIFIABILITY",
+    "taskbook_blob_sha1": "sha1:7a96af089d96b37a559fa5c564f7ce5d3a5444ef",
+    "taskbook_bytes": 8905,
+    "taskbook_path": "research_tasks/PFSSV_FINITE_WINDOW_NULL_IDENTIFIABILITY_20260908.md",
+    "title": "PFSSV: Finite-Window Null Contract and Identifiability"
+  }
+}

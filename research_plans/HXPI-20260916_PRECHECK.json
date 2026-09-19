@@ -1,0 +1,46 @@
+{
+  "schema": "HXPI_TASK_PUBLICATION_PREFLIGHT_V1",
+  "source_snapshot": "12cb71806b655935d1c51861fa35d13a01c8ed2e",
+  "mode": "LOCAL_EQUIVALENT_PREFLIGHT_FOR_CONNECTOR_TRANSPORT",
+  "canonical_taskbook_audit_blob": "46e75a035680a4b5cd5f7ab4071c259c607e767e",
+  "canonical_record_impl_blob": "40f603244e69582bcff388eb6efd6044d51f6d76",
+  "canonical_facade_blob": "1635f9b9dbf66713c86ba6759816c0a77498496e",
+  "policy_digest": "sha256:98ee2981553fb4eeaf5bd8599513719ee2ac987fae875e9c5daf8a3e2156f3cf",
+  "tasks_passed": 8,
+  "negative_cases_rejected": [
+    "researcher_id",
+    "origin_kind",
+    "parent_task_id",
+    "task_authority",
+    "frontier",
+    "next_action",
+    "successor_gap",
+    "stale_policy",
+    "missing_section",
+    "forbidden_runtime_directive",
+    "partial_block"
+  ],
+  "exact_body_sections": [
+    "Mother question",
+    "Frozen inputs and scope",
+    "Hard target and required outputs",
+    "Research value to preserve",
+    "Success, kill, and return criteria"
+  ],
+  "taskbook_record_binding": "PASS",
+  "dag_cycle_check": "PASS",
+  "semantic_review": "Eight distinct unresolved scopes; no new mathematical result, priority escalation or truth grant.",
+  "claimable_record_is_not_runtime_ready": true,
+  "initial_ready": 1,
+  "initial_blocked": 7,
+  "remote_publication": "PENDING",
+  "limits": [
+    "Not a repository-wide audit or authenticated live dispatch run.",
+    "Policy digest equals canonical byte-identity digest computed from connector-observed immutable blob IDs; not from fabricated local policy files.",
+    "No automatic task execution or background scheduler is started."
+  ],
+  "transaction_validation_scope": "NEW_EIGHT_TASKBOOKS_AND_RECORDS_ONLY",
+  "record_generation_at": "2026-09-16T05:11:05.225533+00:00",
+  "publication_parent_snapshot": "577bf1f0599bb91f8337b4de7e464562d4f254b9",
+  "concurrent_change_check": "Only unrelated GBRC research note and activity/checkpoint files changed; policy inputs and frozen sources unchanged."
+}

@@ -1,0 +1,48 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "date": "2026-09-20",
+  "methods": [
+    {
+      "method_id": "t0.heartbeat_residue_guarded_transport",
+      "name": "Heartbeat World residue-guarded BRC affine transport",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+      "source_refs": [
+        "research_notes/heartbeat_world_residue_gates_20260920_AD0416/research/brc_residue_transport.py",
+        "research_notes/heartbeat_world_residue_gates_20260920_AD0416/research/heartbeat_residue_gates.py",
+        "research_notes/heartbeat_world_residue_gates_20260920_AD0416/research/RESIDUE_RESEARCH_NOTE.md",
+        "research_notes/heartbeat_world_residue_gates_20260920_AD0416/tests/verify_residue_gates.py",
+        "src/enterprise_math/brc_transport.py",
+        "src/enterprise_math/predictive_quotient.py"
+      ],
+      "api": [
+        "ResidueControl",
+        "GuardedKernel",
+        "GuardedMoments",
+        "gate_kernel",
+        "shuffled_sweep",
+        "active_heartbeat_gate"
+      ],
+      "triggers": [
+        "心跳世界",
+        "Heartbeat World",
+        "conditional branch",
+        "residue guard",
+        "finite control",
+        "joint parity",
+        "moment closure"
+      ],
+      "capabilities": [
+        "certified finite-control source/target routing with temporal ports",
+        "exact reuse of positive weight/action histograms",
+        "all-finite-word degree-two moments within the guarded affine lease",
+        "32-to-64 control refinement on material heartbeat admission",
+        "unit-step geometry-dependent gate and equal-work order experiment"
+      ],
+      "core_law": "(K star L)[c,e]=sum_d K[c,d] star L[d,e]; M_next[d]=sum_(c,a:c->d) count*weight*H_a*M[c]*H_a^T",
+      "hard_boundary": "Research candidate, not Foundation or production. Conditional weights must depend only on the declared finite control. No general occupancy/path-label/high-degree closure, no arbitrary contraction or scale-switching closure, and no constant-bit-memory claim. World dimensions and P000 are unchanged."
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_EXECUTION_RECORD_V1",
+  "record_state": "CLAIM_INTENT",
+  "execution_record_id": "ER-E90FEF513B0AEE96C73E",
+  "task_id": "RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION-STATEMENT-CORRECTION",
+  "publication_id": "TP2-1C146C521C5946742C17",
+  "taskbook_path": "research_tasks/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_STATEMENT_CORRECTION_20260909.md",
+  "taskbook_blob_sha1": "sha1:6a6219a49ea430ed06ba9796c0037e768c993051",
+  "claim_id": "CLM-PCF7FIX-0BFF2D2CD73646AD",
+  "researcher_id": "EM-PCF7FIX-B603FA",
+  "theorem_owner": "research/prime-coord-factor-complexity-failure-classification-statement-correction",
+  "execution_branch": "research/pcf7fix-b603fa",
+  "execution_branch_base": "945fa2e30db25f9d76cdbc6b6302084bc086c973",
+  "allowed_outputs": [
+    "research_returns/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_STATEMENT_CORRECTION_RETURN_20260917.md",
+    "research_artifacts/PCF7_FIXED_PROBE_ZERO_VALUE_CORRECTION_20260917/statement_audit.json",
+    "research_artifacts/PCF7_FIXED_PROBE_ZERO_VALUE_CORRECTION_20260917/checker_replay.json",
+    "research_execution_records/ER-E90FEF513B0AEE96C73E.json",
+    "research_result_records/RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION-STATEMENT-CORRECTION/RR-F97259D79B7E7EF3F69F.json",
+    "research_activity_records/RA-41fbc67e4f414058.json"
+  ],
+  "owner_lease_minutes": 120,
+  "prepared_at": "2026-09-17T05:20:00+00:00",
+  "research_disposition": "SUCCESS / AWAITING_INDEPENDENT_DRIVER_REVIEW",
+  "mathematical_delta": "ZERO_PROBE_STATEMENT_ONLY",
+  "validation": {
+    "checker_path": "research_checks/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_CHECK_20260831.py",
+    "checker_git_blob_sha1": "sha1:b2a53c365f442fb2915cd869b77b62d9ce8a9ec8",
+    "checker_sha256": "sha256:8a878f62fd213177036d14704dcd4efd19cad5b7e6f40dd96f3f91531b3492d9",
+    "runtime": "Python 3.13.5",
+    "checker_exit_code": 0,
+    "checker_stdout": "PCF7_CHECK_PASS recurrence_terms=18 gcd_cases=108 pcf4_balanced_zero=1009x1013 fixed_probe_balanced_zero=10007x10009 amplification=PASS regime_order=PASS",
+    "statement_audit": "PASS / 50399 exhaustive pairs plus 6 zero-probe examples"
+  },
+  "pre_result_manifest": [
+    {
+      "path": "research_returns/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_STATEMENT_CORRECTION_RETURN_20260917.md",
+      "git_blob_sha1": "sha1:908163050b1850c0c4fbd8f576ea271661790047",
+      "sha256": "sha256:b26f1e0f8ecc6202ff0fa85e1421f9ed10706e5e4f731d0d66664c41108af077"
+    },
+    {
+      "path": "research_artifacts/PCF7_FIXED_PROBE_ZERO_VALUE_CORRECTION_20260917/statement_audit.json",
+      "git_blob_sha1": "sha1:a86bd1532217b17d315902580064d4a581e4b563",
+      "sha256": "sha256:79d9e4ab6ba03c10f6f302cd48632715546e4db857e252234e20a7ffd556fe2a"
+    },
+    {
+      "path": "research_artifacts/PCF7_FIXED_PROBE_ZERO_VALUE_CORRECTION_20260917/checker_replay.json",
+      "git_blob_sha1": "sha1:224ae542e97d433c7a2ed9f177a451840c32ecac",
+      "sha256": "sha256:05d8ae854c15b727be1a0ee869bb9808618e8a965157d74f1fc3c9b50ec3c1d7"
+    }
+  ]
+}

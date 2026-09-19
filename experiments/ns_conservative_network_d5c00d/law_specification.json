@@ -1,0 +1,16 @@
+{
+  "schema": "EM_CONSERVATIVE_NETWORK_COMPARISON_V1",
+  "event_id": "NS-CONSERVATIVE-NETWORK-PRECISION-20260916-D5C00D-17",
+  "status": "FROZEN_COMPARISON_RULE_BEFORE_EXECUTION_NOT_NATIVE_LAW",
+  "source_parent": "awdawmip/enterprise-math@faee345d2eeff4497551d5b2545fa8ce6947f9a4",
+  "coordinates": "signed native Z6 Cell coordinates; three resident two-level registers per Cell",
+  "scope": "fixed finite torus for full tensor-product quantum circuit; finite-cone compatible Z6 single-excitation calculation",
+  "control": "ordered six-axis frame and modulo-six phase; cyclic phase update, frame transported under axis relabeling; synchronized clock is an explicit assumption",
+  "local_gate": "G=(2/3)J3-I3 on single-excitation sector; identity on other sectors",
+  "step": "local gate everywhere, onsite B/C swap, disjoint neighbor swaps C(z)<->B(z+e_axis), advance phase",
+  "quantum_assumptions_added": ["tensor product", "Born rule", "unitary gates", "coherent amplitudes"],
+  "no_arbitrary_loss": ["no dephasing", "no rounding", "no environment reset", "no loss-fitted source term"],
+  "observers": ["source-Cell excitation", "full norm and excitation", "joint coherent receiver state", "reduced denominator", "all original signed coordinates"],
+  "comparison_only_controls": ["fully dephased walk", "two overlapping local G gates on four resident ports"],
+  "nonclaims": ["no force-admissibility certificate", "no full physical Hamiltonian", "no derivation of quantum theory from P000", "no fixed-resolution closure asserted", "no NS result"]
+}

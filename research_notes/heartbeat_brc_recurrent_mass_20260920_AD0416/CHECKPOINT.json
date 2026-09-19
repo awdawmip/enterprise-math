@@ -1,0 +1,34 @@
+{
+  "schema": "EM_HEARTBEAT_BRC_RECURRENT_MASS_CHECKPOINT_V1",
+  "event_id": "heartbeat-brc-recurrent-mass-20260920-AD0416",
+  "research_activity_id": "RA-37C0A30C7B1F5A338F03D186",
+  "status": "REMOTE_MAIN_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "source_commit": "cecc949499eae9b7bb44b1298ce60662899263cc",
+  "tool": "src/enterprise_math/brc_control_mass.py",
+  "method_addendum": "research_method_inventory_addenda/20260920_brc_control_mass.json",
+  "theorem_ledger": "research_notes/heartbeat_brc_library_20260920_AD0416/THEOREM_LEDGER.json",
+  "theorem_ids": [
+    "HBRC-REC-001",
+    "HBRC-REC-002",
+    "HBRC-REC-003",
+    "HBRC-REC-004"
+  ],
+  "validation": {
+    "local_module_sha256": "1704605c7542bb557a67ee95a50056179027d34e6ab6b30578b4408daeff97b8",
+    "local_test_sha256": "5c8845eed365ee5b923ef84a01734175088933f4436bbdb3cfba5a7b1dcbb5d2",
+    "local_result": "PASS",
+    "checks": [
+      "two-state mass-equivalent/effect-distinct witness",
+      "phase-dependent 1/2 versus 3/2 rejection witness",
+      "64-state D6-equivariant positive kernel -> 13 mass classes",
+      "exact raw/quotient total-mass recurrence equality through depths 0..8",
+      "strict row-sum stable witness on both raw and quotient matrices"
+    ],
+    "recurrent_tool_reuse": "REUSE_APPLIED; exact current brc_weighted_recurrent theorem/interface inspected, but not executed in the local bundle because that module was absent there",
+    "independent_review": false,
+    "full_project_tests": false,
+    "lean": false,
+    "nollm_production_changed": false
+  },
+  "boundary": "Positive total mass only; no affine-effect equivalence, signed cancellation, path provenance, hidden control or physical instability claim."
+}

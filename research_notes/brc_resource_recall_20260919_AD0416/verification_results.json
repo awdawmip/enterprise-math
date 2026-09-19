@@ -1,0 +1,201 @@
+{
+  "status": "PASS",
+  "check_groups": 10,
+  "nollm_source": "88d63b32329fbbcd18028de1ac83b2db3c988e33",
+  "em_source": "c62b1472db2e6ad90e988247f9590e2cf62957e1",
+  "results": {
+    "01_source_identity": {
+      "full_exact_files": 12,
+      "git_blobs": {
+        "nollm_core/recall.py": "02c148caad1929a0f72055100b75f806f55a956d",
+        "nollm_core/atom.py": "2e62a248cca48b459b4b21304a4e3c8e1c9f07b2",
+        "nollm_core/bridge.py": "c9d0bda25d2d019cff31f31f3bb7724ba963e438",
+        "nollm_core/fixed_point.py": "9ea00e3c84a82f480c692a6ca0ca717a579dab60",
+        "nollm_core/geometry.py": "6f3778a24ce58d05a53d052b5dbb080b6bc5bd86",
+        "nollm_core/handle.py": "caaa2c318d9e4d3e62e9661a0f810996c49f95bf",
+        "nollm_core/ports.py": "e2b450b0ef440eb80c995b8903629478e28addd4",
+        "nollm_core/profiles.py": "9aec8183997b884ff3b936ca01a52a3ceab07446",
+        "nollm_core/validation.py": "1b68755f92d5ee870a828e285c4695d54420c5c9",
+        "enterprise_math/brc_transport.py": "be1debe367263931bd5e93fd750be3ed54624fe1",
+        "enterprise_math/brc_histogram.py": "9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1",
+        "enterprise_math/predictive_quotient.py": "f27d9ddf908f5b07051acfaf0c69f359d499b98b"
+      },
+      "dependency_slices": [
+        "three coverage-template functions",
+        "prime-valuation dependency excerpt"
+      ],
+      "not_loaded": [
+        "Nollm complete runtime/state/storage",
+        "entire compiled template artifact"
+      ]
+    },
+    "02_actual_recall_counterexample": {
+      "profile": "default_dream_v1",
+      "entry": {
+        "profile_id": "default_dream_v1",
+        "chart_id": "default",
+        "layer": 0,
+        "q": 0,
+        "r": 0,
+        "phase": null
+      },
+      "A": {
+        "profile_id": "default_dream_v1",
+        "chart_id": "default",
+        "layer": 0,
+        "q": 10,
+        "r": 0,
+        "phase": null
+      },
+      "C": {
+        "profile_id": "default_dream_v1",
+        "chart_id": "default",
+        "layer": 0,
+        "q": 0,
+        "r": 2,
+        "phase": null
+      },
+      "T": {
+        "profile_id": "default_dream_v1",
+        "chart_id": "default",
+        "layer": 0,
+        "q": 20,
+        "r": 0,
+        "phase": null
+      },
+      "bridge_weight_q16": 65536,
+      "bridge_per_spec_cap": 3,
+      "request_budget": {
+        "max_steps": 3,
+        "beam": 4096,
+        "max_layer_delta": 0,
+        "max_lateral_ring": 1,
+        "max_bridge_steps": 2,
+        "max_results": 8
+      },
+      "original_items": 0,
+      "oracle_target_score": 1820,
+      "oracle_target_path": [
+        "lateral",
+        "lateral",
+        "bridge"
+      ],
+      "merge_pair": [
+        [
+          65536,
+          2,
+          [
+            "bridge",
+            "bridge"
+          ]
+        ],
+        [
+          1820,
+          0,
+          [
+            "lateral",
+            "lateral"
+          ]
+        ]
+      ],
+      "exhaustive_widths": [
+        1,
+        7,
+        43,
+        265
+      ],
+      "exhaustive_generated": 315,
+      "original_frontier_widths": [
+        1,
+        7,
+        18,
+        33
+      ],
+      "repaired_widths": [
+        1,
+        7,
+        26,
+        63
+      ],
+      "score_only_widths": [
+        1,
+        7,
+        26,
+        63
+      ],
+      "repaired_all_reached_cell_results_match_exhaustive": true,
+      "beam_truncation": false,
+      "scope": "unaltered resolve_recall/_targets with canonical lateral-data and legal synthetic BridgeSpec/atom fixture, not installed-user runtime"
+    },
+    "03_budget_control": {
+      "max_bridge_steps": 3,
+      "target_score": 65536
+    },
+    "04_moment_max_observer_boundary": {
+      "same_28_entry_moment": true,
+      "same_count": 2,
+      "dominant_weights": [
+        "3/4",
+        "1/2"
+      ],
+      "interpretation": "not a failure of the affine-moment theorem; max is another observer"
+    },
+    "05_rounded_action_composition": {
+      "scalar_left": 32767,
+      "scalar_right": 32766,
+      "action_composition": "associative",
+      "monotonicity_cases": 65536,
+      "absent_and_zero_distinct": true
+    },
+    "06_rounding_tie_provenance": {
+      "before_scores": [
+        2,
+        3
+      ],
+      "after_scores": [
+        0,
+        0
+      ],
+      "score_only_labels": 1,
+      "path_safe_labels": 2,
+      "lower_score_path_wins_after_rounding": true
+    },
+    "07_T6_resource_minimality": {
+      "bridge_budget": 5,
+      "profile": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        7
+      ],
+      "alive_resource_classes": 6,
+      "failure_class": 1,
+      "scope": "universal bridge-continuation language; a specific graph may need fewer classes"
+    },
+    "08_finite_graph_regression": {
+      "graphs": 180,
+      "explicit_generated_path_labels": 8556,
+      "both_score_and_path_observers": "PASS",
+      "independent_oracle": "unpruned bounded path enumeration"
+    },
+    "09_antichain_regression": {
+      "order_checks": 800,
+      "idempotence": true,
+      "score_mode_does_not_preserve_tie_path": true
+    },
+    "10_input_boundaries": {
+      "rejected": 6
+    }
+  },
+  "limits": [
+    "No production state change",
+    "No semantic recall benchmark",
+    "No default dynamic inter-layer coverage execution",
+    "No proof that finite beam is exact",
+    "No polynomial/constant-bit memory claim",
+    "No Foundation promotion or independent reviewer"
+  ]
+}

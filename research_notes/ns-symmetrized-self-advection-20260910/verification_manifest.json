@@ -1,0 +1,25 @@
+{
+  "schema": "EM_RESULT_SPECIFIC_VERIFICATION_V1",
+  "record_id": "FINDING-EM-PDE-SYMMETRIZED-SELF-ADVECTION-20260910",
+  "activity_id": "RA-076944AE1950A916ACC95399",
+  "status": "PASS",
+  "mathematical_status": "TESTING / NOT_INDEPENDENTLY_REVIEWED",
+  "source_note_sha256": "5b612bc420fb985f8b46a3101926f01d818c6ada822b2bae0bb62fa25d83867f",
+  "checker_sha256": "15f1cd1383cc3acd24f93501089d71c04286bc4354c6bf58aa2b356ec081cf8b",
+  "family_checker_sha256": "7319bd30686f7d3801df0c9dc00a019bd9b351a4f96b292ef77055507d56e5b1",
+  "self_verification_sha256": "c813e8d223dab9ae2c08d9bfee50ebec7aa8f72981e3293176aa3d462904898c",
+  "family_verification_sha256": "da2431c81e351873824e15f105a6aafa8ffe9c30131ad4631c05fa8de6725d85",
+  "verification": {
+    "self_constant": "99/20",
+    "continuum_self_constant": "sqrt(6)/16",
+    "endpoint_amplitude": "3/16",
+    "trajectory_radius": "47/2000",
+    "arbitrary_perturbation_radius": "1/500000",
+    "clean_local_rerun": "PASS; deterministic result JSONs matched"
+  },
+  "limits": [
+    "The checker source expects the pinned parent package layout used during verification; the theorem note records the inherited parent hashes.",
+    "No arbitrary-data regularity or optimal-constant claim.",
+    "Not independent peer review or proof-assistant formalization."
+  ]
+}

@@ -1,0 +1,509 @@
+{
+  "schema": "EM_NATIVE_INTEGER_EXCHANGE_RESULTS_V1",
+  "event_id": "NS-NATIVE-INTEGER-EXCHANGE-20260910-D5C00D-15",
+  "status": "EXECUTED_EXACT_CHECKS_WITH_ORDINARY_PROOFS_NOT_PHYSICAL_FORCE",
+  "source_extract_sha256": "a06546610f5e8b2679cc426007c54a6458e6874197a45d436606b981e8a9ab34",
+  "integer_triples_checked": 2197,
+  "reflection_control": {
+    "input": [
+      0,
+      3,
+      3
+    ],
+    "output": [
+      4,
+      1,
+      1
+    ],
+    "sum": 6,
+    "quadratic_before_and_after": 18
+  },
+  "linear_integer_checks": {
+    "matrices_tested": 512,
+    "passing_permutations": 6
+  },
+  "frame24_fair_controller_classification": [
+    {
+      "r": [
+        1,
+        2,
+        3,
+        0
+      ],
+      "macro_period": 20,
+      "pair_count": 10,
+      "distinct_participant_triples": 5
+    },
+    {
+      "r": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "macro_period": 12,
+      "pair_count": 9,
+      "distinct_participant_triples": 3
+    },
+    {
+      "r": [
+        2,
+        0,
+        3,
+        1
+      ],
+      "macro_period": 20,
+      "pair_count": 10,
+      "distinct_participant_triples": 5
+    },
+    {
+      "r": [
+        2,
+        3,
+        1,
+        0
+      ],
+      "macro_period": 12,
+      "pair_count": 9,
+      "distinct_participant_triples": 3
+    },
+    {
+      "r": [
+        3,
+        0,
+        1,
+        2
+      ],
+      "macro_period": 12,
+      "pair_count": 9,
+      "distinct_participant_triples": 3
+    },
+    {
+      "r": [
+        3,
+        2,
+        0,
+        1
+      ],
+      "macro_period": 20,
+      "pair_count": 10,
+      "distinct_participant_triples": 5
+    }
+  ],
+  "frame48_search": {
+    "tested_pairs": 36,
+    "full_pair_mixers": [
+      {
+        "r0": [
+          1,
+          2,
+          3,
+          0
+        ],
+        "r1": [
+          2,
+          0,
+          3,
+          1
+        ],
+        "period": 30,
+        "window": 8
+      },
+      {
+        "r0": [
+          1,
+          2,
+          3,
+          0
+        ],
+        "r1": [
+          3,
+          2,
+          0,
+          1
+        ],
+        "period": 30,
+        "window": 8
+      },
+      {
+        "r0": [
+          2,
+          0,
+          3,
+          1
+        ],
+        "r1": [
+          1,
+          2,
+          3,
+          0
+        ],
+        "period": 30,
+        "window": 8
+      },
+      {
+        "r0": [
+          2,
+          0,
+          3,
+          1
+        ],
+        "r1": [
+          3,
+          2,
+          0,
+          1
+        ],
+        "period": 30,
+        "window": 8
+      },
+      {
+        "r0": [
+          3,
+          2,
+          0,
+          1
+        ],
+        "r1": [
+          1,
+          2,
+          3,
+          0
+        ],
+        "period": 30,
+        "window": 8
+      },
+      {
+        "r0": [
+          3,
+          2,
+          0,
+          1
+        ],
+        "r1": [
+          2,
+          0,
+          3,
+          1
+        ],
+        "period": 30,
+        "window": 8
+      }
+    ]
+  },
+  "selected_participant_triples_one_based": [
+    [
+      1,
+      3,
+      6
+    ],
+    [
+      4,
+      5,
+      6
+    ],
+    [
+      2,
+      3,
+      5
+    ],
+    [
+      2,
+      4,
+      6
+    ],
+    [
+      1,
+      3,
+      4
+    ],
+    [
+      1,
+      2,
+      6
+    ],
+    [
+      3,
+      5,
+      6
+    ],
+    [
+      1,
+      2,
+      5
+    ],
+    [
+      2,
+      3,
+      4
+    ],
+    [
+      1,
+      4,
+      5
+    ]
+  ],
+  "all_order_frame_bit_coverage_cases": 48,
+  "pair_occurrences_in_ten_events": [
+    {
+      "pair": [
+        1,
+        2
+      ],
+      "events": [
+        5,
+        7
+      ]
+    },
+    {
+      "pair": [
+        1,
+        3
+      ],
+      "events": [
+        0,
+        4
+      ]
+    },
+    {
+      "pair": [
+        1,
+        4
+      ],
+      "events": [
+        4,
+        9
+      ]
+    },
+    {
+      "pair": [
+        1,
+        5
+      ],
+      "events": [
+        7,
+        9
+      ]
+    },
+    {
+      "pair": [
+        1,
+        6
+      ],
+      "events": [
+        0,
+        5
+      ]
+    },
+    {
+      "pair": [
+        2,
+        3
+      ],
+      "events": [
+        2,
+        8
+      ]
+    },
+    {
+      "pair": [
+        2,
+        4
+      ],
+      "events": [
+        3,
+        8
+      ]
+    },
+    {
+      "pair": [
+        2,
+        5
+      ],
+      "events": [
+        2,
+        7
+      ]
+    },
+    {
+      "pair": [
+        2,
+        6
+      ],
+      "events": [
+        3,
+        5
+      ]
+    },
+    {
+      "pair": [
+        3,
+        4
+      ],
+      "events": [
+        4,
+        8
+      ]
+    },
+    {
+      "pair": [
+        3,
+        5
+      ],
+      "events": [
+        2,
+        6
+      ]
+    },
+    {
+      "pair": [
+        3,
+        6
+      ],
+      "events": [
+        0,
+        6
+      ]
+    },
+    {
+      "pair": [
+        4,
+        5
+      ],
+      "events": [
+        1,
+        9
+      ]
+    },
+    {
+      "pair": [
+        4,
+        6
+      ],
+      "events": [
+        1,
+        3
+      ]
+    },
+    {
+      "pair": [
+        5,
+        6
+      ],
+      "events": [
+        1,
+        6
+      ]
+    }
+  ],
+  "stalled_and_repaired": {
+    "q0": [
+      0,
+      1,
+      1,
+      2,
+      1,
+      1
+    ],
+    "phi0": 8,
+    "minimum": 6,
+    "old_router_stationary": true,
+    "new_router_trajectory": [
+      {
+        "event": 1,
+        "q": [
+          0,
+          1,
+          1,
+          2,
+          1,
+          1
+        ],
+        "phi": 8
+      },
+      {
+        "event": 2,
+        "q": [
+          0,
+          1,
+          1,
+          2,
+          1,
+          1
+        ],
+        "phi": 8
+      },
+      {
+        "event": 3,
+        "q": [
+          0,
+          1,
+          1,
+          2,
+          1,
+          1
+        ],
+        "phi": 8
+      },
+      {
+        "event": 4,
+        "q": [
+          0,
+          1,
+          1,
+          2,
+          1,
+          1
+        ],
+        "phi": 8
+      },
+      {
+        "event": 5,
+        "q": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "phi": 6
+      }
+    ]
+  },
+  "six_token_scalar_box": {
+    "cases": 15625,
+    "largest_events_to_equilibrium": 12,
+    "total_events": 55968,
+    "positive_loss_events": 39752
+  },
+  "vector_microstep_runs": {
+    "initial_controllers": 48,
+    "checked_ticks": 986,
+    "moving_native_edges": 2958,
+    "largest_settling_tick": 30
+  },
+  "S6_transported_covariance_checks": 2160,
+  "midpoint_role_erasure_failure": true,
+  "example_quadratic_loss_ledger": [
+    {
+      "tick": 10,
+      "location": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "loss": 2
+    }
+  ],
+  "scope_limits": [
+    "Source slots/ordered participants are retained; role erasure is not safe.",
+    "48 minimality is only for charge-blind equivariant extensions of this fixed frame-to-route interface.",
+    "Integer load equalization is a declared dissipative algorithm, not a derived physical force law.",
+    "Quadratic loss is not silently identified with total physical energy or heat.",
+    "No viscosity calibration, continuum limit, NS proof, Lean build, or independent review."
+  ]
+}

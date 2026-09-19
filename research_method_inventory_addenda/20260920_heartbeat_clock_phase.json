@@ -1,0 +1,19 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "RESEARCH_RESULT_EXTRACT_NOT_FOUNDATION",
+  "date": "2026-09-20",
+  "methods": [
+    {
+      "method_id": "heartbeat.shared_clock_local_phase_quotient",
+      "name": "Heartbeat shared-clock versus local-phase BRC quotient",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_RESULT_EXTRACT_NOT_FOUNDATION",
+      "source_refs": ["src/enterprise_math/predictive_quotient.py", "src/enterprise_math/brc_control_port.py", "tests/test_heartbeat_clock_phase.py", "research_notes/heartbeat_brc_clock_phase_20260920_AD0416/RESEARCH_NOTE.md"],
+      "api": ["predictive_block_profile", "stable_predictive_partition", "ControlPacket", "certify_control_partition", "refine_control_partition"],
+      "triggers": ["shared heartbeat clock", "local phase offset", "phase gauge", "clock residual", "phase-addressed effect"],
+      "capabilities": ["384-to-64 exact aligned-mask gauge quotient", "64-to-13 orientation-blind environment quotient", "detection of local phase-sensitive refinement back to 384", "effect-valued shared-clock safety certificate"],
+      "hard_boundary": "The phase offset is removable only when every declared observer and future operation descends through the globally aligned state. Local oscillator access, desynchronization or local-axis effects require the offset or an equivalent repair coordinate."
+    }
+  ]
+}

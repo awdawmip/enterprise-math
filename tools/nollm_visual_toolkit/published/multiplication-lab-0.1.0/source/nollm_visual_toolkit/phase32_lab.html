@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>乘法记忆场 · Nollm 实验室</title>
+<style>
+:root{color-scheme:dark;--bg:#101923;--panel:#17232f;--line:#314253;--ink:#edf3f7;--muted:#a9bac9;--accent:#80dab7}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}header{padding:18px 22px;border-bottom:1px solid var(--line);display:flex;gap:18px;justify-content:space-between;align-items:center}h1{font-size:21px;margin:0}header p{font-size:12px;color:var(--muted);margin:3px 0}small,.hint{color:var(--muted);font-size:12px}.badge{border:1px solid var(--line);padding:6px 10px;border-radius:20px;white-space:nowrap}main{display:grid;grid-template-columns:270px minmax(0,1fr) 300px;min-height:760px;height:calc(100vh - 97px)}aside{background:var(--panel);padding:16px;overflow:auto}aside:first-child{border-right:1px solid var(--line)}aside:last-child{border-left:1px solid var(--line)}h2{font-size:13px;letter-spacing:.06em;color:var(--accent);margin:18px 0 8px}h2:first-child{margin-top:0}label{display:block;font-size:12px;color:var(--muted);margin:8px 0}select,input,button{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:8px;min-width:0;max-width:100%}label>input,label>select{width:100%;margin-top:4px}button{cursor:pointer}button:hover{border-color:var(--accent)}button.active{background:#274d47}input[type=file]{font-size:11px}.row{display:flex;gap:7px;margin:8px 0}.row>*{flex:1;min-width:0}.metric{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:8px 0}.metric b{font-variant-numeric:tabular-nums;font-size:18px}#stage{position:relative;min-width:0;min-height:420px;overflow:hidden;background:#101923}#scene{width:100%;height:100%;display:block;touch-action:none}#hud{position:absolute;left:14px;right:14px;top:12px;pointer-events:none;font-size:12px;display:flex;justify-content:space-between;gap:10px}#hud span,#notice{background:#101923dc;border:1px solid var(--line);border-radius:7px;padding:6px 9px}#notice{position:absolute;bottom:12px;left:14px;right:14px;font-size:11px;color:var(--muted);pointer-events:none}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:11px;background:var(--bg);padding:10px;max-height:270px;overflow:auto;border-radius:6px}#error{color:#ffb1a4;font-size:12px}#bins{width:100%;height:130px;display:block}.formula{padding:10px;border:1px solid var(--line);border-radius:8px;font-size:13px}details{border-top:1px solid var(--line);padding-top:10px;margin-top:12px}summary{cursor:pointer}a{color:var(--accent)}@media(max-width:1120px){main{grid-template-columns:245px minmax(0,1fr)}aside:last-child{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:16px;overflow:visible}main{height:auto}#stage{height:80vh}}@media(max-width:620px){header{padding:12px}.badge{display:none}h1{font-size:18px}main{display:flex;flex-direction:column}aside{max-height:390px}#stage{height:64vh;min-height:420px}aside:last-child{display:block;max-height:none}#hud{font-size:10px}.row{margin:6px 0}}
+</style></head><body>
+<header><div><h1>乘法记忆场 <small>Phase32 Lab 0.1.0</small></h1><p>精确整数身份 → 模相位 → 连续观察 → 六角落格。不是 Nollm 生产内核或 X6 原生定义。</p></div><span class="badge">65,536 标签 · 离线研究扩展</span></header>
+<main><aside>
+<h2>01 / 同一批数，不同排布</h2>
+<label>整数总数（包含零）<input id="count" type="number" min="2" max="65536" value="65536"></label>
+<label>相位方案<select id="mode"><option value="golden">质数序号相位 · 保持乘法</option><option value="hash">质数散列相位 · 保持乘法</option><option value="spiral">逐数黄金角 · 非乘法对照</option></select></label>
+<label>质数相位种子<input id="seed" type="number" min="0" max="4294967295" value="0"></label>
+<label>观察模式<select id="view"><option value="plane">连续相位场 / 六方向参考</option><option value="hex">近邻六角单元 / 保留重叠身份</option><option value="layers">立体 Ω(n) 层 / 非物理层</option></select></label>
+<label>数值上色<select id="field"><option value="phase">相位（完整一周）</option><option value="prime">素数与合数背景</option><option value="mod3">n mod 3</option><option value="omega">质因子总次数 Ω(n)</option></select></label>
+<label>六角格距（不是相机缩放）<input id="pitch" type="number" min="0.25" max="8" step="0.25" value="1"></label>
+<div class="row"><button id="apply">重新计算</button><button id="fit">全图</button></div>
+<div class="row"><button id="turn">转 60°</button><button id="top">俯视</button><button id="oblique">立体</button></div>
+<div class="row"><button id="zoomIn">放大 ＋</button><button id="zoomOut">缩小 −</button><button id="spin">环视</button></div>
+<p class="hint">六条射线属于二维 A2 参考方向；独立高度只表达 Ω(n)。没有把它们冒充六条 X6 原生轴。</p>
+<h2>02 / 修改一颗质数的相位</h2>
+<div class="row"><label>质数<input id="phasePrime" type="number" min="2" value="5"></label><label>角度 °<input id="phaseAngle" type="number" step="1" value="90"></label></div>
+<div class="row"><button id="phaseApply">设定相位</button><button id="phaseReset">恢复默认</button></div>
+<p id="phaseInfo" class="hint"></p>
+<h2>03 / 实际乘法与轨迹</h2>
+<div class="row"><label>a / 起点<input id="a" type="number" min="0" value="5"></label><label>b / 倍数<input id="b" type="number" min="0" value="7"></label></div>
+<div class="row"><button id="multiply">验算 a × b</button><button id="trace">a → ab → ab²</button></div>
+<label>按整数反查<input id="lookup" type="number" min="0" value="35"></label><div class="row"><button id="find">定位</button><button id="fiber">同格下一身份</button></div>
+<details><summary>参数、数据与网页导出</summary>
+<label>角向分箱数<input id="sectors" type="number" min="6" max="128" value="64"></label><label>等面积环数<input id="rings" type="number" min="1" max="32" value="8"></label>
+<div class="row"><button id="saveConfig">保存参数</button><button id="saveData">完整数据</button></div>
+<div class="row"><button id="savePage">当前网页</button><button id="savePng">PNG</button></div><label>恢复参数 JSON<input id="configFile" type="file" accept=".json"></label>
+<p class="hint">导出保留整数、相位分子、质因子及同格身份；PNG 仅是截图。单页可离线打开，不上传数据。</p></details>
+<p id="error" role="alert"></p>
+</aside><section id="stage"><canvas id="scene"></canvas><div id="hud"><span id="population"></span><span id="drawn"></span></div><div id="notice"></div></section>
+<aside><section>
+<h2>精确关系与浮点显示分开</h2><div class="formula">z(n) = √n · exp(2πi · k(n)/2³²)<br>k(n) = Σ vₚ(n) · k(p) mod 2³²<br><small>0 是吸收点，相位和质因子分解未定义。</small></div>
+<pre id="productInfo"></pre>
+<h2>同一总体的均匀度</h2>
+<div class="metric"><span>角向 CV</span><b id="angularCV"></b></div><div class="metric"><span>等面积环×扇区 CV</span><b id="jointCV"></b></div><div class="metric"><span>空分箱</span><b id="emptyBins"></b></div><div class="metric"><span>重复占格数</span><b id="collisionCount"></b></div>
+<canvas id="bins"></canvas><p class="hint">全部正整数等权；零不进密度统计。CV 越低仅表示这组分箱更均匀，不是无限均匀分布定理。转动相机不会改变统计。</p>
+</section><section><h2>点选 / 身份反查</h2><pre id="detail">点击画布或输入整数。</pre>
+<h2>观察边界</h2><p class="hint">整数乘积与模相位可以精确；三角函数、开方、六角最近点选择和像素显示属于浮点观察。六角格不是无损原生坐标。</p><p class="hint">多个数可能落在同一格；原始标签不丢失，可逐个切换。画布遮挡也不等于身份合并。</p><p class="hint">逐数黄金角只是非乘法对照：更均匀的图形不自动保留乘法。相位种子和覆盖统计是不同对象。</p><pre id="meta"></pre></section></aside></main>
+<script id="config" type="application/json">__CONFIG__</script>
+<script>
+'use strict';
+(()=>{
+const D=4294967296,G=2654435761,TAU=2*Math.PI,SQ=Math.sqrt(3),VERSION='0.1.0';
+const DEF={count:65536,mode:'golden',seed:0,overrides:{},pitch:1,view:'plane',field:'phase',sectors:64,rings:8,yaw:0,tilt:.65,zoom:1,a:5,b:7};
+const $=id=>document.getElementById(id),cv=$('scene'),ctx=cv.getContext('2d');
+let config,model,stats,screen=[],selected=35,path=[],drawn=0,pan=[0,0],drag=null,spinning=false,queued=false,lastSpin=0;
+const fail=e=>{$('error').textContent=String(e.message||e);};
+function mod(a,n){return ((a%n)+n)%n;}
+function prime(p){if(!Number.isInteger(p)||p<2)return false;for(let i=2;i*i<=p;i++)if(p%i===0)return false;return true;}
+function validate(c){
+ if(!c||Array.isArray(c)||typeof c!=='object'||Object.keys(c).some(k=>!(k in DEF)))throw Error('未知配置字段');
+ c={...DEF,...c};const it=(k,lo,hi)=>{if(!Number.isInteger(c[k])||c[k]<lo||c[k]>hi)throw Error(k+' 必须在 '+lo+'—'+hi+' 内');};
+ it('count',2,65536);it('seed',0,D-1);it('sectors',6,128);it('rings',1,32);it('a',0,c.count-1);it('b',0,c.count-1);
+ for(const [k,lo,hi]of[['pitch',.25,8],['yaw',-100,100],['tilt',0,1.55],['zoom',.1,20]])if(typeof c[k]!=='number'||!Number.isFinite(c[k])||c[k]<lo||c[k]>hi)throw Error('无效 '+k);
+ if(!['golden','hash','spiral'].includes(c.mode)||!['plane','hex','layers'].includes(c.view)||!['phase','prime','mod3','omega'].includes(c.field))throw Error('无效模式');
+ if(!c.overrides||Array.isArray(c.overrides)||typeof c.overrides!=='object'||Object.keys(c.overrides).length>128)throw Error('相位覆盖表无效');
+ for(const [p,v]of Object.entries(c.overrides))if(String(Number(p))!==p||!prime(Number(p))||Number(p)>=c.count||!Number.isInteger(v)||v<0||v>=D)throw Error('覆盖表必须为当前范围内的质数 → uint32 相位');
+ c.overrides={...c.overrides};return c;
+}
+function hash(p,s){let x=(p^s)>>>0;x=Math.imul(x^(x>>>16),0x7feb352d)>>>0;x=Math.imul(x^(x>>>15),0x846ca68b)>>>0;return(x^(x>>>16))>>>0;}
+function roundHex(x,y,pitch){const q=x/pitch-y/(SQ*pitch),r=2*y/(SQ*pitch),a=Math.floor(q),b=Math.floor(r);let best=Infinity,res;
+ for(let i=a-1;i<a+3;i++)for(let j=b-1;j<b+3;j++){const u=q-i,v=r-j,d=u*u+u*v+v*v;if(d<best){best=d;res=[i,j];}}
+ return res;
+}
+function build(c){c=validate(c);const N=c.count,spf=new Uint32Array(N),phase=new Uint32Array(N),omega=new Uint8Array(N),primes=[],schedule=new Uint32Array(N);
+ for(let p=2;p<N;p++)if(!spf[p]){primes.push(p);for(let k=p;k<N;k+=p)if(!spf[k])spf[k]=p;}
+ primes.forEach((p,i)=>{schedule[p]=c.overrides[String(p)]??(c.mode==='golden'?((i+1)*G+c.seed)%D:hash(p,c.seed));});
+ for(let n=2;n<N;n++){const p=spf[n];omega[n]=omega[Math.floor(n/p)]+1;phase[n]=(phase[Math.floor(n/p)]+schedule[p])>>>0;}
+ if(c.mode==='spiral')for(let n=1;n<N;n++)phase[n]=((n-1)*G)%D;
+ const x=new Float64Array(N),y=new Float64Array(N),q=new Int32Array(N),r=new Int32Array(N),fibers=new Map();
+ for(let n=0;n<N;n++){const t=TAU*phase[n]/D;x[n]=Math.sqrt(n)*Math.cos(t);y[n]=Math.sqrt(n)*Math.sin(t);[q[n],r[n]]=roundHex(x[n],y[n],c.pitch);const key=q[n]+','+r[n];if(!fibers.has(key))fibers.set(key,[]);fibers.get(key).push(n);}
+ return {c,spf,phase,omega,primes,schedule,x,y,q,r,fibers};
+}
+function factors(m,n){if(!Number.isInteger(n)||n<0||n>=m.c.count)throw Error('整数超出当前范围');if(n===0)return null;const f=[];while(n>1){const p=m.spf[n];let e=0;while(n%p===0){n/=p;e++;}f.push([p,e]);}return f;}
+function metrics(m){const c=m.c,N=c.count,S=c.sectors,R=c.rings,ac=Array(S).fill(0),rc=Array(R).fill(0),bins=Array(S*R).fill(0),occupied=new Map();
+ for(let n=1;n<N;n++){const s=Math.floor(m.phase[n]*S/D),r=Math.min(R-1,Math.floor(n*R/(N-1)));ac[s]++;rc[r]++;bins[r*S+s]++;const key=m.q[n]+','+m.r[n];occupied.set(key,(occupied.get(key)||0)+1);}
+ const cv=a=>{const u=(N-1)/a.length;return Math.sqrt(a.reduce((s,x)=>s+(x-u)**2,0)/a.length)/u;};
+ let max=0;for(const x of occupied.values())max=Math.max(max,x);
+ return {positive_population:N-1,angular_cv:cv(ac),equal_area_cv:cv(bins),angular_counts:ac,annular_counts:rc,equal_area_counts:bins,empty_equal_area_bins:bins.filter(x=>!x).length,occupied_cells:occupied.size,collision_excess:N-1-occupied.size,max_cell_multiplicity:max,empty_bins_not_missing_ids:true};
+}
+function multiply(m,a,b){factors(m,a);factors(m,b);const product=a*b;if(product>=m.c.count)return {a,b,product,in_domain:false};
+ const pred=[m.x[a]*m.x[b]-m.y[a]*m.y[b],m.x[a]*m.y[b]+m.y[a]*m.x[b]],norm=Math.sqrt(product)||1;
+ const cell=n=>[m.c.pitch*(m.q[n]+m.r[n]/2),m.c.pitch*SQ*m.r[n]/2],A=cell(a),B=cell(b),C=cell(product);
+ return {a,b,product,in_domain:true,phase_defect_uint32:product?mod(m.phase[product]-m.phase[a]-m.phase[b],D):null,continuous_relative_error:Math.hypot(pred[0]-m.x[product],pred[1]-m.y[product])/norm,rounded_relative_error:Math.hypot(A[0]*B[0]-A[1]*B[1]-C[0],A[0]*B[1]+A[1]*B[0]-C[1])/norm,zero_rule:product===0?'absorbing; valuation/phase undefined':null};
+}
+function trajectory(m,a,b){const out=[],seen=new Set();while(a<m.c.count&&!seen.has(a)&&out.length<64){out.push(a);seen.add(a);a*=b;}return out;}
+function sync(){for(const k of ['count','mode','seed','pitch','view','field','a','b','sectors','rings'])$(k).value=config[k];$('phaseApply').disabled=config.mode==='spiral';$('phaseReset').disabled=config.mode==='spiral';$('phaseInfo').textContent=config.mode==='spiral'?'此对照不使用质数相位；覆盖表暂不生效。':Object.keys(config.overrides).length+' 个质数使用自定义相位。';}
+function set(c){const next=validate(c),m=build(next),s=metrics(m);config=next;model=m;stats=s;selected=selected<config.count?selected:0;path=[];$('error').textContent='';sync();info();schedule();}
+function apply(){const c={...config};for(const k of ['count','seed','pitch','a','b','sectors','rings'])c[k]=Number($(k).value);for(const k of ['mode','view','field'])c[k]=$(k).value;set(c);}
+function inspect(){if(selected===null){$('detail').textContent='尚未选择';return;}const n=selected;
+ $('detail').textContent=JSON.stringify({n,factors:factors(model,n),phase_numerator:n?model.phase[n]:null,phase_denominator:D,radius_squared:n,approximate_display:[model.x[n],model.y[n]],hex_observer:[model.q[n],model.r[n],-model.q[n]-model.r[n]],same_hex_cell_ids:model.fibers.get(model.q[n]+','+model.r[n]),omega:n?model.omega[n]:null},null,2);}
+function info(){const M=multiply(model,config.a,config.b);$('productInfo').textContent=M.in_domain?JSON.stringify(M,null,2):`${M.a} × ${M.b} = ${M.product}\n乘积不在当前范围；没有截断或绕回。`;
+ $('angularCV').textContent=stats.angular_cv.toFixed(4);$('jointCV').textContent=stats.equal_area_cv.toFixed(4);$('emptyBins').textContent=stats.empty_equal_area_bins+' / '+stats.equal_area_counts.length;$('collisionCount').textContent=stats.collision_excess.toLocaleString();
+ $('population').textContent='0—'+(config.count-1)+' · 全部标签保留';$('notice').textContent=config.view==='layers'?'高度 = Ω(n) × 显示间距，仅用于分层观察；不是 Nollm 物理层，也不是新增原生坐标。':config.view==='hex'?'近邻六角量化观察；同格身份全部保留。位置变化与相位分子是两种数据。':'连续复平面是声明的观察器；六方向射线不是新原生坐标。';
+ $('meta').textContent=JSON.stringify({phase_denominator:D,phase_schedule:config.mode,seed:config.seed,population:config.count,scope:'FINITE_EXPERIMENT / NO_THEOREM_PROMOTION',pan_affects_exported_data:false},null,2);inspect();hist();}
+function hist(){const v=$('bins'),dpr=window.devicePixelRatio||1,w=v.clientWidth||250,h=130;v.width=w*dpr;v.height=h*dpr;const c=v.getContext('2d');c.scale(dpr,dpr);let max=Math.max(...stats.angular_counts);c.fillStyle='#80dab7';stats.angular_counts.forEach((n,i)=>c.fillRect(i*w/config.sectors,h-n/max*(h-12),Math.max(.5,w/config.sectors-1),n/max*(h-12)));}
+function world(n){return config.view==='hex'?[config.pitch*(model.q[n]+model.r[n]/2),config.pitch*SQ*model.r[n]/2,0]:[model.x[n],model.y[n],config.view==='layers'?model.omega[n]*Math.sqrt(config.count)/8:0];}
+let scale=1,cx=0,cy=0;
+function project(p){const c=Math.cos(config.yaw),s=Math.sin(config.yaw),x=c*p[0]-s*p[1],y=s*p[0]+c*p[1],tilt=config.view==='plane'||config.view==='hex'?0:config.tilt;return[cx+scale*x,cy-scale*(y*Math.cos(tilt)-p[2]*Math.sin(tilt))];}
+function color(n){if(n===0)return'#ffffff';if(config.field==='prime')return model.spf[n]===n?'#ffc985':'#455d6d';if(config.field==='mod3')return['#7bd9b3','#5f96f3','#d6a2e8'][n%3];if(config.field==='omega')return`hsl(${210-model.omega[n]*13} 65% 65%)`;return`hsl(${model.phase[n]*360/D} 62% 67%)`;}
+function line(points,stroke,width=1){ctx.strokeStyle=stroke;ctx.lineWidth=width;ctx.beginPath();points.forEach((p,i)=>{const s=project(p);if(i)ctx.lineTo(...s);else ctx.moveTo(...s);});ctx.stroke();}
+function draw(){queued=false;const w=cv.clientWidth,h=cv.clientHeight,dpr=window.devicePixelRatio||1;cv.width=w*dpr;cv.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);ctx.fillStyle='#101923';ctx.fillRect(0,0,w,h);const R0=Math.sqrt(config.count),ct=Math.cos(config.yaw),st=Math.sin(config.yaw),t=config.view==='layers'?config.tilt:0;let xmin=-1.1*R0,xmax=1.1*R0,ymin=-1.1*R0,ymax=1.1*R0;
+ for(let n=0;n<config.count;n++){const p=world(n),x=ct*p[0]-st*p[1],y=(st*p[0]+ct*p[1])*Math.cos(t)-p[2]*Math.sin(t);xmin=Math.min(xmin,x);xmax=Math.max(xmax,x);ymin=Math.min(ymin,y);ymax=Math.max(ymax,y);}
+ scale=.88*Math.min(w/(xmax-xmin),h/(ymax-ymin))*config.zoom;cx=w/2-scale*(xmin+xmax)/2+pan[0];cy=h/2+scale*(ymin+ymax)/2+pan[1];
+ const R=Math.sqrt(config.count-1);ctx.globalAlpha=.3;for(let k=1;k<=config.rings;k++){const ring=[];for(let j=0;j<=180;j++)ring.push([R*Math.sqrt(k/config.rings)*Math.cos(j*TAU/180),R*Math.sqrt(k/config.rings)*Math.sin(j*TAU/180),0]);line(ring,'#6a7a89',.6);}ctx.globalAlpha=.7;
+ const labels=['(1,0,−1)','(0,1,−1)','(−1,1,0)','(−1,0,1)','(0,−1,1)','(1,−1,0)'];ctx.font='10px system-ui';for(let j=0;j<6;j++){const end=[R*1.05*Math.cos(j*TAU/6),R*1.05*Math.sin(j*TAU/6),0];line([[0,0,0],end],'#9babb9');const p=project(end);ctx.fillStyle='#bccbd8';ctx.fillText(labels[j],p[0]+3,p[1]);}if(config.view==='layers'){const maxOmega=Math.max(...model.omega);const p=[0,0,maxOmega*R/8];line([[0,0,0],p],'#d8e6ef');const t=project(p);ctx.fillStyle='#d8e6ef';ctx.fillText('Ω(n) · 观察高度',t[0]+5,t[1]-5);}ctx.globalAlpha=1;
+ screen=[];drawn=0;for(let n=0;n<config.count;n++){const p=project(world(n));screen.push(p);ctx.fillStyle=color(n);if(config.view==='hex'&&scale*config.pitch>2){const z=world(n);ctx.beginPath();for(let k=0;k<6;k++){const a=(30+60*k)*Math.PI/180,t=project([z[0]+config.pitch/SQ*Math.cos(a),z[1]+config.pitch/SQ*Math.sin(a),0]);if(k)ctx.lineTo(...t);else ctx.moveTo(...t);}ctx.closePath();ctx.fill();}else{const size=config.count>10000?1.25:2;ctx.fillRect(p[0]-size/2,p[1]-size/2,size,size);}drawn++;}
+ if(path.length){ctx.setLineDash([5,4]);line(path.map(world),'#ffffff',1.8);ctx.setLineDash([]);for(const n of path){const p=screen[n];ctx.beginPath();ctx.arc(...p,4,0,TAU);ctx.strokeStyle='#ffffff';ctx.stroke();ctx.fillStyle='#ffffff';ctx.fillText(String(n),p[0]+6,p[1]-5);}}
+ if(selected!==null){const p=screen[selected];ctx.beginPath();ctx.arc(...p,7,0,TAU);ctx.lineWidth=2;ctx.strokeStyle='#ffffff';ctx.stroke();}
+ $('drawn').textContent=drawn.toLocaleString()+' 条已提交绘制 / 不抽样';
+}
+function schedule(){if(!queued){queued=true;requestAnimationFrame(draw);}}
+function download(name,text,type='application/json'){const u=URL.createObjectURL(new Blob([text],{type}));const a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),5000);}
+function packet(){return{schema:'NOLLM_PHASE32_LAB_V1',version:VERSION,config:{...config,overrides:{...config.overrides}}};}
+function exportData(){return{...packet(),metrics:stats,zero_rule:'absorbing; phase and factorization undefined',observer:'continuous / floating nearest A2; NOT native X6',records:Array.from({length:config.count},(_,n)=>({id:String(n),n,phase_numerator:n?model.phase[n]:null,phase_denominator:D,factors:factors(model,n),approx_xy:[model.x[n],model.y[n]],hex_observer:[model.q[n],model.r[n]],omega:n?model.omega[n]:null}))};}
+function restore(p){if(!p||p.schema!=='NOLLM_PHASE32_LAB_V1'||p.version!==VERSION)throw Error('参数文件版本不匹配');set(p.config);pan=[0,0];}
+function savePage(){const clone=document.documentElement.cloneNode(true);clone.querySelector('#config').textContent=JSON.stringify(config).replace(/</g,'\\u003c');download('multiplicative-field.html','<!doctype html>\n'+clone.outerHTML,'text/html');}
+function guarded(fn){return(...args)=>{try{fn(...args);}catch(e){fail(e);}};}
+$('apply').onclick=guarded(apply);for(const id of['mode','view','field'])$(id).onchange=guarded(apply);
+$('phaseApply').onclick=guarded(()=>{if(config.mode==='spiral')throw Error('非乘法对照没有质数相位');const p=Number($('phasePrime').value),a=Number($('phaseAngle').value);if(!Number.isFinite(a))throw Error('无效角度');const v=Math.round(mod(a,360)*D/360)%D;set({...config,overrides:{...config.overrides,[p]:v}});});
+$('phaseReset').onclick=guarded(()=>set({...config,overrides:{}}));$('multiply').onclick=guarded(()=>{apply();path=[config.a,config.b,config.a*config.b].filter(n=>n<config.count);selected=config.a;inspect();schedule();});
+$('trace').onclick=guarded(()=>{apply();path=trajectory(model,config.a,config.b);selected=config.a;inspect();schedule();});
+$('find').onclick=guarded(()=>{const n=Number($('lookup').value);factors(model,n);selected=n;inspect();schedule();});$('fiber').onclick=()=>{const f=model.fibers.get(model.q[selected]+','+model.r[selected]);selected=f[(f.indexOf(selected)+1)%f.length];inspect();schedule();};
+$('fit').onclick=()=>{config.zoom=1;pan=[0,0];schedule();};$('turn').onclick=()=>{config.yaw=mod(config.yaw+TAU/6,TAU);schedule();};$('top').onclick=()=>{config.tilt=0;schedule();};$('oblique').onclick=()=>{config.view='layers';config.tilt=.9;sync();info();schedule();};
+$('zoomIn').onclick=()=>{config.zoom=Math.min(20,config.zoom*1.3);schedule();};$('zoomOut').onclick=()=>{config.zoom=Math.max(.1,config.zoom/1.3);schedule();};
+function animate(t){if(!spinning)return;if(lastSpin)config.yaw=mod(config.yaw+Math.min(100,t-lastSpin)*.00025,TAU);lastSpin=t;schedule();requestAnimationFrame(animate);}
+$('spin').onclick=()=>{spinning=!spinning;lastSpin=0;$('spin').textContent=spinning?'停止':'环视';if(spinning)requestAnimationFrame(animate);};
+$('saveConfig').onclick=()=>download('multiplicative-config.json',JSON.stringify(packet(),null,2));$('saveData').onclick=()=>download('multiplicative-data.json',JSON.stringify(exportData()));$('savePage').onclick=savePage;
+$('savePng').onclick=()=>cv.toBlob(blob=>{if(blob){const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='multiplicative-field.png';a.click();setTimeout(()=>URL.revokeObjectURL(u),5000);}});
+$('configFile').onchange=async e=>{try{const f=e.target.files[0];if(f.size>65536)throw Error('参数文件超过 64 KiB');restore(JSON.parse(await f.text()));}catch(x){fail(x);}};
+cv.onpointerdown=e=>{cv.setPointerCapture(e.pointerId);drag={x:e.clientX,y:e.clientY,moved:0};};
+cv.onpointermove=e=>{if(!drag)return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;drag.moved+=Math.abs(dx)+Math.abs(dy);if(config.view==='layers'&&!e.shiftKey){config.yaw=mod(config.yaw+dx*.007,TAU);config.tilt=Math.max(0,Math.min(1.55,config.tilt+dy*.007));}else{pan[0]+=dx;pan[1]+=dy;}drag.x=e.clientX;drag.y=e.clientY;schedule();};
+cv.onpointerup=e=>{if(drag&&drag.moved<5){const b=cv.getBoundingClientRect(),x=e.clientX-b.left,y=e.clientY-b.top;let best=144,id=null;screen.forEach((p,n)=>{const d=(p[0]-x)**2+(p[1]-y)**2;if(d<best){best=d;id=n;}});if(id!==null){selected=id;inspect();schedule();}}drag=null;};cv.onpointercancel=()=>{drag=null;};
+cv.addEventListener('wheel',e=>{e.preventDefault();config.zoom=Math.max(.1,Math.min(20,config.zoom*Math.exp(-e.deltaY*.001)));schedule();},{passive:false});window.addEventListener('resize',()=>{hist();schedule();});
+window.NollmPhase32={build,validate,hash,roundHex,metrics,multiply,factors,trajectory,restore,packet,exportData,set,status:()=>({count:config.count,drawn,selected,path:[...path],config:{...config},metrics:stats}),phase:()=>Array.from(model.phase),project:n=>screen[n]};
+try{set(JSON.parse($('config').textContent));}catch(e){fail(e);}
+})();
+</script></body></html>

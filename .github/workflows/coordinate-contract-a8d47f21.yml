@@ -1,0 +1,114 @@
+name: cell-address-contract
+on:
+  push:
+    branches: ['main', 'maintenance/nonnegative-coordinate-contract-20260913-a8d47f21']
+    paths:
+      - 'coordinate_address_contract.json'
+      - 'coordinate_contract_migration_manifest.json'
+      - 'COORDINATE_ADDRESS_CONVENTION*'
+      - 'schemas/cell_address.schema.json'
+      - 'EnterpriseMath/CellAddress/**'
+      - 'src/enterprise_math/cell_address.py'
+      - 'src/enterprise_math/_cell_slice_codec.py'
+      - 'src/enterprise_math/geometry.py'
+      - 'src/enterprise_math/__init__.py'
+      - 'tools/*coordinate*'
+      - 'tools/validate_cell_address.py'
+      - 'tests/test_cell_address_contract.py'
+      - 'p000_reality_foundation.json'
+      - 'project_definition.json'
+      - 'PROJECT_DEFINITION*'
+      - 'README*'
+      - '*relational_axis*'
+      - '*RELATIONAL_AXIS*'
+      - '*packet_path*'
+      - '*PACKET_PATH*'
+      - 'native_semantics_admissibility.json'
+      - 'research_common_surface.json'
+      - 'definitions/**'
+      - 'EnterpriseMath.lean'
+      - 'lean-toolchain'
+      - 'GEOMETRIC_TOOL_REFOUNDATION_POLICY.md'
+      - '.github/workflows/coordinate-contract-a8d47f21.yml'
+  pull_request:
+    paths:
+      - 'coordinate_address_contract.json'
+      - 'coordinate_contract_migration_manifest.json'
+      - 'COORDINATE_ADDRESS_CONVENTION*'
+      - 'schemas/cell_address.schema.json'
+      - 'EnterpriseMath/CellAddress/**'
+      - 'src/enterprise_math/cell_address.py'
+      - 'src/enterprise_math/_cell_slice_codec.py'
+      - 'src/enterprise_math/geometry.py'
+      - 'src/enterprise_math/__init__.py'
+      - 'tools/*coordinate*'
+      - 'tools/validate_cell_address.py'
+      - 'tests/test_cell_address_contract.py'
+      - 'p000_reality_foundation.json'
+      - 'project_definition.json'
+      - 'PROJECT_DEFINITION*'
+      - 'README*'
+      - '*relational_axis*'
+      - '*RELATIONAL_AXIS*'
+      - '*packet_path*'
+      - '*PACKET_PATH*'
+      - 'native_semantics_admissibility.json'
+      - 'research_common_surface.json'
+      - 'definitions/**'
+      - 'EnterpriseMath.lean'
+      - 'lean-toolchain'
+      - 'GEOMETRIC_TOOL_REFOUNDATION_POLICY.md'
+      - '.github/workflows/coordinate-contract-a8d47f21.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  contract-and-formal-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Check shared constraints without modifying repository files
+        run: python tools/apply_coordinate_address_contract.py --check
+      - name: Validate runtime, schema and original package entry
+        run: |
+          set -euo pipefail
+          python -m pip install 'jsonschema==4.25.1' 'pytest==8.3.5'
+          python -m unittest discover -s tests -p 'test_cell_address_contract.py' -v
+          python - <<'PY'
+          import enterprise_math as em
+          assert em.FinalCellAddress is not None
+          assert em.integer_nth_root(20000,2)==141
+          assert em.collapse(20000,2)==19881
+          print('PUBLIC_PACKAGE_AND_INTEGER_CORE_SMOKE_PASSED')
+          PY
+      - name: No new failures against exact pre-migration regression baseline
+        run: python tools/check_coordinate_regressions.py
+      - name: Install exact project Lean toolchain
+        run: |
+          set -euo pipefail
+          test "$(tr -d '\r\n' < lean-toolchain)" = 'leanprover/lean4:v4.33.0-rc2'
+          curl --fail --location --retry 2 --max-time 240 'https://github.com/leanprover/lean4/releases/download/v4.33.0-rc2/lean-4.33.0-rc2-linux.tar.zst' -o "$RUNNER_TEMP/lean.tar.zst"
+          echo '48010c7d6264dc992574e9b0e09ece1f9c648e8f5106066b2cdb6834a6a60a6c  '"$RUNNER_TEMP/lean.tar.zst" | sha256sum -c -
+          mkdir -p "$RUNNER_TEMP/lean-dist"
+          tar --zstd -xf "$RUNNER_TEMP/lean.tar.zst" -C "$RUNNER_TEMP/lean-dist" --strip-components=1
+          echo "$RUNNER_TEMP/lean-dist/bin" >> "$GITHUB_PATH"
+      - name: Compile registered proof and public interface; reject proof placeholders
+        run: |
+          set -euo pipefail
+          lean --version
+          git rev-parse HEAD
+          export LEAN_PATH="$RUNNER_TEMP/coordinate-lean"
+          mkdir -p "$LEAN_PATH/EnterpriseMath/CellAddress"
+          for module in ThreeRegionSlice Contract; do
+            source="EnterpriseMath/CellAddress/$module.lean"
+            sha256sum "$source"
+            if grep -nE '\b(sorry|admit|axiom|native_decide)\b' "$source"; then exit 1; fi
+            lean -o "$LEAN_PATH/EnterpriseMath/CellAddress/$module.olean" "$source" 2>&1 | tee "$RUNNER_TEMP/$module.log"
+            if grep -E 'sorryAx|Lean.ofReduceBool|Lean.trustCompiler' "$RUNNER_TEMP/$module.log"; then exit 1; fi
+            test -s "$LEAN_PATH/EnterpriseMath/CellAddress/$module.olean"
+          done
+          git diff --exit-code
+          echo 'COORDINATE_PUBLIC_INTERFACE_LEAN_PASSED'

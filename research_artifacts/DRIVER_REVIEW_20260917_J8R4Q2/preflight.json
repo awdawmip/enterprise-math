@@ -1,0 +1,58 @@
+{
+  "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_PUBLICATION_PREFLIGHT_V1",
+  "status": "PASS_SCOPED_CURRENT_POLICY_EQUIVALENT_PREFLIGHT_NOT_GLOBAL_REPOSITORY_AUDIT",
+  "driver_id": "EM-DVR-J8R4Q2",
+  "recorded_at": "2026-09-17T06:54:00+00:00",
+  "write_base_verified": "667477e62dfb9dbcc3cdc35c6ddf69bd6d4bd131",
+  "incremental_scan": {
+    "previous_terminal_driver_transaction": "a7680fb6c3119522e35b4fc2d1d537d2525bca3f",
+    "new_frozen_results_found": [
+      "RR-F97259D79B7E7EF3F69F",
+      "RR-15457ACA568B33A04CE7"
+    ],
+    "new_terminal_review_records_found_before_transaction": [],
+    "later_commits_checked_through": "667477e62dfb9dbcc3cdc35c6ddf69bd6d4bd131",
+    "issue_1479_state": "CLOSED",
+    "issue_1479_recurrence_observed": false
+  },
+  "review_bindings": [
+    {
+      "result_id": "RR-F97259D79B7E7EF3F69F",
+      "result_blob_sha1": "bba0267ffdc7b685517fec9ac809ab8fc715d408",
+      "result_record_sha256": "sha256:a926c55a1aaecac16e4d7e4ca575eb3a3e1dcb5452bf19245de213c4a7e63568",
+      "review_id": "DR-027ED0C06D7B6A76E0FF",
+      "independent_local_validation": "PASS_CHECKER_REPLAY_AND_50399_PAIR_STATEMENT_AUDIT"
+    },
+    {
+      "result_id": "RR-15457ACA568B33A04CE7",
+      "result_blob_sha1": "40842de792ddab623eedae99d95198102fcfd022",
+      "result_record_sha256": "sha256:b544b8ab329f86eabb4a72e387f5e9623d57b66a99c267dfdcc333a046c44031",
+      "review_id": "DR-CC898FED6F444A808B06",
+      "independent_local_validation": "PASS_DEGREE_STATE_RECURRENCE_ORBIT_SUM_AND_SOURCE_PIN_AUDIT",
+      "graph_level_r14_replay": "REUSED_IMMUTABLE_DETERMINISTIC_PACKAGE_NOT_REENUMERATED_THIS_RUNTIME"
+    }
+  ],
+  "task_publication": {
+    "task_id": "RS-P000-Q30-N15-FIRST-COLLISION-FRONTIER",
+    "publication_id": "TP2-D26B7FC040AB70B8B136",
+    "taskbook_blob_sha1": "sha1:ef1904597f9638bd6f8400558adda67f82542a9c",
+    "effective_priority": "P1",
+    "effective_leverage": "HIGH",
+    "dependencies": [],
+    "lineage": "CONTINUATION",
+    "parent_task_id": "RS-P000-Q30-N14-EVIDENCE-RECOVERY-CANONICALIZATION-GATE",
+    "duplicate_check": "NO_MATCHING_N15_TASK_IN_SCANNED_CURRENT_TREE_OR_POST_SCAN_COMMITS",
+    "policy_digest": "sha256:dd425305887871866cb2f0894885ff38359639e2de7750fa45e8c584e19feae4",
+    "taskbook_findings": [],
+    "publication_record_findings": [],
+    "expected_base_state": "READY"
+  },
+  "boundaries": {
+    "working_truth_granted": false,
+    "foundation_changes": false,
+    "researcher_claims_modified": false,
+    "result_records_modified": false,
+    "force_update_allowed": false
+  },
+  "local_validation": "PASS_FOR_REVIEW_ARITHMETIC_AND_TASKBOOK_SCOPED_POLICY; FULL_R14_GRAPH_PACKAGE_REPLAY_REUSED_FROM_PINNED_IMMUTABLE_EVIDENCE"
+}

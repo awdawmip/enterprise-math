@@ -1,0 +1,165 @@
+{
+  "status": "PASS",
+  "check_groups": 15,
+  "random_seed": 190926,
+  "checks": {
+    "source_reuse": {
+      "brc_transport.py": "be1debe367263931bd5e93fd750be3ed54624fe1",
+      "brc_histogram.py": "9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1",
+      "predictive_quotient.py": "f27d9ddf908f5b07051acfaf0c69f359d499b98b"
+    },
+    "contract": {
+      "valid": true,
+      "mutant_rejections": 6
+    },
+    "cyclic_representation": {
+      "radices": [
+        2,
+        3,
+        4,
+        5,
+        7
+      ],
+      "basis_products": 180,
+      "minimal_degree": 6
+    },
+    "ring_laws": {
+      "random_triples": 2400,
+      "laws": [
+        "commutative",
+        "associative",
+        "distributive",
+        "unit",
+        "additive_inverse",
+        "degree_transport"
+      ]
+    },
+    "division_and_norm": {
+      "random_cases": 120,
+      "lambda_norm": -2,
+      "scalar_two_norm": 64,
+      "one_plus_lambda_norm": -1
+    },
+    "unit_division": {
+      "exhaustive_vectors": 729,
+      "inverse_one_plus_lambda": [
+        -1,
+        1,
+        -1,
+        1,
+        -1,
+        1
+      ]
+    },
+    "nonfield_counterexample": {
+      "b": 4,
+      "left": [
+        -2,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "right": [
+        2,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "product": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "residue_arithmetic": {
+      "random_pairs": 5000,
+      "operations": [
+        "reconstruction",
+        "addition",
+        "subtraction",
+        "multiplication"
+      ],
+      "carry_axis": 6
+    },
+    "timed_order": {
+      "random_associativity_triples": 300,
+      "u_then_v": [
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "v_then_u": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    "space_vs_event_identity": {
+      "same_space_different_end_times": [
+        6,
+        1
+      ],
+      "spatial_inverse_return_time": 2
+    },
+    "BRC_time_ports": {
+      "literal_paths": 64,
+      "mass": "1",
+      "temporal_associativity_and_distribution": true,
+      "incompatible_ports_rejected": true
+    },
+    "modular_dynamics": {
+      "odd_modulus_order": {
+        "3": 12,
+        "5": 24,
+        "7": 18,
+        "9": 36,
+        "11": 60,
+        "13": 72,
+        "17": 48,
+        "19": 108,
+        "25": 120,
+        "27": 108
+      },
+      "two_power_nilpotent_cases": 8,
+      "rule": "6*k for modulus 2^k; residue erasure, not full-state annihilation"
+    },
+    "predictive_digit_horizon": {
+      "raw_states": 64,
+      "profile": [
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        64
+      ],
+      "observer": "parity",
+      "future": "floor division by 2"
+    },
+    "axis_symmetry_boundary": {
+      "signed_axis_permutations_scanned": 46080,
+      "positive_axis_permutations": 720,
+      "positive_ring_automorphisms": 1,
+      "signed_ring_automorphisms": 2,
+      "scope": "chosen multiplication, not reduction of native geometric S6"
+    },
+    "invalid_input_rejections": 7
+  },
+  "scope": "new algebraic construction under a chosen integer heartbeat, not universal intrinsic multiplication or production integration",
+  "independent_review": false,
+  "full_project_tests": false
+}

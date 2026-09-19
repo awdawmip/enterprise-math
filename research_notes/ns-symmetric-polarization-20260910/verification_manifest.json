@@ -1,0 +1,104 @@
+{
+  "schema": "EM_RESULT_SPECIFIC_VERIFICATION_V1",
+  "record_id": "FINDING-EM-PDE-SYMMETRIC-POLARIZATION-20260910",
+  "activity_id": "RA-076944AE1950A916ACC95399",
+  "proposed_event_id": "NS-SYMMETRIC-POLARIZATION-20260910-14",
+  "source_files": {
+    "RESEARCH_NOTE.md": {
+      "commit": "88d18007c15f02e4581b14381220e64da570d57e",
+      "path": "research_notes/ns-symmetric-polarization-20260910.md",
+      "sha256": "d1f898271a9b8694767b951dab00c9af78785df85c9c19b84d81c7eba84d29da",
+      "git_blob_sha1": "0fc2e6cc7304526baa91dd4acc0e1642a02618b9"
+    },
+    "certify_symmetric.py": {
+      "commit": "828e2778933899219d6d58a351177c3d162075f9",
+      "path": "research_notes/ns-symmetric-polarization-20260910/certify_symmetric.py",
+      "sha256": "89e3e80bfc8066a8f155198379affa802a128b5bcab2897704861d725e85fea9",
+      "git_blob_sha1": "6644824f09e6c4c023c5a672b224afb700f703e6"
+    },
+    "certify_symmetric_family.py": {
+      "commit": "f465f6d84cd855018b110c0932b3a5b7d0daceb4",
+      "path": "research_notes/ns-symmetric-polarization-20260910/certify_symmetric_family.py",
+      "sha256": "efaa6313a1cba9e82d25ddc4baa4d8cc6023aed64a5f984031cbac19a1fd7026",
+      "git_blob_sha1": "90a65443743080ad87b37bfc621abdb3eb40d031"
+    }
+  },
+  "verification": {
+    "status": "PASS",
+    "scope": "analytic all-mode estimates plus exact rational finite checks; no PDE sampling",
+    "operator": "Bs(f,g)=(B(f,g)+B(g,f))/2; both inputs solenoidal",
+    "periodic_constant": "909/200",
+    "ordered_B_constant_unchanged": "6447/1000",
+    "R3_constant_unitary_Fourier": "sqrt(6)/16",
+    "continuous_Gram": "(3*pi^3/16)P_k",
+    "continuous_exchange_cross_integral": "0",
+    "near_lattice_points": 894,
+    "exact_near_output_classes": 1490,
+    "near_matrix_upper": "71/20",
+    "large_output_cutoff": 24,
+    "far_upper_readout": 17.09560069415452,
+    "all_mode_squared_upper_readout": 20.64560069415452,
+    "matrix_Gram_and_SOS_identities_checked": true,
+    "full_NS_quadratic_and_difference_symmetrization_checked": true,
+    "family": {
+      "viscosity": "nu>0",
+      "range": "0<=a/nu<=19/100",
+      "shape_positive_frequencies": [
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          -2,
+          0
+        ]
+      ],
+      "initial_helicity": "+; not imposed on evolution or perturbations",
+      "perturbation_radius": "nu/20000 in Hdot^1/2",
+      "trajectory_radius": "3nu/125",
+      "inverse_upper": "43/8",
+      "feedback_upper": "20",
+      "eta_upper": "1211/100000",
+      "eta_computed_readout": 0.01210679030853966,
+      "inclusion_margin": "37/100000",
+      "contraction": "24/25",
+      "perturbed_margin_readout": 0.0001372556727329321,
+      "correction_packets": 216,
+      "complete_linear_defect_packets": 772,
+      "complete_linear_defect_outputs": 144
+    },
+    "clean_directory_rerun": "PASS; all non-timing result fields identical",
+    "source_readback_git_blob_matches": true,
+    "independent_review": false
+  },
+  "generated_output_sha256": {
+    "symmetric_verification.json": "07599b01b8f9c7a8f7b925884bce8c5bfb793ca5d021b4089feeb1cceea4e141",
+    "symmetric_family_verification.json": "961a6d75275a646e336c242ce431dd7ae8ac7749ec340938a013f5f749e3b28f",
+    "clean_rerun_verification.json": "0344e2d4e6fc1af64b416dfef3559332738aed0677aede5527e56a432abb4a77"
+  },
+  "recovery": {
+    "earlier_pending_bundles": "Already represented by canonical checkpoints 12 and 13 under different names; no duplicate backfill.",
+    "canonical_parent_manifest": "97a7f095e4136b3fe81bb9b874b0ef6bee492c5f:research_notes/ns-tensor-cell-gram-20260910/verification_manifest.json",
+    "preliminary_transverse_reproduction": "Not counted as new research."
+  },
+  "limits": [
+    "Not a new ordered-B constant; symmetrization is licensed for NS quadratic feedback and its derivative.",
+    "Not arbitrary-data regularity or historical novelty.",
+    "The R3 inequality is not an R3 global existence proof.",
+    "MHD cannot inherit the symmetric constant without a separate componentwise proof.",
+    "The all-mode inverse and continuation arguments remain explicit inherited TESTING dependencies.",
+    "A positive high-frequency Gram limit is not a blow-up or stability theorem."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/QUADRANT_ZERO_GAP_SLOT_CERTIFICATE_20260913_A8D47F21.json",
+    "ref": "b31c06daf9b389854255d24ec82c045669bfb2ff",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-observation-turn106-gap-slots-a8d47f21",
+  "result": {
+    "structuredContent": {
+      "content": "{\n  \"event\": \"quadrant-zero-gap-slots-20260913-a8d47f21\",\n  \"status\": \"CONDITIONAL_EXACT_DERIVATION_AND_EXECUTED_PROTOTYPE_NOT_FOUNDATION\",\n  \"source_commit\": \"0b19f6c18d6302464e5ea840946681e7cfd7f2ad\",\n  \"source_path\": \"research_notes/QUADRANT_ZERO_GAP_SLOT_AUDIT_20260913_A8D47F21.md\",\n  \"source_blob\": \"bec3daa87e9ab6dc57395c7f9709ba4c92dc4b06\",\n  \"encode\": \"E(z)=(z,0) for z>=1; (0,1-z) for z<=0\",\n  \"decode\": \"D(p,m)=p-m+indicator(m>0); p*m=0, p+m>=1\",\n  \"proof\": \"The positive branch bijects to integers >=1 and the negative branch bijects to integers <=0. They partition Z. Thus D E=id and E D=id. The slot step decodes to z+/-1, yielding the unchanged labeled-walk bijection.\",\n  \"crossing\": \"(2,0)->(1,0)->(0,1)->(0,2) is three native steps\",\n  \"opposite_side_distance\": \"p+m-1, not p+m\",\n  \"two_axis_corner\": {\"steps\": 2, \"ordered_shortest_paths\": 2},\n  \"old_zero_cell\": \"preserved at negative-side label 1\",\n  \"zero_policy\": \"inactive slot only; not unknown/omitted native data\",\n  \"actual_tests\": {\"v2_roundtrips\": 4374, \"native_move_inverse\": 26244, \"mixed_frame_metric_pairs\": 3819, \"weighted_words\": 22621, \"multinomial_checks\": 1289},\n  \"results_sha256\": \"36be922b3fed69c9eb2f0f0355e57bb12a9098bb85e5077c6a73122ee29e9035\",\n  \"not_performed\": [\"production migration\", \"full repository tests\", \"Lean build\"]\n}\n",
+      "display_title": "QUADRANT_ZERO_GAP_SLOT_CERTIFICATE_20260913_A8D47F21.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/b31c06daf9b389854255d24ec82c045669bfb2ff/research_notes/QUADRANT_ZERO_GAP_SLOT_CERTIFICATE_20260913_A8D47F21.json",
+      "encoding": "utf-8",
+      "sha": "391dd2d1ceff141135af88c89d6f20062ddffd25"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

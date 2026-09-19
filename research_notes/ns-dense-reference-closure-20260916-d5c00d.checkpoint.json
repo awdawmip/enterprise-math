@@ -1,0 +1,47 @@
+{
+  "schema": "EM_DENSE_REFERENCE_CLOSURE_CHECKPOINT_V1",
+  "event_id": "NS-DENSE-REFERENCE-CLOSURE-20260916-D5C00D-17",
+  "researcher_id": "EM-DIRECT-D5C00D",
+  "activity_id": "RA-D5C00DF7D77F4AA2ACE0",
+  "status": "TESTING_LOCAL_VALIDATED_SOURCE_PUBLISHED",
+  "source_snapshot_used_for_mathematics": "7101de468735f6e0b6a74c8f1bb1cf0fb29a8712",
+  "publication_parent_snapshot": "608d526db8e3c502183ea1de954499e5edc6acae",
+  "parent_event": "NS-DENSE-CONSERVATIVE-RESIDUAL-20260910-D5C00D-16",
+  "parent_checker_sha256": "d7784336c350e5d3795c3c3163f55a1477752a264b842edc49af14cbdf0bddd1",
+  "artifacts": [
+    {"path":"research_notes/ns-dense-reference-closure-20260916-d5c00d.md","git_blob_sha1":"c90a46bc8102f0f178e85dbe89e7d0fda6fb3ef1"},
+    {"path":"research_notes/ns-dense-reference-closure-20260916-d5c00d.results.json","git_blob_sha1":"562d074e5d3b95bb474a54a7d898cef61952f7aa"},
+    {"path":"experiments/ns_dense_reference_d5c00d/check_reference.py","git_blob_sha1":"40dc9f4d7317f23485ef604716e3c59846441aef","role":"lossless validated-source launcher"},
+    {"path":"experiments/ns_dense_reference_d5c00d/check_reference.part1.pyfrag","git_blob_sha1":"79cdf6bd3004bdd0afc0b4cb2e3a07ff77f61359"},
+    {"path":"experiments/ns_dense_reference_d5c00d/check_reference.part2.pyfrag","git_blob_sha1":"317104fecfad299f6836f2ac783847a44d398c7a"},
+    {"path":"experiments/ns_dense_reference_d5c00d/check_reference.part3.pyfrag","git_blob_sha1":"9f4da891305dc7b43ae86e74488b713f44d7a593"}
+  ],
+  "validation": {
+    "assembled_checker_sha256": "5f7beef516f4d4d40b2d5f73322bc8737d726c72a266b5960460275daf412d5f",
+    "local_clean_rerun": true,
+    "split_launcher_reconstructs_original_source": true,
+    "split_launcher_result_byte_equal_to_local_result": true,
+    "cycles_checked": 128,
+    "rational_k_values": 45,
+    "joint_outcome_probabilities_checked": 720,
+    "coherent_branch_checks": 208,
+    "native_neighbor_routes": 12
+  },
+  "results": {
+    "overlap_amplitude_denominator": "3^(2n)",
+    "overlap_probability_denominator": "3^(4n)",
+    "herald_probability": "32/81",
+    "heralded_CHSH": "14/5",
+    "raw_same_observables_CHSH": "778/405",
+    "finite_protocol_amplitude_grid_denominator": 90,
+    "finite_protocol_probability_grid_denominator": 8100,
+    "relative_coherence_CHSH": "2+4*kappa^2/(4+kappa^2)"
+  },
+  "scope": [
+    "Quantum tensor products, Born measurements, coherent preparation and declared instruments remain comparison assumptions, not a P000 derivation.",
+    "The fixed-grid obstruction applies to the stated amplitude coordinates and overlapping reflection network, not every finite representation.",
+    "The heralded CHSH is conditional on a pre-setting number flag; all rejected branches are retained in the full protocol.",
+    "No primitive-force admission, physical total-energy proof, NS theorem, independent review, Lean build or Foundation promotion."
+  ],
+  "next": "Construct or constrain a native finite-resolution joint update that can generate and transport the retained relation coordinate without arbitrary-depth denominator growth or post-hoc residual repair."
+}

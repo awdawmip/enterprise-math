@@ -87,7 +87,13 @@
     "egress": "O_x[0..5]",
     "passage": "M_x[a,b]",
     "diagonal_allowed": true,
-    "forbidden_native_interpretations": ["STRAIGHT", "TURN", "ANGLE", "CURVATURE", "OPPOSITE_DIRECTION"],
+    "forbidden_native_interpretations": [
+      "STRAIGHT",
+      "TURN",
+      "ANGLE",
+      "CURVATURE",
+      "OPPOSITE_DIRECTION"
+    ],
     "temperature_semantics": "PHYSICAL_CALIBRATION_ONLY"
   },
   "precision_rule": {
@@ -124,5 +130,14 @@
     "shortest_or_balanced_or_line_rules": "N1_DERIVED_OPERATIONAL_SEMANTICS",
     "area_volume_length_metric_surface_scalars": "N2_READOUT_COLLAPSE_UNLESS_SEPARATELY_PROMOTED",
     "classical_geometry_continuum": "N3_CONTINUUM_CLASSICAL"
+  },
+  "coordinate_address_contract": "coordinate_address_contract.json",
+  "coordinate_address_scope": {
+    "final_address": "SIX_NONNEGATIVE_FIELDS_WITH_REGISTERED_LOSSLESS_CODEC",
+    "raw_coordinate_and_displacement": "EXISTING_SIGNED_INTERNAL_MATHEMATICS_UNCHANGED",
+    "legacy_coordinate_zero_keys": "RAW_CHART_ZERO_NOT_DISPLAY_ORIGIN",
+    "display_origin_and_axes_operational": false,
+    "crossing_forces_increment": false,
+    "proof_scope": "REGISTERED_FIXED_TWO_GENERATOR_SLICE_NOT_FULL_X6"
   }
 }

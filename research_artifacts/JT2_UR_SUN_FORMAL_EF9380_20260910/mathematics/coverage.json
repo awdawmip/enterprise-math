@@ -1,0 +1,1175 @@
+{
+  "query": "BRC labeled Frobenius ports p-adic precision parity defects generalized Legendre differential recurrence jet elimination scalar obstruction",
+  "verdict": "REUSE_CANDIDATE_FOUND",
+  "tool_families": [
+    {
+      "score": 25,
+      "id": "T5_PRECISION_REFINEMENT",
+      "name": "Integer Precision / Refinement Calculus",
+      "status": "HARVESTED_PREEXISTING_DERIVED_TOOL_FAMILY",
+      "triggers": [
+        "precision",
+        "refinement",
+        "coarse",
+        "fine",
+        "projection",
+        "detail",
+        "carry",
+        "borrow",
+        "mixed radix",
+        "scale chain",
+        "graded transport"
+      ],
+      "capabilities": [
+        "exact projection/recomposition",
+        "fiber detail",
+        "carry/borrow",
+        "precision-chain decomposition",
+        "graded transport",
+        "nonlinear projection defect"
+      ],
+      "hard_boundary": "finite integer precision only unless a separate theorem supplies continuum/limit semantics",
+      "source_methods": [
+        "src/enterprise_math/precision.py",
+        "src/enterprise_math/graded_precision.py",
+        "src/enterprise_math/precision_system.py",
+        "src/enterprise_math/precision_proof.py"
+      ]
+    },
+    {
+      "score": 10,
+      "id": "T2_BLOCK_FINITE_CERTIFICATE",
+      "name": "Enterprise Block Finite-Certificate Calculus",
+      "status": "ACCEPTED_DERIVED_TOOL",
+      "triggers": [
+        "compatibility",
+        "constraint",
+        "certificate",
+        "Helly",
+        "local-to-global",
+        "intersection",
+        "obstruction",
+        "feasible",
+        "gluing"
+      ],
+      "capabilities": [
+        "bounded failure certificate",
+        "bad-block extraction",
+        "success witness assembly",
+        "independent-block max-law"
+      ],
+      "core_law": "INDEPENDENT_BLOCK_COMPOSITION -> GLOBAL_CERTIFICATE_NUMBER <= MAX_LOCAL_CERTIFICATE_NUMBER",
+      "hard_boundary": "propagating coupling can force unbounded minimal obstruction size even on bounded local domains/arity and path/tree interaction graphs",
+      "driver_review": "driver_reviews/TOOL_DISCOVERY_ENTERPRISE_HELLY_RADON_DRIVER_REVIEW_20260822.md",
+      "result": "research_notes/TOOL_DISCOVERY_ENTERPRISE_HELLY_RADON_CERTIFICATE_CALCULUS_RESULT_20260822.md",
+      "known_specializations": [
+        "src/enterprise_math/box_collapse.py"
+      ]
+    },
+    {
+      "score": 9,
+      "id": "T6_OPERATION_SAFE_QUOTIENT",
+      "name": "Operation-Safe Quotient / Predictive Refinement Calculus",
+      "status": "HARVESTED_PREEXISTING_DERIVED_TOOL_FAMILY",
+      "triggers": [
+        "quotient",
+        "collapse",
+        "projection",
+        "future observation",
+        "predictive",
+        "descent",
+        "congruence",
+        "stable partition",
+        "operation family",
+        "coarse graining"
+      ],
+      "capabilities": [
+        "fiber-constancy witness",
+        "descent test",
+        "coarsest repair",
+        "predictive partition",
+        "operation-family closure",
+        "safe-operation census"
+      ],
+      "hard_boundary": "the preserved observation/operation language must be declared; the calculus does not choose what distinctions are semantically disposable",
+      "source_methods": [
+        "src/enterprise_math/predictive_quotient.py",
+        "src/enterprise_math/composition_safe_collapse.py",
+        "src/enterprise_math/operation_quotient.py",
+        "src/enterprise_math/partial_operation_quotient.py",
+        "src/enterprise_math/safe_operation_algebra.py"
+      ]
+    },
+    {
+      "score": 7,
+      "id": "T0_BRC",
+      "name": "BRC",
+      "status": "PREEXISTING_CANONICAL_TOOL_FAMILY",
+      "scope": "support/result/provenance-valued composition; use exact current BRC definitions",
+      "triggers": [
+        "BRC",
+        "support",
+        "Boolean result",
+        "path formal",
+        "branch",
+        "recoalescence",
+        "multipath"
+      ],
+      "capabilities": [
+        "support algebra",
+        "path/result projection",
+        "multipath composition",
+        "provenance-aware result semantics"
+      ],
+      "hard_boundary": "Use exact current BRC typing; do not infer erased provenance from Boolean support."
+    },
+    {
+      "score": 6,
+      "id": "T12_IDEMPOTENT_PATH_CLOSURE_BELLMAN",
+      "name": "Idempotent Path Closure / Bellman Fixed-Point Calculus",
+      "status": "DRIVER_ACCEPTED_NEW_ENTERPRISE_TOOL_INTERFACE",
+      "api": [
+        "VALIDATE_SEMIRING",
+        "WEIGHTED_RELATION",
+        "COMPOSE",
+        "PATH_VALUE",
+        "POWER",
+        "CLOSURE",
+        "RESIDUAL_LEFT",
+        "RESIDUAL_RIGHT",
+        "BELLMAN_OPERATOR",
+        "LEAST_FIXED_POINT",
+        "GREATEST_FIXED_POINT",
+        "OPTIMAL_PATH_CERT",
+        "UNBOUNDED_CYCLE_CERT",
+        "OBSTRUCTION"
+      ],
+      "triggers": [
+        "tropical",
+        "min-plus",
+        "max-plus",
+        "idempotent semiring",
+        "Kleene star",
+        "path closure",
+        "all-path envelope",
+        "Bellman",
+        "fixed point",
+        "residuation",
+        "weighted path"
+      ],
+      "capabilities": [
+        "semiring matrix path composition",
+        "fixed-length path envelopes",
+        "all-path closure under exact cycle/completeness hypotheses",
+        "improving-cycle certificate",
+        "Bellman least/greatest fixed points",
+        "matrix residual inequality solving with P008 ownership retained"
+      ],
+      "hard_boundary": "Weights must be explicitly declared. Residuation/Galois adjunction alone remains P008-owned. Improving cycles or incomplete carriers may obstruct a finite closure; a path envelope is not automatically a metric.",
+      "implementation_status": "INTERFACE_AND_EXACT_CHECKER_ACCEPTED_NO_PRODUCTION_MODULE_YET",
+      "driver_review": "driver_reviews/TOOL_DISCOVERY_SIX_RETURN_DRIVER_INTAKE_20260823.md",
+      "result": "research_notes/TOOL_DISCOVERY_TROPICAL_RESIDUATION_IDEMPOTENT_CLOSURE_RESULT_20260823.md"
+    },
+    {
+      "score": 6,
+      "id": "T3_TYPED_INCIDENCE_CIRCUIT",
+      "name": "Typed Incidence Circuit Calculus",
+      "status": "ACCEPTED_DERIVED_TOOL_SCOPE_NARROWED",
+      "api": [
+        "SIGN",
+        "CIRCUITS",
+        "ELIMINATE",
+        "SEPARATE",
+        "DUAL",
+        "REALIZATION_CHECK"
+      ],
+      "triggers": [
+        "circuit",
+        "cocircuit",
+        "cycle",
+        "cut",
+        "separator",
+        "path difference",
+        "provenance defect",
+        "reroute",
+        "incidence"
+      ],
+      "capabilities": [
+        "signed cycle certificates",
+        "circuit elimination",
+        "minimal cut/cocircuit",
+        "same-endpoint path-defect decomposition",
+        "metric-erasure realization check"
+      ],
+      "hard_boundary": "DIRECTION_ONLY_SIGNED_CIRCUIT_NOT_DERIVED",
+      "driver_review": "driver_reviews/TOOL_DISCOVERY_NATIVE_ORIENTED_MATROID_DRIVER_REVIEW_20260822.md",
+      "result": "research_notes/TOOL_DISCOVERY_NATIVE_ORIENTED_MATROID_CIRCUIT_CALCULUS_RESULT_20260822.md"
+    },
+    {
+      "score": 3,
+      "id": "T10_LOCAL_REDISTRIBUTION_TOPPLING",
+      "name": "Local Redistribution / Toppling / Potential Calculus",
+      "status": "DRIVER_ACCEPTED_NEW_GLOBAL_TOOL_FAMILY",
+      "api": [
+        "VALIDATE_TOPPLING",
+        "INCIDENCE",
+        "DIV",
+        "LAPLACIAN",
+        "FIRE",
+        "STABILIZE",
+        "ODOMETER",
+        "LEAST_ACTION_CERT",
+        "REDUCED_LAPLACIAN",
+        "EQUIVALENCE_CLASS",
+        "OBSTRUCTION"
+      ],
+      "triggers": [
+        "toppling",
+        "chip firing",
+        "sandpile",
+        "local redistribution",
+        "stabilization",
+        "odometer",
+        "least action",
+        "reduced Laplacian",
+        "sink",
+        "conservative defect",
+        "potential"
+      ],
+      "capabilities": [
+        "legal integer local redistribution",
+        "strict termination witness",
+        "order-independent stabilization",
+        "odometer",
+        "least-action certificate",
+        "sink dissipation accounting",
+        "reduced-Laplacian/cokernel invariant"
+      ],
+      "hard_boundary": "A graph-Laplacian identity alone is not the tool. The caller must declare the toppling carrier, legality and semantics; sinkless/inaccessible systems may fail to terminate; potential is not automatically geometry or energy.",
+      "source_methods": [
+        "src/enterprise_math/discrete_laplacian_chip_firing.py"
+      ],
+      "known_specializations": [
+        "T5 mixed-radix carry/toppling",
+        "weighted Dirichlet/flow variational layer from RS-TD-IE"
+      ],
+      "driver_review": "driver_reviews/TOOL_DISCOVERY_SIX_RETURN_DRIVER_INTAKE_20260823.md",
+      "result": "research_notes/TOOL_DISCOVERY_DISCRETE_LAPLACIAN_CHIP_FIRING_POTENTIAL_RESULT_20260823.md"
+    },
+    {
+      "score": 3,
+      "id": "T11_DISCRETE_MORSE_CHAIN_REDUCTION",
+      "name": "Discrete Morse / Acyclic-Matching Chain Reduction",
+      "status": "DRIVER_ACCEPTED_NEW_ENTERPRISE_TOOL_INTERFACE",
+      "api": [
+        "VALIDATE_CHAIN_COMPLEX",
+        "MATCH",
+        "ACYCLIC",
+        "CANCELLABLE_PAIR",
+        "CANCEL",
+        "MORSE_REDUCE",
+        "CRITICAL_GENERATORS",
+        "MORSE_BOUNDARY",
+        "PROJECT",
+        "LIFT",
+        "HOMOLOGY_CERT",
+        "OBSTRUCTION"
+      ],
+      "triggers": [
+        "discrete Morse",
+        "acyclic matching",
+        "chain complex",
+        "critical generators",
+        "Morse reduction",
+        "unit cancellation",
+        "chain homotopy",
+        "homology compression"
+      ],
+      "capabilities": [
+        "exact adjacent-grade matching validation",
+        "closed-gradient obstruction",
+        "unit-incidence cancellation",
+        "critical-generator reduction",
+        "exact reduced boundary",
+        "projection/lift/homotopy strong-deformation-retract certificate"
+      ],
+      "hard_boundary": "Requires an explicit finite free chain complex. Over Z only unit pivots plus/minus 1 cancel. Homology equivalence is not T6 operation safety, and greedy matching is not canonical or optimal by default.",
+      "source_methods": [
+        "src/enterprise_math/discrete_morse_collapse.py"
+      ],
+      "driver_review": "driver_reviews/TOOL_DISCOVERY_SIX_RETURN_DRIVER_INTAKE_20260823.md",
+      "result": "research_notes/TOOL_DISCOVERY_DISCRETE_MORSE_ACYCLIC_MATCHING_RESULT_20260823.md"
+    }
+  ],
+  "methods": [
+    {
+      "score": 27,
+      "method_id": "t0.brc_multiplier_transition",
+      "name": "BRC consecutive-multiplier root/remainder transition",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_multiplier_transition.py",
+        "src/enterprise_math/brc_multiplier_transition_table.py",
+        "tests/test_brc_multiplier_transition.py",
+        "experiments/brc_multiplier_transition_benchmark.py",
+        "research_notes/BRC_MULTIPLIER_TRANSITION_RECURRENCE_20260906.md",
+        "research_artifacts/brc_multiplier_transition_benchmark_20260906.csv"
+      ],
+      "api": [
+        "MultiplierRootState",
+        "initial_multiplier_root_state",
+        "next_multiplier_root_state",
+        "multiplier_root_state_sequence",
+        "transition_table_mode",
+        "transition_correction_histogram",
+        "static_transition_payload_bytes"
+      ],
+      "triggers": [
+        "BRC multiplier recurrence",
+        "m to m+1 root update",
+        "avoid repeated isqrt",
+        "multiplier root transition",
+        "root remainder transport",
+        "dyadic multiplier predictor"
+      ],
+      "capabilities": [
+        "exact fixed-N multiplier root/remainder sequence through m=100 with only one initial N-dependent root materialization",
+        "checked-in 99-entry dyadic gamma predictor table for N up to 4096 bits",
+        "exact precision specialization by right shift from one high-precision table",
+        "cached exact predictor fallback above the static cap",
+        "proved at-most-two local BRC odd-width correction steps per transition",
+        "exact ceiling completion gap directly from retained root/remainder",
+        "composition with classical square-residue prefilter without semantic conflation"
+      ],
+      "core_law": "With gamma_m=sqrt((m+1)/m)-1, choose B so J_m<2^(B-1), C_m=floor(2^B gamma_m), d0=floor(C_m J_m/2^B). Then J_(m+1)-(J_m+d0) is in {0,1,2}. The provisional remainder is R_m+N-d0(2J_m+d0); subtracting successive odd basin widths at most twice yields exactly R_(m+1).",
+      "hard_boundary": "Finite exact integer multiplier scan only; checked-in static performance fast path N<=4096 bits and m<=100. Larger-N predictor generation is cached but no one-off speed claim is made. Performance evidence is environment-specific constant-factor timing. No asymptotic factorization speedup, no novelty claim for multiplier-Fermat/Lehman square-gap factoring, no recovery after erasing R_m, and no Foundation promotion."
+    },
+    {
+      "score": 25,
+      "method_id": "precision.integer_projection_calculus",
+      "name": "Integer precision projection/detail/carry calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T5_PRECISION_REFINEMENT",
+      "status": "CANONICAL_MAIN_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/precision.py",
+        "src/enterprise_math/graded_precision.py"
+      ],
+      "triggers": [
+        "precision",
+        "coarse",
+        "fine",
+        "projection",
+        "detail",
+        "carry",
+        "borrow",
+        "mixed radix",
+        "graded transport"
+      ],
+      "capabilities": [
+        "project/recompose",
+        "nested detail",
+        "carry/borrow",
+        "precision chains",
+        "degree transport",
+        "nonlinear projection defect"
+      ]
+    },
+    {
+      "score": 24,
+      "method_id": "t5_t7_t9.euler_rotation_refinement",
+      "name": "Cell-gate dyadic rotation refinement / target-free Viete checker",
+      "classification": "PROJECT_SUBTOOL_COMPOSITION",
+      "family_ids": [
+        "T5_PRECISION_REFINEMENT",
+        "T7_FINITE_SYMMETRY_EQUIVARIANCE",
+        "T9_HOLONOMY_COCOYCLE_GLUING"
+      ],
+      "status": "EXECUTABLE_EXTRACTED_REGRESSION_CHECKED_NOT_PROMOTED",
+      "source_refs": [
+        "research_notes/EULER_CELL_GATE_DYADIC_ROTATION_TOWER_20260903.md",
+        "src/enterprise_math/euler_rotation_refinement.py",
+        "tests/test_euler_rotation_refinement.py"
+      ],
+      "api": [
+        "phase_order",
+        "minimal_cyclic_order",
+        "coarse_embed",
+        "element_order",
+        "distinguished_root_order",
+        "root_square_certificate",
+        "quarter_turn_roots",
+        "phase_birth_level",
+        "phase_kind",
+        "cell_gate_cycle",
+        "rotation_level_certificate",
+        "rotation_tower_certificates",
+        "required_nonlocal_phase_states",
+        "symmetric_trace",
+        "antisymmetric_trace",
+        "viete_product",
+        "rotation_pi_approximant",
+        "rotation_pi_viete_form",
+        "completion_tail_bound"
+      ],
+      "triggers": [
+        "Euler formula geometry",
+        "Cell gate rotation",
+        "C6 C12 C24 refinement",
+        "dyadic root of reversal",
+        "quarter-turn emergence",
+        "Viete nested radical",
+        "target-free precision pi",
+        "rotation chirality obstruction"
+      ],
+      "capabilities": [
+        "certify the minimal cyclic order 6*2^m",
+        "certify 2*u_(m+1)=iota_m(u_m) for the three-step root state",
+        "locate the first quarter-turn in the actual Cell-gate C12 layer",
+        "show reflection exchanges the two quarter-turn roots",
+        "classify Cell, gate, and higher-transition birth levels",
+        "compute target-free nested-radical traces and Viete products",
+        "produce monotone rotation-pi approximants without importing classical pi",
+        "produce a target-free algebraic completion-tail bound"
+      ],
+      "core_law": "For Gamma_m=Z/(6*2^m), iota_m(k)=2k and u_m=3, ord(u_m)=2^(m+1) and 2*u_(m+1)=iota_m(u_m). The compatible character traces satisfy c_(m+1)^2=(1+c_m)/2 and 2/prod_{j=2}^m c_j=2^m s_m.",
+      "hard_boundary": "The first C6-to-C12 refinement has an actual Cell/gate incidence realization. Levels beyond C12 are transition/history refinements unless separately physically realized. The checker does not identify carrier directions with P000 native axes, derive a global operation-safe rotation quotient, or prove the classical analytic identity pi_rot=pi. No Driver review or shared-tool promotion is requested by this addendum."
+    },
+    {
+      "score": 21,
+      "method_id": "logic.triangular_gauge_normalization",
+      "name": "Triangular gauge normalization proof schema",
+      "classification": "CANDIDATE_NOT_TOOL",
+      "family_id": "T5_PRECISION_REFINEMENT",
+      "status": "PROOF_SCHEMA_REUSE_ONLY",
+      "source_refs": [
+        "research_notes/QUADRATIC_PACKET_LOGIC_TOOL_HARVEST_20260826.md",
+        "research_returns/QUADRATIC_PACKET_HIGHER_JET_AUTOMORPHISM_NO_SECTION_AUDIT_RAW_20260825.md"
+      ],
+      "triggers": [
+        "triangular normalization",
+        "unit gauge",
+        "recursive modular normal form",
+        "coefficient-by-coefficient reduction"
+      ],
+      "capabilities": [
+        "recognize triangular gauge action",
+        "derive recursive mod-q normal form",
+        "derive uniqueness by degree induction",
+        "derive orbit count when independent residue ranges are proved"
+      ],
+      "note": "Do not create a new tool family yet. Current evidence is one strong application plus overlap with ordinary integer precision/modular normalization. Promote only after a second independent application family supports a stable reusable API."
+    },
+    {
+      "score": 21,
+      "method_id": "t5_t6_t7_t9.cyclic_rotation_refinement",
+      "name": "Cyclic gate-phase refinement / carry / Euler-Viete certificate",
+      "classification": "PROJECT_SUBTOOL_COMPOSITION",
+      "family_ids": [
+        "T5_PRECISION_REFINEMENT",
+        "T6_OPERATION_SAFE_QUOTIENT",
+        "T7_FINITE_SYMMETRY_EQUIVARIANCE",
+        "T9_HOLONOMY_COCOYCLE_GLUING"
+      ],
+      "status": "EXECUTABLE_EXTRACTED_REGRESSION_CHECKED_FREE_RESEARCH",
+      "source_refs": [
+        "definitions/ENTERPRISE_EULER_GATE_ROTATION_THEOREM_LEDGER_20260903.json",
+        "research_notes/EULER_GATE_CYCLE_CARRY_SPECTRAL_COMPLETION_20260903.md",
+        "src/enterprise_math/cyclic_rotation_refinement.py",
+        "tests/test_cyclic_rotation_refinement.py"
+      ],
+      "api": [
+        "refinement_embedding",
+        "refinement_coordinates",
+        "refined_index",
+        "refinement_carry",
+        "add_refinement_coordinates",
+        "refinement_extension_splits",
+        "splitting_section_generator",
+        "element_order",
+        "half_turn",
+        "half_turn_roots_after_refinement",
+        "positive_half_arc_root",
+        "dyadic_modulus",
+        "dyadic_half_turn_root",
+        "trace_coordinates",
+        "trace_coordinate",
+        "viete_factors",
+        "rotation_pi_approximant",
+        "rotation_completion_enclosure",
+        "effective_character",
+        "euler_even_odd",
+        "finite_euler_coordinates"
+      ],
+      "triggers": [
+        "cyclic rotation refinement",
+        "six-gate Cell link",
+        "orientation phase",
+        "dyadic angle refinement",
+        "binary phase carry",
+        "non-split C_N to C_2N extension",
+        "quarter-turn emergence",
+        "Euler formula geometry",
+        "Viete nested radicals",
+        "rotation precision pi",
+        "cycle spectral decimation"
+      ],
+      "capabilities": [
+        "exact even-state embedding C_N into C_2N",
+        "exact coarse/detail coordinate decomposition",
+        "binary carry law verification",
+        "split versus non-split refinement test",
+        "iterated half-turn root order certificate",
+        "pi-free Decimal trace recursion",
+        "finite Viete rotation approximants",
+        "finite algebraic completion enclosure",
+        "external archimedean Euler-character consistency check"
+      ],
+      "core_law": "Barycentric phase refinement has j=2k+epsilon and (k,e)+(l,f)=(k+l+e*f,e+f mod 2); for the coherent chiral half-turn root tower the normalized trace satisfies c_(m+1)^2=(1+c_m)/2 and its Viete product defines an increasing finite rotation-completion sequence without using the target value of pi.",
+      "hard_boundary": "Carrier/readout and finite algebraic layer only. The tool does not prove that every native Cell trajectory factors through the gate phase, does not derive an archimedean U(1) metric from native length, and does not identify the cyclic carry C2 with the tetrahedral residual C2. The effective_character API deliberately uses the classical complex exponential only as an external bridge check."
+    },
+    {
+      "score": 12,
+      "method_id": "t0.brc_phase_fourth_moment",
+      "name": "BRC fourth-order fixed-phase lifted-moment transport",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_phase_fourth_moment.py",
+        "tests/test_brc_phase_fourth_moment.py",
+        "experiments/brc_phase_fourth_moment_benchmark.py",
+        "research_notes/BRC_PHASE_FOURTH_MOMENT_20260907.md",
+        "research_artifacts/brc_phase_fourth_moment_benchmark_20260907.csv"
+      ],
+      "api": [
+        "FourthPhaseMomentState",
+        "FourthPhaseMomentTracker",
+        "fourth_phase_tail_sufficient",
+        "fourth_phase_tail_threshold",
+        "aligned_fourth_phase_tail_threshold",
+        "phase_fourth_difference_bounds",
+        "phase_fourth_candidate_gap",
+        "odd_n_fourth_phase_tail_states",
+        "reused_reciprocal_table_bytes"
+      ],
+      "triggers": [
+        "BRC fourth phase difference",
+        "N one seventh multiplier tail",
+        "fixed phase lifted moment",
+        "remove unbounded dynamic products",
+        "early phase root recurrence"
+      ],
+      "capabilities": [
+        "exact unbounded odd-N mod-8 root/remainder transport from an m^7>=128N tail",
+        "cubic phase-root extrapolation from four labeled exact phase states",
+        "exact target residual using the signed remainder jet and a four-coordinate lifted quadratic moment carrier",
+        "uniform integer fourth-difference correction bound -347..7",
+        "negative correction recovery using the existing 1024-byte normalized reciprocal table with at most two estimate increments and one adjacent-candidate comparison",
+        "nineteen fixed seed-root transitions followed by recurrence with no further target square roots",
+        "moment updates whose new products use only a bounded correction or fixed small coefficients",
+        "exact completion-gap preservation for the BALANCED zero-false-negative square-residue cascade"
+      ],
+      "core_law": "For (m+8i)N=J_i^2+R_i, i=0..3, let u=Delta J_0, v=Delta^2 J_0, w=Delta^3 J_0 and C=4J_3-6J_2+4J_1-J_0. Then (m+32)N-C^2=-R_0+4R_1-6R_2+4R_3-2(4uw+3v^2+12vw+6w^2). Under m^7>=128N, e=Delta^4J_0 lies in [-347,7]. The lifted moments UW,V2,VW,W2 update using only bounded e, and the existing Round-13 reciprocal table recovers the dominant negative correction exactly.",
+      "observer_contract": "Retain four labeled phase triples plus the ordered finite-difference and quadratic-moment state. A root-only, remainder-total, Boolean-support, or unlabeled phase quotient cannot reproduce the exact residual or completion-gap future operation.",
+      "hard_boundary": "Exact integer transport on the declared odd-N fixed-phase tail. Nineteen direct-root seeds must be amortized by a long stream. Finite timing crossover is runtime-dependent. The result does not reduce the multiplier horizon, change Lehman/Hart factorization complexity, imply RSA practicality, mutate Foundation, or create a new top-level BRC family."
+    },
+    {
+      "score": 12,
+      "method_id": "t0.brc_square_gap_prefilter",
+      "name": "BRC square-gap quadratic-residue prefilter",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "CLASSICAL_BASELINE_COMPOSED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_square_gap_tables.py",
+        "src/enterprise_math/brc_square_gap_prefilter.py",
+        "tests/test_brc_square_gap_prefilter.py",
+        "experiments/brc_multiplier_factor_bridge.py",
+        "experiments/brc_square_residue_static_table_benchmark.py",
+        "research_notes/BRC_MULTIPLIER_FACTOR_BRIDGE_20260906.md",
+        "research_notes/BRC_SQUARE_RESIDUE_STATIC_TABLE_BENCHMARK_20260906.md",
+        "research_artifacts/brc_multiplier_square_gap_prefilter_20260906.csv",
+        "research_artifacts/brc_square_residue_static_table_benchmark_20260906.csv"
+      ],
+      "api": [
+        "DEFAULT_SQUARE_RESIDUE_MODULUS",
+        "STRONG_SQUARE_RESIDUE_MODULUS",
+        "square_residue_table",
+        "square_residue_mask",
+        "square_residue_count",
+        "square_residue_payload_bytes",
+        "passes_square_residue_filter",
+        "filtered_square_root",
+        "ceiling_completion_cost",
+        "ceiling_completion_square_witness"
+      ],
+      "triggers": [
+        "BRC square gap",
+        "completion cost square",
+        "quadratic residue prefilter",
+        "difference of squares",
+        "multiplier Fermat",
+        "square test table",
+        "static square residue table"
+      ],
+      "capabilities": [
+        "checked-in exact packed quadratic-residue tables for moduli 4032 and 20160",
+        "deterministic cached fallback table generation for arbitrary positive moduli",
+        "zero-false-negative rejection of impossible square gaps",
+        "exact integer square-root confirmation on survivors",
+        "typed separation of BRC next-square addition cost from ceiling-square Fermat completion cost",
+        "immediate square-gap witness surface for classical difference-of-squares composition",
+        "runtime benchmark surface separating gap-only second-root savings from full ceiling-gap pipeline cost"
+      ],
+      "core_law": "If an integer value is a square then its residue modulo M belongs to the precomputed quadratic-residue table Q_M. Therefore Q_M[value mod M]=0 safely rejects squarehood before exact isqrt confirmation. For M=4032 the table has 192 live residue classes out of 4032 (1/21) and a 504-byte raw payload; for M=20160 it has 576 live classes out of 20160 (1/35) and a 2520-byte raw payload.",
+      "hard_boundary": "Quadratic-residue filtering, Fermat difference of squares, and Lehman-style multiplier use are classical prior art. Passing the residue filter is not a square certificate. Rejection percentage is not runtime speedup: on the checked small-integer semiprime sample direct Python isqrt was faster, while deterministic larger-integer timing showed the table becomes useful; full ceiling-gap pipeline gains were only about 1.2-1.4x in the tested big-integer ranges because ceil(sqrt(mN)) remains on the critical path. Timings are environment-dependent diagnostics, not complexity theorems. Coarse BRC basin support/Pell resonance remains unpromoted as a selector."
+    },
+    {
+      "score": 9,
+      "method_id": "t0.brc_phase_root_recurrence",
+      "name": "BRC fixed-phase root/remainder third-difference transport",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_phase_root_recurrence.py",
+        "tests/test_brc_phase_root_recurrence.py",
+        "experiments/brc_phase_root_recurrence_benchmark.py",
+        "research_notes/BRC_PHASE_ROOT_RECURRENCE_20260907.md",
+        "research_artifacts/brc_phase_root_recurrence_benchmark_20260907.csv"
+      ],
+      "api": [
+        "PhaseRootRemainderState",
+        "PhaseRootRemainderTracker",
+        "phase_root_candidate_gap",
+        "phase_root_third_difference_bounds",
+        "odd_n_phase_root_tail_states",
+        "reused_reciprocal_table_bytes"
+      ],
+      "triggers": [
+        "BRC phase root recurrence",
+        "third finite difference multiplier root",
+        "remove order-one quotient after warmup",
+        "reuse reciprocal table for BRC correction",
+        "fixed mod-8 phase root remainder"
+      ],
+      "capabilities": [
+        "exact unbounded fixed-phase root/remainder transport after fourteen order-one seed transitions",
+        "quadratic extrapolation of each mod-8 phase root from three labeled exact phase states",
+        "exact target residual G=R0-3R1+3R2-6b(b-a) without target square root or q(2J+q)",
+        "uniform common-tail integer correction bound -3..387",
+        "reuse of the existing 1024-byte normalized reciprocal table for constant-comparison phase closure",
+        "preservation of the exact completion gap for composition with the zero-false-negative BALANCED square-residue cascade",
+        "optional exact lifted product state using only bounded-correction multipliers, retained as a CPU-negative alternative"
+      ],
+      "core_law": "For phase-spaced states (m+8i)N=J_i^2+R_i, let a=J_1-J_0, b=J_2-J_1 and C=3J_2-3J_1+J_0. Then (m+24)N-C^2=R_0-3R_1+3R_2-6b(b-a). On 4m^5>=N, e=J_3-C is the integer third phase difference and satisfies -3<=e<=387. For C>=75078, floor(G/(2C+1)) lies in {e,e+1}; the existing Round-13 1 KiB lower-reciprocal table recovers that floor with at most two increments, and one sign check yields the exact (J_3,R_3).",
+      "observer_contract": "Retain three labeled phase triples (m_i,J_i,R_i). Roots alone, Boolean support, or an unlabeled aggregate are inadequate because the exact residual and future completion-gap observer depend on the individual remainders and phase order.",
+      "hard_boundary": "Exact integer transport only on the already-certified odd-N order-one deep tail and fixed mod-8 representative phases. The finite performance crossover is runtime-dependent; direct division remains appropriate for smaller operands. This does not reduce the multiplier horizon, change Lehman/Hart factorization complexity, imply RSA practicality, or create a new top-level BRC family."
+    },
+    {
+      "score": 9,
+      "method_id": "t0.brc_quotient_jet_tail",
+      "name": "BRC stride-8 quotient/remainder jet tail",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_quotient_jet_tail.py",
+        "tests/test_brc_quotient_jet_tail.py",
+        "experiments/brc_quotient_jet_benchmark.py",
+        "research_notes/BRC_QUOTIENT_JET_TAIL_20260907.md",
+        "research_artifacts/brc_quotient_jet_benchmark_20260907.csv"
+      ],
+      "api": [
+        "QuotientJetOrbit",
+        "QuotientJetTailStep",
+        "QuotientJetTailScanner",
+        "outgoing_sparse_step",
+        "quotient_jet_bound_sufficient",
+        "quotient_jet_tail_threshold",
+        "QuotientJetTailScanner.advance_inplace"
+      ],
+      "triggers": [
+        "BRC quotient jet",
+        "avoid linear-tail division",
+        "stride-8 multiplier quotient recurrence",
+        "quotient remainder transport",
+        "fifteen seed divisions",
+        "division-free BRC tail"
+      ],
+      "capabilities": [
+        "decompose the odd-N mod-8 sparse multiplier stream into five fixed-step residue orbits",
+        "seed every orbit with three exact Euclidean quotient samples, exactly fifteen divisions total",
+        "quadratically extrapolate the next quotient and recover the exact quotient/remainder by at most four signed denominator repairs",
+        "prove the quotient third-difference correction interval [-4,4] under the common linear tail and m>=962h",
+        "retain exact quotient remainder and bounded first/second finite-difference repair coordinates",
+        "avoid a fresh large-integer quotient division and generic quotient-times-denominator product after seeding",
+        "compose with the order-one linear BRC root closure and the staged square-gap residue cascade",
+        "provide an allocation-free in-place scan path for large-integer hot loops",
+        "operate without a multiplier-horizon table or upper multiplier bound"
+      ],
+      "core_law": "For one fixed source residue class modulo 8, let q_m=floor(2hJ_m/(4m+h)) and rho_m be the exact Euclidean remainder. Consecutive visits differ by 8. Under 4m^5>=N and m>=962h, the smooth third-difference plus source-root phase has magnitude below one, while the floor phase contributes strictly between -4 and 4; hence epsilon=q_(m+8)-3q_m+3q_(m-8)-q_(m-16) lies in [-4,4]. Carrying rho and P=(Delta q+Delta^2 q)(D+32) yields the exact provisional residual S=rho+2h(J'-J)-32q-P, normalized by at most four additions/subtractions of D'=D+32. Five orbits times three samples require fifteen seed divisions; all later quotient states are exact recurrence states.",
+      "hard_boundary": "This extends t0.brc_linear_deep_tail and composes with t0.brc_square_gap_cascade; it is not a new top-level tool family. The proof controls exact multiplier-state transport only and does not shorten a Lehman/Hart-style search horizon or establish a factorization-complexity improvement. Finite Python benchmarks favor the jet only for sufficiently large integers (around 4096 bits in the committed environment); small-size routing should retain native division. The exact quotient remainder must not be collapsed to quotient-only or a fitted real trend."
+    },
+    {
+      "score": 9,
+      "method_id": "t0.brc_smooth_relation_lattice",
+      "name": "BRC multi-strip smooth-relation lattice / GF(2) carrier facade",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_SAFE_CARRIER_CLASSICAL_RELATION_COMPOSITION",
+      "source_refs": [
+        "src/enterprise_math/brc_smooth_relations.py",
+        "src/enterprise_math/brc_smooth_relation_scheduler.py",
+        "tests/test_brc_smooth_relations.py",
+        "tests/test_brc_smooth_relation_scheduler.py",
+        "experiments/brc_smooth_relation_lattice_benchmark.py",
+        "research_notes/BRC_SMOOTH_RELATION_LATTICE_20260906.md",
+        "research_artifacts/brc_smooth_relation_lattice_benchmark_20260906.csv"
+      ],
+      "api": [
+        "BRCSmoothRelation",
+        "RelationDependency",
+        "SquareCongruence",
+        "SmoothRelationFactorWitness",
+        "GF2RelationAccumulator",
+        "factor_base",
+        "factor_over_base",
+        "relation_from_multiplier_state",
+        "congruence_from_dependency",
+        "layered_relation_points",
+        "first_layered_smooth_factor_witness",
+        "ScheduledRelationPoint",
+        "minimum_gap_relation_points"
+      ],
+      "triggers": [
+        "BRC smooth relation",
+        "factor base relation",
+        "GF(2) dependency",
+        "multi-strip relation",
+        "Dixon relation",
+        "quadratic sieve carrier",
+        "MPQS BRC bridge"
+      ],
+      "capabilities": [
+        "exact cross-multiplier relation extraction x^2-D=mN with shared x^2=D mod N semantics",
+        "exact B-smooth factorization carrier with full exponent and parity projections",
+        "incremental GF(2) dependency detection retaining relation provenance",
+        "exact square-congruence reconstruction and gcd witness surface",
+        "round-robin shallow relation sampling across all admissible multiplier strips",
+        "exact 75-way nondecreasing-gap merge scheduler"
+      ],
+      "core_law": "Every smooth BRC lattice point x_i^2-D_i=m_i N gives x_i^2 congruent D_i mod N, so relations from different multiplier strips combine in one factor-base algebra without any condition on the product of multiplier labels. The exponent parity projection is sufficient for GF(2) dependency detection, but full exponents and x provenance must be retained to reconstruct the square congruence. Multiplier provenance may be forgotten only after relation extraction when future operations are restricted to dependency/congruence construction.",
+      "hard_boundary": "Dixon, QS, MPQS, SIQS, B-smooth factor-base collection, GF(2) linear algebra and congruence-of-squares factoring are classical prior art. The reference implementation uses trial division and incremental bitset elimination and is not a production sieve. Finite relation-yield/factoring-budget improvements are not asymptotic complexity results or novelty claims. The minimum-gap heap optimizes only next-gap ordering, not proved smoothness probability. No Foundation promotion is made."
+    },
+    {
+      "score": 9,
+      "method_id": "t0.brc_square_increment_difference_jet",
+      "name": "BRC square-increment finite-difference jet tail",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/brc_energy_difference_jet_tail.py",
+        "src/enterprise_math/brc_quotient_jet_tail.py",
+        "tests/test_brc_energy_difference_jet_tail.py",
+        "experiments/brc_energy_difference_jet_benchmark.py",
+        "research_notes/BRC_ENERGY_DIFFERENCE_JET_TAIL_20260907.md",
+        "research_artifacts/brc_energy_difference_jet_benchmark_20260907.csv"
+      ],
+      "api": [
+        "EnergyJetSeedSample",
+        "EnergyDifferenceJetOrbit",
+        "EnergyDifferenceJetTailStep",
+        "EnergyDifferenceJetTailScanner",
+        "root_stride_third_difference",
+        "root_third_difference_bound_sufficient",
+        "square_increment_third_difference"
+      ],
+      "triggers": [
+        "BRC square increment jet",
+        "eliminate q times 2J plus q",
+        "general-multiplication-free BRC tail",
+        "energy finite difference multiplier transport",
+        "root third difference bound",
+        "compose quotient jet with square-gap tables"
+      ],
+      "capabilities": [
+        "retain exact E=q(2J+q) on each of the five fixed-step mod-8 source orbits",
+        "prove the exact third-difference product identity coupling quotient and root jets",
+        "prove the sharp common-tail root third-difference interval [-3,387]",
+        "reuse the quotient-jet intervals epsilon in [-4,4] and Delta^2 q in [-2,98]",
+        "retain the sole unbounded mixed product (Delta q)(Delta^2 J) and transport it using only bounded-coefficient multiplications",
+        "after fifteen quotient divisions and fifteen direct square-increment seed products, perform no fresh division and no multiplication of two N-growing operands",
+        "preserve exact multiplier root/remainder states with at most two ordinary BRC root corrections",
+        "compose unchanged with the BALANCED 4032/12155/12673 square-gap residue cascade"
+      ],
+      "core_law": "On one stride-8 source orbit let s=nabla q, a=nabla^2 q, t=nabla J, u=nabla^2 J, e=nabla^3 q_new, w=nabla^3 J_new and E=q(2J+q). Then nabla^3 E_new = e(2(J+q+s+a+t+u+w)+e)+2w(q+s+a)+6(su+a(s+t)). The quotient jet gives e in [-4,4] and a in [-2,98]. For J=floor(sqrt(mN)), the common tail 4m^5>=N gives 0<Delta_8^3 sqrt(mN)<=384; floor phase contributes strictly between -4 and 4, hence w lies in the sharp integer interval [-3,387]. Retaining M=su and updating M_new=M+s w+(a+e)u+(a+e)w means every post-seed product has a fixed bounded integer factor.",
+      "hard_boundary": "This is an exact multiplier-state execution optimization extending t0.brc_quotient_jet_tail; it does not shorten a Lehman/Hart-style multiplier horizon, change factor-search complexity, establish RSA practicality, or create a new top-level BRC family. Finite CPython timings favor the difference jet only for sufficiently large integers (near parity at 4096 bits and favorable at 8192/16384 bits in the committed run); smaller inputs should retain the fresh native product. The exact quotient remainder, root finite differences, energy finite differences, and mixed provenance coordinate must not be collapsed."
+    },
+    {
+      "score": 9,
+      "method_id": "t0.weighted_brc_newton_handoff_resonance",
+      "name": "Exact BRC translated-real-root handoff and Newton resonance pushforward",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "FOUNDATION_GLOBAL_SUBTOOL",
+      "implementation": "src/enterprise_math/brc_newton_handoff.py",
+      "foundation": "definitions/ENTERPRISE_BRC_NEWTON_HANDOFF_RESONANCE_FOUNDATION_20260904.md",
+      "theorem_ledger": "definitions/ENTERPRISE_BRC_NEWTON_HANDOFF_RESONANCE_THEOREM_LEDGER_20260904.json",
+      "source_refs": [
+        "PR #1191",
+        "PR #1193",
+        "src/enterprise_math/brc_newton_handoff.py"
+      ],
+      "triggers": [
+        "irrational translated root",
+        "root handoff",
+        "single generator algebra",
+        "root absorption",
+        "newton resonance",
+        "scale collision",
+        "newton pushforward",
+        "brc handoff"
+      ],
+      "capabilities": [
+        "verify one rational-polynomial real root from an exact rational isolating interval including negative translated roots",
+        "carry coefficients in a single selected-real-root evaluation algebra with exact zero equality sign and contact tests",
+        "handoff a rational Newton jet at a selected irrational translated root and continue through later rational translated roots",
+        "verify the semantic zero part of a supplied root-absorption certificate",
+        "return the exact affine Newton residual-scale pushforward with source atoms and resonance fibers",
+        "verify the prime-valuation resonance relation and expose the scale-one edge fiber"
+      ],
+      "typed_inputs": [
+        "finite rational-polynomial Newton jet",
+        "rational-prime-valuation Newton scales",
+        "exact rational isolating interval for one selected real translated root",
+        "optional explicit candidate beta=[h]_alpha for absorption verification"
+      ],
+      "typed_outputs": [
+        "isolated real-root selector",
+        "single-real-root evaluation Newton jet",
+        "rational translated-root continuation",
+        "Newton pushforward fibers and source atoms",
+        "resonance diagnostics"
+      ],
+      "reuse": [
+        "t0.weighted_brc_newton_recursion",
+        "t0.weighted_brc_reducible_critical_jet",
+        "t0.weighted_brc_rational_holonomy"
+      ],
+      "hard_boundary": "No general multi-generator algebraic field, automatic root-expression search, replacement of WBRC-T41 critical-root semantics, complete Puiseux solver, signed branch interference, source-provenance recovery, or infinite-state extension is promoted."
+    }
+  ],
+  "executable_modules": [
+    {
+      "score": 25,
+      "id": "module:precision",
+      "name": "precision.py",
+      "description": "Integer-only finite-precision calculus for Enterprise Math P018.",
+      "source_ref": "src/enterprise_math/precision.py",
+      "api": [
+        "precision_ratio",
+        "project_precision",
+        "precision_detail",
+        "recompose_precision",
+        "nested_detail_identity",
+        "coarse_order_status",
+        "addition_carry",
+        "subtraction_borrow",
+        "precision_chain_decomposition",
+        "transported_precision_shell",
+        "reconstruct_from_precision_shells",
+        "scale_root_state",
+        "root_precision_detail",
+        "scale_collapse_state",
+        "projected_refined_collapse",
+        "collapse_refinement_defect",
+        "collapse_recovery_profile"
+      ],
+      "triggers": [
+        "precision"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 24,
+      "id": "module:precision_holonomy",
+      "name": "precision_holonomy.py",
+      "description": "Exact transport laws for operation-scheduling defects in P018.",
+      "source_ref": "src/enterprise_math/precision_holonomy.py",
+      "api": [
+        "defect_transport",
+        "defect_transport_bulk_carry",
+        "staged_defect_transport",
+        "transport_is_coherent",
+        "collapse_holonomy_composition",
+        "defect_is_invisible",
+        "strict_recovery_threshold"
+      ],
+      "triggers": [
+        "precision holonomy"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 21,
+      "id": "module:action_language_precision",
+      "name": "action_language_precision.py",
+      "description": "Reachability-defined precision for integer translation action languages.",
+      "source_ref": "src/enterprise_math/action_language_precision.py",
+      "api": [
+        "action_grain",
+        "reachable_translations",
+        "ordered_threshold_observation",
+        "reachable_boundary_cuts",
+        "future_observation_signature",
+        "boundary_orbit_equivalent",
+        "positive_semigroup_below",
+        "one_sided_threshold_rank",
+        "one_sided_window_class_count",
+        "group_completed_window_class_count",
+        "relevant_semigroup_holes",
+        "group_completion_overrefinement_defect",
+        "numerical_semigroup_profile",
+        "signed_group_completion_grain",
+        "threshold_group_coordinate",
+        "translate_group_coordinate",
+        "cyclic_reachable_residues",
+        "cyclic_gcd_subgroup",
+        "NumericalSemigroupProfile"
+      ],
+      "triggers": [
+        "action language precision"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 21,
+      "id": "module:adaptive_precision",
+      "name": "adaptive_precision.py",
+      "description": "Adaptive finite precision selection for Enterprise Math P018 stage 6.",
+      "source_ref": "src/enterprise_math/adaptive_precision.py",
+      "api": [
+        "predicate_conflict_fiber",
+        "conflict_multiplicity",
+        "conflict_profile",
+        "refinement_proof_gain",
+        "product_observations",
+        "product_conflict_bound",
+        "joint_predicate_complete",
+        "optimal_target_decision_cost",
+        "optimal_target_first_observation",
+        "optimal_worst_case_decision_cost",
+        "complete_observation_cost_bound"
+      ],
+      "triggers": [
+        "adaptive precision"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 21,
+      "id": "module:adjoint_boundary_precision",
+      "name": "adjoint_boundary_precision.py",
+      "description": "Adjoint boundary-pullback precision for P024.",
+      "source_ref": "src/enterprise_math/adjoint_boundary_precision.py",
+      "api": [
+        "ceil_div",
+        "translation_action",
+        "dilation_action",
+        "floor_division_action",
+        "natural_root_action",
+        "natural_quotient_action",
+        "natural_collapse_action",
+        "action_words",
+        "apply_action_word",
+        "pullback_boundary_word",
+        "boundary_orbit_levels",
+        "boundary_orbit",
+        "boundary_rank",
+        "future_boundary_rank",
+        "direct_future_threshold_signature",
+        "pullback_word_signature",
+        "naive_boundary_cut_bound",
+        "stabilize_boundary_orbit",
+        "audit_adjunction_box",
+        "AdjointChainAction",
+        "BoundaryStabilization"
+      ],
+      "triggers": [
+        "adjoint boundary precision"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 21,
+      "id": "module:clearance_horizon_precision",
+      "name": "clearance_horizon_precision.py",
+      "description": "Horizon-indexed future-safe precision for finite clearance states.",
+      "source_ref": "src/enterprise_math/clearance_horizon_precision.py",
+      "api": [
+        "clearance_escape_depth",
+        "compile_clearance_horizon_state",
+        "residual_escape_depth_after_action_counts",
+        "advance_clearance_horizon_state",
+        "anisotropic_named_horizon_class_count",
+        "isotropic_named_horizon_class_count",
+        "isotropic_named_horizon_closed_form",
+        "isotropic_horizon_growth_increment",
+        "permutation_symmetric_isotropic_class_count",
+        "ClearanceHorizonState"
+      ],
+      "triggers": [
+        "clearance horizon precision"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 21,
+      "id": "module:clearance_precision",
+      "name": "clearance_precision.py",
+      "description": "Finite clearance-space quotients induced by declared future observables.",
+      "source_ref": "src/enterprise_math/clearance_precision.py",
+      "api": [
+        "clearance_shell_multiplicity",
+        "active_axis_count_multiplicity",
+        "clearance_precision_class_counts",
+        "clearance_behavior_signature",
+        "ClearancePrecisionClassCounts"
+      ],
+      "triggers": [
+        "clearance precision"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 21,
+      "id": "module:factor_precision",
+      "name": "factor_precision.py",
+      "description": "Prime-factor precision as a second P018 precision axis.",
+      "source_ref": "src/enterprise_math/factor_precision.py",
+      "api": [
+        "factor_witness_state",
+        "project_factor_precision",
+        "factor_precision_compatibility",
+        "factor_certificate",
+        "factor_certificate_profile",
+        "square_basin",
+        "square_basin_factor_certificate",
+        "factor_survivors",
+        "factor_survivor_profile",
+        "smallest_prime_factor",
+        "first_factor_shell",
+        "factor_precision_partition",
+        "p017_p018_bridge"
+      ],
+      "triggers": [
+        "factor precision"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 21,
+      "id": "module:graded_precision",
+      "name": "graded_precision.py",
+      "description": "Graded finite-precision calculus for Enterprise Math P018 stage 2.",
+      "source_ref": "src/enterprise_math/graded_precision.py",
+      "api": [
+        "degree_transport",
+        "degree_project",
+        "degree_detail",
+        "degree_recompose",
+        "graded_product_transport",
+        "graded_sum_transport",
+        "transported_precision_shell_degree",
+        "reconstruct_from_precision_shells_degree",
+        "monomial_value",
+        "monomial_precision_defect",
+        "multiplication_precision_carry",
+        "power_precision_carry",
+        "monomial_recovery_profile",
+        "root_collapse_is_power_carry"
+      ],
+      "triggers": [
+        "graded precision"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 21,
+      "id": "module:lattice_guard_precision",
+      "name": "lattice_guard_precision.py",
+      "description": "Lattice guard precision for P024.",
+      "source_ref": "src/enterprise_math/lattice_guard_precision.py",
+      "api": [
+        "dot",
+        "ceil_div",
+        "coefficient_gcd",
+        "reachable_translation_sums",
+        "translated_point",
+        "direct_future_guard_signature",
+        "projected_action_shifts",
+        "pulled_guard_cuts",
+        "scalar_cut_rank",
+        "guard_rank_signature_from_sums",
+        "guard_rank_signature",
+        "primitive_score_vector",
+        "rank_box_sizes",
+        "projected_action_generators",
+        "classify_projected_action_monoid",
+        "positive_zero_relation_inverse_words",
+        "nonnegative_2d_semigroup_contains",
+        "IntegerGuard",
+        "ProjectedActionType"
+      ],
+      "triggers": [
+        "lattice guard precision"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 21,
+      "id": "module:material_future_precision",
+      "name": "material_future_precision.py",
+      "description": "Material-observable future precision as a strict quotient of raw escape depth.",
+      "source_ref": "src/enterprise_math/material_future_precision.py",
+      "api": [
+        "material_response_word",
+        "material_visible_deficit_cap",
+        "compile_material_future_precision",
+        "full_material_future_signature",
+        "material_future_class_count",
+        "permutation_symmetric_material_future_class_count",
+        "MaterialFuturePrecisionState"
+      ],
+      "triggers": [
+        "material future precision"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 21,
+      "id": "module:material_phase_stability",
+      "name": "material_phase_stability.py",
+      "description": "Finite precision threshold for projected rotation sign itineraries.",
+      "source_ref": "src/enterprise_math/material_phase_stability.py",
+      "api": [
+        "phase_sign_stability_profile",
+        "x_sign_itinerary_amplitude_bound",
+        "exact_first_nonpositive_x_step",
+        "projected_first_nonpositive_x_step",
+        "x_sign_certificate_holds",
+        "PhaseSignStabilityStep"
+      ],
+      "triggers": [
+        "material phase stability"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    }
+  ],
+  "next_rule": "Inspect semantic preconditions and hard boundaries before deciding REUSE / COMPOSE / EXTEND_EXISTING_TOOL."
+}

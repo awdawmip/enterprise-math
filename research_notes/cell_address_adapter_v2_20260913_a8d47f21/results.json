@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "python": "3.13.5",
+  "tests": {
+    "multi_frame_cell_keys": 729,
+    "distinct_address_aliases": 2187,
+    "serialization_roundtrips": 2187,
+    "cross_frame_same_cell_and_zero_displacement": 6561,
+    "primitive_steps_with_permuted_input_output_frames": 8748,
+    "separate_layer_view_pairs": 2187,
+    "mixed_frame_existing_graph_backend_pairs": 4096,
+    "duplicate_edge_records": 6,
+    "canonical_physical_edges": 2,
+    "time_dependent_frame_updates": 8748,
+    "strict_invalid_input_rejections": 29,
+    "backend_blob_sha1": "a1a8dc4d1ca53fde2ca00d9b944c1b8aa346a152"
+  },
+  "negative_controls": {
+    "layer_change_same_address": {
+      "old": 1,
+      "new": 10
+    },
+    "alias_branch_inflation": {
+      "naive_two_step_paths": 9,
+      "correct": 1,
+      "genuine_parallel_paths": 2
+    },
+    "copy_digits_into_new_frame_moves_stationary_cell": [
+      2,
+      -1,
+      0,
+      3,
+      -2,
+      1
+    ],
+    "old_domain_vs_naive_code_range": {
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "naive": [
+        -1,
+        0,
+        1
+      ]
+    }
+  },
+  "scope": "new experimental adapter and pinned native backend, not production migration, full repo, or Lean"
+}

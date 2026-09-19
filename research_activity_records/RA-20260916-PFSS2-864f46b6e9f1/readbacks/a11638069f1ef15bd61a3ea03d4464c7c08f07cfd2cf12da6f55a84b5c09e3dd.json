@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/pfss2_20260916_71565a/RESULT_SUMMARY.json",
+    "ref": "2821305d0346d2f670b02b57ba9532d614632b33",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-normalized-turn82-full-readback",
+  "result": {
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"PFSS2_TERMINAL_SUMMARY_V1\",\n  \"task_id\": \"RS-PRIME-FACTOR-SEMIPRIME-SHELL-SECOND-ORDER-DENSITY-NULL\",\n  \"publication_id\": \"TP2-D44C166C4C87CEC167E7\",\n  \"researcher_id\": \"EM-PFSS2-71565A\",\n  \"activity_id\": \"RA-20260916-PFSS2-864f46b6e9f1\",\n  \"classification\": \"NULL_MODEL_MISSPECIFICATION\",\n  \"registry_verdict\": \"AUDIT_COMPLETE\",\n  \"scope\": \"Frozen discovery test is undefined; neither residual existence nor absence is established. Driver review required.\",\n  \"discovery_scales\": [1000000, 3000000, 10000000, 30000000, 100000000],\n  \"replicates_per_family\": 4096,\n  \"complete_replay_identical\": {\"A\": true, \"B\": true},\n  \"zero_variance_cells\": {\"A\": 429, \"B\": 193, \"total_per_family\": 480},\n  \"zero_variance_by_scale\": {\"A\": [96, 96, 96, 81, 60], \"B\": [80, 56, 33, 18, 6]},\n  \"A_zero_B_positive_cells\": 236,\n  \"defined_C_features_of_96\": {\"A\": 0, \"B\": 16},\n  \"prescribed_T\": {\"A\": null, \"B\": null},\n  \"selected_feature\": null,\n  \"holdout_scales_unopened\": [300000000, 1000000000],\n  \"independent_interval_checks\": {\"passed\": 45, \"failed\": 0},\n  \"exact_support_certificate\": \"A cell width <= ceil((M+1)/1024). The first three scales have q maxima 27297,70465,171186 and width bounds 27,69,168<210. Each residue stratum has at most one point; conditioning its prime count fixes every queried indicator, so every required variance is exactly zero.\",\n  \"exact_covariance_witness\": {\"X\": 1000000, \"p\": 37, \"width\": \"1/100\", \"bin\": 1, \"q_interval\": [27028, 27297], \"B_band\": [26880, 27300], \"allowed_shifts\": [0, 210], \"counts\": [25, 31], \"A_variance\": 0, \"B_population_mean\": 28, \"B_population_variance\": 9},\n  \"report\": {\"commit\": \"d54ef30d3d35228b6d1d3cdecfc221d9c1dbcdbc\", \"path\": \"research_notes/pfss2_20260916_71565a/RETURN.md\", \"git_blob_sha1\": \"50ae3efb4f8bb8fc37b1f24ecf25f2b5d81ea150\"},\n  \"protocol_commit\": \"4de8bf5f9ea4c14f4c653a52c4075551c65f38b7\",\n  \"reproducibility_bundle\": {\"drive_file_id\": \"1gVn4c9iHlK47oD_clufFnOHcRX8L-OSJ\", \"sha256\": \"fa73cc42c5171204985eef762513f52944f4b91acf2722f2a6311eb17e76b7c4\", \"bytes\": 2447756, \"authenticated_download_sha256_match\": true, \"shared\": false},\n  \"source_sha256\": \"c8135743cc87fa828820334c31b7bb44fb0cad3571a51141aaa45140e4f70d94\",\n  \"method_harvest\": \"RESULT_ONLY\",\n  \"next_action\": \"Driver review the task-local misspecification certificate; retain blind holdouts for a separately authorized nondegenerate-null redesign. No self-review or successor publication.\"\n}\n",
+      "display_title": "RESULT_SUMMARY.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/2821305d0346d2f670b02b57ba9532d614632b33/research_notes/pfss2_20260916_71565a/RESULT_SUMMARY.json",
+      "encoding": "utf-8",
+      "sha": "eb0809b3c03c5eccbaefebf559865722dbd7471d"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

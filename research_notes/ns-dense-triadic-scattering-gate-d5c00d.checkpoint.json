@@ -1,0 +1,31 @@
+{
+  "schema": "EM_DENSE_TRIADIC_SCATTERING_GATE_CHECKPOINT_V1",
+  "event_id": "NS-DENSE-TRIADIC-SCATTERING-GATE-20260910-D5C00D-18",
+  "status": "TESTING_EXACT_SCOPED_ALGEBRA_AND_EXECUTED_CHECKS",
+  "source_snapshot": "3c5abd9dd2b0756dbb89c9eb13dc4396f1843fa7",
+  "artifacts": [
+    {"path":"research_notes/ns-dense-triadic-scattering-gate-20260910-d5c00d.md","git_blob_sha1":"b802017df3ff4134acefcaa299f5d654fec4497e"},
+    {"path":"experiments/ns_dense_triadic_scattering_gate_d5c00d/check_triadic_gate.py","git_blob_sha1":"f947eb53bcc4025ed975ffb37576ff0249d8e1ac","executed_sha256":"85eef368c9e832c4159b79d346fd113e3eac6b63a16aee857ebdf043d8832fc4"},
+    {"path":"research_notes/ns-dense-triadic-scattering-gate-20260910-d5c00d.results.json","git_blob_sha1":"1ada0e859e222a9c96079632e0104af51ad3d1a3","executed_sha256":"5ccd7156fec87ec59f7531e6855895f0d15f5a92529cd39ee6bbc5534cd15092"}
+  ],
+  "results": {
+    "S3_equivariant_orthogonal_classes": 4,
+    "unique_nontrivial_sum_preserving_mixer": "diag=-1/3, offdiag=2/3",
+    "sum_preserving_laplacian_coefficient": "-4/2187",
+    "quadratic_preserving_common_flip_laplacian_coefficient": "4/2187",
+    "positive_branch_two_sweep_operator": "(11665/531441) I + (4/2187) Delta_X6",
+    "positive_branch_normalized_shape": "I+(972/11665) Delta_X6",
+    "resolved_two_sweep_order_classes_over_720_frames": 1,
+    "one_sweep_residual_order_signatures": 720,
+    "one_layer_max_ports_coupled_from_single_cavity": 2,
+    "fair_S6_order_controller_orbit_lower_bound_in_stated_class": 720,
+    "fresh_rerun_byte_identical": true
+  },
+  "scope": [
+    "Algebraic three-mode event is not yet certified as TRIADIC_CLOSURE_E.",
+    "Positive coefficient is a two-sweep zero-residual compression, not an all-time Markov heat law.",
+    "The normalized spatial kernel is observer normalization, not a physical renormalization step.",
+    "No physical viscosity, Navier-Stokes, quantum-origin theorem, independent review or Lean build."
+  ],
+  "next": "Derive the actually conserved native object of a legal TRIADIC_CLOSURE_E event, then test which Laplacian-sign branch it selects without adding a compensating reservoir."
+}

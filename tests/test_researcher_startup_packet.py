@@ -1,3 +1,4 @@
+import copy
 import json
 import re
 import tempfile
@@ -184,6 +185,192 @@ class ResearcherStartupPacketTests(unittest.TestCase):
                         self.assertEqual(packet["task"][key], route["target"][key])
                 self.assertFalse((root / "research_task_registry.json").exists())
                 self.assertLessEqual(packet["packet_bytes"], 8192)
+
+
+    def rewrite_metadata(self, root, metadata):
+        taskbook = root / "research_tasks/T1.md"
+        body = "<!-- ENTERPRISE_MATH_TASK_V1\n" + json.dumps(metadata) + "\n-->\n"
+        body += "\n".join(f"## {name}\n\n{value}\n" for name, value in SECTIONS.items())
+        taskbook.write_text(body, encoding="utf-8")
+        path = root / "research_task_records/T1/P1.json"
+        publication = json.loads(path.read_text(encoding="utf-8"))
+        publication["taskbook_blob_sha1"] = startup._git_blob_sha1(taskbook.read_bytes())
+        path.write_text(json.dumps(publication), encoding="utf-8")
+
+    def liveness_fixture(self, targets):
+        root, receipt = self.make_root()
+        receipt["route"].update(action="VERIFY_SESSION_LIVENESS", target=None,
+                                new_claim_required=False, owner_claim_preserved=True,
+                                targets=targets)
+        return root, receipt
+
+    def test_liveness_targets_keep_exact_owner_scope_without_bulk(self):
+        target = dict(target_key="T1::C1::L1", surface="COHORT_LANE", task_id="T1",
+                      execution_cohort_id="C1", execution_lane_id="L1", claim_id="claim-1",
+                      owner_lease_until="2026-09-17T05:00:00Z", ignored_events="x" * 20000)
+        root, receipt = self.liveness_fixture([target])
+        packet = startup.build_packet(receipt, root)
+        view = packet["liveness_targets"]
+        self.assertEqual(view["items"], [{k: v for k, v in target.items() if k != "ignored_events"}])
+        self.assertEqual((view["total"], view["omitted"], view["next_index"]), (1, 0, None))
+        self.assertEqual(view["receipt_json_pointer"], "/route/targets")
+        self.assertIsNone(packet["task"])
+        self.assertFalse(packet["new_claim_required"])
+        self.assertNotIn("ignored_events", json.dumps(packet))
+
+    def test_liveness_prefix_is_bounded_and_omission_is_explicit(self):
+        targets = [dict(target_key=f"T{i}", task_id=f"T{i}", claim_id=f"C{i}") for i in range(50)]
+        root, receipt = self.liveness_fixture(targets)
+        view = startup.build_packet(receipt, root)["liveness_targets"]
+        self.assertEqual(view["items"], targets[:20])
+        self.assertEqual((view["total"], view["omitted"], view["next_index"]), (50, 30, 20))
+        self.assertEqual(view["scope"], "DIAGNOSTIC_ONLY_NO_SELECTION_OR_CLAIM")
+
+    def test_liveness_size_trim_never_loses_the_remainder_pointer(self):
+        targets = [dict(target_key=f"T{i}", task_id=f"T{i}", claim_id="x" * 1500) for i in range(25)]
+        root, receipt = self.liveness_fixture(targets)
+        packet = startup.build_packet(receipt, root)
+        view = packet["liveness_targets"]
+        shown = len(view["items"])
+        self.assertTrue(0 < shown < 20)
+        self.assertEqual(view["items"], targets[:shown])
+        self.assertEqual(view["total"], shown + view["omitted"])
+        self.assertEqual(view["next_index"], shown)
+        self.assertEqual(view["receipt_path"], receipt["immutable_receipt_path"])
+        self.assertEqual(packet["packet_bytes"], len(startup._serialized_packet(packet)))
+        self.assertLessEqual(packet["packet_bytes"], 8192)
+
+    def test_single_oversize_liveness_target_remains_explicit_not_no_dispatch(self):
+        root, receipt = self.liveness_fixture([dict(task_id="T1", claim_id="x" * 20000)])
+        packet = startup.build_packet(receipt, root)
+        self.assertEqual(packet["action"], "VERIFY_SESSION_LIVENESS")
+        self.assertEqual(packet["liveness_targets"]["items"], [])
+        self.assertEqual(packet["liveness_targets"]["omitted"], 1)
+        self.assertEqual(packet["liveness_targets"]["next_index"], 0)
+
+    def test_cohort_scope_and_route_fields_survive_projection(self):
+        root, receipt = self.make_root()
+        route = receipt["route"]
+        route.update(surface="COHORT_LANE", target_key="T1::C1::L1", required_guard="exact guard")
+        scope = dict(execution_cohort_id="C1", execution_lane_id="L1", output_prefix="research/L1/",
+                     lane_output_prefix="research/L1/")
+        route["target"].update(scope)
+        packet = startup.build_packet(receipt, root)
+        for key in scope:
+            self.assertEqual(packet["task"][key], scope[key])
+        for key in ("surface", "target_key", "required_guard"):
+            self.assertEqual(packet[key], route[key])
+
+    def test_adoption_uses_live_frontier_and_preserves_guard(self):
+        root, receipt = self.make_root()
+        (root / "research_returns/R2.md").write_text("new frontier\n", encoding="utf-8")
+        receipt["route"].update(action="ADOPT_OWNER_CLAIM", new_claim_required=False,
+                                owner_claim_preserved=True, required_guard="tools/research_runtime_guard.py adopt")
+        receipt["route"]["target"].update(last_progress_ref="research_returns/R2.md",
+                                          last_progress_at="2026-09-17T03:00:00Z", claim_id="claim-1")
+        packet = startup.build_packet(receipt, root)
+        self.assertEqual(packet["read_plan"]["first_dependency_ref"], "research_returns/R2.md")
+        self.assertEqual(packet["task"]["last_progress_ref"], "research_returns/R2.md")
+        self.assertEqual(packet["task"]["last_progress_at"], "2026-09-17T03:00:00Z")
+        self.assertEqual(packet["required_guard"], receipt["route"]["required_guard"])
+        self.assertEqual(packet["task"]["claim_id"], "claim-1")
+        self.assertFalse(packet["new_claim_required"])
+
+    def test_unresolved_live_frontier_does_not_select_old_work(self):
+        root, receipt = self.make_root()
+        receipt["route"]["target"]["last_progress_ref"] = "RR-CURRENT-UNRESOLVED"
+        packet = startup.build_packet(receipt, root)
+        self.assertIsNone(packet["read_plan"]["first_dependency_ref"])
+        self.assertEqual(packet["task"]["last_progress_ref"], "RR-CURRENT-UNRESOLVED")
+
+    def test_publication_id_sentinel_does_not_mask_declared_dependency(self):
+        root, receipt = self.make_root()
+        self.rewrite_metadata(root, {"task_id": "T1", "dependencies": ["research_returns/R1.md"]})
+        receipt["route"]["target"]["last_progress_ref"] = "P1"
+        packet = startup.build_packet(receipt, root)
+        self.assertEqual(packet["read_plan"]["first_dependency_ref"], "research_returns/R1.md")
+
+    def test_string_dependencies_keep_plain_and_explicit_refs(self):
+        for ref in ("research_returns/R1.md", "research_returns/R1.md@main",
+                    "research_returns/R1.md@" + "a" * 40,
+                    "research_returns/absent-here.md@release/v1"):
+            with self.subTest(ref=ref):
+                root, receipt = self.make_root()
+                self.rewrite_metadata(root, {"task_id": "T1", "dependencies": [ref]})
+                packet = startup.build_packet(receipt, root)
+                self.assertEqual(packet["read_plan"]["first_dependency_ref"], ref)
+                self.assertEqual(packet["read_plan"]["dependency_ref_verification"],
+                                 "SOURCE_READ_REQUIRED_PRESERVE_DECLARED_REF")
+
+    def test_live_immutable_github_url_is_not_rebased_to_local_file(self):
+        root, receipt = self.make_root()
+        ref = "https://github.com/awdawmip/enterprise-math/blob/" + "b" * 40 + "/research_returns/R1.md"
+        receipt["route"]["target"]["last_progress_ref"] = ref
+        packet = startup.build_packet(receipt, root)
+        self.assertEqual(packet["read_plan"]["first_dependency_ref"], ref)
+        self.assertEqual(packet["task"]["last_progress_ref"], ref)
+
+    def test_malformed_pinned_refs_do_not_fall_through_to_unpinned_path(self):
+        root, _ = self.make_root()
+        for ref in ("research_returns/R1.md@", "research_returns/R1.md@../other",
+                    "../research_returns/R1.md", "/research_returns/R1.md",
+                    "https://github.com/foreign/repo/blob/main/research_returns/R1.md"):
+            with self.subTest(ref=ref):
+                self.assertIsNone(startup._existing_repo_path(root, [ref]))
+
+    def test_external_taskbook_bytes_are_reported_not_called_whole_startup(self):
+        root, receipt = self.make_root(long_projection=True)
+        packet = startup.build_packet(receipt, root)
+        size = len((root / "research_tasks/T1.md").read_bytes())
+        self.assertEqual(packet["task"]["taskbook_bytes"], size)
+        self.assertEqual(packet["read_plan"]["external_taskbook_bytes"], size)
+        self.assertEqual(packet["read_plan"]["packet_plus_external_taskbook_bytes"],
+                         packet["packet_bytes"] + size)
+        self.assertEqual(packet["read_plan"]["context_accounting"],
+                         "PACKET_AND_EXTERNAL_TASKBOOK_ONLY_NOT_END_TO_END")
+        self.assertEqual(packet["packet_bytes"], len(startup._serialized_packet(packet)))
+        self.assertLessEqual(packet["packet_bytes"], 8192)
+
+    def test_inline_projection_does_not_double_count_taskbook(self):
+        root, receipt = self.make_root()
+        packet = startup.build_packet(receipt, root)
+        self.assertEqual(packet["read_plan"]["external_taskbook_bytes"], 0)
+        self.assertEqual(packet["read_plan"]["packet_plus_external_taskbook_bytes"], packet["packet_bytes"])
+        self.assertEqual(packet["packet_bytes"], len(startup._serialized_packet(packet)))
+
+    def test_oversize_nonprojection_metadata_still_fails_closed(self):
+        root, receipt = self.make_root()
+        receipt["route"]["reason"] = "x" * 20000
+        with self.assertRaises(startup.StartupPacketError):
+            startup.build_packet(receipt, root)
+
+    def test_satisfied_dictionary_dependency_stays_skipped(self):
+        root, receipt = self.make_root()
+        self.rewrite_metadata(root, {"task_id": "T1", "dependencies": [
+            {"path": "research_returns/R1.md", "satisfied": True},
+            {"path": "research_returns/R1.md@fixed-ref", "satisfied": False}]})
+        packet = startup.build_packet(receipt, root)
+        self.assertEqual(packet["read_plan"]["first_dependency_ref"], "research_returns/R1.md@fixed-ref")
+
+
+    def test_ambiguous_live_ref_keeps_original_and_requires_resolution(self):
+        root, receipt = self.make_root()
+        ref = "branch@deadbeef / research_returns/R1.md"
+        receipt["route"]["target"]["last_progress_ref"] = ref
+        packet = startup.build_packet(receipt, root)
+        self.assertIsNone(packet["read_plan"]["first_dependency_ref"])
+        self.assertEqual(packet["task"]["last_progress_ref"], ref)
+
+    def test_packet_build_does_not_mutate_receipt(self):
+        root, receipt = self.liveness_fixture([dict(task_id="T1", claim_id="x" * 20000)])
+        before = copy.deepcopy(receipt)
+        startup.build_packet(receipt, root)
+        self.assertEqual(receipt, before)
+
+    def test_ref_only_branch_token_is_not_an_exact_file_dependency(self):
+        root, _ = self.make_root()
+        self.assertIsNone(startup._existing_repo_path(root, ["branch@deadbeef"]))
+        self.assertIsNone(startup._existing_repo_path(root, ["research_returns\\R1.md@main"]))
 
 
 if __name__ == "__main__":

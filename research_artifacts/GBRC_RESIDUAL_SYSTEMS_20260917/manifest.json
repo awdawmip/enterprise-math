@@ -1,0 +1,44 @@
+{
+  "schema": "GBRC_RESIDUAL_SYSTEMS_PUBLICATION_MANIFEST_V1",
+  "status": "PREFLIGHT_PASSED_PUBLICATION_TRANSACTION_CONTENTS",
+  "recorded_at": "2026-09-17T05:25:30+00:00",
+  "parent_objective": {
+    "objective_id": "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS",
+    "objective_generation_id": "OG-7AE66316D7566C519AE0",
+    "objective_status": "OPEN",
+    "record_path": "research_objective_records/OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS/OG-7AE66316D7566C519AE0.json",
+    "head_path": "research_objective_heads/OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS.json",
+    "selection_receipt_path": "research_objective_head_events/OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS/OG-7AE66316D7566C519AE0.json"
+  },
+  "driver_authority": {
+    "driver_id": "EM-DVR-GBRC01",
+    "objective_authority_record_id": "DA-9427956069B4769822F3",
+    "objective_authority_source_comment_id": 5708879427,
+    "assignment_authority_record_id": "DA-24BD8500C510B8AD9C1C",
+    "assignment_source_comment_id": 5709235871,
+    "assigned_governance_task": "GV-GBRC-LINE-DRIVER-20260917",
+    "assigned_governance_publication_id": "TP2-82249061C7765A4DDD9B"
+  },
+  "tasks": [
+    {"task_id":"RS-GBRC-R1-TYPED-CARRIER","publication_id":"TP2-B8D2F868CE908988DF3C","kind":"RESEARCH","taskbook_path":"research_tasks/RS-GBRC-R1-TYPED-CARRIER_20260917.md","taskbook_blob_sha1":"sha1:30963209bf280b413ba92918436a0d217c19c827","base_state":"READY","dependencies":[],"record_path":"research_task_records/RS-GBRC-R1-TYPED-CARRIER/TP2-B8D2F868CE908988DF3C.json"},
+    {"task_id":"RS-GBRC-R1-TRANSPORT-COMPOSITION","publication_id":"TP2-2AB189C9EE6255B6F7F4","kind":"RESEARCH","taskbook_path":"research_tasks/RS-GBRC-R1-TRANSPORT-COMPOSITION_20260917.md","taskbook_blob_sha1":"sha1:9d7c1c2c7cc2944d42d2e9df4ecb6737bef38113","base_state":"BLOCKED","dependencies":["RS-GBRC-R1-TYPED-CARRIER"],"record_path":"research_task_records/RS-GBRC-R1-TRANSPORT-COMPOSITION/TP2-2AB189C9EE6255B6F7F4.json"},
+    {"task_id":"RS-GBRC-R1-OBSERVER-MEMORY","publication_id":"TP2-664CFA2596577B114D97","kind":"RESEARCH","taskbook_path":"research_tasks/RS-GBRC-R1-OBSERVER-MEMORY_20260917.md","taskbook_blob_sha1":"sha1:4bbe34f40190f194bea702d8c2092222b6b23171","base_state":"BLOCKED","dependencies":["RS-GBRC-R1-TYPED-CARRIER"],"record_path":"research_task_records/RS-GBRC-R1-OBSERVER-MEMORY/TP2-664CFA2596577B114D97.json"},
+    {"task_id":"RS-GBRC-R1-POSITIVE-STABILITY","publication_id":"TP2-1E1B59A65343CBECDD38","kind":"RESEARCH","taskbook_path":"research_tasks/RS-GBRC-R1-POSITIVE-STABILITY_20260917.md","taskbook_blob_sha1":"sha1:9de95387dd86682b15ecdba9b5c30e588c7882aa","base_state":"BLOCKED","dependencies":["RS-GBRC-R1-TYPED-CARRIER","RS-GBRC-R1-TRANSPORT-COMPOSITION"],"record_path":"research_task_records/RS-GBRC-R1-POSITIVE-STABILITY/TP2-1E1B59A65343CBECDD38.json"},
+    {"task_id":"RS-GBRC-R1-NATIVE-GEOMETRY-BRIDGE","publication_id":"TP2-99C7922F59290DB69524","kind":"RESEARCH","taskbook_path":"research_tasks/RS-GBRC-R1-NATIVE-GEOMETRY-BRIDGE_20260917.md","taskbook_blob_sha1":"sha1:bf4bd8f3692afa58b66ef60d39e759fc3f9b2368","base_state":"BLOCKED","dependencies":["RS-GBRC-R1-TYPED-CARRIER"],"record_path":"research_task_records/RS-GBRC-R1-NATIVE-GEOMETRY-BRIDGE/TP2-99C7922F59290DB69524.json"},
+    {"task_id":"RS-GBRC-R1-INTEGRATION-FALSIFICATION","publication_id":"TP2-1430A76005EE7E56F886","kind":"RESEARCH","taskbook_path":"research_tasks/RS-GBRC-R1-INTEGRATION-FALSIFICATION_20260917.md","taskbook_blob_sha1":"sha1:57a9cc5b083d4c96e88bd6218ff249bd4ae7d0ac","base_state":"BLOCKED","dependencies":["RS-GBRC-R1-TYPED-CARRIER","RS-GBRC-R1-TRANSPORT-COMPOSITION","RS-GBRC-R1-OBSERVER-MEMORY","RS-GBRC-R1-POSITIVE-STABILITY","RS-GBRC-R1-NATIVE-GEOMETRY-BRIDGE"],"record_path":"research_task_records/RS-GBRC-R1-INTEGRATION-FALSIFICATION/TP2-1430A76005EE7E56F886.json"},
+    {"task_id":"GV-GBRC-LINE-DRIVER-20260917","publication_id":"TP2-82249061C7765A4DDD9B","kind":"GOVERNANCE","taskbook_path":"research_tasks/GV-GBRC-LINE-DRIVER-20260917.md","taskbook_blob_sha1":"sha1:9435c88613b0d6074ed765a4baac70a89bea4bde","base_state":"READY","dependencies":[],"record_path":"research_task_records/GV-GBRC-LINE-DRIVER-20260917/TP2-82249061C7765A4DDD9B.json"},
+    {"task_id":"GV-GBRC-R1-REVIEW-GATE-20260917","publication_id":"TP2-A015FCB9214CA1F6FD0A","kind":"GOVERNANCE","taskbook_path":"research_tasks/GV-GBRC-R1-REVIEW-GATE-20260917.md","taskbook_blob_sha1":"sha1:602a0fda0125fb3ca8d67ad5460bbf3a1bb931f0","base_state":"BLOCKED","dependencies":[{"task_id":"RS-GBRC-R1-TYPED-CARRIER","required_artifact":"A frozen source-pinned Result or task-approved durable return for the exact current task publication, including negative/obstruction outcomes and execution evidence where applicable."},{"task_id":"RS-GBRC-R1-TRANSPORT-COMPOSITION","required_artifact":"A frozen source-pinned Result or task-approved durable return for the exact current task publication, including negative/obstruction outcomes and execution evidence where applicable."},{"task_id":"RS-GBRC-R1-OBSERVER-MEMORY","required_artifact":"A frozen source-pinned Result or task-approved durable return for the exact current task publication, including negative/obstruction outcomes and execution evidence where applicable."},{"task_id":"RS-GBRC-R1-POSITIVE-STABILITY","required_artifact":"A frozen source-pinned Result or task-approved durable return for the exact current task publication, including negative/obstruction outcomes and execution evidence where applicable."},{"task_id":"RS-GBRC-R1-NATIVE-GEOMETRY-BRIDGE","required_artifact":"A frozen source-pinned Result or task-approved durable return for the exact current task publication, including negative/obstruction outcomes and execution evidence where applicable."},{"task_id":"RS-GBRC-R1-INTEGRATION-FALSIFICATION","required_artifact":"A frozen source-pinned Result or task-approved durable return for the exact current task publication, including negative/obstruction outcomes and execution evidence where applicable."}],"record_path":"research_task_records/GV-GBRC-R1-REVIEW-GATE-20260917/TP2-A015FCB9214CA1F6FD0A.json"},
+    {"task_id":"GV-GBRC-SUCCESSOR-SYNTHESIS-20260917","publication_id":"TP2-C6733117A970B90C2540","kind":"GOVERNANCE","taskbook_path":"research_tasks/GV-GBRC-SUCCESSOR-SYNTHESIS-20260917.md","taskbook_blob_sha1":"sha1:ea9d75df05780e1bfa3319db441f334693b1cb34","base_state":"BLOCKED","dependencies":[{"task_id":"GV-GBRC-R1-REVIEW-GATE-20260917","required_artifact":"A terminal source-backed exact-set review disposition for all six R1 returns, including accepted scope and unresolved gaps."},{"task_id":"RS-GBRC-R1-INTEGRATION-FALSIFICATION","required_artifact":"A frozen R1 integration/handoff identifying new results, replay-only material, obstructions, and the smallest unresolved units."}],"record_path":"research_task_records/GV-GBRC-SUCCESSOR-SYNTHESIS-20260917/TP2-C6733117A970B90C2540.json"}
+  ],
+  "research_task_count": 6,
+  "followup_governance_task_count": 3,
+  "r2_research_tasks_prepublished": false,
+  "reason_no_speculative_r2": "Continuation research must be triggered by a concrete post-R1 information gap; the successor-synthesis governance task holds that responsibility.",
+  "claims_created": false,
+  "execution_acceptance_granted": false,
+  "working_truth_granted": false,
+  "foundation_authority_granted": false,
+  "canonical_promotion_granted": false,
+  "preflight_path": "research_artifacts/GBRC_RESIDUAL_SYSTEMS_20260917/preflight.json",
+  "dossier_path": "research_notes/GBRC_RESIDUAL_SYSTEMS_20260917/DRIVER_DOSSIER.md"
+}

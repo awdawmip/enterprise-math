@@ -1,0 +1,122 @@
+{
+  "schema": "EM_X6_RADIX_HEARTBEAT_PROBE_V1",
+  "status": "PASS",
+  "check_groups": 10,
+  "results": {
+    "source_blobs": {
+      "brc_transport.py": "be1debe367263931bd5e93fd750be3ed54624fe1",
+      "predictive_quotient.py": "f27d9ddf908f5b07051acfaf0c69f359d499b98b",
+      "brc_histogram.py": "9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1"
+    },
+    "six_beat_closure": {
+      "radices": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "A_power_6": "b I",
+      "intermediate_component_condition_number": "b"
+    },
+    "exact_roundtrips": {
+      "exhaustive_sixbeat_vectors": 15625,
+      "random_signed_multiscale_vectors": 1000
+    },
+    "fiber_capacity": {
+      "sixbeat_residues": 64,
+      "onebeat_residues": 2,
+      "depth_k_cycles": "2^(6k) possibilities; 6k worst-case bits"
+    },
+    "BRC_refinement": {
+      "paths": 64,
+      "distinct_fine_positions": 64,
+      "each_mass": "1/64",
+      "total_mass": "1",
+      "moment_match": true
+    },
+    "phase_observer": {
+      "raw_cycle_phases": 12,
+      "position_only_classes": 7,
+      "predictive_profile": [
+        7,
+        12,
+        12,
+        12
+      ],
+      "same_position": "2e1",
+      "next_outward": "2e2",
+      "next_inward": "e6"
+    },
+    "residue_conditioned_moments": {
+      "pre_moments_equal": true,
+      "post_last_means": [
+        "-1/2",
+        "0"
+      ],
+      "post_last_second_moments": [
+        "1/2",
+        "1/4"
+      ],
+      "random_fiber_repairs": 100,
+      "onebeat_stored_moment_entries": 56,
+      "universal_constant_state_claim": false
+    },
+    "pulse_interaction": {
+      "input": [
+        17,
+        -3,
+        0,
+        4,
+        5,
+        6
+      ],
+      "coarse": [
+        8,
+        -2,
+        0,
+        2,
+        2,
+        3
+      ],
+      "residues": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "no_interaction_output": [
+        17,
+        -3,
+        0,
+        4,
+        5,
+        6
+      ],
+      "coarse_plus_e1_output": [
+        19,
+        -3,
+        0,
+        4,
+        5,
+        6
+      ]
+    },
+    "no_free_information_loss": {
+      "distinct_points_same_coarse": true,
+      "residue_restores_identity": true,
+      "phase_not_residue": true
+    },
+    "invalid_inputs_rejected": 5
+  },
+  "limits": [
+    "research construction, not production integration",
+    "integer chart index scaling, not calibrated physical time or arbitrary native rotation",
+    "no semantic-memory efficacy claim",
+    "moment closure only for declared affine/refinement or explicitly residue-conditioned steps",
+    "no independent review or Lean formalization",
+    "timing phase cannot replace spatial residues",
+    "per-label arithmetic not global constant-cost field update"
+  ]
+}

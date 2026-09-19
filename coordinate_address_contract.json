@@ -1,0 +1,98 @@
+{
+  "schema": "ENTERPRISE_COORDINATE_ADDRESS_CONTRACT_V1",
+  "status": "ACTIVE_DIRECT_USER_CONSTRAINT",
+  "effective": "2026-09-13",
+  "scope": "ALL_CURRENT_AND_FUTURE_ENTERPRISE_CELL_ADDRESS_INTERFACES",
+  "authority": "CURRENT_EXPLICIT_USER_COORDINATE_UPDATE",
+  "semantic_change": "ADDRESS_REPRESENTATION_ONLY",
+  "human_definition": "COORDINATE_ADDRESS_CONVENTION.md",
+  "human_definition_zh": "COORDINATE_ADDRESS_CONVENTION.zh-CN.md",
+  "wire_schema": "schemas/cell_address.schema.json",
+  "runtime": "src/enterprise_math/cell_address.py",
+  "validator": "tools/validate_cell_address.py",
+  "repository_check": "tools/apply_coordinate_address_contract.py --check",
+  "types": {
+    "FINAL_CELL_ADDRESS": {
+      "field_count": 6,
+      "field_domain": "NONNEGATIVE_INTEGER",
+      "negative_fields_allowed": false,
+      "default_twelve_sign_slots": false,
+      "codec_and_frame_required": true,
+      "inactive_zero": "ONLY_LOSSLESS_CODEC_DECLARED",
+      "unknown_is_zero": false,
+      "legal_domain": "REGISTERED_CODEC_IMAGE_NOT_ALL_NAT6"
+    },
+    "RAW_SPATIAL_CHART": {
+      "domain": "Z^6_OR_EXPLICIT_RESTRICTION",
+      "signed_values_allowed": true,
+      "public_address": false,
+      "raw_zero_cell_retained": true
+    },
+    "NATIVE_DISPLACEMENT": {
+      "signed_values_allowed": true,
+      "zero_displacement_allowed": true,
+      "public_address": false
+    },
+    "DISPLAY_REFERENCE": {
+      "is_cell": false,
+      "is_graph_vertex": false,
+      "participates_in_operations": false,
+      "may_lie_in_gap": true,
+      "axis_must_intersect_cell_centers": false
+    },
+    "LAYER_VIEW": {
+      "is_identity": false,
+      "layer_one_may_have_multiple_cells": true,
+      "asserts_radial_unit_distance": false
+    }
+  },
+  "crossing": {
+    "forced_increment": false,
+    "equal_value_transfer_allowed": true,
+    "universal_pure_permutation": false,
+    "same_cell_rechart": "D_new(T(a))=D_old(a)",
+    "actual_motion": "D_new(K(a))=F(D_old(a))",
+    "unchanged_value_erases_actual_edge": false
+  },
+  "preserve": [
+    "NATIVE_CELL_POPULATION", "SIX_NATIVE_AXIS_LABELS", "EXISTING_SIGNED_OPERATION_DOMAIN",
+    "NATIVE_ADJACENCY", "DECODED_METRIC", "COMMON_DEPTH_AND_OMITTED_INFORMATION",
+    "ORDERED_EDGES_PORTS_BRANCH_IDS_WEIGHTS", "BOUNDARIES_INITIAL_STATES_AND_TIME_LABELS"
+  ],
+  "registered_codecs": {
+    "three_region_slice_v1": {
+      "version": 1,
+      "scope": "FIXED_TWO_NATIVE_GENERATOR_SLICE",
+      "frame": "X6_FIXED_E1_E2_CHART",
+      "output_forms": ["(0,b,c,0,0,0)", "(a,0,c,0,0,0)", "(a,b,0,0,0,0)"],
+      "active_fields": "POSITIVE_INTEGER",
+      "lean_file": "EnterpriseMath/CellAddress/ThreeRegionSlice.lean",
+      "lean_sha256": "2971ea97ba60f0a528a915c06152cb4aec9824fa85fae0bb88c0e76e4e921b02",
+      "prior_verified_commit": "c88351a4601d319ad1f75bd249cc83f2ec16abba",
+      "prior_verified_run": 34756571162,
+      "formal_claim": "ENCODE_DECODE_AND_DIRECT_STEP_PATH_TRANSPORT_FOR_THIS_SLICE",
+      "not_claimed": ["ARBITRARY_FULL_X6_CODEC", "ALL_CALLER_MIGRATION", "PYTHON_LANGUAGE_FULL_REFINEMENT", "NEW_PHYSICAL_AXIOM"]
+    }
+  },
+  "full_x6_codec": {
+    "status": "NOT_YET_REGISTERED",
+    "silently_drop_coordinates": false,
+    "fallback_to_slice": false,
+    "unknown_codec_policy": "REJECT"
+  },
+  "legacy": {
+    "signed_raw_charts": "RETAIN_INTERNAL_TYPE",
+    "old_public_signed_addresses": "EXPLICIT_VERSIONED_MIGRATION_REQUIRED",
+    "reinterpret_in_place": false,
+    "historical_proofs_and_records": "PRESERVE_WITH_ORIGINAL_SCOPE"
+  },
+  "enforcement": {
+    "json_integer_semantics": "MATHEMATICAL_INTEGER",
+    "runtime_integer_semantics": "EXACT_PYTHON_INT_NOT_BOOL_OR_FLOAT",
+    "float_lexemes": "RUNTIME_REJECTS_EVEN_1.0",
+    "large_integers": "EXACT_PARSER_REQUIRED_NO_FLOAT_COERCION",
+    "unknown_version": "REJECT",
+    "display_reference_as_operand": "REJECT"
+  },
+  "proof_status": "SCOPED_EXISTING_KERNEL_PROOF_REUSED_NO_FOUNDATION_PROMOTION"
+}

@@ -1,0 +1,93 @@
+{
+  "schema": "EM_RESULT_SPECIFIC_VERIFICATION_V1",
+  "record_id": "FINDING-EM-PDE-TENSOR-CELL-GRAM-20260910",
+  "activity_id": "RA-076944AE1950A916ACC95399",
+  "source_commit": "a90b62c367e4bac2dfcaaa74c4a472c30e56e957",
+  "proof_source": {
+    "path": "research_notes/ns-tensor-cell-gram-20260910.md",
+    "git_blob_sha1": "c2b36c32eb3c0fd198b653fccd2c96ebb0f8a12e"
+  },
+  "code_blobs": {
+    "certify_tensor_lattice.py": "7c9b26e7226865fa7d4d29a546482615f71af40d",
+    "certify_cell_moments.py": "7d4a4be4c70362f871a7dd45c7a270a91ed01987",
+    "certify_family.py": "a66b4c8c4e60596f7795737fe79957ab79489c3e",
+    "parent/certify_angular_constant.py": "b848739de5779e2de79ab1fef0c8c03b732d3236",
+    "parent/inherited_lattice.py": "4551bd83edab7453bda993582eed098cb8073519"
+  },
+  "verification": {
+    "status": "PASS",
+    "scope": "ordinary analytic proofs plus exact rational finite checks; no PDE simulation",
+    "periodic_constant_both_solenoidal": "6447/1000",
+    "periodic_constant_first_solenoidal_only": "1339/200",
+    "R3_unitary_Fourier_both_solenoidal": "sqrt(3)/8",
+    "R3_unitary_Fourier_first_solenoidal_only": "1/4",
+    "near_lattice_points": 894,
+    "tensor_output_classes": 571,
+    "near_matrix_upper": "737/100",
+    "far_tensor_upper_readout": 34.19120138830904,
+    "complete_squared_upper_readout": 41.56120138830904,
+    "rotated_cell_polynomial_checks": 18,
+    "clean_directory_rerun": "PASS; all three outputs identical after excluding elapsed_seconds",
+    "code_Git_blob_checks": "PASS; all five code files match executed local bytes",
+    "cases": [
+      {
+        "amplitude": "4/25",
+        "inverse_upper": "200630557/50000000",
+        "feedback_upper": "2112219829/100000000",
+        "linear_response_upper": "84899757/10000000000",
+        "trajectory_radius": "3/250",
+        "inclusion_margin": "1463836707/3125000000000",
+        "contraction": "6336659487/12500000000",
+        "arbitrary_initial_perturbation_radius": "1/1000000",
+        "correction_packets": 216,
+        "full_defect_packets": 772,
+        "full_defect_outputs": 144
+      },
+      {
+        "amplitude": "1/6",
+        "inverse_upper": "2675157/625000",
+        "feedback_upper": "2253104311/100000000",
+        "linear_response_upper": "92307779/10000000000",
+        "trajectory_radius": "7/500",
+        "inclusion_margin": "8828441261/25000000000000",
+        "contraction": "15771730177/25000000000",
+        "arbitrary_initial_perturbation_radius": "1/1000000",
+        "correction_packets": 216,
+        "full_defect_packets": 772,
+        "full_defect_outputs": 144
+      },
+      {
+        "amplitude": "7/40",
+        "inverse_upper": "116033467/25000000",
+        "feedback_upper": "61079477/2500000",
+        "linear_response_upper": "25515333/2500000000",
+        "trajectory_radius": "1/50",
+        "inclusion_margin": "264381/12500000000",
+        "contraction": "61079477/62500000",
+        "arbitrary_initial_perturbation_radius": "1/1000000",
+        "correction_packets": 216,
+        "full_defect_packets": 772,
+        "full_defect_outputs": 144
+      }
+    ],
+    "uniform_family": {
+      "viscosity": "nu>0",
+      "amplitude": "0<=a/nu<=7/40",
+      "perturbation": "||delta u0||_Hdot^1/2 <= nu/1000000",
+      "trajectory_radius": "nu/50",
+      "proof": "monotone endpoint bounds and exact viscosity rescaling, not parameter sampling"
+    }
+  },
+  "result_sha256": {
+    "tensor_lattice_verification.json": "2c994a575a1857239865c8325e694df3d2e66663a910ff6868c6f366af0cd3b6",
+    "cell_moments_verification.json": "1c551eb8e842c66b8235dee338c4d7f647027e4207827e859fb78761e93a18eb",
+    "family_verification.json": "60da27072b971fd86d0f213af2fde04edaf03cfbf6a3bb7cd63faa4e3e142858"
+  },
+  "limits": [
+    "Both solenoidal conditions are required for 6.447 and sqrt(3)/8.",
+    "The continuum claim is a bilinear inequality, not a global R3 NS solution theorem.",
+    "The periodic family is a restricted shape and small arbitrary solenoidal perturbations.",
+    "All-frequency nonlinear conclusions use the explicitly inherited analytic inverse and continuation hypotheses.",
+    "No sharpness, arbitrary-data regularity, independent review, historical priority or Foundation promotion is claimed."
+  ]
+}

@@ -1,0 +1,353 @@
+{
+  "schema": "HEARTBEAT_BRC_TOOLKIT_THEOREM_CANDIDATES_V6",
+  "date": "2026-09-20",
+  "world_id": "HEARTBEAT_WORLD",
+  "status": "RESEARCH_THEOREM_CANDIDATES_NOT_FOUNDATION",
+  "theorems": [
+    {
+      "id": "HBRC-RP-001",
+      "name": "affine residue-fiber target certificate",
+      "assumptions": [
+        "positive diagonal integer residue layout D",
+        "integer affine x->Ax+b"
+      ],
+      "law": "D^-1 A D integral and Ar+b=s mod D iff every point of DZ^6+r maps into DZ^6+s",
+      "tool": "ResidueLayout.certify",
+      "boundary": "no occupancy or undeclared hidden state"
+    },
+    {
+      "id": "HBRC-RP-002",
+      "name": "residue/time-port BRC composition",
+      "assumptions": [
+        "HBRC-RP-001",
+        "matching residue and time ports",
+        "positive exact BRC weights"
+      ],
+      "law": "[r->s;w,A,b] then [s->u;v,B,c]=[r->u;wv,BA,Bb+c]",
+      "tool": "ResiduePacket.then",
+      "boundary": "not full labeled-path provenance"
+    },
+    {
+      "id": "HBRC-RP-003",
+      "name": "finite-word degree-two closure on fixed residue fibers",
+      "assumptions": [
+        "finite invariant residue layout",
+        "fiber-constant exact weights",
+        "integer affine effects",
+        "degree<=2 boundary observer"
+      ],
+      "law": "M'_s=sum_{r,e:r->s} c_e w_e H_e M_r H_e^T, closed under every finite allowed word",
+      "tool": "ResiduePacket.moment_action",
+      "boundary": "no arbitrary nonlinear or occupancy observer"
+    },
+    {
+      "id": "HBRC-RP-004",
+      "name": "even-scale misaligned seam transport",
+      "assumptions": [
+        "F=S_(1,0), G=S_(ell,1), ell even >=2",
+        "cycle F,G,F,G"
+      ],
+      "law": "mod 2ell displacement is +2ell on {0,ell+1}, -2ell on {1,ell}, and 0 otherwise; uniform mean absolute displacement is 4",
+      "tool": "block_swap",
+      "boundary": "diagnostic interaction program, not universal physical heartbeat law"
+    },
+    {
+      "id": "HBRC-RP-005",
+      "name": "observer-safe residue quotient",
+      "assumptions": [
+        "HBRC-RP-003",
+        "same exact effect or moment operator from every merged source into every retained target for every declared future packet"
+      ],
+      "law": "aggregated retained-class moments descend exactly through the quotient for every finite declared operator word",
+      "tool": "certify_port_quotient",
+      "boundary": "certificate scoped to operator family, boundary observer and mode"
+    },
+    {
+      "id": "HBRC-RP-006",
+      "name": "macro/micro quotient separation",
+      "assumptions": [
+        "mod-4 misaligned cycle C",
+        "separable six-axis macrocycle"
+      ],
+      "law": "1D macro C merges 4 fibers into {0,3}/{1,2}; six-axis macrocycle merges 4096 fibers into 64 effect classes; adding within-cycle F,G invalidates the 1D two-class quotient",
+      "tool": "refine_port_partition",
+      "boundary": "macro-boundary equivalence is not within-cycle equivalence"
+    },
+    {
+      "id": "HBRC-RP-007",
+      "name": "fixed residues/current-contact bit do not determine future contact",
+      "assumptions": [
+        "two tagged positions in unbounded Z^6",
+        "exact contact observer",
+        "signed unit relative moves"
+      ],
+      "law": "no fixed periodic residue labels determine equality; current contact/noncontact alone does not determine next contact",
+      "tool": "ContactState",
+      "boundary": "not a multi-body collision theorem"
+    },
+    {
+      "id": "HBRC-RP-008",
+      "name": "coarsest finite-horizon contact quotient",
+      "assumptions": [
+        "relative d in Z^6",
+        "all 12 signed unit moves",
+        "observe contact after every suffix of length <=h"
+      ],
+      "law": "q_h(d)=d for ||d||_1<=h and FAR otherwise is coarsest; class count=2+sum_{s=1}^{min(6,h)}2^s*C(6,s)*C(h,s); no fixed finite quotient works for all unbounded h",
+      "tool": "ContactState.encode/contact_class_count",
+      "boundary": "FAR is not zero and cannot recover exact far displacement"
+    },
+    {
+      "id": "HBRC-ENV-001",
+      "name": "six-channel dihedral orbit classifier",
+      "assumptions": [
+        "binary six-channel mask in one chosen heartbeat frame",
+        "D6 cyclic/reversal relabeling",
+        "observer O=(occupied count, adjacent occupied-pair count, opposite occupied-pair count)"
+      ],
+      "law": "The 64 masks form exactly 13 D6 orbits; O is constant on each orbit and has 13 distinct values, hence exactly identifies the orbit quotient.",
+      "tool": "predictive_quotient + heartbeat.mask6_environment_quotient",
+      "boundary": "six positive-axis/channel diagnostic mask, not full twelve-direction occupancy"
+    },
+    {
+      "id": "HBRC-ENV-002",
+      "name": "symmetry-safe environment BRC quotient",
+      "assumptions": [
+        "HBRC-ENV-001",
+        "future control packets preserve the D6 orbit partition and have identical exact EffectHistogram rows on merged states"
+      ],
+      "law": "The 13 orbit classes are an exact finite control-port BRC quotient for every finite declared symmetry-safe packet word.",
+      "tool": "ControlPacket/certify_control_partition",
+      "boundary": "caller must certify every future packet; observer symmetry alone is insufficient for phase-addressed effects"
+    },
+    {
+      "id": "HBRC-ENV-003",
+      "name": "phase-addressed environment symmetry breaking",
+      "assumptions": [
+        "HBRC-ENV-001",
+        "actions R,J plus S0 forcing heartbeat slot0 occupied"
+      ],
+      "law": "T6 predictive block profile is (13,32,52,63,64,64) through horizon5 and stabilizes at all64 masks at depth4; an effect depending on slot0 rejects the 13-class BRC certificate and exact refinement returns64.",
+      "tool": "stable_predictive_partition/refine_control_partition",
+      "boundary": "finite declared mask model; not a universal physical occupancy law"
+    },
+    {
+      "id": "HBRC-ENV-004",
+      "name": "orbit plus orientation-residual decomposition",
+      "assumptions": [
+        "finite D6 action on the 64 six-channel masks"
+      ],
+      "law": "Each raw mask is exactly (orbit, coset modulo its stabilizer); orbit sizes are 1,2,3,6,12. Orientation residual may be omitted only when the declared observer/future descends to the orbit quotient.",
+      "tool": "heartbeat.mask6_environment_quotient",
+      "boundary": "erased orientation cannot later be recreated; Shannon accounting is not a storage implementation"
+    },
+    {
+      "id": "HBRC-JOINT-001",
+      "name": "typed repair-coordinate refinement ladder",
+      "assumptions": [
+        "raw finite control state is residue r mod4 times a 64-mask environment",
+        "initial observer partition is 2-class macro residue times 13-class D6 environment quotient",
+        "SAFE/MICRO/PHASE packets exactly as documented"
+      ],
+      "law": "Exact effect-valued refinement class counts are 26 for SAFE, 52 after MICRO, 128 after PHASE, and 256 when both MICRO and PHASE are allowed.",
+      "tool": "ControlPacket/refine_control_partition",
+      "boundary": "finite declared packet family; not universal Heartbeat World state complexity"
+    },
+    {
+      "id": "HBRC-JOINT-002",
+      "name": "joint-port necessity under coupled effects",
+      "assumptions": [
+        "positive joint distribution on macro residue sign and environment gate",
+        "spatial effect couples both variables"
+      ],
+      "law": "Separate residue and environment marginals do not determine the output: two distributions with identical marginals can have mean displacement -2 e1 versus +2 e1. A joint law or exact factorization/independence certificate is required.",
+      "tool": "ControlPacket",
+      "boundary": "does not deny marginal sufficiency under separately proved factorization for a specified observer"
+    },
+    {
+      "id": "HBRC-CLOCK-001",
+      "name": "shared global phase elimination",
+      "assumptions": [
+        "legal phase p is deterministic phi(t) from globally available Heartbeat World time",
+        "observer and all declared future operations use p only through t"
+      ],
+      "law": "Projection (x,t,p)->(x,t) is lossless on legal states and all declared future operations descend because p=phi(t) is reconstructed externally.",
+      "tool": "ControlPacket time ports",
+      "boundary": "does not apply to local desynchronization or hidden local oscillators"
+    },
+    {
+      "id": "HBRC-CLOCK-002",
+      "name": "aligned-mask gauge quotient",
+      "assumptions": [
+        "raw state is six-channel local mask m and local offset delta mod6",
+        "aligned mask a=R^delta m",
+        "future actions descend to aligned physical mask"
+      ],
+      "law": "The 384 raw (m,delta) states form exactly64 free gauge orbits under (m,delta)->(Rm,delta-1); aligned mask is the exact quotient. Orientation-blind D6 futures further admit the13-class shape quotient.",
+      "tool": "predictive_quotient + ControlPacket",
+      "boundary": "six-channel diagnostic; local phase cannot be reconstructed after erasure if later accessed"
+    },
+    {
+      "id": "HBRC-CLOCK-003",
+      "name": "local-phase access obstruction",
+      "assumptions": [
+        "HBRC-CLOCK-002",
+        "future contains a local-frame operation or spatial effect depending on delta"
+      ],
+      "law": "The aligned 64-class quotient is unsafe. In the declared finite model the shape-observer predictive profile becomes (13,113,353,383,384,384), and an effect-valued local-axis packet refines all384 states.",
+      "tool": "stable_predictive_partition/refine_control_partition",
+      "boundary": "finite declared phase model, not a universal physical synchronization law"
+    },
+    {
+      "id": "HBRC-FULL-001",
+      "name": "full typed repair-coordinate ladder",
+      "assumptions": [
+        "finite raw control state r mod4 times six-channel local mask times local offset delta mod6",
+        "initial observer is 2-class macro residue times 13-class globally aligned D6 shape",
+        "SAFE/ROT/REF/MICRO/ABS/LOCAL packets as documented"
+      ],
+      "law": "Exact effect-valued class counts are 26 under symmetry-safe future, 52 with MICRO, 128 with globally phase-addressed ABS, 256 with MICRO+ABS, 768 with local-phase access, and1536 with MICRO+LOCAL.",
+      "tool": "ControlPacket/refine_control_partition",
+      "boundary": "finite declared product model; class counts are future-language dependent"
+    },
+    {
+      "id": "HBRC-FULL-002",
+      "name": "external-clock state nonmultiplication",
+      "assumptions": [
+        "global heartbeat phase is supplied by the time port",
+        "aligned physical mask is retained",
+        "macro residue class retained"
+      ],
+      "law": "The product state (macro residue class, aligned mask) has128 classes and is safe for globally framed effects even though the raw local representation has1536 states; a local-axis effect indexed by delta rejects this quotient and exact refinement gives768.",
+      "tool": "certify_control_partition/refine_control_partition",
+      "boundary": "does not apply if local offset evolves invisibly or is directly used by future operations"
+    },
+    {
+      "id": "HBRC-ENV-005",
+      "name": "phase-free C6 occupancy observer lattice",
+      "assumptions": [
+        "binary occupancy mask on the six positive native-axis channels",
+        "pure cyclic heartbeat relabeling C6 with no material occupancy mutation",
+        "compare three explicitly typed observers: total count, C6 orbit shape, and phase-anchored active bit"
+      ],
+      "law": "Under pure rotation: total-count observation has exactly 7 classes for every horizon; phase-free C6 orbit observation has 14 classes (13 after excluding the all-empty background); phase-anchored active-bit futures have 2^min(h+1,6) classes and reach all64 masks at h=5.",
+      "tool": "predictive_quotient + brc_control_port",
+      "boundary": "The three quotients answer different observers. The 14-class C6 shape quotient is not the existing 13-class D6 quotient, and neither is safe when a later operation accesses erased orientation."
+    },
+    {
+      "id": "HBRC-ENV-006",
+      "name": "use-once occupancy-count future growth",
+      "assumptions": [
+        "same six positive-axis binary mask",
+        "each tick marks the currently scanned channel occupied and then advances the cyclic heartbeat",
+        "observer records current and future total occupied count through horizon h"
+      ],
+      "law": "For 0<=h<=5 the coarsest future-observation class count is 2^h*(7-h); for h>=5 it is64. Current count plus h successive count increments recovers the first h scanned bits, while the remaining 6-h bits contribute only their total; at h=5 the last bit is fixed by the total.",
+      "tool": "predictive_quotient",
+      "boundary": "Specific to the declared use-once update and count observer; no general finite environment-memory claim."
+    },
+    {
+      "id": "HBRC-REC-001",
+      "name": "strong control-mass lumping preserves all-depth recurrent mass",
+      "assumptions": [
+        "finite nonnegative rational control mass matrix W",
+        "partition pi with identical total mass from any two source states in one block into every target block",
+        "P is the raw-state to block membership matrix"
+      ],
+      "law": "There is a quotient Q with W P=P Q, hence W^k P=P Q^k for every k. Whenever the all-depth positive mass is finite, W*P=P Q*. Because 1=P1, full and quotient total-mass stability are equivalent under the existing finite recurrent-mass criterion.",
+      "tool": "brc_control_mass + brc_weighted_recurrent",
+      "boundary": "Mass-only observer. Does not preserve affine effects, target identities inside a block, signed cancellation, path provenance or hidden control."
+    },
+    {
+      "id": "HBRC-REC-002",
+      "name": "mass equivalence is strictly weaker than effect equivalence",
+      "assumptions": [
+        "two control states in one candidate block",
+        "each has a self branch of weight 1/2",
+        "their affine spatial effects differ"
+      ],
+      "law": "The one-block total-mass quotient is exact and has Q=(1/2), while the existing exact effect-valued control certificate rejects the merge. Thus effect equality is sufficient but not necessary for recurrent total-mass equivalence.",
+      "tool": "certify_control_mass_partition versus certify_control_partition",
+      "boundary": "The merge is safe only for mass observers/futures, not spatial-effect observers."
+    },
+    {
+      "id": "HBRC-REC-003",
+      "name": "phase-dependent weights can destroy a symmetry quotient without changing spatial effects",
+      "assumptions": [
+        "two states that an orientation-blind environment observer would merge",
+        "identity spatial effect in both states",
+        "self weights 1/2 and 3/2"
+      ],
+      "law": "The mass certificate rejects the merge. The first state's all-depth self mass is sum(1/2)^k=2, while the second diverges. Therefore a symmetry quotient valid for geometry alone need not preserve weighted recurrence when branch mass depends on erased phase/environment.",
+      "tool": "certify_control_mass_partition + finite_recurrent_mass_analysis",
+      "boundary": "Diagnostic positive-mass counterexample, not a physical instability law."
+    },
+    {
+      "id": "HBRC-REC-004",
+      "name": "group-equivariant positive kernels lump exactly to environment orbits",
+      "assumptions": [
+        "finite group G acts on control states",
+        "nonnegative rational kernel W is G-equivariant: W(gx,gy)=W(x,y)",
+        "partition is G-orbits"
+      ],
+      "law": "For x,x' in one orbit and every target orbit B, sum_{y in B}W(x,y)=sum_{y in B}W(x',y); therefore the orbit partition satisfies HBRC-REC-001. A 64-mask D6-equivariant fill/remove/self witness reduces exactly to 13 mass states.",
+      "tool": "brc_control_mass",
+      "boundary": "Requires kernel equivariance; an invariant current observer alone is insufficient."
+    }
+  ],
+  "validation": {
+    "local_suite": "tests/test_brc_heartbeat_toolkit.py",
+    "result": "12 passed",
+    "index_check": "3 methods, 8 theorem candidates, 16 API exports",
+    "independent_review": false,
+    "full_project_tests": false,
+    "nollm_production": false,
+    "environment_suite": "3 tests + original 12 toolkit tests: 15 passed",
+    "total_theorem_candidates": 19,
+    "joint_suite": "3 additional tests; combined current local regression 18 passed",
+    "clock_phase_suite": "3 new tests; combined current local regression 21 passed",
+    "full_control_suite": "2 new 1536-state tests passed standalone; current grouped validated total 23 tests",
+    "occupancy_count_extension": {
+      "exact_states": 64,
+      "static_count_profile": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "static_active_profile": [
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        64
+      ],
+      "c6_orbits": 14,
+      "c6_nonempty_orbits": 13,
+      "mutating_count_profile": [
+        7,
+        12,
+        20,
+        32,
+        48,
+        64,
+        64
+      ],
+      "local_check": "exact enumeration and predictive_quotient cross-check",
+      "independent_review": false
+    },
+    "recurrent_mass_extension": {
+      "local_bridge_tests": "PASS: 2-state strictness/breakage and 64-mask D6 witness",
+      "d6_states": 64,
+      "d6_mass_classes": 13,
+      "truncated_power_checks": 9,
+      "stable_witness": "strict raw/quotient row-sum certificates <1",
+      "recurrent_tool_reuse": "REUSE_APPLIED to finite_recurrent_mass_analysis theorem/interface; local bundle lacked executable module"
+    }
+  }
+}

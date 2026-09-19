@@ -1,0 +1,69 @@
+{
+  "schema": "NOLLM_RECIPROCAL_PHASE_FINITE_RESULT_V1",
+  "status": "FINITE_RESEARCH_CANDIDATE_NOT_THEOREM",
+  "candidate": {
+    "a2": "M/8",
+    "odd_prime_phase": "p^{-1} mod M",
+    "composition": "phi(n)=sum v_p(n)*a_p mod M"
+  },
+  "base_65536": {
+    "inverse": {
+      "cv": 0.02942597432987197,
+      "iid_cv": 0.03100513472784588,
+      "occupied": 57339,
+      "occupied_ratio": 0.8749237060546875,
+      "collision_groups": 7491,
+      "maxload": 4,
+      "distinct_ticks": 42455,
+      "window_4096_cv": {"min": 0.09738242861185867, "mean": 0.11225674463405097, "max": 0.12937886845061872, "iid_reference": 0.12401959270615269}
+    },
+    "golden_rank": {"cv": 0.19938280415160933, "occupied": 47491, "occupied_ratio": 0.7246551513671875, "collision_groups": 11009, "maxload": 9},
+    "golden_prime_value": {"cv": 0.05916547364781444, "occupied": 55841, "occupied_ratio": 0.8520660400390625, "collision_groups": 8517, "maxload": 5}
+  },
+  "phase_precision_65536": [
+    {"bits": 9, "M": 512, "outer_arc_spacing": 3.141592653589793, "cv": 0.01927855763226977, "occupied_ratio": 0.76324462890625},
+    {"bits": 10, "M": 1024, "outer_arc_spacing": 1.5707963267948966, "cv": 0.02281909697496789, "occupied_ratio": 0.8563079833984375},
+    {"bits": 11, "M": 2048, "outer_arc_spacing": 0.7853981633974483, "cv": 0.02598340158230541, "occupied_ratio": 0.874969482421875},
+    {"bits": 12, "M": 4096, "outer_arc_spacing": 0.39269908169872414, "cv": 0.02356074836619339, "occupied_ratio": 0.874176025390625},
+    {"bits": 13, "M": 8192, "outer_arc_spacing": 0.19634954084936207, "cv": 0.02717426441979342, "occupied_ratio": 0.8778076171875}
+  ],
+  "million_scale": {
+    "N": 1000001,
+    "bits_13": {
+      "M": 8192,
+      "outer_arc_spacing": 0.7669907774379218,
+      "cv": 0.00659233008882292,
+      "iid_cv": 0.007937253933193772,
+      "occupied": 872679,
+      "occupied_ratio": 0.8726781273218727,
+      "maxload": 6,
+      "window_10000_cv": {"min": 0.05994130462377341, "mean": 0.07700815836507674, "max": 0.0975278421785287, "iid_reference": 0.07937253933193772}
+    },
+    "bits_16": {"M": 65536, "cv": 0.007241604242155188, "occupied": 874993, "occupied_ratio": 0.874992125007875, "maxload": 6},
+    "golden_rank_bits_16": {"cv": 0.06825589685880627, "occupied": 716030, "occupied_ratio": 0.7160292839707161, "maxload": 14}
+  },
+  "poisson_area_reference_65536": {
+    "lambda": 0.27566444771089604,
+    "occupied_ratio": 0.8740060863827478,
+    "occupied_cells": 57278.86287717976,
+    "collision_groups": 7532.608977725652
+  },
+  "inverse_lift": {
+    "law": "u_{m+1}=u_m+b_m*2^m with b_m in {0,1}",
+    "m_8_to_15_failures": 0,
+    "normalized_observer": "theta_{m+1}=theta_m/2+b_m/2 for each odd-prime generator"
+  },
+  "phase_resolution_heuristic": {
+    "outer_arc_spacing": "2*pi*C*sqrt(N)/M",
+    "finite_saturation_rule": "approximately <= one display-cell spacing",
+    "bit_budget": "ceil(log2(2*pi*C*sqrt(N)/h))",
+    "status": "finite geometric sampling heuristic, not a uniform theorem"
+  },
+  "verifier": "verify.py",
+  "verifier_local_pass": true,
+  "observer_boundary": [
+    "multiplication equality at phase layer is by construction",
+    "hex rounding and Poisson comparisons are finite display observers",
+    "integer identities and prime valuations are retained before compression"
+  ]
+}

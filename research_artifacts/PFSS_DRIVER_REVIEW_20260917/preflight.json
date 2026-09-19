@@ -1,0 +1,37 @@
+{
+  "schema": "PFSS_DRIVER_REVIEW_PUBLICATION_PREFLIGHT_V1",
+  "status": "PASS_SCOPED_CURRENT_POLICY_EQUIVALENT_PREFLIGHT_NOT_GLOBAL_REPOSITORY_AUDIT",
+  "driver_id": "EM-DVR-Q7M2",
+  "recorded_at": "2026-09-17T06:12:00+00:00",
+  "write_base_verified": "1a7c445fd5bebac16a25dc74e9a40ec19a937050",
+  "cas_history": {
+    "first_parent": "dd98596ac2f46e9f66f6c0e8b14e1473424b35dc",
+    "first_ref_update": "ABORTED_NON_FAST_FORWARD",
+    "reloaded_head": "1a7c445fd5bebac16a25dc74e9a40ec19a937050",
+    "reviewed_result_blob_sha1_reverified": ["8276a6b3aed8ad9a94eeb6cfc456b679160cb100","8a5a2f9cd8e824b2fc8abf5d088bba21aa9a7802"]
+  },
+  "current_policy": {
+    "driver_contract": "docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md",
+    "task_publication_contract": "research_task_publication_contract_v2.json",
+    "taskbook_policy": "research_taskbook_policy.json",
+    "taskbook_policy_digest": "sha256:dd425305887871866cb2f0894885ff38359639e2de7750fa45e8c584e19feae4",
+    "taskbook_auditor_blob_sha1": "sha1:46e75a035680a4b5cd5f7ab4071c259c607e767e",
+    "template_blob_sha1": "sha1:1593a79ede875d5498c8fe4e08d908bd30c6c138"
+  },
+  "review_bindings": [
+    {"result_id":"RR-9F084B92BE8261F3A8D7","result_record_sha256":"sha256:3ac27c743ac01d85e18cae26c15cdb72b1ad9e1c22f27c23ca9dc657a5eed3f2","review_id":"DR-F4BDDF20DD147806600B","independent_local_exact_replay":"PASS"},
+    {"result_id":"RR-4760E87D1D3AD2F6AFFA","result_record_sha256":"sha256:746b4c5c5115fef80f6b3f3b2b47589bac062eb7cb1a8fe41fd3ae879308fe33","review_id":"DR-C3AECF00412A04FFA6A4","independent_local_exact_replay":"PASS"}
+  ],
+  "task_publications": [
+    {"task_id":"RS-PFSS-JUSTIFIED-NONDEGENERATE-NULL-MECHANISM","publication_id":"TP2-CED1A3712793223C0ABE","taskbook_blob_sha1":"sha1:6870ea3bb10d1632b93de2132a7839ebad435a5d","taskbook_findings":[],"dispatch_findings":[],"base_state":"READY","dependencies":[]},
+    {"task_id":"RS-PFSS-NONDEGENERATE-NULL-PREFLIGHT","publication_id":"TP2-45A34916AAD937D0DF61","taskbook_blob_sha1":"sha1:090b7d2ca278585fc97005612f49a558db1b7ede","taskbook_findings":[],"dispatch_findings":[],"base_state":"BLOCKED","dependencies":["RS-PFSS-JUSTIFIED-NONDEGENERATE-NULL-MECHANISM"]}
+  ],
+  "dependency_graph_acyclic": true,
+  "duplicate_search": {"query":"nondegenerate null invariance premise semiprime","matching_existing_task_found":false},
+  "issue_1479": {"state_observed":"CLOSED","typed_route_fix_commit":"8ff3142d4ca8ef0164c64d4961beb7bed973ffbb","current_recurrence_observed_for_reviewed_results":false},
+  "claims_created": false,
+  "working_truth_granted": false,
+  "foundation_authority_granted": false,
+  "holdouts_accessed": false,
+  "local_validation": "PASS_FOR_EXACT_TASK_LOCAL_CERTIFICATES"
+}

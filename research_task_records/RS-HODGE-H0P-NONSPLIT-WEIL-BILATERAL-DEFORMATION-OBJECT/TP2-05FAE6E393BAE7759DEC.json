@@ -1,0 +1,62 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "publication_generation": 1,
+  "supersedes_publication_id": null,
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "publisher_role": "RESEARCHER",
+  "publisher_id": "EM-HODGE-E8C393",
+  "published_at": "2026-09-19T18:36:00+08:00",
+  "parent_objective_id": "HODGE_SPECIAL_OPEN_FRONTIER_ALGEBRAICITY_MECHANISM",
+  "origin_kind": "DIRECT_USER_DIRECTION",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "claimable": true,
+  "effective_priority": "P2",
+  "effective_leverage": "MEDIUM",
+  "priority_source": "RESEARCHER_DEFAULT",
+  "publisher_priority_request": "P1",
+  "publisher_leverage_request": "HIGH",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "task_id": "RS-HODGE-H0P-NONSPLIT-WEIL-BILATERAL-DEFORMATION-OBJECT",
+  "registry_key": "RS-HODGE-H0P-NONSPLIT-WEIL-BILATERAL-DEFORMATION-OBJECT",
+  "publication_id": "TP2-05FAE6E393BAE7759DEC",
+  "taskbook_path": "research_tasks/HODGE_H0P_NONSPLIT_WEIL_BILATERAL_DEFORMATION_OBJECT_20260919.md",
+  "taskbook_blob_sha1": "sha1:ee3ba08a77297bc0a29f41fbba2dca6acc8174ed",
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-HODGE-H0O-NONSPLIT-WEIL-INTERMEDIATE-SUPPORT-FM-EXCEPTIONAL-CH3",
+  "owner": "taskbook/unassigned",
+  "frontier": "A pure nonzero Weil Chern-character candidate is available only as an unreviewed special-fibre checkpoint, while the known direct-sum and cone constructions retain at least seven first-order obstruction directions; no actual object has yet been shown to deform through all nine Weil directions.",
+  "next_action": "Construct the smallest mixed torsion/derived candidate with effective maps on both obstruction sides, compute its full Atiyah–Kodaira–Spencer obstruction map over all nine Weil deformation directions, and decide positive full-rank cancellation versus an exact family-level no-go.",
+  "research_value": "Targets the first unresolved object-level bottleneck after H0O: either produce a nine-direction deformable nonzero Weil object or prove a precise no-go for the declared mixed class, preventing repeated parameter-count searches that do not change obstruction geometry.",
+  "identity_lane": "HODGEH0P",
+  "source_refs": [
+    "research_returns/HODGE_H0N_NONSPLIT_WEIL_EXCEPTIONAL_CH3_SEED_OBJECT_RETURN_20260902.md",
+    "research_result_records/RS-HODGE-H0N-NONSPLIT-WEIL-EXCEPTIONAL-CH3-SEED-OBJECT/RR-65EB865C14B89B964BB9.json",
+    "research_returns/HODGE_H0O_NONSPLIT_WEIL_INTERMEDIATE_SUPPORT_FM_EXCEPTIONAL_CH3_RETURN_20260903.md",
+    "research_result_records/RS-HODGE-H0O-NONSPLIT-WEIL-INTERMEDIATE-SUPPORT-FM-EXCEPTIONAL-CH3/RR-FB3CF77C4F611FDED79B.json",
+    "research_task_records/RS-HODGE-H0O-NONSPLIT-WEIL-INTERMEDIATE-SUPPORT-FM-EXCEPTIONAL-CH3/TP2-853EE36ED78FF34CC992.json",
+    "research_notes/HODGE_WEIL_BILATERAL_DEFORMATION_FRONTIER_20260919.md"
+  ],
+  "dependencies": [
+    "RS-HODGE-H0O-NONSPLIT-WEIL-INTERMEDIATE-SUPPORT-FM-EXCEPTIONAL-CH3"
+  ],
+  "evidence_status": "CHAT_DERIVED_UNREVIEWED_CHECKPOINT / SOURCE_H0O_NEGATIVE_BOUNDARY_PRESERVED",
+  "successor_gate": {
+    "new_information_gap": "H0O isolates seed conservation for its declared Fourier–Mukai family, but the surviving frontier is an actual algebraic/derived object whose nonzero Weil component deforms through all nine target directions rather than only as a Hodge class.",
+    "why_parent_result_does_not_close_it": "The parent result is a conservation/negative-boundary statement and does not decide whether a mixed torsion or genuinely two-sided derived object can cancel the full first-order obstruction while preserving a nonzero Weil class.",
+    "discriminating_outcomes": [
+      "Construct one explicit object with nonzero Weil class and zero first-order obstruction on all nine directions.",
+      "Prove a precise no-go theorem for the declared mixed candidate class.",
+      "Return a strictly delimited partial obstruction classification that identifies the remaining unmapped directions."
+    ],
+    "kill_condition": "Kill the declared construction family if every admissible candidate has a rigorously verified nonzero obstruction on at least one Weil direction or loses the nonzero Weil component under the required two-sided coupling.",
+    "alternative_route_or_free_exploration_considered": "Direct cycle deformation, broader correspondence kernels, and independent free exploration were considered; this task is preferred first because it attacks the obstruction bottleneck already exposed by H0O with a falsifiable finite-dimensional map.",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "The new candidate class lies outside H0O's frozen family and terminal-alternative repair scope, so extending H0O would blur a completed negative boundary with genuinely new mathematics."
+  }
+}

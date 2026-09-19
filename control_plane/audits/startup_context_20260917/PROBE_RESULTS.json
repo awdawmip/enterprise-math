@@ -1,0 +1,129 @@
+{
+  "source_repository": "awdawmip/enterprise-math",
+  "source_commit": "0db088a3b5793269ddcdd15a3d9a7996d3f9fff3",
+  "source_blob": "f987bd676b07abc2d57ffeda1bd22aae31515108",
+  "scope": "Exact upstream packet builder executed on isolated fixtures. Not a live dispatch/claim or whole-repository authorization audit.",
+  "probe_count": 12,
+  "probes": [
+    {
+      "name": "ordinary_packet",
+      "kind": "POSITIVE",
+      "status": "OBSERVED",
+      "result": {
+        "packet_bytes": 2183,
+        "projection_mode": "INLINE_EXACT_TASKBOOK_SECTIONS"
+      }
+    },
+    {
+      "name": "oversize_taskbook_is_outside_packet_budget",
+      "kind": "COVERAGE_GAP",
+      "status": "OBSERVED",
+      "result": {
+        "packet_bytes": 1842,
+        "fallback_taskbook_bytes": 200533,
+        "combined_minimum_bytes": 202375,
+        "whole_startup_80KiB_enforced_by_builder": false
+      }
+    },
+    {
+      "name": "unknown_dependency_does_not_enumerate",
+      "kind": "POSITIVE",
+      "status": "OBSERVED",
+      "result": {
+        "first_dependency_ref": null,
+        "directory_enumeration": false
+      }
+    },
+    {
+      "name": "existing_string_dependency_is_omitted",
+      "kind": "CONFIRMED_PROJECTION_GAP",
+      "status": "OBSERVED",
+      "result": {
+        "existing_dependency": "research_returns/R1.md",
+        "returned": null
+      }
+    },
+    {
+      "name": "existing_ref_suffixed_string_dependency_is_omitted",
+      "kind": "CONFIRMED_PROJECTION_GAP",
+      "status": "OBSERVED",
+      "result": {
+        "declared_dependency": "research_returns/R1.md@main",
+        "returned": null
+      }
+    },
+    {
+      "name": "dictionary_dependency_positive_control",
+      "kind": "POSITIVE",
+      "status": "OBSERVED",
+      "result": {
+        "returned": "research_returns/R1.md"
+      }
+    },
+    {
+      "name": "live_frontier_and_adoption_guard_are_omitted",
+      "kind": "CONFIRMED_PROJECTION_GAP",
+      "status": "OBSERVED",
+      "result": {
+        "current_target_frontier": "research_returns/R2.md",
+        "packet_first_dependency": "research_returns/R1.md",
+        "guard_preserved": false,
+        "current_frontier_ref_preserved": false
+      }
+    },
+    {
+      "name": "canonical_liveness_targets_are_lost",
+      "kind": "CONFIRMED_PROJECTION_GAP",
+      "status": "OBSERVED",
+      "result": {
+        "input_target_count": 1,
+        "output_task": null,
+        "output_targets_present": false,
+        "packet_bytes": 1020
+      }
+    },
+    {
+      "name": "canonical_cohort_lane_scope_is_lost",
+      "kind": "CONFIRMED_PROJECTION_GAP",
+      "status": "OBSERVED",
+      "result": {
+        "lost_target_fields": [
+          "execution_cohort_id",
+          "execution_lane_id",
+          "output_prefix"
+        ],
+        "lost_route_fields": [
+          "surface",
+          "target_key"
+        ]
+      }
+    },
+    {
+      "name": "bulk_diagnostic_fields_are_excluded",
+      "kind": "POSITIVE",
+      "status": "OBSERVED",
+      "result": {
+        "packet_bytes": 2183,
+        "bulk_top_level_fields_excluded": true
+      }
+    },
+    {
+      "name": "oversize_nonprojection_fields_fail_closed",
+      "kind": "POSITIVE",
+      "status": "OBSERVED",
+      "result": {
+        "rejected": true,
+        "error": "startup packet exceeds 8192 bytes: 11822"
+      }
+    },
+    {
+      "name": "actual_serialized_utf8_size_is_checked",
+      "kind": "POSITIVE",
+      "status": "OBSERVED",
+      "result": {
+        "utf8_bytes_match": true,
+        "packet_bytes": 2536
+      }
+    }
+  ]
+}

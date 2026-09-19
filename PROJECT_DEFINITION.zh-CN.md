@@ -1,5 +1,12 @@
 # 进取数论项目定义
 
+<!-- EM_FINAL_CELL_ADDRESS_CONTRACT_V1 -->
+## 晶包坐标接口约束（2026-09-13）
+
+所有最终晶包地址遵循 [`coordinate_address_contract.json`](coordinate_address_contract.json)：六字段非负；未启用字段只在可恢复完整身份时置0；显示原点与轴线不参与晶包运算；跨区不强制加1。内部原始坐标、位移、反向操作与零位移分别保留，不能直接当作最终地址输出。已验证三分区实现仅覆盖固定两原生方向切片，不适用于任意完整六轴状态。旧文中的坐标零点为内部锚点，不是显示原点放置要求。
+<!-- END_EM_FINAL_CELL_ADDRESS_CONTRACT_V1 -->
+
+
 Status: `ACTIVE / PROJECT-LEVEL DEFINITION / V4`
 Date: `2026-08-22`
 Driver: `CONTROL_PLANE`
@@ -26,51 +33,34 @@ Driver: `CONTROL_PLANE`
 
 精确数学声明以任务实际使用的 exact canonical definition 为准。
 
-## 1. 当前进取平面
+## 1. 当前空间与显示参照
 
-当前原生平面：
-
-- `O_E=0`；
-- 原点是三个 circle cells 的三重边界交点；
-- `ENTERPRISE_CELL=CIRCLE_CELL`；
-- 最近圆心间距 `D_CENTER=1`；
-- `R_CELL=1/sqrt(3)`；
-- 原生轴为三条正射线 `E_1,E_2,E_3`；
-- `ENTERPRISE_RIGHT_ANGLE=120_DEGREES`；
-- 三轴两两 `ENTERPRISE_ORTHOGONAL`；
-- `ENTERPRISE_PLANE_DIMENSION=3` 是项目自己的原生维数语义。
+原生六轴晶包结构以 `p000_reality_foundation.json` 和
+`definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md` 为准。
+六条原生轴及既有正向、反向操作保持不变。
+P000 继续规定进取原生直角关系为 120°；该关系与最终地址是否使用负数无关。
+原始有符号坐标属于内部数学表示；
+其零坐标标记一个选定晶包锚点，不规定物理全局中心或显示原点。
+显示原点可以位于空隙，显示轴线不必经过晶包中心；二者不是晶包、路径节点或运算起点。
 
 ## 2. 当前坐标与长度
 
-原生地址：
+所有最终晶包地址统一遵循 `coordinate_address_contract.json`：六个非负整数字段，
+明确编码版本及固定参照系。不参与表达的字段只有在完整身份不丢失时才可置0；
+未知、隐藏或省略的信息不等于0。地址数字不能未经解码直接当作位移或距离。
 
-`A_E={(a,b,c) in N_0^3 : min(a,b,c)=0}`。
-
-三个正二轴 chart：
-
-- `S_12={(a,b,0)}`；
-- `S_23={(0,b,c)}`；
-- `S_31={(a,0,c)}`。
-
-在原生 `120°` 扇区内：
-
-`L_E^2=a^2+b^2`。
-
-对 canonical triple：
-
-`L_E(a,b,c)^2=a^2+b^2+c^2`。
-
-载体关系只在明确标记的 implementation/classical layer 使用，不自动成为 native identity 或 native metric。
+已登记实现 `three_region_slice_v1` 仅覆盖固定两原生方向切片，形式为
+`(0,b,c,0,0,0)`、`(a,0,c,0,0,0)`、`(a,b,0,0,0,0)`，启用字段为正整数。
+这不是完整六轴通用编码。其他输入必须使用另行验证登记的编码；不支持时明确拒绝，
+不得偷偷清零其他分量后套用切片。
 
 ## 3. 当前线与点到点结构
 
-`ENTERPRISE_LINE_IDENTITY=NATIVE_COMPONENT_TRACE`。
-
-同一 trace 可以有多个离散单-cell 路径代表；路径字母数不等于原生线长度。
-
-任意点之间使用当前的**有向原生线 gauge**。
-
-无向端点对的 canonical 数据是双向 trace pair 与 bidirectional length spectrum；当前 premises 不唯一选定一个 canonical symmetric scalar metric。
+原生有符号位移、距离、邻接规则保留。距离基于解码后的晶包，不基于地址数字的差。
+跨显示分界不增加节点，也不强制加1；当前已证明的边界表同时包含等值换栏和调整字段。
+实际边身份、路径先后、BRC 重复度、端口、权重、边界及初态均需保留。
+步数与原生分量长度仍须区别。当前原生有符号距离具有反向对称性；历史有向 min-zero
+数值仅是信息较少的观察读数，不再作为当前原生点到点距离。
 
 ## 4. BRC
 
@@ -120,7 +110,7 @@ Driver: `CONTROL_PLANE`
 
 ## 8. 当前项目栈
 
-`NUMBER -> PRECISION -> DISCRETE STATE -> RELATION/PATH/BRC -> THREE-POSITIVE-AXIS ENTERPRISE COORDINATES -> REBUILT GEOMETRY -> TRIG/ANALYSIS -> CLASSICAL COMPATIBILITY/CORRECTION -> PHYSICS -> ENGINEERING`。
+`NUMBER -> PRECISION -> DISCRETE STATE -> RELATION/PATH/BRC -> NONNEGATIVE CELL ADDRESSES OVER TYPED NATIVE RELATIONS -> REBUILT GEOMETRY -> TRIG/ANALYSIS -> CLASSICAL COMPATIBILITY/CORRECTION -> PHYSICS -> ENGINEERING`。
 
 > **不是把旧数学推倒，而是让它拥有一个更好的地基。**
 

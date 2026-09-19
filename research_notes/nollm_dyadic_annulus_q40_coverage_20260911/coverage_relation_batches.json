@@ -1,0 +1,25 @@
+{
+  "schema": "NOLLM_Q40_ANNULUS_RELATION_BATCHES_V1",
+  "population_N": 65536,
+  "source_nollm_main": "88d63b32329fbbcd18028de1ac83b2db3c988e33",
+  "source_kernel_blob": "fb1f19515b888ed9f01417b5e857c2146c418a66",
+  "method": "each entry is an exhaustive finite worker result over every positive n with multiplier*n<65536; original sharded run plus explicit endpoint correction for n=13107 when multiplier=5; worker uses published Q40 integer constants and half-even cube rounding",
+  "entries": [
+    {"b":11,"direction":"coverage_up","multiplier":2,"steps":1,"result":{"pairs":32767,"overlap_count":9235,"overlap_ratio":0.28183843501083405,"minimum_support_distance_histogram":{"0":9235,"1":23532},"hausdorff_histogram":{"1":2927,"2":29614,"3":226},"max_hausdorff":3}},
+    {"b":11,"direction":"coverage_up","multiplier":2,"steps":2,"result":{"pairs":32767,"overlap_count":32767,"overlap_ratio":1.0,"minimum_support_distance_histogram":{"0":32767},"hausdorff_histogram":{"1":6206,"2":26385,"3":176},"max_hausdorff":3}},
+    {"b":11,"direction":"coverage_up","multiplier":5,"steps":1,"result":{"pairs":13107,"overlap_count":12995,"overlap_ratio":0.99145494773785,"minimum_support_distance_histogram":{"0":12995,"1":112},"hausdorff_histogram":{"1":12051,"2":1054,"3":2},"max_hausdorff":3}},
+    {"b":11,"direction":"coverage_up","multiplier":5,"steps":2,"result":{"pairs":13107,"overlap_count":13107,"overlap_ratio":1.0,"minimum_support_distance_histogram":{"0":13107},"hausdorff_histogram":{"1":11839,"2":1268},"max_hausdorff":2}},
+    {"b":11,"direction":"coverage_down","multiplier":2,"steps":1,"result":{"pairs":32767,"overlap_count":1997,"overlap_ratio":0.060945463423566396,"minimum_support_distance_histogram":{"0":1997,"1":26825,"2":3945},"hausdorff_histogram":{"2":9724,"3":23043},"max_hausdorff":3}},
+    {"b":11,"direction":"coverage_down","multiplier":2,"steps":2,"result":{"pairs":32767,"overlap_count":29718,"overlap_ratio":0.9069490646076845,"minimum_support_distance_histogram":{"0":29718,"1":3049},"hausdorff_histogram":{"2":529,"3":20852,"4":11386},"max_hausdorff":4}},
+    {"b":11,"direction":"coverage_down","multiplier":5,"steps":1,"result":{"pairs":13107,"overlap_count":12983,"overlap_ratio":0.9905394064240483,"minimum_support_distance_histogram":{"0":12983,"1":99,"2":25},"hausdorff_histogram":{"1":3502,"2":9481,"3":124},"max_hausdorff":3}},
+    {"b":11,"direction":"coverage_down","multiplier":5,"steps":2,"result":{"pairs":13107,"overlap_count":13087,"overlap_ratio":0.9984740978103304,"minimum_support_distance_histogram":{"0":13087,"1":20},"hausdorff_histogram":{"1":703,"2":10182,"3":2155,"4":67},"max_hausdorff":4}},
+    {"b":14,"direction":"coverage_up","multiplier":2,"steps":1,"result":{"pairs":32767,"overlap_count":9022,"overlap_ratio":0.27533799249244667,"minimum_support_distance_histogram":{"0":9022,"1":23745},"hausdorff_histogram":{"1":2833,"2":29671,"3":263},"max_hausdorff":3}},
+    {"b":14,"direction":"coverage_up","multiplier":2,"steps":2,"result":{"pairs":32767,"overlap_count":32767,"overlap_ratio":1.0,"minimum_support_distance_histogram":{"0":32767},"hausdorff_histogram":{"1":5842,"2":26709,"3":216},"max_hausdorff":3}},
+    {"b":14,"direction":"coverage_up","multiplier":5,"steps":1,"result":{"pairs":13107,"overlap_count":13098,"overlap_ratio":0.9993133440146487,"minimum_support_distance_histogram":{"0":13098,"1":9},"hausdorff_histogram":{"1":12211,"2":896},"max_hausdorff":2}},
+    {"b":14,"direction":"coverage_up","multiplier":5,"steps":2,"result":{"pairs":13107,"overlap_count":13107,"overlap_ratio":1.0,"minimum_support_distance_histogram":{"0":13107},"hausdorff_histogram":{"0":2,"1":11928,"2":1177},"max_hausdorff":2}},
+    {"b":14,"direction":"coverage_down","multiplier":2,"steps":1,"result":{"pairs":32767,"overlap_count":1961,"overlap_ratio":0.05984679708243049,"minimum_support_distance_histogram":{"0":1961,"1":26816,"2":3990},"hausdorff_histogram":{"2":9462,"3":23305},"max_hausdorff":3}},
+    {"b":14,"direction":"coverage_down","multiplier":2,"steps":2,"result":{"pairs":32767,"overlap_count":29693,"overlap_ratio":0.9061861018707846,"minimum_support_distance_histogram":{"0":29693,"1":3074},"hausdorff_histogram":{"2":469,"3":20761,"4":11537},"max_hausdorff":4}},
+    {"b":14,"direction":"coverage_down","multiplier":5,"steps":1,"result":{"pairs":13107,"overlap_count":13097,"overlap_ratio":0.9992370489051652,"minimum_support_distance_histogram":{"0":13097,"1":6,"2":4},"hausdorff_histogram":{"1":3544,"2":9553,"3":10},"max_hausdorff":3}},
+    {"b":14,"direction":"coverage_down","multiplier":5,"steps":2,"result":{"pairs":13107,"overlap_count":13103,"overlap_ratio":0.9996948195620661,"minimum_support_distance_histogram":{"0":13103,"1":4},"hausdorff_histogram":{"1":704,"2":10397,"3":1998,"4":8},"max_hausdorff":4}}
+  ]
+}

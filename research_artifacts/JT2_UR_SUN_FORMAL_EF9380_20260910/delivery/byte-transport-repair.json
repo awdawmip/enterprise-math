@@ -1,0 +1,66 @@
+{
+  "schema": "JT2_UR_EXACT_BYTE_TRANSPORT_REPAIR_V1",
+  "result_id": "RR-60983E048B55C2AC7F66",
+  "unchanged_return": {
+    "source": "89090211624b561ad8b21883d5358143bf4ced40",
+    "blob": "sha1:b400bf432162cc5d67f51a1d2963de533c786afb",
+    "sha256": "sha256:1f837114e6b9215e8943249a4e3c9277efed2d3608db0e1724cbebf3be35e09f"
+  },
+  "unchanged_result": {
+    "source": "fc844b4cf05bc124e06e3ab92129acb287d86924",
+    "path": "research_result_records/RS-EMW59A-JT2-UR-SUN-PARITY-DEFECT/RR-60983E048B55C2AC7F66.json",
+    "blob": "f811ad2c5c15ad0713e52a0abc8bf8ba6c8611c8",
+    "sha256": "291465da62a9718ff89dd91b147f398be8a9c6b50463ba63db3d31e1eea8f9eb"
+  },
+  "cause": "Python read_text normalized Windows CRLF to LF during publication. Initial readback compared normalized strings, so it did not establish raw-byte equality for four generated JSON attachments.",
+  "detected_by": "Canonical research_activity checkpoint verify_observation rejected the source_manifest digest; the existing activity record and all four historical events remained unchanged.",
+  "repaired_manifest_files": [
+    {
+      "path": "research_artifacts/JT2_UR_SUN_FORMAL_EF9380_20260910/mathematics/coverage.json",
+      "initial_commit": "89090211624b561ad8b21883d5358143bf4ced40",
+      "initial_blob": "8b78c528cd9d0b9abf905f443711be389bbe3e5d",
+      "expected": {
+        "path": "research_artifacts/JT2_UR_SUN_FORMAL_EF9380_20260910/mathematics/coverage.json",
+        "git_blob_sha1": "sha1:7672f506bafabe54137179b710ed0dfa94924834",
+        "sha256": "sha256:168b29bfeddeb382f3a0724a08022c3b13e2c7550598ed37acd2425577eebb98"
+      }
+    },
+    {
+      "path": "research_artifacts/JT2_UR_SUN_FORMAL_EF9380_20260910/mathematics/elimination_check.json",
+      "initial_commit": "89090211624b561ad8b21883d5358143bf4ced40",
+      "initial_blob": "e609d7aaa8660cb438f6bc933168918c0621f3d0",
+      "expected": {
+        "path": "research_artifacts/JT2_UR_SUN_FORMAL_EF9380_20260910/mathematics/elimination_check.json",
+        "git_blob_sha1": "sha1:1f3793e63b8198b9cb528bd6ce2e66fe60a1b630",
+        "sha256": "sha256:6b02d4569eb947fb94345e5be078916cf08f744f736d112634e2a21b54c63362"
+      }
+    },
+    {
+      "path": "research_artifacts/JT2_UR_SUN_FORMAL_EF9380_20260910/metadata_validation.json",
+      "initial_commit": "89090211624b561ad8b21883d5358143bf4ced40",
+      "initial_blob": "fb97895e4d328491ee9437038d8b2e9f14373abc",
+      "expected": {
+        "path": "research_artifacts/JT2_UR_SUN_FORMAL_EF9380_20260910/metadata_validation.json",
+        "git_blob_sha1": "sha1:4fdea60da7a5f29b142570cd1ac48d4d646b8e74",
+        "sha256": "sha256:859a939dd96136acfe1a0cee701a2b911ecbee7591880d02e5674cbdf45e05f6"
+      }
+    },
+    {
+      "path": "research_artifacts/JT2_UR_SUN_FORMAL_EF9380_20260910/source_manifest.json",
+      "initial_commit": "89090211624b561ad8b21883d5358143bf4ced40",
+      "initial_blob": "860bbe1f7d1f76710e9bbab05652ad970c04d0ef",
+      "expected": {
+        "path": "research_artifacts/JT2_UR_SUN_FORMAL_EF9380_20260910/source_manifest.json",
+        "git_blob_sha1": "sha1:37a20242c6a678bd85e0d903d3b44c9961093f19",
+        "sha256": "sha256:061ad0d762435a5fb8f671c020cfb0f93f8ea3d4b7145afe5dadb0e2fc28c739"
+      }
+    }
+  ],
+  "repair": "Republish original read_bytes().decode('utf-8') strings to preserve the exact frozen CRLF bytes and verify every output_manifest file against both its raw local content and frozen Git blob. No RR or return content is rewritten.",
+  "old_receipt_scope": "delivery/return-readback-validation.json at fc844b4c records only normalized-text equality; its raw-byte implication is superseded by this repair and the forthcoming complete raw-byte manifest verification.",
+  "corrected_attachment_source": "The immutable commit containing this repair; final standalone handoff pins that commit explicitly.",
+  "new_RR_created": false,
+  "mathematical_change": false,
+  "task_or_scope_change": false
+}
+

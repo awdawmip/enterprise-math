@@ -1,0 +1,160 @@
+    assert A * A == B * B == T.T * T == sp.eye(4)
+    assert sp.ones(1, 4) * T == sp.ones(1, 4)
+    mod3 = M.applyfunc(lambda x: x % 3)
+    residue = sp.Matrix([0, 2, 2, 2])
+    assert (M * old.basis(4, 0)).applyfunc(lambda x: x % 3) == residue
+    assert (M * residue).applyfunc(lambda x: x % 3) == residue
+    numerator = old.basis(4, 0)
+    denom_report = []
+    for n in range(1, denominator_steps + 1):
+        numerator = M * numerator
+        den = 9**n
+        assert numerator.applyfunc(lambda x: x % 3) == residue
+        assert sum(numerator) == den and sum(x*x for x in numerator) == den**2
+        state = [sp.Rational(v, den) for v in numerator]
+        assert all(sp.denom(state[i]) == den for i in (1, 2, 3))
+        assert sp.denom(state[3]**2) == den**2
+        if n <= 4 or n == denominator_steps:
+            denom_report.append({'cycles': n, 'amplitude_denominator': str(den),
+                                  'probability_denominator': str(den**2),
+                                  'last_amplitude': str(state[3])})
+
+    U, psi, rho = state16(old)
+    n_single = sp.diag(0, 1)
+    X = sp.Matrix([[0, 1], [1, 0]])
+    Y = sp.Matrix([[0, -sp.I], [sp.I, 0]])
+    assert X * n_single != n_single * X and Y * n_single != n_single * Y
+    single_deph = sp.diag(*rho.diagonal())
+    # A complete matrix basis of diagonal effects cannot see the off-diagonals.
+    single_conserved_tests = 0
+    for i, j in product(range(2), repeat=2):
+        a = old.basis(2, i) * old.basis(2, i).T
+        b = old.basis(2, j) * old.basis(2, j).T
+        assert sp.trace((rho-single_deph) * sp.kronecker_product(a, b)) == 0
+        single_conserved_tests += 1
+
+    omega = reorder_copies(old, rho, rho)
+    P0, P1, P2 = number_projectors()
+    N = sp.diag(0, 1, 1, 2)
+    PP = sp.kronecker_product(P1, P1)
+    weight = sp.trace(PP * omega)
+    assert weight == sp.Rational(32, 81)
+    accepted = sp.simplify(PP * omega * PP / weight)
+    embedded = sp.zeros(16)
+    # |01>_B|10>_C + |10>_B|01>_C, density has rational entries 1/2.
+    for i, j in product((6, 9), repeat=2):
+        embedded[i, j] = sp.Rational(1, 2)
+    assert accepted == embedded
+    assert (sp.kronecker_product(N, sp.eye(4)) * accepted) == accepted
+    assert (sp.kronecker_product(sp.eye(4), N) * accepted) == accepted
+
+    sector = [[sp.trace(sp.kronecker_product(a, b) * omega) for b in (P0, P1, P2)]
+              for a in (P0, P1, P2)]
+    assert sector == [[sp.Rational(1,81), sp.Rational(8,81), sp.Rational(16,81)],
+                      [sp.Rational(8,81), sp.Rational(32,81), 0],
+                      [sp.Rational(16,81), 0, 0]]
+    assert sum(sum(row) for row in sector) == 1
+    # Check the complete two-copy ABC pure state retains exactly two excitations.
+    complete = sp.kronecker_product(psi, psi)
+    number6 = sp.diag(*[i.bit_count() for i in range(64)])
+    assert number6 * complete == 2 * complete
+    full_bc = old.ptrace(complete * complete.H, 6, (1,4,2,5))
+    assert full_bc == omega
+
+    # Operational equivalence of joint number dephasing for all number-block effects.
+    deph_joint = sector_dephase(omega)
+    block_units = []
+    charges = (0, 1, 1, 2)
+    for i, j in product(range(4), repeat=2):
+        if charges[i] == charges[j]:
+            E = sp.zeros(4); E[i, j] = 1
+            block_units.append(E)
+    joint_observer_tests = 0
+    for a, b in product(block_units, repeat=2):
+        assert sp.trace((omega-deph_joint)*sp.kronecker_product(a,b)) == 0
+        joint_observer_tests += 1
+
+    # Number flag uses a finite degenerate pointer; keep every flag branch.
+    W = number_measurement_unitary()
+    assert W.H * W == sp.eye(12)
+    expect_zero(W*sp.kronecker_product(N, sp.eye(3)) - sp.kronecker_product(N, sp.eye(3))*W)
+    for i in range(4):
+        inp = sp.kronecker_product(old.basis(4,i),old.basis(3,0))
+        expected = sp.kronecker_product(old.basis(4,i),old.basis(3,charges[i]))
+        assert W*inp == expected
+
+    left, right, _, _ = logical_ops(sp.Integer(1))
+    bell, corr, probs = measure_statistics(accepted,left,right)
+    assert bell == sp.Rational(14,5)
+    rawbell = sum(sign * sp.trace(omega * sp.kronecker_product(left[a],right[b]))
+                  for a,b,sign in ((0,0,1),(0,1,1),(1,0,1),(1,1,-1)))
+    assert rawbell == sp.Rational(778,405) and rawbell < 2
+
+    instrument_tests = 0
+    non_signalling_tests = 0
+    for side, observables in enumerate((left,right)):
+        for obs in observables:
+            assert obs.H == obs and obs*obs == sp.eye(4)
+            assert obs*N == N*obs
+            V = binary_instrument(obs)
+            assert V.H*V == sp.eye(8) and V*V == sp.eye(8)
+            assert V*sp.kronecker_product(N,sp.eye(2)) == sp.kronecker_product(N,sp.eye(2))*V
+            # Check the actual recorded-outcome probabilities on every system matrix unit.
+            for i,j in product(range(4),repeat=2):
+                E = sp.zeros(4);E[i,j]=1
+                meter0 = sp.diag(1,0)
+                joint = V*sp.kronecker_product(E,meter0)*V.H
+                for bit,sign in ((0,1),(1,-1)):
+                    idx=[2*k+bit for k in range(4)]
+                    branch=joint.extract(idx,idx)
+                    P=(sp.eye(4)+sign*obs)/2
+                    assert branch == P*E*P
+                    instrument_tests += 1
+            for sample in (omega,accepted,deph_joint):
+                evolved=local_channel(sample,obs,side)
+                keep=(2,3) if side==0 else (0,1)
+                assert old.ptrace(evolved,4,keep)==old.ptrace(sample,4,keep)
+                non_signalling_tests += 1
+
+    # The complete finite protocol, including number flags and binary outcome
+    # pointers, is executed coherently on sparse amplitudes. No failed branch is
+    # removed. Four measurement choices start from the same two-copy source.
+    sparse_source = {}
+    for i in range(64):
+        if complete[i] != 0:
+            bits = tuple((i >> (5-j)) & 1 for j in range(6))
+            fb,fc = bits[1]+bits[4], bits[2]+bits[5]
+            sparse_source[(bits,fb,fc,0,0)] = complete[i]
+    def act_sparse(state, obs, side):
+        output = {}
+        indices = (1,4) if side == 0 else (2,5)
+        for (bits,fb,fc,mb,mc), amplitude in state.items():
+            col = 2*bits[indices[0]]+bits[indices[1]]
+            for flag,sgn in ((0,1),(1,-1)):
+                proj = (sp.eye(4)+sgn*obs)/2
+                for row in range(4):
+                    if proj[row,col] == 0: continue
+                    newbits = list(bits)
+                    newbits[indices[0]],newbits[indices[1]]=row//2,row%2
+                    key=(tuple(newbits),fb,fc,mb^flag if side==0 else mb,mc^flag if side==1 else mc)
+                    output[key]=output.get(key,0)+amplitude*proj[row,col]
+        return {key:sp.simplify(val) for key,val in output.items() if val!=0}
+    finite_protocol = []
+    finite_branch_checks = 0
+    for i,Aop in enumerate(left):
+        for j,Bop in enumerate(right):
+            mid = act_sparse(sparse_source,Aop,0)
+            final = act_sparse(mid,Bop,1)
+            for state in (sparse_source,mid,final):
+                assert sum(v*sp.conjugate(v) for v in state.values()) == 1
+                for (bits,fb,fc,mb,mc),amp in state.items():
+                    assert amp.is_Rational and 90 % int(sp.denom(amp)) == 0
+                    assert sum(bits)==2 and fb==bits[1]+bits[4] and fc==bits[2]+bits[5]
+                    finite_branch_checks += 1
+            flags = [[sp.Integer(0)]*3 for _ in range(3)]
+            selected_out = {(sgn,t):sp.Integer(0) for sgn,t in product((-1,1),repeat=2)}
+            for (bits,fb,fc,mb,mc),amp in final.items():
+                prob=amp*amp
+                assert 8100 % int(sp.denom(prob)) == 0
+                flags[fb][fc] += prob
+                if fb==fc==1: selected_out[(1-2*mb,1-2*mc)]+=prob/weight

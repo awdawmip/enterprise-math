@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "tools/nollm_visual_toolkit/verification/dyadic_unit_log_extension_0_1_0.json",
+    "ref": "e6243d09134bb1e9188832d6ee7218aec37cad06",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-c6c82-dyadic-unit-log-turn476",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"NOLLM_DYADIC_UNIT_LOG_EXTENSION_VERIFICATION_V1\",\n  \"version\": \"0.1.0\",\n  \"parent_toolkit_version\": \"0.3.0\",\n  \"activity_id\": \"RA-nollm-multiplication-field-20260911-c6c82\",\n  \"status\": \"RESEARCH_TOOL_EXTENSION_WITH_PROVED_DECLARED_PHASE_IDENTITIES\",\n  \"verification\": {\n    \"unit_tests_passed\": 8,\n    \"focused_chromium_checks_passed\": 12,\n    \"page_errors\": 0,\n    \"external_requests\": 0,\n    \"direct_unit_log_equals_prime_table_adapter_for_all_65536\": true,\n    \"phase_11_bits\": {\"M\":2048,\"p2_tick\":256,\"occupied_2d\":58486,\"angular_cv\":0.00681309774269435,\"exact_multiplication_failures\":0},\n    \"phase_16_bits\": {\"M\":65536,\"p2_tick\":8192,\"occupied_2d\":57520,\"angular_cv\":0.028286781995903912,\"exact_multiplication_failures\":0}\n  },\n  \"mathematical_verifier\": {\n    \"path\": \"research_notes/nollm_dyadic_unit_log_phase_20260911/verify.py\",\n    \"local_pass\": true,\n    \"bitwise_dlog_exact_cases\": 8184,\n    \"multiplication_pairs_checked\": 90462,\n    \"dyadic_histogram_formula_grid\": \"b=3..8; L=b+2..b+6; zero failures\"\n  },\n  \"proved_scope\": {\n    \"carrier\": \"(v_2, eps, t mod 2^b) with odd u=(-1)^eps 5^t mod 2^(b+2)\",\n    \"composition\": \"componentwise multiplication-to-addition law\",\n    \"histogram\": \"H(a)=2^(L-b)-2+R(a), R>=0, sum R=2^(b+1)-1 for dyadic 1<=n<2^L, L>=b+2\",\n    \"tv_bound\": \"(2^(b+1)-1)/(2^L-1)\",\n    \"critical_scale\": \"b=L/2+O(1) implies O(N^-1/2) global phase discrepancy on these dyadic populations\"\n  },\n  \"finite_display\": {\n    \"N_65536_b11_cell_eps_v2_distinct\": 64863,\n    \"N_65536_b11_cell_eps_v2_collision_groups\": 665,\n    \"N_1000001_b13_cell_eps_v2_distinct\": 988931,\n    \"N_1000001_b13_cell_eps_v2_collision_groups\": 10837\n  },\n  \"boundaries\": [\n    \"2D hex rendering and collision counts are floating observer evidence\",\n    \"integer identity is retained and display collisions are never merged\",\n    \"no Nollm runtime, X6 definition or physical layer change\",\n    \"not Foundation admission and not an asymptotic occupancy theorem\"\n  ]\n}\n",
+      "display_title": "dyadic_unit_log_extension_0_1_0.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/e6243d09134bb1e9188832d6ee7218aec37cad06/tools/nollm_visual_toolkit/verification/dyadic_unit_log_extension_0_1_0.json",
+      "encoding": "utf-8",
+      "sha": "a2c3724652a00c1bbe1e9fa485bdcad77ddfb12c"
+    }
+  },
+  "tool_name": "GitHub.fetch_file"
+}

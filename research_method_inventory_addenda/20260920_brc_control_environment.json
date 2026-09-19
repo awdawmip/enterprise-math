@@ -1,0 +1,31 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "date": "2026-09-20",
+  "methods": [
+    {
+      "method_id": "t0.brc_finite_control_port",
+      "name": "Finite typed control-port affine BRC",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+      "source_refs": ["src/enterprise_math/brc_control_port.py", "tests/test_brc_control_port.py", "research_notes/heartbeat_brc_environment_20260920_AD0416/RESEARCH_NOTE.md"],
+      "api": ["ControlPacket", "certify_control_partition", "refine_control_partition"],
+      "triggers": ["finite control port", "environment-conditioned BRC", "phase/resource state", "effect-valued predictive quotient"],
+      "capabilities": ["exact finite control/time-ported EffectHistogram composition", "effect-valued transition descent certificate", "finite stable refinement from a supplied observer partition", "control-conditioned degree-two moment propagation"],
+      "hard_boundary": "Control state is typed non-spatial state. The caller must supply an observer-safe initial partition; hidden state, arbitrary infinite controls, unrecorded semantics and undeclared future operators are not preserved."
+    },
+    {
+      "method_id": "heartbeat.mask6_environment_quotient",
+      "name": "Heartbeat six-channel environment symmetry quotient",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "RESEARCH_RESULT_EXTRACT_NOT_FOUNDATION",
+      "source_refs": ["src/enterprise_math/predictive_quotient.py", "src/enterprise_math/brc_control_port.py", "tests/test_brc_control_port.py", "research_notes/heartbeat_brc_environment_20260920_AD0416/RESEARCH_NOTE.md"],
+      "api": ["predictive_block_profile", "stable_predictive_partition", "certify_control_partition", "refine_control_partition"],
+      "triggers": ["heartbeat environment mask", "six-channel occupancy", "phase-addressed environment", "dihedral orbit"],
+      "capabilities": ["13-class D6-invariant quotient of 64 binary six-channel masks", "predictive detection of phase-addressed symmetry breaking", "orbit plus orientation-residual decomposition"],
+      "hard_boundary": "Diagnostic six positive-axis/channel mask only, not the full 12-direction Cell neighborhood. The 13-class result requires the declared D6-invariant observer and symmetry-safe future language; phase-addressed gates can require all 64 masks."
+    }
+  ]
+}

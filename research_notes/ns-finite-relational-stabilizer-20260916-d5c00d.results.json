@@ -1,0 +1,46 @@
+{
+  "schema": "EM_FINITE_RELATIONAL_STABILIZER_RESULTS_V1",
+  "event_id": "NS-FINITE-RELATIONAL-STABILIZER-20260916-D5C00D-18",
+  "orbit": {
+    "three_qubit_stabilizer_states_enumerated": 1080,
+    "clifford_generators": 12,
+    "density_entry_max_denominator": 8,
+    "distinct_density_entry_values": 14
+  },
+  "ghz": {
+    "stabilizers": ["+XXX", "+ZZI", "+ZIZ", "-XYY", "-YXY", "-YYX"],
+    "mermin_quantum": "4",
+    "mermin_local_hidden_bound": 2,
+    "outcomes": {
+      "XXX": {"--+": "1/4", "-+-": "1/4", "+--": "1/4", "+++": "1/4"},
+      "XYY": {"---": "1/4", "-++": "1/4", "+-+": "1/4", "++-": "1/4"},
+      "YXY": {"---": "1/4", "-++": "1/4", "+-+": "1/4", "++-": "1/4"},
+      "YYX": {"---": "1/4", "-++": "1/4", "+-+": "1/4", "++-": "1/4"}
+    }
+  },
+  "brc_witness": {
+    "same_all_one_qubit_marginals": true,
+    "same_Z_pair_relations": true,
+    "coherent_mixture_mermin": [4, 0],
+    "lost_joint_coordinate": "global phase stabilizer XXX"
+  },
+  "dual_rail": {
+    "physical_modes": 6,
+    "logical_qubits": 3,
+    "total_excitation": 3,
+    "each_pair_excitation": 1,
+    "H_CNOT_commute_with_pair_numbers": true,
+    "X_Y_measurements_commute_with_pair_number": true
+  },
+  "transport": {
+    "signed_native_steps_checked": 12,
+    "relation_survives_party_swap": true
+  },
+  "scope": [
+    "Stabilizer/Clifford/Born rules are explicit quantum-comparison assumptions, not derived from P000.",
+    "Finite closure is certified for the three-logical-qubit stabilizer/Clifford plus Pauli-measurement subtheory only.",
+    "Dropping the global stabilizer generator is unsafe for future Mermin observations even though all one-party marginals and Z-pair relations survive.",
+    "No classical local-hidden-variable residual model follows; Mermin bound remains 2 under locality and setting independence.",
+    "No primitive-force, NS, independent-review or Lean claim."
+  ]
+}

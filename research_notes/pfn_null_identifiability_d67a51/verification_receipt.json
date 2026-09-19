@@ -1,0 +1,74 @@
+{
+  "schema": "PFSSV_FINITE_WINDOW_IDENTIFIABILITY_CHECK_V1",
+  "status": "PASS_EXACT_BOUNDED_NONIDENTIFIABILITY_WITNESS",
+  "random_draws": 0,
+  "checker_path": "research_checks/PFSSV_FINITE_WINDOW_NULL_IDENTIFIABILITY_D67A51.py",
+  "checker_sha256_local": "sha256:05a7063c0aa81d59e6590b86a9ee483ccee420b8fd85ac0a63a16d76fca33b7b",
+  "cell": {
+    "X": 100000,
+    "width": "1/100",
+    "upper": 101000
+  },
+  "frozen_cell_crosscheck": {
+    "geometric_rows": 66,
+    "zero_total_rows": 15,
+    "raw_prime_pair_incidences": 237,
+    "diagonal_incidences": 1,
+    "overflow_incidences": 1
+  },
+  "address_geometry": {
+    "integer_q_slots_union": 2016,
+    "unique_actual_prime_q_addresses": 236,
+    "shared_integer_addresses": {
+      "322": [311, 313],
+      "356": [281, 283],
+      "372": [269, 271],
+      "419": [239, 241],
+      "441": [227, 229]
+    },
+    "shared_actual_prime_addresses": {
+      "419": [239, 241]
+    }
+  },
+  "old_null_capacity_witness": {
+    "source_p": 193,
+    "source_window": [519, 523],
+    "source_row_primes": [521, 523],
+    "source_residue_11_prime_count": 1,
+    "target_p": 163,
+    "target_window": [614, 619],
+    "target_row_primes": [617, 619],
+    "target_residue_11_integer_capacity": 0
+  },
+  "shared_address_witness": {
+    "q": 419,
+    "residue_mod_30": 29,
+    "rows": [239, 241],
+    "p239_window": [419, 422],
+    "p241_window": [415, 419],
+    "residue_29_slot_count_in_union": 69,
+    "residue_29_actual_prime_address_count": 29
+  },
+  "two_compatible_laws": {
+    "common_conditioning": "exact occupied-address total K_r in every q mod 30 residue class, with one shared binary variable per integer q address",
+    "uniform_contract_probability_Z419_1": {
+      "numerator": 29,
+      "denominator": 69
+    },
+    "weighted_contract_probability_Z419_1": {
+      "numerator": 29,
+      "denominator": 49
+    },
+    "weighted_contract": "within residue 29, q=419 has weight 2 and every other address weight 1; all other residue fibers are uniform",
+    "same_support": true,
+    "same_residue_totals": true,
+    "different_target_distribution": true
+  },
+  "source_pins": {
+    "taskbook_blob_sha1": "sha1:7a96af089d96b37a559fa5c564f7ce5d3a5444ef",
+    "accepted_parent_result": "RR-BDA72F26E3786AD69EA5",
+    "accepted_parent_owner_head": "a82ced7bb227471c1b16fecb5a5e3d7ff72a5536",
+    "accepted_parent_result_commit": "24d314560a35cefe14d240deb3b44ed7cc24fa38",
+    "parent_native_trace_sha256": "sha256:efc2bedcda8da81f9948098943815011024c2c6d2e7711f209151ed983192fa4"
+  }
+}

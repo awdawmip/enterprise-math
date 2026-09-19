@@ -1,0 +1,77 @@
+{
+  "schema": "EM_RESULT_SPECIFIC_VERIFICATION_V1",
+  "record_id": "FINDING-EM-PDE-ORTHOGONAL-RESPONSE-BARRIER-20260910",
+  "activity_id": "RA-076944AE1950A916ACC95399",
+  "proof_source": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "f8a70efc06b0d0592853bc75777c9a52aaa8827d",
+    "path": "research_notes/ns-orthogonal-response-barrier-20260910.md",
+    "sha256": "5e9958c00594078257e2cf09f6c9caea2e0cd75954b38685d8b78ef2ac0c2964",
+    "git_blob_sha1": "49ad4bb583d5b40d2d6378911245c1928b769f05"
+  },
+  "checker_source": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "57d0291e8ee44a482e608cca602f6f94ee9a1f09",
+    "path": "research_notes/ns-orthogonal-response-barrier-20260910/certify_joint.py",
+    "sha256": "a16b817cdc5cc46f96d447094c18fef14be8252b118e2d0435795970a9a81139",
+    "git_blob_sha1": "802c863c85dc59e461b8bf78774a3eec459169d9"
+  },
+  "generated_result_sha256": "920d56d5c842e95ecb3656a05d81884ab40b8dda06f313c43f973f6b999dac69",
+  "old_comparison_result_sha256": "c1fd1c11e10f854abf974c77348a78cef03709dda2039f60050836dd3ca4c9c2",
+  "verification": {
+    "status": "PASS",
+    "scope": "exact causal support proof and rational interval checks with inherited analytic all-mode inverse",
+    "nu": 1,
+    "integer_kernel": [
+      0,
+      -2,
+      2,
+      1
+    ],
+    "quadratic_support_modes": 12,
+    "cubic_support_modes": 56,
+    "supports_disjoint": true,
+    "causal_layers_orthogonal_for_all_times": true,
+    "correction_packets": 216,
+    "complete_linear_defect_packets": 772,
+    "complete_linear_defect_modes": 144,
+    "certified_datum": {
+      "amplitude": "157/1000",
+      "inverse_upper": "389796863/100000000",
+      "alpha_upper": "37806237/1250000",
+      "eta_upper": "81677861/10000000000",
+      "global_trajectory_radius": "3/200",
+      "ball_margin": "677281/25000000000",
+      "contraction_upper": "113418711/125000000"
+    },
+    "old_norm_comparison": {
+      "same_amplitude": "157/1000",
+      "dictionary_size": 12,
+      "primal_upper_readout": 0.008628493338757684,
+      "dual_lower_readout": 0.008628493326879254,
+      "contraction_test_impossible": true
+    },
+    "all_dictionary_obstruction": {
+      "amplitude": "4/25",
+      "test_time": "17/100",
+      "fixed_inverse_upper": "200630557/50000000",
+      "fixed_alpha_upper": "1556725999/50000000",
+      "exact_response_norm_lower": "41340889/5000000000",
+      "four_alpha_lower": "64356436728073111/62500000000000000",
+      "necessary_alpha_less_than": "1250000000/41340889",
+      "relative_alpha_decrease_necessary_readout": 0.028846170211647364,
+      "applies_to_any_trial_dictionary_with_fixed_reference_and_alpha": true
+    },
+    "finite_time_used_only_for_lower_bound": true,
+    "exact_integral_and_derivative_checks": true,
+    "all_frequency_outputs_retained": true,
+    "PDE_sampling": false,
+    "clean_directory_rerun": "PASS; all non-timing fields identical"
+  },
+  "limits": [
+    "The exact NS solution is not asserted to blow up at amplitude 0.16.",
+    "The all-dictionary obstruction fixes the reference, trajectory norm and scalar alpha bound.",
+    "C*=9.503 and the full causal inverse are inherited analytic dependencies.",
+    "Not independent peer review, proof-assistant formalization or arbitrary-data regularity."
+  ]
+}

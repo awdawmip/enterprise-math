@@ -1,0 +1,64 @@
+{
+  "action": "CLAIM_NEW_OWNER",
+  "control_epoch": "EM-CONTROL-20260904-CANONICAL-DISPATCH-AUTHORITY-1",
+  "diagnostics": {
+    "load_policy": "TRIGGERED_ONLY",
+    "receipt_path": "control_plane/chatgpt_dispatch_receipts/chatgpt-20260917-autoA-run1-1202Z-8f3c7a21.json"
+  },
+  "generated_at": "2026-09-17T12:43:46Z",
+  "kind": "RESEARCH",
+  "new_claim_required": true,
+  "owner_claim_preserved": false,
+  "packet_bytes": 3659,
+  "read_plan": {
+    "context_accounting": "PACKET_AND_EXTERNAL_TASKBOOK_ONLY_NOT_END_TO_END",
+    "dependency_ref_verification": "SOURCE_READ_REQUIRED_PRESERVE_DECLARED_REF",
+    "external_taskbook_bytes": 7845,
+    "first_dependency_ref": null,
+    "forbidden": [
+      "REMOTE_FETCH_AGENTS_MD_FOR_ORDINARY_START",
+      "FULL_DISPATCH_RECEIPT_ON_ORDINARY_START",
+      "CURRENT_CONTROL_AUTHORITY_ON_ORDINARY_START",
+      "ISSUE_240_FULL_COMMENT_STREAM_IN_CONVERSATION",
+      "HIGH_FANOUT_DIRECTORY_OR_RECURSIVE_TREE_DISCOVERY"
+    ],
+    "if_first_dependency_unknown": "TASK_UNDERSTANDING_THEN_BOUNDED_TARGETED_SEARCH_ONLY",
+    "packet_plus_external_taskbook_bytes": 11504,
+    "remote_source_reads_before_substantive_math_max": 2
+  },
+  "reason": "fresh canonical task selector returned a dispatchable target",
+  "request_id": "chatgpt-20260917-autoA-run1-1202Z-8f3c7a21",
+  "schema": "ENTERPRISE_MATH_RESEARCHER_STARTUP_PACKET_V1",
+  "source_sha": "3e60b95b1717d803bf999b846a84e2d491ceca30",
+  "surface": "ORDINARY_TASK",
+  "target_key": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "task": {
+    "claim_id": null,
+    "dispatch_state": "NEEDS_DISPATCH",
+    "frontier": "Exact T1=6, T2=20, T3=105, T4=301, T5=941 are closed. A degree-6 L=360 witness gives T6<=2332 and the whole L=360 degree-6 integer kernel has minimum max-side mass 2332. All maximal prime factors p>=29 and the entire maximal-p=23 layer are eliminated below 2332. For maximal p=19, global vertical orders 0 through 8 are eliminated. The smallest unfinished mathematical unit is p=19 vertical order 9, split (3,6) and (4,5), followed by orders 10-12 if order 9 is empty.",
+    "identity_lane": "T6SM",
+    "last_progress_at": "2026-09-06T08:47:32+08:00",
+    "last_progress_ref": "https://github.com/awdawmip/chatgpt-global-knowledge/commit/8cdc2272e4d75859002686222dc81d3974a26b1c",
+    "lease_until": null,
+    "next_action": "Starting from the certified p=19 saturated q0 congruence lattice, clear vertical order 9 blocks (3,6) and (4,5) with exact side-mass budgets 2331 and exact mixed congruences. If order 9 is empty, clear orders 10-12. If p=19 is completely eliminated, descend the maximal-prime frontier to p=17,13,11 and then the remaining small-prime layers until either T6=2332 is proved globally or an exact cheaper collision is produced.",
+    "owner": "taskbook/unassigned",
+    "projection": null,
+    "projection_mode": "EXACT_TASKBOOK_REQUIRED_PACKET_BUDGET",
+    "publication_id": "TP2-34B106D2512A298C9647",
+    "publication_record_path": "research_task_records/RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND/TP2-34B106D2512A298C9647.json",
+    "required_task_sections": [
+      "Mother question",
+      "Frozen inputs and scope",
+      "Hard target and required outputs",
+      "Research value to preserve",
+      "Success, kill, and return criteria"
+    ],
+    "researcher_id": null,
+    "state": "HANDOFF_READY",
+    "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+    "taskbook_blob_sha1": "sha1:87b3a6f38e9350f7a3f56624b27bff2a7778a439",
+    "taskbook_bytes": 7845,
+    "taskbook_path": "research_tasks/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260909.md",
+    "title": "T6 Exact Shape-Moment Threshold: Global Lower-Bound Closure"
+  }
+}

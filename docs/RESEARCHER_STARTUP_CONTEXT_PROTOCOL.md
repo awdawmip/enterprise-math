@@ -48,7 +48,7 @@ If the exact projection is too large, the builder omits it entirely and tells th
 
 ## First dependency
 
-The startup packet may include one `first_dependency_ref` only when an exact repository path can be resolved without directory discovery. Preferred evidence is:
+The startup packet may include one `first_dependency_ref` without directory discovery. A current target's nonempty `last_progress_ref` takes precedence over older metadata (the publication-ID sentinel is not a frontier). If that current reference cannot be resolved exactly, retain it on `task.last_progress_ref` and leave the first dependency null; do not silently select older work. Otherwise preferred evidence is:
 
 1. an explicit future `startup_read_plan.first_dependency_ref` in the immutable publication;
 2. an exact durable-frontier path from `last_progress_ref`;
@@ -56,6 +56,8 @@ The startup packet may include one `first_dependency_ref` only when an exact rep
 4. an exact source-ref path.
 
 If none is exact, the value is null. A null dependency does **not** authorize directory enumeration. After understanding the task, use bounded targeted search (`topn <= 20`) and then exact-file reads.
+
+String and unsatisfied dictionary dependencies are supported. Unqualified existing paths refer to the packet's source snapshot. A declared `path@ref` or same-repository GitHub blob URL is retained unchanged as a read hint, not proof that its referenced revision was verified locally. Read the exact declared source before use; never substitute current-main bytes for a pinned revision. Task-local source firewalls and frozen scope still control access.
 
 Freeze:
 
@@ -128,6 +130,12 @@ the packet is then a triggered diagnostic surface. Request IDs identify
 transport attempts, not Researcher-IDs. Existing research identity, CLAIM,
 runtime, frozen-input and mathematical-admission rules continue to apply.
 
+### Compact control detail and event format
+
+When present in the canonical route, the packet retains `surface`, `target_key`, `required_guard`, exact cohort/lane/output scope, and the target's latest progress reference/time. These are projections, not newly granted authority. For `VERIFY_SESSION_LIVENESS`, `liveness_targets` carries at most 20 exact owner-scope summaries in source order, reduced further when necessary to meet the byte cap. `total`, `omitted`, `next_index`, and the immutable receipt's `/route/targets` pointer make any omitted tail explicit. This diagnostic prefix is not a task selection; an empty displayed prefix is not `NO_DISPATCH`. Read only the needed remaining receipt range with an available bounded reader; no new pagination service or full-receipt startup requirement is implied.
+
+Scheduler event comments must be raw JSON objects, without Markdown fences or added prose. Parse the exact outgoing body before sending it. Existing server-envelope authentication and winning-CLAIM/runtime checks remain required; serialization alone does not authorize execution.
+
 ## Cached legacy-path 404 recovery
 
 If an older conversation attempts the root `research_task_registry.json` and
@@ -165,6 +173,8 @@ Canonical component ceilings are in `research_context_budget.json`.
 - aggregate raw cold-start hard envelope: `<= 81920` bytes.
 
 The hard component ceilings sum below the aggregate hard envelope. This is a raw-byte guard, not a claim about provider tokenization. Product/runtime token measurement remains a separate platform concern.
+
+The packet additionally reports `taskbook_bytes`, `external_taskbook_bytes` (zero for an inline projection), and `packet_plus_external_taskbook_bytes`. This is partial payload accounting, explicitly `PACKET_AND_EXTERNAL_TASKBOOK_ONLY_NOT_END_TO_END`: dependencies, tool schemas, registration/readback, diagnostics, and host-injected context are not measured. An 8 KiB packet PASS is not an end-to-end startup PASS. For large external taskbooks use bounded exact-section reads while preserving all five required sections and frozen scope; do not delete semantics to fit a budget.
 
 ## Bridge persistence and concurrency
 

@@ -1,0 +1,46 @@
+{
+  "schema": "LOCAL_CFD_TASKSET_HANDOFF_V1_NOT_CANONICAL_PUBLICATION",
+  "created_at": "2026-09-10T08:46:40.267876+00:00",
+  "parent_objective_id": "OBJ-CFD-TRUSTWORTHY-ACCELERATION-20260910",
+  "user_instruction": "把任务都发布到状态机 然后你来做主任务",
+  "main_task_id": "RS-CFD-HYBRID-RAW-VORTEX",
+  "tasks": [
+    {"task_id":"RS-CFD-HYBRID-RAW-VORTEX","title":"主任务：spectralDNS 原始对流项稀疏/FFT 混合求值","requested_priority":"P1","requested_leverage":"HIGH","publication_state":"DRAFT_NOT_PUBLISHED","claim_state":"NOT_CLAIMED","dependency_candidates":[],"taskbook_path":"taskbooks/RS-CFD-HYBRID-RAW-VORTEX.md","sha256":"1b650a9c222bfbc79db96bcb7e49aa9e483761af8de9aec13ee5797b9ec4600f","git_blob_sha1":"039b2149e97e92d0240b814c054b4e5c228c4611","local_work_state":"PROTOTYPE_CHECKPOINT_COMPLETED_NATIVE_INTEGRATION_OPEN"},
+    {"task_id":"RS-CFD-CANCELLATION-ENVELOPE","title":"数学支线：保留相消的低成本分组误差界","requested_priority":"P1","requested_leverage":"HIGH","publication_state":"DRAFT_NOT_PUBLISHED","claim_state":"NOT_CLAIMED","dependency_candidates":[],"taskbook_path":"taskbooks/RS-CFD-CANCELLATION-ENVELOPE.md","sha256":"8ca3e1db186888c635c285eb22396be58c02e9cc4da9da744532ab99641bd532","git_blob_sha1":"ac32c98bf10191bf5fcec622bacf53f56a203f82","local_work_state":"NOT_STARTED"},
+    {"task_id":"RS-CFD-TRAJECTORY-CERTIFICATION","title":"后继任务：从有限算子缺陷到完整轨迹误差","requested_priority":"P2","requested_leverage":"HIGH","publication_state":"DRAFT_NOT_PUBLISHED","claim_state":"NOT_CLAIMED","dependency_candidates":["RS-CFD-HYBRID-RAW-VORTEX","RS-CFD-CANCELLATION-ENVELOPE"],"taskbook_path":"taskbooks/RS-CFD-TRAJECTORY-CERTIFICATION.md","sha256":"837eb1b22f3c53b3a057d849f12b413fdef7fb444997e203fb5c9f6686b1b1e7","git_blob_sha1":"63837c8240de84f8bab25925484902d82276c82c","local_work_state":"NOT_STARTED"},
+    {"task_id":"RS-CFD-INDEPENDENT-BENCHMARK-REVIEW","title":"独立评测：成熟求解器、未调参工况与完整成本","requested_priority":"P1","requested_leverage":"HIGH","publication_state":"DRAFT_NOT_PUBLISHED","claim_state":"NOT_CLAIMED","dependency_candidates":["RS-CFD-HYBRID-RAW-VORTEX"],"taskbook_path":"taskbooks/RS-CFD-INDEPENDENT-BENCHMARK-REVIEW.md","sha256":"bb177cac092a3468d8311300f52efc449845c5f083e078551da747557ecaf457","git_blob_sha1":"ae68f57e6f4dcf913459be6f8d5734fecd14fc33","local_work_state":"NOT_STARTED"},
+    {"task_id":"RS-CFD-ITHACA-ROM-OBSERVERS","title":"应用候选：ITHACA-FV 目标观测约束降阶","requested_priority":"P2","requested_leverage":"MEDIUM","publication_state":"DRAFT_NOT_PUBLISHED","claim_state":"NOT_CLAIMED","dependency_candidates":["RS-CFD-CANCELLATION-ENVELOPE"],"taskbook_path":"taskbooks/RS-CFD-ITHACA-ROM-OBSERVERS.md","sha256":"7775b7f9f62a34876ff88b43c7f8dc11bbe9474c765dedc6ffead8b696ffa93c","git_blob_sha1":"fc508cfae49614bab10e0c0e25469af618cc0406","local_work_state":"NOT_STARTED"},
+    {"task_id":"RS-CFD-BASILISK-OBSERVERS-AMR","title":"低优先级：Basilisk 观测导向自适应网格","requested_priority":"P3","requested_leverage":"MEDIUM","publication_state":"DRAFT_NOT_PUBLISHED","claim_state":"NOT_CLAIMED","dependency_candidates":["RS-CFD-INDEPENDENT-BENCHMARK-REVIEW"],"taskbook_path":"taskbooks/RS-CFD-BASILISK-OBSERVERS-AMR.md","sha256":"75fbd903c237724267bafb4a65c61c6aac9e8594218477337f5a39bc7e8de0de","git_blob_sha1":"6466831631a6483d8c0956fe5faed94241613767","local_work_state":"NOT_STARTED"},
+    {"task_id":"RS-CFD-OPENFOAM-PRESSURE-PORTS","title":"低优先级：OpenFOAM 压力块与接口压缩","requested_priority":"P3","requested_leverage":"MEDIUM","publication_state":"DRAFT_NOT_PUBLISHED","claim_state":"NOT_CLAIMED","dependency_candidates":["RS-CFD-INDEPENDENT-BENCHMARK-REVIEW"],"taskbook_path":"taskbooks/RS-CFD-OPENFOAM-PRESSURE-PORTS.md","sha256":"97ca350452e87827420458ef4673f38690207010286d70b64a0d15bdf9eff105","git_blob_sha1":"5d396844783ecdd39fb547022ec419db71b63541","local_work_state":"NOT_STARTED"},
+    {"task_id":"RS-CFD-LBM-SEMANTIC-GATES","title":"低优先级：LBM 压缩与代码生成语义门槛","requested_priority":"P3","requested_leverage":"LOW","publication_state":"DRAFT_NOT_PUBLISHED","claim_state":"NOT_CLAIMED","dependency_candidates":["RS-CFD-PRIOR-ART-AUDIT"],"taskbook_path":"taskbooks/RS-CFD-LBM-SEMANTIC-GATES.md","sha256":"cfbe00d1fb0f97bde3afb3b3c65fafc11388ff60d35103fdcb07650b9c2bf461","git_blob_sha1":"ab9be9c7e0185376cd14028b8d05af1594313b00","local_work_state":"NOT_STARTED"},
+    {"task_id":"RS-CFD-PRIOR-ART-AUDIT","title":"支撑任务：算法先行研究与原创性边界审查","requested_priority":"P2","requested_leverage":"HIGH","publication_state":"DRAFT_NOT_PUBLISHED","claim_state":"NOT_CLAIMED","dependency_candidates":[],"taskbook_path":"taskbooks/RS-CFD-PRIOR-ART-AUDIT.md","sha256":"7db67db587370b984b42b1edd380f68b9c89b5fd5d03b306973eaacbbb0b1d85","git_blob_sha1":"5a36062a9bdffe7bcde7727a2ef7a5bbcf844618","local_work_state":"NOT_STARTED"}
+  ],
+  "global_read_sha": "9c931cd200ac79707cf8006ad1e1f863bcd1567c",
+  "em_control_read_sha": "23b3261258f6a6c381f1f2f5667a84c20152f7f3",
+  "remote_publication_completed": false,
+  "authenticated_claim_completed": false,
+  "canonical_preflight_completed": false,
+  "canonical_deduplication_completed": false,
+  "local_session_key": "local-cfd-main-20260910-68a17c",
+  "session_key_kind": "LOCALLY_ASSIGNED_NOT_PLATFORM_ID",
+  "requested_activity_id": "RA-CFD-MAIN-20260910-68a17c",
+  "activity_registered": false,
+  "resolved_researcher_id": null,
+  "current_blockers": [
+    "GitHub 48 exposed actions are read/search-only; no repository/Issue write or dispatch mutation action",
+    "Installed-plugin search found no additional usable GitHub writer; no gh CLI, GH_TOKEN/GITHUB_TOKEN or gh auth file in this runtime",
+    "Drive 29 exposed actions are also read-only; alternate durable write not available",
+    "No official live startup packet; search returned no matches but is insufficient to prove absence of existing tasks",
+    "spectralDNS/shenfun/mpi4py/pyfftw are not installed; pip dry-run found no spectralDNS distribution in configured index"
+  ],
+  "authorization": {"user_direct_research":true,"official_task":false,"claim":false,"independent_review":false,"working_truth":false,"foundation_promotion":false},
+  "next_publication_actions": [
+    "Refresh canonical EM and global snapshots and resolve real publisher identity",
+    "Run live dispatch/current record deduplication; reconcile any existing CFD activity/task/claim without duplication",
+    "Register this session activity or create retrospective provenance with true unknown identity if this session ended",
+    "Normalize each taskbook through current prepare and policy audit; replace draft origin metadata as required",
+    "Create exact V2 publication records with taskbook blobs and dependency gates; publish complete transactions with CAS/non-force",
+    "Read back both files at immutable commit and verify hashes; then acquire authenticated main-task CLAIM",
+    "Persist local source/data/checkpoint with actual readback; update global journal; no fake published flags"
+  ]
+}

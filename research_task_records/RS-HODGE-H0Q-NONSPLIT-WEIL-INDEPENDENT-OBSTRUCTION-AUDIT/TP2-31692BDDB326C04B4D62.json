@@ -1,0 +1,63 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "publication_generation": 1,
+  "supersedes_publication_id": null,
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "publisher_role": "RESEARCHER",
+  "publisher_id": "EM-HODGE-E8C393",
+  "published_at": "2026-09-19T18:36:00+08:00",
+  "parent_objective_id": "HODGE_SPECIAL_OPEN_FRONTIER_ALGEBRAICITY_MECHANISM",
+  "origin_kind": "DIRECT_USER_DIRECTION",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "claimable": true,
+  "effective_priority": "P2",
+  "effective_leverage": "MEDIUM",
+  "priority_source": "RESEARCHER_DEFAULT",
+  "publisher_priority_request": "P1",
+  "publisher_leverage_request": "HIGH",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "task_id": "RS-HODGE-H0Q-NONSPLIT-WEIL-INDEPENDENT-OBSTRUCTION-AUDIT",
+  "registry_key": "RS-HODGE-H0Q-NONSPLIT-WEIL-INDEPENDENT-OBSTRUCTION-AUDIT",
+  "publication_id": "TP2-31692BDDB326C04B4D62",
+  "taskbook_path": "research_tasks/HODGE_H0Q_NONSPLIT_WEIL_INDEPENDENT_OBSTRUCTION_AUDIT_20260919.md",
+  "taskbook_blob_sha1": "sha1:d444caaef91a13f85633ef79aa529cb871d0ad70",
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-HODGE-H0P-NONSPLIT-WEIL-BILATERAL-DEFORMATION-OBJECT",
+  "owner": "taskbook/unassigned",
+  "frontier": "The 2026-09-19 special-fibre projector, graph-combination, Ext-dimension and bilateral-obstruction claims are durable only as an unreviewed checkpoint and must be independently reproduced before they can support later transport.",
+  "next_action": "Independently reconstruct the projector identities, special-fibre graph calculations, Ext/Hom dimensions, obstruction-naturalness lemma and rank bounds from source definitions; issue PASS, PARTIAL, or FAIL with explicit counter-calculation where applicable.",
+  "research_value": "Creates an independent epistemic gate for sign-, rank-, Ext-, Hom-, and naturality-sensitive premises before any very-general transport consumes them, preserving verified pieces while quarantining failures.",
+  "identity_lane": "HODGEH0Q",
+  "source_refs": [
+    "research_returns/HODGE_H0N_NONSPLIT_WEIL_EXCEPTIONAL_CH3_SEED_OBJECT_RETURN_20260902.md",
+    "research_result_records/RS-HODGE-H0N-NONSPLIT-WEIL-EXCEPTIONAL-CH3-SEED-OBJECT/RR-65EB865C14B89B964BB9.json",
+    "research_returns/HODGE_H0O_NONSPLIT_WEIL_INTERMEDIATE_SUPPORT_FM_EXCEPTIONAL_CH3_RETURN_20260903.md",
+    "research_result_records/RS-HODGE-H0O-NONSPLIT-WEIL-INTERMEDIATE-SUPPORT-FM-EXCEPTIONAL-CH3/RR-FB3CF77C4F611FDED79B.json",
+    "research_task_records/RS-HODGE-H0O-NONSPLIT-WEIL-INTERMEDIATE-SUPPORT-FM-EXCEPTIONAL-CH3/TP2-853EE36ED78FF34CC992.json",
+    "research_notes/HODGE_WEIL_BILATERAL_DEFORMATION_FRONTIER_20260919.md",
+    "research_tasks/HODGE_H0P_NONSPLIT_WEIL_BILATERAL_DEFORMATION_OBJECT_20260919.md"
+  ],
+  "dependencies": [
+    "RS-HODGE-H0P-NONSPLIT-WEIL-BILATERAL-DEFORMATION-OBJECT"
+  ],
+  "evidence_status": "INDEPENDENT_REPLICATION_REQUIRED",
+  "successor_gate": {
+    "new_information_gap": "The new bilateral-obstruction calculations were produced in the same research line and have not yet received an independent derivation from the underlying geometric definitions.",
+    "why_parent_result_does_not_close_it": "A positive or negative H0P construction cannot by itself supply independence for the projector, Ext, Hom, naturality, and obstruction-rank premises that later transport would consume.",
+    "discriminating_outcomes": [
+      "Independent reproduction agrees with every premise needed downstream.",
+      "One or more claims fail and a corrected frontier is supplied.",
+      "Some claims reproduce while others remain unresolved and are explicitly quarantined from downstream use."
+    ],
+    "kill_condition": "Kill downstream use of any checkpoint claim that cannot be reproduced from exact source definitions or whose stated rank/dimension changes under an independent calculation.",
+    "alternative_route_or_free_exploration_considered": "Embedding the check inside H0P was considered, but a separate audit task is preferable because the user explicitly requested an independent verification path and hidden reliance on the constructing argument must be minimized.",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "The task has a different epistemic role from H0P: it validates or rejects the reusable premises rather than searching for another candidate object."
+  }
+}

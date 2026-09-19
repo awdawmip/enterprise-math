@@ -1,0 +1,159 @@
+{
+  "schema": "NOLLM_HEX_PRIME_PI_TASK_SERIES_V1",
+  "series_id": "HXPI-20260916",
+  "parent_objective_id": "OBJ-NOLLM-STRICT-HEX-PRIME-PI-20260916",
+  "source_snapshot": "12cb71806b655935d1c51861fa35d13a01c8ed2e",
+  "publisher_id": "EM-DIRECT-C6C82",
+  "publisher_role": "RESEARCHER",
+  "scope": "TASK_PUBLICATION_ONLY_NOT_RESULTS_OR_CLAIMS",
+  "tasks": [
+    {
+      "task_id": "HXPI-20260916-01",
+      "title": "严格六边形证据固化与独立审计",
+      "initial_base_state": "READY",
+      "prerequisites": [],
+      "taskbook_path": "research_tasks/HXPI-20260916-01.md",
+      "taskbook_blob_sha1": "sha1:2d49f3c0b6ab13ef27bdf7dd23e3fc760458aba5",
+      "publication_id": "TP2-8567245828F9BE60CCA8",
+      "record_path": "research_task_records/HXPI-20260916-01/TP2-8567245828F9BE60CCA8.json",
+      "record_git_blob_sha1": "sha1:bc4e34cb7ca41db5e8058437ed268dbca2d6f7a3",
+      "first_action": "读取冻结笔记及两个既有验证器，先生成声明清单与复用差异表，再只补核查尚未独立覆盖的证明步骤。"
+    },
+    {
+      "task_id": "HXPI-20260916-02",
+      "title": "正六边形商环的精确乘法与归约算法",
+      "initial_base_state": "BLOCKED",
+      "prerequisites": [
+        "HXPI-20260916-01"
+      ],
+      "taskbook_path": "research_tasks/HXPI-20260916-02.md",
+      "taskbook_blob_sha1": "sha1:54214c7f175aea90e7031638e35d62a95fccd85c",
+      "publication_id": "TP2-C7A5381B8F3761EB7AB3",
+      "record_path": "research_task_records/HXPI-20260916-02/TP2-C7A5381B8F3761EB7AB3.json",
+      "record_git_blob_sha1": "sha1:130702f915f81c6e87f63497e24b4f2fe7a652e7",
+      "first_action": "消费01的商环审计条目；从A=mI-W的伴随矩阵推导有界候选归约，先在m=4、16全量对照。"
+    },
+    {
+      "task_id": "HXPI-20260916-03",
+      "title": "排出边界数的数位自动机与素性前置筛选",
+      "initial_base_state": "BLOCKED",
+      "prerequisites": [
+        "HXPI-20260916-01"
+      ],
+      "taskbook_path": "research_tasks/HXPI-20260916-03.md",
+      "taskbook_blob_sha1": "sha1:b3402631f95580ac9abfdb45b1ebe68f742cb6e6",
+      "publication_id": "TP2-D84F37B8BF563FBC42CE",
+      "record_path": "research_task_records/HXPI-20260916-03/TP2-D84F37B8BF563FBC42CE.json",
+      "record_git_blob_sha1": "sha1:100d8886ebfe0c3a83cb8df2391c0c1baecce2b4",
+      "first_action": "消费01边界/编码审计接口；由F(4n+d)=2WF(n)+(d&1,d>>1)和h=m推导整数进位状态，不先读取素数标记。"
+    },
+    {
+      "task_id": "HXPI-20260916-04",
+      "title": "本原格点与π读数的有限误差证书",
+      "initial_base_state": "BLOCKED",
+      "prerequisites": [
+        "HXPI-20260916-01"
+      ],
+      "taskbook_path": "research_tasks/HXPI-20260916-04.md",
+      "taskbook_blob_sha1": "sha1:c05bc27196bb542041a5a43c4043dd0455a5b9df",
+      "publication_id": "TP2-609C6441807C0C42FC1F",
+      "record_path": "research_task_records/HXPI-20260916-04/TP2-609C6441807C0C42FC1F.json",
+      "record_git_blob_sha1": "sha1:d0233ed09b9539cf3f1926047020254e13137fdd",
+      "first_action": "消费01可见点审计接口；从精确Möbius有限和给出带常数的误差分解，先核验s=0..255。"
+    },
+    {
+      "task_id": "HXPI-20260916-05",
+      "title": "容量圆分数的素因子周期与重数",
+      "initial_base_state": "BLOCKED",
+      "prerequisites": [
+        "HXPI-20260916-01"
+      ],
+      "taskbook_path": "research_tasks/HXPI-20260916-05.md",
+      "taskbook_blob_sha1": "sha1:9ee7c33e1135b0363778eaeca25ef7276cbcd298",
+      "publication_id": "TP2-7A774F19DBD49D27EAB8",
+      "record_path": "research_task_records/HXPI-20260916-05/TP2-7A774F19DBD49D27EAB8.json",
+      "record_git_blob_sha1": "sha1:be6cb816692b3c491a507f49482693dff05c0cf6",
+      "first_action": "消费01圆分审计接口；对K_t=16^t-4^t+1，先从ord_p(2^t)=12分类t的允许余类。"
+    },
+    {
+      "task_id": "HXPI-20260916-06",
+      "title": "原标签素数与范数素数的受控对照",
+      "initial_base_state": "BLOCKED",
+      "prerequisites": [
+        "HXPI-20260916-01",
+        "HXPI-20260916-03"
+      ],
+      "taskbook_path": "research_tasks/HXPI-20260916-06.md",
+      "taskbook_blob_sha1": "sha1:be8daf5f840a0dd9e1185104b0c4a4a554297f7d",
+      "publication_id": "TP2-50C27D41C6A44E1E9334",
+      "record_path": "research_task_records/HXPI-20260916-06/TP2-50C27D41C6A44E1E9334.json",
+      "record_git_blob_sha1": "sha1:a098df52d0779e88c570153daaad427011c3b652",
+      "first_action": "先消费03的精确边界识别及01的范数条目；在看新测试层素数结果前冻结总体、分箱、对照和统计量。"
+    },
+    {
+      "task_id": "HXPI-20260916-07",
+      "title": "边界身份保真的乘法账本与跨层进位",
+      "initial_base_state": "BLOCKED",
+      "prerequisites": [
+        "HXPI-20260916-01",
+        "HXPI-20260916-02",
+        "HXPI-20260916-03"
+      ],
+      "taskbook_path": "research_tasks/HXPI-20260916-07.md",
+      "taskbook_blob_sha1": "sha1:b5b3cb26e5cd49ce9e30eb2b0fd634354dbe5433",
+      "publication_id": "TP2-8ED78FB35B234B8A6DDB",
+      "record_path": "research_task_records/HXPI-20260916-07/TP2-8ED78FB35B234B8A6DDB.json",
+      "record_git_blob_sha1": "sha1:d375ece0b29e6f24b2aae1ab04661d8b72610306",
+      "first_action": "以128×128=16384为第一见证，消费02归约器和03边界状态，写出不合并原ID的乘法输入输出协议。"
+    },
+    {
+      "task_id": "HXPI-20260916-08",
+      "title": "四类算术图层与可复现网页研究台整合",
+      "initial_base_state": "BLOCKED",
+      "prerequisites": [
+        "HXPI-20260916-01",
+        "HXPI-20260916-02",
+        "HXPI-20260916-03",
+        "HXPI-20260916-04",
+        "HXPI-20260916-05",
+        "HXPI-20260916-06",
+        "HXPI-20260916-07"
+      ],
+      "taskbook_path": "research_tasks/HXPI-20260916-08.md",
+      "taskbook_blob_sha1": "sha1:cbfe968b7dde2c23ee9dbecfceafeb3a0a7bff9f",
+      "publication_id": "TP2-6510AF3B50DB7CE28BDC",
+      "record_path": "research_task_records/HXPI-20260916-08/TP2-6510AF3B50DB7CE28BDC.json",
+      "record_git_blob_sha1": "sha1:84537e1ba933cd5d513544fb976834d58a90d3f7",
+      "first_action": "只读取依赖项已审核的契约和数据，列出原工具模块可复用差异；先实现m=256的四图层切换和点选双标签。"
+    }
+  ],
+  "runtime_dependency_mechanism": "Seven tasks have complete canonical hard_block objects. prerequisite_task_ids is descriptive DAG only; no automatic dependency resolution is claimed. Authorized runtime unblocking is required.",
+  "mathematical_acceptance": false,
+  "execution_claims_created": false,
+  "policies": {
+    "digest": "sha256:98ee2981553fb4eeaf5bd8599513719ee2ac987fae875e9c5daf8a3e2156f3cf",
+    "blob_inputs": {
+      "research_taskbook_policy.json": "c326d6eed8f89f0c7be3e0a767ccbfbcdf972358",
+      "AGENTS.md": "c6744d99d11fad840ac77e766f71e7771477c2d3",
+      "FOUNDATIONAL_LOGIC.md": "f089400136341efbf10a5e24e8f0729800b942cd",
+      "foundational_logic.json": "6875d84746ee369ea222fd32bdcd92206c2db9b2",
+      "docs/GITHUB_INTERACTION_BUDGET.md": "4e63cf335107e6a2c43e07e8144b40f66c3fc9bb",
+      "docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md": "3dd795128770dc38437ce3b5d1b5af1ee8fab5a2",
+      "docs/RESEARCH_ARCHITECTURE.md": "81abba617ee575ab770b7736de4caa9c40bea9e5",
+      "docs/RESEARCH_RUNTIME_STATE_MACHINE.md": "5f3b4ae228eee9bdb5442012b7f37311f584e116",
+      "docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md": "819b4d54038bd943c998f3de0861c9f729bd1457",
+      "research_architecture.json": "64ecc734473bd8351006fcdd46efe95c5e6f67dd",
+      "research_runtime_state_machine.json": "e96f4b5629176ff82d00bf2c3ed0259b930cbe75",
+      "research_task_publication_contract_v2.json": "2e1d24d80dca16f54542241cae57e237d667aa41",
+      "templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json": "1593a79ede875d5498c8fe4e08d908bd30c6c138",
+      "research_axiom_candidate_state_machine.json": "56f0a6a009ca01c8b09cb5b7682b5d17946fb9ef",
+      "research_role_policy.json": "e3800cc592f2edeb0315788ff4662ab7756d7ac8",
+      "research_identity_state_machine.json": "c0d89241c91317a1cb7256ec9c1070dfd9bf52b1",
+      "active_turn_liveness.json": "ae481f92648792313465b77bccf59074b2c28145",
+      "final_response_identity_policy.json": "6dd37111cc5085de5dc59beb5a93313f5f1ceabd",
+      "research_taskbook_contract.json": "8bf4183eb46c18ba4e2aef913b7b0f57e6bb490d",
+      "tool_invocation_policy.json": "7c11ccc90f2dcfed61444cfe97fe89d5d117aa26",
+      "native_semantics_admissibility.json": "689b039410d1a5f2ee404edc9a9b5819cb682349"
+    }
+  }
+}

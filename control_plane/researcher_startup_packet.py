@@ -96,6 +96,10 @@ def _candidate_paths(value: Any) -> Iterable[str]:
         text = value.strip().strip("`\"'")
         if text:
             yield text
+        # An explicit ref/URL is indivisible: regex fallback must not erase it.
+        if (("@" in text and " / " not in text) or "://" in text
+                or text.startswith("/") or ".." in Path(text).parts):
+            return
         for match in PATH_TOKEN.finditer(value):
             yield match.group("path").rstrip(".)]}")
         for part in value.split(" / "):
@@ -111,18 +115,51 @@ def _existing_repo_path(root: Path, values: Iterable[Any]) -> str | None:
     seen: set[str] = set()
     for value in values:
         for raw in _candidate_paths(value):
+            if "\\" in raw and ("@" in raw or "://" in raw):
+                continue
             candidate = raw.replace("\\", "/")
-            if candidate in seen or candidate.startswith("/") or ".." in Path(candidate).parts:
+            if candidate in seen:
                 continue
             seen.add(candidate)
-            if (root / candidate).is_file():
+            # Keep repository URLs exact; do not read their path from this checkout.
+            prefix = "https://github.com/awdawmip/enterprise-math/blob/"
+            if candidate.startswith(prefix):
+                tail = candidate[len(prefix):]
+                if re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_./-]+", tail) and not (
+                    {".", ".."} & set(tail.split("/"))
+                ):
+                    return candidate
+                continue
+            path, at, ref = candidate.partition("@")
+            if (
+                not re.fullmatch(r"[A-Za-z0-9_./-]+", path)
+                or path.startswith("/")
+                or {".", ".."} & set(path.split("/"))
+                or (at and (not re.fullmatch(r"[A-Za-z0-9_./-]+", ref)
+                            or not Path(path).suffix or ref.startswith("/")
+                            or {".", ".."} & set(ref.split("/"))))
+            ):
+                continue
+            resolved = (root / path).resolve()
+            if not resolved.is_relative_to(root.resolve()):
+                continue
+            # A ref-qualified declaration is a read hint, not local verification
+            # of that other revision. Never substitute the current file's bytes.
+            if at or resolved.is_file():
                 return candidate
     return None
 
 
 def _first_dependency_ref(
-    root: Path, publication: dict[str, Any], metadata: dict[str, Any]
+    root: Path, publication: dict[str, Any], metadata: dict[str, Any],
+    target: dict[str, Any] | None = None,
 ) -> str | None:
+    live_ref = target.get("last_progress_ref") if target else None
+    if live_ref and live_ref != publication.get("publication_id"):
+        # An unresolved current frontier must not silently fall back to old work.
+        if isinstance(live_ref, str) and "@" in live_ref and " / " in live_ref:
+            return None  # Preserve ambiguous provenance on task.last_progress_ref.
+        return _existing_repo_path(root, [live_ref])
     explicit = publication.get("startup_read_plan")
     if isinstance(explicit, dict):
         path = _existing_repo_path(root, [explicit.get("first_dependency_ref")])
@@ -142,7 +179,9 @@ def _first_dependency_ref(
     if isinstance(dependencies, list):
         unsatisfied: list[Any] = []
         for item in dependencies:
-            if isinstance(item, dict) and item.get("satisfied") is not True:
+            if isinstance(item, str):
+                unsatisfied.append(item)
+            elif isinstance(item, dict) and item.get("satisfied") is not True:
                 unsatisfied.extend([item.get("path"), item.get("target")])
         path = _existing_repo_path(root, unsatisfied)
         if path:
@@ -188,6 +227,7 @@ def _task_projection(
         {
             "taskbook_path": taskbook_path,
             "taskbook_blob_sha1": actual_sha1,
+            "taskbook_bytes": len(raw),
             "sections": sections,
             "complete": all(name in sections for name in TASK_SECTIONS),
         },
@@ -209,6 +249,13 @@ def _serialized_size(value: dict[str, Any]) -> int:
 def _annotate_packet_size(packet: dict[str, Any]) -> int:
     packet["packet_bytes"] = 0
     while True:
+        task = packet.get("task")
+        if task is not None:
+            external = task["taskbook_bytes"] if task["projection"] is None else 0
+            packet["read_plan"]["external_taskbook_bytes"] = external
+            packet["read_plan"]["packet_plus_external_taskbook_bytes"] = (
+                packet["packet_bytes"] + external
+            )
         size = _serialized_size(packet)
         if packet["packet_bytes"] == size:
             return size
@@ -245,6 +292,8 @@ def build_packet(receipt: dict[str, Any], root: Path = ROOT) -> dict[str, Any]:
             ),
             "first_dependency_ref": None,
             "if_first_dependency_unknown": "TASK_UNDERSTANDING_THEN_BOUNDED_TARGETED_SEARCH_ONLY",
+            "dependency_ref_verification": "SOURCE_READ_REQUIRED_PRESERVE_DECLARED_REF",
+            "context_accounting": "PACKET_AND_EXTERNAL_TASKBOOK_ONLY_NOT_END_TO_END",
             "forbidden": [
                 "REMOTE_FETCH_AGENTS_MD_FOR_ORDINARY_START",
                 "FULL_DISPATCH_RECEIPT_ON_ORDINARY_START",
@@ -260,6 +309,24 @@ def build_packet(receipt: dict[str, Any], root: Path = ROOT) -> dict[str, Any]:
     }
 
     target = route.get("target")
+    for field in ("surface", "target_key", "required_guard"):
+        if field in route:
+            packet[field] = route[field]
+    if route.get("action") == "VERIFY_SESSION_LIVENESS" and "targets" in route:
+        targets = route["targets"]
+        _require(isinstance(targets, list), "liveness targets must be a list")
+        fields = ("target_key", "surface", "task_id", "execution_cohort_id",
+                  "execution_lane_id", "claim_id", "owner_lease_until")
+        _require(all(isinstance(row, dict) for row in targets), "invalid liveness target")
+        # A bounded diagnostic prefix is not a scheduler selection or a claim.
+        shown = [{k: row[k] for k in fields if k in row} for row in targets[:20]]
+        packet["liveness_targets"] = {
+            "items": shown, "total": len(targets), "omitted": len(targets) - len(shown),
+            "next_index": len(shown) if len(shown) < len(targets) else None,
+            "receipt_path": receipt.get("immutable_receipt_path"),
+            "receipt_json_pointer": "/route/targets",
+            "scope": "DIAGNOSTIC_ONLY_NO_SELECTION_OR_CLAIM",
+        }
     if "assigned_driver_selection" in route:
         packet["assigned_driver_selection"] = route["assigned_driver_selection"]
         packet["required_guard"] = route.get("required_guard")
@@ -272,7 +339,7 @@ def build_packet(receipt: dict[str, Any], root: Path = ROOT) -> dict[str, Any]:
     if isinstance(target, dict) and target.get("task_id"):
         publication, publication_path = _publication_for_target(root, target)
         projection, metadata = _task_projection(root, publication)
-        first_dependency = _first_dependency_ref(root, publication, metadata)
+        first_dependency = _first_dependency_ref(root, publication, metadata, target)
         packet["read_plan"]["first_dependency_ref"] = first_dependency
         packet["task"] = {
             "task_id": target.get("task_id"),
@@ -280,6 +347,7 @@ def build_packet(receipt: dict[str, Any], root: Path = ROOT) -> dict[str, Any]:
             "publication_record_path": publication_path.relative_to(root).as_posix(),
             "taskbook_path": projection["taskbook_path"],
             "taskbook_blob_sha1": projection["taskbook_blob_sha1"],
+            "taskbook_bytes": projection["taskbook_bytes"],
             "title": target.get("title"),
             "identity_lane": target.get("identity_lane"),
             "owner": target.get("owner"),
@@ -296,6 +364,10 @@ def build_packet(receipt: dict[str, Any], root: Path = ROOT) -> dict[str, Any]:
             "projection": projection["sections"] if projection["complete"] else None,
             "required_task_sections": list(TASK_SECTIONS),
         }
+        for field in ("execution_cohort_id", "execution_lane_id", "output_prefix",
+                      "lane_output_prefix", "last_progress_ref", "last_progress_at"):
+            if field in target:
+                packet["task"][field] = target[field]
 
     size = _annotate_packet_size(packet)
     if (
@@ -305,6 +377,12 @@ def build_packet(receipt: dict[str, Any], root: Path = ROOT) -> dict[str, Any]:
     ):
         packet["task"]["projection"] = None
         packet["task"]["projection_mode"] = "EXACT_TASKBOOK_REQUIRED_PACKET_BUDGET"
+        size = _annotate_packet_size(packet)
+    liveness = packet.get("liveness_targets")
+    while size > hard_max and liveness is not None and liveness["items"]:
+        liveness["items"].pop()
+        liveness["omitted"] += 1
+        liveness["next_index"] = len(liveness["items"])
         size = _annotate_packet_size(packet)
     _require(
         size <= hard_max,

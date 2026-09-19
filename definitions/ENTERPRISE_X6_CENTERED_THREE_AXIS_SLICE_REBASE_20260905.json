@@ -12,7 +12,8 @@
     "coordinate_zero_kind": "CHOSEN_NATIVE_CELL_ANCHOR",
     "coordinate_zero_is_chart_relative": true,
     "legacy_O_E_native_origin_status": "SUPERSEDED",
-    "legacy_O_E_current_type": "CARRIER_TRIPLE_INCIDENCE_VERTEX"
+    "legacy_O_E_current_type": "CARRIER_TRIPLE_INCIDENCE_VERTEX",
+    "coordinate_zero_scope": "RAW_INTERNAL_CHART"
   },
   "slice": {
     "native_object": "AFFINE_SUBTORSOR_OVER_SIGNED_SELECTED_THREE_AXIS_COORDINATES",
@@ -25,7 +26,8 @@
     "native_distance_squared": "SUM_OF_THREE_SIGNED_COMPONENT_DIFFERENCE_SQUARES",
     "native_distance_symmetric": true,
     "slice_membership_rule": "OMITTED_RELATIVE_X6_COMPONENTS_EQUAL_ZERO",
-    "selected_observation_is_slice_membership": false
+    "selected_observation_is_slice_membership": false,
+    "coordinate_carrier_scope": "RAW_INTERNAL_CHART_NOT_PUBLIC_ADDRESS"
   },
   "relative_observer": {
     "map": "can3(x)=x-min(x)*(1,1,1)",
@@ -121,7 +123,10 @@
     "LEGACY_BIDIRECTIONAL_ASYMMETRY!=NATIVE_LENGTH_STRUCTURE",
     "SIGNED_NATIVE_REVERSAL_PRESERVES_LENGTH_AND_SHORTEST_BRC_MULTIPLICITY",
     "FULL_SIGNED_THREE_AXIS_N25_ENDPOINT_COUNT=30",
-    "FULL_SIGNED_THREE_AXIS_N25_SHORTEST_BRC_COUNT=846"
+    "FULL_SIGNED_THREE_AXIS_N25_SHORTEST_BRC_COUNT=846",
+    "FINAL_ADDRESS_RULES=coordinate_address_contract.json",
+    "RAW_SLICE_ZERO_CELL!=DISPLAY_REFERENCE",
+    "FINAL_ADDRESS_NEGATIVE_FIELDS=FORBIDDEN"
   ],
   "hard_errors": [
     "TREAT_LEGACY_O_E_TRIPLE_INTERSECTION_AS_NATIVE_COORDINATE_ZERO",
@@ -136,5 +141,14 @@
     "INFER_NATIVE_REVERSAL_FROM_POSITIVE_MIN_ZERO_RECANONICALIZATION",
     "IDENTIFY_CARRIER_TRIANGLE_RETURN_WITH_NATIVE_CELL_RETURN",
     "TREAT_SELECTED_THREE_AXIS_OBSERVER_AS_PROOF_OF_SLICE_MEMBERSHIP"
-  ]
+  ],
+  "coordinate_address_contract": "coordinate_address_contract.json",
+  "coordinate_address_scope": {
+    "final_address": "SIX_NONNEGATIVE_FIELDS_WITH_REGISTERED_LOSSLESS_CODEC",
+    "raw_coordinate_and_displacement": "EXISTING_SIGNED_INTERNAL_MATHEMATICS_UNCHANGED",
+    "legacy_coordinate_zero_keys": "RAW_CHART_ZERO_NOT_DISPLAY_ORIGIN",
+    "display_origin_and_axes_operational": false,
+    "crossing_forces_increment": false,
+    "proof_scope": "REGISTERED_FIXED_TWO_GENERATOR_SLICE_NOT_FULL_X6"
+  }
 }
