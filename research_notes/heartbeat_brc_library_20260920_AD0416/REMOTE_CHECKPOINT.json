@@ -1,0 +1,40 @@
+{
+  "schema": "EM_HEARTBEAT_BRC_TOOLKIT_REMOTE_CHECKPOINT_V1",
+  "event_id": "heartbeat-brc-toolkit-and-occupancy-20260920-AD0416",
+  "research_activity_id": "RA-37C0A30C7B1F5A338F03D186",
+  "status": "REMOTE_MAIN_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "commits": {
+    "toolkit": "23caa5594251216b3ba1115c3562b67ad0bde12f",
+    "occupancy": "4004fe4b585a356c45ddda9ff9ada1ee01d910ee"
+  },
+  "tools": [
+    "src/enterprise_math/brc_residue_port.py",
+    "src/enterprise_math/brc_residue_quotient.py",
+    "src/enterprise_math/brc_contact_horizon.py",
+    "src/enterprise_math/brc_occupancy_horizon.py"
+  ],
+  "method_addenda": [
+    "research_method_inventory_addenda/20260920_brc_residue_port.json",
+    "research_method_inventory_addenda/20260920_brc_quotient_contact.json",
+    "research_method_inventory_addenda/20260920_brc_occupancy_horizon.json"
+  ],
+  "theorem_ledgers": [
+    "research_notes/heartbeat_brc_library_20260920_AD0416/THEOREM_LEDGER.json",
+    "research_notes/heartbeat_brc_occupancy_20260920_AD0416/THEOREM_LEDGER.json"
+  ],
+  "validation": {
+    "prior_local_toolkit_suite": "12 groups PASS; 13 prior groups separately replayed",
+    "publication_smoke": "8 assertions PASS before publication",
+    "occupancy_exact_enumeration": "64 states; profiles 7/12/20/32/48/64/64 and 14 cyclic orbits",
+    "full_project_tests": false,
+    "independent_review": false,
+    "lean": false,
+    "nollm_production_changed": false
+  },
+  "boundaries": [
+    "P000 and HEARTBEAT_WORLD ontology unchanged",
+    "research theorem candidates are not Foundation admission",
+    "observer/future-operation scoped quotients only",
+    "no constant-bit memory or semantic recall improvement claim"
+  ]
+}
