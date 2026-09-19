@@ -11,9 +11,8 @@
       "status": "EXTRACTED_EXECUTABLE_CANDIDATE_NOT_FOUNDATION",
       "source_refs": [
         "src/enterprise_math/brc_residue_port.py",
-        "research_notes/heartbeat_residue_ports_20260920_AD0416/research/RESIDUE_PORT_NOTE.md",
-        "research_notes/heartbeat_residue_ports_20260920_AD0416/tests/verify_residue_port.py",
         "docs/toolbox/BRC_HEARTBEAT_RESIDUE_TOOLKIT.md",
+        "research_notes/heartbeat_brc_library_20260920_AD0416/THEOREM_LEDGER.json",
         "tests/test_brc_heartbeat_toolkit.py"
       ],
       "api": [
@@ -32,17 +31,16 @@
       ],
       "capabilities": [
         "exact period-lattice and source/target fiber certificate",
-        "time/residue-matched serial and alternative composition using EffectHistogram",
-        "exact all-finite-word degree-two joint fiber-moment update in the declared family",
+        "time/residue-matched serial and alternative composition",
+        "exact finite-word degree-two fiber-moment propagation",
         "primitive transit direction witness"
       ],
-      "core_law": "For D diagonal integral positive, require D^-1 A D integral and Ar+b=s modD. Then M_s_next=sum_{r,e:r->s} count_e*w_e*H_e*M_r*H_e^T; serial kernels compose by matching residue and time ports.",
-      "hard_boundary": "Finite invariant residue partition, integer affine effects and fixed weights within each source fiber only. No generic occupancy/nonlinear/hidden-control closure; no full labeled-path compression; macro boundary observations do not restore microtransit histories; no constant-bit-memory or global novelty claim.",
+      "hard_boundary": "Finite invariant residue partition, integer affine effects and fixed weights per source fiber. No generic occupancy/nonlinear/hidden-control closure, full labeled-path compression, constant-bit memory or Foundation admission.",
       "theorem_refs": [
-        "research_notes/heartbeat_brc_library_20260920_AD0416/THEOREM_LEDGER.json#HBRC-RP-001",
-        "research_notes/heartbeat_brc_library_20260920_AD0416/THEOREM_LEDGER.json#HBRC-RP-002",
-        "research_notes/heartbeat_brc_library_20260920_AD0416/THEOREM_LEDGER.json#HBRC-RP-003",
-        "research_notes/heartbeat_brc_library_20260920_AD0416/THEOREM_LEDGER.json#HBRC-RP-004"
+        "HBRC-RP-001",
+        "HBRC-RP-002",
+        "HBRC-RP-003",
+        "HBRC-RP-004"
       ]
     }
   ]

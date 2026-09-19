@@ -1,6 +1,6 @@
 {
   "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
-  "status": "EXTRACTED_EXECUTABLE_CANDIDATE_NOT_FOUNDATION",
+  "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
   "date": "2026-09-20",
   "methods": [
     {
@@ -9,6 +9,12 @@
       "classification": "GLOBAL_SUBTOOL",
       "family_id": "T0_BRC",
       "status": "EXTRACTED_EXECUTABLE_CANDIDATE_NOT_FOUNDATION",
+      "source_refs": [
+        "src/enterprise_math/brc_residue_quotient.py",
+        "docs/toolbox/BRC_HEARTBEAT_RESIDUE_TOOLKIT.md",
+        "research_notes/heartbeat_brc_library_20260920_AD0416/THEOREM_LEDGER.json",
+        "tests/test_brc_heartbeat_toolkit.py"
+      ],
       "api": [
         "affine_moment_operator",
         "certify_port_quotient",
@@ -18,27 +24,21 @@
       ],
       "triggers": [
         "residue quotient",
-        "moment closure",
         "safe channel merge",
         "heartbeat macrocycle",
         "fiber lumping"
       ],
       "capabilities": [
-        "exact coefficientwise moment/effect quotient certificate",
+        "exact coefficientwise effect/moment quotient certificate",
         "finite stable refinement over declared kernels",
-        "time-checked compressed conditional-moment propagation",
+        "compressed conditional-moment propagation",
         "macro-versus-micro safety rejection"
       ],
-      "source_refs": [
-        "src/enterprise_math/brc_residue_quotient.py",
-        "tests/test_brc_heartbeat_toolkit.py",
-        "docs/toolbox/BRC_HEARTBEAT_RESIDUE_TOOLKIT.md"
-      ],
+      "hard_boundary": "Scoped to the declared finite operator family and observer; no global-minimal representation, occupancy/path identity or constant-bit claim.",
       "theorem_refs": [
-        "research_notes/heartbeat_brc_library_20260920_AD0416/THEOREM_LEDGER.json#HBRC-RP-005",
-        "research_notes/heartbeat_brc_library_20260920_AD0416/THEOREM_LEDGER.json#HBRC-RP-006"
-      ],
-      "hard_boundary": "Only the declared finite operator family and boundary observer; no global-minimal representation, occupancy/path identity or constant-bit claim."
+        "HBRC-RP-005",
+        "HBRC-RP-006"
+      ]
     },
     {
       "method_id": "t0.brc_finite_horizon_contact",
@@ -46,6 +46,13 @@
       "classification": "DOMAIN_OPERATOR",
       "family_id": "T0_BRC",
       "status": "EXTRACTED_EXECUTABLE_CANDIDATE_NOT_FOUNDATION",
+      "source_refs": [
+        "src/enterprise_math/brc_contact_horizon.py",
+        "src/enterprise_math/predictive_quotient.py",
+        "docs/toolbox/BRC_HEARTBEAT_RESIDUE_TOOLKIT.md",
+        "research_notes/heartbeat_brc_library_20260920_AD0416/THEOREM_LEDGER.json",
+        "tests/test_brc_heartbeat_toolkit.py"
+      ],
       "api": [
         "ContactState",
         "contact_class_count",
@@ -64,19 +71,13 @@
         "exact decreasing-horizon near/far abstraction",
         "coarsest full-unit-action contact classification",
         "explicit distinguishing suffix",
-        "positive weighted contact propagation using existing BRC histogram"
+        "positive weighted contact propagation"
       ],
-      "source_refs": [
-        "src/enterprise_math/brc_contact_horizon.py",
-        "src/enterprise_math/predictive_quotient.py",
-        "tests/test_brc_heartbeat_toolkit.py",
-        "docs/toolbox/BRC_HEARTBEAT_RESIDUE_TOOLKIT.md"
-      ],
+      "hard_boundary": "Two tagged positions, relative signed-unit steps and finite decreasing horizon only. No absolute-position recovery, past contact history, multi-body dynamics or unbounded-horizon finite-state promise.",
       "theorem_refs": [
-        "research_notes/heartbeat_brc_library_20260920_AD0416/THEOREM_LEDGER.json#HBRC-RP-007",
-        "research_notes/heartbeat_brc_library_20260920_AD0416/THEOREM_LEDGER.json#HBRC-RP-008"
-      ],
-      "hard_boundary": "Two tagged positions; relative signed-unit steps; decreasing finite h; current/future contact only. No absolute-position recovery, past contact history, multi-body dynamics or unbounded-horizon finite-state promise."
+        "HBRC-RP-007",
+        "HBRC-RP-008"
+      ]
     }
   ]
 }
