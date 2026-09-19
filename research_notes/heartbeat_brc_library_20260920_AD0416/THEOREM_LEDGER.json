@@ -245,6 +245,54 @@
       "law": "For 0<=h<=5 the coarsest future-observation class count is 2^h*(7-h); for h>=5 it is64. Current count plus h successive count increments recovers the first h scanned bits, while the remaining 6-h bits contribute only their total; at h=5 the last bit is fixed by the total.",
       "tool": "predictive_quotient",
       "boundary": "Specific to the declared use-once update and count observer; no general finite environment-memory claim."
+    },
+    {
+      "id": "HBRC-REC-001",
+      "name": "strong control-mass lumping preserves all-depth recurrent mass",
+      "assumptions": [
+        "finite nonnegative rational control mass matrix W",
+        "partition pi with identical total mass from any two source states in one block into every target block",
+        "P is the raw-state to block membership matrix"
+      ],
+      "law": "There is a quotient Q with W P=P Q, hence W^k P=P Q^k for every k. Whenever the all-depth positive mass is finite, W*P=P Q*. Because 1=P1, full and quotient total-mass stability are equivalent under the existing finite recurrent-mass criterion.",
+      "tool": "brc_control_mass + brc_weighted_recurrent",
+      "boundary": "Mass-only observer. Does not preserve affine effects, target identities inside a block, signed cancellation, path provenance or hidden control."
+    },
+    {
+      "id": "HBRC-REC-002",
+      "name": "mass equivalence is strictly weaker than effect equivalence",
+      "assumptions": [
+        "two control states in one candidate block",
+        "each has a self branch of weight 1/2",
+        "their affine spatial effects differ"
+      ],
+      "law": "The one-block total-mass quotient is exact and has Q=(1/2), while the existing exact effect-valued control certificate rejects the merge. Thus effect equality is sufficient but not necessary for recurrent total-mass equivalence.",
+      "tool": "certify_control_mass_partition versus certify_control_partition",
+      "boundary": "The merge is safe only for mass observers/futures, not spatial-effect observers."
+    },
+    {
+      "id": "HBRC-REC-003",
+      "name": "phase-dependent weights can destroy a symmetry quotient without changing spatial effects",
+      "assumptions": [
+        "two states that an orientation-blind environment observer would merge",
+        "identity spatial effect in both states",
+        "self weights 1/2 and 3/2"
+      ],
+      "law": "The mass certificate rejects the merge. The first state's all-depth self mass is sum(1/2)^k=2, while the second diverges. Therefore a symmetry quotient valid for geometry alone need not preserve weighted recurrence when branch mass depends on erased phase/environment.",
+      "tool": "certify_control_mass_partition + finite_recurrent_mass_analysis",
+      "boundary": "Diagnostic positive-mass counterexample, not a physical instability law."
+    },
+    {
+      "id": "HBRC-REC-004",
+      "name": "group-equivariant positive kernels lump exactly to environment orbits",
+      "assumptions": [
+        "finite group G acts on control states",
+        "nonnegative rational kernel W is G-equivariant: W(gx,gy)=W(x,y)",
+        "partition is G-orbits"
+      ],
+      "law": "For x,x' in one orbit and every target orbit B, sum_{y in B}W(x,y)=sum_{y in B}W(x',y); therefore the orbit partition satisfies HBRC-REC-001. A 64-mask D6-equivariant fill/remove/self witness reduces exactly to 13 mass states.",
+      "tool": "brc_control_mass",
+      "boundary": "Requires kernel equivariance; an invariant current observer alone is insufficient."
     }
   ],
   "validation": {
@@ -292,6 +340,14 @@
       ],
       "local_check": "exact enumeration and predictive_quotient cross-check",
       "independent_review": false
+    },
+    "recurrent_mass_extension": {
+      "local_bridge_tests": "PASS: 2-state strictness/breakage and 64-mask D6 witness",
+      "d6_states": 64,
+      "d6_mass_classes": 13,
+      "truncated_power_checks": 9,
+      "stable_witness": "strict raw/quotient row-sum certificates <1",
+      "recurrent_tool_reuse": "REUSE_APPLIED to finite_recurrent_mass_analysis theorem/interface; local bundle lacked executable module"
     }
   }
 }

@@ -1,0 +1,54 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "date": "2026-09-20",
+  "methods": [
+    {
+      "method_id": "t0.brc_control_mass_quotient",
+      "name": "Finite control-port recurrent mass quotient",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "EXTRACTED_EXECUTABLE_CANDIDATE_NOT_FOUNDATION",
+      "source_refs": [
+        "src/enterprise_math/brc_control_mass.py",
+        "src/enterprise_math/brc_control_port.py",
+        "src/enterprise_math/brc_weighted_recurrent.py",
+        "research_notes/heartbeat_brc_recurrent_mass_20260920_AD0416/RESEARCH_NOTE.md",
+        "research_notes/heartbeat_brc_library_20260920_AD0416/THEOREM_LEDGER.json"
+      ],
+      "api": [
+        "control_mass_matrix",
+        "certify_control_mass_partition",
+        "quotient_control_mass_matrix",
+        "ControlMassQuotient"
+      ],
+      "triggers": [
+        "control mass quotient",
+        "weighted environment recurrence",
+        "mass lumping",
+        "recurrent BRC control port"
+      ],
+      "capabilities": [
+        "exact positive-mass projection of ControlPacket",
+        "strong target-class mass-lumping certificate",
+        "exact finite quotient mass matrix for recurrent analysis",
+        "separation of mass-equivalence from effect-equivalence"
+      ],
+      "hard_boundary": "Finite nonnegative rational total mass only. Does not preserve affine effects, signed/amplitude cancellation, within-class target identity, labeled path provenance, arbitrary infinite controls or physical instability.",
+      "reuse_resolution": {
+        "state": "COMPOSE_APPLIED / EXTEND_EXISTING_TOOL",
+        "components": [
+          "t0.brc_finite_control_port",
+          "t0.weighted_brc_finite_recurrent"
+        ],
+        "reason": "Existing tools separately type control effects and recurrent mass; this bridge certifies the weaker observer-specific descent between them."
+      },
+      "theorem_refs": [
+        "HBRC-REC-001",
+        "HBRC-REC-002",
+        "HBRC-REC-003",
+        "HBRC-REC-004"
+      ]
+    }
+  ]
+}
