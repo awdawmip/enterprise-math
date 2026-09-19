@@ -152,7 +152,10 @@ def audit(root: Path = ROOT) -> list[str]:
             errors.append(f"{rel}: taskbook does not exist: {path_value}")
             continue
         data = taskbook.read_bytes()
-        if not data.startswith(TASKBOOK_PREFIX):
+        # The canonical writer parses read_text(), which normalizes CRLF. Use
+        # that same textual view here, but keep raw bytes for the Git blob pin.
+        parse_data = data.replace(b"\r\n", b"\n")
+        if not parse_data.startswith(TASKBOOK_PREFIX):
             if rel in known_defect_paths:
                 continue
             errors.append(
@@ -179,7 +182,7 @@ def audit(root: Path = ROOT) -> list[str]:
             continue
 
         try:
-            meta, body = research_taskbook.split_taskbook(data.decode("utf-8"))
+            meta, body = research_taskbook.split_taskbook(parse_data.decode("utf-8"))
         except Exception as exc:
             errors.append(f"{rel}: canonical taskbook parse failed: {exc}")
             continue
