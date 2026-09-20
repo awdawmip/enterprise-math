@@ -1,0 +1,85 @@
+{
+  "schema": "EM_HEARTBEAT_WORLD_INTRINSIC_LAWS_CHECKPOINT_V4",
+  "event_id": "heartbeat-world-intrinsic-laws-v4-20260920-AD0416",
+  "research_activity_id": "RA-37C0A30C7B1F5A338F03D186",
+  "status": "REMOTE_MAIN_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "source_commit": "5c218c472e0a0bcb1c021b28dc0af03bfcc0c1b5",
+  "artifacts": {
+    "module": "src/enterprise_math/heartbeat_residual_holonomy.py",
+    "tests": "tests/test_heartbeat_residual_holonomy.py",
+    "note": "research_notes/heartbeat_world_intrinsic_laws_20260920_AD0416/RESEARCH_NOTE.md",
+    "ledger": "research_notes/heartbeat_world_intrinsic_laws_20260920_AD0416/THEOREM_LEDGER.json",
+    "results": "research_notes/heartbeat_world_intrinsic_laws_20260920_AD0416/RESULTS.json",
+    "method_addendum": "research_method_inventory_addenda/20260920_heartbeat_residual_holonomy_AD0416.json"
+  },
+  "theorem_ids": [
+    "HBW-INTR-001",
+    "HBW-INTR-002",
+    "HBW-INTR-003",
+    "HBW-INTR-004",
+    "HBW-INTR-005",
+    "HBW-INTR-006",
+    "HBW-INTR-007",
+    "HBW-INTR-008",
+    "HBW-INTR-009",
+    "HBW-INTR-010",
+    "HBW-INTR-011",
+    "HBW-INTR-012",
+    "HBW-INTR-013",
+    "HBW-INTR-014"
+  ],
+  "new_frontier": {
+    "general_axis_mixing": "CLOSED for fixed nonsingular integer monodromy via Newton/Smith carry slopes",
+    "finite_deterministic_control": "CLOSED at asymptotic cycle-slope level",
+    "next": "branching/random/state-dependent cocycle carry-spectrum family with BRC weights/provenance"
+  },
+  "validation": {
+    "local_reference": {
+      "characteristic_cayley_hamilton_checks": 160,
+      "general_phase_slope_checks": 180,
+      "balanced_beat_unbalanced_cycle_smith_checks": 8,
+      "archimedean_carry_witnesses": 2
+    },
+    "inherited_exact_checks": {
+      "phase_intertwining": 180,
+      "radix_staircase": 96,
+      "residual_cardinality_composition": 200,
+      "weighted_valuation_balance": 4320,
+      "monomial_smith_depth": 1440,
+      "monomial_cycle_mean_classifications": 120,
+      "periodic_monomial_phase_checks": 120
+    },
+    "finite_control_example": {
+      "states": 5,
+      "recurrent_cycles": 2,
+      "transient_states": 1,
+      "checks": 5
+    },
+    "remote_readback_git_blobs": {
+      "module": "0363975eb9223c0081a513bbcba588bbda51b757",
+      "tests": "0e2be2890b5017af76286f42c56744b409a8139f",
+      "note": "7ddd6a94835f3b619782b6ca86dd09bf9ddbcdfa",
+      "ledger": "3d4a8e724ae9f02df40358a791a7281de0bb49df",
+      "results": "d50c0ed20e8177889bbed5ee4083dc175766eba1",
+      "addendum": "78c06dfbde0a632f6c027597f6cb15e917b5ebf7"
+    },
+    "independent_review": false,
+    "full_project_tests": false,
+    "lean": false,
+    "nollm_production_changed": false
+  },
+  "literature_basis": [
+    "Vanni Noferini, Eventual periodicity of the Smith forms of integer matrix powers, arXiv:2511.22814; LAA 748 (2026), DOI 10.1016/j.laa.2026.06.014",
+    "Mustafa Elsheikh and Mark Giesbrecht, Relating p-adic eigenvalues and the local Smith normal form, LAA 481 (2015), DOI 10.1016/j.laa.2015.05.001",
+    "classical p-adic Newton polygon root-valuation theorem"
+  ],
+  "boundaries": [
+    "HEARTBEAT_WORLD still has no fixed heartbeat program",
+    "classical Smith/Newton theorems are not claimed as novel",
+    "general carry-slope theorem requires fixed nonsingular integer monodromy",
+    "finite deterministic control theorem is asymptotic and does not erase finite carry holonomy",
+    "branching/random controls remain provenance-valued and open",
+    "residual/control state is not an extra spatial dimension",
+    "no physical-time calibration, Foundation admission or semantic-memory performance claim"
+  ]
+}
