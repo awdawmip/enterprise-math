@@ -8,7 +8,7 @@ claim a fixed heartbeat program as a world axiom.
 
 The finite residual group of an injective integer matrix M is coker(M)=Z^n/MZ^n.
 Smith invariant factors are computed from determinantal divisors.  The current
-implementation is intended for small nn (especially n=6), not large-matrix SNF.
+implementation is intended for small n (especially n=6), not large-matrix SNF.
 """
 from __future__ import annotations
 from dataclasses import dataclass
@@ -39,7 +39,7 @@ def matmul(left, right) -> Matrix:
         raise ValueError("equal square dimensions required")
     n = len(a)
     return tuple(tuple(sum(a[i][k] * b[k][j] for k in range(n)) for j in range(n))
-                     for i in range(n))
+                 for i in range(n))
 
 
 def matpow(matrix, exponent: int) -> Matrix:
@@ -241,7 +241,11 @@ def cyclic_weighted_heartbeat(factors) -> Matrix:
 
 
 def cyclic_valuation_depths(factors, prime: int, beats: int) -> tuple[int, ...]:
-    """Sorted p-adic Smith-depth profile for a cyclic weighted heartbeat power."""
+    """Sorted p-adic Smith-depth profile for a cyclic weighted heartbeat power.
+
+    If k=n*q+r, every axis gets q complete-cycle valuation V_p, plus the
+    valuation sum in one cyclic window of r consecutive per-axis factors.
+    """
     factors = tuple(factors)
     if not factors or any(type(b) is not int or b < 1 for b in factors):
         raise ValueError("positive integer cyclic scale factors required")
@@ -255,7 +259,7 @@ def cyclic_valuation_depths(factors, prime: int, beats: int) -> tuple[int, ...]:
     full = sum(vals)
     if not r:
         return (q * full,) * n
-    return tuple(sorted(
-        q * full + sum(vals[(start + j) % n] for j in range(r))
-        for start in range(n)
-    ))
+    depths = []
+    for start in range(n):
+        depths.append(q * full + sum(vals[(start + j) % n] for j in range(r)))
+    return tuple(sorted(depths))
