@@ -1,0 +1,67 @@
+{
+  "schema": "ENTERPRISE_MATH_DRIVER_CHECKPOINT_V1",
+  "checkpoint_kind": "FQ007_EXACT_SOURCE_VALIDATION",
+  "created_at_utc": "2026-09-20T09:16:00Z",
+  "driver_id": "EM-DVR-7FC65C",
+  "authority": {
+    "record_id": "DA-914801DE7DDE3068AC16",
+    "role": "RESEARCH_DRIVER",
+    "authority_class": "CONTROL_PLANE",
+    "source_authorize_issue": 240,
+    "source_authorize_comment_id": 5747189443,
+    "revoked": false,
+    "scope_note": "Driver/GOVERNANCE control-plane only; no Researcher/Steward role, no independent Working Truth/Foundation/canonical promotion authority."
+  },
+  "task": {
+    "task_id": "RS-GOV-FOUNDATION-BACKFLOW",
+    "publication_id": "TP2-2C438651496A928ADCB7",
+    "taskbook_blob_sha1": "sha1:fa74c395b3eaaabe79f2dd74f5cb1b7dd29af559",
+    "front": "FQ-007 latest-main L4 integration"
+  },
+  "claim": {
+    "claim_id": "CL-GOV-FQ007-7FC65C-20260920-1708",
+    "issue": 240,
+    "comment_id": 5748876776,
+    "owner_authenticated": true,
+    "execution_branch_base": "88251de1923cc4cea75691d3d3809d1990b14c03"
+  },
+  "source_snapshot": {
+    "commit": "88251de1923cc4cea75691d3d3809d1990b14c03",
+    "source_path": "src/enterprise_math/r004_causal_identifiability_completion.py",
+    "source_blob_sha1": "6d0de84f811f76a25896476811ece0b976c222a9",
+    "test_path": "tests/test_r004_causal_identifiability_completion.py",
+    "test_blob_sha1": "20fcc44aef20c060b14a6a8ef572fca8b8f3c8e6",
+    "materialization_integrity": {
+      "source_git_blob_sha1_recomputed": "6d0de84f811f76a25896476811ece0b976c222a9",
+      "test_git_blob_sha1_recomputed": "20fcc44aef20c060b14a6a8ef572fca8b8f3c8e6",
+      "exact_match": true
+    }
+  },
+  "validation": {
+    "executed": [
+      {
+        "command": "PYTHONPATH=src python -m unittest tests.test_r004_causal_identifiability_completion",
+        "environment": "isolated exact-source snapshot reconstructed from current-main GitHub blobs; not a full repository checkout",
+        "result": "PASS",
+        "tests_run": 7,
+        "runtime_seconds": 0.608,
+        "stdout_summary": "Ran 7 tests in 0.608s; OK"
+      }
+    ],
+    "local_validation_pending": [
+      "python tools/check_research_common_surface.py",
+      "python -m unittest tests.test_foundation_backflow",
+      "python tools/check_bilingual_pairs.py --base <current-merge-base>",
+      "python tools/check_references.py"
+    ],
+    "note": "The R004 completion unit test is now source-exact and locally executed. This does not substitute for whole-repo validation because no legitimate complete latest-main checkout is present."
+  },
+  "integration_state": {
+    "prior_source_aware_replay_checkpoint": "research_returns/RS-GOV-FOUNDATION-BACKFLOW/EM-DVR-7FC65C/FQ007_BILINGUAL_REFERENCE_REPLAY_CHECKPOINT_20260920_1606.json",
+    "canonicalized": false,
+    "math_judgment_made": false,
+    "steward_judgment_made": false,
+    "next_action": "Obtain a legitimate complete latest-main checkout, run remaining whole-repo gates, then reread then-current Foundation/Common-Surface targets and perform only minimal source-aware FQ-007 propagation if all gates pass."
+  },
+  "machine_state": "PROGRESS_TO_HANDOFF"
+}
