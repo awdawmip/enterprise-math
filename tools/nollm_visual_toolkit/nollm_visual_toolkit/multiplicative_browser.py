@@ -29,6 +29,26 @@ const MulExact = (() => {
     if(!Number.isSafeInteger(value.initialBits)||!Number.isSafeInteger(value.maxBits)||value.initialBits<8||value.maxBits>512||value.initialBits>value.maxBits)throw Error('精度要求8≤初始位数≤最大位数≤512');
     return copy(value);
   }
+  function startup(value) {
+    if(!value||typeof value!=='object'||Array.isArray(value))throw Error('启动数据结构无效');
+    const keys=Object.keys(value).sort().join(',');
+    if(keys==='config')return {config:MulMath.cfg(value.config),cell_options:defaults(),session:null};
+    if(keys==='cell_options,config,schema'){
+      if(value.schema!=='NOLLM_MULTIPLICATIVE_STARTUP_V1')throw Error('启动版本不匹配');
+      const opts=options(value.cell_options);
+      if(opts.engine!=='certified')throw Error('精确启动包不能降级为浮点');
+      return {config:MulMath.cfg(value.config),cell_options:opts,session:null};
+    }
+    if(keys==='config,session'){
+      const config=MulMath.cfg(value.config),session=copy(value.session);
+      if(!session||typeof session!=='object'||Array.isArray(session))throw Error('保存的会话结构无效');
+      const other=MulMath.cfg(session.config);
+      const key=c=>JSON.stringify([c.schema,c.count,c.scheme,c.scale,Object.entries(c.overrides).sort((a,b)=>a[0]<b[0]?-1:a[0]>b[0]?1:0)]);
+      if(key(config)!==key(other))throw Error('网页配置与保存会话的来源不一致');
+      return {config,cell_options:null,session}; // restore enforces the session version and view contract.
+    }
+    throw Error('启动包含缺失、冲突或未知字段');
+  }
   function safeInt(s) {
     const n=BigInt(s);if(n< -9007199254740991n||n>9007199254740991n)throw Error('格点超出网页安全整数载体');
     return Number(n); // Checked integer transport; never a numerical decision.
@@ -86,12 +106,12 @@ const MulExact = (() => {
     const mid=b=>Number(BigInt(b.lower_numerator)+BigInt(b.upper_numerator))/(2*Number(BigInt(b.denominator)));
     const q=mid(bounds[0]),r=mid(bounds[1]);return [q+r/2,Math.sqrt(3)*r/2]; // Display only; cannot select a cell.
   }
-  return Object.freeze({defaults,source,options,build,stats,multiply,hexData,summary,exact,copy,midpoint});
+  return Object.freeze({defaults,source,options,build,stats,multiply,hexData,summary,exact,copy,midpoint,startup});
 })();
 '''
 
 UI_SCRIPT = r'''
- let desiredConfig=seed.config,cellOptions=MulExact.defaults(),computeState='LOADING',generation=0,ready=Promise.resolve();
+ let desiredConfig=seed?.config??{},cellOptions=MulExact.defaults(),computeState='LOADING',generation=0,ready=Promise.resolve();
  const dependent=['session','report','json','png','snapshot','find','next','trace','multiply','setPhase','resetPhases','prime'];
  function requireReady(){if(computeState!=='READY'||!F)throw Error('当前计算尚无可读取结果：'+computeState);return F;}
  function setBusy(busy){for(const id of dependent)$(id).disabled=busy;}
@@ -204,5 +224,5 @@ def prepare_template(template: str) -> str:
     once("$('png').onclick=run(()=>cv.toBlob(b=>{if(b)blobDownload(b,'multiplicative-view.png');else fail('PNG 生成失败');}));", "$('png').onclick=run(()=>{requireReady();draw();const token=generation;cv.toBlob(b=>{if(token!==generation||computeState!=='READY')return fail('PNG所属计算已过期');if(b)blobDownload(b,'multiplicative-view.png');else fail('PNG 生成失败');});});")
     once('restore(JSON.parse(await file.text()));', 'await restore(JSON.parse(await file.text()));')
     line(' window.MulLab=', " window.MulLab={build:rebuild,configureCells:o=>rebuild(desiredConfig,{...cellOptions,...o}),get ready(){return ready;},session,restore,snapshot,report:reportRecord,data:()=>MulExact.copy(requireReady()),hexData:()=>MulExact.hexData(requireReady()),stats:()=>{requireReady();const{fibers,...s}=stats;return MulExact.copy(s);},certificate:n=>{requireReady();if(!MulExact.exact(F)||!Number.isSafeInteger(n)||n<0||n>=F.records.length)throw Error('无此精确证书');return MulExact.copy(F.cell_membership_exact.certificates[n]);},status:()=>({state:computeState,cell_status:exactStatus(),count:F?F.records.length:desiredConfig.count,drawn,selected,view,phase_scheme:desiredConfig.scheme,path:path.slice(),pair:MulExact.copy(pair),cell_options:MulExact.copy(cellOptions),occupied_hex_centers:stats?.occupied_hex_centers??null,collision_groups:stats?.collision_groups??null,extra_identities_at_shared_centers:stats?.extra_identities_at_shared_centers??null,largest_fiber:stats?.largest_fiber??null}),projectId:n=>{requireReady();return project(world(F.records[n]));},engine:MulMath,exactEngine:MulExact};")
-    line(' try{rebuild(seed.config);', " try{const initial=seed.session?restore(seed.session):rebuild(seed.config);initial.catch(fail);}catch(e){fail(e);}")
+    line(' try{rebuild(seed.config);', " try{const init=MulExact.startup(seed);desiredConfig=init.config;ready=init.session?restore(init.session):rebuild(init.config,init.cell_options);ready.catch(fail);}catch(e){computeState='FAILED';emptyView();setBusy(true);$('cellStatus').textContent='启动失败；没有浮点回退';ready=Promise.reject(e);ready.catch(fail);}")
     return template

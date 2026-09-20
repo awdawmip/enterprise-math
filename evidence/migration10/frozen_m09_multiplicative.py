@@ -20,7 +20,6 @@ MAX_COUNT = 65536
 CONFIG_SCHEMA = 'NOLLM_MULTIPLICATIVE_CONFIG_V1'
 REPORT_SCHEMA = 'NOLLM_MULTIPLICATIVE_REPORT_V1'
 EXACT_REPORT_SCHEMA = 'NOLLM_MULTIPLICATIVE_REPORT_V2'
-STARTUP_SCHEMA = 'NOLLM_MULTIPLICATIVE_STARTUP_V1'
 _CELL_SCALE_TEXT_RE = re.compile(r'(?:(?P<int>[1-9][0-9]*)|(?P<num>[1-9][0-9]*)/(?P<den>[1-9][0-9]*)|(?P<whole>0|[1-9][0-9]*)\.(?P<frac>[0-9]+))')
 
 
@@ -418,47 +417,16 @@ def hex_data(field: dict) -> dict:
             'relations':[]}
 
 
-def browser_startup(settings: dict | None = None, *, cell_scale_text: str | None = None,
-                    cell_bits: int = 64, cell_max_bits: int = 192) -> dict:
-    """One source packet for CLI/render and browser initial cell computation.
-
-    The browser supports [1/4, 4]. Larger mathematical domains stay available
-    through machine-only output; they are never clamped or changed to floats.
-    """
+def render(path: str | Path, settings: dict | None = None) -> Path:
     cfg = checked_config(settings) if settings is not None else config()
-    if cell_scale_text is None:
-        if (cell_bits, cell_max_bits) != (64, 192):
-            raise ValueError('browser precision budgets require an exact cell scale')
-        return {'config': cfg}  # Historical seed shape is preserved.
-    (numerator, denominator), _ = parse_cell_scale_text(cell_scale_text)
-    _cell_precision(cell_bits, cell_max_bits)
-    if 4 * numerator < denominator or numerator > 4 * denominator:
-        raise ValueError('browser exact scale must be in 1/4..4; use --machine-only with --report/--hex-data for a broader source')
-    return {'schema': STARTUP_SCHEMA, 'config': cfg,
-            'cell_options': {'engine': 'certified', 'scale': cell_scale_text,
-                             'initialBits': cell_bits, 'maxBits': cell_max_bits}}
-
-
-def render(path: str | Path, settings: dict | None = None, *,
-           cell_scale_text: str | None = None, cell_bits: int = 64,
-           cell_max_bits: int = 192) -> Path:
-    seed = browser_startup(settings, cell_scale_text=cell_scale_text,
-                           cell_bits=cell_bits, cell_max_bits=cell_max_bits)
     template = Path(__file__).with_name('multiplicative_lab.html').read_text(encoding='utf-8')
     from .multiplicative_browser import prepare_template
     template = prepare_template(template)
-    payload = json.dumps(seed, ensure_ascii=False, separators=(',',':'), allow_nan=False).replace('<','\\u003c')
+    payload = json.dumps({'config':cfg}, ensure_ascii=False, separators=(',',':')).replace('<','\\u003c')
     if template.count('__LAB_SEED__') != 1: raise ValueError('template seed marker mismatch')
     path = Path(path); path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(template.replace('__LAB_SEED__', payload), encoding='utf-8')
     return path
-
-
-def _distinct_output_paths(*paths: Path | None) -> None:
-    """Reject output aliases before writing, not a multi-file I/O transaction."""
-    resolved = [path.resolve() for path in paths if path is not None]
-    if len(resolved) != len(set(resolved)):
-        raise ValueError('HTML, report and hex-data must use distinct output paths')
 
 
 def main() -> int:
@@ -466,48 +434,32 @@ def main() -> int:
     p.add_argument('--count', type=int, default=MAX_COUNT)
     p.add_argument('--scheme', choices=['valuation','mixed','spiral','radial'], default='valuation')
     p.add_argument('--scale', type=float, default=1, help='legacy/display scale only; never an exact cell source')
-    p.add_argument('--cell-scale', help='exact scale for generated page and machine outputs: integer, n/d, or decimal such as 0.50')
+    p.add_argument('--cell-scale', help='exact cell scale text: positive integer, n/d, or decimal such as 0.50')
     p.add_argument('--cell-bits', type=int, default=64, help='initial dyadic precision for --cell-scale')
     p.add_argument('--cell-max-bits', type=int, default=192, help='maximum dyadic precision for --cell-scale')
-    p.add_argument('--out', type=Path, help='generated HTML; required unless --machine-only')
-    p.add_argument('--machine-only', action='store_true', help='exact report/hex-data without HTML; permits the broader positive scale domain')
+    p.add_argument('--out', type=Path, required=True)
     p.add_argument('--report', type=Path); p.add_argument('--hex-data',type=Path)
     p.add_argument('--preview',action='store_true'); p.add_argument('--no-open',action='store_true')
     a = p.parse_args()
     try:
         cfg = config(a.count,a.scheme,a.scale)
-        if a.machine_only:
-            if a.out is not None or a.preview:
-                raise ValueError('--machine-only cannot be combined with --out or --preview')
-            if a.cell_scale is None or not (a.report or a.hex_data):
-                raise ValueError('--machine-only requires --cell-scale and --report/--hex-data')
-        elif a.out is None:
-            raise ValueError('--out is required unless --machine-only is selected')
-        _distinct_output_paths(a.out, a.report, a.hex_data)
-        cell_pair = None; cell_source = None; startup = None
+        cell_pair = None; cell_source = None
         if a.cell_scale is not None:
+            if not (a.report or a.hex_data):
+                raise ValueError('--cell-scale currently applies only to --report/--hex-data; browser HTML remains legacy display')
             if a.preview:
-                raise ValueError('certified --preview awaits native-browser acceptance; generate --out without preview')
+                raise ValueError('--preview with --cell-scale is disabled until the older browser workbench is migrated')
             cell_pair, cell_source = parse_cell_scale_text(a.cell_scale)
             _cell_precision(a.cell_bits, a.cell_max_bits)
-            if not a.machine_only:
-                startup = browser_startup(cfg, cell_scale_text=a.cell_scale,
-                                          cell_bits=a.cell_bits, cell_max_bits=a.cell_max_bits)
         elif a.cell_bits != 64 or a.cell_max_bits != 192:
             raise ValueError('--cell-bits/--cell-max-bits require --cell-scale')
         field = None; prepared_hex = None
-        # Semantic preflight precedes output writes. No filesystem rollback is claimed.
-        if cell_pair is not None and (a.report or a.hex_data):
+        if cell_pair is not None:
             field = build_field(cfg, cell_scale=cell_pair, cell_bits=a.cell_bits, cell_max_bits=a.cell_max_bits)
             field['cell_scale_source'] = cell_source
             if a.hex_data:
-                prepared_hex = hex_data(field)
-        if a.out is not None:
-            if cell_pair is None:
-                print(render(a.out,cfg))
-            else:
-                print(render(a.out,cfg,cell_scale_text=a.cell_scale,
-                             cell_bits=a.cell_bits,cell_max_bits=a.cell_max_bits))
+                prepared_hex = hex_data(field)  # fail before writing any requested artifact
+        print(render(a.out,cfg))
         if a.report or a.hex_data:
             if field is None:
                 field = build_field(cfg)
@@ -519,14 +471,14 @@ def main() -> int:
                     report.update({'cell_engine':field['cell_engine'],
                                    'cell_scale_source':field['cell_scale_source'],
                                    'cell_membership_exact':cell_membership_summary(field),
-                                   'browser_startup':startup,
-                                   'html_observer_boundary':('NOT_GENERATED_MACHINE_ONLY' if a.machine_only
-                                                             else 'GENERATED_WITH_CERTIFIED_STARTUP_NOT_BROWSER_EXECUTION_RECEIPT')})
+                                   'html_observer_boundary':'generated HTML remains legacy floating observer in this slice'})
                 a.report.parent.mkdir(parents=True,exist_ok=True)
                 a.report.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
             if a.hex_data:
                 from .core import write_data
                 write_data(prepared_hex if prepared_hex is not None else hex_data(field),a.hex_data)
+            if cell_pair is not None:
+                print('exact cell scale applied to report/hex-data only; generated HTML remains legacy display', file=sys.stderr)
         if a.preview:
             from .web import serve_preview
             serve_preview(a.out,open_browser=not a.no_open)

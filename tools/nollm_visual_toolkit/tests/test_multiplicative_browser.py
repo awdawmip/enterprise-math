@@ -1,6 +1,7 @@
 """M09 actual rendered-engine tests. Node uses native Web Crypto, not a mock."""
 from __future__ import annotations
 import contextlib
+import ast
 import hashlib
 import io
 import json
@@ -42,9 +43,11 @@ class BrowserMigrationTests(unittest.TestCase):
     def test_original_template_exact_blob_and_m07_python_reuse(self):
         b=TEMPLATE.read_bytes()
         self.assertEqual(hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest(),'6619c5da7ad03f38766bfc383d60b5505cb863e0')
-        frozen=(ROOT/'evidence/migration09/frozen_m07_multiplicative.py').read_text()
-        now=Path(m.__file__).read_text().replace('    from .multiplicative_browser import prepare_template\n    template = prepare_template(template)\n','')
-        self.assertEqual(now,frozen)
+        frozen=(ROOT/'evidence/migration10/frozen_m09_multiplicative.py').read_text()
+        before={n.name:ast.dump(n,include_attributes=False) for n in ast.parse(frozen).body if isinstance(n,ast.FunctionDef)}
+        after={n.name:ast.dump(n,include_attributes=False) for n in ast.parse(Path(m.__file__).read_text()).body if isinstance(n,ast.FunctionDef)}
+        for name in set(before)-{'main','render'}:
+            self.assertEqual(after[name],before[name],name)
     def test_real_render_is_deterministic_and_embeds_existing_engines(self):
         with tempfile.TemporaryDirectory() as d:
             a=m.render(Path(d)/'a.html',m.config(16));b=m.render(Path(d)/'b.html',m.config(16))
@@ -114,13 +117,14 @@ class BrowserMigrationTests(unittest.TestCase):
         got=node('const f=await MulExact.build(input,{engine:"certified",scale:"1",initialBits:64,maxBits:192});return [MulExact.multiply(f,5,7),MulExact.multiply(f,0,7)];',m.config(64))
         self.assertEqual(got[0]['phase_defect'],0);self.assertIsNone(got[0]['ideal_relative_error']);self.assertIsNone(got[0]['rounded_relative_error'])
         self.assertIsNone(got[1]['phase_defect'])
-    def test_real_cli_keeps_m07_machine_scope_and_generates_actual_page(self):
+    def test_real_cli_transports_exact_start_to_actual_page(self):
         with tempfile.TemporaryDirectory() as d:
             p=Path(d);argv=['multiplicative','--count','64','--cell-scale','0.50','--out',str(p/'lab.html'),'--report',str(p/'report.json')]
             with patch.object(sys,'argv',argv),contextlib.redirect_stdout(io.StringIO()),contextlib.redirect_stderr(io.StringIO()):self.assertEqual(m.main(),0)
             self.assertIn('id="cellEngine"',(p/'lab.html').read_text())
             report=json.loads((p/'report.json').read_text());self.assertEqual(report['cell_scale_source']['text'],'0.50')
             self.assertEqual(report['schema'],'NOLLM_MULTIPLICATIVE_REPORT_V2')
-            self.assertIn('legacy',(report['html_observer_boundary']))
+            self.assertEqual(report['html_observer_boundary'],'GENERATED_WITH_CERTIFIED_STARTUP_NOT_BROWSER_EXECUTION_RECEIPT')
+            self.assertEqual(report['browser_startup']['cell_options']['scale'],'0.50')
 
 if __name__=='__main__':unittest.main(verbosity=2)
