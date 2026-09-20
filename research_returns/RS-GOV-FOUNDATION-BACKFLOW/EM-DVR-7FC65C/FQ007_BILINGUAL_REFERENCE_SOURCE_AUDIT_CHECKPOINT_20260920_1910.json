@@ -1,0 +1,112 @@
+{
+  "schema": "ENTERPRISE_MATH_DRIVER_CHECKPOINT_V1",
+  "checkpoint_kind": "FQ007_BILINGUAL_REFERENCE_SOURCE_AUDIT",
+  "created_at_utc": "2026-09-20T11:10:05Z",
+  "driver_id": "EM-DVR-7FC65C",
+  "authority": {
+    "record_id": "DA-914801DE7DDE3068AC16",
+    "role": "RESEARCH_DRIVER",
+    "authority_class": "CONTROL_PLANE",
+    "source_authorize_issue": 240,
+    "source_authorize_comment_id": 5747189443,
+    "revoked": false,
+    "scope_note": "Driver/GOVERNANCE control-plane only; no Researcher/Steward role, no independent Working Truth/Foundation/canonical promotion authority."
+  },
+  "task": {
+    "task_id": "RS-GOV-FOUNDATION-BACKFLOW",
+    "publication_id": "TP2-2C438651496A928ADCB7",
+    "taskbook_blob_sha1": "sha1:fa74c395b3eaaabe79f2dd74f5cb1b7dd29af559",
+    "front": "FQ-007 latest-main L4 integration / validation gate"
+  },
+  "claim": {
+    "claim_id": "CL-GOV-FQ007-7FC65C-20260920-1910",
+    "issue": 240,
+    "comment_id": 5749438827,
+    "owner_authenticated": true,
+    "execution_branch_base": "0b5daa84c8d1c7c823ec4e56d2666799c5b47e72"
+  },
+  "source_snapshot": {
+    "audited_main": "0b5daa84c8d1c7c823ec4e56d2666799c5b47e72",
+    "blobs": {
+      "bilingual_pairs.json": "76805ba585e515a23a7a9a1ba510659d0986db07",
+      "docs/R004_CAUSAL_IDENTIFIABILITY_NO_GO_01.en.md": "8c5d2427c9377ff610df361d75c4a9bad4329396",
+      "docs/R004_CAUSAL_IDENTIFIABILITY_NO_GO_01.zh-CN.md": "4060a54352dbba91fae5f8b817668576a4ef98e3",
+      "docs/PRIOR_ART_R004_CAUSAL_IDENTIFIABILITY.en.md": "5903bb9eb4906345c96df9ea4e2928a46db35c7e",
+      "docs/PRIOR_ART_R004_CAUSAL_IDENTIFIABILITY.zh-CN.md": "876fc3d97828fc97073adb1e14057416cbd9f6d2",
+      "sources_r004_causal_identifiability_no_go_01.json": "de5c22043938edffb3cdd3d27b544cec20d664b6",
+      "lineage_r004_causal_identifiability_no_go_01.json": "1a12793938d31de2de3021ba2ad86a78c596a384"
+    }
+  },
+  "focused_validation": {
+    "result": "PASS_WITHIN_DECLARED_SOURCE_READBACK_SCOPE",
+    "scope": "Connector/source-backed R004 bilingual/reference subset only. This is not a PASS for check_bilingual_pairs.py, check_references.py, check_research_common_surface.py, test_foundation_backflow, or any other unexecuted whole-repository command.",
+    "checks": [
+      {
+        "check": "authority_and_claim",
+        "result": "PASS",
+        "evidence": "Immutable Driver authority remains CONTROL_PLANE/RESEARCH_DRIVER with no truth/promotion grants; refreshed Issue #240 contained no REVOKE for EM-DVR-7FC65C; CLAIM comment 5749438827 was read back as awdawmip/OWNER and unedited."
+      },
+      {
+        "check": "r004_bilingual_manifest_registration",
+        "result": "PASS",
+        "evidence": "bilingual_pairs.json is version 76 and contains both the R004 no-go EN/ZH pair and the R004 prior-art EN/ZH pair."
+      },
+      {
+        "check": "r004_no_go_pair_static_structure",
+        "result": "PASS",
+        "evidence": "Both current-main no-go documents exist and retain corresponding numbered sections 1 through 10; the English source readback contains no CJK prose. This is a focused static readback, not execution of check_bilingual_pairs.py."
+      },
+      {
+        "check": "r004_prior_art_pair_static_structure",
+        "result": "PASS",
+        "evidence": "Both current-main prior-art documents exist and retain corresponding numbered sections 1 through 5."
+      },
+      {
+        "check": "r004_source_registry",
+        "result": "PASS",
+        "evidence": "The current R004 source shard registers SRC-KUHN-EXTENSIVE-GAMES-1953 and SRC-LI-ELGAMAL-SFRL-2017."
+      },
+      {
+        "check": "r004_prior_art_bilingual_source_coverage",
+        "result": "PASS",
+        "evidence": "Each of the two registered R004 source IDs appears in both the English and Chinese R004 PRIOR_ART sidecars. This narrows the source-specific reference gate but does not establish whole-repository check_references.py PASS."
+      },
+      {
+        "check": "r004_lineage_boundary",
+        "result": "PASS",
+        "evidence": "Current lineage lists both prior-art IDs, keeps latent-extension nonclosure as necessary but not sufficient, and explicitly excludes Bell locality, measurement independence, unique weakest physical admissibility axiom, and later Foundation sharpenings from this L4 payload."
+      }
+    ]
+  },
+  "validation": {
+    "executed_this_round": [
+      "GLOBAL_KNOWLEDGE_V1 bootstrap/manual/Driver-continuity source readback",
+      "latest-main Driver contract/authority/event-authorization/dispatch/publication readback",
+      "Issue #240 authority/revocation and OWNER-authenticated CLAIM readback",
+      "R004 bilingual manifest registration source audit",
+      "R004 no-go EN/ZH numbered-heading and English-no-CJK source audit",
+      "R004 prior-art EN/ZH numbered-heading source audit",
+      "R004 source registry and bilingual PRIOR_ART source-ID coverage audit",
+      "R004 lineage boundary readback"
+    ],
+    "previously_executed_and_preserved": [
+      "PYTHONPATH=src python -m unittest tests.test_r004_causal_identifiability_completion : 7 tests PASS on exact reconstructed current-main source/test blobs (previous checkpoint)"
+    ],
+    "local_validation_pending": [
+      "python tools/check_research_common_surface.py",
+      "python -m unittest tests.test_foundation_backflow",
+      "python tools/check_bilingual_pairs.py --base <current-merge-base>",
+      "python tools/check_references.py"
+    ],
+    "local_checkout_state": "UNAVAILABLE",
+    "note": "No legitimate complete latest-main checkout is present in this runtime. The four whole-repository commands above were not executed and are not reported as PASS. GitHub Actions/remote CI was not used as a substitute."
+  },
+  "integration_state": {
+    "canonicalized": false,
+    "math_judgment_made_by_driver": false,
+    "steward_judgment_made_by_driver": false,
+    "current_machine_interpretation": "The R004 L4 bilingual/reference replay is source-consistent within the focused audited subset, while FQ-007 remains pending whole-repository validation and minimal Foundation/Common-Surface propagation.",
+    "next_action": "Obtain a legitimate complete latest-main checkout and execute the four remaining whole-repository gates. If all pass, reread then-current Foundation/Common-Surface targets and perform only the minimum source-aware FQ-007 propagation required by the existing Steward closure recommendation. Do not merge PR #444 wholesale, restart R004 research, select a physical axiom, or mark CANONICALIZED before validation plus propagation."
+  },
+  "machine_state": "PROGRESS_TO_HANDOFF"
+}
