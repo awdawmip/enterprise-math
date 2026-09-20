@@ -1,0 +1,173 @@
+{
+  "schema": "ENTERPRISE_MATH_FQ005_PROPAGATION_PATCH_PLAN_V1",
+  "status": "TASK_RESEARCH_HANDOFF / NOT_CANONICAL_AUTHORITY",
+  "task_id": "RS-GOV-FOUNDATION-BACKFLOW",
+  "publication_id": "TP2-2C438651496A928ADCB7",
+  "researcher_id": "EM-GOV-76FA5C",
+  "source_main": "3ae6979a97b13062da2c0636362f4ae1a4d94f24",
+  "fail_closed_rule": "Every target blob must equal expected_blob_sha1. On any mismatch, do not apply; refresh current main and recompute semantics.",
+  "no_new_mathematics": true,
+  "targets": [
+    {
+      "path": "foundation_steward.json",
+      "expected_blob_sha1": "cedd5b098b95f778dd89a370c35a72706452c834",
+      "operations": [
+        {
+          "op": "remove_list_value",
+          "json_pointer": "/problem_set/active_questions",
+          "value": "FQ-20260809-005",
+          "expected_count": 1
+        },
+        {
+          "op": "add_object_if_absent",
+          "json_pointer": "/canonical_foundation_conventions/graph_distance_api",
+          "value": {
+            "stable_api": "graph_distance = P012 theorem-facing shortest-step distance on closed, symmetric, loop-free adjacency",
+            "directed_api": "directed_graph_distance = literal outgoing-adjacency shortest-walk helper; no ordinary-metric symmetry claim",
+            "reduction_boundary": "the two helpers agree on P012-valid input",
+            "disconnected_boundary": "ordinary finite metric is componentwise; cross-component queries are explicitly rejected",
+            "representation_repairs": "endpoint membership is checked before zero-length return; referenced neighbors must remain inside the declared key domain",
+            "novelty": "generic BFS, directed shortest paths and graph metrics are prior mathematics; this is theorem/tool API alignment",
+            "resolved_by": "FQ-20260809-005",
+            "research_return": "Issue #164 comment 5242436041 / PR #431@ca351e5446b3a84835ade9509f1ab97c276841d9",
+            "steward_acceptance": "Issue #164 comment 5242447403",
+            "canonical_pr": 436,
+            "canonical_merge": "3a40fe680e7aad4bc458540483c3c753e15f2cc4"
+          }
+        }
+      ]
+    },
+    {
+      "path": "research_common_surface.json",
+      "expected_blob_sha1": "8923091dbd04af2bb885bfcce723ba4724267421",
+      "operations": [
+        {
+          "op": "remove_list_value",
+          "json_pointer": "/foundation_steward/active_foundation_questions",
+          "value": "FQ-20260809-005",
+          "expected_count": 1
+        },
+        {
+          "op": "remove_list_value",
+          "json_pointer": "/foundation_steward/active_interface_alerts",
+          "value": "FQ-20260809-005",
+          "expected_count": 1
+        },
+        {
+          "op": "remove_object_key",
+          "json_pointer": "/tool_scope_alerts/FQ-20260809-005",
+          "expected_present": true
+        },
+        {
+          "op": "add_object_if_absent",
+          "json_pointer": "/canonical_specializations/A5_graph_distance_api",
+          "value": {
+            "status": "CANONICAL_MAIN + EXECUTABLE_CHECKED",
+            "source_question": "FQ-20260809-005",
+            "research_return": "PR #431 / head@ca351e5446b3a84835ade9509f1ab97c276841d9",
+            "steward_acceptance": "Issue #164 comment 5242447403",
+            "canonical_publication": "PR #436 / main@3a40fe680e7aad4bc458540483c3c753e15f2cc4",
+            "scope": "graph_distance validates closed/symmetric/loop-free P012 adjacency; directed_graph_distance preserves literal outgoing shortest-walk semantics; the helpers agree on P012-valid input",
+            "disconnected_boundary": "componentwise finite ordinary metric; cross-component finite-distance queries are explicitly rejected",
+            "representation_repairs": "endpoint membership before zero-length return and adjacency-key closure",
+            "prior_art_boundary": "generic BFS/shortest-path/graph-metric mathematics is prior art; canonical result is theorem/tool API repair"
+          }
+        }
+      ]
+    },
+    {
+      "path": "foundation_backflow.json",
+      "expected_blob_sha1": "e86e59a714e65f7dd91b023033c6d154f9052067",
+      "operations": [
+        {
+          "op": "remove_list_object_by_field",
+          "json_pointer": "/answered_question_scheduler_links",
+          "field": "question_id",
+          "value": "FQ-20260809-005",
+          "expected_count": 1
+        },
+        {
+          "op": "append_unique_object_by_field",
+          "json_pointer": "/canonicalized_examples",
+          "field": "question_id",
+          "value": {
+            "question_id": "FQ-20260809-005",
+            "phase": "CANONICALIZED",
+            "canonical_pr": 436,
+            "canonical_merge": "3a40fe680e7aad4bc458540483c3c753e15f2cc4",
+            "final_gates": [
+              "quality",
+              "bilingual-sync",
+              "reference-integrity"
+            ],
+            "result_class": "THEOREM_TOOL_API_REPAIR",
+            "foundation_result": "stable graph_distance is the P012 undirected-simple theorem-facing API; directed_graph_distance preserves literal outgoing shortest-walk semantics; componentwise ordinary metric is retained",
+            "source_refs": [
+              "Issue #164 research RETURN comment 5242436041",
+              "Issue #164 steward acceptance comment 5242447403",
+              "Issue #164 source-canonicalization comment 5242605053",
+              "PR #431 / ca351e5446b3a84835ade9509f1ab97c276841d9",
+              "PR #436 / 3a40fe680e7aad4bc458540483c3c753e15f2cc4"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "path": "docs/RESEARCH_COMMON_SURFACE.en.md",
+      "expected_blob_sha1": "d63f114d4997f2e580da93bdf418f36ec0bacd01",
+      "operations": [
+        {
+          "op": "replace_exact_text",
+          "old": "**Active interface alert — FQ-20260809-005:** stable exported `geometry.graph_distance` accepts general adjacency mappings, while P012 ordinary metric theorems assume connected undirected simple graphs. Until the research answer is steward-verified, do not cite P012 metric symmetry for asymmetric adjacency inputs.",
+          "new": "**Canonical A5 graph-distance API — FQ-20260809-005:** stable `geometry.graph_distance` is the P012 theorem-facing shortest-step API on a closed, symmetric, loop-free adjacency representation; `directed_graph_distance` preserves literal outgoing-adjacency shortest-walk semantics without an ordinary-metric symmetry claim. The helpers agree on P012-valid input, disconnected undirected simple graphs retain componentwise finite metric semantics, and cross-component finite-distance queries are explicitly rejected. Research PR #431 was Steward-accepted in Issue #164 comment 5242447403 and source-canonicalized through PR #436 / main@3a40fe680e7aad4bc458540483c3c753e15f2cc4.",
+          "expected_count": 1
+        },
+        {
+          "op": "replace_exact_text",
+          "old": "FQ-001 through FQ-004 and FQ-006 are canonicalized foundation conventions/results. The currently active foundation questions are:",
+          "new": "FQ-001 through FQ-006 are canonicalized foundation conventions/results. The currently active foundation question is:",
+          "expected_count": 1
+        },
+        {
+          "op": "replace_exact_text",
+          "old": "- `FQ-20260809-005` — stable `graph_distance` API domain versus the P012 ordinary-metric theorem domain.",
+          "new": "",
+          "expected_count": 1
+        }
+      ]
+    },
+    {
+      "path": "docs/RESEARCH_COMMON_SURFACE.zh-CN.md",
+      "expected_blob_sha1": "7ef1651c5eb30c88ebc27f451be380812511a2ef",
+      "operations": [
+        {
+          "op": "replace_exact_text",
+          "old": "**活跃接口警报 — FQ-20260809-005：**稳定导出的 `geometry.graph_distance` 接受一般 adjacency mapping，而 P012 普通 metric theorem 假设连通无向简单图。在研究答案经 steward 验证前，对非对称 adjacency 输入不得引用 P012 metric symmetry。",
+          "new": "**Canonical A5 graph-distance API — FQ-20260809-005：**稳定的 `geometry.graph_distance` 是 P012 theorem-facing 的最短步数 API，要求 adjacency 闭合、对称且无自环；`directed_graph_distance` 保留字面 outgoing-adjacency 最短游走语义，不附加 ordinary-metric symmetry 主张。二者在 P012-valid 输入上一致；非连通无向简单图保留分量内有限 metric，跨分量有限距离查询显式拒绝。Research PR #431 已由 Issue #164 comment 5242447403 通过 Steward 验证，并经 PR #436 / main@3a40fe680e7aad4bc458540483c3c753e15f2cc4 完成源码 canonicalization。",
+          "expected_count": 1
+        },
+        {
+          "op": "replace_exact_text",
+          "old": "FQ-001 至 FQ-004 与 FQ-006 已 canonicalized。目前 active foundation questions 为：",
+          "new": "FQ-001 至 FQ-006 已 canonicalized。目前 active foundation question 为：",
+          "expected_count": 1
+        },
+        {
+          "op": "replace_exact_text",
+          "old": "- `FQ-20260809-005` —— stable `graph_distance` API 定义域与 P012 ordinary-metric theorem 定义域。",
+          "new": "",
+          "expected_count": 1
+        }
+      ]
+    }
+  ],
+  "required_validation": [
+    "python tools/check_research_common_surface.py",
+    "python -m unittest tests.test_foundation_backflow",
+    "bilingual-sync equivalent local check",
+    "reference-integrity equivalent local check",
+    "verify no source-code/test delta outside declared five propagation surfaces"
+  ],
+  "authority_boundary": "This plan may be applied only by a currently authorized Foundation/Driver maintenance writer. It does not grant that authority."
+}
