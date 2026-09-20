@@ -1,0 +1,68 @@
+{
+  "schema": "CFD_EXACT_AXIS_CARRIER_CHECKPOINT_V1",
+  "task_id": "RS-CFD-SPECTRAL-HYBRID-20260910",
+  "publication_id": "TP2-C3B717C14153D5AC45BF",
+  "claim_id": "CLM-CFD-9CFD0F-20260921",
+  "researcher_id": "EM-DIRECT-9CFD0F",
+  "activity_id": "RA-RESEARCH-20260921-9CFD0F09",
+  "status": "CONTINUATION_REQUIRED",
+  "original_host_run": false,
+  "independent_review": "PENDING",
+  "task_done": false,
+  "checks": {
+    "exhaustive_K1_signed_seeds": 8192,
+    "fast_certificates": 1040,
+    "general_detector_declines": 7152,
+    "larger_cap_boundary_checks": 477,
+    "independence_counterexamples": 2,
+    "invalid_inputs_rejected": 6,
+    "trajectory_cases": 7,
+    "nonlinear_active_cases": 6,
+    "linear_control_cases": 1,
+    "warm_raw_rows": 147,
+    "cold_raw_rows": 18,
+    "stage_and_endpoint_arrays_compared_per_case": 60,
+    "old_new_static_bitwise_equal": true,
+    "max_absolute_static_fft_difference": 2.637977740025101e-18,
+    "zero_input_old_error": "Numba TypingError: 1D label array indexed with two indices",
+    "zero_input_fixed_shape": [0, 3],
+    "zero_input_fixed_trajectory_exact": true
+  },
+  "freeze": {
+    "N": 16,
+    "retained_K": 7,
+    "padded_N": 24,
+    "dt": 0.002,
+    "viscosity": 0.01,
+    "steps": 12,
+    "integrator": "RK4",
+    "precision": "complex128",
+    "support_limit": 384,
+    "pruning": false,
+    "tolerance": "2e-13 + 2e-12 * maxabs(reference)"
+  },
+  "warm_totals_ms": {
+    "columns": ["fft", "old_static", "new_static"],
+    "xy225_active": [55.441, 57.509, 18.554],
+    "xy35_active": [56.098, 5.654, 4.541],
+    "yz35_active": [59.845, 6.264, 4.960],
+    "parity113_general": [59.182, 17.223, 17.496],
+    "oblique15_linear_control": [56.873, 4.514, 4.468],
+    "xyz3375_dense": [56.478, 57.065, 58.352],
+    "random48_dense": [55.726, 57.088, 57.796]
+  },
+  "cold_totals_seconds": {
+    "columns": ["fft", "old_static", "new_static"],
+    "xy225_active": [0.061924833999910334, 0.5711824850000085, 0.5379565430000639],
+    "xy35_active": [0.061819903000014165, 0.5154629060000389, 0.49629963900008534]
+  },
+  "cold_scope": "FRESH_PROCESS_AFTER_IMPORTS_FIRST_JIT_INCLUDED_NOT_SPECTRALDNS",
+  "user_delivery": {
+    "file": "CFD_9CFD0F_research.bundle",
+    "sha256": "7ff5b7369cb052f42820da987d0559e202834dd8d841784168c29810d73465bb",
+    "embedded_local_commit": "2f745578ab0d4c4f3f5ea51753adf79e4e689081",
+    "complete_reproduction_bundle_mirrored_to_github": false,
+    "warm_raw_rows_location": "USER_DELIVERED_BUNDLE_ONLY",
+    "cold_raw_rows_location": "cold_raw_trials.csv.gz AND USER_DELIVERED_BUNDLE"
+  }
+}
