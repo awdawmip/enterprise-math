@@ -1,0 +1,75 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "date": "2026-09-20",
+  "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "methods": [
+    {
+      "method_id": "t0.brc_common_lattice_search",
+      "name": "Heartbeat BRC automatic common-lattice and determinant-phase finder",
+      "family_id": "T0_BRC",
+      "classification": "GLOBAL_SUBTOOL",
+      "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+      "api": [
+        "ReachableColumn",
+        "LatticeSearchResult",
+        "PhaseLatticeSearchResult",
+        "find_common_lattice",
+        "verify_lattice_search_result",
+        "find_phase_lattice",
+        "verify_phase_lattice_result",
+        "phase_edge_certificates",
+        "bind_single_port_packet",
+        "reachable_column_action"
+      ],
+      "source_refs": [
+        "src/enterprise_math/heartbeat_lattice_search.py",
+        "src/enterprise_math/heartbeat_switching_carry.py",
+        "tests/test_heartbeat_lattice_search.py",
+        "research_notes/heartbeat_lattice_search_20260920_AD0416/RESEARCH_NOTE.md",
+        "research_notes/heartbeat_lattice_search_20260920_AD0416/THEOREM_LEDGER.json"
+      ],
+      "related_families": [
+        "T5_PRECISION_REFINEMENT",
+        "T9_HOLONOMY_COCOYCLE_GLUING"
+      ],
+      "triggers": [
+        "common lattice search",
+        "invariant lattice saturation",
+        "switching carry bound",
+        "determinant phase",
+        "fractional carry mean",
+        "actual escaping word"
+      ],
+      "capabilities": [
+        "bounded-depth exact closure with 6R+1 single-port decision bound",
+        "at most six determinant-residue phases for general integer means",
+        "6qR+1 multi-phase decision bound",
+        "actual path-column witness preservation",
+        "independent reuse of BRC lattice certificate verifier"
+      ],
+      "reuse_resolution": {
+        "state": "REUSE_EXECUTED / COMPOSE_APPLIED / EXTEND_EXISTING_TOOL",
+        "methods": [
+          "t0.brc_switching_carry_lattice_ports",
+          "ControlPacket",
+          "SymPy hermite_normal_form"
+        ],
+        "gap": "prior interface checks supplied bases; new interface finds bases or produces budget-scoped actual words"
+      },
+      "hard_boundary": "Finite nonsingular integer 6x6 action families with unrestricted switching. Linear carry only. Rational bases are algebraic, not fractional Cell moves. A failed depth budget does not prove unboundedness; SEARCH_LIMIT is not a negative result. No full BRC path/probability compression or Foundation admission.",
+      "checks": {
+        "new_groups": 13,
+        "full_repository": false,
+        "production_nollm": false
+      },
+      "theorem_refs": [
+        "HBW-LS-001",
+        "HBW-LS-002",
+        "HBW-LS-003",
+        "HBW-LS-004",
+        "HBW-LS-005",
+        "HBW-LS-006"
+      ]
+    }
+  ]
+}

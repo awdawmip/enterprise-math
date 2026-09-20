@@ -1,0 +1,182 @@
+{
+  "status": "PASS",
+  "test_groups": 13,
+  "failures": 0,
+  "errors": 0,
+  "oracle": "SymPy 1.14.0 exact Smith form",
+  "checks": {
+    "source_reuse": {
+      "heartbeat_switching_carry.py": "81fa56ea5967daa9fbbec66f06fed696a5620bb5",
+      "brc_transport.py": "be1debe367263931bd5e93fd750be3ed54624fe1",
+      "brc_control_port.py": "44def6b8ac787e798d3cc2c6be16f873f91b9db8",
+      "brc_histogram.py": "9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1"
+    },
+    "local_units": {
+      "odd_determinant_allowed": true,
+      "rounds": 1
+    },
+    "simple_discovery": {
+      "radius": 1,
+      "rounds": 2,
+      "bound": 2
+    },
+    "dense_discovery": {
+      "rounds": 4,
+      "radius": 3,
+      "bound": 6,
+      "literal_length4_words": 81,
+      "attained_spread": 6,
+      "index_depth_trace": [
+        0,
+        5,
+        7,
+        8
+      ]
+    },
+    "random_hidden_lattices": {
+      "families": 30,
+      "independent_smith_paths": 150,
+      "max_rounds": 4
+    },
+    "path_provenance": {
+      "selected_actual_path_columns": 6,
+      "literal_checks": 127
+    },
+    "budget_boundary": {
+      "radius4": "ESCAPING_WORD",
+      "escaping_word_length": 5,
+      "radius5": "FIXED_LATTICE",
+      "fixed_rounds": 6,
+      "all_word_bound": 10
+    },
+    "unbounded_pair_budget_witnesses": [
+      {
+        "budget": 0,
+        "word": [
+          0
+        ],
+        "axis": 1,
+        "spread": 2
+      },
+      {
+        "budget": 1,
+        "word": [
+          1,
+          0
+        ],
+        "axis": 0,
+        "spread": 4
+      },
+      {
+        "budget": 2,
+        "word": [
+          0,
+          1,
+          0
+        ],
+        "axis": 1,
+        "spread": 6
+      },
+      {
+        "budget": 3,
+        "word": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "axis": 0,
+        "spread": 8
+      },
+      {
+        "budget": 4,
+        "word": [
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        "axis": 1,
+        "spread": 10
+      },
+      {
+        "budget": 5,
+        "word": [
+          1,
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        "axis": 0,
+        "spread": 12
+      },
+      {
+        "budget": 6,
+        "word": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        "axis": 1,
+        "spread": 14
+      }
+    ],
+    "fractional_mean_clock": {
+      "families": [
+        {
+          "prime": 2,
+          "ports": 6,
+          "rounds": 6,
+          "bound": 2
+        },
+        {
+          "prime": 3,
+          "ports": 6,
+          "rounds": 6,
+          "bound": 2
+        },
+        {
+          "prime": 5,
+          "ports": 6,
+          "rounds": 6,
+          "bound": 2
+        }
+      ],
+      "smith_powers_checked": 72
+    },
+    "mixed_clock_family": {
+      "actions": 3,
+      "ports": 6,
+      "edge_certificates": 18,
+      "literal_words": 81,
+      "unrestricted_split_escape_word": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "escape_source_phase": 3
+    },
+    "brc_execution": {
+      "actual_packet_steps": 4,
+      "path_multiplicity": 256,
+      "mass": "1",
+      "nonzero_offsets_preserved": true,
+      "certificate_rechecked": true
+    },
+    "resource_tamper": {
+      "limited_outputs": 2,
+      "tampered_proofs_rejected": 3
+    },
+    "invalid_inputs": 10
+  },
+  "scope": "bounded-depth research certificate; not full project/production/theorem admission"
+}

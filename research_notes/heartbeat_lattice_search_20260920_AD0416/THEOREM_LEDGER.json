@@ -1,0 +1,75 @@
+{
+  "schema": "HEARTBEAT_BRC_LATTICE_SEARCH_THEOREMS_V1",
+  "status": "SCOPED_PROOFS_RESEARCH_CANDIDATES_NOT_FOUNDATION",
+  "date": "2026-09-20",
+  "world_id": "HEARTBEAT_WORLD",
+  "laws": [
+    {
+      "id": "HBW-LS-001",
+      "name_zh": "最小可达格闭包",
+      "assumptions": "非奇异整数X6动作，v_p(det A_j)=6k_j，B_j=p^-k_j A_j",
+      "statement": "L_r=sum_{|w|<=r}B_w Z_p^6；固定点为包含标准格的最小共同不变格。",
+      "proof": "research_notes/heartbeat_lattice_search_20260920_AD0416/RESEARCH_NOTE.md#2",
+      "api": "find_common_lattice",
+      "test": "tests/test_heartbeat_lattice_search.py",
+      "independent_review": false
+    },
+    {
+      "id": "HBW-LS-002",
+      "name_zh": "有限深度判定与路径反例",
+      "assumptions": "LS-001且指定R>=0",
+      "statement": "至多6R+1次闭包更新，或得到Z_p^6⊂L⊂p^-R Z_p^6的共同格，或得到真实词和原生轴使最小估值<-R。后者给出实际spread>R，不证明无界。",
+      "proof": "research_notes/heartbeat_lattice_search_20260920_AD0416/RESEARCH_NOTE.md#3",
+      "api": "find_common_lattice",
+      "test": "tests/test_heartbeat_lattice_search.py",
+      "independent_review": false
+    },
+    {
+      "id": "HBW-LS-003",
+      "name_zh": "六个原路径列的精确格生成",
+      "assumptions": "含标准格的有限p上格，候选列为真实动作词作用于原生单位向量",
+      "statement": "在格基下模p独立地选六个实际列，就生成同一Z_p格；后继逃逸可由一条实际词见证而非组合伪路径。",
+      "proof": "research_notes/heartbeat_lattice_search_20260920_AD0416/RESEARCH_NOTE.md#4",
+      "api": "ReachableColumn",
+      "test": "tests/test_heartbeat_lattice_search.py",
+      "independent_review": false
+    },
+    {
+      "id": "HBW-LS-004",
+      "name_zh": "行列式余数时钟与双射格端口",
+      "assumptions": "有限非奇异整数X6动作族，d_j=v_p(det A_j)，所有动作均可切换",
+      "statement": "h′=(h+d_j) mod6，k=floor((h+d_j)/6)；归一化det深度=h′-h。可达时钟强连通，稳定格包含自动成为双射。",
+      "proof": "research_notes/heartbeat_lattice_search_20260920_AD0416/RESEARCH_NOTE.md#6",
+      "api": "find_phase_lattice",
+      "test": "tests/test_heartbeat_lattice_search.py",
+      "independent_review": false
+    },
+    {
+      "id": "HBW-LS-005",
+      "name_zh": "任意有限动作族的全词有界等价",
+      "assumptions": "LS-004的动作族与时钟",
+      "statement": "全部有限词p-Smith深浅差统一有界，当且仅当余数时钟上存在归一化不变格族。可取有理格基。",
+      "proof": "research_notes/heartbeat_lattice_search_20260920_AD0416/RESEARCH_NOTE.md#7",
+      "api": "phase_edge_certificates",
+      "test": "tests/test_heartbeat_lattice_search.py",
+      "independent_review": false
+    },
+    {
+      "id": "HBW-LS-006",
+      "name_zh": "多相位闭包预算界",
+      "assumptions": "LS-004，q个可达相位，指定R>=0",
+      "statement": "至多6qR+1轮固定或实际词越界，q<=6。更小资源轮数只给SEARCH_LIMIT；未知R下不宣称全局否定的终止性。",
+      "proof": "research_notes/heartbeat_lattice_search_20260920_AD0416/RESEARCH_NOTE.md#7",
+      "api": "verify_phase_lattice_result",
+      "test": "tests/test_heartbeat_lattice_search.py",
+      "independent_review": false
+    }
+  ],
+  "boundaries": [
+    "X6 raw signed integer chart; separate time and determinant phase",
+    "linear carry observer only; no probability/history quotient",
+    "budget escape is not global unboundedness",
+    "finite closure count is not constant bit complexity",
+    "all actions allowed at every clock state; arbitrary constrained graphs need separate proof"
+  ]
+}
