@@ -1,5 +1,5 @@
 {
-  "schema": "EM_HEARTBEAT_WORLD_INTRINSIC_LAWS_CHECKPOINT_V2",
+  "schema": "EM_HEARTBEAT_WORLD_INTRINSIC_LAWS_CHECKPOINT_V3",
   "event_id": "heartbeat-world-intrinsic-laws-20260920-AD0416",
   "research_activity_id": "RA-37C0A30C7B1F5A338F03D186",
   "status": "REMOTE_MAIN_RESEARCH_CANDIDATE_NOT_FOUNDATION",
@@ -19,7 +19,8 @@
     "HBW-INTR-004",
     "HBW-INTR-005",
     "HBW-INTR-006",
-    "HBW-INTR-007"
+    "HBW-INTR-007",
+    "HBW-INTR-008"
   ],
   "validation": {
     "local_status": "PASS",
@@ -31,8 +32,8 @@
       "ordered_pairs": 33856,
       "phase_snf_different": 15488
     },
-    "module_sha256": "f26ce82d01c3ac9138798202b4ff740bd22f29b8009aea794bd17ff816a48b21",
-    "tests_sha256": "06e9f04a30755cda7280d210a2238c97b17d854dbb901b94489e4e6810b3fa5e",
+    "module_sha256": "742a732703c89d856c39162696e405faf8b6b207e661b62b41c744e8c8db69bc",
+    "tests_sha256": "f41472e57db7ee19b24b8783d7bb6b5e22cf834e9e22b28238345779f0b2c0ee",
     "independent_review": false,
     "full_project_tests": false,
     "lean": false,
@@ -47,7 +48,12 @@
       ],
       "exact_comparisons": 4320
     },
-    "invalid_boundary_checks": 3
+    "invalid_boundary_checks": 3,
+    "monomial_valuation_drift": {
+      "smith_depth_comparisons": 1440,
+      "cycle_mean_classifications": 120,
+      "periodic_phase_checks": 120
+    }
   },
   "boundaries": [
     "HEARTBEAT_WORLD still has no fixed heartbeat program",
@@ -55,6 +61,7 @@
     "Smith/group-extension mathematics is classical; no priority claim",
     "residual/control state is not an extra spatial dimension",
     "BRC branch count does not imply uniform branch weights",
-    "weighted valuation balancing requires fixed cyclic per-axis factors; arbitrary periodic integer heartbeats may fail it"
+    "weighted valuation balancing requires fixed cyclic per-axis factors; arbitrary periodic integer heartbeats may fail it",
+    "p-adic bounded-drift iff criterion is proved only for periodic monomial heartbeats; general axis-mixing matrices remain open"
   ]
 }

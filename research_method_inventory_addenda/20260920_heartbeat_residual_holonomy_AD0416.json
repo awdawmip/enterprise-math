@@ -34,7 +34,13 @@
         "torsion_killed_count",
         "prime_valuation",
         "cyclic_weighted_heartbeat",
-        "cyclic_valuation_depths"
+        "cyclic_valuation_depths",
+        "monomial_action",
+        "monomial_cycles",
+        "monomial_cycle_valuation_data",
+        "monomial_valuation_depths",
+        "monomial_valuation_balance",
+        "periodic_monomial_valuation_balance"
       ],
       "triggers": [
         "heartbeat monodromy",
@@ -45,7 +51,10 @@
         "phase residual",
         "nonuniform cyclic scaling",
         "p-adic heartbeat depth",
-        "valuation balance"
+        "valuation balance",
+        "monomial heartbeat",
+        "p-adic anisotropy drift",
+        "cycle mean valuation"
       ],
       "capabilities": [
         "exact small-dimension integer monodromy",
@@ -54,7 +63,8 @@
         "canonical six-axis radix staircase",
         "residual branch-count and torsion-order observer",
         "exact p-adic depth profile for cyclic per-axis integer scaling",
-        "bounded within-cycle valuation-anisotropy diagnostic"
+        "bounded within-cycle valuation-anisotropy diagnostic",
+        "necessary-and-sufficient bounded p-adic anisotropy test for periodic monomial heartbeat programs"
       ],
       "reuse_resolution": {
         "state": "COMPOSE_APPLIED / CAPABILITY_GAP_CONFIRMED / DOMAIN_OPERATOR",

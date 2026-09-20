@@ -45,6 +45,12 @@
       "name": "cyclic weighted valuation balancing",
       "law": "For cyclic positive integer axis factors b_i, A_b^6=(product b_i)I. If k=6q+r, p-adic Smith depths are sorted cyclic r-window sums q*sum_i v_p(b_i)+sum_(j<r)v_p(b_(i+j)); complete cycles add equal depth to all axes and within-cycle anisotropy is bounded/periodic.",
       "boundary": "Fixed cyclic per-axis-factor heartbeat family only; arbitrary periodic integer programs need not scalarize or have bounded valuation anisotropy."
+    },
+    {
+      "id": "HBW-INTR-008",
+      "name": "periodic monomial p-adic drift criterion",
+      "law": "For a periodic integer-monomial heartbeat, let M be one-period monodromy. For each permutation cycle C of M set mu_C=(sum_{j in C} v_p(w_j))/|C|. The p-adic Smith-depth spread over time is bounded iff all mu_C are equal. Unequal cycle means give linear anisotropy drift. The verdict is invariant under heartbeat phase shift.",
+      "boundary": "Periodic monomial (axis permutation plus nonzero integer scaling) programs only; general integer matrices with axis mixing require different valuation-slope machinery."
     }
   ],
   "validation": {
@@ -73,6 +79,12 @@
       "exact_comparisons": 4320,
       "status": "PASS"
     },
-    "invalid_boundary_checks": 3
+    "invalid_boundary_checks": 3,
+    "monomial_valuation_drift": {
+      "smith_depth_comparisons": 1440,
+      "cycle_mean_classifications": 120,
+      "periodic_phase_checks": 120,
+      "status": "PASS"
+    }
   }
 }

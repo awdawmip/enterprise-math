@@ -124,6 +124,61 @@ def test_weighted_valuation_balance():
                 checked+=1
     return checked
 
+
+def test_monomial_valuation_drift_criterion():
+    rng=random.Random(20260922)
+    comparisons=0
+    classifications=0
+    for _ in range(40):
+        perm=list(range(6)); rng.shuffle(perm)
+        weights=[rng.randint(1,12) for _ in range(6)]
+        M=[[0]*6 for _ in range(6)]
+        for j,i in enumerate(perm):
+            M[i][j]=weights[j]
+        M=tuple(tuple(row) for row in M)
+        for prime in (2,3,5):
+            for k in range(1,13):
+                smith=h.smith_invariant_factors(h.matpow(M,k))
+                actual=tuple(sorted(h.prime_valuation(d,prime) for d in smith))
+                expected=h.monomial_valuation_depths(M,prime,k)
+                assert actual==expected,(perm,weights,prime,k,actual,expected)
+                comparisons+=1
+            data=h.monomial_cycle_valuation_data(M,prime)
+            balanced=h.monomial_valuation_balance(M,prime)
+            direct=all(data[i][1]*data[0][2]==data[0][1]*data[i][2] for i in range(1,len(data)))
+            assert balanced==direct
+            classifications+=1
+    M=h.cyclic_weighted_heartbeat((2,3,4,5,6,7))
+    for prime in (2,3,5,7):
+        assert h.monomial_valuation_balance(M,prime)
+        spreads=[max(h.monomial_valuation_depths(M,prime,k))-min(h.monomial_valuation_depths(M,prime,k)) for k in range(121)]
+        assert max(spreads)==max(spreads[:6])
+    D=((2,0,0,0,0,0),(0,1,0,0,0,0),(0,0,1,0,0,0),(0,0,0,1,0,0),(0,0,0,0,1,0),(0,0,0,0,0,1))
+    assert not h.monomial_valuation_balance(D,2)
+    assert h.monomial_valuation_depths(D,2,20)==(0,0,0,0,0,20)
+    return comparisons,classifications
+
+
+def test_periodic_monomial_phase_balance():
+    rng=random.Random(20260923)
+    checked=0
+    for _ in range(40):
+        steps=[]
+        for _beat in range(3):
+            perm=list(range(6)); rng.shuffle(perm)
+            weights=[rng.randint(1,8) for _ in range(6)]
+            A=[[0]*6 for _ in range(6)]
+            for j,i in enumerate(perm):
+                A[i][j]=weights[j]
+            steps.append(tuple(tuple(row) for row in A))
+        for prime in (2,3,5):
+            verdict=h.periodic_monomial_valuation_balance(steps,prime)
+            phase_verdicts=tuple(h.monomial_valuation_balance(h.monodromy(steps,start=t),prime) for t in range(3))
+            assert phase_verdicts==(verdict,)*3
+            checked+=1
+    return checked
+
+
 if __name__=='__main__':
     results={
       'phase_intertwining':test_phase_intertwining_random(),
@@ -133,5 +188,7 @@ if __name__=='__main__':
       'bounded_survey':test_bounded_survey(),
       'weighted_valuation_balance':test_weighted_valuation_balance(),
       'invalid_boundaries':test_invalid_boundaries(),
+      'monomial_valuation_drift':test_monomial_valuation_drift_criterion(),
+      'periodic_monomial_phase_balance':test_periodic_monomial_phase_balance(),
     }
     print('PASS',results)

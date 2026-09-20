@@ -263,3 +263,99 @@ def cyclic_valuation_depths(factors, prime: int, beats: int) -> tuple[int, ...]:
     for start in range(n):
         depths.append(q * full + sum(vals[(start + j) % n] for j in range(r)))
     return tuple(sorted(depths))
+
+
+def monomial_action(matrix):
+    """Return (permutation, column weights) for an integer monomial matrix."""
+    a = _matrix(matrix)
+    n = len(a)
+    permutation = []
+    weights = []
+    used_rows = set()
+    for j in range(n):
+        rows = [i for i in range(n) if a[i][j] != 0]
+        if len(rows) != 1:
+            raise ValueError("monomial matrix requires exactly one nonzero per column")
+        i = rows[0]
+        if i in used_rows:
+            raise ValueError("monomial matrix requires exactly one nonzero per row")
+        used_rows.add(i)
+        permutation.append(i)
+        weights.append(a[i][j])
+    if len(used_rows) != n:
+        raise ValueError("monomial matrix requires every row to be used")
+    return tuple(permutation), tuple(weights)
+
+
+def monomial_cycles(matrix) -> tuple[tuple[int, ...], ...]:
+    permutation, _weights = monomial_action(matrix)
+    n = len(permutation)
+    seen = set()
+    cycles = []
+    for start in range(n):
+        if start in seen:
+            continue
+        cycle = []
+        j = start
+        while j not in seen:
+            seen.add(j)
+            cycle.append(j)
+            j = permutation[j]
+        if j != start:
+            raise ArithmeticError("invalid permutation cycle decomposition")
+        cycles.append(tuple(cycle))
+    return tuple(cycles)
+
+
+def monomial_cycle_valuation_data(matrix, prime: int):
+    """Return (cycle, total p-valuation, length) for every permutation cycle."""
+    if not _is_prime(prime):
+        raise ValueError("prime must be prime")
+    permutation, weights = monomial_action(matrix)
+    cycles = monomial_cycles(matrix)
+    return tuple(
+        (cycle, sum(prime_valuation(weights[j], prime) for j in cycle), len(cycle))
+        for cycle in cycles
+    )
+
+
+def monomial_valuation_depths(matrix, prime: int, beats: int) -> tuple[int, ...]:
+    """Sorted p-adic Smith depths of a monomial matrix power."""
+    if type(beats) is not int or beats < 0:
+        raise ValueError("nonnegative integer beat count required")
+    if not _is_prime(prime):
+        raise ValueError("prime must be prime")
+    permutation, weights = monomial_action(matrix)
+    vals = tuple(prime_valuation(w, prime) for w in weights)
+    depths = []
+    for start in range(len(permutation)):
+        j = start
+        depth = 0
+        for _ in range(beats):
+            depth += vals[j]
+            j = permutation[j]
+        depths.append(depth)
+    return tuple(sorted(depths))
+
+
+def monomial_valuation_balance(matrix, prime: int) -> bool:
+    """Whether all permutation cycles have the same mean p-adic growth."""
+    data = monomial_cycle_valuation_data(matrix, prime)
+    v0, l0 = data[0][1], data[0][2]
+    return all(v * l0 == v0 * length for _cycle, v, length in data[1:])
+
+
+def periodic_monomial_valuation_balance(steps, prime: int) -> bool:
+    """Phase-invariant bounded-anisotropy criterion for periodic monomial beats."""
+    steps = tuple(_matrix(step) for step in steps)
+    if not steps:
+        raise ValueError("nonempty heartbeat program required")
+    for step in steps:
+        monomial_action(step)
+    verdicts = tuple(
+        monomial_valuation_balance(monodromy(steps, start=t), prime)
+        for t in range(len(steps))
+    )
+    if len(set(verdicts)) != 1:
+        raise ArithmeticError("phase-shifted periodic monomial balance must agree")
+    return verdicts[0]
