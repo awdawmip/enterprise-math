@@ -1,0 +1,95 @@
+{
+  "schema": "HEARTBEAT_GRAPH_CARRY_THEOREM_CANDIDATES_V1",
+  "date": "2026-09-20",
+  "world_id": "HEARTBEAT_WORLD",
+  "status": "WRITTEN_SCOPED_PROOFS_EXACT_TESTS_NOT_INDEPENDENTLY_REVIEWED",
+  "source_snapshot": "88251de1923cc4cea75691d3d3809d1990b14c03",
+  "theorems": [
+    {
+      "id": "HBW-GR-001",
+      "name_zh": "有向格包含与全路径有界等价",
+      "assumptions": "有限有向图，非奇异整数6x6动作，固定素数p；按det估值mod6提升",
+      "statement": "所有合法路径p-Smith深浅差统一有界，当且仅当有限提升图存在满秩格族的正向包含；可选有理基",
+      "proof": "research_notes/heartbeat_graph_carry_20260920_AD0416/RESEARCH_NOTE.md#3",
+      "api": "find_graph_lattices",
+      "test": "tests/test_heartbeat_graph_carry.py",
+      "independent_review": false,
+      "lean_checked": false
+    },
+    {
+      "id": "HBW-GR-002",
+      "name_zh": "循环内双射与跨组件有限余量",
+      "assumptions": "GR-001的正向格证书",
+      "statement": "delta_e=g_source-g_target>=0；SCC内部delta=0；全路径差<=kappa(S_start)+kappa(S_end)+g_start-g_end；不要求跨组件双射",
+      "proof": "research_notes/heartbeat_graph_carry_20260920_AD0416/RESEARCH_NOTE.md#4",
+      "api": "graph_endpoint_bound",
+      "test": "tests/test_heartbeat_graph_carry.py",
+      "independent_review": false,
+      "lean_checked": false
+    },
+    {
+      "id": "HBW-GR-003",
+      "name_zh": "预算判定与合法路径列见证",
+      "assumptions": "GR-001的图，预算R>=0，q<=6|V|个可达提升端口",
+      "statement": "至多6qR+1轮固定或产生真实合法词的半径越界见证；越界不证明全局无界，较小轮数只能SEARCH_LIMIT",
+      "proof": "research_notes/heartbeat_graph_carry_20260920_AD0416/RESEARCH_NOTE.md#5",
+      "api": "verify_graph_result",
+      "test": "tests/test_heartbeat_graph_carry.py",
+      "independent_review": false,
+      "lean_checked": false
+    },
+    {
+      "id": "HBW-GR-004",
+      "name_zh": "无限进位峰值概率的闭合循环类分解",
+      "assumptions": "有限时间齐次边标记马尔可夫模型，保留边概率正且逐行和1，动作非奇异；闭合类有界/无界已正确证明",
+      "statement": "随机前缀sup kappa无穷的概率，恰等于吸收进无界闭合强连通类的概率和；不是单调趋于无穷断言",
+      "proof": "research_notes/heartbeat_graph_carry_20260920_AD0416/RESEARCH_NOTE.md#6",
+      "api": "bottom_component_absorption",
+      "test": "tests/test_heartbeat_graph_carry.py",
+      "independent_review": false,
+      "lean_checked": false
+    },
+    {
+      "id": "HBW-GR-005",
+      "name_zh": "几乎必然有界与最坏路径有界分离",
+      "assumptions": "暂态端口以1/2执行H留存、1/2退出到I吸收态；H=diag(p^2,1,p,p,p,p)",
+      "statement": "最大差=2K，P(K=k)=2^(-k-1)，几乎必然有限但无统一确定性界；P(max>=2m)=2^-m，期望2",
+      "proof": "research_notes/heartbeat_graph_carry_20260920_AD0416/RESEARCH_NOTE.md#7",
+      "api": "bottom_component_absorption",
+      "test": "tests/test_heartbeat_graph_carry.py",
+      "independent_review": false,
+      "lean_checked": false
+    },
+    {
+      "id": "HBW-GR-006",
+      "name_zh": "格指数权重的端点规范律",
+      "assumptions": "GR-001有限格证书；若使用概率下界还要求W行随机",
+      "statement": "product p^-delta=h_end/h_start；W_tilt=D^-1 W D；指数观察总质量有严格正的有限图下界，不产生循环内持续衰减",
+      "proof": "research_notes/heartbeat_graph_carry_20260920_AD0416/RESEARCH_NOTE.md#8",
+      "api": "graph_endpoint_bound",
+      "test": "tests/test_heartbeat_graph_carry.py",
+      "independent_review": false,
+      "lean_checked": false
+    },
+    {
+      "id": "HBW-GR-007",
+      "name_zh": "随机峰值的指数尾与精确BRC资源证书",
+      "assumptions": "有限齐次正概率图，非奇异整数X6动作；全部闭合类具有已核验格包含证书；给定有理z>1且Q(z)的正star证书通过",
+      "statement": "峰值M被暂态逐边carry和加类内界Y控制；E[z^Y]=(I-Q(z))^-1 r(z)，P(M>=R)<=min(1,E[z^Y]/z^R)；某个可认证z>1必存在；Y的矩不冒充M的精确矩",
+      "proof": "research_notes/heartbeat_graph_carry_20260920_AD0416/RESEARCH_NOTE.md#9",
+      "api": "carry_peak_tail_bound",
+      "test": "tests/test_heartbeat_graph_carry.py",
+      "independent_review": false,
+      "lean_checked": false
+    }
+  ],
+  "boundaries": [
+    "six native spatial axes plus independent time",
+    "linear p-Smith observer only",
+    "graph index is not physical entropy or heat",
+    "finite budget escape is not unboundedness",
+    "absorption probabilities do not supply class geometry proofs",
+    "peak supremum unbounded is not convergence to infinity",
+    "no global novelty claim"
+  ]
+}

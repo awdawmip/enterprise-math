@@ -1,0 +1,74 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "date": "2026-09-20",
+  "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "methods": [
+    {
+      "method_id": "t0.brc_constrained_graph_carry",
+      "name": "Heartbeat constrained-graph lattice inclusion and recurrent-class composition",
+      "family_id": "T0_BRC",
+      "classification": "GLOBAL_SUBTOOL",
+      "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+      "api": [
+        "CarryEdge",
+        "GraphColumn",
+        "GraphCarryResult",
+        "graph_from_packet",
+        "find_graph_lattices",
+        "replay_graph_word",
+        "verify_graph_result",
+        "graph_endpoint_bound",
+        "BottomAbsorption",
+        "bottom_component_absorption",
+        "CarryPeakTailBound",
+        "carry_peak_tail_bound"
+      ],
+      "source_refs": [
+        "src/enterprise_math/heartbeat_graph_carry.py",
+        "tests/test_heartbeat_graph_carry.py",
+        "research_notes/heartbeat_graph_carry_20260920_AD0416/RESEARCH_NOTE.md",
+        "research_notes/heartbeat_graph_carry_20260920_AD0416/THEOREM_LEDGER.json"
+      ],
+      "triggers": [
+        "constrained graph",
+        "state dependent switching",
+        "forward lattice inclusion",
+        "transient carry",
+        "almost sure boundedness",
+        "recurrent class absorption",
+        "index gauge",
+        "exponential peak tail",
+        "confidence resource bound"
+      ],
+      "capabilities": [
+        "exact finite-budget directed lattice closure",
+        "actual legal path-column escape",
+        "SCC bijection versus one-way index debt",
+        "exact BRC bottom-class absorption probabilities",
+        "exact exponential-moment carry-resource upper bounds with verified bottom-class lattice certificates"
+      ],
+      "reuse_resolution": {
+        "state": "REUSE_EXECUTED / COMPOSE_APPLIED / EXTEND_EXISTING_TOOL",
+        "methods": [
+          "t0.brc_common_lattice_search",
+          "t0.brc_switching_carry_lattice_ports",
+          "t0.brc_conditional_distribution_lift",
+          "finite_recurrent_mass_analysis",
+          "gauge_recurrent_mass_matrix"
+        ],
+        "gap": "Existing automatic finder assumes unrestricted switching; supplied port verifier requires bijections. New source admits forward inclusions on arbitrary finite directed control graphs. Absorption itself is classical exact resolvent reuse."
+      },
+      "hard_boundary": "Six-axis nonsingular integer linear actions only. Radius failure is not global unboundedness. Absorption assumes finite homogeneous row-stochastic mass and does not prove bottom-class geometry. Index weights are observer gauges, not physical entropy, heat, probabilities of actual discarded paths or semantic memory. Exponential moments concern an explicit pathwise majorant; overly large z failure is not actual unboundedness.",
+      "theorem_refs": [
+        "HBW-GR-001",
+        "HBW-GR-002",
+        "HBW-GR-003",
+        "HBW-GR-004",
+        "HBW-GR-005",
+        "HBW-GR-006",
+        "HBW-GR-007"
+      ],
+      "new_top_level_tool_families": 0
+    }
+  ]
+}
