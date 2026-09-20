@@ -146,6 +146,14 @@ Canonical control dispatch is recovery-aware:
 
 `STALE_SESSION + VALID_OWNER_CLAIM -> ADOPT_EXISTING_CLAIM -> OTHERWISE_FRESH_DISPATCH`.
 
+`CLAIM_ORIGIN_IDENTITY = PROVENANCE_NOT_RECOVERY_LOCK`.
+
+`STALE_VALID_CLAIM + ROLE_AUTHORIZED_SUCCESSOR -> ADOPT_EXISTING_CLAIM_WITHOUT_SAME_ID_REQUIREMENT`.
+
+`ACTIVE_EXACT_SESSION -> NO_SUCCESSOR_PREEMPTION`.
+
+A recovered session may use a new Researcher/Driver identity while the original CLAIM identity remains immutable provenance. Preserve the exact task/publication/claim, execution scope, branch and durable frontier; do not reissue the CLAIM merely because the predecessor conversation or identity is gone.
+
 Do not infer `NO_TASK` / `NO_DISPATCH` merely because the fresh selector returns no `NEEDS_DISPATCH` task. If fresh task/lane selection is empty while a valid owner lease remains and session liveness is unknown, first verify the latest independently observable conversation response or durable execution progress. Stale means adopt the existing winning CLAIM through `tools/research_runtime_guard.py adopt`; active means preserve that owner. Never manufacture a second CLAIM merely to recover a stale conversation.
 
 Immediately before final-channel output, evaluate PRE_FINAL through `tools/research_runtime_guard.py`; `tools/active_turn_liveness.py` remains the primitive liveness evaluator.

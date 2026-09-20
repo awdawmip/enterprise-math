@@ -16,7 +16,8 @@
     "ROLE_TRANSITION_MERGE",
     "SEMANTIC_SAFE_CONTROL_MIGRATION",
     "SEMANTIC_VERIFICATION_REQUEST_CAPTURE",
-    "CONTROL_PLANE_MAINTENANCE_LIVENESS"
+    "CONTROL_PLANE_MAINTENANCE_LIVENESS",
+    "EXECUTOR_SUCCESSION"
   ],
   "task_publication": {
     "contract": "research_task_publication_contract_v2.json",
@@ -76,7 +77,11 @@
     "runtime_policy": "research_runtime_policy_v2.json",
     "event_reducer": "tools/research_runtime_reducer.py",
     "task_definition_source": "IMMUTABLE_V2_TASK_PUBLICATIONS_ONLY",
-    "legacy_definition_fallback": false
+    "legacy_definition_fallback": false,
+    "executor_succession_policy": "control_plane/executor_succession_policy.json",
+    "claim_origin_identity_is_recovery_lock": false,
+    "active_session_successor_takeover": false,
+    "stale_session_successor_takeover": "ALLOWED_WITH_EXACT_CLAIM_FRONTIER_AND_CURRENT_ROLE_AUTHORITY"
   },
   "review_write_authority": {
     "contract": "research_review_write_authority.json",
@@ -154,7 +159,9 @@
     "tool_visibility_recomputed_from_destination_mode": true,
     "owner_scope_liveness_recomputed_from_destination_task_claim": true,
     "destination_role_messages_refresh_suspended_task_liveness": false,
-    "invariant": "PRESERVE_PROVENANCE_AND_DURABLE_FRONTIER_WHILE_RECOMPUTING_DESTINATION_AUTHORITY"
+    "invariant": "PRESERVE_PROVENANCE_AND_DURABLE_FRONTIER_WHILE_RECOMPUTING_DESTINATION_AUTHORITY",
+    "executor_identity_reuse_required_for_stale_claim": false,
+    "claim_origin_identity_persists_as_provenance": true
   },
   "semantic_migration": {
     "registry": "control_plane/control_semantic_migration_registry.json",
@@ -214,7 +221,8 @@
     "uncertain_semantics_rule": "CAPTURE_NONEXECUTABLE_VERIFICATION_REQUEST_OR_ROUTE_TO_AUTHORIZED_GOVERNANCE_ROLE; DO_NOT_SELF_PUBLISH_FROM_CONTROL_MODE",
     "large_json_pointer_cleanup_rule": "USE_EXACT_SPAN_REGISTERED_MIGRATION; DO_NOT_WHOLE_FILE_RESERIALIZE_BY_DEFAULT",
     "remote_manual_publication_rule": "TRANSPORT_FALLBACK_ONLY; CANONICAL_PREFLIGHT_REMAINS_REQUIRED; CI_IS_BACKSTOP_NOT_AUTHORIZATION",
-    "legacy_control_files": "PHYSICALLY_ISOLATED_ON_ARCHIVE_BRANCH_NOT_PROMPT_HIDDEN"
+    "legacy_control_files": "PHYSICALLY_ISOLATED_ON_ARCHIVE_BRANCH_NOT_PROMPT_HIDDEN",
+    "executor_succession_rule": "TASK/CLAIM/SCOPE/DURABLE_FRONTIER ARE CONTINUITY AUTHORITY; CLAIM-ORIGIN PERSON ID IS PROVENANCE AFTER STALE DETECTION. DO NOT PREEMPT AN ACTIVE EXACT SESSION."
   },
   "role_expectations": {
     "TASK_RESEARCH": [
@@ -263,7 +271,8 @@
       "UNCERTAIN_SEMANTICS_TO_NONEXECUTABLE_VERIFICATION_REQUEST_NOT_SELF_PUBLISHED_TASK",
       "LARGE_JSON_POINTER_CHANGE_USES_EXACT_SPAN_APPLIER_NOT_WHOLE_FILE_RESERIALIZATION",
       "REMOTE_MANUAL_PUBLICATION_DOES_NOT_BYPASS_CANONICAL_PREFLIGHT",
-      "EXTERNAL_SUPERVISOR_CANNOT_GRANT_CLAIM_OR_MATHEMATICAL_AUTHORITY"
+      "EXTERNAL_SUPERVISOR_CANNOT_GRANT_CLAIM_OR_MATHEMATICAL_AUTHORITY",
+      "PRESERVE_TASK_SLOTS_WHILE_ALLOWING_ROLE_AUTHORIZED_STALE_EXECUTOR_SUCCESSION"
     ]
   }
 }

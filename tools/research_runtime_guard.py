@@ -355,6 +355,7 @@ def main() -> int:
     adopt.add_argument("--events", type=Path)
     adopt.add_argument("--evidence-json", required=True)
     adopt.add_argument("--replacement-session-id", required=True)
+    adopt.add_argument("--replacement-executor-id")
     adopt.add_argument("--now", required=True)
     adopt.add_argument(
         "--session-liveness-minutes",
@@ -406,6 +407,7 @@ def main() -> int:
                 state,
                 evidence,
                 replacement_session_id=args.replacement_session_id,
+                replacement_executor_id=args.replacement_executor_id,
                 now=_core.research_runtime.parse_time(args.now),
                 events=events,
                 session_liveness_minutes=args.session_liveness_minutes,

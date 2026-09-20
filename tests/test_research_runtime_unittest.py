@@ -155,10 +155,20 @@ class ResearchRuntimeTransitionTests(unittest.TestCase):
         self.assertEqual(decision["action"], "VERIFY_SESSION_LIVENESS")
         self.assertFalse(decision["new_claim_required"])
 
-    def test_stale_adoption_preserves_claim_identity_and_does_not_replay(self):
-        out = rt.adopt_stale_session(make_state(), make_evidence(), replacement_session_id="replacement", now=ts("2026-08-25T12:11:00+08:00"))
+    def test_stale_adoption_preserves_claim_provenance_but_allows_new_executor(self):
+        out = rt.adopt_stale_session(
+            make_state(),
+            make_evidence(),
+            replacement_session_id="replacement",
+            replacement_executor_id="EM-T1-DEF456",
+            now=ts("2026-08-25T12:11:00+08:00"),
+        )
         self.assertEqual(out["owner_claim"]["claim_id"], "claim-1")
         self.assertEqual(out["owner_claim"]["researcher_id"], "EM-T1-ABC123")
+        self.assertEqual(out["session"]["executor_id"], "EM-T1-DEF456")
+        self.assertEqual(out["session"]["claim_origin_researcher_id"], "EM-T1-ABC123")
+        self.assertTrue(out["adoption"]["executor_changed"])
+        self.assertFalse(out["adoption"]["same_identity_required"])
         self.assertFalse(out["adoption"]["claim_reissued"])
         self.assertFalse(out["adoption"]["completed_units_replayed"])
         self.assertEqual(out["adoption"]["resume_unit"], "prove unit B")

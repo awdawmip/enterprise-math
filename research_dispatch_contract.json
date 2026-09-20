@@ -19,7 +19,11 @@
   "control_event_authorization": {
     "contract": "research_control_event_authorization.json",
     "mode": "EXACT_SERVER_AUTHOR_ALLOWLIST",
-    "required_actor_fields": ["author_login", "author_user_id", "author_association"],
+    "required_actor_fields": [
+      "author_login",
+      "author_user_id",
+      "author_association"
+    ],
     "server_authentication_is_authorization": false,
     "body_actor_is_authorization": false,
     "body_researcher_id_is_github_authorization": false,
@@ -85,7 +89,9 @@
     "valid_owner_plus_stale_session": "ADOPT_EXISTING_WINNING_CLAIM_WITHOUT_NEW_CLAIM",
     "valid_owner_plus_unknown_session_and_no_fresh_target": "VERIFY_SESSION_LIVENESS; DO_NOT_RETURN_NO_DISPATCH",
     "owner_expired_or_absent": "FRESH_DISPATCH_MAY_CREATE_ONE_NEW_CLAIM",
-    "adoption_guard": "tools/research_runtime_guard.py adopt"
+    "adoption_guard": "tools/research_runtime_guard.py adopt",
+    "executor_identity_semantics": "CLAIM_ORIGIN_IDENTITY_IS_PROVENANCE_AFTER_STALE_DETECTION; ACTIVE_SESSION_IDENTITY_REMAINS_PROTECTED",
+    "stale_successor_rule": "VALID_CLAIM_PLUS_STALE_EXACT_SESSION_MAY_BE_ADOPTED_BY_A_DIFFERENT_CURRENT_ROLE_AUTHORIZED_EXECUTOR_WITHOUT_REISSUING_THE_CLAIM"
   },
   "runtime_fault_isolation": {
     "bootstrap": "control_plane/research_control_bootstrap.py",
@@ -151,7 +157,10 @@
     "TERMINAL_DRIVER_REVIEW_CLOSES_ORDINARY_DISPATCH_ONLY_WHEN_NO_ACTIVE_COHORT_REMAINS",
     "REGISTERED_DONE_EVENT_REQUIRES_MATCHING_REVIEWED_RESULT_OR_VALID_TERMINAL_COHORT_SYNTHESIS_AS_APPLICABLE",
     "LEGACY_EVENT_REDUCER_REMAINS_COMPATIBILITY_PRIMITIVE_NOT_TASK_DEFINITION_AUTHORITY",
-    "CANONICAL_DISPATCH_REQUIRES_NO_ROUTINE_GITHUB_POLLING_BETWEEN_SEMANTIC_CHECKPOINTS"
+    "CANONICAL_DISPATCH_REQUIRES_NO_ROUTINE_GITHUB_POLLING_BETWEEN_SEMANTIC_CHECKPOINTS",
+    "CLAIM_ORIGIN_RESEARCHER_OR_DRIVER_ID_IS_PROVENANCE_NOT_PERMANENT_RECOVERY_LOCK",
+    "STALE_VALID_CLAIM_MAY_CHANGE_ACTIVE_SESSION_EXECUTOR_WITHOUT_CHANGING_CLAIM_PROVENANCE",
+    "ACTIVE_EXACT_OWNER_SESSION_CANNOT_BE_PREEMPTED_BY_SUCCESSOR_EXECUTOR"
   ],
   "derived_dispatch_states": [
     "NEEDS_DISPATCH",
@@ -170,20 +179,31 @@
     "authority": "Current source-backed ACTIVE Driver AUTHORIZE event; source_body.assigned_governance_task exactly binds task_id, publication_id and parent_objective_id",
     "request_is_delegation_authority": false,
     "reason_prose_is_typed_delegation": false,
-    "required_request_fields": ["schema", "driver_id", "task_id", "publication_id", "parent_objective_id", "driver_authority_record_id", "driver_authority_record_sha256", "expected_claim_id", "session_id"],
+    "required_request_fields": [
+      "schema",
+      "driver_id",
+      "task_id",
+      "publication_id",
+      "parent_objective_id",
+      "driver_authority_record_id",
+      "driver_authority_record_sha256",
+      "expected_claim_id",
+      "session_id"
+    ],
     "ordinary_global_selection_changed": false,
     "current_state_source": "Current immutable publication -> registered_definition -> canonical reduce_definition with the existing Result snapshot and overlays, bounded to the single assigned target; no second task registry",
     "nonempty_dependencies": "FAIL_CLOSED_REQUIRES_CANONICAL_DEPENDENCY_RESOLUTION; this bounded entry does not interpret another dependency model",
     "blocked_closed_cohort_or_unreviewed_result": "REJECT_NO_FALLBACK_TO_OTHER_TASK",
-    "existing_owner": "Require expected_claim_id and same Driver identity; preserve winning CLAIM and ER; session liveness remains separate",
+    "existing_owner": "Require exact expected_claim_id; preserve winning CLAIM/ER. If exact session is stale, a different currently ACTIVE authorized Driver may adopt the same claim; claim-origin identity remains provenance.",
     "active_session": "KEEP_CURRENT_SESSION only with exact task/claim activity and matching explicit session_id; otherwise VERIFY_SESSION_LIVENESS",
-    "stale_session": "ADOPT_OWNER_CLAIM through existing runtime adopt guard; no new CLAIM",
+    "stale_session": "ADOPT_OWNER_CLAIM through existing runtime adopt guard; replacement Driver identity may differ from claim origin; no new CLAIM",
     "fresh_target": "CLAIM_NEW_OWNER still requires canonical execution intent, real server CLAIM and runtime authorize",
     "forward_revalidation": "Record current validation time; never reconstruct omitted pre-claim selector evidence",
     "execution_authorized": false,
     "working_truth_granted": false,
     "foundation_authority_granted": false,
-    "parent_completion_granted": false
+    "parent_completion_granted": false,
+    "assigned_entry_is_recovery_prerequisite": false
   },
   "assigned_research_task_entry": {
     "schema": "ENTERPRISE_MATH_ASSIGNED_RESEARCH_TASK_REQUEST_V1",
@@ -192,14 +212,29 @@
     "event_transport": "Existing ENTERPRISE_MATH_SCHEDULER_EVENT_V1 raw Issue 240 comments; ASSIGN_RESEARCH_TASK and REVOKE_RESEARCH_TASK_ASSIGNMENT",
     "task_authority": "Current immutable TP2 only; assignment events add no task registry",
     "driver_scope": "Current source-backed ACTIVE AUTHORIZE, exact record/hash pin, and source_body.research_task_delegation_scope.parent_objective_ids",
-    "assignment_binding": ["task_id", "publication_id", "parent_objective_id", "driver_id", "driver_authority_record_id", "driver_authority_source_comment_id", "researcher_id", "session_id", "executor_role"],
-    "request_additional_pins": ["assignment_comment_id", "assignment_body_sha256", "driver_authority_record_sha256", "expected_claim_id"],
+    "assignment_binding": [
+      "task_id",
+      "publication_id",
+      "parent_objective_id",
+      "driver_id",
+      "driver_authority_record_id",
+      "driver_authority_source_comment_id",
+      "researcher_id",
+      "session_id",
+      "executor_role"
+    ],
+    "request_additional_pins": [
+      "assignment_comment_id",
+      "assignment_body_sha256",
+      "driver_authority_record_sha256",
+      "expected_claim_id"
+    ],
     "executor_role": "RESEARCHER; distinct from the issuing Driver",
     "session_binding": "Existing runtime opaque nonblank string, preserved exactly; task/publication/parent ID syntax is not a session syntax restriction",
     "selection_evidence": "assigned_research_selection with source comment/body digest, current DA digest, exact TP2/taskbook blob, recipient/session, check time and explicit no-execution/no-retrospective-selection flags",
     "conflicting_assignments": "FAIL_CLOSED; issuer explicitly revokes its earlier exact assignment before replacement; no recency winner",
     "superseded_publication_or_changed_da": "REJECT_OLD_ASSIGNMENT; preserve original provenance and existing execution-generation rules",
-    "owner_recovery": "Exact expected claim and same researcher only; preserve active owner; independent exact owner-scope stale evidence is required for existing runtime adopt",
+    "owner_recovery": "Exact expected claim is preserved. Same-researcher identity is NOT required after exact owner session is stale; a different currently assigned/authorized researcher may adopt the same claim while claim-origin identity remains provenance.",
     "foreign_owner_transfer": false,
     "supported_dependency_shape": "Empty list, or unique task_id/required_artifact obligations covered exactly by a canonically applied current-publication typed UNBLOCK and current operational accepted immutable Driver reviews with ready follow-ups",
     "unsupported_or_unresolved_dependencies": "Scoped NO_DISPATCH with selection_status BLOCKED and target dispatch_state BLOCKED; preserve any claim; never skip or infer completion from requirement prose",
@@ -212,9 +247,16 @@
     "ordinary_global_routing_changed": false,
     "assignment_reserves_task_or_creates_claim": false,
     "assignment_authorizes_execution_or_acceptance": false,
-    "next_steps": ["Current exact selection", "Existing execution prepare", "Actual Issue 240 CLAIM", "Existing runtime authorize"],
+    "next_steps": [
+      "Current exact selection",
+      "Existing execution prepare",
+      "Actual Issue 240 CLAIM",
+      "Existing runtime authorize"
+    ],
     "historical_proof_input": "Previously completed proof may be cited at its real source/author/time; no prior ER, claim or selector is reconstructed",
-    "protocol": "docs/CHATGPT_CONTROL_DISPATCH_BRIDGE.md"
+    "protocol": "docs/CHATGPT_CONTROL_DISPATCH_BRIDGE.md",
+    "assigned_entry_is_recovery_prerequisite": false,
+    "ordinary_recovery_route": "Canonical recover-before-fresh routing may recover a stale exact claim without a new assignment; assignment remains an optional targeted routing surface, not a personnel lock."
   },
   "parallel_execution_dispatch": {
     "contract": "research_execution_cohort_contract.json",
@@ -231,6 +273,6 @@
     "multiple_existing_lane_results": "RETAIN_ALL",
     "cohort_task_terminalization": "ONLY_AFTER_ALL_LANES_HAVE_EVIDENCE_PLUS_REFERENCE_PASS_1_PLUS_REFERENCE_PASS_2_PLUS_TERMINAL_SYNTHESIS_CONTROL"
   },
-  "selection_rule": "Run control_plane/research_control_bootstrap.py before any canonical runtime view, then run research_control_dispatch.py as the canonical control-plane route. The bootstrap locally isolates only exact-pinned publication forks, invalid current task publications, nonoperational Driver-review provenance, and follow-up authority derived solely from those reviews; it selects no replacement authority and leaves unrelated tasks untouched. The router then first preserves/adopts any owner scope whose valid CLAIM has exact owner-scope liveness evidence and is independently observed stale, without creating a second CLAIM. General conversation activity outside that task/claim/lane is ignored for owner liveness. If no stale-recoverable owner is observed, it delegates ordinary fresh task selection to tools/research_dispatch.py and active-cohort lane selection to tools/research_lane_dispatch.py. If both fresh selectors are empty but any valid owner lease has unknown exact owner-scope liveness, the result is VERIFY_SESSION_LIVENESS rather than NO_DISPATCH. For ordinary fresh tasks, historical state/priority/leverage/staleness ordering remains unchanged; AWAITING_REVIEW and COMPLETE are never selected. When an ACTIVE cohort exists, canonical task status is projected to COHORT_ACTIVE and task-global ownership is disabled. Live events must come from raw server-authenticated Issue #240 comments whose exact server actor is authorized. Compatible historical execution records may supply the same durable binding but cannot replace the live winning claim requirement.",
+  "selection_rule": "Run control_plane/research_control_bootstrap.py before any canonical runtime view, then run research_control_dispatch.py as the canonical control-plane route. The bootstrap locally isolates only exact-pinned publication forks, invalid current task publications, nonoperational Driver-review provenance, and follow-up authority derived solely from those reviews; it selects no replacement authority and leaves unrelated tasks untouched. The router then first preserves/adopts any owner scope whose valid CLAIM has exact owner-scope liveness evidence and is independently observed stale, without creating a second CLAIM. General conversation activity outside that task/claim/lane is ignored for owner liveness. If no stale-recoverable owner is observed, it delegates ordinary fresh task selection to tools/research_dispatch.py and active-cohort lane selection to tools/research_lane_dispatch.py. If both fresh selectors are empty but any valid owner lease has unknown exact owner-scope liveness, the result is VERIFY_SESSION_LIVENESS rather than NO_DISPATCH. For ordinary fresh tasks, historical state/priority/leverage/staleness ordering remains unchanged; AWAITING_REVIEW and COMPLETE are never selected. When an ACTIVE cohort exists, canonical task status is projected to COHORT_ACTIVE and task-global ownership is disabled. Live events must come from raw server-authenticated Issue #240 comments whose exact server actor is authorized. Compatible historical execution records may supply the same durable binding but cannot replace the live winning claim requirement. Executor identity on the original CLAIM is provenance after stale-session classification: recovery preserves exact task/publication/claim/scope/frontier while allowing a different current role-authorized executor session. Active exact-owner sessions remain non-preemptible.",
   "interaction_budget": "Recovery routing reuses existing owner state and ephemeral exact-owner-scope liveness evidence. Fault isolation is local deterministic repository-state reduction with no periodic polling and no extra CLAIM. Authentication and actor authorization reuse the same Issue #240 comments already needed for semantic control events. Ordinary tasks add no new periodic poll; liveness verification is required only when fresh dispatch is empty and a valid owner lease would otherwise cause a false NO_DISPATCH, or when stale adoption is being considered. Role-switch messages outside TASK_RESEARCH do not create extra heartbeats and do not refresh the suspended task owner scope."
 }

@@ -395,6 +395,7 @@ def adopt_stale_session(
     evidence: Mapping[str, Any],
     *,
     replacement_session_id: str,
+    replacement_executor_id: str | None = None,
     now,
     events: list[dict[str, Any]] | None = None,
     session_liveness_minutes: int = research_runtime.DEFAULT_SESSION_LIVENESS_MINUTES,
@@ -417,6 +418,7 @@ def adopt_stale_session(
         safe,
         evidence,
         replacement_session_id=replacement_session_id,
+        replacement_executor_id=replacement_executor_id,
         now=now,
         session_liveness_minutes=session_liveness_minutes,
     )

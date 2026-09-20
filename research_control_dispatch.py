@@ -6,6 +6,11 @@ conversation liveness. It never creates a CLAIM and never changes owner-lease
 semantics. A valid owner lease and a stale owner execution session are routed to
 stale-session adoption with the existing winning CLAIM preserved.
 
+The CLAIM-origin researcher/Driver identity is provenance after the bound session
+is stale. Recovery is bound to the exact task/claim/durable frontier plus current
+role authority, not to reusing the predecessor identity. An active exact-owner
+session remains protected from successor takeover.
+
 Owner-scope liveness is narrower than generic conversation activity. Only a
 verified TASK_RESEARCH response or durable execution progress bound to the exact
 task/lane and exact winning claim_id may refresh that owner scope. Control-plane,
@@ -255,13 +260,16 @@ def _adoption_result(target: Mapping[str, Any], decision: Mapping[str, Any]) -> 
         "target_key": _state_target_key(state),
         "claim_id": state.get("claim_id"),
         "researcher_id": state.get("researcher_id"),
+        "claim_origin_researcher_id": state.get("researcher_id"),
         "owner_lease_until": state.get("owner_lease_until", state.get("lease_until")),
         "owner_claim_preserved": True,
         "new_claim_required": False,
+        "executor_succession_allowed": True,
+        "same_identity_required": False,
         "session_state": decision.get("session_state"),
         "stale_at": decision.get("stale_at"),
         "required_guard": "tools/research_runtime_guard.py adopt",
-        "reason": "valid owner lease remains authoritative but the exact owner execution session is stale",
+        "reason": "valid claim slot remains authoritative, the bound execution session is stale, and successor identity need not equal claim-origin identity",
     }
 
 
@@ -443,22 +451,28 @@ def _assigned_driver_route(
         raise ControlDispatchError("assigned target retains a canonical hard block")
     if state.get("claim_id") != expected_claim:
         raise ControlDispatchError("assigned target owner changed; preserve the current claim")
-    if expected_claim is not None and state.get("researcher_id") != request["driver_id"]:
-        raise ControlDispatchError("assigned Driver cannot take another owner's live claim")
-
+    # CLAIM-origin identity is provenance for recovery. Active-session protection
+    # is enforced by the liveness decision below; stale claims may be continued by
+    # a different currently authorized Driver without creating a second CLAIM.
     observation = observations.get(request["task_id"])
     activity = _owner_scope_activity(state, observation)
     decision = research_runtime.dispatch_decision(state, session_last_activity_at=activity, now=now)
     # Exact owner activity can prove an owner is active, but does not transfer
     # that activity to a different caller session. Stale adoption remains guarded.
     if (decision["action"] == research_runtime.KEEP_CURRENT_SESSION
-            and (observation or {}).get("session_id") != request["session_id"]):
+            and ((observation or {}).get("session_id") != request["session_id"]
+                 or state.get("researcher_id") != request["driver_id"])):
         decision = {"action": "VERIFY_SESSION_LIVENESS", "owner_claim_preserved": True,
                     "new_claim_required": False}
     result = {
         **decision, "surface": ORDINARY_TASK, "target": state,
         "target_key": request["task_id"],
         "claim_id": state.get("claim_id"), "researcher_id": request["driver_id"],
+        "executor_succession": {
+            "claim_origin_researcher_id": state.get("researcher_id"),
+            "requested_executor_id": request["driver_id"],
+            "same_identity_required_for_stale_adoption": False,
+        },
         "required_guard": ("tools/research_runtime_guard.py adopt"
                            if decision["action"] == research_runtime.ADOPT_OWNER_CLAIM
                            else "tools/research_runtime_guard.py authorize"),
@@ -542,8 +556,8 @@ def _assigned_research_route(
             return blocked("assigned research entry cannot replace the existing cohort-lane flow")
         if state.get("claim_id") != request["expected_claim_id"]:
             return blocked("assigned target owner changed; refresh the exact claim without replacing it")
-        if state.get("claim_id") and state.get("researcher_id") != request["researcher_id"]:
-            return blocked("assigned researcher cannot take a foreign owner's claim")
+        # A stale CLAIM may be resumed by a different current researcher identity.
+        # Exact task/publication/claim and durable frontier stay authoritative.
         if definition.get("dependencies") != []:
             try:
                 dependency_proof = research_dependency_release.resolve(definition, events, now=now, root=root)
@@ -560,10 +574,16 @@ def _assigned_research_route(
         activity = _owner_scope_activity(state, observation)
         decision = research_runtime.dispatch_decision(state, session_last_activity_at=activity, now=now)
         if (decision["action"] == research_runtime.KEEP_CURRENT_SESSION
-                and (observation or {}).get("session_id") != request["session_id"]):
+                and ((observation or {}).get("session_id") != request["session_id"]
+                     or state.get("researcher_id") != request["researcher_id"])):
             decision = {"action": "VERIFY_SESSION_LIVENESS", "owner_claim_preserved": True,
                         "new_claim_required": False}
         return {**result, **decision, "selection_status": "ELIGIBLE",
+                "executor_succession": {
+                    "claim_origin_researcher_id": state.get("researcher_id"),
+                    "requested_executor_id": request["researcher_id"],
+                    "same_identity_required_for_stale_adoption": False,
+                },
                 "assigned_research_selection": {**evidence, "eligible": True},
                 "required_guard": ("tools/research_runtime_guard.py adopt"
                                    if decision["action"] == research_runtime.ADOPT_OWNER_CLAIM
@@ -571,7 +591,7 @@ def _assigned_research_route(
                 "next_control_steps": (["tools/research_execution_records.py prepare", "Issue 240 CLAIM",
                                         "tools/research_runtime_guard.py authorize"]
                                        if decision["action"] == research_runtime.CLAIM_NEW_OWNER else []),
-                "reason": "Exact source-authorized Driver assignment to this researcher/session; global ranking is unchanged."}
+                "reason": "Exact source-authorized assignment selects the current executor/session; stale claim-origin identity is provenance, not a recovery lock; global ranking is unchanged."}
 
 
 def route_control(
