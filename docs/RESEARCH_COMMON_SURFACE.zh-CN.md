@@ -249,7 +249,7 @@ PR #296 在上述精确 precision normal form 上加入 periodic-growth 层。�
 
 给出精确正增长常数，同时构造按 period blocks 得到的 universal eventual C-finite annihilator/recurrence class。该 annihilator 可能不是 minimal。因而，相同 period length 与相同 absolute drift 会强制相同的 class-level growth equation 和 universal recurrence space，但**不**强制相同有限 shell-total sequence 或 phase：有限周期 cancellation 仍可不同。Coordination-observable 与 observation-history theory 仍在本次 promotion 之外。
 
-**活跃接口警报 — FQ-20260809-005：**稳定导出的 `geometry.graph_distance` 接受一般 adjacency mapping，而 P012 普通 metric theorem 假设连通无向简单图。在研究答案经 steward 验证前，对非对称 adjacency 输入不得引用 P012 metric symmetry。
+**Canonical A5 graph-distance API — FQ-20260809-005：**稳定的 `geometry.graph_distance` 是 P012 theorem-facing 的最短步数 API，要求 adjacency 闭合、对称且无自环；`directed_graph_distance` 保留字面 outgoing-adjacency 最短游走语义，不附加 ordinary-metric symmetry 主张。二者在 P012-valid 输入上一致；非连通无向简单图保留分量内有限 metric，跨分量有限距离查询显式拒绝。Research PR #431 已由 Issue #164 comment 5242447403 通过 Steward 验证，并经 PR #436 / main@3a40fe680e7aad4bc458540483c3c753e15f2cc4 完成源码 canonicalization。
 
 ### P021 — causal-boundary specialization
 
@@ -377,9 +377,9 @@ Toolbox 工具登记在 `enterprise_toolbox_registry.json` 与 `docs/ENTERPRISE_
 
 ## 10. Foundation stewardship
 
-FQ-001 至 FQ-004 与 FQ-006 已 canonicalized。目前 active foundation questions 为：
+FQ-001 至 FQ-006 已 canonicalized。目前 active foundation question 为：
 
-- `FQ-20260809-005` —— stable `graph_distance` API 定义域与 P012 ordinary-metric theorem 定义域。
+
 - `FQ-20260810-007` —— 研究是否存在一个最弱的项目原生有限 causal/relational primitive，使任意有限预采样在操作上可被证伪；若不存在，则证明当前 Foundation 需要额外物理/因果公理才能区分在线生成与有限 latent completion。
 
 FQ-006 在不改变 FQ-004 actual-state / observation / future-safe 分层的前提下，为 P023 增加合法性敏感的部分确定性未来语言；它也不把 A4 multivalued correspondence 压缩成 partial function model。

@@ -46,9 +46,23 @@
     "issue": 164,
     "title": "[P0] Foundation Steward Problem Set / 底层维护高优先级问题集",
     "id_prefix": "FQ-",
-    "priority_classes": ["P0-C", "P0-I", "P1-R", "P2-A"],
-    "status_classes": ["OPEN", "CLAIMED", "RESEARCHING", "ANSWERED", "REJECTED", "CANONICALIZED"],
-    "active_questions": ["FQ-20260809-005", "FQ-20260810-007"],
+    "priority_classes": [
+      "P0-C",
+      "P0-I",
+      "P1-R",
+      "P2-A"
+    ],
+    "status_classes": [
+      "OPEN",
+      "CLAIMED",
+      "RESEARCHING",
+      "ANSWERED",
+      "REJECTED",
+      "CANONICALIZED"
+    ],
+    "active_questions": [
+      "FQ-20260810-007"
+    ],
     "research_handoff_required": true,
     "steward_primary_investigator": false,
     "new_research_task_publication": "IMMUTABLE_TASK_RECORD_BEFORE_CLAIM",
@@ -101,6 +115,19 @@
       "resolved_by": "FQ-20260809-006",
       "canonical_pr": 311,
       "canonical_merge": "a7c21de79c8115fc06238d7810452a218987ecd6"
+    },
+    "graph_distance_api": {
+      "stable_api": "graph_distance = P012 theorem-facing shortest-step distance on closed, symmetric, loop-free adjacency",
+      "directed_api": "directed_graph_distance = literal outgoing-adjacency shortest-walk helper; no ordinary-metric symmetry claim",
+      "reduction_boundary": "the two helpers agree on P012-valid input",
+      "disconnected_boundary": "ordinary finite metric is componentwise; cross-component queries are explicitly rejected",
+      "representation_repairs": "endpoint membership is checked before zero-length return; referenced neighbors must remain inside the declared key domain",
+      "novelty": "generic BFS, directed shortest paths and graph metrics are prior mathematics; this is theorem/tool API alignment",
+      "resolved_by": "FQ-20260809-005",
+      "research_return": "Issue #164 comment 5242436041 / PR #431@ca351e5446b3a84835ade9509f1ab97c276841d9",
+      "steward_acceptance": "Issue #164 comment 5242447403",
+      "canonical_pr": 436,
+      "canonical_merge": "3a40fe680e7aad4bc458540483c3c753e15f2cc4"
     }
   },
   "direct_maintenance_when": [

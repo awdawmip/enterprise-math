@@ -249,7 +249,7 @@ PR #296 adds the periodic-growth layer on top of that exact precision normal for
 
 and a universal eventual C-finite annihilator/recurrence class built from the period blocks. That annihilator may be nonminimal. Equal period length and equal absolute drift therefore force the same class-level growth equation and the same universal recurrence space, but **do not** force the same finite shell-total sequence or phase: finite periodic cancellations can still differ. Coordination-observable and observation-history theories remain outside this promotion.
 
-**Active interface alert — FQ-20260809-005:** stable exported `geometry.graph_distance` accepts general adjacency mappings, while P012 ordinary metric theorems assume connected undirected simple graphs. Until the research answer is steward-verified, do not cite P012 metric symmetry for asymmetric adjacency inputs.
+**Canonical A5 graph-distance API — FQ-20260809-005:** stable `geometry.graph_distance` is the P012 theorem-facing shortest-step API on a closed, symmetric, loop-free adjacency representation; `directed_graph_distance` preserves literal outgoing-adjacency shortest-walk semantics without an ordinary-metric symmetry claim. The helpers agree on P012-valid input, disconnected undirected simple graphs retain componentwise finite metric semantics, and cross-component finite-distance queries are explicitly rejected. Research PR #431 was Steward-accepted in Issue #164 comment 5242447403 and source-canonicalized through PR #436 / main@3a40fe680e7aad4bc458540483c3c753e15f2cc4.
 
 ### P021 — causal-boundary specialization
 
@@ -377,9 +377,9 @@ When a reusable result appears:
 
 ## 10. Foundation stewardship
 
-FQ-001 through FQ-004 and FQ-006 are canonicalized foundation conventions/results. The currently active foundation questions are:
+FQ-001 through FQ-006 are canonicalized foundation conventions/results. The currently active foundation question is:
 
-- `FQ-20260809-005` — stable `graph_distance` API domain versus the P012 ordinary-metric theorem domain.
+
 - `FQ-20260810-007` — determine whether a weakest project-native finite causal/relational primitive can make arbitrary finite pre-sampling operationally falsifiable, or prove that current Foundation semantics require an additional physical/causal axiom to distinguish online generation from finite latent completion.
 
 FQ-006 adds legality-sensitive partial deterministic future languages to P023 without changing FQ-004's actual-state / observation / future-safe layering and without collapsing A4 multivalued correspondence into a partial function model.

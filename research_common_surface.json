@@ -50,12 +50,9 @@
     "research_backflow_enabled": true,
     "fq_scheduler_links_required_for_executable_open_questions": true,
     "active_foundation_questions": [
-      "FQ-20260809-005",
       "FQ-20260810-007"
     ],
-    "active_interface_alerts": [
-      "FQ-20260809-005"
-    ]
+    "active_interface_alerts": []
   },
   "canonical_foundation_conventions": {
     "natural_numbers": "N = N_0 includes zero; positive integers are N_{>0}",
@@ -235,6 +232,17 @@
       "phase_saturation": "for endpoint-clearance sum C and collapse factor d, C>=2d-1 gives 2(d-1) interaction phases and C-2d+1 transmitting phases; further displacement adds transmission phases only",
       "staged_projection_negative": "two finite staged projections can differ by order through one returned-budget quantum even when the undeformed rational product commutes; this is a pure integer comparator, not a laminate constitutive law",
       "physical_boundary": "finite application specialization only; no hidden continuum, probability law, laminate constitutive law, or universal material physics is inferred"
+    },
+    "A5_graph_distance_api": {
+      "status": "CANONICAL_MAIN + EXECUTABLE_CHECKED",
+      "source_question": "FQ-20260809-005",
+      "research_return": "PR #431 / head@ca351e5446b3a84835ade9509f1ab97c276841d9",
+      "steward_acceptance": "Issue #164 comment 5242447403",
+      "canonical_publication": "PR #436 / main@3a40fe680e7aad4bc458540483c3c753e15f2cc4",
+      "scope": "graph_distance validates closed/symmetric/loop-free P012 adjacency; directed_graph_distance preserves literal outgoing shortest-walk semantics; the helpers agree on P012-valid input",
+      "disconnected_boundary": "componentwise finite ordinary metric; cross-component finite-distance queries are explicitly rejected",
+      "representation_repairs": "endpoint membership before zero-length return and adjacency-key closure",
+      "prior_art_boundary": "generic BFS/shortest-path/graph-metric mathematics is prior art; canonical result is theorem/tool API repair"
     }
   },
   "foundation_backflow_extraction_targets": [
@@ -367,9 +375,7 @@
     "E001_measurement_refinement_application": "canonical exact finite-measurement specialization for measured-polyline area-refinement shells and variation diagnostics; it consumes newly supplied measurements and does not interpolate or recover an unknown continuum curve",
     "E001_residual_conservation_application": "canonical finite-integer E001 specialization containing reusable alias-horizon, boundary-shell, endpoint-phase saturation results and a staged-projection comparator-negative; none is a probability law, continuum asymptotic, laminate constitutive law, or universal material theorem"
   },
-  "tool_scope_alerts": {
-    "FQ-20260809-005": "stable geometry.graph_distance accepts general adjacency mappings while P012 ordinary metric theorems assume connected undirected simple graphs; do not inherit metric symmetry on asymmetric inputs until API layering is resolved"
-  },
+  "tool_scope_alerts": {},
   "tool_roots": {
     "python_exact_reference": "src/enterprise_math/",
     "lean": "EnterpriseMath/",

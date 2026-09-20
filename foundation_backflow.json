@@ -106,24 +106,6 @@
   "question_scheduler_links": [],
   "answered_question_scheduler_links": [
     {
-      "question_id": "FQ-20260809-005",
-      "phase": "ANSWERED",
-      "scheduler_task_id": "RS-P022-GRAPH-DISTANCE-API",
-      "scheduler_role": "RESEARCH",
-      "research_owner": "program/p022-geometry-v2",
-      "terminal_publication_id": "TP2-5B9A7E9D506075AA13C7",
-      "terminal_record_state": "CLOSED",
-      "claimable": false,
-      "next_foundation_action": "STEWARD_VERIFICATION_OR_CANONICALIZATION",
-      "source_refs": [
-        "research_task_records/RS-P022-GRAPH-DISTANCE-API/TP2-5B9A7E9D506075AA13C7.json",
-        "PR #431",
-        "FQ-20260809-005 return evidence",
-        "Issue #164 comment 5231423831",
-        "P012 intrinsic discrete geometry"
-      ]
-    },
-    {
       "question_id": "FQ-20260810-007",
       "phase": "ANSWERED",
       "scheduler_task_id": "RS-R004-CAUSAL-IDENTIFIABILITY",
@@ -175,6 +157,26 @@
         "Issue #164 steward verification comment 5234662126",
         "research return PR #285 / frozen head 4c9f7424281d41488a1240a382c8685944c1f77c",
         "PR #311"
+      ]
+    },
+    {
+      "question_id": "FQ-20260809-005",
+      "phase": "CANONICALIZED",
+      "canonical_pr": 436,
+      "canonical_merge": "3a40fe680e7aad4bc458540483c3c753e15f2cc4",
+      "final_gates": [
+        "quality",
+        "bilingual-sync",
+        "reference-integrity"
+      ],
+      "result_class": "THEOREM_TOOL_API_REPAIR",
+      "foundation_result": "stable graph_distance is the P012 undirected-simple theorem-facing API; directed_graph_distance preserves literal outgoing shortest-walk semantics; componentwise ordinary metric is retained",
+      "source_refs": [
+        "Issue #164 research RETURN comment 5242436041",
+        "Issue #164 steward acceptance comment 5242447403",
+        "Issue #164 source-canonicalization comment 5242605053",
+        "PR #431 / ca351e5446b3a84835ade9509f1ab97c276841d9",
+        "PR #436 / 3a40fe680e7aad4bc458540483c3c753e15f2cc4"
       ]
     }
   ],
