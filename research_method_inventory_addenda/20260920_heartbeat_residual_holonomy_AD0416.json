@@ -40,7 +40,14 @@
         "monomial_cycle_valuation_data",
         "monomial_valuation_depths",
         "monomial_valuation_balance",
-        "periodic_monomial_valuation_balance"
+        "periodic_monomial_valuation_balance",
+        "characteristic_coefficients",
+        "newton_root_valuations",
+        "carry_slope_spectrum",
+        "carry_spread_rate",
+        "carry_balanced",
+        "phase_carry_spectra",
+        "smith_p_depths"
       ],
       "triggers": [
         "heartbeat monodromy",
@@ -54,7 +61,11 @@
         "valuation balance",
         "monomial heartbeat",
         "p-adic anisotropy drift",
-        "cycle mean valuation"
+        "cycle mean valuation",
+        "Newton carry slope",
+        "general axis mixing",
+        "p-adic eigenvalue slope",
+        "carry balance"
       ],
       "capabilities": [
         "exact small-dimension integer monodromy",
@@ -64,7 +75,10 @@
         "residual branch-count and torsion-order observer",
         "exact p-adic depth profile for cyclic per-axis integer scaling",
         "bounded within-cycle valuation-anisotropy diagnostic",
-        "necessary-and-sufficient bounded p-adic anisotropy test for periodic monomial heartbeat programs"
+        "necessary-and-sufficient bounded p-adic anisotropy test for periodic monomial heartbeat programs",
+        "exact Newton-polygon carry-slope spectrum for general nonsingular integer monodromy",
+        "phase-invariant asymptotic carry slope diagnostic",
+        "general bounded-versus-linear p-adic Smith-depth drift criterion"
       ],
       "reuse_resolution": {
         "state": "COMPOSE_APPLIED / CAPABILITY_GAP_CONFIRMED / DOMAIN_OPERATOR",
@@ -76,7 +90,7 @@
         ],
         "reason": "Existing tools cover carry semantics, holonomy semantics and BRC branch safety separately, but not integer monodromy cokernels or Smith residual spectra."
       },
-      "hard_boundary": "Raw signed integer charts and small nonsingular integer matrices (default SNF limit 6). No fixed Heartbeat World program, nonlinear dynamics, physical time law, thermodynamic entropy, large-matrix SNF performance claim or automatic Foundation admission."
+      "hard_boundary": "Raw signed integer charts and small nonsingular integer matrices (default SNF limit 6). No fixed Heartbeat World program, nonlinear dynamics, physical time law, thermodynamic entropy, large-matrix SNF performance claim or automatic Foundation admission. General carry-slope theorem assumes a fixed nonsingular integer monodromy; nonlinear/state-dependent cocycles are not covered."
     }
   ]
 }

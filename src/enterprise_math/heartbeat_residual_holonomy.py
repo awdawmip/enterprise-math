@@ -12,6 +12,7 @@ implementation is intended for small n (especially n=6), not large-matrix SNF.
 """
 from __future__ import annotations
 from dataclasses import dataclass
+from fractions import Fraction
 from itertools import combinations
 from math import gcd, prod
 
@@ -359,3 +360,91 @@ def periodic_monomial_valuation_balance(steps, prime: int) -> bool:
     if len(set(verdicts)) != 1:
         raise ArithmeticError("phase-shifted periodic monomial balance must agree")
     return verdicts[0]
+
+
+def characteristic_coefficients(matrix) -> tuple[int, ...]:
+    """Characteristic polynomial coefficients in ascending x-power order.
+
+    Uses exact Faddeev-LeVerrier arithmetic and checks every integer division.
+    For A, returns (c_0,...,c_(n-1),1) with det(xI-A)=sum c_i*x^i.
+    """
+    a = _matrix(matrix)
+    n = len(a)
+    b = identity(n)
+    descending = [1]
+    for k in range(1, n + 1):
+        ab = matmul(a, b)
+        trace = sum(ab[i][i] for i in range(n))
+        if trace % k:
+            raise ArithmeticError("nonexact Faddeev-LeVerrier division")
+        c = -(trace // k)
+        descending.append(c)
+        b = tuple(tuple(ab[i][j] + (c if i == j else 0)
+                        for j in range(n)) for i in range(n))
+    return tuple(reversed(descending))
+
+
+def newton_root_valuations(matrix, prime: int) -> tuple[Fraction, ...]:
+    """p-adic root valuations of the characteristic polynomial.
+
+    Values are the negatives of lower Newton-polygon slopes, repeated by
+    horizontal length. A nonzero determinant is required so all root
+    valuations are finite.
+    """
+    a = _matrix(matrix)
+    if determinant(a) == 0:
+        raise ValueError("nonsingular matrix required for finite carry slopes")
+    if not _is_prime(prime):
+        raise ValueError("prime must be prime")
+    coeffs = characteristic_coefficients(a)
+    points = tuple((i, Fraction(prime_valuation(c, prime), 1))
+                   for i, c in enumerate(coeffs) if c)
+    hull = []
+    def slope(left, right):
+        return Fraction(right[1] - left[1], right[0] - left[0])
+    for point in points:
+        while len(hull) >= 2 and slope(hull[-2], hull[-1]) >= slope(hull[-1], point):
+            hull.pop()
+        hull.append(point)
+    values = []
+    for left, right in zip(hull, hull[1:]):
+        values.extend([-slope(left, right)] * (right[0] - left[0]))
+    if len(values) != len(a):
+        raise ArithmeticError("Newton polygon did not account for all roots")
+    return tuple(sorted(values))
+
+
+def carry_slope_spectrum(matrix, prime: int) -> tuple[Fraction, ...]:
+    """Asymptotic p-primary Smith-depth slopes for powers of an integer matrix."""
+    return newton_root_valuations(matrix, prime)
+
+
+def carry_spread_rate(matrix, prime: int) -> Fraction:
+    """Linear growth rate of max-minus-min p-primary Smith depth."""
+    slopes = carry_slope_spectrum(matrix, prime)
+    return slopes[-1] - slopes[0]
+
+
+def carry_balanced(matrix, prime: int) -> bool:
+    """Whether p-primary Smith-depth anisotropy is asymptotically bounded."""
+    return carry_spread_rate(matrix, prime) == 0
+
+
+def phase_carry_spectra(steps, prime: int) -> tuple[tuple[Fraction, ...], ...]:
+    """Carry-slope spectrum at every phase cut of one periodic heartbeat."""
+    steps = tuple(_matrix(step) for step in steps)
+    if not steps:
+        raise ValueError("nonempty heartbeat program required")
+    spectra = tuple(carry_slope_spectrum(monodromy(steps, start=t), prime)
+                    for t in range(len(steps)))
+    if any(spectrum != spectra[0] for spectrum in spectra[1:]):
+        raise ArithmeticError("rationally conjugate phase monodromies must share carry slopes")
+    return spectra
+
+
+def smith_p_depths(matrix, prime: int, power: int) -> tuple[int, ...]:
+    """Finite p-primary Smith depths of matrix**power."""
+    if type(power) is not int or power < 1:
+        raise ValueError("positive integer power required")
+    return tuple(prime_valuation(d, prime)
+                 for d in smith_invariant_factors(matpow(matrix, power)))

@@ -65,6 +65,20 @@
       "smith_depth_comparisons": 1440,
       "cycle_mean_classifications": 120,
       "periodic_phase_checks": 120
+    },
+    "general_axis_mixing": {
+      "characteristic_cayley_hamilton_checks": 160,
+      "phase_slope_checks": 180,
+      "balanced_beat_unbalanced_cycle_smith_checks": 8,
+      "beat_slopes": [
+        "1/2 x6",
+        "1/2 x6"
+      ],
+      "cycle_slopes": [
+        "0 x3",
+        "2 x3"
+      ],
+      "archimedean_carry_witnesses": 2
     }
   },
   "scope": "research validation only; no Foundation, fixed heartbeat program, physical-time calibration or production Nollm claim",
@@ -76,5 +90,10 @@
     "module": "2b66743c3f4cd52263aa6e15c00d7837008fb8ad",
     "tests": "a930bbee1e5e0814bbf211c1cdbf705977ab1709"
   },
-  "evidence_note": "Local SHA256 values identify the locally executed reference files. Remote Git blob IDs identify the published, read-back source/test bytes. They are semantically aligned but not claimed byte-identical."
+  "evidence_note": "Local SHA256 values identify the locally executed reference files. Remote Git blob IDs identify the published, read-back source/test bytes. They are semantically aligned but not claimed byte-identical. General-axis-mixing algorithm checks were executed in a separate exact local reference script; remote source/test blobs are read back separately.",
+  "external_comparison": {
+    "smith_power_eventual_periodicity": "arXiv:2511.22814; DOI 10.1016/j.laa.2026.06.014",
+    "local_smith_eigenvalue_background": "Elsheikh-Giesbrecht, LAA 481 (2015), DOI 10.1016/j.laa.2015.05.001",
+    "novelty_boundary": "Classical matrix/p-adic results are not claimed novel; project-specific synthesis is Heartbeat World phase/carry/BRC typing."
+  }
 }

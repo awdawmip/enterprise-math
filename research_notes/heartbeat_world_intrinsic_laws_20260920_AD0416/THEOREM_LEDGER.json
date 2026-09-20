@@ -51,6 +51,30 @@
       "name": "periodic monomial p-adic drift criterion",
       "law": "For a periodic integer-monomial heartbeat, let M be one-period monodromy. For each permutation cycle C of M set mu_C=(sum_{j in C} v_p(w_j))/|C|. The p-adic Smith-depth spread over time is bounded iff all mu_C are equal. Unequal cycle means give linear anisotropy drift. The verdict is invariant under heartbeat phase shift.",
       "boundary": "Periodic monomial (axis permutation plus nonzero integer scaling) programs only; general integer matrices with axis mixing require different valuation-slope machinery."
+    },
+    {
+      "id": "HBW-INTR-009",
+      "name": "general Newton carry-slope law",
+      "law": "For nonsingular integer M and prime p, if s_i(n) are p-valuations of Smith factors of M^n and lambda_i are sorted p-adic valuations of eigenvalues, then s_i(n)=n*lambda_i+epsilon_i(n) for all sufficiently large n with epsilon_i eventually periodic. Hence Smith-depth spread/n -> lambda_max-lambda_min and is bounded iff all lambda_i are equal.",
+      "boundary": "Derived from classical Smith-power eventual periodicity applied to compound matrices plus Newton-polygon root valuations; fixed nonsingular integer monodromy only."
+    },
+    {
+      "id": "HBW-INTR-010",
+      "name": "finite phase holonomy / asymptotic slope separation",
+      "law": "Phase monodromies of one periodic heartbeat are rationally conjugate, hence have identical Newton carry-slope spectra even when their finite cokernel/Smith group types differ.",
+      "boundary": "Asymptotic slope equality does not erase finite phase-sensitive carry structure."
+    },
+    {
+      "id": "HBW-INTR-011",
+      "name": "beatwise carry balance is not compositional",
+      "law": "There exist integer X6 beats A,B that are individually p-carry-balanced (A^2=B^2=2I blockwise) while the two-beat monodromy BA has carry slopes (0,0,0,2,2,2), producing linear Smith-depth drift.",
+      "boundary": "Counterexample to local/beatwise certification; period monodromy must be checked."
+    },
+    {
+      "id": "HBW-INTR-012",
+      "name": "Archimedean scale / p-adic carry observer separation",
+      "law": "Equal ordinary eigenvalue magnitudes need not imply equal p-adic carry slopes, and equal p-adic carry slopes need not imply equal ordinary eigenvalue magnitudes.",
+      "boundary": "Observer-separation result; neither spectrum replaces the other."
     }
   ],
   "validation": {
@@ -85,6 +109,17 @@
       "cycle_mean_classifications": 120,
       "periodic_phase_checks": 120,
       "status": "PASS"
+    },
+    "general_axis_mixing": {
+      "characteristic_cayley_hamilton_checks": 160,
+      "phase_slope_checks": 180,
+      "balanced_beat_unbalanced_cycle_smith_checks": 8,
+      "archimedean_carry_witnesses": 2,
+      "local_reference_status": "PASS",
+      "external_basis": [
+        "Vanni Noferini, arXiv:2511.22814 / LAA 748 (2026), DOI 10.1016/j.laa.2026.06.014",
+        "classical p-adic Newton polygon root-valuation theorem"
+      ]
     }
   }
 }

@@ -256,8 +256,116 @@ q V_C + 一个长度 r 的循环窗口和
 - 40 组三拍周期 monomial 程序 × p=2,3,5，共 120 个相位不变性检查；
 - 单 6-cycle 正例和多循环不平衡反例均通过。
 
-## 12. 下一前沿
+## 12. 一般轴混合：Newton carry-slope 定理
+
+monomial 情形的循环均值判据可以推广到任意非奇异整数 monodromy，而不需要每列只有一个非零项。
+
+令 M in M_6(Z), det(M)!=0。记 M^n 的 Smith 因子为
+
+d_1(n) | ... | d_6(n),
+
+并定义 p-primary 深度
+
+s_i(n)=v_p(d_i(n)).
+
+另一方面，把 M 的六个特征值放到 Q_p 的代数闭包中，按 p-adic valuation 排序：
+
+lambda_1 <= ... <= lambda_6.
+
+则存在最终周期的有界修正 epsilon_i(n)，使得对充分大的 n：
+
+s_i(n)=n lambda_i + epsilon_i(n).
+
+证明并非新的 Smith 定理：对第 k 个 determinantal divisor gamma_k(M^n)，其 p-adic valuation就是第 k 个 compound/exterior-power matrix (wedge^k M)^n 的 entrywise minimum valuation。Noferini 对整数矩阵幂证明
+v_p(gcd(A^n))=a n+h(n)，h 最终周期；应用到 wedge^k M，线性项 a 是其最小特征值 valuation，也就是 lambda_1+...+lambda_k。再用
+v_p(gamma_k)=s_1+...+s_k
+逐项相减，就得到上式。
+
+因此有精确的长期判据：
+
+lim_(n->infinity) [max_i s_i(n)-min_i s_i(n)]/n
+= lambda_6-lambda_1.
+
+所以
+
+**p-adic carry-depth 不均匀长期有界 iff 六个 p-adic eigenvalue valuations 全相同。**
+
+若相同，深度差最终只剩周期摆动；若不同，深度差按 lambda_6-lambda_1 线性增长。
+
+lambda_i 不需要显式求 p-adic 根。它们就是特征多项式 p-adic Newton polygon 的负斜率，按水平长度计重数。新增执行接口用精确 Faddeev-LeVerrier 计算整数特征多项式，再用 Fraction 构造 Newton 下凸包。
+
+本结论以 Vanni Noferini, "Eventual periodicity of the Smith forms of integer matrix powers", arXiv:2511.22814 / Linear Algebra and Its Applications 748 (2026), DOI 10.1016/j.laa.2026.06.014 的 Smith-power eventual-periodicity 结果为经典底座；Newton polygon 读出根的 p-adic valuations 也是经典局部域结论。这里的项目贡献是把这些结果与心跳世界的 phase/carry/BRC 类型接口对齐，而不是主张经典定理的新颖性。
+
+## 13. 有限相位 holonomy 与长期 slope 可以同时存在
+
+由 HBW-INTR-001，不同心跳相位的一周期 monodromy 在 Q^6 中共轭，因此具有同一个特征多项式，也就具有完全相同的 Newton carry-slope spectrum。
+
+于是出现两层同时成立的结构：
+
+- 当前有限余数群 coker(M_t) 可以随相位从 (Z/2)^2 变成 Z/4；
+- 长期每个 p-primary Smith depth 的线性增长斜率却对相位不变。
+
+所以相位进位 holonomy 描述的是**有限阶段的 carry 组织方式**，而 Newton carry spectrum 描述的是**长期 carry 增长率**。二者不能互相替代。
+
+本轮另外对 60 组三拍稠密 2x2 轴混合块嵌入 X6 的程序检查全部三个 phase cut，共 180 个相位，Newton carry spectrum 完全一致。
+
+## 14. “每拍平衡”不推出“周期平衡”
+
+取二维块
+
+A=[[0,2],[1,0]],
+B=[[1,1],[1,-1]].
+
+两者都满足
+
+A^2=B^2=2I,
+
+所以对 p=2，单独重复 A 或 B 时两个 carry slope 都是 1/2。把该块复制三份得到六轴 A_6,B_6，则每一拍单独都是六轴 carry-balanced。
+
+但是两拍周期的 monodromy
+
+P=B A=[[1,2],[-1,2]]
+
+具有特征多项式
+
+x^2-3x+4.
+
+其 2-adic Newton slopes给出 root valuations 0 和 2。六轴周期因此具有
+
+(0,0,0,2,2,2)
+
+的 carry-slope spectrum。实际 Smith 深度对周期幂 n=1..8 精确为
+
+(0,0,0,2n,2n,2n).
+
+所以：
+
+**beatwise carry balance 不是可组合性质；必须检查完整时间周期的 monodromy。**
+
+这是真正的时间顺序效应：两个各自自平衡的心跳操作，交替后可以产生持久线性 carry 漂移。
+
+## 15. 几何伸缩谱与整数 carry 谱是独立观察
+
+同一个 P=[[1,2],[-1,2]] 的复特征值为
+
+3/2 +/- i sqrt(7)/2,
+
+两者普通绝对值都等于 2；从 Archimedean eigenvalue magnitude 看它是平衡的，但 p=2 carry slopes 是 0 和 2，极不平衡。
+
+反向例子取
+
+C=[[0,-2],[1,6]],
+
+特征多项式 x^2-6x+2，实特征值 3+sqrt(7) 与 3-sqrt(7) 的普通绝对值明显不同；但其 2-adic Newton polygon 只有一个 slope，因此两个 carry slope 都是 1/2。
+
+所以：
+
+**real/metric scale balance != p-primary carry balance.**
+
+心跳世界里“空间伸缩看起来均匀”不能代替整数 Cell 的进位平衡检查；反过来也一样。这进一步说明 BRC 若未来会访问 carry，不能只保留普通几何尺度谱。
+
+## 16. 下一前沿
 
 1. 当余数群发生 (Z/2)^2 <-> Z/4 型变化时，哪些 BRC 权重只依赖总 branch count，哪些必须依赖元素阶/进位层级？
 2. 能否以 p-primary Smith/valuation 数据替代完整余数枚举，并对声明的未来余数运算闭合？
-3. monomial 周期心跳的 p-primary 有界条件已经闭合；下一步研究含真正线性混合（每列多于一个非零项）时，是否存在对应的 Newton/valuation 斜率分解。
+3. 一般非奇异整数 monodromy 的 carry-slope 判据已经由 Newton/Smith 幂结构闭合；下一步研究非线性或状态依赖心跳中，是否存在可替代固定 monodromy 的 cocycle/Lyapunov carry spectrum。

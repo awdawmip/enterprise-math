@@ -179,6 +179,77 @@ def test_periodic_monomial_phase_balance():
     return checked
 
 
+
+def _blockdiag3(two):
+    out=[[0]*6 for _ in range(6)]
+    for block in range(3):
+        for i in range(2):
+            for j in range(2):
+                out[2*block+i][2*block+j]=two[i][j]
+    return tuple(tuple(row) for row in out)
+
+
+def _poly_eval_zero(coefficients, matrix):
+    n=len(matrix)
+    power=h.identity(n)
+    out=[[0]*n for _ in range(n)]
+    for coefficient in coefficients:
+        for i in range(n):
+            for j in range(n):
+                out[i][j]+=coefficient*power[i][j]
+        power=h.matmul(power,matrix)
+    return tuple(tuple(row) for row in out)
+
+
+def test_general_newton_carry_spectrum():
+    rng=random.Random(20260924)
+    cayley=0
+    for n in range(1,5):
+        for _ in range(40):
+            M=tuple(tuple(rng.randint(-3,3) for _ in range(n)) for __ in range(n))
+            coeff=h.characteristic_coefficients(M)
+            assert _poly_eval_zero(coeff,M)==tuple(tuple(0 for _ in range(n)) for __ in range(n))
+            assert coeff[0]==((-1)**n)*h.determinant(M)
+            cayley+=1
+
+    A2=((0,2),(1,0))
+    B2=((1,1),(1,-1))
+    P2=h.matmul(B2,A2)
+    C2=((0,-2),(1,6))
+    A6=_blockdiag3(A2); B6=_blockdiag3(B2); P6=h.matmul(B6,A6); C6=_blockdiag3(C2)
+    half=(Fraction(1,2),)*6
+    assert h.carry_slope_spectrum(A6,2)==half
+    assert h.carry_slope_spectrum(B6,2)==half
+    assert h.carry_slope_spectrum(P6,2)==(Fraction(0),)*3+(Fraction(2),)*3
+    assert h.carry_slope_spectrum(C6,2)==half
+    assert h.carry_balanced(A6,2) and h.carry_balanced(B6,2) and h.carry_balanced(C6,2)
+    assert not h.carry_balanced(P6,2)
+    for n in range(1,9):
+        assert h.smith_p_depths(P6,2,n)==(0,0,0,2*n,2*n,2*n)
+    return cayley,8
+
+
+def test_general_phase_carry_slope_invariance():
+    rng=random.Random(20260925)
+    checked=0
+    for _ in range(60):
+        steps=[]
+        for _beat in range(3):
+            while True:
+                B=tuple(tuple(rng.randint(-3,3) for _ in range(2)) for __ in range(2))
+                if h.determinant(B):
+                    break
+            M=[list(row) for row in h.identity(6)]
+            for i in range(2):
+                for j in range(2):
+                    M[i][j]=B[i][j]
+            steps.append(tuple(tuple(row) for row in M))
+        spectra=h.phase_carry_spectra(steps,2)
+        assert spectra==(spectra[0],)*3
+        checked+=3
+    return checked
+
+
 if __name__=='__main__':
     results={
       'phase_intertwining':test_phase_intertwining_random(),
@@ -190,5 +261,7 @@ if __name__=='__main__':
       'invalid_boundaries':test_invalid_boundaries(),
       'monomial_valuation_drift':test_monomial_valuation_drift_criterion(),
       'periodic_monomial_phase_balance':test_periodic_monomial_phase_balance(),
+      'general_newton_carry_spectrum':test_general_newton_carry_spectrum(),
+      'general_phase_carry_slope_invariance':test_general_phase_carry_slope_invariance(),
     }
     print('PASS',results)
