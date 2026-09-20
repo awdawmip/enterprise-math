@@ -1,4 +1,4 @@
-"""Multiplicative-field lab: exact integer phases, approximate display observers.
+"""Multiplicative-field lab: exact integer phases and optional certified A2 cells.
 
 An additive extension to Visual Toolkit 0.3.0. No runtime/native geometry changes.
 Run: python -m nollm_visual_toolkit.multiplicative --out multiplication.html
@@ -82,29 +82,165 @@ def mixed_phase(p: int) -> int:
     return h % PHASE_MODULUS
 
 
-def build_field(settings: dict | None = None) -> dict:
-    cfg = checked_config(settings) if settings is not None else config()
-    count, scheme, scale = cfg['count'], cfg['scheme'], cfg['scale']
+def _cell_scale(value: tuple[int, int]) -> tuple[int, int]:
+    """Validate an explicit, unreduced exact cell scale; never infer from float."""
+    if not isinstance(value, tuple) or len(value) != 2:
+        raise ValueError('cell_scale must be an explicit (integer numerator, integer denominator) tuple')
+    numerator, denominator = value
+    if any(isinstance(v, bool) or not isinstance(v, int) or v <= 0 for v in value):
+        raise ValueError('cell_scale numerator and denominator must be positive exact integers')
+    return numerator, denominator
+
+
+LEXICOGRAPHIC_CELL_TIE_RULE = 'MINIMUM_EUCLIDEAN_DISTANCE_THEN_AXIAL_LEXICOGRAPHIC'
+
+
+def _lexicographic_tie_cell(base: dict) -> list[str]:
+    """Select the old module's declared tie using the base exact certificate.
+
+    The certified kernel remains the geometric certificate. This adapter only
+    changes which of several *equal nearest* A2 cells is named by this legacy
+    module. No interval midpoint or floating comparison participates.
+    """
+    if base.get('status') != 'CERTIFIED_TIE' or base.get('cell') is None:
+        return base.get('cell')
+    proof = base.get('rounding_certificate') or {}
+    q0, r0 = map(int, base['cell'])
+    candidates = sorted({(q0+dq, r0+dr) for dq, dr in
+                         ((0,0),(1,0),(-1,0),(0,1),(0,-1),(1,-1),(-1,1))})
+    kind = proof.get('kind')
+    if kind == 'RATIONAL_AXIAL_CELL_CERTIFICATE':
+        qn, rn, _ = map(int, proof['source_numerators']); den = int(proof['denominator'])
+        def distance(cell):
+            q, r = cell; dq, dr = qn-q*den, rn-r*den
+            return dq*dq+dq*dr+dr*dr
+        best = min(candidates, key=lambda c:(distance(c),c))
+    elif kind == 'SHARED_RADICAL_AXIAL_CELL_CERTIFICATE':
+        from .certified_hex import _linear_root_sign
+        n = int(proof['radicand_numerator']); d = int(proof['radicand_denominator'])
+        cq, cr, _ = map(int, proof['source_coefficients'])
+        def bc(cell):
+            q, r = cell
+            return (-2*cq*q-cq*r-cr*q-2*cr*r, q*q+q*r+r*r)
+        def compare(left, right):
+            bl, cl = bc(left); br, cr0 = bc(right)
+            return _linear_root_sign(bl-br, cl-cr0, n, d)
+        best = candidates[0]
+        for candidate in candidates[1:]:
+            order = compare(candidate, best)
+            if order < 0 or (order == 0 and candidate < best):
+                best = candidate
+    else:
+        raise AssertionError('unsupported exact tie certificate for lexicographic adapter')
+    return [str(best[0]), str(best[1])]
+
+
+def _certified_lexicographic_population(phi, numerator: int, denominator: int,
+                                         *, initial_bits: int, max_bits: int) -> dict:
+    """Reuse certified cells, adapting only certified ties to legacy semantics."""
+    from .certified_hex import certified_population
+    base = certified_population(phi, numerator, denominator,
+                                initial_bits=initial_bits, max_bits=max_bits,
+                                include_certificates=True)
+    cells = {}; unresolved = []; ties = []; certificates = []
+    for identity, proof in enumerate(base['certificates']):
+        cell = _lexicographic_tie_cell(proof) if proof['status'] == 'CERTIFIED_TIE' else proof['cell']
+        wrapped = {'schema':'NOLLM_MULTIPLICATIVE_CELL_CERTIFICATE_V1',
+                   'status':proof['status'], 'cell':cell,
+                   'tie_rule':LEXICOGRAPHIC_CELL_TIE_RULE,
+                   'base_certifier_tie_rule':proof.get('tie_rule'),
+                   'base_certificate':proof}
+        certificates.append(wrapped)
+        if cell is None:
+            unresolved.append(str(identity)); continue
+        key = tuple(cell); cells[key] = cells.get(key,0)+1
+        if proof['status'] == 'CERTIFIED_TIE': ties.append(str(identity))
+    complete = not unresolved; occupied = len(cells)
+    return {'schema':'NOLLM_MULTIPLICATIVE_CERTIFIED_A2_POPULATION_V1',
+            'status':'CERTIFIED_ALL' if complete else 'UNRESOLVED_BOUNDARY',
+            'population':base['population'], 'certified_identities':base['certified_identities'],
+            'phase_modulus':base['phase_modulus'], 'phase_source_sha256':base['phase_source_sha256'],
+            'phase_source_encoding':base['phase_source_encoding'],
+            'unresolved_identities':unresolved, 'tie_identities':ties,
+            'occupied_cells':str(occupied) if complete else None,
+            'occupied_cells_bounds':[str(occupied),str(occupied+len(unresolved))],
+            'collision_groups':str(sum(v>1 for v in cells.values())) if complete else None,
+            'excess_identities_if_collapsed':str(len(certificates)-occupied) if complete else None,
+            'max_cell_load':str(max(cells.values(),default=0)) if complete else None,
+            'scale':base['scale'], 'precision_counts':base['precision_counts'],
+            'tie_rule':LEXICOGRAPHIC_CELL_TIE_RULE,
+            'base_certifier_schema':base['schema'], 'base_certifier_tie_rule':base['tie_rule'],
+            'certificates':certificates,
+            'scope':'CERTIFIED_A2_OBSERVER_ONLY; LEGACY_AXIAL_LEXICOGRAPHIC_TIE; NO_NATIVE_IDENTITY_COLLAPSE'}
+
+
+def _phase_state(cfg: dict) -> tuple[list[int], dict[int, int], list[int], list[int]]:
+    count, scheme = cfg['count'], cfg['scheme']
     spf, primes = sieve(count)
     prime_phase = {p: cfg['overrides'].get(str(p), mixed_phase(p) if scheme == 'mixed' else ((i+1)*GOLDEN_STEP) % PHASE_MODULUS)
                    for i, p in enumerate(primes)}
     phase, omega = [0]*count, [0]*count
-    rows = [{'id': '0', 'n': 0, 'phase': None, 'omega': None, 'prime': False,
-             'ideal': [0.0, 0.0], 'coord': [0, 0]}]
     for n in range(1, count):
         if n > 1:
             p = spf[n]
             omega[n] = omega[n//p]+1
-            if scheme in ('valuation', 'mixed'): phase[n] = (phase[n//p]+prime_phase[p]) % PHASE_MODULUS
-            elif scheme == 'spiral': phase[n] = n*GOLDEN_STEP % PHASE_MODULUS
-        if n == 1 and scheme == 'spiral': phase[n] = GOLDEN_STEP
-        theta = math.tau*phase[n]/PHASE_MODULUS
-        radius = scale*math.sqrt(n)
-        x, y = radius*math.cos(theta), radius*math.sin(theta)
-        rows.append({'id': str(n), 'n': n, 'phase': phase[n], 'omega': omega[n],
-                     'prime': n > 1 and spf[n] == n, 'ideal': [x, y],
-                     'coord': list(lattice_point(x, y))})
-    return {'config': cfg, 'spf': spf, 'prime_phase': prime_phase, 'records': rows}
+            if scheme in ('valuation', 'mixed'):
+                phase[n] = (phase[n//p]+prime_phase[p]) % PHASE_MODULUS
+            elif scheme == 'spiral':
+                phase[n] = n*GOLDEN_STEP % PHASE_MODULUS
+        if n == 1 and scheme == 'spiral':
+            phase[n] = GOLDEN_STEP
+    return spf, prime_phase, phase, omega
+
+
+def build_field(settings: dict | None = None, *, cell_scale: tuple[int, int] | None = None,
+                cell_bits: int = 64, cell_max_bits: int = 192) -> dict:
+    """Build the field; exact cells require an explicit integer-ratio source.
+
+    ``config.scale`` remains the historical floating display scale. Passing
+    ``cell_scale=(n,d)`` selects the existing certified A2 observer for cell
+    membership without deriving n/d from that float. Approximate ``ideal``
+    pixels remain display-only and may use a different declared scale.
+    """
+    cfg = checked_config(settings) if settings is not None else config()
+    count, scale = cfg['count'], cfg['scale']
+    spf, prime_phase, phase, omega = _phase_state(cfg)
+    exact = None
+    certificates = None
+    source = None
+    if cell_scale is not None:
+        numerator, denominator = _cell_scale(cell_scale)
+        exact = _certified_lexicographic_population([None, *phase[1:]], numerator, denominator,
+                                                    initial_bits=cell_bits, max_bits=cell_max_bits)
+        certificates = exact['certificates']
+        source = {'numerator': str(numerator), 'denominator': str(denominator),
+                  'unreduced': True}
+    rows = []
+    for n in range(count):
+        if n == 0:
+            x = y = 0.0
+            shown_phase = shown_omega = None
+        else:
+            theta = math.tau*phase[n]/PHASE_MODULUS
+            radius = scale*math.sqrt(n)
+            x, y = radius*math.cos(theta), radius*math.sin(theta)
+            shown_phase, shown_omega = phase[n], omega[n]
+        if certificates is None:
+            coord = [0, 0] if n == 0 else list(lattice_point(x, y))
+            row = {'id': str(n), 'n': n, 'phase': shown_phase, 'omega': shown_omega,
+                   'prime': n > 1 and spf[n] == n, 'ideal': [x, y], 'coord': coord}
+        else:
+            cert = certificates[n]
+            coord = None if cert['cell'] is None else [int(v) for v in cert['cell']]
+            row = {'id': str(n), 'n': n, 'phase': shown_phase, 'omega': shown_omega,
+                   'prime': n > 1 and spf[n] == n, 'ideal': [x, y],
+                   'coord': coord, 'cell_status': cert['status']}
+        rows.append(row)
+    result = {'config': cfg, 'spf': spf, 'prime_phase': prime_phase, 'records': rows}
+    if exact is not None:
+        result.update({'cell_engine': 'CERTIFIED_INTEGER_RESIDUAL',
+                       'cell_scale_source': source, 'cell_membership_exact': exact})
+    return result
 
 
 def factors(n: int, field: dict) -> list[list[int]]:
@@ -127,20 +263,30 @@ def multiplication(field: dict, a: int, b: int) -> dict:
     ra, rb, rn = (field['records'][x] for x in (a,b,n)); scale = field['config']['scale']
     za, zb, zn = (complex(*r['ideal']) for r in (ra,rb,rn))
     def hx(r):
+        if r['coord'] is None:
+            return None
         q, s = r['coord']; return complex(q+s/2, math.sqrt(3)*s/2)
-    return {'a': a, 'b': b, 'product': n, 'in_range': True,
-            'phase_defect': (rn['phase']-ra['phase']-rb['phase']) % PHASE_MODULUS if n else None,
-            'omega_defect': rn['omega']-ra['omega']-rb['omega'] if n else None,
-            'ideal_relative_error': abs(za*zb/scale-zn)/(scale*math.sqrt(n)) if n else 0,
-            'rounded_relative_error': abs(hx(ra)*hx(rb)/scale-hx(rn))/(scale*math.sqrt(n)) if n else 0,
-            'zero_phase': 'undefined; multiplication by zero is handled separately' if not n else None}
+    result = {'a': a, 'b': b, 'product': n, 'in_range': True,
+              'phase_defect': (rn['phase']-ra['phase']-rb['phase']) % PHASE_MODULUS if n else None,
+              'omega_defect': rn['omega']-ra['omega']-rb['omega'] if n else None,
+              'ideal_relative_error': abs(za*zb/scale-zn)/(scale*math.sqrt(n)) if n else 0,
+              'zero_phase': 'undefined; multiplication by zero is handled separately' if not n else None}
+    if field.get('cell_engine') == 'CERTIFIED_INTEGER_RESIDUAL':
+        result.update({'rounded_relative_error': 0 if not n else None,
+                       'rounded_relative_error_role': 'OMITTED_EXACT_CELL_SCALE_IS_SEPARATE_FROM_DISPLAY_SCALE'})
+    else:
+        result['rounded_relative_error'] = abs(hx(ra)*hx(rb)/scale-hx(rn))/(scale*math.sqrt(n)) if n else 0
+    return result
 
 
 def statistics(field: dict, rings: int = 8, sectors: int = 32) -> dict:
     rows = field['records']; count = len(rows); positive = count-1
-    grid = [[0]*sectors for _ in range(rings)]; cells = {}
+    grid = [[0]*sectors for _ in range(rings)]; cells = {}; unresolved = []
     for row in rows:
-        cells.setdefault(tuple(row['coord']), []).append(row['id'])
+        if row['coord'] is None:
+            unresolved.append(row['id'])
+        else:
+            cells.setdefault(tuple(row['coord']), []).append(row['id'])
         if row['n']:
             band = (row['n']-1)*rings//positive
             sector = row['phase']*sectors//PHASE_MODULUS
@@ -149,15 +295,39 @@ def statistics(field: dict, rings: int = 8, sectors: int = 32) -> dict:
         total = sum(values)
         return math.sqrt(max(0, len(values)*sum(v*v for v in values)/total**2-1))
     angular = [sum(b[j] for b in grid) for j in range(sectors)]
+    area = [v for b in grid for v in b]
+    legacy = field.get('cell_engine') != 'CERTIFIED_INTEGER_RESIDUAL'
+    if legacy:
+        return {'population': count, 'positive_population': positive, 'prime_count':len(field['prime_phase']),
+                'rings': rings, 'sectors': sectors, 'grid': grid,
+                'distinct_phases':len({r['phase'] for r in rows[1:]}), 'angular_cv': cv(angular), 'area_sector_cv': cv(area),
+                'iid_cv_scale': math.sqrt((rings*sectors-1)/positive),
+                'iid_boundary': 'reference sqrt(E(CV^2)); not significance or a randomness test',
+                'occupied_hex_centers':len(cells), 'collision_groups':sum(len(ids)>1 for ids in cells.values()),
+                'extra_identities_at_shared_centers': count-len(cells), 'largest_fiber':max(map(len,cells.values())),
+                'max_display_quantization_error': max(math.hypot(r['ideal'][0]-r['coord'][0]-r['coord'][1]/2,
+                                         r['ideal'][1]-math.sqrt(3)*r['coord'][1]/2) for r in rows)}
+    from .angular_dispersion import AngularDispersion
+    angular_exact = AngularDispersion.from_counts(angular).as_record()
+    area_exact = AngularDispersion.from_counts(area).as_record()
+    complete = not unresolved
     return {'population': count, 'positive_population': positive, 'prime_count':len(field['prime_phase']),
             'rings': rings, 'sectors': sectors, 'grid': grid,
-            'distinct_phases':len({r['phase'] for r in rows[1:]}), 'angular_cv': cv(angular), 'area_sector_cv': cv([v for b in grid for v in b]),
+            'distinct_phases':len({r['phase'] for r in rows[1:]}),
+            'angular_cv': cv(angular), 'angular_cv_role':'LEGACY_FLOAT_DISPLAY_NOT_EXACT_EVIDENCE',
+            'angular_cv_squared_exact': angular_exact,
+            'area_sector_cv': cv(area), 'area_sector_cv_role':'LEGACY_FLOAT_DISPLAY_NOT_EXACT_EVIDENCE',
+            'area_sector_cv_squared_exact': area_exact,
             'iid_cv_scale': math.sqrt((rings*sectors-1)/positive),
             'iid_boundary': 'reference sqrt(E(CV^2)); not significance or a randomness test',
-            'occupied_hex_centers':len(cells), 'collision_groups':sum(len(ids)>1 for ids in cells.values()),
-            'extra_identities_at_shared_centers': count-len(cells), 'largest_fiber':max(map(len,cells.values())),
-            'max_display_quantization_error': max(math.hypot(r['ideal'][0]-r['coord'][0]-r['coord'][1]/2,
-                                     r['ideal'][1]-math.sqrt(3)*r['coord'][1]/2) for r in rows)}
+            'occupied_hex_centers':len(cells) if complete else None,
+            'occupied_hex_centers_bounds':[len(cells),len(cells)+len(unresolved)],
+            'collision_groups':sum(len(ids)>1 for ids in cells.values()) if complete else None,
+            'extra_identities_at_shared_centers': count-len(cells) if complete else None,
+            'largest_fiber':max(map(len,cells.values()),default=0) if complete else None,
+            'unresolved_cell_identities':unresolved,
+            'max_display_quantization_error':None,
+            'max_display_quantization_error_role':'OMITTED_EXACT_CELL_SCALE_IS_SEPARATE_FROM_DISPLAY_SCALE'}
 
 
 def all_pair_audit(field: dict) -> dict:
@@ -174,13 +344,20 @@ def all_pair_audit(field: dict) -> dict:
 
 
 def hex_data(field: dict) -> dict:
-    """V2 adapter: all IDs retained even where observer centers coincide."""
+    """V2 adapter: all IDs retained; unresolved exact cells are never guessed."""
+    if any(r['coord'] is None for r in field['records']):
+        raise ValueError('hex_data requires resolved cells; increase exact precision rather than guessing')
+    exact = field.get('cell_engine') == 'CERTIFIED_INTEGER_RESIDUAL'
+    metadata = {'typing':'A2_ROUNDED_OBSERVER_NOT_NATIVE_X6', 'config':field['config'],
+                'phase_modulus':PHASE_MODULUS, 'lab_version':LAB_VERSION,
+                'layer_semantics':'Omega(n), with zero on display layer 0; NOT Nollm physical layer',
+                'rounding':'floating nearest hex center; raw n and phase retained; no identity quotient'}
+    if exact:
+        metadata.update({'cell_engine':'CERTIFIED_INTEGER_RESIDUAL',
+                         'cell_scale_source':field['cell_scale_source'],
+                         'rounding':'certified integer-residual A2 cell; approximate ideal pixels are separate'})
     return {'schema':'NOLLM_VISUAL_DATA_V2', 'kind':'hex',
-            'title':'Multiplicative field / rounded hex observer',
-            'metadata':{'typing':'A2_ROUNDED_OBSERVER_NOT_NATIVE_X6', 'config':field['config'],
-                        'phase_modulus':PHASE_MODULUS, 'lab_version':LAB_VERSION,
-                        'layer_semantics':'Omega(n), with zero on display layer 0; NOT Nollm physical layer',
-                        'rounding':'floating nearest hex center; raw n and phase retained; no identity quotient'},
+            'title':'Multiplicative field / rounded hex observer', 'metadata':metadata,
             'records':[{'id':r['id'],'n':r['n'],'coord':r['coord'],'layer':r['omega'] or 0,
                         'fields':{'phase':r['phase'],'omega':r['omega'],'prime':r['prime'],
                                   'ideal_x':r['ideal'][0],'ideal_y':r['ideal'][1]}} for r in field['records']],
