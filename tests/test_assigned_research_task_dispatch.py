@@ -340,13 +340,22 @@ class AssignedResearchTaskDispatchTests(unittest.TestCase):
             self.assertIn("dependencies", result["reason"])
             self.assertEqual(self.book.read_bytes(), before)
 
-    def test_foreign_owner_and_expected_claim_race_preserve_claim(self):
+    def test_stale_foreign_claim_origin_allows_current_assigned_researcher_successor(self):
         self.leased("EM-OTHER-ABC123")
         result = self.route(observations=self.observation(at="2026-09-09T12:00:00Z"))
-        self.assertEqual(result["selection_status"], "BLOCKED")
+        self.assertEqual(result["action"], "ADOPT_OWNER_CLAIM")
+        self.assertEqual(result["selection_status"], "ELIGIBLE")
         self.assertTrue(result["owner_claim_preserved"])
         self.assertEqual(result["claim_id"], "fixture-winning-claim")
         self.assertFalse(result["new_claim_required"])
+        self.assertEqual(
+            result["executor_succession"]["claim_origin_researcher_id"],
+            "EM-OTHER-ABC123",
+        )
+        self.assertEqual(
+            result["executor_succession"]["requested_executor_id"],
+            RESEARCHER,
+        )
         result = self.route(request={**self.request, "expected_claim_id": None})
         self.assertEqual(result["selection_status"], "BLOCKED")
 
