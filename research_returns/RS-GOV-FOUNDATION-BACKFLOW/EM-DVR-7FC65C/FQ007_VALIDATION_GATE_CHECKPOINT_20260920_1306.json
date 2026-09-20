@@ -1,0 +1,99 @@
+{
+  "schema": "ENTERPRISE_MATH_GOVERNANCE_BACKFLOW_CHECKPOINT_V1",
+  "task_id": "RS-GOV-FOUNDATION-BACKFLOW",
+  "publication_id": "TP2-2C438651496A928ADCB7",
+  "driver_id": "EM-DVR-7FC65C",
+  "authority": {
+    "authority_record_id": "DA-914801DE7DDE3068AC16",
+    "authority_source_comment_id": 5747189443,
+    "scope": "CONTROL_PLANE",
+    "authority": "RESEARCH_DRIVER",
+    "assigned_governance_task_matches": true,
+    "revoke_observed_after_authorize": false,
+    "working_truth_granted": false,
+    "foundation_authority_granted": false,
+    "canonical_promotion_granted": false
+  },
+  "claim": {
+    "claim_id": "CL-GOV-FQ007-7FC65C-20260920-1306",
+    "source_comment_id": 5747797898,
+    "server_author": "awdawmip",
+    "server_author_user_id": 30957095,
+    "author_association": "OWNER",
+    "execution_branch_base": "af028a6f5b1c9520897d4d208772152b760feaa4",
+    "claim_scope": "GOVERNANCE"
+  },
+  "latest_main_pre_write": "9aa4e0de82abda06d8d40d22f0f70de11895c8f9",
+  "concurrency_readback": {
+    "claim_base_to_latest_main": "FAST_FORWARD",
+    "intervening_files": [
+      "research_notes/brc_heartbeat_residual_20260920_6EF011/PUBLICATION_EVIDENCE.json"
+    ],
+    "fq007_target_surface_touched_by_intervening_commit": false
+  },
+  "prior_fq007_replay": {
+    "replay_commit": "b7f0260be9a5e665e63daf3b43fec4bd0947088b",
+    "prior_checkpoint_commit": "8880affa44bd655676cde16c48cebabc1aaf9067",
+    "mode": "SOURCE_AWARE_EXACT_SIX_BLOB_REPLAY",
+    "stale_pr": 444,
+    "stale_pr_wholesale_merge": "REJECTED",
+    "current_main_source_readback": {
+      "docs/R004_CAUSAL_IDENTIFIABILITY_NO_GO_01.en.md": "sha1:8c5d2427c9377ff610df361d75c4a9bad4329396",
+      "docs/R004_CAUSAL_IDENTIFIABILITY_NO_GO_01.zh-CN.md": "sha1:4060a54352dbba91fae5f8b817668576a4ef98e3",
+      "src/enterprise_math/r004_causal_identifiability_completion.py": "sha1:6d0de84f811f76a25896476811ece0b976c222a9",
+      "tests/test_r004_causal_identifiability_completion.py": "sha1:20fcc44aef20c060b14a6a8ef572fca8b8f3c8e6",
+      "sources_r004_causal_identifiability_no_go_01.json": "sha1:de5c22043938edffb3cdd3d27b544cec20d664b6"
+    },
+    "logical_boundary_preserved": "closure_under_relevant_latent_master_extension_implies_non_identifiability; failure_of_closure_is_necessary_to_escape_this_no_go_but_not_sufficient_for_identifiability",
+    "physical_axiom_adopted": false
+  },
+  "local_validation": {
+    "valid_latest_main_local_checkout_available": false,
+    "python tools/check_research_common_surface.py": "LOCAL_VALIDATION_PENDING_NO_VALID_LOCAL_CHECKOUT",
+    "python -m unittest tests.test_foundation_backflow": "LOCAL_VALIDATION_PENDING_NO_VALID_LOCAL_CHECKOUT",
+    "python -m unittest tests.test_r004_causal_identifiability_completion": "LOCAL_VALIDATION_PENDING_NO_VALID_LOCAL_CHECKOUT",
+    "pass_not_claimed": true
+  },
+  "validation_gate_audit": {
+    "bilingual_manifest": {
+      "current_blob_sha1": "sha1:8c7fff2198dddd10f34a37fc4497617fe7108e44",
+      "current_version": 75,
+      "r004_no_go_pair_present": false,
+      "checker": "tools/check_bilingual_pairs.py",
+      "checker_blob_sha1": "sha1:ede99a625e58fbec0585d9aa5f25bcf3e25bc7a3",
+      "static_checker_finding": "The checker requires every docs/*.en.md and docs/*.zh-CN.md prose document to be registered. The replayed R004 no-go pair is present on current main but absent from the manifest, so bilingual validation cannot be considered satisfied before source-aware registration.",
+      "candidate_source_aware_repair_after_exact_local_core_checks": {
+        "version": 76,
+        "append_pair_only": [
+          "docs/R004_CAUSAL_IDENTIFIABILITY_NO_GO_01.en.md",
+          "docs/R004_CAUSAL_IDENTIFIABILITY_NO_GO_01.zh-CN.md"
+        ],
+        "reuse_pr_444_manifest_replacement": false
+      }
+    },
+    "reference_integrity": {
+      "checker": "tools/check_references.py",
+      "checker_blob_sha1": "sha1:1d3da091aa698a03f83bce1788b4d039885df3be",
+      "source_shard_registers": [
+        "SRC-KUHN-EXTENSIVE-GAMES-1953",
+        "SRC-LI-ELGAMAL-SFRL-2017"
+      ],
+      "checker_requirement": "Every registered source must occur at least once in each English and Chinese PRIOR_ART corpus.",
+      "dedicated_pr444_prior_art_sidecars_present_on_current_main": false,
+      "dedicated_pr444_sidecars": [
+        "docs/PRIOR_ART_R004_CAUSAL_IDENTIFIABILITY.en.md",
+        "docs/PRIOR_ART_R004_CAUSAL_IDENTIFIABILITY.zh-CN.md"
+      ],
+      "next_reference_action": "Before final reference-integrity validation, confirm whether both new source IDs are already cited by the current English and Chinese PRIOR_ART corpora. If not, replay only the necessary source-pinned prior-art sidecar pair from PR #444 after revalidation; do not merge PR #444 wholesale."
+    }
+  },
+  "foundation_state": {
+    "foundation_steward_active_question": "FQ-20260810-007",
+    "foundation_backflow_phase": "ANSWERED",
+    "canonicalized": false,
+    "propagation": "PENDING_EXACT_LOCAL_VALIDATION_THEN_BILINGUAL_AND_REFERENCE_INTEGRITY"
+  },
+  "machine_state": "PROGRESS_NOT_TERMINAL",
+  "handoff_intent": "CONTINUATION",
+  "next_action": "Resume the existing GOVERNANCE frontier. First obtain a valid latest-main local checkout and execute the three exact pending commands without substituting reconstructed or remote CI evidence. If they pass, patch the then-current bilingual_pairs.json source-aware rather than replaying PR #444 wholesale; run bilingual/reference integrity locally; satisfy any exact prior-art citation obligation with the minimum source-pinned sidecar repair; then perform only the minimal Foundation/Common-Surface propagation. Do not restart R004 research, adopt a physical axiom, or mark CANONICALIZED before validation plus propagation."
+}
