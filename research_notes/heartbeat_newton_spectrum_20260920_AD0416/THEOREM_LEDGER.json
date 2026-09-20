@@ -1,0 +1,60 @@
+{
+  "schema": "HEARTBEAT_NEWTON_SPECTRUM_THEOREM_CANDIDATES_V1",
+  "date": "2026-09-20",
+  "world_id": "HEARTBEAT_WORLD",
+  "status": "SCOPED_PROOFS_LOCAL_EXECUTION_NOT_FOUNDATION",
+  "theorems": [
+    {
+      "id": "HBW-NS-001",
+      "name": "General integer-mixing asymptotic Smith slopes",
+      "assumptions": [
+        "Fixed nonsingular integer matrix M, fixed prime p; powers of the same M"
+      ],
+      "law": "a_i(M^n)=n*lambda_i+O_(M,p)(1), including nonsemisimple M; phase-cut slopes agree for a fixed periodic program",
+      "proof_ref": "research_notes/heartbeat_newton_spectrum_20260920_AD0416/RESEARCH_NOTE.md#section-2",
+      "tool": "NewtonSpectrum",
+      "boundary": "Not an arbitrary switching or nonlinear cocycle; invariant channels are not native axes",
+      "test_ref": "tests/test_heartbeat_newton_spectrum.py",
+      "priority_claim": false
+    },
+    {
+      "id": "HBW-NS-002",
+      "name": "Finite coefficient criterion and all-n bound",
+      "assumptions": [
+        "Same scope, degree d, s=v_p(det M)"
+      ],
+      "law": "Bounded Smith-depth spread iff all slopes equal iff d*v_p(c_j)>=j*s; p-integral characteristic recurrences give a finite all-n bound",
+      "proof_ref": "research_notes/heartbeat_newton_spectrum_20260920_AD0416/RESEARCH_NOTE.md#section-3",
+      "tool": "certify_balanced_powers",
+      "boundary": "The constant depends on M,p; no universal family bound or real-metric stability",
+      "test_ref": "tests/test_heartbeat_newton_spectrum.py",
+      "priority_claim": false
+    },
+    {
+      "id": "HBW-NS-003",
+      "name": "Exact affine periodicity of balanced local Smith depths",
+      "assumptions": [
+        "Same scope, all slopes alpha=a/b"
+      ],
+      "law": "There exist H,K with M^H=p^K U, U p-local unimodular; then a_i(n+H)=a_i(n)+K for every n>=0",
+      "proof_ref": "research_notes/heartbeat_newton_spectrum_20260920_AD0416/RESEARCH_NOTE.md#section-4",
+      "tool": "find_smith_rhythm",
+      "boundary": "Search budget exhaustion is not nonexistence; period need not be minimal; no spatial/event return",
+      "test_ref": "tests/test_heartbeat_newton_spectrum.py",
+      "priority_claim": false
+    },
+    {
+      "id": "HBW-NS-004",
+      "name": "BRC p-torsion capacity slope curve",
+      "assumptions": [
+        "G_n=coker M^n, fixed rational tau>=0"
+      ],
+      "law": "(1/n)log_p |G_n[p^floor(tau*n)]| -> sum_i min(tau,lambda_i); exact finite count still uses Smith factors",
+      "proof_ref": "research_notes/heartbeat_newton_spectrum_20260920_AD0416/RESEARCH_NOTE.md#section-6",
+      "tool": "torsion_capacity_rate",
+      "boundary": "Uniform branch weight is additional; slopes do not recover finite residue positions, arbitrary joint weights or paths",
+      "test_ref": "tests/test_heartbeat_newton_spectrum.py",
+      "priority_claim": false
+    }
+  ]
+}

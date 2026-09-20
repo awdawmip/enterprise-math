@@ -1,0 +1,63 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "date": "2026-09-20",
+  "methods": [
+    {
+      "method_id": "heartbeat.general_linear_newton_spectrum",
+      "name": "Heartbeat general integer-mixing Newton spectrum and exact Smith rhythm",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T9_HOLONOMY_COCOYCLE_GLUING",
+      "related_families": [
+        "T5_PRECISION_REFINEMENT",
+        "T0_BRC"
+      ],
+      "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+      "source_refs": [
+        "src/enterprise_math/heartbeat_newton_spectrum.py",
+        "src/enterprise_math/heartbeat_residual_holonomy.py",
+        "tests/test_heartbeat_newton_spectrum.py",
+        "research_notes/heartbeat_newton_spectrum_20260920_AD0416/RESEARCH_NOTE.md",
+        "research_notes/heartbeat_newton_spectrum_20260920_AD0416/THEOREM_LEDGER.json"
+      ],
+      "api": [
+        "NewtonSpectrum",
+        "characteristic_coefficients",
+        "newton_polygon",
+        "BalanceCertificate",
+        "certify_balanced_powers",
+        "local_smith_depths",
+        "periodic_newton_spectra",
+        "torsion_capacity_rate",
+        "SmithRhythmCertificate",
+        "find_smith_rhythm"
+      ],
+      "triggers": [
+        "Newton spectrum",
+        "general integer axis mixing",
+        "p-adic Smith depth",
+        "exact carry rhythm",
+        "single-slope certificate"
+      ],
+      "capabilities": [
+        "exact characteristic/Newton slopes without p-adic root approximation",
+        "finite necessary-and-sufficient depth-balance diagnosis",
+        "constructive uniform all-n interval",
+        "certified exact local Smith recurrence",
+        "asymptotic p-torsion capacity curve"
+      ],
+      "reuse_resolution": {
+        "state": "EXTEND_EXISTING_TOOL / REUSE_EXECUTED",
+        "existing": "heartbeat.integer_residual_holonomy",
+        "gap": "Old decision is limited to monomial cycles; arbitrary matrix mixing needs characteristic/Newton slope and all-n lattice certificates. Existing BRC Fraction operations and torsion observers are executed unchanged."
+      },
+      "hard_boundary": "Dimension1..6 nonsingular integer matrices; fixed periodic program only. Smith channels are not native spatial axes. No affine-effect, path, arbitrary switching, physical stability or constant-bit-memory guarantee. Bounded period search may return None without disproving existence.",
+      "theorem_refs": [
+        "HBW-NS-001",
+        "HBW-NS-002",
+        "HBW-NS-003",
+        "HBW-NS-004"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,308 @@
+{
+  "status": "PASS",
+  "test_groups": 12,
+  "skipped": 0,
+  "failures": 0,
+  "errors": 0,
+  "checks": {
+    "executed_unchanged_sources": {
+      "heartbeat_residual_holonomy.py": "2b66743c3f4cd52263aa6e15c00d7837008fb8ad",
+      "brc_transport.py": "be1debe367263931bd5e93fd750be3ed54624fe1",
+      "brc_histogram.py": "9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1"
+    },
+    "independent_oracle": {
+      "sympy": "1.14.0",
+      "dense_6x6_matrices": 36
+    },
+    "old_monomial_rule_recovered": 120,
+    "mixing_pair": {
+      "determinants": [
+        8,
+        8
+      ],
+      "powers_per_map": 24,
+      "maps": 4,
+      "balanced_slope": "1/2 (six times)",
+      "drift_slopes": [
+        "0",
+        "0",
+        "0",
+        "1",
+        "1",
+        "1"
+      ],
+      "balanced_spread_bound": "1",
+      "drift_spread": "n",
+      "dense_conjugate_maps": [
+        [
+          [
+            4,
+            2,
+            2,
+            4,
+            0,
+            0
+          ],
+          [
+            13,
+            -2,
+            0,
+            -10,
+            -4,
+            4
+          ],
+          [
+            -10,
+            -4,
+            -4,
+            -6,
+            0,
+            -4
+          ],
+          [
+            -4,
+            2,
+            1,
+            6,
+            2,
+            0
+          ],
+          [
+            8,
+            4,
+            4,
+            8,
+            0,
+            -2
+          ],
+          [
+            -2,
+            0,
+            0,
+            0,
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            4,
+            2,
+            2,
+            2,
+            0,
+            0
+          ],
+          [
+            19,
+            -3,
+            0,
+            -14,
+            -6,
+            4
+          ],
+          [
+            -22,
+            -2,
+            -4,
+            6,
+            4,
+            -4
+          ],
+          [
+            -4,
+            2,
+            1,
+            5,
+            2,
+            0
+          ],
+          [
+            8,
+            4,
+            4,
+            4,
+            0,
+            -2
+          ],
+          [
+            -2,
+            0,
+            0,
+            0,
+            1,
+            1
+          ]
+        ]
+      ]
+    },
+    "all_n_bound_certificates": {
+      "dense_eisenstein_maps": 18,
+      "finite_power_crosschecks": 342,
+      "proved_bounds": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "huge_index_bound_only": 1000000000000
+    },
+    "general_coefficient_tests": {
+      "matrix_prime_cases": 96,
+      "balanced": 53
+    },
+    "general_mixing_phase_checks": {
+      "programs": 18,
+      "phases": 3,
+      "prime_cases": 54
+    },
+    "exact_smith_rhythm": {
+      "period": 8,
+      "depth_increment": 24,
+      "recurrence_checks": 33,
+      "early_search_exhaustion_is_not_nonexistence": true,
+      "first_nine_profiles": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          3,
+          3,
+          3,
+          3,
+          6
+        ],
+        [
+          4,
+          6,
+          6,
+          6,
+          6,
+          8
+        ],
+        [
+          6,
+          9,
+          9,
+          9,
+          9,
+          12
+        ],
+        [
+          11,
+          12,
+          12,
+          12,
+          12,
+          13
+        ],
+        [
+          12,
+          15,
+          15,
+          15,
+          15,
+          18
+        ],
+        [
+          16,
+          18,
+          18,
+          18,
+          18,
+          20
+        ],
+        [
+          18,
+          21,
+          21,
+          21,
+          21,
+          24
+        ],
+        [
+          24,
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      ]
+    },
+    "additional_exact_rhythms": {
+      "maps": 6,
+      "period_increment_pairs": [
+        [
+          2,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          8,
+          24
+        ]
+      ],
+      "recurrence_checks": 78
+    },
+    "brc_capacity": {
+      "uniform_weight_assumed": true,
+      "n": 20,
+      "multiplier": 1024,
+      "equal_total_branches": 1152921504606846976,
+      "surviving_torsion_counts": [
+        1152921504606846976,
+        1073741824
+      ],
+      "selected_mass": [
+        "1",
+        "1/1073741824"
+      ]
+    },
+    "observer_boundary": {
+      "identical_newton_spectrum": true,
+      "identical_all_n_smith_factors_proved": true,
+      "BRC_endpoint_effects_differ": true,
+      "sheared_length_squared": "4^n*(n^2+1)"
+    },
+    "guard_rejections": 14
+  },
+  "independent_mathematical_review": false,
+  "full_repository_tests": false,
+  "production_changed": false
+}
