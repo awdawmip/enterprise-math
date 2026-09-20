@@ -1,0 +1,55 @@
+{
+  "schema": "ENTERPRISE_MATH_GOVERNANCE_BACKFLOW_CHECKPOINT_V1",
+  "task_id": "RS-GOV-FOUNDATION-BACKFLOW",
+  "publication_id": "TP2-2C438651496A928ADCB7",
+  "claim_id": "CL-GOV-FQ007-7FC65C-20260920-0414",
+  "driver_id": "EM-DVR-7FC65C",
+  "authority_record_id": "DA-914801DE7DDE3068AC16",
+  "authority_source_comment_id": 5747189443,
+  "claim_source_comment_id": 5747558858,
+  "fq005": {
+    "applied_commit": "96914cb613670950a1027c95d864d0d7cb98b6df",
+    "canonical_readback": "PASS_PREVIOUS_CHECKPOINT_PRESERVED",
+    "whole_repo_local_validation": {
+      "python tools/check_research_common_surface.py": "NOT_RUN_NO_LOCAL_REPOSITORY_CHECKOUT",
+      "python -m unittest tests.test_foundation_backflow": "NOT_RUN_NO_LOCAL_REPOSITORY_CHECKOUT"
+    }
+  },
+  "fq007": {
+    "question_id": "FQ-20260810-007",
+    "research_task_id": "RS-R004-CAUSAL-IDENTIFIABILITY",
+    "research_state": "CLOSED",
+    "frozen_research_head": "735a8bd94af2723153203776b1949f7f5d0ab296",
+    "steward_verification_comment": 5242406428,
+    "stale_integration_pr": 444,
+    "stale_pr_wholesale_merge": "REJECTED",
+    "pre_replay_main": "ea55ae3fe6fddc996a36932440635c70cfd18ede",
+    "replay_commit": "b7f0260be9a5e665e63daf3b43fec4bd0947088b",
+    "replay_mode": "SOURCE_AWARE_EXACT_SIX_BLOB_REPLAY",
+    "replayed_blobs": {
+      "docs/R004_CAUSAL_IDENTIFIABILITY_NO_GO_01.en.md": "8c5d2427c9377ff610df361d75c4a9bad4329396",
+      "docs/R004_CAUSAL_IDENTIFIABILITY_NO_GO_01.zh-CN.md": "4060a54352dbba91fae5f8b817668576a4ef98e3",
+      "lineage_r004_causal_identifiability_no_go_01.json": "1a12793938d31de2de3021ba2ad86a78c596a384",
+      "sources_r004_causal_identifiability_no_go_01.json": "de5c22043938edffb3cdd3d27b544cec20d664b6",
+      "src/enterprise_math/r004_causal_identifiability_completion.py": "6d0de84f811f76a25896476811ece0b976c222a9",
+      "tests/test_r004_causal_identifiability_completion.py": "20fcc44aef20c060b14a6a8ef572fca8b8f3c8e6"
+    },
+    "precondition": "ALL_SIX_PATHS_ABSENT_ON_PRE_REPLAY_MAIN",
+    "canonical_readback": "PASS_EXACT_SIX_BLOB_SHA1",
+    "logical_boundary": "closure_under_relevant_latent_master_extension_implies_non_identifiability; failure_of_closure_is_necessary_to_escape_this_no_go_but_not_sufficient_for_identifiability",
+    "physical_axiom_adopted": false,
+    "current_main_local_validation": {
+      "python -m unittest tests.test_r004_causal_identifiability_completion": "NOT_RUN_NO_LOCAL_REPOSITORY_CHECKOUT"
+    },
+    "bilingual_manifest": {
+      "current_version_before_registration": 75,
+      "r004_no_go_pair_present_before_registration": false,
+      "stale_pr_replacement_reused": false,
+      "status": "PENDING_CURRENT_MAIN_SOURCE_AWARE_REGISTRATION_AFTER_LOCAL_VALIDATION"
+    },
+    "foundation_propagation": "PENDING_VALIDATION_AND_CURRENT_MAIN_BILINGUAL_REFERENCE_CHECKS",
+    "status": "L4_CORE_REPLAY_APPLIED_CANONICAL_READBACK_LOCAL_VALIDATION_PENDING"
+  },
+  "machine_state": "PROGRESS_NOT_TERMINAL",
+  "next_action": "Resume as GOVERNANCE without restarting R004 research. On a valid latest-main local checkout, run the still-pending FQ-005 whole-repo checks and the FQ-007 unittest against current main; then register the R004 EN/ZH pair by patching current bilingual_pairs.json rather than replaying PR #444, validate bilingual/reference surfaces, and only then perform minimal Foundation/Common-Surface propagation. Do not adopt a physical axiom and do not mark CANONICALIZED before validation plus propagation."
+}
