@@ -39,6 +39,12 @@
       "name": "heartbeat translation dressing",
       "law": "For cycle affine F_t(z)=M_tz+c_t and translation T_u, F_t T_u=T_(M_tu) F_t; ordering defect is (M_t-I)u.",
       "boundary": "Time-ordered affine composition, not failure of static commutative addition."
+    },
+    {
+      "id": "HBW-INTR-007",
+      "name": "cyclic weighted valuation balancing",
+      "law": "For cyclic positive integer axis factors b_i, A_b^6=(product b_i)I. If k=6q+r, p-adic Smith depths are sorted cyclic r-window sums q*sum_i v_p(b_i)+sum_(j<r)v_p(b_(i+j)); complete cycles add equal depth to all axes and within-cycle anisotropy is bounded/periodic.",
+      "boundary": "Fixed cyclic per-axis-factor heartbeat family only; arbitrary periodic integer programs need not scalarize or have bounded valuation anisotropy."
     }
   ],
   "validation": {
@@ -55,6 +61,18 @@
     },
     "independent_review": false,
     "full_project_tests": false,
-    "lean": false
+    "lean": false,
+    "weighted_valuation_balance": {
+      "random_factor_vectors": 80,
+      "beats": "1..18",
+      "primes": [
+        2,
+        3,
+        5
+      ],
+      "exact_comparisons": 4320,
+      "status": "PASS"
+    },
+    "invalid_boundary_checks": 3
   }
 }

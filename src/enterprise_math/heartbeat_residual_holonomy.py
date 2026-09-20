@@ -45,7 +45,7 @@ def matmul(left, right) -> Matrix:
 def matpow(matrix, exponent: int) -> Matrix:
     a = _matrix(matrix)
     if type(exponent) is not int or exponent < 0:
-        raise ValueEError("nonnegative integer exponent required")
+        raise ValueError("nonnegative integer exponent required")
     out = identity(len(a))
     while exponent:
         if exponent & 1:
@@ -201,3 +201,61 @@ def torsion_killed_count(invariant_factors, multiplier: int) -> int:
     if type(multiplier) is not int:
         raise TypeError("integer multiplier required")
     return prod(gcd(abs(multiplier), d) for d in factors)
+
+
+def _is_prime(p: int) -> bool:
+    if type(p) is not int or p < 2:
+        return False
+    d = 2
+    while d * d <= p:
+        if p % d == 0:
+            return False
+        d += 1
+    return True
+
+
+def prime_valuation(value: int, prime: int) -> int:
+    if type(value) is not int or value == 0:
+        raise ValueError("nonzero integer value required")
+    if not _is_prime(prime):
+        raise ValueError("prime must be prime")
+    n = abs(value)
+    out = 0
+    while n % prime == 0:
+        n //= prime
+        out += 1
+    return out
+
+
+def cyclic_weighted_heartbeat(factors) -> Matrix:
+    """A_bvec(z)=(b6*z6,b1*z1,...,b5*z5) for positive integer factors."""
+    factors = tuple(factors)
+    if not factors or any(type(b) is not int or b < 1 for b in factors):
+        raise ValueError("positive integer cyclic scale factors required")
+    n = len(factors)
+    a = [[0] * n for _ in range(n)]
+    a[0][-1] = factors[-1]
+    for i in range(1, n):
+        a[i][i - 1] = factors[i - 1]
+    return tuple(tuple(row) for row in a)
+
+
+def cyclic_valuation_depths(factors, prime: int, beats: int) -> tuple[int, ...]:
+    """Sorted p-adic Smith-depth profile for a cyclic weighted heartbeat power."""
+    factors = tuple(factors)
+    if not factors or any(type(b) is not int or b < 1 for b in factors):
+        raise ValueError("positive integer cyclic scale factors required")
+    if not _is_prime(prime):
+        raise ValueError("prime must be prime")
+    if type(beats) is not int or beats < 0:
+        raise ValueError("nonnegative integer beat count required")
+    n = len(factors)
+    q, r = divmod(beats, n)
+    vals = tuple(prime_valuation(b, prime) for b in factors)
+    full = sum(vals)
+    if not r:
+        return (q * full,) * n
+    return tuple(sorted(
+        q * full + sum(vals[(start + j) % n] for j in range(r))
+        for start in range(n)
+    ))

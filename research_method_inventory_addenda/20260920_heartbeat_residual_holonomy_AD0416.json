@@ -31,7 +31,10 @@
         "cyclic_radix_heartbeat",
         "radix_staircase_factors",
         "residual_branch_count",
-        "torsion_killed_count"
+        "torsion_killed_count",
+        "prime_valuation",
+        "cyclic_weighted_heartbeat",
+        "cyclic_valuation_depths"
       ],
       "triggers": [
         "heartbeat monodromy",
@@ -39,14 +42,19 @@
         "Smith residue profile",
         "radix staircase",
         "carry holonomy",
-        "phase residual"
+        "phase residual",
+        "nonuniform cyclic scaling",
+        "p-adic heartbeat depth",
+        "valuation balance"
       ],
       "capabilities": [
         "exact small-dimension integer monodromy",
         "finite cokernel Smith profile",
         "phase residual spectrum",
         "canonical six-axis radix staircase",
-        "residual branch-count and torsion-order observer"
+        "residual branch-count and torsion-order observer",
+        "exact p-adic depth profile for cyclic per-axis integer scaling",
+        "bounded within-cycle valuation-anisotropy diagnostic"
       ],
       "reuse_resolution": {
         "state": "COMPOSE_APPLIED / CAPABILITY_GAP_CONFIRMED / DOMAIN_OPERATOR",

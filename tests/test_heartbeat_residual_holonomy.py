@@ -1,5 +1,8 @@
 import itertools, random, sys
-sys.path.insert(0,'/mnt/data')
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]
+SOURCE=ROOT/'src'/'enterprise_math'
+sys.path.insert(0,str(SOURCE if SOURCE.exists() else Path(__file__).resolve().parent))
 import heartbeat_residual_holonomy as h
 
 def block6(B):
@@ -40,6 +43,46 @@ def test_phase_carry_example():
     assert h.torsion_killed_count(p[0].invariant_factors,2)==4
     assert h.torsion_killed_count(p[1].invariant_factors,2)==2
     return p
+
+def test_invalid_boundaries():
+    try:
+        h.matpow(h.identity(2), -1)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("negative exponent was accepted")
+    for factors, prime, beats in [
+        ((2,3,5,7,11,13), 4, -1),
+        ((2,3,5,7,11,13), 4, 1),
+    ]:
+        try:
+            h.cyclic_valuation_depths(factors, prime, beats)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError("invalid valuation arguments were accepted")
+    return 3
+
+
+def test_weighted_valuation_balance():
+    rng=random.Random(20260921)
+    checked=0
+    for _ in range(80):
+        factors=tuple(rng.randint(1,6) for _ in range(6))
+        A=h.cyclic_weighted_heartbeat(factors)
+        B=1
+        for value in factors:
+            B*=value
+        assert h.matpow(A,6)==tuple(tuple(B if i==j else 0 for j in range(6)) for i in range(6))
+        for k in range(1,19):
+            smith=h.smith_invariant_factors(h.matpow(A,k))
+            for prime in (2,3,5):
+                actual=tuple(sorted(h.prime_valuation(d,prime) for d in smith))
+                expected=h.cyclic_valuation_depths(factors,prime,k)
+                assert actual==expected,(factors,k,prime,smith,actual,expected)
+                checked+=1
+    return checked
+
 
 def test_radix_staircase():
     cases=0
@@ -90,5 +133,7 @@ if __name__=='__main__':
       'radix_staircase_cases':test_radix_staircase(),
       'composition_cardinality':test_residual_cardinality_composition(),
       'bounded_survey':test_bounded_survey(),
+      'weighted_valuation_balance':test_weighted_valuation_balance(),
+      'invalid_boundaries':test_invalid_boundaries(),
     }
     print('PASS',results)

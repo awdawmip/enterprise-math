@@ -1,5 +1,5 @@
 {
-  "schema": "EM_HEARTBEAT_WORLD_INTRINSIC_LAWS_CHECKPOINT_V1",
+  "schema": "EM_HEARTBEAT_WORLD_INTRINSIC_LAWS_CHECKPOINT_V2",
   "event_id": "heartbeat-world-intrinsic-laws-20260920-AD0416",
   "research_activity_id": "RA-37C0A30C7B1F5A338F03D186",
   "status": "REMOTE_MAIN_RESEARCH_CANDIDATE_NOT_FOUNDATION",
@@ -18,7 +18,8 @@
     "HBW-INTR-003",
     "HBW-INTR-004",
     "HBW-INTR-005",
-    "HBW-INTR-006"
+    "HBW-INTR-006",
+    "HBW-INTR-007"
   ],
   "validation": {
     "local_status": "PASS",
@@ -30,18 +31,30 @@
       "ordered_pairs": 33856,
       "phase_snf_different": 15488
     },
-    "module_sha256": "87643d87eb5d8ef204569e21979c7b03f35374f2a3fb11d928900276836e9a8f",
-    "tests_sha256": "2b3ccc6d6ec4f03f3b84d9e01befa96c443cb51a5919d337ffde4463d9121e75",
+    "module_sha256": "f26ce82d01c3ac9138798202b4ff740bd22f29b8009aea794bd17ff816a48b21",
+    "tests_sha256": "06e9f04a30755cda7280d210a2238c97b17d854dbb901b94489e4e6810b3fa5e",
     "independent_review": false,
     "full_project_tests": false,
     "lean": false,
-    "nollm_production_changed": false
+    "nollm_production_changed": false,
+    "weighted_valuation_balance": {
+      "random_factor_vectors": 80,
+      "beats": "1..18",
+      "primes": [
+        2,
+        3,
+        5
+      ],
+      "exact_comparisons": 4320
+    },
+    "invalid_boundary_checks": 3
   },
   "boundaries": [
     "HEARTBEAT_WORLD still has no fixed heartbeat program",
     "six-beat radix law is family-specific, not world axiom",
     "Smith/group-extension mathematics is classical; no priority claim",
     "residual/control state is not an extra spatial dimension",
-    "BRC branch count does not imply uniform branch weights"
+    "BRC branch count does not imply uniform branch weights",
+    "weighted valuation balancing requires fixed cyclic per-axis factors; arbitrary periodic integer heartbeats may fail it"
   ]
 }
