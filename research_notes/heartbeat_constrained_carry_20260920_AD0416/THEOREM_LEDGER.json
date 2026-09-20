@@ -1,0 +1,82 @@
+{
+  "schema": "HEARTBEAT_CONSTRAINED_CARRY_THEOREMS_V1",
+  "date": "2026-09-20",
+  "world_id": "HEARTBEAT_WORLD",
+  "status": "SCOPED_DERIVATIONS_TESTED_NOT_FOUNDATION",
+  "source_snapshot": "88251de1923cc4cea75691d3d3809d1990b14c03",
+  "independent_review": false,
+  "formal_proof_assistant": false,
+  "classical_novelty_claimed": false,
+  "theorems": [
+    {
+      "id": "HBW-CG-001",
+      "name_zh": "受约束多端口最小前向格与有限预算判定",
+      "assumptions": "有限有向图；每边非奇异整数6x6动作；所有原端口允许起步；固定素数p和R>=0。",
+      "statement": "每个控制端口乘行列式余数节点进行最小前向格闭包；q<=6m，6qR+1轮内固定或给出真实合法路径的预算越界。",
+      "proof": "research_notes/heartbeat_constrained_carry_20260920_AD0416/RESEARCH_NOTE.md",
+      "proof_section": "2. CG-001",
+      "api": "find_graph_lattices",
+      "test": "tests/test_heartbeat_constrained_carry.py"
+    },
+    {
+      "id": "HBW-CG-002",
+      "name_zh": "全合法路径有界等价与单向指数势",
+      "assumptions": "等价部分只要求CG-001的有限控制图与动作；定量部分给定归一化前向包含格基S_v。",
+      "statement": "全合法路径Smith深浅差一致有界当且仅当存在有限前向不变格族。g_v=vp(det S_v)-h_v；每边余量g_s-g_t>=0；循环内余量0，跨分量可严格正；端点上界κ_s+κ_t+g_s-g_t。",
+      "proof": "research_notes/heartbeat_constrained_carry_20260920_AD0416/RESEARCH_NOTE.md",
+      "proof_section": "3. CG-002",
+      "api": "certify_graph_inclusions",
+      "test": "tests/test_heartbeat_constrained_carry.py"
+    },
+    {
+      "id": "HBW-CG-003",
+      "name_zh": "有界不蕴含逐边双射格",
+      "assumptions": "两端口I自环；平行单向I与diag(p^6,1,1,1,1,1)跨边，或整数幺模共轭。",
+      "statement": "全合法词的最优差为6；R=1的前向格证书成立，但任何逐边归一化双射格族都不存在。抹掉端口后反复使用非平凡边产生6n。",
+      "proof": "research_notes/heartbeat_constrained_carry_20260920_AD0416/RESEARCH_NOTE.md",
+      "proof_section": "4. CG-003",
+      "api": "verify_graph_lattice_result",
+      "test": "tests/test_heartbeat_constrained_carry.py"
+    },
+    {
+      "id": "HBW-CG-004",
+      "name_zh": "运输轴对图的精确最优界或无界循环",
+      "assumptions": "有限控制图；非奇异整数单项矩阵；声明初始端口且每端口全部有序轴对。",
+      "statement": "30m个(端口,i,j)节点将Smith差精确转为同一路径的估值差最大加法包络。有限算法给出最优界加势/达到路径，或实际可重复的可达正循环。",
+      "proof": "research_notes/heartbeat_constrained_carry_20260920_AD0416/RESEARCH_NOTE.md",
+      "proof_section": "5. CG-004",
+      "api": "classify_monomial_carry",
+      "test": "tests/test_heartbeat_constrained_carry.py"
+    },
+    {
+      "id": "HBW-CG-005",
+      "name_zh": "有限单项控制语言最坏包络二分",
+      "assumptions": "CG-004；B(n)对全部合法长度<=n路径取最大值；控制图固定且时不变。",
+      "statement": "B(n)要么一致有界，要么为Theta(n)。单一非周期序列的缓慢无界峰值不等于全部合法路径最坏包络。",
+      "proof": "research_notes/heartbeat_constrained_carry_20260920_AD0416/RESEARCH_NOTE.md",
+      "proof_section": "6. CG-005",
+      "api": "verify_monomial_carry_result",
+      "test": "tests/test_heartbeat_constrained_carry.py"
+    },
+    {
+      "id": "HBW-CG-006",
+      "name_zh": "非周期同素数平衡与异倍率旋转失衡",
+      "assumptions": "H_p(x)=(p*x6,x1,...,x5)；p为素数。",
+      "statement": "任意词族{H_p,H_p^2,p*H_p^-1,I}的最优差为1；但H_3^5 H_2=diag(3,3,3,3,3,2)，重复n次的2和3进Smith差均为n。",
+      "proof": "research_notes/heartbeat_constrained_carry_20260920_AD0416/RESEARCH_NOTE.md",
+      "proof_section": "7. CG-006",
+      "api": "classify_monomial_carry",
+      "test": "tests/test_heartbeat_constrained_carry.py"
+    }
+  ],
+  "non_theorem_observer_witness": "Existing BRC mass quotient succeeds but effect quotient rejects the same port merge;12-step exact positive-mass composition retained.",
+  "boundaries": [
+    "six spatial axes plus separate time",
+    "linear p-Smith spread only",
+    "fixed finite graph must declare all allowed future effects",
+    "R escape != global unboundedness; SEARCH_LIMIT inconclusive",
+    "complete unknown-bound decision limited to monomial actions",
+    "positive BRC mass != signed valuation debt",
+    "no physical temperature or Nollm production conclusion"
+  ]
+}

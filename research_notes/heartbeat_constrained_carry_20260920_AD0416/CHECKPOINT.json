@@ -1,0 +1,52 @@
+{
+  "schema": "HEARTBEAT_CONSTRAINED_CARRY_CHECKPOINT_V1",
+  "status": "SCOPED_PROOFS_AND_LOCAL_EXACT_TESTS_COMPLETE_NOT_ADMITTED",
+  "date": "2026-09-20",
+  "researcher_id": "EM-DIRECT-AD0416",
+  "activity_id": "RA-37C0A30C7B1F5A338F03D186",
+  "source_snapshot": "88251de1923cc4cea75691d3d3809d1990b14c03",
+  "report": "research_notes/heartbeat_constrained_carry_20260920_AD0416/RESEARCH_NOTE.md",
+  "theorem_ledger": "research_notes/heartbeat_constrained_carry_20260920_AD0416/THEOREM_LEDGER.json",
+  "module": "src/enterprise_math/heartbeat_constrained_carry.py",
+  "tests": "tests/test_heartbeat_constrained_carry.py",
+  "manifest": "research_notes/heartbeat_constrained_carry_20260920_AD0416/MANIFEST.json",
+  "results": "research_notes/heartbeat_constrained_carry_20260920_AD0416/RESULTS.json",
+  "reproduce": "PYTHONPATH=src python research_notes/heartbeat_constrained_carry_20260920_AD0416/reproduce.py --write",
+  "theorem_candidates": [
+    "HBW-CG-001",
+    "HBW-CG-002",
+    "HBW-CG-003",
+    "HBW-CG-004",
+    "HBW-CG-005",
+    "HBW-CG-006"
+  ],
+  "findings": {
+    "general_graph": "forward inclusion / SCC potential / 6qR+1 budget decision",
+    "strict_bijection_counterexample": "sharp legal-path bound 6; no all-edge bijective lattice family",
+    "monomial_subclass": "30m-state complete exact-bound-or-repeatable-cycle decision",
+    "nonperiodic_balanced_family": "sharp bound 1 for {H_p,H_p^2,p H_p^-1,I}",
+    "mixed_radix": "H_3^5 H_2=diag(3,3,3,3,3,2); 2/3-adic spread of nth power equals n",
+    "finite_controller_dichotomy": "worst-case over all legal paths up to n: bounded or Theta(n)",
+    "BRC_observer": "mass quotient != future-effect quotient; actual12-step mass preserved"
+  },
+  "validation": {
+    "new_groups": 19,
+    "existing_regression_groups": 41,
+    "total": 60,
+    "passed": 60,
+    "test_log": "research_notes/heartbeat_constrained_carry_20260920_AD0416/TESTS.log",
+    "T12_four_functions_actually_reused": true,
+    "full_T12_40check_suite_run": false,
+    "independent_researcher_review": false,
+    "Lean": false,
+    "full_repository": false,
+    "production_Nollm": false
+  },
+  "next_unfinished_unit": "Finite observer-safe control quotient for genuinely residual/position-dependent growing states; detect any spurious repeatable debt loop before using that quotient.",
+  "nonclaims": [
+    "general nonmonomial unknown-radius negative decision",
+    "all-path BRC probability/history compression",
+    "worldview change",
+    "physical temperature theorem"
+  ]
+}

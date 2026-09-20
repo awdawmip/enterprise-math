@@ -1,0 +1,123 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "date": "2026-09-20",
+  "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "methods": [
+    {
+      "classification": "GLOBAL_SUBTOOL",
+      "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+      "module": "src/enterprise_math/heartbeat_constrained_carry.py",
+      "source_refs": [
+        "src/enterprise_math/heartbeat_constrained_carry.py",
+        "tests/test_heartbeat_constrained_carry.py",
+        "research_notes/heartbeat_constrained_carry_20260920_AD0416/RESEARCH_NOTE.md",
+        "research_notes/heartbeat_constrained_carry_20260920_AD0416/THEOREM_LEDGER.json"
+      ],
+      "hard_boundary": "Finite declared control graph; raw integer X6; linear p-Smith spread only; no probability/history quotient or Foundation admission.",
+      "method_id": "t0.brc_constrained_carry_lattice_inclusions",
+      "name": "Heartbeat constrained carry: forward lattices with transient index slack",
+      "family_id": "T0_BRC",
+      "related_families": [
+        "T5_PRECISION_REFINEMENT",
+        "T9_HOLONOMY_COCOYCLE_GLUING",
+        "T6_OPERATION_SAFE_QUOTIENT"
+      ],
+      "api": [
+        "LinearEdge",
+        "ControlGraph",
+        "packet_control_graph",
+        "GraphColumn",
+        "InclusionCertificate",
+        "GraphLatticeResult",
+        "find_graph_lattices",
+        "certify_graph_inclusions",
+        "replay_graph_word",
+        "verify_graph_lattice_result"
+      ],
+      "triggers": [
+        "constrained carry",
+        "one-way lattice inclusion",
+        "transient index slack",
+        "legal path lattice closure",
+        "strongly connected volume balance"
+      ],
+      "capabilities": [
+        "6qR+1 budget decision with q<=6m",
+        "actual legal path-column escape",
+        "forward-only lattice certificate and endpoint bound",
+        "SCC zero-slack / one-way positive-slack separation"
+      ],
+      "reuse_resolution": {
+        "state": "REUSE_EXECUTED / COMPOSE_APPLIED / EXTEND_EXISTING_TOOL",
+        "methods": [
+          "t0.brc_common_lattice_search",
+          "t0.brc_switching_carry_lattice_ports",
+          "ControlPacket"
+        ],
+        "gap": "Prior all-edge bijection certificate and unrestricted-family finder do not characterize arbitrary directed constrained graphs with one-way index slack."
+      },
+      "theorem_refs": [
+        "HBW-CG-001",
+        "HBW-CG-002",
+        "HBW-CG-003"
+      ]
+    },
+    {
+      "classification": "DOMAIN_OPERATOR",
+      "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+      "module": "src/enterprise_math/heartbeat_constrained_carry.py",
+      "source_refs": [
+        "src/enterprise_math/heartbeat_constrained_carry.py",
+        "tests/test_heartbeat_constrained_carry.py",
+        "research_notes/heartbeat_constrained_carry_20260920_AD0416/RESEARCH_NOTE.md",
+        "research_notes/heartbeat_constrained_carry_20260920_AD0416/THEOREM_LEDGER.json"
+      ],
+      "hard_boundary": "Finite declared control graph; raw integer X6; linear p-Smith spread only; no probability/history quotient or Foundation admission. Complete decision requires monomial matrices; general axis mixing rejected. Trace copying and integer bit lengths cost extra.",
+      "method_id": "t12.heartbeat_monomial_axis_pair_carry",
+      "name": "Heartbeat monomial carry: transported ordered-axis-pair max-plus specialization",
+      "family_id": "T12_IDEMPOTENT_PATH_CLOSURE_BELLMAN",
+      "related_families": [
+        "T0_BRC",
+        "T5_PRECISION_REFINEMENT",
+        "T9_HOLONOMY_COCOYCLE_GLUING"
+      ],
+      "api": [
+        "LinearEdge",
+        "ControlGraph",
+        "PairPath",
+        "MonomialCarryResult",
+        "classify_monomial_carry",
+        "verify_monomial_carry_result"
+      ],
+      "triggers": [
+        "monomial carry",
+        "sharp Smith spread",
+        "axis pair graph",
+        "repeatable debt cycle",
+        "mixed radix rotation"
+      ],
+      "capabilities": [
+        "30m-state exact observable reduction",
+        "sharp all-path bound plus attaining word",
+        "actual reachable positive-cycle unboundedness certificate",
+        "initial-control-set-aware classification"
+      ],
+      "reuse_resolution": {
+        "state": "REUSE_APPLIED / REUSE_EXECUTED / DOMAIN_SPECIALIZATION",
+        "methods": [
+          "T12 TR-2",
+          "T12 TR-3",
+          "T12 TR-4",
+          "floyd_warshall_star",
+          "linear_carry_spread"
+        ],
+        "gap": "New axis-identity transport maps the precise six-axis carry observer into existing T12 path closure; word/source/initialization certificates are domain-specific, not a new Bellman theorem."
+      },
+      "theorem_refs": [
+        "HBW-CG-004",
+        "HBW-CG-005",
+        "HBW-CG-006"
+      ]
+    }
+  ]
+}
