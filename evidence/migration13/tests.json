@@ -1,0 +1,34 @@
+{
+  "schema": "M13_MACHINE_REPORT_VALIDATION_V1",
+  "tests": 173,
+  "new_reader_tests": 25,
+  "retained_tests": 148,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "groups": {
+    "test_multiplication_lab": 18,
+    "test_angular_dispersion": 18,
+    "test_certified_hex": 24,
+    "test_certified_hex_browser": 18,
+    "test_angular_browser": 11,
+    "test_multiplicative_exact": 12,
+    "test_multiplicative_readouts": 20,
+    "test_multiplicative_machine": 27,
+    "test_multiplicative_report": 25
+  },
+  "finite_cases": {
+    "complete_python_node_stats": 5,
+    "complete_python_node_products": 1028,
+    "custom_histogram_scale_cases": 40,
+    "legacy_full_statistic_objects": 60,
+    "phase_config_cases": 16,
+    "full_certificate_cases_128": 12,
+    "tampered_outputs_rejected": 8,
+    "custom_observation_cases": 12
+  },
+  "policy_exit": 0,
+  "scope": "Existing core.read_data report import, deterministic replay, explicit browser seed projection and retained exact arithmetic; no HTML/DOM/native navigation/full-package or independent review",
+  "retained_expectations_advanced_this_slice": 0,
+  "vm_host": "M10 exact readout function excerpts; unchanged modulus only; legacy dispatch stubs throw; no DOM/WebCrypto claim"
+}

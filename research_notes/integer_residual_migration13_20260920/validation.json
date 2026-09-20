@@ -1,0 +1,90 @@
+{
+  "schema": "INTEGER_RESIDUAL_MIGRATION13_VALIDATION_V1",
+  "status": "LOCALLY_VALIDATED_CANDIDATE_NO_MAIN_CUTOVER",
+  "baseline_commit": "ab57af004d75d483c819e371501059cda1dbc39e",
+  "researcher_id": "EM-DIRECT-4A5102",
+  "activity_id": "RA-1094DE57986E6E3FDCEA65DA",
+  "actual_consumer": "core.read_data -> multiplicative_report -> unchanged M12 machine field and visual-data V2",
+  "tests": {
+    "total": 173,
+    "new": 25,
+    "retained": 148,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "retained_expectations_changed": 0
+  },
+  "population_cases": {
+    "count": 12,
+    "identities_each": 4096,
+    "all_persisted_outputs_replay_match": true,
+    "json_csv_roundtrip_match": true,
+    "all_certified": true,
+    "new_65536_case": false
+  },
+  "clean_replay": {
+    "tests": 173,
+    "six_source_files_equal": true,
+    "deterministic_tests_report_equal": true
+  },
+  "patch_sha256": "41a20e2d1ca26d656401ea2d8073032e57b190a6cc697c1e16b9b19322732535",
+  "raw_evidence_sha256": {
+    "tests.json": "8e9e2fa845d3f39c465eb76f8b440104ca22516e89a09bf2dc87101c1178833b",
+    "population_4096.json": "be4b5a3170afc66fd4842e41442afbee7c0e73d2cdf83a63e7cfc857f8fe8abe",
+    "imported_cells.json": "2c41243b06037245cf29a5043584294256592480f486ca74bf8f94d68a659a46",
+    "replayed_unresolved.json": "2295271d36cec33c1dfee68396f3e0956f7086bd84e21ea3ad2e37758b2e435b",
+    "browser_startup.json": "b29016d374568dce7f49b203d55ad35aa270941053edbb494724774113611b3e"
+  },
+  "source_files": {
+    "tools/nollm_visual_toolkit/nollm_visual_toolkit/core.py": {
+      "git_blob": "0340c37902840f02de2655bfa76d9bc8dbd493b2",
+      "sha256": "b5eac854f32b8908265e87325d513dacc5e30ef51762dab812f75beed1b4995a",
+      "bytes": 13555
+    },
+    "tools/nollm_visual_toolkit/nollm_visual_toolkit/multiplicative_report.py": {
+      "git_blob": "b15c73d205f89558df45c75867ffd38180bf6a5a",
+      "sha256": "1e6d56a88bf6664f0add56603c86d679e0be2bba531fb94e6461a759f441d61b",
+      "bytes": 11202
+    },
+    "tools/nollm_visual_toolkit/tests/test_multiplicative_report.py": {
+      "git_blob": "509fb5212ce9a06a701035be9793924c668cb3ee",
+      "sha256": "ced2a4e7ec382a4a63fcef268fa713fc0440bc9475b1100a1df9d30cc9589e7d",
+      "bytes": 16689
+    },
+    "tools/run_migration13.py": {
+      "git_blob": "d33b5501b18581dee8f88f1766c1c054c48a7bbf",
+      "sha256": "3c929b8fff3c1958502dca37cbfd52c36b49ea895a4ef9318dfa684c9b3a671b",
+      "bytes": 2929
+    },
+    "tools/benchmark_migration13.py": {
+      "git_blob": "a4d4a57d39b6d8a8906168c0839e3bf3d1334595",
+      "sha256": "ecb19fb8c169c705c53df6337df70eac055ea2a27bf06e012727ee138fa8e2de",
+      "bytes": 4229
+    },
+    "evidence/migration13/frozen_m12_core.py": {
+      "git_blob": "7d7ee36b401e10469cb0a3c6a4a9fa33ba0f903e",
+      "sha256": "c62240bb4c4b87226ae88f40120cd398d1c0dbafc1f3b411adc4b7d8b206139b",
+      "bytes": 13271
+    }
+  },
+  "reuse": {
+    "BRC": "REUSE_EXECUTED_UNCHANGED",
+    "M12_field_readouts_and_ties": "REUSE_EXECUTED_UNCHANGED",
+    "data_reader": "EXTEND_EXISTING_CONSUMER"
+  },
+  "boundaries": {
+    "replay_authenticates_author": false,
+    "browser_projection": "STARTUP_PACKET_ONLY_NOT_BROWSER_EXECUTION",
+    "custom_browser_observation": "REJECT_NOT_COERCE",
+    "full_package": false,
+    "new_dom_tests": false,
+    "native_browser": false,
+    "whole_repository": false,
+    "independent_review": false,
+    "main_code_integrated": false,
+    "defaults_changed": false,
+    "filesystem_transaction_atomicity": false,
+    "geometry": "DECLARED_A2_OBSERVER_NOT_NATIVE_X6",
+    "new_hosted_automation": false
+  }
+}

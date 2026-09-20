@@ -108,12 +108,7 @@ def read_data(path: str | Path) -> dict[str, Any]:
             rows.append(obj)
         meta["records"] = rows
         return validate(meta)
-    text = path.read_text(encoding="utf-8-sig")
-    data = json.loads(text)
-    if isinstance(data, dict) and data.get("schema") == "NOLLM_MULTIPLICATIVE_MACHINE_REPORT_V1":
-        from .multiplicative_report import parse_machine_report, machine_report_to_data
-        return machine_report_to_data(parse_machine_report(text))
-    return validate(data)
+    return validate(json.loads(path.read_text(encoding="utf-8-sig")))
 
 
 def write_data(data: dict[str, Any], path: str | Path) -> None:
