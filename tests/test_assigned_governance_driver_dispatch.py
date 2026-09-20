@@ -125,12 +125,27 @@ class AssignedGovernanceDriverDispatchTests(unittest.TestCase):
         self.assertEqual(result["action"], "ADOPT_OWNER_CLAIM")
         self.assertEqual(result["required_guard"], "tools/research_runtime_guard.py adopt")
 
-    def test_owner_race_foreign_owner_and_expired_revalidation_refuse(self):
+    def test_owner_race_claim_change_refuses_but_stale_foreign_origin_can_succeed(self):
         self.leased()
-        for changes in ({"claim_id": "changed-claim"}, {"researcher_id": "EM-OTHER-ABC123"},
+        for changes in ({"claim_id": "changed-claim"},
                         {"claim_id": None, "dispatch_state": "NEEDS_DISPATCH"}):
             with self.subTest(changes=changes), self.assertRaises(router.ControlDispatchError):
                 self.route(states=[dict(self.state, **changes)])
+
+        foreign_origin = dict(self.state, researcher_id="EM-OTHER-ABC123")
+        result = self.route(
+            states=[foreign_origin],
+            observations=self.observation(at="2026-09-09T05:40:00Z"),
+        )
+        self.assertEqual(result["action"], "ADOPT_OWNER_CLAIM")
+        self.assertEqual(result["researcher_id"], DRIVER)
+        self.assertEqual(
+            result["executor_succession"]["claim_origin_researcher_id"],
+            "EM-OTHER-ABC123",
+        )
+        self.assertFalse(
+            result["executor_succession"]["same_identity_required_for_stale_adoption"]
+        )
 
     def test_scope_is_exact_not_prose_or_bare_manual_assignment(self):
         for key, value in (("task_id", "GV-OTHER"), ("publication_id", "TP2-OTHER"),
