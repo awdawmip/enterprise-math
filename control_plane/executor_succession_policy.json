@@ -3,7 +3,7 @@
   "status": "ACTIVE_CANONICAL_CONTROL_ONLY",
   "effective": "2026-09-20",
   "classification": "CONTROL_FLOW_ONLY_NO_MATHEMATICAL_AUTHORITY",
-  "purpose": "Make task continuity depend on the durable task/claim execution slot rather than the continued existence of a particular chat agent identity.",
+  "purpose": "Keep immutable tasks and evidence durable while authenticated successor executions use new identities and fenced ownership epochs.",
   "continuity_authority": [
     "CURRENT_IMMUTABLE_TASK_PUBLICATION",
     "EXACT_CLAIM_ID_AND_EXECUTION_SCOPE",
@@ -14,7 +14,7 @@
   "identity_semantics": {
     "claim_origin_researcher_or_driver_id": "IMMUTABLE_PROVENANCE",
     "permanent_recovery_lock": false,
-    "active_session_executor": "SESSION_SCOPED_AND_MAY_DIFFER_AFTER_SUCCESSION",
+    "active_session_executor": "NEW_REAL_IDENTITY_BOUND_TO_AUTHENTICATED_SUCCESSOR_CLAIM_AND_SESSION",
     "mass_rewrite_of_historical_claim_identity": false
   },
   "active_session_protection": {
@@ -23,15 +23,18 @@
   },
   "stale_or_lost_executor_recovery": {
     "same_identity_required": false,
-    "new_claim_required_when_existing_claim_is_valid": false,
+    "new_claim_required_when_existing_claim_is_valid": true,
     "required": [
       "EXACT_TASK_PUBLICATION_AND_CLAIM_MATCH",
       "EXACT_SESSION_IS_STALE_OR_OTHERWISE_CANONICALLY_RECOVERABLE",
       "DURABLE_FRONTIER_RECONCILED_AND_VERIFIED",
       "DESTINATION_EXECUTOR_HAS_CURRENT_ROLE_AUTHORITY",
-      "NO_REPLAY_OF_VERIFIED_COMPLETE_UNITS"
+      "NO_REPLAY_OF_VERIFIED_COMPLETE_UNITS",
+      "EXPLICIT_STALE_TERMINATION_OR_HANDOFF_EVIDENCE",
+      "EXACT_PREDECESSOR_CLAIM_SERVER_COMMENT_CAS",
+      "NEW_EXECUTION_INTENT_AND_REAL_SUCCESSOR_IDENTITY"
     ],
-    "action": "ADOPT_EXISTING_CLAIM_AND_BIND_REPLACEMENT_SESSION_EXECUTOR",
+    "action": "AUTHENTICATED_TYPED_CLAIM_CONTINUATION_WITH_EXACT_PREDECESSOR_CAS_AND_FENCING",
     "claim_origin_identity_after_adoption": "PRESERVE_AS_PROVENANCE"
   },
   "expired_or_absent_claim": {
@@ -42,7 +45,7 @@
   "assigned_routes": {
     "are_recovery_prerequisite": false,
     "role": "OPTIONAL_TARGETED_ROUTING",
-    "stale_recovery": "ORDINARY_RECOVER_BEFORE_FRESH_ROUTE_MAY_ADOPT_WITHOUT_REISSUING_PERSON_ASSIGNMENT",
+    "stale_recovery": "CONTINUATION_PACKET_AND_AUTHENTICATED_SUCCESSOR_CLAIM; OLD_ASSIGNMENT_IS_NOT_A_SUCCESSOR_LOCK",
     "active_assignment_cannot_preempt_active_session": true
   },
   "role_boundary": {
@@ -60,8 +63,24 @@
     "TASK_SLOT_SURVIVES_EXECUTOR_LOSS",
     "CLAIM_ORIGIN_IDENTITY_IS_PROVENANCE_NOT_RECOVERY_LOCK",
     "ACTIVE_SESSION_IS_NON_PREEMPTIBLE",
-    "STALE_SUCCESSOR_PRESERVES_EXACT_CLAIM_AND_FRONTIER",
     "ROLE_AUTHORITY_REMAINS_REQUIRED",
-    "NO_SECOND_CLAIM_FOR_VALID_STALE_CLAIM"
-  ]
+    "SUCCESSOR_PRESERVES_TASK_AND_DURABLE_FRONTIER",
+    "ONE_CURRENT_AUTHORIZED_WRITER_PER_TASK_SCOPE",
+    "OLD_CLAIMS_AND_REVIEWS_REMAIN_IMMUTABLE_HISTORY",
+    "READ_PACKET_AND_PREPARE_DO_NOT_AUTHORIZE_EXECUTION"
+  ],
+  "canonical_module": "control_plane/research_continuation.py",
+  "canonical_freeze_requires_current_runtime_authorization": true,
+  "canonical_review_requires_current_driver_authority": true,
+  "driver_succession": "AUTHORIZE_SOURCE_BODY_SUCCESSION_EXACT_PREDECESSOR_DA_CAS; PRIOR_AUTHORITY_FENCED_PROSPECTIVELY",
+  "mathematical_independence": "NEW_SESSION_OR_ROLE_DOES_NOT_ERASE_REAL_CONTRIBUTIONS_OR_SOURCE_EXPOSURE",
+  "prospective_record_admission": {
+    "module": "control_plane/research_continuation_write_authority.py",
+    "legacy_cutover": "control_plane/continuation_record_cutover.json",
+    "new_record_requires": "ENTERPRISE_MATH_CONTROL_WRITE_AUTHORIZATION_V1",
+    "legacy_pins_waive_original_audit": false,
+    "unreceipted_new_result": "RESULT_CONTROL_AUTHORITY_WITHHELD",
+    "unreceipted_new_review": "NONOPERATIONAL_REVIEW_WITH_EXPLICIT_DIAGNOSTIC",
+    "receipt_is_platform_signed_identity": false
+  }
 }

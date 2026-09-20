@@ -330,6 +330,20 @@ def _filter_registered_events(
     accepted, rejected = _bind_intent_claim_publications(task, events, accepted, rejected, root)
     accepted, rejected = _enforce_publication_event_causality(task, events, accepted, rejected)
     accepted, rejected = _enforce_registered_handoff_scopes(task, events, accepted, rejected)
+    # A continuation is still an ordinary CLAIM and has passed all existing
+    # publication and frozen-Result gates. Only its typed recovery envelope is new.
+    from control_plane.research_continuation import validate_claim_continuation, ContinuationError
+    continuation_kept = []
+    for event in accepted:
+        if event.get("task_id") == task.get("task_id") and event.get("event") == "CLAIM" and "continuation" in event:
+            try:
+                validate_claim_continuation(task, event, root=root)
+            except ContinuationError as exc:
+                index = _event_source_index(event, events)
+                rejected.append({"index": index if index is not None else 0, "reason": str(exc)})
+                continue
+        continuation_kept.append(event)
+    accepted = continuation_kept
     if held and _core._is_registered(task):
         kept = []
         for event in accepted:

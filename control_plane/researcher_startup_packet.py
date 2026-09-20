@@ -309,7 +309,9 @@ def build_packet(receipt: dict[str, Any], root: Path = ROOT) -> dict[str, Any]:
     }
 
     target = route.get("target")
-    for field in ("surface", "target_key", "required_guard"):
+    for field in ("surface", "target_key", "required_guard", "required_mcp_tool",
+                  "expected_previous_claim_id", "expected_previous_comment_id",
+                  "claim_id_is_predecessor", "execution_authorized", "legacy_client_action", "canonical_lane_entrypoint"):
         if field in route:
             packet[field] = route[field]
     if route.get("action") == "VERIFY_SESSION_LIVENESS" and "targets" in route:

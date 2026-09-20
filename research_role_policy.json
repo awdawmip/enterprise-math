@@ -115,11 +115,22 @@
     "routine_line_review_requires_owner_reaudit": false,
     "author_self_check_is_independent_review": false,
     "researcher_execution": "BOUNDED_EPHEMERAL_WITH_DURABLE_HANDOFF",
-    "driver_continuity": "PREFER_SAME_AGENT_AND_RECOVER_FROM_COMPACT_DURABLE_DOSSIER",
+    "driver_continuity": "DURABLE_LINE_RESPONSIBILITY_WITH_AUTHORIZED_SESSION_SUCCESSION",
     "cross_line_authority_requires_owner_scope": true,
     "dossier_is_task_or_claim_authority": false,
     "changes_existing_promotion_or_source_firewall_gates": false,
     "creates_background_automation": false
+  },
+  "conversation_continuation": {
+    "policy": "control_plane/executor_succession_policy.json",
+    "protocol": "docs/RESEARCH_CONTINUATION_PROTOCOL.md",
+    "line_responsibility_is_permanent_person_binding": false,
+    "new_driver_requires_own_identity_and_current_DA": true,
+    "researcher_and_driver_registration_paths_are_distinct": true,
+    "governance_driver_requires_fake_researcher_activity": false,
+    "source_native_mcp_sessions": "SUPPORTED_WITH_EXPLICIT_CLIENT_CAPABILITIES_AND_CANONICAL_ROLE_ACTIVATION",
+    "predecessor_availability_is_required": false,
+    "historical_authorship_and_source_exposure_are_preserved": true
   },
   "research_identity": {
     "protocol": "docs/RESEARCH_IDENTITY_PROTOCOL.md",

@@ -30,6 +30,16 @@ A Driver conversation exposes `Driver-ID` only after explicit Driver activation 
 
 For a user-authorized delegated program, the portfolio Owner and each line Driver use the same role with explicit scopes. The Owner sets direction and combines/splits lines; a persistent line Driver owns task publication, researcher dispatch, incremental review, formalization routing, and ordinary integration throughout its delegated line. An explicit Owner delegation under that current user authorization activates only the named scope and requires the receiving Driver's own identity/activation records. Routine line decisions do not return to the Owner for duplicate mathematical review. See the line organization protocol for durable dossiers, author/reviewer separation, and escalation triggers.
 
+## Cross-conversation responsibility and write authority
+
+The responsible line and its durable ledger survive an execution session. A replacement Driver uses its own identity and Source-native session registration or the established native identity route, then obtains current canonical DA authority for the intended scope. It does not borrow the former Driver-ID or require a private reply from that Driver. An explicit DA succession binds the exact predecessor record/comment; only the winning transition becomes current, and historical reviews remain evaluated at their actual historical authority time.
+
+Use the continuation packet to distinguish frozen results awaiting review, execution that may resume, and genuine mathematical or integrity blockers. Inspect the contribution/exposure ledger and obtain the required independent decisive review; a new identity alone cannot discharge that obligation. Governance execution uses a real Driver session and DA, not a fake TASK_RESEARCH activity.
+
+Current immutable review writes additionally bind the real Source snapshot, current Driver/session and reviewer contribution declaration. The native review CLI uses `--source-commit`, `--reviewer-session-id` and `--reviewer-contribution-ids-json`; MCP supplies the corresponding verified values through its bounded native writer adapter. New result freeze writes use `--source-commit`, `--runtime-state-file` and fresh raw `--events`. The exact legacy cutover preserves existing bytes and their original audits; it is not a permission to repair or accept mathematics.
+
+See [the continuation protocol](RESEARCH_CONTINUATION_PROTOCOL.md). New role activation, prepared plans, transport checkpoints and Source publication do not themselves accept mathematics or create an automatic successor.
+
 ## 2. Active parent objective
 
 Maintain:

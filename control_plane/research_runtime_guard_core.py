@@ -301,6 +301,13 @@ def canonical_live_claim_binding(
             "server_author_user_id": meta.get("author_user_id"),
         }
     )
+    if "continuation" in claim:
+        binding["continuation"] = copy.deepcopy(claim["continuation"])
+        binding["session_id"] = claim["continuation"]["session_id"]
+        binding["ownership_epoch"] = meta.get("comment_id")
+    elif isinstance(claim.get("session_id"), str) and claim["session_id"].strip():
+        binding["session_id"] = claim["session_id"]
+        binding["ownership_epoch"] = meta.get("comment_id")
     return binding
 
 
@@ -402,6 +409,9 @@ def adopt_stale_session(
     root: Path = ROOT,
 ) -> dict[str, Any]:
     safe = canonicalize_registration(state, purpose="adopt", root=root)
+    from control_plane.research_continuation import write_gate_enabled
+    if write_gate_enabled(root) and replacement_session_id != (state.get("session") or {}).get("session_id"):
+        raise RuntimeAuthorizationError("cross-conversation adoption requires an authenticated typed CLAIM continuation and predecessor CAS; a private session rewrite is not authority")
     if safe["task_registration"]["state"] == "IMMUTABLE_REGISTERED":
         if events is None:
             raise RuntimeAuthorizationError(
@@ -443,6 +453,21 @@ def authorize_execution(
         task_id, scope, events, now=resolved_now, root=root
     )
     _reconcile_caller_owner_claim(state, binding)
+    from control_plane.research_continuation import authorize_executor_role, write_gate_enabled, ContinuationError
+    if write_gate_enabled(root):
+        role = state.get("executor_role") or ("RESEARCH_DRIVER" if state.get("research_mode") == "RESEARCH_DRIVER" else "RESEARCHER")
+        try:
+            role_binding = authorize_executor_role(task_id, executor_id=binding["researcher_id"],
+                session_id=(state.get("session") or {}).get("session_id", ""), executor_role=role,
+                now=resolved_now, root=root)
+        except ValueError as exc:
+            raise RuntimeAuthorizationError(str(exc)) from exc
+        binding.update(role_binding)
+    if binding.get("session_id") is not None:
+        if not isinstance(state.get("session"), Mapping) or state["session"].get("session_id") != binding["session_id"]:
+            raise RuntimeAuthorizationError("successor execution requires its exact fenced session binding")
+        if not isinstance(state.get("owner_claim"), Mapping) or state["owner_claim"].get("researcher_id") != binding["researcher_id"]:
+            raise RuntimeAuthorizationError("successor execution requires its own explicit researcher identity")
     return {
         "authorized": True,
         "task_id": task_id,

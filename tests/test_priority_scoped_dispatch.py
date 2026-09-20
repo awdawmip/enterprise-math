@@ -86,7 +86,7 @@ class PriorityScopeTests(unittest.TestCase):
         )
         load_functions(ROOT / "research_control_dispatch.py", {
             "ControlDispatchError", "_target_key", "_state_target_key", "_owner_scope_activity",
-            "_leased_targets", "_fresh_lane", "_adoption_result", "route_from_candidates",
+            "_leased_targets", "_fresh_lane", "_successor_fields", "_adoption_result", "route_from_candidates",
             "route_control", "main", "_load_observation_payload", "parse_session_observations",
         }, self.ns)
 
@@ -103,7 +103,7 @@ class PriorityScopeTests(unittest.TestCase):
     def test_foreign_priority_recovery_is_outside_scope(self):
         self.states = [task("P2-stale", "P2", dispatch_state="LEASED", claim_id="old",
                             fixture_action="ADOPT_OWNER_CLAIM"), task("P0-ready")]
-        self.assertEqual(self.route()["action"], "ADOPT_OWNER_CLAIM")
+        self.assertEqual(self.route()["action"], "PREPARE_SUCCESSOR_CLAIM")
         result = self.route(priority="P0")
         self.assertEqual(result["target_key"], "P0-ready")
         self.assertEqual(result["action"], "CLAIM_NEW_OWNER")
@@ -114,7 +114,7 @@ class PriorityScopeTests(unittest.TestCase):
         result = self.route(priority="P0")
         self.assertEqual(result["claim_id"], "winning-claim")
         self.assertTrue(result["owner_claim_preserved"])
-        self.assertFalse(result["new_claim_required"])
+        self.assertTrue(result["new_claim_required"])
 
     def test_unknown_p0_owner_is_not_no_dispatch(self):
         self.states = [task("P0-owned", dispatch_state="LEASED", claim_id="owner"), task("P2-new", "P2")]

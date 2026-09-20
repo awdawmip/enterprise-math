@@ -109,9 +109,9 @@ class CurrentControlAuthorityDispatchTests(unittest.TestCase):
                 }
             },
         )
-        self.assertEqual(research_runtime.ADOPT_OWNER_CLAIM, result["action"])
+        self.assertEqual("PREPARE_SUCCESSOR_CLAIM", result["action"])
         self.assertEqual(owner["claim_id"], result["claim_id"])
-        self.assertFalse(result["new_claim_required"])
+        self.assertTrue(result["new_claim_required"])
 
 
 if __name__ == "__main__":

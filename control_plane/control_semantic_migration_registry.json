@@ -195,23 +195,22 @@
     {
       "migration_id": "CSM-RUNTIME-OWNER-SCOPE-LIVENESS-006",
       "path": "research_runtime_state_machine.json",
-      "baseline_blob_sha1": "206642ea2059f3d0fa9726ae0866ccde61c1e9ff",
+      "baseline_blob_sha1": "fe9c78c6b33d92e26b62e19825dd007f31c8e6f6",
       "json_pointers": [
         "/owner_lease_is_session_liveness",
         "/stale_valid_owner_action"
       ],
       "observed_legacy_values": [
-        true,
-        "WAIT_FOR_OWNER_LEASE_EXPIRY"
-      ],
-      "canonical_target_values": [
         false,
         "ADOPT_EXISTING_CLAIM"
       ],
+      "canonical_target_values": [
+        false,
+        "PREPARE_AUTHENTICATED_SUCCESSOR_CLAIM_WITH_PREDECESSOR_CAS"
+      ],
       "risk_class": "POST_V2_EXPLICIT_OWNER_SESSION_SEPARATION",
       "state": "TARGET_MIGRATED",
-      "migrated_commit": "9e8dcf5dd44ea4d7eb5aaf7e160a28d5266ebfc9",
-      "migration_scope": "PRE-V2 nested session-liveness representation retired; current V2 exposes the two operative owner/session invariants directly",
+      "migration_scope": "Explicit user 2026-09-20 cross-conversation architecture refactor: retain distinct task lease/session liveness, replace same-claim private adoption with new authenticated claim identity, predecessor CAS and old-writer fencing. Historical origin and original mathematical record audits are preserved.",
       "exact_diff_verified": true,
       "canonical_evidence": {
         "dispatch_contract": "research_dispatch_contract.json /session_liveness_routing",
@@ -219,17 +218,42 @@
           "TASK_RESEARCH_RESPONSE",
           "DURABLE_EXECUTION_PROGRESS"
         ],
-        "generic_conversation_activity_is_owner_scope_liveness": false
+        "generic_conversation_activity_is_owner_scope_liveness": false,
+        "continuation_contract": "control_plane/executor_succession_policy.json",
+        "migration_report": "research_artifacts/CONTINUATION_MIGRATION_20260920/REPORT.md"
       },
       "execution_authority_while_open": false,
       "semantic_surfaces_forbidden_to_change": [
         "owner lease duration",
-        "claim ownership",
-        "stale adoption same-CLAIM semantics",
-        "mathematical task state",
+        "immutable historical claim provenance",
+        "mathematical task scope or truth",
         "Working Truth",
-        "result/review semantics"
-      ]
+        "Foundation and promotion",
+        "historical Result/review audit requirements",
+        "FREE source firewalls",
+        "P000"
+      ],
+      "previous_migration_provenance": {
+        "baseline_blob_sha1": "206642ea2059f3d0fa9726ae0866ccde61c1e9ff",
+        "observed_legacy_values": [
+          true,
+          "WAIT_FOR_OWNER_LEASE_EXPIRY"
+        ],
+        "canonical_target_values": [
+          false,
+          "ADOPT_EXISTING_CLAIM"
+        ],
+        "migrated_commit": "9e8dcf5dd44ea4d7eb5aaf7e160a28d5266ebfc9",
+        "migration_scope": "PRE-V2 nested session-liveness representation retired; current V2 exposes the two operative owner/session invariants directly",
+        "semantic_surfaces_forbidden_to_change": [
+          "owner lease duration",
+          "claim ownership",
+          "stale adoption same-CLAIM semantics",
+          "mathematical task state",
+          "Working Truth",
+          "result/review semantics"
+        ]
+      }
     },
     {
       "migration_id": "CSM-STEWARD-CANONICAL-DISPATCH-TOOL-007",

@@ -70,9 +70,9 @@ class SessionObservationTimeTests(unittest.TestCase):
 
     def test_stale_past_activity_still_adopts_existing_claim(self):
         result = self.route(observation("2026-09-07T01:00:00+00:00"))
-        self.assertEqual(research_runtime.ADOPT_OWNER_CLAIM, result["action"])
+        self.assertEqual("PREPARE_SUCCESSOR_CLAIM", result["action"])
         self.assertEqual(CLAIM_ID, result["claim_id"])
-        self.assertFalse(result["new_claim_required"])
+        self.assertTrue(result["new_claim_required"])
 
     def test_foreign_future_claim_observation_is_ignored_not_promoted(self):
         foreign = {

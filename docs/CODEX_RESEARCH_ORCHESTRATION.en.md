@@ -4,7 +4,7 @@ Status: `ACTIVE / USER-DIRECTED ORCHESTRATION / V1`
 Effective: `2026-09-09`  
 Scope: research organization and continuity; no new mathematical claim, task registry, or scheduler.
 
-The Owner manages the portfolio and control plane, a line Driver owns an entire research loop, and a researcher owns one bounded task. The same Driver normally continues reviewing that line; ordinary results do not return to the Owner for another full review. Owner and line Driver are scopes of the existing `RESEARCH_DRIVER` role, not new identity enums.
+The Owner manages the portfolio and control plane, a line Driver owns an entire research loop, and a researcher owns one bounded task. The line responsibility and review ledger persist across authorized execution sessions; ordinary results do not return to the Owner for another full review. Owner and line Driver are scopes of the existing `RESEARCH_DRIVER` role, not new identity enums.
 
 ```mermaid
 flowchart TD
@@ -64,7 +64,7 @@ Distinguish paper proof, finite exact certificate, experimental indication, cond
 
 ## 5. Persistent context and recoverable dossiers
 
-Persistence means continuing responsibility and preferential reuse of the same agent. It does not promise an immortal process, unlimited context, or hidden memory across sessions. Recover the same line from its dossier when execution context ends. Replacing an agent does not reset the mathematical frontier, provenance, or winning claim.
+Persistence belongs to the line, task and evidence. An available agent may continue, but its absence never prevents an authorized new conversation from taking over through the canonical continuation protocol. Recover the verified frontier and author/exposure ledger. The Task-ID and mathematics do not reset; a stale execution is fenced through an explicit authenticated ownership/authority transition. See [cross-conversation continuation](RESEARCH_CONTINUATION_PROTOCOL.md).
 
 | Context layer | Retained working view | Expand on demand |
 | --- | --- | --- |

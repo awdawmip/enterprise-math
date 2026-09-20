@@ -17,6 +17,7 @@
     "SEMANTIC_SAFE_CONTROL_MIGRATION",
     "SEMANTIC_VERIFICATION_REQUEST_CAPTURE",
     "CONTROL_PLANE_MAINTENANCE_LIVENESS",
+    "CROSS_CONVERSATION_CONTINUATION",
     "EXECUTOR_SUCCESSION"
   ],
   "task_publication": {
@@ -60,12 +61,33 @@
       "runtime_on_main": false
     }
   },
+  "conversation_continuation": {
+    "contract": "control_plane/executor_succession_policy.json",
+    "projection": "control_plane/research_continuation.py",
+    "writer": "control_plane/research_continuation_writer.py",
+    "identity_contract": "research_identity_state_machine.json#/source_native_mcp_registration",
+    "write_admission": "control_plane/research_continuation_write_authority.py",
+    "legacy_record_cutover": "control_plane/continuation_record_cutover.json",
+    "human_protocol": "docs/RESEARCH_CONTINUATION_PROTOCOL.md",
+    "mcp_repository": "awdawmip/em-research-mcp",
+    "canonical_task_registry_unchanged": true,
+    "packet_is_read_only_projection": true,
+    "separate_control_source_and_artifact_source_commits": true,
+    "unverified_external_handoff_link_is_authority": false,
+    "original_actor_contact_required": false,
+    "preserve_original_claim_Result_Review_bytes": true,
+    "new_writers_require_current_claim_or_DA_session_and_payload_bound_receipt": true,
+    "missing_new_write_receipt_may_change_operational_task_state": false,
+    "source_checkpoint_before_progress_or_handoff": true,
+    "static_mcp_bundle_is_current_live_task_authority": false,
+    "live_control_and_pinned_source_bundle_are_explicitly_distinct": true
+  },
   "live_dispatch": {
     "contract": "research_dispatch_contract.json",
     "canonical_entrypoint": "research_control_dispatch.py",
     "ordinary_fresh_selector": "tools/research_dispatch.py",
     "cohort_lane_fresh_selector": "tools/research_lane_dispatch.py",
-    "stale_adoption_guard": "tools/research_runtime_guard.py",
+    "stale_adoption_guard": "control_plane/research_continuation.py",
     "runtime_bootstrap": "control_plane/research_control_bootstrap.py",
     "owner_scope_liveness_protocol": "docs/OWNER_SCOPE_SESSION_LIVENESS_PROTOCOL.md",
     "session_observation_schema": "ENTERPRISE_MATH_SESSION_LIVENESS_OBSERVATIONS_V2",

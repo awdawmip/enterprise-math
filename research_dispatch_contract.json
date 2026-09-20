@@ -8,7 +8,7 @@
   "lane_dispatch_tool": "tools/research_lane_dispatch.py",
   "lane_claim_tool": "tools/research_lane_claims.py",
   "cohort_runtime_tool": "tools/research_cohort_runtime.py",
-  "session_adoption_tool": "tools/research_runtime_guard.py",
+  "session_adoption_tool": "control_plane/research_continuation.py",
   "task_definition_authority": [
     "research_task_records/<task-id>/<publication-id>.json",
     "frozen research_scheduler.json legacy baseline only"
@@ -83,15 +83,15 @@
       "CI/status polling without durable task progress"
     ],
     "role_switch_away_from_task": "PRESERVE CLAIM AUTHORITY BUT DO NOT REFRESH OWNER-SCOPE SESSION LIVENESS FROM DESTINATION-ROLE MESSAGES; stale adoption becomes eligible from the last exact owner-scope activity timestamp",
-    "role_switch_back_to_task": "RECOMPUTE CANONICAL OWNER SCOPE; resume/adopt the same valid CLAIM only through runtime rules and never create a second CLAIM merely because the role changed",
+    "role_switch_back_to_task": "RECOMPUTE CANONICAL OWNER SCOPE; resume the same valid CLAIM only within the same session; cross-conversation recovery requires typed successor CLAIM CAS and fencing, while a mere role label change creates no claim",
     "claim_mismatch_observation": "IGNORE_AS_LIVENESS_EVIDENCE; DO_NOT LET STALE OR FOREIGN CLAIM ACTIVITY KEEP THE CURRENT OWNER ACTIVE",
     "valid_owner_plus_active_session": "PRESERVE_OWNER; DO_NOT_DUPLICATE_CLAIM",
-    "valid_owner_plus_stale_session": "ADOPT_EXISTING_WINNING_CLAIM_WITHOUT_NEW_CLAIM",
+    "valid_owner_plus_stale_session": "PREPARE_AUTHENTICATED_SUCCESSOR_CLAIM_WITH_PREDECESSOR_CAS_AND_FENCING",
     "valid_owner_plus_unknown_session_and_no_fresh_target": "VERIFY_SESSION_LIVENESS; DO_NOT_RETURN_NO_DISPATCH",
     "owner_expired_or_absent": "FRESH_DISPATCH_MAY_CREATE_ONE_NEW_CLAIM",
-    "adoption_guard": "tools/research_runtime_guard.py adopt",
+    "adoption_guard": "control_plane.research_continuation.prepare_takeover",
     "executor_identity_semantics": "CLAIM_ORIGIN_IDENTITY_IS_PROVENANCE_AFTER_STALE_DETECTION; ACTIVE_SESSION_IDENTITY_REMAINS_PROTECTED",
-    "stale_successor_rule": "VALID_CLAIM_PLUS_STALE_EXACT_SESSION_MAY_BE_ADOPTED_BY_A_DIFFERENT_CURRENT_ROLE_AUTHORIZED_EXECUTOR_WITHOUT_REISSUING_THE_CLAIM"
+    "stale_successor_rule": "A stale exact session routes to PREPARE_SUCCESSOR_CLAIM. The new real role-authorized identity publishes a new ER and authenticated typed CLAIM; exact predecessor CAS and a fresh activity barrier must pass before the old writer is fenced. Preparation grants no execution authority."
   },
   "runtime_fault_isolation": {
     "bootstrap": "control_plane/research_control_bootstrap.py",
@@ -194,9 +194,9 @@
     "current_state_source": "Current immutable publication -> registered_definition -> canonical reduce_definition with the existing Result snapshot and overlays, bounded to the single assigned target; no second task registry",
     "nonempty_dependencies": "FAIL_CLOSED_REQUIRES_CANONICAL_DEPENDENCY_RESOLUTION; this bounded entry does not interpret another dependency model",
     "blocked_closed_cohort_or_unreviewed_result": "REJECT_NO_FALLBACK_TO_OTHER_TASK",
-    "existing_owner": "Require exact expected_claim_id; preserve winning CLAIM/ER. If exact session is stale, a different currently ACTIVE authorized Driver may adopt the same claim; claim-origin identity remains provenance.",
+    "existing_owner": "Require exact expected previous claim/comment. Preserve frozen Task/ER history. A currently authorized new Driver prepares an authenticated successor claim after actual stale-session checks; new execution cannot borrow the old Driver identity.",
     "active_session": "KEEP_CURRENT_SESSION only with exact task/claim activity and matching explicit session_id; otherwise VERIFY_SESSION_LIVENESS",
-    "stale_session": "ADOPT_OWNER_CLAIM through existing runtime adopt guard; replacement Driver identity may differ from claim origin; no new CLAIM",
+    "stale_session": "PREPARE_SUCCESSOR_CLAIM through canonical continuation prepare/revalidate, then authenticated CLAIM and winning readback; never private session adoption.",
     "fresh_target": "CLAIM_NEW_OWNER still requires canonical execution intent, real server CLAIM and runtime authorize",
     "forward_revalidation": "Record current validation time; never reconstruct omitted pre-claim selector evidence",
     "execution_authorized": false,
@@ -234,7 +234,7 @@
     "selection_evidence": "assigned_research_selection with source comment/body digest, current DA digest, exact TP2/taskbook blob, recipient/session, check time and explicit no-execution/no-retrospective-selection flags",
     "conflicting_assignments": "FAIL_CLOSED; issuer explicitly revokes its earlier exact assignment before replacement; no recency winner",
     "superseded_publication_or_changed_da": "REJECT_OLD_ASSIGNMENT; preserve original provenance and existing execution-generation rules",
-    "owner_recovery": "Exact expected claim is preserved. Same-researcher identity is NOT required after exact owner session is stale; a different currently assigned/authorized researcher may adopt the same claim while claim-origin identity remains provenance.",
+    "owner_recovery": "The exact previous claim/comment is the successor CAS input, not the new execution identity. Preserve immutable task/frontier/history, register a real new executor and fence the old claim through one authenticated continuation transition.",
     "foreign_owner_transfer": false,
     "supported_dependency_shape": "Empty list, or unique task_id/required_artifact obligations covered exactly by a canonically applied current-publication typed UNBLOCK and current operational accepted immutable Driver reviews with ready follow-ups",
     "unsupported_or_unresolved_dependencies": "Scoped NO_DISPATCH with selection_status BLOCKED and target dispatch_state BLOCKED; preserve any claim; never skip or infer completion from requirement prose",
@@ -273,6 +273,6 @@
     "multiple_existing_lane_results": "RETAIN_ALL",
     "cohort_task_terminalization": "ONLY_AFTER_ALL_LANES_HAVE_EVIDENCE_PLUS_REFERENCE_PASS_1_PLUS_REFERENCE_PASS_2_PLUS_TERMINAL_SYNTHESIS_CONTROL"
   },
-  "selection_rule": "Run control_plane/research_control_bootstrap.py before any canonical runtime view, then run research_control_dispatch.py as the canonical control-plane route. The bootstrap locally isolates only exact-pinned publication forks, invalid current task publications, nonoperational Driver-review provenance, and follow-up authority derived solely from those reviews; it selects no replacement authority and leaves unrelated tasks untouched. The router then first preserves/adopts any owner scope whose valid CLAIM has exact owner-scope liveness evidence and is independently observed stale, without creating a second CLAIM. General conversation activity outside that task/claim/lane is ignored for owner liveness. If no stale-recoverable owner is observed, it delegates ordinary fresh task selection to tools/research_dispatch.py and active-cohort lane selection to tools/research_lane_dispatch.py. If both fresh selectors are empty but any valid owner lease has unknown exact owner-scope liveness, the result is VERIFY_SESSION_LIVENESS rather than NO_DISPATCH. For ordinary fresh tasks, historical state/priority/leverage/staleness ordering remains unchanged; AWAITING_REVIEW and COMPLETE are never selected. When an ACTIVE cohort exists, canonical task status is projected to COHORT_ACTIVE and task-global ownership is disabled. Live events must come from raw server-authenticated Issue #240 comments whose exact server actor is authorized. Compatible historical execution records may supply the same durable binding but cannot replace the live winning claim requirement. Executor identity on the original CLAIM is provenance after stale-session classification: recovery preserves exact task/publication/claim/scope/frontier while allowing a different current role-authorized executor session. Active exact-owner sessions remain non-preemptible.",
-  "interaction_budget": "Recovery routing reuses existing owner state and ephemeral exact-owner-scope liveness evidence. Fault isolation is local deterministic repository-state reduction with no periodic polling and no extra CLAIM. Authentication and actor authorization reuse the same Issue #240 comments already needed for semantic control events. Ordinary tasks add no new periodic poll; liveness verification is required only when fresh dispatch is empty and a valid owner lease would otherwise cause a false NO_DISPATCH, or when stale adoption is being considered. Role-switch messages outside TASK_RESEARCH do not create extra heartbeats and do not refresh the suspended task owner scope."
+  "selection_rule": "Run control_plane/research_control_bootstrap.py before any canonical runtime view, then run research_control_dispatch.py as the canonical control-plane route. The bootstrap locally isolates only exact-pinned publication forks, invalid current task publications, nonoperational Driver-review provenance, and follow-up authority derived solely from those reviews; it selects no replacement authority and leaves unrelated tasks untouched. The router then first identifies owner scopes with independently observed stale exact sessions and returns PREPARE_SUCCESSOR_CLAIM; the old claim remains reserved until a real successor wins authenticated predecessor CAS. General conversation activity outside that task/claim/lane is ignored for owner liveness. If no stale-recoverable owner is observed, it delegates ordinary fresh task selection to tools/research_dispatch.py and active-cohort lane selection to tools/research_lane_dispatch.py. If both fresh selectors are empty but any valid owner lease has unknown exact owner-scope liveness, the result is VERIFY_SESSION_LIVENESS rather than NO_DISPATCH. For ordinary fresh tasks, historical state/priority/leverage/staleness ordering remains unchanged; AWAITING_REVIEW and COMPLETE are never selected. When an ACTIVE cohort exists, canonical task status is projected to COHORT_ACTIVE and task-global ownership is disabled. Live events must come from raw server-authenticated Issue #240 comments whose exact server actor is authorized. Compatible historical execution records may supply the same durable binding but cannot replace the live winning claim requirement. Executor identity on the original CLAIM is provenance after stale-session classification: recovery preserves exact task/publication/scope/frontier and old claim history while binding a new real identity/session to its own authenticated successor claim. Active exact-owner sessions remain non-preemptible.",
+  "interaction_budget": "Recovery routing reuses existing owner state and ephemeral exact-owner-scope liveness evidence. Fault isolation is local deterministic repository-state reduction with no periodic polling; a real cross-session successor creates exactly one typed CLAIM after CAS and never adds a second concurrently effective writer. Authentication and actor authorization reuse the same Issue #240 comments already needed for semantic control events. Ordinary tasks add no new periodic poll; liveness verification is required only when fresh dispatch is empty and a valid owner lease would otherwise cause a false NO_DISPATCH, or when stale adoption is being considered. Role-switch messages outside TASK_RESEARCH do not create extra heartbeats and do not refresh the suspended task owner scope."
 }

@@ -36,6 +36,7 @@ from control_plane import immutable_write_transaction as _write_tx  # noqa: E402
 from control_plane import research_immutable_candidate_validation as _candidate_validation  # noqa: E402
 from control_plane import research_result_records_compat_runtime as _base  # noqa: E402
 from control_plane import research_result_authority_fault_isolation as _result_authority  # noqa: E402
+from control_plane import research_continuation_write_authority as _write_authority  # noqa: E402
 
 for _name in dir(_base):
     if not _name.startswith("__"):
@@ -118,7 +119,7 @@ def iter_results(root: Path = ROOT) -> list[dict[str, Any]]:
         item for item in _BASE_ITER_RESULTS(root)
         if item.get("result_id") not in replaced
     ]
-    return _result_authority.operational_results(sinks, root, replacement_edges=edges)
+    return _write_authority.operational(_result_authority.operational_results(sinks, root, replacement_edges=edges), "RESULT", root)
 
 
 def iter_reviews(root: Path = ROOT) -> list[dict[str, Any]]:
@@ -127,7 +128,7 @@ def iter_reviews(root: Path = ROOT) -> list[dict[str, Any]]:
         item for item in _BASE_ITER_REVIEWS(root)
         if item.get("result_id") not in replaced
     ]
-    return _result_authority.operational_reviews(reviews, root)
+    return _write_authority.operational(_result_authority.operational_reviews(reviews, root), "REVIEW", root)
 
 
 def result_map(root: Path = ROOT) -> dict[str, dict[str, Any]]:
@@ -313,6 +314,24 @@ def task_result_state(
     root: Path = ROOT,
     publication_id: str | None = None,
 ) -> dict[str, Any] | None:
+    raw_results = []
+    write_publication = publication_id
+    if _write_authority._pins(root) is not None:
+        if write_publication is None:
+            write_publication = _base._publication_for_state(task_id, root, None)
+        for path in (root / "research_result_records" / task_id).glob("*.json"):
+            row = json.loads(path.read_text(encoding="utf-8"))
+            row["_record_path"] = path.relative_to(root).as_posix()
+            raw_results.append(row)
+    held_writes = _write_authority.diagnostics(
+        [row for row in raw_results if row.get("task_id") == task_id
+         and row.get("publication_id") == write_publication], "RESULT", root)
+    if held_writes:
+        return {"task_id": task_id, "publication_id": publication_id,
+                "state": "RESULT_CONTROL_AUTHORITY_WITHHELD", "terminal": False,
+                "withheld_result_ids": [row["result_id"] for row in held_writes],
+                "write_authority_holds": held_writes, "historical_execution_claims": [],
+                "withheld_frozen_at": "1970-01-01T00:00:00+00:00"}
     with _result_authority.authority_snapshot(root) as rows:
         affected = [row for row in rows.values() if row["task_id"] == task_id]
         if affected:
@@ -335,7 +354,19 @@ def task_result_state(
                     if failures:
                         raise ResultRecordError("surviving Result under authority hold is invalid: " + "; ".join(failures))
             publication_id = selected
-        return _task_result_state_operational(task_id, root, publication_id)
+        value = _task_result_state_operational(task_id, root, publication_id)
+        raw_reviews = []
+        for result in raw_results:
+            if result.get("publication_id") != write_publication:
+                continue
+            for path in (root / "research_result_reviews" / str(result.get("result_id", ""))).glob("*.json"):
+                row = json.loads(path.read_text(encoding="utf-8"))
+                row["_review_path"] = path.relative_to(root).as_posix()
+                raw_reviews.append(row)
+        held_reviews = _write_authority.diagnostics(raw_reviews, "REVIEW", root)
+        if value is not None and held_reviews:
+            value["write_authority_holds"] = held_reviews
+        return value
 
 
 def _task_result_state_operational(
@@ -489,6 +520,23 @@ def command_freeze_transactional(args: argparse.Namespace) -> int:
         next_control_plane_recommendation=args.next_control_plane_recommendation,
         frozen_at=_now(args.frozen_at),
     )
+    from control_plane.research_continuation import require_freeze_authority, ContinuationError
+    try:
+        write_context = require_freeze_authority(record, args, root=ROOT)
+    except ContinuationError as exc:
+        raise ResultRecordError(str(exc)) from exc
+    execution = _candidate_validation.impl.execution_map(ROOT).get(args.execution_record_id, {})
+    if execution.get("executor_role") is not None:
+        record["executor_role"] = execution["executor_role"]
+    continuation = execution.get("continuation")
+    if isinstance(continuation, dict):
+        record["contributor_ids"] = sorted(set(continuation["frontier"]["contributor_ids"]) | {record["researcher_id"]})
+        record["continuation"] = continuation
+    if write_context is not None:
+        record["write_authorization"] = _write_authority.build_receipt(record, "RESULT", write_context)
+        receipt_error = _write_authority.receipt_error(record, "RESULT", ROOT)
+        if receipt_error:
+            raise ResultRecordError(receipt_error)
     try:
         _candidate_validation.require_valid_result_candidate(record, root=ROOT)
     except _candidate_validation.ImmutableCandidateValidationError as exc:
@@ -516,6 +564,11 @@ def command_review_with_authority(args: argparse.Namespace) -> int:
     result = result_map().get(args.result_id)
     if result is None:
         raise ResultRecordError(f"unknown result_id: {args.result_id}")
+    from control_plane.research_continuation import require_review_authority, ContinuationError
+    try:
+        current_authority = require_review_authority(result, args, root=ROOT)
+    except (ContinuationError, _driver_authority.DriverAuthorityError) as exc:
+        raise ResultRecordError(str(exc)) from exc
 
     existing = [
         row for row in iter_reviews() if row.get("result_id") == args.result_id
@@ -541,6 +594,8 @@ def command_review_with_authority(args: argparse.Namespace) -> int:
         )
     except _driver_authority.DriverAuthorityError as exc:
         raise ResultRecordError(str(exc)) from exc
+    if current_authority is not None and current_authority["authority_record_id"] != driver_authority["authority_record_id"]:
+        raise ResultRecordError("review timestamp cannot borrow a different historical Driver authority")
 
     path = Path(args.review_path)
     if not path.is_absolute():
@@ -554,12 +609,27 @@ def command_review_with_authority(args: argparse.Namespace) -> int:
         destination_ref_or_none=args.destination_ref_or_none,
         reviewed_at=reviewed_at,
     )
+    if current_authority is not None:
+        record["reviewer_contribution_ids"] = json.loads(args.reviewer_contribution_ids_json)
+        record["reviewer_session_id"] = getattr(args, "reviewer_session_id", None)
+        record["write_authority_checked_at"] = _now(None)
     if driver_authority is not None:
         record["driver_authority_record_id"] = driver_authority["authority_record_id"]
         record["driver_authority_source_comment_id"] = driver_authority["source_comment_id"]
         authority_errors = _driver_authority.review_authority_errors(record, ROOT)
         if authority_errors:
             raise ResultRecordError("; ".join(authority_errors))
+    if current_authority is not None:
+        from control_plane.research_continuation import verify_source_snapshot
+        write_context = {"source_commit": verify_source_snapshot(ROOT, getattr(args, "source_commit", None)),
+            "authorized_at": record["write_authority_checked_at"],
+            "authority_observed_through_comment_id": max(row["source_comment_id"] for row in _driver_authority.valid_records(ROOT)),
+            "principal": {"authority_record_id": current_authority["authority_record_id"],
+                          "session_id": getattr(args, "reviewer_session_id", None), "driver_id": args.driver_id}}
+        record["write_authorization"] = _write_authority.build_receipt(record, "REVIEW", write_context)
+        receipt_error = _write_authority.receipt_error(record, "REVIEW", ROOT)
+        if receipt_error:
+            raise ResultRecordError(receipt_error)
 
     try:
         _candidate_validation.require_valid_review_candidate(record, root=ROOT)
@@ -637,6 +707,9 @@ def canonical_main() -> int:
     parser.add_argument("--destination-class", choices=sorted(DESTINATION_CLASSES), required=True)
     parser.add_argument("--destination-ref-or-none", default="")
     parser.add_argument("--reviewed-at")
+    parser.add_argument("--reviewer-session-id")
+    parser.add_argument("--reviewer-contribution-ids-json")
+    parser.add_argument("--source-commit")
     parser.add_argument("--followup-spec")
     parser.add_argument("--followup-created-at")
     args = parser.parse_args()

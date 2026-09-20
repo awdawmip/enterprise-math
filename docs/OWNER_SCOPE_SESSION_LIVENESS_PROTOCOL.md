@@ -141,7 +141,7 @@ FREE activity does not refresh the old TASK claim. The same conversation is also
 
 ### CONTROL -> TASK
 
-Do not inherit control-message timestamps. Recompute the exact current claim and resume/adopt it only through canonical runtime rules.
+Do not inherit control-message timestamps. Recompute the exact current role, claim and actual activity. Same-session transport recovery is distinct from a new conversation's canonical successor transition; use the [continuation protocol](RESEARCH_CONTINUATION_PROTOCOL.md).
 
 ## 8. Adoption
 
@@ -149,12 +149,12 @@ When the exact owner execution is stale but the owner lease remains valid:
 
 `STALE OWNER SCOPE + VALID CLAIM`
 
-`-> ADOPT EXISTING WINNING CLAIM`
+`-> VERIFY FRONTIER AND PREPARE AUTHENTICATED SUCCESSOR CLAIM`
 
-`-> NO SECOND CLAIM`
+`-> EXACT PREDECESSOR CAS; ONE CURRENT AUTHORIZED WRITER`
 
 `-> VERIFY DURABLE FRONTIER`
 
 `-> RESUME FIRST UNFINISHED UNIT`.
 
-The stale conversation does not release the owner claim merely by becoming stale; replacement adopts the same authority.
+Staleness alone does not grant a replacement authority. A new real session must win the typed CLAIM continuation CAS; old claim bytes remain provenance and old writers are fenced. Canonical accepted owner activity controls the stale barrier, not a caller's older timestamp. An authenticated CONTINUATION HANDOFF permits ordinary RESUME. See `control_plane/executor_succession_policy.json`.

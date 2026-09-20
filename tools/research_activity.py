@@ -159,8 +159,9 @@ def register(*, root: Path = ROOT, **kwargs: Any) -> dict[str, Any]:
 
 def verify_observation(observation: Any, pin: Mapping[str, Any]) -> dict[str, Any]:
     """Check the full observed connector response, not a caller's success flag."""
-    if not isinstance(observation, dict) or observation.get("tool_name") != "github_fetch_file":
+    if not isinstance(observation, dict) or observation.get("tool_name") not in {"github_fetch_file", "em_mcp_github_contents"}:
         raise ActivityError("VERIFY_EM_PUBLICATION: full github_fetch_file observation required")
+    transport = observation["tool_name"]
     args = observation.get("arguments", {})
     if not isinstance(args, dict) or any(args.get(k) != pin[v] for k, v in (
         ("repository_full_name", "repository"), ("ref", "commit"), ("path", "path")
@@ -186,6 +187,18 @@ def verify_observation(observation: Any, pin: Mapping[str, Any]) -> dict[str, An
     url = f"https://github.com/{pin['repository']}/blob/{pin['commit']}/{pin['path']}"
     if content.get("display_url") != url or content.get("sha") != blob_id(data) or digest(data) != pin["sha256"]:
         raise ActivityError("connector content/blob/immutable URL does not match source pin")
+    if transport == "em_mcp_github_contents":
+        raw = observation.get("github_response")
+        if (not isinstance(raw, dict) or raw.get("type") != "file" or raw.get("path") != pin["path"]
+                or raw.get("encoding") != "base64" or raw.get("sha") != blob_id(data)
+                or raw.get("size") != len(data) or raw.get("html_url") != url):
+            raise ActivityError("MCP GitHub Contents observation requires the complete matching immutable API response")
+        try:
+            raw_data = base64.b64decode("".join(raw["content"].split()), validate=True)
+        except (KeyError, TypeError, AttributeError, ValueError) as exc:
+            raise ActivityError("invalid MCP GitHub Contents response content") from exc
+        if raw_data != data:
+            raise ActivityError("MCP GitHub Contents API response bytes do not match the source pin")
     observation_id = observation.get("observation_id")
     call_id = observation.get("call_id")
     if observation_id is None and call_id is None:
@@ -193,7 +206,7 @@ def verify_observation(observation: Any, pin: Mapping[str, Any]) -> dict[str, An
     for key, value in (("observation_id", observation_id), ("call_id", call_id)):
         if value is not None:
             _text(value, key)
-    return {"kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED", "tool_name": "github_fetch_file",
+    return {"kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED" if transport == "github_fetch_file" else "OBSERVED_MCP_GITHUB_API_STRUCTURE_AND_BYTES_VERIFIED", "tool_name": transport,
             "observation_id": observation_id, "call_id": call_id, "git_blob_sha1": blob_id(data),
             "immutable_url": url, "network_request_by_this_tool": False,
             "server_signature_authenticated": False}

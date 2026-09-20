@@ -86,7 +86,7 @@ class ControlSemanticMigrationRegistryTests(unittest.TestCase):
             self.assertEqual("TARGET_MIGRATED", row["state"])
             self.assertEqual(
                 "9e8dcf5dd44ea4d7eb5aaf7e160a28d5266ebfc9",
-                row["migrated_commit"],
+                row.get("previous_migration_provenance", row)["migrated_commit"],
             )
             self.assertEqual("research_runtime_state_machine.json", row["path"])
             self.assertTrue(row["exact_diff_verified"])

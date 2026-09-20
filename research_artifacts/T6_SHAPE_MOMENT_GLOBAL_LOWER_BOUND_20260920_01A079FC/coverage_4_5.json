@@ -1,0 +1,48 @@
+{
+  "schema": "T6_P19_ORDER9_45_COMPLETE_COVERAGE_V1",
+  "status": "COVERAGE_METADATA_PASS",
+  "split": [
+    4,
+    5
+  ],
+  "rows_covered": [
+    0,
+    8124
+  ],
+  "state_pairs": 69102744,
+  "primitive_cosets": 45287075,
+  "shared_atom_pairs": 23815669,
+  "input_sha256": "2c6be9c821faf2480e101bafbda191a0d334430e2fffc5bcf0dcaa0f3c726c27",
+  "core_source_sha256": "14f531a16ad338aee9fdd6d697cba64442e047570706ad2adaa6b460622382d1",
+  "intervals": [
+    {
+      "path": "run_0000_0025.json",
+      "sha256": "928a4144184c8a5288fc6e000d01c88c4d9d367a99a16a660fcba8a3257d8a55",
+      "rows": [
+        0,
+        25
+      ],
+      "primitive_cosets": 117474
+    },
+    {
+      "path": "run_0025_2025.json",
+      "sha256": "b996174cc8d107ec185379bc26d4a6fed85313e22e78ec0379fce9542a1d5a6c",
+      "rows": [
+        25,
+        2025
+      ],
+      "primitive_cosets": 8737150
+    },
+    {
+      "path": "run_2025_8124.json",
+      "sha256": "e9366d53648f3490f8aeaf94076d6efb99045e6c37b406978de2bf2149c512b4",
+      "rows": [
+        2025,
+        8124
+      ],
+      "primitive_cosets": 36432451
+    }
+  ],
+  "scope": "Complete primitive (4,5) coverage only; (3,6) review gap and global T6 remain",
+  "independent_mathematical_execution_check": "Replay p19_order9.py for the three named intervals"
+}

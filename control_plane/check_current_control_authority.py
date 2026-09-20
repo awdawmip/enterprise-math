@@ -140,8 +140,8 @@ def check() -> None:
     require("FREE_AXIOM_DISCOVERY response" in excluded, "FREE responses must not refresh task owner liveness")
     require(
         session.get("valid_owner_plus_stale_session")
-        == "ADOPT_EXISTING_WINNING_CLAIM_WITHOUT_NEW_CLAIM",
-        "stale valid owner must adopt same winning CLAIM",
+        == "PREPARE_AUTHENTICATED_SUCCESSOR_CLAIM_WITH_PREDECESSOR_CAS_AND_FENCING",
+        "stale successor must prepare authenticated CLAIM CAS and fencing",
     )
     require(
         session.get("claim_mismatch_observation", "").startswith("IGNORE_AS_LIVENESS_EVIDENCE"),
