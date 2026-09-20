@@ -66,10 +66,10 @@ class RecoverBeforeFreshDispatchTests(unittest.TestCase):
             fresh_task=fresh,
             fresh_lane=None,
         )
-        self.assertEqual(result["action"], research_runtime.ADOPT_OWNER_CLAIM)
+        self.assertEqual(result["action"], "PREPARE_SUCCESSOR_CLAIM")
         self.assertEqual(result["claim_id"], owned["claim_id"])
         self.assertTrue(result["owner_claim_preserved"])
-        self.assertFalse(result["new_claim_required"])
+        self.assertTrue(result["new_claim_required"])
 
     def test_active_owner_scope_does_not_block_independent_fresh_dispatch(self) -> None:
         owned = leased_task()
@@ -147,11 +147,13 @@ class RecoverBeforeFreshDispatchTests(unittest.TestCase):
             fresh_task=None,
             fresh_lane=None,
         )
-        self.assertEqual(result["action"], research_runtime.ADOPT_OWNER_CLAIM)
+        self.assertEqual(result["action"], "SUPPORTED_NATIVE_LANE_ADAPTER_REQUIRED")
         self.assertEqual(result["surface"], research_control_dispatch.COHORT_LANE)
         self.assertEqual(result["target_key"], key)
         self.assertEqual(result["claim_id"], lane["claim_id"])
         self.assertFalse(result["new_claim_required"])
+        self.assertFalse(result["execution_authorized"])
+        self.assertEqual(result["canonical_lane_entrypoint"], "tools/research_lane_dispatch.py")
 
     def test_fresh_cohort_lane_is_used_when_no_task_global_target_exists(self) -> None:
         lane = {

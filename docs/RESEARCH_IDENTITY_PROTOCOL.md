@@ -26,6 +26,16 @@ Helper:
 
 `tools/research_identity.py`
 
+## Source-native MCP execution sessions
+
+An authenticated MCP client may explicitly start its own server-issued execution session through the configured capability. The canonical Source record is `research_session_records/MCP-<UUID>.json` with schema `ENTERPRISE_MATH_MCP_EXECUTION_SESSION_V1` and registration state `SOURCE_SESSION_BOUND`. The native identity generator remains the identifier generator. A declared host/chat identifier is provenance supplied by the client; it is not a platform signature.
+
+The actual execution session and its private capability are distinct from the public role ID. A public Source identity/activity record does not prove possession of a session key. A new conversation without the old private session capability creates its own new session; a repeated public request ID does not recover another execution's key. Same-session retries require the original capability.
+
+A task researcher receives the native TASK_RESEARCH activity record and its real immutable Source readback. A Driver receives its own session record and requires separate canonical DA activation; it must not manufacture a researcher RA merely to pass a gate. Source-native registration does not claim a pre-existing GLOBAL_KNOWLEDGE registration. Global knowledge mirrors the verified Source pointer at the appropriate checkpoint.
+
+Role registration alone grants no CLAIM, Driver adjudication, Working Truth or Foundation authority. Those destination capabilities are checked separately. Previous contributions and source exposure remain explicit; a new execution ID cannot manufacture clean or independent context.
+
 ## 2. Bootstrap invariant
 
 Before substantive Enterprise Math work begins, any conversation entering any active Enterprise Math role must execute:

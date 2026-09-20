@@ -443,7 +443,14 @@ def reduce_task(
             if scope_obligation is not None and at >= LEGACY_HANDOFF_SCOPE_CUTOVER:
                 ignore(state, index, "CLAIM requires reconciliation of the unresolved legacy handoff scope")
                 continue
-            if state["state"] not in {"READY", "HANDOFF_READY"} or live_claim:
+            continuation = event.get("continuation")
+            if continuation is not None:
+                from control_plane.research_continuation import continuation_cas_reason
+                reason = continuation_cas_reason(state, event)
+                if reason is not None:
+                    ignore(state, index, reason)
+                    continue
+            elif state["state"] not in {"READY", "HANDOFF_READY"} or live_claim:
                 ignore(state, index, "task is not dispatchable")
                 continue
             if not isinstance(claim_id, str) or not claim_id:
@@ -464,7 +471,19 @@ def reduce_task(
                 ignore(state, index, str(exc))
                 continue
             state["state"] = "CLAIMED"
+            if continuation is not None:
+                state.setdefault("fenced_claim_ids", []).append(continuation["expected_previous_claim_id"])
+                state["continuation_frontier"] = copy.deepcopy(continuation["frontier"])
+                state["continuation"] = copy.deepcopy(continuation)
+                state["session_id"] = continuation["session_id"]
+            else:
+                state.pop("continuation", None)
+                state["session_id"] = event.get("session_id")
             state["claim_id"] = claim_id
+            state["last_claim_id"] = claim_id
+            state["last_claim_comment_id"] = (event.get("_github") or {}).get("comment_id")
+            state["ownership_epoch"] = state["last_claim_comment_id"]
+            state["last_owner_activity_at"] = event["at"]
             state["actor"] = event.get("actor")
             state["researcher_id"] = researcher_id
             state["last_researcher_id"] = researcher_id
@@ -481,6 +500,7 @@ def reduce_task(
         if kind == "HEARTBEAT":
             try:
                 state["lease_until"] = at + lease_duration(event, default_lease_minutes)
+                state["last_owner_activity_at"] = event["at"]
             except RuntimeReducerError as exc:
                 ignore(state, index, str(exc))
             continue
@@ -494,6 +514,7 @@ def reduce_task(
             if event.get("progress_ref") and event["progress_ref"] != state.get("last_progress_ref"):
                 scope_obligation = None
             state["state"] = "IN_PROGRESS"
+            state["last_owner_activity_at"] = event["at"]
             if event.get("progress_ref"):
                 state["last_progress_ref"] = event["progress_ref"]
             state["last_progress_at"] = event["at"]

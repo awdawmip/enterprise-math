@@ -55,12 +55,12 @@
     "RECOMPUTE": "destination role must resolve the state again from its canonical authority",
     "ALLOCATE_OR_RESOLVE": "destination research role resolves/preserves an appropriate visible role identity under research_identity_state_machine.json",
     "DO_NOT_REFRESH_OWNER_LIVENESS": "destination-role conversation messages are not exact task-owner liveness evidence; the last task/claim-scoped activity clock continues to age",
-    "SUCCESSOR_ADOPT": "preserve exact task/publication/claim/scope/durable frontier; bind a new active session executor that may have a different identity while retaining claim-origin identity as provenance"
+    "SUCCESSOR_ADOPT": "preserve exact task/publication/scope/durable frontier; a new authorized session uses typed successor CLAIM CAS, fences the old epoch and retains all origin identity as provenance"
   },
   "universal_transition_rules": {
     "execution_identity_handle": "PRESERVE_AS_PROVENANCE_ONLY unless the destination role identity rules explicitly permit same-conversation reuse; visible label/scope must always match the active destination role",
     "role_authority": "CLEAR_AUTHORITY then independently activate destination authority",
-    "task_owner_claim": "PRESERVE_AS_PROVENANCE_ONLY; role switch alone never releases, renews, transfers, or duplicates the winning CLAIM. After exact-session staleness, claim-origin identity does not prevent a role-authorized successor from adopting the same claim.",
+    "task_owner_claim": "PRESERVE_AS_PROVENANCE_ONLY; role switch alone never releases, renews, transfers, or duplicates the winning CLAIM. After exact-session staleness, a role-authorized new session may prepare the authenticated successor CLAIM with exact predecessor CAS.",
     "owner_scope_liveness": "Only exact claim-bound TASK_RESEARCH_RESPONSE or DURABLE_EXECUTION_PROGRESS may refresh it; messages under another role/mode do not",
     "durable_frontier": "PRESERVE",
     "working_truth": "PRESERVE_AS_TASK_PROVENANCE_ONLY; usable only when destination is authorized TASK_RESEARCH under the exact task scope",
@@ -72,7 +72,7 @@
       "activation": "explicit user task/taskbook/registered task execution",
       "identity": "ALLOCATE_OR_RESOLVE Researcher-ID",
       "source_control_authority": "CLEAR_AUTHORITY as research authority; control maintenance grants none",
-      "task_claim": "RECOMPUTE canonical claim scope; adopt the same valid stale CLAIM under runtime rules even when the new Researcher-ID differs from claim origin",
+      "task_claim": "RECOMPUTE canonical scope and role; same-session recovery preserves its claim, while a new real session requires authenticated successor CLAIM CAS and old-epoch fencing",
       "owner_scope_liveness": "RECOMPUTE from exact current claim; prior control-plane messages are not task liveness evidence",
       "tool_visibility": "TASK_RESEARCH policy after task semantics are understood",
       "blindness": "not applicable unless later transitioning to FREE",
@@ -203,7 +203,7 @@
     "RESEARCH_DRIVER->TASK_RESEARCH": {
       "driver_authority": "CLEAR_AUTHORITY once Driver role is left",
       "identity": "resolve/preserve Researcher-ID under identity rules",
-      "task_claim": "RECOMPUTE; reuse/adopt existing stale claim through runtime rules without requiring Researcher-ID equality with claim origin",
+      "task_claim": "RECOMPUTE; preserve genuine same-session recovery or use typed cross-session successor CLAIM with exact predecessor CAS; never borrow the origin ID",
       "owner_scope_liveness": "RECOMPUTE from exact active claim; prior Driver replies are not task liveness evidence",
       "working_truth": "usable only if exact task scope currently grants it"
     },

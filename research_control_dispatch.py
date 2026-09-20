@@ -183,7 +183,10 @@ def _owner_scope_activity(
     activity = observation.get("last_verified_activity_at")
     if not isinstance(activity, str) or not activity:
         return None
-    research_runtime.parse_time(activity)
+    observed = research_runtime.parse_time(activity)
+    actual = state.get("last_owner_activity_at")
+    if isinstance(actual, str) and research_runtime.parse_time(actual) > observed:
+        return actual
     return activity
 
 
@@ -251,10 +254,26 @@ def _fresh_lane(
     )
 
 
+def _successor_fields(state: Mapping[str, Any]) -> dict[str, Any]:
+    if state.get("execution_cohort_id") or state.get("execution_lane_id"):
+        return {"action": "SUPPORTED_NATIVE_LANE_ADAPTER_REQUIRED", "new_claim_required": False,
+                "execution_authorized": False, "claim_id_is_predecessor": True,
+                "owner_claim_preserved": True, "required_guard": None,
+                "canonical_lane_entrypoint": "tools/research_lane_dispatch.py",
+                "legacy_client_action": "PRESERVE_LANE_CLAIM_AND_REQUIRE_EXPLICIT_LANE_ADAPTER"}
+    return {"action": "PREPARE_SUCCESSOR_CLAIM", "new_claim_required": True,
+            "execution_authorized": False, "claim_id_is_predecessor": True,
+            "expected_previous_claim_id": state.get("claim_id"),
+            "expected_previous_comment_id": state.get("last_claim_comment_id"),
+            "required_guard": "control_plane.research_continuation.prepare_takeover",
+            "required_mcp_tool": "em_continuation_prepare",
+            "legacy_client_action": "STOP_AND_LOAD_CONTINUATION_PACKET"}
+
+
 def _adoption_result(target: Mapping[str, Any], decision: Mapping[str, Any]) -> dict[str, Any]:
     state = target["state"]
     return {
-        "action": research_runtime.ADOPT_OWNER_CLAIM,
+        **_successor_fields(state),
         "surface": target["surface"],
         "target": dict(state),
         "target_key": _state_target_key(state),
@@ -263,13 +282,13 @@ def _adoption_result(target: Mapping[str, Any], decision: Mapping[str, Any]) -> 
         "claim_origin_researcher_id": state.get("researcher_id"),
         "owner_lease_until": state.get("owner_lease_until", state.get("lease_until")),
         "owner_claim_preserved": True,
-        "new_claim_required": False,
-        "executor_succession_allowed": True,
+        "executor_succession_allowed": not bool(state.get("execution_cohort_id") or state.get("execution_lane_id")),
         "same_identity_required": False,
         "session_state": decision.get("session_state"),
         "stale_at": decision.get("stale_at"),
-        "required_guard": "tools/research_runtime_guard.py adopt",
-        "reason": "valid claim slot remains authoritative, the bound execution session is stale, and successor identity need not equal claim-origin identity",
+        "reason": ("The existing lane claim is preserved; the task-global continuation API cannot replace a lane-scoped authority. Use the canonical lane entrypoint and an explicit lane adapter."
+                   if state.get("execution_cohort_id") or state.get("execution_lane_id") else
+                   "Prepare a real successor identity and immutable execution intent; the authenticated CLAIM must win exact predecessor CAS and fence the old writer before execution."),
     }
 
 
@@ -465,7 +484,8 @@ def _assigned_driver_route(
         decision = {"action": "VERIFY_SESSION_LIVENESS", "owner_claim_preserved": True,
                     "new_claim_required": False}
     result = {
-        **decision, "surface": ORDINARY_TASK, "target": state,
+        **decision, **(_successor_fields(state) if decision["action"] == research_runtime.ADOPT_OWNER_CLAIM else {}),
+        "surface": ORDINARY_TASK, "target": state,
         "target_key": request["task_id"],
         "claim_id": state.get("claim_id"), "researcher_id": request["driver_id"],
         "executor_succession": {
@@ -473,7 +493,7 @@ def _assigned_driver_route(
             "requested_executor_id": request["driver_id"],
             "same_identity_required_for_stale_adoption": False,
         },
-        "required_guard": ("tools/research_runtime_guard.py adopt"
+        "required_guard": ("control_plane.research_continuation.prepare_takeover"
                            if decision["action"] == research_runtime.ADOPT_OWNER_CLAIM
                            else "tools/research_runtime_guard.py authorize"),
         "reason": "Exact explicitly delegated GOV target; ordinary priority ranking is unchanged outside this entry.",
@@ -578,19 +598,22 @@ def _assigned_research_route(
                      or state.get("researcher_id") != request["researcher_id"])):
             decision = {"action": "VERIFY_SESSION_LIVENESS", "owner_claim_preserved": True,
                         "new_claim_required": False}
-        return {**result, **decision, "selection_status": "ELIGIBLE",
+        return {**result, **decision,
+                **(_successor_fields(state) if decision["action"] == research_runtime.ADOPT_OWNER_CLAIM else {}), "selection_status": "ELIGIBLE",
                 "executor_succession": {
                     "claim_origin_researcher_id": state.get("researcher_id"),
                     "requested_executor_id": request["researcher_id"],
                     "same_identity_required_for_stale_adoption": False,
                 },
                 "assigned_research_selection": {**evidence, "eligible": True},
-                "required_guard": ("tools/research_runtime_guard.py adopt"
+                "required_guard": ("control_plane.research_continuation.prepare_takeover"
                                    if decision["action"] == research_runtime.ADOPT_OWNER_CLAIM
                                    else "tools/research_runtime_guard.py authorize"),
                 "next_control_steps": (["tools/research_execution_records.py prepare", "Issue 240 CLAIM",
                                         "tools/research_runtime_guard.py authorize"]
-                                       if decision["action"] == research_runtime.CLAIM_NEW_OWNER else []),
+                                       if decision["action"] == research_runtime.CLAIM_NEW_OWNER else
+                                       ["continuation_packet", "prepare_takeover", "publish immutable ER", "validate_prepared_claim", "authenticated CLAIM and winning readback", "authorize"]
+                                       if decision["action"] == research_runtime.ADOPT_OWNER_CLAIM else []),
                 "reason": "Exact source-authorized assignment selects the current executor/session; stale claim-origin identity is provenance, not a recovery lock; global ranking is unchanged."}
 
 

@@ -30,11 +30,21 @@ Exact research-role authority:
 For the user's delegated multi-agent research program, apply `docs/CODEX_RESEARCH_ORCHESTRATION.en.md` (Chinese: `docs/CODEX_RESEARCH_ORCHESTRATION.zh-CN.md`). Owner and line Driver are scopes of the existing `RESEARCH_DRIVER` role.
 
 - Owner owns portfolio direction, cross-line synthesis/splits/closure, and control-plane coordination.
-- Delegate a whole bounded research line to one explicitly activated Driver. Reuse that Driver for continuous review, task publication/dispatch, formalization routing, and ordinary source integration; do not send every return to Owner for another mathematical review.
+- Delegate a whole bounded research line as durable responsibility. Its currently authorized Driver owns ordinary review, task publication/dispatch, formalization routing and integration. If that execution disappears, a new authorized session takes the responsibility from Source; the original person or private chat is not a prerequisite. Do not send every ordinary return to Owner for another mathematical review.
 - Use temporary researchers for bounded tasks; require durable evidence before their execution ends. A Driver who authored a claim obtains another reviewer's decisive review.
 - Keep a compact durable line dossier and incremental review ledger. Restore from verified frontiers after compaction; persistence is responsibility, not a promise of an immortal agent session.
 - Owner receives semantic milestones and cross-line decisions, not every raw log. Respect actual concurrency limits and disjoint write scopes.
 - Existing identities, lightweight activity registration, V2 tasks, claims, execution authorization, immutable Result/Driver records, source firewalls, and promotion gates remain authoritative. A dossier is not a second task registry.
+
+### Continue from any authorized conversation
+
+Use `docs/CONTINUE_RESEARCH.zh-CN.md` (English: `docs/CONTINUE_RESEARCH.en.md`) and the canonical `control_plane/executor_succession_policy.json`. Start from the task inventory or the exact task's continuation packet. Preserve the task/publication, highest verified durable frontier, mathematical scope, authorship and no-repeat units. A packet is a read-only projection, not a second registry or permission grant.
+
+A new conversation registers its own execution session and actual role. MCP-native sessions are server-issued execution identities, not platform-attested chat IDs; their Source registration and real readback remove the need for a second connector. Researcher RA and Driver DA remain separate. Public identity records are not private session capability keys.
+
+Use current role authority and fresh authenticated state for ownership. Active exact sessions are protected. A stale predecessor may be replaced only through the typed CLAIM continuation CAS; old claims and records stay as provenance while the new winning epoch fences old writes. An already released/expired task resumes from its recorded frontier. Driver succession activates a new real Driver and fences the exact old DA; earlier valid reviews remain valid. A new ID never proves independent mathematical review.
+
+Publish required evidence to Source and verify exact bytes before PROGRESS/HANDOFF or final delivery. New RR/DR writes require current authorization and payload-bound receipts; exact pre-cutover records retain their original audits. Return-to-review, mathematical blockage, integrity quarantine and actual completion remain distinct. Never contact an unavailable predecessor as the only recovery path, reset proved units, or mark a mathematical blocker solved merely to make it claimable.
 
 ### Narrow control-authority precedence
 
@@ -138,23 +148,23 @@ Freeze:
 
 `TASK_FROZEN -> REEVALUATE_PARENT`.
 
-A stale replacement conversation verifies taskbook source, owner branch, live claim, remote HEAD, execution stamp and durable outputs, then adopts the existing claim and resumes the first unfinished unit. Do not re-claim or replay durable work.
+A replacement conversation verifies the taskbook, immutable source, exact predecessor claim, branch/head, execution stamp and durable outputs. A stale executor is replaced through the canonical typed successor CLAIM and predecessor CAS; only the verified winner receives a new execution binding. Preserve Task-ID and completed units; do not replay durable work.
 
 Runtime-policy `claim_lease_minutes` / `lease_until` is owner lease only. It does not prove conversation liveness.
 
 Canonical control dispatch is recovery-aware:
 
-`STALE_SESSION + VALID_OWNER_CLAIM -> ADOPT_EXISTING_CLAIM -> OTHERWISE_FRESH_DISPATCH`.
+`STALE_SESSION + VALID_OWNER_CLAIM -> PREPARE_SUCCESSOR_CLAIM_WITH_PREDECESSOR_CAS -> OTHERWISE_FRESH_DISPATCH`.
 
 `CLAIM_ORIGIN_IDENTITY = PROVENANCE_NOT_RECOVERY_LOCK`.
 
-`STALE_VALID_CLAIM + ROLE_AUTHORIZED_SUCCESSOR -> ADOPT_EXISTING_CLAIM_WITHOUT_SAME_ID_REQUIREMENT`.
+`STALE_VALID_CLAIM + ROLE_AUTHORIZED_NEW_SESSION -> AUTHENTICATED_SUCCESSOR_CLAIM_AND_OLD_WRITER_FENCE`.
 
 `ACTIVE_EXACT_SESSION -> NO_SUCCESSOR_PREEMPTION`.
 
 A recovered session may use a new Researcher/Driver identity while the original CLAIM identity remains immutable provenance. Preserve the exact task/publication/claim, execution scope, branch and durable frontier; do not reissue the CLAIM merely because the predecessor conversation or identity is gone.
 
-Do not infer `NO_TASK` / `NO_DISPATCH` merely because the fresh selector returns no `NEEDS_DISPATCH` task. If fresh task/lane selection is empty while a valid owner lease remains and session liveness is unknown, first verify the latest independently observable conversation response or durable execution progress. Stale means adopt the existing winning CLAIM through `tools/research_runtime_guard.py adopt`; active means preserve that owner. Never manufacture a second CLAIM merely to recover a stale conversation.
+Do not infer `NO_TASK` / `NO_DISPATCH` merely because the fresh selector returns no `NEEDS_DISPATCH` task. If fresh task/lane selection is empty while a valid owner lease remains and session liveness is unknown, first verify the latest independently observable conversation response or durable execution progress. Stale means prepare the source-bound successor transition through `control_plane/research_continuation.py`; active means preserve that owner. The new authenticated CLAIM must win the exact predecessor CAS before it fences old writes. Private state-file adoption is not cross-conversation authority.
 
 Immediately before final-channel output, evaluate PRE_FINAL through `tools/research_runtime_guard.py`; `tools/active_turn_liveness.py` remains the primitive liveness evaluator.
 
@@ -186,7 +196,7 @@ Compatibility vocabulary only: `OFFICIAL_NEW_TASK -> CANONICAL_TASK_REGISTRY_REC
 
 `OWNER_LEASE != SESSION_LIVENESS`.
 
-Publication is a capture subflow and grants no mathematical truth, Working Truth, Foundation status, canonical promotion, or Driver authority. A stale session adopts the existing winning claim only after durable-frontier verification; it never creates a second claim.
+Publication is a capture subflow and grants no mathematical truth, Working Truth, Foundation status, canonical promotion, or Driver authority. A new authorized session verifies the durable frontier and uses the typed continuation transaction; exactly one claim epoch remains operational and the old claim remains immutable history.
 
 Taskbook + matching immutable publication record must reach `main` together; see `docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md` for atomic Git-data writes or complete branch/PR integration when transport only supports single-file calls.
 

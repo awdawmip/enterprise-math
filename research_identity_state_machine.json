@@ -11,7 +11,8 @@
     "RESOLVED_LOCAL",
     "PREALLOCATED_FOR_DISPATCH",
     "REGISTER_PENDING",
-    "REGISTERED"
+    "REGISTERED",
+    "SOURCE_SESSION_BOUND"
   ],
   "entry_invariant": "Any conversation entering an Enterprise Math RESEARCHER, RESEARCH_DRIVER, or FOUNDATION_STEWARD role must resolve or allocate its role identity before substantive work begins. Researchers expose Researcher-ID; Drivers expose Driver-ID; Foundation Stewards expose Steward-ID. Research mode is a separate typed state and does not alter identity uniqueness.",
   "final_response_invariant": "While an Enterprise Math RESEARCHER, RESEARCH_DRIVER, or FOUNDATION_STEWARD role is active, every assistant final response ends with exactly one role-appropriate identity marker. Identity registration state never suppresses this obligation.",
@@ -163,6 +164,26 @@
     "registration_failure": "REGISTER_PENDING; continue work and persist the role identity visibly; retry only at a semantic checkpoint",
     "not_a_hard_block": true,
     "legacy_path_name_note": "the historical folder name researchers/ is retained for compatibility and may contain Researcher, Driver, and Foundation Steward identity records"
+  },
+  "source_native_mcp_registration": {
+    "schema": "ENTERPRISE_MATH_MCP_EXECUTION_SESSION_V1",
+    "record_repository": "awdawmip/enterprise-math",
+    "record_path": "research_session_records/MCP-<server-issued-UUID>.json",
+    "identity_generator": "tools/research_identity.py",
+    "session_origin": "MCP_SERVICE_ISSUED_EXECUTION_SESSION",
+    "registration_state": "SOURCE_SESSION_BOUND",
+    "platform_chat_identity_attested": false,
+    "declared_host_session_id_is_assertion_only": true,
+    "new_session_requires_own_identity": true,
+    "capability_key_private": true,
+    "public_source_record_proves_key_possession": false,
+    "researcher_activity": "NATIVE_TASK_RESEARCH_ACTIVITY_RECORD_REQUIRED",
+    "driver_activity": "SESSION_RECORD_PLUS_SEPARATE_CANONICAL_DRIVER_AUTHORITY; DO_NOT_FABRICATE_RESEARCHER_RA",
+    "role_authority_granted_by_registration": false,
+    "global_knowledge_role": "MIRROR_OR_ROUTING_POINTER_NOT_MCP_STARTUP_DEPENDENCY",
+    "scope_and_source_publication": "CLIENT_CAPABILITY_CHECKS_PLUS_NATIVE_GENERATION_EXACT_GIT_CAS_AND_READBACK",
+    "fresh_session_erases_contribution_or_source_exposure": false,
+    "same_request_id_without_original_capability_recovers_active_session": false
   },
   "visibility": {
     "RESEARCHER_TASK": "Researcher-ID: <ID> / <TASK_ID>",

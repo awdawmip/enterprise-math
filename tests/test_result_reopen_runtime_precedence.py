@@ -183,7 +183,7 @@ class ResultReopenRuntimePrecedenceTests(unittest.TestCase):
         self.assertEqual("COMPLETE", state["dispatch_state"])
         self.assertEqual("replacement generation published", state["next_action"])
 
-    def test_post_review_plain_handoff_preserves_newer_next_action(self):
+    def test_post_review_typed_continuation_preserves_newer_next_action(self):
         state = self.reduce(
             [
                 claim(32, "2026-09-01T00:11:00+00:00"),
@@ -192,6 +192,7 @@ class ResultReopenRuntimePrecedenceTests(unittest.TestCase):
                     33,
                     "2026-09-01T00:12:00+00:00",
                     claim_id="c2",
+                    handoff_scope="CONTINUATION",
                     next_action="continue revision with another researcher",
                 ),
             ]

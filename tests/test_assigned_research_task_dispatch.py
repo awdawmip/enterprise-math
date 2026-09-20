@@ -343,11 +343,11 @@ class AssignedResearchTaskDispatchTests(unittest.TestCase):
     def test_stale_foreign_claim_origin_allows_current_assigned_researcher_successor(self):
         self.leased("EM-OTHER-ABC123")
         result = self.route(observations=self.observation(at="2026-09-09T12:00:00Z"))
-        self.assertEqual(result["action"], "ADOPT_OWNER_CLAIM")
+        self.assertEqual(result["action"], "PREPARE_SUCCESSOR_CLAIM")
         self.assertEqual(result["selection_status"], "ELIGIBLE")
         self.assertTrue(result["owner_claim_preserved"])
         self.assertEqual(result["claim_id"], "fixture-winning-claim")
-        self.assertFalse(result["new_claim_required"])
+        self.assertTrue(result["new_claim_required"])
         self.assertEqual(
             result["executor_succession"]["claim_origin_researcher_id"],
             "EM-OTHER-ABC123",
@@ -366,10 +366,10 @@ class AssignedResearchTaskDispatchTests(unittest.TestCase):
         for observations in (self.observation(claim_id="foreign-claim"), self.observation(session_id="foreign-session")):
             self.assertEqual(self.route(observations=observations)["action"], "VERIFY_SESSION_LIVENESS")
         result = self.route(observations=self.observation(at="2026-09-09T12:40:00Z"))
-        self.assertEqual(result["action"], "ADOPT_OWNER_CLAIM")
-        self.assertEqual(result["required_guard"], "tools/research_runtime_guard.py adopt")
+        self.assertEqual(result["action"], "PREPARE_SUCCESSOR_CLAIM")
+        self.assertEqual(result["required_guard"], "control_plane.research_continuation.prepare_takeover")
         self.assertEqual(result["claim_id"], self.state["claim_id"])
-        self.assertFalse(result["new_claim_required"])
+        self.assertTrue(result["new_claim_required"])
         self.assertFalse(result["assigned_research_selection"]["preclaim_selection_reconstructed"])
 
     def test_assignment_is_not_session_activity_and_scoped_block_keeps_owner(self):

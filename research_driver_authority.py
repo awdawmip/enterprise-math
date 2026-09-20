@@ -254,6 +254,21 @@ def validate_record(record: dict[str, Any], root: Path = ROOT) -> list[str]:
             for field in ("event", "driver_id", "scope", "authority"):
                 if payload.get(field) != record.get(field):
                     errors.append(f"{prefix}: source body field mismatch: {field}")
+            succession = payload.get("succession")
+            if succession is not None:
+                required = {"previous_driver_id", "previous_authority_record_id", "previous_source_comment_id", "session_id", "reason"}
+                if (event != "AUTHORIZE" or not isinstance(succession, dict)
+                        or set(succession) != required
+                        or not isinstance(succession.get("previous_driver_id"), str)
+                        or not DRIVER_RE.fullmatch(succession["previous_driver_id"])
+                        or succession.get("previous_driver_id") == driver_id
+                        or type(succession.get("previous_source_comment_id")) is not int
+                        or type(comment_id) is not int
+                        or succession["previous_source_comment_id"] <= 0
+                        or succession["previous_source_comment_id"] >= comment_id
+                        or not all(isinstance(succession.get(key), str) and succession[key].strip()
+                                   for key in ("previous_authority_record_id", "session_id", "reason"))):
+                    errors.append(f"{prefix}: invalid exact Driver succession envelope")
     try:
         created = _parse_time(record.get("source_created_at"), "source_created_at")
         updated = _parse_time(record.get("source_updated_at"), "source_updated_at")
@@ -298,7 +313,8 @@ def valid_records(root: Path = ROOT) -> list[dict[str, Any]]:
     return rows
 
 
-def active_authority_at(driver_id: str, at: str, root: Path = ROOT) -> dict[str, Any] | None:
+def active_authority_at(driver_id: str, at: str, root: Path = ROOT, *,
+                        through_comment_id: int | None = None) -> dict[str, Any] | None:
     if not contract_enabled(root):
         return None
     contract(root)
@@ -306,23 +322,42 @@ def active_authority_at(driver_id: str, at: str, root: Path = ROOT) -> dict[str,
     if not DRIVER_RE.fullmatch(normalized):
         return None
     instant = _parse_time(at, "authority check time")
+    if through_comment_id is not None and (type(through_comment_id) is not int or through_comment_id <= 0):
+        raise DriverAuthorityError("authority observation boundary must be an actual positive server comment ID")
     rows = []
     for row in valid_records(root):
-        if row.get("driver_id") != normalized:
+        if through_comment_id is not None and row["source_comment_id"] > through_comment_id:
             continue
         created = _parse_time(row.get("source_created_at"), "source_created_at")
         if created <= instant:
             rows.append(row)
     rows.sort(key=lambda item: int(item["source_comment_id"]))
-    if not rows or rows[-1].get("event") != "AUTHORIZE":
-        return None
-    return rows[-1]
+    active: dict[str, dict[str, Any]] = {}
+    for row in rows:
+        actor = row["driver_id"]
+        if row["event"] == "REVOKE":
+            active.pop(actor, None)
+            continue
+        payload = json.loads(row["source_body"])
+        succession = payload.get("succession") if isinstance(payload, dict) else None
+        if succession is not None:
+            predecessor = active.get(succession["previous_driver_id"])
+            if (predecessor is None
+                    or predecessor["authority_record_id"] != succession["previous_authority_record_id"]
+                    or predecessor["source_comment_id"] != succession["previous_source_comment_id"]
+                    or actor in active):
+                # A losing CAS is durable history, never a second active owner.
+                continue
+            active.pop(succession["previous_driver_id"])
+        active[actor] = row
+    return active.get(normalized)
 
 
-def require_active_driver(driver_id: str, at: str, root: Path = ROOT) -> dict[str, Any] | None:
+def require_active_driver(driver_id: str, at: str, root: Path = ROOT, *,
+                          through_comment_id: int | None = None) -> dict[str, Any] | None:
     if not contract_enabled(root):
         return None
-    authority = active_authority_at(driver_id, at, root)
+    authority = active_authority_at(driver_id, at, root, through_comment_id=through_comment_id)
     if authority is None:
         raise DriverAuthorityError(
             f"Driver {driver_id!r} has no source-backed ACTIVE authority at {at}"
@@ -344,7 +379,9 @@ def review_authority_errors(review: dict[str, Any], root: Path = ROOT) -> list[s
     if not isinstance(reviewed_at, str) or not reviewed_at:
         return [f"{prefix}: post-cutover review reviewed_at is required"]
     try:
-        authority = require_active_driver(driver_id, reviewed_at, root)
+        receipt = review.get("write_authorization")
+        boundary = receipt.get("authority_observed_through_comment_id") if isinstance(receipt, dict) and receipt.get("schema") == "ENTERPRISE_MATH_CONTROL_WRITE_AUTHORIZATION_V1" else None
+        authority = require_active_driver(driver_id, reviewed_at, root, through_comment_id=boundary)
     except DriverAuthorityError as exc:
         return [f"{prefix}: {exc}"]
     if authority is None:
