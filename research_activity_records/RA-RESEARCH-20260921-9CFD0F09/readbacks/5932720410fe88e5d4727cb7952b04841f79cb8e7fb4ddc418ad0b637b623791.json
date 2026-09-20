@@ -1,0 +1,24 @@
+{
+  "arguments": {
+    "path": "research_artifacts/CFD_HOST_9CFD0F_20260921/fast_carrier.py",
+    "ref": "997981529b76c1b5e46ed43af91617c2c0023bd8",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "normalization": {
+    "operation": "Place the complete observed flat file response under structuredContent; no content or metadata fields changed.",
+    "platform_signed": false,
+    "source_response_resource": "/response/turn72",
+    "source_tool": "GitHub.fetch_file"
+  },
+  "observation_id": "LOCAL-OBS-turn72-CFD-fast-carrier",
+  "result": {
+    "structuredContent": {
+      "content": "\"\"\"Exact axis-generator certificate; extends the frozen CFD support detector.\n\nNo pruning, no amplitude threshold, and no replacement of complex arithmetic.\nThe fast path is used only when every coordinate gcd-generator occurs in the\nsigned seed. Otherwise the original iterative detector is called unchanged.\n\"\"\"\nfrom dataclasses import dataclass\nfrom itertools import product\nfrom math import gcd, prod\nfrom numbers import Integral\nfrom typing import Callable, Iterable\n\nVec = tuple[int, int, int]\n\n@dataclass(frozen=True)\nclass AxisCertificate:\n    gcds: Vec\n    carrier_size: int\n    source_size: int\n    status: str\n    carrier: tuple[Vec, ...] | None\n\n\ndef axis_certificate(seed: Iterable[Vec], cutoff: int, limit: int) -> AxisCertificate | None:\n    if not isinstance(cutoff, Integral) or isinstance(cutoff, bool) or cutoff < 0:\n        raise ValueError('cutoff must be a nonnegative integer')\n    if not isinstance(limit, Integral) or isinstance(limit, bool) or limit < 0:\n        raise ValueError('limit must be a nonnegative integer')\n    S: set[Vec] = set()\n    for v in seed:\n        v = tuple(v)\n        if len(v) != 3 or any(not isinstance(x, Integral) or isinstance(x, bool) for x in v):\n            raise ValueError('seed requires exact integer triples')\n        p = tuple(int(x) for x in v)\n        if any(abs(x) > cutoff for x in p):\n            raise ValueError('seed outside retained cube')\n        S.add(p)\n        S.add(tuple(-x for x in p))\n    if not S:\n        return AxisCertificate((0, 0, 0), 0, 0, 'EXACT_EMPTY', ())\n    ds = tuple(gcd(*(abs(p[j]) for p in S)) for j in range(3))\n    for j, d in enumerate(ds):\n        if d:\n            g = tuple(d if k == j else 0 for k in range(3))\n            if g not in S:\n                return None\n    size = prod(2 * (cutoff // d) + 1 if d else 1 for d in ds)\n    if size > limit:\n        return AxisCertificate(ds, size, len(S), 'EXACT_SIZE_DENSE_FALLBACK', None)\n    axes = [range(-(cutoff // d) * d, (cutoff // d) * d + 1, d) if d else (0,) for d in ds]\n    C = tuple(product(*axes))\n    assert len(C) == size\n    return AxisCertificate(ds, size, len(S), 'EXACT_AXIS_GENERATOR_CARRIER', C)\n\n\ndef fast_carrier(seed: Iterable[Vec], cutoff: int, limit: int, original: Callable):\n    \"\"\"Return (carrier-or-None, metadata); original return structure is preserved.\"\"\"\n    S = tuple(seed)\n    cert = axis_certificate(S, cutoff, limit)\n    if cert is not None:\n        return cert.carrier, {\n            'route': cert.status, 'proof': 'AXIS_GCD_GENERATORS_PRESENT',\n            'gcds': cert.gcds, 'carrier_size': cert.carrier_size,\n            'lower_bound': cert.carrier_size, 'pair_tests': 0,\n        }\n    result = original(S, cutoff, limit)\n    return result.carrier, {\n        'route': result.status, 'proof': 'ORIGINAL_TRUNCATED_ADDITIVE_CLOSURE',\n        'carrier_size': result.carrier_size, 'lower_bound': result.lower_bound,\n        'pair_tests': result.pair_tests,\n    }\n",
+      "display_title": "fast_carrier.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/997981529b76c1b5e46ed43af91617c2c0023bd8/research_artifacts/CFD_HOST_9CFD0F_20260921/fast_carrier.py",
+      "encoding": "utf-8",
+      "sha": "d696a89a281a960eb1eb597faa087159b69bf681"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
