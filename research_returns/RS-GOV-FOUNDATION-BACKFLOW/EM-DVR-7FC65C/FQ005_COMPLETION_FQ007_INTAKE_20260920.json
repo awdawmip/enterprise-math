@@ -1,0 +1,57 @@
+{
+  "schema": "ENTERPRISE_MATH_GOVERNANCE_BACKFLOW_CHECKPOINT_V1",
+  "task_id": "RS-GOV-FOUNDATION-BACKFLOW",
+  "publication_id": "TP2-2C438651496A928ADCB7",
+  "claim_id": "CL-GOV-FQ005-7FC65C-20260920",
+  "driver_id": "EM-DVR-7FC65C",
+  "authority_record_id": "DA-914801DE7DDE3068AC16",
+  "fq005": {
+    "question_id": "FQ-20260809-005",
+    "source_plan": "research_returns/RS-GOV-FOUNDATION-BACKFLOW/EM-GOV-76FA5C/FQ005_PROPAGATION_PATCH_PLAN.json@ed7f87189e75fafa4a7962fc0fbf6e9ff24e9375",
+    "applied_commit": "96914cb613670950a1027c95d864d0d7cb98b6df",
+    "changed_paths": [
+      "foundation_steward.json",
+      "research_common_surface.json",
+      "foundation_backflow.json",
+      "docs/RESEARCH_COMMON_SURFACE.en.md",
+      "docs/RESEARCH_COMMON_SURFACE.zh-CN.md"
+    ],
+    "target_blob_preconditions": "PASS_ALL_FIVE",
+    "canonical_readback": "PASS",
+    "compare_scope": "EXACTLY_FIVE_DECLARED_PATHS",
+    "reference_integrity": {
+      "issue_164_comments": [
+        5242436041,
+        5242447403,
+        5242605053
+      ],
+      "research_commit": "ca351e5446b3a84835ade9509f1ab97c276841d9",
+      "canonical_merge": "3a40fe680e7aad4bc458540483c3c753e15f2cc4",
+      "status": "EXISTS_AND_READ_BACK"
+    },
+    "bilingual_sync": "FOCUSED_CHANGED_TEXT_PASS",
+    "exact_local_commands": {
+      "python tools/check_research_common_surface.py": "NOT_RUN_NO_LOCAL_REPOSITORY_CHECKOUT",
+      "python -m unittest tests.test_foundation_backflow": "NOT_RUN_NO_LOCAL_REPOSITORY_CHECKOUT"
+    },
+    "status": "PROPAGATION_APPLIED_AND_CANONICAL_READBACK_WITH_WHOLE_REPO_LOCAL_VALIDATION_PENDING"
+  },
+  "fq007": {
+    "question_id": "FQ-20260810-007",
+    "research_task_id": "RS-R004-CAUSAL-IDENTIFIABILITY",
+    "terminal_publication_id": "TP2-4E4385E37C8AD66B83A0",
+    "research_state": "CLOSED",
+    "research_return_comment": 5238943596,
+    "steward_verification_comment": 5242406428,
+    "steward_sharpening_comment": 5242646586,
+    "steward_closure_recommendation_comment": 5242954869,
+    "integration_pr": 444,
+    "integration_pr_state": "OPEN_UNMERGED_STALE_BASE",
+    "integration_head": "cdae33bcb45b402d2f84b4b0c37365cd355c40ee",
+    "frozen_research_head": "735a8bd94af2723153203776b1949f7f5d0ab296",
+    "current_main_source_files_present": false,
+    "stale_pr_warning": "Do not merge PR #444 wholesale: its bilingual_pairs.json diff is stale/destructive relative to current main. Replay only validated frozen source payload plus current-main bilingual registration and Foundation propagation.",
+    "status": "INTEGRATION_DEBT_NOT_NEW_RESEARCH"
+  },
+  "next_action": "Latest-main replay of the steward-verified FQ-007 T01-T03/C01 source payload, preserving the necessary-not-sufficient correction and adopting no physical axiom; validate source/tests and bilingual/reference surfaces before canonical propagation."
+}
