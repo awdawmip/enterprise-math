@@ -67,9 +67,14 @@
       "periodic_phase_checks": 120
     }
   },
-  "source_sha256": {
+  "scope": "research validation only; no Foundation, fixed heartbeat program, physical-time calibration or production Nollm claim",
+  "local_validation_sha256": {
     "module": "742a732703c89d856c39162696e405faf8b6b207e661b62b41c744e8c8db69bc",
     "tests": "f41472e57db7ee19b24b8783d7bb6b5e22cf834e9e22b28238345779f0b2c0ee"
   },
-  "scope": "research validation only; no Foundation, fixed heartbeat program, physical-time calibration or production Nollm claim"
+  "remote_readback_git_blobs": {
+    "module": "2b66743c3f4cd52263aa6e15c00d7837008fb8ad",
+    "tests": "a930bbee1e5e0814bbf211c1cdbf705977ab1709"
+  },
+  "evidence_note": "Local SHA256 values identify the locally executed reference files. Remote Git blob IDs identify the published, read-back source/test bytes. They are semantically aligned but not claimed byte-identical."
 }

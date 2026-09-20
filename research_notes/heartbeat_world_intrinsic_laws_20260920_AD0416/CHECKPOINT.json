@@ -3,7 +3,7 @@
   "event_id": "heartbeat-world-intrinsic-laws-20260920-AD0416",
   "research_activity_id": "RA-37C0A30C7B1F5A338F03D186",
   "status": "REMOTE_MAIN_RESEARCH_CANDIDATE_NOT_FOUNDATION",
-  "source_commit": "9a294db2e305caddbe55fef3d65079b5ce8d6ac4",
+  "source_commit": "157350f30dc299597d356a0b1460ef3254e55686",
   "artifacts": {
     "module": "src/enterprise_math/heartbeat_residual_holonomy.py",
     "tests": "tests/test_heartbeat_residual_holonomy.py",
@@ -32,8 +32,6 @@
       "ordered_pairs": 33856,
       "phase_snf_different": 15488
     },
-    "module_sha256": "742a732703c89d856c39162696e405faf8b6b207e661b62b41c744e8c8db69bc",
-    "tests_sha256": "f41472e57db7ee19b24b8783d7bb6b5e22cf834e9e22b28238345779f0b2c0ee",
     "independent_review": false,
     "full_project_tests": false,
     "lean": false,
@@ -53,7 +51,14 @@
       "smith_depth_comparisons": 1440,
       "cycle_mean_classifications": 120,
       "periodic_phase_checks": 120
-    }
+    },
+    "local_validation_module_sha256": "742a732703c89d856c39162696e405faf8b6b207e661b62b41c744e8c8db69bc",
+    "local_validation_tests_sha256": "f41472e57db7ee19b24b8783d7bb6b5e22cf834e9e22b28238345779f0b2c0ee",
+    "remote_readback_git_blobs": {
+      "module": "2b66743c3f4cd52263aa6e15c00d7837008fb8ad",
+      "tests": "a930bbee1e5e0814bbf211c1cdbf705977ab1709"
+    },
+    "evidence_note": "Local validation hashes and remote Git blob IDs are separately typed; no byte-identity claim is made."
   },
   "boundaries": [
     "HEARTBEAT_WORLD still has no fixed heartbeat program",
