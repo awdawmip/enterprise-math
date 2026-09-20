@@ -1,0 +1,59 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_PRIORITY_V1",
+  "directive_id": "HBW-FIRST-TIER-20260920",
+  "status": "ACTIVE_USER_DIRECTIVE",
+  "authority": "EXPLICIT_CURRENT_USER_INSTRUCTION",
+  "source_user_text": "提取工具和定理 提高心跳世界的优先级",
+  "effective_date": "2026-09-20",
+  "world_id": "HEARTBEAT_WORLD",
+  "priority_tier": "FIRST_TIER",
+  "scope": "research_portfolio_planning_and_applicable_tool_reuse",
+  "default_preference": "HEARTBEAT_WORLD_BEFORE_OTHER_UNDIRECTED_ELIGIBLE_RESEARCH",
+  "world_contract": {
+    "spatial_dimension": 6,
+    "time_dimension": 1,
+    "spatial_coordinate_system": "ENTERPRISE_NATIVE_X6",
+    "time_is_spatial_axis": false,
+    "fixed_heartbeat_program": null
+  },
+  "decision_order": [
+    "PRESERVE_SYSTEM_SAFETY_P000_AND_TASK_GATES",
+    "HONOR_CURRENT_EXPLICIT_USER_TARGET",
+    "PRESERVE_VALID_ACTIVE_CLAIMS_AND_REQUIRED_DEPENDENCIES",
+    "PREFER_ELIGIBLE_HEARTBEAT_WORLD_RESEARCH",
+    "USE_EXISTING_EXECUTABLE_METHOD_BEFORE_CREATING_NEW_FAMILY",
+    "CONTINUE_OTHER_ELIGIBLE_WORK_WHEN_HEARTBEAT_DEPENDENCIES_BLOCK"
+  ],
+  "preferred_workstreams": [
+    {
+      "rank": 1,
+      "id": "intrinsic_laws",
+      "focus_zh": "原生六轴与时间耦合的自身规律、进位与余数、相位和非周期交互"
+    },
+    {
+      "rank": 2,
+      "id": "brc_extension",
+      "focus_zh": "复用BRC，提取观察保持、残差传递、条件结构和可验证工具"
+    },
+    {
+      "rank": 3,
+      "id": "proof_and_counterexample",
+      "focus_zh": "证明候选复核、独立验算、真实路径反例和适用边界"
+    },
+    {
+      "rank": 4,
+      "id": "application_bridge",
+      "focus_zh": "明确成本和观察语义后检验Nollm覆盖/召回应用；不以几何邻近冒充语义"
+    }
+  ],
+  "residual_policy": "NONZERO_RESIDUAL_OR_FAILED_BUDGET_IS_NOT_RESEARCH_REJECTION",
+  "admission_policy": "RESEARCH_PRIORITY_DOES_NOT_CHANGE_THEOREM_OR_FOUNDATION_STATUS",
+  "nonpreemption": true,
+  "grants_claim": false,
+  "grants_driver_authority": false,
+  "creates_task": false,
+  "discovery_firewall": "DO_NOT_LOAD_AGENDA_OR_TOOL_CATALOG_IN_CLEAN_FREE_PHASE_A",
+  "execution_scope": "Normative planning directive and library readout; not an automatic rewrite of existing dispatch records or live queue.",
+  "library_ref": "research_toolkits/heartbeat_world.json",
+  "human_ref": "docs/HEARTBEAT_WORLD_RESEARCH_PRIORITY.md"
+}

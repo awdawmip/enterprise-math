@@ -24,3 +24,9 @@ QUESTION-LANGUAGE AUDIT
 ```
 
 A philosophical claim that cannot yet be converted into a falsifiable mathematical obligation remains a research intuition, not a theorem and not native ontology.
+
+## Current user-directed research priority: Heartbeat World
+
+The explicit user direction of 2026-09-20 makes Heartbeat World a **first-tier research line**. For new planning without a more specific user target, prefer eligible research into its intrinsic laws, native-X6/time interaction, residuals and BRC extensions; prioritize reuse and verification of existing results. Preserve explicit current tasks, valid ownership, necessary dependencies and FREE discovery isolation. This directive neither preempts owners nor automatically rewrites published task queues.
+
+See the [research-priority policy](docs/HEARTBEAT_WORLD_RESEARCH_PRIORITY.md), [machine rules](research_priorities/heartbeat_world.json), and [tool/theorem library](docs/toolbox/HEARTBEAT_WORLD.md). Higher research priority does not change P000, candidate, Working Truth or Foundation evidence levels. A nonzero residual is not a reason to discard the research object.

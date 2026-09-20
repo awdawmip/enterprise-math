@@ -1,0 +1,75 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_TOOLKIT_V1",
+  "toolkit_id": "HEARTBEAT_WORLD",
+  "status": "EXTRACTED_RESEARCH_LIBRARY_NOT_FOUNDATION",
+  "date": "2026-09-20",
+  "scope": "Latest switching-carry and automatic common-lattice frontier; not an exhaustive inventory of all Heartbeat research.",
+  "priority_ref": "research_priorities/heartbeat_world.json",
+  "world_definition": "definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json",
+  "tool_family": "T0_BRC",
+  "new_mathematical_tool_families": 0,
+  "new_theorems_claimed": 0,
+  "method_registration": "Existing research_method_inventory_addenda entries retain their IDs and ownership.",
+  "theorem_authority": "Resolve the original ledgers; this toolkit does not redefine or admit their claims.",
+  "entries": [
+    {
+      "method_id": "t0.brc_switching_carry_lattice_ports",
+      "inventory_ref": "research_method_inventory_addenda/20260920_heartbeat_switching_carry_AD0416.json",
+      "module": "src/enterprise_math/heartbeat_switching_carry.py",
+      "test": "tests/test_heartbeat_switching_carry.py",
+      "ledger": "research_notes/heartbeat_switching_carry_20260920_AD0416/THEOREM_LEDGER.json",
+      "proof": "research_notes/heartbeat_switching_carry_20260920_AD0416/RESEARCH_NOTE.md",
+      "reuse_status": "REUSE_EXISTING_IMPLEMENTATION_UNCHANGED",
+      "theorem_ids": [
+        "HBW-SW-001",
+        "HBW-SW-002",
+        "HBW-SW-003",
+        "HBW-SW-004",
+        "HBW-SW-005",
+        "HBW-SW-006"
+      ],
+      "source_pin": {
+        "repository": "awdawmip/enterprise-math",
+        "ref": "c334ee8832d8c3b0bcc2f4d077d62ed071ed86ba",
+        "module_blob": "81fa56ea5967daa9fbbec66f06fed696a5620bb5",
+        "ledger_blob": "8a9e48d1d09390da0a057b242c3ee792aa92be98"
+      }
+    },
+    {
+      "method_id": "t0.brc_common_lattice_search",
+      "inventory_ref": "research_method_inventory_addenda/20260920_heartbeat_lattice_search_AD0416.json",
+      "module": "src/enterprise_math/heartbeat_lattice_search.py",
+      "test": "tests/test_heartbeat_lattice_search.py",
+      "ledger": "research_notes/heartbeat_lattice_search_20260920_AD0416/THEOREM_LEDGER.json",
+      "proof": "research_notes/heartbeat_lattice_search_20260920_AD0416/RESEARCH_NOTE.md",
+      "reuse_status": "REUSE_EXISTING_IMPLEMENTATION_UNCHANGED",
+      "theorem_ids": [
+        "HBW-LS-001",
+        "HBW-LS-002",
+        "HBW-LS-003",
+        "HBW-LS-004",
+        "HBW-LS-005",
+        "HBW-LS-006"
+      ],
+      "source_pin": {
+        "repository": "awdawmip/enterprise-math",
+        "ref": "c334ee8832d8c3b0bcc2f4d077d62ed071ed86ba",
+        "module_blob": "307cb147949256115bc6bc4a479c4f9af884c3eb",
+        "ledger_blob": "ee0785080975eb0fe03d34a2cac663e638de76d0"
+      }
+    }
+  ],
+  "next_frontier": {
+    "status": "UNPROVED_IN_THIS_EXTRACTION",
+    "question": "Extend closure to constrained multiport graphs; separate strongly connected volume balance from one-way intercomponent loss.",
+    "never_infer": "Do not apply unrestricted-family necessity to arbitrary constrained graphs."
+  },
+  "boundaries": [
+    "Raw X6 spatial coordinates plus separate time",
+    "Positive BRC mass is not canceled by signed algebraic residuals",
+    "Supplied-certificate failure is not global nonexistence",
+    "ESCAPING_WORD is budget-scoped, SEARCH_LIMIT is inconclusive",
+    "No physical-temperature or semantic-benefit inference",
+    "No independent mathematical review, Lean or Foundation admission by extraction"
+  ]
+}
