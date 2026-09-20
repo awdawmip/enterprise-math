@@ -104,6 +104,9 @@ class MultiplicationLabTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             path=lab.build_lab_site(d,count=16);text=path.read_text()
             self.assertIn('frame.srcdoc=code',text)
+            self.assertIn('window.NumberFieldGallery',text)
+            self.assertIn('await api.preset(name)',text)
+            self.assertNotIn('frame.contentWindow.NumberFieldLab.preset(selected)',text)
             self.assertNotIn('__EMBEDDED_LAB__',text)
             self.assertEqual(json.loads((Path(d)/'manifest.json').read_text())['records'],16)
             self.assertEqual(path.read_bytes(),lab.build_lab_site(d,count=16).read_bytes())
