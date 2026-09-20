@@ -1,0 +1,87 @@
+{
+  "schema": "INTEGER_RESIDUAL_MIGRATION09_VALIDATION_V1",
+  "status": "LOCAL_VALIDATED_CANDIDATE_NOT_MAIN_ADMITTED",
+  "baseline_commit": "822bd4fb79c28a5ffb02ba54f311e75d163d7646",
+  "code_commit": "52d886d1be6e20660ac52d54307a360b5c398c21",
+  "branch": "research/integer-residual-m01-angular-20260919-4a5102",
+  "researcher_id": "EM-DIRECT-4A5102",
+  "activity_id": "RA-1094DE57986E6E3FDCEA65DA",
+  "implementation": "Actual multiplicative.py render and original multiplicative_lab.html UI use M08 lexicographic certifier; original template and arithmetic kernels unchanged",
+  "tests": {
+    "caller_tests": 40,
+    "new_tests": 17,
+    "historical_tests": 23,
+    "caller_failures": 0,
+    "caller_errors": 0,
+    "caller_skips": 0,
+    "m04_regression_tests": 78,
+    "m04_regression_failures": 0,
+    "m04_regression_skips": 0,
+    "m09_dom_checks": 44,
+    "m04_dom_checks": 69,
+    "page_errors": 0,
+    "old_template_generation_skip_removed": true
+  },
+  "finite_matrix": {
+    "cases_4096": 12,
+    "cases_65536": 1,
+    "all_certified": true,
+    "summary_all_fields_equal": true,
+    "ordered_certificate_and_identity_sha256_equal": true,
+    "valuation_65536_occupied_cells": 44731,
+    "valuation_65536_unresolved": 0,
+    "exhaustive_or_asymptotic": false
+  },
+  "typed_contract": {
+    "scale": "original text; 0.50 -> 50/100; 2/2 retained; no float reverse inference",
+    "browser_range": "1/4..4 checked by integers",
+    "tie_rule": "MINIMUM_EUCLIDEAN_DISTANCE_THEN_AXIAL_LEXICOGRAPHIC",
+    "unresolved": "retain null cell, intervals and identity; four complete totals null; refuse guessed full-hex export",
+    "state": "latest generation wins; pending/failed reads and stale exports rejected",
+    "approximate_rendering": "display only, no feedback into cell decisions",
+    "session": "V2 saves exact options; V1 restores explicit legacy",
+    "default_engine": "legacy-float"
+  },
+  "clean_replay": {
+    "patch_sha256": "87d6f9f289158854bdcfe0bfc92fb63ac3a92ea908cb7a45b02b9c953235cdd7",
+    "exact_baseline_patch_applied": true,
+    "source_files_byte_equal": 8,
+    "caller_tests": 40,
+    "dom_checks": 44,
+    "test_and_dom_json_identical": true
+  },
+  "source_blobs": {
+    "tools/nollm_visual_toolkit/nollm_visual_toolkit/multiplicative.py": "0e258f5da9d3b0b6a739a14707c88add5dba80df",
+    "tools/nollm_visual_toolkit/nollm_visual_toolkit/multiplicative_browser.py": "12ca43701b038b5082d3fe2ba720bc17c9706eb6",
+    "tools/nollm_visual_toolkit/tests/test_multiplicative_browser.py": "4a250d2fb86ee0f5c20ab04a3528f966321c3a4f",
+    "tools/run_migration09.py": "aea14c518fb43491ea9ac42759ba7dc47dc066f3",
+    "tools/test_migration09_dom.py": "d8e849f8ddf3d8c22fe8f365feda6bf976e32097",
+    "tools/benchmark_migration09.py": "0035909c18092af788857505381d923bdc3d77ec",
+    "evidence/migration09/frozen_m07_multiplicative.py": "726546da96786e120a7b94233f382d6bbcf37162",
+    "evidence/migration09/frozen_multiplicative_lab.html": "6619c5da7ad03f38766bfc383d60b5505cb863e0"
+  },
+  "evidence_sha256": {
+    "tests.json": "16c87495d11c420525cffaa1db1901aec52f5a1a52767818d7c1d6ec3e7c8941",
+    "dom_validation.json": "ffc90389854baa8a43db58b92c66c4fe5fc5dbc5c4207ea9e0129062c1b384bd",
+    "dom_witnesses.json": "b35e056d7eab652b3be670b24cc426f5868b4b5e12758c81919c26ad92b587c1",
+    "population_matrix.json": "323aeaa3bbda3ef34c7697b85cf59a06dfb169d1b0bf4955cf4ff165406449cc",
+    "m04_regression.json": "f21fdd455084d5bdc0d0beb42faba295a58849fffe17d1c4ac3cfd1c960b4d9b",
+    "m04_dom_regression/dom_validation.json": "63e2b7a3043a5e1d6b62b05f993775df90f31580ecaa6443fcedc2de31d79cd7",
+    "clean_replay.json": "635d74ba68564c02b99a93664ad47de812f31f72ec7397f8a1941ae623329976"
+  },
+  "boundaries": {
+    "geometry": "DECLARED_A2_OBSERVER_NOT_NATIVE_X6",
+    "node_crypto": "NATIVE_WEB_CRYPTO",
+    "browser_execution": "REAL_RENDERED_HTML_AND_SAVED_HTML_VIA_SET_CONTENT",
+    "browser_digest": "EXPLICIT_HASHLIB_TEST_ADAPTER",
+    "native_browser_navigation": "KNOWN_MANAGED_BLOCK_NOT_RETRIED_OR_BYPASSED",
+    "native_browser_webcrypto": "NOT_VALIDATED",
+    "Safari_iOS": "NOT_VALIDATED",
+    "full_wheel_and_whole_repository": "NOT_VALIDATED",
+    "independent_review": "NOT_PERFORMED",
+    "main_code_integrated": false,
+    "CLI_exact_seed_auto_activation": false,
+    "hosted_workflow_dispatch": false
+  },
+  "next": "Consolidate the migrated template and CLI exact-start contract; obtain authorized native-browser and package acceptance before default/main cutover; do not redo M01-M08."
+}
