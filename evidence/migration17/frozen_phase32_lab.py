@@ -54,60 +54,7 @@ def phase_hash(p: int, seed: int) -> int:
     return (x ^ (x >> 16)) & (DEN-1)
 
 
-def _cell_pitch(value: tuple[int, int]) -> tuple[int, int]:
-    """Explicit unreduced A2 pitch source; never inferred from config.pitch."""
-    if not isinstance(value, tuple) or len(value) != 2:
-        raise ValueError('cell_pitch must be an explicit (integer numerator, integer denominator) tuple')
-    numerator, denominator = value
-    if any(isinstance(v, bool) or not isinstance(v, int) or v <= 0 for v in value):
-        raise ValueError('cell_pitch numerator and denominator must be positive exact integers')
-    return numerator, denominator
-
-
-def _lexicographic_cells(phase: list[int], pitch_n: int, pitch_d: int,
-                         *, initial_bits: int, max_bits: int) -> dict:
-    """Certified uint32 A2 cells, adapting only true ties to this caller's rule."""
-    from .certified_hex import certified_population
-    from .multiplicative import _lexicographic_tie_cell
-    base = certified_population([None, *phase[1:]], pitch_d, pitch_n,
-                                initial_bits=initial_bits, max_bits=max_bits,
-                                include_certificates=True, phase_modulus=DEN)
-    cells = {}; unresolved = []; ties = []; certificates = []
-    for identity, proof in enumerate(base['certificates']):
-        cell = _lexicographic_tie_cell(proof) if proof['status'] == 'CERTIFIED_TIE' else proof['cell']
-        wrapped = {'schema':'NOLLM_PHASE32_CELL_CERTIFICATE_V1',
-                   'status':proof['status'], 'cell':cell,
-                   'tie_rule':'MINIMUM_EUCLIDEAN_DISTANCE_THEN_AXIAL_LEXICOGRAPHIC',
-                   'base_certifier_tie_rule':proof.get('tie_rule'),
-                   'base_certificate':proof}
-        certificates.append(wrapped)
-        if identity == 0:
-            continue
-        if cell is None:
-            unresolved.append(str(identity)); continue
-        key = tuple(cell); cells[key] = cells.get(key, 0) + 1
-        if proof['status'] == 'CERTIFIED_TIE': ties.append(str(identity))
-    complete = not unresolved; occupied = len(cells); positive = len(phase) - 1
-    return {'schema':'NOLLM_PHASE32_CERTIFIED_A2_POPULATION_V1',
-            'status':'CERTIFIED_ALL' if complete else 'UNRESOLVED_BOUNDARY',
-            'population':str(len(phase)), 'positive_population':str(positive),
-            'certified_positive_identities':str(positive-len(unresolved)),
-            'phase_modulus':str(DEN), 'phase_source_sha256':base['phase_source_sha256'],
-            'phase_source_encoding':base['phase_source_encoding'],
-            'unresolved_identities':unresolved, 'tie_identities':ties,
-            'occupied_cells':str(occupied) if complete else None,
-            'occupied_cells_bounds':[str(occupied),str(occupied+len(unresolved))],
-            'collision_excess':str(positive-occupied) if complete else None,
-            'max_cell_multiplicity':str(max(cells.values(), default=0)) if complete else None,
-            'pitch':{'numerator':str(pitch_n),'denominator':str(pitch_d),'unreduced':True},
-            'certifier_scale':base['scale'], 'precision_counts':base['precision_counts'],
-            'tie_rule':'MINIMUM_EUCLIDEAN_DISTANCE_THEN_AXIAL_LEXICOGRAPHIC',
-            'base_certifier_tie_rule':base['tie_rule'], 'certificates':certificates,
-            'scope':'CERTIFIED_A2_OBSERVER_ONLY; POSITIVE_METRICS_EXCLUDE_ZERO; NO_NATIVE_IDENTITY_COLLAPSE'}
-
-
-def build(config: dict | None = None, *, cell_pitch: tuple[int, int] | None = None,
-          cell_bits: int = 64, cell_max_bits: int = 192) -> dict:
+def build(config: dict | None = None) -> dict:
     c = validate_config(config or {})
     N = c['count']; spf = [0]*N; phase = [0]*N; omega = [0]*N; primes=[]
     for p in range(2, N):
@@ -123,19 +70,7 @@ def build(config: dict | None = None, *, cell_pitch: tuple[int, int] | None = No
     if c['mode']=='spiral':
         for n in range(1,N): phase[n]=((n-1)*GOLDEN)%DEN
     # 0 has no prime-valuation/angle interpretation; it is an external absorbing point.
-    result = dict(config=c, phase=phase, spf=spf, omega=omega, primes=primes)
-    if cell_pitch is None:
-        if (cell_bits, cell_max_bits) != (64, 192):
-            raise ValueError('cell precision budgets require explicit cell_pitch')
-        return result
-    pitch_n, pitch_d = _cell_pitch(cell_pitch)
-    exact = _lexicographic_cells(phase, pitch_n, pitch_d,
-                                 initial_bits=cell_bits, max_bits=cell_max_bits)
-    result.update(cell_engine='CERTIFIED_INTEGER_RESIDUAL',
-                  cell_pitch_source={'numerator':str(pitch_n),'denominator':str(pitch_d),'unreduced':True},
-                  cell_precision={'initial_bits':cell_bits,'max_bits':cell_max_bits},
-                  cell_membership_exact=exact)
-    return result
+    return dict(config=c, phase=phase, spf=spf, omega=omega, primes=primes)
 
 
 def factors(model: dict, n: int) -> list[list[int]] | None:
@@ -165,37 +100,13 @@ def quantize(z: complex, pitch: float=1) -> tuple[int,int]:
                key=lambda t: ((q-t[0])**2+(q-t[0])*(r-t[1])+(r-t[1])**2,t[0],t[1]))
 
 
-def metrics(model: dict, *, readout_scale: int | None = 10**6) -> dict:
+def metrics(model: dict) -> dict:
     c=model['config']; N=c['count']; S=c['sectors']; R=c['rings']
-    exact = model.get('cell_engine') == 'CERTIFIED_INTEGER_RESIDUAL'
-    if not exact and readout_scale != 10**6:
-        raise ValueError('readout_scale is available only for certified Phase32 metrics')
-    angular=[0]*S; bins=[0]*(S*R); rings=[0]*R
-    if exact:
-        from .angular_dispersion import AngularDispersion
-        from .certified_hex import _floor
-        for n in range(1,N):
-            sector=_floor(model['phase'][n]*S,DEN)
-            ring=min(R-1,_floor(n*R,N-1))
-            angular[sector]+=1; rings[ring]+=1; bins[ring*S+sector]+=1
-        pop=model['cell_membership_exact']
-        def value(key):
-            return None if pop[key] is None else int(pop[key])
-        return dict(positive_population=N-1, angular_cv=None, equal_area_cv=None,
-                    approximate_metrics_role='OMITTED_FROM_EXACT_OBSERVER',
-                    angular_cv_squared_exact=AngularDispersion.from_counts(angular).as_record(scale=readout_scale),
-                    equal_area_cv_squared_exact=AngularDispersion.from_counts(bins).as_record(scale=readout_scale),
-                    angular_counts=angular, annular_counts=rings, equal_area_counts=bins,
-                    empty_equal_area_bins=bins.count(0), occupied_cells=value('occupied_cells'),
-                    occupied_cells_bounds=[int(x) for x in pop['occupied_cells_bounds']],
-                    collision_excess=value('collision_excess'), max_cell_multiplicity=value('max_cell_multiplicity'),
-                    unresolved_cell_identities=pop['unresolved_identities'][:],
-                    empty_bins_not_missing_ids=True)
-    cells={}
+    angular=[0]*S; bins=[0]*(S*R); rings=[0]*R; cells={}
     for n in range(1,N):
-        sector=model['phase'][n]*S//DEN
-        ring=min(R-1,n*R//(N-1))  # radius^2 / max-radius^2: actual equal-area annuli
-        angular[sector]+=1; rings[ring]+=1; bins[ring*S+sector]+=1
+        s=model['phase'][n]*S//DEN
+        r=min(R-1,n*R//(N-1))  # radius^2 / max-radius^2: actual equal-area annuli
+        angular[s]+=1; rings[r]+=1; bins[r*S+s]+=1
         qr=quantize(position(model,n),c['pitch']);cells[qr]=cells.get(qr,0)+1
     def cv(v):
         mu=sum(v)/len(v)
@@ -211,14 +122,8 @@ def multiplication(model: dict, a: int, b: int) -> dict:
     factors(model,a); factors(model,b); product=a*b
     if product>=model['config']['count']:
         return dict(a=a,b=b,product=product,in_domain=False)
-    delta=(model['phase'][product]-model['phase'][a]-model['phase'][b])%DEN if product else None
-    if model.get('cell_engine') == 'CERTIFIED_INTEGER_RESIDUAL':
-        return dict(a=a,b=b,product=product,in_domain=True,phase_defect_uint32=delta,
-                    omega_defect=(model['omega'][product]-model['omega'][a]-model['omega'][b]) if product else None,
-                    continuous_relative_error=None,rounded_relative_error=None,
-                    approximate_metrics_role='OMITTED_FROM_EXACT_OBSERVER',
-                    zero_rule='absorbing; valuation/phase undefined' if product==0 else None)
     z=position(model,a)*position(model,b); target=position(model,product)
+    delta=(model['phase'][product]-model['phase'][a]-model['phase'][b])%DEN if a*b else None
     coords=[quantize(position(model,n),model['config']['pitch']) for n in (a,b,product)]
     def cell(c):return model['config']['pitch']*complex(c[0]+c[1]/2,math.sqrt(3)*c[1]/2)
     rounded=cell(coords[0])*cell(coords[1]); norm=math.sqrt(product) if product else 1
@@ -255,30 +160,8 @@ def build_site(out_dir: str | Path, count: int = 65536) -> Path:
 
 
 def hex_data(model: dict) -> dict:
-    """V2 bridge; certified mode never guesses unresolved cells or pixel fields."""
-    exact = model.get('cell_engine') == 'CERTIFIED_INTEGER_RESIDUAL'
+    """V2 bridge to the existing workbench; all IDs survive quantization."""
     rows=[]
-    if exact:
-        pop=model['cell_membership_exact']
-        if pop['unresolved_identities']:
-            raise ValueError('unresolved certified Phase32 cells cannot be exported as complete V2 coordinates')
-        for n,cert in enumerate(pop['certificates']):
-            q,r=map(int,cert['cell'])
-            rows.append(dict(id=str(n),n=n,coord=[q,r],layer=model['omega'][n],fields=dict(
-                phase_numerator=model['phase'][n] if n else None,phase_denominator=DEN,
-                omega=model['omega'][n] if n else None,prime=model['spf'][n]==n if n>1 else False,
-                factors=factors(model,n))))
-        config=model['config']
-        source_config={'count':config['count'],'mode':config['mode'],'seed':config['seed'],
-                       'overrides':dict(config['overrides']),'phase_modulus':str(DEN)}
-        return dict(schema='NOLLM_VISUAL_DATA_V2',kind='hex',title='Phase32 / certified hex observer',
-            metadata=dict(typing='A2_CERTIFIED_INTEGER_RESIDUAL_OBSERVER_NOT_NATIVE_X6',phase_source=source_config,
-                layer_semantics='Omega(n) observer layer; zero displayed on layer 0; NOT Nollm physical layer',
-                cell_engine=model['cell_engine'],cell_pitch_source=model['cell_pitch_source'],
-                cell_precision=dict(model['cell_precision']),
-                cell_membership_exact={k:v for k,v in pop.items() if k!='certificates'},
-                identity='n retained despite center collisions',pixel_fields='ABSENT_IN_EXACT_MODE',
-                legacy_display_config='OMITTED_FROM_EXACT_EXPORT'),records=rows,relations=[])
     for n in range(model['config']['count']):
         z=position(model,n);q,r=quantize(z,model['config']['pitch'])
         rows.append(dict(id=str(n),n=n,coord=[q,r],layer=model['omega'][n],fields=dict(

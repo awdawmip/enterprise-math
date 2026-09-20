@@ -1,0 +1,65 @@
+{
+  "schema": "INTEGER_RESIDUAL_MIGRATION17_VALIDATION_V1",
+  "status": "LOCALLY_VALIDATED_OPT_IN_PHASE32_CALLER_NO_DEFAULT_CUTOVER",
+  "baseline_commit": "86111435b173464c91c000275077b74411fe93db",
+  "researcher_id": "EM-DIRECT-4A5102",
+  "activity_id": "RA-1094DE57986E6E3FDCEA65DA",
+  "tests": {
+    "retained_m16": 154,
+    "phase32_original": 17,
+    "new": 12,
+    "total": 183,
+    "failures": 0,
+    "errors": 0,
+    "expected_source_slice_skips": 2,
+    "numerical_skips": 0
+  },
+  "caller": {
+    "phase_modulus": 4294967296,
+    "exact_pitch": "EXPLICIT_POSITIVE_INTEGER_RATIO_NOT_INFERRED_FROM_FLOAT",
+    "tie_rule": "MINIMUM_EUCLIDEAN_DISTANCE_THEN_AXIAL_LEXICOGRAPHIC",
+    "base_certificate_retained": true,
+    "default_changed": false,
+    "browser_changed": false
+  },
+  "finite_actual_population": {
+    "cases_4096": 9,
+    "all_4096_certified": true,
+    "all_4096_aggregate_match": true,
+    "all_4096_identity_cells_match": true,
+    "full_65536_mode": "golden",
+    "full_65536_pitch": [
+      1,
+      1
+    ],
+    "full_65536_certified": true,
+    "full_65536_unresolved": 0,
+    "full_65536_occupied_cells": 47497,
+    "full_65536_collision_excess": 18038,
+    "full_65536_max_cell_multiplicity": 9,
+    "full_65536_identity_cell_difference_count": 0,
+    "finite_not_universal": true
+  },
+  "clean_replay": {
+    "patch_sha256": "87ff87b254349b973bf804c8a6579538a54a8cabd01e9d23a7af71037517e7c6",
+    "tests_json_byte_equal": true,
+    "population_4096_byte_equal": true,
+    "population_65536_byte_equal": true
+  },
+  "raw_evidence_sha256": {
+    "tests.json": "feba49043fc437e0fcbcc98c870b0a3e2c0f2a4af58a80653ecafaa260ccb23d",
+    "population_4096.json": "f680b196267e3588cdd8ebd0bb334d954c6949dd0c3e2d66781367fd70e357ab",
+    "population_65536.json": "fdcbf497d2fbeda1008a7f503a9b162e69fc8968b46e107c6975cb4b73b14818"
+  },
+  "reuse": "M16_CERTIFIER_PLUS_M06_LEXICOGRAPHIC_TIE_ADAPTER_PLUS_ANGULAR_DISPERSION_BRC",
+  "boundaries": {
+    "geometry": "DECLARED_A2_OBSERVER_NOT_NATIVE_X6",
+    "phase32_html_package_data_present": false,
+    "phase32_cli_exact_pitch": false,
+    "phase32_browser_exact": false,
+    "default_changed": false,
+    "m15_admission_passed": false,
+    "independent_review": false,
+    "main_code_integrated": false
+  }
+}
