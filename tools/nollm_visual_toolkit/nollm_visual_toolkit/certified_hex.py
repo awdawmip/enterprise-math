@@ -14,6 +14,14 @@ MODULUS = 65536
 TIE_RULE = 'HALF_TOWARD_POSITIVE_INFINITY_THEN_MAX_ERROR_Q_R_S'
 
 
+def _phase_bits(modulus: int) -> int:
+    """Validate an exact power-of-two phase carrier through uint32."""
+    _positive(modulus, 'phase modulus')
+    if modulus < 4 or modulus > (1 << 32) or modulus & (modulus - 1):
+        raise ValueError('phase modulus must be a power of two in 4..2**32')
+    return modulus.bit_length() - 1
+
+
 def _integer(value: int, name: str) -> int:
     if isinstance(value, bool) or not isinstance(value, int):
         raise ValueError(f'{name} must be an exact integer')
@@ -145,18 +153,22 @@ def root_ratio_bound(n: int, d: int, bits: int) -> tuple[DyadicInterval, dict]:
     return result, certificate
 
 
-@lru_cache(maxsize=16, typed=True)
-def _rotation_powers(bits: int):
-    """Positive half-angle roots: pi/4 down to pi/32768, then reversed.
+@lru_cache(maxsize=64, typed=True)
+def _rotation_powers(bits: int, phase_bits: int = 16):
+    """Positive binary half-angle roots down to one phase tick, reversed.
 
     Starting at cos(pi/2)=0, sin(pi/2)=1 avoids approximating pi entirely.
+    For a 2**k carrier this constructs k-2 roots, ending at pi/2**(k-1).
     The scale is fixed; each operation rounds OUTWARD, not to nearest.
     """
+    _integer(phase_bits, 'phase bits')
+    if not 2 <= phase_bits <= 32:
+        raise ValueError('phase bits must be in 2..32')
     scale = 1 << bits
     one = DyadicInterval(scale, scale, bits)
     cosine = DyadicInterval(0, 0, bits)
     result = []
-    for _ in range(14):
+    for _ in range(phase_bits - 2):
         next_cos = (one + cosine).times_ratio(1, 2).sqrt_nonnegative()
         next_sin = (one - cosine).intersect(0, 2 * scale).times_ratio(1, 2).sqrt_nonnegative()
         cosine = next_cos.intersect(0, scale)
@@ -164,18 +176,20 @@ def _rotation_powers(bits: int):
     return tuple(reversed(result))
 
 
-@lru_cache(maxsize=8192, typed=True)
-def phase_bounds(tick: int, bits: int = 64) -> tuple[DyadicInterval, DyadicInterval]:
-    """cos/sin enclosures for an integer tick on exactly 65536 phase positions."""
+@lru_cache(maxsize=16384, typed=True)
+def phase_bounds(tick: int, bits: int = 64, phase_modulus: int = MODULUS) -> tuple[DyadicInterval, DyadicInterval]:
+    """cos/sin enclosures for an integer tick on an exact 2**k carrier."""
     _integer(tick, 'phase tick')
     DyadicInterval(0, 0, bits)
-    if not 0 <= tick < MODULUS:
-        raise ValueError('phase tick must be in 0..65535')
-    quadrant, rest = _quotient_remainder(tick, 16384)
+    phase_bits = _phase_bits(phase_modulus)
+    if not 0 <= tick < phase_modulus:
+        raise ValueError(f'phase tick must be in 0..{phase_modulus - 1}')
+    quadrant_size = _floor(phase_modulus, 4)
+    quadrant, rest = _quotient_remainder(tick, quadrant_size)
     scale = 1 << bits
     cosine = DyadicInterval(scale, scale, bits)
     sine = DyadicInterval(0, 0, bits)
-    for index, (c, s) in enumerate(_rotation_powers(bits) if rest else ()):
+    for index, (c, s) in enumerate(_rotation_powers(bits, phase_bits) if rest else ()):
         if rest & (1 << index):
             cosine, sine = cosine * c - sine * s, sine * c + cosine * s
     cosine, sine = cosine.intersect(0, scale), sine.intersect(0, scale)
@@ -267,14 +281,15 @@ def _cardinal_decision(source) -> dict | None:
     makes irrational symmetry ties decidable without losing q=s correlation.
     Other phases remain under the rigorous interval/refinement contract.
     """
-    directions = {None: (0, 0, 0), 0: (1, 0, -1), 16384: (-1, 2, -1),
-                  32768: (-1, 0, 1), 49152: (1, -2, 1)}
+    quarter = _floor(source.phase_modulus, 4)
+    directions = {None: (0, 0, 0), 0: (1, 0, -1), quarter: (-1, 2, -1),
+                  2 * quarter: (-1, 0, 1), 3 * quarter: (1, -2, 1)}
     if source.tick not in directions:
         return None
     coefficients = directions[source.tick]
     n = source.n * source.scale_numerator * source.scale_numerator
     d = source.scale_denominator * source.scale_denominator
-    if source.tick in (16384, 49152):
+    if source.tick in (quarter, 3 * quarter):
         d *= 3
     rounded = []
     for k in coefficients:
@@ -326,11 +341,13 @@ class PolarSource:
     tick: int | None
     scale_numerator: int = 1
     scale_denominator: int = 1
+    phase_modulus: int = MODULUS
 
     def __post_init__(self):
         _integer(self.n, 'n')
         _positive(self.scale_numerator, 'scale numerator')
         _positive(self.scale_denominator, 'scale denominator')
+        _phase_bits(self.phase_modulus)
         if self.n < 0:
             raise ValueError('n must be nonnegative')
         if self.n == 0:
@@ -338,19 +355,19 @@ class PolarSource:
                 raise ValueError('zero has no phase; use None')
         else:
             _integer(self.tick, 'phase tick')
-            if not 0 <= self.tick < MODULUS:
-                raise ValueError('phase tick must be in 0..65535')
+            if not 0 <= self.tick < self.phase_modulus:
+                raise ValueError(f'phase tick must be in 0..{self.phase_modulus - 1}')
 
     def as_record(self):
         return {'n': str(self.n), 'phase_tick': None if self.tick is None else str(self.tick),
-                'phase_modulus': str(MODULUS), 'scale_numerator': str(self.scale_numerator),
+                'phase_modulus': str(self.phase_modulus), 'scale_numerator': str(self.scale_numerator),
                 'scale_denominator': str(self.scale_denominator),
                 'observer': 'DECLARED_POLAR_A2_NOT_NATIVE_X6'}
 
     def coordinates(self, bits: int):
         radius, radius_trace = root_ratio_bound(self.n, 1, bits)
         radial_third, third_trace = root_ratio_bound(self.n, 3, bits)
-        cosine, sine = phase_bounds(0 if self.tick is None else self.tick, bits)
+        cosine, sine = phase_bounds(0 if self.tick is None else self.tick, bits, self.phase_modulus)
         a = (radius * cosine).times_ratio(self.scale_numerator, self.scale_denominator)
         b = (radial_third * sine).times_ratio(self.scale_numerator, self.scale_denominator)
         return (a - b, b.times_ratio(2, 1), -a - b), (radius_trace, third_trace)
@@ -376,13 +393,14 @@ class PolarSource:
 
 def certified_population(phi, scale_numerator: int, scale_denominator: int,
                          *, initial_bits: int = 64, max_bits: int = 192,
-                         include_certificates: bool = False) -> dict:
+                         include_certificates: bool = False, phase_modulus: int = MODULUS) -> dict:
     """Compute only certified cell counts, with explicit unresolved identities."""
     if not isinstance(include_certificates, bool):
         raise ValueError('include_certificates must be boolean')
     if not isinstance(phi, (list, tuple)) or len(phi) < 2 or phi[0] is not None:
         raise ValueError('phase population must start with the unphased zero and include one')
-    sources = tuple(PolarSource(n, tick, scale_numerator, scale_denominator)
+    _phase_bits(phase_modulus)
+    sources = tuple(PolarSource(n, tick, scale_numerator, scale_denominator, phase_modulus)
                     for n, tick in enumerate(phi))
     # Complete validation before materialization or partial output.
     DyadicInterval(0, 0, initial_bits)
@@ -416,7 +434,7 @@ def certified_population(phi, scale_numerator: int, scale_denominator: int,
     return {'schema': 'NOLLM_CERTIFIED_POLAR_POPULATION_V1',
             'status': 'CERTIFIED_ALL' if complete else 'UNRESOLVED_BOUNDARY',
             'population': str(len(sources)), 'certified_identities': str(len(sources) - len(unresolved)),
-            'phase_modulus': str(MODULUS),
+            'phase_modulus': str(phase_modulus),
             'phase_source_sha256': hashlib.sha256(phase_bytes).hexdigest(),
             'phase_source_encoding': 'COMPACT_UTF8_JSON_ARRAY_NULL_OR_DECIMAL_STRINGS',
             'unresolved_identities': unresolved, 'tie_identities': ties,
@@ -434,7 +452,7 @@ def certified_population(phi, scale_numerator: int, scale_denominator: int,
 def exact_diagnostics(phi, scale_numerator: int, scale_denominator: int,
                       *, bins: int = 64, readout_scale: int | None = None,
                       initial_bits: int = 64, max_bits: int = 192,
-                      include_certificates: bool = False) -> dict:
+                      include_certificates: bool = False, phase_modulus: int = MODULUS) -> dict:
     """Exact branch of the existing diagnostics API; no legacy float execution."""
     from .angular_dispersion import AngularDispersion
     _integer(bins, 'bins')
@@ -448,12 +466,14 @@ def exact_diagnostics(phi, scale_numerator: int, scale_denominator: int,
         raise ValueError('declared layout scale must be in one-half..three')
     if not isinstance(phi, (list, tuple)) or not 2 <= len(phi) <= 65536:
         raise ValueError('bounded phase population must contain 2..65536 entries')
+    _phase_bits(phase_modulus)
     cells = certified_population(phi, scale_numerator, scale_denominator,
                                  initial_bits=initial_bits, max_bits=max_bits,
-                                 include_certificates=include_certificates)
+                                 include_certificates=include_certificates,
+                                 phase_modulus=phase_modulus)
     counts = [0] * bins
     for tick in phi[1:]:
-        counts[_floor(tick * bins, MODULUS)] += 1
+        counts[_floor(tick * bins, phase_modulus)] += 1
     statistic = AngularDispersion.from_counts(counts).as_record(scale=readout_scale)
     def count_or_none(key):
         return None if cells[key] is None else int(cells[key])
@@ -490,7 +510,7 @@ def verify_cell_record(record: dict) -> bool:
         n = decimal(source['n'])
         tick = None if source['phase_tick'] is None else decimal(source['phase_tick'])
         instance = PolarSource(n, tick, decimal(source['scale_numerator']),
-                               decimal(source['scale_denominator']))
+                               decimal(source['scale_denominator']), decimal(source['phase_modulus']))
         schedule = record['refinement_bits']
         if not isinstance(schedule, list) or not schedule:
             return False
