@@ -1,0 +1,64 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "date": "2026-09-20",
+  "methods": [
+    {
+      "method_id": "heartbeat.integer_residual_holonomy",
+      "name": "Heartbeat integer monodromy / residual-holonomy diagnostic",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T9_HOLONOMY_COCOYCLE_GLUING",
+      "related_families": [
+        "T5_PRECISION_REFINEMENT",
+        "T0_BRC"
+      ],
+      "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+      "source_refs": [
+        "src/enterprise_math/heartbeat_residual_holonomy.py",
+        "tests/test_heartbeat_residual_holonomy.py",
+        "research_notes/heartbeat_world_intrinsic_laws_20260920_AD0416/RESEARCH_NOTE.md",
+        "research_notes/heartbeat_world_intrinsic_laws_20260920_AD0416/THEOREM_LEDGER.json"
+      ],
+      "api": [
+        "identity",
+        "matmul",
+        "matpow",
+        "determinant",
+        "smith_invariant_factors",
+        "ResidualProfile",
+        "monodromy",
+        "phase_residual_profiles",
+        "cyclic_radix_heartbeat",
+        "radix_staircase_factors",
+        "residual_branch_count",
+        "torsion_killed_count"
+      ],
+      "triggers": [
+        "heartbeat monodromy",
+        "integer residual holonomy",
+        "Smith residue profile",
+        "radix staircase",
+        "carry holonomy",
+        "phase residual"
+      ],
+      "capabilities": [
+        "exact small-dimension integer monodromy",
+        "finite cokernel Smith profile",
+        "phase residual spectrum",
+        "canonical six-axis radix staircase",
+        "residual branch-count and torsion-order observer"
+      ],
+      "reuse_resolution": {
+        "state": "COMPOSE_APPLIED / CAPABILITY_GAP_CONFIRMED / DOMAIN_OPERATOR",
+        "checked": [
+          "T5_PRECISION_REFINEMENT",
+          "T9_HOLONOMY_COCOYCLE_GLUING",
+          "T0_BRC",
+          "current src/enterprise_math search"
+        ],
+        "reason": "Existing tools cover carry semantics, holonomy semantics and BRC branch safety separately, but not integer monodromy cokernels or Smith residual spectra."
+      },
+      "hard_boundary": "Raw signed integer charts and small nonsingular integer matrices (default SNF limit 6). No fixed Heartbeat World program, nonlinear dynamics, physical time law, thermodynamic entropy, large-matrix SNF performance claim or automatic Foundation admission."
+    }
+  ]
+}

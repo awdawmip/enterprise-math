@@ -1,0 +1,60 @@
+{
+  "schema": "HEARTBEAT_WORLD_INTRINSIC_LAWS_CANDIDATES_V1",
+  "date": "2026-09-20",
+  "status": "SCOPED_PROOFS_EXECUTABLE_CANDIDATES_NOT_FOUNDATION",
+  "world_id": "HEARTBEAT_WORLD",
+  "laws": [
+    {
+      "id": "HBW-INTR-001",
+      "name": "phase intertwining / rational monodromy conjugacy",
+      "law": "M_(t+1) A_t=A_t M_t; det(A_t)!=0 implies rational conjugacy and phase-invariant characteristic polynomial/determinant.",
+      "boundary": "Declared periodic nonsingular integer-linear heartbeat only."
+    },
+    {
+      "id": "HBW-INTR-002",
+      "name": "residual extension / carry law",
+      "law": "0->coker(A)->coker(BA)->coker(B)->0 for injective integer A then B; residual cardinalities multiply and nonsplit extensions encode carry coupling.",
+      "boundary": "Classical finite-abelian extension applied to raw X6."
+    },
+    {
+      "id": "HBW-INTR-003",
+      "name": "phase carry holonomy",
+      "law": "Periodic phase cuts have equal residual cardinality but can have nonisomorphic cokernels under nonunimodular phase transport; exact X6 witness is Z/2xZ/2 versus Z/4.",
+      "boundary": "Nonunimodular is enabling, not sufficient; project terminology only."
+    },
+    {
+      "id": "HBW-INTR-004",
+      "name": "six-axis cyclic radix staircase",
+      "law": "For A_b(z)=(b z6,z1,...,z5), A_b^6=bI; if k=6q+r then Smith factors are b^q repeated 6-r and b^(q+1) repeated r.",
+      "boundary": "Canonical cyclic radix family only; b and six-beat program are not world axioms."
+    },
+    {
+      "id": "HBW-INTR-005",
+      "name": "residual-branch duality",
+      "law": "For det M!=0, z=Mq+r is unique after choosing residue reps. Forgetting r creates exactly |det M| inverse fine branches; cyclic radix k-beat count is b^k.",
+      "boundary": "Support/branch count only; no intrinsic uniform weights."
+    },
+    {
+      "id": "HBW-INTR-006",
+      "name": "heartbeat translation dressing",
+      "law": "For cycle affine F_t(z)=M_tz+c_t and translation T_u, F_t T_u=T_(M_tu) F_t; ordering defect is (M_t-I)u.",
+      "boundary": "Time-ordered affine composition, not failure of static commutative addition."
+    }
+  ],
+  "validation": {
+    "implementation": "src/enterprise_math/heartbeat_residual_holonomy.py",
+    "tests": "tests/test_heartbeat_residual_holonomy.py",
+    "status": "PASS",
+    "phase_intertwining_checks": 180,
+    "radix_staircase_cases": 96,
+    "residual_cardinality_composition_cases": 200,
+    "bounded_survey": {
+      "det2_matrices": 184,
+      "ordered_pairs": 33856,
+      "phase_snf_different": 15488
+    },
+    "independent_review": false,
+    "full_project_tests": false,
+    "lean": false
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "checks": {
+    "phase_intertwining": 180,
+    "phase_carry_example": {
+      "phase0": {
+        "determinant": -4,
+        "cardinality": 4,
+        "smith": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          2
+        ],
+        "exponent": 2,
+        "killed_by_2": 4
+      },
+      "phase1": {
+        "determinant": -4,
+        "cardinality": 4,
+        "smith": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          4
+        ],
+        "exponent": 4,
+        "killed_by_2": 2
+      }
+    },
+    "radix_staircase": {
+      "bases": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "beats": "1..24",
+      "cases": 96
+    },
+    "residual_cardinality_composition": 200,
+    "bounded_survey": {
+      "entry_box": "[-2,2]",
+      "abs_det": 2,
+      "matrices": 184,
+      "ordered_pairs": 33856,
+      "snf_phase_different": 15488
+    }
+  },
+  "source_sha256": {
+    "module": "87643d87eb5d8ef204569e21979c7b03f35374f2a3fb11d928900276836e9a8f",
+    "tests": "2b3ccc6d6ec4f03f3b84d9e01befa96c443cb51a5919d337ffde4463d9121e75"
+  },
+  "scope": "research validation only; no Foundation, fixed heartbeat program, physical-time calibration or production Nollm claim"
+}
