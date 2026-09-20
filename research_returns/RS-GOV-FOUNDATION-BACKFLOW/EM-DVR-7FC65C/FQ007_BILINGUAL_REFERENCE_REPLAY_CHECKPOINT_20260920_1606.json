@@ -1,0 +1,113 @@
+{
+  "schema": "ENTERPRISE_MATH_DRIVER_GOVERNANCE_CHECKPOINT_V1",
+  "driver_id": "EM-DVR-7FC65C",
+  "authority": {
+    "authority_record_id": "DA-914801DE7DDE3068AC16",
+    "source_issue": 240,
+    "source_authorize_comment_id": 5747189443,
+    "scope": "CONTROL_PLANE",
+    "authority": "RESEARCH_DRIVER",
+    "revoked": false,
+    "working_truth_granted": false,
+    "foundation_authority_granted": false,
+    "canonical_promotion_granted": false
+  },
+  "task": {
+    "task_id": "RS-GOV-FOUNDATION-BACKFLOW",
+    "publication_id": "TP2-2C438651496A928ADCB7",
+    "taskbook_blob_sha1": "sha1:fa74c395b3eaaabe79f2dd74f5cb1b7dd29af559",
+    "kind": "GOVERNANCE",
+    "claim_id": "CL-GOV-FQ007-7FC65C-20260920-1606",
+    "claim_comment_id": 5748585188
+  },
+  "unit": "FQ007_BILINGUAL_REFERENCE_REPLAY",
+  "status": "PROGRESS",
+  "terminal": false,
+  "concurrency": {
+    "claim_declared_base": "67f04ff72bc0fc781bac06aad612cf660477b1ed",
+    "latest_main_before_write": "73a055a57a41b5d89471828a37933baceb0230b7",
+    "intervening_commit": "control: record ChatGPT dispatch receipt and startup packet EMREQ-P0-RESEARCH-20260920-1604-5D7A91",
+    "rebase_disposition": "SOURCE_AWARE_REBASE_TO_LATEST_MAIN_BEFORE_WRITE",
+    "force_update_used": false
+  },
+  "integration": {
+    "commit": "09d40663f03e0567d7abba6910a7e40a49827956",
+    "parent": "73a055a57a41b5d89471828a37933baceb0230b7",
+    "manifest": {
+      "path": "bilingual_pairs.json",
+      "before_blob": "8c7fff2198dddd10f34a37fc4497617fe7108e44",
+      "after_blob": "76805ba585e515a23a7a9a1ba510659d0986db07",
+      "before_version": 75,
+      "after_version": 76,
+      "added_pairs": [
+        [
+          "docs/R004_CAUSAL_IDENTIFIABILITY_NO_GO_01.en.md",
+          "docs/R004_CAUSAL_IDENTIFIABILITY_NO_GO_01.zh-CN.md"
+        ],
+        [
+          "docs/PRIOR_ART_R004_CAUSAL_IDENTIFIABILITY.en.md",
+          "docs/PRIOR_ART_R004_CAUSAL_IDENTIFIABILITY.zh-CN.md"
+        ]
+      ],
+      "preserved_current_only_pairs": [
+        [
+          "docs/RESEARCH_PROGRESS_MAP.en.md",
+          "docs/RESEARCH_PROGRESS_MAP.zh-CN.md"
+        ],
+        [
+          "docs/OPENAI_NS_F0_LOGIC_REBUTTAL.en.md",
+          "docs/OPENAI_NS_F0_LOGIC_REBUTTAL.zh-CN.md"
+        ],
+        [
+          "docs/LOGIC_BLACKLIST.en.md",
+          "docs/LOGIC_BLACKLIST.zh-CN.md"
+        ],
+        [
+          "docs/CODEX_RESEARCH_ORCHESTRATION.en.md",
+          "docs/CODEX_RESEARCH_ORCHESTRATION.zh-CN.md"
+        ]
+      ]
+    },
+    "prior_art_sidecars": [
+      {
+        "path": "docs/PRIOR_ART_R004_CAUSAL_IDENTIFIABILITY.en.md",
+        "blob": "5903bb9eb4906345c96df9ea4e2928a46db35c7e",
+        "source": "PR_444_EXACT_FROZEN_BLOB"
+      },
+      {
+        "path": "docs/PRIOR_ART_R004_CAUSAL_IDENTIFIABILITY.zh-CN.md",
+        "blob": "876fc3d97828fc97073adb1e14057416cbd9f6d2",
+        "source": "PR_444_EXACT_FROZEN_BLOB"
+      }
+    ],
+    "old_pr_wholesale_merge_used": false,
+    "physical_axiom_adopted": false,
+    "canonicalized": false
+  },
+  "focused_readback": {
+    "main_points_to_integration_commit": true,
+    "manifest_blob_exact": true,
+    "r004_no_go_pair_registered": true,
+    "r004_prior_art_pair_registered": true,
+    "prior_art_en_blob_exact": true,
+    "prior_art_zh_blob_exact": true,
+    "source_ids_covered_by_replayed_prior_art_pair": [
+      "SRC-KUHN-EXTENSIVE-GAMES-1953",
+      "SRC-LI-ELGAMAL-SFRL-2017"
+    ]
+  },
+  "validation": {
+    "local_checkout_available": false,
+    "local_validation_state": "LOCAL_VALIDATION_PENDING",
+    "reason": "No legitimate latest-main local checkout is available in this runtime; the known unavailable network-clone route was not retried under GLOBAL_KNOWLEDGE_V1 connector-first rules.",
+    "not_run": [
+      "python tools/check_research_common_surface.py",
+      "python -m unittest tests.test_foundation_backflow",
+      "python -m unittest tests.test_r004_causal_identifiability_completion",
+      "python tools/check_bilingual_pairs.py --base 73a055a57a41b5d89471828a37933baceb0230b7",
+      "python tools/check_references.py"
+    ],
+    "github_actions_used_as_substitute": false
+  },
+  "next_action": "Resume as GOVERNANCE from latest main. Obtain a legitimate local checkout and execute the five pending local validations. If they pass, re-read current Foundation/Common-Surface targets and perform only the minimum source-aware FQ-007 propagation allowed by the active claim/task contract. Do not restart R004 research, merge PR #444 wholesale, infer a physical axiom, or mark CANONICALIZED before local validation and propagation."
+}
