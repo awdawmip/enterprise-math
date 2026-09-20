@@ -1,0 +1,81 @@
+{
+  "schema": "BRC_SHOR_FIXED_MEASUREMENT_SKETCH_EVIDENCE_V1",
+  "event_id": "brc-shor-fixed-measurement-sketch-20260920-6EF011",
+  "activity_id": "RA-6EF011C2E75C4A799606AFEA",
+  "status": "RESEARCH_CANDIDATE_NOT_ADMITTED",
+  "note": {
+    "commit": "1e0ee4c8ed6c1864b8a1b7e4c7e8b665c751f6af",
+    "git_blob_sha1": "983ef11437d431f21108917a520521dcaed850dd",
+    "path": "research_notes/BRC_SHOR_FIXED_MEASUREMENT_SKETCH_20260920_6EF011.md",
+    "readback_observation": "turn255",
+    "readback_tool": "GitHub.fetch_file",
+    "receipt_path": "research_activity_records/RA-6EF011C2E75C4A799606AFEA/readbacks/151cf80e9e4951c450fb78057affd77d31f3717b6c4a02080d4061fc8d67b283.json",
+    "receipt_sha256": "151cf80e9e4951c450fb78057affd77d31f3717b6c4a02080d4061fc8d67b283",
+    "repository": "awdawmip/enterprise-math",
+    "sha256": "14272ec691a46304b637333ad5fa7c6476b0c60b5eebc27fdd7317b3ece32d9f"
+  },
+  "drive_bundle": {
+    "file_id": "10uSqvM-tzfcVES-Kqs2ZXObz8GD6l9qc",
+    "parent_id": "1IJ8iAXY5laK1lj-Y4NGWKEOdLofieHLa",
+    "url": "https://drive.google.com/file/d/10uSqvM-tzfcVES-Kqs2ZXObz8GD6l9qc/view",
+    "file_name": "BRC_Shor_measurement_sketch_20260920.bundle",
+    "size": 1633569,
+    "sha256": "516a98ea92c7063985902b644b2abd3718c6a7ce2075befd01cbc3cd9469bacc",
+    "main_head": "48cf59fc5d0d8e620d8bb5f2aa51310ac65a319c",
+    "main_parent": "18cd2a608dec1e8b5d1be9b5c8cc1fdf3001a510",
+    "retained_cloud_branch": "cloud-wavepacket",
+    "retained_cloud_head": "c8f0d39e47d57037379c5861a06078bfa70347a2",
+    "upload_observation": "turn257",
+    "raw_readback_observation": "turn258",
+    "roundtrip_raw_bytes_identical": true,
+    "standalone_reproducer": true,
+    "full_enterprise_math_repository": false,
+    "github_executable_publication_claimed": false
+  },
+  "validation": {
+    "new_manifest_files": 206,
+    "inherited_manifest_files": [
+      151,
+      184
+    ],
+    "fresh_clone_tests": "PASS",
+    "bundle_verify": "PASS",
+    "git_fsck": "PASS",
+    "worktrees_clean": true,
+    "field_product_checks": 5460,
+    "feature_independence_checks": 44144,
+    "exact_four_label_purity_checks": 2364,
+    "exhaustive_fourth_moment_checks": 18,
+    "full_numerical_sketch_law_checks": 8,
+    "benchmark_records": 24,
+    "compiled_law_draws": 240000,
+    "hard_queries_independently_replayed": 192,
+    "hard_collision_replays": 3,
+    "independent_researcher_review": false,
+    "full_project_or_Lean": false
+  },
+  "scope": {
+    "period_input_or_computation": false,
+    "ensemble_size_bound": "O(epsilon^-2*(1+ln(1/delta))) for ONE predetermined measurement",
+    "dense_work": "O(S*m*2^m), O(2^m) integer storage",
+    "hard_128_bit_law_evaluated": false,
+    "hard_128_bit_samples_generated": false,
+    "hard_state_distance_lower": "16383/16384",
+    "hard_sketch_fixed_measurement_TV_bound": "1366689692172395665/18446744073709551616 with 99% seed confidence",
+    "hard_purity_bound": "33554431/281474976710656, deterministic ensemble mean",
+    "rank32_high_fidelity_fraction_bound": "20971519375/5388156731916288, deterministic ensemble fraction",
+    "shared_sketch_batch_is_independent_true_Shor": false,
+    "new_speedup_or_general_lower_bound": false
+  },
+  "artifact_sha256": {
+    "MANIFEST.json": "e1ba3b9342833c73f73b73b5d5cf983becfb7183424f1c1d96d744f2c897673e",
+    "PROOF.md": "d768453b7cd7e3e86b8f5412fd516436839d4b3bd043923ae84014c84ccaab89",
+    "measurement_sketch.py": "ec30b03610584634dfa2e6eea05e19740ac7519fa0a988d594b0f9525bb1e9aa",
+    "verification_results.json": "568ac95c6838d618fcdcbd3377bc518821ae20884fa58644560ddc64ce563463",
+    "benchmark_plan.json": "9dc9fafaa0ec714c8d7db0983c217b682bc538008041911b0d2bb9b585463b01",
+    "raw_runs.jsonl": "0e1e64d76229f9e16de5261f75c68552292fdec2fd7037c6eedf52f4233fc75e",
+    "benchmark_results.json": "7e9d98bf7782cbd36a48b396fecad18877e5c89b1a316dcf57cbdfe5200a95d4",
+    "hard_case.json": "0f42e4ecb827a08d709e49e2f47dbf80520d35a6e9440e35ace323c437c9c7ca",
+    "postcheck_results.json": "504d69fe0551e66ee2f8a33b91f73be5f8ceb01ed22fdeedb51914d1cdb780b8"
+  }
+}
