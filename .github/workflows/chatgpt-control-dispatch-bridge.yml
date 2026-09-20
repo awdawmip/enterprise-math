@@ -65,6 +65,15 @@ jobs:
             RESEARCH|GOVERNANCE|ANY) ;;
             *) echo "INVALID_DISPATCH_KIND=$kind"; exit 1 ;;
           esac
+          if jq -e 'has("priority")' "$REQUEST_PATH" >/dev/null; then
+            jq -e '.priority | type == "string"' "$REQUEST_PATH" >/dev/null
+            priority="$(jq -r '.priority' "$REQUEST_PATH")"
+            case "$priority" in
+              P0|P1|P2|P3) ;;
+              *) echo "INVALID_DISPATCH_PRIORITY=$priority"; exit 1 ;;
+            esac
+            jq -e '(has("assigned_driver_task") or has("assigned_research_task")) | not' "$REQUEST_PATH" >/dev/null
+          fi
           if jq -e 'has("session_observations")' "$REQUEST_PATH" >/dev/null; then
             test "$(jq -r '.session_observations.schema // empty' "$REQUEST_PATH")" = "ENTERPRISE_MATH_SESSION_LIVENESS_OBSERVATIONS_V2"
             jq -e '.session_observations.observations | type == "array"' "$REQUEST_PATH" >/dev/null
@@ -132,6 +141,10 @@ jobs:
         run: |
           set -euo pipefail
           session_observations="$(jq -c '.session_observations // empty' "$REQUEST_PATH")"
+          priority_args=()
+          if jq -e 'has("priority")' "$REQUEST_PATH" >/dev/null; then
+            priority_args=(--priority "$(jq -r '.priority' "$REQUEST_PATH")")
+          fi
           assigned_args=()
           if jq -e 'has("assigned_driver_task")' "$REQUEST_PATH" >/dev/null; then
             assigned_args=(--assigned-driver-task-json "$(jq -c '.assigned_driver_task' "$REQUEST_PATH")")
@@ -144,6 +157,7 @@ jobs:
             python research_control_dispatch.py \
               --events /tmp/em-dispatch/issue-240-comments.json \
               --kind "$DISPATCH_KIND" \
+              "${priority_args[@]}" \
               "${assigned_args[@]}" \
               --session-observations-json "$session_observations" \
               > /tmp/em-dispatch/route.json
@@ -151,6 +165,7 @@ jobs:
             python research_control_dispatch.py \
               --events /tmp/em-dispatch/issue-240-comments.json \
               --kind "$DISPATCH_KIND" \
+              "${priority_args[@]}" \
               "${assigned_args[@]}" \
               > /tmp/em-dispatch/route.json
           fi

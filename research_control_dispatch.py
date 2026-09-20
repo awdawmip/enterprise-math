@@ -580,11 +580,17 @@ def route_control(
     now,
     observations: Mapping[str, Mapping[str, str]] | None = None,
     kind: str = "RESEARCH",
+    priority: str | None = None,
     root: Path = ROOT,
     assigned_driver_task: Mapping[str, Any] | None = None,
     assigned_research_task: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
     observations = observations or {}
+    if priority is not None:
+        if not isinstance(priority, str) or priority not in ("P0", "P1", "P2", "P3"):
+            raise ControlDispatchError("priority must be exactly P0, P1, P2 or P3")
+        if assigned_driver_task is not None or assigned_research_task is not None:
+            raise ControlDispatchError("ordinary priority filtering and exact assignment are distinct entries")
     if assigned_driver_task is not None and assigned_research_task is not None:
         raise ControlDispatchError("GOV Driver and RESEARCH researcher assignments are distinct exclusive entries")
     if assigned_research_task is not None:
@@ -598,6 +604,11 @@ def route_control(
     # fresh-task, and fresh-lane selection.  Reusing one snapshot is semantics-
     # preserving because all three selectors share the same events/now/root.
     states = research_dispatch.effective_states(events, now=now, root=root)
+    if priority is not None:
+        # A caller constraint is applied to canonical effective states before
+        # recovery, fresh-task and cohort selection. Never pick then relabel a
+        # different priority, or require Driver assignment for an ordinary filter.
+        states = [state for state in states if state.get("priority") == priority]
     leased = _leased_targets(events, now=now, kind=kind, root=root, states=states)
     policy = research_runtime_reducer.load_policy(root)
     fresh_task = research_runtime_reducer.select_state(states, policy, kind=kind)
@@ -609,6 +620,9 @@ def route_control(
         fresh_task=fresh_task,
         fresh_lane=fresh_lane,
     )
+    if priority is not None:
+        result["selection_filter"] = {"kind": kind, "priority": priority}
+        result["reason"] = f"Within requested {kind}/{priority} scope: " + result["reason"]
     result = research_startup_transport.attach(result)
     fork_quarantines = sorted(research_publication_fault_isolation.validated_quarantines(root))
     integrity_quarantines = sorted(research_task_integrity_fault_isolation.validated_quarantines(root))
@@ -644,6 +658,10 @@ def main() -> int:
     parser.add_argument(
         "--kind", choices=["RESEARCH", "GOVERNANCE", "ANY"], default="RESEARCH"
     )
+    parser.add_argument(
+        "--priority", choices=["P0", "P1", "P2", "P3"],
+        help="restrict ordinary dispatch to this effective priority; no assignment grant required",
+    )
     group = parser.add_mutually_exclusive_group()
     group.add_argument("--session-observations", type=Path)
     group.add_argument("--session-observations-json")
@@ -653,6 +671,8 @@ def main() -> int:
     assigned.add_argument("--assigned-research-task", type=Path)
     assigned.add_argument("--assigned-research-task-json")
     args = parser.parse_args()
+    if args.priority is not None and args.events is None:
+        raise ControlDispatchError("priority-scoped live routing requires the actual Issue 240 event snapshot")
 
     events = research_dispatch.load_events(args.events)
     now = research_runtime.parse_time(args.now) if args.now else datetime.now(timezone.utc)
@@ -675,7 +695,7 @@ def main() -> int:
         raise ControlDispatchError("assigned research input must be an object")
     if research_assignment is not None and args.events is None:
         raise ControlDispatchError("assigned research route requires the actual Issue 240 event snapshot")
-    result = route_control(events, now=now, observations=observations, kind=args.kind,
+    result = route_control(events, now=now, observations=observations, kind=args.kind, priority=args.priority,
                            assigned_driver_task=assignment, assigned_research_task=research_assignment)
     print(json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True))
     return 2 if result.get("action") == research_runtime.NO_DISPATCH else 0
