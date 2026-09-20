@@ -1,0 +1,37 @@
+{
+  "schema": "EM_RESIDUAL_FIRST_RESEARCH_CONSTRAINT_V1",
+  "status": "ACTIVE_DIRECT_USER_METHOD_CONSTRAINT",
+  "scope": [
+    "ENTERPRISE_MATH",
+    "BRC",
+    "HEARTBEAT_WORLD"
+  ],
+  "authority": "DIRECT_USER_20260920",
+  "rules": {
+    "nonzero_residual_alone_rejects_object": false,
+    "nonclosure_alone_rejects_object": false,
+    "irregularity_alone_rejects_object": false,
+    "zero_residual_default_success_target": false,
+    "preserve_provenance_phase_correlations": true,
+    "unknown_residual_is_automatically_noise": false,
+    "unknown_residual_is_automatically_physics": false,
+    "confirmed_errors_must_be_fixed": true,
+    "exact_claim_obligations_remain": true,
+    "compression_requires_observer_proof_or_explicit_defect": true,
+    "physical_bridge_required": true,
+    "strong_absolute_zero_goal_retained": true,
+    "goal_used_as_proof_premise": false,
+    "changes_P000_or_worldview": false
+  },
+  "required_record": [
+    "residual_definition",
+    "provenance_kind",
+    "retained_correlations",
+    "observer_and_horizon",
+    "evolution_or_repair_attempt",
+    "counterexample_and_boundary",
+    "next_executable_question"
+  ],
+  "research_goal_status": "GOAL_NOT_ACCEPTED_THEOREM",
+  "runtime_integration_claim": "METHOD_CONSTRAINT_AND_TESTED_REFERENCE_DECISION_ONLY"
+}
