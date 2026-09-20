@@ -1,22 +1,52 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-RESEARCH-20260921-9CFD0F09",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "997981529b76c1b5e46ed43af91617c2c0023bd8",
+          "path": "research_artifacts/CFD_HOST_9CFD0F_20260921/fast_carrier.py",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "804b3d7cb32e5e2c1c9452e797fb01f3bc0648b26e586b68c15cac0965db229f",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "d696a89a281a960eb1eb597faa087159b69bf681",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/997981529b76c1b5e46ed43af91617c2c0023bd8/research_artifacts/CFD_HOST_9CFD0F_20260921/fast_carrier.py",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "LOCAL-OBS-turn72-CFD-fast-carrier",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-RESEARCH-20260921-9CFD0F09/readbacks/5932720410fe88e5d4727cb7952b04841f79cb8e7fb4ddc418ad0b637b623791.json",
+          "verification_receipt_sha256": "5932720410fe88e5d4727cb7952b04841f79cb8e7fb4ddc418ad0b637b623791"
+        }
+      ],
+      "event_id": "CFD-9CFD0F-EXACT-CARRIER-COLD-COST-20260921",
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@b3bc1bd6817cea21addc5bbd5d32b9ab72d45d8b:journal/enterprise-math/2026-09-21/20260921T073230+0800-cfd-exact-carrier-cold-cost-9cfd0f.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-09-20T23:06:29+00:00",
   "registration_key": "session:CHAT-LOCAL-20260921-9cfd0f09:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-DIRECT-9CFD0F",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "CHAT-LOCAL-20260921-9cfd0f09",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-09-20T23:06:29+00:00",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
