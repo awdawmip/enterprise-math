@@ -1,0 +1,66 @@
+{
+  "schema": "HEARTBEAT_RESIDUAL_FEEDBACK_EVIDENCE_V1",
+  "status": "RESEARCH_CANDIDATE_NOT_ADMITTED",
+  "event_id": "brc-heartbeat-persistent-residual-20260920-6EF011",
+  "activity_id": "RA-6EF011C2E75C4A799606AFEA",
+  "source": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "c321d5d009fb5498b49b214eb4cdddb8bdd3e17b",
+    "path": "research_notes/BRC_HEARTBEAT_PERSISTENT_RESIDUAL_20260920_6EF011.md",
+    "sha256": "4e296d34e3d4392d140fde06eb9440761279b595baa428aab4f27fc50f37c8d7",
+    "git_blob": "717d138ca4f084df5864e701b17fc0119fccdee3",
+    "observation_id": "local-residual-feedback-readback-turn323",
+    "receipt_sha256": "ba24922b23e0598d254c46a3daf4447ce84488a8f6f00f21a3ea0c83842a303e"
+  },
+  "activity_commit": "af028a6f5b1c9520897d4d208772152b760feaa4",
+  "drive": {
+    "file_id": "1I7jv9ZfZ5Aa5oAKA6UefZGEA4Pm2sN00",
+    "folder_id": "1IJ8iAXY5laK1lj-Y4NGWKEOdLofieHLa",
+    "file_name": "BRC_Heartbeat_residual_20260920.bundle",
+    "size": 1882727,
+    "sha256": "cac495726457f1a87c706bdcd5a050bf51dd0fb3f7803716f167ed25e01d4c72",
+    "git_head": "840642865adb1977ad89e1ec428cedafdf3c4963",
+    "local_parent": "7f6272e7d7b4fe26f74492bd2bfb2e5d407be391",
+    "cloud_readback_bytes_identical": true,
+    "upload_observation": "turn341",
+    "raw_readback_observation": "turn342",
+    "contains_previous_local_stage14": true,
+    "retains_cloud_wavepacket_branch": true,
+    "separate_remote_clock_log_executables_claimed": false
+  },
+  "validation": {
+    "manifest_files": 277,
+    "inherited_manifest_files": 260,
+    "fresh_clone_checks": "PASS",
+    "git_bundle_verify": "PASS",
+    "git_fsck": "PASS",
+    "clean_worktrees": true,
+    "exact_counts": {
+      "feedback_steps": 53949,
+      "residual_steps": 86730,
+      "difference_sources": 76110,
+      "nonzero_flux": 46697,
+      "no_seven_zero_window": 40979,
+      "carry_conservation": 486,
+      "carry_zero_run": 61322,
+      "rational_unitaries": 128,
+      "spectral_floor_cases": 784,
+      "pure_bath_boundary": 1,
+      "retention_steps": 3240,
+      "integer_ast_checks": 2,
+      "rotating_frame_jumps": 474
+    },
+    "timed_runs": 12,
+    "small_measurement_laws": 4,
+    "independent_researcher_review": false,
+    "Lean": false,
+    "full_project_tests": false
+  },
+  "scope": {
+    "generic_shor_sampler_created": false,
+    "speedup_claimed": false,
+    "universal_absolute_zero_nonexistence_proved": false,
+    "finite_full_rank_cooling_bound_proved": true,
+    "worldview_modified": false
+  }
+}
