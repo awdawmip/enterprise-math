@@ -96,7 +96,14 @@ class MultiplicativeExactMigrationTests(unittest.TestCase):
     def test_legacy_statistics_old_fields_unchanged(self):
         cfg=m.config(1024,'valuation')
         new=m.statistics(m.build_field(cfg));old=self.old.statistics(self.old.build_field(self.old.config(1024,'valuation')))
-        for k,v in old.items():self.assertEqual(new[k],v,k)
+        self.assertEqual(new,old)
+
+    def test_legacy_multiplication_and_hex_data_objects_unchanged(self):
+        cfg=m.config(1024,'mixed',scale=1.5)
+        new=m.build_field(cfg);old=self.old.build_field(self.old.config(1024,'mixed',scale=1.5))
+        for a,b in ((0,7),(1,17),(5,7),(31,19)):
+            self.assertEqual(m.multiplication(new,a,b),self.old.multiplication(old,a,b))
+        self.assertEqual(m.hex_data(new),self.old.hex_data(old))
 
     def test_exact_display_error_and_rounded_error_omitted_not_mixed(self):
         f=m.build_field(m.config(256,'valuation',scale=2),cell_scale=(1,1))
