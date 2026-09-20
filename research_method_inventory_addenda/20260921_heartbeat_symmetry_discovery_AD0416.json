@@ -1,0 +1,67 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "date": "2026-09-21",
+  "methods": [
+    {
+      "method_id": "t0.brc_native_symmetry_discovery",
+      "name": "Heartbeat automatic native-axis symmetry discovery",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+      "api": [
+        "action_germ_key",
+        "safe_lattice_probes",
+        "ActionSeparation",
+        "separate_safe_actions",
+        "AxisPermutationGroup",
+        "SymmetryDiscovery",
+        "discover_axis_symmetries",
+        "verify_symmetry_discovery",
+        "compile_discovered_peak",
+        "discovered_observation_chain",
+        "AxisSymmetryProfile",
+        "discover_axis_profile"
+      ],
+      "source_refs": [
+        "src/enterprise_math/heartbeat_symmetry_discovery.py",
+        "src/enterprise_math/heartbeat_peak_orbits.py",
+        "tests/test_heartbeat_symmetry_discovery.py",
+        "research_notes/heartbeat_symmetry_discovery_20260921_AD0416/RESEARCH_NOTE.md",
+        "research_notes/heartbeat_symmetry_discovery_20260921_AD0416/THEOREM_LEDGER.json"
+      ],
+      "triggers": [
+        "automatic native symmetry",
+        "eight lattice probes",
+        "S6 stabilizer",
+        "threshold action fingerprint",
+        "heartbeat renewal"
+      ],
+      "capabilities": [
+        "exact all-safe oriented action key and separating probe",
+        "complete S6 germ-row stabilizer without supplied generators",
+        "generator-only orbit construction",
+        "automatic finite threshold filtration",
+        "budgeted sound subgroup and UNKNOWN mass preservation"
+      ],
+      "reuse_resolution": {
+        "state": "EXTEND_EXISTING_TOOL / REUSE_EXECUTED",
+        "sources": [
+          "t0.brc_online_peak_symmetry",
+          "t0.brc_peak_observer_quotient",
+          "t0.brc_exact_carry_peak"
+        ],
+        "gap": "Prior online orbit compiler required a supplied finite group; it did not find the full positive-axis action-germ stabilizer or canonical all-safe action fingerprints."
+      },
+      "hard_boundary": "Fixed control ports; positive S6 frames; declared fixed law or atomwise contract. Not arbitrary control/GL/signed symmetries, not globally minimal Markov representation, not full path memory; no Foundation promotion.",
+      "theorem_refs": [
+        "HBW-SD-001",
+        "HBW-SD-002",
+        "HBW-SD-003",
+        "HBW-SD-004",
+        "HBW-SD-005",
+        "HBW-SD-006"
+      ]
+    }
+  ]
+}

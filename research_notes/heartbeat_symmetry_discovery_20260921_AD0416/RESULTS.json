@@ -1,0 +1,86 @@
+{
+  "status": "PASS",
+  "new_tests": 18,
+  "checks": {
+    "unchanged_verified_modules": {
+      "heartbeat_carry_peak.py": "44bde8bbff397adf8aec80fcb2bffa79c6e272e9",
+      "heartbeat_peak_quotient.py": "db00aaf3be5640b966267a529124556ff713807e",
+      "brc_control_port.py": "44def6b8ac787e798d3cc2c6be16f873f91b9db8",
+      "brc_weighted_recurrent.py": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb"
+    },
+    "safe_probe_checks": 99,
+    "scalar_congruence_key_equalities": 96,
+    "legacy_criterion_comparisons": 96,
+    "separation": {
+      "pair_cases": 36,
+      "real_witnesses": 19,
+      "last_probe": 7
+    },
+    "weight_dependence": {
+      "candidates": 720,
+      "symmetric": 72,
+      "biased": 36
+    },
+    "atomwise": {
+      "UV": 36,
+      "six_distinct_actions": 1
+    },
+    "automatic_filtration": [
+      {
+        "m": 1,
+        "changes": [[1, 72], [3, 4]],
+        "pair_checks": 4320
+      },
+      {
+        "m": 3,
+        "changes": [[1, 72], [5, 4]],
+        "pair_checks": 4320
+      }
+    ],
+    "legacy_unchanged_execution": {
+      "certificate_equal": true,
+      "states": 4
+    },
+    "six_axis": {
+      "raw_safe": 126,
+      "online_safe": 7,
+      "group": 720,
+      "generators": 5,
+      "atom_successors": 42,
+      "canonical_steps": 1245,
+      "raw_rows": 126,
+      "prefix_equalities": 51,
+      "risk": "2089/20731",
+      "conditional_time": "126065688/43307059"
+    },
+    "renewal": [
+      {"c": "1/4", "reset": "5/1327104", "risk": "21289/1327099", "conditional_time": "69060216432/28252610611"},
+      {"c": "1/2", "reset": "5/20736", "risk": "2089/20731", "conditional_time": "126065688/43307059"},
+      {"c": "3/4", "reset": "45/16384", "risk": "5841/16339", "conditional_time": "106957936/31812033"},
+      {"c": "1", "reset": "5/324", "risk": "1", "conditional_time": "42/11"}
+    ],
+    "renewal_pmf_equalities": 240,
+    "residual_retained": {
+      "group": 4,
+      "states": 9,
+      "risk": "247/6242",
+      "prefix_equalities": 25
+    },
+    "candidate_budget": {
+      "searched": 1,
+      "group": 1,
+      "safe": 4,
+      "risk": "1/7",
+      "complete": false
+    },
+    "unknown_bounds": [[1, "0", "1"], [2, "1/24", "1"], [4, "11/144", "7/48"], [7, "2089/20731", "2089/20731"]],
+    "forgery_rejections": 5,
+    "original_weight_count_preserved": true,
+    "scope": ["controls fixed", "positive axis permutations only", "no arbitrary GL search"],
+    "invalid_rejections": 8
+  },
+  "scope": "Exact fixed-law germ contract within S6, not arbitrary minimal state realization",
+  "full_project_tests": false,
+  "independent_review": false,
+  "lean": false
+}

@@ -1,0 +1,73 @@
+{
+  "schema": "HEARTBEAT_SYMMETRY_DISCOVERY_THEOREM_CANDIDATES_V1",
+  "world_id": "HEARTBEAT_WORLD",
+  "status": "RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "theorems": [
+    {
+      "theorem_id": "HBW-SD-001",
+      "name_zh": "八探针全安全格判据",
+      "assumptions": "A,B nonsingular rational 6x6; fixed prime p and R>=1; oriented lattice homothety observer",
+      "statement": "Equality on the standard lattice, six axis-line lattices and all-ones-line lattice iff equality on every normalized safe lattice of p-spread<R. R=1 needs just the standard probe.",
+      "proof_ref": "RESEARCH_NOTE.md",
+      "test_ref": "tests/test_heartbeat_symmetry_discovery.py::test_05_actual_separating_probes",
+      "boundary": "No claim of minimum probe count or immediate risk inequality from unequal output lattices.",
+      "independent_review": false,
+      "proof_section": "1"
+    },
+    {
+      "theorem_id": "HBW-SD-002",
+      "name_zh": "完整有限动作指纹",
+      "assumptions": "Same as SD-001; shared canonical projective lattice codec",
+      "statement": "Canonical image H(A) plus projectivized unit factor H(A)^-1 p^-min(A) A mod p^(R-1) exactly classifies all-safe oriented actions.",
+      "proof_ref": "RESEARCH_NOTE.md",
+      "test_ref": "tests/test_heartbeat_symmetry_discovery.py::test_04_legacy_crosscheck",
+      "boundary": "Not a fixed-bit compression; not a minimal HIT-only quotient.",
+      "independent_review": false,
+      "proof_section": "2"
+    },
+    {
+      "theorem_id": "HBW-SD-003",
+      "name_zh": "原生正轴权重核稳定子的自动发现",
+      "assumptions": "Finite row-stochastic ControlPacket; fixed control ports; candidate S6; atom-germ weighted rows",
+      "statement": "Accepted positive axis permutations form the stabilizer subgroup. Exhaustive720-candidate search is complete within this row-germ contract. Atomwise retention is stricter. Budgeted search returns a sound subgroup without maximality claim.",
+      "proof_ref": "RESEARCH_NOTE.md",
+      "test_ref": "tests/test_heartbeat_symmetry_discovery.py::test_06_symmetric_biased",
+      "boundary": "Not all GL6/signed/control symmetries or all possible state-dependent probabilistic matchings.",
+      "independent_review": false,
+      "proof_section": "3"
+    },
+    {
+      "theorem_id": "HBW-SD-004",
+      "name_zh": "生成元格轨道与首达观察保持",
+      "assumptions": "Verified group and exact generator closure; fixed probability law; monitored arrow boundaries",
+      "statement": "Generator orbit traversal yields the same canonical lattice as full-group enumeration. Weighted representative compilation preserves all first-HIT/UNKNOWN-time masses and budget bounds.",
+      "proof_ref": "RESEARCH_NOTE.md",
+      "test_ref": "tests/test_heartbeat_symmetry_discovery.py::test_10_full_six_axes_to_risk",
+      "boundary": "No atom-identity or arbitrary future reweighting guarantee for a fixed-law certificate.",
+      "independent_review": false,
+      "proof_section": "4"
+    },
+    {
+      "theorem_id": "HBW-SD-005",
+      "name_zh": "剪切残差的完整S6对称阶变化",
+      "assumptions": "U/V as in note; equal weights1/4 and stop1/2; shear I+2^m E14 with m>=1",
+      "statement": "S6 germ stabilizer has order72 through R=m+1 and order4 from R=m+2. Unequal U/V weights reduce the no-shear group to36.",
+      "proof_ref": "RESEARCH_NOTE.md",
+      "test_ref": "tests/test_heartbeat_symmetry_discovery.py::test_08_full_shear_filtration",
+      "boundary": "Model- and certificate-specific, not a universal world symmetry count.",
+      "independent_review": false,
+      "proof_section": "5"
+    },
+    {
+      "theorem_id": "HBW-SD-006",
+      "name_zh": "六轴随机更新的有限计数商与首达更新律",
+      "assumptions": "One-axis integer p-expansion D_i; equal conditional axis probability; continue0<c<=1; threshold2",
+      "statement": "Safe active normalized depth subsets reduce from63 to6 count states. With stop,126 safe states reduce to7. First-hit PGF=sum b_j z^j/(1-a z^6), a=c^6*6!/6^6, b_(k+1)=c^(k+1)*(6)_k*k/6^(k+1).",
+      "proof_ref": "RESEARCH_NOTE.md",
+      "test_ref": "tests/test_heartbeat_symmetry_discovery.py::test_11_renewal_independent_oracle",
+      "boundary": "No constant-speed six-beat world axiom; no directional control equivalence.",
+      "independent_review": false,
+      "proof_section": "6"
+    }
+  ]
+}
