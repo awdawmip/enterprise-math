@@ -1,0 +1,138 @@
+{
+  "schema": "INTEGER_RESIDUAL_MIGRATION06_VALIDATION_V1",
+  "status": "CANDIDATE_OPT_IN_CERTIFIED_MULTIPLICATIVE_CELLS_VALIDATED_SOURCE_SLICE",
+  "repository": "awdawmip/enterprise-math",
+  "branch": "research/integer-residual-m01-angular-20260919-4a5102",
+  "baseline_commit": "68e828ef5131219eae72ee740827ead04f3c4250",
+  "code_commit": "26a8cb4c2fda7012268545222b11316354df34dc",
+  "researcher_id": "EM-DIRECT-4A5102",
+  "activity_id": "RA-1094DE57986E6E3FDCEA65DA",
+  "implementation": {
+    "actual_consumer": "tools/nollm_visual_toolkit/nollm_visual_toolkit/multiplicative.py::build_field",
+    "opt_in": "cell_scale=(positive_integer_numerator, positive_integer_denominator)",
+    "legacy_shape_preserved_when_opt_in_absent": true,
+    "float_scale_inference_forbidden": true,
+    "cell_engine": "existing certified_hex.certified_population plus exact legacy axial lexicographic tie adapter",
+    "tie_rule": "MINIMUM_EUCLIDEAN_DISTANCE_THEN_AXIAL_LEXICOGRAPHIC",
+    "base_certificate_preserved": true,
+    "unresolved": "coord=null and aggregate cell totals null; no float fallback",
+    "display_floats_remaining": [
+      "ideal x/y pixels",
+      "legacy angular/area CV display",
+      "iid reference sqrt",
+      "legacy mode quantization/error metrics"
+    ],
+    "exact_decision_fields": [
+      "cell membership when cell_scale is explicit",
+      "phase residues",
+      "CV squared records in exact-cell statistics"
+    ]
+  },
+  "tests": {
+    "total": 35,
+    "new": 12,
+    "historical": 23,
+    "failures": 0,
+    "errors": 0,
+    "source_slice_skips": 1,
+    "skip_reason": "unchanged multiplicative_lab.html package-data template is absent from delivery/source slice; runner executes it when present in a full checkout"
+  },
+  "finite_validation": {
+    "matrix_4096_cases": 12,
+    "matrix_all_certified": true,
+    "matrix_all_aggregate_match": true,
+    "matrix_individual_differences": [
+      {
+        "scheme": "mixed",
+        "scale": [
+          3,
+          2
+        ],
+        "count": 1,
+        "first": [
+          2075
+        ]
+      }
+    ],
+    "full_65536": {
+      "scheme": "valuation",
+      "scale": [
+        1,
+        1
+      ],
+      "status": "CERTIFIED_ALL",
+      "ties": 0,
+      "unresolved": 0,
+      "legacy": {
+        "occupied": 44731,
+        "collisions": 12435,
+        "excess": 20805,
+        "max_load": 9
+      },
+      "exact": {
+        "occupied": 44731,
+        "collisions": 12435,
+        "excess": 20805,
+        "max_load": 9
+      },
+      "aggregate_match": true,
+      "individual_cell_difference_count": 0
+    },
+    "tie_policy_audit": {
+      "certified_ties": 1080,
+      "base_vs_legacy_lexicographic_differences": 504,
+      "finite_not_exhaustive": true
+    }
+  },
+  "remote_code_blobs": {
+    "multiplicative.py": "4ea003c1cb59b457bcf82e4036ce934e9d79adcc",
+    "test_multiplicative_exact.py": "b3cee170db7c75f2880b4e5cc9f67933869ca433",
+    "run_migration06.py": "ca774fc2dba0425d88b521055ce8ac4c4703d6d9",
+    "benchmark_migration06.py": "b722caa9c449f12c4fa42a9a4bb95f800cc72f17",
+    "frozen_multiplicative.py": "26ab7fb5dca1d2bc69e97eb04c0ee9c405437ea8",
+    "frozen_test_multiplicative.py": "2a15a228eb5f511869ed38a3b028fbb15e289f37"
+  },
+  "sha256": {
+    "multiplicative.py": "6b9c339744f47ed3a491b93336dfc5c45da48f6a47d7a0d7cef407e76a32a786",
+    "test_multiplicative_exact.py": "ff8f3927739d15ccd188661bbcda9d4800985dccb5b20498c29d32f392366490",
+    "run_migration06.py": "2fb6202fbe20e11624e7b156cf80efced708e6e62b7d42d9dd3b66c88209afda",
+    "benchmark_migration06.py": "50f441957560b7087a89d861211c215287ac6d9e98ee9a3602f22d19ae12df5e",
+    "test_run.json": "d70ac7ad0cb831a3f8b68855abe10e14b72168c29693f7e6e1d1741332a1d502",
+    "matrix4096.json": "29c09dfcad8e1a0aecc03ae5b4492165a2d83b912ac452e6b1e8c5a4194fef1b",
+    "full65536.json": "cc3cada6e33ecda2554f3ab17042308a5cba2f7189dc43c3835e84ab44d499a6",
+    "tie_policy_audit.json": "d507edbea39cf48d3fdc91919af5cbf01b41a3e0677ce4f837126bd61d352284",
+    "witnesses.json": "5df33f34199e95ef90babecc65389ed74a1fd18f4f98b01b36888530222d0963"
+  },
+  "boundaries": {
+    "geometry": "DECLARED_POLAR_A2_OBSERVER_NOT_NATIVE_X6",
+    "default_changed": false,
+    "cli_exact_scale_exposed": false,
+    "browser_ui_migrated": false,
+    "full_checkout_template_test": "NOT_EXECUTED_IN_LOCAL_SOURCE_SLICE",
+    "whole_repository_regression": false,
+    "independent_review": false,
+    "main_code_integrated": false,
+    "general_arbitrary_angle_transcendental_engine": false,
+    "complex_amplitudes_qft": false,
+    "new_hosted_automation": false
+  },
+  "next": "expose exact cell_scale through a textual/typed caller without inferring from legacy float scale; then migrate remaining multiplicative statistics/readouts one observer at a time",
+  "clean_replay": {
+    "baseline_bundle": "integer_residual_migration05_20260920.bundle",
+    "baseline_materialization": [
+      "tools/nollm_visual_toolkit/nollm_visual_toolkit/multiplicative.py@26ab7fb5dca1d2bc69e97eb04c0ee9c405437ea8",
+      "tools/nollm_visual_toolkit/tests/test_multiplicative.py@2a15a228eb5f511869ed38a3b028fbb15e289f37"
+    ],
+    "patch_sha256": "8afe743117c09a8a1756ee6df0b8fff46a901db6464d43402f0af15b8d75d39e",
+    "patch_applied": true,
+    "tests": 35,
+    "failures": 0,
+    "errors": 0,
+    "expected_source_slice_skip": 1,
+    "matrix4096_byte_equal": true,
+    "tie_policy_audit_byte_equal": true,
+    "full65536_semantic_equal_excluding_timing": true,
+    "modified_files_byte_equal": true
+  },
+  "evidence_storage": "RAW_FINITE_EVIDENCE_IN_DELIVERY_BUNDLE_AND_LOCALLY_REPRODUCIBLE; REMOTE_CHECKPOINT_BINDS_THIS_SUMMARY_AND_CODE_SCRIPTS"
+}
