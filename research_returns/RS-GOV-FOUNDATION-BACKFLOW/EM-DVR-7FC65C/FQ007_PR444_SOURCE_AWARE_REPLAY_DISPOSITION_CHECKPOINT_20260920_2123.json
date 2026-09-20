@@ -1,0 +1,117 @@
+{
+  "schema": "ENTERPRISE_MATH_DRIVER_GOVERNANCE_CHECKPOINT_V1",
+  "checkpoint_id": "FQ007-PR444-SOURCE-AWARE-REPLAY-DISPOSITION-20260920-2123",
+  "status": "PROGRESS_HANDOFF_READY",
+  "driver": {
+    "driver_id": "EM-DVR-7FC65C",
+    "scope": "CONTROL_PLANE",
+    "authority": "RESEARCH_DRIVER",
+    "authority_record_id": "DA-914801DE7DDE3068AC16",
+    "authority_record_path": "research_driver_authority_records/EM-DVR-7FC65C/DA-914801DE7DDE3068AC16.json",
+    "source_comment_id": 5747189443,
+    "revoke_observed": false,
+    "working_truth_granted": false,
+    "foundation_authority_granted": false,
+    "canonical_promotion_granted": false
+  },
+  "task": {
+    "task_id": "RS-GOV-FOUNDATION-BACKFLOW",
+    "publication_id": "TP2-2C438651496A928ADCB7",
+    "taskbook_blob_sha1": "sha1:fa74c395b3eaaabe79f2dd74f5cb1b7dd29af559",
+    "kind": "GOVERNANCE",
+    "effective_priority": "P0",
+    "effective_leverage": "HIGH"
+  },
+  "claim": {
+    "claim_id": "CL-GOV-FQ007-7FC65C-20260920-2123",
+    "source_issue": 240,
+    "source_comment_id": 5750074219,
+    "execution_branch": "main",
+    "execution_branch_base": "7e82ce5ce7c2f8cde91afc085da370b2867d3ade",
+    "allowed_outputs": [
+      "research_returns/RS-GOV-FOUNDATION-BACKFLOW/EM-DVR-7FC65C/"
+    ]
+  },
+  "source_snapshot": {
+    "enterprise_math_main": "7e82ce5ce7c2f8cde91afc085da370b2867d3ade",
+    "enterprise_math_tree": "534e1f45301b6e2eacf9dc933172318c6444c8bc",
+    "global_knowledge_main": "0d088c584ca0e862f24aca7ada9e6ab0fb7a1265",
+    "pr444": {
+      "state": "open",
+      "merged": false,
+      "mergeable": false,
+      "head": "cdae33bcb45b402d2f84b4b0c37365cd355c40ee",
+      "changed_files": 9
+    },
+    "steward_closure_comment_id": 5242954869,
+    "foundation_backflow_blob": "1b49b31340b892e9bfdaa50ccad77e21144f4432",
+    "foundation_steward_blob": "12454aec7d90f3cd6c6a6985b3dc901d1a55ce96",
+    "bilingual_pairs_current_blob": "76805ba585e515a23a7a9a1ba510659d0986db07",
+    "bilingual_pairs_pr444_blob": "f9a90dd45a3c5ddb930af814071d1b04d6e570b6"
+  },
+  "substantive_unit": {
+    "name": "PR444_SOURCE_AWARE_REPLAY_DISPOSITION_AUDIT",
+    "purpose": "Resolve whether the stale PR #444 payload must be replayed into latest main before FQ-007 Foundation/Common-Surface propagation, without merging the stale PR wholesale or changing mathematics.",
+    "changed_file_count": 9,
+    "exact_payload_matches": {
+      "docs/PRIOR_ART_R004_CAUSAL_IDENTIFIABILITY.en.md": "5903bb9eb4906345c96df9ea4e2928a46db35c7e",
+      "docs/PRIOR_ART_R004_CAUSAL_IDENTIFIABILITY.zh-CN.md": "876fc3d97828fc97073adb1e14057416cbd9f6d2",
+      "docs/R004_CAUSAL_IDENTIFIABILITY_NO_GO_01.en.md": "8c5d2427c9377ff610df361d75c4a9bad4329396",
+      "docs/R004_CAUSAL_IDENTIFIABILITY_NO_GO_01.zh-CN.md": "4060a54352dbba91fae5f8b817668576a4ef98e3",
+      "lineage_r004_causal_identifiability_no_go_01.json": "1a12793938d31de2de3021ba2ad86a78c596a384",
+      "sources_r004_causal_identifiability_no_go_01.json": "de5c22043938edffb3cdd3d27b544cec20d664b6",
+      "src/enterprise_math/r004_causal_identifiability_completion.py": "6d0de84f811f76a25896476811ece0b976c222a9",
+      "tests/test_r004_causal_identifiability_completion.py": "20fcc44aef20c060b14a6a8ef572fca8b8f3c8e6"
+    },
+    "registry_disposition": {
+      "path": "bilingual_pairs.json",
+      "pr444_blob": "f9a90dd45a3c5ddb930af814071d1b04d6e570b6",
+      "current_blob": "76805ba585e515a23a7a9a1ba510659d0986db07",
+      "current_version": 76,
+      "required_pairs_retained": [
+        [
+          "docs/R004_CAUSAL_IDENTIFIABILITY_NO_GO_01.en.md",
+          "docs/R004_CAUSAL_IDENTIFIABILITY_NO_GO_01.zh-CN.md"
+        ],
+        [
+          "docs/PRIOR_ART_R004_CAUSAL_IDENTIFIABILITY.en.md",
+          "docs/PRIOR_ART_R004_CAUSAL_IDENTIFIABILITY.zh-CN.md"
+        ]
+      ],
+      "reason": "The current registry supersedes the stale PR #444 registry and retains the required R004 bilingual registrations; replaying the stale registry would discard later registrations."
+    },
+    "disposition": {
+      "MERGE_PR444_WHOLESALE": "FORBIDDEN_AND_UNNECESSARY",
+      "REPLAY_CORE_PAYLOAD": "NO_OP_ALREADY_PRESENT_BYTE_IDENTICAL",
+      "REPLAY_BILINGUAL_REGISTRY": "NO_OP_SUPERSEDED_REQUIRED_PAIRS_RETAINED",
+      "REMAINING_INTEGRATION": "FOUNDATION_COMMON_SURFACE_PROPAGATION_AFTER_WHOLE_REPO_GATES"
+    },
+    "mathematical_boundary": "No new mathematical verdict, Working Truth, Foundation approval, physical axiom selection, or canonical promotion was made in this Driver round."
+  },
+  "validation_state": {
+    "complete_latest_main_checkout_available": false,
+    "executed_this_round": [
+      "source-backed GitHub blob-SHA comparison for all 8 PR #444 core payload files against current main -> 8/8 exact",
+      "current bilingual_pairs.json v76 readback -> both required R004 EN/ZH pairs retained",
+      "local source-aware replay manifest assertions -> PASS (8 exact payload matches; registry superseded with pair retention)"
+    ],
+    "not_executed_as_whole_repo_pass": [
+      "python tools/check_research_common_surface.py",
+      "python -m unittest tests.test_foundation_backflow",
+      "python tools/check_bilingual_pairs.py --base <current-merge-base>",
+      "python tools/check_references.py"
+    ],
+    "remaining_status": "LOCAL_VALIDATION_PENDING"
+  },
+  "fq007_state": {
+    "question_id": "FQ-20260810-007",
+    "research_state": "ANSWERED/CLOSED",
+    "steward_state": "FOUNDATION QUESTION MATHEMATICALLY ANSWERED / NEGATIVE + EXACT SUCCESS CONDITION / SOURCE INTEGRATION PENDING",
+    "machine_surface_state": "answered_question_scheduler_link present; still active on Foundation/Common Surface",
+    "canonicalized": false,
+    "source_integration_step_1": "SATISFIED_AT_BYTE_LEVEL_ON_CURRENT_MAIN",
+    "source_integration_step_2": "PENDING_WHOLE_REPO_VALIDATION_THEN_MINIMAL_PROPAGATION"
+  },
+  "terminal_state": "HANDOFF_READY_PENDING_WHOLE_REPO_VALIDATION_AND_MINIMAL_PROPAGATION",
+  "next_action": "Obtain a legitimate complete latest-main checkout and execute: python tools/check_research_common_surface.py; python -m unittest tests.test_foundation_backflow; python tools/check_bilingual_pairs.py --base <current-merge-base>; python tools/check_references.py. If all pass, refresh the then-current Foundation/Common-Surface targets and perform only the minimum source-aware FQ-007 propagation justified by the Steward closure recommendation. Do not merge PR #444 wholesale, restart R004 research, select a physical axiom, or mark CANONICALIZED before validation plus propagation."
+}
