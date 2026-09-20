@@ -1,0 +1,72 @@
+{
+  "schema": "INTEGER_RESIDUAL_MIGRATION12_VALIDATION_V1",
+  "status": "LOCALLY_VALIDATED_CANDIDATE_NO_MAIN_CUTOVER",
+  "baseline_commit": "3f6946239e28009bd915075afc201faa508468e8",
+  "researcher_id": "EM-DIRECT-4A5102",
+  "activity_id": "RA-1094DE57986E6E3FDCEA65DA",
+  "actual_callers": [
+    "multiplicative.py::build_field",
+    "multiplicative.py::main --machine-only",
+    "multiplicative.py::hex_data"
+  ],
+  "tests": {
+    "total": 148,
+    "new": 27,
+    "retained": 121,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "m11_expectations_advanced": 2
+  },
+  "machine_contract": {
+    "config_schema": "NOLLM_MULTIPLICATIVE_MACHINE_CONFIG_V1",
+    "report_schema": "NOLLM_MULTIPLICATIVE_MACHINE_REPORT_V1",
+    "display_fields": "ABSENT_NOT_ZERO",
+    "display_scale": "NOT_ACCEPTED_IN_MACHINE_CONFIG_OR_CLI",
+    "float_objects_in_machine_outputs": false,
+    "original_scale_text_and_denominator_preserved": true,
+    "precision_budgets_preserved": true,
+    "unresolved_preserved": true,
+    "visual_carrier_overflow": "REJECT_BEFORE_WRITES_NOT_CLAMP"
+  },
+  "finite_population_comparisons": {
+    "count": 13,
+    "at_4096": 12,
+    "at_65536": 1,
+    "full_certificates_identity_records_statistics_equal_m11": true,
+    "full_65536_occupied_cells": 44731
+  },
+  "clean_replay": {
+    "tests": 148,
+    "population_cases": 13,
+    "six_source_files_byte_equal": true,
+    "three_reports_byte_equal": true
+  },
+  "patch_sha256": "503a68a1011356ad69352e5440bbe4c4a07a0d5f3d5c2a2e735743c4f8e6f8f3",
+  "raw_evidence_sha256": {
+    "tests.json": "5beb9d6ece83a48768c9e39f36b120fe54ee8571621bd148f3ae0ab6cc8eb119",
+    "population_4096.json": "6333faa90af3387f289cd3d07cc235c14f5fc200b147f4ab58779fccc4e799be",
+    "population_65536.json": "127f9c55ea0f00f515c81f75a032a95b78a3b9b93b49961a4e058b5e8dd82d52",
+    "example_exact_report.json": "e370602d2abc41b16d11657601cd446c223b6f7ca670f9d37924ce360160ac0b",
+    "example_exact_cells.json": "0da247d0683a703c0e31498e76fa3afd01fd2e8c1a680113e235449f7378d195",
+    "example_unresolved_report.json": "2295271d36cec33c1dfee68396f3e0956f7086bd84e21ea3ad2e37758b2e435b"
+  },
+  "reuse": {
+    "BRC": "REUSE_EXECUTED_UNCHANGED",
+    "phase_and_certified_cell_algorithms": "REUSE_EXECUTED_UNCHANGED",
+    "typed_machine_caller": "EXTEND_EXISTING_TOOL"
+  },
+  "boundaries": {
+    "source_slice_only": true,
+    "geometry": "DECLARED_A2_OBSERVER_NOT_NATIVE_X6",
+    "legacy_and_display_defaults_changed": false,
+    "machine_only_schema_changed_explicitly": true,
+    "native_browser_test": false,
+    "full_package_test": false,
+    "whole_repository_regression": false,
+    "independent_review": false,
+    "main_code_integrated": false,
+    "filesystem_transaction_atomicity": false,
+    "new_hosted_automation": false
+  }
+}

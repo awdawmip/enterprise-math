@@ -118,9 +118,11 @@ class ExactReadoutTests(unittest.TestCase):
              if isinstance(x,(ast.FunctionDef,ast.AsyncFunctionDef))}
         new={x.name:ast.dump(x,include_attributes=False) for x in ast.parse(Path(m.__file__).read_text()).body
              if isinstance(x,(ast.FunctionDef,ast.AsyncFunctionDef))}
-        self.assertEqual(set(old),set(new))
+        # M12 adds machine-only input/display separation; numerical readout guards remain.
+        self.assertEqual(set(new)-set(old),{'_phase_options','machine_config','checked_machine_config','_display_point'})
+        self.assertTrue(set(old)<=set(new))
         changed=[name for name in old if old[name]!=new[name]]
-        self.assertEqual(changed,['multiplication','statistics'])
+        self.assertEqual(changed,['config','build_field','multiplication','statistics','hex_data','main'])
 
     def test_02_exact_statistics_omit_floats_and_keep_full_schema(self):
         for field in self.fields.values():
@@ -278,7 +280,7 @@ return bad.map(c=>{try{NollmAngularExact.fromCounts(c);return false;}catch(e){re
             env=dict(os.environ,PYTHONPATH=str(ROOT/'src')+':'+str(ROOT/'tools/nollm_visual_toolkit'))
             subprocess.run(cmd,check=True,capture_output=True,text=True,env=env,timeout=30)
             data=json.loads(out.read_text())
-            self.assertEqual(data['schema'],'NOLLM_MULTIPLICATIVE_REPORT_V2')
+            self.assertEqual(data['schema'],'NOLLM_MULTIPLICATIVE_MACHINE_REPORT_V1')
             self.assertEqual(data['cell_scale_source']['text'],'0.50')
             self.assertEqual(data['cell_membership_exact']['scale'],{'numerator':'50','denominator':'100'})
             self.assertEqual(data['html_observer_boundary'],'NOT_GENERATED_MACHINE_ONLY')

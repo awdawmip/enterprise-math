@@ -5,7 +5,6 @@ Run: python -m nollm_visual_toolkit.multiplicative --out multiplication.html
 """
 from __future__ import annotations
 import argparse
-import copy
 import hashlib
 import json
 import math
@@ -22,18 +21,18 @@ CONFIG_SCHEMA = 'NOLLM_MULTIPLICATIVE_CONFIG_V1'
 REPORT_SCHEMA = 'NOLLM_MULTIPLICATIVE_REPORT_V1'
 EXACT_REPORT_SCHEMA = 'NOLLM_MULTIPLICATIVE_REPORT_V2'
 STARTUP_SCHEMA = 'NOLLM_MULTIPLICATIVE_STARTUP_V1'
-MACHINE_CONFIG_SCHEMA = 'NOLLM_MULTIPLICATIVE_MACHINE_CONFIG_V1'
-MACHINE_REPORT_SCHEMA = 'NOLLM_MULTIPLICATIVE_MACHINE_REPORT_V1'
-NO_DISPLAY = 'OMITTED_FROM_MACHINE_FIELD'
 _CELL_SCALE_TEXT_RE = re.compile(r'(?:(?P<int>[1-9][0-9]*)|(?P<num>[1-9][0-9]*)/(?P<den>[1-9][0-9]*)|(?P<whole>0|[1-9][0-9]*)\.(?P<frac>[0-9]+))')
 
 
-def _phase_options(count: int, scheme: str, overrides: dict[str, int] | None) -> dict:
-    """The existing phase-domain validation, shared by machine/display callers."""
+def config(count: int = MAX_COUNT, scheme: str = 'valuation', scale: float = 1,
+           overrides: dict[str, int] | None = None) -> dict[str, Any]:
+    """Reject coercions. Prime phases are exact residues, not floating angles."""
     if isinstance(count, bool) or not isinstance(count, int) or not 16 <= count <= MAX_COUNT:
         raise ValueError('count must be an integer in 16..65536')
     if scheme not in ('valuation', 'mixed', 'spiral', 'radial'):
         raise ValueError('unknown phase scheme')
+    if isinstance(scale, bool) or not isinstance(scale, (int, float)) or not math.isfinite(scale) or not .25 <= scale <= 4:
+        raise ValueError('scale must be finite and in 0.25..4')
     overrides = {} if overrides is None else overrides
     if not isinstance(overrides, dict) or len(overrides) > 100:
         raise ValueError('overrides must be an object with at most 100 prime entries')
@@ -47,35 +46,8 @@ def _phase_options(count: int, scheme: str, overrides: dict[str, int] | None) ->
         if isinstance(value, bool) or not isinstance(value, int) or not 0 <= value < PHASE_MODULUS:
             raise ValueError('phase residue must be an integer in 0..65535')
         clean[key] = value
-    return {'count': count, 'scheme': scheme, 'overrides': clean}
-
-
-def config(count: int = MAX_COUNT, scheme: str = 'valuation', scale: float = 1,
-           overrides: dict[str, int] | None = None) -> dict[str, Any]:
-    """Legacy display configuration; the numeric scale is not an exact source."""
-    if isinstance(count, bool) or not isinstance(count, int) or not 16 <= count <= MAX_COUNT:
-        raise ValueError('count must be an integer in 16..65536')
-    if scheme not in ('valuation', 'mixed', 'spiral', 'radial'):
-        raise ValueError('unknown phase scheme')
-    if isinstance(scale, bool) or not isinstance(scale, (int, float)) or not math.isfinite(scale) or not .25 <= scale <= 4:
-        raise ValueError('scale must be finite and in 0.25..4')
-    clean = _phase_options(count, scheme, overrides)['overrides']
     return {'schema': CONFIG_SCHEMA, 'count': count, 'scheme': scheme,
             'scale': float(scale), 'overrides': clean}
-
-
-def machine_config(count: int = MAX_COUNT, scheme: str = 'valuation',
-                   overrides: dict[str, int] | None = None) -> dict:
-    """Exact phase inputs only. No display scale is accepted, inferred or lost."""
-    return {'schema': MACHINE_CONFIG_SCHEMA, **_phase_options(count, scheme, overrides)}
-
-
-def checked_machine_config(value: dict) -> dict:
-    if not isinstance(value, dict) or value.get('schema') != MACHINE_CONFIG_SCHEMA:
-        raise ValueError('include_display=False requires machine_config, not a legacy display config')
-    if set(value) != {'schema', 'count', 'scheme', 'overrides'}:
-        raise ValueError('unexpected or missing machine configuration keys')
-    return machine_config(value['count'], value['scheme'], value['overrides'])
 
 
 def checked_config(value: dict) -> dict:
@@ -274,35 +246,18 @@ def _phase_state(cfg: dict) -> tuple[list[int], dict[int, int], list[int], list[
     return spf, prime_phase, phase, omega
 
 
-def _display_point(n: int, phase: int, scale: float) -> list[float]:
-    """Optional legacy pixel observer; never supplies certified cell identity."""
-    if n == 0:
-        return [0.0, 0.0]
-    theta = math.tau*phase/PHASE_MODULUS
-    radius = scale*math.sqrt(n)
-    return [radius*math.cos(theta), radius*math.sin(theta)]
-
-
 def build_field(settings: dict | None = None, *, cell_scale: tuple[int, int] | None = None,
-                cell_bits: int = 64, cell_max_bits: int = 192,
-                include_display: bool = True) -> dict:
-    """Build one field using the existing phase and certified-cell engines.
+                cell_bits: int = 64, cell_max_bits: int = 192) -> dict:
+    """Build the field; exact cells require an explicit integer-ratio source.
 
-    The default preserves legacy/display objects. A machine-only construction
-    requires machine_config (or None), an explicit integer cell_scale and
-    include_display=False. It never parses a display scale or computes pixels.
-    Missing pixels are absent, not zero; their definition still follows from
-    the retained identity, phase and exact cell scale. A legacy configuration
-    is rejected in machine mode rather than silently discarding its scale.
+    ``config.scale`` remains the historical floating display scale. Passing
+    ``cell_scale=(n,d)`` selects the existing certified A2 observer for cell
+    membership without deriving n/d from that float. Approximate ``ideal``
+    pixels remain display-only and may use a different declared scale.
     """
-    if not isinstance(include_display, bool):
-        raise ValueError('include_display must be a boolean')
-    if not include_display and cell_scale is None:
-        raise ValueError('machine field construction requires an explicit exact cell_scale')
-    cfg = ((checked_config(settings) if settings is not None else config()) if include_display
-           else (checked_machine_config(settings) if settings is not None else machine_config()))
+    cfg = checked_config(settings) if settings is not None else config()
     _cell_precision(cell_bits, cell_max_bits)
-    count = cfg['count']
+    count, scale = cfg['count'], cfg['scale']
     spf, prime_phase, phase, omega = _phase_state(cfg)
     exact = None
     certificates = None
@@ -316,24 +271,29 @@ def build_field(settings: dict | None = None, *, cell_scale: tuple[int, int] | N
                   'unreduced': True}
     rows = []
     for n in range(count):
-        row = {'id': str(n), 'n': n, 'phase': phase[n] if n else None,
-               'omega': omega[n] if n else None, 'prime': n > 1 and spf[n] == n}
-        if include_display:
-            row['ideal'] = _display_point(n, phase[n], cfg['scale'])
+        if n == 0:
+            x = y = 0.0
+            shown_phase = shown_omega = None
+        else:
+            theta = math.tau*phase[n]/PHASE_MODULUS
+            radius = scale*math.sqrt(n)
+            x, y = radius*math.cos(theta), radius*math.sin(theta)
+            shown_phase, shown_omega = phase[n], omega[n]
         if certificates is None:
-            row['coord'] = [0, 0] if n == 0 else list(lattice_point(*row['ideal']))
+            coord = [0, 0] if n == 0 else list(lattice_point(x, y))
+            row = {'id': str(n), 'n': n, 'phase': shown_phase, 'omega': shown_omega,
+                   'prime': n > 1 and spf[n] == n, 'ideal': [x, y], 'coord': coord}
         else:
             cert = certificates[n]
-            row['coord'] = None if cert['cell'] is None else [int(v) for v in cert['cell']]
-            row['cell_status'] = cert['status']
+            coord = None if cert['cell'] is None else [int(v) for v in cert['cell']]
+            row = {'id': str(n), 'n': n, 'phase': shown_phase, 'omega': shown_omega,
+                   'prime': n > 1 and spf[n] == n, 'ideal': [x, y],
+                   'coord': coord, 'cell_status': cert['status']}
         rows.append(row)
     result = {'config': cfg, 'spf': spf, 'prime_phase': prime_phase, 'records': rows}
     if exact is not None:
         result.update({'cell_engine': 'CERTIFIED_INTEGER_RESIDUAL',
                        'cell_scale_source': source, 'cell_membership_exact': exact})
-    if not include_display:
-        result['display_role'] = NO_DISPLAY
-        result['cell_precision'] = {'initial_bits': cell_bits, 'max_bits': cell_max_bits}
     return result
 
 
@@ -462,26 +422,6 @@ def hex_data(field: dict) -> dict:
     if any(r['coord'] is None for r in field['records']):
         raise ValueError('hex_data requires resolved cells; increase exact precision rather than guessing')
     exact = field.get('cell_engine') == 'CERTIFIED_INTEGER_RESIDUAL'
-    if field.get('display_role') == NO_DISPLAY:
-        if not exact:
-            raise ValueError('a machine field must have certified membership')
-        data = {'schema':'NOLLM_VISUAL_DATA_V2', 'kind':'hex',
-                'title':'Multiplicative field / certified A2 cells without pixels',
-                'metadata':{'typing':'A2_ROUNDED_OBSERVER_NOT_NATIVE_X6',
-                            'config':field['config'], 'phase_modulus':PHASE_MODULUS,
-                            'lab_version':LAB_VERSION, 'cell_engine':field['cell_engine'],
-                            'cell_scale_source':field['cell_scale_source'],
-                            'cell_membership_exact':cell_membership_summary(field),
-                            'display_role':NO_DISPLAY, 'cell_precision':field['cell_precision'],
-                            'layer_semantics':'Omega(n), with zero on display layer 0; NOT Nollm physical layer',
-                            'rounding':'certified integer-residual A2 cells; no approximate pixel fields'},
-                'records':[{'id':r['id'], 'n':r['n'], 'coord':r['coord'], 'layer':r['omega'] or 0,
-                            'fields':{k:r[k] for k in ('phase','omega','prime','cell_status')}}
-                           for r in field['records']], 'relations':[]}
-        # The existing visual-data carrier has a bounded integer domain. Reject,
-        # never clamp, a certified coordinate beyond it, before any CLI writes.
-        from .core import validate
-        return copy.deepcopy(validate(data))
     metadata = {'typing':'A2_ROUNDED_OBSERVER_NOT_NATIVE_X6', 'config':field['config'],
                 'phase_modulus':PHASE_MODULUS, 'lab_version':LAB_VERSION,
                 'layer_semantics':'Omega(n), with zero on display layer 0; NOT Nollm physical layer',
@@ -545,7 +485,7 @@ def main() -> int:
     p = argparse.ArgumentParser(description='Multiplicative Field Lab 0.1.0 / Toolkit 0.3.0 extension')
     p.add_argument('--count', type=int, default=MAX_COUNT)
     p.add_argument('--scheme', choices=['valuation','mixed','spiral','radial'], default='valuation')
-    p.add_argument('--scale', help='legacy/display scale only (default 1); forbidden with --machine-only')
+    p.add_argument('--scale', type=float, default=1, help='legacy/display scale only; never an exact cell source')
     p.add_argument('--cell-scale', help='exact scale for generated page and machine outputs: integer, n/d, or decimal such as 0.50')
     p.add_argument('--cell-bits', type=int, default=64, help='initial dyadic precision for --cell-scale')
     p.add_argument('--cell-max-bits', type=int, default=192, help='maximum dyadic precision for --cell-scale')
@@ -555,17 +495,14 @@ def main() -> int:
     p.add_argument('--preview',action='store_true'); p.add_argument('--no-open',action='store_true')
     a = p.parse_args()
     try:
+        cfg = config(a.count,a.scheme,a.scale)
         if a.machine_only:
             if a.out is not None or a.preview:
                 raise ValueError('--machine-only cannot be combined with --out or --preview')
             if a.cell_scale is None or not (a.report or a.hex_data):
                 raise ValueError('--machine-only requires --cell-scale and --report/--hex-data')
-            if a.scale is not None:
-                raise ValueError('--scale is a display parameter; omit it with --machine-only')
         elif a.out is None:
             raise ValueError('--out is required unless --machine-only is selected')
-        cfg = (machine_config(a.count, a.scheme) if a.machine_only else
-               config(a.count, a.scheme, 1 if a.scale is None else float(a.scale)))
         _distinct_output_paths(a.out, a.report, a.hex_data)
         cell_pair = None; cell_source = None; startup = None
         if a.cell_scale is not None:
@@ -581,8 +518,7 @@ def main() -> int:
         field = None; prepared_hex = None
         # Semantic preflight precedes output writes. No filesystem rollback is claimed.
         if cell_pair is not None and (a.report or a.hex_data):
-            field = build_field(cfg, cell_scale=cell_pair, cell_bits=a.cell_bits,
-                                cell_max_bits=a.cell_max_bits, include_display=not a.machine_only)
+            field = build_field(cfg, cell_scale=cell_pair, cell_bits=a.cell_bits, cell_max_bits=a.cell_max_bits)
             field['cell_scale_source'] = cell_source
             if a.hex_data:
                 prepared_hex = hex_data(field)
@@ -596,8 +532,7 @@ def main() -> int:
             if field is None:
                 field = build_field(cfg)
             if a.report:
-                report = {'schema':(MACHINE_REPORT_SCHEMA if a.machine_only else
-                                    EXACT_REPORT_SCHEMA if cell_pair is not None else REPORT_SCHEMA),
+                report = {'schema':EXACT_REPORT_SCHEMA if cell_pair is not None else REPORT_SCHEMA,
                           'lab_version':LAB_VERSION,'config':cfg,
                           'statistics':statistics(field),'all_pairs':all_pair_audit(field)}
                 if cell_pair is not None:
@@ -607,9 +542,6 @@ def main() -> int:
                                    'browser_startup':startup,
                                    'html_observer_boundary':('NOT_GENERATED_MACHINE_ONLY' if a.machine_only
                                                              else 'GENERATED_WITH_CERTIFIED_STARTUP_NOT_BROWSER_EXECUTION_RECEIPT')})
-                if a.machine_only:
-                    report['display_role'] = NO_DISPLAY
-                    report['cell_precision'] = field['cell_precision']
                 a.report.parent.mkdir(parents=True,exist_ok=True)
                 a.report.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
             if a.hex_data:
