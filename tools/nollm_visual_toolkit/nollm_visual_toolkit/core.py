@@ -112,7 +112,16 @@ def read_data(path: str | Path) -> dict[str, Any]:
     data = json.loads(text)
     if isinstance(data, dict) and data.get("schema") == "NOLLM_MULTIPLICATIVE_MACHINE_REPORT_V1":
         from .multiplicative_report import parse_machine_report, machine_report_to_data
-        return machine_report_to_data(parse_machine_report(text))
+        try:
+            return machine_report_to_data(parse_machine_report(text))
+        except RuntimeError as exc:
+            if "Enterprise Math BRC" in str(exc):
+                raise ValueError(
+                    "machine report replay requires Enterprise Math BRC; "
+                    "install the repository root package or the toolkit exact extra; "
+                    "no approximate fallback is used"
+                ) from exc
+            raise
     return validate(data)
 
 
