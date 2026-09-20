@@ -8,6 +8,8 @@ import argparse
 import hashlib
 import json
 import math
+import re
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -17,6 +19,8 @@ GOLDEN_STEP = 25033  # nearest integer to 65536*(3-sqrt(5))/2; declared finite s
 MAX_COUNT = 65536
 CONFIG_SCHEMA = 'NOLLM_MULTIPLICATIVE_CONFIG_V1'
 REPORT_SCHEMA = 'NOLLM_MULTIPLICATIVE_REPORT_V1'
+EXACT_REPORT_SCHEMA = 'NOLLM_MULTIPLICATIVE_REPORT_V2'
+_CELL_SCALE_TEXT_RE = re.compile(r'(?:(?P<int>[1-9][0-9]*)|(?P<num>[1-9][0-9]*)/(?P<den>[1-9][0-9]*)|(?P<whole>0|[1-9][0-9]*)\.(?P<frac>[0-9]+))')
 
 
 def config(count: int = MAX_COUNT, scheme: str = 'valuation', scale: float = 1,
@@ -90,6 +94,54 @@ def _cell_scale(value: tuple[int, int]) -> tuple[int, int]:
     if any(isinstance(v, bool) or not isinstance(v, int) or v <= 0 for v in value):
         raise ValueError('cell_scale numerator and denominator must be positive exact integers')
     return numerator, denominator
+
+
+def _cell_precision(initial_bits: int, max_bits: int) -> tuple[int, int]:
+    if any(isinstance(v, bool) or not isinstance(v, int) for v in (initial_bits, max_bits)):
+        raise ValueError('cell precision budgets must be exact integers')
+    if not 8 <= initial_bits <= max_bits <= 512:
+        raise ValueError('cell precision requires 8 <= initial_bits <= max_bits <= 512')
+    return initial_bits, max_bits
+
+
+def parse_cell_scale_text(value: str) -> tuple[tuple[int, int], dict[str, object]]:
+    """Parse exact CLI scale syntax without ever constructing a float.
+
+    Decimal spelling is provenance: ``0.50`` becomes 50/100 rather than 1/2.
+    Fractions and integers must be canonical positive decimal text.
+    """
+    if not isinstance(value, str) or not value or len(value) > 256:
+        raise ValueError('cell scale text must be a nonempty string of at most 256 characters')
+    match = _CELL_SCALE_TEXT_RE.fullmatch(value)
+    if match is None:
+        raise ValueError('cell scale must be positive exact text: integer, fraction n/d, or decimal')
+    if match.group('int') is not None:
+        numerator, denominator, syntax = int(match.group('int')), 1, 'INTEGER'
+    elif match.group('num') is not None:
+        numerator, denominator, syntax = int(match.group('num')), int(match.group('den')), 'FRACTION'
+    else:
+        whole, frac = match.group('whole'), match.group('frac')
+        denominator = 10 ** len(frac)
+        numerator = int(whole) * denominator + int(frac)
+        syntax = 'DECIMAL'
+    if numerator <= 0:
+        raise ValueError('cell scale must be positive')
+    pair = _cell_scale((numerator, denominator))
+    return pair, {'text': value, 'syntax': syntax, 'numerator': str(numerator),
+                  'denominator': str(denominator), 'unreduced': True}
+
+
+def cell_membership_summary(field: dict) -> dict | None:
+    exact = field.get('cell_membership_exact')
+    if exact is None:
+        return None
+    return {key: exact[key] for key in (
+        'schema', 'status', 'population', 'certified_identities', 'phase_modulus',
+        'phase_source_sha256', 'phase_source_encoding', 'unresolved_identities',
+        'tie_identities', 'occupied_cells', 'occupied_cells_bounds',
+        'collision_groups', 'excess_identities_if_collapsed', 'max_cell_load',
+        'scale', 'precision_counts', 'tie_rule', 'base_certifier_schema',
+        'base_certifier_tie_rule', 'scope')}
 
 
 LEXICOGRAPHIC_CELL_TIE_RULE = 'MINIMUM_EUCLIDEAN_DISTANCE_THEN_AXIAL_LEXICOGRAPHIC'
@@ -203,6 +255,7 @@ def build_field(settings: dict | None = None, *, cell_scale: tuple[int, int] | N
     pixels remain display-only and may use a different declared scale.
     """
     cfg = checked_config(settings) if settings is not None else config()
+    _cell_precision(cell_bits, cell_max_bits)
     count, scale = cfg['count'], cfg['scale']
     spf, prime_phase, phase, omega = _phase_state(cfg)
     exact = None
@@ -378,23 +431,52 @@ def main() -> int:
     p = argparse.ArgumentParser(description='Multiplicative Field Lab 0.1.0 / Toolkit 0.3.0 extension')
     p.add_argument('--count', type=int, default=MAX_COUNT)
     p.add_argument('--scheme', choices=['valuation','mixed','spiral','radial'], default='valuation')
-    p.add_argument('--scale', type=float, default=1)
+    p.add_argument('--scale', type=float, default=1, help='legacy/display scale only; never an exact cell source')
+    p.add_argument('--cell-scale', help='exact cell scale text: positive integer, n/d, or decimal such as 0.50')
+    p.add_argument('--cell-bits', type=int, default=64, help='initial dyadic precision for --cell-scale')
+    p.add_argument('--cell-max-bits', type=int, default=192, help='maximum dyadic precision for --cell-scale')
     p.add_argument('--out', type=Path, required=True)
     p.add_argument('--report', type=Path); p.add_argument('--hex-data',type=Path)
     p.add_argument('--preview',action='store_true'); p.add_argument('--no-open',action='store_true')
     a = p.parse_args()
     try:
-        cfg = config(a.count,a.scheme,a.scale); print(render(a.out,cfg))
+        cfg = config(a.count,a.scheme,a.scale)
+        cell_pair = None; cell_source = None
+        if a.cell_scale is not None:
+            if not (a.report or a.hex_data):
+                raise ValueError('--cell-scale currently applies only to --report/--hex-data; browser HTML remains legacy display')
+            if a.preview:
+                raise ValueError('--preview with --cell-scale is disabled until the older browser workbench is migrated')
+            cell_pair, cell_source = parse_cell_scale_text(a.cell_scale)
+            _cell_precision(a.cell_bits, a.cell_max_bits)
+        elif a.cell_bits != 64 or a.cell_max_bits != 192:
+            raise ValueError('--cell-bits/--cell-max-bits require --cell-scale')
+        field = None; prepared_hex = None
+        if cell_pair is not None:
+            field = build_field(cfg, cell_scale=cell_pair, cell_bits=a.cell_bits, cell_max_bits=a.cell_max_bits)
+            field['cell_scale_source'] = cell_source
+            if a.hex_data:
+                prepared_hex = hex_data(field)  # fail before writing any requested artifact
+        print(render(a.out,cfg))
         if a.report or a.hex_data:
-            field = build_field(cfg)
+            if field is None:
+                field = build_field(cfg)
             if a.report:
-                report = {'schema':REPORT_SCHEMA,'lab_version':LAB_VERSION,'config':cfg,
+                report = {'schema':EXACT_REPORT_SCHEMA if cell_pair is not None else REPORT_SCHEMA,
+                          'lab_version':LAB_VERSION,'config':cfg,
                           'statistics':statistics(field),'all_pairs':all_pair_audit(field)}
+                if cell_pair is not None:
+                    report.update({'cell_engine':field['cell_engine'],
+                                   'cell_scale_source':field['cell_scale_source'],
+                                   'cell_membership_exact':cell_membership_summary(field),
+                                   'html_observer_boundary':'generated HTML remains legacy floating observer in this slice'})
                 a.report.parent.mkdir(parents=True,exist_ok=True)
                 a.report.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
             if a.hex_data:
                 from .core import write_data
-                write_data(hex_data(field),a.hex_data)
+                write_data(prepared_hex if prepared_hex is not None else hex_data(field),a.hex_data)
+            if cell_pair is not None:
+                print('exact cell scale applied to report/hex-data only; generated HTML remains legacy display', file=sys.stderr)
         if a.preview:
             from .web import serve_preview
             serve_preview(a.out,open_browser=not a.no_open)
