@@ -1,0 +1,111 @@
+{
+  "schema": "ENTERPRISE_MATH_DRIVER_CHECKPOINT_V1",
+  "checkpoint_kind": "FQ007_FOCUSED_BACKFLOW_STATIC_VALIDATION",
+  "created_at_utc": "2026-09-20T10:14:37Z",
+  "driver_id": "EM-DVR-7FC65C",
+  "authority": {
+    "record_id": "DA-914801DE7DDE3068AC16",
+    "role": "RESEARCH_DRIVER",
+    "authority_class": "CONTROL_PLANE",
+    "source_authorize_issue": 240,
+    "source_authorize_comment_id": 5747189443,
+    "revoked": false,
+    "scope_note": "Driver/GOVERNANCE control-plane only; no Researcher/Steward role, no independent Working Truth/Foundation/canonical promotion authority."
+  },
+  "task": {
+    "task_id": "RS-GOV-FOUNDATION-BACKFLOW",
+    "publication_id": "TP2-2C438651496A928ADCB7",
+    "taskbook_blob_sha1": "sha1:fa74c395b3eaaabe79f2dd74f5cb1b7dd29af559",
+    "front": "FQ-007 latest-main L4 integration / validation gate"
+  },
+  "claim": {
+    "claim_id": "CL-GOV-FQ007-7FC65C-20260920-1809",
+    "issue": 240,
+    "comment_id": 5749152229,
+    "owner_authenticated": true,
+    "execution_branch_base": "98f3a2e81308957db641b8ee03d24cce510ee5f2"
+  },
+  "source_snapshot": {
+    "latest_main_before_checkpoint_write": "c0d863696bb95bb596b365bc0ae4c2f62f1f06d4",
+    "concurrency_note": "After CLAIM, main advanced through an unrelated automated control receipt/startup-packet commit. The FQ-007 governance source blobs below were re-read on that descendant before this checkpoint was written.",
+    "blobs": {
+      "foundation_backflow.json": "1b49b31340b892e9bfdaa50ccad77e21144f4432",
+      "foundation_steward.json": "12454aec7d90f3cd6c6a6985b3dc901d1a55ce96",
+      "research_common_surface.json": "9e49a1b2f49c44130eacf5285951a4b917856af6",
+      "research_runtime_policy_v2.json": "d60766b612827270f02350f22753b6866764c399",
+      "research_task_records/RS-R004-CAUSAL-IDENTIFIABILITY/TP2-4E4385E37C8AD66B83A0.json": "2c0933f768843e31874c1fa5e3b176a446f17abb",
+      "research_driver_authority_records/EM-DVR-7FC65C/DA-914801DE7DDE3068AC16.json": "b494a6b3d2a4df4906c9db617ccf62d32535e11d",
+      "tools/check_research_common_surface.py": "29eba5adcb2551b4e386bd466323d4135dbd92fd"
+    }
+  },
+  "focused_validation": {
+    "result": "PASS_WITHIN_DECLARED_SOURCE_READBACK_SCOPE",
+    "scope": "Source-backed static/backflow subset only. This is not a PASS for the whole-repository checker or any unexecuted local command.",
+    "checks": [
+      {
+        "check": "authority_and_claim",
+        "result": "PASS",
+        "evidence": "Immutable Driver authority record remains CONTROL_PLANE/RESEARCH_DRIVER with no truth/promotion grants; no REVOKE for EM-DVR-7FC65C was found in the refreshed Issue #240 event stream; current CLAIM comment 5749152229 is server-authenticated as awdawmip/OWNER and unedited."
+      },
+      {
+        "check": "runtime_policy_boundary",
+        "result": "PASS",
+        "evidence": "research_runtime_policy_v2.json remains ACTIVE_CANONICAL, uses IMMUTABLE_V2_TASK_PUBLICATIONS, has no legacy task-definition source, and grants no mathematical/Working Truth/Foundation authority."
+      },
+      {
+        "check": "fq007_research_terminality",
+        "result": "PASS",
+        "evidence": "The immutable R004 publication TP2-4E4385E37C8AD66B83A0 is CLOSED, claimable=false, and carries no Working Truth or canonical-promotion grant."
+      },
+      {
+        "check": "backflow_machine_state",
+        "result": "PASS",
+        "evidence": "foundation_backflow.json has no live question_scheduler_links; FQ-20260810-007 appears in answered_question_scheduler_links as ANSWERED with the exact CLOSED/nonclaimable R004 terminal publication and next action STEWARD_VERIFICATION_OR_CANONICALIZATION; FQ-007 is not in canonicalized_examples."
+      },
+      {
+        "check": "foundation_common_active_set_parity",
+        "result": "PASS",
+        "evidence": "foundation_steward.json problem_set.active_questions and research_common_surface.json foundation_steward.active_foundation_questions both equal [FQ-20260810-007]."
+      },
+      {
+        "check": "human_common_surface_visibility",
+        "result": "PASS",
+        "evidence": "Both docs/RESEARCH_COMMON_SURFACE.en.md and docs/RESEARCH_COMMON_SURFACE.zh-CN.md visibly identify FQ-20260810-007 as the current active Foundation question."
+      },
+      {
+        "check": "steward_closure_boundary",
+        "result": "PASS",
+        "evidence": "Issue #164 OWNER-authenticated Steward closure recommendation 5242954869 states the Foundation question is mathematically answered negative with exact success condition while source integration remains pending; it explicitly says machine surfaces may still list FQ-007 active until integration lands and forbids selecting a physical axiom by implication."
+      }
+    ]
+  },
+  "validation": {
+    "executed_this_round": [
+      "latest-main source/blob readback after concurrent descendant",
+      "Issue #240 authority/revocation/current-claim readback",
+      "current foundation_backflow/runtime-policy/terminal-publication static audit",
+      "Foundation Steward versus Common Surface active-FQ parity audit",
+      "English/Chinese Common Surface active-FQ visibility audit",
+      "Issue #164 Steward closure-recommendation readback"
+    ],
+    "previously_executed_and_preserved": [
+      "PYTHONPATH=src python -m unittest tests.test_r004_causal_identifiability_completion : 7 tests PASS on exact reconstructed current-main source/test blobs (previous checkpoint)"
+    ],
+    "local_validation_pending": [
+      "python tools/check_research_common_surface.py",
+      "python -m unittest tests.test_foundation_backflow",
+      "python tools/check_bilingual_pairs.py --base <current-merge-base>",
+      "python tools/check_references.py"
+    ],
+    "local_checkout_state": "UNAVAILABLE",
+    "note": "No legitimate complete latest-main checkout is present in this runtime. The four whole-repository commands above were not executed and are not reported as PASS. GitHub Actions/remote CI was not used as a substitute."
+  },
+  "integration_state": {
+    "canonicalized": false,
+    "math_judgment_made_by_driver": false,
+    "steward_judgment_made_by_driver": false,
+    "current_machine_interpretation": "FQ-007 remains active only as pending source-integration/propagation state; the research task itself is terminal CLOSED and the Steward closure recommendation already exists.",
+    "next_action": "Obtain a legitimate complete latest-main checkout and execute the four remaining whole-repository gates. If all pass, reread then-current Foundation/Common-Surface targets and perform only the minimum source-aware FQ-007 propagation required by the existing Steward closure recommendation. Do not merge PR #444 wholesale, restart R004 research, select a physical axiom, or mark CANONICALIZED before validation plus propagation."
+  },
+  "machine_state": "PROGRESS_TO_HANDOFF"
+}
