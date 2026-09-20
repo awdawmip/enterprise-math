@@ -1,0 +1,90 @@
+{
+  "schema": "ENTERPRISE_MATH_DRIVER_CHECKPOINT_V1",
+  "task_id": "RS-GOV-FOUNDATION-BACKFLOW",
+  "publication_id": "TP2-2C438651496A928ADCB7",
+  "taskbook_blob_sha1": "sha1:fa74c395b3eaaabe79f2dd74f5cb1b7dd29af559",
+  "driver_id": "EM-DVR-7FC65C",
+  "authority": {
+    "authority_record_id": "DA-914801DE7DDE3068AC16",
+    "scope": "CONTROL_PLANE",
+    "role": "RESEARCH_DRIVER",
+    "source_issue": 240,
+    "source_authorize_comment_id": 5747189443,
+    "server_authenticated_owner": true,
+    "revoked_in_current_issue_scan": false,
+    "working_truth_granted": false,
+    "foundation_authority_granted": false,
+    "canonical_promotion_granted": false
+  },
+  "claim": {
+    "claim_id": "CL-GOV-FQ007-7FC65C-20260920-1407",
+    "claim_comment_id": 5748038523,
+    "scope": "GOVERNANCE_CONTINUATION"
+  },
+  "audited_main": "94dc03219aa7761ac8a3fb4eff7ba09107bb4a59",
+  "audited_root_tree": "ba098f3e2724a9c9b26bda8d7f0fe11b18de5c7a",
+  "audited_docs_tree": "430994e64d24ece3b50e53152572f3228d76cc6f",
+  "bilingual_manifest": {
+    "path": "bilingual_pairs.json",
+    "version": 75,
+    "blob_sha": "8c7fff2198dddd10f34a37fc4497617fe7108e44",
+    "r004_no_go_pair_registered": false,
+    "r004_prior_art_pair_registered": false
+  },
+  "r004_source_shard": {
+    "path": "sources_r004_causal_identifiability_no_go_01.json",
+    "blob_sha": "de5c22043938edffb3cdd3d27b544cec20d664b6",
+    "registered_source_ids": [
+      "SRC-KUHN-EXTENSIVE-GAMES-1953",
+      "SRC-LI-ELGAMAL-SFRL-2017"
+    ]
+  },
+  "reference_gate": {
+    "checker_path": "tools/check_references.py",
+    "checker_blob_sha": "1d3da091aa698a03f83bce1788b4d039885df3be",
+    "rule": "Each registered source must be cited at least once in each language corpus assembled from docs/PRIOR_ART*.en.md and docs/PRIOR_ART*.zh-CN.md.",
+    "current_r004_prior_art_sidecars_present": false,
+    "source_aware_coverage_status": "MISSING_DEDICATED_R004_COVERAGE_ON_CURRENT_MAIN",
+    "coverage_basis": "The current docs tree contains the canonical R004 no-go pair but no PRIOR_ART_R004_CAUSAL_IDENTIFIABILITY sidecars. GitHub code search for the new Kuhn source id returned an incomplete result and is not treated as an exhaustive repository grep. Therefore this checkpoint records the dedicated source-aware coverage unit as absent without claiming an exhaustive negative over every legacy prior-art file.",
+    "old_pr_444_exact_sidecars": {
+      "head": "cdae33bcb45b402d2f84b4b0c37365cd355c40ee",
+      "en_path": "docs/PRIOR_ART_R004_CAUSAL_IDENTIFIABILITY.en.md",
+      "en_blob_sha": "5903bb9eb4906345c96df9ea4e2928a46db35c7e",
+      "zh_path": "docs/PRIOR_ART_R004_CAUSAL_IDENTIFIABILITY.zh-CN.md",
+      "zh_blob_sha": "876fc3d97828fc97073adb1e14057416cbd9f6d2",
+      "content_audit": "Both exact sidecars cite both newly registered R004 sources and preserve the novelty/axiom boundary; they are suitable minimum source-pinned replay inputs after local validation.",
+      "old_bilingual_manifest_replacement": "MUST_NOT_REUSE_AS_WHOLE"
+    }
+  },
+  "validation": {
+    "performed": [
+      "latest-main refresh and relevant tree/blob readback",
+      "source-backed authority record readback and Issue #240 REVOKE scan",
+      "current bilingual manifest version/blob audit",
+      "current reference-checker source audit",
+      "PR #444 exact EN/ZH prior-art sidecar blob readback and scope audit",
+      "attempted fresh local checkout for real local validation"
+    ],
+    "local_checkout_attempt": {
+      "command": "git clone --depth 1 --branch main https://github.com/awdawmip/enterprise-math.git /tmp/enterprise-math-driver",
+      "result": "FAILED_BEFORE_CHECKOUT",
+      "error": "Could not resolve host: github.com"
+    },
+    "local_validation_status": "LOCAL_VALIDATION_PENDING",
+    "not_executed": [
+      "python tools/check_research_common_surface.py",
+      "python -m unittest tests.test_foundation_backflow",
+      "python -m unittest tests.test_r004_causal_identifiability_completion"
+    ],
+    "reason": "No legitimate latest-main local checkout exists in this runtime; the attempted fresh clone failed at DNS resolution. No GitHub Actions or cloud CI result was substituted for local validation."
+  },
+  "machine_state": "PROGRESS",
+  "handoff_target_state": "HANDOFF_READY",
+  "next_action": "Resume this GOVERNANCE frontier. Obtain a legitimate latest-main local checkout and execute the three pending local validation commands. If they pass, re-read the then-current bilingual_pairs.json and atomically replay only the exact EN/ZH R004 prior-art sidecars plus a source-aware incremental manifest delta registering both the R004 no-go pair and R004 prior-art pair; then run bilingual/reference integrity locally and perform only the minimum Foundation/Common-Surface propagation allowed by current contracts. Do not merge PR #444 wholesale, restart R004 research, adopt a physical axiom, or mark CANONICALIZED before validation and propagation.",
+  "explicitly_not_done": [
+    "CANONICALIZED",
+    "FOUNDATION_APPROVED",
+    "WORKING_TRUTH_APPROVED",
+    "LOCAL_VALIDATION_PASS"
+  ]
+}
