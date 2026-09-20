@@ -1,0 +1,88 @@
+{
+  "schema": "ENTERPRISE_MATH_DRIVER_GOVERNANCE_CHECKPOINT_V1",
+  "checkpoint_id": "FQ007-FOCUSED-BACKFLOW-VALIDATOR-EXECUTION-20260920-2009",
+  "status": "PROGRESS_HANDOFF_READY",
+  "driver": {
+    "driver_id": "EM-DVR-7FC65C",
+    "scope": "CONTROL_PLANE",
+    "authority": "RESEARCH_DRIVER",
+    "authority_record_id": "DA-914801DE7DDE3068AC16",
+    "authority_record_path": "research_driver_authority_records/EM-DVR-7FC65C/DA-914801DE7DDE3068AC16.json",
+    "source_comment_id": 5747189443,
+    "revoke_observed": false,
+    "working_truth_granted": false,
+    "foundation_authority_granted": false,
+    "canonical_promotion_granted": false
+  },
+  "task": {
+    "task_id": "RS-GOV-FOUNDATION-BACKFLOW",
+    "publication_id": "TP2-2C438651496A928ADCB7",
+    "taskbook_blob_sha1": "sha1:fa74c395b3eaaabe79f2dd74f5cb1b7dd29af559",
+    "kind": "GOVERNANCE",
+    "effective_priority": "P0",
+    "effective_leverage": "HIGH"
+  },
+  "claim": {
+    "claim_id": "CL-GOV-FQ007-7FC65C-20260920-2009",
+    "source_issue": 240,
+    "source_comment_id": 5749723586,
+    "execution_branch": "main",
+    "execution_branch_base": "ebcdf8e156502c78d6d61a13ed49b53bff3f3d98",
+    "allowed_outputs": [
+      "research_returns/RS-GOV-FOUNDATION-BACKFLOW/EM-DVR-7FC65C/"
+    ]
+  },
+  "source_snapshot": {
+    "enterprise_math_main": "ebcdf8e156502c78d6d61a13ed49b53bff3f3d98",
+    "global_knowledge_main": "0d088c584ca0e862f24aca7ada9e6ab0fb7a1265",
+    "check_research_common_surface_blob": "29eba5adcb2551b4e386bd466323d4135dbd92fd",
+    "test_foundation_backflow_blob": "f607bfb40512f5ce6dac6e304dd0fa5719538c8b",
+    "foundation_backflow_blob": "1b49b31340b892e9bfdaa50ccad77e21144f4432",
+    "research_runtime_policy_v2_blob": "d60766b612827270f02350f22753b6866764c399"
+  },
+  "substantive_unit": {
+    "name": "FOCUSED_BACKFLOW_VALIDATOR_EXECUTION",
+    "reason": "A complete latest-main checkout is absent, so the whole-repository gates cannot be honestly reported as executed. The current-main injected-dispatch validate_backflow path and its nine synthetic assertions can still be executed locally without fabricating repository-wide coverage.",
+    "current_main_static_backflow": {
+      "input": "current main foundation_backflow.json + research_runtime_policy_v2.json",
+      "precondition": "question_scheduler_links is empty on current main, so no immutable task-definition lookup is needed for the static validator path",
+      "dispatch_tasks_injected": [],
+      "errors": [],
+      "result": "PASS_WITHIN_DECLARED_FOCUSED_SCOPE"
+    },
+    "synthetic_validator_suite": {
+      "source": "current-main validate_backflow injected-dispatch branch plus FoundationBackflowValidationTests cases",
+      "tests_run": 9,
+      "failures": 0,
+      "errors": 0,
+      "elapsed_seconds": 0.003,
+      "result": "PASS_WITHIN_DECLARED_FOCUSED_SCOPE",
+      "coverage_note": "Exercises the synthetic research/governance role, owner, explicit-FQ, duplicate-link, authority-surface, and canonicalized-reactivation guards. This is not the repository integration test and not the full tests.test_foundation_backflow module gate."
+    }
+  },
+  "validation_state": {
+    "complete_latest_main_checkout_available": false,
+    "local_checkout_search": "No .git directory found under /mnt/data, /workspace, /workspaces, or /home/oai/share at this run.",
+    "executed_this_round": [
+      "focused current-main static validate_backflow -> []",
+      "focused synthetic FoundationBackflowValidationTests-equivalent suite -> 9/9 PASS"
+    ],
+    "not_executed_as_whole_repo_pass": [
+      "python tools/check_research_common_surface.py",
+      "python -m unittest tests.test_foundation_backflow",
+      "python tools/check_bilingual_pairs.py --base <current-merge-base>",
+      "python tools/check_references.py"
+    ],
+    "remaining_status": "LOCAL_VALIDATION_PENDING",
+    "prior_exact_source_validation": "The previous Driver checkpoint records PYTHONPATH=src python -m unittest tests.test_r004_causal_identifiability_completion as 7/7 PASS; it was not rerun in this round."
+  },
+  "fq007_state": {
+    "question_id": "FQ-20260810-007",
+    "research_state": "ANSWERED/CLOSED",
+    "foundation_backflow": "answered_question_scheduler_links only; not in question_scheduler_links",
+    "canonicalized": false,
+    "mathematical_boundary": "No new mathematical verdict made by this Driver round; no physical axiom selected."
+  },
+  "terminal_state": "HANDOFF_READY_PENDING_WHOLE_REPO_VALIDATION_AND_MINIMAL_PROPAGATION",
+  "next_action": "Obtain a legitimate complete latest-main checkout and execute the four remaining whole-repo gates. If all pass, refresh then-current Foundation/Common-Surface targets and perform only the minimum source-aware FQ-007 propagation already justified by Steward scope. Do not merge PR #444 wholesale, restart R004 research, select a physical axiom, or mark CANONICALIZED before validation plus propagation."
+}
