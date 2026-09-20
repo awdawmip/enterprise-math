@@ -288,6 +288,49 @@ class ContinuationTests(unittest.TestCase):
             with self.assertRaisesRegex(continuation.ContinuationError, "CURSOR_STALE"):
                 continuation.inventory(root=self.root, events=[{"new": True}], now=NOW, source_commit=SOURCE, cursor=first["next_cursor"])
 
+    def test_awaiting_current_generation_does_not_borrow_an_old_result(self):
+        from tools import research_dispatch, research_result_records
+        rows = [{"task_id": "RS-TEST", "publication_id": "TP2-NEW", "dispatch_state": "AWAITING_REVIEW"}]
+        with mock.patch.object(research_dispatch, "effective_states", return_value=rows), mock.patch.object(research_result_records, "iter_results", return_value=[{"task_id": "RS-TEST", "publication_id": "TP2-OLD"}]):
+            result = continuation.inventory_projection(root=self.root, events=[], now=NOW, source_commit=SOURCE)
+            self.assertEqual("LEGACY_BRANCH_RESULT_INTAKE_REQUIRED", result["tasks"][0]["continuation"]["action"])
+            self.assertFalse(result["tasks"][0]["continuation"]["execution_authorized"])
+        with mock.patch.object(research_dispatch, "effective_states", return_value=rows), mock.patch.object(research_result_records, "iter_results", return_value=[{"task_id": "RS-TEST", "publication_id": "TP2-NEW"}]):
+            result = continuation.inventory_projection(root=self.root, events=[], now=NOW, source_commit=SOURCE)
+            self.assertEqual("ACTIVATE_NEW_DRIVER_AND_REVIEW_FROZEN_RESULT", result["tasks"][0]["continuation"]["action"])
+
+    def test_legacy_intake_packet_distinguishes_exact_result_from_prose_hint(self):
+        from tools import research_dispatch, research_task_records, research_result_records, research_taskbook
+        taskbook = "research_tasks/fixture.md"
+        book = self.root / taskbook
+        book.parent.mkdir(parents=True)
+        book.write_text(research_taskbook.render_taskbook({"task_id": "RS-TEST"}, "Control fixture only."))
+        publication = {"task_id": "RS-TEST", "publication_id": "TP2-TEST", "taskbook_path": taskbook}
+        pub_path = self.root / "research_task_records/RS-TEST/TP2-TEST.json"
+        pub_path.parent.mkdir(parents=True)
+        pub_path.write_text(json.dumps(publication))
+        self.publish_fixture(taskbook, pub_path.relative_to(self.root).as_posix())
+        runtime = {"task_id": "RS-TEST", "state": "FROZEN_RETURN", "dispatch_state": "AWAITING_REVIEW",
+                   "next_action": "Resolve PR #123 then review", "last_progress_ref": "PR #123"}
+        with mock.patch.object(continuation, "_definition", return_value=self.task), mock.patch.object(research_task_records, "current_records", return_value={"RS-TEST": publication}), mock.patch.object(research_dispatch, "reduce_definition", return_value=runtime), mock.patch.object(research_result_records, "task_result_state", return_value=None):
+            packet = continuation.continuation_packet("RS-TEST", root=self.root, events=[], now=NOW, source_commit=SOURCE)
+            self.assertEqual("FROZEN_RETURN", packet["runtime"]["state"])
+            self.assertEqual("LEGACY_BRANCH_RESULT_INTAKE_REQUIRED", packet["route"]["action"])
+            self.assertEqual("NEEDS_EXACT_SOURCE_LOOKUP", packet["legacy_result_intake"]["candidate_status"])
+            self.assertFalse(packet["legacy_result_intake"]["research_reclaim_allowed"])
+            runtime["last_progress_ref"] = f"https://github.com/awdawmip/enterprise-math/blob/{SOURCE}/research_result_records/RS-TEST/RR-OLD.json"
+            exact = continuation.continuation_packet("RS-TEST", root=self.root, events=[], now=NOW, source_commit=SOURCE)
+            self.assertEqual("EXACT_FROZEN_RESULT_CANDIDATE_PENDING_READBACK", exact["legacy_result_intake"]["candidate_status"])
+            self.assertFalse(exact["legacy_result_intake"]["native_review_ready"])
+
+    def test_explicit_file_commit_is_candidate_but_branch_or_blob_is_only_hint(self):
+        candidate = continuation._fixed_source_candidate(f"research_returns/return.md@{SOURCE}", "CURRENT_TASKBOOK_DECLARED_INPUT")
+        self.assertEqual("research_returns/return.md", candidate["path"])
+        self.assertEqual(SOURCE, candidate["source_commit"])
+        self.assertEqual("PENDING_IMMUTABLE_READBACK", candidate["verification"])
+        self.assertIsNone(continuation._fixed_source_candidate(f"research/some-branch@{SOURCE}", "hint"))
+        self.assertIsNone(continuation._fixed_source_candidate(f"research_returns/return.md@blob:{SOURCE}", "hint"))
+
     def test_path_traversal_cannot_become_verified_frontier(self):
         with self.assertRaises(continuation.ContinuationError):
             continuation.artifact_pin(self.root, "../outside", SOURCE)

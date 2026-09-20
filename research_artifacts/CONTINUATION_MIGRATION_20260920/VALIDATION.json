@@ -1,0 +1,52 @@
+{
+  "schema": "ENTERPRISE_MATH_CONTINUATION_VALIDATION_V1",
+  "classification": "CONTROL_CONTINUITY_ONLY_NO_MATHEMATICAL_ACCEPTANCE",
+  "data_source_commit": "602d0e78fa6f44431065bb54ebc7f89695eaace5",
+  "authenticated_server_comments": 860,
+  "root_final_regression": {
+    "passed": 187,
+    "subtests_passed": 84,
+    "elapsed_seconds": 24.4,
+    "interpreter": "Python 3.13",
+    "scope": "18 targeted control, identity, continuation, architecture, source-firewall and dispatch test files"
+  },
+  "native_core_fixtures": {
+    "research_freeze_first_review_followup": "PASS",
+    "governance_driver_no_researcher_activity_claim_checkpoint_handoff": "PASS",
+    "scope": "isolated synthetic control inputs; real native CLI programs; no remote research writes"
+  },
+  "checks": {
+    "current_control_authority": "PASS",
+    "semantic_migration_registry": "PASS",
+    "semantic_migration_authority": "PASS",
+    "control_pointer_python_consumers": "PASS",
+    "reference_registry": "PASS: 67 sources / 30 lineage components",
+    "bilingual_pairs": "PASS: 131 pairs",
+    "git_diff_check": "PASS"
+  },
+  "preservation": {
+    "existing_protected_files": 1884,
+    "main_legacy_records": 364,
+    "exact_preexisting_T6_files": 35,
+    "legacy_cutover_records": 365,
+    "new_mathematical_acceptances": 0
+  },
+  "inventory": {
+    "total": 289,
+    "counts": {
+      "NEEDS_DISPATCH": 103,
+      "AWAITING_REVIEW": 53,
+      "BLOCKED": 25,
+      "DORMANT": 20,
+      "COMPLETE": 88
+    },
+    "elapsed_seconds": 279.42,
+    "current_generation_legacy_intake_required": 16
+  },
+  "limitations": [
+    "No blanket whole-repository test-suite PASS is claimed.",
+    "Native cohort/lane continuation remains isolated behind its dedicated adapter.",
+    "16 other legacy frozen branch returns require verified Source intake before native review.",
+    "MCP transport/deployment acceptance is recorded in the MCP release receipts, not inferred from these Source tests."
+  ]
+}

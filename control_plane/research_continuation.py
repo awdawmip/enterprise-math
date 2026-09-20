@@ -331,12 +331,15 @@ def authorize_executor_role(task_id: str, *, executor_id: str, session_id: str,
     return {"executor_role": "RESEARCHER", "mathematical_acceptance_granted": False}
 
 
-def _route(state: Mapping[str, Any]) -> dict[str, Any]:
+def _route(state: Mapping[str, Any], *, result_available: bool | None = None) -> dict[str, Any]:
     dispatch = state.get("dispatch_state")
     if dispatch == "COMPLETE":
         role, action = "NONE", "CONSUME_COMPLETED_RECORDS"
     elif dispatch == "AWAITING_REVIEW":
-        role, action = "RESEARCH_DRIVER", "ACTIVATE_NEW_DRIVER_AND_REVIEW_FROZEN_RESULT"
+        if result_available is False:
+            role, action = "CONTROL_PLANE_MAINTENANCE", "LEGACY_BRANCH_RESULT_INTAKE_REQUIRED"
+        else:
+            role, action = "RESEARCH_DRIVER", "ACTIVATE_NEW_DRIVER_AND_REVIEW_FROZEN_RESULT"
     elif dispatch == "LEASED":
         role, action = "RESEARCHER", "VERIFY_LIVENESS_THEN_PREPARE_EXPLICIT_TAKEOVER"
     elif dispatch == "NEEDS_DISPATCH":
@@ -356,9 +359,10 @@ def _route(state: Mapping[str, Any]) -> dict[str, Any]:
 def inventory_projection(*, root: Path, events: list[dict[str, Any]], now: datetime,
                          source_commit: str) -> dict[str, Any]:
     """Internal one-pass projection for service-owned snapshot pagination."""
-    from tools import research_dispatch
+    from tools import research_dispatch, research_result_records
     verify_source_snapshot(root, source_commit)
     states = research_dispatch.effective_states(events, now=now, root=root)
+    result_scopes = {(row.get("task_id"), row.get("publication_id")) for row in research_result_records.iter_results(root)}
     counts = dict(sorted(Counter(row.get("dispatch_state", "UNKNOWN") for row in states).items()))
     version = hashlib.sha256(json.dumps({"source_commit": source_commit, "events": events,
         "states": [{k: row.get(k) for k in ("task_id", "publication_id", "state", "dispatch_state", "claim_id", "lease_until")}
@@ -366,7 +370,9 @@ def inventory_projection(*, root: Path, events: list[dict[str, Any]], now: datet
     keys = ("task_id", "publication_id", "title", "kind", "state", "dispatch_state", "priority", "claim_id", "researcher_id", "lease_until", "next_action")
     return {"schema": "ENTERPRISE_MATH_CONTINUATION_INVENTORY_V1", "source_commit": source_commit,
             "observed_at": now.isoformat(), "counts": counts, "total": len(states), "snapshot_version": version,
-            "tasks": [{**{key: row.get(key) for key in keys}, "continuation": _route(row)} for row in sorted(states, key=lambda row: row["task_id"])],
+            "tasks": [{**{key: row.get(key) for key in keys},
+                       "continuation": _route(row, result_available=(row["task_id"], row.get("publication_id")) in result_scopes)}
+                      for row in sorted(states, key=lambda row: row["task_id"])],
             "execution_authorized": False}
 
 
@@ -452,6 +458,12 @@ def _fixed_source_candidate(ref: Any, provenance: str) -> dict[str, Any] | None:
         match = re.fullmatch(r"/awdawmip/enterprise-math/blob/([0-9a-f]{40})/(.+)", url.path)
         if url.scheme == "https" and url.netloc == "github.com" and match:
             commit, path = match[1], unquote(match[2])
+        else:
+            pinned_file = re.fullmatch(r"([^\s@]+)@([0-9a-f]{40})", ref)
+            if pinned_file and PurePosixPath(pinned_file[1]).suffix:
+                # Repository taskbooks also use explicit file@commit notation.
+                # Branch-only labels and @blob: identities remain lookup hints.
+                path, commit = pinned_file[1], pinned_file[2]
     if not isinstance(commit, str) or not HEX40.fullmatch(commit) or not _text(path):
         return None
     if PurePosixPath(path).is_absolute() or set(PurePosixPath(path).parts) & {"..", ".git"} or "\\" in path:
@@ -508,6 +520,7 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
             else:
                 unresolved_refs.append(ref)
     result_state = research_result_records.task_result_state(task_id, root, record["publication_id"])
+    result_available = result_state is not None
     if isinstance(result_state, dict) and not restricted:
         result = result_state.get("result")
         if isinstance(result, dict):
@@ -544,6 +557,16 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
         state["next_action"] = "Follow the exact task source firewall before inspecting predecessor evidence."
         unresolved_refs = []
         result_state = {"state": result_state.get("state"), "evidence": "WITHHELD_BY_SOURCE_FIREWALL"} if isinstance(result_state, dict) else None
+    intake = None
+    if state.get("dispatch_state") == "AWAITING_REVIEW" and not result_available:
+        frozen_records = [pin for pin in external if pin["path"].startswith(f"research_result_records/{task_id}/") and pin["path"].endswith(".json")]
+        intake = {"state": "LEGACY_BRANCH_RESULT_INTAKE_REQUIRED", "protocol": "docs/LEGACY_BRANCH_RESULT_INTAKE.md",
+                  "native_review_ready": False, "research_reclaim_allowed": False,
+                  "candidate_status": "EXACT_FROZEN_RESULT_CANDIDATE_PENDING_READBACK" if frozen_records else "NEEDS_EXACT_SOURCE_LOOKUP",
+                  "frozen_result_candidates": frozen_records,
+                  "lookup_hints": [] if restricted else [value for value in [state.get("last_progress_ref"), state.get("next_action"), *unresolved_refs] if value],
+                  "next_action": "Verify the exact historical branch Result and its bound files; perform bytes-preserving canonical intake under the linked protocol before native Driver review.",
+                  "requires_predecessor_contact": False, "mathematical_acceptance_granted": False}
     readiness = {"state": "NO_LIVE_CLAIM", "retry_after": None}
     if state.get("claim_id"):
         from tools.research_runtime_reducer import parse_time
@@ -553,10 +576,11 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
                      "activity_barrier_is_not_independent_session_liveness_proof": True}
     return {"schema": "ENTERPRISE_MATH_CONTINUATION_PACKET_V1", "source_commit": source_commit,
             "observed_at": now.isoformat(), "task_id": task_id, "publication_id": record["publication_id"],
-            "task": copy.deepcopy(record), "runtime": state, "route": _route(state),
+            "task": copy.deepcopy(record), "runtime": state, "route": _route(state, result_available=result_available),
             "source_artifacts": pins, "artifact_errors": artifact_errors,
             "immutable_external_artifact_candidates": external,
             "takeover_readiness": readiness,
+            "legacy_result_intake": intake,
             "persisted_checkpoint": persisted_checkpoint,
             "source_access_policy": {"blind_firewall_active": firewall is not None, "restricted": restricted,
                                      "verified_driver_review_view": driver_view, "withheld_declared_input_count": withheld_count},

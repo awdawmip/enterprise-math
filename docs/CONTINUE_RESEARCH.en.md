@@ -18,6 +18,8 @@ Read the task and allowed evidence through `em_control_artifact`. Control-main a
 
 Historical identities and authors remain provenance. The disappearance of an actor does not solve a mathematical obstacle or authorize borrowing its identity.
 
+Some historical frozen returns still live only on old branches. If the packet returns `LEGACY_BRANCH_RESULT_INTAKE_REQUIRED`, use the authorized GitHub connection and the [legacy intake protocol](LEGACY_BRANCH_RESULT_INTAKE.md) to locate, verify and preserve the original bytes before native MCP review. PR/branch hints still need actual source lookup. Never fabricate a Result or redispatch frozen research.
+
 ## 2. Register this execution session
 
 Start your own RESEARCHER or RESEARCH_DRIVER session with `em_session_start`. This creates and verifies a real Source-backed service execution session, not a platform-attested chat identity. Keep its opaque capability private. Use a new unique request ID for a new execution; retries of an existing issuance require its original capability. Public session/RA records do not prove key possession. Losing the first response permits a fresh unclaimed session, not recovery of another session's key through a common request name.
@@ -41,3 +43,5 @@ Governance tasks use a real Driver session and DA, not a fabricated researcher a
 ## Preserved boundaries
 
 P000, FREE information barriers, exact task scope, author/independent-review distinctions and Working Truth/Foundation/promotion gates remain unchanged. New identity is not evidence of independence. Pre-cutover RR/DR bytes keep their original audits; prospective records need payload-bound current-write authorization. See the [protocol](RESEARCH_CONTINUATION_PROTOCOL.md) and [Chinese guide](CONTINUE_RESEARCH.zh-CN.md).
+
+The current MCP successor interface handles task-global CLAIMs. If a packet returns `SUPPORTED_NATIVE_LANE_ADAPTER_REQUIRED`, preserve the existing cohort/lane authority and use its native dedicated adapter; never substitute the global task interface.

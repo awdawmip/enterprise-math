@@ -22,6 +22,8 @@
 
 原角色 ID、署名和来源保留为历史。新对话不能借用旧身份，也不能因为旧人不在就把阻塞任务改为已解决。
 
+部分历史冻结结果仍在旧分支。若接续包返回 `LEGACY_BRANCH_RESULT_INTAKE_REQUIRED`，先按 [旧分支结果接入协议](LEGACY_BRANCH_RESULT_INTAKE.md) 使用已授权 GitHub 连接，定位、核验并接入原始字节，再进入 MCP 原生审阅。仅有 PR／分支提示时仍需查证；不能制造结果记录，也不能重新派发已经冻结的研究。
+
 ## 2. 登记本次执行会话
 
 调用 `em_session_start`，显式选择 RESEARCHER 或 RESEARCH_DRIVER，必要时指定任务和既有贡献身份。每次新的执行使用新的唯一 request_id；同一操作的重试才复用该 ID。
@@ -55,3 +57,5 @@ MCP 生成真实的服务执行会话和角色 ID，并通过规范工具发布 
 P000、FREE 信息隔离、作者与验证者区分、任务数学范围、Working Truth／Foundation／晋升门禁全部保留。新 ID 不证明独立性，接续包和文件哈希不证明数学正确。历史 RR/DR 保持原字节和原审计；切换后的新记录需要规范写入授权回执，旧客户端无回执或已失权的写入不能改变规范任务状态。
 
 精确合同见 [续接协议](RESEARCH_CONTINUATION_PROTOCOL.md)、`control_plane/executor_succession_policy.json` 和 `control_plane/current_control_authority.json`。
+
+当前 MCP 接管接口覆盖任务级 CLAIM。若包返回 `SUPPORTED_NATIVE_LANE_ADAPTER_REQUIRED`，保留现有 cohort/lane 权限并按其原生专用入口操作，不能用全局任务接口替代。

@@ -22,6 +22,8 @@ The old T6 Result had an actual frozen-return HANDOFF but its evidence remained 
 
 T6 remains awaiting independent Driver review with `PARTIAL_PROGRESS_GLOBAL_T6_OPEN_P19_AND_P17_Q0_EXCLUDED`. Global T6 remains OPEN. Its next frontier is preserved as evidence, not automatically started. RB's completed bounded task stays complete; its broader unresolved mathematics remains open. JT2 recovery uses its current canonical task route and evidence, not the vanished worker's private state.
 
+The final full projection used 860 actual server comments and saved all 289 task metadata rows, retaining the same state counts (279.42 seconds on the validation host). It identified 16 other frozen tasks with no operational Result for their current publication on main. Their current action is `LEGACY_BRANCH_RESULT_INTAKE_REQUIRED`, with actual immutable candidates or explicitly unresolved lookup hints. Their frozen state is preserved. An authorized successor uses `docs/LEGACY_BRANCH_RESULT_INTAKE.md` through the connected GitHub transport, then performs native review; no original private actor is required. This migration does not falsely count those 16 scientific packages as already integrated or reviewed.
+
 The source was refreshed to `602d0e78fa6f44431065bb54ebc7f89695eaace5`: all 7,501 files and the exact tree/commit were verified. The intervening 24 changed paths are preserved; they contain no new RR/DR. The legacy cutover contains the 364 existing main records plus the one explicitly proved pre-existing T6 branch Result.
 
 ## Verification boundaries
