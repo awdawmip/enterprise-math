@@ -1,0 +1,83 @@
+{
+  "schema": "INTEGER_RESIDUAL_MIGRATION05_VALIDATION_V1",
+  "status": "CANDIDATE_CALLER_AND_PACKAGE_BOUNDARY_VALIDATED_NATIVE_BROWSER_NAVIGATION_PENDING",
+  "repository": "awdawmip/enterprise-math",
+  "branch": "research/integer-residual-m01-angular-20260919-4a5102",
+  "baseline_commit": "24bb277a16f4085d0259e7232575583d7dfb5ba5",
+  "code_commit": "22fb015d1a6cfb187315e7e998aa42f101cfa135",
+  "researcher_id": "EM-DIRECT-4A5102",
+  "activity_id": "RA-1094DE57986E6E3FDCEA65DA",
+  "change": {
+    "actual_caller": "multiplication_lab.py::build_lab_site gallery iframe controller",
+    "contract": "await child NumberFieldLab.preset Promise before READY; generation token makes latest selection authoritative",
+    "states": [
+      "LOADING",
+      "COMPUTING",
+      "READY",
+      "FAILED"
+    ],
+    "default_changed": false,
+    "arithmetic_kernel_changed": false
+  },
+  "tests": {
+    "numerical_html": 78,
+    "numerical_failures": 0,
+    "numerical_errors": 0,
+    "numerical_skips": 0,
+    "m04_workbench_dom_regression": 69,
+    "m04_dom_page_errors": 0,
+    "m05_gallery_async_dom": 8,
+    "m05_gallery_page_errors": 0,
+    "package_boundary_checks": 10,
+    "exact_policy_exit": 0,
+    "chromium_version": "144.0.7559.96"
+  },
+  "clean_replay": {
+    "baseline": "M04 delivery bundle",
+    "patch_applied": true,
+    "numerical_html": 78,
+    "m04_dom": 69,
+    "m05_gallery_dom": 8,
+    "package_checks": 10,
+    "modified_and_fixture_files_byte_equal": 10,
+    "patch_sha256": "18bd1f5ec86f7d0e17a30426e845ae709ce99c1de014c19ff7dec3f76871d26d"
+  },
+  "remote_code_blobs": {
+    "tools/nollm_visual_toolkit/nollm_visual_toolkit/multiplication_lab.py": "512f3097af70214b3adf41b1ff1b7baf016a36f6",
+    "tools/nollm_visual_toolkit/tests/test_multiplication_lab.py": "c3aa1777a330a01eca4c25998ab332b3f1b275f1",
+    "tools/run_migration05.py": "417f98c570056153cdfb12e8e13bbd597200271d",
+    "tools/test_migration05_gallery_dom.py": "2d3a8b6f7cd058cb9cfe039dc182c6616c952dfb",
+    "tools/test_migration05_package.py": "7aab2b3ea215ac989fc60997254ef4913ba78d6e"
+  },
+  "evidence_sha256": {
+    "evidence/migration05/numerical_package.json": "37ee0d958823fa213f3ac335402226f1e348d1cb1ad6c0a5aad00c2a0dc95f56",
+    "evidence/migration05/package_validation.json": "2faceda482ba3508982b389859730a4d1d582dcc7b751afb71616645a1312936",
+    "evidence/migration05/gallery_dom_validation.json": "6a76c0a68659d3320103f1e10d933fbd0acb76b57d6a565b77bb20d33ae75a4c",
+    "evidence/migration05/remote_package_manifest.json": "cec1d58a92665f52df3290e74eaf8c70c336ef9285aa706194037ed70779406c",
+    "evidence/migration04/dom_validation.json": "63e2b7a3043a5e1d6b62b05f993775df90f31580ecaa6443fcedc2de31d79cd7"
+  },
+  "package_boundary": {
+    "fixture_source_ref": "24bb277a16f4085d0259e7232575583d7dfb5ba5",
+    "unchanged_blob_checks": {
+      "__init__.py": "145a2ae4e8dae0b7ff5dc5101502385d3942cfb9",
+      "__main__.py": "f80885ff53d1a377e5706cda81e21a93eea24c5e",
+      "web.py": "331007287f69b8b1411a92acdf449f4321129a87",
+      "pyproject.toml": "5bb34f73970387d680673c409ccf2ea8d8365eb5"
+    },
+    "local_http_readback": "PYTHON_URLLIB_200_NO_STORE",
+    "full_wheel_or_package_data": "NOT_VALIDATED"
+  },
+  "boundaries": {
+    "geometry": "POLAR_A2_OBSERVER_NOT_NATIVE_X6",
+    "native_browser_navigation": "KNOWN_ADMIN_BLOCK_FROM_M04_NOT_RETRIED",
+    "gallery_dom": "SET_CONTENT_WITH_REAL_SRCDOC_CHILD",
+    "native_browser_webcrypto": "NOT_VALIDATED",
+    "saved_file_navigation": "NOT_VALIDATED",
+    "safari_ios": "NOT_VALIDATED",
+    "whole_repository_regression": "NOT_VALIDATED",
+    "independent_review": "NOT_VALIDATED",
+    "main_code_integrated": false,
+    "new_hosted_automation": false
+  },
+  "next": "audit remaining Promise/save/export/reopen callers; keep default switch separate and do not bypass native-navigation policy"
+}
