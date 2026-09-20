@@ -1,0 +1,76 @@
+{
+  "schema": "INTEGER_RESIDUAL_MIGRATION07_VALIDATION_V1",
+  "status": "CANDIDATE_EXACT_TEXTUAL_CLI_MACHINE_OUTPUT_VALIDATED_SOURCE_SLICE",
+  "repository": "awdawmip/enterprise-math",
+  "branch": "research/integer-residual-m01-angular-20260919-4a5102",
+  "baseline_commit": "9be970404cc12c82b26431415a837820f74289ad",
+  "code_commit": "5c401f57d519caf9bda8e2156b9899e2b3168fed",
+  "researcher_id": "EM-DIRECT-4A5102",
+  "activity_id": "RA-1094DE57986E6E3FDCEA65DA",
+  "implementation": {
+    "actual_caller": "multiplicative.py::main CLI",
+    "legacy_display_scale": "--scale float remains display-only",
+    "exact_cell_scale": "--cell-scale textual integer/fraction/decimal; no float construction or reverse inference",
+    "decimal_provenance_example": "0.50 -> numerator 50 denominator 100",
+    "fraction_provenance_example": "2/2 remains 2/2",
+    "precision": "--cell-bits and --cell-max-bits are separate exact integer budgets in 8..512",
+    "legacy_report_schema": "NOLLM_MULTIPLICATIVE_REPORT_V1 unchanged without --cell-scale",
+    "exact_report_schema": "NOLLM_MULTIPLICATIVE_REPORT_V2",
+    "exact_machine_outputs": ["--report", "--hex-data"],
+    "preview_policy": "--preview with --cell-scale rejected until browser workbench migration",
+    "failure_atomicity": "exact field and requested hex exportability are validated before any artifact write",
+    "unresolved_report": "report-only may preserve UNRESOLVED_BOUNDARY; hex export refuses guessed cells"
+  },
+  "tests": {
+    "total": 45,
+    "m06_regression": 35,
+    "new_cli": 10,
+    "failures": 0,
+    "errors": 0,
+    "source_slice_skips": 1,
+    "skip_reason": "unchanged multiplicative_lab.html package data absent from delivery slice",
+    "test_run_sha256": "9896f78f10b5938bfbf26ed09b8cf7683a6498ebec4cb6d3bec27dd934235aae"
+  },
+  "m06_finite_recheck": {
+    "matrix_4096_all_certified": true,
+    "matrix_4096_all_aggregate_match": true,
+    "full_65536_valuation_scale_1_aggregate_match": true,
+    "full_65536_individual_cell_difference_count": 0,
+    "tie_policy_certified_ties": 1080,
+    "tie_policy_base_vs_legacy_differences": 504,
+    "conclusion_changed": false
+  },
+  "remote_code_blobs": {
+    "multiplicative.py": "726546da96786e120a7b94233f382d6bbcf37162",
+    "test_multiplicative_cli_exact.py": "4066184fa32fa5d06855240d4abc7cb2335fb976",
+    "run_migration07.py": "8e7c8e1ab936a747e13cdabedac87aa7149306fe"
+  },
+  "sha256": {
+    "multiplicative.py": "d62519fd1fcb115206e2eee87d5c51512a0802176bcf20b5e971a8d009de9ab1",
+    "test_multiplicative_cli_exact.py": "e0b4d425206f65676d4f52c3431294d1ca353bbef64ac037b3192a32521aea08",
+    "run_migration07.py": "37f88604c2fd2780b549313ffe9b8d10d8286f6b804edf36131e30cd4f96abfb",
+    "code_patch": "130b84602970498d4c847203ffafecd3e4666c111fd58fc0d574edb26dd76311"
+  },
+  "clean_replay": {
+    "baseline_bundle": "integer_residual_migration06_20260920.bundle",
+    "patch_applied": true,
+    "tests": 45,
+    "failures": 0,
+    "errors": 0,
+    "expected_source_slice_skip": 1,
+    "test_run_byte_equal": true,
+    "modified_files_byte_equal": true
+  },
+  "boundaries": {
+    "geometry": "DECLARED_POLAR_A2_OBSERVER_NOT_NATIVE_X6",
+    "generated_html": "LEGACY_FLOAT_BROWSER_OBSERVER",
+    "browser_exact_scale": false,
+    "default_changed": false,
+    "full_checkout_template_test": false,
+    "whole_repository_regression": false,
+    "independent_review": false,
+    "main_code_integrated": false,
+    "new_hosted_automation": false
+  },
+  "next": "migrate multiplicative_lab.html/browser caller to exact textual scale and certified browser cells while preserving the older module's axial lexicographic tie semantics"
+}
