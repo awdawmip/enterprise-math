@@ -367,6 +367,7 @@ def adopt_stale_session(
     evidence: Mapping[str, Any],
     *,
     replacement_session_id: str,
+    replacement_executor_id: str | None = None,
     now: datetime,
     session_liveness_minutes: int = DEFAULT_SESSION_LIVENESS_MINUTES,
 ) -> dict[str, Any]:
@@ -377,6 +378,10 @@ def adopt_stale_session(
         raise RuntimeStateError("missing adoption evidence: " + ", ".join(missing))
     if not replacement_session_id.strip():
         raise RuntimeStateError("replacement_session_id is required")
+    if replacement_executor_id is not None and (
+        not isinstance(replacement_executor_id, str) or not replacement_executor_id.strip()
+    ):
+        raise RuntimeStateError("replacement_executor_id must be null or a non-empty string")
     session_view = classify_session(
         state["owner_claim"],
         state["session"],
@@ -388,6 +393,12 @@ def adopt_stale_session(
 
     task = state["task"]
     claim = state["owner_claim"]
+    claim_origin_researcher_id = claim.get("researcher_id")
+    active_executor_id = (
+        replacement_executor_id.strip()
+        if isinstance(replacement_executor_id, str)
+        else claim_origin_researcher_id
+    )
     frontier = state["durable_frontier"]
     _match(evidence, task.get("taskbook_source"), "taskbook_source")
     _match(evidence, task.get("owner_branch"), "owner_branch")
@@ -414,6 +425,8 @@ def adopt_stale_session(
     updated["session"] = {
         **dict(updated["session"]),
         "session_id": replacement_session_id,
+        "executor_id": active_executor_id,
+        "claim_origin_researcher_id": claim_origin_researcher_id,
         "last_activity_at": iso(now),
         "state": SESSION_ACTIVE,
         "adopted_from_stale_session": True,
@@ -431,6 +444,10 @@ def adopt_stale_session(
         "claim_reissued": False,
         "owner_claim_preserved": True,
         "researcher_id_preserved": True,
+        "claim_origin_identity_preserved_as_provenance": True,
+        "active_executor_id": active_executor_id,
+        "executor_changed": active_executor_id != claim_origin_researcher_id,
+        "same_identity_required": False,
         "completed_units_replayed": False,
         "resume_unit": updated.get("current_unfinished_unit"),
         "required_action": (
@@ -497,6 +514,7 @@ def main() -> int:
     _add_state_source(adopt)
     adopt.add_argument("--evidence-json", required=True)
     adopt.add_argument("--replacement-session-id", required=True)
+    adopt.add_argument("--replacement-executor-id")
     adopt.add_argument("--now", required=True)
     adopt.add_argument("--session-liveness-minutes", type=int, default=DEFAULT_SESSION_LIVENESS_MINUTES)
 
@@ -535,6 +553,7 @@ def main() -> int:
                 state,
                 evidence,
                 replacement_session_id=args.replacement_session_id,
+                replacement_executor_id=args.replacement_executor_id,
                 now=parse_time(args.now),
                 session_liveness_minutes=args.session_liveness_minutes,
             )
