@@ -10,7 +10,7 @@ SCRIPT = r'''
 // NOLLM_CERTIFIED_HEX_BIGINT_PORT_V1
 const NollmCertifiedHex = (() => {
   'use strict';
-  const M=65536n, TIE='HALF_TOWARD_POSITIVE_INFINITY_THEN_MAX_ERROR_Q_R_S';
+  const M=65536n, TIE='HALF_TOWARD_POSITIVE_INFINITY_THEN_MAX_ERROR_Q_R_S', LEX_TIE='MINIMUM_EUCLIDEAN_DISTANCE_THEN_AXIAL_LEXICOGRAPHIC';
   const abs=x=>x<0n?-x:x, min=(a,b)=>a<b?a:b, max=(a,b)=>a>b?a:b;
   const sign=x=>x<0n?-1n:x>0n?1n:0n;
   function integer(value, name='integer') {
@@ -130,6 +130,47 @@ const NollmCertifiedHex = (() => {
       b=min(2n*b,maximum);
     }
   }
+  function lexLess(a,b){return a[0]<b[0]||(a[0]===b[0]&&a[1]<b[1]);}
+  function adaptLexicographicCell(base) {
+    let cell=base.cell;
+    if(base.status==='CERTIFIED_TIE'&&cell!==null){
+      const proof=base.rounding_certificate,q0=BigInt(cell[0]),r0=BigInt(cell[1]);
+      const keys=new Map();
+      for(const [dq,dr] of [[0n,0n],[1n,0n],[-1n,0n],[0n,1n],[0n,-1n],[1n,-1n],[-1n,1n]]){const q=q0+dq,r=r0+dr;keys.set(String(q)+','+String(r),[q,r]);}
+      const candidates=[...keys.values()].sort((a,b)=>lexLess(a,b)?-1:lexLess(b,a)?1:0);
+      let best=candidates[0];
+      if(proof.kind==='RATIONAL_AXIAL_CELL_CERTIFICATE'){
+        const [qn,rn]=proof.source_numerators.slice(0,2).map(BigInt),d=BigInt(proof.denominator);
+        const dist=([q,r])=>{const dq=qn-q*d,dr=rn-r*d;return dq*dq+dq*dr+dr*dr;};
+        let bd=dist(best);for(const c of candidates.slice(1)){const cd=dist(c);if(cd<bd||(cd===bd&&lexLess(c,best))){best=c;bd=cd;}}
+      } else if(proof.kind==='SHARED_RADICAL_AXIAL_CELL_CERTIFICATE'){
+        const n=BigInt(proof.radicand_numerator),d=BigInt(proof.radicand_denominator),[cq,cr]=proof.source_coefficients.slice(0,2).map(BigInt);
+        const bc=([q,r])=>[-2n*cq*q-cq*r-cr*q-2n*cr*r,q*q+q*r+r*r];
+        const compare=(a,b)=>{const [aa,ab]=bc(a),[ba,bb]=bc(b);return linearRootSign(aa-ba,ab-bb,n,d);};
+        for(const c of candidates.slice(1)){const order=compare(c,best);if(order<0n||(order===0n&&lexLess(c,best)))best=c;}
+      } else throw new Error('unsupported exact tie certificate for lexicographic adapter');
+      cell=best.map(String);
+    }
+    return {schema:'NOLLM_MULTIPLICATIVE_CELL_CERTIFICATE_V1',status:base.status,cell,
+      tie_rule:LEX_TIE,base_certifier_tie_rule:base.tie_rule,base_certificate:base};
+  }
+  async function populationLexicographic(phi,sn,sd,options={}) {
+    if(options.includeCertificates!==undefined&&typeof options.includeCertificates!=='boolean')throw new TypeError('includeCertificates must be boolean');
+    const want=options.includeCertificates??false,onCell=options.onCell;
+    const base=await population(phi,sn,sd,{...options,includeCertificates:true,onCell:onCell?((rec,i)=>onCell(adaptLexicographicCell(rec),i)):undefined});
+    const certs=base.certificates.map(adaptLexicographicCell),counts=new Map(),unresolved=[],ties=[];
+    for(let i=0;i<certs.length;i++){const rec=certs[i];if(rec.cell===null)unresolved.push(String(i));else{const key=rec.cell.join(',');counts.set(key,(counts.get(key)??0n)+1n);if(rec.status==='CERTIFIED_TIE')ties.push(String(i));}}
+    const missing=BigInt(unresolved.length),total=BigInt(certs.length),occupied=BigInt(counts.size),complete=missing===0n,loads=[...counts.values()];
+    return {schema:'NOLLM_MULTIPLICATIVE_CERTIFIED_A2_POPULATION_V1',status:complete?'CERTIFIED_ALL':'UNRESOLVED_BOUNDARY',
+      population:base.population,certified_identities:base.certified_identities,phase_modulus:base.phase_modulus,
+      phase_source_sha256:base.phase_source_sha256,phase_source_encoding:base.phase_source_encoding,
+      unresolved_identities:unresolved,tie_identities:ties,occupied_cells:complete?String(occupied):null,
+      occupied_cells_bounds:[String(occupied),String(occupied+missing)],collision_groups:complete?String(loads.filter(x=>x>1n).length):null,
+      excess_identities_if_collapsed:complete?String(total-occupied):null,max_cell_load:complete?String(loads.reduce(max,0n)):null,
+      scale:base.scale,precision_counts:base.precision_counts,tie_rule:LEX_TIE,base_certifier_schema:base.schema,
+      base_certifier_tie_rule:base.tie_rule,certificates:want?certs:null,
+      scope:'CERTIFIED_A2_OBSERVER_ONLY; LEGACY_AXIAL_LEXICOGRAPHIC_TIE; NO_NATIVE_IDENTITY_COLLAPSE'};
+  }
   function parseScale(text) {
     // Original lexical source is retained. Never reconstruct a rational from Number.
     if(typeof text!=='string'||text.length>256)throw new TypeError('scale requires decimal or fraction text, at most 256 characters');
@@ -172,6 +213,6 @@ const NollmCertifiedHex = (() => {
     const loads=[...cellCounts.values()];
     return {schema:'NOLLM_CERTIFIED_POLAR_POPULATION_V1',status:complete?'CERTIFIED_ALL':'UNRESOLVED_BOUNDARY',population:String(total),certified_identities:String(total-missing),phase_modulus:String(M),phase_source_sha256:sha,phase_source_encoding:'COMPACT_UTF8_JSON_ARRAY_NULL_OR_DECIMAL_STRINGS',unresolved_identities:unresolved,tie_identities:ties,occupied_cells:complete?String(occupied):null,occupied_cells_bounds:[String(occupied),String(occupied+missing)],collision_groups:complete?String(loads.filter(x=>x>1n).length):null,excess_identities_if_collapsed:complete?String(total-occupied):null,max_cell_load:complete?String(loads.reduce(max,0n)):null,scale:{numerator:String(sources[0].sn),denominator:String(sources[0].sd)},precision_counts:Object.fromEntries(Object.entries(precision).map(([k,v])=>[k,String(v)])),tie_rule:TIE,certificates:options.includeCertificates?certs:null,scope:'CERTIFIED_A2_OBSERVER_ONLY; NO_NATIVE_IDENTITY_COLLAPSE'};
   }
-  return Object.freeze({Interval,rootRatioBound,phaseBounds,roundAxial,certifyBox,locate,population,parseScale,verifyCellRecord});
+  return Object.freeze({Interval,rootRatioBound,phaseBounds,roundAxial,certifyBox,locate,population,parseScale,verifyCellRecord,LEX_TIE,adaptLexicographicCell,populationLexicographic});
 })();
 '''
