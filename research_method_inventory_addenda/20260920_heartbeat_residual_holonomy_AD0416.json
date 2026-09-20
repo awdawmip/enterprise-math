@@ -10,7 +10,9 @@
       "family_id": "T9_HOLONOMY_COCOYCLE_GLUING",
       "related_families": [
         "T5_PRECISION_REFINEMENT",
-        "T0_BRC"
+        "T0_BRC",
+        "T6_OPERATION_SAFE_QUOTIENT",
+        "T8_RELATION_OBSERVABLE_SPECTRUM"
       ],
       "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
       "source_refs": [
@@ -49,7 +51,11 @@
         "phase_carry_spectra",
         "smith_p_depths",
         "smith_factor_ratio",
-        "smith_increment_trace"
+        "smith_increment_trace",
+        "eventual_control_cycle",
+        "control_cycle_monodromy",
+        "control_carry_spectrum",
+        "control_carry_spectra"
       ],
       "triggers": [
         "heartbeat monodromy",
@@ -67,7 +73,10 @@
         "Newton carry slope",
         "general axis mixing",
         "p-adic eigenvalue slope",
-        "carry balance"
+        "carry balance",
+        "state-dependent heartbeat",
+        "finite control carry spectrum",
+        "eventual control cycle"
       ],
       "capabilities": [
         "exact small-dimension integer monodromy",
@@ -81,7 +90,8 @@
         "exact Newton-polygon carry-slope spectrum for general nonsingular integer monodromy",
         "phase-invariant asymptotic carry slope diagnostic",
         "general bounded-versus-linear p-adic Smith-depth drift criterion",
-        "finite Smith growth-ratio trace for diagnosing entry into an eventual affine-periodic carry regime"
+        "finite Smith growth-ratio trace for diagnosing entry into an eventual affine-periodic carry regime",
+        "exact asymptotic carry-slope assignment for finite deterministic state-dependent integer heartbeats"
       ],
       "reuse_resolution": {
         "state": "COMPOSE_APPLIED / CAPABILITY_GAP_CONFIRMED / DOMAIN_OPERATOR",

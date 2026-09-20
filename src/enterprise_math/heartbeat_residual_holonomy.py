@@ -476,3 +476,63 @@ def smith_increment_trace(matrix, start: int, count: int, *, step=1) -> tuple[tu
         raise ValueError("start>=1 and count>=0 integers required")
     return tuple(smith_factor_ratio(matrix, start + j * step, step=step)
                  for j in range(count))
+
+
+def _transition_map(transition) -> tuple[int, ...]:
+    transition = tuple(transition)
+    n = len(transition)
+    if n < 1 or any(type(t) is not int or not 0 <= t < n for t in transition):
+        raise ValueError("finite deterministic transition map required")
+    return transition
+
+
+def eventual_control_cycle(transition, start: int):
+    """Return (transient_states, recurrent_cycle) for a finite deterministic control."""
+    transition = _transition_map(transition)
+    if type(start) is not int or not 0 <= start < len(transition):
+        raise ValueError("start outside finite control layout")
+    seen = {}
+    order = []
+    state = start
+    while state not in seen:
+        seen[state] = len(order)
+        order.append(state)
+        state = transition[state]
+    cut = seen[state]
+    return tuple(order[:cut]), tuple(order[cut:])
+
+
+def control_cycle_monodromy(transition, effects, start: int) -> tuple[Matrix, tuple[int, ...]]:
+    """One recurrent-cycle monodromy reached from start.
+
+    effects[state] is the integer-linear X6 action applied while leaving that
+    control state. The returned cycle is listed in chronological order.
+    """
+    transition = _transition_map(transition)
+    effects = tuple(_matrix(effect) for effect in effects)
+    if len(effects) != len(transition):
+        raise ValueError("one integer-linear effect per control state required")
+    prefix, cycle = eventual_control_cycle(transition, start)
+    out = identity(len(effects[0]))
+    for state in cycle:
+        out = matmul(effects[state], out)
+    return out, cycle
+
+
+def control_carry_spectrum(transition, effects, prime: int, start: int) -> tuple[Fraction, ...]:
+    """Asymptotic p-primary Smith-depth slopes per heartbeat tick.
+
+    Finite transient history changes only bounded corrections. The recurrent
+    cycle monodromy determines the linear carry-growth rates.
+    """
+    monodromy_matrix, cycle = control_cycle_monodromy(transition, effects, start)
+    slopes = carry_slope_spectrum(monodromy_matrix, prime)
+    length = len(cycle)
+    return tuple(value / length for value in slopes)
+
+
+def control_carry_spectra(transition, effects, prime: int) -> tuple[tuple[Fraction, ...], ...]:
+    """Per-start asymptotic carry spectra for all states of a deterministic control."""
+    transition = _transition_map(transition)
+    return tuple(control_carry_spectrum(transition, effects, prime, start)
+                 for start in range(len(transition)))

@@ -265,6 +265,25 @@ def test_eventual_carry_controller_examples():
     return 18
 
 
+
+def test_finite_control_carry_cycles():
+    A2=((0,2),(1,0)); B2=((1,1),(1,-1))
+    A6=_blockdiag3(A2); B6=_blockdiag3(B2)
+    transition=(1,0,3,2,0)
+    effects=(A6,A6,A6,B6,h.identity(6))
+    spectra=h.control_carry_spectra(transition,effects,2)
+    balanced=(Fraction(1,2),)*6
+    unbalanced=(Fraction(0),)*3+(Fraction(1),)*3
+    assert spectra[0]==spectra[1]==spectra[4]==balanced
+    assert spectra[2]==spectra[3]==unbalanced
+    prefix,cycle=h.eventual_control_cycle(transition,4)
+    assert prefix==(4,) and cycle==(0,1)
+    M,cycle2=h.control_cycle_monodromy(transition,effects,2)
+    assert cycle2==(2,3)
+    assert h.carry_slope_spectrum(M,2)==(Fraction(0),)*3+(Fraction(2),)*3
+    return 5
+
+
 if __name__=='__main__':
     results={
       'phase_intertwining':test_phase_intertwining_random(),
@@ -279,5 +298,6 @@ if __name__=='__main__':
       'general_newton_carry_spectrum':test_general_newton_carry_spectrum(),
       'general_phase_carry_slope_invariance':test_general_phase_carry_slope_invariance(),
       'eventual_carry_controller_examples':test_eventual_carry_controller_examples(),
+      'finite_control_carry_cycles':test_finite_control_carry_cycles(),
     }
     print('PASS',results)

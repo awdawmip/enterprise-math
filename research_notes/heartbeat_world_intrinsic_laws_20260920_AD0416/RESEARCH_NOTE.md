@@ -405,8 +405,56 @@ branch count < carry-slope spectrum < current Smith group type < labeled residua
 
 不是全局等价链，而是按观察能力逐层增强的 BRC carrier 层级。
 
-## 18. 下一前沿
+## 18. 有限状态依赖心跳：最终周期 carry 律
+
+把固定周期程序再放宽一层。设有限控制状态集 S，每个状态 s 有：
+- 一个确定的下一控制状态 f(s)；
+- 一个非奇异整数 X6 线性作用 A_s。
+
+从任意初态出发，有限确定系统必经过有限 transient 后进入唯一循环
+
+C=(c_0,...,c_(L-1)).
+
+定义该循环的一圈 monodromy
+
+M_C=A_(c_(L-1))...A_(c_0).
+
+那么该轨迹的长期 p-primary Smith-depth 斜率（按每一拍归一）就是
+
+(1/L) * carry_slope_spectrum(M_C,p).
+
+理由：在足够晚的时刻，总作用可写成固定前缀/后缀乘以 M_C^q。对任意 exterior power，左右乘固定非奇异矩阵只会把 p-adic entrywise minimum / determinantal-divisor valuation 改变一个与 q 无关的常数，因此线性斜率不变。
+
+所以**长期 carry 记忆不依赖完整历史，只依赖最终进入哪个控制周期以及该周期的 monodromy。**
+
+这给 BRC 一个新的安全压缩层：
+- 若只观察长期 carry 斜率，可以把所有进入同一 carry-spectrum 周期的 transient 状态合并；
+- 若两个可达周期 carry spectrum 不同，则即使当前空间位置、总 determinant growth 或当前观察相同，也不能在该观察下合并；
+- 若要保留有限时刻 carry holonomy，仍需比最终 slope 更丰富的相位/Smith 状态。
+
+六轴精确例子：控制图有两个 2-cycle，外加一个 transient。
+第一周期使用 A,A，其中 A^2=2I，长期每拍 slopes 为 (1/2,...,1/2)；
+第二周期使用 A,B，其中 B^2=2I，但 BA 的 2-adic slopes 为 (0,0,0,2,2,2)，所以每拍归一后为 (0,0,0,1,1,1)。
+两个周期每拍的总 determinant valuation 相同，但 carry 分配完全不同。transient 状态只继承最终进入周期的 slope。
+
+新增接口 `eventual_control_cycle`、`control_cycle_monodromy`、`control_carry_spectrum`、`control_carry_spectra` 复用已有 T6 finite-control 语义；不是新的顶层工具族。
+
+## 19. 对分支控制的直接推论
+
+若控制不是确定的，而是 BRC 真分支，则一个起点可能到达多个 recurrent cycle。此时长期 carry 观察天然是一个**关系值/分支值的 slope spectrum family**，不能先平均后再决定是否平衡。
+
+因此状态依赖心跳形成一个清楚的层级：
+
+deterministic eventual cycle
+-> one carry-slope vector
+
+branching reachable cycles
+-> provenance-aware family of carry-slope vectors.
+
+把后者压成平均 slope 会丢失“部分分支稳定、部分分支漂移”的区别；是否允许这种压缩必须重新声明观察目标和未来操作。
+
+## 20. 下一前沿
 
 1. 当余数群发生 (Z/2)^2 <-> Z/4 型变化时，哪些 BRC 权重只依赖总 branch count，哪些必须依赖元素阶/进位层级？
 2. 能否以 p-primary Smith/valuation 数据替代完整余数枚举，并对声明的未来余数运算闭合？
-3. 固定线性 monodromy 已闭合到 eventual affine-periodic Smith controller；下一步研究状态依赖/非线性心跳的 cocycle carry spectrum，以及何时其有限修正仍可由有限控制器描述。
+3. 有限确定控制已经闭合到 eventual-cycle carry spectrum；下一步研究真正分支/随机 cocycle 的 slope family、极值增长率与 BRC 权重如何共同传播。

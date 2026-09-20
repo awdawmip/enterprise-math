@@ -83,6 +83,25 @@
     "eventual_carry_controller_examples": {
       "radix_growth_ratio_steps": 12,
       "unbalanced_growth_ratio_steps": 6
+    },
+    "finite_control_carry": {
+      "states": 5,
+      "cycles": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "transient_state": 4,
+      "expected_spectra": {
+        "states_0_1_4": "1/2 x6",
+        "states_2_3": "0 x3, 1 x3"
+      },
+      "exact_checks": 5
     }
   },
   "scope": "research validation only; no Foundation, fixed heartbeat program, physical-time calibration or production Nollm claim",
