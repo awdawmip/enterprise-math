@@ -1,0 +1,67 @@
+{
+  "schema": "ENTERPRISE_MATH_EXECUTOR_SUCCESSION_POLICY_V1",
+  "status": "ACTIVE_CANONICAL_CONTROL_ONLY",
+  "effective": "2026-09-20",
+  "classification": "CONTROL_FLOW_ONLY_NO_MATHEMATICAL_AUTHORITY",
+  "purpose": "Make task continuity depend on the durable task/claim execution slot rather than the continued existence of a particular chat agent identity.",
+  "continuity_authority": [
+    "CURRENT_IMMUTABLE_TASK_PUBLICATION",
+    "EXACT_CLAIM_ID_AND_EXECUTION_SCOPE",
+    "EXECUTION_BRANCH_AND_BASE",
+    "DURABLE_FRONTIER_AND_OUTPUTS",
+    "CURRENT_ROLE_AUTHORITY_REQUIRED_BY_THE_TASK"
+  ],
+  "identity_semantics": {
+    "claim_origin_researcher_or_driver_id": "IMMUTABLE_PROVENANCE",
+    "permanent_recovery_lock": false,
+    "active_session_executor": "SESSION_SCOPED_AND_MAY_DIFFER_AFTER_SUCCESSION",
+    "mass_rewrite_of_historical_claim_identity": false
+  },
+  "active_session_protection": {
+    "preemption_allowed": false,
+    "rule": "A verified active exact task/claim session remains authoritative. Different identities cannot borrow its activity or take over the slot."
+  },
+  "stale_or_lost_executor_recovery": {
+    "same_identity_required": false,
+    "new_claim_required_when_existing_claim_is_valid": false,
+    "required": [
+      "EXACT_TASK_PUBLICATION_AND_CLAIM_MATCH",
+      "EXACT_SESSION_IS_STALE_OR_OTHERWISE_CANONICALLY_RECOVERABLE",
+      "DURABLE_FRONTIER_RECONCILED_AND_VERIFIED",
+      "DESTINATION_EXECUTOR_HAS_CURRENT_ROLE_AUTHORITY",
+      "NO_REPLAY_OF_VERIFIED_COMPLETE_UNITS"
+    ],
+    "action": "ADOPT_EXISTING_CLAIM_AND_BIND_REPLACEMENT_SESSION_EXECUTOR",
+    "claim_origin_identity_after_adoption": "PRESERVE_AS_PROVENANCE"
+  },
+  "expired_or_absent_claim": {
+    "action": "USE_ORDINARY_FRESH_DISPATCH_AND_CREATE_ONE_NEW_CLAIM",
+    "task_restart_required": false,
+    "frontier_rule": "RECONCILE_DURABLE_FRONTIER_BEFORE_CONTINUING"
+  },
+  "assigned_routes": {
+    "are_recovery_prerequisite": false,
+    "role": "OPTIONAL_TARGETED_ROUTING",
+    "stale_recovery": "ORDINARY_RECOVER_BEFORE_FRESH_ROUTE_MAY_ADOPT_WITHOUT_REISSUING_PERSON_ASSIGNMENT",
+    "active_assignment_cannot_preempt_active_session": true
+  },
+  "role_boundary": {
+    "roles_are_capability_modes_not_personal_task_ownership": true,
+    "control_plane_self_grants_research_role": false,
+    "explicit_user_or_canonical_role_activation_still_required": true,
+    "theorem_review_foundation_and_working_truth_authority_unchanged": true
+  },
+  "migration": {
+    "existing_claims": "NO_BULK_REWRITE; NEW_SEMANTICS_APPLY_FORWARD",
+    "existing_researcher_id_driver_id": "RETAIN_AS_ORIGIN_PROVENANCE",
+    "existing_durable_frontiers": "PRESERVE_AND_VERIFY_ON_RECOVERY"
+  },
+  "invariants": [
+    "TASK_SLOT_SURVIVES_EXECUTOR_LOSS",
+    "CLAIM_ORIGIN_IDENTITY_IS_PROVENANCE_NOT_RECOVERY_LOCK",
+    "ACTIVE_SESSION_IS_NON_PREEMPTIBLE",
+    "STALE_SUCCESSOR_PRESERVES_EXACT_CLAIM_AND_FRONTIER",
+    "ROLE_AUTHORITY_REMAINS_REQUIRED",
+    "NO_SECOND_CLAIM_FOR_VALID_STALE_CLAIM"
+  ]
+}
