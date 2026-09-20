@@ -1,0 +1,48 @@
+# Heartbeat: nonquadratic sectors, high correlations and retained dynamic defects
+
+Event-ID: brc-heartbeat-interacting-sectors-20260920-6EF011
+Research-Activity-ID: RA-6EF011C2E75C4A799606AFEA
+Researcher-ID: EM-DIRECT-6EF011
+Status: RESEARCH_CANDIDATE; same-author proofs/checks, no independent review, Lean or admission.
+Source: enterprise-math@b087a9e71c395f5eaadcec957fb5dbd28cdd9ede; global@dee0b3105acae36307d22153c99be457802453a9.
+Standalone parent93c73bfb0ce2eb9a05ed19146764ab2d6b9fdd49. Residual-first and P000 unchanged.
+
+## Exact observer, not a Gaussian truncation
+
+Consider the declared finite autonomous model H=H_B+JX+Z B/2, B=sum gamma_i(n_i-e_i), with central qubit encoded in a fixed-one-particle pair of fermion modes. The coupling is quartic in fermion operators. The effective coupling to all bath modes is nonlocal and is not a free geometrically local implementation derived from P000. Bath sites in large examples use the unchanged native12r-edge loop. No resets or fresh bath copies after preparation.
+
+The exact operator-valued moments obey i hbar dot M_r=[JX,M_r]+[Z,M_(r+1)]/2+Tr_B([B^r,H_B]Omega). The last source is retained when nonzero, rather than renamed noise or discarded. If [H_B,B]=0, define positive subnormalized blocks Omega_b=Tr_B(P_b Omega P_b). Then rho_S(t)=sum_b U_b Omega_b U_b^dagger, U_b=exp[-it(JX+bZ/2)/hbar]. This holds for correlated initial states, but requires conditional2x2 blocks rather than replacing every block with its scalar weight times a common state. System-only future instruments preserve this algebra. Bath operations mixing sectors and arbitrary bath observables do not. Cross-sector coherence is observer-invisible, not nonexistent. Redrawing the bath sector at each measurement changes a same-bath trajectory; an exact witness gives P00_same-P00_redrawn=200704/4100625.
+
+For R distinct b, the polynomial product_b(x-b) annihilates B and closes the moment hierarchy. Closure does not require nilpotence or zero residual. Generic R may still be exponential. For uniform gamma, B observes total bath number, commuting with arbitrary number-conserving bath dynamics including density interactions and nonuniform loop flux. The bath may move internally while this observer remains closed.
+
+Independent bath occupations e=u/v yield K+1 exact integer-weight groups binom(K,m)u^m(v-u)^(K-m), denominator v^K. No small positive weight is cut. A one-site coupling defect gives at most2K initial-field groups, but requires the noncommutation certificate below, not a false exactness claim. The accessible many-body dimension is2^(K+1); the central pair has fixed total occupancy. Costs are polynomial in K, not log K, and charge all integer coefficients, denominators and sector evaluations.
+
+## Observable high-correlation and energy witnesses
+
+Baths A=(9,1,1,9)/20 and B=(1,9,9,1)/20 are full rank and have identical whole one-body covariance diag(1/2,1/2) and identical mean occupation. Their number fluctuations differ. With field n0+n1-1,J1/4,target excitation1/3, the target probability difference starts at t^4/720+O(t^6). At t4 it is0.1558076210868032; at t1/100 it is approximately1.3888819444604621e-11 with a120-bit outward interval excluding zero, independently checked at100 decimal digits. Local data and the first three derivatives coincide, yet future probabilities do not.
+
+Branch transfer is J^2/(J^2+b^2/4) sin^2[t sqrt(J^2+b^2/4)]. The full Bloch map is also implemented with integer/Fraction cosine and sinc intervals; no floating roots are needed. Same-author exact operator-valued and two-time instrument tests preserve the conditional state and branch identity.
+
+At K12,t4,gamma1/4,p1/3,e1/4, the bath field mean is zero but central hopping energy is about-0.0028779085812785793 and interaction energy is about+0.0028779085812785793. Their total interval contains exact zero. Replacing <ZB> by <Z><B> deletes a real energy term. This is not heat. For independent conserved-sector initial states the reduced map is a mixture of unitaries; it preserves the target's least eigenvalue and is not a general cooling engine. The strong zero-temperature preparation goal remains outside this restricted conclusion.
+
+## Imperfection is kept as a controlled source
+
+For actual [H_B,B]!=0, frozen-field readout has system trace-distance defect at most t^2 R/(4hbar^2), R>=||[H_B,B]||. If the ENTIRE initial state commutes with I tensor H_B, its reduced law also equals a symmetric-product readout; then the stronger bound t^3(R2/48+|J|R/12+RB/48)/hbar^3 applies, where R2 bounds [H_B,[H_B,B]] and RB bounds [B,[H_B,B]]. The derivative/integral proof is included. This is classical commutator/product-formula analysis, not a new universal error theorem. Independent target plus stationary bath suffices; a stationary bath marginal alone does not suffice for arbitrary correlations.
+
+A nonstationary bath-current witness at t1/100 has trace error about1.56249e-6, violating the incorrectly borrowed cubic1.953125e-8 but respecting quadratic6.25e-6. Unknown stationarity does not enable the cubic guard.
+
+For ring hopping kappa and density coupling v, one site defect epsilon gives R<=2kappa|epsilon|, RB<=2kappa epsilon^2 and R2<=12kappa|epsilon|(kappa+|v|), independent of K. Retained arbitrary link phases do not invalidate these local bounds. With epsilon1/100,kappa1/4,v1/8,J1/4,t1, defect<=163/480000. The K1200 model consequently has true local probability approximately in[0.34371137770185,0.34439054436853], with numerical error added. This large interval is theorem-based, not a dense reference comparison.
+
+Two separately frozen K3,t4 cases execute the unchanged integer Taylor propagation for every initial basis component. Actual-minus-frozen probability is strictly positive, about7.15858885e-5 at epsilon1/10 and7.34796633e-7 at epsilon1/100. Their conservative error bounds0.2/0.02 are not presented as actual physical effects. Nonzero defects are neither cleared nor grounds for rejecting the object.
+
+## Executed evidence and full costs
+
+Frozen main plan:5 cases,3 repeats each,15 rows. Uniform gamma1/4,p1/3,e1/4,J1/4,t4: K12/120/1200 give13/121/1201 sectors and target populations0.5309495337430937/0.4341626400363545/0.3702638617992950. Whole compilation medians0.003519586/0.045029762/0.570408034 seconds. One-site defect1/100,t1: K12/1200 use24/2400 sectors; frozen populations0.35349783482014585/0.34405096103518650, medians0.004766940/1.042820680 seconds. Numerical interval width is about2.75727e-25. All native layout, count coefficients and phase readouts are charged; no CPU pinning or best-classical-algorithm comparison. These are computational times, not physical clock speeds.
+
+958 main finite checks pass, plus30 additional exact checks, including24 genuinely nonzero hierarchy sources,4 polynomial closures, history and stationarity witnesses. Main checks include150 cosine/sinc intervals,260 binomial groups,24 exhaustive histograms,150 Rabi and150 Bloch comparisons,9 correlated maps,18 two-time instruments,36 commutator bounds,36 dynamic defects,48 moment identities and48 mixture floors. All15 raw intervals and5 saved medians are replayed without replacing timings; two full interacting diagnostics are checked by independent100-digit matrix exponentials. Integer literal audits pass. Same author, no independent researcher or Lean/full-project validation.
+
+Executed unmodified reuse: Stage19 Mat/cayley, Stage18 integer evolution, Stage17 interval operations, Stage21 native loop/residual source. All earlier cumulative histories are retained. No new BRC family, generic high-body simulation, Shor speedup, or universal zero-temperature nonexistence is asserted.
+
+Primary context: Semin, Sinayskiy and Petruccione, PRA89,012107(2014), DOI10.1103/PhysRevA.89.012107; Childs et al., PRX11,011020(2021), arXiv1912.08854. Spectral projectors, finite moment hierarchies, Rabi evolution and binomial grouping are established tools.
+
+Next unfinished unit: nonconserved long-time sector mixing with retained coherences and a source-flux bound. The present explicit nonquadratic family does not solve arbitrary Stage21 interactions. Complete proofs, code, frozen plans and counterexamples are delivered in the cumulative standalone bundle, not the whole Enterprise Math repository. Cloud and activity readbacks are recorded only after actual publication.
