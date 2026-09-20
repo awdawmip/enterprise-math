@@ -364,8 +364,49 @@ C=[[0,-2],[1,6]],
 
 心跳世界里“空间伸缩看起来均匀”不能代替整数 Cell 的进位平衡检查；反过来也一样。这进一步说明 BRC 若未来会访问 carry，不能只保留普通几何尺度谱。
 
-## 16. 下一前沿
+## 16. 最终仿射周期 carry 控制器
+
+对固定整数 monodromy M，Noferini 的 Smith-power 定理还给出比“只有斜率”更强的结论：存在 n0、正整数 T 和固定对角整数矩阵 D，使得
+
+SF(M^(n+T)) = D * SF(M^n)
+
+对所有 n>=n0 成立。
+
+因此，充分长时间以后，完整 residual-group isomorphism type 并不是每拍产生一种不可压缩的新结构。它由：
+
+- 一个有限 transient；
+- n mod T 的有限相位；
+- 每跨 T 个周期乘一次的固定对角增长 D；
+
+精确生成。
+
+换言之，长期 carry 可以表示成“有限控制器 + 整数增长计数器”。对每个素数 p，D 的对角 p-valuations 除以 T 正是上一节的 carry slope spectrum。
+
+这个结果非常适合 BRC，但必须保留边界：
+
+1. 它压缩的是 Smith/isomorphism-type 级的余数结构，不自动恢复具体 residual 元素、空间代表或路径 provenance；
+2. 一般 n0 和 T 可能很大，文献中两者都可以任意大，不能把“最终有限控制器”误说成“小常数状态”；
+3. 有限窗口里看到重复增长比，只是诊断，不构成一般 eventual-periodicity 证明。
+
+新增执行器 `smith_factor_ratio` / `smith_increment_trace` 只做有限窗口检查。统一 radix 2 模型从开始就显示 6 周期增长比；上一节的失衡 P 模型则从开始就是固定增长比 (1,1,1,4,4,4)。
+
+## 17. BRC 的两层 carry 表示
+
+至此，对固定线性周期心跳，可以把 carry 信息至少分成两个观察层：
+
+- **有限结构层**：当前相位的 Smith invariant factors / residual group type，决定当前的元素阶、进位与 torsion 观察；
+- **长期增长层**：Newton carry-slope spectrum，决定各 p-primary 深度的长期线性增长率。
+
+只问长期漂移时，slope spectrum 比完整 residual group 更小；若未来允许精确余数加法、zero-test 或选代表，则还需要有限结构层甚至具体元素坐标。
+
+因此
+
+branch count < carry-slope spectrum < current Smith group type < labeled residual/path state
+
+不是全局等价链，而是按观察能力逐层增强的 BRC carrier 层级。
+
+## 18. 下一前沿
 
 1. 当余数群发生 (Z/2)^2 <-> Z/4 型变化时，哪些 BRC 权重只依赖总 branch count，哪些必须依赖元素阶/进位层级？
 2. 能否以 p-primary Smith/valuation 数据替代完整余数枚举，并对声明的未来余数运算闭合？
-3. 一般非奇异整数 monodromy 的 carry-slope 判据已经由 Newton/Smith 幂结构闭合；下一步研究非线性或状态依赖心跳中，是否存在可替代固定 monodromy 的 cocycle/Lyapunov carry spectrum。
+3. 固定线性 monodromy 已闭合到 eventual affine-periodic Smith controller；下一步研究状态依赖/非线性心跳的 cocycle carry spectrum，以及何时其有限修正仍可由有限控制器描述。

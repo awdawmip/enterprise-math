@@ -250,6 +250,21 @@ def test_general_phase_carry_slope_invariance():
     return checked
 
 
+
+def test_eventual_carry_controller_examples():
+    A=h.cyclic_radix_heartbeat(2)
+    trace=h.smith_increment_trace(A,1,12)
+    assert trace[:6]==trace[6:]
+    assert all(__import__('math').prod(row)==2 for row in trace)
+
+    A2=((0,2),(1,0)); B2=((1,1),(1,-1))
+    P2=h.matmul(B2,A2)
+    P6=_blockdiag3(P2)
+    for n in range(1,7):
+        assert h.smith_factor_ratio(P6,n)==(1,1,1,4,4,4)
+    return 18
+
+
 if __name__=='__main__':
     results={
       'phase_intertwining':test_phase_intertwining_random(),
@@ -263,5 +278,6 @@ if __name__=='__main__':
       'periodic_monomial_phase_balance':test_periodic_monomial_phase_balance(),
       'general_newton_carry_spectrum':test_general_newton_carry_spectrum(),
       'general_phase_carry_slope_invariance':test_general_phase_carry_slope_invariance(),
+      'eventual_carry_controller_examples':test_eventual_carry_controller_examples(),
     }
     print('PASS',results)

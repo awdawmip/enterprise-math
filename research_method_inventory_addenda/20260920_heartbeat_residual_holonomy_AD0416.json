@@ -47,7 +47,9 @@
         "carry_spread_rate",
         "carry_balanced",
         "phase_carry_spectra",
-        "smith_p_depths"
+        "smith_p_depths",
+        "smith_factor_ratio",
+        "smith_increment_trace"
       ],
       "triggers": [
         "heartbeat monodromy",
@@ -78,7 +80,8 @@
         "necessary-and-sufficient bounded p-adic anisotropy test for periodic monomial heartbeat programs",
         "exact Newton-polygon carry-slope spectrum for general nonsingular integer monodromy",
         "phase-invariant asymptotic carry slope diagnostic",
-        "general bounded-versus-linear p-adic Smith-depth drift criterion"
+        "general bounded-versus-linear p-adic Smith-depth drift criterion",
+        "finite Smith growth-ratio trace for diagnosing entry into an eventual affine-periodic carry regime"
       ],
       "reuse_resolution": {
         "state": "COMPOSE_APPLIED / CAPABILITY_GAP_CONFIRMED / DOMAIN_OPERATOR",
@@ -90,7 +93,7 @@
         ],
         "reason": "Existing tools cover carry semantics, holonomy semantics and BRC branch safety separately, but not integer monodromy cokernels or Smith residual spectra."
       },
-      "hard_boundary": "Raw signed integer charts and small nonsingular integer matrices (default SNF limit 6). No fixed Heartbeat World program, nonlinear dynamics, physical time law, thermodynamic entropy, large-matrix SNF performance claim or automatic Foundation admission. General carry-slope theorem assumes a fixed nonsingular integer monodromy; nonlinear/state-dependent cocycles are not covered."
+      "hard_boundary": "Raw signed integer charts and small nonsingular integer matrices (default SNF limit 6). No fixed Heartbeat World program, nonlinear dynamics, physical time law, thermodynamic entropy, large-matrix SNF performance claim or automatic Foundation admission. General carry-slope theorem assumes a fixed nonsingular integer monodromy; nonlinear/state-dependent cocycles are not covered. smith_increment_trace is not a proof finder for the eventual period."
     }
   ]
 }

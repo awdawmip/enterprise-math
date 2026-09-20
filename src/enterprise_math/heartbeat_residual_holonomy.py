@@ -448,3 +448,31 @@ def smith_p_depths(matrix, prime: int, power: int) -> tuple[int, ...]:
         raise ValueError("positive integer power required")
     return tuple(prime_valuation(d, prime)
                  for d in smith_invariant_factors(matpow(matrix, power)))
+
+
+def smith_factor_ratio(matrix, power: int, *, step=1) -> tuple[int, ...]:
+    """Componentwise Smith-factor growth from power to power+step.
+
+    This is a finite diagnostic only. Repeated ratios on a tested window do
+    not by themselves certify eventual periodicity.
+    """
+    if type(power) is not int or power < 1:
+        raise ValueError("positive integer power required")
+    if type(step) is not int or step < 1:
+        raise ValueError("positive integer step required")
+    left = smith_invariant_factors(matpow(matrix, power))
+    right = smith_invariant_factors(matpow(matrix, power + step))
+    ratios = []
+    for a, b in zip(left, right):
+        if b % a:
+            raise ArithmeticError("Smith invariant-factor divisibility failed")
+        ratios.append(b // a)
+    return tuple(ratios)
+
+
+def smith_increment_trace(matrix, start: int, count: int, *, step=1) -> tuple[tuple[int, ...], ...]:
+    """Finite trace of Smith growth ratios; a diagnostic, not an eventual-period proof."""
+    if type(start) is not int or start < 1 or type(count) is not int or count < 0:
+        raise ValueError("start>=1 and count>=0 integers required")
+    return tuple(smith_factor_ratio(matrix, start + j * step, step=step)
+                 for j in range(count))
