@@ -1,0 +1,147 @@
+{
+  "activity": {
+    "commit": "f73db7aabab6c096791db571f5d7cec257f28acb",
+    "equivalent_hash_schema_history_checks": true,
+    "full_source_CLI_executed": false,
+    "git_blob": "9c48bb41bd629bc748bd17c190470a811024512f",
+    "observed_readbacks": [
+      "turn417",
+      "turn418"
+    ],
+    "prior_events_preserved": 16,
+    "receipt_blob": "776ce2e356ae15aeeda2b1f17c2523092b8368ee",
+    "receipt_sha256": "c18e05ee834e0843c52c42e4989a8a600f47338f08bbd0319a5564905227ba99",
+    "server_signature_authenticated": false
+  },
+  "activity_id": "RA-6EF011C2E75C4A799606AFEA",
+  "artifact_sha256": {
+    "MANIFEST.json": "a62384608ba1dc2f1ba50b7f0be7d962350d77f7f43a61931056cc32f7cccdd0",
+    "PROOF.md": "842f0c800ad2e3331f66b7fcf3d72c0446228d0a094a9f27a5dc468334fbb60e",
+    "bridge.py": "803d7a6580af7ecf51578bbfabe3025289a67d1e446a79f86d97836be4bf6251",
+    "experiment_results.json": "4927732a655f3ebb6b970b4b05e0b00edd01d06e66d2847151fe912fd983d58b",
+    "postcheck_results.json": "af4abc98d01cb6e150332f29239e9d66a7caa9500a9b9fae3a2e3225c3e4725e",
+    "raw_runs.jsonl": "fc4beb5e21611c67f8079fd04f45c1057aacbbfd6b56e26703a48163cc26930d",
+    "verification_results.json": "532284f29e58b368768659535f948a6a47bdb2cd60a4c3ec615f0d468f082868"
+  },
+  "drive_bundle": {
+    "bundle_verify": "PASS",
+    "file_id": "1DVa-_mZjnIDgu-ieA5UlsleIw2PSQnq_",
+    "file_name": "BRC_Heartbeat_energy_bridge_20260920.bundle",
+    "folder_id": "1IJ8iAXY5laK1lj-Y4NGWKEOdLofieHLa",
+    "fresh_clone_manifest_files": 325,
+    "fresh_clone_raw_replay": "PASS",
+    "fresh_clone_tests": "PASS",
+    "git_fsck": "PASS",
+    "git_head": "87be40ef0228090edf435959d39eec71987ea114",
+    "parent_head": "abd195490bfb653726048bcb74bad7a972a276a9",
+    "raw_readback_observation": "turn421",
+    "retained_cloud_branch": "cloud-wavepacket",
+    "retained_cloud_head": "c8f0d39e47d57037379c5861a06078bfa70347a2",
+    "roundtrip_bytes_identical": true,
+    "sha256": "be2a3d47c40f523c0eb1b8f3bb1a7dc1849d0c8601198cd4a4ed56c66967b77c",
+    "size": 2031251,
+    "standalone_not_full_EM_repository": true,
+    "upload_observation": "turn420",
+    "working_trees_clean": true
+  },
+  "event_id": "brc-heartbeat-holonomy-energy-20260920-6EF011",
+  "replay": {
+    "counts": {
+      "exact_exchange_rows": 12,
+      "gibbs_points": 288,
+      "spectral_points": 180,
+      "work_splits": 15
+    },
+    "independent_researcher": false,
+    "records": 51,
+    "status": "PASS",
+    "timings_regenerated": false
+  },
+  "schema": "EM_HEARTBEAT_HOLONOMY_ENERGY_EVIDENCE_V1",
+  "scope": {
+    "explicit_candidate_phase_coupling": true,
+    "formal_ground_state_boundary_preserved": true,
+    "full_repo_or_Lean_validation": false,
+    "new_Shor_speedup": false,
+    "nonzero_control_errors_retained": true,
+    "nonzero_ground_energy_implies_nonzero_temperature": false,
+    "physical_Hamiltonian_derived_uniquely_from_P000": false,
+    "physical_cooling_time_measured": false,
+    "residual_controller_autonomous": false,
+    "temperature_floor": "conditional finite-dimensional full-rank resource budget, final Gibbs states only"
+  },
+  "source": {
+    "commit": "94dc03219aa7761ac8a3fb4eff7ba09107bb4a59",
+    "git_blob": "b004c9124044be0cd1be606e5c8b55a390405e3c",
+    "observed_readback": "turn407",
+    "path": "research_notes/BRC_HEARTBEAT_HOLONOMY_ENERGY_20260920_6EF011.md",
+    "repository": "awdawmip/enterprise-math",
+    "sha256": "aa35d938c8ed75b15ccb60b56211b88625c07460380f5ffb918fa7e0f272b9cb"
+  },
+  "status": "RESEARCH_CANDIDATE_NOT_ADMITTED",
+  "validation": {
+    "counts": {
+      "exact_collision_recurrence": 72,
+      "exponential_enclosures": 133,
+      "gauge_covariance": 100,
+      "gibbs_probability_enclosures": 240,
+      "invalid_input_boundaries": 7,
+      "irregular_coupling_endpoints": 192,
+      "native_rotated_edges": 72,
+      "nonzero_perturbation_floor": 396,
+      "production_integer_audit": 1,
+      "rational_coherent_exchange": 12,
+      "residual_holonomy_exact": 1104,
+      "resource_and_projector_checks": 48,
+      "same_energy_different_purity": 1,
+      "spectral_interval_entries": 1044,
+      "stationary_ground_currents": 5,
+      "work_passive_split": 40
+    },
+    "formal_proof_checked_by_Lean": false,
+    "independent_researcher": false,
+    "status": "PASS",
+    "witnesses": {
+      "blind_character": {
+        "N": 8,
+        "a": 3,
+        "s": 1,
+        "sixth_source_mod_N": 0
+      },
+      "half_flux": {
+        "ground_degeneracy": 2,
+        "opposite_currents_cancel_in_equal_ground_mixture": true
+      },
+      "large_phase_uncertainty": {
+        "ground_energy_lower": "0",
+        "phase_radius": "1/50",
+        "retained_distance": "0",
+        "strict_positive_certified": false,
+        "unresolved_is_not_zero_or_model_rejection": true
+      },
+      "pure_ground_at_nontrivial_flux": {
+        "excited_probability": "0",
+        "finite_pure_preparation_assumed": false,
+        "flux": "1/3",
+        "formal_Gibbs_zero_T_limit_exists": true,
+        "ground_energy_positive": true
+      },
+      "pure_swap_boundary": {
+        "arbitrary_joint_optimum_claimed": false,
+        "coupling_angle_cosine": "0",
+        "fresh_bath_copies": 1,
+        "output_is_automatically_Gibbs": false,
+        "output_populations": [
+          "1",
+          "0"
+        ],
+        "retained_initial_weight": "0",
+        "time_lower_form": "copies*hbar*acos(cosine)/interaction_norm_bound"
+      },
+      "same_energy_different_purity": {
+        "dephasing_not_equivalent_to_unity_phase": true,
+        "scope": "energy alone not a thermometer"
+      }
+    }
+  }
+}
