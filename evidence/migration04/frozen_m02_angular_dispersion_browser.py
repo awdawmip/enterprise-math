@@ -87,10 +87,6 @@ const NollmAngularExact = (() => {
     // A bounded array-index conversion only: result is in 0..255 exactly.
     return Number(divisionTrace(t * b, m).quotient);
   }
-  // Shared natural-domain BRC boundary used by the certified-cell port.
-  function evaluateDivision(numerator, denominator) {
-    return divisionTrace(natural(numerator, 'numerator'), positive(denominator, 'denominator'));
-  }
-  return Object.freeze({fromCounts, compareCounts, compareRatio, phaseBin, evaluateDivision});
+  return Object.freeze({fromCounts, compareCounts, compareRatio, phaseBin});
 })();
 '''
