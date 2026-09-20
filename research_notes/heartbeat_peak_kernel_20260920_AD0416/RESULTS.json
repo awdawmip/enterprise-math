@@ -1,0 +1,188 @@
+{
+  "status": "PASS",
+  "test_groups": 13,
+  "failures": 0,
+  "errors": 0,
+  "checks": {
+    "canonical_random_SNF_and_right_unit_cases": 36,
+    "orientation_witness": {
+      "current_spreads": [
+        2,
+        2
+      ],
+      "next_spreads": [
+        3,
+        1
+      ]
+    },
+    "killed_peak_rows": [
+      {
+        "threshold": 1,
+        "states": 2,
+        "active": 1,
+        "exact_tail": "4/5",
+        "stepcount_tail": "4/5"
+      },
+      {
+        "threshold": 2,
+        "states": 6,
+        "active": 3,
+        "exact_tail": "8/17",
+        "stepcount_tail": "16/25"
+      },
+      {
+        "threshold": 3,
+        "states": 10,
+        "active": 5,
+        "exact_tail": "16/65",
+        "stepcount_tail": "64/125"
+      },
+      {
+        "threshold": 4,
+        "states": 14,
+        "active": 7,
+        "exact_tail": "32/257",
+        "stepcount_tail": "256/625"
+      },
+      {
+        "threshold": 5,
+        "states": 18,
+        "active": 9,
+        "exact_tail": "64/1025",
+        "stepcount_tail": "1024/3125"
+      },
+      {
+        "threshold": 8,
+        "states": 30,
+        "active": 15,
+        "exact_tail": "512/65537",
+        "stepcount_tail": "65536/390625"
+      },
+      {
+        "threshold": 12,
+        "states": 46,
+        "active": 23,
+        "exact_tail": "8192/16777217",
+        "stepcount_tail": "16777216/244140625"
+      },
+      {
+        "threshold": 16,
+        "states": 62,
+        "active": 31,
+        "exact_tail": "131072/4294967297",
+        "stepcount_tail": "4294967296/152587890625"
+      }
+    ],
+    "prior_tool_executed": {
+      "old_mean_cost": "4",
+      "old_mgf": "5",
+      "old_bound": "762939453125/2821109907456",
+      "new_exact": "131072/4294967297"
+    },
+    "dense_noncommuting": {
+      "threshold_rows": [
+        [
+          1,
+          2,
+          "4/5"
+        ],
+        [
+          2,
+          6,
+          "8/17"
+        ],
+        [
+          3,
+          10,
+          "16/65"
+        ],
+        [
+          4,
+          14,
+          "32/257"
+        ],
+        [
+          6,
+          22,
+          "128/4097"
+        ]
+      ],
+      "literal_SNF_checks": 126
+    },
+    "first_hit": {
+      "prefix_checks": 57,
+      "probabilities": [
+        "0",
+        "8/25",
+        "0",
+        "64/625",
+        "0"
+      ],
+      "return_after_hit_spreads": [
+        1,
+        2,
+        1,
+        0
+      ]
+    },
+    "safe_closed_cycle": {
+      "states": 2,
+      "tail": "0",
+      "singular_inverse_avoided": true
+    },
+    "unstopped_threshold5": "1",
+    "budget_intervals": [
+      [
+        1,
+        "0",
+        "1",
+        false
+      ],
+      [
+        2,
+        "0",
+        "1",
+        false
+      ],
+      [
+        4,
+        "0",
+        "12/17",
+        false
+      ],
+      [
+        8,
+        "0",
+        "24/65",
+        false
+      ],
+      [
+        14,
+        "32/257",
+        "32/257",
+        true
+      ],
+      [
+        32,
+        "32/257",
+        "32/257",
+        true
+      ]
+    ],
+    "nonzero_translation_and_BRC_counts": "PASS",
+    "random_dense": {
+      "literal_checks": 59,
+      "complete_kernels": 3,
+      "models": 5
+    },
+    "rejections": 12,
+    "risk_budget": {
+      "risk": "1/10000",
+      "exact_first_safe_threshold": 15,
+      "majorant_first_safe_threshold": 42,
+      "exact_capacity": 14,
+      "majorant_capacity": 41,
+      "exact_tail_at15": "65536/1073741825"
+    }
+  }
+}

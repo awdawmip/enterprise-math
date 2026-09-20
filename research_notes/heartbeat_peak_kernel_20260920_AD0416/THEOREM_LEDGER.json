@@ -1,0 +1,62 @@
+{
+  "schema": "HEARTBEAT_PEAK_KERNEL_CANDIDATES_V1",
+  "date": "2026-09-20",
+  "world_id": "HEARTBEAT_WORLD",
+  "status": "SCOPED_PROOFS_TESTED_NOT_FOUNDATION",
+  "theorems": [
+    {
+      "id": "HBW-PK-001",
+      "name": "Finite safe homothety-lattice observer",
+      "assumptions": "Finite control, nonsingular integer X6 actions, fixed prime and positive integer threshold; future choice depends only on retained control",
+      "statement": "Embedded normalized column lattices preserve all future linear carry observations. Before threshold m, p^(m-1)Z_p^6 <= H <= Z_p^6, hence finitely many states.",
+      "proof_ref": "research_notes/heartbeat_peak_kernel_20260920_AD0416/RESEARCH_NOTE.md:section 2",
+      "test": "tests/test_heartbeat_peak_kernel.py",
+      "independent_review": false
+    },
+    {
+      "id": "HBW-PK-002",
+      "name": "Exact unbounded-time threshold reachability",
+      "assumptions": "PK-001 plus fixed positive rational stochastic rows",
+      "statement": "The threshold compiler preserves actual first hitting. Removing boundary-inaccessible closed classes makes the residual kernel transient; existing BRC star gives exact rational hitting probability.",
+      "proof_ref": "research_notes/heartbeat_peak_kernel_20260920_AD0416/RESEARCH_NOTE.md:section 3",
+      "test": "tests/test_heartbeat_peak_kernel.py",
+      "independent_review": false
+    },
+    {
+      "id": "HBW-PK-003",
+      "name": "Sound frontier intervals",
+      "assumptions": "All transitions of retained states checked; unknown safe targets routed to an explicit frontier",
+      "statement": "HIT and FRONTIER probabilities h,u certify [h,h+u]; nested expansions tighten bounds and a complete safe ball has u=0.",
+      "proof_ref": "research_notes/heartbeat_peak_kernel_20260920_AD0416/RESEARCH_NOTE.md:section 4",
+      "test": "tests/test_heartbeat_peak_kernel.py",
+      "independent_review": false
+    },
+    {
+      "id": "HBW-PK-004",
+      "name": "Killed split-heartbeat exact peak law",
+      "assumptions": "U/V complementary triple-axis scalings; probabilities s/2,s/2, stop 1-s",
+      "statement": "P(max|debt|>=m)=1/T_m(1/s)=2 beta^m/(1+beta^(2m)); s=4/5 gives 2^(m+1)/(4^m+1).",
+      "proof_ref": "research_notes/heartbeat_peak_kernel_20260920_AD0416/RESEARCH_NOTE.md:section 5",
+      "test": "tests/test_heartbeat_peak_kernel.py",
+      "independent_review": false
+    },
+    {
+      "id": "HBW-PK-005",
+      "name": "Noncommuting action/peak-observer equivalence",
+      "assumptions": "Specified A/B involutions modulo scalar, three-block X6 lift and integer-unimodular conjugacy; equal probabilities",
+      "statement": "Reduced word length equals carry spread. Its stopped random evolution shares PK-004 peak law, not its full affine-effect process.",
+      "proof_ref": "research_notes/heartbeat_peak_kernel_20260920_AD0416/RESEARCH_NOTE.md:section 6",
+      "test": "tests/test_heartbeat_peak_kernel.py",
+      "independent_review": false
+    },
+    {
+      "id": "HBW-PK-006",
+      "name": "Fixed-threshold/global-bound separation",
+      "assumptions": "Same stochastic model over all thresholds",
+      "statement": "Each fixed threshold has finite-state exact reachability; this does not decide existence of an all-threshold uniform bound. Decreasing tails converge to the probability of an infinite peak.",
+      "proof_ref": "research_notes/heartbeat_peak_kernel_20260920_AD0416/RESEARCH_NOTE.md:section 7",
+      "test": "tests/test_heartbeat_peak_kernel.py",
+      "independent_review": false
+    }
+  ]
+}

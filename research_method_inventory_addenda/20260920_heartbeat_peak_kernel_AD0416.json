@@ -1,0 +1,65 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "date": "2026-09-20",
+  "methods": [
+    {
+      "method_id": "t0.brc_exact_carry_peak_kernel",
+      "name": "Exact projective-lattice carry-peak observer",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+      "source_refs": [
+        "src/enterprise_math/heartbeat_peak_kernel.py",
+        "tests/test_heartbeat_peak_kernel.py",
+        "research_notes/heartbeat_peak_kernel_20260920_AD0416/RESEARCH_NOTE.md",
+        "research_notes/heartbeat_peak_kernel_20260920_AD0416/THEOREM_LEDGER.json"
+      ],
+      "api": [
+        "canonical_carry_lattice",
+        "PeakState",
+        "PeakKernel",
+        "PeakProbability",
+        "compile_peak_kernel",
+        "verify_peak_kernel",
+        "solve_peak_probability",
+        "first_passage_prefix",
+        "killed_symmetric_peak"
+      ],
+      "triggers": [
+        "actual carry peak",
+        "first passage",
+        "matrix cancellation",
+        "projective lattice ball",
+        "exact threshold risk"
+      ],
+      "capabilities": [
+        "finite future-safe lattice observer at a fixed threshold",
+        "exact all-time positive-mass hitting probability",
+        "budget-truncated certified interval",
+        "first-hit prefix mass",
+        "closed-form killed split/noncommuting witness"
+      ],
+      "reuse_resolution": {
+        "state": "COMPOSE_APPLIED / EXTEND_EXISTING_TOOL",
+        "components": [
+          "ControlPacket",
+          "brc_transport",
+          "heartbeat_switching_carry",
+          "heartbeat_lattice_search HNF dependency",
+          "brc_weighted_recurrent",
+          "heartbeat_graph_carry comparator"
+        ]
+      },
+      "hard_boundary": "Fixed finite stochastic controls and integer nonsingular X6 LINEAR effects. Boundary-time carry peaks only; no affine position, microscopic peak, full provenance, scalar-depth or semantic/physical claim. Finite threshold state space need not be small; incomplete exploration gives bounds, not exactness.",
+      "theorem_refs": [
+        "HBW-PK-001",
+        "HBW-PK-002",
+        "HBW-PK-003",
+        "HBW-PK-004",
+        "HBW-PK-005",
+        "HBW-PK-006"
+      ]
+    }
+  ]
+}
