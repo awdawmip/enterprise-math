@@ -420,8 +420,6 @@ def hex_data(field: dict) -> dict:
 def render(path: str | Path, settings: dict | None = None) -> Path:
     cfg = checked_config(settings) if settings is not None else config()
     template = Path(__file__).with_name('multiplicative_lab.html').read_text(encoding='utf-8')
-    from .multiplicative_browser import prepare_template
-    template = prepare_template(template)
     payload = json.dumps({'config':cfg}, ensure_ascii=False, separators=(',',':')).replace('<','\\u003c')
     if template.count('__LAB_SEED__') != 1: raise ValueError('template seed marker mismatch')
     path = Path(path); path.parent.mkdir(parents=True, exist_ok=True)
