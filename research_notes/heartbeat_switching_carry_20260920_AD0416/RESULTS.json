@@ -1,0 +1,93 @@
+{
+  "status": "PASS",
+  "test_groups": 9,
+  "failures": 0,
+  "errors": 0,
+  "oracle": "SymPy 1.14.0 exact Smith normal form",
+  "checks": {
+    "source_reuse": {
+      "exact_unchanged_modules": {
+        "brc_transport.py": "be1debe367263931bd5e93fd750be3ed54624fe1",
+        "brc_control_port.py": "44def6b8ac787e798d3cc2c6be16f873f91b9db8",
+        "brc_histogram.py": "9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1"
+      }
+    },
+    "all_short_words": {
+      "words": 510,
+      "max_length": 8
+    },
+    "nonperiodic_schedule": {
+      "literal_beats": 2550,
+      "peaks": [
+        {
+          "time": 1,
+          "debt": 1
+        },
+        {
+          "time": 4,
+          "debt": 2
+        },
+        {
+          "time": 9,
+          "debt": 3
+        },
+        {
+          "time": 100,
+          "debt": 10
+        },
+        {
+          "time": 10000,
+          "debt": 100
+        },
+        {
+          "time": 100000000,
+          "debt": 10000
+        }
+      ]
+    },
+    "erased_orientation_witness": {
+      "current": [
+        1,
+        1,
+        1,
+        3,
+        3,
+        3
+      ],
+      "next_spreads": [
+        3,
+        1
+      ]
+    },
+    "brc_distribution": {
+      "beats": 80,
+      "binomial_coefficients_checked": 3320,
+      "represented_paths": "1208925819614629174706176",
+      "retained_debt_states": 81,
+      "mean_debt": 0,
+      "mean_squared_spread": 80,
+      "mass": "1"
+    },
+    "feedback": {
+      "heartbeat_updates": 32,
+      "pair_choices": 65536,
+      "ready_to_ready_spread_bound": 0,
+      "ready_to_odd_bound": 1,
+      "all_ports_collapsed_rejected": true
+    },
+    "dense_lattice": {
+      "actions": 3,
+      "all_length4_words": 81,
+      "uniform_all_words_bound": 6,
+      "observed_max": 6
+    },
+    "incompatible_lattices": {
+      "powers": 20,
+      "individual_bound": 2,
+      "alternating_spread_per_pair": 4,
+      "shared_supplied_lattice_rejected": true
+    },
+    "invalid_inputs": 12
+  },
+  "scope": "research candidate; no full-repository or production acceptance"
+}

@@ -1,0 +1,94 @@
+{
+  "schema": "HEARTBEAT_SWITCHING_CARRY_THEOREM_CANDIDATES_V1",
+  "date": "2026-09-20",
+  "world_id": "HEARTBEAT_WORLD",
+  "status": "SCOPED_PROOFS_TESTED_NOT_FOUNDATION",
+  "source_snapshot": "f481e0c6b184769d1d0c6e5ae80213ba8ec48af9",
+  "theorems": [
+    {
+      "id": "HBW-SW-001",
+      "name": "Nonperiodic equal-slope/unbounded-debt separation",
+      "assumptions": [
+        "U=diag(p I3,I3), V=diag(I3,p I3)",
+        "actual schedule U^k V^k for successive k>=1"
+      ],
+      "law": "All six normalized Smith depths tend to1/2 while spread(k^2)=k and spread(k(k+1))=0. Hence equal mean slopes do not imply bounded anisotropy for variable products.",
+      "proof_ref": "research_notes/heartbeat_switching_carry_20260920_AD0416/RESEARCH_NOTE.md",
+      "proof_section": "Section2",
+      "test_ref": "tests/test_heartbeat_switching_carry.py::SwitchingTests::test_03_sqrt_debt_schedule",
+      "boundary": "Not a counterexample to fixed-matrix powers or finite autonomous deterministic control."
+    },
+    {
+      "id": "HBW-SW-002",
+      "name": "Signed debt is an exact future-sufficient split-family carrier",
+      "assumptions": [
+        "only the two declared commuting zero-offset matrices U,V",
+        "known update count t"
+      ],
+      "law": "(t,d=u-v) reconstructs the entire linear action. Current Smith type alone loses the sign; states(t=4,d=+2/-2) have equal current type but next-U spreads3 and1.",
+      "proof_ref": "research_notes/heartbeat_switching_carry_20260920_AD0416/RESEARCH_NOTE.md",
+      "proof_section": "Sections2,3",
+      "test_ref": "tests/test_heartbeat_switching_carry.py::SwitchingTests::test_04_smith_type_not_future_state",
+      "boundary": "No labeled-path recovery; extra affine or noncommuting operations require new proof."
+    },
+    {
+      "id": "HBW-SW-003",
+      "name": "Finite lattice-port uniform carry bound",
+      "assumptions": [
+        "finite control ports",
+        "invertible rational basis S_c for each port",
+        "integer native linear effects",
+        "p^-k S_target^-1 A S_source and its inverse are p-integral on every allowed edge"
+      ],
+      "law": "Every legal path satisfies spread_p(A_path)<=kappa(S_start)+kappa(S_end), independently of length or selection policy. Scalar depth is sum of declared k labels.",
+      "proof_ref": "research_notes/heartbeat_switching_carry_20260920_AD0416/RESEARCH_NOTE.md",
+      "proof_section": "Section5",
+      "test_ref": "tests/test_heartbeat_switching_carry.py::SwitchingTests::test_07_dense_common_lattice",
+      "boundary": "Linear carry only; no affine displacement, mass, metric, temperature or semantic bound. Supplied-certificate failure is not nonexistence."
+    },
+    {
+      "id": "HBW-SW-004",
+      "name": "Common-lattice existence criterion for integral normalized mean",
+      "assumptions": [
+        "finite unrestricted single-port matrix family",
+        "v_p(det A_j)=6 k_j with integer k_j",
+        "all words observed, not merely almost-sure paths"
+      ],
+      "law": "Uniform bounded p-Smith spread over all words is equivalent to existence of a common full Z_p lattice invariant under every p^-k_j A_j.",
+      "proof_ref": "research_notes/heartbeat_switching_carry_20260920_AD0416/RESEARCH_NOTE.md",
+      "proof_section": "Section6",
+      "test_ref": "tests/test_heartbeat_switching_carry.py::SwitchingTests::test_08_incompatible_local_lattices",
+      "boundary": "Existence result, not a complete search algorithm. Fractional mean and constrained multi-port necessity not asserted."
+    },
+    {
+      "id": "HBW-SW-005",
+      "name": "Fair split branching retains growing mean-square debt",
+      "assumptions": [
+        "independent equiprobable U,V choices at every tick",
+        "existing positive exact BRC branch semantics"
+      ],
+      "law": "Debt d has multiplicity C(t,(t+d)/2) with individual weight2^-t; E[d]=0 and E[spread^2]=E[d^2]=t.",
+      "proof_ref": "research_notes/heartbeat_switching_carry_20260920_AD0416/RESEARCH_NOTE.md",
+      "proof_section": "Section4",
+      "test_ref": "tests/test_heartbeat_switching_carry.py::SwitchingTests::test_05_exact_branch_distribution",
+      "boundary": "Probability-model statement only; zero mean is not pathwise or quadratic balance."
+    },
+    {
+      "id": "HBW-SW-006",
+      "name": "Three-port repayment permits nonperiodic exact macro balance",
+      "assumptions": [
+        "at debt0 choose U or V",
+        "at debt+1 force V; at debt-1 force U"
+      ],
+      "law": "All even-boundary linear actions are p^(t/2)I; odd-boundary spread=1. The lattice-port certificate uses S_d=diag(p^d I3,I3) and normalized edge maps I.",
+      "proof_ref": "research_notes/heartbeat_switching_carry_20260920_AD0416/RESEARCH_NOTE.md",
+      "proof_section": "Section7",
+      "test_ref": "tests/test_heartbeat_switching_carry.py::SwitchingTests::test_06_feedback_lattice",
+      "boundary": "Actual restricted control policy; not a cost-free compression of unrestricted choices."
+    }
+  ],
+  "independent_review": false,
+  "lean": false,
+  "full_repository_tests": false,
+  "production_nollm_changed": false
+}

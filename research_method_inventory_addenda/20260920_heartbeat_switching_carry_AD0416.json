@@ -1,0 +1,67 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "date": "2026-09-20",
+  "methods": [
+    {
+      "method_id": "t0.brc_switching_carry_lattice_ports",
+      "name": "Heartbeat switching-carry debt and lattice-port certificate",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "related_families": [
+        "T5_PRECISION_REFINEMENT",
+        "T9_HOLONOMY_COCOYCLE_GLUING"
+      ],
+      "status": "EXTRACTED_EXECUTABLE_CANDIDATE_NOT_FOUNDATION",
+      "api": [
+        "linear_carry_spread",
+        "LatticePortCertificate",
+        "certify_lattice_ports",
+        "SplitCarryState",
+        "growing_block_state",
+        "split_carry_push",
+        "split_feedback_packet"
+      ],
+      "source_refs": [
+        "src/enterprise_math/heartbeat_switching_carry.py",
+        "tests/test_heartbeat_switching_carry.py",
+        "research_notes/heartbeat_switching_carry_20260920_AD0416/RESEARCH_NOTE.md",
+        "research_notes/heartbeat_switching_carry_20260920_AD0416/THEOREM_LEDGER.json"
+      ],
+      "triggers": [
+        "switching heartbeat",
+        "nonperiodic carry",
+        "signed carry debt",
+        "lattice port certificate",
+        "uniform p-adic spread"
+      ],
+      "capabilities": [
+        "exact rational p-Smith spread without SNF enumeration",
+        "verify supplied finite-port lattice automorphisms",
+        "uniform all-path carry bound",
+        "exact signed-debt positive BRC aggregation for the split family"
+      ],
+      "reuse_resolution": {
+        "state": "EXTEND_EXISTING_TOOL",
+        "executed": [
+          "brc_transport.py",
+          "brc_control_port.py",
+          "brc_histogram.py"
+        ],
+        "applied": [
+          "heartbeat.integer_residual_holonomy"
+        ],
+        "gap": "Existing finite-period spectra do not certify arbitrary legal variable products, nor retain the signed split-allocation debt. This adds a supplied-witness interface, not a lattice discovery algorithm."
+      },
+      "hard_boundary": "Six native axes; rational bases are algebraic observation only. Fixed scale per source-target block. No uniform affine-distance/mass/semantic claim. Supplied certificate failure does not imply global nonexistence. Split debt quotient is scoped to U,V.",
+      "theorem_refs": [
+        "HBW-SW-001",
+        "HBW-SW-002",
+        "HBW-SW-003",
+        "HBW-SW-004",
+        "HBW-SW-005",
+        "HBW-SW-006"
+      ]
+    }
+  ]
+}
