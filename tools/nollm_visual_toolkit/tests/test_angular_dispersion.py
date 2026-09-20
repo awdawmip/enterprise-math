@@ -113,7 +113,7 @@ class AngularDispersionTests(unittest.TestCase):
         self.assertEqual(exact.counts, (1, 2, 3))
 
     def test_invalid_histograms_rejected_without_coercion(self):
-        for counts in ((), (1,), (0, 0), (-1, 2), (True, 1), (1.0, 2), ('1', 2), (None, 2), [1, 2], '12', None):
+        for counts in ((), (0,), (0, 0), (-1, 2), (True, 1), (1.0, 2), ('1', 2), (None, 2), [1, 2], '12', None):
             with self.subTest(counts=counts), self.assertRaises(ValueError):
                 AngularDispersion(counts)
         for counts in ({1, 2}, iter([1, 2]), '12', None):

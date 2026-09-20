@@ -314,16 +314,6 @@ def multiplication(field: dict, a: int, b: int) -> dict:
         raise ValueError('factors must be in-range integer labels')
     n = a*b
     if n >= count: return {'a': a, 'b': b, 'product': n, 'in_range': False}
-    if field.get('cell_engine') == 'CERTIFIED_INTEGER_RESIDUAL':
-        # Match the browser observer before touching any pixel or display scale.
-        # None means omitted, including n=0; it is not a measured zero error.
-        ra, rb, rn = (field['records'][x] for x in (a,b,n))
-        return {'a': a, 'b': b, 'product': n, 'in_range': True,
-                'phase_defect': (rn['phase']-ra['phase']-rb['phase']) % PHASE_MODULUS if n else None,
-                'omega_defect': rn['omega']-ra['omega']-rb['omega'] if n else None,
-                'ideal_relative_error': None, 'rounded_relative_error': None,
-                'approximate_metrics_role': 'OMITTED_FROM_EXACT_OBSERVER',
-                'zero_phase': 'undefined; multiplication by zero is handled separately' if not n else None}
     ra, rb, rn = (field['records'][x] for x in (a,b,n)); scale = field['config']['scale']
     za, zb, zn = (complex(*r['ideal']) for r in (ra,rb,rn))
     def hx(r):
@@ -335,27 +325,15 @@ def multiplication(field: dict, a: int, b: int) -> dict:
               'omega_defect': rn['omega']-ra['omega']-rb['omega'] if n else None,
               'ideal_relative_error': abs(za*zb/scale-zn)/(scale*math.sqrt(n)) if n else 0,
               'zero_phase': 'undefined; multiplication by zero is handled separately' if not n else None}
-    result['rounded_relative_error'] = abs(hx(ra)*hx(rb)/scale-hx(rn))/(scale*math.sqrt(n)) if n else 0
+    if field.get('cell_engine') == 'CERTIFIED_INTEGER_RESIDUAL':
+        result.update({'rounded_relative_error': 0 if not n else None,
+                       'rounded_relative_error_role': 'OMITTED_EXACT_CELL_SCALE_IS_SEPARATE_FROM_DISPLAY_SCALE'})
+    else:
+        result['rounded_relative_error'] = abs(hx(ra)*hx(rb)/scale-hx(rn))/(scale*math.sqrt(n)) if n else 0
     return result
 
 
-def statistics(field: dict, rings: int = 8, sectors: int = 32, *,
-               readout_scale: int | None = 1_000_000) -> dict:
-    """Observe integer counts; exact mode never evaluates approximate metrics.
-
-    rings/sectors remain the caller's ordered histogram dimensions. The separate
-    readout_scale refines CV squared through existing BRC, not the cell layout
-    or interval budget. None explicitly requests symbolic ratios without readout.
-    Legacy mode keeps its V1 payload and accepts only the default readout option.
-    """
-    if any(isinstance(v, bool) or not isinstance(v, int) or v <= 0 for v in (rings, sectors)):
-        raise ValueError('rings and sectors must be positive exact integers')
-    legacy = field.get('cell_engine') != 'CERTIFIED_INTEGER_RESIDUAL'
-    if readout_scale is not None and (isinstance(readout_scale, bool) or
-                                    not isinstance(readout_scale, int) or readout_scale <= 0):
-        raise ValueError('readout_scale must be a positive exact integer or None')
-    if legacy and readout_scale != 1_000_000:
-        raise ValueError('custom readout_scale requires an exact observer field')
+def statistics(field: dict, rings: int = 8, sectors: int = 32) -> dict:
     rows = field['records']; count = len(rows); positive = count-1
     grid = [[0]*sectors for _ in range(rings)]; cells = {}; unresolved = []
     for row in rows:
@@ -372,6 +350,7 @@ def statistics(field: dict, rings: int = 8, sectors: int = 32, *,
         return math.sqrt(max(0, len(values)*sum(v*v for v in values)/total**2-1))
     angular = [sum(b[j] for b in grid) for j in range(sectors)]
     area = [v for b in grid for v in b]
+    legacy = field.get('cell_engine') != 'CERTIFIED_INTEGER_RESIDUAL'
     if legacy:
         return {'population': count, 'positive_population': positive, 'prime_count':len(field['prime_phase']),
                 'rings': rings, 'sectors': sectors, 'grid': grid,
@@ -383,25 +362,26 @@ def statistics(field: dict, rings: int = 8, sectors: int = 32, *,
                 'max_display_quantization_error': max(math.hypot(r['ideal'][0]-r['coord'][0]-r['coord'][1]/2,
                                          r['ideal'][1]-math.sqrt(3)*r['coord'][1]/2) for r in rows)}
     from .angular_dispersion import AngularDispersion
-    angular_exact = AngularDispersion.from_counts(angular).as_record(scale=readout_scale)
-    area_exact = AngularDispersion.from_counts(area).as_record(scale=readout_scale)
+    angular_exact = AngularDispersion.from_counts(angular).as_record()
+    area_exact = AngularDispersion.from_counts(area).as_record()
     complete = not unresolved
     return {'population': count, 'positive_population': positive, 'prime_count':len(field['prime_phase']),
             'rings': rings, 'sectors': sectors, 'grid': grid,
             'distinct_phases':len({r['phase'] for r in rows[1:]}),
-            'angular_cv': None,
+            'angular_cv': cv(angular), 'angular_cv_role':'LEGACY_FLOAT_DISPLAY_NOT_EXACT_EVIDENCE',
             'angular_cv_squared_exact': angular_exact,
-            'area_sector_cv': None,
+            'area_sector_cv': cv(area), 'area_sector_cv_role':'LEGACY_FLOAT_DISPLAY_NOT_EXACT_EVIDENCE',
             'area_sector_cv_squared_exact': area_exact,
-            'iid_cv_scale': None,
-            'approximate_metrics_role':'OMITTED_FROM_EXACT_OBSERVER',
+            'iid_cv_scale': math.sqrt((rings*sectors-1)/positive),
+            'iid_boundary': 'reference sqrt(E(CV^2)); not significance or a randomness test',
             'occupied_hex_centers':len(cells) if complete else None,
             'occupied_hex_centers_bounds':[len(cells),len(cells)+len(unresolved)],
             'collision_groups':sum(len(ids)>1 for ids in cells.values()) if complete else None,
             'extra_identities_at_shared_centers': count-len(cells) if complete else None,
             'largest_fiber':max(map(len,cells.values()),default=0) if complete else None,
             'unresolved_cell_identities':unresolved,
-            'max_display_quantization_error':None}
+            'max_display_quantization_error':None,
+            'max_display_quantization_error_role':'OMITTED_EXACT_CELL_SCALE_IS_SEPARATE_FROM_DISPLAY_SCALE'}
 
 
 def all_pair_audit(field: dict) -> dict:

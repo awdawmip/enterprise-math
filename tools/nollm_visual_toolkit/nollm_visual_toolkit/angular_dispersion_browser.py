@@ -26,7 +26,7 @@ const NollmAngularExact = (() => {
     return result;
   }
   function source(counts) {
-    if (!Array.isArray(counts) || counts.length < 2) throw new TypeError('at least two ordered bins required');
+    if (!Array.isArray(counts) || counts.length < 1) throw new TypeError('at least one ordered bin required');
     const ordered = [];
     let total = 0n, squares = 0n;
     for (let i = 0; i < counts.length; i++) {

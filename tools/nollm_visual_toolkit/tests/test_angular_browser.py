@@ -76,7 +76,7 @@ class AngularBrowserTests(unittest.TestCase):
 
     def test_zero_population_sparse_bins_and_invalid_scale(self):
         actual = js('''(()=>{
-          const f=[()=>NollmAngularExact.fromCounts([]),()=>NollmAngularExact.fromCounts([1]),
+          const f=[()=>NollmAngularExact.fromCounts([]),()=>NollmAngularExact.fromCounts([0]),
             ()=>NollmAngularExact.fromCounts([0,0]),()=>NollmAngularExact.fromCounts([1,,2]),
             ...[0,-1,true,"0","1.0",""] .map(x=>()=>NollmAngularExact.fromCounts([1,2],x)),
             ()=>NollmAngularExact.phaseBin(7,7,64),()=>NollmAngularExact.phaseBin(0,0,64),

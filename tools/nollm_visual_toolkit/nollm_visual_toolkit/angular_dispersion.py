@@ -1,7 +1,8 @@
 """Exact angular-histogram dispersion, not a native-geometry state.
 
 For B bins, population T and squared-count sum Q, CV squared is the
-unreduced integer ratio (B*Q - T*T, T*T). Keeping CV squared avoids a root
+unreduced integer ratio (B*Q - T*T, T*T). A one-bin histogram with positive
+population has exact CV squared zero. Keeping CV squared avoids a root
 when comparing non-negative dispersions. Ordered counts remain the source;
 equal ratios do not authorize identifying histograms or native paths.
 
@@ -41,8 +42,8 @@ class AngularDispersion:
     denominator: int = field(init=False)
 
     def __post_init__(self) -> None:
-        if not isinstance(self.counts, tuple) or len(self.counts) < 2:
-            raise ValueError("counts must be an ordered tuple with at least two bins")
+        if not isinstance(self.counts, tuple) or len(self.counts) < 1:
+            raise ValueError("counts must be an ordered tuple with at least one bin")
         for count in self.counts:
             _natural("bin count", count)
         population = sum(self.counts)

@@ -91,7 +91,7 @@ class MultiplicativeExactMigrationTests(unittest.TestCase):
                            ([v for b in s['grid'] for v in b],'area_sector_cv_squared_exact')]:
             total=sum(counts);num=len(counts)*sum(v*v for v in counts)-total*total;den=total*total
             self.assertEqual(s[key]['numerator'],str(num));self.assertEqual(s[key]['denominator'],str(den))
-        self.assertEqual(s['angular_cv_role'],'LEGACY_FLOAT_DISPLAY_NOT_EXACT_EVIDENCE')
+        self.assertEqual(s['approximate_metrics_role'],'OMITTED_FROM_EXACT_OBSERVER')
 
     def test_legacy_statistics_old_fields_unchanged(self):
         cfg=m.config(1024,'valuation')
@@ -110,7 +110,7 @@ class MultiplicativeExactMigrationTests(unittest.TestCase):
         self.assertIsNone(m.statistics(f)['max_display_quantization_error'])
         d=m.multiplication(f,5,7)
         self.assertIsNone(d['rounded_relative_error'])
-        self.assertIn('SEPARATE',d['rounded_relative_error_role'])
+        self.assertEqual(d['approximate_metrics_role'],'OMITTED_FROM_EXACT_OBSERVER')
 
     def test_invalid_cell_scale_is_rejected_without_float_inference(self):
         for value in ((1,0),(0,1),(True,1),(1,2.0),[1,2],(1,),None):

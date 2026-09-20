@@ -1,0 +1,86 @@
+{
+  "schema": "INTEGER_RESIDUAL_MIGRATION11_VALIDATION_V1",
+  "status": "CANDIDATE_EXACT_READOUTS_LOCALLY_VALIDATED_SOURCE_SLICE",
+  "baseline_commit": "f7f2ecbf2d61e96ef7835c495ab4c9736f52286d",
+  "branch": "research/integer-residual-m01-angular-20260919-4a5102",
+  "researcher_id": "EM-DIRECT-4A5102",
+  "activity_id": "RA-1094DE57986E6E3FDCEA65DA",
+  "tests": {
+    "schema": "M11_READOUT_VALIDATION_V1",
+    "tests": 121,
+    "new_readout_tests": 20,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "groups": {
+      "test_multiplication_lab": 18,
+      "test_angular_dispersion": 18,
+      "test_certified_hex": 24,
+      "test_certified_hex_browser": 18,
+      "test_angular_browser": 11,
+      "test_multiplicative_exact": 12,
+      "test_multiplicative_readouts": 20
+    },
+    "finite_cases": {
+      "complete_python_node_stats": 5,
+      "complete_python_node_products": 1028,
+      "custom_histogram_scale_cases": 40,
+      "legacy_full_statistic_objects": 60
+    },
+    "policy_exit": 0,
+    "scope": "Pinned readout source slice and retained arithmetic regressions; not full M10 startup/DOM, full package, native navigation or independent review",
+    "legacy_expectations_advanced": 4,
+    "vm_host": "M10 exact readout function excerpts; unchanged modulus only; legacy dispatch stubs throw; no DOM/WebCrypto claim"
+  },
+  "population_comparisons": {
+    "cases": 13,
+    "all_default_readouts_equal": true,
+    "all_prior_integer_fields_equal": true,
+    "full_population": 65536,
+    "full_occupied_cells": 44731,
+    "scope": "FUNCTION_LEVEL_NODE_READOUT_NOT_BROWSER_BUILD"
+  },
+  "clean_replay": {
+    "tests": 121,
+    "population_cases": 13,
+    "source_files": 11,
+    "deterministic_reports_byte_equal": true,
+    "documentation_only_clarification_after_replay": true
+  },
+  "patch_sha256": "2b13f2bd69153cd87331d139d9a6ef01e61a3ab4a94a1195be04facdf9291919",
+  "source_manifest_sha256": "d7bda55420910f0a890c179b7d19f2fb6f5458446c1deba42201a4dff252fffe",
+  "raw_evidence": {
+    "tests.json": {
+      "git_blob": "aa5992193423510b1e87cfff7b6d4e301631a9b8",
+      "sha256": "9a337c05fca54e16ec60e921519872e6ffd427351e3d8d66d9bac02fffe19967",
+      "bytes": 928
+    },
+    "populations.json": {
+      "git_blob": "dce4e31fa9e87f1709f14b06edb92df9a2035bc8",
+      "sha256": "47f276e1902a1eb5db9aaf85ac5ff0453b4c8846653c88c8a97f2e78a362bf6a",
+      "bytes": 165340
+    },
+    "combined_tests.log": {
+      "git_blob": "34b9e736fd20781fea94bff1831479037fcb333d",
+      "sha256": "63d5b0df65dcc7ed5af4ff049fbd0d3f891076bdadf50228f35027af2897f53f",
+      "bytes": 19528
+    },
+    "populations.log": {
+      "git_blob": "6620e7196c01c9b378b099962c7d394317d647c0",
+      "sha256": "b868cbddec503f0fe5b4a158f0be0d35133fff40668f50f4ab1e8eb076a146a1",
+      "bytes": 421
+    }
+  },
+  "boundaries": {
+    "default_changed": false,
+    "main_code_integrated": false,
+    "field_build_display_floats_removed": false,
+    "full_m10_startup_dom_rerun": false,
+    "native_browser_acceptance": false,
+    "full_package": false,
+    "whole_repository_regression": false,
+    "independent_review": false,
+    "geometry": "DECLARED_A2_OBSERVER_NOT_NATIVE_X6",
+    "new_hosted_automation": false
+  }
+}
