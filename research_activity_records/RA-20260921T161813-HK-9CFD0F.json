@@ -1,19 +1,50 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-20260921T161813-HK-9CFD0F",
-  "registration_key": "session:chatgpt-auto-20260921T161813p0800-9cfd0f:TASK_RESEARCH",
-  "registration_origin": {"kind": "LIVE_SESSION", "source_tracking_key": null},
-  "mode": "TASK_RESEARCH",
-  "researcher_id": "EM-DIRECT-9CFD0F",
-  "session_id": "chatgpt-auto-20260921T161813p0800-9cfd0f",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-09-21T16:18:13+08:00",
   "authority": {
-    "task_registration": false,
     "claim": false,
+    "mathematical_acceptance": false,
     "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
+    "task_registration": false,
+    "working_truth": false
   },
-  "checkpoints": []
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "006f41e636d6980765709cb0cb4cdea1cc758ad6",
+          "path": "research_returns/RS-CFD-SPECTRAL-HYBRID-20260910_9CFD0F_20260921_R5.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "ab7bbaf001e1406ec662d0f482559f4956707ecffb2ff39846a84f793ca7adec",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "834bdf48f6d19bf24f736da951f5536cdeb770f2",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/006f41e636d6980765709cb0cb4cdea1cc758ad6/research_returns/RS-CFD-SPECTRAL-HYBRID-20260910_9CFD0F_20260921_R5.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "obs-RA-20260921T161813-HK-9CFD0F-R5-return-readback",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-20260921T161813-HK-9CFD0F/readbacks/ebf9aaf30fe7d581bf420559cfe74ae86de26348715a617e8ef5630034b8344b.json",
+          "verification_receipt_sha256": "ebf9aaf30fe7d581bf420559cfe74ae86de26348715a617e8ef5630034b8344b"
+        }
+      ],
+      "event_id": "R5-SOURCE-GUARD-006F41E6",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-09-21T16:18:13+08:00",
+  "registration_key": "session:chatgpt-auto-20260921T161813p0800-9cfd0f:TASK_RESEARCH",
+  "registration_origin": {
+    "kind": "LIVE_SESSION",
+    "source_tracking_key": null
+  },
+  "researcher_id": "EM-DIRECT-9CFD0F",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
+  "session_id": "chatgpt-auto-20260921T161813p0800-9cfd0f",
+  "session_state": "KNOWN"
 }
