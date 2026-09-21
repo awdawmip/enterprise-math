@@ -1,0 +1,30 @@
+{
+  "schema": "ENTERPRISE_MATH_EXTERNAL_PRIOR_ART_AUDIT_VALIDATION_CERT_V1",
+  "status": "PASS",
+  "task_id": "RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-EXTERNAL-PRIOR-ART-AUDIT",
+  "researcher_id": "EM-NFHJPA-5B519F",
+  "layers": ["H1", "H2", "J1", "J2", "C1", "C2"],
+  "classifications": {
+    "H1": "PARTIAL_ANTECEDENT",
+    "H2": "PARTIAL_ANTECEDENT",
+    "J1": "PARTIAL_ANTECEDENT",
+    "J2": "ADJACENT_METHOD",
+    "C1": "NO_MATERIAL_MATCH_IN_AUDITED_SET",
+    "C2": "NO_MATERIAL_MATCH_IN_AUDITED_SET"
+  },
+  "source_count": 6,
+  "exact_query_count": 8,
+  "source_matrix_git_blob_sha1": "d663eda0922dc43b5eee68cc192cf276359c7ba1",
+  "checks": [
+    "exact layer set H1/H2/J1/J2/C1/C2",
+    "classification enum closed to the taskbook four-value vocabulary",
+    "all cited source IDs resolve to source records with hypotheses/scope and conclusions/content",
+    "H1 off-diagonal/distinct-tangent narrowing retained",
+    "H2 odd-prime-power quadratic-character scope retained; no prime-only Legendre narrowing",
+    "C2 numerical-105-only boundary retained; no common provenance/causal mechanism inferred",
+    "negative search findings explicitly bounded to the audited source/query set",
+    "no novelty, priority, patentability, or exhaustive-literature inference"
+  ],
+  "validator": "research_artifacts/NATIVE_FILAMENT_POSTAUDIT_HJ_PRIOR_ART_5B519F_20260922/validate_source_matrix.py",
+  "validation_note": "The validator was executed on the audit matrix content with PASS. This certificate pins the remotely persisted matrix by its Git blob SHA-1 and records semantic checks; it is not a novelty certificate."
+}
