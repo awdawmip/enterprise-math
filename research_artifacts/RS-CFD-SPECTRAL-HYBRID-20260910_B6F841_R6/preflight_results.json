@@ -1,0 +1,89 @@
+{
+  "all_local_checks_pass": true,
+  "candidate_contract": {
+    "fallback": "retain conservative state_plus_source exact scan whenever any attestation is absent",
+    "name": "PINNED_RK4_DERIVED_STATE_SUPPORT_GUARD_ELISION_CANDIDATE",
+    "required_attestations": [
+      "exact task-pinned RK4 stage algebra matches the audited four-stage affine update",
+      "no callback or host code mutates RK stage state outside ComputeRHS/RK4 between guards",
+      "nonlinear sparse output is complete on certified carrier C",
+      "Nyquist masking only deletes support",
+      "pressure projection and diffusion are modewise",
+      "Source is scanned at the frequency justified by its mutation contract"
+    ],
+    "status": "NOT_ACTIVATED_NATIVE_HOST_PENDING",
+    "tiers": {
+      "conservative": "scan state and Source before every sparse nonlinear call",
+      "pinned_rk4_source_each_stage": "after initial state certification, derive stage-state support by RK4 induction and scan Source before each stage",
+      "pinned_rk4_source_once_per_step": "requires the stronger attestation that Source cannot change during a four-stage RK4 step and that step boundaries are exact"
+    }
+  },
+  "checks": {
+    "native_host_unavailable_here": true,
+    "negative_control_external_state_pass": true,
+    "negative_control_midstep_source_pass": true,
+    "support_witness_pass": true
+  },
+  "claims_not_made": [
+    "native spectralDNS execution",
+    "native spectralDNS speedup",
+    "PDE theorem",
+    "universal state-scan redundancy outside the exact pinned host contract"
+  ],
+  "environment": {
+    "commands": {
+      "fftw-wisdom": null,
+      "fftw-wisdom-to-conf": null,
+      "mpiexec": null,
+      "mpirun": null
+    },
+    "modules": {
+      "mpi4py": false,
+      "mpi4py_fft": false,
+      "numba": true,
+      "numpy": true,
+      "pyfftw": false,
+      "scipy": true,
+      "shenfun": false,
+      "spectralDNS": false
+    },
+    "native_host_ready": false,
+    "python": "3.13.5"
+  },
+  "finite_support_witness": {
+    "max_outside_abs": 0.0,
+    "negative_control_external_state_mutation": {
+      "conservative_state_plus_source_detects": true,
+      "expected_source_only_miss": true,
+      "source_only_detects": false
+    },
+    "negative_control_midstep_source_mutation": {
+      "expected_once_per_step_miss": true,
+      "per_stage_source_scan_after_mutation_detects": true,
+      "step_entry_source_scan_detects": false
+    },
+    "steps_per_trial": 8,
+    "support_preserved": true,
+    "trials": 64
+  },
+  "scan_microbenchmark": {
+    "complex_coefficients_per_field": 405504,
+    "four_stage_rk4_group": {
+      "source_every_stage_median_ns": 11628978,
+      "source_once_per_step_median_ns": 2886115,
+      "state_plus_source_every_stage_median_ns": 23696433,
+      "state_plus_source_over_source_once_ratio": 8.210495250535756
+    },
+    "n": 64,
+    "per_stage": {
+      "ratio_state_plus_source_over_source_only": 2.043495633617956,
+      "saved_ns": 3021535,
+      "source_only_median_ns": 2895589,
+      "state_plus_source_median_ns": 5917124
+    },
+    "repetitions": 80,
+    "scope": "local_numpy_microbenchmark_not_native_spectralDNS_timing"
+  },
+  "schema": "EM_CFD_NATIVE_HOST_PREFLIGHT_R6_V1",
+  "seed": 20260921
+}
