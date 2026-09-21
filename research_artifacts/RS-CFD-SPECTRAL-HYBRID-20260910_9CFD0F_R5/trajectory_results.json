@@ -1,0 +1,82 @@
+{
+  "artifact_sha256": {
+    "source_escape_guard.py": "c01e6af23b8b970de36af493dfb7bc7ccce8f3c97eab4be808d88c83d0ba4303"
+  },
+  "axis_regression": {
+    "certified": 1040,
+    "declined_to_general": 7152,
+    "k1_exhaustive_seeds": 8192,
+    "passed": true
+  },
+  "empty": {
+    "carrier_size": 0,
+    "exact_zero_output": true,
+    "label_shape": [0, 3],
+    "sparse_calls": 1
+  },
+  "environment": {
+    "numpy": "2.3.5",
+    "original_host_executed": false,
+    "python": "3.13.5",
+    "shenfun_available": false,
+    "spectralDNS_available": false
+  },
+  "guard_benchmark": {
+    "median": {
+      "dense_escape_s": 0.038347292000025845,
+      "dense_zero_s": 0.0792517179997958,
+      "escape_guard_s": 0.0007293530002243642,
+      "guard_escape_s": 0.03322591799997099,
+      "guard_zero_guard_s": 0.006814837000092666,
+      "guard_zero_s": 0.0145733479998853
+    },
+    "rows": [
+      {"dense_escape_s":0.036551488999975845,"dense_zero_s":0.09632631799991032,"escape_fft_calls":20,"escape_guard_s":0.0013834640001277876,"escape_sparse_calls":4,"guard_escape_s":0.03952441199999157,"guard_zero_guard_s":0.008837592999270782,"guard_zero_s":0.024659994000103325,"guard_zero_sparse_calls":48,"repeat":0},
+      {"dense_escape_s":0.04052777399988372,"dense_zero_s":0.0792517179997958,"escape_fft_calls":20,"escape_guard_s":0.0007293530002243642,"escape_sparse_calls":4,"guard_escape_s":0.03047352399994452,"guard_zero_guard_s":0.009253540999679899,"guard_zero_s":0.018536496000024272,"guard_zero_sparse_calls":48,"repeat":1},
+      {"dense_escape_s":0.037681668999994145,"dense_zero_s":0.07135942000013529,"escape_fft_calls":20,"escape_guard_s":0.000777689999949871,"escape_sparse_calls":4,"guard_escape_s":0.03022066299990911,"guard_zero_guard_s":0.006667343999652076,"guard_zero_s":0.0145733479998853,"guard_zero_sparse_calls":48,"repeat":2},
+      {"dense_escape_s":0.038347292000025845,"dense_zero_s":0.06519494599979225,"escape_fft_calls":20,"escape_guard_s":0.0005624649998026143,"escape_sparse_calls":4,"guard_escape_s":0.032620879999967656,"guard_zero_guard_s":0.006211067000322146,"guard_zero_s":0.013504996999927243,"guard_zero_sparse_calls":48,"repeat":3},
+      {"dense_escape_s":0.03358064300005026,"dense_zero_s":0.08645997999997235,"escape_fft_calls":20,"escape_guard_s":0.0005918100000599225,"escape_sparse_calls":4,"guard_escape_s":0.033466208999925584,"guard_zero_guard_s":0.005762464999406802,"guard_zero_s":0.013608959999828585,"guard_zero_sparse_calls":48,"repeat":4},
+      {"dense_escape_s":0.0464391020000221,"dense_zero_s":0.07197040299979562,"escape_fft_calls":20,"escape_guard_s":0.0006772540000383742,"escape_sparse_calls":4,"guard_escape_s":0.03322591799997099,"guard_zero_guard_s":0.006814837000092666,"guard_zero_s":0.0145652890000747,"guard_zero_sparse_calls":48,"repeat":5},
+      {"dense_escape_s":0.04049478199999612,"dense_zero_s":0.08187760999999227,"escape_fft_calls":20,"escape_guard_s":0.0007844419999400998,"escape_sparse_calls":4,"guard_escape_s":0.04369983899982799,"guard_zero_guard_s":0.01321365300054822,"guard_zero_s":0.028382772999975714,"guard_zero_sparse_calls":48,"repeat":6}
+    ],
+    "scope": "LOCAL_FINITE_GALERKIN_SURROGATE_NOT_SPECTRALDNS_HOST",
+    "timer": "includes adapter construction+validation for guarded route and integration; excludes imports, initial field/source construction, process startup and prior JIT/FFT warmup"
+  },
+  "inside_source": {
+    "decision": "CERTIFIED_STATIC_CARRIER",
+    "dense": false,
+    "nonlinear_abs_error": 4.341570635890622e-19,
+    "sparse_calls": 1
+  },
+  "source_escape": {
+    "carrier_size": 15,
+    "escape_call_abs_error": 0.0,
+    "fallback_at_call": 1,
+    "fallback_reason": "SOURCE_SUPPORT_ESCAPE",
+    "fft_calls_after_clear": 2,
+    "fft_calls_after_escape": 1,
+    "post_clear_abs_error": 0.0,
+    "sparse_delta_on_escape_call": 0,
+    "still_dense_after_source_cleared": true
+  },
+  "state_escape": {
+    "abs_error": 0.0,
+    "fallback_reason": "STATE_SUPPORT_ESCAPE",
+    "fft_calls": 1,
+    "sparse_calls": 0
+  },
+  "trajectory": {
+    "fallback_at_call": 5,
+    "fallback_reason": "SOURCE_SUPPORT_ESCAPE",
+    "final_abs_error": 8.131516290722312e-23,
+    "final_fft_calls": 20,
+    "final_sparse_calls": 4,
+    "guard_seconds": 0.0007197929996891617,
+    "max_endpoint_abs_error": 8.131516293641283e-23,
+    "passed": true,
+    "pre_injection_sparse_calls": 4,
+    "projected_generated_r_110_magnitude": 2.4999250009999915e-06,
+    "steps": 6,
+    "tolerance": 2.499940003599856e-13
+  }
+}
