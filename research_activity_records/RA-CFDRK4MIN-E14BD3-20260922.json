@@ -2,7 +2,10 @@
   "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-CFDRK4MIN-E14BD3-20260922",
   "registration_key": "session:local-research-session-20260922-e14bd3:TASK_RESEARCH",
-  "registration_origin": {"kind": "LIVE_SESSION", "source_tracking_key": null},
+  "registration_origin": {
+    "kind": "LIVE_SESSION",
+    "source_tracking_key": null
+  },
   "mode": "TASK_RESEARCH",
   "researcher_id": "EM-CFD-RK4MIN-E14BD3",
   "session_id": "local-research-session-20260922-e14bd3",
@@ -15,5 +18,21 @@
     "working_truth": false,
     "mathematical_acceptance": false
   },
-  "checkpoints": []
+  "checkpoints": [
+    {
+      "event_id": "r19-sharp-rk4-minimum-v1",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "63bca6f9ec2b748e640c18244a649cef05ef0584",
+          "path": "research_returns/RS-CFD-SPECTRAL-HYBRID-20260910_E14BD3_20260922_R19.md",
+          "sha256": "6b35efacf2a092311453887479a6c99136eaf72d4a6cf1d58664307b88474fca",
+          "publication_state": "VERIFY_EM_PUBLICATION"
+        }
+      ],
+      "kb_sources": [],
+      "state": "VERIFY_EM_PUBLICATION",
+      "repairs_event_id": null
+    }
+  ]
 }
