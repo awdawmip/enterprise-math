@@ -1,0 +1,50 @@
+{
+  "schema": "CFD_CROSS_CYCLE_DEPENDENCE_CERTIFICATE_V1",
+  "task_id": "RS-CFD-TRAJECTORY-VERIFY-20260910",
+  "claim_id": "CLM-CFDVFY-AA1231-20260922-0523",
+  "source_manifest_ref": "awdawmip/enterprise-math@d7e86fe1699ec7b1d5d9a77a8f1d370da5610bbb:research_artifacts/RS-CFD-TRAJECTORY-VERIFY-20260910_91D4E7/cycle_block_manifest.json",
+  "assumption_under_test": "For a null gate, each cycle success indicator Xi only satisfies P(Xi=1)<=1/2; dependence across cycles is otherwise arbitrary.",
+  "theorem": {
+    "statement": "For n cycle indicators and threshold r>=1, sup P(sum Xi >= r) over all joint laws with P(Xi=1)<=1/2 is min(1,n/(2r)).",
+    "upper_bound": "Markov: E[sum Xi] <= n/2, hence P(sum Xi>=r)<=n/(2r), capped at 1.",
+    "sharp_witness": "If r<=n/2, always choose a uniformly random r-subset. If r>n/2, with probability n/(2r) choose a uniformly random r-subset and otherwise choose the empty set. Each marginal is <=1/2 and the threshold event attains the bound."
+  },
+  "frozen_design": {
+    "n_cycles": 23,
+    "primary_cycle_positive_required": 16,
+    "independent_exact_tail": "763/16384",
+    "independent_exact_tail_decimal": 0.04656982421875,
+    "marginal_only_arbitrary_dependence_sup": "23/32",
+    "marginal_only_arbitrary_dependence_sup_decimal": 0.71875,
+    "inflation_ratio_vs_independent_tail": "11776/763",
+    "bonferroni_r17_arbitrary_dependence_sup": "23/34",
+    "all_23_positive_arbitrary_dependence_sup": "1/2"
+  },
+  "iut_consequence": "For the AB-and-CB intersection-union target, under a global null one component may be null and the other deterministically pass. Therefore the same 23/32 worst-case size applies to the frozen r=16 component gate under marginal-only cross-cycle information.",
+  "negative_control_note": "The AC >=16/23 veto can also fire with probability as high as 23/32 under only marginal cycle validity and arbitrary cross-cycle dependence. Because it is a veto, this inflates false-veto risk rather than false speedup acceptance.",
+  "decision": {
+    "alpha_0_05_attainable_from_marginal_cycle_validity_only": false,
+    "minimum_worst_case_over_any_r_1_to_23": "1/2",
+    "fail_closed_rule": "No confirmatory alpha interpretation from the 23-cycle count threshold unless a stronger predeclared cross-cycle joint-law calibration is justified. Independence is sufficient but not logically necessary."
+  },
+  "validation": {
+    "checker": "research_checks/RS_CFD_TRAJECTORY_VERIFY_AA1231.py",
+    "checker_sha256": "d8169f5888af888744557b9cbe5250749bd91147025f781a728787f478c83c11",
+    "certificate_sha256_before_self_field": "134d296907ad2d6b9f6b5719cd15f3a71f1f390b4a5e56f684b3236607aaf23c",
+    "py_compile": "PASS",
+    "checker_execution": "PASS",
+    "exact_grid": "n=1..64, all r=1..n witness/marginal assertions",
+    "native_host_run": false,
+    "current_host_native_stack": {
+      "spectralDNS": false,
+      "shenfun": false,
+      "mpi4py": false,
+      "mpi4py_fft": false,
+      "pyfftw": false,
+      "mpicc": false,
+      "mpicxx": false,
+      "mpirun": false
+    }
+  },
+  "boundary": "Finite probability/design audit only; no native CFD timing, speedup, PDE theorem, Working Truth/Foundation promotion, or final acceptance."
+}
