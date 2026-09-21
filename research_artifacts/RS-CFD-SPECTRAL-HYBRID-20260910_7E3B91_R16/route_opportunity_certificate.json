@@ -1,0 +1,134 @@
+{
+  "schema": "ENTERPRISE_MATH_CFD_ROUTE_OPPORTUNITY_CERTIFICATE_V1",
+  "task_id": "RS-CFD-SPECTRAL-HYBRID-20260910",
+  "publication_id": "TP2-C3B717C14153D5AC45BF",
+  "researcher_id": "EM-CFD-R11-7E3B91",
+  "claim_id": "CLM-CFD-7E3B91-20260921-2244-R16",
+  "state": "CONTINUATION_REQUIRED",
+  "scope": "FINITE_ROUTING_COST_MODEL_ONLY",
+  "sources_consumed_without_replay": [
+    {
+      "kind": "R10_SURROGATE_TRAJECTORY",
+      "commit": "aa054a7ac72a3f78ab7f590291017cbd453ed29f",
+      "path": "research_returns/RS-CFD-SPECTRAL-HYBRID-20260910_A11R10_20260921_R10.md"
+    },
+    {
+      "kind": "R13_BREAK_EVEN_IDENTITY",
+      "commit": "2c4998a8deb48d299f65c29a387ed07c34962213",
+      "path": "research_returns/RS-CFD-SPECTRAL-HYBRID-20260910_73C1F2_20260921_R13.md"
+    }
+  ],
+  "exact_identity": {
+    "definitions": {
+      "N": "total nonlinear calls in the declared horizon",
+      "L": "calls that pay the route-support guard before a conservative permanent-dense latch; 0 <= L <= N",
+      "m": "calls that actually execute sparse arithmetic; 0 <= m <= L",
+      "D": "homogeneous dense counterfactual cost per nonlinear call",
+      "S": "homogeneous sparse cost per sparse call",
+      "G": "homogeneous route-support guard cost on guarded calls",
+      "A": "hybrid-only fixed setup delta"
+    },
+    "law": "DenseTotal-HybridTotal = m*(D-S) - L*G - A",
+    "positive_gain_iff": "m*(D-S) > L*G + A",
+    "required_average_sparse_saving_for_m_positive": "D-S > (L*G+A)/m",
+    "interpretation": "Only calls that actually execute sparse arithmetic can finance route/setup overhead when fallback and post-latch work use the matched dense reference path."
+  },
+  "route_opportunity_cap": {
+    "premises": [
+      "actual sparse-call count m <= M",
+      "each actual sparse-call saving d_j-s_j <= U",
+      "hybrid-exclusive charged overhead H is at least the stated H_lower >= 0",
+      "dense fallback and post-latch dense calls match the dense counterfactual"
+    ],
+    "upper_bound": "DenseTotal-HybridTotal <= M*U - H_lower",
+    "sufficient_kill_gate": "M*U <= H_lower",
+    "meaning": "If the maximum remaining sparse opportunity cannot repay a certified overhead lower bound, positive end-to-end gain is impossible for that declared horizon. This is a finite cost certificate, not a stochastic or PDE theorem."
+  },
+  "r10_instantiation": {
+    "N": 20,
+    "rk4_steps": 5,
+    "rhs_calls_per_step": 4,
+    "support_statement": "All three held-out surrogate trajectories reached all 729 retained full modes by the end of the first completed RK4 step under strict no-pruning support.",
+    "conservative_permanent_dense_latch_boundary": "after completed RK4 step 1",
+    "guarded_calls_with_latch_L": 4,
+    "guarded_calls_without_latch": 20,
+    "route_support_guard_calls_removed_after_latch": 16,
+    "route_support_guard_fraction_removed": "4/5",
+    "cases": [
+      {
+        "seed": 91001,
+        "observed_sparse_calls_m": 2,
+        "observed_fallback_calls": 18,
+        "always_guard_required_average_sparse_saving": "10*G + A/2",
+        "latched_required_average_sparse_saving": "2*G + A/2",
+        "guard_burden_reduction_per_sparse_call": "8*G"
+      },
+      {
+        "seed": 91003,
+        "observed_sparse_calls_m": 2,
+        "observed_fallback_calls": 18,
+        "always_guard_required_average_sparse_saving": "10*G + A/2",
+        "latched_required_average_sparse_saving": "2*G + A/2",
+        "guard_burden_reduction_per_sparse_call": "8*G"
+      },
+      {
+        "seed": 91007,
+        "observed_sparse_calls_m": 1,
+        "observed_fallback_calls": 19,
+        "always_guard_required_average_sparse_saving": "20*G + A",
+        "latched_required_average_sparse_saving": "4*G + A",
+        "guard_burden_reduction_per_sparse_call": "16*G"
+      }
+    ],
+    "important_boundary": "These route counts and saturation times are surrogate evidence only. They do not transfer numerically to the pinned spectralDNS host. The latch observation is an implementation/cost design candidate, not native evidence."
+  },
+  "correctness_boundary_for_latch": {
+    "safe_statement": "Once the implementation elects a one-way permanent-dense route at an exact synchronization boundary, later support shrinkage or Source changes cannot make the numerical route less correct, because every later nonlinear call uses the unchanged dense reference path.",
+    "not_removed": [
+      "physical correctness diagnostics",
+      "Source transversality/divergence checks required by the verifier",
+      "Hermitian, energy, timestep-refinement, and dense-reference comparison diagnostics"
+    ],
+    "tradeoff": "The one-way latch may forgo later sparse re-entry opportunities; it is a conservative cost/correctness policy, not an optimality theorem."
+  },
+  "brc_observer_audit": {
+    "resolution": "REUSE_APPLIED",
+    "interface": "GLOBAL_KNOWLEDGE_V1 BRC observer/provenance discipline",
+    "retained_carrier": [
+      "per-call Boolean route identity",
+      "exact support count / carrier membership",
+      "guard cost",
+      "sparse cost",
+      "fallback dense cost",
+      "setup/allocation/compilation provenance",
+      "signed/complex state coefficients remain outside any positive-mass compression"
+    ],
+    "rejected_compression": "total or median timing alone",
+    "information_loss_witness": "R13 all-fallback random256 had zero sparse calls while aggregate median D-H was positive, so a total-only observer cannot identify sparse arithmetic benefit."
+  },
+  "verification": {
+    "checker": "research_checks/RS_CFD_SPECTRAL_HYBRID_7E3B91_R16.py",
+    "homogeneous_exact_cases": 191100,
+    "route_cap_exact_cases": 31500,
+    "status": "PASS"
+  },
+  "native_run_decision_fields": [
+    "per-call exact support and route",
+    "latch activation call/boundary if the latch variant is separately tested",
+    "guard cost paid before latch",
+    "sparse-call dense counterfactual and actual sparse cost in the separate attribution audit",
+    "hybrid-only setup/allocation/compilation delta",
+    "fully charged horizon total",
+    "all-fallback negative control",
+    "correctness diagnostics required by RS-CFD-TRAJECTORY-VERIFY-20260910"
+  ],
+  "frozen_manifest_boundary": "Do not silently change the already frozen R15/6D3A91 confirmatory benchmark manifest. A latch variant is a separate implementation candidate/diagnostic unless a new manifest version is explicitly frozen before data collection.",
+  "claims_not_made": [
+    "native spectralDNS/shenfun/FFTW execution",
+    "native speedup or slowdown",
+    "generic CFD or industrial acceleration",
+    "continuous-PDE theorem",
+    "independent benchmark acceptance",
+    "Working Truth or Foundation promotion"
+  ]
+}
