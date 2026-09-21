@@ -1,0 +1,137 @@
+{
+  "schema": "EM_CFD_R10_EXACT_GUARD_COST_V1",
+  "status": "LOCAL_EXACT_GUARD_MICROBENCH_NOT_NATIVE_SPECTRALDNS",
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "numpy": "2.3.5",
+  "numba": "0.65.1",
+  "n_fft": 64,
+  "rfft_modes": 135168,
+  "components": 3,
+  "state_plus_source_complex_coefficients": 811008,
+  "adversary_certificate": {
+    "M": 257,
+    "carrier_count": 31,
+    "outside_count": 226,
+    "queried_before_false_halt": 225,
+    "skipped_index": 256,
+    "same_query_transcript": true,
+    "opposite_correct_answers": true
+  },
+  "lower_bound_statement": "Without trusted mutation metadata, any zero-error exact certificate that support(x) is contained in carrier C must, on a passing worst-case input, read every coefficient outside C; for independently mutable state and Source this adds across both objects.",
+  "proof_witness": "Answer zero on every queried outside coefficient. If a deterministic exact guard accepts after querying a strict subset of C^c, choose an unqueried j in C^c. The all-zero input and an input with a nonzero impulse at j induce the same transcript but require opposite decisions, contradiction.",
+  "benchmark_script_sha256": "7dda81c5a6b1e3cdab6bbb6f4fe4e344cca0d5619a35483504610019956a0667",
+  "rows": [
+    {
+      "carrier_fraction_requested": 0.0,
+      "carrier_modes": 0,
+      "total_modes": 135168,
+      "outside_modes": 135168,
+      "outside_complex_coefficients_per_object": 405504,
+      "exact_pair_coefficient_read_lower_bound": 811008,
+      "pass_case_times": {
+        "numpy_advanced_gather": {"median_ms": 4.816869, "min_ms": 4.078383, "max_ms": 30.226275, "repetitions": 41},
+        "numpy_full_mode_reduce": {"median_ms": 1.466857, "min_ms": 1.385461, "max_ms": 2.137728, "repetitions": 41},
+        "numba_full_contiguous_skip": {"median_ms": 1.071554, "min_ms": 1.012781, "max_ms": 1.975217, "repetitions": 41},
+        "numba_complement_index": {"median_ms": 1.296607, "min_ms": 1.227286, "max_ms": 1.946397, "repetitions": 41}
+      },
+      "last_outside_1e-300_escape_caught": {"numpy_advanced_gather": true, "numpy_full_mode_reduce": true, "numba_full_contiguous_skip": true, "numba_complement_index": true}
+    },
+    {
+      "carrier_fraction_requested": 0.001,
+      "carrier_modes": 135,
+      "total_modes": 135168,
+      "outside_modes": 135033,
+      "outside_complex_coefficients_per_object": 405099,
+      "exact_pair_coefficient_read_lower_bound": 810198,
+      "pass_case_times": {
+        "numpy_advanced_gather": {"median_ms": 5.347794, "min_ms": 4.299752, "max_ms": 36.301036, "repetitions": 41},
+        "numpy_full_mode_reduce": {"median_ms": 2.0203, "min_ms": 1.389621, "max_ms": 4.398909, "repetitions": 41},
+        "numba_full_contiguous_skip": {"median_ms": 1.461048, "min_ms": 1.01824, "max_ms": 6.405839, "repetitions": 41},
+        "numba_complement_index": {"median_ms": 1.324161, "min_ms": 1.207146, "max_ms": 5.715988, "repetitions": 41}
+      },
+      "last_outside_1e-300_escape_caught": {"numpy_advanced_gather": true, "numpy_full_mode_reduce": true, "numba_full_contiguous_skip": true, "numba_complement_index": true}
+    },
+    {
+      "carrier_fraction_requested": 0.01,
+      "carrier_modes": 1352,
+      "total_modes": 135168,
+      "outside_modes": 133816,
+      "outside_complex_coefficients_per_object": 401448,
+      "exact_pair_coefficient_read_lower_bound": 802896,
+      "pass_case_times": {
+        "numpy_advanced_gather": {"median_ms": 7.059589, "min_ms": 4.167028, "max_ms": 11.267897, "repetitions": 41},
+        "numpy_full_mode_reduce": {"median_ms": 2.290876, "min_ms": 1.404547, "max_ms": 5.65606, "repetitions": 41},
+        "numba_full_contiguous_skip": {"median_ms": 1.158622, "min_ms": 1.0157, "max_ms": 7.214087, "repetitions": 41},
+        "numba_complement_index": {"median_ms": 1.263857, "min_ms": 1.178528, "max_ms": 3.527639, "repetitions": 41}
+      },
+      "last_outside_1e-300_escape_caught": {"numpy_advanced_gather": true, "numpy_full_mode_reduce": true, "numba_full_contiguous_skip": true, "numba_complement_index": true}
+    },
+    {
+      "carrier_fraction_requested": 0.1,
+      "carrier_modes": 13517,
+      "total_modes": 135168,
+      "outside_modes": 121651,
+      "outside_complex_coefficients_per_object": 364953,
+      "exact_pair_coefficient_read_lower_bound": 729906,
+      "pass_case_times": {
+        "numpy_advanced_gather": {"median_ms": 4.33387, "min_ms": 3.76508, "max_ms": 24.182145, "repetitions": 41},
+        "numpy_full_mode_reduce": {"median_ms": 2.396, "min_ms": 1.425799, "max_ms": 4.383402, "repetitions": 41},
+        "numba_full_contiguous_skip": {"median_ms": 1.18882, "min_ms": 1.125974, "max_ms": 3.396308, "repetitions": 41},
+        "numba_complement_index": {"median_ms": 1.479539, "min_ms": 1.080944, "max_ms": 4.095604, "repetitions": 41}
+      },
+      "last_outside_1e-300_escape_caught": {"numpy_advanced_gather": true, "numpy_full_mode_reduce": true, "numba_full_contiguous_skip": true, "numba_complement_index": true}
+    },
+    {
+      "carrier_fraction_requested": 0.5,
+      "carrier_modes": 67584,
+      "total_modes": 135168,
+      "outside_modes": 67584,
+      "outside_complex_coefficients_per_object": 202752,
+      "exact_pair_coefficient_read_lower_bound": 405504,
+      "pass_case_times": {
+        "numpy_advanced_gather": {"median_ms": 3.78076, "min_ms": 2.107498, "max_ms": 5.469435, "repetitions": 41},
+        "numpy_full_mode_reduce": {"median_ms": 2.54034, "min_ms": 1.426727, "max_ms": 5.509741, "repetitions": 41},
+        "numba_full_contiguous_skip": {"median_ms": 1.889577, "min_ms": 1.318112, "max_ms": 5.877714, "repetitions": 41},
+        "numba_complement_index": {"median_ms": 0.666049, "min_ms": 0.611758, "max_ms": 4.943336, "repetitions": 41}
+      },
+      "last_outside_1e-300_escape_caught": {"numpy_advanced_gather": true, "numpy_full_mode_reduce": true, "numba_full_contiguous_skip": true, "numba_complement_index": true}
+    },
+    {
+      "carrier_fraction_requested": 0.9,
+      "carrier_modes": 121651,
+      "total_modes": 135168,
+      "outside_modes": 13517,
+      "outside_complex_coefficients_per_object": 40551,
+      "exact_pair_coefficient_read_lower_bound": 81102,
+      "pass_case_times": {
+        "numpy_advanced_gather": {"median_ms": 0.676792, "min_ms": 0.5743, "max_ms": 1.460084, "repetitions": 41},
+        "numpy_full_mode_reduce": {"median_ms": 1.82809, "min_ms": 1.445937, "max_ms": 4.856172, "repetitions": 41},
+        "numba_full_contiguous_skip": {"median_ms": 0.463245, "min_ms": 0.352036, "max_ms": 2.190833, "repetitions": 41},
+        "numba_complement_index": {"median_ms": 0.302903, "min_ms": 0.26995, "max_ms": 0.554928, "repetitions": 41}
+      },
+      "last_outside_1e-300_escape_caught": {"numpy_advanced_gather": true, "numpy_full_mode_reduce": true, "numba_full_contiguous_skip": true, "numba_complement_index": true}
+    },
+    {
+      "carrier_fraction_requested": 0.99,
+      "carrier_modes": 133816,
+      "total_modes": 135168,
+      "outside_modes": 1352,
+      "outside_complex_coefficients_per_object": 4056,
+      "exact_pair_coefficient_read_lower_bound": 8112,
+      "pass_case_times": {
+        "numpy_advanced_gather": {"median_ms": 0.052399, "min_ms": 0.051333, "max_ms": 0.247696, "repetitions": 41},
+        "numpy_full_mode_reduce": {"median_ms": 1.660267, "min_ms": 1.417457, "max_ms": 13.618528, "repetitions": 41},
+        "numba_full_contiguous_skip": {"median_ms": 0.12004, "min_ms": 0.115349, "max_ms": 0.502504, "repetitions": 41},
+        "numba_complement_index": {"median_ms": 0.021629, "min_ms": 0.021427, "max_ms": 0.35496, "repetitions": 41}
+      },
+      "last_outside_1e-300_escape_caught": {"numpy_advanced_gather": true, "numpy_full_mode_reduce": true, "numba_full_contiguous_skip": true, "numba_complement_index": true}
+    }
+  ],
+  "notes": [
+    "Exact support uses != 0; 1e-300 negative control is intentionally nonzero.",
+    "Pass case is the expensive sparse-route continuation path; early escape may terminate sooner.",
+    "Timing is local guard-only cost and must not be interpreted as spectralDNS trajectory speedup.",
+    "This summary retains median/min/max and repetition counts; native-host raw timing trials required by the parent task remain outstanding because the native host was not runnable."
+  ]
+}
