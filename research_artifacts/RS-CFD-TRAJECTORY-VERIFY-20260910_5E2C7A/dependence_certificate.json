@@ -1,0 +1,57 @@
+{
+  "boundary": [
+    "Finite dependence/calibration audit only.",
+    "No spectralDNS/shenfun/MPI/FFTW native run was performed.",
+    "No speedup, generic CFD/industrial acceleration, continuous-PDE theorem, Working Truth, or final acceptance is claimed."
+  ],
+  "counterexample": {
+    "exact_null_gate_decimal": 0.3125,
+    "exact_null_gate_probability": "5/16",
+    "gate_equivalence": "S>=18 iff K>=3",
+    "model": "Z_c iid Bernoulli(1/2), c=1..4; all six signs in cycle c equal Z_c",
+    "negative_control_veto_17_probability": "5/16",
+    "positive_count": "S=6*K, K~Binomial(4,1/2)",
+    "properties": [
+      "Every triplet sign is marginally fair under the null.",
+      "Every frozen cycle still contains all six A/B/C orders exactly once.",
+      "Overall arm-position counts remain 8 per arm per position.",
+      "Overall directed pair precedence remains 12 per direction.",
+      "Triplet signs are perfectly dependent within cycle."
+    ]
+  },
+  "decision": {
+    "rules": [
+      "The frozen 18/24 gate may retain confirmatory alpha interpretation only if triplet-level sign independence or another sufficient dependence calibration is justified before interpreting timing results.",
+      "Order/position balance alone is insufficient.",
+      "Bonferroni across AB and CB does not repair invalid marginal sign-test calibration.",
+      "If arbitrary within-cycle dependence cannot be excluded, treat 18/24 counts as descriptive/diagnostic only.",
+      "A future distribution-free block-sign confirmatory design at alpha 0.025 requires at least six genuinely independent symmetric blocks for the all-positive event to have p<=0.025; any revised design must be predeclared before observing new timing data.",
+      "Do not modify the already frozen 6D3A91 manifest retroactively."
+    ],
+    "status": "FAIL_CLOSED_UNLESS_TRIPLET_LEVEL_SIGN_CALIBRATION_IS_JUSTIFIED"
+  },
+  "frozen_manifest": {
+    "blob_sha1": "0e903688ac6ffaba079f88449c3f170f33d2ffbc",
+    "commit": "af956e55af72cedb44288bc8a6157da1670705a0",
+    "confirmatory_threshold": "18/24",
+    "cycles": 4,
+    "path": "research_artifacts/RS-CFD-TRAJECTORY-VERIFY-20260910_6D3A91/native_run_manifest.json",
+    "per_gate_alpha": "1/40",
+    "scheduled_triplets": 24,
+    "triplets_per_cycle": 6
+  },
+  "nominal_triplet_independent": {
+    "p_ge_17_of_24": "536155/16777216",
+    "p_ge_18_of_24": "190051/16777216"
+  },
+  "researcher_id": "EM-CFD-VFY-5E2C7A",
+  "resolution_floor": {
+    "five_blocks_min_p": "1/32",
+    "four_cycles_min_p": "1/16",
+    "if_independent_unit_is_cycle": "With 4 independent symmetric cycle signs, minimum nonzero one-sided exact sign p is 1/16.",
+    "minimum_blocks_for_all_positive_p_le_0.025": 6,
+    "six_blocks_min_p": "1/64"
+  },
+  "schema": "CFD_DEPENDENCE_AUDIT_CERTIFICATE_V1",
+  "task_id": "RS-CFD-TRAJECTORY-VERIFY-20260910"
+}
