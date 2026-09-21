@@ -1,0 +1,51 @@
+{
+  "schema": "CFD_SUPPORT_NONMONOTONICITY_CERTIFICATE_V1",
+  "task_id": "RS-CFD-SPECTRAL-HYBRID-20260910",
+  "research_unit": "R17",
+  "claim_id": "CLM-CFD-5C8E21-20260921-2316-R17",
+  "scope": "finite exact RK4 spectral counterexample plus future-only latch cost certificate",
+  "counterexample": {
+    "retained_full_fourier_set": ["+(1,0,0)", "-(1,0,0)"],
+    "velocity_coefficient": ["0", "1", "0"],
+    "source_coefficient": ["0", "-3/5", "0"],
+    "viscous_rate_nu_k2": "1",
+    "rk4_step_h": "1",
+    "nonlinear_term": "0 because every active velocity coefficient is transverse to both +k and -k",
+    "rk4_stability_multiplier_R_minus_1": "3/8",
+    "constant_source_gain_Psi_minus_1": "5/8",
+    "next_coefficient": "(3/8)*1 + (5/8)*(-3/5) = 0",
+    "conclusion": "exact retained support can shrink from full support of this finite retained set to empty in one fixed RK4 step; support fullness is not a universal monotonic invariant"
+  },
+  "latch_regret": {
+    "comparison": "permanent dense latch now versus continuing exact route guard on K future calls",
+    "identity": "C_latch-C_dynamic = L_switch + sum_{j in J}(D_j-S_j) - sum_i G_i",
+    "bounded_upper": "C_latch-C_dynamic <= L_upper + M*U - H_guard when |J|<=M, D_j-S_j<=U, sum_i G_i>=H_guard, L_switch<=L_upper",
+    "sufficient_latch_dominance": "M*U + L_upper <= H_guard",
+    "critical_boundary": "a dense/full-support snapshot alone does not certify M=0; a future sparse-opportunity bound must come from a separate invariant or measurement certificate"
+  },
+  "verification": {
+    "engine": "Python fractions.Fraction",
+    "support_counterexample": "PASS",
+    "homogeneous_latch_identity_cases": 48400,
+    "finite_bound_cases": 50960,
+    "py_compile": "PASS"
+  },
+  "host_readiness": {
+    "spectralDNS": false,
+    "shenfun": false,
+    "mpi4py": false,
+    "mpi4py_fft": false,
+    "pyfftw": false,
+    "mpicc": false,
+    "mpicxx": false,
+    "mpirun": false,
+    "native_run_performed": false
+  },
+  "nonclaims": [
+    "not a claim about the pinned production trajectory's support history",
+    "not a native spectralDNS benchmark",
+    "not a speedup or slowdown claim",
+    "not a continuous Navier-Stokes theorem",
+    "not independent final acceptance"
+  ]
+}
