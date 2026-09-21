@@ -1,0 +1,70 @@
+{
+  "schema": "ENTERPRISE_MATH_CFD_SOURCE_MUTATION_AUDIT_V1",
+  "task_id": "RS-CFD-SPECTRAL-HYBRID-20260910",
+  "publication_id": "TP2-C3B717C14153D5AC45BF",
+  "claim_id": "CLM-CFD-7C4E91-20260921-1827-R11",
+  "activity_id": "RA-7C4E91D2A6B348C9",
+  "researcher_id": "EM-DIRECT-7C4E91",
+  "question": "Can trusted mutation metadata soundly bypass the R10 exact complement-scan lower bound on the spectralDNS-compatible path?",
+  "sources": [
+    {
+      "repository": "spectralDNS/spectralDNS",
+      "kind": "PINNED_TASK_SOURCE_BLOB",
+      "path": "spectralDNS/solvers/NS.py",
+      "blob_sha1": "6a11909d1e2c1d529d382952c4c9d77e7073645c",
+      "observations": [
+        "get_context constructs U_hat as Function(VT) and Source as Function(VT), exposing ordinary mutable array-like objects rather than a mutation-version abstraction.",
+        "ComputeRHS reads Source by rhs += Source after convection, Nyquist handling, pressure and diffusion.",
+        "set_velocity writes U_hat through VT.forward(U, U_hat); no support-generation metadata is updated in this pinned source."
+      ]
+    },
+    {
+      "repository": "spectralDNS/spectralDNS",
+      "kind": "PUBLIC_CORROBORATING_SOURCE_NOT_FROZEN_TASK_INPUT",
+      "commit": "835b01b1e820b5c56559b9a028293e57526bfbf9",
+      "path": "spectralDNS/__init__.py",
+      "blob_sha1": "210ded75c2d2db408dfba48f75e84bf66eb5a43a",
+      "observations": [
+        "generic solve calls integrate() before solver.update(context), consistent with the previously consumed R7/R8 step-boundary audit."
+      ]
+    },
+    {
+      "repository": "spectralDNS/spectralDNS",
+      "kind": "PUBLIC_CORROBORATING_SOURCE_NOT_FROZEN_TASK_INPUT",
+      "commit": "835b01b1e820b5c56559b9a028293e57526bfbf9",
+      "path": "spectralDNS/maths/integrators.py",
+      "blob_sha1": "3f97ce5b5f672a9023f8b84a91569365f440bce2",
+      "observations": [
+        "fixed RK4 performs four solver.ComputeRHS calls and mutates u0 in-place between stages; this is internal integrator mutation covered by the consumed carrier-closure premise, not external application mutation."
+      ]
+    },
+    {
+      "repository": "spectralDNS/spectralDNS",
+      "kind": "PUBLIC_MUTATION_WITNESS_NOT_FROZEN_TASK_INPUT",
+      "commit": "835b01b1e820b5c56559b9a028293e57526bfbf9",
+      "path": "demo/OrrSommerfeld.py",
+      "blob_sha1": "d890ac1f354973cd8d24d3f0744618a0669bde63",
+      "observations": [
+        "set_Source performs direct slice/index assignments (Source[:] = 0; Source[1] = ...), demonstrating an application-level raw mutable write surface without a mandatory generation hook."
+      ]
+    }
+  ],
+  "result": {
+    "raw_view_metadata_impossibility": "If an outside-carrier coefficient can be changed by any unmediated raw write while metadata remains unchanged, metadata-only acceptance cannot exactly distinguish the no-write execution from the escaped-support execution.",
+    "sufficient_barrier_contract": [
+      "All external writes to state and Source are mediated by a write barrier.",
+      "Each changed coefficient is tested exactly: if index is outside carrier and value != 0, latch permanent dense fallback.",
+      "No raw mutable view may escape the barrier. Any raw-view exposure revokes the metadata certificate and requires a full exact rescan or dense fallback.",
+      "Internal fixed-RK4 mutations may remain uninstrumented only under the previously consumed exact carrier-closure proof and no external mid-stage mutation.",
+      "A false escape latch may cost performance but must never lose a mode; clearing the latch requires a fresh exact recertification."
+    ],
+    "complexity": "Under the complete mediation contract, exact external-mutation certification costs O(number of coefficients actually written through the barrier), bypassing the R10 O(|C^c|) passing-case scan lower bound because the information model has changed. Without complete mediation, the R10 lower bound remains binding.",
+    "pinned_host_conclusion": "The pinned NS source itself supplies no trusted generation/dirty-set mechanism. Therefore a no-scan generation certificate is not justified by the existing pinned source/API alone."
+  },
+  "brc_resolution": {
+    "status": "COMPOSE_APPLIED",
+    "carrier": "exact Boolean Fourier support only for sparse/dense route selection",
+    "preserved_information": "complex amplitudes, phase, wavevector labels, Nyquist handling, pressure/diffusion and RK stage state remain outside the support observer",
+    "information_loss_boundary": "metadata may replace a complement scan only after proving complete mutation mediation; raw mutable views invalidate the quotient."
+  }
+}
