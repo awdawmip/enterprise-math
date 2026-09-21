@@ -1,0 +1,64 @@
+{
+  "schema": "RS_CFD_FORCED_ENERGY_CONTRACT_V1",
+  "task_id": "RS-CFD-TRAJECTORY-VERIFY-20260910",
+  "researcher_id": "EM-CFD-VFY-9A71C4",
+  "purpose": "Add a verifier-owned source-work diagnostic for forced trajectories without converting it into an invalid total-energy balance gate.",
+  "definitions": {
+    "kinetic_energy": "E(u) = 0.5 * mean(sum_i u_i^2) on the host real-velocity field",
+    "source_power": "P_F(u,t) = mean(sum_i u_i * Source_i(u,t))",
+    "rk4_weighted_source_work": "W_F = dt * [P_F(stage1)/6 + P_F(stage2)/3 + P_F(stage3)/3 + P_F(stage4)/6]",
+    "transversality": "For every positive-control RK stage, max|K dot Source_hat| must satisfy the declared numerical tolerance."
+  },
+  "certifiable_checks": {
+    "zero_source": [
+      "Retain the existing physical-space energy series and any separately justified nonincrease gate.",
+      "W_F must be zero up to the declared diagnostic tolerance."
+    ],
+    "constant_source_source_only_synthetic": [
+      "Classical RK4 weighted source work equals the exact quadratic energy increment up to roundoff; this is a checker self-test, not a Navier-Stokes acceptance condition."
+    ],
+    "dynamic_transverse_source": [
+      "Record P_F at all four RK stages and W_F per completed step.",
+      "Record per-stage max|K dot Source_hat| and reject the case as an incompressible positive control if transversality fails.",
+      "For a smooth source-only synthetic witness, require the energy-work defect to decrease under timestep halving; do not infer or advertise a formal order from this finite test."
+    ],
+    "full_forced_navier_stokes": [
+      "Record E, stage source powers, W_F, divergence, Hermitian residual, fallback state, and dense-vs-hybrid trajectory differences.",
+      "Do not require delta E == W_F: convection/discretization, viscosity and any other RHS terms also contribute to the total energy change unless their work terms are separately instrumented and justified."
+    ],
+    "negative_control": [
+      "Use a deliberately longitudinal Source to show that a source-work-consistent trajectory can still violate incompressibility; energy-work and divergence checks are orthogonal."
+    ]
+  },
+  "native_host_matrix_delta": {
+    "positive_controls": [
+      "zero Source",
+      "transverse static Source",
+      "transverse dynamic Source, preferably a time-dependent scalar amplitude times a fixed divergence-free spatial mode"
+    ],
+    "negative_control": "deliberately longitudinal Source",
+    "per_stage": [
+      "P_F",
+      "max_abs_K_dot_Source_hat"
+    ],
+    "per_completed_step": [
+      "physical kinetic energy",
+      "RK4 weighted source work",
+      "max_abs_K_dot_U_hat",
+      "stored-plane Hermitian residual",
+      "sparse/dense fallback state"
+    ],
+    "trajectory_level": [
+      "dense-vs-hybrid velocity difference",
+      "dense-vs-hybrid modified-pressure difference",
+      "same-final-time dt=0.002 versus dt=0.001 endpoint comparison",
+      "setup/allocation/compilation/trajectory timings"
+    ]
+  },
+  "scope_limits": [
+    "No native spectralDNS/shenfun/FFTW rerun is claimed by this contract.",
+    "Source-work alone is not a full Navier-Stokes energy budget.",
+    "Energy-work consistency does not certify incompressibility, Hermitian symmetry, dense-vs-hybrid equivalence, PDE convergence or physical correctness.",
+    "No formal convergence order is claimed from the synthetic timestep-halving witness."
+  ]
+}
