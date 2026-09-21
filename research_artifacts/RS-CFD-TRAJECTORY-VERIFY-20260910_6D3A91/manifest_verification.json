@@ -1,0 +1,32 @@
+{
+  "boundary": "Design/manifest verification only; no native performance acceptance.",
+  "confirmatory_tail": "190051/16777216",
+  "confirmatory_threshold_n24_alpha_0_025": 18,
+  "cycle_orders": [
+    ["BAC", "ACB", "CAB", "ABC", "CBA", "BCA"],
+    ["CBA", "BCA", "ABC", "CAB", "ACB", "BAC"],
+    ["CAB", "ABC", "BAC", "ACB", "BCA", "CBA"],
+    ["BAC", "CBA", "CAB", "ACB", "BCA", "ABC"]
+  ],
+  "global_pairwise_precedence_counts": {
+    "A>B": 12,
+    "A>C": 12,
+    "B>A": 12,
+    "B>C": 12,
+    "C>A": 12,
+    "C>B": 12
+  },
+  "global_position_counts": {
+    "A": {"0": 8, "1": 8, "2": 8},
+    "B": {"0": 8, "1": 8, "2": 8},
+    "C": {"0": 8, "1": 8, "2": 8}
+  },
+  "manifest_schema": "CFD_NATIVE_RUN_MANIFEST_V1",
+  "native_host_executed": false,
+  "negative_control_tail_at_veto": "536155/16777216",
+  "negative_control_veto_threshold_n24_alpha_0_05": 17,
+  "order_sequence_sha256": "115093dc97d1c4360294696aba32e79061c74a170f8701599acb5d3d4e6bb328",
+  "schema": "CFD_NATIVE_RUN_MANIFEST_VERIFICATION_V1",
+  "synthetic_fail_closed_tests": "PASS",
+  "tie_policy_verified": "zero contrasts remain in fixed n=24 and count as non-success"
+}
