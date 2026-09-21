@@ -1,0 +1,52 @@
+{
+  "certified_improvement_lower_fraction": "4078953/50000000",
+  "certified_improvement_lower_percent": 8.157906,
+  "certified_uniform_lower_bound": "54078953/200000000",
+  "checker_sha256": "66c9db37ceaf05ec3a20be8976bb41d96e7470329bda26199892bd2942598485",
+  "exact_statement": {
+    "mu_polynomial": "32 mu^3-12 mu^2+12 mu-3=0 (unique real root)",
+    "sharp_minimum": "mu=x_*^4/24",
+    "stability_factor": "R(-x)=1-x+x^2/2-x^3/6+x^4/24",
+    "stationary_polynomial": "q(x)=x^3-3x^2+6x-6",
+    "unique_minimizer": "the unique x_*>0 with q(x_*)=0"
+  },
+  "finite_checks": {
+    "grid_checks": 12001,
+    "no_loss_checks": 42504
+  },
+  "mu_decimal_bracket": [
+    0.270394765,
+    0.270394766
+  ],
+  "mu_isolation": [
+    "54078953/200000000",
+    "135197383/500000000"
+  ],
+  "native_host_probe": {
+    "binaries": {
+      "mpicc": null,
+      "mpicxx": null,
+      "mpirun": null
+    },
+    "modules": {
+      "mpi4py": false,
+      "mpi4py_fft": false,
+      "pyfftw": false,
+      "shenfun": false,
+      "spectralDNS": false
+    }
+  },
+  "native_host_run": false,
+  "proof_obligations": {
+    "elimination": "r(x^4/24)=q(x)(x^6-3x^4+36)(x^3+3x^2+6x+6)/432",
+    "q_prime": "3((x-1)^2+1)>0",
+    "r_prime": "96(mu-1/8)^2+21/2>0",
+    "stationary_reduction": "24R(-x)-x^4=-4q(x)"
+  },
+  "r18_uniform_bound": "1/4",
+  "schema": "CFD_RK4_SHARP_MIN_CERTIFICATE_V1",
+  "x_star_isolation": [
+    "1596071/1000000",
+    "199509/125000"
+  ]
+}
