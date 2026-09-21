@@ -1,0 +1,166 @@
+{
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "reference_default_cases": 588,
+  "explicit_window_cases": 6468,
+  "independent_pair_observers": 185825,
+  "terminal_class_checks": 30000,
+  "inversion_checks": 30000,
+  "benchmarks": [
+    {
+      "n": 1009,
+      "a": 11,
+      "order": 1008,
+      "window": 1024,
+      "collision_mass": 1056,
+      "full_states": 1008,
+      "inverse_states": 505,
+      "moment_table_entries": 32,
+      "baby_width": 32,
+      "terminal_scans": 64,
+      "adaptive_mass_scans": 214,
+      "full_fixed_window": {
+        "median_ms": 1.455251,
+        "peak_traced_bytes": 202240
+      },
+      "inverse_fixed_window": {
+        "median_ms": 1.47974,
+        "peak_traced_bytes": 157612
+      },
+      "terminal_fixed_window": {
+        "median_ms": 0.072395,
+        "peak_traced_bytes": 5216
+      },
+      "adaptive_mass_order": {
+        "median_ms": 0.222386,
+        "peak_traced_bytes": 7024
+      },
+      "classical_adaptive_bsgs_order": {
+        "median_ms": 0.064515,
+        "peak_traced_bytes": 2328
+      }
+    },
+    {
+      "n": 10007,
+      "a": 5,
+      "order": 10006,
+      "window": 16384,
+      "collision_mass": 29140,
+      "full_states": 10006,
+      "inverse_states": 5004,
+      "moment_table_entries": 128,
+      "baby_width": 128,
+      "terminal_scans": 256,
+      "adaptive_mass_scans": 871,
+      "full_fixed_window": {
+        "median_ms": 18.184738,
+        "peak_traced_bytes": 2058600
+      },
+      "inverse_fixed_window": {
+        "median_ms": 21.422044,
+        "peak_traced_bytes": 1636372
+      },
+      "terminal_fixed_window": {
+        "median_ms": 0.119241,
+        "peak_traced_bytes": 17344
+      },
+      "adaptive_mass_order": {
+        "median_ms": 0.506601,
+        "peak_traced_bytes": 19952
+      },
+      "classical_adaptive_bsgs_order": {
+        "median_ms": 0.154372,
+        "peak_traced_bytes": 9560
+      }
+    },
+    {
+      "n": 65537,
+      "a": 3,
+      "order": 65536,
+      "window": 131072,
+      "collision_mass": 262144,
+      "full_states": 65536,
+      "inverse_states": 32769,
+      "moment_table_entries": 392,
+      "baby_width": 363,
+      "terminal_scans": 725,
+      "adaptive_mass_scans": 2471,
+      "full_fixed_window": {
+        "median_ms": 195.976872,
+        "peak_traced_bytes": 15176960
+      },
+      "inverse_fixed_window": {
+        "median_ms": 115.018172,
+        "peak_traced_bytes": 10602252
+      },
+      "terminal_fixed_window": {
+        "median_ms": 0.234011,
+        "peak_traced_bytes": 63792
+      },
+      "adaptive_mass_order": {
+        "median_ms": 0.909343,
+        "peak_traced_bytes": 67232
+      },
+      "classical_adaptive_bsgs_order": {
+        "median_ms": 0.378638,
+        "peak_traced_bytes": 41304
+      }
+    },
+    {
+      "n": 10403,
+      "a": 2,
+      "order": 5100,
+      "window": 8192,
+      "collision_mass": 14376,
+      "full_states": 5100,
+      "inverse_states": 2551,
+      "moment_table_entries": 93,
+      "baby_width": 91,
+      "terminal_scans": 182,
+      "adaptive_mass_scans": 615,
+      "full_fixed_window": {
+        "median_ms": 10.642888,
+        "peak_traced_bytes": 1040576
+      },
+      "inverse_fixed_window": {
+        "median_ms": 9.043693,
+        "peak_traced_bytes": 821700
+      },
+      "terminal_fixed_window": {
+        "median_ms": 0.178923,
+        "peak_traced_bytes": 15032
+      },
+      "adaptive_mass_order": {
+        "median_ms": 0.464328,
+        "peak_traced_bytes": 17576
+      },
+      "classical_adaptive_bsgs_order": {
+        "median_ms": 0.121207,
+        "peak_traced_bytes": 9464
+      }
+    }
+  ],
+  "larger_order_case": {
+    "n": 100160063,
+    "a": 2,
+    "order": 8345004,
+    "last_window": 8388608,
+    "max_table_entries": 4690,
+    "scans": 19778,
+    "adaptive_mass_order": {
+      "median_ms": 5.314808,
+      "peak_traced_bytes": 769784
+    },
+    "classical_adaptive_bsgs_order": {
+      "median_ms": 2.97954,
+      "peak_traced_bytes": 387704
+    },
+    "full_state_baseline": "NOT_RUN_AT_THIS_SIZE"
+  },
+  "limitations": [
+    "one host; 5 timings, median; tracing measured separately",
+    "Python allocations, not process RSS",
+    "no generic speed claim over classical BSGS",
+    "no RSA-270, independent review, Lean, or full repository tests"
+  ]
+}
