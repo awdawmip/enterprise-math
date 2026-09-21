@@ -1,0 +1,47 @@
+{
+  "schema": "CFD_GUARDED_ROUTING_BREAK_EVEN_CERTIFICATE_V1",
+  "task_id": "RS-CFD-SPECTRAL-HYBRID-20260910",
+  "researcher_id": "EM-TASK-AUTO-73C1F2",
+  "claim_id": "CLM-CFD-73C1F2-20260921-1944-R13",
+  "source_native_host": {
+    "commit": "a282f0f9832a69af0b65549dc0083ddd2a6d8ada",
+    "workflow_run_id": 35050063789,
+    "upstream_spectralDNS_commit": "835b01b1e820b5c56559b9a028293e57526bfbf9",
+    "configuration": "numba",
+    "steps": 12,
+    "routing_decisions_per_trajectory": 49
+  },
+  "exact_model": {
+    "pathwise": "Delta = DenseTotal-HybridTotal = sum_{j sparse}(d_j-s_j) - sum_j g_j - DeltaSetup, assuming dense-fallback calls are cost-matched to their dense counterfactuals and common costs cancel.",
+    "homogeneous": "Hybrid wins iff N*G + A < (N-k)*(D-S), for D>S; k is fallback count.",
+    "probability_form": "Under an IID/expectation model only: G + A/N < (1-p)*(D-S). This is not a stochastic law for CFD.",
+    "all_fallback_corollary": "If k=N (zero sparse calls), sparse-arithmetic savings are exactly zero; any aggregate DenseTotal-HybridTotal difference is non-sparse setup/control/timing effect."
+  },
+  "validation": {
+    "homogeneous_exact_checks": 31752,
+    "pathwise_identity_examples": 2,
+    "status": "PASS"
+  },
+  "observed_native_host": [
+    {"n":16,"case":"shear","dense_ms":"113.296","hybrid_ms":"25.563","sparse_calls":49,"fft_calls":0,"fallback_fraction":"0","observed_total_margin_ms":"87.733","observed_margin_fraction_of_dense":"0.7743697924022030786612060443"},
+    {"n":16,"case":"taylor_green","dense_ms":"113.177","hybrid_ms":"108.148","sparse_calls":3,"fft_calls":46,"fallback_fraction":"0.9387755102040816326530612245","observed_total_margin_ms":"5.029","observed_margin_fraction_of_dense":"0.04443482332982849872323882061"},
+    {"n":16,"case":"random32","dense_ms":"111.922","hybrid_ms":"112.125","sparse_calls":1,"fft_calls":48,"fallback_fraction":"0.9795918367346938775510204082","observed_total_margin_ms":"-0.203","observed_margin_fraction_of_dense":"-0.001813763156483979914583370562"},
+    {"n":16,"case":"edge","dense_ms":"112.976","hybrid_ms":"25.675","sparse_calls":49,"fft_calls":0,"fallback_fraction":"0","observed_total_margin_ms":"87.301","observed_margin_fraction_of_dense":"0.7727393428692819713921540858"},
+    {"n":32,"case":"shear","dense_ms":"366.195","hybrid_ms":"64.608","sparse_calls":49,"fft_calls":0,"fallback_fraction":"0","observed_total_margin_ms":"301.587","observed_margin_fraction_of_dense":"0.8235694097407119157825748577"},
+    {"n":32,"case":"taylor_green","dense_ms":"373.831","hybrid_ms":"349.573","sparse_calls":3,"fft_calls":46,"fallback_fraction":"0.9387755102040816326530612245","observed_total_margin_ms":"24.258","observed_margin_fraction_of_dense":"0.06489028464734064323183470606"},
+    {"n":32,"case":"random32","dense_ms":"365.820","hybrid_ms":"364.909","sparse_calls":1,"fft_calls":48,"fallback_fraction":"0.9795918367346938775510204082","observed_total_margin_ms":"0.911","observed_margin_fraction_of_dense":"0.002490295773877863430102236072"},
+    {"n":32,"case":"random256","dense_ms":"361.778","hybrid_ms":"360.303","sparse_calls":0,"fft_calls":49,"fallback_fraction":"1","observed_total_margin_ms":"1.475","observed_margin_fraction_of_dense":"0.004077085947735904339125098818","exact_sparse_arithmetic_attribution_ms":"0","classification":"ALL_FALLBACK_NEGATIVE_CONTROL"}
+  ],
+  "decision_rules": [
+    "Do not attribute an aggregate total-time delta to sparse arithmetic when sparse_calls=0.",
+    "For a new safety guard added to an otherwise identical frozen trace, a positive observed total margin D-H is the maximum additional per-trajectory overhead budget before that trace loses its measured total-time win; this is a trace budget, not a portability guarantee.",
+    "For prospective routing, measure D,S,G,A on the same provisioned host and use the pathwise inequality; fallback fraction alone is insufficient.",
+    "Retain dense fallback whenever the exact measured budget is non-positive or control/setup/timing effects are of the same order as the margin."
+  ],
+  "boundaries": [
+    "Frozen host data are bounded author tests, not independent acceptance.",
+    "No continuous-PDE, industrial, portability, or generic 3D acceleration claim.",
+    "Aggregate medians do not identify per-decision causal costs.",
+    "The R12 current execution environment still cannot instantiate the pinned native host."
+  ]
+}
