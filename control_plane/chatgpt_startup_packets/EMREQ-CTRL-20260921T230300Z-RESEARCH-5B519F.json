@@ -1,0 +1,64 @@
+{
+  "action": "CLAIM_NEW_OWNER",
+  "control_epoch": "EM-CONTROL-20260904-CANONICAL-DISPATCH-AUTHORITY-1",
+  "diagnostics": {
+    "load_policy": "TRIGGERED_ONLY",
+    "receipt_path": "control_plane/chatgpt_dispatch_receipts/EMREQ-CTRL-20260921T230300Z-RESEARCH-5B519F.json"
+  },
+  "generated_at": "2026-09-21T23:04:07Z",
+  "kind": "RESEARCH",
+  "new_claim_required": true,
+  "owner_claim_preserved": false,
+  "packet_bytes": 3527,
+  "read_plan": {
+    "context_accounting": "PACKET_AND_EXTERNAL_TASKBOOK_ONLY_NOT_END_TO_END",
+    "dependency_ref_verification": "SOURCE_READ_REQUIRED_PRESERVE_DECLARED_REF",
+    "external_taskbook_bytes": 9671,
+    "first_dependency_ref": "research_returns/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE_RETURN_20260902.md",
+    "forbidden": [
+      "REMOTE_FETCH_AGENTS_MD_FOR_ORDINARY_START",
+      "FULL_DISPATCH_RECEIPT_ON_ORDINARY_START",
+      "CURRENT_CONTROL_AUTHORITY_ON_ORDINARY_START",
+      "ISSUE_240_FULL_COMMENT_STREAM_IN_CONVERSATION",
+      "HIGH_FANOUT_DIRECTORY_OR_RECURSIVE_TREE_DISCOVERY"
+    ],
+    "if_first_dependency_unknown": "TASK_UNDERSTANDING_THEN_BOUNDED_TARGETED_SEARCH_ONLY",
+    "packet_plus_external_taskbook_bytes": 13198,
+    "remote_source_reads_before_substantive_math_max": 2
+  },
+  "reason": "fresh canonical task selector returned a dispatchable target",
+  "request_id": "EMREQ-CTRL-20260921T230300Z-RESEARCH-5B519F",
+  "schema": "ENTERPRISE_MATH_RESEARCHER_STARTUP_PACKET_V1",
+  "source_sha": "583354e73658c3a28c903f37ae55225811016f69",
+  "surface": "ORDINARY_TASK",
+  "target_key": "RS-GEO8-BORSUK-R6-LASSAK-33-COMPRESSION-PRESSURE",
+  "task": {
+    "claim_id": null,
+    "dispatch_state": "NEEDS_DISPATCH",
+    "frontier": "Gen1 RR-68BA014D54542DA7221C freezes an exact K33 whole-atom coarsening obstruction and a uniform 10/7 center-fixed cube-facet subtemplate obstruction, but TP2-D425335E9566A3F6A54C is nonoperational under the current V2 mandatory-body-section contract. Revalidate the same mathematical hard target under a policy-complete generation with zero math drift unless current evidence forces a delta.",
+    "identity_lane": "GEO8BORSUKR6",
+    "last_progress_at": "2026-09-02T12:37:00+00:00",
+    "last_progress_ref": "TP2-75A6C3F81E2D094B67CF",
+    "lease_until": null,
+    "next_action": "Replay the exact checker, verify every frozen RR-68BA artifact/source boundary against current main, and issue a fresh execution/result envelope bound to this Gen2 publication; reuse unchanged mathematical artifacts byte-for-byte when valid.",
+    "owner": "research/geo8-borsuk-r6-lassak-33-compression-pressure",
+    "projection": null,
+    "projection_mode": "EXACT_TASKBOOK_REQUIRED_PACKET_BUDGET",
+    "publication_id": "TP2-75A6C3F81E2D094B67CF",
+    "publication_record_path": "research_task_records/RS-GEO8-BORSUK-R6-LASSAK-33-COMPRESSION-PRESSURE/TP2-75A6C3F81E2D094B67CF.json",
+    "required_task_sections": [
+      "Mother question",
+      "Frozen inputs and scope",
+      "Hard target and required outputs",
+      "Research value to preserve",
+      "Success, kill, and return criteria"
+    ],
+    "researcher_id": null,
+    "state": "READY",
+    "task_id": "RS-GEO8-BORSUK-R6-LASSAK-33-COMPRESSION-PRESSURE",
+    "taskbook_blob_sha1": "sha1:98d2c500a84d1b7dfe75327925567b8700dcb118",
+    "taskbook_bytes": 9671,
+    "taskbook_path": "research_tasks/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE_REVALIDATION_GEN2_20260902.md",
+    "title": "GEO8 Borsuk R6 Lassak-33 compression pressure — current-policy revalidation Gen2"
+  }
+}
