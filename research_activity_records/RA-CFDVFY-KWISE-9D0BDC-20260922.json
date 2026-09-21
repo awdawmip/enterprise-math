@@ -7,13 +7,14 @@
   "execution_branch": "research/cfd-verify-kwise-9d0bdc-20260922",
   "reconciled_predecessor_claim": "CLM-CFDVFY-AA1231-20260922-0523",
   "durable_frontier": "0baf64869d8f90b94878794a7d6dd440e3808842",
-  "status": "ACTIVE",
+  "status": "COMPLETED_CONTINUATION_REQUIRED",
   "started_at": "2026-09-22T06:13:00+08:00",
-  "scope": "Exact fail-closed cross-cycle tail calibration for the frozen n=23,r=16 verifier gate under bounded k-wise success-intersection constraints; no replay of AA1231 and no native-host execution.",
+  "completed_at": "2026-09-22T06:18:57+08:00",
+  "scope": "Exact fail-closed cross-cycle tail calibration for the frozen n=23,r=16 verifier gate under bounded k-wise success-intersection constraints, plus an exact full 22-wise-independence contrast; no replay of AA1231 and no native-host execution.",
   "outputs": [
     "research_returns/RS-CFD-TRAJECTORY-VERIFY-20260910_9D0BDC_20260922.md",
     "research_artifacts/RS-CFD-TRAJECTORY-VERIFY-20260910_9D0BDC/kwise_tail_certificate.json",
     "research_checks/RS_CFD_TRAJECTORY_VERIFY_9D0BDC.py"
   ],
-  "validation": "PENDING"
+  "validation": "stdlib Fraction exact arithmetic; primal/dual envelope checked for k=1..23; exact 22-wise parity witness checked via factorial moments and inclusion-exclusion patterns; local py_compile PASS; checker execution PASS; immutable branch readback required before handoff."
 }
