@@ -1,0 +1,67 @@
+{
+  "schema": "RS_CFD_BLOCK_CONFIRMATION_CERTIFICATE_V1",
+  "task_id": "RS-CFD-TRAJECTORY-VERIFY-20260910",
+  "researcher_id": "EM-CFD-VFY-BLOCK-4C2F19",
+  "source": {
+    "dependence_audit_commit": "6e36dd72cfbf344feae7a696e102a8c03abee793",
+    "dependence_audit_path": "research_returns/RS-CFD-TRAJECTORY-VERIFY-20260910_5E2C7A_20260922.md",
+    "frozen_manifest_commit": "af956e55af72cedb44288bc8a6157da1670705a0",
+    "frozen_manifest_path": "research_artifacts/RS-CFD-TRAJECTORY-VERIFY-20260910_6D3A91/native_run_manifest.json"
+  },
+  "observer_contract": {
+    "cycle_size_triplets": 6,
+    "cycle_contents": "one each of ABC,BCA,CAB,ACB,CBA,BAC",
+    "gate_cycle_success": "strict majority: at least 4 of 6 gate deltas are >0; zero/nonpositive deltas are non-success",
+    "within_cycle_dependence": "arbitrary",
+    "required_cross_cycle_condition": "cycles are independent inferential blocks and each null cycle-success probability is <=1/2",
+    "sufficient_null_condition": "independent cycles plus central sign symmetry of each six-dimensional gate-difference vector",
+    "raw_triplet_evidence_retained": true,
+    "information_lost_by_block_observer": ["within-cycle magnitudes", "within-cycle serial dependence", "which literal orders supplied the positive signs"]
+  },
+  "global_claim": {
+    "form": "strict conjunction: AB directional superiority AND CB directional superiority",
+    "recommended_test": "intersection-union test",
+    "per_gate_alpha": 0.05,
+    "global_size_bound": 0.05,
+    "cross_gate_independence_required": false,
+    "proof": "Under the union null at least one component null is true; global rejection is contained in rejection of that true component, so P(global reject)<=0.05.",
+    "separate_simultaneous_claims_boundary": "If AB and CB must each be reported as separately alpha-controlled simultaneous claims, keep Bonferroni alpha=0.025 per gate instead."
+  },
+  "resolution": {
+    "frozen_4_cycles_best_one_sided_tail": "1/16",
+    "frozen_4_cycles_best_one_sided_tail_decimal": 0.0625,
+    "iut_alpha_0_05_first_attainable_cycles": 5,
+    "iut_first_threshold": "5/5",
+    "iut_first_tail": "1/32",
+    "bonferroni_alpha_0_025_first_attainable_cycles": 6,
+    "bonferroni_first_threshold": "6/6",
+    "bonferroni_first_tail": "1/64"
+  },
+  "power_and_budget": {
+    "assumption": "independent cycles; for each component gate every cycle has alternative success probability at least p_block",
+    "iut_alpha_0_05": [
+      {"p_block":0.7,"target_marginal_power":0.8,"cycles":37,"critical_successes":24,"physical_triplets":222,"arm_executions":666,"actual_marginal_power":0.8070956916527875},
+      {"p_block":0.7,"target_marginal_power":0.9,"cycles":53,"critical_successes":33,"physical_triplets":318,"arm_executions":954,"actual_marginal_power":0.9137724545145020},
+      {"p_block":0.8,"target_marginal_power":0.8,"cycles":18,"critical_successes":13,"null_tail":"1577/32768","physical_triplets":108,"arm_executions":324,"actual_marginal_power":"3307661688832/3814697265625","actual_marginal_power_decimal":0.8670836657571758,"frechet_joint_lower_decimal":0.7341673315143517},
+      {"p_block":0.8,"target_marginal_power":0.9,"cycles":23,"critical_successes":16,"null_tail":"763/16384","physical_triplets":138,"arm_executions":414,"actual_marginal_power":"11068512973881344/11920928955078125","actual_marginal_power_decimal":0.9284941648080484,"frechet_joint_lower":"10216096992684563/11920928955078125","frechet_joint_lower_decimal":0.8569883296160966},
+      {"p_block":0.9,"target_marginal_power":0.8,"cycles":8,"critical_successes":7,"physical_triplets":48,"arm_executions":144,"actual_marginal_power":0.81310473},
+      {"p_block":0.9,"target_marginal_power":0.9,"cycles":11,"critical_successes":9,"physical_triplets":66,"arm_executions":198,"actual_marginal_power":0.91043814915}
+    ],
+    "bonferroni_alpha_0_025_reference": [
+      {"p_block":0.8,"target_marginal_power":0.8,"cycles":20,"critical_successes":15,"physical_triplets":120,"arm_executions":360,"actual_marginal_power":0.8042077854595495},
+      {"p_block":0.8,"target_marginal_power":0.9,"cycles":28,"critical_successes":20,"physical_triplets":168,"arm_executions":504,"actual_marginal_power":0.9099653413701221}
+    ],
+    "recommendation": "For a future strictly conjunctive confirmatory run, if p_block≈0.8 is a defensible planning alternative, 18 independent complete cycles gives >0.8 marginal power per gate; 23 cycles gives >0.9 marginal power per gate and, without any AB/CB independence assumption, a Frechet lower bound >0.8 for both gates passing. Five cycles is only an alpha-resolution minimum and is severely underpowered."
+  },
+  "negative_control": {
+    "AC_role": "diagnostic veto, not a confirmatory alternative",
+    "cluster_note": "The frozen triplet-level AC 17/24 calibration is also invalid under arbitrary within-cycle dependence. If a formal false-veto rate is desired, calibrate AC on the same independent cycle blocks; otherwise keep AC descriptive/veto-only."
+  },
+  "status": "FINITE_EXACT_DESIGN_RESULT_CONTINUATION_REQUIRED",
+  "boundary": [
+    "The frozen 6D3A91 manifest is not retroactively modified; its four-cycle 18/24 statistics remain descriptive unless a stronger dependence model is justified.",
+    "Cycle balance alone does not establish central sign symmetry or independence across cycles.",
+    "No native spectralDNS/shenfun/MPI/FFTW execution was performed.",
+    "No CFD speedup, generic industrial acceleration, continuous-PDE theorem, Working Truth, Foundation promotion, or final acceptance is asserted."
+  ]
+}
