@@ -51,6 +51,12 @@ assert sum(x > 0 for x in r32_minus_frozen_control) == 3
 assert round(median(r32_minus_frozen_control), 12) == round(2.3231719999898815, 12)
 assert sign_tail(5, 5) == Fraction(1, 32)
 
+# Complete six-order cycle for three arms A=dense, B=automatic hybrid, C=forced fallback.
+PERMS = ["ABC", "BCA", "CAB", "ACB", "CBA", "BAC"]
+assert len(set(PERMS)) == 6
+for arm in "ABC":
+    assert [sum(order[pos] == arm for order in PERMS) for pos in range(3)] == [2, 2, 2]
+
 # Two pre-specified directional confirmatory gates use Bonferroni alpha=0.025 each:
 # (1) end-to-end A-B, and (2) attribution C-B.
 ALPHA = Fraction(1, 40)
@@ -76,6 +82,7 @@ assert threshold(12, ALPHA) == 10
 print("R15_CHECK_PASS")
 print("tg_minus_frozen_control_ms", [round(x, 6) for x in tg_minus_frozen_control])
 print("tg_paired_median_minus_frozen_control_ms", round(median(tg_minus_frozen_control), 6))
+print("order_cycle", PERMS)
 for n in [6, 12, 18, 24, 30]:
     k = threshold(n, ALPHA)
     print("design", n, "threshold", k, "p", float(sign_tail(n, k)), "power_p0.8", round(power(n, k, 0.8), 6))
