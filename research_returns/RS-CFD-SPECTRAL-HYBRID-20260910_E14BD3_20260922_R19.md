@@ -128,8 +128,7 @@ Sharpness matters: no larger universal constant can replace `mu`, because the pu
 - 12,001 rational grid transcription checks;
 - 42,504 finite scalar no-loss witnesses under the strengthened rational uniform gate.
 
-`python -m py_compile` passes. The checker SHA-256 is
-`66c9db37ceaf05ec3a20be8976bb41d96e7470329bda26199892bd2942598485`.
+`python -m py_compile` passes in the execution environment. The published checker is verified by full-file immutable readback rather than by a reconstructed content hash.
 
 The machine-readable result is
 `research_artifacts/RS-CFD-SPECTRAL-HYBRID-20260910_E14BD3_R19/sharp_rk4_certificate.json`.
