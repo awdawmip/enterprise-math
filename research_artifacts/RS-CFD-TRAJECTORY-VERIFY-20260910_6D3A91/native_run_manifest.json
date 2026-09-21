@@ -1,0 +1,104 @@
+{
+  "schema": "CFD_NATIVE_RUN_MANIFEST_V1",
+  "task_id": "RS-CFD-TRAJECTORY-VERIFY-20260910",
+  "target_task_id": "RS-CFD-SPECTRAL-HYBRID-20260910",
+  "claim_id": "CLM-CFDVFY-6D3A91-20260921-2058",
+  "researcher_id": "EM-CFD-VFY-6D3A91",
+  "purpose": "Predeclare the next provisioned-host A/B/C benchmark before observing any new native timing result.",
+  "source_refs": {
+    "r15_design_commit": "283a135c7a8b4cd7830cee4b13e05ca07531011f",
+    "r15_design_path": "research_artifacts/RS-CFD-SPECTRAL-HYBRID-20260910_9A4F61_R15/experimental_design.json",
+    "independent_design_audit_commit": "d152a77e9cf122d4c7df98ded4c9281e575027f2",
+    "independent_design_audit_path": "research_returns/RS-CFD-TRAJECTORY-VERIFY-20260910_3F8B72_20260921.md",
+    "spectralDNS_commit": "835b01b1e820b5c56559b9a028293e57526bfbf9"
+  },
+  "host_preflight": {
+    "case": "32^3 Taylor-Green",
+    "grid": [32, 32, 32],
+    "required_spectralDNS_commit": "835b01b1e820b5c56559b9a028293e57526bfbf9",
+    "required_shenfun_version": "4.3",
+    "required_runtime_capture": ["python_version", "numpy_version", "numba_version", "mpi_runtime", "fftw_runtime", "cpu_model", "thread_env", "spectralDNS_git_status"],
+    "fail_closed_if_unresolved": ["spectralDNS commit mismatch", "shenfun version mismatch", "native dependency missing", "dirty spectralDNS worktree affecting solver code", "frozen numerical tolerances cannot be resolved from canonical evidence"]
+  },
+  "arms": {
+    "A": "unmodified dense FFT baseline",
+    "B": "guarded hybrid automatic routing",
+    "C": "guarded forced-fallback control on the same physical trajectory; sparse execution disabled while wrapper/guard/fallback machinery is preserved"
+  },
+  "sampling": {
+    "scheduled_triplets": 24,
+    "cycles": 4,
+    "orders_per_cycle": 6,
+    "seed_material": "CFD-R15-RUN-MANIFEST-v1|task=RS-CFD-TRAJECTORY-VERIFY-20260910|r15=283a135c7a8b4cd7830cee4b13e05ca07531011f|verify=d152a77e9cf122d4c7df98ded4c9281e575027f2|claim=CLM-CFDVFY-6D3A91-20260921-2058",
+    "order_algorithm": "For each cycle c=0..3, sort the six literal orders ABC,BCA,CAB,ACB,CBA,BAC by lowercase hexadecimal SHA256(seed_material + '|cycle=' + c + '|order=' + order), ascending. This is a predeclared deterministic hash permutation, not data-dependent randomization.",
+    "cycle_orders": [
+      ["BAC", "ACB", "CAB", "ABC", "CBA", "BCA"],
+      ["CBA", "BCA", "ABC", "CAB", "ACB", "BAC"],
+      ["CAB", "ABC", "BAC", "ACB", "BCA", "CBA"],
+      ["BAC", "CBA", "CAB", "ACB", "BCA", "ABC"]
+    ],
+    "schedule": [
+      {"triplet": 1, "cycle": 1, "order": "BAC"}, {"triplet": 2, "cycle": 1, "order": "ACB"}, {"triplet": 3, "cycle": 1, "order": "CAB"}, {"triplet": 4, "cycle": 1, "order": "ABC"}, {"triplet": 5, "cycle": 1, "order": "CBA"}, {"triplet": 6, "cycle": 1, "order": "BCA"},
+      {"triplet": 7, "cycle": 2, "order": "CBA"}, {"triplet": 8, "cycle": 2, "order": "BCA"}, {"triplet": 9, "cycle": 2, "order": "ABC"}, {"triplet": 10, "cycle": 2, "order": "CAB"}, {"triplet": 11, "cycle": 2, "order": "ACB"}, {"triplet": 12, "cycle": 2, "order": "BAC"},
+      {"triplet": 13, "cycle": 3, "order": "CAB"}, {"triplet": 14, "cycle": 3, "order": "ABC"}, {"triplet": 15, "cycle": 3, "order": "BAC"}, {"triplet": 16, "cycle": 3, "order": "ACB"}, {"triplet": 17, "cycle": 3, "order": "BCA"}, {"triplet": 18, "cycle": 3, "order": "CBA"},
+      {"triplet": 19, "cycle": 4, "order": "BAC"}, {"triplet": 20, "cycle": 4, "order": "CBA"}, {"triplet": 21, "cycle": 4, "order": "CAB"}, {"triplet": 22, "cycle": 4, "order": "ACB"}, {"triplet": 23, "cycle": 4, "order": "BCA"}, {"triplet": 24, "cycle": 4, "order": "ABC"}
+    ],
+    "no_adaptive_reordering": true,
+    "no_repeat_replacement": true,
+    "retain_raw_order_and_timestamps": true
+  },
+  "ties_and_effect": {
+    "directional_epsilon_ms": 0.0,
+    "success_rule": "For each gate, success iff contrast_ms > directional_epsilon_ms. Exact zero and all nonpositive contrasts are non-successes.",
+    "tie_rule": "Do not delete, replace, resample, or condition on ties. Every scheduled triplet remains in n=24.",
+    "material_speedup_margin_ms": null,
+    "interpretation": "Passing certifies directional repeat frequency at epsilon=0 only; it does not certify a nonzero material speedup magnitude."
+  },
+  "contrasts": {
+    "AB": {"formula": "A_total_ms - B_total_ms", "role": "confirmatory end-to-end"},
+    "CB": {"formula": "C_total_ms - B_total_ms", "role": "confirmatory sparse-route-permission within guarded wrapper"},
+    "AC": {"formula": "A_total_ms - C_total_ms", "role": "negative-control diagnostic/veto"}
+  },
+  "statistics": {
+    "confirmatory_familywise_alpha": 0.05,
+    "confirmatory_method": "Bonferroni two one-sided exact sign gates",
+    "per_confirmatory_gate_alpha": 0.025,
+    "n_fixed": 24,
+    "confirmatory_positive_required": 18,
+    "confirmatory_exact_tail": "190051/16777216",
+    "negative_control_alpha": 0.05,
+    "negative_control_positive_veto_at_or_above": 17,
+    "negative_control_exact_tail_at_veto": "536155/16777216",
+    "joint_power_claim_allowed": false,
+    "per_gate_power_at_p_positive_0_8": 0.8110710551188802
+  },
+  "correctness_gates": {
+    "same_input_per_triplet": true,
+    "required_input_identity_fields": ["initial_state_hash", "source_plan_hash", "dt", "nsteps", "final_time", "solver_parameter_hash"],
+    "B_and_C_preserve": ["Nyquist treatment", "pressure/diffusion ordering", "Source ordering", "RK4 staging"],
+    "numerical_tolerance_source": "Resolve the task's frozen numerical tolerances from canonical immutable evidence before first timed triplet; store the source ref and exact values in the run record. Missing/unresolved tolerance => run cannot enter acceptance evaluation.",
+    "route_requirements": {"B_sparse_calls_per_triplet_min": 1, "C_sparse_calls_per_triplet_exact": 0},
+    "required_diagnostics": ["dense-vs-B velocity endpoint", "dense-vs-C velocity endpoint", "modified-pressure comparison", "stored-plane Hermitian residual", "max|K·U_hat|", "per-stage max|K·Source_hat| where Source is present", "physical kinetic energy series", "fallback/re-entry state", "same-final-time dt refinement where required by verifier contract"],
+    "longitudinal_source_negative_control": "May be run as a diagnostic but cannot be pooled into the positive-control confirmatory timing gates."
+  },
+  "timing_and_cost_accounting": {
+    "production_timing_excludes": ["shadow dense counterfactual work", "post-run analysis"],
+    "required_per_arm_triplet_fields": ["start_timestamp", "end_timestamp", "setup_ms", "allocation_ms", "compilation_ms", "rk4_ms", "total_ms"],
+    "required_per_nonlinear_call_fields": ["route", "support_count", "guard_ms", "sparse_ms", "fallback_fft_ms", "shadow_dense_numeric_residual"],
+    "shadow_counterfactual_rule": "Numerical shadow dense work is retained for sparse-eligible calls but executed outside the production timing path.",
+    "one_time_cost_rule": "Any setup/compilation intentionally performed before timed triplets must be measured separately per arm and included in the 24-triplet declared-horizon total.",
+    "declared_horizon_triplets": 24,
+    "horizon_gate": "In addition to sign gates, the fully charged 24-triplet horizon totals must satisfy A_horizon_total_ms > B_horizon_total_ms and C_horizon_total_ms > B_horizon_total_ms. Otherwise no performance acceptance."
+  },
+  "acceptance_logic": [
+    "Fail if any host preflight or correctness gate fails.",
+    "Fail if any B triplet has zero sparse calls or any C triplet has a nonzero sparse call.",
+    "Count AB successes over all 24 scheduled triplets using AB>0; require at least 18.",
+    "Count CB successes over all 24 scheduled triplets using CB>0; require at least 18.",
+    "Count AC positive diagnostics over all 24 scheduled triplets using AC>0; if at least 17, veto sparse-speed attribution until explained.",
+    "Require fully charged 24-triplet horizon totals A>B and C>B.",
+    "Retain and report raw magnitudes; sign-gate passage alone cannot support a material-speedup claim because epsilon=0.",
+    "Even if all gates pass, result remains a native benchmark checkpoint pending independent review; it does not establish generic CFD/industrial acceleration or a continuous-PDE theorem."
+  ],
+  "boundary": "Manifest freeze only. No native spectralDNS/shenfun/MPI/FFTW execution or speedup/acceptance is claimed by this artifact."
+}
