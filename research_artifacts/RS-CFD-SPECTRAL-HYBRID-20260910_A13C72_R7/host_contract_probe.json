@@ -1,0 +1,60 @@
+{
+  "schema": "ENTERPRISE_MATH_CFD_HOST_CONTRACT_PROBE_R7",
+  "task_id": "RS-CFD-SPECTRAL-HYBRID-20260910",
+  "researcher_id": "EM-TASK-AUTO-A13C72",
+  "claim_id": "CLM-CFD-A13C72-20260921-1708-R7",
+  "pinned_spectraldns_commit": "6f6335b7ee3ed8a7e49211c82ddf4bacbe4c220a",
+  "pinned_blobs": {
+    "spectralDNS/solvers/NS.py": "6a11909d1e2c1d529d382952c4c9d77e7073645c",
+    "spectralDNS/maths/integrators.py": "a08b242047a6d5d672f884925e9aa353fbc5ed44"
+  },
+  "source_audit": {
+    "generic_solve_order": [
+      "integrate() completes one full integrator call",
+      "params.t and params.tstep advance",
+      "solver.update(context) executes",
+      "HDF5/timer/end-of-step handling"
+    ],
+    "rk4_inner_order": [
+      "copy u0 to u1 and u2",
+      "four consecutive solver.ComputeRHS calls",
+      "stage state updates between RHS calls",
+      "final u0 := u2"
+    ],
+    "source_semantics": [
+      "NS.get_context creates Source as a distinct Function(VT), initially zero",
+      "NS.ComputeRHS reads Source only at rhs += Source",
+      "the pinned RK4 path does not invoke additional_callback"
+    ]
+  },
+  "new_contract_result": {
+    "name": "CANONICAL_GENERIC_SOLVE_SOURCE_ONCE_PER_STEP_SUFFICIENCY",
+    "status": "SOURCE_LEVEL_PROVED_WITH_EXPLICIT_EXECUTION_ASSUMPTIONS",
+    "statement": "For the exact pinned NS + fixed RK4 + generic spectralDNS.solve synchronous path, with no monkey-patched ComputeRHS/integrator and no asynchronous external mutation of context.Source, an exact Source support scan immediately before each integrate() call is sufficient to certify Source support for all four RK4 stages of that step. solver.update(context) can alter Source only after integrate() returns, so any such change is caught by the next pre-integrate scan.",
+    "activation_requirements": [
+      "solver module is the pinned NS implementation",
+      "integrator is the pinned fixed RK4",
+      "time stepping enters through the pinned generic spectralDNS.solve loop or an audited equivalent preserving the same callback order",
+      "guard executes immediately before integrate() at the step boundary",
+      "no asynchronous mutation of Source during integrate()",
+      "no monkey patch or custom ComputeRHS/integrator that adds a mid-stage callback"
+    ],
+    "adapter_consequence": "Do not implement once-per-step Source certification solely inside the existing nonlinear/RHS callback unless an exact step token is exposed. The safe integration point is a wrapper at the solve/integrate step boundary. Otherwise retain Source-each-stage (R6) or state+Source-each-stage (R5).",
+    "negative_control": "A noncanonical mid-stage callback that injects an outside-carrier Source coefficient defeats a once-per-step scan and must force the conservative guard tier."
+  },
+  "validation": {
+    "task_local_reference_test": "guard_reference_test.py",
+    "script_sha256": "69d50f8d933a2560eaac4ddabd603cee1fab74bddbd94f75c641d462a2e22e1f",
+    "py_compile": "PASS",
+    "runtime_result": {
+      "canonical_pre_step_scans": [false, false],
+      "canonical_state_remains_in_carrier": true,
+      "post_step_source_escape_detected_before_next_integrate": true,
+      "noncanonical_midstage_mutation_breaks_once_per_step_guard": true,
+      "status": "PASS"
+    }
+  },
+  "native_host_run": false,
+  "native_speedup_claim": false,
+  "trajectory_equivalence_claim": false
+}
