@@ -1,0 +1,66 @@
+{
+  "schema": "EM_CFD_R12_PINNED_HOST_INSTANTIATION_RESULT_V1",
+  "task_id": "RS-CFD-SPECTRAL-HYBRID-20260910",
+  "publication_id": "TP2-C3B717C14153D5AC45BF",
+  "claim_id": "CLM-CFD-4A8C2D-20260921-1931-R12",
+  "researcher_id": "EM-DIRECT-4A8C2D",
+  "scope": "bounded original-host instantiation checkpoint; no solver speedup claim",
+  "frozen_source": {
+    "repository": "spectralDNS/spectralDNS",
+    "path": "spectralDNS/solvers/NS.py",
+    "required_blob_sha1": "6a11909d1e2c1d529d382952c4c9d77e7073645c",
+    "observed_master_commit": "835b01b1e820b5c56559b9a028293e57526bfbf9",
+    "observed_master_blob_sha1": "6a11909d1e2c1d529d382952c4c9d77e7073645c",
+    "blob_match": true
+  },
+  "host_dependency_contract": {
+    "setup_py_blob_sha1": "49072bdee7a03994525a86fc844d86276d9a79ac",
+    "install_requires": ["numpy", "shenfun>=4.0.2", "cython", "mpi4py-fft", "mpi4py"],
+    "build_character": "Cython/C++ extensions; shenfun + MPI Python stack required"
+  },
+  "environment_probe": {
+    "script_sha256": "1ab3ed03b7bc09b56cf1991aba6d2e72225bcf94c4492d77f5dfb0ef2d50b565",
+    "json_sha256": "6f99a43e7ba827bd693f0f3d73dcbcea0d502d4c10e2124af2e11476173e39be",
+    "probe_exit_code": 3,
+    "python": "3.13.5",
+    "modules_present": {
+      "spectralDNS": false,
+      "shenfun": false,
+      "mpi4py": false,
+      "mpi4py_fft": false,
+      "pyfftw": false
+    },
+    "native_toolchain": {
+      "gcc": true,
+      "gxx": true,
+      "mpicc": false,
+      "mpicxx": false,
+      "mpi_h": false,
+      "fftw3_h": false,
+      "fftw3_shared_library": true,
+      "mpi_shared_library_detected": false
+    }
+  },
+  "package_install_attempt": {
+    "command": "python -m pip install --disable-pip-version-check --no-input spectralDNS shenfun pyfftw mpi4py",
+    "exit_code": 1,
+    "root_observation": "Package index DNS resolution failed repeatedly for pypi.org; no package was installed.",
+    "dns_probe": {
+      "pypi.org": "gaierror [Errno -3] Temporary failure in name resolution",
+      "files.pythonhosted.org": "gaierror [Errno -3] Temporary failure in name resolution"
+    }
+  },
+  "conclusion": {
+    "original_host_instantiated": false,
+    "native_host_trajectory_run": false,
+    "native_speedup_claim": false,
+    "capability_obstruction_verified": true,
+    "obstruction": "The execution environment lacks the spectralDNS/shenfun/MPI Python runtime, lacks MPI compiler/header support and FFTW headers for an offline source build, and cannot resolve the package index to obtain missing dependencies.",
+    "task_terminal": false,
+    "next_unit": "Run the same deterministic probe in an environment with the pinned spectralDNS/shenfun/MPI/FFTW stack already provisioned; then execute the held-out nonlinear-active RK4 baseline versus guarded hybrid with raw setup/allocation/guard/trajectory timings and independent verification."
+  },
+  "brc": {
+    "resolution": "COMPOSE_APPLIED_AT_BOUNDARY",
+    "note": "BRC support/provenance discipline is preserved, but no support quotient is used to infer host capability or numerical correctness before the native solver exists."
+  }
+}
