@@ -1,0 +1,33 @@
+{
+  "boundary": "Unknown-route calls are treated worst-case as eligible. Requires a separately certified finite dense-call heterogeneity bound rho and valid alpha_bar,f_bar,h_floor bounds. No native-host timing claim.",
+  "finite_checks": {
+    "route_and_cost_grid": 20048,
+    "sharp_witnesses": 220,
+    "target_inversion_grid": 13680,
+    "zero_effect_boundaries": 12
+  },
+  "illustration_not_measurement": {
+    "alpha_bar": "7/10",
+    "f_bar": "4/5",
+    "h_floor": "1/50",
+    "k0_u_max": 2,
+    "k1_u_max": 1,
+    "k2_u0_ceiling": "110/101",
+    "k2_u1_ceiling": "230/201",
+    "k2_u_max": 0,
+    "m_max": 2,
+    "n": 20,
+    "q": "11/10",
+    "rho": "2",
+    "tau": "61/308"
+  },
+  "schema": "ENTERPRISE_MATH_CFD_ROUTE_UNCERTAINTY_CERTIFICATE_V1",
+  "status": "EXACT_DERIVATION_PLUS_FINITE_CHECK_NO_NATIVE_BENCHMARK",
+  "theorem": {
+    "eligible_dense_work_share_upper": "m*rho/(m*rho+n-m)",
+    "m": "k+u",
+    "target_m_max_when_0_lt_tau_lt_1": "floor(tau*n/(rho*(1-tau)+tau))",
+    "target_tau": "(1-1/q+h_floor)/(alpha_bar*f_bar)",
+    "trajectory_speedup_upper": "1/(1-alpha_bar*f_bar*w_max+h_floor)"
+  }
+}
