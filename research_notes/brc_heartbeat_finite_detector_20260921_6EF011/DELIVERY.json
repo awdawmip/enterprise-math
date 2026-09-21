@@ -1,0 +1,72 @@
+{
+  "schema": "HEARTBEAT_STAGE32_DELIVERY_V1",
+  "event_id": "brc-heartbeat-finite-detector-20260921-6EF011",
+  "activity_id": "RA-6EF011C2E75C4A799606AFEA",
+  "status": "RESEARCH_CANDIDATE_NOT_ADMITTED",
+  "source": {
+    "commit": "80cd1062537f228825bb1fef9d522facf4a3cbf3",
+    "path": "research_notes/BRC_HEARTBEAT_FINITE_DETECTOR_20260921_6EF011.md",
+    "observed_git_blob": "b1b13136f19225a831d54bea5a5c55f57d8dfef9",
+    "full_readback": "turn701"
+  },
+  "activity": {
+    "pending_checkpoint_commit": "2bac7f35002c19d073041bca74a5d0bc627af33f",
+    "pending_checkpoint_path": "research_activity_records/RA-6EF011C2E75C4A799606AFEA/pending_checkpoints/stage32-finite-detector.json",
+    "aggregate_index_updated": false,
+    "source_activity_CLI_executed": false,
+    "intake": "PENDING"
+  },
+  "bundle": {
+    "name": "BRC_Heartbeat_finite_detector_20260921.bundle",
+    "head": "6d5cb1de6369cd6e74eaa6cd10d8aed6c8d03d42",
+    "parent": "126d2ac057666a22c7b1bdfafa786c2eb46fcc01",
+    "cloud_wavepacket": "c8f0d39e47d57037379c5861a06078bfa70347a2",
+    "size": 14001188,
+    "sha256": "4907e8f654959e35499a498085f785721732e8020f3317a21fae7a59e7fb47a7",
+    "drive_file_id": "1B2Y-gyfYZSw88h97tpNRZh8fFLjdqVl8",
+    "drive_folder_id": "1IJ8iAXY5laK1lj-Y4NGWKEOdLofieHLa",
+    "upload_observation": "turn703",
+    "raw_readback_observation": "turn704",
+    "actual_mounted_bytes_compared_equal": true,
+    "standalone_not_full_EM_repository": true
+  },
+  "validation": {
+    "fresh_clone_files": 699,
+    "inherited_files": 673,
+    "main_finite_assertions": 2081,
+    "additional_cases": 75,
+    "high_precision_complete_record_rows": 8,
+    "reference_digits": 110,
+    "paired_coherence_and_reset_references": "PASS",
+    "exact_postselection_resource_tables": "PASS",
+    "fresh_reset_entropy_ledger_100_digits": "PASS",
+    "main_timing_rows": 18,
+    "saved_medians_verified": 6,
+    "fresh_candidate_cases_replayed": 6,
+    "fresh_clone_tests": "PASS",
+    "fresh_clone_postcheck": "PASS",
+    "fresh_clone_manifest_after_tests": "PASS",
+    "bundle_verify": "PASS",
+    "git_fsck": "PASS",
+    "both_worktrees_clean": true,
+    "timing_rows_replaced": false,
+    "independent_researcher": false,
+    "Lean": false
+  },
+  "artifact_sha256": {
+    "PROOF.md": "7f8236b28243875cf9c43e0eda60c772e4b649778668e0d22eb0239d73e4d2c4",
+    "detector.py": "ab0966f17f7d807e0dc91cf5e228f7e443f17cb13f9b40db8e3d77d96130aca0",
+    "raw_runs.jsonl": "81e658eb923e6353bfe4c8ff51eb67402ffcb727cdd72ab5ef76d706be72c147"
+  },
+  "scope": {
+    "finite_mixed_detector_compiler": true,
+    "whole_joint_spectral_bracket_required": true,
+    "terminal_reader_still_ideal_interface": true,
+    "closed_three_qubit_gate_model_separately_declared": true,
+    "fully_autonomous_physical_controller": false,
+    "persistent_record_reset_resource_model_complete": false,
+    "generic_quantum_simulation": false,
+    "Shor_speedup": false,
+    "universal_zero_temperature_nonexistence": false
+  }
+}
