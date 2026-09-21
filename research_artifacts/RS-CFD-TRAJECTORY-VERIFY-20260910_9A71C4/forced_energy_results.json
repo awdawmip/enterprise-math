@@ -1,0 +1,69 @@
+{
+  "checks": {
+    "constant_source_source_only_balance_is_roundoff_exact": true,
+    "dynamic_scalar_amplitude_preserves_transversality": true,
+    "dynamic_source_defect_decreases_on_each_halving": true,
+    "dynamic_source_finest_defect_is_small": true,
+    "energy_work_consistency_does_not_imply_incompressibility": true,
+    "longitudinal_negative_control_is_detected": true,
+    "source_work_alone_is_not_total_energy_balance": true,
+    "transverse_source_is_spectral_divergence_free": true
+  },
+  "grid_n": 8,
+  "metrics": {
+    "constant_source_RK4_weighted_source_work": 0.020000000000000004,
+    "constant_source_balance_defect": -6.938893903907228e-18,
+    "constant_source_delta_E": 0.019999999999999997,
+    "dissipative_forced_delta_E": 0.0064645889022968105,
+    "dissipative_forced_delta_E_minus_source_work": -0.0027972191716522845,
+    "dissipative_forced_source_work": 0.009261808073949095,
+    "dynamic_source_abs_balance_defects": [
+      1.0285056334380371e-08,
+      1.1375799954804755e-10,
+      1.4427001260308714e-12,
+      2.008115895790752e-14
+    ],
+    "dynamic_source_defect_halving_ratios": [
+      90.4117193976878,
+      78.85075872351682,
+      71.84346924671735
+    ],
+    "dynamic_source_dt_levels": [
+      0.4,
+      0.2,
+      0.1,
+      0.05
+    ],
+    "dynamic_transverse_source_max_abs_K_dot_Fhat_samples": [
+      2.3381594351524416e-14,
+      2.399950539574223e-14,
+      2.9637165372733944e-14,
+      2.7130766940384495e-14
+    ],
+    "longitudinal_negative_control_max_abs_K_dot_Fhat": 256.0,
+    "longitudinal_source_energy_balance_defect": 1.734723475976807e-18,
+    "transverse_source_max_abs_K_dot_Fhat": 2.3381594351524416e-14
+  },
+  "researcher_id": "EM-CFD-VFY-9A71C4",
+  "schema": "RS_CFD_FORCED_ENERGY_DIAGNOSTICS_V1",
+  "scope_boundary": {
+    "certifies": [
+      "the source-work diagnostic algebra used by this checker",
+      "transversality of the synthetic positive-control forcing family",
+      "orthogonality of energy-work and incompressibility diagnostics"
+    ],
+    "does_not_certify": [
+      "spectralDNS host execution",
+      "full Navier-Stokes energy balance",
+      "dense-vs-hybrid trajectory equivalence",
+      "PDE convergence or physical correctness"
+    ]
+  },
+  "seed": 20260921,
+  "summary": {
+    "all_passed": true,
+    "passed": 8,
+    "total": 8
+  },
+  "task_id": "RS-CFD-TRAJECTORY-VERIFY-20260910"
+}
