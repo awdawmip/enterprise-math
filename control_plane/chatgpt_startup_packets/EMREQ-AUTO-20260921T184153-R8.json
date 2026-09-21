@@ -1,0 +1,70 @@
+{
+  "action": "CLAIM_NEW_OWNER",
+  "control_epoch": "EM-CONTROL-20260904-CANONICAL-DISPATCH-AUTHORITY-1",
+  "diagnostics": {
+    "load_policy": "TRIGGERED_ONLY",
+    "receipt_path": "control_plane/chatgpt_dispatch_receipts/EMREQ-AUTO-20260921T184153-R8.json"
+  },
+  "generated_at": "2026-09-21T10:48:17Z",
+  "kind": "RESEARCH",
+  "new_claim_required": true,
+  "owner_claim_preserved": false,
+  "packet_bytes": 5401,
+  "read_plan": {
+    "context_accounting": "PACKET_AND_EXTERNAL_TASKBOOK_ONLY_NOT_END_TO_END",
+    "dependency_ref_verification": "SOURCE_READ_REQUIRED_PRESERVE_DECLARED_REF",
+    "external_taskbook_bytes": 0,
+    "first_dependency_ref": "https://github.com/awdawmip/enterprise-math/blob/f96cc992dceca8789340f921c45f5f94156c7b03/research_returns/RS-CFD-SPECTRAL-HYBRID-20260910_7C4E91_20260921_R11.md",
+    "forbidden": [
+      "REMOTE_FETCH_AGENTS_MD_FOR_ORDINARY_START",
+      "FULL_DISPATCH_RECEIPT_ON_ORDINARY_START",
+      "CURRENT_CONTROL_AUTHORITY_ON_ORDINARY_START",
+      "ISSUE_240_FULL_COMMENT_STREAM_IN_CONVERSATION",
+      "HIGH_FANOUT_DIRECTORY_OR_RECURSIVE_TREE_DISCOVERY"
+    ],
+    "if_first_dependency_unknown": "TASK_UNDERSTANDING_THEN_BOUNDED_TARGETED_SEARCH_ONLY",
+    "packet_plus_external_taskbook_bytes": 5401,
+    "remote_source_reads_before_substantive_math_max": 2
+  },
+  "reason": "fresh canonical task selector returned a dispatchable target",
+  "request_id": "EMREQ-AUTO-20260921T184153-R8",
+  "schema": "ENTERPRISE_MATH_RESEARCHER_STARTUP_PACKET_V1",
+  "source_sha": "d0549bb588d35e661ed085df444079f2915faa52",
+  "surface": "ORDINARY_TASK",
+  "target_key": "RS-CFD-SPECTRAL-HYBRID-20260910",
+  "task": {
+    "claim_id": null,
+    "dispatch_state": "NEEDS_DISPATCH",
+    "frontier": "Full-trajectory 3D integration and support-aware fallback are not yet tested.",
+    "identity_lane": "CFD",
+    "last_progress_at": "2026-09-21T10:36:21+00:00",
+    "last_progress_ref": "https://github.com/awdawmip/enterprise-math/blob/f96cc992dceca8789340f921c45f5f94156c7b03/research_returns/RS-CFD-SPECTRAL-HYBRID-20260910_7C4E91_20260921_R11.md",
+    "lease_until": null,
+    "next_action": "Instantiate the exact pinned serial spectralDNS/shenfun/FFTW host. Preserve the unmodified raw-array API for the baseline R5/R6/R7/R8 comparison; if testing metadata, enforce a separate explicit write-mediation boundary and benchmark it rather than assuming generation-only correctness. On identical nonlinear-active held-out RK4 trajectories preserve Nyquist, pressure/diffusion, Source ordering, fallback events and raw setup/allocation/compilation/guard/total timings; then route the native-host checkpoint to RS-CFD-TRAJECTORY-VERIFY-20260910. Do not mark DONE before original-host evidence and independent review.",
+    "owner": "taskbook/unassigned",
+    "projection": {
+      "Frozen inputs and scope": "Periodic incompressible flow. Start from the attached 3D probe; the separate 2D CFD9R2K7 checkpoint is evidence only, not interchangeable code or a 3D theorem. Freeze FFT normalization, retained cube, de-aliasing, viscosity, precision and time integrator before comparison. Classical effective-model computation, not a native P000 fluid derivation. Keep signed/complex amplitudes, wavevector labels and declared observations distinct. No industrial acceleration, continuous-PDE certificate or novelty is assumed.",
+      "Hard target and required outputs": "Implement a no-pruning hybrid with complete generated outputs and density fallback; add full-trajectory tests and held-out seeds; report detection, allocation, nonlinear evaluation and total elapsed cost. Then expose a separate optional pruning interface, whose bounds are not confused with trajectory error. Provide a spectralDNS-compatible serial adapter and state whether the original host was actually run.",
+      "Mother question": "Can a support-aware sparse/FFT nonlinear evaluator reduce total cost at matched accuracy, without silently discarding newly generated modes?",
+      "Research value to preserve": "Single-RHS gains exist but exact support fills rapidly; preserve the negative 2D full-trajectory result. A usable integration or a demonstrated cost obstruction is valuable.",
+      "Success, kill, and return criteria": "Pass a bounded implementation checkpoint only if hybrid and reference agree within declared numerical tolerances on all frozen tests and raw timings are retained. Speedup requires matched-accuracy total-cost evidence, not a kernel ratio. Stop a losing configuration and retain FFT fallback. Return code, cases, results, limitations and next unresolved unit."
+    },
+    "projection_mode": "INLINE_EXACT_TASKBOOK_SECTIONS",
+    "publication_id": "TP2-C3B717C14153D5AC45BF",
+    "publication_record_path": "research_task_records/RS-CFD-SPECTRAL-HYBRID-20260910/TP2-C3B717C14153D5AC45BF.json",
+    "required_task_sections": [
+      "Mother question",
+      "Frozen inputs and scope",
+      "Hard target and required outputs",
+      "Research value to preserve",
+      "Success, kill, and return criteria"
+    ],
+    "researcher_id": null,
+    "state": "HANDOFF_READY",
+    "task_id": "RS-CFD-SPECTRAL-HYBRID-20260910",
+    "taskbook_blob_sha1": "sha1:a678a1769cf04df52520fe21b4404c0e59267689",
+    "taskbook_bytes": 3727,
+    "taskbook_path": "research_tasks/RS-CFD-SPECTRAL-HYBRID-20260910.md",
+    "title": "Spectral hybrid evaluation and full-trajectory cost"
+  }
+}
