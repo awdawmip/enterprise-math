@@ -2,7 +2,10 @@
   "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-7C4E91D2A6B348C9",
   "registration_key": "session:chatgpt-automation-20260921T182139+0800-run7:TASK_RESEARCH",
-  "registration_origin": {"kind": "LIVE_SESSION", "source_tracking_key": null},
+  "registration_origin": {
+    "kind": "LIVE_SESSION",
+    "source_tracking_key": null
+  },
   "mode": "TASK_RESEARCH",
   "researcher_id": "EM-DIRECT-7C4E91",
   "session_id": "chatgpt-automation-20260921T182139+0800-run7",
@@ -15,5 +18,33 @@
     "working_truth": false,
     "mathematical_acceptance": false
   },
-  "checkpoints": []
+  "checkpoints": [
+    {
+      "event_id": "R11-RAW-MUTATION-BARRIER-F96CC992",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "f96cc992dceca8789340f921c45f5f94156c7b03",
+          "path": "research_returns/RS-CFD-SPECTRAL-HYBRID-20260910_7C4E91_20260921_R11.md",
+          "sha256": "83a6676353fecd794f839904274769174c23d1d8bccef63475421bca1a1c2142",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "5a9ee1a00006d151b0f994ef4084022a7765b0f3",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/f96cc992dceca8789340f921c45f5f94156c7b03/research_returns/RS-CFD-SPECTRAL-HYBRID-20260910_7C4E91_20260921_R11.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "obs-R11-return-f96cc992-20260921",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-7C4E91D2A6B348C9/readbacks/ca10ae49f35dd8bde94ce2d8788b2c7fe25daddb768bd88d8a9ef344bc6887c6.json",
+          "verification_receipt_sha256": "ca10ae49f35dd8bde94ce2d8788b2c7fe25daddb768bd88d8a9ef344bc6887c6"
+        }
+      ],
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ]
 }
