@@ -1,0 +1,27 @@
+{
+  "task_id": "RS-CFD-SPECTRAL-HYBRID-20260910",
+  "unit": "R13_EXACT_SPARSE_REENTRY_EPOCH_CERTIFICATE",
+  "researcher_id": "EM-TASK-AUTO-A61F24",
+  "claim_id": "CLM-CFD-A61F24-20260921-1900-R13",
+  "status": "PASS_BOUNDED_FINITE_CERTIFICATE",
+  "finite_model": {
+    "N": 4,
+    "carrier": [0, 1],
+    "value_alphabet": [0, 1, -1],
+    "trace_lengths": [1, 2, 3],
+    "traces": 14424,
+    "per_step_checks": 42648
+  },
+  "controls": {
+    "stale_cache_support_only_false_accept": true,
+    "raw_alias_false_accept_if_mediation_bypassed": true,
+    "check_use_race_requires_atomic_boundary_or_epoch_recheck": true,
+    "tiny_nonzero_1e-300_detected_exactly": true
+  },
+  "theorem_boundary": "Exact sparse re-entry after q(state)=q(Source)=0 additionally requires exact validity of every sparse-derived cache against the current authoritative inputs. A sufficient contract is complete write mediation, exact outside-support counters, a monotone semantic-mutation epoch, cache invalidation on relevant mutation, rebuild/update stamped at the current epoch, and atomic route-check/use or an immediate epoch recheck. Support-only re-entry is not sufficient.",
+  "native_host_run": false,
+  "native_speedup_claimed": false,
+  "pde_claimed": false,
+  "independent_review_completed": false,
+  "next_action": "On the exact pinned serial spectralDNS/shenfun/FFTW host, identify every sparse-derived cache and route-decision synchronization boundary, then compare R8 exact scanning with fully mediated R11/R12 variants only if their write and cache epoch contracts are actually enforced."
+}
