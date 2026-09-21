@@ -1,0 +1,36 @@
+{
+  "schema": "EM_CFD_R10_NATIVE_HOST_PROBE_V1",
+  "task_id": "RS-CFD-SPECTRAL-HYBRID-20260910",
+  "researcher_id": "EM-DIRECT-DF8E09",
+  "claim_id": "CLM-CFD-DF8E09-20260921-1805-R10",
+  "probed_at": "2026-09-21T18:10:55+08:00",
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "modules": {
+    "spectralDNS": {"available": false},
+    "shenfun": {"available": false},
+    "mpi4py": {"available": false},
+    "pyfftw": {"available": false},
+    "numpy": {"available": true, "version": "2.3.5", "file": "/opt/pyvenv/lib/python3.13/site-packages/numpy/__init__.py"},
+    "numba": {"available": true, "version": "0.65.1", "file": "/opt/pyvenv/lib/python3.13/site-packages/numba/__init__.py"}
+  },
+  "commands": {
+    "mpiexec": null,
+    "mpirun": null,
+    "fftw-wisdom": null
+  },
+  "system_fftw": "libfftw3.so.3",
+  "package_source_attempt": {
+    "command": "python -m pip download spectralDNS --no-deps",
+    "success": false,
+    "failure_class": "NETWORK_DNS_UNAVAILABLE",
+    "observed_error": "Temporary failure in name resolution while contacting the configured package index; therefore no package source was obtained in this runtime.",
+    "interpretation": "This does not establish that the package is absent from PyPI or other indexes; it establishes only that the current runtime could not retrieve it."
+  },
+  "pinned_host_component": {
+    "repository": "spectralDNS/spectralDNS",
+    "path": "spectralDNS/solvers/NS.py",
+    "git_blob_sha1": "6a11909d1e2c1d529d382952c4c9d77e7073645c"
+  },
+  "original_host_run": false,
+  "blocker": "The exact pinned serial spectralDNS/shenfun/FFTW host cannot be instantiated in the current execution environment because spectralDNS and shenfun are absent and package retrieval is unavailable; system FFTW alone is insufficient."
+}
