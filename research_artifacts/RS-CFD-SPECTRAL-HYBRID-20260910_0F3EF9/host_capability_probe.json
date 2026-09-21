@@ -1,0 +1,99 @@
+{
+  "schema": "CFD_PINNED_HOST_CAPABILITY_AND_SOURCE_GUARD_V1",
+  "task_id": "RS-CFD-SPECTRAL-HYBRID-20260910",
+  "publication_id": "TP2-C3B717C14153D5AC45BF",
+  "claim_id": "CLM-CFD-0F3EF9-20260921-1200",
+  "researcher_id": "EM-CFD-E6911D",
+  "status": "BOUNDED_SOURCE_BACKED_CHECKPOINT_NOT_ORIGINAL_HOST_EXECUTION",
+  "pinned_sources": {
+    "spectraldns_ns_blob_sha1": "6a11909d1e2c1d529d382952c4c9d77e7073645c",
+    "native_adapter_commit": "3fb575716647b3f618bbd1483b7a4439ccca2601",
+    "native_adapter_blob_sha1": "1436c730189ba1b4f8d84359ff24a39f3ddc2f82",
+    "prior_return_commit": "0037b7b54ad0ac74b22607d29aca38e85b564522"
+  },
+  "environment": {
+    "python": "3.13.5",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "modules": {
+      "numpy": {"available": true, "version": "2.3.5"},
+      "scipy": {"available": true, "version": "1.17.0"},
+      "numba": {"available": true, "version": "0.65.1"},
+      "mpi4py": {"available": false},
+      "mpi4py_fft": {"available": false},
+      "pyfftw": {"available": false},
+      "shenfun": {"available": false},
+      "spectralDNS": {"available": false}
+    },
+    "commands": {
+      "mpiexec": null,
+      "mpirun": null,
+      "fftw-wisdom": null,
+      "gcc": "/usr/bin/gcc",
+      "g++": "/usr/bin/g++"
+    },
+    "libraries": {
+      "fftw3": "libfftw3.so.3",
+      "fftw3_threads": "libfftw3_threads.so.3",
+      "mpi": null
+    },
+    "original_serial_host_runnable": false,
+    "reason": "The pinned host imports spectralDNS/shenfun and the present Python environment does not expose spectralDNS, shenfun, mpi4py or pyfftw. System FFTW shared libraries alone do not instantiate the Python host."
+  },
+  "library_bundle": {
+    "path": "/进取数论/CFD_9CFD0F_research.bundle",
+    "size_bytes": 34316,
+    "listed": true,
+    "raw_materialization": false,
+    "materialization_observation": "Project file has no authorized raw-byte materialization path in this run",
+    "previously_reported_sha256": "7ff5b7369cb052f42820da987d0559e202834dd8d841784168c29810d73465bb",
+    "sha256_reverified_this_run": false
+  },
+  "pinned_host_flow": [
+    "Vortex convection callback computes nonlinear spectral RHS",
+    "Nyquist mask may zero modes but does not create new support",
+    "pressure projection and diffusion are modewise in wavevector",
+    "Source is added after pressure/diffusion in ComputeRHS"
+  ],
+  "source_support_guard": {
+    "finding": "INITIAL_SUPPORT_CLOSURE_ALONE_IS_NOT_A_GENERAL_FULL_TRAJECTORY_CERTIFICATE_WHEN_SOURCE_CAN_HAVE_OUT_OF_CARRIER_SUPPORT",
+    "default_pinned_context": "Source is initialized to zero in the pinned NS get_context",
+    "current_adapter_behavior": "validate_initial certifies only the initial U_hat support and the adapter does not retain or validate Source",
+    "sufficient_condition": "For every RK stage, support(Source) must be contained in the certified carrier C; in particular Source identically zero is sufficient. With this condition, retained-sum closure plus modewise pressure/diffusion and RK linear combinations preserve C.",
+    "required_general_repair": [
+      "Assert and continuously preserve Source == 0 for the certified sparse route",
+      "or include a proven static Source support in the initial carrier closure",
+      "or detect Source support escape before the next sparse nonlinear call and fall back to the unchanged dense callback"
+    ]
+  },
+  "exact_counterexample": {
+    "retained_cutoff_requirement": "K >= 1",
+    "initial_mode_p": [1, 0, 0],
+    "source_mode_q": [0, 1, 0],
+    "initial_velocity_coefficient_u_p": ["0", "-1", "-1"],
+    "source_induced_velocity_coefficient_u_q": ["-1", "0", "-1"],
+    "divergence_checks": {
+      "p_dot_u_p": "0",
+      "q_dot_u_q": "0"
+    },
+    "vorticity_coefficients": {
+      "omega_p": ["0", "i", "-i"],
+      "omega_q": ["-i", "0", "i"]
+    },
+    "nonlinear_mode_r": [1, 1, 0],
+    "vortex_pair_sum_at_r": ["0", "0", "-2i"],
+    "pressure_projected_value_at_r": ["0", "0", "-2i"],
+    "conclusion": "The projected nonlinear output at p+q is nonzero. An initial x-axis-only carrier excludes q and p+q, so after a Source-generated q stage component the fixed initial gather can silently miss a real subsequent nonlinear contribution unless Source is guarded or included."
+  },
+  "brc": {
+    "resolution": "EXTEND_EXISTING_TOOL / REUSE_EXECUTED",
+    "carrier": "exact signed wavevector support used only for route certification",
+    "observer": "support membership plus exact pinned host operator order",
+    "no_claims": [
+      "no original-host timing",
+      "no task DONE",
+      "no universal speedup",
+      "no continuous-PDE theorem",
+      "no independent review"
+    ]
+  }
+}
