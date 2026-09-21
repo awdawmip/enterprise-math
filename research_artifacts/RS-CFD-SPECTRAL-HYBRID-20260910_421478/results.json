@@ -1,0 +1,80 @@
+{
+  "amortized_horizons": {
+    "random48_dense_warm_only": {
+      "cold_penalty_ms": 2.0700000000000003,
+      "finite_horizon": false,
+      "reason": "route has no positive warm saving against FFT",
+      "warm_saving_ms_per_reuse": -2.0700000000000003
+    },
+    "xy225": {
+      "at_horizon_fft_total_ms": 782.6578339999104,
+      "at_horizon_route_total_ms": 779.1585430000639,
+      "cold_penalty_ms": 476.03170900015357,
+      "finite_horizon": true,
+      "model": "one measured cold median + (n-1) measured warm medians; descriptive, not CI",
+      "one_before_fft_total_ms": 727.2168339999104,
+      "one_before_route_total_ms": 760.6045430000638,
+      "smallest_total_trajectories": 14,
+      "warm_saving_ms_per_reuse": 36.887
+    },
+    "xy35": {
+      "at_horizon_fft_total_ms": 566.7019030000142,
+      "at_horizon_route_total_ms": 537.1686390000854,
+      "cold_penalty_ms": 434.47973600007117,
+      "finite_horizon": true,
+      "model": "one measured cold median + (n-1) measured warm medians; descriptive, not CI",
+      "one_before_fft_total_ms": 510.60390300001416,
+      "one_before_route_total_ms": 532.6276390000853,
+      "smallest_total_trajectories": 10,
+      "warm_saving_ms_per_reuse": 51.557
+    },
+    "xyz3375_dense_warm_only": {
+      "cold_penalty_ms": 1.8739999999999952,
+      "finite_horizon": false,
+      "reason": "route has no positive warm saving against FFT",
+      "warm_saving_ms_per_reuse": -1.8739999999999952
+    }
+  },
+  "brc": {
+    "carrier": "exact signed Boolean wavevector support for route selection only",
+    "discarded_information_for_routing_only": "none beyond coefficient values not used by support-route selector",
+    "resolution": [
+      "EXTEND_EXISTING_TOOL",
+      "REUSE_EXECUTED"
+    ],
+    "retained_information": [
+      "complex amplitudes",
+      "phase",
+      "conjugacy",
+      "pair multiplicity",
+      "dense fallback"
+    ]
+  },
+  "capability": {
+    "executables": {
+      "fftw-wisdom": null,
+      "mpiexec": null,
+      "mpirun": null
+    },
+    "modules": {
+      "mpi4py": false,
+      "mpi4py_fft": false,
+      "numba": true,
+      "numpy": true,
+      "pyfftw": false,
+      "scipy": true,
+      "shenfun": false,
+      "spectralDNS": false
+    },
+    "original_host_runnable_from_python_env": false,
+    "python": "3.13.5"
+  },
+  "regressions": {
+    "diagonal_missing_axis_witness_declines_fast_path": "PASS",
+    "empty_support_rank2_repair": "PASS",
+    "xy_axis_generator_carrier_225": "PASS",
+    "xyz_exact_size_dense_fallback_3375": "PASS"
+  },
+  "schema": "CFD_HYBRID_CONTINUATION_PROBE_V1",
+  "status": "BOUNDED_CHECKPOINT_NOT_HOST_EXECUTION"
+}
