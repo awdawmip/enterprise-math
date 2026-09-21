@@ -1,0 +1,35 @@
+{
+  "schema": "ENTERPRISE_MATH_CFD_R11_RESULTS_V1",
+  "task_id": "RS-CFD-SPECTRAL-HYBRID-20260910",
+  "claim_id": "CLM-CFD-7C4E91-20260921-1827-R11",
+  "script_sha256": "dae64a898cca7961152022bced457f26a147bb8dcd4b58a7021f50ba204c5e79",
+  "certificate": {
+    "carrier_modes": 31,
+    "exact_barrier_checks": {
+      "exact_zero_outside_allowed": true,
+      "exhaustive_traces_checked": 1056,
+      "inside_writes_without_full_scan": 31,
+      "permanent_escape_latch": true,
+      "raw_view_revokes_certificate": true,
+      "tiny_nonzero_escape_caught": true
+    },
+    "logical_result": "O(changed coefficients) exact support certification is possible only under a complete write-mediation contract; a generation counter that can be bypassed by raw mutable-array writes is not a sound certificate.",
+    "n_modes": 257,
+    "naive_generation_counterexample": {
+      "counter_unchanged": true,
+      "false_accept": true,
+      "outside_index": 200,
+      "value": "1e-300+0j"
+    },
+    "outside_modes": 226,
+    "status": "PASS"
+  },
+  "source_audit_result": {
+    "pinned_ns_has_trusted_dirty_generation": false,
+    "raw_mutable_surface_present": true,
+    "metadata_only_no_scan_sound_without_write_barrier": false,
+    "exact_barrier_sound_under_complete_mediation": true,
+    "native_spectraldns_host_executed": false
+  },
+  "status": "CONTINUATION_REQUIRED"
+}
