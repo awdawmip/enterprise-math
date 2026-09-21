@@ -1,0 +1,38 @@
+{
+  "schema": "ENTERPRISE_MATH_CFD_STEP_BOUNDARY_GUARD_R8_RESULT",
+  "task_id": "RS-CFD-SPECTRAL-HYBRID-20260910",
+  "claim_id": "CLM-CFD-9CFD0F-20260921-1721-R8",
+  "researcher_id": "EM-DIRECT-9CFD0F",
+  "upstream_frontier": {
+    "r6": "e0433bfb27986280333d5232eaff33f02ccbaeba",
+    "r7": "4f953b8545613f172ba98add4583bd4fe37d4a34",
+    "pinned_spectraldns_commit": "6f6335b7ee3ed8a7e49211c82ddf4bacbe4c220a"
+  },
+  "result": {
+    "name": "STATE_PLUS_SOURCE_ONCE_PER_STEP_BOUNDARY_CERTIFICATE",
+    "status": "PROVED_FOR_PINNED_CONTROL_FLOW_WITH_EXPLICIT_NO_MIDSTEP_EXTERNAL_MUTATION_ASSUMPTION",
+    "robustness_gain": "Unlike R7 Source-only once-per-step, this tier tolerates arbitrary ordinary post-step application update mutations of either state or Source, because both are rescanned immediately before the next integrate().",
+    "guard_array_scans_per_step": {"R5": 8, "R6": 4, "R7": 1, "R8": 2},
+    "count_reduction_vs_R5": 4.0,
+    "count_reduction_vs_R6": 2.0
+  },
+  "validation": {
+    "py_compile": "PASS",
+    "runtime": "PASS",
+    "test_sha256": "4372cb16f57be33208165325f0f3899b3bdadf1fccc18825aac49c2565d2c51d",
+    "positive_50_steps_state_in_carrier": true,
+    "between_step_state_and_source_escape_detected_before_next_integrate": true,
+    "between_step_state_only_escape_detected_before_next_integrate": true,
+    "noncanonical_midstage_mutation_invalidates_certificate": true
+  },
+  "brc": {
+    "resolution": "COMPOSE_APPLIED",
+    "carrier": "exact Boolean coefficient support only for route certification",
+    "retained_information": "complex amplitudes, phase, conjugacy, pressure/diffusion and RK state are not quotiented in evolution",
+    "observer": "outside-carrier exact-nonzero predicate"
+  },
+  "native_host_run": false,
+  "native_speedup_claim": false,
+  "trajectory_equivalence_claim": false,
+  "independent_acceptance": false
+}
