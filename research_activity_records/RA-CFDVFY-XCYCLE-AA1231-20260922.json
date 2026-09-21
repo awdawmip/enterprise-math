@@ -7,7 +7,14 @@
   "execution_branch": "research/cfd-verify-crosscycle-aa1231-20260922",
   "reconciled_predecessor_claim": "CLM-CFDVFY-91D4E7-20260922-0158",
   "durable_frontier": "d7e86fe1699ec7b1d5d9a77a8f1d370da5610bbb",
-  "status": "IN_PROGRESS",
+  "status": "COMPLETED_CONTINUATION_REQUIRED",
   "started_at": "2026-09-22T05:23:05+08:00",
-  "scope": "Exact cross-cycle dependence boundary for the frozen 23-cycle block-sign design; no replay of 91D4E7 and no native-host execution."
+  "completed_at": "2026-09-22T05:26:34+08:00",
+  "scope": "Exact cross-cycle dependence boundary for the frozen 23-cycle block-sign design; no replay of 91D4E7 and no native-host execution.",
+  "outputs": [
+    "research_returns/RS-CFD-TRAJECTORY-VERIFY-20260910_AA1231_20260922.md",
+    "research_artifacts/RS-CFD-TRAJECTORY-VERIFY-20260910_AA1231/cross_cycle_dependence_certificate.json",
+    "research_checks/RS_CFD_TRAJECTORY_VERIFY_AA1231.py"
+  ],
+  "validation": "Exact Fraction checker and py_compile PASS; current host native stack absent; immutable branch readback pending final handoff."
 }
