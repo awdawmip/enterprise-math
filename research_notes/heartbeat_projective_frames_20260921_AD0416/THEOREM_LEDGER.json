@@ -1,0 +1,82 @@
+{
+  "schema": "HEARTBEAT_PROJECTIVE_FRAME_THEOREM_CANDIDATES_V1",
+  "date": "2026-09-21",
+  "status": "RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "world_id": "HEARTBEAT_WORLD",
+  "axioms_changed": false,
+  "independent_review": false,
+  "theorems": [
+    {
+      "id": "HBW-PF-001",
+      "name_zh": "有限阈值参考系的忠实同余像",
+      "assumptions": "R>=2; K=GL6(Z_p); all normalized safe lattices",
+      "statement": "K acts through PGL6(Z/p^(R-1)); kernel is scalar units times I+p^(R-1)M6.",
+      "proof_ref": "research_notes/heartbeat_projective_frames_20260921_AD0416/RESEARCH_NOTE.md#pf001",
+      "source": "src/enterprise_math/heartbeat_projective_frames.py",
+      "api": "projective_frame_key",
+      "test_ref": "tests/test_heartbeat_projective_frames.py::test_07_all_safe_random_lattices_respect_keys",
+      "status": "SCOPED_PROOF_WITH_EXACT_TESTS_NOT_INDEPENDENTLY_REVIEWED",
+      "boundary": "Fixed p/threshold and allowed stochastic law; analytic frames are not native primitive rotations; no global atom-word, raw-coordinate, larger-threshold or physical claim."
+    },
+    {
+      "id": "HBW-PF-002",
+      "name_zh": "无限阶剪切的有限观察阶及提升余量",
+      "assumptions": "integer u !=0; off-diagonal Eij; fixed p,R",
+      "statement": "Effective shear order is p^max(0,R-1-vp(u)); section multiplication defects can be nonzero while acting trivially on safe lattices.",
+      "proof_ref": "research_notes/heartbeat_projective_frames_20260921_AD0416/RESEARCH_NOTE.md#pf002",
+      "source": "src/enterprise_math/heartbeat_projective_frames.py",
+      "api": "FiniteProjectiveImage",
+      "test_ref": "tests/test_heartbeat_projective_frames.py::test_04_shear_period_formula",
+      "status": "SCOPED_PROOF_WITH_EXACT_TESTS_NOT_INDEPENDENTLY_REVIEWED",
+      "boundary": "Fixed p/threshold and allowed stochastic law; analytic frames are not native primitive rotations; no global atom-word, raw-coordinate, larger-threshold or physical claim."
+    },
+    {
+      "id": "HBW-PF-003",
+      "name_zh": "共轭验证保护精度",
+      "assumptions": "finite nonsingular integer actions; C=max kappa_p(A); fixed stochastic law",
+      "statement": "Depth R-1+C suffices for lift-independent universal action-germ/row symmetry testing; one less digit can fail this certificate.",
+      "proof_ref": "research_notes/heartbeat_projective_frames_20260921_AD0416/RESEARCH_NOTE.md#pf003",
+      "source": "src/enterprise_math/heartbeat_projective_frames.py",
+      "api": "symmetry_guard_depth",
+      "test_ref": "tests/test_heartbeat_projective_frames.py::test_08_guard_precision_invariance",
+      "status": "SCOPED_PROOF_WITH_EXACT_TESTS_NOT_INDEPENDENTLY_REVIEWED",
+      "boundary": "Fixed p/threshold and allowed stochastic law; analytic frames are not native primitive rotations; no global atom-word, raw-coordinate, larger-threshold or physical claim."
+    },
+    {
+      "id": "HBW-PF-004",
+      "name_zh": "有限观察群的生成期强商",
+      "assumptions": "certified guarded subgroup; fixed controls, law, threshold and arrow duration",
+      "statement": "Its lower finite projective image yields an online strong observation quotient preserving all first-HIT/UNKNOWN time masses.",
+      "proof_ref": "research_notes/heartbeat_projective_frames_20260921_AD0416/RESEARCH_NOTE.md#pf004",
+      "source": "src/enterprise_math/heartbeat_projective_frames.py",
+      "api": "compile_projective_peak",
+      "test_ref": "tests/test_heartbeat_projective_frames.py::test_11_raw_and_axis_swap_comparison",
+      "status": "SCOPED_PROOF_WITH_EXACT_TESTS_NOT_INDEPENDENTLY_REVIEWED",
+      "boundary": "Fixed p/threshold and allowed stochastic law; analytic frames are not native primitive rotations; no global atom-word, raw-coordinate, larger-threshold or physical claim."
+    },
+    {
+      "id": "HBW-PF-005",
+      "name_zh": "非重排对称的精确首达诊断",
+      "assumptions": "48-branch conjugation witness on three repeated 2x2 blocks; p=2,R=2",
+      "statement": "Eight raw safe states reduce to three; first-hit PGF=(z^2/6)/(1-z^2/12), risk2/11, conditional mean24/11.",
+      "proof_ref": "research_notes/heartbeat_projective_frames_20260921_AD0416/RESEARCH_NOTE.md#pf005",
+      "source": "src/enterprise_math/heartbeat_projective_frames.py",
+      "api": "discover_projective_symmetry",
+      "test_ref": "tests/test_heartbeat_projective_frames.py::test_10_isotropic_discovery",
+      "status": "SCOPED_PROOF_WITH_EXACT_TESTS_NOT_INDEPENDENTLY_REVIEWED",
+      "boundary": "Fixed p/threshold and allowed stochastic law; analytic frames are not native primitive rotations; no global atom-word, raw-coordinate, larger-threshold or physical claim."
+    },
+    {
+      "id": "HBW-PF-006",
+      "name_zh": "加深观察激活参考系拼接余量",
+      "assumptions": "m>=1; fixed explicit integer L,E,B replicated across X6",
+      "statement": "E=G^(2^m) is invisible at depth m; at threshold m+2 two safe states L,EL have successors of spreads m and m+2.",
+      "proof_ref": "research_notes/heartbeat_projective_frames_20260921_AD0416/RESEARCH_NOTE.md#pf006",
+      "source": "src/enterprise_math/heartbeat_projective_frames.py",
+      "api": "projective_frame_key",
+      "test_ref": "tests/test_heartbeat_projective_frames.py::test_19_deeper_observer_reads_composition_residual",
+      "status": "SCOPED_PROOF_WITH_EXACT_TESTS_NOT_INDEPENDENTLY_REVIEWED",
+      "boundary": "Fixed p/threshold and allowed stochastic law; analytic frames are not native primitive rotations; no global atom-word, raw-coordinate, larger-threshold or physical claim."
+    }
+  ]
+}

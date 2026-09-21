@@ -1,0 +1,64 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "date": "2026-09-21",
+  "methods": [
+    {
+      "method_id": "t0.brc_projective_frame_images",
+      "name": "Finite congruence-image frames for BRC carry peaks",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+      "api": [
+        "projective_frame_key",
+        "FiniteProjectiveImage",
+        "shear_frame_period",
+        "symmetry_guard_depth",
+        "ProjectivePeakCertificate",
+        "discover_projective_symmetry",
+        "ProjectivePeakAutomaton",
+        "compile_projective_peak",
+        "projective_peak_chain"
+      ],
+      "source_refs": [
+        "src/enterprise_math/heartbeat_projective_frames.py",
+        "tests/test_heartbeat_projective_frames.py",
+        "research_notes/heartbeat_projective_frames_20260921_AD0416/RESEARCH_NOTE.md",
+        "research_notes/heartbeat_projective_frames_20260921_AD0416/THEOREM_LEDGER.json"
+      ],
+      "triggers": [
+        "non-permutation symmetry",
+        "infinite-order frame",
+        "finite projective image",
+        "congruence protection depth",
+        "shear observation period"
+      ],
+      "capabilities": [
+        "faithful finite frame action at fixed threshold",
+        "guard-depth finite symmetry discovery",
+        "online quotient with nonfinite rational lifts",
+        "exact first-hit observation via existing BRC star"
+      ],
+      "reuse_resolution": {
+        "state": "EXTEND_EXISTING_TOOL / REUSE_EXECUTED",
+        "components": [
+          "heartbeat_peak_orbits",
+          "heartbeat_carry_peak",
+          "heartbeat_peak_quotient",
+          "brc_control_port",
+          "brc_weighted_recurrent"
+        ],
+        "gap": "prior group required finite exact rational lifts; new group is a finite congruence image with a threshold-bound multiplication residual"
+      },
+      "hard_boundary": "Fixed probability law, controls, p and R>=2. Completeness is only within the declared guarded finite generated ambient and action-germ criterion. Full PGL6 may be enormous; group-budget exhaustion is not a negative theorem. Does not preserve physical lengths, primitive rotations, atom words, scalar expansion or higher thresholds.",
+      "theorem_refs": [
+        "HBW-PF-001",
+        "HBW-PF-002",
+        "HBW-PF-003",
+        "HBW-PF-004",
+        "HBW-PF-005",
+        "HBW-PF-006"
+      ]
+    }
+  ]
+}
