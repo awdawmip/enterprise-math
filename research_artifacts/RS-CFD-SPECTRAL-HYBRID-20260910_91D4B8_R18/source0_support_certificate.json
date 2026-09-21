@@ -1,0 +1,70 @@
+{
+  "schema": "CFD_SOURCE0_SUPPORT_CERTIFICATE_V1",
+  "task_id": "RS-CFD-SPECTRAL-HYBRID-20260910",
+  "publication_id": "TP2-C3B717C14153D5AC45BF",
+  "claim_id": "CLM-CFD-91D4B8-20260921-2339-R18",
+  "researcher_id": "EM-CFD-ZSRC-91D4B8",
+  "activity_id": "RA-CFDZSRC-91D4B8-20260921",
+  "consumed_frontier": {
+    "r17_execution_head": "6909e0000eddb688dc7b91c197c01fc684dc3e4f",
+    "r17_result": "Exact support is not universally monotone when fixed RK4 viscosity and nonzero Source are allowed; saturation alone cannot justify M=0 for a permanent-dense latch."
+  },
+  "native_host_readiness": {
+    "checked_in_this_execution": true,
+    "ready": false,
+    "missing_python_modules": ["spectralDNS", "shenfun", "mpi4py", "mpi4py_fft", "pyfftw"],
+    "missing_commands": ["mpicc", "mpicxx", "mpirun"],
+    "native_execution_claimed": false
+  },
+  "exact_source0_theorem": {
+    "scope": "Exact arithmetic, classical fixed-step RK4, Source=0, a retained Fourier mode not forcibly removed by the fixed mask, and semilinear mode equation du_k/dt = -lambda_k u_k + N_k(u), lambda_k >= 0.",
+    "x_definition": "x_k = h * lambda_k >= 0",
+    "stability_polynomial": "R(-x)=1-x+x^2/2-x^3/6+x^4/24",
+    "sum_of_squares_identity": "24 R(-x) = x^2 (x-2)^2 + 8 (x-3/2)^2 + 6",
+    "uniform_bound": "R(-x) >= 1/4 > 0 for all x>=0",
+    "stage_weights": {
+      "b1": "(4-4x+2x^2-x^3)/24",
+      "b2": "(4-2x+x^2)/12",
+      "b3": "(2-x)/6",
+      "b4": "1/6"
+    },
+    "exact_mode_update": "u_{n+1,k}=R(-x_k)u_{n,k}+h*(b1*N_{1,k}+b2*N_{2,k}+b3*N_{3,k}+b4*N_{4,k})",
+    "zero_stage_nonlinearity_consequence": "If u_{n,k} != 0 and N_{j,k}=0 for all four RK4 stages, then u_{n+1,k}=R(-x_k)u_{n,k} != 0; indeed ||u_{n+1,k}|| >= ||u_{n,k}||/4 in exact arithmetic.",
+    "exact_loss_necessary_condition": "If an initially nonzero Source=0 mode disappears exactly after the step, then the weighted nonlinear correction C_k must satisfy C_k=-R(-x_k)u_{n,k}; in particular ||C_k||=R(-x_k)||u_{n,k}|| >= ||u_{n,k}||/4 and at least one projected nonlinear stage contribution is nonzero.",
+    "sufficient_no_loss_gate": "If h*sum_j |b_j| ||N_{j,k}|| < R(-x_k)||u_{n,k}||, exact support loss of mode k is impossible. The stronger-to-check but weaker uniform condition h*sum_j |b_j| ||N_{j,k}|| < ||u_{n,k}||/4 is also sufficient."
+  },
+  "finite_exact_verification": {
+    "checker": "research_checks/RS_CFD_SPECTRAL_HYBRID_91D4B8_R18.py",
+    "arithmetic": "fractions.Fraction",
+    "sos_cases": 4220,
+    "semilinear_decomposition_cases": 87500,
+    "pure_viscous_nonzero_cases": 112,
+    "sharp_no_shrink_cases": 57735,
+    "uniform_no_shrink_cases": 29490,
+    "algebraic_exact_cancellation_cases": 44,
+    "status": "PASS",
+    "py_compile": "PASS"
+  },
+  "interpretation": {
+    "r17_gap_closed": "R17's simple nonlinear-free support-shrink construction fundamentally uses nonzero Source. With Source=0 and zero projected nonlinear contribution at the target mode, viscosity plus classical RK4 alone cannot delete that mode in exact arithmetic.",
+    "global_monotonicity_not_claimed": "This certificate does not prove that a nonlinear Source=0 Navier-Stokes trajectory has monotone support. The exact decomposition instead identifies the only allowed mathematical route to Source=0 mode disappearance inside this split: weighted nonlinear cancellation.",
+    "latch_consequence": "A saturation snapshot still cannot by itself set the future sparse-opportunity cap M to zero. For Source=0 cases, however, any claimed re-sparsification should be accompanied by a disappearing-mode nonlinear-cancellation certificate or be classified as mask/numerical behavior rather than pure viscous decay."
+  },
+  "recommended_native_diagnostics": [
+    "source_plan_hash and explicit Source=0 flag for each triplet/case",
+    "fixed mask/Nyquist status for every disappearing retained mode",
+    "initial and final per-mode coefficient norm around each support-loss event",
+    "x_k=h*nu*|k|^2 and R(-x_k)",
+    "the four projected nonlinear stage contributions N_{j,k}",
+    "weighted nonlinear correction C_k and cancellation residual ||C_k+R(-x_k)u_{n,k}||",
+    "sharp no-loss margin R(-x_k)||u_{n,k}|| - h*sum_j |b_j| ||N_{j,k}||",
+    "floating underflow/flush-to-zero and exact-zero support policy metadata"
+  ],
+  "boundaries": [
+    "Exact arithmetic theorem; floating-point cancellation, underflow/flush-to-zero and explicit masks remain implementation-level alternatives and must be logged separately.",
+    "The 44 finite exact-cancellation cases in the checker use arbitrary stage-local nonlinear values only to test the algebraic boundary; they do not claim those stage values are realizable by incompressible Navier-Stokes.",
+    "No spectralDNS/shenfun/MPI/FFTW native host run, speedup/slowdown result, generic CFD/industrial acceleration, continuous-PDE theorem, independent acceptance, Working Truth or Foundation promotion is claimed.",
+    "The frozen R15/6D3A91 benchmark manifest is unchanged."
+  ],
+  "next_action": "On an already provisioned pinned native host, execute the frozen benchmark unchanged. For any Source=0 support-loss event, record the R18 cancellation diagnostics before interpreting re-sparsification; if the one-way latch diagnostic is run, do not infer M=0 from saturation. Route the immutable native checkpoint to RS-CFD-TRAJECTORY-VERIFY-20260910."
+}
