@@ -1,0 +1,27 @@
+{
+  "schema": "ENTERPRISE_MATH_CFD_VALIDATION_MATRIX_V1",
+  "task_id": "RS-CFD-TRAJECTORY-VERIFY-20260910",
+  "claim_id": "CLM-CFDVFY-7C31A2-20260921-1240",
+  "scope": "INDEPENDENT_SOURCE_AND_DURABLE_RESULT_AUDIT_NO_NATIVE_RERUN",
+  "checks": [
+    {"name":"source_identity","state":"PASS","evidence":"Pinned spectralDNS commit/blob, inherited hybrid commit, host harness and adapter blobs are durably identified."},
+    {"name":"author_verifier_separation","state":"PASS","evidence":"Author EM-CFD-49157B differs from verifier EM-CFD-VFY-7C31A2."},
+    {"name":"actual_host_execution_provenance","state":"PASS_SOURCE_BACKED","evidence":"Durable JSON declares actual_spectralDNS_host_executed=true and actual_shenfun_FFTW_executed=true with run 35050063789; this run did not independently reexecute it."},
+    {"name":"rhs_velocity_pressure_floating_agreement","state":"PASS_SOURCE_BACKED","evidence":"Frozen NumPy result rows record passing velocity_hat, rhs_hat, pressure_proxy, velocity_real and modified_pressure_real comparisons for the eight-case matrix."},
+    {"name":"projected_rhs_divergence","state":"PASS_SOURCE_BACKED","evidence":"one_rhs computes k dot rhs_hat and rejects values above 2e-10; durable rows pass."},
+    {"name":"dense_fallback","state":"PASS_SOURCE_BACKED","evidence":"Adapter code permanently delegates to original dense callback when exact support exceeds sparse_limit or leaves retained domain; random256 durable row records sparse_calls=0, fft_calls=1."},
+    {"name":"support_growth_observation","state":"PASS_SOURCE_BACKED","evidence":"Durable trajectory stats record support counts and FFT fallback behavior; general random/Taylor-Green cases do not support a broad sparse-speedup claim."},
+    {"name":"complete_cost_accounting","state":"QUALIFIED_PASS","evidence":"Context allocation, FFTW_ESTIMATE planning, adapter setup, normalization, support detection, nonlinear evaluations, native projection/diffusion, RK4 and final readout are included; dependency installation, shared input generation, first JIT, explicit case warmup, disk/reporting are excluded and declared."},
+    {"name":"nonzero_source_behavior","state":"UNVERIFIED","evidence":"host_validation.py explicitly sets c.Source.fill(0); no nonzero/static/dynamic Source matrix is present."},
+    {"name":"timestep_refinement","state":"MISSING_REQUIRED_OUTPUT","evidence":"Only dt=0.002 and 12 steps are frozen; no second dt/horizon convergence comparison is executed."},
+    {"name":"trajectory_conjugacy","state":"PARTIAL","evidence":"Initial zero-plane Hermitian symmetry is checked, but no explicit per-step/all-final-mode conjugacy certificate is emitted."},
+    {"name":"energy_behavior","state":"PARTIAL","evidence":"Analytic viscous shear decay is checked; no general energy time series or declared energy inequality audit is emitted."},
+    {"name":"continuous_PDE_certificate","state":"NOT_CLAIMED","evidence":"Task and author report correctly keep continuous-PDE certification false."}
+  ],
+  "overall": "CONTINUATION_REQUIRED",
+  "smallest_next_verification_unit": [
+    "On the pinned serial host, add a verifier-owned matrix with zero Source plus at least one divergence-compatible static Source and one stage-varying Source/escape case; compare dense vs hybrid velocity and modified pressure through a full trajectory.",
+    "Repeat at dt=0.002 and dt=0.001 for the same final time on one sparse-preserving case and one densifying case; record velocity/pressure differences and end-to-end cost.",
+    "Emit explicit final/all-step Hermitian-conjugacy and kinetic-energy diagnostics instead of inferring them from initial validation or the shear analytic case."
+  ]
+}
