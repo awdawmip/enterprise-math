@@ -1,0 +1,38 @@
+{
+  "schema": "EM_CFD_SOURCE_SUPPORT_GUARD_V1",
+  "task_id": "RS-CFD-SPECTRAL-HYBRID-20260910",
+  "researcher_id": "EM-CFD-E6911D",
+  "claim_id": "CLM-CFD-E6911D-20260921-1300",
+  "authority": {
+    "adapter_commit": "3fb575716647b3f618bbd1483b7a4439ccca2601",
+    "adapter_blob": "1436c730189ba1b4f8d84359ff24a39f3ddc2f82",
+    "prior_source_checkpoint": "9e3fd7e5d17187dc6e0f8b0c330166ab0d178a54"
+  },
+  "exact_support_semantics": {
+    "predicate": "coefficient != 0",
+    "tolerance_allowed_for_exact_certificate": false,
+    "complex_coefficients_preserved": true
+  },
+  "static_contract": {
+    "meaning": "declared support envelope; coefficients may vary arbitrarily inside it",
+    "carrier_seed": "support(initial_U_hat) union declared_source_support"
+  },
+  "dynamic_contract": {
+    "check_point": "before current RK stage RHS commit",
+    "escape": "support(Source_stage) minus certified_carrier",
+    "on_escape": [
+      "discard speculative sparse stage RHS",
+      "replay same stage input through unchanged dense RHS",
+      "preserve escaped Source coefficients exactly",
+      "do not double-add Source",
+      "set dense mode sticky"
+    ]
+  },
+  "validation": {
+    "tests": 6,
+    "passed": 6,
+    "native_spectraldns_host_executed": false,
+    "native_timing_claimed": false
+  },
+  "remaining": "Integrate the guard at a host layer with Source and stage-state visibility, then execute the pinned spectralDNS/shenfun/FFTW host and submit native trajectory/timing evidence to independent verification."
+}
