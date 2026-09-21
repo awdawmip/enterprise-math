@@ -1,0 +1,91 @@
+{
+  "frozen_input_provenance": {
+    "route_counts_only": true,
+    "source_return": "research_returns/RS-CFD-SPECTRAL-HYBRID-20260910_A11R10_20260921_R10.md@aa054a7ac72a3f78ab7f590291017cbd453ed29f"
+  },
+  "interpretation": {
+    "native_host_executed": false,
+    "native_speedup_claim": false,
+    "new_bounded_result": "R10 route saturation implies a small idealized speedup envelope even before guard overhead; native A/B/C runs should record paired dense per-call costs to replace the equal-cost specialization with the exact weighted ceiling."
+  },
+  "native_host_readiness": {
+    "fftw3_headers": [],
+    "libraries": {
+      "fftw3": "libfftw3.so.3",
+      "mpi": null
+    },
+    "mpi_headers": [],
+    "native_ready": false,
+    "required_compilers": {
+      "mpicc": null,
+      "mpicxx": null
+    },
+    "required_modules": {
+      "mpi4py": false,
+      "mpi4py_fft": false,
+      "pyfftw": false,
+      "shenfun": false,
+      "spectralDNS": false
+    }
+  },
+  "python": "3.13.5",
+  "route_ceiling_analysis": {
+    "cases": [
+      {
+        "calls": 20,
+        "fallback_calls": 18,
+        "ideal_equal_cost_kernel_speedup_ceiling": 1.1111111111111112,
+        "ideal_equal_cost_kernel_speedup_ceiling_exact": "10/9",
+        "seed": 91001,
+        "sparse_calls": 2,
+        "sparse_fraction": 0.1,
+        "total_trajectory_speedup_ceiling_by_dense_nonlinear_fraction_alpha": {
+          "0.5": 1.0526315789473684,
+          "0.7": 1.075268817204301,
+          "0.9": 1.098901098901099,
+          "1.0": 1.1111111111111112
+        }
+      },
+      {
+        "calls": 20,
+        "fallback_calls": 18,
+        "ideal_equal_cost_kernel_speedup_ceiling": 1.1111111111111112,
+        "ideal_equal_cost_kernel_speedup_ceiling_exact": "10/9",
+        "seed": 91003,
+        "sparse_calls": 2,
+        "sparse_fraction": 0.1,
+        "total_trajectory_speedup_ceiling_by_dense_nonlinear_fraction_alpha": {
+          "0.5": 1.0526315789473684,
+          "0.7": 1.075268817204301,
+          "0.9": 1.098901098901099,
+          "1.0": 1.1111111111111112
+        }
+      },
+      {
+        "calls": 20,
+        "fallback_calls": 19,
+        "ideal_equal_cost_kernel_speedup_ceiling": 1.0526315789473684,
+        "ideal_equal_cost_kernel_speedup_ceiling_exact": "20/19",
+        "seed": 91007,
+        "sparse_calls": 1,
+        "sparse_fraction": 0.05,
+        "total_trajectory_speedup_ceiling_by_dense_nonlinear_fraction_alpha": {
+          "0.5": 1.0256410256410255,
+          "0.7": 1.0362694300518134,
+          "0.9": 1.0471204188481675,
+          "1.0": 1.0526315789473684
+        }
+      }
+    ],
+    "conditions": [
+      "equal dense-reference cost per nonlinear call within each case",
+      "fallback compute equals the corresponding dense-reference compute",
+      "guard and sparse compute are hypothetically zero for the ceiling",
+      "only the nonlinear evaluator is accelerated; all other trajectory work is unchanged"
+    ],
+    "equal_cost_specialization": "w_sparse=m/N, so S_kernel_ideal<=N/(N-m) and S_total_ideal<=1/(1-alpha*m/N)",
+    "general_total_identity": "S_total_ideal <= 1/(1-alpha*w_sparse), where alpha is the dense trajectory fraction spent in the nonlinear evaluator",
+    "general_weighted_identity": "S_kernel_ideal <= D_total / D_fallback = 1/(1-w_sparse), where w_sparse is the dense-reference cost share of sparse-eligible calls"
+  },
+  "schema": "ENTERPRISE_MATH_CFD_NATIVE_HOST_AND_ROUTE_CEILING_R16_V1"
+}
