@@ -1,0 +1,36 @@
+{
+  "commands": {
+    "fftw-wisdom": null,
+    "fftw-wisdom-to-conf": null,
+    "mpiexec": null,
+    "mpirun": null
+  },
+  "libraries": {
+    "fftw3": "libfftw3.so.3",
+    "fftw3_mpi": null,
+    "fftw3_threads": "libfftw3_threads.so.3"
+  },
+  "modules": {
+    "mpi4py": false,
+    "mpi4py_fft": false,
+    "numba": true,
+    "numpy": true,
+    "pyfftw": false,
+    "scipy": true,
+    "shenfun": false,
+    "spectralDNS": false
+  },
+  "native_host_ready": false,
+  "package_index_probe": {
+    "shenfun": "attempted this run; request timed out, no installation obtained",
+    "spectralDNS": "attempted this run; DNS/name-resolution failure, no installation obtained"
+  },
+  "pinned_upstream": {
+    "NS_py_blob": "6a11909d1e2c1d529d382952c4c9d77e7073645c",
+    "commit": "6f6335b7ee3ed8a7e49211c82ddf4bacbe4c220a",
+    "integrators_py_blob": "a08b242047a6d5d672f884925e9aa353fbc5ed44"
+  },
+  "python": "3.13.5",
+  "schema": "EM_CFD_HOST_PROBE_R6_V1",
+  "scope": "actual current execution environment; absence blocks original-host run but not exact pinned source audit"
+}
