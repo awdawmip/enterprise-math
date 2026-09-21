@@ -1,0 +1,64 @@
+{
+  "action": "CLAIM_NEW_OWNER",
+  "control_epoch": "EM-CONTROL-20260904-CANONICAL-DISPATCH-AUTHORITY-1",
+  "diagnostics": {
+    "load_policy": "TRIGGERED_ONLY",
+    "receipt_path": "control_plane/chatgpt_dispatch_receipts/EMREQ-AUTO-20260921T234600Z-OFFSET11-CLAIMVERIFY-7C4E2A.json"
+  },
+  "generated_at": "2026-09-21T23:47:55Z",
+  "kind": "RESEARCH",
+  "new_claim_required": true,
+  "owner_claim_preserved": false,
+  "packet_bytes": 3712,
+  "read_plan": {
+    "context_accounting": "PACKET_AND_EXTERNAL_TASKBOOK_ONLY_NOT_END_TO_END",
+    "dependency_ref_verification": "SOURCE_READ_REQUIRED_PRESERVE_DECLARED_REF",
+    "external_taskbook_bytes": 10917,
+    "first_dependency_ref": null,
+    "forbidden": [
+      "REMOTE_FETCH_AGENTS_MD_FOR_ORDINARY_START",
+      "FULL_DISPATCH_RECEIPT_ON_ORDINARY_START",
+      "CURRENT_CONTROL_AUTHORITY_ON_ORDINARY_START",
+      "ISSUE_240_FULL_COMMENT_STREAM_IN_CONVERSATION",
+      "HIGH_FANOUT_DIRECTORY_OR_RECURSIVE_TREE_DISCOVERY"
+    ],
+    "if_first_dependency_unknown": "TASK_UNDERSTANDING_THEN_BOUNDED_TARGETED_SEARCH_ONLY",
+    "packet_plus_external_taskbook_bytes": 14629,
+    "remote_source_reads_before_substantive_math_max": 2
+  },
+  "reason": "fresh canonical task selector returned a dispatchable target",
+  "request_id": "EMREQ-AUTO-20260921T234600Z-OFFSET11-CLAIMVERIFY-7C4E2A",
+  "schema": "ENTERPRISE_MATH_RESEARCHER_STARTUP_PACKET_V1",
+  "source_sha": "84d6e50579dd635a945f3953865f5a543447488b",
+  "surface": "ORDINARY_TASK",
+  "target_key": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY",
+  "task": {
+    "claim_id": null,
+    "dispatch_state": "NEEDS_DISPATCH",
+    "frontier": "Prove, refute, or strictly reduce the discriminant -24 supersingular unit reciprocity UR for every prime p congruent to 13 or 19 modulo 24, starting from the Driver-accepted CM0/SIMPLE strict reduction and without reopening the eliminated finite-tail or harmonic-block interface.",
+    "identity_lane": "EBP6UR",
+    "last_progress_at": "2026-09-08T14:03:30+00:00",
+    "last_progress_ref": "DR-2EA60F5817976E662FA6",
+    "lease_until": null,
+    "next_action": "Consume the successor handoff and accepted parent Result/Review. First verify the new quadratic-transform bridge from UR to (L_p(u)/p)L_p'(u)=2t/3 mod p and independently validate or reject the ordinary-Legendre candidate (P_{2n}(t)+2P_n(t))P_n'(t)=-pt mod p^2. Then attack the surviving unit reciprocity using the generalized-Legendre p-adic recurrence at a=-1/3 together with t<->-t Frobenius/parity elimination, or a structurally distinct supersingular Frobenius/Wronskian route.",
+    "owner": "research/enterprise-brc-half-coupling-inert-plus-d24-supersingular-unit-reciprocity",
+    "projection": null,
+    "projection_mode": "EXACT_TASKBOOK_REQUIRED_PACKET_BUDGET",
+    "publication_id": "TP2-C0E85430A37213F301EB",
+    "publication_record_path": "research_task_records/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY/TP2-C0E85430A37213F301EB.json",
+    "required_task_sections": [
+      "Mother question",
+      "Frozen inputs and scope",
+      "Hard target and required outputs",
+      "Research value to preserve",
+      "Success, kill, and return criteria"
+    ],
+    "researcher_id": null,
+    "state": "READY",
+    "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY",
+    "taskbook_blob_sha1": "sha1:813b17150ba03883c5a2e72afe69f139b635fcb8",
+    "taskbook_bytes": 10917,
+    "taskbook_path": "research_tasks/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_D24_SUPERSINGULAR_UNIT_RECIPROCITY_20260909.md",
+    "title": "Enterprise BRC inert-plus discriminant -24 supersingular unit reciprocity"
+  }
+}
