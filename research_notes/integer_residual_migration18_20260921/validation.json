@@ -1,0 +1,96 @@
+{
+  "schema": "INTEGER_RESIDUAL_MIGRATION18_VALIDATION_V1",
+  "status": "LOCALLY_VALIDATED_PHASE32_MACHINE_CLI_CANDIDATE",
+  "repository": "awdawmip/enterprise-math",
+  "branch": "research/integer-residual-m01-angular-20260919-4a5102",
+  "baseline_commit": "44c5f034d38726990f83ff3e05d5b0eff520cea7",
+  "researcher_id": "EM-DIRECT-4A5102",
+  "activity_id": "RA-1094DE57986E6E3FDCEA65DA",
+  "implementation": {
+    "actual_caller": "phase32_lab.main -> _machine_cli -> existing build/metrics/multiplication/hex_data",
+    "existing_function_asts_changed": [
+      "build",
+      "main"
+    ],
+    "source_config": "NOLLM_PHASE32_MACHINE_CONFIG_V1",
+    "report_schema": "NOLLM_PHASE32_MACHINE_REPORT_V1",
+    "cli": [
+      "--machine-only",
+      "--cell-pitch",
+      "--cell-bits",
+      "--cell-max-bits",
+      "--readout-scale"
+    ],
+    "pitch_provenance": "0.50 retains 50/100; certifier uses inverse 100/50; no float inference",
+    "machine_no_display": true,
+    "report_and_data_have_no_float_values": true,
+    "unresolved": "original precision preserved; report allowed; complete V2 export refused before output writes",
+    "reuse": "REUSE_EXECUTED_UNCHANGED: BRC, uint32 phase certifier, local lexicographic tie adapter, text parser",
+    "filesystem_rollback_claimed": false
+  },
+  "tests": {
+    "total": 209,
+    "passed": 207,
+    "new": 26,
+    "retained": 183,
+    "failures": 0,
+    "errors": 0,
+    "skips": 2,
+    "numerical_skips": 0,
+    "skip_reason": "unchanged phase32_lab.html absent in source slice; deterministic HTML and site tests only",
+    "retained_expectations_changed": 0,
+    "exact_policy_exit": 0,
+    "policy_scope": [
+      "certified_hex.py",
+      "angular_dispersion.py"
+    ]
+  },
+  "finite_validation": {
+    "cases_4096": 9,
+    "case_65536": 1,
+    "all_certified": true,
+    "full_certificates_and_identity_records_equal_m17": true,
+    "all_metrics_equal_m17": true,
+    "full_65536": {
+      "mode": "golden",
+      "pitch": "1",
+      "occupied_positive_cells": 47497,
+      "collision_excess": 18038,
+      "unresolved": 0
+    },
+    "finite_not_universal": true
+  },
+  "clean_replay": {
+    "local_base": "fab96d714cd1949560ed5e89e92f7abe484d6385",
+    "patch_sha256": "524af1b1e6acb1b7a104a8f9afd4073c12e7676205e5dce69142dad5cca1472d",
+    "patch_applied": true,
+    "tests": 209,
+    "passed": 207,
+    "expected_template_skips": 2,
+    "failures": 0,
+    "errors": 0,
+    "source_files_byte_equal": 5,
+    "test_report_byte_equal": true,
+    "four_population_reports_byte_equal": true
+  },
+  "evidence_sha256": {
+    "tests.json": "fc468f981b06c83170c848cf8644a2bf9b2bb3398cad645582713ce90c6f1e23",
+    "population_4096_golden.json": "d546b45a6d1b6faf6adc796370c3a570cf147f20726e916914f9b1b4b450a9ca",
+    "population_4096_hash.json": "2105d21a2bcb221229bda7084323f3d28a26e5f14a89877fec5a76d56442cd30",
+    "population_4096_spiral.json": "e33377f0949db4e2772ea4fa05480ce768042ae02b686eade0c8db27c218e98a",
+    "population_65536_golden.json": "b28b132a650bce1bf952c8386aa04a9b8fbe419cd9a22fd2aa41b6896c4b1aa7"
+  },
+  "boundaries": {
+    "geometry": "DECLARED_A2_OBSERVER_NOT_NATIVE_X6",
+    "phase32_browser_migrated": false,
+    "production_defaults_changed": false,
+    "m15_full_package_admission": false,
+    "whole_repository_regression": false,
+    "independent_review": false,
+    "main_code_integrated": false,
+    "native_browser_navigation": false,
+    "new_hosted_automation": false,
+    "new_schema_reader": "NOT_IMPLEMENTED; generic multiplicative-report reader does not accept Phase32 report"
+  },
+  "next": "Add a Phase32 machine-report reader using saved source/pitch/precision/readout, then separately migrate its browser; do not rebuild BRC or rerun completed slices as new work."
+}

@@ -5,7 +5,6 @@ coordinates or Nollm runtime are redefined. Geometry is explicitly a readout.
 """
 from __future__ import annotations
 import argparse
-import copy
 import hashlib
 import html
 import json
@@ -19,155 +18,6 @@ GOLDEN = 2654435761  # declared finite phase schedule, not an irrational identit
 DEFAULT = dict(count=65536, mode="golden", seed=0, overrides={}, pitch=1.0,
                view="plane", field="phase", sectors=64, rings=8,
                yaw=0.0, tilt=0.65, zoom=1.0, a=5, b=7)
-
-
-MACHINE_CONFIG_SCHEMA = "NOLLM_PHASE32_MACHINE_CONFIG_V1"
-MACHINE_REPORT_SCHEMA = "NOLLM_PHASE32_MACHINE_REPORT_V1"
-NO_DISPLAY = "NOT_CONSTRUCTED_MACHINE_ONLY"
-_MACHINE_KEYS = frozenset(('schema', 'count', 'mode', 'seed', 'overrides',
-                           'sectors', 'rings', 'a', 'b'))
-
-
-def checked_machine_config(config: dict) -> dict:
-    """Validate the integer source alone; never drop legacy display parameters."""
-    if type(config) is not dict or set(config) != _MACHINE_KEYS:
-        raise ValueError('machine configuration requires its exact schema fields; display fields are not accepted')
-    c = dict(config)
-    if c['schema'] != MACHINE_CONFIG_SCHEMA:
-        raise ValueError('expected ' + MACHINE_CONFIG_SCHEMA)
-    for key, lo, hi in (('count', 2, 65536), ('seed', 0, DEN-1),
-                        ('sectors', 6, 128), ('rings', 1, 32)):
-        if type(c[key]) is not int or not lo <= c[key] <= hi:
-            raise ValueError(f'{key} must be an exact integer in {lo}..{hi}')
-    for key in ('a', 'b'):
-        if type(c[key]) is not int or not 0 <= c[key] < c['count']:
-            raise ValueError(key + ' must be an in-population exact integer')
-    if type(c['mode']) is not str or c['mode'] not in ('golden', 'hash', 'spiral'):
-        raise ValueError('invalid Phase32 source mode')
-    overrides = c['overrides']
-    if type(overrides) is not dict or len(overrides) > 128:
-        raise ValueError('at most 128 prime overrides')
-    for prime, tick in overrides.items():
-        if (type(prime) is not str or not prime.isascii() or not prime.isdecimal()
-                or len(prime) > 5 or str(int(prime)) != prime
-                or not 2 <= int(prime) < c['count']
-                or any(int(prime) % d == 0 for d in range(2, math.isqrt(int(prime))+1))):
-            raise ValueError('overrides require canonical prime keys within the population')
-        if type(tick) is not int or not 0 <= tick < DEN:
-            raise ValueError('override phase must be uint32')
-    c['overrides'] = dict(overrides)
-    return c
-
-
-def machine_config(count: int = 65536, mode: str = 'golden', *, seed: int = 0,
-                   overrides: dict | None = None, sectors: int = 64, rings: int = 8,
-                   a: int | None = None, b: int | None = None) -> dict:
-    """Construct a typed Phase32 machine input without camera/pitch defaults."""
-    if type(count) is not int or not 2 <= count <= 65536:
-        raise ValueError('count must be an exact integer in 2..65536')
-    return checked_machine_config(dict(
-        schema=MACHINE_CONFIG_SCHEMA, count=count, mode=mode, seed=seed,
-        overrides={} if overrides is None else overrides, sectors=sectors, rings=rings,
-        a=min(5, count-1) if a is None else a, b=min(7, count-1) if b is None else b))
-
-
-def _load_machine_config(path: Path) -> dict:
-    """Read a bounded source config without float tokens or duplicate keys."""
-    with path.open('rb') as stream:
-        raw = stream.read(65537)
-    if len(raw) > 65536:
-        raise ValueError('machine configuration exceeds 64 KiB reader budget')
-    def reject(token):
-        raise ValueError('inexact JSON token in machine configuration: ' + token)
-    def pairs(items):
-        result = {}
-        for key, value in items:
-            if key in result:
-                raise ValueError('duplicate machine configuration field: ' + key)
-            result[key] = value
-        return result
-    try:
-        c = json.loads(raw.decode('utf-8-sig'), parse_float=reject,
-                       parse_constant=reject, object_pairs_hook=pairs)
-    except RecursionError as exc:
-        raise ValueError('machine configuration nesting exceeds reader limits') from exc
-    return checked_machine_config(c)
-
-
-def machine_report(model: dict, *, readout_scale: int | None = 10**6) -> dict:
-    """Source and finite observations, not a source-authentication certificate."""
-    if model.get('display_role') != NO_DISPLAY or model.get('cell_engine') != 'CERTIFIED_INTEGER_RESIDUAL':
-        raise ValueError('machine report requires a certified no-display model')
-    config = checked_machine_config(model['config'])
-    result = dict(schema=MACHINE_REPORT_SCHEMA, version=VERSION, config=config,
-                  phase_modulus=str(DEN), cell_engine=model['cell_engine'],
-                  cell_pitch_source=model['cell_pitch_source'],
-                  cell_precision=model['cell_precision'],
-                  cell_membership_exact={k:v for k,v in model['cell_membership_exact'].items()
-                                         if k != 'certificates'},
-                  metrics=metrics(model, readout_scale=readout_scale),
-                  multiplication=multiplication(model, config['a'], config['b']),
-                  display_role=NO_DISPLAY, browser_startup=None,
-                  observation_scope='FINITE_A2_OBSERVER_NOT_NATIVE_X6; NO_SOURCE_AUTHENTICATION')
-    return copy.deepcopy(result)
-
-
-def _machine_cli(args) -> int:
-    from .multiplicative import parse_cell_scale_text, _cell_precision, _distinct_output_paths
-    from .core import validate, write_data
-    if args.out is not None or args.preview or args.site:
-        raise ValueError('--machine-only cannot use --out, --preview or --site; Phase32 browser remains legacy')
-    if args.cell_pitch is None or not (args.report or args.hex_data):
-        raise ValueError('--machine-only requires --cell-pitch and --report/--hex-data')
-    if args.config is not None and (args.count is not None or args.mode is not None):
-        raise ValueError('machine --config cannot be mixed with --count or --mode')
-    paths = [x for x in (args.config, args.report, args.hex_data) if x is not None]
-    _distinct_output_paths(*paths)
-    for i, left in enumerate(paths):
-        for right in paths[:i]:
-            if left.exists() and right.exists() and left.samefile(right):
-                raise ValueError('machine input/output paths must refer to distinct files')
-    pair, source = parse_cell_scale_text(args.cell_pitch)
-    initial, maximum = _cell_precision(64 if args.cell_bits is None else args.cell_bits,
-                                      192 if args.cell_max_bits is None else args.cell_max_bits)
-    readout = 10**6
-    if args.readout_scale is not None:
-        text = args.readout_scale
-        if text == 'none':
-            readout = None
-        elif not text.isascii() or not text.isdecimal() or len(text) > 256 or text.startswith('0'):
-            raise ValueError('--readout-scale requires a positive canonical integer or none')
-        else:
-            readout = int(text)
-    c = (_load_machine_config(args.config) if args.config is not None else
-         machine_config(65536 if args.count is None else args.count,
-                        'golden' if args.mode is None else args.mode))
-    try:
-        model = build(c, cell_pitch=pair, cell_bits=initial, cell_max_bits=maximum,
-                      include_display=False)
-        model['cell_pitch_source'] = source
-        report = machine_report(model, readout_scale=readout) if args.report is not None else None
-        data = copy.deepcopy(hex_data(model)) if args.hex_data is not None else None
-    except RuntimeError as exc:
-        if 'Enterprise Math BRC' in str(exc):
-            raise ValueError('Phase32 machine output requires Enterprise Math BRC; no approximate fallback') from exc
-        raise
-    if data is not None:
-        data['metadata']['machine_config'] = copy.deepcopy(c)
-        data['metadata']['machine_observation'] = dict(rings=c['rings'], sectors=c['sectors'],
-                                                       readout_scale=None if readout is None else str(readout))
-        validate(data)  # Detect unresolved/out-of-carrier data before any output writes.
-    report_text = (json.dumps(report, ensure_ascii=False, indent=2, allow_nan=False)+'\n'
-                   if report is not None else None)
-    # Semantic preflight, not rollback after filesystem failures.
-    if args.report is not None:
-        args.report.parent.mkdir(parents=True, exist_ok=True)
-        args.report.write_text(report_text, encoding='utf-8')
-    if data is not None:
-        write_data(data, args.hex_data)
-    print(json.dumps(dict(status=model['cell_membership_exact']['status'], population=c['count'],
-                          report_schema=MACHINE_REPORT_SCHEMA, display_role=NO_DISPLAY)))
-    return 0
 
 
 def validate_config(config: dict) -> dict:
@@ -257,18 +107,8 @@ def _lexicographic_cells(phase: list[int], pitch_n: int, pitch_d: int,
 
 
 def build(config: dict | None = None, *, cell_pitch: tuple[int, int] | None = None,
-          cell_bits: int = 64, cell_max_bits: int = 192,
-          include_display: bool = True) -> dict:
-    if type(include_display) is not bool:
-        raise ValueError('include_display must be boolean')
-    if not include_display and cell_pitch is None:
-        raise ValueError('no-display build requires explicit cell_pitch')
-    c = (validate_config(config or {}) if include_display else
-         checked_machine_config(machine_config() if config is None else config))
-    if cell_pitch is not None:
-        from .multiplicative import _cell_precision
-        _cell_pitch(cell_pitch)
-        _cell_precision(cell_bits, cell_max_bits)
+          cell_bits: int = 64, cell_max_bits: int = 192) -> dict:
+    c = validate_config(config or {})
     N = c['count']; spf = [0]*N; phase = [0]*N; omega = [0]*N; primes=[]
     for p in range(2, N):
         if spf[p] == 0:
@@ -295,8 +135,6 @@ def build(config: dict | None = None, *, cell_pitch: tuple[int, int] | None = No
                   cell_pitch_source={'numerator':str(pitch_n),'denominator':str(pitch_d),'unreduced':True},
                   cell_precision={'initial_bits':cell_bits,'max_bits':cell_max_bits},
                   cell_membership_exact=exact)
-    if not include_display:
-        result['display_role'] = NO_DISPLAY
     return result
 
 
@@ -455,24 +293,12 @@ def hex_data(model: dict) -> dict:
 
 def main() -> int:
     p=argparse.ArgumentParser(description='Nollm multiplicative-field experiment; additive toolkit module')
-    p.add_argument('--out',type=Path)
-    p.add_argument('--count',type=int);p.add_argument('--mode',choices=['golden','hash','spiral'])
+    p.add_argument('--out',type=Path,default=Path('multiplicative-field.html'))
+    p.add_argument('--count',type=int,default=65536);p.add_argument('--mode',choices=['golden','hash','spiral'],default='golden')
     p.add_argument('--config',type=Path);p.add_argument('--preview',action='store_true');p.add_argument('--site',action='store_true',help='out becomes the three-page site directory')
     p.add_argument('--report',type=Path);p.add_argument('--hex-data',type=Path)
-    p.add_argument('--machine-only',action='store_true',help='exact integer/residual machine outputs without HTML')
-    p.add_argument('--cell-pitch',help='exact positive pitch text: integer, n/d or decimal; never inferred from display pitch')
-    p.add_argument('--cell-bits',type=int,help='initial integer interval budget (default 64)')
-    p.add_argument('--cell-max-bits',type=int,help='maximum integer interval budget (default 192)')
-    p.add_argument('--readout-scale',help='positive integer CV-squared readout scale, or none (default 1000000)')
     a=p.parse_args()
     try:
-        if a.machine_only:
-            return _machine_cli(a)
-        if any(x is not None for x in (a.cell_pitch,a.cell_bits,a.cell_max_bits,a.readout_scale)):
-            raise ValueError('exact options require --machine-only; Phase32 browser remains legacy')
-        if a.out is None:a.out=Path('multiplicative-field.html')
-        if a.count is None:a.count=65536
-        if a.mode is None:a.mode='golden'
         c=json.loads(a.config.read_text(encoding='utf-8')) if a.config else dict(count=a.count,mode=a.mode,a=min(5,a.count-1),b=min(7,a.count-1))
         if isinstance(c,dict) and c.get('schema')==SCHEMA:
             if c.get('version')!=VERSION:raise ValueError('configuration version mismatch')
@@ -489,6 +315,6 @@ def main() -> int:
             from .web import serve_preview
             serve_preview(a.out if a.site else out)  # Reuses 0.3.0 loopback preview, not a new web server.
         return 0
-    except (OSError,ValueError,TypeError,KeyError,UnicodeError) as e:p.exit(2,f'error: {e}\n')
+    except (OSError,ValueError,TypeError,KeyError) as e:p.exit(2,f'error: {e}\n')
 
 if __name__=='__main__':raise SystemExit(main())

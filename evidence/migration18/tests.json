@@ -1,0 +1,36 @@
+{
+  "schema": "M18_PHASE32_MACHINE_CLI_TEST_RUN_V1",
+  "tests": 209,
+  "passed": 207,
+  "failures": 0,
+  "errors": 0,
+  "skips": 2,
+  "groups": {
+    "test_multiplication_lab": 18,
+    "test_angular_dispersion": 18,
+    "test_certified_hex": 24,
+    "test_certified_hex_browser": 18,
+    "test_angular_browser": 11,
+    "test_multiplicative_exact": 12,
+    "test_multiplicative_readouts": 20,
+    "test_multiplicative_machine": 27,
+    "test_certified_hex_phase32": 6,
+    "test_phase32_lab": 17,
+    "test_phase32_exact": 12,
+    "test_phase32_cli_exact": 26
+  },
+  "expected_source_slice_skips": [
+    "test_deterministic_html_and_config",
+    "test_site_three_pages_and_manifest"
+  ],
+  "new_tests": 26,
+  "numerical_skips": 0,
+  "policy_exit": 0,
+  "finite_cases": {
+    "invalid_cli_inputs": 42,
+    "replayed_reports": 2,
+    "legacy_object_cases": 18
+  },
+  "legacy_render_stub": "ONE_NEW_ROUTING_TEST_ONLY_NOT_BROWSER_ACCEPTANCE",
+  "scope": "Phase32 exact textual CLI and no-display config/report/data; not Phase32 browser/full installation/main admission"
+}
