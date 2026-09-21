@@ -1,0 +1,51 @@
+{
+  "schema": "ENTERPRISE_MATH_CFD_ROBUST_ATTRIBUTION_CERTIFICATE_V1",
+  "claim": "CLM-CFD-B7E2C1-20260922-R23",
+  "theorem": {
+    "R19_rewrite": "S <= 1/[1 + (H - A*D)/T], with A=alpha_bar*w_bar",
+    "measurement_box": "T in [T_hat-eT,T_hat+eT], D<=D_hat+eD, H>=max(0,H_hat-eH), D_plus<=T_minus",
+    "sharp_denominator": "g_rob=1+N/T_plus if N>=0 else 1+N/T_minus, N=H_minus-A*D_plus",
+    "target_rejection": "q-speedup is impossible whenever g_rob > 1/q"
+  },
+  "R19_illustration_only": {
+    "A": "7/55",
+    "f_hat": "4/5",
+    "h_hat": "1/50",
+    "q": "11/10",
+    "zero_error_margin": "1/110",
+    "exact_delta_crit": "1/134",
+    "delta_crit_percent": 0.7462686567164179,
+    "delta_1_over_200_denominator": "9983/10945",
+    "delta_1_over_134_denominator": "10/11",
+    "delta_1_over_100_denominator": "4933/5445"
+  },
+  "native_host_probe": {
+    "python": "3.13.5",
+    "modules": {
+      "spectralDNS": false,
+      "shenfun": false,
+      "mpi4py": false,
+      "mpi4py_fft": false,
+      "pyfftw": false
+    },
+    "commands": {
+      "mpicc": null,
+      "mpicxx": null
+    },
+    "libraries": {
+      "mpi": null,
+      "fftw3": "libfftw3.so.3"
+    },
+    "headers": {
+      "mpi.h": false,
+      "fftw3.h": false
+    },
+    "native_ready": false
+  },
+  "verification": {
+    "exact_endpoint_cases": 1296,
+    "example_exact_fraction_assertions": "PASS",
+    "status": "PASS"
+  },
+  "boundary": "Finite deterministic measurement-error attribution certificate only; no native spectralDNS execution and no measured speedup claim."
+}
