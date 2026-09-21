@@ -1,0 +1,114 @@
+{
+  "status": "PASS",
+  "new_tests": 19,
+  "checks": {
+    "inherited_byte_identity_checks": 3,
+    "linear_full_solution_comparisons": 75,
+    "independent_lifts": {
+      "seeds": 40,
+      "literal_candidates": 1940
+    },
+    "repairable": {
+      "nonzero_residual": true,
+      "lifts": 4,
+      "repair": [
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          3
+        ]
+      ]
+    },
+    "obstruction": {
+      "precision": 3,
+      "next_modulus": 16,
+      "rhs": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "annihilator": [
+        0,
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    "six_axis_exchange": {
+      "first_lifts": 34359738368,
+      "fourth_level_lifts": 0
+    },
+    "large_affine_family": {
+      "variables": 38,
+      "equations": 73,
+      "rank": 21,
+      "free_bits": 17,
+      "lifts": 131072,
+      "reconstructions": 20
+    },
+    "hidden_normalizer": {
+      "base_frames": 48,
+      "base_matching_tests": 96,
+      "final_frame_depth": 7,
+      "modulus": 128,
+      "retained_frames": 128,
+      "linear_systems": 124,
+      "unenumerated_ambient_order": 1572864
+    },
+    "full_ambient_crosscheck": {
+      "frames": 384,
+      "accepted": 8
+    },
+    "BRC_replay": {
+      "frames": 8,
+      "raw_safe_states": 10,
+      "compressed_safe_states": 4,
+      "hit_probability": "1/26",
+      "conditional_time": "45/13",
+      "coefficients": 26
+    },
+    "actual_peak_witness": {
+      "before": 4,
+      "after_A": 3,
+      "after_exchanged_A": 5,
+      "law": "PassageLaw(probability=(Fraction(1, 2), Fraction(1, 2), Fraction(0, 1), Fraction(1, 1), Fraction(0, 1), Fraction(1, 1), Fraction(0, 1)), first_time_mass=(Fraction(3, 2), Fraction(1, 1), Fraction(0, 1), Fraction(1, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1)), conditional_time=(Fraction(3, 1), Fraction(2, 1), None, Fraction(1, 1), None, Fraction(0, 1), None), useful_states=3)",
+      "prefix": "(Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(1, 2), Fraction(0, 1), Fraction(0, 1))"
+    },
+    "exchange_cutoff_checks": 35,
+    "joint_repair_obstruction": {
+      "individual_lifts": [
+        4,
+        4
+      ],
+      "joint_lifts": 0,
+      "rhs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "annihilator": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+}

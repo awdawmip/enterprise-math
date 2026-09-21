@@ -1,0 +1,62 @@
+{
+  "schema": "HEARTBEAT_GUARDED_LIFT_THEOREM_CANDIDATES_V1",
+  "date": "2026-09-22",
+  "world_id": "HEARTBEAT_WORLD",
+  "status": "SCOPED_DERIVATIONS_AND_EXACT_WITNESSES_NOT_FOUNDATION",
+  "theorems": [
+    {
+      "id": "HBW-GL-001",
+      "name_zh": "保护精度下的一位线性提升",
+      "statement": "All next lifts of a seed at action depth m and frame depth m+C are exactly solutions to the finite-field linear system in section 1.",
+      "assumptions_and_boundary": "Finite nonsingular rational matrices normalized p-primitive; fixed atom matching, unit frame and unit scalars; m>=1.",
+      "proof_ref": "RESEARCH_NOTE.md#section-1",
+      "tests": "tests/test_heartbeat_congruence_lift.py",
+      "independent_review": false
+    },
+    {
+      "id": "HBW-GL-002",
+      "name_zh": "仿射修复族与双重障碍",
+      "statement": "A compatible next layer has p^d unique normalized frame lifts; otherwise yD=0, yr!=0 proves no lift. The obstruction class is independent of section choice.",
+      "assumptions_and_boundary": "Same fixed seed and matching as GL-001; finite-field exact arithmetic.",
+      "proof_ref": "RESEARCH_NOTE.md#section-2",
+      "tests": "tests/test_heartbeat_congruence_lift.py",
+      "independent_review": false
+    },
+    {
+      "id": "HBW-GL-003",
+      "name_zh": "共同修复不由分别可修推出",
+      "statement": "The displayed two actions each admit four one-digit frame repairs, while their simultaneous system has none.",
+      "assumptions_and_boundary": "The explicit p=2 example; joint frame variable must remain shared.",
+      "proof_ref": "RESEARCH_NOTE.md#section-3",
+      "tests": "tests/test_heartbeat_congruence_lift.py",
+      "independent_review": false
+    },
+    {
+      "id": "HBW-GL-004",
+      "name_zh": "项目交换的有限精度寿命",
+      "statement": "For A=diag(1,d) and S congruent to swap modulo p, a projective commutation solution modulo p^m exists iff d^2=1 modulo p^m.",
+      "assumptions_and_boundary": "d is a p-adic unit. Repeated block X6 extension as proved; precision is not time.",
+      "proof_ref": "RESEARCH_NOTE.md#section-4",
+      "tests": "tests/test_heartbeat_congruence_lift.py",
+      "independent_review": false
+    },
+    {
+      "id": "HBW-GL-005",
+      "name_zh": "提升失效的真实首达见证",
+      "statement": "The explicit X6 path has endpoint carry spread 3 versus 5 after a common tail (running peaks 4 versus 5); at threshold 5 and equal branch weights, first hit at tick 3 has probability 1/2.",
+      "assumptions_and_boundary": "Displayed integer matrices, fixed arrow-boundary observation, p=2.",
+      "proof_ref": "RESEARCH_NOTE.md#section-5",
+      "tests": "tests/test_heartbeat_congruence_lift.py",
+      "independent_review": false
+    },
+    {
+      "id": "HBW-GL-006",
+      "name_zh": "固定对应的完备逐层搜索与BRC接入",
+      "statement": "Complete low-level seeds and exhaustive uncapped affine lifting give complete higher fixed-matching seeds. Rechecking inherited weighted-row certificates licenses existing peak quotient tools.",
+      "assumptions_and_boundary": "Completeness only within provided seed/matching/embedding family; no global GL6 or aggregate-mass stabilizer claim.",
+      "proof_ref": "RESEARCH_NOTE.md#section-6",
+      "tests": "tests/test_heartbeat_congruence_lift.py",
+      "independent_review": false
+    }
+  ]
+}

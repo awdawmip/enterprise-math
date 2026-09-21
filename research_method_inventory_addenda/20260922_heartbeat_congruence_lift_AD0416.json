@@ -1,0 +1,55 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "date": "2026-09-22",
+  "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "methods": [
+    {
+      "method_id": "t0.brc_guarded_congruence_lift",
+      "name": "Heartbeat guarded one-digit frame lifting and obstruction certificates",
+      "family_id": "T0_BRC",
+      "classification": "GLOBAL_SUBTOOL",
+      "api": [
+        "LinearLiftSpace",
+        "solve_modular_linear",
+        "GermLiftProblem",
+        "GermLiftSeed",
+        "GermLiftCertificate",
+        "lift_germ_seed",
+        "lift_seed_family",
+        "packet_matching_problem",
+        "verify_lifted_peak_frame"
+      ],
+      "source_refs": [
+        "src/enterprise_math/heartbeat_congruence_lift.py",
+        "tests/test_heartbeat_congruence_lift.py",
+        "research_notes/heartbeat_congruence_lift_20260922_AD0416/RESEARCH_NOTE.md",
+        "research_notes/heartbeat_congruence_lift_20260922_AD0416/THEOREM_LEDGER.json"
+      ],
+      "triggers": [
+        "congruence lifting",
+        "frame obstruction",
+        "symmetry refinement",
+        "guarded Hensel",
+        "joint repair"
+      ],
+      "capabilities": [
+        "exact one-digit affine family at distinct frame/scalar precisions",
+        "dual no-lift witness",
+        "capped complete fixed-matching seed continuation",
+        "inherited weighted-row BRC verification"
+      ],
+      "reuse_resolution": {
+        "state": "EXTEND_EXISTING_TOOL / REUSE_EXECUTED",
+        "components": [
+          "heartbeat_projective_frames",
+          "heartbeat_peak_orbits",
+          "heartbeat_carry_peak",
+          "brc_control_port",
+          "brc_transport"
+        ],
+        "gap": "Parent enumerates guarded ambient; new layer solves the next congruence digit without ambient enumeration."
+      },
+      "hard_boundary": "Fixed seed and atom matching only; source guards and p-integral normalization required; no theorem admission, all-GL6 completeness, raw path identity or probability assignment to repair candidates."
+    }
+  ]
+}
