@@ -1,0 +1,62 @@
+{
+  "schema": "ENTERPRISE_MATH_CFD_TRAJECTORY_DIAGNOSTIC_CONTRACT_V1",
+  "task_id": "RS-CFD-TRAJECTORY-VERIFY-20260910",
+  "claim_id": "CLM-CFDVFY-05E855-20260921-1340",
+  "researcher_id": "EM-CFD-VFY-05E855",
+  "scope": "INDEPENDENT_DIAGNOSTIC_SPEC_AND_SYNTHETIC_SELFTEST_NO_NATIVE_HOST_RERUN",
+  "source_pins": {
+    "taskbook_blob_sha1": "sha1:4a2b29480cd677c96bde6129861bf494990f40cc",
+    "host_validation_blob_sha1": "65e57df8f9cb790d88818d02867cb364d0c06bc4",
+    "previous_verifier_commit": "bb7a41a841aab57eb65b663f842ba23d677c6d0f"
+  },
+  "findings": [
+    "For spectralDNS U_hat storage (3,n,n,n//2+1) with even n, the only stored kz planes whose negative-kz partner is also stored are kz=0 and kz=n/2. Full in-storage Hermitian validation therefore checks U(-kx,-ky,kz)=conj(U(kx,ky,kz)) on both planes; inventing an interior-kz pair check is incorrect.",
+    "The existing host harness validates an initial zero-plane symmetry condition but does not emit per-step/final checks on both r2c boundary planes.",
+    "Kinetic energy should be recorded from the host real velocity after get_velocity at every trajectory step: E=0.5*mean(sum_i U_i^2). This avoids silently assuming a shenfun Fourier normalization. A spectral Parseval cross-check may be added only with an explicitly pinned transform convention.",
+    "For zero Source, record a nonincrease diagnostic as a bounded numerical check with declared tolerance. For nonzero/static/dynamic Source, monotonic decay is not a valid generic gate because forcing can inject energy; record the series and, if desired, a separately defined work balance.",
+    "Timestep refinement must compare the same final time and identical frozen initial/source data. At minimum record endpoint velocity and modified-pressure differences for dt=0.002 vs dt=0.001; do not infer an order from only two levels."
+  ],
+  "native_host_integration_contract": {
+    "initial_and_each_completed_RK_step": [
+      "run hermitian_boundary_report(c.U_hat) before any claim of trajectory conjugacy",
+      "call s.get_velocity(**c) and record physical_kinetic_energy(c.U)",
+      "persist step index, physical time, Source class (zero/static/dynamic), exact support/fallback mode, and diagnostic pass/failure"
+    ],
+    "final_state": [
+      "repeat Hermitian and energy diagnostics after final readout",
+      "compare dense-vs-hybrid velocity_hat, rhs/pressure outputs already required by host harness",
+      "for refinement pairs, compare identical final-time endpoints"
+    ],
+    "failure_policy": "Any boundary-plane conjugacy failure is a verification failure. Energy increase is a failure only for a declared zero-Source dissipative check; forced cases are recorded, not monotonic-gated."
+  },
+  "synthetic_selftest": {
+    "schema": "ENTERPRISE_MATH_CFD_TRAJECTORY_DIAGNOSTIC_SELFTEST_V1",
+    "seed": 20260921,
+    "n": 8,
+    "checks": {
+      "real_field_boundary_conjugacy": true,
+      "parseval_energy": true,
+      "kz0_violation_detected": true,
+      "nyquist_violation_detected": true,
+      "interior_kz_not_falsely_pair_checked": true,
+      "zero_source_decay_gate": true,
+      "forced_energy_not_misgated": true
+    },
+    "pass": true,
+    "reference": {
+      "physical_energy": 1.4793232958405569,
+      "numpy_rfftn_parseval_energy": 1.4793232958405569,
+      "energy_absolute_difference": 0.0,
+      "kz0_injected_residual": 9.999999992515995e-07,
+      "nyquist_injected_residual": 9.999999974752427e-07,
+      "interior_kz_boundary_residual": 0.0
+    }
+  },
+  "overall": "PASS_DIAGNOSTIC_SPEC_SYNTHETIC_SELFTEST; NATIVE_TRAJECTORY_CERTIFICATE_STILL_REQUIRED",
+  "remaining_obligations": [
+    "Execute verifier-owned diagnostics on the pinned native spectralDNS/shenfun/FFTW host.",
+    "Run zero/static/dynamic Source trajectories as previously frozen.",
+    "Run same-final-time dt=0.002 and dt=0.001 refinement on one sparse-preserving and one densifying case.",
+    "Retain dense-vs-hybrid full trajectory and cost evidence; no PDE or universal speedup claim."
+  ]
+}
