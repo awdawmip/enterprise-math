@@ -1,0 +1,76 @@
+{
+  "schema": "GEO8_BORSUK_R6_GEN2_REVALIDATION_AUDIT_V1",
+  "task_id": "RS-GEO8-BORSUK-R6-LASSAK-33-COMPRESSION-PRESSURE",
+  "publication_id": "TP2-75A6C3F81E2D094B67CF",
+  "claim_id": "CLM-7901302A48F64F15545A",
+  "researcher_id": "EM-GEO8BORSUKR6-66A466",
+  "validated_main_head": "75aa89e32a484cd66028c2cb539df2f8807862cd",
+  "validated_at": "2026-09-21T23:32:30+00:00",
+  "classification": "ZERO_MATH_DRIFT",
+  "checker_replay": {
+    "path": "research_checks/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE_CHECK_20260902.py",
+    "result": "PASS",
+    "atoms": 33,
+    "incompatibility_edges": 528,
+    "sector_pair_lower_bound_squared": "15/13",
+    "center_fixed_hypercube_facet_lower_bound_squared": "10/7"
+  },
+  "frozen_blob_revalidation": [
+    {
+      "path": "research_checks/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE_CHECK_20260902.py",
+      "git_blob_sha1": "sha1:96479057e7f11f4f1b0a7122b2fc18489d417211",
+      "status": "UNCHANGED_FROM_RR_68BA"
+    },
+    {
+      "path": "research_returns/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE_RETURN_20260902.md",
+      "git_blob_sha1": "sha1:92a2ed004a794cd48425fdaff515a162329f3df7",
+      "status": "UNCHANGED_FROM_RR_68BA"
+    },
+    {
+      "path": "research_artifacts/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE/lassak_r6_exact_obstruction_20260902.json",
+      "git_blob_sha1": "sha1:903cfeeead05f04788aae92f883ffb1552ecf3e2",
+      "status": "UNCHANGED_FROM_RR_68BA"
+    },
+    {
+      "path": "research_artifacts/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE/r4_to_r6_transfer_audit_20260902.json",
+      "git_blob_sha1": "sha1:f64f18f484425e6bf22cc0a0f40da937d166364c",
+      "status": "UNCHANGED_FROM_RR_68BA"
+    },
+    {
+      "path": "research_artifacts/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE/theorem_dependency_graph_20260902.json",
+      "git_blob_sha1": "sha1:3a5df0be05094942a7542788207ef21ea262aba0",
+      "status": "UNCHANGED_FROM_RR_68BA"
+    },
+    {
+      "path": "research_artifacts/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE/source_manifest_20260902.json",
+      "git_blob_sha1": "sha1:487ed510d5f5ab7bba2b56b43fc72d1a0e6e9acc",
+      "status": "UNCHANGED_FROM_RR_68BA"
+    },
+    {
+      "path": "research_artifacts/GEO8_BORSUK_R6_LASSAK_33_COMPRESSION_PRESSURE/adversarial_audit_20260902.json",
+      "git_blob_sha1": "sha1:04e2b0b784cc04e79ee829b973dfc177c90a3fa5",
+      "status": "UNCHANGED_FROM_RR_68BA"
+    }
+  ],
+  "source_revalidation": {
+    "lassak_1982": "Official IMPAN/RCIN metadata remains consistent with the frozen source manifest; remote full text remains restricted, so no unread primary text is claimed.",
+    "tolmachev_voronov_2026": "arXiv:2605.19068 remains the identified primary preprint for the R4 <=8 construction and general-dimensional Lassak-lens restatement.",
+    "public_validation_code": {
+      "repository": "Alexandr-Tolmachev/borsuk-problem-r4",
+      "pinned_commit": "536be6984396091d78b122fca43cd9a8efcdd45e",
+      "current_main_at_validation": "536be6984396091d78b122fca43cd9a8efcdd45e",
+      "status": "PIN_STILL_CURRENT"
+    }
+  },
+  "hard_target_disposition": "SATISFIED_AT_RESTRICTED_TEMPLATE_STRENGTH",
+  "terminal_state": "FROZEN_LASSAK_COMPRESSION_TEMPLATE_CANNOT_BEAT_33",
+  "scope_guards": [
+    "No claim b(6)=33 or b(6)>=33 is made.",
+    "No global impossibility of a <=32 partition is claimed.",
+    "The K_33 theorem applies only to coarsenings by unions of the 33 frozen Lassak atoms.",
+    "The 10/7 no-go applies only to the center-fixed untruncated hypercube-facet subtemplate.",
+    "Truncation, movable apex, non-hypercubic directions, multiple UCS representatives, and atom splitting remain outside the obstruction."
+  ],
+  "unresolved_residue": "The Euclidean value b(6) remains open within this project state at 7<=b(6)<=33; a genuine <=32 construction must leave the frozen whole-atom template and still needs new five-dimensional truncation/UCS geometry plus a strict-diameter certificate.",
+  "result": "REVALIDATION_COMPLETE_ZERO_MATH_DRIFT"
+}
