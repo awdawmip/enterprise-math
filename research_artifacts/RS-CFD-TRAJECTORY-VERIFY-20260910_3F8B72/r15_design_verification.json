@@ -1,0 +1,64 @@
+{
+  "schema": "CFD_R15_INDEPENDENT_DESIGN_VERIFIER_V1",
+  "task_id": "RS-CFD-TRAJECTORY-VERIFY-20260910",
+  "claim_id": "CLM-CFDVFY-3F8B72-20260921-2044",
+  "researcher_id": "EM-CFD-VFY-3F8B72",
+  "source": {
+    "r15_return_commit": "283a135c7a8b4cd7830cee4b13e05ca07531011f",
+    "r15_design_commit": "6bb66b04184ec4e791c96507e939ab4bbfb4ad35",
+    "r15_return_path": "research_returns/RS-CFD-SPECTRAL-HYBRID-20260910_9A4F61_20260921_R15.md",
+    "r15_design_path": "research_artifacts/RS-CFD-SPECTRAL-HYBRID-20260910_9A4F61_R15/experimental_design.json"
+  },
+  "verdict": "PASS_WITH_REQUIRED_PROTOCOL_CLARIFICATIONS",
+  "exact_thresholds_alpha_0_025": [
+    {"n": 6, "k": 6, "tail_fraction": "1/64", "p": 0.015625, "per_gate_power_p_positive_0_8": 0.262144},
+    {"n": 12, "k": 10, "tail_fraction": "79/4096", "p": 0.019287109375, "per_gate_power_p_positive_0_8": 0.55834574848},
+    {"n": 18, "k": 14, "tail_fraction": "253/16384", "p": 0.01544189453125, "per_gate_power_p_positive_0_8": 0.7163538157286196},
+    {"n": 24, "k": 18, "tail_fraction": "190051/16777216", "p": 0.011327922344207764, "per_gate_power_p_positive_0_8": 0.81107105511888},
+    {"n": 30, "k": 21, "tail_fraction": "22964087/1073741824", "p": 0.02138697262853384, "per_gate_power_p_positive_0_8": 0.9389128517113445}
+  ],
+  "order_balance": {
+    "orders": ["ABC", "BCA", "CAB", "ACB", "CBA", "BAC"],
+    "position_counts_per_arm": {"A": [2,2,2], "B": [2,2,2], "C": [2,2,2]},
+    "pairwise_precedence_count_for_each_directed_pair": 3,
+    "combinatorial_balance": "PASS",
+    "limitation": "Balance removes deterministic ordinal-position imbalance but does not itself prove independence or stationarity of repeat signs. Preserve raw execution order/time metadata and randomize or otherwise predeclare cycle order."
+  },
+  "multiplicity": {
+    "bonferroni_alpha_0_025_per_gate": "VALID_WITHOUT_GATE_INDEPENDENCE",
+    "shared_B_arm_invalidates_bonferroni": false,
+    "conjunctive_intersection_union_note": "If the only acceptance claim is B beats A AND B beats C, testing each component at alpha 0.05 and requiring both is already a level-0.05 intersection-union rule; R15's alpha 0.025 per gate is conservative but valid and also protects simultaneous component-wise claims.",
+    "n24_least_k_at_alpha_0_05_per_component": 17
+  },
+  "power_scope": {
+    "quoted_0_81107105511888": "MARGINAL_PER_GATE_POWER_ONLY",
+    "joint_two_gate_power_identified": false,
+    "frechet_bounds_if_both_marginal_gate_pass_probabilities_equal_0_81107105511888": [0.62214211023776, 0.81107105511888],
+    "reason": "A-B and C-B share B and their joint sign law is not fixed by the two marginal positive probabilities."
+  },
+  "tie_protocol": {
+    "r15_rule": "ties excluded from usable n",
+    "finding": "REQUIRES_CLARIFICATION_BEFORE_NATIVE_RUN",
+    "reason": "Gate-specific tie deletion can destroy analyzed six-order balance and can give A-B and C-B different effective n and order strata; 24 usable non-tied contrasts is not automatically four complete analyzed cycles.",
+    "preferred_primary_fix": "Freeze 24 scheduled physical A/B/C triplets in four complete six-order cycles and count delta==0 as non-success for each superiority gate. Keep n=24 and threshold 18/24.",
+    "alternative": "If tie deletion is retained, predeclare a bounded gate-specific replacement/stratification rule restoring order balance and state explicitly that the null is conditional on non-tied contrasts."
+  },
+  "effect_size": {
+    "sign_gate_certifies_minimum_speedup": false,
+    "information_loss_witness": "The same positive/negative sign vector is compatible with arbitrarily small or much larger positive timing deltas.",
+    "material_speedup_requirement": "Predeclare a nonzero engineering margin epsilon and test signs of delta-epsilon, or explicitly limit the claim to epsilon=0 and report raw paired magnitudes separately. No numerical epsilon is inferred by this verifier."
+  },
+  "contrast_scope": {
+    "A_minus_B": "end-to-end automatic-hybrid versus unmodified dense contrast, conditional on correctness and identical-input gates",
+    "C_minus_B": "effect of allowing sparse routing inside the guarded wrapper if B and C differ only by route permission; not a pure sparse-convolution arithmetic decomposition unless cache/allocation/control-state equivalence is also demonstrated",
+    "A_minus_C": "diagnostic/veto only; a significant positive A-C means the forced-fallback guarded control is unexpectedly faster than unmodified dense and blocks clean sparse-route attribution until diagnosed; non-significance is not equivalence"
+  },
+  "hard_gates": [
+    "A/B/C numerical correctness and frozen invariants must pass before performance acceptance",
+    "B executes at least one sparse nonlinear call and C executes zero sparse calls",
+    "raw per-repeat deltas, ties, execution order, timestamps and route/cost decomposition retained",
+    "shadow dense numerical counterfactuals excluded from confirmatory production timing",
+    "native spectralDNS/shenfun/MPI/FFTW rerun and independent task-level acceptance remain outstanding"
+  ],
+  "boundary": "Finite experimental-design verification only. No native-host rerun, generic CFD/industrial acceleration, continuous-PDE theorem, mathematical acceptance, Working Truth or canonical promotion."
+}
