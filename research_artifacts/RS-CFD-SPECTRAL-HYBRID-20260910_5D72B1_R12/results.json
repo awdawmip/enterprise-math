@@ -1,0 +1,73 @@
+{
+  "schema": "RS_CFD_R12_EXACT_OUTSIDE_COUNTER_RESULTS_V1",
+  "task_id": "RS-CFD-SPECTRAL-HYBRID-20260910",
+  "claim_id": "CLM-CFD-5D72B1-20260921-1849-R12",
+  "researcher_id": "EM-TASK-AUTO-5D72B1",
+  "scope": "finite-array routing certificate and local guard microbenchmark only",
+  "theorem": {
+    "fixed_carrier": "C subset of {0,...,N-1}",
+    "counter": "q(x)=#{i notin C: x_i != 0}",
+    "preconditions": [
+      "q is initialized from the current array exactly",
+      "every mutation capable of changing x is mediated and exposes the old and new value (or permits reading the old value before the write)",
+      "carrier C is fixed for the certificate lifetime, or counter is rebuilt when C changes"
+    ],
+    "update_rule": "for i outside C, q <- q + 1[new != 0] - 1[old != 0]; for i in C, q unchanged",
+    "conclusion": "By induction q remains exact after every mediated write; q==0 iff support(x) is a subset of C.",
+    "two_object_route": "For independently mutable state u and Source F, sparse support eligibility is exactly (q(u)==0 and q(F)==0).",
+    "reentry": "Unlike a sticky dirty/dense latch, exact sparse re-entry is support-correct after all outside coefficients are exactly cleared, provided the route decision occurs at a canonical synchronization boundary and no stale derived state/cache is reused."
+  },
+  "exhaustive_verification": {
+    "objects": ["state", "Source"],
+    "N": 5,
+    "carrier_indices": [0, 1],
+    "value_alphabet": ["0", "1", "-1"],
+    "action_count": 30,
+    "trace_lengths": [1, 2, 3],
+    "traces": 27930,
+    "step_checks": 82830,
+    "result": "PASS"
+  },
+  "controls": {
+    "1e-300_outside_detected_exactly": "PASS",
+    "outside_nonzero_then_exact_clear_reenters_sparse": "PASS",
+    "duplicate_sequential_writes_update_exactly": "PASS",
+    "raw_mutable_alias_bypass_causes_false_sparse_accept": "PASS_NEGATIVE_CONTROL"
+  },
+  "benchmark": {
+    "array_complex_coefficients": 405504,
+    "carrier_coefficients": 384,
+    "seed": 20260921,
+    "implementation": "warm Numba compiled sequential set+clear re-entry batches; compilation excluded",
+    "comparison": "counter path includes identical writes + exact counter maintenance + O(1) eligibility; scan path includes identical plain writes + full exact outside scan",
+    "rows": {
+      "2": {"counter_total_median_ms": 0.000409718, "plain_writes_plus_full_scan_median_ms": 0.313598655, "scan_over_counter_ratio": 765.401214982012},
+      "8": {"counter_total_median_ms": 0.00053633, "plain_writes_plus_full_scan_median_ms": 0.311204513, "scan_over_counter_ratio": 580.2481923442656},
+      "32": {"counter_total_median_ms": 0.000721279, "plain_writes_plus_full_scan_median_ms": 0.31607757, "scan_over_counter_ratio": 438.21817909574526},
+      "128": {"counter_total_median_ms": 0.001128883, "plain_writes_plus_full_scan_median_ms": 0.311466873, "scan_over_counter_ratio": 275.9071338659542},
+      "512": {"counter_total_median_ms": 0.002190526, "plain_writes_plus_full_scan_median_ms": 0.31430165, "scan_over_counter_ratio": 143.4822732074397},
+      "2048": {"counter_total_median_ms": 0.006795412, "plain_writes_plus_full_scan_median_ms": 0.319432724, "scan_over_counter_ratio": 47.00711656629502},
+      "8192": {"counter_total_median_ms": 0.024722458, "plain_writes_plus_full_scan_median_ms": 0.307838392, "scan_over_counter_ratio": 12.451771259961289},
+      "16384": {"counter_total_median_ms": 0.062067556, "plain_writes_plus_full_scan_median_ms": 0.329725774, "scan_over_counter_ratio": 5.312369219113444},
+      "32768": {"counter_total_median_ms": 0.13844833333333334, "plain_writes_plus_full_scan_median_ms": 0.33904996666666665, "scan_over_counter_ratio": 2.448927758851075},
+      "65536": {"counter_total_median_ms": 0.29549731333333334, "plain_writes_plus_full_scan_median_ms": 0.40018262, "scan_over_counter_ratio": 1.3542682181633823},
+      "131072": {"counter_total_median_ms": 0.72372445, "plain_writes_plus_full_scan_median_ms": 0.4921391666666667, "scan_over_counter_ratio": 0.6800090375096028},
+      "262144": {"counter_total_median_ms": 1.3867286, "plain_writes_plus_full_scan_median_ms": 0.62434176, "scan_over_counter_ratio": 0.45022635287106644},
+      "404000": {"counter_total_median_ms": 1.98572528, "plain_writes_plus_full_scan_median_ms": 0.735312, "scan_over_counter_ratio": 0.3702989569634728}
+    },
+    "observed_crossover_note": "On this local layout/run, counter path was faster through 65,536 mediated writes per boundary (1.35x at 65,536), but slower at 131,072 (scan/counter=0.68). This is a local guard microbenchmark, not a spectralDNS trajectory speedup."
+  },
+  "limitations": [
+    "Any raw mutable alias or uninstrumented in-place write invalidates the counter and can cause false sparse acceptance.",
+    "The current pinned spectralDNS raw-array API has not been shown to provide complete write mediation; R11 already found this missing.",
+    "Re-entry requires a canonical boundary with no stale dense/sparse derived state that depends on prior escaped coefficients.",
+    "No native spectralDNS/shenfun/FFTW trajectory was executed in this R12 unit.",
+    "No PDE correctness, convergence, or universal performance claim follows from this finite-array certificate."
+  ],
+  "environment": {
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "numba": "available",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41"
+  }
+}
