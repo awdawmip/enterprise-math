@@ -1,0 +1,32 @@
+{
+  "binaries": {
+    "fftw-wisdom": null,
+    "mpiexec": null,
+    "mpirun": null
+  },
+  "modules": {
+    "mpi4py": false,
+    "mpi4py_fft": false,
+    "numba": true,
+    "numpy": true,
+    "pyfftw": false,
+    "scipy": true,
+    "shenfun": false,
+    "spectralDNS": false
+  },
+  "pip_shenfun_probe": {
+    "returncode": 1,
+    "stderr": "WARNING: The directory '/home/oai/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.\nERROR: No matching distribution found for shenfun\n",
+    "stdout": ""
+  },
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "system_fftw": [
+    "libfftw3f_threads.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libfftw3f_threads.so.3",
+    "libfftw3f_omp.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libfftw3f_omp.so.3",
+    "libfftw3f.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libfftw3f.so.3",
+    "libfftw3_threads.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libfftw3_threads.so.3",
+    "libfftw3_omp.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libfftw3_omp.so.3",
+    "libfftw3.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libfftw3.so.3"
+  ]
+}
