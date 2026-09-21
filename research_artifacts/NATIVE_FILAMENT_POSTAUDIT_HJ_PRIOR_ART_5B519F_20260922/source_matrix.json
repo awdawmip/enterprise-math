@@ -1,0 +1,133 @@
+{
+  "schema": "ENTERPRISE_MATH_EXTERNAL_PRIOR_ART_AUDIT_MATRIX_V1",
+  "task_id": "RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-EXTERNAL-PRIOR-ART-AUDIT",
+  "publication_id": "TP2-39ACFC69F85D8661CFBF",
+  "researcher_id": "EM-NFHJPA-5B519F",
+  "audit_scope": {
+    "frozen_parent_return": "research_returns/NATIVE_FILAMENT_POSTAUDIT_HYPERBOLA_JOUKOWSKI_INDEPENDENT_REPLICATION_RETURN_20260829.md",
+    "frozen_parent_review": "driver_reviews/NATIVE_FILAMENT_POSTAUDIT_HYPERBOLA_JOUKOWSKI_INDEPENDENT_REPLICATION_DRIVER_REVIEW_20260829.md",
+    "audited_layers": ["H1", "H2", "J1", "J2", "C1", "C2"],
+    "bounded_search_rule": "Classification is only against the listed audited source set and exact-query ledger. NO_MATERIAL_MATCH_IN_AUDITED_SET is not a novelty, priority, patentability, or exhaustive-literature claim."
+  },
+  "sources": [
+    {
+      "id": "S1",
+      "citation": "Encyclopedia of Mathematics, Algebraic torus.",
+      "url": "https://encyclopediaofmath.org/wiki/Algebraic_torus",
+      "source_role": "classical structural antecedent",
+      "exact_hypotheses_or_scope": "Defines an algebraic torus over k as a group becoming a product of multiplicative groups G_m over an extension; split means already isomorphic to a product of G_m over k.",
+      "exact_conclusion_or_content": "Places split multiplicative-group geometry in the standard algebraic-torus framework; it does not state the project's tangent-concurrency quotient or off-diagonal restriction."
+    },
+    {
+      "id": "S2",
+      "citation": "Columbia University GU4041 notes, The Cauchy-Frobenius Lemma.",
+      "url": "https://www.math.columbia.edu/~harris/website/content/2-courses1/8-mathematics-gu4041-spring-2020-alternative/cauchy-frobenius-burnside_theorem.pdf",
+      "source_role": "classical counting antecedent",
+      "exact_hypotheses_or_scope": "Finite group G acting on a finite set X.",
+      "exact_conclusion_or_content": "Orbit count is the average of fixed-point counts, |G\\X|=(1/|G|) sum_g |X^g|; no project-specific eta(BC), eta(-BC) specialization is stated."
+    },
+    {
+      "id": "S3",
+      "citation": "W. S. Chou, J. Gomez-Calderon, G. L. Mullen, Value sets of Dickson polynomials over finite fields, Journal of Number Theory 30(3) (1988), 334-344, DOI 10.1016/0022-314X(88)90006-6.",
+      "url": "https://pure.psu.edu/en/publications/value-sets-of-dickson-polynomials-over-finite-fields/",
+      "source_role": "direct finite-field value-set antecedent",
+      "exact_hypotheses_or_scope": "Finite field F_q, Dickson polynomial g_d(x,a), arbitrary prime-power q as described in the article abstract.",
+      "exact_conclusion_or_content": "Determines the cardinality of the Dickson-polynomial value set over F_q; this is direct prior art for finite-field Dickson/Joukowski-type image counting, but the audited source text does not state the project's normalized lambda_s formula or s=3 extremal arithmetic closure."
+    },
+    {
+      "id": "S4",
+      "citation": "Encyclopedia of Mathematics, Dickson polynomial.",
+      "url": "https://encyclopediaofmath.org/wiki/Dickson_polynomial",
+      "source_role": "direct functional-identity antecedent",
+      "exact_hypotheses_or_scope": "Dickson polynomial D_n(x,a) and any representation x=u+a/u where defined.",
+      "exact_conclusion_or_content": "States the classical functional identity D_n(u+a/u,a)=u^n+a^n/u^n and the Chebyshev relation; this directly exposes the involutive Joukowski/Dickson parameterization u<->a/u."
+    },
+    {
+      "id": "S5",
+      "citation": "T. Brazelton, J. Harrington, M. Litman, T. W. H. Wong, Residue sums of Dickson polynomials over finite fields, Journal of Number Theory 264 (2024), DOI 10.1016/j.jnt.2024.04.016.",
+      "url": "https://doi.org/10.1016/j.jnt.2024.04.016",
+      "source_role": "modern adjacent finite-field value-set analysis",
+      "exact_hypotheses_or_scope": "Dickson polynomials over finite fields of odd characteristic; article gives a complete characterization of value-set size and separates hyperbolic, elliptic, and parabolic regimes.",
+      "exact_conclusion_or_content": "Confirms the established literature has detailed hyperbolic/elliptic Dickson value-set analysis; it does not present the audited H1-H2-J1-J2-C1-C2 chain or the terminal 105/53 arithmetic closure."
+    },
+    {
+      "id": "S6",
+      "citation": "O. Kucuksakalli, Value sets of Lattes maps over finite fields, Journal of Number Theory (2014), DOI 10.1016/j.jnt.2014.04.014.",
+      "url": "https://hdl.handle.net/11511/35051",
+      "source_role": "adjacent geometric/value-set method",
+      "exact_hypotheses_or_scope": "Finite-field value sets; gives an alternative computation of Dickson-polynomial value sets using a singular cubic curve and generalizes to Lattes maps.",
+      "exact_conclusion_or_content": "Provides a geometric route to Dickson value sets, relevant as adjacent method rather than an exact duplicate of the project's split-hyperbola tangent-concurrency construction."
+    }
+  ],
+  "classifications": [
+    {
+      "layer": "H1",
+      "frozen_target": "Split-hyperbola tangent quotient, with full-hyperbola extension only after excluding diagonal/degenerate cases.",
+      "classification": "PARTIAL_ANTECEDENT",
+      "source_ids": ["S1", "S5", "S6"],
+      "source_hypotheses": "S1 supplies standard split-torus/G_m structure; S5-S6 supply finite-field hyperbolic/geometric value-set context.",
+      "source_conclusions": "The audited sources establish classical split multiplicative geometry and adjacent hyperbolic finite-field methods, but not the exact tangent-concurrency quotient with the parent review's off-diagonal narrowing.",
+      "boundary": "Do not upgrade to full hyperbola: retain the accepted distinct-tangent/off-diagonal restriction."
+    },
+    {
+      "layer": "H2",
+      "frozen_target": "Burnside sign-orbit count |R/G|=[q+1+eta(BC)+eta(-BC)]/4 over odd prime-power finite fields.",
+      "classification": "PARTIAL_ANTECEDENT",
+      "source_ids": ["S2", "S5"],
+      "source_hypotheses": "S2 supplies finite-group orbit counting; S5 works over odd-characteristic finite fields and uses finite-field character/value-set machinery.",
+      "source_conclusions": "Burnside/Cauchy-Frobenius and quadratic-character counting are classical antecedents, but the audited source set did not expose the exact project-specific [q+1+eta(BC)+eta(-BC)]/4 specialization.",
+      "boundary": "Retain general odd-q quadratic-character eta; do not narrow to prime-only Legendre symbols."
+    },
+    {
+      "layer": "J1",
+      "frozen_target": "lambda_s(a)=-s a-1/(2a), fibers generated by an involution, image size [q+eta(c)]/2 with c=(2s)^-1 under q odd and q not dividing 2s.",
+      "classification": "PARTIAL_ANTECEDENT",
+      "source_ids": ["S3", "S4", "S5"],
+      "source_hypotheses": "S4 gives the classical u+a/u Dickson functional parameterization; S3 and S5 treat Dickson value-set cardinalities over finite fields.",
+      "source_conclusions": "The involutive Joukowski/Dickson mechanism and finite-field image-size problem are direct prior art; the exact lambda_s normalization, restricted domain, and c=(2s)^-1 formula are a project specialization not found verbatim in the audited set.",
+      "boundary": "Classification concerns mechanism/value-set antecedence, not novelty."
+    },
+    {
+      "layer": "J2",
+      "frozen_target": "Extremal saturation arithmetic: q=2s-1 gives q|25 and q=5,s=3; q=2s+1 gives q|7 and q=7,s=3; hence s=3 under the frozen hypotheses.",
+      "classification": "ADJACENT_METHOD",
+      "source_ids": ["S3", "S5"],
+      "source_hypotheses": "The sources study exact Dickson value-set cardinalities and finite-field parameter regimes.",
+      "source_conclusions": "They provide the relevant value-set/extremal method family, but the audited set did not expose the project's specific q=2s±1 -> q|25 or q|7 closure.",
+      "boundary": "No claim that absence from this bounded source set proves originality."
+    },
+    {
+      "layer": "C1",
+      "frozen_target": "Boundary q_b=s+2; small-breaker unique s=3,q_b=5,k*=9; M9=35, 3M9=105, terminal odd factor 53.",
+      "classification": "NO_MATERIAL_MATCH_IN_AUDITED_SET",
+      "source_ids": [],
+      "source_hypotheses": "Exact-expression searches were run for the distinctive q-divisibility and M9/105/53 arithmetic signatures in addition to the named finite-field/Dickson literature set.",
+      "source_conclusions": "No source in the audited set materially matched this exact arithmetic closure.",
+      "boundary": "This bounded negative finding is not an exhaustive literature search and carries no novelty/priority inference."
+    },
+    {
+      "layer": "C2",
+      "frozen_target": "For s=3, lane polynomials 6m^2±2m+1 and 6m^2+1; integer equality 105 is exact, but no common provenance/causal mechanism is proven.",
+      "classification": "NO_MATERIAL_MATCH_IN_AUDITED_SET",
+      "source_ids": [],
+      "source_hypotheses": "Exact-expression searches were run for the three quadratic forms together and for the 105/53 signature.",
+      "source_conclusions": "No source in the audited set matched the combined polynomial family plus 105 closure.",
+      "boundary": "Preserve the parent narrowing: equality at 105 is numerical only; do not infer common provenance, causal mechanism, or unified theorem."
+    }
+  ],
+  "exact_query_ledger": [
+    "\"q+1+eta(BC)+eta(-BC)\"",
+    "\"q+1+η(BC)+η(-BC)\"",
+    "\"q divides 25\" \"q divides 7\" finite field",
+    "\"6m^2+2m+1\" \"6m^2-2m+1\" \"6m^2+1\"",
+    "\"3M_9\" 105 53 number theory",
+    "\"lambda_s(a)\" finite field",
+    "\"The value sets of Dickson polynomials over finite fields\"",
+    "\"u+a/u\" finite field Dickson polynomial"
+  ],
+  "overall_disposition": {
+    "exact_duplicate_found": false,
+    "statement": "No EXACT_DUPLICATE was located for any frozen H1/H2/J1/J2/C1/C2 layer in the bounded audited source set. H1/H2/J1 have clear classical or direct antecedents; J2 has adjacent value-set methodology; C1/C2 have no material match in the audited set.",
+    "non_inference": "This does not establish novelty, priority, patentability, publication freedom, or exhaustiveness. It only classifies duplication against the identified audited sources and queries."
+  }
+}
