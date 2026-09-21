@@ -1,0 +1,88 @@
+{
+  "schema": "CFD_NATIVE_THREE_ARM_EXPERIMENTAL_DESIGN_V1",
+  "task_id": "RS-CFD-SPECTRAL-HYBRID-20260910",
+  "claim_id": "CLM-CFD-9A4F61-20260921-2030-R15",
+  "researcher_id": "EM-TASK-AUTO-9A4F61",
+  "source_frontier": {
+    "r14_return_commit": "ffab57d69a640c8db14095ee7210807bcce0e489",
+    "r14_artifact_commit": "80396a0b71842a47cac7c8a9438fb3c682a12f7f",
+    "r14_artifact_path": "research_artifacts/RS-CFD-SPECTRAL-HYBRID-20260910_8B62D4_R14/paired_attribution.json",
+    "frozen_author_host_commit": "a282f0f9832a69af0b65549dc0083ddd2a6d8ada",
+    "frozen_author_host_blob": "7282be0e2949b7b7d47910607d550aecd87fb27a",
+    "upstream_spectralDNS_commit": "835b01b1e820b5c56559b9a028293e57526bfbf9"
+  },
+  "new_frozen_descriptive_result": {
+    "description": "32^3 Taylor-Green paired delta minus the 32^3 random256 all-fallback paired delta at the same repeat index. This is descriptive only because the initial-condition cases differ and were not randomized counterfactuals.",
+    "values_ms": [21.611091, 20.025387, 25.9379, 22.846058, 23.307692],
+    "median_ms": 22.846058,
+    "positive_pairs": 5,
+    "one_sided_sign_p_nominal": 0.03125,
+    "interpretation": "All five descriptive contrasts are positive, so 32^3 Taylor-Green remains the strongest frozen candidate for a properly controlled native rerun. This does not establish causal sparse speedup."
+  },
+  "native_three_arm_design": {
+    "primary_case": "32^3 Taylor-Green",
+    "arms": {
+      "A": "unmodified dense FFT baseline",
+      "B": "guarded hybrid automatic routing",
+      "C": "guarded forced-fallback control on the SAME physical trajectory, with sparse execution disabled but wrapper/guard/fallback machinery otherwise preserved"
+    },
+    "per_repeat_contrasts": {
+      "end_to_end": "A_time - B_time; positive means the automatic hybrid is faster than the unmodified dense baseline",
+      "attribution": "C_time - B_time; positive means enabling the sparse route improves time relative to the same guarded path forced to FFT fallback",
+      "negative_control": "A_time - C_time; diagnoses wrapper/guard/order effects when sparse arithmetic is never executed"
+    },
+    "correctness_gate": [
+      "A, B and C must start from identical deterministic state/Source inputs for each repeat",
+      "B and C must preserve Nyquist treatment, pressure/diffusion, Source ordering and RK4 staging",
+      "B and C outputs must match A within the task's frozen numerical tolerances",
+      "route logs must prove B executes at least one sparse nonlinear call and C executes zero sparse calls"
+    ],
+    "order_balance": {
+      "scheme": "complete three-arm permutation cycles",
+      "six_orders": ["ABC", "BCA", "CAB", "ACB", "CBA", "BAC"],
+      "rule": "Use an integer number of complete six-order cycles, with each arm appearing equally often in each ordinal position. Report confirmatory contrasts separately by order stratum; a sign reversal between order strata blocks promotion and requires further diagnosis."
+    },
+    "confirmatory_statistics": {
+      "familywise_alpha": 0.05,
+      "two_predeclared_one_sided_gates": ["end_to_end", "attribution"],
+      "per_gate_alpha": 0.025,
+      "test": "exact one-sided sign test under H0 P(positive contrast) <= 0.5; ties are removed before n is counted and must be reported",
+      "compact_design": {
+        "usable_non_tied_repeats": 12,
+        "complete_order_cycles": 2,
+        "required_positive_contrasts_per_gate": 10,
+        "exact_tail_probability": "79/4096",
+        "p_value": 0.019287109375,
+        "power_if_P_positive_is_0.8": 0.55834574848,
+        "trajectory_runs_for_three_arms": 36
+      },
+      "preferred_powered_design": {
+        "usable_non_tied_repeats": 24,
+        "complete_order_cycles": 4,
+        "required_positive_contrasts_per_gate": 18,
+        "exact_tail_probability": "190051/16777216",
+        "p_value": 0.011327922344207764,
+        "power_if_P_positive_is_0.8": 0.8110710551188802,
+        "trajectory_runs_for_three_arms": 72
+      },
+      "negative_control_block": "If A-C itself produces a one-sided positive sign-test result at alpha 0.05, treat the harness as exhibiting an unexplained all-fallback advantage and block sparse-speed attribution until diagnosed. Non-significance is only a diagnostic, not an equivalence proof."
+    },
+    "instrumentation_required": [
+      "per-call route/support count",
+      "guard time",
+      "sparse evaluation time",
+      "fallback FFT time",
+      "setup/allocation/compilation deltas",
+      "raw RK4 and total trajectory time",
+      "shadow dense numerical counterfactual for each sparse-eligible call outside the production timing path"
+    ]
+  },
+  "exact_threshold_table_alpha_0_025": [
+    {"n": 6, "positive_required": 6, "p": 0.015625, "power_at_0_8": 0.262144},
+    {"n": 12, "positive_required": 10, "p": 0.019287109375, "power_at_0_8": 0.55834574848},
+    {"n": 18, "positive_required": 14, "p": 0.01544189453125, "power_at_0_8": 0.7163538157286197},
+    {"n": 24, "positive_required": 18, "p": 0.011327922344207764, "power_at_0_8": 0.8110710551188802},
+    {"n": 30, "positive_required": 21, "p": 0.02138697262853384, "power_at_0_8": 0.9389128517113446}
+  ],
+  "boundary": "This is an experimental-design and frozen-evidence certificate only. It does not rerun the unavailable native host, does not establish generic CFD acceleration or a PDE theorem, and is not independent benchmark acceptance."
+}
