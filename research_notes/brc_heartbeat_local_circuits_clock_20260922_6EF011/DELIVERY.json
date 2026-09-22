@@ -1,0 +1,77 @@
+{
+  "schema": "HEARTBEAT_STAGE34_DELIVERY_V1",
+  "event_id": "brc-heartbeat-local-circuits-clock-20260922-6EF011",
+  "activity_id": "RA-6EF011C2E75C4A799606AFEA",
+  "status": "RESEARCH_CANDIDATE_NOT_ADMITTED",
+  "recorded_at": "2026-09-22T01:59:58.333384+00:00",
+  "source": {
+    "commit": "02064a1eb47dd7cb8d030267fac92707332cd7cd",
+    "path": "research_notes/BRC_HEARTBEAT_LOCAL_CIRCUITS_CLOCK_20260922_6EF011.md",
+    "blob": "845ab481ea20b22c7eb77d74f44d7b0c1188173f",
+    "sha256": "74c44995c11f9be095df253372c385b9b505ae8a0d4ccc19c2a75592422160c5",
+    "full_readback": "turn747"
+  },
+  "activity": {
+    "pending_checkpoint_commit": "d5ce1cc8b9128a25e6fbdc332f36761dbed4839a",
+    "full_readback": "turn749",
+    "aggregate_index_updated": false,
+    "source_activity_cli_executed": false,
+    "intake": "PENDING"
+  },
+  "bundle": {
+    "name": "BRC_Heartbeat_local_circuits_clock_20260922.bundle",
+    "size": 14169080,
+    "sha256": "231c104dc0435fcedd0349d3dbc71bc2ee9cefae628e562fe19c67229a5a37cd",
+    "head": "e8c5fabd6b266f86ccb21db4214c77f3a98d7a07",
+    "parent": "645001ada4a8a4d2e6bf1c4db717ec89d4cb559b",
+    "cloud_wavepacket": "c8f0d39e47d57037379c5861a06078bfa70347a2",
+    "drive_file_id": "1yGICURJVSV87siBFYcEn63oAtd1XRUdZ",
+    "drive_folder_id": "1IJ8iAXY5laK1lj-Y4NGWKEOdLofieHLa",
+    "upload": "turn750",
+    "raw_readback": "turn751",
+    "actual_mounted_bytes_compared_equal": true,
+    "standalone_not_full_EM_repository": true
+  },
+  "validation": {
+    "fresh_clone_manifest_files": 755,
+    "inherited_files": 725,
+    "main_assertions": 260,
+    "additional_assertions": 31,
+    "high_precision_reference_cases": 4,
+    "reference_digits": 110,
+    "full_static_matrix_dimension": 240,
+    "main_timing_rows": 18,
+    "saved_medians_replayed": 6,
+    "candidate_case_replays": 6,
+    "fresh_clone_tests": "PASS",
+    "fresh_clone_additional": "PASS",
+    "fresh_clone_diagnostics": "PASS",
+    "fresh_clone_postcheck": "PASS",
+    "fresh_clone_manifest_after_tests": "PASS",
+    "git_fsck": "PASS",
+    "bundle_verify": "PASS",
+    "both_worktrees_clean": true,
+    "timing_rows_replaced": false,
+    "independent_researcher": false,
+    "Lean": false
+  },
+  "scope": {
+    "actual_adjacent_two_qubit_gate_lists": true,
+    "clean_workspace_qubits": 0,
+    "large_tree_full_quantum_density_simulated": false,
+    "finite_effective_static_clock": true,
+    "mixed_readiness_window": true,
+    "nonzero_timing_errors_executed": true,
+    "geometric_clock_data_locality_complete": false,
+    "repeatable_autonomous_store_reset_complete": false,
+    "general_quantum_simulation": false,
+    "Shor_speedup": false,
+    "universal_zero_temperature_nonexistence": false
+  },
+  "artifact_sha256": {
+    "PROOF.md": "cb781fd112fc475212260313a1ad7e6795b985dd0dfc619b0b1d0a4c09e29c0f",
+    "local.py": "f414751067f614097e786720af64a8b583e92b632add90b1c7b1da34b1d1000b",
+    "clock.py": "84739ea73e5e61b3974548c1905164c448c6f9a231baa79dc86bc4b9b8d0c0d8",
+    "raw_runs.jsonl": "5456e8780829b33582a8acdc23d4af60d47f6f82c48f7a3da9bd0c1dfc69bf6b"
+  }
+}
