@@ -38,3 +38,19 @@ On the first resumed Research run:
 5. consume any intervening canonical completion instead of replaying research.
 
 No GitHub Actions, hosted cron, cloud CI, auto-merge, priority change, publication change, source-pin change, or theorem-strength change is authorized by this record.
+
+## Resolution — 2026-09-23
+
+A later authorized control-plane patrol re-read the scheduler inventory and confirmed that the Driver executor and patrol were active while the existing hourly Research executor remained disabled. The same patrol also consumed fresh ordinary-control evidence showing the native control service enabled `session_start`, `claim`, `open`, `publish_checkpoint`, `freeze`, `result_write`, and related operations; the current Driver inventory contained `101` `NEEDS_DISPATCH` tasks and `54` `AWAITING_REVIEW` tasks, so the scheduler gap was not equivalent to a global no-work state.
+
+The patrol then performed the minimum scheduler repair: it re-enabled exactly one pre-existing hourly Research executor (`每小时研究任务`) and did not create another scheduler job. The executor retains its current durable-frontier, live-claim protection, typed-continuation, CLAIM→OPEN, receipt polling, and NFHJPA last-progress-artifact safeguards.
+
+Post-repair classification:
+
+- Recurring Research executor availability: **VERIFIED_COMPLETE / RESTORED**.
+- Duplicate Research scheduler creation: **NOT PERFORMED**.
+- Research CLAIM / execution / Result freeze caused by this patrol: **NONE**.
+- Current Driver review work: **ACTIVE AND PROTECTED**; Driver `EM-DVR-4F17EA` / session `MCP-babbc272ab264fa29240b8a9c1ef86ef` has a server-authenticated authority record and is consuming the review queue.
+- GEO6 second-wave exact review-set synthesis/materialization blocker: **UNCHANGED** under `control_plane_reconciliations/GEO6_SECONDWAVE_EXACT_REVIEW_SYNTHESIS_MATERIALIZATION_20260923.md`; do not create a third review.
+
+This resolution changes only scheduler availability. It does not assert that any research task, Result freeze, Driver review, review-intake synthesis, follow-up materialization, Working Truth, Foundation status, or parent objective is complete.
