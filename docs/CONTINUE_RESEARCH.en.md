@@ -1,5 +1,12 @@
 # Continue research from any new authorized conversation
 
+## Ordinary ChatGPT entry (2026-09-22)
+
+When the current conversation has GitHub tools but no callable project MCP or complete Source/Python environment, use the [ordinary-chat control guide](CHATGPT_ORDINARY_CONTROL.en.md). The existing server runs the same canonical session, CLAIM, execution, Result and Driver writers. Missing local checkout/CLI is not the default blocker, and the client must not hand-assemble authoritative records. Load P000 from `projects/enterprise-math/P000_REALITY_FOUNDATION.json` in the current verified `awdawmip/chatgpt-global-knowledge` snapshot rather than guessing a path in this repository.
+
+This transport grants no research role or mathematical acceptance. Current task, contribution history, independence, active ownership and admission gates remain binding; existing project MCP/native paths remain available. Tasks requiring native mathematical experiments still need real execution capability and evidence; a working control transport is not an experiment result.
+
+
 GitHub preserves the task, publication, evidence and review history. Drivers, researchers and execution sessions are replaceable. A new conversation connected to the project MCP can continue with its own authorized identity, without contacting the predecessor or recovering private chat.
 
 Ask the conversation to continue an exact Task-ID from its highest verified durable frontier. Use `em_control_tasks` when discovering tasks; use `em_control_continuation` directly when the Task-ID is known. Read actual asynchronous receipts with `em_control_result`. Inventory pages belong to one explicit as-of snapshot; execution and writes still obtain fresh authority.
@@ -45,3 +52,4 @@ Governance tasks use a real Driver session and DA, not a fabricated researcher a
 P000, FREE information barriers, exact task scope, author/independent-review distinctions and Working Truth/Foundation/promotion gates remain unchanged. New identity is not evidence of independence. Pre-cutover RR/DR bytes keep their original audits; prospective records need payload-bound current-write authorization. See the [protocol](RESEARCH_CONTINUATION_PROTOCOL.md) and [Chinese guide](CONTINUE_RESEARCH.zh-CN.md).
 
 The current MCP successor interface handles task-global CLAIMs. If a packet returns `SUPPORTED_NATIVE_LANE_ADAPTER_REQUIRED`, preserve the existing cohort/lane authority and use its native dedicated adapter; never substitute the global task interface.
+

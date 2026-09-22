@@ -1,5 +1,12 @@
 # 定时客户端：无任务误报与 Driver 续接
 
+## 普通 ChatGPT 的直接入口（2026-09-22）
+
+如果当前对话只有 GitHub 工具，没有可调用的项目 MCP 或完整 Source/Python 环境，先用 [普通对话控制指南](CHATGPT_ORDINARY_CONTROL.zh-CN.md) 的私有 GitHub 请求入口。既有服务器运行同一套规范会话、CLAIM、执行记录、Result 和 Driver writer；客户端不再以缺 checkout/CLI 为默认阻塞，也不手工拼接这些权威记录。P000 应从当前有效的 `awdawmip/chatgpt-global-knowledge` 快照读取 `projects/enterprise-math/P000_REALITY_FOUNDATION.json`，不要在本仓库猜路径。
+
+该入口不授予研究角色或数学接受权，当前任务、作者历史、独立性、活跃所有权和准入门禁照常执行。已存在的项目 MCP/native 路径仍可用。需要原生实验环境的数学任务仍须取得真实实验能力与证据；控制入口可用不等于实验已完成。
+
+
 Status: `ACTIVE_CLIENT_GUIDANCE / NO_NEW_RUNTIME_AUTHORITY / NO_NEW_MATHEMATICS`
 Effective: `2026-09-22`
 Authority: current `control_plane/current_control_authority.json`, `research_dispatch_contract.json`, `control_plane/research_continuation.py`, and `docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md`. 本文解释现有入口，不修改任务、授权、审查或证据接纳规则。后续源码变更优先。
@@ -72,3 +79,4 @@ GOVERNANCE 同理：如果 canonical 治理目标只剩完整 latest-main checko
 同一轮 `GOVERNANCE` 回执 `EMREQ-CTRL-20260922T0029Z-GOV-PATROL-4D7B2C` 返回 `RS-GOV-FOUNDATION-BACKFLOW`，其当前唯一推进条件仍是完整 latest-main checkout 上四项原有全库 gate 和最小 Foundation/Common-Surface 传播。该事实确认 Driver 当前首先面对的是 `LOCAL_VALIDATION_PENDING` 宿主能力缺口，而不是 MCP-only review authority，也不是“无 Driver 工作”。
 
 验证范围：对固定源码中 `require_review_authority` 的原样函数摘录，以显式测试替身代替 Driver authority，执行 11 项隔离测试；本地与 MCP 格式匹配 session 均可通过，缺授权、空／错 session、缺贡献声明及作者重叠均被拒绝。它仅验证该函数契约，不是全库测试、真实授权验收、正式 review 或 native 实验通过。
+

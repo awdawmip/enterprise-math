@@ -1,5 +1,12 @@
 # 在任意新对话接续研究任务
 
+## 普通 ChatGPT 的直接入口（2026-09-22）
+
+如果当前对话只有 GitHub 工具，没有可调用的项目 MCP 或完整 Source/Python 环境，先用 [普通对话控制指南](CHATGPT_ORDINARY_CONTROL.zh-CN.md) 的私有 GitHub 请求入口。既有服务器运行同一套规范会话、CLAIM、执行记录、Result 和 Driver writer；客户端不再以缺 checkout/CLI 为默认阻塞，也不手工拼接这些权威记录。P000 应从当前有效的 `awdawmip/chatgpt-global-knowledge` 快照读取 `projects/enterprise-math/P000_REALITY_FOUNDATION.json`，不要在本仓库猜路径。
+
+该入口不授予研究角色或数学接受权，当前任务、作者历史、独立性、活跃所有权和准入门禁照常执行。已存在的项目 MCP/native 路径仍可用。需要原生实验环境的数学任务仍须取得真实实验能力与证据；控制入口可用不等于实验已完成。
+
+
 任务和证据保存在 GitHub 状态机；驾驶员、研究员和 MCP 执行会话是可替换的执行者。新对话只需连接本项目 MCP，并具备目标角色的授权，不需要找到原代理或读取它的私聊。
 
 可以直接说：
@@ -59,3 +66,4 @@ P000、FREE 信息隔离、作者与验证者区分、任务数学范围、Worki
 精确合同见 [续接协议](RESEARCH_CONTINUATION_PROTOCOL.md)、`control_plane/executor_succession_policy.json` 和 `control_plane/current_control_authority.json`。
 
 当前 MCP 接管接口覆盖任务级 CLAIM。若包返回 `SUPPORTED_NATIVE_LANE_ADAPTER_REQUIRED`，保留现有 cohort/lane 权限并按其原生专用入口操作，不能用全局任务接口替代。
+
