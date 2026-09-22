@@ -1,0 +1,57 @@
+{
+  "allowed_outputs": [
+    "research_artifacts/mcp/RS-PCF-RESTRICTED-ROUTES-EXTERNAL-PRIOR-ART-DUPLICATION-AUDIT/MCP-1d2c0a43015d4e8a91bd899df7d0a684/"
+  ],
+  "claim_id": "MCP-68051fbea4fad1873535a880",
+  "continuation": {
+    "expected_previous_claim_id": "CLM-PCF-7C4E2A-20260922-0744",
+    "expected_previous_comment_id": 5769159368,
+    "frontier": {
+      "artifacts": [
+        {
+          "git_blob_sha1": "b1abb23c89674c34d561c0770000f4b041d271d6",
+          "path": "research_artifacts/PCF_RESTRICTED_ROUTES_EXTERNAL_PRIOR_ART_DUPLICATION_AUDIT_GEN2_B9ADD5/handoff_checkpoint.json",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "ee09110ad7f20bdd04d71576c26cd10883e3f6d7be1092ab46d66a759ced3aaa",
+          "source_commit": "18810fea1c289a6462d0fd212cd099b836b5dc93"
+        }
+      ],
+      "completed_units": [
+        "The authenticated predecessor checkpoint at enterprise-math@18810fea1c289a6462d0fd212cd099b836b5dc93 is fully hash-verified; predecessor_math_state=VERIFIED_COMPLETE_DO_NOT_REPLAY and classification_drift=NONE.",
+        "The completed PCF5/PCF6 20-row prior-art/duplication classification is preserved from primary RR-2DD195694C6E38A05EAB with corroboration RR-6D9A31C4F2E708B59A16; no mathematical replay is authorized."
+      ],
+      "contributor_ids": [
+        "EM-PCFPRIORART-979EF0",
+        "EM-PCFPRIORART-B9ADD5"
+      ],
+      "current_unfinished_unit": "GEN2_CURRENT_PUBLICATION_EXECUTION_AND_RESULT_FREEZE",
+      "do_not_repeat": [
+        "Do not replay the completed 20-row PCF5/PCF6 prior-art audit.",
+        "Do not hand-build a Result record or bypass the canonical Result writer.",
+        "Do not strengthen PCF5/PCF6, infer historical novelty from absence, or claim factoring speedup/lower-bound/universal algorithm results."
+      ],
+      "next_action": "Prepare the current-publication execution record, rebind the already verified predecessor matrix/provenance without replay, run the canonical Result freeze with current authenticated runtime state/events and immutable source binding, read back the writer-produced Result, then HANDOFF with FROZEN_RETURN_AWAITING_DRIVER_REVIEW.",
+      "source_commit": "425585a2228545ca31a9ad8ec6c5da447d60e675"
+    },
+    "mode": "RESUME",
+    "previous_researcher_id": "EM-PCFPRIORART-979EF0",
+    "reason": "The verified predecessor mathematics is complete and must not be replayed. Current ordinary ChatGPT control now supplies the canonical execution/Result writer capability previously missing, so continue only the Gen2 current-publication execution and Result freeze unit.",
+    "schema": "ENTERPRISE_MATH_CLAIM_CONTINUATION_V1",
+    "session_id": "MCP-1d2c0a43015d4e8a91bd899df7d0a684"
+  },
+  "execution_branch": "main",
+  "execution_branch_base": "425585a2228545ca31a9ad8ec6c5da447d60e675",
+  "execution_record_id": "ER-51B093D8798187DEAF88",
+  "executor_role": "RESEARCHER",
+  "owner_lease_minutes": 120,
+  "prepared_at": "2026-09-22T01:40:29.370058+00:00",
+  "publication_id": "TP2-8D3D94C1C621740A50AB",
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_EXECUTION_RECORD_V1",
+  "record_state": "CLAIM_INTENT",
+  "researcher_id": "EM-DIRECT-B2FC0C",
+  "task_id": "RS-PCF-RESTRICTED-ROUTES-EXTERNAL-PRIOR-ART-DUPLICATION-AUDIT",
+  "taskbook_blob_sha1": "sha1:52974ff205b8fec26a74d29e1465d6fa312f5451",
+  "taskbook_path": "research_tasks/PCF_RESTRICTED_ROUTES_EXTERNAL_PRIOR_ART_DUPLICATION_AUDIT_20260909.md",
+  "theorem_owner": "research/pcf-restricted-routes-external-prior-art-audit",
+  "theorem_owner_source": "PREDECESSOR_EXECUTION_BINDING"
+}
