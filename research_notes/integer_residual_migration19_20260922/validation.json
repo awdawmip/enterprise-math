@@ -1,0 +1,101 @@
+{
+  "schema": "INTEGER_RESIDUAL_MIGRATION19_VALIDATION_V1",
+  "status": "LOCALLY_VALIDATED_PHASE32_REPORT_READER_CANDIDATE",
+  "repository": "awdawmip/enterprise-math",
+  "branch": "research/integer-residual-m01-angular-20260919-4a5102",
+  "baseline_commit": "1a7ae808f63c8e3b9a463c1738c50bf485709096",
+  "researcher_id": "EM-DIRECT-4A5102",
+  "activity_id": "RA-1094DE57986E6E3FDCEA65DA",
+  "implementation": {
+    "actual_consumer": "core.read_data -> phase32_report replay -> existing Phase32 build/machine_report/hex_data",
+    "existing_function_asts_changed": [
+      "core.read_data"
+    ],
+    "new_module": "phase32_report.py",
+    "arithmetic_changed": false,
+    "pitch_sources": [
+      "original lexical text",
+      "explicit unreduced integer ratio without invented text"
+    ],
+    "saved_precision_and_readout_preserved": true,
+    "typed_json_full_report_comparison": true,
+    "source_report_retained_in_data": true,
+    "authentication_claimed": false,
+    "filesystem_rollback_claimed": false
+  },
+  "tests": {
+    "schema": "M19_PHASE32_REPORT_REPLAY_TEST_RUN_V1",
+    "new": {
+      "tests": 39,
+      "passed": 39,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0
+    },
+    "retained": {
+      "tests": 209,
+      "passed": 207,
+      "failures": 0,
+      "errors": 0,
+      "skips": 2
+    },
+    "total": {
+      "tests": 248,
+      "passed": 246,
+      "failures": 0,
+      "errors": 0,
+      "skips": 2
+    },
+    "finite_cases": {
+      "replay_cases": 22,
+      "rejected_cases": 61,
+      "subprocesses": 1
+    },
+    "expected_template_skips": [
+      "test_deterministic_html_and_config",
+      "test_site_three_pages_and_manifest"
+    ],
+    "retained_policy_exit": 0,
+    "source_scope": "Phase32 machine reader + actual core.read_data; no new arithmetic/default/browser admission"
+  },
+  "finite_populations": {
+    "cases": 10,
+    "cases_4096": 9,
+    "cases_65536": 1,
+    "all_full_models_certificates_reports_records_match": true,
+    "all_certified": true,
+    "full_65536": {
+      "occupied_positive_cells": 47497,
+      "collision_excess": 18038,
+      "unresolved": 0
+    },
+    "finite_not_universal": true
+  },
+  "clean_replay": {
+    "local_materialized_base": "c2e6a4263262583966a98ccf48bbd4875019d624",
+    "patch_sha256": "0ffc3c3d81658244b45e580855611cf97b1cc2495e3ed634396235ebc80a5564",
+    "patch_applied": true,
+    "tests_and_four_population_reports_byte_equal": true,
+    "five_implementation_files_byte_equal": true,
+    "restored_dependency_verified_by_remote_blob": true
+  },
+  "evidence_sha256": {
+    "tests.json": "98898e14c13762d82c9c1f2f9b0cd236c9b1354d04ba91bd200b401d07cc774e",
+    "population_4096_golden.json": "1ee27704d4ae46ca19ae7e174cea903a8fffb43bd18eacb74d094a5e816db758",
+    "population_4096_hash.json": "6d7172bf6d276ef8def58fc3db127eb255e447f83b37304f8464044d7ad8085f",
+    "population_4096_spiral.json": "006c110edfdcc23c3510e1b3fdb9a2284d656af84c872bb7aefa55cd8937874d",
+    "population_65536_golden.json": "7af2ef7b90cf72920b583e94e376e4d8dba246d6798e4dd8eb8fe300f273d53f"
+  },
+  "boundaries": {
+    "geometry": "DECLARED_A2_NOT_NATIVE_X6",
+    "phase32_browser_migrated": false,
+    "m15_full_package_admission": false,
+    "production_defaults_changed": false,
+    "main_code_integrated": false,
+    "independent_review": false,
+    "native_browser_navigation": false,
+    "whole_repository_regression": false,
+    "new_hosted_automation": false
+  },
+  "next": "Migrate the actual Phase32 browser to the uint32 certified carrier and typed pitch; keep M15 package admission separate. Do not rebuild the exact engine."
+}

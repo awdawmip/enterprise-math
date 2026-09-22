@@ -110,6 +110,9 @@ def read_data(path: str | Path) -> dict[str, Any]:
         return validate(meta)
     text = path.read_text(encoding="utf-8-sig")
     data = json.loads(text)
+    if isinstance(data, dict) and data.get("schema") == "NOLLM_PHASE32_MACHINE_REPORT_V1":
+        from .phase32_report import parse_machine_report, machine_report_to_data
+        return machine_report_to_data(parse_machine_report(text))
     if isinstance(data, dict) and data.get("schema") == "NOLLM_MULTIPLICATIVE_MACHINE_REPORT_V1":
         from .multiplicative_report import parse_machine_report, machine_report_to_data
         try:

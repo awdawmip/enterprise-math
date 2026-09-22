@@ -1,0 +1,29 @@
+{
+  "schema": "M19_PHASE32_REPORT_POPULATION_V1",
+  "rows": [
+    {
+      "count": 65536,
+      "mode": "golden",
+      "pitch": "1",
+      "checks": {
+        "full_model_equal": true,
+        "full_certificates_equal": true,
+        "complete_report_equal": true,
+        "identity_records_equal": true,
+        "full_source_report_preserved": true,
+        "all_identities_retained": true,
+        "csv_roundtrip_equal": true,
+        "phase_modulus_preserved": true
+      },
+      "status": "CERTIFIED_ALL",
+      "occupied_positive_cells": "47497",
+      "collision_excess": "18038",
+      "unresolved": 0,
+      "report_sha256": "feab9213c3a24d7cbe520cfd54d43f154864f93b71dad90ca84493249b94a78a",
+      "full_model_sha256": "dca26f84010b4e48600ff132aac6470f5a2c5b392026ac4e3559b40e2452fcfe",
+      "certificates_sha256": "0f877586d472559589b0727653ff74d8309ca632f2f79fb81570f1b049e665a1",
+      "records_sha256": "d81d89fb6a5b2f8f186080cbfcf56c0256a6127cb7b323b075f67138569666e5"
+    }
+  ],
+  "comparison": "unchanged M18 producer vs M19 reader; finite not universal"
+}
