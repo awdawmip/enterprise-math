@@ -76,12 +76,11 @@ class CurrentPublisherBindingTests(unittest.TestCase):
             "destination_class": "NONE", "reviewed_at": "2026-09-01T00:00:00+00:00",
             "result_record_path": result_path,
             "result_record_sha256": "sha256:" + hashlib.sha256((self.root / result_path).read_bytes()).hexdigest(),
-            "_record_path": "research_result_reviews/RR-OLD/DR-OLD.json",
+            "_review_path": "research_result_reviews/RR-OLD/DR-OLD.json",
         }
-        write_json(self.root / self.review["_record_path"], self.review)
+        write_json(self.root / self.review["_review_path"], {key: value for key, value in self.review.items() if not key.startswith("_")})
         self.patches = [
             mock.patch.object(guard, "authority_map", side_effect=lambda root: {"DR-OLD": copy.deepcopy(self.review)}),
-            mock.patch.object(guard, "_immutable_review_map", side_effect=lambda root: {"DR-OLD": copy.deepcopy(self.review)}),
             mock.patch.object(impl, "review_map", side_effect=lambda root: {"DR-OLD": copy.deepcopy(self.review)}),
             mock.patch.object(impl, "result_map", return_value={"RR-OLD": self.result}),
         ]
@@ -121,13 +120,29 @@ class CurrentPublisherBindingTests(unittest.TestCase):
             impl.validate_packet(packet, self.root)
 
     def test_new_publisher_is_distinct_from_immutable_review_author(self):
-        before = (self.root / self.review["_record_path"]).read_bytes()
+        before = (self.root / self.review["_review_path"]).read_bytes()
         packet = self.packet()
         self.validate(packet)
         self.assertEqual(ORIGINAL, packet["driver_id"])
         self.assertEqual(CURRENT, packet["materialization_publisher"]["driver_id"])
         self.assertEqual(ORIGINAL, packet["materialization_publisher"]["source_review_driver_id"])
-        self.assertEqual(before, (self.root / self.review["_record_path"]).read_bytes())
+        self.assertEqual(before, (self.root / self.review["_review_path"]).read_bytes())
+
+    def test_actual_canonical_reader_supplies_review_path(self):
+        rows = impl.result_impl.iter_reviews(self.root)
+        self.assertEqual(1, len(rows))
+        self.assertNotIn("_record_path", rows[0])
+        self.assertEqual(self.review["_review_path"], rows[0]["_review_path"])
+        binding = self.binding()
+        self.assertEqual(rows[0]["_review_path"], binding["source_review_records"][0]["record_path"])
+
+    def test_raw_review_cannot_borrow_a_different_result_identity(self):
+        path = self.root / self.review["_review_path"]
+        raw = json.loads(path.read_bytes())
+        raw["result_id"] = "RR-OTHER"
+        write_json(path, raw)
+        with self.assertRaisesRegex(impl.DriverFollowupError, "identity/content mismatch"):
+            self.binding()
 
     def test_missing_or_partial_identity_is_rejected(self):
         self.assertIsNone(impl._materialization_binding("DR-OLD", None, None, CREATED, self.root))
@@ -159,7 +174,7 @@ class CurrentPublisherBindingTests(unittest.TestCase):
 
     def test_raw_review_or_exact_review_set_drift_invalidates_packet(self):
         packet = self.packet()
-        path = self.root / self.review["_record_path"]
+        path = self.root / self.review["_review_path"]
         before = path.read_bytes()
         path.write_bytes(before + b"\n")
         with self.assertRaisesRegex(impl.DriverFollowupError, "binding drift"):
@@ -197,7 +212,7 @@ class CurrentPublisherBindingTests(unittest.TestCase):
         """Exercise real files/transaction/bindings; isolate task-authoring policy."""
         def publication(meta, *, path, publisher_role, publisher_id, published_at, **kwargs):
             if change_review_during_build:
-                review_path = self.root / self.review["_record_path"]
+                review_path = self.root / self.review["_review_path"]
                 review_path.write_bytes(review_path.read_bytes() + b"\n")
             return {"record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
                     "task_id": "RS-NEXT", "publication_id": "TP2-NEXT",
@@ -238,14 +253,14 @@ class CurrentPublisherBindingTests(unittest.TestCase):
             )
 
     def test_transaction_publishes_as_current_driver_without_reauthoring_review(self):
-        review_bytes = (self.root / self.review["_record_path"]).read_bytes()
+        review_bytes = (self.root / self.review["_review_path"]).read_bytes()
         packet = self.materialize_fixture()
         pub_path = self.root / "research_task_records/RS-NEXT/TP2-NEXT.json"
         publication = json.loads(pub_path.read_text())
         self.assertEqual(CURRENT, publication["publisher_id"])
         self.assertEqual(ORIGINAL, packet["driver_id"])
         self.assertEqual(CURRENT, packet["materialization_publisher"]["driver_id"])
-        self.assertEqual(review_bytes, (self.root / self.review["_record_path"]).read_bytes())
+        self.assertEqual(review_bytes, (self.root / self.review["_review_path"]).read_bytes())
 
     def test_old_call_keeps_original_publisher_and_packet_shape(self):
         packet = self.materialize_fixture(explicit=False)
@@ -254,7 +269,7 @@ class CurrentPublisherBindingTests(unittest.TestCase):
         self.assertNotIn("materialization_publisher", packet)
 
     def test_changed_review_at_write_boundary_rolls_back_only_new_outputs(self):
-        path = self.root / self.review["_record_path"]
+        path = self.root / self.review["_review_path"]
         review_bytes = path.read_bytes()
         with self.assertRaisesRegex(transaction.DriverFollowupTransactionError, "changed before write"):
             self.materialize_fixture(change_review_during_build=True)
