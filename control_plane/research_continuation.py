@@ -498,7 +498,8 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
     allowed = {(pin["commit"], pin["path"]) for pin in firewall["allowed_source_pins"]} if firewall else set()
     external = []
     withheld_count = 0
-    for field in ("required_source_reads", "source_refs"):
+    expected_input_blobs = {}
+    for field in ("required_source_reads", "source_refs", "dependencies"):
         for ref in metadata.get(field, []) if isinstance(metadata.get(field), list) else []:
             fixed = _fixed_source_candidate(ref, "CURRENT_TASKBOOK_DECLARED_INPUT")
             if fixed is not None:
@@ -509,6 +510,11 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
                 continue
             candidate = ref.get("path") if isinstance(ref, dict) else ref
             if isinstance(candidate, str) and candidate and not candidate.startswith(("http:", "https:")):
+                declared = re.fullmatch(r"(.+?)(?:@main|#blob=([0-9a-f]{40}))", candidate)
+                if declared:
+                    candidate = declared[1]
+                    if declared[2]:
+                        expected_input_blobs.setdefault(candidate, set()).add(declared[2])
                 try:
                     _path(root, candidate)
                     if not restricted or (source_commit, candidate) in allowed:
@@ -533,16 +539,51 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
     pins, artifact_errors = [], []
     for path in dict.fromkeys(refs):
         try:
-            pins.append(artifact_pin(root, path, source_commit))
+            pin = artifact_pin(root, path, source_commit)
+            _require(not expected_input_blobs.get(path) or expected_input_blobs[path] == {pin["git_blob_sha1"]},
+                     "declared input blob differs from current Source bytes")
+            pins.append(pin)
         except ContinuationError as exc:
             artifact_errors.append({"path": path, "error": str(exc)})
     persisted_checkpoint = checkpoint_frontier(task_id, record["publication_id"], root=root, events=events, source_commit=source_commit) if not restricted else {"state": "WITHHELD_BY_SOURCE_FIREWALL", "source_artifacts": [], "execution_authorized": False}
     existing_paths = {pin["path"] for pin in pins}
     pins.extend(pin for pin in persisted_checkpoint["source_artifacts"] if pin["path"] not in existing_paths)
     progress = state.get("last_progress_ref")
+    progress_readback = None
+    continuation_seed = None
     fixed = _fixed_source_candidate(progress, "AUTHENTICATED_RUNTIME_LAST_PROGRESS_REF")
     if fixed and (not restricted or (fixed["source_commit"], fixed["path"]) in allowed):
         external.append(fixed)
+    elif isinstance(progress, str) and progress and not progress.startswith(("http:", "https:")):
+        # Legacy publications often seed last_progress_ref with a repository
+        # path. Verify its current immutable bytes; do not invent a historical
+        # commit or treat the input as work produced by a later CLAIM.
+        if not restricted or (source_commit, progress) in allowed:
+            try:
+                pin = artifact_pin(root, progress, source_commit)
+                _require(not expected_input_blobs.get(progress) or expected_input_blobs[progress] == {pin["git_blob_sha1"]},
+                         "declared input blob differs from current Source bytes")
+            except ContinuationError as exc:
+                artifact_errors.append({"path": progress, "error": str(exc)})
+            else:
+                input_seed_unchanged = (progress == definition.get("last_progress_ref")
+                    and state.get("last_progress_at") == definition.get("last_progress_at"))
+                pin.update(provenance="CURRENT_TASK_DEFINITION_INPUT_READBACK" if input_seed_unchanged
+                           else "CURRENT_RUNTIME_REFERENCE_READBACK",
+                           verification="CURRENT_IMMUTABLE_SOURCE_BYTES_VERIFIED",
+                           historical_bytes_verified=False, mathematical_acceptance_granted=False)
+                if not any(p["path"] == pin["path"] and p["source_commit"] == source_commit for p in pins):
+                    pins.append(pin)
+                progress_readback = {"pin": pin, "original_reference": progress,
+                    "historical_work_status": "UNKNOWN_NOT_ESTABLISHED_BY_CURRENT_READBACK"}
+                if (input_seed_unchanged and not restricted and not state.get("claim_id")
+                        and state.get("dispatch_state") == "NEEDS_DISPATCH" and state.get("last_claim_id")):
+                    continuation_seed = {"state": "CURRENT_TASK_INPUTS_WITH_NO_RECORDED_OWNER_PROGRESS",
+                        "task_id": task_id, "publication_id": record["publication_id"],
+                        "previous_claim_id": state["last_claim_id"],
+                        "previous_comment_id": state.get("last_claim_comment_id"),
+                        "input_artifacts": [pin], "completed_research_units_verified": False,
+                        "required_action": "Read the declared input, record UNKNOWN prior private work honestly, and continue the smallest unfinished task unit under a new authorized claim."}
     if firewall:
         for source_pin in firewall["allowed_source_pins"]:
             fixed = _fixed_source_candidate(source_pin, "EXPLICIT_SOURCE_FIREWALL_ALLOWLIST")
@@ -582,6 +623,8 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
             "takeover_readiness": readiness,
             "legacy_result_intake": intake,
             "persisted_checkpoint": persisted_checkpoint,
+            "progress_reference_readback": progress_readback,
+            "continuation_seed": continuation_seed,
             "source_access_policy": {"blind_firewall_active": firewall is not None, "restricted": restricted,
                                      "verified_driver_review_view": driver_view, "withheld_declared_input_count": withheld_count},
             "unresolved_source_refs": unresolved_refs, "result_state": result_state,
@@ -606,7 +649,14 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
             "frontier_template": {"source_commit": source_commit, "artifacts": pins[:64],
                 "current_unfinished_unit": None, "next_action": None, "completed_units": [],
                 "do_not_repeat": [], "contributor_ids": [state.get("researcher_id") or state.get("last_researcher_id")] if state.get("researcher_id") or state.get("last_researcher_id") else []},
-            "capability_required": "A local execution environment for task-specific computation/checkers; the MCP control service does not provide mathematical compute.",
+            "capability_required": ("No computation or new research is required to consume completed records."
+                if state.get("dispatch_state") == "COMPLETE" else
+                "Use the authorized Source control adapter for the selected action. A client checkout or local runtime is not a general research prerequisite; perform eligible self-contained reasoning in scope and leave task-specific unexecuted computation explicitly pending."),
+            "capability_requirements": {"local_environment_is_global_start_gate": False,
+                "next_action": state.get("next_action"),
+                "scientific_compute": "NOT_REQUIRED_FOR_COMPLETED_RECORD_CONSUMPTION" if state.get("dispatch_state") == "COMPLETE" else "ONLY_WHEN_REQUIRED_BY_THE_EXACT_TASK_STEP",
+                "missing_validator": "PENDING_VALIDATION_OR_SUPPORT_REQUEST_NOT_FABRICATED_PASS",
+                "changes_claim_or_mathematical_authority": False},
             "execution_authorized": False, "requires_predecessor_contact": False}
 
 
