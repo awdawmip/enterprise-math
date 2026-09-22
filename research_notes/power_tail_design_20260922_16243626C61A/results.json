@@ -1,0 +1,306 @@
+{
+  "status": "FINITE_CHECKS_PASS_NOT_ADMITTED",
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "counts": {
+    "construction_horizons": 1000,
+    "inherited_period_closures": 11325,
+    "exhaustive_support_protection_cases": 8140,
+    "unprotected_endpoint_checks": 261,
+    "verified_inclusion_minimal_reductions": 600,
+    "actual_modular_horizons": 14930,
+    "exhaustive_minima_records": 86,
+    "exact_search_nodes": 32211153,
+    "independent_python_minima": 37
+  },
+  "unchanged_dependencies": {
+    "group_ring_sparse_identifiability.py": "35567d80b1b0f1bb864f381cc0ee7b4613d0273a",
+    "group_ring_support_certificates.py": "5a2fa6a7bd8e24a190709045365312ec7d307d29",
+    "group_ring_batch_response.py": "82c87f779a07b84de601d54ebd04d3bfb1856f92"
+  },
+  "suboptimal_greedy_witnesses": [
+    {
+      "H": 19,
+      "greedy": [
+        0,
+        1,
+        2,
+        7,
+        10,
+        13,
+        16,
+        19
+      ],
+      "minimum_support": [
+        0,
+        1,
+        2,
+        9,
+        13,
+        16,
+        19
+      ]
+    },
+    {
+      "H": 25,
+      "greedy": [
+        0,
+        1,
+        2,
+        3,
+        9,
+        13,
+        17,
+        21,
+        25
+      ],
+      "minimum_support": [
+        0,
+        1,
+        2,
+        3,
+        12,
+        17,
+        21,
+        25
+      ]
+    },
+    {
+      "H": 31,
+      "greedy": [
+        0,
+        1,
+        2,
+        3,
+        11,
+        15,
+        19,
+        23,
+        27,
+        31
+      ],
+      "minimum_support": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        15,
+        21,
+        26,
+        31
+      ]
+    },
+    {
+      "H": 33,
+      "greedy": [
+        0,
+        1,
+        2,
+        3,
+        13,
+        17,
+        21,
+        25,
+        29,
+        33
+      ],
+      "minimum_support": [
+        0,
+        1,
+        2,
+        3,
+        16,
+        21,
+        25,
+        29,
+        33
+      ]
+    }
+  ],
+  "same_task_costs": [
+    {
+      "n": 100160063,
+      "a": 2,
+      "H": 4096,
+      "old_marks": 128,
+      "tail_marks": 105,
+      "answer": 0,
+      "old_pow": {
+        "median_ms": 0.051378,
+        "samples_ns": [
+          63756,
+          57106,
+          53010,
+          51107,
+          51378,
+          51257,
+          50866
+        ],
+        "peak_python_bytes": 14856
+      },
+      "tail_pow": {
+        "median_ms": 0.050196,
+        "samples_ns": [
+          525991,
+          54352,
+          50196,
+          48343,
+          92129,
+          47762,
+          46510
+        ],
+        "peak_python_bytes": 12728
+      },
+      "old_block": {
+        "median_ms": 0.018958,
+        "samples_ns": [
+          29374,
+          23505,
+          21051,
+          18958,
+          17997,
+          18357,
+          18378
+        ],
+        "peak_python_bytes": 18248
+      },
+      "bounded_bsgs": {
+        "median_ms": 0.016815,
+        "samples_ns": [
+          90386,
+          19629,
+          16815,
+          63726,
+          16645,
+          15003,
+          15283
+        ],
+        "peak_python_bytes": 10064
+      }
+    },
+    {
+      "n": 100160063,
+      "a": 2,
+      "H": 65536,
+      "old_marks": 512,
+      "tail_marks": 419,
+      "answer": 0,
+      "old_pow": {
+        "median_ms": 0.313172,
+        "samples_ns": [
+          371309,
+          263036,
+          536728,
+          313172,
+          388715,
+          249776,
+          245560
+        ],
+        "peak_python_bytes": 57960
+      },
+      "tail_pow": {
+        "median_ms": 0.271689,
+        "samples_ns": [
+          239791,
+          271689,
+          227973,
+          290227,
+          273432,
+          247793,
+          348855
+        ],
+        "peak_python_bytes": 48504
+      },
+      "old_block": {
+        "median_ms": 0.079379,
+        "samples_ns": [
+          116876,
+          319761,
+          79379,
+          95234,
+          76635,
+          71939,
+          71868
+        ],
+        "peak_python_bytes": 74536
+      },
+      "bounded_bsgs": {
+        "median_ms": 0.049805,
+        "samples_ns": [
+          52469,
+          49805,
+          48644,
+          52779,
+          111678,
+          49805,
+          45999
+        ],
+        "peak_python_bytes": 41904
+      }
+    },
+    {
+      "n": 65537,
+      "a": 3,
+      "H": 65536,
+      "old_marks": 512,
+      "tail_marks": 419,
+      "answer": 65536,
+      "old_pow": {
+        "median_ms": 0.291138,
+        "samples_ns": [
+          267663,
+          336306,
+          291138,
+          261965,
+          308815,
+          297367,
+          269626
+        ],
+        "peak_python_bytes": 57960
+      },
+      "tail_pow": {
+        "median_ms": 0.276156,
+        "samples_ns": [
+          247012,
+          312981,
+          242545,
+          261554,
+          276196,
+          453523,
+          276156
+        ],
+        "peak_python_bytes": 48568
+      },
+      "old_block": {
+        "median_ms": 0.079149,
+        "samples_ns": [
+          79149,
+          75293,
+          70246,
+          70947,
+          531130,
+          122775,
+          170026
+        ],
+        "peak_python_bytes": 74216
+      },
+      "bounded_bsgs": {
+        "median_ms": 0.048073,
+        "samples_ns": [
+          77006,
+          57927,
+          48413,
+          48073,
+          48052,
+          47251,
+          46300
+        ],
+        "peak_python_bytes": 41936
+      }
+    }
+  ],
+  "seconds": 2.0614940350000097,
+  "cost_scope": "7 complete-call medians; construction inside; tracing separate, not RSS; no warm table",
+  "excluded": "full EM suite; formal proof/admission; RSA; physical failure model; asymptotic optimality"
+}
