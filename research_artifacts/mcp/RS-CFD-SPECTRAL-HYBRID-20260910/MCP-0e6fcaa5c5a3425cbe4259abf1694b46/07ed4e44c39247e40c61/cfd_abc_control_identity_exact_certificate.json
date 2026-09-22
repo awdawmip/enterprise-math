@@ -1,0 +1,26 @@
+{
+  "schema": "EM_CFD_ABC_CONTROL_IDENTITY_EXACT_CERT_V1",
+  "scope": "exact rational algebraic consistency check; not native timing evidence",
+  "inputs": {
+    "q": [11, 10],
+    "h": [1, 50],
+    "alpha_f": [14, 25],
+    "n": 20
+  },
+  "derived": {
+    "target_margin_1_minus_1_over_q": [1, 11],
+    "required_control_gain_g": [61, 550],
+    "required_weighted_eligible_share_w": [61, 308],
+    "A": [1, 1],
+    "C": [51, 50],
+    "B_at_threshold": [10, 11],
+    "rho_threshold_k2": [549, 247],
+    "rho_threshold_k1": [61, 13]
+  },
+  "checks": [
+    "B = C - G = A/q",
+    "G - (C-A) = A*(1-1/q)",
+    "G = alpha_f*w",
+    "w = k*rho/(k*rho+n-k) at rho thresholds for k=2 and k=1"
+  ]
+}
