@@ -2,9 +2,11 @@
 
 ## Ordinary ChatGPT entry (2026-09-22)
 
-When the current conversation has GitHub tools but no callable project MCP or complete Source/Python environment, use the [ordinary-chat control guide](CHATGPT_ORDINARY_CONTROL.en.md). The existing server runs the same canonical session, CLAIM, execution, Result and Driver writers. Missing local checkout/CLI is not the default blocker, and the client must not hand-assemble authoritative records. Load P000 from `projects/enterprise-math/P000_REALITY_FOUNDATION.json` in the current verified `awdawmip/chatgpt-global-knowledge` snapshot rather than guessing a path in this repository.
+Ordinary ChatGPT defaults to the private GitHub entry in the [ordinary-chat control guide](CHATGPT_ORDINARY_CONTROL.en.md), without requiring visible project MCP tools or a complete Source/Python environment. The existing server runs the same canonical session, CLAIM, execution, Result and Driver writers. Missing local checkout/CLI is not the default blocker, and the client must not hand-assemble authoritative records. Load P000 from `projects/enterprise-math/P000_REALITY_FOUNDATION.json` in the current verified `awdawmip/chatgpt-global-knowledge` snapshot rather than guessing a path in this repository.
 
 This transport grants no research role or mathematical acceptance. Current task, contribution history, independence, active ownership and admission gates remain binding; existing project MCP/native paths remain available. Tasks requiring native mathematical experiments still need real execution capability and evidence; a working control transport is not an experiment result.
+
+Default requests are `em:control` Issues in private `awdawmip/kimi-query-bridge`, using EM_CHAT_CONTROL_V1 in one JSON fence. Read the matching request/conversation/operation/hash and inner receipt from the **original request Issue**. `control_plane/chatgpt_dispatch_receipts/<request_id>.json` belongs only to an explicitly selected legacy dispatch-bridge compatibility mode; do not mix it with the new transport. The `em_*` calls below describe explicitly selected direct MCP clients. Ordinary GitHub chats use the guide's equivalent operations and request dependencies, not an implicit switch back to MCP or the legacy bridge.
 
 
 GitHub preserves the task, publication, evidence and review history. Drivers, researchers and execution sessions are replaceable. A new conversation connected to the project MCP can continue with its own authorized identity, without contacting the predecessor or recovering private chat.
@@ -47,9 +49,12 @@ Reconcile unknown remote outcomes with `em_control_reconcile` before repeating m
 
 Governance tasks use a real Driver session and DA, not a fabricated researcher activity. The service does not execute arbitrary uploaded programs or choose mathematical verdicts; task-specific compute requirements remain explicit. Transport checkpoints alone do not replace canonical Source persistence.
 
+## Pre-final check
+
+At the end of an ordinary GitHub interaction, use the guide's read-only `pre_final`: formally frozen/released tasks provide run_request_id, completion_request_id and truthful parent_liveness; a Driver without a formal run provides its session_request_id and parent_liveness; maintenance mode is only for a logical conversation that never issued a research session. Read receipt.result.final_allowed and required_action, and continue the required action when false. Registration, freeze, review, close or successful evaluation is not a substitute. Never fabricate a stop request or downgrade formal research to maintenance merely to finish.
+
 ## Preserved boundaries
 
 P000, FREE information barriers, exact task scope, author/independent-review distinctions and Working Truth/Foundation/promotion gates remain unchanged. New identity is not evidence of independence. Pre-cutover RR/DR bytes keep their original audits; prospective records need payload-bound current-write authorization. See the [protocol](RESEARCH_CONTINUATION_PROTOCOL.md) and [Chinese guide](CONTINUE_RESEARCH.zh-CN.md).
 
 The current MCP successor interface handles task-global CLAIMs. If a packet returns `SUPPORTED_NATIVE_LANE_ADAPTER_REQUIRED`, preserve the existing cohort/lane authority and use its native dedicated adapter; never substitute the global task interface.
-

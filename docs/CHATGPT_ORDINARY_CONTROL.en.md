@@ -1,6 +1,6 @@
 # Ordinary ChatGPT research through GitHub
 
-Protocol: `EM_CHAT_CONTROL_V1` · Chinese: [CHATGPT_ORDINARY_CONTROL.zh-CN.md](CHATGPT_ORDINARY_CONTROL.zh-CN.md)
+Protocol: `EM_CHAT_CONTROL_V1` �� Chinese: [CHATGPT_ORDINARY_CONTROL.zh-CN.md](CHATGPT_ORDINARY_CONTROL.zh-CN.md)
 
 Use the existing GitHub connector. The server runs the admitted Enterprise Math native writers and returns receipts to the original Issue. **No Python, CLI, git clone, full checkout or visible project MCP tools are required in ordinary ChatGPT. Do not require a switch to Work.** The chat still supplies research, evidence judgments and independent review decisions. Check `status.enabled` for actual enabled capabilities.
 
@@ -16,7 +16,7 @@ Create an Issue in private `awdawmip/kimi-query-bridge`, with label `em:control`
 
 Required fields are `schema`, `conversation_id`, `request_id`, `operation`, `payload`. `sha256` is optional: **ordinary chats should omit it**. The server always computes the hash; supplied mismatches are rejected. Canonical hashing removes `sha256`, recursively sorts object keys, uses compact UTF-8 JSON with literal non-ASCII characters and no trailing newline. Never guess a digest. Duplicate keys, nonfinite numbers and credential fields are rejected.
 
-`conversation_id` is a stable client-declared logical ID, not platform attestation (1–160 characters; alphanumeric first, then alphanumeric or `:/_.-`). `request_id` uniquely identifies one logical operation (1–128 characters; alphanumeric first, then alphanumeric or `_.-`). The inbox verifies private repository/trusted actor, original immutable body, double-read fingerprint and durable idempotency. Do not edit submitted Issues or create duplicate mutation Issues. Initial requests must be unedited and under 24 hours old. Usually send sequentially; maximum five unfinished requests per conversation. Ordinary payload limit: 16 KiB; canonical envelope: 32 KiB.
+`conversation_id` is a stable client-declared logical ID, not platform attestation (1�C160 characters; alphanumeric first, then alphanumeric or `:/_.-`). `request_id` uniquely identifies one logical operation (1�C128 characters; alphanumeric first, then alphanumeric or `_.-`). The inbox verifies private repository/trusted actor, original immutable body, double-read fingerprint and durable idempotency. Do not edit submitted Issues or create duplicate mutation Issues. Initial requests must be unedited and under 24 hours old. Usually send sequentially; maximum five unfinished requests per conversation. Ordinary payload limit: 16 KiB; canonical envelope: 32 KiB.
 
 ## Readbacks and read-only operations
 
@@ -25,8 +25,9 @@ Read the original Issue after about 30 seconds, then about every 15 seconds whil
 | Operation | Required payload | Optional payload |
 |---|---|---|
 | `status` | `{}` | None; returns operations/enabled/current session, without granting research authority |
-| `dispatch` | None | `kind`: RESEARCH (default), GOVERNANCE, ANY; Chat payload currently does not accept priority |
-| `tasks` | None | `limit=20` (1–100), `cursor`, `dispatch_state` |
+| `dispatch` | None | `kind`: RESEARCH (default), GOVERNANCE, ANY; optional `priority`: P0, P1, P2, P3; omission keeps ordinary routing, explicit null is rejected; inspect native `selection_filter` |
+| `pre_final` | `parent_liveness` and exact route fields below | Read-only native final-interaction gate; registration, freeze, review, or close alone does not grant final permission |
+| `tasks` | None | `limit=20` (1�C100), `cursor`, `dispatch_state` |
 | `task`, `continuation` | `task_id` | None |
 | `artifact` | `packet_request_id`, `path` | `start_char=0`, `char_count=12000` (max 24000), `source_commit`, `related_start=0`; dependency is successful continuation/artifact/publish_checkpoint |
 | `receipt` | `target_request_id` | `start_char=0`, `char_count=12000` (max 24000) |
@@ -44,7 +45,7 @@ Check status and reuse an existing session in this conversation. For a genuinely
 
 Optional `task_id` binds a known task. Declare actual prior contribution IDs; an empty example is not permission to omit existing contributions. Driver uses role/mode RESEARCH_DRIVER. Only one unclosed service session per conversation. Real session IDs/keys, role IDs, claims, ERs, publication/taskbook pins and generation are server-derived. Keys remain private on the server. Chats pass their successful prerequisite request IDs, never session_key, manual pins or fabricated identities.
 
-Normal chain: dispatch → session_start → prepare → claim → open → artifact_upload → publish_checkpoint → freeze. Wait for each prerequisite SUCCEEDED and inspect its exact scope; session/prepare is not a winning claim.
+Normal chain: dispatch �� session_start �� prepare �� claim �� open �� artifact_upload �� publish_checkpoint �� freeze. Wait for each prerequisite SUCCEEDED and inspect its exact scope; session/prepare is not a winning claim.
 
 | Operation | Required payload | Notes |
 |---|---|---|
@@ -58,7 +59,7 @@ Normal chain: dispatch → session_start → prepare → claim → open → arti
 | `freeze` | `run_request_id`, `publication_request_id`, `return_filename`, `metadata` | Publication must be the same run's successful publish_checkpoint |
 | `session_close` | `reason` | Pending requests, active claims or unpublished uploads must be resolved first |
 
-Upload IDs and filenames are simple 1–96 character names (alphanumeric first, then alphanumeric or `_.-`, no slash). Parts start at zero and are contiguous up to index 128. Maximum 16000 UTF-8 bytes and 24000 JSON-escaped bytes per part, 1 MiB per file, 16 files/4 MiB per publication. Use a new request ID for each part; retain upload_id/filename. `upload_request_ids` lists the successful **final complete part request** for each file, not upload IDs or all part IDs. Uploading never executes code.
+Upload IDs and filenames are simple 1�C96 character names (alphanumeric first, then alphanumeric or `_.-`, no slash). Parts start at zero and are contiguous up to index 128. Maximum 16000 UTF-8 bytes and 24000 JSON-escaped bytes per part, 1 MiB per file, 16 files/4 MiB per publication. Use a new request ID for each part; retain upload_id/filename. `upload_request_ids` lists the successful **final complete part request** for each file, not upload IDs or all part IDs. Uploading never executes code.
 
 Checkpoint `completed_units` and `do_not_repeat` are string arrays; `current_unfinished_unit` and `next_action` are nonempty strings. Describe the actual remaining envelope/review work when research is ready; do not invent completion. Use service-generated immutable blob URLs, not custom branch@commit-plus-path strings.
 
@@ -70,7 +71,7 @@ Read exact continuation/artifacts, classify completed/unfinished/conflicted/unkn
 
 ## Independent Driver
 
-Use a genuine independent Driver session/conversation and declare all contributions. Chain: session_start(RESEARCH_DRIVER) → driver_activate → continuation → artifact(exact Result/evidence) → artifact_upload(report and required followup spec) → driver_publish → review. Reuse an already-authorized session rather than reactivating repeatedly.
+Use a genuine independent Driver session/conversation and declare all contributions. Chain: session_start(RESEARCH_DRIVER) �� driver_activate �� continuation �� artifact(exact Result/evidence) �� artifact_upload(report and required followup spec) �� driver_publish �� review. Reuse an already-authorized session rather than reactivating repeatedly.
 
 | Operation | Required payload | Optional/conditions |
 |---|---|---|
@@ -98,3 +99,13 @@ Use a genuine independent Driver session/conversation and declare all contributi
 | OUTCOME_UNKNOWN / SUBMIT_UNKNOWN | Retain original operation and reconcile; never replay under a new ID |
 
 Read-only canaries use status and exact continuation/artifact with sha256 omitted. Do not invent tasks, seize active claims or activate fake Drivers for a demo. Formal acceptance requires actual authorized current task routing and separate researcher/Driver sessions. Report transport, formal freeze, formal review and mathematical/experimental validation separately. Native spectralDNS/MPI/FFTW, Lean or other task-required checks still need real capable hosts; this adapter is not an arbitrary shell or code executor. Preserve P000, FREE firewalls, scope, provenance, independent review and Foundation/Working Truth gates. Tests or documentation publication alone do not prove original ChatGPT end-to-end success.
+
+## Final-interaction gate
+
+Before the final-channel response, submit read-only `pre_final` through this same GitHub transport. The server calls the admitted Source `tools/research_runtime_guard.py` gate. A successful freeze/review or a closed session is not PRE_FINAL permission. `status=SUCCEEDED` means evaluation completed; inspect `receipt.result.final_allowed` and `required_action`. When false, continue the required action. This gate grants no mathematical or execution authority.
+
+- Formal completed/handed-off work: supply `run_request_id` (own successful open/resume), `completion_request_id` (own successful freeze or publish_checkpoint with release=true), and `parent_liveness`. Historical frozen/closed runs remain readable; do not reauthorize ended research. The server verifies native receipt/session/intent bindings and derives parent closure from current Source. Client COMPLETE cannot override it. Other formal states remain unsupported rather than being labeled complete.
+- Driver control work without a formal run: supply its own `session_request_id` and `parent_liveness`. Optional `research_mode` must be `RESEARCH_DRIVER`. A Driver session already bound to a formal run must use the formal path.
+- Maintenance without any issued research session in this logical conversation: supply `research_mode=CONTROL_PLANE_MAINTENANCE` and `parent_liveness`. Dropping an existing research binding cannot select this path.
+
+`parent_liveness` preserves the actual original parent objective and requires these eight booleans: `parent_objective_complete`, `user_requested_stop_pause_review_or_wait`, `parent_hard_blocker`, `platform_or_tool_hard_limit`, `independent_safe_work_exhausted`, `same_action_repeated_without_state_change`, `supported_alternative_available`, `parent_state_recomputed_without_change`; also supply nonnegative integer `executable_next_actions`, with optional boolean `continuation_lease_active`. Do not invent a stop request or hard limit merely to obtain a final. Formal parent completion is independently Source-derived. An unknown closure returns `final_allowed=false` with its repair/check action. Record the Source pin and evaluated-state hash from the receipt.
