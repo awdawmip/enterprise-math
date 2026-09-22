@@ -359,6 +359,8 @@ def materialize(
     spec: dict[str, Any],
     created_at: str | None = None,
     root: Path = ROOT,
+    publishing_driver_id: str | None = None,
+    publisher_session_id: str | None = None,
 ) -> dict[str, Any]:
     errors = baseline_audit(root)
     if errors:
@@ -371,11 +373,16 @@ def materialize(
         raise DriverFollowupError(
             "review synthesis must single-value destination_class before follow-up materialization"
         )
+    publisher_args = {}
+    if publishing_driver_id is not None or publisher_session_id is not None:
+        publisher_args = {"publishing_driver_id": publishing_driver_id,
+                          "publisher_session_id": publisher_session_id}
     return _impl.materialize(
         review_id=review_id,
         spec=spec,
         created_at=created_at,
         root=root,
+        **publisher_args,
     )
 
 

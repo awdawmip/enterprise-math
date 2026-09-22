@@ -158,6 +158,8 @@ def materialize(
     spec: dict[str, Any],
     created_at: str | None = None,
     root: Path = ROOT,
+    publishing_driver_id: str | None = None,
+    publisher_session_id: str | None = None,
 ) -> dict[str, Any]:
     """Materialize one follow-up invocation with rollback-safe final paths."""
     import research_driver_followup as impl
@@ -185,6 +187,22 @@ def materialize(
     normalized_gates = impl._gate_map(gates)
     impl._forced_gate_rules(review, result, normalized_gates)
     timestamp = impl._now(created_at)
+    binding = impl._materialization_binding(
+        review_id, publishing_driver_id, publisher_session_id, timestamp, root,
+        require_current=True,
+    )
+    publisher_id = binding["driver_id"] if binding else str(review["driver_id"])
+    publisher_args = {} if binding is None else {
+        "publishing_driver_id": publishing_driver_id,
+        "publisher_session_id": publisher_session_id,
+    }
+
+    def assert_current_binding() -> None:
+        if binding is not None and impl._materialization_binding(
+            review_id, publishing_driver_id, publisher_session_id, timestamp, root,
+            require_current=True,
+        ) != binding:
+            raise DriverFollowupTransactionError("materialization authority/review/Result changed before write")
 
     if decision in {"PARENT_OBJECTIVE_CLOSURE", impl.TASK_SCOPE_DECISION}:
         if task_specs:
@@ -214,12 +232,17 @@ def materialize(
             created_at=timestamp,
             root=root,
             **extra,
+            **publisher_args,
         )
         out = root / "research_driver_followups" / review_id / f"{packet['packet_id']}.json"
         planned = _tx.PlannedFile(out, _packet_bytes(packet))
         try:
             _validate_packet_candidate(packet, root, persisted=False)
-            _tx.commit([planned], postcheck=lambda: _candidate_post_audit(packet, root, created=[planned]))
+            assert_current_binding()
+            def postcheck():
+                assert_current_binding()
+                return _candidate_post_audit(packet, root, created=[planned])
+            _tx.commit([planned], postcheck=postcheck)
         except Exception as exc:
             raise DriverFollowupTransactionError(str(exc)) from exc
         return {**packet, "record_path": out.relative_to(root).as_posix()}
@@ -266,6 +289,7 @@ def materialize(
     ]
     created: list[_tx.PlannedFile] = []
     try:
+        assert_current_binding()
         _tx.commit(taskbook_files)
         created.extend(taskbook_files)
 
@@ -276,7 +300,7 @@ def materialize(
                 meta,
                 path=path,
                 publisher_role="RESEARCH_DRIVER",
-                publisher_id=str(review["driver_id"]),
+                publisher_id=publisher_id,
                 research_value=str(task_spec["research_value"]).strip(),
                 published_at=timestamp,
                 supersedes_publication_id=task_spec.get(
@@ -298,6 +322,7 @@ def materialize(
                 }
             )
 
+        assert_current_binding()
         _tx.commit(record_files)
         created.extend(record_files)
 
@@ -316,6 +341,7 @@ def materialize(
             driver_id=str(review["driver_id"]),
             created_at=timestamp,
             root=root,
+            **publisher_args,
         )
         packet_path = (
             root
@@ -325,10 +351,12 @@ def materialize(
         )
         packet_file = _tx.PlannedFile(packet_path, _packet_bytes(packet))
         _validate_packet_candidate(packet, root, persisted=False)
+        assert_current_binding()
         _tx.commit([packet_file])
         created.append(packet_file)
 
         errors = _candidate_post_audit(packet, root, created=created)
+        assert_current_binding()
         if errors:
             raise DriverFollowupTransactionError(
                 "follow-up audit failed: " + "; ".join(errors)

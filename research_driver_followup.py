@@ -477,6 +477,86 @@ def _task_rows(value: Any) -> list[dict[str, Any]]:
     return out
 
 
+def _materialization_binding(
+    review_id: str, publishing_driver_id: str | None,
+    publisher_session_id: str | None, created_at: str, root: Path, *,
+    require_current: bool = False,
+) -> dict[str, Any] | None:
+    """Bind a new publisher without rewriting the source review's actor.
+
+    The native caller authenticates the live session. Source independently
+    requires that exact session in its validated DA envelope and pins the
+    operational review set and raw evidence. Historical packet audits evaluate
+    DA at creation; write boundaries additionally require it to remain active.
+    """
+    if publishing_driver_id is None and publisher_session_id is None:
+        return None
+    if not all(isinstance(value, str) and value.strip()
+               for value in (publishing_driver_id, publisher_session_id)):
+        raise DriverFollowupError("materialization publisher requires both Driver and session")
+    import research_driver_authority as authority
+    import research_driver_followup_guard as guard
+
+    driver = publishing_driver_id.strip().upper()
+    session = publisher_session_id.strip()
+    active = authority.require_active_driver(driver, created_at, root)
+    if active is None:
+        raise DriverFollowupError("materialization requires enabled source-backed Driver authority")
+    if require_current:
+        current = authority.require_active_driver(driver, _now(), root)
+        if current is None or current.get("authority_record_id") != active.get("authority_record_id"):
+            raise DriverFollowupError("materialization Driver authority changed before write")
+    payload = json.loads(active["source_body"])
+    if payload.get("session_id") != session:
+        raise DriverFollowupError("materialization publisher session differs from the authenticated DA session")
+    authority_relative = active.get("_record_path")
+    if not isinstance(authority_relative, str) or not authority_relative:
+        raise DriverFollowupError("materialization DA lacks its raw source record path")
+    authority_path = (root / authority_relative).resolve()
+    if not authority_path.is_relative_to(root.resolve()) or not authority_path.is_file():
+        raise DriverFollowupError("materialization DA source record is unavailable")
+    review = guard.authority_map(root).get(review_id)
+    if review is None:
+        raise DriverFollowupError("materialization requires the current exact review authority")
+    result = result_map(root).get(str(review.get("result_id")))
+    if result is None:
+        raise DriverFollowupError("materialization Result is unavailable")
+    result_path, result_digest = _result_record_pin(review, result, root)
+    ids = review.get("source_review_ids") or [review_id]
+    if not isinstance(ids, list) or not ids or len(ids) != len(set(ids)):
+        raise DriverFollowupError("materialization requires an exact unique source review set")
+    raw_reviews = guard._immutable_review_map(root)
+    pins = []
+    for rid in sorted(ids):
+        row = raw_reviews.get(rid)
+        relative = row.get("_record_path") if row else None
+        if not isinstance(relative, str) or not relative:
+            raise DriverFollowupError("materialization source review lacks a raw record path")
+        path = (root / relative).resolve()
+        if not path.is_relative_to(root.resolve()) or not path.is_file():
+            raise DriverFollowupError("materialization source review path is unavailable")
+        pins.append({"review_id": rid, "record_path": relative,
+                     "record_sha256": "sha256:" + hashlib.sha256(path.read_bytes()).hexdigest()})
+    semantic = {key: value for key, value in review.items() if not key.startswith("_")}
+    return {
+        "schema": "ENTERPRISE_MATH_FOLLOWUP_PUBLISHER_BINDING_V1",
+        "driver_id": driver, "session_id": session,
+        "authority_record_id": active["authority_record_id"],
+        "authority_source_comment_id": active["source_comment_id"],
+        "authority_source_body_sha256": active["source_body_sha256"],
+        "authority_record_path": authority_relative,
+        "authority_record_sha256": "sha256:" + hashlib.sha256(authority_path.read_bytes()).hexdigest(),
+        "source_review_driver_id": review["driver_id"],
+        "source_review_authority_id": review_id,
+        "source_review_authority_sha256": "sha256:" + hashlib.sha256(
+            json.dumps(semantic, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+        ).hexdigest(),
+        "source_review_records": pins,
+        "source_result_record_path": result_path,
+        "source_result_record_sha256": result_digest,
+    }
+
+
 def build_packet(
     *,
     review_id: str,
@@ -488,6 +568,8 @@ def build_packet(
     root: Path = ROOT,
     terminal_scope: str | None = None,
     portfolio_continuation: dict[str, Any] | None = None,
+    publishing_driver_id: str | None = None,
+    publisher_session_id: str | None = None,
 ) -> dict[str, Any]:
     reviews = review_map(root)
     results = result_map(root)
@@ -534,6 +616,11 @@ def build_packet(
         "foundation_authority_granted": False,
         "canonical_promotion_granted": False,
     }
+    publisher = _materialization_binding(
+        review_id, publishing_driver_id, publisher_session_id, created_at, root,
+    )
+    if publisher is not None:
+        value["materialization_publisher"] = publisher
     if decision == TASK_SCOPE_DECISION:
         continuation = _task_scope_continuation(
             review, result, terminal_scope=terminal_scope,
@@ -583,6 +670,17 @@ def validate_packet(
         raise DriverFollowupError("packet review disposition drift")
     if packet.get("review_destination_class") != review.get("destination_class"):
         raise DriverFollowupError("packet review destination drift")
+    publisher = packet.get("materialization_publisher")
+    if publisher is not None:
+        if not isinstance(publisher, dict):
+            raise DriverFollowupError("invalid materialization publisher binding")
+        expected_publisher = _materialization_binding(
+            review_id, publisher.get("driver_id"), publisher.get("session_id"),
+            packet.get("created_at"), root,
+        )
+        if expected_publisher is None or publisher != expected_publisher:
+            raise DriverFollowupError("materialization publisher or exact evidence binding drift")
+    publishing_driver = publisher["driver_id"] if publisher else review.get("driver_id")
 
     parent = _source_parent_objective(review, result, root)
     if packet.get("parent_objective_id") != parent:
@@ -668,9 +766,12 @@ def validate_packet(
             raise DriverFollowupError(
                 f"{row['publication_id']}: automatic review follow-up must be Driver-published"
             )
-        if str(publication.get("publisher_id", "")).strip().upper() != str(review.get("driver_id", "")).strip().upper():
+        if str(publication.get("publisher_id", "")).strip().upper() != str(publishing_driver).strip().upper():
             raise DriverFollowupError(
-                f"{row['publication_id']}: follow-up task publisher is not the reviewing Driver"
+                f"{row['publication_id']}: " + (
+                    "follow-up task publisher differs from the bound materializing Driver"
+                    if publisher else "follow-up task publisher is not the reviewing Driver"
+                )
             )
         published = _parse_time(publication.get("published_at"), "published_at")
         if published < reviewed:
@@ -916,12 +1017,20 @@ def materialize(
     spec: dict[str, Any],
     created_at: str | None = None,
     root: Path = ROOT,
+    publishing_driver_id: str | None = None,
+    publisher_session_id: str | None = None,
 ) -> dict[str, Any]:
-    if spec.get("decision") == TASK_SCOPE_DECISION:
+    if (spec.get("decision") == TASK_SCOPE_DECISION
+            or publishing_driver_id is not None or publisher_session_id is not None):
         # The public and storage entry points share the same candidate-first,
         # exact-byte transaction for this new decision.
         from control_plane.research_driver_followup_transaction import materialize as transactional
-        return transactional(review_id=review_id, spec=spec, created_at=created_at, root=root)
+        publisher_args = {}
+        if publishing_driver_id is not None or publisher_session_id is not None:
+            publisher_args = {"publishing_driver_id": publishing_driver_id,
+                              "publisher_session_id": publisher_session_id}
+        return transactional(review_id=review_id, spec=spec, created_at=created_at, root=root,
+                             **publisher_args)
     review = review_map(root).get(review_id)
     if review is None:
         raise DriverFollowupError(f"unknown review_id: {review_id}")
