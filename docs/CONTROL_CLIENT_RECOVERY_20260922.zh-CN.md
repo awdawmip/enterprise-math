@@ -24,6 +24,23 @@ Authority: current `control_plane/current_control_authority.json`, `research_dis
 
 研究员不通过 ANY 或 GOVERNANCE 结果自行取得 Driver 权限。Driver 独立检查冻结 Result／review／follow-up，再检查 GOVERNANCE 路由；单个治理目标的宿主障碍不能阻止核验其他独立待审结果。任何替代任务选择仍必须经过当前规范入口，不能人工另建 selector。
 
+### 1.1 能力不匹配的重复派发不是“再次研究”
+
+若本轮匹配的 canonical `RESEARCH` 回执再次返回同一任务，而该任务最近一次已接纳的 durable `CONTINUATION` 明确满足以下全部条件：
+
+1. 数学／文献／证明等实质研究单元已经标记并有证据支持为 `VERIFIED_COMPLETE`；
+2. 唯一 `UNFINISHED` 单元只是现行 canonical execution-record／Result freeze、固定 native 实验、完整 latest-main 全库验证或其他明确依赖特定执行宿主的动作；
+3. 最近一次执行已留下精确 durable frontier 并明确记录当前同类 ChatGPT 执行宿主缺少该能力；
+4. 自该 handoff 后，任务状态、durable frontier、宿主能力以及相关授权没有出现可验证变化；
+
+则客户端不得仅为了再次证明“本宿主仍做不了”而重复创建 CLAIM、重复发布同义 `CONTINUATION`、重跑已经完成的研究或把它误报成 `NO_DISPATCH`。此时准确分类为 `CAPABILITY_MISMATCH_HEAD_OF_LINE`：保留任务为当前 canonical 目标，保留无 owner 状态和已有 frontier，记录所缺能力，等待真正具备该能力的合法执行器。它不是新的 canonical dispatch state，也不改变任务优先级、claimable、数学状态或 Result 状态。
+
+这一规则只抑制**同能力宿主的无信息 claim→release 循环**，不授权客户端人工跳过 canonical selector。若一个能力匹配的执行器随后出现，仍从本轮真实回执和最高 durable frontier 正常领取。同一任务出现新的数学未完单元、前沿变化或能力变化时，也必须重新走普通 canonical 流程。
+
+若该 head-of-line mismatch 持续阻塞其他研究：只有具备当前 source-backed Driver authority 且其 `AUTHORIZE` 含有适用的 typed `research_task_delegation_scope` 时，Driver 才可使用现有 canonical `assigned_research_task` 入口，将**另一个现有当前任务**定向给独立研究员／session；仍需该入口自己的 publication、parent、assignment、CLAIM 和运行时门禁。没有这类明确授权时，不得由研究员、巡检员或普通客户端自行跳过优先级、伪造 `BLOCKED`、修改依赖或建立第二 selector；此时它是需要如实保留的真实宿主能力阻塞。
+
+GOVERNANCE 同理：如果 canonical 治理目标只剩完整 latest-main checkout 中的全库校验，而当前 Driver 宿主没有该环境，应记录 `LOCAL_VALIDATION_PENDING`，不得通过重复 CLAIM／HANDOFF、伪造 review、增加 AUTHORIZE 或把缺 MCP 等同于权限失败来制造进展。Driver 仍继续检查可独立处理的冻结 Result、review/follow-up 和其他已有权限内控制事项。
+
 ## 2. MCP 不是 Driver 写入的唯一执行路径
 
 `control_plane/research_continuation.py::require_review_authority` 在本次核验源码中要求：当前真实声明的执行 session、当前 source-backed ACTIVE Driver authority、授权 source_body 与 reviewer_session_id 精确匹配、显式贡献身份声明且与 Result 作者／贡献者无重叠。它没有要求 session 必须采用 MCP 前缀，也没有要求该函数的调用者只能是 MCP 服务。
@@ -49,5 +66,9 @@ Authority: current `control_plane/current_control_authority.json`, `research_dis
 2026-09-22 的诊断证据：`EMREQ-CTRL-20260921T224737Z-DIAG-ANY-6C91B2`，generated_at `2026-09-21T22:49:12Z`，source `86d11cbe9631dac8b5d4b65f5cbc8cefa3c6a086`，940 条评论／最后 `5768510032`。实际返回 `CLAIM_NEW_OWNER`，目标为 P0 `RS-GOV-FOUNDATION-BACKFLOW / TP2-2C438651496A928ADCB7`。这是当次有治理任务的证据，不是永久任务分配或无条件执行许可。
 
 该目标当次剩余条件是完整 current-main 环境中的四项原有验证及最小传播，不能重做已完成 R004，也不能整体合入旧 PR #444。此环境条件尚未被本次客户端修复消除。
+
+2026-09-22 00:28Z 的新巡检回执 `EMREQ-CTRL-20260922T0026Z-RESEARCH-PATROL-1A6C3E` 再次返回 `CLAIM_NEW_OWNER`，目标 `RS-PCF-RESTRICTED-ROUTES-EXTERNAL-PRIOR-ART-DUPLICATION-AUDIT`。该任务在 5769197761 的已接纳 `CONTINUATION` 中已经冻结：20-row 实质审计为 `VERIFIED_COMPLETE`，唯一未完单元是需要 full-current-source host 的 `GEN2_CURRENT_PUBLICATION_EXECUTION_AND_RESULT_FREEZE`，而当前同类 ChatGPT 宿主明确没有该环境。因此它是本节 `CAPABILITY_MISMATCH_HEAD_OF_LINE` 的首个记录实例；不应继续用同能力宿主循环 CLAIM→CONTINUATION，也不应由研究员自行跳到别的普通任务。
+
+同一轮 `GOVERNANCE` 回执 `EMREQ-CTRL-20260922T0029Z-GOV-PATROL-4D7B2C` 返回 `RS-GOV-FOUNDATION-BACKFLOW`，其当前唯一推进条件仍是完整 latest-main checkout 上四项原有全库 gate 和最小 Foundation/Common-Surface 传播。该事实确认 Driver 当前首先面对的是 `LOCAL_VALIDATION_PENDING` 宿主能力缺口，而不是 MCP-only review authority，也不是“无 Driver 工作”。
 
 验证范围：对固定源码中 `require_review_authority` 的原样函数摘录，以显式测试替身代替 Driver authority，执行 11 项隔离测试；本地与 MCP 格式匹配 session 均可通过，缺授权、空／错 session、缺贡献声明及作者重叠均被拒绝。它仅验证该函数契约，不是全库测试、真实授权验收、正式 review 或 native 实验通过。
