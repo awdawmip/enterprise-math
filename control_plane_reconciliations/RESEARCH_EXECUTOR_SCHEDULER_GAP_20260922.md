@@ -54,3 +54,24 @@ Post-repair classification:
 - GEO6 second-wave exact review-set synthesis/materialization blocker: **UNCHANGED** under `control_plane_reconciliations/GEO6_SECONDWAVE_EXACT_REVIEW_SYNTHESIS_MATERIALIZATION_20260923.md`; do not create a third review.
 
 This resolution changes only scheduler availability. It does not assert that any research task, Result freeze, Driver review, review-intake synthesis, follow-up materialization, Working Truth, Foundation status, or parent objective is complete.
+
+## Recurrence and second minimal repair — 2026-09-23
+
+The next Research executor run correctly opened a fresh TASK_RESEARCH session, refreshed the exact NFHJPA continuation, found the same last-progress-artifact compatibility blocker, left the task unclaimed, and canonically closed session `MCP-61b84de23de746b9aecc58189bbb138b` with `role_authority_remaining=false`. The recurring Research executor was then observed disabled again. This is a scheduler-availability recurrence, not a live CLAIM/lease and not evidence that the global Research queue is empty.
+
+A fresh patrol ordinary-control `status` succeeded and again showed `session_start`, `claim`, `open`, `publish_checkpoint`, `freeze`, `result_write`, `review`, and Driver operations enabled. A fresh RESEARCH dispatch at source `7d393e6f9d7e7061101de9d01402a7e9f575b233` selected NFHJPA with `action=CLAIM_NEW_OWNER`, `dispatch_state=NEEDS_DISPATCH`, `claim_id=null`, and `lease_until=null`. The most recent exact continuation before that dispatch still had the known bare relative `last_progress_ref`, `immutable_external_artifact_candidates=[]`, and `persisted_checkpoint.state=NOT_FOUND`; therefore no Research CLAIM/open/research replay was performed by patrol.
+
+At the same time, a separate current Driver flow registered session `MCP-5547fbe144f84f26afbcc06c0030bb21` / `EM-DVR-37321B` and submitted `driver_activate`. The activation target remained `QUEUED` during this patrol window, so it is treated as live in-flight Driver control work and is not preempted or interpreted as completed authority.
+
+The patrol performed the same minimum scheduler repair again: exactly one existing hourly Research executor was re-enabled. No new scheduler was created and its research prompt was not broadened or rewritten. This repair restores recurring observation/dispatch availability only; it does not claim that the unchanged NFHJPA adapter blocker is resolved.
+
+Second-repair classification:
+
+- Recurring Research executor availability: **VERIFIED_COMPLETE / RESTORED AGAIN**.
+- NFHJPA canonical task: **UNFINISHED / CURRENTLY UNCLAIMED**.
+- NFHJPA last-progress artifact compatibility: **CORRUPT_OR_CONFLICTED / UNCHANGED CONTROL-SOURCE ADAPTER BLOCKER**.
+- Prior Research session `MCP-61b84de23de746b9aecc58189bbb138b`: **VERIFIED_COMPLETE / CLOSED / NO REMAINING ROLE AUTHORITY**.
+- Current Driver session/activation: **IN-FLIGHT / PROTECT; DO NOT ASSUME REVIEW AUTHORITY UNTIL ACTIVATION SUCCEEDS**.
+- Research performed, Result frozen, or Driver review written by this patrol: **NONE**.
+
+If the same NFHJPA packet shape remains unchanged on a later Research run, preserve the blocker without duplicate artifact/prepare/claim attempts. If current Source/canonical continuation changes, re-evaluate from the new durable packet before deciding whether typed continuation can legally proceed.
