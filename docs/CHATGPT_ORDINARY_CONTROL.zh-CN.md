@@ -125,7 +125,7 @@ checkpoint 中 `completed_units`、`do_not_repeat` 是字符串数组；`current
 | `VERIFIED_RESULT_ARTIFACT_REQUIRED` | 从本 Driver continuation 实际读取合法 Result artifact，别直接提交猜测 hash |
 | `*_DISABLED` / 权限或原生准入错误 | 记录具体能力/权限和 Task/未完单元；不伪造授权、不改称 NO_DISPATCH |
 | `OUTCOME_UNKNOWN` / `SUBMIT_UNKNOWN` | 保存原请求及成果；读原 Issue并 reconcile，不以新 ID重复写入 |
-| `receipt_truncated=true` | 用 receipt 分页读取，不把热路径摘要当完整原始材料 |
+| `receipt_truncated=true` | 先检查完整动作摘要标志；证据或不完整动作再按需分页，见 0.6.4 规则 |
 
 状态/错误修复不许可修改历史事件或手造 DA/ER/RR/DR。P000、FREE 防火墙、任务范围、Working Truth/Foundation、作者与验证者区分全部保留。
 
@@ -155,3 +155,12 @@ Follow [PORTABLE_RESEARCH_PROTOCOL.md](PORTABLE_RESEARCH_PROTOCOL.md) for schedu
 新回执以 `delivery_requirements` 公开交付要求，不暴露任何私有 capability。若 `continuation_seed.state=CURRENT_TASK_INPUTS_WITH_NO_RECORDED_OWNER_PROGRESS`，表示当前可信 Source 中的任务初始输入仍未被可验证的 owner 进展替代。读取其 `input_artifacts`，将成功的本会话 `artifact` 请求传给 `continuation_prepare.artifact_request_ids`，并提供真实 `frontier_notes`；此路径的 `completed_units` 必须为空，不能把初始输入当作前任完成成果。仍需匹配 Task/publication/前任 CLAIM/comment 并取得新 CLAIM/open；有活跃 owner 或来源隔离时不得绕过原路线。
 
 已关闭、从未 CLAIM/open 的真实 Researcher 会话也可用自己的 `session_request_id` 和真实 `parent_liveness` 请求 `pre_final`。服务保留 Researcher/RA 类型并复核当前 Source；存在下一研究动作时返回 `final_allowed=false` 和 `next_research_route`，继续研究。这个入口不授予完成状态，也不是伪装为维护会话的退出通道。
+
+
+## 0.6.4：审阅综合、后继任务和完整动作摘要
+
+`review_flow_state`、`review_reference`、`review_synthesize`、`followup_materialize` 通过原私有 GitHub 控制入口调用既有原生程序。四项均使用本 Driver 会话成功读取 Result 的 `result_request_id`；新 Driver 使用自己的真实 session/ACTIVE DA，保留旧审阅者与综合作者，作为当前发布者单独留痕。已有多份 DR 时，依次消费精确审阅集合、两次 reference pass 和 synthesis，随后物化显式后继任务，不补第三份 DR。完整字段和状态见 [Driver 操作表](DRIVER_FLOW_OPERATIONS.md)。服务不自动选择数学判断、空任务集或父目标关闭。
+
+调度或 receipt 回执同时给出 `action_summary_complete=true`、`paging_required_for_selected_action=false` 时，可以依据其中完整保留的 Task/publication、owner/claim/前任、筛选、guard 和所需来源执行下一动作，无需分页读完无关活动历史。此规则优先于旧的通用 receipt_truncated 分页表述。未知动作或过大摘要仍明确标为不完整；实际 Task、Result、review、artifact 证据仍按需要读取完整相关页。
+
+若所选任务已有前任 CLAIM 且规范释放，先读 exact continuation，再走其 `continuation_prepare` 路径；真正 fresh 任务才走普通 `prepare`。队列中其它任务或审阅仍未完成，不是当前有效单元停止的理由。

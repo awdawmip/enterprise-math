@@ -120,3 +120,12 @@ Follow [PORTABLE_RESEARCH_PROTOCOL.md](PORTABLE_RESEARCH_PROTOCOL.md) for schedu
 Public receipts expose `delivery_requirements`, without exposing private capability keys. If `continuation_seed.state=CURRENT_TASK_INPUTS_WITH_NO_RECORDED_OWNER_PROGRESS`, read its `input_artifacts` through this conversation's successful artifact requests. Supply those request IDs and truthful `frontier_notes` to `continuation_prepare`, with `completed_units=[]`. Current task inputs are not evidence of a predecessor's completed work. Exact task/publication/predecessor CLAIM/comment binding, source firewalls and new claim/open admission remain required; an active owner cannot be displaced through this seed route.
 
 A genuinely closed Researcher session that never claimed or opened work may use its own `session_request_id` plus truthful `parent_liveness` for `pre_final`. This preserves its Researcher/RA type and verifies fresh Source state. When another research action exists, the result is `final_allowed=false` with `next_research_route`: continue that action. The path does not declare research complete or relabel the session as maintenance.
+
+
+## 0.6.4: review synthesis, follow-ups and complete action summaries
+
+Use `review_flow_state`, `review_reference`, `review_synthesize` and `followup_materialize` through the same private GitHub inbox; exact fields are in [Driver operations](DRIVER_FLOW_OPERATIONS.md). Each uses the current Driver's successful Result artifact request. A successor uses its own active session/DA, preserving historical authors while recording the current publication actor separately. Existing multiple reviews require their exact-set reference passes and synthesis, then an explicit follow-up spec; do not add a third review. The service does not choose mathematical dispositions or parent closure.
+
+When `action_summary_complete=true` and `paging_required_for_selected_action=false`, the selected action's task/publication, targets, ownership, predecessor CAS, guards, filters and source constraints are complete. Continue that action without paging unrelated activity history even when receipt_truncated is true. Unknown or oversized action shapes remain explicitly incomplete. Actual task, Result, review and artifact evidence must still be read as needed across pages.
+
+Released predecessor claims use exact continuation and `continuation_prepare`; ordinary `prepare` is for genuinely fresh work. Other unfinished tasks or reviews are portfolio work, not a global completion prerequisite for this valid unit.
