@@ -1,0 +1,154 @@
+{
+  "schema": "CFD_TWO_MODE_POLARIZATION_CONSUMER_PROBLEM_V1",
+  "status": "CLASSIFICATION_PROVED_CONSUMER_NOT_IMPLEMENTED",
+  "coefficient_domain": "Q(i), represented by signed integer numerators and nonzero positive denominators",
+  "wavevectors": "k,l in Z^3, k cross l nonzero",
+  "amplitudes": "A,B in Q(i)^3; k dot A=l dot B=0; conjugate partners at negative modes",
+  "spectrum": [
+    [
+      "k",
+      "A"
+    ],
+    [
+      "-k",
+      "conj(A)"
+    ],
+    [
+      "l",
+      "B"
+    ],
+    [
+      "-l",
+      "conj(B)"
+    ]
+  ],
+  "carrier_contract": "No alias. All original modes and both signed cross-frequency pairs are retained. Zero and self outputs are handled explicitly.",
+  "raw_ordered_pair_rule": "i*[q*(u_p dot u_q)-(q dot u_p)*u_q], p+q=m, complex bilinear dot, every ordered pair retained",
+  "outputs": "raw R_m; for nonzero m, sigma_m=(m dot R_m)/|m|^2 and P_m R_m=R_m-m*sigma_m; zero raw is directly checked",
+  "complete_classification": {
+    "single_mode": "A=0 or B=0: zero projected quadratic output",
+    "normal": "Both amplitudes parallel over C to n=k cross l: zero projected quadratic output",
+    "remaining_family": "Only if U=|k|^2=|l|^2: A=alpha*(U*l-s*k+i*tau*n)/Delta, B=beta*(U*k-s*l-i*tau*n)/Delta, alpha,beta nonzero complex, tau real, s=k dot l, Delta=U^2-s^2"
+  },
+  "first_cases": [
+    {
+      "id": "same-support-shear",
+      "k": [
+        "1",
+        "0",
+        "0"
+      ],
+      "l": [
+        "0",
+        "1",
+        "0"
+      ],
+      "A": [
+        "0",
+        "0",
+        "1/2"
+      ],
+      "B": [
+        "0",
+        "0",
+        "1/2"
+      ],
+      "expected": "projected zero, nonzero raw and sigma"
+    },
+    {
+      "id": "same-support-contrast",
+      "k": [
+        "1",
+        "0",
+        "0"
+      ],
+      "l": [
+        "0",
+        "1",
+        "0"
+      ],
+      "A": [
+        "0",
+        "1/2",
+        "0"
+      ],
+      "B": [
+        "0",
+        "0",
+        "1/2"
+      ],
+      "expected": "nonzero projected output at four cross modes"
+    },
+    {
+      "id": "complex-phase-family",
+      "k": [
+        "1",
+        "0",
+        "0"
+      ],
+      "l": [
+        "0",
+        "1",
+        "0"
+      ],
+      "A": [
+        "0",
+        "1",
+        "i"
+      ],
+      "B": [
+        "1",
+        "0",
+        "-i"
+      ],
+      "expected": "projected zero"
+    },
+    {
+      "id": "unequal-length-normal",
+      "k": [
+        "1",
+        "0",
+        "0"
+      ],
+      "l": [
+        "0",
+        "2",
+        "0"
+      ],
+      "A": [
+        "0",
+        "0",
+        "1"
+      ],
+      "B": [
+        "0",
+        "0",
+        "i"
+      ],
+      "expected": "projected zero"
+    }
+  ],
+  "required_negative_cases": [
+    "non-solenoidal input",
+    "collinear wavevectors",
+    "missing cross-frequency retention",
+    "broken conjugacy",
+    "tampered raw or sigma",
+    "wrong parameter or input hash",
+    "unbounded or malformed rational encoding"
+  ],
+  "arithmetic_boundary": "Native quotients and residues use existing BRC facade with traces; integer cross multiplication or explicit unevaluated quotients are permitted. Do not replace complex bilinear coefficients with positive mass.",
+  "hard_target": "Inclusion-minimal sufficient subsets in this fixed menu: factorization for raw R/sigma/projection and exact same-observer/different-output fibers for essential fields. A portable consumer carries the claim; full-menu sufficiency is supplied.",
+  "fixed_contraction_menu": [
+    "Jk=A dot A",
+    "Jl=B dot B",
+    "S=A dot B",
+    "T=A dot conj(B)",
+    "X=(A dot l)B",
+    "Y=(B dot k)A",
+    "Z=(A dot l)conj(B)",
+    "W=(conj(B) dot k)A"
+  ],
+  "base_observer": "k,l and modal energies A dot conj(A), B dot conj(B)",
+  "full_menu_reconstruction": "R_2k=i*k*Jk; R_2l=i*l*Jl; R_(k+l)=i*((k+l)*S-X-Y); R_(k-l)=i*((k-l)*T+Z-W); negative modes by conjugacy; R_0=0"
+}
