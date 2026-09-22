@@ -1,0 +1,42 @@
+# Heartbeat Stage38: finite autonomous packet tapes and coherent winding
+
+Event-ID: brc-heartbeat-autonomous-tape-winding-20260922-6EF011
+Research-Activity-ID: RA-6EF011C2E75C4A799606AFEA
+Status: RESEARCH_CANDIDATE; same-author proof/code/tests, no independent review or Lean.
+Parent standalone:18b1d2f9da75eef15dc8ae7a5e46804b421bb48d. Global read:d9fd5858aab387e1769f8a059eac34085993b793; project read:046bb170404a979099c2e3085f92b2cdd610a0a7. P000 and residual-first unchanged.
+
+Stage38 separates two executable routes. A finite preloaded batch uses one static bounded-range history Hamiltonian, with no mid-run mode switching, clock refresh, intermediate measurement or postselection. A cyclic clock instead retains the nonidentity ordered data product and coherently interfering windings. Neither is called an indefinitely reusable online autonomous processor.
+
+## Finite batch
+
+The exact full-packet identity is (S0,S1,...,Sn)->(Sn,U S0,...,U S[n-1]). Every packet includes its side outputs. It holds for arbitrary coherent/correlated input and references. Using the unchanged Stage34 adjacent routing compiler, a w-wire G-gate source needs nG+w^2*n(n+1)-wn adjacent gates. The inherited four-wire14-gate source gives16n^2+26n. The unchanged Stage36 compiler then emits only two-level physical sites, at most4-site terms and native-path range5. Dirty rows are not assumed blank; their complete wire permutation remains in the result. Stage37 handoff code also executes unchanged as the source transport interface.
+
+For n1/2/4, actual gate lists have42/116/360 gates,344/1404/7220 data cells and1681/6497/31681 clock cells. The static model includes the whole finite order of computation and input-slot exchanges. With L clock edges, all-time-within-window correctness holds over[pi L hbar/(3g),2pi L hbar/(3g)]. Exact unfinished tails are1.09171255746e-107,7.81903574725e-409,2.09336011238e-1982. A known initial convex bad component xi=0.001 yields a total bound strictly ABOVE0.001. These are actual layout/scalar-certificate computations, not full exponentially large state simulations or physical runs. Preparation and hardware scale with batch length; clock reset after the batch is not supplied.
+
+A new exact incremental binomial-tail evaluator retains every term and agrees with the inherited direct sum in1750 finite cases. Forty-bit dyadic clock coefficients are actually generated for all three layouts. With all data-bearing transitions charged at half-angle tangent error<=1e-8, combined whole-batch bounds are0.00100755563822,0.00103014220645,0.00115110910929. The one-head normg must not replace the full unary norm boundg(L+1)/2. Full physical white-tail preparation has a tiny joint eigenvalue and is not implied by locally mixed clock cells.
+
+## Ring residual and observer distinction
+
+For cyclic links G0,...,G(C-1), S=sum|k+1 mod C><k| tensor Gk, H=gamma(S+S-dagger). Exact dressing removes internal links but leaves M=G(C-1)...G0 at closure; S_M^C=I tensor M. The loop product is retained as the actual completed data operation, not rejected because it is nonidentity. Closing clock coordinates does not reset the data. The normal form and spectrum are known unitary-connection/history mathematics, also explicitly covered by the official2026 preprint2608.05748v1; no generic novelty is claimed.
+
+The rational simulator expands exp[-ix(S+S^-1)] into signed Laurent coefficients. For an explicit permutation M, paths are folded modulo each combined clock/data orbit length. COMPLEX AMPLITUDES are added before squaring. The degree-p operator tail is bounded by (2|x|)^(p+1)/(p+1)!/[1-2|x|/(p+2)], with p+2>2|x|. Probability error is delta(2+delta). Raw trace defects are retained, not normalized away. All explicit diagonal input weights are charged. General coherent inputs cannot use the diagonal shortcut.
+
+A four-position ring with M=+I or-I has the same isolated data channel but different clock-return probabilities. At gamma1/4,time4 and initial clock0.9|0><0|+0.1I/4, they are0.10169901620662958545 and0.04688659234336865376. Difference-0.05481242386326093170 is enclosed with radius below7.49e-113 and independently checked at160digits. A data-global phase becomes a relative winding phase; projective channel equivalence is not automatically winding-observer equivalence.
+
+A three-position ring with noncommuting internal X,Z links changes its closing product fromY to cY+sX, c=(1-q^2)/(1+q^2),s=2q/(1+q^2). All these products have exact eigenvalues+1,-1, so the full cyclic Hamiltonian spectrum stays fixed. At q1e-8,time1, a fixed full-rank product input and fixed Y observer change probability by+2.66901501047924018e-10, radius below2.006e-123. A separately assembled six-dimensional160-digit matrix exponential confirms it. Spectrum equality does not identify fixed preparations/observations. This is a model effect, not measured heat or a laboratory signal.
+
+## Finite supply and direction
+
+The complete inherited compressor is a phase-free permutation of order28. A two-packet tape T(A,B)=(B,UA) has order56 and T^2=U tensor U. Its four-position canonical clock has orbit lengths up to224. All1024 initial clock/tape diagonal weights are kept; at time4 the terminal target is0.33032011311009445388 with radius below3.744e-113. A separately coded160-digit Fourier-cycle reference checks this complete diagonal calculation. The canonical ring seam is an effective many-body operator, not claimed to be the locally compiled finite-batch hardware.
+
+Integer powers0..4 of the tape give terminal target probabilities1/3,5/32,5/32,5/16,5/16. The stock is reused rather than refreshed. This discrete period is NOT a period assertion for continuous e^{-itH}. Continuous motion contains forward/backward winding amplitudes, not an externally assumed forward counter. A full-rank coherent clock can carry current: J=i gamma(S-S-dagger) commutes with H, and clock I/C+ib(|0><1|-|1><0|) gives current-2gamma b on an internal edge. Opposite b keeps populations/eigenvalues but reverses current; six exact preparations were checked. Direction is a resource, not proof of irreversible online throughput.
+
+## Executed evidence and cost
+
+Seven frozen cases each have three immutable timing rows. Layout/certificate medians for n1/2/4 are0.009528966/0.035888530/0.290116924seconds. Four-position flip rings at time4/16 take0.014465706/0.021765064seconds; two-packet ring takes0.308337454seconds; scalar-phase comparison0.010734702seconds. Timings exclude imports/serialization, use one BLAS thread, no CPU affinity and no best-solver comparison. Hardware coefficient compilation timings are separate single diagnostics.
+
+2146 main finite assertions pass, including1750 binomial cases,8 complete batch-operator checks,8 correlated full-rank inputs,16 exact Laurent-versus-dense polynomial comparisons, local tensor Hamiltonians and a144-dimensional static full-batch density/energy check. Another21 assertions verify current, exact link spectra and the1024-weight reference. Seven high-precision groups use160digits. All21 original timing rows/seven medians/seven exact candidate cases replay without replacing timings. The initial110-digit reference was too coarse for a3.7e-113 candidate interval; only reference precision was increased. The corrected observation is retained, not called physical residual. All candidate/reference code is by the same author; no external review or Lean.
+
+One configured ordinary arxiv query actually ran via private Issue368,batch5a1e570c-86a9-4f08-96e9-a292af607680. Matched result comment5775397503 has outerFAILED/nestedPARTIAL,3metadata/abstract rows,1provider call,0bridge model calls. Status discrepancy is preserved. The relevant2608.05748v1 was separately read on official HTML SectionsII-III; other two rows were irrelevant. Official0802.0886 and1712.07395 were consulted at abstract/metadata scope. No unseen text or absence-of-prior-art claim.
+
+Next: a bounded finite online controller with explicit direction/turn-count resource, live packet logistics and calibrated whole-stream bounds, or lower-cost unrolled transport. Finite batch autonomy during a run is not an endlessly resettable engine. Nonzero M can be the desired record of prior computation. Full-rank finite resource floors do not become size-independent zero-temperature theorems. No generic quantum simulator or Shor speedup is asserted. Full proof,code,emitted layout,dyadic coefficients and results are in the cumulative standalone bundle; project activity aggregate intake is separate.
