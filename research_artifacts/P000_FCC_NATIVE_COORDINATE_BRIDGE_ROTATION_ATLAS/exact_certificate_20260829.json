@@ -1,0 +1,113 @@
+{
+  "schema": "P000_FCC_NATIVE_COORDINATE_BRIDGE_ROTATION_ATLAS_CERTIFICATE_V1",
+  "task_id": "RS-P000-FCC-NATIVE-COORDINATE-BRIDGE-ROTATION-ATLAS",
+  "publication_id": "TP2-0B7E6C14F3A95D208E61",
+  "researcher_id": "EM-P000FCC-7B4D2A",
+  "claim_id": "chatgpt-p000fcc-20260829-2118-7b4d2a",
+  "execution_base_main": "65d1cae115e648f5154a898cd3ba83a2a2b27223",
+  "terminal_class": "STRICT_PARTIAL_OR_GROUPOID_ATLAS_PROVED",
+  "native_model": {
+    "address_group": "Z^6",
+    "adjacency": "q~q+/-e_i for i=1..6",
+    "l1_degree": 12,
+    "axis_to_carrier_line_frame": {
+      "E1": "L1",
+      "E2": "L3",
+      "E3": "L6",
+      "E4": "L4",
+      "E5": "L5",
+      "E6": "L2"
+    },
+    "native_slice_charts": {
+      "A": ["E1", "E2", "E3"],
+      "B": ["E1", "E4", "E5"],
+      "C": ["E2", "E5", "E6"],
+      "D": ["E3", "E4", "E6"]
+    }
+  },
+  "carrier": {
+    "image_lattice": "D3={(x,y,z) in Z^3: x+y+z even}",
+    "six_lines": {
+      "L1": [1, 1, 0],
+      "L2": [1, -1, 0],
+      "L3": [1, 0, 1],
+      "L4": [1, 0, -1],
+      "L5": [0, 1, 1],
+      "L6": [0, 1, -1]
+    },
+    "slices": {
+      "A": ["L1", "L3", "L6"],
+      "B": ["L1", "L4", "L5"],
+      "C": ["L2", "L3", "L5"],
+      "D": ["L2", "L4", "L6"]
+    },
+    "overlap_transitions": {
+      "AB": {"line": "L1", "orientation_transition": 1},
+      "AC": {"line": "L3", "orientation_transition": 1},
+      "AD": {"line": "L6", "orientation_transition": -1},
+      "BC": {"line": "L5", "orientation_transition": -1},
+      "BD": {"line": "L4", "orientation_transition": 1},
+      "CD": {"line": "L2", "orientation_transition": 1}
+    }
+  },
+  "readout": {
+    "matrix_columns_by_native_axis": [
+      [1, 1, 0],
+      [1, 0, 1],
+      [0, 1, -1],
+      [1, 0, -1],
+      [0, 1, 1],
+      [1, -1, 0]
+    ],
+    "local_l1_map_bijective": true,
+    "global_map_injective": false,
+    "global_map_surjective_onto_D3": true,
+    "regular_covering": true,
+    "deck_group": "ker(A) ~= Z^3",
+    "kernel_basis": [
+      [1, -1, -1, 0, 0, 0],
+      [1, 0, 0, -1, -1, 0],
+      [0, -1, 0, 0, 1, 1]
+    ],
+    "dependent_chart_kernel": [0, 0, 1, -1, 0, 1],
+    "kernel_relation": "K_A-K_B-K_C+K_D=0"
+  },
+  "frame_groupoid": {
+    "unframed_axis_line_bijections": 720,
+    "frames_after_JA_to_SA_set_constraint": 36,
+    "frames_after_JA_to_SA_and_JB_to_SB_set_constraints": 4,
+    "pointwise_anchor_stabilizers_k0_to_k6": [720, 120, 24, 6, 2, 1, 1],
+    "canonical_unframed_bridge": false
+  },
+  "rotation": {
+    "group_order": 24,
+    "distinct_line_permutations": 24,
+    "distinct_slice_permutations": 24,
+    "line_stabilizer_order": 4,
+    "slice_stabilizer_order": 6,
+    "frame_conditioned_lift_composition_checks": 576,
+    "chart_transport_checks": 96,
+    "chart_cocycle_checks": 2304,
+    "chart_transport_tau_counts": {"+1": 48, "-1": 48}
+  },
+  "hcp_regression": {
+    "centrally_symmetric": false,
+    "explicit_missing_antipode": [[1, 1, 1], [-1, -1, -1]],
+    "shell_points_missing_antipodes_count": 6
+  },
+  "promotion_guards": {
+    "fcc_rank_reduces_native_dimension": false,
+    "carrier_antipode_creates_native_axis_equivalence": false,
+    "carrier_kernel_creates_native_equality": false,
+    "continuous_SO3_or_SO6_imported_as_native_truth": false,
+    "hcp_dropped": false,
+    "foundation_or_working_truth_promoted": false
+  },
+  "source_pins_git_blob_sha1": {
+    "research_tasks/P000_FCC_NATIVE_COORDINATE_BRIDGE_ROTATION_ATLAS_SYNTHESIZED_V3_20260829.md": "2a36121fe32bc002268ab5a9e4b4ef34a5694a04",
+    "p000_reality_foundation.json": "2eb853aa6bd2ff7e9f19b5eb4f231cec00a31900",
+    "research_returns/P000_FIRST_SHELL_POLYHEDRON_CLASSIFICATION_RETURN_20260829.md": "ebdba3056bbd7cd7e0391577b7426b9f0733d2e8",
+    "driver_reviews/P000_FIRST_SHELL_POLYHEDRON_DRIVER_REVIEW_AND_COORDINATE_SELECTION_20260829.md": "ed000e9a00bbd99db4761c44e8afbdefbb2715a9",
+    "research_review_syntheses/RR-73C4AC1CB16F08C64FC4/RVS-0333BA126C92B3726D41.json": "6d5956c3afc94a61734350a22231d27b2ed42a37"
+  }
+}
