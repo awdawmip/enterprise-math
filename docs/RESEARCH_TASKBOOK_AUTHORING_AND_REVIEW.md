@@ -24,6 +24,8 @@ The V1 shared-registry path is read-only after cutover. It may be inspected for 
 
 A taskbook is the task-specific research contract. It is not itself task authority.
 
+For task delivery, apply [PORTABLE_RESEARCH_PROTOCOL.md](PORTABLE_RESEARCH_PROTOCOL.md). Specify an answerable research question with exact inputs; place host-specific execution in support work, without making the host a conversation admission requirement. Existing immutable records retain their mathematical scope and provenance.
+
 Freeze:
 
 `TASKBOOK_FILE != PUBLISHED_TASK`.

@@ -1,89 +1,94 @@
-# ��ʱ�ͻ��ˣ����������� Driver ����
+# 定时客户端：无任务误报与 Driver 续接
 
-## ��ͨ ChatGPT ��ֱ����ڣ�2026-09-22��
+## 普通 ChatGPT 的直接入口（2026-09-22）
 
-��ͨ ChatGPT Ĭ��ʹ�� [��ͨ�Ի�����ָ��](CHATGPT_ORDINARY_CONTROL.zh-CN.md) ��˽�� GitHub ������ڣ���Ҫ��ɼ�����Ŀ MCP ������ Source/Python ���������з���������ͬһ�׹淶�Ự��CLAIM��ִ�м�¼��Result �� Driver writer���ͻ��˲�����ȱ checkout/CLI ΪĬ��������Ҳ���ֹ�ƴ����ЩȨ����¼��P000 Ӧ�ӵ�ǰ��Ч�� `awdawmip/chatgpt-global-knowledge` ���ն�ȡ `projects/enterprise-math/P000_REALITY_FOUNDATION.json`����Ҫ�ڱ��ֿ��·����
+普通 ChatGPT 默认使用 [普通对话控制指南](CHATGPT_ORDINARY_CONTROL.zh-CN.md) 的私有 GitHub 请求入口，不要求可见的项目 MCP 或完整 Source/Python 环境。既有服务器运行同一套规范会话、CLAIM、执行记录、Result 和 Driver writer；客户端不再以缺 checkout/CLI 为默认阻塞，也不手工拼接这些权威记录。P000 应从当前有效的 `awdawmip/chatgpt-global-knowledge` 快照读取 `projects/enterprise-math/P000_REALITY_FOUNDATION.json`，不要在本仓库猜路径。
 
-����ڲ������о���ɫ����ѧ����Ȩ����ǰ����������ʷ�������ԡ���Ծ����Ȩ��׼���Ž��ճ�ִ�С��Ѵ��ڵ���Ŀ MCP/native ·���Կ��á���Ҫԭ��ʵ�黷������ѧ��������ȡ����ʵʵ��������֤�ݣ�������ڿ��ò�����ʵ������ɡ�
+该入口不授予研究角色或数学接受权，当前任务、作者历史、独立性、活跃所有权和准入门禁照常执行。已存在的项目 MCP/native 路径仍可用。需要原生实验环境的数学任务仍须取得真实实验能力与证据；控制入口可用不等于实验已完成。
 
 
 Status: `ACTIVE_CLIENT_GUIDANCE / NO_NEW_RUNTIME_AUTHORITY / NO_NEW_MATHEMATICS`
 Effective: `2026-09-22`
-Authority: current `control_plane/current_control_authority.json`, `research_dispatch_contract.json`, `control_plane/research_continuation.py`, and `docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md`. ���Ľ���������ڣ����޸�������Ȩ������֤�ݽ��ɹ��򡣺���Դ�������ȡ�
+Authority: current `control_plane/current_control_authority.json`, `research_dispatch_contract.json`, `control_plane/research_continuation.py`, and `docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md`. 本文解释现有入口，不修改任务、授权、审查或证据接纳规则。后续源码变更优先。
 
-## 1. ֻ�ӱ��ι淶��ִ�ж��Ƿ���ɷ�
+## 1. 只从本次规范回执判断是否可派发
 
-��ͨ ChatGPT ��˽�� `awdawmip/kimi-query-bridge` �ύ `em:control` / `EM_CHAT_CONTROL_V1` ��������һ�� JSON Χ�������ɷ���˵������� `research_control_dispatch.py` ��ȡ��ʵ���������ȶ��� Issue #240 ���ۿ��ա���ȷѡ���ֱ�� MCP/native ·���Կ��ã��� ChatGPT dispatch bridge ��Ϊ��ʽ����ģʽ������Ĭ����ڻ췢������ʡ���¼�������һ����״̬����Ҳ���ð��ϴ����졢���� latest receipt��������ȼ������ѱ���ȡ���ļ�����Ϊ�յ��ɵ�ǰ������֤�ݡ�
+普通 ChatGPT 向私有 `awdawmip/kimi-query-bridge` 提交 `em:control` / `EM_CHAT_CONTROL_V1` 请求（正文一个 JSON 围栏），由服务端调用已有 `research_control_dispatch.py` 并取得实际完整、稳定的 Issue #240 评论快照。明确选择的直接 MCP/native 路径仍可用；旧 ChatGPT dispatch bridge 仅为显式兼容模式，不与默认入口混发。不得省略事件后运行一个空状态机，也不得把上次聊天、共享 latest receipt、最高优先级任务已被领取或文件搜索为空当成当前无任务证据。
 
-Ĭ�ϴ�**ԭ���� Issue**��ȡ `EM_CHAT_CONTROL_RECEIPT_V1`���˶� request_id��conversation_id��operation������������ժҪ���Լ��ڲ� bridge_receipt �� status��Source/�¼����պ� route����� COMPLETE ������ԭ���ɹ������� request ����������ȡ��ֻ����ʽʹ�þ� bridge ʱ�Ŷ� `control_plane/chatgpt_dispatch_receipts/<request_id>.json` �����ɺ�ͬ�˶� source_sha/kind/generated_at��������ʷ������·�����ı䵱ǰĬ����ڡ�
+默认从**原请求 Issue**读取 `EM_CHAT_CONTROL_RECEIPT_V1`，核对 request_id、conversation_id、operation、服务器请求摘要，以及内层 bridge_receipt 的 status、Source/事件快照和 route。外层 COMPLETE 不等于原生成功，发布 request 更不等于领取。只有显式使用旧 bridge 时才读 `control_plane/chatgpt_dispatch_receipts/<request_id>.json` 并按旧合同核对 source_sha/kind/generated_at；后文历史旧请求路径不改变当前默认入口。
 
-�ͻ��˱��뱣���������𣬲����� canonical ״̬�ֶΣ�
+客户端必须保留以下区别，不新增 canonical 状态字段：
 
-| ʵ�ʹ۲� | �����ȡ�Ķ��������� |
+| 实际观察 | 必须采取的动作／报告 |
 |---|---|
-| `CLAIM_NEW_OWNER` | ���ڿ��ɷ�Ŀ�ꣻ�����صľ�ȷ����׼����Ԥ�졢������ʵ CLAIM �������ʤ�ߡ�����˵������ |
-| `PREPARE_SUCCESSOR_CLAIM` | ����ǰ�� durable frontier��׼����ʵ��ִ���ߺ�ǰ�� CAS������������ |
-| `VERIFY_SESSION_LIVENESS` | ���龫ȷ����CLAIM �Ļ������������Ҳ�����Զ���ռ���ɡ� |
-| `SUPPORTED_NATIVE_LANE_ADAPTER_REQUIRED` | ���� lane ����Ȩ��ʹ������ר����ڣ�����ȫ�������� |
-| ���� `NO_DISPATCH` | ֻ��˵����ִ�����ǵ� kind��ָ������ʱ���޿��ɷ�Ŀ�ꡣRESEARCH ������ GOVERNANCE��GOVERNANCE �������񲻵����޴��� RR�� |
-| û�л�ִ����ȡʧ�ܻ������������� | ����ȡ�õ�ǰ״̬��ȱ�ľ�������������д�������� |
-| ��ѡ�����񣬵�ȱ��ʵ��������������֤���� | �������� ID����ȷδ�굥Ԫ��ȱʧ������֤�ݣ���α�� BLOCK��DONE����ð�������� |
+| `CLAIM_NEW_OWNER` | 存在可派发目标；按返回的精确任务准备、预检、发布真实 CLAIM 并核验获胜者。不得说无任务。 |
+| `PREPARE_SUCCESSOR_CLAIM` | 核验前任 durable frontier，准备真实新执行者和前任 CAS；不是无任务。 |
+| `VERIFY_SESSION_LIVENESS` | 核验精确任务／CLAIM 的活动；不是无任务，也不是自动抢占许可。 |
+| `SUPPORTED_NATIVE_LANE_ADAPTER_REQUIRED` | 保留 lane 所有权并使用现行专用入口；不是全局无任务。 |
+| 真正 `NO_DISPATCH` | 只能说明回执所覆盖的 kind／指定任务／时刻无可派发目标。RESEARCH 不等于 GOVERNANCE，GOVERNANCE 无新任务不等于无待审 RR。 |
+| 没有回执、读取失败或运行器不可用 | 报告取得当前状态所缺的具体条件，不能写成无任务。 |
+| 已选中任务，但缺少实验宿主或完整验证环境 | 报告任务 ID、精确未完单元、缺失能力及证据；不伪造 BLOCK／DONE，不冒称无任务。 |
 
-�о�Ա��ͨ�� ANY �� GOVERNANCE �������ȡ�� Driver Ȩ�ޡ�Driver ������鶳�� Result��review��follow-up���ټ�� GOVERNANCE ·�ɣ���������Ŀ��������ϰ�������ֹ���������������������κ��������ѡ���Ա��뾭����ǰ�淶��ڣ������˹����� selector��
+研究员不通过 ANY 或 GOVERNANCE 结果自行取得 Driver 权限。Driver 独立检查冻结 Result／review／follow-up，再检查 GOVERNANCE 路由；单个治理目标的宿主障碍不能阻止核验其他独立待审结果。任何替代任务选择仍必须经过当前规范入口，不能人工另建 selector。
 
-### 1.1 ������ƥ����ظ��ɷ����ǡ��ٴ��о���
+### 1.1 能力不匹配的重复派发不是“再次研究”
 
-������ƥ��� canonical `RESEARCH` ��ִ�ٴη���ͬһ���񣬶����������һ���ѽ��ɵ� durable `CONTINUATION` ��ȷ��������ȫ��������
+若本轮匹配的 canonical `RESEARCH` 回执再次返回同一任务，而该任务最近一次已接纳的 durable `CONTINUATION` 明确满足以下全部条件：
 
-1. ��ѧ�����ף�֤����ʵ���о���Ԫ�Ѿ���ǲ���֤��֧��Ϊ `VERIFIED_COMPLETE`��
-2. Ψһ `UNFINISHED` ��Ԫֻ������ canonical execution-record��Result freeze���̶� native ʵ�顢���� latest-main ȫ����֤��������ȷ�����ض�ִ�������Ķ�����
-3. ���һ��ִ�������¾�ȷ durable frontier ����ȷ��¼��ǰͬ�� ChatGPT ִ������ȱ�ٸ�������
-4. �Ը� handoff ������״̬��durable frontier�����������Լ������Ȩû�г��ֿ���֤�仯��
+1. 数学／文献／证明等实质研究单元已经标记并有证据支持为 `VERIFIED_COMPLETE`；
+2. 唯一 `UNFINISHED` 单元只是现行 canonical execution-record／Result freeze、固定 native 实验、完整 latest-main 全库验证或其他明确依赖特定执行宿主的动作；
+3. 最近一次执行已留下精确 durable frontier 并明确记录当前同类 ChatGPT 执行宿主缺少该能力；
+4. 自该 handoff 后，任务状态、durable frontier、宿主能力以及相关授权没有出现可验证变化；
 
-��ͻ��˲��ý�Ϊ���ٴ�֤�����������������ˡ����ظ����� CLAIM���ظ�����ͬ�� `CONTINUATION`�������Ѿ���ɵ��о�������󱨳� `NO_DISPATCH`����ʱ׼ȷ����Ϊ `CAPABILITY_MISMATCH_HEAD_OF_LINE`����������Ϊ��ǰ canonical Ŀ�꣬������ owner ״̬������ frontier����¼��ȱ�������ȴ������߱��������ĺϷ�ִ�������������µ� canonical dispatch state��Ҳ���ı��������ȼ���claimable����ѧ״̬�� Result ״̬��
+则客户端不得仅为了再次证明“本宿主仍做不了”而重复创建 CLAIM、重复发布同义 `CONTINUATION`、重跑已经完成的研究或把它误报成 `NO_DISPATCH`。此时准确分类为 `CAPABILITY_MISMATCH_HEAD_OF_LINE`：保留任务为当前 canonical 目标，保留无 owner 状态和已有 frontier，记录所缺能力，等待真正具备该能力的合法执行器。它不是新的 canonical dispatch state，也不改变任务优先级、claimable、数学状态或 Result 状态。
 
-��һ����ֻ����**ͬ��������������Ϣ claim��release ѭ��**������Ȩ�ͻ����˹����� canonical selector����һ������ƥ���ִ���������֣��Դӱ�����ʵ��ִ����� durable frontier ������ȡ��ͬһ��������µ���ѧδ�굥Ԫ��ǰ�ر仯�������仯ʱ��Ҳ������������ͨ canonical ���̡�
+这一规则只抑制**同能力宿主的无信息 claim→release 循环**，不授权客户端人工跳过 canonical selector。若一个能力匹配的执行器随后出现，仍从本轮真实回执和最高 durable frontier 正常领取。同一任务出现新的数学未完单元、前沿变化或能力变化时，也必须重新走普通 canonical 流程。
 
-˽�� GitHub �����ԭ�� writer ����������ʵ����ִ�������仯�������ٽ�ƾ ChatGPT ����û�� checkout���� ER/Result �������ù���� mismatch������˲���ִ�еĿ�ѧʵ�顢ȫ����֤������ʵȨ�޴����԰����Ե�ǰ֤�ݱ�����
+私有 GitHub 服务端原生 writer 上线属于真实控制执行能力变化；不能再仅凭 ChatGPT 本地没有 checkout，把 ER/Result 操作永久归入该 mismatch。服务端不能执行的科学实验、全库验证器或真实权限错误仍按各自当前证据保留。
 
-���� head-of-line mismatch �������������о���ֻ�о߱���ǰ source-backed Driver authority ���� `AUTHORIZE` �������õ� typed `research_task_delegation_scope` ʱ��Driver �ſ�ʹ������ canonical `assigned_research_task` ��ڣ���**��һ�����е�ǰ����**����������о�Ա��session�����������Լ��� publication��parent��assignment��CLAIM ������ʱ�Ž���û��������ȷ��Ȩʱ���������о�Ա��Ѳ��Ա����ͨ�ͻ��������������ȼ���α�� `BLOCKED`���޸����������ڶ� selector����ʱ������Ҫ��ʵ��������ʵ��������������
+若该 head-of-line mismatch 持续阻塞其他研究：只有具备当前 source-backed Driver authority 且其 `AUTHORIZE` 含有适用的 typed `research_task_delegation_scope` 时，Driver 才可使用现有 canonical `assigned_research_task` 入口，将**另一个现有当前任务**定向给独立研究员／session；仍需该入口自己的 publication、parent、assignment、CLAIM 和运行时门禁。没有这类明确授权时，不得由研究员、巡检员或普通客户端自行跳过优先级、伪造 `BLOCKED`、修改依赖或建立第二 selector；此时它是需要如实保留的真实宿主能力阻塞。
 
-GOVERNANCE ͬ������� canonical ����Ŀ��ֻʣ���� latest-main checkout �е�ȫ��У�飬����ǰ Driver ����û�иû�����Ӧ��¼ `LOCAL_VALIDATION_PENDING`������ͨ���ظ� CLAIM��HANDOFF��α�� review������ AUTHORIZE ���ȱ MCP ��ͬ��Ȩ��ʧ���������չ��Driver �Լ������ɶ��������Ķ��� Result��review/follow-up ����������Ȩ���ڿ������
+GOVERNANCE 同理：如果 canonical 治理目标只剩完整 latest-main checkout 中的全库校验，而当前 Driver 宿主没有该环境，应记录 `LOCAL_VALIDATION_PENDING`，不得通过重复 CLAIM／HANDOFF、伪造 review、增加 AUTHORIZE 或把缺 MCP 等同于权限失败来制造进展。Driver 仍继续检查可独立处理的冻结 Result、review/follow-up 和其他已有权限内控制事项。
 
-## 2. MCP ���� Driver д���Ψһִ��·��
+## 2. MCP 不是 Driver 写入的唯一执行路径
 
-`control_plane/research_continuation.py::require_review_authority` �ڱ��κ���Դ����Ҫ�󣺵�ǰ��ʵ������ִ�� session����ǰ source-backed ACTIVE Driver authority����Ȩ source_body �� reviewer_session_id ��ȷƥ�䡢��ʽ���������������� Result ���ߣ����������ص�����û��Ҫ�� session ������� MCP ǰ׺��Ҳû��Ҫ��ú����ĵ�����ֻ���� MCP ����
+`control_plane/research_continuation.py::require_review_authority` 在本次核验源码中要求：当前真实声明的执行 session、当前 source-backed ACTIVE Driver authority、授权 source_body 与 reviewer_session_id 精确匹配、显式贡献身份声明且与 Result 作者／贡献者无重叠。它没有要求 session 必须采用 MCP 前缀，也没有要求该函数的调用者只能是 MCP 服务。
 
-����Ⱥ˶Ա���ʵ�ʿ����������������һ�׼�� MCP ��ʹ����ԭ�� session��Driver activation��review ���ߣ��кϷ��������� Source ������ Driver ��ʹ������ԭ����Ȩ���̼� `tools/research_result_records.py review`��������Ϊȱ�� MCP ���߾���������ԭ��·��������Ȩ��������
+因此先核对本次实际可用能力。已连接且获准的 MCP 可使用其原生 session／Driver activation／review 工具；有合法完整本地 Source 环境的 Driver 可使用现行原生授权流程及 `tools/research_result_records.py review`。不能因为缺少 MCP 工具就跳过本地原生路径并宣告权限阻塞。
 
-����·��������ʵȡ�ñ��� Driver ��Ȩ��������ʵִ�лỰ��Դ�������� canonical writer ��ȫ����顣���ðѱ�������αװ�� MCP ����ǩ����ƽ̨��֤���ݣ����ý������� session��ID��key ���ѳ�����Ȩ���������� DA��RR��DR��write_authorization ����ſ��ձ�ǡ�MCP ר������ƾ֤��У����ʵ��ʹ�� MCP ʱ��Ȼ���á�
+本地路径仍须真实取得本次 Driver 授权，保留真实执行会话来源，并运行 canonical writer 的全部检查。不得把本地声明伪装成 MCP 服务签发或平台认证身份；不得借用他人 session、ID、key 或已撤销授权；不得手造 DA、RR、DR、write_authorization 或可信快照标记。MCP 专有能力凭证的校验在实际使用 MCP 时仍然适用。
 
-��ͨ GitHub �Ի���ʹ�÷����ԭ�� writer������ʵ��ԭ����֤��������Ȩ���Բ����ã�׼ȷ��¼ `LOCAL_VALIDATION_PENDING` ��ǰԭ�����󣬲�������ִ�еĻָ����ϡ�����ȷѡ��ı���·�������غϷ����� Source/����ȱʧ���Ǹ�·������ʵ���������ܾݴ˷��ѿ��õķ����·����������Ȩ���������ܽ����޸���ʾ�ʡ����� AUTHORIZE ���ۻ򴴽��� ID ���ƽ��������ɵĶ���֤�����ɱ���Ϊ�ݸ壬���ݸ岻������ʽ review��
+普通 GitHub 对话先使用服务端原生 writer；若其实际原生验证／依赖／权限仍不可用，准确记录 `LOCAL_VALIDATION_PENDING` 或当前原生错误，并保留可执行的恢复资料。对明确选择的本地路径，本地合法完整 Source/依赖缺失仍是该路径的真实条件，不能据此否定已可用的服务端路径。环境／权限阻塞不能仅靠修改提示词、增加 AUTHORIZE 评论或创建新 ID 宣称解决；已完成的独立证据审查可保存为草稿，但草稿不等于正式 review。
 
-## 3. CLAIM ��ɹ����Ӳ����ڸ�ʽ�����ٳɹ�
+## 3. CLAIM 与成果交接不得在格式错误后假成功
 
-ʹ�õ�ǰ�淶������������Ԥ�죬�����ִλ��������ƴ�� Researcher-ID�����������ʵ��������۱��뱻 canonical reducer ����Ϊ��ʤ CLAIM ��ȡ��ִ��Ȩ��ignored CLAIM ����ͨ������ HANDOFF �����Ч����Ȩ��
+使用当前规范身份生成器／预检，不把轮次或多层语义词拼入 Researcher-ID。发布后的真实服务端评论必须被 canonical reducer 接纳为获胜 CLAIM 才取得执行权；ignored CLAIM 不能通过随后的 HANDOFF 变成有效所有权。
 
-�Ա������¼���������ʵ��֧�����棬���������� bytes ����Դ������Ϊ predecessor evidence����׷�ϷǷ�ִ��Ȩ������ʷ��ִ���µĺϷ�ִ��ֻ�����Ѻ���ɹ���������Сδ�굥Ԫ��������ԭ�����뱩¶��ʷ���������Χ�ڿɶ���Ļش�ʱ��ʹ�ù淶 Result writer �Ͷ��� HANDOFF ���� Driver ��飻��������ֻ�� CONTINUATION ������Ӧ�е� Result��
+对被忽略事件关联的真实分支／报告，单独核验其 bytes 与来源，保留为 predecessor evidence，不追认非法执行权或倒填历史回执。新的合法执行只消费已核验成果、续接最小未完单元，并保留原作者与暴露历史。完成任务范围内可冻结的回传时，使用规范 Result writer 和冻结 HANDOFF 进入 Driver 审查；不能永久只发 CONTINUATION 来代替应有的 Result。
 
-��ǰ��ֻʣ�̶� native ʵ�飬��������ɵ���ѧ������µ������о���Ҳ��Ϊ����ÿСʱ������������չ����û����ʵ native ���оͲ������Ѿ�������ͨ����֤��
+若前沿只剩固定 native 实验，不把已完成的数学规格重新当成新研究，也不为满足每小时数量而自行扩展任务。没有真实 native 运行就不声称已经测量或通过验证。
 
-## 4. Ѳ����޸����������
+## 4. 巡检的修复与完成条件
 
-�����޸���֤ʵ�Ŀͻ��˴��󣺴�����ڡ���ʱ��ʾ��request/receipt ���á�����Ԥ����©�ʹ���״̬������������ǰԴ��ȷ��ȱ��ʱ���ύ���ع���֤����С�����޸ģ�������Ȩ�޻򽵵���ѧ�Ž����޸���ֱ𱨸棺������ʾ�ѷ������淶��ִ��ʵ�ʷ��ء�ִ�У�����Ƿ���ɡ�
+优先修复已证实的客户端错误：错误入口、过时提示、request/receipt 混用、身份预检遗漏和错误状态表述。仅当当前源码确有缺陷时才提交带回归验证的最小代码修改，不新增权限或降低数学门禁。修复后分别报告：规则／提示已发布、规范回执已实际返回、执行／审查是否完成。
 
-2026-09-22 �����֤�ݣ�`EMREQ-CTRL-20260921T224737Z-DIAG-ANY-6C91B2`��generated_at `2026-09-21T22:49:12Z`��source `86d11cbe9631dac8b5d4b65f5cbc8cefa3c6a086`��940 �����ۣ���� `5768510032`��ʵ�ʷ��� `CLAIM_NEW_OWNER`��Ŀ��Ϊ P0 `RS-GOV-FOUNDATION-BACKFLOW / TP2-2C438651496A928ADCB7`�����ǵ��������������֤�ݣ�����������������������ִ�����ɡ�
+2026-09-22 的诊断证据：`EMREQ-CTRL-20260921T224737Z-DIAG-ANY-6C91B2`，generated_at `2026-09-21T22:49:12Z`，source `86d11cbe9631dac8b5d4b65f5cbc8cefa3c6a086`，940 条评论／最后 `5768510032`。实际返回 `CLAIM_NEW_OWNER`，目标为 P0 `RS-GOV-FOUNDATION-BACKFLOW / TP2-2C438651496A928ADCB7`。这是当次有治理任务的证据，不是永久任务分配或无条件执行许可。
 
-��Ŀ�굱��ʣ������������ current-main �����е�����ԭ����֤����С������������������� R004��Ҳ������������ PR #444���˻���������δ�����οͻ����޸�������
+该目标当次剩余条件是完整 current-main 环境中的四项原有验证及最小传播，不能重做已完成 R004，也不能整体合入旧 PR #444。此环境条件尚未被本次客户端修复消除。
 
-2026-09-22 00:28Z ����Ѳ���ִ `EMREQ-CTRL-20260922T0026Z-RESEARCH-PATROL-1A6C3E` �ٴη��� `CLAIM_NEW_OWNER`��Ŀ�� `RS-PCF-RESTRICTED-ROUTES-EXTERNAL-PRIOR-ART-DUPLICATION-AUDIT`���������� 5769197761 ���ѽ��� `CONTINUATION` ���Ѿ����᣺20-row ʵ�����Ϊ `VERIFIED_COMPLETE`��Ψһδ�굥Ԫ����Ҫ full-current-source host �� `GEN2_CURRENT_PUBLICATION_EXECUTION_AND_RESULT_FREEZE`������ǰͬ�� ChatGPT ������ȷû�иû�����������Ǳ��� `CAPABILITY_MISMATCH_HEAD_OF_LINE` ���׸���¼ʵ������Ӧ������ͬ��������ѭ�� CLAIM��CONTINUATION��Ҳ��Ӧ���о�Ա�������������ͨ����
+2026-09-22 00:28Z 的新巡检回执 `EMREQ-CTRL-20260922T0026Z-RESEARCH-PATROL-1A6C3E` 再次返回 `CLAIM_NEW_OWNER`，目标 `RS-PCF-RESTRICTED-ROUTES-EXTERNAL-PRIOR-ART-DUPLICATION-AUDIT`。该任务在 5769197761 的已接纳 `CONTINUATION` 中已经冻结：20-row 实质审计为 `VERIFIED_COMPLETE`，唯一未完单元是需要 full-current-source host 的 `GEN2_CURRENT_PUBLICATION_EXECUTION_AND_RESULT_FREEZE`，而当前同类 ChatGPT 宿主明确没有该环境。因此它是本节 `CAPABILITY_MISMATCH_HEAD_OF_LINE` 的首个记录实例；不应继续用同能力宿主循环 CLAIM→CONTINUATION，也不应由研究员自行跳到别的普通任务。
 
-���� PCF ����ȱ���� 00:28Z ����ʷ�������˺�ԭ��ͨ�о��Ի�ͨ���·���������� [Issue 35 �� typed continuation_prepare](https://github.com/awdawmip/kimi-query-bridge/issues/35#issuecomment-5770029180) �� [Issue 37 �Ļ�ʤ CLAIM](https://github.com/awdawmip/kimi-query-bridge/issues/37#issuecomment-5770049300)���ѿ���ô�ԭ��׼��/��ȡ���ƽ׶Ρ������ٰѾɡ�ȱ���� checkout���հ�Ϊ��ǰ������������������ݻ�ִ��֤����ʽ Result �Ѷ��ᡢ���� review ����ɻ��κο�ѧʵ��/ȫ�� gate ��ͨ����
+上述 PCF 宿主缺口是 00:28Z 的历史条件。此后原普通研究对话通过新服务端入口完成 [Issue 35 的 typed continuation_prepare](https://github.com/awdawmip/kimi-query-bridge/issues/35#issuecomment-5770029180) 和 [Issue 37 的获胜 CLAIM](https://github.com/awdawmip/kimi-query-bridge/issues/37#issuecomment-5770049300)，已跨过该次原生准备/领取控制阶段。不得再把旧“缺本地 checkout”照搬为当前控制入口阻塞；这两份回执不证明正式 Result 已冻结、独立 review 已完成或任何科学实验/全库 gate 已通过。
 
-ͬһ�� `GOVERNANCE` ��ִ `EMREQ-CTRL-20260922T0029Z-GOV-PATROL-4D7B2C` ���� `RS-GOV-FOUNDATION-BACKFLOW`���䵱ǰΨһ�ƽ������������� latest-main checkout ������ԭ��ȫ�� gate ����С Foundation/Common-Surface ����������ʵȷ�� Driver ��ǰ������Ե��� `LOCAL_VALIDATION_PENDING` ��������ȱ�ڣ������� MCP-only review authority��Ҳ���ǡ��� Driver ��������
+同一轮 `GOVERNANCE` 回执 `EMREQ-CTRL-20260922T0029Z-GOV-PATROL-4D7B2C` 返回 `RS-GOV-FOUNDATION-BACKFLOW`，其当前唯一推进条件仍是完整 latest-main checkout 上四项原有全库 gate 和最小 Foundation/Common-Surface 传播。该事实确认 Driver 当前首先面对的是 `LOCAL_VALIDATION_PENDING` 宿主能力缺口，而不是 MCP-only review authority，也不是“无 Driver 工作”。
 
-��֤��Χ���Թ̶�Դ���� `require_review_authority` ��ԭ������ժ¼������ʽ������������ Driver authority��ִ�� 11 �������ԣ������� MCP ��ʽƥ�� session ����ͨ����ȱ��Ȩ���գ��� session��ȱ���������������ص������ܾ���������֤�ú�����Լ������ȫ����ԡ���ʵ��Ȩ���ա���ʽ review �� native ʵ��ͨ����
+验证范围：对固定源码中 `require_review_authority` 的原样函数摘录，以显式测试替身代替 Driver authority，执行 11 项隔离测试；本地与 MCP 格式匹配 session 均可通过，缺授权、空／错 session、缺贡献声明及作者重叠均被拒绝。它仅验证该函数契约，不是全库测试、真实授权验收、正式 review 或 native 实验通过。
 
-## 5. ������ǰ��ֻ�� pre_final
+## 5. 检查结束前的只读 pre_final
 
-��ͨ GitHub �Ի�����ǰ��ָ�ϵ��� `pre_final`��������ʵ parent_liveness����ʽ�Ѷ���/��������󶨳ɹ� open/resume �� run_request_id ���Ӧ completion_request_id������ʽ run �� Driver ���Լ��� session_request_id����δ�����о� session ��ά���Ự�ſ���ά��ģʽ�������ȡ `receipt.result.final_allowed` �� `required_action`��false ʱ����ָ��������ע�ᡢfreeze��review��close �� pre_final ���� SUCCEEDED ���������������ջظ�������α���û�ֹͣ��Ӳ���ƻ�Ľ�ɫ���ƹ�ԭ��Ŀ�ꡣ��ѧ��֤����ѧ׼��߽粻�䡣
+普通 GitHub 对话结束前按指南调用 `pre_final`，保留真实 parent_liveness；正式已冻结/交接任务绑定成功 open/resume 的 run_request_id 与对应 completion_request_id，无正式 run 的 Driver 绑定自己的 session_request_id，从未发行研究 session 的维护会话才可用维护模式。必须读取 `receipt.result.final_allowed` 和 `required_action`，false 时继续指定动作。注册、freeze、review、close 或 pre_final 本身 SUCCEEDED 均不单独允许最终回复；不能伪造用户停止、硬限制或改角色来绕过原父目标。科学验证与数学准入边界不变。
+
+
+## Portable research delivery (2026-09-23)
+
+Follow [PORTABLE_RESEARCH_PROTOCOL.md](PORTABLE_RESEARCH_PROTOCOL.md) for scheduled research and task authoring. A missing execution environment does not prevent mathematical reasoning or automatically disable a schedule. Preserve actual pending native checks and publish a precise portable next question.

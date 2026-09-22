@@ -58,3 +58,8 @@ At the end of an ordinary GitHub interaction, use the guide's read-only `pre_fin
 P000, FREE information barriers, exact task scope, author/independent-review distinctions and Working Truth/Foundation/promotion gates remain unchanged. New identity is not evidence of independence. Pre-cutover RR/DR bytes keep their original audits; prospective records need payload-bound current-write authorization. See the [protocol](RESEARCH_CONTINUATION_PROTOCOL.md) and [Chinese guide](CONTINUE_RESEARCH.zh-CN.md).
 
 The current MCP successor interface handles task-global CLAIMs. If a packet returns `SUPPORTED_NATIVE_LANE_ADAPTER_REQUIRED`, preserve the existing cohort/lane authority and use its native dedicated adapter; never substitute the global task interface.
+
+
+## Portable research delivery (2026-09-23)
+
+Follow [PORTABLE_RESEARCH_PROTOCOL.md](PORTABLE_RESEARCH_PROTOCOL.md) for scheduled research and task authoring. A missing execution environment does not prevent mathematical reasoning or automatically disable a schedule. Preserve actual pending native checks and publish a precise portable next question.
