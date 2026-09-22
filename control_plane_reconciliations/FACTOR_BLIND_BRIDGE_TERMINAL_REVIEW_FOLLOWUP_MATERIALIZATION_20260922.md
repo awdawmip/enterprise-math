@@ -41,3 +41,11 @@ A successful recovery is one of:
 2. an explicit current-source control decision showing why this review is nonoperational, with the exact fault isolated without rewriting the mathematical disposition.
 
 Until then: `REVIEW_VERIFIED_COMPLETE / FOLLOWUP_MATERIALIZATION_UNFINISHED / NO_DUPLICATE_REVIEW`.
+
+## CURRENT RECHECK — 2026-09-22T11:34Z
+
+Rechecked current `main` immediately before this control-only update. The exact Result review directory contains three durable review records: `DR-B819FB64CA4E7836CA35`, `DR-BC224E4802009728727F`, and `DR-DD72EC82270666345509`. The post-cutover immutable review `DR-B819FB64CA4E7836CA35` remains present and current; its follow-up directory `research_driver_followups/DR-B819FB64CA4E7836CA35/` is still absent.
+
+Current Source exposes the canonical materialization implementation through `research_driver_followup.py::materialize(...)`, with rollback-safe Task-scope materialization routed through `control_plane/research_driver_followup_transaction.py::materialize(...)`. The ordinary-control capability receipt `status-20260922T1126Z-7f8c2a1e` reports `review`, `driver_publish`, `continuation`, `reconcile`, and related operations enabled, but exposes no `followup`, `materialize`, or `synthesize` operation. Therefore the current blocker is narrowed to `ORDINARY_CONTROL_FOLLOWUP_MATERIALIZATION_ADAPTER_MISSING_FOR_EXISTING_REVIEW`: canonical Source has the writer, but the ordinary-control host has no admitted operation to invoke it for this already-existing review without creating a duplicate review.
+
+Recovery remains: do not create another review and do not handcraft a packet. The next canonical action is to expose or invoke a Driver-authority-gated adapter for the existing Source materialize/synthesis path, then read back `research_driver_followup.state_for_review(DR-B819FB64CA4E7836CA35)` and the continuation projection. This control-only recheck grants no mathematical acceptance, no parent closure, no successor publication, and no runtime authority.
