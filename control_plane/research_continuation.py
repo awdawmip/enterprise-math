@@ -652,7 +652,7 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
             "capability_required": ("No computation or new research is required to consume completed records."
                 if state.get("dispatch_state") == "COMPLETE" else
                 "Use the authorized Source control adapter for the selected action. A client checkout or local runtime is not a general research prerequisite; perform eligible self-contained reasoning in scope and leave task-specific unexecuted computation explicitly pending."),
-            "capability_requirements": {"local_environment_is_global_start_gate": False,
+            "delivery_requirements": {"local_environment_is_global_start_gate": False,
                 "next_action": state.get("next_action"),
                 "scientific_compute": "NOT_REQUIRED_FOR_COMPLETED_RECORD_CONSUMPTION" if state.get("dispatch_state") == "COMPLETE" else "ONLY_WHEN_REQUIRED_BY_THE_EXACT_TASK_STEP",
                 "missing_validator": "PENDING_VALIDATION_OR_SUPPORT_REQUEST_NOT_FABRICATED_PASS",

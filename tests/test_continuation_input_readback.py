@@ -94,8 +94,8 @@ class InputReadbackTests(unittest.TestCase):
     def test_completed_record_consumption_has_no_compute_prerequisite(self):
         self.runtime['dispatch_state'] = 'COMPLETE'
         packet = self.packet()
-        self.assertFalse(packet['capability_requirements']['local_environment_is_global_start_gate'])
-        self.assertEqual('NOT_REQUIRED_FOR_COMPLETED_RECORD_CONSUMPTION', packet['capability_requirements']['scientific_compute'])
+        self.assertFalse(packet['delivery_requirements']['local_environment_is_global_start_gate'])
+        self.assertEqual('NOT_REQUIRED_FOR_COMPLETED_RECORD_CONSUMPTION', packet['delivery_requirements']['scientific_compute'])
 
     def test_declared_main_dependencies_and_blob_inputs_are_readable_and_exact(self):
         dependency = 'research_returns/previous.md'

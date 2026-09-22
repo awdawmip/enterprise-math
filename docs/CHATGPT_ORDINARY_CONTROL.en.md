@@ -114,3 +114,9 @@ Before the final-channel response, submit read-only `pre_final` through this sam
 ## Portable research delivery (2026-09-23)
 
 Follow [PORTABLE_RESEARCH_PROTOCOL.md](PORTABLE_RESEARCH_PROTOCOL.md) for scheduled research and task authoring. A missing execution environment does not prevent mathematical reasoning or automatically disable a schedule. Preserve actual pending native checks and publish a precise portable next question.
+
+## Continuation repair additions (2026-09-23)
+
+Public receipts expose `delivery_requirements`, without exposing private capability keys. If `continuation_seed.state=CURRENT_TASK_INPUTS_WITH_NO_RECORDED_OWNER_PROGRESS`, read its `input_artifacts` through this conversation's successful artifact requests. Supply those request IDs and truthful `frontier_notes` to `continuation_prepare`, with `completed_units=[]`. Current task inputs are not evidence of a predecessor's completed work. Exact task/publication/predecessor CLAIM/comment binding, source firewalls and new claim/open admission remain required; an active owner cannot be displaced through this seed route.
+
+A genuinely closed Researcher session that never claimed or opened work may use its own `session_request_id` plus truthful `parent_liveness` for `pre_final`. This preserves its Researcher/RA type and verifies fresh Source state. When another research action exists, the result is `final_allowed=false` with `next_research_route`: continue that action. The path does not declare research complete or relabel the session as maintenance.

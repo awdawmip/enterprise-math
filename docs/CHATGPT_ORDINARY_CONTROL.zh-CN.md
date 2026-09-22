@@ -149,3 +149,9 @@ checkpoint 中 `completed_units`、`do_not_repeat` 是字符串数组；`current
 ## Portable research delivery (2026-09-23)
 
 Follow [PORTABLE_RESEARCH_PROTOCOL.md](PORTABLE_RESEARCH_PROTOCOL.md) for scheduled research and task authoring. A missing execution environment does not prevent mathematical reasoning or automatically disable a schedule. Preserve actual pending native checks and publish a precise portable next question.
+
+## 2026-09-23 续接修复补充
+
+新回执以 `delivery_requirements` 公开交付要求，不暴露任何私有 capability。若 `continuation_seed.state=CURRENT_TASK_INPUTS_WITH_NO_RECORDED_OWNER_PROGRESS`，表示当前可信 Source 中的任务初始输入仍未被可验证的 owner 进展替代。读取其 `input_artifacts`，将成功的本会话 `artifact` 请求传给 `continuation_prepare.artifact_request_ids`，并提供真实 `frontier_notes`；此路径的 `completed_units` 必须为空，不能把初始输入当作前任完成成果。仍需匹配 Task/publication/前任 CLAIM/comment 并取得新 CLAIM/open；有活跃 owner 或来源隔离时不得绕过原路线。
+
+已关闭、从未 CLAIM/open 的真实 Researcher 会话也可用自己的 `session_request_id` 和真实 `parent_liveness` 请求 `pre_final`。服务保留 Researcher/RA 类型并复核当前 Source；存在下一研究动作时返回 `final_allowed=false` 和 `next_research_route`，继续研究。这个入口不授予完成状态，也不是伪装为维护会话的退出通道。
