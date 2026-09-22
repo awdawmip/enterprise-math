@@ -31,6 +31,15 @@
   "physical_time_calibration_claimed": false,
   "canonical_sources": ["p000_reality_foundation.json", "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md", "definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json"],
   "human_definition": "definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.md",
+  "heartbeat_snapshot_semantics": {
+    "effective": "2026-09-22",
+    "status": "ACTIVE_PROVISIONAL_DIRECT_USER_NAMING",
+    "machine_contract": "definitions/HEARTBEAT_SELF_CONSISTENT_INSTANT_V0_1.json",
+    "human_definition": "definitions/HEARTBEAT_SELF_CONSISTENT_INSTANT_V0_1.md",
+    "heartbeat_is": "ONE_GLOBAL_SELF_CONSISTENT_INSTANTANEOUS_STATE_IN_DECLARED_SCOPE",
+    "heartbeat_is_not": ["SOLVER_ITERATION", "FIXED_TIME_QUANTUM", "AUTOMATIC_GROUND_STATE", "PREASSIGNED_ANGLE_STEP"],
+    "preexisting_world_axioms_unchanged": true
+  },
   "invariants": [
     "HEARTBEAT_WORLD=ENTERPRISE_NATIVE_X6_SPACE_PLUS_ONE_TIME_DIMENSION",
     "WORLD_DIMENSION=7;SPATIAL_AXES=6;TIME_AXES=1",
