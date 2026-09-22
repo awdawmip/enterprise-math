@@ -1,13 +1,50 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-CEA756CC3E2849788E9DA07D",
-  "registration_key": "session:chat-heartbeat-continuation-20260923-cea756cc:TASK_RESEARCH",
-  "registration_origin": {"kind": "LIVE_SESSION", "source_tracking_key": null},
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "91c781486535534c01995fbfe0a8faaf44a65bf1",
+          "path": "research_notes/HEARTBEAT43B_FORMATION_READOUT_20260923_CEA756CC.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "8aca1ce0cf97f5eb1d5cd51932640de23aaf7cbb53453a420c83b92d65603302",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "e7af94cb2301baea0f2c0fcfc6a6f2903faac89a",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/91c781486535534c01995fbfe0a8faaf44a65bf1/research_notes/HEARTBEAT43B_FORMATION_READOUT_20260923_CEA756CC.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "local-heartbeat43b-source-turn26",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-CEA756CC3E2849788E9DA07D/readbacks/c354f001b57fda6a0980c792846c129b9cee4971c096bf1ac6280fed5616d1a0.json",
+          "verification_receipt_sha256": "c354f001b57fda6a0980c792846c129b9cee4971c096bf1ac6280fed5616d1a0"
+        }
+      ],
+      "event_id": "heartbeat-formation-readout-20260923-CEA756CC",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
   "mode": "TASK_RESEARCH",
-  "researcher_id": "EM-CHATGPT-CEA756CC",
-  "session_id": "chat-heartbeat-continuation-20260923-cea756cc",
-  "session_state": "KNOWN",
   "recorded_at": "2026-09-23T03:47:17.493301+08:00",
-  "authority": {"task_registration": false, "claim": false, "review": false, "working_truth": false, "mathematical_acceptance": false},
-  "checkpoints": []
+  "registration_key": "session:chat-heartbeat-continuation-20260923-cea756cc:TASK_RESEARCH",
+  "registration_origin": {
+    "kind": "LIVE_SESSION",
+    "source_tracking_key": null
+  },
+  "researcher_id": "EM-CHATGPT-CEA756CC",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
+  "session_id": "chat-heartbeat-continuation-20260923-cea756cc",
+  "session_state": "KNOWN"
 }
