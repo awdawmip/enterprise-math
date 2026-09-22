@@ -17,6 +17,17 @@ IDs, Result hash, exact review set and Source commits are derived by the service
 | `review_synthesize` | Explicit `disposition`, `rationale`, `destination_class`; optional `destination_ref_or_none`. Both exact-set reference passes are required. |
 | `followup_materialize` | The own successful `driver_publish` request as `publication_request_id`, plus `followup_spec_filename`. The spec must contain the explicit native gates and Task/closure decision. |
 
+`review_reference.independence_status` is a closed native enum, not free text. The
+only accepted literals are `CLEAN_INDEPENDENT_CONTEXT`,
+`SHARED_CONTROL_CONTEXT_DISCLOSED`, `NOT_INDEPENDENT`, and `NOT_APPLICABLE`, exactly
+as defined by `research_review_evidence_store.py::INDEPENDENCE`. The current Driver
+must choose the literal that is factually supported by its real contribution and
+context history. A fresh conversation, session, or Driver ID never by itself
+justifies `CLEAN_INDEPENDENT_CONTEXT`; known overlap must remain disclosed. An
+`INVALID_REFERENCE_INDEPENDENCE` response means the payload literal is outside
+this native set (or otherwise failed the adapter contract), not that the Result or
+existing immutable reviews should be replayed.
+
 For multiple existing reviews, read state, complete only the next missing pass,
 then synthesize and materialize. Existing immutable records survive a new Driver
 session/conversation. Read and consume prior steps instead of overwriting them.
