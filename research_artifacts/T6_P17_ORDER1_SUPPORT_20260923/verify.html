@@ -1,0 +1,6 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>T6 r1 exact certificate</title>
+<body><h1>T6 p17 / order1 / r1</h1><p>Select portable_input.json and certificate.json. All mathematical arithmetic uses BigInt. No network or local SDK is required.</p>
+<label>Input <input id="input" type="file"></label><label>Certificate <input id="cert" type="file"></label><button id="run">Verify exact proof</button><pre id="out"></pre>
+<script src="verify_portable.js"></script><script>
+document.getElementById('run').onclick=async()=>{const out=document.getElementById('out');try{out.textContent='Verifying…';const text=await document.getElementById('input').files[0].text();const cert=JSON.parse(await document.getElementById('cert').files[0].text());const bytes=new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text)));const hash=Array.from(bytes,x=>x.toString(16).padStart(2,'0')).join('');if(hash!==cert.portable_input_sha256)throw new Error('Input digest mismatch');out.textContent=JSON.stringify(verifyR1(JSON.parse(text),cert),null,2);}catch(e){out.textContent='REJECTED: '+e.message;}};
+</script></body></html>
