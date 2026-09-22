@@ -1,0 +1,53 @@
+{
+  "schema": "HEARTBEAT_MASS_REFINEMENT_VALIDATION_V1",
+  "recorded_at": "2026-09-22T11:42:36.073148+00:00",
+  "source_parent_bundle": "ba7b196e5ec2dfda91966428cdd80cf91258e078",
+  "remote_read_snapshot": "88a7bf00ea111fc05a77a2ee3345101d2a2aad44",
+  "global_read_snapshot": "d9fd5858aab387e1769f8a059eac34085993b793",
+  "activity_id": "RA-3FE0C38AD2914DE0849E98AB902CA640",
+  "new_tests": 21,
+  "inherited_tests": 202,
+  "all_tests": 223,
+  "new_tests_result": "PASS",
+  "prior_full_local_replay_result": "PASS",
+  "final_fresh_replay": "PENDING",
+  "full_repository_tests": false,
+  "independent_review": false,
+  "lean": false,
+  "nollm_production_changed": false,
+  "source_files": {
+    "src/enterprise_math/heartbeat_mass_refinement.py": {
+      "sha256": "12223840ccc50a48272e85f60b7334d8bab1581152df7cdbc025d2729656a624",
+      "git_blob": "933d33ad88adf27fb74941d1daee0375da2f6e29"
+    },
+    "tests/test_heartbeat_mass_refinement.py": {
+      "sha256": "91247b0f5373f9e29d5d823daeb67ddd8e019c1fa344ced514cb46555ddd01d2",
+      "git_blob": "8371c7060fcb78c5169e4c5ccc680eae2c695dd1"
+    },
+    "research_method_inventory_addenda/20260922_heartbeat_mass_refinement_AD0416.json": {
+      "sha256": "78eadc7b8be7250781d4cb6393c3813c83fa4c0fe3e58cb8cc7fb21a4fa749d6",
+      "git_blob": "9153a3c43a640e7413566c1d8a6d0628b4b9577e"
+    },
+    "research_notes/heartbeat_mass_refinement_20260922_AD0416/RESEARCH_NOTE.md": {
+      "sha256": "9e12cc7b8a5f474b6cbcd711c0fb506e37f96b49eaaa81148ba6b9d96b8a6724",
+      "git_blob": "09a6d76c9b0025552622af91cb88ce144c8d1f5d"
+    },
+    "research_notes/heartbeat_mass_refinement_20260922_AD0416/THEOREM_LEDGER.json": {
+      "sha256": "39824680a0e9c92c7ae2f037f500d6c6c09968c582219297d0e472cacb2b22fb",
+      "git_blob": "6fce3b647dd4e1340b98b85f255e60d4d16d4be2"
+    },
+    "research_notes/heartbeat_mass_refinement_20260922_AD0416/RESULTS.json": {
+      "sha256": "d0e8ef99fbef5323cef3352dd170219659a63cb72fd2924587c3ce471dcdf4d8",
+      "git_blob": "8620c737c30e31536fa797129903611b68a2b78e"
+    },
+    "research_notes/heartbeat_mass_refinement_20260922_AD0416/LITERATURE_METADATA.json": {
+      "sha256": "2b26e92eb5dcf1c2de7769d78bb53517fdf9ee531f54cd12ee482e0aa8ef3932",
+      "git_blob": "f59125ae6089657fe3a90f9416a4f26815036b14"
+    },
+    "research_notes/heartbeat_mass_refinement_20260922_AD0416/LITERATURE_EXECUTION.json": {
+      "sha256": "acdcb4e55a82780b1bb6234a8f5091cafb6ff9f60ff76adc940f9a2e308d3db6",
+      "git_blob": "b676f645aa1d8112a72ff4ae19338db1523dab43"
+    }
+  },
+  "proof_scope": "One guarded digit above a supplied seed; fixed ports and probability law; no infinite-lift termination or raw atom-word equivalence."
+}

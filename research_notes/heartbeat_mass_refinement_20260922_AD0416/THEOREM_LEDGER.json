@@ -1,0 +1,92 @@
+{
+  "schema": "HEARTBEAT_MASS_REFINEMENT_THEOREM_CANDIDATES_V1",
+  "date": "2026-09-22",
+  "world_id": "HEARTBEAT_WORLD",
+  "status": "EXPLICIT_SCOPED_PROOFS_NOT_FOUNDATION",
+  "theorems": [
+    {
+      "id": "HBW-MR-001",
+      "name_zh": "细化作用类质量的完整一位匹配",
+      "statement": "Full kernel preservation is equivalent to a mass-profile-preserving permutation of action germs. Refine before matching; the union of all compatible shared-frame one-digit lift components is complete and disjoint for the fixed seed.",
+      "assumptions": [
+        "fixed prime and native X6 or explicitly repeated-block diagnostic",
+        "fixed control ports, finite nonsingular integer actions, positive exact row law",
+        "fixed supplied seed at precision m+C; arrow-boundary linear carry observer"
+      ],
+      "proof_ref": "research_notes/heartbeat_mass_refinement_20260922_AD0416/RESEARCH_NOTE.md#mr001",
+      "test_ref": "tests/test_heartbeat_mass_refinement.py::test_04_split_mass_obstruction",
+      "status": "RESEARCH_CANDIDATE",
+      "independent_review": false
+    },
+    {
+      "id": "HBW-MR-002",
+      "name_zh": "全匹配的一位修复纤维为仿射空间",
+      "statement": "A nonempty complete one-digit fiber of the weighted-germ stabilizer is an affine F_p frame space, including permutations of new germ classes; its cardinality is p^d. Equal hull/component cardinalities give a finite coverage certificate.",
+      "assumptions": [
+        "fixed prime and native X6 or explicitly repeated-block diagnostic",
+        "fixed control ports, finite nonsingular integer actions, positive exact row law",
+        "fixed supplied seed at precision m+C; arrow-boundary linear carry observer"
+      ],
+      "proof_ref": "research_notes/heartbeat_mass_refinement_20260922_AD0416/RESEARCH_NOTE.md#mr002",
+      "test_ref": "tests/test_heartbeat_mass_refinement.py::test_07_changing_matching_adds_dimension",
+      "status": "RESEARCH_CANDIDATE",
+      "independent_review": false
+    },
+    {
+      "id": "HBW-MR-003",
+      "name_zh": "质量分裂与共同几何两类障碍",
+      "statement": "Mismatching child mass-profile multisets prohibit every lift above that seed before geometric solving. Matching profiles can still fail all joint finite-field systems; yD=0,yr!=0 is a separate geometric witness.",
+      "assumptions": [
+        "fixed prime and native X6 or explicitly repeated-block diagnostic",
+        "fixed control ports, finite nonsingular integer actions, positive exact row law",
+        "fixed supplied seed at precision m+C; arrow-boundary linear carry observer"
+      ],
+      "proof_ref": "research_notes/heartbeat_mass_refinement_20260922_AD0416/RESEARCH_NOTE.md#mr003",
+      "test_ref": "tests/test_heartbeat_mass_refinement.py::test_05_geometric_obstruction",
+      "status": "RESEARCH_CANDIDATE",
+      "independent_review": false
+    },
+    {
+      "id": "HBW-MR-004",
+      "name_zh": "固定动作表的有限碰撞截止层",
+      "statement": "For a finite fixed action table, all non-scalar germ collisions end at finite depth computed from the relative normalized matrix minus I. This does not bound symmetry-lift lifetime.",
+      "assumptions": [
+        "fixed prime and native X6 or explicitly repeated-block diagnostic",
+        "fixed control ports, finite nonsingular integer actions, positive exact row law",
+        "fixed supplied seed at precision m+C; arrow-boundary linear carry observer"
+      ],
+      "proof_ref": "research_notes/heartbeat_mass_refinement_20260922_AD0416/RESEARCH_NOTE.md#mr004",
+      "test_ref": "tests/test_heartbeat_mass_refinement.py::test_13_finite_collision_horizon",
+      "status": "RESEARCH_CANDIDATE",
+      "independent_review": false
+    },
+    {
+      "id": "HBW-MR-005",
+      "name_zh": "精度细化下概率核残差的单调性",
+      "statement": "For a fixed actual frame and probability law, each source-row total variation of action-germ mass is nondecreasing under precision refinement; it is not the first-hit probability defect.",
+      "assumptions": [
+        "fixed prime and native X6 or explicitly repeated-block diagnostic",
+        "fixed control ports, finite nonsingular integer actions, positive exact row law",
+        "fixed supplied seed at precision m+C; arrow-boundary linear carry observer"
+      ],
+      "proof_ref": "research_notes/heartbeat_mass_refinement_20260922_AD0416/RESEARCH_NOTE.md#mr005",
+      "test_ref": "tests/test_heartbeat_mass_refinement.py::test_14_defect_refinement_monotonicity",
+      "status": "RESEARCH_CANDIDATE",
+      "independent_review": false
+    },
+    {
+      "id": "HBW-MR-006",
+      "name_zh": "概率分裂风险见证与BRC保持",
+      "statement": "In the stopped repeated-block X6 witness, risk agrees at R=2 (1/7) but becomes457/11702 versus1/26 atR=3; first-time mass differs at tick5. Exact scalar copies preserve aggregate mass symmetry without an atomwise weight bijection; inherited weighted-row certification gives all-time BRC first-hit preservation.",
+      "assumptions": [
+        "fixed prime and native X6 or explicitly repeated-block diagnostic",
+        "fixed control ports, finite nonsingular integer actions, positive exact row law",
+        "fixed supplied seed at precision m+C; arrow-boundary linear carry observer"
+      ],
+      "proof_ref": "research_notes/heartbeat_mass_refinement_20260922_AD0416/RESEARCH_NOTE.md#mr006",
+      "test_ref": "tests/test_heartbeat_mass_refinement.py::test_16_risk_appears_after_class_split",
+      "status": "RESEARCH_CANDIDATE",
+      "independent_review": false
+    }
+  ]
+}

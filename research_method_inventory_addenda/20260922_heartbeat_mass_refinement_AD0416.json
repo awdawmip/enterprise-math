@@ -1,0 +1,68 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "date": "2026-09-22",
+  "methods": [
+    {
+      "method_id": "t0.brc_mass_class_congruence_lift",
+      "name": "Heartbeat aggregate action-mass class refinement and joint frame lifting",
+      "family_id": "T0_BRC",
+      "classification": "GLOBAL_SUBTOOL",
+      "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+      "api": [
+        "KernelTerm",
+        "GermMassClass",
+        "MassKernel",
+        "MassLiftSeed",
+        "SplitMassObstruction",
+        "ClassLiftComponent",
+        "MassLiftResult",
+        "germ_mass_classes",
+        "lift_mass_seed",
+        "lift_mass_family",
+        "collision_horizon",
+        "mass_germ_defect",
+        "JointMassLiftSpace",
+        "compress_mass_lifts"
+      ],
+      "source_refs": [
+        "src/enterprise_math/heartbeat_mass_refinement.py",
+        "tests/test_heartbeat_mass_refinement.py",
+        "research_notes/heartbeat_mass_refinement_20260922_AD0416/RESEARCH_NOTE.md",
+        "research_notes/heartbeat_mass_refinement_20260922_AD0416/THEOREM_LEDGER.json"
+      ],
+      "triggers": [
+        "mass class lifting",
+        "changing frame matching",
+        "joint refinement obstruction",
+        "aggregate branch mass symmetry"
+      ],
+      "capabilities": [
+        "refine whole-domain action germs before mass-profile matching",
+        "complete one-digit shared-frame affine union under declared matching budget",
+        "compress complete mass-lift fibers to one certified affine space",
+        "explicit mass-split versus geometric obstruction",
+        "finite action collision horizon",
+        "monotone per-source mass defect diagnostic"
+      ],
+      "reuse_resolution": {
+        "state": "EXTEND_EXISTING_TOOL / REUSE_EXECUTED",
+        "methods": [
+          "t0.brc_guarded_congruence_lift",
+          "t0.brc_online_peak_symmetry",
+          "t0.brc_exact_carry_peak"
+        ],
+        "gap": "Prior fixed atom matching is too strong for equal aggregate class mass and cannot cover changing fine-class correspondences."
+      },
+      "theorem_refs": [
+        "HBW-MR-001",
+        "HBW-MR-002",
+        "HBW-MR-003",
+        "HBW-MR-004",
+        "HBW-MR-005",
+        "HBW-MR-006"
+      ],
+      "hard_boundary": "Fixed supplied low seeds and ports, rational stochastic atom law, integer linear macro-actions, fixed p and boundary carry observer. No all-GL6 or raw-atom-word equivalence, infinite-lift termination, multi-digit single affine promise, or reinterpretation of repair counts as probability."
+    }
+  ]
+}
