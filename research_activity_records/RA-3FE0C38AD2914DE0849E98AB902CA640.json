@@ -18,5 +18,33 @@
     "working_truth": false,
     "mathematical_acceptance": false
   },
-  "checkpoints": []
+  "checkpoints": [
+    {
+      "event_id": "heartbeat-mass-refinement-20260922-AD0416",
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "kb_sources": [],
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "89811cc126b77d4d4fd226757c1ef6c500df3713",
+          "path": "research_notes/heartbeat_mass_refinement_20260922_AD0416/VALIDATION.json",
+          "sha256": "4ee2658f864d6831e845c8214b68ec19eae816529f11dad0f10506c67de92d58",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "observation_id": "local-hb-mass-refinement-readback-20260922-01",
+            "call_id": null,
+            "git_blob_sha1": "18b1cb7b088d58727dc83f99df150e0a0cd89be8",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/89811cc126b77d4d4fd226757c1ef6c500df3713/research_notes/heartbeat_mass_refinement_20260922_AD0416/VALIDATION.json",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false
+          },
+          "verification_receipt": "research_activity_records/RA-3FE0C38AD2914DE0849E98AB902CA640/readbacks/6ecbd6d5318cd093ab397fe05909325d9eb7334ffc99c53eeb581829ae484d61.json",
+          "verification_receipt_sha256": "6ecbd6d5318cd093ab397fe05909325d9eb7334ffc99c53eeb581829ae484d61"
+        }
+      ]
+    }
+  ]
 }
