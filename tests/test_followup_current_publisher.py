@@ -278,5 +278,27 @@ class CurrentPublisherBindingTests(unittest.TestCase):
         self.assertEqual(review_bytes + b"\n", path.read_bytes())
 
 
+class RealCompatibilityReviewTests(unittest.TestCase):
+    def test_real_e3_review_normalization_keeps_raw_record_pin(self):
+        from control_plane import research_result_records_compat_runtime as compatibility
+
+        root = Path(__file__).resolve().parents[1]
+        review_id = "DR-E3B831C16E7BA03B153C"
+        result_id = "RR-DDF27FE0D58FF6F9B8E4"
+        # This is the actual canonical loader and the actual pinned historical
+        # compatibility entry; no specially patched review field is supplied.
+        rows = {row["review_id"]: row for row in compatibility.iter_reviews(root)}
+        view = rows[review_id]
+        path = root / view["_review_path"]
+        original = path.read_bytes()
+        raw = json.loads(original)
+        self.assertEqual({"review_sha256"}, {key for key in raw if raw[key] != view.get(key)})
+        self.assertEqual(review_id, raw["review_id"])
+        self.assertEqual(result_id, raw["result_id"])
+        pin = impl._source_review_record_pin(view, review_id, result_id, root)
+        self.assertEqual("sha256:" + hashlib.sha256(original).hexdigest(), pin["record_sha256"])
+        self.assertEqual(original, path.read_bytes())
+
+
 if __name__ == "__main__":
     unittest.main()

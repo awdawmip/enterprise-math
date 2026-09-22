@@ -477,6 +477,30 @@ def _task_rows(value: Any) -> list[dict[str, Any]]:
     return out
 
 
+def _source_review_record_pin(
+    row: dict[str, Any] | None, review_id: str, result_id: str, root: Path,
+) -> dict[str, str]:
+    # The canonical reader supplies _review_path; never prefer Result metadata.
+    relative = (row.get("_review_path") if "_review_path" in row
+                else row.get("_record_path")) if row else None
+    if not isinstance(relative, str) or not relative:
+        raise DriverFollowupError("materialization source review lacks a raw record path")
+    path = (root / relative).resolve()
+    if not path.is_relative_to((root / "research_result_reviews").resolve()) or not path.is_file():
+        raise DriverFollowupError("materialization source review path is unavailable")
+    raw_bytes = path.read_bytes()
+    raw_review = json.loads(raw_bytes)
+    # A canonical compatibility view can normalize review_sha256. Identity and
+    # raw bytes are pinned here; authority semantics are bound independently.
+    if (not isinstance(raw_review, dict) or raw_review.get("review_id") != review_id
+            or raw_review.get("result_id") != result_id
+            or raw_review.get("review_id") != row.get("review_id")
+            or raw_review.get("result_id") != row.get("result_id")):
+        raise DriverFollowupError("materialization raw review identity/content mismatch")
+    return {"review_id": review_id, "record_path": relative,
+            "record_sha256": "sha256:" + hashlib.sha256(raw_bytes).hexdigest()}
+
+
 def _materialization_binding(
     review_id: str, publishing_driver_id: str | None,
     publisher_session_id: str | None, created_at: str, root: Path, *,
@@ -528,26 +552,7 @@ def _materialization_binding(
     raw_reviews = guard._immutable_review_map(root)
     pins = []
     for rid in sorted(ids):
-        row = raw_reviews.get(rid)
-        # iter_reviews supplies _review_path; _record_path belongs to Results.
-        # The fallback retains older explicit fixtures, never overrides the
-        # canonical reader's path when both fields are present.
-        relative = (row.get("_review_path") if "_review_path" in row
-                    else row.get("_record_path")) if row else None
-        if not isinstance(relative, str) or not relative:
-            raise DriverFollowupError("materialization source review lacks a raw record path")
-        path = (root / relative).resolve()
-        if not path.is_relative_to((root / "research_result_reviews").resolve()) or not path.is_file():
-            raise DriverFollowupError("materialization source review path is unavailable")
-        raw_bytes = path.read_bytes()
-        raw_review = json.loads(raw_bytes)
-        if (not isinstance(raw_review, dict) or raw_review.get("review_id") != rid
-                or raw_review.get("result_id") != result.get("result_id")
-                or {key: value for key, value in raw_review.items() if not key.startswith("_")}
-                != {key: value for key, value in row.items() if not key.startswith("_")}):
-            raise DriverFollowupError("materialization raw review identity/content mismatch")
-        pins.append({"review_id": rid, "record_path": relative,
-                     "record_sha256": "sha256:" + hashlib.sha256(raw_bytes).hexdigest()})
+        pins.append(_source_review_record_pin(raw_reviews.get(rid), rid, result["result_id"], root))
     semantic = {key: value for key, value in review.items() if not key.startswith("_")}
     return {
         "schema": "ENTERPRISE_MATH_FOLLOWUP_PUBLISHER_BINDING_V1",
