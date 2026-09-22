@@ -1,0 +1,43 @@
+{
+  "schema": "M20_SOURCE_MANIFEST_V1",
+  "remote_baseline": "af159e2a4f7876fea4a565c06c5f7a4d79d8b57d",
+  "files": {
+    "tools/nollm_visual_toolkit/nollm_visual_toolkit/certified_hex_browser.py": {
+      "git_blob": "f79a19c7d98cc881114e8721c9063b93491aa1a8",
+      "sha256": "ad59064d03744af9828db28c024111c6c8bde42f60a936db7e13754f48f5b48e",
+      "bytes": 22657
+    },
+    "tools/nollm_visual_toolkit/tests/test_certified_hex_browser_phase32.py": {
+      "git_blob": "b9bf42fc9e225e46f4aa84f8ec20d900fb7c9932",
+      "sha256": "98c59befe22f07816c7e23843a1cab7cf66041ff89407db61efcf71236dd7b73",
+      "bytes": 13425
+    },
+    "tools/run_migration20.py": {
+      "git_blob": "bdfbb822cea9b4a06ee5b8728aaa36e3b605d302",
+      "sha256": "77549714755a4815c25917bfb11f9a5e1cfee0ec80907a968d10eb2e13a45682",
+      "bytes": 3532
+    },
+    "tools/test_migration20_retained_group.py": {
+      "git_blob": "04cbc88b0e96ffa516f06cf6ed89ee9a6657e162",
+      "sha256": "bafb0c3937ce3180081a237a842dffe53c8139436cbefe8e9deb86ceee29de5d",
+      "bytes": 1472
+    },
+    "tools/benchmark_migration20.py": {
+      "git_blob": "aa3d6406be81d0752064874b2acbc11e85002233",
+      "sha256": "09f6f0c7494fecbc18a22f155c85e1e88189b045d4df615e77db51f06379af92",
+      "bytes": 3004
+    },
+    "tools/test_migration20_browser.py": {
+      "git_blob": "e1843ece09fb85ab1403afc2d5e51237bb8921af",
+      "sha256": "f4b0789ff117ce3c74f76df568ac80e1c9929eef73903c3389592d7e22b8a4fe",
+      "bytes": 3820
+    },
+    "evidence/migration20/frozen_certified_hex_browser.py": {
+      "git_blob": "ce2ee2dc73b21a7d1c08cb36840abbfd132fa9f5",
+      "sha256": "f6f3250e67296569f023ecec6a170fcf0647d3623349af660d0f50fb833d7e4d",
+      "bytes": 18707
+    }
+  },
+  "local_dependency_base": "M18 bundle plus byte-identical M19 shared browser",
+  "m19_reader_in_local_slice": false
+}

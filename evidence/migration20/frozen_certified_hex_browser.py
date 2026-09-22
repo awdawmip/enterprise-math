@@ -1,10 +1,9 @@
-"""Offline BigInt port of the exact power-of-two certified-cell carrier.
+"""Offline BigInt port of certified_hex.py at M03 82ffedbf.
 
 Extends the existing angular/BRC browser port. Arithmetic certificates match
 Python, including signed floor division, correlated quarter-turn roots and
 outward interval rounding. Pixel conversion is outside this module. Native X6
 and arbitrary-angle transcendental evaluation are outside its declared scope.
-Default modulus is 65536; explicit power-of-two moduli range from 4 to 2**32.
 """
 
 SCRIPT = r'''
@@ -21,12 +20,6 @@ const NollmCertifiedHex = (() => {
     throw new TypeError(name+' requires an exact integer or canonical decimal string');
   }
   function positive(value,name) { const v=integer(value,name); if(v<=0n)throw new RangeError(name+' must be positive');return v; }
-  function phaseModulus(value=M) {
-    const m=positive(value,'phase modulus');
-    if(m<4n||m>(1n<<32n)||(m&(m-1n))!==0n)throw new RangeError('phase modulus must be a power of two in 4..2**32');
-    return m;
-  }
-  function phaseBits(m) {let k=0n;for(let v=m;v>1n;v>>=1n)k++;return k;}
   function bits(value) {const v=integer(value,'bits');if(v<8n||v>512n)throw new RangeError('bits must be in 8..512');return v;}
   function budget(initial,maxBits) {const a=bits(initial),b=bits(maxBits);if(a>b)throw new RangeError('invalid precision budget');return [a,b];}
   function floor(n,d) {
@@ -69,16 +62,16 @@ const NollmCertifiedHex = (() => {
   }
   function memo(cache,key,make,limit){if(cache.has(key))return cache.get(key);const value=make();if(cache.size>=limit)cache.delete(cache.keys().next().value);cache.set(key,value);return value;}
   const rotations=new Map(),phases=new Map();
-  function rotationPowers(b,k) {return memo(rotations,String(b)+':'+String(k),()=>{
+  function rotationPowers(b) {return memo(rotations,String(b),()=>{
     const S=1n<<b,one=new Interval(S,S,b),out=[];let c=new Interval(0n,0n,b);
-    for(let i=0n;i<k-2n;i++){const nc=one.add(c).ratio(1n,2n).sqrt(),ns=one.sub(c).intersect(0n,2n*S).ratio(1n,2n).sqrt();c=nc.intersect(0n,S);out.push(Object.freeze([c,ns.intersect(0n,S)]));}
+    for(let i=0;i<14;i++){const nc=one.add(c).ratio(1n,2n).sqrt(),ns=one.sub(c).intersect(0n,2n*S).ratio(1n,2n).sqrt();c=nc.intersect(0n,S);out.push(Object.freeze([c,ns.intersect(0n,S)]));}
     return Object.freeze(out.reverse());
   },16);}
-  function phaseBounds(tick,b=64,modulus=M) {
-    tick=integer(tick,'tick');b=bits(b);modulus=phaseModulus(modulus);if(tick<0n||tick>=modulus)throw new RangeError('phase tick out of range');
-    return memo(phases,String(tick)+':'+String(b)+':'+String(modulus),()=>{
-      const quarter=floor(modulus,4n),q=floor(tick,quarter),rest=tick-q*quarter,S=1n<<b;let c=new Interval(S,S,b),s=new Interval(0n,0n,b);
-      if(rest){let i=0n;for(const [a,z] of rotationPowers(b,phaseBits(modulus))){if(rest&(1n<<i)){[c,s]=[c.mul(a).sub(s.mul(z)),s.mul(a).add(c.mul(z))];}i++;}}
+  function phaseBounds(tick,b=64) {
+    tick=integer(tick,'tick');b=bits(b);if(tick<0n||tick>=M)throw new RangeError('phase tick out of range');
+    return memo(phases,String(tick)+':'+String(b),()=>{
+      const q=floor(tick,16384n),rest=tick-q*16384n,S=1n<<b;let c=new Interval(S,S,b),s=new Interval(0n,0n,b);
+      if(rest){let i=0n;for(const [a,z] of rotationPowers(b)){if(rest&(1n<<i)){[c,s]=[c.mul(a).sub(s.mul(z)),s.mul(a).add(c.mul(z))];}i++;}}
       c=c.intersect(0n,S);s=s.intersect(0n,S);
       return Object.freeze(q===0n?[c,s]:q===1n?[s.neg(),c]:q===2n?[c.neg(),s.neg()]:[s,c.neg()]);
     },8192);
@@ -105,9 +98,9 @@ const NollmCertifiedHex = (() => {
     return sign(a)*sign(a*a*n-b*b*d);
   }
   function cardinal(source) {
-    const {n:identity,tick,sn,sd,modulus}=source,quarter=floor(modulus,4n);let coeff;
-    if(tick===null)coeff=[0n,0n,0n];else if(tick===0n)coeff=[1n,0n,-1n];else if(tick===quarter)coeff=[-1n,2n,-1n];else if(tick===2n*quarter)coeff=[-1n,0n,1n];else if(tick===3n*quarter)coeff=[1n,-2n,1n];else return null;
-    const n=identity*sn*sn,d=sd*sd*(tick===quarter||tick===3n*quarter?3n:1n);
+    const {n:identity,tick,sn,sd}=source;let coeff;
+    if(tick===null)coeff=[0n,0n,0n];else if(tick===0n)coeff=[1n,0n,-1n];else if(tick===16384n)coeff=[-1n,2n,-1n];else if(tick===32768n)coeff=[-1n,0n,1n];else if(tick===49152n)coeff=[1n,-2n,1n];else return null;
+    const n=identity*sn*sn,d=sd*sd*(tick===16384n||tick===49152n?3n:1n);
     const a=coeff.map(k=>{const whole=root(floor(k*k*n,d)),half=linearRootSign(2n*abs(k),-(2n*whole+1n),n,d);return k>=0n?whole+(half>=0n?1n:0n):-whole-(half>0n?1n:0n);});
     const e=coeff.map((k,i)=>{const o=linearRootSign(-k,a[i],n,d);return [-k*o,a[i]*o];});
     const cmp=(i,j)=>linearRootSign(e[i][0]-e[j][0],e[i][1]-e[j][1],n,d);
@@ -117,21 +110,21 @@ const NollmCertifiedHex = (() => {
     const cert={kind:'SHARED_RADICAL_AXIAL_CELL_CERTIFICATE',radicand_numerator:String(n),radicand_denominator:String(d),source_coefficients:coeff.map(String),cube_cell:a.map(String),signed_residuals:coeff.map((k,i)=>({radical_coefficient:String(k),integer_part:String(-a[i])})),corrected_axis:['q','r','s'][k],boundary,tie_rule:TIE,comparison:'SIGN_SEPARATED_INTEGER_SQUARE_COMPARISON'};
     return {status:boundary?'CERTIFIED_TIE':'CERTIFIED_INTERIOR',cell:cert.cube_cell.slice(0,2),rounding_certificate:cert,margin_numerators:null};
   }
-  function source(n,tick,sn,sd,modulus=M) {
-    n=integer(n,'n');sn=positive(sn,'scale numerator');sd=positive(sd,'scale denominator');modulus=phaseModulus(modulus);
+  function source(n,tick,sn,sd) {
+    n=integer(n,'n');sn=positive(sn,'scale numerator');sd=positive(sd,'scale denominator');
     if(n<0n)throw new RangeError('negative identity');
     if(n===0n){if(tick!==null)throw new TypeError('zero has no phase');}
-    else{tick=integer(tick,'tick');if(tick<0n||tick>=modulus)throw new RangeError('tick outside domain');}
-    return {n,tick,sn,sd,modulus};
+    else{tick=integer(tick,'tick');if(tick<0n||tick>=M)throw new RangeError('tick outside domain');}
+    return {n,tick,sn,sd};
   }
-  function sourceRecord(v){return {n:String(v.n),phase_tick:v.tick===null?null:String(v.tick),phase_modulus:String(v.modulus),scale_numerator:String(v.sn),scale_denominator:String(v.sd),observer:'DECLARED_POLAR_A2_NOT_NATIVE_X6'};}
+  function sourceRecord(v){return {n:String(v.n),phase_tick:v.tick===null?null:String(v.tick),phase_modulus:String(M),scale_numerator:String(v.sn),scale_denominator:String(v.sd),observer:'DECLARED_POLAR_A2_NOT_NATIVE_X6'};}
   function coordinates(v,b) {
-    const [radius,rt]=rootRatioBound(v.n,1n,b),[third,tt]=rootRatioBound(v.n,3n,b),[c,s]=phaseBounds(v.tick===null?0n:v.tick,b,v.modulus);
+    const [radius,rt]=rootRatioBound(v.n,1n,b),[third,tt]=rootRatioBound(v.n,3n,b),[c,s]=phaseBounds(v.tick===null?0n:v.tick,b);
     const a=radius.mul(c).ratio(v.sn,v.sd),z=third.mul(s).ratio(v.sn,v.sd);
     return [[a.sub(z),z.ratio(2n,1n),a.neg().sub(z)],[rt,tt]];
   }
   function locate(n,tick,sn=1,sd=1,options={}) {
-    const v=source(n,tick,sn,sd,options.phaseModulus),[initial,maximum]=budget(options.initialBits??64,options.maxBits??192),history=[];let b=initial;
+    const v=source(n,tick,sn,sd),[initial,maximum]=budget(options.initialBits??64,options.maxBits??192),history=[];let b=initial;
     for(;;){const [coords,roots]=coordinates(v,b),decision=cardinal(v)||certifyBox(...coords);history.push(String(b));
       if(decision.cell!==null||b===maximum)return {schema:'NOLLM_CERTIFIED_POLAR_CELL_V1',source:sourceRecord(v),...decision,coordinate_bounds:coords.map(x=>x.record()),root_certificates:roots,refinement_bits:history,tie_rule:TIE};
       b=min(2n*b,maximum);
@@ -178,77 +171,32 @@ const NollmCertifiedHex = (() => {
       base_certifier_tie_rule:base.tie_rule,certificates:want?certs:null,
       scope:'CERTIFIED_A2_OBSERVER_ONLY; LEGACY_AXIAL_LEXICOGRAPHIC_TIE; NO_NATIVE_IDENTITY_COLLAPSE'};
   }
-  function adaptPhase32Cell(base) {
-    // Only the typed wrapper changes; the complete geometric source is retained.
-    const record=adaptLexicographicCell(base);
-    record.schema='NOLLM_PHASE32_CELL_CERTIFICATE_V1';
-    return record;
-  }
-  async function populationPhase32(phi,pitchNumerator,pitchDenominator,options={}) {
-    const modulus=1n<<32n;
-    if(options.phaseModulus!==undefined&&phaseModulus(options.phaseModulus)!==modulus)
-      throw new RangeError('Phase32 requires phase modulus 2**32');
-    const pn=positive(pitchNumerator,'pitch numerator'),pd=positive(pitchDenominator,'pitch denominator');
-    if(options.includeCertificates!==undefined&&typeof options.includeCertificates!=='boolean')
-      throw new TypeError('includeCertificates must be boolean');
-    const want=options.includeCertificates??false,onCell=options.onCell;
-    // Pitch is lattice spacing. The existing certifier observes its inverse.
-    const base=await population(phi,pd,pn,{...options,phaseModulus:modulus,includeCertificates:true,
-      onCell:onCell?((rec,i)=>onCell(adaptPhase32Cell(rec),i)):undefined});
-    const certificates=base.certificates.map(adaptPhase32Cell),counts=new Map(),unresolved=[],ties=[];
-    for(let i=1;i<certificates.length;i++){
-      const rec=certificates[i];
-      if(rec.cell===null){unresolved.push(String(i));continue;}
-      const key=rec.cell.join(',');counts.set(key,(counts.get(key)??0n)+1n);
-      if(rec.status==='CERTIFIED_TIE')ties.push(String(i));
-    }
-    const positiveCount=BigInt(certificates.length)-1n,missing=BigInt(unresolved.length),
-      occupied=BigInt(counts.size),complete=missing===0n,loads=[...counts.values()];
-    return {schema:'NOLLM_PHASE32_CERTIFIED_A2_POPULATION_V1',
-      status:complete?'CERTIFIED_ALL':'UNRESOLVED_BOUNDARY',population:base.population,
-      positive_population:String(positiveCount),certified_positive_identities:String(positiveCount-missing),
-      phase_modulus:String(modulus),phase_source_sha256:base.phase_source_sha256,
-      phase_source_encoding:base.phase_source_encoding,unresolved_identities:unresolved,tie_identities:ties,
-      occupied_cells:complete?String(occupied):null,occupied_cells_bounds:[String(occupied),String(occupied+missing)],
-      collision_excess:complete?String(positiveCount-occupied):null,
-      max_cell_multiplicity:complete?String(loads.reduce(max,0n)):null,
-      pitch:{numerator:String(pn),denominator:String(pd),unreduced:true},
-      certifier_scale:base.scale,precision_counts:base.precision_counts,tie_rule:LEX_TIE,
-      base_certifier_tie_rule:base.tie_rule,certificates:want?certificates:null,
-      scope:'CERTIFIED_A2_OBSERVER_ONLY; POSITIVE_METRICS_EXCLUDE_ZERO; NO_NATIVE_IDENTITY_COLLAPSE'};
-  }
-  function parseRatioText(text) {
-    // No Number conversion: both the spelling and unreduced relation survive.
-    if(typeof text!=='string'||text.length>256)throw new TypeError('ratio requires decimal or fraction text, at most 256 characters');
-    let n,d,syntax;
-    if(/^[1-9][0-9]*\/[1-9][0-9]*$/.test(text)){const a=text.split('/');n=BigInt(a[0]);d=BigInt(a[1]);syntax='FRACTION';}
-    else if(/^(0|[1-9][0-9]*)(\.[0-9]+)?$/.test(text)){const a=text.split('.');d=a.length===1?1n:10n**BigInt(a[1].length);n=BigInt(a.join(''));syntax=a.length===1?'INTEGER':'DECIMAL';}
-    else throw new TypeError('invalid ratio text');
-    if(n<=0n)throw new RangeError('ratio must be positive');
-    return {text,numerator:String(n),denominator:String(d),syntax,unreduced:true};
-  }
-  function parsePitch(text) {return parseRatioText(text);}
   function parseScale(text) {
-    const source=parseRatioText(text),n=BigInt(source.numerator),d=BigInt(source.denominator);
-    if(2n*n<d||n>3n*d)throw new RangeError('layout scale must be in one-half..three');
-    return {text,numerator:source.numerator,denominator:source.denominator};
+    // Original lexical source is retained. Never reconstruct a rational from Number.
+    if(typeof text!=='string'||text.length>256)throw new TypeError('scale requires decimal or fraction text, at most 256 characters');
+    let n,d;
+    if(/^[1-9][0-9]*\/[1-9][0-9]*$/.test(text)){const a=text.split('/');n=BigInt(a[0]);d=BigInt(a[1]);}
+    else if(/^(0|[1-9][0-9]*)(\.[0-9]+)?$/.test(text)){const a=text.split('.');d=a.length===1?1n:10n**BigInt(a[1].length);n=BigInt(a.join(''));}
+    else throw new TypeError('invalid scale text');
+    if(n<=0n||2n*n<d||n>3n*d)throw new RangeError('layout scale must be in one-half..three');
+    return {text,numerator:String(n),denominator:String(d)};
   }
   function stable(x) {if(x===null||typeof x!=='object')return JSON.stringify(x);if(Array.isArray(x))return '['+x.map(stable).join(',')+']';return '{'+Object.keys(x).sort().map(k=>JSON.stringify(k)+':'+stable(x[k])).join(',')+'}';}
   function verifyCellRecord(record) {
     try {const decimal=x=>{if(typeof x!=='string'||String(integer(x))!==x)throw new TypeError('noncanonical decimal');return x;};
       const s=record.source,h=record.refinement_bits;if(!Array.isArray(h)||h.length===0)return false;
-      const actual=locate(decimal(s.n),s.phase_tick===null?null:decimal(s.phase_tick),decimal(s.scale_numerator),decimal(s.scale_denominator),{initialBits:decimal(h[0]),maxBits:decimal(h[h.length-1]),phaseModulus:decimal(s.phase_modulus)});return stable(actual)===stable(record);
+      const actual=locate(decimal(s.n),s.phase_tick===null?null:decimal(s.phase_tick),decimal(s.scale_numerator),decimal(s.scale_denominator),{initialBits:decimal(h[0]),maxBits:decimal(h[h.length-1])});return stable(actual)===stable(record);
     } catch(e) {return false;}
   }
   async function population(phi,sn,sd,options={}) {
     // Validate and snapshot all mathematical inputs before the first await.
     if(!Array.isArray(phi)||phi.length<2||phi.length>65536||phi[0]!==null)throw new TypeError('phase population must start with null, length 2..65536');
     if(options.includeCertificates!==undefined&&typeof options.includeCertificates!=='boolean')throw new TypeError('includeCertificates must be boolean');
-    const modulus=phaseModulus(options.phaseModulus),limits=budget(options.initialBits??64,options.maxBits??192),sources=Array.from(phi,(tick,i)=>source(i,tick,sn,sd,modulus));
+    const limits=budget(options.initialBits??64,options.maxBits??192),sources=Array.from(phi,(tick,i)=>source(i,tick,sn,sd));
     const cellCounts=new Map(),unresolved=[],ties=[],certs=[],precision={};
     for(let i=0;i<sources.length;i++) {
       if(options.cancelled?.())throw new Error('CERTIFICATION_CANCELLED');
-      const v=sources[i],rec=locate(v.n,v.tick,v.sn,v.sd,{initialBits:limits[0],maxBits:limits[1],phaseModulus:v.modulus}),b=rec.refinement_bits.at(-1);
+      const v=sources[i],rec=locate(v.n,v.tick,v.sn,v.sd,{initialBits:limits[0],maxBits:limits[1]}),b=rec.refinement_bits.at(-1);
       precision[b]=(precision[b]??0n)+1n;
       if(rec.cell===null)unresolved.push(String(i));else{const key=rec.cell.join(',');cellCounts.set(key,(cellCounts.get(key)??0n)+1n);if(rec.status==='CERTIFIED_TIE')ties.push(String(i));}
       if(options.includeCertificates)certs.push(rec);
@@ -263,8 +211,8 @@ const NollmCertifiedHex = (() => {
     if(options.cancelled?.())throw new Error('CERTIFICATION_CANCELLED');
     const total=BigInt(sources.length),missing=BigInt(unresolved.length),occupied=BigInt(cellCounts.size),complete=missing===0n;
     const loads=[...cellCounts.values()];
-    return {schema:'NOLLM_CERTIFIED_POLAR_POPULATION_V1',status:complete?'CERTIFIED_ALL':'UNRESOLVED_BOUNDARY',population:String(total),certified_identities:String(total-missing),phase_modulus:String(modulus),phase_source_sha256:sha,phase_source_encoding:'COMPACT_UTF8_JSON_ARRAY_NULL_OR_DECIMAL_STRINGS',unresolved_identities:unresolved,tie_identities:ties,occupied_cells:complete?String(occupied):null,occupied_cells_bounds:[String(occupied),String(occupied+missing)],collision_groups:complete?String(loads.filter(x=>x>1n).length):null,excess_identities_if_collapsed:complete?String(total-occupied):null,max_cell_load:complete?String(loads.reduce(max,0n)):null,scale:{numerator:String(sources[0].sn),denominator:String(sources[0].sd)},precision_counts:Object.fromEntries(Object.entries(precision).map(([k,v])=>[k,String(v)])),tie_rule:TIE,certificates:options.includeCertificates?certs:null,scope:'CERTIFIED_A2_OBSERVER_ONLY; NO_NATIVE_IDENTITY_COLLAPSE'};
+    return {schema:'NOLLM_CERTIFIED_POLAR_POPULATION_V1',status:complete?'CERTIFIED_ALL':'UNRESOLVED_BOUNDARY',population:String(total),certified_identities:String(total-missing),phase_modulus:String(M),phase_source_sha256:sha,phase_source_encoding:'COMPACT_UTF8_JSON_ARRAY_NULL_OR_DECIMAL_STRINGS',unresolved_identities:unresolved,tie_identities:ties,occupied_cells:complete?String(occupied):null,occupied_cells_bounds:[String(occupied),String(occupied+missing)],collision_groups:complete?String(loads.filter(x=>x>1n).length):null,excess_identities_if_collapsed:complete?String(total-occupied):null,max_cell_load:complete?String(loads.reduce(max,0n)):null,scale:{numerator:String(sources[0].sn),denominator:String(sources[0].sd)},precision_counts:Object.fromEntries(Object.entries(precision).map(([k,v])=>[k,String(v)])),tie_rule:TIE,certificates:options.includeCertificates?certs:null,scope:'CERTIFIED_A2_OBSERVER_ONLY; NO_NATIVE_IDENTITY_COLLAPSE'};
   }
-  return Object.freeze({Interval,rootRatioBound,phaseBounds,roundAxial,certifyBox,locate,population,parseScale,verifyCellRecord,LEX_TIE,adaptLexicographicCell,populationLexicographic,adaptPhase32Cell,populationPhase32,parsePitch});
+  return Object.freeze({Interval,rootRatioBound,phaseBounds,roundAxial,certifyBox,locate,population,parseScale,verifyCellRecord,LEX_TIE,adaptLexicographicCell,populationLexicographic});
 })();
 '''

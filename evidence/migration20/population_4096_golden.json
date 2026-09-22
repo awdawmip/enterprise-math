@@ -1,0 +1,78 @@
+{
+  "schema": "M20_PHASE32_BROWSER_POPULATION_V1",
+  "rows": [
+    {
+      "count": 4096,
+      "mode": "golden",
+      "pitch": {
+        "text": "0.50",
+        "syntax": "DECIMAL",
+        "numerator": "50",
+        "denominator": "100",
+        "unreduced": true
+      },
+      "checks": {
+        "summary_equal": true,
+        "complete_certificates_equal": true,
+        "all_ordered_cells_equal": true,
+        "full_record_equal": true
+      },
+      "status": "CERTIFIED_ALL",
+      "occupied_positive_cells": "3494",
+      "collision_excess": "601",
+      "unresolved": 0,
+      "record_sha256": "98f1b4ec37b675b5f52d2b6af74a374753f751e5e86774406f92b9f623432713",
+      "certificates_sha256": "806de79de1883fc791da914fa7591ba0cafdf828880f3aa23468d330bb911214"
+    },
+    {
+      "count": 4096,
+      "mode": "golden",
+      "pitch": {
+        "text": "1",
+        "syntax": "INTEGER",
+        "numerator": "1",
+        "denominator": "1",
+        "unreduced": true
+      },
+      "checks": {
+        "summary_equal": true,
+        "complete_certificates_equal": true,
+        "all_ordered_cells_equal": true,
+        "full_record_equal": true
+      },
+      "status": "CERTIFIED_ALL",
+      "occupied_positive_cells": "3015",
+      "collision_excess": "1080",
+      "unresolved": 0,
+      "record_sha256": "314bb267f6e53861af39b9fa178a82c516bfdde9b0d8eeac7f6478385fb1645c",
+      "certificates_sha256": "bea818445fcc467022fbb2bc2aa1dc3674beb6d6dcb0ea93190d9c0104d54ed8"
+    },
+    {
+      "count": 4096,
+      "mode": "golden",
+      "pitch": {
+        "text": "3/2",
+        "syntax": "FRACTION",
+        "numerator": "3",
+        "denominator": "2",
+        "unreduced": true
+      },
+      "checks": {
+        "summary_equal": true,
+        "complete_certificates_equal": true,
+        "all_ordered_cells_equal": true,
+        "full_record_equal": true
+      },
+      "status": "CERTIFIED_ALL",
+      "occupied_positive_cells": "2570",
+      "collision_excess": "1525",
+      "unresolved": 0,
+      "record_sha256": "7580adb8d48d03f26ba13e2d8776df3dafa6dc654d54008dfa032dd6ee3b062a",
+      "certificates_sha256": "37fad5fb6a33ab60ecc93f7b795a81aabd5e25977245ae29c05a45bdefbb5d75"
+    }
+  ],
+  "source": "UNCHANGED_PYTHON_PHASE32_SCHEDULE",
+  "comparison": "PYTHON_BRC_VS_NODE_BIGINT_FULL_RECORD",
+  "native_browser": false,
+  "finite_not_universal": true
+}

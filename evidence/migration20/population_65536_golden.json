@@ -1,0 +1,32 @@
+{
+  "schema": "M20_PHASE32_BROWSER_POPULATION_V1",
+  "rows": [
+    {
+      "count": 65536,
+      "mode": "golden",
+      "pitch": {
+        "text": "1",
+        "syntax": "INTEGER",
+        "numerator": "1",
+        "denominator": "1",
+        "unreduced": true
+      },
+      "checks": {
+        "summary_equal": true,
+        "complete_certificates_equal": true,
+        "all_ordered_cells_equal": true,
+        "full_record_equal": true
+      },
+      "status": "CERTIFIED_ALL",
+      "occupied_positive_cells": "47497",
+      "collision_excess": "18038",
+      "unresolved": 0,
+      "record_sha256": "388a77e2c5004fe9cae6073683399f3f2de30414467605db54a8341226af21aa",
+      "certificates_sha256": "0f877586d472559589b0727653ff74d8309ca632f2f79fb81570f1b049e665a1"
+    }
+  ],
+  "source": "UNCHANGED_PYTHON_PHASE32_SCHEDULE",
+  "comparison": "PYTHON_BRC_VS_NODE_BIGINT_FULL_RECORD",
+  "native_browser": false,
+  "finite_not_universal": true
+}
