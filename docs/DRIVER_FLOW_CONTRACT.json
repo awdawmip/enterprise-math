@@ -1,0 +1,433 @@
+{
+  "review_flow_state": {
+    "schema": "EM_DRIVER_FLOW_CONTRACT_V1",
+    "operation": "review_flow_state",
+    "payload_schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "result_request_id"
+      ],
+      "properties": {
+        "result_request_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Own successful artifact request with the complete verified Result JSON."
+        },
+        "reviewer_contribution_ids": {
+          "type": "array",
+          "maxItems": 100,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "default": [],
+          "description": "Supplement, never clear, server-known prior contributions."
+        }
+      }
+    },
+    "required_role": "RESEARCH_DRIVER",
+    "independence_obligations": [
+      "Use your own active RESEARCH_DRIVER session and current Source DA; never borrow an earlier author identity.",
+      "Declare all prior contribution IDs. Declarations supplement server-known history; a new session does not establish independence.",
+      "independence_status is an explicit context disclosure, never a default, proof of independence, or exemption from contribution-overlap checks.",
+      "Read the exact Result and complete review set; finding records the actual semantic or adversarial analysis and any context limitations.",
+      "Preserve immutable existing passes/authors. Consume an identical existing pass; read current state when it differs.",
+      "No enum, successful transport, reference pass, or synthesis grants mathematical acceptance, Working Truth, Foundation, or P000 changes."
+    ],
+    "source_contract_ref": "b0044ff29976e054dde11c62accc0a127be547e6",
+    "native_validation_required": true,
+    "workflow_prerequisites": "Own complete verified Result artifact and active session-bound Driver authority."
+  },
+  "review_reference": {
+    "schema": "EM_DRIVER_FLOW_CONTRACT_V1",
+    "operation": "review_reference",
+    "payload_schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "result_request_id",
+        "pass_number",
+        "finding",
+        "independence_status"
+      ],
+      "properties": {
+        "result_request_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Own successful artifact request with the complete verified Result JSON."
+        },
+        "reviewer_contribution_ids": {
+          "type": "array",
+          "maxItems": 100,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "default": [],
+          "description": "Supplement, never clear, server-known prior contributions."
+        },
+        "pass_number": {
+          "type": "integer",
+          "enum": [
+            1,
+            2
+          ],
+          "description": "1: SEMANTIC_EVIDENCE_CROSSCHECK; 2: ADVERSARIAL_CONTROL_CROSSCHECK. Complete in order."
+        },
+        "finding": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 12000,
+          "description": "Nonblank actual analysis of the exact review set, including independence/context disclosure. Not an enum."
+        },
+        "independence_status": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "enum": [
+            "CLEAN_INDEPENDENT_CONTEXT",
+            "SHARED_CONTROL_CONTEXT_DISCLOSED",
+            "NOT_INDEPENDENT",
+            "NOT_APPLICABLE"
+          ],
+          "description": "Explicit truthful context classification; no default. Put prose explanation in finding."
+        }
+      }
+    },
+    "required_role": "RESEARCH_DRIVER",
+    "independence_obligations": [
+      "Use your own active RESEARCH_DRIVER session and current Source DA; never borrow an earlier author identity.",
+      "Declare all prior contribution IDs. Declarations supplement server-known history; a new session does not establish independence.",
+      "independence_status is an explicit context disclosure, never a default, proof of independence, or exemption from contribution-overlap checks.",
+      "Read the exact Result and complete review set; finding records the actual semantic or adversarial analysis and any context limitations.",
+      "Preserve immutable existing passes/authors. Consume an identical existing pass; read current state when it differs.",
+      "No enum, successful transport, reference pass, or synthesis grants mathematical acceptance, Working Truth, Foundation, or P000 changes."
+    ],
+    "source_contract_ref": "b0044ff29976e054dde11c62accc0a127be547e6",
+    "native_validation_required": true,
+    "workflow_prerequisites": "At least two exact-set reviews; pass 1 precedes pass 2. Read existing passes before mutation.",
+    "independence_meanings": {
+      "CLEAN_INDEPENDENT_CONTEXT": "Assert only if the actual context is clean and independent.",
+      "SHARED_CONTROL_CONTEXT_DISCLOSED": "Shared control context is disclosed; explain its extent in finding.",
+      "NOT_INDEPENDENT": "Explicitly disclose that the context is not independent; this never bypasses author/contribution checks.",
+      "NOT_APPLICABLE": "Explicitly explain why a context-independence classification is not applicable; this never bypasses author/contribution checks."
+    }
+  },
+  "review_synthesize": {
+    "schema": "EM_DRIVER_FLOW_CONTRACT_V1",
+    "operation": "review_synthesize",
+    "payload_schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "result_request_id",
+        "disposition",
+        "rationale",
+        "destination_class"
+      ],
+      "properties": {
+        "result_request_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Own successful artifact request with the complete verified Result JSON."
+        },
+        "reviewer_contribution_ids": {
+          "type": "array",
+          "maxItems": 100,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "default": [],
+          "description": "Supplement, never clear, server-known prior contributions."
+        },
+        "disposition": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "enum": [
+            "ACCEPTED",
+            "REJECTED",
+            "PARKED",
+            "CLOSED",
+            "SUPERSEDED",
+            "RETURN_TO_OWNER",
+            "REQUEST_REPLICATION",
+            "REQUEST_REVISION"
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 12000,
+          "description": "Explicit judgment after both exact-set reference passes; no automatic ACCEPTED choice."
+        },
+        "destination_class": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "enum": [
+            "NONE",
+            "FOUNDATION",
+            "TOOL",
+            "L4",
+            "REPLICATION",
+            "FOLLOWUP_TASK",
+            "ARCHIVE"
+          ]
+        },
+        "destination_ref_or_none": {
+          "type": "string",
+          "maxLength": 2000,
+          "default": ""
+        }
+      }
+    },
+    "required_role": "RESEARCH_DRIVER",
+    "independence_obligations": [
+      "Use your own active RESEARCH_DRIVER session and current Source DA; never borrow an earlier author identity.",
+      "Declare all prior contribution IDs. Declarations supplement server-known history; a new session does not establish independence.",
+      "independence_status is an explicit context disclosure, never a default, proof of independence, or exemption from contribution-overlap checks.",
+      "Read the exact Result and complete review set; finding records the actual semantic or adversarial analysis and any context limitations.",
+      "Preserve immutable existing passes/authors. Consume an identical existing pass; read current state when it differs.",
+      "No enum, successful transport, reference pass, or synthesis grants mathematical acceptance, Working Truth, Foundation, or P000 changes."
+    ],
+    "source_contract_ref": "b0044ff29976e054dde11c62accc0a127be547e6",
+    "native_validation_required": true,
+    "workflow_prerequisites": "Both current exact-set reference passes. Retain every source review; no latest-timestamp selection."
+  },
+  "followup_materialize": {
+    "schema": "EM_DRIVER_FLOW_CONTRACT_V1",
+    "operation": "followup_materialize",
+    "payload_schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "result_request_id",
+        "publication_request_id",
+        "followup_spec_filename"
+      ],
+      "properties": {
+        "result_request_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Own successful artifact request with the complete verified Result JSON."
+        },
+        "reviewer_contribution_ids": {
+          "type": "array",
+          "maxItems": 100,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "default": [],
+          "description": "Supplement, never clear, server-known prior contributions."
+        },
+        "publication_request_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Own successful driver_publish request from this same active session."
+        },
+        "followup_spec_filename": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 96,
+          "description": "Exact published filename containing a native follow-up spec JSON object."
+        }
+      }
+    },
+    "required_role": "RESEARCH_DRIVER",
+    "independence_obligations": [
+      "Use your own active RESEARCH_DRIVER session and current Source DA; never borrow an earlier author identity.",
+      "Declare all prior contribution IDs. Declarations supplement server-known history; a new session does not establish independence.",
+      "independence_status is an explicit context disclosure, never a default, proof of independence, or exemption from contribution-overlap checks.",
+      "Read the exact Result and complete review set; finding records the actual semantic or adversarial analysis and any context limitations.",
+      "Preserve immutable existing passes/authors. Consume an identical existing pass; read current state when it differs.",
+      "No enum, successful transport, reference pass, or synthesis grants mathematical acceptance, Working Truth, Foundation, or P000 changes."
+    ],
+    "source_contract_ref": "b0044ff29976e054dde11c62accc0a127be547e6",
+    "native_validation_required": true,
+    "workflow_prerequisites": "Current operational authority (one review or exact-set synthesis), own same-session driver_publish, explicit native spec and task/closure admission.",
+    "followup_spec_contract": {
+      "required": [
+        "decision",
+        "gate_decisions"
+      ],
+      "decision_enum": [
+        "TASK_SET_PUBLISHED",
+        "PARENT_OBJECTIVE_CLOSURE",
+        "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION"
+      ],
+      "tasks_default": [],
+      "gate_decisions": {
+        "exact_gate_set": [
+          "MATHEMATICAL_CONTINUATION",
+          "LEAN_FORMALIZATION",
+          "EXTERNAL_PRIOR_ART_DUPLICATION",
+          "INDEPENDENT_REPLICATION",
+          "INTEGRATION_OR_TOOL_HARVEST",
+          "ADVERSARIAL_AUDIT"
+        ],
+        "decision_enum": [
+          "REQUIRED",
+          "SATISFIED_BY_REVIEWED_RESULT",
+          "SATISFIED_BY_EXISTING_CONTROL_ASSET",
+          "NOT_REQUIRED"
+        ],
+        "required_row_fields": [
+          "gate",
+          "decision",
+          "reason"
+        ],
+        "field_types": {
+          "gate": "string",
+          "decision": "string",
+          "reason": "nonblank string",
+          "evidence_refs": "array of unique nonblank strings, default []"
+        },
+        "evidence_refs": "Nonempty evidence refs required for either SATISFIED_BY_* decision.",
+        "rules": [
+          "Exactly one row per gate.",
+          "REQUIRED needs a matching published task role.",
+          "ACCEPTED cannot skip external prior art; ACCEPTED L4 cannot skip Lean; tool-bearing results cannot skip tool harvest."
+        ]
+      },
+      "tasks": {
+        "required_fields": [
+          "task_id",
+          "title",
+          "task_role",
+          "frontier",
+          "next_action",
+          "research_value",
+          "mother_question",
+          "frozen_inputs_and_scope",
+          "hard_target_and_required_outputs",
+          "research_value_to_preserve",
+          "success_kill_and_return_criteria"
+        ],
+        "task_role_enum": [
+          "MATHEMATICAL_CONTINUATION",
+          "LEAN_FORMALIZATION",
+          "EXTERNAL_PRIOR_ART_DUPLICATION",
+          "INDEPENDENT_REPLICATION",
+          "INTEGRATION_OR_TOOL_HARVEST",
+          "ADVERSARIAL_AUDIT",
+          "REVISION",
+          "PARALLEL_REFERENCE_OR_SYNTHESIS",
+          "OTHER"
+        ],
+        "task_lineage_enum": [
+          "NEW_DIRECTION",
+          "CONTINUATION",
+          "REPLAY",
+          "INTEGRATION",
+          "MAINTENANCE"
+        ],
+        "defaults": {
+          "task_lineage": "CONTINUATION",
+          "kind": "RESEARCH",
+          "owner": "taskbook/unassigned",
+          "priority": "P1",
+          "leverage": "HIGH",
+          "dependencies": [],
+          "source_refs": [],
+          "claim_lease_minutes": 120
+        },
+        "continuation_requires": [
+          "parent_task_id",
+          "successor_gate"
+        ],
+        "native_task_admission": "Task schema, successor gate, objective binding and publication preflight remain mandatory."
+      },
+      "decision_conditions": {
+        "TASK_SET_PUBLISHED": "One or more substantive tasks; preserve Result successor restrictions and parent Objective.",
+        "PARENT_OBJECTIVE_CLOSURE": "No tasks or REQUIRED gates; parent Objective must already be canonically CLOSED.",
+        "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION": "No tasks or REQUIRED gates; accepted PASS/SUCCESS Task with SATISFIED hard target or the native pinned explicit Driver satisfaction assessment. Requires terminal_scope=TASK and portfolio_continuation; grants no parent completion."
+      },
+      "conditional_required_fields": {
+        "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION": [
+          "terminal_scope",
+          "portfolio_continuation"
+        ]
+      },
+      "terminal_scope": {
+        "type": "string",
+        "const": "TASK",
+        "description": "Explicitly required for TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION; no inferred closure."
+      },
+      "portfolio_continuation": {
+        "required_fields": [
+          "source_result_id",
+          "parent_objective_id",
+          "action",
+          "dispatcher",
+          "next_action",
+          "remaining_parent_scope",
+          "evidence_refs"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "source_result_id": {
+            "type": "string",
+            "description": "Exact current Result ID."
+          },
+          "parent_objective_id": {
+            "type": "string",
+            "description": "Exact parent Objective ID from current publication."
+          },
+          "action": {
+            "type": "string",
+            "const": "REEVALUATE_CANONICAL_PORTFOLIO"
+          },
+          "dispatcher": {
+            "type": "string",
+            "const": "research_control_dispatch.py"
+          },
+          "next_action": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "remaining_parent_scope": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            }
+          },
+          "evidence_refs": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            }
+          }
+        },
+        "action": "REEVALUATE_CANONICAL_PORTFOLIO",
+        "dispatcher": "research_control_dispatch.py"
+      },
+      "authoritative_contract": "research_driver_followup_contract.json",
+      "authoritative_writers": [
+        "research_driver_followup_guard.py",
+        "research_driver_followup.py"
+      ]
+    }
+  }
+}

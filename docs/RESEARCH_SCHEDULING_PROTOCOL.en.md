@@ -2,6 +2,8 @@
 
 Status: `ACTIVE / CURRENT ONLY`
 
+Scheduled conversations follow the [autonomous execution and recovery protocol](AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md): reconcile unknown effects, restore existing verified work, then dispatch fresh work. A completed control subflow does not complete the parent research objective.
+
 Task definitions are immutable V2 publications. `research_control_dispatch.py` first resolves stale-owner recovery, then delegates fresh task selection to `tools/research_dispatch.py` or active-cohort lane selection to `tools/research_lane_dispatch.py`.
 
 Issue #240 mutations require an authenticated, unedited GitHub server comment envelope from an authorized actor. `tools/research_runtime_reducer.py` is a pure reducer; it owns no task table and no mathematical authority.

@@ -62,6 +62,15 @@
     }
   },
   "research_delivery": {"policy": "control_plane/research_delivery_policy.json", "protocol": "docs/PORTABLE_RESEARCH_PROTOCOL.md", "taskbook_environment_is_admission": false, "research_results_are_primary": true, "policy_digest_impact": "NONE_EXECUTION_DELIVERY_ONLY_PRESERVES_MATHEMATICAL_CONTRACT"},
+  "scheduled_execution": {
+    "protocol": "docs/AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md",
+    "recovery_order": ["RECONCILE_UNKNOWN_EFFECTS", "RESTORE_OWN_UNFINISHED_WORK", "CANONICAL_DISPATCH"],
+    "recovery_coordinator": "CONTROL_PLANE_MAINTENANCE",
+    "local_recovery_inventory_is_source_write_authority": false,
+    "quiet_database_proves_session_dead": false,
+    "research_results_are_primary": true,
+    "policy_digest_impact": "NONE_EXECUTION_ORCHESTRATION_ONLY"
+  },
   "conversation_continuation": {
     "contract": "control_plane/executor_succession_policy.json",
     "projection": "control_plane/research_continuation.py",

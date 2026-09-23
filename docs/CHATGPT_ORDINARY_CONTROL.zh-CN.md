@@ -164,3 +164,14 @@ Follow [PORTABLE_RESEARCH_PROTOCOL.md](PORTABLE_RESEARCH_PROTOCOL.md) for schedu
 调度或 receipt 回执同时给出 `action_summary_complete=true`、`paging_required_for_selected_action=false` 时，可以依据其中完整保留的 Task/publication、owner/claim/前任、筛选、guard 和所需来源执行下一动作，无需分页读完无关活动历史。此规则优先于旧的通用 receipt_truncated 分页表述。未知动作或过大摘要仍明确标为不完整；实际 Task、Result、review、artifact 证据仍按需要读取完整相关页。
 
 若所选任务已有前任 CLAIM 且规范释放，先读 exact continuation，再走其 `continuation_prepare` 路径；真正 fresh 任务才走普通 `prepare`。队列中其它任务或审阅仍未完成，不是当前有效单元停止的理由。
+
+
+## 0.6.5：上下文丢失后的只读恢复
+
+定时对话按 [自主研究执行协议](AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md) 先恢复已有工作，再领取新任务。同一逻辑对话在上下文压缩后继续稳定 conversation_id；新逻辑对话使用自己的身份和 Source continuation，不借旧身份。
+
+`recovery_status` 的 payload 为 `{}`，无需先注册 session。它只查询本 subject 的已有请求、领取后未 open 的指针、run/generation、已完成但未发布的上传末片，并返回具体 `next_action`。它不提交 native 请求、不刷新 claim、不推断对话失活，也不授予当前 Source 权限。`status` 的 `recovery_hint` 可发现此入口。
+
+未知写入先对原 request_id `reconcile`；`ADMITTED_NOT_SUBMITTED` 用原目标的 `receipt` 恢复既有 admission，不新发同一写操作。已有 claim/run 按恢复指针读 exact continuation 并复核当前权限；关闭、fenced 或已 freeze/release 的 run 不提供旧写路径。上传指针只是 staging，不能声称 Source 已持久化。
+
+每类最多20项；`has_more`/`truncated` 表示不能推断其余工作不存在。大回执保留 `recovery_summary.next_action`、`state_sha256`、上限和截断信息；用原 receipt 分页读取所需其余指针，处理后发新的只读快照。全量 Driver 操作合同在 `status.operation_contracts` 或回执顶层同名字段公开，即使原 receipt 被压缩也保留。`review_reference.independence_status` 使用合同明确枚举，真实上下文说明写入 `finding`；不得把任意说明文字放入枚举字段。

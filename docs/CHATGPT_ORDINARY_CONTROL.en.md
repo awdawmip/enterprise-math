@@ -129,3 +129,12 @@ Use `review_flow_state`, `review_reference`, `review_synthesize` and `followup_m
 When `action_summary_complete=true` and `paging_required_for_selected_action=false`, the selected action's task/publication, targets, ownership, predecessor CAS, guards, filters and source constraints are complete. Continue that action without paging unrelated activity history even when receipt_truncated is true. Unknown or oversized action shapes remain explicitly incomplete. Actual task, Result, review and artifact evidence must still be read as needed across pages.
 
 Released predecessor claims use exact continuation and `continuation_prepare`; ordinary `prepare` is for genuinely fresh work. Other unfinished tasks or reviews are portfolio work, not a global completion prerequisite for this valid unit.
+
+
+## 0.6.5: restore work after context loss
+
+Use `recovery_status` with payload `{}` before fresh dispatch. No session registration is required for this read-only operation. It lists only the authenticated subject's pending requests, unopened own claims, current local run pointers and complete unpublished upload pointers, with a concrete `next_action`. It submits no native request, refreshes no claim, observes no chat liveness and grants no current Source authority. Discover it through `status.recovery_hint`.
+
+Preserve the stable conversation_id after compaction within the same actual logical conversation. A genuinely new conversation uses its own identity and Source continuation. Reconcile uncertain writes under the original request ID. For `ADMITTED_NOT_SUBMITTED`, use `receipt` for the original target to resume that admission. Do not submit a duplicate. Revalidate current exact Source ownership before open/resume or any write. Closed, fenced or successfully frozen/released runs offer no old writer path; staged uploads are not Source publications.
+
+Each collection is bounded to 20. `has_more`/`truncated` never means undisplayed work is absent. Large responses preserve `recovery_summary.next_action`, `state_sha256`, limits and truncation; page the original receipt only for relevant remaining pointers, then obtain a new snapshot after resolving work. Full Driver `operation_contracts` remain discoverable in status receipts or the top-level field even after compaction. Choose the truthful published independence enum and put its prose explanation in `finding`. See [Driver operations](DRIVER_FLOW_OPERATIONS.md).
