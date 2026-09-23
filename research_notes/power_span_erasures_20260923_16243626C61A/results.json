@@ -1,0 +1,164 @@
+{
+  "schema": "POWER_SPAN_ERASURES_VALIDATION_V1",
+  "python": "3.13.5",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "seed": 20260923,
+  "checks": {
+    "arbitrary_support_target_cases": 16343,
+    "protected_cases": 404,
+    "fixed_span_old_agreements": 2035,
+    "full_interval_exhaustive_cases": 45,
+    "minimum_span_cases": 16512,
+    "robust_constructions": 1974,
+    "disjoint_lag_witnesses": 267910,
+    "actual_modular_cases": 13212,
+    "all_erasure_patterns": 497,
+    "boundary_necessity_cases": 319
+  },
+  "failure_witness": {
+    "horizon": 6,
+    "span": 11,
+    "support": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "protected": [],
+    "minimum_deletions": 4,
+    "witness_period": 4,
+    "alias_period": 8,
+    "erased_marks": [
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "construction_sizes": [
+    {
+      "horizon": 4096,
+      "losses": 0,
+      "span": 4096,
+      "width": 52,
+      "blocks": 53,
+      "mark_upper_bound": 105,
+      "marks": 105,
+      "dense_marks": 4097
+    },
+    {
+      "horizon": 4096,
+      "losses": 1,
+      "span": 4097,
+      "width": 73,
+      "blocks": 38,
+      "mark_upper_bound": 150,
+      "marks": 150,
+      "dense_marks": 4098
+    },
+    {
+      "horizon": 4096,
+      "losses": 2,
+      "span": 4098,
+      "width": 90,
+      "blocks": 31,
+      "mark_upper_bound": 185,
+      "marks": 185,
+      "dense_marks": 4099
+    },
+    {
+      "horizon": 4096,
+      "losses": 3,
+      "span": 4099,
+      "width": 104,
+      "blocks": 27,
+      "mark_upper_bound": 215,
+      "marks": 215,
+      "dense_marks": 4100
+    },
+    {
+      "horizon": 65536,
+      "losses": 0,
+      "span": 65536,
+      "width": 209,
+      "blocks": 210,
+      "mark_upper_bound": 419,
+      "marks": 419,
+      "dense_marks": 65537
+    },
+    {
+      "horizon": 65536,
+      "losses": 1,
+      "span": 65537,
+      "width": 295,
+      "blocks": 149,
+      "mark_upper_bound": 594,
+      "marks": 594,
+      "dense_marks": 65538
+    },
+    {
+      "horizon": 65536,
+      "losses": 2,
+      "span": 65538,
+      "width": 362,
+      "blocks": 121,
+      "mark_upper_bound": 727,
+      "marks": 727,
+      "dense_marks": 65539
+    },
+    {
+      "horizon": 65536,
+      "losses": 3,
+      "span": 65539,
+      "width": 418,
+      "blocks": 105,
+      "mark_upper_bound": 841,
+      "marks": 841,
+      "dense_marks": 65540
+    }
+  ],
+  "bounded_query_measurement": {
+    "n": 100160063,
+    "a": 2,
+    "H": 4096,
+    "loss_budget": 2,
+    "erased": [
+      0,
+      4098
+    ],
+    "sparse": {
+      "median_ms": 0.101953,
+      "raw_ms": [
+        0.110426,
+        0.134843,
+        0.101953,
+        0.0999,
+        0.097587,
+        0.119811,
+        0.09934
+      ]
+    },
+    "dense": {
+      "median_ms": 2.162223,
+      "raw_ms": [
+        2.489135,
+        2.330796,
+        2.175552,
+        2.161872,
+        2.158997,
+        2.146739,
+        2.162223
+      ]
+    },
+    "scope": "construction and exact surviving powers; no classical speedup claim"
+  },
+  "scope": "finite tests and self-contained proofs; no full-repository or formal admission"
+}
