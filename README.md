@@ -1,170 +1,83 @@
 # Enterprise Math
 
+**Research program by YUAN X.**
+
+> **Finite resolution is foundational. A discrete readout is not the whole state. Preserve the structural residuals that still matter to the declared future.**
+
+Enterprise Math is an open research program rebuilding useful mathematical tools from **finite resolution, integer-first structure and residual-faithful discrete relations**. Its dynamical research studies forward composition together with the branch, relation, field and memory information needed to make that evolution well defined.
+
+[Chinese version](README.zh-CN.md) · [Project definition](PROJECT_DEFINITION.md) · [Machine-readable position](definitions/RESIDUAL_FAITHFUL_DISCRETE_RELATIONAL_SYSTEM.json)
+
+> **Non-mathematical reader entry:** [The World Through Enterprise Math](docs/THE_WORLD_IN_ENTERPRISE_MATH.en.md). Current position and exact native definitions are controlled by the project definition and its linked contracts, not by an introductory analogy.
+
+> **Navier–Stokes logic audit:** [Why engineered residual forcing does not answer the unforced \(f\equiv0\) problem](docs/OPENAI_NS_F0_LOGIC_REBUTTAL.en.md). Preserving a structural residual does not authorize target substitution or an undeclared forcing term; the [Logic Blacklist](docs/LOGIC_BLACKLIST.en.md) remains applicable.
+
+## Current position: a residual-faithful discrete relational system
+
+**The foundation remains discrete; the present coordinate or compressed value is not presumed complete.** A path, branch association, internal field, loop record or provenance distinction may affect later behavior even when the current endpoint or scalar readout is the same. Such a structural residual belongs in the relevant typed state, not in a footnote that can be deleted as noise.
+
+Residual fidelity does not mean that residuals must always be nonzero, small, real-valued or permanent. Nor does it require retaining every history forever. The goal is the **smallest sufficient state for the declared observations and allowed future operations**, without assuming that every model admits a finite local closure. Exact zero cases, genuine many-to-one dynamics and proved safe quotients remain legitimate mathematics.
+
+Exact compression must preserve the declared observations under allowed future compositions. Approximate compression must state its scope and propagated error bounds, including resolution, time horizon and resources when relevant. Current invisibility is not sufficient permission to erase a distinction. Scalar opposite signs do not prove branch cancellation unless the full joint states match in the appropriate algebra. Nonnegative mass is not a signed amplitude.
+
+Keep **structural/relational residuals**, **representation/approximation errors**, **implementation/derivation errors**, and **unclassified differences** separate. Fix errors; retain unknowns as unknowns. A residual is not automatically energy, temperature or force. Discrete basis labels do not themselves discretize arbitrary amplitude parameters or justify a hidden infinitely precise real remainder.
+
+The native world remains **Heartbeat World: six Enterprise spatial dimensions plus one separately typed time dimension**, under the existing P000 frame. Residual state does not add spatial axes. This is the project's chosen research frame, not a declaration of established external scientific consensus. The position change promotes no particular candidate field model, finite experiment or unreviewed result into a world axiom.
+
+## Refound, not reject
+
+Continuous mathematics remains a powerful **typed effective description and formal tool**. Precision belongs to the state, rather than being merely an error bar appended after calculation. A correspondence between a discrete model and a continuous readout must explain its domain, scales and decisive error propagation; a vanishing limit is not by itself a finite-resource guarantee.
+
+Three questions remain separate: whether a deduction is valid inside a model, whether its formalization expresses the intended target, and whether that target applies to nature. A Lean proof does not alone establish a physical bridge. Rejecting a continuity premise supplies neither a counterexample to a theorem in that model nor a proof of the opposite conclusion. These obligations apply equally to Enterprise Math.
+
+> **Definition is not inherited. Success is evidence. Explain the success from a smaller native logic.**
+
+Successful classical concepts and conditional results may be retained and refounded. Their engineering success constrains the new foundation, but their definitions may not be copied into native premises and then counted as recovered results. One mechanism explaining independent observables, scales and interventions is stronger evidence than fitting one scalar. The detailed rules remain in [FOUNDATIONAL_LOGIC.md](FOUNDATIONAL_LOGIC.md), `foundational_logic.json` and `native_semantics_admissibility.json`.
+
+## Five foundational reversals
+
+1. **A number is more than a value:** state, resolution, units and context matter, as do residual distinctions needed by the declared future.
+2. **Precision is part of the object:** finite resolution does not imply a globally finite state space or a complete coarse readout.
+3. **Collapse has an explicit scope:** an actual many-to-one update and a lossy representation of a richer state are different claims.
+4. **Dynamics carries relevant relations:** forward composition, branch associations, memory and stabilization are first-class objects; reversibility or loss is established for the specified update, not inferred from a display.
+5. **Continuity is a typed tool:** exact, finite-precision, asymptotic and domain-restricted recovery, systematic deviation and nonrecovery must be distinguished.
+
+The research target is not universal residual elimination, but laws of **generation, transport, composition, repair, stability, observability and resource cost**. Nonzero at each finite preparation does not imply a uniform positive lower bound; a preparation for every finite horizon does not imply one finite preparation that works forever.
+
+## A one-minute entry point
+
+In the original integer-root core,
+
+\[
+R_p(n)=\max\{k\in\mathbb N:k^p\le n\},\qquad C_p(n)=R_p(n)^p.
+\]
+
+Thus \(R_2(20000)=141\) and \(C_2(20000)=19881\). Every integer from 19881 through 20163 has the same square-collapse image.
+
+That exact mathematics is unchanged. What must be typed is its use. If \(C_2\) is the declared actual state update, it is a many-to-one map. If it is only a readout used to represent a richer process, the remainder \(r=n-C_2(n)\) may be needed for later operations; here \(r=119\). Retaining \((C_2(n),r)\) is exact integer bookkeeping, not hidden continuous information. Whether \(r\) can be discarded depends on the declared future, not on a preference for either perfect erasure or permanent memory.
+
+## Machine-readable position
+
+The full rules live in [`RESIDUAL_FAITHFUL_DISCRETE_RELATIONAL_SYSTEM.json`](definitions/RESIDUAL_FAITHFUL_DISCRETE_RELATIONAL_SYSTEM.json) and are linked from the project and Heartbeat World contracts. This summary is not a replacement for their typed scopes:
+
+```json
+{
+  "position_id": "RESIDUAL_FAITHFUL_DISCRETE_RELATIONAL_SYSTEM",
+  "finite_resolution_first": true,
+  "current_readout_is_complete_state_by_default": false,
+  "preserve_future_relevant_residual": true,
+  "residual_must_be_nonzero": false,
+  "exact_compression_requires_future_observer_preservation": true,
+  "approximation_requires_propagated_error_bound": true,
+  "positive_mass_is_signed_amplitude": false
+}
+```
+
 <!-- EM_FINAL_CELL_ADDRESS_CONTRACT_V1 -->
 ## Final Cell address interface (2026-09-13)
 
 All final Cell addresses obey [`coordinate_address_contract.json`](coordinate_address_contract.json): six nonnegative integer fields; inactive zero only without identity loss; display origin/axes are nonoperational; crossing does not force +1. Existing signed raw charts, displacements, inverse actions and their zero remain separately typed internal mathematics, not final address output. The verified three-region codec covers only a fixed two-generator slice, not arbitrary full X6. Existing coordinate-zero statements below concern RAW_CHART_ZERO, not display-origin placement.
 <!-- END_EM_FINAL_CELL_ADDRESS_CONTRACT_V1 -->
-
-
-**Research program by YUAN X.**
-
-> **The continuum is a magnificent approximation. It is not nature's foundation. Precision is not an error bar; it is part of the number itself.**
-
-Enterprise Math is an open research program attempting to rebuild mathematical foundations from **finite resolution, discrete state, integer-first structure, and intrinsically forward evolution**.
-
-[Chinese version](README.zh-CN.md)
-
-> **Non-mathematical reader entry:** [The World Through Enterprise Math](docs/THE_WORLD_IN_ENTERPRISE_MATH.en.md) — no advanced mathematics required; follow the worldview from precision and time to space, quantum phenomena, the universe, and extreme causal questions.
-
-> **Current Navier–Stokes logic audit:** [A logical rebuttal: why engineered residual forcing does not answer the unforced \(f\equiv0\) problem](docs/OPENAI_NS_F0_LOGIC_REBUTTAL.en.md). The underlying target-leakage pattern is now an active project rule in the [Enterprise Math Logic Blacklist](docs/LOGIC_BLACKLIST.en.md).
-
-## Position clarification: smoothness cannot make the final judgment about nature
-
-**We believe the world's substrate is not a continuum, but discrete, finitely distinguishable states and their evolution. Whenever an argument depends decisively on infinite divisibility, infinitely precise states, or arbitrarily high-order smooth structure at a singularity, collapse, or scale limit, we do not accept it as a final proof of nature's actual mechanism.** This is Enterprise Math's ontological position and admission principle for explanations of nature, not a universal conclusion already established by experiment.
-
-The object of this refusal is precise: we reject the direct promotion of validity inside a continuous model into necessity in the real world. We do not classify every mathematical argument using calculus as logically false. Smooth continuous tools may remain at an explicitly typed effective-model or conditional-mathematics layer. Their use to describe nature must separately specify the correspondence between discrete states and continuous readouts, the applicable scales, and error bounds and propagation through the decisive evolution. A smooth extension or a quantity vanishing in a limit cannot replace those obligations.
-
-Three questions must therefore remain separate: **whether the deduction is valid within the model, whether the formalization faithfully expresses the intended target, and whether that target applies to nature.** Proof assistants such as Lean can check deductions within a formal system; that check does not itself establish the system's correspondence with reality. Rejecting a model's ontological status does not produce a counterexample to a theorem inside it. Disagreeing with a continuity premise does not establish the opposite mathematical conclusion.
-
-The same standard binds our own work. The classical \(f\equiv0\) Navier–Stokes equations remain a continuous effective model. Research on that mathematical statement must honor its definitions and proof obligations: "the world is discrete" is not a substitute for a proof, and adding forcing cannot complete the unforced target. Research on nature's native self-state evolution must first specify discrete states, update rules, resolution, and a testable meaning of instability, then establish a bridge to continuous readouts. **Self-state instability is our present research proposition, not a theorem obtained automatically by rejecting continuity; instability does not automatically mean finite-time blowup.**
-
-Ontological admission is separate from the [Logic Blacklist](docs/LOGIC_BLACKLIST.en.md): the former assesses entitlement to explain nature; the latter assesses reasoning defects such as target substitution. This position applies to every author, including Enterprise Math, regardless of whether we favor a particular result.
-
-**Continuity may be a tool, but it cannot become nature's substrate without justification. Smoothness may be a model property, but it cannot replace the actual mechanism at the decisive step.**
-
-## Manifesto: the foundation of the mathematical building must be rebuilt
-
-We choose to state the position plainly.
-
-**We believe that, when mathematics is used to describe nature, the existing mathematical building rests on a fatal abstraction error: laws that are fundamentally discrete, finite-resolution, and finite-information have been modeled by default as continuous, infinitely divisible, and infinitely precise.**
-
-The continuous real line is the clearest example. Between any two points there are always more points; every interval is infinitely divisible; a point is assigned an infinitely precise location. As pure formal mathematics this structure can of course be coherent, and it has supported extraordinary achievements in analysis, geometry, and physics. But **formal success does not make a structure nature's native substrate**.
-
-For centuries, brilliant mathematicians have built higher and higher floors on this foundation. We believe the problem is not their brilliance but the inherited foundation itself. When finite precision, quantization, discretization, rounding, measurement boundaries, irreversibility, or information loss appear, the conventional route usually preserves a hidden continuous world first and then explains those phenomena as approximation, error, noise, numerical truncation, or an external limitation.
-
-Enterprise Math reverses that order.
-
-If nature never supplies infinite information, why should a natural "number" begin life as an infinitely precise point?
-
-If changing scale changes which states are distinguishable, why should precision be only an error bar attached after the computation?
-
-If a many-to-one evolution genuinely sends many states to one state, why must their difference survive as a hidden continuous remainder?
-
-If state evolution through time is directional, why must the foundation begin with an infinitely divisible flow that is so often idealized as reversible?
-
-Our answer is: **it does not have to.**
-
-Enterprise Math is no longer neutral on this foundational question. Our wager is that:
-
-- natural numerical states carry finite information;
-- precision / resolution belongs to the state itself rather than being an annotation;
-- discrete states and integer operations can be primitive rather than low-precision stand-ins for continuous quantities;
-- collapse, quotienting, merging, and information loss can be genuine mathematical evolution rather than defects that hidden variables must repair;
-- if continuity is valid at macroscopic scales, it should be **derived** as large-scale structure, limiting behavior, or an effective approximation rather than assumed at the ontological starting line.
-
-This is a wager that can fail. If these primitives cannot rebuild sufficiently powerful algebra, geometry, dynamics, and physics, the program should be shown to fail. If they can, then what must be reconsidered is not one formula but the starting point mathematics has inherited for centuries.
-
-**We choose to push this route all the way. Our judgment is that time and physics will ultimately show that the direction represented by Enterprise Math is the future of mathematics for describing nature.**
-
-## Engineering success is not a native definition; it is evidence to be explained
-
-Enterprise Math does not deny the enormous engineering success of continuous mathematics merely because it challenges its foundational definitions. On the contrary: **that long-running, cross-scale, cross-domain success is among the strongest evidence available when searching for the underlying logic.**
-
-But evidence and definition must remain separate.
-
-> **Definition is not inherited. Success is evidence. Explain the success from a smaller native logic.**
-
-Continuous mathematics may be viewed as an effective theory formed after reality has been heavily purified, compressed, and abstracted. Its extraordinary predictive accuracy across engineering tells us that some stable structure of the real world must survive that purification. It does not prove that the theory's points, distances, centers, equidistance, radii, smoothness, real continuum, classical pi, or related definitions are nature's native primitives.
-
-Enterprise Math therefore uses the inverse route:
-
-```text
-engineering success repeatedly confirmed in practice
-    ↓
-which structures must survive purification?
-    ↓
-what smaller native relations / collapse / forward mechanisms generate them?
-    ↓
-why does continuous mathematics emerge as such a successful effective theory?
-```
-
-Classical engineering results may and should be used as constraints, but their effective definitions may not be copied back into the native input and then counted as recovered structure. If the native substrate has no distance or equidistance relation, one cannot first define a circle as "points equally distant from a center" and then claim to have derived the circle from the native world. Likewise, if the goal is to explain the engineering success of classical pi, one cannot use the classical value of pi to select the collapse policy and then claim that the selected policy explains pi.
-
-A strong foundational theory should explain as many independent engineering regularities, scale behaviors, composition laws, and error envelopes as possible with as few native assumptions as possible. **Fitting one number is weak evidence; one native mechanism explaining many engineering successes is strong evidence.**
-
-The full project-level rule is recorded in [FOUNDATIONAL_LOGIC.md](FOUNDATIONAL_LOGIC.md). Machine-enforced constraints live in `foundational_logic.json` and `native_semantics_admissibility.json`.
-
-## Five foundational reversals
-
-The conventional route is often:
-
-```text
-continuous reals / continuous space
-    ↓
-choose numerical precision
-    ↓
-round, discretize, mesh
-    ↓
-compute / measure / simulate
-```
-
-Enterprise Math attempts the reverse:
-
-```text
-finite state + explicit scale / precision
-    ↓
-exact integer operations
-    ↓
-collapse / quotient / relation / support
-    ↓
-intrinsically forward dynamics
-    ↓
-discrete geometry and observable structure
-    ↓
-continuous models, when useful, as derived approximations
-```
-
-That creates five foundational reversals:
-
-1. **A number is no longer only a value.** A natural quantity should carry at least state, scale / resolution, and its physical or computational context.
-2. **Precision is no longer error.** Precision determines which differences are genuinely distinguishable at the current level.
-3. **Collapse no longer pretends to be reversible.** A many-to-one map may genuinely change the information structure of state space.
-4. **Time no longer starts from reversibility.** Forward composition, history merging, and stabilization are first-class objects.
-5. **Continuity no longer has default privilege.** Continuous structure must earn its place by emerging from the discrete substrate or by working as an effective approximation.
-
-## A one-minute entry point
-
-In the earliest core, the integer \(p\)-th root is
-
-\[
-R_p(n)=\max\{k\in\mathbb N:k^p\le n\}.
-\]
-
-Therefore,
-
-\[
-R_2(2)=1,\qquad R_2(200)=14,\qquad R_2(20000)=141.
-\]
-
-The associated collapse operator is
-
-\[
-C_p(n)=R_p(n)^p.
-\]
-
-Hence
-
-\[
-C_2(20000)=19881.
-\]
-
-Every integer from 19881 through 20163 has the same square-collapse image, 19881.
-
-The conventional instinct is to ask: "Where did the missing difference go?"  
-Enterprise Math first asks a different question: **why must it still be there?**
-
-If the current scale retains only perfect-square structure, states in the same basin may genuinely merge under this evolution. We first study the mathematics generated by that discrete rule, and only then ask whether and how it corresponds to nature.
 
 ## This is already more than an idea
 
@@ -192,12 +105,12 @@ The goal of Enterprise Math is not to turn \(C_p\) into another isolated special
 - **A0 — primitive discrete state algebra**: integer roots, collapse, gap / basin coordinates, scale, quotient-remainder, signed and typed state;
 - **A1 — forward dynamics**: composition, collision, history merge, stabilization;
 - **A2 — precision and observation**: observation, quotient, future-safe equality, minimal repair;
-- **A3 — relation state**: integer relations between states rather than forcing all structure back into a single scalar value;
+- **A3 — relation and residual state**: preserve joint relations and future-relevant distinctions rather than forcing all structure into one scalar value;
 - **A4 — support and correspondence**: multivalued relations, witnesses, common targets, and composition-preserving structure;
 - **A5 — intrinsic discrete geometry**: distance, shells, and geometry built from discrete primitives and reachability;
 - **application layer**: number-theory pressure tests, collisions, materials, causal boundaries, and world-state evolution.
 
-The long-term objective is one discrete foundational chain from **number → precision → algebra → dynamics → geometry → physics**, rather than repeatedly approximating downward from a continuous world whenever discreteness appears.
+The long-term objective is a residual-faithful discrete foundational chain from **number → precision → relation and residual state → algebra → dynamics → geometry → physics**, rather than repeatedly approximating downward from a continuous world whenever discreteness appears.
 
 ## Confidence does not mean abandoning evidence discipline
 
@@ -280,10 +193,8 @@ Code and repository documentation are released under the MIT License. The root `
 
 Enterprise Math remains in **Research Beta**. A complete geometry, calculus, physics, and thermodynamics are still far from finished, and many research lines remain open.
 
-That no longer means we lack a judgment about the direction.
+**We remain skeptical about details, ruthless about evidence, and committed to a finite-resolution, residual-faithful foundation.**
 
-**We remain skeptical about details, ruthless about evidence, and unwilling to retreat on the foundational direction.**
+Continuous mathematics has already proved itself to be a magnificent tool. Enterprise Math asks:
 
-Continuous mathematics has already proved itself to be a magnificent tool. Enterprise Math now asks a larger question:
-
-> **If nature was never continuous to begin with, where should mathematics begin again?**
+> **Which distinctions can safely disappear, which must remain in the state, and how do their laws rebuild mathematics at finite resolution?**

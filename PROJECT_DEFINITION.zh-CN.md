@@ -6,18 +6,27 @@
 所有最终晶包地址遵循 [`coordinate_address_contract.json`](coordinate_address_contract.json)：六字段非负；未启用字段只在可恢复完整身份时置0；显示原点与轴线不参与晶包运算；跨区不强制加1。内部原始坐标、位移、反向操作与零位移分别保留，不能直接当作最终地址输出。已验证三分区实现仅覆盖固定两原生方向切片，不适用于任意完整六轴状态。旧文中的坐标零点为内部锚点，不是显示原点放置要求。
 <!-- END_EM_FINAL_CELL_ADDRESS_CONTRACT_V1 -->
 
-
 Status: `ACTIVE / PROJECT-LEVEL DEFINITION / V4`
-Date: `2026-08-22`
-Driver: `CONTROL_PLANE`
+Date: `2026-09-23`
+Position update authority: `DIRECT_CURRENT_USER_INSTRUCTION`
 
 ## 一句话定义
 
-> **进取数论以有限分辨率、精度内生、整数优先和离散可计算为底层研究立场，重新奠基现代数学中有用的代数、几何、三角、分析与物理工具，并明确它们何时精确恢复、有限精度恢复、渐近恢复或发生系统修正。**
+> **进取数论以有限分辨率、整数优先和残差保真的离散关系为基础，保留对声明的后续操作与观察仍有效的区别，重新奠基有用的数学工具，并区分精确、有限精度、渐近、限域恢复或系统修正。**
 
-项目原则：
+项目原则：`REFOUND, NOT REJECT`。
 
-`REFOUND, NOT REJECT`。
+## 残差保真的研究定位
+
+主定位是**以有限分辨率为基础、保留结构残差的离散关系体系**；动力学研究简称**残差保真的离散关系动力学**。当前坐标或读数不默认等于完整状态。对声明的未来仍有影响的支路、路径、联合关系、内部场、回路、来源或记忆，应以相应类型保留；这些是可能的载体，不是必须齐备的万能状态元组，也不增加空间维数。
+
+无损压缩须保持声明的观察及所有允许的后续组合；近似压缩须在相关时说明分辨率、时间窗口、资源范围及误差传播界。允许真实多对一演化，也允许经证明的零残差。当前不可见不足以授权删除；同时，不要求永久保留全部历史。目标是最小充分状态，不预设所有模型都有有限、局部的最小闭合表示。
+
+结构或关系残差、表示或近似误差、实现或推导错误、未分类差异应分别处理；未知不等于零或物理规律。相消须核对适当代数中的完整联合状态，不能只看标量系数异号；正质量不是有符号幅值。残差不必小、不必是实数、不必非零，也不自动等于能量、温度或力。
+
+离散基底标签本身不保证所有幅值参数离散。连续数学仍可作为具类型的有效描述或形式工具，不能以任意实数“余量”自动充当原生结构。研究残差的生成、传播、复合、修复、保持及资源代价，不以残差普遍清零为成功标准。
+
+机器契约：[`definitions/RESIDUAL_FAITHFUL_DISCRETE_RELATIONAL_SYSTEM.json`](definitions/RESIDUAL_FAITHFUL_DISCRETE_RELATIONAL_SYSTEM.json)。本定位不改变 P000、最终地址接口、既有 BRC 代数类型、任务归属、定理或审查状态及运行时行为，也不将某个具体场模型升格为世界公理。
 
 ## 0. 当前权威
 
@@ -74,7 +83,7 @@ P000 继续规定进取原生直角关系为 120°；该关系与最终地址是
 
 `PATH_FORMAL_BRC -> N_BRC -> BOOLEAN_BRC`。
 
-经典/工程 readout 可以作为 typed compatibility layer，但不得把目标侧定义反向写成 native premise。
+经典/工程 readout 可以作为 typed compatibility layer，但不得把目标侧定义反向写成 native premise。存在布尔投影不等于它对所有未来问题都足够；信息缩减投影还须遵守上述残差保真契约。
 
 ## 5. 定义不继承
 
@@ -86,7 +95,7 @@ P000 继续规定进取原生直角关系为 120°；该关系与最终地址是
 
 ## 6. 项目层次
 
-- `P0`：数、精度、整数、离散状态、关系、collapse/quotient；
+- `P0`：数、精度、整数、离散状态、关系、残差、collapse/quotient；
 - `P1`：packet/cell、adjacency、transition、path、branch/recoalescence、进取坐标/代数；
 - `P2`：重建 length、distance、angle、norm、pairing、projection、area/volume、curve；
 - `P3`：重建 trig、pi 语义、坐标变换、分析工具；
@@ -110,13 +119,13 @@ P000 继续规定进取原生直角关系为 120°；该关系与最终地址是
 
 ## 8. 当前项目栈
 
-`NUMBER -> PRECISION -> DISCRETE STATE -> RELATION/PATH/BRC -> NONNEGATIVE CELL ADDRESSES OVER TYPED NATIVE RELATIONS -> REBUILT GEOMETRY -> TRIG/ANALYSIS -> CLASSICAL COMPATIBILITY/CORRECTION -> PHYSICS -> ENGINEERING`。
+`NUMBER -> PRECISION -> DISCRETE STATE -> RELATION/PATH/BRC -> RESIDUAL-FAITHFUL STATE AND SCOPED COMPRESSION -> NONNEGATIVE CELL ADDRESSES OVER TYPED NATIVE RELATIONS -> REBUILT GEOMETRY -> TRIG/ANALYSIS -> CLASSICAL COMPATIBILITY/CORRECTION -> PHYSICS -> ENGINEERING`。
 
 > **不是把旧数学推倒，而是让它拥有一个更好的地基。**
 
 ## 9. 当前世界观
 
-账户级受保护 `我眼中的世界.md` 与本项目当前空间基础一致，并提供当前有限精度与后分配研究公理。
+账户级受保护 `我眼中的世界.md` 及其 JSON 对应提供当前有限分辨率、后分配与残差保真研究定位；空间基础继续由 P000 控制。本次更新经用户明确授权，不把候选模型、有限实验或形式推导升级为已确立的物理规律。
 
 ## 10. 历史访问
 

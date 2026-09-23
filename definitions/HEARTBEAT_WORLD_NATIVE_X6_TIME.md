@@ -2,8 +2,10 @@
 
 Status: `ACTIVE / DIRECT_USER_NAMING_AND_COORDINATE_CONSTRAINT`
 Effective: `2026-09-19`
-Authority: 本次用户明确命名；保留既有 P000 与原生 X6 基础，不以实验结果变更世界公理。
+Position updated: `2026-09-23`
+Authority: 用户于 2026-09-19 明确命名，并于 2026-09-23 授权更新残差保真定位；既有 P000 与原生 X6 基础保留，不以实验结果变更世界公理。
 Machine contract: `HEARTBEAT_WORLD_NATIVE_X6_TIME.json`
+English counterpart: [HEARTBEAT_WORLD_NATIVE_X6_TIME.en.md](HEARTBEAT_WORLD_NATIVE_X6_TIME.en.md)
 
 ## 正式定义
 
@@ -30,6 +32,16 @@ Machine contract: `HEARTBEAT_WORLD_NATIVE_X6_TIME.json`
 时间组织缩放、轮转与相互作用的心跳演化，但本命名不把时间等同于一个缩放值。周期相位可由时间导出；其是否足以替代完整时间，要由问题的观察目标决定。离散 `t in N_0` 是当前计算实验的时钟表示，不由本命名单独宣称为已测得的物理时间律。
 
 六拍翻倍、十二拍往复、倍率 2、特定步速等均为可更换的研究程序，不是“心跳世界”的定义条件。有限轮转骨架 S6 不等于完整原生旋转理论。时间度量、完整时空变换和真实记忆收益仍需研究。
+
+## 残差保真的离散关系定位
+
+心跳世界采用**以有限分辨率为基础、保留结构残差的离散关系体系**。完整状态保留对声明的后续操作与观察仍有效的支路、联合关系、内部场、回路和来源；这些结构不由空间终点或当前源分布自动确定，也不必都能写成一个标量余量。
+
+无损消去须证明观察与允许的后续组合保持；近似消去须给出适用范围和误差传播界。允许真实合并、经证明的零残差与最小充分压缩，不要求残差处处非零或永久保留全部历史。相消须检查完整联合状态与代数类型，正质量不得冒充有符号幅值。
+
+结构残差、近似误差、实现或推导错误和未知差异分别处理；残差不自动是能量、温度、力或额外空间维度。离散基底不自动保证幅值离散，也不自动引入无限精度实数本体。研究重点包括残差的生成、演化、修复、保持和资源代价，不把清零设为统一目标。
+
+详细机器规则见 [`RESIDUAL_FAITHFUL_DISCRETE_RELATIONAL_SYSTEM.json`](RESIDUAL_FAITHFUL_DISCRETE_RELATIONAL_SYSTEM.json)，中英文项目定位见 `PROJECT_DEFINITION.zh-CN.md` / `PROJECT_DEFINITION.md`。本次定位不改变心跳瞬态定义、候选模型的证据等级或任何既有任务与审查状态。
 
 ## 状态与代数边界
 

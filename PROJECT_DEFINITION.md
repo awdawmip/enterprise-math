@@ -6,18 +6,27 @@
 All final Cell addresses obey [`coordinate_address_contract.json`](coordinate_address_contract.json): six nonnegative integer fields; inactive zero only without identity loss; display origin/axes are nonoperational; crossing does not force +1. Existing signed raw charts, displacements, inverse actions and their zero remain separately typed internal mathematics, not final address output. The verified three-region codec covers only a fixed two-generator slice, not arbitrary full X6. Existing coordinate-zero statements below concern RAW_CHART_ZERO, not display-origin placement.
 <!-- END_EM_FINAL_CELL_ADDRESS_CONTRACT_V1 -->
 
-
 Status: `ACTIVE / PROJECT-LEVEL DEFINITION / V4`
-Date: `2026-08-22`
-Driver: `CONTROL_PLANE`
+Date: `2026-09-23`
+Position update authority: `DIRECT_CURRENT_USER_INSTRUCTION`
 
 ## One-sentence definition
 
-> **Enterprise Math rebuilds useful modern mathematical tools from a finite-resolution, precision-aware, integer-first and discretely computable substrate, then classifies when classical algebraic, geometric, trigonometric, analytic and physical tools are exactly recovered, recovered only at finite precision or asymptotically, or require systematic correction.**
+> **Enterprise Math rebuilds useful mathematical tools from finite resolution, integer-first structure and residual-faithful discrete relations, preserving distinctions relevant to declared future operations and observations, then classifies exact, finite-precision, asymptotic and domain-restricted recovery or systematic deviation.**
 
-Project principle:
+Project principle: `REFOUND, NOT REJECT`.
 
-`REFOUND, NOT REJECT`.
+## Residual-fidelity position
+
+The position is a **finite-resolution, residual-faithful discrete relational system**; its dynamical research is **residual-faithful discrete relational dynamics**. A coordinate or present readout is not presumed to be a complete state. Retain the typed branch, path, joint-relation, field, loop, provenance or memory distinctions that can affect the declared future. These are possible carriers, not a mandatory universal state tuple or additional spatial axes.
+
+Exact compression requires preservation under the declared observers and all allowed future compositions. Approximate compression must declare the applicable resolution, horizon and resource scope when relevant, with propagated error bounds. Actual many-to-one dynamics and proved zero-residual cases remain admissible. Current invisibility alone does not authorize erasure; nor must every history be retained forever. The goal is a minimally sufficient state, not an assumed universally finite local closure.
+
+Keep structural/relational residuals, representation/approximation errors, implementation/derivation errors and unclassified differences distinct. Unknown does not mean zero or a physical law. Cancellation must match full joint states in the appropriate algebra, not just opposite scalar coefficients. Nonnegative mass is not a signed amplitude. A residual need not be small, real-valued or nonzero, and is not automatically energy, temperature or force.
+
+Discrete basis labels do not by themselves discretize all amplitude parameters. Continuous mathematics remains a typed effective description or formal tool, not an automatically native arbitrary-real remainder. Study residual generation, transport, composition, repair, stability and resource tradeoffs; universal residual elimination is not the success criterion.
+
+Machine contract: [`definitions/RESIDUAL_FAITHFUL_DISCRETE_RELATIONAL_SYSTEM.json`](definitions/RESIDUAL_FAITHFUL_DISCRETE_RELATIONAL_SYSTEM.json). This position does not change P000, the final-address interface, existing BRC algebra types, task ownership, theorem/review status or runtime behavior. It adopts no particular field model as a new world axiom.
 
 ## 0. Current authority
 
@@ -80,7 +89,7 @@ Current enrichment:
 
 `PATH_FORMAL_BRC -> N_BRC -> BOOLEAN_BRC`.
 
-Classical/engineering readout may be used as a typed compatibility layer, but target-side definitions may not be copied back into native premises.
+Classical/engineering readout may be used as a typed compatibility layer, but target-side definitions may not be copied back into native premises. The existence of a Boolean shadow does not prove it sufficient for every future question; information-reducing projections also obey the residual-fidelity contract above.
 
 ## 5. Definition is not inherited
 
@@ -92,7 +101,7 @@ Classical/engineering success is strong evidence and a calibration target, not a
 
 ## 6. Project layers
 
-- `P0`: number, precision, integer structure, discrete state, relation, collapse/quotient;
+- `P0`: number, precision, integer structure, discrete state, relation, residual, collapse/quotient;
 - `P1`: packet/cell, adjacency, transition, path, branching/recoalescence, Enterprise coordinates/algebra;
 - `P2`: rebuilt length, distance, angle, norm, pairing, projection, area/volume, curve;
 - `P3`: rebuilt trigonometry, pi semantics, coordinate transforms and analysis;
@@ -116,13 +125,13 @@ A deviation must be derived, reproducible and testable.
 
 ## 8. Current project stack
 
-`NUMBER -> PRECISION -> DISCRETE STATE -> RELATION/PATH/BRC -> NONNEGATIVE CELL ADDRESSES OVER TYPED NATIVE RELATIONS -> REBUILT GEOMETRY -> TRIG/ANALYSIS -> CLASSICAL COMPATIBILITY/CORRECTION -> PHYSICS -> ENGINEERING`.
+`NUMBER -> PRECISION -> DISCRETE STATE -> RELATION/PATH/BRC -> RESIDUAL-FAITHFUL STATE AND SCOPED COMPRESSION -> NONNEGATIVE CELL ADDRESSES OVER TYPED NATIVE RELATIONS -> REBUILT GEOMETRY -> TRIG/ANALYSIS -> CLASSICAL COMPATIBILITY/CORRECTION -> PHYSICS -> ENGINEERING`.
 
 > **Do not tear down old mathematics; give it a better foundation.**
 
 ## 9. Current worldview
 
-The protected account-level `我眼中的世界.md` is aligned with the current spatial foundation and supplies the current finite-resolution and post-allocation research axioms.
+The protected account-level `我眼中的世界.md` and its JSON companion supply the current finite-resolution, post-allocation and residual-fidelity research position. The spatial foundation remains controlled by P000. This update was explicitly authorized by the user; it does not promote a model candidate, finite experiment or formal deduction into an established physical law.
 
 ## 10. Historical access
 
