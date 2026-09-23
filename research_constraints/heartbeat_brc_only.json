@@ -2,7 +2,11 @@
   "schema": "HEARTBEAT_BRC_ONLY_ARITHMETIC_CONSTRAINT_V1",
   "status": "ACTIVE_DIRECT_USER_METHOD_CONSTRAINT",
   "effective": "2026-09-23",
-  "scope": ["enterprise-math/heartbeat", "enterprise-math/BRC-Shor", "native-residual-attribution"],
+  "scope": [
+    "enterprise-math/heartbeat",
+    "enterprise-math/BRC-Shor",
+    "native-residual-attribution"
+  ],
   "user_quote_verbatim": "不对，现在无法判断是离散数学和经典pi、三角函数的精度误差还是真实残差，不要展开pi的代数运算，药运算就必须走brc",
   "scientific_arithmetic_route": "ACTUAL_TYPED_BRC_ONLY",
   "ordinary_exact_arithmetic_is_automatically_BRC": false,
@@ -14,12 +18,61 @@
   "rename_classical_operator_as_BRC": false,
   "positive_branch_mass_as_signed_or_complex_amplitude": false,
   "unresolved_carrier_action": "PRESERVE_SYMBOLIC_STATE_AND_RESOLVE_OR_EXTEND_TYPED_BRC_INTERFACE;NO_NON_BRC_NUMERICAL_FALLBACK",
-  "execution_receipt_required_fields": ["exact_source_revision", "entrypoint", "input_carrier", "branch_identity_and_provenance", "observer_and_future_operation_scope", "operation_semantics", "output_and_residual_certificate"],
-  "native_residual_attribution_requires": ["declared_native_model", "verified_native_to_BRC_correspondence", "actual_BRC_computation_or_exact_BRC_identity", "separate_model_boundary_and_computation_defects", "nonzero_or_undecidable_status"],
+  "execution_receipt_required_fields": [
+    "exact_source_revision",
+    "entrypoint",
+    "input_carrier",
+    "branch_identity_and_provenance",
+    "observer_and_future_operation_scope",
+    "operation_semantics",
+    "output_and_residual_certificate"
+  ],
+  "native_residual_attribution_requires": [
+    "declared_native_model",
+    "verified_native_to_BRC_correspondence",
+    "actual_BRC_computation_or_exact_BRC_identity",
+    "separate_model_boundary_and_computation_defects",
+    "nonzero_or_undecidable_status"
+  ],
   "legacy_results_policy": "PRESERVE_BYTES_AND_MODEL_LOCAL_EVIDENCE;SUSPEND_NATIVE_RESIDUAL_ATTRIBUTION_PENDING_BRC_REVALIDATION",
   "classical_comparison_execution": "NO_NEW_RUN_WITHOUT_EXPLICIT_LATER_USER_AUTHORIZATION",
-  "retained_state": ["native_cell_identity", "joint_occupancy", "phase_and_sign", "branch_order_and_multiplicity", "loop_history", "boundary_and_source", "heartbeat_and_solver_index_types"],
-  "physics_changes": {"P000": false, "heartbeat_definition": false, "rigidity_default": false, "instantaneous_transmission_proved": false, "Shor_speedup_claimed": false},
+  "retained_state": [
+    "native_cell_identity",
+    "joint_occupancy",
+    "phase_and_sign",
+    "branch_order_and_multiplicity",
+    "loop_history",
+    "boundary_and_source",
+    "heartbeat_and_solver_index_types"
+  ],
+  "physics_changes": {
+    "P000": false,
+    "heartbeat_definition": false,
+    "rigidity_default": false,
+    "instantaneous_transmission_proved": false,
+    "Shor_speedup_claimed": false
+  },
   "implementation_status": "METHOD_CONSTRAINT_AND_STATIC_ROUTE_AUDIT_ONLY;NOT_A_UNIVERSAL_RUNTIME_ENFORCEMENT_CLAIM",
-  "administrative_work": "File IO, hashing, syntax/schema checks and source inspection are not scientific model computations."
+  "administrative_work": "File IO, hashing, syntax/schema checks and source inspection are not scientific model computations.",
+  "record_id": "CONSTRAINT-HEARTBEAT-BRC-ONLY-20260923",
+  "legacy_native_attribution_status": "NATIVE_ATTRIBUTION_PENDING_BRC_REVALIDATION",
+  "load_before": [
+    "scientific_input_generation",
+    "scientific_computation",
+    "revalidation",
+    "new_reference_computation",
+    "native_residual_attribution"
+  ],
+  "generic_fallback_allowed_in_scope": false,
+  "relation_depth_discount_or_solver_iteration_is_heartbeat_time": false,
+  "single_revalidation_restores_all_legacy_results": false,
+  "constraint_sync_is_scientific_revalidation": false,
+  "revalidation_scope_required_fields": [
+    "exact_input_and_boundary",
+    "BRC_kernel_and_extension_revision",
+    "observer",
+    "allowed_future_operations",
+    "proof_and_execution_status"
+  ],
+  "automatic_runtime_interception_claimed": false
 }
