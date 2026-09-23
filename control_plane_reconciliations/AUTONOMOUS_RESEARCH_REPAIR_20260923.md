@@ -50,3 +50,31 @@ The same verified Source also contains a new real CM(-24) external-prior-art che
 The adjacent `autonomy_20260923_prompts/` files preserve the reviewed prompt texts and their saved-UI verification. All five were saved, navigated away from, reopened and matched exactly after only CRLF-to-LF / trailing-whitespace normalization; Root independently verified their SHA-256 values. Final verification time: 2026-09-23T00:20:25.265030Z. All five remain enabled. They are deployment evidence, not a second task registry. Use the live schedule and current Source contracts for execution. Original task IDs, frequencies, phases, notification behavior and enabled state are preserved.
 
 The repair closes this control-maintenance scope. The scheduled research parent continues, including GEO6 synthesis/follow-up and other already assigned research; it is not declared complete.
+
+## Maintenance-lane cross-lane fence checkpoint — 2026-09-23 10:13 +08
+
+Parent objective: keep autonomous Researcher/Driver execution lanes independent from `CONTROL_PLANE_MAINTENANCE`, recover interrupted work only through the current canonical continuation path, and preserve every verified mathematical frontier without replay.
+
+### Classification and immutable frontier
+
+- `chatgpt-hourly-enterprise-math-20260921` remains the maintenance-only logical conversation. A later Researcher session `MCP-3658b380d6de47a282486676c076f83e` / `EM-DIRECT-A17886` was cross-lane contamination, not a valid maintenance execution role.
+- Fresh `recovery_status` request `maint-recovery-20260923-1010-11` verified `execution_authorized=false`, `source_authority_verified=false`, `pending=[]`, `runs=[]`, `unopened_claims=[]`, `unpublished_uploads=[]`, `blocked_work=[]`, `has_more=false`. No Source owner/claim/run was established by that session.
+- Its last D=-24 `continuation_prepare` request `continuation-prepare-brc-20260923-0127-29` was rejected before native admission with `CHAT_AUTHENTICATED_LAST_PROGRESS_ARTIFACT_REQUIRED`; `bridge_receipt=null`. Do not replay it as a mutation and do not infer a CLAIM or OPEN.
+- Maintenance request `maint-close-crosslane-20260923-1012-11` closed only that local cross-lane Researcher session. Native readback reports `closed=true`, `role_authority_remaining=false`, and `historical_evidence_preserved=true`.
+- Post-close recovery request `maint-recovery-postclose-20260923-1013-11` verifies `session_state=CLOSED`, `execution_authorized=false`, and again no pending requests, runs, unopened claims, unpublished uploads or blocked work. Maintenance-lane isolation is therefore `VERIFIED_COMPLETE`.
+
+### D=-24 interrupted checkpoint chain
+
+The mathematical work associated with `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY` is not declared recovered by this fence. Existing support issue #1500 remains the exact control defect for the earlier legitimate Researcher's `publish_checkpoint` crossing the claim-lease boundary. The prior upload remains non-canonical; `persisted_checkpoint=NOT_FOUND` must not be rewritten into a durable frontier.
+
+Responsible execution path: a separate legitimate Researcher lane, if current canonical routing selects this task, must register/continue with its own real session and contribution history, consume the exact Source continuation, obtain a fresh winning CLAIM and OPEN, and only then publish the already-produced checkpoint content or a contract-approved reauthorization equivalent. Maintenance must not dispatch, claim, open, resume, publish or freeze it.
+
+Acceptance for actual D=-24 recovery remains: a real independent Researcher-lane receipt showing current legal CLAIM→OPEN, followed by a successful canonical checkpoint readback carrying the precise unfinished unit without recomputing verified mathematics. Until then the task is `UNFINISHED / PENDING_TAKEUP`, not `IN_PROGRESS` merely because an upload or support issue exists.
+
+### Do not repeat / next maintenance action
+
+Do not repeat the cross-lane `session_start`, D=-24 continuation mutation, rejected continuation_prepare, prior mathematical units, old review work, or any third-review workaround. Do not alter scheduler frequency, phase, enabled state or notification behavior for this recovery.
+
+Next maintenance action: on the next control-maintenance round, read this fixed conversation's `recovery_status` first. If it remains closed/clean, leave it untouched and inspect only current Source evidence for one smallest unresolved control chain. For D=-24, verify recovery only if an independent Researcher lane has produced the required fresh authority and durable checkpoint evidence; otherwise preserve #1500 and the highest verified frontier without claiming actual execution recovery.
+
+At Source `8e9a3492be88efc5e2d2b9050bb77725c5bfea31`, another legitimate research lane independently published `research_notes/BRC_HEARTBEAT_BRC_ONLY_LOOP_RECHECK_20260923_6EF011.md`. This proves autonomous research remained active while maintenance fenced its own contamination, but the maintenance lane neither authored nor mathematically certified that research candidate.
