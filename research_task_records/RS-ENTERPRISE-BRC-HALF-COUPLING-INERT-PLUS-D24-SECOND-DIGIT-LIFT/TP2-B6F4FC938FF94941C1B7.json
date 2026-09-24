@@ -1,0 +1,60 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "registry_key": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "publication_generation": 1,
+  "supersedes_publication_id": null,
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "taskbook_path": "research_tasks/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT_610cb297.md",
+  "taskbook_blob_sha1": "sha1:53a3ef039325534e3715add837f0eee332289984",
+  "publisher_role": "RESEARCH_DRIVER",
+  "publisher_id": "EM-DVR-A5A686",
+  "published_at": "2026-09-24T03:23:57.804152+00:00",
+  "parent_objective_id": "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION",
+  "origin_kind": "DRIVER_ROADMAP",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY",
+  "claimable": true,
+  "effective_priority": "P1",
+  "effective_leverage": "HIGH",
+  "priority_source": "PUBLISHER_DECLARED",
+  "publisher_priority_request": "P1",
+  "publisher_leverage_request": "HIGH",
+  "owner": "taskbook/unassigned",
+  "frontier": "Consume the accepted D=-24 UR/JT0 first-digit Result and solve only the surviving second-digit certificate LIFT: Delta_p=(G_p h-1)/p congruent R_p mod p for every p congruent 13 or 19 modulo 24. Preserve G_p mod p^2, h mod p^2, cutoff-sensitive Phi_xx, derivative/Frobenius ports and provenance; do not reopen CM0, SIMPLE, UR or the first-digit Chisholm/Clausen proof.",
+  "next_action": "Derive an exact expression for Delta_p-R_p modulo p from the accepted scalar interface and classify the smallest remaining p-adic/finite-field observer; then either prove it uniformly in both residue classes, produce an exact counterexample, or strictly reduce it to a smaller certificate. Reuse current high-precision BRC notes only after proving they preserve the LIFT observer.",
+  "research_value": "LIFT is the unique second-digit residue left by the accepted parent decomposition JT2 <=> UR + LIFT; closing it decides JT2 without replaying the already solved first digit.",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "identity_lane": "MATHEMATICAL_CONTINUATION",
+  "source_refs": [
+    "research_returns/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE_RETURN_20260828.md",
+    "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY/MCP-e6cc623799404ca09be0012f8654712c/0f0be0d17d5eb48c835b/d24_ur_jt0_result_20260924.md"
+  ],
+  "dependencies": [
+    "RR-82F6383FB6634F72B457",
+    "DR-2EA60F5817976E662FA6",
+    "RR-AC9B3BA5BD277CE043F5"
+  ],
+  "evidence_status": "DRIVER_REVIEW_FOLLOWUP_V1",
+  "successor_gate": {
+    "new_information_gap": "The accepted first-digit Result evaluates the nonzero reciprocal unit and proves UR/JT0, but it does not determine the divided second p-adic digit Delta_p or compare it with the frozen target R_p.",
+    "why_parent_result_does_not_close_it": "UR is only the reduction of G_p h modulo p after dividing g by p. LIFT depends on G_p and h modulo p^2 and on the cutoff-sensitive Phi_xx/derivative corrections that are invisible to the first-digit theorem.",
+    "discriminating_outcomes": [
+      "Prove LIFT uniformly for p congruent 13 or 19 modulo 24 and hence prove JT2 at the frozen interface.",
+      "Produce one exact independently recomputed counterexample to LIFT/JT2.",
+      "Prove an exact lower-complexity equivalent certificate for Delta_p-R_p."
+    ],
+    "kill_condition": "A verified all-prime proof or exact counterexample terminates LIFT. Finite regression or unrelated higher-precision BRC expansions do not.",
+    "alternative_route_or_free_exploration_considered": "Reopening CM0/SIMPLE/UR and continuing unbounded auxiliary cancellation-carrier census were rejected because those do not address the unique second-digit residual.",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "The UR task is terminal at first-digit scope. A new narrow LIFT continuation preserves the accepted theorem boundary and isolates the only remaining scalar p-adic digit needed for JT2."
+  }
+}
