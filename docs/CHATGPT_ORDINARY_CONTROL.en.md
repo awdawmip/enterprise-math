@@ -29,7 +29,7 @@ Read the original Issue after about 30 seconds, then about every 15 seconds whil
 | `pre_final` | `parent_liveness` and exact route fields below | Read-only native final-interaction gate; registration, freeze, review, or close alone does not grant final permission |
 | `tasks` | None | `limit=20` (1–100), `cursor`, `dispatch_state` |
 | `task`, `continuation` | `task_id` | None |
-| `artifact` | `packet_request_id`, `path` | `start_char=0`, `char_count=12000` (max 24000), `source_commit`, `related_start=0`; dependency is successful continuation/artifact/publish_checkpoint |
+| `artifact` | `packet_request_id`, `path` | `start_char=0`, `char_count=12000` (max 24000), `source_commit`, `related_start=0`; successful continuation/artifact/publish_checkpoint dependency, or a 0.6.6 preserve receipt's `manifest_read` for its neutral manifest |
 | `receipt` | `target_request_id` | `start_char=0`, `char_count=12000` (max 24000) |
 | `reconcile` | `target_request_id` | None; reconcile an existing uncertain operation rather than replaying it |
 
@@ -57,7 +57,7 @@ Normal chain: dispatch → session_start → prepare → claim → open → arti
 | `artifact_upload` | `upload_id`, `filename`, `part_index`, `content` | `final=false` default; final part must use true |
 | `publish_checkpoint` | `run_request_id`, `upload_request_ids`, `completed_units`, `current_unfinished_unit`, `next_action`, `do_not_repeat` | `release=false` default; true publishes CONTINUATION and releases. Keep false before freeze |
 | `freeze` | `run_request_id`, `publication_request_id`, `return_filename`, `metadata` | Publication must be the same run's successful publish_checkpoint |
-| `session_close` | `reason` | Pending requests, active claims or unpublished uploads must be resolved first |
+| `session_close` | `reason` | Pending requests, active claims or unresolved staged uploads must be resolved first; see the verified neutral-preservation route in 0.6.6 |
 
 Upload IDs and filenames are simple 1–96 character names (alphanumeric first, then alphanumeric or `_.-`, no slash). Parts start at zero and are contiguous up to index 128. Maximum 16000 UTF-8 bytes and 24000 JSON-escaped bytes per part, 1 MiB per file, 16 files/4 MiB per publication. Use a new request ID for each part; retain upload_id/filename. `upload_request_ids` lists the successful **final complete part request** for each file, not upload IDs or all part IDs. Uploading never executes code.
 
@@ -138,3 +138,17 @@ Use `recovery_status` with payload `{}` before fresh dispatch. No session regist
 Preserve the stable conversation_id after compaction within the same actual logical conversation. A genuinely new conversation uses its own identity and Source continuation. Reconcile uncertain writes under the original request ID. For `ADMITTED_NOT_SUBMITTED`, use `receipt` for the original target to resume that admission. Do not submit a duplicate. Revalidate current exact Source ownership before open/resume or any write. Closed, fenced or successfully frozen/released runs offer no old writer path; staged uploads are not Source publications.
 
 Each collection is bounded to 20. `has_more`/`truncated` never means undisplayed work is absent. Large responses preserve `recovery_summary.next_action`, `state_sha256`, limits and truncation; page the original receipt only for relevant remaining pointers, then obtain a new snapshot after resolving work. Full Driver `operation_contracts` remain discoverable in status receipts or the top-level field even after compaction. Choose the truthful published independence enum and put its prose explanation in `finding`. See [Driver operations](DRIVER_FLOW_OPERATIONS.md).
+
+## 0.6.6: preserve old staging before successor identity issuance
+
+This is an operation protocol after capability discovery, **not evidence that a version is deployed or the affected task has recovered**. First inspect actual `status` for enabled `session_preserve_staging` and its returned `operation_contracts`. If unavailable, do not invent parameters, delete old uploads, or rebind their ownership.
+
+When Source requires a new successor Researcher but unresolved staging prevents the old service session in this logical conversation from closing:
+
+1. Read `recovery_status`; use the original request ID's `receipt/reconcile` for pending or uncertain effects. A currently owned active CLAIM/run still requires normal checkpoint/HANDOFF; neutral preservation does not bypass ownership.
+2. The **actual logical conversation still bound to that old service session** submits `session_preserve_staging` with only a truthful `reason`. The server binds subject/session/identity; do not supply an old session_id or successor identity. It losslessly preserves unresolved complete and incomplete uploads, original parts/request provenance and hashes in a neutral immutable Source archive with a separate disposition audit. Original local rows remain immutable. This is not a TASK_CHECKPOINT, Result, review, current-task input or research progress, and grants no execution authority.
+3. Read the successful inner receipt for that original request and inspect `source_commit`, `manifest_path`, `manifest_sha256` and `source_readback_verified`. Follow returned `manifest_read` through paged `artifact` readback and retain original attribution. If no staging requires preservation, follow that receipt without inventing a manifest. OUTCOME_UNKNOWN means reconcile the original preserve request, never replay under a new ID.
+4. Independently pass the old session's `session_close` guards and verify revocation. Preservation itself neither closes the session nor revokes Driver DA. Then ordinary `session_start` in the **same actual logical conversation** issues a new service session/Researcher identity, retaining server-known and truthfully declared prior contributions. A new identity does not establish reviewer independence or rebind historical artifact_upload requests. A genuinely new conversation uses its own conversation_id; it cannot copy another conversation's ID to invoke that old capability.
+5. The new session reads current exact continuation. If `SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED` checkpoint exists (as for D24), `continuation_prepare` contains only that successful packet's `packet_request_id` and truthful `reason`; do not override its frontier with `artifact_request_ids/frontier_notes`. Only successful preparation permits the lane's canonical CLAIM/open sequence. Consume completed units without repeating them.
+
+The P11 bare-publication initial marker is a different case. Only after Source returns a `CURRENT_TASK_INPUTS_WITH_NO_RECORDED_OWNER_PROGRESS` seed, read its exact `input_artifacts`, pass this conversation's successful artifact request IDs, and keep `frontier_notes.completed_units=[]`. Accepted parent results belong in provenance/`do_not_repeat`; the publication marker and unpublished drafts are not completed predecessor research. Re-reading the parent Result cannot repair a missing seed.

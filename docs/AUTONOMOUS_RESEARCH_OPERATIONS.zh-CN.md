@@ -54,3 +54,13 @@
 一般状态未变化时不重复通知；有研究成果、实质修复、失败或确需用户动作时再报告。保留原有定时频率和用户通知设定。
 
 相关入口：[普通 Chat 控制](CHATGPT_ORDINARY_CONTROL.zh-CN.md)、[Driver 操作合同](DRIVER_FLOW_OPERATIONS.md)、[跨对话续接](CONTINUE_RESEARCH.zh-CN.md)、[可移植研究交付](PORTABLE_RESEARCH_PROTOCOL.md)。
+
+## 旧暂存阻挡继任身份时（0.6.6 能力发现后）
+
+以实际 `status` 和 `operation_contracts` 为准；此节不证明服务已部署。不要循环“新身份被拒 → close 被未发布上传拒绝”，也不要改绑/删除旧证据。仍绑定旧服务 session 的同一实际逻辑 conversation，先协调原未落定请求；没有当前活跃 CLAIM/run 等阻挡时，按公开合同请求 `session_preserve_staging`。控制维护只编排此恢复，不借旧 conversation_id/能力操作研究身份。
+
+中立 archive 无损保全完整/未完整暂存及原请求来源，不是任务 checkpoint、Result、review、当前任务输入或数学进展；原暂存行不改绑。回读原请求成功回执与 `manifest_read` 指向的不可变清单后，独立通过自己的 `session_close`，再在同一实际逻辑 conversation `session_start` 新服务身份并保留贡献历史。保全不自动关闭/撤销权限；UNKNOWN 只 reconcile 原请求。真正新对话使用自己的 conversation_id，不复制旧标识。
+
+恢复后优先消费 Source 的已验证 checkpoint。D24 这类 native frontier 的 `continuation_prepare` 仅用新成功 packet 的 `packet_request_id` 和 `reason`，不重写 frontier。P11 这类初始 publication 输入 seed 则读取精确 seed pin、保留 `completed_units=[]`，既有父成果放来源/不重做项；没有 seed 不用重复父 Result 阅读替代修复。两路均不提前 CLAIM/open、不重算已完成研究。
+
+验收必须分别记录：中立保全完成、own close/新身份与贡献继承、真实任务 continuation_prepare 成功、后续合法执行恢复。单凭 archive、文档发布或支持单关闭，不得宣称科研恢复或成果验收。

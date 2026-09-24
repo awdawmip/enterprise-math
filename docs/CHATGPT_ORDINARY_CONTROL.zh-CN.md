@@ -38,7 +38,7 @@ Protocol: `EM_CHAT_CONTROL_V1` · English: [CHATGPT_ORDINARY_CONTROL.en.md](CHAT
 | `pre_final` | `parent_liveness` 和下述对应路径字段 | 只读调用原生最终回复门；注册、freeze、review 或 close 成功不等于允许最终回复 |
 | `tasks` | 无 | `limit` 默认 20、1–100；`cursor`、`dispatch_state`；分页复用返回 cursor |
 | `task` / `continuation` | `task_id` | 精确任务/续接包；有现存会话时服务自动绑定 |
-| `artifact` | `packet_request_id`, `path` | `start_char=0`, `char_count=12000`（最多 24000）、`source_commit`、`related_start=0`；依赖成功的 continuation/artifact/publish_checkpoint 请求，只读允许的证据 |
+| `artifact` | `packet_request_id`, `path` | `start_char=0`, `char_count=12000`（最多 24000）、`source_commit`、`related_start=0`；依赖成功的 continuation/artifact/publish_checkpoint；0.6.6 还可按 preserve 回执的 `manifest_read` 读取中立清单 |
 | `receipt` | `target_request_id` | `start_char=0`, `char_count=12000`（最多 24000）；读取本 conversation 目标回执的完整 JSON 分页 |
 | `reconcile` | `target_request_id` | 协调本 conversation 已有请求的未知远端结果，不重复原动作 |
 
@@ -68,7 +68,7 @@ QUEUED/RUNNING/POSTING/RECONCILE 时继续读原请求；OUTCOME_UNKNOWN 时发 
 | `artifact_upload` | `upload_id`, `filename`, `part_index`, `content` | `final=false` 默认；末片必须 true。只暂存文本，不执行上传程序 |
 | `publish_checkpoint` | `run_request_id`, `upload_request_ids`, `completed_units`, `current_unfinished_unit`, `next_action`, `do_not_repeat` | `release=false` 默认；成功发布后 PROGRESS；`release=true` 则在发布后交 CONTINUATION 并释放。**准备 freeze 时保持 false** |
 | `freeze` | `run_request_id`, `publication_request_id`, `return_filename`, `metadata` | publication_request_id 指向本 run 的成功 publish_checkpoint；return_filename 是其中自己的文件名 |
-| `session_close` | `reason` | 有待处理请求、活跃 CLAIM 或未发布上传时拒绝；先持久化/合法交接 |
+| `session_close` | `reason` | 有待处理请求、活跃 CLAIM 或未解决的暂存上传时拒绝；先持久化/合法交接。已验证的中立保全见 0.6.6 路径 |
 
 上传的 `upload_id` 和 `filename` 为 1–96 字符简单名称（字母/数字开头，后用字母、数字、`_ . -`，无目录斜杠）。每个文件从 `part_index=0` 连续递增，最多索引 128；每片最多 16000 UTF-8 字节且 JSON 转义表示不超过 24000 字节，中文长文宜切小片。单文件最多 1 MiB，一次最多 16 文件、共 4 MiB。每片用新的请求 ID；相同文件各片沿用 upload_id/filename。`upload_request_ids` 填每个文件**最后一片 complete 成功请求**的 ID，不填 upload_id，也不填全部片 ID。
 
@@ -175,3 +175,17 @@ Follow [PORTABLE_RESEARCH_PROTOCOL.md](PORTABLE_RESEARCH_PROTOCOL.md) for schedu
 未知写入先对原 request_id `reconcile`；`ADMITTED_NOT_SUBMITTED` 用原目标的 `receipt` 恢复既有 admission，不新发同一写操作。已有 claim/run 按恢复指针读 exact continuation 并复核当前权限；关闭、fenced 或已 freeze/release 的 run 不提供旧写路径。上传指针只是 staging，不能声称 Source 已持久化。
 
 每类最多20项；`has_more`/`truncated` 表示不能推断其余工作不存在。大回执保留 `recovery_summary.next_action`、`state_sha256`、上限和截断信息；用原 receipt 分页读取所需其余指针，处理后发新的只读快照。全量 Driver 操作合同在 `status.operation_contracts` 或回执顶层同名字段公开，即使原 receipt 被压缩也保留。`review_reference.independence_status` 使用合同明确枚举，真实上下文说明写入 `finding`；不得把任意说明文字放入枚举字段。
+
+## 0.6.6：保全旧会话暂存，再取得继任身份
+
+以下是能力发现后的操作协议，**不是版本已部署或原任务已恢复的证明**。先以实际 `status` 确认 `session_preserve_staging` 已开放，并读取返回的 `operation_contracts`；没有该能力时不猜参数、不删除或重绑旧上传。
+
+当 Source 要求新的继任 Researcher，而本逻辑 conversation 的旧服务 session 因未解决暂存无法关闭时：
+
+1. 先 `recovery_status`，对未落定操作使用原 request_id 的 `receipt/reconcile`。有自己的活跃 CLAIM/执行权时应走正常 checkpoint/HANDOFF，不以中立保全绕过所有权。
+2. 由**仍绑定该旧服务 session 的实际逻辑 conversation**提交 `session_preserve_staging`，payload 仅含真实 `reason`；subject/session/身份由服务器绑定，不传旧 session_id 或继任身份。它无损保存未解决的完整及未完整上传、原分片/请求来源和摘要，生成中立、不可变 Source archive 与独立 disposition 审计。原暂存行保持不可变；这不是 TASK_CHECKPOINT、Result、review、当前任务输入或数学进展，不授予执行权。
+3. 读取该原请求的成功内层回执，核对 `source_commit`、`manifest_path`、`manifest_sha256` 和 `source_readback_verified`。按返回的 `manifest_read` 指针通过 `artifact` 分页回读清单，保留原贡献者；无待保全上传时按回执处理，不虚构清单。OUTCOME_UNKNOWN 只协调原 preserve 请求，不换 ID 重发。
+4. 保全完成后仍须独立通过本 session 的 `session_close` 门禁并确认撤销；保全本身不关闭会话、不撤销 Driver DA。随后在**同一个实际逻辑 conversation**正常 `session_start` 取得新的服务 session/Researcher 身份，继承服务已知及真实声明的 prior contributions。新身份不产生审查独立性，也不重绑旧 artifact_upload 请求。真正新对话必须用自己的 conversation_id；不得复制前一对话 ID 来调用其旧能力。
+5. 新 session 读取当前 exact continuation。若已有 `SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED` checkpoint（如 D24），`continuation_prepare` 只传该成功包的 `packet_request_id` 与真实 `reason`，不加 `artifact_request_ids/frontier_notes` 覆盖前沿。准备成功才依本 lane 的规范 CLAIM/open 继续，已完成单元直接消费。
+
+P11 的裸 publication 初始标记属于另一种情况：只有 Source 返回 `CURRENT_TASK_INPUTS_WITH_NO_RECORDED_OWNER_PROGRESS` seed 后，读取其精确 `input_artifacts` 并提交对应本会话 artifact 请求；`frontier_notes.completed_units=[]`。已接受父成果写入来源/`do_not_repeat`，不能把任务 publication 或未发布草稿填作前任完成研究。缺 seed 时重复读取父 Result 不会修复该控制缺口。
