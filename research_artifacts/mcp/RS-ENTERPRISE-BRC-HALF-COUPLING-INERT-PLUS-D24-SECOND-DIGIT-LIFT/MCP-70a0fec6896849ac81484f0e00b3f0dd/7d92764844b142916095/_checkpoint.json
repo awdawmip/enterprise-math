@@ -1,0 +1,47 @@
+{
+  "claim_id": "MCP-0d263f4abf32692950275b3d",
+  "completed_units": [
+    "Consumed the persisted terminal p^2-band negative control and moved to the lower valuation-one source layer without reopening prior D24/D25 units.",
+    "Proved the exact source valuation stratification v_p(B_k)=0 for k<=m, 1 for m+1<=k<=2m, and 2 for 2m+1<=k<p, and derived the normalized p-band recurrence x_{s+1}/x_s=3s(6s+1)/(6s+5)^2.",
+    "Proved a BRC information-loss boundary for the divided second-digit observer: along a single-port p-valued cutoff the first digit I_s=G_s h_s mod p jumps by hbar*x_s !=0, so adjacent cutoffs cannot both remain on the I=1 fiber and the naive quotient (G_s h_s-1)/p is not p-integral throughout.",
+    "Introduced the exact source repair coordinate A_s=(g-g_s)/p and the compensated path Q*_s=[(G_s+A_s)h_s-1]/p=[G h_s-1]/p, which is p-integral at every cutoff and terminates at Delta_p; proved U*_s=Gbar(12s-1)x_s.",
+    "Compared the repaired p-band path to the canonical lambda/mu transport and proved the exact nonzero curvature residual delta*_s=U*_s E_s with an explicit rational E_s whose numerator polynomial is positive for every integer s>=1.",
+    "Proved the uniform terminal obstruction delta*_{m-2}=-(42062/343)Gbar*x_m !=0 for every target prime p>=19; the fixed factor 42062=2*21031 has 21031 prime congruent 7 mod 24, so no target prime divides it. Thus the repaired pure p-band also cannot satisfy the strong local matching route. p=13 has no local defect site.",
+    "Persisted an exact checker over all 166 target primes below 5000 with zero failures for the valuation bands, first-digit jump, repair-path integrality, source recurrences, curvature residual and terminal identity; finite computation is regression only."
+  ],
+  "contributor_ids": [
+    "EM-DIRECT-A71FA7",
+    "EM-DIRECT-B9BCE8",
+    "EM-DIRECT-C4D02C",
+    "EM-DIRECT-E267A2"
+  ],
+  "current_unfinished_unit": "D25 LIFT/JT2 remains open. Two isolated source layers are now exact negative controls for the strong local transport route: the terminal p^2 band has a universal terminal defect, and the p-valued band necessarily leaves the divided-observer fiber unless a first-digit repair coordinate is retained; even after that exact repair, its pure-band terminal curvature defect is uniformly nonzero. The next live possibility is interaction between layers, full Green endpoint cancellation including initial mismatch coordinates, or a genuine parameter/Frobenius deformation retaining the p^3 repair scalar.",
+  "do_not_repeat": [
+    "Do not reopen accepted D24 UR/JT0 or completed D25 shell/global-jet/Clausen/Green/symmetric-mass/adjoint/prefix-factor/prior-art/supersingular-repair units.",
+    "Do not rerun either isolated one-band negative control or enlarge the 166-prime scans.",
+    "Do not divide the p-valued cutoff residual by p after discarding the first-digit mismatch/repair coordinate; the new checkpoint proves that quotient is unsafe.",
+    "Do not infer LIFT false merely because either isolated one-band path fails local mu-transport.",
+    "Do not erase layer identity when testing a two-layer cancellation; cancellation must be proved in the stated endpoint observer."
+  ],
+  "executor_role": "RESEARCHER",
+  "next_action": "Construct the smallest two-layer source extension pairing the repaired p-valued contribution with a provenance-labelled p^2 contribution (or an equivalent parameter/Frobenius deformation). Keep the first-digit repair coordinate and layer labels, derive source U,V,delta linearly before quotienting, and test the full Green endpoint certificate rather than requiring each local defect to vanish. If the two-layer route still has a fixed obstruction, retain it as the next strict reduction.",
+  "output_manifest": [
+    {
+      "git_blob_sha1": "sha1:b94afddae663532d45eade148edd338b2c7bf8c2",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/7d92764844b142916095/d25_p_valued_band_repair_coordinate_no_go_20260924.md",
+      "sha256": "sha256:41d07c9f5e81db92717ab5692d117cfe68de99864a13df7d904e35236a36b8a4"
+    },
+    {
+      "git_blob_sha1": "sha1:98a6b74f6d12e9e79fa68624667babc96dfc8731",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/7d92764844b142916095/d25_p_valued_band_repair_checker.py",
+      "sha256": "sha256:07ca03df82d4aa87dc6b5020caf4dde2cd689337d17d971ea93b92336a21bc1e"
+    }
+  ],
+  "ownership_epoch": 5807071578,
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "researcher_id": "EM-DIRECT-E267A2",
+  "schema": "ENTERPRISE_MATH_MCP_EXECUTION_CHECKPOINT_V1",
+  "session_id": "MCP-70a0fec6896849ac81484f0e00b3f0dd",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "verification": "AUTHOR_REPORTED_SOURCE_BYTES_ONLY_NOT_MATHEMATICAL_ACCEPTANCE"
+}
