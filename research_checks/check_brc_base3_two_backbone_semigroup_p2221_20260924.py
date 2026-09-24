@@ -169,7 +169,7 @@ def main():
     ]
     assert conflicts == expected_conflicts
 
-    # The first shared obstruction used by the theorem is the exact endpoint
+    # The first shared obstruction is the exact endpoint
     # 1065=(2131-1)/2 generated jointly by q=61 and q=853.
     assert s13(61) == 15
     assert s13(853) == 213
@@ -177,36 +177,33 @@ def main():
     assert 2131 in class19_below(P)
     assert (2131 - 1)//2 == 1065
 
+    # A cancels every 3-compatible row except 853.  C is the smallest pure
+    # 3-sector atom cancelling 853.  Each is admissible although their lcm is
+    # not: the semigroup carrier must preserve them as two separate branches.
     A_support = frozenset(q for q in U if q != 853)
-    B_support = frozenset(
-        [13, 157, 349, 373, 709, 733, 853, 877,
-         1069, 1213, 1789, 2029]
-    )
     A = canonical_lcm(A_support)
-    B = canonical_lcm(B_support)
+    C = lcm(3, s13(853))
     assert A == 13632921449642140035
-    assert B == 11387499093230493441
-    assert neutral19(A, P) and neutral19(B, P)
+    assert C == 213
+    assert neutral19(A, P) and neutral19(C, P)
+    assert pure(A, P) and pure(C, P)
     assert cancellation_support(A, P) == A_support
-    assert cancellation_support(B, P) == B_support
-    assert A_support | B_support == frozenset(U)
+    assert cancellation_support(C, P) == frozenset([13, 853])
+    assert A_support | cancellation_support(C, P) == frozenset(U)
+    assert not neutral19(lcm(A, C), P)
 
     rows = class13_below(P)
     aA = signature(A, P)
-    aB = signature(B, P)
-    assert pure(A, P)
-    assert not pure(B, P)
-    positive_B = [(q, aB[i]) for i, q in enumerate(rows) if aB[i] > 0]
-    assert positive_B == [(61, 1)]
-    assert aA[rows.index(61)] == -1
-    aAB = tuple(x + y for x, y in zip(aA, aB))
-    assert aAB[rows.index(61)] == 0
+    aC = signature(C, P)
+    aAC = tuple(x + y for x, y in zip(aA, aC))
+    assert all(x <= 0 for x in aA)
+    assert all(x <= 0 for x in aC)
 
     atoms = atom_library(P)
     V3 = [L for L in atoms if L % 3 == 0]
     assert len(V3) == 3072
 
-    direct = compensated = 0
+    direct = semigroup_two_branch = 0
     for L in V3:
         aL = signature(L, P)
         supp = cancellation_support(L, P)
@@ -214,16 +211,15 @@ def main():
             assert leq(aA, aL)
             direct += 1
         else:
-            # The exact hyperedge (61,853) forbids simultaneous cancellation.
-            assert 61 not in supp
-            assert leq(aAB, aL)
-            compensated += 1
+            assert leq(aAC, aL)
+            semigroup_two_branch += 1
 
-    assert (direct, compensated) == (2304, 768)
+    assert (direct, semigroup_two_branch) == (2304, 768)
 
     # One generator cannot dominate the whole sector: every q in U is
-    # individually cancellable, so a single generator would have to cancel
-    # every q in U, but no neutral V3 atom has that support.
+    # individually cancellable, so a single semigroup generator would have to
+    # be negative in every q-coordinate, i.e. cancel every q in U.  The exact
+    # neutral atom library contains no such atom.
     full = frozenset(U)
     assert not any(cancellation_support(L, P) == full for L in V3)
 
@@ -233,10 +229,10 @@ def main():
     print(f"minimal_conflicts={conflicts}")
     print(f"v3_atoms={len(V3)}")
     print(f"A={A}")
-    print(f"B={B}")
+    print(f"C={C}")
     print(f"direct_A={direct}")
-    print(f"compensated_A_plus_B={compensated}")
-    print("minimum_batch_cover=2")
+    print(f"semigroup_A_plus_C={semigroup_two_branch}")
+    print("minimum_admissible_batch_cover=2")
     print("minimum_semigroup_carrier=2")
 
 
