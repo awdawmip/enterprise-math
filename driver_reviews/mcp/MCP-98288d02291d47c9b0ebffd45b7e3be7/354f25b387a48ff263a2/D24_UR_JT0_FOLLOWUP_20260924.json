@@ -1,0 +1,40 @@
+{
+  "decision": "TASK_SET_PUBLISHED",
+  "gate_decisions": [
+    {"gate":"MATHEMATICAL_CONTINUATION","decision":"REQUIRED","reason":"UR/JT0 first digit closes, but the accepted parent leaves the second digit LIFT as the unique mathematical residue before JT2.","evidence_refs":[]},
+    {"gate":"LEAN_FORMALIZATION","decision":"NOT_REQUIRED","reason":"The current accepted scope is not an L4/Lean deliverable.","evidence_refs":[]},
+    {"gate":"EXTERNAL_PRIOR_ART_DUPLICATION","decision":"SATISFIED_BY_REVIEWED_RESULT","reason":"The accepted first-digit proof explicitly audits the exact Chan-Liaw normalization and Chisholm Theorem 1 hypotheses/signs against primary sources.","evidence_refs":["RR-AC9B3BA5BD277CE043F5","D24_UR_JT0_DRIVER_REVIEW_20260924.md","doi:10.2140/pjm.2000.192.219","doi:10.3390/math1010009"]},
+    {"gate":"INDEPENDENT_REPLICATION","decision":"NOT_REQUIRED","reason":"No separate replication deliverable is required to define the next LIFT mathematical task; the current review and exact regression remain evidence, not a new replication task.","evidence_refs":[]},
+    {"gate":"INTEGRATION_OR_TOOL_HARVEST","decision":"NOT_REQUIRED","reason":"The first-digit Result has no tool-bearing integration obligation; its checker is regression evidence only.","evidence_refs":[]},
+    {"gate":"ADVERSARIAL_AUDIT","decision":"SATISFIED_BY_REVIEWED_RESULT","reason":"The Driver review independently checks theorem normalization, all arithmetic hypotheses/signs, the missing Clausen/valuation bridge, scope, and provenance caveat.","evidence_refs":["RR-AC9B3BA5BD277CE043F5","D24_UR_JT0_DRIVER_REVIEW_20260924.md"]}
+  ],
+  "tasks": [
+    {
+      "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+      "title": "Enterprise BRC inert-plus D=-24 second-digit LIFT",
+      "task_role": "MATHEMATICAL_CONTINUATION",
+      "task_lineage": "CONTINUATION",
+      "parent_task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY",
+      "priority": "P1",
+      "leverage": "HIGH",
+      "frontier": "Consume the accepted D=-24 UR/JT0 first-digit Result and solve only the surviving second-digit certificate LIFT: Delta_p=(G_p h-1)/p congruent R_p mod p for every p congruent 13 or 19 modulo 24. Preserve G_p mod p^2, h mod p^2, cutoff-sensitive Phi_xx, derivative/Frobenius ports and provenance; do not reopen CM0, SIMPLE, UR or the first-digit Chisholm/Clausen proof.",
+      "next_action": "Derive an exact expression for Delta_p-R_p modulo p from the accepted scalar interface and classify the smallest remaining p-adic/finite-field observer; then either prove it uniformly in both residue classes, produce an exact counterexample, or strictly reduce it to a smaller certificate. Reuse current high-precision BRC notes only after proving they preserve the LIFT observer.",
+      "research_value": "LIFT is the unique second-digit residue left by the accepted parent decomposition JT2 <=> UR + LIFT; closing it decides JT2 without replaying the already solved first digit.",
+      "mother_question": "For every prime p congruent 13 or 19 modulo 24, does the accepted D=-24 inert-plus scalar interface satisfy Delta_p=R_p modulo p, where Delta_p=(G_p h-1)/p modulo p, thereby proving JT2 now that UR/JT0 is closed?",
+      "frozen_inputs_and_scope": "Freeze accepted parent RR-82F6383FB6634F72B457 and its review DR-2EA60F5817976E662FA6, plus accepted first-digit Result RR-AC9B3BA5BD277CE043F5 and its exact-set Driver review/synthesis. Treat CM0, SIMPLE, JT0<=>UR, W_p congruent p mod p^2, and UR as closed inputs. LIFT/JT2 alone is live. Keep G_p=g/p modulo p^2 and h modulo p^2; do not quotient away Phi_xx, derivative order, residue-class identity, or p-adic valuation/provenance before the divided second-digit observer.",
+      "hard_target_and_required_outputs": "Hard target: D24_SECOND_DIGIT_LIFT_PROVED_REFUTED_OR_STRICTLY_REDUCED. Required: an all-target proof of Delta_p=R_p mod p for both residue classes, or one exact independently recomputed counterexample, or a genuinely smaller exact equivalent certificate; explicit derivation from the frozen scalar interface; deterministic exact checker used only for falsification/regression; and a precise information-loss audit for every quotient used.",
+      "research_value_to_preserve": "Preserve the separation between first and second p-adic digits achieved by the parent. The only live information is the divided p-adic residual after the accepted UR unit has been removed. Positive-mass or mod-p-only summaries are not adequate if they erase the second digit or source/Frobenius ports.",
+      "success_kill_and_return_criteria": "Success is a uniform proof of LIFT, which together with frozen UR proves JT2 at the accepted interface. A single exact counterexample refutes JT2. A strict reduction is acceptable only if it lowers live p-adic/derivative complexity and proves equivalence. Finite scans, re-proving UR, or extending auxiliary precision without connecting it to Delta_p-R_p are non-closing. Return the narrowest verified certificate and exact scope.",
+      "dependencies": ["RR-82F6383FB6634F72B457","DR-2EA60F5817976E662FA6","RR-AC9B3BA5BD277CE043F5"],
+      "source_refs": ["research_returns/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE_RETURN_20260828.md","research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY/MCP-e6cc623799404ca09be0012f8654712c/0f0be0d17d5eb48c835b/d24_ur_jt0_result_20260924.md"],
+      "successor_gate": {
+        "new_information_gap": "The accepted first-digit Result evaluates the nonzero reciprocal unit and proves UR/JT0, but it does not determine the divided second p-adic digit Delta_p or compare it with the frozen target R_p.",
+        "why_parent_result_does_not_close_it": "UR is only the reduction of G_p h modulo p after dividing g by p. LIFT depends on G_p and h modulo p^2 and on the cutoff-sensitive Phi_xx/derivative corrections that are invisible to the first-digit theorem.",
+        "discriminating_outcomes": ["Prove LIFT uniformly for p congruent 13 or 19 modulo 24 and hence prove JT2 at the frozen interface.","Produce one exact independently recomputed counterexample to LIFT/JT2.","Prove an exact lower-complexity equivalent certificate for Delta_p-R_p."],
+        "kill_condition": "A verified all-prime proof or exact counterexample terminates LIFT. Finite regression or unrelated higher-precision BRC expansions do not.",
+        "alternative_route_or_free_exploration_considered": "Reopening CM0/SIMPLE/UR and continuing unbounded auxiliary cancellation-carrier census were rejected because those do not address the unique second-digit residual.",
+        "why_new_stage_or_task_is_better_than_same_task_or_closure": "The UR task is terminal at first-digit scope. A new narrow LIFT continuation preserves the accepted theorem boundary and isolates the only remaining scalar p-adic digit needed for JT2."
+      }
+    }
+  ]
+}
