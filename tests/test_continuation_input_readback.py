@@ -114,3 +114,88 @@ class InputReadbackTests(unittest.TestCase):
         self.assertTrue(any('declared input blob differs' in item['error'] for item in packet['artifact_errors']))
         self.assertNotIn(self.input, [pin['path'] for pin in packet['source_artifacts']])
         self.assertIsNone(packet['continuation_seed'])
+
+    def use_publication_marker(self):
+        self.definition['last_progress_ref'] = self.record['publication_id']
+        self.runtime['last_progress_ref'] = self.record['publication_id']
+
+    def test_exact_initial_publication_marker_is_input_not_prior_research(self):
+        self.use_publication_marker()
+        original_claim = {key: self.runtime[key] for key in
+                          ('last_claim_id', 'last_claim_comment_id', 'last_researcher_id')}
+        packet = self.packet()
+        seed = packet['continuation_seed']
+        self.assertEqual('CURRENT_TASK_INPUTS_WITH_NO_RECORDED_OWNER_PROGRESS', seed['state'])
+        self.assertEqual([], seed['completed_units'])
+        self.assertFalse(seed['completed_research_units_verified'])
+        self.assertEqual(('RS-TEST', 'TP2-TEST', 'OLD', 101), tuple(seed[key] for key in
+                         ('task_id', 'publication_id', 'previous_claim_id', 'previous_comment_id')))
+        pin = seed['input_artifacts'][0]
+        self.assertEqual(self.pub, pin['path'])
+        self.assertEqual(self.sha, pin['source_commit'])
+        self.assertEqual(self.manifest['blobs'][self.pub], pin['git_blob_sha1'])
+        self.assertEqual('CURRENT_TASK_DEFINITION_INPUT_READBACK', pin['provenance'])
+        self.assertFalse(pin['historical_bytes_verified'])
+        self.assertFalse(pin['mathematical_acceptance_granted'])
+        self.assertEqual('TP2-TEST', packet['progress_reference_readback']['original_reference'])
+        self.assertEqual([], packet['frontier_template']['completed_units'])
+        self.assertEqual([], packet['immutable_external_artifact_candidates'])
+        self.assertFalse(packet['execution_authorized'])
+        self.assertEqual(original_claim, {key: packet['runtime'][key] for key in original_claim})
+        self.assertEqual(['EM-OLD'], packet['frontier_template']['contributor_ids'])
+
+    def test_other_or_stale_publication_marker_cannot_seed_current_task(self):
+        for marker in ('TP2-OTHER', 'TP2-STALE'):
+            with self.subTest(marker=marker):
+                self.definition['last_progress_ref'] = marker
+                self.runtime['last_progress_ref'] = marker
+                self.assertIsNone(self.packet()['continuation_seed'])
+
+    def test_publication_marker_must_match_definition_reference_and_time(self):
+        self.use_publication_marker()
+        self.definition['last_progress_ref'] = self.input
+        self.assertIsNone(self.packet()['continuation_seed'])
+        self.use_publication_marker()
+        self.runtime['last_progress_at'] = '2026-09-24T01:00:00Z'
+        self.assertIsNone(self.packet()['continuation_seed'])
+        self.definition['last_progress_at'] = None
+        self.runtime['last_progress_at'] = None
+        self.assertIsNone(self.packet()['continuation_seed'])
+
+    def test_publication_marker_cannot_replace_live_owner_or_checkpoint(self):
+        self.use_publication_marker()
+        self.runtime.update(claim_id='OLD', dispatch_state='LEASED',
+                            last_owner_activity_at='2026-09-23T00:00:00Z')
+        self.assertIsNone(self.packet()['continuation_seed'])
+        self.runtime.update(claim_id=None, dispatch_state='NEEDS_DISPATCH')
+        for state in ('SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED', 'UNKNOWN'):
+            with self.subTest(state=state), mock.patch.object(continuation, 'checkpoint_frontier',
+                    return_value={'state': state, 'source_artifacts': [], 'execution_authorized': False}):
+                self.assertIsNone(self.packet()['continuation_seed'])
+
+    def test_publication_marker_requires_recorded_predecessor_and_dispatch(self):
+        self.use_publication_marker()
+        for key, value in (('last_claim_id', None), ('last_claim_comment_id', None),
+                           ('last_claim_comment_id', True), ('dispatch_state', 'COMPLETE')):
+            old = self.runtime[key]
+            with self.subTest(key=key, value=value):
+                self.runtime[key] = value
+                self.assertIsNone(self.packet()['continuation_seed'])
+            self.runtime[key] = old
+
+    def test_publication_marker_requires_verified_current_record_bytes(self):
+        self.use_publication_marker()
+        (self.root / self.pub).write_text('dirty publication')
+        self.assertIsNone(self.packet()['continuation_seed'])
+        self.manifest['blobs'].pop(self.pub)
+        (self.root / 'EM_SOURCE_BLOBS.json').write_text(json.dumps(self.manifest))
+        self.assertIsNone(self.packet()['continuation_seed'])
+
+    def test_publication_marker_respects_source_firewall(self):
+        self.use_publication_marker()
+        from control_plane import research_source_firewall
+        with mock.patch.object(research_source_firewall, 'validate_config',
+                               return_value={'allowed_source_pins': []}):
+            packet = self.packet()
+        self.assertIsNone(packet['continuation_seed'])
+        self.assertIsNone(packet['progress_reference_readback'])
