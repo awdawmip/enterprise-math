@@ -1,0 +1,54 @@
+{
+  "claim_id": "MCP-0d263f4abf32692950275b3d",
+  "completed_units": [
+    "Consumed the durable finite discrete-adjoint checkpoint and preserved its exact no-new-constraint conclusion: repeated differentiation/SBP of the same evaluation adjoint closes back to F_2(1/2)=S_m-2 and cannot determine the independent LIFT digit.",
+    "Recovered and independently checked the source valuation-band decomposition G=G_T+pY mod p^2 and h=H_U+pA mod p^2, yielding Delta_p=Z_T+Gbar A+hbar Y mod p with Z_T=(G_T H_U-1)/p.",
+    "Proved the recovered absolute unit-core reduction is an exact all-target strict reduction: LIFT is equivalent to Z_T=R_p-Gbar A-hbar Y mod p, with middle and high valuation provenance retained.",
+    "Constructed the exact finite-Gauss cutoff parameter-jet bridge at a=p/6 and derived Z_T=[a_parent Psi-1]/p+a_parent H_1^{<=m}/6+Psi F_2^{<=2m}/72 mod p, with exact middle/high support recombination.",
+    "Proved a uniform rational first-order adjoint obstruction for the three-layer cutoff transport and identified the exact hypergeometric partial-period residual.",
+    "Proved the requested zero-edge gluing: the two sectorwise q2 period quotients are removable-edge charts of one finite-tail quotient Z_k(a)=sum_{j=k}^{2m}T_j(a)/T_k(a), whose base 0/1/2 jet is exactly F_0,F_1,F_2^{<=2m}.",
+    "Proved the normalized 2-jet of that finite-tail quotient supplies an exact non-rational first-order adjoint for the constant q2 weight, while the analogous weighted low-tail one-jet supplies the q1 cutoff adjoint; both close onto already-owned cutoff coordinates and introduce no independent period coordinate.",
+    "Proved the minimal first-order period extension is lossless but non-reductive: it exactly reconstructs a_parent H_1^{<=m}/6 + Psi F_2^{<=2m}/72, gives no equation for [a_parent Psi-1]/p or R_p, and therefore cannot close JT2/LIFT. Symbolic and exact small-m checks verify the adjoint identities and removable zero-edge charts; these checks are regression only.",
+    "Proved a supersingular Frobenius-route information no-go: the full ASD/Katz characteristic-polynomial recurrence is invariant under c(p-1)->c(p-1)+p^2 t, so it cannot determine the next normalized p-1 coefficient digit. Independently derived the exact product-second-digit carrier FROB2=U^2-(e_a+e_b), showing that at least one new F_p lifted coefficient-comparison scalar is necessary; exact regression over all 166 target primes p<5000 had zero failures.",
+    "Proved an exact Proposition-16 divided-power quotient information boundary for the D25 product observer: A->A+p W^{-1}t changes the primitive by p W^{-1}t xi^p, which is zero in the published quotient modulo p A[[xi]], while shifting the product second digit. Therefore that quotient cannot determine D25. Strictly reduced the minimal new Frobenius input to one direct product scalar K_p=(a(p-1)b(p-1)+p)/p^2=U^2-E_p mod p; the source-backed proof and deterministic checker preserve the product observer and use finite checks only as regression."
+  ],
+  "contributor_ids": [
+    "EM-DIRECT-A71FA7",
+    "EM-DIRECT-B9BCE8",
+    "EM-DIRECT-C4D02C",
+    "EM-DIRECT-E267A2"
+  ],
+  "current_unfinished_unit": "D25 LIFT/JT2 remains open. The ASD recurrence and the exact Proposition-16 divided-power quotient at published precision are both proved insufficient. The minimal live Frobenius datum is now the direct product scalar K_p mod p (equivalently E_p with U), requiring one-step-deeper d=3, lambda=1/2 coefficient/product computation plus an exact bridge to the finite-Gauss divided product digit and endpoint correction.",
+  "do_not_repeat": [
+    "Do not differentiate or summation-by-parts the same finite evaluation adjoint again; its closure is already durable.",
+    "Do not search again for a pure uniform rational first-order adjoint; the q2 equation is proved rationally insoluble.",
+    "Do not treat the hypergeometric period as a new independent free coordinate: its exact finite-tail jet gluing is now proved, but do not call it rational.",
+    "Do not rerun the first-order period-extended adjoint expecting a new LIFT constraint; it is proved to close tautologically onto the existing cutoff derivative terms.",
+    "Do not discard or absorb [a_parent Psi-1]/p, Psi, F_0,F_1,F_2^{<=2m}, H_1^{<=m}, A, Y, the m/2m edges, or the labelled terminal -2 source before a proved identity pays them.",
+    "Do not reopen accepted D24 UR/JT0, CM0/SIMPLE, earlier shell/Clausen/Green reductions, or enlarge finite-prime scans as a substitute for proof.",
+    "Do not try to recover the lifted p-1 coefficient digit by merely increasing r in the supersingular ASD/Katz characteristic-polynomial recurrence; the p^2 gauge perturbation is proved invisible to the whole recurrence family.",
+    "Do not attempt to recover K_p from the Proposition-16 divided-power quotient modulo p A[[xi]] alone; the gauge A->A+p W^{-1}t is proved invisible there while changing K_p.",
+    "Do not split the product-observer carrier E_p into separate e_a and e_b unless a later observer proves it needs their individual provenance; K_p is lossless for the current product second-digit observer."
+  ],
+  "executor_role": "RESEARCHER",
+  "next_action": "Compute K_p directly for d=3, lambda=1/2 by carrying the exact H_{3,p-1}(t) coefficient and normalized companion differential through the quartic twist to mod p^3; then prove the exact bridge from K_p/E_p to [a_parent Psi-1]/p plus endpoint correction. Do not remain inside the quotient modulo p A[[xi]], which is now proved to erase the required digit.",
+  "output_manifest": [
+    {
+      "git_blob_sha1": "sha1:ce31c0bc387ebd69e4d41207a755961379487cd0",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/0d9030064c4cfdda6855/d25_prop16_pd_quotient_visibility_boundary_20260924.md",
+      "sha256": "sha256:d54d143d9c6766824a71a6d9faf3e6e2dc3e942423c4627bd4d3fef2b8a33eea"
+    },
+    {
+      "git_blob_sha1": "sha1:55e574d088a44ac05a3bec843e26e9d22139d0d9",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/0d9030064c4cfdda6855/verify_d25_prop16_pd_quotient_visibility_boundary_20260924.py",
+      "sha256": "sha256:8b7faab31e135518cc852377ad0e3fd116f408bbf44651183d51a18339f4242d"
+    }
+  ],
+  "ownership_epoch": 5807071578,
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "researcher_id": "EM-DIRECT-E267A2",
+  "schema": "ENTERPRISE_MATH_MCP_EXECUTION_CHECKPOINT_V1",
+  "session_id": "MCP-70a0fec6896849ac81484f0e00b3f0dd",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "verification": "AUTHOR_REPORTED_SOURCE_BYTES_ONLY_NOT_MATHEMATICAL_ACCEPTANCE"
+}
