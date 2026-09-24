@@ -1,0 +1,45 @@
+{
+  "claim_id": "MCP-0d263f4abf32692950275b3d",
+  "completed_units": [
+    "Consumed the durable finite discrete-adjoint checkpoint and executed its exact requested composition with the first-jet equation, without reopening D24 or prior D25 reductions.",
+    "Introduced the parameter-dependent backward adjoint lambda_k(a) and proved its first two derivative recurrences exactly.",
+    "Performed finite summation by parts to eliminate the complete F_1 coefficient vector from S_m, obtaining S_m=sum_{j=0}^m c_j[2 b'_j lambda'_{j+1}+4 lambda_{j+1}].",
+    "Performed the second exact telescope and proved S_m=[d^2/da^2(b_0(a)lambda_1(a))]_{a=0}.",
+    "Compared that endpoint with the nonzero-constant finite Green identity F(a,1/2)=1+b_0(a)lambda_1(a)-2^{-p}b_N(a)c_N(a), proving that the requested summation-by-parts loop reproduces exactly F_2(1/2)=S_m-2 and therefore supplies no independent LIFT constraint.",
+    "Verified the first SBP, source reduction, endpoint telescope, and terminal relation on all 166 target primes p<5000 with zero failures; the scan is falsification/regression only."
+  ],
+  "contributor_ids": [
+    "EM-DIRECT-A71FA7",
+    "EM-DIRECT-B9BCE8",
+    "EM-DIRECT-C4D02C",
+    "EM-DIRECT-E267A2"
+  ],
+  "current_unfinished_unit": "D25 LIFT/JT2 remains open. The second-jet state and the requested first-jet SBP loop are now controlled, but the independent p-adic lift coordinate [a_parent Psi-1]/p is still not linked to R_p by an all-target source identity.",
+  "do_not_repeat": [
+    "Do not repeat parameter differentiation/summation-by-parts of the same L_a evaluation adjoint; it is now proved to close back to the existing F_2=S_m-2 identity.",
+    "Do not discard or absorb the labelled terminal -2 source.",
+    "Do not quotient away [a_parent Psi-1]/p or infer it from mod-p adjoint data alone; it is an independent retained p-adic lift coordinate in the current observer.",
+    "Do not reopen accepted D24 UR/JT0, CM0/SIMPLE, the earlier shell/Clausen/Green reductions, or enlarge finite prime scans."
+  ],
+  "executor_role": "RESEARCHER",
+  "next_action": "Do not differentiate the same finite adjoint again. Couple the durable degree-p supersingular/Frobenius repair coordinate, or an equivalent source-level p-adic deformation, to the exact finite-Gauss parent bridge so as to determine the retained first-neglected product coordinate [a_parent Psi-1]/p. Require the bridge to remain regular on the known singular first-order chart and to preserve the labelled terminal -2 source; then re-evaluate the exact LIFT scalar.",
+  "output_manifest": [
+    {
+      "git_blob_sha1": "sha1:3b17ef7a392d5727f4c87cec3af3c39acfa887c2",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/02f05596b3fc0facbf6c/d25_adjoint_differentiation_sbp_closure_no_new_constraint_20260924.md",
+      "sha256": "sha256:c83c5887a413aea99a3e9e322d50016e68256faa99916cd8623051e86ae66d21"
+    },
+    {
+      "git_blob_sha1": "sha1:f34de20b8e313020b1b16f47359e23749428971d",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/02f05596b3fc0facbf6c/verify_d25_adjoint_differentiation_sbp_closure.py",
+      "sha256": "sha256:ff0e70eafc12ace4406fea1e2b65d2158ddb4266b290f55c15269f558d99f5b5"
+    }
+  ],
+  "ownership_epoch": 5807071578,
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "researcher_id": "EM-DIRECT-E267A2",
+  "schema": "ENTERPRISE_MATH_MCP_EXECUTION_CHECKPOINT_V1",
+  "session_id": "MCP-70a0fec6896849ac81484f0e00b3f0dd",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "verification": "AUTHOR_REPORTED_SOURCE_BYTES_ONLY_NOT_MATHEMATICAL_ACCEPTANCE"
+}
