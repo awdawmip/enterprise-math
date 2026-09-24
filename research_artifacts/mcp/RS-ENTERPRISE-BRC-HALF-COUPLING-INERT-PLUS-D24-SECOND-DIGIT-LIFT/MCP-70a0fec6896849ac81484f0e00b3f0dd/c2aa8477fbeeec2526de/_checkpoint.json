@@ -1,0 +1,51 @@
+{
+  "claim_id": "MCP-0d263f4abf32692950275b3d",
+  "completed_units": [
+    "Consumed the durable finite discrete-adjoint checkpoint and preserved its exact no-new-constraint conclusion: repeated differentiation/SBP of the same evaluation adjoint closes back to F_2(1/2)=S_m-2 and cannot determine the independent LIFT digit.",
+    "Recovered and independently checked the source valuation-band decomposition G=G_T+pY mod p^2 and h=H_U+pA mod p^2, yielding Delta_p=Z_T+Gbar A+hbar Y mod p with Z_T=(G_T H_U-1)/p.",
+    "Proved the recovered absolute unit-core reduction is an exact all-target strict reduction: LIFT is equivalent to Z_T=R_p-Gbar A-hbar Y mod p, with middle and high valuation provenance retained.",
+    "Constructed the exact finite-Gauss cutoff parameter-jet bridge at a=p/6 and derived Z_T=[a_parent Psi-1]/p+a_parent H_1^{<=m}/6+Psi F_2^{<=2m}/72 mod p, with exact middle/high support recombination.",
+    "Proved a uniform rational first-order adjoint obstruction for the three-layer cutoff transport and identified the exact hypergeometric partial-period residual.",
+    "Proved the requested zero-edge gluing: the two sectorwise q2 period quotients are removable-edge charts of one finite-tail quotient Z_k(a)=sum_{j=k}^{2m}T_j(a)/T_k(a), whose base 0/1/2 jet is exactly F_0,F_1,F_2^{<=2m}.",
+    "Proved the normalized 2-jet of that finite-tail quotient supplies an exact non-rational first-order adjoint for the constant q2 weight, while the analogous weighted low-tail one-jet supplies the q1 cutoff adjoint; both close onto already-owned cutoff coordinates and introduce no independent period coordinate.",
+    "Proved the minimal first-order period extension is lossless but non-reductive: it exactly reconstructs a_parent H_1^{<=m}/6 + Psi F_2^{<=2m}/72, gives no equation for [a_parent Psi-1]/p or R_p, and therefore cannot close JT2/LIFT. Symbolic and exact small-m checks verify the adjoint identities and removable zero-edge charts; these checks are regression only.",
+    "Proved a supersingular Frobenius-route information no-go: the full ASD/Katz characteristic-polynomial recurrence is invariant under c(p-1)->c(p-1)+p^2 t, so it cannot determine the next normalized p-1 coefficient digit. Independently derived the exact product-second-digit carrier FROB2=U^2-(e_a+e_b), showing that at least one new F_p lifted coefficient-comparison scalar is necessary; exact regression over all 166 target primes p<5000 had zero failures."
+  ],
+  "contributor_ids": [
+    "EM-DIRECT-A71FA7",
+    "EM-DIRECT-B9BCE8",
+    "EM-DIRECT-C4D02C",
+    "EM-DIRECT-E267A2"
+  ],
+  "current_unfinished_unit": "D25 LIFT/JT2 remains open. The first-order adjoint route is exhausted, and the bare supersingular ASD characteristic-polynomial recurrence is now also proved insufficient for the missing second digit. On the Frobenius side the smallest unresolved source datum is one lifted coefficient-comparison scalar E_p=e_a+e_b (or a proved source-equivalent scalar), which still must be bridged to [a_parent Psi-1]/p and the endpoint correction to R_p.",
+  "do_not_repeat": [
+    "Do not differentiate or summation-by-parts the same finite evaluation adjoint again; its closure is already durable.",
+    "Do not search again for a pure uniform rational first-order adjoint; the q2 equation is proved rationally insoluble.",
+    "Do not treat the hypergeometric period as a new independent free coordinate: its exact finite-tail jet gluing is now proved, but do not call it rational.",
+    "Do not rerun the first-order period-extended adjoint expecting a new LIFT constraint; it is proved to close tautologically onto the existing cutoff derivative terms.",
+    "Do not discard or absorb [a_parent Psi-1]/p, Psi, F_0,F_1,F_2^{<=2m}, H_1^{<=m}, A, Y, the m/2m edges, or the labelled terminal -2 source before a proved identity pays them.",
+    "Do not reopen accepted D24 UR/JT0, CM0/SIMPLE, earlier shell/Clausen/Green reductions, or enlarge finite-prime scans as a substitute for proof.",
+    "Do not try to recover the lifted p-1 coefficient digit by merely increasing r in the supersingular ASD/Katz characteristic-polynomial recurrence; the p^2 gauge perturbation is proved invisible to the whole recurrence family."
+  ],
+  "executor_role": "RESEARCHER",
+  "next_action": "Derive the d=3, lambda=1/2 quartic-normalized coefficient comparison one order deeper modulo p^2, enough to compute E_p=e_a+e_b, or prove an exact source-level deformation/Frobenius scalar equal to E_p. Then prove its bridge to the finite-Gauss divided product digit and endpoint correction. Do not spend another cycle increasing r in the same ASD recurrence.",
+  "output_manifest": [
+    {
+      "git_blob_sha1": "sha1:4d3947e98da8fd703ba1a3213f993094b61ead0a",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/c2aa8477fbeeec2526de/d25_supersingular_asd_visibility_no_go_20260924.md",
+      "sha256": "sha256:24b4c2c038d1bd1583fe6daea635c154a164d268d624a0e2af88a7ce47a3acaa"
+    },
+    {
+      "git_blob_sha1": "sha1:84482c7b72aa0678c409b860f859c2061a8852f2",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/c2aa8477fbeeec2526de/verify_d25_supersingular_asd_visibility_no_go_20260924.py",
+      "sha256": "sha256:35f02df7c5cfd7cefc589a7bda1aca0f2650d103445d3ad4dde138be8a76c8c5"
+    }
+  ],
+  "ownership_epoch": 5807071578,
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "researcher_id": "EM-DIRECT-E267A2",
+  "schema": "ENTERPRISE_MATH_MCP_EXECUTION_CHECKPOINT_V1",
+  "session_id": "MCP-70a0fec6896849ac81484f0e00b3f0dd",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "verification": "AUTHOR_REPORTED_SOURCE_BYTES_ONLY_NOT_MATHEMATICAL_ACCEPTANCE"
+}
