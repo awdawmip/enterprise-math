@@ -1,0 +1,57 @@
+{
+  "claim_id": "MCP-0d263f4abf32692950275b3d",
+  "completed_units": [
+    "Consumed the durable finite discrete-adjoint checkpoint and preserved its exact no-new-constraint conclusion: repeated differentiation/SBP of the same evaluation adjoint closes back to F_2(1/2)=S_m-2 and cannot determine the independent LIFT digit.",
+    "Recovered and independently checked the source valuation-band decomposition G=G_T+pY mod p^2 and h=H_U+pA mod p^2, yielding Delta_p=Z_T+Gbar A+hbar Y mod p with Z_T=(G_T H_U-1)/p.",
+    "Proved the recovered absolute unit-core reduction is an exact all-target strict reduction: LIFT is equivalent to Z_T=R_p-Gbar A-hbar Y mod p, with middle and high valuation provenance retained.",
+    "Constructed the exact finite-Gauss cutoff parameter-jet bridge at a=p/6: G_T=a_parent+p F_2^{<=2m}/72 mod p^2 and H_U=Psi+p H_1^{<=m}/6 mod p^2.",
+    "Derived the exact all-target identity Z_T=[a_parent Psi-1]/p+a_parent H_1^{<=m}/6+Psi F_2^{<=2m}/72 mod p, closing the source-bridge problem for the absolute zero mode without introducing a fitted Frobenius coordinate.",
+    "Proved A=(H_1-H_1^{<=m})/6 and Y=(F_2-F_2^{<=2m})/72 mod p, so the valuation-band decomposition is exactly the support decomposition of one finite-Gauss parameter jet and recombines to the frozen global second-digit formula.",
+    "Ran the independent cutoff-jet checker over all 166 target primes p<5000, 83 in each residue class, with zero failures for the Z_T bridge, middle/high support identities and global recombination; finite checking is falsification/regression only."
+  ],
+  "contributor_ids": [
+    "EM-DIRECT-A71FA7",
+    "EM-DIRECT-B9BCE8",
+    "EM-DIRECT-C4D02C",
+    "EM-DIRECT-E267A2"
+  ],
+  "current_unfinished_unit": "D25 LIFT/JT2 remains open, but the zero-mode source bridge is now closed. The smallest live all-target certificate is the terminating cutoff jet [a_parent Psi-1]/p + a_parent H_1^{<=m}/6 + Psi F_2^{<=2m}/72 = R_p-a_parent A-Psi Y (mod p).",
+  "do_not_repeat": [
+    "Do not differentiate or summation-by-parts the same finite evaluation adjoint again; its closure is already durable.",
+    "Do not discard or absorb the labelled terminal -2 source.",
+    "Do not quotient away [a_parent Psi-1]/p, H_1^{<=m}, F_2^{<=2m}, A or Y before the proved recombination identities are applied.",
+    "Do not identify Z_T with a supersingular/Frobenius repair scalar by analogy; require an exact source bridge.",
+    "Do not reopen accepted D24 UR/JT0, CM0/SIMPLE, earlier shell/Clausen/Green reductions, or enlarge finite-prime scans as a substitute for proof."
+  ],
+  "executor_role": "RESEARCHER",
+  "next_action": "Derive a terminating contiguous/WZ or source-level Frobenius identity for the cutoff jet itself. Any Frobenius repair scalar must be proved equal to this cutoff-jet expression, not identified by analogy. Preserve the m and 2m cutoffs, the labelled middle/high corrections, and the terminal -2 source if a global adjoint is reused.",
+  "output_manifest": [
+    {
+      "git_blob_sha1": "sha1:1f59328d156d7ed7cb3536e57cfac0ff3f6a15fb",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/d4ca2be5b874a5bbde42/d25_absolute_zero_mode_unit_core_certificate_20260924.md",
+      "sha256": "sha256:985fa172f45a2074ce718c7de9a5aaf8600635c3fff34e3e95cdd6ed3be0c555"
+    },
+    {
+      "git_blob_sha1": "sha1:328377cb4b122cb44092db9e545c5edbeb40634d",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/d4ca2be5b874a5bbde42/check_d25_absolute_zero_mode_unit_core_20260924.py",
+      "sha256": "sha256:d6d8389b07f59801c79a2ab214bb989ad11a440423c2e4064d32d8d85a4a1c29"
+    },
+    {
+      "git_blob_sha1": "sha1:0e323c91690f4920da282deb30ebc45db9da4b67",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/d4ca2be5b874a5bbde42/d25_cutoff_gauss_zero_mode_bridge_20260924.md",
+      "sha256": "sha256:5ec5a8f956fffec4f3d09f1cd71a6b3ca8fd245eee55dfcd2021220414fadcdc"
+    },
+    {
+      "git_blob_sha1": "sha1:d4388c0af4831e2391d26ff97166118e7df22459",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/d4ca2be5b874a5bbde42/verify_d25_cutoff_gauss_zero_mode_bridge_20260924.py",
+      "sha256": "sha256:1b808c11a89b1d8d7dcc944ef24d7ff7261fbb91a4093f55ff2a40a47aee08ef"
+    }
+  ],
+  "ownership_epoch": 5807071578,
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "researcher_id": "EM-DIRECT-E267A2",
+  "schema": "ENTERPRISE_MATH_MCP_EXECUTION_CHECKPOINT_V1",
+  "session_id": "MCP-70a0fec6896849ac81484f0e00b3f0dd",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "verification": "AUTHOR_REPORTED_SOURCE_BYTES_ONLY_NOT_MATHEMATICAL_ACCEPTANCE"
+}
