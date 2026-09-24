@@ -1,0 +1,44 @@
+{
+  "claim_id": "MCP-0d263f4abf32692950275b3d",
+  "completed_units": [
+    "Consumed the durable finite-Gauss second-jet boundary-forcing checkpoint without reopening accepted D24 UR/JT0 or earlier D25 reductions.",
+    "Constructed exact backward adjoint weights lambda_p=2^{-p}, lambda_k=(2^{-k}+b_k lambda_{k+1})/k^2 for b_k=(k-m)(k-2m), and proved the finite discrete Green identity y(1/2)=sum_{k=1}^p lambda_k[z^k](L_0 y) for every degree <=p-1 polynomial with y_0=0.",
+    "Applied the adjoint identity to the complete second parameter jet F_2, retained the labelled k=p terminal source, and proved F_2(1/2)=S_m-2 mod p where S_m is an explicit finite functional of only the order-0 and order-1 source coefficients c_j,d_j with j<=2m.",
+    "Eliminated Phi_xx/F_2 and its z-derivative state from the live LIFT observer and reduced LIFT exactly to the lower-derivative scalar [a_parent Psi-1]/p + Psi_x/(36q) - q(S_m-2)/12 - R_p = 0 mod p.",
+    "Verified the interior forcing coefficients, exact adjoint evaluation, terminal -2 contribution and reduced second-jet formula for all 166 target primes p<5000 with zero failures; the finite scan is falsification/regression only."
+  ],
+  "contributor_ids": [
+    "EM-DIRECT-A71FA7",
+    "EM-DIRECT-B9BCE8",
+    "EM-DIRECT-C4D02C",
+    "EM-DIRECT-E267A2"
+  ],
+  "current_unfinished_unit": "D25 LIFT/JT2 remains open. The full second parameter jet is now removed from the observer, but the explicit first-jet adjoint sum S_m has not yet been symbolically reduced against q, Psi_x, the first-neglected product coordinate and R_p.",
+  "do_not_repeat": [
+    "Do not reconstruct Phi_xx/F_2 directly again; the adjoint identity has already eliminated the second-jet z-state.",
+    "Do not drop or absorb the labelled k=p terminal contribution; its signed value -2 is part of the exact reduced scalar.",
+    "Do not reopen the finite-Gauss boundary-forcing bridge or invent a separate alpha/beta bridge for the first-neglected product coordinate.",
+    "Do not promote the p<5000 regression to an all-prime proof."
+  ],
+  "executor_role": "RESEARCHER",
+  "next_action": "Compose the backward adjoint recurrence with the first-jet equation L_0 F_1=z(3theta-4m)F_0 and perform an exact finite summation-by-parts reduction of S_m. If the resulting endpoint identity collapses the live LIFT scalar to zero, close LIFT; if a nonzero exact endpoint residue survives, persist that residue as the next smallest certificate.",
+  "output_manifest": [
+    {
+      "git_blob_sha1": "sha1:a6cf582cffdab1660a67444e9c8a222203186236",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/23ed113bacbf44ff87da/d25_finite_discrete_adjoint_second_jet_reduction_20260924.md",
+      "sha256": "sha256:ce1b312a47a5a2229dacabd3bba3090b74c4c2d2afd5abbd9346a75ee3c80b0f"
+    },
+    {
+      "git_blob_sha1": "sha1:7aa0dd98d78a90ab0d4b64b7464e4a59e1a45070",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/23ed113bacbf44ff87da/verify_d25_finite_discrete_adjoint_second_jet_reduction.py",
+      "sha256": "sha256:0eba8a96c9abad8e5e857949dd87e9069dff4c015643c2e836445a9554de337f"
+    }
+  ],
+  "ownership_epoch": 5807071578,
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "researcher_id": "EM-DIRECT-E267A2",
+  "schema": "ENTERPRISE_MATH_MCP_EXECUTION_CHECKPOINT_V1",
+  "session_id": "MCP-70a0fec6896849ac81484f0e00b3f0dd",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "verification": "AUTHOR_REPORTED_SOURCE_BYTES_ONLY_NOT_MATHEMATICAL_ACCEPTANCE"
+}
