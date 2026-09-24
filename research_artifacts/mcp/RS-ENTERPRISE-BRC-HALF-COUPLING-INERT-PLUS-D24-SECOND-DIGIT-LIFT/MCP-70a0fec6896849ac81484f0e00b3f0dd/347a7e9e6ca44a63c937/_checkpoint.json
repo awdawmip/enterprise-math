@@ -1,0 +1,47 @@
+{
+  "claim_id": "MCP-0d263f4abf32692950275b3d",
+  "completed_units": [
+    "Consumed the durable global-parameter-jet frontier without reopening D24 UR/JT0 or the prior shell/I1/I2/I0 units, and changed representation only at the exact evaluation epsilon=p/3.",
+    "Used the exact Clausen specialization _2F1(1/6,1/3;1;z)^2=_3F2(1/2,1/3,2/3;1,1;z) to rewrite W_p as a triangular convolution of one half-series x_j=(1/6)_j(1/3)_j/((j!)^2 2^j), with full-box value S_p^2+12 S_p D_p.",
+    "Proved the exact half-series valuation strata v_p(x_j)=0 for 0<=j<=m, 1 for m<j<=2m, and 2 for 2m<j<p when p=6m+1. Therefore every p^3-visible truncation-defect pair has exactly one low unit index and one high p^2 index; all middle/high or high/high defect pairs are p^3-invisible.",
+    "Derived the strict observer-equivalent formula W_p congruent S_p^2+12 S_p D_p-2p^2 C_m mod p^3, where C_m=sum_{1<=r<=j<=m}(6(j-r)+1)x_j y_r mod p and y_r=x_{p-r}/p^2 mod p.",
+    "Proved by affine-residue permutation plus Wilson that y_r congruent 2^(r-1)(r-1)!^2/[18(5/6)_r(2/3)_r] mod p, hence y_1=1/10 and y_{r+1}/y_r=36r^2/[(6r+5)(3r+2)]. This reflects the entire high p^2 boundary to a p-independent complementary-parameter chain while retaining source provenance.",
+    "Compressed the triangular boundary to the one-pass prefix form C_m=sum_{j=1}^m x_j[(6j+1)Y_j-6Z_j] mod p with Y_j=sum_{r<=j}y_r and Z_j=sum_{r<=j}r y_r. LIFT is now an exact half-series value/derivative plus reflected boundary certificate, with no epsilon-derivative coordinates or independent I1/I2 shell carriers.",
+    "Executed an exact modular regression over all 166 target primes p<5000, 83 in each residue class: valuation strata, every high-boundary reflection, the Clausen box-defect identity, and the observed LIFT congruence all have zero failures. Checker SHA-256 887876101f244e5990f5baa0b3dd8f37afde587a20bffe202a6d8988968e12a0; finite regression remains falsification only."
+  ],
+  "contributor_ids": [
+    "EM-DIRECT-A71FA7",
+    "EM-DIRECT-B9BCE8",
+    "EM-DIRECT-C4D02C",
+    "EM-DIRECT-E267A2"
+  ],
+  "current_unfinished_unit": "LIFT remains open. The exact live certificate is now S_p^2+12 S_p D_p-2p^2 C_m congruent p modulo p^3, where S_p and D_p are the value/logarithmic-derivative of the truncated _2F1(1/6,1/3;1;z) half-series at z=1/2 and C_m is the explicit mod-p complementary-parameter boundary chain.",
+  "do_not_repeat": [
+    "Do not reopen accepted D24 UR/JT0, CM0/SIMPLE, the first-digit Chisholm/Clausen proof, or the Delta_p-R_p to W_p mod p^3 reduction.",
+    "Do not redo the global P_n(epsilon) jet, shell valuation theorem, I1 p-shift, I2 boundary transport, or I0 finite deformation.",
+    "Do not return to naive k<->n-k antisymmetric cancellation; it was exactly ruled out.",
+    "Do not discard the reflected boundary C_m or replace it by an unsigned/generic O(p^2) tail; it is the complete p^3-visible Clausen truncation defect.",
+    "Do not enlarge the 166-prime regression as a substitute for an all-prime LIFT proof."
+  ],
+  "executor_role": "RESEARCHER",
+  "next_action": "Derive an all-target finite Wronskian/contiguous or creative-telescoping identity for the truncated half-series at z=1/2 that evaluates the second p-adic digit together with C_m. Prefer an identity that exposes the compensation between S_p,D_p and the y_r boundary; an exact counterexample also closes LIFT.",
+  "output_manifest": [
+    {
+      "git_blob_sha1": "sha1:e1f7133489c9b7e78fe4b7f96585f5ffd1a46fde",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/347a7e9e6ca44a63c937/d25_lift_clausen_half_series_box_defect_20260924.md",
+      "sha256": "sha256:a64bc74ac17aeb4e4b7c5d1f1dc76b111c9ec1d4685f54b7e2ea65f0513a0e7e"
+    },
+    {
+      "git_blob_sha1": "sha1:c32934f4455570b82ef99e1421f6986087d53ca3",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/347a7e9e6ca44a63c937/d25_lift_clausen_box_defect_checker_20260924.py",
+      "sha256": "sha256:887876101f244e5990f5baa0b3dd8f37afde587a20bffe202a6d8988968e12a0"
+    }
+  ],
+  "ownership_epoch": 5807071578,
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "researcher_id": "EM-DIRECT-E267A2",
+  "schema": "ENTERPRISE_MATH_MCP_EXECUTION_CHECKPOINT_V1",
+  "session_id": "MCP-70a0fec6896849ac81484f0e00b3f0dd",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "verification": "AUTHOR_REPORTED_SOURCE_BYTES_ONLY_NOT_MATHEMATICAL_ACCEPTANCE"
+}
