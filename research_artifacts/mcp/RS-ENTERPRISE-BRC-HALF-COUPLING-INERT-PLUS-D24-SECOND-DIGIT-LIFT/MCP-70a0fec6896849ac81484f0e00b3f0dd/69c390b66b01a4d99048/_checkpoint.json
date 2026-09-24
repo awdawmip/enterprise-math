@@ -1,0 +1,57 @@
+{
+  "claim_id": "MCP-0d263f4abf32692950275b3d",
+  "completed_units": [
+    "Consumed the accepted D24 UR/JT0 parent and the existing D25 observer/shell/I1/I0 checkpoints without reopening them; LIFT remains exactly W_p congruent p modulo p^3 at the surviving observer.",
+    "For I0, proved that U0,U1,U2 are exactly the zeroth, first and second coordinates of the single finite parameter jet F_n(epsilon), identified U0 as an alternating binomial transform with a pulled-back Gauss 2F1 system, and ruled out naive exact antisymmetric k<->n-k cancellation while preserving the fixed k=m source.",
+    "Introduced the global finite polynomial P_n(epsilon)=sum_{k=0}^{p-1} c_k(-n+epsilon)_k with n=(p-1)/3 and proved exactly W_p=P_n(p/3); because all denominators are p-units for k<p, its second-order Taylor jet at epsilon=0 is lossless modulo p^3.",
+    "For every tail port k=n+r proved (-n+epsilon)_{n+r}=epsilon(-n+epsilon)_n(1+epsilon)_{r-1}, hence defined one canonical tail chain d_r=c_{n+r}n!(r-1)! with P_n'(0)=-U1+sum d_r and P_n''(0)=U2+2 sum d_r(H_{r-1}-H_n).",
+    "Proved the exact tail valuations v_p(d_r)=0 for 1<=r<=m, 1 for m<r<=2m, and 2 for 2m<r<=4m, and the exact rational recurrence d_{r+1}/d_r=3r(p+3r+1)(2p+6r+1)(2p+6r+5)/[4(p+3r+2)^3(2p+6r-1)]; the former I1/I2 boundaries are exactly the valuation-jump edges r=m and r=2m.",
+    "Derived the strict observer-equivalent carrier W_p congruent U0-(p/3)U1+(p^2/18)U2+(p/3)sum_{r<=2m}d_r+(p^2/9)sum_{r<=m}d_r(H_{r-1}-H_n) modulo p^3. The discarded tail terms are removed only by proved p^3 invisibility. The old I1 and I2 normalized carriers are respectively the unit and one-p-divisible projections of the same d_r chain.",
+    "Executed the exact modular checker on all 166 target primes p<5000, 83 in each residue class: global-jet identity, tail valuation strata, exact cross-multiplied recurrence and both jump edges all pass with zero failures. Checker SHA-256 is 20772740f3471bf4b4a6454bb3c384c9ebc1aff7471f47df5fcb5e1882b7b1e1; finite regression is falsification only."
+  ],
+  "contributor_ids": [
+    "EM-DIRECT-A71FA7",
+    "EM-DIRECT-B9BCE8",
+    "EM-DIRECT-C4D02C",
+    "EM-DIRECT-E267A2"
+  ],
+  "current_unfinished_unit": "LIFT is still open: an all-target proof or exact counterexample for W_p congruent p modulo p^3 is required. The live certificate is now compressed to one global finite parameter jet P_n and one source-labelled tail chain with two valuation jumps, rather than independent I1/I2 shell carriers.",
+  "do_not_repeat": [
+    "Do not reopen accepted D24 UR/JT0, CM0/SIMPLE, the first-digit Chisholm/Clausen proof, or the exact Delta_p-R_p to E_p reduction.",
+    "Do not redo the existing shell valuation theorem, I1 p-shift transport, I2 5F4 boundary transport, or the I0 finite deformation.",
+    "Do not use naive k<->n-k antisymmetric cancellation; it is exactly ruled out and the fixed k=m source is nonzero.",
+    "Do not discard derivative order, the fixed k=m source, or the r=m/r=2m valuation-jump provenance before an exact identity licenses that quotient.",
+    "Do not enlarge the 166-prime regression as a substitute for an all-prime proof."
+  ],
+  "executor_role": "RESEARCHER",
+  "next_action": "Derive a terminating contiguous/telescoping or creative-microscoping identity directly for P_n(epsilon), or equivalently for the strict carrier just checkpointed, that forces W_p congruent p modulo p^3. Preserve the fixed k=m low source and both tail jump edges; do not revisit naive antisymmetric reflection or rebuild the already-projected I1/I2 carriers unless a proof requires them.",
+  "output_manifest": [
+    {
+      "git_blob_sha1": "sha1:28b34d51260e454ca58e4be744739263ba1f7d71",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/69c390b66b01a4d99048/d25_lift_i0_parameter_jet_binomial_transform_20260924.md",
+      "sha256": "sha256:79ea84a0bbc775910334a8288a1b7d71290ec83038a353f4fa5a134cfd3a413d"
+    },
+    {
+      "git_blob_sha1": "sha1:9e86500265e878393135f4169de4ff7896fbc067",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/69c390b66b01a4d99048/d25_lift_i0_parameter_jet_checker_20260924.py",
+      "sha256": "sha256:b170bfcdc164608d79a4214138b0358d345608fb5075862fe14226adc44df6bd"
+    },
+    {
+      "git_blob_sha1": "sha1:821678e12d7ed5fe21f4fe15a86df6315086c31e",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/69c390b66b01a4d99048/d25_lift_global_parameter_jet_tail_chain_20260924.md",
+      "sha256": "sha256:34e6a63652d2d6001a48fb55c62652398d16d4854dec1ee92268d9d59aab07cf"
+    },
+    {
+      "git_blob_sha1": "sha1:d34655be66790bb155a63bf682e59a155f8d4576",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/69c390b66b01a4d99048/d25_lift_global_parameter_jet_checker_20260924.py",
+      "sha256": "sha256:20772740f3471bf4b4a6454bb3c384c9ebc1aff7471f47df5fcb5e1882b7b1e1"
+    }
+  ],
+  "ownership_epoch": 5807071578,
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "researcher_id": "EM-DIRECT-E267A2",
+  "schema": "ENTERPRISE_MATH_MCP_EXECUTION_CHECKPOINT_V1",
+  "session_id": "MCP-70a0fec6896849ac81484f0e00b3f0dd",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "verification": "AUTHOR_REPORTED_SOURCE_BYTES_ONLY_NOT_MATHEMATICAL_ACCEPTANCE"
+}
