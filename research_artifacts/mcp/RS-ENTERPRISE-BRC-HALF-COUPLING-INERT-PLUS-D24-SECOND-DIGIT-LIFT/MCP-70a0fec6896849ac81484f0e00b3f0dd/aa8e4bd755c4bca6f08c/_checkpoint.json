@@ -1,0 +1,57 @@
+{
+  "claim_id": "MCP-0d263f4abf32692950275b3d",
+  "completed_units": [
+    "Consumed the durable finite discrete-adjoint checkpoint and preserved its exact no-new-constraint conclusion: repeated differentiation/SBP of the same evaluation adjoint closes back to F_2(1/2)=S_m-2 and cannot determine the independent LIFT digit.",
+    "Recovered and independently checked the source valuation-band decomposition G=G_T+pY mod p^2 and h=H_U+pA mod p^2, yielding Delta_p=Z_T+Gbar A+hbar Y mod p with Z_T=(G_T H_U-1)/p.",
+    "Proved the recovered absolute unit-core reduction is an exact all-target strict reduction: LIFT is equivalent to Z_T=R_p-Gbar A-hbar Y mod p, with middle and high valuation provenance retained.",
+    "Constructed the exact finite-Gauss cutoff parameter-jet bridge at a=p/6 and derived Z_T=[a_parent Psi-1]/p+a_parent H_1^{<=m}/6+Psi F_2^{<=2m}/72 mod p, with exact middle/high support recombination.",
+    "Proved a uniform rational first-order adjoint obstruction for the three-layer cutoff transport and identified the exact hypergeometric partial-period residual.",
+    "Proved the requested zero-edge gluing: the two sectorwise q2 period quotients are removable-edge charts of one finite-tail quotient Z_k(a)=sum_{j=k}^{2m}T_j(a)/T_k(a), whose base 0/1/2 jet is exactly F_0,F_1,F_2^{<=2m}.",
+    "Proved the normalized 2-jet of that finite-tail quotient supplies an exact non-rational first-order adjoint for the constant q2 weight, while the analogous weighted low-tail one-jet supplies the q1 cutoff adjoint; both close onto already-owned cutoff coordinates and introduce no independent period coordinate.",
+    "Proved the minimal first-order period extension is lossless but non-reductive: it exactly reconstructs a_parent H_1^{<=m}/6 + Psi F_2^{<=2m}/72, gives no equation for [a_parent Psi-1]/p or R_p, and therefore cannot close JT2/LIFT. Symbolic and exact small-m checks verify the adjoint identities and removable zero-edge charts; these checks are regression only.",
+    "Proved a supersingular Frobenius-route information no-go: the full ASD/Katz characteristic-polynomial recurrence is invariant under c(p-1)->c(p-1)+p^2 t, so it cannot determine the next normalized p-1 coefficient digit. Independently derived the exact product-second-digit carrier FROB2=U^2-(e_a+e_b), showing that at least one new F_p lifted coefficient-comparison scalar is necessary; exact regression over all 166 target primes p<5000 had zero failures.",
+    "Proved an exact Proposition-16 divided-power quotient information boundary for the D25 product observer: A->A+p W^{-1}t changes the primitive by p W^{-1}t xi^p, which is zero in the published quotient modulo p A[[xi]], while shifting the product second digit. Therefore that quotient cannot determine D25. Strictly reduced the minimal new Frobenius input to one direct product scalar K_p=(a(p-1)b(p-1)+p)/p^2=U^2-E_p mod p.",
+    "Derived the exact d=3, lambda=1/2 quartic-twist second-digit split from the source local-parameter scaling: Delta_3=(1-lambda)^{-1}=2, so for every target prime D_p=2^((p-1)/2)=-1+p tau_p mod p^2 with tau_p=(2^((p-1)/2)+1)/p mod p. If the durable normalized product is C_p=-p+p^2 K_p mod p^3, then exact untwisting gives C_p D_p^{-1}=p+p^2(tau_p-K_p) mod p^3. Thus the twist contribution is an explicit half-Fermat digit, and the remaining bridge is strictly reduced to the raw d=3 coefficient/companion product plus finite Clausen/truncation/endpoint correction. Deterministic regression checked 664 instances over all 166 target primes below 5000 with zero failures; regression is not proof."
+  ],
+  "contributor_ids": [
+    "EM-DIRECT-A71FA7",
+    "EM-DIRECT-B9BCE8",
+    "EM-DIRECT-C4D02C",
+    "EM-DIRECT-E267A2"
+  ],
+  "current_unfinished_unit": "D25 LIFT/JT2 remains open. The quartic twist no longer belongs to the unknown second-digit residue: its exact contribution is tau_p. The unresolved source information is now the actual K_p / untwisted product digit from H_{3,p-1}(t) and the normalized companion differential, followed by a one-order-deeper bridge from that raw product to the finite-Gauss divided product digit and endpoint correction.",
+  "do_not_repeat": [
+    "Do not differentiate or summation-by-parts the same finite evaluation adjoint again; its closure is already durable.",
+    "Do not search again for a pure uniform rational first-order adjoint; the q2 equation is proved rationally insoluble.",
+    "Do not treat the hypergeometric period as a new independent free coordinate: its exact finite-tail jet gluing is now proved, but do not call it rational.",
+    "Do not rerun the first-order period-extended adjoint expecting a new LIFT constraint; it is proved to close tautologically onto the existing cutoff derivative terms.",
+    "Do not discard or absorb [a_parent Psi-1]/p, Psi, F_0,F_1,F_2^{<=2m}, H_1^{<=m}, A, Y, the m/2m edges, or the labelled terminal -2 source before a proved identity pays them.",
+    "Do not reopen accepted D24 UR/JT0, CM0/SIMPLE, earlier shell/Clausen/Green reductions, or enlarge finite-prime scans as a substitute for proof.",
+    "Do not try to recover the lifted p-1 coefficient digit by merely increasing r in the supersingular ASD/Katz characteristic-polynomial recurrence; the p^2 gauge perturbation is proved invisible to the whole recurrence family.",
+    "Do not attempt to recover K_p from the Proposition-16 divided-power quotient modulo p A[[xi]] alone; the gauge A->A+p W^{-1}t is proved invisible there while changing K_p.",
+    "Do not split the product-observer carrier E_p into separate e_a and e_b unless a later observer proves it needs their individual provenance; K_p is lossless for the current product second-digit observer.",
+    "Do not replace the target quartic factor 2^((p-1)/2) by only its Legendre sign -1 at D25 precision; the erased first lift is tau_p.",
+    "Do not assert that the untwisted de Rham coefficient product equals the weighted finite-Gauss sum W_p modulo p^3 without a proved one-order-deeper finite Clausen/truncation and endpoint audit."
+  ],
+  "executor_role": "RESEARCHER",
+  "next_action": "Use the exact finite coefficient H_{3,p-1}(t) and the d=3 normalized companion differential at lambda=1/2 to compute K_p (equivalently TRAW_p=tau_p-K_p) at source level through p^3; then prove the one-order-deeper finite Clausen/truncation bridge to [a_parent Psi-1]/p and R_p. Keep tau_p explicit and do not replace the quartic factor by only its Legendre sign.",
+  "output_manifest": [
+    {
+      "git_blob_sha1": "sha1:6e3a645167148ab3b031a754ddcc645d8bc97607",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/aa8e4bd755c4bca6f08c/d25_quartic_twist_second_digit_split_20260924.md",
+      "sha256": "sha256:2fa959f40fb141df52c04f0b2c039988e7d778ff118f958dd30ac360a442d0c7"
+    },
+    {
+      "git_blob_sha1": "sha1:42eed11fa8173b11ff48b84c417d2b75884032d1",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/aa8e4bd755c4bca6f08c/verify_d25_quartic_twist_second_digit_split_20260924.py",
+      "sha256": "sha256:b2645c33eb51df5485536004ea107790950b3aabc482d0fa3e1a993208def468"
+    }
+  ],
+  "ownership_epoch": 5807071578,
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "researcher_id": "EM-DIRECT-E267A2",
+  "schema": "ENTERPRISE_MATH_MCP_EXECUTION_CHECKPOINT_V1",
+  "session_id": "MCP-70a0fec6896849ac81484f0e00b3f0dd",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "verification": "AUTHOR_REPORTED_SOURCE_BYTES_ONLY_NOT_MATHEMATICAL_ACCEPTANCE"
+}
