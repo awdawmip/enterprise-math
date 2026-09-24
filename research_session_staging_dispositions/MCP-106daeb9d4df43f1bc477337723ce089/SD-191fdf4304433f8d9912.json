@@ -1,0 +1,752 @@
+{
+  "authority_granted": false,
+  "classification": "NEUTRAL_STAGING_PRESERVATION_NOT_RESEARCH_PROGRESS",
+  "disposition": "PRESERVED_FOR_SESSION_SUCCESSION",
+  "disposition_id": "SD-191fdf4304433f8d9912",
+  "execution_authorized": false,
+  "execution_id": "EM-DIRECT-A71FA7",
+  "inventory_sha256": "0c299da17acda1ccf05c0521b6211e3b448f935be9c6e208cf2fb5325da224df",
+  "mathematical_acceptance_granted": false,
+  "preservation_semantics": "EXACT_OLD_SESSION_STAGING_PROVENANCE_ONLY",
+  "prior_contribution_ids": [
+    "EM-DIRECT-C4D02C"
+  ],
+  "reason": "Preserve all unresolved old-session staging losslessly under the deployed 0.6.6 neutral disposition route so this same logical TASK_RESEARCH conversation can lawfully close its historical service session and establish the required successor Researcher identity without reclassifying staged evidence as task progress or mathematical acceptance.",
+  "research_progress_claimed": false,
+  "role": "RESEARCHER",
+  "schema": "ENTERPRISE_MATH_MCP_STAGING_DISPOSITION_V1",
+  "session_id": "MCP-106daeb9d4df43f1bc477337723ce089",
+  "total_staged_bytes": 112258,
+  "upload_count": 27,
+  "uploads": [
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "2acc365b7498c54d2be94219e3dee7ee75acb81e2fbdcf55ae57e386b2868968",
+          "native_payload_sha256": "744c26f4ae2f34737ef99a915b3a0c839666f031af39b0ea65cc11c5d17d87eb",
+          "part_index": 0,
+          "request_id": "upload-p11-note-20260923-r11-2037",
+          "request_sha256": "5413d72db685d56a5e16797bc4ebcb9202fd562566e92706c2f20ed83bf49ddf",
+          "session_id": "MCP-106daeb9d4df43f1bc477337723ce089"
+        }
+      ],
+      "complete": true,
+      "filename": "brc_finite_3f2_p11_harmonic_boundary_defect_20260923.md",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 4036,
+          "content_utf8": "# BRC finite 3F2 boundary unit: p^8 carrier and p^11 half-point jet\n\nStatus: portable research evidence only; not Source-published, not a Result, and not LIFT/JT2. This unit consumes (without re-proving) the previously staged exact boundary identity\n\nD F_p(1/2) = - p^3 U_p / (18 * 216^(p-1)),\n\nwhere D = theta^3-lambda(theta+1/2)(theta+1/3)(theta+2/3), theta=lambda d/dlambda,\nF_p(lambda)=sum_{k=0}^{p-1} (1/2)_k(1/3)_k(2/3)_k/(k!)^3 lambda^k, and\nU_p = C(2p-1,p-1)^2 C(3p-1,p-1).\n\nThe new increment is the first p^8 expansion of U_p retaining the H_6 carrier, and the induced p^11 jet certificate.\n\n## 1. Harmonic carrier theorem\n\nFor a target prime p == 13 or 19 (mod 24), hence p>=13, put\nH_r = sum_{k=1}^{p-1} 1/k^r in Z_p. Then\n\nU_p == 1 - 5 p^2 H_2 - (17/2) p^4 H_4 + (25/2) p^4 H_2^2 - (65/3) p^6 H_6   (mod p^8).   (U8)\n\nThis strictly extends the previously staged p^7 carrier by exposing the first H_6 term. The three multiplicative ports are retained before compression:\n\nU_p = product_{k=1}^{p-1} (1+p/k)^2 (1+2p/k).\n\nThus the two n=2 binomial ports and the single n=3 port are not erased before the p-adic logarithm.\n\n### Proof\n\nBecause every factor is in 1+p Z_p,\n\nlog U_p = sum_{r>=1} (-1)^(r+1) (2+2^r)/r * p^r H_r.\n\nFor r<p-1, H_r ==0 (mod p). For odd r<=p-4, pairing k with p-k improves this to H_r==0 (mod p^2). Hence terms r>=7 have valuation at least 8 after the required truncation and do not affect log U_p modulo p^8. Explicitly,\n\nlog U_p == 4pH_1 -3p^2H_2 +(10/3)p^3H_3 -(9/2)p^4H_4 +(34/5)p^5H_5 -11p^6H_6 (mod p^8).\n\nThe exact permutation k -> p-k gives, for every r,\n\nH_r = (-1)^r sum_{j>=0} binom(r+j-1,j) p^j H_{r+j}.\n\nAt the precision needed here this yields\n\n2H_1 == -pH_2-p^2H_3-p^3H_4-p^4H_5-p^5H_6,\n2H_3 == -3pH_4-6p^2H_5-10p^3H_6,\n2H_5 == -5pH_6,\n\nwith omitted terms too p-adically deep to contribute modulo p^8 after multiplication by p, p^3, p^5 respectively. Substitution gives\n\nlog U_p == -5p^2H_2 -(17/2)p^4H_4 -(65/3)p^6H_6 (mod p^8).\n\nThe logarithm has valuation at least 3. Therefore exp(log U_p) modulo p^8 needs only 1+L+L^2/2. Among quadratic terms only (-5p^2H_2)^2/2 survives below p^8; all cross terms have valuation >=8. This proves (U8).\n\n## 2. p^11 half-point jet\n\nLet q=q_p(6)=(6^(p-1)-1)/p. Since 216^(p-1)=(1+pq)^3 exactly,\n(216^(p-1))^(-1)=(1+pq)^(-3).\nCombining this exact normalization with (U8), and using v_p(H_2),v_p(H_4),v_p(H_6)>=1, gives the following minimal carrier form modulo p^11. All derivatives below are evaluated at lambda=1/2:\n\n9F_p''' + 27F_p'' - 44F_p' - 8F_p\n== -8p^3 +24p^4q -48p^5q^2 +80p^6q^3 -120p^7q^4 +168p^8q^5 -224p^9q^6 +288p^10q^7\n   +40p^5H_2 -120p^6qH_2 +240p^7q^2H_2 -400p^8q^3H_2 +600p^9q^4H_2\n   +68p^7H_4 -204p^8qH_4 +408p^9q^2H_4\n   +(520/3)p^9H_6\n   -100p^7H_2^2 +300p^8qH_2^2            (mod p^11).   (J11)\n\nTerms such as p^9 H_2^2, p^10 H_2, p^10 H_4 and p^10 H_6 are omitted because their carrier valuations already place them in p^11 Z_p. Relative to the previous p^10 certificate, the genuinely new information is the H_6 port at effective valuation 10 together with the next normalization/cross terms required at the same precision.\n\n## 3. Exact regression / falsification\n\nA standalone integer-modular checker recomputes U_p directly from its three multiplicative ports, recomputes F_p,F_p',F_p'',F_p''' from the original terminating 3F2 recurrence, and checks (U8) mod p^8 and (J11) mod p^11. For every prime p<5000 with p mod 24 in {13,19}, there are 166 primes (83 in each class) and both checks have zero failures. This finite scan is regression/falsification only; the proof is the p-adic logarithm + k<->p-k carrier calculation above.\n\n## 4. Boundary\n\nThis is not predecessor completed research, not a canonical checkpoint, and not a proof of LIFT/JT2. It is portable high-precision evidence allowed by the D24 taskbook's instruction to preserve useful higher-precision quadratic-transform defect information for the deferred successor. The current UR publication ownership/duplicate-publication control issue remains separate.",
+          "final": true,
+          "part_index": 0,
+          "sha256": "0236e7f45a344ea00be04b14f1472d414989985e2432f4caf62fe6cf8a59e913"
+        }
+      ],
+      "sha256": "0236e7f45a344ea00be04b14f1472d414989985e2432f4caf62fe6cf8a59e913",
+      "total_bytes": 4036,
+      "upload_id": "p11-harmonic-boundary-r11"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "df9d06eb3130c1b44d12a869f83b28ecc13b3d3a2aeaf52c71a74b4b40d869c0",
+          "native_payload_sha256": "ae52249a11addb099f443f8eab66f4ac9efdf7890349f5b505bf2fe9d1c329e9",
+          "part_index": 0,
+          "request_id": "upload-p11-checker-20260923-r11-2038",
+          "request_sha256": "37c892352691bca512ee2d8e634627b6984d3ba262b73318fe5ba70aa0bf3f65",
+          "session_id": "MCP-106daeb9d4df43f1bc477337723ce089"
+        }
+      ],
+      "complete": true,
+      "filename": "check_finite_3f2_p11_harmonic_boundary_defect_20260923.py",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 2869,
+          "content_utf8": "from math import isqrt\n\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    if n % 2 == 0:\n        return n == 2\n    d = 3\n    while d <= isqrt(n):\n        if n % d == 0:\n            return False\n        d += 2\n    return True\n\n\ndef harmonic(p, r, mod):\n    return sum(pow(k, -r, mod) for k in range(1, p)) % mod\n\n\ndef direct_boundary_unit(p, mod):\n    # Keep the two n=2 ports and one n=3 port explicit.\n    u = 1\n    for k in range(1, p):\n        invk = pow(k, -1, mod)\n        a = (1 + p * invk) % mod\n        b = (1 + 2 * p * invk) % mod\n        u = (u * a * a * b) % mod\n    return u\n\n\ndef jet_direct(p, mod):\n    # t_k = c_k*(1/2)^k for c_k=(1/2)_k(1/3)_k(2/3)_k/(k!)^3.\n    # t_{k+1}/t_k=((2k+1)(3k+1)(3k+2))/(36(k+1)^3).\n    inv36 = pow(36, -1, mod)\n    t = 1\n    jet = 0\n    for k in range(p):\n        weight = 72*k*(k-1)*(k-2) + 108*k*(k-1) - 88*k - 8\n        jet = (jet + weight * t) % mod\n        if k != p - 1:\n            num = (2*k + 1) * (3*k + 1) * (3*k + 2)\n            den_inv = pow((k + 1)**3, -1, mod)\n            t = (t * num * inv36 * den_inv) % mod\n    return jet\n\n\ndef fermat_q6_mod(p, mod_power=8):\n    # q_p(6) modulo p^mod_power, obtained without huge integers.\n    M = p ** (mod_power + 1)\n    r = pow(6, p - 1, M)\n    assert (r - 1) % p == 0\n    return ((r - 1) // p) % (p ** mod_power)\n\n\ndef check_prime(p):\n    # U_p mod p^8.\n    m8 = p**8\n    H2 = harmonic(p, 2, m8)\n    H4 = harmonic(p, 4, m8)\n    H6 = harmonic(p, 6, m8)\n    inv2 = pow(2, -1, m8)\n    inv3 = pow(3, -1, m8)\n    u_direct = direct_boundary_unit(p, m8)\n    u8 = (\n        1\n        - 5*p**2*H2\n        - 17*p**4*H4*inv2\n        + 25*p**4*(H2*H2 % m8)*inv2\n        - 65*p**6*H6*inv3\n    ) % m8\n\n    # Direct finite-3F2 jet mod p^11.\n    m11 = p**11\n    h2 = harmonic(p, 2, m11)\n    h4 = harmonic(p, 4, m11)\n    h6 = harmonic(p, 6, m11)\n    q = fermat_q6_mod(p, 8)\n    h2sq = h2*h2 % m11\n    inv3_11 = pow(3, -1, m11)\n    rhs = (\n        -8*p**3 + 24*p**4*q - 48*p**5*q**2 + 80*p**6*q**3\n        - 120*p**7*q**4 + 168*p**8*q**5 - 224*p**9*q**6 + 288*p**10*q**7\n        + 40*p**5*h2 - 120*p**6*q*h2 + 240*p**7*q**2*h2\n        - 400*p**8*q**3*h2 + 600*p**9*q**4*h2\n        + 68*p**7*h4 - 204*p**8*q*h4 + 408*p**9*q**2*h4\n        + 520*p**9*h6*inv3_11\n        - 100*p**7*h2sq + 300*p**8*q*h2sq\n    ) % m11\n    jet = jet_direct(p, m11)\n    return u_direct == u8, jet == rhs\n\n\ndef main():\n    ps = [p for p in range(5, 5000) if p % 24 in (13, 19) and is_prime(p)]\n    failures = []\n    classes = {13: 0, 19: 0}\n    for p in ps:\n        classes[p % 24] += 1\n        ok_u, ok_j = check_prime(p)\n        if not (ok_u and ok_j):\n            failures.append((p, ok_u, ok_j))\n    print({'count': len(ps), 'classes': classes, 'failures': failures})\n    assert len(ps) == 166\n    assert classes == {13: 83, 19: 83}\n    assert failures == []\n\n\nif __name__ == '__main__':\n    main()\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "663b2e64bde786e5ab953dfcb200b1c9ff83435f9fd2910c25e103eebc55fa71"
+        }
+      ],
+      "sha256": "663b2e64bde786e5ab953dfcb200b1c9ff83435f9fd2910c25e103eebc55fa71",
+      "total_bytes": 2869,
+      "upload_id": "p11-harmonic-check-r11"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "5e126874e05dfc582320afe74fa4f725bb39bb2daaecb99ffe8c84eed549c317",
+          "native_payload_sha256": "318603ecb482a0a1690c7907fbbb5a7b8f4b189e40d437b62a6597f99f609100",
+          "part_index": 0,
+          "request_id": "upload-p12-note-20260923-r11-2124",
+          "request_sha256": "35d7e5f50521045dea96704b3c5581cbee738ebc95fa25383dd68d7a49e4531a",
+          "session_id": "MCP-106daeb9d4df43f1bc477337723ce089"
+        }
+      ],
+      "complete": true,
+      "filename": "brc_finite_3f2_p12_mixed_harmonic_boundary_defect_20260923.md",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 4383,
+          "content_utf8": "# BRC finite 3F2 boundary unit: mixed H2*H4 interaction modulo p^9 and p^12 half-point jet\n\nStatus: portable staged research evidence only. Not Source-published, not a Result, not Driver-reviewed, and not LIFT/JT2.\n\nTask: `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY`\nPublication: `TP2-C0E85430A37213F301EB`\nLogical conversation: `chatgpt-research-hourly-enterprise-math-20260923`\n\nThis unit consumes, without re-proving, the previously staged exact boundary identity\n\\[\n\\mathcal D F_p(1/2)=-\\frac{p^3}{18\\,216^{p-1}}U_p,\n\\]\nwhere\n\\[\nF_p(\\lambda)=\\sum_{k=0}^{p-1}\\frac{(1/2)_k(1/3)_k(2/3)_k}{(k!)^3}\\lambda^k,\n\\quad\n\\mathcal D=\\theta^3-\\lambda(\\theta+\\tfrac12)(\\theta+\\tfrac13)(\\theta+\\tfrac23),\n\\]\n\\(\\theta=\\lambda d/d\\lambda\\), and\n\\[\nU_p=\\binom{2p-1}{p-1}^2\\binom{3p-1}{p-1}.\n\\]\nThe new increment is \\(U_p\\bmod p^9\\), where the first mixed harmonic carrier \\(H_2H_4\\) becomes visible, and its induced half-point jet modulo \\(p^{12}\\).\n\n## 1. Provenance-preserving boundary unit\n\nFor every target prime \\(p\\equiv13,19\\pmod{24}\\) (hence \\(p\\ge13\\)), put\n\\[\nH_r=\\sum_{k=1}^{p-1}k^{-r}\\in\\mathbf Z_p.\n\\]\nKeep the two \\(n=2\\) ports and one \\(n=3\\) port separate:\n\\[\nU_p=\\prod_{k=1}^{p-1}(1+p/k)^2(1+2p/k).\n\\]\nThus\n\\[\n\\log U_p=\\sum_{r\\ge1}(-1)^{r+1}\\frac{2+2^r}{r}p^rH_r.\n\\]\n\nThe exact permutation \\(k\\mapsto p-k\\) gives\n\\[\nH_r=(-1)^r\\sum_{j\\ge0}\\binom{r+j-1}{j}p^jH_{r+j}.\n\\]\nUsing this identity successively on \\(H_1,H_3,H_5,H_7\\), together with\n\\(H_{2s}\\equiv0\\pmod p\\) for the needed even exponents and the corresponding odd-power pairing gain, yields\n\\[\n\\log U_p\\equiv\n-5p^2H_2-\\frac{17}{2}p^4H_4-\\frac{65}{3}p^6H_6\n\\pmod{p^9}.\n\\]\nTerms involving \\(H_8\\) first occur with valuation at least \\(9\\), so they vanish at this precision.\n\nThe logarithm has valuation at least \\(3\\). Hence modulo \\(p^9\\),\n\\(\\exp L=1+L+L^2/2\\); \\(L^3\\) has valuation at least \\(9\\).\nBesides the already visible \\(H_2^2\\) term, the mixed product of the\n\\(H_2\\) and \\(H_4\\) ports now survives. Therefore\n\\[\n\\boxed{\nU_p\\equiv\n1-5p^2H_2-\\frac{17}{2}p^4H_4\n+\\frac{25}{2}p^4H_2^2\n-\\frac{65}{3}p^6H_6\n+\\frac{85}{2}p^6H_2H_4\n\\pmod{p^9}.}\n\\tag{U9}\n\\]\nThe new coefficient \\(85/2=(-5)(-17/2)\\) records the first cross-interaction between two distinct harmonic carriers; it is not an unsigned total-mass compression.\n\n## 2. p^12 half-point jet\n\nLet\n\\[\nq=q_p(6)=\\frac{6^{p-1}-1}{p}.\n\\]\nExactly,\n\\[\n216^{p-1}=(1+pq)^3.\n\\]\nAt the half point,\n\\[\n144\\mathcal D F_p(1/2)=\n9F_p'''(1/2)+27F_p''(1/2)-44F_p'(1/2)-8F_p(1/2).\n\\]\nCombining (U9) with \\((1+pq)^{-3}\\), retaining only terms whose full\n\\(p\\)-adic valuation is below \\(12\\), gives\n\\[\n\\boxed{\\begin{aligned}\nJ_p:={}&9F_p'''+27F_p''-44F_p'-8F_p\\\\\n\\equiv{}&\n-8p^3+24p^4q-48p^5q^2+80p^6q^3-120p^7q^4+168p^8q^5\\\\\n&-224p^9q^6+288p^{10}q^7-360p^{11}q^8\\\\\n&+40p^5H_2-120p^6qH_2+240p^7q^2H_2-400p^8q^3H_2\\\\\n&+600p^9q^4H_2-840p^{10}q^5H_2\\\\\n&+68p^7H_4-204p^8qH_4+408p^9q^2H_4-680p^{10}q^3H_4\\\\\n&-100p^7H_2^2+300p^8qH_2^2-600p^9q^2H_2^2\\\\\n&+\\frac{520}{3}p^9H_6-520p^{10}qH_6\\\\\n&-340p^9H_2H_4\n\\pmod{p^{12}},\n\\end{aligned}}\n\\tag{J12}\n\\]\nwhere every derivative is evaluated at \\(\\lambda=1/2\\).\n\nRelative to the previous \\(p^{11}\\) certificate, the genuinely new BRC information is the mixed port\n\\[\n-340p^9H_2H_4,\n\\]\nwhich has effective valuation \\(11\\) because \\(v_p(H_2),v_p(H_4)\\ge1\\).\n\n## 3. Exact regression / falsification\n\nA standalone integer-modular checker independently:\n- reconstructs \\(U_p\\) from the two \\(n=2\\) multiplicative ports and one \\(n=3\\) port modulo \\(p^9\\);\n- computes \\(H_2,H_4,H_6\\) directly as reciprocal sums;\n- reconstructs the original finite \\({}_3F_2\\) half-point jet from its coefficient recurrence modulo \\(p^{12}\\);\n- checks (U9) and (J12).\n\nFor all 166 target primes \\(p<5000\\), with 83 primes in each residue class 13 and 19 modulo 24, both checks have zero failures. This finite scan is regression/falsification only; the proof is the p-adic logarithm, exact pairing, valuation control, exponentiation, and the previously established exact top-boundary identity.\n\n## 4. Boundary\n\nThis file is task-scoped portable evidence, not predecessor completed research and not a canonical checkpoint. It does not establish LIFT/JT2. Once lawful OPEN exists, the first-digit Chisholm/Chan-Liaw UR/JT0 closure remains the publication priority; this higher-precision unit is a deferred carrier for later successor work.\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "872ce0feae8fc3ef3d4ae0f01241b9ebb7b49ffa046e8414f12c132a176ac6f1"
+        }
+      ],
+      "sha256": "872ce0feae8fc3ef3d4ae0f01241b9ebb7b49ffa046e8414f12c132a176ac6f1",
+      "total_bytes": 4383,
+      "upload_id": "p12-mixed-harmonic-20260923"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "7466d1561ab8ec9d111ab599d359b1140937ac8fb24914e7a6607bb63ffb0fc6",
+          "native_payload_sha256": "d860bc5be981281ac732e643c9648d03bdf75ff1471f083f7645253bc7cef5ca",
+          "part_index": 0,
+          "request_id": "upload-p12-checker-20260923-r11-2125",
+          "request_sha256": "8386e74fcac0ed0f4db3a5befecd9a6ce0d05eb7ccd8801cc65686030e0a0c5e",
+          "session_id": "MCP-106daeb9d4df43f1bc477337723ce089"
+        }
+      ],
+      "complete": true,
+      "filename": "check_finite_3f2_p12_mixed_harmonic_boundary_defect_20260923.py",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 3124,
+          "content_utf8": "#!/usr/bin/env python3\nfrom math import isqrt\n\n\ndef primes_upto(n):\n    sieve = bytearray(b\"\\x01\") * (n + 1)\n    sieve[:2] = b\"\\x00\\x00\"\n    for r in range(2, isqrt(n) + 1):\n        if sieve[r]:\n            sieve[r*r:n+1:r] = b\"\\x00\" * (((n-r*r)//r) + 1)\n    return [i for i in range(2, n + 1) if sieve[i]]\n\n\ndef harmonic_mod(p, r, mod):\n    return sum(pow(k, -r, mod) for k in range(1, p)) % mod\n\n\ndef direct_boundary_unit(p, mod):\n    # Preserve the two n=2 ports and the single n=3 port.\n    u = 1\n    for k in range(1, p):\n        invk = pow(k, -1, mod)\n        a = (1 + p * invk) % mod\n        b = (1 + 2 * p * invk) % mod\n        u = u * a * a * b % mod\n    return u\n\n\ndef jet_direct(p, mod):\n    # term_k = c_k / 2^k at lambda=1/2.\n    term = 1\n    s0 = s1 = s2 = s3 = 0\n    for k in range(p):\n        if k:\n            num = (2*k - 1) * (3*k - 2) * (3*k - 1)\n            den = 36 * k**3\n            term = term * num * pow(den, -1, mod) % mod\n        s0 = (s0 + term) % mod\n        s1 = (s1 + k * term) % mod\n        s2 = (s2 + k * (k - 1) * term) % mod\n        s3 = (s3 + k * (k - 1) * (k - 2) * term) % mod\n    return (72*s3 + 108*s2 - 88*s1 - 8*s0) % mod\n\n\ndef fermat_q6_mod(p, ppower):\n    mod = p ** (ppower + 1)\n    r = pow(6, p - 1, mod)\n    assert (r - 1) % p == 0\n    return ((r - 1) // p) % (p ** ppower)\n\n\ndef check_prime(p):\n    mod9 = p**9\n    h2 = harmonic_mod(p, 2, mod9)\n    h4 = harmonic_mod(p, 4, mod9)\n    h6 = harmonic_mod(p, 6, mod9)\n    inv2 = pow(2, -1, mod9)\n    inv3 = pow(3, -1, mod9)\n\n    predicted_u = (\n        1\n        - 5*p**2*h2\n        - 17*p**4*h4*inv2\n        + 25*p**4*(h2*h2 % mod9)*inv2\n        - 65*p**6*h6*inv3\n        + 85*p**6*(h2*h4 % mod9)*inv2\n    ) % mod9\n\n    if direct_boundary_unit(p, mod9) != predicted_u:\n        return \"U9\"\n\n    mod12 = p**12\n    H2 = harmonic_mod(p, 2, mod12)\n    H4 = harmonic_mod(p, 4, mod12)\n    H6 = harmonic_mod(p, 6, mod12)\n    H2sq = H2 * H2 % mod12\n    q = fermat_q6_mod(p, 9)\n    inv3_12 = pow(3, -1, mod12)\n\n    predicted_jet = (\n        -8*p**3 + 24*p**4*q - 48*p**5*q**2 + 80*p**6*q**3\n        - 120*p**7*q**4 + 168*p**8*q**5 - 224*p**9*q**6\n        + 288*p**10*q**7 - 360*p**11*q**8\n        + 40*p**5*H2 - 120*p**6*q*H2 + 240*p**7*q**2*H2\n        - 400*p**8*q**3*H2 + 600*p**9*q**4*H2 - 840*p**10*q**5*H2\n        + 68*p**7*H4 - 204*p**8*q*H4 + 408*p**9*q**2*H4\n        - 680*p**10*q**3*H4\n        - 100*p**7*H2sq + 300*p**8*q*H2sq - 600*p**9*q**2*H2sq\n        + 520*p**9*H6*inv3_12 - 520*p**10*q*H6\n        - 340*p**9*(H2*H4 % mod12)\n    ) % mod12\n\n    if jet_direct(p, mod12) != predicted_jet:\n        return \"J12\"\n    return None\n\n\ndef main():\n    targets = [p for p in primes_upto(4999) if p % 24 in (13, 19)]\n    failures = [(p, check_prime(p)) for p in targets if check_prime(p) is not None]\n    counts = {\n        13: sum(p % 24 == 13 for p in targets),\n        19: sum(p % 24 == 19 for p in targets),\n    }\n    print({\"target_primes\": len(targets), \"counts\": counts, \"failures\": failures})\n    assert len(targets) == 166\n    assert counts == {13: 83, 19: 83}\n    assert failures == []\n\n\nif __name__ == \"__main__\":\n    main()\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "8c0c11701fc345e2799a0b00866e48e8f8f97a4012da905aa8e75f91b60ca0a7"
+        }
+      ],
+      "sha256": "8c0c11701fc345e2799a0b00866e48e8f8f97a4012da905aa8e75f91b60ca0a7",
+      "total_bytes": 3124,
+      "upload_id": "p12-mixed-harmonic-check-20260923"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "f1daddb0ee04a2e7f383d6847d6e71e547a1a0a7cfc7a7a30e78d2288b720370",
+          "native_payload_sha256": "7e8e8c57d92c7f217de18f588b423b2d1c15648b8717047ad7d818bce4ef744b",
+          "part_index": 0,
+          "request_id": "upload-p13-note-20260923-r11-2226",
+          "request_sha256": "49112ba3f63fec638bd17713b5de4febdb3cf9b9396ebf2cce9bae0343c9d7f8",
+          "session_id": "MCP-106daeb9d4df43f1bc477337723ce089"
+        }
+      ],
+      "complete": true,
+      "filename": "brc_finite_3f2_p13_h8_cubic_boundary_defect_20260923.md",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 4102,
+          "content_utf8": "# BRC finite 3F2 boundary unit: H8 carrier, cubic H2 interaction, and p^13 half-point jet\n\nStatus: portable staged research evidence only. Not Source-published, not a Result, not Driver-reviewed, and not LIFT/JT2.\n\nTask: `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY`\nPublication: `TP2-C0E85430A37213F301EB`\nLogical conversation: `chatgpt-research-hourly-enterprise-math-20260923`\n\nThis unit consumes without re-proving the exact boundary identity\n\n\\[\\mathcal D F_p(1/2)=-\\frac{p^3}{18\\,216^{p-1}}U_p,\\qquad U_p=\\binom{2p-1}{p-1}^2\\binom{3p-1}{p-1},\\]\n\nwith the same finite \\({}_3F_2\\) and half-point jet as the previously staged p^12 unit. The new increment is \\(U_p\\bmod p^{10}\\): the \\(H_8\\) carrier and the first cubic self-interaction \\(H_2^3\\) both become visible.\n\nFor every target prime \\(p\\equiv13,19\\pmod{24}\\) put \\(H_r=\\sum_{k=1}^{p-1}k^{-r}\\in\\mathbf Z_p\\). Preserve the two n=2 ports and one n=3 port:\n\n\\[U_p=\\prod_{k=1}^{p-1}(1+p/k)^2(1+2p/k),\\]\nso\n\\[L:=\\log U_p=\\sum_{r\\ge1}(-1)^{r+1}\\frac{2+2^r}{r}p^rH_r.\\]\n\nThe exact permutation \\(k\\mapsto p-k\\) gives\n\\[H_r=(-1)^r\\sum_{j\\ge0}\\binom{r+j-1}{j}p^jH_{r+j}.\\]\nFor the target primes, the needed even sums \\(H_2,H_4,H_6,H_8\\) are all divisible by p. Solving the odd-r pairing identities recursively to the precision that can survive in L gives\n\\[\nH_1=-\\frac p2H_2+\\frac{p^3}{4}H_4-\\frac{p^5}{2}H_6+\\frac{17p^7}{8}H_8+O(p^9H_{10}),\n\\]\n\\[H_3=-\\frac{3p}{2}H_4+\\frac{5p^3}{2}H_6-\\frac{21p^5}{2}H_8+O(p^7H_{10}),\\]\n\\[H_5=-\\frac{5p}{2}H_6+\\frac{35p^3}{4}H_8+O(p^5H_{10}),\\qquad H_7=-\\frac{7p}{2}H_8+O(p^3H_{10}).\\]\nSubstitution into L through r=8 yields the provenance-preserving logarithmic carrier\n\\[\\boxed{L\\equiv-5p^2H_2-\\frac{17}{2}p^4H_4-\\frac{65}{3}p^6H_6-\\frac{257}{4}p^8H_8\\pmod{p^{10}}.}\\tag{L10}\\]\nThe coefficient pattern through this precision is \\(- (2^{2s}+1)p^{2s}H_{2s}/s\\) for s=1,2,3,4; this is an observed algebraic pattern at the derived orders, not a claim beyond the proved truncation.\n\nSince \\(v_p(L)\\ge3\\), modulo \\(p^{10}\\) one must retain \\(1+L+L^2/2+L^3/6\\). Exactly the terms A^2/2, AB and A^3/6 survive, where \\(A=-5p^2H_2\\), \\(B=-17p^4H_4/2\\). Hence\n\\[\\boxed{\nU_p\\equiv1-5p^2H_2-\\frac{17}{2}p^4H_4+\\frac{25}{2}p^4H_2^2-\\frac{65}{3}p^6H_6+\\frac{85}{2}p^6H_2H_4-\\frac{125}{6}p^6H_2^3-\\frac{257}{4}p^8H_8\\pmod{p^{10}}.}\\tag{U10}\\]\nThus the first cubic self-interaction and the new H8 port enter at effective p-adic valuation 9.\n\nLet \\(q=q_p(6)=(6^{p-1}-1)/p\\), so exactly \\(216^{p-1}=(1+pq)^3\\). With\n\\[J_p=9F_p'''(1/2)+27F_p''(1/2)-44F_p'(1/2)-8F_p(1/2)=-8p^3U_p(1+pq)^{-3},\\]\n(U10) gives the p^13 certificate\n\\[\\boxed{\\begin{aligned}\nJ_p\\equiv{}&-8p^3+24p^4q-48p^5q^2+80p^6q^3-120p^7q^4+168p^8q^5-224p^9q^6+288p^{10}q^7-360p^{11}q^8+440p^{12}q^9\\\\\n&+40p^5H_2-120p^6qH_2+240p^7q^2H_2-400p^8q^3H_2+600p^9q^4H_2-840p^{10}q^5H_2+1120p^{11}q^6H_2\\\\\n&+68p^7H_4-204p^8qH_4+408p^9q^2H_4-680p^{10}q^3H_4+1020p^{11}q^4H_4\\\\\n&-100p^7H_2^2+300p^8qH_2^2-600p^9q^2H_2^2+1000p^{10}q^3H_2^2\\\\\n&+\\frac{520}{3}p^9H_6-520p^{10}qH_6+1040p^{11}q^2H_6-340p^9H_2H_4+1020p^{10}qH_2H_4\\\\\n&+\\frac{500}{3}p^9H_2^3+514p^{11}H_8\\pmod{p^{13}}.\n\\end{aligned}}\\tag{J13}\\]\nAll derivatives are at \\(1/2\\). Relative to J12, the genuinely new effective valuation-12 carriers include \\(H_2^3\\) and \\(H_8\\), together with the normalization/cross terms required at the same precision. No positive-mass collapse is used; harmonic port identity and p-adic valuation remain explicit until the final jet observer.\n\nAn independent exact modular checker reconstructs U from its three multiplicative ports and the original finite hypergeometric jet. For all 166 target primes p<5000 (83 in each residue class 13 and 19 modulo 24), U10 and J13 have zero failures. This finite scan is regression/falsification only; the proof is (L10), valuation-controlled exponentiation, and the already established exact boundary identity.\n\nBoundary: this is deferred portable evidence. It does not establish or claim LIFT/JT2 and does not replace the publication-priority UR/JT0 closure audit once the lawful execution-start gate is available.\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "387ba440376720c7e77dec6092b1ee31d9a7b39714a1a23e6972c5951f9879f1"
+        }
+      ],
+      "sha256": "387ba440376720c7e77dec6092b1ee31d9a7b39714a1a23e6972c5951f9879f1",
+      "total_bytes": 4102,
+      "upload_id": "p13-h8-cubic-boundary-20260923"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "71fdff7737df8e66308ce095df19a4c1af0973553dc38306b2947d2fd1ea5394",
+          "native_payload_sha256": "a1cfc88d56824cc1bc6359940037e538d91010ca7975d8f1c3221b690641c602",
+          "part_index": 0,
+          "request_id": "upload-p13-checker-20260923-r11-2227",
+          "request_sha256": "e932d639e964062b380a2d79b942319058ad14d3a8355b92d5b7c2335068ee7c",
+          "session_id": "MCP-106daeb9d4df43f1bc477337723ce089"
+        }
+      ],
+      "complete": true,
+      "filename": "check_finite_3f2_p13_h8_cubic_boundary_defect_20260923.py",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 2241,
+          "content_utf8": "#!/usr/bin/env python3\nfrom math import isqrt\n\ndef primes_upto(n):\n    s=bytearray(b'\\x01')*(n+1); s[:2]=b'\\x00\\x00'\n    for r in range(2,isqrt(n)+1):\n        if s[r]: s[r*r:n+1:r]=b'\\x00'*(((n-r*r)//r)+1)\n    return [i for i in range(2,n+1) if s[i]]\n\ndef H(p,r,m):\n    return sum(pow(k,-r,m) for k in range(1,p))%m\n\ndef U_direct(p,m):\n    u=1\n    for k in range(1,p):\n        x=p*pow(k,-1,m)%m\n        u=u*(1+x)%m*(1+x)%m*(1+2*x)%m\n    return u\n\ndef U10(p):\n    m=p**10; h2,h4,h6,h8=(H(p,r,m) for r in (2,4,6,8))\n    i2,i3,i4,i6=(pow(d,-1,m) for d in (2,3,4,6))\n    return (1-5*p**2*h2-17*p**4*h4*i2+25*p**4*h2*h2*i2-65*p**6*h6*i3\n            +85*p**6*h2*h4*i2-125*p**6*h2**3*i6-257*p**8*h8*i4)%m\n\ndef jet_direct(p,m):\n    term=1; s0=s1=s2=s3=0\n    for k in range(p):\n        if k:\n            term=term*(2*k-1)*(3*k-2)*(3*k-1)*pow(36*k**3,-1,m)%m\n        s0=(s0+term)%m; s1=(s1+k*term)%m\n        s2=(s2+k*(k-1)*term)%m\n        s3=(s3+k*(k-1)*(k-2)*term)%m\n    return (72*s3+108*s2-88*s1-8*s0)%m\n\ndef q6(p,pow_needed):\n    m=p**(pow_needed+1); r=pow(6,p-1,m)\n    assert (r-1)%p==0\n    return ((r-1)//p)%(p**pow_needed)\n\ndef J13(p):\n    m=p**13; q=q6(p,10); h2,h4,h6,h8=(H(p,r,m) for r in (2,4,6,8)); i3=pow(3,-1,m)\n    return (-8*p**3+24*p**4*q-48*p**5*q**2+80*p**6*q**3-120*p**7*q**4+168*p**8*q**5-224*p**9*q**6+288*p**10*q**7-360*p**11*q**8+440*p**12*q**9\n      +40*p**5*h2-120*p**6*q*h2+240*p**7*q**2*h2-400*p**8*q**3*h2+600*p**9*q**4*h2-840*p**10*q**5*h2+1120*p**11*q**6*h2\n      +68*p**7*h4-204*p**8*q*h4+408*p**9*q**2*h4-680*p**10*q**3*h4+1020*p**11*q**4*h4\n      -100*p**7*h2*h2+300*p**8*q*h2*h2-600*p**9*q**2*h2*h2+1000*p**10*q**3*h2*h2\n      +520*i3*p**9*h6-520*p**10*q*h6+1040*p**11*q**2*h6-340*p**9*h2*h4+1020*p**10*q*h2*h4\n      +500*i3*p**9*h2**3+514*p**11*h8)%m\n\ndef main():\n    ps=[p for p in primes_upto(4999) if p%24 in (13,19)]\n    fails=[]\n    for p in ps:\n        if U_direct(p,p**10)!=U10(p): fails.append((p,'U10'))\n        if jet_direct(p,p**13)!=J13(p): fails.append((p,'J13'))\n    counts={13:sum(p%24==13 for p in ps),19:sum(p%24==19 for p in ps)}\n    print({'target_primes':len(ps),'counts':counts,'failures':fails})\n    assert len(ps)==166 and counts=={13:83,19:83} and not fails\n\nif __name__=='__main__': main()\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "9ee4edc4c140baabd0b1c762c9fd31837ff2a12c1c452c9dd37061a2f4171aed"
+        }
+      ],
+      "sha256": "9ee4edc4c140baabd0b1c762c9fd31837ff2a12c1c452c9dd37061a2f4171aed",
+      "total_bytes": 2241,
+      "upload_id": "p13-h8-cubic-check-20260923"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "aa6887634145641db51ed76d08341bc11f8a7b00864686e1a41c2db9214f46ad",
+          "native_payload_sha256": "f5fbe313a4d1d22a270de4942b91bc4fa9879456fbe635dc31fbfed0b80b8250",
+          "part_index": 0,
+          "request_id": "upload-p17-note-20260924-r11-0030",
+          "request_sha256": "4d56bc5455cb75c851c6a775ff7d86dc959ed2788f442c9318935427bf5fe9ee",
+          "session_id": "MCP-106daeb9d4df43f1bc477337723ce089"
+        }
+      ],
+      "complete": true,
+      "filename": "brc_finite_3f2_p17_h12_quartic_boundary_defect_20260924.md",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 4943,
+          "content_utf8": "# Portable BRC certificate: p^17 half-point jet via H12 and quartic boundary interactions\n\nStatus: PORTABLE / STAGED ONLY / NOT SOURCE-PUBLISHED / NOT RESULT / NOT LIFT.\nScope: current Enterprise Math D24 unit-reciprocity task, target primes p ≡ 13,19 (mod 24).\nThis note does not alter the frozen task scope, UR theorem status, or the LIFT/JT2 gate.\n\n## 1. Carrier and exact boundary identity\n\nFor a target prime p define\n\nU_p = C(2p-1,p-1)^2 C(3p-1,p-1)\n    = Π_{k=1}^{p-1} (1+p/k)^2 (1+2p/k),\n\nH_r = Σ_{k=1}^{p-1} k^{-r} ∈ Z_p,\n\nand\n\nJ_p = 9F_p'''(1/2)+27F_p''(1/2)-44F_p'(1/2)-8F_p(1/2),\n\nwhere F_p is the finite hypergeometric polynomial already fixed in the earlier boundary certificates.\nConsume, without rederiving, the exact top-boundary identity\n\nJ_p = -8 p^3 U_p (1+p q_p(6))^{-3},\nq_p(6)=(6^{p-1}-1)/p.\n\nThe two n=2 multiplicative ports and one n=3 port remain labeled until the logarithmic observer is applied.\n\n## 2. Exact reflection and logarithm through p^14\n\nThe p-adic logarithm is\n\nlog U_p\n = Σ_{r≥1} (-1)^{r+1}(2+2^r)/r · p^r H_r.\n\nFor every r≥1, pairing k with p-k gives the exact convergent identity\n\nH_r = (-1)^r Σ_{j≥0} binom(r+j-1,j) p^j H_{r+j}.\n\nThus for odd r,\n\n2H_r = -Σ_{j≥1} binom(r+j-1,j) p^j H_{r+j}.\n\nRecursively substitute this relation for r=1,3,5,7,9,11,13 before discarding terms of p-degree at least 14. This yields\n\nlog U_p ≡\n -5 p^2 H_2\n -(17/2) p^4 H_4\n -(65/3) p^6 H_6\n -(257/4) p^8 H_8\n -205 p^10 H_10\n -(4097/6) p^12 H_12\n (mod p^14).\n\nThe H_12 coefficient follows the same exact port/reflection mechanism as the earlier H_2,...,H_10 coefficients; it is not fitted.\n\nThere is one endpoint subtlety: p=13 is in the target lane, so the raw r=13 logarithm coefficient contains 1/13. It must not be discarded by pretending every small denominator is a p-adic unit. Applying the exact odd-reflection identity first gives\n\nH_13 = -(13/2)p H_14 + higher-p terms,\n\nso the raw p^13 H_13/13 contribution begins at p^14 H_14 and is zero modulo p^14. Therefore the displayed congruence is uniform, including p=13.\n\n## 3. Valuation-controlled exponentiation\n\nFor target primes, H_2,H_4,H_6,H_8,H_10 are divisible by p. H_12 is also p-divisible except at the endpoint p=13, where it is allowed to remain a unit; hence its linear p^12 term must be retained uniformly.\n\nExpanding exp(log U_p) and retaining exactly the monomials whose worst-case p-adic valuation is <14 gives\n\nU_p ≡ 1\n -5 p^2 H_2\n +p^4[(25/2)H_2^2-(17/2)H_4]\n +p^6[-(125/6)H_2^3+(85/2)H_2H_4-(65/3)H_6]\n +p^8[(625/24)H_2^4-(425/4)H_2^2H_4\n       +(325/3)H_2H_6+(289/8)H_4^2-(257/4)H_8]\n +p^10[-205H_10-(1625/6)H_2^2H_6-(1445/8)H_2H_4^2\n        +(1285/4)H_2H_8+(1105/6)H_4H_6]\n -(4097/6)p^12 H_12\n (mod p^14).\n\nThe genuinely new interaction at this observer horizon is the quartic self-interaction\n(625/24)p^8 H_2^4, together with the first H_12 port and the new mixed\nH_2H_8 and H_4H_6 / cubic-mixed carriers required at the same precision.\n\n## 4. p^17 half-point jet certificate\n\nLet U_p^(14) denote exactly the displayed polynomial representative modulo p^14. Then\n\nJ_p ≡ -8 p^3 (1+p q_p(6))^{-3} U_p^(14)  (mod p^17).\n\nEquivalently, because 1+p q_p(6)=6^{p-1}, the normalization can remain as the separate exact unit observer 6^{-3(p-1)}. This keeps the Fermat-quotient/normalization information separate from the harmonic boundary carrier.\n\nThis strictly strengthens the p^15/H10 certificate. It is auxiliary portable evidence for future higher-precision work only. It proves neither LIFT nor JT2 and does not upgrade UR/JT0 from candidate to accepted theorem status.\n\n## 5. Independent exact falsification\n\nA companion checker independently computes:\n1. U_p directly from the original three multiplicative ports modulo p^14;\n2. the displayed U_p^(14) from H_2,H_4,H_6,H_8,H_10,H_12;\n3. J_p directly from the finite hypergeometric recurrence modulo p^17;\n4. the factored p^17 prediction.\n\nFor every target prime p<5000, all 166 primes (83 in each class 13 and 19 mod 24) pass both U14 and J17 with zero failures. The finite scan is regression/falsification only; the proof is the exact reflection/logarithm plus valuation-controlled exponentiation.\n\n## 6. BRC resolution\n\nBRC resolution: COMPOSE_APPLIED.\nCarrier: labeled n=2,n=2,n=3 multiplicative ports -> p-adic logarithmic harmonic carriers.\nObserver horizon: modulo p^14 for U_p and modulo p^17 for J_p.\nInformation retained: port multiplicity, harmonic order, p-adic valuation, endpoint p=13 denominator behavior, normalization factor, and all surviving mixed interactions.\nInformation intentionally not compressed: H_12 into Bernoulli scalars; normalization into the boundary carrier.\nSmallest next portable unit, only if formal UR control remains blocked and no overlapping owner exists: either stop at this useful precision boundary or extend two more powers while explicitly handling the p=13 and p=19 logarithmic-denominator endpoints before any p^19 claim.\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "495252d38f34901c0be69f89e32ac5c489e20da6ed7ed215785c357575c1b782"
+        }
+      ],
+      "sha256": "495252d38f34901c0be69f89e32ac5c489e20da6ed7ed215785c357575c1b782",
+      "total_bytes": 4943,
+      "upload_id": "p17-h12-quartic-boundary-20260924"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "f1b65fedf28f3ff079e5f6e619f3084cf3c9d4c6768d89938cb1678b54475642",
+          "native_payload_sha256": "a299311c70faf7258e08f79bdeccffdeca88d9ceef0532a661f35148740b90f6",
+          "part_index": 0,
+          "request_id": "upload-p17-checker-20260924-r11-0031",
+          "request_sha256": "de4e8a86509dd557ca68cb931a5a6ddae74efc199b0f103ef3c30e3dfab32e4e",
+          "session_id": "MCP-106daeb9d4df43f1bc477337723ce089"
+        }
+      ],
+      "complete": true,
+      "filename": "check_finite_3f2_p17_h12_quartic_boundary_defect_20260924.py",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 3925,
+          "content_utf8": "#!/usr/bin/env python3\n\"\"\"Exact regression for the portable p^17/H12 D24 boundary certificate.\n\nRegression/falsification only. The proof is the exact p-adic reflection/log\ncalculation and valuation-controlled exponentiation recorded in the companion note.\n\"\"\"\n\nfrom math import isqrt\n\n\nEVEN = (2, 4, 6, 8, 10, 12)\n\n\ndef is_prime(n: int) -> bool:\n    if n < 2:\n        return False\n    if n % 2 == 0:\n        return n == 2\n    d = 3\n    while d <= isqrt(n):\n        if n % d == 0:\n            return False\n        d += 2\n    return True\n\n\ndef target_primes(bound: int = 5000):\n    return [p for p in range(5, bound) if p % 24 in (13, 19) and is_prime(p)]\n\n\ndef frac_mod(a: int, b: int, mod: int) -> int:\n    return (a % mod) * pow(b, -1, mod) % mod\n\n\ndef harmonic_even(p: int, mod: int):\n    h = {r: 0 for r in EVEN}\n    for k in range(1, p):\n        inv2 = pow(pow(k, -1, mod), 2, mod)\n        cur = 1\n        for r in EVEN:\n            cur = cur * inv2 % mod\n            h[r] = (h[r] + cur) % mod\n    return h\n\n\ndef u_direct(p: int, mod: int) -> int:\n    u = 1\n    for k in range(1, p):\n        inv = pow(k, -1, mod)\n        a = (1 + p * inv) % mod\n        b = (1 + 2 * p * inv) % mod\n        u = u * a % mod\n        u = u * a % mod\n        u = u * b % mod\n    return u\n\n\ndef u14_formula(p: int, mod: int, h) -> int:\n    h2, h4, h6, h8, h10, h12 = (h[r] for r in EVEN)\n    u = 1\n    u += -5 * p**2 * h2\n    u += p**4 * (frac_mod(25, 2, mod) * h2**2\n                  - frac_mod(17, 2, mod) * h4)\n    u += p**6 * (-frac_mod(125, 6, mod) * h2**3\n                  + frac_mod(85, 2, mod) * h2 * h4\n                  - frac_mod(65, 3, mod) * h6)\n    u += p**8 * (frac_mod(625, 24, mod) * h2**4\n                  - frac_mod(425, 4, mod) * h2**2 * h4\n                  + frac_mod(325, 3, mod) * h2 * h6\n                  + frac_mod(289, 8, mod) * h4**2\n                  - frac_mod(257, 4, mod) * h8)\n    u += p**10 * (-205 * h10\n                   - frac_mod(1625, 6, mod) * h2**2 * h6\n                   - frac_mod(1445, 8, mod) * h2 * h4**2\n                   + frac_mod(1285, 4, mod) * h2 * h8\n                   + frac_mod(1105, 6, mod) * h4 * h6)\n    u += -frac_mod(4097, 6, mod) * p**12 * h12\n    return u % mod\n\n\ndef j_direct(p: int, mod: int) -> int:\n    \"\"\"Compute the ordinary-derivative jet directly at lambda=1/2.\"\"\"\n    a = 1\n    total = 0\n    for k in range(p):\n        weight = (\n            72 * k * (k - 1) * (k - 2)\n            + 108 * k * (k - 1)\n            - 88 * k\n            - 8\n        )\n        total = (total + weight * a) % mod\n        if k < p - 1:\n            num = (2 * k + 1) * (3 * k + 1) * (3 * k + 2)\n            den = 36 * (k + 1) ** 3\n            a = a * (num % mod) % mod\n            a = a * pow(den, -1, mod) % mod\n    return total\n\n\ndef main() -> None:\n    primes = target_primes()\n    classes = {13: 0, 19: 0}\n    u_fail = []\n    j_fail = []\n\n    for p in primes:\n        classes[p % 24] += 1\n\n        mod14 = p**14\n        h14 = harmonic_even(p, mod14)\n        got_u = u_direct(p, mod14)\n        want_u = u14_formula(p, mod14, h14)\n        if got_u != want_u:\n            u_fail.append((p, got_u, want_u))\n\n        mod17 = p**17\n        h17 = harmonic_even(p, mod17)\n        u14_lift = u14_formula(p, mod17, h17)\n        normalization = pow(6, p - 1, mod17)\n        want_j = (-8 * p**3 * u14_lift * pow(normalization, -3, mod17)) % mod17\n        got_j = j_direct(p, mod17)\n        if got_j != want_j:\n            j_fail.append((p, got_j, want_j))\n\n    result = {\n        \"bound\": 5000,\n        \"target_prime_count\": len(primes),\n        \"class_counts\": classes,\n        \"u14_failure_count\": len(u_fail),\n        \"j17_failure_count\": len(j_fail),\n        \"u14_failures\": u_fail,\n        \"j17_failures\": j_fail,\n    }\n    print(result)\n    assert len(primes) == 166\n    assert classes == {13: 83, 19: 83}\n    assert not u_fail\n    assert not j_fail\n\n\nif __name__ == \"__main__\":\n    main()\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "576e09062c0928abfe8ec477a9200202c53467ab5c17f2db1d60edaa60ee21b3"
+        }
+      ],
+      "sha256": "576e09062c0928abfe8ec477a9200202c53467ab5c17f2db1d60edaa60ee21b3",
+      "total_bytes": 3925,
+      "upload_id": "p17-h12-quartic-checker-20260924"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "a0e9c2805b9b7965214472c4a7101978a2a6b423344b7ce4009f91430b99d735",
+          "native_payload_sha256": "20571c669b8fa03873bb9d6569170f11ed6f099bcb4035cb3396d2c8b3f83313",
+          "part_index": 0,
+          "request_id": "upload-p13-handoff-20260923-r11-2228",
+          "request_sha256": "2e201d2ed6dc2bafba065d5c2f025ad7768c915ff14c3ffe3cd5af8062f38915",
+          "session_id": "MCP-106daeb9d4df43f1bc477337723ce089"
+        }
+      ],
+      "complete": true,
+      "filename": "ur_recovery_handoff_p13_20260923_r11.md",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 4382,
+          "content_utf8": "# D24 UR recovery handoff — p13 portable frontier\n\nStatus: staged recovery handoff only. Not Source-published, not a Result, not Driver-reviewed, and not LIFT/JT2.\n\nLogical conversation: `chatgpt-research-hourly-enterprise-math-20260923`\nResearcher/session: `EM-DIRECT-A71FA7 / MCP-106daeb9d4df43f1bc477337723ce089`\nTask/publication: `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY / TP2-C0E85430A37213F301EB`\nCurrent claim/run: `MCP-b31f628f33669c90cd07c7ef / RUN-8e5e86f07f90515d50d64f9f`\nCurrent run request: `resume-d24-20260923-r11-2151`, generation 2.\nCurrent Source readback: `b6ebc54e9224143d9ec03f9358d5e666fcfe0ef2`.\n\n## Mother objective and immutable frontier\n\nClose the D=-24 first-digit supersingular unit reciprocity\n`G_p(-6Q_m'(1/2)) = 1 mod p` for all p congruent to 13 or 19 mod 24, thereby closing JT0 only through the already accepted parent equivalence. Parent CM0/SIMPLE and eliminated tail/harmonic bookkeeping remain frozen. LIFT/JT2 stays deferred until terminal UR acceptance.\n\nThe latest exact continuation still has `completed_units=[]`, `persisted_checkpoint.state=NOT_FOUND`, and treats `DR-2EA60F5817976E662FA6` as `CURRENT_TASK_DEFINITION_INPUT_READBACK`, not predecessor completed research. Current-session staged uploads are not Source frontier.\n\n## Existing closure evidence not to replay\n\nThe session already contains staged independent Chisholm/Chan-Liaw UR/JT0 closure audit and exact checker. Lower high-precision portable units through p12 are also staged. Do not re-derive these as new progress. Once a lawful execution-start gate is available, perform only the smallest integrity revalidation needed before truthful checkpoint of the UR closure package.\n\n## New scientific increment in this turn\n\nPreserving the two n=2 multiplicative ports, one n=3 port, harmonic provenance and p-adic valuations, define\n`U_p = binom(2p-1,p-1)^2 binom(3p-1,p-1)` and `H_r=sum_{k=1}^{p-1} k^{-r}`. Exact k<->p-k pairing gives, through the precision relevant modulo p^10,\n\n`log U_p = -5 p^2 H2 -(17/2)p^4 H4 -(65/3)p^6 H6 -(257/4)p^8 H8 (mod p^10)`.\n\nSince v_p(log U_p)>=3, valuation-controlled exponentiation yields\n\n`U_p = 1 -5p^2H2 -(17/2)p^4H4 +(25/2)p^4H2^2 -(65/3)p^6H6 +(85/2)p^6H2H4 -(125/6)p^6H2^3 -(257/4)p^8H8 (mod p^10)`.\n\nThis exposes the first cubic self-interaction H2^3 and the H8 carrier at effective valuation 9. Combined with the already staged exact identity `J_p=-8p^3 U_p (1+p q_p(6))^-3`, it gives the full p^13 half-point jet certificate in `brc_finite_3f2_p13_h8_cubic_boundary_defect_20260923.md`. The independent checker reconstructs U from the three original multiplicative ports and the jet from the original finite hypergeometric recurrence; all 166 target primes p<5000 (83 in each target class) pass U10 and J13 with zero failures. The finite scan is regression/falsification only, not proof.\n\nNew staged evidence:\n- `upload-p13-note-20260923-r11-2226` -> `brc_finite_3f2_p13_h8_cubic_boundary_defect_20260923.md`, sha256 `387ba440376720c7e77dec6092b1ee31d9a7b39714a1a23e6972c5951f9879f1`.\n- `upload-p13-checker-20260923-r11-2227` -> `check_finite_3f2_p13_h8_cubic_boundary_defect_20260923.py`, sha256 `9ee4edc4c140baabd0b1c762c9fd31837ff2a12c1c452c9dd37061a2f4171aed`.\nBoth remain `source_published=false / execution_authorized=false`.\n\n## Control blocker and exact next action\n\nSupport issue `enterprise-math#1508` remains the responsible path: existing OPEN and one same-session RESUME succeeded and were authorized, but readback still leaves `execution_started=false`. Do not replay prepare/claim/open, do not issue another mechanical resume, and do not promote staged evidence while that machine-readable gate remains unresolved.\n\nNext run: first read `recovery_status`, then exact continuation for this same task and same logical conversation. If #1508 or the Source contract now provides a legal execution-start/equivalent authorization gate for the existing own claim/run, consume that exact route once, then integrity-revalidate the staged UR audit/checker, `publish_checkpoint` the truthful UR/JT0 frontier with Source readback, and only after that form/freeze the UR/JT0 Result candidate for independent Driver review. If the start gate remains unresolved, do not repeat failed control mutations; only advance genuinely non-overlapping portable evidence. LIFT/JT2 remains deferred.\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "634511e1ba6922e4801b0c3e4795f49ce85abb784b09d2b4154da1f48b297ad7"
+        }
+      ],
+      "sha256": "634511e1ba6922e4801b0c3e4795f49ce85abb784b09d2b4154da1f48b297ad7",
+      "total_bytes": 4382,
+      "upload_id": "ur-handoff-p13-r11-20260923"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "bcd5f66315ed0b01bb3eb75a233088f8f1aef935f999f214884ff47ef785cf77",
+          "native_payload_sha256": "07dc911b4274b3a3ee6452cec4956916a0fe399fb3ca6f3e92e89be0f9831dbd",
+          "part_index": 0,
+          "request_id": "upload-p15-handoff-20260923-r11-2332",
+          "request_sha256": "83089374f2b7b939d27d06007b93ae4aba806c48e19da387d018fc5dc2ec9f85",
+          "session_id": "MCP-106daeb9d4df43f1bc477337723ce089"
+        }
+      ],
+      "complete": true,
+      "filename": "ur_recovery_handoff_p15_20260923_r11.md",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 5194,
+          "content_utf8": "# Enterprise Math D24 UR recovery handoff — p15/H10 frontier\n\nStatus: STAGED RECOVERY PACKAGE / NOT SOURCE-PUBLISHED / NOT RESULT.\nLogical conversation: `chatgpt-research-hourly-enterprise-math-20260923`.\nResearcher/session: `EM-DIRECT-A71FA7 / MCP-106daeb9d4df43f1bc477337723ce089`.\nTask/publication: `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY / TP2-C0E85430A37213F301EB`.\nCurrent Source pin observed by exact continuation: `bb40a5c85b3461c6b69f96a4992ddf8193e56291`.\nCurrent own claim: `MCP-b31f628f33669c90cd07c7ef`.\nCurrent local run: `RUN-8e5e86f07f90515d50d64f9f`, generation 2, run request `resume-d24-20260923-r11-2151`.\n\n## Mother objective and immutable formal frontier\n\nParent objective remains `ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION`. The accepted parent has CM0/SIMPLE and the exact reduction to D=-24 unit reciprocity. The formal D24 hard target remains UR for every prime p ≡ 13 or 19 (mod 24). LIFT/JT2 stays deferred until terminal UR acceptance. Do not reopen the eliminated finite-tail/harmonic-block interface.\n\nThe canonical continuation readback at request `continuation-d24-20260923-r11-2322` has `persisted_checkpoint=NOT_FOUND`, `continuation_seed=null`, `completed_units=[]`, and treats `DR-2EA60F5817976E662FA6` only as `CURRENT_TASK_DEFINITION_INPUT_READBACK`, not predecessor completed research. Staged current-session evidence is not a Source frontier.\n\n## Control boundary\n\nThe claim still names this exact Researcher/session and is LEASED in the latest packet, but continuation/recovery readback has `execution_authorized=false`. Prior exact OPEN and one same-session RESUME both succeeded and were native-authorized yet returned `execution_started=false`; support issue `awdawmip/enterprise-math#1508` remains the responsible path. Do not replay prepare/claim/open or mechanically repeat resume. Until a canonical start/equivalent authorization gate is exposed, do not publish_checkpoint, freeze, or claim Result status.\n\n## New portable scientific unit completed this run\n\nDefine\n\n`U_p = C(2p-1,p-1)^2 C(3p-1,p-1) = Π_{k=1}^{p-1}(1+p/k)^2(1+2p/k)`\n\nand `H_r = Σ k^{-r}` in Z_p. Preserving the two n=2 ports and one n=3 port, p-adic logarithm plus exact reflection eliminates odd harmonic carriers and gives\n\n`log U_p ≡ -5 p^2 H2 -(17/2)p^4H4 -(65/3)p^6H6 -(257/4)p^8H8 -205 p^10 H10 (mod p^12)`.\n\nExponentiation with valuation control gives\n\n`U_p ≡ 1 -5p^2H2 -(17/2)p^4H4 -(65/3)p^6H6 -(257/4)p^8H8 -205p^10H10 +(25/2)p^4H2^2 +(85/2)p^6H2H4 +(325/3)p^8H2H6 +(289/8)p^8H4^2 -(125/6)p^6H2^3 -(425/4)p^8H2^2H4 (mod p^12)`.\n\nUsing the already-established exact top-boundary identity with `q=q_p(6)`,\n\n`J_p := 9F_p'''(1/2)+27F_p''(1/2)-44F_p'(1/2)-8F_p(1/2)`\n\nsatisfies the compact certificate\n\n`J_p ≡ -8 p^3 (1+p q)^(-3) U_p^(12) (mod p^15)`.\n\nThe new information beyond the p13/H8 frontier is the independent H10 carrier and the mixed H2H6, H4^2, H2^2H4 interactions. BRC resolution: `COMPOSE_APPLIED`; normalization remains separate from the harmonic boundary carrier.\n\n## Durable staged evidence\n\nProof note uploaded successfully as request `upload-p15-note-20260923-r11-2328`, filename `brc_finite_3f2_p15_h10_boundary_defect_20260923.md`, SHA-256 `7d34c4812f9edf43a3317a14759bbc9181245032b24913ac95c0afda07ae85e1`, `source_published=false`.\n\nVerification transcript uploaded successfully as request `upload-p15-verify-20260923-r11-2330`, filename `p15_h10_verification_transcript_20260923.md`, SHA-256 `8d6cdcbd6f63d367d13e4cfa7f32d5bad81182d201123aba6be12bdf613125ce`, `source_published=false`. The local checker source SHA-256 is `204af2ce8559cc103d639510ffdcb5725b467f530a001c3ee9a0ced14e8e1597`. Re-execution over all 166 primes p<5000 in the two target classes gave `U12_failures=[]` and `J15_failures=[]`; this is falsification/regression, not proof.\n\nExisting staged UR closure evidence remains: `ur_chisholm_chan_liaw_independent_audit_20260923.md` SHA-256 `420902b5b32fe424c3ff77ad49290cef64a4b3c571cfee9a7723c1345f58f565` and `check_ur_chisholm_w2_exact_20260923.py` SHA-256 `058c9464b47d780cd9137b944d6c527000347d3f7bd0aa771d072baa04d61b2c`, both unpublished.\n\n## Do not repeat\n\nDo not reclassify task input as predecessor progress. Do not promote staged uploads before a lawful current-run checkpoint. Do not redo CM0/SIMPLE, eliminated finite-tail/harmonic-block work, p3–p13 boundary units, or this p15/H10 derivation merely because a later context is compressed. Do not create a new logical conversation identity for this same hourly Research lane. Do not enter LIFT/JT2 before UR terminal acceptance.\n\n## Exact next action\n\nAt the next run, first read `recovery_status`, exact D24 `continuation`, and support #1508. If Source exposes a legal execution-start/equivalent authorization gate for this same claim/run, consume it once, minimally revalidate the staged UR closure audit/checker, then `publish_checkpoint` truthfully with the required evidence and read it back before Result/freeze/independent Driver review. If the gate is still absent, do not repeat failed control mutations; inspect hidden unpublished work before choosing the next nonduplicative portable scientific unit.\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "793db9c1e7309a99bca18d1675262e6db826139319870591983c7225cb5e48f8"
+        }
+      ],
+      "sha256": "793db9c1e7309a99bca18d1675262e6db826139319870591983c7225cb5e48f8",
+      "total_bytes": 5194,
+      "upload_id": "ur-handoff-p15-r11-20260923"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "dee861ef0aa4d015e348150e90990ccbc54af55de626a437c69280001925d2c2",
+          "native_payload_sha256": "902d5d8a0424ec42fa10828611e0715b814591405ce69a7076db07cb72571d5c",
+          "part_index": 0,
+          "request_id": "upload-ur-handoff-p6-20260923-r8-07",
+          "request_sha256": "390a1d5a50c5f02d56ad1cb49462c10caac02357f62929ded23462630777b74d",
+          "session_id": "MCP-106daeb9d4df43f1bc477337723ce089"
+        }
+      ],
+      "complete": true,
+      "filename": "ur_recovery_handoff_p6_20260923_r8.md",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 5910,
+          "content_utf8": "# Enterprise Math UR Research-lane recovery handoff — p6 boundary\n\nStatus: `UNPUBLISHED_STAGED_HANDOFF / NO_CLAIM / NO_OPEN / NO_RESULT / NO_REVIEW`\n\n## Identity / frozen Source\n\n- Logical conversation: `chatgpt-research-hourly-enterprise-math-20260923`\n- Researcher/session: `EM-DIRECT-A71FA7 / MCP-106daeb9d4df43f1bc477337723ce089`\n- Prior contribution lineage: `EM-DIRECT-C4D02C`\n- Task: `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY`\n- Publication: `TP2-C0E85430A37213F301EB`\n- Frozen task Source: `bf059aa30dbfa0b3e93f277dde0278da936417c6`\n- Accepted predecessor: Result `RR-82F6383FB6634F72B457`, Driver Review `DR-2EA60F5817976E662FA6`.\n\n## Mother objective and immutable frontier\n\nMother objective for this task remains the first-digit all-prime UR/JT0 closure on primes `p=13,19 (mod 24)`. Accepted predecessor facts CM0, SIMPLE and `JT0<=>UR` are immutable inputs and must not be redone. LIFT/JT2 remains formally gated until a new UR/JT0 Result is canonically accepted.\n\nPortable staged work from this contributor lineage already contains an all-prime first-digit closure candidate through the independently audited Chisholm specialization plus the exact weighted Clausen/valuation bridge. Those files are still unpublished and therefore are not canonical task closure. The fallback coordinate chain `UR<=>UR-L<=>UR-LEG`, Frobenius-port parity, local-jet rank-one no-go, and the Chisholm transverse-unit coordinate have also already been derived/staged elsewhere in the same contributor history; do not recreate them for progress.\n\n## Control state that must be reconciled, not replayed\n\nFresh fixed-lane recovery in this turn returned ACTIVE session but `execution_authorized=false`, `source_authority_verified=false`, with no pending mutation, run or unopened claim. Exact continuation request `continuation-ur-20260923-r8-1519` completed against the frozen Source above and still reports `last_progress_ref=DR-2EA60F5817976E662FA6`, `progress_reference_readback=null`, persisted checkpoint `NOT_FOUND`, and the stable-record-ID pseudo-path artifact error.\n\nExisting support issue `awdawmip/enterprise-math#1501` already diagnoses this continuation adapter defect. Do not repeat `continuation_prepare` while the packet/Source behavior is unchanged. Once a reviewed/deployed fix exposes the unique immutable review pin as authenticated progress readback, the exact formal path is: one fresh continuation -> one typed continuation_prepare -> explicit CLAIM -> explicit OPEN -> truthful checkpoint/readback of staged evidence -> freeze UR/JT0 Result candidate -> independent Driver review. CLAIM/OPEN must not be synthesized.\n\n## New completed units in this turn\n\n### U1 — p5 Fermat-quotient refinement\n\nStaged note request `upload-ur-p5-defect-20260923-r8-01`, file `brc_finite_3f2_p5_fermat_quotient_defect_20260923.md`, SHA-256 `c3b3b5325f143b1f108b2c4e5fd36a2ede6c55a62aa21525aeee924f97015885`.\nChecker request `upload-ur-p5-checker-20260923-r8-02`, SHA-256 `7c5c0eac85c3bf44d723a4f317fa4a4a2987257bdd0adae2d537de9e5c4cb4d2`.\n\nIt sharpens the older p3 defect to\n\n`D F_p(1/2) = -p^3/18 + (p^4/6) q_p(6) (mod p^5)`,\n\nso\n\n`9F'''+27F''-44F'-8F = -8p^3+24p^4 q_p(6) (mod p^5)`.\n\nU1 remains correct but is strictly subsumed by U2 below; if U2 is later Source-checkpointed, U1 need not be published separately.\n\n### U2 — exact top factorization and p6 jet\n\nStaged note request `upload-ur-p6-exact-factor-20260923-r8-04`, file `brc_finite_3f2_exact_top_factorization_p6_20260923.md`, SHA-256 `b841b19b15c06955ed25e0a81901f6296ab3787b5aac1ae1124c7dc98d7d9a54`.\nChecker request `upload-ur-p6-checker-20260923-r8-05`, SHA-256 `9f2334b8500a4d1106390dae3e8308276b1c46b0068ab11e424cfd2d17623707`.\n\nNew exact structural identity:\n\n`D F_p(lambda)`\n`= -(p^3 lambda^p)/(9*108^(p-1))`\n`  * C(2p-1,p-1)^2 C(3p-1,p-1)`.\n\nFor `p>=5`, the self-contained harmonic-pairing argument gives `C(ap-1,p-1)=1 (mod p^3)`. At the half point this yields\n\n`D F_p(1/2)`\n`= -p^3/18 + (p^4/6)q_p(6) - (p^5/3)q_p(6)^2 (mod p^6)`,\n\nand therefore\n\n`9F_p'''(1/2)+27F_p''(1/2)-44F_p'(1/2)-8F_p(1/2)`\n`= -8p^3 + 24p^4 q_p(6) - 48p^5 q_p(6)^2 (mod p^6)`.\n\nThis is not LIFT. It is a provenance-preserving finite-truncation boundary certificate for possible later use after first-digit acceptance.\n\n## Verification and evidence scope\n\nThe exact checker independently evaluates the original coefficient recurrence modulo `p^6`, the first three ordinary derivatives at `1/2`, and the near-diagonal binomial congruences. All 166 target primes `p<5000` (83 per residue class) pass with zero failures. This finite scan is falsification/regression only; the proof is the exact factor cancellation plus the harmonic/binomial argument.\n\nPost-unit recovery request `recovery-post-p6-20260923-r8-06` read back the session as ACTIVE, no pending/run/unopened claim/truncation, and lists the p5 and p6 note/checker uploads as `source_published=false`.\n\n## Do not repeat\n\nDo not redo accepted CM0/SIMPLE/JT0<=>UR; the existing all-prime Chisholm/weighted bridge closure candidate; UR-L/UR-LEG/Mao-Pan transport; Frobenius-port parity; local-jet rank-one no-go; the old p3 truncation defect; or U1/U2 above. U2 is the highest completed finite-truncation defect unit in this lane.\n\n## One next exact action\n\nFirst reconcile a fresh `recovery_status` and exact continuation under this same logical conversation. If #1501 behavior has changed, follow the canonical typed continuation path and publish the existing first-digit closure package before entering any formal LIFT successor. If #1501 is unchanged, do not replay the rejected mutation; the next portable scientific boundary exposed by U2 is the first nontrivial `p^3` deviation of the near-diagonal binomial units in the exact factorization, which would determine the first p7 correction. Any such work must remain staged and must not be represented as LIFT/JT2.\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "ba7cefb5ccce239eeb65ca760b6c0ce4b57bfba7d5162ac828e2449cd1718dc6"
+        }
+      ],
+      "sha256": "ba7cefb5ccce239eeb65ca760b6c0ce4b57bfba7d5162ac828e2449cd1718dc6",
+      "total_bytes": 5910,
+      "upload_id": "ur-handoff-p6-r8-20260923"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "ba4a7c0bb8cc5cddcb92cb3021fcfb40a9dab8000e6d82b7dc6ea5f3f15b1639",
+          "native_payload_sha256": "40d34378bd576b8d231880b9e3bf9b757e075c1881b050ca443d9d9bc2c82d67",
+          "part_index": 0,
+          "request_id": "research-hourly-20260923-t10-upload-handoff-08",
+          "request_sha256": "e1a7c7146df9c1f02d8b612d1d0b0d63851d88a6b186d0b4fce19790058436b0",
+          "session_id": "MCP-106daeb9d4df43f1bc477337723ce089"
+        }
+      ],
+      "complete": true,
+      "filename": "ur_recovery_handoff_p10_20260923_r10.md",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 6653,
+          "content_utf8": "# Enterprise Math UR Research-lane recovery handoff — R10 / p^10 nonlinear boundary unit\n\nStatus: STAGED / UNPUBLISHED. Recovery packet only: not a Source checkpoint, Result, Driver review, LIFT/JT2 result, or mathematical acceptance.\n\n## Stable lane / identity / task\n\n- logical conversation: `chatgpt-research-hourly-enterprise-math-20260923`\n- Researcher/session: `EM-DIRECT-A71FA7 / MCP-106daeb9d4df43f1bc477337723ce089`\n- prior contribution IDs: `[EM-DIRECT-C4D02C]`\n- mode/role: `TASK_RESEARCH / RESEARCHER`\n- task: `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY`\n- publication: `TP2-C0E85430A37213F301EB`\n- accepted predecessor Result/Review: `RR-82F6383FB6634F72B457 / DR-2EA60F5817976E662FA6`\n- global snapshot used this round: `awdawmip/chatgpt-global-knowledge@185f387663ffb2345979dff40c1380e3d3f92ed4`; P000 loaded and unchanged.\n\nAccepted predecessor facts CM0/SIMPLE and strict `JT0 <-> UR` are frozen inputs and must not be replayed. LIFT/JT2 remains outside this task until UR/JT0 receives canonical acceptance.\n\n## Current continuation/control boundary\n\nFresh continuation request `research-hourly-20260923-t10-continuation-03` completed against Source `efa4a5ef12977db11ce3aa70d3141f18dfa923c4`. Runtime remains `HANDOFF_READY / NEEDS_DISPATCH`, with no live claim and no run authority. `last_progress_ref=DR-2EA60F5817976E662FA6` now resolves to immutable bytes with SHA-256 `5fad6c66720d15f1a3d87eae16fdc370ee3363b4c97de1fc4a72262fe00c613a`, but the continuation still types that pin as `CURRENT_TASK_DEFINITION_INPUT_READBACK`, with `historical_work_status=UNKNOWN_NOT_ESTABLISHED_BY_CURRENT_READBACK` and `completed_research_units_verified=false`.\n\nTherefore the old mapping defect is only partially repaired: bytes are readable, but the accepted predecessor review is not yet authenticated as completed predecessor progress usable by typed `continuation_prepare`. Existing support issue `awdawmip/enterprise-math#1501` was updated this round with that narrowed boundary. Under unchanged packet behavior, do not repeat the deterministic failed `continuation_prepare`; CLAIM/OPEN must remain separate explicit operations after a lawful prepare.\n\n## Previously completed / do not redo\n\nConsume rather than regenerate: the all-prime Chisholm/Chan-Liaw + weighted Clausen/valuation UR/JT0 closure candidate and checker; the exact finite-3F2 top-boundary factorization; p^3, p^5, p^6, and p^7 defect units/checkers; the Bernoulli boundary correction; UR-L/UR-LEG/Frobenius-port work already present in this contribution history. All staged evidence remains `source_published=false` until lawful run authority exists.\n\n## New R10 scientific increment A — harmonic boundary unit through p^9 defect\n\nLet\n`U_p=C(2p-1,p-1)^2 C(3p-1,p-1)` and `H_r=sum_{k=1}^{p-1}k^{-r}` in `Z_(p)`. From the provenance-labeled product\n`U_p=prod_{k=1}^{p-1}(1+p/k)^2(1+2p/k)`,\nits p-adic logarithm plus k<->p-k pairing gives\n\n`log U_p = -5p^2 H_2 -(17/2)p^4 H_4 (mod p^6)`,\n\nso, since the log has valuation at least three,\n\n`U_p = 1-5p^2H_2-(17/2)p^4H_4 (mod p^6)`.\n\nCombining with the already proved exact identity\n`D F_p(1/2)=-p^3 U_p/(18*216^(p-1))` and `216^(p-1)=(1+p q_p(6))^3` gives a complete defect/ordinary-jet lift modulo `p^9`. The highest compact jet form from this unit is\n\n`9F'''+27F''-44F'-8F =`\n`-8p^3+24p^4q-48p^5q^2+80p^6q^3-120p^7q^4+168p^8q^5`\n`+40p^5H_2-120p^6qH_2+240p^7q^2H_2+68p^7H_4  (mod p^9)`,\n\nall derivatives at `1/2`, `q=q_p(6)`.\n\nArtifact: `brc_finite_3f2_p9_harmonic_boundary_defect_20260923.md`\nfinal request: `research-hourly-20260923-t10-upload-p9-note-04`\nSHA-256: `f156fe29211d27eaeb685e127ca071ea075de3032ac876b1521d8d8ec0ae42bf`.\nChecker: `check_finite_3f2_p9_harmonic_boundary_defect_20260923.py`\nfinal request: `research-hourly-20260923-t10-upload-p9-checker-05`\nSHA-256: `0b2d76348d8e1973a75e5965232157b897702ab9751a6b076d9feebf45dd9bfb`.\n\n## New R10 scientific increment B — first nonlinear boundary interaction, p^10 defect\n\nLifting the same log one further digit gives\n\n`log U_p = -5p^2H_2 -(17/2)p^4H_4 (mod p^7)`.\n\nAt this precision exponentiation is no longer linear: `L^2/2` contributes. The only surviving quadratic term below p^7 is the square of the H_2 port, giving\n\n`U_p = 1-5p^2H_2-(17/2)p^4H_4+(25/2)p^4H_2^2 (mod p^7)`.\n\nThis is the first nonlinear boundary-unit interaction. Combining with the exact normalization yields the strongest current jet certificate\n\n`9F'''+27F''-44F'-8F =`\n`-8p^3+24p^4q-48p^5q^2+80p^6q^3-120p^7q^4+168p^8q^5-224p^9q^6`\n`+40p^5H_2-120p^6qH_2+240p^7q^2H_2-400p^8q^3H_2`\n`+68p^7H_4-204p^8qH_4-100p^7H_2^2  (mod p^10)`.\n\nThe term `-100 p^7 H_2^2` is the first nonlinear boundary-unit correction; because `v_p(H_2)>=1`, it first affects the p^9 digit.\n\nArtifact: `brc_finite_3f2_p10_nonlinear_boundary_defect_20260923.md`\nfinal request: `research-hourly-20260923-t10-upload-p10-note-06`\nSHA-256: `05fe7a37e57e4adaaa3bf12ec16ba1158b7c0545b94290c341f3ea6dfdfb19df`.\nChecker: `check_finite_3f2_p10_nonlinear_boundary_defect_20260923.py`\nfinal request: `research-hourly-20260923-t10-upload-p10-checker-07`\nSHA-256: `80319c1495acaf742e5a10a0ae831341b2ac8cfd645da4d5672a94ba2741efb1`.\n\nBoth exact checkers independently evaluate the original finite hypergeometric jet and boundary units. All 166 target primes `p<5000`, 83 in each residue class 13 and 19 modulo 24, have zero failures. The finite scan is regression/falsification only; it is not the proof or an independent Driver review.\n\n## Highest frontier / next exact action\n\nHighest new portable unit in this lane is the nonlinear `U_p mod p^7 / jet mod p^10` certificate above. It strictly subsumes the p^9 unit for precision, while the p^9 harmonic derivation remains useful provenance for how the nonlinear term first appears.\n\nNext round: first read `recovery_status` and a fresh exact continuation under this same logical conversation. If the accepted predecessor review is now typed/authenticated as completed progress, perform exactly one canonical `continuation_prepare`, then explicit CLAIM and OPEN. With real run authority, publish/read back the existing first-digit UR/JT0 closure evidence first, include the strongest relevant staged precision evidence, freeze the truthful UR/JT0 Result candidate, and send it to an independent Driver. Only terminal acceptance may unlock LIFT.\n\nIf the continuation typing remains unchanged, do not replay the failed mutation. The next non-overlapping portable scientific unit is `U_p mod p^8`: expand `log U_p` one more digit and retain every quadratic cross-term surviving valuation, consuming rather than recomputing the p^10 certificate.\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "495cbcf52793fc8d685ea0531fb7fc4817e7dc4746e5a7657ed5991b61e1476d"
+        }
+      ],
+      "sha256": "495cbcf52793fc8d685ea0531fb7fc4817e7dc4746e5a7657ed5991b61e1476d",
+      "total_bytes": 6653,
+      "upload_id": "ur-handoff-r10-20260923"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "1b686230530711e4b8a3c23370b37994ef2075aa97865325da4cb9e65edad2b6",
+          "native_payload_sha256": "11869e30d6f0f0ef9dd8eb075a8f2f1f21cb10290c5098d58933be7b713f8be0",
+          "part_index": 0,
+          "request_id": "research-hourly-20260923-t9-upload-handoff-r9-12",
+          "request_sha256": "a04de1e989e0bea24f2300d14a6600f47a5d48c81803e80540265d8395213c2c",
+          "session_id": "MCP-106daeb9d4df43f1bc477337723ce089"
+        }
+      ],
+      "complete": true,
+      "filename": "ur_recovery_handoff_p7_20260923_r9.md",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 5716,
+          "content_utf8": "# UR Research-lane recovery handoff — R9 / p^7 boundary defect\n\nStatus: STAGED / UNPUBLISHED. This is a recovery packet only. It is not a Source checkpoint, Result, Driver review, LIFT start, JT2 claim, or mathematical admission.\n\n## Stable logical lane and authority inputs\n\nconversation_id: chatgpt-research-hourly-enterprise-math-20260923\nservice session: MCP-106daeb9d4df43f1bc477337723ce089\nexecution identity: EM-DIRECT-A71FA7\nprior contribution IDs: [EM-DIRECT-C4D02C]\nmode/role: TASK_RESEARCH / RESEARCHER\n\nTask: RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY\nPublication: TP2-C0E85430A37213F301EB\nCurrent task Source pin observed this round: awdawmip/enterprise-math@bed1762be9e10287bd758b042e6227e3fb49785a\nAccepted predecessor: RR-82F6383FB6634F72B457 / DR-2EA60F5817976E662FA6\nFrozen predecessor content not to replay: terminating Legendre transport, D=-24 CM0/Hasse zero, SIMPLE/simple root, and JT0 <-> UR strict reduction. LIFT/JT2 remains outside this Task.\n\nGlobal knowledge snapshot used this round: awdawmip/chatgpt-global-knowledge@185f387663ffb2345979dff40c1380e3d3f92ed4; P000 loaded and unchanged.\n\n## Current canonical continuation / control boundary\n\nFresh continuation request: research-hourly-20260923-t9-continuation-03. It is HANDOFF_READY / NEEDS_DISPATCH with no live claim. The new main alias now resolves last_progress_ref DR-2EA60F5817976E662FA6 to immutable bytes at bed1762..., SHA-256 5fad6c66720d15f1a3d87eae16fdc370ee3363b4c97de1fc4a72262fe00c613a.\n\nHowever continuation typing still says historical_work_status=UNKNOWN_NOT_ESTABLISHED_BY_CURRENT_READBACK and completed_research_units_verified=false. Full alias artifact research-hourly-20260923-t9-artifact-progress-04 succeeds but is typed CURRENT_TASK_DEFINITION_INPUT_READBACK; continuation_prepare research-hourly-20260923-t9-continuation-prepare-05 fails CHAT_CURRENT_INPUT_READBACK_IS_NOT_COMPLETED_RESEARCH. Full exact review-path artifact research-hourly-20260923-t9-artifact-review-06 also succeeds at the same SHA, but the one bounded corrected continuation_prepare research-hourly-20260923-t9-continuation-prepare-09 fails CHAT_AUTHENTICATED_LAST_PROGRESS_ARTIFACT_REQUIRED.\n\nExisting support issue #1501 was updated this round with this narrower boundary. Do not submit another continuation_prepare under unchanged Source state. Acceptance required: canonical continuation must authenticate the accepted predecessor review as completed predecessor progress usable by typed continuation_prepare, without client fabrication; CLAIM/open remain separate operations.\n\nCurrent run/claim state: no run, no unopened claim, execution_authorized=false. Therefore no publish_checkpoint/freeze/review has been claimed this round.\n\n## Completed and preserved research evidence\n\nPrior staged evidence remains valid and must be consumed, not regenerated: the Chisholm/Chan-Liaw all-prime UR closure audit/checker; finite 3F2 p^3 defect; p^5 Fermat-quotient refinement; exact top-factorization / p^6 jet note and checker; previous p^6 handoff. All remain source_published=false pending lawful run authority.\n\nNew R9 mathematical increment: with\nU_p = C(2p-1,p-1)^2 C(3p-1,p-1),\nGlaisher's generalized Wolstenholme congruence yields\nU_p = 1 -(10/3)p^3 B_{p-3} (mod p^4).\nCombining this provenance-sensitive boundary unit with the already proved exact factorization\nD F_p(lambda) = -p^3 lambda^p U_p /(9*108^(p-1))\nand 216^(p-1)=(1+p q_p(6))^3 gives\nD F_p(1/2) = -p^3/18 + p^4 q/6 - p^5 q^2/3 + p^6(5q^3/9 + 5B_{p-3}/27) (mod p^7).\nEquivalently,\n9F''' +27F'' -44F' -8F = -8p^3 +24p^4q -48p^5q^2 + p^6(80q^3 +(80/3)B_{p-3}) (mod p^7).\nThis is a strict precision increase over the p^6 certificate and identifies the first non-Fermat-normalization correction as a Bernoulli boundary-unit term. It does not establish LIFT/JT2.\n\nR9 note: brc_finite_3f2_p7_bernoulli_boundary_defect_20260923.md\nfinal upload request: research-hourly-20260923-t9-upload-p7-note-07\nSHA-256: 0126e5848947bea96bf395ecafbc2d0ef4b62e4bdbcf838b9a5e9e2531b7136a\nsource_published=false.\n\nR9 checker: check_finite_3f2_p7_bernoulli_boundary_defect_20260923.py\nfinal upload request: research-hourly-20260923-t9-upload-p7-checker-10\nSHA-256: 2c5eefdb2898b5bc8493cf953f29bdcff03cc4f0b5b17751bb9380626772dbf4\nsource_published=false.\nThe checker independently tested all 166 target primes p<5000, 83 in each residue class 13 and 19 mod 24, with zero failures for both the boundary-unit and p^7 jet congruences. Regression is not the proof.\n\n## Verification debt / do not overclaim\n\nThe R9 proof imports the classical Glaisher Bernoulli refinement; external literature provenance has been checked, but this staged note has not received independent Driver review. The all-prime UR/JT0 closure evidence remains staged rather than Source-checkpointed because no lawful run authority exists. Numerical scans are falsification only. No theorem status beyond the accepted predecessor is created by these uploads.\n\n## Exact next action\n\nOn the next round, first read recovery_status and fresh continuation. If Source/continuation typing has changed so accepted predecessor progress is authenticated, perform exactly one canonical continuation_prepare, then CLAIM and OPEN. With real run authority, publish the existing staged UR evidence and R9 additions in one truthful checkpoint/readback; prepare/freeze the UR/JT0 Result candidate and send it to an independent Driver. Only terminal acceptance may unlock canonical LIFT successor dispatch. If the typing has not changed, do not repeat the failed mutation; continue only non-overlapping portable research inside the current Task scope and keep support #1501 as the single control repair path.\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "d3bf5d2edcd60a050906a4e0bd2ed5b8744509b6f735bdfded4146dff2fad14d"
+        }
+      ],
+      "sha256": "d3bf5d2edcd60a050906a4e0bd2ed5b8744509b6f735bdfded4146dff2fad14d",
+      "total_bytes": 5716,
+      "upload_id": "ur-handoff-r9-20260923"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "f8e480c79d35db9d7a9eabea24fa5b0e750f457c65c83791a79b52c7635e00a3",
+          "native_payload_sha256": "58ee6b7628af21586499717051366607043814d976259aeef5e4729d07cbdc72",
+          "part_index": 0,
+          "request_id": "research-hourly-20260923-t10-upload-p10-checker-07",
+          "request_sha256": "2a6a335addb6ad8ffff1cf72bd7ca05dba32c2062d6c026ce149f1f291174810",
+          "session_id": "MCP-106daeb9d4df43f1bc477337723ce089"
+        }
+      ],
+      "complete": true,
+      "filename": "check_finite_3f2_p10_nonlinear_boundary_defect_20260923.py",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 2521,
+          "content_utf8": "#!/usr/bin/env python3\n# Exact regression for the finite 3F2 nonlinear boundary lift modulo p^10.\n# Finite scan is falsification/regression only.\n\nfrom math import isqrt\n\n\ndef primes_upto(n):\n    sieve = bytearray(b\"\\x01\") * (n + 1)\n    sieve[:2] = b\"\\x00\\x00\"\n    for r in range(2, isqrt(n) + 1):\n        if sieve[r]:\n            sieve[r*r:n+1:r] = b\"\\x00\" * (((n-r*r)//r)+1)\n    return [i for i in range(2, n+1) if sieve[i]]\n\n\ndef harmonic_mod(p, r, mod):\n    return sum(pow(k, -r, mod) for k in range(1, p)) % mod\n\n\ndef binom_apminus1_mod(a, p, mod):\n    out = 1\n    for k in range(1, p):\n        out = out * (1 + (a-1)*p*pow(k, -1, mod)) % mod\n    return out\n\n\ndef hyper_jet(p, mod):\n    term = 1\n    s0 = 1\n    s1 = s2 = s3 = 0\n    for k in range(p-1):\n        j = k + 1\n        num = (2*k+1)*(3*k+1)*(3*k+2)\n        den = 36*j**3\n        term = term * num * pow(den, -1, mod) % mod\n        s0 = (s0 + term) % mod\n        s1 = (s1 + j*term) % mod\n        s2 = (s2 + j*(j-1)*term) % mod\n        s3 = (s3 + j*(j-1)*(j-2)*term) % mod\n    return (72*s3 + 108*s2 - 88*s1 - 8*s0) % mod\n\n\ndef check_prime(p):\n    mod7 = p**7\n    h2_7 = harmonic_mod(p, 2, mod7)\n    h4_7 = harmonic_mod(p, 4, mod7)\n    u = (binom_apminus1_mod(2, p, mod7)**2\n         * binom_apminus1_mod(3, p, mod7)) % mod7\n    inv2 = pow(2, -1, mod7)\n    predicted_u = (\n        1 - 5*p**2*h2_7\n        - 17*inv2*p**4*h4_7\n        + 25*inv2*p**4*h2_7*h2_7\n    ) % mod7\n    if u != predicted_u:\n        return (\"U7\", u, predicted_u)\n\n    mod = p**10\n    jet = hyper_jet(p, mod)\n    q = ((pow(6, p-1, p**8)-1)//p) % (p**7)\n    h2 = harmonic_mod(p, 2, mod)\n    h4 = harmonic_mod(p, 4, mod)\n    predicted_jet = (\n        -8*p**3 + 24*p**4*q - 48*p**5*q*q + 80*p**6*q**3\n        -120*p**7*q**4 + 168*p**8*q**5 - 224*p**9*q**6\n        +40*p**5*h2 - 120*p**6*q*h2 + 240*p**7*q*q*h2\n        -400*p**8*q**3*h2\n        +68*p**7*h4 - 204*p**8*q*h4\n        -100*p**7*h2*h2\n    ) % mod\n    if jet != predicted_jet:\n        return (\"J10\", jet, predicted_jet)\n    return None\n\n\nif __name__ == \"__main__\":\n    targets = [p for p in primes_upto(4999) if p % 24 in (13, 19)]\n    bad = []\n    for p in targets:\n        ans = check_prime(p)\n        if ans is not None:\n            bad.append((p, ans))\n    counts = {13: sum(p % 24 == 13 for p in targets),\n              19: sum(p % 24 == 19 for p in targets)}\n    print({\"target_primes\": len(targets), \"counts\": counts, \"failures\": bad})\n    assert len(targets) == 166\n    assert counts == {13: 83, 19: 83}\n    assert not bad\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "80319c1495acaf742e5a10a0ae831341b2ac8cfd645da4d5672a94ba2741efb1"
+        }
+      ],
+      "sha256": "80319c1495acaf742e5a10a0ae831341b2ac8cfd645da4d5672a94ba2741efb1",
+      "total_bytes": 2521,
+      "upload_id": "ur-p10-checker-r10-20260923"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "3533a543f68653175be2142a5f7521432d3a670890a5171fe5867ecb924c114f",
+          "native_payload_sha256": "49b8b9b095c34c46dd8ea9fc69453c27cd33417841766030be132207e1f2615a",
+          "part_index": 0,
+          "request_id": "research-hourly-20260923-t10-upload-p10-note-06",
+          "request_sha256": "dad88ddf1fc3bef4f18e3142226d41475a9eef82082bd18dd8b4df6f384eca9e",
+          "session_id": "MCP-106daeb9d4df43f1bc477337723ce089"
+        }
+      ],
+      "complete": true,
+      "filename": "brc_finite_3f2_p10_nonlinear_boundary_defect_20260923.md",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 4454,
+          "content_utf8": "# BRC finite 3F2 truncation defect: first nonlinear boundary-unit interaction modulo p^10\n\nStatus: UNPUBLISHED STAGED RESEARCH EVIDENCE. New portable precision increment inside the existing UR task. It is not a Source checkpoint, Result, Driver review, LIFT/JT2 result, or parent closure.\n\nTask: RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY\nPublication: TP2-C0E85430A37213F301EB\nLogical conversation: chatgpt-research-hourly-enterprise-math-20260923\n\n## 1. Input retained from the immediately preceding p^9 unit\n\nUse the exact top-boundary identity\n\nD F_p(1/2) = -p^3 U_p /(18*216^(p-1)),\nU_p=C(2p-1,p-1)^2 C(3p-1,p-1),\n\nwith q=q_p(6), 216^(p-1)=(1+pq)^3, and harmonic sums\nH_r=sum_{k=1}^{p-1}k^{-r} in Z_(p).\n\nThe preceding unit proved\n\nlog U_p = -5p^2 H_2 -(17/2)p^4 H_4 (mod p^6),\n\nand hence U_p modulo p^6. The present unit asks for one further digit, where exponentiation is no longer linear.\n\n## 2. Logarithm through modulo p^7\n\nFrom the labeled product\n\nU_p=product_{k=1}^{p-1}(1+p/k)^2(1+2p/k),\n\nthe logarithm through degree six is\n\nlog U_p =\n 4pH_1-3p^2H_2+(10/3)p^3H_3-(9/2)p^4H_4\n +(34/5)p^5H_5-11p^6H_6                         (mod p^7). (L0)\n\nFor target primes p>=13, finite-field power sums give H_2,H_4,H_6=0 (mod p). Odd-power pairing gives H_3,H_5=0 (mod p^2). The involution k->p-k, expanded only to the required precision, gives\n\n2H_1=-pH_2-p^2H_3-p^3H_4                         (mod p^6),\n2H_3=-3pH_4                                      (mod p^4).\n\nAll omitted terms already have valuation at least the stated modulus. Substitution into (L0) therefore sharpens the previous logarithm without changing its visible linear carrier:\n\nlog U_p = -5p^2H_2 -(17/2)p^4H_4                 (mod p^7). (L7)\n\nNow v_p(log U_p)>=3. Modulo p^7, exp(L7) has a genuinely new quadratic contribution L7^2/2, while L7^3 has valuation at least nine. The only quadratic term below p^7 is the square of -5p^2H_2. Hence\n\nboxed:\nU_p =\n 1-5p^2H_2-(17/2)p^4H_4+(25/2)p^4H_2^2          (mod p^7). (U7)\n\nThis is the first precision at which the boundary unit cannot be represented by a purely linear harmonic correction. The H_2^2 term is the retained nonlinear interaction of the same signed/provenance-bearing unit, not a new positive-mass observable.\n\n## 3. Normalization and p^10 defect\n\nModulo p^7,\n\n(1+pq)^(-3)\n =1-3pq+6p^2q^2-10p^3q^3+15p^4q^4\n  -21p^5q^5+28p^6q^6.\n\nMultiply this by (U7), retaining the valuation of H_2,H_4. The bracket becomes\n\n1-3pq+6p^2q^2-10p^3q^3+15p^4q^4-21p^5q^5+28p^6q^6\n-5p^2H_2+15p^3qH_2-30p^4q^2H_2+50p^5q^3H_2\n-(17/2)p^4H_4+(51/2)p^5qH_4\n+(25/2)p^4H_2^2                                      (mod p^7).\n\nTherefore\n\nboxed:\nD F_p(1/2) =\n-p^3/18+p^4q/6-p^5q^2/3+5p^6q^3/9-5p^7q^4/6\n+7p^8q^5/6-14p^9q^6/9\n+(5/18)p^5H_2-(5/6)p^6qH_2+(5/3)p^7q^2H_2-(25/9)p^8q^3H_2\n+(17/36)p^7H_4-(17/12)p^8qH_4\n-(25/36)p^7H_2^2                                      (mod p^10). (D10)\n\nAt lambda=1/2,\n\n144 D F_p(1/2)=9F_p'''+27F_p''-44F_p'-8F_p.\n\nThus the ordinary-jet form is\n\nboxed:\n9F_p'''+27F_p''-44F_p'-8F_p =\n-8p^3+24p^4q-48p^5q^2+80p^6q^3-120p^7q^4\n+168p^8q^5-224p^9q^6\n+40p^5H_2-120p^6qH_2+240p^7q^2H_2-400p^8q^3H_2\n+68p^7H_4-204p^8qH_4-100p^7H_2^2                    (mod p^10), (J10)\n\nwith every derivative evaluated at 1/2.\n\nThe term -100 p^7 H_2^2 is the first nonlinear boundary-unit interaction. Since v_p(H_2)>=1, it first affects the p^9 digit; it is invisible in all earlier p^7/p^8 certificates.\n\n## 4. Exact regression / falsification\n\nA companion standard-library checker independently evaluates:\n- U_p modulo p^7 from the original two n=2 ports and one n=3 port;\n- H_2,H_4 as reciprocal sums;\n- the finite hypergeometric jet directly modulo p^10 from its coefficient recurrence.\n\nFor all 166 target primes p<5000 with p=13 or 19 (mod 24), 83 in each class, both U7 and J10 have zero failures. The finite scan is not the proof.\n\n## 5. Control boundary and next mathematical unit\n\nThis is staged evidence only while canonical continuation remains execution-unauthorized. It does not begin LIFT/JT2. Once lawful run authority exists, first-digit UR/JT0 closure remains the publication priority.\n\nIf portable precision work remains the only non-overlapping executable mathematics, the next exact unit is U_p modulo p^8. At that level one must expand log U_p one further digit and retain every quadratic cross-term that survives valuation; the p^10 certificate must be consumed rather than recomputed.\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "05fe7a37e57e4adaaa3bf12ec16ba1158b7c0545b94290c341f3ea6dfdfb19df"
+        }
+      ],
+      "sha256": "05fe7a37e57e4adaaa3bf12ec16ba1158b7c0545b94290c341f3ea6dfdfb19df",
+      "total_bytes": 4454,
+      "upload_id": "ur-p10-nonlinear-r10-20260923"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "ad07db408d178316ce05aa08d84eb069275472ecdf97c1816f35563578d0768f",
+          "native_payload_sha256": "64cb3e3645f1c04feebfd005a93f57fa8ae759fabb17ad9654c1793cc834ae97",
+          "part_index": 0,
+          "request_id": "upload-ur-p3-checker-20260923-r7-06",
+          "request_sha256": "d8cb4d7b771da4eaedd3d89e6207b1b49ed43b7c167500e43fd9eafbcd7a76d7",
+          "session_id": "MCP-106daeb9d4df43f1bc477337723ce089"
+        }
+      ],
+      "complete": true,
+      "filename": "check_finite_3f2_p3_truncation_defect_20260923.py",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 2564,
+          "content_utf8": "#!/usr/bin/env python3\n\"\"\"Exact regression for the finite 3F2 sharp p^3 truncation defect.\n\nRegression/falsification only. The all-prime proof is the finite coefficient\nrecurrence plus exact valuation/binomial quotient calculation in the companion\nresearch note.\n\"\"\"\n\nfrom math import isqrt\n\n\ndef is_prime(n: int) -> bool:\n    if n < 2:\n        return False\n    if n % 2 == 0:\n        return n == 2\n    d = 3\n    while d * d <= n:\n        if n % d == 0:\n            return False\n        d += 2\n    return True\n\n\ndef target_primes(bound: int = 5000):\n    return [p for p in range(5, bound) if p % 24 in (13, 19) and is_prime(p)]\n\n\ndef coefficients(p: int, mod: int):\n    # c_k=(1/2)_k(1/3)_k(2/3)_k/(k!)^3.  Since k+1<p, every\n    # recurrence denominator is a unit modulo p^4.\n    out = [1]\n    for k in range(p - 1):\n        num = (2 * k + 1) * (3 * k + 1) * (3 * k + 2)\n        den = 18 * (k + 1) ** 3\n        out.append(out[-1] * (num % mod) * pow(den, -1, mod) % mod)\n    return out\n\n\ndef value_and_first_three_derivatives(coeffs, x: int, mod: int):\n    # Simultaneous Horner: if P_new=xP+a, then\n    # P'_new=xP'+P, P''_new=xP''+2P', P'''_new=xP'''+3P''.\n    f0 = f1 = f2 = f3 = 0\n    for a in reversed(coeffs):\n        o0, o1, o2, o3 = f0, f1, f2, f3\n        f3 = (o3 * x + 3 * o2) % mod\n        f2 = (o2 * x + 2 * o1) % mod\n        f1 = (o1 * x + o0) % mod\n        f0 = (o0 * x + a) % mod\n    return f0, f1, f2, f3\n\n\ndef main() -> None:\n    primes = target_primes()\n    classes = {13: 0, 19: 0}\n    failures = []\n    for p in primes:\n        classes[p % 24] += 1\n        mod = p ** 4\n        c = coefficients(p, mod)\n\n        # Sharp top coefficient: c_{p-1}/p^3 == -1 (mod p).\n        if c[-1] % (p ** 3):\n            failures.append((p, \"top_not_p3_divisible\", c[-1]))\n            continue\n        top_q = (c[-1] // (p ** 3)) % p\n        if top_q != p - 1:\n            failures.append((p, \"wrong_top_quotient\", top_q))\n\n        # Half-point p^4 jet identity.\n        x = pow(2, -1, mod)\n        f0, f1, f2, f3 = value_and_first_three_derivatives(c, x, mod)\n        lhs = (9 * f3 + 27 * f2 - 44 * f1 - 8 * f0) % mod\n        rhs = (-8 * p ** 3) % mod\n        if lhs != rhs:\n            failures.append((p, \"half_point_jet\", lhs, rhs))\n\n    print({\n        \"bound\": 5000,\n        \"target_prime_count\": len(primes),\n        \"class_counts\": classes,\n        \"failure_count\": len(failures),\n        \"failures\": failures,\n    })\n    assert len(primes) == 166\n    assert classes == {13: 83, 19: 83}\n    assert not failures\n\n\nif __name__ == \"__main__\":\n    main()\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "0daac4e72e4ef7c85d04f8baa2dcd7056370704474ef2fbdbd44bc0dda139861"
+        }
+      ],
+      "sha256": "0daac4e72e4ef7c85d04f8baa2dcd7056370704474ef2fbdbd44bc0dda139861",
+      "total_bytes": 2564,
+      "upload_id": "ur-p3-checker-r7-20260923"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "c659a9b955e3e7ee27334489f217697e9d23fa1c14404f69e04e244b6ed749fd",
+          "native_payload_sha256": "a7ae5bd4a50dade801deeeded6fa5c51f4ba4029608e1eb0574a99d6eee11193",
+          "part_index": 0,
+          "request_id": "upload-ur-p3-defect-20260923-r7-05",
+          "request_sha256": "4ee3e2a553fdd40af1b84463f9ca7a94c193ef7c60f9c4cff1aa58fbfc3f0386",
+          "session_id": "MCP-106daeb9d4df43f1bc477337723ce089"
+        }
+      ],
+      "complete": true,
+      "filename": "brc_finite_3f2_p3_truncation_defect_20260923.md",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 5503,
+          "content_utf8": "# Finite 3F2 sharp p^3 truncation defect at the D=-24 half point\n\nStatus: `UNPUBLISHED_STAGED_EVIDENCE / NO_CLAIM / NO_OPEN / NO_RESULT / NO_REVIEW`\n\nTask: `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY`\nPublication: `TP2-C0E85430A37213F301EB`\nFrozen continuation Source: `62727839a9246e24531fba4703cc23a395b85c6f`\nLogical Research conversation: `chatgpt-research-hourly-enterprise-math-20260923`\nResearch session: `EM-DIRECT-A71FA7 / MCP-106daeb9d4df43f1bc477337723ce089`\n\nThis is a new exact portable unit. It does not reopen the accepted CM0/SIMPLE/JT0<=>UR reduction and does not claim LIFT. It records a sharp p^3 boundary that may be consumed by the deferred second-digit successor after the first-digit Result is canonically accepted.\n\n## 1. Finite symmetric-square series and exact operator residual\n\nFor a target prime `p = 13 or 19 (mod 24)` define\n\n`F_p(lambda) = sum_{k=0}^{p-1} c_k lambda^k`,\n\n`c_k = (1/2)_k (1/3)_k (2/3)_k / (k!)^3`.\n\nLet `theta=lambda d/dlambda` and\n\n`D = theta^3 - lambda (theta+1/2)(theta+1/3)(theta+2/3)`.\n\nThe coefficient recurrence\n\n`c_{k+1}/c_k = ((k+1/2)(k+1/3)(k+2/3))/(k+1)^3`\n\nmakes every coefficient through degree `p-1` cancel in `D F_p`. The only term left is the missing top recurrence term. With `N=p-1`, exactly\n\n`D F_p(lambda) = -(N+1/2)(N+1/3)(N+2/3)c_N lambda^p`.  (1)\n\nThus no infinite-series or analytic passage is being used: (1) is a finite polynomial identity with the term index and truncation source retained.\n\n## 2. Exact p-adic valuation and normalized top coefficient\n\nUse the exact integer identity\n\n`c_k = binom(2k,k)^2 binom(3k,k) / 108^k`.\n\nAt `k=p-1`, each of `binom(2p-2,p-1)` and `binom(3p-3,p-1)` has p-adic valuation one, hence `v_p(c_{p-1})=3`. More precisely, dividing the unique p-factor and reducing modulo p gives\n\n`(1/p) binom(2p-2,p-1) = -1 (mod p)`,\n`(1/p) binom(3p-3,p-1) = -1 (mod p)`.\n\nFor the first congruence, after removing the factor p the numerator reduces to `(p-2)!` and the denominator to `(p-1)!`, hence `1/(p-1)=-1`. For the second, the unique factor `2p` occurs at the second numerator position; after removing p, the numerator reduces to `-2(p-3)!` while `(p-1)! = 2(p-3)! (mod p)`, again giving `-1`. Fermat gives `108^(p-1)=1 (mod p)`. Therefore\n\n`c_{p-1}/p^3 = -1 (mod p)`.  (2)\n\nThe three operator factors at `N=p-1` satisfy\n\n`(N+1/2)(N+1/3)(N+2/3) = -1/9 (mod p)`.  (3)\n\nCombining (1)--(3) yields the sharp normalized truncation defect\n\n`boxed: (D F_p(lambda))/p^3 = -lambda^p/9 (mod p)`.  (TD)\n\nIn particular the residual is always divisible by `p^3`, but its normalized coefficient is nonzero for nonzero lambda. Thus the homogeneous 3F2 differential equation is valid coefficientwise modulo `p^3` for the finite truncation, and the first missing term is explicitly visible at the next precision. This preserves rather than erases the p-adic valuation source.\n\n## 3. Half-point p^4 jet certificate\n\nAt `lambda=1/2`, Fermat gives `(1/2)^p = 1/2 (mod p)`, so (TD) sharpens to\n\n`D F_p(1/2) = -p^3/18 (mod p^4)`.  (4)\n\nExpanding the operator at `lambda=1/2`,\n\n`144 D F_p(1/2)`\n` = 9 F_p'''(1/2) + 27 F_p''(1/2) - 44 F_p'(1/2) - 8 F_p(1/2)`.\n\nHence the exact finite-jet certificate is\n\n`boxed: 9 F_p'''(1/2)+27 F_p''(1/2)-44 F_p'(1/2)-8 F_p(1/2)`\n`       = -8 p^3 (mod p^4)`.  (HJ)\n\nThis is stronger than the homogeneous mod-p^3 equation: it identifies the first transverse truncation defect rather than discarding it.\n\n## 4. Relation to the current first-digit frontier\n\nThe current staged Chisholm package already uses the same labeled finite population `F_p` at `lambda=1/2`. This unit does not reprove that package and does not use its theorem to prove (TD)/(HJ). The proof above is self-contained from the coefficient recurrence and integer-binomial valuation.\n\nConditionally consuming the separately staged first-digit facts `F_p(1/2)=0 (mod p^2)` and `F_p'(1/2)=p/3 (mod p^2)`, (HJ) gives an additional p^2-level constraint on the second and third jets; however that consequence is not promoted here because those first-digit facts are not yet a canonical frozen Result.\n\nBRC typing is explicit: the top omitted index `k=p-1`, the exact valuation three, the origin of each p-factor, the half-point observer, and derivative order are retained. The defect is not replaced by a positive mass or unsigned cancellation.\n\n## 5. Deterministic regression (not proof)\n\nThe companion checker `check_finite_3f2_p3_truncation_defect_20260923.py` evaluates the recurrence exactly modulo `p^4`. For all 166 primes `p<5000` with `p mod 24 in {13,19}` it checks both\n\n`c_{p-1}/p^3 = -1 (mod p)`\n\nand the half-point identity (HJ). It finds 83 primes in each residue class and zero failures. The all-prime proof is Sections 1--3; the scan is only falsification/regression.\n\n## 6. Control boundary / next use\n\nAt staging time the exact Research conversation has no live CLAIM/open and `source_authority_verified=false`; the current continuation still exposes the stable-record-ID authentication defect for the accepted predecessor. Therefore this file is not Source-published and grants no completion status.\n\nDo not count this as LIFT or JT2. Once the UR/JT0 package is lawfully checkpointed, frozen, and independently accepted, (TD)/(HJ) is a compact exact p^3/p^4 boundary certificate to hand to the deferred LIFT successor; until then it remains a preserved future-successor resource under the current task's explicit permission to retain useful higher-precision defect information.\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "f08523fa47aa3fcf2e8b9f6af4104892f9b732eec1ef3f7870d816d7621f23fe"
+        }
+      ],
+      "sha256": "f08523fa47aa3fcf2e8b9f6af4104892f9b732eec1ef3f7870d816d7621f23fe",
+      "total_bytes": 5503,
+      "upload_id": "ur-p3-defect-r7-20260923"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "450d50e3a3383ec1e208d2d8c67d2a87f4f5790fc49f8e7a152bf9b7776926ae",
+          "native_payload_sha256": "080bd1f30f3ee2baa618c0c15af0e946f103274b10e6f8d2aa272cec68c0789a",
+          "part_index": 0,
+          "request_id": "upload-ur-p5-checker-20260923-r8-02",
+          "request_sha256": "53ea685e1afc77898639e6bf7657d3a9d52015e392f1c9a44c79e28d5f7fd884",
+          "session_id": "MCP-106daeb9d4df43f1bc477337723ce089"
+        }
+      ],
+      "complete": true,
+      "filename": "check_finite_3f2_p5_fermat_quotient_defect_20260923.py",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 2912,
+          "content_utf8": "#!/usr/bin/env python3\n\"\"\"Exact regression for the finite 3F2 p^5 half-point defect.\n\nRegression/falsification only. The all-prime proof is the binomial-quotient\nexpansion plus the exact finite differential-operator residual in the companion\nresearch note.\n\"\"\"\n\nfrom math import isqrt\n\n\ndef is_prime(n: int) -> bool:\n    if n < 2:\n        return False\n    if n % 2 == 0:\n        return n == 2\n    d = 3\n    while d <= isqrt(n):\n        if n % d == 0:\n            return False\n        d += 2\n    return True\n\n\ndef target_primes(bound: int = 5000):\n    return [p for p in range(5, bound) if p % 24 in (13, 19) and is_prime(p)]\n\n\ndef coefficients(p: int, mod: int):\n    # c_k=(1/2)_k(1/3)_k(2/3)_k/(k!)^3. Since k+1<p, each\n    # recurrence denominator is a unit modulo p^5.\n    out = [1]\n    for k in range(p - 1):\n        num = (2 * k + 1) * (3 * k + 1) * (3 * k + 2)\n        den = 18 * (k + 1) ** 3\n        out.append(out[-1] * (num % mod) * pow(den, -1, mod) % mod)\n    return out\n\n\ndef value_and_first_three_derivatives(coeffs, x: int, mod: int):\n    # Simultaneous Horner.\n    f0 = f1 = f2 = f3 = 0\n    for a in reversed(coeffs):\n        o0, o1, o2, o3 = f0, f1, f2, f3\n        f3 = (o3 * x + 3 * o2) % mod\n        f2 = (o2 * x + 2 * o1) % mod\n        f1 = (o1 * x + o0) % mod\n        f0 = (o0 * x + a) % mod\n    return f0, f1, f2, f3\n\n\ndef fermat_q_mod_p(a: int, p: int) -> int:\n    # Compute q_p(a) modulo p from a^(p-1) modulo p^2.\n    ap = pow(a, p - 1, p * p)\n    return ((ap - 1) // p) % p\n\n\ndef main() -> None:\n    primes = target_primes()\n    classes = {13: 0, 19: 0}\n    failures = []\n\n    for p in primes:\n        classes[p % 24] += 1\n        mod = p ** 5\n        c = coefficients(p, mod)\n\n        # One-more-digit top coefficient:\n        # c_{p-1}/p^3 == -1 + p(q_p(108)-13/2) (mod p^2).\n        if c[-1] % (p ** 3):\n            failures.append((p, \"top_not_p3_divisible\", c[-1]))\n            continue\n        top_q = (c[-1] // (p ** 3)) % (p * p)\n        q108 = fermat_q_mod_p(108, p)\n        inv2 = pow(2, -1, p * p)\n        expected_top = (-1 + p * ((q108 - 13 * inv2) % p)) % (p * p)\n        if top_q != expected_top:\n            failures.append((p, \"wrong_top_p2_quotient\", top_q, expected_top))\n\n        # Half-point p^5 jet identity.\n        x = pow(2, -1, mod)\n        f0, f1, f2, f3 = value_and_first_three_derivatives(c, x, mod)\n        lhs = (9 * f3 + 27 * f2 - 44 * f1 - 8 * f0) % mod\n        q6 = fermat_q_mod_p(6, p)\n        rhs = (-8 * p ** 3 + 24 * p ** 4 * q6) % mod\n        if lhs != rhs:\n            failures.append((p, \"half_point_p5_jet\", lhs, rhs, q6))\n\n    print({\n        \"bound\": 5000,\n        \"target_prime_count\": len(primes),\n        \"class_counts\": classes,\n        \"failure_count\": len(failures),\n        \"failures\": failures,\n    })\n    assert len(primes) == 166\n    assert classes == {13: 83, 19: 83}\n    assert not failures\n\n\nif __name__ == \"__main__\":\n    main()\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "7c5c0eac85c3bf44d723a4f317fa4a4a2987257bdd0adae2d537de9e5c4cb4d2"
+        }
+      ],
+      "sha256": "7c5c0eac85c3bf44d723a4f317fa4a4a2987257bdd0adae2d537de9e5c4cb4d2",
+      "total_bytes": 2912,
+      "upload_id": "ur-p5-checker-r8-20260923"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "46a14491debdc1e84270b2ea57a709a3a88fd1914399a3fafea0228a2c8f5ac9",
+          "native_payload_sha256": "78c2335c897b21385135930f29c2e443a612db3b168d5da838f86fea787bdb6b",
+          "part_index": 0,
+          "request_id": "upload-ur-p5-defect-20260923-r8-01",
+          "request_sha256": "56cb37f53b711a0e11c5dbda8ee02e1133279cc4f7449434adf03af2cc2b0da7",
+          "session_id": "MCP-106daeb9d4df43f1bc477337723ce089"
+        }
+      ],
+      "complete": true,
+      "filename": "brc_finite_3f2_p5_fermat_quotient_defect_20260923.md",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 5331,
+          "content_utf8": "# Finite 3F2 p^5 half-point truncation defect via the Fermat quotient q_p(6)\n\nStatus: `UNPUBLISHED_STAGED_EVIDENCE / NO_CLAIM / NO_OPEN / NO_RESULT / NO_REVIEW`\n\nTask: `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY`\nPublication: `TP2-C0E85430A37213F301EB`\nFrozen task Source: `bf059aa30dbfa0b3e93f277dde0278da936417c6`\nLogical Research conversation: `chatgpt-research-hourly-enterprise-math-20260923`\nResearch session: `EM-DIRECT-A71FA7 / MCP-106daeb9d4df43f1bc477337723ce089`\n\nThis is a new exact extension of the already-staged p^3/p^4 finite-truncation defect. It does not redo the Chisholm first-digit closure, accepted CM0/SIMPLE/JT0<=>UR, or the p^3 valuation proof. It sharpens the same labeled top truncation term by one further p-adic digit and is preserved only as deferred higher-precision input; it does not claim LIFT or JT2.\n\n## 1. Setup and the already-known exact truncation source\n\nFor a target prime `p = 13 or 19 (mod 24)` let\n\n`F_p(lambda)=sum_{k=0}^{p-1} c_k lambda^k`,\n\n`c_k=(1/2)_k(1/3)_k(2/3)_k/(k!)^3`,\n\nand put `theta=lambda d/dlambda`,\n\n`D=theta^3-lambda(theta+1/2)(theta+1/3)(theta+2/3)`.\n\nThe finite coefficient recurrence cancels every degree through `p-1`; with `N=p-1`, exactly\n\n`D F_p(lambda)=-(p-1/2)(p-1/3)(p-2/3)c_{p-1} lambda^p`.  (1)\n\nThe previous unit proved `v_p(c_{p-1})=3` and `c_{p-1}/p^3=-1 (mod p)`. The new point is the next coefficient modulo `p^2`.\n\nWrite the Fermat quotient\n\n`q_p(a)=(a^(p-1)-1)/p`,\n\nused only modulo `p` below.\n\n## 2. One-more-digit top coefficient\n\nUse the exact integer identity\n\n`c_{p-1}=C(2p-2,p-1)^2 C(3p-3,p-1) / 108^(p-1)`.\n\nFor `p>=5`,\n\n`C(ap-1,p-1)=prod_{k=1}^{p-1}(1+(a-1)p/k)=1 (mod p^2)`\n\nbecause `H_{p-1}=0 (mod p)`. Define\n\n`A=(1/p) C(2p-2,p-1)`,\n`B=(1/p) C(3p-3,p-1)`.\n\nThe exact relations\n\n`A=C(2p-1,p-1)/(2p-1)`,\n\n`B=C(3p-1,p-1)*2(2p-1)/((3p-1)(3p-2))`\n\ntherefore give, modulo `p^2`,\n\n`A=-1-2p`,\n`B=-1-(5/2)p`.\n\nConsequently\n\n`A^2 B=-1-(13/2)p (mod p^2)`.\n\nSince\n\n`108^(p-1)=1+p q_p(108) (mod p^2)`,\n\nits inverse is `1-p q_p(108)`. Thus the normalized top coefficient sharpens to\n\n`boxed: c_{p-1}/p^3 = -1 + p(q_p(108)-13/2) (mod p^2)`.  (2)\n\nAll denominators here are p-adic units because the target primes exceed 3.\n\n## 3. Cancellation with the operator factor\n\nThe exact operator factor is\n\n`(p-1/2)(p-1/3)(p-2/3)`\n` = -1/9 + (13/18)p - (3/2)p^2 + p^3`.\n\nMultiplying this by (2), the two `13/2` first-order contributions cancel. Dividing (1) by `p^3` gives the new all-prime normalized defect\n\n`boxed: D F_p(lambda)/p^3`\n`       = -lambda^p (1-p q_p(108))/9  (mod p^2)`.  (TD5)\n\nThis is a strict refinement of the previous mod-p formula. The cancellation is signed and source-labeled; it is not a positive-mass quotient.\n\n## 4. Half-point reduction to q_p(6)\n\nAt `lambda=1/2`,\n\n`2^{-p}=(1/2)(2^(p-1))^{-1}`\n`      =(1/2)(1-p q_p(2)) (mod p^2)`.\n\nFermat quotients satisfy, modulo `p`,\n\n`q_p(108)=2q_p(2)+3q_p(3)`,\n`q_p(6)=q_p(2)+q_p(3)`,\n\nso `q_p(108)+q_p(2)=3q_p(6)`. Therefore (TD5) becomes\n\n`boxed: D F_p(1/2)`\n`       = -p^3/18 + (p^4/6) q_p(6)  (mod p^5)`.  (HP5)\n\nUsing the exact half-point differential-coordinate identity\n\n`144 D F_p(1/2)`\n` = 9F_p'''(1/2)+27F_p''(1/2)-44F_p'(1/2)-8F_p(1/2)`,\n\nwe obtain the sharp finite-jet certificate\n\n`boxed: 9F_p'''(1/2)+27F_p''(1/2)-44F_p'(1/2)-8F_p(1/2)`\n`       = -8p^3 + 24p^4 q_p(6)  (mod p^5)`.  (HJ5)\n\nThus the first correction beyond the previously preserved `-8p^3 (mod p^4)` defect is exactly the base-field Fermat-quotient observer `24 q_p(6)` at p^4 precision.\n\n## 5. BRC information boundary\n\nThe carrier keeps the omitted top index `k=p-1`, exact valuation `v_p(c_{p-1})=3`, normalized p-adic unit through one extra digit, the separate binomial-source factors A and B, the signed operator factor, the Fermat-quotient residue, the half-point observer, and derivative order. No absolute value, positive total mass, or unsigned cancellation replaces these data.\n\nThe appearance of `q_p(6)` is a derived scalar after the separate `2` and `108` sources have been retained through their legal first-order product. It is therefore safe for this declared half-point observer but is not asserted as a universal replacement carrier for the underlying branches.\n\n## 6. Exact regression / falsification only\n\nThe companion checker evaluates the finite coefficient recurrence modulo `p^5`, independently computes the top normalized quotient modulo `p^2`, and evaluates the first three ordinary derivatives at `1/2` by simultaneous Horner. For every one of the 166 target primes `p<5000` (83 in each residue class), it checks both (2) and (HJ5) and finds zero failures.\n\nThe scan is regression/falsification only. The all-prime proof is Sections 2--4.\n\n## 7. Control and successor boundary\n\nAt staging time this Research session has no lawful CLAIM/open and current continuation remains execution-unauthorized. Therefore this file is not Source-published, frozen, reviewed, or accepted. It must not be used to assert current task closure.\n\nIf UR/JT0 later receives canonical Result acceptance, (TD5)/(HJ5) is a compact exact higher-precision defect certificate for the separately gated LIFT successor. Until then it is only preserved portable evidence. Do not publish it as LIFT/JT2 and do not replace any required native successor experiment with this calculation.\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "c3b3b5325f143b1f108b2c4e5fd36a2ede6c55a62aa21525aeee924f97015885"
+        }
+      ],
+      "sha256": "c3b3b5325f143b1f108b2c4e5fd36a2ede6c55a62aa21525aeee924f97015885",
+      "total_bytes": 5331,
+      "upload_id": "ur-p5-defect-r8-20260923"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "2535f49031319b03de3c5afd27b5f738f43d984e705bf7d0036636029c2fc03a",
+          "native_payload_sha256": "fccdcafe8f5987dfcc165db997956a0e350239398bc85758a27ce84f1352d8ae",
+          "part_index": 0,
+          "request_id": "upload-ur-p6-checker-20260923-r8-05",
+          "request_sha256": "3a27b21d1da446cc125fb368c780b7c405e16fec8a06f2af69ccd3d7096be1bd",
+          "session_id": "MCP-106daeb9d4df43f1bc477337723ce089"
+        }
+      ],
+      "complete": true,
+      "filename": "check_finite_3f2_exact_top_factorization_p6_20260923.py",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 2527,
+          "content_utf8": "#!/usr/bin/env python3\n\"\"\"Exact regression for the finite 3F2 exact top factorization / p^6 jet.\n\nThe finite scan is falsification/regression only. The proof is the exact\nbinomial factor cancellation and the p^3 near-diagonal binomial congruence in\nthe companion note.\n\"\"\"\n\nfrom math import comb, isqrt\n\n\ndef is_prime(n: int) -> bool:\n    if n < 2:\n        return False\n    if n % 2 == 0:\n        return n == 2\n    d = 3\n    while d <= isqrt(n):\n        if n % d == 0:\n            return False\n        d += 2\n    return True\n\n\ndef target_primes(bound: int = 5000):\n    return [p for p in range(5, bound) if p % 24 in (13, 19) and is_prime(p)]\n\n\ndef coefficients(p: int, mod: int):\n    out = [1]\n    for k in range(p - 1):\n        num = (2 * k + 1) * (3 * k + 1) * (3 * k + 2)\n        den = 18 * (k + 1) ** 3\n        out.append(out[-1] * (num % mod) * pow(den, -1, mod) % mod)\n    return out\n\n\ndef derivatives_0_to_3(coeffs, x: int, mod: int):\n    f0 = f1 = f2 = f3 = 0\n    for a in reversed(coeffs):\n        o0, o1, o2, o3 = f0, f1, f2, f3\n        f3 = (o3 * x + 3 * o2) % mod\n        f2 = (o2 * x + 2 * o1) % mod\n        f1 = (o1 * x + o0) % mod\n        f0 = (o0 * x + a) % mod\n    return f0, f1, f2, f3\n\n\ndef fermat_q_mod_p2(a: int, p: int) -> int:\n    # q_p(a) modulo p^2 requires a^(p-1) modulo p^3.\n    return ((pow(a, p - 1, p ** 3) - 1) // p) % (p * p)\n\n\ndef main() -> None:\n    primes = target_primes()\n    classes = {13: 0, 19: 0}\n    failures = []\n\n    for p in primes:\n        classes[p % 24] += 1\n\n        # Direct p^3 checks on the near-diagonal binomial units.\n        if comb(2 * p - 1, p - 1) % (p ** 3) != 1:\n            failures.append((p, \"binom2_not_1_mod_p3\"))\n        if comb(3 * p - 1, p - 1) % (p ** 3) != 1:\n            failures.append((p, \"binom3_not_1_mod_p3\"))\n\n        mod = p ** 6\n        coeffs = coefficients(p, mod)\n        x = pow(2, -1, mod)\n        f0, f1, f2, f3 = derivatives_0_to_3(coeffs, x, mod)\n        lhs = (9 * f3 + 27 * f2 - 44 * f1 - 8 * f0) % mod\n\n        q6 = fermat_q_mod_p2(6, p)\n        rhs = (-8 * p ** 3 + 24 * p ** 4 * q6 - 48 * p ** 5 * (q6 % p) ** 2) % mod\n        if lhs != rhs:\n            failures.append((p, \"half_point_p6_jet\", lhs, rhs, q6))\n\n    print({\n        \"bound\": 5000,\n        \"target_prime_count\": len(primes),\n        \"class_counts\": classes,\n        \"failure_count\": len(failures),\n        \"failures\": failures,\n    })\n    assert len(primes) == 166\n    assert classes == {13: 83, 19: 83}\n    assert not failures\n\n\nif __name__ == \"__main__\":\n    main()\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "9f2334b8500a4d1106390dae3e8308276b1c46b0068ab11e424cfd2d17623707"
+        }
+      ],
+      "sha256": "9f2334b8500a4d1106390dae3e8308276b1c46b0068ab11e424cfd2d17623707",
+      "total_bytes": 2527,
+      "upload_id": "ur-p6-checker-r8-20260923"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "2e2b3ff2e27c7cf660691eab56a3f2ccd86e0fa0cddb855a6b19510697577b60",
+          "native_payload_sha256": "f2a2064b20e5d89c20e9e2dac8c0fb00b96b54114ea4a826ed4b4b466c6b6e9a",
+          "part_index": 0,
+          "request_id": "upload-ur-p6-exact-factor-20260923-r8-04",
+          "request_sha256": "bb14e3b6a80d5302bc0e10a189f402bceb92dabcc434410435264b81a9328b6b",
+          "session_id": "MCP-106daeb9d4df43f1bc477337723ce089"
+        }
+      ],
+      "complete": true,
+      "filename": "brc_finite_3f2_exact_top_factorization_p6_20260923.md",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 5598,
+          "content_utf8": "# Finite 3F2 exact top-factorization and p^6 half-point jet certificate\n\nStatus: `UNPUBLISHED_STAGED_EVIDENCE / NO_CLAIM / NO_OPEN / NO_RESULT / NO_REVIEW`\n\nTask: `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY`\nPublication: `TP2-C0E85430A37213F301EB`\nFrozen task Source: `bf059aa30dbfa0b3e93f277dde0278da936417c6`\nLogical Research conversation: `chatgpt-research-hourly-enterprise-math-20260923`\nResearch session: `EM-DIRECT-A71FA7 / MCP-106daeb9d4df43f1bc477337723ce089`\n\nThis unit strictly strengthens the same-turn staged p^5 Fermat-quotient defect. The earlier p^5 formulas remain correct but are lower-order corollaries; if this stronger artifact is later checkpointed, the p^5 note need not be published separately. No accepted first-digit mathematics is reopened, and no LIFT/JT2 status is claimed.\n\n## 1. Exact top residual\n\nLet\n\n`F_p(lambda)=sum_{k=0}^{p-1} c_k lambda^k`,\n`c_k=(1/2)_k(1/3)_k(2/3)_k/(k!)^3`,\n`theta=lambda d/dlambda`,\n`D=theta^3-lambda(theta+1/2)(theta+1/3)(theta+2/3)`.\n\nThe finite recurrence gives the exact residual\n\n`D F_p(lambda)`\n`=-(p-1/2)(p-1/3)(p-2/3)c_{p-1} lambda^p`.  (1)\n\nUse\n\n`c_{p-1}=C(2p-2,p-1)^2 C(3p-3,p-1)/108^(p-1)`.\n\nNow convert the two old binomial factors without any p-adic approximation:\n\n`C(2p-2,p-1) = p C(2p-1,p-1)/(2p-1)`,\n\n`C(3p-3,p-1)`\n` = 2p(2p-1) C(3p-1,p-1)/((3p-1)(3p-2))`.\n\nAlso\n\n`(p-1/2)(p-1/3)(p-2/3)`\n`=((2p-1)(3p-1)(3p-2))/18`.\n\nAll three linear factors cancel exactly, leaving the structural identity\n\n`boxed: D F_p(lambda)`\n` = -(p^3 lambda^p)/(9*108^(p-1))`\n`   * C(2p-1,p-1)^2 C(3p-1,p-1)`.  (EXACT)\n\nThus the entire finite-truncation defect is one explicitly labeled top-boundary factor times two near-diagonal binomial units. This exact factorization explains the first-order cancellations seen in the weaker p^5 expansion.\n\n## 2. Self-contained p^3 binomial-unit congruence\n\nFor any fixed integer `a` and prime `p>=5`,\n\n`C(ap-1,p-1)=prod_{k=1}^{p-1}(1+(a-1)p/k)`.\n\nModulo `p^3`, expand the product through quadratic order:\n\n`1+(a-1)p H_1 + ((a-1)^2 p^2/2)(H_1^2-H_2)`.\n\nHere `H_r=sum_{k=1}^{p-1} k^{-r}` in the p-adic localization. Modulo p, `H_2=sum k^(p-3)=0`. Pairing `k` with `p-k` gives\n\n`H_1 = sum_{k=1}^{(p-1)/2} [1/k+1/(p-k)]`\n`    = -p sum_{k=1}^{(p-1)/2} 1/k^2 (mod p^2)`,\n\nand the half-sum of reciprocal squares is zero modulo p because twice it is `H_2`. Hence `H_1=0 (mod p^2)`. Therefore\n\n`boxed: C(ap-1,p-1)=1 (mod p^3)`  for `p>=5`.  (B3)\n\nApplying (B3) with `a=2,3` to (EXACT) gives\n\n`D F_p(lambda)/p^3`\n` = -lambda^p * 108^{-(p-1)}/9  (mod p^3)`.  (TD6)\n\nThis strengthens the previous mod-p^2 normalized defect by one further p-adic digit.\n\n## 3. Half point and q_p(216)\n\nAt `lambda=1/2`, (EXACT) becomes exactly\n\n`D F_p(1/2)`\n` = -(p^3/18) * C(2p-1,p-1)^2 C(3p-1,p-1) / 216^(p-1)`.  (2)\n\nLet the exact Fermat quotient be\n\n`q_p(216)=(216^(p-1)-1)/p`.\n\nSince `216^(p-1)=1+p q_p(216)`,\n\n`216^{-(p-1)}`\n` = 1-p q_p(216)+p^2 q_p(216)^2 (mod p^3)`.\n\nThe binomial units in (2) are `1 (mod p^3)`, so after the outer factor `p^3` they do not affect precision below `p^6`. Therefore\n\n`boxed: D F_p(1/2)`\n` = -(p^3/18)[1-p q_p(216)+p^2 q_p(216)^2] (mod p^6)`.  (HP6-216)\n\n## 4. Native half-point form in q_p(6)\n\nBecause `216=6^3`, if `q=q_p(6)` then exactly\n\n`q_p(216)=3q+3p q^2+p^2 q^3`.\n\nUsing this to the precision required in (HP6-216),\n\n`q_p(216)=3q+3p q^2 (mod p^2)`,\n`q_p(216)^2=9q^2 (mod p)`.\n\nHence\n\n`boxed: D F_p(1/2)`\n` = -p^3/18 + (p^4/6)q_p(6) - (p^5/3)q_p(6)^2 (mod p^6)`.  (HP6)\n\nUsing the exact half-point coordinate identity\n\n`144 D F_p(1/2)`\n`=9F_p'''(1/2)+27F_p''(1/2)-44F_p'(1/2)-8F_p(1/2)`,\n\nwe get the new p^6 jet certificate\n\n`boxed: 9F_p'''(1/2)+27F_p''(1/2)-44F_p'(1/2)-8F_p(1/2)`\n` = -8p^3 + 24p^4 q_p(6) - 48p^5 q_p(6)^2 (mod p^6)`.  (HJ6)\n\nThe earlier p^5 result is exactly the reduction of (HJ6) modulo `p^5`.\n\n## 5. BRC / observer discipline\n\n(EXACT) is stronger than a valuation statement: it retains the omitted index source, the three canceled linear boundary factors, both near-diagonal binomial units, the exact p^3 factor, the lambda observer, and the base denominator. Only after this exact provenance-preserving factorization do we pass to the half-point scalar `q_p(216)`, and only then to `q_p(6)` using the exact cube relation. Signed cancellation is never replaced by positive mass.\n\nThis also identifies precisely where the next new information beyond p^6 must enter: the binomial units cease to be invisible once their p^3 deviations are multiplied by the outer p^3 factor, i.e. at p^6/p^7 precision. Thus HJ6 is the last range controlled solely by the Fermat-quotient denominator observer; a further digit requires the p^3 binomial-unit corrections rather than another denominator-only expansion.\n\n## 6. Exact regression / falsification only\n\nThe companion checker evaluates the original finite recurrence modulo `p^6` and the first three derivatives at `1/2`, then verifies (HJ6) for every target prime `p<5000`. There are 166 target primes, 83 in each residue class, and zero failures. It also checks the p^3 binomial-unit congruences directly. The finite scan is not the proof; Sections 1--4 are the all-prime proof.\n\n## 7. Control and successor boundary\n\nThis is staged portable evidence only. The current Research continuation has no lawful CLAIM/open and no Source checkpoint authority, so no Result, review, HANDOFF, LIFT or JT2 is asserted. If the first-digit UR/JT0 package later receives canonical acceptance, (EXACT)/(HJ6) may be handed to the separately gated LIFT successor as a sharper finite-truncation boundary certificate.\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "b841b19b15c06955ed25e0a81901f6296ab3787b5aac1ae1124c7dc98d7d9a54"
+        }
+      ],
+      "sha256": "b841b19b15c06955ed25e0a81901f6296ab3787b5aac1ae1124c7dc98d7d9a54",
+      "total_bytes": 5598,
+      "upload_id": "ur-p6-exact-factor-r8-20260923"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "5b82fdae0f51e59d082a6a74dc22d7ebe15ea28e988a212db790a8e36634febf",
+          "native_payload_sha256": "1704db89c13371e96096db67f5bd31827a7210fd87a84a91ab9cf191f3f7a2e0",
+          "part_index": 0,
+          "request_id": "research-hourly-20260923-t9-upload-p7-note-07",
+          "request_sha256": "c209b169fcc284d534ffc23d20a19c78f8338070a818fc9cd2d3b46ac6905f80",
+          "session_id": "MCP-106daeb9d4df43f1bc477337723ce089"
+        }
+      ],
+      "complete": true,
+      "filename": "brc_finite_3f2_p7_bernoulli_boundary_defect_20260923.md",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 4553,
+          "content_utf8": "# BRC finite 3F2 truncation defect: first Bernoulli boundary-unit correction modulo p^7\n\nStatus: UNPUBLISHED RESEARCH EVIDENCE. This note is a new increment beyond the already staged exact top-factorization/p^6 certificate. It does not claim Source publication, Result admission, Driver review, LIFT, JT2, or parent completion.\n\n## Scope and carrier\n\nLet p be any target prime p ≡ 13 or 19 (mod 24), hence p >= 13. Define\n\nF_p(lambda)=sum_{k=0}^{p-1} ((1/2)_k(1/3)_k(2/3)_k/(k!)^3) lambda^k\n\nand D = theta^3-lambda(theta+1/2)(theta+1/3)(theta+2/3), theta=lambda d/dlambda.\n\nConsume the previously proved exact finite-truncation factorization\n\nD F_p(lambda) = - p^3 lambda^p /(9*108^(p-1)) * U_p,\nU_p = C(2p-1,p-1)^2 C(3p-1,p-1).\n\nBRC typing retained here is multiplicative-unit/provenance data, not positive mass: the two n=2 binomial ports and one n=3 port remain separate until the final unit product. The normalization port 216^(p-1) is kept separate from U_p until the last multiplication.\n\n## New unit calculation\n\nFor p>5, Glaisher's generalized Wolstenholme congruence gives, for an integer n,\n\nC(np-1,p-1) ≡ 1 - n(n-1)p^3 B_{p-3}/3  (mod p^4).\n\nFor n=2 and n=3 this gives\n\nC(2p-1,p-1) ≡ 1 -(2/3)p^3 B_{p-3} (mod p^4),\nC(3p-1,p-1) ≡ 1 -2p^3 B_{p-3} (mod p^4).\n\nBecause each correction already has valuation 3, the product has no cross term before p^6. Therefore\n\nU_p ≡ 1 -(10/3)p^3 B_{p-3} (mod p^4).                 (U4)\n\nThe coefficient -10/3 is provenance-sensitive: it is 2*(-2/3)+(-2), reflecting multiplicity vector (2,1); it is not obtained by unsigned aggregation.\n\nA self-contained crosscheck of the classical input is available from the product expansion. Put H_r=sum_{k=1}^{p-1}1/k^r. Wolstenholme gives v_p(H_1)>=2, while H_3 ≡0 (mod p). Expanding product_{k=1}^{p-1}(1+(n-1)p/k) modulo p^4 yields 1+(n-1)pH_1-(n-1)^2 p^2 H_2/2. Pairing k with p-k gives 2H_1+pH_2 ≡0 (mod p^3). Glaisher's n=2 case then forces H_2 ≡(2/3)pB_{p-3} (mod p^2), recovering the displayed general n formula.\n\n## Normalization port and p^7 defect\n\nLet q=q_p(6)=(6^(p-1)-1)/p. Since\n\n216^(p-1)=6^(3(p-1))=(1+pq)^3,\n\nwe have modulo p^4\n\n216^{-(p-1)} ≡ 1-3pq+6p^2q^2-10p^3q^3.\n\nAt lambda=1/2, the exact factorization is\n\nD F_p(1/2) = -p^3/(18*216^(p-1)) * U_p.\n\nCombining the two independently retained ports and using (U4),\n\nD F_p(1/2) ≡\n -p^3/18 + p^4 q/6 - p^5 q^2/3\n + p^6(5q^3/9 + 5B_{p-3}/27)                     (mod p^7).        (D7)\n\nThus the first correction not explained by the Fermat-quotient normalization alone is the Bernoulli boundary-unit term (5/27)p^6 B_{p-3}. In particular, the previously staged p^6 formula is recovered by deleting the final p^6 line modulo p^6.\n\n## Ordinary-derivative jet form\n\nAt lambda=1/2, direct expansion of D gives the exact identity\n\n144 D F_p(1/2) = 9F_p'''(1/2)+27F_p''(1/2)-44F_p'(1/2)-8F_p(1/2).\n\nTherefore (D7) is equivalent to the sharper jet certificate\n\n9F_p'''(1/2)+27F_p''(1/2)-44F_p'(1/2)-8F_p(1/2) ≡\n -8p^3 +24p^4q -48p^5q^2\n + p^6(80q^3 +(80/3)B_{p-3})                    (mod p^7).       (J7)\n\nThis is a strict new precision level: the p^6 certificate knew the q^0,q^1,q^2 normalization terms but could not see the first p^3 unit deviation of U_p.\n\n## Exact regression / falsification\n\nA standard-library checker independently computes the truncated hypergeometric jet modulo p^7, U_p modulo p^4, q_p(6) modulo p^4, and B_{p-3} modulo p using the Faulhaber consequence\n\nsum_{k=1}^{p-1} k^(p-3) ≡ p B_{p-3} (mod p^2).\n\nFor all 166 target primes p<5000 (83 in each residue class 13 and 19 mod 24), both (U4) and (J7) have zero failures. This finite scan is regression/falsification only; the proof is the exact factorization plus the classical binomial congruence and formal p-adic expansion above.\n\n## Source/provenance note\n\nThe Bernoulli binomial congruence is the classical Glaisher refinement of Wolstenholme: J. W. L. Glaisher, Quart. J. Pure Appl. Math. 31 (1900), 321-353. A modern expository statement gives C(np-1,p-1) ≡ 1 - n(n-1)p^3 B_{p-3}/3 (mod p^4). No source is used to claim the Enterprise-Math conclusion; only this classical congruence is imported.\n\n## Next exact unit\n\nIf higher precision is scientifically useful after the UR task is formally accepted, the next boundary question is U_p modulo p^5 (or an equivalent harmonic carrier), which would determine the p^7 coefficient inside the normalized bracket and hence the p^8 jet term. This remains outside the current UR hard target and must not be called LIFT/JT2 without canonical successor dispatch.\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "0126e5848947bea96bf395ecafbc2d0ef4b62e4bdbcf838b9a5e9e2531b7136a"
+        }
+      ],
+      "sha256": "0126e5848947bea96bf395ecafbc2d0ef4b62e4bdbcf838b9a5e9e2531b7136a",
+      "total_bytes": 4553,
+      "upload_id": "ur-p7-bernoulli-r9-20260923"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "776e02f9224115ee9214d60db64112c8019210554d3e557e599ddc02275840f0",
+          "native_payload_sha256": "bb80ea13db69179054c68401ca24185f8003634cb1b5ffecedf0ba125c1d249e",
+          "part_index": 0,
+          "request_id": "research-hourly-20260923-t9-upload-p7-checker-10",
+          "request_sha256": "ebe458e51af79cf6276317442f2a82d66f409bb92408d7f48be8f4cf970a5be2",
+          "session_id": "MCP-106daeb9d4df43f1bc477337723ce089"
+        }
+      ],
+      "complete": true,
+      "filename": "check_finite_3f2_p7_bernoulli_boundary_defect_20260923.py",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 2296,
+          "content_utf8": "from math import isqrt\n\n\ndef primes_upto(n):\n    sieve = bytearray(b\"\\x01\") * (n + 1)\n    sieve[:2] = b\"\\x00\\x00\"\n    for r in range(2, isqrt(n) + 1):\n        if sieve[r]:\n            sieve[r*r:n+1:r] = b\"\\x00\" * (((n - r*r) // r) + 1)\n    return [i for i in range(2, n + 1) if sieve[i]]\n\n\ndef bernoulli_pminus3_mod_p(p):\n    # Faulhaber: sum_{k=1}^{p-1} k^(p-3) == p B_{p-3} (mod p^2).\n    mod = p * p\n    s = sum(pow(k, p - 3, mod) for k in range(1, p)) % mod\n    assert s % p == 0\n    return (s // p) % p\n\n\ndef binom_apminus1_mod(a, p, mod):\n    # C(ap-1,p-1) = product_{k=1}^{p-1}(1+(a-1)p/k).\n    r = 1\n    for k in range(1, p):\n        r = r * (1 + (a - 1) * p * pow(k, -1, mod)) % mod\n    return r\n\n\ndef check_prime(p):\n    mod = p ** 7\n\n    # Half-point hypergeometric terms already include lambda=1/2:\n    # t_k/t_{k-1}=(2k-1)(3k-2)(3k-1)/(36 k^3).\n    term = 1\n    s0 = s1 = s2 = s3 = 0\n    for k in range(p):\n        if k:\n            num = (2*k - 1) * (3*k - 2) * (3*k - 1)\n            den = 36 * k**3\n            term = term * num * pow(den, -1, mod) % mod\n        s0 = (s0 + term) % mod\n        s1 = (s1 + k * term) % mod\n        s2 = (s2 + k * (k - 1) * term) % mod\n        s3 = (s3 + k * (k - 1) * (k - 2) * term) % mod\n\n    # J = 9F''' +27F'' -44F' -8F at lambda=1/2.\n    # Since term=c_k/2^k, derivatives contribute 2^r falling factorials.\n    jet = (72*s3 + 108*s2 - 88*s1 - 8*s0) % mod\n\n    # q_p(6), retained at more precision than needed.\n    q = (pow(6, p - 1, p**5) - 1) // p\n    B = bernoulli_pminus3_mod_p(p)\n    inv3 = pow(3, -1, mod)\n    predicted_jet = (\n        -8*p**3 + 24*p**4*q - 48*p**5*q*q\n        + 80*p**6*q**3 + 80*inv3*p**6*B\n    ) % mod\n\n    mod4 = p ** 4\n    u = (\n        binom_apminus1_mod(2, p, mod4)**2\n        * binom_apminus1_mod(3, p, mod4)\n    ) % mod4\n    predicted_u = (1 - 10 * pow(3, -1, mod4) * p**3 * B) % mod4\n\n    return jet == predicted_jet and u == predicted_u\n\n\nif __name__ == \"__main__\":\n    targets = [p for p in primes_upto(4999) if p % 24 in (13, 19)]\n    bad = [p for p in targets if not check_prime(p)]\n    counts = {13: sum(p % 24 == 13 for p in targets),\n              19: sum(p % 24 == 19 for p in targets)}\n    print({\"target_primes\": len(targets), \"counts\": counts, \"failures\": bad})\n    if bad:\n        raise SystemExit(1)\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "2c5eefdb2898b5bc8493cf953f29bdcff03cc4f0b5b17751bb9380626772dbf4"
+        }
+      ],
+      "sha256": "2c5eefdb2898b5bc8493cf953f29bdcff03cc4f0b5b17751bb9380626772dbf4",
+      "total_bytes": 2296,
+      "upload_id": "ur-p7-checker-r9-20260923"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "120d09d072d7cf0a9cfc25120f2ce405856b3ba5d6bb87fe07c826c9eb0af896",
+          "native_payload_sha256": "f759ca536ac96de5b8a23dea7edbfbb7cdc2aa1dd29a0c6edeccdc9bceac6b04",
+          "part_index": 0,
+          "request_id": "research-hourly-20260923-t10-upload-p9-checker-05",
+          "request_sha256": "88561cf6805ba153dc3e2ad564f40a4e7879873158a7e673296fd209bcd2938f",
+          "session_id": "MCP-106daeb9d4df43f1bc477337723ce089"
+        }
+      ],
+      "complete": true,
+      "filename": "check_finite_3f2_p9_harmonic_boundary_defect_20260923.py",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 2520,
+          "content_utf8": "#!/usr/bin/env python3\n# Exact regression for the finite 3F2 harmonic boundary lift modulo p^9.\n# Finite scan is falsification/regression only.\n\nfrom math import isqrt\n\n\ndef primes_upto(n):\n    sieve = bytearray(b\"\\x01\") * (n + 1)\n    sieve[:2] = b\"\\x00\\x00\"\n    for r in range(2, isqrt(n) + 1):\n        if sieve[r]:\n            sieve[r*r:n+1:r] = b\"\\x00\" * (((n-r*r)//r)+1)\n    return [i for i in range(2, n+1) if sieve[i]]\n\n\ndef harmonic_mod(p, r, mod):\n    return sum(pow(k, -r, mod) for k in range(1, p)) % mod\n\n\ndef binom_apminus1_mod(a, p, mod):\n    out = 1\n    for k in range(1, p):\n        out = out * (1 + (a-1)*p*pow(k, -1, mod)) % mod\n    return out\n\n\ndef hyper_jet(p, mod):\n    # term_k = c_k / 2^k at lambda=1/2.\n    term = 1\n    s0 = 1\n    s1 = s2 = s3 = 0\n    for k in range(p-1):\n        j = k + 1\n        num = (2*k+1)*(3*k+1)*(3*k+2)\n        den = 36*j**3\n        term = term * num * pow(den, -1, mod) % mod\n        s0 = (s0 + term) % mod\n        s1 = (s1 + j*term) % mod\n        s2 = (s2 + j*(j-1)*term) % mod\n        s3 = (s3 + j*(j-1)*(j-2)*term) % mod\n    # At half point: 9 F3 + 27 F2 - 44 F1 - 8 F.\n    return (72*s3 + 108*s2 - 88*s1 - 8*s0) % mod\n\n\ndef check_prime(p):\n    mod6 = p**6\n    h2_6 = harmonic_mod(p, 2, mod6)\n    h4_6 = harmonic_mod(p, 4, mod6)\n    u = (binom_apminus1_mod(2, p, mod6)**2\n         * binom_apminus1_mod(3, p, mod6)) % mod6\n    predicted_u = (\n        1 - 5*p**2*h2_6\n        - 17*pow(2, -1, mod6)*p**4*h4_6\n    ) % mod6\n    if u != predicted_u:\n        return (\"U6\", u, predicted_u)\n\n    mod = p**9\n    jet = hyper_jet(p, mod)\n    # q_p(6) modulo p^6 is enough for J9.\n    q = ((pow(6, p-1, p**7)-1)//p) % (p**6)\n    h2 = harmonic_mod(p, 2, mod)\n    h4 = harmonic_mod(p, 4, mod)\n    predicted_jet = (\n        -8*p**3 + 24*p**4*q - 48*p**5*q*q\n        + 80*p**6*q**3 - 120*p**7*q**4 + 168*p**8*q**5\n        + 40*p**5*h2 - 120*p**6*q*h2\n        + 240*p**7*q*q*h2 + 68*p**7*h4\n    ) % mod\n    if jet != predicted_jet:\n        return (\"J9\", jet, predicted_jet)\n    return None\n\n\nif __name__ == \"__main__\":\n    targets = [p for p in primes_upto(4999) if p % 24 in (13, 19)]\n    bad = []\n    for p in targets:\n        ans = check_prime(p)\n        if ans is not None:\n            bad.append((p, ans))\n    counts = {13: sum(p % 24 == 13 for p in targets),\n              19: sum(p % 24 == 19 for p in targets)}\n    print({\"target_primes\": len(targets), \"counts\": counts, \"failures\": bad})\n    assert len(targets) == 166\n    assert counts == {13: 83, 19: 83}\n    assert not bad\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "0b2d76348d8e1973a75e5965232157b897702ab9751a6b076d9feebf45dd9bfb"
+        }
+      ],
+      "sha256": "0b2d76348d8e1973a75e5965232157b897702ab9751a6b076d9feebf45dd9bfb",
+      "total_bytes": 2520,
+      "upload_id": "ur-p9-checker-r10-20260923"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "2dc744abb235fb1b34cfdf09ccb2dc67446abee58dd805e62022916436328b2b",
+          "native_payload_sha256": "d34df8d897c207159f9a1b1b27944231b78bda6e6ed3320eb28e8fe11d5bec73",
+          "part_index": 0,
+          "request_id": "research-hourly-20260923-t10-upload-p9-note-04",
+          "request_sha256": "e8e5697457dfb416df437ce64f7894cf77a6621e92462658e8a1849b85c4e319",
+          "session_id": "MCP-106daeb9d4df43f1bc477337723ce089"
+        }
+      ],
+      "complete": true,
+      "filename": "brc_finite_3f2_p9_harmonic_boundary_defect_20260923.md",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 5666,
+          "content_utf8": "# BRC finite 3F2 truncation defect: harmonic boundary lift through modulo p^9\n\nStatus: UNPUBLISHED STAGED RESEARCH EVIDENCE. This is a new portable precision increment inside the existing UR task. It is not a Source checkpoint, Result, Driver review, LIFT/JT2 result, or parent closure.\n\nTask: RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY\nPublication: TP2-C0E85430A37213F301EB\nLogical conversation: chatgpt-research-hourly-enterprise-math-20260923\n\n## 1. Consumed exact factorization\n\nLet\nF_p(lambda)=sum_{k=0}^{p-1} ((1/2)_k(1/3)_k(2/3)_k/(k!)^3) lambda^k,\ntheta=lambda d/dlambda,\nD=theta^3-lambda(theta+1/2)(theta+1/3)(theta+2/3).\n\nConsume, without re-proving, the already staged exact top-boundary identity\n\nD F_p(lambda)\n = -p^3 lambda^p U_p /(9*108^(p-1)),\nU_p = C(2p-1,p-1)^2 C(3p-1,p-1).\n\nAt lambda=1/2,\n\nD F_p(1/2) = -p^3 U_p /(18*216^(p-1)).                 (E)\n\nThe previous p^7 unit used the Bernoulli reduction\nU_p = 1 -(10/3)p^3 B_{p-3} (mod p^4).\nThe new unit keeps a stronger harmonic carrier instead of quotienting immediately to Bernoulli data.\n\n## 2. Provenance-preserving product and p-adic logarithm\n\nWrite in Z_(p), for target primes p >= 13,\n\nU_p\n = product_{k=1}^{p-1} (1+p/k)^2(1+2p/k).\n\nLet H_r=sum_{k=1}^{p-1} k^{-r}. Taking the p-adic logarithm and retaining terms below p^6 gives\n\nlog U_p\n = 4p H_1 -3p^2 H_2 +(10/3)p^3 H_3 -(9/2)p^4 H_4\n   +(34/5)p^5 H_5                              (mod p^6).   (L0)\n\nThe separate multiplicities two n=2 ports and one n=3 port are retained in the coefficients\n(-1)^(r+1)(2+2^r)/r; no unsigned aggregation is used.\n\nFor p >= 13, standard finite-field power sums give\nH_2 = 0 (mod p), H_4 = 0 (mod p), H_6 = 0 (mod p).\nThe involution k -> p-k gives, at the precisions needed,\n\n2H_1 = -pH_2-p^2H_3-p^3H_4-p^4H_5              (mod p^5),\n2H_3 = -3pH_4-6p^2H_5                           (mod p^3).\n\nSince H_5=0 (mod p^2) by the same odd-power pairing using H_6=0 (mod p),\nthese imply\n\n2H_1 = -pH_2-p^2H_3-p^3H_4                     (mod p^5),\nH_3 = -(3/2)pH_4                                (mod p^3).\n\nSubstituting in (L0),\n\nlog U_p = -5p^2 H_2 -(17/2)p^4 H_4             (mod p^6). (L1)\n\nBecause v_p(H_2)>=1 and v_p(H_4)>=1, the right side has p-adic valuation at least 3; hence its square has valuation at least 6. Exponentiating therefore introduces no further term modulo p^6:\n\nboxed:\nU_p = 1 -5p^2 H_2 -(17/2)p^4 H_4               (mod p^6). (U6)\n\nThe modulo-p^5 corollary U_p=1-5p^2H_2 (mod p^5) already strictly refines the Bernoulli p^4 unit while preserving the full harmonic observer. Using H_2/p = (2/3)B_{p-3} (mod p), U6 reduces to the previous p^7 Bernoulli coefficient at the required lower precision.\n\n## 3. Half-point normalization and p^9 defect\n\nPut q=q_p(6)=(6^(p-1)-1)/p. Exactly,\n\n216^(p-1)=(1+pq)^3.\n\nThus, modulo p^6,\n\n216^{-(p-1)}\n = 1-3pq+6p^2q^2-10p^3q^3+15p^4q^4-21p^5q^5.\n\nMultiplying this normalization port by (U6), and using v_p(H_2),v_p(H_4)>=1 to discard only terms of bracket valuation >=6, gives\n\n216^{-(p-1)} U_p =\n 1-3pq+6p^2q^2-10p^3q^3+15p^4q^4-21p^5q^5\n -5p^2H_2+15p^3qH_2-30p^4q^2H_2\n -(17/2)p^4H_4                                     (mod p^6).\n\nApplying (E) yields the new all-prime precision certificate\n\nboxed:\nD F_p(1/2) =\n -p^3/18 + p^4 q/6 - p^5 q^2/3 + 5p^6 q^3/9\n -5p^7 q^4/6 + 7p^8 q^5/6\n +(5/18)p^5 H_2 -(5/6)p^6 q H_2 +(5/3)p^7 q^2 H_2\n +(17/36)p^7 H_4                                      (mod p^9). (D9)\n\nThe p^8 reduction is obtained by deleting only the effective-p^8 terms. The old p^7 Bernoulli certificate follows from H_2/p=(2/3)B_{p-3} (mod p); hence D9 is a strict lift, not a competing formula.\n\n## 4. Ordinary-derivative jet\n\nAt lambda=1/2 the exact coordinate identity is\n\n144 D F_p(1/2)\n = 9F_p'''(1/2)+27F_p''(1/2)-44F_p'(1/2)-8F_p(1/2).\n\nTherefore D9 is equivalent to\n\nboxed:\n9F_p''' +27F_p'' -44F_p' -8F_p =\n -8p^3 +24p^4q -48p^5q^2 +80p^6q^3\n -120p^7q^4 +168p^8q^5\n +40p^5H_2 -120p^6qH_2 +240p^7q^2H_2\n +68p^7H_4                                             (mod p^9), (J9)\n\nwhere all F_p derivatives are evaluated at 1/2.\n\nThis exposes two distinct higher-precision boundary observers: H_2 first appears effectively at p^6 and H_4 first appears effectively at p^8. They remain source-labeled and are not collapsed to Bernoulli scalars before a safe quotient.\n\n## 5. Exact falsification/regression\n\nThe companion checker independently:\n- computes U_p from its two n=2 binomial ports and one n=3 port modulo p^6;\n- computes H_2,H_4 directly as p-adic reciprocal sums;\n- computes the original finite hypergeometric jet modulo p^9 from the coefficient recurrence, without using (E);\n- verifies U6 and J9 for every target prime p<5000 with p=13 or 19 (mod 24).\n\nThere are 166 such primes, 83 in each residue class, with zero failures. This finite scan is regression/falsification only; the proof is the product/logarithm/pairing derivation above plus the already established exact top-boundary identity.\n\n## 6. Control / successor boundary\n\nThis unit remains portable evidence in the current UR task until a lawful run can publish it. It does not establish Source completion, independent review, LIFT or JT2. The first-digit UR/JT0 closure package remains the publication priority once canonical continuation authorization becomes available.\n\nThe next portable precision question, if the current task remains execution-blocked and no overlapping owner exists, is U_p modulo p^7. At that precision exp(log U_p) first contributes the quadratic term (log U_p)^2/2, so a correct next unit must retain both harmonic provenance and the first nonlinear unit interaction rather than extrapolate the linear pattern.\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "f156fe29211d27eaeb685e127ca071ea075de3032ac876b1521d8d8ec0ae42bf"
+        }
+      ],
+      "sha256": "f156fe29211d27eaeb685e127ca071ea075de3032ac876b1521d8d8ec0ae42bf",
+      "total_bytes": 5666,
+      "upload_id": "ur-p9-harmonic-r10-20260923"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "9d6e1506abc052c2b3cb078bd0cce2b03faf8dfc42e71acf5bf46fb0cbdbb3e1",
+          "native_payload_sha256": "a4195bba58b2f64866449c424b853aa44577daeaceedf631c8cd913701daf5c1",
+          "part_index": 0,
+          "request_id": "upload-handoff-p17-20260924-r11-0032",
+          "request_sha256": "9bb571d860c176f3f3fd7f1e0cd89cefed70534856bac85039bfa1b8ac16d33d",
+          "session_id": "MCP-106daeb9d4df43f1bc477337723ce089"
+        }
+      ],
+      "complete": true,
+      "filename": "ur_recovery_handoff_p17_20260924_r11.md",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 4133,
+          "content_utf8": "# D24 UR Research-lane recovery handoff — p17/H12 frontier\n\nStatus: STAGED ONLY / NOT SOURCE-PUBLISHED / NOT RESULT / NOT REVIEW.\nLogical conversation: chatgpt-research-hourly-enterprise-math-20260923.\nTask/publication: RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY / TP2-C0E85430A37213F301EB.\nFrozen task Source readback in this run: enterprise-math@73c755c7754e29246afd48f992f6b1c905a7b580.\nResearcher service session recovered: EM-DIRECT-A71FA7 / MCP-106daeb9d4df43f1bc477337723ce089.\n\n## Canonical scientific frontier\n\nThe Source-resident checkpoint bytes preserve, but do not canonically accept as owner progress, the UR/JT0 all-target closure candidate based on exact Chan-Liaw d=3, lambda=1/2, a=6 normalization plus Chisholm Theorem 1 and the accepted D=-24 supersingular parent bridge. Formal Result encapsulation and independent Driver review remain unfinished. LIFT/JT2 remains deferred.\n\nDo not redo accepted-parent CM0/SIMPLE, the eliminated finite-tail/harmonic interface, or the completed prior-art derivation merely because context is compressed. DR-2EA60F5817976E662FA6 remains CURRENT_TASK_DEFINITION_INPUT_READBACK rather than predecessor completed research.\n\n## New portable unit in this run\n\nA strict p-adic extension of the auxiliary BRC boundary certificate was proved and independently regression-checked:\n\nlog U_p = -5p^2H2 -(17/2)p^4H4 -(65/3)p^6H6 -(257/4)p^8H8 -205p^10H10 -(4097/6)p^12H12 (mod p^14),\n\nwith the exact valuation-controlled U_p polynomial modulo p^14 retaining the new H12 port, quartic H2^4 interaction, H2H8, H4H6, H2^2H6 and H2H4^2 terms. The endpoint p=13 raw 1/13 logarithm denominator is handled before truncation by exact odd reflection, so its r=13 contribution starts at p^14 and does not invalidate the uniform congruence. Consequently\n\nJ_p = -8p^3(1+p q_p(6))^-3 U_p^(14) (mod p^17).\n\nExact regression from original multiplicative ports and the finite hypergeometric recurrence passed all 166 target primes p<5000, 83 in each residue class, with zero U14/J17 failures. Finite regression is not the proof.\n\nStaged evidence:\n- brc_finite_3f2_p17_h12_quartic_boundary_defect_20260924.md — SHA-256 495252d38f34901c0be69f89e32ac5c489e20da6ed7ed215785c357575c1b782.\n- check_finite_3f2_p17_h12_quartic_boundary_defect_20260924.py — SHA-256 576e09062c0928abfe8ec477a9200202c53467ab5c17f2db1d60edaa60ee21b3.\n\nNeither file is Source-published or a Result.\n\n## Current control boundary\n\nFresh continuation continuation-d24-20260924-r11-0022 was fully paged. It has no live actor/claim and requires a new lawful claim. The seed artifact DR-2EA60F5817976E662FA6 was fully read/hash-verified in artifact-d24-seed-20260924-r11-0024. A first prepare override was rejected because native frontier must be preserved. The corrected contract-shaped continuation_prepare using only packet_request_id+reason, continuation-prepare-d24-20260924-r11-0029, terminally failed: CANONICAL_REJECTED: new conversation must use its own identity.\n\nThis stable logical Research lane must not invent a new identity merely because an automation/context turn changed. The new failure signature has been appended to enterprise-math control-support issue #1508 with acceptance criteria. No prepare_exact, claim, open, publish_checkpoint, freeze, or Result was fabricated after the rejection.\n\n## Next exact action\n\nNext run: first read recovery_status and exact D24 continuation. If Source/control has resolved the identity guard, perform exactly one legal typed preparation for this fixed logical lane, then CLAIM -> OPEN. Under the current ordinary-control contract, terminal SUCCEEDED open/resume with native authorized=true plus fresh Source confirmation of the exact winning claim/session/run is the execution gate; execution_started telemetry is not an extra gate. Then publish one truthful checkpoint that consumes the existing UR closure evidence and this new p17 auxiliary evidence without re-derivation, read back the canonical durable frontier, freeze a UR/JT0 Result candidate, and route independent Driver review. Do not enter LIFT/JT2 before terminal UR acceptance.\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "e13d7d8671f4a790bc100c37fe2f72f89f9f844a6cf82d669146f75a0fa851a3"
+        }
+      ],
+      "sha256": "e13d7d8671f4a790bc100c37fe2f72f89f9f844a6cf82d669146f75a0fa851a3",
+      "total_bytes": 4133,
+      "upload_id": "ur-recovery-handoff-p17-20260924"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "f546c8bd5c508909f5b66c06e8e93aff2002eae7978892b3845c7c1cae4ba0c2",
+          "native_payload_sha256": "c791ac212ab1b86840864bf8ba3bb1e3d1cc5c4e3229ebe307c276893aa5be66",
+          "part_index": 0,
+          "request_id": "upload-handoff-p11-20260923-r11-2044",
+          "request_sha256": "31bce7f07f3a36c8c3cf90e74b1eddded8353eee42f2eb1af6765c6f9c42c0f9",
+          "session_id": "MCP-106daeb9d4df43f1bc477337723ce089"
+        }
+      ],
+      "complete": true,
+      "filename": "ur_recovery_handoff_p11_20260923_r11.md",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 4202,
+          "content_utf8": "# Enterprise Math Research recovery handoff — p11 / r11\n\n## Mother objective\nClose the D=-24 supersingular unit-reciprocity hard target UR for p mod 24 in {13,19}, preserving the accepted parent CM0/SIMPLE interface and BRC provenance. Do not enter LIFT/JT2 before canonical UR acceptance.\n\n## Immutable / do-not-redo frontier\n- Accepted parent input `DR-2EA60F5817976E662FA6` is current-task input bytes, not predecessor completed research.\n- Do not redo accepted CM0/SIMPLE or eliminated finite-tail/harmonic-block work.\n- Existing staged UR/Chisholm proof material and p3..p10 defect notes remain portable unpublished evidence, not Source frontier.\n- Do not promote staged uploads, drafts, or current-task inputs to predecessor completed units.\n\n## New scientific unit this run\nFor U_p=C(2p-1,p-1)^2 C(3p-1,p-1), H_r=sum_{k=1}^{p-1}k^{-r}, target p>=13:\n\nU_p == 1 -5p^2H_2 -(17/2)p^4H_4 +(25/2)p^4H_2^2 -(65/3)p^6H_6 (mod p^8).\n\nThis follows from the port-preserving p-adic logarithm of product_k(1+p/k)^2(1+2p/k), the exact k<->p-k harmonic identity, and exponentiation with valuation control. Consuming the previously staged exact half-point boundary identity gives a p^11 jet certificate with the first H_6 carrier. Full proof is staged as `brc_finite_3f2_p11_harmonic_boundary_defect_20260923.md`; exact checker is staged as `check_finite_3f2_p11_harmonic_boundary_defect_20260923.py`. Exact independent modular regression: all 166 target primes p<5000, 83 in each residue class, zero failures for U8 and J11. Regression is not the proof.\n\n## Staged evidence identities\n- final upload request `upload-p11-note-20260923-r11-2037`, SHA-256 `0236e7f45a344ea00be04b14f1472d414989985e2432f4caf62fe6cf8a59e913`, source_published=false.\n- final upload request `upload-p11-checker-20260923-r11-2038`, SHA-256 `663b2e64bde786e5ab953dfcb200b1c9ff83435f9fd2910c25e103eebc55fa71`, source_published=false.\n\n## Current control state / duplicate publication boundary\nFixed logical conversation: `chatgpt-research-hourly-enterprise-math-20260923`. Existing Researcher session from recovery remains `EM-DIRECT-A71FA7 / MCP-106daeb9d4df43f1bc477337723ce089`, with no run/claim and execution_authorized=false at the start of this run.\n\nFresh D24 continuation request `continuation-d24-20260923-r11-2025` now reports `continuation_seed.state=CURRENT_TASK_INPUTS_WITH_NO_RECORDED_OWNER_PROGRESS`, completed_research_units_verified=false, sole seed input `DR-2EA60F5817976E662FA6` with provenance CURRENT_TASK_DEFINITION_INPUT_READBACK, and no current runtime actor/claim. The previous D24 claim is not treated as our ownership.\n\nFresh CM24 continuation request `continuation-cm24-20260923-r11-2024` remains execution_authorized=false, no durable frontier, and no continuation seed. A previous fresh canonical dispatch selected CM24, while D24 is now simultaneously resumable and has the same UR hard target. Support issue #1507 has been updated with this narrowed state; no CLAIM/OPEN was issued on either publication.\n\nA fresh RESEARCH dispatch request `dispatch-20260923-r11-2042` was started after the D24 owner cleared; consume that exact request's receipt rather than resubmitting.\n\n## Evidence debt / next exact action\n1. Reconcile/read terminal `dispatch-20260923-r11-2042`.\n2. If canonical Source/Driver resolves #1507 by selecting exactly one non-overlapping operational publication, follow that route only. If it selects D24 with seed state CURRENT_TASK_INPUTS_WITH_NO_RECORDED_OWNER_PROGRESS, fully read the exact seed artifact under this conversation, use typed continuation_prepare with `frontier_notes.completed_units=[]`, then explicit CLAIM and OPEN; only OPEN readback `execution_started=true` starts execution.\n3. After lawful OPEN, consume staged UR proof evidence without treating it as predecessor progress; verify the smallest unfinished UR unit, then checkpoint truthful evidence. Include p11 note/checker only as deferred high-precision portable evidence.\n4. If duplicate-publication routing remains unresolved, do not create parallel UR ownership; continue only source-permitted portable units and keep them unpublished.\n\nNo scheduler/notification/frequency change is part of this handoff.",
+          "final": true,
+          "part_index": 0,
+          "sha256": "21443c2d7ffac3962085b67a93faa552e40cdff8dd52d21a155957055f24d387"
+        }
+      ],
+      "sha256": "21443c2d7ffac3962085b67a93faa552e40cdff8dd52d21a155957055f24d387",
+      "total_bytes": 4202,
+      "upload_id": "ur-recovery-p11-r11"
+    }
+  ]
+}
