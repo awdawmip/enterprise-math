@@ -1,0 +1,44 @@
+{
+  "claim_id": "MCP-0d263f4abf32692950275b3d",
+  "completed_units": [
+    "Proved the exact finite Gauss differential-equation defect identity for F(a,z): every interior coefficient cancels and the complete truncation forcing is the single terminal k=p-1 port.",
+    "Proved the terminal coefficient has deformation order exactly two: c_N(0)=c_N'(0)=0 with an exact closed formula for c_N''(0).",
+    "Proved the order-2 terminal forcing at z=1/2 is universally B_m(1/2)=-2 mod p for every prime p=6m+1, hence both target classes.",
+    "Proved the full finite-Gauss coordinates are exactly the frozen parent Jacobi-jet coordinates F0=Phi, F1=-Phi_x, F2=Phi_xx, H0=Psi, H1=-Psi_x; in particular A_p=Phi/p-Phi_x/6 and the first-neglected product coordinate is [a_parent Psi-1]/p, so no separate bridge may be invented.",
+    "Verified the terminal double-zero, c_N'' formula and universal -2 residue on all 166 target primes below 5000 with zero failures; finite scan used only for falsification."
+  ],
+  "contributor_ids": [
+    "EM-DIRECT-A71FA7",
+    "EM-DIRECT-B9BCE8",
+    "EM-DIRECT-C4D02C",
+    "EM-DIRECT-E267A2"
+  ],
+  "current_unfinished_unit": "LIFT remains open: eliminate the extra z-derivative state of the forced second parameter jet at z=1/2 without losing the terminal -2 source, then compare the resulting exact scalar with frozen R_p.",
+  "do_not_repeat": [
+    "Do not rebuild I0/I1/I2 shells independently; the global finite parameter jet and tail-chain reduction are already durable.",
+    "Do not seek a separate alpha/beta bridge for the finite-Gauss first-neglected product coordinate; it is now proved exactly equal to the frozen parent [a_parent Psi-1]/p coordinate.",
+    "Do not discard the k=p-1 terminal source merely because parameter orders 0 and 1 have homogeneous finite Gauss equations; the first nonzero boundary forcing is order 2 and equals -2 at z=1/2 modulo p.",
+    "Do not promote the p<5000 regression to an all-prime proof."
+  ],
+  "executor_role": "RESEARCHER",
+  "next_action": "Construct an exact finite adjoint or contiguous functional for L_0 at z=1/2 that pairs with the forced second-jet equation and collapses L_0F_2 to an endpoint scalar while preserving the k=p-1 source -2; if successful compare that scalar to R_p, otherwise persist the exact adjoint defect.",
+  "output_manifest": [
+    {
+      "git_blob_sha1": "sha1:d36cc165dcfa8d7a63fed2f32ebe737d3ee1ec66",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/ee88f54214f58e0df802/d25_finite_gauss_second_jet_boundary_forcing_20260924.md",
+      "sha256": "sha256:2dff103174f4f631ad3f10606c51ce5917e7d04fd580fcdd3942ab4b043a06ca"
+    },
+    {
+      "git_blob_sha1": "sha1:dc5673b2296b774e18233bf6d2e1e807cb8741b4",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/ee88f54214f58e0df802/verify_d25_finite_gauss_second_jet_boundary_forcing.py",
+      "sha256": "sha256:9f255fd7da2107649180ea67def786f8c1078c874170790a1cbf61bb20463fe5"
+    }
+  ],
+  "ownership_epoch": 5807071578,
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "researcher_id": "EM-DIRECT-E267A2",
+  "schema": "ENTERPRISE_MATH_MCP_EXECUTION_CHECKPOINT_V1",
+  "session_id": "MCP-70a0fec6896849ac81484f0e00b3f0dd",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "verification": "AUTHOR_REPORTED_SOURCE_BYTES_ONLY_NOT_MATHEMATICAL_ACCEPTANCE"
+}
