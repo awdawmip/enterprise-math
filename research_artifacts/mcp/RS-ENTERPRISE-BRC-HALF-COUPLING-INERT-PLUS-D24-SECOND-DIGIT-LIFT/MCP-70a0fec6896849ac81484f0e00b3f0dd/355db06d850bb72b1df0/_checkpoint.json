@@ -1,0 +1,51 @@
+{
+  "claim_id": "MCP-0d263f4abf32692950275b3d",
+  "completed_units": [
+    "Consumed the accepted D24 UR/JT0 parent and the existing D25 observer/shell/I1 checkpoints without reopening them: LIFT is exactly E_p=(W_p-p)/p^2=0 mod p, I3 is pointwise p^3-invisible, I2 is the signed K_m boundary carrier, and I1 is the b_1(Q_m+pJ_m) first-order carrier.",
+    "For I0, with n=2m=(p-1)/3 and 1/3=-n+p/3, proved termwise modulo p^3 the finite terminating deformation (-n+p/3)_k/(-n)_k = 1-(p/3)A_k+(p^2/18)(A_k^2-B_k), where A_k=H_n-H_{n-k} and B_k=H_n^(2)-H_{n-k}^(2).",
+    "Summing the exact finite-product deformation gives S_0 = U_0-(p/3)U_1+(p^2/18)U_2 mod p^3, with U_0=sum u_k, U_1=sum u_k A_k and U_2=sum u_k(A_k^2-B_k), preserving every I0 source port visible to the p^3 observer.",
+    "Isolated the unique k=m source where 6m+1=p: u_m=p v_m contributes p v_m-(p^2/3)v_m A_m mod p^3; its quadratic deformation term is individually p^3-invisible but the source and first derivative are retained.",
+    "Combined I0 with the already-persisted I1/I2 carriers to obtain the source-preserving normal form W_p = Uhat_0 + p[v_m-Uhat_1/3+b_1 Q_m] + p^2[Uhat_2/18-v_m A_m/3+b_1 J_m+(4/9)(6/p)K_m] mod p^3, with the stated precision of b_1 Q_m and b_1 J_m preserved.",
+    "Executed an exact deterministic regression over all 166 target primes p<5000, 83 in each residue class; termwise deformation, summed I0 identity and isolated k=m formula all pass. Authoritative staged checker-byte SHA-256 is 24819e7b8e188997af9a1f84ded4b12bef8978dff91f2380ff0c23f2c31153d9; finite regression is falsification only."
+  ],
+  "contributor_ids": [
+    "EM-DIRECT-A71FA7",
+    "EM-DIRECT-B9BCE8",
+    "EM-DIRECT-C4D02C",
+    "EM-DIRECT-E267A2"
+  ],
+  "current_unfinished_unit": "LIFT remains open. The live p^3 observer is now the combined terminating carrier Uhat_0,Uhat_1,Uhat_2 with the isolated k=m source, the live I1 seed/derivative pair b_1,Q_m,J_m, and the I2 signed boundary carrier K_m. An all-target identity proving this normal form equals p mod p^3, or an exact counterexample, is still required.",
+  "do_not_repeat": [
+    "Do not reopen accepted D24 UR/JT0, CM0/SIMPLE, or the first-digit Chisholm/Clausen proof.",
+    "Do not redo the exact Delta_p-R_p to E_p reduction or the already-persisted I1/I2 shell transports.",
+    "Do not restore pointwise p^3-invisible I3 ports.",
+    "Do not collapse the k=m source, I1 H_s/J_m derivative coordinate, I2 Legendre sign, or b_1 mod-p^2 correction before an exact identity licenses the quotient.",
+    "Do not enlarge or rerun the same 166-prime scan as a substitute for an all-prime proof."
+  ],
+  "executor_role": "RESEARCHER",
+  "next_action": "Seek an exact terminating contiguous/telescoping or creative-microscoping identity for the combined carrier, first testing k->n-k reflection and parameter-derivative relations for Uhat_0,Uhat_1,Uhat_2. The target is an exact compensation of the I1 derivative port b_1 J_m and I2 term (4/9)(6/p)K_m while retaining the isolated k=m source and all p-adic provenance.",
+  "output_manifest": [
+    {
+      "git_blob_sha1": "sha1:9bf658d2358adae5548a2dd961a60bbb4f96d1f3",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/355db06d850bb72b1df0/d25_lift_i0_terminating_deformation_20260924.md",
+      "sha256": "sha256:9056551cb10d424b48875d38faff5a76e545cf01cd64837078ba1d5eee541caa"
+    },
+    {
+      "git_blob_sha1": "sha1:8f7e24f9b82493fdb04c484084c9efc23c362b28",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/355db06d850bb72b1df0/d25_lift_i0_terminating_deformation_checker_20260924.py",
+      "sha256": "sha256:24819e7b8e188997af9a1f84ded4b12bef8978dff91f2380ff0c23f2c31153d9"
+    },
+    {
+      "git_blob_sha1": "sha1:086b31293c11db7fefcdaedf79d90364edaaf790",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/355db06d850bb72b1df0/d25_lift_i0_checker_evidence_20260924.md",
+      "sha256": "sha256:db0180ec03a9dacbeb48d673cdcc3f69291b01978475a8c75b786a05c7469095"
+    }
+  ],
+  "ownership_epoch": 5807071578,
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "researcher_id": "EM-DIRECT-E267A2",
+  "schema": "ENTERPRISE_MATH_MCP_EXECUTION_CHECKPOINT_V1",
+  "session_id": "MCP-70a0fec6896849ac81484f0e00b3f0dd",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "verification": "AUTHOR_REPORTED_SOURCE_BYTES_ONLY_NOT_MATHEMATICAL_ACCEPTANCE"
+}
