@@ -1,0 +1,94 @@
+{
+  "allowed_outputs": [
+    "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY/MCP-e6cc623799404ca09be0012f8654712c/"
+  ],
+  "claim_id": "MCP-ffaa21ed1d1a6cd0acf37ad9",
+  "continuation": {
+    "expected_previous_claim_id": "MCP-b31f628f33669c90cd07c7ef",
+    "expected_previous_comment_id": 5795862262,
+    "frontier": {
+      "artifacts": [
+        {
+          "git_blob_sha1": "74163f9e01f8a10554787af54efe7bb6b458e101",
+          "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY/latest_checkpoint.json",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "0c4a5500fd358d987a5f6feee9ac433a2194bef61b9141653a8279904c8f8071",
+          "source_commit": "7957404f10107f8eb0c1fc9b40d5412ee50f6cee"
+        },
+        {
+          "git_blob_sha1": "db90e6b14cd4fa96d8eda24db35fe07e95f05991",
+          "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY/MCP-106daeb9d4df43f1bc477337723ce089/3fd01d92fde4f6c90b8c/_checkpoint.json",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "f98f11396fa5750f8c64e7645a5c82d10ac57f316e33afdfbca2545a1361f3cf",
+          "source_commit": "7957404f10107f8eb0c1fc9b40d5412ee50f6cee"
+        },
+        {
+          "git_blob_sha1": "838d44120723017ca51d4ccc0d0346a01a1d7e19",
+          "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY/MCP-106daeb9d4df43f1bc477337723ce089/3fd01d92fde4f6c90b8c/ur_chisholm_chan_liaw_independent_audit_20260923.md",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "420902b5b32fe424c3ff77ad49290cef64a4b3c571cfee9a7723c1345f58f565",
+          "source_commit": "7957404f10107f8eb0c1fc9b40d5412ee50f6cee"
+        },
+        {
+          "git_blob_sha1": "869b56a065b6c8f7a55e4485ac3aad3c7c5514cb",
+          "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY/MCP-106daeb9d4df43f1bc477337723ce089/3fd01d92fde4f6c90b8c/check_ur_chisholm_w2_exact_20260923.py",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "058c9464b47d780cd9137b944d6c527000347d3f7bd0aa771d072baa04d61b2c",
+          "source_commit": "7957404f10107f8eb0c1fc9b40d5412ee50f6cee"
+        },
+        {
+          "git_blob_sha1": "9a9806cd57abfbb5f11e44a5b8efc719391253a8",
+          "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY/MCP-106daeb9d4df43f1bc477337723ce089/3fd01d92fde4f6c90b8c/brc_finite_3f2_p15_h10_boundary_defect_20260923.md",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "7d34c4812f9edf43a3317a14759bbc9181245032b24913ac95c0afda07ae85e1",
+          "source_commit": "7957404f10107f8eb0c1fc9b40d5412ee50f6cee"
+        },
+        {
+          "git_blob_sha1": "d6c916d600a944357c2aed397e71ea9b3f61ddcd",
+          "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY/MCP-106daeb9d4df43f1bc477337723ce089/3fd01d92fde4f6c90b8c/p15_h10_verification_transcript_20260923.md",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "8d6cdcbd6f63d367d13e4cfa7f32d5bad81182d201123aba6be12bdf613125ce",
+          "source_commit": "7957404f10107f8eb0c1fc9b40d5412ee50f6cee"
+        }
+      ],
+      "completed_units": [
+        "UR/JT0 all-target closure candidate: exact Chan-Liaw d=3, lambda=1/2, a=6 normalization plus Chisholm Theorem 1 and the accepted D=-24 supersingular parent interface give W_p congruent p modulo p^2 for every p congruent 13 or 19 modulo 24; composing with the frozen bridge gives JT0 iff UR. Exact checker independently revalidated all 166 target primes below 5000 with zero failures; finite regression is not the proof.",
+        "Portable BRC boundary unit through p^15: preserving the two n=2 ports and one n=3 port gives log U_p through H10 modulo p^12, the valuation-controlled U_p polynomial modulo p^12, and J_p congruent -8 p^3 (1+p q_p(6))^-3 U_p^(12) modulo p^15, with H10 and the H2H6, H4^2, H2^2H4 interactions retained."
+      ],
+      "contributor_ids": [
+        "EM-DIRECT-A71FA7",
+        "EM-DIRECT-C4D02C",
+        "EM-DIRECT-F4FEA6"
+      ],
+      "current_unfinished_unit": "Formal encapsulation and independent review of the UR/JT0 closure candidate remain unfinished; Source theorem status must remain UR_OPEN until a Result is frozen and independently reviewed. LIFT/JT2 is still deferred.",
+      "do_not_repeat": [
+        "Do not redo accepted-parent CM0/SIMPLE or the eliminated finite-tail/harmonic-block interface.",
+        "Do not reclassify DR-2EA60F5817976E662FA6 current-task input as predecessor completed research.",
+        "Do not re-run the completed UR prior-art derivation or p^15/H10 derivation merely because later context is compressed; revalidate only exact hashes/checkers as required.",
+        "Do not enter LIFT/JT2 before terminal UR acceptance."
+      ],
+      "next_action": "Read back this checkpoint from canonical continuation/artifact pins. If durable evidence is confirmed, form a UR/JT0 Result candidate from the source-audited closure evidence, freeze it without entering LIFT, and route an independent Driver review; keep the p^15/H10 certificate auxiliary portable evidence.",
+      "source_commit": "7957404f10107f8eb0c1fc9b40d5412ee50f6cee"
+    },
+    "mode": "RESUME",
+    "previous_researcher_id": "EM-DIRECT-A71FA7",
+    "reason": "Continue the same logical TASK_RESEARCH lane under the fresh successor Researcher identity after verified neutral staging preservation and lawful old-session close. Preserve the Source-native D24 checkpoint frontier (latest checkpoint points to exact SHA-256 f98f11396fa5750f8c64e7645a5c82d10ac57f316e33afdfbca2545a1361f3cf); do not classify CURRENT_TASK_DEFINITION_INPUT_READBACK or archived staging as predecessor completed research, and do not replay already-persisted derivations.",
+    "schema": "ENTERPRISE_MATH_CLAIM_CONTINUATION_V1",
+    "session_id": "MCP-e6cc623799404ca09be0012f8654712c"
+  },
+  "execution_branch": "main",
+  "execution_branch_base": "7957404f10107f8eb0c1fc9b40d5412ee50f6cee",
+  "execution_record_id": "ER-8AA896F6DA39A777BFB6",
+  "executor_role": "RESEARCHER",
+  "owner_lease_minutes": 120,
+  "prepared_at": "2026-09-24T01:19:01.424827+00:00",
+  "publication_id": "TP2-C0E85430A37213F301EB",
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_EXECUTION_RECORD_V1",
+  "record_state": "CLAIM_INTENT",
+  "researcher_id": "EM-DIRECT-B9BCE8",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY",
+  "taskbook_blob_sha1": "sha1:813b17150ba03883c5a2e72afe69f139b635fcb8",
+  "taskbook_path": "research_tasks/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_D24_SUPERSINGULAR_UNIT_RECIPROCITY_20260909.md",
+  "theorem_owner": "research/enterprise-brc-half-coupling-inert-plus-d24-supersingular-unit-reciprocity",
+  "theorem_owner_source": "PREDECESSOR_EXECUTION_BINDING"
+}
