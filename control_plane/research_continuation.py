@@ -551,17 +551,33 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
     progress = state.get("last_progress_ref")
     progress_readback = None
     continuation_seed = None
+    # A registered task can use its publication ID as its initial progress
+    # marker. Resolve only that exact unchanged marker to the current record;
+    # it is task input, never evidence of work by the previous claimant.
+    publication_input_seed = (
+        _text(progress) and progress == record["publication_id"]
+        and progress == definition.get("last_progress_ref")
+        and _text(definition.get("last_progress_at"))
+        and state.get("last_progress_at") == definition.get("last_progress_at")
+        and persisted_checkpoint.get("state") == "NOT_FOUND"
+        and not restricted and not state.get("claim_id")
+        and state.get("dispatch_state") == "NEEDS_DISPATCH"
+        and _text(state.get("last_claim_id"))
+        and type(state.get("last_claim_comment_id")) is int
+        and state["last_claim_comment_id"] > 0)
+    progress_path = (f"research_task_records/{task_id}/{record['publication_id']}.json"
+                     if publication_input_seed else progress)
     fixed = _fixed_source_candidate(progress, "AUTHENTICATED_RUNTIME_LAST_PROGRESS_REF")
     if fixed and (not restricted or (fixed["source_commit"], fixed["path"]) in allowed):
         external.append(fixed)
-    elif isinstance(progress, str) and progress and not progress.startswith(("http:", "https:")):
+    elif isinstance(progress_path, str) and progress_path and not progress_path.startswith(("http:", "https:")):
         # Legacy publications often seed last_progress_ref with a repository
         # path. Verify its current immutable bytes; do not invent a historical
         # commit or treat the input as work produced by a later CLAIM.
-        if not restricted or (source_commit, progress) in allowed:
+        if not restricted or (source_commit, progress_path) in allowed:
             try:
-                pin = artifact_pin(root, progress, source_commit)
-                _require(not expected_input_blobs.get(progress) or expected_input_blobs[progress] == {pin["git_blob_sha1"]},
+                pin = artifact_pin(root, progress_path, source_commit)
+                _require(not expected_input_blobs.get(progress_path) or expected_input_blobs[progress_path] == {pin["git_blob_sha1"]},
                          "declared input blob differs from current Source bytes")
             except ContinuationError as exc:
                 artifact_errors.append({"path": progress, "error": str(exc)})
@@ -584,6 +600,8 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
                         "previous_comment_id": state.get("last_claim_comment_id"),
                         "input_artifacts": [pin], "completed_research_units_verified": False,
                         "required_action": "Read the declared input, record UNKNOWN prior private work honestly, and continue the smallest unfinished task unit under a new authorized claim."}
+                    if publication_input_seed:
+                        continuation_seed["completed_units"] = []
     if firewall:
         for source_pin in firewall["allowed_source_pins"]:
             fixed = _fixed_source_candidate(source_pin, "EXPLICIT_SOURCE_FIREWALL_ALLOWLIST")
