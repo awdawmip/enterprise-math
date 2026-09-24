@@ -1,0 +1,20 @@
+{
+  "schema": "ENTERPRISE_MATH_REGRESSION_CERTIFICATE_V1",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "scope": "REGRESSION_FALSIFICATION_ONLY_NOT_PROOF",
+  "target_primes_lt": 5000,
+  "target_condition": "p mod 24 in {13,19}",
+  "target_prime_count": 166,
+  "class13_count": 83,
+  "class19_count": 83,
+  "checks": [
+    "backward f_r recurrence equals defining finite tail sum for every r",
+    "finite adjoint telescope C_m = 2 m^2 y_m u_m",
+    "terminal normalization 2 m^2 y_m = inverse(18 a_m binom(3m,m)) mod p",
+    "one-scalar C_m equals the independent original-kernel prefix-transform C_m"
+  ],
+  "failures": [],
+  "locally_executed_checker_sha256": "7f71d9517bdb39668b53c734b2dfd39e8764372e48c8ce722d189cae866dc613",
+  "proof_location": "d25_lift_adjoint_endpoint_one_scalar_20260924.md sections 1-4"
+}
