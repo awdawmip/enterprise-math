@@ -1,0 +1,56 @@
+{
+  "claim_id": "MCP-0d263f4abf32692950275b3d",
+  "completed_units": [
+    "Consumed the durable finite discrete-adjoint checkpoint and preserved its exact no-new-constraint conclusion: repeated differentiation/SBP of the same evaluation adjoint closes back to F_2(1/2)=S_m-2 and cannot determine the independent LIFT digit.",
+    "Recovered and independently checked the source valuation-band decomposition G=G_T+pY mod p^2 and h=H_U+pA mod p^2, yielding Delta_p=Z_T+Gbar A+hbar Y mod p with Z_T=(G_T H_U-1)/p.",
+    "Proved the recovered absolute unit-core reduction is an exact all-target strict reduction: LIFT is equivalent to Z_T=R_p-Gbar A-hbar Y mod p, with middle and high valuation provenance retained.",
+    "Constructed the exact finite-Gauss cutoff parameter-jet bridge at a=p/6 and derived Z_T=[a_parent Psi-1]/p+a_parent H_1^{<=m}/6+Psi F_2^{<=2m}/72 mod p, with exact middle/high support recombination.",
+    "Proved a uniform rational first-order adjoint obstruction for the three-layer cutoff transport and identified the exact hypergeometric partial-period residual.",
+    "Proved the requested zero-edge gluing and finite-tail jet adjoints, and proved the first-order period extension is lossless but non-reductive: it reconstructs already-owned cutoff derivative terms and yields no equation for [a_parent Psi-1]/p or R_p.",
+    "Proved a supersingular Frobenius-route information no-go: the full ASD/Katz characteristic-polynomial recurrence is invariant under a p^2 shift of the p-1 coefficient and therefore cannot determine the next product digit; reduced the missing Frobenius information to one combined lifted comparison scalar.",
+    "Proved the Proposition-16 divided-power quotient at published precision is also insufficient: its pA[[xi]] denominator kills exactly a primitive p-layer that changes the product second digit; reduced the product observer to K_p=(a(p-1)b(p-1)+p)/p^2 mod p.",
+    "Derived the exact d=3, lambda=1/2 quartic-twist split: Delta_3=2, tau_p=(2^((p-1)/2)+1)/p mod p, and TRAW_p=tau_p-K_p mod p. The quartic factor must retain tau_p rather than only its Legendre sign.",
+    "Derived a coordinate-safe exact source-jet decomposition for the untwisted d=3 companion pair. Writing a_raw(p-1)=p alpha_p and defining J_p as the xi^(p-1)dxi coefficient of the Gauss-Manin source differential partial_lambda omega, the exact normalized companion b_raw=a_raw+c_p J_p gives Lcomp_p=(c_p alpha_p J_p-1)/p mod p and TRAW_p=alpha_p^2+Lcomp_p mod p. Hence K_p=tau_p-alpha_p^2-Lcomp_p mod p. Proved that retaining c_p only modulo p is not faithful.",
+    "Computed the raw d=3 coefficient digit alpha_p at source level by an exact all-target bridge. For p=6r+1, the exact H_{3,p-1}(t) coefficient satisfies H=F_{2r}-p D_p mod p^2; the finite quadratic transform has a p-divisible high-degree tail E_p because only indices r<k<=2r contribute and their (1/6)_k coefficient has exactly one p factor. Identified the transformed truncation G_{2r}(1/2) exactly with the already-owned finite-Gauss unit-band sum S, so alpha_p=G_T-D_p-E_p mod p. Consequently alpha_p is not an independent source/Frobenius scalar and the new companion-side information is reduced to the single scalar Lcomp_p. An independent exact checker verified the identities for all 166 target primes below 5000 with zero failures; finite checking is regression only."
+  ],
+  "contributor_ids": [
+    "EM-DIRECT-A71FA7",
+    "EM-DIRECT-B9BCE8",
+    "EM-DIRECT-C4D02C",
+    "EM-DIRECT-E267A2"
+  ],
+  "current_unfinished_unit": "D25 LIFT/JT2 remains open, but the raw d=3 coefficient half of the source-companion problem is now closed: alpha_p=G_T-D_p-E_p mod p is an exact bridge to the already-owned finite-Gauss unit core plus explicit harmonic deformation and quadratic-tail corrections. The only genuinely new source datum in TRAW_p=alpha_p^2+Lcomp_p is now Lcomp_p=(c_p alpha_p J_p-1)/p mod p from the normalized Gauss-Manin companion one p-adic digit deeper, followed by the finite-Clausen/endpoint bridge to the frozen LIFT target.",
+  "do_not_repeat": [
+    "Do not differentiate or summation-by-parts the same finite evaluation adjoint again; its closure is durable.",
+    "Do not search again for a pure uniform rational first-order adjoint or rerun the first-order period extension expecting a new LIFT constraint.",
+    "Do not reopen accepted D24 UR/JT0, CM0/SIMPLE, earlier shell/Clausen/Green reductions, or enlarge finite-prime scans as a substitute for proof.",
+    "Do not try to recover the lifted p-1 coefficient digit by increasing r in the same supersingular ASD/Katz recurrence.",
+    "Do not attempt to recover K_p from the Proposition-16 divided-power quotient modulo pA[[xi]] alone.",
+    "Do not split the product-observer carrier into separate eigen-differential defects unless a later observer proves it needs that provenance.",
+    "Do not replace 2^((p-1)/2) by only its Legendre sign -1 at D25 precision; retain tau_p.",
+    "Do not assert that the untwisted de Rham coefficient product equals W_p modulo p^3 before a one-order-deeper finite Clausen/truncation and endpoint audit.",
+    "Do not replace the Gauss-Manin coefficient J_p by dH_{3,p-1}/d lambda or treat the companion scalar c_p modulo p as sufficient unless the required coordinate/normalization lift is proved.",
+    "Do not recompute alpha_p as an independent new scalar: the exact source bridge alpha_p=G_T-D_p-E_p is now durable; preserve D_p/E_p branch and tail provenance."
+  ],
+  "executor_role": "RESEARCHER",
+  "next_action": "Compute Lcomp_p from the exact normalized d=3 Gauss-Manin companion at lambda=1/2, substituting the proved alpha_p=G_T-D_p-E_p. Seek a source-equality bridge from that single companion scalar to the existing weighted finite-Gauss cutoff jet/endpoint data. Preserve the local-coordinate/Gauss-Manin provenance and do not identify J_p with an ordinary dH/dlambda coefficient unless that coordinate identity is proved.",
+  "output_manifest": [
+    {
+      "git_blob_sha1": "sha1:04baf26907f875e1556b8afdc61c8bc06411373c",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/67b75d8bd08ec84539e2/d25_alpha_finite_gauss_bridge_20260924.md",
+      "sha256": "sha256:33be48e745b272237397c338a7320faba6a13f29013ace962d214b8379d36d4b"
+    },
+    {
+      "git_blob_sha1": "sha1:a882a2dc654ac47fa26810565c7a9dcc2e7d76cb",
+      "path": "research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-70a0fec6896849ac81484f0e00b3f0dd/67b75d8bd08ec84539e2/verify_d25_alpha_finite_gauss_bridge_20260924.py",
+      "sha256": "sha256:de7a3d1a23ce86f25d042719eeff5e69bb469f3d2a1229665646e41acc64c3d2"
+    }
+  ],
+  "ownership_epoch": 5807071578,
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "researcher_id": "EM-DIRECT-E267A2",
+  "schema": "ENTERPRISE_MATH_MCP_EXECUTION_CHECKPOINT_V1",
+  "session_id": "MCP-70a0fec6896849ac81484f0e00b3f0dd",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "verification": "AUTHOR_REPORTED_SOURCE_BYTES_ONLY_NOT_MATHEMATICAL_ACCEPTANCE"
+}
