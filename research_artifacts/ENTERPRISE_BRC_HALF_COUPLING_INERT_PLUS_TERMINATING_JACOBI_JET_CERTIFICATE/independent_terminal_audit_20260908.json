@@ -1,0 +1,58 @@
+{
+  "schema": "ENTERPRISE_BRC_EBP6JT_INDEPENDENT_TERMINAL_AUDIT_V1",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-TERMINATING-JACOBI-JET-CERTIFICATE",
+  "publication_id": "TP2-A19C97A703AF47D1CBEC",
+  "claim_id": "chatgpt-ebp6jt-20260908-0035-sol9f3c2a-r1",
+  "researcher_id": "EM-EBP6JT-9F3C2A",
+  "execution_record_id": "ER-10EA1135ACC94A53A96E",
+  "audit_verdict": "PASS_STRICT_REDUCTION_WITH_SCOPE_GUARD",
+  "audited_frontier": {
+    "delivery_pr": 1375,
+    "head": "f7bb43058da3b251c2a8ce6ddb8fd2250cbfc1b2",
+    "result_id": "RR-82F6383FB6634F72B457",
+    "parent_artifact": "research_artifacts/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_FINITE_JACOBI_HARMONIC_IDENTITIES/jacobi_jet_certificate_20260827.json",
+    "parent_artifact_blob_sha1": "sha1:55637445ed5e48e7253e0bd7a3f9812501fc7f0e"
+  },
+  "proof_audit": {
+    "terminating_legendre_transport": "PASS: with n=2m=(p-1)/3, P_n(1-2u)={}_2F_1(-n,n+1;1;u), and modulo p the parameters are 1/3 and 2/3; the coefficient equals (3k)!/(27^k(k!)^3).",
+    "hesse_cm_zero": "PASS: at t^2=1/2 and u=(1-t)/2, the Hesse j-value is 2417472 +/- 1707264*sqrt(2), satisfying X^2-4834944X+14670139392; for p mod 24 in {13,19}, (-6/p)=-1, so good inert CM reduction is supersingular and the Hasse invariant vanishes.",
+    "simple_root": "PASS: the Legendre ODE is regular at t^2=1/2; simultaneous vanishing of P_n and P_n' forces all derivatives to vanish, contradicting P_n(1)=1 because n<p.",
+    "jt0_equivalence": "PASS: CM0 gives Psi=-6Q_m'(1/2) mod p and SIMPLE makes this a unit; G_p=a mod p, hence JT0 iff G_p*(-6Q_m')=1 mod p (UR).",
+    "jt2_digit_factorization": "PASS: the frozen parent interface gives JT2 iff G_p*h=1+pR_p mod p^2; conditional on UR, Delta_p=(G_p*h-1)/p mod p is well-defined and JT2 iff Delta_p=R_p (LIFT).",
+    "cutoff_sensitive_precision": "PASS: G_p=g/p must remain modulo p^2; reducing it modulo p before LIFT would lose the second p-adic digit carrying the Phi_xx correction."
+  },
+  "strictness_assessment": {
+    "status": "ACCEPTABLE_AT_TASKBOOK_STRICT_REDUCTION_SCOPE_ONLY",
+    "reason": "The new all-prime CM0 and SIMPLE theorems remove the Hasse value and prove transversality, while the remaining first digit is a single unit-reciprocity scalar and the second digit is a single divided congruence. This is a smaller finite-field/p-adic interface than the original terminating parameter-jet certificate and does not reopen the five harmonic arrays or Clausen tail.",
+    "qualification": "UR and LIFT are not proved. Therefore this result must not be described as an all-prime proof of JT0, JT2, or Sun A14(ii); it closes only the taskbook's explicitly allowed strict-reduction outcome."
+  },
+  "independent_finite_regression": {
+    "method": "differentiated Legendre three-term recurrence in F_p[t]/(t^2-1/2) plus exact Fraction evaluation of B_k, g, h and reflected R_p",
+    "prime_limit_exclusive": 2000,
+    "target_primes_checked": 77,
+    "class_13_count": 40,
+    "class_19_count": 37,
+    "cm0_failures": 0,
+    "simple_failures": 0,
+    "ur_failures": 0,
+    "jt2_lift_failures": 0,
+    "evidence_role": "FALSIFICATION_AND_REGRESSION_ONLY"
+  },
+  "terminal_recommendation": {
+    "current_task": "CLOSE_AT_STRICT_REDUCTION_SCOPE_AFTER_DRIVER_REVIEW",
+    "successor_1": "publish a new narrow task for discriminant -24 supersingular unit reciprocity UR",
+    "successor_2": "only after UR closes, publish/continue the single LIFT congruence",
+    "forbidden_overclaim": [
+      "JT0 proved",
+      "JT2 proved",
+      "Sun A14(ii) proved",
+      "finite regression promoted to theorem"
+    ]
+  },
+  "authority": {
+    "working_truth_granted": false,
+    "foundation_authority_granted": false,
+    "canonical_promotion_granted": false,
+    "driver_review_required": true
+  }
+}
