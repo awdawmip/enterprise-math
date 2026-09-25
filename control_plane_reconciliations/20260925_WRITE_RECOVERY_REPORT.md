@@ -54,6 +54,14 @@ No author correction was visible during the bounded follow-up, so maintenance al
 
 No duplicate automation or new conversation was created. Original schedule frequency, phase, enablement and notification settings were not changed. The actual scheduled-task settings were not accessible in this session; conversation continuity was repaired through current Source guidance and messages to the existing tasks.
 
+## Last bounded follow-up: additional Driver research
+
+A later read of the existing Driver task returned complete message `b91859da-24f0-4d71-a7d2-b48e85a70874` (turn `9bd7f2c1-b07c-4905-ba6d-ef40739188e4`): a rank-one readout connectivity-closure argument, a conditional 59-tail/common-field-dimension-61 consequence, and a proposed residual-Gram rank-51 certificate. Its exact 5,101-character / 8,055-byte text is neutrally preserved in `recovered_chat_evidence/20260925/final_driver/`, SHA256 `f2cd8d7414e0b3f914b9b67bebdeed1c12c28a1f8b969c2f014cc724e09adf6b`. This is the author's unreviewed mathematical claim, not maintenance validation or a formal checkpoint.
+
+The author reports its earlier formatting-comment mutation was explicitly refused before remote side effects; no raw denial tool output is available here. The new mathematical checkpoint was not attempted by the author. This archive preserves the new chat evidence separately; it does not proxy that denied comment mutation or supply missing Driver authority. The existing control-maintenance chat also reports a pre-write denial for its own recovery-status issue and later comment. These reports confirm that local service repair must not be advertised as restoring every ChatGPT host permission. The existing report and canary have been delivered as read-only recovery evidence.
+
+The Driver also reports one canonical D24 review and no current own-lane authority; the contract requires two exact-set reviews before reference/synthesis. Those production review prerequisites remain open. Portable research has nonetheless progressed, which is distinct from formal review acceptance.
+
 ## Remaining acceptance boundary
 
 Formal session/CLAIM recovery for the two colliding research conversations remains separate from portable reasoning. Original host-reported refusals have no exposed raw tool transcript here; do not claim they have been lifted. Independent review and native scientific checks remain pending where stated. A running service or successful write is not a proof, a finished parent objective or guaranteed perpetual autonomous execution.
