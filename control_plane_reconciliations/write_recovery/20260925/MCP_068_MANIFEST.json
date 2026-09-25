@@ -1,0 +1,42 @@
+{
+  "schema": "EM_MCP_METADATA_CLARIFICATION_V1",
+  "version": "0.6.8",
+  "baseline": "Frozen local 0.6.7 file set; Root must guard actual remote parent/blob before publication",
+  "files": [
+    {
+      "path": "src/em_mcp.py",
+      "bytes": 45344,
+      "sha256": "f4567326f15c4b3b139447a14ab0aeba490e7f2977c0c76748d3ae070cfc197a",
+      "git_blob_sha1": "218bcc6a13817cfa419300a4404731c80b3e8972",
+      "expected_old_blob": "b11cb68d72d47907050e1d32281833fbe7258eab"
+    },
+    {
+      "path": "src/staging_disposition.py",
+      "bytes": 28351,
+      "sha256": "cd68f1c1d96dd5a342015cee52ac87068c85aecdc3e3228f8f44306827ee1cc2",
+      "git_blob_sha1": "80b1a6a4227cb4e4303d947b37c659f5dca949cc",
+      "expected_old_blob": "68b9ac93271c568f82943e06434f954c5f945b8e"
+    },
+    {
+      "path": "README.md",
+      "bytes": 17848,
+      "sha256": "70533c7a39d53a6945ed49be1fcc5e70eb2b8b835748d4711a22122e0ec30d8c",
+      "git_blob_sha1": "4ec53658d8e58eb7b83bd5068b363572f753db28",
+      "expected_old_blob": "da38ee913c5eedcda3956664b93ad809fdfb15ec"
+    }
+  ],
+  "instructions_sha256": "6b3948d1cb6c2306dc12f79cbf91405a4649902cd88810a58ed4fe251f476c9d",
+  "behavioral_ast_unchanged_except_instructions_and_version": true,
+  "source_pin_config_or_schema_changed": false,
+  "new_backend_capabilities": false,
+  "remote_mutations": false,
+  "frozen_067_unchanged": true,
+  "existing_tests_for_root": [
+    "tests/test_service.py",
+    "tests/test_ip_endpoint.py",
+    "tests/test_chat_control_service.py",
+    "tests/test_chat_control_bridge.py",
+    "tests/test_staging_disposition.py"
+  ],
+  "validation_note": "Existing endpoint/init/inventory/auth/scope/source firewall tests, plus fresh live MCP initialize and ordinary status readback. No mirror-string unit test added. Fullsuite/native may run under normal release admission."
+}

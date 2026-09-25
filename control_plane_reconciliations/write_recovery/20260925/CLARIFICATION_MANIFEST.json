@@ -1,0 +1,61 @@
+{
+  "schema": "EM_AUTONOMY_NARROW_CLARIFICATION_V1",
+  "baseline_source_commit": "2d1b14c4289f99e53cee3987c984f5f02ea6e108",
+  "baseline_source_path": "docs/AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md",
+  "baseline": {
+    "git_blob_sha1": "ce83b0ce1d4ad2099b9a5d0a3f265f0bc8b44a19",
+    "sha256": "0c892659c90e7a89d8bbdd8df4020ee238e4fc0acbc478baf3a59b084660c10b",
+    "bytes": 11967
+  },
+  "clarified": {
+    "git_blob_sha1": "83723848b8deb6d408e3af6d290088c58a6d88c6",
+    "sha256": "6d508157e7e1b40e7d83b9de651ba625d6dd8570ae77c2c97f551c9d045e8890",
+    "bytes": 13722
+  },
+  "changed_original_paragraphs": [
+    28,
+    62
+  ],
+  "inserted_registration_paragraphs": 2,
+  "unchanged_bytes_outside_replacements_verified": true,
+  "remote_written": false,
+  "authority_granted": false,
+  "scientific_claims_validated": false,
+  "current_role": "CONTROL_PLANE_MAINTENANCE",
+  "knowledge_snapshot": "dd3d0aa6ed4e886e4bf4b45793799c78ca199205",
+  "contract_basis": [
+    "research_identity_state_machine.json: direct_task_or_role_transition and registration_failure_action",
+    "docs/RESEARCH_IDENTITY_PROTOCOL.md: RESOLVE_OR_ALLOCATE_ROLE_IDENTITY and REGISTER_PENDING",
+    "docs/CHATGPT_ORDINARY_CONTROL.zh-CN.md: session_start, optional task_id, continuation_prepare before CLAIM/open",
+    "control_plane/research_delivery_policy.json: task-scoped portable research and durable repair request",
+    "docs/PORTABLE_RESEARCH_PROTOCOL.md: reasoning and portable evidence under unavailable control tools",
+    "docs/RESEARCH_ACTIVITY_PROTOCOL.md: activity registration obligation retained as honest debt"
+  ],
+  "files": [
+    {
+      "name": "AUTONOMOUS_RESEARCH_OPERATIONS.clarified.zh-CN.md",
+      "bytes": 13722,
+      "sha256": "6d508157e7e1b40e7d83b9de651ba625d6dd8570ae77c2c97f551c9d045e8890"
+    },
+    {
+      "name": "AUTONOMOUS_RESEARCH_OPERATIONS.clarification.patch",
+      "bytes": 5652,
+      "sha256": "9ebc0e62d02c7eb9ea90dde902205e0daf17ee0bce8864b0d26f8dfdd415053e"
+    },
+    {
+      "name": "CONTINUE_RESEARCH_MESSAGES.json",
+      "bytes": 3965,
+      "sha256": "37a04de7db7932f8c4e65c6400031ee3a07352a4499538f8f883ca6c249467a4"
+    },
+    {
+      "name": "CONTINUE_RESEARCH_1.txt",
+      "bytes": 1284,
+      "sha256": "5fa358658edc13ae6984b2361b409c7e4bead664d77f28e9568ba1c5e1ce007d"
+    },
+    {
+      "name": "CONTINUE_RESEARCH_2.txt",
+      "bytes": 1234,
+      "sha256": "a3d9a945075f29d4a26789fa859426dbec39044f6cf5dd4bfc989bf7e47971de"
+    }
+  ]
+}

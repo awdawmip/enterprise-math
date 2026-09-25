@@ -1,0 +1,75 @@
+{
+  "schema": "EM_MCP_FAILURE_RECOVERY_DELIVERY_V1",
+  "version": "0.6.7",
+  "main_base": "e2e9ca062c38df2da4c426f8794ce43ecd1ded62",
+  "pr13_original_head": "ae3a7f62789d7772039835ab8c29fc6b49fe9516",
+  "archive_base_sha256": "d694b5df3bf186db4a049ed4dfd7e78222004c50ea2352f406b85543a6d1aac1",
+  "files": [
+    {
+      "path": "src/em_mcp.py",
+      "bytes": 44507,
+      "sha256": "9af3bc0f4aa247d0bd1102d27344b3f0300c4a348bfbd78f0baeeaf68b0a7251",
+      "git_blob_sha1": "b11cb68d72d47907050e1d32281833fbe7258eab",
+      "main_old_blob": "f5de144d8e33f741d33e03d8b2af59c9ec326d67"
+    },
+    {
+      "path": "src/research_writes.py",
+      "bytes": 25085,
+      "sha256": "0e0e48dc7b1dc952a53cd28d7a7abf4cc055a6938d21085142aebdc4fa8b10e5",
+      "git_blob_sha1": "0e305512eee5fe7b0c62e298790fa3f829662e79",
+      "main_old_blob": "0426fcb8f630ef333377b1e911232662b3b9be74"
+    },
+    {
+      "path": "src/source_publication.py",
+      "bytes": 18242,
+      "sha256": "5107b369ef9afd644588c4cc084338ec3e82ce1914d79d49c8e00eed1698cc30",
+      "git_blob_sha1": "900ff8894718e12a6ee4dabc30d00985933ecad4",
+      "main_old_blob": "a8091007c7d0a12601c3fea5a73807acde8bb8d8"
+    },
+    {
+      "path": "tests/test_post_source_event_reconcile.py",
+      "bytes": 11879,
+      "sha256": "394a39bd5d157f2a84b54a91beedbc35e7e8000c52fff92e611a9bb53860601e",
+      "git_blob_sha1": "d0ce291fbc7a6001fa42958c17422e4ec6d85fef",
+      "main_old_blob": null
+    },
+    {
+      "path": "tests/test_driver_authority_replay.py",
+      "bytes": 4037,
+      "sha256": "f425d3014314fab2546c44d11856ef222544e1ccb47b2abed912f05696abc48f",
+      "git_blob_sha1": "07d3e825a17651dccffc4fef3ef82408cbd335c1",
+      "main_old_blob": null
+    },
+    {
+      "path": "tests/test_driver_authority_replay_native.py",
+      "bytes": 4354,
+      "sha256": "f3aecf3b430300f05b7c4b41379d47a11ea0e4cb2570ecb0beb237acc8cb184b",
+      "git_blob_sha1": "d11137a67d649f31698e94b0b71ffffe56efb532",
+      "main_old_blob": null
+    },
+    {
+      "path": "README.md",
+      "bytes": 17388,
+      "sha256": "0f4e1ea9e90d3485c92277f45793b9f1260161a1f8f4603f990c45cb163b0739",
+      "git_blob_sha1": "da38ee913c5eedcda3956664b93ad809fdfb15ec",
+      "main_old_blob": "e2c30513565648d183566004da2983eef2209329"
+    }
+  ],
+  "configuration_changed": false,
+  "source_python_pin_changed": false,
+  "github_mutated": false,
+  "deployed": false,
+  "tests": {
+    "initial_focused": "30 passed in 147.56s; prior to final journal/SQL recovery coverage",
+    "native_driver": "1 passed in 50.74s, real native Driver reducer and ordinary bridge, existing Source dependency cache with reviewed Python blob verification",
+    "final_post_source": "16 passed in 134.46s; POST_SOURCE_TESTS.xml; includes initial/post comment reads, prepost authorization transport versus definite refusal, freeze, PREPARED/POSTING/VERIFIED journal OSError, publication readback save and published_uploads SQL failures. Every recoverable test completes original request with one Source write and one event.",
+    "root_required": "Linux complete suite plus native Driver test on current verified deployed Source snapshot",
+    "local_focused_complete": "35 distinct focused tests pass across runs (16 final post-source + 6 Driver immutable-replay + 13 existing source-session tests). Linux full suite owned by Root."
+  },
+  "limitations": [
+    "No historical FAILED row relabeling or replay; later successful Research frontier governs.",
+    "Exact DA replay is a readback only; native driver_authorize remains mandatory.",
+    "No production session, claim, authority, research or mathematical status was mutated by this agent."
+  ],
+  "code_frozen": true
+}

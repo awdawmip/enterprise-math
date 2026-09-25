@@ -1,0 +1,314 @@
+{
+  "schema": "EM_CONTROL_MAINTENANCE_FORMAT_REPAIR_V1",
+  "source": {
+    "id": 5834283580,
+    "html_url": "https://github.com/awdawmip/enterprise-math/issues/1504#issuecomment-5834283580",
+    "issue_url": "https://api.github.com/repos/awdawmip/enterprise-math/issues/1504",
+    "created_at": "2026-09-25T14:42:36Z",
+    "updated_at": "2026-09-25T14:42:36Z",
+    "author_association": "OWNER"
+  },
+  "source_author": {
+    "login": "awdawmip",
+    "id": 30957095
+  },
+  "scope": "format-only local transcription; no mathematical validation or new claims",
+  "role": "CONTROL_PLANE_MAINTENANCE",
+  "remote_mutations": false,
+  "original_comment_preserved": true,
+  "original_body_characters": 4288,
+  "original_control_characters": [
+    {
+      "codepoint": "U+0008",
+      "offset_zero_based": 2129,
+      "line_one_based": 37
+    },
+    {
+      "codepoint": "U+0008",
+      "offset_zero_based": 2206,
+      "line_one_based": 41
+    },
+    {
+      "codepoint": "U+0008",
+      "offset_zero_based": 2818,
+      "line_one_based": 56
+    },
+    {
+      "codepoint": "U+0008",
+      "offset_zero_based": 3028,
+      "line_one_based": 62
+    },
+    {
+      "codepoint": "U+0008",
+      "offset_zero_based": 3250,
+      "line_one_based": 74
+    }
+  ],
+  "repairs": [
+    {
+      "kind": "escaped_backspace_in_boxed",
+      "original": "\boxed{",
+      "replacement": "BOXED{",
+      "count": 5,
+      "original_character_offsets_zero_based": [
+        2129,
+        2206,
+        2818,
+        3028,
+        3250
+      ],
+      "original_line_numbers_one_based": [
+        37,
+        41,
+        56,
+        62,
+        74
+      ],
+      "confidence": "high",
+      "rationale": "U+0008 followed by oxed{ occurs at five boxed-expression positions; BOXED{ preserves the box as a plain-text presentation label."
+    },
+    {
+      "kind": "missing_slash_qquad",
+      "original": "qquad",
+      "replacement": "    ",
+      "count": 2,
+      "original_character_offsets_zero_based": [
+        855,
+        1362
+      ],
+      "original_line_numbers_one_based": [
+        9,
+        19
+      ],
+      "confidence": "high",
+      "rationale": "The surviving qquad token is a spacing command; four spaces are its plain-text presentation replacement."
+    },
+    {
+      "kind": "missing_slash_sum",
+      "original": "sum_i",
+      "replacement": "∑_i",
+      "count": 1,
+      "original_character_offsets_zero_based": [
+        861
+      ],
+      "original_line_numbers_one_based": [
+        9
+      ],
+      "confidence": "high",
+      "rationale": "The formula-local sum_i token is transcribed as the summation glyph with the same subscript."
+    },
+    {
+      "kind": "missing_slash_operatorname_diag",
+      "original": "operatorname{diag}",
+      "replacement": "diag",
+      "count": 1,
+      "original_character_offsets_zero_based": [
+        1372
+      ],
+      "original_line_numbers_one_based": [
+        19
+      ],
+      "confidence": "high",
+      "rationale": "Only the presentation wrapper is removed from the preserved diag identifier."
+    },
+    {
+      "kind": "missing_slash_ldots",
+      "original": "ldots",
+      "replacement": "…",
+      "count": 1,
+      "original_character_offsets_zero_based": [
+        1396
+      ],
+      "original_line_numbers_one_based": [
+        19
+      ],
+      "confidence": "high",
+      "rationale": "The formula-local ellipsis command is transcribed as the Unicode horizontal ellipsis."
+    },
+    {
+      "kind": "intact_pm_to_unicode",
+      "original": "\\pm",
+      "replacement": "±",
+      "count": 1,
+      "original_character_offsets_zero_based": [
+        1669
+      ],
+      "original_line_numbers_one_based": [
+        29
+      ],
+      "confidence": "high",
+      "rationale": "Intact LaTeX presentation converted to its Unicode glyph."
+    },
+    {
+      "kind": "intact_le_to_unicode",
+      "original": "\\le",
+      "replacement": "≤",
+      "count": 4,
+      "original_character_offsets_zero_based": [
+        2196,
+        2223,
+        3159,
+        3197
+      ],
+      "original_line_numbers_one_based": [
+        39,
+        41,
+        70,
+        70
+      ],
+      "confidence": "high",
+      "rationale": "Intact LaTeX relation converted to its Unicode glyph."
+    },
+    {
+      "kind": "intact_ge_to_unicode",
+      "original": "\\ge",
+      "replacement": "≥",
+      "count": 1,
+      "original_character_offsets_zero_based": [
+        2628
+      ],
+      "original_line_numbers_one_based": [
+        52
+      ],
+      "confidence": "high",
+      "rationale": "Intact LaTeX relation converted to its Unicode glyph."
+    },
+    {
+      "kind": "intact_min_to_plain_text",
+      "original": "\\min",
+      "replacement": "min",
+      "count": 1,
+      "original_character_offsets_zero_based": [
+        2832
+      ],
+      "original_line_numbers_one_based": [
+        56
+      ],
+      "confidence": "high",
+      "rationale": "Intact operator command converted to the same plain-text identifier."
+    },
+    {
+      "kind": "intact_cdot_to_unicode",
+      "original": "\\cdot",
+      "replacement": "⋅",
+      "count": 8,
+      "original_character_offsets_zero_based": [
+        3036,
+        3046,
+        3056,
+        3066,
+        3076,
+        3086,
+        3096,
+        3106
+      ],
+      "original_line_numbers_one_based": [
+        63,
+        63,
+        63,
+        63,
+        63,
+        63,
+        63,
+        63
+      ],
+      "confidence": "high",
+      "rationale": "Intact multiplication command converted to its Unicode glyph."
+    },
+    {
+      "kind": "intact_text_wrapper_to_plain_text",
+      "original": "\\text{-mode recompile}",
+      "replacement": "-mode recompile",
+      "count": 2,
+      "original_character_offsets_zero_based": [
+        3173,
+        3266
+      ],
+      "original_line_numbers_one_based": [
+        70,
+        74
+      ],
+      "confidence": "high",
+      "rationale": "Only the intact text presentation wrapper is removed; its literal text is preserved."
+    },
+    {
+      "kind": "display_delimiters_to_plain_text_fences",
+      "original": "standalone [ and ] lines",
+      "replacement": "```text and ``` lines",
+      "count": 14,
+      "confidence": "high",
+      "original_opening_line_numbers_one_based": [
+        8,
+        12,
+        18,
+        22,
+        26,
+        30,
+        36,
+        40,
+        45,
+        51,
+        55,
+        61,
+        69,
+        73
+      ],
+      "original_closing_line_numbers_one_based": [
+        10,
+        14,
+        20,
+        24,
+        28,
+        32,
+        38,
+        42,
+        49,
+        53,
+        57,
+        66,
+        71,
+        75
+      ],
+      "rationale": "Matched display wrappers are replaced with fenced plain text; expression content changes are limited to the separately enumerated character substitutions."
+    }
+  ],
+  "unresolved_original_spelling": [
+    {
+      "original": "G=P,H,A,",
+      "treatment": "preserved verbatim",
+      "recovery_confidence": "insufficient",
+      "reason": "The two interior commas might be literal punctuation or remnants of lost LaTeX thin-space commands. The available comment does not determine the original spelling; neither is silently chosen."
+    },
+    {
+      "original": "V_w=D_0A^T,H^T(P^TD_0P)H,A.",
+      "treatment": "preserved verbatim",
+      "recovery_confidence": "insufficient",
+      "reason": "The commas between factors might be literal punctuation or remnants of lost LaTeX thin-space commands. No comma is removed or converted to multiplication."
+    }
+  ],
+  "validation": {
+    "original_utf8_exact": true,
+    "all_scope_boundaries_and_next_action_verbatim": true,
+    "original_heading_status_and_provenance_verbatim": true,
+    "no_control_characters_in_transcribed_body": true,
+    "no_latex_backslash_escapes_in_transcribed_body": true,
+    "mathematical_validation_performed": false
+  },
+  "files": [
+    {
+      "path": "SOURCE_COMMENT.json",
+      "bytes": 7709,
+      "sha256": "55881a103964cc792b5538341545f5d4f5ed42cf9975eccdcecd8b0c6cf293cd"
+    },
+    {
+      "path": "ORIGINAL.txt",
+      "bytes": 4288,
+      "sha256": "8fdce2bbb2988c28d299de94d72ddee90cb5a0d478da1480c7425e4d22f43fa5"
+    },
+    {
+      "path": "REFORMATTED.md",
+      "bytes": 5653,
+      "sha256": "4076f5327f3b5035e59fd331628e136fef568d8e55aae70854f046ef9db1108e"
+    }
+  ]
+}
