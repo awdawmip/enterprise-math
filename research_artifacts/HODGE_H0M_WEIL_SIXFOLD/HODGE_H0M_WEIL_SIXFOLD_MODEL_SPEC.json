@@ -1,0 +1,82 @@
+{
+  "task_id": "RS-HODGE-H0M-WEIL-SIXFOLD-SEMIREGULARITY-OBSTRUCTION-CANCELLATION",
+  "publication_id": "TP2-4D8C1A7E2B609F35C614",
+  "researcher_id": "EM-PFSS2R-B96E46",
+  "activity_id": "RA-20260917-c49ede787913",
+  "source_sha": "8349d0c93096ffb5f586c7cc692c5c3033e51160",
+  "as_of": "2026-09-17",
+  "mathematical_acceptance": false,
+  "schema": "HODGE_H0M_MODEL_SPEC_V1",
+  "frozen_at": "2026-09-17T03:55:53.390628+00:00",
+  "status": "EXACT_UNITARY_FAMILY_NOT_A_NUMERIC_SPECIAL_FIBER",
+  "K": "Q(i)",
+  "lattice": "Z[i]^6 in K^6 = Q^12",
+  "homology_hermitian_form": {
+    "convention": "h(z,w)=conjugate(z)^t H w",
+    "diagonal": [
+      1,
+      1,
+      1,
+      -1,
+      -1,
+      -3
+    ],
+    "determinant": -3,
+    "signature": [
+      3,
+      3
+    ]
+  },
+  "polarization": {
+    "E": "Im h; in coordinates (x_j,y_j), sum_j d_j (x_j yprime_j - y_j xprime_j)",
+    "type": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      3
+    ],
+    "principal": false,
+    "existence_basepoint": "J0 acts by +i on the first 3 complex coordinates and -i on the last 3. E(v,J0v)=sum |d_j| |v_j|^2 > 0.",
+    "warning": "J0 is a decomposable existence control, NOT the frontier test fiber."
+  },
+  "family": {
+    "domain": "connected component of {J: J^2=-1, JI=IJ, E(Jx,Jy)=E(x,y), E(x,Jx)>0}; U(3,3)/(U(3)xU(3))",
+    "dimension_C": 9,
+    "level": "Gamma(3)={g in GL_6(Z[i]): conjugate(g)^t H g=H, g=1 mod 3}",
+    "abelian_varieties": "A_J=(R^12,J)/Z^12 with the integral Riemann form E",
+    "chosen_scope": "very general J in this exact domain, outside proper rational Hodge/endomorphism loci; no numerical sample is substituted",
+    "generic_NS_rank": 1,
+    "generic_NS_authority": "Markman arXiv:2509.23403v2, section 1.1, equation (1.1); also 2502.03415v2 section 1.1"
+  },
+  "discriminant": {
+    "group": "Q^*/N_{Q(i)/Q}(Q(i)^*)",
+    "class": "[-3]",
+    "solved_control_class": "[-1]",
+    "ratio": 3,
+    "separation_certificate": "For a,b in Q, v_3(a^2+b^2) is even when a^2+b^2 is nonzero. v_3(3)=1.",
+    "dual_form_det": "-1/3; ratio to -3 is 1/9=N(1/3), so the class agrees."
+  },
+  "carrier": {
+    "V": "H^1(A,Q), Q-dimension 12, K-dimension 6",
+    "basis": "e_j=dx_j, f_j=dy_j; I^*e_j=-f_j, I^*f_j=e_j",
+    "omega": "wedge_{j=1}^6 (e_j+i f_j)",
+    "rational_basis": [
+      "r=Re omega",
+      "s=Im omega"
+    ],
+    "W": "Q r + Q s, equivalently the rational descent of det V_i + det V_-i",
+    "dimension_Q": 2,
+    "Hodge_type": [
+      3,
+      3
+    ],
+    "proof": "Each of V_i,V_-i has three (1,0) and three (0,1) directions. Their determinant lines have bidegree (3,3). Complex conjugation exchanges them.",
+    "divisor_exclusion": "At a very general point NS_Q=Q theta. The Lie derivation D of I^* annihilates theta^3 and has D^2=-36 on W. Thus W intersects Q theta^3 only at zero."
+  },
+  "frontier_status": "CURRENTLY_OPEN_FRONTIER_AT_DECLARED_SCOPE",
+  "frontier_status_strength": "Relative to the primary-source ledger verified today, not a proof that no unindexed theorem exists. No algebraicity counterexample is asserted.",
+  "cycle_search_started_before_freeze": false,
+  "candidate_cycle": null
+}

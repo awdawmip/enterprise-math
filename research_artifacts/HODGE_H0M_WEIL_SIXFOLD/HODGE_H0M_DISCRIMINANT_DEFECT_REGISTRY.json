@@ -1,0 +1,77 @@
+{
+  "task_id": "RS-HODGE-H0M-WEIL-SIXFOLD-SEMIREGULARITY-OBSTRUCTION-CANCELLATION",
+  "publication_id": "TP2-4D8C1A7E2B609F35C614",
+  "researcher_id": "EM-PFSS2R-B96E46",
+  "activity_id": "RA-20260917-c49ede787913",
+  "source_sha": "8349d0c93096ffb5f586c7cc692c5c3033e51160",
+  "as_of": "2026-09-17",
+  "mathematical_acceptance": false,
+  "model_sha256": "544d79988fac0fb25b0b588050b5db4bd3186cdf548a5fde35c5655734d1a164",
+  "baseline": "B_std^Weil6; standard exact exterior algebra, Hermitian arithmetic and derived deformation theory",
+  "Enterprise_strict_leverage_established": false,
+  "source_exposure": "NONBLIND_DISCLOSED",
+  "schema": "HODGE_H0M_DISCRIMINANT_DEFECT_V1",
+  "candidate": "M1",
+  "classification": "EXACT_SPLIT_SOURCE_MISMATCH_AND_MISSING_FRONTIER_SEED",
+  "defects": [
+    {
+      "component": "auxiliary threefold/secant geometry",
+      "status": "KNOWN_MARKMAN_TRIPLE_IS_SPLIT",
+      "reason": "The specific secant X x Xhat polarized K-triple has class [-1]. It is not a [-3] source triple under a compatible K-Hermitian identification. No theorem forbidding every other auxiliary geometry is claimed."
+    },
+    {
+      "component": "Fourier-Mukai source object with exceptional class",
+      "status": "MISSING_OBJECT",
+      "block": {
+        "missing_object": "An actual Z0 in CH^3(A_J)_Q on the frozen very-general [-3] family with P_Weil([1+2i]^*) cl(Z0) != 0.",
+        "owner": "H0M source-object / algebraic-correspondence construction route",
+        "necessity": "An algebraic projector preserves algebraicity but cannot produce a nonzero seed from zero or divisor-only classes.",
+        "unblock_condition": "Give an independently constructed cycle, sheaf characteristic class, or algebraic correspondence and verify its nonzero Weil projection on the SAME fixed frontier model."
+      }
+    },
+    {
+      "component": "semiregularity of the desired frontier object",
+      "status": "NOT_DEFINED_UNTIL_OBJECT_EXISTS",
+      "block": {
+        "missing_object": "A specified frontier candidate E with computed Atiyah/Ext data",
+        "owner": "H0M source-object / algebraic-correspondence construction route",
+        "necessity": "No Ext^2(E,E) or semiregularity rank may be invented from the target Hodge class alone.",
+        "unblock_condition": "Supply E and compute its actual deformation/trace maps, with nonzero projected codimension-3 class."
+      }
+    },
+    {
+      "component": "deformation family dimension",
+      "status": "AVAILABLE_NOT_BLOCKED",
+      "value": 9,
+      "reason": "The exact unitary period domain exists for [-3]; CM-preserving isolation must not be confused with the full Weil-type deformation problem."
+    },
+    {
+      "component": "target Hodge invariance",
+      "status": "AVAILABLE",
+      "reason": "Both determinant lines remain (3,3) throughout the frozen family. This does not make them algebraic."
+    },
+    {
+      "component": "polarization/discriminant compatibility",
+      "status": "EXACT_NO_GO_FOR_SIMILITUDE_TRANSPORT",
+      "formula": "det(c M* H M)/det(H) = c^6 N(det M) = N(c^3 det M)",
+      "certificate": "v_3 of a nonzero Gaussian rational norm is even; the ratio 3 is odd."
+    }
+  ],
+  "finite_evidence": {
+    "signature": [
+      3,
+      3
+    ],
+    "determinant": -3,
+    "polarization_type": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      3
+    ],
+    "transport_instances": 9
+  },
+  "attribution": "Classical discriminant arithmetic instantiated exactly; no new Enterprise mechanism."
+}
