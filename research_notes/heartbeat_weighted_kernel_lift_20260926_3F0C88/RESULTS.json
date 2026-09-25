@@ -1,0 +1,123 @@
+{
+  "status": "PASS",
+  "new_tests": 23,
+  "checks": {
+    "inherited_source_pins": {
+      "heartbeat_congruence_lift.py": "3909cc89b97b5e3a14fb0f1f18d85d19b7a390f9",
+      "heartbeat_peak_orbits.py": "6f5a35851ed7cfef08fe34bb209fbd29c9b4b0dc",
+      "brc_control_port.py": "44def6b8ac787e798d3cc2c6be16f873f91b9db8",
+      "brc_transport.py": "be1debe367263931bd5e93fd750be3ed54624fe1",
+      "heartbeat_carry_peak.py": "44bde8bbff397adf8aec80fcb2bffa79c6e272e9"
+    },
+    "mass_split": {
+      "coarse_mass": [
+        "1/2",
+        "1/2"
+      ],
+      "fine_masses": [
+        "1/6",
+        "1/3",
+        "1/4",
+        "1/4"
+      ]
+    },
+    "atom_vs_mass": {
+      "atomic_seed_matchings": 0,
+      "weighted_next_frames": 2
+    },
+    "mass_obstruction_without_solving": true,
+    "lifetime_BRC_fiber_checks": 10,
+    "changing_matchings": {
+      "families": [
+        4,
+        4
+      ],
+      "consolidated_count": 8,
+      "dimension": 3
+    },
+    "full_X6": {
+      "count": 524288,
+      "dimension": 19,
+      "family_counts": [
+        262144,
+        262144
+      ],
+      "sampled_BRC_rechecks": 12,
+      "enumerated_all": false
+    },
+    "literal_BRC_crosschecks": {
+      "fibers": 16,
+      "candidates": 280
+    },
+    "joint_equation_obstruction": true,
+    "matching_budget_retains_unknown": true,
+    "multiplicity_preserved": 6,
+    "actual_BRC_first_hit": {
+      "threshold": 3,
+      "first_tick": 3,
+      "original_risk": "5/6",
+      "invalid_shallow_replacement_risk": "3/4",
+      "difference": "1/12",
+      "prefixes": [
+        [
+          "0",
+          "0",
+          "0",
+          "5/6",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "3/4",
+          "0",
+          "0"
+        ]
+      ],
+      "preparation_spread": 2
+    },
+    "tower": {
+      "status": "NO_LIFTS",
+      "layers": [
+        [
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          3,
+          2,
+          0
+        ]
+      ]
+    },
+    "domain_rejections": 8,
+    "two_liftable_coarse_fibers": [
+      8,
+      8
+    ],
+    "online_reuse": {
+      "raw_states": 10,
+      "orbit_states": 4,
+      "risk": "1/26",
+      "conditional_mean": "45/13",
+      "prefix_coefficients": 26,
+      "lift_count": 2
+    },
+    "mass_defect_bound": {
+      "lower_bound": "1/6",
+      "attained_at_J": true,
+      "checked_frame_fiber": 8,
+      "observable": "fine action-germ distribution, not peak risk"
+    },
+    "zero_mass_defect_still_joint_obstruction": true
+  },
+  "scope": "Typed BRC execution only; no ordinary reference dynamics; no physical/native residual attribution; no independent mathematical review"
+}

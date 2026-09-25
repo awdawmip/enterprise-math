@@ -1,0 +1,74 @@
+{
+  "schema": "HEARTBEAT_WEIGHTED_KERNEL_LIFT_CANDIDATES_V1",
+  "recorded_at": "2026-09-26T07:22:30.853423+08:00",
+  "author": "EM-DIRECT-3F0C88",
+  "activity_id": "RA-74C830431492342DDDFBCDD4",
+  "prior_contribution_ids": [
+    "EM-DIRECT-AD0416"
+  ],
+  "status": "UNREVIEWED_NOT_ADMITTED",
+  "world_id": "HEARTBEAT_WORLD",
+  "method": "ACTUAL_TYPED_BRC_ONLY",
+  "theorems": [
+    {
+      "id": "HBW-WK-001",
+      "name_zh": "完整加权作用核的质量类配对准则",
+      "assumptions": "Fixed p,m,ports and positive ControlPacket; conjugation by a unit lattice frame.",
+      "statement": "The weighted kernel is preserved iff conjugation bijects nonzero action-germ classes preserving their aggregate weight*count; atomwise equal-weight matching is not necessary.",
+      "proof_ref": "research_notes/heartbeat_weighted_kernel_lift_20260926_3F0C88/RESEARCH_NOTE.md#section-1",
+      "test_ref": "tests/test_heartbeat_weighted_kernel_lift.py::test_03_beyond_atomic_matching",
+      "status": "SCOPED_PROOF_RESEARCH_CANDIDATE",
+      "boundary": "Fixed p, action-germ precision, control identity and mass observer; no physical attribution, raw-path equivalence or infinite-lift claim."
+    },
+    {
+      "id": "HBW-WK-002",
+      "name_zh": "不固定匹配的一位修复仿射纤维",
+      "assumptions": "Guard depth N=m+C>=1; fixed coarse projective frame; full weighted kernel stabilizer.",
+      "statement": "Every nonempty next-digit repair fiber is an affine F_p space of dimension<=35; full-chart liftable fibers have uniform cardinality at one level.",
+      "proof_ref": "research_notes/heartbeat_weighted_kernel_lift_20260926_3F0C88/RESEARCH_NOTE.md#section-2",
+      "test_ref": "tests/test_heartbeat_weighted_kernel_lift.py::test_07_full_X6_symbolic",
+      "status": "SCOPED_PROOF_RESEARCH_CANDIDATE",
+      "boundary": "Fixed p, action-germ precision, control identity and mass observer; no physical attribution, raw-path equivalence or infinite-lift claim."
+    },
+    {
+      "id": "HBW-WK-003",
+      "name_zh": "互斥匹配族的完整仿射合并证书",
+      "assumptions": "Complete enumeration of compatible fine class matchings; exact linear solver, scalar uniqueness and independent correction chart.",
+      "statement": "Projected matching families are disjoint; equality between their total cardinality and their affine hull cardinality certifies no spurious or omitted frames.",
+      "proof_ref": "research_notes/heartbeat_weighted_kernel_lift_20260926_3F0C88/RESEARCH_NOTE.md#section-3",
+      "test_ref": "tests/test_heartbeat_weighted_kernel_lift.py::test_06_changing_match_affine_union",
+      "status": "SCOPED_PROOF_RESEARCH_CANDIDATE",
+      "boundary": "Fixed p, action-germ precision, control identity and mass observer; no physical attribution, raw-path equivalence or infinite-lift claim."
+    },
+    {
+      "id": "HBW-WK-004",
+      "name_zh": "细分质量障碍与定量失配",
+      "assumptions": "Same coarse seed; finer action-germ laws; fixed positive original mass.",
+      "statement": "Sorted child-mass L1 mismatch/2 is a per-source lower bound on fine germ total variation. E_q splitting gives symmetry lifespan q and defect1/6. Zero bound is not sufficiency for a joint frame.",
+      "proof_ref": "research_notes/heartbeat_weighted_kernel_lift_20260926_3F0C88/RESEARCH_NOTE.md#section-5",
+      "test_ref": "tests/test_heartbeat_weighted_kernel_lift.py::test_22_mass_defect_bound",
+      "status": "SCOPED_PROOF_RESEARCH_CANDIDATE",
+      "boundary": "Fixed p, action-germ precision, control identity and mass observer; no physical attribution, raw-path equivalence or infinite-lift claim."
+    },
+    {
+      "id": "HBW-WK-005",
+      "name_zh": "浅层替换的真实峰值失效见证",
+      "assumptions": "Specified repeated-block X6 preparation/mixture/tail, fixed original probabilities, threshold3.",
+      "statement": "The original and invalid shallow-conjugated-middle models have first hit only at tick3, with probabilities5/6 and3/4. Preparation spread2 lies outside the shallow threshold2 safe set.",
+      "proof_ref": "research_notes/heartbeat_weighted_kernel_lift_20260926_3F0C88/RESEARCH_NOTE.md#section-6",
+      "test_ref": "tests/test_heartbeat_weighted_kernel_lift.py::test_15_actual_threshold_witness",
+      "status": "SCOPED_PROOF_RESEARCH_CANDIDATE",
+      "boundary": "Fixed p, action-germ precision, control identity and mass observer; no physical attribution, raw-path equivalence or infinite-lift claim."
+    },
+    {
+      "id": "HBW-WK-006",
+      "name_zh": "可变配对多层续接及原BRC安全接入",
+      "assumptions": "Declared seeds/chart/final depth; complete matches and frame expansion or explicit retained limits; parent weighted-row certification before execution.",
+      "statement": "Finite-depth search is complete in the declared fiber/chart; limits preserve unresolved families. Certified frames integrate with the existing online peak quotient without changing original branch weights/counts.",
+      "proof_ref": "research_notes/heartbeat_weighted_kernel_lift_20260926_3F0C88/RESEARCH_NOTE.md#section-7",
+      "test_ref": "tests/test_heartbeat_weighted_kernel_lift.py::test_21_BRC_online_replay_after_mass_lift",
+      "status": "SCOPED_PROOF_RESEARCH_CANDIDATE",
+      "boundary": "Fixed p, action-germ precision, control identity and mass observer; no physical attribution, raw-path equivalence or infinite-lift claim."
+    }
+  ]
+}
