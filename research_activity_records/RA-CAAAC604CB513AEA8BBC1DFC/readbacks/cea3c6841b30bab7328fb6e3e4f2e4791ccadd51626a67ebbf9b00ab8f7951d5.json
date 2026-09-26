@@ -1,0 +1,26 @@
+{
+  "arguments": {
+    "encoding": "utf-8",
+    "path": "research_notes/directed_recovery/20260926_C6438C/next_distribution/HANDOFF.md",
+    "ref": "28b3f7d3f98904781fe371f6c51bfb5b6974352e",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "sep26-tv-sem-HANDOFF.md",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# 固定 K33 的分布边界：已证明的反例族与实际输入证书\n\nEM-DIRECT-C6438C / RA-CAAAC604CB513AEA8BBC1DFC.\nAUTHOR_SYMBOLIC_DERIVATION / SHARED_CONTEXT_REVIEW / UNREVIEWED / NOT_ADMITTED.\n\n这一增量回答原 CF 全位宽正成功率证明之后的另一个问题：同一固定精度、固定截断 K33 实现，能否在所有输入上保证与理想 Shor 原始读出分布的距离小于某个固定 epsilon<1？答案是否定的。它不推翻原 CF 的全位宽正成功率与有限重试定理。\n\n`FIXED_CUTOFF_ASYMPTOTICS.md` 是完整证明，`TV_OBSTRUCTION_AUDIT.md` 是同上下文交叉核查。固定模阶 r=2^s d、奇数 d>3 时，高奇部的两个分支在完整61维载体上均可逆；有限实际相位字集合给出严格收缩。理想分布集中于多项式大小的峰邻域，而这一高奇部实际质量离开该邻域，故 liminf TV >= 1-gcd(d,3)/d。共同的零相位及半周期原子给出上界，r=2p、素数 p>=5 时精确极限为1-1/p。\n\n默认宽度也存在真实反例族。固定任意素数 p>=5，令 a=18m+4、q=(a^p+1)/(a+1)、N=(a-1)q。N为奇合数、非任何非平凡完美幂，a是好底数，真实阶为2p；随着m增长，默认 t=2ceil(log2 N) 趋向无穷，TV趋于1-1/p。选择越来越大的p排除任何统一epsilon<1保证。这里是指定底数条件下的原始读出分布；不外推成随机底数平均分布或最终因数输出分布的结论。显式收缩常数极保守，没有实用起效规模或测量TV的主张。\n\n`check_family_n615.py` 已实际执行族中 p=5,m=0 的输入证书：a=4,q=205,N=615，实际阶10，半阶gcd为3和205，v3(N)=1。`FAMILY_N615_CERTIFICATE.json.gz` 保存4096个完整工作模乘基列及原生来源回执，`FAMILY_N615_NOTE.md` 给出核查范围。它没有运行相位历史、理想参考或TV测量，也没有完整分解615。\n\n依赖原 CF Source `58e689cbebb73b0ceaedfc33e5daebad34d0ca48` 的同父目录 `next_cf_only/`，基础完整相位/工作证据 Source `1fb7ff99d205f9ca03772942be64f732553dcd86`。固定 phase-bank payload SHA256 `feecbc02808991f6d7b1e2c3179c8da2018b76901ef34c26ef0d28b65729dd5c`，冻结 BRC source `0852cad130c1d877174d235687cf60c19f318c58`。没有变更target32/vector64、舍弃残差或把61计算模式解释为空间轴；P000保持。\n\n下一条可执行研究是使用相同实际 H4/sign/swap 字母表、延长有限原生门序列，建立带误差证书的有效相位编译。固定截断证明限制的是当前K33算法，不能外推否定这一新构造。首先证明密性，再证明搜索可终止及全列误差可检查，最后以实际原生字执行绑定；这些步骤需要分别报告。任意新对话可从这些文件继续数学核查，不以特定客户端或本地工具作为研究前提。\n\nGlobal-Knowledge-Sync: main@441ebef / GLOBAL_KNOWLEDGE_V1\n",
+      "display_title": "HANDOFF.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/28b3f7d3f98904781fe371f6c51bfb5b6974352e/research_notes/directed_recovery/20260926_C6438C/next_distribution/HANDOFF.md",
+      "encoding": "utf-8",
+      "sha": "f4558be109f86b5c0c73b239ebbe6a189678b853"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
