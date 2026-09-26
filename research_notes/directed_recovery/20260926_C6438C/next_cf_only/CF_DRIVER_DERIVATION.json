@@ -1,0 +1,40 @@
+{
+  "source": "../integration/complete_factorization.py",
+  "source_sha256": "96ea1eda5a689106515420b06826bb0bb6a11c4d4fb41ae50bcfb33a87fb7aee",
+  "result": "cf_universal_factorization.py",
+  "result_sha256": "23b683976b30953fe275b71202022df272a29a0d9d97f05e361aad3afa5ed8dd",
+  "replacements": [
+    {
+      "old": "from general_streaming import GeneralStreamingProgram, ROOT",
+      "new": "sys.path.insert(0, str(Path(__file__).resolve().parent.parent / 'integration'))\nfrom general_streaming import GeneralStreamingProgram, ROOT"
+    },
+    {
+      "old": "def factor_integer(N, rng, phase_provider, *, failure_bits=16, max_attempts=None, base_provider=None):",
+      "new": "def factor_integer_cf_universal(N, rng, *, failure_bits=16, max_attempts=None, base_provider=None):"
+    },
+    {
+      "old": "    phase_provider(t) returns (bank, dim, error_certificate), whose\n    terminal_TV_bound is a uniform whole-instrument bound to ideal Shor.",
+      "new": "    The pinned complete K33 phase provider and original CF postprocessor\n    have an all-width positive support proof. Ideal TV remains a separate bound."
+    },
+    {
+      "old": "    if not integer(N) or N < 2: raise ValueError('integer N >= 2 required')",
+      "new": "    phase_provider = certified_phase_provider\n    if not integer(N) or N < 2: raise ValueError('integer N >= 2 required')"
+    },
+    {
+      "old": "        gamma = F(1, 8 * n) - epsilon",
+      "new": "        B = 2*t + 128*sum(t-m+1 for m in range(3, min(t,32)+1))\n        support_exponent = 2*B + 1\n        spectral_gamma = F(1, 1 << support_exponent)\n        tv_gamma = F(1, 8*n) - epsilon\n        gamma = max(spectral_gamma, tv_gamma)"
+    },
+    {
+      "old": "        # Lack of a useful conservative bound does not prevent an actual run.\n        # Its stopping budget and missing guarantee are made explicit.",
+      "new": "        # The spectral support bound is positive for every finite width.\n        # An explicit budget override can still weaken the probability guarantee."
+    },
+    {
+      "old": "            'per_attempt_success_lower_bound': str(max(F(0), gamma)),",
+      "new": "            'per_attempt_success_lower_bound': str(gamma),\n            'original_cf_support_certificate': {\n                'algorithm': 'Complete fixed K33 words and unchanged sparse CF-only postprocessor',\n                'proof': 'ROOT_CF_ALL_WIDTH_SUCCESS.md',\n                'postprocessing_extension': False,\n                'retained_modes': dim,\n                'per_round_full_ideal_operator_bound': '185/4294967296',\n                'terminal_dyadic_denominator_exponent_upper_bound': B,\n                'uniform_success_dyadic_denominator_exponent': support_exponent,\n                'cases': ['odd_part_1_first_active_bit', 'odd_part_3_nearest_CF_history', 'odd_part_above_3_cyclotomic_norm'],\n                'chosen_bound': 'IDEAL_TV' if tv_gamma >= spectral_gamma else 'SPECTRAL_DYADIC',\n                'no_all_scale_ideal_distribution_accuracy_claim': True},"
+    }
+  ],
+  "schema_replacement": "BRC_RECURSIVE_FACTORIZATION_V1 -> BRC_CF_UNIVERSAL_FACTORIZATION_V1",
+  "factor_attempts_call_unchanged": true,
+  "postprocessing_extension": false,
+  "runtime_monkeypatch": false
+}
