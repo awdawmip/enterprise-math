@@ -1,0 +1,61 @@
+# Frozen phase3+phase4: the coherent predictor grows exactly from39 to58
+
+Status: AUTHOR_DERIVATION_AND_EXECUTION / UNREVIEWED / NOT_ADMITTED.
+Research-Activity-ID: RA-BC9CF141D000E1FE25AF22EA (parent directed-research session).
+Frozen input: Stage87 bundle HEAD `0852cad130c1d877174d235687cf60c19f318c58`, SHA256 `a0eb15a32c4db5a9fd0876f64a0ffd8dbedcd5eabb2a148c247a8886836e5a9c`. The new canonical Stage88 note adds a second logical bit; this unit instead adds frozen phase4 to one coherent logical bit, so the results have different scopes.
+
+The allowed language is global A0/A1/D0/D1, frozen V3/V4 and their actual inverses, logical H/Z0/Z1, and controlled CV3/CV4 and their inverses. All old input vectors, fixed words, readout prefixes and the BRC kernel remain unchanged. Standard real-density/probability/instrument semantics are BORROWED_REFERENCE; this is not a native Born-law or hardware claim.
+
+## Carrier and the precise failure of the old39 moments
+
+Let e0 be the original first raw mode, nm=(0,z_m[1:]/2^64), and u,d the actual Stage84 A/D pullback directions. The old carrier is T3=span(e0,n3,u,d). The new one is T34=span(e0,n3,n4,u,d). Fresh actual typed-BRC signed pairings and positive leading Gram minors certify ranks4 and5, respectively. For both frozen phases and both inverses, all61 original basis columns satisfy B^T V=L_V B^T exactly (244 column checks). Each FixedRotor also checks its full fixed word and actual inverse on all61 columns. A/D have range in T34; all allowed internal actions act as a scalar on its complement. Thus T34 is invariant; because V4(e0) has a nonzero n4 coefficient, the smallest common invariant extension containing T3 is exactly T34.
+
+Set r=(I-P_T3)n4. The certificate records its exact rational coordinates, projection coefficients and strictly positive squared norm. It also records z=(I-P_T34)e_j for an explicitly found raw coordinate j, with nonzero squared norm. Both r,z lie in T3-perp, while z lies in T34-perp. The two positive trace-one density inputs
+
+rho_r=|0><0| tensor rr^T/<r,r>, and rho_z=|0><0| tensor zz^T/<z,z>
+
+have identical old39 moments: Z00=1, Z01=Z11=0 and C=0. Under the new allowed word V4;A1 their exact probabilities are strictly positive and zero, respectively. The exact fraction and actual full-word executions are in RESULTS.json. Therefore the old39 carrier fails for this expanded language; this is a positive-state witness, not merely a missing matrix coordinate. Old phase3 and its inverse fix both inputs, so this is a scope-extension effect, not a defect in Stage87's frozen claim.
+
+## Exact58 and why both pieces are reachable
+
+For one coherent logical bit, save Z_ab=Tr(rho_ab) and C_ab=B^T rho_ab B. C is a10x10 real symmetric matrix and Z a2x2 real symmetric matrix, giving55+3=58 real unnormalized moments. With M_a=s_a I+B K_a B^T and L_a=s_a I+H K_a, H=B^T B, the same exact identities as Stage87 give
+
+C'_ab=L_a C_ab L_b^T,
+
+Z'_ab=s_a s_b Z_ab+Tr[(s_b K_a+s_a K_b^T+K_b^T H K_a)C_ab].
+
+Logical H mixes both logical indices. These identities and induction prove sufficiency for every finite allowed history, retaining cross-logical skew components and zero-outcome histories. Finite implementation probes check these formulas; they are not the reason that all histories are covered.
+
+For the lower bound, the actual global internal backward-effect closure from total mass has exact rational ranks1→3→8→16. Every output effect is represented in Sym(T34) plus R I_T34-perp, whose dimension is16. Exact pivots, original generating words, change-of-basis coefficients and the complete action on every basis effect are saved. Thus this full16-dimensional space is generated, rather than just bounded above.
+
+The logical effects I,Z,X span Sym(2): Z0 and Z1 give the two diagonal effects, and H followed by Z0 gives (I+X)/2. These logical-only operations commute with the global internal words. Their sequential products therefore realize all tensor products of three logical symmetric directions with the16 internal symmetric effects, yielding48 independent directions.
+
+Let J=[[0,1],[-1,0]]. Pulling X tensor I back through CV3=diag(I,V3) gives
+
+X tensor (V3+V3^T)/2 + J tensor (V3-V3^T)/2.
+
+The first term is already in the48-dimensional symmetric sector and can be subtracted as a linear combination of attainable effects. In B coordinates, (V3-V3^T)/2 has the nonzero coefficient2a3 on e0 wedge n3, where a3=z3[0]/2^64 is nonzero in the frozen data. Hence CV3 exposes the seed J tensor (e0 wedge n3). No logical entangling two-bit gate is needed.
+
+Global internal pullbacks act on the skew matrix F by F→L^T F L. Fresh actual typed-BRC exact elimination gives ranks1→4→7→9→10 from that seed. Ten is the full dimension of Skew(T34), so this yields10 independent J tensor internal-skew effects. Their logical transpose parity is disjoint from the48 symmetric-sector directions. Therefore the effect space is exactly48+10=58 dimensional. This is an exact rational result on the fixed data: no floating rank or finite-field lifting is used.
+
+The legal reduced image has interior: C is any positive semidefinite active covariance, and Z_perp[ab]=Z_ab-Tr(H^-1 C_ab) is any positive semidefinite complement logical covariance, realizable on a fixed nonzero vector in T34-perp. Consequently the effect-rank lower bound applies to linear unnormalized predictors on all legal inputs. With fixed total trace one, the affine dimension is57. It says nothing about nonlinear encoding, a single prescribed trajectory, physical world dimension, qubit count or whole-Shor memory.
+
+## Execution and continuation
+
+Three standalone scripts reuse the exact frozen vendor, signed_dot_brc, product_difference/Bareiss, Echelon, fixed-word execution and rational_matrix_columns. Arithmetic logs retain actual calls and source hashes. The source checkout had Windows CRLF normalization repaired from a local Git archive before scientific execution; the final bytes and vendor hash match the frozen bundle.
+
+Carrier/counterexample execution:2905 actual BRC-core calls. Scalar/skew closure:7386 actual calls. These are arithmetic component calls, not independent physical experiments. Positive-probe implementation regression is recorded separately in REGRESSION_RESULTS.json. Its initial attempt reached the complement probes with an odd-denominator projected vector and correctly failed the inherited dyadic-preparation guard. The corrected probe clears denominators to the same integer ray; no scientific state span, native API or source file was changed. The failed attempt is retained and not counted as a completed pass. No original12-Shor-case suite was rerun, and no claim is made that the new second-phase suffix already passed those full circuit checks.
+
+The corrected positive-probe regression passed all58 probes under15 scoped actions:870 exact input-action comparisons against retained raw61-mode execution. The probes span the full reduced positive covariance image (10 active basis rays,45 pairwise sums,3 complement logical probes). Phase and controlled-phase inverse checks, H-squared identity and A/D/Z branch-mass conservation also passed;9468 actual BRC-core calls were recorded for this successful run. These are implementation checks, not870 physical experiments. Full dense58x58 maps and original arithmetic receipts are retained. The two largest JSON files are published as lossless gzip (mtime=0); PHASE34_MANIFEST.json records both original and compressed sizes/hashes, and decompression was byte-verified. No fields are omitted. Restore them with:
+
+```python
+import gzip
+from pathlib import Path
+for name in ("MOMENT_MAPS_58.json", "REGRESSION_ARITHMETIC_CERTIFICATE.json"):
+    p = Path("phase34_output") / name
+    p.write_bytes(gzip.decompress(p.with_suffix(p.suffix + ".gz").read_bytes()))
+```
+
+Run Python3.11+ with standard library from this directory: `python -S phase34_carrier.py`, then `python -S phase34_closure.py`, then `python -S phase34_regression.py`. They use the sibling `stage87-source` clone of the verified bundle and write only `phase34_output`. The bound-preserving next unit is a declared second-phase coherent suffix on the frozen Shor inputs, checking all retained moments, record histories and final control probabilities against the original61-mode executor. The internal58-dimensional interface is ready for that integration; the whole research objective is not declared complete.
+
+P000, six native spatial axes plus time, native120-degree orthogonality, triadic primitive balance and residual preservation are unchanged. Predictor dimensions are not physical dimensions. No Foundation or Working Truth promotion, independent review, role borrowing or remote publication was performed by this subagent.

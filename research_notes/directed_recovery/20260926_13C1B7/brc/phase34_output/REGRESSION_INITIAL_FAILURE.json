@@ -1,0 +1,8 @@
+{
+  "status": "EXPLORATORY_FAILURE_NOT_COUNTED_AS_PASS",
+  "failure": "ValueError: fixed-word denominator must be dyadic",
+  "location": "phase34_regression.py positive complement probes after first55 active probes",
+  "cause": "Rational projected complement vector was passed directly to inherited dyadic-preparation API.",
+  "repair": "Scale that same nonzero ray to an exact integer vector before raw preparation. Its span/PSD probe role is unchanged; retain API and all frozen source bytes.",
+  "model_or_structural_residual": false
+}

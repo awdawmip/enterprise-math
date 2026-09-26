@@ -1,0 +1,38 @@
+{
+  "schema": "PHASE34_EXACT_EFFECT_CLOSURE_V1",
+  "status": "AUTHOR_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "source_bundle_head": "0852cad130c1d877174d235687cf60c19f318c58",
+  "activity": "RA-BC9CF141D000E1FE25AF22EA",
+  "symmetric_internal_rank": 16,
+  "symmetric_depths": [
+    1,
+    3,
+    8,
+    16
+  ],
+  "skew_internal_rank": 10,
+  "skew_depths": [
+    1,
+    4,
+    7,
+    9,
+    10
+  ],
+  "logical_symmetric_rank": 3,
+  "logical_skew_rank": 1,
+  "joint_effect_dimension": 58,
+  "upper_bound": 58,
+  "method": "EXACT_RATIONAL_BRC_ELIMINATION_AND_TRANSPOSE_PARITY_DIRECT_SUM",
+  "scope": "one coherent logical bit; frozen phase3+phase4 and inverses; A/D; H/Z/CV3/CV4",
+  "actual_BRC_core_calls": 7386,
+  "vendor": {
+    "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+    "path": "src/enterprise_math/brc_weighted_recurrent.py",
+    "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+    "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+  },
+  "elapsed_ns": 4499967900,
+  "all_scientific_products_typed": "unchanged signed_dot_brc and rational_matrix_columns; exact quotient with multiply-back",
+  "no_full_Shor_regression_run": true,
+  "finite_scope_not_hardware_or_world_dimension": true
+}
