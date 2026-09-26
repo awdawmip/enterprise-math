@@ -1,0 +1,535 @@
+{
+  "schema": "EXACT_SELECTED_CHILD_LAZY_STREAMING_CHECKS_V1",
+  "status": "AUTHOR_ACTUAL_SHARED_CONTEXT_NOT_ADMITTED",
+  "activity": "RA-CAAAC604CB513AEA8BBC1DFC",
+  "kernel": {
+    "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+    "path": "src/enterprise_math/brc_weighted_recurrent.py",
+    "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+    "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+  },
+  "source_files_sha256": {
+    "optimization\\streaming\\check_streaming_optimization.py": "37dcc622fffecb424840c0ad5924a5fed82a32bf246b3326bf40ee2827499c27",
+    "optimization\\streaming\\lazy_streaming.py": "635d0c4aee0aaa8d58bb0244835e08e5caa0f6a94926a5213519f40db992a257",
+    "optimization\\lazy_modular\\lazy_modular.py": "08df3595a2a56dc2501bb481828093481bf76e4ac53c8b966990d233fefac1e4",
+    "optimization\\lazy_modular\\lazy_postprocess.py": "c353b8dc429e3d60c8afd9685da4cf1624dbf36785d85eee4a12f636eea0af56",
+    "optimization\\lazy_modular\\lazy_gcd.py": "b704590f055da0785d03b6026d9fa749e75218acd2764d25e90288f32db0965e"
+  },
+  "label_collision_negative_control": {
+    "same_complete_row_histogram": true,
+    "different_label_collision_probabilities": true,
+    "non_principal_mode_5_retained": true,
+    "cases": [
+      {
+        "labels": [
+          1,
+          2
+        ],
+        "row": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "parent_mass": "1",
+        "G": 2,
+        "child_masses": [
+          "3/4",
+          "1/4"
+        ]
+      },
+      {
+        "labels": [
+          1,
+          4
+        ],
+        "row": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "parent_mass": "1",
+        "G": 0,
+        "child_masses": [
+          "1/2",
+          "1/2"
+        ]
+      }
+    ],
+    "conclusion": "row sharing is valid; discarding work-label collision structure is not"
+  },
+  "actual_BRC_core_calls": 244,
+  "ideal_reference_execution": false,
+  "all_61_coordinates_retained": true,
+  "whole_control_expansion_in_executor": false,
+  "full_history_enumeration_used_only_by_tests": true,
+  "payload_sha256": "a6a61201aabe54cdf40a58a810dcdc1c9deabe5f30a0a480b4848f9ea4fb9c40",
+  "gzip_sha256": "fda424c62c1d8bd9a4c71c8bbe5732a440929906afe7e18bc5b4ac32e7fd555b",
+  "case_summaries": [
+    {
+      "label": "frozen_N15",
+      "all_history_edges": 30,
+      "terminal_leaf_slots": 16,
+      "positive_leaves": 4,
+      "residual_mass": "0",
+      "nonzero_child_coordinates_compared": 1342
+    },
+    {
+      "label": "frozen_N21",
+      "all_history_edges": 30,
+      "terminal_leaf_slots": 16,
+      "positive_leaves": 16,
+      "residual_mass": "254650929266506211201911655304166732181165606621108956051252770125741966791256242891311249068690306592456211942852703576724303890092111103607243421486805657435604892301085612541282653198441338613721299887447853/1516130949512411069481425281701662651618052751090524034315480505884815383482789928057498446121725076123523174508917063677901933636830873429144811792032403456254350562520361235888930942999607856274670897650113739014543795755679744",
+      "nonzero_child_coordinates_compared": 7930
+    },
+    {
+      "label": "direct_N21",
+      "all_history_edges": 30,
+      "terminal_leaf_slots": 16,
+      "positive_leaves": 16,
+      "residual_mass": "2557830172007030474820891023747218698966287/11417981541647679048466287755595961091061972992",
+      "nonzero_child_coordinates_compared": 7930
+    }
+  ],
+  "single_path_summaries": [
+    {
+      "label": "frozen_N15",
+      "reference_constructed_children": 8,
+      "reference_constructed_child_rows": 14,
+      "reference_phase_row_applications": {
+        "total": 0,
+        "by_phase": {}
+      },
+      "optimized_metrics": {
+        "branch_calls": 0,
+        "empty_branch_calls": 0,
+        "phase_calls": 0,
+        "H4_calls": 0,
+        "modular_column_applications": 0,
+        "peak_endpoints": 4,
+        "peak_scalar_slots": 244,
+        "peak_nonzero_scalars": 4,
+        "peak_denominator_bits": 3,
+        "boundary_spectator_nonzero_seen": false,
+        "depth_maxima": [
+          {
+            "depth": 0,
+            "operation": "selected_child_boundary",
+            "calls": 1,
+            "endpoints": 1,
+            "scalar_slots": 61,
+            "nonzero_scalars": 1,
+            "denominator_bits": 1
+          },
+          {
+            "depth": 1,
+            "operation": "selected_child_boundary",
+            "calls": 1,
+            "endpoints": 1,
+            "scalar_slots": 61,
+            "nonzero_scalars": 1,
+            "denominator_bits": 1
+          },
+          {
+            "depth": 2,
+            "operation": "selected_child_boundary",
+            "calls": 1,
+            "endpoints": 2,
+            "scalar_slots": 122,
+            "nonzero_scalars": 2,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 3,
+            "operation": "selected_child_boundary",
+            "calls": 1,
+            "endpoints": 4,
+            "scalar_slots": 244,
+            "nonzero_scalars": 4,
+            "denominator_bits": 3
+          }
+        ],
+        "selected_child": {
+          "planned_rounds": 4,
+          "empty_plans": 0,
+          "support_column_requests": 5,
+          "collision_source_rows": 2,
+          "feedback_row_cache_hits": 3,
+          "feedback_unique_rows": 4,
+          "phase_vector_applications": 0,
+          "active_phase_instances": 0,
+          "scalar_norm_terms": 305,
+          "scalar_collision_products": 122,
+          "materialized_children": 4,
+          "materialized_child_rows": 8,
+          "materialized_child_scalar_slots": 488,
+          "peak_materialized_child_rows": 4,
+          "peak_plan_source_rows": 2,
+          "peak_transformed_row_cache": 1,
+          "contracted_native_H4_operations": 8
+        }
+      },
+      "clock_ns": {
+        "reference_execution": 1487100,
+        "optimized_execution": 571700
+      },
+      "execution_native_kernel_call_deltas": {
+        "reference": 0,
+        "optimized": 0
+      },
+      "reference_distinct_complete_maps": [
+        {
+          "N": 15,
+          "b": 1,
+          "full_carrier_columns": 16,
+          "typed_adder_digit_replays": 150
+        },
+        {
+          "N": 15,
+          "b": 2,
+          "full_carrier_columns": 16,
+          "typed_adder_digit_replays": 150
+        },
+        {
+          "N": 15,
+          "b": 4,
+          "full_carrier_columns": 16,
+          "typed_adder_digit_replays": 150
+        }
+      ]
+    },
+    {
+      "label": "frozen_N21",
+      "reference_constructed_children": 8,
+      "reference_constructed_child_rows": 27,
+      "reference_phase_row_applications": {
+        "total": 16,
+        "by_phase": {
+          "2": 10,
+          "3": 6
+        }
+      },
+      "optimized_metrics": {
+        "branch_calls": 0,
+        "empty_branch_calls": 0,
+        "phase_calls": 0,
+        "H4_calls": 0,
+        "modular_column_applications": 0,
+        "peak_endpoints": 6,
+        "peak_scalar_slots": 366,
+        "peak_nonzero_scalars": 151,
+        "peak_denominator_bits": 132,
+        "boundary_spectator_nonzero_seen": false,
+        "depth_maxima": [
+          {
+            "depth": 0,
+            "operation": "selected_child_boundary",
+            "calls": 1,
+            "endpoints": 2,
+            "scalar_slots": 122,
+            "nonzero_scalars": 2,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 1,
+            "operation": "selected_child_boundary",
+            "calls": 1,
+            "endpoints": 2,
+            "scalar_slots": 122,
+            "nonzero_scalars": 2,
+            "denominator_bits": 3
+          },
+          {
+            "depth": 2,
+            "operation": "selected_child_boundary",
+            "calls": 1,
+            "endpoints": 3,
+            "scalar_slots": 183,
+            "nonzero_scalars": 4,
+            "denominator_bits": 4
+          },
+          {
+            "depth": 3,
+            "operation": "selected_child_boundary",
+            "calls": 1,
+            "endpoints": 6,
+            "scalar_slots": 366,
+            "nonzero_scalars": 151,
+            "denominator_bits": 132
+          }
+        ],
+        "selected_child": {
+          "planned_rounds": 4,
+          "empty_plans": 0,
+          "support_column_requests": 8,
+          "collision_source_rows": 2,
+          "feedback_row_cache_hits": 3,
+          "feedback_unique_rows": 7,
+          "phase_vector_applications": 8,
+          "active_phase_instances": 3,
+          "scalar_norm_terms": 488,
+          "scalar_collision_products": 122,
+          "materialized_children": 4,
+          "materialized_child_rows": 13,
+          "materialized_child_scalar_slots": 793,
+          "peak_materialized_child_rows": 6,
+          "peak_plan_source_rows": 3,
+          "peak_transformed_row_cache": 3,
+          "contracted_native_H4_operations": 8
+        }
+      },
+      "clock_ns": {
+        "reference_execution": 3091700,
+        "optimized_execution": 1367900
+      },
+      "execution_native_kernel_call_deltas": {
+        "reference": 0,
+        "optimized": 0
+      },
+      "reference_distinct_complete_maps": [
+        {
+          "N": 21,
+          "b": 2,
+          "full_carrier_columns": 32,
+          "typed_adder_digit_replays": 252
+        },
+        {
+          "N": 21,
+          "b": 4,
+          "full_carrier_columns": 32,
+          "typed_adder_digit_replays": 252
+        },
+        {
+          "N": 21,
+          "b": 16,
+          "full_carrier_columns": 32,
+          "typed_adder_digit_replays": 252
+        }
+      ]
+    },
+    {
+      "label": "direct_N21",
+      "reference_constructed_children": 8,
+      "reference_constructed_child_rows": 27,
+      "reference_phase_row_applications": {
+        "total": 16,
+        "by_phase": {
+          "2": 10,
+          "3": 6
+        }
+      },
+      "optimized_metrics": {
+        "branch_calls": 0,
+        "empty_branch_calls": 0,
+        "phase_calls": 0,
+        "H4_calls": 0,
+        "modular_column_applications": 0,
+        "peak_endpoints": 6,
+        "peak_scalar_slots": 366,
+        "peak_nonzero_scalars": 22,
+        "peak_denominator_bits": 32,
+        "boundary_spectator_nonzero_seen": false,
+        "depth_maxima": [
+          {
+            "depth": 0,
+            "operation": "selected_child_boundary",
+            "calls": 1,
+            "endpoints": 2,
+            "scalar_slots": 122,
+            "nonzero_scalars": 2,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 1,
+            "operation": "selected_child_boundary",
+            "calls": 1,
+            "endpoints": 2,
+            "scalar_slots": 122,
+            "nonzero_scalars": 2,
+            "denominator_bits": 3
+          },
+          {
+            "depth": 2,
+            "operation": "selected_child_boundary",
+            "calls": 1,
+            "endpoints": 3,
+            "scalar_slots": 183,
+            "nonzero_scalars": 4,
+            "denominator_bits": 4
+          },
+          {
+            "depth": 3,
+            "operation": "selected_child_boundary",
+            "calls": 1,
+            "endpoints": 6,
+            "scalar_slots": 366,
+            "nonzero_scalars": 22,
+            "denominator_bits": 32
+          }
+        ],
+        "selected_child": {
+          "planned_rounds": 4,
+          "empty_plans": 0,
+          "support_column_requests": 8,
+          "collision_source_rows": 2,
+          "feedback_row_cache_hits": 3,
+          "feedback_unique_rows": 7,
+          "phase_vector_applications": 8,
+          "active_phase_instances": 3,
+          "scalar_norm_terms": 488,
+          "scalar_collision_products": 122,
+          "materialized_children": 4,
+          "materialized_child_rows": 13,
+          "materialized_child_scalar_slots": 793,
+          "peak_materialized_child_rows": 6,
+          "peak_plan_source_rows": 3,
+          "peak_transformed_row_cache": 3,
+          "contracted_native_H4_operations": 8
+        }
+      },
+      "clock_ns": {
+        "reference_execution": 2473300,
+        "optimized_execution": 1368300
+      },
+      "execution_native_kernel_call_deltas": {
+        "reference": 0,
+        "optimized": 0
+      },
+      "reference_distinct_complete_maps": [
+        {
+          "N": 21,
+          "b": 2,
+          "full_carrier_columns": 32,
+          "typed_adder_digit_replays": 252
+        },
+        {
+          "N": 21,
+          "b": 4,
+          "full_carrier_columns": 32,
+          "typed_adder_digit_replays": 252
+        },
+        {
+          "N": 21,
+          "b": 16,
+          "full_carrier_columns": 32,
+          "typed_adder_digit_replays": 252
+        }
+      ]
+    }
+  ]
+}

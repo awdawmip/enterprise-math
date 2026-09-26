@@ -1,0 +1,77 @@
+{
+  "status": "AUTHOR_ACTUAL_BOUNDED_SHARED_CONTEXT_NOT_ADMITTED",
+  "all_original_result_fields_equal": true,
+  "full_domain_fallback_guard_passed": true,
+  "actual_core_call_count": 5,
+  "ordinary_modular_reference_used": false,
+  "source": {
+    "native_adder": {
+      "vendor": {
+        "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+        "path": "src/enterprise_math/brc_weighted_recurrent.py",
+        "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+        "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+      },
+      "entrypoint": "stage78.shor_benchmark.full_adder_columns",
+      "positive_BRC_input_states": 12,
+      "input_columns": 8,
+      "columns": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "observer": "retained input triple -> (sum bit, carry bit)",
+      "scope": "exact integer label compiler; not a reversible physical erasure"
+    },
+    "files_sha256": {
+      "lazy_modular": "08df3595a2a56dc2501bb481828093481bf76e4ac53c8b966990d233fefac1e4",
+      "sparse_modular": "fd9cbb019418a3c00890ba6e8cca5760e7e4d792bfd7b48306a71a66de301c46",
+      "typed_integer_prechecks": "0a817aa8124cceb5440233d543073dae71de6ac1d0d4e5d50f4ee2b4808d99eb"
+    },
+    "primitive_source": "0852cad130c1d877174d235687cf60c19f318c58",
+    "arithmetic_route": "actual full-adder columns; digit transducer composition",
+    "runtime_state_propagator": "complete positive unit permutation on work labels"
+  },
+  "compared_readouts": 48,
+  "guarded_factor_result": {
+    "status": "FACTORS",
+    "verified_returning_exponent": 6,
+    "minimal_order_claimed": false,
+    "factors": [
+      3,
+      7
+    ]
+  },
+  "guarded_table_count": 3,
+  "guarded_requested_columns": 7,
+  "payload_sha256": "6f9100171c382d6c4b2e689701bfe4a754cf9a0dbce8629da64dcfc2d23dfa97"
+}

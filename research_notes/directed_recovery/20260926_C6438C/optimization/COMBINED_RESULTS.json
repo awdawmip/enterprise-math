@@ -1,0 +1,2497 @@
+{
+  "status": "AUTHOR_EXECUTED_SHARED_CONTEXT_NOT_ADMITTED",
+  "kernel": {
+    "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+    "path": "src/enterprise_math/brc_weighted_recurrent.py",
+    "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+    "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+  },
+  "phase_provenance": {
+    "3": {
+      "artifact": "direct_word_compiler_general\\M3_DELTA_EIGHTH.json.gz",
+      "uncompressed_payload_sha256": "0a712b1a918aa7326785605bdbc0e30453962c897286d9e293710f41318858d6",
+      "gzip_sha256": "297121c8c8cfdd529e5a0e95ea02bf8e54584caf1b645dbf27e025f221ed58ad",
+      "phase_index": 3,
+      "operator_error_bound": "1/8",
+      "word_length": 8384,
+      "source_certificate_sha256": "e94dc4ac7eab4f15daa2efb618a07db05fe0886638684f8aebb6fe710ba492ed",
+      "fresh_phase_record_replay": {
+        "status": "VERIFIED",
+        "phase_index": 3,
+        "dim": 61,
+        "certificate_sha256": "e94dc4ac7eab4f15daa2efb618a07db05fe0886638684f8aebb6fe710ba492ed",
+        "operator_error_bound": "1/8"
+      },
+      "construction_receipts_scope": "retained in the hash-bound constructor artifact; this run freshly replays the complete phase certificate"
+    },
+    "4": {
+      "artifact": "direct_word_compiler_general\\M4_DELTA_QUARTER.json.gz",
+      "uncompressed_payload_sha256": "1a4ca56447d32704376d4537da3e28550800ac4245093d6e303cef4b4918268c",
+      "gzip_sha256": "9f1a5b371bbf7de9783f2bed83b1934a872281f39a1bc7fd0244d806205d1db7",
+      "phase_index": 4,
+      "operator_error_bound": "1/4",
+      "word_length": 8112,
+      "source_certificate_sha256": "47fe942d2ebb6139cfff5a0bc9c3fe00c0304241dba8457f510f61c4bd0a0585",
+      "fresh_phase_record_replay": {
+        "status": "VERIFIED",
+        "phase_index": 4,
+        "dim": 61,
+        "certificate_sha256": "47fe942d2ebb6139cfff5a0bc9c3fe00c0304241dba8457f510f61c4bd0a0585",
+        "operator_error_bound": "1/4"
+      },
+      "construction_receipts_scope": "retained in the hash-bound constructor artifact; this run freshly replays the complete phase certificate"
+    }
+  },
+  "cases": [
+    {
+      "N": 15,
+      "a": 2,
+      "t": 4,
+      "all_history_edges": [
+        {
+          "history": [
+            0
+          ],
+          "mass": "1",
+          "rows": 1,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1
+          ],
+          "mass": "0",
+          "rows": 0,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            0
+          ],
+          "mass": "1",
+          "rows": 1,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            1
+          ],
+          "mass": "0",
+          "rows": 0,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            0
+          ],
+          "mass": "0",
+          "rows": 0,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            1
+          ],
+          "mass": "0",
+          "rows": 0,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            0,
+            0
+          ],
+          "mass": "1/2",
+          "rows": 2,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            0,
+            1
+          ],
+          "mass": "1/2",
+          "rows": 2,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            1,
+            0
+          ],
+          "mass": "0",
+          "rows": 0,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            1,
+            1
+          ],
+          "mass": "0",
+          "rows": 0,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            0,
+            0
+          ],
+          "mass": "0",
+          "rows": 0,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            0,
+            1
+          ],
+          "mass": "0",
+          "rows": 0,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            1,
+            0
+          ],
+          "mass": "0",
+          "rows": 0,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            1,
+            1
+          ],
+          "mass": "0",
+          "rows": 0,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "mass": "1/4",
+          "rows": 4,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "mass": "1/4",
+          "rows": 4,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "mass": "1/4",
+          "rows": 4,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "mass": "1/4",
+          "rows": 4,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "mass": "0",
+          "rows": 0,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "mass": "0",
+          "rows": 0,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            1,
+            1,
+            0
+          ],
+          "mass": "0",
+          "rows": 0,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "mass": "0",
+          "rows": 0,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "mass": "0",
+          "rows": 0,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "mass": "0",
+          "rows": 0,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "mass": "0",
+          "rows": 0,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "mass": "0",
+          "rows": 0,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "mass": "0",
+          "rows": 0,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "mass": "0",
+          "rows": 0,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "mass": "0",
+          "rows": 0,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mass": "0",
+          "rows": 0,
+          "all_61_coordinates_equal": true
+        }
+      ],
+      "nonzero_residual_seen": false,
+      "single_sample": {
+        "N": 15,
+        "a": 2,
+        "t": 4,
+        "k": 0,
+        "history": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "history_probability": "1/4",
+        "events": [
+          {
+            "round": 0,
+            "bit": 0,
+            "conditional_probability": "1",
+            "history_mass": "1",
+            "endpoints": 1,
+            "amplitude_denominator_bits": 1
+          },
+          {
+            "round": 1,
+            "bit": 0,
+            "conditional_probability": "1",
+            "history_mass": "1",
+            "endpoints": 1,
+            "amplitude_denominator_bits": 1
+          },
+          {
+            "round": 2,
+            "bit": 0,
+            "conditional_probability": "1/2",
+            "history_mass": "1/2",
+            "endpoints": 2,
+            "amplitude_denominator_bits": 2
+          },
+          {
+            "round": 3,
+            "bit": 0,
+            "conditional_probability": "1/2",
+            "history_mass": "1/4",
+            "endpoints": 4,
+            "amplitude_denominator_bits": 3
+          }
+        ],
+        "postprocessing": {
+          "status": "INSTRUMENT_ONLY_EQUALITY_TEST",
+          "factors": []
+        }
+      },
+      "full_single_sample_metrics": {
+        "branch_calls": 4,
+        "empty_branch_calls": 0,
+        "phase_calls": 6,
+        "H4_calls": 8,
+        "modular_column_applications": 4,
+        "peak_endpoints": 8,
+        "peak_scalar_slots": 488,
+        "peak_nonzero_scalars": 8,
+        "peak_denominator_bits": 3,
+        "boundary_spectator_nonzero_seen": false,
+        "depth_maxima": [
+          {
+            "depth": 0,
+            "operation": "child_boundary",
+            "calls": 2,
+            "endpoints": 1,
+            "scalar_slots": 61,
+            "nonzero_scalars": 1,
+            "denominator_bits": 1
+          },
+          {
+            "depth": 0,
+            "operation": "controlled_modular_power",
+            "calls": 1,
+            "endpoints": 4,
+            "scalar_slots": 244,
+            "nonzero_scalars": 4,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 0,
+            "operation": "initial_boundary",
+            "calls": 1,
+            "endpoints": 1,
+            "scalar_slots": 61,
+            "nonzero_scalars": 1,
+            "denominator_bits": 1
+          },
+          {
+            "depth": 0,
+            "operation": "prepare_H4",
+            "calls": 1,
+            "endpoints": 4,
+            "scalar_slots": 244,
+            "nonzero_scalars": 4,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 0,
+            "operation": "read_H4",
+            "calls": 1,
+            "endpoints": 1,
+            "scalar_slots": 61,
+            "nonzero_scalars": 1,
+            "denominator_bits": 1
+          },
+          {
+            "depth": 1,
+            "operation": "CP_2",
+            "calls": 1,
+            "endpoints": 4,
+            "scalar_slots": 244,
+            "nonzero_scalars": 4,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 1,
+            "operation": "child_boundary",
+            "calls": 2,
+            "endpoints": 1,
+            "scalar_slots": 61,
+            "nonzero_scalars": 1,
+            "denominator_bits": 1
+          },
+          {
+            "depth": 1,
+            "operation": "controlled_modular_power",
+            "calls": 1,
+            "endpoints": 4,
+            "scalar_slots": 244,
+            "nonzero_scalars": 4,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 1,
+            "operation": "initial_boundary",
+            "calls": 1,
+            "endpoints": 1,
+            "scalar_slots": 61,
+            "nonzero_scalars": 1,
+            "denominator_bits": 1
+          },
+          {
+            "depth": 1,
+            "operation": "prepare_H4",
+            "calls": 1,
+            "endpoints": 4,
+            "scalar_slots": 244,
+            "nonzero_scalars": 4,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 1,
+            "operation": "read_H4",
+            "calls": 1,
+            "endpoints": 1,
+            "scalar_slots": 61,
+            "nonzero_scalars": 1,
+            "denominator_bits": 1
+          },
+          {
+            "depth": 2,
+            "operation": "CP_2",
+            "calls": 1,
+            "endpoints": 4,
+            "scalar_slots": 244,
+            "nonzero_scalars": 4,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 2,
+            "operation": "CP_3",
+            "calls": 1,
+            "endpoints": 4,
+            "scalar_slots": 244,
+            "nonzero_scalars": 4,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 2,
+            "operation": "child_boundary",
+            "calls": 2,
+            "endpoints": 2,
+            "scalar_slots": 122,
+            "nonzero_scalars": 2,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 2,
+            "operation": "controlled_modular_power",
+            "calls": 1,
+            "endpoints": 4,
+            "scalar_slots": 244,
+            "nonzero_scalars": 4,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 2,
+            "operation": "initial_boundary",
+            "calls": 1,
+            "endpoints": 1,
+            "scalar_slots": 61,
+            "nonzero_scalars": 1,
+            "denominator_bits": 1
+          },
+          {
+            "depth": 2,
+            "operation": "prepare_H4",
+            "calls": 1,
+            "endpoints": 4,
+            "scalar_slots": 244,
+            "nonzero_scalars": 4,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 2,
+            "operation": "read_H4",
+            "calls": 1,
+            "endpoints": 4,
+            "scalar_slots": 244,
+            "nonzero_scalars": 4,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 3,
+            "operation": "CP_2",
+            "calls": 1,
+            "endpoints": 8,
+            "scalar_slots": 488,
+            "nonzero_scalars": 8,
+            "denominator_bits": 3
+          },
+          {
+            "depth": 3,
+            "operation": "CP_3",
+            "calls": 1,
+            "endpoints": 8,
+            "scalar_slots": 488,
+            "nonzero_scalars": 8,
+            "denominator_bits": 3
+          },
+          {
+            "depth": 3,
+            "operation": "CP_4",
+            "calls": 1,
+            "endpoints": 8,
+            "scalar_slots": 488,
+            "nonzero_scalars": 8,
+            "denominator_bits": 3
+          },
+          {
+            "depth": 3,
+            "operation": "child_boundary",
+            "calls": 2,
+            "endpoints": 4,
+            "scalar_slots": 244,
+            "nonzero_scalars": 4,
+            "denominator_bits": 3
+          },
+          {
+            "depth": 3,
+            "operation": "controlled_modular_power",
+            "calls": 1,
+            "endpoints": 8,
+            "scalar_slots": 488,
+            "nonzero_scalars": 8,
+            "denominator_bits": 3
+          },
+          {
+            "depth": 3,
+            "operation": "initial_boundary",
+            "calls": 1,
+            "endpoints": 2,
+            "scalar_slots": 122,
+            "nonzero_scalars": 2,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 3,
+            "operation": "prepare_H4",
+            "calls": 1,
+            "endpoints": 8,
+            "scalar_slots": 488,
+            "nonzero_scalars": 8,
+            "denominator_bits": 3
+          },
+          {
+            "depth": 3,
+            "operation": "read_H4",
+            "calls": 1,
+            "endpoints": 8,
+            "scalar_slots": 488,
+            "nonzero_scalars": 8,
+            "denominator_bits": 3
+          }
+        ]
+      },
+      "optimized_single_sample_metrics": {
+        "branch_calls": 0,
+        "empty_branch_calls": 0,
+        "phase_calls": 0,
+        "H4_calls": 0,
+        "modular_column_applications": 0,
+        "peak_endpoints": 4,
+        "peak_scalar_slots": 24,
+        "peak_nonzero_scalars": 4,
+        "peak_denominator_bits": 3,
+        "boundary_spectator_nonzero_seen": false,
+        "depth_maxima": [
+          {
+            "depth": 0,
+            "operation": "selected_child_boundary",
+            "calls": 1,
+            "endpoints": 1,
+            "scalar_slots": 6,
+            "nonzero_scalars": 1,
+            "denominator_bits": 1
+          },
+          {
+            "depth": 1,
+            "operation": "selected_child_boundary",
+            "calls": 1,
+            "endpoints": 1,
+            "scalar_slots": 6,
+            "nonzero_scalars": 1,
+            "denominator_bits": 1
+          },
+          {
+            "depth": 2,
+            "operation": "selected_child_boundary",
+            "calls": 1,
+            "endpoints": 2,
+            "scalar_slots": 12,
+            "nonzero_scalars": 2,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 3,
+            "operation": "selected_child_boundary",
+            "calls": 1,
+            "endpoints": 4,
+            "scalar_slots": 24,
+            "nonzero_scalars": 4,
+            "denominator_bits": 3
+          }
+        ],
+        "selected_child": {
+          "planned_rounds": 4,
+          "empty_plans": 0,
+          "support_column_requests": 5,
+          "collision_source_rows": 2,
+          "feedback_row_cache_hits": 3,
+          "feedback_unique_rows": 4,
+          "phase_vector_applications": 0,
+          "active_phase_instances": 0,
+          "scalar_norm_terms": 30,
+          "scalar_collision_products": 12,
+          "materialized_children": 4,
+          "materialized_child_rows": 8,
+          "materialized_child_scalar_slots": 48,
+          "peak_materialized_child_rows": 4,
+          "peak_plan_source_rows": 2,
+          "peak_transformed_row_cache": 1,
+          "contracted_native_H4_operations": 8
+        }
+      },
+      "lazy_modular_resources": {
+        "distinct_multipliers": 3,
+        "cached_columns": 6,
+        "setup_adder_digit_replays": 580,
+        "column_adder_digit_replays": 206,
+        "verification_adder_digit_replays": 580,
+        "whole_domain_enumerated": false,
+        "tables": [
+          {
+            "column_requests": 3,
+            "computed_columns": 3,
+            "cache_hits": 0,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "column_adder_digit_replays": 102,
+            "column_host_bit_wiring_operations": 1119,
+            "column_host_bit_length_calls_in_arithmetic": 30,
+            "setup_adder_digit_replays": 209,
+            "setup_host_bit_wiring_operations": 2297,
+            "setup_host_bit_length_calls_in_arithmetic": 60,
+            "cached_column_count": 3,
+            "carrier_size": 16,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct"
+          },
+          {
+            "column_requests": 2,
+            "computed_columns": 2,
+            "cache_hits": 0,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "column_adder_digit_replays": 92,
+            "column_host_bit_wiring_operations": 1004,
+            "column_host_bit_length_calls_in_arithmetic": 24,
+            "setup_adder_digit_replays": 294,
+            "setup_host_bit_wiring_operations": 3204,
+            "setup_host_bit_length_calls_in_arithmetic": 81,
+            "cached_column_count": 2,
+            "carrier_size": 16,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct"
+          },
+          {
+            "column_requests": 4,
+            "computed_columns": 1,
+            "cache_hits": 3,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "column_adder_digit_replays": 12,
+            "column_host_bit_wiring_operations": 132,
+            "column_host_bit_length_calls_in_arithmetic": 6,
+            "setup_adder_digit_replays": 77,
+            "setup_host_bit_wiring_operations": 860,
+            "setup_host_bit_length_calls_in_arithmetic": 29,
+            "cached_column_count": 1,
+            "carrier_size": 16,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct"
+          }
+        ]
+      }
+    },
+    {
+      "N": 21,
+      "a": 2,
+      "t": 4,
+      "all_history_edges": [
+        {
+          "history": [
+            0
+          ],
+          "mass": "1/2",
+          "rows": 2,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1
+          ],
+          "mass": "1/2",
+          "rows": 2,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            0
+          ],
+          "mass": "3/8",
+          "rows": 3,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            1
+          ],
+          "mass": "1/8",
+          "rows": 2,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            0
+          ],
+          "mass": "1/4",
+          "rows": 3,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            1
+          ],
+          "mass": "1/4",
+          "rows": 3,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            0,
+            0
+          ],
+          "mass": "11/32",
+          "rows": 3,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            0,
+            1
+          ],
+          "mass": "1/32",
+          "rows": 2,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            1,
+            0
+          ],
+          "mass": "1/16",
+          "rows": 3,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            1,
+            1
+          ],
+          "mass": "1/16",
+          "rows": 3,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            0,
+            0
+          ],
+          "mass": "62410025/4294967296",
+          "rows": 3,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            0,
+            1
+          ],
+          "mass": "1011331799/4294967296",
+          "rows": 3,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            1,
+            0
+          ],
+          "mass": "505680791/2147483648",
+          "rows": 3,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            1,
+            1
+          ],
+          "mass": "31190121/2147483648",
+          "rows": 3,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "mass": "11/64",
+          "rows": 6,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "mass": "11/64",
+          "rows": 6,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "mass": "1/64",
+          "rows": 4,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "mass": "1/64",
+          "rows": 4,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "mass": "1/32",
+          "rows": 6,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "mass": "1/32",
+          "rows": 6,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            1,
+            1,
+            0
+          ],
+          "mass": "1/32",
+          "rows": 6,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "mass": "1/32",
+          "rows": 6,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "mass": "62410025/8589934592",
+          "rows": 6,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "mass": "62410025/8589934592",
+          "rows": 6,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "mass": "1011331799/8589934592",
+          "rows": 6,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "mass": "1011331799/8589934592",
+          "rows": 6,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "mass": "505680791/4294967296",
+          "rows": 6,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "mass": "505680791/4294967296",
+          "rows": 6,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "mass": "31190121/4294967296",
+          "rows": 6,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mass": "31190121/4294967296",
+          "rows": 6,
+          "all_61_coordinates_equal": true
+        }
+      ],
+      "nonzero_residual_seen": true,
+      "single_sample": {
+        "N": 21,
+        "a": 2,
+        "t": 4,
+        "k": 0,
+        "history": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "history_probability": "11/64",
+        "events": [
+          {
+            "round": 0,
+            "bit": 0,
+            "conditional_probability": "1/2",
+            "history_mass": "1/2",
+            "endpoints": 2,
+            "amplitude_denominator_bits": 2
+          },
+          {
+            "round": 1,
+            "bit": 0,
+            "conditional_probability": "3/4",
+            "history_mass": "3/8",
+            "endpoints": 3,
+            "amplitude_denominator_bits": 3
+          },
+          {
+            "round": 2,
+            "bit": 0,
+            "conditional_probability": "11/12",
+            "history_mass": "11/32",
+            "endpoints": 3,
+            "amplitude_denominator_bits": 4
+          },
+          {
+            "round": 3,
+            "bit": 0,
+            "conditional_probability": "1/2",
+            "history_mass": "11/64",
+            "endpoints": 6,
+            "amplitude_denominator_bits": 5
+          }
+        ],
+        "postprocessing": {
+          "status": "INSTRUMENT_ONLY_EQUALITY_TEST",
+          "factors": []
+        }
+      },
+      "full_single_sample_metrics": {
+        "branch_calls": 4,
+        "empty_branch_calls": 0,
+        "phase_calls": 6,
+        "H4_calls": 8,
+        "modular_column_applications": 4,
+        "peak_endpoints": 12,
+        "peak_scalar_slots": 732,
+        "peak_nonzero_scalars": 12,
+        "peak_denominator_bits": 5,
+        "boundary_spectator_nonzero_seen": false,
+        "depth_maxima": [
+          {
+            "depth": 0,
+            "operation": "child_boundary",
+            "calls": 2,
+            "endpoints": 2,
+            "scalar_slots": 122,
+            "nonzero_scalars": 2,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 0,
+            "operation": "controlled_modular_power",
+            "calls": 1,
+            "endpoints": 4,
+            "scalar_slots": 244,
+            "nonzero_scalars": 4,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 0,
+            "operation": "initial_boundary",
+            "calls": 1,
+            "endpoints": 1,
+            "scalar_slots": 61,
+            "nonzero_scalars": 1,
+            "denominator_bits": 1
+          },
+          {
+            "depth": 0,
+            "operation": "prepare_H4",
+            "calls": 1,
+            "endpoints": 4,
+            "scalar_slots": 244,
+            "nonzero_scalars": 4,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 0,
+            "operation": "read_H4",
+            "calls": 1,
+            "endpoints": 4,
+            "scalar_slots": 244,
+            "nonzero_scalars": 4,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 1,
+            "operation": "CP_2",
+            "calls": 1,
+            "endpoints": 8,
+            "scalar_slots": 488,
+            "nonzero_scalars": 8,
+            "denominator_bits": 3
+          },
+          {
+            "depth": 1,
+            "operation": "child_boundary",
+            "calls": 2,
+            "endpoints": 3,
+            "scalar_slots": 183,
+            "nonzero_scalars": 3,
+            "denominator_bits": 3
+          },
+          {
+            "depth": 1,
+            "operation": "controlled_modular_power",
+            "calls": 1,
+            "endpoints": 8,
+            "scalar_slots": 488,
+            "nonzero_scalars": 8,
+            "denominator_bits": 3
+          },
+          {
+            "depth": 1,
+            "operation": "initial_boundary",
+            "calls": 1,
+            "endpoints": 2,
+            "scalar_slots": 122,
+            "nonzero_scalars": 2,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 1,
+            "operation": "prepare_H4",
+            "calls": 1,
+            "endpoints": 8,
+            "scalar_slots": 488,
+            "nonzero_scalars": 8,
+            "denominator_bits": 3
+          },
+          {
+            "depth": 1,
+            "operation": "read_H4",
+            "calls": 1,
+            "endpoints": 5,
+            "scalar_slots": 305,
+            "nonzero_scalars": 5,
+            "denominator_bits": 3
+          },
+          {
+            "depth": 2,
+            "operation": "CP_2",
+            "calls": 1,
+            "endpoints": 12,
+            "scalar_slots": 732,
+            "nonzero_scalars": 12,
+            "denominator_bits": 4
+          },
+          {
+            "depth": 2,
+            "operation": "CP_3",
+            "calls": 1,
+            "endpoints": 12,
+            "scalar_slots": 732,
+            "nonzero_scalars": 12,
+            "denominator_bits": 4
+          },
+          {
+            "depth": 2,
+            "operation": "child_boundary",
+            "calls": 2,
+            "endpoints": 3,
+            "scalar_slots": 183,
+            "nonzero_scalars": 3,
+            "denominator_bits": 4
+          },
+          {
+            "depth": 2,
+            "operation": "controlled_modular_power",
+            "calls": 1,
+            "endpoints": 12,
+            "scalar_slots": 732,
+            "nonzero_scalars": 12,
+            "denominator_bits": 4
+          },
+          {
+            "depth": 2,
+            "operation": "initial_boundary",
+            "calls": 1,
+            "endpoints": 3,
+            "scalar_slots": 183,
+            "nonzero_scalars": 3,
+            "denominator_bits": 3
+          },
+          {
+            "depth": 2,
+            "operation": "prepare_H4",
+            "calls": 1,
+            "endpoints": 12,
+            "scalar_slots": 732,
+            "nonzero_scalars": 12,
+            "denominator_bits": 4
+          },
+          {
+            "depth": 2,
+            "operation": "read_H4",
+            "calls": 1,
+            "endpoints": 5,
+            "scalar_slots": 305,
+            "nonzero_scalars": 5,
+            "denominator_bits": 4
+          },
+          {
+            "depth": 3,
+            "operation": "CP_2",
+            "calls": 1,
+            "endpoints": 12,
+            "scalar_slots": 732,
+            "nonzero_scalars": 12,
+            "denominator_bits": 5
+          },
+          {
+            "depth": 3,
+            "operation": "CP_3",
+            "calls": 1,
+            "endpoints": 12,
+            "scalar_slots": 732,
+            "nonzero_scalars": 12,
+            "denominator_bits": 5
+          },
+          {
+            "depth": 3,
+            "operation": "CP_4",
+            "calls": 1,
+            "endpoints": 12,
+            "scalar_slots": 732,
+            "nonzero_scalars": 12,
+            "denominator_bits": 5
+          },
+          {
+            "depth": 3,
+            "operation": "child_boundary",
+            "calls": 2,
+            "endpoints": 6,
+            "scalar_slots": 366,
+            "nonzero_scalars": 6,
+            "denominator_bits": 5
+          },
+          {
+            "depth": 3,
+            "operation": "controlled_modular_power",
+            "calls": 1,
+            "endpoints": 12,
+            "scalar_slots": 732,
+            "nonzero_scalars": 12,
+            "denominator_bits": 5
+          },
+          {
+            "depth": 3,
+            "operation": "initial_boundary",
+            "calls": 1,
+            "endpoints": 3,
+            "scalar_slots": 183,
+            "nonzero_scalars": 3,
+            "denominator_bits": 4
+          },
+          {
+            "depth": 3,
+            "operation": "prepare_H4",
+            "calls": 1,
+            "endpoints": 12,
+            "scalar_slots": 732,
+            "nonzero_scalars": 12,
+            "denominator_bits": 5
+          },
+          {
+            "depth": 3,
+            "operation": "read_H4",
+            "calls": 1,
+            "endpoints": 12,
+            "scalar_slots": 732,
+            "nonzero_scalars": 12,
+            "denominator_bits": 5
+          }
+        ]
+      },
+      "optimized_single_sample_metrics": {
+        "branch_calls": 0,
+        "empty_branch_calls": 0,
+        "phase_calls": 0,
+        "H4_calls": 0,
+        "modular_column_applications": 0,
+        "peak_endpoints": 6,
+        "peak_scalar_slots": 36,
+        "peak_nonzero_scalars": 6,
+        "peak_denominator_bits": 5,
+        "boundary_spectator_nonzero_seen": false,
+        "depth_maxima": [
+          {
+            "depth": 0,
+            "operation": "selected_child_boundary",
+            "calls": 1,
+            "endpoints": 2,
+            "scalar_slots": 12,
+            "nonzero_scalars": 2,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 1,
+            "operation": "selected_child_boundary",
+            "calls": 1,
+            "endpoints": 3,
+            "scalar_slots": 18,
+            "nonzero_scalars": 3,
+            "denominator_bits": 3
+          },
+          {
+            "depth": 2,
+            "operation": "selected_child_boundary",
+            "calls": 1,
+            "endpoints": 3,
+            "scalar_slots": 18,
+            "nonzero_scalars": 3,
+            "denominator_bits": 4
+          },
+          {
+            "depth": 3,
+            "operation": "selected_child_boundary",
+            "calls": 1,
+            "endpoints": 6,
+            "scalar_slots": 36,
+            "nonzero_scalars": 6,
+            "denominator_bits": 5
+          }
+        ],
+        "selected_child": {
+          "planned_rounds": 4,
+          "empty_plans": 0,
+          "support_column_requests": 9,
+          "collision_source_rows": 4,
+          "feedback_row_cache_hits": 7,
+          "feedback_unique_rows": 6,
+          "phase_vector_applications": 0,
+          "active_phase_instances": 0,
+          "scalar_norm_terms": 54,
+          "scalar_collision_products": 24,
+          "materialized_children": 4,
+          "materialized_child_rows": 14,
+          "materialized_child_scalar_slots": 84,
+          "peak_materialized_child_rows": 6,
+          "peak_plan_source_rows": 3,
+          "peak_transformed_row_cache": 2,
+          "contracted_native_H4_operations": 8
+        }
+      },
+      "lazy_modular_resources": {
+        "distinct_multipliers": 3,
+        "cached_columns": 10,
+        "setup_adder_digit_replays": 1027,
+        "column_adder_digit_replays": 681,
+        "verification_adder_digit_replays": 1027,
+        "whole_domain_enumerated": false,
+        "tables": [
+          {
+            "column_requests": 4,
+            "computed_columns": 4,
+            "cache_hits": 0,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "column_adder_digit_replays": 201,
+            "column_host_bit_wiring_operations": 2178,
+            "column_host_bit_length_calls_in_arithmetic": 46,
+            "setup_adder_digit_replays": 279,
+            "setup_host_bit_wiring_operations": 3015,
+            "setup_host_bit_length_calls_in_arithmetic": 64,
+            "cached_column_count": 4,
+            "carrier_size": 32,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct"
+          },
+          {
+            "column_requests": 6,
+            "computed_columns": 3,
+            "cache_hits": 3,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "column_adder_digit_replays": 200,
+            "column_host_bit_wiring_operations": 2162,
+            "column_host_bit_length_calls_in_arithmetic": 42,
+            "setup_adder_digit_replays": 310,
+            "setup_host_bit_wiring_operations": 3367,
+            "setup_host_bit_length_calls_in_arithmetic": 72,
+            "cached_column_count": 3,
+            "carrier_size": 32,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct"
+          },
+          {
+            "column_requests": 3,
+            "computed_columns": 3,
+            "cache_hits": 0,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "column_adder_digit_replays": 280,
+            "column_host_bit_wiring_operations": 3016,
+            "column_host_bit_length_calls_in_arithmetic": 54,
+            "setup_adder_digit_replays": 438,
+            "setup_host_bit_wiring_operations": 4719,
+            "setup_host_bit_length_calls_in_arithmetic": 97,
+            "cached_column_count": 3,
+            "carrier_size": 32,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct"
+          }
+        ]
+      }
+    },
+    {
+      "N": 35,
+      "a": 2,
+      "t": 4,
+      "all_history_edges": [
+        {
+          "history": [
+            0
+          ],
+          "mass": "1/2",
+          "rows": 2,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1
+          ],
+          "mass": "1/2",
+          "rows": 2,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            0
+          ],
+          "mass": "3/8",
+          "rows": 3,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            1
+          ],
+          "mass": "1/8",
+          "rows": 2,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            0
+          ],
+          "mass": "1/4",
+          "rows": 3,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            1
+          ],
+          "mass": "1/4",
+          "rows": 3,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            0,
+            0
+          ],
+          "mass": "3/16",
+          "rows": 6,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            0,
+            1
+          ],
+          "mass": "3/16",
+          "rows": 6,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            1,
+            0
+          ],
+          "mass": "1/16",
+          "rows": 4,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            1,
+            1
+          ],
+          "mass": "1/16",
+          "rows": 4,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            0,
+            0
+          ],
+          "mass": "1/8",
+          "rows": 6,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            0,
+            1
+          ],
+          "mass": "1/8",
+          "rows": 6,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            1,
+            0
+          ],
+          "mass": "1/8",
+          "rows": 6,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            1,
+            1
+          ],
+          "mass": "1/8",
+          "rows": 6,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "mass": "3/32",
+          "rows": 12,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "mass": "3/32",
+          "rows": 12,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "mass": "3/32",
+          "rows": 12,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "mass": "3/32",
+          "rows": 12,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "mass": "1/32",
+          "rows": 8,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "mass": "1/32",
+          "rows": 8,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            1,
+            1,
+            0
+          ],
+          "mass": "1/32",
+          "rows": 8,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "mass": "1/32",
+          "rows": 8,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "mass": "1/16",
+          "rows": 12,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "mass": "1/16",
+          "rows": 12,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "mass": "1/16",
+          "rows": 12,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "mass": "1/16",
+          "rows": 12,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "mass": "1/16",
+          "rows": 12,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "mass": "1/16",
+          "rows": 12,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "mass": "1/16",
+          "rows": 12,
+          "all_61_coordinates_equal": true
+        },
+        {
+          "history": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mass": "1/16",
+          "rows": 12,
+          "all_61_coordinates_equal": true
+        }
+      ],
+      "nonzero_residual_seen": true,
+      "single_sample": {
+        "N": 35,
+        "a": 2,
+        "t": 4,
+        "k": 0,
+        "history": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "history_probability": "3/32",
+        "events": [
+          {
+            "round": 0,
+            "bit": 0,
+            "conditional_probability": "1/2",
+            "history_mass": "1/2",
+            "endpoints": 2,
+            "amplitude_denominator_bits": 2
+          },
+          {
+            "round": 1,
+            "bit": 0,
+            "conditional_probability": "3/4",
+            "history_mass": "3/8",
+            "endpoints": 3,
+            "amplitude_denominator_bits": 3
+          },
+          {
+            "round": 2,
+            "bit": 0,
+            "conditional_probability": "1/2",
+            "history_mass": "3/16",
+            "endpoints": 6,
+            "amplitude_denominator_bits": 4
+          },
+          {
+            "round": 3,
+            "bit": 0,
+            "conditional_probability": "1/2",
+            "history_mass": "3/32",
+            "endpoints": 12,
+            "amplitude_denominator_bits": 5
+          }
+        ],
+        "postprocessing": {
+          "status": "INSTRUMENT_ONLY_EQUALITY_TEST",
+          "factors": []
+        }
+      },
+      "full_single_sample_metrics": {
+        "branch_calls": 4,
+        "empty_branch_calls": 0,
+        "phase_calls": 6,
+        "H4_calls": 8,
+        "modular_column_applications": 4,
+        "peak_endpoints": 24,
+        "peak_scalar_slots": 1464,
+        "peak_nonzero_scalars": 24,
+        "peak_denominator_bits": 5,
+        "boundary_spectator_nonzero_seen": false,
+        "depth_maxima": [
+          {
+            "depth": 0,
+            "operation": "child_boundary",
+            "calls": 2,
+            "endpoints": 2,
+            "scalar_slots": 122,
+            "nonzero_scalars": 2,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 0,
+            "operation": "controlled_modular_power",
+            "calls": 1,
+            "endpoints": 4,
+            "scalar_slots": 244,
+            "nonzero_scalars": 4,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 0,
+            "operation": "initial_boundary",
+            "calls": 1,
+            "endpoints": 1,
+            "scalar_slots": 61,
+            "nonzero_scalars": 1,
+            "denominator_bits": 1
+          },
+          {
+            "depth": 0,
+            "operation": "prepare_H4",
+            "calls": 1,
+            "endpoints": 4,
+            "scalar_slots": 244,
+            "nonzero_scalars": 4,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 0,
+            "operation": "read_H4",
+            "calls": 1,
+            "endpoints": 4,
+            "scalar_slots": 244,
+            "nonzero_scalars": 4,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 1,
+            "operation": "CP_2",
+            "calls": 1,
+            "endpoints": 8,
+            "scalar_slots": 488,
+            "nonzero_scalars": 8,
+            "denominator_bits": 3
+          },
+          {
+            "depth": 1,
+            "operation": "child_boundary",
+            "calls": 2,
+            "endpoints": 3,
+            "scalar_slots": 183,
+            "nonzero_scalars": 3,
+            "denominator_bits": 3
+          },
+          {
+            "depth": 1,
+            "operation": "controlled_modular_power",
+            "calls": 1,
+            "endpoints": 8,
+            "scalar_slots": 488,
+            "nonzero_scalars": 8,
+            "denominator_bits": 3
+          },
+          {
+            "depth": 1,
+            "operation": "initial_boundary",
+            "calls": 1,
+            "endpoints": 2,
+            "scalar_slots": 122,
+            "nonzero_scalars": 2,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 1,
+            "operation": "prepare_H4",
+            "calls": 1,
+            "endpoints": 8,
+            "scalar_slots": 488,
+            "nonzero_scalars": 8,
+            "denominator_bits": 3
+          },
+          {
+            "depth": 1,
+            "operation": "read_H4",
+            "calls": 1,
+            "endpoints": 5,
+            "scalar_slots": 305,
+            "nonzero_scalars": 5,
+            "denominator_bits": 3
+          },
+          {
+            "depth": 2,
+            "operation": "CP_2",
+            "calls": 1,
+            "endpoints": 12,
+            "scalar_slots": 732,
+            "nonzero_scalars": 12,
+            "denominator_bits": 4
+          },
+          {
+            "depth": 2,
+            "operation": "CP_3",
+            "calls": 1,
+            "endpoints": 12,
+            "scalar_slots": 732,
+            "nonzero_scalars": 12,
+            "denominator_bits": 4
+          },
+          {
+            "depth": 2,
+            "operation": "child_boundary",
+            "calls": 2,
+            "endpoints": 6,
+            "scalar_slots": 366,
+            "nonzero_scalars": 6,
+            "denominator_bits": 4
+          },
+          {
+            "depth": 2,
+            "operation": "controlled_modular_power",
+            "calls": 1,
+            "endpoints": 12,
+            "scalar_slots": 732,
+            "nonzero_scalars": 12,
+            "denominator_bits": 4
+          },
+          {
+            "depth": 2,
+            "operation": "initial_boundary",
+            "calls": 1,
+            "endpoints": 3,
+            "scalar_slots": 183,
+            "nonzero_scalars": 3,
+            "denominator_bits": 3
+          },
+          {
+            "depth": 2,
+            "operation": "prepare_H4",
+            "calls": 1,
+            "endpoints": 12,
+            "scalar_slots": 732,
+            "nonzero_scalars": 12,
+            "denominator_bits": 4
+          },
+          {
+            "depth": 2,
+            "operation": "read_H4",
+            "calls": 1,
+            "endpoints": 12,
+            "scalar_slots": 732,
+            "nonzero_scalars": 12,
+            "denominator_bits": 4
+          },
+          {
+            "depth": 3,
+            "operation": "CP_2",
+            "calls": 1,
+            "endpoints": 24,
+            "scalar_slots": 1464,
+            "nonzero_scalars": 24,
+            "denominator_bits": 5
+          },
+          {
+            "depth": 3,
+            "operation": "CP_3",
+            "calls": 1,
+            "endpoints": 24,
+            "scalar_slots": 1464,
+            "nonzero_scalars": 24,
+            "denominator_bits": 5
+          },
+          {
+            "depth": 3,
+            "operation": "CP_4",
+            "calls": 1,
+            "endpoints": 24,
+            "scalar_slots": 1464,
+            "nonzero_scalars": 24,
+            "denominator_bits": 5
+          },
+          {
+            "depth": 3,
+            "operation": "child_boundary",
+            "calls": 2,
+            "endpoints": 12,
+            "scalar_slots": 732,
+            "nonzero_scalars": 12,
+            "denominator_bits": 5
+          },
+          {
+            "depth": 3,
+            "operation": "controlled_modular_power",
+            "calls": 1,
+            "endpoints": 24,
+            "scalar_slots": 1464,
+            "nonzero_scalars": 24,
+            "denominator_bits": 5
+          },
+          {
+            "depth": 3,
+            "operation": "initial_boundary",
+            "calls": 1,
+            "endpoints": 6,
+            "scalar_slots": 366,
+            "nonzero_scalars": 6,
+            "denominator_bits": 4
+          },
+          {
+            "depth": 3,
+            "operation": "prepare_H4",
+            "calls": 1,
+            "endpoints": 24,
+            "scalar_slots": 1464,
+            "nonzero_scalars": 24,
+            "denominator_bits": 5
+          },
+          {
+            "depth": 3,
+            "operation": "read_H4",
+            "calls": 1,
+            "endpoints": 24,
+            "scalar_slots": 1464,
+            "nonzero_scalars": 24,
+            "denominator_bits": 5
+          }
+        ]
+      },
+      "optimized_single_sample_metrics": {
+        "branch_calls": 0,
+        "empty_branch_calls": 0,
+        "phase_calls": 0,
+        "H4_calls": 0,
+        "modular_column_applications": 0,
+        "peak_endpoints": 12,
+        "peak_scalar_slots": 72,
+        "peak_nonzero_scalars": 12,
+        "peak_denominator_bits": 5,
+        "boundary_spectator_nonzero_seen": false,
+        "depth_maxima": [
+          {
+            "depth": 0,
+            "operation": "selected_child_boundary",
+            "calls": 1,
+            "endpoints": 2,
+            "scalar_slots": 12,
+            "nonzero_scalars": 2,
+            "denominator_bits": 2
+          },
+          {
+            "depth": 1,
+            "operation": "selected_child_boundary",
+            "calls": 1,
+            "endpoints": 3,
+            "scalar_slots": 18,
+            "nonzero_scalars": 3,
+            "denominator_bits": 3
+          },
+          {
+            "depth": 2,
+            "operation": "selected_child_boundary",
+            "calls": 1,
+            "endpoints": 6,
+            "scalar_slots": 36,
+            "nonzero_scalars": 6,
+            "denominator_bits": 4
+          },
+          {
+            "depth": 3,
+            "operation": "selected_child_boundary",
+            "calls": 1,
+            "endpoints": 12,
+            "scalar_slots": 72,
+            "nonzero_scalars": 12,
+            "denominator_bits": 5
+          }
+        ],
+        "selected_child": {
+          "planned_rounds": 4,
+          "empty_plans": 0,
+          "support_column_requests": 12,
+          "collision_source_rows": 1,
+          "feedback_row_cache_hits": 7,
+          "feedback_unique_rows": 6,
+          "phase_vector_applications": 0,
+          "active_phase_instances": 0,
+          "scalar_norm_terms": 72,
+          "scalar_collision_products": 6,
+          "materialized_children": 4,
+          "materialized_child_rows": 23,
+          "materialized_child_scalar_slots": 138,
+          "peak_materialized_child_rows": 12,
+          "peak_plan_source_rows": 6,
+          "peak_transformed_row_cache": 2,
+          "contracted_native_H4_operations": 8
+        }
+      },
+      "lazy_modular_resources": {
+        "distinct_multipliers": 4,
+        "cached_columns": 16,
+        "setup_adder_digit_replays": 1962,
+        "column_adder_digit_replays": 1382,
+        "verification_adder_digit_replays": 1962,
+        "whole_domain_enumerated": false,
+        "tables": [
+          {
+            "column_requests": 7,
+            "computed_columns": 7,
+            "cache_hits": 0,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "column_adder_digit_replays": 511,
+            "column_host_bit_wiring_operations": 5461,
+            "column_host_bit_length_calls_in_arithmetic": 90,
+            "setup_adder_digit_replays": 353,
+            "setup_host_bit_wiring_operations": 3797,
+            "setup_host_bit_length_calls_in_arithmetic": 72,
+            "cached_column_count": 7,
+            "carrier_size": 64,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct"
+          },
+          {
+            "column_requests": 4,
+            "computed_columns": 4,
+            "cache_hits": 0,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "column_adder_digit_replays": 335,
+            "column_host_bit_wiring_operations": 3578,
+            "column_host_bit_length_calls_in_arithmetic": 58,
+            "setup_adder_digit_replays": 487,
+            "setup_host_bit_wiring_operations": 5206,
+            "setup_host_bit_length_calls_in_arithmetic": 95,
+            "cached_column_count": 4,
+            "carrier_size": 64,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct"
+          },
+          {
+            "column_requests": 3,
+            "computed_columns": 3,
+            "cache_hits": 0,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "column_adder_digit_replays": 353,
+            "column_host_bit_wiring_operations": 3758,
+            "column_host_bit_length_calls_in_arithmetic": 56,
+            "setup_adder_digit_replays": 590,
+            "setup_host_bit_wiring_operations": 6293,
+            "setup_host_bit_length_calls_in_arithmetic": 107,
+            "cached_column_count": 3,
+            "carrier_size": 64,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct"
+          },
+          {
+            "column_requests": 2,
+            "computed_columns": 2,
+            "cache_hits": 0,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "column_adder_digit_replays": 183,
+            "column_host_bit_wiring_operations": 1944,
+            "column_host_bit_length_calls_in_arithmetic": 30,
+            "setup_adder_digit_replays": 532,
+            "setup_host_bit_wiring_operations": 5710,
+            "setup_host_bit_length_calls_in_arithmetic": 105,
+            "cached_column_count": 2,
+            "carrier_size": 64,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct"
+          }
+        ]
+      }
+    }
+  ],
+  "large_carrier_case": {
+    "N": "170141183460469231731687303715884105727",
+    "input_bits": 127,
+    "t": 4,
+    "scope": "four-round instrument only; not default-width Shor or factorization",
+    "sample": {
+      "N": 170141183460469231731687303715884105727,
+      "a": 2,
+      "t": 4,
+      "k": 15,
+      "history": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "history_probability": "1/16",
+      "events": [
+        {
+          "round": 0,
+          "bit": 1,
+          "conditional_probability": "1/2",
+          "history_mass": "1/2",
+          "endpoints": 2,
+          "amplitude_denominator_bits": 2
+        },
+        {
+          "round": 1,
+          "bit": 1,
+          "conditional_probability": "1/2",
+          "history_mass": "1/4",
+          "endpoints": 4,
+          "amplitude_denominator_bits": 3
+        },
+        {
+          "round": 2,
+          "bit": 1,
+          "conditional_probability": "1/2",
+          "history_mass": "1/8",
+          "endpoints": 8,
+          "amplitude_denominator_bits": 31
+        },
+        {
+          "round": 3,
+          "bit": 1,
+          "conditional_probability": "1/2",
+          "history_mass": "1/16",
+          "endpoints": 16,
+          "amplitude_denominator_bits": 79
+        }
+      ],
+      "postprocessing": {
+        "status": "INSTRUMENT_ONLY_EQUALITY_TEST",
+        "factors": []
+      }
+    },
+    "metrics": {
+      "branch_calls": 0,
+      "empty_branch_calls": 0,
+      "phase_calls": 0,
+      "H4_calls": 0,
+      "modular_column_applications": 0,
+      "peak_endpoints": 16,
+      "peak_scalar_slots": 96,
+      "peak_nonzero_scalars": 76,
+      "peak_denominator_bits": 79,
+      "boundary_spectator_nonzero_seen": false,
+      "depth_maxima": [
+        {
+          "depth": 0,
+          "operation": "selected_child_boundary",
+          "calls": 1,
+          "endpoints": 2,
+          "scalar_slots": 12,
+          "nonzero_scalars": 2,
+          "denominator_bits": 2
+        },
+        {
+          "depth": 1,
+          "operation": "selected_child_boundary",
+          "calls": 1,
+          "endpoints": 4,
+          "scalar_slots": 24,
+          "nonzero_scalars": 4,
+          "denominator_bits": 3
+        },
+        {
+          "depth": 2,
+          "operation": "selected_child_boundary",
+          "calls": 1,
+          "endpoints": 8,
+          "scalar_slots": 48,
+          "nonzero_scalars": 28,
+          "denominator_bits": 31
+        },
+        {
+          "depth": 3,
+          "operation": "selected_child_boundary",
+          "calls": 1,
+          "endpoints": 16,
+          "scalar_slots": 96,
+          "nonzero_scalars": 76,
+          "denominator_bits": 79
+        }
+      ],
+      "selected_child": {
+        "planned_rounds": 4,
+        "empty_plans": 0,
+        "support_column_requests": 15,
+        "collision_source_rows": 0,
+        "feedback_row_cache_hits": 0,
+        "feedback_unique_rows": 15,
+        "phase_vector_applications": 34,
+        "active_phase_instances": 6,
+        "scalar_norm_terms": 90,
+        "scalar_collision_products": 0,
+        "materialized_children": 4,
+        "materialized_child_rows": 30,
+        "materialized_child_scalar_slots": 180,
+        "peak_materialized_child_rows": 16,
+        "peak_plan_source_rows": 8,
+        "peak_transformed_row_cache": 8,
+        "contracted_native_H4_operations": 8
+      }
+    },
+    "lazy_modular_resources": {
+      "distinct_multipliers": 4,
+      "cached_columns": 19,
+      "setup_adder_digit_replays": 499818,
+      "column_adder_digit_replays": 43452,
+      "verification_adder_digit_replays": 499818,
+      "whole_domain_enumerated": false,
+      "tables": [
+        {
+          "column_requests": 9,
+          "computed_columns": 9,
+          "cache_hits": 0,
+          "identity_tail_columns": 0,
+          "native_kernel_calls_delta": 0,
+          "column_adder_digit_replays": 19284,
+          "column_host_bit_wiring_operations": 193713,
+          "column_host_bit_length_calls_in_arithmetic": 186,
+          "setup_adder_digit_replays": 99593,
+          "setup_host_bit_wiring_operations": 1001303,
+          "setup_host_bit_length_calls_in_arithmetic": 1044,
+          "cached_column_count": 9,
+          "carrier_size": 170141183460469231731687303715884105728,
+          "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct"
+        },
+        {
+          "column_requests": 5,
+          "computed_columns": 5,
+          "cache_hits": 0,
+          "identity_tail_columns": 0,
+          "native_kernel_calls_delta": 0,
+          "column_adder_digit_replays": 10542,
+          "column_host_bit_wiring_operations": 105882,
+          "column_host_bit_length_calls_in_arithmetic": 102,
+          "setup_adder_digit_replays": 133011,
+          "setup_host_bit_wiring_operations": 1337016,
+          "setup_host_bit_length_calls_in_arithmetic": 1311,
+          "cached_column_count": 5,
+          "carrier_size": 170141183460469231731687303715884105728,
+          "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct"
+        },
+        {
+          "column_requests": 3,
+          "computed_columns": 3,
+          "cache_hits": 0,
+          "identity_tail_columns": 0,
+          "native_kernel_calls_delta": 0,
+          "column_adder_digit_replays": 6942,
+          "column_host_bit_wiring_operations": 69708,
+          "column_host_bit_length_calls_in_arithmetic": 66,
+          "setup_adder_digit_replays": 133297,
+          "setup_host_bit_wiring_operations": 1339882,
+          "setup_host_bit_length_calls_in_arithmetic": 1315,
+          "cached_column_count": 3,
+          "carrier_size": 170141183460469231731687303715884105728,
+          "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct"
+        },
+        {
+          "column_requests": 2,
+          "computed_columns": 2,
+          "cache_hits": 0,
+          "identity_tail_columns": 0,
+          "native_kernel_calls_delta": 0,
+          "column_adder_digit_replays": 6684,
+          "column_host_bit_wiring_operations": 67104,
+          "column_host_bit_length_calls_in_arithmetic": 60,
+          "setup_adder_digit_replays": 133917,
+          "setup_host_bit_wiring_operations": 1346094,
+          "setup_host_bit_length_calls_in_arithmetic": 1323,
+          "cached_column_count": 2,
+          "carrier_size": 170141183460469231731687303715884105728,
+          "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct"
+        }
+      ]
+    }
+  },
+  "source_sha256": {
+    "check_combined.py": "d6cf9eb9ca5c2463856ba2fcaf9260fe65f1a70584afa0eac64e3cec69766fab",
+    "carrier_codec/carrier_codec.py": "c25149e0ab4ce92a59d2ca40cb697fe6505cd1dc8d406e9c5a2d92cb2b28c953",
+    "streaming/lazy_streaming.py": "635d0c4aee0aaa8d58bb0244835e08e5caa0f6a94926a5213519f40db992a257",
+    "lazy_modular/lazy_modular.py": "08df3595a2a56dc2501bb481828093481bf76e4ac53c8b966990d233fefac1e4"
+  },
+  "actual_BRC_calls": 223,
+  "seconds": 4.163492999970913
+}

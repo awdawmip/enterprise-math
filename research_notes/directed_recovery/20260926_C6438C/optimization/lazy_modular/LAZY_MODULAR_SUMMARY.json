@@ -1,0 +1,166 @@
+{
+  "status": "AUTHOR_ACTUAL_BOUNDED_SHARED_CONTEXT_NOT_ADMITTED",
+  "small_cases": 11,
+  "small_complete_columns": 318,
+  "large_cases": [
+    {
+      "width": 127,
+      "N": 170141183460469231731687303715884105727,
+      "carrier_size": 170141183460469231731687303715884105728,
+      "explicitly_requested_columns": 6,
+      "forward_metrics": {
+        "column_requests": 7,
+        "computed_columns": 6,
+        "cache_hits": 1,
+        "identity_tail_columns": 1,
+        "native_kernel_calls_delta": 0,
+        "column_adder_digit_replays": 98955,
+        "column_host_bit_wiring_operations": 992658,
+        "column_host_bit_length_calls_in_arithmetic": 540,
+        "setup_adder_digit_replays": 99593,
+        "setup_host_bit_wiring_operations": 1001303,
+        "setup_host_bit_length_calls_in_arithmetic": 1044
+      },
+      "inverse_metrics": {
+        "column_requests": 6,
+        "computed_columns": 6,
+        "cache_hits": 0,
+        "identity_tail_columns": 1,
+        "native_kernel_calls_delta": 0,
+        "column_adder_digit_replays": 260233,
+        "column_host_bit_wiring_operations": 2609974,
+        "column_host_bit_length_calls_in_arithmetic": 1546,
+        "setup_adder_digit_replays": 180999,
+        "setup_host_bit_wiring_operations": 1817268,
+        "setup_host_bit_length_calls_in_arithmetic": 1559
+      }
+    },
+    {
+      "width": 256,
+      "N": 57896044618658097711785492504343953926634992332820282019728792003956564819987,
+      "carrier_size": 115792089237316195423570985008687907853269984665640564039457584007913129639936,
+      "explicitly_requested_columns": 7,
+      "forward_metrics": {
+        "column_requests": 8,
+        "computed_columns": 7,
+        "cache_hits": 1,
+        "identity_tail_columns": 2,
+        "native_kernel_calls_delta": 0,
+        "column_adder_digit_replays": 267810,
+        "column_host_bit_wiring_operations": 2684304,
+        "column_host_bit_length_calls_in_arithmetic": 1056,
+        "setup_adder_digit_replays": 398867,
+        "setup_host_bit_wiring_operations": 3999437,
+        "setup_host_bit_length_calls_in_arithmetic": 2072
+      },
+      "inverse_metrics": {
+        "column_requests": 7,
+        "computed_columns": 7,
+        "cache_hits": 0,
+        "identity_tail_columns": 2,
+        "native_kernel_calls_delta": 0,
+        "column_adder_digit_replays": 791801,
+        "column_host_bit_wiring_operations": 7933358,
+        "column_host_bit_length_calls_in_arithmetic": 3086,
+        "setup_adder_digit_replays": 661781,
+        "setup_host_bit_wiring_operations": 6632423,
+        "setup_host_bit_length_calls_in_arithmetic": 3103
+      }
+    }
+  ],
+  "power_cases": 5,
+  "chain_equal": true,
+  "negative_controls": [
+    {
+      "case": "implicit_full_iteration",
+      "rejected": true,
+      "reason": "lazy modular permutations prohibit implicit full-domain iteration; request explicit columns"
+    },
+    {
+      "case": "nonunit_multiplier",
+      "rejected": true,
+      "reason": "multiplier is not a unit modulo N"
+    },
+    {
+      "case": "out_of_carrier",
+      "rejected": true,
+      "reason": "basis label outside carrier"
+    },
+    {
+      "case": "python_len_cannot_encode_large_domain",
+      "rejected": true,
+      "reason": "cannot fit 'int' into an index-sized integer"
+    },
+    {
+      "case": "changed_column_target",
+      "rejected": true,
+      "reason": "lazy column arithmetic does not replay"
+    },
+    {
+      "case": "changed_inverse_proof",
+      "rejected": true,
+      "reason": "typed inverse/permutation certificate does not replay"
+    }
+  ],
+  "native_core_call_count": 2,
+  "ordinary_modular_reference_used": false,
+  "payload_sha256": "12e0c2056f1a9bc9a05260198ce12a54380ce75e211869d925fa8db2974501a2",
+  "uncompressed_bytes": 41998938,
+  "source": {
+    "native_adder": {
+      "vendor": {
+        "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+        "path": "src/enterprise_math/brc_weighted_recurrent.py",
+        "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+        "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+      },
+      "entrypoint": "stage78.shor_benchmark.full_adder_columns",
+      "positive_BRC_input_states": 12,
+      "input_columns": 8,
+      "columns": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "observer": "retained input triple -> (sum bit, carry bit)",
+      "scope": "exact integer label compiler; not a reversible physical erasure"
+    },
+    "files_sha256": {
+      "lazy_modular": "08df3595a2a56dc2501bb481828093481bf76e4ac53c8b966990d233fefac1e4",
+      "sparse_modular": "fd9cbb019418a3c00890ba6e8cca5760e7e4d792bfd7b48306a71a66de301c46",
+      "typed_integer_prechecks": "0a817aa8124cceb5440233d543073dae71de6ac1d0d4e5d50f4ee2b4808d99eb"
+    },
+    "primitive_source": "0852cad130c1d877174d235687cf60c19f318c58",
+    "arithmetic_route": "actual full-adder columns; digit transducer composition",
+    "runtime_state_propagator": "complete positive unit permutation on work labels"
+  }
+}

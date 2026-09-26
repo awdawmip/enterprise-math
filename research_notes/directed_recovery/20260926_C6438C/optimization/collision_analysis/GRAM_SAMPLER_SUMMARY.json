@@ -1,0 +1,1530 @@
+{
+  "activity": "RA-CAAAC604CB513AEA8BBC1DFC",
+  "actual_BRC_core_calls": 756,
+  "cases": [
+    {
+      "N": 15,
+      "a": 2,
+      "all_conditions_and_selected_masses_equal": true,
+      "declared_history": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "dimension": 6,
+      "explicit_round_seconds": 0.0004461999051272869,
+      "explicit_selected_metrics": {
+        "active_phase_instances": 0,
+        "collision_source_rows": 2,
+        "contracted_native_H4_operations": 8,
+        "empty_plans": 0,
+        "feedback_row_cache_hits": 3,
+        "feedback_unique_rows": 4,
+        "materialized_child_rows": 8,
+        "materialized_child_scalar_slots": 48,
+        "materialized_children": 4,
+        "peak_materialized_child_rows": 4,
+        "peak_plan_source_rows": 2,
+        "peak_transformed_row_cache": 1,
+        "phase_vector_applications": 0,
+        "planned_rounds": 4,
+        "scalar_collision_products": 12,
+        "scalar_norm_terms": 30,
+        "support_column_requests": 5
+      },
+      "gram_report": {
+        "actual_positive_path_observations": 12,
+        "adder_digit_replays": 1947,
+        "base_queries": 4,
+        "cached_matrix_scalar_slots": 576,
+        "computed_modular_columns": 18,
+        "dimension": 6,
+        "distinct_queries": 16,
+        "durable_cross_process_cursor_claimed": false,
+        "history": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "max_correlation_denominator_bits": 3,
+        "max_correlation_numerator_bits": 1,
+        "native_phase_vector_applications": 0,
+        "peak_cached_matrix_scalar_slots": 576,
+        "query_budget": 1000,
+        "query_cache_hits": 52,
+        "query_keys": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            8
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "query_requests": 68,
+        "recurrence_queries": 12,
+        "single_term_wiring_observations": 32,
+        "typed_modular_tables": [
+          {
+            "cache_hits": 0,
+            "cached_column_count": 2,
+            "carrier_size": 16,
+            "column_adder_digit_replays": 57,
+            "column_host_bit_length_calls_in_arithmetic": 18,
+            "column_host_bit_wiring_operations": 624,
+            "column_requests": 2,
+            "computed_columns": 2,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 1,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 209,
+            "setup_host_bit_length_calls_in_arithmetic": 60,
+            "setup_host_bit_wiring_operations": 2297
+          },
+          {
+            "cache_hits": 0,
+            "cached_column_count": 4,
+            "carrier_size": 16,
+            "column_adder_digit_replays": 206,
+            "column_host_bit_length_calls_in_arithmetic": 52,
+            "column_host_bit_wiring_operations": 2252,
+            "column_requests": 4,
+            "computed_columns": 4,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 294,
+            "setup_host_bit_length_calls_in_arithmetic": 81,
+            "setup_host_bit_wiring_operations": 3204
+          },
+          {
+            "cache_hits": 6,
+            "cached_column_count": 4,
+            "carrier_size": 16,
+            "column_adder_digit_replays": 114,
+            "column_host_bit_length_calls_in_arithmetic": 36,
+            "column_host_bit_wiring_operations": 1260,
+            "column_requests": 10,
+            "computed_columns": 4,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 77,
+            "setup_host_bit_length_calls_in_arithmetic": 29,
+            "setup_host_bit_wiring_operations": 860
+          },
+          {
+            "cache_hits": 4,
+            "cached_column_count": 4,
+            "carrier_size": 16,
+            "column_adder_digit_replays": 114,
+            "column_host_bit_length_calls_in_arithmetic": 36,
+            "column_host_bit_wiring_operations": 1260,
+            "column_requests": 8,
+            "computed_columns": 4,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 77,
+            "setup_host_bit_length_calls_in_arithmetic": 29,
+            "setup_host_bit_wiring_operations": 860
+          },
+          {
+            "cache_hits": 0,
+            "cached_column_count": 3,
+            "carrier_size": 16,
+            "column_adder_digit_replays": 148,
+            "column_host_bit_length_calls_in_arithmetic": 38,
+            "column_host_bit_wiring_operations": 1618,
+            "column_requests": 3,
+            "computed_columns": 3,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 294,
+            "setup_host_bit_length_calls_in_arithmetic": 81,
+            "setup_host_bit_wiring_operations": 3204
+          },
+          {
+            "cache_hits": 0,
+            "cached_column_count": 1,
+            "carrier_size": 16,
+            "column_adder_digit_replays": 45,
+            "column_host_bit_length_calls_in_arithmetic": 12,
+            "column_host_bit_wiring_operations": 489,
+            "column_requests": 1,
+            "computed_columns": 1,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 312,
+            "setup_host_bit_length_calls_in_arithmetic": 83,
+            "setup_host_bit_wiring_operations": 3387
+          }
+        ],
+        "work_amplitude_map_constructed": false,
+        "zero_matrix_native_actions_skipped": 0,
+        "zero_wiring_observations": 432
+      },
+      "gram_round_seconds": 0.01731140003539622,
+      "t": 4,
+      "zero_shift_matrices_checked": 4
+    },
+    {
+      "N": 15,
+      "a": 2,
+      "all_conditions_and_selected_masses_equal": true,
+      "declared_history": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "dimension": 6,
+      "explicit_round_seconds": 0.000713899964466691,
+      "explicit_selected_metrics": {
+        "active_phase_instances": 1,
+        "collision_source_rows": 2,
+        "contracted_native_H4_operations": 8,
+        "empty_plans": 0,
+        "feedback_row_cache_hits": 2,
+        "feedback_unique_rows": 5,
+        "materialized_child_rows": 8,
+        "materialized_child_scalar_slots": 48,
+        "materialized_children": 4,
+        "peak_materialized_child_rows": 4,
+        "peak_plan_source_rows": 2,
+        "peak_transformed_row_cache": 2,
+        "phase_vector_applications": 2,
+        "planned_rounds": 4,
+        "scalar_collision_products": 12,
+        "scalar_norm_terms": 30,
+        "support_column_requests": 5
+      },
+      "gram_report": {
+        "actual_positive_path_observations": 14,
+        "adder_digit_replays": 1947,
+        "base_queries": 4,
+        "cached_matrix_scalar_slots": 576,
+        "computed_modular_columns": 18,
+        "dimension": 6,
+        "distinct_queries": 16,
+        "durable_cross_process_cursor_claimed": false,
+        "history": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "max_correlation_denominator_bits": 4,
+        "max_correlation_numerator_bits": 1,
+        "native_phase_vector_applications": 12,
+        "peak_cached_matrix_scalar_slots": 576,
+        "query_budget": 1000,
+        "query_cache_hits": 52,
+        "query_keys": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            8
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "query_requests": 68,
+        "recurrence_queries": 12,
+        "single_term_wiring_observations": 31,
+        "typed_modular_tables": [
+          {
+            "cache_hits": 0,
+            "cached_column_count": 2,
+            "carrier_size": 16,
+            "column_adder_digit_replays": 57,
+            "column_host_bit_length_calls_in_arithmetic": 18,
+            "column_host_bit_wiring_operations": 624,
+            "column_requests": 2,
+            "computed_columns": 2,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 209,
+            "setup_host_bit_length_calls_in_arithmetic": 60,
+            "setup_host_bit_wiring_operations": 2297
+          },
+          {
+            "cache_hits": 0,
+            "cached_column_count": 4,
+            "carrier_size": 16,
+            "column_adder_digit_replays": 206,
+            "column_host_bit_length_calls_in_arithmetic": 52,
+            "column_host_bit_wiring_operations": 2252,
+            "column_requests": 4,
+            "computed_columns": 4,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 294,
+            "setup_host_bit_length_calls_in_arithmetic": 81,
+            "setup_host_bit_wiring_operations": 3204
+          },
+          {
+            "cache_hits": 6,
+            "cached_column_count": 4,
+            "carrier_size": 16,
+            "column_adder_digit_replays": 114,
+            "column_host_bit_length_calls_in_arithmetic": 36,
+            "column_host_bit_wiring_operations": 1260,
+            "column_requests": 10,
+            "computed_columns": 4,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 77,
+            "setup_host_bit_length_calls_in_arithmetic": 29,
+            "setup_host_bit_wiring_operations": 860
+          },
+          {
+            "cache_hits": 4,
+            "cached_column_count": 4,
+            "carrier_size": 16,
+            "column_adder_digit_replays": 114,
+            "column_host_bit_length_calls_in_arithmetic": 36,
+            "column_host_bit_wiring_operations": 1260,
+            "column_requests": 8,
+            "computed_columns": 4,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 77,
+            "setup_host_bit_length_calls_in_arithmetic": 29,
+            "setup_host_bit_wiring_operations": 860
+          },
+          {
+            "cache_hits": 0,
+            "cached_column_count": 3,
+            "carrier_size": 16,
+            "column_adder_digit_replays": 148,
+            "column_host_bit_length_calls_in_arithmetic": 38,
+            "column_host_bit_wiring_operations": 1618,
+            "column_requests": 3,
+            "computed_columns": 3,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 294,
+            "setup_host_bit_length_calls_in_arithmetic": 81,
+            "setup_host_bit_wiring_operations": 3204
+          },
+          {
+            "cache_hits": 0,
+            "cached_column_count": 1,
+            "carrier_size": 16,
+            "column_adder_digit_replays": 45,
+            "column_host_bit_length_calls_in_arithmetic": 12,
+            "column_host_bit_wiring_operations": 489,
+            "column_requests": 1,
+            "computed_columns": 1,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 312,
+            "setup_host_bit_length_calls_in_arithmetic": 83,
+            "setup_host_bit_wiring_operations": 3387
+          }
+        ],
+        "work_amplitude_map_constructed": false,
+        "zero_matrix_native_actions_skipped": 4,
+        "zero_wiring_observations": 431
+      },
+      "gram_round_seconds": 0.01697880052961409,
+      "t": 4,
+      "zero_shift_matrices_checked": 4
+    },
+    {
+      "N": 21,
+      "a": 2,
+      "all_conditions_and_selected_masses_equal": true,
+      "declared_history": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "dimension": 6,
+      "explicit_round_seconds": 0.0012301001697778702,
+      "explicit_selected_metrics": {
+        "active_phase_instances": 0,
+        "collision_source_rows": 4,
+        "contracted_native_H4_operations": 8,
+        "empty_plans": 0,
+        "feedback_row_cache_hits": 7,
+        "feedback_unique_rows": 6,
+        "materialized_child_rows": 14,
+        "materialized_child_scalar_slots": 84,
+        "materialized_children": 4,
+        "peak_materialized_child_rows": 6,
+        "peak_plan_source_rows": 3,
+        "peak_transformed_row_cache": 2,
+        "phase_vector_applications": 0,
+        "planned_rounds": 4,
+        "scalar_collision_products": 24,
+        "scalar_norm_terms": 54,
+        "support_column_requests": 9
+      },
+      "gram_report": {
+        "actual_positive_path_observations": 14,
+        "adder_digit_replays": 4321,
+        "base_queries": 6,
+        "cached_matrix_scalar_slots": 792,
+        "computed_modular_columns": 27,
+        "dimension": 6,
+        "distinct_queries": 22,
+        "durable_cross_process_cursor_claimed": false,
+        "history": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "max_correlation_denominator_bits": 7,
+        "max_correlation_numerator_bits": 4,
+        "native_phase_vector_applications": 0,
+        "peak_cached_matrix_scalar_slots": 792,
+        "query_budget": 1000,
+        "query_cache_hits": 58,
+        "query_keys": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            0,
+            11
+          ],
+          [
+            0,
+            16
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            1,
+            11
+          ],
+          [
+            1,
+            16
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            8
+          ],
+          [
+            2,
+            11
+          ],
+          [
+            2,
+            16
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            11
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "query_requests": 80,
+        "recurrence_queries": 16,
+        "single_term_wiring_observations": 34,
+        "typed_modular_tables": [
+          {
+            "cache_hits": 0,
+            "cached_column_count": 2,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 67,
+            "column_host_bit_length_calls_in_arithmetic": 18,
+            "column_host_bit_wiring_operations": 724,
+            "column_requests": 2,
+            "computed_columns": 2,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 279,
+            "setup_host_bit_length_calls_in_arithmetic": 64,
+            "setup_host_bit_wiring_operations": 3015
+          },
+          {
+            "cache_hits": 5,
+            "cached_column_count": 6,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 427,
+            "column_host_bit_length_calls_in_arithmetic": 86,
+            "column_host_bit_wiring_operations": 4606,
+            "column_requests": 11,
+            "computed_columns": 6,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 310,
+            "setup_host_bit_length_calls_in_arithmetic": 72,
+            "setup_host_bit_wiring_operations": 3367
+          },
+          {
+            "cache_hits": 1,
+            "cached_column_count": 6,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 591,
+            "column_host_bit_length_calls_in_arithmetic": 110,
+            "column_host_bit_wiring_operations": 6354,
+            "column_requests": 7,
+            "computed_columns": 6,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 438,
+            "setup_host_bit_length_calls_in_arithmetic": 97,
+            "setup_host_bit_wiring_operations": 4719
+          },
+          {
+            "cache_hits": 3,
+            "cached_column_count": 6,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 591,
+            "column_host_bit_length_calls_in_arithmetic": 110,
+            "column_host_bit_wiring_operations": 6354,
+            "column_requests": 9,
+            "computed_columns": 6,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 438,
+            "setup_host_bit_length_calls_in_arithmetic": 97,
+            "setup_host_bit_wiring_operations": 4719
+          },
+          {
+            "cache_hits": 0,
+            "cached_column_count": 6,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 427,
+            "column_host_bit_length_calls_in_arithmetic": 86,
+            "column_host_bit_wiring_operations": 4606,
+            "column_requests": 6,
+            "computed_columns": 6,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 310,
+            "setup_host_bit_length_calls_in_arithmetic": 72,
+            "setup_host_bit_wiring_operations": 3367
+          },
+          {
+            "cache_hits": 0,
+            "cached_column_count": 1,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 53,
+            "column_host_bit_length_calls_in_arithmetic": 12,
+            "column_host_bit_wiring_operations": 569,
+            "column_requests": 1,
+            "computed_columns": 1,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 390,
+            "setup_host_bit_length_calls_in_arithmetic": 91,
+            "setup_host_bit_wiring_operations": 4206
+          }
+        ],
+        "work_amplitude_map_constructed": false,
+        "zero_matrix_native_actions_skipped": 0,
+        "zero_wiring_observations": 572
+      },
+      "gram_round_seconds": 0.024349200073629618,
+      "t": 4,
+      "zero_shift_matrices_checked": 4
+    },
+    {
+      "N": 21,
+      "a": 2,
+      "all_conditions_and_selected_masses_equal": true,
+      "declared_history": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "dimension": 6,
+      "explicit_round_seconds": 0.001406700350344181,
+      "explicit_selected_metrics": {
+        "active_phase_instances": 4,
+        "collision_source_rows": 4,
+        "contracted_native_H4_operations": 8,
+        "empty_plans": 0,
+        "feedback_row_cache_hits": 4,
+        "feedback_unique_rows": 9,
+        "materialized_child_rows": 14,
+        "materialized_child_scalar_slots": 84,
+        "materialized_children": 4,
+        "peak_materialized_child_rows": 6,
+        "peak_plan_source_rows": 3,
+        "peak_transformed_row_cache": 3,
+        "phase_vector_applications": 11,
+        "planned_rounds": 4,
+        "scalar_collision_products": 24,
+        "scalar_norm_terms": 54,
+        "support_column_requests": 9
+      },
+      "gram_report": {
+        "actual_positive_path_observations": 76,
+        "adder_digit_replays": 4321,
+        "base_queries": 6,
+        "cached_matrix_scalar_slots": 792,
+        "computed_modular_columns": 27,
+        "dimension": 6,
+        "distinct_queries": 22,
+        "durable_cross_process_cursor_claimed": false,
+        "history": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "max_correlation_denominator_bits": 106,
+        "max_correlation_numerator_bits": 101,
+        "native_phase_vector_applications": 144,
+        "peak_cached_matrix_scalar_slots": 792,
+        "query_budget": 1000,
+        "query_cache_hits": 58,
+        "query_keys": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            0,
+            11
+          ],
+          [
+            0,
+            16
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            1,
+            11
+          ],
+          [
+            1,
+            16
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            8
+          ],
+          [
+            2,
+            11
+          ],
+          [
+            2,
+            16
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            11
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "query_requests": 80,
+        "recurrence_queries": 16,
+        "single_term_wiring_observations": 49,
+        "typed_modular_tables": [
+          {
+            "cache_hits": 0,
+            "cached_column_count": 2,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 67,
+            "column_host_bit_length_calls_in_arithmetic": 18,
+            "column_host_bit_wiring_operations": 724,
+            "column_requests": 2,
+            "computed_columns": 2,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 279,
+            "setup_host_bit_length_calls_in_arithmetic": 64,
+            "setup_host_bit_wiring_operations": 3015
+          },
+          {
+            "cache_hits": 5,
+            "cached_column_count": 6,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 427,
+            "column_host_bit_length_calls_in_arithmetic": 86,
+            "column_host_bit_wiring_operations": 4606,
+            "column_requests": 11,
+            "computed_columns": 6,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 310,
+            "setup_host_bit_length_calls_in_arithmetic": 72,
+            "setup_host_bit_wiring_operations": 3367
+          },
+          {
+            "cache_hits": 1,
+            "cached_column_count": 6,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 591,
+            "column_host_bit_length_calls_in_arithmetic": 110,
+            "column_host_bit_wiring_operations": 6354,
+            "column_requests": 7,
+            "computed_columns": 6,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 438,
+            "setup_host_bit_length_calls_in_arithmetic": 97,
+            "setup_host_bit_wiring_operations": 4719
+          },
+          {
+            "cache_hits": 3,
+            "cached_column_count": 6,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 591,
+            "column_host_bit_length_calls_in_arithmetic": 110,
+            "column_host_bit_wiring_operations": 6354,
+            "column_requests": 9,
+            "computed_columns": 6,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 438,
+            "setup_host_bit_length_calls_in_arithmetic": 97,
+            "setup_host_bit_wiring_operations": 4719
+          },
+          {
+            "cache_hits": 0,
+            "cached_column_count": 6,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 427,
+            "column_host_bit_length_calls_in_arithmetic": 86,
+            "column_host_bit_wiring_operations": 4606,
+            "column_requests": 6,
+            "computed_columns": 6,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 310,
+            "setup_host_bit_length_calls_in_arithmetic": 72,
+            "setup_host_bit_wiring_operations": 3367
+          },
+          {
+            "cache_hits": 0,
+            "cached_column_count": 1,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 53,
+            "column_host_bit_length_calls_in_arithmetic": 12,
+            "column_host_bit_wiring_operations": 569,
+            "column_requests": 1,
+            "computed_columns": 1,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 390,
+            "setup_host_bit_length_calls_in_arithmetic": 91,
+            "setup_host_bit_wiring_operations": 4206
+          }
+        ],
+        "work_amplitude_map_constructed": false,
+        "zero_matrix_native_actions_skipped": 24,
+        "zero_wiring_observations": 495
+      },
+      "gram_round_seconds": 0.07901030010543764,
+      "t": 4,
+      "zero_shift_matrices_checked": 4
+    },
+    {
+      "N": 21,
+      "a": 2,
+      "all_conditions_and_selected_masses_equal": true,
+      "declared_history": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "dimension": 6,
+      "explicit_round_seconds": 0.0015129998791962862,
+      "explicit_selected_metrics": {
+        "active_phase_instances": 6,
+        "collision_source_rows": 4,
+        "contracted_native_H4_operations": 8,
+        "empty_plans": 0,
+        "feedback_row_cache_hits": 4,
+        "feedback_unique_rows": 9,
+        "materialized_child_rows": 14,
+        "materialized_child_scalar_slots": 84,
+        "materialized_children": 4,
+        "peak_materialized_child_rows": 6,
+        "peak_plan_source_rows": 3,
+        "peak_transformed_row_cache": 3,
+        "phase_vector_applications": 17,
+        "planned_rounds": 4,
+        "scalar_collision_products": 24,
+        "scalar_norm_terms": 54,
+        "support_column_requests": 9
+      },
+      "gram_report": {
+        "actual_positive_path_observations": 76,
+        "adder_digit_replays": 4321,
+        "base_queries": 6,
+        "cached_matrix_scalar_slots": 792,
+        "computed_modular_columns": 27,
+        "dimension": 6,
+        "distinct_queries": 22,
+        "durable_cross_process_cursor_claimed": false,
+        "history": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "max_correlation_denominator_bits": 156,
+        "max_correlation_numerator_bits": 148,
+        "native_phase_vector_applications": 192,
+        "peak_cached_matrix_scalar_slots": 792,
+        "query_budget": 1000,
+        "query_cache_hits": 58,
+        "query_keys": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            0,
+            11
+          ],
+          [
+            0,
+            16
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            1,
+            11
+          ],
+          [
+            1,
+            16
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            8
+          ],
+          [
+            2,
+            11
+          ],
+          [
+            2,
+            16
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            11
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "query_requests": 80,
+        "recurrence_queries": 16,
+        "single_term_wiring_observations": 49,
+        "typed_modular_tables": [
+          {
+            "cache_hits": 0,
+            "cached_column_count": 2,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 67,
+            "column_host_bit_length_calls_in_arithmetic": 18,
+            "column_host_bit_wiring_operations": 724,
+            "column_requests": 2,
+            "computed_columns": 2,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 279,
+            "setup_host_bit_length_calls_in_arithmetic": 64,
+            "setup_host_bit_wiring_operations": 3015
+          },
+          {
+            "cache_hits": 5,
+            "cached_column_count": 6,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 427,
+            "column_host_bit_length_calls_in_arithmetic": 86,
+            "column_host_bit_wiring_operations": 4606,
+            "column_requests": 11,
+            "computed_columns": 6,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 310,
+            "setup_host_bit_length_calls_in_arithmetic": 72,
+            "setup_host_bit_wiring_operations": 3367
+          },
+          {
+            "cache_hits": 1,
+            "cached_column_count": 6,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 591,
+            "column_host_bit_length_calls_in_arithmetic": 110,
+            "column_host_bit_wiring_operations": 6354,
+            "column_requests": 7,
+            "computed_columns": 6,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 438,
+            "setup_host_bit_length_calls_in_arithmetic": 97,
+            "setup_host_bit_wiring_operations": 4719
+          },
+          {
+            "cache_hits": 3,
+            "cached_column_count": 6,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 591,
+            "column_host_bit_length_calls_in_arithmetic": 110,
+            "column_host_bit_wiring_operations": 6354,
+            "column_requests": 9,
+            "computed_columns": 6,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 438,
+            "setup_host_bit_length_calls_in_arithmetic": 97,
+            "setup_host_bit_wiring_operations": 4719
+          },
+          {
+            "cache_hits": 0,
+            "cached_column_count": 6,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 427,
+            "column_host_bit_length_calls_in_arithmetic": 86,
+            "column_host_bit_wiring_operations": 4606,
+            "column_requests": 6,
+            "computed_columns": 6,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 310,
+            "setup_host_bit_length_calls_in_arithmetic": 72,
+            "setup_host_bit_wiring_operations": 3367
+          },
+          {
+            "cache_hits": 0,
+            "cached_column_count": 1,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 53,
+            "column_host_bit_length_calls_in_arithmetic": 12,
+            "column_host_bit_wiring_operations": 569,
+            "column_requests": 1,
+            "computed_columns": 1,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 390,
+            "setup_host_bit_length_calls_in_arithmetic": 91,
+            "setup_host_bit_wiring_operations": 4206
+          }
+        ],
+        "work_amplitude_map_constructed": false,
+        "zero_matrix_native_actions_skipped": 24,
+        "zero_wiring_observations": 495
+      },
+      "gram_round_seconds": 0.0949031999334693,
+      "t": 4,
+      "zero_shift_matrices_checked": 4
+    },
+    {
+      "N": 21,
+      "a": 2,
+      "all_conditions_and_selected_masses_equal": true,
+      "declared_history": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "dimension": 61,
+      "explicit_round_seconds": 0.0018213000148534775,
+      "explicit_selected_metrics": {
+        "active_phase_instances": 4,
+        "collision_source_rows": 4,
+        "contracted_native_H4_operations": 8,
+        "empty_plans": 0,
+        "feedback_row_cache_hits": 4,
+        "feedback_unique_rows": 9,
+        "materialized_child_rows": 14,
+        "materialized_child_scalar_slots": 854,
+        "materialized_children": 4,
+        "peak_materialized_child_rows": 6,
+        "peak_plan_source_rows": 3,
+        "peak_transformed_row_cache": 3,
+        "phase_vector_applications": 11,
+        "planned_rounds": 4,
+        "scalar_collision_products": 244,
+        "scalar_norm_terms": 549,
+        "support_column_requests": 9
+      },
+      "gram_report": {
+        "actual_positive_path_observations": 76,
+        "adder_digit_replays": 4321,
+        "base_queries": 6,
+        "cached_matrix_scalar_slots": 81862,
+        "computed_modular_columns": 27,
+        "dimension": 61,
+        "distinct_queries": 22,
+        "durable_cross_process_cursor_claimed": false,
+        "history": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "max_correlation_denominator_bits": 106,
+        "max_correlation_numerator_bits": 101,
+        "native_phase_vector_applications": 1464,
+        "peak_cached_matrix_scalar_slots": 81862,
+        "query_budget": 1000,
+        "query_cache_hits": 58,
+        "query_keys": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            0,
+            11
+          ],
+          [
+            0,
+            16
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            1,
+            11
+          ],
+          [
+            1,
+            16
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            8
+          ],
+          [
+            2,
+            11
+          ],
+          [
+            2,
+            16
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            11
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "query_requests": 80,
+        "recurrence_queries": 16,
+        "single_term_wiring_observations": 49,
+        "typed_modular_tables": [
+          {
+            "cache_hits": 0,
+            "cached_column_count": 2,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 67,
+            "column_host_bit_length_calls_in_arithmetic": 18,
+            "column_host_bit_wiring_operations": 724,
+            "column_requests": 2,
+            "computed_columns": 2,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 279,
+            "setup_host_bit_length_calls_in_arithmetic": 64,
+            "setup_host_bit_wiring_operations": 3015
+          },
+          {
+            "cache_hits": 5,
+            "cached_column_count": 6,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 427,
+            "column_host_bit_length_calls_in_arithmetic": 86,
+            "column_host_bit_wiring_operations": 4606,
+            "column_requests": 11,
+            "computed_columns": 6,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 310,
+            "setup_host_bit_length_calls_in_arithmetic": 72,
+            "setup_host_bit_wiring_operations": 3367
+          },
+          {
+            "cache_hits": 1,
+            "cached_column_count": 6,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 591,
+            "column_host_bit_length_calls_in_arithmetic": 110,
+            "column_host_bit_wiring_operations": 6354,
+            "column_requests": 7,
+            "computed_columns": 6,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 438,
+            "setup_host_bit_length_calls_in_arithmetic": 97,
+            "setup_host_bit_wiring_operations": 4719
+          },
+          {
+            "cache_hits": 3,
+            "cached_column_count": 6,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 591,
+            "column_host_bit_length_calls_in_arithmetic": 110,
+            "column_host_bit_wiring_operations": 6354,
+            "column_requests": 9,
+            "computed_columns": 6,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 438,
+            "setup_host_bit_length_calls_in_arithmetic": 97,
+            "setup_host_bit_wiring_operations": 4719
+          },
+          {
+            "cache_hits": 0,
+            "cached_column_count": 6,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 427,
+            "column_host_bit_length_calls_in_arithmetic": 86,
+            "column_host_bit_wiring_operations": 4606,
+            "column_requests": 6,
+            "computed_columns": 6,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 310,
+            "setup_host_bit_length_calls_in_arithmetic": 72,
+            "setup_host_bit_wiring_operations": 3367
+          },
+          {
+            "cache_hits": 0,
+            "cached_column_count": 1,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 53,
+            "column_host_bit_length_calls_in_arithmetic": 12,
+            "column_host_bit_wiring_operations": 569,
+            "column_requests": 1,
+            "computed_columns": 1,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 390,
+            "setup_host_bit_length_calls_in_arithmetic": 91,
+            "setup_host_bit_wiring_operations": 4206
+          }
+        ],
+        "work_amplitude_map_constructed": false,
+        "zero_matrix_native_actions_skipped": 24,
+        "zero_wiring_observations": 59455
+      },
+      "gram_round_seconds": 0.21852630050852895,
+      "t": 4,
+      "zero_shift_matrices_checked": 4
+    }
+  ],
+  "dependency_sources_unchanged_during_execution": true,
+  "gzip_sha256": "b4e1f925d77df542639c2f1504b851717db57b25f3cc5f9f9734f35e6bd88d6c",
+  "kernel": {
+    "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+    "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+    "path": "src/enterprise_math/brc_weighted_recurrent.py",
+    "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+  },
+  "negative_controls_rejected": [
+    "boolean_bit",
+    "future_prefix",
+    "out_of_domain_residue"
+  ],
+  "new_ideal_reference_execution": false,
+  "payload_sha256": "3221898729a535c3688a6845fbb6a98f0e4e9adb440f393122edc0d6757979bf",
+  "prior_sources": {
+    "direct_word_compiler_general\\construct_general_word.py": "830b2f0c0c206a53e2b349fe377976d369ebfb76d4dfc5aad494db88ab6e0c63",
+    "direct_word_integration\\check_direct_word_integration.py": "c8dd1d00cbb66c540240877c3b45eecce154e86be265809768b4c60082eef7b7",
+    "new_word_compiler\\certified_word_compiler.py": "e8f7048e2e73292bda230a2adad4aaa76f0b3cd5525f8f0899628bd649d1d81d",
+    "new_word_compiler\\check_compiled_streaming.py": "0cf231a238f6aa899f1cf7e86a8d7dc8dd3e1aeda33e3c1b6c371ef10804a9ce",
+    "new_word_compiler\\compiled_streaming.py": "d0f980b7ff5fb41438e9e0ad40af65a190bcd6f83660c821f8362643190a558c"
+  },
+  "scope": "exact same-native-word conditional masses; memoized correlation representation; no polynomial query bound or durable cursor claimed",
+  "source_bank": {
+    "complete_error_certificate": {
+      "all_residual_modes_retained": true,
+      "dim": 61,
+      "operator_norm_bound": "1/2",
+      "phase_occurrence_rows": [
+        {
+          "m": 2,
+          "occurrences": 3,
+          "phase_operator_error_bound": "0",
+          "weighted_error_bound": "0"
+        },
+        {
+          "m": 3,
+          "occurrences": 2,
+          "phase_operator_error_bound": "1/8",
+          "weighted_error_bound": "1/4"
+        },
+        {
+          "m": 4,
+          "occurrences": 1,
+          "phase_operator_error_bound": "1/4",
+          "weighted_error_bound": "1/4"
+        }
+      ],
+      "requested_epsilon": "1",
+      "scope": "one complete terminal instrument and its fixed postprocessing; full-retry transcript requires a separate sum budget",
+      "t": 4,
+      "telescoping_sum": "1/2",
+      "terminal_TV_bound": "1/2"
+    },
+    "payload_sha256": "79491e65feec104f2cdc9de510263efef749d8a1174f9cab4c20146a0171615c"
+  },
+  "source_sha256": {
+    "optimization\\carrier_codec\\carrier_codec.py": "c25149e0ab4ce92a59d2ca40cb697fe6505cd1dc8d406e9c5a2d92cb2b28c953",
+    "optimization\\collision_analysis\\check_gram_sampler.py": "7972b5863f674ae808c74322c3abd8cef8c156521918183e868b4965bf1d68be",
+    "optimization\\collision_analysis\\gram_sampler.py": "468de944518fbc6afa81a17555676436376da63921a784c810ffe8fab3ca17e9",
+    "optimization\\lazy_modular\\lazy_modular.py": "08df3595a2a56dc2501bb481828093481bf76e4ac53c8b966990d233fefac1e4",
+    "optimization\\streaming\\lazy_streaming.py": "635d0c4aee0aaa8d58bb0244835e08e5caa0f6a94926a5213519f40db992a257"
+  },
+  "status": "AUTHOR_ACTUAL_BOUNDED_GRAM_PROTOTYPE_SHARED_CONTEXT_NOT_ADMITTED",
+  "unknown_order_or_factor_supplied": false,
+  "zero_budget_stopped_then_live_object_resumed": true
+}

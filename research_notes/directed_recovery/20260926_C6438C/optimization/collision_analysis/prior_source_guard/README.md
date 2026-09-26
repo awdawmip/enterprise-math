@@ -1,0 +1,1 @@
+First successful bounded Gram run, retained before adding dependency-source stability assertions to the checker. Six cases passed, 756 actual core calls. This is actual prior evidence, not the final source-bound run.
