@@ -1,0 +1,86 @@
+{
+  "reason": "Standalone Python decimal-int serialization cap could reject sufficiently large exact certificates. Remove the I/O cap explicitly; unchanged primitive arithmetic and bounded numerical outputs. Source hash change requires fresh evidence binding.",
+  "before": {
+    "certified_word_compiler.py": {
+      "bytes": 24021,
+      "sha256": "9ae28f9aaefb6687d6cac00b6d26eb8ba93bae5f470334eb3eb3e00e014224e4"
+    },
+    "CERTIFIED_WORD_COMPILER_CHECKS.json.gz": {
+      "bytes": 72275,
+      "sha256": "5429abdd86a4db1698e355671cba87eb5289011ef9e9eca7a162a78adba459a8"
+    },
+    "COMPILED_STREAMING_RESULTS.json.gz": {
+      "bytes": 4859400,
+      "sha256": "27f220e853942201ea16682f76b014dbf2833f891f80fa6aee38a94fc624b86b"
+    },
+    "COMPILED_FACTORIZATION_RESULTS.json.gz": {
+      "bytes": 2477270,
+      "sha256": "a58984f8a16507946af444b7fb78de20442101b4fc654537308fee901381c95b"
+    }
+  },
+  "before_factorization_payload_sha256": "7195bf44dec3994bfc68839e9a66e72e8be92a7f2989bb36b846db11576d8a60",
+  "before_factorization_cases": "225 compilation PARTIAL retains15^2; cursor resume complete3^2*5^2;21 complete3*7;21 zero-phase PARTIAL",
+  "before_factorization_actual_core_calls": 16991,
+  "state": "REVALIDATED_AFTER_PATCH",
+  "scope": "I/O/source-binding change log, not a mathematical counterexample or a changed native phase",
+  "after": {
+    "certified_word_compiler.py": {
+      "bytes": 24365,
+      "sha256": "e8f7048e2e73292bda230a2adad4aaa76f0b3cd5525f8f0899628bd649d1d81d"
+    },
+    "CERTIFIED_WORD_COMPILER_CHECKS.json.gz": {
+      "bytes": 72433,
+      "sha256": "b7c1885ceda8b1774ac04f39f550981a0ab5268c11579996279b4efd3d189c72",
+      "uncompressed_bytes": 895965,
+      "payload_sha256": "3092df8ed31d39709868ee1d3193e2492e40b158d857ecf0f4c618b9a12839fe"
+    },
+    "COMPILED_STREAMING_RESULTS.json.gz": {
+      "bytes": 4859701,
+      "sha256": "82e04a73becf98a81953bb126c26e69e9dcaf23a3a322262a14446fa9a0efdd7",
+      "uncompressed_bytes": 14960368,
+      "payload_sha256": "6a14cbf3994c9430b1b07067013546acef3d11c77c4ee3139df670bb20815a12"
+    },
+    "COMPILED_FACTORIZATION_RESULTS.json.gz": {
+      "bytes": 2479283,
+      "sha256": "23dd86f0d76acf472f774c26e79b0170a94494261da6fc880290e063e7976413",
+      "uncompressed_bytes": 22771519,
+      "payload_sha256": "0569f511651257526bf0b678b40369aaa5a535dc1705c7af02dcba79c199724c"
+    }
+  },
+  "fresh_executions": {
+    "compiler": {
+      "actual_BRC_calls": 738,
+      "payload_sha256": "3092df8ed31d39709868ee1d3193e2492e40b158d857ecf0f4c618b9a12839fe"
+    },
+    "streaming": {
+      "actual_BRC_calls": 6724,
+      "payload_sha256": "6a14cbf3994c9430b1b07067013546acef3d11c77c4ee3139df670bb20815a12",
+      "scientific_before_after_equality": "POST_CAP_FIX_REPLAY_CHECK.json"
+    },
+    "factorization": {
+      "actual_BRC_calls": 16991,
+      "payload_sha256": "0569f511651257526bf0b678b40369aaa5a535dc1705c7af02dcba79c199724c"
+    }
+  },
+  "io_only_check": {
+    "file": "LARGE_CERTIFICATE_IO_SUMMARY.json",
+    "decimal_digits": 5001,
+    "actual_BRC_calls": 0
+  },
+  "cli_cross_process": {
+    "partial": {
+      "bytes": 80797,
+      "sha256": "0e61b3aaebcaca0084e670607426b25f4d4d944afbc95befb53b9fe5c5385852",
+      "uncompressed_bytes": 684038,
+      "payload_sha256": "b8f8e9f95a3b9b706a22821279f0a3335c52b4e43b77907c21820a84d27c9243"
+    },
+    "resumed": {
+      "bytes": 582981,
+      "sha256": "87d117878b7a78e7be9fbeee324160e7f230cb9c893d32c1a39080362c113e69",
+      "uncompressed_bytes": 5320983,
+      "payload_sha256": "0a7aa7c29cdf81d41b542e0f5561bffe123bfc488335bef925f2d8539b0bb322"
+    },
+    "scope": "Compilation cursor restored in a new process; N15 becomes COMPLETE 3*5. RNG and an interrupted live factor tree are not restored.",
+    "stochastic_budget_verified": false
+  }
+}

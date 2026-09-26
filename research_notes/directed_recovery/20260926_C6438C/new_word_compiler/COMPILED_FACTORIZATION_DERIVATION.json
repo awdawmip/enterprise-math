@@ -1,0 +1,10 @@
+{
+  "source": "D:\\em\\TEMP\\sep26-shor-general\\integration\\complete_factorization.py",
+  "source_sha256": "96ea1eda5a689106515420b06826bb0bb6a11c4d4fb41ae50bcfb33a87fb7aee",
+  "output": "compiled_factorization_core.py",
+  "output_sha256": "e10a32bb028a38fc387baec4feb2052bd3f2f4905a18f0ed5a944711d6fe8b43",
+  "algorithmic_change": "Catch typed CompilationPending; retain entire cofactor and multiplicity, certificates, resume report and product ledger; disable uninterrupted-run stochastic budget claim",
+  "old_fragment": "        bank, dim, error = phase_provider(t)\n",
+  "new_fragment": "        try:\n            bank, dim, error = phase_provider(t)\n        except CompilationPending as exc:\n            guaranteed_budget = False\n            events.append({'input': value, 'multiplicity': multiplicity,\n                'action': 'COMPILATION_PARTIAL',\n                'non_perfect_power_certificate_id': pp_id,\n                'composite_certificate_id': prime_id, 't': t,\n                'compilation': exc.report})\n            unresolved.append({'cofactor': value, 'multiplicity': multiplicity,\n                'status': 'COMPILATION_PARTIAL', 'event_index': len(events)-1})\n            continue\n",
+  "unchanged": "Prechecks, sparse original-CF factor_attempts, factor validation, recursion, retry budgets, product invariant and deterministic verifier"
+}

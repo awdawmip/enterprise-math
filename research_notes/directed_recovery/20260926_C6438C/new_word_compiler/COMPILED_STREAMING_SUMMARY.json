@@ -1,0 +1,137 @@
+{
+  "schema": "BRC_CERTIFIED_WORD_STREAMING_INTEGRATION_V1",
+  "activity": "RA-CAAAC604CB513AEA8BBC1DFC",
+  "status": "AUTHOR_EXECUTED_BOUNDED_INTEGRATION_UNREVIEWED_NOT_ADMITTED",
+  "kernel": {
+    "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+    "path": "src/enterprise_math/brc_weighted_recurrent.py",
+    "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+    "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+  },
+  "partial_bank_prevented_program_construction": true,
+  "partial_compilation_resumed_to_complete": true,
+  "tampered_certificate_binding_negative_controls": [
+    {
+      "case": "changed_word_original_certificate",
+      "rejected": true,
+      "reason": "record and certificate refer to different phase/word/carrier"
+    },
+    {
+      "case": "false_bound_consistent_bank_sum",
+      "rejected": true,
+      "reason": "record bound not supported by certificate"
+    }
+  ],
+  "dense_modular_entrypoint_observations": [],
+  "actual_BRC_core_calls": 6724,
+  "whole_carrier_dimension": 61,
+  "new_target_observer_start_bits": 64,
+  "old_target32_vector64_word_seeds_unchanged": true,
+  "new_ideal_reference_execution": false,
+  "new_float_or_trigonometric_propagator": false,
+  "retry_transcript_TV_claimed": false,
+  "scope": "exact same-actual-word full/streaming replay for two small inputs; single-terminal error budgets only",
+  "payload_sha256": "6a14cbf3994c9430b1b07067013546acef3d11c77c4ee3139df670bb20815a12",
+  "case_summaries": [
+    {
+      "N": 15,
+      "a": 2,
+      "t": 4,
+      "dim": 61,
+      "all_leaf_slots": 16,
+      "zero_leaf_slots": 12,
+      "full_joint_amplitude_coordinate_comparisons": 976,
+      "full_inverse_coordinate_comparisons": 976,
+      "all_joint_amplitudes_exact_equal": true,
+      "all_control_bins_exact_equal": true,
+      "all_original_source_amplitudes_inverse_recovered": true,
+      "success_probability": "1/2",
+      "compiled_error_certificate": {
+        "t": 4,
+        "dim": 61,
+        "requested_epsilon": "1/1000000",
+        "phase_occurrence_rows": [
+          {
+            "m": 2,
+            "occurrences": 3,
+            "phase_operator_error_bound": "0",
+            "weighted_error_bound": "0"
+          },
+          {
+            "m": 3,
+            "occurrences": 2,
+            "phase_operator_error_bound": "1/6000000",
+            "weighted_error_bound": "1/3000000"
+          },
+          {
+            "m": 4,
+            "occurrences": 1,
+            "phase_operator_error_bound": "1/6000000",
+            "weighted_error_bound": "1/6000000"
+          }
+        ],
+        "telescoping_sum": "1/2000000",
+        "operator_norm_bound": "1/2000000",
+        "terminal_TV_bound": "1/2000000",
+        "all_residual_modes_retained": true,
+        "scope": "one complete terminal instrument and its fixed postprocessing; full-retry transcript requires a separate sum budget"
+      }
+    },
+    {
+      "N": 21,
+      "a": 2,
+      "t": 6,
+      "dim": 61,
+      "all_leaf_slots": 64,
+      "zero_leaf_slots": 0,
+      "full_joint_amplitude_coordinate_comparisons": 23180,
+      "full_inverse_coordinate_comparisons": 3904,
+      "all_joint_amplitudes_exact_equal": true,
+      "all_control_bins_exact_equal": true,
+      "all_original_source_amplitudes_inverse_recovered": true,
+      "success_probability": "4301017042295865086411092685494382132026944233482930637659150406365958423767222931788205849241355689627098340251151100624899417502679684646585791007097025450008597175556079982039130287741153884794610408111699320266068066015481038267513410770204883832149842189608369177328986734893376094736823394474047462298739403948166482561979630530545643403/14934650266808366570320408622852960646761673277207226330614110735087816844749013262154996078651848582108360475310915294566518312586678747717366605686086578536636834221552886243435005663333973242092786331089313457541044379412801195944591829139721685264868125480926456023345899073123938476101817799943829891958629451457234995914228056252299083776",
+      "compiled_error_certificate": {
+        "t": 6,
+        "dim": 61,
+        "requested_epsilon": "1/1000000",
+        "phase_occurrence_rows": [
+          {
+            "m": 2,
+            "occurrences": 5,
+            "phase_operator_error_bound": "0",
+            "weighted_error_bound": "0"
+          },
+          {
+            "m": 3,
+            "occurrences": 4,
+            "phase_operator_error_bound": "1/20000000",
+            "weighted_error_bound": "1/5000000"
+          },
+          {
+            "m": 4,
+            "occurrences": 3,
+            "phase_operator_error_bound": "1/20000000",
+            "weighted_error_bound": "3/20000000"
+          },
+          {
+            "m": 5,
+            "occurrences": 2,
+            "phase_operator_error_bound": "1/20000000",
+            "weighted_error_bound": "1/10000000"
+          },
+          {
+            "m": 6,
+            "occurrences": 1,
+            "phase_operator_error_bound": "1/20000000",
+            "weighted_error_bound": "1/20000000"
+          }
+        ],
+        "telescoping_sum": "1/2000000",
+        "operator_norm_bound": "1/2000000",
+        "terminal_TV_bound": "1/2000000",
+        "all_residual_modes_retained": true,
+        "scope": "one complete terminal instrument and its fixed postprocessing; full-retry transcript requires a separate sum budget"
+      }
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "status": "AUTHOR_ACTUAL_BOUNDED_NEGATIVE_CONTROLS_NOT_ADMITTED",
+  "checks": [
+    {
+      "case": "target_budget_substitution",
+      "rejected": true,
+      "reason": "resume source, target or status mismatch",
+      "actual_core_calls": 0
+    },
+    {
+      "case": "false_completed_cursor",
+      "rejected": true,
+      "reason": "resume source, target or status mismatch",
+      "actual_core_calls": 0
+    },
+    {
+      "case": "changed_observed_pair_sum",
+      "rejected": true,
+      "reason": "saved pair observation does not replay",
+      "actual_core_calls": 278
+    }
+  ],
+  "source": {
+    "compiler": {
+      "primitive_source": "0852cad130c1d877174d235687cf60c19f318c58",
+      "kernel": {
+        "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+        "path": "src/enterprise_math/brc_weighted_recurrent.py",
+        "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+        "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+      },
+      "files_sha256": {
+        "compiler": "e8f7048e2e73292bda230a2adad4aaa76f0b3cd5525f8f0899628bd649d1d81d",
+        "native_profile": "ab87d2ba39f8289e6aaf64a63f1cfd30979b419aba24c19f0cdbb9a1af921c86",
+        "fixed_phase": "d9981004a89c651f072ff88732c8b402baf83c16690a0cfacfa9c32199fde254",
+        "phase_compiler": "00a2d1369bcafd70d469381e517ed9f2dd4e7a6f79a55144337cd085de49f15d",
+        "zero_endpoint_extension": "cb2bdbdda5445b4cb76a7c6a26b3f2074b452c1b5e7d950295e71ff49ac5b8c5",
+        "brc_adapter": "f5242c74b5f1f53b8f50caf87d0eace7f3588d76d0d05240d9d5eb56255ae022"
+      },
+      "alphabet_sha256": "352127366eabb4d80f6f849e20facfc944ab15ba1e43f622ea443eade012ec86",
+      "dimension": 61
+    },
+    "constructor_sha256": "c5089d39d6beb95a031f066d54098d9589430064379e20dfa56eefe0e211f7ad",
+    "profile_sha256": "e554697f67080ffc741ca2beb3910d124a327d929c0295027db6803627e696ee",
+    "construction_proof_sha256": "8bc25b5c26d3016de69913f2dae666a0c80b14fe71af13066baccd15ded7b6d9"
+  },
+  "actual_core_call_count": 278,
+  "scope": "new direct-constructor cursor rejection; no ideal reference or Shor execution",
+  "payload_sha256": "f6d7bc24214103a31b9f1182ffabd4e4b17c6625f9c4902094e9fa52074d831a"
+}

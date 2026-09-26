@@ -1,0 +1,161 @@
+{
+  "schema": "COMPILED_WORD_FULL_FACTORIZATION_CHECKS_V1",
+  "activity": "RA-CAAAC604CB513AEA8BBC1DFC",
+  "kernel": {
+    "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+    "path": "src/enterprise_math/brc_weighted_recurrent.py",
+    "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+    "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+  },
+  "status": "AUTHOR_EXECUTED_SHARED_CONTEXT_UNREVIEWED_NOT_ADMITTED",
+  "deterministic_verification": [
+    {
+      "verified": true,
+      "N": 225,
+      "status": "PARTIAL",
+      "prime_leaves": 0,
+      "unresolved_cofactors": 1,
+      "certificate_count": 3,
+      "result_sha256": "c8a747bace5474eb066fd774221df71d7ad79e8433bea973d665457820c095bf",
+      "stochastic_budget_verified": false,
+      "scope": "factor claims, prime certificates and multiplicative conservation; stochastic guarantee remains conditional on the declared RNG and uniform compiler bound"
+    },
+    {
+      "verified": true,
+      "N": 225,
+      "status": "COMPLETE",
+      "prime_leaves": 2,
+      "unresolved_cofactors": 0,
+      "certificate_count": 7,
+      "result_sha256": "9eefa0cc29debac8201b06d795520bf45b1409e16f966031e6d33ac7622f56e6",
+      "stochastic_budget_verified": false,
+      "scope": "factor claims, prime certificates and multiplicative conservation; stochastic guarantee remains conditional on the declared RNG and uniform compiler bound"
+    },
+    {
+      "verified": true,
+      "N": 21,
+      "status": "COMPLETE",
+      "prime_leaves": 2,
+      "unresolved_cofactors": 0,
+      "certificate_count": 6,
+      "result_sha256": "1174f4452539d33ec6c18b6a14606d39a82ac5d73188b66005646d0125e7cd1f",
+      "stochastic_budget_verified": false,
+      "scope": "factor claims, prime certificates and multiplicative conservation; stochastic guarantee remains conditional on the declared RNG and uniform compiler bound"
+    },
+    {
+      "verified": true,
+      "N": 21,
+      "status": "PARTIAL",
+      "prime_leaves": 0,
+      "unresolved_cofactors": 1,
+      "certificate_count": 2,
+      "result_sha256": "9180a1170899b66d79c974147a61889c16cd93be4b250983ced03519732a8848",
+      "stochastic_budget_verified": false,
+      "scope": "factor claims, prime certificates and multiplicative conservation; stochastic guarantee remains conditional on the declared RNG and uniform compiler bound"
+    }
+  ],
+  "negative_controls": [
+    "hidden_compilation_partial_rejected"
+  ],
+  "compiler_interruption_preserved_multiplicity": true,
+  "compiler_resume_completed": true,
+  "random_calls_before_partial_compilation": 0,
+  "actual_BRC_calls": 16991,
+  "scope": "Seeded/fixed-base actual original-CF samples and complete prime/product certificates; no empirical randomness, ideal-reference execution or polynomial-time claim",
+  "result_summaries": [
+    {
+      "N": 225,
+      "status": "PARTIAL",
+      "prime_factors": [],
+      "unresolved": [
+        {
+          "cofactor": 15,
+          "multiplicity": 2,
+          "status": "COMPILATION_PARTIAL",
+          "event_index": 1
+        }
+      ],
+      "probability_contract": {
+        "uniform_random_source_required": true,
+        "explicit_base_policy": true,
+        "budgets_meet_uniform_random_bound": false,
+        "bound_if_contract_holds": null,
+        "scope": "Does not cover external randomness exhaustion/interruption; does not turn a PRNG replay into ideal randomness.",
+        "transcript_TV_is_a_separate_budget": true
+      }
+    },
+    {
+      "N": 225,
+      "status": "COMPLETE",
+      "prime_factors": [
+        {
+          "prime": 3,
+          "exponent": 2,
+          "certificate_id": "72423f11f9b97d12c140ef6adef953f094d22ba75a29f37b0e418998272c7f0a"
+        },
+        {
+          "prime": 5,
+          "exponent": 2,
+          "certificate_id": "e0a30542af34add4c2c84781e83a5435bd3e2e9e8bdd6533f2f3af853b70956d"
+        }
+      ],
+      "unresolved": [],
+      "probability_contract": {
+        "uniform_random_source_required": true,
+        "explicit_base_policy": true,
+        "budgets_meet_uniform_random_bound": false,
+        "bound_if_contract_holds": null,
+        "scope": "Does not cover external randomness exhaustion/interruption; does not turn a PRNG replay into ideal randomness.",
+        "transcript_TV_is_a_separate_budget": true
+      }
+    },
+    {
+      "N": 21,
+      "status": "COMPLETE",
+      "prime_factors": [
+        {
+          "prime": 3,
+          "exponent": 1,
+          "certificate_id": "72423f11f9b97d12c140ef6adef953f094d22ba75a29f37b0e418998272c7f0a"
+        },
+        {
+          "prime": 7,
+          "exponent": 1,
+          "certificate_id": "c1743a89231e57eab0a4c80d1e0c88e7da3762dccbf49ce86acb31e9432a8aca"
+        }
+      ],
+      "unresolved": [],
+      "probability_contract": {
+        "uniform_random_source_required": true,
+        "explicit_base_policy": true,
+        "budgets_meet_uniform_random_bound": false,
+        "bound_if_contract_holds": null,
+        "scope": "Does not cover external randomness exhaustion/interruption; does not turn a PRNG replay into ideal randomness.",
+        "transcript_TV_is_a_separate_budget": true
+      }
+    },
+    {
+      "N": 21,
+      "status": "PARTIAL",
+      "prime_factors": [],
+      "unresolved": [
+        {
+          "cofactor": 21,
+          "multiplicity": 1,
+          "status": "RETRY_LIMIT",
+          "event_index": 0
+        }
+      ],
+      "probability_contract": {
+        "uniform_random_source_required": true,
+        "explicit_base_policy": true,
+        "budgets_meet_uniform_random_bound": false,
+        "bound_if_contract_holds": null,
+        "scope": "Does not cover external randomness exhaustion/interruption; does not turn a PRNG replay into ideal randomness.",
+        "transcript_TV_is_a_separate_budget": true
+      }
+    }
+  ],
+  "full_payload_sha256": "0569f511651257526bf0b678b40369aaa5a535dc1705c7af02dcba79c199724c",
+  "uncompressed_bytes": 22771519
+}
