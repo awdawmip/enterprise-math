@@ -1,0 +1,51 @@
+{
+  "source": "../integration/complete_factorization.py",
+  "source_sha256": "96ea1eda5a689106515420b06826bb0bb6a11c4d4fb41ae50bcfb33a87fb7aee",
+  "result": "universal_factorization.py",
+  "result_sha256": "b4f8c59c153d138fd9859084672750a1be4462fc70f3d68790f23fb5d09cd2f0",
+  "replacements": [
+    {
+      "old": "are split only by the actual sampled Shor driver or its native gcd precheck.",
+      "new": "use the actual sampled driver, explicit post-readout exponent enhancement, and native gcd precheck."
+    },
+    {
+      "old": "    phase_provider(t) returns (bank, dim, error_certificate), whose\n    terminal_TV_bound is a uniform whole-instrument bound to ideal Shor.",
+      "new": "    The pinned K33 phase provider fixes the actual complete rational words.\n    The success bound combines spectral support with the optional sharper TV bound."
+    },
+    {
+      "old": "from general_streaming import GeneralStreamingProgram, ROOT",
+      "new": "sys.path.insert(0, str(Path(__file__).resolve().parent.parent / 'integration'))\nfrom general_streaming import GeneralStreamingProgram, ROOT"
+    },
+    {
+      "old": "from general_driver import factor_attempts",
+      "new": "from general_driver import factor_attempts\nfrom hybrid_postprocess import hybrid_classical_postprocess"
+    },
+    {
+      "old": "def factor_integer(N, rng, phase_provider, *, failure_bits=16, max_attempts=None, base_provider=None):",
+      "new": "def factor_integer_universal(N, rng, *, failure_bits=16, max_attempts=None, base_provider=None):"
+    },
+    {
+      "old": "    if not integer(N) or N < 2: raise ValueError('integer N >= 2 required')",
+      "new": "    phase_provider = certified_phase_provider\n    if not integer(N) or N < 2: raise ValueError('integer N >= 2 required')"
+    },
+    {
+      "old": "        gamma = F(1, 8 * n) - epsilon",
+      "new": "        B = 2*t + 128*sum(t-m+1 for m in range(3, min(t,32)+1))\n        support_exponent = 2*B + 1\n        spectral_gamma = F(1, 1 << support_exponent)\n        tv_gamma = F(1, 8*n) - epsilon\n        gamma = max(spectral_gamma, tv_gamma)"
+    },
+    {
+      "old": "        # Lack of a useful conservative bound does not prevent an actual run.\n        # Its stopping budget and missing guarantee are made explicit.",
+      "new": "        # Spectral support is positive for every finite input width.\n        # A user budget override remains explicit and may weaken the bound."
+    },
+    {
+      "old": "attempt = factor_attempts(value, t, R, rng, factory, bases=bases)",
+      "new": "attempt = factor_attempts(value, t, R, rng, factory, bases=bases, postprocess=hybrid_classical_postprocess)"
+    },
+    {
+      "old": "            'per_attempt_success_lower_bound': str(max(F(0), gamma)),",
+      "new": "            'per_attempt_success_lower_bound': str(gamma),\n            'universal_support_certificate': {\n                'algorithm': 'K33 complete retained words plus public AFTER-readout low-odd-part exponent verification',\n                'common_rational_space_dimension_upper_bound': 32,\n                'terminal_dyadic_denominator_exponent_upper_bound': B,\n                'uniform_success_dyadic_denominator_exponent': support_exponent,\n                'low_odd_part_max': 1023, 'all_completed_readouts_including_zero': True,\n                'chosen_bound': 'IDEAL_TV' if tv_gamma >= spectral_gamma else 'SPECTRAL_DYADIC',\n                'no_all_scale_ideal_distribution_accuracy_claim': True},"
+    }
+  ],
+  "schema_replacement": "BRC_RECURSIVE_FACTORIZATION_V1 -> BRC_UNIVERSAL_HYBRID_FACTORIZATION_V1",
+  "runtime_monkeypatch": false,
+  "frozen_module_modified": false
+}

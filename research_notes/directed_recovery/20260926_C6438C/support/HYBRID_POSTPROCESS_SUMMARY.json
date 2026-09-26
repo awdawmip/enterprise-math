@@ -1,0 +1,198 @@
+{
+  "schema": "BRC_HYBRID_POSTPROCESS_CHECKS_V1",
+  "researcher": "EM-DIRECT-C6438C",
+  "activity": "RA-CAAAC604CB513AEA8BBC1DFC",
+  "status": "AUTHOR_EXECUTED_SHARED_CONTEXT_UNREVIEWED_NOT_ADMITTED",
+  "vendor": {
+    "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+    "path": "src/enterprise_math/brc_weighted_recurrent.py",
+    "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+    "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+  },
+  "negative_controls": [
+    "wrong_factor",
+    "deleted_primary_zero_reason",
+    "false_minimal_order",
+    "missing_candidate",
+    "truncated_candidate_scope",
+    "nonunit_base",
+    "invalid_readout",
+    "odd_control_width",
+    "boolean_input"
+  ],
+  "scope": "declared completed-readout arithmetic fixtures; not sampled output frequencies or ideal reference",
+  "algorithm_change": "original CF followed after failure by public even low-odd-part exponent candidates",
+  "full_payload_sha256": "87d32bb3d86388c2682e7a81c9c1e26db7d3a878c0cc0167d53030957db7a3b1",
+  "full_payload_bytes": 411950,
+  "actual_BRC_call_count": 20,
+  "modular_source_certificate_count": 17,
+  "cases": [
+    {
+      "N": 15,
+      "a": 2,
+      "t": 8,
+      "k": 0,
+      "factors": [
+        3,
+        5
+      ],
+      "factor_source": "LOW_ODD_PART_RETURNING_EXPONENT_FALLBACK",
+      "primary_status": "ZERO_PHASE_RETRY",
+      "fallback_status": "FALLBACK_FACTOR_FOUND",
+      "candidate_attempts": 5,
+      "coverage_complete": false,
+      "replay": {
+        "verified": true,
+        "result_sha256": "39bc23d13d656145975ccdaa42d0c7431b604d6d8c52c664aedb8ecd8fec9c32",
+        "candidate_attempts": 5,
+        "coverage_complete": false,
+        "scope": "post-readout arithmetic only; does not certify how k was sampled"
+      }
+    },
+    {
+      "N": 21,
+      "a": 2,
+      "t": 10,
+      "k": 0,
+      "factors": [
+        3,
+        7
+      ],
+      "factor_source": "LOW_ODD_PART_RETURNING_EXPONENT_FALLBACK",
+      "primary_status": "ZERO_PHASE_RETRY",
+      "fallback_status": "FALLBACK_FACTOR_FOUND",
+      "candidate_attempts": 2,
+      "coverage_complete": false,
+      "replay": {
+        "verified": true,
+        "result_sha256": "d9cd81798c1130b3de1951e34cb82b43592a357c31e997dae100a3a9c45578be",
+        "candidate_attempts": 2,
+        "coverage_complete": false,
+        "scope": "post-readout arithmetic only; does not certify how k was sampled"
+      }
+    },
+    {
+      "N": 35,
+      "a": 2,
+      "t": 12,
+      "k": 0,
+      "factors": [
+        5,
+        7
+      ],
+      "factor_source": "LOW_ODD_PART_RETURNING_EXPONENT_FALLBACK",
+      "primary_status": "ZERO_PHASE_RETRY",
+      "fallback_status": "FALLBACK_FACTOR_FOUND",
+      "candidate_attempts": 11,
+      "coverage_complete": false,
+      "replay": {
+        "verified": true,
+        "result_sha256": "20992be9060e83d5eff8efbbfe7c342dd3e614798f98f9a64333bbb4d06ddf91",
+        "candidate_attempts": 11,
+        "coverage_complete": false,
+        "scope": "post-readout arithmetic only; does not certify how k was sampled"
+      }
+    },
+    {
+      "N": 15,
+      "a": 14,
+      "t": 8,
+      "k": 0,
+      "factors": [],
+      "factor_source": null,
+      "primary_status": "ZERO_PHASE_RETRY",
+      "fallback_status": "CANDIDATES_EXHAUSTED_NO_FACTOR",
+      "candidate_attempts": 7,
+      "coverage_complete": true,
+      "replay": {
+        "verified": true,
+        "result_sha256": "32a4102443e32f91902db96a535f8a40805a1634f5002708eb9c3dd79912c8c8",
+        "candidate_attempts": 7,
+        "coverage_complete": true,
+        "scope": "post-readout arithmetic only; does not certify how k was sampled"
+      }
+    },
+    {
+      "N": 9,
+      "a": 2,
+      "t": 8,
+      "k": 0,
+      "factors": [],
+      "factor_source": null,
+      "primary_status": "ZERO_PHASE_RETRY",
+      "fallback_status": "CANDIDATES_EXHAUSTED_NO_FACTOR",
+      "candidate_attempts": 4,
+      "coverage_complete": true,
+      "replay": {
+        "verified": true,
+        "result_sha256": "69523ba85ce6151fab7833d101b2c6def562aad6ffd86b6cb48823f38b0361ce",
+        "candidate_attempts": 4,
+        "coverage_complete": true,
+        "scope": "post-readout arithmetic only; does not certify how k was sampled"
+      }
+    },
+    {
+      "N": 7,
+      "a": 3,
+      "t": 6,
+      "k": 0,
+      "factors": [],
+      "factor_source": null,
+      "primary_status": "ZERO_PHASE_RETRY",
+      "fallback_status": "CANDIDATES_EXHAUSTED_NO_FACTOR",
+      "candidate_attempts": 3,
+      "coverage_complete": true,
+      "replay": {
+        "verified": true,
+        "result_sha256": "f56fe015c4287279f38ca1df5320839f878c0e7f77aee660dd126b17022371d6",
+        "candidate_attempts": 3,
+        "coverage_complete": true,
+        "scope": "post-readout arithmetic only; does not certify how k was sampled"
+      }
+    },
+    {
+      "N": 15,
+      "a": 2,
+      "t": 4,
+      "k": 4,
+      "factors": [
+        3,
+        5
+      ],
+      "factor_source": "ORIGINAL_CF",
+      "primary_status": "FACTORS",
+      "fallback_status": "NOT_RUN_PRIMARY_SUCCEEDED",
+      "candidate_attempts": 0,
+      "coverage_complete": false,
+      "replay": {
+        "verified": true,
+        "result_sha256": "9a28a12ee31790a7a5acd55f82f781486ca4fe6fab07811eca5c516a18474d24",
+        "candidate_attempts": 0,
+        "coverage_complete": false,
+        "scope": "post-readout arithmetic only; does not certify how k was sampled"
+      }
+    },
+    {
+      "N": 21,
+      "a": 2,
+      "t": 6,
+      "k": 1,
+      "factors": [
+        3,
+        7
+      ],
+      "factor_source": "LOW_ODD_PART_RETURNING_EXPONENT_FALLBACK",
+      "primary_status": "NO_FACTOR_THIS_READOUT",
+      "fallback_status": "FALLBACK_FACTOR_FOUND",
+      "candidate_attempts": 2,
+      "coverage_complete": false,
+      "replay": {
+        "verified": true,
+        "result_sha256": "785b86762deff403003d630e8ed794b91d314d8141398342b1fc1ff9a46d9142",
+        "candidate_attempts": 2,
+        "coverage_complete": false,
+        "scope": "post-readout arithmetic only; does not certify how k was sampled"
+      }
+    }
+  ]
+}
