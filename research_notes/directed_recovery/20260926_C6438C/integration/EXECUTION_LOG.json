@@ -1,0 +1,21 @@
+{
+  "schema": "AUTHOR_EXECUTION_CORRECTIONS_V1",
+  "attempts": [
+    {
+      "script": "check_general_driver.py",
+      "attempt": 1,
+      "outcome": "ASSERTION_FAILED_IN_TEST_ORIGIN_HEURISTIC",
+      "observation": "All output and frozen-bin checks passed before test asserted that no BRC core call has 16 or 32 states.",
+      "diagnosis": "Native controlled H4 itself has 32 states, so matrix size cannot identify dense modular compilation.",
+      "correction": "Observe calls to the actual stage78.shor_benchmark.modular_columns entrypoint with sys.setprofile; no function or scientific operator is monkeypatched.",
+      "scientific_algorithm_changed_to_make_test_pass": false
+    },
+    {
+      "script": "check_complete_factorization.py",
+      "attempt": 1,
+      "outcome": "TYPE_ERROR_IN_RESULT_DIGEST",
+      "observation": "2,9,27,22 completed; the next Shor result contained exact Fraction values in its error certificate, which the generic certificate digest JSON encoder does not accept.",
+      "correction": "Serialize the event error certificate's exact rationals as canonical p/q strings before persisting the recursive result. No numerical value or algorithmic branch is changed."
+    }
+  ]
+}

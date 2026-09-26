@@ -1,0 +1,11 @@
+{
+  "schema": "BRC_SHOR_CERTIFIED_BANK_LOADER_LOCAL_CHECK_V1",
+  "activity": "RA-CAAAC604CB513AEA8BBC1DFC",
+  "status": "EXECUTED_EXIT_ZERO",
+  "expected_payload_sha256": "feecbc02808991f6d7b1e2c3179c8da2018b76901ef34c26ef0d28b65729dd5c",
+  "first_load": {"max_m": 40, "cutoff": 33, "dimension": 61, "phase_entries": 39, "phase33_word_is_empty": true, "complete_columns_on_cache_fill": 1952, "error": "133601/137438953472"},
+  "same_payload_second_load": {"max_m": 12, "cutoff": 33, "phase12_nonempty_preserved": true},
+  "actual_stdout": "61 133601/137438953472 1952",
+  "exit_code": 0,
+  "interpretation": "Loader, exact hash, full-word replay and same-payload cache check; not a new full Shor experiment."
+}

@@ -1,0 +1,4159 @@
+{
+  "status": "PASS_AUTHOR_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "researcher": "EM-DIRECT-C6438C",
+  "activity": "RA-CAAAC604CB513AEA8BBC1DFC",
+  "registration_source": "f0e5fb6f478a5a380ab5a7533d2585f7f43ee3bf",
+  "frozen_source_head": "0852cad130c1d877174d235687cf60c19f318c58",
+  "vendor": {
+    "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+    "path": "src/enterprise_math/brc_weighted_recurrent.py",
+    "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+    "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+  },
+  "small_native_equalities": [
+    {
+      "N": 3,
+      "b": 2,
+      "compile_elapsed_ns": 6272600,
+      "all_original_native_columns_equal": true,
+      "complete_columns": 4,
+      "adder_digit_applications": 18,
+      "certificate_sha256": "d258e484e650b9cf747566bbad179d65382164f10ff77688aec44cafb5dd70e1",
+      "verified": true
+    },
+    {
+      "N": 5,
+      "b": 2,
+      "compile_elapsed_ns": 159600,
+      "all_original_native_columns_equal": true,
+      "complete_columns": 8,
+      "adder_digit_applications": 40,
+      "certificate_sha256": "c18f27cad6679b9600cdd98c41bb9da3d34ce847677aceacdfdb69fa6372b36f",
+      "verified": true
+    },
+    {
+      "N": 7,
+      "b": 3,
+      "compile_elapsed_ns": 231900,
+      "all_original_native_columns_equal": true,
+      "complete_columns": 8,
+      "adder_digit_applications": 56,
+      "certificate_sha256": "047740c63d5db9e9da87810afb29714e71f6ac0843d6b4a17427cf841ac65527",
+      "verified": true
+    },
+    {
+      "N": 15,
+      "b": 2,
+      "compile_elapsed_ns": 395100,
+      "all_original_native_columns_equal": true,
+      "complete_columns": 16,
+      "adder_digit_applications": 150,
+      "certificate_sha256": "997792083090c660b162a8429336903cf5cc3d226e609447fbac2d88db732666",
+      "verified": true
+    },
+    {
+      "N": 21,
+      "b": 2,
+      "compile_elapsed_ns": 504000,
+      "all_original_native_columns_equal": true,
+      "complete_columns": 32,
+      "adder_digit_applications": 252,
+      "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+      "verified": true
+    },
+    {
+      "N": 21,
+      "b": 20,
+      "compile_elapsed_ns": 579400,
+      "all_original_native_columns_equal": true,
+      "complete_columns": 32,
+      "adder_digit_applications": 252,
+      "certificate_sha256": "fd318d6cf24c0e8b56f3022f132ca79f90f053023b9d89b120890bbab058b583",
+      "verified": true
+    }
+  ],
+  "serial": {
+    "carrier": 8,
+    "layered_native_states": 24,
+    "all_start_columns_equal": true
+  },
+  "controlled_direct_sum": {
+    "basis_columns": 16,
+    "matrix_entries": 256,
+    "all_match": true
+  },
+  "inverse": {
+    "basis_columns": 8,
+    "matrix_entries": 64,
+    "all_match": true
+  },
+  "signed_fibres": {
+    "carrier": 8,
+    "positive_sign_cover_states": 16,
+    "retained_modes": 61,
+    "signed_coordinate_comparisons": 488,
+    "character_commutes": true,
+    "quadratic_norm_preserved": true
+  },
+  "modular_exponents": {
+    "N": 21,
+    "a": 2,
+    "all_32_native_equalities": true,
+    "traces": [
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 0,
+        "value": 1,
+        "steps": [],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 1,
+        "value": 2,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 2,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": 1,
+            "square_column": 2
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 2,
+        "value": 4,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 0,
+            "input": 1,
+            "output": 1,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": null,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 4,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 1,
+            "square_column": 4
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 3,
+        "value": 8,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 2,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": 1,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 1,
+            "input": 2,
+            "output": 8,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 2,
+            "square_column": 4
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 4,
+        "value": 16,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 0,
+            "input": 1,
+            "output": 1,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": null,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 0,
+            "input": 1,
+            "output": 1,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": null,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 16,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 1,
+            "square_column": 16
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 5,
+        "value": 11,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 2,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": 1,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 0,
+            "input": 2,
+            "output": 2,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": null,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 1,
+            "input": 2,
+            "output": 11,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 2,
+            "square_column": 16
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 6,
+        "value": 1,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 0,
+            "input": 1,
+            "output": 1,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": null,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 4,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 1,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 1,
+            "input": 4,
+            "output": 1,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 4,
+            "square_column": 16
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 7,
+        "value": 2,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 2,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": 1,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 1,
+            "input": 2,
+            "output": 8,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 2,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 1,
+            "input": 8,
+            "output": 2,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 8,
+            "square_column": 16
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 8,
+        "value": 4,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 0,
+            "input": 1,
+            "output": 1,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": null,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 0,
+            "input": 1,
+            "output": 1,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": null,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 0,
+            "input": 1,
+            "output": 1,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": null,
+            "square_column": 16
+          },
+          {
+            "bit": 3,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 4,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 1,
+            "square_column": 4
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 9,
+        "value": 8,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 2,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": 1,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 0,
+            "input": 2,
+            "output": 2,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": null,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 0,
+            "input": 2,
+            "output": 2,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": null,
+            "square_column": 16
+          },
+          {
+            "bit": 3,
+            "exponent_bit": 1,
+            "input": 2,
+            "output": 8,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 2,
+            "square_column": 4
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 10,
+        "value": 16,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 0,
+            "input": 1,
+            "output": 1,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": null,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 4,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 1,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 0,
+            "input": 4,
+            "output": 4,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": null,
+            "square_column": 16
+          },
+          {
+            "bit": 3,
+            "exponent_bit": 1,
+            "input": 4,
+            "output": 16,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 4,
+            "square_column": 4
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 11,
+        "value": 11,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 2,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": 1,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 1,
+            "input": 2,
+            "output": 8,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 2,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 0,
+            "input": 8,
+            "output": 8,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": null,
+            "square_column": 16
+          },
+          {
+            "bit": 3,
+            "exponent_bit": 1,
+            "input": 8,
+            "output": 11,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 8,
+            "square_column": 4
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 12,
+        "value": 1,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 0,
+            "input": 1,
+            "output": 1,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": null,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 0,
+            "input": 1,
+            "output": 1,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": null,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 16,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 1,
+            "square_column": 16
+          },
+          {
+            "bit": 3,
+            "exponent_bit": 1,
+            "input": 16,
+            "output": 1,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 16,
+            "square_column": 4
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 13,
+        "value": 2,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 2,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": 1,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 0,
+            "input": 2,
+            "output": 2,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": null,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 1,
+            "input": 2,
+            "output": 11,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 2,
+            "square_column": 16
+          },
+          {
+            "bit": 3,
+            "exponent_bit": 1,
+            "input": 11,
+            "output": 2,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 11,
+            "square_column": 4
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 14,
+        "value": 4,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 0,
+            "input": 1,
+            "output": 1,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": null,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 4,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 1,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 1,
+            "input": 4,
+            "output": 1,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 4,
+            "square_column": 16
+          },
+          {
+            "bit": 3,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 4,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 1,
+            "square_column": 4
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 15,
+        "value": 8,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 2,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": 1,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 1,
+            "input": 2,
+            "output": 8,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 2,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 1,
+            "input": 8,
+            "output": 2,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 8,
+            "square_column": 16
+          },
+          {
+            "bit": 3,
+            "exponent_bit": 1,
+            "input": 2,
+            "output": 8,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 2,
+            "square_column": 4
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 16,
+        "value": 16,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 0,
+            "input": 1,
+            "output": 1,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": null,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 0,
+            "input": 1,
+            "output": 1,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": null,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 0,
+            "input": 1,
+            "output": 1,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": null,
+            "square_column": 16
+          },
+          {
+            "bit": 3,
+            "exponent_bit": 0,
+            "input": 1,
+            "output": 1,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": null,
+            "square_column": 4
+          },
+          {
+            "bit": 4,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 16,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 1,
+            "square_column": 16
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 17,
+        "value": 11,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 2,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": 1,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 0,
+            "input": 2,
+            "output": 2,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": null,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 0,
+            "input": 2,
+            "output": 2,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": null,
+            "square_column": 16
+          },
+          {
+            "bit": 3,
+            "exponent_bit": 0,
+            "input": 2,
+            "output": 2,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": null,
+            "square_column": 4
+          },
+          {
+            "bit": 4,
+            "exponent_bit": 1,
+            "input": 2,
+            "output": 11,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 2,
+            "square_column": 16
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 18,
+        "value": 1,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 0,
+            "input": 1,
+            "output": 1,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": null,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 4,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 1,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 0,
+            "input": 4,
+            "output": 4,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": null,
+            "square_column": 16
+          },
+          {
+            "bit": 3,
+            "exponent_bit": 0,
+            "input": 4,
+            "output": 4,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": null,
+            "square_column": 4
+          },
+          {
+            "bit": 4,
+            "exponent_bit": 1,
+            "input": 4,
+            "output": 1,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 4,
+            "square_column": 16
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 19,
+        "value": 2,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 2,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": 1,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 1,
+            "input": 2,
+            "output": 8,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 2,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 0,
+            "input": 8,
+            "output": 8,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": null,
+            "square_column": 16
+          },
+          {
+            "bit": 3,
+            "exponent_bit": 0,
+            "input": 8,
+            "output": 8,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": null,
+            "square_column": 4
+          },
+          {
+            "bit": 4,
+            "exponent_bit": 1,
+            "input": 8,
+            "output": 2,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 8,
+            "square_column": 16
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 20,
+        "value": 4,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 0,
+            "input": 1,
+            "output": 1,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": null,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 0,
+            "input": 1,
+            "output": 1,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": null,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 16,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 1,
+            "square_column": 16
+          },
+          {
+            "bit": 3,
+            "exponent_bit": 0,
+            "input": 16,
+            "output": 16,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": null,
+            "square_column": 4
+          },
+          {
+            "bit": 4,
+            "exponent_bit": 1,
+            "input": 16,
+            "output": 4,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 16,
+            "square_column": 16
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 21,
+        "value": 8,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 2,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": 1,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 0,
+            "input": 2,
+            "output": 2,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": null,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 1,
+            "input": 2,
+            "output": 11,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 2,
+            "square_column": 16
+          },
+          {
+            "bit": 3,
+            "exponent_bit": 0,
+            "input": 11,
+            "output": 11,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": null,
+            "square_column": 4
+          },
+          {
+            "bit": 4,
+            "exponent_bit": 1,
+            "input": 11,
+            "output": 8,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 11,
+            "square_column": 16
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 22,
+        "value": 16,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 0,
+            "input": 1,
+            "output": 1,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": null,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 4,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 1,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 1,
+            "input": 4,
+            "output": 1,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 4,
+            "square_column": 16
+          },
+          {
+            "bit": 3,
+            "exponent_bit": 0,
+            "input": 1,
+            "output": 1,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": null,
+            "square_column": 4
+          },
+          {
+            "bit": 4,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 16,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 1,
+            "square_column": 16
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 23,
+        "value": 11,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 2,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": 1,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 1,
+            "input": 2,
+            "output": 8,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 2,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 1,
+            "input": 8,
+            "output": 2,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 8,
+            "square_column": 16
+          },
+          {
+            "bit": 3,
+            "exponent_bit": 0,
+            "input": 2,
+            "output": 2,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": null,
+            "square_column": 4
+          },
+          {
+            "bit": 4,
+            "exponent_bit": 1,
+            "input": 2,
+            "output": 11,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 2,
+            "square_column": 16
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 24,
+        "value": 1,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 0,
+            "input": 1,
+            "output": 1,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": null,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 0,
+            "input": 1,
+            "output": 1,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": null,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 0,
+            "input": 1,
+            "output": 1,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": null,
+            "square_column": 16
+          },
+          {
+            "bit": 3,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 4,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 1,
+            "square_column": 4
+          },
+          {
+            "bit": 4,
+            "exponent_bit": 1,
+            "input": 4,
+            "output": 1,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 4,
+            "square_column": 16
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 25,
+        "value": 2,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 2,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": 1,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 0,
+            "input": 2,
+            "output": 2,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": null,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 0,
+            "input": 2,
+            "output": 2,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": null,
+            "square_column": 16
+          },
+          {
+            "bit": 3,
+            "exponent_bit": 1,
+            "input": 2,
+            "output": 8,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 2,
+            "square_column": 4
+          },
+          {
+            "bit": 4,
+            "exponent_bit": 1,
+            "input": 8,
+            "output": 2,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 8,
+            "square_column": 16
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 26,
+        "value": 4,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 0,
+            "input": 1,
+            "output": 1,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": null,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 4,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 1,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 0,
+            "input": 4,
+            "output": 4,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": null,
+            "square_column": 16
+          },
+          {
+            "bit": 3,
+            "exponent_bit": 1,
+            "input": 4,
+            "output": 16,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 4,
+            "square_column": 4
+          },
+          {
+            "bit": 4,
+            "exponent_bit": 1,
+            "input": 16,
+            "output": 4,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 16,
+            "square_column": 16
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 27,
+        "value": 8,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 2,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": 1,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 1,
+            "input": 2,
+            "output": 8,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 2,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 0,
+            "input": 8,
+            "output": 8,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": null,
+            "square_column": 16
+          },
+          {
+            "bit": 3,
+            "exponent_bit": 1,
+            "input": 8,
+            "output": 11,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 8,
+            "square_column": 4
+          },
+          {
+            "bit": 4,
+            "exponent_bit": 1,
+            "input": 11,
+            "output": 8,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 11,
+            "square_column": 16
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 28,
+        "value": 16,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 0,
+            "input": 1,
+            "output": 1,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": null,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 0,
+            "input": 1,
+            "output": 1,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": null,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 16,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 1,
+            "square_column": 16
+          },
+          {
+            "bit": 3,
+            "exponent_bit": 1,
+            "input": 16,
+            "output": 1,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 16,
+            "square_column": 4
+          },
+          {
+            "bit": 4,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 16,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 1,
+            "square_column": 16
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 29,
+        "value": 11,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 2,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": 1,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 0,
+            "input": 2,
+            "output": 2,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": null,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 1,
+            "input": 2,
+            "output": 11,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 2,
+            "square_column": 16
+          },
+          {
+            "bit": 3,
+            "exponent_bit": 1,
+            "input": 11,
+            "output": 2,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 11,
+            "square_column": 4
+          },
+          {
+            "bit": 4,
+            "exponent_bit": 1,
+            "input": 2,
+            "output": 11,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 2,
+            "square_column": 16
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 30,
+        "value": 1,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 0,
+            "input": 1,
+            "output": 1,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": null,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 4,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 1,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 1,
+            "input": 4,
+            "output": 1,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 4,
+            "square_column": 16
+          },
+          {
+            "bit": 3,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 4,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 1,
+            "square_column": 4
+          },
+          {
+            "bit": 4,
+            "exponent_bit": 1,
+            "input": 4,
+            "output": 1,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 4,
+            "square_column": 16
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      },
+      {
+        "N": 21,
+        "a": 2,
+        "exponent": 31,
+        "value": 2,
+        "steps": [
+          {
+            "bit": 0,
+            "exponent_bit": 1,
+            "input": 1,
+            "output": 2,
+            "b": 2,
+            "next_b": 4,
+            "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135",
+            "column_used": 1,
+            "square_column": 2
+          },
+          {
+            "bit": 1,
+            "exponent_bit": 1,
+            "input": 2,
+            "output": 8,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 2,
+            "square_column": 4
+          },
+          {
+            "bit": 2,
+            "exponent_bit": 1,
+            "input": 8,
+            "output": 2,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 8,
+            "square_column": 16
+          },
+          {
+            "bit": 3,
+            "exponent_bit": 1,
+            "input": 2,
+            "output": 8,
+            "b": 4,
+            "next_b": 16,
+            "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5",
+            "column_used": 2,
+            "square_column": 4
+          },
+          {
+            "bit": 4,
+            "exponent_bit": 1,
+            "input": 8,
+            "output": 2,
+            "b": 16,
+            "next_b": 4,
+            "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa",
+            "column_used": 8,
+            "square_column": 16
+          }
+        ],
+        "scope": "actual BRC adder-compiled modular columns; no order or factors input"
+      }
+    ]
+  },
+  "power_chain": {
+    "N": 21,
+    "a": 2,
+    "powers": [
+      2,
+      4,
+      16,
+      4,
+      16,
+      4,
+      16,
+      4,
+      16,
+      4,
+      16,
+      4
+    ],
+    "origins": [
+      {
+        "bit": 0,
+        "b": 2,
+        "square_source": 2,
+        "square_target": 4,
+        "certificate_sha256": "f438d760ec916ae6a04904e6ae19fc136353bf82c359d88b4417a3c67995d135"
+      },
+      {
+        "bit": 1,
+        "b": 4,
+        "square_source": 4,
+        "square_target": 16,
+        "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5"
+      },
+      {
+        "bit": 2,
+        "b": 16,
+        "square_source": 16,
+        "square_target": 4,
+        "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa"
+      },
+      {
+        "bit": 3,
+        "b": 4,
+        "square_source": 4,
+        "square_target": 16,
+        "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5"
+      },
+      {
+        "bit": 4,
+        "b": 16,
+        "square_source": 16,
+        "square_target": 4,
+        "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa"
+      },
+      {
+        "bit": 5,
+        "b": 4,
+        "square_source": 4,
+        "square_target": 16,
+        "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5"
+      },
+      {
+        "bit": 6,
+        "b": 16,
+        "square_source": 16,
+        "square_target": 4,
+        "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa"
+      },
+      {
+        "bit": 7,
+        "b": 4,
+        "square_source": 4,
+        "square_target": 16,
+        "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5"
+      },
+      {
+        "bit": 8,
+        "b": 16,
+        "square_source": 16,
+        "square_target": 4,
+        "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa"
+      },
+      {
+        "bit": 9,
+        "b": 4,
+        "square_source": 4,
+        "square_target": 16,
+        "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5"
+      },
+      {
+        "bit": 10,
+        "b": 16,
+        "square_source": 16,
+        "square_target": 4,
+        "certificate_sha256": "844948f9c5d01f32d700651035010560cf39d5df89a7083053658014c27222fa"
+      },
+      {
+        "bit": 11,
+        "b": 4,
+        "square_source": 4,
+        "square_target": 16,
+        "certificate_sha256": "8631db187260b62c7dcb9e1c9b5bd139c5f83f695446e1d3df6f6f6ff0f7d0b5"
+      }
+    ],
+    "all_12_native_equalities": true
+  },
+  "postprocessing": [
+    {
+      "N": 15,
+      "a": 2,
+      "t": 4,
+      "complete_readouts": 16,
+      "all_original_native_outputs_equal": true,
+      "rows": [
+        {
+          "k": 0,
+          "result": {
+            "status": "ZERO_PHASE_RETRY",
+            "factors": []
+          }
+        },
+        {
+          "k": 1,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 2,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                8,
+                "TRIVIAL_GCD_RETRY"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 3,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                5,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 4,
+          "result": {
+            "status": "FACTORS",
+            "verified_returning_exponent": 4,
+            "minimal_order_claimed": false,
+            "factors": [
+              3,
+              5
+            ]
+          }
+        },
+        {
+          "k": 5,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                3,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 6,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                3,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                8,
+                "TRIVIAL_GCD_RETRY"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 7,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                7,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 8,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 9,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                7,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 10,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                3,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                8,
+                "TRIVIAL_GCD_RETRY"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 11,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                3,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 12,
+          "result": {
+            "status": "FACTORS",
+            "verified_returning_exponent": 4,
+            "minimal_order_claimed": false,
+            "factors": [
+              3,
+              5
+            ]
+          }
+        },
+        {
+          "k": 13,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                5,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 14,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                8,
+                "TRIVIAL_GCD_RETRY"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 15,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "N": 21,
+      "a": 2,
+      "t": 6,
+      "complete_readouts": 64,
+      "all_original_native_outputs_equal": true,
+      "rows": [
+        {
+          "k": 0,
+          "result": {
+            "status": "ZERO_PHASE_RETRY",
+            "factors": []
+          }
+        },
+        {
+          "k": 1,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 2,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 3,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 4,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                16,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 5,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                12,
+                "TRIVIAL_GCD_RETRY"
+              ],
+              [
+                13,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 6,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                10,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                11,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 7,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                9,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 8,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                8,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 9,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                7,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 10,
+          "result": {
+            "status": "FACTORS",
+            "verified_returning_exponent": 6,
+            "minimal_order_claimed": false,
+            "factors": [
+              3,
+              7
+            ]
+          }
+        },
+        {
+          "k": 11,
+          "result": {
+            "status": "FACTORS",
+            "verified_returning_exponent": 6,
+            "minimal_order_claimed": false,
+            "factors": [
+              3,
+              7
+            ]
+          }
+        },
+        {
+          "k": 12,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                5,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                16,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 13,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                4,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                5,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 14,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                4,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                5,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                9,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 15,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                4,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                13,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                17,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 16,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                4,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 17,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                3,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                4,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                15,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 18,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                3,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                4,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                7,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 19,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                3,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                7,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                10,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 20,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                3,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                16,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 21,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                3,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 22,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                3,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 23,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                3,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                11,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                14,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 24,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                3,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                8,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 25,
+          "result": {
+            "status": "FACTORS",
+            "verified_returning_exponent": 18,
+            "minimal_order_claimed": false,
+            "factors": [
+              3,
+              7
+            ]
+          }
+        },
+        {
+          "k": 26,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                5,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 27,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                5,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                7,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                19,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 28,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                7,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                16,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 29,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                9,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                11,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 30,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                15,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 31,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 32,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 33,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 34,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                15,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 35,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                9,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                11,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 36,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                7,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                16,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 37,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                5,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                7,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                19,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 38,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                5,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 39,
+          "result": {
+            "status": "FACTORS",
+            "verified_returning_exponent": 18,
+            "minimal_order_claimed": false,
+            "factors": [
+              3,
+              7
+            ]
+          }
+        },
+        {
+          "k": 40,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                3,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                8,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 41,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                3,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                11,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                14,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 42,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                3,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 43,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                3,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 44,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                3,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                16,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 45,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                3,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                7,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                10,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 46,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                3,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                4,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                7,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 47,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                3,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                4,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                15,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 48,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                4,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 49,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                4,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                13,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                17,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 50,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                4,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                5,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                9,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 51,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                4,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                5,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 52,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                5,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                16,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 53,
+          "result": {
+            "status": "FACTORS",
+            "verified_returning_exponent": 6,
+            "minimal_order_claimed": false,
+            "factors": [
+              3,
+              7
+            ]
+          }
+        },
+        {
+          "k": 54,
+          "result": {
+            "status": "FACTORS",
+            "verified_returning_exponent": 6,
+            "minimal_order_claimed": false,
+            "factors": [
+              3,
+              7
+            ]
+          }
+        },
+        {
+          "k": 55,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                7,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 56,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                8,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 57,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                9,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 58,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                10,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                11,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 59,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                12,
+                "TRIVIAL_GCD_RETRY"
+              ],
+              [
+                13,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 60,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                16,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 61,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 62,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 63,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "N": 15,
+      "a": 14,
+      "t": 4,
+      "complete_readouts": 16,
+      "all_original_native_outputs_equal": true,
+      "rows": [
+        {
+          "k": 0,
+          "result": {
+            "status": "ZERO_PHASE_RETRY",
+            "factors": []
+          }
+        },
+        {
+          "k": 1,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 2,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                8,
+                "TRIVIAL_GCD_RETRY"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 3,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                5,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 4,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                4,
+                "TRIVIAL_GCD_RETRY"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 5,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                3,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 6,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "TRIVIAL_GCD_RETRY"
+              ],
+              [
+                3,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                8,
+                "TRIVIAL_GCD_RETRY"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 7,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "TRIVIAL_GCD_RETRY"
+              ],
+              [
+                7,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 8,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "TRIVIAL_GCD_RETRY"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 9,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "TRIVIAL_GCD_RETRY"
+              ],
+              [
+                7,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 10,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                2,
+                "TRIVIAL_GCD_RETRY"
+              ],
+              [
+                3,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                8,
+                "TRIVIAL_GCD_RETRY"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 11,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                3,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 12,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                4,
+                "TRIVIAL_GCD_RETRY"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 13,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                5,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 14,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                8,
+                "TRIVIAL_GCD_RETRY"
+              ]
+            ]
+          }
+        },
+        {
+          "k": 15,
+          "result": {
+            "status": "NO_FACTOR_THIS_READOUT",
+            "factors": [],
+            "rejected": [
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ],
+              [
+                1,
+                "NOT_RETURNING_EXPONENT"
+              ]
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "rejected_negative_controls": [
+    {
+      "mutation": "digit",
+      "rejected": true
+    },
+    {
+      "mutation": "target",
+      "rejected": true
+    },
+    {
+      "mutation": "missing_column",
+      "rejected": true
+    },
+    {
+      "mutation": "edge_id",
+      "rejected": true
+    },
+    {
+      "mutation": "tail",
+      "rejected": true
+    },
+    {
+      "mutation": "resource",
+      "rejected": true
+    },
+    {
+      "mutation": "noncoprime_N21_b3",
+      "rejected": true
+    },
+    {
+      "mutation": "duplicate_permutation_column",
+      "rejected": true
+    }
+  ],
+  "larger_sparse_cases": [
+    {
+      "N": 33,
+      "b": 2,
+      "elapsed_ns": 3269300,
+      "complete_columns": 64,
+      "adder_digit_applications": 462,
+      "certificate_sha256": "21349013cbcc526c82292614976a1597335664ef79b23f153bc071476f346f79",
+      "verified": true,
+      "new_dense_BRC_calls": 0,
+      "method": "actual certified full-adder columns reused; full provenance replay"
+    },
+    {
+      "N": 257,
+      "b": 3,
+      "elapsed_ns": 31628200,
+      "complete_columns": 512,
+      "adder_digit_applications": 5140,
+      "certificate_sha256": "4d2b55fd32456b36d949ebc38ad435002878b48becd0aaf166af29f35405a336",
+      "verified": true,
+      "new_dense_BRC_calls": 0,
+      "method": "actual certified full-adder columns reused; full provenance replay"
+    },
+    {
+      "N": 1009,
+      "b": 37,
+      "elapsed_ns": 128047700,
+      "complete_columns": 1024,
+      "adder_digit_applications": 22198,
+      "certificate_sha256": "aab69e9c63bb2cd99ce5e74d8b148d99c2d4f272de43ec5539c574f0ef1a3580",
+      "verified": true,
+      "new_dense_BRC_calls": 0,
+      "method": "actual certified full-adder columns reused; full provenance replay"
+    }
+  ],
+  "native_calls": [
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 12,
+      "depth": 1,
+      "elapsed_ns": 5773100
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 1,
+      "elapsed_ns": 304700
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 8,
+      "depth": 1,
+      "elapsed_ns": 1796700
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 8,
+      "depth": 1,
+      "elapsed_ns": 1853400
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 16,
+      "depth": 1,
+      "elapsed_ns": 13136500
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 32,
+      "depth": 1,
+      "elapsed_ns": 99378900
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 32,
+      "depth": 1,
+      "elapsed_ns": 96174900
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 24,
+      "depth": 2,
+      "elapsed_ns": 61293100
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 16,
+      "depth": 1,
+      "elapsed_ns": 12367800
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 8,
+      "depth": 1,
+      "elapsed_ns": 2248900
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 16,
+      "depth": 1,
+      "elapsed_ns": 12426700
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 32,
+      "depth": 1,
+      "elapsed_ns": 97790300
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 32,
+      "depth": 1,
+      "elapsed_ns": 96933700
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 2,
+      "depth": 1,
+      "elapsed_ns": 74900
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 472100
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 16,
+      "depth": 1,
+      "elapsed_ns": 12356300
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 16,
+      "depth": 1,
+      "elapsed_ns": 12372000
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 3,
+      "depth": 2,
+      "elapsed_ns": 206300
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 3,
+      "depth": 2,
+      "elapsed_ns": 169900
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 2,
+      "depth": 1,
+      "elapsed_ns": 58000
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 474500
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 3,
+      "depth": 2,
+      "elapsed_ns": 176600
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 466200
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 16,
+      "depth": 1,
+      "elapsed_ns": 12681700
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 5,
+      "depth": 4,
+      "elapsed_ns": 915600
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 2,
+      "depth": 1,
+      "elapsed_ns": 56100
+    }
+  ],
+  "certificate_file": {
+    "path": "CERTIFICATES.json.gz",
+    "uncompressed_sha256": "79847344ecc396785d322489f88f8b11fcd1d413ea35da5e9d066281ad6eb703",
+    "uncompressed_bytes": 690207
+  },
+  "general_claim_evidence": "SPARSE_MODULAR_PROOF.md, not finite case extrapolation",
+  "not_claimed": [
+    "polynomial in logN",
+    "new phase construction",
+    "generic signed BRC core",
+    "order oracle",
+    "independent review"
+  ]
+}

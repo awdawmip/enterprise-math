@@ -1,0 +1,1373 @@
+{
+  "schema": "BRC_SHOR_EXTENDED_BANK_STANDARD_WIDTH_STREAM_V1",
+  "activity": "RA-CAAAC604CB513AEA8BBC1DFC",
+  "status": "AUTHOR_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "bank_payload_sha256": "feecbc02808991f6d7b1e2c3179c8da2018b76901ef34c26ef0d28b65729dd5c",
+  "bank_max_m": 34,
+  "actual_used_phase_max_m": 12,
+  "internal_dimension": 61,
+  "used_phase_complete_columns_reexecuted": 610,
+  "all_bank_complete_columns_reexecuted": 1952,
+  "phase_error_certificate": {
+    "t": 12,
+    "target_bits": 32,
+    "vector_bits": 64,
+    "phase_target": "83/4294967296",
+    "fixed_word_dilation": "55/1073741824",
+    "telescoping_sum": "303/4294967296",
+    "operator_norm_bound": "303/4294967296",
+    "terminal_TV_bound": "303/4294967296",
+    "nonexact_phase_occurrences": 55,
+    "scope": "full retained internal space and common terminal instrument; no per-history relative-error claim"
+  },
+  "N": 35,
+  "a": 2,
+  "t": 12,
+  "Q": 4096,
+  "Q_ge_N_squared": true,
+  "full_control_expansion_run": false,
+  "reference_QFT_run": false,
+  "input_has_order_or_factors": false,
+  "higher_precision": false,
+  "modular_column_compiler": "explicit injection sparse_modular_columns; all W labels retained",
+  "retained_residual_modes": 59,
+  "shared_spectator_boundary_reset_used": false,
+  "random_source": "seeded software PRNG demonstration, not a physical or ideal randomness certificate",
+  "result": {
+    "N": 35,
+    "a": 2,
+    "t": 12,
+    "k": 3072,
+    "history": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    "history_probability": "174763/2097152",
+    "events": [
+      {
+        "round": 0,
+        "bit": 0,
+        "conditional_probability": "1/2",
+        "history_mass": "1/2",
+        "endpoints": 2,
+        "amplitude_denominator_bits": 2
+      },
+      {
+        "round": 1,
+        "bit": 0,
+        "conditional_probability": "3/4",
+        "history_mass": "3/8",
+        "endpoints": 3,
+        "amplitude_denominator_bits": 3
+      },
+      {
+        "round": 2,
+        "bit": 0,
+        "conditional_probability": "11/12",
+        "history_mass": "11/32",
+        "endpoints": 3,
+        "amplitude_denominator_bits": 4
+      },
+      {
+        "round": 3,
+        "bit": 0,
+        "conditional_probability": "43/44",
+        "history_mass": "43/128",
+        "endpoints": 3,
+        "amplitude_denominator_bits": 5
+      },
+      {
+        "round": 4,
+        "bit": 0,
+        "conditional_probability": "171/172",
+        "history_mass": "171/512",
+        "endpoints": 3,
+        "amplitude_denominator_bits": 6
+      },
+      {
+        "round": 5,
+        "bit": 0,
+        "conditional_probability": "683/684",
+        "history_mass": "683/2048",
+        "endpoints": 3,
+        "amplitude_denominator_bits": 7
+      },
+      {
+        "round": 6,
+        "bit": 0,
+        "conditional_probability": "2731/2732",
+        "history_mass": "2731/8192",
+        "endpoints": 3,
+        "amplitude_denominator_bits": 8
+      },
+      {
+        "round": 7,
+        "bit": 0,
+        "conditional_probability": "10923/10924",
+        "history_mass": "10923/32768",
+        "endpoints": 3,
+        "amplitude_denominator_bits": 9
+      },
+      {
+        "round": 8,
+        "bit": 0,
+        "conditional_probability": "43691/43692",
+        "history_mass": "43691/131072",
+        "endpoints": 3,
+        "amplitude_denominator_bits": 10
+      },
+      {
+        "round": 9,
+        "bit": 0,
+        "conditional_probability": "174763/174764",
+        "history_mass": "174763/524288",
+        "endpoints": 3,
+        "amplitude_denominator_bits": 11
+      },
+      {
+        "round": 10,
+        "bit": 1,
+        "conditional_probability": "1/2",
+        "history_mass": "174763/1048576",
+        "endpoints": 6,
+        "amplitude_denominator_bits": 12
+      },
+      {
+        "round": 11,
+        "bit": 1,
+        "conditional_probability": "1/2",
+        "history_mass": "174763/2097152",
+        "endpoints": 12,
+        "amplitude_denominator_bits": 13
+      }
+    ],
+    "postprocessing": {
+      "status": "NO_FACTOR_THIS_READOUT",
+      "factors": [],
+      "rejected": [
+        [
+          1,
+          "NOT_RETURNING_EXPONENT"
+        ],
+        [
+          1,
+          "NOT_RETURNING_EXPONENT"
+        ],
+        [
+          4,
+          "NOT_RETURNING_EXPONENT"
+        ]
+      ]
+    }
+  },
+  "metrics": {
+    "branch_calls": 12,
+    "empty_branch_calls": 0,
+    "phase_calls": 66,
+    "H4_calls": 24,
+    "modular_column_applications": 12,
+    "peak_endpoints": 24,
+    "peak_scalar_slots": 1464,
+    "peak_nonzero_scalars": 24,
+    "peak_denominator_bits": 13,
+    "boundary_spectator_nonzero_seen": false,
+    "depth_maxima": [
+      {
+        "depth": 0,
+        "operation": "child_boundary",
+        "calls": 2,
+        "endpoints": 2,
+        "scalar_slots": 122,
+        "nonzero_scalars": 2,
+        "denominator_bits": 2
+      },
+      {
+        "depth": 0,
+        "operation": "controlled_modular_power",
+        "calls": 1,
+        "endpoints": 4,
+        "scalar_slots": 244,
+        "nonzero_scalars": 4,
+        "denominator_bits": 2
+      },
+      {
+        "depth": 0,
+        "operation": "initial_boundary",
+        "calls": 1,
+        "endpoints": 1,
+        "scalar_slots": 61,
+        "nonzero_scalars": 1,
+        "denominator_bits": 1
+      },
+      {
+        "depth": 0,
+        "operation": "prepare_H4",
+        "calls": 1,
+        "endpoints": 4,
+        "scalar_slots": 244,
+        "nonzero_scalars": 4,
+        "denominator_bits": 2
+      },
+      {
+        "depth": 0,
+        "operation": "read_H4",
+        "calls": 1,
+        "endpoints": 4,
+        "scalar_slots": 244,
+        "nonzero_scalars": 4,
+        "denominator_bits": 2
+      },
+      {
+        "depth": 1,
+        "operation": "CP_2",
+        "calls": 1,
+        "endpoints": 8,
+        "scalar_slots": 488,
+        "nonzero_scalars": 8,
+        "denominator_bits": 3
+      },
+      {
+        "depth": 1,
+        "operation": "child_boundary",
+        "calls": 2,
+        "endpoints": 3,
+        "scalar_slots": 183,
+        "nonzero_scalars": 3,
+        "denominator_bits": 3
+      },
+      {
+        "depth": 1,
+        "operation": "controlled_modular_power",
+        "calls": 1,
+        "endpoints": 8,
+        "scalar_slots": 488,
+        "nonzero_scalars": 8,
+        "denominator_bits": 3
+      },
+      {
+        "depth": 1,
+        "operation": "initial_boundary",
+        "calls": 1,
+        "endpoints": 2,
+        "scalar_slots": 122,
+        "nonzero_scalars": 2,
+        "denominator_bits": 2
+      },
+      {
+        "depth": 1,
+        "operation": "prepare_H4",
+        "calls": 1,
+        "endpoints": 8,
+        "scalar_slots": 488,
+        "nonzero_scalars": 8,
+        "denominator_bits": 3
+      },
+      {
+        "depth": 1,
+        "operation": "read_H4",
+        "calls": 1,
+        "endpoints": 5,
+        "scalar_slots": 305,
+        "nonzero_scalars": 5,
+        "denominator_bits": 3
+      },
+      {
+        "depth": 2,
+        "operation": "CP_2",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 4
+      },
+      {
+        "depth": 2,
+        "operation": "CP_3",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 4
+      },
+      {
+        "depth": 2,
+        "operation": "child_boundary",
+        "calls": 2,
+        "endpoints": 3,
+        "scalar_slots": 183,
+        "nonzero_scalars": 3,
+        "denominator_bits": 4
+      },
+      {
+        "depth": 2,
+        "operation": "controlled_modular_power",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 4
+      },
+      {
+        "depth": 2,
+        "operation": "initial_boundary",
+        "calls": 1,
+        "endpoints": 3,
+        "scalar_slots": 183,
+        "nonzero_scalars": 3,
+        "denominator_bits": 3
+      },
+      {
+        "depth": 2,
+        "operation": "prepare_H4",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 4
+      },
+      {
+        "depth": 2,
+        "operation": "read_H4",
+        "calls": 1,
+        "endpoints": 5,
+        "scalar_slots": 305,
+        "nonzero_scalars": 5,
+        "denominator_bits": 4
+      },
+      {
+        "depth": 3,
+        "operation": "CP_2",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 5
+      },
+      {
+        "depth": 3,
+        "operation": "CP_3",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 5
+      },
+      {
+        "depth": 3,
+        "operation": "CP_4",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 5
+      },
+      {
+        "depth": 3,
+        "operation": "child_boundary",
+        "calls": 2,
+        "endpoints": 3,
+        "scalar_slots": 183,
+        "nonzero_scalars": 3,
+        "denominator_bits": 5
+      },
+      {
+        "depth": 3,
+        "operation": "controlled_modular_power",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 5
+      },
+      {
+        "depth": 3,
+        "operation": "initial_boundary",
+        "calls": 1,
+        "endpoints": 3,
+        "scalar_slots": 183,
+        "nonzero_scalars": 3,
+        "denominator_bits": 4
+      },
+      {
+        "depth": 3,
+        "operation": "prepare_H4",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 5
+      },
+      {
+        "depth": 3,
+        "operation": "read_H4",
+        "calls": 1,
+        "endpoints": 5,
+        "scalar_slots": 305,
+        "nonzero_scalars": 5,
+        "denominator_bits": 5
+      },
+      {
+        "depth": 4,
+        "operation": "CP_2",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 6
+      },
+      {
+        "depth": 4,
+        "operation": "CP_3",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 6
+      },
+      {
+        "depth": 4,
+        "operation": "CP_4",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 6
+      },
+      {
+        "depth": 4,
+        "operation": "CP_5",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 6
+      },
+      {
+        "depth": 4,
+        "operation": "child_boundary",
+        "calls": 2,
+        "endpoints": 3,
+        "scalar_slots": 183,
+        "nonzero_scalars": 3,
+        "denominator_bits": 6
+      },
+      {
+        "depth": 4,
+        "operation": "controlled_modular_power",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 6
+      },
+      {
+        "depth": 4,
+        "operation": "initial_boundary",
+        "calls": 1,
+        "endpoints": 3,
+        "scalar_slots": 183,
+        "nonzero_scalars": 3,
+        "denominator_bits": 5
+      },
+      {
+        "depth": 4,
+        "operation": "prepare_H4",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 6
+      },
+      {
+        "depth": 4,
+        "operation": "read_H4",
+        "calls": 1,
+        "endpoints": 5,
+        "scalar_slots": 305,
+        "nonzero_scalars": 5,
+        "denominator_bits": 6
+      },
+      {
+        "depth": 5,
+        "operation": "CP_2",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 7
+      },
+      {
+        "depth": 5,
+        "operation": "CP_3",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 7
+      },
+      {
+        "depth": 5,
+        "operation": "CP_4",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 7
+      },
+      {
+        "depth": 5,
+        "operation": "CP_5",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 7
+      },
+      {
+        "depth": 5,
+        "operation": "CP_6",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 7
+      },
+      {
+        "depth": 5,
+        "operation": "child_boundary",
+        "calls": 2,
+        "endpoints": 3,
+        "scalar_slots": 183,
+        "nonzero_scalars": 3,
+        "denominator_bits": 7
+      },
+      {
+        "depth": 5,
+        "operation": "controlled_modular_power",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 7
+      },
+      {
+        "depth": 5,
+        "operation": "initial_boundary",
+        "calls": 1,
+        "endpoints": 3,
+        "scalar_slots": 183,
+        "nonzero_scalars": 3,
+        "denominator_bits": 6
+      },
+      {
+        "depth": 5,
+        "operation": "prepare_H4",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 7
+      },
+      {
+        "depth": 5,
+        "operation": "read_H4",
+        "calls": 1,
+        "endpoints": 5,
+        "scalar_slots": 305,
+        "nonzero_scalars": 5,
+        "denominator_bits": 7
+      },
+      {
+        "depth": 6,
+        "operation": "CP_2",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 8
+      },
+      {
+        "depth": 6,
+        "operation": "CP_3",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 8
+      },
+      {
+        "depth": 6,
+        "operation": "CP_4",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 8
+      },
+      {
+        "depth": 6,
+        "operation": "CP_5",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 8
+      },
+      {
+        "depth": 6,
+        "operation": "CP_6",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 8
+      },
+      {
+        "depth": 6,
+        "operation": "CP_7",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 8
+      },
+      {
+        "depth": 6,
+        "operation": "child_boundary",
+        "calls": 2,
+        "endpoints": 3,
+        "scalar_slots": 183,
+        "nonzero_scalars": 3,
+        "denominator_bits": 8
+      },
+      {
+        "depth": 6,
+        "operation": "controlled_modular_power",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 8
+      },
+      {
+        "depth": 6,
+        "operation": "initial_boundary",
+        "calls": 1,
+        "endpoints": 3,
+        "scalar_slots": 183,
+        "nonzero_scalars": 3,
+        "denominator_bits": 7
+      },
+      {
+        "depth": 6,
+        "operation": "prepare_H4",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 8
+      },
+      {
+        "depth": 6,
+        "operation": "read_H4",
+        "calls": 1,
+        "endpoints": 5,
+        "scalar_slots": 305,
+        "nonzero_scalars": 5,
+        "denominator_bits": 8
+      },
+      {
+        "depth": 7,
+        "operation": "CP_2",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 9
+      },
+      {
+        "depth": 7,
+        "operation": "CP_3",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 9
+      },
+      {
+        "depth": 7,
+        "operation": "CP_4",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 9
+      },
+      {
+        "depth": 7,
+        "operation": "CP_5",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 9
+      },
+      {
+        "depth": 7,
+        "operation": "CP_6",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 9
+      },
+      {
+        "depth": 7,
+        "operation": "CP_7",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 9
+      },
+      {
+        "depth": 7,
+        "operation": "CP_8",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 9
+      },
+      {
+        "depth": 7,
+        "operation": "child_boundary",
+        "calls": 2,
+        "endpoints": 3,
+        "scalar_slots": 183,
+        "nonzero_scalars": 3,
+        "denominator_bits": 9
+      },
+      {
+        "depth": 7,
+        "operation": "controlled_modular_power",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 9
+      },
+      {
+        "depth": 7,
+        "operation": "initial_boundary",
+        "calls": 1,
+        "endpoints": 3,
+        "scalar_slots": 183,
+        "nonzero_scalars": 3,
+        "denominator_bits": 8
+      },
+      {
+        "depth": 7,
+        "operation": "prepare_H4",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 9
+      },
+      {
+        "depth": 7,
+        "operation": "read_H4",
+        "calls": 1,
+        "endpoints": 5,
+        "scalar_slots": 305,
+        "nonzero_scalars": 5,
+        "denominator_bits": 9
+      },
+      {
+        "depth": 8,
+        "operation": "CP_2",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 10
+      },
+      {
+        "depth": 8,
+        "operation": "CP_3",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 10
+      },
+      {
+        "depth": 8,
+        "operation": "CP_4",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 10
+      },
+      {
+        "depth": 8,
+        "operation": "CP_5",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 10
+      },
+      {
+        "depth": 8,
+        "operation": "CP_6",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 10
+      },
+      {
+        "depth": 8,
+        "operation": "CP_7",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 10
+      },
+      {
+        "depth": 8,
+        "operation": "CP_8",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 10
+      },
+      {
+        "depth": 8,
+        "operation": "CP_9",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 10
+      },
+      {
+        "depth": 8,
+        "operation": "child_boundary",
+        "calls": 2,
+        "endpoints": 3,
+        "scalar_slots": 183,
+        "nonzero_scalars": 3,
+        "denominator_bits": 10
+      },
+      {
+        "depth": 8,
+        "operation": "controlled_modular_power",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 10
+      },
+      {
+        "depth": 8,
+        "operation": "initial_boundary",
+        "calls": 1,
+        "endpoints": 3,
+        "scalar_slots": 183,
+        "nonzero_scalars": 3,
+        "denominator_bits": 9
+      },
+      {
+        "depth": 8,
+        "operation": "prepare_H4",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 10
+      },
+      {
+        "depth": 8,
+        "operation": "read_H4",
+        "calls": 1,
+        "endpoints": 5,
+        "scalar_slots": 305,
+        "nonzero_scalars": 5,
+        "denominator_bits": 10
+      },
+      {
+        "depth": 9,
+        "operation": "CP_10",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 11
+      },
+      {
+        "depth": 9,
+        "operation": "CP_2",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 11
+      },
+      {
+        "depth": 9,
+        "operation": "CP_3",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 11
+      },
+      {
+        "depth": 9,
+        "operation": "CP_4",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 11
+      },
+      {
+        "depth": 9,
+        "operation": "CP_5",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 11
+      },
+      {
+        "depth": 9,
+        "operation": "CP_6",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 11
+      },
+      {
+        "depth": 9,
+        "operation": "CP_7",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 11
+      },
+      {
+        "depth": 9,
+        "operation": "CP_8",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 11
+      },
+      {
+        "depth": 9,
+        "operation": "CP_9",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 11
+      },
+      {
+        "depth": 9,
+        "operation": "child_boundary",
+        "calls": 2,
+        "endpoints": 3,
+        "scalar_slots": 183,
+        "nonzero_scalars": 3,
+        "denominator_bits": 11
+      },
+      {
+        "depth": 9,
+        "operation": "controlled_modular_power",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 11
+      },
+      {
+        "depth": 9,
+        "operation": "initial_boundary",
+        "calls": 1,
+        "endpoints": 3,
+        "scalar_slots": 183,
+        "nonzero_scalars": 3,
+        "denominator_bits": 10
+      },
+      {
+        "depth": 9,
+        "operation": "prepare_H4",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 11
+      },
+      {
+        "depth": 9,
+        "operation": "read_H4",
+        "calls": 1,
+        "endpoints": 5,
+        "scalar_slots": 305,
+        "nonzero_scalars": 5,
+        "denominator_bits": 11
+      },
+      {
+        "depth": 10,
+        "operation": "CP_10",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 12
+      },
+      {
+        "depth": 10,
+        "operation": "CP_11",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 12
+      },
+      {
+        "depth": 10,
+        "operation": "CP_2",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 12
+      },
+      {
+        "depth": 10,
+        "operation": "CP_3",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 12
+      },
+      {
+        "depth": 10,
+        "operation": "CP_4",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 12
+      },
+      {
+        "depth": 10,
+        "operation": "CP_5",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 12
+      },
+      {
+        "depth": 10,
+        "operation": "CP_6",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 12
+      },
+      {
+        "depth": 10,
+        "operation": "CP_7",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 12
+      },
+      {
+        "depth": 10,
+        "operation": "CP_8",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 12
+      },
+      {
+        "depth": 10,
+        "operation": "CP_9",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 12
+      },
+      {
+        "depth": 10,
+        "operation": "child_boundary",
+        "calls": 2,
+        "endpoints": 6,
+        "scalar_slots": 366,
+        "nonzero_scalars": 6,
+        "denominator_bits": 12
+      },
+      {
+        "depth": 10,
+        "operation": "controlled_modular_power",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 12
+      },
+      {
+        "depth": 10,
+        "operation": "initial_boundary",
+        "calls": 1,
+        "endpoints": 3,
+        "scalar_slots": 183,
+        "nonzero_scalars": 3,
+        "denominator_bits": 11
+      },
+      {
+        "depth": 10,
+        "operation": "prepare_H4",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 12
+      },
+      {
+        "depth": 10,
+        "operation": "read_H4",
+        "calls": 1,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 12
+      },
+      {
+        "depth": 11,
+        "operation": "CP_10",
+        "calls": 1,
+        "endpoints": 24,
+        "scalar_slots": 1464,
+        "nonzero_scalars": 24,
+        "denominator_bits": 13
+      },
+      {
+        "depth": 11,
+        "operation": "CP_11",
+        "calls": 1,
+        "endpoints": 24,
+        "scalar_slots": 1464,
+        "nonzero_scalars": 24,
+        "denominator_bits": 13
+      },
+      {
+        "depth": 11,
+        "operation": "CP_12",
+        "calls": 1,
+        "endpoints": 24,
+        "scalar_slots": 1464,
+        "nonzero_scalars": 24,
+        "denominator_bits": 13
+      },
+      {
+        "depth": 11,
+        "operation": "CP_2",
+        "calls": 1,
+        "endpoints": 24,
+        "scalar_slots": 1464,
+        "nonzero_scalars": 24,
+        "denominator_bits": 13
+      },
+      {
+        "depth": 11,
+        "operation": "CP_3",
+        "calls": 1,
+        "endpoints": 24,
+        "scalar_slots": 1464,
+        "nonzero_scalars": 24,
+        "denominator_bits": 13
+      },
+      {
+        "depth": 11,
+        "operation": "CP_4",
+        "calls": 1,
+        "endpoints": 24,
+        "scalar_slots": 1464,
+        "nonzero_scalars": 24,
+        "denominator_bits": 13
+      },
+      {
+        "depth": 11,
+        "operation": "CP_5",
+        "calls": 1,
+        "endpoints": 24,
+        "scalar_slots": 1464,
+        "nonzero_scalars": 24,
+        "denominator_bits": 13
+      },
+      {
+        "depth": 11,
+        "operation": "CP_6",
+        "calls": 1,
+        "endpoints": 24,
+        "scalar_slots": 1464,
+        "nonzero_scalars": 24,
+        "denominator_bits": 13
+      },
+      {
+        "depth": 11,
+        "operation": "CP_7",
+        "calls": 1,
+        "endpoints": 24,
+        "scalar_slots": 1464,
+        "nonzero_scalars": 24,
+        "denominator_bits": 13
+      },
+      {
+        "depth": 11,
+        "operation": "CP_8",
+        "calls": 1,
+        "endpoints": 24,
+        "scalar_slots": 1464,
+        "nonzero_scalars": 24,
+        "denominator_bits": 13
+      },
+      {
+        "depth": 11,
+        "operation": "CP_9",
+        "calls": 1,
+        "endpoints": 24,
+        "scalar_slots": 1464,
+        "nonzero_scalars": 24,
+        "denominator_bits": 13
+      },
+      {
+        "depth": 11,
+        "operation": "child_boundary",
+        "calls": 2,
+        "endpoints": 12,
+        "scalar_slots": 732,
+        "nonzero_scalars": 12,
+        "denominator_bits": 13
+      },
+      {
+        "depth": 11,
+        "operation": "controlled_modular_power",
+        "calls": 1,
+        "endpoints": 24,
+        "scalar_slots": 1464,
+        "nonzero_scalars": 24,
+        "denominator_bits": 13
+      },
+      {
+        "depth": 11,
+        "operation": "initial_boundary",
+        "calls": 1,
+        "endpoints": 6,
+        "scalar_slots": 366,
+        "nonzero_scalars": 6,
+        "denominator_bits": 12
+      },
+      {
+        "depth": 11,
+        "operation": "prepare_H4",
+        "calls": 1,
+        "endpoints": 24,
+        "scalar_slots": 1464,
+        "nonzero_scalars": 24,
+        "denominator_bits": 13
+      },
+      {
+        "depth": 11,
+        "operation": "read_H4",
+        "calls": 1,
+        "endpoints": 24,
+        "scalar_slots": 1464,
+        "nonzero_scalars": 24,
+        "denominator_bits": 13
+      }
+    ]
+  },
+  "vendor": {
+    "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+    "path": "src/enterprise_math/brc_weighted_recurrent.py",
+    "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+    "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+  },
+  "actual_BRC_core_calls": 7,
+  "call_receipts": [
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 26,
+      "depth": 1,
+      "elapsed_ns": 62953100
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 6,
+      "depth": 1,
+      "elapsed_ns": 801000
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 6,
+      "depth": 1,
+      "elapsed_ns": 1059600
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 32,
+      "depth": 1,
+      "elapsed_ns": 141958600
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 8,
+      "depth": 1,
+      "elapsed_ns": 13509600
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 16,
+      "depth": 1,
+      "elapsed_ns": 16772900
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 12,
+      "depth": 1,
+      "elapsed_ns": 5755000
+    }
+  ],
+  "elapsed_ns": 13674646900
+}

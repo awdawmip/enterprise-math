@@ -1,0 +1,5516 @@
+{
+  "status": "AUTHOR_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "researcher": "EM-DIRECT-C6438C",
+  "activity": "RA-CAAAC604CB513AEA8BBC1DFC",
+  "registration_source": "f0e5fb6f478a5a380ab5a7533d2585f7f43ee3bf",
+  "frozen_source": "0852cad130c1d877174d235687cf60c19f318c58",
+  "vendor_verification": {
+    "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+    "path": "src/enterprise_math/brc_weighted_recurrent.py",
+    "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+    "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+  },
+  "fixed_grid": {
+    "target_bits": 32,
+    "vector_bits": 64,
+    "assumed_general_phase_theorem": "E_t <= 8 L_t / 2^32",
+    "not_new_bank_execution": true
+  },
+  "retry_bound_threshold": {
+    "coefficient": 128,
+    "strict": false,
+    "max_n_under_this_bound": 256,
+    "first_n_not_certified": 257,
+    "observations": [
+      {
+        "n": 2,
+        "t": 4,
+        "L_t": 3,
+        "observed_brc_product": "768",
+        "rhs": "4294967296",
+        "accepted": true
+      },
+      {
+        "n": 2048,
+        "t": 4096,
+        "L_t": 8382465,
+        "observed_brc_product": "2197412904960",
+        "rhs": "4294967296",
+        "accepted": false
+      },
+      {
+        "n": 1025,
+        "t": 2050,
+        "L_t": 2098176,
+        "observed_brc_product": "275280691200",
+        "rhs": "4294967296",
+        "accepted": false
+      },
+      {
+        "n": 513,
+        "t": 1026,
+        "L_t": 524800,
+        "observed_brc_product": "34460467200",
+        "rhs": "4294967296",
+        "accepted": false
+      },
+      {
+        "n": 257,
+        "t": 514,
+        "L_t": 131328,
+        "observed_brc_product": "4320165888",
+        "rhs": "4294967296",
+        "accepted": false
+      },
+      {
+        "n": 129,
+        "t": 258,
+        "L_t": 32896,
+        "observed_brc_product": "543178752",
+        "rhs": "4294967296",
+        "accepted": true
+      },
+      {
+        "n": 193,
+        "t": 386,
+        "L_t": 73920,
+        "observed_brc_product": "1826119680",
+        "rhs": "4294967296",
+        "accepted": true
+      },
+      {
+        "n": 225,
+        "t": 450,
+        "L_t": 100576,
+        "observed_brc_product": "2896588800",
+        "rhs": "4294967296",
+        "accepted": true
+      },
+      {
+        "n": 241,
+        "t": 482,
+        "L_t": 115440,
+        "observed_brc_product": "3561093120",
+        "rhs": "4294967296",
+        "accepted": true
+      },
+      {
+        "n": 249,
+        "t": 498,
+        "L_t": 123256,
+        "observed_brc_product": "3928415232",
+        "rhs": "4294967296",
+        "accepted": true
+      },
+      {
+        "n": 253,
+        "t": 506,
+        "L_t": 127260,
+        "observed_brc_product": "4121187840",
+        "rhs": "4294967296",
+        "accepted": true
+      },
+      {
+        "n": 255,
+        "t": 510,
+        "L_t": 129286,
+        "observed_brc_product": "4219895040",
+        "rhs": "4294967296",
+        "accepted": true
+      },
+      {
+        "n": 256,
+        "t": 512,
+        "L_t": 130305,
+        "observed_brc_product": "4269834240",
+        "rhs": "4294967296",
+        "accepted": true
+      },
+      {
+        "n": 256,
+        "t": 512,
+        "L_t": 130305,
+        "observed_brc_product": "4269834240",
+        "rhs": "4294967296",
+        "accepted": true
+      },
+      {
+        "n": 257,
+        "t": 514,
+        "L_t": 131328,
+        "observed_brc_product": "4320165888",
+        "rhs": "4294967296",
+        "accepted": false
+      }
+    ]
+  },
+  "strictly_positive_bound_threshold": {
+    "coefficient": 64,
+    "strict": true,
+    "max_n_under_this_bound": 323,
+    "first_n_not_certified": 324,
+    "observations": [
+      {
+        "n": 2,
+        "t": 4,
+        "L_t": 3,
+        "observed_brc_product": "384",
+        "rhs": "4294967296",
+        "accepted": true
+      },
+      {
+        "n": 2048,
+        "t": 4096,
+        "L_t": 8382465,
+        "observed_brc_product": "1098706452480",
+        "rhs": "4294967296",
+        "accepted": false
+      },
+      {
+        "n": 1025,
+        "t": 2050,
+        "L_t": 2098176,
+        "observed_brc_product": "137640345600",
+        "rhs": "4294967296",
+        "accepted": false
+      },
+      {
+        "n": 513,
+        "t": 1026,
+        "L_t": 524800,
+        "observed_brc_product": "17230233600",
+        "rhs": "4294967296",
+        "accepted": false
+      },
+      {
+        "n": 257,
+        "t": 514,
+        "L_t": 131328,
+        "observed_brc_product": "2160082944",
+        "rhs": "4294967296",
+        "accepted": true
+      },
+      {
+        "n": 385,
+        "t": 770,
+        "L_t": 295296,
+        "observed_brc_product": "7276093440",
+        "rhs": "4294967296",
+        "accepted": false
+      },
+      {
+        "n": 321,
+        "t": 642,
+        "L_t": 205120,
+        "observed_brc_product": "4213985280",
+        "rhs": "4294967296",
+        "accepted": true
+      },
+      {
+        "n": 353,
+        "t": 706,
+        "L_t": 248160,
+        "observed_brc_product": "5606430720",
+        "rhs": "4294967296",
+        "accepted": false
+      },
+      {
+        "n": 337,
+        "t": 674,
+        "L_t": 226128,
+        "observed_brc_product": "4877128704",
+        "rhs": "4294967296",
+        "accepted": false
+      },
+      {
+        "n": 329,
+        "t": 658,
+        "L_t": 215496,
+        "observed_brc_product": "4537483776",
+        "rhs": "4294967296",
+        "accepted": false
+      },
+      {
+        "n": 325,
+        "t": 650,
+        "L_t": 210276,
+        "observed_brc_product": "4373740800",
+        "rhs": "4294967296",
+        "accepted": false
+      },
+      {
+        "n": 323,
+        "t": 646,
+        "L_t": 207690,
+        "observed_brc_product": "4293367680",
+        "rhs": "4294967296",
+        "accepted": true
+      },
+      {
+        "n": 324,
+        "t": 648,
+        "L_t": 208981,
+        "observed_brc_product": "4333430016",
+        "rhs": "4294967296",
+        "accepted": false
+      },
+      {
+        "n": 323,
+        "t": 646,
+        "L_t": 207690,
+        "observed_brc_product": "4293367680",
+        "rhs": "4294967296",
+        "accepted": true
+      },
+      {
+        "n": 324,
+        "t": 648,
+        "L_t": 208981,
+        "observed_brc_product": "4333430016",
+        "rhs": "4294967296",
+        "accepted": false
+      }
+    ]
+  },
+  "postprocess_fixtures": [
+    {
+      "input": {
+        "N": 15,
+        "a": 2,
+        "t": 8,
+        "k": 64
+      },
+      "declared_fixture": true,
+      "note": "coprime numerator recovers r=4",
+      "result": {
+        "status": "FACTORS",
+        "verified_returning_exponent": 4,
+        "minimal_order_claimed": false,
+        "factors": [
+          3,
+          5
+        ]
+      }
+    },
+    {
+      "input": {
+        "N": 21,
+        "a": 2,
+        "t": 10,
+        "k": 171
+      },
+      "declared_fixture": true,
+      "note": "coprime numerator near 1/6",
+      "result": {
+        "status": "FACTORS",
+        "verified_returning_exponent": 6,
+        "minimal_order_claimed": false,
+        "factors": [
+          3,
+          7
+        ]
+      }
+    },
+    {
+      "input": {
+        "N": 21,
+        "a": 2,
+        "t": 10,
+        "k": 853
+      },
+      "declared_fixture": true,
+      "note": "coprime numerator near 5/6",
+      "result": {
+        "status": "FACTORS",
+        "verified_returning_exponent": 6,
+        "minimal_order_claimed": false,
+        "factors": [
+          3,
+          7
+        ]
+      }
+    },
+    {
+      "input": {
+        "N": 21,
+        "a": 2,
+        "t": 10,
+        "k": 341
+      },
+      "declared_fixture": true,
+      "note": "noncoprime numerator near 2/6 reduces denominator",
+      "result": {
+        "status": "NO_FACTOR_THIS_READOUT",
+        "factors": [],
+        "rejected": [
+          [
+            1,
+            "NOT_RETURNING_EXPONENT"
+          ],
+          [
+            3,
+            "NOT_RETURNING_EXPONENT"
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "N": 21,
+        "a": 2,
+        "t": 10,
+        "k": 512
+      },
+      "declared_fixture": true,
+      "note": "noncoprime numerator 3/6 reduces denominator",
+      "result": {
+        "status": "NO_FACTOR_THIS_READOUT",
+        "factors": [],
+        "rejected": [
+          [
+            1,
+            "NOT_RETURNING_EXPONENT"
+          ],
+          [
+            2,
+            "NOT_RETURNING_EXPONENT"
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "N": 9,
+        "a": 2,
+        "t": 8,
+        "k": 43
+      },
+      "declared_fixture": true,
+      "note": "odd prime power even returning exponent cannot split",
+      "result": {
+        "status": "NO_FACTOR_THIS_READOUT",
+        "factors": [],
+        "rejected": [
+          [
+            1,
+            "NOT_RETURNING_EXPONENT"
+          ],
+          [
+            5,
+            "NOT_RETURNING_EXPONENT"
+          ],
+          [
+            6,
+            "TRIVIAL_GCD_RETRY"
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "N": 25,
+        "a": 2,
+        "t": 10,
+        "k": 51
+      },
+      "declared_fixture": true,
+      "note": "odd prime square even returning exponent cannot split",
+      "result": {
+        "status": "NO_FACTOR_THIS_READOUT",
+        "factors": [],
+        "rejected": [
+          [
+            1,
+            "NOT_RETURNING_EXPONENT"
+          ],
+          [
+            20,
+            "TRIVIAL_GCD_RETRY"
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "N": 15,
+        "a": 14,
+        "t": 4,
+        "k": 8
+      },
+      "declared_fixture": true,
+      "note": "bad base minus one",
+      "result": {
+        "status": "NO_FACTOR_THIS_READOUT",
+        "factors": [],
+        "rejected": [
+          [
+            1,
+            "NOT_RETURNING_EXPONENT"
+          ],
+          [
+            2,
+            "TRIVIAL_GCD_RETRY"
+          ]
+        ]
+      }
+    }
+  ],
+  "exhaustive_postprocess_only": [
+    {
+      "N": 9,
+      "a": 2,
+      "t": 8,
+      "readouts_checked": 256,
+      "all_factors_empty": true,
+      "results": [
+        {
+          "status": "ZERO_PHASE_RETRY",
+          "factors": []
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              8,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              8,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              8,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              8,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              8,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              8,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              6,
+              "TRIVIAL_GCD_RETRY"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              6,
+              "TRIVIAL_GCD_RETRY"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              6,
+              "TRIVIAL_GCD_RETRY"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              6,
+              "TRIVIAL_GCD_RETRY"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              6,
+              "TRIVIAL_GCD_RETRY"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              6,
+              "TRIVIAL_GCD_RETRY"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              6,
+              "TRIVIAL_GCD_RETRY"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              6,
+              "TRIVIAL_GCD_RETRY"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              6,
+              "TRIVIAL_GCD_RETRY"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              6,
+              "TRIVIAL_GCD_RETRY"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              8,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              8,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              8,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              8,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              8,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              8,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              8,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              8,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              8,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              8,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              6,
+              "TRIVIAL_GCD_RETRY"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              6,
+              "TRIVIAL_GCD_RETRY"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              6,
+              "TRIVIAL_GCD_RETRY"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              6,
+              "TRIVIAL_GCD_RETRY"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              6,
+              "TRIVIAL_GCD_RETRY"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              6,
+              "TRIVIAL_GCD_RETRY"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              6,
+              "TRIVIAL_GCD_RETRY"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              6,
+              "TRIVIAL_GCD_RETRY"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              6,
+              "TRIVIAL_GCD_RETRY"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              6,
+              "TRIVIAL_GCD_RETRY"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              8,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              8,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              8,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              8,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              8,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              8,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "N": 15,
+      "a": 14,
+      "t": 4,
+      "readouts_checked": 16,
+      "all_factors_empty": true,
+      "results": [
+        {
+          "status": "ZERO_PHASE_RETRY",
+          "factors": []
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              8,
+              "TRIVIAL_GCD_RETRY"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "TRIVIAL_GCD_RETRY"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "TRIVIAL_GCD_RETRY"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              8,
+              "TRIVIAL_GCD_RETRY"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "TRIVIAL_GCD_RETRY"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "TRIVIAL_GCD_RETRY"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "TRIVIAL_GCD_RETRY"
+            ],
+            [
+              7,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              2,
+              "TRIVIAL_GCD_RETRY"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              8,
+              "TRIVIAL_GCD_RETRY"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              3,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              4,
+              "TRIVIAL_GCD_RETRY"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              5,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              8,
+              "TRIVIAL_GCD_RETRY"
+            ]
+          ]
+        },
+        {
+          "status": "NO_FACTOR_THIS_READOUT",
+          "factors": [],
+          "rejected": [
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ],
+            [
+              1,
+              "NOT_RETURNING_EXPONENT"
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "native_calls": [
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 16,
+      "depth": 1,
+      "elapsed_ns": 13537600
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 16,
+      "depth": 1,
+      "elapsed_ns": 13116000
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 16,
+      "depth": 1,
+      "elapsed_ns": 13243200
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 3,
+      "depth": 2,
+      "elapsed_ns": 196200
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 3,
+      "depth": 2,
+      "elapsed_ns": 183000
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 32,
+      "depth": 1,
+      "elapsed_ns": 104344900
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 32,
+      "depth": 1,
+      "elapsed_ns": 140485000
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 32,
+      "depth": 1,
+      "elapsed_ns": 186855200
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 3,
+      "depth": 2,
+      "elapsed_ns": 226700
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 812600
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 16,
+      "depth": 1,
+      "elapsed_ns": 53555800
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 16,
+      "depth": 1,
+      "elapsed_ns": 16219400
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 16,
+      "depth": 1,
+      "elapsed_ns": 15476900
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 5,
+      "depth": 4,
+      "elapsed_ns": 923500
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 2,
+      "depth": 1,
+      "elapsed_ns": 55300
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 32,
+      "depth": 1,
+      "elapsed_ns": 125696800
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 32,
+      "depth": 1,
+      "elapsed_ns": 175838100
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 32,
+      "depth": 1,
+      "elapsed_ns": 156883700
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 32,
+      "depth": 1,
+      "elapsed_ns": 179720500
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 32,
+      "depth": 1,
+      "elapsed_ns": 169629700
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 5,
+      "depth": 4,
+      "elapsed_ns": 932300
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 2,
+      "depth": 1,
+      "elapsed_ns": 58000
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 16,
+      "depth": 1,
+      "elapsed_ns": 39309100
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 5,
+      "depth": 4,
+      "elapsed_ns": 1226400
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 2,
+      "depth": 1,
+      "elapsed_ns": 141400
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 2,
+      "depth": 1,
+      "elapsed_ns": 101800
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 661700
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 619600
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 726200
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 715100
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 661000
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 772300
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 986300
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 668300
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 495300
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 493800
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 491100
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 492400
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 490800
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 492200
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 490700
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 493500
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 492300
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 494000
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 491400
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 495600
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 491000
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 492400
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 489900
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 494600
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 492300
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 496000
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 499100
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 494300
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 491200
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 492900
+    },
+    {
+      "entrypoint": "recurrent_mass_power",
+      "states": 4,
+      "depth": 3,
+      "elapsed_ns": 490200
+    }
+  ],
+  "no_ideal_reference_execution": true,
+  "no_order_or_factor_search": true
+}
