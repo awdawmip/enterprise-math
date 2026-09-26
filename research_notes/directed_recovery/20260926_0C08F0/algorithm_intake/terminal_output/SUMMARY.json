@@ -1,0 +1,130 @@
+{
+  "schema": "BRC_SHOR_TERMINAL_INSTRUMENT_V1",
+  "status": "AUTHOR_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "activity": "RA-40F334CAC4876C16B82B0215",
+  "researcher": "EM-DIRECT-0C08F0",
+  "frozen_input_head": "0852cad130c1d877174d235687cf60c19f318c58",
+  "new_execution_source": "c412dcb62f4b27189afd8e5748ff5f8dbb3c17dd",
+  "route": "ACTUAL_TYPED_BRC_ONLY",
+  "frozen_bank": {
+    "max_m": 10,
+    "target_bits": 32,
+    "vector_bits": 64,
+    "dimension": 61
+  },
+  "core": {
+    "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+    "path": "src/enterprise_math/brc_weighted_recurrent.py",
+    "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+    "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+  },
+  "actual_brc_calls": 23,
+  "sampler_checks": {
+    "zero_and_one_consume_no_bits": true,
+    "non_power_of_two_denominator": 3,
+    "rejection_tape": [
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "rejection_stats": {
+      "draws": 2,
+      "bits": 4,
+      "rejections": 1
+    },
+    "finite_accepted_slot_counts_checked": true
+  },
+  "probability_semantics": "BORROWED_REFERENCE_SQUARED_NORM",
+  "elapsed_ns": 7721762400,
+  "scope": "Terminal computational control output and unchanged CF/gcd. No later coherent use of measured control labels.",
+  "not_claimed": [
+    "polynomial classical simulation",
+    "spatial hardware closure",
+    "native Born law",
+    "independent review"
+  ],
+  "case_summaries": [
+    {
+      "N": 15,
+      "a": 2,
+      "t": 4,
+      "dim": 61,
+      "all_leaf_slots": 16,
+      "zero_leaf_slots": 12,
+      "full_joint_amplitude_coordinate_comparisons": 976,
+      "full_joint_probability_sha256": "85b4097e530c4a4e51216d210fc1f36af811645566fcf4098102de338cfb94b9",
+      "all_joint_amplitudes_exact_equal": true,
+      "all_joint_probabilities_exact_equal": true,
+      "all_control_bins_exact_equal": true,
+      "postprocessing_status_and_factor_law_exact_equal": true,
+      "original_full_max_macro_endpoints": 16,
+      "original_full_final_endpoints": 16,
+      "elapsed_ns": 55707000,
+      "streaming_all_joint_amplitudes_exact_equal": true,
+      "streaming_all_control_bins_exact_equal": true,
+      "streaming_joint_amplitude_coordinate_comparisons": 976,
+      "streaming_full_joint_probability_sha256": "85b4097e530c4a4e51216d210fc1f36af811645566fcf4098102de338cfb94b9",
+      "streaming_all_leaf_slots": 16,
+      "streaming_zero_leaf_slots": 12,
+      "streaming_peak_endpoints": 8,
+      "streaming_peak_scalar_slots": 488
+    },
+    {
+      "N": 21,
+      "a": 2,
+      "t": 6,
+      "dim": 61,
+      "all_leaf_slots": 64,
+      "zero_leaf_slots": 0,
+      "full_joint_amplitude_coordinate_comparisons": 23180,
+      "full_joint_probability_sha256": "b3be91a9e37a8cd54834cffb6cc03b7716310a3a8b4419ccaa8f0fe122ef7532",
+      "all_joint_amplitudes_exact_equal": true,
+      "all_joint_probabilities_exact_equal": true,
+      "all_control_bins_exact_equal": true,
+      "postprocessing_status_and_factor_law_exact_equal": true,
+      "original_full_max_macro_endpoints": 380,
+      "original_full_final_endpoints": 380,
+      "elapsed_ns": 3174016700,
+      "streaming_all_joint_amplitudes_exact_equal": true,
+      "streaming_all_control_bins_exact_equal": true,
+      "streaming_joint_amplitude_coordinate_comparisons": 23180,
+      "streaming_full_joint_probability_sha256": "b3be91a9e37a8cd54834cffb6cc03b7716310a3a8b4419ccaa8f0fe122ef7532",
+      "streaming_all_leaf_slots": 64,
+      "streaming_zero_leaf_slots": 0,
+      "streaming_peak_endpoints": 12,
+      "streaming_peak_scalar_slots": 732
+    },
+    {
+      "N": 15,
+      "a": 14,
+      "t": 4,
+      "dim": 61,
+      "all_leaf_slots": 16,
+      "zero_leaf_slots": 14,
+      "full_joint_amplitude_coordinate_comparisons": 244,
+      "full_joint_probability_sha256": "57e2b04ba098b90b82f236322c0f086ef35054494e33159a839b3369bce00483",
+      "all_joint_amplitudes_exact_equal": true,
+      "all_joint_probabilities_exact_equal": true,
+      "all_control_bins_exact_equal": true,
+      "postprocessing_status_and_factor_law_exact_equal": true,
+      "original_full_max_macro_endpoints": 16,
+      "original_full_final_endpoints": 4,
+      "elapsed_ns": 23666800,
+      "streaming_all_joint_amplitudes_exact_equal": true,
+      "streaming_all_control_bins_exact_equal": true,
+      "streaming_joint_amplitude_coordinate_comparisons": 244,
+      "streaming_full_joint_probability_sha256": "57e2b04ba098b90b82f236322c0f086ef35054494e33159a839b3369bce00483",
+      "streaming_all_leaf_slots": 16,
+      "streaming_zero_leaf_slots": 14,
+      "streaming_peak_endpoints": 4,
+      "streaming_peak_scalar_slots": 244
+    }
+  ],
+  "full_payload_sha256": "661d57176f6cc146307f512d1e3b7dfe75c5052d91c2c36acbd9a180f18e0b15",
+  "streaming": true
+}

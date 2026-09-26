@@ -1,0 +1,249 @@
+{
+  "schema": "SHOR_FIXED_PRECISION_BOUNDARY_AUDIT_V1",
+  "status": "AUTHOR_EXACT_BRC_CHECK_NOT_INDEPENDENT_ADMISSION",
+  "activity": "RA-40F334CAC4876C16B82B0215",
+  "source_head": "0852cad130c1d877174d235687cf60c19f318c58",
+  "source_sha256": {
+    "stage79/phase_compiler.py": "00a2d1369bcafd70d469381e517ed9f2dd4e7a6f79a55144337cd085de49f15d",
+    "stage80/fixed_phase.py": "d9981004a89c651f072ff88732c8b402baf83c16690a0cfacfa9c32199fde254",
+    "stage78/shor_benchmark.py": "e5cb9c4871da2662bbf831cc7721730593be478ebbe238a58d95ba2917dda47c"
+  },
+  "kernel": {
+    "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+    "path": "src/enterprise_math/brc_weighted_recurrent.py",
+    "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+    "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+  },
+  "arithmetic": "ACTUAL_TYPED_BRC_ONLY",
+  "original_failure": {
+    "first_failure_m": 33,
+    "bits": 32,
+    "rows": [
+      {
+        "m": 3,
+        "input_lower": "1",
+        "input_upper": "1",
+        "lower": "1779033703/4294967296",
+        "upper": "222379213/536870912"
+      },
+      {
+        "m": 4,
+        "input_lower": "1779033703/4294967296",
+        "input_upper": "222379213/536870912",
+        "lower": "13348783/67108864",
+        "upper": "854322113/4294967296"
+      },
+      {
+        "m": 5,
+        "input_lower": "13348783/67108864",
+        "input_upper": "854322113/4294967296",
+        "lower": "105754339/1073741824",
+        "upper": "423017357/4294967296"
+      },
+      {
+        "m": 6,
+        "input_lower": "105754339/1073741824",
+        "input_upper": "423017357/4294967296",
+        "lower": "52749553/1073741824",
+        "upper": "105499107/2147483648"
+      },
+      {
+        "m": 7,
+        "input_lower": "52749553/1073741824",
+        "input_upper": "105499107/2147483648",
+        "lower": "13179441/536870912",
+        "upper": "52717765/2147483648"
+      },
+      {
+        "m": 8,
+        "input_lower": "13179441/536870912",
+        "input_upper": "52717765/2147483648",
+        "lower": "823591/67108864",
+        "upper": "26354913/2147483648"
+      },
+      {
+        "m": 9,
+        "input_lower": "823591/67108864",
+        "input_upper": "26354913/2147483648",
+        "lower": "26353919/4294967296",
+        "upper": "26353921/4294967296"
+      },
+      {
+        "m": 10,
+        "input_lower": "26353919/4294967296",
+        "input_upper": "26353921/4294967296",
+        "lower": "13176835/4294967296",
+        "upper": "13176837/4294967296"
+      },
+      {
+        "m": 11,
+        "input_lower": "13176835/4294967296",
+        "input_upper": "13176837/4294967296",
+        "lower": "6588401/4294967296",
+        "upper": "6588403/4294967296"
+      },
+      {
+        "m": 12,
+        "input_lower": "6588401/4294967296",
+        "input_upper": "6588403/4294967296",
+        "lower": "1647099/2147483648",
+        "upper": "411775/536870912"
+      },
+      {
+        "m": 13,
+        "input_lower": "1647099/2147483648",
+        "input_upper": "411775/536870912",
+        "lower": "823549/2147483648",
+        "upper": "411775/1073741824"
+      },
+      {
+        "m": 14,
+        "input_lower": "823549/2147483648",
+        "input_upper": "411775/1073741824",
+        "lower": "205887/1073741824",
+        "upper": "411775/2147483648"
+      },
+      {
+        "m": 15,
+        "input_lower": "205887/1073741824",
+        "input_upper": "411775/2147483648",
+        "lower": "411773/4294967296",
+        "upper": "411775/4294967296"
+      },
+      {
+        "m": 16,
+        "input_lower": "411773/4294967296",
+        "input_upper": "411775/4294967296",
+        "lower": "102943/2147483648",
+        "upper": "3217/67108864"
+      },
+      {
+        "m": 17,
+        "input_lower": "102943/2147483648",
+        "input_upper": "3217/67108864",
+        "lower": "51471/2147483648",
+        "upper": "3217/134217728"
+      },
+      {
+        "m": 18,
+        "input_lower": "51471/2147483648",
+        "input_upper": "3217/134217728",
+        "lower": "25735/2147483648",
+        "upper": "3217/268435456"
+      },
+      {
+        "m": 19,
+        "input_lower": "25735/2147483648",
+        "input_upper": "3217/268435456",
+        "lower": "12867/2147483648",
+        "upper": "3217/536870912"
+      },
+      {
+        "m": 20,
+        "input_lower": "12867/2147483648",
+        "input_upper": "3217/536870912",
+        "lower": "6433/2147483648",
+        "upper": "3217/1073741824"
+      },
+      {
+        "m": 21,
+        "input_lower": "6433/2147483648",
+        "input_upper": "3217/1073741824",
+        "lower": "201/134217728",
+        "upper": "3217/2147483648"
+      },
+      {
+        "m": 22,
+        "input_lower": "201/134217728",
+        "input_upper": "3217/2147483648",
+        "lower": "3215/4294967296",
+        "upper": "3217/4294967296"
+      },
+      {
+        "m": 23,
+        "input_lower": "3215/4294967296",
+        "input_upper": "3217/4294967296",
+        "lower": "1607/4294967296",
+        "upper": "1609/4294967296"
+      },
+      {
+        "m": 24,
+        "input_lower": "1607/4294967296",
+        "input_upper": "1609/4294967296",
+        "lower": "803/4294967296",
+        "upper": "805/4294967296"
+      },
+      {
+        "m": 25,
+        "input_lower": "803/4294967296",
+        "input_upper": "805/4294967296",
+        "lower": "401/4294967296",
+        "upper": "403/4294967296"
+      },
+      {
+        "m": 26,
+        "input_lower": "401/4294967296",
+        "input_upper": "403/4294967296",
+        "lower": "25/536870912",
+        "upper": "101/2147483648"
+      },
+      {
+        "m": 27,
+        "input_lower": "25/536870912",
+        "input_upper": "101/2147483648",
+        "lower": "99/4294967296",
+        "upper": "101/4294967296"
+      },
+      {
+        "m": 28,
+        "input_lower": "99/4294967296",
+        "input_upper": "101/4294967296",
+        "lower": "49/4294967296",
+        "upper": "51/4294967296"
+      },
+      {
+        "m": 29,
+        "input_lower": "49/4294967296",
+        "input_upper": "51/4294967296",
+        "lower": "3/536870912",
+        "upper": "13/2147483648"
+      },
+      {
+        "m": 30,
+        "input_lower": "3/536870912",
+        "input_upper": "13/2147483648",
+        "lower": "11/4294967296",
+        "upper": "13/4294967296"
+      },
+      {
+        "m": 31,
+        "input_lower": "11/4294967296",
+        "input_upper": "13/4294967296",
+        "lower": "5/4294967296",
+        "upper": "7/4294967296"
+      },
+      {
+        "m": 32,
+        "input_lower": "5/4294967296",
+        "input_upper": "7/4294967296",
+        "lower": "1/2147483648",
+        "upper": "1/1073741824"
+      },
+      {
+        "m": 33,
+        "input_lower": "1/2147483648",
+        "input_upper": "1/1073741824",
+        "lower": "0",
+        "upper": "1/2147483648"
+      }
+    ],
+    "condition": "Stage79 dyadic_parameters strict positive lower"
+  },
+  "original_function_asserts": true,
+  "selected_repair": "zero_endpoint_extension.py; same 32-bit grid",
+  "higher_precision_run_performed": false,
+  "actual_BRC_core_calls": 1953,
+  "scope": "phase-interval compiler and precision/error schedule only; not an executed 34-bit Shor endpoint simulation",
+  "no_order_or_factor_input": true,
+  "no_float_trig_or_numeric_roots": true
+}

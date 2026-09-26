@@ -1,0 +1,148 @@
+{
+  "schema": "BRC_SHARED_SPECTATOR_STREAMING_IDENTITY_CERTIFICATE_V1",
+  "status": "AUTHOR_EXECUTED_UNREVIEWED",
+  "source_head": "0852cad130c1d877174d235687cf60c19f318c58",
+  "activity_id": "RA-40F334CAC4876C16B82B0215",
+  "scientific_route": "ACTUAL_TYPED_BRC_ONLY",
+  "core_receipt": {
+    "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+    "path": "src/enterprise_math/brc_weighted_recurrent.py",
+    "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+    "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+  },
+  "entrypoint": "stage78.shor_benchmark.native_quartet",
+  "gate_input": "all eight three-bit basis vectors; actual inherited H4 columns",
+  "branch_identity": "two controls and one shared spectator, no record erased during gate execution",
+  "observer_scope": "complete amplitude columns; separately declared terminal Z-record negative control",
+  "allowed_future_operations": "fixed H4 words and declared terminal square observer",
+  "operation_semantics": "exact serial/alternative signed-column extension of inherited BRC gate",
+  "shared_spectator_identity_columns": [
+    {
+      "input_basis": 0,
+      "output_column": [
+        "1/2",
+        "1/2",
+        "1/2",
+        "1/2",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "input_basis": 1,
+      "output_column": [
+        "1/2",
+        "-1/2",
+        "1/2",
+        "-1/2",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "input_basis": 2,
+      "output_column": [
+        "1/2",
+        "1/2",
+        "-1/2",
+        "-1/2",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "input_basis": 3,
+      "output_column": [
+        "1/2",
+        "-1/2",
+        "-1/2",
+        "1/2",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "input_basis": 4,
+      "output_column": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/2",
+        "1/2",
+        "1/2",
+        "1/2"
+      ]
+    },
+    {
+      "input_basis": 5,
+      "output_column": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/2",
+        "-1/2",
+        "1/2",
+        "-1/2"
+      ]
+    },
+    {
+      "input_basis": 6,
+      "output_column": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/2",
+        "1/2",
+        "-1/2",
+        "-1/2"
+      ]
+    },
+    {
+      "input_basis": 7,
+      "output_column": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/2",
+        "-1/2",
+        "-1/2",
+        "1/2"
+      ]
+    }
+  ],
+  "identity_residual": "exact zero on all eight basis columns",
+  "coherent_revisit_negative_control": {
+    "no_inserted_Z_record_control_law": [
+      "1",
+      "0"
+    ],
+    "inserted_Z_record_control_law": [
+      "1/2",
+      "1/2"
+    ],
+    "spectator_one_mass_after_second_H4": "0"
+  },
+  "actual_BRC_kernel_calls": 2,
+  "checks": {
+    "full_columns": 8,
+    "negative_control": 1
+  },
+  "not_claimed": [
+    "independent review",
+    "Born derivation",
+    "all-Shor finite regression",
+    "speedup"
+  ]
+}

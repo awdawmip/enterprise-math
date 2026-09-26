@@ -1,0 +1,425 @@
+{
+  "N": 15,
+  "a": 2,
+  "t": 4,
+  "dim": 61,
+  "Q": 16,
+  "all_leaf_slots": 16,
+  "zero_leaf_slots": 12,
+  "full_joint_amplitude_coordinate_comparisons": 976,
+  "all_joint_amplitudes_exact_equal": true,
+  "all_joint_probabilities_exact_equal": true,
+  "all_control_bins_exact_equal": true,
+  "postprocessing_status_and_factor_law_exact_equal": true,
+  "streaming_all_joint_amplitudes_exact_equal": true,
+  "streaming_all_control_bins_exact_equal": true,
+  "streaming_joint_amplitude_coordinate_comparisons": 976,
+  "streaming_full_joint_probability_sha256": "85b4097e530c4a4e51216d210fc1f36af811645566fcf4098102de338cfb94b9",
+  "streaming_all_leaf_slots": 16,
+  "streaming_zero_leaf_slots": 12,
+  "streaming_modular_powers_from_input": [
+    1,
+    1,
+    4,
+    2
+  ],
+  "streaming_metrics": {
+    "branch_calls": 15,
+    "empty_branch_calls": 10,
+    "phase_calls": 9,
+    "H4_calls": 10,
+    "modular_column_applications": 5,
+    "peak_endpoints": 8,
+    "peak_scalar_slots": 488,
+    "peak_nonzero_scalars": 8,
+    "peak_denominator_bits": 3,
+    "boundary_spectator_nonzero_seen": false,
+    "depth_maxima": [
+      {
+        "depth": 0,
+        "operation": "child_boundary",
+        "calls": 2,
+        "endpoints": 1,
+        "scalar_slots": 61,
+        "nonzero_scalars": 1,
+        "denominator_bits": 1
+      },
+      {
+        "depth": 0,
+        "operation": "controlled_modular_power",
+        "calls": 1,
+        "endpoints": 4,
+        "scalar_slots": 244,
+        "nonzero_scalars": 4,
+        "denominator_bits": 2
+      },
+      {
+        "depth": 0,
+        "operation": "initial_boundary",
+        "calls": 1,
+        "endpoints": 1,
+        "scalar_slots": 61,
+        "nonzero_scalars": 1,
+        "denominator_bits": 1
+      },
+      {
+        "depth": 0,
+        "operation": "prepare_H4",
+        "calls": 1,
+        "endpoints": 4,
+        "scalar_slots": 244,
+        "nonzero_scalars": 4,
+        "denominator_bits": 2
+      },
+      {
+        "depth": 0,
+        "operation": "read_H4",
+        "calls": 1,
+        "endpoints": 1,
+        "scalar_slots": 61,
+        "nonzero_scalars": 1,
+        "denominator_bits": 1
+      },
+      {
+        "depth": 1,
+        "operation": "CP_2",
+        "calls": 1,
+        "endpoints": 4,
+        "scalar_slots": 244,
+        "nonzero_scalars": 4,
+        "denominator_bits": 2
+      },
+      {
+        "depth": 1,
+        "operation": "child_boundary",
+        "calls": 2,
+        "endpoints": 1,
+        "scalar_slots": 61,
+        "nonzero_scalars": 1,
+        "denominator_bits": 1
+      },
+      {
+        "depth": 1,
+        "operation": "controlled_modular_power",
+        "calls": 1,
+        "endpoints": 4,
+        "scalar_slots": 244,
+        "nonzero_scalars": 4,
+        "denominator_bits": 2
+      },
+      {
+        "depth": 1,
+        "operation": "initial_boundary",
+        "calls": 1,
+        "endpoints": 1,
+        "scalar_slots": 61,
+        "nonzero_scalars": 1,
+        "denominator_bits": 1
+      },
+      {
+        "depth": 1,
+        "operation": "prepare_H4",
+        "calls": 1,
+        "endpoints": 4,
+        "scalar_slots": 244,
+        "nonzero_scalars": 4,
+        "denominator_bits": 2
+      },
+      {
+        "depth": 1,
+        "operation": "read_H4",
+        "calls": 1,
+        "endpoints": 1,
+        "scalar_slots": 61,
+        "nonzero_scalars": 1,
+        "denominator_bits": 1
+      },
+      {
+        "depth": 2,
+        "operation": "CP_2",
+        "calls": 1,
+        "endpoints": 4,
+        "scalar_slots": 244,
+        "nonzero_scalars": 4,
+        "denominator_bits": 2
+      },
+      {
+        "depth": 2,
+        "operation": "CP_3",
+        "calls": 1,
+        "endpoints": 4,
+        "scalar_slots": 244,
+        "nonzero_scalars": 4,
+        "denominator_bits": 2
+      },
+      {
+        "depth": 2,
+        "operation": "child_boundary",
+        "calls": 2,
+        "endpoints": 2,
+        "scalar_slots": 122,
+        "nonzero_scalars": 2,
+        "denominator_bits": 2
+      },
+      {
+        "depth": 2,
+        "operation": "controlled_modular_power",
+        "calls": 1,
+        "endpoints": 4,
+        "scalar_slots": 244,
+        "nonzero_scalars": 4,
+        "denominator_bits": 2
+      },
+      {
+        "depth": 2,
+        "operation": "initial_boundary",
+        "calls": 1,
+        "endpoints": 1,
+        "scalar_slots": 61,
+        "nonzero_scalars": 1,
+        "denominator_bits": 1
+      },
+      {
+        "depth": 2,
+        "operation": "prepare_H4",
+        "calls": 1,
+        "endpoints": 4,
+        "scalar_slots": 244,
+        "nonzero_scalars": 4,
+        "denominator_bits": 2
+      },
+      {
+        "depth": 2,
+        "operation": "read_H4",
+        "calls": 1,
+        "endpoints": 4,
+        "scalar_slots": 244,
+        "nonzero_scalars": 4,
+        "denominator_bits": 2
+      },
+      {
+        "depth": 3,
+        "operation": "CP_2",
+        "calls": 2,
+        "endpoints": 8,
+        "scalar_slots": 488,
+        "nonzero_scalars": 8,
+        "denominator_bits": 3
+      },
+      {
+        "depth": 3,
+        "operation": "CP_3",
+        "calls": 2,
+        "endpoints": 8,
+        "scalar_slots": 488,
+        "nonzero_scalars": 8,
+        "denominator_bits": 3
+      },
+      {
+        "depth": 3,
+        "operation": "CP_4",
+        "calls": 2,
+        "endpoints": 8,
+        "scalar_slots": 488,
+        "nonzero_scalars": 8,
+        "denominator_bits": 3
+      },
+      {
+        "depth": 3,
+        "operation": "child_boundary",
+        "calls": 4,
+        "endpoints": 4,
+        "scalar_slots": 244,
+        "nonzero_scalars": 4,
+        "denominator_bits": 3
+      },
+      {
+        "depth": 3,
+        "operation": "controlled_modular_power",
+        "calls": 2,
+        "endpoints": 8,
+        "scalar_slots": 488,
+        "nonzero_scalars": 8,
+        "denominator_bits": 3
+      },
+      {
+        "depth": 3,
+        "operation": "initial_boundary",
+        "calls": 2,
+        "endpoints": 2,
+        "scalar_slots": 122,
+        "nonzero_scalars": 2,
+        "denominator_bits": 2
+      },
+      {
+        "depth": 3,
+        "operation": "prepare_H4",
+        "calls": 2,
+        "endpoints": 8,
+        "scalar_slots": 488,
+        "nonzero_scalars": 8,
+        "denominator_bits": 3
+      },
+      {
+        "depth": 3,
+        "operation": "read_H4",
+        "calls": 2,
+        "endpoints": 8,
+        "scalar_slots": 488,
+        "nonzero_scalars": 8,
+        "denominator_bits": 3
+      }
+    ]
+  },
+  "full_joint_probability_sha256": "85b4097e530c4a4e51216d210fc1f36af811645566fcf4098102de338cfb94b9",
+  "branch_joint_probability_sha256": "85b4097e530c4a4e51216d210fc1f36af811645566fcf4098102de338cfb94b9",
+  "control_law": [
+    "1/4",
+    "0",
+    "0",
+    "0",
+    "1/4",
+    "0",
+    "0",
+    "0",
+    "1/4",
+    "0",
+    "0",
+    "0",
+    "1/4",
+    "0",
+    "0",
+    "0"
+  ],
+  "status_law": {
+    "ZERO_PHASE_RETRY": "1/4",
+    "NO_FACTOR_THIS_READOUT": "1/4",
+    "FACTORS": "1/2"
+  },
+  "factor_law": {
+    "()": "1/2",
+    "(3, 5)": "1/2"
+  },
+  "success_probability": "1/2",
+  "all_modes_retained": true,
+  "shared_spectator_retained": true,
+  "spectator_deletion_detected_mass": "1/2",
+  "ideal_reference_error_inherited": {
+    "phase_target": "3/4294967296",
+    "fixed_word_dilation": "3/1073741824",
+    "total": "15/4294967296",
+    "nonexact_phase_count": 3
+  },
+  "resource_stats": [
+    {
+      "after_bit": 0,
+      "branches": 2,
+      "positive_branches": 1,
+      "zero_branches": 1,
+      "total_endpoint_count": 16,
+      "max_single_branch_endpoints": 16,
+      "max_single_branch_scalar_slots": 976,
+      "max_denominator_bits": 3,
+      "total_mass": "1",
+      "spectator_one_mass": "1/2",
+      "all_extra_mode_mass": "0"
+    },
+    {
+      "after_bit": 1,
+      "branches": 4,
+      "positive_branches": 1,
+      "zero_branches": 3,
+      "total_endpoint_count": 4,
+      "max_single_branch_endpoints": 4,
+      "max_single_branch_scalar_slots": 244,
+      "max_denominator_bits": 2,
+      "total_mass": "1",
+      "spectator_one_mass": "0",
+      "all_extra_mode_mass": "0"
+    },
+    {
+      "after_bit": 2,
+      "branches": 8,
+      "positive_branches": 2,
+      "zero_branches": 6,
+      "total_endpoint_count": 16,
+      "max_single_branch_endpoints": 8,
+      "max_single_branch_scalar_slots": 488,
+      "max_denominator_bits": 3,
+      "total_mass": "1",
+      "spectator_one_mass": "1/2",
+      "all_extra_mode_mass": "0"
+    },
+    {
+      "after_bit": 3,
+      "branches": 16,
+      "positive_branches": 4,
+      "zero_branches": 12,
+      "total_endpoint_count": 16,
+      "max_single_branch_endpoints": 4,
+      "max_single_branch_scalar_slots": 244,
+      "max_denominator_bits": 3,
+      "total_mass": "1",
+      "spectator_one_mass": "0",
+      "all_extra_mode_mass": "0"
+    }
+  ],
+  "original_full_max_macro_endpoints": 16,
+  "original_full_final_endpoints": 16,
+  "selected_path_sample": {
+    "k": 8,
+    "trace": [
+      {
+        "bit": 0,
+        "zero_probability": "1",
+        "selected": 0,
+        "unconditional_prefix_mass": "1",
+        "retained_endpoints": 16
+      },
+      {
+        "bit": 1,
+        "zero_probability": "1",
+        "selected": 0,
+        "unconditional_prefix_mass": "1",
+        "retained_endpoints": 4
+      },
+      {
+        "bit": 2,
+        "zero_probability": "1/2",
+        "selected": 0,
+        "unconditional_prefix_mass": "1/2",
+        "retained_endpoints": 8
+      },
+      {
+        "bit": 3,
+        "zero_probability": "1/2",
+        "selected": 1,
+        "unconditional_prefix_mass": "1/4",
+        "retained_endpoints": 4
+      }
+    ],
+    "random_source_contract": "external unbiased independent getrandbits",
+    "random_stats": {
+      "draws": 2,
+      "bits": 2,
+      "rejections": 0
+    },
+    "max_selected_branch_endpoints": 16,
+    "postprocessing": {
+      "status": "NO_FACTOR_THIS_READOUT",
+      "factors": [],
+      "rejected": [
+        [
+          1,
+          "NOT_RETURNING_EXPONENT"
+        ],
+        [
+          2,
+          "NOT_RETURNING_EXPONENT"
+        ]
+      ]
+    }
+  },
+  "no_polynomial_runtime_or_independent_review_claim": true,
+  "elapsed_ns": 55707000
+}
