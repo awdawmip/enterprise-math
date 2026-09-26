@@ -1,0 +1,26 @@
+{
+  "arguments": {
+    "encoding": "utf-8",
+    "path": "research_notes/directed_recovery/20260926_C6438C/integration/COMPLETE_FACTORIZATION_PROOF.md",
+    "ref": "1fb7ff99d205f9ca03772942be64f732553dcd86",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "sep26-gen-science-integration-COMPLETE-FACTORIZATION-PROOF-md",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# 从因数寻找接到完整或可续接的整数分解\n\nActivity RA-CAAAC604CB513AEA8BBC1DFC. Author executed, shared context, unreviewed, not admitted.\n\n`complete_factorization.py` 的正整数合同为 N>=2。它实际实现预检、递归、随机分裂与证书核验，\n没有将素性、完美幂或失败处理留作占位函数。这里的完整性是明确输出语义及证明范围，绝不等于多项式经典分解。\n\n## 不变量与确定性结论\n\n待办节点为 `(v,m)`，表示原输入中尚待分解的 v^m。每个循环保持\n“已证素数幂的乘积 × 所有待办或失败节点幂的乘积 = N”。\n\n偶数的实际长除法给 v=2q，两个子节点各继承m。完美幂证书给 v=b^e，只递归b，重数改为实际乘积me。\n本轮全加器组成的 Wilson 证书若判 PRIME，才合并到素数账；重复素数指数用同一实际加法组合。\n已证合数且非完美幂的节点调用稀疏流式Shor及其gcd预检，得到的一个非平凡因数再经实际长除法核验。\n两个真子因数继承m，严格缩小后续整数。所有非Shor预检有限终止；每个Shor节点的尝试次数有限，\n在外部随机整数调用返回的合同下，整个调用有限终止。\n\n随机源耗尽、底数列表耗尽和重试上限都保留为未分解节点，包含原始尝试记录及可用的原始状态。\n它们不进入素数账。终点再用实际乘法/幂重建整个N：未分解集合空才返回 COMPLETE，否则返回 PARTIAL。\n因此每份返回的素数幂声明都有准确的确定性依据；PARTIAL也提供准确乘积，无遗漏因子或重数。\n\n`verify_factorization` 重放全部预检证书、核对每个prime对应的schema/N/PRIME状态，并重建整个乘积账。\n改变指数、删除未分解项或把PARTIAL改称COMPLETE不能通过核验。它明确返回\n`stochastic_budget_verified:false`：该核验器检验确定性数学输出，不冒称验证外部随机性或每个概率预算字段。\n\n## 概率合同与全树分配\n\n取起点位数 n0=ceil(log2 N)，目标失败指数 s。每个随机分裂节点v取 n=ceil(log2 v)、t=2n，\n使用具体相位证书给出的整体终端TV界 epsilon。由总体成功定理，条件均匀随机底数与读出给\n`gamma=1/(8n)-epsilon` 的单次成功下界。\n\n若 gamma>0，令 `b=s+ceil(log2 n0)`、`R=ceil(1/gamma)*b`，则该节点尝试全败概率不超过2^-b。\n一棵真因数分裂树的随机分裂节点数最多floor(log2 N)-1<n0；完美幂压缩不会增加这个上界。\n即便后续节点与前史相关，每个节点的条件界和union bound仍给最终存在重试失败叶的概率不超过2^-s。\n\n显式指定底数列表不自动符合随机底数合同；手动降低R也会削弱保证。代码将这两种情况保存在结果中。\n保守gamma<=0时仍允许以显式预算实际运行，保留其输出，同时撤销该成功率保证；没有把误差界不足变成环境阻断。\n外部随机源中止不在此重试失败界内，完整记录到理想参照的TV也须另行累计。\n\n默认供应器严格钉住bank解压SHA256 `feecbc02808991f6d7b1e2c3179c8da2018b76901ef34c26ef0d28b65729dd5c`，\n加载时重放1952个原生列及逆字，明确采用K33整载体恒等尾门，返回与执行相同的cutoff证书。\n同一32/64网格下，n<=856支持简单的每节点16nb预算；857..1208仍有正gamma，允许使用较大的实际ceil预算。\n大于该范围并非不可能结论，只是当前总体误差与成功下界相减已不提供统一正保证。\n\n## 实际集成证据\n\n使用种子软件随机接口和每节点12次上限的演示：\n\n| N | 完整输出 |\n|---:|---|\n| 2 | 2 |\n| 9 | 3² |\n| 27 | 3³ |\n| 22 | 2×11 |\n| 35 | 5×7 |\n| 45 | 3²×5 |\n| 225 | 3²×5² |\n\n两项固定零读出、只允许一次底数2的测试：N15返回未分解15；N225先证15²，再返回未分解15、重数2。\n这两项PARTIAL的完整乘积与状态都通过同一个核验器。隐藏未分解项状态、篡改素数指数两项负控被拒绝。\n整个集成执行14次实际BRC核调用；这不是独立试验次数或成功概率测量。代码曾在结果散列阶段遇到Fraction\n不可JSON编码的问题，改为精确分数字符串，失败与修复保留在 `EXECUTION_LOG.json`，没有更改科研数值。\n\n本轮同上下文代码审查没有发现错误因数、错误素性或重数缺陷，并指出概率核验范围；上述显式false字段落实了这一建议。\n它不构成独立审稿或数学准入。\n\n## 仍未闭合的强目标\n\n完整接口的确定性输出与有限预算已闭合；可量化随机成功保证覆盖上面明确范围。\n对任意大N在固定精度下的统一正成功概率、更强效率、物理随机律和自主空间接线尚未证明。\nWilson基线需O(N)次模乘，工作端点约N，精确大整数和保留证书也有成本。\n后续优先研究不依赖整体TV相减的成功事件/谱支持证明，或在既有真实原语中改善素性与工作态表示。\n\nGlobal-Knowledge-Sync: main@441ebef / GLOBAL_KNOWLEDGE_V1\n",
+      "display_title": "COMPLETE_FACTORIZATION_PROOF.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/1fb7ff99d205f9ca03772942be64f732553dcd86/research_notes/directed_recovery/20260926_C6438C/integration/COMPLETE_FACTORIZATION_PROOF.md",
+      "encoding": "utf-8",
+      "sha": "3576db89dc3934a4fdfaacee476118c264132ccb"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

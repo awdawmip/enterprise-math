@@ -1,0 +1,26 @@
+{
+  "arguments": {
+    "encoding": "utf-8",
+    "path": "research_notes/directed_recovery/20260926_C6438C/phases/PHASE_BANK_PROOF.md",
+    "ref": "1fb7ff99d205f9ca03772942be64f732553dcd86",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "sep26-gen-science-phases-PHASE-BANK-PROOF-md",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# 固定网格的完整相位接口与保留残差的尾门选择\n\nActivity: RA-CAAAC604CB513AEA8BBC1DFC  \nResearcher: EM-DIRECT-C6438C / TASK_RESEARCH  \nStatus: AUTHOR_PROVED_AND_EXECUTED / SHARED_CONTEXT / UNREVIEWED / NOT_ADMITTED\n\n本单元继续冻结源 `0852cad130c1d877174d235687cf60c19f318c58` 的 Stage80 完整原生字。目标参数网格始终32位、单位向量网格始终64位；没有新三角参考、提高精度、重置残差或改写旧 bank。固定字所需 H4、符号、交换均从同一实际 BRC 源列取得，全部内部基列逐原生字执行，并用完整逆字恢复。新的来源快照为 `f0e5fb6f478a5a380ab5a7533d2585f7f43ee3bf`。\n\n## 1. 零端点扩展实际接通完整 bank\n\n沿用上一轮 `zero_endpoint_extension.py`：只为原 `root_bracket` 增加 p=0 的合法闭端点，实际正 BRC 观察器分别验证 p=0 时的零根与上探针。其它 p 使用原函数。\n\n令 δ=2^-32。实际第34阶区间为 `[0,δ]`，中点 q34=δ/2。对下一次同网格根括定，输入0仍返回0；输入δ的多项式在0为 `-δ`，在δ为 `δ+δ³>0`，故其网格区间也是 `[0,δ]`。闭区间递推从 m34 起恒定。真实理想根继续变小；恒定的是有限网格包围区间，不是理想相位本身。\n\n`compile_closed_bank(34)` 实际完成：\n\n- 32份完整固定字、每份61个完整基列，共1952列；每列完整逆字恢复。\n- m33 的 q=2^-32，m34 的 q=2^-33；各61列都实际执行，均128次H4/完整字。\n- m3..10 的旧向量、目标区间和 G 字逐项保持。公共维数由所有新向量长度重新计算；本次结果仍为61，代码没有把新 bank 永远锁为61。\n- 5092次实际 BRC 核调用，主要用于同网格端点和单位向量证书；它不是Shor实验次数，也不等于物理门数。\n\n完整证书 `bank_t34.json.gz` 的解压内容 SHA256：\n`feecbc02808991f6d7b1e2c3179c8da2018b76901ef34c26ef0d28b65729dd5c`。\n\n对于任意有限 t，m>34 可以复用已完整执行的 m34 字。`load_certified_bank` 读取上述证书，第一次针对该 payload 重新执行1952列及逆字，然后允许同 payload 缓存复用；不重新探测根。调用方可要求准确 SHA256。该函数返回实际 cutoff 绑定的误差证书，防止执行一个 bank 却引用另一个预算。\n\n## 2. 原 closed bank 的每请求误差与资源\n\nStage80 全扩展空间的每份字近似界仍为4δ。区间宽为 w_m，每阶出现 t-m+1 次。于是\n\n`E_closed(t) = sum_(m=3)^t (t-m+1) w_m + 4δ (t-1)(t-2)/2`。\n\n该算子望远镜界覆盖任意保留残差输入、参考关联以及共同终端测量/固定后处理。终端TV上界取 `min(1,E)`，算子范数上界取 `min(2,E)`。它不是每个稀有条件历史的相对误差界。\n\nm>34的 w_m=δ，尾和有明确有限三角式。实际结果：t12 为303/2^32，t34 为3074/2^32。对1e-6容差，此充分界支持的最大偶数宽度为38（3876/2^32）；t40 为4307/2^32，略超容差。超出充分预算仍返回实际界；不把预算超出解释为算法测量错误，更不静默提高精度。\n\nt34 的全部逻辑非精确相位字计279234次H4、593004次符号、380次交换；另有33个精确四分之一相位和流式68个H4。宏边界幅度分母指数上界67652；逐字内部简单安全界279302。模乘、整数位运算、抽样拒绝次数、物理布局另计。\n\n## 3. 更强的固定网格策略：完整空间的恒等尾门\n\n这是一个明确不同的近似算法，旧 frozen bank 和上述 closed bank 均保留。\n\n设实际证书在阶 K 给出理想参数 `r_K <= u_K`。理想半角根关系为 `r_prev r_next² + 2 r_next - r_prev=0`，所以 `2 r_next <= r_prev`。由此\n\n`r_(K+j) <= u_K/2^j`。\n\n这只是使用既有 BORROWED_REFERENCE 代数根定义作符号推导，没有新增普通参考传播。既有理想二维相位与恒等的算子距离为 `2r/sqrt(1+r²) <= 2r`，扩大载体后的其余模式本来为恒等，因此该界适用于整个D维空间。\n\n在 m>=K 时使用完整D维恒等字，保留每个残差坐标的原值。没有投影、丢弃或归一化。空字是已有固定原生门组合的单位元；所有61基列和一个所有尾坐标均非零的有符号向量都验证原样保留。\n\n对 t>=K，令 A=t-K+1，尾误差为\n\n`E_tail(t,K) = 2 u_K sum_(j=0)^(A-1) (A-j)/2^j`\n\n`              = 4 u_K(t-K) + 4 u_K/2^(t-K+1)`。\n\n总界为原字前缀 m3..K-1 的 `(t-m+1)(w_m+4δ)` 之和，加此尾误差。t<K 时不改任何门。固定 K 的界随 t 线性增长，仍不是任意尺度下固定小误差的证明。47组有限尾和逐项核对闭式。\n\n先实际验证 K34。然后只用现有32位端点和上述证明，对 K3..34逐一计算有理误差，选最小证书，不读取N、a、阶、因数或输出。长期最优候选K33给出\n\n`E_K33(t) = (185t - 3225 + 8/2^(t-32))/2^32, t>=33`。\n\n1e-6充分预算的最大偶数t提升到40。若其它证明已建立单次理想成功概率条件，则 `E_(2n)<=1/(16n)` 的这份预算支持到n856，n857不满足；成功率定理的数论、底数和输入前提另见总体证明，不能从误差预算单独推出。n856也绝非856位整数的实际运行证据。\n\nK33的非空原生相位字数量为O(t)；当前继承调度仍枚举O(t²)个CP位置，恒等项的Python对象操作也有成本。此处没有宣称整体程序线性时间，更没有抹去约N个工作标签和精确大整数成本。\n\n## 4. 新运行的具体范围\n\n`N35,a2,t12,Q4096>=N²`：使用根代理的显式注入 `GeneralStreamingProgram`、真实稀疏BRC模乘列以及稀疏后处理。全过程无全控制展开，全部61模式和共享spectator保留。种子软件抽样得到k3072，正确保留 `NO_FACTOR_THIS_READOUT`；单轨迹峰24端点。指定的正质量历史k341按每轮实际完整历史选择分支，得到已验证返回指数12、因数5和7；没有输入未知阶，也不把指定历史当无偏采样或成功频率。旧后处理版本的真实结果保留为 `*_legacy_postprocess.json`。\n\n`N21,a2,t34,k1`：完整重放同一个正质量历史，第一位为1，实际触发最深CP34的控制。closed bank、K34恒等尾、K33恒等尾均运行；峰值都是12端点。最终幅度分母位长分别4045、3919、3793。三种完整保留状态分别落盘；它们确有差异，不把新策略说成与旧算法精确相同。两份尾策略的选定事件概率差均满足由共同理想相位推出的界。此为单个可能历史的严格检查，未枚举2^34叶、未验证完整t34直方图、未宣称总体成功频率。\n\n曾有一次测试错误地把仅含m2..12的临时 bank 传给需要保留至m33的尾构造器；完整性守卫返回 `missing retained actual phase prefix`。随后改为加载全部bank34并通过。失败属于测试装配，原守卫未削弱。\n\n## 5. 复现与续接\n\n代码：`closed_phase_bank.py`、`run_extended_stream.py`、`run_tail_history.py`、`analyze_tail.py`。先提供原冻结源及上一轮文件；编译调用 `--activity` 绑定真实当前研究身份。核心供应商pin、入口、BRC调用回执、位宽、内部维数、误差、资源和全字都在JSON/gzip证书中。完整状态gzip保留有符号整数坐标及共同分母。\n\n下一单元可直接使用 `load_certified_bank(t, cutoff=33, expected_payload_sha256=...)` 接总体分解包装器；没有执行工具的对话仍可核验上述有限和、根递推界、整体误差传递和成功率条件。此处没有以环境或工具能力限制任务书。\n\n这些构造是原 Stage79/80 接口的 REUSE / COMPOSE / EXTEND_EXISTING，不自建通用工具族、不申请独立审稿身份、不升级数学准入、不声称物理Born或六轴硬件布局。每次执行精确模拟选择的固定字；到理想Shor的近似误差如上，通用多项式经典分解仍未证明。\n\nGlobal-Knowledge-Sync: main@441ebef / GLOBAL_KNOWLEDGE_V1\n",
+      "display_title": "PHASE_BANK_PROOF.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/1fb7ff99d205f9ca03772942be64f732553dcd86/research_notes/directed_recovery/20260926_C6438C/phases/PHASE_BANK_PROOF.md",
+      "encoding": "utf-8",
+      "sha": "82adb7b6b58b480e63cf65c59533968a859ee4ce"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
