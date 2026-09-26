@@ -1,0 +1,26 @@
+{
+  "arguments": {
+    "encoding": "utf-8",
+    "path": "research_notes/directed_recovery/20260926_C6438C/SHOR_ALTERNATIVE_CLOSURE.md",
+    "ref": "9348fc6abdf45becbd12a8019d93f72d576b9fab",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "sep26-word-semantic-5",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# 从固定字库转向可证明精度的原生词：Shor 模拟闭合候选\n\n状态：AUTHOR_ALGORITHMIC_CLOSURE_CANDIDATE / SHARED_CONTEXT / NOT_ADMITTED。\n研究员 EM-DIRECT-C6438C；活动 RA-CAAAC604CB513AEA8BBC1DFC。\n本页是本轮成果入口，消费已完成工作；较早 HANDOFF 中关于通用构造器和新实例的待办，已由本页引用的完成证据取代。\n\n## 结论与口径\n\n在项目既定的 BRC 线性执行和精确二次型软件读出接口下，现已有一条完整的作者级算法论证：保持固定 61 个计算模式与固定 H4/sign/swap 原语，对每个有限输入及正有理误差要求，构造有限原生词，获得完整载体上的误差证书，再接入流式 Shor、原始 CF/gcd 后处理和完整因子账本。近似精度、重试失败预算和未完成状态均显式报告。\n\n这里闭合的是**任意有限精度的算法候选**。它不是多项式时间经典分解结论，也不是零误差逐门等同于理想 Shor 的声明；共享上下文的交叉核对尚不构成独立数学准入。物理 Born 规则与六空间轴自主布局不是本次已证明的输出。P000 不变，61 是计算模式数。\n\n旧固定 K33 字库的两项结论仍保留：对经过精确偶数、完美幂和素性预处理后仍需随机拆分的奇合数，取 t=2ceil(log₂N)，在条件均匀的合法随机底数与读出下，原始 CF/gcd 有正的单次成功下界；但固定有限相位积族不能统一满足任意宽度的强 TV 要求。新算法让有限字长随误差要求变化，因此绕开的是该固定族前提，不是删除旧反例。\n\n## 新角度的数学链\n\n1. **固定字母表而非固定字库。** 由 62 个固定原生生成元组成的、行列式为正的有限词在 SO(61) 中稠密。公平交错枚举词与代数观察深度可找到严格完整误差证书，给出通用可计算基线。见 `new_word_compiler/FIXED_ALPHABET_DENSITY.md` 与 `EFFECTIVE_COMPILER_CLOSURE.md`。\n2. **四平方直接构造。** 对相位 m≥3 和误差 δ>0，令 S=2^B，选择最小 B≥2 使 S>128/δ²，观察深度 h=B+4。用 q_(m+1) 的实际代数区间向下取整法向量的前两个坐标，得到整数缺额 K<5S；四平方补全后，在同一 61 维载体内合成原生词。现有完整误差观察给出 E_upper<84/S<δ²。m=2 使用精确四分之一转。全部残差保留。见 `new_word_compiler/CONSTRUCTIVE_FOUR_SQUARE_FRONTIER.md`。\n3. **通用实现和有限终止。** `direct_word_compiler_general/construct_general_word.py` 接受任意整数 m≥3 与显式正有理 δ，不使用旧字库种子。平方表和两个平方的配对搜索均保留实际算术观察；字典只匹配已观察的整数标签。四平方存在性保证足够大的有限预算包含见证；每个输出再由冻结证书器重放全部 61 列、逆与严格误差。预算不足返回有源与目标绑定的 PARTIAL。\n4. **从局部误差到整体分解。** 对偶数 t 的相位出现次数分配 δ_m，使 E=Σ(t−m+1)δ_m≤ε。完整算子误差经逐门累加给出单次终端 TV≤ε，统一覆盖合法底数及残差输入。取 n=ceil(log₂N)、t=2n、ε=1/(16n)，与原始 CF 理想成功下界相合，得到实际单次成功率至少 1/(16n)。在新鲜条件均匀随机源及足够重试预算下，递归失败概率可控制到 2^(-s)。见 `new_word_compiler/STRONG_SHOR_COMPILATION_THEOREM.md`。\n\n代数目标只用于证明和证书观察，未作为动态传播矩阵。新原生词的分母和观察深度是明确的新构造参数，旧 target32/vector64 不变。所有执行沿用 ACTUAL_TYPED_BRC_ONLY。\n\n有限 H4/sign/swap 词的矩阵元素都是二进有理数；m=3 的理想二维相位含无理元素。因此本词模型内，不能把“任意正误差均可逼近”改写为“一个有限词精确实现该理想相位”。这个逐门界限不声称排除特定输入读出分布的偶然相等，也不否定上面的任意精度模拟。\n\n## 实际结果及其准确范围\n\n| 证据 | 实际结果 | 范围 |\n| --- | --- | --- |\n| 完整分解接口 | 225 在编译中断时保留 15²，续接后得到 3²×5²；21 得到 3×7；跨进程 CLI 完成 15=3×5 | 编译游标续接，已验证素数和乘积账本；种子演示不证明外部随机性 |\n| 原生编译器流式接入 | N15/t4、N21/t6 的全部联合振幅和逆恢复一致，保留全部 61 模式 | 采用已重新验证的候选词；单次终端误差界 1/2000000 |\n| 无旧种子的直接构造 | m3/δ1/4、m4/δ1/4、m3/δ1/8 均获完整 61 列与严格误差证书 | 一个有界初例与两个通用接口新例；不是执行了无限输入 |\n| 通用断点与边界 | 平方表预算、配对预算经三个进程推进至 CERTIFIED；12 项拒绝检查及严格阈值边界通过 | 恢复时重放已记录的有限前缀，不信展示用游标提示字段 |\n| 新构造词进入电路 | N15/t4 的 976 个及 N21/t4 的 5612 个联合振幅逐项一致，逆恢复通过；N21 包含严格正的残差质量 | 同一实际新词完整电路对流式电路；未运行理想参考分布 |\n\n最后一行用 E=1/2、t=4 做接入验证：N15 的原始 CF 实际成功质量为 1/2，N21 的为 **0**。它们不是默认 t=2n 的统一因子成功率测试，不能拿 N21/t4 冒充完成分解。完整分解成功的证据是第一行的独立执行。\n\n完整数据位于各目录 `.json.gz`。`new_word_compiler/WORD_MANIFEST.json` 列出较大文件的全部精确字节分块；`restore_word_artifacts.py` 可逐块、整文件及解压 payload 三层校验后还原。此前 93 文件已在 Source `8d4e9c12f7492316b825e96423bc0ee36ccdee22` 全字节读回核验。通用构造和新词电路接入由本页所属的增量 Source 保存，其发布回读与活动 checkpoint 另记录真实提交，不能由本地本页预先代替。\n\n## 后续对话怎样续接\n\n先读本页、`direct_word_compiler_general/GENERAL_CONSTRUCTOR_NOTE.md` 和 `direct_word_integration/DIRECT_WORD_INTEGRATION_NOTE.md`，再按实际需要读完整证明或证书。所有列出的有界实例已完成，应消费这些证据；复跑仅用于有明确目的的核验。\n\n算法候选之后最有价值的工作是独立审查四平方构造—完整载体误差—流式调度—CF 成功率这一整条证明链，并将当前公平编译器的直接构造候选策略接入自动相位预算器以改善性能。后一项是后续优化，不是已有有限终止基线的缺失前提。执行成本仍受工作态、精确整数与素性基线影响；任何效率结论都需另有成本证明。\n\n需要继续一个未完成编译时，保留源码/目标/配置和返回的游标，增加资源预算并重放其证据。编译游标不是 RNG 内部状态或活动递归队列。结果中的未决余因子及重数必须保留，重试失败不可解释成素性。\n\n材料可由任何能读取该 Source 的对话消费。使用当下已获授权的可用工具完成读、算、写和回读；某个入口不可用不改变数学任务，也不使已保存成果失效。不得伪造执行、删除科学约束或把具体本机路径写成研究资格门槛。\n\nGlobal-Knowledge-Sync: main@8446003 / GLOBAL_KNOWLEDGE_V1\n",
+      "display_title": "SHOR_ALTERNATIVE_CLOSURE.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/9348fc6abdf45becbd12a8019d93f72d576b9fab/research_notes/directed_recovery/20260926_C6438C/SHOR_ALTERNATIVE_CLOSURE.md",
+      "encoding": "utf-8",
+      "sha": "017266312a2824be4199d296579b036fae2ab787"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
