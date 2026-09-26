@@ -1,0 +1,367 @@
+{
+  "schema": "DIRECT_WORD_RESIDUAL_STREAMING_INTEGRATION_V1",
+  "status": "AUTHOR_ACTUAL_BOUNDED_INTEGRATION_SHARED_CONTEXT_NOT_ADMITTED",
+  "activity": "RA-CAAAC604CB513AEA8BBC1DFC",
+  "kernel": {
+    "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+    "path": "src/enterprise_math/brc_weighted_recurrent.py",
+    "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+    "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+  },
+  "source_files_sha256": {
+    "new_word_compiler\\certified_word_compiler.py": "e8f7048e2e73292bda230a2adad4aaa76f0b3cd5525f8f0899628bd649d1d81d",
+    "new_word_compiler\\compiled_streaming.py": "d0f980b7ff5fb41438e9e0ad40af65a190bcd6f83660c821f8362643190a558c",
+    "new_word_compiler\\check_compiled_streaming.py": "0cf231a238f6aa899f1cf7e86a8d7dc8dd3e1aeda33e3c1b6c371ef10804a9ce",
+    "direct_word_compiler_general\\construct_general_word.py": "830b2f0c0c206a53e2b349fe377976d369ebfb76d4dfc5aad494db88ab6e0c63",
+    "direct_word_integration\\check_direct_word_integration.py": "c8dd1d00cbb66c540240877c3b45eecce154e86be265809768b4c60082eef7b7",
+    "direct_word_integration\\check_direct_word_n21.py": "337aaf2e0eff7c24c743fe8b598e19b6bc4da175f87b63d36779d7de8b44a6fe"
+  },
+  "bank_archive": {
+    "artifact": "DIRECT_WORD_INTEGRATION_RESULTS.json.gz",
+    "payload_sha256": "79491e65feec104f2cdc9de510263efef749d8a1174f9cab4c20146a0171615c"
+  },
+  "imported_constructor_artifacts": {
+    "3": {
+      "artifact": "direct_word_compiler_general\\M3_DELTA_EIGHTH.json.gz",
+      "construction_receipts_scope": "retained in the hash-bound constructor artifact; this run freshly replays the complete phase certificate",
+      "fresh_phase_record_replay": {
+        "certificate_sha256": "e94dc4ac7eab4f15daa2efb618a07db05fe0886638684f8aebb6fe710ba492ed",
+        "dim": 61,
+        "operator_error_bound": "1/8",
+        "phase_index": 3,
+        "status": "VERIFIED"
+      },
+      "gzip_sha256": "297121c8c8cfdd529e5a0e95ea02bf8e54584caf1b645dbf27e025f221ed58ad",
+      "operator_error_bound": "1/8",
+      "phase_index": 3,
+      "source_certificate_sha256": "e94dc4ac7eab4f15daa2efb618a07db05fe0886638684f8aebb6fe710ba492ed",
+      "uncompressed_payload_sha256": "0a712b1a918aa7326785605bdbc0e30453962c897286d9e293710f41318858d6",
+      "word_length": 8384
+    },
+    "4": {
+      "artifact": "direct_word_compiler_general\\M4_DELTA_QUARTER.json.gz",
+      "construction_receipts_scope": "retained in the hash-bound constructor artifact; this run freshly replays the complete phase certificate",
+      "fresh_phase_record_replay": {
+        "certificate_sha256": "47fe942d2ebb6139cfff5a0bc9c3fe00c0304241dba8457f510f61c4bd0a0585",
+        "dim": 61,
+        "operator_error_bound": "1/4",
+        "phase_index": 4,
+        "status": "VERIFIED"
+      },
+      "gzip_sha256": "9f1a5b371bbf7de9783f2bed83b1934a872281f39a1bc7fd0244d806205d1db7",
+      "operator_error_bound": "1/4",
+      "phase_index": 4,
+      "source_certificate_sha256": "47fe942d2ebb6139cfff5a0bc9c3fe00c0304241dba8457f510f61c4bd0a0585",
+      "uncompressed_payload_sha256": "1a4ca56447d32704376d4537da3e28550800ac4245093d6e303cef4b4918268c",
+      "word_length": 8112
+    }
+  },
+  "compiled_error_certificate": {
+    "t": 4,
+    "dim": 61,
+    "requested_epsilon": "1",
+    "phase_occurrence_rows": [
+      {
+        "m": 2,
+        "occurrences": 3,
+        "phase_operator_error_bound": "0",
+        "weighted_error_bound": "0"
+      },
+      {
+        "m": 3,
+        "occurrences": 2,
+        "phase_operator_error_bound": "1/8",
+        "weighted_error_bound": "1/4"
+      },
+      {
+        "m": 4,
+        "occurrences": 1,
+        "phase_operator_error_bound": "1/4",
+        "weighted_error_bound": "1/4"
+      }
+    ],
+    "telescoping_sum": "1/2",
+    "operator_norm_bound": "1/2",
+    "terminal_TV_bound": "1/2",
+    "all_residual_modes_retained": true,
+    "scope": "one complete terminal instrument and its fixed postprocessing; full-retry transcript requires a separate sum budget"
+  },
+  "full_terminal_residual_mass": "2557830172007030474820891023747218698966287/11417981541647679048466287755595961091061972992",
+  "actual_residual_mass_strictly_positive": true,
+  "actual_BRC_core_calls": 244,
+  "dense_modular_entrypoint_observations": [],
+  "whole_carrier_dimension": 61,
+  "new_approximate_phase_compilation": false,
+  "new_ideal_reference_execution": false,
+  "new_float_or_trigonometric_propagator": false,
+  "standard_N21_t_equals_2n_claimed": false,
+  "positive_general_CF_lower_bound_from_E_claimed": false,
+  "retry_transcript_TV_claimed": false,
+  "scope": "same actual direct words on declared N21/a2/t4; full/streaming equality includes positive retained residual mass, not a default-width strong factorization budget",
+  "case_summary": {
+    "N": 21,
+    "a": 2,
+    "t": 4,
+    "dim": 61,
+    "all_leaf_slots": 16,
+    "zero_leaf_slots": 0,
+    "full_joint_amplitude_coordinate_comparisons": 5612,
+    "full_inverse_coordinate_comparisons": 976,
+    "all_joint_amplitudes_exact_equal": true,
+    "all_control_bins_exact_equal": true,
+    "all_original_source_amplitudes_inverse_recovered": true,
+    "all_modes_retained": true,
+    "success_probability": "0",
+    "streaming_metrics": {
+      "branch_calls": 19,
+      "empty_branch_calls": 0,
+      "phase_calls": 40,
+      "H4_calls": 38,
+      "modular_column_applications": 19,
+      "peak_endpoints": 12,
+      "peak_scalar_slots": 732,
+      "peak_nonzero_scalars": 72,
+      "peak_denominator_bits": 79,
+      "boundary_spectator_nonzero_seen": false,
+      "depth_maxima": [
+        {
+          "depth": 0,
+          "operation": "child_boundary",
+          "calls": 4,
+          "endpoints": 2,
+          "scalar_slots": 122,
+          "nonzero_scalars": 2,
+          "denominator_bits": 2
+        },
+        {
+          "depth": 0,
+          "operation": "controlled_modular_power",
+          "calls": 2,
+          "endpoints": 4,
+          "scalar_slots": 244,
+          "nonzero_scalars": 4,
+          "denominator_bits": 2
+        },
+        {
+          "depth": 0,
+          "operation": "initial_boundary",
+          "calls": 2,
+          "endpoints": 1,
+          "scalar_slots": 61,
+          "nonzero_scalars": 1,
+          "denominator_bits": 1
+        },
+        {
+          "depth": 0,
+          "operation": "prepare_H4",
+          "calls": 2,
+          "endpoints": 4,
+          "scalar_slots": 244,
+          "nonzero_scalars": 4,
+          "denominator_bits": 2
+        },
+        {
+          "depth": 0,
+          "operation": "read_H4",
+          "calls": 2,
+          "endpoints": 4,
+          "scalar_slots": 244,
+          "nonzero_scalars": 4,
+          "denominator_bits": 2
+        },
+        {
+          "depth": 1,
+          "operation": "CP_2",
+          "calls": 3,
+          "endpoints": 8,
+          "scalar_slots": 488,
+          "nonzero_scalars": 8,
+          "denominator_bits": 3
+        },
+        {
+          "depth": 1,
+          "operation": "child_boundary",
+          "calls": 6,
+          "endpoints": 3,
+          "scalar_slots": 183,
+          "nonzero_scalars": 4,
+          "denominator_bits": 3
+        },
+        {
+          "depth": 1,
+          "operation": "controlled_modular_power",
+          "calls": 3,
+          "endpoints": 8,
+          "scalar_slots": 488,
+          "nonzero_scalars": 8,
+          "denominator_bits": 3
+        },
+        {
+          "depth": 1,
+          "operation": "initial_boundary",
+          "calls": 3,
+          "endpoints": 2,
+          "scalar_slots": 122,
+          "nonzero_scalars": 2,
+          "denominator_bits": 2
+        },
+        {
+          "depth": 1,
+          "operation": "prepare_H4",
+          "calls": 3,
+          "endpoints": 8,
+          "scalar_slots": 488,
+          "nonzero_scalars": 8,
+          "denominator_bits": 3
+        },
+        {
+          "depth": 1,
+          "operation": "read_H4",
+          "calls": 3,
+          "endpoints": 6,
+          "scalar_slots": 366,
+          "nonzero_scalars": 8,
+          "denominator_bits": 3
+        },
+        {
+          "depth": 2,
+          "operation": "CP_2",
+          "calls": 5,
+          "endpoints": 12,
+          "scalar_slots": 732,
+          "nonzero_scalars": 44,
+          "denominator_bits": 31
+        },
+        {
+          "depth": 2,
+          "operation": "CP_3",
+          "calls": 5,
+          "endpoints": 12,
+          "scalar_slots": 732,
+          "nonzero_scalars": 44,
+          "denominator_bits": 31
+        },
+        {
+          "depth": 2,
+          "operation": "child_boundary",
+          "calls": 10,
+          "endpoints": 3,
+          "scalar_slots": 183,
+          "nonzero_scalars": 18,
+          "denominator_bits": 31
+        },
+        {
+          "depth": 2,
+          "operation": "controlled_modular_power",
+          "calls": 5,
+          "endpoints": 12,
+          "scalar_slots": 732,
+          "nonzero_scalars": 16,
+          "denominator_bits": 4
+        },
+        {
+          "depth": 2,
+          "operation": "initial_boundary",
+          "calls": 5,
+          "endpoints": 3,
+          "scalar_slots": 183,
+          "nonzero_scalars": 4,
+          "denominator_bits": 3
+        },
+        {
+          "depth": 2,
+          "operation": "prepare_H4",
+          "calls": 5,
+          "endpoints": 12,
+          "scalar_slots": 732,
+          "nonzero_scalars": 16,
+          "denominator_bits": 4
+        },
+        {
+          "depth": 2,
+          "operation": "read_H4",
+          "calls": 5,
+          "endpoints": 6,
+          "scalar_slots": 366,
+          "nonzero_scalars": 36,
+          "denominator_bits": 31
+        },
+        {
+          "depth": 3,
+          "operation": "CP_2",
+          "calls": 9,
+          "endpoints": 12,
+          "scalar_slots": 732,
+          "nonzero_scalars": 72,
+          "denominator_bits": 79
+        },
+        {
+          "depth": 3,
+          "operation": "CP_3",
+          "calls": 9,
+          "endpoints": 12,
+          "scalar_slots": 732,
+          "nonzero_scalars": 72,
+          "denominator_bits": 79
+        },
+        {
+          "depth": 3,
+          "operation": "CP_4",
+          "calls": 9,
+          "endpoints": 12,
+          "scalar_slots": 732,
+          "nonzero_scalars": 72,
+          "denominator_bits": 54
+        },
+        {
+          "depth": 3,
+          "operation": "child_boundary",
+          "calls": 18,
+          "endpoints": 6,
+          "scalar_slots": 366,
+          "nonzero_scalars": 36,
+          "denominator_bits": 79
+        },
+        {
+          "depth": 3,
+          "operation": "controlled_modular_power",
+          "calls": 9,
+          "endpoints": 12,
+          "scalar_slots": 732,
+          "nonzero_scalars": 72,
+          "denominator_bits": 32
+        },
+        {
+          "depth": 3,
+          "operation": "initial_boundary",
+          "calls": 9,
+          "endpoints": 3,
+          "scalar_slots": 183,
+          "nonzero_scalars": 18,
+          "denominator_bits": 31
+        },
+        {
+          "depth": 3,
+          "operation": "prepare_H4",
+          "calls": 9,
+          "endpoints": 12,
+          "scalar_slots": 732,
+          "nonzero_scalars": 72,
+          "denominator_bits": 32
+        },
+        {
+          "depth": 3,
+          "operation": "read_H4",
+          "calls": 9,
+          "endpoints": 12,
+          "scalar_slots": 732,
+          "nonzero_scalars": 72,
+          "denominator_bits": 79
+        }
+      ]
+    }
+  },
+  "payload_sha256": "411dc398c1d9d80c275e4ad6bd88e7dbbc228398f7d8bbe1fef955de7c347ae0",
+  "gzip_sha256": "7999527bc50274e6d4f0f77f6886e6f121be77697c3f2a8e7b3f7151fc41b00d",
+  "uncompressed_bytes": 1210127
+}
