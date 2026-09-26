@@ -1,0 +1,1680 @@
+{
+  "activity": "RA-CAAAC604CB513AEA8BBC1DFC",
+  "actual_BRC_core_calls": 1611,
+  "budget_then_rng_interruption_live_resumed": true,
+  "cases": [
+    {
+      "N": 21,
+      "a": 2,
+      "all_joint_branch_and_work_masses_equal": true,
+      "child_history_edges_checked": 30,
+      "dimension": 6,
+      "peak_one_prefix_cached_row_slots": 144,
+      "positive_parent_prefixes_checked": 15,
+      "prefix_oracle_distinct_queries_sum": 242,
+      "retained_residual_nonzero": true,
+      "sample": {
+        "N": 21,
+        "a": 2,
+        "events": [
+          {
+            "auxiliary_bit": 0,
+            "bit_probability_given_proposed_label": "1/2",
+            "candidate": 1,
+            "history": [],
+            "latent_before": 1,
+            "minus_norm": "1",
+            "plus_norm": "1",
+            "predecessor": 16,
+            "proposal_norm_sum": "1",
+            "row_x": {
+              "den": 1,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "row_y": {
+              "den": 1,
+              "values": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "selected_bit": 0,
+            "selected_local_probability": "1/2"
+          },
+          {
+            "auxiliary_bit": 0,
+            "bit_probability_given_proposed_label": "1",
+            "candidate": 1,
+            "history": [
+              0
+            ],
+            "latent_before": 1,
+            "minus_norm": "0",
+            "plus_norm": "1",
+            "predecessor": 4,
+            "proposal_norm_sum": "1/2",
+            "row_x": {
+              "den": 2,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "row_y": {
+              "den": 2,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "selected_bit": 0,
+            "selected_local_probability": "1"
+          },
+          {
+            "auxiliary_bit": 0,
+            "bit_probability_given_proposed_label": "9/10",
+            "candidate": 1,
+            "history": [
+              0,
+              0
+            ],
+            "latent_before": 1,
+            "minus_norm": "1/16",
+            "plus_norm": "9/16",
+            "predecessor": 16,
+            "proposal_norm_sum": "5/16",
+            "row_x": {
+              "den": 2,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "row_y": {
+              "den": 4,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "selected_bit": 0,
+            "selected_local_probability": "9/10"
+          },
+          {
+            "auxiliary_bit": 1,
+            "bit_probability_given_proposed_label": "1/2",
+            "candidate": 2,
+            "history": [
+              0,
+              0,
+              0
+            ],
+            "latent_before": 1,
+            "minus_norm": "9/64",
+            "plus_norm": "9/64",
+            "predecessor": 1,
+            "proposal_norm_sum": "9/64",
+            "row_x": {
+              "den": 1,
+              "values": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "row_y": {
+              "den": 8,
+              "values": [
+                3,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "selected_bit": 0,
+            "selected_local_probability": "1/2"
+          }
+        ],
+        "history": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "k": 0,
+        "latent_work_label": 2,
+        "live_object_resume_only": true,
+        "local_scores_are_not_marginal_readout_probabilities": true,
+        "oracle_report": {
+          "actual_positive_path_observations": 21,
+          "adder_digit_replays": 4369,
+          "base_queries": 6,
+          "cache_may_eventually_cover_full_support": true,
+          "cached_row_scalar_slots": 108,
+          "complete_current_work_state_enumerated_as_algorithm_step": false,
+          "computed_modular_columns": 28,
+          "dimension": 6,
+          "distinct_queries": 18,
+          "durable_cross_process_cursor_claimed": false,
+          "history": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "max_denominator_bits": 4,
+          "max_numerator_bits": 2,
+          "native_phase_vector_applications": 0,
+          "query_budget": 1000,
+          "query_cache_hits": 14,
+          "query_keys": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              8
+            ],
+            [
+              0,
+              11
+            ],
+            [
+              0,
+              16
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              1,
+              11
+            ],
+            [
+              1,
+              16
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              11
+            ],
+            [
+              2,
+              16
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          "query_requests": 32,
+          "recurrence_queries": 12,
+          "single_term_wiring": 9,
+          "typed_modular_tables": [
+            {
+              "cache_hits": 21,
+              "cached_column_count": 4,
+              "carrier_size": 32,
+              "column_adder_digit_replays": 201,
+              "column_host_bit_length_calls_in_arithmetic": 46,
+              "column_host_bit_wiring_operations": 2178,
+              "column_requests": 25,
+              "computed_columns": 4,
+              "identity_tail_columns": 0,
+              "native_kernel_calls_delta": 1,
+              "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+              "setup_adder_digit_replays": 279,
+              "setup_host_bit_length_calls_in_arithmetic": 64,
+              "setup_host_bit_wiring_operations": 3015
+            },
+            {
+              "cache_hits": 11,
+              "cached_column_count": 3,
+              "carrier_size": 32,
+              "column_adder_digit_replays": 200,
+              "column_host_bit_length_calls_in_arithmetic": 42,
+              "column_host_bit_wiring_operations": 2162,
+              "column_requests": 14,
+              "computed_columns": 3,
+              "identity_tail_columns": 0,
+              "native_kernel_calls_delta": 0,
+              "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+              "setup_adder_digit_replays": 310,
+              "setup_host_bit_length_calls_in_arithmetic": 72,
+              "setup_host_bit_wiring_operations": 3367
+            },
+            {
+              "cache_hits": 2,
+              "cached_column_count": 3,
+              "carrier_size": 32,
+              "column_adder_digit_replays": 280,
+              "column_host_bit_length_calls_in_arithmetic": 54,
+              "column_host_bit_wiring_operations": 3016,
+              "column_requests": 5,
+              "computed_columns": 3,
+              "identity_tail_columns": 0,
+              "native_kernel_calls_delta": 0,
+              "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+              "setup_adder_digit_replays": 438,
+              "setup_host_bit_length_calls_in_arithmetic": 97,
+              "setup_host_bit_wiring_operations": 4719
+            },
+            {
+              "cache_hits": 141,
+              "cached_column_count": 6,
+              "carrier_size": 32,
+              "column_adder_digit_replays": 591,
+              "column_host_bit_length_calls_in_arithmetic": 110,
+              "column_host_bit_wiring_operations": 6354,
+              "column_requests": 147,
+              "computed_columns": 6,
+              "identity_tail_columns": 0,
+              "native_kernel_calls_delta": 0,
+              "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+              "setup_adder_digit_replays": 438,
+              "setup_host_bit_length_calls_in_arithmetic": 97,
+              "setup_host_bit_wiring_operations": 4719
+            },
+            {
+              "cache_hits": 67,
+              "cached_column_count": 6,
+              "carrier_size": 32,
+              "column_adder_digit_replays": 427,
+              "column_host_bit_length_calls_in_arithmetic": 86,
+              "column_host_bit_wiring_operations": 4606,
+              "column_requests": 73,
+              "computed_columns": 6,
+              "identity_tail_columns": 0,
+              "native_kernel_calls_delta": 0,
+              "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+              "setup_adder_digit_replays": 310,
+              "setup_host_bit_length_calls_in_arithmetic": 72,
+              "setup_host_bit_wiring_operations": 3367
+            },
+            {
+              "cache_hits": 41,
+              "cached_column_count": 6,
+              "carrier_size": 32,
+              "column_adder_digit_replays": 505,
+              "column_host_bit_length_calls_in_arithmetic": 98,
+              "column_host_bit_wiring_operations": 5440,
+              "column_requests": 47,
+              "computed_columns": 6,
+              "identity_tail_columns": 0,
+              "native_kernel_calls_delta": 0,
+              "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+              "setup_adder_digit_replays": 390,
+              "setup_host_bit_length_calls_in_arithmetic": 91,
+              "setup_host_bit_wiring_operations": 4206
+            }
+          ],
+          "zero_native_actions_skipped": 9,
+          "zero_term_wiring": 110
+        },
+        "pending_auxiliary_bit": null,
+        "pending_plan": null,
+        "postprocessing": {
+          "factors": [],
+          "status": "ZERO_PHASE_RETRY"
+        },
+        "random_calls_attempted": 7,
+        "random_source_contract": "fresh conditionally uniform randrange; software fixture is not physical randomness",
+        "status": "COMPLETE_READOUT",
+        "t": 4
+      },
+      "sample_oracle_report": {
+        "actual_positive_path_observations": 21,
+        "adder_digit_replays": 4369,
+        "base_queries": 6,
+        "cache_may_eventually_cover_full_support": true,
+        "cached_row_scalar_slots": 108,
+        "complete_current_work_state_enumerated_as_algorithm_step": false,
+        "computed_modular_columns": 28,
+        "dimension": 6,
+        "distinct_queries": 18,
+        "durable_cross_process_cursor_claimed": false,
+        "history": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "max_denominator_bits": 4,
+        "max_numerator_bits": 2,
+        "native_phase_vector_applications": 0,
+        "query_budget": 1000,
+        "query_cache_hits": 14,
+        "query_keys": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            0,
+            11
+          ],
+          [
+            0,
+            16
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            1,
+            11
+          ],
+          [
+            1,
+            16
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            11
+          ],
+          [
+            2,
+            16
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        "query_requests": 32,
+        "recurrence_queries": 12,
+        "single_term_wiring": 9,
+        "typed_modular_tables": [
+          {
+            "cache_hits": 21,
+            "cached_column_count": 4,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 201,
+            "column_host_bit_length_calls_in_arithmetic": 46,
+            "column_host_bit_wiring_operations": 2178,
+            "column_requests": 25,
+            "computed_columns": 4,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 1,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 279,
+            "setup_host_bit_length_calls_in_arithmetic": 64,
+            "setup_host_bit_wiring_operations": 3015
+          },
+          {
+            "cache_hits": 11,
+            "cached_column_count": 3,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 200,
+            "column_host_bit_length_calls_in_arithmetic": 42,
+            "column_host_bit_wiring_operations": 2162,
+            "column_requests": 14,
+            "computed_columns": 3,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 310,
+            "setup_host_bit_length_calls_in_arithmetic": 72,
+            "setup_host_bit_wiring_operations": 3367
+          },
+          {
+            "cache_hits": 2,
+            "cached_column_count": 3,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 280,
+            "column_host_bit_length_calls_in_arithmetic": 54,
+            "column_host_bit_wiring_operations": 3016,
+            "column_requests": 5,
+            "computed_columns": 3,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 438,
+            "setup_host_bit_length_calls_in_arithmetic": 97,
+            "setup_host_bit_wiring_operations": 4719
+          },
+          {
+            "cache_hits": 141,
+            "cached_column_count": 6,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 591,
+            "column_host_bit_length_calls_in_arithmetic": 110,
+            "column_host_bit_wiring_operations": 6354,
+            "column_requests": 147,
+            "computed_columns": 6,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 438,
+            "setup_host_bit_length_calls_in_arithmetic": 97,
+            "setup_host_bit_wiring_operations": 4719
+          },
+          {
+            "cache_hits": 67,
+            "cached_column_count": 6,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 427,
+            "column_host_bit_length_calls_in_arithmetic": 86,
+            "column_host_bit_wiring_operations": 4606,
+            "column_requests": 73,
+            "computed_columns": 6,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 310,
+            "setup_host_bit_length_calls_in_arithmetic": 72,
+            "setup_host_bit_wiring_operations": 3367
+          },
+          {
+            "cache_hits": 41,
+            "cached_column_count": 6,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 505,
+            "column_host_bit_length_calls_in_arithmetic": 98,
+            "column_host_bit_wiring_operations": 5440,
+            "column_requests": 47,
+            "computed_columns": 6,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 390,
+            "setup_host_bit_length_calls_in_arithmetic": 91,
+            "setup_host_bit_wiring_operations": 4206
+          }
+        ],
+        "zero_native_actions_skipped": 9,
+        "zero_term_wiring": 110
+      },
+      "t": 4
+    },
+    {
+      "N": 21,
+      "a": 2,
+      "all_joint_branch_and_work_masses_equal": true,
+      "child_history_edges_checked": 30,
+      "dimension": 61,
+      "peak_one_prefix_cached_row_slots": 1464,
+      "positive_parent_prefixes_checked": 15,
+      "prefix_oracle_distinct_queries_sum": 242,
+      "retained_residual_nonzero": true,
+      "sample": {
+        "N": 21,
+        "a": 2,
+        "events": [
+          {
+            "auxiliary_bit": 0,
+            "bit_probability_given_proposed_label": "1/2",
+            "candidate": 1,
+            "history": [],
+            "latent_before": 1,
+            "minus_norm": "1",
+            "plus_norm": "1",
+            "predecessor": 16,
+            "proposal_norm_sum": "1",
+            "row_x": {
+              "den": 1,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "row_y": {
+              "den": 1,
+              "values": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "selected_bit": 0,
+            "selected_local_probability": "1/2"
+          },
+          {
+            "auxiliary_bit": 0,
+            "bit_probability_given_proposed_label": "1",
+            "candidate": 1,
+            "history": [
+              0
+            ],
+            "latent_before": 1,
+            "minus_norm": "0",
+            "plus_norm": "1",
+            "predecessor": 4,
+            "proposal_norm_sum": "1/2",
+            "row_x": {
+              "den": 2,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "row_y": {
+              "den": 2,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "selected_bit": 0,
+            "selected_local_probability": "1"
+          },
+          {
+            "auxiliary_bit": 0,
+            "bit_probability_given_proposed_label": "9/10",
+            "candidate": 1,
+            "history": [
+              0,
+              0
+            ],
+            "latent_before": 1,
+            "minus_norm": "1/16",
+            "plus_norm": "9/16",
+            "predecessor": 16,
+            "proposal_norm_sum": "5/16",
+            "row_x": {
+              "den": 2,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "row_y": {
+              "den": 4,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "selected_bit": 0,
+            "selected_local_probability": "9/10"
+          },
+          {
+            "auxiliary_bit": 1,
+            "bit_probability_given_proposed_label": "1/2",
+            "candidate": 2,
+            "history": [
+              0,
+              0,
+              0
+            ],
+            "latent_before": 1,
+            "minus_norm": "9/64",
+            "plus_norm": "9/64",
+            "predecessor": 1,
+            "proposal_norm_sum": "9/64",
+            "row_x": {
+              "den": 1,
+              "values": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "row_y": {
+              "den": 8,
+              "values": [
+                3,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "selected_bit": 0,
+            "selected_local_probability": "1/2"
+          }
+        ],
+        "history": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "k": 0,
+        "latent_work_label": 2,
+        "live_object_resume_only": true,
+        "local_scores_are_not_marginal_readout_probabilities": true,
+        "oracle_report": {
+          "actual_positive_path_observations": 21,
+          "adder_digit_replays": 4369,
+          "base_queries": 6,
+          "cache_may_eventually_cover_full_support": true,
+          "cached_row_scalar_slots": 1098,
+          "complete_current_work_state_enumerated_as_algorithm_step": false,
+          "computed_modular_columns": 28,
+          "dimension": 61,
+          "distinct_queries": 18,
+          "durable_cross_process_cursor_claimed": false,
+          "history": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "max_denominator_bits": 4,
+          "max_numerator_bits": 2,
+          "native_phase_vector_applications": 0,
+          "query_budget": 1000,
+          "query_cache_hits": 14,
+          "query_keys": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              8
+            ],
+            [
+              0,
+              11
+            ],
+            [
+              0,
+              16
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              1,
+              11
+            ],
+            [
+              1,
+              16
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              11
+            ],
+            [
+              2,
+              16
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          "query_requests": 32,
+          "recurrence_queries": 12,
+          "single_term_wiring": 9,
+          "typed_modular_tables": [
+            {
+              "cache_hits": 21,
+              "cached_column_count": 4,
+              "carrier_size": 32,
+              "column_adder_digit_replays": 201,
+              "column_host_bit_length_calls_in_arithmetic": 46,
+              "column_host_bit_wiring_operations": 2178,
+              "column_requests": 25,
+              "computed_columns": 4,
+              "identity_tail_columns": 0,
+              "native_kernel_calls_delta": 0,
+              "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+              "setup_adder_digit_replays": 279,
+              "setup_host_bit_length_calls_in_arithmetic": 64,
+              "setup_host_bit_wiring_operations": 3015
+            },
+            {
+              "cache_hits": 11,
+              "cached_column_count": 3,
+              "carrier_size": 32,
+              "column_adder_digit_replays": 200,
+              "column_host_bit_length_calls_in_arithmetic": 42,
+              "column_host_bit_wiring_operations": 2162,
+              "column_requests": 14,
+              "computed_columns": 3,
+              "identity_tail_columns": 0,
+              "native_kernel_calls_delta": 0,
+              "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+              "setup_adder_digit_replays": 310,
+              "setup_host_bit_length_calls_in_arithmetic": 72,
+              "setup_host_bit_wiring_operations": 3367
+            },
+            {
+              "cache_hits": 2,
+              "cached_column_count": 3,
+              "carrier_size": 32,
+              "column_adder_digit_replays": 280,
+              "column_host_bit_length_calls_in_arithmetic": 54,
+              "column_host_bit_wiring_operations": 3016,
+              "column_requests": 5,
+              "computed_columns": 3,
+              "identity_tail_columns": 0,
+              "native_kernel_calls_delta": 0,
+              "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+              "setup_adder_digit_replays": 438,
+              "setup_host_bit_length_calls_in_arithmetic": 97,
+              "setup_host_bit_wiring_operations": 4719
+            },
+            {
+              "cache_hits": 141,
+              "cached_column_count": 6,
+              "carrier_size": 32,
+              "column_adder_digit_replays": 591,
+              "column_host_bit_length_calls_in_arithmetic": 110,
+              "column_host_bit_wiring_operations": 6354,
+              "column_requests": 147,
+              "computed_columns": 6,
+              "identity_tail_columns": 0,
+              "native_kernel_calls_delta": 0,
+              "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+              "setup_adder_digit_replays": 438,
+              "setup_host_bit_length_calls_in_arithmetic": 97,
+              "setup_host_bit_wiring_operations": 4719
+            },
+            {
+              "cache_hits": 67,
+              "cached_column_count": 6,
+              "carrier_size": 32,
+              "column_adder_digit_replays": 427,
+              "column_host_bit_length_calls_in_arithmetic": 86,
+              "column_host_bit_wiring_operations": 4606,
+              "column_requests": 73,
+              "computed_columns": 6,
+              "identity_tail_columns": 0,
+              "native_kernel_calls_delta": 0,
+              "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+              "setup_adder_digit_replays": 310,
+              "setup_host_bit_length_calls_in_arithmetic": 72,
+              "setup_host_bit_wiring_operations": 3367
+            },
+            {
+              "cache_hits": 41,
+              "cached_column_count": 6,
+              "carrier_size": 32,
+              "column_adder_digit_replays": 505,
+              "column_host_bit_length_calls_in_arithmetic": 98,
+              "column_host_bit_wiring_operations": 5440,
+              "column_requests": 47,
+              "computed_columns": 6,
+              "identity_tail_columns": 0,
+              "native_kernel_calls_delta": 0,
+              "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+              "setup_adder_digit_replays": 390,
+              "setup_host_bit_length_calls_in_arithmetic": 91,
+              "setup_host_bit_wiring_operations": 4206
+            }
+          ],
+          "zero_native_actions_skipped": 9,
+          "zero_term_wiring": 1210
+        },
+        "pending_auxiliary_bit": null,
+        "pending_plan": null,
+        "postprocessing": {
+          "factors": [],
+          "status": "ZERO_PHASE_RETRY"
+        },
+        "random_calls_attempted": 7,
+        "random_source_contract": "fresh conditionally uniform randrange; software fixture is not physical randomness",
+        "status": "COMPLETE_READOUT",
+        "t": 4
+      },
+      "sample_oracle_report": {
+        "actual_positive_path_observations": 21,
+        "adder_digit_replays": 4369,
+        "base_queries": 6,
+        "cache_may_eventually_cover_full_support": true,
+        "cached_row_scalar_slots": 1098,
+        "complete_current_work_state_enumerated_as_algorithm_step": false,
+        "computed_modular_columns": 28,
+        "dimension": 61,
+        "distinct_queries": 18,
+        "durable_cross_process_cursor_claimed": false,
+        "history": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "max_denominator_bits": 4,
+        "max_numerator_bits": 2,
+        "native_phase_vector_applications": 0,
+        "query_budget": 1000,
+        "query_cache_hits": 14,
+        "query_keys": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            0,
+            11
+          ],
+          [
+            0,
+            16
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            1,
+            11
+          ],
+          [
+            1,
+            16
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            11
+          ],
+          [
+            2,
+            16
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        "query_requests": 32,
+        "recurrence_queries": 12,
+        "single_term_wiring": 9,
+        "typed_modular_tables": [
+          {
+            "cache_hits": 21,
+            "cached_column_count": 4,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 201,
+            "column_host_bit_length_calls_in_arithmetic": 46,
+            "column_host_bit_wiring_operations": 2178,
+            "column_requests": 25,
+            "computed_columns": 4,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 279,
+            "setup_host_bit_length_calls_in_arithmetic": 64,
+            "setup_host_bit_wiring_operations": 3015
+          },
+          {
+            "cache_hits": 11,
+            "cached_column_count": 3,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 200,
+            "column_host_bit_length_calls_in_arithmetic": 42,
+            "column_host_bit_wiring_operations": 2162,
+            "column_requests": 14,
+            "computed_columns": 3,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 310,
+            "setup_host_bit_length_calls_in_arithmetic": 72,
+            "setup_host_bit_wiring_operations": 3367
+          },
+          {
+            "cache_hits": 2,
+            "cached_column_count": 3,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 280,
+            "column_host_bit_length_calls_in_arithmetic": 54,
+            "column_host_bit_wiring_operations": 3016,
+            "column_requests": 5,
+            "computed_columns": 3,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 438,
+            "setup_host_bit_length_calls_in_arithmetic": 97,
+            "setup_host_bit_wiring_operations": 4719
+          },
+          {
+            "cache_hits": 141,
+            "cached_column_count": 6,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 591,
+            "column_host_bit_length_calls_in_arithmetic": 110,
+            "column_host_bit_wiring_operations": 6354,
+            "column_requests": 147,
+            "computed_columns": 6,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 438,
+            "setup_host_bit_length_calls_in_arithmetic": 97,
+            "setup_host_bit_wiring_operations": 4719
+          },
+          {
+            "cache_hits": 67,
+            "cached_column_count": 6,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 427,
+            "column_host_bit_length_calls_in_arithmetic": 86,
+            "column_host_bit_wiring_operations": 4606,
+            "column_requests": 73,
+            "computed_columns": 6,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 310,
+            "setup_host_bit_length_calls_in_arithmetic": 72,
+            "setup_host_bit_wiring_operations": 3367
+          },
+          {
+            "cache_hits": 41,
+            "cached_column_count": 6,
+            "carrier_size": 32,
+            "column_adder_digit_replays": 505,
+            "column_host_bit_length_calls_in_arithmetic": 98,
+            "column_host_bit_wiring_operations": 5440,
+            "column_requests": 47,
+            "computed_columns": 6,
+            "identity_tail_columns": 0,
+            "native_kernel_calls_delta": 0,
+            "resource_unit": "native calls, adder-column digit replays and host bit wiring are distinct",
+            "setup_adder_digit_replays": 390,
+            "setup_host_bit_length_calls_in_arithmetic": 91,
+            "setup_host_bit_wiring_operations": 4206
+          }
+        ],
+        "zero_native_actions_skipped": 9,
+        "zero_term_wiring": 1210
+      },
+      "t": 4
+    }
+  ],
+  "full61_and_codec6_joint_laws_equal": true,
+  "gzip_sha256": "f72432fc27ca89136bb8cb2511344e9729d133f55d1ebe69f32b5f57dd5d6e13",
+  "ideal_reference_run": false,
+  "negative_controls_rejected": [
+    "boolean_auxiliary",
+    "zero_row_latent",
+    "future_depth",
+    "boolean_history_bit",
+    "outside_carrier"
+  ],
+  "order_or_factors_supplied": false,
+  "payload_sha256": "0c50447c0697d1d0ec66356ac5225f55494de60d0877a6e5d48bd66cf45f597a",
+  "polynomial_point_query_bound_claimed": false,
+  "random_contract": "software randrange fixture and exhaustive rational joint-law test; no physical randomness claim",
+  "source_bank": {
+    "complete_error_certificate": {
+      "all_residual_modes_retained": true,
+      "dim": 61,
+      "operator_norm_bound": "1/2",
+      "phase_occurrence_rows": [
+        {
+          "m": 2,
+          "occurrences": 3,
+          "phase_operator_error_bound": "0",
+          "weighted_error_bound": "0"
+        },
+        {
+          "m": 3,
+          "occurrences": 2,
+          "phase_operator_error_bound": "1/8",
+          "weighted_error_bound": "1/4"
+        },
+        {
+          "m": 4,
+          "occurrences": 1,
+          "phase_operator_error_bound": "1/4",
+          "weighted_error_bound": "1/4"
+        }
+      ],
+      "requested_epsilon": "1",
+      "scope": "one complete terminal instrument and its fixed postprocessing; full-retry transcript requires a separate sum budget",
+      "t": 4,
+      "telescoping_sum": "1/2",
+      "terminal_TV_bound": "1/2"
+    },
+    "payload_sha256": "79491e65feec104f2cdc9de510263efef749d8a1174f9cab4c20146a0171615c"
+  },
+  "source_sha256": {
+    "D:\\em\\TEMP\\sep26-shor-general\\new_word_compiler\\certified_word_compiler.py": "e8f7048e2e73292bda230a2adad4aaa76f0b3cd5525f8f0899628bd649d1d81d",
+    "D:\\em\\TEMP\\sep26-shor-general\\optimization\\carrier_codec\\carrier_codec.py": "c25149e0ab4ce92a59d2ca40cb697fe6505cd1dc8d406e9c5a2d92cb2b28c953",
+    "D:\\em\\TEMP\\sep26-shor-general\\optimization\\lazy_modular\\lazy_gcd.py": "b704590f055da0785d03b6026d9fa749e75218acd2764d25e90288f32db0965e",
+    "D:\\em\\TEMP\\sep26-shor-general\\optimization\\lazy_modular\\lazy_modular.py": "08df3595a2a56dc2501bb481828093481bf76e4ac53c8b966990d233fefac1e4",
+    "D:\\em\\TEMP\\sep26-shor-general\\optimization\\lazy_modular\\lazy_postprocess.py": "c353b8dc429e3d60c8afd9685da4cf1624dbf36785d85eee4a12f636eea0af56",
+    "D:\\em\\TEMP\\sep26-shor-general\\optimization\\streaming\\lazy_streaming.py": "635d0c4aee0aaa8d58bb0244835e08e5caa0f6a94926a5213519f40db992a257",
+    "D:\\em\\TEMP\\sep27-qft-research\\gram_research\\check_single_walker.py": "26d32038482fbc0b033fdc6ad82b858fba768115eb22c1488c85b3988b9c2852",
+    "D:\\em\\TEMP\\sep27-qft-research\\gram_research\\single_walker.py": "19ec66c4453d8ca5168d0f8fe7950ff85b297562e8625bfb73c9b40142ac3f74"
+  },
+  "sources_unchanged_during_execution": true,
+  "status": "AUTHOR_ACTUAL_BOUNDED_SINGLE_WALKER_SHARED_CONTEXT_NOT_ADMITTED"
+}

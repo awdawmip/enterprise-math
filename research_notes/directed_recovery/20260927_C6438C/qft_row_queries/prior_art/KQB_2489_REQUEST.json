@@ -1,0 +1,29 @@
+{
+  "schema": "KQB_GITHUB_REQUEST_V1",
+  "conversation_id": "01a079d7-5d03-7a21-abe9-f70606fee0ee",
+  "turn_id": "4ec7c225-8ee0-4565-9d9c-36957858ba21",
+  "request": {
+    "v": 1,
+    "id": "092b236a-7d54-4ea7-aefb-5ca2279c732d",
+    "redacted": true,
+    "mode": "standard",
+    "jobs": [
+      {
+        "db": "arxiv",
+        "op": "paper_search",
+        "q": "\"computationally tractable\" \"Fourier\" \"sparse\"",
+        "n": 8
+      },
+      {
+        "db": "scholar",
+        "op": "paper_search",
+        "q": "\"Quantum Fourier Transform\" \"matrix product\" \"entanglement\"",
+        "n": 8,
+        "x": {
+          "sort_by": "relevance",
+          "hl": "en"
+        }
+      }
+    ]
+  }
+}

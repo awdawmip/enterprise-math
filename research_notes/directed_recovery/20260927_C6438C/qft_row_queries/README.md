@@ -1,0 +1,94 @@
+# QFT research checkpoint: row-query sampling, certificates and the remaining order problem
+
+2026-09-27. Activity RA-CAAAC604CB513AEA8BBC1DFC, session
+MCP-9e0873ae3aae418192f81173029434e7, researcher EM-DIRECT-C6438C.
+All results here are AUTHOR / SHARED_CONTEXT / NOT_ADMITTED. Mathematical
+acceptance, a formal claimed Task, and a completed general dequantization
+are not implied. P000 and the actual typed BRC research constraints remain
+unchanged. Global knowledge was synchronized to main@f44ed595.
+
+本轮将研究从逐轮全场概率求和推进到完整振幅行查询，执行了两项查询优化，
+并明确了通用精确查询与求阶之间的关系。一般 QFT/Shor 的多项式经典算法仍未闭合。
+
+## 1. 已执行的精确采样归约
+
+维护一个辅助工作标签 W，每轮以公平硬币提议 Z=W 或 P_i W；仅查询
+x=v_h(Z)、y=T_h v_h(P_i^-1 Z)，以 ||x+y||²/[2(||x||²+||y||²)] 采样读出。
+完整联合分布归纳证明见 [single-walker proof](gram_research/SINGLE_WALKER_QUERY_REDUCTION.md)。
+采样原理有直接先行文献 BGL 2022 / Pilot-Wave 2026，本项目贡献是与实际
+native two-H4、有序非交换反馈、完整残差和 typed 模乘接口的精确组合。
+
+N21/a2/t4 在 D6 与 D61 各检查了全部 30 条历史边的逐标签联合质量，完全相等；
+非零残差由全历史检查覆盖。两个顶层查询的内部代价仍可能指数增长。
+小例中的 memo cache 甚至比原完整状态占用更多整数槽，不能仅凭查询接口短就声称提速。
+详见 [执行说明](gram_research/SINGLE_WALKER_EXECUTION_NOTE.md)。
+
+## 2. 前缀检查点改变单次查询的时间与存储取舍
+
+保存深度 k 的真实早期状态，然后向后递归查询深度 i 的行。完整证明及成本账见
+[checkpoint tradeoff](point_queries/CHECKPOINT_ROW_TRADEOFF.md)。每次查询的二叉节点数为
+2^(i-k+1)-1，前缀构造最多 2^k-1 个输入行更新；均衡选择 k 给出
+O(poly(i,D,b) 2^(i/2)) 的此种查询上界，而朴素不共享递归为 O(poly(i,D,b) 2^i)。
+
+实际完成 1,984 次全坐标查询比较。N251/a6/t8 的一个固定查询中，保留 8 个早期行，
+递归节点 255→31、实际模乘列 135→30、adder digit replays 54,436→19,689；
+反馈应用同时 11→15，故不能称各项成本都下降。单次观察耗时约 0.0726→0.0211 秒，
+不作为一般性能结论。此处 t8 不是该 N 的默认 t16 分解宽度。
+
+默认 t≈2log2N 时，2^(t/2) 仍约为 N；未超越已有完整工作场的总体最坏上界。
+typed column cache 和证据占用单独收费，未声称总内存为 O(2^k)。
+
+## 3. Jacobi 字符提供无需枚举支持的末位证书
+
+对 odd N、unit a、实际平方调度和标准初态 work=1，若 Jacobi(a,N)=-1，
+最后一轮前的支持都在 +1 字符类，乘 a 后都在 -1 类。因此完整带残差的
+两臂支持不交，末位局部读出公平。证书发现及调度绑定为保守 O(t poly(log N))
+typed 位成本，不需要阶、因数或遍历每个支持标签。它只授权这一个末位。
+
+见 [证明与数论来源](character_certificates/JACOBI_FINAL_BIT_PROOF.md) 及
+[实际集成](integrated_sampler/CHARACTER_WALKER_INTEGRATION_NOTE.md)。Jacobi +1 返回
+UNAVAILABLE 并继续原查询算法；它不证明该位不公平。N21/t4 的完整末轮联合分布
+检查通过，实际轨迹少了 2 次顶层行查询和 14 个递归节点，同时增加生成与重放合计
+2,594 次 adder digit replays。小例未证明总体提速。
+
+## 4. 新的精确查询到求阶归约
+
+[完整命题与证明](point_queries/EXACT_ROW_ORACLE_TO_ORDER.md)：令 t=2ceil(log2N)，
+查询全零历史、深度 t-1、工作标签 1 的原始行。该行第一坐标
+alpha=ceil(Q/s)/Q，Q=2^(t-1)，s=ord_N(a²)。严格有 s=ceil(1/alpha)，
+再算 a^s 即得 ord_N(a) 是 s 还是 2s。因此一次通用精确行查询就足以求阶。
+这在五个使用默认宽度的实际小例中执行验证，包括 N143/a2 得到阶 60。
+
+这不是快速求阶算法，也不是不可能性证明。它明确指出：不能把通用精确行查询
+当作低成本黑箱。典型采样历史、带严格全局误差控制的近似接口，仍可继续探索。
+
+## 5. 下一项数学目标与误差合同
+
+[mass-weighted approximation bound](point_queries/MASS_WEIGHTED_APPROXIMATION_BOUND.md)
+给出实际 single-walker 的全局误差合同：允许低质量历史较大的局部误差，
+但必须认证所有历史合并后的未归一化振幅误差。这是符号推导，尚没有满足该界的
+高效近似查询器，也没有执行新的近似传播。
+
+接续优先研究：不预先求阶或分解 N，如何紧凑表示带非交换有序矩阵系数的模乘纤维和，
+或者如何对近似行查询证明上述全局误差及多项式总成本。不能将已知小相位内部维数
+直接当成小工作标签复杂度，也不能把只在小例有效的压缩当成一般界。
+
+## 6. 来源、证据与任意对话续接
+
+- 当前项目 intake 为 enterprise-math@d8447e4；[前沿审查与 pins](latest_frontier/FRONTIER.md)
+  明确区分已读 Stage95–101、现成工具的适用类型和本轮新增内容。后续实际完成状态以本 README
+  和各单元执行说明为准；前沿审查冻结时的“待执行”不是新的阻断。
+- [文献报告](prior_art/PRIOR_ART_AND_BRIDGES.md) 给出已读原始论文、读到的范围、条件和可接入公式。
+  专业查询只提供 metadata；其 outer FAILED / child PARTIAL 已原样归档到
+  GK@00e3bb2ec34616a59834acad476f3ba342c22c98，五个文件完整回读一致。
+- 核心执行依赖沿用 enterprise-math@0e6380ff74d31b842ba0b54802c1f0595a7dd60d 的
+  research_notes/directed_recovery/20260926_C6438C/optimization，以及该包固定的前序 source pins。
+  各结果逐字节绑定所用源、实际 core receipts、typed traces、原始行和准入证书。
+- `PUBLICATION_MANIFEST.json` 和 `readable_evidence/INDEX.json` 提供字节哈希与完整二进制证据的
+  可读 base64 分段。网页/客户端对话可直接从证明、结果摘要和 pins 接续；完整证据可分段读取还原。
+  本地脚本是其中一种复跑方式，并非开始数学工作的环境或能力门槛。
+- 研究接续单元见 [CONTINUE.md](CONTINUE.md)。缺少某个特定工具时，继续公式推导、反例或成本分析，
+  将未执行部分准确标注。不要为了重放冻结小例而停止新的数学工作。
+
+原 sampler、检查点与字符 sampler 已验证同一活对象的预算/随机源中断续接。
+跨进程持久化 sampler cursor 尚未实现；本包保证研究来源和待证命题可续接，不冒称该运行特性已实现。
