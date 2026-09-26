@@ -1,0 +1,26 @@
+{
+  "arguments": {
+    "encoding": "utf-8",
+    "path": "research_notes/directed_recovery/20260926_13C1B7/HANDOFF.md",
+    "ref": "f9b2e3e7615ddc229c5f7fe6aca44d303f03c9fe",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "sep26-science-full-readback-HANDOFF.md",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# 本机补算与对话接续：2026-09-26\n\n状态：定向研究作者成果，UNREVIEWED / NOT_ADMITTED。这些材料不是正式 Task checkpoint、Result 或独立审阅。\n\n作者活动：EM-DIRECT-13C1B7 / RA-BC9CF141D000E1FE25AF22EA；本机根对话及其共享上下文子代理。登记 Source：029e62a1a31a0b9e65e7e915db724efdd8311836。没有领取旧 CM24，也没有借用原作者 session、claim 或 run。\n\n## 1. D25：精确复算与下一位修正\n\n完整证明见 `math/D25_LOCAL_PROGRESS.md`。原 LOW/Beta 公式通过 203 项有理 jet/Beta 基向量检查及 8 个素数端点检查；新证明另有 176 项望远镜证书与 32 项有理恒等式检查。这些有限复算不构成全素数 LIFT 证明。\n\n本轮新结论：B11 的模 p Dixon 替换提升到模 p² 时必须保留横向参数导数。定义 F_m(a,d)=sum_j (-m)_j/(d)_j · a/(a+j)，C_m(a)=F_m(a,m+a+1)，则横向导数等于 C'_m(a) 减去显式双极点矩。原分母相对 Dixon 线偏移 p/3，不能把切向导数冒充横向导数。p=13 给出两者之差为 104 mod169 的确切反例。\n\n下一步：在已保全 LOW/IX/IZ 中建立保留横向导数的 terminating-family 参数映射，证明新双极点矩被抵消，或将其明确保留为待证明残差。不要重证 B11、UR；不要把有限扫描通过写成 LIFT 已闭合。完整原作者输入见 Source 9bba3d56193d4ba55bfc1a42cc38f2d2dbf416ee 的同目录 `sources/hourly_new/`，其中 fb9aba8a 给出 L/M/h/J，f48dfe9d 给出 LOW/IX/IZ。\n\n## 2. BRC：第二冻结相位的可复现新结果\n\n本轮在 Stage87 冻结输入上加入真正 Stage80 phase4，与 phase3 共存；保持原 BRC 核与 64 位冻结 phase 字，不提高精度。具体证明和证书见 `brc/`。\n\n共同载体从 4 维严格增加到 5 维。原 39 个统计量不足：存在两份合法正迹一状态，在全部旧统计量上相同，但 V4→A1 的概率严格为正与零。对一个相干逻辑位及明确列出的 A/D、phase3/4、逆、受控相位、H/Z 未来语言，精确效果闭包为 58 维，来自 3×16+10 的对称/反对称直和。另完成 58 个正协方差探针×15 动作的 870 次原始 61 模式精确对照，以及逆运算、H² 和质量守恒检查。该结论限于此冻结语言，不是全部未来操作或硬件模型的结论。\n\n下一步由原线路据完整证明选择审查/整合，再检验 Stage88 的两个相干逻辑位与两个冻结相位组合。新的共同载体与作用公式可直接作为输入；不要重复原来的单相位 39 维或已发布 Stage88 双位结果。若当前对话不能运行代码，仍可审阅这里给出的有限维论证、显式见证和完整证书，继续可移植推导；尚未执行的新算例必须如实标记。\n\n## 3. 旧队列去重证据\n\n`math/SOURCE_SUPERSESSION_EVIDENCE.md` 对照了旧 CM24 与后续 D24 的完全相同 UR 定义。后续 D25 taskbook 已把 UR/JT0 明确冻结为已完成输入。因此旧 CM24 的推荐是需要当前有权 Driver 处理的重复路由，不能让新研究员重证 UR，也不能领取 CM24 后越界做 LIFT。\n\n本机没有擅自改变任务状态。驾驶员应依当前权限核实既有 Result/review/synthesis，完成精确重复任务协调；本说明不是新的独立 review。D24 后继材料已有 single-review flow 的成功回执；不得把传输修复误解释为一律需要两份审阅。\n\n## 4. 持久化和续接边界\n\n15 条最新 D25/Research2 原文已逐字保全并全文件回读。原文代表作者报告，保全不授予注册或审阅通过。本轮新增成果及可执行脚本也按完整字节与哈希验证，正式准入仍走现有角色路径。\n\n仅将明确失败限定在其实际动作：不重放原对话遭拒的 recovery-status Issue 或登记；工具缺失不阻断已授权的数学推导。Source 已出现 a466676f8e55acbd0115c74e0134ccd8bcc73df9 的 Stage88 双位笔记，该写入不是本轮代发；本轮新研究是第二相位扩展。\n\n定时频率不变，不另建重复 scheduler。任意新对话读取本文件、相应证明、清单和确切输入即可接续；正式接管仍使用自己的身份和当前规范 continuation，不能复用本活动的私有能力。\n",
+      "display_title": "HANDOFF.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/f9b2e3e7615ddc229c5f7fe6aca44d303f03c9fe/research_notes/directed_recovery/20260926_13C1B7/HANDOFF.md",
+      "encoding": "utf-8",
+      "sha": "bbdb1902f19511ba0c1ccf75d63892edb6cb03fc"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
