@@ -1,0 +1,88 @@
+# Declared family member N615: bounded actual BRC input certificate
+
+Status: AUTHOR_EXECUTED / SHARED_CONTEXT / UNREVIEWED / NOT_ADMITTED.
+
+Researcher: `EM-DIRECT-C6438C`.  
+Activity: `RA-CAAAC604CB513AEA8BBC1DFC`.  
+Research session: `MCP-9e0873ae3aae418192f81173029434e7`.  
+Registration Source: `f0e5fb6f478a5a380ab5a7533d2585f7f43ee3bf`.
+
+This is an executed certificate for the **input conditions** of one declared member of the symbolic family in `TV_OBSTRUCTION_AUDIT.md`. It does not measure TV, run a Shor history, evaluate an ideal distribution, or establish a large discrepancy at the finite integer 615. No phase bank or stabilized `next_cf_only/` file was changed.
+
+## 1. Construction and exact results
+
+The declared public fixture is `m=0`, `p=5` in
+
+`a=18m+4`, `q=Phi_(2p)(a)=(a^p+1)/(a+1)`, `N=(a-1)q`.
+
+Actual typed shift-add, integer power, and binary long division generated `a=4`, `q=205`, and `N=615`. The complete operations are retained, including the multiplication-back check
+
+`(4+1)*205 = 4^5+1 = 1025`,
+
+and `3*205=615`.
+
+The actual typed Wilson calculation for the small input `p=5` gives `4! mod 5=4`, certifying that 5 is prime. Its complete certificate was replayed. No Wilson calculation for 615 was performed, and no primality of 205 is asserted or required.
+
+Typed Euclidean calculations give
+
+- `gcd(a-1,q)=gcd(3,205)=1`;
+- `gcd(a,N)=gcd(4,615)=1`;
+- `gcd(a+1,q)=gcd(5,205)=5`.
+
+The last result also exhibits why the family proof must not impose coprimality of `a+1` and `q`.
+
+Typed long divisions give `615=3*205` with zero remainder and `205=3*68+1`. Thus `v_3(615)=1`; the input is not any perfect power of exponent at least two. The coprime factors 3 and 205, each greater than one, establish that the odd composite input is not a prime power. This is a check of the declared construction, not a complete-factorization run.
+
+## 2. Order and good-base certificate
+
+The executed sparse modular-power traces return:
+
+| Exponent e | 4^e mod 615 |
+|---:|---:|
+| 1 | 4 |
+| 2 | 16 |
+| 5 | 409 |
+| 10 | 1 |
+
+Since the certified prime factorization of the candidate exponent is `10=2*5`, its proper positive divisors are exactly 1, 2, and 5. None returns one; exponent 10 does. Together with the unit-base check, this proves that the true order is exactly 10.
+
+The half-order residue 409 is neither 1 nor `615-1=614`. Actual typed subtraction, addition, and Euclid give
+
+`gcd(409-1,615)=3`, `gcd(409+1,615)=205`.
+
+Both are proper factors, proving the good-base condition for this fixture. The exponents are inputs to a declared arithmetic verification, not information supplied to a Shor simulation; no such simulation is run here.
+
+## 3. Native execution and retained evidence
+
+`check_family_n615.py` uses the existing `completion/typed_integer_prechecks.py` and `sparse/sparse_modular.py`. Integer multiplication reuses actual full-adder columns through shift-add; division retains each binary subtraction, quotient bit, and remainder. The local Euclid composition uses those typed division outputs. Modular powers use the complete BRC adder-compiled modular permutations, including every padded work label.
+
+The run retained and replayed four distinct complete modular maps, with 1024 columns each: **4096 complete basis columns**. Their construction contains **54120 adder digit applications**, with complete input/carry provenance. This count excludes the separate replay and other typed arithmetic; it is not a total runtime or primitive-operation count.
+
+One actual native BRC core call produced the reusable 12-state full-adder columns. All subsequent typed arithmetic reuses those executed columns. The single kernel-call count therefore does not mean that the certificate used one arithmetic operation. The complete native call receipt, primitive columns, all modular-map certificates, modular-power traces, Wilson trace, integer-construction traces, gcd traces, and replays are stored in the artifact.
+
+The native source is pinned to:
+
+- Commit: `bc7babbb9e890f6d5a7094430a5fbdccf66c77ad`.
+- Path: `src/enterprise_math/brc_weighted_recurrent.py`.
+- Git blob: `4e6b3132580e3cd70a20a0d8bd4d28792b961afb`.
+- SHA256: `7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26`.
+
+The frozen Stage87 checkout is `0852cad130c1d877174d235687cf60c19f318c58`. The certificate additionally records the actual file paths and SHA256 values of this check script and the executed sparse, integer, and Stage78 modules.
+
+## 4. Artifacts and reproduction
+
+- `FAMILY_N615_CERTIFICATE.json.gz`: 101511 compressed bytes, 1305614 uncompressed JSON bytes.
+- Uncompressed payload SHA256: `c5eb0a9acecfb30eb22be1c84c0f6a811c3569169ed12eb0bc0578938a9249a8`.
+- `check_family_n615.py`: executable bounded check and complete-certificate writer.
+
+The completed run exited successfully. It also decompressed and re-read the saved payload, checking that the serialized certificate was preserved exactly. To execute the same check in the authorized local environment:
+
+```powershell
+& 'D:/kimi-query-bridge/.venv/Scripts/python.exe' 'D:/em/TEMP/sep26-shor-general/next_distribution/check_family_n615.py' --activity RA-CAAAC604CB513AEA8BBC1DFC
+```
+
+A rerun produces fresh elapsed-time and call-receipt metadata, so byte-identical timing fields are not expected. It must preserve all mathematical results and exact trace-verification checks.
+
+No phase propagation, ideal reference distribution, TV computation, complete Wilson615 test, or full factorization was performed. The family-wide asymptotic TV theorem remains a separate symbolic argument; this bounded certificate verifies its stated small input conditions only.
+
+Global-Knowledge-Sync: main@441ebef / GLOBAL_KNOWLEDGE_V1
