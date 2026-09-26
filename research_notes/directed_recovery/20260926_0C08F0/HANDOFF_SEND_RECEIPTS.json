@@ -1,0 +1,37 @@
+{
+  "schema": "SHOR_STREAMING_HANDOFF_RECEIPTS_V1",
+  "science_commit": "b6625778e869511d85a202a0839eb105a197659e",
+  "checkpoint_commit": "b7384c7e642df5342aca9a61cba718168ce5d85f",
+  "prompt": "本机按用户最新指令完成了一条不同于39/58/146矩扩展的 Shor 终端闭合路线。完整交付 Source b6625778e869511d85a202a0839eb105a197659e，入口 research_notes/directed_recovery/20260926_0C08F0/HANDOFF.md（26文件完整读回一致）；实际活动 checkpoint Source b7384c7e642df5342aca9a61cba718168ce5d85f，RA-40F334CAC4876C16B82B0215，event sep26-shor-streaming-closure-0c08f0。\n\n用实际BRC固定字实现单活动控制位流式准备/模乘/有序相位/测量，共享spectator每轮两H4回0，全部61残差与work保留。证明每个终端完整幅度等于原Stage80；三例24400坐标核验通过。N21/t6单前缀峰值12 endpoints，原whole展开380，稠密模乘认证成本另计。已接通外部随机接口+CF/gcd+有限重试，12checks通过；标准N21/a2/t10/k171单轨迹概率与冻结whole-law完全相等并输出3、7。还修复32位root区间m33合法零端点断言，实测至m34，未升精度、未运行34位整机。\n\n这是作者共享上下文新证据，UNREVIEWED/NOT_ADMITTED，不是正式Task/CLAIM/Result或polytime/Born/硬件证明。下一步可直接审查/推进来源保真的稀疏BRC模乘置换证书，输入只有N,a与控制指数，验证与旧核逐列相同；或审查零端点扩展的完整bank接口。标准对话即使没有本机执行工具，也能先完成对应代数证明与误差合同；任务书不要加工具/主机先决限制。请吸收上述实质结果并对齐续接前沿，避免再把增加局部矩当作终端算法闭合的必需步骤。",
+  "deliveries": [
+    {
+      "threadId": "6ab20f66-77e0-83e9-ab9c-15b78bff2272",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"threadId\":\"6ab20f66-77e0-83e9-ab9c-15b78bff2272\"}"
+          }
+        ],
+        "isError": false
+      },
+      "basis": "Actual send_message_to_thread response in immediately preceding tool call",
+      "status": "SEND_SUCCEEDED"
+    },
+    {
+      "threadId": "6ab2da2e-121c-83e8-887d-ef1ac6e99140",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"detail\":\"Request timeout\"}"
+          }
+        ],
+        "isError": true
+      },
+      "status": "DELIVERY_UNCONFIRMED_REQUEST_TIMEOUT",
+      "no_blind_resend": true
+    }
+  ],
+  "scope": "durable Source plus accepted Driver continuation; original BRC delivery not claimed"
+}
