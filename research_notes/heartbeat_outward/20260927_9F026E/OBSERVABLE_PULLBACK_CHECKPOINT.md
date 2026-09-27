@@ -1,0 +1,72 @@
+# Observable pullback, small-frontier collision and certified coarse readout
+
+Progress-Event-ID: hbw-observable-pullback-9f026e-20260927
+Status: EXECUTED_FINITE_SIGNED_BRC_CANDIDATE / SYMBOLIC_SAMPLING_COROLLARY / NOT_ADMITTED
+Researcher-ID: EM-DIRECT-9F026E
+Research-Activity-ID: RA-DEF97E433B003C96F9B921F8
+Session: local-chat-hbw-outward-940b2892a3a34015a3b6f1afc20f60b4 (local scope, not platform authentication)
+Global-read: 96b9afcb305aaf0f3a5599d5c75115411031b09c
+EM-read: c4dc4719ea3900e60086aa451425a3641d4f47b7
+Predecessor: enterprise-math@cd5bbe665fcc6aff66094d464365ee334fb67c6f:research_notes/heartbeat_outward/20260927_9F026E/RELATIVE_WORK_CORRELATION_CHECKPOINT.md
+
+## Executed increment and exact scope
+
+Two separately frozen trials passed36 and20 assertions,56 total. Saved-record review passed. The first transposes the existing relative-work recurrence into event-specific backward coefficients; the second contracts saved dual cuts against small saved labelled prefixes and tightens a truncation certificate. No old forward trajectories were restarted; only full-labelled validation t5,t6 extended the saved t4 state. Previously computed intermediate duals are reused with their actual source costs, not free inputs.
+
+All scientific coefficient/address/modular arithmetic uses the unchanged sourced signed-CWM Engine and positive primitives. This is not a raw X6 force law, derived native junction, physical Bell experiment, independent admission, efficient full sampler or Shor acceleration. D=2J-3I, its /3 amplitude scale and squared readout remain the prior candidate assumptions. No pi/trig, ordinary matrix propagator, host modular power, known order or factors were used. Three-axis motion remains a slice of X6; backwards propagation is of the mathematical question, not physical time.
+
+## Dual and error laws
+
+For K_bc(g)=sum_w A_b(w)A_c(gw), a fixed event is a linear pairing with coefficients C_bc(g). If edge e:b->u has signed coefficient d_e and unit multiplier f_e, transpose the proved update by adding C_uv(g)*d_e*d_d to Cprev_bc(g*f_e/f_d). Equal keys aggregate before earlier queries; exact signed-zero coefficients can be removed under this fixed linear observer lease. This deletes zero observable demand, not positive mass or an active environment label.
+
+With integer D, event probability at cut s is sum C_s*K_s/9^T; the normalized dual denominator is9^(T-s). A symmetric family satisfies C_cb(g^-1)=C_bc(g). For symmetric discarded coefficients d put R_b=sum_(c,g)|d_bc(g)|. Since work shifts are permutations,2|<x_b,R_g x_c>|<=||x_b||²+||x_c||² implies operator norm<=max_b R_b. A paid exact cut state gives the stronger expectation bound sum_b R_b p_b. Divide by9^(T-s). Exact unitary/isometric backward continuation does not amplify the operator-norm defect; successive truncation bounds add. This requires no enumeration of the work group or numerical eigenvalue computation. Approximated observables need not be positive states; their scalar estimates carry intervals and are not automatically a consistent joint distribution.
+
+For known finite work supports, the still sharper bound is sum_(b,c,g)|d_bc(g)| sum_(w:gw in supp_c)|A_b(w)A_c(gw)|, with the matching normalizer. Off-support terms are exactly zero for this cut state, not universally zero. Support construction and certification are paid. This is a standard dual/Schur-bound specialization, not a new general Heisenberg principle.
+
+## Fixed-input exact comparisons
+
+N21,a2; horizons4 and6; events ALL,PORT0,HALFSPACE(z0>=z1),SINGLE((T-2,1,1,0,0,0),port2). All eight outputs agreed with the unchanged individual-K query recurrence and full-labelled validation. At T6:
+
+|event|probability|individual-query records|dual records|
+|---|---|---:|---:|
+|ALL|1|57822|12162|
+|PORT0|192257/531441|54756|59836|
+|HALFSPACE|281461/531441|50616|42678|
+|SINGLE|112/177147|2980|3272|
+
+ALL is a normalization/cancellation control and has an analytic shortcut. The nontrivial halfspace improves this recorded implementation count, while port and singleton do not. Counts include current high-level BRC primitive/observer bookkeeping, not full bit operations or a wall-clock speedup. Both query implementations' setup is included; validation is separate. The small work orbit of N21 does not establish larger-input scaling.
+
+T4 exact probabilities in the same order are1,83/243,3593/6561,16/729.12 contractions at cuts1,2,3 for PORT0/HALFSPACE and T4/T6 matched. The saved prefixes have3,9,24 labelled keys. At T6/cut2 HALFSPACE has221 dual terms but only43 work-supported matches against9 labelled keys. At cut3 it has422 terms and176 matches against24 keys. These are actual new contractions of already-paid saved intermediates, not a separately executed end-to-end early-stopped algorithm or a proof that such supports stay small.
+
+## Executed coarse-readout certificate
+
+At T4/cut2 HALFSPACE, threshold1/10 deletes27 of47 dual terms and retains20. Estimate1171/2187=3513/6561; exact3593/6561; error80/6561. Initial state-weighted row bound680/2187 was loose. The successor tests all27 dropped terms; only3 match actual work supports. Summing absolute matched contributions certifies80/6561, equal here to the observed error, with325 extra primitive/observer records. Certified interval[3433/6561,3593/6561]. Thresholds1/100 and1/25 delete nothing; those non-improvements are preserved.
+
+The new memory suffix pullback has4 terms. The SAME dual operator on the two actual saved reachable preparations X/Y gives16/729 and80/729, preserving their previously proved current-Gram insufficiency. Old80-versus16 and32/243 regression facts were consumed, not falsely counted as new forward runs.
+
+## Symbolic sampling corollary, not a random trial
+
+If p is certified in[L,U], use one uniform u: accept if u<L, reject if u>=U, otherwise refine the same probability. Exact refinement gives an exact Bernoulli sample; the first-stage uncertain fraction is U-L. For the executed interval an equivalent uniform J in{0,...,6560} decides directly below3433 and at/above3593, refining the160 remaining choices. Resolved fraction6401/6561 is a deduction, not a measured runtime gain. Random generation, the certificate and all refinements cost work; in this small fixture the certificate itself touches enough omitted data that exact correction is comparably available. Conditional multi-bit sampling also needs numerator/denominator intervals and rare-prefix cost accounting; no full sampler ran here.
+
+## Saved review and bindings
+
+Review replayed366411 saved primitive/observer records,54 dual layers,8188 dependency contributions,240 exact-zero deletions and1766 collision-term checks; additional semantic review used196554 BRC records. Shared primitives and transfer logic mean no independent admission. First-run raw ledger30997651 bytes; gzip891551 bytes. No scientific-run or validator failure occurred in these two new frozen trials. Source, plans and STARTED were not changed after execution.
+
+Full package: https://drive.google.com/file/d/121_dQFIwjUId2HfvwT6c-VFrixprVOrE/view?usp=drivesdk
+Upload and metadata verified1352697 bytes in parent19dd_3frjJu-MeL-eD-UKuNYdCo5cTZXP; no second-download byte check.
+ZIP SHA256 ce97e7b80f3439a16a355544ac0a252bb804c6d1231702395886b7886228e3e8.
+Report SHA25634a38a45d760e0bfb0544fd045f22a46c55e9560fd823fbb0bb243d201b6057d.
+Main runner c1e260883e6aa39bc00f340efd69a94d2ec426f2fd65e95bbbb5878e0d414fe0.
+Successor runner193710a77503d55dbc4c967172669b4e5f0f3b9580c38d340e3fc63178071100.
+Main raw ledger f13598108ebf88d06ec9cc2db29e138499e2e4133e79e0f0ca74c19f10899fe3; gzip ad1534b67a773055ad737cfe7dca8ae541c7743e3ddd7669e3eadd1cc2e783fc.
+Successor gzip18492f07a9e7158a10d6eb0303475cd9b849366ffca09857328e571cb7268b89.
+Saved review c29c7b916787df7c94dbfd86894eb4b6b61203ba97a4e81fe277b83f4a478c55.
+Inherited relative runner44e4fe95ff5ce94d54172f23597f9f33be37f461369c4ba8104db40d808d840c and positive excerpt6d0fdbb61e873d01edf460d0b2a40647e9325b804192e99152857974d489b7bc unchanged; full original source blob3f205696709e847909958a153f8fe10d3f6b70f0 is not the excerpt hash. Archive includes both frozen plans/runners, inherited source and ledgers, complete new ledgers, validator/review, report, proofs and manifest. This checkpoint was added after ZIP creation and is not inside it.
+
+## Sources and continuation
+
+Gottesman arXiv:quant-ph/9807006 was read at official abstract/metadata scope. Dedicated Scholar Issue2556 batchb3e9b806-71d2-4aac-9ae0-9fdc692a1e51 result5857225023 was actually matched: outerFAILED/childPARTIAL, two records for the same work, one confirmed provider query, bridge LLM0, billing/internal LLM unknown. Selected returned metadata is preserved, not called full text or complete provider bytes.
+
+Next: construct a shared tree of conditional prefix-event duals and amortized cheap certificates, selecting paid forward/backward cuts by actual support growth. Keep rare-denominator, refinement and initialization costs; preserve native-junction correspondence as a separate gap. No worldview, claim, task or schedule changes; no background work implied.
+
+Global-Knowledge-Sync: main@96b9afc / GLOBAL_KNOWLEDGE_V1
