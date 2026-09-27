@@ -1,0 +1,64 @@
+# Shor: return to the native BRC research question
+
+Status: SOURCE_AUDIT_AND_SYMBOLIC_CANDIDATE; NOT_ADMITTED; no new scientific execution.
+Current user steering: “qft是不是走歪了，我们应该用brc原生算法来解决shor”.
+
+## Decision
+
+The recent research priority drifted toward implementing and optimizing classical integer arithmetic on a BRC full-adder catalog. Those results are valid within their measured scope, but they do not establish native unknown-order discovery, efficient coherent state compression, or an efficient classical implementation of Shor. Demote the floor/moment/adjacent-mask optimization chain to an auxiliary arithmetic library. Its previously recorded next action is superseded by this note and CONTINUE.md for this research activity. Preserve the old artifacts and measurements.
+
+QFT remains a legitimate mathematical specification or comparator. A native BRC algorithm need not reproduce its individual gates. Conversely, removing the QFT name or rewriting a circuit as a short symbolic product does not eliminate the order-finding bottleneck. The objective is a source-defined, executable BRC construction yielding a verified factor or a sufficient order-related witness, with construction, state, application, observation, precision and repetition costs accounted in input bit length. No efficiency or dequantization conclusion is established here.
+
+## Audited existing mechanisms
+
+The source audit uses enterprise-math commit a99ad446f853f0103ca763459de007a13680ba76 unless separately pinned. This is a reuse/extension audit, not a proposal to invent another generic tool family.
+
+1. The finite-precision compilation candidate in research_notes/directed_recovery/20260926_C6438C/SHOR_ALTERNATIVE_CLOSURE.md (blob 017266312a2824be4199d296579b036fae2ab787) is retained. Its 61 internal modes do not bound the number of modular work labels. Tiny factorization evidence and arbitrary-precision compilation do not prove polynomial classical factoring.
+2. Existing lazy_modular.py (SHA256 08df3595a2a56dc2501bb481828093481bf76e4ac53c8b966990d233fefac1e4; source publication 0e6380ff74d31b842ba0b54802c1f0595a7dd60d) composes actual full-adder columns into comparison, multiplication, division and Euclid. This is available arithmetic, not an unknown-order primitive. Recent floor-degree-five and adjacent-mask source publication 86022c1ee4de09a9c9055f4c6806a5d35459edfc remains auxiliary. The top-mask 72.4% main-path digit reduction was a finite local metric, not a full-Shor runtime reduction.
+3. src/enterprise_math/brc_weighted_recurrent.py (blob 4e6b3132580e3cd70a20a0d8bd4d28792b961afb) implements explicit nonnegative rational matrix powers and a finite stable resolvent. Matrix dimensions and arithmetic are charged. It supplies no automatic unknown-order discovery or Laurent-label observation operation.
+4. T0_BRC preserves declared support/result/provenance types. T4_FINITE_FIBER_CAPACITY_COLLISION_MINIMA and T8_RELATION_OBSERVABLE_SPECTRUM provide relevant equal-fiber and observation-safe quotient semantics. Their mathematical use does not give a free preimage, sampler or witness extractor. Registry blob: 3889506451091ebcfbf7a58cda6517c4af8c3597.
+5. The affine-effect degree-two moment lease does not automatically preserve an occupancy predicate, conditioning on a residue port, or recovery of a hidden path label. These need explicit sufficient observables.
+6. src/enterprise_math/common_collapse.py (blob dffc3d412d9e7b298cc8305dbf375fbaa5ac62a1) concerns axis-aligned square bodies and enumeration of integer target points. Its name is not evidence of a generic modular collision inverse. Direct Shor-backend applicability: NOT_APPLICABLE. The common-target semantic pattern may be reused with a separately justified carrier.
+
+## A restricted compression obstruction
+
+Let N>=2, gcd(a,N)=1, T e_y=e_(ay mod N), and r=ord_N(a). The marked-return sequence is
+
+    c_m = e_1^T T^m e_1 = 1_(r divides m).
+
+The total mass 1^T T^m e_1 is always one. That scalar erases order information; this says nothing analogous about the full state or other observables.
+
+If a fixed d-dimensional linear realization u^T A^m v reproduces c_m, form H_(i,j)=c_(i+j), 0<=i,j<r. H is the permutation matrix j=-i mod r, so its rank is r over any field. It also factors as H=OC, with O_(i,:)=u^T A^i and C_(:,j)=A^jv, hence rank(H)<=d. Therefore d>=r. Matching only m=0..2r-2 already suffices for this conclusion.
+
+This excludes one proposed shortcut: an exact fixed low-dimensional linear observer for the whole return sequence. It is not a BRC impossibility theorem. It does not exclude succinct descriptions of large operators, nonlinear or adaptive encodings, other finite-horizon contracts, approximation, or a sufficient factor witness. The peer review in RETURN_OBSERVER_REVIEW.md independently checked the symbolic argument in shared context, including r=1 and all field characteristics; it is not formal admission.
+
+The formal identity sum_m c_m z^m=1/(1-z^r) describes r; it does not compute it. T itself has spectral radius one, so the existing stable recurrent-star implementation is not a convergent star for T. A formal series and a numeric stable-star call are distinct interfaces.
+
+## Native candidate: labelled collision port
+
+Use the declared unit permutation T and a public exponent range Q=2^t. In the formal Laurent-polynomial extension define
+
+    B_j(z) = 2I + z^(2^j) T^(2^j) + z^(-2^j) T^(-2^j),
+    G_Q(z) = [ product_(j=0..t-1) B_j(z) e_1 ]_1.
+
+This is the positive four-branch expansion of two exponent choices x,y in [0,Q). It records Delta=x-y and the relative modular endpoint. Its exact return-port law is
+
+    G_Q(z) = sum_(|Delta|<Q) (Q-|Delta|) 1_(a^Delta=1 mod N) z^Delta.
+
+Proof: each exponent pair appears once in the bit expansion; exactly Q-|Delta| ordered pairs have the given difference. Endpoint one is equivalent to equality of the original modular endpoints. This derivation does not supply r, factors, an orbit table, or discrete-log coordinates to a constructor. Negative powers require the unit hypothesis and a charged modular inverse construction. Non-units can be handled by the already available gcd branch.
+
+The 00 and 11 branches share (relative endpoint, difference) and may be represented as 2I for observers and future actions that depend only on those retained labels. Their multiplicity remains two. Recovering individual x,y or finer provenance would require retaining it separately. This is a mathematical labelled extension/composition of collision/Gram semantics; the current nonnegative rational matrix API does not directly implement it.
+
+The first useful output is a nonzero Delta with verified a^|Delta|=1 mod N. It is an order multiple, not necessarily the order. To factor, an even multiple must additionally produce a nontrivial square root of one, followed by a nontrivial gcd; not every collision does. Existing typed arithmetic can verify a proposed witness, but verification is not discovery.
+
+The unresolved step is a compact executable representation plus a charged observation algorithm that actually emits such a Delta. G_Q(1) is only a mass, not a witness. The normalized probability for drawing an independent uniform pair and getting a nonzero collision is
+
+    (2/Q^2) sum_(k=1..floor((Q-1)/r)) (Q-kr).
+
+It is zero for Q<=r and approximately 1/r when Q is much larger than r. Thus naive rejection costs order r trials in that regime. This statement is about this sampler, not a lower bound for every collision method. Conditioning cannot be counted as free. The O(t)-factor expression may hide exponentially many labels, large coefficients or costly readout.
+
+## What is new and what remains open
+
+This audit supplies a checked restriction on the complete-return compression route, a precise labelled native collision output target, and a documented reprioritization. It does not supply an implemented efficient native sampler or a successful new factorization. No host numeric reference, scientific benchmark, provider query or novelty search was run for this correction. The next research unit is in CONTINUE.md and can be carried out by any authorized conversation using the source artifact; it is not tied to the original agent or machine.
+
+Global-Knowledge-Sync: main@8c6557d / GLOBAL_KNOWLEDGE_V1.
