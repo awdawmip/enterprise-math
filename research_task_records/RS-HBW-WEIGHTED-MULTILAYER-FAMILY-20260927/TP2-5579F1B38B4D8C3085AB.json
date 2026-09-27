@@ -1,0 +1,62 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "task_id": "RS-HBW-WEIGHTED-MULTILAYER-FAMILY-20260927",
+  "registry_key": "RS-HBW-WEIGHTED-MULTILAYER-FAMILY-20260927",
+  "publication_id": "TP2-5579F1B38B4D8C3085AB",
+  "publication_generation": 1,
+  "supersedes_publication_id": null,
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "taskbook_path": "research_tasks/RS-HBW-WEIGHTED-MULTILAYER-FAMILY-20260927.md",
+  "taskbook_blob_sha1": "sha1:0a6ca4debd4fd6972ee8559ddde544429b26542b",
+  "publisher_role": "RESEARCHER",
+  "publisher_id": "EM-DIRECT-AD0416",
+  "published_at": "2026-09-27T05:43:21.428133+00:00",
+  "parent_objective_id": "PO-HBW-WEIGHTED-REPAIR-20260927",
+  "origin_kind": "DIRECT_USER_DIRECTION",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-HBW-WL-WM-RECONCILE-20260927",
+  "claimable": true,
+  "effective_priority": "P2",
+  "effective_leverage": "MEDIUM",
+  "priority_source": "RESEARCHER_DEFAULT",
+  "publisher_priority_request": "P2",
+  "publisher_leverage_request": "MEDIUM",
+  "owner": "taskbook/unassigned",
+  "frontier": "一位修复纤维可整体表示为仿射空间，但没有跨多层保持有限表示的证书。",
+  "next_action": "把两层后的共同参考系关系写成原修复参数的精确约束，判定新约束是否仍为仿射，或必须分裂。",
+  "research_value": "把浅层数亿个修复的紧凑表示延续为可用于后续研究的结构，而不是每升一层就恢复逐个枚举。",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "identity_lane": "HB-WEIGHTED-REPAIR",
+  "source_refs": [
+    "https://github.com/awdawmip/enterprise-math/blob/9fcdbe1ad147a125464ae35fcf1dff493cec505d/research_notes/heartbeat_weighted_lift_20260927_AD0416/README.md",
+    "https://github.com/awdawmip/enterprise-math/blob/9fcdbe1ad147a125464ae35fcf1dff493cec505d/research_notes/heartbeat_weighted_lift_20260927_AD0416/RESEARCH_NOTE.md",
+    "https://github.com/awdawmip/enterprise-math/blob/9fcdbe1ad147a125464ae35fcf1dff493cec505d/research_notes/heartbeat_weighted_lift_20260927_AD0416/THEOREM_LEDGER.json",
+    "https://github.com/awdawmip/enterprise-math/blob/9fcdbe1ad147a125464ae35fcf1dff493cec505d/research_notes/heartbeat_weighted_lift_20260927_AD0416/snapshot/src/enterprise_math/heartbeat_weighted_germ_lift.py",
+    "https://github.com/awdawmip/enterprise-math/blob/6dd526fbf08aa97baea181548c0d8240f7c12b82/src/enterprise_math/heartbeat_weighted_germ_lift.py",
+    "https://github.com/awdawmip/enterprise-math/blob/6dd526fbf08aa97baea181548c0d8240f7c12b82/research_notes/heartbeat_weighted_germ_lift_20260927_AD0416/THEOREM_LEDGER.json"
+  ],
+  "dependencies": [
+    "RS-HBW-WL-WM-RECONCILE-20260927"
+  ],
+  "evidence_status": "SOURCE_BACKED_RESEARCH_CANDIDATES_UNREVIEWED_NOT_ADMITTED",
+  "successor_gate": {
+    "new_information_gap": "一位仿射性不控制多位乘积交叉项、精度进位和后续动作类细分。",
+    "why_parent_result_does_not_close_it": "整合只确定两版可复用范围，不给出新的多层闭合关系；原WL/WM证据只覆盖一位。",
+    "discriminating_outcomes": [
+      "跨层仍仿射且给出条件",
+      "出现非线性或类分裂且给出见证",
+      "在限定子族可闭合、其余保留未决"
+    ],
+    "kill_condition": "若只能重述一位结果或逐个展开所有修复而无新增证书，停止该路线并返回未压缩成本与障碍。",
+    "alternative_route_or_free_exploration_considered": "比较逐帧一位迭代、稳定子像与核路线、以及直接研究不可提升反例；不预设仿射形式永远最佳。",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "该问题有独立的跨层输入输出和可证伪目标，不能由源码整合或关闭原一位任务解决。"
+  }
+}

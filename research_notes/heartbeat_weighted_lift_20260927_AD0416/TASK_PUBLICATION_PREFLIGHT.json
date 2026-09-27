@@ -1,0 +1,60 @@
+{
+  "schema": "HEARTBEAT_DIRECTION_PUBLICATION_PREFLIGHT_V1",
+  "source_ref": "56b191519b036c6890cae328c3b3812fbc1debb7",
+  "result": "PASS",
+  "validation_execution": "Source-equivalent current native audit/writer predicates, with explicit read-only Git-blob digest transport adapter; not full native CLI or whole-repository audit.",
+  "policy_digest": "sha256:44b2174111ec85b5dd252d07f474772649a4d36936b2c99acbfa2cfba8af7a73",
+  "task_count": 3,
+  "checks": [
+    {
+      "task_id": "RS-HBW-WL-WM-RECONCILE-20260927",
+      "policy_findings": [],
+      "body_findings": [],
+      "taskbook_git_blob": "sha1:67a4a91f02c4fde8a38d9c5b46bb74549134b76b",
+      "record_path": "research_task_records/RS-HBW-WL-WM-RECONCILE-20260927/TP2-E06E64EA9A7F37145AC3.json",
+      "record_git_blob": "sha1:c5a271fd6938886b7698ce62e1e59c14f4c17233",
+      "dependency_ids": []
+    },
+    {
+      "task_id": "RS-HBW-WEIGHTED-MULTILAYER-FAMILY-20260927",
+      "policy_findings": [],
+      "body_findings": [],
+      "taskbook_git_blob": "sha1:0a6ca4debd4fd6972ee8559ddde544429b26542b",
+      "record_path": "research_task_records/RS-HBW-WEIGHTED-MULTILAYER-FAMILY-20260927/TP2-5579F1B38B4D8C3085AB.json",
+      "record_git_blob": "sha1:0f13868d3e71bd538d1a66da722fce924dd63b21",
+      "dependency_ids": [
+        "RS-HBW-WL-WM-RECONCILE-20260927"
+      ]
+    },
+    {
+      "task_id": "RS-HBW-WEIGHTED-STABILIZER-IMAGE-KERNEL-20260927",
+      "policy_findings": [],
+      "body_findings": [],
+      "taskbook_git_blob": "sha1:680125637111a3a7596af5ecbe578802b8b91a9f",
+      "record_path": "research_task_records/RS-HBW-WEIGHTED-STABILIZER-IMAGE-KERNEL-20260927/TP2-C593366399C0E3EF6EB6.json",
+      "record_git_blob": "sha1:f3d3548371897f29b2e25e677b5aad74d415b678",
+      "dependency_ids": [
+        "RS-HBW-WL-WM-RECONCILE-20260927"
+      ]
+    }
+  ],
+  "negative_controls": [
+    {"case": "missing-body", "rejected": true},
+    {"case": "stale-digest", "rejected": true},
+    {"case": "missing-parent", "rejected": true},
+    {"case": "wrong-authority", "rejected": true}
+  ],
+  "scientific_revalidation": false,
+  "independent_review": false,
+  "native_session": "request readback404; no session or claim asserted",
+  "lineage_parent_objective": "PO-HBW-WEIGHTED-REPAIR-20260927",
+  "contribution": "publisher is historical author, not independent reviewer",
+  "full_preflight_archive": {
+    "url": "https://drive.google.com/file/d/1OEwbD5k7UwIecPdQax6IMhad16GAj9Ks/view",
+    "bytes": 47801,
+    "sha256": "499ee2e8d681ced440f44903482f5a753fa0a2eee47d8aade1c7d90a0d374d17",
+    "files": 15,
+    "downloaded_readback_matches_original_bytes": true,
+    "contains": "executed audit/writer adapter, task input generator, exact taskbooks and records, original preflight log, policy input blob pins, four negative controls"
+  }
+}
