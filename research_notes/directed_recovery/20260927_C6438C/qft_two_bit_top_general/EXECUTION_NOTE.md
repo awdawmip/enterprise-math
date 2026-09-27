@@ -1,0 +1,93 @@
+# Highest selected bit at arbitrary modulus: executed result and cost
+
+The coordinator's single declared execution passed. All 37 residue outputs across six new tuples equal their independently executed typed pair histograms, covering 720 ordered pairs. Complete fresh positive replay passed for all six certificates. This expands the scalar observer from the aligned domain to **arbitrary supplied R when k=g-1**. It does not show a small-instance speed improvement: production used 96,452 adder-digit replays versus 34,544 for the typed comparator, and was more expensive in every tuple.
+
+This note reports the saved execution. The frozen `DESIGN.md` retains its original CODE_ONLY preparation status; it is not a claim that execution remains pending. No scientific code was rerun for this note or its author reader.
+
+## Sources, startup, and complete bytes
+
+| Artifact | SHA256 |
+|---|---|
+| `top_bit_general.py` | `33a46d5f3dacf61e83cedd75cb3424f2375485b3b58984429d5c9fc76b8c96d0` |
+| `check_top_bit_general.py` | `2b9b04fa1670af5c857eac4ba0810fe6a3c9e45d14f62a6f4371d1bd7ebefc9c` |
+| `DESIGN.md` | `228c00ba4a2a29dc645e2d126b586183d7e6539a40396adf7719db4cdabc0ad3` |
+| `TOP_BIT_GENERAL_MODULUS.md` | `880fb9d90f9258e0b96f6f47281bd711b11bd2ec515bddb6a6212cf45266ee89` |
+| `guard_review/TOP_BIT_GENERAL_MODULUS_REVIEW.md` | `e5f31e9619a3233c65af23b642d262e98996d6ca9ee538910e38c21ba412aaab` |
+| `STARTUP_GUARD.json` | `fd9b5bf7a1b9680a23e3f4ea2ac0f0dce5d3ce362936635044c9324c3aa99f1b` |
+| `TOP_BIT_GENERAL_RESULTS.json.gz` | `ba39feafb35e6d902c1ba1de8c7e64aba581eca7d02e429064c389f6d79e9dc0` |
+| Decompressed complete raw | `4f6fae5355d3a809b765af17c6be7b2ac709cf63ec2e6fbd4e5b81a35cf79dc9` |
+| `read_top_general_cost.py` | `a96696eb187d6c6251934f9b1651f5abc1b8d2db5a5357ea051960b8e4489f5a` |
+| `TOP_GENERAL_COST_READBACK.json` | `59fc89ea09866ac8755dacb374b86bfd502fa0eb61b45be0673b663ade7eb06d` |
+
+The gzip contains 2,684,245 bytes; the complete raw contains 75,217,873 bytes. The reader checked both actual byte hashes, current source/proof/helper bytes, the startup receipt, summary, and full JSON stdout summary. The guard actually allows activity and persistence for RA-CAAAC604CB513AEA8BBC1DFC, TASK_RESEARCH/startup, with no sync debt. No failed-execution artifact is present.
+
+The comparator algorithm was copied verbatim from the pinned aligned checker (`6777057a9468b673c7d58a657467c65ae1c37bd353fd55b9eb86a743efdaa969`); its exact function text is rechecked by AST extraction. That old checker was not imported or executed. The six tuples and their 720 pair observations are new execution, not a repeat of the earlier 720-pair experiment. The equality of those total pair counts is incidental.
+
+## Actual production and comparator costs
+
+One pair-histogram pass was executed per tuple, producing all residue buckets together. The comparator was not restarted for each r.
+
+| (g, ell, k, R) | Residues | Typed pairs | Production digits | Comparator digits | Positive replay digits |
+|---|---:|---:|---:|---:|---:|
+| (2,0,1,3) | 3 | 16 | 5,640 | 456 | 5,640 |
+| (3,1,2,3) | 3 | 64 | 9,827 | 2,241 | 9,827 |
+| (3,1,2,5) | 5 | 64 | 12,549 | 2,547 | 12,549 |
+| (4,2,3,6) | 6 | 256 | 22,915 | 12,472 | 22,915 |
+| (4,2,3,9) | 9 | 256 | 28,293 | 13,995 | 28,293 |
+| (3,1,2,11) | 11 | 64 | 17,228 | 2,833 | 17,228 |
+| **Total** | **37** | **720** | **96,452** | **34,544** | **96,452** |
+
+Production contains 74 orientations. Seven are empty; the remaining orientations contain 134 low/high segment records: 30 empty, 94 singleton, and 10 length-two segments. The 104 nonempty segments request 208 top-level moment tables and execute 104 exact divisions by three. Each residue respects the eight-table upper bound. Recursive requests and caches are counted separately below. Both polynomial pieces, the exact L/2 boundary, negative outputs, r=0, equal-head half-modulus multiplicity, nonzero low remainders and R>L occur in retained records. Supplied-modulus alignment is not assumed or tested by this source.
+
+## Disjoint execution ledger
+
+| Category | Distinct streams | Adder digits | Typed operations | Signed operations | Moment nodes | Moment requests | Cache hits |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Production | 6 | 96,452 | 22,895 | 22,371 | 108 | 280 | 172 |
+| New typed pair comparator | 6 | 34,544 | 3,539 | 2,559 | 0 | 0 | 0 |
+| Positive fresh replay | 6 | 96,452 | 22,895 | 22,371 | 108 | 280 | 172 |
+| Negative fresh replay | 10 | 97,582 | 25,369 | 24,807 | 145 | 315 | 170 |
+| **Total** | **28** | **325,030** | **74,698** | **72,108** | **361** | **875** | **514** |
+
+There was one actual native core invocation, `recurrent_mass_power`, depth 1 on 12 positive states, acquiring the exact full-adder columns in the first production stream. Later arithmetic composes those actual columns and counts every retained digit replay. The native-column cache does not make those 325,030 digit replays free. The raw preserves the complete CALLS list and disjoint call intervals; this single invocation is charged once. Boundary snapshots and duplicated certificate objects are not extra executions.
+
+Arithmetic host counters by category are: production 1,035,161 bit-wiring operations and 63,625 bit-length calls; comparator 370,331 and 10,460; positive replay 1,035,161 and 63,625; negative replay 1,047,928 and 70,442. They exclude metadata traversal, Python object/certificate management, hashing and serialization. A table request or a signed operation is not a unit-time native operation.
+
+## Production hot spots from saved operation spans
+
+The author reader assigns each saved production signed operation exactly once to the following source spans, then counts its referenced typed traces and actual retained cells. Recursive table spans belong to the table row and are not counted again as segment combination work.
+
+| Saved source span | Adder digits | Signed operations |
+|---|---:|---:|
+| Scales and half-length | 1,578 | 234 |
+| Low polynomial coefficients | 9,156 | 962 |
+| High polynomial coefficients | 8,896 | 999 |
+| Moment-table execution | 33,901 | 15,060 |
+| Nonempty segment combination outside tables | 34,556 | 4,056 |
+| Empty segment zero receipts | 60 | 30 |
+| Orientation routing, lengths, heads and final additions | 8,305 | 1,030 |
+| **Total** | **96,452** | **22,371** |
+
+The largest costs here are outer polynomial combination and moment-table construction, not the 30 already skipped empty segments. Moreover, 94 of the 104 nonempty segments are singletons. A future separately proved singleton point route and reusable tuple coefficients are concrete candidates; neither is implemented or measured by this run. The earlier aligned shortcut's highest-bit affine point expression cannot simply be substituted for this general-modulus two-bit segment. A successor must use this stage's actual two-bit point identity, preserve parity/orientation, and retain all typed quotient and branch proofs. No saving is predicted by this accounting alone.
+
+## Positive, negative and reuse evidence
+
+All six positive replays reconstruct the full source-bound request sequence and complete integer evidence; only the declared native-column cache delta is excluded from semantic equality. The reader independently follows each outer scale, coefficient, length/split, table parameter/output, delta, weighted term, numerator, exact-third and final link against the saved signed-operation stream. It also checks the saved signed outputs against their referenced typed outputs, and every retained native-adder cell against the saved actual columns. It reads all 720 ordered-pair differences, typed residues, signs and bucket updates. It consumes recorded arithmetic results and does not recompute a scientific reference with host arithmetic.
+
+Fourteen certificate tamper controls were retained:
+
+- Nine perform a complete honest fresh replay before rejecting changed split, head, coefficient, table offset, exact-third denominator, half-modulus orientation, table output, normalization exponent or final value.
+- One rejects a non-top second request after paying for a valid first request: 4,425 digits are retained. Its capture has one complete request and `inflight=None`. It is an incomplete verification of a forged sequence, not a scientific failure or a terminal in-flight arithmetic request.
+- Four reject before arithmetic: source, schema, bool input and a non-string key. Typed-key encoding preserves the key type in the original attempt.
+
+Twelve ordinary input controls reject before paid arithmetic. A separate rejection inserted after the first valid production request leaves the complete before/after snapshots identical; the original remaining grid requests then finish on that same observer. Those snapshots overlap the first production stream and are checked but not charged again. This demonstrates valid reuse after a zero-work input rejection, not resumability after an unfinished arithmetic request.
+
+No unexpected scientific failure occurred. The exclusive-output and failed-execution preservation paths remain source-reviewed controls, not empirically exercised failure-recovery claims. The guarantees do not reconstruct unreturned constructor objects, pre-main import failures or a failed persistence device. The reader is a shared-context author audit, not formal independent admission or a newly executed native replay.
+
+## Timing and scope
+
+The recorded checker interval before serialization is 31.08156510000117 seconds. It includes production, fresh typed comparators, positive/negative checks and bookkeeping; it is not a matched benchmark and cannot be compared with older checker timings as a speed ratio. Serialization and subsequent author/peer I/O review are separate.
+
+The result validates a bounded implementation of the proved highest-selected-bit, arbitrary-given-modulus scalar formula. The number of degree-three top-level tables is fixed, while recursive integer and bit costs remain explicit. It does not discover the order or addresses, implement the non-highest-bit period extension, handle growing masks, propagate noncommuting matrices, or establish complete Shor dequantization. Full raw normalization remains 4^-g.
+
+Global-Knowledge-Sync: main@6e443c7 / GLOBAL_KNOWLEDGE_V1
