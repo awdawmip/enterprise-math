@@ -25,10 +25,18 @@
 大小：398738字节。SHA-256：`882167fc6b3fbdf58d9804032805bcf09f65652257b72534594c106b51918f55`。
 已通过连接器上传到 EnterpriseMath-Handoffs，并下载回读核对完整字节。原196项清单在本次发布前全部哈希匹配；本次属于保全和任务发布，不冒称重新完成数学审稿或全仓测试。
 
-## 待发布研究方向
+## 已发布的后续研究任务
 
-1. WL/WM 范围与接口对照，保留所有非重叠证据并明确不能互换的观察条件。
-2. 将一位仿射修复族整体推进到更深精度，保留跨层障碍、必要拆分和未展开族。
-3. 直接构造质量稳定子的置换像与核，避免穷举全部森林支持或动作匹配。
+三个任务书与对应不可变 V2 记录已在 `2d547b3e07cf21c0b54e5e5b3e0da7cc9ae1eb61` 发布，六个文件的完整读回和 blob 对应关系见 [交付核验](DELIVERY_PUBLICATION_20260927.json)。
 
-任务是否正式存在，以后续不可变 V2 任务记录为准；这份说明本身不授予 CLAIM、Driver、Working Truth 或 Foundation。
+| 顺序 | 任务与研究目标 | 不可变 V2 记录 |
+| --- | --- | --- |
+| 先行 | [WL/WM 范围与接口整合](../../research_tasks/RS-HBW-WL-WM-RECONCILE-20260927.md)：保留非重叠证据，明确哪些输入、观察和部分输出可互换 | [TP2-E06E64EA9A7F37145AC3](../../research_task_records/RS-HBW-WL-WM-RECONCILE-20260927/TP2-E06E64EA9A7F37145AC3.json) |
+| 依赖先行任务 | [多层共同质量修复族的符号传播](../../research_tasks/RS-HBW-WEIGHTED-MULTILAYER-FAMILY-20260927.md)：整体推进修复族，保留跨层障碍、必要拆分和未展开族 | [TP2-5579F1B38B4D8C3085AB](../../research_task_records/RS-HBW-WEIGHTED-MULTILAYER-FAMILY-20260927/TP2-5579F1B38B4D8C3085AB.json) |
+| 依赖先行任务 | [共同质量稳定子的像与核直接构造](../../research_tasks/RS-HBW-WEIGHTED-STABILIZER-IMAGE-KERNEL-20260927.md)：避免穷举全部支持，并交付覆盖完整性的证书 | [TP2-C593366399C0E3EF6EB6](../../research_task_records/RS-HBW-WEIGHTED-STABILIZER-IMAGE-KERNEL-20260927/TP2-C593366399C0E3EF6EB6.json) |
+
+任务元数据为 RESEARCHER 默认 P2/MEDIUM，保留 FIRST_TIER_PORTFOLIO 标签；发布记录不自动证明当前运行时可领取、已经 CLAIM 或已经执行。实际执行继续服从当前派发、依赖和所有权门禁。本说明不授予 Driver、Working Truth 或 Foundation。
+
+## 中断后的恢复核验
+
+本次续接再次核对 Drive 原包完整字节及196项清单，并核对三个任务书与三个 V2 记录，没有重复上传、创建任务或重跑科学测试。控制回执的错误 Issue 指针及真实服务状态单独记录在 [CONTROL_DELIVERY_STATUS.json](CONTROL_DELIVERY_STATUS.json)：原 session_start 请求实际为 #2514，不是 #2517；原超时失败回执与当前可见的服务会话均保留，不能据此推断正式执行权限或 PRE_FINAL 通过。
