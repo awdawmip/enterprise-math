@@ -1,0 +1,34 @@
+{
+  "schema": "HEARTBEAT_BRC_EXECUTION_RECEIPT_V1",
+  "recorded_at": "2026-09-27T04:47:34.416790+00:00",
+  "exact_source_revision": {
+    "standalone_parent": "ba7b196e5ec2dfda91966428cdd80cf91258e078",
+    "guard_module_git_blob": "3909cc89b97b5e3a14fb0f1f18d85d19b7a390f9",
+    "local_extension": "src/enterprise_math/heartbeat_weighted_germ_lift.py"
+  },
+  "entrypoint": [
+    "WeightedLiftProblem.from_control_packets",
+    "lift_weighted_kernel",
+    "WeightedLiftResult.verify",
+    "compile_carry_peak",
+    "compile_peak_quotient",
+    "passage_law"
+  ],
+  "input_carrier": "Actual frozen positive-weight six-axis ControlPacket; optional explicitly checked repeated-block analysis frames",
+  "branch_identity_and_provenance": "Every atom keeps source/target, histogram entry, weight, multiplicity, action and translation. Coupling is witness only, not altered dynamics.",
+  "observer_and_future_operation_scope": "Fixed prime, guarded precision, full germ-class mass and ports. First-passage checks are fixed-law linear projective-lattice observations at positive arrow boundaries. No atom-word or affine-position preservation.",
+  "operation_semantics": "Proved positive coupling bridge -> simultaneous inherited finite-field lifts -> projective transporter fibre affine projection; originals unchanged",
+  "output_and_residual_certificate": [
+    "RESULTS.json",
+    "THEOREM_LEDGER.json",
+    "support-wise affine/dual certificates recomputed by tests"
+  ],
+  "forbidden_fallbacks_run": false,
+  "legacy_suite_rerun": false,
+  "physical_attribution": "NOT_CLAIMED; prior attribution is not reinstated",
+  "public_literature": "Official arXiv abstracts 1103.4577 and1212.6157 retrieved. No full-text or dedicated-provider result claimed.",
+  "dedicated_query_status": "NOT_EXECUTED; query transport requires currently unavailable GitHub write operation",
+  "extension_sha256": "9cb757ea3df90ff11b5f943410b1f1e90181d53bb5a95e995b76dd8068cbbcf1",
+  "tests_sha256": "51cc4ea0cb35e5b40e527d056819335a390d0feade8b518daee842a14c85b9fc",
+  "executed_checks": 25
+}

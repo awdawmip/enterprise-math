@@ -1,0 +1,161 @@
+{
+  "frozen_brc_sources": {
+    "brc_transport.py": "386f9b955a65aba938b08bf76f21330c612a7e7a396d0c3dd83523bfaaa9d4e7",
+    "brc_control_port.py": "725dab58037c9f39bbbeb283e1d2f034b6271d5e1f007182f7079637c1b84e0d",
+    "heartbeat_congruence_lift.py": "03c23230eb3492d3b46bb2edb54fb9682f6f59f49d59421f464b45112baae0c1",
+    "heartbeat_peak_orbits.py": "b2d9139acfec130f9b217bda0bb98ae47732d7c7c1f69e1c247fbd12ef535760",
+    "heartbeat_carry_peak.py": "ede091107e23516edcc354219594ba79de4d7e865dc416b24c3b12e40aaa6577",
+    "heartbeat_peak_quotient.py": "d27a2c43cf88d3ee433518c0e85d300361a266363f87dcd4ebff797a0b1de1e0",
+    "brc_weighted_recurrent.py": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26",
+    "brc_control_mass.py": "1704605c7542bb557a67ee95a50056179027d34e6ab6b30578b4408daeff97b8",
+    "brc_histogram.py": "256ef167e2aee651c042195522a0013ba619f265f9e4d8fa24f07d3399695a67"
+  },
+  "split_coupling": {
+    "row_masses": [
+      "1/8",
+      "3/8"
+    ],
+    "target_mass": "1/2"
+  },
+  "changed_correspondence": {
+    "fixed_identity_lifts": 0,
+    "weighted_lifts": 8
+  },
+  "rescued_fibre_oracle": {
+    "candidates": 8,
+    "valid": 8
+  },
+  "bias": {
+    "weights": [
+      "1/3",
+      "2/3"
+    ],
+    "next_lifts": 0
+  },
+  "ternary_union": {
+    "coupling_vertices": 6,
+    "nonempty_families": 3,
+    "fixed_family_size": 3,
+    "combined_frame_count": 9,
+    "combined_free_dimension": 2
+  },
+  "ternary_oracle": {
+    "candidates": 27,
+    "valid": 9
+  },
+  "full_native_x6": {
+    "field": 3,
+    "equations_per_support": 109,
+    "support_solutions": [
+      129140163,
+      0,
+      0,
+      129140163,
+      129140163,
+      0
+    ],
+    "free_dimension": 18,
+    "exact_repair_count": 387420489,
+    "additional_reconstructed_frames": 19,
+    "all_repairs_enumerated": false
+  },
+  "overlapping_witnesses": {
+    "naive_sum": 16,
+    "distinct_frames": 8
+  },
+  "budget_frontier": [
+    [
+      1,
+      0
+    ],
+    [
+      30,
+      3
+    ],
+    [
+      50,
+      9
+    ],
+    [
+      80,
+      9
+    ],
+    [
+      100,
+      9
+    ]
+  ],
+  "collision_lifetime": [
+    [
+      1,
+      1,
+      "NO_LIFTS",
+      0
+    ],
+    [
+      2,
+      1,
+      "COMPLETE",
+      2
+    ],
+    [
+      2,
+      2,
+      "NO_LIFTS",
+      0
+    ],
+    [
+      3,
+      1,
+      "COMPLETE",
+      2
+    ],
+    [
+      3,
+      2,
+      "COMPLETE",
+      2
+    ],
+    [
+      3,
+      3,
+      "NO_LIFTS",
+      0
+    ]
+  ],
+  "joint_mass_split_obstruction": {
+    "shared_frame_dimension": 6,
+    "support_count": 1,
+    "left_annihilator_nonzero": true,
+    "all_high_digit_frames_rejected": true
+  },
+  "certificate_vs_observation": [
+    {
+      "R": 2,
+      "same_complete_probability_kernel": true,
+      "probability": "1/7",
+      "safe_states": 6
+    },
+    {
+      "R": 3,
+      "same_complete_probability_kernel": true,
+      "probability": "1/26",
+      "safe_states": 10
+    }
+  ],
+  "deeper_risk": {
+    "R": 4,
+    "base_hit": "1/97",
+    "split_hit": "11717/1135289",
+    "base_states": 14,
+    "split_states": 24,
+    "first_time_difference": 8,
+    "base_first_hit_at_8": "7/16384",
+    "split_first_hit_at_8": "57/131072"
+  },
+  "complete_small_fibre_cross_checks": {
+    "cases": 6,
+    "candidate_frames": 67,
+    "oracle": "unchanged inherited BRC weighted row-germ certificate"
+  }
+}
