@@ -1,0 +1,33 @@
+{
+  "schema": "HOST_BINDING_METADATA_MICROPROFILE_V1",
+  "source_gzip_sha256": "14456595a5ff8e7c3e67d78fe091b1aefec68be835a9674cefbd4dfba3b0b015",
+  "source_sha256": "32f9402b1d6611823218f2512033944597a1e239a7c50112caf2f96a731fb255",
+  "metadata_bytes": [
+    235524,
+    235745
+  ],
+  "repetitions_per_trial": 200,
+  "trials": [
+    {
+      "trial": 0,
+      "serialization_seconds": 2.7428619998972863,
+      "plain_python_equality_seconds": 0.13363609998486936
+    },
+    {
+      "trial": 1,
+      "serialization_seconds": 2.7874940999317914,
+      "plain_python_equality_seconds": 0.1709848998580128
+    },
+    {
+      "trial": 2,
+      "serialization_seconds": 2.793887299951166,
+      "plain_python_equality_seconds": 0.1622846000827849
+    }
+  ],
+  "strict_type_counterexample": {
+    "python_bool_int_equal": true,
+    "canonical_JSON_equal": false
+  },
+  "scientific_execution_performed": false,
+  "scope": "Serialization of previously recorded metadata only. Not full _program_view, complete sampler, isolated end-to-end benchmark or attribution of the previous elapsed-time difference. Plain equality is not an accepted replacement certificate."
+}

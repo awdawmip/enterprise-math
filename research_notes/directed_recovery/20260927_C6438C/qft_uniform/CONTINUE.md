@@ -1,0 +1,17 @@
+# Continue the QFT dequantization research
+
+Parent objective: develop mathematical tools and a classical QFT/Shor route with a genuine complexity improvement. The general efficient sampler and general factoring breakthrough remain unproved. Publication of this bounded unit does not complete that objective.
+
+Consume the completed evidence in README.md, EXECUTION_NOTE.md, word_certificates/WORD_CERTIFICATE_EXECUTION_NOTE.md and cost_review/COST_NOTE.md. The four t=4 fixtures are a comparison of changed implementations, not new independent statistical trials. Preserve all actual residual coordinates, signed observations, failed certificates and the full cost boundary.
+
+The next mathematical action is the cheaper orientation certificate proved in theory_review/UNIFORM_WORD_CERTIFICATE_REVIEW.md. For an actually bound orthogonal native word, verify its determinant from the actual primitive receipt and temporal word. The sufficient bound is s=min(4,D-tr(G)) when determinant is +1, or s=min(4,2(D-tr(G))) without that certificate. Use actual signed diagonal observations; do not substitute an intended angle. Retain the old rank-two witness and its failures as provenance. A trace bound is a norm upper bound, not a claim that B has rank two.
+
+Any dialogue can immediately continue the algebraic proof, analyze the cost, derive a deterministic public-prefix allocation rule, or audit a counterexample from these sources. A particular execution tool is not a prerequisite for those mathematical steps. Actual numerical execution must remain distinguishable from symbolic derivation, with its original receipts; route necessary local execution or persistence through an available authorized worker without turning that operation into a halt of independent research.
+
+For implementation, first measure and remove redundant full metadata serialization in repeated certificate binding checks while preserving the complete word/column/codec and source identity. Separate immutable admission from public-prefix checks. Test mutations of actual columns, word order and codec, and serialized replay; do not call a cheaper unchecked flag an admission certificate. Compare cold setup, warm reuse, restored execution, storage and complete laws. The current complete law validator is not a single-trajectory timing benchmark.
+
+After this constant-factor work, return to the central asymptotic bottleneck: exact Gram/collision queries can proliferate with history length. The published adaptive unit's active-window floor-moment formula and exact mass-to-order reduction delimit useful structured cases and hidden order acquisition. Prove when the actual committed feedback satisfies a small active window, or supply another aggregation bound; do not assume that zero readout bits make all feedback words identity. Count any order/address discovery and every surviving residual mode.
+
+The prior scientific source is EM c0f04346c520fddc8016c86227b3b6cc2e9f30f6. This stage's immutable source commit and actual backup are supplied by DELIVERY_RECEIPT.json after verified publication. Own native activity is RA-CAAAC604CB513AEA8BBC1DFC; P000 and admission rules are unchanged. No Task/Claim/Result registration, formal mathematical acceptance, background executor or new scheduled job is implied.
+
+Global-Knowledge-Sync: main@a462f7a / GLOBAL_KNOWLEDGE_V1
