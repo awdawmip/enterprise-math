@@ -1,0 +1,56 @@
+{
+  "status": "AUTHOR_BOUNDED_CLASSICAL_COMPARATOR_NOT_ADMITTED",
+  "cases": [
+    {
+      "N": 65,
+      "ell": 2,
+      "status": "FACTOR_FOUND",
+      "factors": [
+        5,
+        13
+      ],
+      "candidate_divisions": 1,
+      "cost": {
+        "typed_operations": 5,
+        "adder_digit_replays": 111,
+        "host_bit_wiring_operations": 1197,
+        "host_bit_length_calls_in_arithmetic": 25
+      }
+    },
+    {
+      "N": 4097,
+      "ell": 3,
+      "status": "FACTOR_FOUND",
+      "factors": [
+        17,
+        241
+      ],
+      "candidate_divisions": 2,
+      "cost": {
+        "typed_operations": 9,
+        "adder_digit_replays": 459,
+        "host_bit_wiring_operations": 4881,
+        "host_bit_length_calls_in_arithmetic": 71
+      }
+    },
+    {
+      "N": 4294967297,
+      "ell": 6,
+      "status": "FACTOR_FOUND",
+      "factors": [
+        641,
+        6700417
+      ],
+      "candidate_divisions": 10,
+      "cost": {
+        "typed_operations": 41,
+        "adder_digit_replays": 8237,
+        "host_bit_wiring_operations": 85706,
+        "host_bit_length_calls_in_arithmetic": 743
+      }
+    }
+  ],
+  "actual_core_calls": 1,
+  "payload_sha256": "687e1e003775704f33008e52d4269ae9b8ceac88ed472b29dc653420f255ef0e",
+  "gzip_sha256": "6199c753af45ec9c213642994e72adce78bb0345cc5744eea66b4a1d0f7e1e4b"
+}

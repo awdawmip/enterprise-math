@@ -1,0 +1,202 @@
+{
+  "activity": "RA-CAAAC604CB513AEA8BBC1DFC",
+  "actual_BRC_core_calls": 12459,
+  "approximate_sampler_executed": false,
+  "cases": [
+    {
+      "N": 21,
+      "a": 2,
+      "complete_raw_prefixes": 4,
+      "dimension": 6,
+      "ell": 2,
+      "estimator_fixture_resources": {
+        "actual_adder_digit_replays": 3472,
+        "actual_host_bit_wiring_operations": 37456,
+        "computed_columns_across_distinct_instances": 20,
+        "distinct_actual_modular_table_instances": 5,
+        "max_mean_denominator_bits": 79,
+        "max_path_denominator_bits": 77,
+        "native_phase_vector_applications": 2200,
+        "point_mean_requests": 1632,
+        "point_path_requests": 3840,
+        "positive_path_observer_calls": 6106,
+        "scope": "estimator fixture including union-support validation; shared table instances counted once; comparator and bank admission separate"
+      },
+      "k": 2,
+      "nonzero_residual_retained": true,
+      "ordered_m2_pairs_checked": 256,
+      "paths_per_target": 4,
+      "prefixes": [
+        {
+          "prefix_history": [
+            0,
+            0
+          ],
+          "raw_prefix_mass": "3/8",
+          "sum_over_its_four_suffix_histories": "9/8",
+          "sum_over_its_four_suffix_m2_errors": "9/16"
+        },
+        {
+          "prefix_history": [
+            0,
+            1
+          ],
+          "raw_prefix_mass": "1/8",
+          "sum_over_its_four_suffix_histories": "3/8",
+          "sum_over_its_four_suffix_m2_errors": "3/16"
+        },
+        {
+          "prefix_history": [
+            1,
+            0
+          ],
+          "raw_prefix_mass": "1/4",
+          "sum_over_its_four_suffix_histories": "3/4",
+          "sum_over_its_four_suffix_m2_errors": "3/8"
+        },
+        {
+          "prefix_history": [
+            1,
+            1
+          ],
+          "raw_prefix_mass": "1/4",
+          "sum_over_its_four_suffix_histories": "3/4",
+          "sum_over_its_four_suffix_m2_errors": "3/8"
+        }
+      ],
+      "t": 4,
+      "target_histories": 16,
+      "total_m2_error_across_all_raw_histories": "3/2",
+      "total_path_variance_across_all_raw_histories": "3"
+    },
+    {
+      "N": 21,
+      "a": 2,
+      "complete_raw_prefixes": 4,
+      "dimension": 61,
+      "ell": 2,
+      "estimator_fixture_resources": {
+        "actual_adder_digit_replays": 3472,
+        "actual_host_bit_wiring_operations": 37456,
+        "computed_columns_across_distinct_instances": 20,
+        "distinct_actual_modular_table_instances": 5,
+        "max_mean_denominator_bits": 79,
+        "max_path_denominator_bits": 77,
+        "native_phase_vector_applications": 2200,
+        "point_mean_requests": 1632,
+        "point_path_requests": 3840,
+        "positive_path_observer_calls": 6106,
+        "scope": "estimator fixture including union-support validation; shared table instances counted once; comparator and bank admission separate"
+      },
+      "k": 2,
+      "nonzero_residual_retained": true,
+      "ordered_m2_pairs_checked": 256,
+      "paths_per_target": 4,
+      "prefixes": [
+        {
+          "prefix_history": [
+            0,
+            0
+          ],
+          "raw_prefix_mass": "3/8",
+          "sum_over_its_four_suffix_histories": "9/8",
+          "sum_over_its_four_suffix_m2_errors": "9/16"
+        },
+        {
+          "prefix_history": [
+            0,
+            1
+          ],
+          "raw_prefix_mass": "1/8",
+          "sum_over_its_four_suffix_histories": "3/8",
+          "sum_over_its_four_suffix_m2_errors": "3/16"
+        },
+        {
+          "prefix_history": [
+            1,
+            0
+          ],
+          "raw_prefix_mass": "1/4",
+          "sum_over_its_four_suffix_histories": "3/4",
+          "sum_over_its_four_suffix_m2_errors": "3/8"
+        },
+        {
+          "prefix_history": [
+            1,
+            1
+          ],
+          "raw_prefix_mass": "1/4",
+          "sum_over_its_four_suffix_histories": "3/4",
+          "sum_over_its_four_suffix_m2_errors": "3/8"
+        }
+      ],
+      "t": 4,
+      "target_histories": 16,
+      "total_m2_error_across_all_raw_histories": "3/2",
+      "total_path_variance_across_all_raw_histories": "3"
+    }
+  ],
+  "claim": "exact iid-path L2 variance identities; neither a TV lower bound nor a general sampling no-go",
+  "dependency_sources_unchanged_during_execution": true,
+  "full61_and_codec6_variance_observations_equal": true,
+  "gzip_sha256": "1efb6f7533f08143d4955dfc021df96b6083dbfb541f3375dd0964c5f4899914",
+  "interface_checks": {
+    "empty_suffix_exact_identity": true,
+    "fixed_list_query_order_independent": true,
+    "negative_controls_rejected": [
+      "incomplete_construction_receipt",
+      "path_length_mismatch",
+      "target_not_extending_prefix",
+      "boolean_path_bit",
+      "outside_carrier_query"
+    ],
+    "non_power_of_two_sample_count": 3
+  },
+  "new_ideal_reference_run": false,
+  "order_or_factors_supplied": false,
+  "payload_sha256": "1c22dd5a0e3970052eb0aeac84c20485c094c742a50346d2c1c38f986ddaa19f",
+  "source_bank": {
+    "complete_error_certificate": {
+      "all_residual_modes_retained": true,
+      "dim": 61,
+      "operator_norm_bound": "1/2",
+      "phase_occurrence_rows": [
+        {
+          "m": 2,
+          "occurrences": 3,
+          "phase_operator_error_bound": "0",
+          "weighted_error_bound": "0"
+        },
+        {
+          "m": 3,
+          "occurrences": 2,
+          "phase_operator_error_bound": "1/8",
+          "weighted_error_bound": "1/4"
+        },
+        {
+          "m": 4,
+          "occurrences": 1,
+          "phase_operator_error_bound": "1/4",
+          "weighted_error_bound": "1/4"
+        }
+      ],
+      "requested_epsilon": "1",
+      "scope": "one complete terminal instrument and its fixed postprocessing; full-retry transcript requires a separate sum budget",
+      "t": 4,
+      "telescoping_sum": "1/2",
+      "terminal_TV_bound": "1/2"
+    },
+    "payload_sha256": "79491e65feec104f2cdc9de510263efef749d8a1174f9cab4c20146a0171615c"
+  },
+  "source_control": "671530e485921a9eeed91c1635decd60cc195dc3",
+  "source_sha256": {
+    "D:\\em\\TEMP\\sep26-shor-general\\new_word_compiler\\certified_word_compiler.py": "e8f7048e2e73292bda230a2adad4aaa76f0b3cd5525f8f0899628bd649d1d81d",
+    "D:\\em\\TEMP\\sep26-shor-general\\optimization\\carrier_codec\\carrier_codec.py": "c25149e0ab4ce92a59d2ca40cb697fe6505cd1dc8d406e9c5a2d92cb2b28c953",
+    "D:\\em\\TEMP\\sep26-shor-general\\optimization\\lazy_modular\\lazy_modular.py": "08df3595a2a56dc2501bb481828093481bf76e4ac53c8b966990d233fefac1e4",
+    "D:\\em\\TEMP\\sep26-shor-general\\optimization\\streaming\\lazy_streaming.py": "635d0c4aee0aaa8d58bb0244835e08e5caa0f6a94926a5213519f40db992a257",
+    "D:\\em\\TEMP\\sep27-qft-approx\\path_estimator\\check_suffix_path_estimator.py": "4ad76e6f46362f0585bdc63a4f376fadfc74c831dcd9740efdec7d5ef11dd881",
+    "D:\\em\\TEMP\\sep27-qft-approx\\path_estimator\\suffix_path_estimator.py": "4f1ca90043122b157f9e2f7fba2d60a407b2d5e56a342a52850e924c2783d210",
+    "D:\\em\\TEMP\\sep27-qft-research\\gram_research\\single_walker.py": "19ec66c4453d8ca5168d0f8fe7950ff85b297562e8625bfb73c9b40142ac3f74"
+  },
+  "status": "AUTHOR_ACTUAL_NATIVE_PATH_VARIANCE_SHARED_CONTEXT_NOT_ADMITTED"
+}

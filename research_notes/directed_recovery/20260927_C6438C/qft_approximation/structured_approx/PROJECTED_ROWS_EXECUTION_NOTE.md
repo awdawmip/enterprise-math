@@ -1,0 +1,71 @@
+# Frozen work-envelope projection: bounded native execution
+
+This unit implements the constructive part of `WORK_MARGINAL_PRUNING_AND_BARRIER.md`: freeze a work-label envelope from training, validate its missing mass using independent heldout paths, and run a full-61-coordinate projected-row walker only if that one validation attempt passes. A failed test automatically selects the existing exact single-walker sampler. The three predeclared attempts all completed. This is a loose-accuracy prototype and a negative result for demonstrated total cost improvement; it does not establish efficient general Shor simulation.
+
+Author execution under activity `RA-CAAAC604CB513AEA8BBC1DFC`; shared-context review, **NOT_ADMITTED**. Current task intake is EM `671530e485921a9eeed91c1635decd60cc195dc3`, with GK lease `f44ed5959c92e6e088c61c102951d1ab2c5e98d4` and unchanged P000 / ACTUAL_TYPED_BRC_ONLY. No ideal QFT distribution, trigonometric propagation, known order, or factors were supplied. The actual same-word instrument is the comparison target.
+
+## Implemented contract
+
+For each observed history, the row recurrence uses the certified complete native word in its original time order and the actual typed lazy modular permutation. Work projection discards entire work labels, retaining all 61 internal coordinates at every retained label, including nonzero residual coordinates. It never substitutes an ideal scalar phase. The bank is the already source-certified direct construction for phases m3 and m4, plus exact m2; the complete static provenance is bound once in the artifact rather than repeated for every sample.
+
+The unconditional exact work marginal obeys the classical fair preparation-walk recurrence, regardless of the noncommuting feedback words. Training therefore needs label walks, not amplitudes, hidden order or factors. Each frozen set depends only on training and the declared exact initial coverage. For projected rows, orthogonality of retained and omitted label spaces gives
+
+    E_i = sum_h ||u_h-v_h||^2 <= E_(i-1) + delta_i,
+    TV <= sum_(i=1)^(t-1) sqrt(sum_(j=1)^i delta_j).
+
+The second inequality uses the previously proved reference-weighted local-kernel contract. It does not assert that the approximate walker's latent state has the approximate row-norm law. When both queried approximate rows vanish, the implemented kernel chooses the bit fairly. A zero approximate row at the current latent label is allowed. Every retained row remains a full raw rational vector.
+
+The earlier theorem note was a symbolic deliverable and described a zero-miss test as an example. **This subsequent execution implements the more general exact binomial lower-tail test**: for fixed threshold d and observed miss count k among m heldout paths, accept if Pr[Bin(m,d)<=k] <= zeta. Its actual positive-path arithmetic and replay are saved. Thus the passing counts 4/64 and 9/64 are not described as zero-miss results. For genuinely independent conditional-uniform randomness, the statement is Pr[bad threshold AND test passes] <= zeta, not Pr[bad threshold | test passes] <= zeta. No envelope is repeatedly retrained until accepted.
+
+`run_one_shot` makes one training attempt, one heldout attempt, and chooses `ProjectedWalker` or the exact `SingleWalker` automatically. The demo uses delta_1=delta_2=0 and delta_3<=1/4, giving epsilon=1/2; zeta=1/16 gives the unconditional outer TV bound 9/16. These are intentionally loose prototype parameters. Separate seeded Python RNG objects exercise the software path; the statistical theorem assumes fresh independent conditional-uniform draws and is not proved by object identity or fixed seeds.
+
+This error statement concerns the algorithm continued to all t rounds. A query-budget pause is an incomplete computation that must be resumed, or its unresolved probability must be charged separately. **Conditioning on `COMPLETE_READOUT` while discarding history-dependent pauses is not certified by epsilon+zeta.** The field `requires_complete_sample_status` is a state requirement, not permission to postselect completion. One pause during append was actually resumed with the parent, auxiliary proposal, and already selected bit retained, without redrawing them. Cross-process durable restoration is not implemented here. Training/validation interruptions are exposed, not silently retried; only the specified one-shot complete runs are claimed as executed.
+
+## Predeclared bounded results
+
+All fixtures use t=4 and D=61, with 128 training paths, 64 independent heldout paths, exact preparation-label coverage through depth 2, and one sample from the selected route. This t is not the default factorization width for N=33 or N=35. These are instrument checks, not factorization success-budget tests.
+
+| Fixture | Envelope caps at depths 0..3 | Heldout misses | Test result | Automatic route |
+|---|---|---:|---|---|
+| N35, a2, seeds 40201/40202/40203 | 1,2,3,5 | 4/64 | pass | projected rows; complete |
+| N35, a2, seeds 40301/40302/40303 | 1,2,3,1 | 42/64 | fail | exact fallback; complete |
+| N33, a4, seeds 40401/40402/40403 | 1,2,4,4 | 9/64 | pass | projected rows; complete |
+
+The two passing envelopes were each checked against all 15 finite parent histories of the actual same-word reference, including the complete joint distribution of history and latent label. This finite enumeration belongs only to the checker; the sampling algorithm does not enumerate its full history tree. Both have exact global squared errors and true omitted work masses `[0,0,0,1/8]`, with positive retained residual mass. The stronger realized bound TV^2 <= 1/8 was checked by exact native observer arithmetic.
+
+For N35, final joint TV is exactly zero: the final disjoint arms make this fixture insensitive to the lost row. It also exercises 16 zero-pair fair-fallback plans in the exhaustive checker. It must not be presented as evidence of accurate general pruning. The separately predeclared N33 overlap fixture has nonzero joint TV
+
+    759588268779845539857637 / 4835703278458516698824704
+    = approximately 0.15707917236435162.
+
+The saved terminal probabilities independently reproduce this rational value. The check includes all latent labels, so readout-only TV is at most this joint TV; no equality of those two notions is claimed. The decimal is display only. Four negative controls reject an uncertified projected sampler, a rehashed false binomial CDF, a rehashed claim of conditional confidence, and false exact initial coverage.
+
+## Cost and limitations
+
+The full checker made **10,529 actual BRC core calls** and took **71.34 local wall-clock seconds**. It retains 24 distinct lazy-table instances, including separately allocated inverse caches even when `(N,b)` agrees. Their measured statistics contain 10,371 column requests, 109 computed columns, 12,070 setup adder-digit replays and 12,191 column adder-digit replays. The frozen constructor performs another 16 permutation-certificate verifications: their source-derived replay charge is 7,924 digits. The resulting digit total is **32,185**, separate from native core calls and host bit wiring. `PROJECTED_ROWS_ACCOUNTING.json` records these units separately and keeps the per-instance breakdown. The added accounting script reads the frozen artifact only; it performs no scientific replay.
+
+Every attempted envelope consumes 192 preparation paths / 576 fair draws before its final sample, plus replay and testing. The three outer runners consume respectively 636, 3,800 and 1,220 core calls after program admission; these include holdout and certificate replay, not merely final row queries. Generation lookups for training/heldout are respectively 183/105, 194/90 and 194/86, plus three exact-coverage column lookups per attempt. Later replay work is included in whole-unit totals. Catalog digit replay can occur without a fresh core call, so zero fresh calls during training does not mean free training.
+
+The accepted N35 sample retains at most five rows (305 scalar slots), compared with its six-row preprojection candidate; it makes eight row lookups and ten phase-vector applications. N33 retains four rows (244 slots), compared with its five-row candidate, and makes eight row lookups and five phase-vector applications. Candidate maps, parent maps, certificates and arithmetic-observer traces coexist: these figures are **not total peak-memory measurements or a matched exact-baseline speedup**. The failed envelope also pays for its exact fallback, which uses 26 distinct recursive row queries and 1,586 cached row slots for its particular sampled history. The examples do not establish net runtime or memory savings.
+
+The inherited `program_metrics` counters describe the old branch evaluator and remain zero in this row/proposal route. They must not be interpreted as total arithmetic cost. The authoritative whole-unit modular counts are the complete table-instance evidence plus the separately stated constructor-verification charge. Whole-unit costs include negative controls, resumability checks and exhaustive reference verification; do not quote them as a per-readout algorithm bound.
+
+The symbolic sparse-work barrier remains: at a collision-free depth i, keeping K explicit work rows incurs at least `max(0,1-K/2^i)` global squared error. The same omitted-label argument applies to `sum_h inf_c ||v_h-c u_h||^2`: rescaling cannot restore omitted labels. This is a barrier for these representation-error certificates, not a lower bound on actual TV of all samplers or implicit representations. The useful next target is a representation or observable certificate that avoids this explicit-label loss without hiding its construction cost. No new such efficient representation is claimed here. `STRATIFIED_PATH_VARIANCE.md` remains a symbolic companion; it has no new stratified execution in this unit.
+
+## Frozen evidence and continuation
+
+Final scientific source hashes:
+
+- `projected_rows.py`: `8261a96625d61491811fca88533a4cfc599672acb15165462abc3dd7bcc49345`
+- `check_projected_rows.py`: `7dc835ece71908c76e79559dcd2471e9d9d2bea76c1d984ae1f4fbe5874b5c99`
+- Frozen single-walker dependency: `19ec66c4453d8ca5168d0f8fe7950ff85b297562e8625bfb73c9b40142ac3f74`
+- Full uncompressed JSON payload: `8ca4daa6f5f9d537a5c7c238b7fe6a7203b62d133defaa2e92571fc3147751bd`
+- `PROJECTED_ROWS_RESULTS.json.gz`: `2546075835cf79d240846f36e5ae35823d238fb760e6a74d5af149b6e63e060f`
+
+Read `PROJECTED_ROWS_SUMMARY.json` and this note first; consume completed evidence rather than repeating it as a new task. Full traces, raw rows, all joint terminal atoms, complete table instances, source bindings, negative controls and core receipts are in the gzip artifact. `summarize_projected_resources.py` deterministically regenerates the accounting JSON from that frozen artifact without new execution. The scientific checker can be rerun when a substantive change requires it:
+
+```powershell
+& 'D:/kimi-query-bridge/.venv/Scripts/python.exe' -X utf8 'D:/em/TEMP/sep27-qft-approx/structured_approx/check_projected_rows.py'
+```
+
+The local `initial_run/` directory is **SUPERSEDED**. It preserves the earlier pre-wrapper N35-only debugging evidence and is excluded from the final publication manifest, together with `__pycache__/`. Its old source and payload hashes must not be substituted for the final hashes above. The final deliverable is the nine top-level files in this directory: the two scientific Python files, two theorem notes, full results gzip, result summary, accounting script, accounting JSON, and this execution note. Root handles the enclosing publication manifest and remote readback.
