@@ -1,0 +1,545 @@
+{
+  "status": "PASS_COMPLETE_SAVED_RECORD_REVIEW",
+  "scope": "full saved bytes, strict replay semantics, recording links, native-column cell binding and resource metadata; no scientific execution",
+  "admission": "SHARED_CONTEXT_AUTHOR_REVIEW_NOT_FORMAL_ADMISSION",
+  "reader_sha256": "4b7e7d1bf7e4b7575d6b202f680acbac62861e16551aa4971ba7b74848571098",
+  "source_sha256": {
+    "direct_signed_gap.py": "3ab2515c1b9df35d01c9605f21d8f8fe56bd044effe489063192c0a5c56a8521",
+    "check_direct_signed_gap.py": "be69a1937c9ab1e04ad4fe6f650c412c5cad5def247b2d40f97042b926e5ce6f"
+  },
+  "payload_sha256": "48780f175bc4bcf673345ee8c0b9e0240cc1c2a0e166037720c5fc06b8483157",
+  "raw_bytes": 21248472,
+  "artifact_sha256": "3ac0ebc17112afb9f068e39c1ebb91afd8f6e3f6aeb3d6cd46044d0733b26354",
+  "gzip_bytes": 1026064,
+  "history_payload_sha256": "37ec0d4b7939a70d9157239bfebec7c88a387ff6a2f046a2701f87641d5d78f9",
+  "history_raw_bytes": 34118508,
+  "guard_sha256": "ac6cf502305ab0b81a573ba4a5dde69509502824ee629ecc15729aa09adc5d5e",
+  "native_source": {
+    "arithmetic_route": "actual full-adder columns; digit transducer composition",
+    "files_sha256": {
+      "lazy_modular": "08df3595a2a56dc2501bb481828093481bf76e4ac53c8b966990d233fefac1e4",
+      "sparse_modular": "fd9cbb019418a3c00890ba6e8cca5760e7e4d792bfd7b48306a71a66de301c46",
+      "typed_integer_prechecks": "0a817aa8124cceb5440233d543073dae71de6ac1d0d4e5d50f4ee2b4808d99eb"
+    },
+    "native_adder": {
+      "columns": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "entrypoint": "stage78.shor_benchmark.full_adder_columns",
+      "input_columns": 8,
+      "observer": "retained input triple -> (sum bit, carry bit)",
+      "positive_BRC_input_states": 12,
+      "scope": "exact integer label compiler; not a reversible physical erasure",
+      "vendor": {
+        "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+        "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+        "path": "src/enterprise_math/brc_weighted_recurrent.py",
+        "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+      }
+    },
+    "primitive_source": "0852cad130c1d877174d235687cf60c19f318c58",
+    "runtime_state_propagator": "complete positive unit permutation on work labels"
+  },
+  "cases": [
+    {
+      "inputs": {
+        "R": 3,
+        "g": 1,
+        "k": 0
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "record_links": {
+        "requests": 3,
+        "signed_operations": 879,
+        "typed_operations": 897,
+        "moment_nodes": 5,
+        "top_level_table_calls": 6,
+        "empty_progressions": 3,
+        "all_retained_native_adder_cells_bound": true,
+        "recounted_cost": {
+          "adder_digit_replays": 1953,
+          "host_bit_wiring_operations": 21180,
+          "host_bit_length_calls_in_arithmetic": 2400
+        }
+      },
+      "production_digits": 1953,
+      "historical_one_window_digits": 4029
+    },
+    {
+      "inputs": {
+        "R": 3,
+        "g": 2,
+        "k": 0
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "record_links": {
+        "requests": 3,
+        "signed_operations": 1943,
+        "typed_operations": 1965,
+        "moment_nodes": 12,
+        "top_level_table_calls": 12,
+        "empty_progressions": 0,
+        "all_retained_native_adder_cells_bound": true,
+        "recounted_cost": {
+          "adder_digit_replays": 5319,
+          "host_bit_wiring_operations": 57939,
+          "host_bit_length_calls_in_arithmetic": 5389
+        }
+      },
+      "production_digits": 5319,
+      "historical_one_window_digits": 8570
+    },
+    {
+      "inputs": {
+        "R": 3,
+        "g": 2,
+        "k": 1
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "record_links": {
+        "requests": 3,
+        "signed_operations": 1145,
+        "typed_operations": 1168,
+        "moment_nodes": 10,
+        "top_level_table_calls": 12,
+        "empty_progressions": 0,
+        "all_retained_native_adder_cells_bound": true,
+        "recounted_cost": {
+          "adder_digit_replays": 3113,
+          "host_bit_wiring_operations": 33644,
+          "host_bit_length_calls_in_arithmetic": 3113
+        }
+      },
+      "production_digits": 3113,
+      "historical_one_window_digits": 8043
+    },
+    {
+      "inputs": {
+        "R": 6,
+        "g": 3,
+        "k": 0
+      },
+      "values": [
+        12,
+        -11,
+        10,
+        -10,
+        10,
+        -11
+      ],
+      "record_links": {
+        "requests": 6,
+        "signed_operations": 2672,
+        "typed_operations": 2708,
+        "moment_nodes": 13,
+        "top_level_table_calls": 24,
+        "empty_progressions": 0,
+        "all_retained_native_adder_cells_bound": true,
+        "recounted_cost": {
+          "adder_digit_replays": 12833,
+          "host_bit_wiring_operations": 137501,
+          "host_bit_length_calls_in_arithmetic": 7475
+        }
+      },
+      "production_digits": 12833,
+      "historical_one_window_digits": 37565
+    },
+    {
+      "inputs": {
+        "R": 3,
+        "g": 3,
+        "k": 1
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "record_links": {
+        "requests": 3,
+        "signed_operations": 2524,
+        "typed_operations": 2551,
+        "moment_nodes": 21,
+        "top_level_table_calls": 12,
+        "empty_progressions": 0,
+        "all_retained_native_adder_cells_bound": true,
+        "recounted_cost": {
+          "adder_digit_replays": 9757,
+          "host_bit_wiring_operations": 106039,
+          "host_bit_length_calls_in_arithmetic": 7200
+        }
+      },
+      "production_digits": 9757,
+      "historical_one_window_digits": 14999
+    },
+    {
+      "inputs": {
+        "R": 2,
+        "g": 3,
+        "k": 2
+      },
+      "values": [
+        0,
+        0
+      ],
+      "record_links": {
+        "requests": 2,
+        "signed_operations": 1111,
+        "typed_operations": 1129,
+        "moment_nodes": 11,
+        "top_level_table_calls": 8,
+        "empty_progressions": 0,
+        "all_retained_native_adder_cells_bound": true,
+        "recounted_cost": {
+          "adder_digit_replays": 5466,
+          "host_bit_wiring_operations": 59637,
+          "host_bit_length_calls_in_arithmetic": 3195
+        }
+      },
+      "production_digits": 5466,
+      "historical_one_window_digits": 664
+    },
+    {
+      "inputs": {
+        "R": 7,
+        "g": 4,
+        "k": 1
+      },
+      "values": [
+        10,
+        -1,
+        -8,
+        4,
+        4,
+        -8,
+        -1
+      ],
+      "record_links": {
+        "requests": 7,
+        "signed_operations": 5115,
+        "typed_operations": 5172,
+        "moment_nodes": 31,
+        "top_level_table_calls": 28,
+        "empty_progressions": 0,
+        "all_retained_native_adder_cells_bound": true,
+        "recounted_cost": {
+          "adder_digit_replays": 23230,
+          "host_bit_wiring_operations": 251017,
+          "host_bit_length_calls_in_arithmetic": 14738
+        }
+      },
+      "production_digits": 23230,
+      "historical_one_window_digits": 49560
+    },
+    {
+      "inputs": {
+        "R": 1,
+        "g": 4,
+        "k": 2
+      },
+      "values": [
+        0
+      ],
+      "record_links": {
+        "requests": 1,
+        "signed_operations": 1205,
+        "typed_operations": 1213,
+        "moment_nodes": 10,
+        "top_level_table_calls": 4,
+        "empty_progressions": 0,
+        "all_retained_native_adder_cells_bound": true,
+        "recounted_cost": {
+          "adder_digit_replays": 10974,
+          "host_bit_wiring_operations": 118815,
+          "host_bit_length_calls_in_arithmetic": 3791
+        }
+      },
+      "production_digits": 10974,
+      "historical_one_window_digits": 475
+    },
+    {
+      "inputs": {
+        "R": 3,
+        "g": 5,
+        "k": 4
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "record_links": {
+        "requests": 3,
+        "signed_operations": 1545,
+        "typed_operations": 1573,
+        "moment_nodes": 15,
+        "top_level_table_calls": 12,
+        "empty_progressions": 0,
+        "all_retained_native_adder_cells_bound": true,
+        "recounted_cost": {
+          "adder_digit_replays": 15540,
+          "host_bit_wiring_operations": 165945,
+          "host_bit_length_calls_in_arithmetic": 4786
+        }
+      },
+      "production_digits": 15540,
+      "historical_one_window_digits": 13706
+    }
+  ],
+  "negative_checks": [
+    {
+      "name": "drop_half_modulus_orientation",
+      "error": "direct certificate does not replay",
+      "paid_complete_replays": 1
+    },
+    {
+      "name": "wrong_length",
+      "error": "direct certificate does not replay",
+      "paid_complete_replays": 1
+    },
+    {
+      "name": "wrong_table_offset",
+      "error": "direct certificate does not replay",
+      "paid_complete_replays": 1
+    },
+    {
+      "name": "wrong_delta",
+      "error": "direct certificate does not replay",
+      "paid_complete_replays": 1
+    },
+    {
+      "name": "wrong_exact_division",
+      "error": "direct certificate does not replay",
+      "paid_complete_replays": 1
+    },
+    {
+      "name": "wrong_output",
+      "error": "direct certificate does not replay",
+      "paid_complete_replays": 1
+    },
+    {
+      "name": "wrong_source",
+      "error": "direct source pin mismatch",
+      "paid_complete_replays": 0
+    },
+    {
+      "name": "boolean_input",
+      "error": "strict integer inputs required",
+      "paid_complete_replays": 0
+    },
+    {
+      "name": "wrong_schema",
+      "error": "wrong direct schema",
+      "paid_complete_replays": 0
+    }
+  ],
+  "input_rejections": [
+    {
+      "error": "strict integer inputs required",
+      "inputs": {
+        "R": 3,
+        "g": true,
+        "k": 0,
+        "r": 0,
+        "stride": 1
+      },
+      "rejected": true
+    },
+    {
+      "error": "g >= 1 and 0 <= negative bit k < g required",
+      "inputs": {
+        "R": 3,
+        "g": 0,
+        "k": 0,
+        "r": 0,
+        "stride": 1
+      },
+      "rejected": true
+    },
+    {
+      "error": "g >= 1 and 0 <= negative bit k < g required",
+      "inputs": {
+        "R": 3,
+        "g": 2,
+        "k": -1,
+        "r": 0,
+        "stride": 1
+      },
+      "rejected": true
+    },
+    {
+      "error": "g >= 1 and 0 <= negative bit k < g required",
+      "inputs": {
+        "R": 3,
+        "g": 2,
+        "k": 2,
+        "r": 0,
+        "stride": 1
+      },
+      "rejected": true
+    },
+    {
+      "error": "positive counting modulus and canonical residue required",
+      "inputs": {
+        "R": 0,
+        "g": 2,
+        "k": 0,
+        "r": 0,
+        "stride": 1
+      },
+      "rejected": true
+    },
+    {
+      "error": "positive counting modulus and canonical residue required",
+      "inputs": {
+        "R": 3,
+        "g": 2,
+        "k": 0,
+        "r": -1,
+        "stride": 1
+      },
+      "rejected": true
+    },
+    {
+      "error": "positive counting modulus and canonical residue required",
+      "inputs": {
+        "R": 3,
+        "g": 2,
+        "k": 0,
+        "r": 3,
+        "stride": 1
+      },
+      "rejected": true
+    },
+    {
+      "error": "only physical stride one is supported; no stride certificate",
+      "inputs": {
+        "R": 3,
+        "g": 2,
+        "k": 0,
+        "r": 0,
+        "stride": 2
+      },
+      "rejected": true
+    }
+  ],
+  "resources": {
+    "production": {
+      "certificates": 9,
+      "arithmetic": {
+        "typed_operations": 18376,
+        "adder_digit_replays": 88185,
+        "host_bit_wiring_operations": 951717,
+        "host_bit_length_calls_in_arithmetic": 52087,
+        "native_kernel_calls_delta": 1
+      },
+      "signed_operations": 18139,
+      "moment_nodes": 128,
+      "moment_requests": 204,
+      "cache_hits": 76
+    },
+    "positive_replay": {
+      "certificates": 9,
+      "arithmetic": {
+        "typed_operations": 18376,
+        "adder_digit_replays": 88185,
+        "host_bit_wiring_operations": 951717,
+        "host_bit_length_calls_in_arithmetic": 52087,
+        "native_kernel_calls_delta": 0
+      },
+      "signed_operations": 18139,
+      "moment_nodes": 128,
+      "moment_requests": 204,
+      "cache_hits": 76
+    },
+    "negative_replay": {
+      "certificates": 6,
+      "arithmetic": {
+        "typed_operations": 5614,
+        "adder_digit_replays": 15231,
+        "host_bit_wiring_operations": 165537,
+        "host_bit_length_calls_in_arithmetic": 15195,
+        "native_kernel_calls_delta": 0
+      },
+      "signed_operations": 5506,
+      "moment_nodes": 36,
+      "moment_requests": 59,
+      "cache_hits": 23
+    },
+    "historical_one_window_production": {
+      "certificates": 9,
+      "arithmetic": {
+        "typed_operations": 32946,
+        "adder_digit_replays": 137611,
+        "host_bit_wiring_operations": 1494901,
+        "host_bit_length_calls_in_arithmetic": 93645,
+        "native_kernel_calls_delta": 1
+      },
+      "signed_operations": 32222,
+      "moment_nodes": 193,
+      "moment_requests": 319,
+      "cache_hits": 126
+    }
+  },
+  "current_run_total_adder_digit_replays": 191601,
+  "actual_core_calls": [
+    {
+      "depth": 1,
+      "elapsed_ns": 7792700,
+      "entrypoint": "recurrent_mass_power",
+      "states": 12
+    }
+  ],
+  "unexpected_failure_artifact_present": false,
+  "scientific_arithmetic_recomputed": false,
+  "comparison_is_timing_benchmark": false,
+  "coverage_limits": [
+    "bounded one-negative-bit stride-one scalar observer only",
+    "moment recurrence outputs are bound to saved fresh replay, not scientifically recomputed by this reader",
+    "one primitive construction call is not total arithmetic cost",
+    "historical one-window production is read, not a matched timing rerun"
+  ]
+}

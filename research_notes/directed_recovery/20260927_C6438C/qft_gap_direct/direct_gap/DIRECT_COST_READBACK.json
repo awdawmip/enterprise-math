@@ -1,0 +1,246 @@
+{
+  "status": "FULL_SAVED_COST_READBACK_PASS",
+  "scientific_execution_performed": false,
+  "reader_sha256": "4b8bd23b3f75ddcf55cd12df402f1fc7e351db68fcac0f4f06b7a8bf7e1bc04b",
+  "source_sha256": {
+    "direct_signed_gap.py": "3ab2515c1b9df35d01c9605f21d8f8fe56bd044effe489063192c0a5c56a8521",
+    "check_direct_signed_gap.py": "be69a1937c9ab1e04ad4fe6f650c412c5cad5def247b2d40f97042b926e5ce6f"
+  },
+  "payload_sha256": "48780f175bc4bcf673345ee8c0b9e0240cc1c2a0e166037720c5fc06b8483157",
+  "artifact_sha256": "3ac0ebc17112afb9f068e39c1ebb91afd8f6e3f6aeb3d6cd46044d0733b26354",
+  "raw_bytes": 21248472,
+  "gzip_bytes": 1026064,
+  "production": {
+    "evidence_count": 9,
+    "arithmetic_totals": {
+      "typed_operations": 18376,
+      "adder_digit_replays": 88185,
+      "host_bit_wiring_operations": 951717,
+      "host_bit_length_calls_in_arithmetic": 52087,
+      "native_kernel_calls_delta": 1
+    },
+    "signed_operations": 18139,
+    "moment_nodes": 128,
+    "moment_requests": 204,
+    "cache_hits": 76,
+    "max_recursion_depth": 3,
+    "max_observed_integer_bits": 14
+  },
+  "positive_replay": {
+    "evidence_count": 9,
+    "arithmetic_totals": {
+      "typed_operations": 18376,
+      "adder_digit_replays": 88185,
+      "host_bit_wiring_operations": 951717,
+      "host_bit_length_calls_in_arithmetic": 52087,
+      "native_kernel_calls_delta": 0
+    },
+    "signed_operations": 18139,
+    "moment_nodes": 128,
+    "moment_requests": 204,
+    "cache_hits": 76,
+    "max_recursion_depth": 3,
+    "max_observed_integer_bits": 14
+  },
+  "negative_replay": {
+    "evidence_count": 6,
+    "arithmetic_totals": {
+      "typed_operations": 5614,
+      "adder_digit_replays": 15231,
+      "host_bit_wiring_operations": 165537,
+      "host_bit_length_calls_in_arithmetic": 15195,
+      "native_kernel_calls_delta": 0
+    },
+    "signed_operations": 5506,
+    "moment_nodes": 36,
+    "moment_requests": 59,
+    "cache_hits": 23,
+    "max_recursion_depth": 2,
+    "max_observed_integer_bits": 7
+  },
+  "per_case": [
+    {
+      "inputs": {
+        "g": 1,
+        "k": 0,
+        "R": 3
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "fresh_digits": 1953,
+      "historical_digits": 4029
+    },
+    {
+      "inputs": {
+        "g": 2,
+        "k": 0,
+        "R": 3
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "fresh_digits": 5319,
+      "historical_digits": 8570
+    },
+    {
+      "inputs": {
+        "g": 2,
+        "k": 1,
+        "R": 3
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "fresh_digits": 3113,
+      "historical_digits": 8043
+    },
+    {
+      "inputs": {
+        "g": 3,
+        "k": 0,
+        "R": 6
+      },
+      "values": [
+        12,
+        -11,
+        10,
+        -10,
+        10,
+        -11
+      ],
+      "fresh_digits": 12833,
+      "historical_digits": 37565
+    },
+    {
+      "inputs": {
+        "g": 3,
+        "k": 1,
+        "R": 3
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "fresh_digits": 9757,
+      "historical_digits": 14999
+    },
+    {
+      "inputs": {
+        "g": 3,
+        "k": 2,
+        "R": 2
+      },
+      "values": [
+        0,
+        0
+      ],
+      "fresh_digits": 5466,
+      "historical_digits": 664
+    },
+    {
+      "inputs": {
+        "g": 4,
+        "k": 1,
+        "R": 7
+      },
+      "values": [
+        10,
+        -1,
+        -8,
+        4,
+        4,
+        -8,
+        -1
+      ],
+      "fresh_digits": 23230,
+      "historical_digits": 49560
+    },
+    {
+      "inputs": {
+        "g": 4,
+        "k": 2,
+        "R": 1
+      },
+      "values": [
+        0
+      ],
+      "fresh_digits": 10974,
+      "historical_digits": 475
+    },
+    {
+      "inputs": {
+        "g": 5,
+        "k": 4,
+        "R": 3
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "fresh_digits": 15540,
+      "historical_digits": 13706
+    }
+  ],
+  "top_level_table_calls": 118,
+  "empty_progressions": 3,
+  "negative_replay_counts": [
+    {
+      "name": "drop_half_modulus_orientation",
+      "count": 1
+    },
+    {
+      "name": "wrong_length",
+      "count": 1
+    },
+    {
+      "name": "wrong_table_offset",
+      "count": 1
+    },
+    {
+      "name": "wrong_delta",
+      "count": 1
+    },
+    {
+      "name": "wrong_exact_division",
+      "count": 1
+    },
+    {
+      "name": "wrong_output",
+      "count": 1
+    },
+    {
+      "name": "wrong_source",
+      "count": 0
+    },
+    {
+      "name": "boolean_input",
+      "count": 0
+    },
+    {
+      "name": "wrong_schema",
+      "count": 0
+    }
+  ],
+  "actual_core_calls": [
+    {
+      "depth": 1,
+      "elapsed_ns": 7792700,
+      "entrypoint": "recurrent_mass_power",
+      "states": 12
+    }
+  ],
+  "all_signed_to_typed_operation_indices_covered_once": true,
+  "positive_complete_semantic_equality_checked": true,
+  "log_sha256": "d4f43311335a5d0d68aa5840de4ffbd87820fdff76317bdb8d814ec0b6b3610a",
+  "failure_artifact_present": false,
+  "scope": "Resource accounting on saved evidence; no historical or new science rerun."
+}
