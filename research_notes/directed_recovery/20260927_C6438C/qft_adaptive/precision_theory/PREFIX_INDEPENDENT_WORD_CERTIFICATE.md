@@ -1,0 +1,25 @@
+# A reusable word certificate for the next optimization
+
+Status: AUTHOR_SYMBOLIC_DERIVATION / NOT_EXECUTED / NOT_ADMITTED. This note responds to the actual cost regression of the full-covariance defect test. It does not claim that the new certificate has already passed for the saved bank.
+
+Let G be one complete admitted real orthogonal native word. Put
+
+    B=(I-G)^T(I-G).
+
+Suppose a nonnegative exact rational s is supplied and every full-carrier entry of the identity B^2=sB is verified through actual signed observations. Since B is symmetric positive semidefinite, its eigenvalues obey lambda^2=s lambda; they are 0 or s. Consequently ||I-G||^2<=s. If B is nonzero the norm squared equals s. A certificate also checks 0<=s<=4, as follows independently from orthogonality. This is a sufficient algebraic certificate, not a claim that every orthogonal word has only one nonzero singular value.
+
+For a word that acts as one planar rotation and identity on its complement, B has two equal nonzero eigenvalues; s=tr(B)/2 is then a possible witness. The actual certification should still check B^2=sB in every entry, so no planar-rotation assumption has to be trusted from a small ideal target angle. In the all-identity case s=0 suffices. A failed identity means this witness does not apply; it must not be forced by dropping residual modes.
+
+In the implemented omission policy, the oldest active feedback word is the first applied factor G. If the remaining actual factors form the orthogonal product L, the reference and candidate are T=LG and S=L. Their exact difference is L(G-I). Therefore the same s certifies ||T-S||^2<=s for every public prefix, regardless of noncommutation among the factors of L. An interior omission has T=LGR and S=LR with common orthogonal factors L,R, so the same uniform norm bound applies. A state-specific defect formula must instead observe the correctly transformed covariance R C R^T. No factors are commuted.
+
+For any actual prefix covariance C of positive mass M, A=tr((T-S)C(T-S)^T)<=sM. The local trace-distance charge from the sibling theorem is increasing as a function of A/M in [0,4]. A sufficient rational budget test is thus
+
+    8s-s^2 <= 16e^2,        0<=s<=4,  0<=e<=1.
+
+Unlike the current full defect-matrix calculation, this test does not need C. One may verify B^2=sB once per bound immutable word and reuse its certified s. If it fails to authorize a candidate, the policy may use the full state-specific certificate or select the reference word. Such a menu must still be deterministic from public history and committed past words. It must not inspect a private work trajectory.
+
+Construction and verification use the complete admitted word columns, matrix products and signed observations; their setup cost and evidence storage are charged. With fixed carrier dimension this removes repeated prefix-specific defect transformations when it applies, but it does not remove prefix-mass/correlation work needed by the underlying sampler. A real saving requires comparing setup plus reuse against the current 4-term defect contraction, and checking the actual words rather than assuming this identity from their intended rotations.
+
+The next executable experiment is therefore well-defined: construct B for the existing bank, test the scalar witness s=tr(B)/2, retain every failed witness, then compare a policy using only certified uniform bounds with the present policy on identical complete bounded fixtures. Preserve complete joint laws and actual costs. No new run, general efficient sampler or factor-success guarantee is asserted here.
+
+Global-Knowledge-Sync: main@06788df / GLOBAL_KNOWLEDGE_V1

@@ -1,0 +1,79 @@
+{
+  "schema": "PROFESSIONAL_QUERY_EXECUTION_RECEIPT_V1",
+  "task_ref": "sep27-qft-adaptive/prior_art/KQB2499",
+  "task_started_at": "2026-09-27T02:59:45Z",
+  "checked_at": "2026-09-27T03:00:57+00:00",
+  "timestamp_scope": "Actual submission phase; cache preparation preceded this timestamp.",
+  "provider": "arxiv",
+  "operation": "paper_search",
+  "transport": "GITHUB_ISSUE",
+  "cache_decision": "QUERY_REQUIRED",
+  "outcome": "PROVIDER_ERROR",
+  "conversation_id": "01a079d7-5d03-7a21-abe9-f70606fee0ee",
+  "turn_id": "ce584831-6490-4923-a7c6-e635968bd8fb",
+  "batch_id": "ac21bbbe-25b6-4e3b-a486-0616d792db7b",
+  "request_sha256": "bf429b4e564e5756b8d7fbdd44c6565dcf0b47011d137093a43c98418079bc70",
+  "request": {
+    "v": 1,
+    "id": "ac21bbbe-25b6-4e3b-a486-0616d792db7b",
+    "redacted": true,
+    "mode": "standard",
+    "jobs": [
+      {
+        "db": "arxiv",
+        "op": "paper_search",
+        "q": "\"regular sequences\" \"summatory\" \"linear representation\"",
+        "n": 5
+      }
+    ]
+  },
+  "attempts": [
+    {
+      "at": "2026-09-27T02:59:45Z",
+      "client": "authorized GitHub connector create_issue",
+      "method": "POST",
+      "endpoint_kind": "GITHUB_REQUEST_ISSUE",
+      "request_issue_url": "https://github.com/awdawmip/kimi-query-bridge/issues/2499",
+      "batch_id": "ac21bbbe-25b6-4e3b-a486-0616d792db7b",
+      "request_sha256": "bf429b4e564e5756b8d7fbdd44c6565dcf0b47011d137093a43c98418079bc70",
+      "evidence_ref": "KQB_CREATED.json"
+    }
+  ],
+  "github_check": {
+    "at": "2026-09-27T03:00:57+00:00",
+    "evidence_ref": "KQB_FINAL_READBACK.json and KQB_READBACK_CLOCK.json",
+    "batch_id": "ac21bbbe-25b6-4e3b-a486-0616d792db7b",
+    "request_match": true,
+    "result_ref": "https://github.com/awdawmip/kimi-query-bridge/issues/2499#issuecomment-5852140481",
+    "provider": "arxiv",
+    "operation": "paper_search",
+    "job_state": "PROVIDER_ERROR",
+    "coverage_complete": false,
+    "raw_evidence_ref": "KQB_RESULT.json"
+  },
+  "query_budget": {
+    "mode": "standard",
+    "shared_limit": 3,
+    "accepted_tasks": 1,
+    "provider_calls_confirmed": 1,
+    "retries": 0,
+    "pending_batches": 0,
+    "billable_calls": null
+  },
+  "readback_validation": {
+    "result": "PASS",
+    "scope": "Exact request body/digest, issue, batch, turn, provider, query and full result comment match."
+  },
+  "source_cache_written": false,
+  "source_cache_reason": "Failed provider call with no records; no provider_request_id supplied. Not a NO_HIT or success cache.",
+  "authority": "Failed retrieval provenance only; no scientific evidence or admission.",
+  "validator_source": {
+    "repository": "awdawmip/chatgpt-global-knowledge",
+    "commit": "06788df022dbd11720132b4ed0882ce8e41b3b8a",
+    "path": "tools/professional_query_execution.py",
+    "sha256": "4e6a2f83452370985f731da901324d542a7b2038c7725dfb6a4f83a305c660d0"
+  },
+  "canonical_validator_result": "REJECTED_LITERAL_STATE_VOCABULARY",
+  "canonical_validator_error": "HTTP 200/PUBLISHED/other job is not provider success",
+  "validator_exception_scope": "Raw child state is retained verbatim. Current validator expects ERROR for outcome PROVIDER_ERROR. This is not mislabeled as a validator PASS."
+}

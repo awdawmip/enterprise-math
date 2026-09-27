@@ -1,0 +1,50 @@
+{
+  "accepted_at": "2026-09-27T02:59:51.909828+00:00",
+  "bridge_kimi_llm_calls": 0,
+  "completed_at": "2026-09-27T03:00:25.727525+00:00",
+  "github_request": {
+    "conversation_id": "01a079d7-5d03-7a21-abe9-f70606fee0ee",
+    "issue_number": 2499,
+    "mode": "standard",
+    "request_sha256": "bf429b4e564e5756b8d7fbdd44c6565dcf0b47011d137093a43c98418079bc70",
+    "turn_id": "ce584831-6490-4923-a7c6-e635968bd8fb"
+  },
+  "read_not_before": "2026-09-27T02:59:51.909828+00:00",
+  "request_hash": "3705b53468478e42f1de79de4a894179a85ecfb8947ddb32c3a93b776225b06a",
+  "request_id": "ac21bbbe-25b6-4e3b-a486-0616d792db7b",
+  "results": [
+    {
+      "api": "search_papers",
+      "billable_calls": null,
+      "bridge_kimi_llm_calls": 0,
+      "completed_at": 1790478023.9492078,
+      "content_scope": "Paper search metadata and supplied abstracts only; full text has not been read. arXiv entries are preprints unless independently verified otherwise.",
+      "coverage": {
+        "complete": false,
+        "provider_total": null,
+        "published_rows": 0,
+        "reason": "UPSTREAM_TOTAL_UNKNOWN",
+        "records_received": 0,
+        "request_options": {},
+        "requested_max_items": 5
+      },
+      "observed_at": 1790478023.9492064,
+      "operation": "paper_search",
+      "provider_query_calls": 1,
+      "provider_query_calls_confirmed": 1,
+      "provider_query_calls_unknown": 0,
+      "provider_tool_attempts": 1,
+      "query": "\"regular sequences\" \"summatory\" \"linear representation\"",
+      "records": [],
+      "request_hash": "490c5ddb1c346fea022f2299656477a4f2b7621da83bb29be5700513a595de90",
+      "request_id": "2c16a704-9be9-5f88-beb1-44f5c804e4c7",
+      "retrieval_verified": false,
+      "source": "arxiv",
+      "state": "PROVIDER_ERROR",
+      "upstream_internal_llm_calls": null
+    }
+  ],
+  "schema_version": "KQB_WEB_BATCH_RESULT_V1",
+  "state": "FAILED",
+  "upstream_internal_llm_calls": null
+}

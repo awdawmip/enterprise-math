@@ -1,0 +1,106 @@
+{
+  "schema": "PRIMARY_READING_AND_SCOPE_EVIDENCE_V1",
+  "date_utc": "2026-09-27",
+  "gk": {
+    "canonical": "06788df022dbd11720132b4ed0882ce8e41b3b8a",
+    "helper": "PASS / LEASE_REUSED",
+    "entrypoints": [
+      "00_BOOTSTRAP.md",
+      "OPERATING_MANUAL.md",
+      "CODEX_SYNC_PROTOCOL.md"
+    ],
+    "method": "Shipped helper and immutable git reads; policy reuse and reread, not dirty worktree authority."
+  },
+  "rp1": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "3d2e729c4cce0f8df228795599266e4582be3505",
+    "path": "research_notes/HEARTBEAT_RP1_LOW_PRECISION_RIDGE_20260927.md",
+    "blob": "ce983db7cf6610c9400450f649ce189c6b2398ec",
+    "status": "COMPLETE_HEARTBEAT_READ",
+    "raw": "RP1_READBACK.json",
+    "underlying_bundle_proof": "NOT_READ; listed bundle identifier did not resolve as EM Git commit during attempted proof fetch",
+    "failure_raw": "RP1_BUNDLE_COMMIT_REMOTE_UNAVAILABLE.json"
+  },
+  "mass_weighted": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "951cc16cb09635fae9f93230d96030fdaa2035b3",
+    "path": "research_notes/directed_recovery/20260927_C6438C/qft_row_queries/point_queries/MASS_WEIGHTED_APPROXIMATION_BOUND.md",
+    "blob": "32b746b30b9a0602715e44c662cae5c5a15044a0",
+    "status": "COMPLETE_NOTE_READ",
+    "raw": "MASS_BOUND_READBACK.json"
+  },
+  "papers": [
+    {
+      "title": "Asymptotic Analysis of Regular Sequences",
+      "authors": [
+        "Clemens Heuberger",
+        "Daniel Krenn"
+      ],
+      "url": "https://arxiv.org/pdf/1810.13178v5",
+      "version_date": "2025-11-29",
+      "method": "Official arXiv PDF opened and exact relevant text read via web tool",
+      "sections_read": [
+        "3.1 definition and linear representation",
+        "3.2 Theorem A and hypotheses",
+        "12.2 Lemma 12.2 and complete proof"
+      ],
+      "printed_pages": [
+        "5-7",
+        "37"
+      ],
+      "whole_paper_read": false,
+      "usable": "Given finite digital representation: exact digit recurrence for summatory function.",
+      "limit": "Does not supply small AP representation or a certified finite mass-error bound without construction/constants."
+    },
+    {
+      "title": "Time-uniform, nonparametric, nonasymptotic confidence sequences",
+      "authors": [
+        "Steven R. Howard",
+        "Aaditya Ramdas",
+        "Jon McAuliffe",
+        "Jasjeet Sekhon"
+      ],
+      "url": "https://arxiv.org/pdf/1810.08240",
+      "version_status": "Unversioned official PDF as retrieved; no unverified version number asserted.",
+      "method": "Official arXiv PDF opened and exact relevant text read via web tool",
+      "sections_read": [
+        "4.1 Theorem 4 and estimand/predictability definitions",
+        "5 comparison warning for naive empirical-variance substitution"
+      ],
+      "printed_pages": [
+        "13-14",
+        "18"
+      ],
+      "whole_paper_read": false,
+      "usable": "Bounded adapted data with predictable predictors admit time-uniform average-conditional-mean confidence bounds.",
+      "limit": "Changing policies do not have one stationary success parameter; theorem not a cheap quantum-error certificate."
+    }
+  ],
+  "sibling_sources": [
+    {
+      "path": "D:\\em\\TEMP\\sep27-qft-adaptive\\precision_theory\\ADAPTIVE_NATIVE_PRECISION_INTERFACE.md",
+      "sha256_at_read": "a0b95c02554e85c3693022bd309a4486f008be80491e1a1f0679d8f40b75d1d6",
+      "read_scope": "Complete symbolic text; no execution or admission."
+    },
+    {
+      "path": "D:\\em\\TEMP\\sep27-qft-adaptive\\nonzero_structure\\ACTIVE_WINDOW_FLOOR_MOMENTS.md",
+      "sha256_at_read": "20a93f15f241f9c3220c031032cc2af697e4d4a448669f5b637396c1a05529d4",
+      "read_scope": "Complete symbolic text; no execution or admission."
+    }
+  ],
+  "reused_query": {
+    "issue": 2497,
+    "archive_commit": "ed11167f4102d004e010643d74c00f0c658556a0",
+    "status": "PARTIAL/CONFLICT retained",
+    "raw": "REUSED_CACHE_READBACK.json"
+  },
+  "new_query": {
+    "issue": 2499,
+    "status": "PROVIDER_ERROR",
+    "records": 0,
+    "retrieval_verified": false,
+    "raw": "KQB_FINAL_READBACK.json"
+  },
+  "scientific_execution": false,
+  "remote_archive_written_by_this_unit": false
+}
