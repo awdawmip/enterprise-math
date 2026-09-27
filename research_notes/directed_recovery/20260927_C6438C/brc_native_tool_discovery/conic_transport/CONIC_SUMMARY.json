@@ -1,0 +1,279 @@
+{
+  "status": "PASS_FINITE_CONIC_AUTHOR_EXECUTION_NOT_ADMITTED",
+  "raw_bytes": 808809,
+  "raw_sha256": "2ab5d7853310c2a1b9240c51f629b3374ee938f8a4eb75ef0d88a2711c253c75",
+  "gzip_sha256": "fc18630a78ffbec5d89d59ac84d8ab21f884f028631e3ac0d4a4c1522c9e8b4e",
+  "native_catalog_calls": 1,
+  "cases": [
+    {
+      "inputs": {
+        "N": 15,
+        "a": 2,
+        "layers": 3
+      },
+      "new_costs": {
+        "correlated_conic": 1552,
+        "public_schedule": 92,
+        "conic_validation": 210
+      },
+      "saved_baseline_costs": {
+        "paired": 2825,
+        "quotient": 1504,
+        "inversion_folded": 1960,
+        "public_schedule": 92,
+        "validation": 2358
+      },
+      "layer_histogram_equal": [
+        true,
+        true,
+        true
+      ],
+      "standalone_state_inverse_certificates": 0,
+      "output": [
+        {
+          "port": [
+            "FACTOR",
+            3,
+            2
+          ],
+          "histogram": [
+            [
+              1,
+              16,
+              4
+            ]
+          ]
+        },
+        {
+          "port": [
+            "FAIL"
+          ],
+          "histogram": [
+            [
+              1,
+              64,
+              48
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": {
+        "N": 21,
+        "a": 2,
+        "layers": 3
+      },
+      "new_costs": {
+        "correlated_conic": 2653,
+        "public_schedule": 106,
+        "conic_validation": 276
+      },
+      "saved_baseline_costs": {
+        "paired": 4639,
+        "quotient": 2633,
+        "inversion_folded": 3162,
+        "public_schedule": 106,
+        "validation": 5384
+      },
+      "layer_histogram_equal": [
+        true,
+        true,
+        true
+      ],
+      "standalone_state_inverse_certificates": 0,
+      "output": [
+        {
+          "port": [
+            "FACTOR",
+            3,
+            2
+          ],
+          "histogram": [
+            [
+              1,
+              16,
+              4
+            ]
+          ]
+        },
+        {
+          "port": [
+            "FACTOR",
+            3,
+            3
+          ],
+          "histogram": [
+            [
+              1,
+              64,
+              8
+            ]
+          ]
+        },
+        {
+          "port": [
+            "FACTOR",
+            7,
+            2
+          ],
+          "histogram": [
+            [
+              1,
+              16,
+              2
+            ]
+          ]
+        },
+        {
+          "port": [
+            "FACTOR",
+            7,
+            3
+          ],
+          "histogram": [
+            [
+              1,
+              64,
+              6
+            ]
+          ]
+        },
+        {
+          "port": [
+            "FAIL"
+          ],
+          "histogram": [
+            [
+              1,
+              64,
+              26
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": {
+        "N": 35,
+        "a": 2,
+        "layers": 3
+      },
+      "new_costs": {
+        "correlated_conic": 6458,
+        "public_schedule": 122,
+        "conic_validation": 689
+      },
+      "saved_baseline_costs": {
+        "paired": 9257,
+        "quotient": 6706,
+        "inversion_folded": 8384,
+        "public_schedule": 122,
+        "validation": 14810
+      },
+      "layer_histogram_equal": [
+        true,
+        true,
+        true
+      ],
+      "standalone_state_inverse_certificates": 0,
+      "output": [
+        {
+          "port": [
+            "FACTOR",
+            5,
+            3
+          ],
+          "histogram": [
+            [
+              1,
+              64,
+              8
+            ]
+          ]
+        },
+        {
+          "port": [
+            "FACTOR",
+            7,
+            2
+          ],
+          "histogram": [
+            [
+              1,
+              16,
+              2
+            ]
+          ]
+        },
+        {
+          "port": [
+            "FACTOR",
+            7,
+            3
+          ],
+          "histogram": [
+            [
+              1,
+              64,
+              10
+            ]
+          ]
+        },
+        {
+          "port": [
+            "FAIL"
+          ],
+          "histogram": [
+            [
+              1,
+              64,
+              38
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": {
+        "N": 15,
+        "a": 14,
+        "layers": 3
+      },
+      "new_costs": {
+        "correlated_conic": 828,
+        "public_schedule": 122,
+        "conic_validation": 366
+      },
+      "saved_baseline_costs": {
+        "paired": 1123,
+        "quotient": 720,
+        "inversion_folded": 1122,
+        "public_schedule": 122,
+        "validation": 1012
+      },
+      "layer_histogram_equal": [
+        true,
+        true,
+        true
+      ],
+      "standalone_state_inverse_certificates": 0,
+      "output": [
+        {
+          "port": [
+            "FAIL"
+          ],
+          "histogram": [
+            [
+              1,
+              64,
+              64
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "negative_digits": 34,
+  "cost_scope": "Typed digit replay ledger; setup and column work included; auxiliary histogram merges and general allocation/rational-library costs excluded. No timing/scaling claim."
+}

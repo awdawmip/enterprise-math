@@ -1,0 +1,235 @@
+{
+  "status": "PASS_TRACE_FIBER_READOUT_AUTHOR_NOT_ADMITTED",
+  "raw_bytes": 277771,
+  "raw_sha256": "ddf89398fe9b7f9c3ffc9eae107ad52c56ba4629456b65b237bb22e8047b340f",
+  "gzip_sha256": "3ef68050df8f49a4e232a82b082b4e1a703076651fa0f0ffbd9af4718717600f",
+  "native_catalog_calls": 1,
+  "cuts": [
+    {
+      "inputs": {
+        "N": 15,
+        "a": 2,
+        "layers": 3
+      },
+      "depth": 1,
+      "collisions": [],
+      "added_readout_digits": 67
+    },
+    {
+      "inputs": {
+        "N": 15,
+        "a": 2,
+        "layers": 3
+      },
+      "depth": 2,
+      "collisions": [],
+      "added_readout_digits": 67
+    },
+    {
+      "inputs": {
+        "N": 15,
+        "a": 2,
+        "layers": 3
+      },
+      "depth": 3,
+      "collisions": [],
+      "added_readout_digits": 67
+    },
+    {
+      "inputs": {
+        "N": 21,
+        "a": 2,
+        "layers": 3
+      },
+      "depth": 1,
+      "collisions": [],
+      "added_readout_digits": 79
+    },
+    {
+      "inputs": {
+        "N": 21,
+        "a": 2,
+        "layers": 3
+      },
+      "depth": 2,
+      "collisions": [],
+      "added_readout_digits": 79
+    },
+    {
+      "inputs": {
+        "N": 21,
+        "a": 2,
+        "layers": 3
+      },
+      "depth": 3,
+      "collisions": [],
+      "added_readout_digits": 79
+    },
+    {
+      "inputs": {
+        "N": 35,
+        "a": 2,
+        "layers": 3
+      },
+      "depth": 1,
+      "collisions": [],
+      "added_readout_digits": 106
+    },
+    {
+      "inputs": {
+        "N": 35,
+        "a": 2,
+        "layers": 3
+      },
+      "depth": 2,
+      "collisions": [],
+      "added_readout_digits": 167
+    },
+    {
+      "inputs": {
+        "N": 35,
+        "a": 2,
+        "layers": 3
+      },
+      "depth": 3,
+      "collisions": [
+        {
+          "key": 20,
+          "left_point": [
+            2,
+            18
+          ],
+          "right_point": [
+            23,
+            32
+          ],
+          "kind": "FACTOR",
+          "left_unit": 2,
+          "right_unit": 23,
+          "gcd": 7
+        }
+      ],
+      "added_readout_digits": 491
+    },
+    {
+      "inputs": {
+        "N": 15,
+        "a": 14,
+        "layers": 3
+      },
+      "depth": 1,
+      "collisions": [],
+      "added_readout_digits": 79
+    },
+    {
+      "inputs": {
+        "N": 15,
+        "a": 14,
+        "layers": 3
+      },
+      "depth": 2,
+      "collisions": [],
+      "added_readout_digits": 79
+    },
+    {
+      "inputs": {
+        "N": 15,
+        "a": 14,
+        "layers": 3
+      },
+      "depth": 3,
+      "collisions": [],
+      "added_readout_digits": 79
+    }
+  ],
+  "fixtures": [
+    {
+      "N": 7,
+      "left": [
+        2,
+        4
+      ],
+      "right": [
+        2,
+        4
+      ],
+      "result": {
+        "kind": "SAME",
+        "left_unit": 2,
+        "right_unit": 2,
+        "gcd": 7
+      },
+      "all_fixture_digits": 207
+    },
+    {
+      "N": 7,
+      "left": [
+        2,
+        4
+      ],
+      "right": [
+        4,
+        2
+      ],
+      "result": {
+        "kind": "INVERSE",
+        "left_unit": 2,
+        "right_unit": 4,
+        "gcd": 1
+      },
+      "all_fixture_digits": 504
+    },
+    {
+      "N": 15,
+      "left": [
+        2,
+        8
+      ],
+      "right": [
+        8,
+        2
+      ],
+      "result": {
+        "kind": "FACTOR",
+        "left_unit": 2,
+        "right_unit": 8,
+        "gcd": 3
+      },
+      "all_fixture_digits": 794
+    },
+    {
+      "N": 25,
+      "left": [
+        1,
+        1
+      ],
+      "right": [
+        6,
+        21
+      ],
+      "result": {
+        "kind": "FACTOR",
+        "left_unit": 1,
+        "right_unit": 6,
+        "gcd": 5
+      },
+      "all_fixture_digits": 760
+    },
+    {
+      "N": 35,
+      "left": [
+        2,
+        18
+      ],
+      "right": [
+        4,
+        9
+      ],
+      "result": {
+        "kind": "DISTINCT_TRACE"
+      },
+      "all_fixture_digits": 977
+    }
+  ],
+  "generation_cost_scope": "Input populations came from paid frozen conic execution; these readout-only costs are not end-to-end factorization costs."
+}

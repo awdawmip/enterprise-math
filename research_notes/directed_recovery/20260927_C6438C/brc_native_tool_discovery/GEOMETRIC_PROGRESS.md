@@ -1,0 +1,71 @@
+# Geometric transport, joint branch witnesses, and the Heartbeat continuation
+
+Researcher: EM-DIRECT-C6438C. Activity: RA-CAAAC604CB513AEA8BBC1DFC.
+Status: bounded author executions and symbolic composition; no independent admission, generic factoring closure or Foundation mutation. This addendum advances the frozen RESULTS_AND_CONTINUE.md without rewriting it.
+
+The active user objective is native BRC tool discovery, making real use of Enterprise geometry, coordinates and Heartbeat World. An explosion of the chosen representation is a reason to inspect its observer, operations and retained correlation. It is not itself a proof that a small representation exists.
+
+## 1. Executed geometric repair
+
+The first reciprocal quotient saved states but lost arithmetic efficiency in all four cases because each visited unit needed another inverse certificate. The second experiment instead transported a correlated point (u,v), uv=1 mod N. Multiplication acts diagonally as (cu,c^-1 v); its opposite action uses (c^-1 u,cv). Exchange realizes reciprocal symmetry with no standalone per-state inverse. The complete symmetric branch histogram and proper-factor/first-hit observer descend, with all failed paths retained.
+
+| N, a; three layers | Saved relative digits | Saved reciprocal-fold digits | New correlated-conic digits |
+|---|---:|---:|---:|
+| 15, 2 | 1,504 | 1,960 | 1,552 |
+| 21, 2 | 2,633 | 3,162 | 2,653 |
+| 35, 2 | 6,706 | 8,384 | 6,458 |
+| 15, 14 | 720 | 1,122 | 828 |
+
+All 12 new layer laws equal the already saved reciprocal-fold full WeightHistograms. All retained live conic invariants were checked using separately charged typed modular multiplication. The nonconic point (2,2) modulo 15 was rejected. The failed-base case still has total failure mass one. Each distinct multiplier table, including inverse-multiplier table setup, is charged. Only the N35 example improves on the simpler relative representation. This is a specific inverse-cost repair, not a scaling result or proof that two coordinates generally beat one.
+
+Actual first execution: exit 0, tool chunk b12f39. Raw result 808,809 bytes, SHA256 2ab5d7853310c2a1b9240c51f629b3374ee938f8a4eb75ef0d88a2711c253c75. Gzip SHA256 fc18630a78ffbec5d89d59ac84d8ab21f884f028631e3ac0d4a4c1522c9e8b4e. No old scientific computation was replayed to obtain the baseline.
+
+## 2. Executed trace-fiber witness
+
+An additional finite observer was then applied to these immutable live populations. For each live conic point use the trace key z=u+v modulo N. At a key collision retain both actual units rather than declaring them equivalent without proof. If the retained units are u and w, their trace equality gives
+
+    (u-w)(uw-1) = 0 mod N.
+
+The exact typed gcd d=gcd(u-w,N) has three outcomes: d=N certifies identical units; d=1 certifies reciprocal units; a proper d is already a verified factor. Reciprocal merging still requires the declared symmetric future kernel. This supplies a target-preserving stopping interface: a proposed merge is either lawful or its obstruction is a successful factor certificate. It does not promise an early collision or small carrier, and it is not a new classical trace identity.
+
+Actual N35/a2 third-layer witness:
+
+    left correlated point  = (2,18)
+    right correlated point = (23,32)
+    common trace key       = 20 mod 35
+    gcd(2-23,35)           = 7, with a typed exact division receipt.
+
+Both points are LIVE under their individual gcd(u-1,N) observers. This demonstrates why a joint relation between surviving branches can contain useful output. The entire third-layer trace readout cost 491 additional typed digit replays, separate from the already paid generation. The same batch had already produced factor 7 through another branch at depth two. Therefore this example establishes the cross-branch certificate mechanism, NOT an earlier overall factor, a new factor absent from the batch, or improved end-to-end probability.
+
+All 12 saved cuts were read. The other 11 have no trace collision. Five separately paid typed fixtures cover SAME (N7), INVERSE (N7), an inverse pair that itself produces a proper factor (N15), a prime-power collision (N25), and DISTINCT_TRACE (N35). The prime-power fixture confirms that squarefree-ring intuition is unnecessary. It does not repair trace-only future transport or the saturation of gcd(z-2,N).
+
+Actual first execution: exit 0, tool chunk a0632f. Raw result 277,771 bytes, SHA256 ddf89398fe9b7f9c3ffc9eae107ad52c56ba4629456b65b237bb22e8047b340f. Gzip SHA256 3ef68050df8f49a4e232a82b082b4e1a703076651fa0f0ffbd9af4718717600f. Per-cut/fixture costs and complete native records are retained. The new output is a search certificate on a population, not preservation of the old stochastic first-hit law after conflict-triggered stopping.
+
+## 3. Exact use of Enterprise tools
+
+* T0 WeightHistogram and existing typed BRC arithmetic are actually executed; full microscopic weights and multiplicities are retained.
+* T6/T7 are applied through the explicit future-kernel and exchange-conjugacy proofs. A deterministic named-action quotient is not silently substituted for a symmetric histogram quotient.
+* T4 finite-fiber collision/witness calculus is applied with the explicit trace map and actual representative pairs. Fiber construction and witness extraction are charged; capacity is not used as a free collision oracle.
+* The preserved paired conic is repair information for a joint observer. Its coordinates are internal modular arithmetic labels. They have not been promoted to a lossless native spatial Cell representation.
+* Current Cell addressing, raw native X6 and the mandatory joint-observer preservation contract are audited in GEOMETRY_CONIC_INTERFACE.md. A modular return is not a raw native return.
+
+Classification: COMPOSE_EXISTING_TOOLS / DOMAIN_OPERATOR_CANDIDATE. No new top-level tool is registered, and no novelty over classical conic/trace collision arithmetic is claimed.
+
+## 4. What the Heartbeat sources actually contribute
+
+HBW_BRIDGE_AUDIT.md binds the real X6/time, monodromy, carry-peak, first-passage, projective-frame and quotient interfaces. The earlier six-beat HBW-Shor work already closes a bounded-clock/nilpotent family. Its nonnilpotent readout gap is retained, not rediscovered as a new solution.
+
+The current carry-peak event cannot stand in for a factor event: every integer unimodular action preserves Z_p^6 and has zero Smith-depth spread, while its modular marked points can have different gcd observations. This is a scoped observer mismatch, not a reason to abandon HBW. It identifies the missing extension: a modular marked-section first-hit observer with retained correlation and factor-valued terminal witnesses.
+
+A legitimate native X6 candidate is the integer companion block [[0,1],[-1,k]] direct-sum I4, with separately typed time and k=c+c^-1 mod N. Its two-coordinate recurrence supplies reversible transport without quadratic-root reconstruction. The fixed-c program and its variable-power extension are different units; their costs and chronology must be declared. If c-c^-1 is a unit, the neighboring traces reconstruct the original unit, so the carrier alone is not compression. If it is a proper nonunit, setup already gives a factor. These are useful discriminating outcomes, not environmental blockers.
+
+## 5. Portable continuation and next research action
+
+Any authorized conversation can resume from this file, the immutable proofs and source pins, without the original author, local directory or a particular tool. Mathematical work can first prove a smaller modular-section observer, a safe-merge-or-factor composition law, or a precise counterexample. An inability to execute a specific tool does not turn an untested claim into a result and does not prevent symbolic research. Local execution is an optional validation route subject to the existing scientific typing; the saved experiments must not be rerun just to reconstruct their evidence.
+
+The next substantive target is to combine the real HBW reversible program with a factor-witness observer that costs less than generating its full orbit. Reuse the correlated lift and T4 stopping certificate; investigate whether geometry supplies a cheaper family of marked sections or a composable joint witness. Preserve all background branches until a proved observer-safe reduction or verified factor permits removal. A repeated ordinary trace recurrence, a smaller diagram with the same arithmetic work, or a carry-threshold result without a factor-event bridge does not close this target.
+
+Before any new numerical unit, freeze its actual input/output contract and compare construction, transport, observer, certificate and bit costs with the already saved relative/conic baselines. Do not require every continuation conversation to own the local runner. The parent goal remains OPEN; no general classical Shor simulation or efficient factorization has been proved.
+
+Researcher-ID: EM-DIRECT-C6438C / TASK_RESEARCH
+Global-Knowledge-Sync: main@7a63984 / GLOBAL_KNOWLEDGE_V1

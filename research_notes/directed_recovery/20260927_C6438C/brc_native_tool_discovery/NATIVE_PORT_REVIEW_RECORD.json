@@ -1,0 +1,978 @@
+{
+  "status": "PASS_SAVED_RECORD_CONSISTENCY_SHARED_CONTEXT_NOT_ADMITTED",
+  "scientific_imports": 0,
+  "new_scientific_runs": 0,
+  "new_native_calls": 0,
+  "raw_sha256": "6a111ca626f3330d16d513a15bfc31923a8c990723108e99c65b61fa5d229d28",
+  "gzip_sha256": "5a9c055dc879a9a8b33620055183b41131d739d03c735ff37a1ed67704aeca26",
+  "raw_bytes": 4063019,
+  "gzip_bytes": 215047,
+  "source_sha256": "0821cf958b99988b5dbb95f5a42b97629155ca80c07e1f5bee8e2e9165bc39a8",
+  "plan_sha256": "931d7b7659c3e62707f10d20a2312cb03c945e6354f715c1ebda5d72fdb178a6",
+  "checked_dependency_sha256": {
+    "histogram": "256ef167e2aee651c042195522a0013ba619f265f9e4d8fa24f07d3399695a67",
+    "sparse_modular": "fd9cbb019418a3c00890ba6e8cca5760e7e4d792bfd7b48306a71a66de301c46",
+    "typed_integer_prechecks": "0a817aa8124cceb5440233d543073dae71de6ac1d0d4e5d50f4ee2b4808d99eb",
+    "vendor": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+  },
+  "checked": {
+    "arithmetic_streams": 407,
+    "checked_native_digit_cells": 69443,
+    "checked_top_level_operations": 2841,
+    "full_layer_histogram_equalities": 24
+  },
+  "cases": [
+    {
+      "inputs": {
+        "N": 15,
+        "a": 2,
+        "layers": 3
+      },
+      "route_costs": [
+        {
+          "name": "paired",
+          "parts": {
+            "direct": {
+              "typed_operations": 115,
+              "adder_digit_replays": 953,
+              "host_bit_wiring_operations": 9839,
+              "host_bit_length_calls_in_arithmetic": 237
+            },
+            "table_setup": {
+              "typed_operations": 36,
+              "host_bit_wiring_operations": 6361,
+              "host_bit_length_calls_in_arithmetic": 170,
+              "adder_digit_replays": 580
+            },
+            "columns": {
+              "typed_operations": 14,
+              "host_bit_wiring_operations": 2373,
+              "host_bit_length_calls_in_arithmetic": 66,
+              "adder_digit_replays": 216
+            },
+            "standalone_inverse": {},
+            "gcd": {
+              "typed_operations": 41,
+              "host_bit_length_calls_in_arithmetic": 313,
+              "host_bit_wiring_operations": 11984,
+              "adder_digit_replays": 1076
+            }
+          },
+          "total": {
+            "typed_operations": 206,
+            "adder_digit_replays": 2825,
+            "host_bit_wiring_operations": 30557,
+            "host_bit_length_calls_in_arithmetic": 786
+          },
+          "calls": {
+            "gcd_requests": 68,
+            "histogram_recoalesce": 69,
+            "histogram_serial": 69,
+            "inverse_requests": 0,
+            "multiply_column": 34
+          }
+        },
+        {
+          "name": "quotient",
+          "parts": {
+            "direct": {
+              "typed_operations": 22,
+              "adder_digit_replays": 172,
+              "host_bit_wiring_operations": 1819,
+              "host_bit_length_calls_in_arithmetic": 51
+            },
+            "table_setup": {
+              "typed_operations": 54,
+              "host_bit_wiring_operations": 9748,
+              "host_bit_length_calls_in_arithmetic": 253,
+              "adder_digit_replays": 892
+            },
+            "columns": {
+              "typed_operations": 16,
+              "host_bit_wiring_operations": 3242,
+              "host_bit_length_calls_in_arithmetic": 84,
+              "adder_digit_replays": 296
+            },
+            "standalone_inverse": {},
+            "gcd": {
+              "typed_operations": 8,
+              "host_bit_length_calls_in_arithmetic": 50,
+              "host_bit_wiring_operations": 1629,
+              "adder_digit_replays": 144
+            }
+          },
+          "total": {
+            "typed_operations": 100,
+            "adder_digit_replays": 1504,
+            "host_bit_wiring_operations": 16438,
+            "host_bit_length_calls_in_arithmetic": 438
+          },
+          "calls": {
+            "gcd_requests": 21,
+            "histogram_recoalesce": 22,
+            "histogram_serial": 22,
+            "inverse_requests": 0,
+            "multiply_column": 14
+          }
+        },
+        {
+          "name": "inversion_folded",
+          "parts": {
+            "direct": {
+              "typed_operations": 19,
+              "adder_digit_replays": 144,
+              "host_bit_wiring_operations": 1530,
+              "host_bit_length_calls_in_arithmetic": 45
+            },
+            "table_setup": {
+              "typed_operations": 54,
+              "host_bit_wiring_operations": 9748,
+              "host_bit_length_calls_in_arithmetic": 253,
+              "adder_digit_replays": 892
+            },
+            "columns": {
+              "typed_operations": 12,
+              "host_bit_wiring_operations": 1988,
+              "host_bit_length_calls_in_arithmetic": 56,
+              "adder_digit_replays": 182
+            },
+            "standalone_inverse": {
+              "typed_operations": 36,
+              "host_bit_wiring_operations": 6544,
+              "host_bit_length_calls_in_arithmetic": 172,
+              "adder_digit_replays": 598
+            },
+            "gcd": {
+              "typed_operations": 8,
+              "host_bit_length_calls_in_arithmetic": 50,
+              "host_bit_wiring_operations": 1629,
+              "adder_digit_replays": 144
+            }
+          },
+          "total": {
+            "typed_operations": 129,
+            "adder_digit_replays": 1960,
+            "host_bit_wiring_operations": 21439,
+            "host_bit_length_calls_in_arithmetic": 576
+          },
+          "calls": {
+            "gcd_requests": 15,
+            "histogram_recoalesce": 16,
+            "histogram_serial": 16,
+            "inverse_requests": 3,
+            "multiply_column": 10
+          }
+        },
+        {
+          "name": "public_schedule",
+          "parts": {
+            "direct": {
+              "typed_operations": 4,
+              "host_bit_wiring_operations": 1007,
+              "host_bit_length_calls_in_arithmetic": 24,
+              "adder_digit_replays": 92
+            },
+            "table_setup": {},
+            "columns": {},
+            "standalone_inverse": {},
+            "gcd": {}
+          },
+          "total": {
+            "typed_operations": 4,
+            "host_bit_wiring_operations": 1007,
+            "host_bit_length_calls_in_arithmetic": 24,
+            "adder_digit_replays": 92
+          },
+          "calls": {
+            "gcd_requests": 0,
+            "histogram_recoalesce": 0,
+            "histogram_serial": 0,
+            "inverse_requests": 0,
+            "multiply_column": 0
+          }
+        },
+        {
+          "name": "validation",
+          "parts": {
+            "direct": {
+              "typed_operations": 3,
+              "adder_digit_replays": 24,
+              "host_bit_wiring_operations": 249,
+              "host_bit_length_calls_in_arithmetic": 6
+            },
+            "table_setup": {
+              "typed_operations": 54,
+              "host_bit_wiring_operations": 9748,
+              "host_bit_length_calls_in_arithmetic": 253,
+              "adder_digit_replays": 892
+            },
+            "columns": {
+              "typed_operations": 24,
+              "host_bit_wiring_operations": 6022,
+              "host_bit_length_calls_in_arithmetic": 144,
+              "adder_digit_replays": 550
+            },
+            "standalone_inverse": {
+              "typed_operations": 54,
+              "host_bit_wiring_operations": 9748,
+              "host_bit_length_calls_in_arithmetic": 253,
+              "adder_digit_replays": 892
+            },
+            "gcd": {}
+          },
+          "total": {
+            "typed_operations": 135,
+            "adder_digit_replays": 2358,
+            "host_bit_wiring_operations": 25767,
+            "host_bit_length_calls_in_arithmetic": 656
+          },
+          "calls": {
+            "gcd_requests": 0,
+            "histogram_recoalesce": 0,
+            "histogram_serial": 0,
+            "inverse_requests": 31,
+            "multiply_column": 28
+          }
+        }
+      ]
+    },
+    {
+      "inputs": {
+        "N": 21,
+        "a": 2,
+        "layers": 3
+      },
+      "route_costs": [
+        {
+          "name": "paired",
+          "parts": {
+            "direct": {
+              "typed_operations": 108,
+              "adder_digit_replays": 1002,
+              "host_bit_wiring_operations": 10359,
+              "host_bit_length_calls_in_arithmetic": 234
+            },
+            "table_setup": {
+              "typed_operations": 42,
+              "host_bit_wiring_operations": 11101,
+              "host_bit_length_calls_in_arithmetic": 233,
+              "adder_digit_replays": 1027
+            },
+            "columns": {
+              "typed_operations": 14,
+              "host_bit_wiring_operations": 5037,
+              "host_bit_length_calls_in_arithmetic": 98,
+              "adder_digit_replays": 468
+            },
+            "standalone_inverse": {},
+            "gcd": {
+              "typed_operations": 58,
+              "host_bit_length_calls_in_arithmetic": 528,
+              "host_bit_wiring_operations": 23535,
+              "adder_digit_replays": 2142
+            }
+          },
+          "total": {
+            "typed_operations": 222,
+            "adder_digit_replays": 4639,
+            "host_bit_wiring_operations": 50032,
+            "host_bit_length_calls_in_arithmetic": 1093
+          },
+          "calls": {
+            "gcd_requests": 60,
+            "histogram_recoalesce": 62,
+            "histogram_serial": 62,
+            "inverse_requests": 0,
+            "multiply_column": 30
+          }
+        },
+        {
+          "name": "quotient",
+          "parts": {
+            "direct": {
+              "typed_operations": 23,
+              "adder_digit_replays": 248,
+              "host_bit_wiring_operations": 2633,
+              "host_bit_length_calls_in_arithmetic": 64
+            },
+            "table_setup": {
+              "typed_operations": 60,
+              "host_bit_wiring_operations": 15307,
+              "host_bit_length_calls_in_arithmetic": 324,
+              "adder_digit_replays": 1417
+            },
+            "columns": {
+              "typed_operations": 16,
+              "host_bit_wiring_operations": 5750,
+              "host_bit_length_calls_in_arithmetic": 108,
+              "adder_digit_replays": 536
+            },
+            "standalone_inverse": {},
+            "gcd": {
+              "typed_operations": 14,
+              "host_bit_length_calls_in_arithmetic": 114,
+              "host_bit_wiring_operations": 4770,
+              "adder_digit_replays": 432
+            }
+          },
+          "total": {
+            "typed_operations": 113,
+            "adder_digit_replays": 2633,
+            "host_bit_wiring_operations": 28460,
+            "host_bit_length_calls_in_arithmetic": 610
+          },
+          "calls": {
+            "gcd_requests": 21,
+            "histogram_recoalesce": 23,
+            "histogram_serial": 23,
+            "inverse_requests": 0,
+            "multiply_column": 14
+          }
+        },
+        {
+          "name": "inversion_folded",
+          "parts": {
+            "direct": {
+              "typed_operations": 20,
+              "adder_digit_replays": 220,
+              "host_bit_wiring_operations": 2344,
+              "host_bit_length_calls_in_arithmetic": 58
+            },
+            "table_setup": {
+              "typed_operations": 60,
+              "host_bit_wiring_operations": 15307,
+              "host_bit_length_calls_in_arithmetic": 324,
+              "adder_digit_replays": 1417
+            },
+            "columns": {
+              "typed_operations": 12,
+              "host_bit_wiring_operations": 3440,
+              "host_bit_length_calls_in_arithmetic": 72,
+              "adder_digit_replays": 320
+            },
+            "standalone_inverse": {
+              "typed_operations": 36,
+              "host_bit_wiring_operations": 8369,
+              "host_bit_length_calls_in_arithmetic": 188,
+              "adder_digit_replays": 773
+            },
+            "gcd": {
+              "typed_operations": 14,
+              "host_bit_length_calls_in_arithmetic": 114,
+              "host_bit_wiring_operations": 4770,
+              "adder_digit_replays": 432
+            }
+          },
+          "total": {
+            "typed_operations": 142,
+            "adder_digit_replays": 3162,
+            "host_bit_wiring_operations": 34230,
+            "host_bit_length_calls_in_arithmetic": 756
+          },
+          "calls": {
+            "gcd_requests": 15,
+            "histogram_recoalesce": 17,
+            "histogram_serial": 17,
+            "inverse_requests": 3,
+            "multiply_column": 10
+          }
+        },
+        {
+          "name": "public_schedule",
+          "parts": {
+            "direct": {
+              "typed_operations": 4,
+              "host_bit_wiring_operations": 1147,
+              "host_bit_length_calls_in_arithmetic": 24,
+              "adder_digit_replays": 106
+            },
+            "table_setup": {},
+            "columns": {},
+            "standalone_inverse": {},
+            "gcd": {}
+          },
+          "total": {
+            "typed_operations": 4,
+            "host_bit_wiring_operations": 1147,
+            "host_bit_length_calls_in_arithmetic": 24,
+            "adder_digit_replays": 106
+          },
+          "calls": {
+            "gcd_requests": 0,
+            "histogram_recoalesce": 0,
+            "histogram_serial": 0,
+            "inverse_requests": 0,
+            "multiply_column": 0
+          }
+        },
+        {
+          "name": "validation",
+          "parts": {
+            "direct": {
+              "typed_operations": 3,
+              "adder_digit_replays": 24,
+              "host_bit_wiring_operations": 249,
+              "host_bit_length_calls_in_arithmetic": 6
+            },
+            "table_setup": {
+              "typed_operations": 94,
+              "host_bit_wiring_operations": 22850,
+              "host_bit_length_calls_in_arithmetic": 492,
+              "adder_digit_replays": 2114
+            },
+            "columns": {
+              "typed_operations": 32,
+              "host_bit_wiring_operations": 12202,
+              "host_bit_length_calls_in_arithmetic": 228,
+              "adder_digit_replays": 1132
+            },
+            "standalone_inverse": {
+              "typed_operations": 94,
+              "host_bit_wiring_operations": 22850,
+              "host_bit_length_calls_in_arithmetic": 492,
+              "adder_digit_replays": 2114
+            },
+            "gcd": {}
+          },
+          "total": {
+            "typed_operations": 223,
+            "adder_digit_replays": 5384,
+            "host_bit_wiring_operations": 58151,
+            "host_bit_length_calls_in_arithmetic": 1218
+          },
+          "calls": {
+            "gcd_requests": 0,
+            "histogram_recoalesce": 0,
+            "histogram_serial": 0,
+            "inverse_requests": 33,
+            "multiply_column": 30
+          }
+        }
+      ]
+    },
+    {
+      "inputs": {
+        "N": 35,
+        "a": 2,
+        "layers": 3
+      },
+      "route_costs": [
+        {
+          "name": "paired",
+          "parts": {
+            "direct": {
+              "typed_operations": 140,
+              "adder_digit_replays": 1553,
+              "host_bit_wiring_operations": 15959,
+              "host_bit_length_calls_in_arithmetic": 302
+            },
+            "table_setup": {
+              "typed_operations": 48,
+              "host_bit_wiring_operations": 15296,
+              "host_bit_length_calls_in_arithmetic": 274,
+              "adder_digit_replays": 1430
+            },
+            "columns": {
+              "typed_operations": 14,
+              "host_bit_wiring_operations": 5717,
+              "host_bit_length_calls_in_arithmetic": 98,
+              "adder_digit_replays": 536
+            },
+            "standalone_inverse": {},
+            "gcd": {
+              "typed_operations": 129,
+              "host_bit_length_calls_in_arithmetic": 1261,
+              "host_bit_wiring_operations": 62474,
+              "adder_digit_replays": 5738
+            }
+          },
+          "total": {
+            "typed_operations": 331,
+            "adder_digit_replays": 9257,
+            "host_bit_wiring_operations": 99446,
+            "host_bit_length_calls_in_arithmetic": 1935
+          },
+          "calls": {
+            "gcd_requests": 76,
+            "histogram_recoalesce": 77,
+            "histogram_serial": 77,
+            "inverse_requests": 0,
+            "multiply_column": 38
+          }
+        },
+        {
+          "name": "quotient",
+          "parts": {
+            "direct": {
+              "typed_operations": 29,
+              "adder_digit_replays": 354,
+              "host_bit_wiring_operations": 3729,
+              "host_bit_length_calls_in_arithmetic": 80
+            },
+            "table_setup": {
+              "typed_operations": 102,
+              "host_bit_wiring_operations": 31969,
+              "host_bit_length_calls_in_arithmetic": 583,
+              "adder_digit_replays": 2986
+            },
+            "columns": {
+              "typed_operations": 36,
+              "host_bit_wiring_operations": 17251,
+              "host_bit_length_calls_in_arithmetic": 278,
+              "adder_digit_replays": 1618
+            },
+            "standalone_inverse": {},
+            "gcd": {
+              "typed_operations": 41,
+              "host_bit_length_calls_in_arithmetic": 389,
+              "host_bit_wiring_operations": 19046,
+              "adder_digit_replays": 1748
+            }
+          },
+          "total": {
+            "typed_operations": 208,
+            "adder_digit_replays": 6706,
+            "host_bit_wiring_operations": 71995,
+            "host_bit_length_calls_in_arithmetic": 1330
+          },
+          "calls": {
+            "gcd_requests": 27,
+            "histogram_recoalesce": 28,
+            "histogram_serial": 28,
+            "inverse_requests": 0,
+            "multiply_column": 18
+          }
+        },
+        {
+          "name": "inversion_folded",
+          "parts": {
+            "direct": {
+              "typed_operations": 26,
+              "adder_digit_replays": 322,
+              "host_bit_wiring_operations": 3400,
+              "host_bit_length_calls_in_arithmetic": 74
+            },
+            "table_setup": {
+              "typed_operations": 102,
+              "host_bit_wiring_operations": 31969,
+              "host_bit_length_calls_in_arithmetic": 583,
+              "adder_digit_replays": 2986
+            },
+            "columns": {
+              "typed_operations": 24,
+              "host_bit_wiring_operations": 9104,
+              "host_bit_length_calls_in_arithmetic": 160,
+              "adder_digit_replays": 854
+            },
+            "standalone_inverse": {
+              "typed_operations": 94,
+              "host_bit_wiring_operations": 29487,
+              "host_bit_length_calls_in_arithmetic": 540,
+              "adder_digit_replays": 2754
+            },
+            "gcd": {
+              "typed_operations": 35,
+              "host_bit_length_calls_in_arithmetic": 329,
+              "host_bit_wiring_operations": 16003,
+              "adder_digit_replays": 1468
+            }
+          },
+          "total": {
+            "typed_operations": 281,
+            "adder_digit_replays": 8384,
+            "host_bit_wiring_operations": 89963,
+            "host_bit_length_calls_in_arithmetic": 1686
+          },
+          "calls": {
+            "gcd_requests": 18,
+            "histogram_recoalesce": 19,
+            "histogram_serial": 19,
+            "inverse_requests": 6,
+            "multiply_column": 12
+          }
+        },
+        {
+          "name": "public_schedule",
+          "parts": {
+            "direct": {
+              "typed_operations": 4,
+              "host_bit_wiring_operations": 1307,
+              "host_bit_length_calls_in_arithmetic": 24,
+              "adder_digit_replays": 122
+            },
+            "table_setup": {},
+            "columns": {},
+            "standalone_inverse": {},
+            "gcd": {}
+          },
+          "total": {
+            "typed_operations": 4,
+            "host_bit_wiring_operations": 1307,
+            "host_bit_length_calls_in_arithmetic": 24,
+            "adder_digit_replays": 122
+          },
+          "calls": {
+            "gcd_requests": 0,
+            "histogram_recoalesce": 0,
+            "histogram_serial": 0,
+            "inverse_requests": 0,
+            "multiply_column": 0
+          }
+        },
+        {
+          "name": "validation",
+          "parts": {
+            "direct": {
+              "typed_operations": 7,
+              "adder_digit_replays": 76,
+              "host_bit_wiring_operations": 781,
+              "host_bit_length_calls_in_arithmetic": 14
+            },
+            "table_setup": {
+              "typed_operations": 154,
+              "host_bit_wiring_operations": 50200,
+              "host_bit_length_calls_in_arithmetic": 901,
+              "adder_digit_replays": 4690
+            },
+            "columns": {
+              "typed_operations": 76,
+              "host_bit_wiring_operations": 48882,
+              "host_bit_length_calls_in_arithmetic": 722,
+              "adder_digit_replays": 4587
+            },
+            "standalone_inverse": {
+              "typed_operations": 178,
+              "host_bit_wiring_operations": 58362,
+              "host_bit_length_calls_in_arithmetic": 1037,
+              "adder_digit_replays": 5457
+            },
+            "gcd": {}
+          },
+          "total": {
+            "typed_operations": 415,
+            "adder_digit_replays": 14810,
+            "host_bit_wiring_operations": 158225,
+            "host_bit_length_calls_in_arithmetic": 2674
+          },
+          "calls": {
+            "gcd_requests": 0,
+            "histogram_recoalesce": 0,
+            "histogram_serial": 0,
+            "inverse_requests": 63,
+            "multiply_column": 56
+          }
+        }
+      ]
+    },
+    {
+      "inputs": {
+        "N": 15,
+        "a": 14,
+        "layers": 3
+      },
+      "route_costs": [
+        {
+          "name": "paired",
+          "parts": {
+            "direct": {
+              "typed_operations": 54,
+              "adder_digit_replays": 459,
+              "host_bit_wiring_operations": 4725,
+              "host_bit_length_calls_in_arithmetic": 108
+            },
+            "table_setup": {
+              "typed_operations": 18,
+              "host_bit_wiring_operations": 4231,
+              "host_bit_length_calls_in_arithmetic": 101,
+              "adder_digit_replays": 388
+            },
+            "columns": {
+              "typed_operations": 6,
+              "host_bit_wiring_operations": 1219,
+              "host_bit_length_calls_in_arithmetic": 30,
+              "adder_digit_replays": 112
+            },
+            "standalone_inverse": {},
+            "gcd": {
+              "typed_operations": 8,
+              "host_bit_length_calls_in_arithmetic": 52,
+              "host_bit_wiring_operations": 1838,
+              "adder_digit_replays": 164
+            }
+          },
+          "total": {
+            "typed_operations": 86,
+            "adder_digit_replays": 1123,
+            "host_bit_wiring_operations": 12013,
+            "host_bit_length_calls_in_arithmetic": 291
+          },
+          "calls": {
+            "gcd_requests": 36,
+            "histogram_recoalesce": 36,
+            "histogram_serial": 36,
+            "inverse_requests": 0,
+            "multiply_column": 18
+          }
+        },
+        {
+          "name": "quotient",
+          "parts": {
+            "direct": {
+              "typed_operations": 15,
+              "adder_digit_replays": 108,
+              "host_bit_wiring_operations": 1125,
+              "host_bit_length_calls_in_arithmetic": 30
+            },
+            "table_setup": {
+              "typed_operations": 18,
+              "host_bit_wiring_operations": 4231,
+              "host_bit_length_calls_in_arithmetic": 101,
+              "adder_digit_replays": 388
+            },
+            "columns": {
+              "typed_operations": 6,
+              "host_bit_wiring_operations": 1219,
+              "host_bit_length_calls_in_arithmetic": 30,
+              "adder_digit_replays": 112
+            },
+            "standalone_inverse": {},
+            "gcd": {
+              "typed_operations": 5,
+              "host_bit_length_calls_in_arithmetic": 33,
+              "host_bit_wiring_operations": 1246,
+              "adder_digit_replays": 112
+            }
+          },
+          "total": {
+            "typed_operations": 44,
+            "adder_digit_replays": 720,
+            "host_bit_wiring_operations": 7821,
+            "host_bit_length_calls_in_arithmetic": 194
+          },
+          "calls": {
+            "gcd_requests": 15,
+            "histogram_recoalesce": 15,
+            "histogram_serial": 15,
+            "inverse_requests": 0,
+            "multiply_column": 10
+          }
+        },
+        {
+          "name": "inversion_folded",
+          "parts": {
+            "direct": {
+              "typed_operations": 17,
+              "adder_digit_replays": 122,
+              "host_bit_wiring_operations": 1271,
+              "host_bit_length_calls_in_arithmetic": 34
+            },
+            "table_setup": {
+              "typed_operations": 18,
+              "host_bit_wiring_operations": 4231,
+              "host_bit_length_calls_in_arithmetic": 101,
+              "adder_digit_replays": 388
+            },
+            "columns": {
+              "typed_operations": 6,
+              "host_bit_wiring_operations": 1219,
+              "host_bit_length_calls_in_arithmetic": 30,
+              "adder_digit_replays": 112
+            },
+            "standalone_inverse": {
+              "typed_operations": 18,
+              "host_bit_wiring_operations": 4231,
+              "host_bit_length_calls_in_arithmetic": 101,
+              "adder_digit_replays": 388
+            },
+            "gcd": {
+              "typed_operations": 5,
+              "host_bit_length_calls_in_arithmetic": 33,
+              "host_bit_wiring_operations": 1246,
+              "adder_digit_replays": 112
+            }
+          },
+          "total": {
+            "typed_operations": 64,
+            "adder_digit_replays": 1122,
+            "host_bit_wiring_operations": 12198,
+            "host_bit_length_calls_in_arithmetic": 299
+          },
+          "calls": {
+            "gcd_requests": 15,
+            "histogram_recoalesce": 15,
+            "histogram_serial": 15,
+            "inverse_requests": 2,
+            "multiply_column": 10
+          }
+        },
+        {
+          "name": "public_schedule",
+          "parts": {
+            "direct": {
+              "typed_operations": 4,
+              "host_bit_wiring_operations": 1316,
+              "host_bit_length_calls_in_arithmetic": 26,
+              "adder_digit_replays": 122
+            },
+            "table_setup": {},
+            "columns": {},
+            "standalone_inverse": {},
+            "gcd": {}
+          },
+          "total": {
+            "typed_operations": 4,
+            "host_bit_wiring_operations": 1316,
+            "host_bit_length_calls_in_arithmetic": 26,
+            "adder_digit_replays": 122
+          },
+          "calls": {
+            "gcd_requests": 0,
+            "histogram_recoalesce": 0,
+            "histogram_serial": 0,
+            "inverse_requests": 0,
+            "multiply_column": 0
+          }
+        },
+        {
+          "name": "validation",
+          "parts": {
+            "direct": {
+              "typed_operations": 2,
+              "adder_digit_replays": 14,
+              "host_bit_wiring_operations": 146,
+              "host_bit_length_calls_in_arithmetic": 4
+            },
+            "table_setup": {
+              "typed_operations": 18,
+              "host_bit_wiring_operations": 4231,
+              "host_bit_length_calls_in_arithmetic": 101,
+              "adder_digit_replays": 388
+            },
+            "columns": {
+              "typed_operations": 8,
+              "host_bit_wiring_operations": 2403,
+              "host_bit_length_calls_in_arithmetic": 50,
+              "adder_digit_replays": 222
+            },
+            "standalone_inverse": {
+              "typed_operations": 18,
+              "host_bit_wiring_operations": 4231,
+              "host_bit_length_calls_in_arithmetic": 101,
+              "adder_digit_replays": 388
+            },
+            "gcd": {}
+          },
+          "total": {
+            "typed_operations": 46,
+            "adder_digit_replays": 1012,
+            "host_bit_wiring_operations": 11011,
+            "host_bit_length_calls_in_arithmetic": 256
+          },
+          "calls": {
+            "gcd_requests": 0,
+            "histogram_recoalesce": 0,
+            "histogram_serial": 0,
+            "inverse_requests": 14,
+            "multiply_column": 12
+          }
+        }
+      ]
+    }
+  ],
+  "negative_route_costs": [
+    {
+      "name": "gcd_key_negative",
+      "parts": {
+        "direct": {
+          "typed_operations": 11,
+          "adder_digit_replays": 107,
+          "host_bit_wiring_operations": 1127,
+          "host_bit_length_calls_in_arithmetic": 29
+        },
+        "table_setup": {
+          "typed_operations": 12,
+          "host_bit_wiring_operations": 2297,
+          "host_bit_length_calls_in_arithmetic": 60,
+          "adder_digit_replays": 209
+        },
+        "columns": {
+          "typed_operations": 2,
+          "host_bit_wiring_operations": 251,
+          "host_bit_length_calls_in_arithmetic": 8,
+          "adder_digit_replays": 23
+        },
+        "standalone_inverse": {},
+        "gcd": {
+          "typed_operations": 12,
+          "host_bit_length_calls_in_arithmetic": 96,
+          "host_bit_wiring_operations": 3918,
+          "adder_digit_replays": 354
+        }
+      },
+      "total": {
+        "typed_operations": 37,
+        "adder_digit_replays": 693,
+        "host_bit_wiring_operations": 7593,
+        "host_bit_length_calls_in_arithmetic": 193
+      },
+      "calls": {
+        "gcd_requests": 4,
+        "histogram_recoalesce": 0,
+        "histogram_serial": 0,
+        "inverse_requests": 0,
+        "multiply_column": 2
+      }
+    },
+    {
+      "name": "missing_identity_multiplicity_mutant",
+      "parts": {
+        "direct": {
+          "typed_operations": 3,
+          "adder_digit_replays": 20,
+          "host_bit_wiring_operations": 209,
+          "host_bit_length_calls_in_arithmetic": 6
+        },
+        "table_setup": {
+          "typed_operations": 30,
+          "host_bit_wiring_operations": 5684,
+          "host_bit_length_calls_in_arithmetic": 143,
+          "adder_digit_replays": 521
+        },
+        "columns": {
+          "typed_operations": 4,
+          "host_bit_wiring_operations": 740,
+          "host_bit_length_calls_in_arithmetic": 20,
+          "adder_digit_replays": 68
+        },
+        "standalone_inverse": {},
+        "gcd": {
+          "typed_operations": 6,
+          "host_bit_length_calls_in_arithmetic": 36,
+          "host_bit_wiring_operations": 1135,
+          "adder_digit_replays": 100
+        }
+      },
+      "total": {
+        "typed_operations": 43,
+        "adder_digit_replays": 709,
+        "host_bit_wiring_operations": 7768,
+        "host_bit_length_calls_in_arithmetic": 205
+      },
+      "calls": {
+        "gcd_requests": 3,
+        "histogram_recoalesce": 3,
+        "histogram_serial": 3,
+        "inverse_requests": 0,
+        "multiply_column": 2
+      }
+    }
+  ],
+  "total_cost": {
+    "typed_operations": 2841,
+    "adder_digit_replays": 69443,
+    "host_bit_wiring_operations": 747884,
+    "host_bit_length_calls_in_arithmetic": 15294
+  },
+  "cost_boundary": "Recorded digit/wiring operations only. Route histogram counts exclude helper aggregations and Python overhead.",
+  "scope": "Saved native columns and all digit/outer routing links checked. No independent modular/gcd reference or primitive core rerun."
+}
