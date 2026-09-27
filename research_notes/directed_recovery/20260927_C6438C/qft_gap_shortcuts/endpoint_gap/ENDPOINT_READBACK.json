@@ -1,0 +1,395 @@
+{
+  "status": "READBACK_PASS",
+  "scientific_execution_performed_by_this_reader": false,
+  "reader_sha256": "59639d4ed78fb601d9e654fef457fa82e6f4b401c7b71b2423bd6d4172d2b525",
+  "source_sha256": {
+    "endpoint_signed_gap.py": "c75e7e82cc0ef2413048153716f5100f3a9d1d4f50c375b7cb1690c3cfe6e036",
+    "check_endpoint_signed_gap.py": "7b78fe98620531be6fd552887cc00a53d338adbbe9676662d4198fe692ac3d8f"
+  },
+  "proof_sha256": "e43e061fa0e04022daeb14aa30d9956ebe5ba9365b2aaa9c569d762a29e912c0",
+  "payload_sha256": "799bd9c51f98f973b6f4201f5684f83c0c427359d756e4a1b7bfdef239d8002e",
+  "artifact_sha256": "f5e256ecb694225bef17843aa78c5adb1ae0df6205e4cf3d3e4819c2e6d6738f",
+  "runlog_sha256": "18bbaf0d98ae02aa91b0dbc3a2aa5148cbfcb1cc9936b3be673dfdf29ce40320",
+  "startup_guard_sha256": "ac6cf502305ab0b81a573ba4a5dde69509502824ee629ecc15729aa09adc5d5e",
+  "history_reference": {
+    "artifact": "ONE_WINDOW_RESULTS.json.gz",
+    "artifact_sha256": "d465513608449d40b081a6ae62acff51f75ef5990f7bc911cec632a5b705e3de",
+    "one_window_reexecuted": false,
+    "payload_sha256": "37ec0d4b7939a70d9157239bfebec7c88a387ff6a2f046a2701f87641d5d78f9",
+    "source_commit": "56b191519b036c6890cae328c3b3812fbc1debb7",
+    "three_window_or_exhaustive_reexecuted": false,
+    "whole_payload_read_and_hash_checked": true
+  },
+  "complete_operation_index_coverage_verified": true,
+  "positive_replay_semantic_full_equality_verified": true,
+  "interior_requests_equal_frozen_requests": true,
+  "production": {
+    "evidence_count": 9,
+    "arithmetic_totals": {
+      "typed_operations": 14562,
+      "adder_digit_replays": 68824,
+      "host_bit_wiring_operations": 747472,
+      "host_bit_length_calls_in_arithmetic": 41870,
+      "native_kernel_calls_delta": 1
+    },
+    "signed_operations": 14162,
+    "moment_nodes": 83,
+    "window_queries": 11,
+    "moment_requests": 129,
+    "cache_hits": 46,
+    "max_recursion_depth": 5,
+    "max_observed_integer_bits": 9
+  },
+  "positive_replay": {
+    "evidence_count": 9,
+    "arithmetic_totals": {
+      "typed_operations": 14562,
+      "adder_digit_replays": 68824,
+      "host_bit_wiring_operations": 747472,
+      "host_bit_length_calls_in_arithmetic": 41870,
+      "native_kernel_calls_delta": 0
+    },
+    "signed_operations": 14162,
+    "moment_nodes": 83,
+    "window_queries": 11,
+    "moment_requests": 129,
+    "cache_hits": 46,
+    "max_recursion_depth": 5,
+    "max_observed_integer_bits": 9
+  },
+  "negative_replay": {
+    "evidence_count": 6,
+    "arithmetic_totals": {
+      "typed_operations": 5029,
+      "adder_digit_replays": 17391,
+      "host_bit_wiring_operations": 190476,
+      "host_bit_length_calls_in_arithmetic": 14113,
+      "native_kernel_calls_delta": 0
+    },
+    "signed_operations": 4875,
+    "moment_nodes": 26,
+    "window_queries": 3,
+    "moment_requests": 38,
+    "cache_hits": 12,
+    "max_recursion_depth": 3,
+    "max_observed_integer_bits": 5
+  },
+  "production_per_branch": {
+    "highest_bit": {
+      "evidence_count": 4,
+      "arithmetic_totals": {
+        "typed_operations": 362,
+        "adder_digit_replays": 2292,
+        "host_bit_wiring_operations": 24525,
+        "host_bit_length_calls_in_arithmetic": 961,
+        "native_kernel_calls_delta": 1
+      },
+      "signed_operations": 338,
+      "moment_nodes": 0,
+      "window_queries": 0,
+      "moment_requests": 0,
+      "cache_hits": 0,
+      "max_recursion_depth": 0,
+      "max_observed_integer_bits": 9
+    },
+    "lowest_odd_modulus": {
+      "evidence_count": 1,
+      "arithmetic_totals": {
+        "typed_operations": 104,
+        "adder_digit_replays": 496,
+        "host_bit_wiring_operations": 5392,
+        "host_bit_length_calls_in_arithmetic": 282,
+        "native_kernel_calls_delta": 0
+      },
+      "signed_operations": 98,
+      "moment_nodes": 0,
+      "window_queries": 0,
+      "moment_requests": 0,
+      "cache_hits": 0,
+      "max_recursion_depth": 0,
+      "max_observed_integer_bits": 4
+    },
+    "lowest_even_modulus": {
+      "evidence_count": 1,
+      "arithmetic_totals": {
+        "typed_operations": 136,
+        "adder_digit_replays": 1002,
+        "host_bit_wiring_operations": 10872,
+        "host_bit_length_calls_in_arithmetic": 412,
+        "native_kernel_calls_delta": 0
+      },
+      "signed_operations": 126,
+      "moment_nodes": 0,
+      "window_queries": 0,
+      "moment_requests": 0,
+      "cache_hits": 0,
+      "max_recursion_depth": 0,
+      "max_observed_integer_bits": 4
+    },
+    "interior_one_window": {
+      "evidence_count": 3,
+      "arithmetic_totals": {
+        "typed_operations": 13960,
+        "adder_digit_replays": 65034,
+        "host_bit_wiring_operations": 706683,
+        "host_bit_length_calls_in_arithmetic": 40215,
+        "native_kernel_calls_delta": 0
+      },
+      "signed_operations": 13600,
+      "moment_nodes": 83,
+      "window_queries": 11,
+      "moment_requests": 129,
+      "cache_hits": 46,
+      "max_recursion_depth": 5,
+      "max_observed_integer_bits": 9
+    }
+  },
+  "endpoint_interval_queries": 34,
+  "historical_production_digits": 137611,
+  "digit_replay_reduction_count": 68787,
+  "negative_replay_capture_counts": [
+    {
+      "name": "wrong_branch",
+      "replays": 1
+    },
+    {
+      "name": "wrong_half_residue",
+      "replays": 1
+    },
+    {
+      "name": "wrong_parity_sign",
+      "replays": 1
+    },
+    {
+      "name": "altered_interval",
+      "replays": 1
+    },
+    {
+      "name": "boolean_input",
+      "replays": 0
+    },
+    {
+      "name": "wrong_source",
+      "replays": 0
+    },
+    {
+      "name": "altered_fallback",
+      "replays": 1
+    },
+    {
+      "name": "wrong_denominator",
+      "replays": 1
+    }
+  ],
+  "actual_core_calls": [
+    {
+      "depth": 1,
+      "elapsed_ns": 5633100,
+      "entrypoint": "recurrent_mass_power",
+      "states": 12
+    }
+  ],
+  "native_source": {
+    "arithmetic_route": "actual full-adder columns; digit transducer composition",
+    "files_sha256": {
+      "lazy_modular": "08df3595a2a56dc2501bb481828093481bf76e4ac53c8b966990d233fefac1e4",
+      "sparse_modular": "fd9cbb019418a3c00890ba6e8cca5760e7e4d792bfd7b48306a71a66de301c46",
+      "typed_integer_prechecks": "0a817aa8124cceb5440233d543073dae71de6ac1d0d4e5d50f4ee2b4808d99eb"
+    },
+    "native_adder": {
+      "columns": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "entrypoint": "stage78.shor_benchmark.full_adder_columns",
+      "input_columns": 8,
+      "observer": "retained input triple -> (sum bit, carry bit)",
+      "positive_BRC_input_states": 12,
+      "scope": "exact integer label compiler; not a reversible physical erasure",
+      "vendor": {
+        "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+        "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+        "path": "src/enterprise_math/brc_weighted_recurrent.py",
+        "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+      }
+    },
+    "primitive_source": "0852cad130c1d877174d235687cf60c19f318c58",
+    "runtime_state_propagator": "complete positive unit permutation on work labels"
+  },
+  "per_case": [
+    {
+      "inputs": {
+        "g": 1,
+        "k": 0,
+        "R": 3
+      },
+      "branch": "highest_bit",
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "fresh_digits": 298,
+      "historical_digits": 4029
+    },
+    {
+      "inputs": {
+        "g": 2,
+        "k": 0,
+        "R": 3
+      },
+      "branch": "lowest_odd_modulus",
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "fresh_digits": 496,
+      "historical_digits": 8570
+    },
+    {
+      "inputs": {
+        "g": 2,
+        "k": 1,
+        "R": 3
+      },
+      "branch": "highest_bit",
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "fresh_digits": 421,
+      "historical_digits": 8043
+    },
+    {
+      "inputs": {
+        "g": 3,
+        "k": 0,
+        "R": 6
+      },
+      "branch": "lowest_even_modulus",
+      "values": [
+        12,
+        -11,
+        10,
+        -10,
+        10,
+        -11
+      ],
+      "fresh_digits": 1002,
+      "historical_digits": 37565
+    },
+    {
+      "inputs": {
+        "g": 3,
+        "k": 1,
+        "R": 3
+      },
+      "branch": "interior_one_window",
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "fresh_digits": 14999,
+      "historical_digits": 14999
+    },
+    {
+      "inputs": {
+        "g": 3,
+        "k": 2,
+        "R": 2
+      },
+      "branch": "highest_bit",
+      "values": [
+        0,
+        0
+      ],
+      "fresh_digits": 374,
+      "historical_digits": 664
+    },
+    {
+      "inputs": {
+        "g": 4,
+        "k": 1,
+        "R": 7
+      },
+      "branch": "interior_one_window",
+      "values": [
+        10,
+        -1,
+        -8,
+        4,
+        4,
+        -8,
+        -1
+      ],
+      "fresh_digits": 49560,
+      "historical_digits": 49560
+    },
+    {
+      "inputs": {
+        "g": 4,
+        "k": 2,
+        "R": 1
+      },
+      "branch": "interior_one_window",
+      "values": [
+        0
+      ],
+      "fresh_digits": 475,
+      "historical_digits": 475
+    },
+    {
+      "inputs": {
+        "g": 5,
+        "k": 4,
+        "R": 3
+      },
+      "branch": "highest_bit",
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "fresh_digits": 1199,
+      "historical_digits": 13706
+    }
+  ],
+  "raw_bytes": 17045774,
+  "gzip_bytes": 721136,
+  "result_last_write_utc": "2026-09-27T05:36:15.616973+00:00",
+  "failure_artifact_present": false,
+  "cost_scope": "recorded operation counts only; no new scientific execution or historical timing ratio"
+}

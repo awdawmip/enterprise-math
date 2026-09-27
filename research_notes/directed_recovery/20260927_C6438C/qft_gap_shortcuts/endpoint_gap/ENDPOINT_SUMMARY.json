@@ -1,0 +1,174 @@
+{
+  "status": "PASS",
+  "source_sha256": {
+    "endpoint_signed_gap.py": "c75e7e82cc0ef2413048153716f5100f3a9d1d4f50c375b7cb1690c3cfe6e036",
+    "check_endpoint_signed_gap.py": "7b78fe98620531be6fd552887cc00a53d338adbbe9676662d4198fe692ac3d8f"
+  },
+  "cases": 9,
+  "residue_equalities": 31,
+  "branch_counts": {
+    "highest_bit": 11,
+    "lowest_odd_modulus": 3,
+    "lowest_even_modulus": 6,
+    "interior_one_window": 11
+  },
+  "input_rejections": 8,
+  "negative_checks": 8,
+  "actual_core_call_count": 1,
+  "fresh_production_adder_digit_replays": 68824,
+  "historical_one_window_production_adder_digit_replays": 137611,
+  "positive_replay_adder_digit_replays": 68824,
+  "negative_replay_adder_digit_replays": 17391,
+  "per_case": [
+    {
+      "inputs": {
+        "g": 1,
+        "k": 0,
+        "R": 3
+      },
+      "branch": "highest_bit",
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "fresh_digits": 298,
+      "historical_digits": 4029
+    },
+    {
+      "inputs": {
+        "g": 2,
+        "k": 0,
+        "R": 3
+      },
+      "branch": "lowest_odd_modulus",
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "fresh_digits": 496,
+      "historical_digits": 8570
+    },
+    {
+      "inputs": {
+        "g": 2,
+        "k": 1,
+        "R": 3
+      },
+      "branch": "highest_bit",
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "fresh_digits": 421,
+      "historical_digits": 8043
+    },
+    {
+      "inputs": {
+        "g": 3,
+        "k": 0,
+        "R": 6
+      },
+      "branch": "lowest_even_modulus",
+      "values": [
+        12,
+        -11,
+        10,
+        -10,
+        10,
+        -11
+      ],
+      "fresh_digits": 1002,
+      "historical_digits": 37565
+    },
+    {
+      "inputs": {
+        "g": 3,
+        "k": 1,
+        "R": 3
+      },
+      "branch": "interior_one_window",
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "fresh_digits": 14999,
+      "historical_digits": 14999
+    },
+    {
+      "inputs": {
+        "g": 3,
+        "k": 2,
+        "R": 2
+      },
+      "branch": "highest_bit",
+      "values": [
+        0,
+        0
+      ],
+      "fresh_digits": 374,
+      "historical_digits": 664
+    },
+    {
+      "inputs": {
+        "g": 4,
+        "k": 1,
+        "R": 7
+      },
+      "branch": "interior_one_window",
+      "values": [
+        10,
+        -1,
+        -8,
+        4,
+        4,
+        -8,
+        -1
+      ],
+      "fresh_digits": 49560,
+      "historical_digits": 49560
+    },
+    {
+      "inputs": {
+        "g": 4,
+        "k": 2,
+        "R": 1
+      },
+      "branch": "interior_one_window",
+      "values": [
+        0
+      ],
+      "fresh_digits": 475,
+      "historical_digits": 475
+    },
+    {
+      "inputs": {
+        "g": 5,
+        "k": 4,
+        "R": 3
+      },
+      "branch": "highest_bit",
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "fresh_digits": 1199,
+      "historical_digits": 13706
+    }
+  ],
+  "historical_science_reexecuted": false,
+  "comparison_is_timing_benchmark": false,
+  "quantum_phase_propagation_performed": false,
+  "order_discovery_performed": false,
+  "full_gram_integration_performed": false,
+  "boundary_coverage": "g=1 highest priority, lowest odd/even, highest even, negative counts; R=1 is an interior case only",
+  "elapsed_seconds_before_serialization": 11.933637999929488,
+  "raw_bytes": 17045774,
+  "gzip_bytes": 721136,
+  "payload_sha256": "799bd9c51f98f973b6f4201f5684f83c0c427359d756e4a1b7bfdef239d8002e",
+  "artifact_sha256": "f5e256ecb694225bef17843aa78c5adb1ae0df6205e4cf3d3e4819c2e6d6738f"
+}

@@ -1,0 +1,21 @@
+# Endpoint signed-gap shortcuts
+
+One new actual typed run reduced the 31-query production cost from **137,611 to 68,824 full-adder digit replays**, preserving every signed answer. Six endpoint-bit cases became cheaper; three interior cases used the frozen one-window implementation and retained identical costs. Complete positive and deliberately failed replay work is included separately.
+
+For L=2^g, define K as the sum of (-1)^(bit_k(x)+bit_k(y)) over ordered pairs 0<=x,y<L with y-x=r modulo R. If T(M,R,r) is the unsigned interval pair count, the exact shortcuts are:
+
+- Highest bit: K=4*T(L/2,R,r)-T(L,R,r).
+- Lowest bit with even R: K=(-1)^r*T(L,R,r).
+- Lowest bit with odd R: K=4*T(L/2,R,r_half)-T(L,R,r), where r_half=r/2 for even r and (r+R)/2 for odd r.
+
+These routes use one or two existing interval counts and no floor-window query. Powers, parities, half-residues and signed outer operations use the actual typed arithmetic path. The coefficient may be negative and its raw normalization remains 4^(-g). These are stride-one, single-negative-bit scalar queries; no full Gram simulation, order discovery or general Shor complexity claim follows.
+
+Read `ENDPOINT_IDENTITIES.md` for the proof, `endpoint_gap/ENDPOINT_EXECUTION_NOTE.md` for the actual run and complete costs, and `CONTINUE.md` for the next mathematical task. Earlier pre-execution labels in the proof/static review preserve their chronology; the later execution note reports the actual outcome.
+
+The declared nine tuples supply all 31 residues, with full fresh certificate replay, eight direct input rejections and eight certificate-tamper rejections. Six tamper cases incurred paid fresh replay. Total new production/replay work is 155,039 digit replays. The underlying full-adder kernel was observed once and its eight columns reused; that one call is not the total computational cost. The earlier exhaustive cost of 76,977 production digits is a historical small-fixture comparator, not an asymptotic bound. The approximately 11.934-second checker observation is not a matched timing ratio.
+
+`endpoint_gap/ENDPOINT_RESULTS.json.gz` contains the original 17,045,774-byte raw JSON (SHA-256 `799bd9c51f98f973b6f4201f5684f83c0c427359d756e4a1b7bfdef239d8002e`); its original gzip is 721,136 bytes (SHA-256 `f5e256ecb694225bef17843aa78c5adb1ae0df6205e4cf3d3e4819c2e6d6738f`). GitHub readable chunks restore those exact gzip bytes; the backup ZIP also includes the original. Complete source, summary, stdout, extraction code and author/peer I/O reviews are retained.
+
+`DEPENDENCIES.md` pins the frozen external runtime and prior actual evidence. The package is not dependency-free. `STARTUP_GUARD.json` is the actual current startup receipt; administrative source observation and helper copies are excluded explicitly by the packaging selector. Source/delivery/native checkpoint receipts establish publication and backup separately. Research persistence is not formal admission, and the parent QFT dequantization goal remains active.
+
+Global-Knowledge-Sync: main@f8aa9c8 / GLOBAL_KNOWLEDGE_V1
