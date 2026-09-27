@@ -1,0 +1,26 @@
+{
+  "arguments": {
+    "encoding": "utf-8",
+    "path": "research_notes/directed_recovery/20260927_C6438C/qft_carry_execution/aggregation_theory/PERIOD_BOUNDARY_NOTE.md",
+    "ref": "8e2f54ce5581636b9169845a54f018c25d00b165",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "sep27-carry-source-6",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# Separate boundary execution for the unchanged period aggregator\n\nStatus: AUTHOR_ACTUAL_NATIVE_BOUNDED / SHARED_CONTEXT / NOT_ADMITTED.\nThis is a distinct checker/evidence unit. It does not replace, overwrite or\nrerun the original eight-case artifact. The aggregator source remains\n`6f2c855bec09f7cf7fc4853b55ea41f94a195ba3d3b783d18921e9a3b6465f0c`.\n\nThe checker first obtained actual typed first-return certificates, with\nfinite limit N, and only then chose canonical addresses from those observed\ncycles. It did not insert expected orders or use ordinary modular pow.\nEvery result was compared entry-by-entry, including the dyadic denominator,\nwith the parent's same-native-word coefficient sum using an independently\ndiscovered complete typed alias list. All nine comparisons passed.\n\n| Input and depth | Actual R | s,q | Addresses checked | Branch |\n| --- | ---: | --- | --- | --- |\n| N=17,a=4,depth=3,h=001 | 2 | 1,1 | 0,1 | q=1 with two high bits |\n| N=17,a=3,depth=3,h=101 | 8 | 3,1 | 0,1,7 | s=i, no high block |\n| N=97,a=5,depth=2,h=10 | 24 | 3,3 | 0,1,12,23 | s>i |\n\nFor the last input, the complete alias lists are respectively {0}, {1},\nthe empty set, and {-1}. Thus both the positive and negative unique-\ndisplacement branches and the structural zero branch actually executed.\nAll five declared branch-coverage flags are true.\n\nThe first input's two matrices are nonzero although no phase feedback is\nactive in its retained history. Its absence of residual entries is reported,\nnot interpreted as residual truncation. The second input has nonzero\nresidual matrix entries in all three queries. The last input uses only the\nearlier exact phase and has no residual entries at that depth. All cases\nstill use the same full61 admission and exact six-carrier codec.\n\nThe run retained 377 native kernel CALLS and took about 3.50 seconds on\nthis host. Its raw payload is 6,925,770 bytes and gzip 260,098 bytes. The\nseparate metadata accounting counts 85,419 typed adder-digit replays,\nincluding 12 fresh cycle-table instances (3 initial discoveries and 9\nquery replays) and 158 actual cycle-column requests. Equal input/table\nparameters are not collapsed across separately executed instances.\n\nActual phase-vector applications were 0/144/72 for aggregation and\n0/168/72 for the corresponding coefficient sums. Signed observer counts\nwere 8/24/3 versus 62/33/3. The single-alias mass query in the s=i fixture\nused eight aggregation kernel calls versus seven for its coefficient sum;\nthe extra work is retained, so no blanket per-query speedup is claimed.\nThe s>i branch delegates its nonempty cases to the inherited coefficient\nexecutor and provides no claimed arithmetic improvement there.\n\nThe q=1 fixture has four chronological high bit layers across its two\nqueries and two low layers: here qH=4. The s=i fixture has no high layers\nand nine low layers. The s>i fixture performs no aggregation high/low\nlayers and reports four delegated-or-zero large-two-part queries. Matrix\nboundary-slot counters exclude fresh terms, native temporaries, certificate\nstorage and receipts; they are not total memory measurements.\n\nFrozen evidence:\n\n- `check_period_boundaries.py`:\n  `c3a65bad94eb481a5bb9f51d2b81854db76443ef3a1a4456a757f0b0004ec6c6`.\n- `PERIOD_BOUNDARY_RESULTS.json.gz`, decompressed payload:\n  `e1e94d19eb7f1155e63222710f97359be93389e88eb9bac73e1a9a154a51b35a`.\n- `PERIOD_BOUNDARY_SUMMARY.json` contains the actual orders, all targets,\n  alias lists, residual/zero flags, complete branch flags and cost counters.\n- `summarize_period_boundaries.py` only counts that frozen evidence into\n  `PERIOD_BOUNDARY_ACCOUNTING.json`; it does not execute scientific arithmetic.\n\nThis completes the requested bounded branch check. It does not implement\nsmall-odd-part discovery, a persistent aggregation cursor, multi-query cache\nreuse, a new whole-Shor sampling driver or a general complexity improvement.\nNo further scientific test was run after these declared cases.\n\nGlobal-Knowledge-Sync: main@06788df0 / GLOBAL_KNOWLEDGE_V1\n",
+      "display_title": "PERIOD_BOUNDARY_NOTE.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/8e2f54ce5581636b9169845a54f018c25d00b165/research_notes/directed_recovery/20260927_C6438C/qft_carry_execution/aggregation_theory/PERIOD_BOUNDARY_NOTE.md",
+      "encoding": "utf-8",
+      "sha": "75af78a67dff4521c9e06a9ef40df9e5baeef138"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

@@ -1,0 +1,26 @@
+{
+  "arguments": {
+    "encoding": "utf-8",
+    "path": "research_notes/directed_recovery/20260927_C6438C/qft_carry_execution/README.md",
+    "ref": "8e2f54ce5581636b9169845a54f018c25d00b165",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "sep27-carry-source-52",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# QFT/Shor correlation optimization: exact carry execution\n\nThe single-displacement two-carry contraction is now implemented and tested\nagainst complete actual native matrices. Complete typed modular alias\ndiscovery reconstructs the old Gamma observables. A whole-period aggregator\nalso runs and reduces repeated displacement work on its matched fixtures.\nGeneral efficient QFT/Shor dequantization remains open.\n\nRead [EXECUTION_NOTE.md](EXECUTION_NOTE.md) for the executed carry/alias\nresults and measured tradeoff. The root checker passed 134 D6 coefficients,\ntwo full D61 matrices, ten assembled Gamma matrices and sixteen rejection\ncontrols, retaining 8,859 actual core-call receipts. The separate complete\nalias checker passed twelve cases and twelve negatives, retaining 244\nreceipts. The actual noncommuting order control is detected by a residual\nmatrix entry even though its diagonal agrees under the wrong order.\n\nRead [PERIOD_AGGREGATION.md](aggregation_theory/PERIOD_AGGREGATION.md) for\nthe symbolic whole-period lemma and its limited rank obstruction, then\n[PERIOD_EXECUTION_NOTE.md](aggregation_theory/PERIOD_EXECUTION_NOTE.md) for\nthe separate implemented tests. The first eight whole-period matrices\nmatch complete alias sums, with 2,568 raw core-call receipts. In those\nequal-target comparisons, aggregation uses 672 versus 1,266 phase-vector\nactions on N21 and 480 versus 696 on N65. This comparison is against the\nnew per-displacement sum; it is not a speedup claim over every old sampler.\nAn additional nine complete boundary matrices pass with 377 raw core-call\nreceipts: pure two-power q=1, s=i, and s>i, including negative displacement\nand the no-alias zero case. These are a separate execution, preserving the\noriginal eight-case source and evidence.\n\nFor certified R=2^s q and s<=i, the aggregation lemma costs\nO(q(i-s)+s) full-matrix transition groups, plus word lengths, integer bit\ncost and discovery/verification. The present implementation still discovers\nand replays the entire period in O(R). The symbolic small-odd-part discovery\nroute is not yet the executed backend. Large odd q remains the central\nunresolved regime; a same-information classical order/factor comparator\nmust receive any order learned by the simulator.\n\n[CONTINUE.md](CONTINUE.md) specifies the next useful mathematical work in\na form that any conversation can resume. [DEPENDENCIES.md](DEPENDENCIES.md)\npins the historical source/bank chain. The publication manifest binds the\ncurrent text files, and `readable_evidence/INDEX.json` restores every original\ngzip byte from complete base64 chunks. Raw failures and superseded alias\nvalidation evidence are retained and labelled. Reviews in `review/` are\nshared-context source reviews, not independent admission.\n\nStatus: AUTHOR_SHARED_CONTEXT_SYMBOLIC_AND_ACTUAL_BOUNDED_NOT_ADMITTED.\nNo new ideal-QFT reference, general factoring advantage or physical-axis\nchange is claimed. Important research files are mirrored separately to the\nauthorized Drive research-material folder with an exact-byte readback receipt.\n\nGlobal-Knowledge-Sync: main@06788df / GLOBAL_KNOWLEDGE_V1\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/8e2f54ce5581636b9169845a54f018c25d00b165/research_notes/directed_recovery/20260927_C6438C/qft_carry_execution/README.md",
+      "encoding": "utf-8",
+      "sha": "d53906fb0140bd89cd9fe01b9f6da2ea2ba763e7"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
