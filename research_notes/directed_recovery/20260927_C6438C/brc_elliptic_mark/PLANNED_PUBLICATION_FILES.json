@@ -1,0 +1,100 @@
+{
+  "schema": "ELLIPTIC_MARK_PUBLICATION_PLAN_V1",
+  "status": "PLANNED_NOT_FROZEN",
+  "remote_prefix": "research_notes/directed_recovery/20260927_C6438C/brc_elliptic_mark/",
+  "prior_science_commit": "3a28efe4d146b594b227dd2dcbd2beb9fceb4841",
+  "own_activity_checkpoint_commit": "527858da6cc77a9f69e21b8c7b4ce785a0c31e0b",
+  "publication_directory": "publication",
+  "manifest_path": "ELLIPTIC_MARK_EVIDENCE_MANIFEST.json",
+  "chunk_characters": 80000,
+  "required_files": [
+    "elliptic_mark.py",
+    "PLAN.md",
+    "JACOBIAN_VALIDATION_PROOF.md",
+    "STATIC_AUTHOR_REVIEW.md",
+    "ELLIPTIC_PRE_RUN_REVIEW.md",
+    "STARTED.json",
+    "ELLIPTIC_MARK_SUMMARY.json",
+    "ACTUAL_EXECUTION_TOOL_RESULT.json",
+    "read_elliptic_records.py",
+    "ELLIPTIC_RECORD_REVIEW.json",
+    "ELLIPTIC_EXECUTION_REVIEW.md",
+    "RESULTS_AND_CONTINUE.md",
+    "proofs/TRANSLATED_KUMMER_MARK.md",
+    "proofs/TRANSLATED_KUMMER_MARK_PARENT_REVIEW.md",
+    "proofs/TRANSLATED_TRACE_MARK.md",
+    "proofs/TRANSLATED_TRACE_MARK_REVIEW.md",
+    "TWO_CLOCK_TRANSLATED_SECTION.md",
+    "TWO_CLOCK_SECTION_REVIEW.md",
+    "TWO_CLOCK_SECTION_PARENT_REVIEW.md",
+    "CURVE_EXPONENT_SELECTOR_ANALYSIS.md",
+    "CURVE_SELECTOR_PARENT_REVIEW.md",
+    "package_elliptic_mark.py",
+    "PLANNED_PUBLICATION_FILES.json"
+  ],
+  "proof_input_map": {
+    "TRANSLATED_KUMMER_MARK.md": "proofs/TRANSLATED_KUMMER_MARK.md",
+    "TRANSLATED_KUMMER_MARK_PARENT_REVIEW.md": "proofs/TRANSLATED_KUMMER_MARK_PARENT_REVIEW.md"
+  },
+  "external_proof_sources": {
+    "GEOMETRIC_NEXT_TOOL.md": {
+      "commit": "3a28efe4d146b594b227dd2dcbd2beb9fceb4841",
+      "path": "research_notes/directed_recovery/20260927_C6438C/brc_hbw_free_trace/GEOMETRIC_NEXT_TOOL.md",
+      "sha256": "76e39469669e4068b297377ad9beb0c6dd5b19b9a1a929a2f07378f1dfe281e2"
+    },
+    "GEOMETRIC_NEXT_TOOL_PARENT_REVIEW.md": {
+      "commit": "3a28efe4d146b594b227dd2dcbd2beb9fceb4841",
+      "path": "research_notes/directed_recovery/20260927_C6438C/brc_hbw_free_trace/GEOMETRIC_NEXT_TOOL_PARENT_REVIEW.md",
+      "sha256": "584540d5caef89f5c8b4d160e25c76e11ff634725b4558171c595d162f2eee81"
+    },
+    "KUMMER_RETURN_VALUATION.md": {
+      "commit": "3a28efe4d146b594b227dd2dcbd2beb9fceb4841",
+      "path": "research_notes/directed_recovery/20260927_C6438C/brc_hbw_free_trace/KUMMER_RETURN_VALUATION.md",
+      "sha256": "3b7a522fdb487bb5fdbe054a8e41a517f7f067881fdd5ac1822d367a1975f222"
+    }
+  },
+  "reviewed_symbolic_and_report_pins": {
+    "RESULTS_AND_CONTINUE.md": "b46181e2269992e5b223164041d259a66ede55e18d59f52865c1dcaa59594fe3",
+    "proofs/TRANSLATED_KUMMER_MARK.md": "50e899863bcec4001ee6a5dd7d2f069a57358e97b6de07b90bc7378b013fd492",
+    "proofs/TRANSLATED_KUMMER_MARK_PARENT_REVIEW.md": "9306dd45b1d3960c5ce47d26cf3e0528f0b2ede0933e2a07f7eb212a0e8a91c7",
+    "proofs/TRANSLATED_TRACE_MARK.md": "a3562a0b3151c86a7d5c1767af876daafa245ea7426da7dc387c70f0db9f0c6c",
+    "proofs/TRANSLATED_TRACE_MARK_REVIEW.md": "1c5930502377fa9bd925ded827f3eb034668e6d7fd86dd27d40adfe172ac60dc",
+    "TWO_CLOCK_TRANSLATED_SECTION.md": "2294c28339c1de5b40d1a3012ad7762c063229a684676d35dff78821b7ea4a9b",
+    "TWO_CLOCK_SECTION_REVIEW.md": "4fe4b5a07dc1e4494babe7ec68782919146d3dd62cd0d64155765b384e742b4a",
+    "TWO_CLOCK_SECTION_PARENT_REVIEW.md": "be6b765fce71a4ca4d7a40606ba989b63806282569f921b9a2cf27230e86fe0a",
+    "CURVE_EXPONENT_SELECTOR_ANALYSIS.md": "e8b2fbaba788c51e379c05f1050cadfecf671a10f3129d52715608381b34aad0",
+    "CURVE_SELECTOR_PARENT_REVIEW.md": "91c4ed0738e2a325e7ac17556210c5dc4a1736bc7edf11e151227574312929b7"
+  },
+  "science": {
+    "compressed_path": "ELLIPTIC_MARK_RESULTS.json.gz",
+    "summary_path": "ELLIPTIC_MARK_SUMMARY.json",
+    "started_path": "STARTED.json",
+    "source_path": "elliptic_mark.py",
+    "plan_path": "PLAN.md",
+    "reader_path": "read_elliptic_records.py",
+    "record_review_path": "ELLIPTIC_RECORD_REVIEW.json",
+    "expected_record_review_status": "PASS_STDLIB_ELLIPTIC_SAVED_RECORD_REVIEW_NOT_ADMISSION",
+    "expected_status": "PASS_FINITE_ELLIPTIC_MARK_NOT_ADMITTED",
+    "failure_paths": [
+      "FAILED_EXECUTION.json.gz",
+      "FAILED_SERIALIZATION.txt"
+    ]
+  },
+  "excluded": [
+    "uncompressed raw scientific JSON",
+    "third-party full text",
+    "__pycache__",
+    "administrative temporary helpers",
+    "environment credentials",
+    "unreviewed or still-active research drafts"
+  ],
+  "notes": [
+    "This package freezes only the explicit final inputs, preserving all existing scientific bytes.",
+    "Four translated proof/review files are byte-identical copies from the free-trace local successor sources; the published proof map records their new locations.",
+    "Previously published execution proof dependencies are retained as immutable external references verified from actual saved GitHub observations.",
+    "All source, plan, raw, summary, STARTED, actual tool receipt and review bindings are checked before any staging output is created.",
+    "All new chunks, snapshots and manifest are exclusively created in staging and exposed by one same-filesystem rename; no scientific execution or remote write occurs in prepare.",
+    "Frozen payload output rechecks every snapshot and reconstructs raw/gzip hashes.",
+    "Global-Knowledge-Sync: main@4ae9f3f / GLOBAL_KNOWLEDGE_V1."
+  ]
+}
