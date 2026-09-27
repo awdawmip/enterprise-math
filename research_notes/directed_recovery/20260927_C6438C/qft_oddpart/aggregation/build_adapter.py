@@ -1,0 +1,114 @@
+"""Administrative source reuse of the frozen, checked contraction core."""
+from pathlib import Path
+root = Path(__file__).resolve().parent
+old = root.parents[1] / 'sep27-qft-carry-execution/aggregation_theory/period_aggregator.py'
+source = old.read_text()
+core = source[source.index('        arithmetic = Arithmetic()', source.index('    def gamma_known_period')):source.index('\n    def evidence(self):')]
+core = core.replace("'period_verification': verification", "'address_verification': verification")
+core = core.replace("dest, subtract_ops = arithmetic.modsubtract(reduced, x, q)",
+    "_, x_reduced, x_div_op = arithmetic.divide(x, q)\n                            dest, subtract_ops = arithmetic.modsubtract(reduced, x_reduced, q)")
+core = core.replace("'subtract': subtract_ops})", "'subtract': subtract_ops, 'x_reduction': x_div_op})")
+core = core.replace("record['index_arithmetic_operations']", "record['contraction_method'] = 'odd_residue_and_two_carry'\n        record['index_arithmetic_operations']", 1)
+header = '''"""Actual paid order/address discovery connected to native full correlations.
+
+The phase contraction core is reused from the frozen previous package; the
+O(R) full-cycle boundary is replaced by fresh small-odd-part/address replay.
+"""
+from pathlib import Path
+from copy import deepcopy
+from fractions import Fraction
+import hashlib
+import sys
+
+ROOT = Path(__file__).resolve().parent
+OLD = ROOT.parents[1] / 'sep27-qft-carry-execution'
+for directory in (OLD, ROOT.parent / 'period_discovery', ROOT.parent / 'target_address'):
+    sys.path.insert(0, str(directory))
+from carry_executor import CarryExecutor, Correlation, normalized
+from lazy_modular import Arithmetic, LazyModularColumns, verify_lazy_permutation
+from typed_odd_part import discover_odd_part
+from typed_target_address import recover_target_address, verify_target_address
+
+
+def require(test, message):
+    if not test:
+        raise ValueError(message)
+
+
+def source_hashes():
+    import carry_executor, lazy_modular, typed_odd_part, typed_target_address
+    return {name: hashlib.sha256(Path(module.__file__).read_bytes()).hexdigest()
+            for name, module in (('paid_aggregator.py', sys.modules[__name__]),
+                ('carry_executor.py', carry_executor), ('lazy_modular.py', lazy_modular),
+                ('typed_odd_part.py', typed_odd_part), ('typed_target_address.py', typed_target_address))}
+
+
+class PaidDiscoveryIncomplete(ValueError):
+    def __init__(self, certificate):
+        super().__init__('odd budget did not certify an order')
+        self.evidence = certificate
+
+
+class PaidAggregator(CarryExecutor):
+    def __init__(self, program, history):
+        super().__init__(program, history)
+        self._aggregation_source = source_hashes()
+        self.aggregation_stats = {'queries': 0, 'high_layers': 0, 'low_layers': 0,
+            'high_transition_terms': 0, 'low_transition_terms': 0,
+            'peak_residue_matrix_slots': 0, 'peak_carry_matrix_slots': 0,
+            'large_two_part_single_coefficient_queries': 0,
+            'nonmember_zero_queries': 0, 'leading_zero_queries': 0,
+            'suffix_coefficient_queries': 0}
+        self.aggregation_queries = []
+
+    def discover_address(self, depth, target, odd_budget):
+        self._check()
+        require(type(depth) is int and 1 <= depth <= len(self.history), 'valid retained positive depth required')
+        certificate = discover_odd_part(self.program.N, self.program.modular_powers[depth-1], odd_budget)
+        if certificate['status'] != 'CERTIFIED':
+            raise PaidDiscoveryIncomplete(certificate)
+        return recover_target_address(certificate, target)
+
+    def _verify_address(self, depth, target, address_certificate):
+        self._check()
+        require(source_hashes() == self._aggregation_source, 'aggregation source changed')
+        require(type(depth) is int and 1 <= depth <= len(self.history), 'valid retained positive depth required')
+        require(type(target) is int and 1 <= target < self.program.N, 'canonical target residue required')
+        require(type(address_certificate) is dict, 'actual address certificate required')
+        inputs = address_certificate['inputs']
+        require(inputs == {'N': self.program.N, 'b': self.program.modular_powers[depth-1], 'z': target},
+                'address belongs to another modular target or schedule')
+        inherited = self.program.tables[depth-1]
+        require(inherited.N == self.program.N and inherited.b == inputs['b'], 'program table/schedule mismatch')
+        verification = verify_target_address(address_certificate)
+        inherited_replay = verify_lazy_permutation(inherited)
+        verification['inherited_permutation_replay'] = inherited_replay
+        replay = verification['replay']
+        require(replay['status'] in ('MEMBER', 'NONMEMBER'), 'completed membership decision required')
+        self.aggregation_stats['queries'] += 1
+        return verification
+
+    def gamma_with_address(self, depth, target, address_certificate):
+        verification = self._verify_address(depth, target, address_certificate)
+        replay = verification['replay']
+        if replay['status'] == 'NONMEMBER':
+            self.aggregation_stats['nonmember_zero_queries'] += 1
+            self.aggregation_queries.append({'depth': depth, 'target': target,
+                'address_verification': verification, 'contraction_method': 'certified_nonmember_zero'})
+            return self._zero()
+        return self._contract_verified_period(depth, replay['r'], replay['R'], target, verification)
+
+    def _contract_verified_period(self, depth, r, R, target, verification):
+'''
+footer = '''
+    def evidence(self):
+        evidence = super().evidence()
+        evidence.update(aggregation_stats=dict(self.aggregation_stats),
+            aggregation_queries=deepcopy(self.aggregation_queries),
+            aggregation_source_sha256=dict(self._aggregation_source),
+            all_orders_and_addresses_fresh_actual_typed_replayed=True,
+            same_information_classical_factoring_advantage_claimed=False,
+            slot_counters_exclude_fresh_terms_native_temporaries_and_receipts=True)
+        return evidence
+'''
+(root / 'paid_aggregator.py').write_text(header + core + '\n' + footer, encoding='utf-8')

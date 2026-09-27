@@ -1,0 +1,208 @@
+{
+  "schema": "KQB_METADATA_AND_STATUS_EXTRACTION_V1",
+  "extraction": {
+    "omitted_fields": [
+      "source_result.records[0].abstract",
+      "source_result.records[1].abstract",
+      "source_result.records[2].abstract",
+      "source_result.records[3].abstract",
+      "source_result.records[4].abstract",
+      "source_result.records[5].abstract",
+      "source_result.records[6].abstract",
+      "source_result.records[7].abstract"
+    ],
+    "scope": "All eight bibliographic records and returned status/cost fields; abstract snippets omitted; no full paper text."
+  },
+  "submitted_request": {
+    "schema": "KQB_GITHUB_REQUEST_V1",
+    "conversation_id": "01a079d7-5d03-7a21-abe9-f70606fee0ee",
+    "turn_id": "f9a7ffbf-7ca9-4422-aa4d-62665da6257f",
+    "request": {
+      "v": 1,
+      "id": "22c9c4d3-ce6f-409f-af37-fafc27deced4",
+      "redacted": true,
+      "mode": "standard",
+      "jobs": [
+        {
+          "db": "scholar",
+          "op": "paper_search",
+          "q": "\"Shor\" \"decision diagram\" \"simulation\"",
+          "n": 8,
+          "x": {
+            "sort_by": "relevance",
+            "hl": "en"
+          }
+        }
+      ]
+    }
+  },
+  "intake_receipt": {
+    "schema": "KQB_GITHUB_RECEIPT_V1",
+    "issue_id": 5599128427,
+    "issue_number": 2497,
+    "state": "ACCEPTED",
+    "detail": "QUEUED",
+    "observed_at": "2026-09-27T02:23:17.241380+00:00",
+    "first_read_after_seconds": 5,
+    "poll_interval_seconds": 5,
+    "request_id": "22c9c4d3-ce6f-409f-af37-fafc27deced4",
+    "request_sha256": "fd846580db6ddef90700a8a44c3785ec5d13e93c80d0e2418a1ed80c25769d5c",
+    "conversation_id": "01a079d7-5d03-7a21-abe9-f70606fee0ee",
+    "turn_id": "f9a7ffbf-7ca9-4422-aa4d-62665da6257f",
+    "mode": "standard",
+    "turn_job_limit": 3
+  },
+  "batch_context": {
+    "accepted_at": "2026-09-27T02:23:17.241380+00:00",
+    "bridge_kimi_llm_calls": 0,
+    "completed_at": "2026-09-27T02:23:27.283333+00:00",
+    "github_request": {
+      "conversation_id": "01a079d7-5d03-7a21-abe9-f70606fee0ee",
+      "issue_number": 2497,
+      "mode": "standard",
+      "request_sha256": "fd846580db6ddef90700a8a44c3785ec5d13e93c80d0e2418a1ed80c25769d5c",
+      "turn_id": "f9a7ffbf-7ca9-4422-aa4d-62665da6257f"
+    },
+    "read_not_before": "2026-09-27T02:23:17.241380+00:00",
+    "request_hash": "682ab3902622a1ebc8992d7f8c505d65224cc14705ff691e5e8c830cd4501806",
+    "request_id": "22c9c4d3-ce6f-409f-af37-fafc27deced4",
+    "schema_version": "KQB_WEB_BATCH_RESULT_V1",
+    "state": "FAILED",
+    "upstream_internal_llm_calls": null
+  },
+  "source_result": {
+    "api": "scholar_search",
+    "billable_calls": null,
+    "bridge_kimi_llm_calls": 0,
+    "completed_at": 1790475800.926087,
+    "content_scope": "Paper search metadata and supplied abstracts only; full text has not been read. arXiv entries are preprints unless independently verified otherwise.",
+    "coverage": {
+      "complete": false,
+      "provider_total": null,
+      "published_rows": 8,
+      "reason": "BOUNDED_SELECTION_LIMIT",
+      "records_received": 8,
+      "request_options": {
+        "hl": "en",
+        "sort_by": "relevance"
+      },
+      "requested_max_items": 8
+    },
+    "observed_at": 1790475800.9260852,
+    "operation": "paper_search",
+    "preview_sha256": "b7d8a79a6a571b6955fe702a16e86c8608c0f44aacc36f1688abc2f456a19f50",
+    "provider_query_calls": 1,
+    "provider_query_calls_confirmed": 1,
+    "provider_query_calls_unknown": 0,
+    "provider_request_id": "ddac7dce753b14b9f57534245026e5d1",
+    "provider_tool_attempts": 1,
+    "query": "\"Shor\" \"decision diagram\" \"simulation\"",
+    "raw_file_sha256": "b7d8a79a6a571b6955fe702a16e86c8608c0f44aacc36f1688abc2f456a19f50",
+    "raw_tool_response_sha256": "8027bab1767276885d66d97838c65b13043835efad1a5cdadfdc21c9fbb4cf7a",
+    "records": [
+      {
+        "authors": "Y Kimura, S Li, H Sato, M Fujita…",
+        "citations": "1",
+        "pdf_links": "['https://ieeexplore.ieee.org/iel8/8924785/8961200/11355368.pdf']",
+        "publication_info": "Y Kimura, S Li, H Sato, M Fujita… - IEEE Transactions on …, 2026 - ieeexplore.ieee.org",
+        "result_id": "-_UMGCGeLTMJ",
+        "search_time": "unknown",
+        "title": "Improving Decision Diagram-based Quantum Circuit Simulation using Static Variable Ordering and Multi-node Ring Communication",
+        "total_results": "unknown",
+        "url": "https://ieeexplore.ieee.org/abstract/document/11355368/",
+        "year": "2026"
+      },
+      {
+        "authors": "S Hillmich, A Zulehner, R Kueng, IL Markov…",
+        "citations": "19",
+        "pdf_links": "['https://dl.acm.org/doi/pdf/10.1145/3530776']",
+        "publication_info": "S Hillmich, A Zulehner, R Kueng, IL Markov… - ACM Transactions on …, 2022 - dl.acm.org",
+        "result_id": "-7HyEncVdAcJ",
+        "search_time": "unknown",
+        "title": "Approximating decision diagrams for quantum circuit simulation",
+        "total_results": "unknown",
+        "url": "https://dl.acm.org/doi/abs/10.1145/3530776",
+        "year": "2022"
+      },
+      {
+        "authors": "T Grurl, J Fuß, S Hillmich…",
+        "citations": "35",
+        "pdf_links": "['https://www.cda.cit.tum.de/files/eda/2020_ismvl_arrays_vs_decision_diagrams_case_study_%20on_quantum_circuit_simulators.pdf']",
+        "publication_info": "T Grurl, J Fuß, S Hillmich… - 2020 IEEE 50th …, 2020 - ieeexplore.ieee.org",
+        "result_id": "nYHL1KqlDTMJ",
+        "search_time": "unknown",
+        "title": "Arrays vs. decision diagrams: A case study on quantum circuit simulators",
+        "total_results": "unknown",
+        "url": "https://ieeexplore.ieee.org/abstract/document/9308161/",
+        "year": "2020"
+      },
+      {
+        "authors": "Y Kimura, S Li, H Sato, M Fujita",
+        "citations": "5",
+        "pdf_links": "[]",
+        "publication_info": "Y Kimura, S Li, H Sato, M Fujita - 2024 IEEE International …, 2024 - ieeexplore.ieee.org",
+        "result_id": "EE1qvj9XbZIJ",
+        "search_time": "unknown",
+        "title": "Decision diagram vs. state vector: A comparative study on quantum computing simulation efficiency",
+        "total_results": "unknown",
+        "url": "https://ieeexplore.ieee.org/abstract/document/10821387/",
+        "year": "2024"
+      },
+      {
+        "authors": "Y Kimura, S Li, H Sato, M Fujita",
+        "citations": "4",
+        "pdf_links": "['https://arxiv.org/pdf/2405.09033']",
+        "publication_info": "Y Kimura, S Li, H Sato, M Fujita - 2024 IEEE International …, 2024 - ieeexplore.ieee.org",
+        "result_id": "I45Cjx2UTJQJ",
+        "search_time": "unknown",
+        "title": "Accelerating decision diagram-based multi-node quantum simulation with ring communication and automatic swap insertion",
+        "total_results": "unknown",
+        "url": "https://ieeexplore.ieee.org/abstract/document/10646511/",
+        "year": "2024"
+      },
+      {
+        "authors": "Y Kimura, M Fujita, R Wille",
+        "citations": "0",
+        "pdf_links": "['https://arxiv.org/pdf/2512.01186']",
+        "publication_info": "Y Kimura, M Fujita, R Wille - arXiv preprint arXiv:2512.01186, 2025 - arxiv.org",
+        "result_id": "IbRHqK_C-o8J",
+        "search_time": "unknown",
+        "title": "Scoring-based Static Variable Ordering for Decision Diagram-based Quantum Circuit Simulation",
+        "total_results": "unknown",
+        "url": "https://arxiv.org/abs/2512.01186",
+        "year": "2025"
+      },
+      {
+        "authors": "S Li, Y Kimura, H Sato, M Fujita",
+        "citations": "15",
+        "pdf_links": "['https://ieeexplore.ieee.org/iel7/8924785/8961200/10430382.pdf']",
+        "publication_info": "S Li, Y Kimura, H Sato, M Fujita - IEEE Transactions on …, 2024 - ieeexplore.ieee.org",
+        "result_id": "L632YYQ8480J",
+        "search_time": "unknown",
+        "title": "Parallelizing quantum simulation with decision diagrams",
+        "total_results": "unknown",
+        "url": "https://ieeexplore.ieee.org/abstract/document/10430382/",
+        "year": "2024"
+      },
+      {
+        "authors": "S Hillmich, R Wille",
+        "citations": "3",
+        "pdf_links": "[]",
+        "publication_info": "S Hillmich, R Wille - 2024 - Springer",
+        "result_id": "23ZWen0riFYJ",
+        "search_time": "unknown",
+        "title": "Efficient Implementation of Quantum Circuit Simulation with Decision Diagrams",
+        "total_results": "unknown",
+        "url": "https://link.springer.com/content/pdf/10.1007/978-3-031-40825-0.pdf",
+        "year": "2024"
+      }
+    ],
+    "request_hash": "4e91c5326c703e53daf86824f59c40a3bf3865d88ddb8864b6caef5b7014b78b",
+    "request_id": "de14b709-0702-5676-8982-7e9af1668bd5",
+    "retrieval_verified": true,
+    "source": "scholar",
+    "state": "PARTIAL",
+    "tool_call_id": "1c1040a0-71d8-47ed-83cf-c9a5a2291128",
+    "upstream_internal_llm_calls": null
+  }
+}

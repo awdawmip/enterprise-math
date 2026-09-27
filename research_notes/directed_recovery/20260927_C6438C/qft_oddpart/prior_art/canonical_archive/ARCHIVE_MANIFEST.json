@@ -1,0 +1,62 @@
+{
+  "schema": "LOCAL_PROFESSIONAL_ARCHIVE_DELTA_V1",
+  "status": "LOCAL_VALIDATED_PENDING_CANONICAL_PUBLICATION_AND_READBACK",
+  "authority_base": "06788df022dbd11720132b4ed0882ce8e41b3b8a",
+  "dependencies": {
+    "tools/professional_query_cache.py": {
+      "commit": "06788df022dbd11720132b4ed0882ce8e41b3b8a",
+      "sha256": "d95c8bae80884f041ee9bad251f1ad4bf99f4805e328357d3b0ae7c8a9268d2b"
+    },
+    "tools/professional_query_execution.py": {
+      "commit": "06788df022dbd11720132b4ed0882ce8e41b3b8a",
+      "sha256": "4e6a2f83452370985f731da901324d542a7b2038c7725dfb6a4f83a305c660d0"
+    },
+    "sources/professional/policy.json": {
+      "commit": "06788df022dbd11720132b4ed0882ce8e41b3b8a",
+      "sha256": "77de1fe4d489c389b02ae44331ea6a752bd428b4de2eb7106e7574510578f5e2"
+    },
+    "sources/professional/catalog.json": {
+      "commit": "06788df022dbd11720132b4ed0882ce8e41b3b8a",
+      "sha256": "6648c4cc61fc2bc58b28d2b5ed51605625483e054c6f57fe72062d5e78074c67"
+    }
+  },
+  "ingested_at": "2026-09-27T02:28:01+00:00",
+  "publication_files": [
+    {
+      "path": "sources/professional/raw/scholar/badebbe5db7176ce32e3ccd9a97d2d0a7f47aaa44a4cb67f030f75dc1eef23d0.json",
+      "bytes": 8894,
+      "sha256": "badebbe5db7176ce32e3ccd9a97d2d0a7f47aaa44a4cb67f030f75dc1eef23d0",
+      "git_blob_sha1": "0607879322b4db4e62391e78be484a51bd8b1079"
+    },
+    {
+      "path": "sources/professional/records/PQ-20260927-KQB2497-SCHOLAR-SHOR-DECISION-DIAGRAM.json",
+      "bytes": 3340,
+      "sha256": "9edb67171e85158fe3d2d4269eef1c56319c6ddcf1a92a78913043b45b83cd28",
+      "git_blob_sha1": "10ab4b0d33faf9d12191ab41f3ef7290ca8744f8"
+    }
+  ],
+  "catalog_additions": [
+    {
+      "cache_key": "ed94bc51320fb9ee3c2a8c3ace61770c3ac0fd2e4c57b6087cc2e81049a04c74",
+      "category": "literature_search",
+      "id": "PQ-20260927-KQB2497-SCHOLAR-SHOR-DECISION-DIAGRAM",
+      "path": "sources/professional/records/PQ-20260927-KQB2497-SCHOLAR-SHOR-DECISION-DIAGRAM.json",
+      "subject": "\"Shor\" \"decision diagram\" \"simulation\""
+    }
+  ],
+  "catalog_full_replacement_included": false,
+  "record_validation": "PASS",
+  "execution_validation": "PASS",
+  "same_query_gate_check": {
+    "action": "CONFLICT_NEEDS_INSTRUCTION",
+    "reason": "Do not use as current or silently requery",
+    "provider_query": false,
+    "record_id": "PQ-20260927-KQB2497-SCHOLAR-SHOR-DECISION-DIAGRAM",
+    "observed_at": "2026-09-27T02:23:20.926085+00:00",
+    "expires_at": "2026-10-04T02:23:20.926085+00:00"
+  },
+  "remote_writes_performed_by_script": false,
+  "provider_queries_performed_by_script": 0,
+  "publication_rule": "Publish both files and merge this one catalog entry into the latest catalog atomically; retain all intervening entries including KQB2495. Read back hashes before claiming ARCHIVED_VERIFIED.",
+  "generator_sha256": "936276078ee2673680232a93e62b217af1db5e58a7b2474c7a9dc3184a7f5109"
+}

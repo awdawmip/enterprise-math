@@ -1,0 +1,9 @@
+{
+  "status": "SUPERSEDED_CHECKER_NEGATIVE_CONTROL_DESIGN_FAILURE",
+  "failure": "The changed_CRT negative control assigned k=0 to the N97/b5/z25 record whose genuine k was already zero. The unmodified valid record was correctly accepted and the checker then raised AssertionError.",
+  "scientific_algorithm_changed": false,
+  "correction": "Assign k=1 to make the intended CRT record mutation real; rerun the same complete declared input set.",
+  "initial_terminal_observations": "All 13 declared MEMBER/NONMEMBER inputs reached their expected output before the negative-control assertion.",
+  "complete_initial_payload_persisted": false,
+  "evidence_boundary": "Initial in-memory traces were not serialized before this checker assertion. Terminal observations are not substituted for the later complete successful payload."
+}

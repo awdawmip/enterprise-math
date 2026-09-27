@@ -1,0 +1,90 @@
+{
+  "schema": "PROFESSIONAL_SOURCE_RECORD_V1",
+  "id": "PQ-20260927-KQB2497-SCHOLAR-SHOR-DECISION-DIAGRAM",
+  "identity": {
+    "source": "scholar",
+    "operation": "paper_search",
+    "subject": "\"Shor\" \"decision diagram\" \"simulation\"",
+    "parameters": {
+      "n": 8,
+      "x": {
+        "sort_by": "relevance",
+        "hl": "en"
+      }
+    },
+    "scope": "current",
+    "version": null
+  },
+  "category": "literature_search",
+  "cache_key": "ed94bc51320fb9ee3c2a8c3ace61770c3ac0fd2e4c57b6087cc2e81049a04c74",
+  "observed_at": "2026-09-27T02:23:20.926085+00:00",
+  "ingested_at": "2026-09-27T02:28:01+00:00",
+  "expires_at": "2026-10-04T02:23:20.926085+00:00",
+  "state": "CONFLICT",
+  "coverage": [
+    "authors",
+    "batch_state",
+    "child_state",
+    "citations",
+    "intake_receipt",
+    "pdf_links",
+    "provider_call_accounting",
+    "publication_info",
+    "result_id",
+    "search_time",
+    "title",
+    "total_results",
+    "url",
+    "year"
+  ],
+  "raw": {
+    "path": "sources/professional/raw/scholar/badebbe5db7176ce32e3ccd9a97d2d0a7f47aaa44a4cb67f030f75dc1eef23d0.json",
+    "sha256": "badebbe5db7176ce32e3ccd9a97d2d0a7f47aaa44a4cb67f030f75dc1eef23d0",
+    "representation": "provider_result_json",
+    "completeness": "PARTIAL",
+    "redactions": [],
+    "extraction": "Exact JSON-field extraction of metadata/status/cost/request/intake; abstracts omitted. Stored-byte hash is distinct from provider HTTP raw hash."
+  },
+  "evidence": {
+    "url": "https://github.com/awdawmip/kimi-query-bridge/issues/2497#issuecomment-5851940064",
+    "batch_id": "22c9c4d3-ce6f-409f-af37-fafc27deced4",
+    "request_id": "de14b709-0702-5676-8982-7e9af1668bd5",
+    "provider_request_id": "ddac7dce753b14b9f57534245026e5d1",
+    "source_status": "PARTIAL",
+    "batch_status": "FAILED",
+    "client_request_sha256": "fd846580db6ddef90700a8a44c3785ec5d13e93c80d0e2418a1ed80c25769d5c",
+    "request_hash": "4e91c5326c703e53daf86824f59c40a3bf3865d88ddb8864b6caef5b7014b78b",
+    "batch_request_hash": "682ab3902622a1ebc8992d7f8c505d65224cc14705ff691e5e8c830cd4501806",
+    "original_observed_at_epoch": 1790475800.9260852,
+    "original_completed_at_epoch": 1790475800.926087,
+    "original_batch_completed_at": "2026-09-27T02:23:27.283333+00:00",
+    "coverage": {
+      "complete": false,
+      "provider_total": null,
+      "published_rows": 8,
+      "reason": "BOUNDED_SELECTION_LIMIT",
+      "records_received": 8,
+      "request_options": {
+        "hl": "en",
+        "sort_by": "relevance"
+      },
+      "requested_max_items": 8
+    },
+    "retrieval_verified": true,
+    "provider_raw_file_sha256": "b7d8a79a6a571b6955fe702a16e86c8608c0f44aacc36f1688abc2f456a19f50",
+    "provider_raw_tool_response_sha256": "8027bab1767276885d66d97838c65b13043835efad1a5cdadfdc21c9fbb4cf7a",
+    "provider_query_calls_confirmed": 1,
+    "provider_query_calls_unknown": 0,
+    "billable_calls": null,
+    "bridge_kimi_llm_calls": 0,
+    "upstream_internal_llm_calls": null,
+    "authority_level": "PROVIDER_BIBLIOGRAPHIC_METADATA_NOT_FULL_TEXT",
+    "state_note": "Outer FAILED/child PARTIAL preserved; not NO_HIT, not a clean VALID complete cache. No same-query silent refresh."
+  },
+  "import_kind": "CURRENT_TASK_BRIDGE_RESULT_ARCHIVE",
+  "projects": [
+    "enterprise-math",
+    "kimi-query-bridge"
+  ],
+  "supersedes": []
+}

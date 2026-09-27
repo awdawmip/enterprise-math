@@ -1,0 +1,223 @@
+{
+  "schema": "PROFESSIONAL_QUERY_POLICY_V1",
+  "version": 3,
+  "effective": "2026-09-21",
+  "cache_root": "sources/professional",
+  "routine_refresh": "ON_DEMAND_MISS_OR_EXPIRY",
+  "within_lifetime_refresh": "EXPLICIT_CURRENT_USER_INSTRUCTION_ONLY",
+  "clock_anchor": "observed_at",
+  "read_renews_lifetime": false,
+  "background_refresh": false,
+  "retention": "KEEP_VERSIONED_EVIDENCE_UNLESS_DELETION_OR_RIGHTS_RESTRICTION",
+  "negative_ttl_seconds": 86400,
+  "classes": {
+    "company_identity": {
+      "ttl_seconds": 15552000,
+      "scope": "current",
+      "description": "统一社会信用代码、成立日期等稳定标识；不含现名、现股东"
+    },
+    "company_registration": {
+      "ttl_seconds": 2592000,
+      "scope": "current",
+      "description": "公司名称、注册资本、经营范围、登记地址与登记状态"
+    },
+    "ownership_governance": {
+      "ttl_seconds": 604800,
+      "scope": "current",
+      "description": "股东、持股比例、控制链、法定代表人与董监高"
+    },
+    "litigation_enforcement": {
+      "ttl_seconds": 86400,
+      "scope": "current",
+      "description": "涉诉、执行、失信、限制消费、破产与权利负担状态"
+    },
+    "law_validity": {
+      "ttl_seconds": 604800,
+      "scope": "current",
+      "description": "法律效力、修订或废止状态；不等于已完成官方时点适法核验"
+    },
+    "case_search": {
+      "ttl_seconds": 604800,
+      "scope": "current",
+      "description": "同库、同条件、同时间范围的案例检索结果"
+    },
+    "securities_basic": {
+      "ttl_seconds": 604800,
+      "scope": "current",
+      "description": "证券及发行人基础资料；不是实时行情"
+    },
+    "financial_latest": {
+      "ttl_seconds": 2592000,
+      "scope": "current",
+      "description": "最新报告目录和可修订财务数据，不含固定版本报告"
+    },
+    "macro_revisable": {
+      "ttl_seconds": 2592000,
+      "scope": "current",
+      "description": "同国家、指标、期间、单位和修订口径的宏观数据"
+    },
+    "news": {
+      "ttl_seconds": 21600,
+      "scope": "current",
+      "description": "同查询时段新闻标题、链接和许可摘要"
+    },
+    "versioned_original": {
+      "ttl_seconds": null,
+      "scope": "fixed_version",
+      "description": "指定版本公告、法规或裁判原文、已发布历史报告及论文原文/许可片段；保留版本ID、读取范围和预印本状态，不证明当前状态或已读全文"
+    },
+    "realtime_market": {
+      "ttl_seconds": 0,
+      "scope": "current",
+      "description": "实时行情不以旧值替代，使用适用的已授权实时工具"
+    },
+    "literature_search": {
+      "ttl_seconds": 604800,
+      "scope": "current",
+      "description": "同来源、检索式、日期范围和版本条件的学术文献检索列表及其元数据；不是已读论文全文"
+    },
+    "research_report_search": {
+      "ttl_seconds": 604800,
+      "scope": "current",
+      "description": "同来源、主题、机构和期间条件的研报检索列表；固定报告/片段另按版本保存"
+    },
+    "consensus_estimates": {
+      "ttl_seconds": 86400,
+      "scope": "current",
+      "description": "公司、指标、预测期间和统计口径明确的一致预期及可修订预测；不冒充历史时点快照"
+    },
+    "industry_high_frequency": {
+      "ttl_seconds": 86400,
+      "scope": "current",
+      "description": "可更新的产业日/周等高频数据；保留指标、频率、单位与修订口径；固定历史版本另行标识"
+    },
+    "indicator_catalog": {
+      "ttl_seconds": 2592000,
+      "scope": "current",
+      "description": "指标名称、代码、单位、频率及可用期间等目录元数据；不是实际指标值"
+    }
+  },
+  "verified_operations": {
+    "tianyancha": [
+      "company_basic",
+      "company_profile",
+      "historical_shareholders"
+    ],
+    "yuandian_law": [
+      "case_search",
+      "case_detail",
+      "law_search",
+      "law_detail"
+    ],
+    "wind": [
+      "stock_info",
+      "indicator_search",
+      "indicator_series"
+    ],
+    "gildata": [
+      "stock_lookup",
+      "research_report"
+    ],
+    "china_nbs": [
+      "indicator"
+    ],
+    "fred": [
+      "series"
+    ],
+    "world_bank_open_data": [
+      "indicator"
+    ],
+    "sec_edgar": [
+      "company_info"
+    ],
+    "sp_data": [
+      "company_info",
+      "estimates",
+      "transcripts",
+      "transactions"
+    ],
+    "xhcj": [
+      "hot_news"
+    ],
+    "caixin": [
+      "company_basic"
+    ],
+    "arxiv": [
+      "paper_search"
+    ],
+    "scholar": [
+      "paper_search"
+    ]
+  },
+  "capability_boundary": "Operation availability does not certify arbitrary fields; company_basic is not a shareholder, enforcement or property-register API.",
+  "transport_protocol": "knowledge/procedures/KIMI_GITHUB_BATCH_QUERY_20260921.md",
+  "authority_boundary": "System-required verification and current explicit source restrictions take precedence; disclose any necessary exception.",
+  "company_dossier_protocol": "knowledge/procedures/COMPANY_DOSSIER_AND_RELATIONSHIP_20260921.md",
+  "max_tasks_per_conversation_turn": 3,
+  "company_profile_verified_components": [
+    "basic",
+    "shareholders",
+    "personnel"
+  ],
+  "company_profile_integration_only_components": [
+    "investments"
+  ],
+  "max_tasks_per_deep_research_turn": 10,
+  "query_mode_policy": {
+    "request_field": "request.mode",
+    "default": "standard",
+    "max_tasks_per_turn": {
+      "standard": 3,
+      "deep_research": 10
+    },
+    "deep_research_trigger": "current_user_request.contains_exact(\"深入研究\")",
+    "scope": [
+      "conversation_id",
+      "turn_id"
+    ],
+    "lock_mode": "FIRST_ADMITTED_BATCH",
+    "subagents_share_budget": true
+  },
+  "automatic_routing_protocol": "knowledge/procedures/PROFESSIONAL_DATABASE_AUTO_ROUTING_20260921.md",
+  "operation_verification": {
+    "checked_at_date": "2026-09-21",
+    "meaning": "A non-empty provider sample and actual fields were received; not a guarantee of facts, complete coverage, arbitrary entitlements or full text.",
+    "limited_cases": {
+      "wind/indicator_series:C1925068": {
+        "state": "BLOCKED_PERMISSION",
+        "meaning": "Indicator catalog found; values inaccessible under tested entitlement. Other GDP scope returned non-empty values."
+      },
+      "tianyancha/enforcement": {
+        "state": "EMPTY_OR_IDENTITY_UNRESOLVED",
+        "production_enabled": false,
+        "meaning": "Probe returned upstream EMPTY_DATA error; not a verified no-risk result or a formally enabled query operation."
+      },
+      "sp_data/transcripts": {
+        "scope": "SELECTED_RECORDS_OR_EXCERPTS",
+        "full_transcript_verified": false
+      },
+      "sp_data/transactions": {
+        "scope": "SELECTED_RECORDS",
+        "complete_transaction_universe_verified": false
+      },
+      "gildata/research_report": {
+        "scope": "REPORT_EXCERPTS",
+        "full_pdf_verified": false
+      },
+      "arxiv/paper_search": {
+        "scope": "BIBLIOGRAPHIC_AND_ABSTRACT",
+        "full_text_async_implemented": false
+      },
+      "scholar/paper_search": {
+        "scope": "BIBLIOGRAPHIC_AND_ABSTRACT_PREVIEW",
+        "full_text_verified": false
+      }
+    }
+  },
+  "capability_source": {
+    "repository": "awdawmip/kimi-query-bridge",
+    "ref": "cfc2aca728a0b1774e0810f52989960623714eb0",
+    "path": "CAPABILITIES.json",
+    "deployed_release": "bridge-77f6177487e5"
+  }
+}

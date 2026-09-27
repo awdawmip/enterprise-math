@@ -1,0 +1,67 @@
+{
+  "schema": "PROFESSIONAL_QUERY_EXECUTION_RECEIPT_V1",
+  "task_ref": "sep27-qft-oddpart/prior_art/KQB2497",
+  "task_started_at": "2026-09-27T02:23:11Z",
+  "checked_at": "2026-09-27T02:28:01+00:00",
+  "timestamp_scope": "The receipt starts at the actual submission phase; cache preparation preceded it.",
+  "provider": "scholar",
+  "operation": "paper_search",
+  "transport": "GITHUB_ISSUE",
+  "cache_decision": "QUERY_REQUIRED",
+  "outcome": "PARTIAL_READBACK",
+  "conversation_id": "01a079d7-5d03-7a21-abe9-f70606fee0ee",
+  "turn_id": "f9a7ffbf-7ca9-4422-aa4d-62665da6257f",
+  "batch_id": "22c9c4d3-ce6f-409f-af37-fafc27deced4",
+  "request_sha256": "fd846580db6ddef90700a8a44c3785ec5d13e93c80d0e2418a1ed80c25769d5c",
+  "request": {
+    "v": 1,
+    "id": "22c9c4d3-ce6f-409f-af37-fafc27deced4",
+    "redacted": true,
+    "mode": "standard",
+    "jobs": [
+      {
+        "db": "scholar",
+        "op": "paper_search",
+        "q": "\"Shor\" \"decision diagram\" \"simulation\"",
+        "n": 8,
+        "x": {
+          "sort_by": "relevance",
+          "hl": "en"
+        }
+      }
+    ]
+  },
+  "attempts": [
+    {
+      "at": "2026-09-27T02:23:11Z",
+      "client": "authorized GitHub connector create_issue",
+      "method": "POST",
+      "endpoint_kind": "GITHUB_REQUEST_ISSUE",
+      "request_issue_url": "https://github.com/awdawmip/kimi-query-bridge/issues/2497",
+      "batch_id": "22c9c4d3-ce6f-409f-af37-fafc27deced4",
+      "request_sha256": "fd846580db6ddef90700a8a44c3785ec5d13e93c80d0e2418a1ed80c25769d5c",
+      "evidence_ref": "KQB_CREATED.json"
+    }
+  ],
+  "github_check": {
+    "at": "2026-09-27T02:28:01+00:00",
+    "evidence_ref": "KQB_FINAL_READBACK.json and KQB_READBACK_CLOCK.json",
+    "batch_id": "22c9c4d3-ce6f-409f-af37-fafc27deced4",
+    "request_match": true,
+    "result_ref": "https://github.com/awdawmip/kimi-query-bridge/issues/2497#issuecomment-5851940064",
+    "provider": "scholar",
+    "operation": "paper_search",
+    "job_state": "PARTIAL",
+    "coverage_complete": false,
+    "raw_evidence_ref": "KQB_RESULT.json"
+  },
+  "query_budget": {
+    "mode": "standard",
+    "shared_limit": 3,
+    "accepted_tasks": 1,
+    "retries": 0,
+    "pending_batches": 0
+  },
+  "authority": "Actual provider bibliography, not full paper text or independent scientific admission",
+  "local_validator_result": "PASS"
+}
