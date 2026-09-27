@@ -1,0 +1,10 @@
+{
+  "status": "SUPERSEDED_RECORDING_FAILURE",
+  "scientific_changes": false,
+  "observed_run": "check_typed_aliases.py first bounded run",
+  "completed_before_failure": "Both N21 and N65 reported six full-alias cases passed; all negative controls and source-stability assertions completed before payload serialization.",
+  "error": "TypeError: Object of type Fraction is not JSON serializable at raw=packed(payload)",
+  "cause": "Inherited bank error-certificate contains exact Fraction metadata.",
+  "fix": "Serialize Fraction metadata as its exact rational string; algorithm and declared fixtures unchanged.",
+  "evidence_limit": "No complete payload was written by this failed process. Its partial console observations are not substituted for the subsequent complete rerun record."
+}

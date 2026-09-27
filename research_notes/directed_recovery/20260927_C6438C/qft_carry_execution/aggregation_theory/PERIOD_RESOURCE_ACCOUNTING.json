@@ -1,0 +1,100 @@
+{
+  "actual_native_core_call_receipts": 2568,
+  "aggregation_index_arithmetic": {
+    "adder_digit_replays": 2172,
+    "host_bit_length_calls_in_arithmetic": 1028,
+    "host_bit_wiring_operations": 23766,
+    "native_kernel_calls_delta": 0,
+    "typed_operations": 384
+  },
+  "all_cycle_cost": {
+    "column_adder_digits": 8766,
+    "column_requests": 85,
+    "computed_columns": 85,
+    "permutation_replay_adder_digits": 12676,
+    "setup_adder_digits": 6338
+  },
+  "core_call_deltas_include_query_period_replay": {
+    "aggregation": 544,
+    "alias_sum": 1780
+  },
+  "cycle_groups": {
+    "failed_certificate_full_cycle_replays": {
+      "cost": {
+        "column_adder_digits": 200,
+        "column_requests": 3,
+        "computed_columns": 3,
+        "permutation_replay_adder_digits": 620,
+        "setup_adder_digits": 310
+      },
+      "fresh_instances": 1
+    },
+    "initial_complete_cycle_discoveries": {
+      "cost": {
+        "column_adder_digits": 2842,
+        "column_requests": 27,
+        "computed_columns": 27,
+        "permutation_replay_adder_digits": 3812,
+        "setup_adder_digits": 1906
+      },
+      "fresh_instances": 4
+    },
+    "partial_cycle_discovery": {
+      "cost": {
+        "column_adder_digits": 40,
+        "column_requests": 1,
+        "computed_columns": 1,
+        "permutation_replay_adder_digits": 620,
+        "setup_adder_digits": 310
+      },
+      "fresh_instances": 1
+    },
+    "positive_query_full_cycle_replays": {
+      "cost": {
+        "column_adder_digits": 5684,
+        "column_requests": 54,
+        "computed_columns": 54,
+        "permutation_replay_adder_digits": 7624,
+        "setup_adder_digits": 3812
+      },
+      "fresh_instances": 8
+    }
+  },
+  "digit_scope": "program modular setup/columns/verifications, all executed independent cycles including negative replay and partial discovery, alias discovery, aggregation routing; excludes phase/native observer work counted separately below",
+  "independent_alias_discovery_adder_digits": 19841,
+  "live_matrix_slots_are_not_total_peak_bytes": true,
+  "metadata_only_no_new_scientific_execution": true,
+  "native_phase_vector_applications": {
+    "aggregation": [
+      672,
+      480
+    ],
+    "alias_sum": [
+      1266,
+      696
+    ]
+  },
+  "no_program_or_cycle_table_instances_deduplicated_by_equal_modulus_multiplier": true,
+  "not_a_total_bit_operation_count": true,
+  "phase_application_counters_exclude_initial_full_column_admission": true,
+  "program_initialization": {
+    "column_adder_digits": 834,
+    "permutation_replay_adder_digits": 3998,
+    "setup_adder_digits": 3688,
+    "table_instances": 7
+  },
+  "receipt_count_verified": true,
+  "schema": "PERIOD_AGGREGATION_METADATA_ACCOUNTING_V1",
+  "signed_observer_operation_counts": {
+    "aggregation": [
+      388,
+      156
+    ],
+    "alias_sum": [
+      1147,
+      633
+    ]
+  },
+  "source_payload_sha256": "2a7dae92955c8ad4c4ab5b91ee49936d30dd6587bbc4ba18b79e2d453533fef5",
+  "total_counted_typed_adder_digit_replays": 58313
+}
