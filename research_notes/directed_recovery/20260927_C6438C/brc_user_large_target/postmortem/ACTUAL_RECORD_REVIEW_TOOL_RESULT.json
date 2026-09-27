@@ -1,0 +1,14 @@
+{
+  "tool_name": "exec_command",
+  "arguments": {
+    "cmd": "& 'D:/kimi-query-bridge/.venv/Scripts/python.exe' -X utf8 'D:/em/TEMP/sep27-brc-user-large-target/postmortem/read_postmortem_records.py'",
+    "max_output_tokens": 4000
+  },
+  "result": {
+    "chunk_id": "c15277",
+    "wall_time_seconds": 1.7048100000000002,
+    "exit_code": 0,
+    "original_token_count": 251,
+    "output": "{\"status\": \"PASS_COMPLETE_POSTHOC_SAVED_RECORDS_ONLY\", \"counts\": {\"gzip_members\": 258, \"maximum_decoded_member_bytes\": 163605, \"event_postmortem_binding\": 1, \"event_native_catalog_admission\": 1, \"checked_native_digit_cells\": 292372, \"typed_operations\": 115, \"maximum_pending_compact_operations\": 2, \"event_posthoc_label_order\": 4, \"consumed_operation_links\": 115, \"event_posthoc_two_part\": 8, \"event_posthoc_euclid_begin\": 4, \"event_posthoc_euclid_step\": 93, \"event_posthoc_euclid_end\": 4, \"event_jacobi_begin\": 2, \"event_jacobi_labels\": 4, \"event_jacobi_step\": 4, \"event_jacobi_end\": 2, \"event_posthoc_projection\": 12, \"event_posthoc_projected_return\": 2, \"event_native_catalog_final\": 1, \"event_postmortem_complete\": 1}, \"cost\": {\"typed_operations\": 115, \"adder_digit_replays\": 292372, \"host_bit_wiring_operations\": 2958259, \"host_bit_length_calls_in_arithmetic\": 7793, \"native_kernel_calls_delta\": 0}, \"output\": \"D:\\\\em\\\\TEMP\\\\sep27-brc-user-large-target\\\\postmortem\\\\POSTMORTEM_RECORD_REVIEW.json\"}\r\n"
+  }
+}

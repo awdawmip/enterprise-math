@@ -1,0 +1,16 @@
+{
+  "tool_name": "write_stdin",
+  "arguments": {
+    "session_id": 43537,
+    "chars": "",
+    "max_output_tokens": 3000,
+    "yield_time_ms": 1000
+  },
+  "result": {
+    "chunk_id": "7fb0fc",
+    "wall_time_seconds": 0.0000108,
+    "exit_code": 0,
+    "original_token_count": 666,
+    "output": "{\r\n  \"status\": \"INTERRUPTED_ANCILLARY_REPORTED_COST_EXTRACTION_ONLY\",\r\n  \"indexed_members\": 784,\r\n  \"indexed_bytes\": 28417284,\r\n  \"unindexed_tail_bytes\": 0,\r\n  \"last_completed_bit_index\": 60,\r\n  \"reported_arithmetic_cost\": {\r\n    \"adder_digit_replays\": 21358360,\r\n    \"host_bit_length_calls_in_arithmetic\": 87824,\r\n    \"host_bit_wiring_operations\": 214040485,\r\n    \"typed_operations\": 387,\r\n    \"native_kernel_calls_delta\": 0\r\n  },\r\n  \"reported_stream_costs\": {\r\n    \"setup\": {\r\n      \"adder_digit_replays\": 4817,\r\n      \"host_bit_length_calls_in_arithmetic\": 429,\r\n      \"host_bit_wiring_operations\": 50051,\r\n      \"typed_operations\": 8,\r\n      \"native_kernel_calls_delta\": 0\r\n    },\r\n    \"setup_gcd\": {\r\n      \"adder_digit_replays\": 1672,\r\n      \"host_bit_length_calls_in_arithmetic\": 413,\r\n      \"host_bit_wiring_operations\": 18565,\r\n      \"typed_operations\": 3,\r\n      \"native_kernel_calls_delta\": 0\r\n    },\r\n    \"jacobi_delta\": {\r\n      \"adder_digit_replays\": 2848,\r\n      \"host_bit_length_calls_in_arithmetic\": 413,\r\n      \"host_bit_wiring_operations\": 30325,\r\n      \"typed_operations\": 3,\r\n      \"native_kernel_calls_delta\": 0\r\n    },\r\n    \"character_inputs\": {\r\n      \"adder_digit_replays\": 1203,\r\n      \"host_bit_length_calls_in_arithmetic\": 9,\r\n      \"host_bit_wiring_operations\": 12057,\r\n      \"typed_operations\": 2,\r\n      \"native_kernel_calls_delta\": 0\r\n    },\r\n    \"jacobi_plus\": {\r\n      \"adder_digit_replays\": 2848,\r\n      \"host_bit_length_calls_in_arithmetic\": 413,\r\n      \"host_bit_wiring_operations\": 30325,\r\n      \"typed_operations\": 3,\r\n      \"native_kernel_calls_delta\": 0\r\n    },\r\n    \"clock\": {\r\n      \"adder_digit_replays\": 400,\r\n      \"host_bit_length_calls_in_arithmetic\": 2,\r\n      \"host_bit_wiring_operations\": 4003,\r\n      \"typed_operations\": 1,\r\n      \"native_kernel_calls_delta\": 0\r\n    },\r\n    \"power\": {\r\n      \"adder_digit_replays\": 21344572,\r\n      \"host_bit_length_calls_in_arithmetic\": 86145,\r\n      \"host_bit_wiring_operations\": 213895159,\r\n      \"typed_operations\": 367,\r\n      \"native_kernel_calls_delta\": 0\r\n    }\r\n  },\r\n  \"observed_catalog_admission_calls\": 1,\r\n  \"reader_sha256\": \"358ff92adace47cd5b35a1be7f851e471a1e64dca541a230c4abc72c928815de\",\r\n  \"evidence_sha256\": \"83c52bc308933ba5c9328ffbc3924e1db92723cfa64f78d69209ea43ddcc6d26\",\r\n  \"index_sha256\": \"37761aea9de9dc5af50141ba57b067e81d7d287918a86caad5334b36ab6dedc2\",\r\n  \"scope\": \"Extracted completed indexed operation cost fields only. Hash/framing verified; digits and full algorithm history NOT audited. Interrupted or unreturned primitive work, labels, host control and serialization may be unaccounted. No scientific completion or resumability claimed.\"\r\n}\r\n"
+  }
+}

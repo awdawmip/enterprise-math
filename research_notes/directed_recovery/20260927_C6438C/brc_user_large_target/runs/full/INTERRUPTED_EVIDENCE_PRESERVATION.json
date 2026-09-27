@@ -1,0 +1,68 @@
+{
+  "status": "PRESERVED_INTERRUPTED_ANCILLARY_BYTES_NOT_SCIENTIFIC_COMPLETION",
+  "formal_target": "input_block.json only; this cancelled full-string attempt supplies no formal factoring conclusion",
+  "reader_sha256": "2febabeca2763807a92a52bcf408e98edc810a48ba935481893830c7354405b1",
+  "scope": "Administrative closed-gzip framing and exact byte commitments only; no scientific stream/chronology audit, arithmetic import, replay or tail interpretation",
+  "stream": {
+    "local_path": "runs/full/EVIDENCE.jsonl.gz",
+    "bytes": 28417284,
+    "sha256": "83c52bc308933ba5c9328ffbc3924e1db92723cfa64f78d69209ea43ddcc6d26",
+    "published_remotely": false
+  },
+  "index": {
+    "local_path": "runs/full/MEMBER_INDEX.jsonl",
+    "bytes": 221232,
+    "sha256": "37761aea9de9dc5af50141ba57b067e81d7d287918a86caad5334b36ab6dedc2",
+    "published_remotely": false,
+    "complete_jsonl_lines": 784,
+    "partial_line_bytes": 0
+  },
+  "closed_indexed_prefix": {
+    "compressed_range_half_open": [
+      0,
+      28417284
+    ],
+    "compressed_bytes": 28417284,
+    "compressed_sha256": "83c52bc308933ba5c9328ffbc3924e1db92723cfa64f78d69209ea43ddcc6d26",
+    "member_count": 784,
+    "sequence_range_inclusive": [
+      0,
+      783
+    ],
+    "decoded_bytes_total": 302041868,
+    "every_member_compressed_and_raw_commitment_verified": true,
+    "every_indexed_member_gzip_closed_with_no_extra_bytes": true,
+    "last_index_entry": {
+      "compressed_bytes": 67934,
+      "compressed_sha256": "4fb2ae87e75e1ea5d824434e0d1e88ffa9eb650ae43a05b8ba3c345592964421",
+      "kind": "typed_operation",
+      "offset": 28349350,
+      "operation_id": 366,
+      "raw_bytes": 595938,
+      "raw_sha256": "eccce52390befdb20b7669bbcc8947f07ef07e6f43f98bd18aa4db0c9b2fc343",
+      "sequence": 783,
+      "stream": "power"
+    }
+  },
+  "unindexed_tail": {
+    "compressed_range_half_open": [
+      28417284,
+      28417284
+    ],
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "interpretation": "Preserved exactly; not parsed or counted as a scientific completed operation, resumed state or complete gzip member"
+  },
+  "actual_interruption": {
+    "tool_chunk_id": "c13a3f",
+    "process_exit_code": 1,
+    "reason": "User selected p*q, replacing the prior two-target fallback"
+  },
+  "terminal_scientific_summary_emitted": false,
+  "internal_failure_receipt_claimed": false,
+  "scientific_completion_claimed": false,
+  "automatic_resume_supported": false,
+  "remote_scope": "Publish this receipt, original STARTED, actual tool log and user target confirmation; keep ancillary raw stream and index local",
+  "guard_updated": false,
+  "raw_stream_or_index_modified": false
+}

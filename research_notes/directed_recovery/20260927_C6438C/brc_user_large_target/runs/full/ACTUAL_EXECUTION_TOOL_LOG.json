@@ -1,0 +1,49 @@
+[
+  {
+    "tool_name": "exec_command",
+    "arguments": {
+      "cmd": "& 'D:/kimi-query-bridge/.venv/Scripts/python.exe' -X utf8 'D:/em/TEMP/sep27-brc-user-large-target/streaming_public_clock.py' --input-json 'D:/em/TEMP/sep27-brc-user-large-target/input_full.json' --plan 'D:/em/TEMP/sep27-brc-user-large-target/PLAN.md' --plan-sha256 d861ea6b08801f457816e7a18752409d053f6e13174b2070320e0206511f87af --guard-file 'D:/em/TEMP/sep27-brc-adjacent-trace/checkpoint/CHECKPOINT_GUARD.json' --guard-record-sha256 2dda90c68d9292b8bf64b2561806413742b11e15bb689c6809509f70e36006d6 --global-knowledge-sha 8c23cca3ed79ca2d6ecbdf76734606eabd94fd0d --output-dir 'D:/em/TEMP/sep27-brc-user-large-target/runs/full'",
+      "max_output_tokens": 12000,
+      "yield_time_ms": 1000
+    },
+    "result": {
+      "chunk_id": "45f68e",
+      "wall_time_seconds": 10.0032885,
+      "session_id": 49803,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  {
+    "tool_name": "write_stdin",
+    "arguments": {
+      "session_id": 49803,
+      "chars": "",
+      "max_output_tokens": 12000,
+      "yield_time_ms": 1000
+    },
+    "result": {
+      "chunk_id": "e6d85c",
+      "wall_time_seconds": 5.0063565,
+      "session_id": 49803,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  {
+    "tool_name": "write_stdin",
+    "arguments": {
+      "session_id": 49803,
+      "chars": "\u0003",
+      "max_output_tokens": 3000,
+      "yield_time_ms": 1000
+    },
+    "result": {
+      "chunk_id": "c13a3f",
+      "wall_time_seconds": 0.026326,
+      "exit_code": 1,
+      "original_token_count": 0,
+      "output": ""
+    }
+  }
+]

@@ -1,0 +1,294 @@
+{
+  "admission": "shared-context author record review, not independent formal admission",
+  "cost": {
+    "all_arithmetic_totals": {
+      "adder_digit_replays": 10126310,
+      "host_bit_length_calls_in_arithmetic": 88350,
+      "host_bit_wiring_operations": 101711228,
+      "native_kernel_calls_delta": 0,
+      "typed_operations": 740
+    },
+    "host_control_serialization_io_and_resource_monitoring_excluded": true,
+    "jacobi_label_bit_wiring_operations": {
+      "jacobi_delta": 15,
+      "jacobi_plus": 15
+    },
+    "jacobi_label_bit_wiring_total": 30,
+    "native_catalog_admission_counted_separately": true,
+    "production_arithmetic_totals": {
+      "adder_digit_replays": 9922319,
+      "host_bit_length_calls_in_arithmetic": 86560,
+      "host_bit_wiring_operations": 99662207,
+      "native_kernel_calls_delta": 0,
+      "typed_operations": 725
+    },
+    "streams": {
+      "character_inputs": {
+        "completed_operation_ids": 2,
+        "durably_committed_operations": 2,
+        "stats": {
+          "adder_digit_replays": 603,
+          "host_bit_length_calls_in_arithmetic": 9,
+          "host_bit_wiring_operations": 6057,
+          "native_kernel_calls_delta": 0,
+          "typed_operations": 2
+        },
+        "stream": "character_inputs",
+        "unwritten_operation_pending": false
+      },
+      "clock": {
+        "completed_operation_ids": 1,
+        "durably_committed_operations": 1,
+        "stats": {
+          "adder_digit_replays": 200,
+          "host_bit_length_calls_in_arithmetic": 2,
+          "host_bit_wiring_operations": 2003,
+          "native_kernel_calls_delta": 0,
+          "typed_operations": 1
+        },
+        "stream": "clock",
+        "unwritten_operation_pending": false
+      },
+      "expressions": {
+        "completed_operation_ids": 6,
+        "durably_committed_operations": 6,
+        "stats": {
+          "adder_digit_replays": 39591,
+          "host_bit_length_calls_in_arithmetic": 400,
+          "host_bit_wiring_operations": 397671,
+          "native_kernel_calls_delta": 0,
+          "typed_operations": 6
+        },
+        "stream": "expressions",
+        "unwritten_operation_pending": false
+      },
+      "jacobi_delta": {
+        "completed_operation_ids": 3,
+        "durably_committed_operations": 3,
+        "stats": {
+          "adder_digit_replays": 1438,
+          "host_bit_length_calls_in_arithmetic": 213,
+          "host_bit_wiring_operations": 15325,
+          "native_kernel_calls_delta": 0,
+          "typed_operations": 3
+        },
+        "stream": "jacobi_delta",
+        "unwritten_operation_pending": false
+      },
+      "jacobi_plus": {
+        "completed_operation_ids": 3,
+        "durably_committed_operations": 3,
+        "stats": {
+          "adder_digit_replays": 1438,
+          "host_bit_length_calls_in_arithmetic": 213,
+          "host_bit_wiring_operations": 15325,
+          "native_kernel_calls_delta": 0,
+          "typed_operations": 3
+        },
+        "stream": "jacobi_plus",
+        "unwritten_operation_pending": false
+      },
+      "main_gcd": {
+        "completed_operation_ids": 105,
+        "durably_committed_operations": 105,
+        "stats": {
+          "adder_digit_replays": 718434,
+          "host_bit_length_calls_in_arithmetic": 11163,
+          "host_bit_wiring_operations": 7234101,
+          "native_kernel_calls_delta": 0,
+          "typed_operations": 105
+        },
+        "stream": "main_gcd",
+        "unwritten_operation_pending": false
+      },
+      "power": {
+        "completed_operation_ids": 594,
+        "durably_committed_operations": 594,
+        "stats": {
+          "adder_digit_replays": 9157336,
+          "host_bit_length_calls_in_arithmetic": 74118,
+          "host_bit_wiring_operations": 91957009,
+          "native_kernel_calls_delta": 0,
+          "typed_operations": 594
+        },
+        "stream": "power",
+        "unwritten_operation_pending": false
+      },
+      "setup": {
+        "completed_operation_ids": 8,
+        "durably_committed_operations": 8,
+        "stats": {
+          "adder_digit_replays": 2417,
+          "host_bit_length_calls_in_arithmetic": 229,
+          "host_bit_wiring_operations": 25151,
+          "native_kernel_calls_delta": 0,
+          "typed_operations": 8
+        },
+        "stream": "setup",
+        "unwritten_operation_pending": false
+      },
+      "setup_gcd": {
+        "completed_operation_ids": 3,
+        "durably_committed_operations": 3,
+        "stats": {
+          "adder_digit_replays": 862,
+          "host_bit_length_calls_in_arithmetic": 213,
+          "host_bit_wiring_operations": 9565,
+          "native_kernel_calls_delta": 0,
+          "typed_operations": 3
+        },
+        "stream": "setup_gcd",
+        "unwritten_operation_pending": false
+      },
+      "validation": {
+        "completed_operation_ids": 15,
+        "durably_committed_operations": 15,
+        "stats": {
+          "adder_digit_replays": 203991,
+          "host_bit_length_calls_in_arithmetic": 1790,
+          "host_bit_wiring_operations": 2049021,
+          "native_kernel_calls_delta": 0,
+          "typed_operations": 15
+        },
+        "stream": "validation",
+        "unwritten_operation_pending": false
+      }
+    },
+    "validation_arithmetic_totals": {
+      "adder_digit_replays": 203991,
+      "host_bit_length_calls_in_arithmetic": 1790,
+      "host_bit_wiring_operations": 2049021,
+      "native_kernel_calls_delta": 0,
+      "typed_operations": 15
+    }
+  },
+  "counts": {
+    "checked_adjacent_bits": 99,
+    "checked_native_digit_cells": 10126310,
+    "consumed_operation_links": 740,
+    "event_addmod": 7,
+    "event_adjacent_bit_begin": 99,
+    "event_adjacent_bit_end": 99,
+    "event_adjacent_power_begin": 1,
+    "event_adjacent_power_end": 1,
+    "event_binding": 1,
+    "event_common_gcd_begin": 3,
+    "event_common_gcd_end": 3,
+    "event_complete_result": 1,
+    "event_dual_character_result": 1,
+    "event_gcd_coordinate_done": 5,
+    "event_gcd_step": 108,
+    "event_jacobi_begin": 2,
+    "event_jacobi_end": 2,
+    "event_jacobi_labels": 4,
+    "event_jacobi_step": 4,
+    "event_modmul": 203,
+    "event_native_catalog_admission": 1,
+    "event_native_catalog_final": 1,
+    "event_odd_modulus_check": 1,
+    "event_public_clock": 1,
+    "event_setup_result": 1,
+    "event_signed_main_result": 2,
+    "event_submod": 202,
+    "event_terminal_conic_result": 1,
+    "gzip_members": 1494,
+    "maximum_decoded_member_bytes": 576068,
+    "maximum_pending_compact_operations": 3,
+    "typed_operations": 740
+  },
+  "evidence": {
+    "bytes": 13491946,
+    "sha256": "1429bdbd764ed91193da96b7237184986b2a598b0d76be85e0d37f2405b859a2"
+  },
+  "member_index": {
+    "bytes": 421784,
+    "sha256": "0f6be510575f4096be9cc9842310ef98cf398656de0524a9beddc97e490e5623"
+  },
+  "native_record_reader_sha256": "dc88b155de7ec5bf8222b940a942f08d4963e478f9a5bf66c5826d244b7d2825",
+  "not_performed": [
+    "native kernel rerun",
+    "host modular-power or gcd oracle",
+    "second-clock calculation",
+    "probability or general factoring inference"
+  ],
+  "plan_sha256": "d861ea6b08801f457816e7a18752409d053f6e13174b2070320e0206511f87af",
+  "reader": {
+    "bytes": 24327,
+    "sha256": "0823b9b2b1410db4fdac1fd3ef88420bd6b61a1e1e16cb6b0fdb23b7daa8e8c7"
+  },
+  "result": {
+    "E": 505246541734676269885345827298,
+    "characters": {
+      "j_delta": 1,
+      "j_plus": 1
+    },
+    "factor_or_order_input": false,
+    "rate_or_shor_completion_claimed": false,
+    "readouts": {
+      "antipodal": {
+        "expression_producers": [
+          1369,
+          1372
+        ],
+        "factor_certificate": {
+          "class": "UNIT",
+          "divisor": 1,
+          "producer": 1490
+        },
+        "joint_divisor": 1,
+        "joint_producer": 1490,
+        "tau": 86659448420307681640059325991,
+        "w": 262493808801248833110742974653
+      },
+      "identity": {
+        "expression_producers": [
+          1263,
+          1265
+        ],
+        "factor_certificate": {
+          "class": "UNIT",
+          "divisor": 1,
+          "producer": 1365
+        },
+        "joint_divisor": 1,
+        "joint_producer": 1365,
+        "tau": 86659448420307681640059325987,
+        "w": 262493808801248833110742974647
+      }
+    },
+    "second_clock_evaluated": false,
+    "setup": {
+      "delta": 5,
+      "delta_producer": 14,
+      "four": 4,
+      "gcd": 1,
+      "gcd_producer": 23,
+      "k": 3,
+      "setup_factor": {
+        "class": "UNIT",
+        "divisor": 1,
+        "producer": 23
+      },
+      "status": "REGULAR",
+      "two": 2
+    },
+    "status": "COMPLETE_MAIN_OBSERVERS",
+    "terminal_pair": [
+      86659448420307681640059325989,
+      262493808801248833110742974650
+    ],
+    "validation": {
+      "defect": 0,
+      "producer": 1260,
+      "scope": "consistency only; initial state and every typed bit step remain required"
+    }
+  },
+  "schema": "BRC_STREAMED_PUBLIC_CLOCK_V1",
+  "scope": "all indexed gzip bytes, native cells, typed links, Jacobi wiring, ordered bit chronology, both main gcds and actual factor division",
+  "source_sha256": "e4cde846c1d5c0238b881e05f3128c184fb599366f7da1f3e55161c8fbf5b86b",
+  "status": "PASS_COMPLETE_SAVED_NATIVE_RECORD_AUDIT_NOT_SCIENTIFIC_REPLAY",
+  "summary": {
+    "bytes": 52039,
+    "sha256": "3c21e95455d653a9c28356fc9f62454c30ed684ede196ea3c301c62d27dffbc2"
+  }
+}

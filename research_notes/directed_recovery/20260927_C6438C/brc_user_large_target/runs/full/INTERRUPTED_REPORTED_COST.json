@@ -1,0 +1,70 @@
+{
+  "status": "INTERRUPTED_ANCILLARY_REPORTED_COST_EXTRACTION_ONLY",
+  "indexed_members": 784,
+  "indexed_bytes": 28417284,
+  "unindexed_tail_bytes": 0,
+  "last_completed_bit_index": 60,
+  "reported_arithmetic_cost": {
+    "adder_digit_replays": 21358360,
+    "host_bit_length_calls_in_arithmetic": 87824,
+    "host_bit_wiring_operations": 214040485,
+    "typed_operations": 387,
+    "native_kernel_calls_delta": 0
+  },
+  "reported_stream_costs": {
+    "setup": {
+      "adder_digit_replays": 4817,
+      "host_bit_length_calls_in_arithmetic": 429,
+      "host_bit_wiring_operations": 50051,
+      "typed_operations": 8,
+      "native_kernel_calls_delta": 0
+    },
+    "setup_gcd": {
+      "adder_digit_replays": 1672,
+      "host_bit_length_calls_in_arithmetic": 413,
+      "host_bit_wiring_operations": 18565,
+      "typed_operations": 3,
+      "native_kernel_calls_delta": 0
+    },
+    "jacobi_delta": {
+      "adder_digit_replays": 2848,
+      "host_bit_length_calls_in_arithmetic": 413,
+      "host_bit_wiring_operations": 30325,
+      "typed_operations": 3,
+      "native_kernel_calls_delta": 0
+    },
+    "character_inputs": {
+      "adder_digit_replays": 1203,
+      "host_bit_length_calls_in_arithmetic": 9,
+      "host_bit_wiring_operations": 12057,
+      "typed_operations": 2,
+      "native_kernel_calls_delta": 0
+    },
+    "jacobi_plus": {
+      "adder_digit_replays": 2848,
+      "host_bit_length_calls_in_arithmetic": 413,
+      "host_bit_wiring_operations": 30325,
+      "typed_operations": 3,
+      "native_kernel_calls_delta": 0
+    },
+    "clock": {
+      "adder_digit_replays": 400,
+      "host_bit_length_calls_in_arithmetic": 2,
+      "host_bit_wiring_operations": 4003,
+      "typed_operations": 1,
+      "native_kernel_calls_delta": 0
+    },
+    "power": {
+      "adder_digit_replays": 21344572,
+      "host_bit_length_calls_in_arithmetic": 86145,
+      "host_bit_wiring_operations": 213895159,
+      "typed_operations": 367,
+      "native_kernel_calls_delta": 0
+    }
+  },
+  "observed_catalog_admission_calls": 1,
+  "reader_sha256": "358ff92adace47cd5b35a1be7f851e471a1e64dca541a230c4abc72c928815de",
+  "evidence_sha256": "83c52bc308933ba5c9328ffbc3924e1db92723cfa64f78d69209ea43ddcc6d26",
+  "index_sha256": "37761aea9de9dc5af50141ba57b067e81d7d287918a86caad5334b36ab6dedc2",
+  "scope": "Extracted completed indexed operation cost fields only. Hash/framing verified; digits and full algorithm history NOT audited. Interrupted or unreturned primitive work, labels, host control and serialization may be unaccounted. No scientific completion or resumability claimed."
+}

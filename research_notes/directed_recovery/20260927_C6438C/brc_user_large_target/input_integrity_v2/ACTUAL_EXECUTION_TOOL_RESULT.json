@@ -1,0 +1,14 @@
+{
+  "tool_name": "exec_command",
+  "arguments": {
+    "cmd": "& 'D:/kimi-query-bridge/.venv/Scripts/python.exe' -X utf8 'D:/em/TEMP/sep27-brc-user-large-target/input_integrity_v2/check_inputs_native.py' --guard-file 'D:/em/TEMP/sep27-brc-adjacent-trace/checkpoint/CHECKPOINT_GUARD.json' --guard-record-sha256 2dda90c68d9292b8bf64b2561806413742b11e15bb689c6809509f70e36006d6 --global-knowledge-sha 8c23cca3ed79ca2d6ecbdf76734606eabd94fd0d",
+    "max_output_tokens": 4500
+  },
+  "result": {
+    "chunk_id": "e54843",
+    "wall_time_seconds": 0.5373479,
+    "exit_code": 0,
+    "original_token_count": 340,
+    "output": "{\r\n  \"schema\": \"BRC_USER_INPUT_INTEGRITY_V2\",\r\n  \"status\": \"COMPLETE_NATIVE_INPUT_CONSISTENCY_NOT_FACTORING\",\r\n  \"product\": 505246541734676269885345827299,\r\n  \"product_equals_complete\": false,\r\n  \"product_equals_block\": true,\r\n  \"complete_divisible_by_product\": true,\r\n  \"complete_division\": {\r\n    \"quotient\": 1000000000000000000000000000001,\r\n    \"remainder\": 0,\r\n    \"operation\": 3\r\n  },\r\n  \"arithmetic_cost\": {\r\n    \"typed_operations\": 4,\r\n    \"adder_digit_replays\": 43148,\r\n    \"host_bit_wiring_operations\": 433427,\r\n    \"host_bit_length_calls_in_arithmetic\": 406,\r\n    \"native_kernel_calls_delta\": 0\r\n  },\r\n  \"inputs\": {\r\n    \"N_complete\": 505246541734676269885345827299505246541734676269885345827299,\r\n    \"displayed_block\": 505246541734676269885345827299,\r\n    \"supplied_p\": 670915268711887,\r\n    \"supplied_q\": 753070566876077\r\n  },\r\n  \"source_sha256\": \"041032580718b64d2c9645015d04839062d4dca4e7001b1e6387bbe7d7b03e28\",\r\n  \"plan_sha256\": \"80ae98bba7de2bdc7bf2c54ae492cc672e714a036ac7c5ae23361f215e3477cc\",\r\n  \"raw_bytes\": 673790,\r\n  \"raw_sha256\": \"a5ec56bfd6423118fa822eeed923d384e38e52e873bb40ac9e34e688702f99a1\",\r\n  \"gzip_bytes\": 53934,\r\n  \"gzip_sha256\": \"e73fac814ac934047839f2c0e3ac9da80f3110fa529b87b69957758904cb927d\",\r\n  \"actual_native_calls\": 1,\r\n  \"scope\": \"Input consistency only; p/q not admitted to blind search; no primality proof\"\r\n}\r\n"
+  }
+}
