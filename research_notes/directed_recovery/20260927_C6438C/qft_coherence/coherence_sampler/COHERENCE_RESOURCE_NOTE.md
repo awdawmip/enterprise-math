@@ -1,0 +1,30 @@
+# Coherence-skip cost from the saved raw records
+
+This is offline accounting only: no propagation, new random draws or scientific replay was run. Both completed gzip payloads were checked against their summary hashes and their saved source hashes. `COHERENCE_RESOURCE_ACCOUNTING.json` contains the complete per-instance and per-case breakdown. Equal `(N,b)` values do not merge distinct actual table instances.
+
+| Saved experiment | Native core calls | Table instances | New columns | Setup digits | Column digits | Constructor verification digits* | Total digits |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Complete joint-law checker | 45,065 | 32 | 184 | 20,700 | 29,868 | 13,203 | 63,771 |
+| Matched feasible-tape comparison | 4,782 | 28 | 83 | 18,154 | 13,767 | 8,546 | 40,467 |
+
+*Constructor verification is a **source-derived charge**, not another executed replay: the frozen constructor verifies each distinct forward factory table once, rebuilding its saved inverse certificate. Inverse caches pay their own setup but do not invoke another permutation verifier. There are respectively 21 and 14 such constructor verifications. Core calls, catalog digit replays and host bit wiring are distinct units; their totals must not be added as if they were one kind of operation. The JSON also reports wiring and cache hits.
+
+Each original outer attempt generates 32 training paths and 96 heldout paths at depth 2: 256 preparation random draws. Before sampling, the implementation replays each group twice and evaluates the union predicate twice on all 96 heldout endpoints. These actual source-determined lookup counts, excluding program setup, are 546, 591 and 570 for the three cases. They count requested columns, including cache hits. The binomial/bound observer contains respectively 98, 2,126 and 4,523 entries per validation; its generation and replay occur twice. Adding the sampled row observer gives exactly the recorded post-setup outer calls: `196+9=205`, `4252+13=4265`, and `9046+26=9072`. The failed certificate pays its full testing cost before the exact fallback.
+
+The matched comparison reuses those saved partitions and certificates; it does not regenerate training or holdout paths. Their earlier cost remains charged. It uses one declared feasible all-zero auxiliary/readout tape, not fresh uniform sampling or a distributional runtime benchmark:
+
+| Input | Exact / skip distinct row queries | Final query-key set | Exact / skip sampling core calls | Extra skip certificate replay |
+|---|---:|---|---:|---:|
+| N35, a2 | 26 / 26 | identical | 16 / 13 | 98 |
+| N129, a4 | 20 / 20 | identical | 20 / 14 | 2,126 |
+
+The middle skip saves local scoring observations, but later exact queries reconstruct the same ancestors. There is no demonstrated distinct-row or cached-row-memory saving on these matched paths, and replay overhead exceeds the measured sampling savings. This is useful negative resource evidence, not a speedup claim. A second walker in each matched case also actually pauses at its point-query budget, resumes without losing cached rows or its pending auxiliary bit, and completes; that extra verification/replay is included in the whole matched artifact.
+
+Whole-experiment totals include full-history checks, source admission, negative controls and pause/resume tests. Per-case outer calls begin after program setup. Neither is a universal per-output cost. Inherited branch counters are not counters for this row/proposal route. Cached scalar slots exclude tables, certificates, vector temporaries and trace storage, so they are not total peak-memory measurements. The summed 49,847 core calls cover two separate completed executions.
+
+Evidence bindings:
+
+- Main payload: `291b0b73a4d130df2e670312ca5c12faead5cbd474b44c792eec8dcfa1158159`.
+- Matched payload: `8d92f3330310f5122d036550a13343ff829b598157569ff8b173fe7d96452e8f`.
+
+Status: shared-context author accounting, NOT_ADMITTED. Global-Knowledge-Sync: main@f44ed595 / GLOBAL_KNOWLEDGE_V1

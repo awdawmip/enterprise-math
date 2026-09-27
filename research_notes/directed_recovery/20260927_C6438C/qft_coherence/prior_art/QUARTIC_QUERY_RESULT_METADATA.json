@@ -1,0 +1,60 @@
+{
+  "schema": "QUARTIC_QUERY_SCOPE_RESULT_V1",
+  "issue_url": "https://github.com/awdawmip/kimi-query-bridge/issues/2495",
+  "result_url": "https://github.com/awdawmip/kimi-query-bridge/issues/2495#issuecomment-5851481295",
+  "request": {
+    "db": "arxiv",
+    "op": "paper_search",
+    "q": "\"quartic\" \"Jacobi\" \"Bach\" \"Sandlund\"",
+    "n": 3
+  },
+  "batch_state": "FAILED",
+  "child_state": "PARTIAL",
+  "observed_at": "2026-09-27T01:03:56.595264+00:00",
+  "provider_query_calls_confirmed": 1,
+  "provider_query_calls_unknown": 0,
+  "bridge_kimi_llm_calls": 0,
+  "billable_calls": null,
+  "upstream_internal_llm_calls": null,
+  "records": [
+    {
+      "authors": "['Qingtang Su', 'Zehua Zhao']",
+      "categories": "['math.AP']",
+      "id": "2609.30228v1",
+      "no": "1",
+      "published": "2026-09-24T17:51:01+00:00",
+      "resource_uri": "arxiv://2609.30228v1",
+      "title": "Global well-posedness and scattering for the three-dimensional focusing energy-critical NLS",
+      "total_results": "3",
+      "url": "https://arxiv.org/pdf/2609.30228v1"
+    },
+    {
+      "authors": "['Advay Burte', 'Keshav Das Agarwal', 'Leela Ganesh Chandra Lakkaraju', 'Aditi Sen De']",
+      "categories": "['quant-ph', 'cond-mat.dis-nn', 'cond-mat.str-el']",
+      "id": "2609.30142v1",
+      "no": "2",
+      "published": "2026-09-24T17:09:37+00:00",
+      "resource_uri": "arxiv://2609.30142v1",
+      "title": "Disorder-induced quantum Fisher information in topological quantum systems",
+      "total_results": "3",
+      "url": "https://arxiv.org/pdf/2609.30142v1"
+    },
+    {
+      "authors": "['Paul Bach']",
+      "categories": "['stat.ME', 'math.ST', 'stat.CO']",
+      "id": "2609.30046v1",
+      "no": "3",
+      "published": "2026-09-24T16:10:34+00:00",
+      "resource_uri": "arxiv://2609.30046v1",
+      "title": "Truly optimal low rank thin plate spline smoothing using a truncated Demmler-Reinsch basis",
+      "total_results": "3",
+      "url": "https://arxiv.org/pdf/2609.30046v1"
+    }
+  ],
+  "relevance": "NO_TARGET_PAPER_IN_RETURNED_BOUNDED_SELECTION",
+  "not_no_hit": true,
+  "no_fulltext_retrieved_by_provider": true,
+  "source_record": "sources/professional/records/PQ-20260927-KQB2495-ARXIV-QUARTIC-JACOBI-BACH-SANDLUND.json",
+  "source_raw": "sources/professional/raw/arxiv/31b4332014ef5027d5472f0817c4eecacdf186b0111d1b465540495ec81dfcc9.json",
+  "raw_sha256": "31b4332014ef5027d5472f0817c4eecacdf186b0111d1b465540495ec81dfcc9"
+}

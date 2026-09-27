@@ -1,0 +1,609 @@
+{
+  "schema": "QFT_COHERENCE_DEPENDENCY_MANIFEST_V1",
+  "status": "LOCAL_DEPENDENCY_DOCUMENTATION_FROZEN; current scientific package publication is assigned separately by the parent publisher",
+  "activity": "RA-CAAAC604CB513AEA8BBC1DFC",
+  "scope": "Administrative static-source and byte verification only. No scientific module imported, no BRC/core execution, and no frozen scientific file changed. This package contains the current round source and evidence, not all historical runtime dependencies.",
+  "repository": "awdawmip/enterprise-math",
+  "current_package_intake_commit": "e8c5726a22d78c8d3623611afd33f4fe76b46321",
+  "evidence_basis": "Actual local imports, published historical manifests, prior publication receipts, and the clean Stage87 Git snapshot. Historical remote bytes were not independently downloaded again in this documentation step.",
+  "current_entry_files": [
+    {
+      "path": "coherence_sampler/coherence_skip.py",
+      "bytes": 11715,
+      "sha256": "5c9a2388d063bc8d2c9ef02382856e67fa399e322c1347fefcdf41ef0d3d8fed",
+      "git_blob_sha1": "27340a03dbbb38a3e4ad61107b1dc2efdf2a95ae",
+      "static_from_imports": [
+        "collections",
+        "fractions",
+        "pathlib",
+        "projected_rows",
+        "single_walker"
+      ]
+    },
+    {
+      "path": "coherence_sampler/check_coherence_skip.py",
+      "bytes": 12046,
+      "sha256": "03b840dc8c63057ab6ae9814ca41cb6354f9c2b95857a8eb7385d4eb33060456",
+      "git_blob_sha1": "72cac6dfb4855dde9460506624ce4474b229e3f3",
+      "static_from_imports": [
+        "check_single_walker",
+        "coherence_skip",
+        "collections",
+        "copy",
+        "fractions",
+        "pathlib",
+        "time"
+      ]
+    },
+    {
+      "path": "coherence_sampler/check_matched_cost.py",
+      "bytes": 4624,
+      "sha256": "fd4bd09a6175cb41ab9beae84700c9101fe023b6f9c9ee3bcfa2b93b5f140d7a",
+      "git_blob_sha1": "0b968f512865977adb22d0f1200414f112167158",
+      "static_from_imports": [
+        "check_coherence_skip",
+        "coherence_skip",
+        "fractions",
+        "pathlib",
+        "time"
+      ]
+    },
+    {
+      "path": "arithmetic_partition/typed_quartic.py",
+      "bytes": 14116,
+      "sha256": "af919e4b3a08ada932094c803f22b819f6430f4820a34079d999000d43f60d91",
+      "git_blob_sha1": "cbd37ef25f436c155fc98c7ec85d8af13f4fa328",
+      "static_from_imports": [
+        "__future__",
+        "lazy_gcd",
+        "lazy_modular",
+        "pathlib",
+        "typed_jacobi"
+      ]
+    },
+    {
+      "path": "arithmetic_partition/check_typed_quartic.py",
+      "bytes": 10914,
+      "sha256": "775e6838e95728b5aabc7d69bf6ef0e941d783e2b78da6038202f6b77039ca27",
+      "git_blob_sha1": "b40eb769ddf0301535e82e33cf9fea68eef4823e",
+      "static_from_imports": [
+        "__future__",
+        "check_gram_sampler",
+        "copy",
+        "fractions",
+        "lazy_modular",
+        "lazy_streaming",
+        "pathlib",
+        "stage45.brc_loop_recheck",
+        "stage80.fixed_phase",
+        "typed_quartic"
+      ]
+    }
+  ],
+  "historical_groups": [
+    {
+      "id": "qft_approximation",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "46fca6734fde9b1580b1b4160c454a43844451a9",
+      "repo_prefix": "research_notes/directed_recovery/20260927_C6438C/qft_approximation/",
+      "restore_directory_relative_to_TEMP": "sep27-qft-approx",
+      "manifest": {
+        "path": "research_notes/directed_recovery/20260927_C6438C/qft_approximation/PUBLICATION_MANIFEST.json",
+        "url": "https://github.com/awdawmip/enterprise-math/blob/46fca6734fde9b1580b1b4160c454a43844451a9/research_notes/directed_recovery/20260927_C6438C/qft_approximation/PUBLICATION_MANIFEST.json",
+        "bytes": 35300,
+        "sha256": "467f8012576e7eee2ff1f5c5fb137bce5e74b9288b6b9b5c00b82a8614534262",
+        "git_blob_sha1": "4387154059880b96dda68d74d1d6f88e9bdcb1f2"
+      },
+      "selected_dependencies": [
+        {
+          "restore_path": "structured_approx/projected_rows.py",
+          "repo_path": "research_notes/directed_recovery/20260927_C6438C/qft_approximation/structured_approx/projected_rows.py",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/46fca6734fde9b1580b1b4160c454a43844451a9/research_notes/directed_recovery/20260927_C6438C/qft_approximation/structured_approx/projected_rows.py",
+          "bytes": 22390,
+          "sha256": "8261a96625d61491811fca88533a4cfc599672acb15165462abc3dd7bcc49345",
+          "git_blob_sha1": "7bd0c22bec41217cef6fbc9744a9663d08f351d5",
+          "verification": "Local bytes equal the named historical publication-manifest SHA-256 and Git blob (where supplied)."
+        }
+      ],
+      "coverage": "Selected actual imports and bound provenance/data; restore the full archived source subtrees from this manifest to preserve transitive imports."
+    },
+    {
+      "id": "qft_row_queries",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "951cc16cb09635fae9f93230d96030fdaa2035b3",
+      "repo_prefix": "research_notes/directed_recovery/20260927_C6438C/qft_row_queries/",
+      "restore_directory_relative_to_TEMP": "sep27-qft-research",
+      "manifest": {
+        "path": "research_notes/directed_recovery/20260927_C6438C/qft_row_queries/PUBLICATION_MANIFEST.json",
+        "url": "https://github.com/awdawmip/enterprise-math/blob/951cc16cb09635fae9f93230d96030fdaa2035b3/research_notes/directed_recovery/20260927_C6438C/qft_row_queries/PUBLICATION_MANIFEST.json",
+        "bytes": 46211,
+        "sha256": "24fb45b2004fb61f2627e9267cd1d5246f8cde4a7d7f300112e9b46299a5d870",
+        "git_blob_sha1": "eccbcf486611c347f863215f7824d4df44e078c0"
+      },
+      "selected_dependencies": [
+        {
+          "restore_path": "gram_research/single_walker.py",
+          "repo_path": "research_notes/directed_recovery/20260927_C6438C/qft_row_queries/gram_research/single_walker.py",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/951cc16cb09635fae9f93230d96030fdaa2035b3/research_notes/directed_recovery/20260927_C6438C/qft_row_queries/gram_research/single_walker.py",
+          "bytes": 13650,
+          "sha256": "19ec66c4453d8ca5168d0f8fe7950ff85b297562e8625bfb73c9b40142ac3f74",
+          "git_blob_sha1": "ed86abf8daf5a2d2cdb1e0490077be01e7a6db7b",
+          "verification": "Local bytes equal the named historical publication-manifest SHA-256 and Git blob (where supplied)."
+        },
+        {
+          "restore_path": "gram_research/check_single_walker.py",
+          "repo_path": "research_notes/directed_recovery/20260927_C6438C/qft_row_queries/gram_research/check_single_walker.py",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/951cc16cb09635fae9f93230d96030fdaa2035b3/research_notes/directed_recovery/20260927_C6438C/qft_row_queries/gram_research/check_single_walker.py",
+          "bytes": 11980,
+          "sha256": "26d32038482fbc0b033fdc6ad82b858fba768115eb22c1488c85b3988b9c2852",
+          "git_blob_sha1": "00dba6e72864217bc1c1d776d84e2bf079bff945",
+          "verification": "Local bytes equal the named historical publication-manifest SHA-256 and Git blob (where supplied)."
+        },
+        {
+          "restore_path": "character_certificates/typed_jacobi.py",
+          "repo_path": "research_notes/directed_recovery/20260927_C6438C/qft_row_queries/character_certificates/typed_jacobi.py",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/951cc16cb09635fae9f93230d96030fdaa2035b3/research_notes/directed_recovery/20260927_C6438C/qft_row_queries/character_certificates/typed_jacobi.py",
+          "bytes": 12678,
+          "sha256": "ce7168c8724d1fff216b903f09cdaf7fe16c8074c48488f7b26fb80584060402",
+          "git_blob_sha1": "d28f3b4995f7e31fde1f26c1f88035b43b3c1f99",
+          "verification": "Local bytes equal the named historical publication-manifest SHA-256 and Git blob (where supplied)."
+        }
+      ],
+      "coverage": "Selected actual imports and bound provenance/data; restore the full archived source subtrees from this manifest to preserve transitive imports."
+    },
+    {
+      "id": "optimization",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "0e6380ff74d31b842ba0b54802c1f0595a7dd60d",
+      "repo_prefix": "research_notes/directed_recovery/20260926_C6438C/optimization/",
+      "restore_directory_relative_to_TEMP": "sep26-shor-general/optimization",
+      "manifest": {
+        "path": "research_notes/directed_recovery/20260926_C6438C/optimization/OPTIMIZATION_MANIFEST.json",
+        "url": "https://github.com/awdawmip/enterprise-math/blob/0e6380ff74d31b842ba0b54802c1f0595a7dd60d/research_notes/directed_recovery/20260926_C6438C/optimization/OPTIMIZATION_MANIFEST.json",
+        "bytes": 21999,
+        "sha256": "8ef6fd7ffe2d2f62e0f85051377d23ef75970126699b9fd9740595196f3f6e33",
+        "git_blob_sha1": "b6cf009e0e3a836c9374d87b932baca54bc79779"
+      },
+      "selected_dependencies": [
+        {
+          "restore_path": "collision_analysis/check_gram_sampler.py",
+          "repo_path": "research_notes/directed_recovery/20260926_C6438C/optimization/collision_analysis/check_gram_sampler.py",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/0e6380ff74d31b842ba0b54802c1f0595a7dd60d/research_notes/directed_recovery/20260926_C6438C/optimization/collision_analysis/check_gram_sampler.py",
+          "bytes": 9506,
+          "sha256": "7972b5863f674ae808c74322c3abd8cef8c156521918183e868b4965bf1d68be",
+          "git_blob_sha1": "52d1840d846b6976e94153f2c7f21890e7e8b0d8",
+          "verification": "Local bytes equal the named historical publication-manifest SHA-256 and Git blob (where supplied)."
+        },
+        {
+          "restore_path": "collision_analysis/gram_sampler.py",
+          "repo_path": "research_notes/directed_recovery/20260926_C6438C/optimization/collision_analysis/gram_sampler.py",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/0e6380ff74d31b842ba0b54802c1f0595a7dd60d/research_notes/directed_recovery/20260926_C6438C/optimization/collision_analysis/gram_sampler.py",
+          "bytes": 11462,
+          "sha256": "468de944518fbc6afa81a17555676436376da63921a784c810ffe8fab3ca17e9",
+          "git_blob_sha1": "2c09c1dfb4c6adeb89b1d7c1fc3e26040636d8a2",
+          "verification": "Local bytes equal the named historical publication-manifest SHA-256 and Git blob (where supplied)."
+        },
+        {
+          "restore_path": "streaming/lazy_streaming.py",
+          "repo_path": "research_notes/directed_recovery/20260926_C6438C/optimization/streaming/lazy_streaming.py",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/0e6380ff74d31b842ba0b54802c1f0595a7dd60d/research_notes/directed_recovery/20260926_C6438C/optimization/streaming/lazy_streaming.py",
+          "bytes": 15061,
+          "sha256": "635d0c4aee0aaa8d58bb0244835e08e5caa0f6a94926a5213519f40db992a257",
+          "git_blob_sha1": "e53c72e1393ec4d8a9d47f45d5d830be8ae1ebed",
+          "verification": "Local bytes equal the named historical publication-manifest SHA-256 and Git blob (where supplied)."
+        },
+        {
+          "restore_path": "carrier_codec/carrier_codec.py",
+          "repo_path": "research_notes/directed_recovery/20260926_C6438C/optimization/carrier_codec/carrier_codec.py",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/0e6380ff74d31b842ba0b54802c1f0595a7dd60d/research_notes/directed_recovery/20260926_C6438C/optimization/carrier_codec/carrier_codec.py",
+          "bytes": 6582,
+          "sha256": "c25149e0ab4ce92a59d2ca40cb697fe6505cd1dc8d406e9c5a2d92cb2b28c953",
+          "git_blob_sha1": "d7f8b89a6c8a8288e5d8091b20a90615f489f530",
+          "verification": "Local bytes equal the named historical publication-manifest SHA-256 and Git blob (where supplied)."
+        },
+        {
+          "restore_path": "lazy_modular/lazy_modular.py",
+          "repo_path": "research_notes/directed_recovery/20260926_C6438C/optimization/lazy_modular/lazy_modular.py",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/0e6380ff74d31b842ba0b54802c1f0595a7dd60d/research_notes/directed_recovery/20260926_C6438C/optimization/lazy_modular/lazy_modular.py",
+          "bytes": 16418,
+          "sha256": "08df3595a2a56dc2501bb481828093481bf76e4ac53c8b966990d233fefac1e4",
+          "git_blob_sha1": "e2ae9471bec6b5e92dd2ef059294c1e2892ce8de",
+          "verification": "Local bytes equal the named historical publication-manifest SHA-256 and Git blob (where supplied)."
+        },
+        {
+          "restore_path": "lazy_modular/lazy_gcd.py",
+          "repo_path": "research_notes/directed_recovery/20260926_C6438C/optimization/lazy_modular/lazy_gcd.py",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/0e6380ff74d31b842ba0b54802c1f0595a7dd60d/research_notes/directed_recovery/20260926_C6438C/optimization/lazy_modular/lazy_gcd.py",
+          "bytes": 1875,
+          "sha256": "b704590f055da0785d03b6026d9fa749e75218acd2764d25e90288f32db0965e",
+          "git_blob_sha1": "cf6cd0c4aa0064424ed5c6d4e876d0a6e57eaca9",
+          "verification": "Local bytes equal the named historical publication-manifest SHA-256 and Git blob (where supplied)."
+        },
+        {
+          "restore_path": "lazy_modular/lazy_postprocess.py",
+          "repo_path": "research_notes/directed_recovery/20260926_C6438C/optimization/lazy_modular/lazy_postprocess.py",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/0e6380ff74d31b842ba0b54802c1f0595a7dd60d/research_notes/directed_recovery/20260926_C6438C/optimization/lazy_modular/lazy_postprocess.py",
+          "bytes": 4327,
+          "sha256": "c353b8dc429e3d60c8afd9685da4cf1624dbf36785d85eee4a12f636eea0af56",
+          "git_blob_sha1": "bd25b58c22f39ccd5b60b7a012374dbad52e475b",
+          "verification": "Local bytes equal the named historical publication-manifest SHA-256 and Git blob (where supplied)."
+        }
+      ],
+      "coverage": "Selected actual imports and bound provenance/data; restore the full archived source subtrees from this manifest to preserve transitive imports."
+    },
+    {
+      "id": "direct_word_bank",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "9348fc6abdf45becbd12a8019d93f72d576b9fab",
+      "repo_prefix": "research_notes/directed_recovery/20260926_C6438C/",
+      "restore_directory_relative_to_TEMP": "sep26-shor-general",
+      "manifest": {
+        "path": "research_notes/directed_recovery/20260926_C6438C/DIRECT_CLOSURE_MANIFEST.json",
+        "url": "https://github.com/awdawmip/enterprise-math/blob/9348fc6abdf45becbd12a8019d93f72d576b9fab/research_notes/directed_recovery/20260926_C6438C/DIRECT_CLOSURE_MANIFEST.json",
+        "bytes": 8261,
+        "sha256": "fa88b51c4edf755e9e455019d05e55ddb297e5cedf5aaf99e4949006a15f7ea6",
+        "git_blob_sha1": "0c45e8a4f758925da4c921c671e1dfd4541dfd30"
+      },
+      "selected_dependencies": [
+        {
+          "restore_path": "direct_word_integration/check_direct_word_integration.py",
+          "repo_path": "research_notes/directed_recovery/20260926_C6438C/direct_word_integration/check_direct_word_integration.py",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/9348fc6abdf45becbd12a8019d93f72d576b9fab/research_notes/directed_recovery/20260926_C6438C/direct_word_integration/check_direct_word_integration.py",
+          "bytes": 8937,
+          "sha256": "c8dd1d00cbb66c540240877c3b45eecce154e86be265809768b4c60082eef7b7",
+          "git_blob_sha1": "e5f84d77590c146e7e0e5fd93fa7ceac6a689b8d",
+          "verification": "Local bytes equal the named historical publication-manifest SHA-256 and Git blob (where supplied)."
+        },
+        {
+          "restore_path": "direct_word_integration/DIRECT_WORD_INTEGRATION_RESULTS.json.gz",
+          "repo_path": "research_notes/directed_recovery/20260926_C6438C/direct_word_integration/DIRECT_WORD_INTEGRATION_RESULTS.json.gz",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/9348fc6abdf45becbd12a8019d93f72d576b9fab/research_notes/directed_recovery/20260926_C6438C/direct_word_integration/DIRECT_WORD_INTEGRATION_RESULTS.json.gz",
+          "bytes": 36192,
+          "sha256": "ef981768a20a72a67bfd7d01284d1b946cfc95ded96552a07571c436964d1460",
+          "git_blob_sha1": "d994d70d461de0c4f906b721d9dfd2ef902c5428",
+          "verification": "Local bytes equal the named historical publication-manifest SHA-256 and Git blob (where supplied).",
+          "payload_bytes": 1179815,
+          "payload_sha256": "79491e65feec104f2cdc9de510263efef749d8a1174f9cab4c20146a0171615c",
+          "role": "Actual t=4 phase-bank input: check_gram_sampler.load_bank extracts phase_compilation and validates it with bank_from_compilation(t=4,epsilon=1)."
+        },
+        {
+          "restore_path": "direct_word_compiler_general/construct_general_word.py",
+          "repo_path": "research_notes/directed_recovery/20260926_C6438C/direct_word_compiler_general/construct_general_word.py",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/9348fc6abdf45becbd12a8019d93f72d576b9fab/research_notes/directed_recovery/20260926_C6438C/direct_word_compiler_general/construct_general_word.py",
+          "bytes": 16374,
+          "sha256": "830b2f0c0c206a53e2b349fe377976d369ebfb76d4dfc5aad494db88ab6e0c63",
+          "git_blob_sha1": "93654a4309800dd4fb5c8c58e93233b843d42d6c",
+          "verification": "Local bytes equal the named historical publication-manifest SHA-256 and Git blob (where supplied)."
+        },
+        {
+          "restore_path": "direct_word_compiler_general/M3_DELTA_EIGHTH.json.gz",
+          "repo_path": "research_notes/directed_recovery/20260926_C6438C/direct_word_compiler_general/M3_DELTA_EIGHTH.json.gz",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/9348fc6abdf45becbd12a8019d93f72d576b9fab/research_notes/directed_recovery/20260926_C6438C/direct_word_compiler_general/M3_DELTA_EIGHTH.json.gz",
+          "bytes": 66430,
+          "sha256": "297121c8c8cfdd529e5a0e95ea02bf8e54584caf1b645dbf27e025f221ed58ad",
+          "git_blob_sha1": "545ebb7c5f2feaf7ae26d3a24b5ed5358f4bd300",
+          "verification": "Local bytes equal the named historical publication-manifest SHA-256 and Git blob (where supplied).",
+          "payload_bytes": 1251973,
+          "payload_sha256": "0a712b1a918aa7326785605bdbc0e30453962c897286d9e293710f41318858d6",
+          "role": "Bound constructor provenance; the current bank loader does not rerun this constructor."
+        },
+        {
+          "restore_path": "direct_word_compiler_general/M4_DELTA_QUARTER.json.gz",
+          "repo_path": "research_notes/directed_recovery/20260926_C6438C/direct_word_compiler_general/M4_DELTA_QUARTER.json.gz",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/9348fc6abdf45becbd12a8019d93f72d576b9fab/research_notes/directed_recovery/20260926_C6438C/direct_word_compiler_general/M4_DELTA_QUARTER.json.gz",
+          "bytes": 27451,
+          "sha256": "9f1a5b371bbf7de9783f2bed83b1934a872281f39a1bc7fd0244d806205d1db7",
+          "git_blob_sha1": "20252856e7fd54bbc8eb0601f89a0c8402a93d67",
+          "verification": "Local bytes equal the named historical publication-manifest SHA-256 and Git blob (where supplied).",
+          "payload_bytes": 653608,
+          "payload_sha256": "1a4ca56447d32704376d4537da3e28550800ac4245093d6e303cef4b4918268c",
+          "role": "Bound constructor provenance; the current bank loader does not rerun this constructor."
+        }
+      ],
+      "coverage": "Selected actual imports and bound provenance/data; restore the full archived source subtrees from this manifest to preserve transitive imports."
+    },
+    {
+      "id": "compiled_word",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "8d4e9c12f7492316b825e96423bc0ee36ccdee22",
+      "repo_prefix": "research_notes/directed_recovery/20260926_C6438C/new_word_compiler/",
+      "restore_directory_relative_to_TEMP": "sep26-shor-general/new_word_compiler",
+      "manifest": {
+        "path": "research_notes/directed_recovery/20260926_C6438C/new_word_compiler/WORD_MANIFEST.json",
+        "url": "https://github.com/awdawmip/enterprise-math/blob/8d4e9c12f7492316b825e96423bc0ee36ccdee22/research_notes/directed_recovery/20260926_C6438C/new_word_compiler/WORD_MANIFEST.json",
+        "bytes": 35057,
+        "sha256": "68feb515b97f902c19a82bd805a56f7f3eafb73e18b53e54c8306cdd5f048929",
+        "git_blob_sha1": "8a38f3f175ef84bab6197bf718510fdd1df6ef91"
+      },
+      "selected_dependencies": [
+        {
+          "restore_path": "certified_word_compiler.py",
+          "repo_path": "research_notes/directed_recovery/20260926_C6438C/new_word_compiler/certified_word_compiler.py",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/8d4e9c12f7492316b825e96423bc0ee36ccdee22/research_notes/directed_recovery/20260926_C6438C/new_word_compiler/certified_word_compiler.py",
+          "bytes": 24365,
+          "sha256": "e8f7048e2e73292bda230a2adad4aaa76f0b3cd5525f8f0899628bd649d1d81d",
+          "git_blob_sha1": "26c9b40dace8bd07b4ffb6d22dd0d5a6a26a5fe0",
+          "verification": "Local bytes equal the named historical publication-manifest SHA-256 and Git blob (where supplied)."
+        },
+        {
+          "restore_path": "compiled_streaming.py",
+          "repo_path": "research_notes/directed_recovery/20260926_C6438C/new_word_compiler/compiled_streaming.py",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/8d4e9c12f7492316b825e96423bc0ee36ccdee22/research_notes/directed_recovery/20260926_C6438C/new_word_compiler/compiled_streaming.py",
+          "bytes": 11280,
+          "sha256": "d0f980b7ff5fb41438e9e0ad40af65a190bcd6f83660c821f8362643190a558c",
+          "git_blob_sha1": "e6b412b5d3029932d44354732e1020bd11dfd8ca",
+          "verification": "Local bytes equal the named historical publication-manifest SHA-256 and Git blob (where supplied)."
+        },
+        {
+          "restore_path": "check_compiled_streaming.py",
+          "repo_path": "research_notes/directed_recovery/20260926_C6438C/new_word_compiler/check_compiled_streaming.py",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/8d4e9c12f7492316b825e96423bc0ee36ccdee22/research_notes/directed_recovery/20260926_C6438C/new_word_compiler/check_compiled_streaming.py",
+          "bytes": 12716,
+          "sha256": "0cf231a238f6aa899f1cf7e86a8d7dc8dd3e1aeda33e3c1b6c371ef10804a9ce",
+          "git_blob_sha1": "3132a181c946127ce707d784774feffb34275a28",
+          "verification": "Local bytes equal the named historical publication-manifest SHA-256 and Git blob (where supplied)."
+        }
+      ],
+      "coverage": "Selected actual imports and bound provenance/data; restore the full archived source subtrees from this manifest to preserve transitive imports."
+    },
+    {
+      "id": "general_foundation",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "1fb7ff99d205f9ca03772942be64f732553dcd86",
+      "repo_prefix": "research_notes/directed_recovery/20260926_C6438C/",
+      "restore_directory_relative_to_TEMP": "sep26-shor-general",
+      "manifest": {
+        "path": "research_notes/directed_recovery/20260926_C6438C/MANIFEST.json",
+        "url": "https://github.com/awdawmip/enterprise-math/blob/1fb7ff99d205f9ca03772942be64f732553dcd86/research_notes/directed_recovery/20260926_C6438C/MANIFEST.json",
+        "bytes": 15026,
+        "sha256": "652d5c21286964fbbcfc715beba235aa28e9e6994be745caa0f5c157a7db043d",
+        "git_blob_sha1": "886711e7ab68fe15289d95c7c54f0123f54ec9e6"
+      },
+      "selected_dependencies": [
+        {
+          "restore_path": "integration/general_streaming.py",
+          "repo_path": "research_notes/directed_recovery/20260926_C6438C/integration/general_streaming.py",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/1fb7ff99d205f9ca03772942be64f732553dcd86/research_notes/directed_recovery/20260926_C6438C/integration/general_streaming.py",
+          "bytes": 3477,
+          "sha256": "fcf510292d0f30814c6f5fdc6ac49d06b2e5afdf063cccc23704df1d6c689b71",
+          "git_blob_sha1": "f3deac7f4234f7fa61e743909a972abdbf60d840",
+          "verification": "Local bytes equal the named historical publication-manifest SHA-256 and Git blob (where supplied)."
+        },
+        {
+          "restore_path": "integration/general_driver.py",
+          "repo_path": "research_notes/directed_recovery/20260926_C6438C/integration/general_driver.py",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/1fb7ff99d205f9ca03772942be64f732553dcd86/research_notes/directed_recovery/20260926_C6438C/integration/general_driver.py",
+          "bytes": 6519,
+          "sha256": "f326d8fe53275839eeb1d250433ca58bc1d647ff9fb4eb7028444a54f4162747",
+          "git_blob_sha1": "da02cf345634a25669ba2eacd8aee5d9c61e02c0",
+          "verification": "Local bytes equal the named historical publication-manifest SHA-256 and Git blob (where supplied)."
+        },
+        {
+          "restore_path": "sparse/sparse_modular.py",
+          "repo_path": "research_notes/directed_recovery/20260926_C6438C/sparse/sparse_modular.py",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/1fb7ff99d205f9ca03772942be64f732553dcd86/research_notes/directed_recovery/20260926_C6438C/sparse/sparse_modular.py",
+          "bytes": 12015,
+          "sha256": "fd9cbb019418a3c00890ba6e8cca5760e7e4d792bfd7b48306a71a66de301c46",
+          "git_blob_sha1": "f084a1e7ddfcfac8e35ea838b977db62ff705daf",
+          "verification": "Local bytes equal the named historical publication-manifest SHA-256 and Git blob (where supplied)."
+        },
+        {
+          "restore_path": "completion/typed_integer_prechecks.py",
+          "repo_path": "research_notes/directed_recovery/20260926_C6438C/completion/typed_integer_prechecks.py",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/1fb7ff99d205f9ca03772942be64f732553dcd86/research_notes/directed_recovery/20260926_C6438C/completion/typed_integer_prechecks.py",
+          "bytes": 8530,
+          "sha256": "0a817aa8124cceb5440233d543073dae71de6ac1d0d4e5d50f4ee2b4808d99eb",
+          "git_blob_sha1": "96b7543fd24eff7b440a73399fadd346a96b95a5",
+          "verification": "Local bytes equal the named historical publication-manifest SHA-256 and Git blob (where supplied)."
+        }
+      ],
+      "coverage": "Selected actual imports and bound provenance/data; restore the full archived source subtrees from this manifest to preserve transitive imports."
+    },
+    {
+      "id": "terminal_foundation",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "b6625778e869511d85a202a0839eb105a197659e",
+      "repo_prefix": "research_notes/directed_recovery/20260926_0C08F0/",
+      "restore_directory_relative_to_TEMP": "sep26-shor-alternative",
+      "manifest": {
+        "path": "research_notes/directed_recovery/20260926_0C08F0/MANIFEST.json",
+        "url": "https://github.com/awdawmip/enterprise-math/blob/b6625778e869511d85a202a0839eb105a197659e/research_notes/directed_recovery/20260926_0C08F0/MANIFEST.json",
+        "bytes": 7249,
+        "sha256": "1128cb2a40b0987e47f93738d8e4f639d8601338b1e86dc69966c5779116ea78",
+        "git_blob_sha1": "753e8dfa296fa38df302b07f653083d5638b666d"
+      },
+      "selected_dependencies": [
+        {
+          "restore_path": "algorithm_intake/terminal_instrument.py",
+          "repo_path": "research_notes/directed_recovery/20260926_0C08F0/algorithm_intake/terminal_instrument.py",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/b6625778e869511d85a202a0839eb105a197659e/research_notes/directed_recovery/20260926_0C08F0/algorithm_intake/terminal_instrument.py",
+          "bytes": 21669,
+          "sha256": "acc2fc3d5a0535c33f39b9a706400d68c980a4bea73ac3d5758cfb7a469af67e",
+          "git_blob_sha1": "17486fce678c5c22209f57abae07793b17ce07ba",
+          "verification": "Local bytes equal the named historical publication-manifest SHA-256 and Git blob (where supplied)."
+        },
+        {
+          "restore_path": "adversarial/zero_endpoint_extension.py",
+          "repo_path": "research_notes/directed_recovery/20260926_0C08F0/adversarial/zero_endpoint_extension.py",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/b6625778e869511d85a202a0839eb105a197659e/research_notes/directed_recovery/20260926_0C08F0/adversarial/zero_endpoint_extension.py",
+          "bytes": 3532,
+          "sha256": "cb2bdbdda5445b4cb76a7c6a26b3f2074b452c1b5e7d950295e71ff49ac5b8c5",
+          "git_blob_sha1": "cd07b361eacb2ea6d5608115caf7c1d15c3ab514",
+          "verification": "Local bytes equal the named historical publication-manifest SHA-256 and Git blob (where supplied)."
+        }
+      ],
+      "coverage": "Selected actual imports and bound provenance/data; restore the full archived source subtrees from this manifest to preserve transitive imports."
+    }
+  ],
+  "native_bundle": {
+    "kind": "Separate frozen Git bundle snapshot; its commit is not represented as an enterprise-math commit",
+    "snapshot_commit": "0852cad130c1d877174d235687cf60c19f318c58",
+    "restore_directory_relative_to_TEMP": "sep26-local-takeover/intake_brc/stage87-source",
+    "bundle_google_drive_file_id": "1ox9qTtXGbN0p6Zma29uXtBXM6FcOOXhV",
+    "bundle_bytes": 61398315,
+    "bundle_sha256": "a0eb15a32c4db5a9fd0876f64a0ffd8dbedcd5eabb2a148c247a8886836e5a9c",
+    "authority": {
+      "commit": "1fb7ff99d205f9ca03772942be64f732553dcd86",
+      "path": "research_notes/directed_recovery/20260926_C6438C/HANDOFF.md",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/1fb7ff99d205f9ca03772942be64f732553dcd86/research_notes/directed_recovery/20260926_C6438C/HANDOFF.md",
+      "local_handoff_sha256": "42792546ece4e58f855e8374a24651490bf886b089abaa224b20ad733ea25b0f"
+    },
+    "restoration_requirement": "Restore the complete bundle tree at the snapshot, including all stage packages and vendor files; the selected list is not a replacement for its transitive dependency closure.",
+    "selected_files": [
+      {
+        "path": "stage45/brc_loop_recheck.py",
+        "bytes": 15066,
+        "sha256": "f5242c74b5f1f53b8f50caf87d0eace7f3588d76d0d05240d9d5eb56255ae022",
+        "git_blob_sha1": "5a3711047eaedbb33cebc793f95dc70eceb1cc44",
+        "tracked_blob_at_bundle_snapshot": "5a3711047eaedbb33cebc793f95dc70eceb1cc44",
+        "role": "Native transitive implementation."
+      },
+      {
+        "path": "stage45/vendor/brc_weighted_recurrent.py",
+        "bytes": 10087,
+        "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26",
+        "git_blob_sha1": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+        "tracked_blob_at_bundle_snapshot": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+        "role": "Native transitive implementation."
+      },
+      {
+        "path": "stage58/coupled_reader.py",
+        "bytes": 5502,
+        "sha256": "35df78a3e3098fa8b8241d0ceb3a3f59faf7ea9460c0ec6761f209b5aaa23c58",
+        "git_blob_sha1": "3c1918da565bf66a97eed1f5645917a55b8a6c20",
+        "tracked_blob_at_bundle_snapshot": "3c1918da565bf66a97eed1f5645917a55b8a6c20",
+        "role": "Native transitive implementation."
+      },
+      {
+        "path": "stage78/shor_benchmark.py",
+        "bytes": 11678,
+        "sha256": "e5cb9c4871da2662bbf831cc7721730593be478ebbe238a58d95ba2917dda47c",
+        "git_blob_sha1": "4abb907ac0cd6abb13867cbb7d05398f1a064978",
+        "tracked_blob_at_bundle_snapshot": "4abb907ac0cd6abb13867cbb7d05398f1a064978",
+        "role": "Native transitive implementation."
+      },
+      {
+        "path": "stage79/phase_compiler.py",
+        "bytes": 10064,
+        "sha256": "00a2d1369bcafd70d469381e517ed9f2dd4e7a6f79a55144337cd085de49f15d",
+        "git_blob_sha1": "0222fad95a57ecf0457742a36ebca4e6a0d1a915",
+        "tracked_blob_at_bundle_snapshot": "0222fad95a57ecf0457742a36ebca4e6a0d1a915",
+        "role": "Native transitive implementation."
+      },
+      {
+        "path": "stage80/fixed_phase.py",
+        "bytes": 14074,
+        "sha256": "d9981004a89c651f072ff88732c8b402baf83c16690a0cfacfa9c32199fde254",
+        "git_blob_sha1": "0ad89f3b3c75468d1e1226c5cc1bf941ef95d345",
+        "tracked_blob_at_bundle_snapshot": "0ad89f3b3c75468d1e1226c5cc1bf941ef95d345",
+        "role": "Native transitive implementation."
+      },
+      {
+        "path": "stage80/RESULTS.json",
+        "bytes": 1621332,
+        "sha256": "13cbb27aa973729b2a50b9b379d6a3b5ad282ee983ee7ab59ec736847cf1a2ab",
+        "git_blob_sha1": "e7be7880e4ab89248764f4633a0d1166415cfaa1",
+        "tracked_blob_at_bundle_snapshot": "e7be7880e4ab89248764f4633a0d1166415cfaa1",
+        "role": "Legacy optional load_frozen_bank data, not the actual current t=4 direct-word bank."
+      }
+    ]
+  },
+  "canonical_brc_core": {
+    "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+    "path": "src/enterprise_math/brc_weighted_recurrent.py",
+    "url": "https://github.com/awdawmip/enterprise-math/blob/bc7babbb9e890f6d5a7094430a5fbdccf66c77ad/src/enterprise_math/brc_weighted_recurrent.py",
+    "git_blob_sha1": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+    "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26",
+    "local_vendor_path": "sep26-local-takeover/intake_brc/stage87-source/stage45/vendor/brc_weighted_recurrent.py",
+    "binding": "stage45.brc_loop_recheck.verify_vendor compares the complete vendor bytes to this canonical Git blob before admitting the core."
+  },
+  "runtime_dependency_edges": [
+    {
+      "from": "coherence_sampler/coherence_skip.py",
+      "to": [
+        "qft_approximation:structured_approx/projected_rows.py",
+        "qft_row_queries:gram_research/single_walker.py"
+      ]
+    },
+    {
+      "from": "arithmetic_partition/typed_quartic.py",
+      "to": [
+        "optimization:lazy_modular/lazy_modular.py",
+        "optimization:lazy_modular/lazy_gcd.py",
+        "qft_row_queries:character_certificates/typed_jacobi.py"
+      ]
+    },
+    {
+      "from": "current checkers",
+      "to": [
+        "qft_row_queries:gram_research/check_single_walker.py",
+        "optimization:collision_analysis/check_gram_sampler.py",
+        "optimization:streaming/lazy_streaming.py",
+        "native_bundle"
+      ]
+    },
+    {
+      "from": "qft_approximation and qft_row_queries",
+      "to": [
+        "compiled_word",
+        "optimization",
+        "native_bundle"
+      ]
+    },
+    {
+      "from": "optimization",
+      "to": [
+        "compiled_word",
+        "general_foundation",
+        "terminal_foundation",
+        "native_bundle"
+      ]
+    },
+    {
+      "from": "optimization:collision_analysis/check_gram_sampler.py load_bank",
+      "to": [
+        "direct_word_bank:direct_word_integration/DIRECT_WORD_INTEGRATION_RESULTS.json.gz",
+        "direct_word_bank:direct_word_integration/check_direct_word_integration.py",
+        "compiled_word"
+      ]
+    },
+    {
+      "from": "compiled_word and general_foundation",
+      "to": [
+        "terminal_foundation",
+        "native_bundle",
+        "canonical_brc_core"
+      ]
+    }
+  ],
+  "runtime_environment": {
+    "python_used_for_existing_checks": "D:/kimi-query-bridge/.venv/Scripts/python.exe -X utf8",
+    "restoration_base_example": "D:/em/TEMP",
+    "required_layout": "Retain the sibling directories listed in restore_directory_relative_to_TEMP. Several source imports derive siblings from __file__; merely adding one package to PYTHONPATH is insufficient.",
+    "explicit_environment": {
+      "BRC_STAGE87_SOURCE": "D:/em/TEMP/sep26-local-takeover/intake_brc/stage87-source",
+      "BRC_ZERO_ENDPOINT_SOURCE": "D:/em/TEMP/sep26-shor-alternative/adversarial/zero_endpoint_extension.py",
+      "BRC_STREAMING_PREVIOUS": "D:/em/TEMP/sep26-shor-alternative"
+    },
+    "byte_preservation": "Restore Git blobs and binary/chunk payloads byte-for-byte. Do not normalize line endings or rewrite JSON; source and certificate guards bind exact bytes."
+  },
+  "restore_order": [
+    "native_bundle",
+    "terminal_foundation",
+    "general_foundation",
+    "compiled_word",
+    "direct_word_bank",
+    "optimization",
+    "qft_row_queries",
+    "qft_approximation",
+    "current_package"
+  ],
+  "binary_restoration": "Use the exact file, payload hash and part/chunk ordering in the corresponding historical manifest. The current runtime requires the archived direct-word phase-compilation gzip; old large Gram/walker experiment evidence is not silently required as a new computational input. Full prior proof/evidence may be recovered from the referenced manifests when auditing the chain.",
+  "verification_summary": {
+    "historical_files_matched": 25,
+    "native_files_matched_to_clean_git_snapshot": 7,
+    "current_source_files_hashed": 5,
+    "scientific_executions": 0,
+    "remote_mutations": 0
+  }
+}

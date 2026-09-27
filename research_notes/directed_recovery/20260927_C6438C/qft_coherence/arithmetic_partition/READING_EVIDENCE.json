@@ -1,0 +1,58 @@
+{
+  "schema": "AUTHOR_PRIMARY_READING_AND_EXECUTION_BINDINGS_V1",
+  "recorded_at_utc": "2026-09-27T01:00:26Z",
+  "canonical_global_knowledge": {
+    "repository": "awdawmip/chatgpt-global-knowledge",
+    "sha": "f44ed5959c92e6e088c61c102951d1ab2c5e98d4",
+    "sync_result": "PASS_LEASE_REUSED",
+    "sync_execution": "Unmodified shipped script read from exact canonical Git blob and invoked with RepoPath; working tree differs from canonical and has no shipped script at the working-tree path.",
+    "script": "tools/sync_global_knowledge.ps1",
+    "canonical_entrypoints_read": ["00_BOOTSTRAP.md", "OPERATING_MANUAL.md", "CODEX_SYNC_PROTOCOL.md"],
+    "arithmetic_constraint": {
+      "markdown_path": "knowledge/procedures/HEARTBEAT_BRC_ONLY_ARITHMETIC_20260923.md",
+      "markdown_git_blob": "929b159f5fffc3d293ba6954aaa76354ca33a556",
+      "machine_path": "knowledge/procedures/HEARTBEAT_BRC_ONLY_ARITHMETIC_20260923.json",
+      "machine_git_blob": "62ffa6bbdafd54496e27284a26a2aeaf2d04df99",
+      "read_before_actual_computation": true,
+      "route": "ACTUAL_TYPED_BRC_ONLY"
+    }
+  },
+  "project_snapshot": "e8c5726a22d78c8d3623611afd33f4fe76b46321",
+  "activity": "RA-CAAAC604CB513AEA8BBC1DFC",
+  "activity_guard": "../STARTUP_GUARD.json",
+  "external_primary_sources": [
+    {
+      "authors": ["Eric Bach", "Bryce Sandlund"],
+      "title": "On Euclidean Methods for Cubic and Quartic Jacobi Symbols",
+      "url": "https://arxiv.org/pdf/1807.07719",
+      "observed_version": "arXiv:1807.07719v1, 20 July 2018",
+      "read_method": "web PDF full text; focused section 7, PDF pages 13-14",
+      "source_role": "Definition by prime ideals, multiplicative extension, primary convention, reciprocity, supplements and Euclidean recursion; paper complexity discussion.",
+      "typo_not_used": "Section 7 duplicates the split class 1 mod 4 for inert rational primes; the correct inert class is 3 mod 4.",
+      "new_claims_not_attributed_to_paper": [
+        "typed BRC signed-pair observer implementation",
+        "actual Shor program and residual-preserving label transport binding",
+        "color-mass near-separation application and complete bounded native checks"
+      ]
+    },
+    {
+      "title": "NIST Digital Library of Mathematical Functions, 27.9",
+      "url": "https://dlmf.nist.gov/27.9",
+      "read_status": "Previously read primary source reused; Jacobi convention is also preserved by the frozen typed_jacobi binding.",
+      "source_role": "Jacobi product definition and multiplicativity"
+    }
+  ],
+  "actual_primitive_bindings": {
+    "primitive_source_commit": "0852cad130c1d877174d235687cf60c19f318c58",
+    "arithmetic_module": "D:/em/TEMP/sep26-shor-general/optimization/lazy_modular/lazy_modular.py",
+    "arithmetic_sha256": "08df3595a2a56dc2501bb481828093481bf76e4ac53c8b966990d233fefac1e4",
+    "jacobi_module": "D:/em/TEMP/sep27-qft-research/character_certificates/typed_jacobi.py",
+    "jacobi_sha256": "ce7168c8724d1fff216b903f09cdaf7fe16c8074c48488f7b26fb80584060402",
+    "provenance_receipts": "QUARTIC_RESULTS.json.gz contains the executed native primitive source binding, kernel verification, every typed arithmetic trace and native core call record."
+  },
+  "no_remote_modifications": true,
+  "no_new_classical_quantum_reference": true,
+  "full_residual_carrier_retained": true,
+  "P000_changed": false,
+  "admission": "AUTHOR_ACTUAL_SHARED_CONTEXT_NOT_INDEPENDENTLY_ADMITTED"
+}
