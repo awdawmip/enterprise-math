@@ -54,16 +54,17 @@
     "reconcile_result": "FAILED/NOT_RECONCILABLE",
     "root_task_read_request": "https://github.com/awdawmip/kimi-query-bridge/issues/2525",
     "root_task_read_request_id": "hbwl-verify-published-root-task-20260927-0832",
-    "root_task_read_last_observed": "QUEUED;no_duplicate_request;live_dispatch_not_inferred",
+    "root_task_read_last_observed": "FAILED/SOURCE_DELTA_TOTAL_TIMEOUT;terminal_receipt_observed;live_dispatch_not_inferred",
     "scientific_tests_rerun": false,
-    "duplicate_upload_or_task_creation": false
+    "duplicate_upload_or_task_creation": false,
+    "root_task_terminal_receipt": "https://github.com/awdawmip/kimi-query-bridge/issues/2525#issuecomment-5854239828"
   },
   "pre_final_pass_claimed": false,
   "session_authority_claimed": false,
   "claims_created": false,
   "runtime_dispatch_or_execution_claimed": false,
   "publication_authority": "Explicit user-requested Researcher publication through the current V2 contract's equivalent-preflight GitHub transport, not an unverified native session.",
-  "next_control_action": "Read the original root-task request2525 to its terminal receipt. Native control maintenance must resolve the FAILED session-start receipt versus active-local-session inconsistency using request2514, not create a duplicate session or bypass the failed prerequisite. New scientific work retains current dispatch/claim gates.",
+  "next_control_action": "Native control maintenance must diagnose SOURCE_DELTA_TOTAL_TIMEOUT and the FAILED session-start receipt versus active-local-session inconsistency, preserving requests2514/2524/2525 and failed PRE_FINAL2516. Do not repeat equivalent requests without a state change, create a duplicate session, or bypass the failed prerequisite. The three requested source/Drive/task-publication deliverables are verified; new scientific work retains current dispatch/claim gates.",
   "no_tool_or_identity_bypass_performed": true,
   "history_preserved": "Earlier publication, delivery, failed request and theorem evidence remain immutable; this dedicated current delivery status corrects routing only."
 }
