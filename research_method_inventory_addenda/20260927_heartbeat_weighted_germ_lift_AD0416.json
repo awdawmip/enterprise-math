@@ -1,0 +1,62 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "date": "2026-09-27",
+  "methods": [
+    {
+      "method_id": "t0.brc_weighted_germ_lift",
+      "name": "BRC aggregate-mass germ symmetry lifting",
+      "family_id": "T0_BRC",
+      "classification": "GLOBAL_SUBTOOL",
+      "status": "UNREVIEWED_NOT_ADMITTED",
+      "api": [
+        "GermMassClass",
+        "packet_germ_classes",
+        "WeightedLiftSeed",
+        "weighted_lift_seed",
+        "WeightedLiftComponent",
+        "WeightedLiftCertificate",
+        "lift_weighted_seed",
+        "lift_weighted_family"
+      ],
+      "source_refs": [
+        "src/enterprise_math/heartbeat_weighted_germ_lift.py",
+        "tests/test_heartbeat_weighted_germ_lift.py",
+        "research_notes/heartbeat_weighted_germ_lift_20260927_AD0416/RESEARCH_NOTE.md",
+        "research_notes/heartbeat_weighted_germ_lift_20260927_AD0416/THEOREM_LEDGER.json"
+      ],
+      "triggers": [
+        "weighted germ lift",
+        "aggregate symmetry",
+        "changing atom matching",
+        "mass signature refinement"
+      ],
+      "capabilities": [
+        "coalesce refined action germs while retaining original atoms",
+        "match full port-mass signatures rather than indivisible atomic weights",
+        "symbolic complete next-digit affine repair fibers",
+        "finite matching and frame budgets with sound unresolved frontiers"
+      ],
+      "reuse_resolution": {
+        "state": "EXTEND_EXISTING_TOOL / REUSE_EXECUTED",
+        "components": [
+          "t0.brc_guarded_congruence_lift",
+          "ControlPacket",
+          "threshold_action_equivalent",
+          "verify_lifted_peak_frame",
+          "finite_recurrent_mass_analysis"
+        ],
+        "gap": "Existing lift fixes a matching of equally weighted atoms; existing full weighted-row checker only tests a supplied frame. Neither computes the whole next-digit aggregate-mass symmetry fiber."
+      },
+      "hard_boundary": "Fixed positive ControlPacket, controls, p, guarded seed and next precision. Not amplitude cancellation, raw-word equivalence, global GL6 discovery, universal multi-layer symbolic closure or native physics. Counts of repairs are not path mass.",
+      "theorem_refs": [
+        "HBW-WM-001",
+        "HBW-WM-002",
+        "HBW-WM-003",
+        "HBW-WM-004",
+        "HBW-WM-005",
+        "HBW-WM-006"
+      ]
+    }
+  ]
+}

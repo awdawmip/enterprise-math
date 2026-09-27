@@ -1,0 +1,63 @@
+{
+  "schema": "HEARTBEAT_WEIGHTED_GERM_THEOREMS_V1",
+  "date": "2026-09-27",
+  "status": "UNREVIEWED_NOT_ADMITTED",
+  "family": "T0_BRC",
+  "proof_kind": "EXPLICIT_SCOPED_DERIVATIONS_AND_BRC_EXECUTION",
+  "theorems": [
+    {
+      "id": "HBW-WM-001",
+      "name_zh": "全端口质量签名与细作用类双射",
+      "assumptions": "Positive stochastic ControlPacket; fixed controls; universal safe-lattice germ equivalence at target precision",
+      "law": "Weighted row symmetry iff conjugation induces a bijection of refined positive-support action classes preserving their complete source-target mass signatures. Atomic bijection is unnecessary.",
+      "proof_ref": "RESEARCH_NOTE.md#section-1",
+      "test_ref": "tests/test_heartbeat_weighted_germ_lift.py::test_02_coalesce_and_refine",
+      "boundary": "Fixed carrier and observer only; neither physical attribution nor full path/weight-histogram equivalence; one-layer affine form is not universal multi-layer closure."
+    },
+    {
+      "id": "HBW-WM-002",
+      "name_zh": "聚合核一位修复的仿射纤维",
+      "assumptions": "A fixed guarded projective seed modulo p^N, N=m+C>=1, p prime",
+      "law": "All next-digit weighted-kernel lifts above this seed form an empty set or an affine F_p subspace of dimension at most35; no atom matching is fixed.",
+      "proof_ref": "RESEARCH_NOTE.md#section-2",
+      "test_ref": "tests/test_heartbeat_weighted_germ_lift.py::test_06_torsor_joins_two_matchings",
+      "boundary": "Fixed carrier and observer only; neither physical attribution nor full path/weight-histogram equivalence; one-layer affine form is not universal multi-layer closure."
+    },
+    {
+      "id": "HBW-WM-003",
+      "name_zh": "配对置换的基本阿贝尔p群与等纤维",
+      "assumptions": "The fiber in WM-002 is nonempty",
+      "law": "Relative viable class permutations form an elementary abelian p-group; there are p^r viable matchings, each with p^(d-r) repairs. Complete matching enumeration plus inherited exact linear solvers gives the full affine fiber; incomplete search retains only a certified subset.",
+      "proof_ref": "RESEARCH_NOTE.md#section-3",
+      "test_ref": "tests/test_heartbeat_weighted_germ_lift.py::test_08_odd_prime_torsor",
+      "boundary": "Fixed carrier and observer only; neither physical attribution nor full path/weight-histogram equivalence; one-layer affine form is not universal multi-layer closure."
+    },
+    {
+      "id": "HBW-WM-004",
+      "name_zh": "可变配对增加修复自由度的六轴见证",
+      "assumptions": "Declared p=2/p=3 repeated-pair integer ControlPacket, full6x6 frame corrections, fixed seed",
+      "law": "The binary uniform two-class model has two disjoint2^26 matching fibers whose union is a27-dimensional family. Bias reduces it to26 dimensions. The ternary model has three3^26 fibers among six candidate matchings.",
+      "proof_ref": "RESEARCH_NOTE.md#section-4",
+      "test_ref": "tests/test_heartbeat_weighted_germ_lift.py::test_07_bias_removes_only_one_free_direction",
+      "boundary": "Fixed carrier and observer only; neither physical attribution nor full path/weight-histogram equivalence; one-layer affine form is not universal multi-layer closure."
+    },
+    {
+      "id": "HBW-WM-005",
+      "name_zh": "原子匹配遗漏与细化质量分裂障碍",
+      "assumptions": "D mass1/4; V and V(I+4E12) each1/8; stop1/2; repeated three pairs; J seed modulo4; p=2",
+      "law": "No weight-preserving atomic matching accepts J, yet the weighted lift from germ depth1 to2 has2^17 repairs. Refining to depth3 splits the V-side into distinct1/8 classes and leaves no repair over this seed.",
+      "proof_ref": "RESEARCH_NOTE.md#section-5",
+      "test_ref": "tests/test_heartbeat_weighted_germ_lift.py::test_05_refined_mass_signature_obstruction",
+      "boundary": "Fixed carrier and observer only; neither physical attribution nor full path/weight-histogram equivalence; one-layer affine form is not universal multi-layer closure."
+    },
+    {
+      "id": "HBW-WM-006",
+      "name_zh": "残差分裂后的延迟首达可观察差",
+      "assumptions": "The exact stopped ControlPackets and boundary observer in the report, fixed p=2",
+      "law": "At threshold3 all-time first-passage laws coincide. At threshold4 their first differing coefficient is at step8:7/16384 versus57/131072; all-time risks1/97 versus11717/1135289. The positive path family D^3 W {V,W}^4 has mass1/131072.",
+      "proof_ref": "RESEARCH_NOTE.md#section-6",
+      "test_ref": "tests/test_heartbeat_weighted_germ_lift.py::test_15_brc_serial_path_witness",
+      "boundary": "Fixed carrier and observer only; neither physical attribution nor full path/weight-histogram equivalence; one-layer affine form is not universal multi-layer closure."
+    }
+  ]
+}
