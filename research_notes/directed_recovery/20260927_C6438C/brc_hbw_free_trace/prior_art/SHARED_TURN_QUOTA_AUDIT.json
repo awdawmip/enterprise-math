@@ -1,0 +1,209 @@
+{
+  "schema": "SHARED_TURN_QUERY_QUOTA_READ_AUDIT_V1",
+  "canonical_ref": "8c23cca3ed79ca2d6ecbdf76734606eabd94fd0d",
+  "observed_at": "2026-09-27T11:46:00.275882+00:00",
+  "mode": "standard",
+  "accepted_jobs": 3,
+  "job_limit": 3,
+  "remaining_jobs": 0,
+  "same_turn_local_requests": [
+    {
+      "path": "D:\\em\\TEMP\\sep27-qft-research\\prior_art\\KQB_2489_REQUEST.json",
+      "sha256": "0d1691fd254fc470942530093a13e0d25218d3d08fe96fbb126bcda6600d66a2",
+      "request": {
+        "schema": "KQB_GITHUB_REQUEST_V1",
+        "conversation_id": "01a079d7-5d03-7a21-abe9-f70606fee0ee",
+        "turn_id": "4ec7c225-8ee0-4565-9d9c-36957858ba21",
+        "request": {
+          "v": 1,
+          "id": "092b236a-7d54-4ea7-aefb-5ca2279c732d",
+          "redacted": true,
+          "mode": "standard",
+          "jobs": [
+            {
+              "db": "arxiv",
+              "op": "paper_search",
+              "q": "\"computationally tractable\" \"Fourier\" \"sparse\"",
+              "n": 8
+            },
+            {
+              "db": "scholar",
+              "op": "paper_search",
+              "q": "\"Quantum Fourier Transform\" \"matrix product\" \"entanglement\"",
+              "n": 8,
+              "x": {
+                "sort_by": "relevance",
+                "hl": "en"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "D:\\em\\TEMP\\sep27-qft-coherence\\prior_art\\KQB_REQUEST.json",
+      "sha256": "e11938e1f6d3b9e17d0b4ba352c752155440d4ec9ede0c566cdba8d588d53172",
+      "request": {
+        "schema": "KQB_GITHUB_REQUEST_V1",
+        "conversation_id": "01a079d7-5d03-7a21-abe9-f70606fee0ee",
+        "turn_id": "4ec7c225-8ee0-4565-9d9c-36957858ba21",
+        "request": {
+          "v": 1,
+          "id": "c2db789f-4467-48b5-a7ba-bd5b0099a91a",
+          "redacted": true,
+          "mode": "standard",
+          "jobs": [
+            {
+              "db": "arxiv",
+              "op": "paper_search",
+              "q": "\"quartic\" \"Jacobi\" \"Bach\" \"Sandlund\"",
+              "n": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "canonical_result_bindings": [
+    {
+      "issue_number": 2489,
+      "canonical_record_path": "sources/professional/records/PQ-20260927-KQB2489-ARXIV-CT-FOURIER-SPARSE.json",
+      "canonical_raw_path": "sources/professional/raw/arxiv/e26f29ed80b7dee2fdf4c814fae20f02db0a46c2d319400cefbe67647f1a500c.json",
+      "canonical_raw_sha256": "e26f29ed80b7dee2fdf4c814fae20f02db0a46c2d319400cefbe67647f1a500c",
+      "readback_fields": {
+        "submitted_request": {
+          "schema": "KQB_GITHUB_REQUEST_V1",
+          "conversation_id": "01a079d7-5d03-7a21-abe9-f70606fee0ee",
+          "turn_id": "4ec7c225-8ee0-4565-9d9c-36957858ba21",
+          "request": {
+            "v": 1,
+            "id": "092b236a-7d54-4ea7-aefb-5ca2279c732d",
+            "redacted": true,
+            "mode": "standard",
+            "jobs": [
+              {
+                "db": "arxiv",
+                "op": "paper_search",
+                "q": "\"computationally tractable\" \"Fourier\" \"sparse\"",
+                "n": 8
+              },
+              {
+                "db": "scholar",
+                "op": "paper_search",
+                "q": "\"Quantum Fourier Transform\" \"matrix product\" \"entanglement\"",
+                "n": 8,
+                "x": {
+                  "sort_by": "relevance",
+                  "hl": "en"
+                }
+              }
+            ]
+          }
+        },
+        "intake_receipt": {
+          "schema": "KQB_GITHUB_RECEIPT_V1",
+          "issue_id": 5598181072,
+          "issue_number": 2489,
+          "state": "ACCEPTED",
+          "detail": "QUEUED",
+          "observed_at": "2026-09-26T23:20:38.682256+00:00",
+          "first_read_after_seconds": 5,
+          "poll_interval_seconds": 5,
+          "request_id": "092b236a-7d54-4ea7-aefb-5ca2279c732d",
+          "request_sha256": "81e04961818220b8e621e2250caa03effbc10b261a8adffdd5c956e829b0213d",
+          "conversation_id": "01a079d7-5d03-7a21-abe9-f70606fee0ee",
+          "turn_id": "4ec7c225-8ee0-4565-9d9c-36957858ba21",
+          "mode": "standard",
+          "turn_job_limit": 3
+        },
+        "batch_context": {
+          "accepted_at": "2026-09-26T23:20:38.682256+00:00",
+          "bridge_kimi_llm_calls": 0,
+          "completed_at": "2026-09-26T23:20:47.888329+00:00",
+          "github_request": {
+            "conversation_id": "01a079d7-5d03-7a21-abe9-f70606fee0ee",
+            "issue_number": 2489,
+            "mode": "standard",
+            "request_sha256": "81e04961818220b8e621e2250caa03effbc10b261a8adffdd5c956e829b0213d",
+            "turn_id": "4ec7c225-8ee0-4565-9d9c-36957858ba21"
+          },
+          "read_not_before": "2026-09-26T23:20:38.682256+00:00",
+          "request_hash": "c70c4760a503344096d0b8297c4f302bbbb5e260dd71a0daa3731404c7690d55",
+          "request_id": "092b236a-7d54-4ea7-aefb-5ca2279c732d",
+          "schema_version": "KQB_WEB_BATCH_RESULT_V1",
+          "state": "FAILED",
+          "upstream_internal_llm_calls": null
+        }
+      },
+      "source_state": "PARTIAL",
+      "batch_state": "FAILED",
+      "source_url": "https://github.com/awdawmip/kimi-query-bridge/issues/2489#issuecomment-5850847340"
+    },
+    {
+      "issue_number": 2495,
+      "canonical_record_path": "sources/professional/records/PQ-20260927-KQB2495-ARXIV-QUARTIC-JACOBI-BACH-SANDLUND.json",
+      "canonical_raw_path": "sources/professional/raw/arxiv/31b4332014ef5027d5472f0817c4eecacdf186b0111d1b465540495ec81dfcc9.json",
+      "canonical_raw_sha256": "31b4332014ef5027d5472f0817c4eecacdf186b0111d1b465540495ec81dfcc9",
+      "readback_fields": {
+        "submitted_request": {
+          "schema": "KQB_GITHUB_REQUEST_V1",
+          "conversation_id": "01a079d7-5d03-7a21-abe9-f70606fee0ee",
+          "turn_id": "4ec7c225-8ee0-4565-9d9c-36957858ba21",
+          "request": {
+            "v": 1,
+            "id": "c2db789f-4467-48b5-a7ba-bd5b0099a91a",
+            "redacted": true,
+            "mode": "standard",
+            "jobs": [
+              {
+                "db": "arxiv",
+                "op": "paper_search",
+                "q": "\"quartic\" \"Jacobi\" \"Bach\" \"Sandlund\"",
+                "n": 3
+              }
+            ]
+          }
+        },
+        "intake_receipt": {
+          "schema": "KQB_GITHUB_RECEIPT_V1",
+          "issue_id": 5598730264,
+          "issue_number": 2495,
+          "state": "ACCEPTED",
+          "detail": "QUEUED",
+          "observed_at": "2026-09-27T01:03:52.090143+00:00",
+          "first_read_after_seconds": 5,
+          "poll_interval_seconds": 5,
+          "request_id": "c2db789f-4467-48b5-a7ba-bd5b0099a91a",
+          "request_sha256": "b4ccad6784ede1a21016d59db9197bca05bd36d7fc632bff8911e8cbff512d01",
+          "conversation_id": "01a079d7-5d03-7a21-abe9-f70606fee0ee",
+          "turn_id": "4ec7c225-8ee0-4565-9d9c-36957858ba21",
+          "mode": "standard",
+          "turn_job_limit": 3
+        },
+        "batch_context": {
+          "accepted_at": "2026-09-27T01:03:52.090143+00:00",
+          "bridge_kimi_llm_calls": 0,
+          "completed_at": "2026-09-27T01:04:01.487370+00:00",
+          "github_request": {
+            "conversation_id": "01a079d7-5d03-7a21-abe9-f70606fee0ee",
+            "issue_number": 2495,
+            "mode": "standard",
+            "request_sha256": "b4ccad6784ede1a21016d59db9197bca05bd36d7fc632bff8911e8cbff512d01",
+            "turn_id": "4ec7c225-8ee0-4565-9d9c-36957858ba21"
+          },
+          "read_not_before": "2026-09-27T01:03:52.090143+00:00",
+          "request_hash": "2315129c4646948fdfa066964c87a9ba2bf7a5de57b7d0c3d0324d7dc7be32e2",
+          "request_id": "c2db789f-4467-48b5-a7ba-bd5b0099a91a",
+          "schema_version": "KQB_WEB_BATCH_RESULT_V1",
+          "state": "FAILED",
+          "upstream_internal_llm_calls": null
+        }
+      },
+      "source_state": "PARTIAL",
+      "batch_state": "FAILED",
+      "source_url": "https://github.com/awdawmip/kimi-query-bridge/issues/2495#issuecomment-5851481295"
+    }
+  ],
+  "no_new_request_created": true,
+  "note": "The 2489 envelope FAILED/children PARTIAL and 2495 envelope FAILED/child PARTIAL do not refund accepted tasks. 2497 uses a different historical turn; no new turn is generated here."
+}

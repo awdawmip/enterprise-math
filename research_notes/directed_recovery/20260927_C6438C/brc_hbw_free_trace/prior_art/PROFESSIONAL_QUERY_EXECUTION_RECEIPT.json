@@ -1,0 +1,47 @@
+{
+  "schema": "PROFESSIONAL_QUERY_EXECUTION_RECEIPT_V1",
+  "task_ref": "FREE_TRACE_HBW_WILLIAMS_PPLUS1_PRIOR_ART_20260927",
+  "task_started_at": "2026-09-27T11:46:00.071731+00:00",
+  "checked_at": "2026-09-27T11:46:00.275882+00:00",
+  "task_clock_scope": "Final receipt verification phase; earlier source-reading time is not reconstructed.",
+  "provider": "scholar",
+  "operation": "paper_search",
+  "cache_decision": "QUERY_REQUIRED",
+  "outcome": "BLOCKED_BEFORE_SUBMISSION",
+  "conversation_id": "01a079d7-5d03-7a21-abe9-f70606fee0ee",
+  "turn_id": "4ec7c225-8ee0-4565-9d9c-36957858ba21",
+  "mode": "standard",
+  "transport": "GITHUB_ISSUE",
+  "proposed_query": {
+    "db": "scholar",
+    "op": "paper_search",
+    "q": "\"A p+1 method of factoring\"",
+    "n": 3,
+    "x": {
+      "sort_by": "relevance",
+      "hl": "en"
+    }
+  },
+  "attempts": [],
+  "batch_id": null,
+  "new_accepted_jobs": 0,
+  "same_turn_accepted_jobs": 3,
+  "turn_job_limit": 3,
+  "blocker": {
+    "code": "CURRENT_QUOTA_LIMIT",
+    "observed_at": "2026-09-27T11:46:00.275882+00:00",
+    "evidence_ref": "SHARED_TURN_QUOTA_AUDIT.json; KQB2489 and KQB2495 actual canonical intake/result bindings",
+    "detail": "Standard shared turn already consumed 2 accepted jobs in issue 2489 plus 1 accepted job in issue 2495. No new batch or turn ID was generated. Only this dedicated-query subflow is blocked; primary-public-source reading and symbolic research continued."
+  },
+  "cache_evidence": {
+    "canonical_ref": "8c23cca3ed79ca2d6ecbdf76734606eabd94fd0d",
+    "read": [
+      "sources/professional/README.md",
+      "sources/professional/catalog.json"
+    ],
+    "match": "No Williams p+1 or DOI 0658227 source record in actual catalog; no claim that literature is absent."
+  },
+  "capability_evidence": "KQB_CAPABILITIES_CFC2ACA_READBACK.json; scholar.paper_search ENABLED_TYPED_WHITELIST",
+  "archive_state": "LOCAL_RECEIPT_ONLY; no Williams provider result exists and no global archive claim is made",
+  "global_knowledge_sync": "main@8c23cca / GLOBAL_KNOWLEDGE_V1"
+}

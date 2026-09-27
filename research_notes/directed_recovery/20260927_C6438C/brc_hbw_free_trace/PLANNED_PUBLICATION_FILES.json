@@ -1,0 +1,70 @@
+{
+  "schema": "FREE_TRACE_PUBLICATION_PLAN_V1",
+  "status": "PLANNED_NOT_FROZEN",
+  "remote_prefix": "research_notes/directed_recovery/20260927_C6438C/brc_hbw_free_trace/",
+  "prior_science_commit": "75532de20bad232a81654aee4c41ddfc290c7ae1",
+  "publication_directory": "publication",
+  "manifest_path": "FREE_TRACE_EVIDENCE_MANIFEST.json",
+  "chunk_characters": 80000,
+  "required_files": [
+    "FREE_TRACE_TORUS_WITNESS.md",
+    "TRACE_SQUARE_VALUATION_LEMMA.md",
+    "CYCLIC_MARK_INVARIANCE.md",
+    "SIGNED_RETURN_FACTOR_PARTITION.md",
+    "GEOMETRIC_NEXT_TOOL.md",
+    "GEOMETRIC_NEXT_TOOL_PARENT_REVIEW.md",
+    "RETURN_QUOTIENT_SYMBOLIC_REVIEW.md",
+    "LINEAR_X6_ORDER_SCOPE.md",
+    "LINEAR_X6_SCOPE_REVIEW.md",
+    "KUMMER_RETURN_VALUATION.md",
+    "GEOMETRIC_TOOL_REVIEW.md",
+    "prior_art/WILLIAMS_PPLUS1_PRIMARY_AUDIT.md",
+    "prior_art/PROFESSIONAL_QUERY_EXECUTION_RECEIPT.json",
+    "prior_art/SHARED_TURN_QUOTA_AUDIT.json",
+    "prior_art/KQB_CAPABILITIES_CFC2ACA_READBACK.json",
+    "prior_art/RECEIPT_VALIDATION.json",
+    "native_probe/PLAN.md",
+    "native_probe/free_trace_probe.py",
+    "native_probe/SELF_REVIEW.md",
+    "native_probe/STATIC_PEER_REVIEW.md",
+    "native_probe/STARTED.json",
+    "native_probe/FREE_TRACE_SUMMARY.json",
+    "native_probe/FREE_TRACE_EXECUTION_REVIEW.md",
+    "native_probe/read_free_trace_records.py",
+    "native_probe/FREE_TRACE_RECORD_REVIEW.json",
+    "native_probe/RESULTS_AND_CONTINUE.md",
+    "package_free_trace.py",
+    "PLANNED_PUBLICATION_FILES.json"
+  ],
+  "science": {
+    "compressed_path": "native_probe/FREE_TRACE_RESULTS.json.gz",
+    "summary_path": "native_probe/FREE_TRACE_SUMMARY.json",
+    "started_path": "native_probe/STARTED.json",
+    "source_path": "native_probe/free_trace_probe.py",
+    "plan_path": "native_probe/PLAN.md",
+    "reader_path": "native_probe/read_free_trace_records.py",
+    "record_review_path": "native_probe/FREE_TRACE_RECORD_REVIEW.json",
+    "expected_record_review_status": "PASS_STDLIB_FREE_TRACE_SAVED_RECORD_REVIEW_NOT_ADMISSION",
+    "expected_status": "PASS_FINITE_FREE_TRACE_OBSERVER_NOT_ADMITTED",
+    "failure_paths": [
+      "native_probe/FAILED_EXECUTION.json.gz",
+      "native_probe/FAILED_SERIALIZATION.txt"
+    ]
+  },
+  "excluded": [
+    "external paper PDF",
+    "rendered PNG images",
+    "third-party full text or copied validation source",
+    "__pycache__",
+    "uncompressed raw scientific JSON",
+    "environment credentials"
+  ],
+  "notes": [
+    "All required paths are explicit; file presence alone is not review PASS. Align this still-unfrozen list to the final milestone scope before prepare.",
+    "Inputs may already be scientifically frozen; prepare rejects an already frozen publication package, not immutable scientific input.",
+    "Do not run prepare until the actual reader, reviews and continuation report are complete. No scientific function is imported or rerun by this packager.",
+    "prepare validates every input and every summary/source/raw hash before creating staging outputs. The complete frozen directory is exposed by one same-filesystem rename.",
+    "Only payloads prints connector-ready path/content records. It verifies saved snapshots and compressed evidence reconstruction, with no remote writes.",
+    "Global-Knowledge-Sync: main@8c23cca / GLOBAL_KNOWLEDGE_V1."
+  ]
+}
