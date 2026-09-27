@@ -1,0 +1,559 @@
+{
+  "status": "PASS",
+  "source_bindings": {
+    "typed_floor_degree_five.py": "755fcaf04832a5328e2464214f736ac661c410b3505edf10ab5218f935e2a7c7",
+    "check_degree_five.py": "975b574b85a3531da4443bf9f70cd4644ccc4ceadec81359506a2d00da3b1223",
+    "DESIGN.md": "f6eb1b1e7b7dece0956e2ead166fbb9e901be3f5c9a44a1b367d1130206b7c22",
+    "DEGREE_FIVE_RECIPROCITY.md": "1453444f21c113c0d1819328b731031d0fe296e25756caac7e94d9cf628047b6",
+    "base_arithmetic": "633502c9b484e60e5dc5fcf6edd0420f12d52c33c43e88851b9e1e6465ea94a2",
+    "lazy_modular": "08df3595a2a56dc2501bb481828093481bf76e4ac53c8b966990d233fefac1e4",
+    "sparse_modular": "fd9cbb019418a3c00890ba6e8cca5760e7e4d792bfd7b48306a71a66de301c46",
+    "typed_integer_prechecks": "0a817aa8124cceb5440233d543073dae71de6ac1d0d4e5d50f4ee2b4808d99eb"
+  },
+  "coverage": {
+    "cases": 9,
+    "moment_equalities": 189,
+    "finite_sum_samples": 44,
+    "branch_types": [
+      "empty",
+      "normalize_signed_coefficients",
+      "normalized_constant_zero",
+      "normalized_zero_height",
+      "transpose_lattice"
+    ],
+    "extra_cache_queries": 2,
+    "scientific_failure_injection_performed": false
+  },
+  "input_rejections": 10,
+  "negative_checks": 17,
+  "negative_kinds": {
+    "COMPLETE_PAID_REPLAY_THEN_MISMATCH": 10,
+    "EARLY_ZERO_WORK_REJECTION": 6,
+    "PAID_VALID_PREFIX_THEN_INPUT_REJECTION": 1
+  },
+  "cost_categories": {
+    "production": {
+      "receipts": 9,
+      "sum": {
+        "typed_operations": 12452,
+        "adder_digit_replays": 120943,
+        "host_bit_wiring_operations": 1288054,
+        "host_bit_length_calls_in_arithmetic": 37646,
+        "signed_operations": 12198,
+        "moment_nodes": 27,
+        "moment_requests": 27,
+        "cache_hits": 0
+      },
+      "max": {
+        "max_recursion_depth": 5,
+        "max_observed_integer_bits": 21
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "typed_finite_sums": {
+      "receipts": 9,
+      "sum": {
+        "typed_operations": 2480,
+        "adder_digit_replays": 19294,
+        "host_bit_wiring_operations": 203158,
+        "host_bit_length_calls_in_arithmetic": 6636,
+        "signed_operations": 2420,
+        "moment_nodes": 0,
+        "moment_requests": 0,
+        "cache_hits": 0
+      },
+      "max": {
+        "max_recursion_depth": 0,
+        "max_observed_integer_bits": 19
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "positive_replay": {
+      "receipts": 9,
+      "sum": {
+        "typed_operations": 12452,
+        "adder_digit_replays": 120943,
+        "host_bit_wiring_operations": 1288054,
+        "host_bit_length_calls_in_arithmetic": 37646,
+        "signed_operations": 12198,
+        "moment_nodes": 27,
+        "moment_requests": 27,
+        "cache_hits": 0
+      },
+      "max": {
+        "max_recursion_depth": 5,
+        "max_observed_integer_bits": 21
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "cache_control": {
+      "receipts": 1,
+      "sum": {
+        "typed_operations": 1309,
+        "adder_digit_replays": 10311,
+        "host_bit_wiring_operations": 109989,
+        "host_bit_length_calls_in_arithmetic": 3880,
+        "signed_operations": 1297,
+        "moment_nodes": 3,
+        "moment_requests": 4,
+        "cache_hits": 1
+      },
+      "max": {
+        "max_recursion_depth": 2,
+        "max_observed_integer_bits": 15
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "cache_control_replay": {
+      "receipts": 1,
+      "sum": {
+        "typed_operations": 1309,
+        "adder_digit_replays": 10311,
+        "host_bit_wiring_operations": 109989,
+        "host_bit_length_calls_in_arithmetic": 3880,
+        "signed_operations": 1297,
+        "moment_nodes": 3,
+        "moment_requests": 4,
+        "cache_hits": 1
+      },
+      "max": {
+        "max_recursion_depth": 2,
+        "max_observed_integer_bits": 15
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "negative_replay": {
+      "receipts": 11,
+      "sum": {
+        "typed_operations": 28855,
+        "adder_digit_replays": 260494,
+        "host_bit_wiring_operations": 2777548,
+        "host_bit_length_calls_in_arithmetic": 86524,
+        "signed_operations": 28399,
+        "moment_nodes": 53,
+        "moment_requests": 53,
+        "cache_hits": 0
+      },
+      "max": {
+        "max_recursion_depth": 5,
+        "max_observed_integer_bits": 21
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    }
+  },
+  "native_calls_by_category": {
+    "production": 1,
+    "typed_finite_sums": 0,
+    "positive_replay": 0,
+    "cache_control": 0,
+    "cache_control_replay": 0,
+    "input_rejection": 0,
+    "negative_replay": 0
+  },
+  "actual_core_call_count": 1,
+  "per_case": [
+    {
+      "inputs": {
+        "n": 0,
+        "m": 5,
+        "a": 3,
+        "b": 1
+      },
+      "production": {
+        "arithmetic_stats": {
+          "typed_operations": 0,
+          "adder_digit_replays": 0,
+          "host_bit_wiring_operations": 0,
+          "host_bit_length_calls_in_arithmetic": 0,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 0,
+        "signed_operations": 0,
+        "moment_nodes": 1,
+        "moment_stats": {
+          "moment_requests": 1,
+          "cache_hits": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        }
+      },
+      "typed_finite_sums": {
+        "arithmetic_stats": {
+          "typed_operations": 0,
+          "adder_digit_replays": 0,
+          "host_bit_wiring_operations": 0,
+          "host_bit_length_calls_in_arithmetic": 0,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 0,
+        "signed_operations": 0,
+        "moment_nodes": 0,
+        "moment_stats": {
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        }
+      }
+    },
+    {
+      "inputs": {
+        "n": 1,
+        "m": 7,
+        "a": -3,
+        "b": -2
+      },
+      "production": {
+        "arithmetic_stats": {
+          "typed_operations": 969,
+          "adder_digit_replays": 2592,
+          "host_bit_wiring_operations": 28410,
+          "host_bit_length_calls_in_arithmetic": 2728,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 969,
+        "signed_operations": 950,
+        "moment_nodes": 2,
+        "moment_stats": {
+          "moment_requests": 2,
+          "cache_hits": 0,
+          "max_recursion_depth": 1,
+          "max_observed_integer_bits": 5
+        }
+      },
+      "typed_finite_sums": {
+        "arithmetic_stats": {
+          "typed_operations": 61,
+          "adder_digit_replays": 135,
+          "host_bit_wiring_operations": 1473,
+          "host_bit_length_calls_in_arithmetic": 157,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 61,
+        "signed_operations": 55,
+        "moment_nodes": 0,
+        "moment_stats": {
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 3
+        }
+      }
+    },
+    {
+      "inputs": {
+        "n": 4,
+        "m": 5,
+        "a": 0,
+        "b": 3
+      },
+      "production": {
+        "arithmetic_stats": {
+          "typed_operations": 47,
+          "adder_digit_replays": 901,
+          "host_bit_wiring_operations": 9853,
+          "host_bit_length_calls_in_arithmetic": 204,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 47,
+        "signed_operations": 47,
+        "moment_nodes": 1,
+        "moment_stats": {
+          "moment_requests": 1,
+          "cache_hits": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 14
+        }
+      },
+      "typed_finite_sums": {
+        "arithmetic_stats": {
+          "typed_operations": 220,
+          "adder_digit_replays": 461,
+          "host_bit_wiring_operations": 4844,
+          "host_bit_length_calls_in_arithmetic": 580,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 220,
+        "signed_operations": 220,
+        "moment_nodes": 0,
+        "moment_stats": {
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 9
+        }
+      }
+    },
+    {
+      "inputs": {
+        "n": 5,
+        "m": 7,
+        "a": 2,
+        "b": 1
+      },
+      "production": {
+        "arithmetic_stats": {
+          "typed_operations": 1309,
+          "adder_digit_replays": 10311,
+          "host_bit_wiring_operations": 109989,
+          "host_bit_length_calls_in_arithmetic": 3880,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 1309,
+        "signed_operations": 1297,
+        "moment_nodes": 3,
+        "moment_stats": {
+          "moment_requests": 3,
+          "cache_hits": 0,
+          "max_recursion_depth": 2,
+          "max_observed_integer_bits": 15
+        }
+      },
+      "typed_finite_sums": {
+        "arithmetic_stats": {
+          "typed_operations": 275,
+          "adder_digit_replays": 892,
+          "host_bit_wiring_operations": 9391,
+          "host_bit_length_calls_in_arithmetic": 731,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 275,
+        "signed_operations": 275,
+        "moment_nodes": 0,
+        "moment_stats": {
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 11
+        }
+      }
+    },
+    {
+      "inputs": {
+        "n": 6,
+        "m": 5,
+        "a": 13,
+        "b": -4
+      },
+      "production": {
+        "arithmetic_stats": {
+          "typed_operations": 3502,
+          "adder_digit_replays": 31571,
+          "host_bit_wiring_operations": 336773,
+          "host_bit_length_calls_in_arithmetic": 10472,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 3502,
+        "signed_operations": 3442,
+        "moment_nodes": 6,
+        "moment_stats": {
+          "moment_requests": 6,
+          "cache_hits": 0,
+          "max_recursion_depth": 5,
+          "max_observed_integer_bits": 19
+        }
+      },
+      "typed_finite_sums": {
+        "arithmetic_stats": {
+          "typed_operations": 336,
+          "adder_digit_replays": 4285,
+          "host_bit_wiring_operations": 45136,
+          "host_bit_length_calls_in_arithmetic": 918,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 336,
+        "signed_operations": 330,
+        "moment_nodes": 0,
+        "moment_stats": {
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 19
+        }
+      }
+    },
+    {
+      "inputs": {
+        "n": 7,
+        "m": 4,
+        "a": -3,
+        "b": 9
+      },
+      "production": {
+        "arithmetic_stats": {
+          "typed_operations": 2265,
+          "adder_digit_replays": 23774,
+          "host_bit_wiring_operations": 252542,
+          "host_bit_length_calls_in_arithmetic": 6744,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 2265,
+        "signed_operations": 2192,
+        "moment_nodes": 4,
+        "moment_stats": {
+          "moment_requests": 4,
+          "cache_hits": 0,
+          "max_recursion_depth": 3,
+          "max_observed_integer_bits": 18
+        }
+      },
+      "typed_finite_sums": {
+        "arithmetic_stats": {
+          "typed_operations": 402,
+          "adder_digit_replays": 2486,
+          "host_bit_wiring_operations": 26204,
+          "host_bit_length_calls_in_arithmetic": 1057,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 402,
+        "signed_operations": 385,
+        "moment_nodes": 0,
+        "moment_stats": {
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 14
+        }
+      }
+    },
+    {
+      "inputs": {
+        "n": 8,
+        "m": 9,
+        "a": 7,
+        "b": -11
+      },
+      "production": {
+        "arithmetic_stats": {
+          "typed_operations": 2968,
+          "adder_digit_replays": 35394,
+          "host_bit_wiring_operations": 376161,
+          "host_bit_length_calls_in_arithmetic": 9278,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 2968,
+        "signed_operations": 2910,
+        "moment_nodes": 6,
+        "moment_stats": {
+          "moment_requests": 6,
+          "cache_hits": 0,
+          "max_recursion_depth": 5,
+          "max_observed_integer_bits": 20
+        }
+      },
+      "typed_finite_sums": {
+        "arithmetic_stats": {
+          "typed_operations": 464,
+          "adder_digit_replays": 3490,
+          "host_bit_wiring_operations": 36904,
+          "host_bit_length_calls_in_arithmetic": 1244,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 464,
+        "signed_operations": 440,
+        "moment_nodes": 0,
+        "moment_stats": {
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 15
+        }
+      }
+    },
+    {
+      "inputs": {
+        "n": 9,
+        "m": 7,
+        "a": 0,
+        "b": 21
+      },
+      "production": {
+        "arithmetic_stats": {
+          "typed_operations": 414,
+          "adder_digit_replays": 7329,
+          "host_bit_wiring_operations": 77283,
+          "host_bit_length_calls_in_arithmetic": 1432,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 414,
+        "signed_operations": 414,
+        "moment_nodes": 2,
+        "moment_stats": {
+          "moment_requests": 2,
+          "cache_hits": 0,
+          "max_recursion_depth": 1,
+          "max_observed_integer_bits": 21
+        }
+      },
+      "typed_finite_sums": {
+        "arithmetic_stats": {
+          "typed_operations": 495,
+          "adder_digit_replays": 6081,
+          "host_bit_wiring_operations": 63726,
+          "host_bit_length_calls_in_arithmetic": 1359,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 495,
+        "signed_operations": 495,
+        "moment_nodes": 0,
+        "moment_stats": {
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 16
+        }
+      }
+    },
+    {
+      "inputs": {
+        "n": 4,
+        "m": 1,
+        "a": -2,
+        "b": 3
+      },
+      "production": {
+        "arithmetic_stats": {
+          "typed_operations": 978,
+          "adder_digit_replays": 9071,
+          "host_bit_wiring_operations": 97043,
+          "host_bit_length_calls_in_arithmetic": 2908,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 978,
+        "signed_operations": 946,
+        "moment_nodes": 2,
+        "moment_stats": {
+          "moment_requests": 2,
+          "cache_hits": 0,
+          "max_recursion_depth": 1,
+          "max_observed_integer_bits": 15
+        }
+      },
+      "typed_finite_sums": {
+        "arithmetic_stats": {
+          "typed_operations": 227,
+          "adder_digit_replays": 1464,
+          "host_bit_wiring_operations": 15480,
+          "host_bit_length_calls_in_arithmetic": 590,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 227,
+        "signed_operations": 220,
+        "moment_nodes": 0,
+        "moment_stats": {
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 9
+        }
+      }
+    }
+  ],
+  "payload_sha256": "da675f8e04929116dac64552775f85ad75d39c71a03f78aad7c45d571fdf267e",
+  "artifact_sha256": "b044570bb55e81ea0ff1fe73ef35af6fa7438281c2d6dac87c1c31f3ee251c9f",
+  "raw_bytes": 88217988,
+  "gzip_bytes": 3468068,
+  "elapsed_seconds_before_serialization": 39.74659779993817,
+  "comparison_is_timing_benchmark": false,
+  "full_shor_sampling_performed": false
+}

@@ -1,0 +1,398 @@
+{
+  "status": "PASS_COMPLETE_SAVED_RECORD_REVIEW",
+  "scientific_execution_performed": false,
+  "reader_sha256": "62272ef87798e37a24fd2c1bef1fabab912700954a08904eb14943c2c0b7d5d1",
+  "helper_sha256": "a96696eb187d6c6251934f9b1651f5abc1b8d2db5a5357ea051960b8e4489f5a",
+  "source_sha256": {
+    "DESIGN.md": "f5b85d9c7e2836259910ee9f25d16766a9a820521326c65693ff002480030cb2",
+    "adjacent_shift.py": "bee8a702062dfb16a75139a63b6c52b9451a02834a5b3033f5d52fcaebff9c6e",
+    "check_adjacent_shift.py": "6a7969e779800652a6143354bcbe732b670cb90128781e2f1243db91d1e6a9fe"
+  },
+  "source_dependencies": {
+    "source_sha256": {
+      "path": "D:\\em\\TEMP\\sep27-qft-two-bit-adjacent-shift\\adjacent_shift.py",
+      "sha256": "bee8a702062dfb16a75139a63b6c52b9451a02834a5b3033f5d52fcaebff9c6e"
+    },
+    "adjacent_proof_sha256": {
+      "path": "D:\\em\\TEMP\\sep27-qft-two-bit-adjacent-shift\\ADJACENT_SHIFT_REDUCTION.md",
+      "sha256": "96757c3624c69bf3ec1e313504f56bb6099d1a79e47032813084b19340c272ad"
+    },
+    "direct_source_sha256": {
+      "path": "D:\\em\\TEMP\\sep27-qft-gap-direct\\direct_gap\\direct_signed_gap.py",
+      "sha256": "3ab2515c1b9df35d01c9605f21d8f8fe56bd044effe489063192c0a5c56a8521"
+    },
+    "direct_proof_sha256": {
+      "path": "D:\\em\\TEMP\\sep27-qft-gap-direct\\DIFFERENCE_AUTOCORRELATION.md",
+      "sha256": "c0c3765fce7d07f383f1ebfcb514dd8483485944bfeb202d024dd21e69205cbf"
+    },
+    "baseline_helper_source_sha256": {
+      "path": "D:\\em\\TEMP\\sep27-qft-signedgap\\signed_gap\\signed_gap.py",
+      "sha256": "86ea28956fa7ac9c41fb38a8c63f4ba00b0377f3264b5a525c46c5335faff90a"
+    },
+    "floor_moment_source_sha256": {
+      "path": "D:\\em\\TEMP\\sep27-qft-adaptive\\nonzero_structure\\typed_floor_moments.py",
+      "sha256": "633502c9b484e60e5dc5fcf6edd0420f12d52c33c43e88851b9e1e6465ea94a2"
+    }
+  },
+  "raw_bytes": 114912852,
+  "gzip_bytes": 3547684,
+  "payload_sha256": "a084a16fa26a9a2143729620ba3f2fdc1331579ae16087a5f3ddcce199a96d82",
+  "artifact_sha256": "385295e9a5581ce762761f24d0d5c25e32f9bc06d645f32fbaecbdffd75b8294",
+  "summary_sha256": "3a1916867fd120acf99704e96b26e97ac051c8fa72931476b9b150ef50be743d",
+  "log_sha256": "a11628b06f556e9f1c44c7e17fadbb295295aabe9068c26234e65662ea4e31c3",
+  "startup_guard_sha256": "6f718b837610e417935e468381b0da97d38203d551b04505e8264e71d8cf2c4f",
+  "cases": [
+    {
+      "inputs": {
+        "R": 5,
+        "ell": 0,
+        "g": 3,
+        "k": 1
+      },
+      "values": [
+        6,
+        1,
+        -4,
+        -4,
+        1
+      ],
+      "typed_pairs": 64,
+      "production_digits": 12622,
+      "comparator_digits": 2533
+    },
+    {
+      "inputs": {
+        "R": 5,
+        "ell": 0,
+        "g": 4,
+        "k": 1
+      },
+      "values": [
+        4,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "typed_pairs": 256,
+      "production_digits": 24490,
+      "comparator_digits": 12263
+    },
+    {
+      "inputs": {
+        "R": 6,
+        "ell": 1,
+        "g": 4,
+        "k": 2
+      },
+      "values": [
+        12,
+        3,
+        -6,
+        -6,
+        -6,
+        3
+      ],
+      "typed_pairs": 256,
+      "production_digits": 26651,
+      "comparator_digits": 12552
+    },
+    {
+      "inputs": {
+        "R": 9,
+        "ell": 1,
+        "g": 4,
+        "k": 2
+      },
+      "values": [
+        22,
+        13,
+        0,
+        -8,
+        -16,
+        -16,
+        -8,
+        0,
+        13
+      ],
+      "typed_pairs": 256,
+      "production_digits": 25862,
+      "comparator_digits": 14056
+    },
+    {
+      "inputs": {
+        "R": 11,
+        "ell": 0,
+        "g": 3,
+        "k": 1
+      },
+      "values": [
+        8,
+        -1,
+        -6,
+        1,
+        5,
+        -3,
+        -3,
+        5,
+        1,
+        -6,
+        -1
+      ],
+      "typed_pairs": 64,
+      "production_digits": 13898,
+      "comparator_digits": 2844
+    },
+    {
+      "inputs": {
+        "R": 1,
+        "ell": 0,
+        "g": 4,
+        "k": 1
+      },
+      "values": [
+        0
+      ],
+      "typed_pairs": 256,
+      "production_digits": 23427,
+      "comparator_digits": 8452
+    }
+  ],
+  "moment_tables": 268,
+  "empty_orientations": 7,
+  "typed_pairs": 1152,
+  "negative_controls": [
+    {
+      "name": "base_coefficient",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "adjacent replay mismatch",
+      "digits": 12622
+    },
+    {
+      "name": "correction_coefficient",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "adjacent replay mismatch",
+      "digits": 12622
+    },
+    {
+      "name": "correction_offset",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "adjacent replay mismatch",
+      "digits": 12622
+    },
+    {
+      "name": "correction_table_output",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "adjacent replay mismatch",
+      "digits": 12622
+    },
+    {
+      "name": "correction_term",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "adjacent replay mismatch",
+      "digits": 12622
+    },
+    {
+      "name": "reused_displacement_sum",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "adjacent replay mismatch",
+      "digits": 12622
+    },
+    {
+      "name": "drop_half_modulus_orientation",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "adjacent replay mismatch",
+      "digits": 26651
+    },
+    {
+      "name": "raw_exponent",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "adjacent replay mismatch",
+      "digits": 12622
+    },
+    {
+      "name": "signed_output",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "adjacent replay mismatch",
+      "digits": 12622
+    },
+    {
+      "name": "valid_prefix_then_invalid_nonadjacent",
+      "kind": "PAID_VALID_PREFIX_THEN_INPUT_REJECTION",
+      "error": "adjacent selected bits 0<=ell,k=ell+1<g required",
+      "digits": 5925
+    },
+    {
+      "name": "source_early",
+      "kind": "EARLY_ZERO_WORK_REJECTION",
+      "error": "adjacent dependency pin mismatch",
+      "digits": 0
+    },
+    {
+      "name": "schema_early",
+      "kind": "EARLY_ZERO_WORK_REJECTION",
+      "error": "wrong adjacent schema",
+      "digits": 0
+    },
+    {
+      "name": "bool_input_early",
+      "kind": "EARLY_ZERO_WORK_REJECTION",
+      "error": "strict integer inputs required",
+      "digits": 0
+    },
+    {
+      "name": "nonstring_key_early",
+      "kind": "EARLY_ZERO_WORK_REJECTION",
+      "error": "JSON object keys must be strings",
+      "digits": 0
+    }
+  ],
+  "cost_categories": {
+    "production": {
+      "receipts": 6,
+      "sum": {
+        "adder_digit_replays": 126950,
+        "typed_operations": 26658,
+        "host_bit_wiring_operations": 1367222,
+        "host_bit_length_calls_in_arithmetic": 75593,
+        "signed_operations": 26181,
+        "moment_nodes": 162,
+        "window_queries": 0,
+        "moment_requests": 384,
+        "cache_hits": 222
+      },
+      "max": {
+        "max_recursion_depth": 3,
+        "max_observed_integer_bits": 14
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "typed_pair_comparator": {
+      "receipts": 6,
+      "sum": {
+        "adder_digit_replays": 52700,
+        "typed_operations": 5380,
+        "host_bit_wiring_operations": 569492,
+        "host_bit_length_calls_in_arithmetic": 16840,
+        "signed_operations": 3968,
+        "moment_nodes": 0,
+        "window_queries": 0,
+        "moment_requests": 0,
+        "cache_hits": 0
+      },
+      "max": {
+        "max_recursion_depth": 0,
+        "max_observed_integer_bits": 5
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "positive_replay": {
+      "receipts": 6,
+      "sum": {
+        "adder_digit_replays": 126950,
+        "typed_operations": 26658,
+        "host_bit_wiring_operations": 1367222,
+        "host_bit_length_calls_in_arithmetic": 75593,
+        "signed_operations": 26181,
+        "moment_nodes": 162,
+        "window_queries": 0,
+        "moment_requests": 384,
+        "cache_hits": 222
+      },
+      "max": {
+        "max_recursion_depth": 3,
+        "max_observed_integer_bits": 14
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "negative_replay": {
+      "receipts": 10,
+      "sum": {
+        "adder_digit_replays": 133552,
+        "typed_operations": 38581,
+        "host_bit_wiring_operations": 1445731,
+        "host_bit_length_calls_in_arithmetic": 107308,
+        "signed_operations": 37917,
+        "moment_nodes": 239,
+        "window_queries": 0,
+        "moment_requests": 531,
+        "cache_hits": 292
+      },
+      "max": {
+        "max_recursion_depth": 3,
+        "max_observed_integer_bits": 8
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    }
+  },
+  "all_charged_streams": 28,
+  "total_adder_digits": 440152,
+  "native_source": {
+    "arithmetic_route": "actual full-adder columns; digit transducer composition",
+    "files_sha256": {
+      "lazy_modular": "08df3595a2a56dc2501bb481828093481bf76e4ac53c8b966990d233fefac1e4",
+      "sparse_modular": "fd9cbb019418a3c00890ba6e8cca5760e7e4d792bfd7b48306a71a66de301c46",
+      "typed_integer_prechecks": "0a817aa8124cceb5440233d543073dae71de6ac1d0d4e5d50f4ee2b4808d99eb"
+    },
+    "native_adder": {
+      "columns": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "entrypoint": "stage78.shor_benchmark.full_adder_columns",
+      "input_columns": 8,
+      "observer": "retained input triple -> (sum bit, carry bit)",
+      "positive_BRC_input_states": 12,
+      "scope": "exact integer label compiler; not a reversible physical erasure",
+      "vendor": {
+        "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+        "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+        "path": "src/enterprise_math/brc_weighted_recurrent.py",
+        "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+      }
+    },
+    "primitive_source": "0852cad130c1d877174d235687cf60c19f318c58",
+    "runtime_state_propagator": "complete positive unit permutation on work labels"
+  },
+  "actual_core_calls": [
+    {
+      "depth": 1,
+      "elapsed_ns": 5971800,
+      "entrypoint": "recurrent_mass_power",
+      "states": 12
+    }
+  ],
+  "failure_artifact_present": false,
+  "scope": "All saved outer formula links, moment-node/cache references, signed-typed links, native cells, 1152 pair updates, full/partial replays and costs; no numerical answer recomputation",
+  "limits": "Shared context, not formal admission; bounded small fixtures, not a matched timing or Shor completion"
+}

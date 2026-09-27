@@ -1,0 +1,354 @@
+{
+  "status": "PASS",
+  "review_scope": "Independent shared-context stdlib saved-record review; no science import or answer recomputation",
+  "reader_sha256": "e96a59a249519e6c32314b629744d6583dac5c7c1d2f276ffc630eb336a2279a",
+  "helper_source_sha256": "a96696eb187d6c6251934f9b1651f5abc1b8d2db5a5357ea051960b8e4489f5a",
+  "source_bindings": {
+    "DEGREE_FIVE_RECIPROCITY.md": "1453444f21c113c0d1819328b731031d0fe296e25756caac7e94d9cf628047b6",
+    "DESIGN.md": "f6eb1b1e7b7dece0956e2ead166fbb9e901be3f5c9a44a1b367d1130206b7c22",
+    "base_arithmetic": "633502c9b484e60e5dc5fcf6edd0420f12d52c33c43e88851b9e1e6465ea94a2",
+    "check_degree_five.py": "975b574b85a3531da4443bf9f70cd4644ccc4ceadec81359506a2d00da3b1223",
+    "lazy_modular": "08df3595a2a56dc2501bb481828093481bf76e4ac53c8b966990d233fefac1e4",
+    "sparse_modular": "fd9cbb019418a3c00890ba6e8cca5760e7e4d792bfd7b48306a71a66de301c46",
+    "typed_floor_degree_five.py": "755fcaf04832a5328e2464214f736ac661c410b3505edf10ab5218f935e2a7c7",
+    "typed_integer_prechecks": "0a817aa8124cceb5440233d543073dae71de6ac1d0d4e5d50f4ee2b4808d99eb"
+  },
+  "payload_sha256": "da675f8e04929116dac64552775f85ad75d39c71a03f78aad7c45d571fdf267e",
+  "artifact_sha256": "b044570bb55e81ea0ff1fe73ef35af6fa7438281c2d6dac87c1c31f3ee251c9f",
+  "raw_bytes": 88217988,
+  "gzip_bytes": 3468068,
+  "summary_sha256": "5a78833a6f1a0d4805ca7285c95104b3a2edbd1cbc6407c2c3d0f01fd5e501eb",
+  "startup_guard_sha256": "6f718b837610e417935e468381b0da97d38203d551b04505e8264e71d8cf2c4f",
+  "reviewed_streams": 40,
+  "cost_categories": {
+    "production": {
+      "receipts": 9,
+      "sum": {
+        "typed_operations": 12452,
+        "adder_digit_replays": 120943,
+        "host_bit_wiring_operations": 1288054,
+        "host_bit_length_calls_in_arithmetic": 37646,
+        "signed_operations": 12198,
+        "moment_nodes": 27,
+        "moment_requests": 27,
+        "cache_hits": 0
+      },
+      "max": {
+        "max_recursion_depth": 5,
+        "max_observed_integer_bits": 21
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "typed_finite_sums": {
+      "receipts": 9,
+      "sum": {
+        "typed_operations": 2480,
+        "adder_digit_replays": 19294,
+        "host_bit_wiring_operations": 203158,
+        "host_bit_length_calls_in_arithmetic": 6636,
+        "signed_operations": 2420,
+        "moment_nodes": 0,
+        "moment_requests": 0,
+        "cache_hits": 0
+      },
+      "max": {
+        "max_recursion_depth": 0,
+        "max_observed_integer_bits": 19
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "positive_replay": {
+      "receipts": 9,
+      "sum": {
+        "typed_operations": 12452,
+        "adder_digit_replays": 120943,
+        "host_bit_wiring_operations": 1288054,
+        "host_bit_length_calls_in_arithmetic": 37646,
+        "signed_operations": 12198,
+        "moment_nodes": 27,
+        "moment_requests": 27,
+        "cache_hits": 0
+      },
+      "max": {
+        "max_recursion_depth": 5,
+        "max_observed_integer_bits": 21
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "cache_control": {
+      "receipts": 1,
+      "sum": {
+        "typed_operations": 1309,
+        "adder_digit_replays": 10311,
+        "host_bit_wiring_operations": 109989,
+        "host_bit_length_calls_in_arithmetic": 3880,
+        "signed_operations": 1297,
+        "moment_nodes": 3,
+        "moment_requests": 4,
+        "cache_hits": 1
+      },
+      "max": {
+        "max_recursion_depth": 2,
+        "max_observed_integer_bits": 15
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "cache_control_replay": {
+      "receipts": 1,
+      "sum": {
+        "typed_operations": 1309,
+        "adder_digit_replays": 10311,
+        "host_bit_wiring_operations": 109989,
+        "host_bit_length_calls_in_arithmetic": 3880,
+        "signed_operations": 1297,
+        "moment_nodes": 3,
+        "moment_requests": 4,
+        "cache_hits": 1
+      },
+      "max": {
+        "max_recursion_depth": 2,
+        "max_observed_integer_bits": 15
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "negative_replay": {
+      "receipts": 11,
+      "sum": {
+        "typed_operations": 28855,
+        "adder_digit_replays": 260494,
+        "host_bit_wiring_operations": 2777548,
+        "host_bit_length_calls_in_arithmetic": 86524,
+        "signed_operations": 28399,
+        "moment_nodes": 53,
+        "moment_requests": 53,
+        "cache_hits": 0
+      },
+      "max": {
+        "max_recursion_depth": 5,
+        "max_observed_integer_bits": 21
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    }
+  },
+  "total_digits": 542296,
+  "total_signed_operations": 57809,
+  "total_typed_operations": 58857,
+  "total_moment_nodes": 113,
+  "complete_node_reconstructions_checked": true,
+  "all_signed_to_typed_links_checked": true,
+  "all_retained_adder_cells_checked_against_native_columns": true,
+  "all_costs_independently_recounted": true,
+  "finite_samples": 44,
+  "finite_bucket_terms": 924,
+  "moment_equalities": 189,
+  "production_branch_counts": {
+    "empty": 1,
+    "normalized_zero_height": 4,
+    "normalize_signed_coefficients": 12,
+    "normalized_constant_zero": 4,
+    "transpose_lattice": 6
+  },
+  "per_case": [
+    {
+      "inputs": {
+        "n": 0,
+        "m": 5,
+        "a": 3,
+        "b": 1
+      },
+      "production_digits": 0,
+      "finite_sum_digits": 0
+    },
+    {
+      "inputs": {
+        "n": 1,
+        "m": 7,
+        "a": -3,
+        "b": -2
+      },
+      "production_digits": 2592,
+      "finite_sum_digits": 135
+    },
+    {
+      "inputs": {
+        "n": 4,
+        "m": 5,
+        "a": 0,
+        "b": 3
+      },
+      "production_digits": 901,
+      "finite_sum_digits": 461
+    },
+    {
+      "inputs": {
+        "n": 5,
+        "m": 7,
+        "a": 2,
+        "b": 1
+      },
+      "production_digits": 10311,
+      "finite_sum_digits": 892
+    },
+    {
+      "inputs": {
+        "n": 6,
+        "m": 5,
+        "a": 13,
+        "b": -4
+      },
+      "production_digits": 31571,
+      "finite_sum_digits": 4285
+    },
+    {
+      "inputs": {
+        "n": 7,
+        "m": 4,
+        "a": -3,
+        "b": 9
+      },
+      "production_digits": 23774,
+      "finite_sum_digits": 2486
+    },
+    {
+      "inputs": {
+        "n": 8,
+        "m": 9,
+        "a": 7,
+        "b": -11
+      },
+      "production_digits": 35394,
+      "finite_sum_digits": 3490
+    },
+    {
+      "inputs": {
+        "n": 9,
+        "m": 7,
+        "a": 0,
+        "b": 21
+      },
+      "production_digits": 7329,
+      "finite_sum_digits": 6081
+    },
+    {
+      "inputs": {
+        "n": 4,
+        "m": 1,
+        "a": -2,
+        "b": 3
+      },
+      "production_digits": 9071,
+      "finite_sum_digits": 1464
+    }
+  ],
+  "negative_checks": [
+    {
+      "name": "output_degree_five",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "paid_streams": 1
+    },
+    {
+      "name": "input_valid_changed",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "paid_streams": 1
+    },
+    {
+      "name": "node_output",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "paid_streams": 1
+    },
+    {
+      "name": "normalization",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "paid_streams": 1
+    },
+    {
+      "name": "transpose_child",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "paid_streams": 1
+    },
+    {
+      "name": "exact_numerator",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "paid_streams": 1
+    },
+    {
+      "name": "omitted_zero_coefficient",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "paid_streams": 1
+    },
+    {
+      "name": "signed_trace",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "paid_streams": 1
+    },
+    {
+      "name": "native_source",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "paid_streams": 1
+    },
+    {
+      "name": "paid_cost",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "paid_streams": 1
+    },
+    {
+      "name": "valid_prefix_then_invalid",
+      "kind": "PAID_VALID_PREFIX_THEN_INPUT_REJECTION",
+      "paid_streams": 1
+    },
+    {
+      "name": "source_early",
+      "kind": "EARLY_ZERO_WORK_REJECTION",
+      "paid_streams": 0
+    },
+    {
+      "name": "proof_early",
+      "kind": "EARLY_ZERO_WORK_REJECTION",
+      "paid_streams": 0
+    },
+    {
+      "name": "schema_early",
+      "kind": "EARLY_ZERO_WORK_REJECTION",
+      "paid_streams": 0
+    },
+    {
+      "name": "bool_input_early",
+      "kind": "EARLY_ZERO_WORK_REJECTION",
+      "paid_streams": 0
+    },
+    {
+      "name": "nonstring_key_early",
+      "kind": "EARLY_ZERO_WORK_REJECTION",
+      "paid_streams": 0
+    },
+    {
+      "name": "bool_runtime_counter_early",
+      "kind": "EARLY_ZERO_WORK_REJECTION",
+      "paid_streams": 0
+    }
+  ],
+  "input_rejections": 10,
+  "cache_and_boundary_controls_checked": true,
+  "global_native_calls": [
+    {
+      "depth": 1,
+      "elapsed_ns": 5784200,
+      "entrypoint": "recurrent_mass_power",
+      "states": 12
+    }
+  ],
+  "native_calls_by_category": {
+    "production": 1,
+    "typed_finite_sums": 0,
+    "positive_replay": 0,
+    "cache_control": 0,
+    "cache_control_replay": 0,
+    "input_rejection": 0,
+    "negative_replay": 0
+  },
+  "production_exceeds_brute": true,
+  "elapsed_not_benchmark": 39.74659779993817,
+  "failure_artifact_present": false,
+  "formal_admission": false,
+  "scientific_execution_performed_by_this_reader": false
+}

@@ -1,0 +1,111 @@
+{
+  "status": "PASS_METADATA_ONLY",
+  "scientific_execution": false,
+  "scientific_answers_recomputed": false,
+  "source_sha256": "bee8a702062dfb16a75139a63b6c52b9451a02834a5b3033f5d52fcaebff9c6e",
+  "raw_sha256": "a084a16fa26a9a2143729620ba3f2fdc1331579ae16087a5f3ddcce199a96d82",
+  "gzip_sha256": "385295e9a5581ce762761f24d0d5c25e32f9bc06d645f32fbaecbdffd75b8294",
+  "cost_readback_sha256": "f8b4e67fdaa4d300680a38b0a02d6babc76b1a686f65c75d01d1c8fa0f34bd2c",
+  "reader_sha256": "caebd51447502e89dc40737dbde0d2414b0e409054def2ef7ce94f74acfd32f6",
+  "cases": [
+    {
+      "inputs": {
+        "R": 5,
+        "ell": 0,
+        "g": 3,
+        "k": 1
+      },
+      "saved_length_classes": {
+        "multiple": 5,
+        "singleton": 5
+      },
+      "whole_query_balanced_route": false,
+      "old_top_level_table_calls": 40,
+      "proposed_top_level_table_calls": 20
+    },
+    {
+      "inputs": {
+        "R": 5,
+        "ell": 0,
+        "g": 4,
+        "k": 1
+      },
+      "saved_length_classes": {
+        "multiple": 10
+      },
+      "whole_query_balanced_route": false,
+      "old_top_level_table_calls": 40,
+      "proposed_top_level_table_calls": 40
+    },
+    {
+      "inputs": {
+        "R": 6,
+        "ell": 1,
+        "g": 4,
+        "k": 2
+      },
+      "saved_length_classes": {
+        "multiple": 12
+      },
+      "whole_query_balanced_route": false,
+      "old_top_level_table_calls": 48,
+      "proposed_top_level_table_calls": 48
+    },
+    {
+      "inputs": {
+        "R": 9,
+        "ell": 1,
+        "g": 4,
+        "k": 2
+      },
+      "saved_length_classes": {
+        "multiple": 13,
+        "singleton": 5
+      },
+      "whole_query_balanced_route": false,
+      "old_top_level_table_calls": 72,
+      "proposed_top_level_table_calls": 52
+    },
+    {
+      "inputs": {
+        "R": 11,
+        "ell": 0,
+        "g": 3,
+        "k": 1
+      },
+      "saved_length_classes": {
+        "singleton": 15,
+        "empty": 7
+      },
+      "whole_query_balanced_route": false,
+      "old_top_level_table_calls": 60,
+      "proposed_top_level_table_calls": 0
+    },
+    {
+      "inputs": {
+        "R": 1,
+        "ell": 0,
+        "g": 4,
+        "k": 1
+      },
+      "saved_length_classes": {
+        "multiple": 2
+      },
+      "whole_query_balanced_route": true,
+      "old_top_level_table_calls": 8,
+      "proposed_top_level_table_calls": 0
+    }
+  ],
+  "saved_length_classes": {
+    "multiple": 42,
+    "singleton": 25,
+    "empty": 7
+  },
+  "old_requests": 37,
+  "old_top_level_table_calls": 268,
+  "proposed_top_level_table_calls": 160,
+  "observer_layout": "one fresh observer per historical tuple, unchanged",
+  "proposed_scale_setups": 5,
+  "proposed_lazy_coefficient_bundles": 4,
+  "interpretation": "counterfactual route counts from saved lengths; no digit or timing prediction"
+}

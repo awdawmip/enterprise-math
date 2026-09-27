@@ -1,0 +1,804 @@
+{
+  "status": "PASS_FULL_AUTHOR_SAVED_EVIDENCE_READBACK",
+  "scientific_execution_performed": false,
+  "reader_sha256": "bef0ae5a25d3da29677a146e6209039f0aab927abd68a270fe14420d92a3e9bc",
+  "pure_io_helper_sha256": "a96696eb187d6c6251934f9b1651f5abc1b8d2db5a5357ea051960b8e4489f5a",
+  "source_sha256": {
+    "DESIGN.md": "f5b85d9c7e2836259910ee9f25d16766a9a820521326c65693ff002480030cb2",
+    "adjacent_shift.py": "bee8a702062dfb16a75139a63b6c52b9451a02834a5b3033f5d52fcaebff9c6e",
+    "check_adjacent_shift.py": "6a7969e779800652a6143354bcbe732b670cb90128781e2f1243db91d1e6a9fe"
+  },
+  "proof_and_helper_pins": {
+    "source_sha256": {
+      "path": "D:\\em\\TEMP\\sep27-qft-two-bit-adjacent-shift\\adjacent_shift.py",
+      "sha256": "bee8a702062dfb16a75139a63b6c52b9451a02834a5b3033f5d52fcaebff9c6e"
+    },
+    "adjacent_proof_sha256": {
+      "path": "D:\\em\\TEMP\\sep27-qft-two-bit-adjacent-shift\\ADJACENT_SHIFT_REDUCTION.md",
+      "sha256": "96757c3624c69bf3ec1e313504f56bb6099d1a79e47032813084b19340c272ad"
+    },
+    "direct_source_sha256": {
+      "path": "D:\\em\\TEMP\\sep27-qft-gap-direct\\direct_gap\\direct_signed_gap.py",
+      "sha256": "3ab2515c1b9df35d01c9605f21d8f8fe56bd044effe489063192c0a5c56a8521"
+    },
+    "direct_proof_sha256": {
+      "path": "D:\\em\\TEMP\\sep27-qft-gap-direct\\DIFFERENCE_AUTOCORRELATION.md",
+      "sha256": "c0c3765fce7d07f383f1ebfcb514dd8483485944bfeb202d024dd21e69205cbf"
+    },
+    "floor_moment_source_sha256": {
+      "path": "D:\\em\\TEMP\\sep27-qft-adaptive\\nonzero_structure\\typed_floor_moments.py",
+      "sha256": "633502c9b484e60e5dc5fcf6edd0420f12d52c33c43e88851b9e1e6465ea94a2"
+    },
+    "baseline_helper_source_sha256": {
+      "path": "D:\\em\\TEMP\\sep27-qft-signedgap\\signed_gap\\signed_gap.py",
+      "sha256": "86ea28956fa7ac9c41fb38a8c63f4ba00b0377f3264b5a525c46c5335faff90a"
+    },
+    "signed_gap_proof_sha256": {
+      "path": "D:\\em\\TEMP\\sep27-qft-boundary\\gram_structure\\SIGNED_GAPS_REFINEMENT.md",
+      "sha256": "1a84d09ed1fecdf7a42de9c1b1e48da881c820e544214011703c79a688938776"
+    }
+  },
+  "comparator_source": {
+    "copied_function_sha256": "c665b55053b03bb96a0411bd5fab39ae0f7d920ec08b1cf1ee0d62ac0b4f58e7",
+    "exact_source_text_equal": true,
+    "function": "typed_pair_histogram",
+    "helper_source_sha256": {
+      "baseline": "86ea28956fa7ac9c41fb38a8c63f4ba00b0377f3264b5a525c46c5335faff90a",
+      "direct": "3ab2515c1b9df35d01c9605f21d8f8fe56bd044effe489063192c0a5c56a8521",
+      "floor": "633502c9b484e60e5dc5fcf6edd0420f12d52c33c43e88851b9e1e6465ea94a2"
+    },
+    "historical_checker_imported_or_executed": false,
+    "scope": "Comparator algorithm reused on six new tuples; no old experiment rerun",
+    "template_path": "D:\\em\\TEMP\\sep27-qft-two-bit-aligned\\check_aligned_two_bit.py",
+    "template_sha256": "6777057a9468b673c7d58a657467c65ae1c37bd353fd55b9eb86a743efdaa969"
+  },
+  "payload_sha256": "a084a16fa26a9a2143729620ba3f2fdc1331579ae16087a5f3ddcce199a96d82",
+  "artifact_sha256": "385295e9a5581ce762761f24d0d5c25e32f9bc06d645f32fbaecbdffd75b8294",
+  "raw_bytes": 114912852,
+  "gzip_bytes": 3547684,
+  "summary_sha256": "3a1916867fd120acf99704e96b26e97ac051c8fa72931476b9b150ef50be743d",
+  "log_sha256": "a11628b06f556e9f1c44c7e17fadbb295295aabe9068c26234e65662ea4e31c3",
+  "guard_sha256": "6f718b837610e417935e468381b0da97d38203d551b04505e8264e71d8cf2c4f",
+  "case_rows": [
+    {
+      "inputs": {
+        "R": 5,
+        "ell": 0,
+        "g": 3,
+        "k": 1
+      },
+      "values": [
+        6,
+        1,
+        -4,
+        -4,
+        1
+      ],
+      "typed_pairs_read": 64,
+      "production_digits": 12622,
+      "typed_comparator_digits": 2533,
+      "positive_replay_digits": 12622,
+      "structural_counts": {
+        "requests": 5,
+        "orientations": 10,
+        "empty_orientations": 0,
+        "corrections": 10,
+        "top_level_tables": 40
+      },
+      "production_hotspots": {
+        "base_coefficients": {
+          "signed_operations": 75,
+          "typed_operations": 90,
+          "adder_digit_replays": 740
+        },
+        "base_moment_tables": {
+          "signed_operations": 1308,
+          "typed_operations": 1308,
+          "adder_digit_replays": 2871
+        },
+        "base_outer": {
+          "signed_operations": 520,
+          "typed_operations": 540,
+          "adder_digit_replays": 3209
+        },
+        "correction_coefficients": {
+          "signed_operations": 15,
+          "typed_operations": 15,
+          "adder_digit_replays": 60
+        },
+        "correction_moment_tables": {
+          "signed_operations": 1568,
+          "typed_operations": 1569,
+          "adder_digit_replays": 4082
+        },
+        "correction_outer": {
+          "signed_operations": 190,
+          "typed_operations": 218,
+          "adder_digit_replays": 1418
+        },
+        "routing_and_final": {
+          "signed_operations": 25,
+          "typed_operations": 30,
+          "adder_digit_replays": 182
+        },
+        "scales": {
+          "signed_operations": 20,
+          "typed_operations": 20,
+          "adder_digit_replays": 60
+        }
+      }
+    },
+    {
+      "inputs": {
+        "R": 5,
+        "ell": 0,
+        "g": 4,
+        "k": 1
+      },
+      "values": [
+        4,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "typed_pairs_read": 256,
+      "production_digits": 24490,
+      "typed_comparator_digits": 12263,
+      "positive_replay_digits": 24490,
+      "structural_counts": {
+        "requests": 5,
+        "orientations": 10,
+        "empty_orientations": 0,
+        "corrections": 10,
+        "top_level_tables": 40
+      },
+      "production_hotspots": {
+        "base_coefficients": {
+          "signed_operations": 75,
+          "typed_operations": 90,
+          "adder_digit_replays": 850
+        },
+        "base_moment_tables": {
+          "signed_operations": 1609,
+          "typed_operations": 1610,
+          "adder_digit_replays": 6207
+        },
+        "base_outer": {
+          "signed_operations": 520,
+          "typed_operations": 541,
+          "adder_digit_replays": 6970
+        },
+        "correction_coefficients": {
+          "signed_operations": 15,
+          "typed_operations": 15,
+          "adder_digit_replays": 60
+        },
+        "correction_moment_tables": {
+          "signed_operations": 1847,
+          "typed_operations": 1848,
+          "adder_digit_replays": 7537
+        },
+        "correction_outer": {
+          "signed_operations": 190,
+          "typed_operations": 220,
+          "adder_digit_replays": 2583
+        },
+        "routing_and_final": {
+          "signed_operations": 25,
+          "typed_operations": 27,
+          "adder_digit_replays": 203
+        },
+        "scales": {
+          "signed_operations": 25,
+          "typed_operations": 25,
+          "adder_digit_replays": 80
+        }
+      }
+    },
+    {
+      "inputs": {
+        "R": 6,
+        "ell": 1,
+        "g": 4,
+        "k": 2
+      },
+      "values": [
+        12,
+        3,
+        -6,
+        -6,
+        -6,
+        3
+      ],
+      "typed_pairs_read": 256,
+      "production_digits": 26651,
+      "typed_comparator_digits": 12552,
+      "positive_replay_digits": 26651,
+      "structural_counts": {
+        "requests": 6,
+        "orientations": 12,
+        "empty_orientations": 0,
+        "corrections": 12,
+        "top_level_tables": 48
+      },
+      "production_hotspots": {
+        "base_coefficients": {
+          "signed_operations": 90,
+          "typed_operations": 108,
+          "adder_digit_replays": 924
+        },
+        "base_moment_tables": {
+          "signed_operations": 2146,
+          "typed_operations": 2149,
+          "adder_digit_replays": 7580
+        },
+        "base_outer": {
+          "signed_operations": 624,
+          "typed_operations": 655,
+          "adder_digit_replays": 6101
+        },
+        "correction_coefficients": {
+          "signed_operations": 18,
+          "typed_operations": 18,
+          "adder_digit_replays": 90
+        },
+        "correction_moment_tables": {
+          "signed_operations": 2770,
+          "typed_operations": 2775,
+          "adder_digit_replays": 9038
+        },
+        "correction_outer": {
+          "signed_operations": 228,
+          "typed_operations": 268,
+          "adder_digit_replays": 2612
+        },
+        "routing_and_final": {
+          "signed_operations": 30,
+          "typed_operations": 32,
+          "adder_digit_replays": 204
+        },
+        "scales": {
+          "signed_operations": 30,
+          "typed_operations": 30,
+          "adder_digit_replays": 102
+        }
+      }
+    },
+    {
+      "inputs": {
+        "R": 9,
+        "ell": 1,
+        "g": 4,
+        "k": 2
+      },
+      "values": [
+        22,
+        13,
+        0,
+        -8,
+        -16,
+        -16,
+        -8,
+        0,
+        13
+      ],
+      "typed_pairs_read": 256,
+      "production_digits": 25862,
+      "typed_comparator_digits": 14056,
+      "positive_replay_digits": 25862,
+      "structural_counts": {
+        "requests": 9,
+        "orientations": 18,
+        "empty_orientations": 0,
+        "corrections": 18,
+        "top_level_tables": 72
+      },
+      "production_hotspots": {
+        "base_coefficients": {
+          "signed_operations": 135,
+          "typed_operations": 162,
+          "adder_digit_replays": 1386
+        },
+        "base_moment_tables": {
+          "signed_operations": 2200,
+          "typed_operations": 2200,
+          "adder_digit_replays": 5512
+        },
+        "base_outer": {
+          "signed_operations": 936,
+          "typed_operations": 966,
+          "adder_digit_replays": 7191
+        },
+        "correction_coefficients": {
+          "signed_operations": 27,
+          "typed_operations": 27,
+          "adder_digit_replays": 135
+        },
+        "correction_moment_tables": {
+          "signed_operations": 2876,
+          "typed_operations": 2877,
+          "adder_digit_replays": 7928
+        },
+        "correction_outer": {
+          "signed_operations": 342,
+          "typed_operations": 390,
+          "adder_digit_replays": 3199
+        },
+        "routing_and_final": {
+          "signed_operations": 45,
+          "typed_operations": 50,
+          "adder_digit_replays": 358
+        },
+        "scales": {
+          "signed_operations": 45,
+          "typed_operations": 45,
+          "adder_digit_replays": 153
+        }
+      }
+    },
+    {
+      "inputs": {
+        "R": 11,
+        "ell": 0,
+        "g": 3,
+        "k": 1
+      },
+      "values": [
+        8,
+        -1,
+        -6,
+        1,
+        5,
+        -3,
+        -3,
+        5,
+        1,
+        -6,
+        -1
+      ],
+      "typed_pairs_read": 64,
+      "production_digits": 13898,
+      "typed_comparator_digits": 2844,
+      "positive_replay_digits": 13898,
+      "structural_counts": {
+        "requests": 11,
+        "orientations": 22,
+        "empty_orientations": 7,
+        "corrections": 15,
+        "top_level_tables": 60
+      },
+      "production_hotspots": {
+        "base_coefficients": {
+          "signed_operations": 165,
+          "typed_operations": 198,
+          "adder_digit_replays": 1628
+        },
+        "base_moment_tables": {
+          "signed_operations": 654,
+          "typed_operations": 654,
+          "adder_digit_replays": 1577
+        },
+        "base_outer": {
+          "signed_operations": 780,
+          "typed_operations": 808,
+          "adder_digit_replays": 3851
+        },
+        "correction_coefficients": {
+          "signed_operations": 33,
+          "typed_operations": 33,
+          "adder_digit_replays": 132
+        },
+        "correction_moment_tables": {
+          "signed_operations": 1694,
+          "typed_operations": 1694,
+          "adder_digit_replays": 4339
+        },
+        "correction_outer": {
+          "signed_operations": 285,
+          "typed_operations": 323,
+          "adder_digit_replays": 1673
+        },
+        "empty_base": {
+          "signed_operations": 21,
+          "typed_operations": 28,
+          "adder_digit_replays": 224
+        },
+        "routing_and_final": {
+          "signed_operations": 48,
+          "typed_operations": 58,
+          "adder_digit_replays": 342
+        },
+        "scales": {
+          "signed_operations": 44,
+          "typed_operations": 44,
+          "adder_digit_replays": 132
+        }
+      }
+    },
+    {
+      "inputs": {
+        "R": 1,
+        "ell": 0,
+        "g": 4,
+        "k": 1
+      },
+      "values": [
+        0
+      ],
+      "typed_pairs_read": 256,
+      "production_digits": 23427,
+      "typed_comparator_digits": 8452,
+      "positive_replay_digits": 23427,
+      "structural_counts": {
+        "requests": 1,
+        "orientations": 2,
+        "empty_orientations": 0,
+        "corrections": 2,
+        "top_level_tables": 8
+      },
+      "production_hotspots": {
+        "base_coefficients": {
+          "signed_operations": 15,
+          "typed_operations": 18,
+          "adder_digit_replays": 170
+        },
+        "base_moment_tables": {
+          "signed_operations": 870,
+          "typed_operations": 870,
+          "adder_digit_replays": 9628
+        },
+        "base_outer": {
+          "signed_operations": 104,
+          "typed_operations": 109,
+          "adder_digit_replays": 2181
+        },
+        "correction_coefficients": {
+          "signed_operations": 3,
+          "typed_operations": 3,
+          "adder_digit_replays": 12
+        },
+        "correction_moment_tables": {
+          "signed_operations": 848,
+          "typed_operations": 848,
+          "adder_digit_replays": 10692
+        },
+        "correction_outer": {
+          "signed_operations": 38,
+          "typed_operations": 42,
+          "adder_digit_replays": 699
+        },
+        "routing_and_final": {
+          "signed_operations": 5,
+          "typed_operations": 5,
+          "adder_digit_replays": 29
+        },
+        "scales": {
+          "signed_operations": 5,
+          "typed_operations": 5,
+          "adder_digit_replays": 16
+        }
+      }
+    }
+  ],
+  "cost_categories": {
+    "production": {
+      "receipts": 6,
+      "sum": {
+        "adder_digit_replays": 126950,
+        "typed_operations": 26658,
+        "host_bit_wiring_operations": 1367222,
+        "host_bit_length_calls_in_arithmetic": 75593,
+        "signed_operations": 26181,
+        "moment_nodes": 162,
+        "window_queries": 0,
+        "moment_requests": 384,
+        "cache_hits": 222
+      },
+      "max": {
+        "max_recursion_depth": 3,
+        "max_observed_integer_bits": 14
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "typed_pair_comparator": {
+      "receipts": 6,
+      "sum": {
+        "adder_digit_replays": 52700,
+        "typed_operations": 5380,
+        "host_bit_wiring_operations": 569492,
+        "host_bit_length_calls_in_arithmetic": 16840,
+        "signed_operations": 3968,
+        "moment_nodes": 0,
+        "window_queries": 0,
+        "moment_requests": 0,
+        "cache_hits": 0
+      },
+      "max": {
+        "max_recursion_depth": 0,
+        "max_observed_integer_bits": 5
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "positive_replay": {
+      "receipts": 6,
+      "sum": {
+        "adder_digit_replays": 126950,
+        "typed_operations": 26658,
+        "host_bit_wiring_operations": 1367222,
+        "host_bit_length_calls_in_arithmetic": 75593,
+        "signed_operations": 26181,
+        "moment_nodes": 162,
+        "window_queries": 0,
+        "moment_requests": 384,
+        "cache_hits": 222
+      },
+      "max": {
+        "max_recursion_depth": 3,
+        "max_observed_integer_bits": 14
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "negative_replay": {
+      "receipts": 10,
+      "sum": {
+        "adder_digit_replays": 133552,
+        "typed_operations": 38581,
+        "host_bit_wiring_operations": 1445731,
+        "host_bit_length_calls_in_arithmetic": 107308,
+        "signed_operations": 37917,
+        "moment_nodes": 239,
+        "window_queries": 0,
+        "moment_requests": 531,
+        "cache_hits": 292
+      },
+      "max": {
+        "max_recursion_depth": 3,
+        "max_observed_integer_bits": 8
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    }
+  },
+  "all_disjoint_current_streams_read": 28,
+  "current_total_adder_digits": 440152,
+  "typed_pair_records_read": 1152,
+  "structural_counts": {
+    "requests": 37,
+    "orientations": 74,
+    "empty_orientations": 7,
+    "corrections": 67,
+    "top_level_tables": 268
+  },
+  "production_hotspots": {
+    "base_coefficients": {
+      "signed_operations": 555,
+      "typed_operations": 666,
+      "adder_digit_replays": 5698
+    },
+    "base_moment_tables": {
+      "signed_operations": 8787,
+      "typed_operations": 8791,
+      "adder_digit_replays": 33375
+    },
+    "base_outer": {
+      "signed_operations": 3484,
+      "typed_operations": 3619,
+      "adder_digit_replays": 29503
+    },
+    "correction_coefficients": {
+      "signed_operations": 111,
+      "typed_operations": 111,
+      "adder_digit_replays": 489
+    },
+    "correction_moment_tables": {
+      "signed_operations": 11603,
+      "typed_operations": 11611,
+      "adder_digit_replays": 43616
+    },
+    "correction_outer": {
+      "signed_operations": 1273,
+      "typed_operations": 1461,
+      "adder_digit_replays": 12184
+    },
+    "empty_base": {
+      "signed_operations": 21,
+      "typed_operations": 28,
+      "adder_digit_replays": 224
+    },
+    "routing_and_final": {
+      "signed_operations": 178,
+      "typed_operations": 202,
+      "adder_digit_replays": 1318
+    },
+    "scales": {
+      "signed_operations": 169,
+      "typed_operations": 169,
+      "adder_digit_replays": 543
+    }
+  },
+  "negative_checks": [
+    {
+      "name": "base_coefficient",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "adjacent replay mismatch",
+      "receipts": 1,
+      "digits": 12622
+    },
+    {
+      "name": "correction_coefficient",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "adjacent replay mismatch",
+      "receipts": 1,
+      "digits": 12622
+    },
+    {
+      "name": "correction_offset",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "adjacent replay mismatch",
+      "receipts": 1,
+      "digits": 12622
+    },
+    {
+      "name": "correction_table_output",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "adjacent replay mismatch",
+      "receipts": 1,
+      "digits": 12622
+    },
+    {
+      "name": "correction_term",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "adjacent replay mismatch",
+      "receipts": 1,
+      "digits": 12622
+    },
+    {
+      "name": "reused_displacement_sum",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "adjacent replay mismatch",
+      "receipts": 1,
+      "digits": 12622
+    },
+    {
+      "name": "drop_half_modulus_orientation",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "adjacent replay mismatch",
+      "receipts": 1,
+      "digits": 26651
+    },
+    {
+      "name": "raw_exponent",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "adjacent replay mismatch",
+      "receipts": 1,
+      "digits": 12622
+    },
+    {
+      "name": "signed_output",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "adjacent replay mismatch",
+      "receipts": 1,
+      "digits": 12622
+    },
+    {
+      "name": "valid_prefix_then_invalid_nonadjacent",
+      "kind": "PAID_VALID_PREFIX_THEN_INPUT_REJECTION",
+      "error": "adjacent selected bits 0<=ell,k=ell+1<g required",
+      "receipts": 1,
+      "digits": 5925
+    },
+    {
+      "name": "source_early",
+      "kind": "EARLY_ZERO_WORK_REJECTION",
+      "error": "adjacent dependency pin mismatch",
+      "receipts": 0,
+      "digits": 0
+    },
+    {
+      "name": "schema_early",
+      "kind": "EARLY_ZERO_WORK_REJECTION",
+      "error": "wrong adjacent schema",
+      "receipts": 0,
+      "digits": 0
+    },
+    {
+      "name": "bool_input_early",
+      "kind": "EARLY_ZERO_WORK_REJECTION",
+      "error": "strict integer inputs required",
+      "receipts": 0,
+      "digits": 0
+    },
+    {
+      "name": "nonstring_key_early",
+      "kind": "EARLY_ZERO_WORK_REJECTION",
+      "error": "JSON object keys must be strings",
+      "receipts": 0,
+      "digits": 0
+    }
+  ],
+  "negative_kinds": {
+    "COMPLETE_PAID_REPLAY_THEN_MISMATCH": 9,
+    "PAID_VALID_PREFIX_THEN_INPUT_REJECTION": 1,
+    "EARLY_ZERO_WORK_REJECTION": 4
+  },
+  "input_rejections": 12,
+  "boundary_before_after_equal": true,
+  "boundary_cost_counted_once_inside_first_production": true,
+  "native_source": {
+    "arithmetic_route": "actual full-adder columns; digit transducer composition",
+    "files_sha256": {
+      "lazy_modular": "08df3595a2a56dc2501bb481828093481bf76e4ac53c8b966990d233fefac1e4",
+      "sparse_modular": "fd9cbb019418a3c00890ba6e8cca5760e7e4d792bfd7b48306a71a66de301c46",
+      "typed_integer_prechecks": "0a817aa8124cceb5440233d543073dae71de6ac1d0d4e5d50f4ee2b4808d99eb"
+    },
+    "native_adder": {
+      "columns": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "entrypoint": "stage78.shor_benchmark.full_adder_columns",
+      "input_columns": 8,
+      "observer": "retained input triple -> (sum bit, carry bit)",
+      "positive_BRC_input_states": 12,
+      "scope": "exact integer label compiler; not a reversible physical erasure",
+      "vendor": {
+        "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+        "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+        "path": "src/enterprise_math/brc_weighted_recurrent.py",
+        "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+      }
+    },
+    "primitive_source": "0852cad130c1d877174d235687cf60c19f318c58",
+    "runtime_state_propagator": "complete positive unit permutation on work labels"
+  },
+  "actual_core_calls": [
+    {
+      "depth": 1,
+      "elapsed_ns": 5971800,
+      "entrypoint": "recurrent_mass_power",
+      "states": 12
+    }
+  ],
+  "native_calls_by_category": {
+    "production": 1,
+    "typed_pair_comparator": 0,
+    "positive_replay": 0,
+    "input_pre_rejection": 0,
+    "negative_replay": 0
+  },
+  "elapsed_seconds_before_serialization": 45.467766999965534,
+  "production_below_typed_comparator_cases": 0,
+  "failure_artifact_present": false,
+  "scope": "Saved outer base/correction expressions and links, signed-to-typed outputs, actual native cells, 1152 pair updates, complete/partial replay and disjoint cost accounting. No scientific recomputation.",
+  "admission": "AUTHOR_SHARED_CONTEXT_READBACK_NOT_FORMAL_ADMISSION"
+}
