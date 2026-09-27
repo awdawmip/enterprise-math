@@ -1,0 +1,83 @@
+# Heartbeat outward transport and a future-safe boundary interface
+
+Progress-Event-ID: hbw-outward-transport-9f026e-20260927
+Status: UNREVIEWED / NOT_ADMITTED / SYMBOLIC_ONLY
+Researcher-ID: EM-DIRECT-9F026E
+Research-Activity-ID: RA-DEF97E433B003C96F9B921F8
+Session provenance: local-chat-hbw-outward-940b2892a3a34015a3b6f1afc20f60b4 is a newly allocated local writer key, not a ChatGPT server ID and not a recovered predecessor identity.
+Global snapshot: awdawmip/chatgpt-global-knowledge@4ae9f3fd9c2fa1f2043c8fd4858bea72a27e5fe5
+Source snapshot: awdawmip/enterprise-math@527858da6cc77a9f69e21b8c7b4ce785a0c31e0b
+
+## User idea, verbatim
+
+我提一个想法：利用心跳世界，每次心跳，把所有数据往外挤。
+
+This is a proposed dynamics/research direction, not an instruction to alter the protected worldview. The meaning of outward and the relation to the existing Shor readout must be specified, rather than assumed.
+
+## Binding source and typing
+
+Read at the Source snapshot:
+- definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.md
+- definitions/RESIDUAL_FAITHFUL_DISCRETE_RELATIONAL_SYSTEM.json
+- definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json
+- definitions/ENTERPRISE_BRC_RECURRENT_PORT_FOUNDATION_20260903.md
+
+P000 was read at the global snapshot. HBW is an affine native six-axis Cell space plus time, not an ordinary 3D radial medium. Choose an actual reference Cell O for this observer, not a privileged ontological origin. In the raw chart z in Z^6, use rho_O(z)=sum_i |z_i| solely as the minimal-native-step layer index. It is not the distinct component-length readout L_E(z)^2=sum_i z_i^2. Raw signed displacements are not a new public six-field address codec.
+
+ACTUAL_TYPED_BRC_ONLY applies. No trigonometric input, ordinary propagator, matrix-exponential, or non-BRC scientific numerical run was executed. This note provides symbolic transport/interface propositions and an extension target, not a tested native implementation. File IO, identifiers, hashes and JSON checks are administrative only.
+
+The transport carrier is a labeled finite BRC family (b,z_b,w_b,xi_b), where w_b is positive mass/multiplicity and xi_b retains the declared typed internal state, ordered phase information, work label, links and relevant provenance. Do not identify w_b with signed readout amplitude. Moving a packet changes its endpoint, not its weight or internal payload. Transporting linked states must transport their links as well.
+
+## 1. An exact outward-only transport example
+
+The following is a deliberately anisotropic symbolic candidate, not the canonical heartbeat law. Let e_j be a positive native unit step. Set J(0)=e_1. For z != 0, let j be the first nonzero raw coordinate and set
+
+J(z) = z + sign(z_j) e_j.
+
+Then rho_O(J(z))=rho_O(z)+1 for every z. Each transport is one declared native step. J is injective: the image of zero has first nonzero magnitude 1; the image of every nonzero z has its first nonzero magnitude at least 2, and subtracting its sign in that coordinate recovers z. Thus moving all packets outward need not merge or erase them. The e_1 convention belongs to this program/observer, not to HBW ontology. Conjugating J by a declared permutation of the six axes gives rotating-priority variants with the same layer and injectivity properties. No physical isotropy or complete native rotation law follows.
+
+For the labeled BRC carrier, define transport by retaining b,w_b,xi_b and replacing z_b with J(z_b). This is a one-to-one relabeling: branch count, positive total mass, weight histogram, payload and provenance are preserved. If common endpoints are coalesced by an implementation, it must still retain distinctions relevant to the permitted future language. This symbolic transport is an EXTEND_EXISTING_TOOL target until a typed native implementation and receipt are supplied.
+
+This statement concerns the transport substep. A separate interaction step that moves packets inward does not automatically satisfy outward monotonicity for the whole heartbeat; an implementation must state and prove the full-step law.
+
+## 2. What outward transport alone cannot provide
+
+Let E_t be a cumulative injective spatial encoding. On its image, replacing a state by E_t(state), future operations by E_{t+1} H_t E_t^{-1}, and readout by O_t E_t^{-1} preserves every declared output by induction. This is a semantic equivalence, not a claim that the conjugated operations are cheap or local.
+
+In the earlier two-arm readout interface, let x,y be the two typed real-vector readout arms. The conditional bit probability uses
+
+C = 2 <x,y> / (||x||^2+||y||^2),
+p_plus = (1+C)/2,
+
+when the denominator is positive. A common label-preserving isometric embedding of both arms leaves C unchanged. Zero-denominator states need the preexisting declared fallback. Therefore outward relabeling alone is not contrast amplification. A different fixed outer detector can define a new observer, but its useful-output probability and cost need a new proof.
+
+Expanding geometry can trade detector positioning accuracy for aperture/address/dynamic-range requirements. It does not prove a reduction of total precision or total computation costs. An explicit move of M records and a lazy shared coordinate transform have different costs; neither provides a free evaluation of the transported boundary payload.
+
+## 3. Constructive target: an outward moving frontier
+
+Aim for a pipeline in which the next shell inherits enough state to generate every permitted future readout. Completed interior geometry can then leave active storage without pretending its future-relevant content disappeared.
+
+Write full update H_t, retained boundary state c_t(S), boundary update K_t, and declared readout O_t. A sufficient exact certificate is
+
+c_{t+1} H_t = K_t c_t,
+O_t = o_t c_t
+
+on all reachable states and all permitted future branches, with the corresponding conditional-kernel formulation when updates are stochastic. Induction proves preservation of the declared subsequent observations. Conversely, two reachable states with equal c_t but different c_{t+1}H_t disprove a deterministic closed next-boundary update on that retained state. This is an interface/quotient criterion, not a newly claimed general compression theorem.
+
+A current image or mass total is not automatically sufficient. At the abstract two-arm interface, equal arm norms with equal versus opposite relative sign can yield distinct conditional outputs. This is only a symbolic information-loss witness in the declared readout algebra, not a newly executed HBW input or a statement that positive masses cancel.
+
+The strongest useful target is not preserve every historical coordinate forever; it is preserve the smallest boundary state sufficient for the declared ordered operations and useful order/factor readout, with a controlled approximation when exact closure is unavailable.
+
+## 4. Precise BRC reuse and remaining extension
+
+WBRC-T30/T31/T32 supplies finite positive-rational port collapse. With hidden stable A and W=[[A,X],[Y,B]], W_eff=B+Y(I-A)^(-1)X replaces the internal module for the stated positive-mass port contexts. This is actual symbolic application of the existing interface to the proposed shell/interior partition: REUSE_APPLIED at positive-mass scope.
+
+That theorem does not preserve arbitrary phase amplitudes, path provenance, hidden-state access, or heartbeat-resolved timing. Treating its all-excursion total as one physical heartbeat is forbidden. The Shor-side bridge is EXTEND_EXISTING_TOOL: preserve ordered phase/work/residual state at the advancing ports, and prove the allowed future operations and observer are respected. No generic signed extension or polynomial bound is asserted here.
+
+## 5. Acceptance contract and next unit
+
+For input bit length n and declared horizon/error, separately count active boundary width, payload bit length, actual typed BRC work per beat, total beats, initialization/encoding cost, observation/sampling cost, repetitions and decoding. Do not count unmaterialized exponential branches as free parallel computation. Do not use the unknown order or factors to choose ports, velocities, alignment or favorable instances without declaring that dependency.
+
+Next bounded unit: specify one phase/work-preserving outward boundary carrier and its exact next-heartbeat interface, or produce two reachable states with the same proposed retained boundary but different next conditional-bit laws. Use the existing typed BRC implementation or extend its interface; no new classical reference run is authorized by this note. Pure transport is a useful control case, not a failed overall research direction.
+
+The evaluation in this conversation closes only the user's idea-assessment unit. A general efficient HBW-Shor boundary sampler, its output-quality bridge and asymptotic speedup remain unproved. No simulation, independent review, task claim, scheduling change, physical discovery or mathematical admission is reported.
