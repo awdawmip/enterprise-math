@@ -1,0 +1,1524 @@
+{
+  "status": "PASS_COMPLETE_SAVED_RECORD_REVIEW",
+  "reader_sha256": "6727b826c344bdef71840defd98f79ebe6d82fd44ae5dac262b172f5fbb7b179",
+  "scope": "Shared-context stdlib-only saved-record review; no scientific imports, answer evaluation or rerun",
+  "pure_io_helpers": {
+    "top_general": "ee6baa8d58826eab8a583997ffa516bb38f1d5535705b4a817737cb2e7876312",
+    "aligned": "6266405a29c589c67708149ee43942ff3fdde22a8da7966e123e58ab9bd3b450",
+    "direct": "4b7e7d1bf7e4b7575d6b202f680acbac62861e16551aa4971ba7b74848571098"
+  },
+  "source_sha256": {
+    "top_bit_fast.py": "8c73aa1ad2f195b9d8f440112dac7b08cacbc1e544e65850a754dc38f2fa48e8",
+    "check_top_bit_fast.py": "76dc68753c07e9eedd64183c4a2875fde709ef6f1f0f59dd32b6ce39eee8dc21",
+    "DESIGN.md": "87e0d3416e24030a6e76f9b418d9cdb1aa9ffba9175e63fbff4ce622521ed275",
+    "POINT_AND_SETUP_REUSE.md": "e4c0f33e1fd6c8d62d3604eb37db41b937ba999e536b61cfeac6e1300c9690e6"
+  },
+  "payload_sha256": "db60ed6dd188c5936585c0d1a4dbffa83652baca0dd2551182148d2c8457038a",
+  "artifact_sha256": "7cea2d841376650734622fe7d29b529a8f46cd195a4dc87b63993d9e995fc507",
+  "raw_bytes": 33060129,
+  "gzip_bytes": 1258273,
+  "startup_guard_sha256": "f8ff9c3877cfc3dd22ad91bbc05a3927105769a60ac541b74ffe31bcc77647ae",
+  "native_source": {
+    "arithmetic_route": "actual full-adder columns; digit transducer composition",
+    "files_sha256": {
+      "lazy_modular": "08df3595a2a56dc2501bb481828093481bf76e4ac53c8b966990d233fefac1e4",
+      "sparse_modular": "fd9cbb019418a3c00890ba6e8cca5760e7e4d792bfd7b48306a71a66de301c46",
+      "typed_integer_prechecks": "0a817aa8124cceb5440233d543073dae71de6ac1d0d4e5d50f4ee2b4808d99eb"
+    },
+    "native_adder": {
+      "columns": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "entrypoint": "stage78.shor_benchmark.full_adder_columns",
+      "input_columns": 8,
+      "observer": "retained input triple -> (sum bit, carry bit)",
+      "positive_BRC_input_states": 12,
+      "scope": "exact integer label compiler; not a reversible physical erasure",
+      "vendor": {
+        "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+        "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+        "path": "src/enterprise_math/brc_weighted_recurrent.py",
+        "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+      }
+    },
+    "primitive_source": "0852cad130c1d877174d235687cf60c19f318c58",
+    "runtime_state_propagator": "complete positive unit permutation on work labels"
+  },
+  "historical_evidence_reuse": {
+    "artifact_sha256": "ba39feafb35e6d902c1ba1de8c7e64aba581eca7d02e429064c389f6d79e9dc0",
+    "guard_sha256": "fd9b5bf7a1b9680a23e3f4ea2ac0f0dce5d3ce362936635044c9324c3aa99f1b",
+    "gzip_bytes": 2684245,
+    "historical_pair_comparator_reexecuted": false,
+    "historical_pair_records": 720,
+    "historical_production_reexecuted": false,
+    "payload_sha256": "4f6fae5355d3a809b765af17c6be7b2ac709cf63ec2e6fbd4e5b81a35cf79dc9",
+    "raw_bytes": 75217873,
+    "source_sha256": {
+      "DESIGN.md": "228c00ba4a2a29dc645e2d126b586183d7e6539a40396adf7719db4cdabc0ad3",
+      "check_top_bit_general.py": "2b9b04fa1670af5c857eac4ba0810fe6a3c9e45d14f62a6f4371d1bd7ebefc9c",
+      "top_bit_general.py": "33a46d5f3dacf61e83cedd75cb3424f2375485b3b58984429d5c9fc76b8c96d0"
+    },
+    "whole_payload_read_and_hash_checked": true
+  },
+  "cases": [
+    {
+      "inputs": {
+        "R": 3,
+        "ell": 0,
+        "g": 2,
+        "k": 1
+      },
+      "values": [
+        6,
+        -3,
+        -3
+      ],
+      "production": {
+        "signed_operations": 163,
+        "typed_operations": 176,
+        "moment_nodes": 0,
+        "all_signed_to_typed_and_native_cell_links_checked": true,
+        "recounted_cost": {
+          "adder_digit_replays": 715,
+          "host_bit_wiring_operations": 7702,
+          "host_bit_length_calls_in_arithmetic": 430
+        },
+        "requests": 3,
+        "top_level_tables": 0,
+        "route_counts": {
+          "SINGLE_DISPLACEMENT": 7,
+          "EMPTY": 5
+        },
+        "setup_builds": 1,
+        "setup_hits": 2,
+        "coefficient_builds": 0,
+        "coefficient_hits": 0,
+        "empty_segments": 5
+      },
+      "positive_replay": {
+        "signed_operations": 163,
+        "typed_operations": 176,
+        "moment_nodes": 0,
+        "all_signed_to_typed_and_native_cell_links_checked": true,
+        "recounted_cost": {
+          "adder_digit_replays": 715,
+          "host_bit_wiring_operations": 7702,
+          "host_bit_length_calls_in_arithmetic": 430
+        },
+        "requests": 3,
+        "top_level_tables": 0,
+        "route_counts": {
+          "SINGLE_DISPLACEMENT": 7,
+          "EMPTY": 5
+        },
+        "setup_builds": 1,
+        "setup_hits": 2,
+        "coefficient_builds": 0,
+        "coefficient_hits": 0,
+        "empty_segments": 5
+      },
+      "historical_comparator_records_checked_not_charged": {
+        "signed_operations": 75,
+        "typed_operations": 94,
+        "moment_nodes": 0,
+        "all_signed_to_typed_and_native_cell_links_checked": true,
+        "recounted_cost": {
+          "adder_digit_replays": 456,
+          "host_bit_wiring_operations": 5004,
+          "host_bit_length_calls_in_arithmetic": 230
+        },
+        "labels": 4,
+        "ordered_pairs": 16,
+        "all_buckets_bound_to_recorded_updates": true
+      }
+    },
+    {
+      "inputs": {
+        "R": 3,
+        "ell": 1,
+        "g": 3,
+        "k": 2
+      },
+      "values": [
+        6,
+        -3,
+        -3
+      ],
+      "production": {
+        "signed_operations": 1062,
+        "typed_operations": 1094,
+        "moment_nodes": 6,
+        "all_signed_to_typed_and_native_cell_links_checked": true,
+        "recounted_cost": {
+          "adder_digit_replays": 4790,
+          "host_bit_wiring_operations": 51635,
+          "host_bit_length_calls_in_arithmetic": 3059
+        },
+        "requests": 3,
+        "top_level_tables": 6,
+        "route_counts": {
+          "FLOOR_MOMENTS": 3,
+          "SINGLE_DISPLACEMENT": 9
+        },
+        "setup_builds": 1,
+        "setup_hits": 2,
+        "coefficient_builds": 2,
+        "coefficient_hits": 1,
+        "empty_segments": 0
+      },
+      "positive_replay": {
+        "signed_operations": 1062,
+        "typed_operations": 1094,
+        "moment_nodes": 6,
+        "all_signed_to_typed_and_native_cell_links_checked": true,
+        "recounted_cost": {
+          "adder_digit_replays": 4790,
+          "host_bit_wiring_operations": 51635,
+          "host_bit_length_calls_in_arithmetic": 3059
+        },
+        "requests": 3,
+        "top_level_tables": 6,
+        "route_counts": {
+          "FLOOR_MOMENTS": 3,
+          "SINGLE_DISPLACEMENT": 9
+        },
+        "setup_builds": 1,
+        "setup_hits": 2,
+        "coefficient_builds": 2,
+        "coefficient_hits": 1,
+        "empty_segments": 0
+      },
+      "historical_comparator_records_checked_not_charged": {
+        "signed_operations": 246,
+        "typed_operations": 320,
+        "moment_nodes": 0,
+        "all_signed_to_typed_and_native_cell_links_checked": true,
+        "recounted_cost": {
+          "adder_digit_replays": 2241,
+          "host_bit_wiring_operations": 24393,
+          "host_bit_length_calls_in_arithmetic": 884
+        },
+        "labels": 8,
+        "ordered_pairs": 64,
+        "all_buckets_bound_to_recorded_updates": true
+      }
+    },
+    {
+      "inputs": {
+        "R": 5,
+        "ell": 1,
+        "g": 3,
+        "k": 2
+      },
+      "values": [
+        6,
+        1,
+        -4,
+        -4,
+        1
+      ],
+      "production": {
+        "signed_operations": 300,
+        "typed_operations": 326,
+        "moment_nodes": 0,
+        "all_signed_to_typed_and_native_cell_links_checked": true,
+        "recounted_cost": {
+          "adder_digit_replays": 1901,
+          "host_bit_wiring_operations": 20465,
+          "host_bit_length_calls_in_arithmetic": 868
+        },
+        "requests": 5,
+        "top_level_tables": 0,
+        "route_counts": {
+          "SINGLE_DISPLACEMENT": 15,
+          "EMPTY": 5
+        },
+        "setup_builds": 1,
+        "setup_hits": 4,
+        "coefficient_builds": 0,
+        "coefficient_hits": 0,
+        "empty_segments": 5
+      },
+      "positive_replay": {
+        "signed_operations": 300,
+        "typed_operations": 326,
+        "moment_nodes": 0,
+        "all_signed_to_typed_and_native_cell_links_checked": true,
+        "recounted_cost": {
+          "adder_digit_replays": 1901,
+          "host_bit_wiring_operations": 20465,
+          "host_bit_length_calls_in_arithmetic": 868
+        },
+        "requests": 5,
+        "top_level_tables": 0,
+        "route_counts": {
+          "SINGLE_DISPLACEMENT": 15,
+          "EMPTY": 5
+        },
+        "setup_builds": 1,
+        "setup_hits": 4,
+        "coefficient_builds": 0,
+        "coefficient_hits": 0,
+        "empty_segments": 5
+      },
+      "historical_comparator_records_checked_not_charged": {
+        "signed_operations": 246,
+        "typed_operations": 332,
+        "moment_nodes": 0,
+        "all_signed_to_typed_and_native_cell_links_checked": true,
+        "recounted_cost": {
+          "adder_digit_replays": 2547,
+          "host_bit_wiring_operations": 27483,
+          "host_bit_length_calls_in_arithmetic": 908
+        },
+        "labels": 8,
+        "ordered_pairs": 64,
+        "all_buckets_bound_to_recorded_updates": true
+      }
+    },
+    {
+      "inputs": {
+        "R": 6,
+        "ell": 2,
+        "g": 4,
+        "k": 3
+      },
+      "values": [
+        12,
+        3,
+        -6,
+        -6,
+        -6,
+        3
+      ],
+      "production": {
+        "signed_operations": 2095,
+        "typed_operations": 2167,
+        "moment_nodes": 12,
+        "all_signed_to_typed_and_native_cell_links_checked": true,
+        "recounted_cost": {
+          "adder_digit_replays": 11254,
+          "host_bit_wiring_operations": 120637,
+          "host_bit_length_calls_in_arithmetic": 6197
+        },
+        "requests": 6,
+        "top_level_tables": 14,
+        "route_counts": {
+          "FLOOR_MOMENTS": 7,
+          "SINGLE_DISPLACEMENT": 17
+        },
+        "setup_builds": 1,
+        "setup_hits": 5,
+        "coefficient_builds": 2,
+        "coefficient_hits": 5,
+        "empty_segments": 0
+      },
+      "positive_replay": {
+        "signed_operations": 2095,
+        "typed_operations": 2167,
+        "moment_nodes": 12,
+        "all_signed_to_typed_and_native_cell_links_checked": true,
+        "recounted_cost": {
+          "adder_digit_replays": 11254,
+          "host_bit_wiring_operations": 120637,
+          "host_bit_length_calls_in_arithmetic": 6197
+        },
+        "requests": 6,
+        "top_level_tables": 14,
+        "route_counts": {
+          "FLOOR_MOMENTS": 7,
+          "SINGLE_DISPLACEMENT": 17
+        },
+        "setup_builds": 1,
+        "setup_hits": 5,
+        "coefficient_builds": 2,
+        "coefficient_hits": 5,
+        "empty_segments": 0
+      },
+      "historical_comparator_records_checked_not_charged": {
+        "signed_operations": 873,
+        "typed_operations": 1214,
+        "moment_nodes": 0,
+        "all_signed_to_typed_and_native_cell_links_checked": true,
+        "recounted_cost": {
+          "adder_digit_replays": 12472,
+          "host_bit_wiring_operations": 133882,
+          "host_bit_length_calls_in_arithmetic": 3732
+        },
+        "labels": 16,
+        "ordered_pairs": 256,
+        "all_buckets_bound_to_recorded_updates": true
+      }
+    },
+    {
+      "inputs": {
+        "R": 9,
+        "ell": 2,
+        "g": 4,
+        "k": 3
+      },
+      "values": [
+        6,
+        1,
+        0,
+        0,
+        -4,
+        -4,
+        0,
+        0,
+        1
+      ],
+      "production": {
+        "signed_operations": 573,
+        "typed_operations": 627,
+        "moment_nodes": 0,
+        "all_signed_to_typed_and_native_cell_links_checked": true,
+        "recounted_cost": {
+          "adder_digit_replays": 5210,
+          "host_bit_wiring_operations": 55742,
+          "host_bit_length_calls_in_arithmetic": 1802
+        },
+        "requests": 9,
+        "top_level_tables": 0,
+        "route_counts": {
+          "SINGLE_DISPLACEMENT": 31,
+          "EMPTY": 5
+        },
+        "setup_builds": 1,
+        "setup_hits": 8,
+        "coefficient_builds": 0,
+        "coefficient_hits": 0,
+        "empty_segments": 5
+      },
+      "positive_replay": {
+        "signed_operations": 573,
+        "typed_operations": 627,
+        "moment_nodes": 0,
+        "all_signed_to_typed_and_native_cell_links_checked": true,
+        "recounted_cost": {
+          "adder_digit_replays": 5210,
+          "host_bit_wiring_operations": 55742,
+          "host_bit_length_calls_in_arithmetic": 1802
+        },
+        "requests": 9,
+        "top_level_tables": 0,
+        "route_counts": {
+          "SINGLE_DISPLACEMENT": 31,
+          "EMPTY": 5
+        },
+        "setup_builds": 1,
+        "setup_hits": 8,
+        "coefficient_builds": 0,
+        "coefficient_hits": 0,
+        "empty_segments": 5
+      },
+      "historical_comparator_records_checked_not_charged": {
+        "signed_operations": 873,
+        "typed_operations": 1239,
+        "moment_nodes": 0,
+        "all_signed_to_typed_and_native_cell_links_checked": true,
+        "recounted_cost": {
+          "adder_digit_replays": 13995,
+          "host_bit_wiring_operations": 149229,
+          "host_bit_length_calls_in_arithmetic": 3782
+        },
+        "labels": 16,
+        "ordered_pairs": 256,
+        "all_buckets_bound_to_recorded_updates": true
+      }
+    },
+    {
+      "inputs": {
+        "R": 11,
+        "ell": 1,
+        "g": 3,
+        "k": 2
+      },
+      "values": [
+        8,
+        3,
+        -2,
+        -3,
+        -3,
+        1,
+        1,
+        -3,
+        -3,
+        -2,
+        3
+      ],
+      "production": {
+        "signed_operations": 422,
+        "typed_operations": 465,
+        "moment_nodes": 0,
+        "all_signed_to_typed_and_native_cell_links_checked": true,
+        "recounted_cost": {
+          "adder_digit_replays": 2726,
+          "host_bit_wiring_operations": 28940,
+          "host_bit_length_calls_in_arithmetic": 1154
+        },
+        "requests": 11,
+        "top_level_tables": 0,
+        "route_counts": {
+          "SINGLE_DISPLACEMENT": 15,
+          "EMPTY": 15
+        },
+        "setup_builds": 1,
+        "setup_hits": 10,
+        "coefficient_builds": 0,
+        "coefficient_hits": 0,
+        "empty_segments": 15
+      },
+      "positive_replay": {
+        "signed_operations": 422,
+        "typed_operations": 465,
+        "moment_nodes": 0,
+        "all_signed_to_typed_and_native_cell_links_checked": true,
+        "recounted_cost": {
+          "adder_digit_replays": 2726,
+          "host_bit_wiring_operations": 28940,
+          "host_bit_length_calls_in_arithmetic": 1154
+        },
+        "requests": 11,
+        "top_level_tables": 0,
+        "route_counts": {
+          "SINGLE_DISPLACEMENT": 15,
+          "EMPTY": 15
+        },
+        "setup_builds": 1,
+        "setup_hits": 10,
+        "coefficient_builds": 0,
+        "coefficient_hits": 0,
+        "empty_segments": 15
+      },
+      "historical_comparator_records_checked_not_charged": {
+        "signed_operations": 246,
+        "typed_operations": 340,
+        "moment_nodes": 0,
+        "all_signed_to_typed_and_native_cell_links_checked": true,
+        "recounted_cost": {
+          "adder_digit_replays": 2833,
+          "host_bit_wiring_operations": 30340,
+          "host_bit_length_calls_in_arithmetic": 924
+        },
+        "labels": 8,
+        "ordered_pairs": 64,
+        "all_buckets_bound_to_recorded_updates": true
+      }
+    }
+  ],
+  "coverage": {
+    "requests": 37,
+    "segments": 134,
+    "route_counts": {
+      "SINGLE_DISPLACEMENT": 94,
+      "EMPTY": 30,
+      "FLOOR_MOMENTS": 10
+    },
+    "top_level_table_calls": 20,
+    "setup_misses": 6,
+    "setup_hits": 31,
+    "coefficient_constructions": 4,
+    "singleton_both_pieces_parities_nonzero_remainders": true,
+    "empty_and_moment_routes": true,
+    "unused_coefficients_not_built": true,
+    "half_modulus_orientations_retained": true
+  },
+  "mixed_cache_control": {
+    "production": {
+      "signed_operations": 1085,
+      "typed_operations": 1115,
+      "moment_nodes": 6,
+      "all_signed_to_typed_and_native_cell_links_checked": true,
+      "recounted_cost": {
+        "adder_digit_replays": 4464,
+        "host_bit_wiring_operations": 48351,
+        "host_bit_length_calls_in_arithmetic": 3108
+      },
+      "requests": 4,
+      "top_level_tables": 4,
+      "route_counts": {
+        "FLOOR_MOMENTS": 2,
+        "SINGLE_DISPLACEMENT": 12,
+        "EMPTY": 2
+      },
+      "setup_builds": 2,
+      "setup_hits": 2,
+      "coefficient_builds": 2,
+      "coefficient_hits": 0,
+      "empty_segments": 2
+    },
+    "positive_replay": {
+      "signed_operations": 1085,
+      "typed_operations": 1115,
+      "moment_nodes": 6,
+      "all_signed_to_typed_and_native_cell_links_checked": true,
+      "recounted_cost": {
+        "adder_digit_replays": 4464,
+        "host_bit_wiring_operations": 48351,
+        "host_bit_length_calls_in_arithmetic": 3108
+      },
+      "requests": 4,
+      "top_level_tables": 4,
+      "route_counts": {
+        "FLOOR_MOMENTS": 2,
+        "SINGLE_DISPLACEMENT": 12,
+        "EMPTY": 2
+      },
+      "setup_builds": 2,
+      "setup_hits": 2,
+      "coefficient_builds": 2,
+      "coefficient_hits": 0,
+      "empty_segments": 2
+    },
+    "requests_from_historical_grid": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "values": [
+      6,
+      6,
+      -3,
+      6
+    ]
+  },
+  "input_rejections": [
+    {
+      "actual_typed_operations": 0,
+      "args": [
+        true,
+        0,
+        1,
+        3,
+        0,
+        1
+      ],
+      "call_interval": {
+        "category": "input_pre_rejection",
+        "label": "(True, 0, 1, 3, 0, 1)",
+        "start": 1,
+        "stop": 1
+      },
+      "error": "strict integer inputs required",
+      "rejected": true
+    },
+    {
+      "actual_typed_operations": 0,
+      "args": [
+        1,
+        0,
+        1,
+        3,
+        0,
+        1
+      ],
+      "call_interval": {
+        "category": "input_pre_rejection",
+        "label": "(1, 0, 1, 3, 0, 1)",
+        "start": 1,
+        "stop": 1
+      },
+      "error": "highest selected bit must be g-1",
+      "rejected": true
+    },
+    {
+      "actual_typed_operations": 0,
+      "args": [
+        3,
+        -1,
+        2,
+        3,
+        0,
+        1
+      ],
+      "call_interval": {
+        "category": "input_pre_rejection",
+        "label": "(3, -1, 2, 3, 0, 1)",
+        "start": 1,
+        "stop": 1
+      },
+      "error": "highest selected bit must be g-1",
+      "rejected": true
+    },
+    {
+      "actual_typed_operations": 0,
+      "args": [
+        3,
+        1,
+        1,
+        3,
+        0,
+        1
+      ],
+      "call_interval": {
+        "category": "input_pre_rejection",
+        "label": "(3, 1, 1, 3, 0, 1)",
+        "start": 1,
+        "stop": 1
+      },
+      "error": "highest selected bit must be g-1",
+      "rejected": true
+    },
+    {
+      "actual_typed_operations": 0,
+      "args": [
+        3,
+        1,
+        3,
+        3,
+        0,
+        1
+      ],
+      "call_interval": {
+        "category": "input_pre_rejection",
+        "label": "(3, 1, 3, 3, 0, 1)",
+        "start": 1,
+        "stop": 1
+      },
+      "error": "highest selected bit must be g-1",
+      "rejected": true
+    },
+    {
+      "actual_typed_operations": 0,
+      "args": [
+        3,
+        1,
+        2,
+        0,
+        0,
+        1
+      ],
+      "call_interval": {
+        "category": "input_pre_rejection",
+        "label": "(3, 1, 2, 0, 0, 1)",
+        "start": 1,
+        "stop": 1
+      },
+      "error": "positive supplied modulus and canonical residue required",
+      "rejected": true
+    },
+    {
+      "actual_typed_operations": 0,
+      "args": [
+        3,
+        1,
+        2,
+        3,
+        -1,
+        1
+      ],
+      "call_interval": {
+        "category": "input_pre_rejection",
+        "label": "(3, 1, 2, 3, -1, 1)",
+        "start": 1,
+        "stop": 1
+      },
+      "error": "positive supplied modulus and canonical residue required",
+      "rejected": true
+    },
+    {
+      "actual_typed_operations": 0,
+      "args": [
+        3,
+        1,
+        2,
+        3,
+        3,
+        1
+      ],
+      "call_interval": {
+        "category": "input_pre_rejection",
+        "label": "(3, 1, 2, 3, 3, 1)",
+        "start": 1,
+        "stop": 1
+      },
+      "error": "positive supplied modulus and canonical residue required",
+      "rejected": true
+    },
+    {
+      "actual_typed_operations": 0,
+      "args": [
+        3,
+        1,
+        2,
+        3,
+        0,
+        2
+      ],
+      "call_interval": {
+        "category": "input_pre_rejection",
+        "label": "(3, 1, 2, 3, 0, 2)",
+        "start": 1,
+        "stop": 1
+      },
+      "error": "only stride one is supported",
+      "rejected": true
+    },
+    {
+      "actual_typed_operations": 0,
+      "args": [
+        3,
+        false,
+        2,
+        3,
+        0,
+        1
+      ],
+      "call_interval": {
+        "category": "input_pre_rejection",
+        "label": "(3, False, 2, 3, 0, 1)",
+        "start": 1,
+        "stop": 1
+      },
+      "error": "strict integer inputs required",
+      "rejected": true
+    },
+    {
+      "actual_typed_operations": 0,
+      "args": [
+        4,
+        0,
+        1,
+        3,
+        0,
+        1
+      ],
+      "call_interval": {
+        "category": "input_pre_rejection",
+        "label": "(4, 0, 1, 3, 0, 1)",
+        "start": 1,
+        "stop": 1
+      },
+      "error": "highest selected bit must be g-1",
+      "rejected": true
+    },
+    {
+      "actual_typed_operations": 0,
+      "args": [
+        3,
+        1,
+        2,
+        true,
+        0,
+        1
+      ],
+      "call_interval": {
+        "category": "input_pre_rejection",
+        "label": "(3, 1, 2, True, 0, 1)",
+        "start": 1,
+        "stop": 1
+      },
+      "error": "strict integer inputs required",
+      "rejected": true
+    }
+  ],
+  "negative_checks": [
+    {
+      "signed_operations": 1062,
+      "typed_operations": 1094,
+      "moment_nodes": 6,
+      "all_signed_to_typed_and_native_cell_links_checked": true,
+      "recounted_cost": {
+        "adder_digit_replays": 4790,
+        "host_bit_wiring_operations": 51635,
+        "host_bit_length_calls_in_arithmetic": 3059
+      },
+      "requests": 3,
+      "top_level_tables": 6,
+      "route_counts": {
+        "FLOOR_MOMENTS": 3,
+        "SINGLE_DISPLACEMENT": 9
+      },
+      "setup_builds": 1,
+      "setup_hits": 2,
+      "coefficient_builds": 2,
+      "coefficient_hits": 1,
+      "empty_segments": 0,
+      "type": "paid_full",
+      "paid_receipts": 1,
+      "name": "setup_scale",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "complete top-bit certificate does not replay"
+    },
+    {
+      "signed_operations": 1062,
+      "typed_operations": 1094,
+      "moment_nodes": 6,
+      "all_signed_to_typed_and_native_cell_links_checked": true,
+      "recounted_cost": {
+        "adder_digit_replays": 4790,
+        "host_bit_wiring_operations": 51635,
+        "host_bit_length_calls_in_arithmetic": 3059
+      },
+      "requests": 3,
+      "top_level_tables": 6,
+      "route_counts": {
+        "FLOOR_MOMENTS": 3,
+        "SINGLE_DISPLACEMENT": 9
+      },
+      "setup_builds": 1,
+      "setup_hits": 2,
+      "coefficient_builds": 2,
+      "coefficient_hits": 1,
+      "empty_segments": 0,
+      "type": "paid_full",
+      "paid_receipts": 1,
+      "name": "setup_input",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "complete top-bit certificate does not replay"
+    },
+    {
+      "signed_operations": 1062,
+      "typed_operations": 1094,
+      "moment_nodes": 6,
+      "all_signed_to_typed_and_native_cell_links_checked": true,
+      "recounted_cost": {
+        "adder_digit_replays": 4790,
+        "host_bit_wiring_operations": 51635,
+        "host_bit_length_calls_in_arithmetic": 3059
+      },
+      "requests": 3,
+      "top_level_tables": 6,
+      "route_counts": {
+        "FLOOR_MOMENTS": 3,
+        "SINGLE_DISPLACEMENT": 9
+      },
+      "setup_builds": 1,
+      "setup_hits": 2,
+      "coefficient_builds": 2,
+      "coefficient_hits": 1,
+      "empty_segments": 0,
+      "type": "paid_full",
+      "paid_receipts": 1,
+      "name": "setup_index",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "complete top-bit certificate does not replay"
+    },
+    {
+      "signed_operations": 1062,
+      "typed_operations": 1094,
+      "moment_nodes": 6,
+      "all_signed_to_typed_and_native_cell_links_checked": true,
+      "recounted_cost": {
+        "adder_digit_replays": 4790,
+        "host_bit_wiring_operations": 51635,
+        "host_bit_length_calls_in_arithmetic": 3059
+      },
+      "requests": 3,
+      "top_level_tables": 6,
+      "route_counts": {
+        "FLOOR_MOMENTS": 3,
+        "SINGLE_DISPLACEMENT": 9
+      },
+      "setup_builds": 1,
+      "setup_hits": 2,
+      "coefficient_builds": 2,
+      "coefficient_hits": 1,
+      "empty_segments": 0,
+      "type": "paid_full",
+      "paid_receipts": 1,
+      "name": "setup_hit",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "complete top-bit certificate does not replay"
+    },
+    {
+      "signed_operations": 1062,
+      "typed_operations": 1094,
+      "moment_nodes": 6,
+      "all_signed_to_typed_and_native_cell_links_checked": true,
+      "recounted_cost": {
+        "adder_digit_replays": 4790,
+        "host_bit_wiring_operations": 51635,
+        "host_bit_length_calls_in_arithmetic": 3059
+      },
+      "requests": 3,
+      "top_level_tables": 6,
+      "route_counts": {
+        "FLOOR_MOMENTS": 3,
+        "SINGLE_DISPLACEMENT": 9
+      },
+      "setup_builds": 1,
+      "setup_hits": 2,
+      "coefficient_builds": 2,
+      "coefficient_hits": 1,
+      "empty_segments": 0,
+      "type": "paid_full",
+      "paid_receipts": 1,
+      "name": "setup_complete",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "complete top-bit certificate does not replay"
+    },
+    {
+      "signed_operations": 1062,
+      "typed_operations": 1094,
+      "moment_nodes": 6,
+      "all_signed_to_typed_and_native_cell_links_checked": true,
+      "recounted_cost": {
+        "adder_digit_replays": 4790,
+        "host_bit_wiring_operations": 51635,
+        "host_bit_length_calls_in_arithmetic": 3059
+      },
+      "requests": 3,
+      "top_level_tables": 6,
+      "route_counts": {
+        "FLOOR_MOMENTS": 3,
+        "SINGLE_DISPLACEMENT": 9
+      },
+      "setup_builds": 1,
+      "setup_hits": 2,
+      "coefficient_builds": 2,
+      "coefficient_hits": 1,
+      "empty_segments": 0,
+      "type": "paid_full",
+      "paid_receipts": 1,
+      "name": "coefficient_value",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "complete top-bit certificate does not replay"
+    },
+    {
+      "signed_operations": 2095,
+      "typed_operations": 2167,
+      "moment_nodes": 12,
+      "all_signed_to_typed_and_native_cell_links_checked": true,
+      "recounted_cost": {
+        "adder_digit_replays": 11254,
+        "host_bit_wiring_operations": 120637,
+        "host_bit_length_calls_in_arithmetic": 6197
+      },
+      "requests": 6,
+      "top_level_tables": 14,
+      "route_counts": {
+        "FLOOR_MOMENTS": 7,
+        "SINGLE_DISPLACEMENT": 17
+      },
+      "setup_builds": 1,
+      "setup_hits": 5,
+      "coefficient_builds": 2,
+      "coefficient_hits": 5,
+      "empty_segments": 0,
+      "type": "paid_full",
+      "paid_receipts": 1,
+      "name": "coefficient_reference",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "complete top-bit certificate does not replay"
+    },
+    {
+      "signed_operations": 163,
+      "typed_operations": 176,
+      "moment_nodes": 0,
+      "all_signed_to_typed_and_native_cell_links_checked": true,
+      "recounted_cost": {
+        "adder_digit_replays": 715,
+        "host_bit_wiring_operations": 7702,
+        "host_bit_length_calls_in_arithmetic": 430
+      },
+      "requests": 3,
+      "top_level_tables": 0,
+      "route_counts": {
+        "SINGLE_DISPLACEMENT": 7,
+        "EMPTY": 5
+      },
+      "setup_builds": 1,
+      "setup_hits": 2,
+      "coefficient_builds": 0,
+      "coefficient_hits": 0,
+      "empty_segments": 5,
+      "type": "paid_full",
+      "paid_receipts": 1,
+      "name": "point_parity",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "complete top-bit certificate does not replay"
+    },
+    {
+      "signed_operations": 163,
+      "typed_operations": 176,
+      "moment_nodes": 0,
+      "all_signed_to_typed_and_native_cell_links_checked": true,
+      "recounted_cost": {
+        "adder_digit_replays": 715,
+        "host_bit_wiring_operations": 7702,
+        "host_bit_length_calls_in_arithmetic": 430
+      },
+      "requests": 3,
+      "top_level_tables": 0,
+      "route_counts": {
+        "SINGLE_DISPLACEMENT": 7,
+        "EMPTY": 5
+      },
+      "setup_builds": 1,
+      "setup_hits": 2,
+      "coefficient_builds": 0,
+      "coefficient_hits": 0,
+      "empty_segments": 5,
+      "type": "paid_full",
+      "paid_receipts": 1,
+      "name": "point_alpha",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "complete top-bit certificate does not replay"
+    },
+    {
+      "signed_operations": 163,
+      "typed_operations": 176,
+      "moment_nodes": 0,
+      "all_signed_to_typed_and_native_cell_links_checked": true,
+      "recounted_cost": {
+        "adder_digit_replays": 715,
+        "host_bit_wiring_operations": 7702,
+        "host_bit_length_calls_in_arithmetic": 430
+      },
+      "requests": 3,
+      "top_level_tables": 0,
+      "route_counts": {
+        "SINGLE_DISPLACEMENT": 7,
+        "EMPTY": 5
+      },
+      "setup_builds": 1,
+      "setup_hits": 2,
+      "coefficient_builds": 0,
+      "coefficient_hits": 0,
+      "empty_segments": 5,
+      "type": "paid_full",
+      "paid_receipts": 1,
+      "name": "point_result",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "complete top-bit certificate does not replay"
+    },
+    {
+      "signed_operations": 1062,
+      "typed_operations": 1094,
+      "moment_nodes": 6,
+      "all_signed_to_typed_and_native_cell_links_checked": true,
+      "recounted_cost": {
+        "adder_digit_replays": 4790,
+        "host_bit_wiring_operations": 51635,
+        "host_bit_length_calls_in_arithmetic": 3059
+      },
+      "requests": 3,
+      "top_level_tables": 6,
+      "route_counts": {
+        "FLOOR_MOMENTS": 3,
+        "SINGLE_DISPLACEMENT": 9
+      },
+      "setup_builds": 1,
+      "setup_hits": 2,
+      "coefficient_builds": 2,
+      "coefficient_hits": 1,
+      "empty_segments": 0,
+      "type": "paid_full",
+      "paid_receipts": 1,
+      "name": "table_output",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "complete top-bit certificate does not replay"
+    },
+    {
+      "signed_operations": 2095,
+      "typed_operations": 2167,
+      "moment_nodes": 12,
+      "all_signed_to_typed_and_native_cell_links_checked": true,
+      "recounted_cost": {
+        "adder_digit_replays": 11254,
+        "host_bit_wiring_operations": 120637,
+        "host_bit_length_calls_in_arithmetic": 6197
+      },
+      "requests": 6,
+      "top_level_tables": 14,
+      "route_counts": {
+        "FLOOR_MOMENTS": 7,
+        "SINGLE_DISPLACEMENT": 17
+      },
+      "setup_builds": 1,
+      "setup_hits": 5,
+      "coefficient_builds": 2,
+      "coefficient_hits": 5,
+      "empty_segments": 0,
+      "type": "paid_full",
+      "paid_receipts": 1,
+      "name": "half_modulus_orientation",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "complete top-bit certificate does not replay"
+    },
+    {
+      "signed_operations": 163,
+      "typed_operations": 176,
+      "moment_nodes": 0,
+      "all_signed_to_typed_and_native_cell_links_checked": true,
+      "recounted_cost": {
+        "adder_digit_replays": 715,
+        "host_bit_wiring_operations": 7702,
+        "host_bit_length_calls_in_arithmetic": 430
+      },
+      "requests": 3,
+      "top_level_tables": 0,
+      "route_counts": {
+        "SINGLE_DISPLACEMENT": 7,
+        "EMPTY": 5
+      },
+      "setup_builds": 1,
+      "setup_hits": 2,
+      "coefficient_builds": 0,
+      "coefficient_hits": 0,
+      "empty_segments": 5,
+      "type": "paid_full",
+      "paid_receipts": 1,
+      "name": "raw_exponent",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "complete top-bit certificate does not replay"
+    },
+    {
+      "signed_operations": 423,
+      "typed_operations": 432,
+      "moment_nodes": 4,
+      "all_signed_to_typed_and_native_cell_links_checked": true,
+      "recounted_cost": {
+        "adder_digit_replays": 1784,
+        "host_bit_wiring_operations": 19349,
+        "host_bit_length_calls_in_arithmetic": 1207
+      },
+      "requests": 1,
+      "top_level_tables": 2,
+      "route_counts": {
+        "FLOOR_MOMENTS": 1,
+        "SINGLE_DISPLACEMENT": 3
+      },
+      "setup_builds": 1,
+      "setup_hits": 0,
+      "coefficient_builds": 1,
+      "coefficient_hits": 0,
+      "empty_segments": 0,
+      "type": "paid_valid_prefix",
+      "paid_receipts": 1,
+      "name": "valid_prefix_then_invalid_non_top",
+      "kind": "PAID_VALID_PREFIX_THEN_INPUT_REJECTION",
+      "error": "highest selected bit must be g-1"
+    },
+    {
+      "type": "early",
+      "paid_receipts": 0,
+      "name": "source_early",
+      "kind": "EARLY_ZERO_WORK_REJECTION",
+      "error": "source/proof mismatch: source_sha256"
+    },
+    {
+      "type": "early",
+      "paid_receipts": 0,
+      "name": "schema_early",
+      "kind": "EARLY_ZERO_WORK_REJECTION",
+      "error": "wrong top-bit schema"
+    },
+    {
+      "type": "early",
+      "paid_receipts": 0,
+      "name": "bool_input_early",
+      "kind": "EARLY_ZERO_WORK_REJECTION",
+      "error": "strict integer inputs required"
+    },
+    {
+      "type": "early",
+      "paid_receipts": 0,
+      "name": "nonstring_key_early",
+      "kind": "EARLY_ZERO_WORK_REJECTION",
+      "error": "JSON object keys must be strings"
+    }
+  ],
+  "boundary_rejection": {
+    "inspection": {
+      "signed_operations": 63,
+      "typed_operations": 66,
+      "moment_nodes": 0,
+      "all_signed_to_typed_and_native_cell_links_checked": true,
+      "recounted_cost": {
+        "adder_digit_replays": 260,
+        "host_bit_wiring_operations": 2810,
+        "host_bit_length_calls_in_arithmetic": 166
+      },
+      "requests": 1,
+      "top_level_tables": 0,
+      "route_counts": {
+        "SINGLE_DISPLACEMENT": 3,
+        "EMPTY": 1
+      },
+      "setup_builds": 1,
+      "setup_hits": 0,
+      "coefficient_builds": 0,
+      "coefficient_hits": 0,
+      "empty_segments": 1
+    },
+    "before_after_strict_equal": true,
+    "subsequent_original_requests_complete": true,
+    "additional_typed_operations": 0,
+    "additional_native_calls": 0,
+    "overlaps_production_not_charged_again": true
+  },
+  "charged_streams": 28,
+  "cost_categories": {
+    "production": {
+      "receipts": 6,
+      "sum": {
+        "adder_digit_replays": 26596,
+        "typed_operations": 4855,
+        "host_bit_wiring_operations": 285121,
+        "host_bit_length_calls_in_arithmetic": 13510,
+        "signed_operations": 4615,
+        "moment_nodes": 18,
+        "window_queries": 0,
+        "moment_requests": 32,
+        "cache_hits": 14
+      },
+      "max": {
+        "max_recursion_depth": 2,
+        "max_observed_integer_bits": 10
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "positive_replay": {
+      "receipts": 6,
+      "sum": {
+        "adder_digit_replays": 26596,
+        "typed_operations": 4855,
+        "host_bit_wiring_operations": 285121,
+        "host_bit_length_calls_in_arithmetic": 13510,
+        "signed_operations": 4615,
+        "moment_nodes": 18,
+        "window_queries": 0,
+        "moment_requests": 32,
+        "cache_hits": 14
+      },
+      "max": {
+        "max_recursion_depth": 2,
+        "max_observed_integer_bits": 10
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "cache_control": {
+      "receipts": 1,
+      "sum": {
+        "adder_digit_replays": 4464,
+        "typed_operations": 1115,
+        "host_bit_wiring_operations": 48351,
+        "host_bit_length_calls_in_arithmetic": 3108,
+        "signed_operations": 1085,
+        "moment_nodes": 6,
+        "window_queries": 0,
+        "moment_requests": 8,
+        "cache_hits": 2
+      },
+      "max": {
+        "max_recursion_depth": 2,
+        "max_observed_integer_bits": 9
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "cache_control_replay": {
+      "receipts": 1,
+      "sum": {
+        "adder_digit_replays": 4464,
+        "typed_operations": 1115,
+        "host_bit_wiring_operations": 48351,
+        "host_bit_length_calls_in_arithmetic": 3108,
+        "signed_operations": 1085,
+        "moment_nodes": 6,
+        "window_queries": 0,
+        "moment_requests": 8,
+        "cache_hits": 2
+      },
+      "max": {
+        "max_recursion_depth": 2,
+        "max_observed_integer_bits": 9
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "negative_replay": {
+      "receipts": 14,
+      "sum": {
+        "adder_digit_replays": 60682,
+        "typed_operations": 13128,
+        "host_bit_wiring_operations": 652876,
+        "host_bit_length_calls_in_arithmetic": 36734,
+        "signed_operations": 12699,
+        "moment_nodes": 70,
+        "window_queries": 0,
+        "moment_requests": 118,
+        "cache_hits": 48
+      },
+      "max": {
+        "max_recursion_depth": 2,
+        "max_observed_integer_bits": 10
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    }
+  },
+  "total_current_run_cost": {
+    "adder_digit_replays": 122802,
+    "typed_operations": 25068,
+    "host_bit_wiring_operations": 1319820,
+    "host_bit_length_calls_in_arithmetic": 69970,
+    "signed_operations": 24099,
+    "moment_nodes": 118,
+    "window_queries": 0,
+    "moment_requests": 198,
+    "cache_hits": 80
+  },
+  "native_calls_by_category": {
+    "production": 1,
+    "positive_replay": 0,
+    "cache_control": 0,
+    "cache_control_replay": 0,
+    "input_pre_rejection": 0,
+    "negative_replay": 0
+  },
+  "actual_core_calls": [
+    {
+      "depth": 1,
+      "elapsed_ns": 5761800,
+      "entrypoint": "recurrent_mass_power",
+      "states": 12
+    }
+  ],
+  "per_case_comparison": [
+    {
+      "inputs": {
+        "R": 3,
+        "ell": 0,
+        "g": 2,
+        "k": 1
+      },
+      "new_production_digits": 715,
+      "historical_production_digits": 5640,
+      "historical_comparator_digits": 456,
+      "production_decrease_digits": 4925,
+      "new_below_historical_comparator": false
+    },
+    {
+      "inputs": {
+        "R": 3,
+        "ell": 1,
+        "g": 3,
+        "k": 2
+      },
+      "new_production_digits": 4790,
+      "historical_production_digits": 9827,
+      "historical_comparator_digits": 2241,
+      "production_decrease_digits": 5037,
+      "new_below_historical_comparator": false
+    },
+    {
+      "inputs": {
+        "R": 5,
+        "ell": 1,
+        "g": 3,
+        "k": 2
+      },
+      "new_production_digits": 1901,
+      "historical_production_digits": 12549,
+      "historical_comparator_digits": 2547,
+      "production_decrease_digits": 10648,
+      "new_below_historical_comparator": true
+    },
+    {
+      "inputs": {
+        "R": 6,
+        "ell": 2,
+        "g": 4,
+        "k": 3
+      },
+      "new_production_digits": 11254,
+      "historical_production_digits": 22915,
+      "historical_comparator_digits": 12472,
+      "production_decrease_digits": 11661,
+      "new_below_historical_comparator": true
+    },
+    {
+      "inputs": {
+        "R": 9,
+        "ell": 2,
+        "g": 4,
+        "k": 3
+      },
+      "new_production_digits": 5210,
+      "historical_production_digits": 28293,
+      "historical_comparator_digits": 13995,
+      "production_decrease_digits": 23083,
+      "new_below_historical_comparator": true
+    },
+    {
+      "inputs": {
+        "R": 11,
+        "ell": 1,
+        "g": 3,
+        "k": 2
+      },
+      "new_production_digits": 2726,
+      "historical_production_digits": 17228,
+      "historical_comparator_digits": 2833,
+      "production_decrease_digits": 14502,
+      "new_below_historical_comparator": true
+    }
+  ],
+  "production_comparison": {
+    "new": 26596,
+    "historical_production": 96452,
+    "historical_comparator": 34544,
+    "decrease_percent_vs_predecessor_metadata": 72.42566250570232,
+    "decrease_percent_vs_historical_comparator_metadata": 23.008337193144975,
+    "cases_below_predecessor": 6,
+    "cases_below_historical_comparator": 4
+  },
+  "elapsed_seconds_before_serialization": 20.52604810008779,
+  "unexpected_failure_artifact_present": false,
+  "scientific_execution_performed": false,
+  "comparison_is_timing_benchmark": false,
+  "limits": [
+    "Setup and coefficients are consumed once at their actual construction time and later references pay no duplicate arithmetic.",
+    "Current all 28 streams and old 720 comparator records are read; old records and overlapping snapshots are not newly charged.",
+    "Saved moment nodes, children, ranges, outputs, signed/typed links and native cells are checked, not numerically recomputed.",
+    "Only the declared native primitive cache-delta counter is excluded from strict fresh-certificate equality.",
+    "Same-g different-ell setups and deliberate valid numerical interruption remain unexecuted boundaries.",
+    "Arithmetic counters exclude JSON, hashing, metadata and other uninstrumented host work.",
+    "No matched timing, new asymptotic class, order discovery, full matrix Gram or Shor sampling claim follows."
+  ]
+}

@@ -1,0 +1,785 @@
+{
+  "status": "PASS_FULL_AUTHOR_SAVED_EVIDENCE_READBACK",
+  "scientific_execution_performed": false,
+  "reader_sha256": "3513008ffc95b1d135b8dcc5b70bca341c10f4f5171ae2e6e80a48373a8ce9d2",
+  "pure_io_helper_sha256": "a96696eb187d6c6251934f9b1651f5abc1b8d2db5a5357ea051960b8e4489f5a",
+  "source_sha256": {
+    "DESIGN.md": "87e0d3416e24030a6e76f9b418d9cdb1aa9ffba9175e63fbff4ce622521ed275",
+    "POINT_AND_SETUP_REUSE.md": "e4c0f33e1fd6c8d62d3604eb37db41b937ba999e536b61cfeac6e1300c9690e6",
+    "check_top_bit_fast.py": "76dc68753c07e9eedd64183c4a2875fde709ef6f1f0f59dd32b6ce39eee8dc21",
+    "top_bit_fast.py": "8c73aa1ad2f195b9d8f440112dac7b08cacbc1e544e65850a754dc38f2fa48e8"
+  },
+  "proof_and_helper_pins": {
+    "source_sha256": {
+      "path": "D:\\em\\TEMP\\sep27-qft-two-bit-top-fast\\top_bit_fast.py",
+      "sha256": "8c73aa1ad2f195b9d8f440112dac7b08cacbc1e544e65850a754dc38f2fa48e8"
+    },
+    "optimization_proof_sha256": {
+      "path": "D:\\em\\TEMP\\sep27-qft-two-bit-top-fast\\POINT_AND_SETUP_REUSE.md",
+      "sha256": "e4c0f33e1fd6c8d62d3604eb37db41b937ba999e536b61cfeac6e1300c9690e6"
+    },
+    "base_source_sha256": {
+      "path": "D:\\em\\TEMP\\sep27-qft-two-bit-top-general\\top_bit_general.py",
+      "sha256": "33a46d5f3dacf61e83cedd75cb3424f2375485b3b58984429d5c9fc76b8c96d0"
+    },
+    "proof_sha256": {
+      "path": "D:\\em\\TEMP\\sep27-qft-two-bit-top-general\\TOP_BIT_GENERAL_MODULUS.md",
+      "sha256": "880fb9d90f9258e0b96f6f47281bd711b11bd2ec515bddb6a6212cf45266ee89"
+    },
+    "proof_review_sha256": {
+      "path": "D:\\em\\TEMP\\sep27-qft-two-bit-top-general\\guard_review\\TOP_BIT_GENERAL_MODULUS_REVIEW.md",
+      "sha256": "e5f31e9619a3233c65af23b642d262e98996d6ca9ee538910e38c21ba412aaab"
+    },
+    "direct_source_sha256": {
+      "path": "D:\\em\\TEMP\\sep27-qft-gap-direct\\direct_gap\\direct_signed_gap.py",
+      "sha256": "3ab2515c1b9df35d01c9605f21d8f8fe56bd044effe489063192c0a5c56a8521"
+    },
+    "direct_proof_sha256": {
+      "path": "D:\\em\\TEMP\\sep27-qft-gap-direct\\DIFFERENCE_AUTOCORRELATION.md",
+      "sha256": "c0c3765fce7d07f383f1ebfcb514dd8483485944bfeb202d024dd21e69205cbf"
+    },
+    "floor_moment_source_sha256": {
+      "path": "D:\\em\\TEMP\\sep27-qft-adaptive\\nonzero_structure\\typed_floor_moments.py",
+      "sha256": "633502c9b484e60e5dc5fcf6edd0420f12d52c33c43e88851b9e1e6465ea94a2"
+    },
+    "baseline_helper_source_sha256": {
+      "path": "D:\\em\\TEMP\\sep27-qft-signedgap\\signed_gap\\signed_gap.py",
+      "sha256": "86ea28956fa7ac9c41fb38a8c63f4ba00b0377f3264b5a525c46c5335faff90a"
+    }
+  },
+  "payload_sha256": "db60ed6dd188c5936585c0d1a4dbffa83652baca0dd2551182148d2c8457038a",
+  "artifact_sha256": "7cea2d841376650734622fe7d29b529a8f46cd195a4dc87b63993d9e995fc507",
+  "raw_bytes": 33060129,
+  "gzip_bytes": 1258273,
+  "summary_sha256": "e5c5cb810f68f90b18716cdf28a3641922441b78e7ac77561c1bb15806182144",
+  "log_sha256": "0e8fa0cd9348beff1dcc347da55305bacafd086c403b336f19116cea0506b554",
+  "guard_sha256": "f8ff9c3877cfc3dd22ad91bbc05a3927105769a60ac541b74ffe31bcc77647ae",
+  "case_rows": [
+    {
+      "inputs": {
+        "R": 3,
+        "ell": 0,
+        "g": 2,
+        "k": 1
+      },
+      "values": [
+        6,
+        -3,
+        -3
+      ],
+      "historical_pairs_read": 16,
+      "production_digits": 715,
+      "historical_production_digits": 5640,
+      "historical_comparator_digits": 456,
+      "production_hotspots": {
+        "routing_and_final": {
+          "signed_operations": 87,
+          "typed_operations": 96,
+          "adder_digit_replays": 408
+        },
+        "segment_EMPTY": {
+          "signed_operations": 5,
+          "typed_operations": 5,
+          "adder_digit_replays": 10
+        },
+        "segment_SINGLE_DISPLACEMENT": {
+          "signed_operations": 66,
+          "typed_operations": 70,
+          "adder_digit_replays": 268
+        },
+        "setup_scales": {
+          "signed_operations": 5,
+          "typed_operations": 5,
+          "adder_digit_replays": 29
+        }
+      }
+    },
+    {
+      "inputs": {
+        "R": 3,
+        "ell": 1,
+        "g": 3,
+        "k": 2
+      },
+      "values": [
+        6,
+        -3,
+        -3
+      ],
+      "historical_pairs_read": 64,
+      "production_digits": 4790,
+      "historical_production_digits": 9827,
+      "historical_comparator_digits": 2241,
+      "production_hotspots": {
+        "coefficients_high": {
+          "signed_operations": 27,
+          "typed_operations": 28,
+          "adder_digit_replays": 232
+        },
+        "coefficients_low": {
+          "signed_operations": 26,
+          "typed_operations": 27,
+          "adder_digit_replays": 240
+        },
+        "moment_tables": {
+          "signed_operations": 710,
+          "typed_operations": 711,
+          "adder_digit_replays": 1738
+        },
+        "routing_and_final": {
+          "signed_operations": 90,
+          "typed_operations": 95,
+          "adder_digit_replays": 588
+        },
+        "segment_FLOOR_MOMENTS": {
+          "signed_operations": 117,
+          "typed_operations": 135,
+          "adder_digit_replays": 1492
+        },
+        "segment_SINGLE_DISPLACEMENT": {
+          "signed_operations": 86,
+          "typed_operations": 92,
+          "adder_digit_replays": 461
+        },
+        "setup_scales": {
+          "signed_operations": 6,
+          "typed_operations": 6,
+          "adder_digit_replays": 39
+        }
+      }
+    },
+    {
+      "inputs": {
+        "R": 5,
+        "ell": 1,
+        "g": 3,
+        "k": 2
+      },
+      "values": [
+        6,
+        1,
+        -4,
+        -4,
+        1
+      ],
+      "historical_pairs_read": 64,
+      "production_digits": 1901,
+      "historical_production_digits": 12549,
+      "historical_comparator_digits": 2547,
+      "production_hotspots": {
+        "routing_and_final": {
+          "signed_operations": 147,
+          "typed_operations": 161,
+          "adder_digit_replays": 1052
+        },
+        "segment_EMPTY": {
+          "signed_operations": 5,
+          "typed_operations": 5,
+          "adder_digit_replays": 10
+        },
+        "segment_SINGLE_DISPLACEMENT": {
+          "signed_operations": 142,
+          "typed_operations": 154,
+          "adder_digit_replays": 800
+        },
+        "setup_scales": {
+          "signed_operations": 6,
+          "typed_operations": 6,
+          "adder_digit_replays": 39
+        }
+      }
+    },
+    {
+      "inputs": {
+        "R": 6,
+        "ell": 2,
+        "g": 4,
+        "k": 3
+      },
+      "values": [
+        12,
+        3,
+        -6,
+        -6,
+        -6,
+        3
+      ],
+      "historical_pairs_read": 256,
+      "production_digits": 11254,
+      "historical_production_digits": 22915,
+      "historical_comparator_digits": 12472,
+      "production_hotspots": {
+        "coefficients_high": {
+          "signed_operations": 27,
+          "typed_operations": 28,
+          "adder_digit_replays": 258
+        },
+        "coefficients_low": {
+          "signed_operations": 26,
+          "typed_operations": 27,
+          "adder_digit_replays": 263
+        },
+        "moment_tables": {
+          "signed_operations": 1420,
+          "typed_operations": 1422,
+          "adder_digit_replays": 3886
+        },
+        "routing_and_final": {
+          "signed_operations": 180,
+          "typed_operations": 192,
+          "adder_digit_replays": 1710
+        },
+        "segment_FLOOR_MOMENTS": {
+          "signed_operations": 273,
+          "typed_operations": 313,
+          "adder_digit_replays": 3783
+        },
+        "segment_SINGLE_DISPLACEMENT": {
+          "signed_operations": 162,
+          "typed_operations": 178,
+          "adder_digit_replays": 1304
+        },
+        "setup_scales": {
+          "signed_operations": 7,
+          "typed_operations": 7,
+          "adder_digit_replays": 50
+        }
+      }
+    },
+    {
+      "inputs": {
+        "R": 9,
+        "ell": 2,
+        "g": 4,
+        "k": 3
+      },
+      "values": [
+        6,
+        1,
+        0,
+        0,
+        -4,
+        -4,
+        0,
+        0,
+        1
+      ],
+      "historical_pairs_read": 256,
+      "production_digits": 5210,
+      "historical_production_digits": 28293,
+      "historical_comparator_digits": 13995,
+      "production_hotspots": {
+        "routing_and_final": {
+          "signed_operations": 267,
+          "typed_operations": 287,
+          "adder_digit_replays": 2690
+        },
+        "segment_EMPTY": {
+          "signed_operations": 5,
+          "typed_operations": 5,
+          "adder_digit_replays": 10
+        },
+        "segment_SINGLE_DISPLACEMENT": {
+          "signed_operations": 294,
+          "typed_operations": 328,
+          "adder_digit_replays": 2460
+        },
+        "setup_scales": {
+          "signed_operations": 7,
+          "typed_operations": 7,
+          "adder_digit_replays": 50
+        }
+      }
+    },
+    {
+      "inputs": {
+        "R": 11,
+        "ell": 1,
+        "g": 3,
+        "k": 2
+      },
+      "values": [
+        8,
+        3,
+        -2,
+        -3,
+        -3,
+        1,
+        1,
+        -3,
+        -3,
+        -2,
+        3
+      ],
+      "historical_pairs_read": 64,
+      "production_digits": 2726,
+      "historical_production_digits": 17228,
+      "historical_comparator_digits": 2833,
+      "production_hotspots": {
+        "routing_and_final": {
+          "signed_operations": 259,
+          "typed_operations": 290,
+          "adder_digit_replays": 1857
+        },
+        "segment_EMPTY": {
+          "signed_operations": 15,
+          "typed_operations": 15,
+          "adder_digit_replays": 30
+        },
+        "segment_SINGLE_DISPLACEMENT": {
+          "signed_operations": 142,
+          "typed_operations": 154,
+          "adder_digit_replays": 800
+        },
+        "setup_scales": {
+          "signed_operations": 6,
+          "typed_operations": 6,
+          "adder_digit_replays": 39
+        }
+      }
+    }
+  ],
+  "cost_categories": {
+    "production": {
+      "receipts": 6,
+      "sum": {
+        "adder_digit_replays": 26596,
+        "typed_operations": 4855,
+        "host_bit_wiring_operations": 285121,
+        "host_bit_length_calls_in_arithmetic": 13510,
+        "signed_operations": 4615,
+        "moment_nodes": 18,
+        "window_queries": 0,
+        "moment_requests": 32,
+        "cache_hits": 14
+      },
+      "max": {
+        "max_recursion_depth": 2,
+        "max_observed_integer_bits": 10
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "positive_replay": {
+      "receipts": 6,
+      "sum": {
+        "adder_digit_replays": 26596,
+        "typed_operations": 4855,
+        "host_bit_wiring_operations": 285121,
+        "host_bit_length_calls_in_arithmetic": 13510,
+        "signed_operations": 4615,
+        "moment_nodes": 18,
+        "window_queries": 0,
+        "moment_requests": 32,
+        "cache_hits": 14
+      },
+      "max": {
+        "max_recursion_depth": 2,
+        "max_observed_integer_bits": 10
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "cache_control": {
+      "receipts": 1,
+      "sum": {
+        "adder_digit_replays": 4464,
+        "typed_operations": 1115,
+        "host_bit_wiring_operations": 48351,
+        "host_bit_length_calls_in_arithmetic": 3108,
+        "signed_operations": 1085,
+        "moment_nodes": 6,
+        "window_queries": 0,
+        "moment_requests": 8,
+        "cache_hits": 2
+      },
+      "max": {
+        "max_recursion_depth": 2,
+        "max_observed_integer_bits": 9
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "cache_control_replay": {
+      "receipts": 1,
+      "sum": {
+        "adder_digit_replays": 4464,
+        "typed_operations": 1115,
+        "host_bit_wiring_operations": 48351,
+        "host_bit_length_calls_in_arithmetic": 3108,
+        "signed_operations": 1085,
+        "moment_nodes": 6,
+        "window_queries": 0,
+        "moment_requests": 8,
+        "cache_hits": 2
+      },
+      "max": {
+        "max_recursion_depth": 2,
+        "max_observed_integer_bits": 9
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "negative_replay": {
+      "receipts": 14,
+      "sum": {
+        "adder_digit_replays": 60682,
+        "typed_operations": 13128,
+        "host_bit_wiring_operations": 652876,
+        "host_bit_length_calls_in_arithmetic": 36734,
+        "signed_operations": 12699,
+        "moment_nodes": 70,
+        "window_queries": 0,
+        "moment_requests": 118,
+        "cache_hits": 48
+      },
+      "max": {
+        "max_recursion_depth": 2,
+        "max_observed_integer_bits": 10
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    }
+  },
+  "all_disjoint_current_streams_read": 28,
+  "current_total_adder_digits": 122802,
+  "historical_evidence_reuse": {
+    "artifact_sha256": "ba39feafb35e6d902c1ba1de8c7e64aba581eca7d02e429064c389f6d79e9dc0",
+    "guard_sha256": "fd9b5bf7a1b9680a23e3f4ea2ac0f0dce5d3ce362936635044c9324c3aa99f1b",
+    "gzip_bytes": 2684245,
+    "historical_pair_comparator_reexecuted": false,
+    "historical_pair_records": 720,
+    "historical_production_reexecuted": false,
+    "payload_sha256": "4f6fae5355d3a809b765af17c6be7b2ac709cf63ec2e6fbd4e5b81a35cf79dc9",
+    "raw_bytes": 75217873,
+    "source_sha256": {
+      "DESIGN.md": "228c00ba4a2a29dc645e2d126b586183d7e6539a40396adf7719db4cdabc0ad3",
+      "check_top_bit_general.py": "2b9b04fa1670af5c857eac4ba0810fe6a3c9e45d14f62a6f4371d1bd7ebefc9c",
+      "top_bit_general.py": "33a46d5f3dacf61e83cedd75cb3424f2375485b3b58984429d5c9fc76b8c96d0"
+    },
+    "whole_payload_read_and_hash_checked": true
+  },
+  "historical_pairs_read": 720,
+  "historical_pair_reexecution": false,
+  "structural_counts": {
+    "requests": 37,
+    "top_level_table_calls": 20,
+    "setup_misses": 6,
+    "orientations": 74,
+    "empty_orientations": 7,
+    "segments": 134,
+    "setup_hits": 31,
+    "coefficient_constructions": 4
+  },
+  "route_counts": {
+    "SINGLE_DISPLACEMENT": 94,
+    "EMPTY": 30,
+    "FLOOR_MOMENTS": 10
+  },
+  "production_hotspots": {
+    "coefficients_high": {
+      "signed_operations": 54,
+      "typed_operations": 56,
+      "adder_digit_replays": 490
+    },
+    "coefficients_low": {
+      "signed_operations": 52,
+      "typed_operations": 54,
+      "adder_digit_replays": 503
+    },
+    "moment_tables": {
+      "signed_operations": 2130,
+      "typed_operations": 2133,
+      "adder_digit_replays": 5624
+    },
+    "routing_and_final": {
+      "signed_operations": 1030,
+      "typed_operations": 1121,
+      "adder_digit_replays": 8305
+    },
+    "segment_EMPTY": {
+      "signed_operations": 30,
+      "typed_operations": 30,
+      "adder_digit_replays": 60
+    },
+    "segment_FLOOR_MOMENTS": {
+      "signed_operations": 390,
+      "typed_operations": 448,
+      "adder_digit_replays": 5275
+    },
+    "segment_SINGLE_DISPLACEMENT": {
+      "signed_operations": 892,
+      "typed_operations": 976,
+      "adder_digit_replays": 6093
+    },
+    "setup_scales": {
+      "signed_operations": 37,
+      "typed_operations": 37,
+      "adder_digit_replays": 246
+    }
+  },
+  "mixed_cache_control": {
+    "accepted_queries": 4,
+    "setups": 2,
+    "indices": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "hits": [
+      false,
+      false,
+      true,
+      true
+    ],
+    "production_cost": {
+      "arithmetic_stats": {
+        "adder_digit_replays": 4464,
+        "host_bit_length_calls_in_arithmetic": 3108,
+        "host_bit_wiring_operations": 48351,
+        "native_kernel_calls_delta": 0,
+        "typed_operations": 1115
+      },
+      "typed_operations": 1115,
+      "signed_operations": 1085,
+      "moment_nodes": 6,
+      "window_queries": 0,
+      "moment_stats": {
+        "cache_hits": 2,
+        "max_observed_integer_bits": 9,
+        "max_recursion_depth": 2,
+        "moment_requests": 8
+      }
+    },
+    "replay_cost": {
+      "arithmetic_stats": {
+        "adder_digit_replays": 4464,
+        "host_bit_length_calls_in_arithmetic": 3108,
+        "host_bit_wiring_operations": 48351,
+        "native_kernel_calls_delta": 0,
+        "typed_operations": 1115
+      },
+      "typed_operations": 1115,
+      "signed_operations": 1085,
+      "moment_nodes": 6,
+      "window_queries": 0,
+      "moment_stats": {
+        "cache_hits": 2,
+        "max_observed_integer_bits": 9,
+        "max_recursion_depth": 2,
+        "moment_requests": 8
+      }
+    },
+    "separately_charged": true
+  },
+  "negative_checks": [
+    {
+      "name": "setup_scale",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "complete top-bit certificate does not replay",
+      "receipts": 1,
+      "digits": 4790
+    },
+    {
+      "name": "setup_input",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "complete top-bit certificate does not replay",
+      "receipts": 1,
+      "digits": 4790
+    },
+    {
+      "name": "setup_index",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "complete top-bit certificate does not replay",
+      "receipts": 1,
+      "digits": 4790
+    },
+    {
+      "name": "setup_hit",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "complete top-bit certificate does not replay",
+      "receipts": 1,
+      "digits": 4790
+    },
+    {
+      "name": "setup_complete",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "complete top-bit certificate does not replay",
+      "receipts": 1,
+      "digits": 4790
+    },
+    {
+      "name": "coefficient_value",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "complete top-bit certificate does not replay",
+      "receipts": 1,
+      "digits": 4790
+    },
+    {
+      "name": "coefficient_reference",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "complete top-bit certificate does not replay",
+      "receipts": 1,
+      "digits": 11254
+    },
+    {
+      "name": "point_parity",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "complete top-bit certificate does not replay",
+      "receipts": 1,
+      "digits": 715
+    },
+    {
+      "name": "point_alpha",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "complete top-bit certificate does not replay",
+      "receipts": 1,
+      "digits": 715
+    },
+    {
+      "name": "point_result",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "complete top-bit certificate does not replay",
+      "receipts": 1,
+      "digits": 715
+    },
+    {
+      "name": "table_output",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "complete top-bit certificate does not replay",
+      "receipts": 1,
+      "digits": 4790
+    },
+    {
+      "name": "half_modulus_orientation",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "complete top-bit certificate does not replay",
+      "receipts": 1,
+      "digits": 11254
+    },
+    {
+      "name": "raw_exponent",
+      "kind": "COMPLETE_PAID_REPLAY_THEN_MISMATCH",
+      "error": "complete top-bit certificate does not replay",
+      "receipts": 1,
+      "digits": 715
+    },
+    {
+      "name": "valid_prefix_then_invalid_non_top",
+      "kind": "PAID_VALID_PREFIX_THEN_INPUT_REJECTION",
+      "error": "highest selected bit must be g-1",
+      "receipts": 1,
+      "digits": 1784
+    },
+    {
+      "name": "source_early",
+      "kind": "EARLY_ZERO_WORK_REJECTION",
+      "error": "source/proof mismatch: source_sha256",
+      "receipts": 0,
+      "digits": 0
+    },
+    {
+      "name": "schema_early",
+      "kind": "EARLY_ZERO_WORK_REJECTION",
+      "error": "wrong top-bit schema",
+      "receipts": 0,
+      "digits": 0
+    },
+    {
+      "name": "bool_input_early",
+      "kind": "EARLY_ZERO_WORK_REJECTION",
+      "error": "strict integer inputs required",
+      "receipts": 0,
+      "digits": 0
+    },
+    {
+      "name": "nonstring_key_early",
+      "kind": "EARLY_ZERO_WORK_REJECTION",
+      "error": "JSON object keys must be strings",
+      "receipts": 0,
+      "digits": 0
+    }
+  ],
+  "negative_kinds": {
+    "COMPLETE_PAID_REPLAY_THEN_MISMATCH": 13,
+    "PAID_VALID_PREFIX_THEN_INPUT_REJECTION": 1,
+    "EARLY_ZERO_WORK_REJECTION": 4
+  },
+  "input_rejections": 12,
+  "boundary_before_after_equal": true,
+  "boundary_cost_counted_once_inside_first_production": true,
+  "native_source": {
+    "arithmetic_route": "actual full-adder columns; digit transducer composition",
+    "files_sha256": {
+      "lazy_modular": "08df3595a2a56dc2501bb481828093481bf76e4ac53c8b966990d233fefac1e4",
+      "sparse_modular": "fd9cbb019418a3c00890ba6e8cca5760e7e4d792bfd7b48306a71a66de301c46",
+      "typed_integer_prechecks": "0a817aa8124cceb5440233d543073dae71de6ac1d0d4e5d50f4ee2b4808d99eb"
+    },
+    "native_adder": {
+      "columns": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "entrypoint": "stage78.shor_benchmark.full_adder_columns",
+      "input_columns": 8,
+      "observer": "retained input triple -> (sum bit, carry bit)",
+      "positive_BRC_input_states": 12,
+      "scope": "exact integer label compiler; not a reversible physical erasure",
+      "vendor": {
+        "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+        "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+        "path": "src/enterprise_math/brc_weighted_recurrent.py",
+        "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+      }
+    },
+    "primitive_source": "0852cad130c1d877174d235687cf60c19f318c58",
+    "runtime_state_propagator": "complete positive unit permutation on work labels"
+  },
+  "actual_core_calls": [
+    {
+      "depth": 1,
+      "elapsed_ns": 5761800,
+      "entrypoint": "recurrent_mass_power",
+      "states": 12
+    }
+  ],
+  "native_calls_by_category": {
+    "production": 1,
+    "positive_replay": 0,
+    "cache_control": 0,
+    "cache_control_replay": 0,
+    "input_pre_rejection": 0,
+    "negative_replay": 0
+  },
+  "elapsed_seconds_before_serialization": 20.52604810008779,
+  "production_below_historical_comparator_cases": 4,
+  "failure_artifact_present": false,
+  "scope": "Saved outer expression links, lazy setup/coefficient references, point routes, signed-to-typed outputs, actual native cells, historical pair updates, complete/partial replay and disjoint accounting. No scientific recomputation.",
+  "admission": "AUTHOR_SHARED_CONTEXT_READBACK_NOT_FORMAL_ADMISSION"
+}
