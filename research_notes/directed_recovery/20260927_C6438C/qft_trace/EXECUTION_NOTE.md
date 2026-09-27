@@ -1,0 +1,17 @@
+# Execution map and exact limits
+
+This unit contains three completed native executions and a symbolic follow-up. All actual phase arithmetic uses the admitted native word actions and signed PositivePathObserver; all complete residual coordinates are preserved. No ideal propagator, ordinary modular-power reference, floating phase approximation or silent source replacement supplies a result.
+
+1. trace_bank/SO_TRACE_EXECUTION_NOTE.md and SO_TRACE_COST_ACCOUNTING.json describe the complete bank test. Full actual word/column replay and logical certificates are in SO_TRACE_BANK_RESULTS.json.gz; the peer complete-record review is guard_review/SO_TRACE_BANK_REVIEW.md.
+2. policy_execution/SO_TRACE_POLICY_EXECUTION_NOTE.md and its cost JSON describe the exact-type integration, strict resume, negative controls and rollback/retry. The root independently decoded and checked complete recorded matrix/observer equality and source/call links in guard_review/SO_TRACE_POLICY_RESULT_REVIEW.md and its JSON.
+3. prefix_comparison/ contains the frozen design/source, original log, complete raw paired-run evidence, summary and actual cost/narrative extraction. This is the subsequent bounded warm comparison, with a real negative performance result and explicit concurrent-work uncertainty. The original trace-policy checker did not measure these timings; its earlier statement that matched comparison was next is retained as stage chronology.
+
+No executed source was altered after its science run. Checkers preserve unexpected work in separate failure artifacts; none of the three runs produced an unexpected failure artifact. Deliberate failed fresh replay work remains in the successful complete evidence. Existence of a failure handler is not a claim that its own failure path was exercised. Constructor failures still do not universally return a full partial receipt.
+
+Public-boundary checks use the frozen synchronous trusted-object contract. They retain full checks at eight public entry points and cheaper inherited snapshot/ledger checks inside recursion. They do not support hostile monkeypatching, external mutation mid-entry or general concurrent access. Guard depth unwinds for BaseException, while inherited ledger rollback covers Exception only. Some inherited evidence arrays are live; recorded checker snapshots are detached before continued use.
+
+The new cursor restores the mathematical prefix and pending choice through fresh execution; it does not preserve query cache state or random tape. Cross-version cursor/certificate hashes intentionally differ. Old/new numerical equalities never substitute for new-bank binding checks.
+
+next_design/FULL_HISTORY_CARRY_ASSESSMENT.md is a read-only symbolic source assessment, not a fourth scientific run. Fixed-d full-history and odd-part matrix recurrences already existed. The proposed complete alias interval and scalar-block combination preserve arbitrary matrix seeds and chronological noncommuting words, but have no new native validation here. In particular, few contraction aliases do not imply cheap paid order/address discovery.
+
+The unit's source and full backup are finalized only by publication metadata, complete immutable readback, actual original Drive download/all-member verification, delivery receipt and own native checkpoint. Prior publication is pinned in DEPENDENCIES.md; the parent remains unchanged. All results are author/shared-context evidence, not independent formal admission.

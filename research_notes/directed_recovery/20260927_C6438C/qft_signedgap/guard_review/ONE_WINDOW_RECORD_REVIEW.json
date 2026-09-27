@@ -1,0 +1,348 @@
+{
+  "status": "PASS_COMPLETE_SAVED_RECORD_REVIEW",
+  "scope": "full bytes, strict saved replay equality, operation links and resource metadata; no native import or scientific execution",
+  "reader_sha256": "4ec7a4318006427895f6234d413778372c545482e6f5bf371f96ea6d82c87f6a",
+  "source_sha256": {
+    "check_one_window_signed_gap.py": "6594ebf9495dfabf1ce2878f4a9bc5cde80d45d0747e92d71e1e27e096e1a87e",
+    "one_window_signed_gap.py": "c15e80d580fc8aa52821cb8b0526ada4cd31933cd089bdb1fa1199d1de1ff8b7"
+  },
+  "payload_sha256": "37ec0d4b7939a70d9157239bfebec7c88a387ff6a2f046a2701f87641d5d78f9",
+  "raw_bytes": 34118508,
+  "gzip_sha256": "d465513608449d40b081a6ae62acff51f75ef5990f7bc911cec632a5b705e3de",
+  "gzip_bytes": 1333492,
+  "baseline_payload_sha256": "76d1087ef58144303b624c2935a045eb15dcd9264f32dd1c09378431e9663110",
+  "baseline_raw_bytes": 97157549,
+  "guard_sha256": "56612f05af8edd9ae544b767fd6be47cd7f4a1585c9659b6678f5ca5f17a3084",
+  "native_source": {
+    "arithmetic_route": "actual full-adder columns; digit transducer composition",
+    "files_sha256": {
+      "lazy_modular": "08df3595a2a56dc2501bb481828093481bf76e4ac53c8b966990d233fefac1e4",
+      "sparse_modular": "fd9cbb019418a3c00890ba6e8cca5760e7e4d792bfd7b48306a71a66de301c46",
+      "typed_integer_prechecks": "0a817aa8124cceb5440233d543073dae71de6ac1d0d4e5d50f4ee2b4808d99eb"
+    },
+    "native_adder": {
+      "columns": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "entrypoint": "stage78.shor_benchmark.full_adder_columns",
+      "input_columns": 8,
+      "observer": "retained input triple -> (sum bit, carry bit)",
+      "positive_BRC_input_states": 12,
+      "scope": "exact integer label compiler; not a reversible physical erasure",
+      "vendor": {
+        "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+        "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+        "path": "src/enterprise_math/brc_weighted_recurrent.py",
+        "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+      }
+    },
+    "primitive_source": "0852cad130c1d877174d235687cf60c19f318c58",
+    "runtime_state_propagator": "complete positive unit permutation on work labels"
+  },
+  "cases": [
+    {
+      "inputs": {
+        "R": 3,
+        "g": 1,
+        "k": 0
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "recorded_historical_pairs": 4,
+      "recorded_links": {
+        "requests": 3,
+        "signed_operations": 2140,
+        "typed_operations": 2172,
+        "moment_nodes": 13
+      }
+    },
+    {
+      "inputs": {
+        "R": 3,
+        "g": 2,
+        "k": 0
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "recorded_historical_pairs": 16,
+      "recorded_links": {
+        "requests": 3,
+        "signed_operations": 2931,
+        "typed_operations": 3001,
+        "moment_nodes": 19
+      }
+    },
+    {
+      "inputs": {
+        "R": 3,
+        "g": 2,
+        "k": 1
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "recorded_historical_pairs": 16,
+      "recorded_links": {
+        "requests": 3,
+        "signed_operations": 3599,
+        "typed_operations": 3647,
+        "moment_nodes": 20
+      }
+    },
+    {
+      "inputs": {
+        "R": 6,
+        "g": 3,
+        "k": 0
+      },
+      "values": [
+        12,
+        -11,
+        10,
+        -10,
+        10,
+        -11
+      ],
+      "recorded_historical_pairs": 64,
+      "recorded_links": {
+        "requests": 6,
+        "signed_operations": 7028,
+        "typed_operations": 7204,
+        "moment_nodes": 42
+      }
+    },
+    {
+      "inputs": {
+        "R": 3,
+        "g": 3,
+        "k": 1
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "recorded_historical_pairs": 64,
+      "recorded_links": {
+        "requests": 3,
+        "signed_operations": 4390,
+        "typed_operations": 4510,
+        "moment_nodes": 26
+      }
+    },
+    {
+      "inputs": {
+        "R": 2,
+        "g": 3,
+        "k": 2
+      },
+      "values": [
+        0,
+        0
+      ],
+      "recorded_historical_pairs": 64,
+      "recorded_links": {
+        "requests": 2,
+        "signed_operations": 148,
+        "typed_operations": 154,
+        "moment_nodes": 0
+      }
+    },
+    {
+      "inputs": {
+        "R": 7,
+        "g": 4,
+        "k": 1
+      },
+      "values": [
+        10,
+        -1,
+        -8,
+        4,
+        4,
+        -8,
+        -1
+      ],
+      "recorded_historical_pairs": 256,
+      "recorded_links": {
+        "requests": 7,
+        "signed_operations": 9135,
+        "typed_operations": 9373,
+        "moment_nodes": 57
+      }
+    },
+    {
+      "inputs": {
+        "R": 1,
+        "g": 4,
+        "k": 2
+      },
+      "values": [
+        0
+      ],
+      "recorded_historical_pairs": 256,
+      "recorded_links": {
+        "requests": 1,
+        "signed_operations": 75,
+        "typed_operations": 77,
+        "moment_nodes": 0
+      }
+    },
+    {
+      "inputs": {
+        "R": 3,
+        "g": 5,
+        "k": 4
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "recorded_historical_pairs": 1024,
+      "recorded_links": {
+        "requests": 3,
+        "signed_operations": 2776,
+        "typed_operations": 2808,
+        "moment_nodes": 16
+      }
+    }
+  ],
+  "negative_replays": [
+    {
+      "name": "value",
+      "error": "one-window certificate does not replay",
+      "complete_fresh_replays": 1
+    },
+    {
+      "name": "window_weight",
+      "error": "one-window certificate does not replay",
+      "complete_fresh_replays": 1
+    },
+    {
+      "name": "interval_weight",
+      "error": "one-window certificate does not replay",
+      "complete_fresh_replays": 1
+    },
+    {
+      "name": "identity",
+      "error": "one-window certificate does not replay",
+      "complete_fresh_replays": 1
+    },
+    {
+      "name": "boolean_input",
+      "error": "strict integer inputs required",
+      "complete_fresh_replays": 0
+    },
+    {
+      "name": "source",
+      "error": "one-window source pin mismatch",
+      "complete_fresh_replays": 0
+    }
+  ],
+  "resources": {
+    "production": {
+      "certificates": 9,
+      "arithmetic": {
+        "typed_operations": 32946,
+        "adder_digit_replays": 137611,
+        "host_bit_wiring_operations": 1494901,
+        "host_bit_length_calls_in_arithmetic": 93645,
+        "native_kernel_calls_delta": 1
+      },
+      "signed_operations": 32222,
+      "moment_nodes": 193,
+      "outer_window_queries": 31
+    },
+    "positive_replay": {
+      "certificates": 9,
+      "arithmetic": {
+        "typed_operations": 32946,
+        "adder_digit_replays": 137611,
+        "host_bit_wiring_operations": 1494901,
+        "host_bit_length_calls_in_arithmetic": 93645,
+        "native_kernel_calls_delta": 0
+      },
+      "signed_operations": 32222,
+      "moment_nodes": 193,
+      "outer_window_queries": 31
+    },
+    "negative_replay": {
+      "certificates": 4,
+      "arithmetic": {
+        "typed_operations": 8688,
+        "adder_digit_replays": 16116,
+        "host_bit_wiring_operations": 176496,
+        "host_bit_length_calls_in_arithmetic": 23540,
+        "native_kernel_calls_delta": 0
+      },
+      "signed_operations": 8560,
+      "moment_nodes": 52,
+      "outer_window_queries": 12
+    },
+    "historical_production": {
+      "certificates": 9,
+      "arithmetic": {
+        "typed_operations": 55420,
+        "adder_digit_replays": 265478,
+        "host_bit_wiring_operations": 2866745,
+        "host_bit_length_calls_in_arithmetic": 155743,
+        "native_kernel_calls_delta": 1
+      },
+      "signed_operations": 53902,
+      "moment_nodes": 249,
+      "outer_window_queries": 93
+    }
+  },
+  "actual_core_calls": [
+    {
+      "depth": 1,
+      "elapsed_ns": 5767700,
+      "entrypoint": "recurrent_mass_power",
+      "states": 12
+    }
+  ],
+  "current_run_total_adder_digit_replays": 291338,
+  "new_failure_artifact_present": false,
+  "comparison_is_timing_benchmark": false,
+  "scientific_arithmetic_recomputed_by_reader": false
+}

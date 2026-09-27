@@ -1,0 +1,245 @@
+{
+  "status": "READBACK_PASS",
+  "scientific_execution_performed_by_this_reader": false,
+  "reader_sha256": "b4a8b067d8a833e299cf04f64ecd81f7595e44e8bff0f98289e0b8efaf92f9de",
+  "metadata_reader_dependency_sha256": "846d440774090d9fa7e58d7fddf2621816d168c76a3c5ac0121ffafac61994d6",
+  "source_sha256": {
+    "one_window_signed_gap.py": "c15e80d580fc8aa52821cb8b0526ada4cd31933cd089bdb1fa1199d1de1ff8b7",
+    "check_one_window_signed_gap.py": "6594ebf9495dfabf1ce2878f4a9bc5cde80d45d0747e92d71e1e27e096e1a87e"
+  },
+  "payload_sha256": "37ec0d4b7939a70d9157239bfebec7c88a387ff6a2f046a2701f87641d5d78f9",
+  "artifact_sha256": "d465513608449d40b081a6ae62acff51f75ef5990f7bc911cec632a5b705e3de",
+  "startup_guard_sha256": "56612f05af8edd9ae544b767fd6be47cd7f4a1585c9659b6678f5ca5f17a3084",
+  "baseline_reference": {
+    "artifact": "SIGNED_GAP_RESULTS.json.gz",
+    "artifact_sha256": "2b7ff5fe1cd62fbabe3f48fbaf157aeccdc6614f46a5c6d284edff3a412dbc9b",
+    "payload_sha256": "76d1087ef58144303b624c2935a045eb15dcd9264f32dd1c09378431e9663110",
+    "reexecuted": false,
+    "whole_payload_read_and_hash_checked": true
+  },
+  "production": {
+    "evidence_count": 9,
+    "arithmetic_totals": {
+      "typed_operations": 32946,
+      "adder_digit_replays": 137611,
+      "host_bit_wiring_operations": 1494901,
+      "host_bit_length_calls_in_arithmetic": 93645,
+      "native_kernel_calls_delta": 1
+    },
+    "signed_operations": 32222,
+    "moment_nodes": 193,
+    "window_queries": 31,
+    "moment_requests": 319,
+    "cache_hits": 126,
+    "max_recursion_depth": 5,
+    "max_observed_integer_bits": 11
+  },
+  "positive_replay": {
+    "evidence_count": 9,
+    "arithmetic_totals": {
+      "typed_operations": 32946,
+      "adder_digit_replays": 137611,
+      "host_bit_wiring_operations": 1494901,
+      "host_bit_length_calls_in_arithmetic": 93645,
+      "native_kernel_calls_delta": 0
+    },
+    "signed_operations": 32222,
+    "moment_nodes": 193,
+    "window_queries": 31,
+    "moment_requests": 319,
+    "cache_hits": 126,
+    "max_recursion_depth": 5,
+    "max_observed_integer_bits": 11
+  },
+  "negative_replay": {
+    "evidence_count": 4,
+    "arithmetic_totals": {
+      "typed_operations": 8688,
+      "adder_digit_replays": 16116,
+      "host_bit_wiring_operations": 176496,
+      "host_bit_length_calls_in_arithmetic": 23540,
+      "native_kernel_calls_delta": 0
+    },
+    "signed_operations": 8560,
+    "moment_nodes": 52,
+    "window_queries": 12,
+    "moment_requests": 100,
+    "cache_hits": 48,
+    "max_recursion_depth": 1,
+    "max_observed_integer_bits": 3
+  },
+  "historical_production_digits": 265478,
+  "digit_replay_reduction_count": 127867,
+  "digit_replay_reduction_fraction": {
+    "numerator": 127867,
+    "denominator": 265478
+  },
+  "negative_replay_capture_counts": [
+    {
+      "name": "value",
+      "replays": 1
+    },
+    {
+      "name": "window_weight",
+      "replays": 1
+    },
+    {
+      "name": "interval_weight",
+      "replays": 1
+    },
+    {
+      "name": "identity",
+      "replays": 1
+    },
+    {
+      "name": "boolean_input",
+      "replays": 0
+    },
+    {
+      "name": "source",
+      "replays": 0
+    }
+  ],
+  "actual_core_calls": [
+    {
+      "depth": 1,
+      "elapsed_ns": 5767700,
+      "entrypoint": "recurrent_mass_power",
+      "states": 12
+    }
+  ],
+  "per_case": [
+    {
+      "inputs": {
+        "g": 1,
+        "k": 0,
+        "R": 3
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "fresh_digits": 4029,
+      "historical_digits": 7715
+    },
+    {
+      "inputs": {
+        "g": 2,
+        "k": 0,
+        "R": 3
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "fresh_digits": 8570,
+      "historical_digits": 15104
+    },
+    {
+      "inputs": {
+        "g": 2,
+        "k": 1,
+        "R": 3
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "fresh_digits": 8043,
+      "historical_digits": 15492
+    },
+    {
+      "inputs": {
+        "g": 3,
+        "k": 0,
+        "R": 6
+      },
+      "values": [
+        12,
+        -11,
+        10,
+        -10,
+        10,
+        -11
+      ],
+      "fresh_digits": 37565,
+      "historical_digits": 58462
+    },
+    {
+      "inputs": {
+        "g": 3,
+        "k": 1,
+        "R": 3
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "fresh_digits": 14999,
+      "historical_digits": 27706
+    },
+    {
+      "inputs": {
+        "g": 3,
+        "k": 2,
+        "R": 2
+      },
+      "values": [
+        0,
+        0
+      ],
+      "fresh_digits": 664,
+      "historical_digits": 1427
+    },
+    {
+      "inputs": {
+        "g": 4,
+        "k": 1,
+        "R": 7
+      },
+      "values": [
+        10,
+        -1,
+        -8,
+        4,
+        4,
+        -8,
+        -1
+      ],
+      "fresh_digits": 49560,
+      "historical_digits": 83688
+    },
+    {
+      "inputs": {
+        "g": 4,
+        "k": 2,
+        "R": 1
+      },
+      "values": [
+        0
+      ],
+      "fresh_digits": 475,
+      "historical_digits": 1103
+    },
+    {
+      "inputs": {
+        "g": 5,
+        "k": 4,
+        "R": 3
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "fresh_digits": 13706,
+      "historical_digits": 54781
+    }
+  ],
+  "failure_artifact_present": false,
+  "cost_scope": "recorded typed operation counts; no historical wall-time or CPU-work equivalence claim"
+}

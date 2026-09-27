@@ -1,0 +1,13 @@
+# Signed gap: source and complete-record review
+
+Status: PASS_SHARED_CONTEXT_REVIEW / NOT_FORMAL_ADMISSION. The root read both executed sources and the self-contained three-window derivation, then decoded the complete 97,157,549-byte result with a metadata-only reader. This review executes no new native arithmetic.
+
+The executed wrapper is SHA-256 86ea28956fa7ac9c41fb38a8c63f4ba00b0377f3264b5a525c46c5335faff90a; checker 83bd08d2345246754ab9da2453d84af2ef2b70ccf7546dd5d9efb2c8badf5eff. Both stayed unchanged. Splitting x=2UA+Ue+v yields two equal-bit positive terms and two unequal-bit negative terms, so 2*J0-Jplus-Jminus preserves all pairs and permits negative coefficients. The raw gap denominator exponent remains 2g. The implementation supports physical stride one only.
+
+The root reader verified the original compressed and decompressed hashes, exact startup/source bindings, all 31 request-value links, all 93 window-record links to the corresponding signed operation ranges, full positive replay trace equality after only the documented runtime-call counter normalization, and the recorded exhaustive histogram bucket chain across all 1,764 pairs. It checked all 15 input rejections and nine tamper records, including the five preserved complete fresh replay receipts and typed-key attempted payloads. This checks recording integrity and the reviewed checker conclusions; it is not an independent arithmetic implementation or a formal proof checker of every native transducer step. The complete actual native receipt is retained.
+
+Production costs 265,478 digit replays versus 76,977 for the small exhaustive comparators. Positive replay costs another 265,478 and negative replay 40,870. The single new full-adder kernel call is not a total-cost surrogate. The 40.93-second whole-checker timing excludes final serialization and does not isolate production timing. The reader result and execution note consistently retain these limits.
+
+The degree-three floor recursion and scale construction give a polynomial-bit single-residue method under the pinned typed arithmetic, without enumerating a numeric-size modulus. This is a restricted signed integer observer. It does not solve arbitrary sign masks, nonunit physical strides, period/address acquisition, multiple-gap convolution or full matrix propagation. The tests provide no general Shor efficiency claim.
+
+No substantive defect was found. Source, result and review files are ready for lossless publication. Continue with a symbolic algorithm improvement or a separately versioned bounded implementation; do not overwrite this frozen execution.

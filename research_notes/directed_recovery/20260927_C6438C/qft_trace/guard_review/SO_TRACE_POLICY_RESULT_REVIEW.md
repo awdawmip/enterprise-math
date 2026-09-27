@@ -1,0 +1,11 @@
+# Executed SO policy: complete saved-result review
+
+Status: PASS_SHARED_CONTEXT_REVIEW / NOT_FORMAL_ADMISSION. The root read the new policy, its static peer review, execution note and metadata extractor, then decoded the complete raw artifact with read_policy_result.py. No scientific arithmetic was rerun by this review.
+
+The original gzip e8e714f3ebff1f2fa054f64d81b897b22de2ccd530cd3257c6b19aacfbba789d decompresses to 15,360,458 bytes, SHA-256 a677ebc559534e9b9aa469e69ffce0615290de1f289b257a5ccc947083c07280. All four source bindings match the files used. The saved old/new routes have strict equality of every retained correlation matrix and signed observer record for both declared fixtures. Their certificate bindings differ as intended. Reported histories, requests, matrix counts, phase actions and observer counts agree. All nine negative-control records, cold-bank call slices, saved guard exit states, pending restore flags and interrupted/retried observer prefix were checked against the complete payload.
+
+The 1,287 actual CALLS decompose as 244 admission, 205 old cold bank, 36 new cold bank, 412 fixed-prefix routes, 144 original/restore, 242 negative replay and four retry/fresh calls. Shared modular-table cumulative snapshots are correctly accounted once per program/factory/inverse instance by the inspected extractor. A source-based instance audit is used; mathematically identical tables are not automatically one instance.
+
+This review checks source logic and complete recorded evidence, not an independent propagator or full native proof checker. The evidence supports the versioned new-bank integration and the bounded tested transactions. It does not establish a full output law, random sampling behavior, general quantum advantage removal, an asymptotic improvement, or a matched timing result. Separate strict program serialization can affect warm costs, which the pending matched comparison must measure.
+
+The inherited synchronous trusted-object, live-array snapshot, partial-constructor and Exception-only ledger rollback limits remain explicit. The pre-execution review and actual negative controls support those exact claims, not a broader API safety contract. No substantive issue was found.
