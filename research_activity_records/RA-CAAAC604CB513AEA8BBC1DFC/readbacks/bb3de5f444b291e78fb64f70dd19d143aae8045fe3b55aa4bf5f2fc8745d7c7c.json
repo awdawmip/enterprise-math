@@ -1,0 +1,26 @@
+{
+  "arguments": {
+    "encoding": "utf-8",
+    "path": "research_notes/directed_recovery/20260927_C6438C/qft_two_bit_aligned/README.md",
+    "ref": "20b5ef9e9146039863963bc039d2a163ac99f4a5",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "sep27-aligned-source-41",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# Executed aligned two-bit scalar observer\n\nOne declared actual-typed run verified 36 signed residue outputs against 720\nordered pair observations across six finite fixtures. The adapter evaluates\ntwo-bit scalar signs when V=2^ell divides the supplied modulus R. Its production\nwork was **77,763 digit replays**, exceeding the independent one-pass pair\ncomparator's **35,531** on these small inputs. The total recorded work across\nproduction, comparator, positive replay, paid input rejection and negative\nreplay was **255,115 digits**. This is a correctness result with no demonstrated\nsmall-input speed advantage.\n\nThe interface is AlignedTwoBitObserver.two_negative(g, ell, k, R, r, stride=1),\nwith strict integers g>=2, 0<=ell<k<g, R>=1, 0<=r<R and V|R. The signed count\nsums (-1)^(bit_ell(x)+bit_k(x)+bit_ell(y)+bit_k(y)) over 0<=x,y<2^g and\ny-x congruent r modulo R. The original raw normalization remains 4^-g.\nThe observer neither discovers R nor computes phase words or full Gram matrices.\n\nThe implementation derives the compressed progression data through the actual\ntyped arithmetic route and calls the frozen direct observer's single-progression\nhelpers. It retains both orientations, including equal half-modulus heads, and\nthe original parity sign. Shifted progressions have independently certified\nlengths, including the exact empty-overlap A_one(M)=0 boundary. The independent\ncomparator enumerates pairs once per fixture and fills all residue buckets; it\ndoes not repeat the pair enumeration separately for each residue.\n\nThe run rejected twelve invalid inputs: ten before arithmetic and two after\npaid nonalignment checks. Two attempts to reuse incomplete observers were also\nrejected without changing retained evidence. Twelve certificate negatives\ninclude four early rejections, seven complete fresh failed replays and one paid\npartial replay. Incomplete-request reuse rejection is not a resume protocol.\nAll five cost categories and available failed work remain in the full raw\nartifact. One shared native column observation supplied the full-adder kernel;\none core call does not represent the full arithmetic cost.\n\nDESIGN.md is the frozen pre-run design and intentionally retains its original\nCODE_ONLY heading. The final summary, execution log, author cost note and\nsource-specific saved-record review report the subsequent actual run. The\napproximately 19.391-second pre-serialization checker duration is not a matched\nperformance benchmark. Host serialization/bookkeeping is outside the digit\ncounters. Shared-context review is not formal independent admission.\n\nThe next_design structural-shortcut note and its review are unchanged symbolic\nsuccessor copies, not implemented routes in this result. They propose a\nhighest-bit cancellation test, omission of a zero-coefficient shifted sum and\nan affine highest-compressed-bit progression formula. The published lattice\nunit separately gives a theorem-based polynomial-bit route for fixed two-bit\nsigns at arbitrary R; its counting backend is not implemented here.\n\nThis remains a supplied-modulus scalar component. It does not solve arbitrary\nhistory-dependent matrix correlations, growing signed masks, order/address\nacquisition, full sampling or Shor dequantization. The research goal remains\nactive and P000 is unchanged.\n\nDEPENDENCIES.md gives immutable source-first restoration. The readable evidence\ntransport restores the complete original gzip, and the delivery ZIP includes\nthat same original file. CONTINUE.md identifies concrete next work without\ntreating recorded local paths as research-capability restrictions. Publication\nand actual original-byte backup receipts are produced separately after those\nactions occur.\n\nGlobal-Knowledge-Sync: main@9f0e65b / GLOBAL_KNOWLEDGE_V1\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/20b5ef9e9146039863963bc039d2a163ac99f4a5/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_aligned/README.md",
+      "encoding": "utf-8",
+      "sha": "00a3a4bf42bfef0fdea0d579d7d2923fa1b8ffd8"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

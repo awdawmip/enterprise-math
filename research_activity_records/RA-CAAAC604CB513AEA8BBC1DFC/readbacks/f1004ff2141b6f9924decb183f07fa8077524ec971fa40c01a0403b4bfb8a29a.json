@@ -1,0 +1,26 @@
+{
+  "arguments": {
+    "encoding": "utf-8",
+    "path": "research_notes/directed_recovery/20260927_C6438C/qft_lattice/README.md",
+    "ref": "2bdd97ba09de042cb7296d6fa0871973bca77211",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-sep27-lattice-source-9",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# General two-bit scalar counting: a fixed-dimensional route\n\nThis symbolic unit gives an exact polynomial-bit complexity route for a scalar\ncoefficient with two signed bits and an arbitrary supplied modulus R. It removes\nthe earlier divisibility restriction at the level of an abstract algorithm by\nreducing the problem to established fixed-dimensional lattice-point counting.\nIt does not add an executable BRC counting backend.\n\nMIXED_MOMENT_LATTICE_REDUCTION.md contains two explicit reductions. The first\nturns each mixed-floor monomial into an unweighted count in at most eight\ndimensions with at most sixteen inequalities. The second partitions pair\nassignments: two selected bits need sixteen counts in dimension six. For any\nfixed number h of selected bits, the latter uses 4^h counts in dimension 2+2h.\nThe classical polynomial-bit consequence follows from the cited Barvinok–Woods\ntheorem for fixed dimension and the proved input/output length bounds. It is\nnot a claim that those constants are small or that a practical speedup was\nmeasured. Growing h is outside this polynomial bound; no impossibility result\nis inferred for that case.\n\nThe scalar contract retains both displacement orientations, their exact\nmultiplicity, and the external raw scale 4^-g. Supplied modulus and residue are\ncounting inputs, not free order or target-address discovery. Scalar Walsh\nweights do not replace arbitrary chronological noncommuting matrix products.\nOne fast coefficient does not bound the number of Gram queries or implement\nthe complete QFT/Shor output distribution.\n\nThis package contains the proof, scoped primary-paper reading record and\nsource-specific shared-context review, together with portable continuation and\ndependency instructions. The reviewer found no substantive error within the\nstated symbolic scope. This is not formal independent admission. No scientific\narithmetic, host numerical experiment, lattice backend invocation or new paid\nprofessional query was performed for this unit.\n\nREADING_EVIDENCE.json records the root author's actual reading of selected\nsections of Barvinok and Woods, *Short rational generating functions for lattice\npoint problems*, arXiv:math/0211146v1. It does not claim a local PDF-byte hash,\nfull-paper reading, or a separate reading of the earlier BP99 proof cited by\nthat paper. The application is not presented as a literature-first result.\n\nThe inherited two-bit proof and its review are available byte-for-byte in\npublished hybrid source 55e8e66b76d062c6c72432f0f5b364c3e9b1bba8. Their earlier\nmissing mixed-floor evaluator remains unimplemented by the current typed code;\nthe new theorem-based route bypasses that recurrence rather than implementing\nit. See DEPENDENCIES.md and CONTINUE.md for precise source pins and next steps.\n\nThis is a zero-gzip symbolic package. An empty readable-evidence index means\nthere are no new binary scientific results to restore. The delivery ZIP holds\nall selected text sources and an exact member index, with no fabricated run,\nnative cost, startup receipt or raw scientific payload. Publication and original\nDrive-byte verification are recorded separately after those actions occur.\nThe research goal remains active and P000 is unchanged.\n\nGlobal-Knowledge-Sync: main@a3609ca / GLOBAL_KNOWLEDGE_V1\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/2bdd97ba09de042cb7296d6fa0871973bca77211/research_notes/directed_recovery/20260927_C6438C/qft_lattice/README.md",
+      "encoding": "utf-8",
+      "sha": "7984ba3852beead0db2d21ee4a5529e8c3612edb"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
