@@ -1,0 +1,26 @@
+{
+  "arguments": {
+    "encoding": "utf-8",
+    "path": "research_notes/directed_recovery/20260927_C6438C/qft_oddpart/README.md",
+    "ref": "0524d32e37ea34bbcf254707271dd4834da9a352",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "sep27odd-scientific-README.md",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# QFT：计入周期发现的相关性聚合与零前缀计数\n\n状态：作者实际运行的有界验证与符号研究，SHARED_CONTEXT / NOT_ADMITTED。研究活动为 RA-CAAAC604CB513AEA8BBC1DFC；本包继续追求 QFT/Shor 去量子化，不宣称已完成一般算法或分解复杂度突破。\n\n本轮完成三件相连的工作。第一，用实际 typed 模乘发现周期的奇部，再恢复二进制部分；第二，实际恢复目标在周期中的地址，并将证书完整重放接入前轮相关性聚合；第三，证明并实现全零读出前缀的精确计数公式，保留原相位次序、符号和所有残差矩阵项。\n\n若历史前 K 位为零，剩余 ell 位，重复的前缀可用整数区间计数代替，矩阵收缩只处理短后缀。其条件成本为 O(2^ell ell) 个矩阵层，另计实际周期/地址发现、整数位宽、相位词、证书与观察器成本。ell 大时仍然昂贵；这条路线未解决一般大奇部问题。\n\n实际结果：周期发现 6 个完整证书、2 个预算内未完成证书、20 个拒绝控制；地址恢复 13 个成员/非成员案例、13 个拒绝控制；综合聚合 14 个案例、7 个拒绝控制，另补 2 个 K=0 边界完整矩阵比较。所有执行保留源码绑定和完整回执。这里只计测试案例，不能当成对全部输入的数值证明。\n\n优化有明确边界：N=65、历史 0011 的两个目标中，计数路线的相位向量动作数为 24、30，逐别名路线均为 72；前轮整周期聚合则均为 24。N=21、历史 0101，计数路线为 276、300，整周期聚合均为 96。部分节省、部分退化均保留；动作数不代表端到端时间。新周期发现也可能因证书开销比完整周期枚举更贵。\n\n文献核对发现，用周期奇部参数化 MPS 的 Shor 模拟已有研究，不能把这一点当作本轮新颖性。专业检索原始状态与全文阅读范围见 prior_art/，不能把 PARTIAL 或外层 FAILED 改写成完整检索成功。新的贡献范围限于本包实际有限相位体系中的证书连接、计数公式及相应完整矩阵验证。\n\n阅读顺序：EXECUTION_NOTE.md → weighted_structure/WEIGHTED_ODD_PART_STRUCTURE.md → CONTINUE.md。历史依赖见 DEPENDENCIES.md；完整 gzip 由 readable_evidence/INDEX.json 所列文本块无损恢复。本目录是跨对话续接入口，任何可读到这些文件的对话均可继续符号研究、文献比较或证据审查。\n",
+      "display_title": "README.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/0524d32e37ea34bbcf254707271dd4834da9a352/research_notes/directed_recovery/20260927_C6438C/qft_oddpart/README.md",
+      "encoding": "utf-8",
+      "sha": "8c52fa25ef71d276a10efb6aee615d4ee1baa3ca"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
