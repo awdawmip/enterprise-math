@@ -1,0 +1,49 @@
+# Uniform word omission and conditional mantissa rounding compose
+
+Status: AUTHOR_SYMBOLIC_DERIVATION / SHARED_CONTEXT / NOT_EXECUTED / NOT_ADMITTED.
+
+## Actual cross-branch source read
+
+The complete portable RP2 note was fetched through the GitHub connector at EM `59551b704ae240cd5cddd205d98f53fdb43d1f36`, path `research_notes/HEARTBEAT_RP2_MANTISSA_518043AA_20260927.md`, git blob `9e5db12527e8d47e84dfa1787655f508ef29e2af`. Its own status is author derivation/execution, shared context, unreviewed and not admitted. The note names scientific commit `518043aa2170a8aac47692bac9e8480231c3796d` in its own recovered bundle. That is not asserted here to be an EM commit. The complete bundle, implementation and raw experiments were not retrieved or independently replayed in this unit. Its reported finite results remain source reports, not new executions by this dialogue.
+
+RP2 rounds each complete selected conditional integer field with one common scale and gives a joint output-law error bound. The current Uniform policy independently supplies an actual-word omission bound without consulting the conditional field or Gram matrix. These two facts suggest the following precise composition. This note proves the composition under explicit premises; it does not claim either bank or implementation is interchangeable with the other branch's twelve-bit bank.
+
+## Conditional theorem
+
+Fix one actually admitted orthogonal word bank and one exact modular program. Let a deterministic public-history policy choose ordered words and error charges using only the public bit history, immutable bank certificates and the replayed ledger. Let P_full be the full-bank output law and P_sel its exact selected-word law. Suppose the existing hybrid theorem certifies
+
+    TV(P_full,P_sel) <= epsilon_gate.
+
+The frozen Uniform policy satisfies the required public-history property: its choice uses word certificates and remaining budget, not prefix covariance. A rounding implementation must invoke this same selection function on each history. It must not retune omissions from rounded amplitudes, swap the word bank, or recompute already committed past decisions.
+
+The mathematical selector must be defined on every bit history of the declared depth, including histories with zero mass in P_sel but possibly positive mass after approximation in Q_sel. Its deterministic ordered-word/charge recursion has such a history-only extension. The current exact sampler's advance method additionally rejects exact-zero children, so that method cannot serve unchanged as the sole ledger replay entry for rounded trajectories. A future implementation must separate the total public-history selector from that exact-mass admission gate, and verify that it agrees with the old policy wherever the old exact trajectory is positive. This note does not claim that separation has been implemented.
+
+Define Q_sel by executing that selected-word instrument and rounding the entire selected child after every nonterminal measurement. At a fixed history all work rows share one scale. The classical probability accumulated for that history is retained separately. Let delta_j(h) be the pure-state trace distance between the pre-rounding selected child and its rounded normalized ray in Q_sel. Then
+
+    TV(P_sel,Q_sel) <= sum_j E_Qsel[delta_j],
+    TV(P_full,Q_sel) <= epsilon_gate + sum_j E_Qsel[delta_j].
+
+Cap the right-hand sides by one when reporting a probability-distance bound. The expectation is under the approximate process at the corresponding rounding depth. No positive lower bound on every history mass or branch probability is needed. A child with zero mass in the approximate process contributes zero to that rounding sum; zero mass only in the exact process does not license dropping a positive approximate block.
+
+Proof: keep the public classical history as an orthogonal direct-sum label together with the normalized conditional state. For each history the two processes use the same selected instrument. Its completely positive trace-preserving measurement map contracts trace distance. The change caused by rounding is block diagonal in history, so its trace distance equals the sum of approximate child masses times their conditional distances. Triangle inequality over the nonterminal depths proves the first bound. A second triangle inequality through P_sel proves the displayed composition with P_full. History-dependent instruments are allowed precisely because the selected instrument is the same function of a given history in both processes. No commutation between phases or equality between approximate and exact sampled trajectories is used.
+
+For the common-scale nearest-integer mantissa rule, let B be the largest input magnitude bit length, K>=2, and choose the minimal tested scale shift s that makes all rounded magnitudes at most K bits. The first shift is max(0,B-K); a possible carry requires at most one additional shift. The largest coordinate ensures a nonzero rounded vector. With n scalar coordinates, the Euclidean relative rounding error is at most sqrt(n)*2^(1-K). For original v and rescaled rounded y, the pure-state trace distance is delta=sqrt(1-<v,y>^2/(||v||^2||y||^2))<=||v-y||/||v||: orthogonal projection onto the rounded ray minimizes the residual over scalar rescalings. This is not a claim about Euclidean distance between unit vectors. Therefore
+
+    TV(P_full,Q_sel)
+      <= min(1, epsilon_gate + (t-1)*sqrt(D_eff*(N-1))*2^(1-K)),
+
+provided the declared reachable carrier has D_eff coordinates, unit work support stays within the N-1 nonzero residues, and that carrier is preserved by both selected instruments and coordinatewise common-scale rounding. This is a sufficient precision bound, not a total-cost estimate.
+
+The current exact six-coordinate codec supplies a possible D_eff=6 for this current direct-word program only: all complementary coordinates are exactly zero, the selected native phases and modular work permutations preserve that subspace, and rounding zero coordinates leaves them zero. This does not establish a six-coordinate codec for RP2's different bank. Without the invariant-subspace proof, use the full admitted D=61. If the two-H4 instrument representation introduces any extra nonzero internal modes at a rounding boundary, those modes must be counted or the six-coordinate premise re-proved there; rounding is at the selected conditional output boundary, not mid-instrument.
+
+Any additional approximation from P_full to a different bank or ideal target needs its own independently proved budget. It cannot be inferred from the current finite observations or silently included in epsilon_gate.
+
+## Executable next boundary and limitations
+
+This theorem connects two independent error budgets. It does not implement conditional-field rounding in the Gram sampler. The current Gram representation retains signed cross-correlations, not an explicit full field. Rounding those matrices entrywise is not licensed: it may destroy positivity, cross-residue consistency and the joint-state interpretation required by the proof. A compatible field backend or a separately proved consistent compressed-state rounding map is necessary.
+
+The smallest honest experiment would use the current exact bank and uniform public-history decisions in an explicit bounded full-field verifier, apply one common mantissa scale at selected-child boundaries, and compare its complete finite law with both P_sel and P_full. It must check positivity, normalization, one-scale invariance, nonzero rounded states and actual error receipts. That would validate the composition on bounded cases without suggesting that a full-field scan is efficient for large N. The next complexity problem remains a representation that avoids that scan while preserving the theorem's global consistency.
+
+No scientific run, new professional query, RP2 bundle recovery, task admission or control-role recovery was performed for this note. RP2's reported control-registration issue is not repaired by reading its source, and is not inherited as a blocker for this separately registered research activity.
+
+Global-Knowledge-Sync: main@2c42a77 / GLOBAL_KNOWLEDGE_V1

@@ -1,0 +1,21 @@
+# QFT feedback: fewer repeated certificate checks
+
+Status: AUTHOR_EXECUTED_BOUNDED / SHARED_CONTEXT_REVIEW / NOT_ADMITTED.
+
+This stage changes only the placement of complete immutable certificate checks. A full check protects each outer public operation; nested recursion retains the original program snapshot and committed ledger checks. On three fixed positive histories, the measured calculation is about 3.15–7.09 times faster than the frozen Uniform implementation. All retained complete correlation matrices, signed observer streams, probability plans, executed word ledgers and terminal masses agree exactly. Native scientific work and Gram-cache growth are unchanged.
+
+The warm comparison uses t=4, history 1000 and epsilon=1/3. Each fixture has a paid warmup and two opposite paired execution orders. Every measured sampler has a fresh Gram cache; no measured run creates a new modular column. The table shows both observed calculation times, excluding separately recorded evidence capture.
+
+| N, a | Previous Uniform seconds | Boundary-check seconds | Full binding checks per run, old to new | Actual core calls per run, unchanged |
+|---|---|---|---|---|
+| 21, 2 | 1.2102, 1.2550 | 0.2383, 0.2525 | 86 to 6 | 73 |
+| 21, 4 | 1.0199, 1.0390 | 0.3219, 0.3301 | 62 to 6 | 116 |
+| 65, 3 | 1.5606, 1.5689 | 0.2202, 0.2235 | 114 to 6 | 54 |
+
+This is a bounded local performance improvement, not a cold-start benchmark, a general Shor speedup, an asymptotic breakthrough, or independent randomized timing evidence. The whole comparison also pays program admission, one cold certificate bank and three warmups: 1,664 native-core calls and 24.8666 seconds before final serialization. The separate guard precheck covers two prefixes, 40 malformed public-entry cases, seven cursor negatives and interruption/retry. See EXECUTION_NOTE.md and the preserved reviews for the exact contract and initial checker correction.
+
+The mathematical companion proves that finite feedback alone does not guarantee a short or small number of active windows. It gives a reachable, uniformly distributed prefix family and an exact ordered multiwindow contraction. Known order and target-address acquisition remain paid inputs; scalar residue tables can remain large. These are symbolic author results, not a factoring lower bound or a full simulator.
+
+CONTINUE.md gives concrete mathematical and implementation continuations for any dialogue. DEPENDENCIES.md pins the inherited implementation and original evidence. The complete new gzip evidence is transported losslessly in readable_evidence/INDEX.json and its chunks, and is also included as original bytes in the delivery ZIP. This stage makes no new professional query and reuses explicitly identified prior evidence.
+
+Global-Knowledge-Sync: main@2c42a77 / GLOBAL_KNOWLEDGE_V1
