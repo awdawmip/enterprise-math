@@ -1,0 +1,851 @@
+{
+  "status": "PASS",
+  "source_sha256": {
+    "aligned_two_bit.py": "a6fd6cf5bfe10829c1918c50a952de22e5e2bc6cd538011f37a3bffdff5acdb2",
+    "check_aligned_two_bit.py": "6777057a9468b673c7d58a657467c65ae1c37bd353fd55b9eb86a743efdaa969",
+    "DESIGN.md": "90605ff87a2a9f37576c57bb9f5363407c29778f87fef0c17aa6621713908876"
+  },
+  "cases": 6,
+  "residue_equalities": 36,
+  "typed_pair_observations": 720,
+  "input_rejections": 12,
+  "incomplete_observer_reuse_rejections": 2,
+  "negative_checks": 12,
+  "coverage": {
+    "requests": 36,
+    "negative_output_seen": true,
+    "H_greater_than_one_seen": true,
+    "both_compressed_step_parities_seen": true,
+    "nonzero_low_remainder_seen": true,
+    "empty_orientation_seen": true,
+    "shifted_M_zero_tail_with_nonzero_weight_seen": true,
+    "half_modulus_both_orientations_retained": true
+  },
+  "cost_categories": {
+    "production": {
+      "receipts": 6,
+      "sum": {
+        "adder_digit_replays": 77763,
+        "typed_operations": 21703,
+        "host_bit_wiring_operations": 832038,
+        "host_bit_length_calls_in_arithmetic": 56838,
+        "signed_operations": 21071,
+        "moment_nodes": 96,
+        "window_queries": 0,
+        "moment_requests": 380,
+        "cache_hits": 284
+      },
+      "max": {
+        "max_recursion_depth": 3,
+        "max_observed_integer_bits": 7
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "typed_pair_comparator": {
+      "receipts": 6,
+      "sum": {
+        "adder_digit_replays": 35531,
+        "typed_operations": 3538,
+        "host_bit_wiring_operations": 380513,
+        "host_bit_length_calls_in_arithmetic": 10512,
+        "signed_operations": 2556,
+        "moment_nodes": 0,
+        "window_queries": 0,
+        "moment_requests": 0,
+        "cache_hits": 0
+      },
+      "max": {
+        "max_recursion_depth": 0,
+        "max_observed_integer_bits": 5
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "positive_replay": {
+      "receipts": 6,
+      "sum": {
+        "adder_digit_replays": 77763,
+        "typed_operations": 21703,
+        "host_bit_wiring_operations": 832038,
+        "host_bit_length_calls_in_arithmetic": 56838,
+        "signed_operations": 21071,
+        "moment_nodes": 96,
+        "window_queries": 0,
+        "moment_requests": 380,
+        "cache_hits": 284
+      },
+      "max": {
+        "max_recursion_depth": 3,
+        "max_observed_integer_bits": 7
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "paid_input_rejection": {
+      "receipts": 2,
+      "sum": {
+        "adder_digit_replays": 43,
+        "typed_operations": 5,
+        "host_bit_wiring_operations": 475,
+        "host_bit_length_calls_in_arithmetic": 18,
+        "signed_operations": 5,
+        "moment_nodes": 0,
+        "window_queries": 0,
+        "moment_requests": 0,
+        "cache_hits": 0
+      },
+      "max": {
+        "max_recursion_depth": 0,
+        "max_observed_integer_bits": 3
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "negative_replay": {
+      "receipts": 8,
+      "sum": {
+        "adder_digit_replays": 64015,
+        "typed_operations": 18637,
+        "host_bit_wiring_operations": 685864,
+        "host_bit_length_calls_in_arithmetic": 48282,
+        "signed_operations": 18056,
+        "moment_nodes": 94,
+        "window_queries": 0,
+        "moment_requests": 326,
+        "cache_hits": 232
+      },
+      "max": {
+        "max_recursion_depth": 2,
+        "max_observed_integer_bits": 6
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    }
+  },
+  "actual_core_call_count": 1,
+  "native_calls_by_category": {
+    "production": 1,
+    "typed_pair_comparator": 0,
+    "positive_replay": 0,
+    "input_pre_rejection": 0,
+    "paid_input_rejection": 0,
+    "input_reuse_rejection": 0,
+    "negative_replay": 0
+  },
+  "call_intervals": [
+    {
+      "category": "production",
+      "label": "(2, 0, 1, 1)",
+      "start": 0,
+      "stop": 1
+    },
+    {
+      "category": "typed_pair_comparator",
+      "label": "(2, 0, 1, 1)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "positive_replay",
+      "label": "(2, 0, 1, 1)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "production",
+      "label": "(3, 0, 1, 3)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "typed_pair_comparator",
+      "label": "(3, 0, 1, 3)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "positive_replay",
+      "label": "(3, 0, 1, 3)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "production",
+      "label": "(3, 1, 2, 2)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "typed_pair_comparator",
+      "label": "(3, 1, 2, 2)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "positive_replay",
+      "label": "(3, 1, 2, 2)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "production",
+      "label": "(3, 1, 2, 4)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "typed_pair_comparator",
+      "label": "(3, 1, 2, 4)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "positive_replay",
+      "label": "(3, 1, 2, 4)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "production",
+      "label": "(4, 1, 3, 6)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "typed_pair_comparator",
+      "label": "(4, 1, 3, 6)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "positive_replay",
+      "label": "(4, 1, 3, 6)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "production",
+      "label": "(4, 2, 3, 20)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "typed_pair_comparator",
+      "label": "(4, 2, 3, 20)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "positive_replay",
+      "label": "(4, 2, 3, 20)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "input_pre_rejection",
+      "label": "(True, 0, 1, 1, 0, 1)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "input_pre_rejection",
+      "label": "(1, 0, 1, 1, 0, 1)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "input_pre_rejection",
+      "label": "(3, -1, 2, 2, 0, 1)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "input_pre_rejection",
+      "label": "(3, 1, 1, 2, 0, 1)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "input_pre_rejection",
+      "label": "(3, 1, 3, 2, 0, 1)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "input_pre_rejection",
+      "label": "(3, 1, 2, 0, 0, 1)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "input_pre_rejection",
+      "label": "(3, 1, 2, 2, -1, 1)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "input_pre_rejection",
+      "label": "(3, 1, 2, 2, 2, 1)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "input_pre_rejection",
+      "label": "(3, 1, 2, 2, 0, 2)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "input_pre_rejection",
+      "label": "(3, False, 2, 2, 0, 1)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "paid_input_rejection",
+      "label": "(3, 1, 2, 3, 0)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "input_reuse_rejection",
+      "label": "(3, 1, 2, 3, 0)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "paid_input_rejection",
+      "label": "(4, 2, 3, 6, 1)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "input_reuse_rejection",
+      "label": "(4, 2, 3, 6, 1)",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "negative_replay",
+      "label": "drop_half_modulus_orientation",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "negative_replay",
+      "label": "compressed_length",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "negative_replay",
+      "label": "shifted_zero_tail",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "negative_replay",
+      "label": "original_branch_sign",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "negative_replay",
+      "label": "compressed_step_parity",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "negative_replay",
+      "label": "original_raw_exponent",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "negative_replay",
+      "label": "signed_output",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "negative_replay",
+      "label": "unaligned_input_paid_partial",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "negative_replay",
+      "label": "source_early",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "negative_replay",
+      "label": "schema_early",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "negative_replay",
+      "label": "bool_input_early",
+      "start": 1,
+      "stop": 1
+    },
+    {
+      "category": "negative_replay",
+      "label": "nonstring_key_early",
+      "start": 1,
+      "stop": 1
+    }
+  ],
+  "values": [
+    [
+      0
+    ],
+    [
+      6,
+      -3,
+      -3
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      12,
+      3,
+      -6,
+      -6,
+      -6,
+      3
+    ],
+    [
+      16,
+      11,
+      6,
+      1,
+      -4,
+      -4,
+      -4,
+      -4,
+      -4,
+      -4,
+      -4,
+      -4,
+      -4,
+      -4,
+      -4,
+      -4,
+      -4,
+      1,
+      6,
+      11
+    ]
+  ],
+  "single_progression_calls": 236,
+  "top_level_table_calls": 332,
+  "per_case": [
+    {
+      "inputs": {
+        "g": 2,
+        "ell": 0,
+        "k": 1,
+        "R": 1
+      },
+      "production": {
+        "arithmetic_stats": {
+          "typed_operations": 1604,
+          "adder_digit_replays": 4664,
+          "host_bit_wiring_operations": 50591,
+          "host_bit_length_calls_in_arithmetic": 4281,
+          "native_kernel_calls_delta": 1
+        },
+        "typed_operations": 1604,
+        "signed_operations": 1573,
+        "moment_nodes": 14,
+        "window_queries": 0,
+        "moment_stats": {
+          "moment_requests": 22,
+          "cache_hits": 8,
+          "max_recursion_depth": 2,
+          "max_observed_integer_bits": 6
+        }
+      },
+      "typed_comparator": {
+        "arithmetic_stats": {
+          "typed_operations": 85,
+          "adder_digit_replays": 387,
+          "host_bit_wiring_operations": 4323,
+          "host_bit_length_calls_in_arithmetic": 212,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 85,
+        "signed_operations": 75,
+        "moment_nodes": 0,
+        "window_queries": 0,
+        "moment_stats": {
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 3
+        }
+      },
+      "positive_replay": {
+        "arithmetic_stats": {
+          "typed_operations": 1604,
+          "adder_digit_replays": 4664,
+          "host_bit_wiring_operations": 50591,
+          "host_bit_length_calls_in_arithmetic": 4281,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 1604,
+        "signed_operations": 1573,
+        "moment_nodes": 14,
+        "window_queries": 0,
+        "moment_stats": {
+          "moment_requests": 22,
+          "cache_hits": 8,
+          "max_recursion_depth": 2,
+          "max_observed_integer_bits": 6
+        }
+      }
+    },
+    {
+      "inputs": {
+        "g": 3,
+        "ell": 0,
+        "k": 1,
+        "R": 3
+      },
+      "production": {
+        "arithmetic_stats": {
+          "typed_operations": 4738,
+          "adder_digit_replays": 16088,
+          "host_bit_wiring_operations": 173513,
+          "host_bit_length_calls_in_arithmetic": 12959,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 4738,
+        "signed_operations": 4673,
+        "moment_nodes": 24,
+        "window_queries": 0,
+        "moment_stats": {
+          "moment_requests": 64,
+          "cache_hits": 40,
+          "max_recursion_depth": 3,
+          "max_observed_integer_bits": 7
+        }
+      },
+      "typed_comparator": {
+        "arithmetic_stats": {
+          "typed_operations": 318,
+          "adder_digit_replays": 2268,
+          "host_bit_wiring_operations": 24780,
+          "host_bit_length_calls_in_arithmetic": 906,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 318,
+        "signed_operations": 244,
+        "moment_nodes": 0,
+        "window_queries": 0,
+        "moment_stats": {
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 4
+        }
+      },
+      "positive_replay": {
+        "arithmetic_stats": {
+          "typed_operations": 4738,
+          "adder_digit_replays": 16088,
+          "host_bit_wiring_operations": 173513,
+          "host_bit_length_calls_in_arithmetic": 12959,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 4738,
+        "signed_operations": 4673,
+        "moment_nodes": 24,
+        "window_queries": 0,
+        "moment_stats": {
+          "moment_requests": 64,
+          "cache_hits": 40,
+          "max_recursion_depth": 3,
+          "max_observed_integer_bits": 7
+        }
+      }
+    },
+    {
+      "inputs": {
+        "g": 3,
+        "ell": 1,
+        "k": 2,
+        "R": 2
+      },
+      "production": {
+        "arithmetic_stats": {
+          "typed_operations": 2147,
+          "adder_digit_replays": 6800,
+          "host_bit_wiring_operations": 73148,
+          "host_bit_length_calls_in_arithmetic": 5590,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 2147,
+        "signed_operations": 2092,
+        "moment_nodes": 14,
+        "window_queries": 0,
+        "moment_stats": {
+          "moment_requests": 38,
+          "cache_hits": 24,
+          "max_recursion_depth": 2,
+          "max_observed_integer_bits": 6
+        }
+      },
+      "typed_comparator": {
+        "arithmetic_stats": {
+          "typed_operations": 322,
+          "adder_digit_replays": 2186,
+          "host_bit_wiring_operations": 23918,
+          "host_bit_length_calls_in_arithmetic": 888,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 322,
+        "signed_operations": 246,
+        "moment_nodes": 0,
+        "window_queries": 0,
+        "moment_stats": {
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 4
+        }
+      },
+      "positive_replay": {
+        "arithmetic_stats": {
+          "typed_operations": 2147,
+          "adder_digit_replays": 6800,
+          "host_bit_wiring_operations": 73148,
+          "host_bit_length_calls_in_arithmetic": 5590,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 2147,
+        "signed_operations": 2092,
+        "moment_nodes": 14,
+        "window_queries": 0,
+        "moment_stats": {
+          "moment_requests": 38,
+          "cache_hits": 24,
+          "max_recursion_depth": 2,
+          "max_observed_integer_bits": 6
+        }
+      }
+    },
+    {
+      "inputs": {
+        "g": 3,
+        "ell": 1,
+        "k": 2,
+        "R": 4
+      },
+      "production": {
+        "arithmetic_stats": {
+          "typed_operations": 2209,
+          "adder_digit_replays": 7273,
+          "host_bit_wiring_operations": 78205,
+          "host_bit_length_calls_in_arithmetic": 5750,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 2209,
+        "signed_operations": 2148,
+        "moment_nodes": 14,
+        "window_queries": 0,
+        "moment_stats": {
+          "moment_requests": 38,
+          "cache_hits": 24,
+          "max_recursion_depth": 2,
+          "max_observed_integer_bits": 6
+        }
+      },
+      "typed_comparator": {
+        "arithmetic_stats": {
+          "typed_operations": 338,
+          "adder_digit_replays": 2530,
+          "host_bit_wiring_operations": 27382,
+          "host_bit_length_calls_in_arithmetic": 920,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 338,
+        "signed_operations": 246,
+        "moment_nodes": 0,
+        "window_queries": 0,
+        "moment_stats": {
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 4
+        }
+      },
+      "positive_replay": {
+        "arithmetic_stats": {
+          "typed_operations": 2209,
+          "adder_digit_replays": 7273,
+          "host_bit_wiring_operations": 78205,
+          "host_bit_length_calls_in_arithmetic": 5750,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 2209,
+        "signed_operations": 2148,
+        "moment_nodes": 14,
+        "window_queries": 0,
+        "moment_stats": {
+          "moment_requests": 38,
+          "cache_hits": 24,
+          "max_recursion_depth": 2,
+          "max_observed_integer_bits": 6
+        }
+      }
+    },
+    {
+      "inputs": {
+        "g": 4,
+        "ell": 1,
+        "k": 3,
+        "R": 6
+      },
+      "production": {
+        "arithmetic_stats": {
+          "typed_operations": 4771,
+          "adder_digit_replays": 18074,
+          "host_bit_wiring_operations": 192263,
+          "host_bit_length_calls_in_arithmetic": 12374,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 4771,
+        "signed_operations": 4620,
+        "moment_nodes": 20,
+        "window_queries": 0,
+        "moment_stats": {
+          "moment_requests": 104,
+          "cache_hits": 84,
+          "max_recursion_depth": 2,
+          "max_observed_integer_bits": 7
+        }
+      },
+      "typed_comparator": {
+        "arithmetic_stats": {
+          "typed_operations": 1220,
+          "adder_digit_replays": 12547,
+          "host_bit_wiring_operations": 134800,
+          "host_bit_length_calls_in_arithmetic": 3772,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 1220,
+        "signed_operations": 872,
+        "moment_nodes": 0,
+        "window_queries": 0,
+        "moment_stats": {
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 5
+        }
+      },
+      "positive_replay": {
+        "arithmetic_stats": {
+          "typed_operations": 4771,
+          "adder_digit_replays": 18074,
+          "host_bit_wiring_operations": 192263,
+          "host_bit_length_calls_in_arithmetic": 12374,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 4771,
+        "signed_operations": 4620,
+        "moment_nodes": 20,
+        "window_queries": 0,
+        "moment_stats": {
+          "moment_requests": 104,
+          "cache_hits": 84,
+          "max_recursion_depth": 2,
+          "max_observed_integer_bits": 7
+        }
+      }
+    },
+    {
+      "inputs": {
+        "g": 4,
+        "ell": 2,
+        "k": 3,
+        "R": 20
+      },
+      "production": {
+        "arithmetic_stats": {
+          "typed_operations": 6234,
+          "adder_digit_replays": 24864,
+          "host_bit_wiring_operations": 264318,
+          "host_bit_length_calls_in_arithmetic": 15884,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 6234,
+        "signed_operations": 5965,
+        "moment_nodes": 10,
+        "window_queries": 0,
+        "moment_stats": {
+          "moment_requests": 114,
+          "cache_hits": 104,
+          "max_recursion_depth": 1,
+          "max_observed_integer_bits": 6
+        }
+      },
+      "typed_comparator": {
+        "arithmetic_stats": {
+          "typed_operations": 1255,
+          "adder_digit_replays": 15613,
+          "host_bit_wiring_operations": 165310,
+          "host_bit_length_calls_in_arithmetic": 3814,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 1255,
+        "signed_operations": 873,
+        "moment_nodes": 0,
+        "window_queries": 0,
+        "moment_stats": {
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 5
+        }
+      },
+      "positive_replay": {
+        "arithmetic_stats": {
+          "typed_operations": 6234,
+          "adder_digit_replays": 24864,
+          "host_bit_wiring_operations": 264318,
+          "host_bit_length_calls_in_arithmetic": 15884,
+          "native_kernel_calls_delta": 0
+        },
+        "typed_operations": 6234,
+        "signed_operations": 5965,
+        "moment_nodes": 10,
+        "window_queries": 0,
+        "moment_stats": {
+          "moment_requests": 114,
+          "cache_hits": 104,
+          "max_recursion_depth": 1,
+          "max_observed_integer_bits": 6
+        }
+      }
+    }
+  ],
+  "raw_bytes": 61934942,
+  "gzip_bytes": 2183581,
+  "payload_sha256": "61aee1882148519bd9738bacf6f107a39532aa98de6c128854edb98df334aba9",
+  "artifact_sha256": "f6bf350f188d4252c60c897778561e3c4957d65774a25a12334b35261f0b7bd3",
+  "elapsed_seconds_before_serialization": 19.39142640004866,
+  "comparison_is_timing_benchmark": false,
+  "full_gram_integration_performed": false,
+  "order_discovery_performed": false,
+  "quantum_phase_propagation_performed": false,
+  "host_cost_scope": "arithmetic wiring/bit-length counters only; serialization/indexing bookkeeping excluded"
+}

@@ -1,0 +1,389 @@
+{
+  "status": "PASS_FULL_AUTHOR_SAVED_EVIDENCE_READBACK",
+  "scientific_execution_performed": false,
+  "reader_sha256": "2f5e95130164e8edc12286b095d668f431f7ca52455af203d44a0990e4cae784",
+  "source_sha256": {
+    "DESIGN.md": "90605ff87a2a9f37576c57bb9f5363407c29778f87fef0c17aa6621713908876",
+    "aligned_two_bit.py": "a6fd6cf5bfe10829c1918c50a952de22e5e2bc6cd538011f37a3bffdff5acdb2",
+    "check_aligned_two_bit.py": "6777057a9468b673c7d58a657467c65ae1c37bd353fd55b9eb86a743efdaa969"
+  },
+  "payload_sha256": "61aee1882148519bd9738bacf6f107a39532aa98de6c128854edb98df334aba9",
+  "artifact_sha256": "f6bf350f188d4252c60c897778561e3c4957d65774a25a12334b35261f0b7bd3",
+  "raw_bytes": 61934942,
+  "gzip_bytes": 2183581,
+  "summary_sha256": "e3cb56ab19badfa2104c4a7f698c5bef2794a1e2faef9e58f0cd6eca778f631d",
+  "log_sha256": "5c9d9840f781387baf85f6a2e3182a719e3a55df586df33789e84072c437c5c4",
+  "guard_sha256": "1c9e45ed619a7480402d0719e283b06a52ca78a889bca6bd74c14ca8fbc4297f",
+  "case_rows": [
+    {
+      "inputs": {
+        "R": 1,
+        "ell": 0,
+        "g": 2,
+        "k": 1
+      },
+      "values": [
+        0
+      ],
+      "typed_pair_observations": 16,
+      "production_digits": 4664,
+      "comparator_digits": 387
+    },
+    {
+      "inputs": {
+        "R": 3,
+        "ell": 0,
+        "g": 3,
+        "k": 1
+      },
+      "values": [
+        6,
+        -3,
+        -3
+      ],
+      "typed_pair_observations": 64,
+      "production_digits": 16088,
+      "comparator_digits": 2268
+    },
+    {
+      "inputs": {
+        "R": 2,
+        "ell": 1,
+        "g": 3,
+        "k": 2
+      },
+      "values": [
+        0,
+        0
+      ],
+      "typed_pair_observations": 64,
+      "production_digits": 6800,
+      "comparator_digits": 2186
+    },
+    {
+      "inputs": {
+        "R": 4,
+        "ell": 1,
+        "g": 3,
+        "k": 2
+      },
+      "values": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "typed_pair_observations": 64,
+      "production_digits": 7273,
+      "comparator_digits": 2530
+    },
+    {
+      "inputs": {
+        "R": 6,
+        "ell": 1,
+        "g": 4,
+        "k": 3
+      },
+      "values": [
+        12,
+        3,
+        -6,
+        -6,
+        -6,
+        3
+      ],
+      "typed_pair_observations": 256,
+      "production_digits": 18074,
+      "comparator_digits": 12547
+    },
+    {
+      "inputs": {
+        "R": 20,
+        "ell": 2,
+        "g": 4,
+        "k": 3
+      },
+      "values": [
+        16,
+        11,
+        6,
+        1,
+        -4,
+        -4,
+        -4,
+        -4,
+        -4,
+        -4,
+        -4,
+        -4,
+        -4,
+        -4,
+        -4,
+        -4,
+        -4,
+        1,
+        6,
+        11
+      ],
+      "typed_pair_observations": 256,
+      "production_digits": 24864,
+      "comparator_digits": 15613
+    }
+  ],
+  "cost_categories": {
+    "production": {
+      "receipts": 6,
+      "sum": {
+        "adder_digit_replays": 77763,
+        "typed_operations": 21703,
+        "host_bit_wiring_operations": 832038,
+        "host_bit_length_calls_in_arithmetic": 56838,
+        "signed_operations": 21071,
+        "moment_nodes": 96,
+        "window_queries": 0,
+        "moment_requests": 380,
+        "cache_hits": 284
+      },
+      "max": {
+        "max_recursion_depth": 3,
+        "max_observed_integer_bits": 7
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "typed_pair_comparator": {
+      "receipts": 6,
+      "sum": {
+        "adder_digit_replays": 35531,
+        "typed_operations": 3538,
+        "host_bit_wiring_operations": 380513,
+        "host_bit_length_calls_in_arithmetic": 10512,
+        "signed_operations": 2556,
+        "moment_nodes": 0,
+        "window_queries": 0,
+        "moment_requests": 0,
+        "cache_hits": 0
+      },
+      "max": {
+        "max_recursion_depth": 0,
+        "max_observed_integer_bits": 5
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "positive_replay": {
+      "receipts": 6,
+      "sum": {
+        "adder_digit_replays": 77763,
+        "typed_operations": 21703,
+        "host_bit_wiring_operations": 832038,
+        "host_bit_length_calls_in_arithmetic": 56838,
+        "signed_operations": 21071,
+        "moment_nodes": 96,
+        "window_queries": 0,
+        "moment_requests": 380,
+        "cache_hits": 284
+      },
+      "max": {
+        "max_recursion_depth": 3,
+        "max_observed_integer_bits": 7
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "paid_input_rejection": {
+      "receipts": 2,
+      "sum": {
+        "adder_digit_replays": 43,
+        "typed_operations": 5,
+        "host_bit_wiring_operations": 475,
+        "host_bit_length_calls_in_arithmetic": 18,
+        "signed_operations": 5,
+        "moment_nodes": 0,
+        "window_queries": 0,
+        "moment_requests": 0,
+        "cache_hits": 0
+      },
+      "max": {
+        "max_recursion_depth": 0,
+        "max_observed_integer_bits": 3
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    },
+    "negative_replay": {
+      "receipts": 8,
+      "sum": {
+        "adder_digit_replays": 64015,
+        "typed_operations": 18637,
+        "host_bit_wiring_operations": 685864,
+        "host_bit_length_calls_in_arithmetic": 48282,
+        "signed_operations": 18056,
+        "moment_nodes": 94,
+        "window_queries": 0,
+        "moment_requests": 326,
+        "cache_hits": 232
+      },
+      "max": {
+        "max_recursion_depth": 2,
+        "max_observed_integer_bits": 6
+      },
+      "native_calls_counted_from_disjoint_process_intervals": true
+    }
+  },
+  "all_scientific_receipts_read": 28,
+  "total_adder_digit_replays": 255115,
+  "typed_pair_observations": 720,
+  "single_progression_calls": 236,
+  "top_level_table_calls": 332,
+  "negative_checks": [
+    {
+      "name": "drop_half_modulus_orientation",
+      "error": "complete aligned-two-bit certificate does not replay",
+      "retained_replays": 1,
+      "retained_complete": true
+    },
+    {
+      "name": "compressed_length",
+      "error": "complete aligned-two-bit certificate does not replay",
+      "retained_replays": 1,
+      "retained_complete": true
+    },
+    {
+      "name": "shifted_zero_tail",
+      "error": "complete aligned-two-bit certificate does not replay",
+      "retained_replays": 1,
+      "retained_complete": true
+    },
+    {
+      "name": "original_branch_sign",
+      "error": "complete aligned-two-bit certificate does not replay",
+      "retained_replays": 1,
+      "retained_complete": true
+    },
+    {
+      "name": "compressed_step_parity",
+      "error": "complete aligned-two-bit certificate does not replay",
+      "retained_replays": 1,
+      "retained_complete": true
+    },
+    {
+      "name": "original_raw_exponent",
+      "error": "complete aligned-two-bit certificate does not replay",
+      "retained_replays": 1,
+      "retained_complete": true
+    },
+    {
+      "name": "signed_output",
+      "error": "complete aligned-two-bit certificate does not replay",
+      "retained_replays": 1,
+      "retained_complete": true
+    },
+    {
+      "name": "unaligned_input_paid_partial",
+      "error": "unaligned input: V must divide R; paid division retained",
+      "retained_replays": 1,
+      "retained_complete": false
+    },
+    {
+      "name": "source_early",
+      "error": "source/proof binding mismatch: source_sha256",
+      "retained_replays": 0,
+      "retained_complete": false
+    },
+    {
+      "name": "schema_early",
+      "error": "wrong aligned-two-bit schema",
+      "retained_replays": 0,
+      "retained_complete": false
+    },
+    {
+      "name": "bool_input_early",
+      "error": "strict integer inputs required",
+      "retained_replays": 0,
+      "retained_complete": false
+    },
+    {
+      "name": "nonstring_key_early",
+      "error": "JSON object keys must be strings",
+      "retained_replays": 0,
+      "retained_complete": false
+    }
+  ],
+  "input_rejections": 12,
+  "unchanged_reuse_rejections": 2,
+  "native_source": {
+    "arithmetic_route": "actual full-adder columns; digit transducer composition",
+    "files_sha256": {
+      "lazy_modular": "08df3595a2a56dc2501bb481828093481bf76e4ac53c8b966990d233fefac1e4",
+      "sparse_modular": "fd9cbb019418a3c00890ba6e8cca5760e7e4d792bfd7b48306a71a66de301c46",
+      "typed_integer_prechecks": "0a817aa8124cceb5440233d543073dae71de6ac1d0d4e5d50f4ee2b4808d99eb"
+    },
+    "native_adder": {
+      "columns": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "entrypoint": "stage78.shor_benchmark.full_adder_columns",
+      "input_columns": 8,
+      "observer": "retained input triple -> (sum bit, carry bit)",
+      "positive_BRC_input_states": 12,
+      "scope": "exact integer label compiler; not a reversible physical erasure",
+      "vendor": {
+        "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+        "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+        "path": "src/enterprise_math/brc_weighted_recurrent.py",
+        "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+      }
+    },
+    "primitive_source": "0852cad130c1d877174d235687cf60c19f318c58",
+    "runtime_state_propagator": "complete positive unit permutation on work labels"
+  },
+  "actual_core_calls": [
+    {
+      "depth": 1,
+      "elapsed_ns": 5309200,
+      "entrypoint": "recurrent_mass_power",
+      "states": 12
+    }
+  ],
+  "native_calls_by_category": {
+    "production": 1,
+    "typed_pair_comparator": 0,
+    "positive_replay": 0,
+    "input_pre_rejection": 0,
+    "paid_input_rejection": 0,
+    "input_reuse_rejection": 0,
+    "negative_replay": 0
+  },
+  "elapsed_seconds_before_serialization": 19.39142640004866,
+  "failure_artifact_present": false,
+  "coverage": "All outer production/replay recording edges, all pair/digit bucket chains, native-column cells and cost counts; saved moment outputs, not new moment evaluation.",
+  "limitation": "Author shared-context readback, not formal independent admission; bounded scalar observer only; no timing speed claim."
+}
