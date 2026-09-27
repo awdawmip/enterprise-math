@@ -1,0 +1,1448 @@
+{
+  "status": "FULL_SAVED_COST_READBACK_PASS",
+  "scientific_execution_performed": false,
+  "reader_sha256": "67fe36d14b2f5382d8bb116184b58b743fec3c442b030f7e873c042570ad47f7",
+  "source_sha256": {
+    "check_hybrid_signed_gap.py": "ed54ddc3ffb9735e1610ae363b69cd58d426adb4b9c1d0cc6ba85fcf11de1da7",
+    "hybrid_signed_gap.py": "7daf2e04be83ed9a9124c1a2bcc79ae2cc8feb5334c4b675ed19f7a2bc918fb8"
+  },
+  "dependency_sha256": {
+    "DESIGN.md": "0e83c68d171313896d5c1c872d64fe5c2079bace52c6b529469198ee8ae0e2e9",
+    "direct_signed_gap.py": "3ab2515c1b9df35d01c9605f21d8f8fe56bd044effe489063192c0a5c56a8521",
+    "endpoint_signed_gap.py": "c75e7e82cc0ef2413048153716f5100f3a9d1d4f50c375b7cb1690c3cfe6e036",
+    "signed_gap.py": "86ea28956fa7ac9c41fb38a8c63f4ba00b0377f3264b5a525c46c5335faff90a",
+    "typed_floor_moments.py": "633502c9b484e60e5dc5fcf6edd0420f12d52c33c43e88851b9e1e6465ea94a2"
+  },
+  "payload_sha256": "76efccc284001219b2ecde3523557f66e55e828125e4132a83814f25df80398b",
+  "artifact_sha256": "036242b07b480d05937b6a72ffc375dc33eea48283647964ca020b78bdb3f962",
+  "raw_bytes": 10382526,
+  "gzip_bytes": 517935,
+  "startup_guard_sha256": "cbe32c2e32ad1a770312ceb5ee356a1a446a48ba2d4969604c67844cae85f7a1",
+  "production": {
+    "routing": {
+      "evidence_count": 9,
+      "arithmetic_totals": {
+        "typed_operations": 24,
+        "adder_digit_replays": 193,
+        "host_bit_wiring_operations": 2140,
+        "host_bit_length_calls_in_arithmetic": 83,
+        "native_kernel_calls_delta": 0
+      },
+      "signed_operations": 24,
+      "moment_nodes": 0,
+      "moment_requests": 0,
+      "cache_hits": 0,
+      "window_queries": 0,
+      "max_recursion_depth": 0,
+      "max_observed_integer_bits": 3
+    },
+    "endpoint": {
+      "evidence_count": 9,
+      "arithmetic_totals": {
+        "typed_operations": 602,
+        "adder_digit_replays": 3790,
+        "host_bit_wiring_operations": 40789,
+        "host_bit_length_calls_in_arithmetic": 1655,
+        "native_kernel_calls_delta": 1
+      },
+      "signed_operations": 562,
+      "moment_nodes": 0,
+      "moment_requests": 0,
+      "cache_hits": 0,
+      "window_queries": 0,
+      "max_recursion_depth": 0,
+      "max_observed_integer_bits": 9
+    },
+    "direct": {
+      "evidence_count": 9,
+      "arithmetic_totals": {
+        "typed_operations": 7723,
+        "adder_digit_replays": 32987,
+        "host_bit_wiring_operations": 357056,
+        "host_bit_length_calls_in_arithmetic": 21938,
+        "native_kernel_calls_delta": 0
+      },
+      "signed_operations": 7639,
+      "moment_nodes": 52,
+      "moment_requests": 80,
+      "cache_hits": 28,
+      "window_queries": 0,
+      "max_recursion_depth": 3,
+      "max_observed_integer_bits": 10
+    },
+    "arithmetic_totals": {
+      "typed_operations": 8349,
+      "adder_digit_replays": 36970,
+      "host_bit_wiring_operations": 399985,
+      "host_bit_length_calls_in_arithmetic": 23676,
+      "native_kernel_calls_delta": 1
+    },
+    "execution_count": 9
+  },
+  "positive_replay": {
+    "routing": {
+      "evidence_count": 9,
+      "arithmetic_totals": {
+        "typed_operations": 24,
+        "adder_digit_replays": 193,
+        "host_bit_wiring_operations": 2140,
+        "host_bit_length_calls_in_arithmetic": 83,
+        "native_kernel_calls_delta": 0
+      },
+      "signed_operations": 24,
+      "moment_nodes": 0,
+      "moment_requests": 0,
+      "cache_hits": 0,
+      "window_queries": 0,
+      "max_recursion_depth": 0,
+      "max_observed_integer_bits": 3
+    },
+    "endpoint": {
+      "evidence_count": 9,
+      "arithmetic_totals": {
+        "typed_operations": 602,
+        "adder_digit_replays": 3790,
+        "host_bit_wiring_operations": 40789,
+        "host_bit_length_calls_in_arithmetic": 1655,
+        "native_kernel_calls_delta": 0
+      },
+      "signed_operations": 562,
+      "moment_nodes": 0,
+      "moment_requests": 0,
+      "cache_hits": 0,
+      "window_queries": 0,
+      "max_recursion_depth": 0,
+      "max_observed_integer_bits": 9
+    },
+    "direct": {
+      "evidence_count": 9,
+      "arithmetic_totals": {
+        "typed_operations": 7723,
+        "adder_digit_replays": 32987,
+        "host_bit_wiring_operations": 357056,
+        "host_bit_length_calls_in_arithmetic": 21938,
+        "native_kernel_calls_delta": 0
+      },
+      "signed_operations": 7639,
+      "moment_nodes": 52,
+      "moment_requests": 80,
+      "cache_hits": 28,
+      "window_queries": 0,
+      "max_recursion_depth": 3,
+      "max_observed_integer_bits": 10
+    },
+    "arithmetic_totals": {
+      "typed_operations": 8349,
+      "adder_digit_replays": 36970,
+      "host_bit_wiring_operations": 399985,
+      "host_bit_length_calls_in_arithmetic": 23676,
+      "native_kernel_calls_delta": 0
+    },
+    "execution_count": 9
+  },
+  "negative_replay": {
+    "routing": {
+      "evidence_count": 11,
+      "arithmetic_totals": {
+        "typed_operations": 38,
+        "adder_digit_replays": 242,
+        "host_bit_wiring_operations": 2714,
+        "host_bit_length_calls_in_arithmetic": 125,
+        "native_kernel_calls_delta": 0
+      },
+      "signed_operations": 38,
+      "moment_nodes": 0,
+      "moment_requests": 0,
+      "cache_hits": 0,
+      "window_queries": 0,
+      "max_recursion_depth": 0,
+      "max_observed_integer_bits": 3
+    },
+    "endpoint": {
+      "evidence_count": 11,
+      "arithmetic_totals": {
+        "typed_operations": 186,
+        "adder_digit_replays": 596,
+        "host_bit_wiring_operations": 6428,
+        "host_bit_length_calls_in_arithmetic": 462,
+        "native_kernel_calls_delta": 0
+      },
+      "signed_operations": 174,
+      "moment_nodes": 0,
+      "moment_requests": 0,
+      "cache_hits": 0,
+      "window_queries": 0,
+      "max_recursion_depth": 0,
+      "max_observed_integer_bits": 3
+    },
+    "direct": {
+      "evidence_count": 11,
+      "arithmetic_totals": {
+        "typed_operations": 2551,
+        "adder_digit_replays": 9757,
+        "host_bit_wiring_operations": 106039,
+        "host_bit_length_calls_in_arithmetic": 7200,
+        "native_kernel_calls_delta": 0
+      },
+      "signed_operations": 2524,
+      "moment_nodes": 21,
+      "moment_requests": 27,
+      "cache_hits": 6,
+      "window_queries": 0,
+      "max_recursion_depth": 3,
+      "max_observed_integer_bits": 7
+    },
+    "arithmetic_totals": {
+      "typed_operations": 2775,
+      "adder_digit_replays": 10595,
+      "host_bit_wiring_operations": 115181,
+      "host_bit_length_calls_in_arithmetic": 7787,
+      "native_kernel_calls_delta": 0
+    },
+    "execution_count": 11
+  },
+  "all_scopes_arithmetic_totals": {
+    "typed_operations": 19473,
+    "adder_digit_replays": 84535,
+    "host_bit_wiring_operations": 915151,
+    "host_bit_length_calls_in_arithmetic": 55139,
+    "native_kernel_calls_delta": 1
+  },
+  "per_case": [
+    {
+      "inputs": {
+        "g": 1,
+        "k": 0,
+        "R": 3
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "branch_counts": {
+        "endpoint": 3,
+        "interior_direct": 0,
+        "interior_divisible_zero": 0
+      },
+      "routing_digits": 0,
+      "endpoint_digits": 298,
+      "direct_digits": 0,
+      "total_digits": 298,
+      "historical_direct_digits": 1953
+    },
+    {
+      "inputs": {
+        "g": 2,
+        "k": 0,
+        "R": 3
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "branch_counts": {
+        "endpoint": 3,
+        "interior_direct": 0,
+        "interior_divisible_zero": 0
+      },
+      "routing_digits": 0,
+      "endpoint_digits": 496,
+      "direct_digits": 0,
+      "total_digits": 496,
+      "historical_direct_digits": 5319
+    },
+    {
+      "inputs": {
+        "g": 2,
+        "k": 1,
+        "R": 3
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "branch_counts": {
+        "endpoint": 3,
+        "interior_direct": 0,
+        "interior_divisible_zero": 0
+      },
+      "routing_digits": 0,
+      "endpoint_digits": 421,
+      "direct_digits": 0,
+      "total_digits": 421,
+      "historical_direct_digits": 3113
+    },
+    {
+      "inputs": {
+        "g": 3,
+        "k": 0,
+        "R": 6
+      },
+      "values": [
+        12,
+        -11,
+        10,
+        -10,
+        10,
+        -11
+      ],
+      "branch_counts": {
+        "endpoint": 6,
+        "interior_direct": 0,
+        "interior_divisible_zero": 0
+      },
+      "routing_digits": 0,
+      "endpoint_digits": 1002,
+      "direct_digits": 0,
+      "total_digits": 1002,
+      "historical_direct_digits": 12833
+    },
+    {
+      "inputs": {
+        "g": 3,
+        "k": 1,
+        "R": 3
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "branch_counts": {
+        "endpoint": 0,
+        "interior_direct": 3,
+        "interior_divisible_zero": 0
+      },
+      "routing_digits": 42,
+      "endpoint_digits": 0,
+      "direct_digits": 9757,
+      "total_digits": 9799,
+      "historical_direct_digits": 9757
+    },
+    {
+      "inputs": {
+        "g": 3,
+        "k": 2,
+        "R": 2
+      },
+      "values": [
+        0,
+        0
+      ],
+      "branch_counts": {
+        "endpoint": 2,
+        "interior_direct": 0,
+        "interior_divisible_zero": 0
+      },
+      "routing_digits": 0,
+      "endpoint_digits": 374,
+      "direct_digits": 0,
+      "total_digits": 374,
+      "historical_direct_digits": 5466
+    },
+    {
+      "inputs": {
+        "g": 4,
+        "k": 1,
+        "R": 7
+      },
+      "values": [
+        10,
+        -1,
+        -8,
+        4,
+        4,
+        -8,
+        -1
+      ],
+      "branch_counts": {
+        "endpoint": 0,
+        "interior_direct": 7,
+        "interior_divisible_zero": 0
+      },
+      "routing_digits": 126,
+      "endpoint_digits": 0,
+      "direct_digits": 23230,
+      "total_digits": 23356,
+      "historical_direct_digits": 23230
+    },
+    {
+      "inputs": {
+        "g": 4,
+        "k": 2,
+        "R": 1
+      },
+      "values": [
+        0
+      ],
+      "branch_counts": {
+        "endpoint": 0,
+        "interior_direct": 0,
+        "interior_divisible_zero": 1
+      },
+      "routing_digits": 25,
+      "endpoint_digits": 0,
+      "direct_digits": 0,
+      "total_digits": 25,
+      "historical_direct_digits": 10974
+    },
+    {
+      "inputs": {
+        "g": 5,
+        "k": 4,
+        "R": 3
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "branch_counts": {
+        "endpoint": 3,
+        "interior_direct": 0,
+        "interior_divisible_zero": 0
+      },
+      "routing_digits": 0,
+      "endpoint_digits": 1199,
+      "direct_digits": 0,
+      "total_digits": 1199,
+      "historical_direct_digits": 15540
+    }
+  ],
+  "branch_counts": {
+    "endpoint": 20,
+    "interior_direct": 10,
+    "interior_divisible_zero": 1
+  },
+  "negative_details": [
+    {
+      "name": "wrong_schema",
+      "case_index": 0,
+      "executed_replay_count": 0,
+      "runner_costs": {
+        "routing": {
+          "evidence_count": 0,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "endpoint": {
+          "evidence_count": 0,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "direct": {
+          "evidence_count": 0,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "arithmetic_totals": {
+          "typed_operations": 0,
+          "adder_digit_replays": 0,
+          "host_bit_wiring_operations": 0,
+          "host_bit_length_calls_in_arithmetic": 0,
+          "native_kernel_calls_delta": 0
+        },
+        "execution_count": 0
+      },
+      "native_core_calls_delta": 0
+    },
+    {
+      "name": "wrong_source",
+      "case_index": 0,
+      "executed_replay_count": 0,
+      "runner_costs": {
+        "routing": {
+          "evidence_count": 0,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "endpoint": {
+          "evidence_count": 0,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "direct": {
+          "evidence_count": 0,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "arithmetic_totals": {
+          "typed_operations": 0,
+          "adder_digit_replays": 0,
+          "host_bit_wiring_operations": 0,
+          "host_bit_length_calls_in_arithmetic": 0,
+          "native_kernel_calls_delta": 0
+        },
+        "execution_count": 0
+      },
+      "native_core_calls_delta": 0
+    },
+    {
+      "name": "wrong_dependency",
+      "case_index": 0,
+      "executed_replay_count": 0,
+      "runner_costs": {
+        "routing": {
+          "evidence_count": 0,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "endpoint": {
+          "evidence_count": 0,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "direct": {
+          "evidence_count": 0,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "arithmetic_totals": {
+          "typed_operations": 0,
+          "adder_digit_replays": 0,
+          "host_bit_wiring_operations": 0,
+          "host_bit_length_calls_in_arithmetic": 0,
+          "native_kernel_calls_delta": 0
+        },
+        "execution_count": 0
+      },
+      "native_core_calls_delta": 0
+    },
+    {
+      "name": "boolean_input",
+      "case_index": 0,
+      "executed_replay_count": 0,
+      "runner_costs": {
+        "routing": {
+          "evidence_count": 0,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "endpoint": {
+          "evidence_count": 0,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "direct": {
+          "evidence_count": 0,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "arithmetic_totals": {
+          "typed_operations": 0,
+          "adder_digit_replays": 0,
+          "host_bit_wiring_operations": 0,
+          "host_bit_length_calls_in_arithmetic": 0,
+          "native_kernel_calls_delta": 0
+        },
+        "execution_count": 0
+      },
+      "native_core_calls_delta": 0
+    },
+    {
+      "name": "false_direct_branch",
+      "case_index": 7,
+      "executed_replay_count": 1,
+      "runner_costs": {
+        "routing": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 4,
+            "adder_digit_replays": 25,
+            "host_bit_wiring_operations": 280,
+            "host_bit_length_calls_in_arithmetic": 13,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 4,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 3
+        },
+        "endpoint": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "direct": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "arithmetic_totals": {
+          "typed_operations": 4,
+          "adder_digit_replays": 25,
+          "host_bit_wiring_operations": 280,
+          "host_bit_length_calls_in_arithmetic": 13,
+          "native_kernel_calls_delta": 0
+        },
+        "execution_count": 1
+      },
+      "native_core_calls_delta": 0
+    },
+    {
+      "name": "wrong_zero_quotient",
+      "case_index": 7,
+      "executed_replay_count": 1,
+      "runner_costs": {
+        "routing": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 4,
+            "adder_digit_replays": 25,
+            "host_bit_wiring_operations": 280,
+            "host_bit_length_calls_in_arithmetic": 13,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 4,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 3
+        },
+        "endpoint": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "direct": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "arithmetic_totals": {
+          "typed_operations": 4,
+          "adder_digit_replays": 25,
+          "host_bit_wiring_operations": 280,
+          "host_bit_length_calls_in_arithmetic": 13,
+          "native_kernel_calls_delta": 0
+        },
+        "execution_count": 1
+      },
+      "native_core_calls_delta": 0
+    },
+    {
+      "name": "wrong_zero_remainder",
+      "case_index": 7,
+      "executed_replay_count": 1,
+      "runner_costs": {
+        "routing": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 4,
+            "adder_digit_replays": 25,
+            "host_bit_wiring_operations": 280,
+            "host_bit_length_calls_in_arithmetic": 13,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 4,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 3
+        },
+        "endpoint": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "direct": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "arithmetic_totals": {
+          "typed_operations": 4,
+          "adder_digit_replays": 25,
+          "host_bit_wiring_operations": 280,
+          "host_bit_length_calls_in_arithmetic": 13,
+          "native_kernel_calls_delta": 0
+        },
+        "execution_count": 1
+      },
+      "native_core_calls_delta": 0
+    },
+    {
+      "name": "wrong_zero_U",
+      "case_index": 7,
+      "executed_replay_count": 1,
+      "runner_costs": {
+        "routing": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 4,
+            "adder_digit_replays": 25,
+            "host_bit_wiring_operations": 280,
+            "host_bit_length_calls_in_arithmetic": 13,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 4,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 3
+        },
+        "endpoint": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "direct": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "arithmetic_totals": {
+          "typed_operations": 4,
+          "adder_digit_replays": 25,
+          "host_bit_wiring_operations": 280,
+          "host_bit_length_calls_in_arithmetic": 13,
+          "native_kernel_calls_delta": 0
+        },
+        "execution_count": 1
+      },
+      "native_core_calls_delta": 0
+    },
+    {
+      "name": "missing_zero_proof",
+      "case_index": 7,
+      "executed_replay_count": 1,
+      "runner_costs": {
+        "routing": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 4,
+            "adder_digit_replays": 25,
+            "host_bit_wiring_operations": 280,
+            "host_bit_length_calls_in_arithmetic": 13,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 4,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 3
+        },
+        "endpoint": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "direct": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "arithmetic_totals": {
+          "typed_operations": 4,
+          "adder_digit_replays": 25,
+          "host_bit_wiring_operations": 280,
+          "host_bit_length_calls_in_arithmetic": 13,
+          "native_kernel_calls_delta": 0
+        },
+        "execution_count": 1
+      },
+      "native_core_calls_delta": 0
+    },
+    {
+      "name": "boolean_zero_output",
+      "case_index": 7,
+      "executed_replay_count": 1,
+      "runner_costs": {
+        "routing": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 4,
+            "adder_digit_replays": 25,
+            "host_bit_wiring_operations": 280,
+            "host_bit_length_calls_in_arithmetic": 13,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 4,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 3
+        },
+        "endpoint": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "direct": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "arithmetic_totals": {
+          "typed_operations": 4,
+          "adder_digit_replays": 25,
+          "host_bit_wiring_operations": 280,
+          "host_bit_length_calls_in_arithmetic": 13,
+          "native_kernel_calls_delta": 0
+        },
+        "execution_count": 1
+      },
+      "native_core_calls_delta": 0
+    },
+    {
+      "name": "wrong_zero_subtraction",
+      "case_index": 7,
+      "executed_replay_count": 1,
+      "runner_costs": {
+        "routing": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 4,
+            "adder_digit_replays": 25,
+            "host_bit_wiring_operations": 280,
+            "host_bit_length_calls_in_arithmetic": 13,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 4,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 3
+        },
+        "endpoint": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "direct": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "arithmetic_totals": {
+          "typed_operations": 4,
+          "adder_digit_replays": 25,
+          "host_bit_wiring_operations": 280,
+          "host_bit_length_calls_in_arithmetic": 13,
+          "native_kernel_calls_delta": 0
+        },
+        "execution_count": 1
+      },
+      "native_core_calls_delta": 0
+    },
+    {
+      "name": "wrong_routing_division",
+      "case_index": 7,
+      "executed_replay_count": 1,
+      "runner_costs": {
+        "routing": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 4,
+            "adder_digit_replays": 25,
+            "host_bit_wiring_operations": 280,
+            "host_bit_length_calls_in_arithmetic": 13,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 4,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 3
+        },
+        "endpoint": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "direct": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "arithmetic_totals": {
+          "typed_operations": 4,
+          "adder_digit_replays": 25,
+          "host_bit_wiring_operations": 280,
+          "host_bit_length_calls_in_arithmetic": 13,
+          "native_kernel_calls_delta": 0
+        },
+        "execution_count": 1
+      },
+      "native_core_calls_delta": 0
+    },
+    {
+      "name": "wrong_endpoint_nested_value",
+      "case_index": 0,
+      "executed_replay_count": 1,
+      "runner_costs": {
+        "routing": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "endpoint": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 93,
+            "adder_digit_replays": 298,
+            "host_bit_wiring_operations": 3214,
+            "host_bit_length_calls_in_arithmetic": 231,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 87,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 3
+        },
+        "direct": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "arithmetic_totals": {
+          "typed_operations": 93,
+          "adder_digit_replays": 298,
+          "host_bit_wiring_operations": 3214,
+          "host_bit_length_calls_in_arithmetic": 231,
+          "native_kernel_calls_delta": 0
+        },
+        "execution_count": 1
+      },
+      "native_core_calls_delta": 0
+    },
+    {
+      "name": "wrong_direct_nested_value",
+      "case_index": 4,
+      "executed_replay_count": 1,
+      "runner_costs": {
+        "routing": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 6,
+            "adder_digit_replays": 42,
+            "host_bit_wiring_operations": 474,
+            "host_bit_length_calls_in_arithmetic": 21,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 6,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 2
+        },
+        "endpoint": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "direct": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 2551,
+            "adder_digit_replays": 9757,
+            "host_bit_wiring_operations": 106039,
+            "host_bit_length_calls_in_arithmetic": 7200,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 2524,
+          "moment_nodes": 21,
+          "moment_requests": 27,
+          "cache_hits": 6,
+          "window_queries": 0,
+          "max_recursion_depth": 3,
+          "max_observed_integer_bits": 7
+        },
+        "arithmetic_totals": {
+          "typed_operations": 2557,
+          "adder_digit_replays": 9799,
+          "host_bit_wiring_operations": 106513,
+          "host_bit_length_calls_in_arithmetic": 7221,
+          "native_kernel_calls_delta": 0
+        },
+        "execution_count": 1
+      },
+      "native_core_calls_delta": 0
+    },
+    {
+      "name": "wrong_nested_provenance",
+      "case_index": 0,
+      "executed_replay_count": 1,
+      "runner_costs": {
+        "routing": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "endpoint": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 93,
+            "adder_digit_replays": 298,
+            "host_bit_wiring_operations": 3214,
+            "host_bit_length_calls_in_arithmetic": 231,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 87,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 3
+        },
+        "direct": {
+          "evidence_count": 1,
+          "arithmetic_totals": {
+            "typed_operations": 0,
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "native_kernel_calls_delta": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_requests": 0,
+          "cache_hits": 0,
+          "window_queries": 0,
+          "max_recursion_depth": 0,
+          "max_observed_integer_bits": 0
+        },
+        "arithmetic_totals": {
+          "typed_operations": 93,
+          "adder_digit_replays": 298,
+          "host_bit_wiring_operations": 3214,
+          "host_bit_length_calls_in_arithmetic": 231,
+          "native_kernel_calls_delta": 0
+        },
+        "execution_count": 1
+      },
+      "native_core_calls_delta": 0
+    }
+  ],
+  "actual_core_calls": [
+    {
+      "depth": 1,
+      "elapsed_ns": 5421500,
+      "entrypoint": "recurrent_mass_power",
+      "states": 12
+    }
+  ],
+  "global_actual_core_calls_retained_once": true,
+  "full_history_artifact_hash_checked": true,
+  "strict_positive_semantic_equality_checked": true,
+  "all_failed_paid_replays_equal_honest_fresh_certificate": true,
+  "signed_to_typed_indices_cover_operations_once_in_order": true,
+  "digit_wiring_bitlength_counts_recounted_from_stored_trace_shapes": true,
+  "mixed_route_sequence_in_one_observer_executed": false,
+  "started_utc": "2026-09-27T06:22:54.884563+00:00",
+  "completed_utc_before_serialization": "2026-09-27T06:23:02.240669+00:00",
+  "elapsed_seconds_before_serialization": 7.356159900082275,
+  "log_sha256": "a3d4aae2ad68240c1a76116e611046dc7445ad460cc975e763e8298b8c9982d2",
+  "failure_artifact_present": false,
+  "scope": "metadata-only complete saved-resource audit; no arithmetic values recomputed and no scientific module imported"
+}

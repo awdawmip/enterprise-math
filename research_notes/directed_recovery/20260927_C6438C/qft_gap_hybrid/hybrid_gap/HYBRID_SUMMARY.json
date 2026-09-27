@@ -1,0 +1,255 @@
+{
+  "status": "PASS",
+  "source_sha256": {
+    "hybrid_signed_gap.py": "7daf2e04be83ed9a9124c1a2bcc79ae2cc8feb5334c4b675ed19f7a2bc918fb8",
+    "check_hybrid_signed_gap.py": "ed54ddc3ffb9735e1610ae363b69cd58d426adb4b9c1d0cc6ba85fcf11de1da7"
+  },
+  "cases": 9,
+  "residue_equalities": 31,
+  "input_rejections": 8,
+  "negative_checks": 15,
+  "paid_negative_replays": 11,
+  "branch_counts": {
+    "endpoint": 20,
+    "interior_direct": 10,
+    "interior_divisible_zero": 1
+  },
+  "actual_core_call_count": 1,
+  "production_totals": {
+    "typed_operations": 8349,
+    "adder_digit_replays": 36970,
+    "host_bit_wiring_operations": 399985,
+    "host_bit_length_calls_in_arithmetic": 23676,
+    "native_kernel_calls_delta": 1
+  },
+  "positive_replay_totals": {
+    "typed_operations": 8349,
+    "adder_digit_replays": 36970,
+    "host_bit_wiring_operations": 399985,
+    "host_bit_length_calls_in_arithmetic": 23676,
+    "native_kernel_calls_delta": 0
+  },
+  "negative_replay_totals": {
+    "typed_operations": 2775,
+    "adder_digit_replays": 10595,
+    "host_bit_wiring_operations": 115181,
+    "host_bit_length_calls_in_arithmetic": 7787,
+    "native_kernel_calls_delta": 0
+  },
+  "per_case": [
+    {
+      "inputs": {
+        "g": 1,
+        "k": 0,
+        "R": 3
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "branch_counts": {
+        "endpoint": 3,
+        "interior_direct": 0,
+        "interior_divisible_zero": 0
+      },
+      "routing_digits": 0,
+      "endpoint_digits": 298,
+      "direct_digits": 0,
+      "total_digits": 298,
+      "historical_direct_digits": 1953
+    },
+    {
+      "inputs": {
+        "g": 2,
+        "k": 0,
+        "R": 3
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "branch_counts": {
+        "endpoint": 3,
+        "interior_direct": 0,
+        "interior_divisible_zero": 0
+      },
+      "routing_digits": 0,
+      "endpoint_digits": 496,
+      "direct_digits": 0,
+      "total_digits": 496,
+      "historical_direct_digits": 5319
+    },
+    {
+      "inputs": {
+        "g": 2,
+        "k": 1,
+        "R": 3
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "branch_counts": {
+        "endpoint": 3,
+        "interior_direct": 0,
+        "interior_divisible_zero": 0
+      },
+      "routing_digits": 0,
+      "endpoint_digits": 421,
+      "direct_digits": 0,
+      "total_digits": 421,
+      "historical_direct_digits": 3113
+    },
+    {
+      "inputs": {
+        "g": 3,
+        "k": 0,
+        "R": 6
+      },
+      "values": [
+        12,
+        -11,
+        10,
+        -10,
+        10,
+        -11
+      ],
+      "branch_counts": {
+        "endpoint": 6,
+        "interior_direct": 0,
+        "interior_divisible_zero": 0
+      },
+      "routing_digits": 0,
+      "endpoint_digits": 1002,
+      "direct_digits": 0,
+      "total_digits": 1002,
+      "historical_direct_digits": 12833
+    },
+    {
+      "inputs": {
+        "g": 3,
+        "k": 1,
+        "R": 3
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "branch_counts": {
+        "endpoint": 0,
+        "interior_direct": 3,
+        "interior_divisible_zero": 0
+      },
+      "routing_digits": 42,
+      "endpoint_digits": 0,
+      "direct_digits": 9757,
+      "total_digits": 9799,
+      "historical_direct_digits": 9757
+    },
+    {
+      "inputs": {
+        "g": 3,
+        "k": 2,
+        "R": 2
+      },
+      "values": [
+        0,
+        0
+      ],
+      "branch_counts": {
+        "endpoint": 2,
+        "interior_direct": 0,
+        "interior_divisible_zero": 0
+      },
+      "routing_digits": 0,
+      "endpoint_digits": 374,
+      "direct_digits": 0,
+      "total_digits": 374,
+      "historical_direct_digits": 5466
+    },
+    {
+      "inputs": {
+        "g": 4,
+        "k": 1,
+        "R": 7
+      },
+      "values": [
+        10,
+        -1,
+        -8,
+        4,
+        4,
+        -8,
+        -1
+      ],
+      "branch_counts": {
+        "endpoint": 0,
+        "interior_direct": 7,
+        "interior_divisible_zero": 0
+      },
+      "routing_digits": 126,
+      "endpoint_digits": 0,
+      "direct_digits": 23230,
+      "total_digits": 23356,
+      "historical_direct_digits": 23230
+    },
+    {
+      "inputs": {
+        "g": 4,
+        "k": 2,
+        "R": 1
+      },
+      "values": [
+        0
+      ],
+      "branch_counts": {
+        "endpoint": 0,
+        "interior_direct": 0,
+        "interior_divisible_zero": 1
+      },
+      "routing_digits": 25,
+      "endpoint_digits": 0,
+      "direct_digits": 0,
+      "total_digits": 25,
+      "historical_direct_digits": 10974
+    },
+    {
+      "inputs": {
+        "g": 5,
+        "k": 4,
+        "R": 3
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "branch_counts": {
+        "endpoint": 3,
+        "interior_direct": 0,
+        "interior_divisible_zero": 0
+      },
+      "routing_digits": 0,
+      "endpoint_digits": 1199,
+      "direct_digits": 0,
+      "total_digits": 1199,
+      "historical_direct_digits": 15540
+    }
+  ],
+  "historical_science_reexecuted": false,
+  "aligned_route_implemented": false,
+  "two_bit_query_implemented": false,
+  "comparison_is_timing_benchmark": false,
+  "quantum_phase_propagation_performed": false,
+  "order_discovery_performed": false,
+  "full_gram_integration_performed": false,
+  "elapsed_seconds_before_serialization": 7.356159900082275,
+  "raw_bytes": 10382526,
+  "gzip_bytes": 517935,
+  "payload_sha256": "76efccc284001219b2ecde3523557f66e55e828125e4132a83814f25df80398b",
+  "artifact_sha256": "036242b07b480d05937b6a72ffc375dc33eea48283647964ca020b78bdb3f962"
+}

@@ -1,0 +1,1502 @@
+{
+  "status": "PASS_COMPLETE_SAVED_RECORD_REVIEW",
+  "admission": "SHARED_CONTEXT_AUTHOR_REVIEW_NOT_FORMAL_ADMISSION",
+  "scope": "whole payload and saved fresh replay equality; all three runner recording links and native-cell/cost accounting; no scientific execution",
+  "reader_sha256": "b4f1e1b1e4498caf5336bea2031a955f7f6ad005b102bbcd4ae1dfaa39b609d0",
+  "io_helper_sha256": {
+    "direct": "4b7e7d1bf7e4b7575d6b202f680acbac62861e16551aa4971ba7b74848571098",
+    "endpoint": "e230a560c28cf5416d72a653aa8add0bcd5005a880f1a5f3ab10c74a5ae70b4c"
+  },
+  "source_sha256": {
+    "hybrid_signed_gap.py": "7daf2e04be83ed9a9124c1a2bcc79ae2cc8feb5334c4b675ed19f7a2bc918fb8",
+    "check_hybrid_signed_gap.py": "ed54ddc3ffb9735e1610ae363b69cd58d426adb4b9c1d0cc6ba85fcf11de1da7"
+  },
+  "dependency_sha256": {
+    "DESIGN.md": "0e83c68d171313896d5c1c872d64fe5c2079bace52c6b529469198ee8ae0e2e9",
+    "direct_signed_gap.py": "3ab2515c1b9df35d01c9605f21d8f8fe56bd044effe489063192c0a5c56a8521",
+    "endpoint_signed_gap.py": "c75e7e82cc0ef2413048153716f5100f3a9d1d4f50c375b7cb1690c3cfe6e036",
+    "signed_gap.py": "86ea28956fa7ac9c41fb38a8c63f4ba00b0377f3264b5a525c46c5335faff90a",
+    "typed_floor_moments.py": "633502c9b484e60e5dc5fcf6edd0420f12d52c33c43e88851b9e1e6465ea94a2"
+  },
+  "payload_sha256": "76efccc284001219b2ecde3523557f66e55e828125e4132a83814f25df80398b",
+  "raw_bytes": 10382526,
+  "artifact_sha256": "036242b07b480d05937b6a72ffc375dc33eea48283647964ca020b78bdb3f962",
+  "gzip_bytes": 517935,
+  "history_payload_sha256": "48780f175bc4bcf673345ee8c0b9e0240cc1c2a0e166037720c5fc06b8483157",
+  "guard_sha256": "cbe32c2e32ad1a770312ceb5ee356a1a446a48ba2d4969604c67844cae85f7a1",
+  "native_source": {
+    "arithmetic_route": "actual full-adder columns; digit transducer composition",
+    "files_sha256": {
+      "lazy_modular": "08df3595a2a56dc2501bb481828093481bf76e4ac53c8b966990d233fefac1e4",
+      "sparse_modular": "fd9cbb019418a3c00890ba6e8cca5760e7e4d792bfd7b48306a71a66de301c46",
+      "typed_integer_prechecks": "0a817aa8124cceb5440233d543073dae71de6ac1d0d4e5d50f4ee2b4808d99eb"
+    },
+    "native_adder": {
+      "columns": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "entrypoint": "stage78.shor_benchmark.full_adder_columns",
+      "input_columns": 8,
+      "observer": "retained input triple -> (sum bit, carry bit)",
+      "positive_BRC_input_states": 12,
+      "scope": "exact integer label compiler; not a reversible physical erasure",
+      "vendor": {
+        "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+        "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+        "path": "src/enterprise_math/brc_weighted_recurrent.py",
+        "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+      }
+    },
+    "primitive_source": "0852cad130c1d877174d235687cf60c19f318c58",
+    "runtime_state_propagator": "complete positive unit permutation on work labels"
+  },
+  "cases": [
+    {
+      "inputs": {
+        "R": 3,
+        "g": 1,
+        "k": 0
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "record_links": {
+        "branch_counts": {
+          "endpoint": 3,
+          "interior_direct": 0,
+          "interior_divisible_zero": 0
+        },
+        "routing_signed_operations": 0,
+        "endpoint_links": {
+          "branch_counts": {
+            "highest_bit": 3,
+            "lowest_odd_modulus": 0,
+            "lowest_even_modulus": 0,
+            "interior_one_window": 0
+          },
+          "endpoint_interval_receipts": 6,
+          "signed_operations": 87,
+          "typed_operations": 93,
+          "window_queries": 0,
+          "moment_nodes": 0
+        },
+        "direct_links": {
+          "requests": 0,
+          "signed_operations": 0,
+          "typed_operations": 0,
+          "moment_nodes": 0,
+          "top_level_table_calls": 0,
+          "empty_progressions": 0,
+          "all_retained_native_adder_cells_bound": true,
+          "recounted_cost": {
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0
+          }
+        },
+        "all_three_streams_native_cells_and_costs_checked": true
+      },
+      "production_cost": {
+        "routing": {
+          "arithmetic_stats": {
+            "adder_digit_replays": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "host_bit_wiring_operations": 0,
+            "native_kernel_calls_delta": 0,
+            "typed_operations": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_stats": {
+            "cache_hits": 0,
+            "max_observed_integer_bits": 0,
+            "max_recursion_depth": 0,
+            "moment_requests": 0
+          },
+          "window_queries": 0
+        },
+        "endpoint": {
+          "arithmetic_stats": {
+            "adder_digit_replays": 298,
+            "host_bit_length_calls_in_arithmetic": 231,
+            "host_bit_wiring_operations": 3214,
+            "native_kernel_calls_delta": 1,
+            "typed_operations": 93
+          },
+          "signed_operations": 87,
+          "moment_nodes": 0,
+          "moment_stats": {
+            "cache_hits": 0,
+            "max_observed_integer_bits": 3,
+            "max_recursion_depth": 0,
+            "moment_requests": 0
+          },
+          "window_queries": 0
+        },
+        "direct": {
+          "arithmetic_stats": {
+            "adder_digit_replays": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "host_bit_wiring_operations": 0,
+            "native_kernel_calls_delta": 0,
+            "typed_operations": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_stats": {
+            "cache_hits": 0,
+            "max_observed_integer_bits": 0,
+            "max_recursion_depth": 0,
+            "moment_requests": 0
+          },
+          "window_queries": 0
+        },
+        "arithmetic_totals": {
+          "adder_digit_replays": 298,
+          "host_bit_length_calls_in_arithmetic": 231,
+          "host_bit_wiring_operations": 3214,
+          "native_kernel_calls_delta": 1,
+          "typed_operations": 93
+        }
+      },
+      "historical_pure_direct_stats": {
+        "adder_digit_replays": 1953,
+        "host_bit_length_calls_in_arithmetic": 2400,
+        "host_bit_wiring_operations": 21180,
+        "native_kernel_calls_delta": 1,
+        "typed_operations": 897
+      }
+    },
+    {
+      "inputs": {
+        "R": 3,
+        "g": 2,
+        "k": 0
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "record_links": {
+        "branch_counts": {
+          "endpoint": 3,
+          "interior_direct": 0,
+          "interior_divisible_zero": 0
+        },
+        "routing_signed_operations": 0,
+        "endpoint_links": {
+          "branch_counts": {
+            "highest_bit": 0,
+            "lowest_odd_modulus": 3,
+            "lowest_even_modulus": 0,
+            "interior_one_window": 0
+          },
+          "endpoint_interval_receipts": 6,
+          "signed_operations": 98,
+          "typed_operations": 104,
+          "window_queries": 0,
+          "moment_nodes": 0
+        },
+        "direct_links": {
+          "requests": 0,
+          "signed_operations": 0,
+          "typed_operations": 0,
+          "moment_nodes": 0,
+          "top_level_table_calls": 0,
+          "empty_progressions": 0,
+          "all_retained_native_adder_cells_bound": true,
+          "recounted_cost": {
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0
+          }
+        },
+        "all_three_streams_native_cells_and_costs_checked": true
+      },
+      "production_cost": {
+        "routing": {
+          "arithmetic_stats": {
+            "adder_digit_replays": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "host_bit_wiring_operations": 0,
+            "native_kernel_calls_delta": 0,
+            "typed_operations": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_stats": {
+            "cache_hits": 0,
+            "max_observed_integer_bits": 0,
+            "max_recursion_depth": 0,
+            "moment_requests": 0
+          },
+          "window_queries": 0
+        },
+        "endpoint": {
+          "arithmetic_stats": {
+            "adder_digit_replays": 496,
+            "host_bit_length_calls_in_arithmetic": 282,
+            "host_bit_wiring_operations": 5392,
+            "native_kernel_calls_delta": 0,
+            "typed_operations": 104
+          },
+          "signed_operations": 98,
+          "moment_nodes": 0,
+          "moment_stats": {
+            "cache_hits": 0,
+            "max_observed_integer_bits": 4,
+            "max_recursion_depth": 0,
+            "moment_requests": 0
+          },
+          "window_queries": 0
+        },
+        "direct": {
+          "arithmetic_stats": {
+            "adder_digit_replays": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "host_bit_wiring_operations": 0,
+            "native_kernel_calls_delta": 0,
+            "typed_operations": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_stats": {
+            "cache_hits": 0,
+            "max_observed_integer_bits": 0,
+            "max_recursion_depth": 0,
+            "moment_requests": 0
+          },
+          "window_queries": 0
+        },
+        "arithmetic_totals": {
+          "adder_digit_replays": 496,
+          "host_bit_length_calls_in_arithmetic": 282,
+          "host_bit_wiring_operations": 5392,
+          "native_kernel_calls_delta": 0,
+          "typed_operations": 104
+        }
+      },
+      "historical_pure_direct_stats": {
+        "adder_digit_replays": 5319,
+        "host_bit_length_calls_in_arithmetic": 5389,
+        "host_bit_wiring_operations": 57939,
+        "native_kernel_calls_delta": 0,
+        "typed_operations": 1965
+      }
+    },
+    {
+      "inputs": {
+        "R": 3,
+        "g": 2,
+        "k": 1
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "record_links": {
+        "branch_counts": {
+          "endpoint": 3,
+          "interior_direct": 0,
+          "interior_divisible_zero": 0
+        },
+        "routing_signed_operations": 0,
+        "endpoint_links": {
+          "branch_counts": {
+            "highest_bit": 3,
+            "lowest_odd_modulus": 0,
+            "lowest_even_modulus": 0,
+            "interior_one_window": 0
+          },
+          "endpoint_interval_receipts": 6,
+          "signed_operations": 90,
+          "typed_operations": 96,
+          "window_queries": 0,
+          "moment_nodes": 0
+        },
+        "direct_links": {
+          "requests": 0,
+          "signed_operations": 0,
+          "typed_operations": 0,
+          "moment_nodes": 0,
+          "top_level_table_calls": 0,
+          "empty_progressions": 0,
+          "all_retained_native_adder_cells_bound": true,
+          "recounted_cost": {
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0
+          }
+        },
+        "all_three_streams_native_cells_and_costs_checked": true
+      },
+      "production_cost": {
+        "routing": {
+          "arithmetic_stats": {
+            "adder_digit_replays": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "host_bit_wiring_operations": 0,
+            "native_kernel_calls_delta": 0,
+            "typed_operations": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_stats": {
+            "cache_hits": 0,
+            "max_observed_integer_bits": 0,
+            "max_recursion_depth": 0,
+            "moment_requests": 0
+          },
+          "window_queries": 0
+        },
+        "endpoint": {
+          "arithmetic_stats": {
+            "adder_digit_replays": 421,
+            "host_bit_length_calls_in_arithmetic": 249,
+            "host_bit_wiring_operations": 4534,
+            "native_kernel_calls_delta": 0,
+            "typed_operations": 96
+          },
+          "signed_operations": 90,
+          "moment_nodes": 0,
+          "moment_stats": {
+            "cache_hits": 0,
+            "max_observed_integer_bits": 4,
+            "max_recursion_depth": 0,
+            "moment_requests": 0
+          },
+          "window_queries": 0
+        },
+        "direct": {
+          "arithmetic_stats": {
+            "adder_digit_replays": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "host_bit_wiring_operations": 0,
+            "native_kernel_calls_delta": 0,
+            "typed_operations": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_stats": {
+            "cache_hits": 0,
+            "max_observed_integer_bits": 0,
+            "max_recursion_depth": 0,
+            "moment_requests": 0
+          },
+          "window_queries": 0
+        },
+        "arithmetic_totals": {
+          "adder_digit_replays": 421,
+          "host_bit_length_calls_in_arithmetic": 249,
+          "host_bit_wiring_operations": 4534,
+          "native_kernel_calls_delta": 0,
+          "typed_operations": 96
+        }
+      },
+      "historical_pure_direct_stats": {
+        "adder_digit_replays": 3113,
+        "host_bit_length_calls_in_arithmetic": 3113,
+        "host_bit_wiring_operations": 33644,
+        "native_kernel_calls_delta": 0,
+        "typed_operations": 1168
+      }
+    },
+    {
+      "inputs": {
+        "R": 6,
+        "g": 3,
+        "k": 0
+      },
+      "values": [
+        12,
+        -11,
+        10,
+        -10,
+        10,
+        -11
+      ],
+      "record_links": {
+        "branch_counts": {
+          "endpoint": 6,
+          "interior_direct": 0,
+          "interior_divisible_zero": 0
+        },
+        "routing_signed_operations": 0,
+        "endpoint_links": {
+          "branch_counts": {
+            "highest_bit": 0,
+            "lowest_odd_modulus": 0,
+            "lowest_even_modulus": 6,
+            "interior_one_window": 0
+          },
+          "endpoint_interval_receipts": 6,
+          "signed_operations": 126,
+          "typed_operations": 136,
+          "window_queries": 0,
+          "moment_nodes": 0
+        },
+        "direct_links": {
+          "requests": 0,
+          "signed_operations": 0,
+          "typed_operations": 0,
+          "moment_nodes": 0,
+          "top_level_table_calls": 0,
+          "empty_progressions": 0,
+          "all_retained_native_adder_cells_bound": true,
+          "recounted_cost": {
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0
+          }
+        },
+        "all_three_streams_native_cells_and_costs_checked": true
+      },
+      "production_cost": {
+        "routing": {
+          "arithmetic_stats": {
+            "adder_digit_replays": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "host_bit_wiring_operations": 0,
+            "native_kernel_calls_delta": 0,
+            "typed_operations": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_stats": {
+            "cache_hits": 0,
+            "max_observed_integer_bits": 0,
+            "max_recursion_depth": 0,
+            "moment_requests": 0
+          },
+          "window_queries": 0
+        },
+        "endpoint": {
+          "arithmetic_stats": {
+            "adder_digit_replays": 1002,
+            "host_bit_length_calls_in_arithmetic": 412,
+            "host_bit_wiring_operations": 10872,
+            "native_kernel_calls_delta": 0,
+            "typed_operations": 136
+          },
+          "signed_operations": 126,
+          "moment_nodes": 0,
+          "moment_stats": {
+            "cache_hits": 0,
+            "max_observed_integer_bits": 4,
+            "max_recursion_depth": 0,
+            "moment_requests": 0
+          },
+          "window_queries": 0
+        },
+        "direct": {
+          "arithmetic_stats": {
+            "adder_digit_replays": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "host_bit_wiring_operations": 0,
+            "native_kernel_calls_delta": 0,
+            "typed_operations": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_stats": {
+            "cache_hits": 0,
+            "max_observed_integer_bits": 0,
+            "max_recursion_depth": 0,
+            "moment_requests": 0
+          },
+          "window_queries": 0
+        },
+        "arithmetic_totals": {
+          "adder_digit_replays": 1002,
+          "host_bit_length_calls_in_arithmetic": 412,
+          "host_bit_wiring_operations": 10872,
+          "native_kernel_calls_delta": 0,
+          "typed_operations": 136
+        }
+      },
+      "historical_pure_direct_stats": {
+        "adder_digit_replays": 12833,
+        "host_bit_length_calls_in_arithmetic": 7475,
+        "host_bit_wiring_operations": 137501,
+        "native_kernel_calls_delta": 0,
+        "typed_operations": 2708
+      }
+    },
+    {
+      "inputs": {
+        "R": 3,
+        "g": 3,
+        "k": 1
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "record_links": {
+        "branch_counts": {
+          "endpoint": 0,
+          "interior_direct": 3,
+          "interior_divisible_zero": 0
+        },
+        "routing_signed_operations": 6,
+        "endpoint_links": {
+          "branch_counts": {
+            "highest_bit": 0,
+            "lowest_odd_modulus": 0,
+            "lowest_even_modulus": 0,
+            "interior_one_window": 0
+          },
+          "endpoint_interval_receipts": 0,
+          "signed_operations": 0,
+          "typed_operations": 0,
+          "window_queries": 0,
+          "moment_nodes": 0
+        },
+        "direct_links": {
+          "requests": 3,
+          "signed_operations": 2524,
+          "typed_operations": 2551,
+          "moment_nodes": 21,
+          "top_level_table_calls": 12,
+          "empty_progressions": 0,
+          "all_retained_native_adder_cells_bound": true,
+          "recounted_cost": {
+            "adder_digit_replays": 9757,
+            "host_bit_wiring_operations": 106039,
+            "host_bit_length_calls_in_arithmetic": 7200
+          }
+        },
+        "all_three_streams_native_cells_and_costs_checked": true
+      },
+      "production_cost": {
+        "routing": {
+          "arithmetic_stats": {
+            "adder_digit_replays": 42,
+            "host_bit_length_calls_in_arithmetic": 21,
+            "host_bit_wiring_operations": 474,
+            "native_kernel_calls_delta": 0,
+            "typed_operations": 6
+          },
+          "signed_operations": 6,
+          "moment_nodes": 0,
+          "moment_stats": {
+            "cache_hits": 0,
+            "max_observed_integer_bits": 2,
+            "max_recursion_depth": 0,
+            "moment_requests": 0
+          },
+          "window_queries": 0
+        },
+        "endpoint": {
+          "arithmetic_stats": {
+            "adder_digit_replays": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "host_bit_wiring_operations": 0,
+            "native_kernel_calls_delta": 0,
+            "typed_operations": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_stats": {
+            "cache_hits": 0,
+            "max_observed_integer_bits": 0,
+            "max_recursion_depth": 0,
+            "moment_requests": 0
+          },
+          "window_queries": 0
+        },
+        "direct": {
+          "arithmetic_stats": {
+            "adder_digit_replays": 9757,
+            "host_bit_length_calls_in_arithmetic": 7200,
+            "host_bit_wiring_operations": 106039,
+            "native_kernel_calls_delta": 0,
+            "typed_operations": 2551
+          },
+          "signed_operations": 2524,
+          "moment_nodes": 21,
+          "moment_stats": {
+            "cache_hits": 6,
+            "max_observed_integer_bits": 7,
+            "max_recursion_depth": 3,
+            "moment_requests": 27
+          },
+          "window_queries": 0
+        },
+        "arithmetic_totals": {
+          "adder_digit_replays": 9799,
+          "host_bit_length_calls_in_arithmetic": 7221,
+          "host_bit_wiring_operations": 106513,
+          "native_kernel_calls_delta": 0,
+          "typed_operations": 2557
+        }
+      },
+      "historical_pure_direct_stats": {
+        "adder_digit_replays": 9757,
+        "host_bit_length_calls_in_arithmetic": 7200,
+        "host_bit_wiring_operations": 106039,
+        "native_kernel_calls_delta": 0,
+        "typed_operations": 2551
+      }
+    },
+    {
+      "inputs": {
+        "R": 2,
+        "g": 3,
+        "k": 2
+      },
+      "values": [
+        0,
+        0
+      ],
+      "record_links": {
+        "branch_counts": {
+          "endpoint": 2,
+          "interior_direct": 0,
+          "interior_divisible_zero": 0
+        },
+        "routing_signed_operations": 0,
+        "endpoint_links": {
+          "branch_counts": {
+            "highest_bit": 2,
+            "lowest_odd_modulus": 0,
+            "lowest_even_modulus": 0,
+            "interior_one_window": 0
+          },
+          "endpoint_interval_receipts": 4,
+          "signed_operations": 62,
+          "typed_operations": 68,
+          "window_queries": 0,
+          "moment_nodes": 0
+        },
+        "direct_links": {
+          "requests": 0,
+          "signed_operations": 0,
+          "typed_operations": 0,
+          "moment_nodes": 0,
+          "top_level_table_calls": 0,
+          "empty_progressions": 0,
+          "all_retained_native_adder_cells_bound": true,
+          "recounted_cost": {
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0
+          }
+        },
+        "all_three_streams_native_cells_and_costs_checked": true
+      },
+      "production_cost": {
+        "routing": {
+          "arithmetic_stats": {
+            "adder_digit_replays": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "host_bit_wiring_operations": 0,
+            "native_kernel_calls_delta": 0,
+            "typed_operations": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_stats": {
+            "cache_hits": 0,
+            "max_observed_integer_bits": 0,
+            "max_recursion_depth": 0,
+            "moment_requests": 0
+          },
+          "window_queries": 0
+        },
+        "endpoint": {
+          "arithmetic_stats": {
+            "adder_digit_replays": 374,
+            "host_bit_length_calls_in_arithmetic": 178,
+            "host_bit_wiring_operations": 4034,
+            "native_kernel_calls_delta": 0,
+            "typed_operations": 68
+          },
+          "signed_operations": 62,
+          "moment_nodes": 0,
+          "moment_stats": {
+            "cache_hits": 0,
+            "max_observed_integer_bits": 6,
+            "max_recursion_depth": 0,
+            "moment_requests": 0
+          },
+          "window_queries": 0
+        },
+        "direct": {
+          "arithmetic_stats": {
+            "adder_digit_replays": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "host_bit_wiring_operations": 0,
+            "native_kernel_calls_delta": 0,
+            "typed_operations": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_stats": {
+            "cache_hits": 0,
+            "max_observed_integer_bits": 0,
+            "max_recursion_depth": 0,
+            "moment_requests": 0
+          },
+          "window_queries": 0
+        },
+        "arithmetic_totals": {
+          "adder_digit_replays": 374,
+          "host_bit_length_calls_in_arithmetic": 178,
+          "host_bit_wiring_operations": 4034,
+          "native_kernel_calls_delta": 0,
+          "typed_operations": 68
+        }
+      },
+      "historical_pure_direct_stats": {
+        "adder_digit_replays": 5466,
+        "host_bit_length_calls_in_arithmetic": 3195,
+        "host_bit_wiring_operations": 59637,
+        "native_kernel_calls_delta": 0,
+        "typed_operations": 1129
+      }
+    },
+    {
+      "inputs": {
+        "R": 7,
+        "g": 4,
+        "k": 1
+      },
+      "values": [
+        10,
+        -1,
+        -8,
+        4,
+        4,
+        -8,
+        -1
+      ],
+      "record_links": {
+        "branch_counts": {
+          "endpoint": 0,
+          "interior_direct": 7,
+          "interior_divisible_zero": 0
+        },
+        "routing_signed_operations": 14,
+        "endpoint_links": {
+          "branch_counts": {
+            "highest_bit": 0,
+            "lowest_odd_modulus": 0,
+            "lowest_even_modulus": 0,
+            "interior_one_window": 0
+          },
+          "endpoint_interval_receipts": 0,
+          "signed_operations": 0,
+          "typed_operations": 0,
+          "window_queries": 0,
+          "moment_nodes": 0
+        },
+        "direct_links": {
+          "requests": 7,
+          "signed_operations": 5115,
+          "typed_operations": 5172,
+          "moment_nodes": 31,
+          "top_level_table_calls": 28,
+          "empty_progressions": 0,
+          "all_retained_native_adder_cells_bound": true,
+          "recounted_cost": {
+            "adder_digit_replays": 23230,
+            "host_bit_wiring_operations": 251017,
+            "host_bit_length_calls_in_arithmetic": 14738
+          }
+        },
+        "all_three_streams_native_cells_and_costs_checked": true
+      },
+      "production_cost": {
+        "routing": {
+          "arithmetic_stats": {
+            "adder_digit_replays": 126,
+            "host_bit_length_calls_in_arithmetic": 49,
+            "host_bit_wiring_operations": 1386,
+            "native_kernel_calls_delta": 0,
+            "typed_operations": 14
+          },
+          "signed_operations": 14,
+          "moment_nodes": 0,
+          "moment_stats": {
+            "cache_hits": 0,
+            "max_observed_integer_bits": 3,
+            "max_recursion_depth": 0,
+            "moment_requests": 0
+          },
+          "window_queries": 0
+        },
+        "endpoint": {
+          "arithmetic_stats": {
+            "adder_digit_replays": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "host_bit_wiring_operations": 0,
+            "native_kernel_calls_delta": 0,
+            "typed_operations": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_stats": {
+            "cache_hits": 0,
+            "max_observed_integer_bits": 0,
+            "max_recursion_depth": 0,
+            "moment_requests": 0
+          },
+          "window_queries": 0
+        },
+        "direct": {
+          "arithmetic_stats": {
+            "adder_digit_replays": 23230,
+            "host_bit_length_calls_in_arithmetic": 14738,
+            "host_bit_wiring_operations": 251017,
+            "native_kernel_calls_delta": 0,
+            "typed_operations": 5172
+          },
+          "signed_operations": 5115,
+          "moment_nodes": 31,
+          "moment_stats": {
+            "cache_hits": 22,
+            "max_observed_integer_bits": 10,
+            "max_recursion_depth": 3,
+            "moment_requests": 53
+          },
+          "window_queries": 0
+        },
+        "arithmetic_totals": {
+          "adder_digit_replays": 23356,
+          "host_bit_length_calls_in_arithmetic": 14787,
+          "host_bit_wiring_operations": 252403,
+          "native_kernel_calls_delta": 0,
+          "typed_operations": 5186
+        }
+      },
+      "historical_pure_direct_stats": {
+        "adder_digit_replays": 23230,
+        "host_bit_length_calls_in_arithmetic": 14738,
+        "host_bit_wiring_operations": 251017,
+        "native_kernel_calls_delta": 0,
+        "typed_operations": 5172
+      }
+    },
+    {
+      "inputs": {
+        "R": 1,
+        "g": 4,
+        "k": 2
+      },
+      "values": [
+        0
+      ],
+      "record_links": {
+        "branch_counts": {
+          "endpoint": 0,
+          "interior_direct": 0,
+          "interior_divisible_zero": 1
+        },
+        "routing_signed_operations": 4,
+        "endpoint_links": {
+          "branch_counts": {
+            "highest_bit": 0,
+            "lowest_odd_modulus": 0,
+            "lowest_even_modulus": 0,
+            "interior_one_window": 0
+          },
+          "endpoint_interval_receipts": 0,
+          "signed_operations": 0,
+          "typed_operations": 0,
+          "window_queries": 0,
+          "moment_nodes": 0
+        },
+        "direct_links": {
+          "requests": 0,
+          "signed_operations": 0,
+          "typed_operations": 0,
+          "moment_nodes": 0,
+          "top_level_table_calls": 0,
+          "empty_progressions": 0,
+          "all_retained_native_adder_cells_bound": true,
+          "recounted_cost": {
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0
+          }
+        },
+        "all_three_streams_native_cells_and_costs_checked": true
+      },
+      "production_cost": {
+        "routing": {
+          "arithmetic_stats": {
+            "adder_digit_replays": 25,
+            "host_bit_length_calls_in_arithmetic": 13,
+            "host_bit_wiring_operations": 280,
+            "native_kernel_calls_delta": 0,
+            "typed_operations": 4
+          },
+          "signed_operations": 4,
+          "moment_nodes": 0,
+          "moment_stats": {
+            "cache_hits": 0,
+            "max_observed_integer_bits": 3,
+            "max_recursion_depth": 0,
+            "moment_requests": 0
+          },
+          "window_queries": 0
+        },
+        "endpoint": {
+          "arithmetic_stats": {
+            "adder_digit_replays": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "host_bit_wiring_operations": 0,
+            "native_kernel_calls_delta": 0,
+            "typed_operations": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_stats": {
+            "cache_hits": 0,
+            "max_observed_integer_bits": 0,
+            "max_recursion_depth": 0,
+            "moment_requests": 0
+          },
+          "window_queries": 0
+        },
+        "direct": {
+          "arithmetic_stats": {
+            "adder_digit_replays": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "host_bit_wiring_operations": 0,
+            "native_kernel_calls_delta": 0,
+            "typed_operations": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_stats": {
+            "cache_hits": 0,
+            "max_observed_integer_bits": 0,
+            "max_recursion_depth": 0,
+            "moment_requests": 0
+          },
+          "window_queries": 0
+        },
+        "arithmetic_totals": {
+          "adder_digit_replays": 25,
+          "host_bit_length_calls_in_arithmetic": 13,
+          "host_bit_wiring_operations": 280,
+          "native_kernel_calls_delta": 0,
+          "typed_operations": 4
+        }
+      },
+      "historical_pure_direct_stats": {
+        "adder_digit_replays": 10974,
+        "host_bit_length_calls_in_arithmetic": 3791,
+        "host_bit_wiring_operations": 118815,
+        "native_kernel_calls_delta": 0,
+        "typed_operations": 1213
+      }
+    },
+    {
+      "inputs": {
+        "R": 3,
+        "g": 5,
+        "k": 4
+      },
+      "values": [
+        2,
+        -1,
+        -1
+      ],
+      "record_links": {
+        "branch_counts": {
+          "endpoint": 3,
+          "interior_direct": 0,
+          "interior_divisible_zero": 0
+        },
+        "routing_signed_operations": 0,
+        "endpoint_links": {
+          "branch_counts": {
+            "highest_bit": 3,
+            "lowest_odd_modulus": 0,
+            "lowest_even_modulus": 0,
+            "interior_one_window": 0
+          },
+          "endpoint_interval_receipts": 6,
+          "signed_operations": 99,
+          "typed_operations": 105,
+          "window_queries": 0,
+          "moment_nodes": 0
+        },
+        "direct_links": {
+          "requests": 0,
+          "signed_operations": 0,
+          "typed_operations": 0,
+          "moment_nodes": 0,
+          "top_level_table_calls": 0,
+          "empty_progressions": 0,
+          "all_retained_native_adder_cells_bound": true,
+          "recounted_cost": {
+            "adder_digit_replays": 0,
+            "host_bit_wiring_operations": 0,
+            "host_bit_length_calls_in_arithmetic": 0
+          }
+        },
+        "all_three_streams_native_cells_and_costs_checked": true
+      },
+      "production_cost": {
+        "routing": {
+          "arithmetic_stats": {
+            "adder_digit_replays": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "host_bit_wiring_operations": 0,
+            "native_kernel_calls_delta": 0,
+            "typed_operations": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_stats": {
+            "cache_hits": 0,
+            "max_observed_integer_bits": 0,
+            "max_recursion_depth": 0,
+            "moment_requests": 0
+          },
+          "window_queries": 0
+        },
+        "endpoint": {
+          "arithmetic_stats": {
+            "adder_digit_replays": 1199,
+            "host_bit_length_calls_in_arithmetic": 303,
+            "host_bit_wiring_operations": 12743,
+            "native_kernel_calls_delta": 0,
+            "typed_operations": 105
+          },
+          "signed_operations": 99,
+          "moment_nodes": 0,
+          "moment_stats": {
+            "cache_hits": 0,
+            "max_observed_integer_bits": 9,
+            "max_recursion_depth": 0,
+            "moment_requests": 0
+          },
+          "window_queries": 0
+        },
+        "direct": {
+          "arithmetic_stats": {
+            "adder_digit_replays": 0,
+            "host_bit_length_calls_in_arithmetic": 0,
+            "host_bit_wiring_operations": 0,
+            "native_kernel_calls_delta": 0,
+            "typed_operations": 0
+          },
+          "signed_operations": 0,
+          "moment_nodes": 0,
+          "moment_stats": {
+            "cache_hits": 0,
+            "max_observed_integer_bits": 0,
+            "max_recursion_depth": 0,
+            "moment_requests": 0
+          },
+          "window_queries": 0
+        },
+        "arithmetic_totals": {
+          "adder_digit_replays": 1199,
+          "host_bit_length_calls_in_arithmetic": 303,
+          "host_bit_wiring_operations": 12743,
+          "native_kernel_calls_delta": 0,
+          "typed_operations": 105
+        }
+      },
+      "historical_pure_direct_stats": {
+        "adder_digit_replays": 15540,
+        "host_bit_length_calls_in_arithmetic": 4786,
+        "host_bit_wiring_operations": 165945,
+        "native_kernel_calls_delta": 0,
+        "typed_operations": 1573
+      }
+    }
+  ],
+  "branch_counts": {
+    "endpoint": 20,
+    "interior_direct": 10,
+    "interior_divisible_zero": 1
+  },
+  "input_rejections": [
+    {
+      "error": "strict integer inputs required",
+      "inputs": {
+        "R": 3,
+        "g": true,
+        "k": 0,
+        "r": 0,
+        "stride": 1
+      },
+      "rejected": true
+    },
+    {
+      "error": "g >= 1 and 0 <= negative bit k < g required",
+      "inputs": {
+        "R": 3,
+        "g": 0,
+        "k": 0,
+        "r": 0,
+        "stride": 1
+      },
+      "rejected": true
+    },
+    {
+      "error": "g >= 1 and 0 <= negative bit k < g required",
+      "inputs": {
+        "R": 3,
+        "g": 2,
+        "k": -1,
+        "r": 0,
+        "stride": 1
+      },
+      "rejected": true
+    },
+    {
+      "error": "g >= 1 and 0 <= negative bit k < g required",
+      "inputs": {
+        "R": 3,
+        "g": 2,
+        "k": 2,
+        "r": 0,
+        "stride": 1
+      },
+      "rejected": true
+    },
+    {
+      "error": "positive counting modulus and canonical residue required",
+      "inputs": {
+        "R": 0,
+        "g": 2,
+        "k": 0,
+        "r": 0,
+        "stride": 1
+      },
+      "rejected": true
+    },
+    {
+      "error": "positive counting modulus and canonical residue required",
+      "inputs": {
+        "R": 3,
+        "g": 2,
+        "k": 0,
+        "r": -1,
+        "stride": 1
+      },
+      "rejected": true
+    },
+    {
+      "error": "positive counting modulus and canonical residue required",
+      "inputs": {
+        "R": 3,
+        "g": 2,
+        "k": 0,
+        "r": 3,
+        "stride": 1
+      },
+      "rejected": true
+    },
+    {
+      "error": "only physical stride one is supported; no stride certificate",
+      "inputs": {
+        "R": 3,
+        "g": 2,
+        "k": 0,
+        "r": 0,
+        "stride": 2
+      },
+      "rejected": true
+    }
+  ],
+  "negative_checks": [
+    {
+      "name": "wrong_schema",
+      "error": "wrong hybrid schema",
+      "complete_paid_replays": 0
+    },
+    {
+      "name": "wrong_source",
+      "error": "hybrid source pin mismatch",
+      "complete_paid_replays": 0
+    },
+    {
+      "name": "wrong_dependency",
+      "error": "hybrid dependency pin mismatch",
+      "complete_paid_replays": 0
+    },
+    {
+      "name": "boolean_input",
+      "error": "strict integer inputs required",
+      "complete_paid_replays": 0
+    },
+    {
+      "name": "false_direct_branch",
+      "error": "hybrid certificate does not strictly replay",
+      "complete_paid_replays": 1
+    },
+    {
+      "name": "wrong_zero_quotient",
+      "error": "hybrid certificate does not strictly replay",
+      "complete_paid_replays": 1
+    },
+    {
+      "name": "wrong_zero_remainder",
+      "error": "hybrid certificate does not strictly replay",
+      "complete_paid_replays": 1
+    },
+    {
+      "name": "wrong_zero_U",
+      "error": "hybrid certificate does not strictly replay",
+      "complete_paid_replays": 1
+    },
+    {
+      "name": "missing_zero_proof",
+      "error": "hybrid certificate does not strictly replay",
+      "complete_paid_replays": 1
+    },
+    {
+      "name": "boolean_zero_output",
+      "error": "hybrid certificate does not strictly replay",
+      "complete_paid_replays": 1
+    },
+    {
+      "name": "wrong_zero_subtraction",
+      "error": "hybrid certificate does not strictly replay",
+      "complete_paid_replays": 1
+    },
+    {
+      "name": "wrong_routing_division",
+      "error": "hybrid certificate does not strictly replay",
+      "complete_paid_replays": 1
+    },
+    {
+      "name": "wrong_endpoint_nested_value",
+      "error": "hybrid certificate does not strictly replay",
+      "complete_paid_replays": 1
+    },
+    {
+      "name": "wrong_direct_nested_value",
+      "error": "hybrid certificate does not strictly replay",
+      "complete_paid_replays": 1
+    },
+    {
+      "name": "wrong_nested_provenance",
+      "error": "hybrid certificate does not strictly replay",
+      "complete_paid_replays": 1
+    }
+  ],
+  "resources": {
+    "production": {
+      "routing": {
+        "certificates": 9,
+        "arithmetic": {
+          "typed_operations": 24,
+          "adder_digit_replays": 193,
+          "host_bit_wiring_operations": 2140,
+          "host_bit_length_calls_in_arithmetic": 83,
+          "native_kernel_calls_delta": 0
+        },
+        "signed_operations": 24,
+        "moment_nodes": 0,
+        "moment_requests": 0,
+        "cache_hits": 0
+      },
+      "endpoint": {
+        "certificates": 9,
+        "arithmetic": {
+          "typed_operations": 602,
+          "adder_digit_replays": 3790,
+          "host_bit_wiring_operations": 40789,
+          "host_bit_length_calls_in_arithmetic": 1655,
+          "native_kernel_calls_delta": 1
+        },
+        "signed_operations": 562,
+        "moment_nodes": 0,
+        "moment_requests": 0,
+        "cache_hits": 0
+      },
+      "direct": {
+        "certificates": 9,
+        "arithmetic": {
+          "typed_operations": 7723,
+          "adder_digit_replays": 32987,
+          "host_bit_wiring_operations": 357056,
+          "host_bit_length_calls_in_arithmetic": 21938,
+          "native_kernel_calls_delta": 0
+        },
+        "signed_operations": 7639,
+        "moment_nodes": 52,
+        "moment_requests": 80,
+        "cache_hits": 28
+      },
+      "arithmetic_totals": {
+        "typed_operations": 8349,
+        "adder_digit_replays": 36970,
+        "host_bit_wiring_operations": 399985,
+        "host_bit_length_calls_in_arithmetic": 23676,
+        "native_kernel_calls_delta": 1
+      }
+    },
+    "positive_replay": {
+      "routing": {
+        "certificates": 9,
+        "arithmetic": {
+          "typed_operations": 24,
+          "adder_digit_replays": 193,
+          "host_bit_wiring_operations": 2140,
+          "host_bit_length_calls_in_arithmetic": 83,
+          "native_kernel_calls_delta": 0
+        },
+        "signed_operations": 24,
+        "moment_nodes": 0,
+        "moment_requests": 0,
+        "cache_hits": 0
+      },
+      "endpoint": {
+        "certificates": 9,
+        "arithmetic": {
+          "typed_operations": 602,
+          "adder_digit_replays": 3790,
+          "host_bit_wiring_operations": 40789,
+          "host_bit_length_calls_in_arithmetic": 1655,
+          "native_kernel_calls_delta": 0
+        },
+        "signed_operations": 562,
+        "moment_nodes": 0,
+        "moment_requests": 0,
+        "cache_hits": 0
+      },
+      "direct": {
+        "certificates": 9,
+        "arithmetic": {
+          "typed_operations": 7723,
+          "adder_digit_replays": 32987,
+          "host_bit_wiring_operations": 357056,
+          "host_bit_length_calls_in_arithmetic": 21938,
+          "native_kernel_calls_delta": 0
+        },
+        "signed_operations": 7639,
+        "moment_nodes": 52,
+        "moment_requests": 80,
+        "cache_hits": 28
+      },
+      "arithmetic_totals": {
+        "typed_operations": 8349,
+        "adder_digit_replays": 36970,
+        "host_bit_wiring_operations": 399985,
+        "host_bit_length_calls_in_arithmetic": 23676,
+        "native_kernel_calls_delta": 0
+      }
+    },
+    "negative_replay": {
+      "routing": {
+        "certificates": 11,
+        "arithmetic": {
+          "typed_operations": 38,
+          "adder_digit_replays": 242,
+          "host_bit_wiring_operations": 2714,
+          "host_bit_length_calls_in_arithmetic": 125,
+          "native_kernel_calls_delta": 0
+        },
+        "signed_operations": 38,
+        "moment_nodes": 0,
+        "moment_requests": 0,
+        "cache_hits": 0
+      },
+      "endpoint": {
+        "certificates": 11,
+        "arithmetic": {
+          "typed_operations": 186,
+          "adder_digit_replays": 596,
+          "host_bit_wiring_operations": 6428,
+          "host_bit_length_calls_in_arithmetic": 462,
+          "native_kernel_calls_delta": 0
+        },
+        "signed_operations": 174,
+        "moment_nodes": 0,
+        "moment_requests": 0,
+        "cache_hits": 0
+      },
+      "direct": {
+        "certificates": 11,
+        "arithmetic": {
+          "typed_operations": 2551,
+          "adder_digit_replays": 9757,
+          "host_bit_wiring_operations": 106039,
+          "host_bit_length_calls_in_arithmetic": 7200,
+          "native_kernel_calls_delta": 0
+        },
+        "signed_operations": 2524,
+        "moment_nodes": 21,
+        "moment_requests": 27,
+        "cache_hits": 6
+      },
+      "arithmetic_totals": {
+        "typed_operations": 2775,
+        "adder_digit_replays": 10595,
+        "host_bit_wiring_operations": 115181,
+        "host_bit_length_calls_in_arithmetic": 7787,
+        "native_kernel_calls_delta": 0
+      }
+    }
+  },
+  "current_run_total_arithmetic": {
+    "typed_operations": 19473,
+    "adder_digit_replays": 84535,
+    "host_bit_wiring_operations": 915151,
+    "host_bit_length_calls_in_arithmetic": 55139,
+    "native_kernel_calls_delta": 1
+  },
+  "actual_core_calls": [
+    {
+      "depth": 1,
+      "elapsed_ns": 5421500,
+      "entrypoint": "recurrent_mass_power",
+      "states": 12
+    }
+  ],
+  "unexpected_failure_artifact_present": false,
+  "scientific_arithmetic_recomputed": false,
+  "comparison_is_timing_benchmark": false,
+  "coverage_limits": [
+    "each declared certificate uses one route; no mixed-route single-observer execution claimed",
+    "zero-route executed R=1; nontrivial R-divides-U cases remain symbolic coverage",
+    "native outputs and moment values bound to saved fresh replay, not scientifically recomputed"
+  ]
+}
