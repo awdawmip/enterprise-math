@@ -1,0 +1,126 @@
+# Native aggregate witness probe: executed result and continuation
+
+Date: 2026-09-27. Researcher `EM-DIRECT-C6438C`; activity `RA-CAAAC604CB513AEA8BBC1DFC`. Status: **PASS_FINITE_AGGREGATE_AUTHOR_EXECUTION_NOT_ADMITTED**. The coordinator's unique execution receipt is chunk `3b8c87`, exit 0. This packaging read the saved raw payload and summary and reused the two frozen symbolic proofs; it did not rerun scientific computation or write remotely.
+
+The executed result is a small, inverse-free production interface that can return a verified factor from an aggregate algebraic statistic, with an actual one-case HBW marked-section correspondence check. It does not complete Shor, establish a general success rate, recover an order, or preserve the former first-hit factor distribution.
+
+## 1. Four actual outcomes
+
+All four declared inputs passed their paid unit checks. The runner maintained the unabsorbed registers `A=a^Q`, `G=G_Q(a)`, `H=G_Q(a^2)`, `q=Q mod N`, with `Q=2^t`. It then computed all three probes
+
+`D_minus=qH-G^2`, `D_plus=qH+G^2`, `C_tilde=D_minus*D_plus`.
+
+The following values and gcds are actual saved residues and readouts, not predictions. Every displayed pair is `(probe residue, gcd with N)`.
+
+| N,a,t | D_minus | D_plus | C_tilde | Actual result |
+|---|---|---|---|---|
+| 437,2,1 | (1,1) | (19,19) | (19,19) | Proper factor 19; typed cofactor 23, remainder 0 |
+| 35,2,2 | (10,5) | (5,5) | (15,5) | Proper factor 5; typed cofactor 7, remainder 0 |
+| 19,2,1 | (1,1) | (0,19) | (0,19) | Saturation, without a proper factor |
+| 25,2,1 | (1,1) | (19,1) | (19,1) | No factor from these declared probes |
+
+The stored factor checks are connected to actual typed division records: `case0_readout` operation 13 verifies factor 19/cofactor 23, and `case1_readout` operation 11 verifies factor 5/cofactor 7. The separate validation route also verifies the first factor. No expected factor, expected classification or supplied order entered the classifier.
+
+At one layer all four-register states are `A=4,G=3,H=5,q=2`. The N35 second layer has `A=16,G=15,H=15,q=4`, all modulo 35. These are summary states, not a table of branch endpoints. There is no absorption on a gcd event: all declared probes are read even after another probe has already returned a factor.
+
+**N437 was deliberately constructed before execution to illustrate the determinant's additional algebraic factor source.** Its successful factor 19 validates that interface; it is not a random trial or evidence for practical hit frequency. The saturated N19 and unsuccessful N25 outcomes remain part of the record. Neither a zero aggregate nor a unit aggregate is promoted to a false factorization claim.
+
+N35 used two layers and a new certificate contract. The older relative/conic/HBW histogram experiments had a different horizon and preserved a much richer stopped law. Their counts must not be used to call this result a general or like-for-like speedup.
+
+## 2. Actual typed costs
+
+These are saved full-adder digit replay counts. Setup includes the unit gcd. Production includes every four-register update. Readout includes the three probe values, their gcds and required proper-factor verification. No production Route creates a modular inverse certificate or an inverse-bearing lazy multiplication table.
+
+| N,a,t | Setup | Register production | Probe readout | Primary subtotal |
+|---|---:|---:|---:|---:|
+| 437,2,1 | 114 | 327 | 843 | 1,284 |
+| 35,2,2 | 84 | 660 | 954 | 1,698 |
+| 19,2,1 | 74 | 207 | 245 | 526 |
+| 25,2,1 | 74 | 207 | 529 | 810 |
+| All four cases |  |  |  | 4,318 |
+
+Only the N437 case has the additional, separately charged validation:
+
+| Validation category | Digit replays |
+|---|---:|
+| HBW regular setup, including its paid inverse | 1,616 |
+| Original three moments | 2,064 |
+| HBW affine three moments | 5,566 |
+| Dual-row, bridge, determinant and gcd identities | 5,297 |
+| Validation subtotal | 14,543 |
+
+The complete experiment therefore records **18,861 digit replays**, 198,108 modeled host bit-wiring operations and 2,464 modeled bit-length calls. It has 16 Route ledgers and 175 outer wiring records. One native full-adder catalog invocation is saved, separately from all its charged digit replays. Calling production inverse-free does not erase the validation inverse or its cost.
+
+All histogram invocation counters are zero: this unit requests the specified ring summaries rather than a microscopic weight histogram. This is an intentional observer change, not evidence that the old histogram was reconstructed for free. General allocation, serialization and host control work are not a complete modeled runtime bill. No wall-clock, asymptotic bit-complexity or empirical success-rate benchmark is claimed.
+
+## 3. What was actually checked on the HBW marked section
+
+The paid N437 setup produced `b=a^-1=219`, `delta=a-b=220`, `k=a+b=221` modulo 437 and `gcd(delta,N)=1`. The source uses the already derived companion/modular-observer interface
+
+`M=[[0,1],[-1,k]]`, `ell=(-b,1)`, `L=ell x-delta`.
+
+Typed arithmetic checked `ell M=a ell` and the initial value `L(2,k)=0`. The actual original unit moments and independently propagated marked moments were:
+
+| Readout | Saved residues modulo 437 | Determinant |
+|---|---|---:|
+| `(M0,M1,M2)` | (4,223,334) | `C=114` |
+| `(h0,h1,h2)` for L | (4,110,194) | `D_L=38` |
+
+The marked route used the fixed affine alternatives `L -> L` with multiplicity two, `L -> aL+delta(a-1)`, and `L -> bL+delta(b-1)`. It propagated three sums directly, without expanding branch states. The separate identity route checked
+
+`h0=M0`, `h1=delta(M1-M0)`,
+
+`h2=delta^2(M2-2M1+M0)`,
+
+`D_L=delta^2 C`, and `C=b^2 C_tilde` for this Q=2 case.
+
+Finally, the three computed gcds of `C`, `D_L` and `C_tilde` with N all equaled 19, with a typed factor receipt. This is actual finite evidence for the bridge proved in `AGGREGATE_HBW_SECTION_BRIDGE.md`. It is not a raw Cell/carry simulation, a new physical evolution claim, or an independent full-state implementation. The other three inputs did not receive this HBW validation, and the one case must not be reported as an executed all-input theorem.
+
+The general symbolic bridge remains important: an affine scalar change `f=alpha*u+beta` multiplies the moment determinant by `alpha^2`; if alpha is a certified unit, its exact gcd with N is unchanged, including prime powers. It explains why the chosen regular HBW marked chart can use the same factor certificate. Finite-characteristic cancellation still means that zero determinant does not imply that the occupied sections coincide or that an orbit has returned.
+
+## 4. Useful weak certificate, precise remaining gap
+
+`AGGREGATE_WITNESS_PROBE_AUDIT.md` derives the constant-size unnormalized moment recurrence, the T1 shell/generating-series identities, and
+
+`C=a^[-2(Q-1)](Q^2 H^2-G^4)=a^[-2(Q-1)]D_minus D_plus`.
+
+The unit prefactor can be discarded for the gcd readout, giving the executed inverse-free production. That is a legitimate weakening of the output contract: any proper gcd with an exact division receipt is a successful factor certificate, even if no individual old branch has a proper difference gcd. It is not an estimate of that old branch's success probability.
+
+The same audit distinguishes the factor sources. The first branch sum is essentially a squared geometric-sum/dyadic-order probe, with possible valuation saturation. The determinant also has additional polynomial factors; its one-layer term includes `3a^2+2a+3`. The N437 fixture validates this distinction. Existing algebraic identities, geometric sums, polynomial gcd probes and moment transport have not been renamed as a novel factoring theorem.
+
+The open problem is to select a and a horizon/repetition/refinement strategy without the unknown factors, and prove that these aggregate conditions split the prime-power components often enough, or deterministically, at acceptable **total** cost. That cost must include setup, every native arithmetic step, all gcds, saturated/failed probes and the required repetitions. A short recurrence and two successful finite fixtures do not settle it.
+
+If the required Shor endpoint includes order finding, no order or order-multiple certificate was produced by this experiment. Determinant zero is not such a certificate. Native BRC completion of the general Shor/factorization objective remains open.
+
+## 5. Evidence binding and review scope
+
+The execution consumed the actual allowed, debt-free guard bound to activity-record SHA256
+
+`8411a63c53ed2931d1353e7de4b341182eb3600b868b5a8d1c075a44c257d7f1`.
+
+The consumed guard bytes have SHA256 `e1b7d58cda60ed0fb929e2a1e207d2a8d1556cdc7de3a9c55caf9deff5bb02a2`. The frozen source's historical global-knowledge pin remains `7a639845946cb5f8edfa22d3d5d0d47a44f6080e`; it has not been retroactively changed. This packaging obtained a valid `LEASE_REUSED` snapshot `c5521204430906876f9ec17989fee9554fd0517b` and verified that the three canonical entry/protocol files are unchanged from that earlier read.
+
+| Bound artifact | Bytes | SHA256 |
+|---|---:|---|
+| `aggregate_probe.py` | 20,160 | `830f28774f3a9e6e4aa9135dd7816c33e5cac78db6b8992990ae094b64d50b48` |
+| `PLAN.md` | 8,146 | `de5c24bd2a0a8894be4dfd14928e0189f8a862e8d91a54d57bf4268c15d7fe62` |
+| `STARTED.json` | 43,394 | `9c82255c0a7ab727b5bea7ef866fcf132e9ef6a2239672583f0212285a8c701b` |
+| Uncompressed result JSON | 804,733 | `ad310010570d01a7edae1229289f2a8484f2e2ce5a581e274166522fe5fb687a` |
+| `AGGREGATE_RESULTS.json.gz` | 54,370 | `fb518cb7ee42100b9043f43adee43e1ad47045abde6f8461dc3b729ca4272a4c` |
+| `AGGREGATE_SUMMARY.json` | 11,561 | `27ed71cff2d5e38249b187e4101079dcaced4696d6cda78922732d9eb6b4a603` |
+| `../AGGREGATE_WITNESS_PROBE_AUDIT.md` | 19,694 | `c76465057ce793825916c3d22c85acc83703becfeb5154c05b362468dd5933fd` |
+| `../AGGREGATE_HBW_SECTION_BRIDGE.md` | 6,854 | `d406650a2e90037d2c39f4f491f6f250773abd89f3af4f579b787648540b5b41` |
+
+Packaging parsed the entire saved raw JSON, checked raw/compressed lengths and hashes, checked the frozen source/plan bindings, and compared all four cases' inputs, layers, probe records, classifications, unit gcds and validation records with the summary. It also matched the complete saved cost dictionary. These are saved-byte and summary-consistency checks; this report does not claim a fresh native execution, independent mathematical admission or a separate full digit-wiring replay review.
+
+The single successful run preserves STARTED, every retained Route, native call records and outer links. Its one-shot runner rejects repeat execution into this directory. Failure evidence preserves whatever completed primitive/wiring records are available, not an unreturned primitive's unknown internal state. This is not a resumable autonomous scheduler.
+
+## 6. Continue from this frontier in any conversation
+
+Consume this completed evidence instead of rerunning it. Recover the current source/activity checkpoint, then pursue the unknown-factor selection and hit-analysis problem described above. `LOCAL_SECTION_HIT_ANALYSIS.md` is a separate mathematical continuation: inspect its own current/frozen status before relying on it or repeating its work. Its conclusions are not silently incorporated into this experiment's predeclared evidence.
+
+Keep exact source typing and output contracts explicit. A new proof about success, a counterexample to a proposed selection rule, or a native geometric/HBW condition that separates unknown prime components is useful progress without another numerical sweep. If a later implementation is warranted, give it its own frozen plan, actual current guard and distinct result directory; preserve this source/plan and its unique run.
+
+No particular host, model, previous driver or tool invocation is a prerequisite for advancing those symbolic questions. Actual numerical work still follows the project's typed BRC contract and needs honest cost/evidence. Record new conclusions as proved, executed, reviewed, pending or unknown according to their actual status, and preserve the next result through the native activity/checkpoint and knowledge protocols. Publication is a durability step, not completion of the parent Shor objective.
+
+Global-Knowledge-Sync: main@c552120 / GLOBAL_KNOWLEDGE_V1

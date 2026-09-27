@@ -1,0 +1,1054 @@
+{
+  "binding": {
+    "dependencies": {
+      "AGGREGATE_WITNESS_PROBE_AUDIT.md": "c76465057ce793825916c3d22c85acc83703becfeb5154c05b362468dd5933fd",
+      "EXPERIMENT_PLAN.md": "931d7b7659c3e62707f10d20a2312cb03c945e6354f715c1ebda5d72fdb178a6",
+      "hbw_marked_section/hbw_marked_section.py": "e2929468d9b430f9a0ef93a3412f132c692ce994c7b5061bece21a3960974851",
+      "native_relative_port.py": "0821cf958b99988b5dbb95f5a42b97629155ca80c07e1f5bee8e2e9165bc39a8"
+    },
+    "expected_guard_record_sha256": "8411a63c53ed2931d1353e7de4b341182eb3600b868b5a8d1c075a44c257d7f1",
+    "global_knowledge_read_sha": "7a639845946cb5f8edfa22d3d5d0d47a44f6080e",
+    "guard": {
+      "activity_allowed": true,
+      "activity_id": "RA-CAAAC604CB513AEA8BBC1DFC",
+      "authority": {
+        "claim": false,
+        "mathematical_acceptance": false,
+        "review": false,
+        "task_registration": false,
+        "working_truth": false
+      },
+      "boundary": "startup",
+      "canonical_owner_visibility": "VERIFY_CANONICAL_INTAKE_IF_PUBLISHED_ONLY_ON_A_BRANCH",
+      "mode": "TASK_RESEARCH",
+      "persistence_allowed": true,
+      "record_path": "research_activity_records/RA-CAAAC604CB513AEA8BBC1DFC.json",
+      "record_sha256": "8411a63c53ed2931d1353e7de4b341182eb3600b868b5a8d1c075a44c257d7f1",
+      "register_command": "python tools/research_activity.py register --session-id <session> --researcher-id <resolved-id> --mode <TASK_RESEARCH|FREE_AXIOM_DISCOVERY>",
+      "registration_source": "https://github.com/awdawmip/enterprise-math/blob/2286979eff41b7ceba6de92b1e1ba4c1dea74426/research_activity_records/RA-CAAAC604CB513AEA8BBC1DFC.json",
+      "registration_visibility": "IMMUTABLE_EM_RECORD_OBSERVED",
+      "required_action": "CONTINUE_ACTIVITY",
+      "source_links": [
+        "https://github.com/awdawmip/enterprise-math/blob/1fb7ff99d205f9ca03772942be64f732553dcd86/research_notes/directed_recovery/20260926_C6438C/completion/SUCCESS_AND_COMPLETION_THEOREM.md",
+        "https://github.com/awdawmip/enterprise-math/blob/1fb7ff99d205f9ca03772942be64f732553dcd86/research_notes/directed_recovery/20260926_C6438C/HANDOFF.md",
+        "https://github.com/awdawmip/enterprise-math/blob/1fb7ff99d205f9ca03772942be64f732553dcd86/research_notes/directed_recovery/20260926_C6438C/integration/COMPLETE_FACTORIZATION_PROOF.md",
+        "https://github.com/awdawmip/enterprise-math/blob/1fb7ff99d205f9ca03772942be64f732553dcd86/research_notes/directed_recovery/20260926_C6438C/integration/INTEGRATION_PROOF.md",
+        "https://github.com/awdawmip/enterprise-math/blob/1fb7ff99d205f9ca03772942be64f732553dcd86/research_notes/directed_recovery/20260926_C6438C/phases/PHASE_BANK_PROOF.md",
+        "https://github.com/awdawmip/enterprise-math/blob/1fb7ff99d205f9ca03772942be64f732553dcd86/research_notes/directed_recovery/20260926_C6438C/sparse/SPARSE_MODULAR_PROOF.md",
+        "https://github.com/awdawmip/enterprise-math/blob/dc42c62470d5ae76b00f01a97306db915a8581df/research_notes/directed_recovery/20260926_C6438C/support/HANDOFF.md",
+        "https://github.com/awdawmip/enterprise-math/blob/dc42c62470d5ae76b00f01a97306db915a8581df/research_notes/directed_recovery/20260926_C6438C/support/HIGH_DEGREE_SUPPORT_SUMMARY.json",
+        "https://github.com/awdawmip/enterprise-math/blob/dc42c62470d5ae76b00f01a97306db915a8581df/research_notes/directed_recovery/20260926_C6438C/support/SUPPORT_SPECTRAL_THEOREM.md",
+        "https://github.com/awdawmip/enterprise-math/blob/dc42c62470d5ae76b00f01a97306db915a8581df/research_notes/directed_recovery/20260926_C6438C/support/SUPPORT_SUCCESS_AUDIT.md",
+        "https://github.com/awdawmip/enterprise-math/blob/dc42c62470d5ae76b00f01a97306db915a8581df/research_notes/directed_recovery/20260926_C6438C/support/universal_factorization.py",
+        "https://github.com/awdawmip/enterprise-math/blob/dc42c62470d5ae76b00f01a97306db915a8581df/research_notes/directed_recovery/20260926_C6438C/support/UNIVERSAL_SUMMARY.json",
+        "https://github.com/awdawmip/enterprise-math/blob/dc42c62470d5ae76b00f01a97306db915a8581df/research_notes/directed_recovery/20260926_C6438C/support/SUPPORT_MANIFEST.json",
+        "https://github.com/awdawmip/enterprise-math/blob/9ec2c0660c1675f065a875e5c65e4a427d082947/research_notes/directed_recovery/20260926_C6438C/next_cf_only/POWER_OF_TWO_ANALYSIS.md",
+        "https://github.com/awdawmip/enterprise-math/blob/58e689cbebb73b0ceaedfc33e5daebad34d0ca48/research_notes/directed_recovery/20260926_C6438C/next_cf_only/cf_universal_factorization.py",
+        "https://github.com/awdawmip/enterprise-math/blob/58e689cbebb73b0ceaedfc33e5daebad34d0ca48/research_notes/directed_recovery/20260926_C6438C/next_cf_only/CF_UNIVERSAL_SHARED_REVIEW.md",
+        "https://github.com/awdawmip/enterprise-math/blob/58e689cbebb73b0ceaedfc33e5daebad34d0ca48/research_notes/directed_recovery/20260926_C6438C/next_cf_only/CF_UNIVERSAL_SUMMARY.json",
+        "https://github.com/awdawmip/enterprise-math/blob/58e689cbebb73b0ceaedfc33e5daebad34d0ca48/research_notes/directed_recovery/20260926_C6438C/next_cf_only/HANDOFF.md",
+        "https://github.com/awdawmip/enterprise-math/blob/58e689cbebb73b0ceaedfc33e5daebad34d0ca48/research_notes/directed_recovery/20260926_C6438C/next_cf_only/PHASE_PRODUCT_STRUCTURE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/58e689cbebb73b0ceaedfc33e5daebad34d0ca48/research_notes/directed_recovery/20260926_C6438C/next_cf_only/ROOT_CF_ALL_WIDTH_SUCCESS.md",
+        "https://github.com/awdawmip/enterprise-math/blob/58e689cbebb73b0ceaedfc33e5daebad34d0ca48/research_notes/directed_recovery/20260926_C6438C/next_cf_only/CF_MANIFEST.json",
+        "https://github.com/awdawmip/enterprise-math/blob/28b3f7d3f98904781fe371f6c51bfb5b6974352e/research_notes/directed_recovery/20260926_C6438C/next_distribution/HANDOFF.md",
+        "https://github.com/awdawmip/enterprise-math/blob/28b3f7d3f98904781fe371f6c51bfb5b6974352e/research_notes/directed_recovery/20260926_C6438C/next_distribution/FIXED_CUTOFF_ASYMPTOTICS.md",
+        "https://github.com/awdawmip/enterprise-math/blob/28b3f7d3f98904781fe371f6c51bfb5b6974352e/research_notes/directed_recovery/20260926_C6438C/next_distribution/TV_OBSTRUCTION_AUDIT.md",
+        "https://github.com/awdawmip/enterprise-math/blob/28b3f7d3f98904781fe371f6c51bfb5b6974352e/research_notes/directed_recovery/20260926_C6438C/next_distribution/FAMILY_N615_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/28b3f7d3f98904781fe371f6c51bfb5b6974352e/research_notes/directed_recovery/20260926_C6438C/next_distribution/TV_MANIFEST.json",
+        "https://github.com/awdawmip/enterprise-math/blob/8d4e9c12f7492316b825e96423bc0ee36ccdee22/research_notes/directed_recovery/20260926_C6438C/new_word_compiler/STRONG_SHOR_COMPILATION_THEOREM.md",
+        "https://github.com/awdawmip/enterprise-math/blob/8d4e9c12f7492316b825e96423bc0ee36ccdee22/research_notes/directed_recovery/20260926_C6438C/new_word_compiler/EFFECTIVE_COMPILER_CLOSURE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/8d4e9c12f7492316b825e96423bc0ee36ccdee22/research_notes/directed_recovery/20260926_C6438C/new_word_compiler/CONSTRUCTIVE_FOUR_SQUARE_FRONTIER.md",
+        "https://github.com/awdawmip/enterprise-math/blob/8d4e9c12f7492316b825e96423bc0ee36ccdee22/research_notes/directed_recovery/20260926_C6438C/new_word_compiler/COMPILED_FACTORIZATION_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/8d4e9c12f7492316b825e96423bc0ee36ccdee22/research_notes/directed_recovery/20260926_C6438C/new_word_compiler/WORD_MANIFEST.json",
+        "https://github.com/awdawmip/enterprise-math/blob/9348fc6abdf45becbd12a8019d93f72d576b9fab/research_notes/directed_recovery/20260926_C6438C/SHOR_ALTERNATIVE_CLOSURE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/9348fc6abdf45becbd12a8019d93f72d576b9fab/research_notes/directed_recovery/20260926_C6438C/DIRECT_CLOSURE_MANIFEST.json",
+        "https://github.com/awdawmip/enterprise-math/blob/9348fc6abdf45becbd12a8019d93f72d576b9fab/research_notes/directed_recovery/20260926_C6438C/direct_word_compiler_general/GENERAL_CONSTRUCTOR_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/9348fc6abdf45becbd12a8019d93f72d576b9fab/research_notes/directed_recovery/20260926_C6438C/direct_word_compiler_general/GENERAL_SHARED_REVIEW.md",
+        "https://github.com/awdawmip/enterprise-math/blob/9348fc6abdf45becbd12a8019d93f72d576b9fab/research_notes/directed_recovery/20260926_C6438C/direct_word_integration/DIRECT_WORD_INTEGRATION_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/e9abf794ac04c62518a38dea6640c4472cb4490a/research_notes/directed_recovery/20260926_C6438C/DRIVER_SCHEDULE_COROLLARY.md",
+        "https://github.com/awdawmip/enterprise-math/blob/0e6380ff74d31b842ba0b54802c1f0595a7dd60d/research_notes/directed_recovery/20260926_C6438C/optimization/README.md",
+        "https://github.com/awdawmip/enterprise-math/blob/0e6380ff74d31b842ba0b54802c1f0595a7dd60d/research_notes/directed_recovery/20260926_C6438C/optimization/OPTIMIZATION_MANIFEST.json",
+        "https://github.com/awdawmip/enterprise-math/blob/0e6380ff74d31b842ba0b54802c1f0595a7dd60d/research_notes/directed_recovery/20260926_C6438C/optimization/carrier_codec/EXACT_CARRIER_CODEC.md",
+        "https://github.com/awdawmip/enterprise-math/blob/0e6380ff74d31b842ba0b54802c1f0595a7dd60d/research_notes/directed_recovery/20260926_C6438C/optimization/lazy_modular/LAZY_MODULAR_PROOF_AND_COST.md",
+        "https://github.com/awdawmip/enterprise-math/blob/0e6380ff74d31b842ba0b54802c1f0595a7dd60d/research_notes/directed_recovery/20260926_C6438C/optimization/streaming/STREAMING_OPTIMIZATION_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/0e6380ff74d31b842ba0b54802c1f0595a7dd60d/research_notes/directed_recovery/20260926_C6438C/optimization/collision_analysis/COLLISION_GRAM_ANALYSIS.md",
+        "https://github.com/awdawmip/enterprise-math/blob/0e6380ff74d31b842ba0b54802c1f0595a7dd60d/research_notes/directed_recovery/20260926_C6438C/optimization/collision_analysis/GRAM_PROTOTYPE_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/951cc16cb09635fae9f93230d96030fdaa2035b3/research_notes/directed_recovery/20260927_C6438C/qft_row_queries/character_certificates/JACOBI_FINAL_BIT_PROOF.md",
+        "https://github.com/awdawmip/enterprise-math/blob/951cc16cb09635fae9f93230d96030fdaa2035b3/research_notes/directed_recovery/20260927_C6438C/qft_row_queries/CONTINUE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/951cc16cb09635fae9f93230d96030fdaa2035b3/research_notes/directed_recovery/20260927_C6438C/qft_row_queries/gram_research/SINGLE_WALKER_EXECUTION_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/951cc16cb09635fae9f93230d96030fdaa2035b3/research_notes/directed_recovery/20260927_C6438C/qft_row_queries/gram_research/SINGLE_WALKER_QUERY_REDUCTION.md",
+        "https://github.com/awdawmip/enterprise-math/blob/951cc16cb09635fae9f93230d96030fdaa2035b3/research_notes/directed_recovery/20260927_C6438C/qft_row_queries/integrated_sampler/CHARACTER_WALKER_INTEGRATION_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/951cc16cb09635fae9f93230d96030fdaa2035b3/research_notes/directed_recovery/20260927_C6438C/qft_row_queries/point_queries/CHECKPOINT_ROW_TRADEOFF.md",
+        "https://github.com/awdawmip/enterprise-math/blob/951cc16cb09635fae9f93230d96030fdaa2035b3/research_notes/directed_recovery/20260927_C6438C/qft_row_queries/point_queries/EXACT_ROW_ORACLE_TO_ORDER.md",
+        "https://github.com/awdawmip/enterprise-math/blob/951cc16cb09635fae9f93230d96030fdaa2035b3/research_notes/directed_recovery/20260927_C6438C/qft_row_queries/point_queries/MASS_WEIGHTED_APPROXIMATION_BOUND.md",
+        "https://github.com/awdawmip/enterprise-math/blob/951cc16cb09635fae9f93230d96030fdaa2035b3/research_notes/directed_recovery/20260927_C6438C/qft_row_queries/prior_art/PRIOR_ART_AND_BRIDGES.md",
+        "https://github.com/awdawmip/enterprise-math/blob/951cc16cb09635fae9f93230d96030fdaa2035b3/research_notes/directed_recovery/20260927_C6438C/qft_row_queries/README.md",
+        "https://github.com/awdawmip/enterprise-math/blob/46fca6734fde9b1580b1b4160c454a43844451a9/research_notes/directed_recovery/20260927_C6438C/qft_approximation/README.md",
+        "https://github.com/awdawmip/enterprise-math/blob/46fca6734fde9b1580b1b4160c454a43844451a9/research_notes/directed_recovery/20260927_C6438C/qft_approximation/CONTINUE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/46fca6734fde9b1580b1b4160c454a43844451a9/research_notes/directed_recovery/20260927_C6438C/qft_approximation/CONCURRENT_STAGE103_INTAKE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/46fca6734fde9b1580b1b4160c454a43844451a9/research_notes/directed_recovery/20260927_C6438C/qft_approximation/PRIOR_ART_AND_CLASSICAL_COMPARATOR.md",
+        "https://github.com/awdawmip/enterprise-math/blob/46fca6734fde9b1580b1b4160c454a43844451a9/research_notes/directed_recovery/20260927_C6438C/qft_approximation/observer_contracts/PROJECTIVE_AND_COHERENCE_BOUNDS.md",
+        "https://github.com/awdawmip/enterprise-math/blob/46fca6734fde9b1580b1b4160c454a43844451a9/research_notes/directed_recovery/20260927_C6438C/qft_approximation/observer_contracts/EXECUTION_AND_REVIEW.md",
+        "https://github.com/awdawmip/enterprise-math/blob/46fca6734fde9b1580b1b4160c454a43844451a9/research_notes/directed_recovery/20260927_C6438C/qft_approximation/path_estimator/SUFFIX_PATH_ESTIMATOR_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/46fca6734fde9b1580b1b4160c454a43844451a9/research_notes/directed_recovery/20260927_C6438C/qft_approximation/characters/HIGHER_CHARACTER_CERTIFICATES.md",
+        "https://github.com/awdawmip/enterprise-math/blob/46fca6734fde9b1580b1b4160c454a43844451a9/research_notes/directed_recovery/20260927_C6438C/qft_approximation/characters/PUBLIC_ROOT_WITNESS.md",
+        "https://github.com/awdawmip/enterprise-math/blob/46fca6734fde9b1580b1b4160c454a43844451a9/research_notes/directed_recovery/20260927_C6438C/qft_approximation/structured_approx/WORK_MARGINAL_PRUNING_AND_BARRIER.md",
+        "https://github.com/awdawmip/enterprise-math/blob/46fca6734fde9b1580b1b4160c454a43844451a9/research_notes/directed_recovery/20260927_C6438C/qft_approximation/structured_approx/PROJECTED_ROWS_EXECUTION_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/6370e937d3cea8b957ac2d66d0bd6a42f385f9ee/research_notes/directed_recovery/20260927_C6438C/qft_coherence/README.md",
+        "https://github.com/awdawmip/enterprise-math/blob/6370e937d3cea8b957ac2d66d0bd6a42f385f9ee/research_notes/directed_recovery/20260927_C6438C/qft_coherence/CONTINUE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/6370e937d3cea8b957ac2d66d0bd6a42f385f9ee/research_notes/directed_recovery/20260927_C6438C/qft_coherence/partition_theory/PARTITION_COHERENCE_CERTIFICATE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/6370e937d3cea8b957ac2d66d0bd6a42f385f9ee/research_notes/directed_recovery/20260927_C6438C/qft_coherence/partition_limits/PARTITION_AND_COLLISION_LIMITS.md",
+        "https://github.com/awdawmip/enterprise-math/blob/6370e937d3cea8b957ac2d66d0bd6a42f385f9ee/research_notes/directed_recovery/20260927_C6438C/qft_coherence/coherence_sampler/EXECUTION_AND_COST_SCOPE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/6370e937d3cea8b957ac2d66d0bd6a42f385f9ee/research_notes/directed_recovery/20260927_C6438C/qft_coherence/coherence_sampler/COHERENCE_RESOURCE_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/6370e937d3cea8b957ac2d66d0bd6a42f385f9ee/research_notes/directed_recovery/20260927_C6438C/qft_coherence/arithmetic_partition/QUARTIC_CHARACTER_PROOF.md",
+        "https://github.com/awdawmip/enterprise-math/blob/6370e937d3cea8b957ac2d66d0bd6a42f385f9ee/research_notes/directed_recovery/20260927_C6438C/qft_coherence/DEPENDENCY_MANIFEST.json",
+        "https://github.com/awdawmip/enterprise-math/blob/6370e937d3cea8b957ac2d66d0bd6a42f385f9ee/research_notes/directed_recovery/20260927_C6438C/qft_coherence/PUBLICATION_MANIFEST.json",
+        "https://github.com/awdawmip/enterprise-math/blob/6370e937d3cea8b957ac2d66d0bd6a42f385f9ee/research_notes/directed_recovery/20260927_C6438C/qft_coherence/CURRENT_FRONTIER_ALIGNMENT.md",
+        "https://github.com/awdawmip/enterprise-math/blob/3c79375dc5b176a55c1b2dc43bf05e481e3e958a/research_notes/directed_recovery/20260927_C6438C/qft_coherence/delivery/DRIVE_MIRROR_RECEIPT.json",
+        "https://github.com/awdawmip/enterprise-math/blob/3c79375dc5b176a55c1b2dc43bf05e481e3e958a/research_notes/directed_recovery/20260927_C6438C/qft_coherence/delivery/PUBLICATION_READBACK_RECEIPT.json",
+        "https://github.com/awdawmip/enterprise-math/blob/469b16d9c7db1993c1d793fb2601fd3b1669a88b/research_notes/directed_recovery/20260927_C6438C/qft_dyadic_carry/DYADIC_CARRY_CORRELATION.md",
+        "https://github.com/awdawmip/enterprise-math/blob/469b16d9c7db1993c1d793fb2601fd3b1669a88b/research_notes/directed_recovery/20260927_C6438C/qft_dyadic_carry/REVIEW.md",
+        "https://github.com/awdawmip/enterprise-math/blob/469b16d9c7db1993c1d793fb2601fd3b1669a88b/research_notes/directed_recovery/20260927_C6438C/qft_dyadic_carry/README.md",
+        "https://github.com/awdawmip/enterprise-math/blob/469b16d9c7db1993c1d793fb2601fd3b1669a88b/research_notes/directed_recovery/20260927_C6438C/qft_dyadic_carry/CONTINUE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/469b16d9c7db1993c1d793fb2601fd3b1669a88b/research_notes/directed_recovery/20260927_C6438C/qft_dyadic_carry/MANIFEST.json",
+        "https://github.com/awdawmip/enterprise-math/blob/95ce3c39fef7e90fe49f38982e87b1fcaef05403/research_notes/directed_recovery/20260927_C6438C/qft_dyadic_carry/DRIVE_MIRROR_RECEIPT.json",
+        "https://github.com/awdawmip/enterprise-math/blob/8e2f54ce5581636b9169845a54f018c25d00b165/research_notes/directed_recovery/20260927_C6438C/qft_carry_execution/README.md",
+        "https://github.com/awdawmip/enterprise-math/blob/8e2f54ce5581636b9169845a54f018c25d00b165/research_notes/directed_recovery/20260927_C6438C/qft_carry_execution/EXECUTION_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/8e2f54ce5581636b9169845a54f018c25d00b165/research_notes/directed_recovery/20260927_C6438C/qft_carry_execution/CONTINUE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/8e2f54ce5581636b9169845a54f018c25d00b165/research_notes/directed_recovery/20260927_C6438C/qft_carry_execution/PUBLICATION_MANIFEST.json",
+        "https://github.com/awdawmip/enterprise-math/blob/8e2f54ce5581636b9169845a54f018c25d00b165/research_notes/directed_recovery/20260927_C6438C/qft_carry_execution/aggregation_theory/PERIOD_AGGREGATION.md",
+        "https://github.com/awdawmip/enterprise-math/blob/8e2f54ce5581636b9169845a54f018c25d00b165/research_notes/directed_recovery/20260927_C6438C/qft_carry_execution/aggregation_theory/PERIOD_EXECUTION_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/8e2f54ce5581636b9169845a54f018c25d00b165/research_notes/directed_recovery/20260927_C6438C/qft_carry_execution/aggregation_theory/PERIOD_BOUNDARY_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/8e2f54ce5581636b9169845a54f018c25d00b165/research_notes/directed_recovery/20260927_C6438C/qft_carry_execution/modular_alias/TYPED_ALIASES_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/e2d99491dcee7c0102d2def9341d2d5d6c3c5076/research_notes/directed_recovery/20260927_C6438C/qft_carry_execution/DELIVERY_RECEIPT.json",
+        "https://github.com/awdawmip/enterprise-math/blob/0524d32e37ea34bbcf254707271dd4834da9a352/research_notes/directed_recovery/20260927_C6438C/qft_oddpart/aggregation/PAID_AGGREGATION_SUMMARY.json",
+        "https://github.com/awdawmip/enterprise-math/blob/0524d32e37ea34bbcf254707271dd4834da9a352/research_notes/directed_recovery/20260927_C6438C/qft_oddpart/CONTINUE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/0524d32e37ea34bbcf254707271dd4834da9a352/research_notes/directed_recovery/20260927_C6438C/qft_oddpart/EXECUTION_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/0524d32e37ea34bbcf254707271dd4834da9a352/research_notes/directed_recovery/20260927_C6438C/qft_oddpart/prior_art/PRIOR_ART_AND_USABLE_LEMMAS.md",
+        "https://github.com/awdawmip/enterprise-math/blob/0524d32e37ea34bbcf254707271dd4834da9a352/research_notes/directed_recovery/20260927_C6438C/qft_oddpart/README.md",
+        "https://github.com/awdawmip/enterprise-math/blob/0524d32e37ea34bbcf254707271dd4834da9a352/research_notes/directed_recovery/20260927_C6438C/qft_oddpart/target_address/END_TO_END_COST_AUDIT.md",
+        "https://github.com/awdawmip/enterprise-math/blob/0524d32e37ea34bbcf254707271dd4834da9a352/research_notes/directed_recovery/20260927_C6438C/qft_oddpart/weighted_structure/WEIGHTED_ODD_PART_STRUCTURE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/0524d32e37ea34bbcf254707271dd4834da9a352/research_notes/directed_recovery/20260927_C6438C/qft_oddpart/PUBLICATION_MANIFEST.json",
+        "https://github.com/awdawmip/enterprise-math/blob/eb33a4532368d6ae3b735f934e45b76947f44f48/research_notes/directed_recovery/20260927_C6438C/qft_oddpart/DELIVERY_RECEIPT.json",
+        "https://github.com/awdawmip/enterprise-math/blob/c0f04346c520fddc8016c86227b3b6cc2e9f30f6/research_notes/directed_recovery/20260927_C6438C/qft_adaptive/adaptive_execution/ADAPTIVE_FEEDBACK_SUMMARY.json",
+        "https://github.com/awdawmip/enterprise-math/blob/c0f04346c520fddc8016c86227b3b6cc2e9f30f6/research_notes/directed_recovery/20260927_C6438C/qft_adaptive/adaptive_execution/COST_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/c0f04346c520fddc8016c86227b3b6cc2e9f30f6/research_notes/directed_recovery/20260927_C6438C/qft_adaptive/CONTINUE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/c0f04346c520fddc8016c86227b3b6cc2e9f30f6/research_notes/directed_recovery/20260927_C6438C/qft_adaptive/EXECUTION_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/c0f04346c520fddc8016c86227b3b6cc2e9f30f6/research_notes/directed_recovery/20260927_C6438C/qft_adaptive/nonzero_structure/ACTIVE_WINDOW_FLOOR_MOMENTS.md",
+        "https://github.com/awdawmip/enterprise-math/blob/c0f04346c520fddc8016c86227b3b6cc2e9f30f6/research_notes/directed_recovery/20260927_C6438C/qft_adaptive/precision_theory/ADAPTIVE_NATIVE_PRECISION_INTERFACE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/c0f04346c520fddc8016c86227b3b6cc2e9f30f6/research_notes/directed_recovery/20260927_C6438C/qft_adaptive/precision_theory/PREFIX_INDEPENDENT_WORD_CERTIFICATE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/c0f04346c520fddc8016c86227b3b6cc2e9f30f6/research_notes/directed_recovery/20260927_C6438C/qft_adaptive/README.md",
+        "https://github.com/awdawmip/enterprise-math/blob/c0f04346c520fddc8016c86227b3b6cc2e9f30f6/research_notes/directed_recovery/20260927_C6438C/qft_adaptive/PUBLICATION_MANIFEST.json",
+        "https://github.com/awdawmip/enterprise-math/blob/7ffa711c1c175828b84f032a32349277a4a9dcc9/research_notes/directed_recovery/20260927_C6438C/qft_adaptive/DELIVERY_RECEIPT.json",
+        "https://github.com/awdawmip/enterprise-math/blob/7a2a413e2a3d800f47308a4f7f9d32e3f7bc34c9/research_notes/directed_recovery/20260927_C6438C/qft_uniform/EXECUTION_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/7a2a413e2a3d800f47308a4f7f9d32e3f7bc34c9/research_notes/directed_recovery/20260927_C6438C/qft_uniform/CONTINUE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/7a2a413e2a3d800f47308a4f7f9d32e3f7bc34c9/research_notes/directed_recovery/20260927_C6438C/qft_uniform/binding_profile/PROFILE_REVIEW.md",
+        "https://github.com/awdawmip/enterprise-math/blob/7a2a413e2a3d800f47308a4f7f9d32e3f7bc34c9/research_notes/directed_recovery/20260927_C6438C/qft_uniform/cost_review/COST_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/7a2a413e2a3d800f47308a4f7f9d32e3f7bc34c9/research_notes/directed_recovery/20260927_C6438C/qft_uniform/theory_review/UNIFORM_WORD_CERTIFICATE_REVIEW.md",
+        "https://github.com/awdawmip/enterprise-math/blob/7a2a413e2a3d800f47308a4f7f9d32e3f7bc34c9/research_notes/directed_recovery/20260927_C6438C/qft_uniform/README.md",
+        "https://github.com/awdawmip/enterprise-math/blob/7a2a413e2a3d800f47308a4f7f9d32e3f7bc34c9/research_notes/directed_recovery/20260927_C6438C/qft_uniform/uniform_execution/UNIFORM_FEEDBACK_SUMMARY.json",
+        "https://github.com/awdawmip/enterprise-math/blob/7a2a413e2a3d800f47308a4f7f9d32e3f7bc34c9/research_notes/directed_recovery/20260927_C6438C/qft_uniform/PUBLICATION_MANIFEST.json",
+        "https://github.com/awdawmip/enterprise-math/blob/7a2a413e2a3d800f47308a4f7f9d32e3f7bc34c9/research_notes/directed_recovery/20260927_C6438C/qft_uniform/word_certificates/WORD_CERTIFICATE_SUMMARY.json",
+        "https://github.com/awdawmip/enterprise-math/blob/fcd7bed1c23e90c19a7ace92b740662c984cd645/research_notes/directed_recovery/20260927_C6438C/qft_uniform/DELIVERY_RECEIPT.json",
+        "https://github.com/awdawmip/enterprise-math/blob/9abb19f441d62921ae62af8b87503b0a65d30f99/research_notes/directed_recovery/20260927_C6438C/qft_boundary/boundary_execution/boundary_uniform.py",
+        "https://github.com/awdawmip/enterprise-math/blob/9abb19f441d62921ae62af8b87503b0a65d30f99/research_notes/directed_recovery/20260927_C6438C/qft_boundary/CONTINUE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/9abb19f441d62921ae62af8b87503b0a65d30f99/research_notes/directed_recovery/20260927_C6438C/qft_boundary/EXECUTION_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/9abb19f441d62921ae62af8b87503b0a65d30f99/research_notes/directed_recovery/20260927_C6438C/qft_boundary/gram_structure/FINITE_FEEDBACK_AND_MULTIWINDOW.md",
+        "https://github.com/awdawmip/enterprise-math/blob/9abb19f441d62921ae62af8b87503b0a65d30f99/research_notes/directed_recovery/20260927_C6438C/qft_boundary/gram_structure/SIGNED_GAPS_REFINEMENT.md",
+        "https://github.com/awdawmip/enterprise-math/blob/9abb19f441d62921ae62af8b87503b0a65d30f99/research_notes/directed_recovery/20260927_C6438C/qft_boundary/next_design/OMISSION_AND_MANTISSA_COMPOSITION.md",
+        "https://github.com/awdawmip/enterprise-math/blob/9abb19f441d62921ae62af8b87503b0a65d30f99/research_notes/directed_recovery/20260927_C6438C/qft_boundary/next_design/SO_TRACE_CERTIFICATE_PLAN.md",
+        "https://github.com/awdawmip/enterprise-math/blob/9abb19f441d62921ae62af8b87503b0a65d30f99/research_notes/directed_recovery/20260927_C6438C/qft_boundary/prefix_comparison/MATCHED_PREFIX_SUMMARY.json",
+        "https://github.com/awdawmip/enterprise-math/blob/9abb19f441d62921ae62af8b87503b0a65d30f99/research_notes/directed_recovery/20260927_C6438C/qft_boundary/README.md",
+        "https://github.com/awdawmip/enterprise-math/blob/9abb19f441d62921ae62af8b87503b0a65d30f99/research_notes/directed_recovery/20260927_C6438C/qft_boundary/PUBLICATION_MANIFEST.json",
+        "https://github.com/awdawmip/enterprise-math/blob/69c10800372032aa874d88bd6735454d66db4f8d/research_notes/directed_recovery/20260927_C6438C/qft_boundary/DELIVERY_RECEIPT.json",
+        "https://github.com/awdawmip/enterprise-math/blob/56b191519b036c6890cae328c3b3812fbc1debb7/research_notes/directed_recovery/20260927_C6438C/qft_trace/README.md",
+        "https://github.com/awdawmip/enterprise-math/blob/56b191519b036c6890cae328c3b3812fbc1debb7/research_notes/directed_recovery/20260927_C6438C/qft_trace/EXECUTION_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/56b191519b036c6890cae328c3b3812fbc1debb7/research_notes/directed_recovery/20260927_C6438C/qft_trace/PUBLICATION_MANIFEST.json",
+        "https://github.com/awdawmip/enterprise-math/blob/56b191519b036c6890cae328c3b3812fbc1debb7/research_notes/directed_recovery/20260927_C6438C/qft_trace/CONTINUE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/56b191519b036c6890cae328c3b3812fbc1debb7/research_notes/directed_recovery/20260927_C6438C/qft_trace/next_design/FULL_HISTORY_CARRY_ASSESSMENT.md",
+        "https://github.com/awdawmip/enterprise-math/blob/56b191519b036c6890cae328c3b3812fbc1debb7/research_notes/directed_recovery/20260927_C6438C/qft_signedgap/README.md",
+        "https://github.com/awdawmip/enterprise-math/blob/56b191519b036c6890cae328c3b3812fbc1debb7/research_notes/directed_recovery/20260927_C6438C/qft_signedgap/ONE_WINDOW_REDUCTION.md",
+        "https://github.com/awdawmip/enterprise-math/blob/56b191519b036c6890cae328c3b3812fbc1debb7/research_notes/directed_recovery/20260927_C6438C/qft_signedgap/PUBLICATION_MANIFEST.json",
+        "https://github.com/awdawmip/enterprise-math/blob/56b191519b036c6890cae328c3b3812fbc1debb7/research_notes/directed_recovery/20260927_C6438C/qft_signedgap/CONTINUE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/df4e1e8e2f5b46af56111493c96665bc88246817/research_notes/directed_recovery/20260927_C6438C/qft_trace/DELIVERY_RECEIPT.json",
+        "https://github.com/awdawmip/enterprise-math/blob/df4e1e8e2f5b46af56111493c96665bc88246817/research_notes/directed_recovery/20260927_C6438C/qft_signedgap/DELIVERY_RECEIPT.json",
+        "https://github.com/awdawmip/enterprise-math/blob/17eda578c2e32f5a86bf71e28181850fcd0bd5b3/research_notes/directed_recovery/20260927_C6438C/qft_gap_shortcuts/README.md",
+        "https://github.com/awdawmip/enterprise-math/blob/17eda578c2e32f5a86bf71e28181850fcd0bd5b3/research_notes/directed_recovery/20260927_C6438C/qft_gap_shortcuts/CONTINUE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/17eda578c2e32f5a86bf71e28181850fcd0bd5b3/research_notes/directed_recovery/20260927_C6438C/qft_gap_shortcuts/PUBLICATION_MANIFEST.json",
+        "https://github.com/awdawmip/enterprise-math/blob/a8a6609a0be26f9faa3ca33af3a0db0cda93d83a/research_notes/directed_recovery/20260927_C6438C/qft_gap_shortcuts/DELIVERY_RECEIPT.json",
+        "https://github.com/awdawmip/enterprise-math/blob/90d43ef7e41f103bfd8820b7225692d518a6457f/research_notes/directed_recovery/20260927_C6438C/qft_view/README.md",
+        "https://github.com/awdawmip/enterprise-math/blob/90d43ef7e41f103bfd8820b7225692d518a6457f/research_notes/directed_recovery/20260927_C6438C/qft_view/IMPLEMENTATION_SCOPE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/90d43ef7e41f103bfd8820b7225692d518a6457f/research_notes/directed_recovery/20260927_C6438C/qft_view/prefix_comparison/SEGMENTED_MATCHED_EXECUTION_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/90d43ef7e41f103bfd8820b7225692d518a6457f/research_notes/directed_recovery/20260927_C6438C/qft_view/CONTINUE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/90d43ef7e41f103bfd8820b7225692d518a6457f/research_notes/directed_recovery/20260927_C6438C/qft_view/PUBLICATION_MANIFEST.json",
+        "https://github.com/awdawmip/enterprise-math/blob/0f9ddf42231849b09361b41092c2a3d1e897e288/research_notes/directed_recovery/20260927_C6438C/qft_view/DELIVERY_RECEIPT.json",
+        "https://github.com/awdawmip/enterprise-math/blob/0e4c64d1b71aaa7db96594cd66b52de3e0b96ca6/research_notes/directed_recovery/20260927_C6438C/qft_gap_direct/README.md",
+        "https://github.com/awdawmip/enterprise-math/blob/0e4c64d1b71aaa7db96594cd66b52de3e0b96ca6/research_notes/directed_recovery/20260927_C6438C/qft_gap_direct/DIFFERENCE_AUTOCORRELATION.md",
+        "https://github.com/awdawmip/enterprise-math/blob/0e4c64d1b71aaa7db96594cd66b52de3e0b96ca6/research_notes/directed_recovery/20260927_C6438C/qft_gap_direct/direct_gap/DIRECT_EXECUTION_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/0e4c64d1b71aaa7db96594cd66b52de3e0b96ca6/research_notes/directed_recovery/20260927_C6438C/qft_gap_direct/CONTINUE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/0e4c64d1b71aaa7db96594cd66b52de3e0b96ca6/research_notes/directed_recovery/20260927_C6438C/qft_gap_direct/PUBLICATION_MANIFEST.json",
+        "https://github.com/awdawmip/enterprise-math/blob/63cc8cc0b42ae7e246cc4bc1f080319c4fa588aa/research_notes/directed_recovery/20260927_C6438C/qft_gap_direct/DELIVERY_RECEIPT.json",
+        "https://github.com/awdawmip/enterprise-math/blob/55e8e66b76d062c6c72432f0f5b364c3e9b1bba8/research_notes/directed_recovery/20260927_C6438C/qft_gap_hybrid/README.md",
+        "https://github.com/awdawmip/enterprise-math/blob/55e8e66b76d062c6c72432f0f5b364c3e9b1bba8/research_notes/directed_recovery/20260927_C6438C/qft_gap_hybrid/CONTINUE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/55e8e66b76d062c6c72432f0f5b364c3e9b1bba8/research_notes/directed_recovery/20260927_C6438C/qft_gap_hybrid/hybrid_gap/HYBRID_EXECUTION_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/55e8e66b76d062c6c72432f0f5b364c3e9b1bba8/research_notes/directed_recovery/20260927_C6438C/qft_gap_hybrid/hybrid_gap/HYBRID_SUMMARY.json",
+        "https://github.com/awdawmip/enterprise-math/blob/55e8e66b76d062c6c72432f0f5b364c3e9b1bba8/research_notes/directed_recovery/20260927_C6438C/qft_gap_hybrid/guard_review/HYBRID_RESULT_REVIEW.md",
+        "https://github.com/awdawmip/enterprise-math/blob/55e8e66b76d062c6c72432f0f5b364c3e9b1bba8/research_notes/directed_recovery/20260927_C6438C/qft_gap_hybrid/next_design/TWO_BIT_PERIOD_NESTING.md",
+        "https://github.com/awdawmip/enterprise-math/blob/55e8e66b76d062c6c72432f0f5b364c3e9b1bba8/research_notes/directed_recovery/20260927_C6438C/qft_gap_hybrid/next_design/TWO_BIT_PERIOD_NESTING_REVIEW.md",
+        "https://github.com/awdawmip/enterprise-math/blob/44bc901c0d82eeb61e420d77f18169ae1ad1ab99/research_notes/directed_recovery/20260927_C6438C/qft_gap_hybrid/DELIVERY_RECEIPT.json",
+        "https://github.com/awdawmip/enterprise-math/blob/2bdd97ba09de042cb7296d6fa0871973bca77211/research_notes/directed_recovery/20260927_C6438C/qft_lattice/README.md",
+        "https://github.com/awdawmip/enterprise-math/blob/2bdd97ba09de042cb7296d6fa0871973bca77211/research_notes/directed_recovery/20260927_C6438C/qft_lattice/MIXED_MOMENT_LATTICE_REDUCTION.md",
+        "https://github.com/awdawmip/enterprise-math/blob/2bdd97ba09de042cb7296d6fa0871973bca77211/research_notes/directed_recovery/20260927_C6438C/qft_lattice/guard_review/MIXED_MOMENT_LATTICE_REVIEW.md",
+        "https://github.com/awdawmip/enterprise-math/blob/2e6b196d184c98f2849d1bd133bdd57cc96abb1a/research_notes/directed_recovery/20260927_C6438C/qft_lattice/DELIVERY_RECEIPT.json",
+        "https://github.com/awdawmip/enterprise-math/blob/20b5ef9e9146039863963bc039d2a163ac99f4a5/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_aligned/README.md",
+        "https://github.com/awdawmip/enterprise-math/blob/20b5ef9e9146039863963bc039d2a163ac99f4a5/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_aligned/EXECUTION_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/20b5ef9e9146039863963bc039d2a163ac99f4a5/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_aligned/guard_review/ALIGNED_RESULT_REVIEW.md",
+        "https://github.com/awdawmip/enterprise-math/blob/20b5ef9e9146039863963bc039d2a163ac99f4a5/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_aligned/CONTINUE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/b3a2b3bcc946cace7c83e48603f8bc1b6edd95aa/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_aligned/DELIVERY_RECEIPT.json",
+        "https://github.com/awdawmip/enterprise-math/blob/e4645b30836d4690ffbbc5505268d7048507bbed/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_shortcuts/README.md",
+        "https://github.com/awdawmip/enterprise-math/blob/e4645b30836d4690ffbbc5505268d7048507bbed/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_shortcuts/EXECUTION_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/e4645b30836d4690ffbbc5505268d7048507bbed/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_shortcuts/guard_review/SHORTCUT_RESULT_REVIEW.md",
+        "https://github.com/awdawmip/enterprise-math/blob/e4645b30836d4690ffbbc5505268d7048507bbed/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_shortcuts/CONTINUE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/e4645b30836d4690ffbbc5505268d7048507bbed/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_shortcuts/next_design/TOP_BIT_GENERAL_MODULUS.md",
+        "https://github.com/awdawmip/enterprise-math/blob/e4645b30836d4690ffbbc5505268d7048507bbed/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_shortcuts/next_design/TOP_BIT_GENERAL_MODULUS_REVIEW.md",
+        "https://github.com/awdawmip/enterprise-math/blob/e7b7b533f02cb6184eaaf01f7591ce48951e8f09/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_shortcuts/DELIVERY_RECEIPT.json",
+        "https://github.com/awdawmip/enterprise-math/blob/9f5e0f8d68f795885618aafb7c6769dbb932dd6d/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_top_general/README.md",
+        "https://github.com/awdawmip/enterprise-math/blob/9f5e0f8d68f795885618aafb7c6769dbb932dd6d/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_top_general/EXECUTION_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/9f5e0f8d68f795885618aafb7c6769dbb932dd6d/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_top_general/guard_review/TOP_BIT_GENERAL_RESULT_REVIEW.md",
+        "https://github.com/awdawmip/enterprise-math/blob/9f5e0f8d68f795885618aafb7c6769dbb932dd6d/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_top_general/CONTINUE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/9f5e0f8d68f795885618aafb7c6769dbb932dd6d/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_top_general/next_design/PERIOD_EXTENSION.md",
+        "https://github.com/awdawmip/enterprise-math/blob/9f5e0f8d68f795885618aafb7c6769dbb932dd6d/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_top_general/next_design/PERIOD_EXTENSION_REVIEW.md",
+        "https://github.com/awdawmip/enterprise-math/blob/b3852aa7ac0cf4e676bcf94e9b8b211a8148e0ee/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_top_general/DELIVERY_RECEIPT.json",
+        "https://github.com/awdawmip/enterprise-math/blob/87a5888dc433a6c41dd315c4117c43a6aafb659a/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_top_fast/README.md",
+        "https://github.com/awdawmip/enterprise-math/blob/87a5888dc433a6c41dd315c4117c43a6aafb659a/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_top_fast/EXECUTION_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/87a5888dc433a6c41dd315c4117c43a6aafb659a/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_top_fast/guard_review/TOP_BIT_FAST_RESULT_REVIEW.md",
+        "https://github.com/awdawmip/enterprise-math/blob/87a5888dc433a6c41dd315c4117c43a6aafb659a/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_top_fast/CONTINUE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/87a5888dc433a6c41dd315c4117c43a6aafb659a/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_top_fast/next_design/ADJACENT_SHIFT_REDUCTION.md",
+        "https://github.com/awdawmip/enterprise-math/blob/87a5888dc433a6c41dd315c4117c43a6aafb659a/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_top_fast/next_design/ADJACENT_SHIFT_PROOF_REVIEW.md",
+        "https://github.com/awdawmip/enterprise-math/blob/87a5888dc433a6c41dd315c4117c43a6aafb659a/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_top_fast/next_design/MIXED_THRESHOLD_RECIPROCITY.md",
+        "https://github.com/awdawmip/enterprise-math/blob/87a5888dc433a6c41dd315c4117c43a6aafb659a/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_top_fast/next_design/MIXED_THRESHOLD_RECIPROCITY_REVIEW.md",
+        "https://github.com/awdawmip/enterprise-math/blob/87a5888dc433a6c41dd315c4117c43a6aafb659a/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_top_fast/next_design/DEGREE_FIVE_RECIPROCITY.md",
+        "https://github.com/awdawmip/enterprise-math/blob/eb1d38f1a6903f08df5f9f6adcff1eb9bcb5d010/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_top_fast/DELIVERY_RECEIPT.json",
+        "https://github.com/awdawmip/enterprise-math/blob/86022c1ee4de09a9c9055f4c6806a5d35459edfc/research_notes/directed_recovery/20260927_C6438C/qft_floor_degree_five/README.md",
+        "https://github.com/awdawmip/enterprise-math/blob/86022c1ee4de09a9c9055f4c6806a5d35459edfc/research_notes/directed_recovery/20260927_C6438C/qft_floor_degree_five/EXECUTION_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/86022c1ee4de09a9c9055f4c6806a5d35459edfc/research_notes/directed_recovery/20260927_C6438C/qft_floor_degree_five/guard_review/DEGREE_FIVE_RESULT_REVIEW.md",
+        "https://github.com/awdawmip/enterprise-math/blob/86022c1ee4de09a9c9055f4c6806a5d35459edfc/research_notes/directed_recovery/20260927_C6438C/qft_floor_degree_five/CONTINUE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/86022c1ee4de09a9c9055f4c6806a5d35459edfc/research_notes/directed_recovery/20260927_C6438C/qft_floor_degree_five/next_design/UNIT_RESIDUAL_CLOSURE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/86022c1ee4de09a9c9055f4c6806a5d35459edfc/research_notes/directed_recovery/20260927_C6438C/qft_floor_degree_five/next_design/UNIT_RESIDUAL_CLOSURE_REVIEW.md",
+        "https://github.com/awdawmip/enterprise-math/blob/86022c1ee4de09a9c9055f4c6806a5d35459edfc/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_adjacent_shift/README.md",
+        "https://github.com/awdawmip/enterprise-math/blob/86022c1ee4de09a9c9055f4c6806a5d35459edfc/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_adjacent_shift/EXECUTION_NOTE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/86022c1ee4de09a9c9055f4c6806a5d35459edfc/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_adjacent_shift/guard_review/ADJACENT_RESULT_REVIEW.md",
+        "https://github.com/awdawmip/enterprise-math/blob/86022c1ee4de09a9c9055f4c6806a5d35459edfc/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_adjacent_shift/CONTINUE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/86022c1ee4de09a9c9055f4c6806a5d35459edfc/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_adjacent_shift/next_design/ADJACENT_FAST_DESIGN.md",
+        "https://github.com/awdawmip/enterprise-math/blob/86022c1ee4de09a9c9055f4c6806a5d35459edfc/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_adjacent_shift/next_design/ADJACENT_FAST_DESIGN_REVIEW.md",
+        "https://github.com/awdawmip/enterprise-math/blob/3299b3b9d2c9a065ca3a38a5c3369b307cec343f/research_notes/directed_recovery/20260927_C6438C/qft_floor_degree_five/DELIVERY_RECEIPT.json",
+        "https://github.com/awdawmip/enterprise-math/blob/3299b3b9d2c9a065ca3a38a5c3369b307cec343f/research_notes/directed_recovery/20260927_C6438C/qft_two_bit_adjacent_shift/DELIVERY_RECEIPT.json",
+        "https://github.com/awdawmip/enterprise-math/blob/327b49e8f248517f7077d9cb3a874612744f641a/research_notes/directed_recovery/20260927_C6438C/brc_native_shor_pivot/NATIVE_ROUTE_RESET.md",
+        "https://github.com/awdawmip/enterprise-math/blob/327b49e8f248517f7077d9cb3a874612744f641a/research_notes/directed_recovery/20260927_C6438C/brc_native_shor_pivot/RETURN_OBSERVER_REVIEW.md",
+        "https://github.com/awdawmip/enterprise-math/blob/327b49e8f248517f7077d9cb3a874612744f641a/research_notes/directed_recovery/20260927_C6438C/brc_native_shor_pivot/CONTINUE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/742f4c75566466751f1071015e0eb7d8249986e2/research_notes/directed_recovery/20260927_C6438C/brc_native_tool_discovery/RESULTS_AND_CONTINUE.md",
+        "https://github.com/awdawmip/enterprise-math/blob/742f4c75566466751f1071015e0eb7d8249986e2/research_notes/directed_recovery/20260927_C6438C/brc_native_tool_discovery/GEOMETRIC_PROGRESS.md",
+        "https://github.com/awdawmip/enterprise-math/blob/742f4c75566466751f1071015e0eb7d8249986e2/research_notes/directed_recovery/20260927_C6438C/brc_native_tool_discovery/EVIDENCE_MANIFEST.json",
+        "https://github.com/awdawmip/enterprise-math/blob/3f1d462c76aaf4e4b0b08d07582ad1a086b7120a/research_notes/directed_recovery/20260927_C6438C/brc_native_tool_discovery/HBW_AGGREGATE_PROGRESS.md",
+        "https://github.com/awdawmip/enterprise-math/blob/3f1d462c76aaf4e4b0b08d07582ad1a086b7120a/research_notes/directed_recovery/20260927_C6438C/brc_native_tool_discovery/AGGREGATE_WITNESS_PROBE_AUDIT.md",
+        "https://github.com/awdawmip/enterprise-math/blob/3f1d462c76aaf4e4b0b08d07582ad1a086b7120a/research_notes/directed_recovery/20260927_C6438C/brc_native_tool_discovery/hbw_marked_section/HBW_EVIDENCE_MANIFEST.json"
+      ],
+      "sync_debt_events": []
+    },
+    "guard_path": "D:\\em\\TEMP\\sep27-brc-native-tool-discovery\\hbw_checkpoint\\CHECKPOINT_GUARD.json",
+    "guard_sha256": "e1b7d58cda60ed0fb929e2a1e207d2a8d1556cdc7de3a9c55caf9deff5bb02a2",
+    "inputs": [
+      {
+        "N": 437,
+        "a": 2,
+        "layers": 1
+      },
+      {
+        "N": 35,
+        "a": 2,
+        "layers": 2
+      },
+      {
+        "N": 19,
+        "a": 2,
+        "layers": 1
+      },
+      {
+        "N": 25,
+        "a": 2,
+        "layers": 1
+      }
+    ],
+    "plan_sha256": "de5c24bd2a0a8894be4dfd14928e0189f8a862e8d91a54d57bf4268c15d7fe62",
+    "reused_interfaces": {
+      "em_source_ref": "2e81851d62c869a20b47ae083a24dde1a4c0420c",
+      "files": {
+        "D:\\em\\TEMP\\sep26-shor-general\\optimization\\lazy_modular\\lazy_gcd.py": "b704590f055da0785d03b6026d9fa749e75218acd2764d25e90288f32db0965e",
+        "D:\\em\\TEMP\\sep26-shor-general\\optimization\\lazy_modular\\lazy_modular.py": "08df3595a2a56dc2501bb481828093481bf76e4ac53c8b966990d233fefac1e4"
+      },
+      "histogram_blob": "9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1",
+      "native_arithmetic": {
+        "arithmetic_route": "actual full-adder columns; digit transducer composition",
+        "files_sha256": {
+          "lazy_modular": "08df3595a2a56dc2501bb481828093481bf76e4ac53c8b966990d233fefac1e4",
+          "sparse_modular": "fd9cbb019418a3c00890ba6e8cca5760e7e4d792bfd7b48306a71a66de301c46",
+          "typed_integer_prechecks": "0a817aa8124cceb5440233d543073dae71de6ac1d0d4e5d50f4ee2b4808d99eb"
+        },
+        "native_adder": {
+          "columns": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "entrypoint": "stage78.shor_benchmark.full_adder_columns",
+          "input_columns": 8,
+          "observer": "retained input triple -> (sum bit, carry bit)",
+          "positive_BRC_input_states": 12,
+          "scope": "exact integer label compiler; not a reversible physical erasure",
+          "vendor": {
+            "commit": "bc7babbb9e890f6d5a7094430a5fbdccf66c77ad",
+            "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb",
+            "path": "src/enterprise_math/brc_weighted_recurrent.py",
+            "sha256": "7520822074b8f29e1c54f57b9543c043202db8bd7c6e27f3f1d6176028ac4a26"
+          }
+        },
+        "primitive_source": "0852cad130c1d877174d235687cf60c19f318c58",
+        "runtime_state_propagator": "complete positive unit permutation on work labels"
+      },
+      "new_source_sha256": "0821cf958b99988b5dbb95f5a42b97629155ca80c07e1f5bee8e2e9165bc39a8",
+      "plan_sha256": "931d7b7659c3e62707f10d20a2312cb03c945e6354f715c1ebda5d72fdb178a6"
+    },
+    "schema": "BRC_AGGREGATE_WITNESS_PROBE_V1",
+    "source_sha256": "830f28774f3a9e6e4aa9135dd7816c33e5cac78db6b8992990ae094b64d50b48"
+  },
+  "cases": [
+    {
+      "inputs": {
+        "N": 437,
+        "a": 2,
+        "layers": 1
+      },
+      "probes": {
+        "C_tilde": {
+          "classification": "PROPER_FACTOR",
+          "factor_check_key": "19",
+          "gcd": 19,
+          "gcd_link": 19,
+          "name": "C_tilde",
+          "value": 19
+        },
+        "D_minus": {
+          "classification": "UNIT",
+          "factor_check_key": null,
+          "gcd": 1,
+          "gcd_link": 15,
+          "name": "D_minus",
+          "value": 1
+        },
+        "D_plus": {
+          "classification": "PROPER_FACTOR",
+          "factor_check_key": "19",
+          "gcd": 19,
+          "gcd_link": 17,
+          "name": "D_plus",
+          "value": 19
+        }
+      },
+      "production_digits": 1284,
+      "status": "PROBE_FOUND_FACTOR"
+    },
+    {
+      "inputs": {
+        "N": 35,
+        "a": 2,
+        "layers": 2
+      },
+      "probes": {
+        "C_tilde": {
+          "classification": "PROPER_FACTOR",
+          "factor_check_key": "5",
+          "gcd": 5,
+          "gcd_link": 131,
+          "name": "C_tilde",
+          "value": 15
+        },
+        "D_minus": {
+          "classification": "PROPER_FACTOR",
+          "factor_check_key": "5",
+          "gcd": 5,
+          "gcd_link": 127,
+          "name": "D_minus",
+          "value": 10
+        },
+        "D_plus": {
+          "classification": "PROPER_FACTOR",
+          "factor_check_key": "5",
+          "gcd": 5,
+          "gcd_link": 129,
+          "name": "D_plus",
+          "value": 5
+        }
+      },
+      "production_digits": 1698,
+      "status": "PROBE_FOUND_FACTOR"
+    },
+    {
+      "inputs": {
+        "N": 19,
+        "a": 2,
+        "layers": 1
+      },
+      "probes": {
+        "C_tilde": {
+          "classification": "SATURATED",
+          "factor_check_key": null,
+          "gcd": 19,
+          "gcd_link": 152,
+          "name": "C_tilde",
+          "value": 0
+        },
+        "D_minus": {
+          "classification": "UNIT",
+          "factor_check_key": null,
+          "gcd": 1,
+          "gcd_link": 148,
+          "name": "D_minus",
+          "value": 1
+        },
+        "D_plus": {
+          "classification": "SATURATED",
+          "factor_check_key": null,
+          "gcd": 19,
+          "gcd_link": 150,
+          "name": "D_plus",
+          "value": 0
+        }
+      },
+      "production_digits": 526,
+      "status": "SATURATED_WITHOUT_PROPER_FACTOR"
+    },
+    {
+      "inputs": {
+        "N": 25,
+        "a": 2,
+        "layers": 1
+      },
+      "probes": {
+        "C_tilde": {
+          "classification": "UNIT",
+          "factor_check_key": null,
+          "gcd": 1,
+          "gcd_link": 173,
+          "name": "C_tilde",
+          "value": 19
+        },
+        "D_minus": {
+          "classification": "UNIT",
+          "factor_check_key": null,
+          "gcd": 1,
+          "gcd_link": 169,
+          "name": "D_minus",
+          "value": 1
+        },
+        "D_plus": {
+          "classification": "UNIT",
+          "factor_check_key": null,
+          "gcd": 1,
+          "gcd_link": 171,
+          "name": "D_plus",
+          "value": 19
+        }
+      },
+      "production_digits": 810,
+      "status": "NO_FACTOR_FROM_DECLARED_PROBES"
+    }
+  ],
+  "complete_counts": {
+    "arithmetic_streams": 33,
+    "checked_native_digit_cells": 18861,
+    "checked_top_level_operations": 331,
+    "wiring_addmod": 42,
+    "wiring_aggregate_doubling": 5,
+    "wiring_aggregate_readout": 4,
+    "wiring_fixed_setup": 1,
+    "wiring_gcd_of_difference": 19,
+    "wiring_marked_affine_moment_step": 1,
+    "wiring_marked_dual_row_validation": 1,
+    "wiring_matrix_vector": 1,
+    "wiring_modmul": 63,
+    "wiring_moment_determinant": 2,
+    "wiring_submod": 34,
+    "wiring_summary_bridge_identities": 1,
+    "wiring_unstopped_original_moment_step": 1
+  },
+  "complete_wiring_nodes": 175,
+  "gzip_bytes": 54370,
+  "native_records": [
+    {
+      "depth": 1,
+      "elapsed_ns": 7157800,
+      "entrypoint": "recurrent_mass_power",
+      "states": 12
+    }
+  ],
+  "pins": {
+    "gzip": "fb518cb7ee42100b9043f43adee43e1ad47045abde6f8461dc3b729ca4272a4c",
+    "hbw_reader": "6dda7b6c995c457c24334507adfc44574e197f120d41f7d0775fdf3815f26b98",
+    "native_reader": "dc88b155de7ec5bf8222b940a942f08d4963e478f9a5bf66c5826d244b7d2825",
+    "plan": "de5c24bd2a0a8894be4dfd14928e0189f8a862e8d91a54d57bf4268c15d7fe62",
+    "raw": "ad310010570d01a7edae1229289f2a8484f2e2ce5a581e274166522fe5fb687a",
+    "source": "830f28774f3a9e6e4aa9135dd7816c33e5cac78db6b8992990ae094b64d50b48"
+  },
+  "raw_bytes": 804733,
+  "reader_sha256": "cf47812770eb5666fb753fba5275179148a52bf2515d57ade92daa0e046317e4",
+  "route_audits": {
+    "case0_production": {
+      "calls": {
+        "gcd_requests": 0,
+        "histogram_recoalesce": 0,
+        "histogram_serial": 0,
+        "inverse_requests": 0,
+        "multiply_column": 0
+      },
+      "name": "case0_production",
+      "parts": {
+        "columns": {},
+        "direct": {
+          "adder_digit_replays": 327,
+          "host_bit_length_calls_in_arithmetic": 51,
+          "host_bit_wiring_operations": 3426,
+          "typed_operations": 12
+        },
+        "gcd": {},
+        "standalone_inverse": {},
+        "table_setup": {}
+      },
+      "total": {
+        "adder_digit_replays": 327,
+        "host_bit_length_calls_in_arithmetic": 51,
+        "host_bit_wiring_operations": 3426,
+        "typed_operations": 12
+      }
+    },
+    "case0_readout": {
+      "calls": {
+        "gcd_requests": 3,
+        "histogram_recoalesce": 0,
+        "histogram_serial": 0,
+        "inverse_requests": 0,
+        "multiply_column": 0
+      },
+      "name": "case0_readout",
+      "parts": {
+        "columns": {},
+        "direct": {
+          "adder_digit_replays": 577,
+          "host_bit_length_calls_in_arithmetic": 84,
+          "host_bit_wiring_operations": 6064,
+          "typed_operations": 16
+        },
+        "gcd": {
+          "adder_digit_replays": 266,
+          "host_bit_length_calls_in_arithmetic": 52,
+          "host_bit_wiring_operations": 2876,
+          "typed_operations": 4
+        },
+        "standalone_inverse": {},
+        "table_setup": {}
+      },
+      "total": {
+        "adder_digit_replays": 843,
+        "host_bit_length_calls_in_arithmetic": 136,
+        "host_bit_wiring_operations": 8940,
+        "typed_operations": 20
+      }
+    },
+    "case0_setup": {
+      "calls": {
+        "gcd_requests": 1,
+        "histogram_recoalesce": 0,
+        "histogram_serial": 0,
+        "inverse_requests": 0,
+        "multiply_column": 0
+      },
+      "name": "case0_setup",
+      "parts": {
+        "columns": {},
+        "direct": {
+          "adder_digit_replays": 12,
+          "host_bit_length_calls_in_arithmetic": 4,
+          "host_bit_wiring_operations": 126,
+          "typed_operations": 2
+        },
+        "gcd": {
+          "adder_digit_replays": 102,
+          "host_bit_length_calls_in_arithmetic": 29,
+          "host_bit_wiring_operations": 1137,
+          "typed_operations": 3
+        },
+        "standalone_inverse": {},
+        "table_setup": {}
+      },
+      "total": {
+        "adder_digit_replays": 114,
+        "host_bit_length_calls_in_arithmetic": 33,
+        "host_bit_wiring_operations": 1263,
+        "typed_operations": 5
+      }
+    },
+    "case0_validation_hbw_moments": {
+      "calls": {
+        "gcd_requests": 0,
+        "histogram_recoalesce": 0,
+        "histogram_serial": 0,
+        "inverse_requests": 0,
+        "multiply_column": 0
+      },
+      "name": "case0_validation_hbw_moments",
+      "parts": {
+        "columns": {},
+        "direct": {
+          "adder_digit_replays": 5566,
+          "host_bit_length_calls_in_arithmetic": 587,
+          "host_bit_wiring_operations": 58015,
+          "typed_operations": 63
+        },
+        "gcd": {},
+        "standalone_inverse": {},
+        "table_setup": {}
+      },
+      "total": {
+        "adder_digit_replays": 5566,
+        "host_bit_length_calls_in_arithmetic": 587,
+        "host_bit_wiring_operations": 58015,
+        "typed_operations": 63
+      }
+    },
+    "case0_validation_identities": {
+      "calls": {
+        "gcd_requests": 2,
+        "histogram_recoalesce": 0,
+        "histogram_serial": 0,
+        "inverse_requests": 0,
+        "multiply_column": 0
+      },
+      "name": "case0_validation_identities",
+      "parts": {
+        "columns": {},
+        "direct": {
+          "adder_digit_replays": 4493,
+          "host_bit_length_calls_in_arithmetic": 455,
+          "host_bit_wiring_operations": 46838,
+          "typed_operations": 46
+        },
+        "gcd": {
+          "adder_digit_replays": 804,
+          "host_bit_length_calls_in_arithmetic": 109,
+          "host_bit_wiring_operations": 8499,
+          "typed_operations": 7
+        },
+        "standalone_inverse": {},
+        "table_setup": {}
+      },
+      "total": {
+        "adder_digit_replays": 5297,
+        "host_bit_length_calls_in_arithmetic": 564,
+        "host_bit_wiring_operations": 55337,
+        "typed_operations": 53
+      }
+    },
+    "case0_validation_original_moments": {
+      "calls": {
+        "gcd_requests": 0,
+        "histogram_recoalesce": 0,
+        "histogram_serial": 0,
+        "inverse_requests": 0,
+        "multiply_column": 0
+      },
+      "name": "case0_validation_original_moments",
+      "parts": {
+        "columns": {},
+        "direct": {
+          "adder_digit_replays": 2064,
+          "host_bit_length_calls_in_arithmetic": 210,
+          "host_bit_wiring_operations": 21486,
+          "typed_operations": 23
+        },
+        "gcd": {},
+        "standalone_inverse": {},
+        "table_setup": {}
+      },
+      "total": {
+        "adder_digit_replays": 2064,
+        "host_bit_length_calls_in_arithmetic": 210,
+        "host_bit_wiring_operations": 21486,
+        "typed_operations": 23
+      }
+    },
+    "case0_validation_setup": {
+      "calls": {
+        "gcd_requests": 1,
+        "histogram_recoalesce": 0,
+        "histogram_serial": 0,
+        "inverse_requests": 1,
+        "multiply_column": 0
+      },
+      "name": "case0_validation_setup",
+      "parts": {
+        "columns": {},
+        "direct": {
+          "adder_digit_replays": 329,
+          "host_bit_length_calls_in_arithmetic": 42,
+          "host_bit_wiring_operations": 3398,
+          "typed_operations": 12
+        },
+        "gcd": {
+          "adder_digit_replays": 524,
+          "host_bit_length_calls_in_arithmetic": 75,
+          "host_bit_wiring_operations": 5555,
+          "typed_operations": 5
+        },
+        "standalone_inverse": {
+          "adder_digit_replays": 763,
+          "host_bit_length_calls_in_arithmetic": 96,
+          "host_bit_wiring_operations": 8023,
+          "typed_operations": 12
+        },
+        "table_setup": {}
+      },
+      "total": {
+        "adder_digit_replays": 1616,
+        "host_bit_length_calls_in_arithmetic": 213,
+        "host_bit_wiring_operations": 16976,
+        "typed_operations": 29
+      }
+    },
+    "case1_production": {
+      "calls": {
+        "gcd_requests": 0,
+        "histogram_recoalesce": 0,
+        "histogram_serial": 0,
+        "inverse_requests": 0,
+        "multiply_column": 0
+      },
+      "name": "case1_production",
+      "parts": {
+        "columns": {},
+        "direct": {
+          "adder_digit_replays": 660,
+          "host_bit_length_calls_in_arithmetic": 126,
+          "host_bit_wiring_operations": 7032,
+          "typed_operations": 24
+        },
+        "gcd": {},
+        "standalone_inverse": {},
+        "table_setup": {}
+      },
+      "total": {
+        "adder_digit_replays": 660,
+        "host_bit_length_calls_in_arithmetic": 126,
+        "host_bit_wiring_operations": 7032,
+        "typed_operations": 24
+      }
+    },
+    "case1_readout": {
+      "calls": {
+        "gcd_requests": 3,
+        "histogram_recoalesce": 0,
+        "histogram_serial": 0,
+        "inverse_requests": 0,
+        "multiply_column": 0
+      },
+      "name": "case1_readout",
+      "parts": {
+        "columns": {},
+        "direct": {
+          "adder_digit_replays": 562,
+          "host_bit_length_calls_in_arithmetic": 94,
+          "host_bit_wiring_operations": 5962,
+          "typed_operations": 16
+        },
+        "gcd": {
+          "adder_digit_replays": 392,
+          "host_bit_length_calls_in_arithmetic": 82,
+          "host_bit_wiring_operations": 4253,
+          "typed_operations": 8
+        },
+        "standalone_inverse": {},
+        "table_setup": {}
+      },
+      "total": {
+        "adder_digit_replays": 954,
+        "host_bit_length_calls_in_arithmetic": 176,
+        "host_bit_wiring_operations": 10215,
+        "typed_operations": 24
+      }
+    },
+    "case1_setup": {
+      "calls": {
+        "gcd_requests": 1,
+        "histogram_recoalesce": 0,
+        "histogram_serial": 0,
+        "inverse_requests": 0,
+        "multiply_column": 0
+      },
+      "name": "case1_setup",
+      "parts": {
+        "columns": {},
+        "direct": {
+          "adder_digit_replays": 12,
+          "host_bit_length_calls_in_arithmetic": 4,
+          "host_bit_wiring_operations": 126,
+          "typed_operations": 2
+        },
+        "gcd": {
+          "adder_digit_replays": 72,
+          "host_bit_length_calls_in_arithmetic": 23,
+          "host_bit_wiring_operations": 810,
+          "typed_operations": 3
+        },
+        "standalone_inverse": {},
+        "table_setup": {}
+      },
+      "total": {
+        "adder_digit_replays": 84,
+        "host_bit_length_calls_in_arithmetic": 27,
+        "host_bit_wiring_operations": 936,
+        "typed_operations": 5
+      }
+    },
+    "case2_production": {
+      "calls": {
+        "gcd_requests": 0,
+        "histogram_recoalesce": 0,
+        "histogram_serial": 0,
+        "inverse_requests": 0,
+        "multiply_column": 0
+      },
+      "name": "case2_production",
+      "parts": {
+        "columns": {},
+        "direct": {
+          "adder_digit_replays": 207,
+          "host_bit_length_calls_in_arithmetic": 51,
+          "host_bit_wiring_operations": 2226,
+          "typed_operations": 12
+        },
+        "gcd": {},
+        "standalone_inverse": {},
+        "table_setup": {}
+      },
+      "total": {
+        "adder_digit_replays": 207,
+        "host_bit_length_calls_in_arithmetic": 51,
+        "host_bit_wiring_operations": 2226,
+        "typed_operations": 12
+      }
+    },
+    "case2_readout": {
+      "calls": {
+        "gcd_requests": 3,
+        "histogram_recoalesce": 0,
+        "histogram_serial": 0,
+        "inverse_requests": 0,
+        "multiply_column": 0
+      },
+      "name": "case2_readout",
+      "parts": {
+        "columns": {},
+        "direct": {
+          "adder_digit_replays": 213,
+          "host_bit_length_calls_in_arithmetic": 55,
+          "host_bit_wiring_operations": 2283,
+          "typed_operations": 15
+        },
+        "gcd": {
+          "adder_digit_replays": 32,
+          "host_bit_length_calls_in_arithmetic": 15,
+          "host_bit_wiring_operations": 374,
+          "typed_operations": 3
+        },
+        "standalone_inverse": {},
+        "table_setup": {}
+      },
+      "total": {
+        "adder_digit_replays": 245,
+        "host_bit_length_calls_in_arithmetic": 70,
+        "host_bit_wiring_operations": 2657,
+        "typed_operations": 18
+      }
+    },
+    "case2_setup": {
+      "calls": {
+        "gcd_requests": 1,
+        "histogram_recoalesce": 0,
+        "histogram_serial": 0,
+        "inverse_requests": 0,
+        "multiply_column": 0
+      },
+      "name": "case2_setup",
+      "parts": {
+        "columns": {},
+        "direct": {
+          "adder_digit_replays": 12,
+          "host_bit_length_calls_in_arithmetic": 4,
+          "host_bit_wiring_operations": 126,
+          "typed_operations": 2
+        },
+        "gcd": {
+          "adder_digit_replays": 62,
+          "host_bit_length_calls_in_arithmetic": 21,
+          "host_bit_wiring_operations": 701,
+          "typed_operations": 3
+        },
+        "standalone_inverse": {},
+        "table_setup": {}
+      },
+      "total": {
+        "adder_digit_replays": 74,
+        "host_bit_length_calls_in_arithmetic": 25,
+        "host_bit_wiring_operations": 827,
+        "typed_operations": 5
+      }
+    },
+    "case3_production": {
+      "calls": {
+        "gcd_requests": 0,
+        "histogram_recoalesce": 0,
+        "histogram_serial": 0,
+        "inverse_requests": 0,
+        "multiply_column": 0
+      },
+      "name": "case3_production",
+      "parts": {
+        "columns": {},
+        "direct": {
+          "adder_digit_replays": 207,
+          "host_bit_length_calls_in_arithmetic": 51,
+          "host_bit_wiring_operations": 2226,
+          "typed_operations": 12
+        },
+        "gcd": {},
+        "standalone_inverse": {},
+        "table_setup": {}
+      },
+      "total": {
+        "adder_digit_replays": 207,
+        "host_bit_length_calls_in_arithmetic": 51,
+        "host_bit_wiring_operations": 2226,
+        "typed_operations": 12
+      }
+    },
+    "case3_readout": {
+      "calls": {
+        "gcd_requests": 3,
+        "histogram_recoalesce": 0,
+        "histogram_serial": 0,
+        "inverse_requests": 0,
+        "multiply_column": 0
+      },
+      "name": "case3_readout",
+      "parts": {
+        "columns": {},
+        "direct": {
+          "adder_digit_replays": 323,
+          "host_bit_length_calls_in_arithmetic": 65,
+          "host_bit_wiring_operations": 3443,
+          "typed_operations": 15
+        },
+        "gcd": {
+          "adder_digit_replays": 206,
+          "host_bit_length_calls_in_arithmetic": 54,
+          "host_bit_wiring_operations": 2276,
+          "typed_operations": 6
+        },
+        "standalone_inverse": {},
+        "table_setup": {}
+      },
+      "total": {
+        "adder_digit_replays": 529,
+        "host_bit_length_calls_in_arithmetic": 119,
+        "host_bit_wiring_operations": 5719,
+        "typed_operations": 21
+      }
+    },
+    "case3_setup": {
+      "calls": {
+        "gcd_requests": 1,
+        "histogram_recoalesce": 0,
+        "histogram_serial": 0,
+        "inverse_requests": 0,
+        "multiply_column": 0
+      },
+      "name": "case3_setup",
+      "parts": {
+        "columns": {},
+        "direct": {
+          "adder_digit_replays": 12,
+          "host_bit_length_calls_in_arithmetic": 4,
+          "host_bit_wiring_operations": 126,
+          "typed_operations": 2
+        },
+        "gcd": {
+          "adder_digit_replays": 62,
+          "host_bit_length_calls_in_arithmetic": 21,
+          "host_bit_wiring_operations": 701,
+          "typed_operations": 3
+        },
+        "standalone_inverse": {},
+        "table_setup": {}
+      },
+      "total": {
+        "adder_digit_replays": 74,
+        "host_bit_length_calls_in_arithmetic": 25,
+        "host_bit_wiring_operations": 827,
+        "typed_operations": 5
+      }
+    }
+  },
+  "scope": [
+    "Standard-library saved-record inspection only; no native/scientific import or rerun.",
+    "All native digit cells and all new aggregate/affine-moment links checked.",
+    "Cases are targeted fixed inputs; no success-rate, first-hit law or runtime claim.",
+    "The two saved saturated/unit cases remain explicit non-successes.",
+    "Shared-context record review; not formal independent mathematical admission."
+  ],
+  "status": "PASS_STDLIB_AGGREGATE_SAVED_RECORD_REVIEW_NOT_ADMISSION",
+  "summary_sha256": "27ed71cff2d5e38249b187e4101079dcaced4696d6cda78922732d9eb6b4a603",
+  "total_cost": {
+    "adder_digit_replays": 18861,
+    "host_bit_length_calls_in_arithmetic": 2464,
+    "host_bit_wiring_operations": 198108,
+    "typed_operations": 331
+  },
+  "validation_digits": 14543
+}
