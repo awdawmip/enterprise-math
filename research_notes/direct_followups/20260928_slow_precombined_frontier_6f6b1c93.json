@@ -1,0 +1,48 @@
+{
+  "activity_id": "RA-SLOWSTRUCT-6F6B1C93-D5DF97E7",
+  "claims": [
+    {
+      "condition": "Fixed exact address partition; independent production samples; correct block probabilities; complete signed vectors; symmetric H",
+      "law": "E[U_H(X)|block labels]=U_H(Z); Var(U_H(Z))<=Var(U_H(X))",
+      "limit": "Same sample count, not same computational budget; does not cover plug-in ratios",
+      "name": "precombined_quadratic_variance"
+    },
+    {
+      "condition": "Fixed source history 00...01, L=2^m, full X_e=(-1)^e E(c^e); verified positive odd R with c^R=1",
+      "law": "ell=L mod 2R; (a,B)=(0,ell) if ell<=R else (ell-R,2R-ell); sum_[0,L) X=sum_[a,a+B) X",
+      "limit": "R need not be minimal; B=0 means zero mass; arbitrary feedback is not covered",
+      "name": "alternating_boundary"
+    },
+    {
+      "condition": "B>0; exact scale retained; unchanged future instrument",
+      "law": "v=(B/L)*E_[a,a+B)[X]; all conditional future bit laws identical; gamma_B>=(L/B)*gamma_L",
+      "limit": "The previous confidence bounds apply with address count B; return discovery is charged",
+      "name": "residual_proposal"
+    },
+    {
+      "condition": "Fixed depth m, L=2^m, common Q_m and normalized complete native instrument",
+      "law": "Pr(gamma_h<=theta)<=min(1,L*Q_m*theta)",
+      "limit": "No general small-probability claim when L*Q_m is large",
+      "name": "history_mass_bound"
+    }
+  ],
+  "event_id": "slow-precombined-sampling-20260928-6f6b1c93",
+  "full_proof": {
+    "commit": "24fbc8ffa3c9a27dbfceac56069635861b13ec65",
+    "git_blob": "ab9d48ba0b5d8441d5424765a1dcdcfd23f42ab6",
+    "observed_full_readback": "GitHub.fetch_file /response/turn188",
+    "path": "research_notes/direct_followups/20260928_slow_precombined_sampling_6f6b1c93.md",
+    "repository": "awdawmip/enterprise-math",
+    "sha256": "fea3f3e070154f5b557098749a7b23f1f4f22af944c028aa21f719792389fb25"
+  },
+  "global_read": "f2566e7d0b189c9c7dd210010feb2833bf0f6496",
+  "next": "Implement unchanged typed return verification and boundary reducer; check full-state scale, nonminimal returns, variable diagonals and total discovery/sample costs.",
+  "nonclaims": [
+    "native numerical execution",
+    "independent admission",
+    "polynomial Shor simulator",
+    "physical bandwidth result"
+  ],
+  "schema": "EM_SYMBOLIC_PRECOMBINATION_FRONTIER_V1",
+  "status": "AUTHOR_SYMBOLIC_DERIVATION_NOT_ADMITTED_NO_NEW_SCIENTIFIC_EXECUTION"
+}
