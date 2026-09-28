@@ -1,0 +1,195 @@
+# Slow structure V: order-free collision batches and confidence intervals
+
+Progress-Event-ID: slow-collision-intervals-20260928-6f6b1c93
+Research-Activity-ID: RA-SLOWSTRUCT-6F6B1C93-D5DF97E7
+Researcher-ID: EM-DIRECT-6F6B1C93
+Session: local-chatgpt-slowstructure-6f6b1c93 (same local key, not authenticated platform identity)
+Status: AUTHOR_SYMBOLIC_ALGORITHM_AND_PROOFS / NOT_ADMITTED / NO_NEW_SCIENTIFIC_EXECUTION
+Global-Knowledge-Sync: main@4045cca / GLOBAL_KNOWLEDGE_V1
+Source-control observation: ac646d388662328a45580bb61a84adce4f264ad6
+
+## 0. Question, source, and actual scope
+
+Current user: continue. The unresolved unit is the cost of obtaining the coarse probability enclosures assumed by the preceding threshold sampler. This note supplies a different, fully specified statistical enclosure construction from uniformly sampled preparation addresses. It does not assume a row-amplitude oracle, unknown order, factors, a norm-sampling oracle, a small complete return mask, or a pre-existing probability interval. Its confidence failures must be charged: these are NOT deterministic certificates and do not inherit the predecessor's exact-sampling conclusion without an additional error allowance.
+
+Fixed scientific predecessors in awdawmip/enterprise-math:
+- e12fd723c2c55e9421020a2dbb5a9c288ce2a828: research_notes/direct_followups/20260928_slow_certified_sampling_6f6b1c93.md;
+- 051a57aa522aa464ddf27cd27a87e47056e4d16b: research_notes/direct_followups/20260927_slow_carry_filter_6f6b1c93.md;
+- 6774a6dbfc729f6f7410f6baafaf0b7b3c37e110: research_notes/direct_followups/20260927_slow_correlation_closure_6f6b1c93.md;
+- 951cc16cb09635fae9f93230d96030fdaa2035b3: research_notes/directed_recovery/20260927_C6438C/qft_row_queries/gram_research/SINGLE_WALKER_QUERY_REDUCTION.md.
+
+Same activity and four earlier checkpoints are preserved. Its current full readback has Git blob cef736e30ad10bb8f690fa6e29dd261e2cc92383. No new CLAIM, role, admission, or full-project latest-frontier claim is made. The source activity protocol and source-bound interface already read in this conversation govern the equivalent connector bookkeeping; no execution of the canonical guard is asserted.
+
+P000 and ACTUAL_TYPED_BRC_ONLY remain unchanged. All scientific work here is symbolic composition of the actual complete signed-row, ordered-word, modular-label and quadratic-observer laws. Full internal coordinates and residuals remain included; D=6 is not substituted for D=61 without the source's complete-word invariant-subspace admission. No classical waveform, trigonometric reference, ordinary numerical propagator, higher-precision substitute, or new native scientific run is used. Source inspection included PointRowOracle and PositivePathObserver, but importing or executing their full backend was not performed. Reuse: COMPOSE_APPLIED / EXTEND_EXISTING_OBSERVER; typed implementation and measured costs are pending. File generation, hashing and JSON checks below are administrative, not scientific execution.
+
+## 1. An exact blind spot of the preceding dyadic-block tests
+
+Let G=<c> have odd order s>1, used only for analysis. Consider the earlier low-bit block d=u+2^k v, 0<=v<V, and a target g in G.
+
+If V>=s, multiplication by 2^k permutes exponent residues modulo s. Thus the block contains an exponent mapping to every target in G. It cannot be certified all-zero because it is not all-zero. A block with V>=2 cannot be all-one: its first two entries would force c^(2^k)=1, impossible for odd s>1.
+
+The earlier character-mismatch certificate is also ineffective on this case. For any multiplicative character chi, chi(c) has order dividing s. If chi(c^(2^k))=1, its order also divides 2^k, hence chi(c)=1. Then chi(c^u)=chi(g)=1 for g in G, so no mismatch can occur. This excludes only those specific certificates, not other arithmetic block arguments, approximate methods, or the even-order/coset-separated cases.
+
+We therefore keep the two-carry formula as a useful deterministic observer, but do not assume binary subdivision alone will cheaply solve the odd-order folding problem.
+
+## 2. Sample preparation addresses, not Born-distributed work labels
+
+Fix one actual history h of length m, let L=2^m, and use the predecessor's exact expansion
+
+  z(e)=c^e mod N,
+  alpha(e)=B_0^(e_0) ... B_(m-1)^(e_(m-1)) e_init,
+  v_h(w)=(1/L) sum_{e:z(e)=w} alpha(e),       0<=e<L.             (1)
+
+The B_k keep their source order and are signed orthogonal feedback words, so ||alpha(e)||=1. An individual alpha(e) is a single preparation contribution, not a full row query. An address e is generated with m fair bits; z(e) and alpha(e) use the original typed operations and are charged.
+
+Define the sparse full-carrier vector X_e by X_e(w)=alpha(e) if w=z(e), and zero otherwise. Then E[X_e]=v_h. This full-carrier notation is only for the proof; a sample stores one actual modular label and D internal coordinates.
+
+Let rho_w=Pr(z(e)=w), Q=sum_w rho_w^2, rho_max=max_w rho_w, and M=||v_h||^2. Then
+
+  1/L <= Q <= 1,       0 <= M <= Q,       rho_max <= Q+1/L <= 2Q. (2)
+
+Proof of the last bound: over consecutive powers, nonzero label counts differ by at most one. Thus rho_max-rho_w<=1/L on occupied labels, and rho_max-Q=sum_w rho_w(rho_max-rho_w)<=1/L. The M bound follows by expanding the square and using |<alpha(e),alpha(f)>|<=1, with interference only inside equal labels. Q is a positive address-collision probability, NOT the quantum/native parent mass M.
+
+## 3. An unbiased mass estimate with no quadratic pair loop
+
+Draw n>=2 independent uniform addresses with replacement. Keep repeats. For each actual label let S_w be the sum of sampled alpha vectors and n_w its sample count. Then
+
+  Mhat = [sum_w ||S_w||^2 - n] / [n(n-1)],
+  Qhat = [sum_w n_w(n_w-1)] / [n(n-1)].                           (3)
+
+Both are unbiased for M and Q. Expanding the squared sum and subtracting the diagonal leaves exactly the ordered pairs i!=j; each such pair consists of independent draws. Repeated addresses at DIFFERENT sample indices are genuine pairs and must not be deduplicated.
+
+The subtraction is essential. The naive nonnegative plug-in estimate satisfies
+
+  E[sum_w ||S_w/n||^2] = (1-1/n)M + 1/n.                        (4)
+
+When the actual mass is much smaller than 1/n, this self-pair contribution can dominate it. Mhat can be negative; it is an unbiased statistic, not a physical negative probability.
+
+Grouping and vector accumulation compress the pair sum algebraically. They do not make the n(n-1) pairs independent. Section 5 explicitly includes shared-sample covariances.
+
+## 4. Direct estimators for BOTH child masses
+
+At the current history the unchanged instrument is
+
+  (A_sigma x)(w)=[x(w)+sigma T x(p^-1 w)]/2, sigma in {+1,-1},
+  T^T T=I.
+
+For one sample set Y_sigma,e=A_sigma X_e. It has at most two work labels:
+
+  alpha(e)/2 at z(e),
+  sigma T alpha(e)/2 at p z(e).                                 (5)
+
+If those labels coincide, add their vectors BEFORE taking norms. Let
+
+  G_sigma=sum_i Y_sigma,e_i,  d_sigma=sum_i ||Y_sigma,e_i||^2.
+
+The child-mass estimates are
+
+  bhat_sigma=[||G_sigma||^2-d_sigma]/[n(n-1)].                    (6)
+
+They are unbiased for b_sigma=||A_sigma v_h||^2=(M+sigma C)/2. Also
+
+  bhat_plus+bhat_minus=Mhat,
+
+by the two-arm norm identity. If p!=1, d_sigma=n/2. If p=1, the correct individual diagonal is (1+sigma alpha(e)^T T alpha(e))/2; replacing it by 1/2 is wrong. Formula (6) handles both cases.
+
+Each sign needs at most 2n occupied sample labels and O(nD) stored coordinates. Deterministic sorting uses O(n log n) label comparisons; accumulations and quadratic observers use O(nD) scalar-sized slots/actions, with actual typed costs and integer bit lengths charged. Generating n sampled words and labels costs n times their source-bound preparation cost. No O(n^2) pair evaluation or all-orbit table is necessary. This is an algorithmic specification, not a measured implementation.
+
+## 5. A finite-sample variance bound derived by overlap counting
+
+For a symmetric kernel H(E,F) and its U-statistic over n draws, let g(E)=E[H(E,F)|E]. Counting disjoint, one-index-overlap and identical unordered pairs gives
+
+  Var(U_n)=4(n-2)/(n(n-1))*Var(g(E))
+          +2/(n(n-1))*Var(H(E,F)).                              (7)
+
+For the Q estimator, H=1[z(E)=z(F)], E[H^2]=Q and E[g^2]<=rho_max Q.
+
+For a child estimator, H_sigma=<Y_sigma,E,Y_sigma,F>. Its second moment is at most Q. Indeed, expanding the two sparse labels gives coefficients 1/2, sigma/4, sigma/4 for equal-label and the two shifted-label inner products. Convexity of the square bounds H_sigma^2 by the same nonnegative weighted sum of the three label-equality indicators. Their expectations are Q and two shifted overlaps of rho, each at most Q by Cauchy-Schwarz. This remains valid when p has order one or two and indicators overlap.
+
+Also E[g_sigma(E)^2]<=rho_max b_sigma. For p!=1, apply (a+b)^2<=2(a^2+b^2) to the two components of <Y_sigma,E,A_sigma v_h>, then average the two occupied-label row norms. For p=1, ||Y_sigma,E||<=1 gives the same bound directly. Since b_sigma<=M<=Q, (7) yields simultaneously for Qhat and either bhat_sigma
+
+  Var(estimator) <= V_n(Q),
+  V_n(x)=4x(x+1/L)/n + 2x/[n(n-1)].                             (8)
+
+For Mhat the same argument uses the one-label kernel. Formula (8) is conservative but finite, nonasymptotic, and proved here for the specified signed instrument. Neither Q nor the order is needed as an INPUT to the interval construction below.
+
+## 6. Eliminate unknown Q by a confidence-set inversion
+
+For a chosen failure budget delta_0>0, let
+
+  C_Q={x in [0,1] : (Qhat-x)^2 <= V_n(x)/delta_0}.
+
+Chebyshev gives Pr(Q not in C_Q)<=delta_0. Use Q_U=sup(C_Q), or 1 if the set is empty. A conservative upper rational enclosure is sufficient. For n<=4/delta_0 one may simply use Q_U=1.
+
+For n>4/delta_0 put a=4/n and b=4/(nL)+2/[n(n-1)]. The upper endpoint is explicitly
+
+  Q_U=min(1, [2 delta_0 Qhat+b
+      +sqrt((2 delta_0 Qhat+b)^2-4(delta_0-a)delta_0 Qhat^2)]
+      /[2(delta_0-a)]).                                         (9)
+
+A rational upper root enclosure with charged typed comparisons avoids assuming an exact-real square-root primitive. The set contains Qhat before clipping, so no missing-real-root convention is being hidden. Formula (9) can optionally be enlarged to at least 1/L.
+
+For additional budgets delta_plus, delta_minus define
+
+  e_sigma=sqrt(V_n(Q_U)/delta_sigma),
+  I_sigma=[bhat_sigma-e_sigma,bhat_sigma+e_sigma] intersect [0,Q_U]. (10)
+
+Empty or inconsistent intervals produce an explicit certificate-failure/fallback state, not a claim of zero parent mass. An upper rational enclosure of e_sigma is safe.
+
+With probability at least 1-delta_0-delta_plus-delta_minus, BOTH child intervals contain the true child masses. No independence between Q_U and the bhat values is required: first use three Chebyshev events at the FIXED true Q, then take their union. On their intersection Q<=Q_U and V_n is increasing, so (10) is conservative.
+
+Writing the child endpoints as l_sigma,u_sigma, the predecessor's monotonic ratio gives
+
+  p_h in [l_plus/(l_plus+u_minus), u_plus/(u_plus+l_minus)],        (11)
+
+with conservative 0 and 1 conventions for zero denominators. This is an order-free, explicit confidence-interval PROVIDER. It may be costly or initially vacuous, but it is no longer a hypothetical cheap interval oracle. No point estimate is clipped and then treated as an exact probability.
+
+## 7. Why a square-root collision scale appears, and its exact conditions
+
+For positive M define gamma=M/Q in (0,1]. It measures the reduction in mass caused by signed/internal cancellation relative to unweighted label collisions. It is an analysis parameter, not an uncharged algorithm input.
+
+For target probability-interval width eta in (0,1] and delta_0=delta_plus=delta_minus=delta, there is an absolute C_0 such that
+
+  n >= C_0 [1/(delta gamma^2 eta^2)
+             +1/(sqrt(delta) gamma eta sqrt(Q))]                (12)
+
+suffices for (11) to have width at most eta, simultaneously with validity, with probability at least 1-3delta. The bound concerns a FIXED history and fixed batch size, not a uniform claim about all sampled histories.
+
+Proof details: (8) and Q>=1/L show V_n(Q)<=8Q^2/n+4Q/n^2. The n in (12), with a sufficiently large absolute constant, makes this at most delta Q^2/16. Thus on the Q Chebyshev event, Qhat lies between 3Q/4 and 5Q/4. Comparing the confidence-set inequality at x=2Q (or using Q_U<=1<=2Q when Q>=1/2) gives Q_U<=2Q: V_n(2Q)<=24Q^2/n+8Q/n^2, while 2Q-Qhat>=3Q/4. Consequently e_sigma<=sqrt(24Q^2/(n delta)+8Q/(n^2 delta)), which (12) makes at most eta M/16. Valid clipped child intervals have lengths at most 2e and their summed lower endpoints are at least M-4e. The monotone-ratio width is at most 2e/(M-4e), hence below eta. For example C_0=2^14 is a conservative algebraic choice; no numerical benchmark is attached to it.
+
+If L is large compared with s=ord_N(c), the known count formula gives Q=1/s+O(s/L^2). For gamma bounded below and fixed eta,delta, (12) therefore has an O(sqrt(s)) sample term, plus a constant-in-s precision term. This is the birthday/collision scale, not a general new sampling principle. Since s can be exponential in input bit length, even this favorable bound is NOT polynomial in log N.
+
+Small gamma can destroy the saving. In the predecessor's permitted history 00...01, alpha(e)=(-1)^e e_init. For odd s>1 and L=2^m>=s, each label's alternating sum has magnitude at most one, so M<=s/L^2, while Q>=1/s. Thus gamma<=s^2/L^2. The history has positive mass for odd s>1: the two possible occupancy counts cannot both be even, and L is not divisible by s. For s=1 the branch can instead have zero mass and is excluded from a positive-history conditional claim. This is a symbolic family, not an executed fixture.
+
+A poor-gamma history may be rare, but no bound on the total probability of ALL poor-gamma histories has been proved here. Neither typical-history success nor expected full-program speed follows from (12).
+
+## 8. Use with the retained-threshold sampler: statistical, not exact
+
+For t output bits, use predetermined growing batch sizes, for example n_j=n_0*2^j, and at depth i and level j>=0 allocate to EACH of the three concentration events
+
+  delta_(i,j)=Delta/[3t(j+1)(j+2)].                              (13)
+
+The telescoping series over j sums to one, so the probability of ANY requested concentration failure is at most Delta, conditionally along the visited histories. This requires fresh independent preparation randomness for each history (or a rigorously equivalent fixed independent seed construction), with the sampling data independent of that bit's threshold U. No union bound over exponentially many unvisited histories is needed. Prefix-reused samples at deterministic batch sizes are allowed; independence between levels is not assumed by the union bound.
+
+Keep the same U during refinement. Intersect valid intervals over levels, but report inconsistency as failure. On the simultaneous-good event, certified decisions agree with exact threshold comparison. A finite budget adds its unresolved/fallback probability tau, so a coupling gives native output TV<=Delta+tau (capped at one). A predeclared uniform bound on final interval widths gives the earlier geometric-cell ambiguity bound; observed widths on one run do not establish such a bound for every history.
+
+For a fixed positive-mass history, the U-statistic strong-law behavior plus n_j delta_(i,j)->infinity makes these enclosures shrink to p almost surely; this does not provide a useful uniform or expected running-time bound. The predecessor's constant expected refinement-level bound assumed guaranteed prescribed widths and must NOT be reused here without proving the corresponding width/cost schedule. Statistical intervals can produce erroneous early decisions with their allocated failure probability; they do not yield the predecessor's deterministic-certificate exact law for free.
+
+## 9. Result, nonclaims, and next finite experiment
+
+The advance is an order-free, explicit construction of confidence intervals for the actual signed two-arm child masses, using n sampled addresses and sparse group sums rather than an entire modular return table. The formula removes the self-pair bias, retains interference and multiplicity, supplies a finite-sample variance bound, eliminates its unknown collision parameter by inversion, and exposes both the square-root sample regime and the cancellation penalty.
+
+Not established: executable typed-BRC integration, benchmark counts, independent mathematical review, physical bandwidth or slow-time interpretation, a polynomial full-Shor simulator, or low probability of all high-cancellation histories. No claimed quantum/Born sampler is used to obtain the uniformly sampled input addresses.
+
+Next finite unit: extend the unchanged signed quadratic observer with this batch aggregation. For fixed source-native fixtures separately verify (a) same-label combination before norms, (b) p=1 versus p!=1 diagonal subtraction, (c) repeated addresses, (d) exact identity bhat_plus+bhat_minus=Mhat, and (e) charged interval width/sample/block/BRC costs. At the mathematical level the next target is a certified history-mass bound for small gamma, or a control variate using deterministic carry blocks to reduce the collision variance. Do not rerun earlier frozen benchmarks merely as new evidence.
+
+## 10. Prior art and retrieval scope
+
+U-statistics, diagonal debiasing and collision statistics are established prior art; no global novelty claim for those techniques is made. The formulas above are derived specifically for the frozen ordered native two-arm interface.
+
+- Wassily Hoeffding, A Class of Statistics with Asymptotically Normal Distribution, Annals of Mathematical Statistics 19(3), 293-325 (1948), DOI 10.1214/aoms/1177730196. Original publisher DOI landing metadata and abstract read; no full-proof PDF audit. https://doi.org/10.1214/aoms/1177730196
+- Diakonikolas, Gouleakis, Peebles, Price, Collision-based Testers are Optimal for Uniformity and Closeness, arXiv:1611.03579 (2016). Author abstract/metadata and ECCC landing read for attribution only, not as proof of (8)-(13). https://arxiv.org/abs/1611.03579
+
+Dedicated exact-title Scholar request: Issue 2566, batch e015082e-6862-4ad0-90ae-339cb0541a32, turn 8b5b7e01-4125-48ad-a098-9518d3f81c9f, conversation chatgpt-phonon-literature-20260927-6f6b1c93, mode standard, one job. Requested the Hoeffding title, n=1. Actual result status and source-bounded metadata are preserved in the separate query receipt; submission alone is not provider success.
+
+Actual matched retrieval: request created 2026-09-28T02:48:43Z; accepted 02:48:53.322433Z; completed 02:49:04.708106Z. Request SHA256 dc41889627cda9a503911ed8793a46fb06bad6d077332927752aa29cc38d5dd0. Result: https://github.com/awdawmip/kimi-query-bridge/issues/2566#issuecomment-5862385618. Outer FAILED; child PARTIAL with retrieval_verified=true, one title/metadata row and truncated abstract. The returned year 1992 identifies a reprint chapter, not the original 1948 article; publisher original metadata is kept distinct. One provider query confirmed, bridge model calls zero, upstream internal calls and billing unknown. No retry, full-text retrieval, or successful complete-source cache is asserted. Status PARTIAL_READBACK; source-bounded raw fields and operation receipt are retained separately from scientific conclusions.
