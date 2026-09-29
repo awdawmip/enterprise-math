@@ -1,0 +1,58 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "task_id": "RS-HBW-RETURN-INTERFERENCE-CERTIFICATE-20260929",
+  "registry_key": "RS-HBW-RETURN-INTERFERENCE-CERTIFICATE-20260929",
+  "publication_id": "TP2-3DBD2C905428FBE59AE4",
+  "publication_generation": 1,
+  "supersedes_publication_id": null,
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "taskbook_path": "research_tasks/RS-HBW-RETURN-INTERFERENCE-CERTIFICATE-20260929.md",
+  "taskbook_blob_sha1": "sha1:e578c4bfda92fad7e67e825437f84a5c1de18e54",
+  "publisher_role": "RESEARCHER",
+  "publisher_id": "EM-DIRECT-9F026E",
+  "published_at": "2026-09-29T02:44:18.266549+00:00",
+  "parent_objective_id": "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS",
+  "origin_kind": "DIRECT_USER_DIRECTION",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-HBW-RECORD-INTERFACE-AUDIT-20260929",
+  "claimable": true,
+  "effective_priority": "P2",
+  "effective_leverage": "MEDIUM",
+  "priority_source": "RESEARCHER_DEFAULT",
+  "publisher_priority_request": "P2",
+  "publisher_leverage_request": "MEDIUM",
+  "owner": "taskbook/unassigned",
+  "frontier": "返回Delta的现有证书依赖全记录穷举；缺非枚举有效界或可认证事件查询。",
+  "next_action": "依赖核验通过后，固定一个事件Delta查询的证书关系与全部计价输入。",
+  "research_value": "Research value to preserve: 返回Delta的现有证书依赖全记录穷举；缺非枚举有效界或可认证事件查询。",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "identity_lane": "HBW-RETURN-9F026E",
+  "source_refs": [
+    "research_notes/heartbeat_outward/20260929_9F026E_PUBLICATION/SOURCE_FRONTIER.md",
+    "research_notes/heartbeat_outward/20260929_9F026E_PUBLICATION/SOURCE_MANIFEST.json"
+  ],
+  "dependencies": [
+    "RS-HBW-RECORD-INTERFACE-AUDIT-20260929"
+  ],
+  "evidence_status": "CANDIDATE_SOURCE_REQUIRES_INDEPENDENT_SCOPE_CHECK",
+  "successor_gate": {
+    "new_information_gap": "返回Delta的现有证书依赖全记录穷举；缺非枚举有效界或可认证事件查询。",
+    "why_parent_result_does_not_close_it": "接口核验只能确认现有定义与反例，不能消除穷举证书的指数依赖。",
+    "discriminating_outcomes": [
+      "非枚举界或事件区间及计价证明",
+      "指定表示的精确失败/增长反例"
+    ],
+    "kill_condition": "仅以完整穷举树重新包装为廉价oracle，或失去工作返回交叉项。",
+    "alternative_route_or_free_exploration_considered": "比较已有精确事件查询、短段匹配与停止不划算的近似；不通过先验指定未知阶绕开返回问题。",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "独立核验与新证书构造具有不同输出和失败标准；保留依赖而非以核验PASS自动获得科学成功。"
+  },
+  "parent_objective_generation_id": "OG-7AE66316D7566C519AE0"
+}

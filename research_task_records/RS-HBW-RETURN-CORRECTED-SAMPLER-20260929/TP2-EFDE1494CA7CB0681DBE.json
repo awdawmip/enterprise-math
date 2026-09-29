@@ -1,0 +1,58 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "task_id": "RS-HBW-RETURN-CORRECTED-SAMPLER-20260929",
+  "registry_key": "RS-HBW-RETURN-CORRECTED-SAMPLER-20260929",
+  "publication_id": "TP2-EFDE1494CA7CB0681DBE",
+  "publication_generation": 1,
+  "supersedes_publication_id": null,
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "taskbook_path": "research_tasks/RS-HBW-RETURN-CORRECTED-SAMPLER-20260929.md",
+  "taskbook_blob_sha1": "sha1:18d9965238ce882e198e0c7a57e54569b643e558",
+  "publisher_role": "RESEARCHER",
+  "publisher_id": "EM-DIRECT-9F026E",
+  "published_at": "2026-09-29T02:44:18.266549+00:00",
+  "parent_objective_id": "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS",
+  "origin_kind": "DIRECT_USER_DIRECTION",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-HBW-RETURN-INTERFERENCE-CERTIFICATE-20260929",
+  "claimable": true,
+  "effective_priority": "P2",
+  "effective_leverage": "MEDIUM",
+  "priority_source": "RESEARCHER_DEFAULT",
+  "publisher_priority_request": "P2",
+  "publisher_leverage_request": "MEDIUM",
+  "owner": "taskbook/unassigned",
+  "frontier": "快基线P0与有符号Delta尚未组成合法、可计价的修正采样器。",
+  "next_action": "依赖返回项契约成立后，先证明正概率采样律与同阈值细化规则。",
+  "research_value": "Research value to preserve: 快基线P0与有符号Delta尚未组成合法、可计价的修正采样器。",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "identity_lane": "HBW-RETURN-9F026E",
+  "source_refs": [
+    "research_notes/heartbeat_outward/20260929_9F026E_PUBLICATION/SOURCE_FRONTIER.md",
+    "research_notes/heartbeat_outward/20260929_9F026E_PUBLICATION/SOURCE_MANIFEST.json"
+  ],
+  "dependencies": [
+    "RS-HBW-RETURN-INTERFERENCE-CERTIFICATE-20260929"
+  ],
+  "evidence_status": "CANDIDATE_SOURCE_REQUIRES_INDEPENDENT_SCOPE_CHECK",
+  "successor_gate": {
+    "new_information_gap": "快基线P0与有符号Delta尚未组成合法、可计价的修正采样器。",
+    "why_parent_result_does_not_close_it": "误差上界或有符号区间不自动给出正性、终止性和完整抽样分布。",
+    "discriminating_outcomes": [
+      "有效精确或epsilon受控采样器及全分布证书",
+      "特定修正策略的正性/代价失败见证"
+    ],
+    "kill_condition": "将有符号Delta当正混合，丢弃困难阈值，或隐藏校正预处理。",
+    "alternative_route_or_free_exploration_considered": "与精确整数质量树、继续精确事件查询或仅返回认证估计量比较；不强行宣称采样。",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "证书接口完成之后仍有独立的概率实现与复杂度问题，需要单独验收而不扩大上游任务。"
+  },
+  "parent_objective_generation_id": "OG-7AE66316D7566C519AE0"
+}
