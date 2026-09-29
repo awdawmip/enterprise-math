@@ -1,0 +1,125 @@
+{
+  "schema": "CFD_PUBLICATION_PREFLIGHT_INPUT_V1",
+  "source_repository": "awdawmip/enterprise-math",
+  "source_commit": "eeeda974bd72c5eab1efc81ccac6c276479bfbdf",
+  "global_read_commit": "8ea25f415804e4d9a26324ea2c214fe5a732e7ef",
+  "policy_digest": "sha256:44b2174111ec85b5dd252d07f474772649a4d36936b2c99acbfa2cfba8af7a73",
+  "ordered_policy_blobs": [
+    {
+      "path": "research_taskbook_policy.json",
+      "git_blob_sha1": "c326d6eed8f89f0c7be3e0a767ccbfbcdf972358"
+    },
+    {
+      "path": "AGENTS.md",
+      "git_blob_sha1": "4f5cf91a0c9f293c43011a964560d26b54234625"
+    },
+    {
+      "path": "FOUNDATIONAL_LOGIC.md",
+      "git_blob_sha1": "f089400136341efbf10a5e24e8f0729800b942cd"
+    },
+    {
+      "path": "foundational_logic.json",
+      "git_blob_sha1": "6875d84746ee369ea222fd32bdcd92206c2db9b2"
+    },
+    {
+      "path": "docs/GITHUB_INTERACTION_BUDGET.md",
+      "git_blob_sha1": "4e63cf335107e6a2c43e07e8144b40f66c3fc9bb"
+    },
+    {
+      "path": "docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md",
+      "git_blob_sha1": "538ab28305bfe7d1d1fb4650ff634474f6649826"
+    },
+    {
+      "path": "docs/RESEARCH_ARCHITECTURE.md",
+      "git_blob_sha1": "81abba617ee575ab770b7736de4caa9c40bea9e5"
+    },
+    {
+      "path": "docs/RESEARCH_RUNTIME_STATE_MACHINE.md",
+      "git_blob_sha1": "a2d626a7159291c4e1d60b3ed459aeb3457a3a43"
+    },
+    {
+      "path": "docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md",
+      "git_blob_sha1": "819b4d54038bd943c998f3de0861c9f729bd1457"
+    },
+    {
+      "path": "research_architecture.json",
+      "git_blob_sha1": "bc016f1ef9c7b1dec202f530e6a13d4419e64fe0"
+    },
+    {
+      "path": "research_runtime_state_machine.json",
+      "git_blob_sha1": "56927bf8ec00a0bcfd111517712039b8db94e9d4"
+    },
+    {
+      "path": "research_task_publication_contract_v2.json",
+      "git_blob_sha1": "2e1d24d80dca16f54542241cae57e237d667aa41"
+    },
+    {
+      "path": "templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json",
+      "git_blob_sha1": "1593a79ede875d5498c8fe4e08d908bd30c6c138"
+    },
+    {
+      "path": "research_axiom_candidate_state_machine.json",
+      "git_blob_sha1": "56f0a6a009ca01c8b09cb5b7682b5d17946fb9ef"
+    },
+    {
+      "path": "research_role_policy.json",
+      "git_blob_sha1": "b868febb218c6a7ed4373cc3edd25d59636d2850"
+    },
+    {
+      "path": "research_identity_state_machine.json",
+      "git_blob_sha1": "775fcdfb2f764de7b1583081f6332b2c5bea9af6"
+    },
+    {
+      "path": "active_turn_liveness.json",
+      "git_blob_sha1": "ae481f92648792313465b77bccf59074b2c28145"
+    },
+    {
+      "path": "final_response_identity_policy.json",
+      "git_blob_sha1": "6dd37111cc5085de5dc59beb5a93313f5f1ceabd"
+    },
+    {
+      "path": "research_taskbook_contract.json",
+      "git_blob_sha1": "8bf4183eb46c18ba4e2aef913b7b0f57e6bb490d"
+    },
+    {
+      "path": "tool_invocation_policy.json",
+      "git_blob_sha1": "7c11ccc90f2dcfed61444cfe97fe89d5d117aa26"
+    },
+    {
+      "path": "native_semantics_admissibility.json",
+      "git_blob_sha1": "689b039410d1a5f2ee404edc9a9b5819cb682349"
+    }
+  ],
+  "implementation_blobs": {
+    "tools/research_taskbook.py": "46e75a035680a4b5cd5f7ab4071c259c607e767e",
+    "control_plane/research_task_records_impl.py": "40f603244e69582bcff388eb6efd6044d51f6d76",
+    "tools/research_task_records.py": "1635f9b9dbf66713c86ba6759816c0a77498496e"
+  },
+  "tasks": [
+    {
+      "taskbook_path": "research_tasks/RS-CFD-PRESSURE-REUSE-REFRESH-20260929.md",
+      "publisher_role": "RESEARCHER",
+      "publisher_id": "EM-DIRECT-8F8257D1",
+      "research_value": "Convert the measured fixed-operator reuse signal into a costed refresh rule or its failure boundary, preserving all certification and fallback costs.",
+      "published_at": "2026-09-29T02:27:43.737479+00:00"
+    },
+    {
+      "taskbook_path": "research_tasks/RS-CFD-SPARSE-FACE-RESIDUAL-20260929.md",
+      "publisher_role": "RESEARCHER",
+      "publisher_id": "EM-DIRECT-8F8257D1",
+      "research_value": "Determine the minimal spatial/time-associated residual worth retaining at equal accuracy, including the cost or impossibility of sparse compensation.",
+      "published_at": "2026-09-29T02:27:43.737479+00:00"
+    }
+  ],
+  "existing_parent": "RS-CFD-PRESSURE-GAMG-20260910",
+  "existing_parent_publication": "TP2-3ADF62AFCB2E4C2B5803",
+  "scope": "Equivalent new-transaction preflight; not a full-repository checkout, native service result or whole-registry audit. Digest uses observed Git blob identities, exactly the native digest inputs.",
+  "native_session_failure": {
+    "issue": 2580,
+    "result_comment": 5882398949,
+    "error": "SOURCE_TREE_SIZE_LIMIT",
+    "session_created": false,
+    "driver_authority_granted": false
+  },
+  "task_directory_snapshot": "997606c3dfc5f0bb8546fa43c2f7189ec1fa7481"
+}
