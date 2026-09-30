@@ -1,0 +1,34 @@
+{
+  "schema": "BRC_SHOR_PAID_CACHE_S4_RESULT_V1",
+  "event_id": "BRC-SHOR-PAID-CACHE-20260930-S4",
+  "status": "AUTHOR_DERIVED_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "current_scientific_hard_blocker": null,
+  "parent_source_commit": "a634c92d88cb89ab2ee0ed01279df9f98d811e0e",
+  "global_read": "3d843566d5f12f1264a7332e64342b9690cc84e1",
+  "activity_id": "RA-CCBF9335770F4460A2F947CFA000114F",
+  "executed": {
+    "assertions_total": 1998,
+    "full_joint_rows_per_step": 10752,
+    "per_step_full_outputs_compared": 480,
+    "processes_exit0": 10,
+    "replicated_identical_files": 305,
+    "steps_per_process": 48
+  },
+  "cost_result": "Bounded policies lose on this workload; eager improves first repeat and approximately ties second. No stable general end-to-end benefit established.",
+  "artifacts": {
+    "PLAN.json": "dd5b37bd2887317335cb3443c8df03148ea21508e92d0fcc406e88e119087339",
+    "test_budget.py": "3886526658eeceec41632981753ac88dde4fa31c80386b2da6a876a5ba46bc23",
+    "PROOF.md": "770db79459acc07b9bdd0d43c69718695b8b961cc74d154f9c9b93bf9a81a216",
+    "SUMMARY.json": "e15fadbcca1b4cb7066e4c4ddf346eda2ca69369a0ae4e6aacfe92638133767a",
+    "REPRODUCIBILITY.json": "5647c8e8c3d6b329f59adf62515fae13b4c9215692919a513bfbd7adb0f080d5",
+    "RUN_COMPLETE.json": "a1b4b26b8a3a4616f3a682c481605a3b54060c6c6f8c405d5aeeb55b16af9385"
+  },
+  "not_executed": [
+    "New N-only cold factoring run",
+    "S2 template regeneration",
+    "arbitrary entangled boundary tensor",
+    "quantum hardware",
+    "new admission policy",
+    "independent author review"
+  ]
+}
