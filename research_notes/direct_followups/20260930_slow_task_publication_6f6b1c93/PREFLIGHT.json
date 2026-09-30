@@ -1,0 +1,176 @@
+{
+  "schema": "EM_EQUIVALENT_PUBLICATION_PREFLIGHT_RECEIPT_V1",
+  "source_snapshot": "2c9c67eb67f9ac54ea6609791316512a3a6cfdcd",
+  "observed_at": "2026-09-30T00:00:36.450464+00:00",
+  "validator_scope": "Equivalent current taskbook audit and V2 transaction audit; NOT full canonical CLI or repository-wide audit",
+  "source_algorithms": {
+    "tools/research_taskbook.py": "observed in /response/turn234",
+    "control_plane/research_task_records_impl.py": "40f603244e69582bcff388eb6efd6044d51f6d76",
+    "tools/research_task_records.py": "1635f9b9dbf66713c86ba6759816c0a77498496e"
+  },
+  "policy_digest": "sha256:44b2174111ec85b5dd252d07f474772649a4d36936b2c99acbfa2cfba8af7a73",
+  "policy_identity_source": "Verified immutable Git tree/file blob identities; same ordered digest algorithm as current canonical policy_digest",
+  "policy_input_blobs": [
+    {
+      "path": "research_taskbook_policy.json",
+      "git_blob": "c326d6eed8f89f0c7be3e0a767ccbfbcdf972358"
+    },
+    {
+      "path": "AGENTS.md",
+      "git_blob": "4f5cf91a0c9f293c43011a964560d26b54234625"
+    },
+    {
+      "path": "FOUNDATIONAL_LOGIC.md",
+      "git_blob": "f089400136341efbf10a5e24e8f0729800b942cd"
+    },
+    {
+      "path": "foundational_logic.json",
+      "git_blob": "6875d84746ee369ea222fd32bdcd92206c2db9b2"
+    },
+    {
+      "path": "docs/GITHUB_INTERACTION_BUDGET.md",
+      "git_blob": "4e63cf335107e6a2c43e07e8144b40f66c3fc9bb"
+    },
+    {
+      "path": "docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md",
+      "git_blob": "538ab28305bfe7d1d1fb4650ff634474f6649826"
+    },
+    {
+      "path": "docs/RESEARCH_ARCHITECTURE.md",
+      "git_blob": "81abba617ee575ab770b7736de4caa9c40bea9e5"
+    },
+    {
+      "path": "docs/RESEARCH_RUNTIME_STATE_MACHINE.md",
+      "git_blob": "a2d626a7159291c4e1d60b3ed459aeb3457a3a43"
+    },
+    {
+      "path": "docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md",
+      "git_blob": "819b4d54038bd943c998f3de0861c9f729bd1457"
+    },
+    {
+      "path": "research_architecture.json",
+      "git_blob": "bc016f1ef9c7b1dec202f530e6a13d4419e64fe0"
+    },
+    {
+      "path": "research_runtime_state_machine.json",
+      "git_blob": "56927bf8ec00a0bcfd111517712039b8db94e9d4"
+    },
+    {
+      "path": "research_task_publication_contract_v2.json",
+      "git_blob": "2e1d24d80dca16f54542241cae57e237d667aa41"
+    },
+    {
+      "path": "templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json",
+      "git_blob": "1593a79ede875d5498c8fe4e08d908bd30c6c138"
+    },
+    {
+      "path": "research_axiom_candidate_state_machine.json",
+      "git_blob": "56f0a6a009ca01c8b09cb5b7682b5d17946fb9ef"
+    },
+    {
+      "path": "research_role_policy.json",
+      "git_blob": "b868febb218c6a7ed4373cc3edd25d59636d2850"
+    },
+    {
+      "path": "research_identity_state_machine.json",
+      "git_blob": "775fcdfb2f764de7b1583081f6332b2c5bea9af6"
+    },
+    {
+      "path": "active_turn_liveness.json",
+      "git_blob": "ae481f92648792313465b77bccf59074b2c28145"
+    },
+    {
+      "path": "final_response_identity_policy.json",
+      "git_blob": "6dd37111cc5085de5dc59beb5a93313f5f1ceabd"
+    },
+    {
+      "path": "research_taskbook_contract.json",
+      "git_blob": "8bf4183eb46c18ba4e2aef913b7b0f57e6bb490d"
+    },
+    {
+      "path": "tool_invocation_policy.json",
+      "git_blob": "7c11ccc90f2dcfed61444cfe97fe89d5d117aa26"
+    },
+    {
+      "path": "native_semantics_admissibility.json",
+      "git_blob": "689b039410d1a5f2ee404edc9a9b5819cb682349"
+    }
+  ],
+  "semantic_review": {
+    "source_lineage_preserved": true,
+    "first_task_replays_existing_unreviewed_claims_not_new_direction": true,
+    "second_task_continuation_has_real_parent_in_same_transaction": true,
+    "source_execution_counts_not_claimed_as_current_reexecution": true,
+    "no_hidden_order_or_factor_input": true,
+    "publisher_role": "RESEARCHER",
+    "source_prior_contribution_ids": [
+      "EM-DIRECT-6F6B1C93"
+    ],
+    "new_execution_claim_created": false,
+    "source_revision_VII_recovered": "e7555422469f19a3c5765212dc3f37f559c3477e"
+  },
+  "tasks": [
+    {
+      "task_id": "RS-SLOWSTRUCT-RETURN-DEFECT-AUDIT-20260930",
+      "publication_id": "TP2-F010A0E21830942C176B",
+      "taskbook_path": "research_tasks/RS-SLOWSTRUCT-RETURN-DEFECT-AUDIT-20260930.md",
+      "record_path": "research_task_records/RS-SLOWSTRUCT-RETURN-DEFECT-AUDIT-20260930/TP2-F010A0E21830942C176B.json",
+      "taskbook_blob": "sha1:aeb1c7f0cdbf65fe9023352639bf80ea6432be41",
+      "taskbook_sha256": "57258b53ed2cc84485d46fb4ad0a193730c0926e1cbde4c156bb4196e54013d3",
+      "record_blob": "80f075b489eea4eda5ba3788361268fd70d7ca52",
+      "record_sha256": "5ebe0bc42872eb858d93e89fafcea32655baf5d2c384244623d20a59b83f339d",
+      "preflight": "PASS",
+      "findings": []
+    },
+    {
+      "task_id": "RS-SLOWSTRUCT-RETURN-DEFECT-NATIVE-20260930",
+      "publication_id": "TP2-8098FDC4C1B5A3A6F988",
+      "taskbook_path": "research_tasks/RS-SLOWSTRUCT-RETURN-DEFECT-NATIVE-20260930.md",
+      "record_path": "research_task_records/RS-SLOWSTRUCT-RETURN-DEFECT-NATIVE-20260930/TP2-8098FDC4C1B5A3A6F988.json",
+      "taskbook_blob": "sha1:628bd543f053a432b86fc973dadf8b7ea3d576bb",
+      "taskbook_sha256": "6adbac92cb6415d3056625c2b360213db292a841dd1ca9c1ad6837e935f1a79d",
+      "record_blob": "1104385bdad72cbe426501b878261e223647f9f3",
+      "record_sha256": "a8e12613894c434dea97cc7c22cd266916df8506284cc25200aad6fcc8bb396b",
+      "preflight": "PASS",
+      "findings": []
+    }
+  ],
+  "negative_controls": [
+    {
+      "case": "stale_digest",
+      "rejected": true,
+      "findings": [
+        "stale policy digest"
+      ]
+    },
+    {
+      "case": "missing_successor_gate",
+      "rejected": true,
+      "findings": [
+        "successor gate"
+      ]
+    },
+    {
+      "case": "fixed_runtime_identity",
+      "rejected": true,
+      "findings": [
+        "TB-RUNTIME-META:researcher_id"
+      ]
+    },
+    {
+      "case": "placeholder_section",
+      "rejected": true,
+      "findings": [
+        "body section:Mother question"
+      ]
+    },
+    {
+      "case": "policy_conflict",
+      "rejected": true,
+      "findings": [
+        "TB-REMOTE-RUNTIME:github actions"
+      ]
+    }
+  ],
+  "state": "PASS_NEW_TRANSACTION_ONLY"
+}
