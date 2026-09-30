@@ -1,13 +1,50 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-S7-46C44DD072174160",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "47299bfbf2c61bad274ba298b7faae691b7abd00",
+          "path": "research_notes/BRC_SHOR_EXECUTION_TREE_S7_46C44DD0_20260930_RESULT.json",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "4906c34561305bdc4b8930942c67faa195cc817d9ddcab0c2fc0becc5cdb8b7e",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "dcf009c0f30e49a616bbb718b4be5759b12c200f",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/47299bfbf2c61bad274ba298b7faae691b7abd00/research_notes/BRC_SHOR_EXECUTION_TREE_S7_46C44DD0_20260930_RESULT.json",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "local-S7-observation-turn806",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-S7-46C44DD072174160/readbacks/c7160ede0ef5170f2bed92f761849a8b27ce715d3a3690deeea074a95d44f225.json",
+          "verification_receipt_sha256": "c7160ede0ef5170f2bed92f761849a8b27ce715d3a3690deeea074a95d44f225"
+        }
+      ],
+      "event_id": "BRC-SHOR-EXECUTION-TREE-S7-46C44DD0-20260930",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-09-30T09:33:00.980278+00:00",
   "registration_key": "session:local-chat-s7-46c44dd072174160:TASK_RESEARCH",
-  "registration_origin": {"kind":"LIVE_SESSION","source_tracking_key":null},
-  "mode":"TASK_RESEARCH",
-  "researcher_id":"EM-DIRECT-S7-46C44DD0",
-  "session_id":"local-chat-s7-46c44dd072174160",
-  "session_state":"KNOWN",
-  "recorded_at":"2026-09-30T09:33:00.980278+00:00",
-  "authority":{"task_registration":false,"claim":false,"review":false,"working_truth":false,"mathematical_acceptance":false},
-  "checkpoints":[]
+  "registration_origin": {
+    "kind": "LIVE_SESSION",
+    "source_tracking_key": null
+  },
+  "researcher_id": "EM-DIRECT-S7-46C44DD0",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
+  "session_id": "local-chat-s7-46c44dd072174160",
+  "session_state": "KNOWN"
 }
