@@ -1,0 +1,44 @@
+{
+  "schema": "BRC_SHOR_S6_A914_RESULT_V1",
+  "event_id": "BRC-SHOR-JOINT-PLAN-20260930-S6-A914",
+  "status": "AUTHOR_DERIVED_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "source_note_commit": "89ccdcd338fd99f7176ddb2cdfd4e2d5fb4c10e4",
+  "source_note_blob": "a0cebd2fc0d41f940ca772257b1e4a7e9f7db5af",
+  "baseline": "LOCAL_S5_W8_914dee1; remote W16 kept as separate read-only evidence",
+  "conflict_disposition": "Different algorithms and run records share local identity labels; actual remote producer is not authenticated. No contested artifact or activity was changed.",
+  "common_S4_workload_sha256": "dd5b37bd2887317335cb3443c8df03148ea21508e92d0fcc406e88e119087339",
+  "current_scientific_hard_blocker": null,
+  "executed": {
+    "formal_processes_exit0": 10,
+    "steps_per_process": 48,
+    "full_state_updates": 480,
+    "joint_rows_per_update": 10752,
+    "worker_assertions": 2002,
+    "byte_equal_files": 305,
+    "metadata_files_equal_after_removing_RSS": 5,
+    "full_output_content_bytes_written_and_read": 808949120,
+    "extra_child_reuse_probe": "one structural check; not an additional 48-request benchmark",
+    "remote_W16_code_reexecuted": false
+  },
+  "process_seconds": {
+    "full": [22.28400004499997,23.17983513999991],
+    "local_W8_value65": [26.451427061000004,25.381010623000066],
+    "joint65": [25.826106341000013,26.032032587999993],
+    "local_W8_value195": [25.47542720900003,24.709709813000018],
+    "joint195": [27.490802605,26.39730499199993]
+  },
+  "new_policy_build_evict_hit": {"joint65":[2,1,18],"joint195":[6,4,40]},
+  "new_policy_build_then_reject": {"joint65":0,"joint195":0},
+  "child_probe_work": {"from_leaves":159276,"paid_children":85704,"with_resident_children":73572,"combined":159276},
+  "conclusion": "Fewer constructions, but no full-cost advantage over full recomputation in either budget or repetition. Planner cost and more full recomputation offset savings.",
+  "artifacts": {
+    "joint_plan.py":"87f3e37dcc1dd44d2ebea43d08582bd7dac460ead00b48948bce6c952eea1cc1",
+    "S6_PROTOCOL.json":"9ee328f93971f0d9726e0c6019c2c5e33332d425494b0ce9c6b4fe0f344e5f2d",
+    "PROOF.md":"e9ef862c1907d2947e06d825e16070af49ee60e0f5a8f425d8ec82022b9dce0f",
+    "SUMMARY.json":"bbeeb1c8574551767857406a0418f55771e76f1acd3a2f23e703a028d5e36bc9",
+    "AUDIT_S5.json":"6cfdc2b7d8089b6db5b64056d799590d42cf905b12e702e73e9e9d063a0b0925",
+    "REPRODUCIBILITY.json":"20eb34492d80dcb42cbeb3bbe371c27674f9e51f6f625bb3721a481cbc44b65c"
+  },
+  "activity_checkpoint": "NOT_APPENDED_CONTESTED_IDENTITY_PROVENANCE",
+  "not_executed": ["remote producer authentication","independent author review","new factoring","arbitrary entangled boundary","quantum hardware","raw-N cold start","future-workload evaluation","next planner cost-alignment policy"]
+}
