@@ -1,0 +1,53 @@
+{
+  "scope": "NEW_TRANSACTION_EQUIVALENT_PREFLIGHT_NOT_FULL_REPOSITORY_AUDIT",
+  "result": "PASS",
+  "executed_at": "2026-09-30T03:38:47.689562+00:00",
+  "scientific_snapshot": "88e814717bd60144e6a5add07fc4ab596d483b62",
+  "expected_main_parent": "8f0f0ba84a765c95f2201c114e946e8f7fe56506",
+  "parent_delta": "Only own session and authority records changed after scientific snapshot; both commit diffs read.",
+  "authority_record": "research_driver_authority_records/EM-DVR-7BF3E2/DA-5F9C3DE2493FB9E69B54.json",
+  "authority_record_blob": "cbc55654b483be6323d279cc493565d81136177f",
+  "new_generation_absence": "Exact research_task_records/RS-R11-ONE-TICK-DELAY-ATLAS-LOCAL-REPAIR-20260930 returned 404 at expected main parent; no prior generation selected.",
+  "taskbook_policy_blob": "c326d6eed8f89f0c7be3e0a767ccbfbcdf972358",
+  "audit_source_blob": "46e75a035680a4b5cd5f7ab4071c259c607e767e",
+  "record_source_blob": "40f603244e69582bcff388eb6efd6044d51f6d76",
+  "method": "Current native audit predicates extracted without relaxed checks; policy byte acquisition uses verified canonical Git blob identities; contract is explicitly documented consumed-field projection. Canonical two-pass prepare and record algorithms used. This is the protocol-permitted equivalent preflight, not execution of an unmodified full repository checkout.",
+  "policy_digest": "sha256:44b2174111ec85b5dd252d07f474772649a4d36936b2c99acbfa2cfba8af7a73",
+  "pre_review_findings": [],
+  "dispatch_findings": [],
+  "mandatory_body_sections": 5,
+  "record_consistency": "PASS",
+  "negative_controls": {
+    "stale_policy_digest": [
+      "TB-POLICY-STALE"
+    ],
+    "pending_policy_review": [
+      "TB-POLICY-REVIEW"
+    ],
+    "missing_successor_gate": [
+      "TB-SUCCESSOR-GATE"
+    ],
+    "missing_parent_task": [
+      "TB-SUCCESSOR-PARENT"
+    ],
+    "fixed_runtime_identity": [
+      "TB-RUNTIME-META"
+    ],
+    "missing_mother_section": [
+      "Mother question"
+    ],
+    "placeholder_section": [
+      "Mother question"
+    ],
+    "wrong_taskbook_blob": "REJECTED"
+  },
+  "task_id": "RS-R11-ONE-TICK-DELAY-ATLAS-LOCAL-REPAIR-20260930",
+  "publication_id": "TP2-D90E968EA0178B9BD0DE",
+  "taskbook_blob_sha1": "sha1:e89fd9a86aa0d1224403ac5f7643fc6565f3cce3",
+  "record_path": "research_task_records/RS-R11-ONE-TICK-DELAY-ATLAS-LOCAL-REPAIR-20260930/TP2-D90E968EA0178B9BD0DE.json",
+  "science_runs": 0,
+  "r11_cases_run": 0,
+  "original_r11_bundle_replayed": false,
+  "mathematical_acceptance_granted": false,
+  "runtime_claim_created": false
+}

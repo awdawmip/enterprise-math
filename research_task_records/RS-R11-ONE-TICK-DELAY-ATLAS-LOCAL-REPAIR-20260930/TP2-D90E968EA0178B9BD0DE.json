@@ -1,0 +1,74 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "task_id": "RS-R11-ONE-TICK-DELAY-ATLAS-LOCAL-REPAIR-20260930",
+  "registry_key": "RS-R11-ONE-TICK-DELAY-ATLAS-LOCAL-REPAIR-20260930",
+  "publication_id": "TP2-D90E968EA0178B9BD0DE",
+  "publication_generation": 1,
+  "supersedes_publication_id": null,
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "taskbook_path": "research_tasks/RS-R11-ONE-TICK-DELAY-ATLAS-LOCAL-REPAIR-20260930.md",
+  "taskbook_blob_sha1": "sha1:e89fd9a86aa0d1224403ac5f7643fc6565f3cce3",
+  "publisher_role": "RESEARCH_DRIVER",
+  "publisher_id": "EM-DVR-7BF3E2",
+  "published_at": "2026-09-30T03:38:47.680238+00:00",
+  "parent_objective_id": "PO-X6-UPPER-STRUCTURE-20260906",
+  "origin_kind": "DIRECT_USER_DIRECTION",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-X6-GLOBAL-TRIADIC-FIELD-NETWORK-LAW",
+  "claimable": true,
+  "effective_priority": "P1",
+  "effective_leverage": "HIGH",
+  "priority_source": "PUBLISHER_DECLARED",
+  "publisher_priority_request": "P1",
+  "publisher_leverage_request": "HIGH",
+  "owner": "taskbook/unassigned",
+  "frontier": "R11已有完整状态六周期和一个单延迟案例，尚未给出全部合法槽的一拍延迟分类、严格影响域、累计观测残差及含认证费用的局部修复成本。",
+  "next_action": "读取固定R11/R10原文，写出144个候选扰动的无歧义枚举与合法性条件，先证明背景相位约束和一步依赖锥；再核对原始代码/状态清单后运行准确参考与局部修复。",
+  "research_value": "把已知活动周期推进到固定规则下的全单延迟扰动分类和有成本的准确局部修复；同时保留状态恢复与累计观测残差的区别。恢复定理、新周期证书和有界未知均有信息价值，但不把未知写成不恢复。",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "identity_lane": "R11-DELAY-ATLAS",
+  "source_refs": [
+    "https://github.com/awdawmip/enterprise-math/blob/88e814717bd60144e6a5add07fc4ab596d483b62/research_notes/HEARTBEAT_ACTIVE_CYCLE_CCBF9335_20260930_R11.md",
+    "https://github.com/awdawmip/enterprise-math/blob/88e814717bd60144e6a5add07fc4ab596d483b62/research_notes/HEARTBEAT_RELEASE_FEEDBACK_CCBF9335_20260930_R10.md",
+    "https://github.com/awdawmip/enterprise-math/blob/88e814717bd60144e6a5add07fc4ab596d483b62/definitions/RESIDUAL_FAITHFUL_DISCRETE_RELATIONAL_SYSTEM.json",
+    "https://github.com/awdawmip/enterprise-math/blob/88e814717bd60144e6a5add07fc4ab596d483b62/definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.md",
+    "https://github.com/awdawmip/enterprise-math/blob/88e814717bd60144e6a5add07fc4ab596d483b62/docs/P023_COMPOSITION_SAFE_COLLAPSE.zh-CN.md",
+    "https://github.com/awdawmip/enterprise-math/blob/88e814717bd60144e6a5add07fc4ab596d483b62/research_tasks/RS_X6_GLOBAL_TRIADIC_FIELD_NETWORK_LAW_20260909.md",
+    "https://github.com/awdawmip/enterprise-math/blob/88e814717bd60144e6a5add07fc4ab596d483b62/research_tasks/RTASK-RF-FINITE-BUDGET-STABILITY-20260927.md",
+    "https://github.com/awdawmip/enterprise-math/blob/88e814717bd60144e6a5add07fc4ab596d483b62/research_tasks/RS-SLOWSTRUCT-RETURN-DEFECT-NATIVE-20260930.md"
+  ],
+  "dependencies": [
+    {
+      "action": "CONSUME",
+      "target": "https://github.com/awdawmip/enterprise-math/blob/88e814717bd60144e6a5add07fc4ab596d483b62/research_notes/HEARTBEAT_ACTIVE_CYCLE_CCBF9335_20260930_R11.md",
+      "satisfied": true
+    },
+    {
+      "action": "CONSUME",
+      "target": "https://github.com/awdawmip/enterprise-math/blob/88e814717bd60144e6a5add07fc4ab596d483b62/research_notes/HEARTBEAT_RELEASE_FEEDBACK_CCBF9335_20260930_R10.md",
+      "satisfied": true
+    }
+  ],
+  "evidence_status": "SOURCE_BACKED_CONDITIONAL_DERIVATION_UNREVIEWED_NOT_ADMITTED; ORIGINAL_R11_BUNDLE_NOT_REPLAYED_BY_PUBLISHER",
+  "successor_gate": {
+    "new_information_gap": "R11已有完整状态六周期和一个单延迟案例，尚未给出全部合法槽的一拍延迟分类、严格影响域、累计观测残差及含认证费用的局部修复成本。",
+    "why_parent_result_does_not_close_it": "全局更新律与背景周期描述无扰轨道；确定性、守恒和最终周期性不推出扰动回到该轨道，更不推出局部修复便宜。父任务仍开放；这里不声称其已完成或R11已获独立准入。",
+    "discriminating_outcomes": [
+      "全144案例回原轨道，附允许相位和恢复时间证书",
+      "至少一个与原轨道不相交的新周期准确证书",
+      "预算内未知，给已验证前缀、影响域和成本；不得称作永久不恢复",
+      "局部修复逐拍等价但总成本无收益的负结果"
+    ],
+    "kill_condition": "任一案例改变原规则、忽略完整pending/b/边界字段、将hash相等当状态相等、重算已知单例充当新增，或把未执行案例标成未知/通过，拒绝相应结论。",
+    "alternative_route_or_free_exploration_considered": "已比较有限预算稳定性、返回缺陷、X6全局律、QFT质量加权证书、RP15两个后继及D24第二位提升。既有任务保持原状；本题限定R11时序扰动，不重做通用商或首次周期。外部物理预测尚需固定本构与观察桥梁。",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "闭合八结点、有限144输入和固定256拍使失败可复核；将枚举和局部修复合为一个任务，避免拆出例行重放阶段。其残差/资源结论可直接约束后续动力学和算法主张。"
+  }
+}
