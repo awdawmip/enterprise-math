@@ -1,0 +1,306 @@
+# D25 portable research: bounded affine endpoint separation for \(\Lambda_p\)
+
+Status: `AUTHOR_PORTABLE_EXACT_FINITE_SEPARATION / UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING`
+
+## Source boundary
+
+This unit continues the same D25 portable branch after the durable
+special-truncation reflection no-go.
+
+Current pins used in the run:
+
+- GLOBAL_KNOWLEDGE_V1 canonical main:
+  `12b0249e263af560f1f7ec7bc83dbfb1c42d844a`;
+- Enterprise Math canonical main:
+  `cf8822a58936d46dac0795281224a79e99b8ce00`;
+- P000 blob:
+  `7334734bd1cff6d60bd6b73cd0c588fe01c88714`;
+- canonical D25 local-progress blob:
+  `51dd15a8142f3dda0506a306f9c0693a036f5891`.
+
+The immediately preceding portable checkpoint proved that the target-reversed
+A/B connection fibers do not admit a uniform rational Gosper/reflection
+certificate.  The remaining question was whether \(\Lambda_p\) nevertheless
+collapses to a very low-complexity finite-field formula in the already-owned
+endpoint coordinates.
+
+## 1. Declared formula class
+
+The existing finite-connection identity already uses denominator \(81\):
+
+\[
+\chi_p
+=
+\Lambda_p
++\frac{1568}{81}\theta_p
+-\frac{266}{9}\delta_p
+-\frac{1064}{81}.
+\]
+
+A natural first arithmetic compression class is therefore
+
+\[
+\boxed{
+81\Lambda_p
+\equiv
+A_c\theta_p+B_c\delta_p+C_c
+\pmod p,
+}
+\tag{1}
+\]
+
+where
+
+\[
+c=p\bmod24\in\{13,19\},
+\]
+
+with separate coefficients allowed in the two residue classes and
+
+\[
+\boxed{
+|A_c|,\ |B_c|,\ |C_c|\le4096.
+}
+\tag{2}
+\]
+
+The bound 4096 deliberately contains the coefficient scale already present
+after clearing denominator 81; for example
+
+\[
+1568,\qquad
+81\cdot\frac{266}{9}=2394,\qquad
+1064
+\]
+
+all lie inside it.
+
+The question in this unit is only whether (1)-(2) can hold for all target
+primes.  No statement about larger-height or nonlinear formulas is intended.
+
+## 2. Exact congruence lattice
+
+For a fixed residue class and a collection of target primes, every prime gives
+the exact linear congruence
+
+\[
+A_c\theta_p+B_c\delta_p+C_c
+\equiv81\Lambda_p\pmod p.
+\tag{3}
+\]
+
+The simultaneous solutions form an affine lattice
+
+\[
+x=x_0+Bz,\qquad
+x=(A_c,B_c,C_c)^T,\quad z\in\mathbf Z^3.
+\]
+
+The checker constructs this lattice exactly, one congruence at a time.  Each
+new prime multiplies the lattice determinant by \(p\).  LLL is used only to
+change the integer basis; it does not change the affine solution set.
+
+For a candidate satisfying the coefficient box (2),
+
+\[
+z=B^{-1}(x-x_0).
+\]
+
+Each coordinate of \(z\) therefore lies in an exact rational interval obtained
+by maximizing a linear form over the cube \([-4096,4096]^3\).  If even one
+coordinate interval contains no integer, the affine lattice does not meet the
+box.
+
+No floating-point inequality is used.
+
+## 3. Class \(13\bmod24\)
+
+Use the first eight target primes
+
+\[
+13,\ 37,\ 61,\ 109,\ 157,\ 181,\ 229,\ 277.
+\]
+
+Their product is
+
+\[
+\boxed{
+5764941279347809.
+}
+\]
+
+The exact reduced affine-lattice basis is
+
+\[
+B_{13}=
+\begin{pmatrix}
+9469&-260385&-191208\\
+47790&81236&-161513\\
+-31164&45453&-274307
+\end{pmatrix},
+\]
+
+with
+
+\[
+|\det B_{13}|
+=
+5764941279347809,
+\]
+
+exactly equal to the prime product.
+
+The affine offset produced by the congruence construction is
+
+\[
+x_{0,13}
+=
+(3833249006997065,0,0)^T.
+\]
+
+Exact inversion of \(B_{13}\), followed by the coefficient box (2), gives the
+integer coordinate bounds
+
+\[
+z_1=-9935532257,
+\]
+
+\[
+z_2\in
+[12063402490,\ 12063402489],
+\]
+
+\[
+z_3\in
+[3127695468,\ 3127695467].
+\]
+
+The last two intervals are empty.  Hence
+
+\[
+\boxed{
+\text{no class-13 coefficients satisfying (1)-(2) exist.}
+}
+\tag{4}
+\]
+
+## 4. Class \(19\bmod24\)
+
+Use the first eight target primes
+
+\[
+19,\ 43,\ 67,\ 139,\ 163,\ 211,\ 283,\ 307.
+\]
+
+Their product is
+
+\[
+\boxed{
+22735605775489993.
+}
+\]
+
+The exact reduced basis is
+
+\[
+B_{19}=
+\begin{pmatrix}
+64508&-48723&347374\\
+194123&-32899&-136314\\
+-137816&-274153&88941
+\end{pmatrix},
+\]
+
+with
+
+\[
+|\det B_{19}|
+=
+22735605775489993,
+\]
+
+again exactly the prime product.
+
+The affine offset is
+
+\[
+x_{0,19}
+=
+(11942323181817232,0,0)^T.
+\]
+
+The exact coefficient-box bounds give
+
+\[
+z_1\in[-21166770228,-21166770229],
+\]
+
+\[
+z_2\in[798807191,798807190],
+\]
+
+\[
+z_3\in[-30336112907,-30336112908].
+\]
+
+Every displayed interval is empty. Therefore
+
+\[
+\boxed{
+\text{no class-19 coefficients satisfying (1)-(2) exist.}
+}
+\tag{5}
+\]
+
+## 5. Consequence
+
+Equations (4)-(5) are an exact bounded-height separation certificate:
+
+\[
+\boxed{
+\Lambda_p
+\text{ cannot be eliminated by any classwise affine endpoint formula }
+(1)
+\text{ of height }\le4096.
+}
+\]
+
+This is stronger than a regression fit failure: the exact congruence lattice
+has no point in the declared coefficient box.
+
+It remains deliberately narrower than a universal nonrepresentability theorem.
+The following are still open:
+
+- affine formulas with substantially larger arithmetic height;
+- nonlinear formulas in \((\theta_p,\delta_p)\);
+- explicitly \(p\)-dependent finite-field coefficients;
+- new arithmetic coordinates generated by the special A/B truncations.
+
+Thus the currently justified BRC carrier remains
+
+\[
+\boxed{
+(\delta_p,\theta_p,\Lambda_p),
+}
+\]
+
+and \(\Lambda_p\) cannot yet be erased.
+
+Reuse disposition:
+
+`COMPOSE_APPLIED / EXACT_AFFINE_LATTICE /
+BOUNDED_HEIGHT_ENDPOINT_SEPARATION / LAMBDA_RETAINED`.
+
+## 6. Next exact unit
+
+The rational-reflection class and the natural bounded-height affine endpoint
+class are now both closed negatively.
+
+The next smallest useful question is to identify the **intrinsic recurrence of
+the normalized A/B partial sums** rather than search an ever larger formula
+catalog.  Because their summands are hypergeometric but not Gosper-summable,
+derive the minimal holonomic recurrence for the partial sums and use it as the
+typed arithmetic update law for \(\Lambda_p\).
+
+That would replace an opaque repair scalar by a finite-state update coordinate
+without pretending that it is an old endpoint quantity.
