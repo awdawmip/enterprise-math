@@ -1,0 +1,152 @@
+{
+  "schema": "EM_PORTFOLIO_DELIVERY_OBSERVATION_V1",
+  "source_commit_evaluated": "0d72a83f7300153811938296830320f3065ffbe0",
+  "observed_at": "2026-10-02T14:25:23.558892+00:00",
+  "scope": "Bounded portfolio inspection, verified mechanical fixes and evidence delivery; no claim or formal mathematical acceptance.",
+  "local_canonical_pre_final": {
+    "authorized": false,
+    "authorization_authority": "CONTROL_ONLY_PRE_FINAL_NO_TASK_AUTHORITY",
+    "final_allowed": true,
+    "required_action": "RETURN_FINAL",
+    "parent_liveness": {
+      "transition": "FINAL_ALLOWED",
+      "final_allowed": true,
+      "reason": "parent user objective is complete",
+      "required_action": "RETURN_FINAL",
+      "continuation_lease_preserved": false
+    }
+  },
+  "native_pre_final_attempts": [
+    {
+      "request_id": "pre_final-ef5f34f5f48a407a",
+      "issue_url": "https://github.com/awdawmip/kimi-query-bridge/issues/2633",
+      "status": "FAILED",
+      "error": "UPSTREAM_CODE_REVIEW_REQUIRED: tools/check_research_common_surface.py",
+      "remediation": "Restore exact reviewed checker bytes; use existing canonical bootstrap invocation."
+    },
+    {
+      "request_id": "pre_final-817b688b89a64744",
+      "issue_url": "https://github.com/awdawmip/kimi-query-bridge/issues/2634",
+      "status": "FAILED",
+      "error": "GITHUB_GET_TOTAL_TIMEOUT",
+      "remediation": "No native success claimed. Local canonical non-task Driver PRE_FINAL evaluated using the real unchanged session and liveness; no new remote request or safety/configuration change."
+    }
+  ],
+  "checker_git_blob": "29eba5adcb2551b4e386bd466323d4135dbd92fd",
+  "final_source_byte_readback": {
+    "commit": "0d72a83f7300153811938296830320f3065ffbe0",
+    "remote_main": "0d72a83f7300153811938296830320f3065ffbe0",
+    "files": [
+      {
+        "path": "bilingual_pairs.json",
+        "git_blob": "5702a078ed837dd7683f735c15cbfbfa3b18d912",
+        "sha256": "06c9cfbd8d36bdc29d76f622eec5e2b9e2d1baec4cc0bf412c965cefa62120ae",
+        "byte_identical": true
+      },
+      {
+        "path": "docs/AUTONOMOUS_RESEARCH_OPERATIONS.en.md",
+        "git_blob": "75130e8540d1639560811f8bcc8cbbf0f0678346",
+        "sha256": "881c8ab77d04ca29f7237c17347d2315b850f90f2a7282c23c88ec7026291d9b",
+        "byte_identical": true
+      },
+      {
+        "path": "docs/AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md",
+        "git_blob": "0aa7841c21ddc275011a98833820fd91beb3c169",
+        "sha256": "dea94d3af5071dcf276592678e480e441f7477d303f1687cdc9c6464590b931b",
+        "byte_identical": true
+      },
+      {
+        "path": "docs/CHATGPT_ORDINARY_CONTROL.en.md",
+        "git_blob": "f0beae0e8df20b38718ab1e1aaac95410bec0cd4",
+        "sha256": "4ff76c7de99a923514cd0651405b4e5e08797abdfa4442dbc679c57e652b3163",
+        "byte_identical": true
+      },
+      {
+        "path": "docs/CHATGPT_ORDINARY_CONTROL.zh-CN.md",
+        "git_blob": "9a00e7a4c9012ee5bbe901d03bebd5f1e36ba3e4",
+        "sha256": "1754b920c85967dd641db24da2f11ce2542ff4575a39ca28dbfe40564025a36e",
+        "byte_identical": true
+      },
+      {
+        "path": "docs/CONTROL_CLIENT_RECOVERY_20260922.en.md",
+        "git_blob": "106511a161adb451d54675c974170c8a61307772",
+        "sha256": "daf24fd0338f1e6daae7d06753646fd55939d70e237ec2471198e5a8a693d6a7",
+        "byte_identical": true
+      },
+      {
+        "path": "docs/CONTROL_CLIENT_RECOVERY_20260922.zh-CN.md",
+        "git_blob": "daf39165df4a65301e53c45c9ec165ad5cce8592",
+        "sha256": "28b658cba9e01dc62b697d066201ea940f6621c865cc3626e2206b58123a2778",
+        "byte_identical": true
+      },
+      {
+        "path": "docs/RESEARCH_COMMON_SURFACE.en.md",
+        "git_blob": "1283be19fdf06009a1c5333f8dba43cdefffeedc",
+        "sha256": "5cde42516530472df057ad91acef771ae1becab5f3e4f2e548aab742af8ced99",
+        "byte_identical": true
+      },
+      {
+        "path": "docs/RESEARCH_COMMON_SURFACE.zh-CN.md",
+        "git_blob": "04caa6e73f311efaaf18ccbb1fe4052b4c5e1106",
+        "sha256": "147c3817fb3783261063676d4398f2e57c1650b5985769bc95168c987f9e61a1",
+        "byte_identical": true
+      },
+      {
+        "path": "driver_reviews/portfolio/EM-DVR-E8DCE5/BLOCKED_LIVE_RECEIPT.json",
+        "git_blob": "052f182279108ed2fa744af7a43ad574a22df3aa",
+        "sha256": "66562c1fe6ba18db9440f5f0887baeca05ac16c9ba4820d0d41a2904bb01835a",
+        "byte_identical": true
+      },
+      {
+        "path": "driver_reviews/portfolio/EM-DVR-E8DCE5/BRC_EVIDENCE_READBACK.json",
+        "git_blob": "31a07c7f4bcae6bb94aa1d5aaff72e0b03d85fa1",
+        "sha256": "cd42b87ac9b70e9e828db1e4345f01a29738facb99d455a84e58ccb63ed99c02",
+        "byte_identical": true
+      },
+      {
+        "path": "driver_reviews/portfolio/EM-DVR-E8DCE5/DISPATCH_LIVE_RECEIPT.json",
+        "git_blob": "f113fef4adb656c6a0789826f9d183f25544b739",
+        "sha256": "86b5b087a29da13821dfc33c4ff3c69ac913b8ad6ee83251b637e265bf962df9",
+        "byte_identical": true
+      },
+      {
+        "path": "driver_reviews/portfolio/EM-DVR-E8DCE5/PCF7_TASK_LIVE_RECEIPT.json",
+        "git_blob": "9ad20e23659530773b6062ff14ba9d2520676eca",
+        "sha256": "9d317c85657f8c309997006a8f598f40c31f624d71f418d2d491886a62b4a6d0",
+        "byte_identical": true
+      },
+      {
+        "path": "driver_reviews/portfolio/EM-DVR-E8DCE5/PORTFOLIO_RECHECK_20261002.md",
+        "git_blob": "9e6f2487897925ee73c6a3c7dfe74d9a7abc5794",
+        "sha256": "891f01f1a0e22463831799e23153f414ca689987f317ccbe9173235f52989c77",
+        "byte_identical": true
+      },
+      {
+        "path": "driver_reviews/portfolio/EM-DVR-E8DCE5/VALIDATION.json",
+        "git_blob": "d20d8d9b56ab67670dd102f54d70df2852edf5b1",
+        "sha256": "2ff9d2250b5d8c1daeb1b9c6b2cc2cdf23167b59e24dd6197f31dbf066564e91",
+        "byte_identical": true
+      },
+      {
+        "path": "driver_reviews/portfolio/EM-DVR-E8DCE5/a3_singleton_counterexample.py",
+        "git_blob": "df355ee38976fbeede985b54f89c113f5c3b1310",
+        "sha256": "a8de62fc6cc95271d54383dc450238824c55154213e7849b04693d27d60aa9fa",
+        "byte_identical": true
+      },
+      {
+        "path": "research_common_surface.json",
+        "git_blob": "7a1d075659609e60678460cdc4046639a2cfa631",
+        "sha256": "3cfddf003910f10987979f9421dd939bcc0061b9bee75ddb66e9f4bda15f8564",
+        "byte_identical": true
+      },
+      {
+        "path": "tools/check_research_common_surface.py",
+        "git_blob": "29eba5adcb2551b4e386bd466323d4135dbd92fd",
+        "sha256": "fc27ebe33f02f786401d8dfdd43ba3a2383ea167bec9c02f57fdb7f5a7c41149",
+        "byte_identical": true
+      }
+    ]
+  },
+  "mathematical_parent_closure_granted": false,
+  "research_task_execution_started": false
+}
