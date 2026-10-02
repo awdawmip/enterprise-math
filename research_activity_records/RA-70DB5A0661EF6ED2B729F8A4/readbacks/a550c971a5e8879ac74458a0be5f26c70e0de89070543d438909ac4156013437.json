@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "experiments/brc_hidden_residual_20261003_fca717/CROSS_REVIEW.md",
+    "ref": "b61af8438886a3c1eb8ff53297447837bd2ee507",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "brc-hidden-source-20261003-0",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# 旧二维读出不可见残差模块的独立审查\n\n审查人：`EM-DIRECT-A48630 / TASK_RESEARCH`。审查的是 root 实作的 `hidden_plane.py`，不是本人实作的 `hidden_correlated.py`；不冒充 Driver 裁定。所审脚本 SHA-256 为 `07ae847ea90529378cb6cc05766dddcdc629ac837e8d70324f5e2bb437883c3b`。\n\n已阅读源码中的原生推进、CWM、旧读出推送、条件统计、独立返回计数和耦合响应段。以下推导与额外数值核验独立于该脚本；未发现需要修改的数学或实现错误。\n\n## 均匀路由下，条件四阶修正成立\n\n令 `U X=(X1+X3+X5,X2+X4+X6)`，`P4=I-U^T U/3`、`H4=P4 X`。这是明确的经典基准读出及其核，不被当作 STAR 投影、完整晶包层或新的空间本体。\n\n给定完整旧二维方向词，两个三轴组的步数分别为 `N` 和 `n-N`。每组的条件中心化创新平方长度恒为 `2/3`，二阶矩为该组三坐标中心化投影除以 3；符号词不改变其二、四阶矩。故\n\n\\[\nE\\|H4\\|^2=2n/3,\n\\]\n\n\\[\nE(\\|H4\\|^4\\mid\\text{旧方向词})\n=4n^2/9+\\tfrac49[N^2+(n-N)^2]-4n/9.\n\\]\n\n无条件 `N~Binomial(n,1/2)`，得到 `M4=2n^2/3-2n/9`、`K4=-2n/9`、`C4=-1/(2n)`。平方宽度虽对任意旧方向词相同，四阶矩仍可随组步数改变。\n\n给定旧终点 `Y_n=0`，令 `n=2m`、`N=2K`。方向词计数给出\n\n\\[\nP(K=k\\mid Y_n=0)=\\frac{\\binom mk^2}{\\binom{2m}m},\\qquad\n\\operatorname{Var}(N\\mid Y_n=0)=\\frac{m^2}{2m-1}.\n\\]\n\n因此相对无条件二项组步数，`Var(N)` 增加 `n/[4(n-1)]`；四阶矩增加 `2n/[9(n-1)]`。条件均值仍为零，条件协方差仍为 `nP4/6`，所以\n\n\\[\nC_{4\\mid Y_n=0}=-\\frac{n-2}{2n(n-1)}.\n\\]\n\n第 2 步该收缩为零并不意味着 Gaussian；条件分布仍有有限支撑。审查按上述超几何权重独立枚举 `m=1..10`，直接求条件四阶矩，10 个时间点都精确符合该式。\n\n## 旧概率律相同的非均匀路由改变隐藏条件规律\n\n脚本给两个三轴组相同的组内权重 `q`，每组总概率仍为 `1/2`，每个符号均分。因此旧四方向创新概率仍为 `1/4`。所有组内权重均正，CWM 路径数细分倍数保持 `3^n`；最大路径权重的倍数改为 `max(q)^n`，不是统一的 `3^-n`。源码对此作了正确区分。\n\n`P4 e_i` 的平方长度始终为 `2/3`，故无条件隐藏 MSD 仍为 `2n/3`。给定旧方向词，单步隐藏均值为带符号的 `q-1/3`；旧终点归零时这些均值相消，而剩余协方差的每步迹为 `1-sum q_i^2`。因此\n\n\\[\nE(\\|H4_n\\|^2\\mid Y_n=0)=n(1-\\textstyle\\sum_i q_i^2).\n\\]\n\n三种路由的系数分别为 `2/3,5/8,17/50`，与代码一致。无条件协方差有效秩 `r_eff=(tr Sigma)^2/tr(Sigma^2)` 分别为 `4,64/17,400/149`。单步固定平方长度使 `K4_single=-2 tr(Sigma_single^2)`，独立相加后即 `C4=-2/(r_eff n)`。这里的有效秩是统计量，不是把原生六维空间换成分数维。\n\n## 隐藏返回的四维差分格点与常数\n\n事件 `H4=0` 等价于 `X=(a,b,a,b,a,b)`，并不要求原生位置回到零。用两个组内坐标差表示此事件，得到四个整数差分坐标。单组的全时钟协方差块为\n\n\\[\n\\begin{pmatrix}1/3&1/6\\\\1/6&1/3\\end{pmatrix},\n\\]\n\n两个块的四维总行列式为 `1/144`。步集生成整个差分格点，存在长度 2 和 3 的闭路，因此周期为 1。格点局部中心极限定理给出\n\n\\[\nP(H4_n=0)\\sim\\frac{1}{(2\\pi n)^2\\sqrt{1/144}}\n=\\frac{3}{\\pi^2 n^2}.\n\\]\n\n根代码按两个独立三角格点返回词数 `g(j),g(n-j)` 与组间交错系数 `binom(n,j)` 计数，除以 `12^n`，实现与该事件一致。第 3 步的返回词有两个组、两个整体符号、六种顺序，共 `24` 条，所以 `P(H4_3=0)=24/12^3=1/72`；原生全六坐标的奇数步返回仍不可能。不能把二者混称为同一“回归”。\n\n## 可见到隐藏的响应驱动反例\n\n根代码另声明有理响应 `Z`，由相同原生步驱动，`Z'=A Z+xi`，其中 `A=I+beta v 1^T`、`beta=1/4`、`v=e1-e2`。原生 `X` 仍只作整数单位步。由于 `1^T v=0`，`1^T A=1^T` 且 `A^k=I+k beta v1^T`，所以旧标量完整路径保持，同时\n\n\\[\nH_n=P5 Z_n=\\sum_{j=1}^n\\left[P5\\xi_j+\\beta(n-j)v\\epsilon_j\\right].\n\\]\n\n各括号按独立创新相加，轴中心化项与符号权重的二阶交叉项为零，得到\n\n\\[\nE\\|H_n\\|^2=5n/6+2\\beta^2\\sum_{k=0}^{n-1}k^2\\sim n^3/24.\n\\]\n\n单创新第四收缩可直接展开固定长度的中心化轴向量，所有二次 `beta k` 项相消，余下 `-5/18-8 beta^4 k^4`，故\n\n\\[\nK4=-5n/18-8\\beta^4\\sum k^4,\\qquad C4\\sim-18/(5n).\n\\]\n\n给定偶数步旧标量归零，符号桥的非对角相关为 `-1/(n-1)`，所以\n\n\\[\n\\operatorname{Var}\\left(\\sum k\\epsilon_k\\mid\\sum\\epsilon_k=0\\right)\n=n^2(n+1)/12.\n\\]\n\n据此条件隐藏 MSD 为 `5n/6+beta^2 n^2(n+1)/6`。这证明相同旧概率律下隐藏响应可以呈三次增长；它是明确的响应驱动机制，不是原生 Cell 的分数转移或已建立的守恒物理通量。\n\n额外独立检验超出根脚本的前 3 步联合枚举：审查直接展开第 4 步全部 `12^4=20,736` 条原生词，用闭式 `Z=X+beta v sum_j(3-j)epsilon_j` 计算整数倍隐藏坐标 `12H`，得到\n\n- 无条件隐藏 MSD：`61/12`；\n- 隐藏第四收缩：`-601/144`；\n- 给定旧标量零的隐藏 MSD：`25/6`。\n\n三者与公式精确一致。该审查计数单列，不冒称 root 完整 128 步运行的独立重复；本人模块也不借此自审为独立通过。\n",
+      "display_title": "CROSS_REVIEW.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/b61af8438886a3c1eb8ff53297447837bd2ee507/experiments/brc_hidden_residual_20261003_fca717/CROSS_REVIEW.md",
+      "encoding": "utf-8",
+      "sha": "20882f61bbc525539e71a39a2b38d7896396906f"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
