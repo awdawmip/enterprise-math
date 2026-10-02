@@ -3,7 +3,8 @@
 Status: `ACTIVE / DIRECT_USER_NAMING_AND_COORDINATE_CONSTRAINT`
 Effective: `2026-09-19`
 Position updated: `2026-09-23`
-Authority: 用户于 2026-09-19 明确命名，并于 2026-09-23 授权更新残差保真定位；既有 P000 与原生 X6 基础保留，不以实验结果变更世界公理。
+Terminology clarified: `2026-10-02`
+Authority: 用户于 2026-09-19 明确命名，于 2026-09-23 授权更新残差保真定位，并于 2026-10-02 明确纠正“立体/三维/晶包层”用语；既有 P000 与原生 X6 基础保留，不以实验结果变更世界公理。
 Machine contract: `HEARTBEAT_WORLD_NATIVE_X6_TIME.json`
 English counterpart: [HEARTBEAT_WORLD_NATIVE_X6_TIME.en.md](HEARTBEAT_WORLD_NATIVE_X6_TIME.en.md)
 
@@ -13,7 +14,11 @@ English counterpart: [HEARTBEAT_WORLD_NATIVE_X6_TIME.en.md](HEARTBEAT_WORLD_NATI
 
 正式中文名：`心跳世界`。稳定机器标识与英文对照名：`HEARTBEAT_WORLD` / `Heartbeat World`。
 
-完整世界为 `6D_ENTERPRISE_NATIVE_SPACE + 1D_TIME`，不是普通三维空间的六个正反方向，也不是七条空间轴。二维图、三维立体图、FCC 载体与三轴切面只承担切面或观察功能，不替代完整原生世界。
+完整世界为 `6D_ENTERPRISE_NATIVE_SPACE + 1D_TIME`，不是外部欧氏三维空间的六个正反方向，也不是七条空间轴。
+
+在进取数论的本项目用语中，**“立体”指完整六维原生空间；“三维”指该六维立体世界中的一层晶包**。三维与立体不可互换，不称一层三维晶包为完整立体世界；时间仍单独记录，不计为空间维度。描述外部欧氏三坐标模型时须明确外部语境，不能移用其惯常“立体”称呼覆盖此原生约定。
+
+平面图、三坐标显示与 FCC 载体只能在声明映射下提供观察，不替代完整六维立体状态。任意三轴限制、三坐标投影或低秩支撑不自动构成一层完整晶包；本次用语纠正不新增晶包层选择算子、全局载体桥或传播定律。残差主计算须保留六维原生状态中对目标观察与后续操作有效的信息，不能因为经典基准是平面就预先清除其余分量。
 
 ## 原生空间坐标
 

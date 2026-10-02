@@ -3,7 +3,8 @@
 Status: `ACTIVE / DIRECT_USER_NAMING_AND_COORDINATE_CONSTRAINT`
 Effective: `2026-09-19`
 Position updated: `2026-09-23`
-Authority: Direct user naming on 2026-09-19 and residual-fidelity position update on 2026-09-23; existing P000 and native X6 foundations are retained, not replaced by experimental results.
+Terminology clarified: `2026-10-02`
+Authority: Direct user naming on 2026-09-19, residual-fidelity position update on 2026-09-23, and explicit correction of the native terms 立体, 三维 and 晶包层 on 2026-10-02; existing P000 and native X6 foundations are retained, not replaced by experimental results.
 Machine contract: `HEARTBEAT_WORLD_NATIVE_X6_TIME.json`
 Chinese counterpart: [HEARTBEAT_WORLD_NATIVE_X6_TIME.md](HEARTBEAT_WORLD_NATIVE_X6_TIME.md)
 
@@ -13,7 +14,11 @@ Chinese counterpart: [HEARTBEAT_WORLD_NATIVE_X6_TIME.md](HEARTBEAT_WORLD_NATIVE_
 
 The stable machine identifier is `HEARTBEAT_WORLD`; the English name is `Heartbeat World`. The canonical Chinese name is recorded in the machine contract and Chinese counterpart.
 
-The complete world is `6D_ENTERPRISE_NATIVE_SPACE + 1D_TIME`, not the six signed directions of ordinary three-dimensional space and not seven spatial axes. Two-dimensional diagrams, three-dimensional views, FCC carriers and three-axis sections serve only as sections or observations, not as the complete native world.
+The complete world is `6D_ENTERPRISE_NATIVE_SPACE + 1D_TIME`, not the six signed directions of external Euclidean three-dimensional space and not seven spatial axes.
+
+In this project's Enterprise terminology, **立体 denotes the complete six-dimensional native spatial world; 三维 denotes one 晶包 layer within that world**. These terms are not interchangeable. One such layer is not the complete 立体 world. Time remains separately typed and is not a spatial dimension. External Euclidean three-coordinate models must be explicitly identified as external; their ordinary spatial vocabulary does not override this native terminology.
+
+Planar diagrams, three-coordinate displays and FCC carriers provide observations only under declared maps; they do not replace the complete six-dimensional state. An arbitrary three-axis restriction, three-coordinate projection or low-rank support is not automatically a complete 晶包 layer. This terminology correction introduces no layer-selection operator, global carrier bridge or propagation law. Primary residual calculations must retain native six-dimensional information relevant to the target observations and future operations, rather than clearing other components because a classical benchmark is planar.
 
 ## Native spatial coordinates
 
