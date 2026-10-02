@@ -37,6 +37,8 @@ Driver: `EM-DVR-E8DCE5 / CONTROL_PLANE`。本次沿同一真实 session 和 DA �
 
 治理运行回读：`SUCCEEDED / CANONICAL_PUBLICATION_VERIFIED / AUTHENTICATED_HANDOFF_CONTINUATION`。真实 run 为 `open-fac153c2a866429b`；`publish_checkpoint-6c7cd0d433ce4c95` 已在 Source `30e72e470ac292c306ab7aca110fe22770d1f98d` 保存 checkpoint，并通过 Issue #240 comment `5955243781` 对本次真实 CLAIM 完成认证交接。任务机的下一步已替换为消费 FQ007 关闭结果、仅对其他合格材料继续治理，不再停在旧验证/传播待办。既有广义维护任务保持可接续，未宣称整个任务 DONE。见 [完整原生交接回执](FQ007_NATIVE_HANDOFF_RECEIPT_20261002.json)。
 
+最终门禁：远端 `pre_final-8262893941fe4296` 明确失败为 `GITHUB_GET_TOTAL_TIMEOUT`；没有重发已完成的写入。本地使用同一 `tools.research_runtime_guard.pre_final_gate`，保留真实 Driver/task/CLAIM/ER 绑定及认证 HANDOFF、从当前不可变出版恢复登记后，得到 `final_allowed=true`。这仅是本地规范控制流检查，不冒称远端最终门禁成功或服务超时已经修复；正式发布与 HANDOFF 的成功回执保持有效。见 [完整边界与输入](FINAL_REPAIR_GATE_20261002.json)。
+
 本次未改变云环境配置、网络权限或凭据，未部署或派发 Actions，未重跑 S15、作者 BRC 数值或 CFD 原生轨迹。
 
 Driver-ID: EM-DVR-E8DCE5 / CONTROL_PLANE
