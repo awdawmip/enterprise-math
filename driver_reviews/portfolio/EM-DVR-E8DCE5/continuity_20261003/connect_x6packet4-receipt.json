@@ -1,0 +1,326 @@
+{
+  "adapter_status": "COMPLETE",
+  "bridge_receipt": {
+    "conversation_id": "em-cloud-research-review-20261002-8b3d37f87583",
+    "created": 1790958362,
+    "error": null,
+    "formal_task_created": false,
+    "next_actions": [
+      "Continue from the verified native receipt; SUCCEEDED is transport completion, not mathematical acceptance."
+    ],
+    "operation": "continuation",
+    "platform_session_attested": false,
+    "receipt": {
+      "authority": "EXISTING_CANONICAL_SOURCE_PROGRAM",
+      "events_sha256": "63caf029e5977ede0755b4c49b18d462f5024bd927fe8d9878f54badbdbd1192",
+      "observed_at": "2026-10-02T16:28:07.145949+00:00",
+      "result": {
+        "artifact_errors": [
+          {
+            "error": "DRAFT_OR_UNVERIFIED: artifact absent from immutable source manifest",
+            "path": "research/x6-legacy-plane-reconciliation-em-x6p-40b5bd@a0bfa8eace20b061f5b228c733acdc46221388d7:research_returns/X6_LEGACY_PLANE_RECONCILIATION_RETURN_20260905.md"
+          }
+        ],
+        "continuation_input_contract": {
+          "active_session_may_be_preempted": false,
+          "artifact_pin_required": [
+            "repository",
+            "source_commit",
+            "path",
+            "git_blob_sha1",
+            "sha256"
+          ],
+          "claim_input_fields": [
+            "new_researcher_id",
+            "new_session_id",
+            "new_claim_id",
+            "execution_branch",
+            "execution_branch_base",
+            "allowed_outputs",
+            "expected_previous_claim_id",
+            "expected_previous_comment_id",
+            "frontier",
+            "reason"
+          ],
+          "explicit_release_route": "Authenticate a native HANDOFF(CONTINUATION) for the exact old claim, then RESUME; a taskbook pin or caller boolean is not release authority.",
+          "freshness_seconds": 300,
+          "frontier_required": [
+            "source_commit",
+            "artifacts",
+            "current_unfinished_unit",
+            "next_action",
+            "completed_units",
+            "do_not_repeat",
+            "contributor_ids"
+          ],
+          "max_frontier_artifacts": 64,
+          "recovery_basis": [
+            "STALE_SESSION"
+          ],
+          "recovery_evidence_required_for_live_takeover": [
+            "basis",
+            "previous_session_id",
+            "observed_at",
+            "source_ref",
+            "active_session_confirmed"
+          ],
+          "source_ref_rule": "one exact artifact pin whose content supports the claimed recovery basis",
+          "stale_basis_extra_required": "last_activity_at",
+          "stale_threshold_seconds": 600
+        },
+        "continuation_seed": null,
+        "delivery_requirements": {
+          "changes_claim_or_mathematical_authority": false,
+          "local_environment_is_global_start_gate": false,
+          "missing_validator": "PENDING_VALIDATION_OR_SUPPORT_REQUEST_NOT_FABRICATED_PASS",
+          "next_action": "Materialize/freeze the Result and obtain terminal Driver review, or append an authorized correction event; do not redispatch this task.",
+          "scientific_compute": "ONLY_WHEN_REQUIRED_BY_THE_EXACT_TASK_STEP"
+        },
+        "durable_frontier": null,
+        "execution_authorized": false,
+        "frontier_template": {
+          "artifacts": [
+            {
+              "git_blob_sha1": "9cbefbb8886a0ce4f312b1a52cde0990d55aa7eb",
+              "path": "research_tasks/RS_X6_LEGACY_PLANE_RECONCILIATION_20260905.md",
+              "repository": "awdawmip/enterprise-math",
+              "sha256": "e72295cc75b8b3e3711a7a33dd10b676a2909d76cb8b0af4f417bc236162f2f6",
+              "source_commit": "7035c8011938aa0baffbb22f3827322053f520d5"
+            },
+            {
+              "git_blob_sha1": "1da00d4e4b4b128b05b92b2d0c5314513d1ab38f",
+              "path": "research_task_records/RS-X6-LEGACY-PLANE-RECONCILIATION/TP2-B4A441B23DA3159232C2.json",
+              "repository": "awdawmip/enterprise-math",
+              "sha256": "847d53b0113ebf218cad6cc10a6bd4bcb28a5bf89bcef0d822351326e93fdfa4",
+              "source_commit": "7035c8011938aa0baffbb22f3827322053f520d5"
+            }
+          ],
+          "completed_units": [],
+          "contributor_ids": [
+            "EM-X6P-40B5BD"
+          ],
+          "current_unfinished_unit": null,
+          "do_not_repeat": [],
+          "next_action": null,
+          "source_commit": "7035c8011938aa0baffbb22f3827322053f520d5"
+        },
+        "frontier_verification": "SOURCE_BYTES_ONLY_NOT_MATHEMATICAL_ACCEPTANCE",
+        "immutable_external_artifact_candidates": [],
+        "independence_rule": "New session or role never erases prior mathematical contributions or source exposure.",
+        "last_progress_ref": "research/x6-legacy-plane-reconciliation-em-x6p-40b5bd@a0bfa8eace20b061f5b228c733acdc46221388d7:research_returns/X6_LEGACY_PLANE_RECONCILIATION_RETURN_20260905.md",
+        "legacy_result_intake": null,
+        "observed_at": "2026-10-02T16:27:59.873348+00:00",
+        "persisted_checkpoint": {
+          "execution_authorized": false,
+          "source_artifacts": [],
+          "state": "NOT_FOUND"
+        },
+        "progress_reference_readback": null,
+        "publication_id": "TP2-B4A441B23DA3159232C2",
+        "recovery_rule": "Verify durable units; consume VERIFIED_COMPLETE, resolve UNKNOWN minimally, resume the smallest UNFINISHED unit.",
+        "requires_predecessor_contact": false,
+        "result_state": null,
+        "route": {
+          "action": "RESOLVE_EXACT_RECORDED_CONTROL_BLOCK",
+          "execution_authorized": false,
+          "required_role": "CONTROL_PLANE_MAINTENANCE",
+          "requires_current_role_authorization": true,
+          "requires_predecessor_contact": false
+        },
+        "runtime": {
+          "actor": null,
+          "claim_id": null,
+          "dispatch_state": "BLOCKED",
+          "event_authentication": "GITHUB_SERVER_COMMENT_ENVELOPE",
+          "frontier": "The centered signed X6 slice Foundation is current, but pre-rebase plane research may still survive in definitions, research notes, experiments, tests, theorem-facing prose, and downstream references with triple-intersection origin, positive/min-zero point identity, observer-gauge reversal asymmetry, or positive-sector counts typed as native facts.",
+          "hard_block": {
+            "claim_id": "chatgpt-x6-legacy-plane-recon-20260905-1921-c7e4b2",
+            "code": "REGISTERED_DONE_REQUIRES_TERMINAL_DRIVER_REVIEW",
+            "progress_ref": "research/x6-legacy-plane-reconciliation-em-x6p-40b5bd@a0bfa8eace20b061f5b228c733acdc46221388d7:research_returns/X6_LEGACY_PLANE_RECONCILIATION_RETURN_20260905.md",
+            "publication_id": "TP2-B4A441B23DA3159232C2",
+            "server_comment_id": 5551520398
+          },
+          "identity_lane": "X6P",
+          "identity_source": null,
+          "ignored_events": [
+            {
+              "index": 619,
+              "reason": "registered DONE requires a frozen result with terminal Driver review"
+            }
+          ],
+          "kind": "RESEARCH",
+          "last_claim_comment_id": 5551433265,
+          "last_claim_id": "chatgpt-x6-legacy-plane-recon-20260905-1921-c7e4b2",
+          "last_owner_activity_at": "2026-09-05T11:39:57+00:00",
+          "last_progress_at": "2026-09-05T11:39:57+00:00",
+          "last_progress_ref": "research/x6-legacy-plane-reconciliation-em-x6p-40b5bd@a0bfa8eace20b061f5b228c733acdc46221388d7:research_returns/X6_LEGACY_PLANE_RECONCILIATION_RETURN_20260905.md",
+          "last_researcher_id": "EM-X6P-40B5BD",
+          "last_server_author_login": "awdawmip",
+          "last_server_comment_id": 5551520398,
+          "lease_until": null,
+          "leverage": "HIGH",
+          "next_action": "Materialize/freeze the Result and obtain terminal Driver review, or append an authorized correction event; do not redispatch this task.",
+          "owner": "taskbook/unassigned",
+          "ownership_epoch": 5551433265,
+          "priority": "P0",
+          "publication_id": "TP2-B4A441B23DA3159232C2",
+          "registration_source": "IMMUTABLE_TASK_RECORD",
+          "researcher_id": null,
+          "session_id": null,
+          "source_refs": [
+            "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03:p000_reality_foundation.json",
+            "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03:definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md",
+            "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03:definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md",
+            "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03:definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json",
+            "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03:experiments/x6_centered_three_axis_slice_v19_20260905/check_centered_slice_rebase.py",
+            "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03:experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py",
+            "awdawmip/enterprise-math@fd2bcff10ca6e147348b6c1236027fc0d2877df3:definitions/",
+            "awdawmip/enterprise-math@fd2bcff10ca6e147348b6c1236027fc0d2877df3:research_notes/"
+          ],
+          "state": "BLOCKED",
+          "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+          "title": "Legacy plane research reconciliation under centered signed X6"
+        },
+        "schema": "ENTERPRISE_MATH_CONTINUATION_PACKET_V1",
+        "source_access_policy": {
+          "blind_firewall_active": false,
+          "restricted": false,
+          "verified_driver_review_view": true,
+          "withheld_declared_input_count": 0
+        },
+        "source_artifacts": [
+          {
+            "git_blob_sha1": "9cbefbb8886a0ce4f312b1a52cde0990d55aa7eb",
+            "path": "research_tasks/RS_X6_LEGACY_PLANE_RECONCILIATION_20260905.md",
+            "repository": "awdawmip/enterprise-math",
+            "sha256": "e72295cc75b8b3e3711a7a33dd10b676a2909d76cb8b0af4f417bc236162f2f6",
+            "source_commit": "7035c8011938aa0baffbb22f3827322053f520d5"
+          },
+          {
+            "git_blob_sha1": "1da00d4e4b4b128b05b92b2d0c5314513d1ab38f",
+            "path": "research_task_records/RS-X6-LEGACY-PLANE-RECONCILIATION/TP2-B4A441B23DA3159232C2.json",
+            "repository": "awdawmip/enterprise-math",
+            "sha256": "847d53b0113ebf218cad6cc10a6bd4bcb28a5bf89bcef0d822351326e93fdfa4",
+            "source_commit": "7035c8011938aa0baffbb22f3827322053f520d5"
+          }
+        ],
+        "source_commit": "7035c8011938aa0baffbb22f3827322053f520d5",
+        "takeover_readiness": {
+          "retry_after": null,
+          "state": "NO_LIVE_CLAIM"
+        },
+        "task": {
+          "_record_path": "research_task_records/RS-X6-LEGACY-PLANE-RECONCILIATION/TP2-B4A441B23DA3159232C2.json",
+          "canonical_promotion_granted": false,
+          "claimable": true,
+          "dependencies": [
+            {
+              "action": "CONSUME",
+              "satisfied": true,
+              "target": "P000 V5 + signed X6 Cell-center Foundation at 59538f585d037d09ef687b28715c4bc1a3f9fe03"
+            },
+            {
+              "action": "CONSUME",
+              "satisfied": true,
+              "target": "centered three-axis slice rebase and exact recomputation packet at 59538f585d037d09ef687b28715c4bc1a3f9fe03"
+            },
+            {
+              "action": "COMPARE",
+              "satisfied": true,
+              "target": "pre-rebase plane generation at fd2bcff10ca6e147348b6c1236027fc0d2877df3"
+            }
+          ],
+          "effective_leverage": "HIGH",
+          "effective_priority": "P0",
+          "evidence_status": "CENTERED_SLICE_FOUNDATION_MERGED_HISTORICAL_RECONCILIATION_OPEN",
+          "frontier": "The centered signed X6 slice Foundation is current, but pre-rebase plane research may still survive in definitions, research notes, experiments, tests, theorem-facing prose, and downstream references with triple-intersection origin, positive/min-zero point identity, observer-gauge reversal asymmetry, or positive-sector counts typed as native facts.",
+          "identity_lane": "X6P",
+          "kind": "RESEARCH",
+          "next_action": "Compare the complete pre-rebase plane corpus at fd2bcff10ca6e147348b6c1236027fc0d2877df3 against the centered-slice baseline at 59538f585d037d09ef687b28715c4bc1a3f9fe03, build a claim-level correction ledger, and begin exact recomputation of the highest-impact surviving native claims.",
+          "origin_candidate_id": null,
+          "origin_candidate_state": null,
+          "origin_kind": "DIRECT_USER_DIRECTION",
+          "owner": "taskbook/unassigned",
+          "parent_objective_id": "PO-X6-SPATIAL-FOUNDATION-CONSISTENCY-20260905",
+          "parent_task_id": null,
+          "priority_source": "PUBLISHER_DECLARED",
+          "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+          "publication_generation": 1,
+          "publication_id": "TP2-B4A441B23DA3159232C2",
+          "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+          "published_at": "2026-09-05T11:17:54+00:00",
+          "publisher_id": "EM-STW-C31A7F",
+          "publisher_leverage_request": "HIGH",
+          "publisher_priority_request": "P0",
+          "publisher_role": "FOUNDATION_STEWARD",
+          "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+          "record_state": "ACTIVE",
+          "registry_key": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+          "research_value": "Repair the full pre-centered plane research corpus without discarding valid carrier, observer, trace, and BRC mathematics, while preventing superseded origin/sign/min-zero semantics from leaking back into current Enterprise Math.",
+          "source_refs": [
+            "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03:p000_reality_foundation.json",
+            "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03:definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md",
+            "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03:definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md",
+            "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03:definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json",
+            "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03:experiments/x6_centered_three_axis_slice_v19_20260905/check_centered_slice_rebase.py",
+            "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03:experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py",
+            "awdawmip/enterprise-math@fd2bcff10ca6e147348b6c1236027fc0d2877df3:definitions/",
+            "awdawmip/enterprise-math@fd2bcff10ca6e147348b6c1236027fc0d2877df3:research_notes/"
+          ],
+          "successor_gate": null,
+          "supersedes_publication_id": null,
+          "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+          "task_lineage": "MAINTENANCE",
+          "taskbook_blob_sha1": "sha1:9cbefbb8886a0ce4f312b1a52cde0990d55aa7eb",
+          "taskbook_path": "research_tasks/RS_X6_LEGACY_PLANE_RECONCILIATION_20260905.md",
+          "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+          "terminal_scope": "TASK",
+          "working_truth_granted": false
+        },
+        "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+        "unresolved_source_refs": [
+          "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03:p000_reality_foundation.json",
+          "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03:definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md",
+          "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03:definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md",
+          "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03:definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json",
+          "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03:experiments/x6_centered_three_axis_slice_v19_20260905/check_centered_slice_rebase.py",
+          "awdawmip/enterprise-math@59538f585d037d09ef687b28715c4bc1a3f9fe03:experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py",
+          "awdawmip/enterprise-math@fd2bcff10ca6e147348b6c1236027fc0d2877df3:definitions/",
+          "awdawmip/enterprise-math@fd2bcff10ca6e147348b6c1236027fc0d2877df3:research_notes/",
+          {
+            "action": "CONSUME",
+            "satisfied": true,
+            "target": "P000 V5 + signed X6 Cell-center Foundation at 59538f585d037d09ef687b28715c4bc1a3f9fe03"
+          },
+          {
+            "action": "CONSUME",
+            "satisfied": true,
+            "target": "centered three-axis slice rebase and exact recomputation packet at 59538f585d037d09ef687b28715c4bc1a3f9fe03"
+          },
+          {
+            "action": "COMPARE",
+            "satisfied": true,
+            "target": "pre-rebase plane generation at fd2bcff10ca6e147348b6c1236027fc0d2877df3"
+          }
+        ]
+      },
+      "server_comments": 1034,
+      "source_sha": "7035c8011938aa0baffbb22f3827322053f520d5"
+    },
+    "receipt_sha256": "d854ad9d71afa67df277282a1278b108a00b35e9316f76faab5b62464b6e1e92",
+    "request_id": "continuation-8763b1107d9847db",
+    "request_sha256": "26d46cf1d00c46b10969be51973e4ec43f39252b0dece99be35940a9d7185d33",
+    "status": "SUCCEEDED",
+    "transport_grants_mathematical_authority": false,
+    "updated": 1790958487
+  },
+  "canonical_acceptance": "READ_BRIDGE_RECEIPT",
+  "conversation_id": "em-cloud-research-review-20261002-8b3d37f87583",
+  "error": null,
+  "first_read_after_seconds": 30,
+  "issue_number": 2662,
+  "poll_interval_seconds": 15,
+  "request_id": "continuation-8763b1107d9847db",
+  "request_sha256": "26d46cf1d00c46b10969be51973e4ec43f39252b0dece99be35940a9d7185d33",
+  "schema": "EM_CHAT_CONTROL_RECEIPT_V1"
+}

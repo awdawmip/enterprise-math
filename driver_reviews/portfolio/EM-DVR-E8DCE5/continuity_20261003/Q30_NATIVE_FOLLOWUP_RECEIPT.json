@@ -1,0 +1,440 @@
+{
+  "adapter_status": "COMPLETE",
+  "bridge_receipt": {
+    "conversation_id": "em-cloud-research-review-20261002-8b3d37f87583",
+    "created": 1790958801,
+    "error": null,
+    "formal_task_created": false,
+    "next_actions": [
+      "Continue from the verified native receipt; SUCCEEDED is transport completion, not mathematical acceptance.",
+      "Consume the actual native Task/publication IDs and continue their smallest unfinished research unit through canonical dispatch."
+    ],
+    "operation": "followup_materialize",
+    "operation_contract": {
+      "followup_spec_contract": {
+        "authoritative_contract": "research_driver_followup_contract.json",
+        "authoritative_writers": [
+          "research_driver_followup_guard.py",
+          "research_driver_followup.py"
+        ],
+        "conditional_required_fields": {
+          "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION": [
+            "terminal_scope",
+            "portfolio_continuation"
+          ]
+        },
+        "decision_conditions": {
+          "PARENT_OBJECTIVE_CLOSURE": "No tasks or REQUIRED gates; parent Objective must already be canonically CLOSED.",
+          "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION": "No tasks or REQUIRED gates; accepted PASS/SUCCESS Task with SATISFIED hard target or the native pinned explicit Driver satisfaction assessment. Requires terminal_scope=TASK and portfolio_continuation; grants no parent completion.",
+          "TASK_SET_PUBLISHED": "One or more substantive tasks; preserve Result successor restrictions and parent Objective."
+        },
+        "decision_enum": [
+          "TASK_SET_PUBLISHED",
+          "PARENT_OBJECTIVE_CLOSURE",
+          "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION"
+        ],
+        "gate_decisions": {
+          "decision_enum": [
+            "REQUIRED",
+            "SATISFIED_BY_REVIEWED_RESULT",
+            "SATISFIED_BY_EXISTING_CONTROL_ASSET",
+            "NOT_REQUIRED"
+          ],
+          "evidence_refs": "Nonempty evidence refs required for either SATISFIED_BY_* decision.",
+          "exact_gate_set": [
+            "MATHEMATICAL_CONTINUATION",
+            "LEAN_FORMALIZATION",
+            "EXTERNAL_PRIOR_ART_DUPLICATION",
+            "INDEPENDENT_REPLICATION",
+            "INTEGRATION_OR_TOOL_HARVEST",
+            "ADVERSARIAL_AUDIT"
+          ],
+          "field_types": {
+            "decision": "string",
+            "evidence_refs": "array of unique nonblank strings, default []",
+            "gate": "string",
+            "reason": "nonblank string"
+          },
+          "required_row_fields": [
+            "gate",
+            "decision",
+            "reason"
+          ],
+          "rules": [
+            "Exactly one row per gate.",
+            "REQUIRED needs a matching published task role.",
+            "ACCEPTED cannot skip external prior art; ACCEPTED L4 cannot skip Lean; tool-bearing results cannot skip tool harvest."
+          ]
+        },
+        "portfolio_continuation": {
+          "action": "REEVALUATE_CANONICAL_PORTFOLIO",
+          "additionalProperties": false,
+          "dispatcher": "research_control_dispatch.py",
+          "properties": {
+            "action": {
+              "const": "REEVALUATE_CANONICAL_PORTFOLIO",
+              "type": "string"
+            },
+            "dispatcher": {
+              "const": "research_control_dispatch.py",
+              "type": "string"
+            },
+            "evidence_refs": {
+              "items": {
+                "minLength": 1,
+                "pattern": "\\S",
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "next_action": {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            "parent_objective_id": {
+              "description": "Exact parent Objective ID from current publication.",
+              "type": "string"
+            },
+            "remaining_parent_scope": {
+              "items": {
+                "minLength": 1,
+                "pattern": "\\S",
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "source_result_id": {
+              "description": "Exact current Result ID.",
+              "type": "string"
+            }
+          },
+          "required_fields": [
+            "source_result_id",
+            "parent_objective_id",
+            "action",
+            "dispatcher",
+            "next_action",
+            "remaining_parent_scope",
+            "evidence_refs"
+          ]
+        },
+        "required": [
+          "decision",
+          "gate_decisions"
+        ],
+        "tasks": {
+          "continuation_requires": [
+            "parent_task_id",
+            "successor_gate"
+          ],
+          "defaults": {
+            "claim_lease_minutes": 120,
+            "dependencies": [],
+            "kind": "RESEARCH",
+            "leverage": "HIGH",
+            "owner": "taskbook/unassigned",
+            "priority": "P1",
+            "source_refs": [],
+            "task_lineage": "CONTINUATION"
+          },
+          "native_task_admission": "Task schema, successor gate, objective binding and publication preflight remain mandatory.",
+          "required_fields": [
+            "task_id",
+            "title",
+            "task_role",
+            "frontier",
+            "next_action",
+            "research_value",
+            "mother_question",
+            "frozen_inputs_and_scope",
+            "hard_target_and_required_outputs",
+            "research_value_to_preserve",
+            "success_kill_and_return_criteria"
+          ],
+          "task_lineage_enum": [
+            "NEW_DIRECTION",
+            "CONTINUATION",
+            "REPLAY",
+            "INTEGRATION",
+            "MAINTENANCE"
+          ],
+          "task_role_enum": [
+            "MATHEMATICAL_CONTINUATION",
+            "LEAN_FORMALIZATION",
+            "EXTERNAL_PRIOR_ART_DUPLICATION",
+            "INDEPENDENT_REPLICATION",
+            "INTEGRATION_OR_TOOL_HARVEST",
+            "ADVERSARIAL_AUDIT",
+            "REVISION",
+            "PARALLEL_REFERENCE_OR_SYNTHESIS",
+            "OTHER"
+          ]
+        },
+        "tasks_default": [],
+        "terminal_scope": {
+          "const": "TASK",
+          "description": "Explicitly required for TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION; no inferred closure.",
+          "type": "string"
+        }
+      },
+      "independence_obligations": [
+        "Use your own active RESEARCH_DRIVER session and current Source DA; never borrow an earlier author identity.",
+        "Declare all prior contribution IDs. Declarations supplement server-known history; a new session does not establish independence.",
+        "independence_status is an explicit context disclosure, never a default, proof of independence, or exemption from contribution-overlap checks.",
+        "Read the exact Result and complete review set; finding records the actual semantic or adversarial analysis and any context limitations.",
+        "Preserve immutable existing passes/authors. Consume an identical existing pass; read current state when it differs.",
+        "No enum, successful transport, reference pass, or synthesis grants mathematical acceptance, Working Truth, Foundation, or P000 changes."
+      ],
+      "native_validation_required": true,
+      "operation": "followup_materialize",
+      "payload_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "followup_spec_filename": {
+            "description": "Exact published filename containing a native follow-up spec JSON object.",
+            "maxLength": 96,
+            "minLength": 1,
+            "type": "string"
+          },
+          "publication_request_id": {
+            "description": "Own successful driver_publish request from this same active session.",
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "result_request_id": {
+            "description": "Own successful artifact request with the complete verified Result JSON.",
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "reviewer_contribution_ids": {
+            "default": [],
+            "description": "Supplement, never clear, server-known prior contributions.",
+            "items": {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 100,
+            "type": "array"
+          }
+        },
+        "required": [
+          "result_request_id",
+          "publication_request_id",
+          "followup_spec_filename"
+        ],
+        "type": "object"
+      },
+      "required_role": "RESEARCH_DRIVER",
+      "schema": "EM_DRIVER_FLOW_CONTRACT_V1",
+      "source_contract_ref": "b0044ff29976e054dde11c62accc0a127be547e6",
+      "workflow_prerequisites": "Current operational authority (one review or exact-set synthesis), own same-session driver_publish, explicit native spec and task/closure admission."
+    },
+    "platform_session_attested": false,
+    "receipt": {
+      "result": {
+        "canonical_publication_verified": true,
+        "consumed_existing_record": false,
+        "driver_authority_id": "DA-B689E0D6FA1D479864B7",
+        "driver_id": "EM-DVR-E8DCE5",
+        "expected_old_blobs": {},
+        "expected_reviews": [
+          {
+            "git_blob_sha1": "c955d923644f4f7c7857c57c324afe47fbbb7aa5",
+            "path": "research_result_reviews/RR-15457ACA568B33A04CE7/DR-CC898FED6F444A808B06.json",
+            "review_id": "DR-CC898FED6F444A808B06",
+            "sha256": "5e123b28cec6f6a1e045b8ce1d9470ae80b750f4cf6f61bb9a75ade27849d435"
+          }
+        ],
+        "followup": {
+          "canonical_promotion_granted": false,
+          "created_at": "2026-10-02T16:35:38.436754+00:00",
+          "decision": "TASK_SET_PUBLISHED",
+          "driver_id": "EM-DVR-J8R4Q2",
+          "foundation_authority_granted": false,
+          "gate_decisions": [
+            {
+              "decision": "SATISFIED_BY_EXISTING_CONTROL_ASSET",
+              "evidence_refs": [
+                "research_task_records/RS-P000-Q30-N15-FIRST-COLLISION-FRONTIER/TP2-D26B7FC040AB70B8B136.json",
+                "research_result_reviews/RR-15457ACA568B33A04CE7/DR-CC898FED6F444A808B06.json"
+              ],
+              "gate": "MATHEMATICAL_CONTINUATION",
+              "reason": "The accepted recovery has a separately published exact n=15 successor. Consume that immutable current task and its unchanged observer/coverage gates; no equivalent mathematical successor is created."
+            },
+            {
+              "decision": "NOT_REQUIRED",
+              "evidence_refs": [
+                "driver_reviews/P000_Q30_N14_EVIDENCE_RECOVERY_DRIVER_REVIEW_20260917.md"
+              ],
+              "gate": "LEAN_FORMALIZATION",
+              "reason": "This bounded evidence-recovery review grants no L4 or full formal closure. The current continuation gap is explicit external comparison and control routing, not a new formal theorem."
+            },
+            {
+              "decision": "REQUIRED",
+              "evidence_refs": [
+                "driver_reviews/P000_Q30_N14_EVIDENCE_RECOVERY_DRIVER_REVIEW_20260917.md",
+                "research_driver_followup_contract.json"
+              ],
+              "gate": "EXTERNAL_PRIOR_ART_DUPLICATION",
+              "reason": "The inspected frozen review records replay/provenance and n=15 routing but no task-specific external search ledger meeting the current contract. Publish one bounded comparison/control audit; first consume any exact existing ledger if found and do not infer novelty from absence of a match."
+            },
+            {
+              "decision": "SATISFIED_BY_REVIEWED_RESULT",
+              "evidence_refs": [
+                "driver_reviews/P000_Q30_N14_EVIDENCE_RECOVERY_DRIVER_REVIEW_20260917.md",
+                "research_result_records/RS-P000-Q30-N14-EVIDENCE-RECOVERY-CANONICALIZATION-GATE/RR-15457ACA568B33A04CE7.json"
+              ],
+              "gate": "INDEPENDENT_REPLICATION",
+              "reason": "The immutable Driver report independently reimplemented the arithmetic/coverage recurrence and reconciled all seven orbit sums, while explicitly reusing the frozen graph-level r=14 replay. Consume exactly that bounded validation; do not label it a fresh graph census or a new independent experiment by this session."
+            },
+            {
+              "decision": "NOT_REQUIRED",
+              "evidence_refs": [
+                "research_result_records/RS-P000-Q30-N14-EVIDENCE-RECOVERY-CANONICALIZATION-GATE/RR-15457ACA568B33A04CE7.json",
+                "driver_reviews/P000_Q30_N14_EVIDENCE_RECOVERY_DRIVER_REVIEW_20260917.md"
+              ],
+              "gate": "INTEGRATION_OR_TOOL_HARVEST",
+              "reason": "The Result declares RESULT_ONLY and the report introduces no general-purpose tool payload; no new tool integration or Foundation propagation is requested."
+            },
+            {
+              "decision": "SATISFIED_BY_REVIEWED_RESULT",
+              "evidence_refs": [
+                "driver_reviews/P000_Q30_N14_EVIDENCE_RECOVERY_DRIVER_REVIEW_20260917.md",
+                "research_result_records/RS-P000-Q30-N14-EVIDENCE-RECOVERY-CANONICALIZATION-GATE/RR-15457ACA568B33A04CE7.json"
+              ],
+              "gate": "ADVERSARIAL_AUDIT",
+              "reason": "The frozen review explicitly attacks the stale r=14 monolithic pointer, replacement-shard coverage, integrity-versus-semantic-equality confusion and finite-prefix overclaim. Consume only its exact bounded audit without a new acceptance or re-enumeration."
+            }
+          ],
+          "materialization_publisher": {
+            "authority_record_id": "DA-B689E0D6FA1D479864B7",
+            "authority_record_path": "research_driver_authority_records/EM-DVR-E8DCE5/DA-B689E0D6FA1D479864B7.json",
+            "authority_record_sha256": "sha256:cfa5c0590c3825b4006f1b14af12879b8e7e083a6691b8cc5aa09046021ef782",
+            "authority_source_body_sha256": "sha256:ac7df787c4e0b0bf58efa4820c5220344326c548013f5f6c85bde9850eabb787",
+            "authority_source_comment_id": 5954018545,
+            "driver_id": "EM-DVR-E8DCE5",
+            "schema": "ENTERPRISE_MATH_FOLLOWUP_PUBLISHER_BINDING_V1",
+            "session_id": "MCP-9b47757c06ed4919ae3396b0255a1037",
+            "source_result_record_path": "research_result_records/RS-P000-Q30-N14-EVIDENCE-RECOVERY-CANONICALIZATION-GATE/RR-15457ACA568B33A04CE7.json",
+            "source_result_record_sha256": "sha256:b544b8ab329f86eabb4a72e387f5e9623d57b66a99c267dfdcc333a046c44031",
+            "source_review_authority_id": "DR-CC898FED6F444A808B06",
+            "source_review_authority_sha256": "sha256:0b7503b466220c89306595908c30afd5e26f30b3493bb7b868175d1db1c79bc3",
+            "source_review_driver_id": "EM-DVR-J8R4Q2",
+            "source_review_records": [
+              {
+                "record_path": "research_result_reviews/RR-15457ACA568B33A04CE7/DR-CC898FED6F444A808B06.json",
+                "record_sha256": "sha256:5e123b28cec6f6a1e045b8ce1d9470ae80b750f4cf6f61bb9a75ade27849d435",
+                "review_id": "DR-CC898FED6F444A808B06"
+              }
+            ]
+          },
+          "packet_id": "DFU-DE13EAB9DD2E957054F1",
+          "parent_objective_id": "OBJ-P000-ENTERPRISE-6D-ROTATION-TOMOGRAPHY",
+          "policy": "AUTO_PUBLISH_TASKSET_OR_PARENT_CLOSE_V1",
+          "record_path": "research_driver_followups/DR-CC898FED6F444A808B06/DFU-DE13EAB9DD2E957054F1.json",
+          "result_id": "RR-15457ACA568B33A04CE7",
+          "review_destination_class": "FOLLOWUP_TASK",
+          "review_disposition": "ACCEPTED",
+          "review_id": "DR-CC898FED6F444A808B06",
+          "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_FOLLOWUP_V1",
+          "source_next_control_plane_recommendation": "DRIVER_REVIEW this n=14 evidence-recovery Result at bounded strength only. If accepted, any n=15 work must be separately gated and published; do not infer universal reconstruction, canonical labeling, Working Truth, Foundation, L4, promotion, or novelty from this recovery gate.",
+          "source_publication_id": "TP2-EB531E351C670702AD82",
+          "task_id": "RS-P000-Q30-N14-EVIDENCE-RECOVERY-CANONICALIZATION-GATE",
+          "task_publications": [
+            {
+              "publication_id": "TP2-27E91D099F0486EF316E",
+              "task_id": "GV-P000-Q30-N14-PRIOR-ART-AND-CONTINUATION-AUDIT",
+              "task_role": "EXTERNAL_PRIOR_ART_DUPLICATION"
+            }
+          ],
+          "working_truth_granted": false
+        },
+        "mathematical_acceptance": false,
+        "mathematical_acceptance_granted": false,
+        "publication_id": "TP2-EB531E351C670702AD82",
+        "purpose": "NATIVE_DRIVER_FLOW",
+        "result_id": "RR-15457ACA568B33A04CE7",
+        "review_flow": {
+          "operational_disposition": "ACCEPTED",
+          "result_id": "RR-15457ACA568B33A04CE7",
+          "review": {
+            "_review_path": "research_result_reviews/RR-15457ACA568B33A04CE7/DR-CC898FED6F444A808B06.json",
+            "destination_class": "FOLLOWUP_TASK",
+            "destination_ref_or_none": "RS-P000-Q30-N15-FIRST-COLLISION-FRONTIER/TP2-D26B7FC040AB70B8B136",
+            "disposition": "ACCEPTED",
+            "driver_id": "EM-DVR-J8R4Q2",
+            "execution_record_id": "ER-58E795301A50DB6D3150",
+            "publication_id": "TP2-EB531E351C670702AD82",
+            "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_REVIEW_V1",
+            "result_id": "RR-15457ACA568B33A04CE7",
+            "result_record_path": "research_result_records/RS-P000-Q30-N14-EVIDENCE-RECOVERY-CANONICALIZATION-GATE/RR-15457ACA568B33A04CE7.json",
+            "result_record_sha256": "sha256:b544b8ab329f86eabb4a72e387f5e9623d57b66a99c267dfdcc333a046c44031",
+            "review_blob_sha1": "sha1:eebb68faf2d8785c64aa8954e91ac91f7a2b4961",
+            "review_id": "DR-CC898FED6F444A808B06",
+            "review_path": "driver_reviews/P000_Q30_N14_EVIDENCE_RECOVERY_DRIVER_REVIEW_20260917.md",
+            "review_sha256": "sha256:687f6f9b19803eec7dbd6e62a9188ca5880cc3102f98b1800fedc0c9dec75127",
+            "reviewed_at": "2026-09-17T06:54:00+00:00",
+            "task_id": "RS-P000-Q30-N14-EVIDENCE-RECOVERY-CANONICALIZATION-GATE",
+            "terminal": true
+          },
+          "review_ids": [
+            "DR-CC898FED6F444A808B06"
+          ],
+          "review_state": "SINGLE_REVIEW_FLOW",
+          "terminal": true
+        },
+        "source_artifacts": [
+          {
+            "git_blob_sha1": "f54b32e7a303c702794cad438649e15fc0ec038a",
+            "path": "research_tasks/P000_Q30_N14_PRIOR_ART_AND_CONTINUATION_AUDIT_20261003.md",
+            "repository": "awdawmip/enterprise-math",
+            "sha256": "d4227faa006cedc321a03a7381bcf04cf46ad62ef27083dfd0d57fbf464b375e",
+            "source_commit": "31bcc3f30cb1980571aae46c7d5260b1634b75e0"
+          },
+          {
+            "git_blob_sha1": "a5a9d5eaef331ebeee28ae97b101c243cd1238a9",
+            "path": "research_task_records/GV-P000-Q30-N14-PRIOR-ART-AND-CONTINUATION-AUDIT/TP2-27E91D099F0486EF316E.json",
+            "repository": "awdawmip/enterprise-math",
+            "sha256": "7592751a1ace177897523ae1a96fdaaab554702e76f2f2958997c64669ce9955",
+            "source_commit": "31bcc3f30cb1980571aae46c7d5260b1634b75e0"
+          },
+          {
+            "git_blob_sha1": "351237800034fefd704f6086fe5f25ff5b2e02e6",
+            "path": "research_driver_followups/DR-CC898FED6F444A808B06/DFU-DE13EAB9DD2E957054F1.json",
+            "repository": "awdawmip/enterprise-math",
+            "sha256": "f7a65fb873c737523b9198f3107fbb340d9777843caf4cc32e357b651d6279c4",
+            "source_commit": "31bcc3f30cb1980571aae46c7d5260b1634b75e0"
+          }
+        ],
+        "source_commit": "31bcc3f30cb1980571aae46c7d5260b1634b75e0",
+        "task_id": "RS-P000-Q30-N14-EVIDENCE-RECOVERY-CANONICALIZATION-GATE",
+        "third_driver_review_created": false,
+        "validation_scope": "NATIVE_TARGET_TRANSACTION_AND_REVIEW_EVIDENCE_NOT_WHOLE_PORTFOLIO_COMPLETION"
+      },
+      "source_sha": "31bcc3f30cb1980571aae46c7d5260b1634b75e0"
+    },
+    "receipt_sha256": "d7aeae9f6f1cac149befdc8596b573aa1bfac73f7d09eaa7ddb4ca587e4656b1",
+    "request_id": "followup_materialize-d80ea59c6ac04fe9",
+    "request_sha256": "9602c045194a44a9fbf4908d93752f7bfbe8e48db1078e1e5159c62b4f0b164a",
+    "status": "SUCCEEDED",
+    "transport_grants_mathematical_authority": false,
+    "updated": 1790959100
+  },
+  "canonical_acceptance": "READ_BRIDGE_RECEIPT",
+  "conversation_id": "em-cloud-research-review-20261002-8b3d37f87583",
+  "error": null,
+  "first_read_after_seconds": 30,
+  "issue_number": 2668,
+  "poll_interval_seconds": 15,
+  "request_id": "followup_materialize-d80ea59c6ac04fe9",
+  "request_sha256": "9602c045194a44a9fbf4908d93752f7bfbe8e48db1078e1e5159c62b4f0b164a",
+  "schema": "EM_CHAT_CONTROL_RECEIPT_V1"
+}

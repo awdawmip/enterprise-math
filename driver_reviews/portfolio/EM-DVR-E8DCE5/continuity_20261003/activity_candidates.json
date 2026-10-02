@@ -1,0 +1,1023 @@
+{
+  "schema": "EM_ORPHAN_ACTIVITY_AUDIT_LOCAL_V1",
+  "classification": "READ_ONLY_DURABILITY_AND_CONTINUATION_AUDIT_NOT_FORMAL_RESEARCH_REVIEW",
+  "observed_at": "2026-10-02T16:19:28.554554+00:00",
+  "source_commit": "71d836784c9545867955e1c23cb5a964fc2a0482",
+  "knowledge_commit": "0946b0848601cc59f793de13886903478b72c809",
+  "p000_semantics": {
+    "native_spatial_axes": 6,
+    "time_separate": 1,
+    "ontology_locked": true,
+    "read_before_analysis": [
+      "AGENTS.md section 0",
+      "p000_reality_foundation.json",
+      "definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json",
+      "definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json",
+      "research_notes/BRC_NATIVE_X6_SEMANTIC_ALIGNMENT_20261002_9D72AC.md"
+    ]
+  },
+  "conclusion": "NO_CONFIRMED_ORPHAN_IN_THESE_ACTIVITY_CANDIDATES",
+  "executor_liveness": "NOT_DETERMINED_BY_STATIC_SOURCE_OR_CHECKPOINT_AGE",
+  "high_confidence_findings": [
+    "BRC generation7 has 17 valid source references across 3 latest activity checkpoints, representing 14 unique immutable payloads; all receipt hashes, embedded-content hashes, Git blob hashes and source coordinates verified.",
+    "PR1525 and PR1526 have durable direct-research output and four registered activity chains; PR1526 appends second checkpoints while preserving all four PR1525 checkpoints exactly. Draft/open status is not missing payload.",
+    "The latest static BRC taskbook represents archive8770476 and does not yet cite new PR1526 archive9ab9e44; this is a bounded source-intake/coverage comparison candidate, not evidence of dead execution.",
+    "S15 RA has zero recorded checkpoints but static registration cannot establish executor failure, vanished xhome data or a right to rerun/take over."
+  ],
+  "candidates": [
+    {
+      "id": "brc-generation7",
+      "classification": "DURABLE_COMPLETED_REPLAY_WITH_EXPLICIT_CONTINUATION",
+      "confidence": "HIGH",
+      "confirmed_orphan": false,
+      "task_id": "RS-BRC-BASELINE-RESIDUAL-20261002",
+      "publication_id": "TP2-2923CB208CCC017ED5A4",
+      "publication_evidence": {
+        "ref": "71d836784c9545867955e1c23cb5a964fc2a0482",
+        "path": "research_task_records/RS-BRC-BASELINE-RESIDUAL-20261002/TP2-2923CB208CCC017ED5A4.json",
+        "git_blob": "a2a9bc8441106e2e58196c134eea580d58427494",
+        "sha256": "55054dc9c4ec7b41bd89620eda802e431bb99dd656c2b54a3622899c599de5b8",
+        "bytes": 7962
+      },
+      "taskbook_evidence": {
+        "ref": "71d836784c9545867955e1c23cb5a964fc2a0482",
+        "path": "research_tasks/BRC_BASELINE_RESIDUAL_X6_REPLAY_20261002.md",
+        "git_blob": "8a49c62524c30a61cf10d8548f622ef03de8d9f0",
+        "sha256": "a133d4e35b45cd8bb680e6047daf74e5e2fde5e2b5b313bb5f77a161500b37c5",
+        "bytes": 17062
+      },
+      "unique_verified_payloads": 14,
+      "activity_chains": [
+        {
+          "activity_id": "RA-BRC-BENCHMARK-20261002-FCA717",
+          "activity_record": {
+            "ref": "71d836784c9545867955e1c23cb5a964fc2a0482",
+            "path": "research_activity_records/RA-BRC-BENCHMARK-20261002-FCA717.json",
+            "git_blob": "9fd4b3847310f1885021f881a6a1a9a9387d1210",
+            "sha256": "d4fdfab8c43f8fb53f3c8a06868dfa76654bbc947a185c98ae9033f81cd451f8",
+            "bytes": 31571
+          },
+          "mode": "TASK_RESEARCH",
+          "authority": {
+            "claim": false,
+            "mathematical_acceptance": false,
+            "review": false,
+            "task_registration": false,
+            "working_truth": false
+          },
+          "recorded_at": "2026-10-02T12:11:41.615474+00:00",
+          "checkpoint_count": 5,
+          "verified_checkpoints": [
+            {
+              "event_id": "BRC-X6-MATCHED-REPLAY-20261002",
+              "state": "EM_REPRESENTED",
+              "sources": [
+                {
+                  "commit": "8770476e36a10e79e6b03bdc67af3b5d8d106169",
+                  "path": "experiments/brc_x6_replay_20261002_fca717/CORRELATED_REPLAY.md",
+                  "sha256": "015ad009680404c0381be7c9b2115b872de686fddfae979c3fd7ffecc940250e",
+                  "git_blob": "c1422821f92554b06ca748bd1bc2e39c9ae8382a",
+                  "bytes": 7343,
+                  "receipt": "research_activity_records/RA-BRC-BENCHMARK-20261002-FCA717/readbacks/0c8751c43a2d4e793f70e41a36b4fcfcd5c7d1ef39435c2679f83dcf7bb67c99.json",
+                  "receipt_sha256": "0c8751c43a2d4e793f70e41a36b4fcfcd5c7d1ef39435c2679f83dcf7bb67c99",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                },
+                {
+                  "commit": "8770476e36a10e79e6b03bdc67af3b5d8d106169",
+                  "path": "experiments/brc_x6_replay_20261002_fca717/CROSS_REVIEW.md",
+                  "sha256": "c69ff98be82a25d858e6feb229049b1048a72806b50fb4191430b5140cbfc9bd",
+                  "git_blob": "603f54c9777b53f4f1f10f8a1d6e938f5c79d74e",
+                  "bytes": 4472,
+                  "receipt": "research_activity_records/RA-BRC-BENCHMARK-20261002-FCA717/readbacks/8f5be22300e35196a65521a37cce6d66c1823d449fd1a8a074890d6e3ad19733.json",
+                  "receipt_sha256": "8f5be22300e35196a65521a37cce6d66c1823d449fd1a8a074890d6e3ad19733",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                },
+                {
+                  "commit": "8770476e36a10e79e6b03bdc67af3b5d8d106169",
+                  "path": "experiments/brc_x6_replay_20261002_fca717/OSCILLATION_REPLAY.md",
+                  "sha256": "c6b87838a6316f381417807a141330c80f9dedc5df7c62dda9bae9c13a10c13b",
+                  "git_blob": "bea2c52defe3d6c015103822d2e121f0ca170755",
+                  "bytes": 10237,
+                  "receipt": "research_activity_records/RA-BRC-BENCHMARK-20261002-FCA717/readbacks/e06073c9c7d6f72c88c9eaef9838a89b21d8fbe5797acc4d8d0bbee1f460e6c8.json",
+                  "receipt_sha256": "e06073c9c7d6f72c88c9eaef9838a89b21d8fbe5797acc4d8d0bbee1f460e6c8",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                },
+                {
+                  "commit": "8770476e36a10e79e6b03bdc67af3b5d8d106169",
+                  "path": "experiments/brc_x6_replay_20261002_fca717/REPORT.md",
+                  "sha256": "8edb87a327f8aae09eabb076f1d94a577d1c5fa147021f979274d049c5ac6e02",
+                  "git_blob": "a4db0b13dca4801209578e64111cd121b062d9e9",
+                  "bytes": 10377,
+                  "receipt": "research_activity_records/RA-BRC-BENCHMARK-20261002-FCA717/readbacks/bee37029b245fe6271467cd77649688dc332f69e811a388bc843872f61de40d5.json",
+                  "receipt_sha256": "bee37029b245fe6271467cd77649688dc332f69e811a388bc843872f61de40d5",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                },
+                {
+                  "commit": "8770476e36a10e79e6b03bdc67af3b5d8d106169",
+                  "path": "experiments/brc_x6_replay_20261002_fca717/comparison.svg",
+                  "sha256": "4fd91e14ed6b5c4b629cd7ca7c4cff362f1a0018740db5b4d37f2b4467b07664",
+                  "git_blob": "0efc7fdffd45d891f56c5f7664d664a2593df1a7",
+                  "bytes": 159309,
+                  "receipt": "research_activity_records/RA-BRC-BENCHMARK-20261002-FCA717/readbacks/27d8317286279920f5adc7e09069e373df6a59e8751cb77d4272c09afdfab5c5.json",
+                  "receipt_sha256": "27d8317286279920f5adc7e09069e373df6a59e8751cb77d4272c09afdfab5c5",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                },
+                {
+                  "commit": "8770476e36a10e79e6b03bdc67af3b5d8d106169",
+                  "path": "experiments/brc_x6_replay_20261002_fca717/run_all.py",
+                  "sha256": "2110050fd0151e4661cd27976f1d11160a20be94b910eb43d94388f1fbcd4593",
+                  "git_blob": "a7bb192d71f1f84e0fa877c2ba9535861d012a37",
+                  "bytes": 4827,
+                  "receipt": "research_activity_records/RA-BRC-BENCHMARK-20261002-FCA717/readbacks/db68fe8c535bfef676224e3f0ae3121a2fa0a94f49a6590797c5f90f71ef71e7.json",
+                  "receipt_sha256": "db68fe8c535bfef676224e3f0ae3121a2fa0a94f49a6590797c5f90f71ef71e7",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                },
+                {
+                  "commit": "8770476e36a10e79e6b03bdc67af3b5d8d106169",
+                  "path": "experiments/brc_x6_replay_20261002_fca717/summary.json",
+                  "sha256": "4de3676504ae2b153fbd3fad44db3691f6f51354cf923c27d878b3b719483010",
+                  "git_blob": "f72e024e0ec15eb85ceb66956a6474ae5844616c",
+                  "bytes": 3606,
+                  "receipt": "research_activity_records/RA-BRC-BENCHMARK-20261002-FCA717/readbacks/bfebc0e9a7732b93f4963bf4bebaf0850e16c2ce79bdac8003f5311e6c1b52c5.json",
+                  "receipt_sha256": "bfebc0e9a7732b93f4963bf4bebaf0850e16c2ce79bdac8003f5311e6c1b52c5",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                },
+                {
+                  "commit": "8770476e36a10e79e6b03bdc67af3b5d8d106169",
+                  "path": "experiments/brc_x6_replay_20261002_fca717/validation.txt",
+                  "sha256": "986d612b19af74115564298f2ee9ddd3d740b90cfbb7d4765c906c049a8a18a8",
+                  "git_blob": "e31acba6dd7a06383bdb635c71515c66d44e6459",
+                  "bytes": 964,
+                  "receipt": "research_activity_records/RA-BRC-BENCHMARK-20261002-FCA717/readbacks/0d91b9a4ddb6d9ffe207b88874e219981d7173bbf90165af7151a68d99e84d72.json",
+                  "receipt_sha256": "0d91b9a4ddb6d9ffe207b88874e219981d7173bbf90165af7151a68d99e84d72",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                },
+                {
+                  "commit": "8770476e36a10e79e6b03bdc67af3b5d8d106169",
+                  "path": "experiments/brc_x6_replay_20261002_fca717/weighted_return_replay.py",
+                  "sha256": "cc8d1fcb3de699945513985f9ae2a41d0d45b3b46b0a330003d095399edc0fe0",
+                  "git_blob": "967251e4b12510e7ea17055ae46097bf3d93222b",
+                  "bytes": 10893,
+                  "receipt": "research_activity_records/RA-BRC-BENCHMARK-20261002-FCA717/readbacks/f25b43a9547c4a93533a8195003445053a89b06198b98e691693bc71abfb5615.json",
+                  "receipt_sha256": "f25b43a9547c4a93533a8195003445053a89b06198b98e691693bc71abfb5615",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                },
+                {
+                  "commit": "8770476e36a10e79e6b03bdc67af3b5d8d106169",
+                  "path": "experiments/brc_x6_replay_20261002_fca717/weighted_return_results.json",
+                  "sha256": "a846d9164e17d0fedaf1a30ff2cd71a7b43a51d8150287a21189d8bdf0d63a2e",
+                  "git_blob": "521d921e5e33f36f6b2a24085b04a56d96d90c37",
+                  "bytes": 200536,
+                  "receipt": "research_activity_records/RA-BRC-BENCHMARK-20261002-FCA717/readbacks/937c999183aa79cf464cf4ad6ef002dfa5e566f204bdf1ecacbfaf30d3132b57.json",
+                  "receipt_sha256": "937c999183aa79cf464cf4ad6ef002dfa5e566f204bdf1ecacbfaf30d3132b57",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "activity_id": "RA-70DB5A0661EF6ED2B729F8A4",
+          "activity_record": {
+            "ref": "71d836784c9545867955e1c23cb5a964fc2a0482",
+            "path": "research_activity_records/RA-70DB5A0661EF6ED2B729F8A4.json",
+            "git_blob": "7f0f548efa80dc6bd5183528aef00679b7b6e339",
+            "sha256": "18b3dad250f4f372f54966581b9702d1613194c0c563194b7af629d65e0c70f4",
+            "bytes": 15469
+          },
+          "mode": "TASK_RESEARCH",
+          "authority": {
+            "claim": false,
+            "mathematical_acceptance": false,
+            "review": false,
+            "task_registration": false,
+            "working_truth": false
+          },
+          "recorded_at": "2026-10-02T12:13:56.699425+00:00",
+          "checkpoint_count": 5,
+          "verified_checkpoints": [
+            {
+              "event_id": "BRC-X6-MATCHED-CORRELATED-REPLAY-20261002",
+              "state": "EM_REPRESENTED",
+              "sources": [
+                {
+                  "commit": "8770476e36a10e79e6b03bdc67af3b5d8d106169",
+                  "path": "experiments/brc_x6_replay_20261002_fca717/CORRELATED_REPLAY.md",
+                  "sha256": "015ad009680404c0381be7c9b2115b872de686fddfae979c3fd7ffecc940250e",
+                  "git_blob": "c1422821f92554b06ca748bd1bc2e39c9ae8382a",
+                  "bytes": 7343,
+                  "receipt": "research_activity_records/RA-70DB5A0661EF6ED2B729F8A4/readbacks/0c8751c43a2d4e793f70e41a36b4fcfcd5c7d1ef39435c2679f83dcf7bb67c99.json",
+                  "receipt_sha256": "0c8751c43a2d4e793f70e41a36b4fcfcd5c7d1ef39435c2679f83dcf7bb67c99",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                },
+                {
+                  "commit": "8770476e36a10e79e6b03bdc67af3b5d8d106169",
+                  "path": "experiments/brc_x6_replay_20261002_fca717/CROSS_REVIEW.md",
+                  "sha256": "c69ff98be82a25d858e6feb229049b1048a72806b50fb4191430b5140cbfc9bd",
+                  "git_blob": "603f54c9777b53f4f1f10f8a1d6e938f5c79d74e",
+                  "bytes": 4472,
+                  "receipt": "research_activity_records/RA-70DB5A0661EF6ED2B729F8A4/readbacks/8f5be22300e35196a65521a37cce6d66c1823d449fd1a8a074890d6e3ad19733.json",
+                  "receipt_sha256": "8f5be22300e35196a65521a37cce6d66c1823d449fd1a8a074890d6e3ad19733",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                },
+                {
+                  "commit": "8770476e36a10e79e6b03bdc67af3b5d8d106169",
+                  "path": "experiments/brc_x6_replay_20261002_fca717/correlated_replay.py",
+                  "sha256": "df039d8c7d382af0ad479a47780d4ae7f35dc8121fb07ebb9699f4f4a36ed864",
+                  "git_blob": "b5bbb23755fea66aa35f3d24e41fbc242f1dda48",
+                  "bytes": 13312,
+                  "receipt": "research_activity_records/RA-70DB5A0661EF6ED2B729F8A4/readbacks/1d462e3acca3309870f1c9def9af03977e028667caff7233199bb91d221e11b8.json",
+                  "receipt_sha256": "1d462e3acca3309870f1c9def9af03977e028667caff7233199bb91d221e11b8",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                },
+                {
+                  "commit": "8770476e36a10e79e6b03bdc67af3b5d8d106169",
+                  "path": "experiments/brc_x6_replay_20261002_fca717/correlated_results.json",
+                  "sha256": "edefc18b30926642181ad477c04938682290087622a2e34bc60bb8a8016688cf",
+                  "git_blob": "d0a503090373e84170678646bbd2650ddde21241",
+                  "bytes": 125392,
+                  "receipt": "research_activity_records/RA-70DB5A0661EF6ED2B729F8A4/readbacks/c905e7cd4cd0458dec4b290072064afa65832d4299fde30e52a0c720d4742e64.json",
+                  "receipt_sha256": "c905e7cd4cd0458dec4b290072064afa65832d4299fde30e52a0c720d4742e64",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "activity_id": "RA-435C463BE684C327F3D38354",
+          "activity_record": {
+            "ref": "71d836784c9545867955e1c23cb5a964fc2a0482",
+            "path": "research_activity_records/RA-435C463BE684C327F3D38354.json",
+            "git_blob": "50f130198d609f12b514ab6e5622d641b387ca5b",
+            "sha256": "0923952ca744833a4662ffab558c422648312046d294570f99febffe9bc6f4c9",
+            "bytes": 10052
+          },
+          "mode": "TASK_RESEARCH",
+          "authority": {
+            "claim": false,
+            "mathematical_acceptance": false,
+            "review": false,
+            "task_registration": false,
+            "working_truth": false
+          },
+          "recorded_at": "2026-10-02T13:16:32.895434+00:00",
+          "checkpoint_count": 3,
+          "verified_checkpoints": [
+            {
+              "event_id": "BRC-X6-MATCHED-OSCILLATION-REPLAY-20261002",
+              "state": "EM_REPRESENTED",
+              "sources": [
+                {
+                  "commit": "8770476e36a10e79e6b03bdc67af3b5d8d106169",
+                  "path": "experiments/brc_x6_replay_20261002_fca717/OSCILLATION_REPLAY.md",
+                  "sha256": "c6b87838a6316f381417807a141330c80f9dedc5df7c62dda9bae9c13a10c13b",
+                  "git_blob": "bea2c52defe3d6c015103822d2e121f0ca170755",
+                  "bytes": 10237,
+                  "receipt": "research_activity_records/RA-435C463BE684C327F3D38354/readbacks/e06073c9c7d6f72c88c9eaef9838a89b21d8fbe5797acc4d8d0bbee1f460e6c8.json",
+                  "receipt_sha256": "e06073c9c7d6f72c88c9eaef9838a89b21d8fbe5797acc4d8d0bbee1f460e6c8",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                },
+                {
+                  "commit": "8770476e36a10e79e6b03bdc67af3b5d8d106169",
+                  "path": "experiments/brc_x6_replay_20261002_fca717/oscillation_replay.py",
+                  "sha256": "bff61959b1efd53fa54954e2673ff01c110beaa4c82fee9577d029fb3ad00d45",
+                  "git_blob": "813951cd9c21d841a261985e98b3b50122bbc1d9",
+                  "bytes": 14397,
+                  "receipt": "research_activity_records/RA-435C463BE684C327F3D38354/readbacks/aab6eedd861bec7985e59da7fc1e973a91b43f06a7da8105bbbab801dcfa6950.json",
+                  "receipt_sha256": "aab6eedd861bec7985e59da7fc1e973a91b43f06a7da8105bbbab801dcfa6950",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                },
+                {
+                  "commit": "8770476e36a10e79e6b03bdc67af3b5d8d106169",
+                  "path": "experiments/brc_x6_replay_20261002_fca717/oscillation_results.json",
+                  "sha256": "5c0eca1a702daf41d60364c3aa75b9fc06f23e8c2e59a820da34529092ad0a7b",
+                  "git_blob": "924705fc30ee13210307331e8cf4bd2744dcd15d",
+                  "bytes": 88176,
+                  "receipt": "research_activity_records/RA-435C463BE684C327F3D38354/readbacks/e4b43eb33a57276c918b11b0c34ecb02876fdcd286411f1b3b10af4d3c2cec0d.json",
+                  "receipt_sha256": "e4b43eb33a57276c918b11b0c34ecb02876fdcd286411f1b3b10af4d3c2cec0d",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "next_action": "Consume archive8770476 report/cross-review at the current task frontier; preserve output-probability versus CWM-refinement and native-X versus response-W/Z distinctions. Resume only on concrete new model/data/kernel/layer evidence; no rerun or duplicate task.",
+      "mathematical_acceptance": false,
+      "live_owner_status": "REQUIRES_PARENT_LIVE_READBACK"
+    },
+    {
+      "id": "brc-pr1525",
+      "classification": "DURABLE_DIRECT_RESEARCH_PACKET_PENDING_INTAKE",
+      "confidence": "HIGH",
+      "confirmed_orphan": false,
+      "pr": {
+        "base_ref": "main",
+        "created_at": "2026-10-02T14:49:14Z",
+        "draft": true,
+        "head": "6099d979efaecd1fda263eb595587dd67e9aa748",
+        "head_ref": "research/brc-fitting-20261002-9d72ac",
+        "html_url": "https://github.com/awdawmip/enterprise-math/pull/1525",
+        "number": 1525,
+        "state": "open",
+        "title": "BRC: extend long-horizon residual fits with full data and Drive backup",
+        "updated_at": "2026-10-02T14:53:32Z"
+      },
+      "activity_chains": [
+        {
+          "activity_id": "RA-BRCFIT-20261002-9D72AC",
+          "activity_record": {
+            "ref": "6099d979efaecd1fda263eb595587dd67e9aa748",
+            "path": "research_activity_records/RA-BRCFIT-20261002-9D72AC.json",
+            "git_blob": "ead45cfa1b5eac800eb0a90dd824f329acdcb690",
+            "sha256": "789e4ef8705475636b0ba8a3abd7b44451153827b7316396173675ae7a177b0c",
+            "bytes": 2102
+          },
+          "mode": "TASK_RESEARCH",
+          "authority": {
+            "claim": false,
+            "mathematical_acceptance": false,
+            "review": false,
+            "task_registration": false,
+            "working_truth": false
+          },
+          "recorded_at": "2026-10-02T14:11:31.220717+00:00",
+          "checkpoint_count": 1,
+          "verified_checkpoints": [
+            {
+              "event_id": "BRCFIT-ROOT-SOURCE-COMPLETE-20261002-9D72AC",
+              "state": "EM_REPRESENTED",
+              "sources": [
+                {
+                  "commit": "1a50f2e4b522e63bdd6dc2d442f5761c14567655",
+                  "path": "experiments/brc_long_horizon_fit_20261002_9d72ac/REPORT.md",
+                  "sha256": "b457534ae21c8cd4475524be58c08220688e13dd5cb205fe4812e635e6093c54",
+                  "git_blob": "549cf5a3d7429422cd5cd9f4e0a1b5c444d5dfef",
+                  "bytes": 7600,
+                  "receipt": "research_activity_records/RA-BRCFIT-20261002-9D72AC/readbacks/dae0488aa58af9647957d3ad90250333a2de639c36005a2946220ed80a3bdb31.json",
+                  "receipt_sha256": "dae0488aa58af9647957d3ad90250333a2de639c36005a2946220ed80a3bdb31",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "activity_id": "RA-BRCAUDIT-20261002-9D72AC",
+          "activity_record": {
+            "ref": "6099d979efaecd1fda263eb595587dd67e9aa748",
+            "path": "research_activity_records/RA-BRCAUDIT-20261002-9D72AC.json",
+            "git_blob": "8664200d67391ce68a3de50717bfe301ceea8e2a",
+            "sha256": "d5a2cf4ed2f239f45bd8bcf3c515f2f2779ccec753bebf942db2e5b0e2f4f6bf",
+            "bytes": 2146
+          },
+          "mode": "TASK_RESEARCH",
+          "authority": {
+            "claim": false,
+            "mathematical_acceptance": false,
+            "review": false,
+            "task_registration": false,
+            "working_truth": false
+          },
+          "recorded_at": "2026-10-02T14:13:21.139608+00:00",
+          "checkpoint_count": 1,
+          "verified_checkpoints": [
+            {
+              "event_id": "BRCFIT-AUDIT-SOURCE-COMPLETE-20261002-9D72AC",
+              "state": "EM_REPRESENTED",
+              "sources": [
+                {
+                  "commit": "1a50f2e4b522e63bdd6dc2d442f5761c14567655",
+                  "path": "experiments/brc_long_horizon_fit_20261002_9d72ac/INDEPENDENT_REVIEW.md",
+                  "sha256": "91c435dda005b68820f44d7f5506c6172a0c0c63040b2ccf778a2f70cb9cc977",
+                  "git_blob": "c70bf1ec419160e8c598a93644f8250096c90527",
+                  "bytes": 7401,
+                  "receipt": "research_activity_records/RA-BRCAUDIT-20261002-9D72AC/readbacks/5e2fc651b28baae832d50b089d027c470a641ea2d4328800fcdf5b74f32e90a3.json",
+                  "receipt_sha256": "5e2fc651b28baae832d50b089d027c470a641ea2d4328800fcdf5b74f32e90a3",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "activity_id": "RA-BRCMARKOV-20261002-9D72AC",
+          "activity_record": {
+            "ref": "6099d979efaecd1fda263eb595587dd67e9aa748",
+            "path": "research_activity_records/RA-BRCMARKOV-20261002-9D72AC.json",
+            "git_blob": "1e24c1b7e9cc61a91c157c2e9ceff2f0a3f8a1c2",
+            "sha256": "9e3affd9608bcae21fc7401a5c3af639f744456978ecf92c75ac231482f47e7d",
+            "bytes": 2129
+          },
+          "mode": "TASK_RESEARCH",
+          "authority": {
+            "claim": false,
+            "mathematical_acceptance": false,
+            "review": false,
+            "task_registration": false,
+            "working_truth": false
+          },
+          "recorded_at": "2026-10-02T14:13:21.094260+00:00",
+          "checkpoint_count": 1,
+          "verified_checkpoints": [
+            {
+              "event_id": "BRCFIT-MARKOV-SOURCE-COMPLETE-20261002-9D72AC",
+              "state": "EM_REPRESENTED",
+              "sources": [
+                {
+                  "commit": "1a50f2e4b522e63bdd6dc2d442f5761c14567655",
+                  "path": "experiments/brc_long_horizon_fit_20261002_9d72ac/MARKOV.md",
+                  "sha256": "895a099b0810c5077d0397ae1e5dec27ae717ab23d7f09083ed1fe77070bdbf1",
+                  "git_blob": "401018329cb8938046a0a13735075fd82ea183b4",
+                  "bytes": 9782,
+                  "receipt": "research_activity_records/RA-BRCMARKOV-20261002-9D72AC/readbacks/073fe5cfbec3a091cf272b284f8e2baaf7f303c9c203cf0bf10e19af9f03c1bc.json",
+                  "receipt_sha256": "073fe5cfbec3a091cf272b284f8e2baaf7f303c9c203cf0bf10e19af9f03c1bc",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "activity_id": "RA-BRCWEIGHT-20261002-9D72AC",
+          "activity_record": {
+            "ref": "6099d979efaecd1fda263eb595587dd67e9aa748",
+            "path": "research_activity_records/RA-BRCWEIGHT-20261002-9D72AC.json",
+            "git_blob": "7a31e5da29c091556e04c7c0449e987c9e6a71b0",
+            "sha256": "8d3bd3b44985242ba4ad4a82fe93cf8b6f7dfaf8e8b4375dc03ffdaffa72fdd2",
+            "bytes": 2141
+          },
+          "mode": "TASK_RESEARCH",
+          "authority": {
+            "claim": false,
+            "mathematical_acceptance": false,
+            "review": false,
+            "task_registration": false,
+            "working_truth": false
+          },
+          "recorded_at": "2026-10-02T14:13:21.051592+00:00",
+          "checkpoint_count": 1,
+          "verified_checkpoints": [
+            {
+              "event_id": "BRCFIT-WEIGHTED-SOURCE-COMPLETE-20261002-9D72AC",
+              "state": "EM_REPRESENTED",
+              "sources": [
+                {
+                  "commit": "1a50f2e4b522e63bdd6dc2d442f5761c14567655",
+                  "path": "experiments/brc_long_horizon_fit_20261002_9d72ac/WEIGHTED.md",
+                  "sha256": "d66193c5aee7109f4cf02f24b9d3b736173bdfae673513dd970f44adc62fe422",
+                  "git_blob": "5da3a8b3516db54db12286b455de6a1af77a5c55",
+                  "bytes": 8230,
+                  "receipt": "research_activity_records/RA-BRCWEIGHT-20261002-9D72AC/readbacks/d315deefc5415d31077e097a42e9e55cd6db6c69de807e8fc7b6faf5367b917b.json",
+                  "receipt_sha256": "d315deefc5415d31077e097a42e9e55cd6db6c69de807e8fc7b6faf5367b917b",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "next_action": "Scope-map existing long-horizon fit packet into current BRC intake, preserving synthetic-model boundary and exact source. No automatic numerical continuation.",
+      "full_dataset_recomputed": false,
+      "external_drive_bytes_verified": false
+    },
+    {
+      "id": "brc-pr1526",
+      "classification": "DURABLE_SUCCESSOR_PACKET_WITH_SOURCE_INTAKE_LAG",
+      "confidence": "HIGH",
+      "confirmed_orphan": false,
+      "pr": {
+        "base_ref": "main",
+        "created_at": "2026-10-02T16:02:00Z",
+        "draft": true,
+        "head": "618def7f5db83928023655ddc211fc9a8f09a7c5",
+        "head_ref": "research/brc-x6-transfer-20261002-9d72ac",
+        "html_url": "https://github.com/awdawmip/enterprise-math/pull/1526",
+        "number": 1526,
+        "state": "open",
+        "title": "BRC：补查原生六维残差转出、回传与隐藏联合关系",
+        "updated_at": "2026-10-02T16:05:25Z"
+      },
+      "activity_chains": [
+        {
+          "activity_id": "RA-BRCFIT-20261002-9D72AC",
+          "activity_record": {
+            "ref": "618def7f5db83928023655ddc211fc9a8f09a7c5",
+            "path": "research_activity_records/RA-BRCFIT-20261002-9D72AC.json",
+            "git_blob": "e5135301975df981983dfa55d05bbe3e90e808ac",
+            "sha256": "27a0e18397b3b85a1968cf95f19ddd65129dbf52a974fadcd849175377210227",
+            "bytes": 3539
+          },
+          "mode": "TASK_RESEARCH",
+          "authority": {
+            "claim": false,
+            "mathematical_acceptance": false,
+            "review": false,
+            "task_registration": false,
+            "working_truth": false
+          },
+          "recorded_at": "2026-10-02T14:11:31.220717+00:00",
+          "checkpoint_count": 2,
+          "verified_checkpoints": [
+            {
+              "event_id": "BRCFIT-ROOT-SOURCE-COMPLETE-20261002-9D72AC",
+              "state": "EM_REPRESENTED",
+              "sources": [
+                {
+                  "commit": "1a50f2e4b522e63bdd6dc2d442f5761c14567655",
+                  "path": "experiments/brc_long_horizon_fit_20261002_9d72ac/REPORT.md",
+                  "sha256": "b457534ae21c8cd4475524be58c08220688e13dd5cb205fe4812e635e6093c54",
+                  "git_blob": "549cf5a3d7429422cd5cd9f4e0a1b5c444d5dfef",
+                  "bytes": 7600,
+                  "receipt": "research_activity_records/RA-BRCFIT-20261002-9D72AC/readbacks/dae0488aa58af9647957d3ad90250333a2de639c36005a2946220ed80a3bdb31.json",
+                  "receipt_sha256": "dae0488aa58af9647957d3ad90250333a2de639c36005a2946220ed80a3bdb31",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                }
+              ]
+            },
+            {
+              "event_id": "BRCX6-ROOT-SOURCE-COMPLETE-20261002-9D72AC",
+              "state": "EM_REPRESENTED",
+              "sources": [
+                {
+                  "commit": "9ab9e44f168c2a36c37c65b950eda13857179677",
+                  "path": "experiments/brc_x6_transfer_20261002_9d72ac/REPORT.md",
+                  "sha256": "672c1907aa9d2837b956fa2b3c90de7cc4c58e9683330d46d69d2a33d58e4de6",
+                  "git_blob": "a8efab933bbb052500cea4926d34a600f6c2e5ae",
+                  "bytes": 8513,
+                  "receipt": "research_activity_records/RA-BRCFIT-20261002-9D72AC/readbacks/444ae8ee85fc52c6f5831439820e103e889c41d9f3384b7ad3799c268f456a70.json",
+                  "receipt_sha256": "444ae8ee85fc52c6f5831439820e103e889c41d9f3384b7ad3799c268f456a70",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "activity_id": "RA-BRCAUDIT-20261002-9D72AC",
+          "activity_record": {
+            "ref": "618def7f5db83928023655ddc211fc9a8f09a7c5",
+            "path": "research_activity_records/RA-BRCAUDIT-20261002-9D72AC.json",
+            "git_blob": "d4878fc93028b7ed5ef20068de8cc7f8f5068ce8",
+            "sha256": "6be2d27c3e7c0073a19cd0a6391ff671f80422a014a3aedcf9656df05a2f9ae1",
+            "bytes": 3587
+          },
+          "mode": "TASK_RESEARCH",
+          "authority": {
+            "claim": false,
+            "mathematical_acceptance": false,
+            "review": false,
+            "task_registration": false,
+            "working_truth": false
+          },
+          "recorded_at": "2026-10-02T14:13:21.139608+00:00",
+          "checkpoint_count": 2,
+          "verified_checkpoints": [
+            {
+              "event_id": "BRCFIT-AUDIT-SOURCE-COMPLETE-20261002-9D72AC",
+              "state": "EM_REPRESENTED",
+              "sources": [
+                {
+                  "commit": "1a50f2e4b522e63bdd6dc2d442f5761c14567655",
+                  "path": "experiments/brc_long_horizon_fit_20261002_9d72ac/INDEPENDENT_REVIEW.md",
+                  "sha256": "91c435dda005b68820f44d7f5506c6172a0c0c63040b2ccf778a2f70cb9cc977",
+                  "git_blob": "c70bf1ec419160e8c598a93644f8250096c90527",
+                  "bytes": 7401,
+                  "receipt": "research_activity_records/RA-BRCAUDIT-20261002-9D72AC/readbacks/5e2fc651b28baae832d50b089d027c470a641ea2d4328800fcdf5b74f32e90a3.json",
+                  "receipt_sha256": "5e2fc651b28baae832d50b089d027c470a641ea2d4328800fcdf5b74f32e90a3",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                }
+              ]
+            },
+            {
+              "event_id": "BRCX6-AUDIT-SOURCE-COMPLETE-20261002-9D72AC",
+              "state": "EM_REPRESENTED",
+              "sources": [
+                {
+                  "commit": "9ab9e44f168c2a36c37c65b950eda13857179677",
+                  "path": "experiments/brc_x6_transfer_20261002_9d72ac/REVIEW.md",
+                  "sha256": "d7dad9f6b5b02ef5f92ea2edd509864d5900756822846e13a634b1dff803a946",
+                  "git_blob": "5b74df6ddc1ba44dd861b87076f9c816b67056e2",
+                  "bytes": 10474,
+                  "receipt": "research_activity_records/RA-BRCAUDIT-20261002-9D72AC/readbacks/3207f0a5ce2ab2acf87dda5d4c05d6e54b35a49620cff40582b81ff5d2c5df38.json",
+                  "receipt_sha256": "3207f0a5ce2ab2acf87dda5d4c05d6e54b35a49620cff40582b81ff5d2c5df38",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "activity_id": "RA-BRCMARKOV-20261002-9D72AC",
+          "activity_record": {
+            "ref": "618def7f5db83928023655ddc211fc9a8f09a7c5",
+            "path": "research_activity_records/RA-BRCMARKOV-20261002-9D72AC.json",
+            "git_blob": "6d51f6200cbf6949122a39cd28206f294cafa13e",
+            "sha256": "033880a4d839fe85bfb768df24fffe022f17f009610677da86b569d90e02b62a",
+            "bytes": 3577
+          },
+          "mode": "TASK_RESEARCH",
+          "authority": {
+            "claim": false,
+            "mathematical_acceptance": false,
+            "review": false,
+            "task_registration": false,
+            "working_truth": false
+          },
+          "recorded_at": "2026-10-02T14:13:21.094260+00:00",
+          "checkpoint_count": 2,
+          "verified_checkpoints": [
+            {
+              "event_id": "BRCFIT-MARKOV-SOURCE-COMPLETE-20261002-9D72AC",
+              "state": "EM_REPRESENTED",
+              "sources": [
+                {
+                  "commit": "1a50f2e4b522e63bdd6dc2d442f5761c14567655",
+                  "path": "experiments/brc_long_horizon_fit_20261002_9d72ac/MARKOV.md",
+                  "sha256": "895a099b0810c5077d0397ae1e5dec27ae717ab23d7f09083ed1fe77070bdbf1",
+                  "git_blob": "401018329cb8938046a0a13735075fd82ea183b4",
+                  "bytes": 9782,
+                  "receipt": "research_activity_records/RA-BRCMARKOV-20261002-9D72AC/readbacks/073fe5cfbec3a091cf272b284f8e2baaf7f303c9c203cf0bf10e19af9f03c1bc.json",
+                  "receipt_sha256": "073fe5cfbec3a091cf272b284f8e2baaf7f303c9c203cf0bf10e19af9f03c1bc",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                }
+              ]
+            },
+            {
+              "event_id": "BRCX6-MARKOV-SOURCE-COMPLETE-20261002-9D72AC",
+              "state": "EM_REPRESENTED",
+              "sources": [
+                {
+                  "commit": "9ab9e44f168c2a36c37c65b950eda13857179677",
+                  "path": "experiments/brc_x6_transfer_20261002_9d72ac/TRANSFER.md",
+                  "sha256": "a4c7927ee056291480ff8c144be9e6a0c690360866ddb62c8da8190fbc95c640",
+                  "git_blob": "e04b38c030baf8a1e20fd4936465f8dd45bcdf22",
+                  "bytes": 12393,
+                  "receipt": "research_activity_records/RA-BRCMARKOV-20261002-9D72AC/readbacks/6a93428a9242bf9dbc1b0eb6e84140ad9e3fbdb2b7c2981ba26e513cd54435ec.json",
+                  "receipt_sha256": "6a93428a9242bf9dbc1b0eb6e84140ad9e3fbdb2b7c2981ba26e513cd54435ec",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "activity_id": "RA-BRCWEIGHT-20261002-9D72AC",
+          "activity_record": {
+            "ref": "618def7f5db83928023655ddc211fc9a8f09a7c5",
+            "path": "research_activity_records/RA-BRCWEIGHT-20261002-9D72AC.json",
+            "git_blob": "767e8d4d577675e1b2b6094fa4178657ad6ff16e",
+            "sha256": "7ef1ec05d49664ff41131987584c2ebf4d4c7262a93b1ef44350a6d6d3974b98",
+            "bytes": 3611
+          },
+          "mode": "TASK_RESEARCH",
+          "authority": {
+            "claim": false,
+            "mathematical_acceptance": false,
+            "review": false,
+            "task_registration": false,
+            "working_truth": false
+          },
+          "recorded_at": "2026-10-02T14:13:21.051592+00:00",
+          "checkpoint_count": 2,
+          "verified_checkpoints": [
+            {
+              "event_id": "BRCFIT-WEIGHTED-SOURCE-COMPLETE-20261002-9D72AC",
+              "state": "EM_REPRESENTED",
+              "sources": [
+                {
+                  "commit": "1a50f2e4b522e63bdd6dc2d442f5761c14567655",
+                  "path": "experiments/brc_long_horizon_fit_20261002_9d72ac/WEIGHTED.md",
+                  "sha256": "d66193c5aee7109f4cf02f24b9d3b736173bdfae673513dd970f44adc62fe422",
+                  "git_blob": "5da3a8b3516db54db12286b455de6a1af77a5c55",
+                  "bytes": 8230,
+                  "receipt": "research_activity_records/RA-BRCWEIGHT-20261002-9D72AC/readbacks/d315deefc5415d31077e097a42e9e55cd6db6c69de807e8fc7b6faf5367b917b.json",
+                  "receipt_sha256": "d315deefc5415d31077e097a42e9e55cd6db6c69de807e8fc7b6faf5367b917b",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                }
+              ]
+            },
+            {
+              "event_id": "BRCX6-WEIGHTED-SOURCE-COMPLETE-20261002-9D72AC",
+              "state": "EM_REPRESENTED",
+              "sources": [
+                {
+                  "commit": "9ab9e44f168c2a36c37c65b950eda13857179677",
+                  "path": "experiments/brc_x6_transfer_20261002_9d72ac/PRIOR_SCOPE_AUDIT.md",
+                  "sha256": "a957fc8adf33e5e696f4b05560968b268e60849e90dd77d0355fef71b99a1716",
+                  "git_blob": "104f13bd70f9a3cdd5895bc31695eff4fc3fbbd3",
+                  "bytes": 16777,
+                  "receipt": "research_activity_records/RA-BRCWEIGHT-20261002-9D72AC/readbacks/5a7fc2c02b174a67ede02193ebf9402e4dc257a093aa74d3b046c7aea640573b.json",
+                  "receipt_sha256": "5a7fc2c02b174a67ede02193ebf9402e4dc257a093aa74d3b046c7aea640573b",
+                  "checks": {
+                    "receipt_sha256_matches": true,
+                    "payload_sha256_matches": true,
+                    "git_blob_matches": true,
+                    "source_ref_matches": true,
+                    "source_path_matches": true,
+                    "repository_matches": true
+                  },
+                  "server_signature_authenticated": false
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "prior_four_checkpoints_preserved_exactly": true,
+      "archive": "9ab9e44f168c2a36c37c65b950eda13857179677",
+      "current_taskbook_cites_archive": false,
+      "next_action": "Read/compare new conditional cross-axis transfer and hidden-joint-law counterexamples against generation7 before source intake or bounded review. Existing baseline task may absorb the frontier; do not create a synonym task merely from a new PR.",
+      "scientific_boundary": "42 deterministic parameter trajectories are not independent empirical samples; model-specific TV conservation is not universal; reset/macro-permutation/native single-axis steps are typed separately; no unique real kernel, universal power law or Driver/Foundation acceptance.",
+      "full_dataset_recomputed": false,
+      "external_drive_bytes_verified": false
+    },
+    {
+      "id": "s15-xhome-relay",
+      "classification": "PROTECTED_CONTINUATION_STATUS_UNDETERMINED",
+      "confidence": "HIGH_FOR_NONINFERENCE_ONLY",
+      "confirmed_orphan": false,
+      "activity": {
+        "activity_id": "RA-5F7176E4063FE431EBB72093",
+        "authority": {
+          "claim": false,
+          "mathematical_acceptance": false,
+          "review": false,
+          "task_registration": false,
+          "working_truth": false
+        },
+        "checkpoints": [],
+        "mode": "TASK_RESEARCH",
+        "recorded_at": "2026-10-01T06:55:57.336602+00:00",
+        "registration_key": "session:independent-computational-support-ce9e6ef1607549d7ba704b5c1c779041:TASK_RESEARCH",
+        "registration_origin": {
+          "kind": "LIVE_SESSION",
+          "source_tracking_key": null
+        },
+        "researcher_id": "EM-S15SUPPORT-866CDE",
+        "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
+        "session_id": "independent-computational-support-ce9e6ef1607549d7ba704b5c1c779041",
+        "session_state": "KNOWN"
+      },
+      "activity_evidence": {
+        "ref": "71d836784c9545867955e1c23cb5a964fc2a0482",
+        "path": "research_activity_records/RA-5F7176E4063FE431EBB72093.json",
+        "git_blob": "7faa4e5f77ee4172e09136070c3257925fa6bba6",
+        "sha256": "a0f56939f921a6e3dd6752310e1278625888f639f5d0ad88f2ab8e172329e4f6",
+        "bytes": 727
+      },
+      "durable_payload_absence_proven": false,
+      "next_action": "Preserve xhome relay; parent may read existing authenticated live state/current handoff and exact output locator. Do not infer termination from empty checkpoints or age; do not claim, restart or rerun S15."
+    }
+  ],
+  "shared_evidence": {
+    "open_pr_inventory": "/tmp/em-orphan-audit-20261003/raw_open_pr_inventory.json",
+    "branch_source_comparisons": "/tmp/em-orphan-audit-20261003/branch_source_comparisons.json",
+    "branch_candidates": "/tmp/em-orphan-audit-20261003/branch_candidates.json",
+    "other_agent_source_audit_not_repeated": true
+  },
+  "read_scope": [
+    "Pinned main AGENTS/P000/contracts/current generation7 publication and taskbook",
+    "Three latest main BRC activity chains and all 17 embedded source/readback references",
+    "Four direct-research RA chains at both current PR1525/1526 heads and all 12 source/readback references",
+    "PR1526 complete REPORT; PR1525 full REPORT from earlier bounded read; shared independent branch/source comparisons",
+    "S15 exact RA registration"
+  ],
+  "not_executed": [
+    "No scientific experiment, S15 computation, full data restore, or image re-render",
+    "No external Drive data retrieval",
+    "No native Task/Claim/Driver operation or identity creation",
+    "No remote request by this delegated subagent in this audit",
+    "No repository/worktree/ref edits by this delegated subagent; only this /tmp JSON written"
+  ],
+  "limitations": [
+    "Embedded connector receipts validate stored bytes and coordinates, not server-signed liveness.",
+    "Static source is not current native Task ownership or permission to take over.",
+    "Only assigned activity candidates audited; no portfolio-wide claim that all research is connected."
+  ]
+}

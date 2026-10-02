@@ -1,0 +1,423 @@
+{
+  "schema": "EM_ORPHAN_RESEARCH_BRANCH_AUDIT_LOCAL_V1",
+  "classification": "READ_ONLY_SOURCE_AND_OPEN_PR_SCREENING_NOT_RESEARCH_DISPOSITION",
+  "source_commit": "71d836784c9545867955e1c23cb5a964fc2a0482",
+  "api_observed_at": "2026-10-02T16:08:35.433861+00:00",
+  "p000_semantics_binding": {
+    "native_spatial_axes": 6,
+    "time_dimension_separate": 1,
+    "ontology_locked": true
+  },
+  "open_pr_count": 447,
+  "lexical_research_prefix_open_pr_count": 300,
+  "all_open_prs_audited_semantically": false,
+  "selected_branch_and_packet_candidates": [
+    {
+      "id": "third-congruence-source-gap",
+      "label": "第三同余完整来源及正式父任务",
+      "classification": "SOURCE_RECOVERY_GAP_NOT_PUBLISHED",
+      "orphan_claim": "目前最明确的接续证据缺口；不能据此断言成果永久丢失",
+      "task_id_candidate": "RS-PRIME-COVER-AP-K3-THIRD-CONGRUENCE-BOUNDARY-20261002",
+      "observations": [
+        "固定Source两份组合报告称仅有24行portable摘要并缺完整变量域、四个follower约束、证明及可核实formal parent；本轮未取得该原摘要，不能独立确认24行数字",
+        "所查taskbook/publication树无该候选Task-ID",
+        "全量open PR标题/branch的有限关键词检索未定位精确第三同余或234-core/Frey成果包；这不是全仓库语义不存在证明"
+      ],
+      "evidence": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "ref": "71d836784c9545867955e1c23cb5a964fc2a0482",
+          "path": "driver_reviews/portfolio/EM-DVR-E8DCE5/PORTFOLIO_RECHECK_20261002.md",
+          "git_blob": "80ca4e1296ec15ac5f061507f30082a883eb8954",
+          "sha256": "6815fee4f26a309aea518c2b50bbf51d92ed19f8a12add25f078ba95dab699f9"
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "ref": "71d836784c9545867955e1c23cb5a964fc2a0482",
+          "path": "driver_reviews/portfolio/EM-DVR-3832A0/PORTFOLIO_HEALTH_AND_INTEGRATION_20261002.md",
+          "git_blob": "54bdac3d07fb96f10fbd93f392ac7598d950057a",
+          "sha256": "81681adcb0b8a4cb56197fc64ba5159e5c778b49378d4061ee3ca8d65e80cb9a"
+        }
+      ],
+      "evidence_kind": "Main source reports; original portable summary/full source not recovered in this audit",
+      "next_bounded_action": "恢复完整作者来源及后续234-core/Frey不可变材料，核对同一数学范围与真实formal parent，再决定是否已有任务可接续；不得凭摘要发布READY",
+      "live_crosscheck_required": true,
+      "source_locator_checks": {
+        "official_origin_branch_name_patterns": [
+          "*third*",
+          "*congruence*",
+          "*234*",
+          "*frey*",
+          "*prime-cover*",
+          "*ap-k3*"
+        ],
+        "matched_refs": [
+          "driver/third-sector-noncircular-computational-role-audit-20260823",
+          "formalization/fq006-partial-operation-congruence",
+          "integration/a2-kary-congruence",
+          "research/perfect-prime-ap-outer-block-hyperbolic-congruence-em-pptapobhc1-c58329",
+          "research/third-sector-factor-phase-independent-reconstruction"
+        ],
+        "exact_matching_third_congruence_or_234_core_frey_locator_found": false,
+        "all_branches_semantically_inspected": false,
+        "open_pr_title_and_branch_keyword_matches_are_other_scopes": true,
+        "original_summary_path_or_immutable_pin_recovered": false
+      }
+    },
+    {
+      "id": "d25-portable-intake",
+      "label": "D25 portable 独有证据",
+      "classification": "DURABLE_PORTABLE_INTAKE_AND_MAPPING_GAP",
+      "orphan_claim": "来源存在，不是无头失踪；可能存在来源回流/目标映射积压",
+      "branch": "portable/c4d02c-b11-kummer-dilog-20260927",
+      "head": "90ce3ede674740f9039cc56da00bc290b9e23594",
+      "coverage": {
+        "unique_commits": 23,
+        "incoming_file_count": 24,
+        "exact_source_blob_count": 0
+      },
+      "observations": [
+        "官方remote branch实际存在并exact fetch成功",
+        "23个独有commit、24个新增notes，0个exact blob已在固定main",
+        "已读两个完整原件，自标AUTHOR_PORTABLE/UNREVIEWED/NOT_ADMITTED/REGISTER_PENDING及SYNC_DEBT；不宣称原生Claim/Result",
+        "p^3 cyclic observer criterion和bounded-height endpoint separation不自动等于Delta_p-R_p mod p的accepted LIFT"
+      ],
+      "evidence": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "ref": "90ce3ede674740f9039cc56da00bc290b9e23594",
+          "path": "research_notes/d25_b_chart_complete_p3_observer_criterion_20261001.md",
+          "git_blob": "b40d714c46c85a30fae9d6b291c44000bba01c2f",
+          "sha256": "70609f6ad1e2e86a23c1a375a381a787e94071ec952935abf935bc285c88ef22"
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "ref": "90ce3ede674740f9039cc56da00bc290b9e23594",
+          "path": "research_notes/d25_b_chart_lambda_affine_endpoint_bounded_separation_20261001.md",
+          "git_blob": "ed08d190e1cf2624d109c4b5fd73c393508decc1",
+          "sha256": "ccb410a8e3072994ae2a088f1c596b0c42529e49aedaca93a2afe7962f53de06"
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "ref": "71d836784c9545867955e1c23cb5a964fc2a0482",
+          "path": "research_tasks/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT_610cb297.md",
+          "git_blob": "53a3ef039325534e3715add837f0eee332289984",
+          "sha256": "d4c0359500533174bf399fce218592f1053d6844044245c9633cbb365f0cc4c1"
+        }
+      ],
+      "existing_task": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+      "publication": "TP2-B6F4FC938FF94941C1B7",
+      "next_bounded_action": "先作source/provenance intake与到divided LIFT residual的精确映射；保留B11 upper-chart和1D25/rho_m型别区分，不另建同义任务，不重新跑已完成有限单元",
+      "live_crosscheck_required": true
+    },
+    {
+      "id": "a3-frozen-review",
+      "label": "PR1491 A3 冻结Result",
+      "classification": "FROZEN_AWAITING_REVIEW_WITH_DURABLE_RESULT",
+      "orphan_claim": "有完整头和输出；审核/准入积压，不能称研究执行中断",
+      "pr": {
+        "base_ref": "main",
+        "created_at": "2026-09-17T06:53:49Z",
+        "draft": false,
+        "head": "9c482061b4fc64b3ef936d90a9e21590d52f16f8",
+        "head_ref": "research/a3scr-autoa-7a41d2-20260917",
+        "html_url": "https://github.com/awdawmip/enterprise-math/pull/1491",
+        "number": 1491,
+        "state": "open",
+        "title": "research: classify A3 partial-move scale coherence",
+        "updated_at": "2026-09-23T02:41:32Z"
+      },
+      "coverage": {
+        "incoming_files": 8,
+        "exact_main_blob_files": 0,
+        "comparison_file": "branch_source_comparisons.json"
+      },
+      "task_id": "RS-A3-SHELL-PARTIAL-MOVE-SCALE-COHERENCE-REVISION",
+      "publication": "TP2-D2D715EB36415B0CA0C5",
+      "result_id": "RR-9FF7F84F01C577774649",
+      "observations": [
+        "8个新增文件均无exact blob在固定main；author RR/ER/return/checker/certificate完整在branch",
+        "main已经保存独立量词修订和2026-10-02原生回读FROZEN_RETURN/AWAITING_REVIEW/no live Claim；历史状态需root本轮live交叉核验",
+        "generation2明确supersedes generation1，不退回旧TP2-E6E8..."
+      ],
+      "evidence": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "ref": "71d836784c9545867955e1c23cb5a964fc2a0482",
+          "path": "driver_reviews/portfolio/EM-DVR-E8DCE5/A3_CFD_CONTINUATION_REPAIR_20261002.md",
+          "git_blob": "9251792aace076c8cd47802508bd3a86e1b6969f",
+          "sha256": "1438fd5011f73b1023a1a1da314a488b94dae0e439f87e5614a8696646382198"
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "ref": "9c482061b4fc64b3ef936d90a9e21590d52f16f8",
+          "path": "research_result_records/RS-A3-SHELL-PARTIAL-MOVE-SCALE-COHERENCE-REVISION/RR-9FF7F84F01C577774649.json",
+          "git_blob": "eb82ac58be5ceaecae07240edb5b4258c72fa3d6",
+          "sha256": "32b978884de82beca44985c96ec1080aa1ec248c0e273789fdef306d2be5403e"
+        }
+      ],
+      "next_bounded_action": "消费已冻结Result及|A|>=2量词修订，按当前准入/绑定规则进行独立Driver review；不重新研究或改作者RR",
+      "live_crosscheck_required": true,
+      "root_live_crosscheck": {
+        "performed_by": "parent /root; this delegated agent did not issue native request",
+        "receipt_file": "/tmp/em-orphan-audit-20261003/live_reviews.json",
+        "parent_reported_fresh_receipt": "53 review items complete, SHA checked",
+        "task_state": "FROZEN_RETURN / AWAITING_REVIEW",
+        "a3_no_live_claim": true,
+        "h0m_next_action_requires_owning_and_parallel_results": false
+      }
+    },
+    {
+      "id": "cfd-stale-next-step",
+      "label": "PR1492 CFD 旧下一步",
+      "classification": "OUTDATED_HANDOFF_EXISTING_IMPLEMENTATION_AND_VERIFIER",
+      "orphan_claim": "旧PR下一步过期但可从较新完整来源接续；不是缺来源",
+      "pr": {
+        "base_ref": "main",
+        "created_at": "2026-09-17T07:12:37Z",
+        "draft": false,
+        "head": "7a594142c816700cd4ddc9959a126313826974c3",
+        "head_ref": "research/cfd-hybrid-autoA-fa5824-20260917",
+        "html_url": "https://github.com/awdawmip/enterprise-math/pull/1492",
+        "number": 1492,
+        "state": "open",
+        "title": "research(CFD): exact closed-support carrier gate FA5824",
+        "updated_at": "2026-09-17T07:12:37Z"
+      },
+      "coverage": {
+        "incoming_files": 5,
+        "exact_main_blob_files": 0,
+        "comparison_file": "branch_source_comparisons.json"
+      },
+      "task_id": "RS-CFD-SPECTRAL-HYBRID-20260910",
+      "existing_verifier": "RS-CFD-TRAJECTORY-VERIFY-20260910",
+      "verifier_publication": "TP2-499BEE22860EFD4AD321",
+      "observations": [
+        "5个PR新增文件未exact入固定main，但static-carrier adapter在main已接入closure/initial validation/fixed gather/sparse+dense callbacks",
+        "R23三原件在官方material commit51ee293c8537b86e5e922f9f379f9d0d2ab7b981且main修订packet已列完整pin/hash",
+        "R23是measurement-error denominator证书，不是native benchmark；有既存trajectory verifier，不能再发同义验证任务"
+      ],
+      "evidence": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "ref": "71d836784c9545867955e1c23cb5a964fc2a0482",
+          "path": "driver_reviews/portfolio/EM-DVR-E8DCE5/A3_CFD_CONTINUATION_REPAIR_20261002.md",
+          "git_blob": "9251792aace076c8cd47802508bd3a86e1b6969f",
+          "sha256": "1438fd5011f73b1023a1a1da314a488b94dae0e439f87e5614a8696646382198"
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "ref": "71d836784c9545867955e1c23cb5a964fc2a0482",
+          "path": "research_artifacts/CFD_POLARIZATION_SUPPORT_20260923/static_carrier_native_adapter_source.py",
+          "git_blob": "1436c730189ba1b4f8d84359ff24a39f3ddc2f82",
+          "sha256": "c3a8975aaf60e858900146350909983546a86fd6bfe51388fc1c6217a587442b"
+        }
+      ],
+      "next_bounded_action": "核当前owner/最高checkpoint；从现成adapter与R23恢复matched32^3 Taylor–Green native A/B/C correctness、whole cost和uncertainty验证；不重复detector接入",
+      "live_crosscheck_required": true
+    },
+    {
+      "id": "h0m-frozen-block",
+      "label": "PR1480 Hodge H0M 有界阻塞分类",
+      "classification": "BRANCH_FROZEN_HARD_BLOCK_WITH_MISSING_OBJECT",
+      "orphan_claim": "分支成果有完整来源，数学对象确实未构造；准入/审核与科学阻塞分别处理",
+      "pr": {
+        "base_ref": "main",
+        "created_at": "2026-09-17T04:13:01Z",
+        "draft": false,
+        "head": "b662d3dcc34d00099db93893ad5c61ee869f08a4",
+        "head_ref": "research/h0m-c49ede787913",
+        "html_url": "https://github.com/awdawmip/enterprise-math/pull/1480",
+        "number": 1480,
+        "state": "open",
+        "title": "H0M: exact nonsplit Weil carrier, scoped transport no-go and missing algebraic seed",
+        "updated_at": "2026-09-17T04:13:01Z"
+      },
+      "coverage": {
+        "incoming_files": 11,
+        "exact_main_blob_files": 0,
+        "comparison_file": "branch_source_comparisons.json"
+      },
+      "task_id": "RS-HODGE-H0M-WEIL-SIXFOLD-SEMIREGULARITY-OBSTRUCTION-CANCELLATION",
+      "result_id": "RR-B1F69A473235F3871D5A",
+      "observations": [
+        "11个incoming files均无exact blob在固定main",
+        "完整branch RR有精确[-3] family hard-block及missing algebraic seed，不是宣称完整Hodge algebraicity",
+        "此前Hodge/A3 source路由把该并行RR列为corroborating，不能替代owning RR-3B1EAD99AF17C6142931或自动开H1"
+      ],
+      "evidence": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "ref": "b662d3dcc34d00099db93893ad5c61ee869f08a4",
+          "path": "research_result_records/RS-HODGE-H0M-WEIL-SIXFOLD-SEMIREGULARITY-OBSTRUCTION-CANCELLATION/RR-B1F69A473235F3871D5A.json",
+          "git_blob": "84277b3ac357fbbb186e7b067b71355996f009a8",
+          "sha256": "e4209b788912712d014c7dc18205dde3a3e9a259819b3a0e8aaf5c7abe2a7766"
+        }
+      ],
+      "next_bounded_action": "恢复exact owning及parallel Result的准入/独立review边界；只有实际algebraic seed/Weil projection满足本来条件才解除数学block，不把branch合入当科学完成",
+      "live_crosscheck_required": true,
+      "root_live_crosscheck": {
+        "performed_by": "parent /root; this delegated agent did not issue native request",
+        "receipt_file": "/tmp/em-orphan-audit-20261003/live_reviews.json",
+        "parent_reported_fresh_receipt": "53 review items complete, SHA checked",
+        "task_state": "FROZEN_RETURN / AWAITING_REVIEW",
+        "a3_no_live_claim": false,
+        "h0m_next_action_requires_owning_and_parallel_results": true
+      }
+    },
+    {
+      "id": "old-open-already-main",
+      "label": "PR1489 /1487 /1482 已有main成果",
+      "classification": "FALSE_POSITIVE_ALREADY_MAIN_EXACT_BLOBS",
+      "orphan_claim": "open状态不代表断头或数据悬空",
+      "prs": [
+        {
+          "base_ref": "main",
+          "created_at": "2026-09-17T06:21:31Z",
+          "draft": false,
+          "head": "1d677f037d066d14aeda71bf6a1da535b5368803",
+          "head_ref": "research/p000q30rec-ee3c71",
+          "html_url": "https://github.com/awdawmip/enterprise-math/pull/1489",
+          "number": 1489,
+          "state": "open",
+          "title": "research: recover and canonicalize P000 Q30 n=14 evidence",
+          "updated_at": "2026-09-17T06:21:31Z"
+        },
+        {
+          "base_ref": "main",
+          "created_at": "2026-09-17T05:19:27Z",
+          "draft": false,
+          "head": "02de07c722c611c345f3b527dfe06d07af5d3fc6",
+          "head_ref": "research/pcf7fix-b603fa",
+          "html_url": "https://github.com/awdawmip/enterprise-math/pull/1487",
+          "number": 1487,
+          "state": "open",
+          "title": "PCF7FIX: correct fixed-probe zero-value statement",
+          "updated_at": "2026-09-17T05:19:27Z"
+        },
+        {
+          "base_ref": "main",
+          "created_at": "2026-09-17T04:48:41Z",
+          "draft": false,
+          "head": "b3873def43b20bbfa381aa06bfef67630092b1ec",
+          "head_ref": "research/pfn-null-autob-d67a51",
+          "html_url": "https://github.com/awdawmip/enterprise-math/pull/1482",
+          "number": 1482,
+          "state": "open",
+          "title": "PFSSV: finite-window null identifiability boundary",
+          "updated_at": "2026-09-17T04:48:41Z"
+        }
+      ],
+      "coverage": {
+        "1489": {
+          "incoming_files": 5,
+          "exact_main_blob_files": 5,
+          "comparison_file": "branch_source_comparisons.json"
+        },
+        "1487": {
+          "incoming_files": 6,
+          "exact_main_blob_files": 6,
+          "comparison_file": "branch_source_comparisons.json"
+        },
+        "1482": {
+          "incoming_files": 6,
+          "exact_main_blob_files": 6,
+          "comparison_file": "branch_source_comparisons.json"
+        }
+      },
+      "observations": [
+        "逐blob实核分别5/5、6/6、6/6全部原文件在固定Source main",
+        "数据入库不等于当前review/followup都完成；root可仅核现有任务闭环"
+      ],
+      "next_bounded_action": "不重复merge、不重跑旧科学单元，只按当前Task/Review状态消费剩余闭环",
+      "live_crosscheck_required": true
+    },
+    {
+      "id": "brc-recent-fit",
+      "label": "PR1525 新BRC长区间拟合",
+      "classification": "RECENT_DIRECT_ACTIVITY_WITH_DURABLE_PACKET_PENDING_INTAKE",
+      "orphan_claim": "近期新增且有完整报告/数据/RA，不宜据draft或无mainblob定性断头",
+      "pr": {
+        "base_ref": "main",
+        "created_at": "2026-10-02T14:49:14Z",
+        "draft": true,
+        "head": "6099d979efaecd1fda263eb595587dd67e9aa748",
+        "head_ref": "research/brc-fitting-20261002-9d72ac",
+        "html_url": "https://github.com/awdawmip/enterprise-math/pull/1525",
+        "number": 1525,
+        "state": "open",
+        "title": "BRC: extend long-horizon residual fits with full data and Drive backup",
+        "updated_at": "2026-10-02T14:53:32Z"
+      },
+      "coverage": {
+        "incoming_files": 79,
+        "exact_main_blob_files": 0,
+        "comparison_file": "branch_source_comparisons.json"
+      },
+      "observations": [
+        "79个incoming files尚无exactblob在固定main，PR当日更新且为draft",
+        "完整REPORT有source继承、48条轨迹/逐整数记录、独立研究内审查、复现入口与backup receipt；本轮仅读文件，未验外部Drive字节或重算数据",
+        "其直接活动RA-BRCFIT-20261002-9D72AC存在于branch；static main同一baseline Task已到generation7 TP2-2923CB208CCC017ED5A4，不以旧gen6路由重启"
+      ],
+      "evidence": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "ref": "6099d979efaecd1fda263eb595587dd67e9aa748",
+          "path": "experiments/brc_long_horizon_fit_20261002_9d72ac/REPORT.md",
+          "git_blob": "549cf5a3d7429422cd5cd9f4e0a1b5c444d5dfef",
+          "sha256": "b457534ae21c8cd4475524be58c08220688e13dd5cb205fe4812e635e6093c54"
+        }
+      ],
+      "next_bounded_action": "核活动checkpoint/交付及现有Task的精确范围覆盖，准备现成成果intake/review；不自动加一批数值或S15",
+      "live_crosscheck_required": true
+    },
+    {
+      "id": "brc-recent-transfer",
+      "label": "PR1526 新BRC六轴传导证据",
+      "classification": "RECENT_DIRECT_ACTIVITY_WITH_DURABLE_PACKET_PENDING_INTAKE",
+      "orphan_claim": "近期新增且可恢复，不等于没有接续",
+      "pr": {
+        "base_ref": "main",
+        "created_at": "2026-10-02T16:02:00Z",
+        "draft": true,
+        "head": "618def7f5db83928023655ddc211fc9a8f09a7c5",
+        "head_ref": "research/brc-x6-transfer-20261002-9d72ac",
+        "html_url": "https://github.com/awdawmip/enterprise-math/pull/1526",
+        "number": 1526,
+        "state": "open",
+        "title": "BRC：补查原生六维残差转出、回传与隐藏联合关系",
+        "updated_at": "2026-10-02T16:05:25Z"
+      },
+      "coverage": {
+        "incoming_files": 40,
+        "exact_main_blob_files": 0,
+        "comparison_file": "branch_source_comparisons.json"
+      },
+      "observations": [
+        "40个incoming files尚无exactblob在固定main，PR当日更新且为draft",
+        "完整REPORT保留六空间+独立时间语义、42条轨迹、联合关系counterexamples、2个data parts及restore/hash契约；本輪没有拼接或跑实验",
+        "报告明确未作Driver/Foundation接受，不以frameprojection替代完整原生态；已有baseline Task/直接活动可路由，不依简称就另建Task"
+      ],
+      "evidence": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "ref": "618def7f5db83928023655ddc211fc9a8f09a7c5",
+          "path": "experiments/brc_x6_transfer_20261002_9d72ac/REPORT.md",
+          "git_blob": "a8efab933bbb052500cea4926d34a600f6c2e5ae",
+          "sha256": "672c1907aa9d2837b956fa2b3c90de7cc4c58e9683330d46d69d2a33d58e4de6"
+        }
+      ],
+      "next_bounded_action": "核真实活动/交付以及baseline Task覆盖或明确独立问题，再做source intake/有界review；不重做已交付图或数值",
+      "live_crosscheck_required": true
+    }
+  ],
+  "raw_inventory": "raw_open_pr_inventory.json",
+  "exact_blob_comparisons": "branch_source_comparisons.json",
+  "limitations": [
+    "Selected 8 cases/groups, not a proof that all447 openPRs or all research tasks are healthy/orphaned",
+    "Source fixed71d836784; openPR listing is a separate current API observation",
+    "Current native Task/Claim/session state delegated to root; historical receipt does not establish current ownership",
+    "No scientific reruns, no remote mutation, no claim, no identity adoption, no repo-content edit by this agent; only authorized exact fetch Git objects and local/tmp evidence writes",
+    "Third-congruence original portable full-source not independently recovered; current conclusion is evidence gap, not proof of irreversible loss"
+  ]
+}
