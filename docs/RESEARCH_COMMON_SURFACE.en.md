@@ -390,14 +390,19 @@ When a reusable result appears:
 
 ## 10. Foundation stewardship
 
-FQ-001 through FQ-006 are canonicalized foundation conventions/results. The currently active foundation question is:
-
-
-- `FQ-20260810-007` — determine whether a weakest project-native finite causal/relational primitive can make arbitrary finite pre-sampling operationally falsifiable, or prove that current Foundation semantics require an additional physical/causal axiom to distinguish online generation from finite latent completion.
+FQ-001 through FQ-006 are canonicalized foundation conventions/results. FQ-007 closes with the negative answer and exact model-class separation boundary below when this propagation passes its gates and reaches source-repository `main`. The resulting active Foundation-question set is empty; this does not close unrelated research or governance tasks.
 
 FQ-006 adds legality-sensitive partial deterministic future languages to P023 without changing FQ-004's actual-state / observation / future-safe layering and without collapsing A4 multivalued correspondence into a partial function model.
 
-FQ-007 is routed to clean owner `research/r004-causal-identifiability-v1` and durable task `RS-R004-CAUSAL-IDENTIFIABILITY`. Historical R004 PR #302 is evidence/provenance only; Bell locality and measurement independence are pressure-test restrictions, not Foundation axioms or project novelty.
+FQ-007 preserves research owner `research/r004-causal-identifiability-v1` and the closed `RS-R004-CAUSAL-IDENTIFIABILITY` / `TP2-4E4385E37C8AD66B83A0` as provenance, not a fresh research dispatch. Its T01–T03/C01 payload is already present at `b7f0260be9a5e665e63daf3b43fec4bd0947088b`; [the R004 supplement](R004_CAUSAL_IDENTIFIABILITY_NO_GO_01.en.md) retains its own evidence and proof status. This propagation consumes the existing Steward [verification](https://github.com/awdawmip/enterprise-math/issues/164#issuecomment-5242406428), [sharpening](https://github.com/awdawmip/enterprise-math/issues/164#issuecomment-5242646586), and [closure recommendation](https://github.com/awdawmip/enterprise-math/issues/164#issuecomment-5242954869). It is Driver integration of that disposition, not a new Steward verdict or a replay of the stale PR #444 registry.
+
+At each fixed finite horizon, the verified relation/support and total-rational-kernel constructions, including deterministic visible-history-adaptive policies, admit matching ex-ante counterfactual-master completions under the stated hidden-extension hypothesis. Closure under those completions guarantees non-identifiability; more finite branching, randomness or intervention syntax alone does not certify online generation. This does not assert one fixed finite latent carrier for all horizons or a no-go for every causal primitive.
+
+For a complete declared finite-horizon signature `Sigma_H`, independently admissible model class `A`, presampled subclass `P` of the model carrier, and target `m in A`, exact class-level identifiability is `[m]_(ker Sigma_H) intersect A intersect P = empty`, equivalently `q_H(m) notin q_H(A intersect P)`, where `q_H` is the quotient induced by `Sigma_H`. Bare latent-extension nonclosure is necessary to escape the guaranteed completion obstruction but is not sufficient: another admissible presampled representative may remain in the same fiber.
+
+Complete-language separation means `forall p in A intersect P exists e in the declared experiment language`, not automatically `exists e in that language forall p in A intersect P`. One finite battery returning the whole signature requires that battery to be explicitly admitted by the operational language. The kernel/fiber statement is prior mathematics; later certificate, rank and capacity results retain their separate maintenance or promotion status.
+
+Foundation selects no unique weakest physical axiom without an additional independent selection principle. Bell locality, measurement independence, capacity bounds, common-cause restrictions and factorization laws are not adopted here. A future application must declare its admissibility law and prove the relevant fiber exclusion in its own model; it does not reopen the completed search for generic finite operational syntax. Historical R004 PR #302 remains evidence/provenance only.
 
 The A2 safe-operation packet is steward-classified as a direct-maintenance candidate rather than a new FQ: the future/context language and observation remain logically prior to the operational future-safe quotient, while `Spec_A(q)` is a derived surviving-operation spectrum. Its P008 rigidity theorem prose retains its stated proof status until separately upgraded.
 

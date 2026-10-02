@@ -390,14 +390,19 @@ python -c 'from control_plane import research_control_bootstrap as b; b.install(
 
 ## 10. Foundation stewardship
 
-FQ-001 至 FQ-006 已 canonicalized。目前 active foundation question 为：
-
-
-- `FQ-20260810-007` —— 研究是否存在一个最弱的项目原生有限 causal/relational primitive，使任意有限预采样在操作上可被证伪；若不存在，则证明当前 Foundation 需要额外物理/因果公理才能区分在线生成与有限 latent completion。
+FQ-001 至 FQ-006 已 canonicalized。FQ-007 在本次传播通过门槛并进入源仓库 `main` 后，按下述否定答案与精确模型类分离边界关闭。传播后的 active Foundation-question 集合为空；这不关闭其他研究或治理任务。
 
 FQ-006 在不改变 FQ-004 actual-state / observation / future-safe 分层的前提下，为 P023 增加合法性敏感的部分确定性未来语言；它也不把 A4 multivalued correspondence 压缩成 partial function model。
 
-FQ-007 路由到 clean owner `research/r004-causal-identifiability-v1` 与 durable task `RS-R004-CAUSAL-IDENTIFIABILITY`。历史 R004 PR #302 仅作为 evidence/provenance；Bell locality 与 measurement independence 是压力测试限制，不是 Foundation 公理，也不是项目原创主张。
+FQ-007 保留研究 owner `research/r004-causal-identifiability-v1` 及已关闭的 `RS-R004-CAUSAL-IDENTIFIABILITY` / `TP2-4E4385E37C8AD66B83A0` 作为来源，不重新派发研究。T01–T03/C01 原始成果已在 `b7f0260be9a5e665e63daf3b43fec4bd0947088b` 入库；[R004 补充文档](R004_CAUSAL_IDENTIFIABILITY_NO_GO_01.zh-CN.md) 保持其自身证据与证明状态。本次传播消费既有 Steward [核验](https://github.com/awdawmip/enterprise-math/issues/164#issuecomment-5242406428)、[精化](https://github.com/awdawmip/enterprise-math/issues/164#issuecomment-5242646586)及[关闭建议](https://github.com/awdawmip/enterprise-math/issues/164#issuecomment-5242954869)，是 Driver 对该裁定的集成，不是新的 Steward 裁定，也不重放过期 PR #444 的登记表。
+
+对每个固定有限时域，已核验的 relation/support 与 total-rational-kernel 构造（包括确定性 visible-history-adaptive policy）在明确的隐藏扩展假设下具有匹配的事前 counterfactual-master completion。对这些 completion 封闭保证不可辨识；仅增加有限分支、随机性或干预语法不能认证在线生成。该结论不声称存在一个跨所有时域的固定有限 latent carrier，也不否定一切因果 primitive。
+
+给定完整且已声明的有限时域签名 `Sigma_H`、独立规定的可接受模型类 `A`、模型载体中的预采样子类 `P` 以及目标 `m in A`，模型类层面的精确可辨识条件为 `[m]_(ker Sigma_H) intersect A intersect P = empty`，等价于 `q_H(m) notin q_H(A intersect P)`，其中 `q_H` 是 `Sigma_H` 诱导的商映射。latent-extension nonclosure 是逃出既有 completion 障碍的必要条件，但本身不充分：同一纤维内仍可能保留其他可接受的预采样代表。
+
+完整语言分离表达的是 `forall p in A intersect P exists e in the declared experiment language`，不能自动换成 `exists e in that language forall p in A intersect P`。一次返回整个签名的有限实验组必须由操作语言明确允许。kernel/fiber 命题属于既有数学；后续 certificate、rank 与 capacity 结果保持各自的维护或晋升状态。
+
+没有额外独立选择原则时，Foundation 不选择唯一最弱物理公理。本次不采纳 Bell locality、measurement independence、容量界、common-cause 限制或 factorization law。未来应用须声明自身的 admissibility law，并在对应模型中证明纤维排除；这不重新开启已经完成的一般有限操作语法搜索。历史 R004 PR #302 继续仅作为 evidence/provenance。
 
 A2 safe-operation packet 被 steward 分类为 direct-maintenance candidate 而不是新 FQ：future/context language 与 observation 在逻辑上先于 operational future-safe quotient，`Spec_A(q)` 则是派生的 surviving-operation spectrum。其 P008 rigidity theorem prose 在单独升级前继续保持自身声明的 proof status。
 

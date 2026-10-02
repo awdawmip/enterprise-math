@@ -69,7 +69,7 @@ PR1491八个新增文件、PR1492五个新增文件在所查main全树中均无�
 
 精确来源：PR1491 head `9c482061b4fc64b3ef936d90a9e21590d52f16f8` 的 `research_artifacts/A3_SHELL_PARTIAL_MOVE_SCALE_COHERENCE_7A41D2_20260917/result.md` 第20/98行。取A={0}、n=d=1、g_-=(23)、g_+=e，U=id，L=R_(23)。19点B1上，p=(1,-1,0,0)被L送至(-1,0,1,0)，故K不为id，但唯一标记状态是全零，两个push-forward相同。纯stdlib反例实际通过；脚本随本报告保留。应为raw universal state命题显式加|A|>=2，或只陈述载体/operator相等，并保留§5的rigid-state范围。这不否定原径向公式和带marker反例。
 
-建议沿既有 `RS-A3-SHELL-PARTIAL-MOVE-SCALE-COHERENCE-REVISION / TP2-E6E8A3DC37930B4CF4AA` 与分支Result `RR-9FF7F84F01C577774649` 接续有界表述修订和独立review。本报告是发现与路由证据，不是新DR/REQUEST_REVISION权威，不修改作者原Result；不另建同义任务。
+当前出版更正（2026-10-02 原生回读）：应沿既有 `RS-A3-SHELL-PARTIAL-MOVE-SCALE-COHERENCE-REVISION / TP2-D2D715EB36415B0CA0C5`（generation 2，替代此前误引的 generation 1）与分支Result `RR-9FF7F84F01C577774649` 接续有界表述修订和独立review。本报告是发现与路由证据，不是新DR/REQUEST_REVISION权威，不修改作者原Result；不另建同义任务。
 
 CFD实读 main `research_artifacts/CFD_POLARIZATION_SUPPORT_20260923/static_carrier_native_adapter_source.py`：第38–65行已有one-time closure，第162–188行已有initial validation/fixed rFFT gather，第190–210行已接入sparse/dense调用。PR1492“尚待接入adapter”的下一步已过期。PROOF.md第18–25行将后续R23前沿定位为 `1b47d2cf8ec96868cf49722617e9f90ae7464a9c` / material `51ee293c8537b86e5e922f9f379f9d0d2ab7b981`。接续应先回读R23原件，再补匹配native32³ Taylor–Green正确性及总成本，消费既有trajectory验证任务。本轮未取得R23全部原件或跑native CFD，因此未合并该旧PR或声称其科学验证完成。
 
@@ -93,3 +93,8 @@ Global-Knowledge-Sync: main@ddac596 / GLOBAL_KNOWLEDGE_V1
 首个修复commit `4febada67481868b721c0bac8a77e3983df35532` 曾改动 checker 的直接启动入口。其本地检查通过，但原生PRE_FINAL请求 `pre_final-ef5f34f5f48a407a` / control Issue2633 明确失败：`UPSTREAM_CODE_REVIEW_REQUIRED: tools/check_research_common_surface.py`。服务尚未准入新checker字节，因此这不是可宣布完成的原生状态。
 
 当前已将该脚本精确恢复为 `b057172c46d3faa7446a0ceb500a00096001843c` 的既有受审字节，保留清单和双语文档修复。没有改服务代码pin、部署、网络、安全权限或凭据。最终机械gate使用已有生产/测试路径显式安装canonical bootstrap再调用原脚本的main；实际命令记录于VALIDATION.json。原直接脚本入口的导入限制保留为调用要求，不将未获准的入口修复宣称已部署。最终源代码没有改变checker判据或实现。
+
+
+## 后续阻塞修复与最新证据
+
+2026-10-02 后续核查已纠正 A3 当前 publication 指针；其原生状态为 FROZEN_RETURN / AWAITING_REVIEW、无 live CLAIM，不是重新计算入口。量词修订、R23 原件恢复和 CFD 最小验证缺口见 [A3_CFD_CONTINUATION_REPAIR_20261002.md](A3_CFD_CONTINUATION_REPAIR_20261002.md)。最新 BRC 跨类型归档已取得并核验，见 [RECENT_RESEARCH_SYNTHESIS_20261002.md](RECENT_RESEARCH_SYNTHESIS_20261002.md)。本节补充不改写上轮时点的历史结论。

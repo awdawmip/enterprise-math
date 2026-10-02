@@ -1,0 +1,83 @@
+{
+  "source_base": "3920cc33ca6fa586dc1d9b13b4292ab11ddd4cf7",
+  "observed_at": "2026-10-02T14:44:23.319836+00:00",
+  "scope": "FQ007 existing Steward disposition propagation; no new theorem or physical axiom, no Actions or deployment",
+  "checks": [
+    {
+      "command": [
+        "/workspace/.onboarding/venv/bin/python",
+        "-c",
+        "from control_plane import research_control_bootstrap as b; b.install(); from tools import check_research_common_surface as c; raise SystemExit(c.main())"
+      ],
+      "exit_code": 0,
+      "stdout": "research common surface: OK (20 Lean root imports, 28 repo tools [12 common + 2 toolbox + 14 runtime], 0 active foundation questions, 0 active FQ canonical-dispatch links)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/workspace/.onboarding/venv/bin/python",
+        "-m",
+        "unittest",
+        "tests.test_research_common_surface",
+        "tests.test_foundation_backflow"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "...........\n----------------------------------------------------------------------\nRan 11 tests in 3.302s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/workspace/.onboarding/venv/bin/python",
+        "tools/check_bilingual_pairs.py",
+        "--base",
+        "3920cc33ca6fa586dc1d9b13b4292ab11ddd4cf7"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: 134 bilingual document pairs are synchronized structurally.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/workspace/.onboarding/venv/bin/python",
+        "tools/check_references.py"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: 67 sources and 30 lineage components across 13 source registry file(s) and 19 lineage registry file(s).\n",
+      "stderr": ""
+    }
+  ],
+  "independent_scope_review": "Initial missing admissibility quantifier corrected in all five surfaces; re-reviewed without remaining blocking findings. Existing Steward disposition only; original mathematical payload unchanged.",
+  "final_after_quantifier_review": [
+    {
+      "command": [
+        "/workspace/.onboarding/venv/bin/python",
+        "-c",
+        "from control_plane import research_control_bootstrap as b; b.install(); from tools import check_research_common_surface as c; raise SystemExit(c.main())"
+      ],
+      "exit_code": 0,
+      "stdout": "research common surface: OK (20 Lean root imports, 28 repo tools [12 common + 2 toolbox + 14 runtime], 0 active foundation questions, 0 active FQ canonical-dispatch links)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/workspace/.onboarding/venv/bin/python",
+        "tools/check_bilingual_pairs.py",
+        "--base",
+        "3920cc33ca6fa586dc1d9b13b4292ab11ddd4cf7"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: 134 bilingual document pairs are synchronized structurally.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/workspace/.onboarding/venv/bin/python",
+        "-B",
+        "/workspace/enterprise-math/driver_reviews/portfolio/EM-DVR-E8DCE5/a3_alphabet_domain_repair_check.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"ball_sizes\": {\"1\": 19, \"2\": 85}, \"binary_one_marker_checks\": 108864, \"carrier_path_cases\": 1728, \"n_max\": 2, \"quotient_nonglobal_separated_cases\": 1654, \"quotient_one_marker_witnesses\": 1628, \"quotient_two_marker_witnesses\": 26, \"raw_nonidentity_separated_cases\": 1679, \"scope\": \"new alphabet/marker probe only; no formal disposition or CFD execution\", \"singleton_all_states_equal_cases\": 1728, \"singleton_counterexample_image\": [-1, 0, 1, 0], \"status\": \"PASS\"}\n",
+      "stderr": ""
+    }
+  ]
+}

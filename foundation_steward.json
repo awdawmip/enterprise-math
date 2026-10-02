@@ -60,9 +60,7 @@
       "REJECTED",
       "CANONICALIZED"
     ],
-    "active_questions": [
-      "FQ-20260810-007"
-    ],
+    "active_questions": [],
     "research_handoff_required": true,
     "steward_primary_investigator": false,
     "new_research_task_publication": "IMMUTABLE_TASK_RECORD_BEFORE_CLAIM",
@@ -115,6 +113,24 @@
       "resolved_by": "FQ-20260809-006",
       "canonical_pr": 311,
       "canonical_merge": "a7c21de79c8115fc06238d7810452a218987ecd6"
+    },
+    "finite_causal_identifiability": {
+      "resolved_by": "FQ-20260810-007",
+      "scope": "each fixed finite horizon; finite relation/support processes or finite total rational stochastic kernels, including deterministic visible-history-adaptive policies and the declared visible projection",
+      "negative_core": "closure under the corresponding hidden counterfactual-master completion implies non-identifiability; finite branching, rational randomness and adaptive intervention syntax alone do not certify online generation",
+      "signature": "Sigma_H is the complete declared finite-horizon operational signature; A is the independently admissible model class, P is the presampled subclass of the model carrier, and the target m belongs to A",
+      "exact_success_condition": "[m]_(ker Sigma_H) intersect A intersect P = empty; equivalently q_H(m) notin q_H(A intersect P), where q_H is the quotient induced by Sigma_H",
+      "nonclosure_boundary": "failure of closure removes a necessary obstruction only; another admissible presampled representative in the same operational fiber still prevents identifiability",
+      "experiment_quantifiers": "complete-language separation is forall p in A intersect P exists e in the declared experiment language; a single experiment requires exists e in that language forall p in A intersect P, or a finite battery explicitly admitted by that language",
+      "horizon_boundary": "no one fixed finite latent carrier for all horizons is inferred",
+      "physical_boundary": "no unique weakest physical axiom follows without an additional independent selection principle; no capacity, Bell-locality, measurement-independence, common-cause or factorization axiom is adopted",
+      "derived_boundary": "fiber exclusion is a generic kernel/fiber statement and prior mathematics; later certificate/rank/capacity results retain their separate status and are not promoted here",
+      "research_payload": "b7f0260be9a5e665e63daf3b43fec4bd0947088b / docs/R004_CAUSAL_IDENTIFIABILITY_NO_GO_01.en.md",
+      "steward_verification": "Issue #164 comment 5242406428",
+      "steward_sharpening": "Issue #164 comment 5242646586",
+      "steward_closure_recommendation": "Issue #164 comment 5242954869",
+      "propagation_authority": "Driver integration of the existing Steward disposition; no new Steward verdict or physical axiom",
+      "effective_when": "matching Foundation/Common-Surface propagation has passed applicable gates and reached source-repository main"
     },
     "graph_distance_api": {
       "stable_api": "graph_distance = P012 theorem-facing shortest-step distance on closed, symmetric, loop-free adjacency",

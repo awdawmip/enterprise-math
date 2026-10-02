@@ -104,26 +104,7 @@
     "answered_research_link_requires_terminal_v2_publication": true
   },
   "question_scheduler_links": [],
-  "answered_question_scheduler_links": [
-    {
-      "question_id": "FQ-20260810-007",
-      "phase": "ANSWERED",
-      "scheduler_task_id": "RS-R004-CAUSAL-IDENTIFIABILITY",
-      "scheduler_role": "RESEARCH",
-      "research_owner": "research/r004-causal-identifiability-v1",
-      "terminal_publication_id": "TP2-4E4385E37C8AD66B83A0",
-      "terminal_record_state": "CLOSED",
-      "claimable": false,
-      "next_foundation_action": "STEWARD_VERIFICATION_OR_CANONICALIZATION",
-      "source_refs": [
-        "research_task_records/RS-R004-CAUSAL-IDENTIFIABILITY/TP2-4E4385E37C8AD66B83A0.json",
-        "PR #389 / 735a8bd94af2723153203776b1949f7f5d0ab296",
-        "Issue #82 comment 5238933817",
-        "Issue #164 RETURN comment 5238943596",
-        "FQ-20260810-007 / comment 5236396941"
-      ]
-    }
-  ],
+  "answered_question_scheduler_links": [],
   "canonicalized_examples": [
     {
       "question_id": "FQ-20260809-004",
@@ -177,6 +158,44 @@
         "Issue #164 source-canonicalization comment 5242605053",
         "PR #431 / ca351e5446b3a84835ade9509f1ab97c276841d9",
         "PR #436 / 3a40fe680e7aad4bc458540483c3c753e15f2cc4"
+      ]
+    },
+    {
+      "question_id": "FQ-20260810-007",
+      "phase": "CANONICALIZED",
+      "canonical_merge": "b7f0260be9a5e665e63daf3b43fec4bd0947088b",
+      "canonical_merge_scope": "existing steward-verified R004 T01-T03/C01 source payload with necessary-not-sufficient wording repair; Foundation/Common-Surface closure additionally requires this propagation",
+      "propagation_effective_when": "this entry and the matching Foundation/Common-Surface propagation have passed applicable gates and reached source-repository main",
+      "final_gates": [
+        "python -c \"from control_plane import research_control_bootstrap as b; b.install(); from tools import check_research_common_surface as c; raise SystemExit(c.main())\"",
+        "python -m unittest tests.test_foundation_backflow",
+        "python tools/check_bilingual_pairs.py --base <current-merge-base>",
+        "python tools/check_references.py"
+      ],
+      "validation_command_provenance": "driver_reviews/portfolio/EM-DVR-E8DCE5/BLOCKER_REPAIR_VALIDATION_20261002.json; use the admitted checker bytes through the existing canonical bootstrap caller, not the unsupported direct-script import path",
+      "result_class": "ANSWERED_NEGATIVE_AND_EXACT_MODEL_CLASS_SEPARATION_BOUNDARY",
+      "foundation_result": "finite operational branching/randomization/deterministic adaptivity is insufficient when the matching master completion is admissible; complete-signature identifiability is exclusion of all admissible presampled models from the target fiber; nonclosure alone is insufficient; no unique weakest physical axiom is selected",
+      "quantifier_boundary": "forall p in A intersect P exists e in the declared experiment language does not imply exists e in that language forall p in A intersect P; a single finite battery requires explicit operational admission",
+      "derived_results_boundary": "the kernel/fiber formulation is prior mathematics; later rank/certificate/capacity results retain separate maintenance or promotion status",
+      "scheduler_task_id": "RS-R004-CAUSAL-IDENTIFIABILITY",
+      "scheduler_role": "RESEARCH",
+      "research_owner": "research/r004-causal-identifiability-v1",
+      "terminal_publication_id": "TP2-4E4385E37C8AD66B83A0",
+      "terminal_record_state": "CLOSED",
+      "claimable": false,
+      "next_foundation_action": "CONSUME_EXISTING_BOUNDARY; no reopened search for generic finite causal syntax; a concrete new law requires its own model-specific separation theorem",
+      "propagation_role": "RESEARCH_DRIVER_INTEGRATION_OF_EXISTING_STEWARD_DISPOSITION",
+      "source_refs": [
+        "research_task_records/RS-R004-CAUSAL-IDENTIFIABILITY/TP2-4E4385E37C8AD66B83A0.json",
+        "PR #389 / 735a8bd94af2723153203776b1949f7f5d0ab296",
+        "Issue #82 comment 5238933817",
+        "Issue #164 RETURN comment 5238943596",
+        "FQ-20260810-007 / comment 5236396941",
+        "Issue #164 Steward verification comment 5242406428",
+        "Issue #164 Steward sharpening comment 5242646586",
+        "Issue #164 Steward closure recommendation comment 5242954869",
+        "research_returns/RS-GOV-FOUNDATION-BACKFLOW/EM-DVR-7FC65C/FQ007_PR444_SOURCE_AWARE_REPLAY_DISPOSITION_CHECKPOINT_20260920_2123.json",
+        "b7f0260be9a5e665e63daf3b43fec4bd0947088b"
       ]
     }
   ],
