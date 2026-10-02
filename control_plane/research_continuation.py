@@ -527,19 +527,48 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
                 unresolved_refs.append(ref)
     result_state = research_result_records.task_result_state(task_id, root, record["publication_id"])
     result_available = result_state is not None
+    result_pins, result_errors = {}, []
     if isinstance(result_state, dict) and not restricted:
         result = result_state.get("result")
-        if isinstance(result, dict):
-            refs += [value for value in (result.get("_record_path"), result.get("return_path")) if isinstance(value, str)]
-            if result.get("result_id"):
-                refs.append(f"research_result_records/{task_id}/{result['result_id']}.json")
-            if result.get("execution_record_id"):
-                refs.append(f"research_execution_records/{task_id}/{result['execution_record_id']}.json")
-            refs += [item["path"] for item in result.get("output_manifest", []) if isinstance(item, dict) and isinstance(item.get("path"), str)]
-    pins, artifact_errors = [], []
+        parallel_ids = result_state.get("parallel_result_ids", result.get("parallel_result_ids") if isinstance(result, dict) else None)
+        selected_results = [result] if isinstance(result, dict) else []
+        if parallel_ids is not None:
+            # A parallel reducer's result is a control summary, not an RR file.
+            # Resolve members only through the current operational view, which
+            # preserves replacement, quarantine and write-authority filtering.
+            _require(isinstance(parallel_ids, list) and all(isinstance(rid, str) and re.fullmatch(r"RR-[A-Za-z0-9_-]+", rid)
+                     for rid in parallel_ids), "parallel result IDs must name immutable Result records")
+            selected_results = []
+            current_results = research_result_records.result_map(root)
+            if isinstance(result, dict) and isinstance(result.get("_record_path"), str):
+                refs.append(result["_record_path"])  # A real parallel synthesis record, if present.
+            for rid in dict.fromkeys(parallel_ids):
+                path = f"research_result_records/{task_id}/{rid}.json"
+                try:
+                    current = current_results.get(rid)
+                    binding = {"result_id": rid, "task_id": task_id, "publication_id": record["publication_id"]}
+                    _require(isinstance(current, dict) and all(current.get(key) == value for key, value in binding.items()),
+                             "parallel Result is absent from the current task/publication operational view")
+                    _require(current.get("_record_path") == path, "parallel Result record path differs from its current binding")
+                    pin = artifact_pin(root, path, source_commit)
+                    immutable = json.loads(_path(root, path).read_text(encoding="utf-8"))
+                    _require(isinstance(immutable, dict) and all(immutable.get(key) == value for key, value in binding.items()),
+                             "parallel Result immutable bytes differ from its current task/publication binding")
+                    result_pins[path] = {**pin, **binding, "provenance": "CURRENT_PARALLEL_RESULT_RECORD"}
+                    selected_results.append({**immutable, "_record_path": path})
+                except (ValueError, OSError) as exc:
+                    result_errors.append({"path": path, "error": str(exc)})
+        for selected in selected_results:
+            refs += [value for value in (selected.get("_record_path"), selected.get("return_path")) if isinstance(value, str)]
+            if selected.get("result_id"):
+                refs.append(f"research_result_records/{task_id}/{selected['result_id']}.json")
+            if selected.get("execution_record_id"):
+                refs.append(f"research_execution_records/{task_id}/{selected['execution_record_id']}.json")
+            refs += [item["path"] for item in selected.get("output_manifest", []) if isinstance(item, dict) and isinstance(item.get("path"), str)]
+    pins, artifact_errors = [], result_errors
     for path in dict.fromkeys(refs):
         try:
-            pin = artifact_pin(root, path, source_commit)
+            pin = result_pins.get(path) or artifact_pin(root, path, source_commit)
             _require(not expected_input_blobs.get(path) or expected_input_blobs[path] == {pin["git_blob_sha1"]},
                      "declared input blob differs from current Source bytes")
             pins.append(pin)
