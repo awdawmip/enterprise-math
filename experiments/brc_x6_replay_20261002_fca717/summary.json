@@ -1,0 +1,100 @@
+{
+  "status": "PASS",
+  "horizon": 128,
+  "scope": "4 weighted families, 6 sign correlations, 3 original oscillators and 2 hidden-response alternatives; matched scalar/planar return laws",
+  "cross_module_common_times": [
+    1,
+    2,
+    3,
+    4,
+    8,
+    16,
+    32,
+    64,
+    128
+  ],
+  "cross_module_exact_checks": 18,
+  "checks": {
+    "weighted": {
+      "response_moment_steps": 512,
+      "old_row_matches": 512,
+      "joint_short_time_checks": 12,
+      "scalar_CWM_pushforward_checks": 50,
+      "checked_native_edges": 6684
+    },
+    "returns": {
+      "full_joint_timepoints": 6,
+      "matched_scalar_and_plane_laws": 12,
+      "native_endpoint_observations": 10363,
+      "exact_return_coefficient_queries": 70
+    },
+    "correlated": {
+      "production_moment_steps": 768,
+      "old_scalar_comparisons": 768,
+      "independent_radial_closure_checks": 768,
+      "full_distribution_steps": 24,
+      "cwm_joint_endpoint_observations": 10546,
+      "cwm_primitive_edge_checks": 32088,
+      "projected_cwm_triple_checks": 96,
+      "old_undefined_normalizations": 64
+    },
+    "oscillation": {
+      "base_full_trace_equals_old_trace": 384,
+      "base_normalized_cumulant_ratio": 384,
+      "explicit_full_fourth_cumulant": 15,
+      "explicit_native_covariance": 15,
+      "explicit_native_fourth_moment": 15,
+      "explicit_old_covariance": 15,
+      "explicit_old_fourth_cumulant": 15,
+      "explicit_response_covariance": 15,
+      "explicit_zero_mean": 45,
+      "full_covariance_matches_formula": 640,
+      "full_covariance_matches_response_sum": 640,
+      "full_cumulant_matches_response_sum": 640,
+      "full_response_mean": 640,
+      "hidden_kernel_changes_full_response": 2,
+      "hidden_not_visible": 1,
+      "hidden_projector": 1,
+      "hidden_squared_response": 640,
+      "independent_joint_support": 15,
+      "intertwining_UA_equals_cRU": 5,
+      "joint_CWM_count": 8792,
+      "joint_CWM_dominant": 8792,
+      "joint_CWM_total": 8792,
+      "joint_native_response_cross_covariance": 15,
+      "moment_total_mass": 1280,
+      "native_X_is_integer": 8792,
+      "native_word_count": 15,
+      "noise_pushforward_multiplicity": 1,
+      "nonidentifiable_hidden_kernel_same_old_observables": 54,
+      "observer_gram": 1,
+      "old_covariance_matches_formula": 640,
+      "old_law_count_refinement": 420,
+      "old_law_dominant_refinement": 420,
+      "old_law_mass_preserved": 420,
+      "old_law_support": 15,
+      "old_mean": 640,
+      "original_code_ell_squared": 45,
+      "original_code_gamma": 45,
+      "original_code_radial_k4": 45,
+      "orthogonal_lift": 1,
+      "orthogonal_projectors": 1,
+      "orthogonal_response_split": 640,
+      "rotation_intertwining": 1,
+      "six_to_two_covariance_pushforward": 640,
+      "visible_projector": 1,
+      "visible_squared_response": 640
+    }
+  },
+  "source_sha256": {
+    "correlated_replay.py": "df039d8c7d382af0ad479a47780d4ae7f35dc8121fb07ebb9699f4f4a36ed864",
+    "oscillation_replay.py": "bff61959b1efd53fa54954e2673ff01c110beaa4c82fee9577d029fb3ad00d45",
+    "run_all.py": "2110050fd0151e4661cd27976f1d11160a20be94b910eb43d94388f1fbcd4593",
+    "weighted_return_replay.py": "cc8d1fcb3de699945513985f9ae2a41d0d45b3b46b0a330003d095399edc0fe0"
+  },
+  "numerical_results_sha256": {
+    "correlated_results.json": "edefc18b30926642181ad477c04938682290087622a2e34bc60bb8a8016688cf",
+    "oscillation_results.json": "5c0eca1a702daf41d60364c3aa75b9fc06f23e8c2e59a820da34529092ad0a7b",
+    "weighted_return_results.json": "a846d9164e17d0fedaf1a30ff2cd71a7b43a51d8150287a21189d8bdf0d63a2e"
+  }
+}

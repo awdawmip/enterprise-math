@@ -1,0 +1,2356 @@
+{
+  "schema": "BRC_NATIVE_X6_OSCILLATION_REPLAY_V1",
+  "researcher_id": "EM-BRCGRAPH-FCA717",
+  "arithmetic": "fractions.Fraction; no floating-point assertions",
+  "horizon": 128,
+  "explicit_joint_horizon": 3,
+  "old_source_path": "experiments/brc_expanded_types_20261002_fca717/dynamics_types.py",
+  "old_source_sha256": "ed219c49e7f96e43ccb32d944876a65851f00099a8ac7353ad0cda634b01bb63",
+  "source_sha256": {
+    "experiments/brc_x6_replay_20261002_fca717/oscillation_replay.py": "bff61959b1efd53fa54954e2673ff01c110beaa4c82fee9577d029fb3ad00d45",
+    "src/enterprise_math/brc_transport.py": "386f9b955a65aba938b08bf76f21330c612a7e7a396d0c3dd83523bfaaa9d4e7",
+    "src/enterprise_math/brc_weighted.py": "4f3e356227a1c964d33a3ddae94922463ba28097a43b8d1b8f6cd9ca5615fc9f"
+  },
+  "constants": {
+    "R": [
+      [
+        "3/5",
+        "-4/5"
+      ],
+      [
+        "4/5",
+        "3/5"
+      ]
+    ],
+    "U": [
+      [
+        "1",
+        "0",
+        "1",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "1",
+        "0",
+        "1"
+      ]
+    ],
+    "O": [
+      [
+        "3/5",
+        "-4/5",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "4/5",
+        "3/5",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "3/5",
+        "-4/5",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "4/5",
+        "3/5",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "3/5",
+        "-4/5"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "4/5",
+        "3/5"
+      ]
+    ],
+    "E": [
+      [
+        "1/3",
+        "0",
+        "1/3",
+        "0",
+        "1/3",
+        "0"
+      ],
+      [
+        "0",
+        "1/3",
+        "0",
+        "1/3",
+        "0",
+        "1/3"
+      ],
+      [
+        "1/3",
+        "0",
+        "1/3",
+        "0",
+        "1/3",
+        "0"
+      ],
+      [
+        "0",
+        "1/3",
+        "0",
+        "1/3",
+        "0",
+        "1/3"
+      ],
+      [
+        "1/3",
+        "0",
+        "1/3",
+        "0",
+        "1/3",
+        "0"
+      ],
+      [
+        "0",
+        "1/3",
+        "0",
+        "1/3",
+        "0",
+        "1/3"
+      ]
+    ],
+    "K": [
+      [
+        "2/3",
+        "0",
+        "-1/3",
+        "0",
+        "-1/3",
+        "0"
+      ],
+      [
+        "0",
+        "2/3",
+        "0",
+        "-1/3",
+        "0",
+        "-1/3"
+      ],
+      [
+        "-1/3",
+        "0",
+        "2/3",
+        "0",
+        "-1/3",
+        "0"
+      ],
+      [
+        "0",
+        "-1/3",
+        "0",
+        "2/3",
+        "0",
+        "-1/3"
+      ],
+      [
+        "-1/3",
+        "0",
+        "-1/3",
+        "0",
+        "2/3",
+        "0"
+      ],
+      [
+        "0",
+        "-1/3",
+        "0",
+        "-1/3",
+        "0",
+        "2/3"
+      ]
+    ],
+    "primitive_noise": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "-1",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "-1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "-1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "-1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-1"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ]
+  },
+  "typing": "X in Z^6 is native position; Z in Q^6 is response, not Cell position/address; Y=UZ is the old response.",
+  "tool_reuse": "REUSE_EXECUTED: Affine/EffectHistogram/MomentState and positive CWM; original rotating_modes executed unchanged.",
+  "metric": "Declared response squared norm sum(Z_i^2), not native spatial distance of rational response values.",
+  "checks_total": 45275,
+  "checks_by_category": {
+    "base_full_trace_equals_old_trace": 384,
+    "base_normalized_cumulant_ratio": 384,
+    "explicit_full_fourth_cumulant": 15,
+    "explicit_native_covariance": 15,
+    "explicit_native_fourth_moment": 15,
+    "explicit_old_covariance": 15,
+    "explicit_old_fourth_cumulant": 15,
+    "explicit_response_covariance": 15,
+    "explicit_zero_mean": 45,
+    "full_covariance_matches_formula": 640,
+    "full_covariance_matches_response_sum": 640,
+    "full_cumulant_matches_response_sum": 640,
+    "full_response_mean": 640,
+    "hidden_kernel_changes_full_response": 2,
+    "hidden_not_visible": 1,
+    "hidden_projector": 1,
+    "hidden_squared_response": 640,
+    "independent_joint_support": 15,
+    "intertwining_UA_equals_cRU": 5,
+    "joint_CWM_count": 8792,
+    "joint_CWM_dominant": 8792,
+    "joint_CWM_total": 8792,
+    "joint_native_response_cross_covariance": 15,
+    "moment_total_mass": 1280,
+    "native_X_is_integer": 8792,
+    "native_word_count": 15,
+    "noise_pushforward_multiplicity": 1,
+    "nonidentifiable_hidden_kernel_same_old_observables": 54,
+    "observer_gram": 1,
+    "old_covariance_matches_formula": 640,
+    "old_law_count_refinement": 420,
+    "old_law_dominant_refinement": 420,
+    "old_law_mass_preserved": 420,
+    "old_law_support": 15,
+    "old_mean": 640,
+    "original_code_ell_squared": 45,
+    "original_code_gamma": 45,
+    "original_code_radial_k4": 45,
+    "orthogonal_lift": 1,
+    "orthogonal_projectors": 1,
+    "orthogonal_response_split": 640,
+    "rotation_intertwining": 1,
+    "six_to_two_covariance_pushforward": 640,
+    "visible_projector": 1,
+    "visible_squared_response": 640
+  },
+  "all_checks_passed": true,
+  "cases": [
+    {
+      "id": "original_c_3/4_block_rotation",
+      "c": "3/4",
+      "hidden_gain": "3/4",
+      "response_matrix_A": [
+        [
+          "9/20",
+          "-3/5",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "3/5",
+          "9/20",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "9/20",
+          "-3/5",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "3/5",
+          "9/20",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "9/20",
+          "-3/5"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "3/5",
+          "9/20"
+        ]
+      ],
+      "native_kernel": "+/-E_i, all 12 primitive directions, each 1/12",
+      "initial_X": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "initial_Z": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "fitted_parameters_changed": false,
+      "explicit_joint_checks": [
+        {
+          "t": 1,
+          "joint_endpoints": 12,
+          "old_endpoints": 4,
+          "word_count": 12,
+          "fiber_refinement": 3,
+          "native_response_cross_covariance": [
+            [
+              "1/6",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "1/6",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1/6",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "1/6",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "1/6",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1/6"
+            ]
+          ]
+        },
+        {
+          "t": 2,
+          "joint_endpoints": 144,
+          "old_endpoints": 16,
+          "word_count": 144,
+          "fiber_refinement": 9,
+          "native_response_cross_covariance": [
+            [
+              "29/120",
+              "1/10",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "-1/10",
+              "29/120",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "29/120",
+              "1/10",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "-1/10",
+              "29/120",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "29/120",
+              "1/10"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "-1/10",
+              "29/120"
+            ]
+          ]
+        },
+        {
+          "t": 3,
+          "joint_endpoints": 1728,
+          "old_endpoints": 64,
+          "word_count": 1728,
+          "fiber_refinement": 27,
+          "native_response_cross_covariance": [
+            [
+              "517/2400",
+              "19/100",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "-19/100",
+              "517/2400",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "517/2400",
+              "19/100",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "-19/100",
+              "517/2400",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "517/2400",
+              "19/100"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "-19/100",
+              "517/2400"
+            ]
+          ]
+        }
+      ],
+      "rows": [
+        {
+          "t": 1,
+          "native_position_covariance_coefficient_I6": "1/6",
+          "native_position_squared_displacement": 1,
+          "native_position_k4": "-1/3",
+          "native_position_gamma": "-1/3",
+          "old_Y_squared_response": "1",
+          "old_Y_k4": "-1",
+          "old_Y_gamma": "-1",
+          "full_Z_squared_response": "1",
+          "full_Z_k4": "-1/3",
+          "full_Z_gamma": "-1/3",
+          "visible_E_Z_squared_response": "1/3",
+          "hidden_K_Z_squared_response": "2/3",
+          "full_covariance_coefficient_E": "1/6",
+          "full_covariance_coefficient_K": "1/6"
+        },
+        {
+          "t": 2,
+          "native_position_covariance_coefficient_I6": "1/3",
+          "native_position_squared_displacement": 2,
+          "native_position_k4": "-2/3",
+          "native_position_gamma": "-1/6",
+          "old_Y_squared_response": "25/16",
+          "old_Y_k4": "-337/256",
+          "old_Y_gamma": "-337/625",
+          "full_Z_squared_response": "25/16",
+          "full_Z_k4": "-337/768",
+          "full_Z_gamma": "-337/1875",
+          "visible_E_Z_squared_response": "25/48",
+          "hidden_K_Z_squared_response": "25/24",
+          "full_covariance_coefficient_E": "25/96",
+          "full_covariance_coefficient_K": "25/96"
+        },
+        {
+          "t": 3,
+          "native_position_covariance_coefficient_I6": "1/2",
+          "native_position_squared_displacement": 3,
+          "native_position_k4": "-1",
+          "native_position_gamma": "-1/9",
+          "old_Y_squared_response": "481/256",
+          "old_Y_k4": "-92833/65536",
+          "old_Y_gamma": "-193/481",
+          "full_Z_squared_response": "481/256",
+          "full_Z_k4": "-92833/196608",
+          "full_Z_gamma": "-193/1443",
+          "visible_E_Z_squared_response": "481/768",
+          "hidden_K_Z_squared_response": "481/384",
+          "full_covariance_coefficient_E": "481/1536",
+          "full_covariance_coefficient_K": "481/1536"
+        },
+        {
+          "t": 4,
+          "native_position_covariance_coefficient_I6": "2/3",
+          "native_position_squared_displacement": 4,
+          "native_position_k4": "-4/3",
+          "native_position_gamma": "-1/12",
+          "old_Y_squared_response": "8425/4096",
+          "old_Y_k4": "-24296689/16777216",
+          "old_Y_gamma": "-72097/210625",
+          "full_Z_squared_response": "8425/4096",
+          "full_Z_k4": "-24296689/50331648",
+          "full_Z_gamma": "-72097/631875",
+          "visible_E_Z_squared_response": "8425/12288",
+          "hidden_K_Z_squared_response": "8425/6144",
+          "full_covariance_coefficient_E": "8425/24576",
+          "full_covariance_coefficient_K": "8425/24576"
+        },
+        {
+          "t": 8,
+          "native_position_covariance_coefficient_I6": "4/3",
+          "native_position_squared_displacement": 8,
+          "native_position_k4": "-8/3",
+          "native_position_gamma": "-1/24",
+          "old_Y_squared_response": "607417225/268435456",
+          "old_Y_k4": "-105399377448689713/72057594037927936",
+          "old_Y_gamma": "-4338014017/15185430625",
+          "full_Z_squared_response": "607417225/268435456",
+          "full_Z_k4": "-105399377448689713/216172782113783808",
+          "full_Z_gamma": "-4338014017/45556291875",
+          "visible_E_Z_squared_response": "607417225/805306368",
+          "hidden_K_Z_squared_response": "607417225/402653184",
+          "full_covariance_coefficient_E": "607417225/1610612736",
+          "full_covariance_coefficient_K": "607417225/1610612736"
+        },
+        {
+          "t": 16,
+          "native_position_covariance_coefficient_I6": "8/3",
+          "native_position_squared_displacement": 16,
+          "native_position_k4": "-16/3",
+          "native_position_gamma": "-1/48",
+          "old_Y_squared_response": "2634984436217242825/1152921504606846976",
+          "old_Y_k4": "-1944470648498597960976354987279537841/1329227995784915872903807060280344576",
+          "old_Y_gamma": "-18448597093898403457/65874610905431070625",
+          "full_Z_squared_response": "2634984436217242825/1152921504606846976",
+          "full_Z_k4": "-1944470648498597960976354987279537841/3987683987354747618711421180841033728",
+          "full_Z_gamma": "-18448597093898403457/197623832716293211875",
+          "visible_E_Z_squared_response": "2634984436217242825/3458764513820540928",
+          "hidden_K_Z_squared_response": "2634984436217242825/1729382256910270464",
+          "full_covariance_coefficient_E": "2634984436217242825/6917529027641081856",
+          "full_covariance_coefficient_K": "2634984436217242825/6917529027641081856"
+        },
+        {
+          "t": 32,
+          "native_position_covariance_coefficient_I6": "16/3",
+          "native_position_squared_displacement": 32,
+          "native_position_k4": "-32/3",
+          "native_position_gamma": "-1/96",
+          "old_Y_squared_response": "48611766212464949024408874681988446025/21267647932558653966460912964485513216",
+          "old_Y_k4": "-661669081356092477905065184400598493327983561446410847778548524183268688817/452312848583266388373324160190187140051835877600158453279131187530910662656",
+          "old_Y_gamma": "-340282370354622283755887092089617300737/1215294155311623725610221867049711150625",
+          "full_Z_squared_response": "48611766212464949024408874681988446025/21267647932558653966460912964485513216",
+          "full_Z_k4": "-661669081356092477905065184400598493327983561446410847778548524183268688817/1356938545749799165119972480570561420155507632800475359837393562592731987968",
+          "full_Z_gamma": "-340282370354622283755887092089617300737/3645882465934871176830665601149133451875",
+          "visible_E_Z_squared_response": "48611766212464949024408874681988446025/63802943797675961899382738893456539648",
+          "hidden_K_Z_squared_response": "48611766212464949024408874681988446025/31901471898837980949691369446728269824",
+          "full_covariance_coefficient_E": "48611766212464949024408874681988446025/127605887595351923798765477786913079296",
+          "full_covariance_coefficient_K": "48611766212464949024408874681988446025/127605887595351923798765477786913079296"
+        },
+        {
+          "t": 64,
+          "native_position_covariance_coefficient_I6": "32/3",
+          "native_position_squared_displacement": 64,
+          "native_position_k4": "-64/3",
+          "native_position_gamma": "-1/192",
+          "old_Y_squared_response": "16541727033902311947626629610014962333199589036160271194463713104581717220425/7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "old_Y_k4": "-76616045313957697711851571418318326394439935290626448216781553042392284635558505415222186819099847952099440524288828851911998704013855761605103429180849/52374249726338269920211035149241586435466272736689036631732661889538140742474792878132321477214466514414186946040961136147476104734166288853256441430016",
+          "old_Y_gamma": "-115792089237316207213755562747271079374142846078159229717669176283754238736897/413543175847557798690665740250374058329989725904006779861592827614542930510625",
+          "full_Z_squared_response": "16541727033902311947626629610014962333199589036160271194463713104581717220425/7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "full_Z_k4": "-76616045313957697711851571418318326394439935290626448216781553042392284635558505415222186819099847952099440524288828851911998704013855761605103429180849/157122749179014809760633105447724759306398818210067109895197985668614422227424378634396964431643399543242560838122883408442428314202498866559769324290048",
+          "full_Z_gamma": "-115792089237316207213755562747271079374142846078159229717669176283754238736897/1240629527542673396071997220751122174989969177712020339584778482843628791531875",
+          "visible_E_Z_squared_response": "16541727033902311947626629610014962333199589036160271194463713104581717220425/21711016731996786641919559689128982722488122124807605757398297001483711807488",
+          "hidden_K_Z_squared_response": "16541727033902311947626629610014962333199589036160271194463713104581717220425/10855508365998393320959779844564491361244061062403802878699148500741855903744",
+          "full_covariance_coefficient_E": "16541727033902311947626629610014962333199589036160271194463713104581717220425/43422033463993573283839119378257965444976244249615211514796594002967423614976",
+          "full_covariance_coefficient_K": "16541727033902311947626629610014962333199589036160271194463713104581717220425/43422033463993573283839119378257965444976244249615211514796594002967423614976"
+        },
+        {
+          "t": 128,
+          "native_position_covariance_coefficient_I6": "64/3",
+          "native_position_squared_displacement": 128,
+          "native_position_k4": "-128/3",
+          "native_position_gamma": "-1/384",
+          "old_Y_squared_response": "1915401132848942442796289285457958159860998382265661205419538826059807115888962635380554670477496198802486013107220721297799967600346394040127585729521225/837987995621412318723376562387865382967460363787024586107722590232610251879596686050117143635431464230626991136655378178359617675746660621652103062880256",
+          "old_Y_k4": "-1027253219921323375845317251879442704924558273681318041562457606505196148418354560155739477716502599804106560675817513185567155085211142149013202460694483969095648794484475177038377714834814771532115097531354087372054349370182358558551506444358656655748446700363102277552599824838218352261996990482010214833/702223880805592151456759840151962786569522257399338504974336254522393264865238137237142489540654437582500444843247630303354647534431314931612685275935445798350655833690880801860555545317367555154113605281582053784524026102900245630757473088050106395169337932361665227499793929447186391815763110662594625536",
+          "old_Y_gamma": "-13407807929942597099574024998205985135931742965325158317510351105024878248924355505939865902991333463762661624622427052622907992421468381611974197905519617/47885028321223561069907232136448953996524959556641530135488470651495177897224065884513866761937404970062150327680518032444999190008659851003189643238030625",
+          "full_Z_squared_response": "1915401132848942442796289285457958159860998382265661205419538826059807115888962635380554670477496198802486013107220721297799967600346394040127585729521225/837987995621412318723376562387865382967460363787024586107722590232610251879596686050117143635431464230626991136655378178359617675746660621652103062880256",
+          "full_Z_k4": "-1027253219921323375845317251879442704924558273681318041562457606505196148418354560155739477716502599804106560675817513185567155085211142149013202460694483969095648794484475177038377714834814771532115097531354087372054349370182358558551506444358656655748446700363102277552599824838218352261996990482010214833/2106671642416776454370279520455888359708566772198015514923008763567179794595714411711427468621963312747501334529742890910063942603293944794838055827806337395051967501072642405581666635952102665462340815844746161353572078308700736892272419264150319185508013797084995682499381788341559175447289331987783876608",
+          "full_Z_gamma": "-13407807929942597099574024998205985135931742965325158317510351105024878248924355505939865902991333463762661624622427052622907992421468381611974197905519617/143655084963670683209721696409346861989574878669924590406465411954485533691672197653541600285812214910186450983041554097334997570025979553009568929714091875",
+          "visible_E_Z_squared_response": "1915401132848942442796289285457958159860998382265661205419538826059807115888962635380554670477496198802486013107220721297799967600346394040127585729521225/2513963986864236956170129687163596148902381091361073758323167770697830755638790058150351430906294392691880973409966134535078853027239981864956309188640768",
+          "hidden_K_Z_squared_response": "1915401132848942442796289285457958159860998382265661205419538826059807115888962635380554670477496198802486013107220721297799967600346394040127585729521225/1256981993432118478085064843581798074451190545680536879161583885348915377819395029075175715453147196345940486704983067267539426513619990932478154594320384",
+          "full_covariance_coefficient_E": "1915401132848942442796289285457958159860998382265661205419538826059807115888962635380554670477496198802486013107220721297799967600346394040127585729521225/5027927973728473912340259374327192297804762182722147516646335541395661511277580116300702861812588785383761946819932269070157706054479963729912618377281536",
+          "full_covariance_coefficient_K": "1915401132848942442796289285457958159860998382265661205419538826059807115888962635380554670477496198802486013107220721297799967600346394040127585729521225/5027927973728473912340259374327192297804762182722147516646335541395661511277580116300702861812588785383761946819932269070157706054479963729912618377281536"
+        }
+      ],
+      "covariance_storage": "Exact complete 6x6 covariance = coefficient_E*E + coefficient_K*K; both matrices stored in constants."
+    },
+    {
+      "id": "original_c_1_block_rotation",
+      "c": "1",
+      "hidden_gain": "1",
+      "response_matrix_A": [
+        [
+          "3/5",
+          "-4/5",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "4/5",
+          "3/5",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "3/5",
+          "-4/5",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "4/5",
+          "3/5",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "3/5",
+          "-4/5"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "4/5",
+          "3/5"
+        ]
+      ],
+      "native_kernel": "+/-E_i, all 12 primitive directions, each 1/12",
+      "initial_X": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "initial_Z": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "fitted_parameters_changed": false,
+      "explicit_joint_checks": [
+        {
+          "t": 1,
+          "joint_endpoints": 12,
+          "old_endpoints": 4,
+          "word_count": 12,
+          "fiber_refinement": 3,
+          "native_response_cross_covariance": [
+            [
+              "1/6",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "1/6",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1/6",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "1/6",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "1/6",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1/6"
+            ]
+          ]
+        },
+        {
+          "t": 2,
+          "joint_endpoints": 144,
+          "old_endpoints": 16,
+          "word_count": 144,
+          "fiber_refinement": 9,
+          "native_response_cross_covariance": [
+            [
+              "4/15",
+              "2/15",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "-2/15",
+              "4/15",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "4/15",
+              "2/15",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "-2/15",
+              "4/15",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "4/15",
+              "2/15"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "-2/15",
+              "4/15"
+            ]
+          ]
+        },
+        {
+          "t": 3,
+          "joint_endpoints": 1728,
+          "old_endpoints": 64,
+          "word_count": 1728,
+          "fiber_refinement": 27,
+          "native_response_cross_covariance": [
+            [
+              "11/50",
+              "22/75",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "-22/75",
+              "11/50",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "11/50",
+              "22/75",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "-22/75",
+              "11/50",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "11/50",
+              "22/75"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "-22/75",
+              "11/50"
+            ]
+          ]
+        }
+      ],
+      "rows": [
+        {
+          "t": 1,
+          "native_position_covariance_coefficient_I6": "1/6",
+          "native_position_squared_displacement": 1,
+          "native_position_k4": "-1/3",
+          "native_position_gamma": "-1/3",
+          "old_Y_squared_response": "1",
+          "old_Y_k4": "-1",
+          "old_Y_gamma": "-1",
+          "full_Z_squared_response": "1",
+          "full_Z_k4": "-1/3",
+          "full_Z_gamma": "-1/3",
+          "visible_E_Z_squared_response": "1/3",
+          "hidden_K_Z_squared_response": "2/3",
+          "full_covariance_coefficient_E": "1/6",
+          "full_covariance_coefficient_K": "1/6"
+        },
+        {
+          "t": 2,
+          "native_position_covariance_coefficient_I6": "1/3",
+          "native_position_squared_displacement": 2,
+          "native_position_k4": "-2/3",
+          "native_position_gamma": "-1/6",
+          "old_Y_squared_response": "2",
+          "old_Y_k4": "-2",
+          "old_Y_gamma": "-1/2",
+          "full_Z_squared_response": "2",
+          "full_Z_k4": "-2/3",
+          "full_Z_gamma": "-1/6",
+          "visible_E_Z_squared_response": "2/3",
+          "hidden_K_Z_squared_response": "4/3",
+          "full_covariance_coefficient_E": "1/3",
+          "full_covariance_coefficient_K": "1/3"
+        },
+        {
+          "t": 3,
+          "native_position_covariance_coefficient_I6": "1/2",
+          "native_position_squared_displacement": 3,
+          "native_position_k4": "-1",
+          "native_position_gamma": "-1/9",
+          "old_Y_squared_response": "3",
+          "old_Y_k4": "-3",
+          "old_Y_gamma": "-1/3",
+          "full_Z_squared_response": "3",
+          "full_Z_k4": "-1",
+          "full_Z_gamma": "-1/9",
+          "visible_E_Z_squared_response": "1",
+          "hidden_K_Z_squared_response": "2",
+          "full_covariance_coefficient_E": "1/2",
+          "full_covariance_coefficient_K": "1/2"
+        },
+        {
+          "t": 4,
+          "native_position_covariance_coefficient_I6": "2/3",
+          "native_position_squared_displacement": 4,
+          "native_position_k4": "-4/3",
+          "native_position_gamma": "-1/12",
+          "old_Y_squared_response": "4",
+          "old_Y_k4": "-4",
+          "old_Y_gamma": "-1/4",
+          "full_Z_squared_response": "4",
+          "full_Z_k4": "-4/3",
+          "full_Z_gamma": "-1/12",
+          "visible_E_Z_squared_response": "4/3",
+          "hidden_K_Z_squared_response": "8/3",
+          "full_covariance_coefficient_E": "2/3",
+          "full_covariance_coefficient_K": "2/3"
+        },
+        {
+          "t": 8,
+          "native_position_covariance_coefficient_I6": "4/3",
+          "native_position_squared_displacement": 8,
+          "native_position_k4": "-8/3",
+          "native_position_gamma": "-1/24",
+          "old_Y_squared_response": "8",
+          "old_Y_k4": "-8",
+          "old_Y_gamma": "-1/8",
+          "full_Z_squared_response": "8",
+          "full_Z_k4": "-8/3",
+          "full_Z_gamma": "-1/24",
+          "visible_E_Z_squared_response": "8/3",
+          "hidden_K_Z_squared_response": "16/3",
+          "full_covariance_coefficient_E": "4/3",
+          "full_covariance_coefficient_K": "4/3"
+        },
+        {
+          "t": 16,
+          "native_position_covariance_coefficient_I6": "8/3",
+          "native_position_squared_displacement": 16,
+          "native_position_k4": "-16/3",
+          "native_position_gamma": "-1/48",
+          "old_Y_squared_response": "16",
+          "old_Y_k4": "-16",
+          "old_Y_gamma": "-1/16",
+          "full_Z_squared_response": "16",
+          "full_Z_k4": "-16/3",
+          "full_Z_gamma": "-1/48",
+          "visible_E_Z_squared_response": "16/3",
+          "hidden_K_Z_squared_response": "32/3",
+          "full_covariance_coefficient_E": "8/3",
+          "full_covariance_coefficient_K": "8/3"
+        },
+        {
+          "t": 32,
+          "native_position_covariance_coefficient_I6": "16/3",
+          "native_position_squared_displacement": 32,
+          "native_position_k4": "-32/3",
+          "native_position_gamma": "-1/96",
+          "old_Y_squared_response": "32",
+          "old_Y_k4": "-32",
+          "old_Y_gamma": "-1/32",
+          "full_Z_squared_response": "32",
+          "full_Z_k4": "-32/3",
+          "full_Z_gamma": "-1/96",
+          "visible_E_Z_squared_response": "32/3",
+          "hidden_K_Z_squared_response": "64/3",
+          "full_covariance_coefficient_E": "16/3",
+          "full_covariance_coefficient_K": "16/3"
+        },
+        {
+          "t": 64,
+          "native_position_covariance_coefficient_I6": "32/3",
+          "native_position_squared_displacement": 64,
+          "native_position_k4": "-64/3",
+          "native_position_gamma": "-1/192",
+          "old_Y_squared_response": "64",
+          "old_Y_k4": "-64",
+          "old_Y_gamma": "-1/64",
+          "full_Z_squared_response": "64",
+          "full_Z_k4": "-64/3",
+          "full_Z_gamma": "-1/192",
+          "visible_E_Z_squared_response": "64/3",
+          "hidden_K_Z_squared_response": "128/3",
+          "full_covariance_coefficient_E": "32/3",
+          "full_covariance_coefficient_K": "32/3"
+        },
+        {
+          "t": 128,
+          "native_position_covariance_coefficient_I6": "64/3",
+          "native_position_squared_displacement": 128,
+          "native_position_k4": "-128/3",
+          "native_position_gamma": "-1/384",
+          "old_Y_squared_response": "128",
+          "old_Y_k4": "-128",
+          "old_Y_gamma": "-1/128",
+          "full_Z_squared_response": "128",
+          "full_Z_k4": "-128/3",
+          "full_Z_gamma": "-1/384",
+          "visible_E_Z_squared_response": "128/3",
+          "hidden_K_Z_squared_response": "256/3",
+          "full_covariance_coefficient_E": "64/3",
+          "full_covariance_coefficient_K": "64/3"
+        }
+      ],
+      "covariance_storage": "Exact complete 6x6 covariance = coefficient_E*E + coefficient_K*K; both matrices stored in constants."
+    },
+    {
+      "id": "original_c_4/3_block_rotation",
+      "c": "4/3",
+      "hidden_gain": "4/3",
+      "response_matrix_A": [
+        [
+          "4/5",
+          "-16/15",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "16/15",
+          "4/5",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "4/5",
+          "-16/15",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "16/15",
+          "4/5",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "4/5",
+          "-16/15"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "16/15",
+          "4/5"
+        ]
+      ],
+      "native_kernel": "+/-E_i, all 12 primitive directions, each 1/12",
+      "initial_X": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "initial_Z": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "fitted_parameters_changed": false,
+      "explicit_joint_checks": [
+        {
+          "t": 1,
+          "joint_endpoints": 12,
+          "old_endpoints": 4,
+          "word_count": 12,
+          "fiber_refinement": 3,
+          "native_response_cross_covariance": [
+            [
+              "1/6",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "1/6",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1/6",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "1/6",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "1/6",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1/6"
+            ]
+          ]
+        },
+        {
+          "t": 2,
+          "joint_endpoints": 144,
+          "old_endpoints": 16,
+          "word_count": 144,
+          "fiber_refinement": 9,
+          "native_response_cross_covariance": [
+            [
+              "3/10",
+              "8/45",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "-8/45",
+              "3/10",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "3/10",
+              "8/45",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "-8/45",
+              "3/10",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "3/10",
+              "8/45"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "-8/45",
+              "3/10"
+            ]
+          ]
+        },
+        {
+          "t": 3,
+          "joint_endpoints": 1728,
+          "old_endpoints": 64,
+          "word_count": 1728,
+          "fiber_refinement": 27,
+          "native_response_cross_covariance": [
+            [
+              "293/1350",
+              "104/225",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "-104/225",
+              "293/1350",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "293/1350",
+              "104/225",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "-104/225",
+              "293/1350",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "293/1350",
+              "104/225"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "-104/225",
+              "293/1350"
+            ]
+          ]
+        }
+      ],
+      "rows": [
+        {
+          "t": 1,
+          "native_position_covariance_coefficient_I6": "1/6",
+          "native_position_squared_displacement": 1,
+          "native_position_k4": "-1/3",
+          "native_position_gamma": "-1/3",
+          "old_Y_squared_response": "1",
+          "old_Y_k4": "-1",
+          "old_Y_gamma": "-1",
+          "full_Z_squared_response": "1",
+          "full_Z_k4": "-1/3",
+          "full_Z_gamma": "-1/3",
+          "visible_E_Z_squared_response": "1/3",
+          "hidden_K_Z_squared_response": "2/3",
+          "full_covariance_coefficient_E": "1/6",
+          "full_covariance_coefficient_K": "1/6"
+        },
+        {
+          "t": 2,
+          "native_position_covariance_coefficient_I6": "1/3",
+          "native_position_squared_displacement": 2,
+          "native_position_k4": "-2/3",
+          "native_position_gamma": "-1/6",
+          "old_Y_squared_response": "25/9",
+          "old_Y_k4": "-337/81",
+          "old_Y_gamma": "-337/625",
+          "full_Z_squared_response": "25/9",
+          "full_Z_k4": "-337/243",
+          "full_Z_gamma": "-337/1875",
+          "visible_E_Z_squared_response": "25/27",
+          "hidden_K_Z_squared_response": "50/27",
+          "full_covariance_coefficient_E": "25/54",
+          "full_covariance_coefficient_K": "25/54"
+        },
+        {
+          "t": 3,
+          "native_position_covariance_coefficient_I6": "1/2",
+          "native_position_squared_displacement": 3,
+          "native_position_k4": "-1",
+          "native_position_gamma": "-1/9",
+          "old_Y_squared_response": "481/81",
+          "old_Y_k4": "-92833/6561",
+          "old_Y_gamma": "-193/481",
+          "full_Z_squared_response": "481/81",
+          "full_Z_k4": "-92833/19683",
+          "full_Z_gamma": "-193/1443",
+          "visible_E_Z_squared_response": "481/243",
+          "hidden_K_Z_squared_response": "962/243",
+          "full_covariance_coefficient_E": "481/486",
+          "full_covariance_coefficient_K": "481/486"
+        },
+        {
+          "t": 4,
+          "native_position_covariance_coefficient_I6": "2/3",
+          "native_position_squared_displacement": 4,
+          "native_position_k4": "-4/3",
+          "native_position_gamma": "-1/12",
+          "old_Y_squared_response": "8425/729",
+          "old_Y_k4": "-24296689/531441",
+          "old_Y_gamma": "-72097/210625",
+          "full_Z_squared_response": "8425/729",
+          "full_Z_k4": "-24296689/1594323",
+          "full_Z_gamma": "-72097/631875",
+          "visible_E_Z_squared_response": "8425/2187",
+          "hidden_K_Z_squared_response": "16850/2187",
+          "full_covariance_coefficient_E": "8425/4374",
+          "full_covariance_coefficient_K": "8425/4374"
+        },
+        {
+          "t": 8,
+          "native_position_covariance_coefficient_I6": "4/3",
+          "native_position_squared_displacement": 8,
+          "native_position_k4": "-8/3",
+          "native_position_gamma": "-1/24",
+          "old_Y_squared_response": "607417225/4782969",
+          "old_Y_k4": "-105399377448689713/22876792454961",
+          "old_Y_gamma": "-4338014017/15185430625",
+          "full_Z_squared_response": "607417225/4782969",
+          "full_Z_k4": "-105399377448689713/68630377364883",
+          "full_Z_gamma": "-4338014017/45556291875",
+          "visible_E_Z_squared_response": "607417225/14348907",
+          "hidden_K_Z_squared_response": "1214834450/14348907",
+          "full_covariance_coefficient_E": "607417225/28697814",
+          "full_covariance_coefficient_K": "607417225/28697814"
+        },
+        {
+          "t": 16,
+          "native_position_covariance_coefficient_I6": "8/3",
+          "native_position_squared_displacement": 16,
+          "native_position_k4": "-16/3",
+          "native_position_gamma": "-1/48",
+          "old_Y_squared_response": "2634984436217242825/205891132094649",
+          "old_Y_k4": "-1944470648498597960976354987279537841/42391158275216203514294433201",
+          "old_Y_gamma": "-18448597093898403457/65874610905431070625",
+          "full_Z_squared_response": "2634984436217242825/205891132094649",
+          "full_Z_k4": "-1944470648498597960976354987279537841/127173474825648610542883299603",
+          "full_Z_gamma": "-18448597093898403457/197623832716293211875",
+          "visible_E_Z_squared_response": "2634984436217242825/617673396283947",
+          "hidden_K_Z_squared_response": "5269968872434485650/617673396283947",
+          "full_covariance_coefficient_E": "2634984436217242825/1235346792567894",
+          "full_covariance_coefficient_K": "2634984436217242825/1235346792567894"
+        },
+        {
+          "t": 32,
+          "native_position_covariance_coefficient_I6": "16/3",
+          "native_position_squared_displacement": 32,
+          "native_position_k4": "-32/3",
+          "native_position_gamma": "-1/96",
+          "old_Y_squared_response": "48611766212464949024408874681988446025/381520424476945831628649898809",
+          "old_Y_k4": "-661669081356092477905065184400598493327983561446410847778548524183268688817/145557834293068928043467566190278008218249525830565939618481",
+          "old_Y_gamma": "-340282370354622283755887092089617300737/1215294155311623725610221867049711150625",
+          "full_Z_squared_response": "48611766212464949024408874681988446025/381520424476945831628649898809",
+          "full_Z_k4": "-661669081356092477905065184400598493327983561446410847778548524183268688817/436673502879206784130402698570834024654748577491697818855443",
+          "full_Z_gamma": "-340282370354622283755887092089617300737/3645882465934871176830665601149133451875",
+          "visible_E_Z_squared_response": "48611766212464949024408874681988446025/1144561273430837494885949696427",
+          "hidden_K_Z_squared_response": "97223532424929898048817749363976892050/1144561273430837494885949696427",
+          "full_covariance_coefficient_E": "48611766212464949024408874681988446025/2289122546861674989771899392854",
+          "full_covariance_coefficient_K": "48611766212464949024408874681988446025/2289122546861674989771899392854"
+        },
+        {
+          "t": 64,
+          "native_position_covariance_coefficient_I6": "32/3",
+          "native_position_squared_displacement": 64,
+          "native_position_k4": "-64/3",
+          "native_position_gamma": "-1/192",
+          "old_Y_squared_response": "16541727033902311947626629610014962333199589036160271194463713104581717220425/1310020508637620352391208095712502073964245732475093456566329",
+          "old_Y_k4": "-76616045313957697711851571418318326394439935290626448216781553042392284635558505415222186819099847952099440524288828851911998704013855761605103429180849/1716153733051169540307898602341497569311343837142335036933392894197976205305758468407429248816168018787798340006776536241",
+          "old_Y_gamma": "-115792089237316207213755562747271079374142846078159229717669176283754238736897/413543175847557798690665740250374058329989725904006779861592827614542930510625",
+          "full_Z_squared_response": "16541727033902311947626629610014962333199589036160271194463713104581717220425/1310020508637620352391208095712502073964245732475093456566329",
+          "full_Z_k4": "-76616045313957697711851571418318326394439935290626448216781553042392284635558505415222186819099847952099440524288828851911998704013855761605103429180849/5148461199153508620923695807024492707934031511427005110800178682593928615917275405222287746448504056363395020020329608723",
+          "full_Z_gamma": "-115792089237316207213755562747271079374142846078159229717669176283754238736897/1240629527542673396071997220751122174989969177712020339584778482843628791531875",
+          "visible_E_Z_squared_response": "16541727033902311947626629610014962333199589036160271194463713104581717220425/3930061525912861057173624287137506221892737197425280369698987",
+          "hidden_K_Z_squared_response": "33083454067804623895253259220029924666399178072320542388927426209163434440850/3930061525912861057173624287137506221892737197425280369698987",
+          "full_covariance_coefficient_E": "16541727033902311947626629610014962333199589036160271194463713104581717220425/7860123051825722114347248574275012443785474394850560739397974",
+          "full_covariance_coefficient_K": "16541727033902311947626629610014962333199589036160271194463713104581717220425/7860123051825722114347248574275012443785474394850560739397974"
+        },
+        {
+          "t": 128,
+          "native_position_covariance_coefficient_I6": "64/3",
+          "native_position_squared_displacement": 128,
+          "native_position_k4": "-128/3",
+          "native_position_gamma": "-1/384",
+          "old_Y_squared_response": "1915401132848942442796289285457958159860998382265661205419538826059807115888962635380554670477496198802486013107220721297799967600346394040127585729521225/15445383597460525862771087421073478123802094534281015332400536047781785847751826215666863239345512169090185060060988826169",
+          "old_Y_k4": "-1027253219921323375845317251879442704924558273681318041562457606505196148418354560155739477716502599804106560675817513185567155085211142149013202460694483969095648794484475177038377714834814771532115097531354087372054349370182358558551506444358656655748446700363102277552599824838218352261996990482010214833/238559874472702655622889737308883716733351429155596648767710341097561317856981938271826412713407769807284967028328223697594487766683122726964173339243563451142722841157128388676272374350708300470630165428002991069034463020481307197472499216561",
+          "old_Y_gamma": "-13407807929942597099574024998205985135931742965325158317510351105024878248924355505939865902991333463762661624622427052622907992421468381611974197905519617/47885028321223561069907232136448953996524959556641530135488470651495177897224065884513866761937404970062150327680518032444999190008659851003189643238030625",
+          "full_Z_squared_response": "1915401132848942442796289285457958159860998382265661205419538826059807115888962635380554670477496198802486013107220721297799967600346394040127585729521225/15445383597460525862771087421073478123802094534281015332400536047781785847751826215666863239345512169090185060060988826169",
+          "full_Z_k4": "-1027253219921323375845317251879442704924558273681318041562457606505196148418354560155739477716502599804106560675817513185567155085211142149013202460694483969095648794484475177038377714834814771532115097531354087372054349370182358558551506444358656655748446700363102277552599824838218352261996990482010214833/715679623418107966868669211926651150200054287466789946303131023292683953570945814815479238140223309421854901084984671092783463300049368180892520017730690353428168523471385166028817123052124901411890496284008973207103389061443921592417497649683",
+          "full_Z_gamma": "-13407807929942597099574024998205985135931742965325158317510351105024878248924355505939865902991333463762661624622427052622907992421468381611974197905519617/143655084963670683209721696409346861989574878669924590406465411954485533691672197653541600285812214910186450983041554097334997570025979553009568929714091875",
+          "visible_E_Z_squared_response": "1915401132848942442796289285457958159860998382265661205419538826059807115888962635380554670477496198802486013107220721297799967600346394040127585729521225/46336150792381577588313262263220434371406283602843045997201608143345357543255478647000589718036536507270555180182966478507",
+          "hidden_K_Z_squared_response": "3830802265697884885592578570915916319721996764531322410839077652119614231777925270761109340954992397604972026214441442595599935200692788080255171459042450/46336150792381577588313262263220434371406283602843045997201608143345357543255478647000589718036536507270555180182966478507",
+          "full_covariance_coefficient_E": "1915401132848942442796289285457958159860998382265661205419538826059807115888962635380554670477496198802486013107220721297799967600346394040127585729521225/92672301584763155176626524526440868742812567205686091994403216286690715086510957294001179436073073014541110360365932957014",
+          "full_covariance_coefficient_K": "1915401132848942442796289285457958159860998382265661205419538826059807115888962635380554670477496198802486013107220721297799967600346394040127585729521225/92672301584763155176626524526440868742812567205686091994403216286690715086510957294001179436073073014541110360365932957014"
+        }
+      ],
+      "covariance_storage": "Exact complete 6x6 covariance = coefficient_E*E + coefficient_K*K; both matrices stored in constants."
+    },
+    {
+      "id": "same_old_c_3_4_hidden_gain_1",
+      "c": "3/4",
+      "hidden_gain": "1",
+      "response_matrix_A": [
+        [
+          "49/60",
+          "-1/5",
+          "-11/60",
+          "-1/5",
+          "-11/60",
+          "-1/5"
+        ],
+        [
+          "1/5",
+          "49/60",
+          "1/5",
+          "-11/60",
+          "1/5",
+          "-11/60"
+        ],
+        [
+          "-11/60",
+          "-1/5",
+          "49/60",
+          "-1/5",
+          "-11/60",
+          "-1/5"
+        ],
+        [
+          "1/5",
+          "-11/60",
+          "1/5",
+          "49/60",
+          "1/5",
+          "-11/60"
+        ],
+        [
+          "-11/60",
+          "-1/5",
+          "-11/60",
+          "-1/5",
+          "49/60",
+          "-1/5"
+        ],
+        [
+          "1/5",
+          "-11/60",
+          "1/5",
+          "-11/60",
+          "1/5",
+          "49/60"
+        ]
+      ],
+      "native_kernel": "+/-E_i, all 12 primitive directions, each 1/12",
+      "initial_X": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "initial_Z": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "fitted_parameters_changed": false,
+      "explicit_joint_checks": [
+        {
+          "t": 1,
+          "joint_endpoints": 12,
+          "old_endpoints": 4,
+          "word_count": 12,
+          "fiber_refinement": 3,
+          "native_response_cross_covariance": [
+            [
+              "1/6",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "1/6",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1/6",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "1/6",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "1/6",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1/6"
+            ]
+          ]
+        },
+        {
+          "t": 2,
+          "joint_endpoints": 124,
+          "old_endpoints": 16,
+          "word_count": 144,
+          "fiber_refinement": 9,
+          "native_response_cross_covariance": [
+            [
+              "109/360",
+              "1/30",
+              "-11/360",
+              "1/30",
+              "-11/360",
+              "1/30"
+            ],
+            [
+              "-1/30",
+              "109/360",
+              "-1/30",
+              "-11/360",
+              "-1/30",
+              "-11/360"
+            ],
+            [
+              "-11/360",
+              "1/30",
+              "109/360",
+              "1/30",
+              "-11/360",
+              "1/30"
+            ],
+            [
+              "-1/30",
+              "-11/360",
+              "-1/30",
+              "109/360",
+              "-1/30",
+              "-11/360"
+            ],
+            [
+              "-11/360",
+              "1/30",
+              "-11/360",
+              "1/30",
+              "109/360",
+              "1/30"
+            ],
+            [
+              "-1/30",
+              "-11/360",
+              "-1/30",
+              "-11/360",
+              "-1/30",
+              "109/360"
+            ]
+          ]
+        },
+        {
+          "t": 3,
+          "joint_endpoints": 1120,
+          "old_endpoints": 64,
+          "word_count": 1728,
+          "fiber_refinement": 27,
+          "native_response_cross_covariance": [
+            [
+              "2917/7200",
+              "19/300",
+              "-683/7200",
+              "19/300",
+              "-683/7200",
+              "19/300"
+            ],
+            [
+              "-19/300",
+              "2917/7200",
+              "-19/300",
+              "-683/7200",
+              "-19/300",
+              "-683/7200"
+            ],
+            [
+              "-683/7200",
+              "19/300",
+              "2917/7200",
+              "19/300",
+              "-683/7200",
+              "19/300"
+            ],
+            [
+              "-19/300",
+              "-683/7200",
+              "-19/300",
+              "2917/7200",
+              "-19/300",
+              "-683/7200"
+            ],
+            [
+              "-683/7200",
+              "19/300",
+              "-683/7200",
+              "19/300",
+              "2917/7200",
+              "19/300"
+            ],
+            [
+              "-19/300",
+              "-683/7200",
+              "-19/300",
+              "-683/7200",
+              "-19/300",
+              "2917/7200"
+            ]
+          ]
+        }
+      ],
+      "rows": [
+        {
+          "t": 1,
+          "native_position_covariance_coefficient_I6": "1/6",
+          "native_position_squared_displacement": 1,
+          "native_position_k4": "-1/3",
+          "native_position_gamma": "-1/3",
+          "old_Y_squared_response": "1",
+          "old_Y_k4": "-1",
+          "old_Y_gamma": "-1",
+          "full_Z_squared_response": "1",
+          "full_Z_k4": "-1/3",
+          "full_Z_gamma": "-1/3",
+          "visible_E_Z_squared_response": "1/3",
+          "hidden_K_Z_squared_response": "2/3",
+          "full_covariance_coefficient_E": "1/6",
+          "full_covariance_coefficient_K": "1/6"
+        },
+        {
+          "t": 2,
+          "native_position_covariance_coefficient_I6": "1/3",
+          "native_position_squared_displacement": 2,
+          "native_position_k4": "-2/3",
+          "native_position_gamma": "-1/6",
+          "old_Y_squared_response": "25/16",
+          "old_Y_k4": "-337/256",
+          "old_Y_gamma": "-337/625",
+          "full_Z_squared_response": "89/48",
+          "full_Z_k4": "-1361/2304",
+          "full_Z_gamma": "-1361/7921",
+          "visible_E_Z_squared_response": "25/48",
+          "hidden_K_Z_squared_response": "4/3",
+          "full_covariance_coefficient_E": "25/96",
+          "full_covariance_coefficient_K": "1/3"
+        },
+        {
+          "t": 3,
+          "native_position_covariance_coefficient_I6": "1/2",
+          "native_position_squared_displacement": 3,
+          "native_position_k4": "-1",
+          "native_position_gamma": "-1/9",
+          "old_Y_squared_response": "481/256",
+          "old_Y_k4": "-92833/65536",
+          "old_Y_gamma": "-193/481",
+          "full_Z_squared_response": "2017/768",
+          "full_Z_k4": "-486049/589824",
+          "full_Z_gamma": "-486049/4068289",
+          "visible_E_Z_squared_response": "481/768",
+          "hidden_K_Z_squared_response": "2",
+          "full_covariance_coefficient_E": "481/1536",
+          "full_covariance_coefficient_K": "1/2"
+        },
+        {
+          "t": 4,
+          "native_position_covariance_coefficient_I6": "2/3",
+          "native_position_squared_displacement": 4,
+          "native_position_k4": "-4/3",
+          "native_position_gamma": "-1/12",
+          "old_Y_squared_response": "8425/4096",
+          "old_Y_k4": "-24296689/16777216",
+          "old_Y_gamma": "-72097/210625",
+          "full_Z_squared_response": "13731/4096",
+          "full_Z_k4": "-17612713/16777216",
+          "full_Z_gamma": "-17612713/188540361",
+          "visible_E_Z_squared_response": "8425/12288",
+          "hidden_K_Z_squared_response": "8/3",
+          "full_covariance_coefficient_E": "8425/24576",
+          "full_covariance_coefficient_K": "2/3"
+        },
+        {
+          "t": 8,
+          "native_position_covariance_coefficient_I6": "4/3",
+          "native_position_squared_displacement": 8,
+          "native_position_k4": "-8/3",
+          "native_position_gamma": "-1/24",
+          "old_Y_squared_response": "607417225/268435456",
+          "old_Y_k4": "-105399377448689713/72057594037927936",
+          "old_Y_gamma": "-4338014017/15185430625",
+          "full_Z_squared_response": "4902384521/805306368",
+          "full_Z_k4": "-1258320882055536689/648518346341351424",
+          "full_Z_gamma": "-1258320882055536689/24033373991740399441",
+          "visible_E_Z_squared_response": "607417225/805306368",
+          "hidden_K_Z_squared_response": "16/3",
+          "full_covariance_coefficient_E": "607417225/1610612736",
+          "full_covariance_coefficient_K": "4/3"
+        },
+        {
+          "t": 16,
+          "native_position_covariance_coefficient_I6": "8/3",
+          "native_position_squared_displacement": 16,
+          "native_position_k4": "-16/3",
+          "native_position_gamma": "-1/48",
+          "old_Y_squared_response": "2634984436217242825/1152921504606846976",
+          "old_Y_k4": "-1944470648498597960976354987279537841/1329227995784915872903807060280344576",
+          "old_Y_gamma": "-18448597093898403457/65874610905431070625",
+          "full_Z_squared_response": "13176157527878782019/1152921504606846976",
+          "full_Z_k4": "-14826588837871968631299393638750188091/3987683987354747618711421180841033728",
+          "full_Z_gamma": "-1347871712533815330118126694431835281/47348489236220917188613765053523013553",
+          "visible_E_Z_squared_response": "2634984436217242825/3458764513820540928",
+          "hidden_K_Z_squared_response": "32/3",
+          "full_covariance_coefficient_E": "2634984436217242825/6917529027641081856",
+          "full_covariance_coefficient_K": "8/3"
+        },
+        {
+          "t": 32,
+          "native_position_covariance_coefficient_I6": "16/3",
+          "native_position_squared_displacement": 32,
+          "native_position_k4": "-32/3",
+          "native_position_gamma": "-1/96",
+          "old_Y_squared_response": "48611766212464949024408874681988446025/21267647932558653966460912964485513216",
+          "old_Y_k4": "-661669081356092477905065184400598493327983561446410847778548524183268688817/452312848583266388373324160190187140051835877600158453279131187530910662656",
+          "old_Y_gamma": "-340282370354622283755887092089617300737/1215294155311623725610221867049711150625",
+          "full_Z_squared_response": "1409741233896218802877907304409061291849/63802943797675961899382738893456539648",
+          "full_Z_k4": "-29609691390685141333797811436572575456645479727856551857642944526161551098801/4070815637249397495359917441711684260466522898401426079512180687778195963904",
+          "full_Z_gamma": "-29609691390685141333797811436572575456645479727856551857642944526161551098801/1987370346547233490216978126186582073907361912619750497759156670681172753838801",
+          "visible_E_Z_squared_response": "48611766212464949024408874681988446025/63802943797675961899382738893456539648",
+          "hidden_K_Z_squared_response": "64/3",
+          "full_covariance_coefficient_E": "48611766212464949024408874681988446025/127605887595351923798765477786913079296",
+          "full_covariance_coefficient_K": "16/3"
+        },
+        {
+          "t": 64,
+          "native_position_covariance_coefficient_I6": "32/3",
+          "native_position_squared_displacement": 64,
+          "native_position_k4": "-64/3",
+          "native_position_gamma": "-1/192",
+          "old_Y_squared_response": "16541727033902311947626629610014962333199589036160271194463713104581717220425/7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "old_Y_k4": "-76616045313957697711851571418318326394439935290626448216781553042392284635558505415222186819099847952099440524288828851911998704013855761605103429180849/52374249726338269920211035149241586435466272736689036631732661889538140742474792878132321477214466514414186946040961136147476104734166288853256441430016",
+          "old_Y_gamma": "-115792089237316207213755562747271079374142846078159229717669176283754238736897/413543175847557798690665740250374058329989725904006779861592827614542930510625",
+          "full_Z_squared_response": "314292813644143958445398169893172741719786488787094927836708128389295584779971/7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "full_Z_k4": "-2260173336761752082499621356840413796711374281862274379026187424967758099890777331272053111967517187265705123205843951426262980036662380244940642644074299/157122749179014809760633105447724759306398818210067109895197985668614422227424378634396964431643399543242560838122883408442428314202498866559769324290048",
+          "full_Z_gamma": "-52562170622366327499991194345125902249101727485169171605260172673668793020715751890047746789942260168969886586182417475029371628759590238254433549862193/6891626002908321123379537300692640832116555147182949316044818826357638629563069210585732648800725262941041928108659642607519632019630716587599197987169361",
+          "visible_E_Z_squared_response": "16541727033902311947626629610014962333199589036160271194463713104581717220425/21711016731996786641919559689128982722488122124807605757398297001483711807488",
+          "hidden_K_Z_squared_response": "128/3",
+          "full_covariance_coefficient_E": "16541727033902311947626629610014962333199589036160271194463713104581717220425/43422033463993573283839119378257965444976244249615211514796594002967423614976",
+          "full_covariance_coefficient_K": "32/3"
+        },
+        {
+          "t": 128,
+          "native_position_covariance_coefficient_I6": "64/3",
+          "native_position_squared_displacement": 128,
+          "native_position_k4": "-128/3",
+          "native_position_gamma": "-1/384",
+          "old_Y_squared_response": "1915401132848942442796289285457958159860998382265661205419538826059807115888962635380554670477496198802486013107220721297799967600346394040127585729521225/837987995621412318723376562387865382967460363787024586107722590232610251879596686050117143635431464230626991136655378178359617675746660621652103062880256",
+          "old_Y_k4": "-1027253219921323375845317251879442704924558273681318041562457606505196148418354560155739477716502599804106560675817513185567155085211142149013202460694483969095648794484475177038377714834814771532115097531354087372054349370182358558551506444358656655748446700363102277552599824838218352261996990482010214833/702223880805592151456759840151962786569522257399338504974336254522393264865238137237142489540654437582500444843247630303354647534431314931612685275935445798350655833690880801860555545317367555154113605281582053784524026102900245630757473088050106395169337932361665227499793929447186391815763110662594625536",
+          "old_Y_gamma": "-13407807929942597099574024998205985135931742965325158317510351105024878248924355505939865902991333463762661624622427052622907992421468381611974197905519617/47885028321223561069907232136448953996524959556641530135488470651495177897224065884513866761937404970062150327680518032444999190008659851003189643238030625",
+          "full_Z_squared_response": "216440328011930496035980689256751496199530851511743955248996521925608031597065714264210543441147951041842995744090997534957862092591491513183065969826866761/2513963986864236956170129687163596148902381091361073758323167770697830755638790058150351430906294392691880973409966134535078853027239981864956309188640768",
+          "full_Z_k4": "-180796566706152914148775836330781916066722256167911975314992538764237871953919317692864216800124038620924220440547210870844356923899627764641860633100168608346863542219349960453340597316080908890985198049616359856210205031712645240032464616985185893819098957384949400517499845763317934657097353320106234352049/6320014927250329363110838561367665079125700316594046544769026290701539383787143235134282405865889938242504003589228672730191827809881834384514167483419012185155902503217927216744999907856307996387022447534238484060716234926102210676817257792450957556524041391254987047498145365024677526341867995963351629824",
+          "full_Z_gamma": "-180796566706152914148775836330781916066722256167911975314992538764237871953919317692864216800124038620924220440547210870844356923899627764641860633100168608346863542219349960453340597316080908890985198049616359856210205031712645240032464616985185893819098957384949400517499845763317934657097353320106234352049/46846415589912064950603057104459291043638865290838263639896502004116435424590219601122751078197212868344806019680017366821826410809582463264577005597266631065746732088628083211372479995563374141588018871164136906224760267193968884076788765878247849573984643168673440227470798970372710335250077356421458446631121",
+          "visible_E_Z_squared_response": "1915401132848942442796289285457958159860998382265661205419538826059807115888962635380554670477496198802486013107220721297799967600346394040127585729521225/2513963986864236956170129687163596148902381091361073758323167770697830755638790058150351430906294392691880973409966134535078853027239981864956309188640768",
+          "hidden_K_Z_squared_response": "256/3",
+          "full_covariance_coefficient_E": "1915401132848942442796289285457958159860998382265661205419538826059807115888962635380554670477496198802486013107220721297799967600346394040127585729521225/5027927973728473912340259374327192297804762182722147516646335541395661511277580116300702861812588785383761946819932269070157706054479963729912618377281536",
+          "full_covariance_coefficient_K": "64/3"
+        }
+      ],
+      "covariance_storage": "Exact complete 6x6 covariance = coefficient_E*E + coefficient_K*K; both matrices stored in constants."
+    },
+    {
+      "id": "same_old_c_3_4_hidden_gain_3/2",
+      "c": "3/4",
+      "hidden_gain": "3/2",
+      "response_matrix_A": [
+        [
+          "23/20",
+          "-1/5",
+          "-7/20",
+          "-1/5",
+          "-7/20",
+          "-1/5"
+        ],
+        [
+          "1/5",
+          "23/20",
+          "1/5",
+          "-7/20",
+          "1/5",
+          "-7/20"
+        ],
+        [
+          "-7/20",
+          "-1/5",
+          "23/20",
+          "-1/5",
+          "-7/20",
+          "-1/5"
+        ],
+        [
+          "1/5",
+          "-7/20",
+          "1/5",
+          "23/20",
+          "1/5",
+          "-7/20"
+        ],
+        [
+          "-7/20",
+          "-1/5",
+          "-7/20",
+          "-1/5",
+          "23/20",
+          "-1/5"
+        ],
+        [
+          "1/5",
+          "-7/20",
+          "1/5",
+          "-7/20",
+          "1/5",
+          "23/20"
+        ]
+      ],
+      "native_kernel": "+/-E_i, all 12 primitive directions, each 1/12",
+      "initial_X": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "initial_Z": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "fitted_parameters_changed": false,
+      "explicit_joint_checks": [
+        {
+          "t": 1,
+          "joint_endpoints": 12,
+          "old_endpoints": 4,
+          "word_count": 12,
+          "fiber_refinement": 3,
+          "native_response_cross_covariance": [
+            [
+              "1/6",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "1/6",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1/6",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "1/6",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "1/6",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1/6"
+            ]
+          ]
+        },
+        {
+          "t": 2,
+          "joint_endpoints": 144,
+          "old_endpoints": 16,
+          "word_count": 144,
+          "fiber_refinement": 9,
+          "native_response_cross_covariance": [
+            [
+              "43/120",
+              "1/30",
+              "-7/120",
+              "1/30",
+              "-7/120",
+              "1/30"
+            ],
+            [
+              "-1/30",
+              "43/120",
+              "-1/30",
+              "-7/120",
+              "-1/30",
+              "-7/120"
+            ],
+            [
+              "-7/120",
+              "1/30",
+              "43/120",
+              "1/30",
+              "-7/120",
+              "1/30"
+            ],
+            [
+              "-1/30",
+              "-7/120",
+              "-1/30",
+              "43/120",
+              "-1/30",
+              "-7/120"
+            ],
+            [
+              "-7/120",
+              "1/30",
+              "-7/120",
+              "1/30",
+              "43/120",
+              "1/30"
+            ],
+            [
+              "-1/30",
+              "-7/120",
+              "-1/30",
+              "-7/120",
+              "-1/30",
+              "43/120"
+            ]
+          ]
+        },
+        {
+          "t": 3,
+          "joint_endpoints": 1728,
+          "old_endpoints": 64,
+          "word_count": 1728,
+          "fiber_refinement": 27,
+          "native_response_cross_covariance": [
+            [
+              "1439/2400",
+              "19/300",
+              "-461/2400",
+              "19/300",
+              "-461/2400",
+              "19/300"
+            ],
+            [
+              "-19/300",
+              "1439/2400",
+              "-19/300",
+              "-461/2400",
+              "-19/300",
+              "-461/2400"
+            ],
+            [
+              "-461/2400",
+              "19/300",
+              "1439/2400",
+              "19/300",
+              "-461/2400",
+              "19/300"
+            ],
+            [
+              "-19/300",
+              "-461/2400",
+              "-19/300",
+              "1439/2400",
+              "-19/300",
+              "-461/2400"
+            ],
+            [
+              "-461/2400",
+              "19/300",
+              "-461/2400",
+              "19/300",
+              "1439/2400",
+              "19/300"
+            ],
+            [
+              "-19/300",
+              "-461/2400",
+              "-19/300",
+              "-461/2400",
+              "-19/300",
+              "1439/2400"
+            ]
+          ]
+        }
+      ],
+      "rows": [
+        {
+          "t": 1,
+          "native_position_covariance_coefficient_I6": "1/6",
+          "native_position_squared_displacement": 1,
+          "native_position_k4": "-1/3",
+          "native_position_gamma": "-1/3",
+          "old_Y_squared_response": "1",
+          "old_Y_k4": "-1",
+          "old_Y_gamma": "-1",
+          "full_Z_squared_response": "1",
+          "full_Z_k4": "-1/3",
+          "full_Z_gamma": "-1/3",
+          "visible_E_Z_squared_response": "1/3",
+          "hidden_K_Z_squared_response": "2/3",
+          "full_covariance_coefficient_E": "1/6",
+          "full_covariance_coefficient_K": "1/6"
+        },
+        {
+          "t": 2,
+          "native_position_covariance_coefficient_I6": "1/3",
+          "native_position_squared_displacement": 2,
+          "native_position_k4": "-2/3",
+          "native_position_gamma": "-1/6",
+          "old_Y_squared_response": "25/16",
+          "old_Y_k4": "-337/256",
+          "old_Y_gamma": "-337/625",
+          "full_Z_squared_response": "43/16",
+          "full_Z_k4": "-1147/768",
+          "full_Z_gamma": "-1147/5547",
+          "visible_E_Z_squared_response": "25/48",
+          "hidden_K_Z_squared_response": "13/6",
+          "full_covariance_coefficient_E": "25/96",
+          "full_covariance_coefficient_K": "13/24"
+        },
+        {
+          "t": 3,
+          "native_position_covariance_coefficient_I6": "1/2",
+          "native_position_squared_displacement": 3,
+          "native_position_k4": "-1",
+          "native_position_gamma": "-1/9",
+          "old_Y_squared_response": "481/256",
+          "old_Y_k4": "-92833/65536",
+          "old_Y_gamma": "-193/481",
+          "full_Z_squared_response": "1579/256",
+          "full_Z_k4": "-1415563/196608",
+          "full_Z_gamma": "-1415563/7479723",
+          "visible_E_Z_squared_response": "481/768",
+          "hidden_K_Z_squared_response": "133/24",
+          "full_covariance_coefficient_E": "481/1536",
+          "full_covariance_coefficient_K": "133/96"
+        },
+        {
+          "t": 4,
+          "native_position_covariance_coefficient_I6": "2/3",
+          "native_position_squared_displacement": 4,
+          "native_position_k4": "-4/3",
+          "native_position_gamma": "-1/12",
+          "old_Y_squared_response": "8425/4096",
+          "old_Y_k4": "-24296689/16777216",
+          "old_Y_gamma": "-72097/210625",
+          "full_Z_squared_response": "56611/4096",
+          "full_Z_k4": "-1813749499/50331648",
+          "full_Z_gamma": "-1813749499/9614415963",
+          "visible_E_Z_squared_response": "8425/12288",
+          "hidden_K_Z_squared_response": "1261/96",
+          "full_covariance_coefficient_E": "8425/24576",
+          "full_covariance_coefficient_K": "1261/384"
+        },
+        {
+          "t": 8,
+          "native_position_covariance_coefficient_I6": "4/3",
+          "native_position_squared_displacement": 8,
+          "native_position_k4": "-8/3",
+          "native_position_gamma": "-1/24",
+          "old_Y_squared_response": "607417225/268435456",
+          "old_Y_k4": "-105399377448689713/72057594037927936",
+          "old_Y_gamma": "-4338014017/15185430625",
+          "full_Z_squared_response": "94096303747/268435456",
+          "full_Z_k4": "-5101729147999102880443/216172782113783808",
+          "full_Z_gamma": "-300101714588182522379/1562490772737826983531",
+          "visible_E_Z_squared_response": "607417225/805306368",
+          "hidden_K_Z_squared_response": "8596237/24576",
+          "full_covariance_coefficient_E": "607417225/1610612736",
+          "full_covariance_coefficient_K": "8596237/98304"
+        },
+        {
+          "t": 16,
+          "native_position_covariance_coefficient_I6": "8/3",
+          "native_position_squared_displacement": 16,
+          "native_position_k4": "-16/3",
+          "native_position_gamma": "-1/48",
+          "old_Y_squared_response": "2634984436217242825/1152921504606846976",
+          "old_Y_k4": "-1944470648498597960976354987279537841/1329227995784915872903807060280344576",
+          "old_Y_gamma": "-18448597093898403457/65874610905431070625",
+          "full_Z_squared_response": "265288967101556311575619/1152921504606846976",
+          "full_Z_k4": "-40602747861310333382346550912215523458878239291/3987683987354747618711421180841033728",
+          "full_Z_gamma": "-2388396933018254904843914759542089615228131723/12419688717495992998370452625645330416650923499",
+          "visible_E_Z_squared_response": "2634984436217242825/3458764513820540928",
+          "hidden_K_Z_squared_response": "370603178776909/1610612736",
+          "full_covariance_coefficient_E": "2634984436217242825/6917529027641081856",
+          "full_covariance_coefficient_K": "370603178776909/6442450944"
+        },
+        {
+          "t": 32,
+          "native_position_covariance_coefficient_I6": "16/3",
+          "native_position_squared_displacement": 32,
+          "native_position_k4": "-32/3",
+          "native_position_gamma": "-1/96",
+          "old_Y_squared_response": "48611766212464949024408874681988446025/21267647932558653966460912964485513216",
+          "old_Y_k4": "-661669081356092477905065184400598493327983561446410847778548524183268688817/452312848583266388373324160190187140051835877600158453279131187530910662656",
+          "old_Y_gamma": "-340282370354622283755887092089617300737/1215294155311623725610221867049711150625",
+          "full_Z_squared_response": "2111342888770637100045533265786420024976152602563/21267647932558653966460912964485513216",
+          "full_Z_k4": "-2571789688812583641067488245856097220886852276059417852092569810335091164317732459096620903104827/1356938545749799165119972480570561420155507632800475359837393562592731987968",
+          "full_Z_gamma": "-151281746400740214180440485050358660052167780944671638358386459431475950842219556417448288417931/786665081287471564484831261247835154334492265976547817746485961273418941108244896443738511912171",
+          "visible_E_Z_squared_response": "48611766212464949024408874681988446025/63802943797675961899382738893456539648",
+          "hidden_K_Z_squared_response": "686736764054813148116827907533/6917529027641081856",
+          "full_covariance_coefficient_E": "48611766212464949024408874681988446025/127605887595351923798765477786913079296",
+          "full_covariance_coefficient_K": "686736764054813148116827907533/27670116110564327424"
+        },
+        {
+          "t": 64,
+          "native_position_covariance_coefficient_I6": "32/3",
+          "native_position_squared_displacement": 64,
+          "native_position_k4": "-64/3",
+          "native_position_gamma": "-1/192",
+          "old_Y_squared_response": "16541727033902311947626629610014962333199589036160271194463713104581717220425/7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "old_Y_k4": "-76616045313957697711851571418318326394439935290626448216781553042392284635558505415222186819099847952099440524288828851911998704013855761605103429180849/52374249726338269920211035149241586435466272736689036631732661889538140742474792878132321477214466514414186946040961136147476104734166288853256441430016",
+          "old_Y_gamma": "-115792089237316207213755562747271079374142846078159229717669176283754238736897/413543175847557798690665740250374058329989725904006779861592827614542930510625",
+          "full_Z_squared_response": "133733063818254349335503433762784850653815172768430122922373678285371722846892080936306637543251651/7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "full_Z_k4": "-10317999437433052251321643534344425682677508658185076957170640656316070385876646416203165281877196675318921496855825234264709160435816469665235584597000311247008932423134759475108358173221473427259/157122749179014809760633105447724759306398818210067109895197985668614422227424378634396964431643399543242560838122883408442428314202498866559769324290048",
+          "full_Z_gamma": "-606941143378414838313037854961436804863382862246180997480625920959768846228038024482539134228070392665818911579754425544982891790342145274425622623352959485118172495478515263241668127836557260427/3156093945567757159227874922593721585310236866696160973705003676339122075081455650114764960180143223420836756010689127561664978338726711958640931100103740413115535420669093858502720024305349569259",
+          "visible_E_Z_squared_response": "16541727033902311947626629610014962333199589036160271194463713104581717220425/21711016731996786641919559689128982722488122124807605757398297001483711807488",
+          "hidden_K_Z_squared_response": "2358036915547716634304106515809119545442949643533681868177101/127605887595351923798765477786913079296",
+          "full_covariance_coefficient_E": "16541727033902311947626629610014962333199589036160271194463713104581717220425/43422033463993573283839119378257965444976244249615211514796594002967423614976",
+          "full_covariance_coefficient_K": "2358036915547716634304106515809119545442949643533681868177101/510423550381407695195061911147652317184"
+        },
+        {
+          "t": 128,
+          "native_position_covariance_coefficient_I6": "64/3",
+          "native_position_squared_displacement": 128,
+          "native_position_k4": "-128/3",
+          "native_position_gamma": "-1/384",
+          "old_Y_squared_response": "1915401132848942442796289285457958159860998382265661205419538826059807115888962635380554670477496198802486013107220721297799967600346394040127585729521225/837987995621412318723376562387865382967460363787024586107722590232610251879596686050117143635431464230626991136655378178359617675746660621652103062880256",
+          "old_Y_k4": "-1027253219921323375845317251879442704924558273681318041562457606505196148418354560155739477716502599804106560675817513185567155085211142149013202460694483969095648794484475177038377714834814771532115097531354087372054349370182358558551506444358656655748446700363102277552599824838218352261996990482010214833/702223880805592151456759840151962786569522257399338504974336254522393264865238137237142489540654437582500444843247630303354647534431314931612685275935445798350655833690880801860555545317367555154113605281582053784524026102900245630757473088050106395169337932361665227499793929447186391815763110662594625536",
+          "old_Y_gamma": "-13407807929942597099574024998205985135931742965325158317510351105024878248924355505939865902991333463762661624622427052622907992421468381611974197905519617/47885028321223561069907232136448953996524959556641530135488470651495177897224065884513866761937404970062150327680518032444999190008659851003189643238030625",
+          "full_Z_squared_response": "536535970746518717068725463785910135499230449536079593947254034721771517300720676092605177041976193165549940454972350461738327605662775050693618830149051466245004818795019156580932770561585755589827/837987995621412318723376562387865382967460363787024586107722590232610251879596686050117143635431464230626991136655378178359617675746660621652103062880256",
+          "full_Z_k4": "-166079335329755301074156850972739680503031040510481823161422241571800479020678190489831824065230907312309485151076227794366189016339822395266689599930073004900447900575284772042981906910999661380903421124670811039592368409751162394349375957016453741740214583923854101350987017638311290210235411021469032755509287732390508804119567489399466152252660623269925584232686461847136139203223794424437563/2106671642416776454370279520455888359708566772198015514923008763567179794595714411711427468621963312747501334529742890910063942603293944794838055827806337395051967501072642405581666635952102665462340815844746161353572078308700736892272419264150319185508013797084995682499381788341559175447289331987783876608",
+          "full_Z_gamma": "-38013123215782856734757805212346001488448395630689362133536791387457193641720803499618179003257245894325814866348415608689903643016667977859164476981019227489230464768890998407640628727626381639025731546045047159439773039540206544827048742736656841780776970456363950869990161968027303778950654845838643340697937224168118288880651748546455974422673523293642843724579185591013078325297274988427/197668240722070855020740587104199207739931657420717428278473117922891732764551834853166188364154648244759635943596746017314555981943060312339088217192503994047247693752762415493437634928943141871379307462648758061966801316550317764998417592055502788876193013637494242246829667215935346611538581908087046638706397353612112441910168002101756719794919646713264600566576980145291881192657983519723",
+          "visible_E_Z_squared_response": "1915401132848942442796289285457958159860998382265661205419538826059807115888962635380554670477496198802486013107220721297799967600346394040127585729521225/2513963986864236956170129687163596148902381091361073758323167770697830755638790058150351430906294392691880973409966134535078853027239981864956309188640768",
+          "hidden_K_Z_squared_response": "27801690475428946552987957357932260622843770138547409750857725801293017524215705617546356897693809096470816306527153959117/43422033463993573283839119378257965444976244249615211514796594002967423614976",
+          "full_covariance_coefficient_E": "1915401132848942442796289285457958159860998382265661205419538826059807115888962635380554670477496198802486013107220721297799967600346394040127585729521225/5027927973728473912340259374327192297804762182722147516646335541395661511277580116300702861812588785383761946819932269070157706054479963729912618377281536",
+          "full_covariance_coefficient_K": "27801690475428946552987957357932260622843770138547409750857725801293017524215705617546356897693809096470816306527153959117/173688133855974293135356477513031861779904976998460846059186376011869694459904"
+        }
+      ],
+      "covariance_storage": "Exact complete 6x6 covariance = coefficient_E*E + coefficient_K*K; both matrices stored in constants."
+    }
+  ]
+}
