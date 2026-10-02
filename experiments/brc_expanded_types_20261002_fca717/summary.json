@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "mechanism_families": 11,
+  "counting_note": "Families include controls. Integrated noise repeats the linear-weight mechanism. Check counters overlap; do not sum as independent experiments.",
+  "checks": {
+    "related": {
+      "production_moment_checks": 1664,
+      "explicit_distribution_checks": 112,
+      "conditional_markov_raw_moment_checks": 768,
+      "exact_markov_variance_checks": 768,
+      "zero_variance_points": 64
+    },
+    "dynamics": {
+      "production_affine_checks": 640,
+      "nonlinear_transition_checks": 48,
+      "conditional_urn_transition_checks": 256,
+      "finite_tail_checks": 12,
+      "explicit_affine_distribution_checks": 20
+    },
+    "graph": {
+      "matrices": 6,
+      "starts_per_matrix": 3,
+      "exact_assertions": 22182
+    }
+  },
+  "cross_module_checks": {
+    "integrated_weighted_sample_pairs": 8,
+    "reciprocal_geometric_gamma_pairs": 128
+  },
+  "source_sha256": {
+    "related_branches.py": "f270045eb59fb33edade0dd333f3bb831d1ef91d748229525d402faa7d094b8f",
+    "dynamics_types.py": "ed219c49e7f96e43ccb32d944876a65851f00099a8ac7353ad0cda634b01bb63",
+    "graph_boundaries.py": "2fcf14424e5f9b3ca61089d555bb724cfe1948f535d0f1e0eacda4c28a8bae15",
+    "run_all.py": "3a3514929d05e193d99a2bfba74ca261bf0459649411294297596d25792e3d89",
+    "related_results.json": "93b6329b274c099396ef3c16b8cb406a8db7904829333c07eb99b34cf98df279",
+    "dynamics_results.json": "782b08ca40ce258c9278a57b2b8820bd447c56ea721d337aa9af5266bd2c4a5d",
+    "graph_results.json": "62cb3084b975e439ec33a3cb21e5ecb20125cb288bf24f86e739800bbb658eed"
+  }
+}
