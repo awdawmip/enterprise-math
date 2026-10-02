@@ -1,0 +1,422 @@
+{
+  "researcher_id": "EM-HME-0CE4FD",
+  "global_snapshot": "18b20e346491fdbb47f2c99da19b1a63198fc107",
+  "reference_note_snapshot": "c5d6e6ed4aa4c899706e2a895f55733dc2eb3cb8",
+  "executed_module_sha256": "6fe4551f053e6427c67aef1e70e837615d75aa5a52b7477bf6c9cb96fb9a7d3a",
+  "scope": "positive-integer square-root BRC; direction means edit-cost preference, not a replacement of canonical floor collapse",
+  "basin_horizon": 32,
+  "maximum_basin_N": 1088,
+  "maximum_auxiliary_fiber_N": 1257,
+  "checks": {
+    "existing_point_state_checks": 1088,
+    "root_only_forward_checks": 11968,
+    "residual_only_forward_checks": 6512,
+    "partition_and_reflection_basins": 32,
+    "existing_root_support_law_checks": 128,
+    "root_window_sharpness_pairs": 31,
+    "pooled_residual_frequency_checks": 65,
+    "residual_fibers_and_sharpness_checks": 32
+  },
+  "residual_fiber_examples": [
+    {
+      "R": 1,
+      "first_J": 1,
+      "up_cheaper_J_count": 0,
+      "down_cheaper_from_J": 1,
+      "first_values": [
+        2,
+        5,
+        10,
+        17
+      ]
+    },
+    {
+      "R": 2,
+      "first_J": 1,
+      "up_cheaper_J_count": 1,
+      "down_cheaper_from_J": 2,
+      "first_values": [
+        3,
+        6,
+        11,
+        18,
+        27
+      ]
+    },
+    {
+      "R": 3,
+      "first_J": 2,
+      "up_cheaper_J_count": 1,
+      "down_cheaper_from_J": 3,
+      "first_values": [
+        7,
+        12,
+        19,
+        28,
+        39
+      ]
+    },
+    {
+      "R": 4,
+      "first_J": 2,
+      "up_cheaper_J_count": 2,
+      "down_cheaper_from_J": 4,
+      "first_values": [
+        8,
+        13,
+        20,
+        29,
+        40
+      ]
+    },
+    {
+      "R": 5,
+      "first_J": 3,
+      "up_cheaper_J_count": 2,
+      "down_cheaper_from_J": 5,
+      "first_values": [
+        14,
+        21,
+        30,
+        41,
+        54
+      ]
+    },
+    {
+      "R": 6,
+      "first_J": 3,
+      "up_cheaper_J_count": 3,
+      "down_cheaper_from_J": 6,
+      "first_values": [
+        15,
+        22,
+        31,
+        42,
+        55
+      ]
+    }
+  ],
+  "down_residue_update_example": [
+    {
+      "N": 12,
+      "R_at_t_0_to_4": [
+        3,
+        4,
+        5,
+        6,
+        0
+      ]
+    },
+    {
+      "N": 19,
+      "R_at_t_0_to_4": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "N": 28,
+      "R_at_t_0_to_4": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  ],
+  "visual_fixture": [
+    {
+      "N": 1,
+      "J": 1,
+      "R": 0,
+      "mode": "SQUARE"
+    },
+    {
+      "N": 2,
+      "J": 1,
+      "R": 1,
+      "mode": "DOWN_CHEAPER"
+    },
+    {
+      "N": 3,
+      "J": 1,
+      "R": 2,
+      "mode": "UP_CHEAPER"
+    },
+    {
+      "N": 4,
+      "J": 2,
+      "R": 0,
+      "mode": "SQUARE"
+    },
+    {
+      "N": 5,
+      "J": 2,
+      "R": 1,
+      "mode": "DOWN_CHEAPER"
+    },
+    {
+      "N": 6,
+      "J": 2,
+      "R": 2,
+      "mode": "DOWN_CHEAPER"
+    },
+    {
+      "N": 7,
+      "J": 2,
+      "R": 3,
+      "mode": "UP_CHEAPER"
+    },
+    {
+      "N": 8,
+      "J": 2,
+      "R": 4,
+      "mode": "UP_CHEAPER"
+    },
+    {
+      "N": 9,
+      "J": 3,
+      "R": 0,
+      "mode": "SQUARE"
+    },
+    {
+      "N": 10,
+      "J": 3,
+      "R": 1,
+      "mode": "DOWN_CHEAPER"
+    },
+    {
+      "N": 11,
+      "J": 3,
+      "R": 2,
+      "mode": "DOWN_CHEAPER"
+    },
+    {
+      "N": 12,
+      "J": 3,
+      "R": 3,
+      "mode": "DOWN_CHEAPER"
+    },
+    {
+      "N": 13,
+      "J": 3,
+      "R": 4,
+      "mode": "UP_CHEAPER"
+    },
+    {
+      "N": 14,
+      "J": 3,
+      "R": 5,
+      "mode": "UP_CHEAPER"
+    },
+    {
+      "N": 15,
+      "J": 3,
+      "R": 6,
+      "mode": "UP_CHEAPER"
+    },
+    {
+      "N": 16,
+      "J": 4,
+      "R": 0,
+      "mode": "SQUARE"
+    },
+    {
+      "N": 17,
+      "J": 4,
+      "R": 1,
+      "mode": "DOWN_CHEAPER"
+    },
+    {
+      "N": 18,
+      "J": 4,
+      "R": 2,
+      "mode": "DOWN_CHEAPER"
+    },
+    {
+      "N": 19,
+      "J": 4,
+      "R": 3,
+      "mode": "DOWN_CHEAPER"
+    },
+    {
+      "N": 20,
+      "J": 4,
+      "R": 4,
+      "mode": "DOWN_CHEAPER"
+    },
+    {
+      "N": 21,
+      "J": 4,
+      "R": 5,
+      "mode": "UP_CHEAPER"
+    },
+    {
+      "N": 22,
+      "J": 4,
+      "R": 6,
+      "mode": "UP_CHEAPER"
+    },
+    {
+      "N": 23,
+      "J": 4,
+      "R": 7,
+      "mode": "UP_CHEAPER"
+    },
+    {
+      "N": 24,
+      "J": 4,
+      "R": 8,
+      "mode": "UP_CHEAPER"
+    },
+    {
+      "N": 25,
+      "J": 5,
+      "R": 0,
+      "mode": "SQUARE"
+    },
+    {
+      "N": 26,
+      "J": 5,
+      "R": 1,
+      "mode": "DOWN_CHEAPER"
+    },
+    {
+      "N": 27,
+      "J": 5,
+      "R": 2,
+      "mode": "DOWN_CHEAPER"
+    },
+    {
+      "N": 28,
+      "J": 5,
+      "R": 3,
+      "mode": "DOWN_CHEAPER"
+    },
+    {
+      "N": 29,
+      "J": 5,
+      "R": 4,
+      "mode": "DOWN_CHEAPER"
+    },
+    {
+      "N": 30,
+      "J": 5,
+      "R": 5,
+      "mode": "DOWN_CHEAPER"
+    },
+    {
+      "N": 31,
+      "J": 5,
+      "R": 6,
+      "mode": "UP_CHEAPER"
+    },
+    {
+      "N": 32,
+      "J": 5,
+      "R": 7,
+      "mode": "UP_CHEAPER"
+    },
+    {
+      "N": 33,
+      "J": 5,
+      "R": 8,
+      "mode": "UP_CHEAPER"
+    },
+    {
+      "N": 34,
+      "J": 5,
+      "R": 9,
+      "mode": "UP_CHEAPER"
+    },
+    {
+      "N": 35,
+      "J": 5,
+      "R": 10,
+      "mode": "UP_CHEAPER"
+    },
+    {
+      "N": 36,
+      "J": 6,
+      "R": 0,
+      "mode": "SQUARE"
+    },
+    {
+      "N": 37,
+      "J": 6,
+      "R": 1,
+      "mode": "DOWN_CHEAPER"
+    },
+    {
+      "N": 38,
+      "J": 6,
+      "R": 2,
+      "mode": "DOWN_CHEAPER"
+    },
+    {
+      "N": 39,
+      "J": 6,
+      "R": 3,
+      "mode": "DOWN_CHEAPER"
+    },
+    {
+      "N": 40,
+      "J": 6,
+      "R": 4,
+      "mode": "DOWN_CHEAPER"
+    },
+    {
+      "N": 41,
+      "J": 6,
+      "R": 5,
+      "mode": "DOWN_CHEAPER"
+    },
+    {
+      "N": 42,
+      "J": 6,
+      "R": 6,
+      "mode": "DOWN_CHEAPER"
+    },
+    {
+      "N": 43,
+      "J": 6,
+      "R": 7,
+      "mode": "UP_CHEAPER"
+    },
+    {
+      "N": 44,
+      "J": 6,
+      "R": 8,
+      "mode": "UP_CHEAPER"
+    },
+    {
+      "N": 45,
+      "J": 6,
+      "R": 9,
+      "mode": "UP_CHEAPER"
+    },
+    {
+      "N": 46,
+      "J": 6,
+      "R": 10,
+      "mode": "UP_CHEAPER"
+    },
+    {
+      "N": 47,
+      "J": 6,
+      "R": 11,
+      "mode": "UP_CHEAPER"
+    },
+    {
+      "N": 48,
+      "J": 6,
+      "R": 12,
+      "mode": "UP_CHEAPER"
+    }
+  ],
+  "verdict": "PASS_EXACT_STATE_SEPARATION_LAWS_AND_SMALL_CHECKS"
+}

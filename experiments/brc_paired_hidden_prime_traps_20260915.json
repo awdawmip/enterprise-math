@@ -1,0 +1,169 @@
+{
+  "schema": "BRC_PAIRED_HIDDEN_PRIME_TRAPS_V1",
+  "canonical_sha": "73282863250128a33c0473202f90b2b801e93fc1",
+  "project_parent": "7ea1f5e5b9d1cecf2eaa3deb861000e5662055c3",
+  "activity_id": "RA-EM-HME-0CE4FD-SEMIPRIME-20260909",
+  "source_blobs": {
+    "core.py": "2b7ab070868ef4a2b6d8b33f5e3bc69dbac62c07",
+    "brc_multiplier_basin.py": "4d03ded19b38f5aa13d3e873e911205d35be5c5f",
+    "brc_square_gap_prefilter.py": "42d4e9a397b56d9d371f034780ffc736d43e6d96"
+  },
+  "residual_source_blob": "e8ea67310094c517b5a882d5e2e1709be975c675",
+  "scope": {
+    "prescribed_toy_cases": 2,
+    "public_RSA_queries": 0,
+    "factor_search": false,
+    "multiplier_search": false,
+    "N_only_exact_constructor_established": false,
+    "clarification_resolved": "K=ap,L=bq,m=KL; output sought is original p,q"
+  },
+  "rows": [
+    {
+      "p": 149,
+      "q": 251,
+      "N": 37399,
+      "c": 5,
+      "a": 601,
+      "b": 1009,
+      "K": 89549,
+      "L": 253259,
+      "K_factor_bits": [
+        8,
+        10
+      ],
+      "L_factor_bits": [
+        8,
+        10
+      ],
+      "both_K_L_semiprime_labels_exact": true,
+      "both_original_residual_shortcuts_pass": true,
+      "construction_inputs_include_hidden_factors": [
+        "p",
+        "q"
+      ],
+      "actual_scalar_ab": 606409,
+      "user_m_KL": 22679090191,
+      "user_mN": 848175294053209,
+      "recovery_from_KL": {
+        "H": 150596,
+        "z": 255,
+        "recovered": [
+          149,
+          251
+        ],
+        "cross_parts": [
+          150341,
+          150851
+        ],
+        "gcds": [
+          149,
+          251
+        ]
+      },
+      "recovery_from_user_mN_after_dividing_N": {
+        "H": 150596,
+        "z": 255,
+        "recovered": [
+          149,
+          251
+        ],
+        "cross_parts": [
+          150341,
+          150851
+        ],
+        "gcds": [
+          149,
+          251
+        ]
+      },
+      "direct_first_completion_on_user_mN": null,
+      "residual_packet_factor_on_user_mN": 1,
+      "sum_recovered_from_numeric_ab": 400,
+      "N_only_surrogate": {
+        "H0": 194,
+        "A0": 237,
+        "scalar_ab_surrogate": 606169,
+        "product": 22670114431,
+        "completion_root": 150566,
+        "completion_gap": 5925,
+        "original_first_completion": null,
+        "transformed_first_completion": null,
+        "exact_paired_product": false
+      }
+    },
+    {
+      "p": 139,
+      "q": 241,
+      "N": 33499,
+      "c": 7,
+      "a": 563,
+      "b": 971,
+      "K": 78257,
+      "L": 234011,
+      "K_factor_bits": [
+        8,
+        10
+      ],
+      "L_factor_bits": [
+        8,
+        10
+      ],
+      "both_K_L_semiprime_labels_exact": true,
+      "both_original_residual_shortcuts_pass": true,
+      "construction_inputs_include_hidden_factors": [
+        "p",
+        "q"
+      ],
+      "actual_scalar_ab": 546673,
+      "user_m_KL": 18312998827,
+      "user_mN": 613467147705673,
+      "recovery_from_KL": {
+        "H": 135326,
+        "z": 357,
+        "recovered": [
+          139,
+          241
+        ],
+        "cross_parts": [
+          134969,
+          135683
+        ],
+        "gcds": [
+          139,
+          241
+        ]
+      },
+      "recovery_from_user_mN_after_dividing_N": {
+        "H": 135326,
+        "z": 357,
+        "recovered": [
+          139,
+          241
+        ],
+        "cross_parts": [
+          134969,
+          135683
+        ],
+        "gcds": [
+          139,
+          241
+        ]
+      },
+      "direct_first_completion_on_user_mN": null,
+      "residual_packet_factor_on_user_mN": 1,
+      "sum_recovered_from_numeric_ab": 380,
+      "N_only_surrogate": {
+        "H0": 184,
+        "A0": 357,
+        "scalar_ab_surrogate": 546337,
+        "product": 18301743163,
+        "completion_root": 135284,
+        "completion_gap": 17493,
+        "original_first_completion": null,
+        "transformed_first_completion": null,
+        "exact_paired_product": false
+      }
+    }
+  ],
+  "all_checks_pass": true
+}
