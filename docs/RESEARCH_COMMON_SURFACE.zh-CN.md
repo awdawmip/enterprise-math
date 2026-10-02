@@ -390,7 +390,7 @@ python -c 'from control_plane import research_control_bootstrap as b; b.install(
 
 ## 10. Foundation stewardship
 
-FQ-001 至 FQ-006 已 canonicalized。FQ-007 在本次传播通过门槛并进入源仓库 `main` 后，按下述否定答案与精确模型类分离边界关闭。传播后的 active Foundation-question 集合为空；这不关闭其他研究或治理任务。
+FQ-001 至 FQ-006 已 canonicalized。FQ-007 在本次传播通过门槛并进入源仓库 `main` 后，按下述否定答案与精确模型类分离边界关闭。这两个机器路由中登记的 active-question 列表随后为空；这不关闭其他 Foundation 问题、研究或治理任务。
 
 FQ-006 在不改变 FQ-004 actual-state / observation / future-safe 分层的前提下，为 P023 增加合法性敏感的部分确定性未来语言；它也不把 A4 multivalued correspondence 压缩成 partial function model。
 

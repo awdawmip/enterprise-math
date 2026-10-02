@@ -390,7 +390,7 @@ When a reusable result appears:
 
 ## 10. Foundation stewardship
 
-FQ-001 through FQ-006 are canonicalized foundation conventions/results. FQ-007 closes with the negative answer and exact model-class separation boundary below when this propagation passes its gates and reaches source-repository `main`. The resulting active Foundation-question set is empty; this does not close unrelated research or governance tasks.
+FQ-001 through FQ-006 are canonicalized foundation conventions/results. FQ-007 closes with the negative answer and exact model-class separation boundary below when this propagation passes its gates and reaches source-repository `main`. The registered active-question lists in these two machine routers then become empty; this does not close unrelated Foundation questions, research or governance tasks.
 
 FQ-006 adds legality-sensitive partial deterministic future languages to P023 without changing FQ-004's actual-state / observation / future-safe layering and without collapsing A4 multivalued correspondence into a partial function model.
 

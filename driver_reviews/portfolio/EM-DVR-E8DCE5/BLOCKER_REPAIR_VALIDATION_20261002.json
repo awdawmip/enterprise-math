@@ -79,5 +79,31 @@
       "stdout": "{\"ball_sizes\": {\"1\": 19, \"2\": 85}, \"binary_one_marker_checks\": 108864, \"carrier_path_cases\": 1728, \"n_max\": 2, \"quotient_nonglobal_separated_cases\": 1654, \"quotient_one_marker_witnesses\": 1628, \"quotient_two_marker_witnesses\": 26, \"raw_nonidentity_separated_cases\": 1679, \"scope\": \"new alphabet/marker probe only; no formal disposition or CFD execution\", \"singleton_all_states_equal_cases\": 1728, \"singleton_counterexample_image\": [-1, 0, 1, 0], \"status\": \"PASS\"}\n",
       "stderr": ""
     }
-  ]
+  ],
+  "latest_brc_publication_audit": {
+    "source_sha": "2978d849592efcacd203b43d795204d6c02bda74",
+    "commands": [
+      {
+        "command": "PYTHONDONTWRITEBYTECODE=1 /workspace/.onboarding/venv/bin/python tools/research_taskbook.py audit --dispatch research_tasks/BRC_BASELINE_RESIDUAL_NATIVE_X6_20261002.md",
+        "exit_code": 0,
+        "stdout": "research_tasks/BRC_BASELINE_RESIDUAL_NATIVE_X6_20261002.md: PASS"
+      },
+      {
+        "command": "PYTHONDONTWRITEBYTECODE=1 /workspace/.onboarding/venv/bin/python tools/research_task_records.py audit",
+        "exit_code": 0,
+        "stdout": "PASS: immutable task publication records valid (472 generations)."
+      }
+    ],
+    "scope": "Publication integrity only, not scientific acceptance or live ownership."
+  },
+  "registered_list_scope_clarification": {
+    "files": [
+      "docs/RESEARCH_COMMON_SURFACE.en.md",
+      "docs/RESEARCH_COMMON_SURFACE.zh-CN.md"
+    ],
+    "meaning": "Only the two registered machine active-question lists become empty; unrelated Foundation questions remain unaffected.",
+    "bilingual_pairs_command": "PYTHONDONTWRITEBYTECODE=1 /workspace/.onboarding/venv/bin/python tools/check_bilingual_pairs.py --base 4af1978b9f20015fd109d893c60b0e96f91e3720",
+    "exit_code": 0,
+    "stdout": "PASS: 134 bilingual document pairs are synchronized structurally."
+  }
 }

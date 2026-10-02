@@ -1,0 +1,70 @@
+{
+  "command": "PYTHONDONTWRITEBYTECODE=1 /workspace/.onboarding/venv/bin/python tools/build_knowledge_index.py --validate",
+  "exit_code": 0,
+  "stdout": "knowledge index validation ok; warnings=159",
+  "warning_count": 159,
+  "error_count": 0,
+  "log": "/tmp/em-research-control-20261002/KB_SCHEMA_REPAIR_VALIDATION.log",
+  "indexes_written": true,
+  "index_rebuild_exit": 0,
+  "index_check_exit": 0,
+  "published_readback": {
+    "source_commit": "4d3416747a7a33b07e713d0da5baf65c43f83e24",
+    "all_exact_bytes_match": true,
+    "files": [
+      {
+        "path": "index/KNOWLEDGE_HEALTH.json",
+        "sha256": "60dd97daa8d929473a65a85cbd52d1a40fa4d2589df9a51f4e1768e8ba4bb2a1",
+        "git_blob_sha1": "ec0211bdf15244790b0977e1de07686510553696",
+        "bytes": 15007
+      },
+      {
+        "path": "index/PROJECT_KNOWLEDGE_INDEX.json",
+        "sha256": "c6960d301cf71551419b26b4e53bffd3fa96399b7cb0c1db53e6e2f630f1bca0",
+        "git_blob_sha1": "72448d250f333f7447449d874be35ab41fdbcfb7",
+        "bytes": 37977
+      },
+      {
+        "path": "index/RECORD_CATALOG.jsonl",
+        "sha256": "93da3ee6dcfa55970bd9a91bfbcea674a7161bf3d24009baff68de34f44b7f48",
+        "git_blob_sha1": "2c78841616363868fafced061a3910c507a0372a",
+        "bytes": 503079
+      },
+      {
+        "path": "index/RELATION_INDEX.jsonl",
+        "sha256": "eca7bbc9acb34f93cb23cd3d11a0900066c623a68a771c2ddf4b08e59af179da",
+        "git_blob_sha1": "3c7ed58f0a8bf3b2367b3f4beb5fc4c5742eedc0",
+        "bytes": 147999
+      },
+      {
+        "path": "knowledge/procedures/KIMI_WEB_BATCH_QUERY_20260919.md",
+        "sha256": "401609e9548bca22da233b603a793a91024c0dceac2b80cd89a6e1769712ff3c",
+        "git_blob_sha1": "1d978f75d672ac7824dfc62f24d5b016464f8696",
+        "bytes": 21730
+      },
+      {
+        "path": "knowledge/projects/enterprise-math/heartbeat-residual-first-zero-temperature-goal-20260920.md",
+        "sha256": "38e921a4de2ff4ce0a6d341fbfb2128f4235ad324dc9a79fbed1efc4f81a6d34",
+        "git_blob_sha1": "5c4d728e9c7fb4c5f7f47cb48948fed42bde6ffc",
+        "bytes": 2738
+      },
+      {
+        "path": "projects/legal/methodology/PERFORMANCE_CONFIRMATION_BANKRUPTCY_SPLIT_20260920.md",
+        "sha256": "995e7eb3e17018ae5031098fbfdfa0f8b0e63d66fc28d143b0bf9f31395d8efc",
+        "git_blob_sha1": "19b5e5bb2b69c778c366aaebecf82fb297779b7b",
+        "bytes": 7884
+      },
+      {
+        "path": "projects/legal/methodology/WAGE_UNDERTAKING_TRIGGER_SPLIT_20260921.md",
+        "sha256": "2ef87d63f39b898a8999c4bcba69b20d4718726969df9fefd60fc043e72adc74",
+        "git_blob_sha1": "96850f30f48c05d7cadf293a0a14d1f15d90959c",
+        "bytes": 7852
+      }
+    ],
+    "validation_exit": 0,
+    "index_rebuild_exit": 0,
+    "index_check_exit": 0,
+    "remaining_warning_count": 159
+  },
+  "scope": "Five pre-existing record metadata schema errors across four records, preserving original body/provenance and semantic subtype/state. Generated indexes rebuilt by original repository tool; no tool/schema relaxation."
+}
