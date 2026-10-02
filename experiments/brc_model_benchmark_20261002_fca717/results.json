@@ -1,0 +1,162 @@
+{
+  "experiment": "BRC_MODEL_BENCHMARK_20261002_FCA717",
+  "evidence": "EXACT_SYNTHETIC_CALIBRATION_NOT_EMPIRICAL_NOT_N0_PROMOTION",
+  "train_steps": 8,
+  "horizon": 64,
+  "reuse_resolution": "REUSE_EXECUTED: brc_transport.Affine/EffectHistogram/MomentState/inv",
+  "models": [
+    {
+      "model": "decay",
+      "A": [
+        [
+          "3/4"
+        ]
+      ],
+      "b": [
+        "0"
+      ],
+      "Q": [
+        [
+          "1/16"
+        ]
+      ],
+      "branch_offset": "1/4",
+      "calibration_transitions": 24,
+      "trajectory_moment_checks": 320,
+      "explicit_distribution_checks": 5,
+      "unseen_initial_conditions": 2,
+      "all_exact_checks_passed": true,
+      "n64": {
+        "model": "decay",
+        "n": 64,
+        "split": "heldout",
+        "mean_error": "0",
+        "covariance_error": "0",
+        "deterministic_residual_mse": "16541727033902311947626629610014962333199589036160271194463713104581717220425/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+        "variance_x": "16541727033902311947626629610014962333199589036160271194463713104581717220425/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+        "gaussian_k4": "0",
+        "brc_k4_x": "-76616045313957697711851571418318326394439935290626448216781553042392284635558505415222186819099847952099440524288828851911998704013855761605103429180849/6703903964971298549787012499102923063739682910296196688861780721860882015036773488400937149083451713845015929093243025426876941405973284973216824503042048",
+        "excess_kurtosis_x": "-231584178474632414427511125494542158748285692156318459435338352567508477473794/413543175847557798690665740250374058329989725904006779861592827614542930510625",
+        "radial_fourth_cumulant": "-76616045313957697711851571418318326394439935290626448216781553042392284635558505415222186819099847952099440524288828851911998704013855761605103429180849/6703903964971298549787012499102923063739682910296196688861780721860882015036773488400937149083451713845015929093243025426876941405973284973216824503042048"
+      }
+    },
+    {
+      "model": "diffusion",
+      "A": [
+        [
+          "1"
+        ]
+      ],
+      "b": [
+        "1/3"
+      ],
+      "Q": [
+        [
+          "1/4"
+        ]
+      ],
+      "branch_offset": "1/2",
+      "calibration_transitions": 24,
+      "trajectory_moment_checks": 320,
+      "explicit_distribution_checks": 5,
+      "unseen_initial_conditions": 2,
+      "all_exact_checks_passed": true,
+      "n64": {
+        "model": "diffusion",
+        "n": 64,
+        "split": "heldout",
+        "mean_error": "0",
+        "covariance_error": "0",
+        "deterministic_residual_mse": "16",
+        "variance_x": "16",
+        "gaussian_k4": "0",
+        "brc_k4_x": "-8",
+        "excess_kurtosis_x": "-1/32",
+        "radial_fourth_cumulant": "-8"
+      }
+    },
+    {
+      "model": "oscillator",
+      "A": [
+        [
+          "3/5",
+          "-4/5"
+        ],
+        [
+          "4/5",
+          "3/5"
+        ]
+      ],
+      "b": [
+        "0",
+        "0"
+      ],
+      "Q": [
+        [
+          "1/50",
+          "0"
+        ],
+        [
+          "0",
+          "1/50"
+        ]
+      ],
+      "branch_offset": "1/5",
+      "calibration_transitions": 32,
+      "trajectory_moment_checks": 384,
+      "explicit_distribution_checks": 5,
+      "unseen_initial_conditions": 2,
+      "all_exact_checks_passed": true,
+      "n64": {
+        "model": "oscillator",
+        "n": 64,
+        "split": "heldout",
+        "mean_error": "0",
+        "covariance_error": "0",
+        "deterministic_residual_mse": "64/25",
+        "variance_x": "32/25",
+        "gaussian_k4": "0",
+        "brc_k4_x": "-3306875697670063490902690765404363527781641142586244211116102091615386206354003789069961946680466230730129367535499833581348545276260236793781952634109561534102658899706807250704/86361685550944446253863518628003995711160003644362813850237034701685918031624270579715075034722882265605472939461496635969950989468319466936530037770580747746862471103668212890625",
+        "excess_kurtosis_x": "-206679731104378968181418172837772720486352571411640263194756380725961637897125236816872621667529139420633085470968739598834284079766264799611372039631847595881416181231675453169/8843436600416711296395624307507609160822784373182752138264272353452638006438325307362823683555623143998000429000857255523322981321555913414300675867707468569278717041015625000000",
+        "radial_fourth_cumulant": "-64/625"
+      }
+    }
+  ],
+  "counterexamples": {
+    "equal_first_two_moments": [
+      "1",
+      "0",
+      "1"
+    ],
+    "distinct_fourth_moments": [
+      "1",
+      "4"
+    ],
+    "nonlinear_x_squared_variances": [
+      "0",
+      "3"
+    ],
+    "zero_fourth_cumulant_non_gaussian_raw_moments": [
+      "1",
+      "0",
+      "1",
+      "0",
+      "3",
+      "0",
+      "11"
+    ],
+    "same_variance_possible_innovation_k4": [
+      "-2",
+      "1",
+      "0"
+    ],
+    "changed_noise_n64_prediction": "16",
+    "changed_noise_n64_observation": "28",
+    "changed_noise_n64_covariance_error": "12",
+    "mean_only_noise_identifiable": false
+  },
+  "source_sha256": {
+    "experiments/brc_model_benchmark_20261002_fca717/run_benchmark.py": "b03b301afc8b2425f95b0bd97db1e86b1e683ed8f30e9afa3814f9f4a8ceccfe",
+    "src/enterprise_math/brc_transport.py": "386f9b955a65aba938b08bf76f21330c612a7e7a396d0c3dd83523bfaaa9d4e7"
+  }
+}
