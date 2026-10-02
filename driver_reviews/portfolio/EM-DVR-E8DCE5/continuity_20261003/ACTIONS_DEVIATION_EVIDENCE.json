@@ -1,0 +1,71 @@
+{
+  "automatic_runs": [
+    {
+      "id": 37034602878,
+      "name": "quality",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "failure",
+      "head_sha": "5f7b0e6d44f4abc7d4b56f571d69ba0680ebb7e6",
+      "html_url": "https://github.com/awdawmip/enterprise-math/actions/runs/37034602878",
+      "created_at": "2026-10-02T16:32:14Z"
+    },
+    {
+      "id": 37034602896,
+      "name": "bilingual-sync",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "5f7b0e6d44f4abc7d4b56f571d69ba0680ebb7e6",
+      "html_url": "https://github.com/awdawmip/enterprise-math/actions/runs/37034602896",
+      "created_at": "2026-10-02T16:32:14Z"
+    },
+    {
+      "id": 37034602982,
+      "name": "reference-integrity",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "failure",
+      "head_sha": "5f7b0e6d44f4abc7d4b56f571d69ba0680ebb7e6",
+      "html_url": "https://github.com/awdawmip/enterprise-math/actions/runs/37034602982",
+      "created_at": "2026-10-02T16:32:14Z"
+    },
+    {
+      "id": 37035278057,
+      "name": "reference-integrity",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "failure",
+      "head_sha": "31bcc3f30cb1980571aae46c7d5260b1634b75e0",
+      "html_url": "https://github.com/awdawmip/enterprise-math/actions/runs/37035278057",
+      "created_at": "2026-10-02T16:38:16Z"
+    },
+    {
+      "id": 37035278231,
+      "name": "bilingual-sync",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "31bcc3f30cb1980571aae46c7d5260b1634b75e0",
+      "html_url": "https://github.com/awdawmip/enterprise-math/actions/runs/37035278231",
+      "created_at": "2026-10-02T16:38:16Z"
+    },
+    {
+      "id": 37035278084,
+      "name": "quality",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "failure",
+      "head_sha": "31bcc3f30cb1980571aae46c7d5260b1634b75e0",
+      "html_url": "https://github.com/awdawmip/enterprise-math/actions/runs/37035278084",
+      "created_at": "2026-10-02T16:38:16Z"
+    }
+  ],
+  "observed_latest_run_failure_causes": {
+    "quality": "ModuleNotFoundError: No module named pytest in unit shards",
+    "reference-integrity": "requested pending migrations do not share one exact baseline blob"
+  },
+  "no_rerun_requested": true,
+  "direct_atomic_commit_actions_runs": 0,
+  "constraint_deviation": "Native driver_publish/followup_materialize commits triggered existing push Actions; discovered after all six finished. No workflow/security configuration modified. Further writes use skip ci."
+}

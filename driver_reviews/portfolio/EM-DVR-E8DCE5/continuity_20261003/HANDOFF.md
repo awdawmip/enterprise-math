@@ -26,7 +26,7 @@
 
 新任务归于本轮真实有界控制目标 OBJ-ORPHAN-RESEARCH-CONTINUITY-20261003。Objective保持OPEN；不冒充第三同余数学parent，也不关闭各原数学目标。实际当前Driver EM-DVR-E8DCE5/DA-B689E0D6FA1D479864B7发布，无Owner/Steward晋升或他人身份借用。
 
-本批次只含数据、任务书和证据；保留环境配置、网络/安全权限和凭据，未触发部署或申请 Actions。
+本批次只含数据、任务书和证据；保留环境配置、网络/安全权限和凭据，未触发部署。原生发布器两次提交自动触发仓库 push Actions，详见下述偏差；后续直接原子提交均使用 [skip ci]。
 
 Driver-ID: EM-DVR-E8DCE5 / CONTROL_PLANE
 Global-Knowledge-Sync: main@0946b08 / GLOBAL_KNOWLEDGE_V1
@@ -37,3 +37,24 @@ Global-Knowledge-Sync: main@0946b08 / GLOBAL_KNOWLEDGE_V1
 - `GV-RESEARCH-SOURCE-INTAKE-AND-DEDUP-20261003` / `TP2-B7212DEF828573EC121D`。
 
 Objective generation: `OG-FF9106B1F6E23783D19A`，OPEN。两项task publication、Objective记录、Driver授权及精确parent绑定检查通过。全库Objective authority仍有三条既存诊断；本轮暂移自有候选后对照确认错误集合完全相同，新对象零新增错误，见publication_write.json。
+
+## 最终任务机回读
+
+北京时间 2026-10-03 00:42:39–00:44:27，四份原生回执均来自 `f84bc22489582102a220e8dec0d00ee929ed2015`，完整分页回执已校验 SHA-256：
+
+| 对象 | publication | 状态 |
+|---|---|---|
+| 控制链恢复 RS-GOV-ORPHAN-CONTROL-RECOVERY-20261003 | TP2-67EBB45C1264C62A32E5 | READY / NEEDS_DISPATCH；无 claim/hard block |
+| 来源接收 GV-RESEARCH-SOURCE-INTAKE-AND-DEDUP-20261003 | TP2-B7212DEF828573EC121D | READY / NEEDS_DISPATCH；无 claim/hard block |
+| Q30 先例与接续审计 GV-P000-Q30-N14-PRIOR-ART-AND-CONTINUATION-AUDIT | TP2-27E91D099F0486EF316E | READY / NEEDS_DISPATCH；无 claim/hard block |
+| Q30 evidence-recovery gate | TP2-EB531E351C670702AD82 | DONE / COMPLETE |
+
+最后一项仅关闭 evidence-recovery gate，不关闭旧 N14 Task-ID、N15 或数学父目标。回读仍保留旧 hard_block 字段字符串作为历史投影，实际 dispatch_state 明确 COMPLETE。完整证据见 FINAL_STATE_READBACK.json。20 个原子发布文件已从不可变提交逐字节回读，见 SOURCE_PUBLICATION_READBACK.json。原 Q30 RR/DR blob 未改变；DFU保留原审查作者，materialization_publisher明确记录本真实Driver/session/DA。
+
+## Actions 限制偏差
+
+本轮未完全满足用户“不触发 Actions”的限制：原生 driver_publish 与 followup_materialize 的服务器提交自动触发 6 个现有 push 工作流，发现时均已结束。两次 bilingual-sync 成功，quality 与 reference-integrity 各两次失败。抽查最新一组失败日志：quality 的 unit shards 缺 pytest；reference-integrity 的 pending migration 不共享同一 exact baseline blob。这不是本轮任务出版规范预检的通过证据，也未把失败说成通过。
+
+没有调用 workflow_dispatch、重跑检查、改工作流或部署；后续直接原子提交用 [skip ci]，其已回读 workflow_runs=0。不会为消除这项偏差重写原生历史。证据见 ACTIONS_DEVIATION_EVIDENCE.json。
+
+并发 Source 更新：最终证据发布前，BRC baseline 已由其他会话推进至第 8 代 `TP2-20E37C57649A74D4E563`（main84cf8737）。本批 intake 已要求读取最高代、消费已接收内容；第7代仅保留为冻结比较基线，不据旧代次重启研究。新发表的两项治理任务及Q30记录未被这次并发更新改动。
