@@ -1,0 +1,424 @@
+{
+  "source_commit": "9b68036e6ff35e9ff6f1246f889c7e5d5a743107",
+  "remote_write_performed": false,
+  "production_mutation": false,
+  "source_snapshot": "/var/lib/em-research-mcp/control/snapshots/9b68036e6ff35e9ff6f1246f889c7e5d5a743107",
+  "candidate_record_count": 4,
+  "started_at": "2026-10-02T11:57:07.569837+00:00",
+  "base_before": {
+    "files": 11009,
+    "bytes": 299493098
+  },
+  "manifest_sha256": "ec7497fd7c9edd1e5ad2ba721c6af99576307ef08462ffef4e072d371c49fb47",
+  "candidate_source": "/tmp/em-pcf7-parallel-20261002-rntztd98/candidate-source",
+  "candidate_before_overlay": {
+    "files": 11009,
+    "bytes": 299493098
+  },
+  "fresh_operational_result_set": [
+    "RR-A9A5ADD3931B3F3EDFAB",
+    "RR-E9908FEE020773DEF39C"
+  ],
+  "active_driver": {
+    "driver_id": "EM-DVR-3832A0",
+    "driver_authority_record_id": "DA-243C63C3531A36A26840",
+    "session_id": "MCP-e0f7ec295874408fb5aff68870551319"
+  },
+  "source_authorities": {
+    "RR-A9A5ADD3931B3F3EDFAB": {
+      "review_id": "DR-8183213860B7A72A2BD3",
+      "disposition": "REQUEST_REVISION",
+      "followup_ready": true,
+      "followup_state": "FOLLOWUP_TASKSET_READY",
+      "followup_packet_id": "DFU-0204BC0AB65CDE176BBC"
+    },
+    "RR-E9908FEE020773DEF39C": {
+      "review_id": "DR-4558F51AE77B4C00D207",
+      "disposition": "ACCEPTED",
+      "followup_ready": true,
+      "followup_state": "TASK_SCOPE_CLOSED_PORTFOLIO_CONTINUATION",
+      "followup_packet_id": "DFU-92CBD9EB8CAAC0AE7EA2"
+    }
+  },
+  "task_state_before": {
+    "state": "AWAITING_DRIVER_REVIEW",
+    "parallel_state": "AWAITING_PARALLEL_INTAKE",
+    "terminal": false
+  },
+  "parallel_audit_before": [],
+  "parallel_audit_after": [],
+  "result_review_integrity_audit": [],
+  "task_state_after": {
+    "state": "TERMINAL",
+    "result": {
+      "result_id": "PS-PCF7-C44DA34E2DB80B9174EA",
+      "task_id": "RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION",
+      "publication_id": "TP2-8F7443BCAF2BC5243574",
+      "parallel_result_ids": [
+        "RR-A9A5ADD3931B3F3EDFAB",
+        "RR-E9908FEE020773DEF39C"
+      ],
+      "_record_path": "research_parallel_syntheses/RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION/PS-PCF7-C44DA34E2DB80B9174EA.json"
+    },
+    "review": {
+      "review_id": "PS-PCF7-C44DA34E2DB80B9174EA",
+      "disposition": "ACCEPTED"
+    },
+    "terminal": true,
+    "parallel_state": "PARALLEL_SYNTHESIS_TERMINAL",
+    "parallel_result_ids": [
+      "RR-A9A5ADD3931B3F3EDFAB",
+      "RR-E9908FEE020773DEF39C"
+    ],
+    "parallel_intake_id": "PI-PCF7-C44DA34E2DB80B9174EA",
+    "evidence_set_sha256": "sha256:c44da34e2db80b9174ea369348267e11fb83e46ab1312c029ac28722442df70f",
+    "result_review_authority": {
+      "RR-A9A5ADD3931B3F3EDFAB": {
+        "result_id": "RR-A9A5ADD3931B3F3EDFAB",
+        "review_state": "SINGLE_REVIEW_FLOW",
+        "review_ids": [
+          "DR-8183213860B7A72A2BD3"
+        ],
+        "review": {
+          "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_REVIEW_V1",
+          "review_id": "DR-8183213860B7A72A2BD3",
+          "result_id": "RR-A9A5ADD3931B3F3EDFAB",
+          "result_record_path": "research_result_records/RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION/RR-A9A5ADD3931B3F3EDFAB.json",
+          "result_record_sha256": "sha256:f80eb2fae5dc12210a2164395adf13866800ebd172a12d99446c49fb94faa62c",
+          "task_id": "RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION",
+          "publication_id": "TP2-8F7443BCAF2BC5243574",
+          "execution_record_id": "ER-A156DB0F0B38FE774AFB",
+          "driver_id": "EM-DVR-BSJ393",
+          "driver_authority_record_id": "DA-5E7C91B304D8A26F1C42",
+          "driver_authority_source_comment_id": 5473859746,
+          "review_path": "driver_reviews/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_DRIVER_REVIEW_20260902.md",
+          "review_blob_sha1": "sha1:b69abffe9af0538090048528e9d58dd5908dd5a4",
+          "review_sha256": "sha256:d7cf9ea048a71fe49d01925c882d7ae6e8ef4ca3fe2c6e9811bf058ebb04c3a3",
+          "reviewed_at": "2026-09-02T12:56:00+00:00",
+          "disposition": "REQUEST_REVISION",
+          "destination_class": "FOLLOWUP_TASK",
+          "destination_ref_or_none": "TP2-C4DB35B43FE7334D2B63",
+          "terminal": false,
+          "_review_path": "research_result_reviews/RR-A9A5ADD3931B3F3EDFAB/DR-8183213860B7A72A2BD3.json"
+        },
+        "operational_disposition": "REQUEST_REVISION",
+        "terminal": false
+      },
+      "RR-E9908FEE020773DEF39C": {
+        "result_id": "RR-E9908FEE020773DEF39C",
+        "review_state": "SINGLE_REVIEW_FLOW",
+        "review_ids": [
+          "DR-4558F51AE77B4C00D207"
+        ],
+        "review": {
+          "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_REVIEW_V1",
+          "review_id": "DR-4558F51AE77B4C00D207",
+          "result_id": "RR-E9908FEE020773DEF39C",
+          "result_record_path": "research_result_records/RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION/RR-E9908FEE020773DEF39C.json",
+          "result_record_sha256": "sha256:cc819706813da1b873849959edf6e22e2ece383b3f1dcb29a0fcfcbdd8f277a9",
+          "task_id": "RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION",
+          "publication_id": "TP2-8F7443BCAF2BC5243574",
+          "execution_record_id": "ER-586DD6A098AF43C3EFB1",
+          "driver_id": "EM-DVR-3832A0",
+          "review_path": "driver_reviews/mcp/MCP-e0f7ec295874408fb5aff68870551319/4b61da68e82f53308c54/PCF7_E9908_DRIVER_REVIEW_20261002.md",
+          "review_blob_sha1": "sha1:54dd284f951151bd41c28611ca693f66239d9240",
+          "review_sha256": "sha256:abf488496747ff6b164c849b74017d9e84ea3db5a6ea86fd21d948e0dcdb9925",
+          "reviewed_at": "2026-10-02T11:33:23.038501+00:00",
+          "disposition": "ACCEPTED",
+          "destination_class": "NONE",
+          "destination_ref_or_none": "",
+          "terminal": true,
+          "reviewer_contribution_ids": [],
+          "reviewer_session_id": "MCP-e0f7ec295874408fb5aff68870551319",
+          "write_authority_checked_at": "2026-10-02T11:33:23.052178+00:00",
+          "driver_authority_record_id": "DA-243C63C3531A36A26840",
+          "driver_authority_source_comment_id": 5950651298,
+          "write_authorization": {
+            "schema": "ENTERPRISE_MATH_CONTROL_WRITE_AUTHORIZATION_V1",
+            "kind": "REVIEW",
+            "evidence_kind": "CANONICAL_LOCAL_GUARD_WITH_SERVER_SOURCE_ENVELOPES_NOT_PLATFORM_ATTESTATION",
+            "payload_sha256": "dfd52a1f28f36121ec967f493b5488dba17d7a0ad1bb537a5330dab58ea56f1b",
+            "source_commit": "ade5366f8b020b688b6e9f282ff1dfbfb4e84892",
+            "authorized_at": "2026-10-02T11:33:23.052178+00:00",
+            "authority_observed_through_comment_id": 5950651298,
+            "principal": {
+              "authority_record_id": "DA-243C63C3531A36A26840",
+              "session_id": "MCP-e0f7ec295874408fb5aff68870551319",
+              "driver_id": "EM-DVR-3832A0"
+            }
+          },
+          "_review_path": "research_result_reviews/RR-E9908FEE020773DEF39C/DR-4558F51AE77B4C00D207.json"
+        },
+        "operational_disposition": "ACCEPTED",
+        "terminal": true
+      }
+    },
+    "result_operational_review_authority": {
+      "RR-A9A5ADD3931B3F3EDFAB": {
+        "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_REVIEW_V1",
+        "review_id": "DR-8183213860B7A72A2BD3",
+        "result_id": "RR-A9A5ADD3931B3F3EDFAB",
+        "result_record_path": "research_result_records/RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION/RR-A9A5ADD3931B3F3EDFAB.json",
+        "result_record_sha256": "sha256:f80eb2fae5dc12210a2164395adf13866800ebd172a12d99446c49fb94faa62c",
+        "task_id": "RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION",
+        "publication_id": "TP2-8F7443BCAF2BC5243574",
+        "execution_record_id": "ER-A156DB0F0B38FE774AFB",
+        "driver_id": "EM-DVR-BSJ393",
+        "driver_authority_record_id": "DA-5E7C91B304D8A26F1C42",
+        "driver_authority_source_comment_id": 5473859746,
+        "review_path": "driver_reviews/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_DRIVER_REVIEW_20260902.md",
+        "review_blob_sha1": "sha1:b69abffe9af0538090048528e9d58dd5908dd5a4",
+        "review_sha256": "sha256:d7cf9ea048a71fe49d01925c882d7ae6e8ef4ca3fe2c6e9811bf058ebb04c3a3",
+        "reviewed_at": "2026-09-02T12:56:00+00:00",
+        "disposition": "REQUEST_REVISION",
+        "destination_class": "FOLLOWUP_TASK",
+        "destination_ref_or_none": "TP2-C4DB35B43FE7334D2B63",
+        "terminal": false,
+        "_review_path": "research_result_reviews/RR-A9A5ADD3931B3F3EDFAB/DR-8183213860B7A72A2BD3.json",
+        "review_authority_kind": "IMMUTABLE_REVIEW",
+        "review_authority_id": "DR-8183213860B7A72A2BD3",
+        "source_review_ids": [
+          "DR-8183213860B7A72A2BD3"
+        ],
+        "driver_followup_state": "FOLLOWUP_TASKSET_READY",
+        "driver_followup": {
+          "canonical_promotion_granted": false,
+          "created_at": "2026-09-02T12:56:00+00:00",
+          "decision": "TASK_SET_PUBLISHED",
+          "driver_id": "EM-DVR-BSJ393",
+          "foundation_authority_granted": false,
+          "gate_decisions": [
+            {
+              "decision": "NOT_REQUIRED",
+              "evidence_refs": [
+                "driver_reviews/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_DRIVER_REVIEW_20260902.md"
+              ],
+              "gate": "MATHEMATICAL_CONTINUATION",
+              "reason": "This review authorizes only a narrow correction before any mathematical continuation is reconsidered."
+            },
+            {
+              "decision": "NOT_REQUIRED",
+              "evidence_refs": [],
+              "gate": "LEAN_FORMALIZATION",
+              "reason": "The defect is an exact prose statement already distinguished by the existing deterministic checker; no formalization claim is under review."
+            },
+            {
+              "decision": "NOT_REQUIRED",
+              "evidence_refs": [],
+              "gate": "EXTERNAL_PRIOR_ART_DUPLICATION",
+              "reason": "No novelty or external-prior-art claim is being accepted by a REQUEST_REVISION disposition."
+            },
+            {
+              "decision": "NOT_REQUIRED",
+              "evidence_refs": [],
+              "gate": "INDEPENDENT_REPLICATION",
+              "reason": "The identified defect is the exact identity gcd(N,0)=N and the main theorem is not being re-accepted in this transaction."
+            },
+            {
+              "decision": "NOT_REQUIRED",
+              "evidence_refs": [],
+              "gate": "INTEGRATION_OR_TOOL_HARVEST",
+              "reason": "The reviewed Result does not carry an accepted global or domain tool payload in this revision transaction."
+            },
+            {
+              "decision": "NOT_REQUIRED",
+              "evidence_refs": [],
+              "gate": "ADVERSARIAL_AUDIT",
+              "reason": "The revision task itself contains the exact adversarial zero-probe regression and must stop if any broader theorem changes."
+            }
+          ],
+          "packet_id": "DFU-0204BC0AB65CDE176BBC",
+          "parent_objective_id": "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION",
+          "policy": "AUTO_PUBLISH_TASKSET_OR_PARENT_CLOSE_V1",
+          "result_id": "RR-A9A5ADD3931B3F3EDFAB",
+          "review_destination_class": "FOLLOWUP_TASK",
+          "review_disposition": "REQUEST_REVISION",
+          "review_id": "DR-8183213860B7A72A2BD3",
+          "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_FOLLOWUP_V1",
+          "source_next_control_plane_recommendation": "DRIVER_REVIEW_THIS_RESULT; freeze PCF4 public-prefix generic-factor route closed; preserve only genuinely N-dependent successor interface; review PCF5 and PCF6 independently before operational consumption; do not mutate sealed PCF2 benchmark",
+          "source_publication_id": "TP2-8F7443BCAF2BC5243574",
+          "task_id": "RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION",
+          "task_publications": [
+            {
+              "publication_id": "TP2-C4DB35B43FE7334D2B63",
+              "task_id": "RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION-STATEMENT-CORRECTION",
+              "task_role": "REVISION"
+            }
+          ],
+          "working_truth_granted": false,
+          "_path": "research_driver_followups/DR-8183213860B7A72A2BD3/DFU-0204BC0AB65CDE176BBC.json"
+        }
+      },
+      "RR-E9908FEE020773DEF39C": {
+        "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_REVIEW_V1",
+        "review_id": "DR-4558F51AE77B4C00D207",
+        "result_id": "RR-E9908FEE020773DEF39C",
+        "result_record_path": "research_result_records/RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION/RR-E9908FEE020773DEF39C.json",
+        "result_record_sha256": "sha256:cc819706813da1b873849959edf6e22e2ece383b3f1dcb29a0fcfcbdd8f277a9",
+        "task_id": "RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION",
+        "publication_id": "TP2-8F7443BCAF2BC5243574",
+        "execution_record_id": "ER-586DD6A098AF43C3EFB1",
+        "driver_id": "EM-DVR-3832A0",
+        "review_path": "driver_reviews/mcp/MCP-e0f7ec295874408fb5aff68870551319/4b61da68e82f53308c54/PCF7_E9908_DRIVER_REVIEW_20261002.md",
+        "review_blob_sha1": "sha1:54dd284f951151bd41c28611ca693f66239d9240",
+        "review_sha256": "sha256:abf488496747ff6b164c849b74017d9e84ea3db5a6ea86fd21d948e0dcdb9925",
+        "reviewed_at": "2026-10-02T11:33:23.038501+00:00",
+        "disposition": "ACCEPTED",
+        "destination_class": "NONE",
+        "destination_ref_or_none": "",
+        "terminal": true,
+        "reviewer_contribution_ids": [],
+        "reviewer_session_id": "MCP-e0f7ec295874408fb5aff68870551319",
+        "write_authority_checked_at": "2026-10-02T11:33:23.052178+00:00",
+        "driver_authority_record_id": "DA-243C63C3531A36A26840",
+        "driver_authority_source_comment_id": 5950651298,
+        "write_authorization": {
+          "schema": "ENTERPRISE_MATH_CONTROL_WRITE_AUTHORIZATION_V1",
+          "kind": "REVIEW",
+          "evidence_kind": "CANONICAL_LOCAL_GUARD_WITH_SERVER_SOURCE_ENVELOPES_NOT_PLATFORM_ATTESTATION",
+          "payload_sha256": "dfd52a1f28f36121ec967f493b5488dba17d7a0ad1bb537a5330dab58ea56f1b",
+          "source_commit": "ade5366f8b020b688b6e9f282ff1dfbfb4e84892",
+          "authorized_at": "2026-10-02T11:33:23.052178+00:00",
+          "authority_observed_through_comment_id": 5950651298,
+          "principal": {
+            "authority_record_id": "DA-243C63C3531A36A26840",
+            "session_id": "MCP-e0f7ec295874408fb5aff68870551319",
+            "driver_id": "EM-DVR-3832A0"
+          }
+        },
+        "_review_path": "research_result_reviews/RR-E9908FEE020773DEF39C/DR-4558F51AE77B4C00D207.json",
+        "review_authority_kind": "IMMUTABLE_REVIEW",
+        "review_authority_id": "DR-4558F51AE77B4C00D207",
+        "source_review_ids": [
+          "DR-4558F51AE77B4C00D207"
+        ],
+        "driver_followup_state": "TASK_SCOPE_CLOSED_PORTFOLIO_CONTINUATION",
+        "driver_followup": {
+          "canonical_promotion_granted": false,
+          "created_at": "2026-10-02T11:33:30.373781+00:00",
+          "decision": "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION",
+          "driver_id": "EM-DVR-3832A0",
+          "foundation_authority_granted": false,
+          "gate_decisions": [
+            {
+              "decision": "NOT_REQUIRED",
+              "evidence_refs": [
+                "RR-E9908FEE020773DEF39C",
+                "research_artifacts/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION/PCF7_PARENT_REVISION_CLOSURE_RETURN_20260906_V2.md@sha256:8b8d8020aa771beb3ddaf7e2a4be294235755a117bc02276aa2ac0af8a2292ee",
+                "PCF7_E9908_DRIVER_REVIEW_20261002.md@sha256:abf488496747ff6b164c849b74017d9e84ea3db5a6ea86fd21d948e0dcdb9925#semantic-review-of-the-authorized-delta"
+              ],
+              "gate": "MATHEMATICAL_CONTINUATION",
+              "reason": "The exact zero-probe correction required by DR-8183213860B7A72A2BD3 is completely resolved. Preserve the inherited theorem boundaries and resume the existing portfolio; this repair creates no new mathematical information gap."
+            },
+            {
+              "decision": "NOT_REQUIRED",
+              "evidence_refs": [
+                "PCF7_E9908_DRIVER_REVIEW_20261002.md@sha256:abf488496747ff6b164c849b74017d9e84ea3db5a6ea86fd21d948e0dcdb9925#preserved-theorem-and-authority-boundaries"
+              ],
+              "gate": "LEAN_FORMALIZATION",
+              "reason": "This elementary statement correction is not an L4 or full-formal-closure deliverable. Inspected Lean sources provide prior-art evidence only; no new Lean build or formal certification of the PCF7 theorem is claimed."
+            },
+            {
+              "decision": "SATISFIED_BY_REVIEWED_RESULT",
+              "evidence_refs": [
+                "RR-E9908FEE020773DEF39C",
+                "PCF7_E9908_DRIVER_REVIEW_20261002.md@sha256:abf488496747ff6b164c849b74017d9e84ea3db5a6ea86fd21d948e0dcdb9925#external-primary-prior-art-and-duplication-review",
+                "https://github.com/leanprover/lean4/blob/470d5ce1400764999581fd26d5d72b00d990b0f4/src/Init/Data/Nat/Gcd.lean",
+                "https://github.com/leanprover-community/mathlib4/blob/8e30cac82f69c18f6cbe88799bdc3ebd74cc592d/Mathlib/Data/Nat/Prime/Infinite.lean"
+              ],
+              "gate": "EXTERNAL_PRIOR_ART_DUPLICATION",
+              "reason": "The reviewed exact correction is elementary and nonnovel. The Driver report records 2026-10-02 task-specific queries and primary-source comparison: Lean gcd_zero_right is an exact elementary antecedent; mathlib's infinitude-of-primes theorem is the standard antecedent of finite-support avoidance. No novelty inference is drawn from the bounded no-material-match searches."
+            },
+            {
+              "decision": "NOT_REQUIRED",
+              "evidence_refs": [
+                "PCF7_E9908_DRIVER_REVIEW_20261002.md@sha256:abf488496747ff6b164c849b74017d9e84ea3db5a6ea86fd21d948e0dcdb9925#identity-source-exposure-and-current-control-preconditions",
+                "PCF7_E9908_DRIVER_REVIEW_20261002.md@sha256:abf488496747ff6b164c849b74017d9e84ea3db5a6ea86fd21d948e0dcdb9925#deterministic-checks-and-what-was-not-rerun"
+              ],
+              "gate": "INDEPENDENT_REPLICATION",
+              "reason": "The authorized delta is an exact elementary zero/nonzero statement repair checked by direct algebra and a bounded witness regression. It introduces no new empirical or asymptotic finding requiring replication. Shared subagent/control context is disclosed; cited historical replications are not treated as fresh independently verified evidence."
+            },
+            {
+              "decision": "NOT_REQUIRED",
+              "evidence_refs": [
+                "research_result_records/RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION/RR-E9908FEE020773DEF39C.json@sha256:cc819706813da1b873849959edf6e22e2ece383b3f1dcb29a0fcfcbdd8f277a9",
+                "research_artifacts/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION/PCF7_PARENT_REVISION_CLOSURE_RETURN_20260906_V2.md@sha256:8b8d8020aa771beb3ddaf7e2a4be294235755a117bc02276aa2ac0af8a2292ee"
+              ],
+              "gate": "INTEGRATION_OR_TOOL_HARVEST",
+              "reason": "The immutable Result declares NO_TOOL_PAYLOAD. The existing task-local checker is unchanged and hash-verified; no reusable mechanism or new tool is introduced. Consume the correction overlay through the review/control path."
+            },
+            {
+              "decision": "SATISFIED_BY_REVIEWED_RESULT",
+              "evidence_refs": [
+                "RR-E9908FEE020773DEF39C",
+                "research_artifacts/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION/PCF7_PARENT_REVISION_CLOSURE_RETURN_20260906_V2.md@sha256:8b8d8020aa771beb3ddaf7e2a4be294235755a117bc02276aa2ac0af8a2292ee",
+                "PCF7_E9908_DRIVER_REVIEW_20261002.md@sha256:abf488496747ff6b164c849b74017d9e84ea3db5a6ea86fd21d948e0dcdb9925#semantic-review-of-the-authorized-delta",
+                "PCF7_E9908_DRIVER_REVIEW_20261002.md@sha256:abf488496747ff6b164c849b74017d9e84ea3db5a6ea86fd21d948e0dcdb9925#deterministic-checks-and-what-was-not-rerun"
+              ],
+              "gate": "ADVERSARIAL_AUDIT",
+              "reason": "The review explicitly restores the failing s=1 zero branch, proves the 255 nonzero/one zero census over all 256 labelled probes, and checks the support-avoiding witness N=100160063 with gcd histogram {1:255,N:1}. Static checker inspection confirms its nonzero guard. The finite regression is not generalized to prove the infinite family."
+            }
+          ],
+          "packet_id": "DFU-92CBD9EB8CAAC0AE7EA2",
+          "parent_completion_granted": false,
+          "parent_final_granted": false,
+          "parent_objective_id": "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION",
+          "parent_status_at_materialization": "OPEN",
+          "policy": "AUTO_PUBLISH_TASKSET_OR_PARENT_CLOSE_V1",
+          "portfolio_continuation": {
+            "action": "REEVALUATE_CANONICAL_PORTFOLIO",
+            "dispatcher": "research_control_dispatch.py",
+            "evidence_refs": [
+              "research_result_records/RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION/RR-E9908FEE020773DEF39C.json@sha256:cc819706813da1b873849959edf6e22e2ece383b3f1dcb29a0fcfcbdd8f277a9",
+              "research_artifacts/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION/PCF7_PARENT_REVISION_CLOSURE_RETURN_20260906_V2.md@sha256:8b8d8020aa771beb3ddaf7e2a4be294235755a117bc02276aa2ac0af8a2292ee",
+              "PCF7_E9908_DRIVER_REVIEW_20261002.md@sha256:abf488496747ff6b164c849b74017d9e84ea3db5a6ea86fd21d948e0dcdb9925",
+              "DR-8183213860B7A72A2BD3",
+              "DFU-0204BC0AB65CDE176BBC",
+              "RS-PRIME-COORD-FACTOR-PCF7-POST-REOPEN-CLOSURE-AUDIT/TP2-A981ECDA1B7E887E7550"
+            ],
+            "next_action": "Driver review this fresh parent revision Result against DR-8183213860B7A72A2BD3. If accepted, retain the original PCF7 polynomial-prefix, L=N, T1-T5 and sealed-benchmark conclusions with only the fixed-probe sentence repaired to the exact trivial-output {1,N} statement; do not infer new factorization, lower-bound, benchmark, Working Truth, Foundation, or canonical-promotion authority. After this exact correction has a genuine ACCEPTED review and valid task-scope followup, consume that disposition in the current two-Result parallel intake, two reference passes and synthesis; preserve A9A5's REQUEST_REVISION and all exact-set gates. Only the current reducer may terminalize the task. Then use research_control_dispatch.py to reevaluate the existing canonical portfolio under ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION. Consume the actual native disposition in the existing PCF7 post-reopen closure-audit lane; reconcile separate correction/governance publications only through their lawful existing control path. Do not publish an equivalent PCF7 mathematical successor.",
+            "parent_objective_id": "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION",
+            "remaining_parent_scope": [
+              "The parent Objective remains open or otherwise governed by its own current canonical state; this Task grants no parent completion or final authority.",
+              "Preserve the original PCF7 polynomial-prefix assumptions, dyadic prime-abundance premise, declared-model zero-success boundary, L=N cost, T1-T5 strength, sealed PCF2 scores and non-promotion restrictions.",
+              "Reevaluate existing program/portfolio tasks, including exact pending PCF5/PCF6 review obligations when still current, without treating this correction as their acceptance.",
+              "The separate PCF7 correction and governance publications are distinct objects; task-scope closure of E9908 does not silently close them."
+            ],
+            "source_result_id": "RR-E9908FEE020773DEF39C"
+          },
+          "result_id": "RR-E9908FEE020773DEF39C",
+          "review_destination_class": "NONE",
+          "review_disposition": "ACCEPTED",
+          "review_id": "DR-4558F51AE77B4C00D207",
+          "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_FOLLOWUP_V1",
+          "source_next_control_plane_recommendation": "Driver review this fresh parent revision Result against DR-8183213860B7A72A2BD3. If accepted, retain the original PCF7 polynomial-prefix, L=N, T1-T5 and sealed-benchmark conclusions with only the fixed-probe sentence repaired to the exact trivial-output {1,N} statement; do not infer new factorization, lower-bound, benchmark, Working Truth, Foundation, or canonical-promotion authority.",
+          "source_publication_id": "TP2-8F7443BCAF2BC5243574",
+          "source_result_record_path": "research_result_records/RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION/RR-E9908FEE020773DEF39C.json",
+          "source_result_record_sha256": "sha256:cc819706813da1b873849959edf6e22e2ece383b3f1dcb29a0fcfcbdd8f277a9",
+          "task_id": "RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION",
+          "task_publications": [],
+          "terminal_scope": "TASK",
+          "working_truth_granted": false,
+          "_path": "research_driver_followups/DR-4558F51AE77B4C00D207/DFU-92CBD9EB8CAAC0AE7EA2.json"
+        }
+      }
+    }
+  },
+  "scope_from_synthesis": {
+    "terminal_scope": "TASK",
+    "parent_completion_granted": false,
+    "parent_final_granted": false
+  },
+  "runtime_scope_projection": null,
+  "original_candidate_files_unchanged": {
+    "files": 11009,
+    "bytes": 299493098
+  },
+  "base_after": {
+    "files": 11009,
+    "bytes": 299493098
+  },
+  "production_snapshot_unchanged": true,
+  "pass": true,
+  "elapsed_seconds": 49.842
+}

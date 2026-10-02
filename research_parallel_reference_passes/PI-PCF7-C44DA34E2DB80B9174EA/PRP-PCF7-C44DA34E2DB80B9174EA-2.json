@@ -1,0 +1,66 @@
+{
+  "schema": "ENTERPRISE_MATH_PARALLEL_REFERENCE_PASS_V1",
+  "intake_id": "PI-PCF7-C44DA34E2DB80B9174EA",
+  "task_id": "RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION",
+  "publication_ids": [
+    "TP2-8F7443BCAF2BC5243574"
+  ],
+  "result_ids": [
+    "RR-A9A5ADD3931B3F3EDFAB",
+    "RR-E9908FEE020773DEF39C"
+  ],
+  "evidence_set_sha256": "sha256:c44da34e2db80b9174ea369348267e11fb83e46ab1312c029ac28722442df70f",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "foundation_authority_granted": false,
+  "reviewer_id": "EM-DVR-3832A0",
+  "reviewed_at": "2026-10-02T11:51:07.412494+00:00",
+  "independence_status": "SHARED_CONTROL_CONTEXT_DISCLOSED",
+  "shared_context_disclosure": "The two logically distinct passes were prepared by a delegated audit agent in the root Driver control context. They are not independent replications and do not establish historical contribution independence. The activated root Driver must adopt the exact content and use its actual native authority.",
+  "pass_id": "PRP-PCF7-C44DA34E2DB80B9174EA-2",
+  "pass_number": 2,
+  "pass_kind": "ADVERSARIAL_CONTROL_CROSSCHECK",
+  "findings_summary": "The source set is exactly A9A5 and E9908 under TP2-8F7443BCAF2BC5243574. The shared evidence-set hash binds IDs, so separate raw Result and artifact pins are retained. A9A5 remains REQUEST_REVISION with its ready inherited followup; this is resolved review authority, not a terminal review. The canonical facade at 931884c requires each source review state to be resolved and each required followup ready; it does not require each source disposition to be terminal. A9 therefore need not and must not receive an invented ACCEPTED review merely to terminalize the corrected package. E9908 has actual ACCEPTED review DR-4558F51AE77B4C00D207 and task-scope followup DFU-92CBD9EB8CAAC0AE7EA2, read back at Source 9b68036e6ff35e9ff6f1246f889c7e5d5a743107. The full canonical candidate-state preflight must confirm those exact authorities and both ready followups before Source publication. The unrelated quarantined F97259 Result and its historical ACCEPTED token are excluded. An added Result changes the full set and must reopen intake. Separate correction/governance/closure-audit publications and the program parent remain separate scopes.",
+  "recommendation": "With the actual E9908 acceptance/followup bindings and a passing canonical candidate-state preflight, retain both sources with KEEP_PARALLEL and explicitly record task_terminal=true, terminal_control_disposition=ACCEPTED, terminal_scope=TASK. This classifies the corrected package only and preserves A9 REQUEST_REVISION. If any required authority or exact source set drifts, abort terminal publication and use the existing PCF7 closure-audit lane for the exact remaining question.",
+  "control_conditions": [
+    "Current active Driver authority and actual source-exposure/contribution checks remain required.",
+    "Refresh raw Results, review authority, followups, exact full Result set and target main before any write.",
+    "Both source review states must be in the canonical resolved set; every required followup must be ready.",
+    "E9908 operational disposition must be ACCEPTED, supported by the actual immutable review and followup records.",
+    "No rewrite or deletion of historical Results/reviews; no timestamp selection; no fake independent context.",
+    "No acceptance of the separate withheld correction Result; no program-parent completion or promotion."
+  ],
+  "source_result_pins": [
+    {
+      "result_id": "RR-A9A5ADD3931B3F3EDFAB",
+      "path": "research_result_records/RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION/RR-A9A5ADD3931B3F3EDFAB.json",
+      "git_blob_sha1": "sha1:772d81cbbc54f8c4df54550e96e5d0ed0f8213c3",
+      "sha256": "sha256:f80eb2fae5dc12210a2164395adf13866800ebd172a12d99446c49fb94faa62c",
+      "execution_record_id": "ER-A156DB0F0B38FE774AFB",
+      "owner_head": "d8f02c024bebbd10a30c58401fda24e48bd407cc"
+    },
+    {
+      "result_id": "RR-E9908FEE020773DEF39C",
+      "path": "research_result_records/RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION/RR-E9908FEE020773DEF39C.json",
+      "git_blob_sha1": "sha1:8cc4f006a64a76840e08da6d03240372b0994650",
+      "sha256": "sha256:cc819706813da1b873849959edf6e22e2ece383b3f1dcb29a0fcfcbdd8f277a9",
+      "execution_record_id": "ER-586DD6A098AF43C3EFB1",
+      "owner_head": "576015b66128189198dd37097d5495c1c4ff31ce"
+    }
+  ],
+  "source_authority_bindings": {
+    "source_commit": "9b68036e6ff35e9ff6f1246f889c7e5d5a743107",
+    "driver_id": "EM-DVR-3832A0",
+    "driver_authority_record_id": "DA-243C63C3531A36A26840",
+    "driver_authority_source_comment_id": 5950651298,
+    "driver_session_id": "MCP-e0f7ec295874408fb5aff68870551319",
+    "source_review_id": "DR-4558F51AE77B4C00D207",
+    "source_followup_id": "DFU-92CBD9EB8CAAC0AE7EA2",
+    "source_review_path": "research_result_reviews/RR-E9908FEE020773DEF39C/DR-4558F51AE77B4C00D207.json",
+    "source_review_sha256": "sha256:dc482601e7a6d25c7e4adae7f1904d244930870b69e16a912beb16f7bacdd564",
+    "source_followup_path": "research_driver_followups/DR-4558F51AE77B4C00D207/DFU-92CBD9EB8CAAC0AE7EA2.json",
+    "source_followup_sha256": "sha256:f3a17aef5b745ac853659f2f2e61bccc2a18160eb6c799af0d6a4e2a11c928b4",
+    "driver_adoption": "The current root Driver explicitly adopted these two logically distinct passes and the exact synthesis scope after receiving the actual native ACCEPTED review/followup readback on 2026-10-02.",
+    "control_only_no_new_result_or_review_authority": true
+  }
+}

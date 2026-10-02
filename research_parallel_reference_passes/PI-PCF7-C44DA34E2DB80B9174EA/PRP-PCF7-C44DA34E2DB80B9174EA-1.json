@@ -1,0 +1,80 @@
+{
+  "schema": "ENTERPRISE_MATH_PARALLEL_REFERENCE_PASS_V1",
+  "intake_id": "PI-PCF7-C44DA34E2DB80B9174EA",
+  "task_id": "RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION",
+  "publication_ids": [
+    "TP2-8F7443BCAF2BC5243574"
+  ],
+  "result_ids": [
+    "RR-A9A5ADD3931B3F3EDFAB",
+    "RR-E9908FEE020773DEF39C"
+  ],
+  "evidence_set_sha256": "sha256:c44da34e2db80b9174ea369348267e11fb83e46ab1312c029ac28722442df70f",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "foundation_authority_granted": false,
+  "reviewer_id": "EM-DVR-3832A0",
+  "reviewed_at": "2026-10-02T11:51:07.412494+00:00",
+  "independence_status": "SHARED_CONTROL_CONTEXT_DISCLOSED",
+  "shared_context_disclosure": "The two logically distinct passes were prepared by a delegated audit agent in the root Driver control context. They are not independent replications and do not establish historical contribution independence. The activated root Driver must adopt the exact content and use its actual native authority.",
+  "pass_id": "PRP-PCF7-C44DA34E2DB80B9174EA-1",
+  "pass_number": 1,
+  "pass_kind": "SEMANTIC_EVIDENCE_CROSSCHECK",
+  "findings_summary": "A9A5 is the original PCF7 complexity/failure Result. Its preserved original prose incorrectly quantifies every fixed probe gcd as 1; its operational inherited review DR-8183213860B7A72A2BD3 correctly requests a narrow revision. E9908 is a later same-task/same-publication but different-execution correction overlay. The unique zero is seed 1, |s^6-1|, among 256 labelled probes; it gives gcd(N,0)=N. The other 255 values are nonzero and have gcd 1 when both primes avoid their finite support. Thus the corrected fixed-probe assertion is gcd in {1,N}, with no proper factor. E9908 preserves the inherited polynomial-public-prefix, L=N, T1-T5, dyadic prime-abundance premise and sealed PCF2 boundaries. Its four manifest files and the inherited review artifact have verified immutable hashes. This pass reviews only the authorized correction and does not re-accept the entire old theorem or cited historical replications. E9908 now has actual native ACCEPTED review DR-4558F51AE77B4C00D207 and task-scope followup DFU-92CBD9EB8CAAC0AE7EA2, independently read back from Source 9b68036e6ff35e9ff6f1246f889c7e5d5a743107.",
+  "relationship": "STRICT_NARROWING_OF_OLD_FIXED_PROBE_SENTENCE_WITH_COMPATIBLE_CORRECTION_OVERLAY",
+  "surviving_result_ids": [
+    "RR-A9A5ADD3931B3F3EDFAB",
+    "RR-E9908FEE020773DEF39C"
+  ],
+  "recommendation": "KEEP_PARALLEL. Preserve A9A5 and its REQUEST_REVISION review as history, and consume the actually accepted E9908 correction overlay under DR-4558F51AE77B4C00D207 and its task-scope followup. Do not create a same-execution replacement edge or edit old Result, return, checker or review bytes.",
+  "per_result_findings": [
+    {
+      "result_id": "RR-A9A5ADD3931B3F3EDFAB",
+      "scope": "Original PCF7 theorem/complexity/failure classification, inherited only at the authorized revision boundary.",
+      "existing_review_id": "DR-8183213860B7A72A2BD3",
+      "existing_disposition": "REQUEST_REVISION",
+      "evidence_strength": "Immutable historical Result plus exact inherited review; original wrong sentence remains visible history.",
+      "typed_defect": "UNIVERSAL_GCD_ONE_WORDING_OMITS_ZERO_BRANCH"
+    },
+    {
+      "result_id": "RR-E9908FEE020773DEF39C",
+      "scope": "Exact correction overlay satisfying the prior zero-probe revision request.",
+      "existing_review_id": "DR-4558F51AE77B4C00D207",
+      "evidence_strength": "Complete exact-source/hash intake, direct elementary correction proof, bounded witness regression, and actual native ACCEPTED review with task-scope followup.",
+      "typed_defect": "NO_NEW_MATHEMATICAL_DEFECT_FOUND_WITHIN_AUTHORIZED_DELTA"
+    }
+  ],
+  "source_result_pins": [
+    {
+      "result_id": "RR-A9A5ADD3931B3F3EDFAB",
+      "path": "research_result_records/RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION/RR-A9A5ADD3931B3F3EDFAB.json",
+      "git_blob_sha1": "sha1:772d81cbbc54f8c4df54550e96e5d0ed0f8213c3",
+      "sha256": "sha256:f80eb2fae5dc12210a2164395adf13866800ebd172a12d99446c49fb94faa62c",
+      "execution_record_id": "ER-A156DB0F0B38FE774AFB",
+      "owner_head": "d8f02c024bebbd10a30c58401fda24e48bd407cc"
+    },
+    {
+      "result_id": "RR-E9908FEE020773DEF39C",
+      "path": "research_result_records/RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION/RR-E9908FEE020773DEF39C.json",
+      "git_blob_sha1": "sha1:8cc4f006a64a76840e08da6d03240372b0994650",
+      "sha256": "sha256:cc819706813da1b873849959edf6e22e2ece383b3f1dcb29a0fcfcbdd8f277a9",
+      "execution_record_id": "ER-586DD6A098AF43C3EFB1",
+      "owner_head": "576015b66128189198dd37097d5495c1c4ff31ce"
+    }
+  ],
+  "source_authority_bindings": {
+    "source_commit": "9b68036e6ff35e9ff6f1246f889c7e5d5a743107",
+    "driver_id": "EM-DVR-3832A0",
+    "driver_authority_record_id": "DA-243C63C3531A36A26840",
+    "driver_authority_source_comment_id": 5950651298,
+    "driver_session_id": "MCP-e0f7ec295874408fb5aff68870551319",
+    "source_review_id": "DR-4558F51AE77B4C00D207",
+    "source_followup_id": "DFU-92CBD9EB8CAAC0AE7EA2",
+    "source_review_path": "research_result_reviews/RR-E9908FEE020773DEF39C/DR-4558F51AE77B4C00D207.json",
+    "source_review_sha256": "sha256:dc482601e7a6d25c7e4adae7f1904d244930870b69e16a912beb16f7bacdd564",
+    "source_followup_path": "research_driver_followups/DR-4558F51AE77B4C00D207/DFU-92CBD9EB8CAAC0AE7EA2.json",
+    "source_followup_sha256": "sha256:f3a17aef5b745ac853659f2f2e61bccc2a18160eb6c799af0d6a4e2a11c928b4",
+    "driver_adoption": "The current root Driver explicitly adopted these two logically distinct passes and the exact synthesis scope after receiving the actual native ACCEPTED review/followup readback on 2026-10-02.",
+    "control_only_no_new_result_or_review_authority": true
+  }
+}

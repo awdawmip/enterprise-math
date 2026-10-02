@@ -1,0 +1,54 @@
+{
+  "schema": "ENTERPRISE_MATH_PARALLEL_EVIDENCE_INTAKE_V1",
+  "intake_id": "PI-PCF7-C44DA34E2DB80B9174EA",
+  "task_id": "RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION",
+  "publication_ids": [
+    "TP2-8F7443BCAF2BC5243574"
+  ],
+  "result_ids": [
+    "RR-A9A5ADD3931B3F3EDFAB",
+    "RR-E9908FEE020773DEF39C"
+  ],
+  "evidence_set_sha256": "sha256:c44da34e2db80b9174ea369348267e11fb83e46ab1312c029ac28722442df70f",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "foundation_authority_granted": false,
+  "mode": "PARALLEL_RESULTS",
+  "opened_by": "EM-DVR-3832A0",
+  "opened_at": "2026-10-02T11:51:07.412494+00:00",
+  "dispatch_authority_unchanged": true,
+  "reason": "Two immutable Results of one publication form a narrow revision chain. Both are retained. The actual accepted E9908 correction overlay now discharges the exact zero-probe revision obligation recorded against A9A5; no timestamp selection or evidence rewrite is used.",
+  "source_result_pins": [
+    {
+      "result_id": "RR-A9A5ADD3931B3F3EDFAB",
+      "path": "research_result_records/RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION/RR-A9A5ADD3931B3F3EDFAB.json",
+      "git_blob_sha1": "sha1:772d81cbbc54f8c4df54550e96e5d0ed0f8213c3",
+      "sha256": "sha256:f80eb2fae5dc12210a2164395adf13866800ebd172a12d99446c49fb94faa62c",
+      "execution_record_id": "ER-A156DB0F0B38FE774AFB",
+      "owner_head": "d8f02c024bebbd10a30c58401fda24e48bd407cc"
+    },
+    {
+      "result_id": "RR-E9908FEE020773DEF39C",
+      "path": "research_result_records/RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION/RR-E9908FEE020773DEF39C.json",
+      "git_blob_sha1": "sha1:8cc4f006a64a76840e08da6d03240372b0994650",
+      "sha256": "sha256:cc819706813da1b873849959edf6e22e2ece383b3f1dcb29a0fcfcbdd8f277a9",
+      "execution_record_id": "ER-586DD6A098AF43C3EFB1",
+      "owner_head": "576015b66128189198dd37097d5495c1c4ff31ce"
+    }
+  ],
+  "source_authority_bindings": {
+    "source_commit": "9b68036e6ff35e9ff6f1246f889c7e5d5a743107",
+    "driver_id": "EM-DVR-3832A0",
+    "driver_authority_record_id": "DA-243C63C3531A36A26840",
+    "driver_authority_source_comment_id": 5950651298,
+    "driver_session_id": "MCP-e0f7ec295874408fb5aff68870551319",
+    "source_review_id": "DR-4558F51AE77B4C00D207",
+    "source_followup_id": "DFU-92CBD9EB8CAAC0AE7EA2",
+    "source_review_path": "research_result_reviews/RR-E9908FEE020773DEF39C/DR-4558F51AE77B4C00D207.json",
+    "source_review_sha256": "sha256:dc482601e7a6d25c7e4adae7f1904d244930870b69e16a912beb16f7bacdd564",
+    "source_followup_path": "research_driver_followups/DR-4558F51AE77B4C00D207/DFU-92CBD9EB8CAAC0AE7EA2.json",
+    "source_followup_sha256": "sha256:f3a17aef5b745ac853659f2f2e61bccc2a18160eb6c799af0d6a4e2a11c928b4",
+    "driver_adoption": "The current root Driver explicitly adopted these two logically distinct passes and the exact synthesis scope after receiving the actual native ACCEPTED review/followup readback on 2026-10-02.",
+    "control_only_no_new_result_or_review_authority": true
+  }
+}
