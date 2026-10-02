@@ -4,6 +4,43 @@ Status: `ACTIVE / STABLE EXECUTION ROUTER / V3.1`
 
 `AGENTS.md` is a **current execution router**. It is not a theorem catalog, project history, archive index, or archive.
 
+## 0. Mandatory native semantics before reasoning or clarification
+
+For **every** Enterprise Math role and conversation, including direct questions,
+TASK continuation and delegated subagents, load `p000_reality_foundation.json`
+before substantive reasoning, model selection or semantic clarification. This
+requirement applies beyond FREE discovery. Load its mandatory companion
+contracts at their declared boundaries; for world descriptions this includes
+`definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json`, and before information-reducing
+projection it includes
+`definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json`.
+
+本项目／进取数论中：**立体空间就是原生六维离散 Cell 空间；时间另为一维。**
+这是既定 P000 起点。用户提到六维立体空间或六维残差传导时，直接在此语义下研究具体机制；
+不得让用户再次选择、确认或证明空间是否六维。
+
+Freeze:
+
+- `NATIVE_SPATIAL_DIMENSION=NATIVE_SPATIAL_AXIS_COUNT=6`.
+- `REALITY_DECOMPOSITION=6D_SPACE_PLUS_1D_TIME`.
+- `CURRENT_THREE_AXIS_MODEL=RESEARCH_SLICE_OF_6D_SPACE`.
+- `P000_PROOF_OBLIGATION=NONE` and `P000_FALSIFICATION_ROUTE=DISABLED`.
+
+Do not reinterpret native six-dimensional space as classical three-space with
+six directions, three positions plus three velocities, or an unverified choice
+between 3D and 6D. Explicit external models retain their declared types and do
+not override P000. Scalar fits, lower-dimensional calculations and observer
+projections do not reduce the native ontology; they also require an explicit
+native-state/readout bridge before supporting full-X6 propagation claims.
+Do not assume classical continuum shell/flux laws merely from the dimension
+count. A pending propagation law remains a research question within the fixed
+six-dimensional substrate.
+
+Carry this semantic binding into delegated tasks, continuation notes and final
+interpretation. This section routes to existing locked foundations; it introduces
+no new ontology or theorem acceptance. For the BRC residual-fitting line, also
+read `research_notes/BRC_NATIVE_X6_SEMANTIC_ALIGNMENT_20261002_9D72AC.md`.
+
 ## 1. Mode resolution
 
 Current explicit user instruction controls scope.
