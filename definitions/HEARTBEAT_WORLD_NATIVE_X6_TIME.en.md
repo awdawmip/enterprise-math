@@ -1,16 +1,19 @@
-# Heartbeat World: six native Enterprise spatial axes and one time dimension
+# Heartbeat World: native six-dimensional space, with time introduced as needed
 
 Status: `ACTIVE / DIRECT_USER_NAMING_AND_COORDINATE_CONSTRAINT`
 Effective: `2026-09-19`
 Position updated: `2026-09-23`
 Terminology clarified: `2026-10-02`
+Research constraint updated: `2026-10-03` (Asia/Shanghai; direct current user instruction)
 Authority: Direct user naming on 2026-09-19, residual-fidelity position update on 2026-09-23, and explicit correction of the native terms 立体, 三维 and 晶包层 on 2026-10-02; existing P000 and native X6 foundations are retained, not replaced by experimental results.
 Machine contract: `HEARTBEAT_WORLD_NATIVE_X6_TIME.json`
 Chinese counterpart: [HEARTBEAT_WORLD_NATIVE_X6_TIME.md](HEARTBEAT_WORLD_NATIVE_X6_TIME.md)
 
 ## Formal definition
 
-**Heartbeat World is the seven-dimensional world consisting of the six-dimensional discrete Cell space described by the six native Enterprise spatial coordinates, together with one time dimension.**
+**The Enterprise coordinate system has no plane. All research must be based on Heartbeat World's native six-dimensional spatial Cell world; introduce an explicitly and separately typed time dimension only as the problem requires.**
+
+When spacetime events are needed, use six spatial dimensions plus one time dimension. The existing `6+1` decomposition does not require a time variable in every static study; omitting irrelevant time does not reduce the six spatial axes. Renaming the old concept a "six-dimensional plane" does not make it an admissible native premise.
 
 The stable machine identifier is `HEARTBEAT_WORLD`; the English name is `Heartbeat World`. The canonical Chinese name is recorded in the machine contract and Chinese counterpart.
 
@@ -18,7 +21,7 @@ The complete world is `6D_ENTERPRISE_NATIVE_SPACE + 1D_TIME`, not the six signed
 
 In this project's Enterprise terminology, **立体 denotes the complete six-dimensional native spatial world; 三维 denotes one 晶包 layer within that world**. These terms are not interchangeable. One such layer is not the complete 立体 world. Time remains separately typed and is not a spatial dimension. External Euclidean three-coordinate models must be explicitly identified as external; their ordinary spatial vocabulary does not override this native terminology.
 
-Planar diagrams, three-coordinate displays and FCC carriers provide observations only under declared maps; they do not replace the complete six-dimensional state. An arbitrary three-axis restriction, three-coordinate projection or low-rank support is not automatically a complete 晶包 layer. This terminology correction introduces no layer-selection operator, global carrier bridge or propagation law. Primary residual calculations must retain native six-dimensional information relevant to the target observations and future operations, rather than clearing other components because a classical benchmark is planar.
+Two-dimensional display diagrams, three-coordinate displays and FCC carriers provide observations only under declared maps; they are not planes in the Enterprise coordinate system or independent research spaces. Historical "slices" remain explicitly embedded restricted states or observers within the fixed X6 world and cannot replace that research basis. An arbitrary three-axis restriction, three-coordinate projection or low-rank support is not automatically a complete 晶包 layer. This constraint introduces no layer-selection operator, global carrier bridge or propagation law. Reduced calculations in every research line require a native-state/readout bridge and preservation of the joint information relevant to declared observations and future operations. An external planar benchmark does not authorize clearing other components.
 
 ## Native spatial coordinates
 
@@ -32,7 +35,7 @@ Signed raw coordinates are internal displacement charts, not final public Cell a
 
 ## Time and heartbeat
 
-An event is written `(z,t)` or `(z_1,...,z_6;t)`, keeping space and time separately typed. Time records and orders changes in spatial, covering, rotation, scale and other relations. Spatial return need not be temporal return; repeating a heartbeat phase need not repeat the complete event.
+Time is modeled explicitly as needed. A static spatial problem may use only the six-axis state `z`. When evolution, ordering, return or memory makes time relevant, write an event `(z,t)` or `(z_1,...,z_6;t)`, keeping space and time separately typed. Time records and orders changes in spatial, covering, rotation, scale and other relations. Spatial return need not be temporal return; repeating a heartbeat phase need not repeat the complete event.
 
 Time organizes heartbeat evolution through scaling, rotation and interaction, but is not defined as one scale value. A periodic phase may be derived from time; whether it can replace complete time depends on the observation objective. Discrete `t in N_0` is a clock representation in current computational experiments, not a measured physical time law established by naming alone.
 

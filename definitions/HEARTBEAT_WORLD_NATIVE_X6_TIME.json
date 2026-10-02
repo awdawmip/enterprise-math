@@ -3,7 +3,7 @@
   "status": "ACTIVE_DIRECT_USER_NAMING_AND_COORDINATE_CONSTRAINT",
   "effective": "2026-09-19",
   "authority_kind": "DIRECT_CURRENT_USER_INSTRUCTION",
-  "scope": "ALL_ENTERPRISE_MATH_NATIVE_WORLD_DESCRIPTIONS_AND_MODELS",
+  "scope": "ALL_ENTERPRISE_MATH_ROLES_AND_RESEARCH",
   "world_id": "HEARTBEAT_WORLD",
   "world_name_zh": "心跳世界",
   "world_name_en": "Heartbeat World",
@@ -20,15 +20,39 @@
     "three_dimensional_and_solid_are_interchangeable": false,
     "arbitrary_three_axis_restriction_is_automatically_a_complete_layer": false,
     "layer_selection_operator_introduced_by_naming": false,
-    "external_euclidean_vocabulary_requires_explicit_external_context": true
+    "external_euclidean_vocabulary_requires_explicit_external_context": true,
+    "平面": "NO_SUCH_NATIVE_ENTERPRISE_COORDINATE_OBJECT",
+    "six_dimensional_plane_is_allowed_native_alias": false,
+    "no_plane_constraint_effective": "2026-10-03"
   },
-  "native_positive_axes": ["E_1", "E_2", "E_3", "E_4", "E_5", "E_6"],
+  "native_positive_axes": [
+    "E_1",
+    "E_2",
+    "E_3",
+    "E_4",
+    "E_5",
+    "E_6"
+  ],
   "signed_primitive_direction_count": 12,
   "native_axis_relation": "PAIRWISE_PERP_E",
   "native_right_angle_degrees": 120,
-  "raw_spatial_fields": {"count": 6, "domain": "SIGNED_INTEGER", "scope": "CHART_RELATIVE_DISPLACEMENT"},
-  "final_cell_address": {"count": 6, "domain": "NONNEGATIVE_INTEGER", "contract": "coordinate_address_contract.json", "registered_lossless_codec_required": true},
-  "event_layout": {"space": "RAW_NATIVE_X6_OR_REGISTERED_CELL_IDENTITY", "time": "SEPARATELY_TYPED_ORDERED_TIME_PARAMETER"},
+  "raw_spatial_fields": {
+    "count": 6,
+    "domain": "SIGNED_INTEGER",
+    "scope": "CHART_RELATIVE_DISPLACEMENT"
+  },
+  "final_cell_address": {
+    "count": 6,
+    "domain": "NONNEGATIVE_INTEGER",
+    "contract": "coordinate_address_contract.json",
+    "registered_lossless_codec_required": true
+  },
+  "event_layout": {
+    "space": "RAW_NATIVE_X6_OR_REGISTERED_CELL_IDENTITY",
+    "time": "SEPARATELY_TYPED_ORDERED_TIME_PARAMETER",
+    "time_inclusion": "WHEN_THE_RESEARCH_QUESTION_REQUIRES_TIME",
+    "static_spatial_layout": "X6_WITHOUT_A_REQUIRED_TIME_FIELD"
+  },
   "time_role": "TRACE_AND_ORDER_OF_RELATIONAL_CHANGE_AND_HEARTBEAT_EVOLUTION",
   "time_is_spatial_axis": false,
   "scale_is_complete_time": false,
@@ -39,7 +63,11 @@
   "fixed_heartbeat_program": null,
   "research_examples_are_world_axioms": false,
   "physical_time_calibration_claimed": false,
-  "canonical_sources": ["p000_reality_foundation.json", "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md", "definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json"],
+  "canonical_sources": [
+    "p000_reality_foundation.json",
+    "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md",
+    "definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json"
+  ],
   "human_definition": "definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.md",
   "human_definition_en": "definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.en.md",
   "heartbeat_snapshot_semantics": {
@@ -48,7 +76,12 @@
     "machine_contract": "definitions/HEARTBEAT_SELF_CONSISTENT_INSTANT_V0_1.json",
     "human_definition": "definitions/HEARTBEAT_SELF_CONSISTENT_INSTANT_V0_1.md",
     "heartbeat_is": "ONE_GLOBAL_SELF_CONSISTENT_INSTANTANEOUS_STATE_IN_DECLARED_SCOPE",
-    "heartbeat_is_not": ["SOLVER_ITERATION", "FIXED_TIME_QUANTUM", "AUTOMATIC_GROUND_STATE", "PREASSIGNED_ANGLE_STEP"],
+    "heartbeat_is_not": [
+      "SOLVER_ITERATION",
+      "FIXED_TIME_QUANTUM",
+      "AUTOMATIC_GROUND_STATE",
+      "PREASSIGNED_ANGLE_STEP"
+    ],
     "preexisting_world_axioms_unchanged": true
   },
   "research_position": {
@@ -79,6 +112,30 @@
     "PROJECT_WORLD_AXIOM!=ESTABLISHED_EXTERNAL_SCIENTIFIC_CONSENSUS",
     "FUTURE_RELEVANT_STRUCTURAL_RESIDUAL_REQUIRES_TYPED_PRESERVATION_OR_CONTROLLED_APPROXIMATION",
     "RESIDUAL_FIDELITY_DOES_NOT_REQUIRE_NONZERO_RESIDUAL",
-    "SCALAR_OPPOSITE_SIGNS_ALONE_DO_NOT_PROVE_JOINT_STATE_CANCELLATION"
-  ]
+    "SCALAR_OPPOSITE_SIGNS_ALONE_DO_NOT_PROVE_JOINT_STATE_CANCELLATION",
+    "ENTERPRISE_NATIVE_PLANE_EXISTS=false",
+    "ALL_RESEARCH_BASIS=HEARTBEAT_WORLD_NATIVE_X6",
+    "TIME_MODELING=AS_NEEDED_SEPARATELY_TYPED",
+    "STATIC_RESEARCH_REQUIRES_EXPLICIT_TIME=false",
+    "HISTORICAL_SLICE_OR_DISPLAY_IS_NOT_AN_INDEPENDENT_NATIVE_PLANE"
+  ],
+  "research_constraint_updated": "2026-10-03",
+  "load_policy": "MANDATORY_WITH_P000_FOR_ALL_ENTERPRISE_MATH_RESEARCH",
+  "native_plane_exists": false,
+  "all_research_basis": "HEARTBEAT_WORLD_NATIVE_X6",
+  "time_modeling": {
+    "explicit_inclusion": "AS_NEEDED_SEPARATELY_TYPED",
+    "static_research_requires_explicit_time": false,
+    "time_relevant_evolution_order_return_or_memory_requires_explicit_time": true,
+    "spatial_dimension_when_time_omitted": 6,
+    "time_dimension_when_included": 1,
+    "world_6_plus_1_typing_does_not_require_every_model_to_include_time": true
+  },
+  "research_representation_scope": {
+    "spatial_basis": "HEARTBEAT_WORLD_NATIVE_X6",
+    "independent_plane_or_lower_dimensional_native_world_allowed": false,
+    "historical_slices": "RESTRICTED_STATES_OR_OBSERVERS_WITHIN_FIXED_X6_ONLY",
+    "requires": "EXPLICIT_NATIVE_STATE_EMBEDDING_OR_READOUT_BRIDGE_AND_OBSERVER_FUTURE_OPERATION_PRESERVATION",
+    "current_invisibility_does_not_remove_spatial_axes": true
+  }
 }

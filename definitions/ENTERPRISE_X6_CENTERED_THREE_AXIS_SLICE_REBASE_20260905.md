@@ -10,11 +10,13 @@ All final Cell addresses obey [`coordinate_address_contract.json`](../coordinate
 Status: `ACTIVE / FOUNDATION / P000-V5-BOUND / X6-SIGNED-SLICE / DIRECT-USER-REBASE`
 Date: `2026-09-05`
 Steward: `EM-STW-C31A7F / FOUNDATION_STEWARD`
-Authority: direct user instruction to unify the three-axis cut plane with the full six-axis Cell-center geometry and to recompute the earlier cut-plane calculations from the signed X6 foundation.
+Historical authority: direct user instruction to rebase earlier three-axis calculations on signed X6; its former "cut-plane" wording is superseded by the direct-user no-native-plane constraint of 2026-10-03.
 Parent foundation: `ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md`.
 Observer guard: `ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json`.
 
 ## 1. Purpose and controlling correction
+
+Current constraint (2026-10-03): **the Enterprise coordinate system has no plane. All research must use Heartbeat World's six-dimensional spatial foundation; time is explicit only as needed.** Every "slice" and Z3 coordinate below is an explicitly embedded restriction of that fixed X6 state, not a three-dimensional native world or a plane. A selected readout is not proof of membership in the restricted set, and neither is automatically a complete 晶包 layer. Preserve the declared embedding and observer/future-operation scope before using reduced coordinates.
 
 The full signed X6 Cell-center torsor is the native spatial identity layer. A three-axis slice is therefore not a second ontology with a different kind of origin.
 
