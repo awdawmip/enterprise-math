@@ -1,0 +1,87 @@
+{
+  "task_id": "RS-HODGE-H0M-WEIL-SIXFOLD-SEMIREGULARITY-OBSTRUCTION-CANCELLATION",
+  "publication_id": "TP2-4D8C1A7E2B609F35C614",
+  "researcher_id": "EM-PFSS2R-B96E46",
+  "activity_id": "RA-20260917-c49ede787913",
+  "source_sha": "8349d0c93096ffb5f586c7cc692c5c3033e51160",
+  "as_of": "2026-09-17",
+  "mathematical_acceptance": false,
+  "schema": "HODGE_H0M_LITERATURE_FRONTIER_LEDGER_V1",
+  "model_sha256": "544d79988fac0fb25b0b588050b5db4bd3186cdf548a5fde35c5655734d1a164",
+  "classification": "CURRENTLY_OPEN_FRONTIER_AT_DECLARED_SCOPE",
+  "search_scope": "Current primary arXiv texts and newly surfaced original preprints; explicit sixfold/Weil/discriminant queries on 2026-09-17. No exhaustive-coverage claim.",
+  "sources": [
+    {
+      "id": "M25",
+      "url": "https://arxiv.org/pdf/2502.03415v2",
+      "author": "Eyal Markman",
+      "title": "Cycles on abelian 2n-folds of Weil type from secant sheaves on abelian n-folds",
+      "version": "v2, 2025-06-08; PDF date 2025-06-10",
+      "verified_scope": "Theorem 1.5.1: sixfolds of discriminant [-1], any imaginary quadratic K; corollary 1.6.1 concerns all abelian fourfolds.",
+      "locations": [
+        "section 1.1, printed p.3",
+        "sections 1.4-1.5, printed pp.7-9",
+        "section 9.3"
+      ],
+      "inspection": "PDF text and screenshots of PDF pages 0,2,7,8; not a full proof replication.",
+      "effect": "SOLVED_POSITIVE_CONTROL_ONLY; [-3] excluded by exact norm test."
+    },
+    {
+      "id": "M26",
+      "url": "https://arxiv.org/html/2509.23403v2",
+      "author": "Eyal Markman",
+      "title": "Secant sheaves and Weil classes on abelian varieties",
+      "version": "v2",
+      "verified_scope": "Section 1.1: exact carrier/generic divisor splitting; Theorem 1.2: split sixfolds; section 11: determinant modulo norms and product descent to fourfolds.",
+      "effect": "SOURCE_BASELINE, not a theorem for the general [-3] sixfold."
+    },
+    {
+      "id": "AM26",
+      "url": "https://arxiv.org/html/2603.20268v1",
+      "author": "Amir Mostaed",
+      "title": "McMullen's Curve, the Weil Locus, and the Hodge Conjecture for Abelian Sixfolds",
+      "version": "v1",
+      "verified_scope": "The proposed intersection may be empty and its discriminant is not fixed.",
+      "effect": "NOT_USED_TO_INSTANTIATE_THE_MODEL_OR_AS_A_NO_GO_AUTHORITY",
+      "audit": "Being isolated inside a CM-preserving locus does not imply isolation in the full 9-dimensional Weil period domain. No claim of universally unavailable deformation is imported. An uncontrolled discriminant is not a certificate of being outside [-1]."
+    },
+    {
+      "id": "FF26",
+      "url": "https://arxiv.org/abs/2504.13607",
+      "authors": "Salvatore Floccari; Lie Fu",
+      "verified_scope": "Fourfolds of discriminant 1, related to OG6 hyperkaehler geometry.",
+      "effect": "Does not close an abelian SIXfold of [-3]."
+    },
+    {
+      "id": "vGR26",
+      "url": "https://arxiv.org/abs/2607.18341",
+      "authors": "Bert van Geemen; Antonio Rapagnetta",
+      "verified_scope": "A new proof for general abelian FOURfolds of trivial discriminant via a hyperkaehler sixfold.",
+      "effect": "Ambient hyperkaehler dimension 6 is not abelian target dimension 6."
+    },
+    {
+      "id": "PB26",
+      "url": "https://arxiv.org/abs/2609.14169",
+      "author": "Patrick Brosnan",
+      "title": "Discriminants of Hermitian forms, maximal degenerations and Kontsevich's tropical approach to the Hodge conjecture",
+      "verification": "Primary arXiv search abstract retrieved; full abs/PDF fetch attempts failed.",
+      "reported_scope": "Maximal unipotent degeneration of Weil 2n-fold families requires discriminant [(-1)^n].",
+      "effect": "DISCOVERY_NOTICE_ONLY; no proof or theorem from this unavailable text is used in our proof."
+    },
+    {
+      "id": "RSC26",
+      "url": "https://www.preprints.org/manuscript/202602.0462/v3",
+      "title": "Relative Secant Cycles and the Hodge Conjecture",
+      "verification": "Original preprint search-index excerpts of sections 3.1 and 5.1; direct page fetch failed.",
+      "reported_claims": [
+        "Weil space Q-dimension 1",
+        "norm quotient has order 2",
+        "quotient by A[(ell)] changes the discriminant by ell and has degree ell^2"
+      ],
+      "effect": "NOT_ACCEPTED_AS_FRONTIER_CLOSURE",
+      "audit": "The displayed claims contradict the exact carrier and norm computations below: Q(i) has independent norm-parity coordinates at 3 and 7; A[(ell)]=A[ell] has ell^12 points in characteristic zero; A/A[ell] is isomorphic to A. This is a local check of the retrieved claims, not a complete review of all versions."
+    }
+  ],
+  "excluded_solved_subfamilies": "The selected fiber is very general, not a product/CM/special-cycle locus. Exact discriminant exclusion certifies separation from the ledger-wide general sixfold theorem; the generic qualifier does not assert all individual [-3] fibers are unresolved.",
+  "literature_coverage_limit": "No peer-review/consensus status inferred solely from being on arXiv or a preprint server."
+}

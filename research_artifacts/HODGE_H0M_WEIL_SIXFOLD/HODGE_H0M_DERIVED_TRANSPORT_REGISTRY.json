@@ -1,0 +1,88 @@
+{
+  "task_id": "RS-HODGE-H0M-WEIL-SIXFOLD-SEMIREGULARITY-OBSTRUCTION-CANCELLATION",
+  "publication_id": "TP2-4D8C1A7E2B609F35C614",
+  "researcher_id": "EM-PFSS2R-B96E46",
+  "activity_id": "RA-20260917-c49ede787913",
+  "source_sha": "8349d0c93096ffb5f586c7cc692c5c3033e51160",
+  "as_of": "2026-09-17",
+  "mathematical_acceptance": false,
+  "model_sha256": "544d79988fac0fb25b0b588050b5db4bd3186cdf548a5fde35c5655734d1a164",
+  "baseline": "B_std^Weil6; standard exact exterior algebra, Hermitian arithmetic and derived deformation theory",
+  "Enterprise_strict_leverage_established": false,
+  "source_exposure": "NONBLIND_DISCLOSED",
+  "schema": "HODGE_H0M_DERIVED_TRANSPORT_V1",
+  "candidate": "M3",
+  "classification": "SCOPED_DISCRIMINANT_TRANSPORT_NO_GO_WITH_EXPLICIT_UNCOVERED_ROUTES",
+  "invariant": "[-3] in Q^*/N(Q(i)^*)",
+  "operations": [
+    {
+      "name": "K-linear rational basis change / polarization similitude",
+      "hypothesis": "Hprime = c conjugate(M)^t H M with M invertible over K, c positive rational",
+      "law": "delta(Hprime)=delta(H), since c^6 N(det M)=N(c^3 det M)",
+      "status": "CANNOT_REACH_SPLIT"
+    },
+    {
+      "name": "K-compatible polarized isogeny",
+      "hypothesis": "pullback polarization is a positive rational multiple; automatic for any polarization on the very-general NS-rank-1 target, after transporting the K structure",
+      "law": "Same determinant law on rational homology",
+      "status": "CANNOT_REACH_SPLIT"
+    },
+    {
+      "name": "unitary Hecke chain",
+      "hypothesis": "Each step belongs to the frozen GU(H) similitude datum",
+      "law": "Norm factors compose to a norm, including arbitrary finite chain length",
+      "status": "CANNOT_REACH_SPLIT"
+    },
+    {
+      "name": "duality",
+      "hypothesis": "Dual K-Hermitian realization, up to compatible rational similitude",
+      "law": "delta maps to delta^-1=delta; q^2=N(q). det Hdual=-1/3",
+      "status": "CANNOT_REACH_SPLIT"
+    },
+    {
+      "name": "deformation in the fixed polarized K component",
+      "hypothesis": "Rational K-lattice and polarization local system fixed",
+      "law": "Discriminant is locally constant",
+      "status": "CANNOT_REACH_SPLIT"
+    },
+    {
+      "name": "unrestricted Fourier-Mukai equivalence or an arbitrary algebraic correspondence",
+      "hypothesis": "No concrete kernel/target identification supplied",
+      "law": null,
+      "status": "NOT_COVERED_BY_THIS_NO_GO",
+      "block": {
+        "missing_object": "An actual algebraic kernel/correspondence plus a proof of its action on the target Weil carrier",
+        "owner": "H0M source-object / algebraic-correspondence construction route",
+        "necessity": "A Mukai/cohomological transform is not automatically a K-linear polarized H^1 similitude.",
+        "unblock_condition": "Supply the kernel and exact action; either establish the preceding hypotheses or directly verify nonzero exceptional cycle transport without assuming a change of discriminant."
+      }
+    }
+  ],
+  "universal_proof": "Multiplicativity of the Hermitian determinant proves the law for every allowed M,c; the 9 exact examples are controls, not a replacement for the universal proof.",
+  "norm_parity_proof": "Clear denominators in a^2+b^2. If 3 divides A^2+B^2, reduction modulo 3 forces 3|A and 3|B. Factor out their maximal common power of 3. The remaining sum is nonzero mod 3, so its valuation is 0. Subtracting twice the denominator valuation leaves an even integer.",
+  "global_impossibility_claim": false,
+  "generalization_audit": {
+    "source": "RSC26 original-preprint indexed sections 3.1 and 5.1; full page unavailable",
+    "norm_group_counterexample": {
+      "1": [
+        0,
+        0
+      ],
+      "3": [
+        1,
+        0
+      ],
+      "7": [
+        0,
+        1
+      ],
+      "21": [
+        1,
+        1
+      ]
+    },
+    "torsion_counterexample": "(3)=3 O_K, so A[(3)]=A[3] has 3^12=531441 points and A/A[3] is isomorphic to A, not a discriminant-shifting degree-9 quotient.",
+    "scope": "Refutes these displayed intermediate claims, not a complete review of the entire preprint."
+  },
+  "attribution": "Exact restricted classical no-go; not an obstruction to arbitrary algebraic-cycle existence."
+}
