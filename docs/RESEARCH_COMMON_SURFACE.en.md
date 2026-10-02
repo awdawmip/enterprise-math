@@ -326,6 +326,7 @@ All routes must remember:
 - `EnterpriseMath/Arithmetic/CollapseGap.lean`
 - `EnterpriseMath/Arithmetic/IntegerRoot.lean`
 - `EnterpriseMath/Arithmetic/RootMultiplicativity.lean`
+- `EnterpriseMath/CellAddress/Contract.lean`
 - `EnterpriseMath/Dynamics/HistoryMerge.lean`
 - `EnterpriseMath/Order/ReductiveCompositionStabilization.lean`
 - `EnterpriseMath/Order/WellFoundedStabilization.lean`
@@ -348,13 +349,17 @@ Claim `LEAN_CHECKED_MAIN` only for statements actually covered by these modules.
 
 Every `tools/*.py` file must have exactly one machine/human owner surface: Common Surface, Toolbox, or Runtime. The Common Surface owns these repository tools:
 
+- `tools/apply_coordinate_address_contract.py`
 - `tools/audit_branch_lifecycle.py`
 - `tools/check_bilingual_pairs.py`
+- `tools/check_coordinate_regressions.py`
 - `tools/check_exact_arithmetic_policy.py`
 - `tools/check_references.py`
 - `tools/check_research_common_surface.py`
+- `tools/heartbeat_world_library.py`
 - `tools/research_identity.py`
 - `tools/research_taskbook.py`
+- `tools/validate_cell_address.py`
 
 Toolbox-owned tools are indexed in `enterprise_toolbox_registry.json` and `docs/ENTERPRISE_TOOLBOX_REGISTRY.md`; Runtime-owned tools are indexed in `research_runtime_state_machine.json` and `docs/RESEARCH_RUNTIME_STATE_MACHINE.md`. Under `control_plane/current_control_authority.json`, live dispatch enters through `research_control_dispatch.py`; `tools/research_dispatch.py` provides fresh task selection and `tools/research_runtime_reducer.py` reduces authenticated events. The latter two remain Runtime-owned and are not duplicated in the Common Surface tool index.
 

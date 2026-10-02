@@ -1,5 +1,7 @@
 # 定时客户端：无任务误报与 Driver 续接
 
+[English](CONTROL_CLIENT_RECOVERY_20260922.en.md)
+
 ## 普通 ChatGPT 的直接入口（2026-09-22）
 
 普通 ChatGPT 默认使用 [普通对话控制指南](CHATGPT_ORDINARY_CONTROL.zh-CN.md) 的私有 GitHub 请求入口，不要求可见的项目 MCP 或完整 Source/Python 环境。既有服务器运行同一套规范会话、CLAIM、执行记录、Result 和 Driver writer；客户端不再以缺 checkout/CLI 为默认阻塞，也不手工拼接这些权威记录。P000 应从当前有效的 `awdawmip/chatgpt-global-knowledge` 快照读取 `projects/enterprise-math/P000_REALITY_FOUNDATION.json`，不要在本仓库猜路径。

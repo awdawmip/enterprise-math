@@ -148,7 +148,7 @@ checkpoint 中 `completed_units`、`do_not_repeat` 是字符串数组；`current
 
 ## Portable research delivery (2026-09-23)
 
-Follow [PORTABLE_RESEARCH_PROTOCOL.md](PORTABLE_RESEARCH_PROTOCOL.md) for scheduled research and task authoring. A missing execution environment does not prevent mathematical reasoning or automatically disable a schedule. Preserve actual pending native checks and publish a precise portable next question.
+定时研究与任务编写遵循 [PORTABLE_RESEARCH_PROTOCOL.md](PORTABLE_RESEARCH_PROTOCOL.md)。缺少执行环境不妨碍数学推理，也不会自动停用定时任务。保留实际尚未完成的原生检查，并发布范围明确、可便携接续的下一问题。
 
 ## 2026-09-23 续接修复补充
 

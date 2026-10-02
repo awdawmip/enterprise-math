@@ -326,6 +326,7 @@ PR #274 / `main@12500185f4c222ae49816e7b844e36a82e3ac8fe` 已 canonicalize：
 - `EnterpriseMath/Arithmetic/CollapseGap.lean`
 - `EnterpriseMath/Arithmetic/IntegerRoot.lean`
 - `EnterpriseMath/Arithmetic/RootMultiplicativity.lean`
+- `EnterpriseMath/CellAddress/Contract.lean`
 - `EnterpriseMath/Dynamics/HistoryMerge.lean`
 - `EnterpriseMath/Order/ReductiveCompositionStabilization.lean`
 - `EnterpriseMath/Order/WellFoundedStabilization.lean`
@@ -348,13 +349,17 @@ PR #274 / `main@12500185f4c222ae49816e7b844e36a82e3ac8fe` 已 canonicalize：
 
 每个 `tools/*.py` 必须恰有一个 machine/human 归属面：Common Surface、Toolbox 或 Runtime。以下 repository tools 归 Common Surface：
 
+- `tools/apply_coordinate_address_contract.py`
 - `tools/audit_branch_lifecycle.py`
 - `tools/check_bilingual_pairs.py`
+- `tools/check_coordinate_regressions.py`
 - `tools/check_exact_arithmetic_policy.py`
 - `tools/check_references.py`
 - `tools/check_research_common_surface.py`
+- `tools/heartbeat_world_library.py`
 - `tools/research_identity.py`
 - `tools/research_taskbook.py`
+- `tools/validate_cell_address.py`
 
 Toolbox 工具登记在 `enterprise_toolbox_registry.json` 与 `docs/ENTERPRISE_TOOLBOX_REGISTRY.md`；Runtime 工具登记在 `research_runtime_state_machine.json` 与 `docs/RESEARCH_RUNTIME_STATE_MACHINE.md`。依照 `control_plane/current_control_authority.json`，实时调度入口是 `research_control_dispatch.py`；`tools/research_dispatch.py` 负责 fresh task selection，`tools/research_runtime_reducer.py` 归约已认证事件。后两者保持 Runtime 归属，不在 Common Surface 工具索引重复登记。
 

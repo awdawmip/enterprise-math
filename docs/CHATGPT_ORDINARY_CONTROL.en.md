@@ -2,7 +2,7 @@
 
 Protocol: `EM_CHAT_CONTROL_V1` · Chinese: [CHATGPT_ORDINARY_CONTROL.zh-CN.md](CHATGPT_ORDINARY_CONTROL.zh-CN.md)
 
-Use the existing GitHub connector. The server runs the admitted Enterprise Math native writers and returns receipts to the original Issue. **No Python, CLI, git clone, full checkout or visible project MCP tools are required in ordinary ChatGPT. Do not require a switch to Work.** The chat still supplies research, evidence judgments and independent review decisions. Check `status.enabled` for actual enabled capabilities.
+Use the existing GitHub connector. The server runs the admitted Enterprise Math native writers and returns receipts to the original Issue. **No Python, CLI, git clone, full checkout or visible project MCP tools are required in ordinary ChatGPT. Do not require a switch to Work.** The chat still supplies research, evidence judgments and independent review decisions; successful control transport does not prove mathematical correctness. Check `status.enabled` for actual enabled capabilities.
 
 ## Bootstrap and envelope
 
@@ -14,7 +14,7 @@ Create an Issue in private `awdawmip/kimi-query-bridge`, with label `em:control`
 {"schema":"EM_CHAT_CONTROL_V1","conversation_id":"chat-example-20260922","request_id":"status-20260922-example-01","operation":"status","payload":{}}
 ```
 
-Required fields are `schema`, `conversation_id`, `request_id`, `operation`, `payload`. `sha256` is optional: **ordinary chats should omit it**. The server always computes the hash; supplied mismatches are rejected. Canonical hashing removes `sha256`, recursively sorts object keys, uses compact UTF-8 JSON with literal non-ASCII characters and no trailing newline. Never guess a digest. Duplicate keys, nonfinite numbers and credential fields are rejected.
+Required fields are `schema`, `conversation_id`, `request_id`, `operation`, `payload`. The payload must contain only fields allowed for that operation; unknown fields are rejected. `sha256` is optional: **ordinary chats should omit it**. The server always computes the hash; supplied mismatches are rejected. Canonical hashing removes `sha256`, recursively sorts object keys, uses compact UTF-8 JSON with literal non-ASCII characters and no trailing newline. Never guess a digest. Duplicate keys, nonfinite numbers and credential fields are rejected.
 
 `conversation_id` is a stable client-declared logical ID, not platform attestation (1–160 characters; alphanumeric first, then alphanumeric or `:/_.-`). `request_id` uniquely identifies one logical operation (1–128 characters; alphanumeric first, then alphanumeric or `_.-`). The inbox verifies private repository/trusted actor, original immutable body, double-read fingerprint and durable idempotency. Do not edit submitted Issues or create duplicate mutation Issues. Initial requests must be unedited and under 24 hours old. Usually send sequentially; maximum five unfinished requests per conversation. Ordinary payload limit: 16 KiB; canonical envelope: 32 KiB.
 
@@ -28,9 +28,9 @@ Read the original Issue after about 30 seconds, then about every 15 seconds whil
 | `dispatch` | None | `kind`: RESEARCH (default), GOVERNANCE, ANY; optional `priority`: P0, P1, P2, P3; omission keeps ordinary routing, explicit null is rejected; inspect native `selection_filter` |
 | `pre_final` | `parent_liveness` and exact route fields below | Read-only native final-interaction gate; registration, freeze, review, or close alone does not grant final permission |
 | `tasks` | None | `limit=20` (1–100), `cursor`, `dispatch_state` |
-| `task`, `continuation` | `task_id` | None |
+| `task`, `continuation` | `task_id` | An existing service session is bound automatically |
 | `artifact` | `packet_request_id`, `path` | `start_char=0`, `char_count=12000` (max 24000), `source_commit`, `related_start=0`; successful continuation/artifact/publish_checkpoint dependency, or a 0.6.6 preserve receipt's `manifest_read` for its neutral manifest |
-| `receipt` | `target_request_id` | `start_char=0`, `char_count=12000` (max 24000) |
+| `receipt` | `target_request_id` | `start_char=0`, `char_count=12000` (max 24000); pages the target receipt's complete JSON within this conversation |
 | `reconcile` | `target_request_id` | None; reconcile an existing uncertain operation rather than replaying it |
 
 When `receipt_truncated=true`, use new read-only `receipt` requests, follow `next_start_char`, and retain returned hash/source_status. Full underlying artifact hash verification does not mean the chat has read every page. QUEUED/RUNNING/POSTING/RECONCILE means keep reading the original request; OUTCOME_UNKNOWN means reconcile, never issue the mutation under another ID. Only an actual canonical NO_DISPATCH establishes no route for its stated kind/snapshot. Permission, source, environment, receipt or ownership errors are not NO_DISPATCH.
@@ -43,7 +43,7 @@ Check status and reuse an existing session in this conversation. For a genuinely
 {"schema":"EM_CHAT_CONTROL_V1","conversation_id":"chat-example-20260922","request_id":"session-20260922-example-02","operation":"session_start","payload":{"role":"RESEARCHER","research_mode":"TASK_RESEARCH","prior_contribution_ids":[]}}
 ```
 
-Optional `task_id` binds a known task. Declare actual prior contribution IDs; an empty example is not permission to omit existing contributions. Driver uses role/mode RESEARCH_DRIVER. Only one unclosed service session per conversation. Real session IDs/keys, role IDs, claims, ERs, publication/taskbook pins and generation are server-derived. Keys remain private on the server. Chats pass their successful prerequisite request IDs, never session_key, manual pins or fabricated identities.
+Optional `task_id` binds a known task. Declare actual prior contribution IDs; an empty example is not permission to omit existing contributions. Driver uses role/mode RESEARCH_DRIVER; role and mode cannot be mixed. Only one unclosed service session per conversation. Real session IDs/keys, role IDs, claims, ERs, publication/taskbook pins and generation are server-derived. Keys remain private on the server. Chats pass their successful prerequisite request IDs, never session_key, manual pins or fabricated identities.
 
 Normal chain: dispatch → session_start → prepare → claim → open → artifact_upload → publish_checkpoint → freeze. Wait for each prerequisite SUCCEEDED and inspect its exact scope; session/prepare is not a winning claim.
 
@@ -71,7 +71,7 @@ Read exact continuation/artifacts, classify completed/unfinished/conflicted/unkn
 
 ## Independent Driver
 
-Use a genuine independent Driver session/conversation and declare all contributions. Chain: session_start(RESEARCH_DRIVER) → driver_activate → continuation → artifact(exact Result/evidence) → artifact_upload(report and required followup spec) → driver_publish → review. Reuse an already-authorized session rather than reactivating repeatedly.
+Use a genuine independent Driver session/conversation and declare all contributions; a new ID does not establish independence. Chain: session_start(RESEARCH_DRIVER) → driver_activate → continuation → artifact(exact Result/evidence) → artifact_upload(report and required followup spec) → driver_publish → review. Reuse an already-authorized session rather than reactivating repeatedly.
 
 | Operation | Required payload | Optional/conditions |
 |---|---|---|
@@ -81,7 +81,7 @@ Use a genuine independent Driver session/conversation and declare all contributi
 
 `result_request_id` is the Driver's own successful **artifact request**, not a worker freeze request. It must read actual `research_result_records/<Task-ID>/<Result-ID>.json` with complete underlying byte hash verified. Read all necessary pages/evidence before judging. Server derives `result_id` and `expected_result_sha256`; do not supply or calculate them manually. Review metadata requires `disposition`, `destination_class`, `reviewer_contribution_ids`, optionally `destination_ref_or_none`. No automatic ACCEPTED or successor is chosen. Native gates retain current ACTIVE DA/session, contributor independence, current Result bytes and HEAD CAS. Report publication is not formal review; consume verified review/followup before claiming progress.
 
-## Failure actions and acceptance limits
+## Failure actions
 
 | Error | Next action |
 |---|---|
@@ -97,8 +97,15 @@ Use a genuine independent Driver session/conversation and declare all contributi
 | VERIFIED_RESULT_ARTIFACT_REQUIRED | Read the actual authorized Result via Driver continuation/artifact |
 | *_DISABLED / authorization or admission failure | Preserve exact error, task and unfinished unit; do not invent authority or NO_DISPATCH |
 | OUTCOME_UNKNOWN / SUBMIT_UNKNOWN | Retain original operation and reconcile; never replay under a new ID |
+| `receipt_truncated=true` | First inspect the complete-action-summary flags; page evidence or incomplete actions as needed under the 0.6.4 rules |
 
-Read-only canaries use status and exact continuation/artifact with sha256 omitted. Do not invent tasks, seize active claims or activate fake Drivers for a demo. Formal acceptance requires actual authorized current task routing and separate researcher/Driver sessions. Report transport, formal freeze, formal review and mathematical/experimental validation separately. Native spectralDNS/MPI/FFTW, Lean or other task-required checks still need real capable hosts; this adapter is not an arbitrary shell or code executor. Preserve P000, FREE firewalls, scope, provenance, independent review and Foundation/Working Truth gates. Tests or documentation publication alone do not prove original ChatGPT end-to-end success.
+Error recovery does not permit rewriting historical events or fabricating DA/ER/RR/DR records. Preserve P000, FREE firewalls, task scope, provenance, author/verifier separation and Foundation/Working Truth gates.
+
+## Acceptance limits
+
+Read-only canaries use status and exact continuation/artifact with sha256 omitted. Do not invent tasks, seize active claims or activate fake Drivers for a demo. Formal acceptance requires the original task's current lawful dispatch/owner route, user authorization and separate researcher/Driver sessions. Report transport, formal freeze, formal review and mathematical/experimental validation separately.
+
+Native spectralDNS/shenfun/MPI/FFTW, Lean or other task-required checks still need real capable hosts and the specified evidence; this adapter is not an arbitrary shell or code executor. When an execution environment is missing, preserve the frontier and smallest unfinished unit instead of repeating mathematics to fill an execution count. Tests or documentation publication alone do not prove original ChatGPT end-to-end success.
 
 ## Final-interaction gate
 
@@ -132,6 +139,8 @@ Released predecessor claims use exact continuation and `continuation_prepare`; o
 
 
 ## 0.6.5: restore work after context loss
+
+Scheduled conversations follow the [autonomous research execution protocol](AUTONOMOUS_RESEARCH_OPERATIONS.en.md): restore existing work before claiming new tasks.
 
 Use `recovery_status` with payload `{}` before fresh dispatch. No session registration is required for this read-only operation. It lists only the authenticated subject's pending requests, unopened own claims, current local run pointers and complete unpublished upload pointers, with a concrete `next_action`. It submits no native request, refreshes no claim, observes no chat liveness and grants no current Source authority. Discover it through `status.recovery_hint`.
 

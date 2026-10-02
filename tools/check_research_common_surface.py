@@ -16,12 +16,12 @@ import re
 import sys
 from typing import Any, Iterable
 
-try:
-    from tools import research_dispatch
-except ModuleNotFoundError:
-    import research_dispatch  # type: ignore
-
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from tools import research_dispatch
+
 COMMON_JSON = ROOT / "research_common_surface.json"
 TOOLBOX_JSON = ROOT / "enterprise_toolbox_registry.json"
 RUNTIME_JSON = ROOT / "research_runtime_state_machine.json"
@@ -441,6 +441,9 @@ def check() -> None:
 
 
 def main() -> int:
+    from control_plane import research_control_bootstrap
+
+    research_control_bootstrap.install()
     try:
         check()
     except (AssertionError, KeyError, TypeError, ValueError, json.JSONDecodeError) as exc:

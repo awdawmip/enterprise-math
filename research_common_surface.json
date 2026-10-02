@@ -109,6 +109,7 @@
     "EnterpriseMath/Arithmetic/CollapseGap.lean",
     "EnterpriseMath/Arithmetic/IntegerRoot.lean",
     "EnterpriseMath/Arithmetic/RootMultiplicativity.lean",
+    "EnterpriseMath/CellAddress/Contract.lean",
     "EnterpriseMath/Dynamics/HistoryMerge.lean",
     "EnterpriseMath/Order/ReductiveCompositionStabilization.lean",
     "EnterpriseMath/Order/WellFoundedStabilization.lean",
@@ -384,13 +385,17 @@
     "experiments": "experiments/",
     "repo_tools": [
       "tools/render_research_progress_map.py",
+      "tools/apply_coordinate_address_contract.py",
       "tools/audit_branch_lifecycle.py",
       "tools/check_bilingual_pairs.py",
+      "tools/check_coordinate_regressions.py",
       "tools/check_exact_arithmetic_policy.py",
       "tools/check_references.py",
       "tools/check_research_common_surface.py",
+      "tools/heartbeat_world_library.py",
       "tools/research_identity.py",
-      "tools/research_taskbook.py"
+      "tools/research_taskbook.py",
+      "tools/validate_cell_address.py"
     ]
   },
   "promotion_sync": {

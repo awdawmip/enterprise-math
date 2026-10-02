@@ -1,5 +1,7 @@
 # 定时研究：自主执行与断点恢复
 
+[English](AUTONOMOUS_RESEARCH_OPERATIONS.en.md)
+
 状态：ACTIVE。用途是执行编排，不新增任务准入、数学结论或角色权限。研究证据是主要交付；状态说明、支持请求和轮询本身不是研究进展。
 
 ## 职责
