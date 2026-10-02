@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "experiments/brc_expanded_types_20261002_fca717/summary.json",
+    "ref": "46bd4dbe07fa0a7b5b92f612b16b68b70d48e45c",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "expanded-types-summary.json",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"status\": \"PASS\",\n  \"mechanism_families\": 11,\n  \"counting_note\": \"Families include controls. Integrated noise repeats the linear-weight mechanism. Check counters overlap; do not sum as independent experiments.\",\n  \"checks\": {\n    \"related\": {\n      \"production_moment_checks\": 1664,\n      \"explicit_distribution_checks\": 112,\n      \"conditional_markov_raw_moment_checks\": 768,\n      \"exact_markov_variance_checks\": 768,\n      \"zero_variance_points\": 64\n    },\n    \"dynamics\": {\n      \"production_affine_checks\": 640,\n      \"nonlinear_transition_checks\": 48,\n      \"conditional_urn_transition_checks\": 256,\n      \"finite_tail_checks\": 12,\n      \"explicit_affine_distribution_checks\": 20\n    },\n    \"graph\": {\n      \"matrices\": 6,\n      \"starts_per_matrix\": 3,\n      \"exact_assertions\": 22182\n    }\n  },\n  \"cross_module_checks\": {\n    \"integrated_weighted_sample_pairs\": 8,\n    \"reciprocal_geometric_gamma_pairs\": 128\n  },\n  \"source_sha256\": {\n    \"related_branches.py\": \"f270045eb59fb33edade0dd333f3bb831d1ef91d748229525d402faa7d094b8f\",\n    \"dynamics_types.py\": \"ed219c49e7f96e43ccb32d944876a65851f00099a8ac7353ad0cda634b01bb63\",\n    \"graph_boundaries.py\": \"2fcf14424e5f9b3ca61089d555bb724cfe1948f535d0f1e0eacda4c28a8bae15\",\n    \"run_all.py\": \"3a3514929d05e193d99a2bfba74ca261bf0459649411294297596d25792e3d89\",\n    \"related_results.json\": \"93b6329b274c099396ef3c16b8cb406a8db7904829333c07eb99b34cf98df279\",\n    \"dynamics_results.json\": \"782b08ca40ce258c9278a57b2b8820bd447c56ea721d337aa9af5266bd2c4a5d\",\n    \"graph_results.json\": \"62cb3084b975e439ec33a3cb21e5ecb20125cb288bf24f86e739800bbb658eed\"\n  }\n}\n",
+      "display_title": "summary.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/46bd4dbe07fa0a7b5b92f612b16b68b70d48e45c/experiments/brc_expanded_types_20261002_fca717/summary.json",
+      "encoding": "utf-8",
+      "sha": "fa9eb1121432da14ce7826855f2f3cb1ace3e2b1"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

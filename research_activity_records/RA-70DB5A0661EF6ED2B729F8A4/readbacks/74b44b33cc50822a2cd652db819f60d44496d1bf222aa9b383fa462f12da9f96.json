@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "experiments/brc_expanded_types_20261002_fca717/DYNAMICS_REVIEW.md",
+    "ref": "46bd4dbe07fa0a7b5b92f612b16b68b70d48e45c",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "expanded-types-DYNAMICS_REVIEW.md",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# 扩展动力学模块：独立推导与实现审查\n\n日期：2026-10-02（Asia/Shanghai）  \n审查者：Researcher-ID `EM-DIRECT-A48630`  \n活动：`RA-70DB5A0661EF6ED2B729F8A4`。本文件不是 Driver 裁定，也不是隔绝上下文的盲审。\n\n对象：`dynamics_types.py`，最终审查版本 SHA-256 为 `ed219c49e7f96e43ccb32d944876a65851f00099a8ac7353ad0cda634b01bb63`。在首次完整阅读后，主执行者只增加了 `n=3` 抽样及下述无限尾措辞修订；审查者已实际读取并确认这两处。审查者没有修改该代码。本文件不审查审查者自己编写的 `related_branches.py`；后者由主执行者另行审查。\n\n## 总体判断\n\n随机乘子、带缩放旋转、Jordan 积分噪声、logistic 非线性及 lazy Ehrenfest 的公式和实现一致，未发现需要阻断交付的计算错误。无限 `p=2` 尾的普通均值不可积这一措辞已修订，避免从对称有限截断的均值零，推断无限分布的期望为零。\n\n## 随机乘子：最终指数增长，不是普遍衰减\n\n每步独立乘子 `A=3/4,5/4`，各概率 `1/2`，初态 `X_0=1`。由乘法独立性\n\n    E X_n^k = (E A^k)^n,\n    E A=1, E A²=17/16, E A³=19/16, E A⁴=353/256.\n\n因此 `E X_n=1`、`V_n=(17/16)^n-1`。直接中心化得到\n\n    kappa4_n = (353/256)^n - 4(19/16)^n\n               -3(17/16)^(2n) +12(17/16)^n -6.\n\n除以 `V_n²` 后最大指数底数是 `353/289>1`，故 `gamma4_n~(353/289)^n`。次大相关比值 `304/289` 小于它，不能改变主导增长。\n\n独立 Fraction 计算确认 `n=1,2` 的四阶累积量为负，`n=3` 为正；`gamma4_3≈0.02530978`，`gamma4_128≈1.32010635e11`。代码没有将早期负值当成模型失败；结果表示标准化形状差最终增长。若报告声称逐时严格单调，需要额外证明；当前渐近增长陈述不需要这样的强化。\n\n最终抽样记录已加入 `n=3`，保留这个符号转折。\n\n## 带缩放旋转：径向量闭包正确\n\n`A=cR`，`R` 是精确正交有理旋转，每步创新在四个坐标轴单位点等权。令 `S2=E||X||²`、`S4=sum c^(4j)`，径向四阶矩为 `F4`。独立零均值与各向同性协方差给出\n\n    S2_next=c² S2+1,\n    S4_next=c⁴ S4+1,\n    F4_next=c⁴ F4+4c² S2+1,\n    K=F4-2 S2²=-S4.\n\n代码的交叉项 `4c² S2` 正确。`c=1` 时 `K/S2²=-1/n`；`c!=1` 时极限为 `-|1-c²|/(1+c²)`。`c=3/4` 与 `4/3` 的极限都是 `-7/25`，但前者方差饱和、后者指数发散。\n\n这里的归一化是二维径向收缩除以 `(tr P)²`，与一维标准化四阶累积量的系数不可直接混同。代码分别声明观察者，没有发现这种混淆。\n\n## Jordan 积分噪声：宽度指数改变\n\n更新 `v_next=v+eta`、`x_next=x+v` 使用旧速度，所以\n\n    Var(x_n)=sum[j=0..n-1] j²,\n    Cov(x_n,v_n)=n(n-1)/2,\n    Var(v_n)=n,\n    kappa4(x_n)=-2 sum[j=0..n-1] j⁴.\n\n脚本中的闭式和这些式子相同。位置第一步方差为零，标准化量正确记为空。长期 `Var(x)~n³/3`，`gamma4~-18/(5n)`，按位置 RMS 宽度即 `ell_x^(-2/3)`。该模型给出线性、独立驱动条件下也并非总有宽度反平方的具体例子。\n\n## Logistic：相同二阶状态的可检验失效\n\n两个初始分布分别为 `1/4,3/4` 各 `1/2`，以及 `0,1/2,1` 权重 `1/8,3/4,1/8`。它们的均值 `1/2`、方差 `1/16` 相同，第三原始矩也相同；第四原始矩相差 `3/256`。\n\n对 `f(x)=r x(1-x)`，两分布一步后的均值都为 `3r/16`，方差分别为 `0` 与 `3r²/256`。下一步均值差由非线性方差修正给出\n\n    E f(X)-f(E X)=-r Var(X),\n    mean_two_points(step2)-mean_three_points(step2)=3r³/256.\n\nGaussian 两矩闭包从共同初始均值方差补出的第四矩为 `43/256`，预测下一方差为 `r²/128`，不同于两个真实值。审查者以独立 Fraction 算式核验了 `r=2,3,4` 的这个值。\n\n代码使用带完整端点的 CWM 传播非线性像，没有把 `Affine/MomentState` 偷换成非线性闭包。`r=4` 时两个初始分布分别落到恒定 `3/4` 与第二步后恒定 `0`，是明显的未来可区分性；实现断言正确。\n\n## 状态依赖 Ehrenfest：闭包也可以保留\n\n容量 `N`，在状态 `k` 以 `1/2` 留在原地，以 `(N-k)/(2N)` 上升，以 `k/(2N)` 下降。行权重和为 `1`，零概率边省略，端点保留。\n\n直接条件期望给出\n\n    E[k_next|k]=(1-1/N)k+1/2,\n    E[k_next²|k]=(1-2/N)k²+k+1/2.\n\n所以均值和二阶原始矩闭包成立，尽管权重依赖状态。Python 中同时赋值的右侧使用旧 `mean`，与递推要求一致。\n\n平稳分布为 `Binomial(N,1/2)`，脚本另用平稳分布矩阵和逐项核验，方差 `N/4`、标准化四阶量 `-2/N` 正确。这个例子反驳“所有状态依赖都会破坏二阶闭包”，但不授权任意状态依赖模型套用固定包的通用仿射闭包。\n\n## 有限截断重尾与无限矩边界\n\n有限模型为\n\n    P_K(X=±k)=1/[2 Z_K k^p], 1<=k<=K,\n    Z_K=sum[k=1..K] k^-p.\n\n其全部矩存在，BRC 正有理有限支路构造有效。`p=2` 有 `E X²=K/Z_K`；`p=4` 有 `E X⁴=K/Z_K`，代码与直接求和一致。\n\n无限分布的**绝对** `m` 阶矩收敛条件是 `m<p-1`：\n\n- `p=2`：`E|X|` 已发散，普通均值不存在；二阶矩也发散。对称截断均值零只是主值式抵消，不能声称无限分布有零期望或有限中心方差。\n- `p=4`：均值和方差存在，但第四矩发散，标准化四阶累积量不适用。\n\n最终代码已将 `p=2` 边界标签写为“second moment diverges; ordinary mean not integrable”，并在级数规则注明 absolute moments。有限截断上的四阶数值不能跨过这个边界作无条件外推；代码没有声称执行无限 BRC 分支。\n\n## 核验范围与计数\n\n审查方式：精确源码阅读、独立公式展开，以及随机乘子和 logistic 闭包的局部 Fraction 计算。没有再次运行整份作者测试，因此本审查不把作者的全量 PASS 计数冒称自己的独立全量复跑。\n\n源码报告计数与循环结构一致：生产仿射时点 `128+3*128+128=640`，显式仿射分布时点 `8+3*4=20`，非线性转移 `3*2*8=48`，条件 urn 转移 `2*128=256`，有限尾截断 `2*6=12`。这些是有重叠观察的实现核验数，不是独立经验样本量。\n\nResearcher-ID: EM-DIRECT-A48630 / TASK_RESEARCH\n",
+      "display_title": "DYNAMICS_REVIEW.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/46bd4dbe07fa0a7b5b92f612b16b68b70d48e45c/experiments/brc_expanded_types_20261002_fca717/DYNAMICS_REVIEW.md",
+      "encoding": "utf-8",
+      "sha": "f11bb1ac02cd87c60535c2d5a769133002dbdcd6"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
