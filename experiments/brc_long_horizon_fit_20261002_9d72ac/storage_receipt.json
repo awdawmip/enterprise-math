@@ -1,0 +1,102 @@
+{
+  "schema": "BRC_FIT_STORAGE_RECEIPT_V1",
+  "repository": "awdawmip/enterprise-math",
+  "github_branch": "research/brc-fitting-20261002-9d72ac",
+  "drive_folder_url": "https://drive.google.com/drive/folders/1ftxf_vkQ22VlBZ-txuYZIfecSMblc2Zt",
+  "local_combined_archive": {
+    "path": "/workspace/brc_fit_backup_20261002_9d72ac.zip",
+    "file_count": 107,
+    "bytes": 122414783,
+    "sha256": "7ad91cd593f08017eebee330230dab5314f765bed229fefa07b2845683e0b744",
+    "md5": "1376fb744631bce7e68e5f95767ca9cf",
+    "git_blob_sha1": "6076511d4c71955e62b60200a36fff9899feff9c",
+    "parts": [
+      {
+        "path": "/workspace/brc_fit_backup_20261002_9d72ac.part01.zip",
+        "file_count": 72,
+        "bytes": 84527455,
+        "sha256": "25bfa74467c55c94a59d1fd9c66c4a6100e7c6533bec48d07451ad6bfebdad8b",
+        "md5": "fd54fd9d42a5dafc1436005bc212e180",
+        "git_blob_sha1": "481e8c1b5d0d065507f5d886a45852401ea6255e"
+      },
+      {
+        "path": "/workspace/brc_fit_backup_20261002_9d72ac.part02.zip",
+        "file_count": 35,
+        "bytes": 37888024,
+        "sha256": "fa1513b35d3e84899234f0f3ad4b590d689415df38e5a83a4bed20becedb6471",
+        "md5": "3d83d19be368431b96e85f60e792ab6e",
+        "git_blob_sha1": "e28027f421cbe55ffed0ae7da118284c91abe2f5"
+      }
+    ],
+    "restore": "Extract ALL part ZIPs into the SAME empty directory. Then run python experiments/brc_long_horizon_fit_20261002_9d72ac/make_bundle.py --verify. Do not concatenate these ZIPs; each contains a disjoint subset of original files."
+  },
+  "restore_test": {
+    "status": "PASS",
+    "scope": "Both local part ZIPs extracted into /workspace/brc_fit_restore_check; run_all.py --reuse-data completed independent audit and plots; regenerated manifest byte-identical to original.",
+    "verified_experiment_files": 69
+  },
+  "parts": [
+    {
+      "file_name": "BRC_Residual_Long_Horizon_20261002_9D72AC.part01.zip",
+      "file_id": "1RjC9pFsGHpf7wU5x7s5yhFE1QFKw61Nn",
+      "url": "https://drive.google.com/file/d/1RjC9pFsGHpf7wU5x7s5yhFE1QFKw61Nn/view?usp=drivesdk",
+      "local_bytes": 84527455,
+      "local_sha256": "25bfa74467c55c94a59d1fd9c66c4a6100e7c6533bec48d07451ad6bfebdad8b",
+      "local_md5": "fd54fd9d42a5dafc1436005bc212e180",
+      "metadata_readback": {
+        "id": "1RjC9pFsGHpf7wU5x7s5yhFE1QFKw61Nn",
+        "title": "BRC_Residual_Long_Horizon_20261002_9D72AC.part01.zip",
+        "mime_type": "application/zip",
+        "size": "84527455",
+        "url": "https://drive.google.com/file/d/1RjC9pFsGHpf7wU5x7s5yhFE1QFKw61Nn/view?usp=drivesdk",
+        "display_url": "https://drive.google.com/file/d/1RjC9pFsGHpf7wU5x7s5yhFE1QFKw61Nn/view?usp=drivesdk",
+        "file_or_folder": "file",
+        "created_time": null,
+        "modified_time": null,
+        "parent_ids": [
+          "1ftxf_vkQ22VlBZ-txuYZIfecSMblc2Zt"
+        ],
+        "drive_id": null,
+        "current_user_can_share": null,
+        "has_augmented_permissions": null,
+        "shared": null,
+        "permissions": null,
+        "source_visibility_status": "access_not_verified"
+      },
+      "revision_id": "0B3IGxYcxFTHNVXRIQkkyY3hVaE1waWNnSVN2SWlJNEJDYUJjPQ",
+      "verified_remote_size": true
+    },
+    {
+      "file_name": "BRC_Residual_Long_Horizon_20261002_9D72AC.part02.zip",
+      "file_id": "1v1C-emUeZG6A9BmuosodNP4PGpAOO_MC",
+      "url": "https://drive.google.com/file/d/1v1C-emUeZG6A9BmuosodNP4PGpAOO_MC/view?usp=drivesdk",
+      "local_bytes": 37888024,
+      "local_sha256": "fa1513b35d3e84899234f0f3ad4b590d689415df38e5a83a4bed20becedb6471",
+      "local_md5": "3d83d19be368431b96e85f60e792ab6e",
+      "metadata_readback": {
+        "id": "1v1C-emUeZG6A9BmuosodNP4PGpAOO_MC",
+        "title": "BRC_Residual_Long_Horizon_20261002_9D72AC.part02.zip",
+        "mime_type": "application/zip",
+        "size": "37888024",
+        "url": "https://drive.google.com/file/d/1v1C-emUeZG6A9BmuosodNP4PGpAOO_MC/view?usp=drivesdk",
+        "display_url": "https://drive.google.com/file/d/1v1C-emUeZG6A9BmuosodNP4PGpAOO_MC/view?usp=drivesdk",
+        "file_or_folder": "file",
+        "created_time": null,
+        "modified_time": null,
+        "parent_ids": [
+          "1ftxf_vkQ22VlBZ-txuYZIfecSMblc2Zt"
+        ],
+        "drive_id": null,
+        "current_user_can_share": null,
+        "has_augmented_permissions": null,
+        "shared": null,
+        "permissions": null,
+        "source_visibility_status": "access_not_verified"
+      },
+      "revision_id": "0B3IGxYcxFTHNYTl3Znplem9YSnRzVkIvMWhUUU1wcFhuQlN3PQ",
+      "verified_remote_size": true
+    }
+  ],
+  "verification_boundary": "Drive upload completed and current file metadata/revision size matched both archives. Connector metadata did not return server checksum fields. Raw fetch produced complete-size file references, but executor materialization returned HTTP 403; remote byte-for-byte SHA verification is not claimed. SHA-256/MD5 above are local archive hashes. Local extraction/reproduction and all GitHub blob IDs are independently verified.",
+  "restore": "Extract ALL part ZIPs into the SAME empty directory. Then run python experiments/brc_long_horizon_fit_20261002_9d72ac/make_bundle.py --verify. Do not concatenate these ZIPs; each contains a disjoint subset of original files."
+}
