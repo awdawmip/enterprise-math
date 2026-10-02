@@ -365,6 +365,14 @@ Toolbox 工具登记在 `enterprise_toolbox_registry.json` 与 `docs/ENTERPRISE_
 
 `tools/check_research_common_surface.py` 只做机械检查：registered path 存在性、root-Lean imports 精确一致、repository-tool membership 精确一致、active-FQ 集合一致、active-alert 有效性。它不证明数学，也不判断语义复用价值。
 
+从仓库根目录运行该检查时，使用既有规范运行时 bootstrap，与生产引用完整性路径及回归测试保持一致：
+
+```sh
+python -c 'from control_plane import research_control_bootstrap as b; b.install(); from tools import check_research_common_surface as c; raise SystemExit(c.main())'
+```
+
+这只选择既有故障隔离后的可操作视图，不接受历史隔离记录，也不修改检查器代码。
+
 `tests/` 支持 regression/counterexample；`experiments/` 支持 bounded pressure tests。二者都不会自动把 claim 升成 `PROVED`。
 
 ## 9. 传播与 canonical-promotion contract

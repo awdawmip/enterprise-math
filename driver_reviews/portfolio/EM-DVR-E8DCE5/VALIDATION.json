@@ -1,7 +1,23 @@
 {
   "source_base": "b057172c46d3faa7446a0ceb500a00096001843c",
   "observed_at": "2026-10-02T14:09:56.940845+00:00",
-  "checks": [
+  "scope": "Local mechanical validation and a bounded quantifier counterexample; no Lean build, native CFD replay, S15 execution, Foundation admission, or new scientific Result.",
+  "additional_prior_checked_source_commands": [
+    {
+      "command": "tools/research_taskbook.py audit --dispatch research_tasks/BRC_BASELINE_RESIDUAL_EXPANDED_TYPES_20261002.md",
+      "source_commit": "b057172c46d3faa7446a0ceb500a00096001843c",
+      "exit_code": 0,
+      "stdout": "research_tasks/BRC_BASELINE_RESIDUAL_EXPANDED_TYPES_20261002.md: PASS"
+    },
+    {
+      "command": "tools/research_task_records.py audit",
+      "source_commit": "b057172c46d3faa7446a0ceb500a00096001843c",
+      "exit_code": 0,
+      "stdout": "PASS: immutable task publication records valid (471 generations)."
+    }
+  ],
+  "independent_change_review": "No actionable findings: original check predicates retained; existing canonical fault-isolation bootstrap used; only existing Lean/tool inventory entries added; no mathematical acceptance or FQ status change.",
+  "intermediate_pre_revert_checks": [
     {
       "command": [
         "/workspace/.onboarding/venv/bin/python",
@@ -64,20 +80,48 @@
       "scope": "Post-commit same-change validation against actual pre-change parent; includes all three Chinese counterparts and both Common Surface languages."
     }
   ],
-  "scope": "Local mechanical validation and a bounded quantifier counterexample; no Lean build, native CFD replay, S15 execution, Foundation admission, or new scientific Result.",
-  "additional_prior_checked_source_commands": [
+  "checks": [
     {
-      "command": "tools/research_taskbook.py audit --dispatch research_tasks/BRC_BASELINE_RESIDUAL_EXPANDED_TYPES_20261002.md",
-      "source_commit": "b057172c46d3faa7446a0ceb500a00096001843c",
+      "command": [
+        "/workspace/.onboarding/venv/bin/python",
+        "-c",
+        "from control_plane import research_control_bootstrap as b; b.install(); from tools import check_research_common_surface as c; raise SystemExit(c.main())"
+      ],
       "exit_code": 0,
-      "stdout": "research_tasks/BRC_BASELINE_RESIDUAL_EXPANDED_TYPES_20261002.md: PASS"
+      "stdout": "research common surface: OK (20 Lean root imports, 28 repo tools [12 common + 2 toolbox + 14 runtime], 1 active foundation questions, 0 active FQ canonical-dispatch links)\n",
+      "stderr": ""
     },
     {
-      "command": "tools/research_task_records.py audit",
-      "source_commit": "b057172c46d3faa7446a0ceb500a00096001843c",
+      "command": [
+        "/workspace/.onboarding/venv/bin/python",
+        "-m",
+        "unittest",
+        "tests.test_research_common_surface",
+        "tests.test_foundation_backflow"
+      ],
       "exit_code": 0,
-      "stdout": "PASS: immutable task publication records valid (471 generations)."
+      "stdout": "",
+      "stderr": "...........\n----------------------------------------------------------------------\nRan 11 tests in 3.274s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/workspace/.onboarding/venv/bin/python",
+        "tools/check_bilingual_pairs.py"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: 134 bilingual document pairs are synchronized structurally.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/workspace/.onboarding/venv/bin/python",
+        "tools/check_references.py"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: 67 sources and 30 lineage components across 13 source registry file(s) and 19 lineage registry file(s).\n",
+      "stderr": ""
     }
   ],
-  "independent_change_review": "No actionable findings: original check predicates retained; existing canonical fault-isolation bootstrap used; only existing Lean/tool inventory entries added; no mathematical acceptance or FQ status change."
+  "final_checker_git_blob": "29eba5adcb2551b4e386bd466323d4135dbd92fd",
+  "native_admission_recovery": "Original PRE_FINAL failed UPSTREAM_CODE_REVIEW_REQUIRED for a checker implementation change. Restore exact reviewed checker bytes and use the already established canonical bootstrap caller. Service pins and safety settings unchanged."
 }

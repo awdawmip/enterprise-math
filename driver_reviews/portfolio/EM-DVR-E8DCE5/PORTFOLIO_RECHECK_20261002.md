@@ -79,10 +79,17 @@ CFD实读 main `research_artifacts/CFD_POLARIZATION_SUPPORT_20260923/static_carr
 
 初次结果：Foundation backflow 10 tests通过；references 67 sources/30 lineage components通过。公共面检查发现脚本直接运行缺repo import路径、实际Lean root清单漏列已有CellAddress.Contract、4个已有tools未登记归属；双语检查发现三对协议缺登记，其中两个缺英文，ordinary control两语言标题结构不同。
 
-最小修复仅恢复工程检查：直接入口安装既有canonical fault-isolation bootstrap；按真实文件补机器/英中清单；补齐两份忠实英文协议、对齐ordinary英文与中文、登记三对协议并加入对应语言入口。未改研究定理、Lean证明、P000、任务权限、原Python/SymPy/PowerShell/Octave配置或环境网络。没有Actions执行/部署，未重跑S15。
+最小修复仅恢复工程检查：按真实文件补机器/英中清单；补齐两份忠实英文协议、对齐ordinary英文与中文、登记三对协议并加入对应语言入口。未改研究定理、Lean证明、P000、任务权限、原Python/SymPy/PowerShell/Octave配置或环境网络。没有Actions执行/部署，未重跑S15。
 
-已验证公共面检查和11项相关unittest通过；最终双语及全套门槛结果见同目录VALIDATION.json。FQ007的数学/Steward propagation仍是既有任务的独立后续，不因工程gate通过而自动CANONICALIZED。
+公共面使用仓库已有的canonical bootstrap调用方式验证，11项相关unittest通过；最终双语及全套门槛结果见同目录VALIDATION.json。FQ007的数学/Steward propagation仍是既有任务的独立后续，不因工程gate通过而自动CANONICALIZED。
 
 本轮当前真实身份：Driver EM-DVR-E8DCE5，session MCP-9b47757c06ed4919ae3396b0255a1037，DA-B689E0D6FA1D479864B7。原生driver_activate已SUCCEEDED；仅拥有当前声明的CONTROL_PLANE Driver范围，未借Owner或前任身份。
 
 Global-Knowledge-Sync: main@ddac596 / GLOBAL_KNOWLEDGE_V1
+
+
+## 原生准入回归及安全恢复
+
+首个修复commit `4febada67481868b721c0bac8a77e3983df35532` 曾改动 checker 的直接启动入口。其本地检查通过，但原生PRE_FINAL请求 `pre_final-ef5f34f5f48a407a` / control Issue2633 明确失败：`UPSTREAM_CODE_REVIEW_REQUIRED: tools/check_research_common_surface.py`。服务尚未准入新checker字节，因此这不是可宣布完成的原生状态。
+
+当前已将该脚本精确恢复为 `b057172c46d3faa7446a0ceb500a00096001843c` 的既有受审字节，保留清单和双语文档修复。没有改服务代码pin、部署、网络、安全权限或凭据。最终机械gate使用已有生产/测试路径显式安装canonical bootstrap再调用原脚本的main；实际命令记录于VALIDATION.json。原直接脚本入口的导入限制保留为调用要求，不将未获准的入口修复宣称已部署。最终源代码没有改变checker判据或实现。

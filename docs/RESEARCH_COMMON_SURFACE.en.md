@@ -365,6 +365,14 @@ Toolbox-owned tools are indexed in `enterprise_toolbox_registry.json` and `docs/
 
 `tools/check_research_common_surface.py` is mechanical only. It checks declared-path existence, exact root-Lean imports, exact repository-tool membership, active-FQ agreement, and active-alert validity. It does not prove mathematics or decide semantic reusability.
 
+From the repository root, use the existing canonical runtime bootstrap for this check, as the production reference-integrity route and regression test do:
+
+```sh
+python -c 'from control_plane import research_control_bootstrap as b; b.install(); from tools import check_research_common_surface as c; raise SystemExit(c.main())'
+```
+
+This selects the existing fault-isolated operational view; it does not accept historical quarantined records or change the checker code.
+
 `tests/` support regression/counterexample checking; `experiments/` support bounded pressure tests. Neither automatically upgrades a claim to `PROVED`.
 
 ## 9. Propagation and canonical-promotion contract
