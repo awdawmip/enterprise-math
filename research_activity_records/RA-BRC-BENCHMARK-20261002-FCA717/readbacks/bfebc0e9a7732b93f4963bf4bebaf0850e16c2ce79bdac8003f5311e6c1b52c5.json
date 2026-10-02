@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "experiments/brc_x6_replay_20261002_fca717/summary.json",
+    "ref": "8770476e36a10e79e6b03bdc67af3b5d8d106169",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "brc-x6-matched-replay-source-10",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"status\": \"PASS\",\n  \"horizon\": 128,\n  \"scope\": \"4 weighted families, 6 sign correlations, 3 original oscillators and 2 hidden-response alternatives; matched scalar/planar return laws\",\n  \"cross_module_common_times\": [\n    1,\n    2,\n    3,\n    4,\n    8,\n    16,\n    32,\n    64,\n    128\n  ],\n  \"cross_module_exact_checks\": 18,\n  \"checks\": {\n    \"weighted\": {\n      \"response_moment_steps\": 512,\n      \"old_row_matches\": 512,\n      \"joint_short_time_checks\": 12,\n      \"scalar_CWM_pushforward_checks\": 50,\n      \"checked_native_edges\": 6684\n    },\n    \"returns\": {\n      \"full_joint_timepoints\": 6,\n      \"matched_scalar_and_plane_laws\": 12,\n      \"native_endpoint_observations\": 10363,\n      \"exact_return_coefficient_queries\": 70\n    },\n    \"correlated\": {\n      \"production_moment_steps\": 768,\n      \"old_scalar_comparisons\": 768,\n      \"independent_radial_closure_checks\": 768,\n      \"full_distribution_steps\": 24,\n      \"cwm_joint_endpoint_observations\": 10546,\n      \"cwm_primitive_edge_checks\": 32088,\n      \"projected_cwm_triple_checks\": 96,\n      \"old_undefined_normalizations\": 64\n    },\n    \"oscillation\": {\n      \"base_full_trace_equals_old_trace\": 384,\n      \"base_normalized_cumulant_ratio\": 384,\n      \"explicit_full_fourth_cumulant\": 15,\n      \"explicit_native_covariance\": 15,\n      \"explicit_native_fourth_moment\": 15,\n      \"explicit_old_covariance\": 15,\n      \"explicit_old_fourth_cumulant\": 15,\n      \"explicit_response_covariance\": 15,\n      \"explicit_zero_mean\": 45,\n      \"full_covariance_matches_formula\": 640,\n      \"full_covariance_matches_response_sum\": 640,\n      \"full_cumulant_matches_response_sum\": 640,\n      \"full_response_mean\": 640,\n      \"hidden_kernel_changes_full_response\": 2,\n      \"hidden_not_visible\": 1,\n      \"hidden_projector\": 1,\n      \"hidden_squared_response\": 640,\n      \"independent_joint_support\": 15,\n      \"intertwining_UA_equals_cRU\": 5,\n      \"joint_CWM_count\": 8792,\n      \"joint_CWM_dominant\": 8792,\n      \"joint_CWM_total\": 8792,\n      \"joint_native_response_cross_covariance\": 15,\n      \"moment_total_mass\": 1280,\n      \"native_X_is_integer\": 8792,\n      \"native_word_count\": 15,\n      \"noise_pushforward_multiplicity\": 1,\n      \"nonidentifiable_hidden_kernel_same_old_observables\": 54,\n      \"observer_gram\": 1,\n      \"old_covariance_matches_formula\": 640,\n      \"old_law_count_refinement\": 420,\n      \"old_law_dominant_refinement\": 420,\n      \"old_law_mass_preserved\": 420,\n      \"old_law_support\": 15,\n      \"old_mean\": 640,\n      \"original_code_ell_squared\": 45,\n      \"original_code_gamma\": 45,\n      \"original_code_radial_k4\": 45,\n      \"orthogonal_lift\": 1,\n      \"orthogonal_projectors\": 1,\n      \"orthogonal_response_split\": 640,\n      \"rotation_intertwining\": 1,\n      \"six_to_two_covariance_pushforward\": 640,\n      \"visible_projector\": 1,\n      \"visible_squared_response\": 640\n    }\n  },\n  \"source_sha256\": {\n    \"correlated_replay.py\": \"df039d8c7d382af0ad479a47780d4ae7f35dc8121fb07ebb9699f4f4a36ed864\",\n    \"oscillation_replay.py\": \"bff61959b1efd53fa54954e2673ff01c110beaa4c82fee9577d029fb3ad00d45\",\n    \"run_all.py\": \"2110050fd0151e4661cd27976f1d11160a20be94b910eb43d94388f1fbcd4593\",\n    \"weighted_return_replay.py\": \"cc8d1fcb3de699945513985f9ae2a41d0d45b3b46b0a330003d095399edc0fe0\"\n  },\n  \"numerical_results_sha256\": {\n    \"correlated_results.json\": \"edefc18b30926642181ad477c04938682290087622a2e34bc60bb8a8016688cf\",\n    \"oscillation_results.json\": \"5c0eca1a702daf41d60364c3aa75b9fc06f23e8c2e59a820da34529092ad0a7b\",\n    \"weighted_return_results.json\": \"a846d9164e17d0fedaf1a30ff2cd71a7b43a51d8150287a21189d8bdf0d63a2e\"\n  }\n}\n",
+      "display_title": "summary.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/8770476e36a10e79e6b03bdc67af3b5d8d106169/experiments/brc_x6_replay_20261002_fca717/summary.json",
+      "encoding": "utf-8",
+      "sha": "f72e024e0ec15eb85ceb66956a6474ae5844616c"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
