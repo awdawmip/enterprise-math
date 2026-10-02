@@ -1,0 +1,220 @@
+{
+  "researcher_id": "EM-HME-0CE4FD",
+  "global_snapshot": "c1c3610234637bd1309e29474c306a0db3040ad8",
+  "reference_tool_snapshot": "c5d6e6ed4aa4c899706e2a895f55733dc2eb3cb8",
+  "reference_tool_blob": "1214aa09770893fb3de7f85b994d1994ff56bffe",
+  "executed_module_sha256": "7e186c6b17b4b04c37af875c939a92907e929e8a19b2c0c818d3e3bc5f8b94e7",
+  "scope": "bounded arithmetic/readout audit; no challenge modulus or factor-search routine",
+  "known_prime_pairs_checked": 276,
+  "maximum_N": 8633,
+  "signature_modulus": 5,
+  "former_witness_is_separated_by_actual_signature": [
+    {
+      "p": 3,
+      "q": 13,
+      "N": 39,
+      "bits": 6,
+      "J": 6,
+      "R": 3,
+      "S2_mod5": 1,
+      "H3_mod5": 1,
+      "signature": "M5:N4:J1:R3:Q0",
+      "H3_residue": 1
+    },
+    {
+      "p": 7,
+      "q": 17,
+      "N": 119,
+      "bits": 7,
+      "J": 10,
+      "R": 19,
+      "S2_mod5": 1,
+      "H3_mod5": 4,
+      "signature": "M5:N4:J0:R4:Q3",
+      "H3_residue": 4
+    }
+  ],
+  "actual_signature_collision": [
+    {
+      "p": 7,
+      "q": 17,
+      "N": 119,
+      "bits": 7,
+      "J": 10,
+      "R": 19,
+      "S2_mod5": 1,
+      "H3_mod5": 4,
+      "signature": "M5:N4:J0:R4:Q3",
+      "H3_residue": 4
+    },
+    {
+      "p": 3,
+      "q": 83,
+      "N": 249,
+      "bits": 8,
+      "J": 15,
+      "R": 24,
+      "S2_mod5": 1,
+      "H3_mod5": 1,
+      "signature": "M5:N4:J0:R4:Q3",
+      "H3_residue": 1
+    }
+  ],
+  "actual_signature_plus_S2_collision": [
+    {
+      "p": 7,
+      "q": 17,
+      "N": 119,
+      "bits": 7,
+      "J": 10,
+      "R": 19,
+      "S2_mod5": 1,
+      "H3_mod5": 4,
+      "signature": "M5:N4:J0:R4:Q3",
+      "H3_residue": 4
+    },
+    {
+      "p": 3,
+      "q": 83,
+      "N": 249,
+      "bits": 8,
+      "J": 15,
+      "R": 24,
+      "S2_mod5": 1,
+      "H3_mod5": 1,
+      "signature": "M5:N4:J0:R4:Q3",
+      "H3_residue": 1
+    }
+  ],
+  "actual_signature_plus_S2_and_bits_collision": [
+    {
+      "p": 7,
+      "q": 97,
+      "N": 679,
+      "bits": 10,
+      "J": 26,
+      "R": 3,
+      "S2_mod5": 1,
+      "H3_mod5": 4,
+      "signature": "M5:N4:J1:R3:Q0",
+      "H3_residue": 4
+    },
+    {
+      "p": 13,
+      "q": 53,
+      "N": 689,
+      "bits": 10,
+      "J": 26,
+      "R": 13,
+      "S2_mod5": 1,
+      "H3_mod5": 1,
+      "signature": "M5:N4:J1:R3:Q0",
+      "H3_residue": 1
+    }
+  ],
+  "default_modulus_audit": {
+    "modulus": 64,
+    "known_prime_pairs_checked": 13861,
+    "maximum_N": 988027,
+    "signature_plus_S2_bits_and_exact_J_collision": [
+      {
+        "p": 97,
+        "q": 181,
+        "N": 17557,
+        "bits": 15,
+        "J": 132,
+        "R": 133,
+        "S2_mod64": 36,
+        "H3_residue": 50,
+        "signature": "M64:N21:J4:R5:Q2"
+      },
+      {
+        "p": 67,
+        "q": 263,
+        "N": 17621,
+        "bits": 15,
+        "J": 132,
+        "R": 197,
+        "S2_mod64": 36,
+        "H3_residue": 46,
+        "signature": "M64:N21:J4:R5:Q2"
+      }
+    ]
+  },
+  "crt_residue_rows": [
+    {
+      "a": 3,
+      "b": 13,
+      "product_mod55": 39,
+      "sum_square_mod55": 36,
+      "H3_mod55": 46,
+      "H3_square_mod55": 26,
+      "H3_mod5": 1,
+      "H3_mod11": 2,
+      "even_scaled_moments_mod55": [
+        3,
+        41,
+        18,
+        1,
+        23,
+        36
+      ]
+    },
+    {
+      "a": 8,
+      "b": 53,
+      "product_mod55": 39,
+      "sum_square_mod55": 36,
+      "H3_mod55": 31,
+      "H3_square_mod55": 26,
+      "H3_mod5": 1,
+      "H3_mod11": 9,
+      "even_scaled_moments_mod55": [
+        3,
+        41,
+        18,
+        1,
+        23,
+        36
+      ]
+    },
+    {
+      "a": 47,
+      "b": 2,
+      "product_mod55": 39,
+      "sum_square_mod55": 36,
+      "H3_mod55": 24,
+      "H3_square_mod55": 26,
+      "H3_mod5": 4,
+      "H3_mod11": 2,
+      "even_scaled_moments_mod55": [
+        3,
+        41,
+        18,
+        1,
+        23,
+        36
+      ]
+    },
+    {
+      "a": 52,
+      "b": 42,
+      "product_mod55": 39,
+      "sum_square_mod55": 36,
+      "H3_mod55": 9,
+      "H3_square_mod55": 26,
+      "H3_mod5": 4,
+      "H3_mod11": 9,
+      "even_scaled_moments_mod55": [
+        3,
+        41,
+        18,
+        1,
+        23,
+        36
+      ]
+    }
+  ],
+  "proof_scope": "finite witnesses refute only the stated observers; the CRT statement is over residue pairs, not multiple factorizations of a single complete integer",
+  "verdict": "PASS_SMALL_OBSERVER_COUNTEREXAMPLES; NO_NONLY_MOMENT_EXTRACTOR"
+}
