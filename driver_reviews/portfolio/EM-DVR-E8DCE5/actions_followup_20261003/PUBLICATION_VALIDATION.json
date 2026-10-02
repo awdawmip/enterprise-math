@@ -1,0 +1,93 @@
+{
+  "schema": "EM_CI_FOLLOWUP_PUBLICATION_VALIDATION_V1",
+  "observed_at_utc": "2026-10-02T18:03:25.749190+00:00",
+  "source_head": "2c56c3618dcbe2d65ad4c34bf1839d350759ac90",
+  "publisher_id": "EM-DVR-E8DCE5",
+  "driver_authority_record_id": "DA-B689E0D6FA1D479864B7",
+  "objective_id": "OBJ-GITHUB-ACTIONS-CI-BLOCKER-REPAIR-20261003",
+  "objective_generation_id": "OG-5196D92746645E3A7DF3",
+  "tasks": [
+    {
+      "task_id": "RS-GOV-EM-CI-DEPENDENCY-REPAIR-20261003",
+      "publication_id": "TP2-7957915FC68030C26FCD",
+      "taskbook_path": "research_tasks/RS_GOV_EM_CI_DEPENDENCY_REPAIR_20261003.md",
+      "taskbook_blob_sha1": "sha1:ed76f81251b481e0890a004562e0e879fb8c3ccc",
+      "objective_authority_verified": true
+    },
+    {
+      "task_id": "RS-GOV-KB-CI-DEPENDENCY-REPAIR-20261003",
+      "publication_id": "TP2-6DB3C036B6CD9551DA44",
+      "taskbook_path": "research_tasks/RS_GOV_KB_CI_DEPENDENCY_REPAIR_20261003.md",
+      "taskbook_blob_sha1": "sha1:8c6e578fd90bd73939c1e6ccdbf9b1c4734bbd6c",
+      "objective_authority_verified": true
+    },
+    {
+      "task_id": "RS-GOV-EM-MIGRATION-BASELINE-REPAIR-20261003",
+      "publication_id": "TP2-70668E2147C39A0AB1D2",
+      "taskbook_path": "research_tasks/RS_GOV_EM_MIGRATION_BASELINE_REPAIR_20261003.md",
+      "taskbook_blob_sha1": "sha1:3cc7d760b5f166556bf1a80630719fd41d434d5a",
+      "objective_authority_verified": true
+    }
+  ],
+  "taskbook_reviews": [
+    {
+      "temporary_overrides": [
+        {
+          "conflict_id": "TB-REMOTE-RUNTIME",
+          "scope": "本CI维护任务中的workflow诊断与配置，仅本地验收",
+          "reason": "用户明确要求发布这些既有CI后续事项且禁止触发Actions；敏感词属于对象/禁令而非远程运行要求",
+          "replacement_behavior": "只作本地准备/测试；发布原子Git-data CAS + [skip ci]；不调用native自动Actions提交，不dispatch/rerun；不扩大网络、凭据或权限",
+          "expires_when": "该有界任务终结；任何远程执行需另有明确授权"
+        }
+      ],
+      "policy_set": "research_taskbook_policy.json",
+      "policy_digest": "sha256:d74aad6dd53d0df42d950f7b1207b27d80696f23410bd06f53a038c459577bb2",
+      "review_state": "PASS"
+    },
+    {
+      "temporary_overrides": [
+        {
+          "conflict_id": "TB-REMOTE-RUNTIME",
+          "scope": "本CI维护任务中的workflow诊断与配置，仅本地验收",
+          "reason": "用户明确要求发布这些既有CI后续事项且禁止触发Actions；敏感词属于对象/禁令而非远程运行要求",
+          "replacement_behavior": "只作本地准备/测试；发布原子Git-data CAS + [skip ci]；不调用native自动Actions提交，不dispatch/rerun；不扩大网络、凭据或权限",
+          "expires_when": "该有界任务终结；任何远程执行需另有明确授权"
+        }
+      ],
+      "policy_set": "research_taskbook_policy.json",
+      "policy_digest": "sha256:d74aad6dd53d0df42d950f7b1207b27d80696f23410bd06f53a038c459577bb2",
+      "review_state": "PASS"
+    },
+    {
+      "temporary_overrides": [
+        {
+          "conflict_id": "TB-REMOTE-RUNTIME",
+          "scope": "本CI维护任务中的workflow诊断与配置，仅本地验收",
+          "reason": "用户明确要求发布这些既有CI后续事项且禁止触发Actions；敏感词属于对象/禁令而非远程运行要求",
+          "replacement_behavior": "只作本地准备/测试；发布原子Git-data CAS + [skip ci]；不调用native自动Actions提交，不dispatch/rerun；不扩大网络、凭据或权限",
+          "expires_when": "该有界任务终结；任何远程执行需另有明确授权"
+        }
+      ],
+      "policy_set": "research_taskbook_policy.json",
+      "policy_digest": "sha256:d74aad6dd53d0df42d950f7b1207b27d80696f23410bd06f53a038c459577bb2",
+      "review_state": "PASS"
+    }
+  ],
+  "canonical_audits": {
+    "task_publications": [],
+    "objective_records": [],
+    "objective_authority": [
+      "research_objective_heads/OBJ-DIAGONAL-GAUGE-REFOUNDATION-TYPED-CORRECTION-EVIDENCE-CLOSURE.json: current operational head lacks immutable selection receipt",
+      "research_objective_heads/OBJ-MULTIPLICATIVE-BRIDGE-GEOMETRY.json: current operational head lacks immutable selection receipt",
+      "research_task_objective_bindings/RS-DIAGONAL-GAUGE-REFOUNDATION-TYPED-INTEGRATION/TP2-90D492F7054EDEE0F3CD.json: binding lacks canonical operational-head authority"
+    ],
+    "objective_driver_authority": []
+  },
+  "new_audit_errors": {
+    "task_publications": [],
+    "objective_records": [],
+    "objective_authority": [],
+    "objective_driver_authority": []
+  },
+  "scope": "Only publication preflight and authority checked. Software repair tests are future task work; no Actions execution."
+}

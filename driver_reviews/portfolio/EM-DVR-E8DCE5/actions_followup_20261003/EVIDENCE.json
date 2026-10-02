@@ -1,0 +1,115 @@
+{
+  "schema": "EM_CI_FOLLOWUP_EVIDENCE_V1",
+  "observed_at_utc": "2026-10-02 16:53:00 UTC",
+  "assembled_at_utc": "2026-10-02T17:57:31.214207+00:00",
+  "publisher_id": "EM-DVR-E8DCE5",
+  "scope": "GOVERNANCE_MAINTENANCE_ONLY",
+  "source_pins": {
+    "enterprise_math": "2c56c3618dcbe2d65ad4c34bf1839d350759ac90",
+    "global_knowledge": "1469c496616e52b43e817ecbf73fd8fa793d3480"
+  },
+  "em_failure_samples": [
+    {
+      "url": "https://github.com/awdawmip/enterprise-math/actions/runs/37036070877",
+      "headSha": "84cf8737b384651c6ec5f8a69c93ed166525e0b8",
+      "workflowName": "quality",
+      "createdAt": "2026-10-02T16:45:20Z",
+      "checked_job_id": 110934667516,
+      "diagnosis": "Latest sampled quality unit shard actually started and failed importing tests/test_group_ring_batch_response.py because pytest was unavailable. This is a CI dependency failure, not a billing/start-denied annotation.",
+      "log_read": {
+        "command": [
+          "gh",
+          "run",
+          "view",
+          "37036070877",
+          "--repo",
+          "awdawmip/enterprise-math",
+          "--job",
+          "110934667516",
+          "--log-failed"
+        ],
+        "exit_code": 0,
+        "total_lines": 70,
+        "matching_excerpt_count": 1,
+        "matching_excerpts": [
+          {
+            "line": 69,
+            "text": "unit-shard (0)\tUnit tests shard 0\t2026-10-02T16:46:04.7740932Z ERROR: test module import failed for /home/runner/work/enterprise-math/enterprise-math/tests/test_group_ring_batch_response.py: ModuleNotFoundError: No module named 'pytest'"
+          }
+        ]
+      }
+    },
+    {
+      "url": "https://github.com/awdawmip/enterprise-math/actions/runs/37036070865",
+      "headSha": "84cf8737b384651c6ec5f8a69c93ed166525e0b8",
+      "workflowName": "reference-integrity",
+      "createdAt": "2026-10-02T16:45:20Z",
+      "checked_job_id": 110934477866,
+      "diagnosis": "Latest sampled reference-integrity job actually started, passed preceding steps, then the exact-span migration dry-run failed because the requested pending migrations did not share one exact baseline blob.",
+      "log_read": {
+        "command": [
+          "gh",
+          "run",
+          "view",
+          "37036070865",
+          "--repo",
+          "awdawmip/enterprise-math",
+          "--job",
+          "110934477866",
+          "--log-failed"
+        ],
+        "exit_code": 0,
+        "total_lines": 13,
+        "matching_excerpt_count": 13,
+        "matching_excerpts": [
+          {
+            "line": 1,
+            "text": "check\tDry-run exact-span runtime control migration\t﻿2026-10-02T16:45:44.1427609Z ##[group]Run python control_plane/apply_registered_json_migration.py --migration-id CSM-RUNTIME-CANONICAL-DISPATCH-004 --migration-id CSM-RUNTIME-OWNER-SCOPE-LIVENESS-006"
+          },
+          {
+            "line": 2,
+            "text": "check\tDry-run exact-span runtime control migration\t2026-10-02T16:45:44.1428587Z \u001b[36;1mpython control_plane/apply_registered_json_migration.py --migration-id CSM-RUNTIME-CANONICAL-DISPATCH-004 --migration-id CSM-RUNTIME-OWNER-SCOPE-LIVENESS-006\u001b[0m"
+          },
+          {
+            "line": 12,
+            "text": "check\tDry-run exact-span runtime control migration\t2026-10-02T16:45:44.2150807Z ERROR: requested pending migrations do not share one exact baseline blob"
+          },
+          {
+            "line": 13,
+            "text": "check\tDry-run exact-span runtime control migration\t2026-10-02T16:45:44.2233304Z ##[error]Process completed with exit code 1."
+          }
+        ]
+      }
+    }
+  ],
+  "private_repository_followup": {
+    "repository": "awdawmip/chatgpt-global-knowledge",
+    "run_url": "https://github.com/awdawmip/chatgpt-global-knowledge/actions/runs/37007219111",
+    "issue": "CI test dependency jsonschema unavailable. Authorized successor must read original private evidence directly.",
+    "full_private_logs_republished": false
+  },
+  "external_account_followup": {
+    "status": "USER_UI_CHECK_REQUIRED",
+    "reason": "Existing integration cannot read account billing (HTTP403); actual current balance is unknown.",
+    "user_ui": "https://github.com/settings/billing/usage",
+    "blocks_local_code_repairs": false,
+    "authority": "No credentials, budget, billing or permission change authorized by this task publication."
+  },
+  "constraints": [
+    "No workflow dispatch/rerun or CI-triggering publication.",
+    "Publication uses atomic taskbook/record source commit with [skip ci].",
+    "No task execution claims or Owner identity use.",
+    "No changes to environment, network, credentials or S15.",
+    "No account-wide storage or remaining-minute claim; sampled repository storage does not establish account total."
+  ],
+  "limits": [
+    "The latest observed CI failures are input evidence, not proof the repairs are completed.",
+    "Two EM and three KB failed runs were deeply sampled; no exhaustive historical audit.",
+    "Preserve unknowns; local validation and future hosted validation must be separately labeled."
+  ],
+  "source_inspection": {
+    "em_test_collection": "quality.yml lacks dependency installation; test_group_ring_batch_response.py uses pytest.mark.parametrize while run_unittest_shard.py rejects required parameter injection. Repair must execute parametrized cases rather than suppress imports.",
+    "migration_idempotence": "At source 2c56c361, the inspected target fields already match target. CSM-RUNTIME-OWNER-SCOPE-LIVENESS-006 has old=false, target=false, current=false for owner_lease_is_session_liveness; applier checks old before target and classifies it pending, producing the baseline mismatch. This is source inspection, not a repair test result.",
+    "kb_dependency": "Both index workflows lack installation of the existing tools/requirements-legal-validation.txt entrypoint. No private log contents are copied."
+  }
+}
