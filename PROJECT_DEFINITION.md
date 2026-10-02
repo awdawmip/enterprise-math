@@ -10,6 +10,14 @@ Status: `ACTIVE / PROJECT-LEVEL DEFINITION / V4`
 Date: `2026-09-23`
 Position update authority: `DIRECT_CURRENT_USER_INSTRUCTION`
 
+## Spatial constraint for all research (2026-10-03)
+
+**The Enterprise coordinate system has no plane. All research must be based on Heartbeat World's native six-dimensional spatial world, with time modeled explicitly as needed.** This applies to every research line, role, continuation and subagent, not only geometry or residual studies.
+
+Static problems may use six-axis spatial states alone. Record separately typed time when relevant to evolution, ordering, return or memory; time is not a spatial axis. Diagrams, coordinate projections and historical "slices" are only restricted states or observers with an explicit embedding/readout bridge within this fixed X6 world. They are not independent planes, and an unbridged lower-dimensional model cannot establish a native result. Information reduction must preserve the joint relations needed by declared observers and allowed future operations.
+
+Authority: [`p000_reality_foundation.json`](p000_reality_foundation.json) and [`HEARTBEAT_WORLD_NATIVE_X6_TIME.json`](definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json). This direct-user foundation constraint supersedes native "Enterprise plane" terminology. Historical records retain their provenance and cannot override the current constraint.
+
 ## One-sentence definition
 
 > **Enterprise Math rebuilds useful mathematical tools from finite resolution, integer-first structure and residual-faithful discrete relations, preserving distinctions relevant to declared future operations and observations, then classifies exact, finite-precision, asymptotic and domain-restricted recovery or systematic deviation.**

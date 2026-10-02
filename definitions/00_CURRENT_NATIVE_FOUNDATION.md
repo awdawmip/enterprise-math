@@ -33,11 +33,24 @@ Freeze:
 
 `ENTERPRISE_RIGHT_ANGLE=120_DEGREES`.
 
-`CURRENT_THREE_AXIS_MODEL=RESEARCH_SLICE_OF_6D_SPACE`.
+`ENTERPRISE_NATIVE_PLANE_EXISTS=false`.
+
+`ALL_RESEARCH_BASIS=HEARTBEAT_WORLD_NATIVE_X6`.
+
+`TIME_MODELING=AS_NEEDED_SEPARATELY_TYPED`.
+
+`CURRENT_THREE_AXIS_MODEL=RESTRICTED_STATE_OR_OBSERVER_WITHIN_HEARTBEAT_X6`.
 
 `ENTERPRISE_GEOMETRY_PRIMARY_TRANSFORMATION=ROTATION`.
 
 `TIME_ROLE=TRACE_AND_ORDER_OF_RELATIONAL_CHANGE`.
+
+The Enterprise coordinate system has no native plane, including no
+“six-dimensional plane”. Every research question starts from Heartbeat World's
+fixed native X6 spatial substrate. Time keeps its separate one-dimensional type
+and is explicitly included when required; static spatial work need not add t.
+Restricted states and observer representations need their applicable X6
+embedding and observer/future-operation fidelity scope, not a separate ontology.
 
 P000 is an unconditional project starting axiom. It has no proof/falsification/replacement route inside Enterprise Math.
 
@@ -52,8 +65,8 @@ Before any information-reducing projection, quotient or factor collapse load `EN
 3. P000 signed primitive directions / composite off-axis paths / triadic balance — `P000_DISCRETE_DIRECTION_TRIADIC_BALANCE_20260905.md`;
 4. mandatory observer-preservation contract — `ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json`;
 5. **native X6 signed spatial Cell-center torsor** — `ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md`;
-6. **centered signed three-axis native slice + recomputed carrier bridge** — `ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md`;
-7. centered-slice machine contract — `ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.json`;
+6. **restricted three-axis X6 state + recomputed carrier bridge** — `ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md`;
+7. restricted-state machine contract — `ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.json`;
 8. **primary six-axis rotational FCC carrier/readout** — `P000_FCC_PRIMARY_COORDINATE_CARRIER_20260829.md`;
 9. **all-research Weighted-BRC minimal substrate** — `ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json`;
 10. BRC weighted/log foundation — `ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md`;
@@ -68,7 +81,7 @@ Before any information-reducing projection, quotient or factor collapse load `EN
 19. BRC universal histogram ledger — `ENTERPRISE_BRC_UNIVERSAL_HISTOGRAM_THEOREM_LEDGER_20260903.json`;
 20. BRC critical-degeneracy foundation — `ENTERPRISE_BRC_CRITICAL_DEGENERACY_FOUNDATION_20260903.md`;
 21. BRC critical-degeneracy ledger — `ENTERPRISE_BRC_CRITICAL_DEGENERACY_THEOREM_LEDGER_20260903.json`;
-22. legacy three-positive-axis circle slice — `ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`, now a carrier/provenance pointer only;
+22. legacy plane-named circle-carrier document — `ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`, superseded as a native premise and retained as a carrier/provenance pointer only;
 23. legacy R061 line trace — `ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`, now retyped composite-path combinatorics;
 24. legacy R061 directed min-zero gauge — `ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`, now relative-observer gauge only;
 25. legacy R061 bidirectional spectrum — `ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md`, now observer diagnostic only;
@@ -107,9 +120,14 @@ The global diagonal `D=(1,1,1,1,1,1)` is a nonzero composite native displacement
 
 Path history, BRC provenance, internal/channel/field state and time remain richer typed state over the spatial Cell.
 
-## 4. Centered signed three-axis native slice
+## 4. Centered signed three-axis state restriction inside X6
 
-Direct-user unification on `2026-09-05` fixes every selected three-axis native slice as an actual restriction of the X6 Cell torsor.
+The established three-axis construction is an actual restriction of the fixed
+X6 Cell torsor. Historical “slice” labels below name that restricted state and
+its scoped observers; they do not define an independent native space or plane.
+Its existing embedding and carrier bridge retain only their certified scope.
+An observation of three selected coordinates alone is not proof of membership
+in this restriction or permission to erase omitted coordinates.
 
 For selected `S={i,j,k}` and chosen native Cell anchor `c_*`:
 
@@ -175,7 +193,9 @@ Dropping common depth requires the observer/future-operation safety certificate 
 
 ## 6. FCC STAR-slice carrier readout
 
-The primary classical carrier remains FCC/cubic Barlow.
+The primary classical carrier remains FCC/cubic Barlow. Classical carrier
+planes used in this bridge are external readout representations, not native
+planes or an alternative research starting space.
 
 Its four established STAR slice types retain the same line-family incidence:
 
@@ -334,9 +354,11 @@ The exact finite axis-permutation skeleton is `S6`; the FCC atlas preserves an `
 
 Current typed pattern:
 
-`X6 SIGNED CELL STATE -> ROTATE/PERMUTE -> SELECT CENTERED NATIVE Z3 SLICE OR OBSERVE SELECTED COMPONENTS -> OPTIONAL FCC CARRIER READOUT -> COMPARE`.
+`X6 SIGNED CELL STATE -> ROTATE/PERMUTE -> OPTIONALLY USE A CERTIFIED X6 STATE RESTRICTION OR OBSERVER -> OPTIONAL SCOPED FCC CARRIER READOUT -> COMPARE`.
 
-The seventh dimension is time and is separately typed from all six spatial axes.
+Time retains a single dimension separately typed from the six native spatial
+axes. Introduce it explicitly when temporal order, evolution or another declared
+requirement needs it; a static X6 problem need not carry a time coordinate.
 
 ## 13. FREE / TASK boundary
 
@@ -350,7 +372,8 @@ For full signed spatial identity:
 
 `ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md` controls.
 
-For centered three-axis native slice/origin/metric and the recomputed old cut-plane bridge:
+For the restricted three-axis X6 state, its anchor/metric and the historical
+classical carrier bridge:
 
 `ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md` controls.
 
@@ -362,6 +385,8 @@ For FCC carrier selection:
 
 `P000_FCC_PRIMARY_COORDINATE_CARRIER_20260829.md` controls at carrier strength only.
 
+Historical wording that admits a native plane or promotes a restricted
+three-axis description to an independent spatial ontology is superseded.
 Historical wording that makes a triple circle intersection the native coordinate zero, treats a circle footprint as native Cell identity, treats min-zero triples as full native Cell addresses, forbids native negative directions, or derives reversal-asymmetric native distance from a min-zero decoder is superseded.
 
 Git history preserves those earlier generations as provenance.

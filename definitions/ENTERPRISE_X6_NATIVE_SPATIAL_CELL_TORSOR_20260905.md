@@ -17,6 +17,8 @@ Research provenance:
 
 ## 1. Scope
 
+Direct-user constraint, 2026-10-03: **the Enterprise coordinate system has no plane; all research is based on Heartbeat World's native six-dimensional spatial world, with separately typed time introduced as needed.** The word "slice" below names a restricted state set or observer within this fixed X6 space, never an independent native plane or an alternative spatial foundation. Every use requires the declared X6 embedding/readout bridge and preservation scope; static calculations do not require a time coordinate. The controlling machine contract is `HEARTBEAT_WORLD_NATIVE_X6_TIME.json`.
+
 This definition freezes the **native spatial Cell-center identity** only.
 
 It does not say that all packet state is spatial coordinate state. Occupancy, channel state, force relations, fields, time-indexed relations, Path-formal history, BRC branch identity/multiplicity/weight and other declared decorations remain separately typed over the spatial Cell object.

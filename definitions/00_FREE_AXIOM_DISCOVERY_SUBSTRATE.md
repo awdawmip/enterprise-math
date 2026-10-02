@@ -3,7 +3,7 @@
 <!-- EM_FINAL_CELL_ADDRESS_CONTRACT_V1 -->
 ## Public address typing only (2026-09-13)
 
-Before exporting a final Cell address, apply [`coordinate_address_contract.json`](../coordinate_address_contract.json): six nonnegative fields; inactive fields may be zero only losslessly; no operational display origin and no automatic boundary increment. This is an interface constraint, not a new discovery prior or an instruction to load theorem/result catalogs. Preserve this router's information firewall and all original P000 premises. Raw signed proof coordinates remain separate from final public addresses.
+Before exporting a final Cell address, apply [`coordinate_address_contract.json`](../coordinate_address_contract.json): six nonnegative fields; inactive fields may be zero only losslessly; no operational display origin and no automatic boundary increment. This is an interface constraint, not a new discovery prior or an instruction to load theorem/result catalogs. Preserve this router's information firewall and the current P000 premises. Raw signed proof coordinates remain separate from final public addresses.
 <!-- END_EM_FINAL_CELL_ADDRESS_CONTRACT_V1 -->
 
 
@@ -50,13 +50,23 @@ FREE research must assume:
 
 `ENTERPRISE_SPACE_KIND=DISCRETE_CELL_SPACE`.
 
-`ENTERPRISE_PLANE_NATIVE_DIMENSION=6`.
+`ENTERPRISE_NATIVE_PLANE_EXISTS=false`.
 
-`CURRENT_THREE_AXIS_MODEL=RESEARCH_SLICE_OF_6D_SPACE`.
+`ALL_RESEARCH_BASIS=HEARTBEAT_WORLD_NATIVE_X6`.
+
+`TIME_MODELING=AS_NEEDED_SEPARATELY_TYPED`.
+
+`CURRENT_THREE_AXIS_MODEL=RESTRICTED_STATE_OR_OBSERVER_WITHIN_HEARTBEAT_X6`.
 
 `ENTERPRISE_GEOMETRY_PRIMARY_TRANSFORMATION=ROTATION`.
 
 `TIME_ROLE=TRACE_AND_ORDER_OF_RELATIONAL_CHANGE`.
+
+There is no native “plane” in the Enterprise coordinate system, including no
+“six-dimensional plane”. All research begins in Heartbeat World's fixed native
+six-dimensional spatial substrate. One-dimensional time retains its separate
+type and is introduced explicitly when the question needs temporal order or
+evolution; a static spatial question need not introduce a time variable.
 
 Machine boundary:
 
@@ -143,29 +153,40 @@ Freeze:
 
 Filtered odd-only, coprime-only, squarefree, prime-only, or rough-number views are allowed only as explicit secondary projections. Preserve their relation to the full population, and do not promote a pattern found only after filtering to a law of the original domain without checking the omitted strata.
 
-## Spatial substrate — load only when spatial reasoning is actually chosen
+## Native X6 research base — load further spatial details only when required
 
-For established local spatial mathematics, the exact current three-axis slice is:
+All research retains Heartbeat World's native X6 basis. When a question needs
+spatial primitives, use the fixed six-axis state definition:
 
-`definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`.
+`definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md`.
 
-Its exact current slice facts include:
+A selected three-axis description is at most a restricted state or observer
+within that same X6 space. Its embedding, retained information, observer and
+allowed future operations must have the applicable bridge/fidelity certificate.
+Reading three coordinates does not prove that omitted coordinates are zero and
+does not create a separate spatial or plane ontology.
 
-- `O_E=0`;
-- overlapping circle-cell carrier;
-- three visible positive native axes/rays `E_1,E_2,E_3`;
-- no required native negative axes in that slice;
-- `ENTERPRISE_RIGHT_ANGLE=120_DEGREES` in that slice;
-- canonical minimum-zero three-sector coordinate atlas;
-- sector-local native length law as frozen in that exact file.
+For an actually required three-axis restriction and its existing carrier bridge,
+use the exact declared scope in:
+
+`definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md`.
+
+The former pointer
+`definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`
+is **superseded as a current native premise**. Its plane-named content is retained
+only at valid historical carrier/observer/provenance strength, not as a native
+plane. It cannot replace the full X6 starting state.
 
 Mandatory interpretation:
 
-`THREE_AXIS_GEOMETRY=RESEARCH_SLICE_OF_6D_SPACE`.
+`THREE_AXIS_DESCRIPTION=RESTRICTED_STATE_OR_OBSERVER_WITHIN_HEARTBEAT_X6`.
 
-`THREE_AXIS_RESULT!=FULL_6D_WORLD_RESULT` unless a valid six-dimensional lift is established.
+`THREE_AXIS_RESULT!=FULL_X6_RESULT` without the required native-state and
+observer/future-operation bridge.
 
-Read the exact slice file only when free discovery actually needs those spatial primitives. Do not preload it merely because geometry exists in the project.
+This is a foundation/scope gate, not a discovery lens. Load only the exact
+spatial details needed by the question; do not preload the current-result router
+or unrelated theorem catalogs in FREE Phase A.
 
 ## What is deliberately withheld in Phase A
 

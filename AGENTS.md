@@ -9,13 +9,19 @@ Status: `ACTIVE / STABLE EXECUTION ROUTER / V3.1`
 For **every** Enterprise Math role and conversation, including direct questions,
 TASK continuation and delegated subagents, load `p000_reality_foundation.json`
 before substantive reasoning, model selection or semantic clarification. This
-requirement applies beyond FREE discovery. Load its mandatory companion
-contracts at their declared boundaries; for world descriptions this includes
-`definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json`, and before information-reducing
+requirement applies beyond FREE discovery. Every research task must also load
+`definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json`; it is the required spatial
+basis for all research, not only explicit world descriptions. Load other
+mandatory companion contracts at their declared boundaries; before information-reducing
 projection it includes
 `definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json`.
 
-本项目／进取数论中：**立体空间就是原生六维离散 Cell 空间；时间另为一维。**
+本项目／进取数论中：**进取坐标系没有“平面”；所有研究必须基于心跳世界的原生六维立体离散 Cell 空间。时间维度按问题需要显式引入，并与空间分别定型。**
+这是用户于 2026-10-03（Asia/Shanghai）追加的全局硬约束，适用于所有角色、研究线、续接与子代理。
+不得再使用“进取平面”或“六维平面”作为原生概念，不得从独立平面／低维空间开始研究再默认其可提升为 X6。
+图示、坐标投影和历史“切片”只能作为明确嵌入该六维空间的受限状态或观察工具；
+使用缩减表示必须说明原生状态／读出桥，并保留声明观察与允许后续操作所需的联合关系。
+静态研究不强制加入时间；涉及演化、先后、回传或记忆且时间相关时须显式记录。
 这是既定 P000 起点。用户提到六维立体空间或六维残差传导时，直接在此语义下研究具体机制；
 不得让用户再次选择、确认或证明空间是否六维。
 
@@ -23,7 +29,10 @@ Freeze:
 
 - `NATIVE_SPATIAL_DIMENSION=NATIVE_SPATIAL_AXIS_COUNT=6`.
 - `REALITY_DECOMPOSITION=6D_SPACE_PLUS_1D_TIME`.
-- `CURRENT_THREE_AXIS_MODEL=RESEARCH_SLICE_OF_6D_SPACE`.
+- `ENTERPRISE_NATIVE_PLANE_EXISTS=false`.
+- `ALL_RESEARCH_BASIS=HEARTBEAT_WORLD_NATIVE_X6`.
+- `TIME_MODELING=AS_NEEDED_SEPARATELY_TYPED`.
+- `CURRENT_THREE_AXIS_MODEL=RESTRICTED_STATE_OR_OBSERVER_WITHIN_HEARTBEAT_X6`.
 - `P000_PROOF_OBLIGATION=NONE` and `P000_FALSIFICATION_ROUTE=DISABLED`.
 
 Do not reinterpret native six-dimensional space as classical three-space with
@@ -37,8 +46,9 @@ count. A pending propagation law remains a research question within the fixed
 six-dimensional substrate.
 
 Carry this semantic binding into delegated tasks, continuation notes and final
-interpretation. This section routes to existing locked foundations; it introduces
-no new ontology or theorem acceptance. For the BRC residual-fitting line, also
+interpretation. The no-plane/all-research/time-as-needed constraint is an explicit
+direct-user amendment, not a theorem acceptance or a result inferred from fitting.
+For the BRC residual-fitting line, also
 read `research_notes/BRC_NATIVE_X6_SEMANTIC_ALIGNMENT_20261002_9D72AC.md`.
 
 ## 1. Mode resolution
