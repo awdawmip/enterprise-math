@@ -1,0 +1,60 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "task_id": "RS-BRC-SOURCE-EXIT-PAIRING-20261004",
+  "registry_key": "RS-BRC-SOURCE-EXIT-PAIRING-20261004",
+  "publication_id": "TP2-DCA5A080B5E0D5135648",
+  "publication_generation": 1,
+  "supersedes_publication_id": null,
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "taskbook_path": "research_tasks/RS-BRC-SOURCE-EXIT-PAIRING-20261004.md",
+  "taskbook_blob_sha1": "sha1:334d199258fab59875da5e87f697394e542da7a2",
+  "publisher_role": "RESEARCHER",
+  "publisher_id": "EM-DIRECT-468C61",
+  "published_at": "2026-10-04T15:15:00+00:00",
+  "parent_objective_id": "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS",
+  "origin_kind": "DIRECT_USER_DIRECTION",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-BRC-X6-SLICE-CELL-PORT-BRIDGE-20261004",
+  "claimable": true,
+  "effective_priority": "P2",
+  "effective_leverage": "MEDIUM",
+  "priority_source": "RESEARCHER_DEFAULT",
+  "publisher_priority_request": "P2",
+  "publisher_leverage_request": "MEDIUM",
+  "owner": "taskbook/unassigned",
+  "frontier": "2×2配对k区间、混合差Δ_H、边际充分条件H_ij=a_i+b_j及最坏误差半跨度已在原对话推导；P02已正式发布用于约束Cell/切片/端口映射强度，但P03尚未执行新的BRC有限域验证。",
+  "next_action": "在消费P02当前正式任务边界后，固定≤3来源×3出口、总量≤6的完整有限域，明确禁配/容量与最多两种未来操作；枚举全部合法表，构造最小未来等价分类或严格反例，并保留来源—出口联合信息。",
+  "research_value": "在禁配、容量与未来读出下给出来源—出口联合配对的最小保留残差和完整有限域证书，防止把相同边际误当作相同联合状态，并为后续循环通量与路径识别任务提供受约束联合基础。",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "identity_lane": "P03",
+  "source_refs": [
+    "private-intake:EM-BRC-SLICE-PRIVATE-INTAKE-20261004-F9ED02",
+    "private-intake-sha256:1edf20e5880df29ca865e2249be429361ba6f1e24798cfb1ba6aebf1ec3bdc6d",
+    "private-intake-proposal:P03",
+    "https://github.com/awdawmip/enterprise-math/blob/d8601baa3f5ada7fc664f08a93c67b5901159414/research_task_records/RS-BRC-X6-SLICE-CELL-PORT-BRIDGE-20261004/TP2-99169E1D950AC2D48D06.json"
+  ],
+  "dependencies": [
+    "RS-BRC-X6-SLICE-CELL-PORT-BRIDGE-20261004"
+  ],
+  "evidence_status": "PRIVATE_SOURCE_PACKET_VERIFIED; P02_CURRENT_PUBLICATION_VERIFIED; PUBLIC_TASK_METADATA_ONLY; SCIENTIFIC_EXECUTION_NOT_PERFORMED_BY_PUBLICATION",
+  "successor_gate": {
+    "new_information_gap": "即使P02建立或限制了Cell/切片/端口的语义映射，真实禁配与容量仍会改变来源—出口联合表的可行纤维；最多两步未来读出也未必保持可分解线性，现有2×2无约束矩形基不足以给出完整3×3有限域的合法移动与最小等价类。",
+    "why_parent_result_does_not_close_it": "P02的任务范围是原生Cell身份、三维切片、端口和读出之间的最小对应桥；它不枚举来源—出口联合分配、不证明禁配/容量下的可行纤维，也不求多步未来操作下的最小充分残差。因此P02即使成功也只规定本任务可使用的映射强度。",
+    "discriminating_outcomes": [
+      "对固定≤3×3、总量≤6的完整合法域给出未来等价类、每类见证、跨类区分词、读出极值及必要修复坐标，并证明边际何时充分或不充分。",
+      "给出严格反例：在相同边际且满足禁配/容量的合法表之间，至少一个允许的未来操作产生不同读出；或反向证明所有声明未来操作均不读取关联，从而允许安全合并。"
+    ],
+    "kill_condition": "若无法完整处理声明的有限合法域，则返回安全未决和缺失范围，不以部分枚举或局部极值冒充全域证书；若已证明未来操作对关联完全不敏感，则以可验证合并证书停止，不强行保留无用残差。",
+    "alternative_route_or_free_exploration_considered": "可以只停留在已推导的2×2公式，或直接扩大到更高维/更大总量，但前者不足以检验真实禁配与容量，后者增加费用且不能形成最小反例。本项选择≤3×3、总量≤6的封闭有限域作为最小可穷尽扩展。",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "P02解决语义/映射桥，本项解决联合分配在约束与未来操作下的可识别残差，交付物是完整有限域分类与证书而非端口映射。独立成任务既消费P02边界又不扩大P02范围，并为P04及后续路径/循环任务提供经过约束的联合状态基础。"
+  },
+  "parent_objective_generation_id": "OG-7AE66316D7566C519AE0"
+}
