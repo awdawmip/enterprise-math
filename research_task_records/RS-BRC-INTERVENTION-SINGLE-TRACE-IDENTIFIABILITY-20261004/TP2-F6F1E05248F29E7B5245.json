@@ -1,0 +1,63 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "task_id": "RS-BRC-INTERVENTION-SINGLE-TRACE-IDENTIFIABILITY-20261004",
+  "registry_key": "RS-BRC-INTERVENTION-SINGLE-TRACE-IDENTIFIABILITY-20261004",
+  "publication_id": "TP2-F6F1E05248F29E7B5245",
+  "publication_generation": 1,
+  "supersedes_publication_id": null,
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "taskbook_path": "research_tasks/RS-BRC-INTERVENTION-SINGLE-TRACE-IDENTIFIABILITY-20261004.md",
+  "taskbook_blob_sha1": "sha1:0e005e2c0d8949a23907cabae03425a323141d9f",
+  "publisher_role": "RESEARCHER",
+  "publisher_id": "EM-DIRECT-468C61",
+  "published_at": "2026-10-04T15:55:14.883403+00:00",
+  "parent_objective_id": "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS",
+  "origin_kind": "DIRECT_USER_DIRECTION",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-BRC-SOURCE-EXIT-PAIRING-20261004",
+  "claimable": true,
+  "effective_priority": "P2",
+  "effective_leverage": "MEDIUM",
+  "priority_source": "RESEARCHER_DEFAULT",
+  "publisher_priority_request": "P2",
+  "publisher_leverage_request": "MEDIUM",
+  "owner": "taskbook/unassigned",
+  "frontier": "三Cell门控差分与隐藏寄存器行为等价反例、五Cell实例的1,0,1三步数量重建及两步最坏失败已完成符号推导；P02/P03已正式发布用于约束原生映射强度和来源—出口联合残差，但P05尚未执行单条无重置记录下的来源配对可识别性证书。",
+  "next_action": "消费P02/P03当前正式任务边界后，冻结已有五Cell实例、同一无重置干预语义和一个来源敏感读出；将每次读数写成给定有理区间，枚举全部合法初态/当前态与来源配对，输出整条记录一致的精确可行状态集合，并给出最短区分或不可识别见证。",
+  "research_value": "用单条无重置连续记录和一个来源敏感读出，精确区分哪些来源配对可主动识别、哪些只能落入行为等价类，并在有理读数误差下返回完整可行状态集合而不是点估计。",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "identity_lane": "P05",
+  "source_refs": [
+    "private-intake:EM-BRC-SLICE-PRIVATE-INTAKE-20261004-F9ED02",
+    "private-intake-sha256:1edf20e5880df29ca865e2249be429361ba6f1e24798cfb1ba6aebf1ec3bdc6d",
+    "private-intake-proposal:P05",
+    "private-evidence:CONVERSATION_FRONTIER.md",
+    "https://github.com/awdawmip/enterprise-math/blob/dc172bf5c36d37ca90b1c340c09754d6655183de/research_task_records/RS-BRC-X6-SLICE-CELL-PORT-BRIDGE-20261004/TP2-99169E1D950AC2D48D06.json",
+    "https://github.com/awdawmip/enterprise-math/blob/dc172bf5c36d37ca90b1c340c09754d6655183de/research_task_records/RS-BRC-SOURCE-EXIT-PAIRING-20261004/TP2-DCA5A080B5E0D5135648.json"
+  ],
+  "dependencies": [
+    "RS-BRC-X6-SLICE-CELL-PORT-BRIDGE-20261004",
+    "RS-BRC-SOURCE-EXIT-PAIRING-20261004"
+  ],
+  "evidence_status": "PRIVATE_SOURCE_PACKET_VERIFIED; P02_P03_CURRENT_PUBLICATIONS_VERIFIED; PRIOR_GATED_AND_ONE_TRACE_SYMBOLIC_RESULTS_CONSUMED_AT_DECLARED_STRENGTH; PUBLIC_TASK_METADATA_ONLY; SCIENTIFIC_EXECUTION_NOT_PERFORMED_BY_PUBLICATION",
+  "successor_gate": {
+    "new_information_gap": "P03定义来源—出口联合配对在禁配、容量和未来读出下需要保留的残差，但并未回答在固定五Cell实例中，允许的主动干预与单条无重置连续记录是否足以识别这些来源配对。已有数量重建不恢复来源，隐藏寄存器又可模拟部分输入输出，因此主动可识别性仍开放。",
+    "why_parent_result_does_not_close_it": "P03处理的是联合分配的有限域未来等价分类；它不固定干预序列、不研究一条连续记录的前缀区分能力，也不处理有理读数区间下的精确后验可行集。P02只提供可使用的Cell/切片/端口映射强度，也不能替代本任务的干预可识别性证明。",
+    "discriminating_outcomes": [
+      "对已有五Cell实例及固定干预/读出语义，完整枚举所有合法状态后，给出每条允许观测记录对应的精确可行状态集合；对可识别配对给出最短区分前缀，对不可识别配对给出同路径同干预下的严格不可区分见证。",
+      "给出隐藏寄存器或行为等价严格反例：不同来源配对在所有声明干预与有理误差区间内产生相同记录，从而只能识别行为等价类而不能识别原生层间位置。"
+    ],
+    "kill_condition": "若新增读出无法在P02/P03允许强度下绑定来源语义，或给定误差区间使多个合法状态始终不可分，则返回精确可行集与不可识别类并停止；不得以拟合、点估计、重置实验或补造隐藏状态宣告来源已识别。",
+    "alternative_route_or_free_exploration_considered": "可改用多条独立轨迹、每步重置、直接读取完整隐藏状态或增加多个传感器，但这些都会绕开“同一条无重置观察路径+一个新增来源敏感读出”的原问题。本项坚持该最小干预窗口，以得到可证的识别边界。",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "P03确定联合来源配对残差本身的必要性，本项研究主动观测是否能从单条连续记录恢复该残差，交付物是精确后验集合、最短区分前缀或不可识别反例。独立成任务既消费P02/P03边界又不扩大其范围，并为后续安全状态压缩与干预设计提供明确可识别性接口。"
+  },
+  "parent_objective_generation_id": "OG-7AE66316D7566C519AE0"
+}
