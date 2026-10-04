@@ -1,0 +1,424 @@
+{
+  "schema": "PROVISIONAL_BRC_X6_EULER_CERTIFICATE_V1",
+  "status": "FINITE_EXACT_CHECKS_PASSED_NOT_FORMALLY_ADMITTED",
+  "source_commit": "165a57caf1050267ea8579ca82d384616341ac55",
+  "source_path": "src/enterprise_math/brc_weighted.py",
+  "source_blob": "3f205696709e847909958a153f8fe10d3f6b70f0",
+  "loader": "Full byte-verified source, unmodified CWM AST core only; no LN imports/stubs.",
+  "extension": "brc_x6_extension.py",
+  "declared_actions": {
+    "T": "signed six-axis cycle",
+    "U": "reverse axes 5 and 6"
+  },
+  "action_index_is_physical_time": false,
+  "physical_force_law_derived": false,
+  "extension_independently_reviewed": false,
+  "cube_domain": {
+    "coordinate_values": [
+      -1,
+      0,
+      1
+    ],
+    "states": 729
+  },
+  "words": {
+    "alphabet": [
+      "T",
+      "U"
+    ],
+    "max_depth": 3,
+    "words_per_state": 15
+  },
+  "kernel_domain": {
+    "s_t_min": -3,
+    "s_t_max": 3,
+    "states": 49
+  },
+  "gluing_domain_mod3": {
+    "pairs": 729,
+    "accepted": 81,
+    "index": 9
+  },
+  "checks_by_group": {
+    "integral_reconstruction": 729,
+    "length_decomposition": 729,
+    "T_intertwiner": 729,
+    "U_intertwiner": 729,
+    "two_observation_reconstruction": 729,
+    "U_involution": 729,
+    "positive_CWM_retained": 729,
+    "coordinate_length_retained": 729,
+    "CWM_each_T_step": 8748,
+    "six_step_reversal": 729,
+    "twelve_step_return": 729,
+    "word_intertwiner": 10935,
+    "word_provenance": 10935,
+    "primitive_adjacency": 24,
+    "kernel_C12_zero": 49,
+    "kernel_C4": 49,
+    "kernel_U_reveals_nonzero": 49,
+    "gluing_acceptance": 81,
+    "gluing_rejection": 648,
+    "gluing_index_nine": 1,
+    "witness_before_same": 1,
+    "witness_after_distinct": 1,
+    "witness_norms": 1,
+    "three_branch_CWM": 1,
+    "serial_alternative_distributivity": 1,
+    "weighted_observer_intertwiner": 1
+  },
+  "total_checks": 38815,
+  "actual_source_CWM_calls": {
+    "cwm_edge": 36677,
+    "cwm_propagate": 35800,
+    "cwm_recoalesce": 6
+  },
+  "witness": {
+    "before_A": {
+      "source_id": "same-source",
+      "raw_x6": [
+        1,
+        0,
+        0,
+        0,
+        2,
+        0
+      ],
+      "history": [],
+      "cwm": {
+        "count": 1,
+        "total": "1",
+        "dominant": "1"
+      },
+      "c12": [
+        -1,
+        0,
+        2,
+        0
+      ],
+      "c4": [
+        3,
+        0
+      ],
+      "norm12_A_B": [
+        3,
+        0
+      ],
+      "native_length_square": 5
+    },
+    "before_B": {
+      "source_id": "same-source",
+      "raw_x6": [
+        -1,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "history": [],
+      "cwm": {
+        "count": 1,
+        "total": "1",
+        "dominant": "1"
+      },
+      "c12": [
+        -1,
+        0,
+        2,
+        0
+      ],
+      "c4": [
+        -3,
+        0
+      ],
+      "norm12_A_B": [
+        3,
+        0
+      ],
+      "native_length_square": 5
+    },
+    "after_U_A": {
+      "source_id": "same-source",
+      "raw_x6": [
+        1,
+        0,
+        0,
+        0,
+        -2,
+        0
+      ],
+      "history": [
+        "U"
+      ],
+      "cwm": {
+        "count": 1,
+        "total": "1",
+        "dominant": "1"
+      },
+      "c12": [
+        3,
+        0,
+        -2,
+        0
+      ],
+      "c4": [
+        -1,
+        0
+      ],
+      "norm12_A_B": [
+        7,
+        0
+      ],
+      "native_length_square": 5
+    },
+    "after_U_B": {
+      "source_id": "same-source",
+      "raw_x6": [
+        -1,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "history": [
+        "U"
+      ],
+      "cwm": {
+        "count": 1,
+        "total": "1",
+        "dominant": "1"
+      },
+      "c12": [
+        -1,
+        0,
+        2,
+        0
+      ],
+      "c4": [
+        -3,
+        0
+      ],
+      "norm12_A_B": [
+        3,
+        0
+      ],
+      "native_length_square": 5
+    }
+  },
+  "weighted_population": [
+    {
+      "source_id": "a",
+      "raw_x6": [
+        1,
+        0,
+        0,
+        0,
+        2,
+        0
+      ],
+      "history": [],
+      "cwm": {
+        "count": 1,
+        "total": "1/2",
+        "dominant": "1/2"
+      },
+      "c12": [
+        -1,
+        0,
+        2,
+        0
+      ],
+      "c4": [
+        3,
+        0
+      ],
+      "norm12_A_B": [
+        3,
+        0
+      ],
+      "native_length_square": 5
+    },
+    {
+      "source_id": "b",
+      "raw_x6": [
+        -1,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "history": [],
+      "cwm": {
+        "count": 1,
+        "total": "2/3",
+        "dominant": "2/3"
+      },
+      "c12": [
+        -1,
+        0,
+        2,
+        0
+      ],
+      "c4": [
+        -3,
+        0
+      ],
+      "norm12_A_B": [
+        3,
+        0
+      ],
+      "native_length_square": 5
+    },
+    {
+      "source_id": "c",
+      "raw_x6": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "history": [],
+      "cwm": {
+        "count": 1,
+        "total": "5/4",
+        "dominant": "5/4"
+      },
+      "c12": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "c4": [
+        0,
+        1
+      ],
+      "norm12_A_B": [
+        1,
+        0
+      ],
+      "native_length_square": 1
+    }
+  ],
+  "weighted_population_after_serial_edge": [
+    {
+      "source_id": "a",
+      "raw_x6": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        2
+      ],
+      "history": [
+        "T"
+      ],
+      "cwm": {
+        "count": 1,
+        "total": "1/3",
+        "dominant": "1/3"
+      },
+      "c12": [
+        0,
+        -1,
+        0,
+        2
+      ],
+      "c4": [
+        0,
+        3
+      ],
+      "norm12_A_B": [
+        3,
+        0
+      ],
+      "native_length_square": 5
+    },
+    {
+      "source_id": "b",
+      "raw_x6": [
+        0,
+        -1,
+        0,
+        2,
+        0,
+        0
+      ],
+      "history": [
+        "T"
+      ],
+      "cwm": {
+        "count": 1,
+        "total": "4/9",
+        "dominant": "4/9"
+      },
+      "c12": [
+        0,
+        -1,
+        0,
+        2
+      ],
+      "c4": [
+        0,
+        -3
+      ],
+      "norm12_A_B": [
+        3,
+        0
+      ],
+      "native_length_square": 5
+    },
+    {
+      "source_id": "c",
+      "raw_x6": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "history": [
+        "T"
+      ],
+      "cwm": {
+        "count": 1,
+        "total": "5/6",
+        "dominant": "5/6"
+      },
+      "c12": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "c4": [
+        -1,
+        0
+      ],
+      "norm12_A_B": [
+        1,
+        0
+      ],
+      "native_length_square": 1
+    }
+  ],
+  "excluded_claims": [
+    "physical rotation law",
+    "native triad-incidence preservation",
+    "energy or quantum mechanism",
+    "algorithmic speedup",
+    "full repository test suite"
+  ],
+  "file_sha256": {
+    "brc_x6_extension.py": "68eab1ee091f765db85b1e4b3849b34cdb1ade05650b6a494286a4b0088fc964",
+    "check_certificate.py": "ee419f0a81cf22534d7c5e302d51f56e672f0a635265348deec340eb8495dcd3",
+    "brc_weighted.py": "4f3e356227a1c964d33a3ddae94922463ba28097a43b8d1b8f6cd9ca5615fc9f"
+  }
+}
