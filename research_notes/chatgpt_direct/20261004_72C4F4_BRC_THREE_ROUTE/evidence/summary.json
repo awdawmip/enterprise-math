@@ -1,0 +1,134 @@
+{
+  "schema": "BRC_THREE_ROUTE_FILTER_CERTIFICATE_V1",
+  "status": "MODEL_FINITE_CHECKS_PASSED_NOT_FORMALLY_ADMITTED",
+  "base_model_commit": "9b4c1a0bc187f97ab4d0ca4bca2d96e57be867f3",
+  "source_cwm_commit": "165a57caf1050267ea8579ca82d384616341ac55",
+  "source_cwm_blob": "3f205696709e847909958a153f8fe10d3f6b70f0",
+  "counts": {
+    "raw_gluing_zero": 729,
+    "filter_visible_zero": 729,
+    "filter_hidden_unchanged": 729,
+    "filter_positive_weights": 729,
+    "all_paths_integral_compatible": 729,
+    "all_branch_lengths_retained": 729,
+    "root_and_path_identity": 729,
+    "exact_projector_first_moment": 729,
+    "single_cell_integrality_criterion": 729,
+    "echo_from_hidden": 729,
+    "echo_vanishes_iff_hidden_zero": 729,
+    "mix_then_filter_hidden_third": 729,
+    "mix_then_filter_visible_zero": 729,
+    "defect_transport": 729,
+    "endpoint_idempotence": 6,
+    "filter_not_full_state_idempotent": 6,
+    "persistent_hidden": 6,
+    "persistent_echo": 6,
+    "waiting_exact_echo": 1225,
+    "waiting_hidden_no_decay": 1225,
+    "unequal_visible_contraction": 10,
+    "unequal_hidden_unchanged": 10,
+    "attenuation_exact": 6,
+    "attenuation_echo": 6,
+    "attenuation_mass_not_lost": 6,
+    "common_future_bound": 186,
+    "path_sensitive_restore": 4,
+    "path_sensitive_observer_restore": 4,
+    "restore_preserves_positive_population": 4,
+    "mask_word_realizes_diagonal": 192,
+    "mask_filter_transfer": 64,
+    "all_even_masks_covered": 1,
+    "exact_mask_class_counts": 1,
+    "rational_aggregate_not_integer_carrier": 1
+  },
+  "total_assertions": 13175,
+  "source_CWM_calls": {
+    "cwm_edge": 212937,
+    "cwm_propagate": 211923,
+    "cwm_recoalesce": 4491
+  },
+  "mask_classes": {
+    "both_persistent": 2,
+    "one_attenuated": 12,
+    "both_attenuated": 18
+  },
+  "attenuation": [
+    {
+      "cycles": 0,
+      "paths": 3,
+      "hidden": "1",
+      "echo_c0": "2/3"
+    },
+    {
+      "cycles": 1,
+      "paths": 9,
+      "hidden": "1/3",
+      "echo_c0": "2/9"
+    },
+    {
+      "cycles": 2,
+      "paths": 27,
+      "hidden": "1/9",
+      "echo_c0": "2/27"
+    },
+    {
+      "cycles": 3,
+      "paths": 81,
+      "hidden": "1/27",
+      "echo_c0": "2/81"
+    },
+    {
+      "cycles": 4,
+      "paths": 243,
+      "hidden": "1/81",
+      "echo_c0": "2/243"
+    },
+    {
+      "cycles": 5,
+      "paths": 729,
+      "hidden": "1/243",
+      "echo_c0": "2/729"
+    }
+  ],
+  "files": {
+    "brc_three_route.py": {
+      "bytes": 5592,
+      "sha256": "6addd66d7e49d73aa4de3e5519134ba4724cca82766e17362c31c3651a0cf61c",
+      "git_blob": "6e039112dc95ccfb4621ee79f4904f7ac33216da"
+    },
+    "check_three_route.py": {
+      "bytes": 8288,
+      "sha256": "cf4bc978f08c06b8f65dbd1c8bf8b9a645c5b5cfb49a3cf26c5308d5851cda38",
+      "git_blob": "97f37127a33618e7deaec18d5b5c661e07ac29ac"
+    },
+    "brc_x6_extension.py": {
+      "bytes": 6685,
+      "sha256": "68eab1ee091f765db85b1e4b3849b34cdb1ade05650b6a494286a4b0088fc964",
+      "git_blob": "1b0e3747af2ea82a7f0f3b2e34f358dcefe70356"
+    },
+    "source/brc_weighted.py": {
+      "bytes": 9635,
+      "sha256": "4f3e356227a1c964d33a3ddae94922463ba28097a43b8d1b8f6cd9ca5615fc9f",
+      "git_blob": "3f205696709e847909958a153f8fe10d3f6b70f0"
+    }
+  },
+  "scope": {
+    "raw_cube": 729,
+    "waiting_inputs": 25,
+    "waiting_indices": "0..48",
+    "repeat_depth": "1..6",
+    "attenuation_cycles": "0..5",
+    "future_words": "all T/U words length <=4",
+    "path_sensitive_restore_cycles": "0..3"
+  },
+  "excluded_claims": [
+    "native triadic force law",
+    "Cell-gate/native X6 intertwiner",
+    "physical heartbeat timing",
+    "spatial transmission distance",
+    "physical energy dissipation",
+    "quantum entanglement",
+    "independent replication",
+    "whole repository tests"
+  ],
+  "arithmetic": "Actual pinned CWM core and provenance-preserving T/U extension. No pi, trig, matrix exponential, Taylor/Pade/Cayley, or floating reference run."
+}
