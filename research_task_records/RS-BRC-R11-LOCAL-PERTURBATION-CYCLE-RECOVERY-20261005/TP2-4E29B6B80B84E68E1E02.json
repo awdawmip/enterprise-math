@@ -1,0 +1,62 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "task_id": "RS-BRC-R11-LOCAL-PERTURBATION-CYCLE-RECOVERY-20261005",
+  "registry_key": "RS-BRC-R11-LOCAL-PERTURBATION-CYCLE-RECOVERY-20261005",
+  "publication_id": "TP2-4E29B6B80B84E68E1E02",
+  "publication_generation": 1,
+  "supersedes_publication_id": null,
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "taskbook_path": "research_tasks/RS-BRC-R11-LOCAL-PERTURBATION-CYCLE-RECOVERY-20261005.md",
+  "taskbook_blob_sha1": "sha1:349d34e6ffddd30e7fc85f1a926e3e689d15dbf4",
+  "publisher_role": "RESEARCHER",
+  "publisher_id": "EM-DIRECT-468C61",
+  "published_at": "2026-10-04T16:47:30+00:00",
+  "parent_objective_id": "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS",
+  "origin_kind": "DIRECT_USER_DIRECTION",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-BRC-SHOR-EVIDENCE-PROVENANCE-REPAIR-20261004",
+  "claimable": true,
+  "effective_priority": "P2",
+  "effective_leverage": "MEDIUM",
+  "priority_source": "RESEARCHER_DEFAULT",
+  "publisher_priority_request": "P2",
+  "publisher_leverage_request": "MEDIUM",
+  "owner": "taskbook/unassigned",
+  "frontier": "R11给活动二态/全域六拍的完整当前状态证书；有限性不保证普遍高效；P01已正式发布证据/版本归属修复任务。",
+  "next_action": "从R11已有完整检查点施加一个预声明局部扰动，明确影响域和旧周期证书的失效/再认证条件，并与同一扰动的逐步语义比较完整目标场、端口活动及来源。",
+  "research_value": "确定R11局部扰动后的受影响域和周期证书再认证边界，使周期复用只发生在完整状态可验证时。",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "identity_lane": "P09",
+  "source_refs": [
+    "private-intake:EM-BRC-SLICE-PRIVATE-INTAKE-20261004-F9ED02",
+    "private-intake-sha256:1edf20e5880df29ca865e2249be429361ba6f1e24798cfb1ba6aebf1ec3bdc6d",
+    "private-intake-proposal:P09",
+    "private-evidence:residual_cycle_R11/PROOF.md",
+    "private-evidence:residual_feedback_R10/PROOF.md",
+    "https://github.com/awdawmip/enterprise-math/blob/06754542f6e552c705958dee9987096066414a84/research_task_records/RS-BRC-SHOR-EVIDENCE-PROVENANCE-REPAIR-20261004/TP2-D471289CD4EBEF06960B.json"
+  ],
+  "dependencies": [
+    "RS-BRC-SHOR-EVIDENCE-PROVENANCE-REPAIR-20261004"
+  ],
+  "evidence_status": "PRIVATE_SOURCE_PACKET_VERIFIED; FORMAL_DEPENDENCIES_VERIFIED_OR_ATOMIC_BATCHED; PUBLIC_TASK_METADATA_ONLY; SCIENTIFIC_EXECUTION_NOT_PERFORMED_BY_PUBLICATION",
+  "successor_gate": {
+    "new_information_gap": "R11已有活动二态/全域六拍完整当前状态证书，但局部改变少数残差或边界后，旧周期证书何处失效、影响域是否有限、何时可以局部再认证尚未执行。",
+    "why_parent_result_does_not_close_it": "P01只负责源材料版本与归属，不研究R11检查点在局部扰动后的动力学更新；读取旧周期本身也不能证明扰动后仍可复用。",
+    "discriminating_outcomes": [
+      "对一个预声明局部扰动给出受影响域、旧周期证书失效边界和局部/全局再认证条件，并与同一扰动的明确逐步语义在完整目标场、端口活动和来源上逐项一致。",
+      "给出反例证明扰动导致密集影响或长新周期，使局部恢复无收益；据此保留完整逐步更新而非强行周期跳跃。"
+    ],
+    "kill_condition": "若影响迅速变密或新周期长到局部恢复无收益，则停止优化并保留该事实；不得从总量、背景重复或旧周期直接跳过完整状态。",
+    "alternative_route_or_free_exploration_considered": "整域从零重跑始终可行但浪费已验证检查点；直接沿用旧六拍又不安全。局部影响域+再认证是最小可验证增量路线。",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "P01解决证据身份，P09消费已验证R11检查点研究一个新的扰动恢复问题；交付物是失效/再认证条件和影响域证书，不能由P01或读取旧周期代替。"
+  },
+  "parent_objective_generation_id": "OG-7AE66316D7566C519AE0"
+}

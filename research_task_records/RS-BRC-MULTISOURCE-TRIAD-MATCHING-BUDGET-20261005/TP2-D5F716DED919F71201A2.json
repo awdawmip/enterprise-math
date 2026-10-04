@@ -1,0 +1,63 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "task_id": "RS-BRC-MULTISOURCE-TRIAD-MATCHING-BUDGET-20261005",
+  "registry_key": "RS-BRC-MULTISOURCE-TRIAD-MATCHING-BUDGET-20261005",
+  "publication_id": "TP2-D5F716DED919F71201A2",
+  "publication_generation": 1,
+  "supersedes_publication_id": null,
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "taskbook_path": "research_tasks/RS-BRC-MULTISOURCE-TRIAD-MATCHING-BUDGET-20261005.md",
+  "taskbook_blob_sha1": "sha1:1cca86b43ad2c9665f276af6c48fadaabada4e98",
+  "publisher_role": "RESEARCHER",
+  "publisher_id": "EM-DIRECT-468C61",
+  "published_at": "2026-10-04T16:47:30+00:00",
+  "parent_objective_id": "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS",
+  "origin_kind": "DIRECT_USER_DIRECTION",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-BRC-SHOR-EVIDENCE-PROVENANCE-REPAIR-20261004",
+  "claimable": true,
+  "effective_priority": "P2",
+  "effective_leverage": "MEDIUM",
+  "priority_source": "RESEARCHER_DEFAULT",
+  "publisher_priority_request": "P2",
+  "publisher_leverage_request": "MEDIUM",
+  "owner": "taskbook/unassigned",
+  "frontier": "M2只在最多三个同源槽范围避免匹配歧义；M3只证无碰撞无回流单通道闭合；N1已做共享预算拒绝但未推导一般原生作用；P01已正式发布证据/版本归属修复任务。",
+  "next_action": "在原固定接触数据内选择两个来源的最小相遇窗口，枚举全部合法三元匹配并保留关联；分别检查同源与允许跨源候选的逐来源守恒、共享预算单次消费和完整当前状态。",
+  "research_value": "完整枚举多源三元接触与共享预算，区分确定守恒约束和仍不可识别的跨源本构。",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "identity_lane": "P07",
+  "source_refs": [
+    "private-intake:EM-BRC-SLICE-PRIVATE-INTAKE-20261004-F9ED02",
+    "private-intake-sha256:1edf20e5880df29ca865e2249be429361ba6f1e24798cfb1ba6aebf1ec3bdc6d",
+    "private-intake-proposal:P07",
+    "private-evidence:heartbeat_native_candidates_M2/PROOF.md",
+    "private-evidence:heartbeat_residual_state_M3/PROOF.md",
+    "private-evidence:native_cell_pointer_N1/PROOF.md",
+    "https://github.com/awdawmip/enterprise-math/blob/06754542f6e552c705958dee9987096066414a84/research_task_records/RS-BRC-SHOR-EVIDENCE-PROVENANCE-REPAIR-20261004/TP2-D471289CD4EBEF06960B.json"
+  ],
+  "dependencies": [
+    "RS-BRC-SHOR-EVIDENCE-PROVENANCE-REPAIR-20261004"
+  ],
+  "evidence_status": "PRIVATE_SOURCE_PACKET_VERIFIED; FORMAL_DEPENDENCIES_VERIFIED_OR_ATOMIC_BATCHED; PUBLIC_TASK_METADATA_ONLY; SCIENTIFIC_EXECUTION_NOT_PERFORMED_BY_PUBLICATION",
+  "successor_gate": {
+    "new_information_gap": "M2只在少量同源槽内消除匹配歧义，M3只覆盖无碰撞无回流单通道，N1只给共享预算拒绝；多源相遇时跨源承接、反馈和共享总预算尚无唯一合法匹配规则。",
+    "why_parent_result_does_not_close_it": "P01修复的是版本、作者、输入输出与证据归属；它不决定两个来源在同一接触窗口中的三元匹配、共享预算如何只消费一次，也不提供跨源承接的原生本构。",
+    "discriminating_outcomes": [
+      "在固定两个来源的最小相遇窗口中枚举全部合法三元匹配，逐来源槽守恒并证明共享预算只消费一次；分别给出同源与允许跨源候选的完整当前状态。",
+      "若现有本构不足以唯一选择候选，则给出至少两个在全部已知约束下均合法但未来不同的候选，证明物理唯一性当前不可识别。"
+    ],
+    "kill_condition": "没有来源可核验的本构时只报告候选差异和自由度，不得任选ID配对、默认等概率、引入Born规则或人为条纹，也不得把已停用通用对象池/指针恢复为主路径。",
+    "alternative_route_or_free_exploration_considered": "可以任意指定ID配对、用等概率混合或引入更强外部概率规则，但这些都会增加未授权本构。完整有限匹配枚举是保留关联和共享预算的最小无偏路线。",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "P01只保证早期证据可追溯；本项在这些已归属材料上提出新的有限多源接触科学问题，必须单独给匹配/预算证书或不可识别性结论。"
+  },
+  "parent_objective_generation_id": "OG-7AE66316D7566C519AE0"
+}
