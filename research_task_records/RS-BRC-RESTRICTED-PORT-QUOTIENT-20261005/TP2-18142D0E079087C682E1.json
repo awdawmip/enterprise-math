@@ -1,0 +1,63 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "task_id": "RS-BRC-RESTRICTED-PORT-QUOTIENT-20261005",
+  "registry_key": "RS-BRC-RESTRICTED-PORT-QUOTIENT-20261005",
+  "publication_id": "TP2-18142D0E079087C682E1",
+  "publication_generation": 1,
+  "supersedes_publication_id": null,
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "taskbook_path": "research_tasks/RS-BRC-RESTRICTED-PORT-QUOTIENT-20261005.md",
+  "taskbook_blob_sha1": "sha1:a5ba4a290d5c3f730344a5987c247b96aeabf414",
+  "publisher_role": "RESEARCHER",
+  "publisher_id": "EM-DIRECT-468C61",
+  "published_at": "2026-10-04T16:47:30+00:00",
+  "parent_objective_id": "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS",
+  "origin_kind": "DIRECT_USER_DIRECTION",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-BRC-CYCLE-FLUX-ENTRY-STATE-20261004",
+  "claimable": true,
+  "effective_priority": "P2",
+  "effective_leverage": "MEDIUM",
+  "priority_source": "RESEARCHER_DEFAULT",
+  "publisher_priority_request": "P2",
+  "publisher_leverage_request": "MEDIUM",
+  "owner": "taskbook/unassigned",
+  "frontier": "任意有限切换线性集下的公共不变核、至多m-rankP深度稳定和五Cell N2=0已推导；P03/P04已正式发布相邻联合关系与循环/入口状态任务，但状态依赖合法词下的全局安全端口商尚未执行。",
+  "next_action": "固定一个有有限控制状态的合法词语言，构造控制状态×差异空间下降；线性条件失效时改用完整有界状态关系，输出全局q、拒绝词、终止证明与含来源/配对读出的最短反例。",
+  "research_value": "在受限操作语言下给出可证明的安全端口商和最小可观察状态，防止隐藏控制或来源/配对读出被错误删除。",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "identity_lane": "P06",
+  "source_refs": [
+    "private-intake:EM-BRC-SLICE-PRIVATE-INTAKE-20261004-F9ED02",
+    "private-intake-sha256:1edf20e5880df29ca865e2249be429361ba6f1e24798cfb1ba6aebf1ec3bdc6d",
+    "private-intake-proposal:P06",
+    "private-evidence:CONVERSATION_FRONTIER.md",
+    "https://github.com/awdawmip/enterprise-math/blob/06754542f6e552c705958dee9987096066414a84/research_task_records/RS-BRC-SOURCE-EXIT-PAIRING-20261004/TP2-DCA5A080B5E0D5135648.json",
+    "https://github.com/awdawmip/enterprise-math/blob/06754542f6e552c705958dee9987096066414a84/research_task_records/RS-BRC-CYCLE-FLUX-ENTRY-STATE-20261004/TP2-B5596854AA32D5099A95.json"
+  ],
+  "dependencies": [
+    "RS-BRC-SOURCE-EXIT-PAIRING-20261004",
+    "RS-BRC-CYCLE-FLUX-ENTRY-STATE-20261004"
+  ],
+  "evidence_status": "PRIVATE_SOURCE_PACKET_VERIFIED; FORMAL_DEPENDENCIES_VERIFIED_OR_ATOMIC_BATCHED; PUBLIC_TASK_METADATA_ONLY; SCIENTIFIC_EXECUTION_NOT_PERFORMED_BY_PUBLICATION",
+  "successor_gate": {
+    "new_information_gap": "P03/P04分别给出联合配对残差与循环通量/入口状态的待验证边界，但实际路由允许的操作词具有控制状态依赖；任意词闭包或只在单个Cell上检验的端口等价不能自动推出全局安全删状态。",
+    "why_parent_result_does_not_close_it": "P04研究特定循环通量、入口状态和必要顺序是否闭合；它不构造有限控制状态下的合法操作语言，也不证明一个候选端口商对所有允许词和来源/配对读出都保持未来等价。P03同样只给联合关系前沿。",
+    "discriminating_outcomes": [
+      "构造控制状态×差异空间的严格下降算法，给出全局商q、每个允许操作的下降条件、拒绝词、终止证明和最短区分见证。",
+      "若线性闭包不适用，转为完整有界状态关系，并给出两个被候选商错误合并但被合法未来词或来源/配对读出区分的严格反例。"
+    ],
+    "kill_condition": "任何未覆盖的隐藏控制状态、合法未来操作或来源/配对读出都使删状态许可失效；若非线性门控破坏线性不变核前提，则不得挪用Cayley-Hamilton或线性深度界。",
+    "alternative_route_or_free_exploration_considered": "保存完整状态始终安全但没有压缩收益；把合法语言放宽成任意词闭包会产生伪等价。选择有限控制乘积是最小既保真又可判定的路线。",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "P04解决一个具体动态闭合问题，本项把P03/P04前沿提升为受限操作语言下的通用安全商判据，交付物是下降算法/有限关系证书而非单个循环窗口，因此需要独立任务。"
+  },
+  "parent_objective_generation_id": "OG-7AE66316D7566C519AE0"
+}
