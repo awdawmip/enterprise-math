@@ -1,0 +1,37 @@
+{
+  "schema": "EM_FREE_F6D046_P46_P7_MATRIX_IDEMPOTENT_VERIFICATION_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "research_units": ["R61", "R62", "R63", "R64"],
+  "all_passed": true,
+  "check_count": 9,
+  "checks": {
+    "J_square_alpha": true,
+    "J_inverse": true,
+    "idempotents": true,
+    "J_swaps_e0_e1": true,
+    "centralizer_equations": true,
+    "hermitian_similitude": true,
+    "offdiag_Hilbert90_solution": true,
+    "general_descent_shape": true,
+    "fixed_algebra_field_no_idempotent": true
+  },
+  "endomorphism_algebras": {
+    "over_F7": "L=F(sqrt(alpha))=Q(pi_7), degree 8 field",
+    "over_F49": "M_2(F)"
+  },
+  "companion_matrix": "J=[[0,alpha],[1,0]]",
+  "fixed_centralizer": "F[J]=F(sqrt(alpha))",
+  "projectors": ["diag(1,0)", "diag(0,1)"],
+  "descent_action": "J e0 J^-1=e1; J e1 J^-1=e0",
+  "hermitian_descent_matrix": "diag(1,7)",
+  "general_hermitian_family": "[[a,c(alpha+7)],[c(bar(alpha)+7),7a]], a,c in F+",
+  "classification": [
+    "DERIVED_ENDOMORPHISM_DESCENT",
+    "EXPLICIT_EXCHANGED_IDEMPOTENTS",
+    "NONAUTOMORPHIC_TATE_CORRESPONDENCE",
+    "INTEGRAL_POLARIZATION_OPEN",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION",
+    "P000_UNCHANGED"
+  ]
+}

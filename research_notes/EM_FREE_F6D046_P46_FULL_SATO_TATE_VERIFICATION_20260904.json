@@ -1,0 +1,62 @@
+{
+  "schema": "EM_FREE_F6D046_P46_FULL_SATO_TATE_VERIFICATION_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "research_units": [
+    "EM-FREE-F6D046-R28-P46-ENDOMORPHISM-FIELD-QI",
+    "EM-FREE-F6D046-R29-P46-FULL-MONODROMY-NORMALIZER",
+    "EM-FREE-F6D046-R30-P46-FULL-SATO-TATE-U4-C2"
+  ],
+  "all_passed": true,
+  "check_count": 19,
+  "checks": {
+    "sigma_order_4": true,
+    "sigma_square_is_Prym_involution": true,
+    "complex_conjugation_sends_sigma_to_inverse": true,
+    "induced_I_satisfies_I2_minus_1": true,
+    "End_ring_dependency_Zi": true,
+    "endomorphism_field_Qi": true,
+    "normalizer_quotient_Aut_Qi_C2": true,
+    "full_monodromy_has_two_components": true,
+    "Omega_square_minus_identity": true,
+    "B_square_minus_identity": true,
+    "B_unitary_real": true,
+    "J_symplectic": true,
+    "iotaB_symplectic": true,
+    "split_component_representative_order_2": true,
+    "S_symplectic": true,
+    "Sato_Tate_identity_component_U4": true,
+    "Sato_Tate_component_group_C2": true,
+    "Sato_Tate_semidirect_product_split_in_even_rank_4": true,
+    "compact_component_action_involutive": true
+  },
+  "deck_action": {
+    "sigma": "(t,v,m)->(t,-v,i*m)",
+    "sigma_2": "(t,v,m)->(t,v,-m)",
+    "complex_conjugate_sigma": "sigma^-1",
+    "endomorphism_field": "Q(i)"
+  },
+  "monodromy": {
+    "connected": "GU_K(V,h)",
+    "full": "Normalizer_GSp(K)",
+    "component_group": "C2=Gal(Q(i)/Q)"
+  },
+  "compact_model": {
+    "identity_component": "U(4)",
+    "embedding": "A -> diag(A,bar(A)) in USp(8)",
+    "J": [[0,0,0,0,1,0,0,0],[0,0,0,0,0,1,0,0],[0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,1],[-1,0,0,0,0,0,0,0],[0,-1,0,0,0,0,0,0],[0,0,-1,0,0,0,0,0],[0,0,0,-1,0,0,0,0]],
+    "B": [[0,0,1,0],[0,0,0,1],[-1,0,0,0],[0,-1,0,0]],
+    "S": "diag(B,B)*J",
+    "S_square": "I_8",
+    "action": "alpha(A)=B*bar(A)*B^-1",
+    "full_group": "U(4) semidirect C2"
+  },
+  "boundary": "Group classification only; analytic Sato-Tate equidistribution is not asserted.",
+  "classification": [
+    "DERIVED_ENDOMORPHISM_FIELD_THEOREM",
+    "FULL_MONODROMY_NORMALIZER",
+    "SATO_TATE_U4_SEMIDIRECT_C2",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION",
+    "P000_UNCHANGED"
+  ]
+}

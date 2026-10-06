@@ -1,0 +1,50 @@
+{
+  "schema": "EM_FREE_F6D046_B_GENUS2_WEIL_RESTRICTION_EVIDENCE_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "research_units": [
+    "EM-FREE-F6D046-R40-B-EXPLICIT-GENUS2-JACOBIAN",
+    "EM-FREE-F6D046-R41-B-PRINCIPAL-POLARIZATION",
+    "EM-FREE-F6D046-R42-P7-WEIL-RESTRICTION-REALIZATION"
+  ],
+  "base_field": "F49=F7[u]/(u^2+1)",
+  "curve": "y^2=x^5+(5+6u)x^4+(1+3u)x^3+3u*x^2+4x+(2+4u)",
+  "point_counts": {"F49": 55, "F2401": 2377},
+  "weil_polynomial": "T^4+5T^3+245T+2401",
+  "jacobian_order_F49": 2652,
+  "hasse_witt": {
+    "matrix_encoded_a_plus_7b": [[41,25],[5,39]],
+    "rank": 1,
+    "stable_rank": 1,
+    "p_rank": 1,
+    "a_number": 1
+  },
+  "theorems": {
+    "R40": "Jac(C) is F49-isogenous to the absolutely simple Honda-Tate surface B",
+    "R41": "the B isogeny class contains the explicitly principally polarized Jacobian (Jac(C),lambda_C)",
+    "R42": "P46,7 is F7-isogenous to Res_{F49/F7} Jac(C)"
+  },
+  "weil_restriction": {
+    "charpoly": "h(T^2)=T^8+5T^6+245T^2+2401",
+    "F7_point_count": 2652,
+    "base_change": "Res(J(C)) tensor F49 = J(C) x J(C)^(7), isogenous to B^2",
+    "principal_polarization": "Res(lambda_C) is an isomorphism to the dual"
+  },
+  "verification": {
+    "script": "scripts/verify_em_free_f6d046_b_genus2_weil_restriction.py",
+    "output": "research_notes/EM_FREE_F6D046_B_GENUS2_WEIL_RESTRICTION_VERIFICATION_20260904.json",
+    "script_sha256": "ab0eee8bc9ace0decd6eef760ce7c705730c1d2323c6675a6ce8acefeed6b07b",
+    "output_sha256": "a2a56c08a3eb59847d2fd9faa159522b5c2d1397b009335c1fd8352b6e2fe69a",
+    "all_passed": true,
+    "check_count": 20,
+    "byte_identical_rerun": true
+  },
+  "classification": [
+    "DERIVED_EXPLICIT_GENUS2_MODEL",
+    "B_ISOGENOUS_TO_JACOBIAN",
+    "PRINCIPAL_POLARIZATION_EXHIBITED",
+    "P7_WEIL_RESTRICTION_REALIZATION",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION",
+    "P000_UNCHANGED"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "schema": "EM_FREE_F6D046_P46_P7_CARTIER_EO_VERIFICATION_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "research_units": ["R70", "R71", "R72"],
+  "all_passed": true,
+  "check_count": 10,
+  "checks": {
+    "quartic_model": true,
+    "cartier_F5": true,
+    "cartier_DF_coefficients": true,
+    "matrix_rank": true,
+    "matrix_square_rank": true,
+    "kernel_vectors": true,
+    "stable_cycle": true,
+    "p_rank": true,
+    "a_number": true,
+    "EO_final_type": true
+  },
+  "quartic_F_coefficients_low": [4,0,1,4,5,4,1,1],
+  "Cartier_F5_coefficients_low": [6,4,6,2,5],
+  "Cartier_matrix_columns": [
+    [0,0,5,4],
+    [3,0,0,0],
+    [2,0,0,0],
+    [5,0,0,0]
+  ],
+  "kernel_basis": ["v0", "2v1+v2"],
+  "stable_image_basis": ["u", "3v0+2v1+5v2"],
+  "p_rank": 2,
+  "a_number": 2,
+  "EO_final_type": [1,2,2,2],
+  "classification": [
+    "DERIVED_EXPLICIT_CARTIER_MATRIX",
+    "P_RANK_2",
+    "A_NUMBER_2",
+    "EO_TYPE_1222",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION",
+    "P000_UNCHANGED"
+  ]
+}

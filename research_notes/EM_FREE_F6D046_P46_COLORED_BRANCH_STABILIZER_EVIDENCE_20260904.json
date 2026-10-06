@@ -1,0 +1,33 @@
+{
+  "schema": "EM_FREE_F6D046_P46_COLORED_BRANCH_STABILIZER_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "research_unit": "EM-FREE-F6D046-R16-P46-COLORED-BRANCH-STABILIZER",
+  "coordinate_change": {
+    "u": "t+6",
+    "s_relation": "s^2=12",
+    "x": "(u-s)/(u+s)",
+    "D_roots_in_x": ["0", "infinity"]
+  },
+  "transformed_A_coefficients": [
+    "-144-48*s",
+    "576+96*s",
+    "1440",
+    "576-96*s",
+    "-144+48*s"
+  ],
+  "normal_forms_preserving_D_pair": [
+    "x -> lambda*x",
+    "x -> lambda/x"
+  ],
+  "scaling_case": "constant and linear coefficients force mu=1 and lambda=1",
+  "inversion_necessary_condition": "a0*a3^2=a1^2*a4",
+  "inversion_defect": "(-48)*96^2*24*s != 0",
+  "verdict": "TRIVIAL_COLORED_PGL2_STABILIZER",
+  "scope_boundary": "Controls automorphisms normalizing the C4 deck group only; not a complete automorphism-group or endomorphism-algebra theorem.",
+  "classification": [
+    "DERIVED_EXACT_OBSTRUCTION",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION",
+    "P000_UNCHANGED"
+  ]
+}

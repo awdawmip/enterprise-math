@@ -1,0 +1,89 @@
+{
+  "schema": "EM_FREE_F6D046_P46_MAXIMAL_FROBENIUS_MUMFORD_TATE_VERIFICATION_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "research_units": [
+    "EM-FREE-F6D046-R25-P46-MAXIMAL-FROBENIUS-TORUS",
+    "EM-FREE-F6D046-R26-P46-MUMFORD-TATE-GU31"
+  ],
+  "all_passed": true,
+  "check_count": 16,
+  "checks": {
+    "norm_factorization": true,
+    "reciprocal_pairing": true,
+    "constant_norm": true,
+    "g_irreducible_over_Qi": true,
+    "cubic_resolvent_irreducible_over_Qi": true,
+    "discriminant_exact": true,
+    "discriminant_nonsquare_over_Qi": true,
+    "galois_group_S4": true,
+    "determinant_phase_nontorsion": true,
+    "R23_pairwise_torsion_exclusion_dependency": true,
+    "torsion_relation_lattice_zero": true,
+    "normalized_angle_rank_4": true,
+    "frobenius_torus_dimension_5": true,
+    "ambient_GU_rank_5": true,
+    "maximal_frobenius_torus": true,
+    "larsen_pink_rank_independence_applicable": true
+  },
+  "g29": "X**4 + X**3*(2 + 6*I) + X**2*(-20 - 8*I) + X*(162 - 86*I) + 609 + 580*I",
+  "g29_conjugate": "X**4 + X**3*(2 - 6*I) + X**2*(-20 + 8*I) + X*(162 + 86*I) + 609 - 580*I",
+  "f29": "X**8 + 4*X**7 + 148*X**5 + 1298*X**4 + 4292*X**3 + 97556*X + 707281",
+  "cubic_resolvent": "Y**3 + 20*Y**2 + 8*I*Y**2 - 1596*Y - 1520*I*Y - 15600 - 34080*I",
+  "discriminant": "-26583701760 + 30788326400*I",
+  "irreducibility_certificates": {
+    "g29": {
+      "prime": 101,
+      "degree": 4,
+      "polynomial_low": [46,9,1,62,1],
+      "x_l_degree_remainder": [0,1],
+      "gcds": {"2":[1]}
+    },
+    "resolvent": {
+      "prime": 17,
+      "degree": 3,
+      "polynomial_low": [9,8,1,1],
+      "x_l_degree_remainder": [0,1],
+      "gcds": {"3":[1]}
+    }
+  },
+  "discriminant_nonsquare_witness": {
+    "prime_ideal": "(13,i-5)",
+    "residue": 8,
+    "legendre_symbol": -1
+  },
+  "determinant_phase": {
+    "d": "609+580*i",
+    "p_squared": 841,
+    "u": "(609+580*i)/841",
+    "norm_u": 1,
+    "roots_of_unity_in_Qi": ["1","-1","i","-i"],
+    "u_is_root_of_unity": false
+  },
+  "relation_lattice_proof_schema": {
+    "lattice": "R={n in Z^4: product(delta_j^n_j) is torsion}, delta_j=beta_j^2/29",
+    "S4_submodules_of_Q4": ["0","trivial line","standard sum-zero module","Q4"],
+    "standard_excluded_by": "R23 pairwise root-ratio torsion exclusion",
+    "trivial_line_excluded_by": "product(delta_j)=u^2 with u non-torsion in Q(i)",
+    "conclusion": "R=0"
+  },
+  "group_theoretic_upgrade": {
+    "ambient_lefschetz_group": "GU_K(V,h), K=Q(i), signature (3,1)",
+    "absolute_rank": 5,
+    "split_form": "GL4 x Gm",
+    "subgroup_lemma": "connected reductive H subset GL4 of rank 4 with scalar commutant is GL4",
+    "l_adic_conclusion_at_5": "G_5^0 = GU_K(V,h)_Q5",
+    "mumford_tate_conclusion": "MT(P46)=GU_K(V,h)",
+    "rank_independence": "Larsen-Pink applies to the semisimple strictly compatible Tate-module system",
+    "all_l_adic_conclusion": "G_ell^0 = GU_K(V,h)_Qell for every ell",
+    "scope": "Mumford-Tate conjecture is proved for all ell."
+  },
+  "classification": [
+    "DERIVED_FROBENIUS_TORUS_THEOREM",
+    "MAXIMAL_ANGLE_RANK",
+    "MUMFORD_TATE_GROUP_GU31",
+    "MUMFORD_TATE_CONJECTURE_ALL_ELL",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION",
+    "P000_UNCHANGED"
+  ]
+}
