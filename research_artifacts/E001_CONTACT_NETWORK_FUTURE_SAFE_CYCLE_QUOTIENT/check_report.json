@@ -1,0 +1,31 @@
+{
+  "schema": "ENTERPRISE_MATH_E001_CYCLE_QUOTIENT_CHECK_V1",
+  "task_id": "RS-E001-CONTACT-NETWORK",
+  "researcher_id": "EM-E001-0FB652",
+  "claim_id": "chatgpt-e001cn-20260830-2027-c42f19",
+  "source_owner_head": "a31dc25c90d36b64110d93e5ccf7349c9ca40673",
+  "execution_branch_base": "cdfb6abd2c9ab15e6295a0c07125443c1d619f59",
+  "verdict": "PASS",
+  "hard_target_disposition": "EXACT_FUTURE_SAFE_CYCLE_QUOTIENT_CRITERION_PLUS_MINIMAL_PERSISTENT_CONTACT_COUNTEREXAMPLE_ACHIEVED",
+  "triangle": {
+    "incidence_matrix": [[-1, 0, 1], [1, -1, 0], [0, 1, -1]],
+    "rank_B_over_Q": 2,
+    "cycle_vector": [1, 1, 1],
+    "B_cycle": [0, 0, 0],
+    "K_cycle_for_D_identity": [0, 0, 0],
+    "safe_linear_persistent_map_C_equals_B": true,
+    "unsafe_linear_persistent_map_C_equals_identity": true
+  },
+  "linear_criterion": {
+    "statement": "future-relevant persistent linear witness w'=w+Cj is cycle-quotient-safe iff ker_Z(B) subset ker_Z(C), equivalently row_Q(C) subset row_Q(B), equivalently rank_Q([B;C])=rank_Q(B)",
+    "safe_example_stacked_rank": 2,
+    "unsafe_identity_example_stacked_rank": 3
+  },
+  "exhaustive_one_row_C": {
+    "coefficient_alphabet": [-1, 0, 1],
+    "cases": 27,
+    "mismatches_between_kernel_and_rank_criteria": 0
+  },
+  "unresolved_task_residue": "NONE",
+  "scope_boundary": "The general factor-through-a-quotient theorem is generic quotient algebra; this return claims only the E001 contact-network specialization and its minimal persistent-contact boundary."
+}
