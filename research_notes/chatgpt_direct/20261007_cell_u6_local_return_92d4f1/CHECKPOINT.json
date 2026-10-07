@@ -1,0 +1,63 @@
+{
+  "status": "CONDITIONAL_U5_NO_LOCALIZATION_CERTIFICATE",
+  "event_id": "EM-20261007-CELL-U6-LOCAL-RETURN-92D4F1",
+  "checks": 17863,
+  "BRC_calls": {
+    "cwm_edge": 173201,
+    "cwm_propagate": 1539516,
+    "cwm_recoalesce": 3048978,
+    "one_state_recurrent_cwm": 42
+  },
+  "certificates": {
+    "adjacent_pair": {
+      "escape_lower": "1/9",
+      "return_upper": "8/9",
+      "jump_visit_bound": "9",
+      "local_active_exposure_bound": "72"
+    },
+    "gap_pair": {
+      "escape_lower": "2/9",
+      "return_upper": "7/9",
+      "jump_visit_bound": "9/2",
+      "local_active_exposure_bound": "36"
+    },
+    "square_221": {
+      "escape_lower": "68/4725",
+      "return_upper": "4657/4725",
+      "jump_visit_bound": "4725/68",
+      "local_active_exposure_bound": "18900/17"
+    }
+  },
+  "holding_preserves_spatial_jump_chain": true,
+  "fixed_finite_material_local_active_sum_finite": true,
+  "fixed_finite_material_local_active_and_dormant_tend_zero": true,
+  "nonzero_finite_mass_stationary_response_impossible": true,
+  "bounded_material_schedule_extension": "PROVED_SYMBOLICALLY_NOT_ENUMERATED",
+  "stopped_at_region_exit_trajectory_TV_bound": "min(1,C_B*(active_l1+dormant_l1)/kappa)",
+  "unbounded_comoving_localization": "UNRESOLVED",
+  "trace_sha256": "7b044c017cb9d256f372e6091f9a6f9392908e54be751e6d037130c82cd81778",
+  "trace_bytes": 28192710,
+  "trace_compressed_sha256": "7a2d94afd39c1490a1acab5f57e17ae6cc04da7b56b95fd1e024ddf6646c6ee9",
+  "schema": "CELL_U6_LOCAL_RETURN_CHECKPOINT_V1",
+  "activity_id": "RA-2148DEBF96D56FDD3C426AE4",
+  "global_read_snapshot": "4ae8956b65ced23a31929c866a9d78495f7526b2",
+  "source_directory": "research_notes/chatgpt_direct/20261007_cell_u6_local_return_92d4f1",
+  "files": {
+    "NOTE.md": {
+      "sha256": "8701133262af90596f41234d44dcfcba1588825abd37ff48636801354c7b4a49",
+      "git_blob": "480f0f8d2b178ed21e91aa768f1351508d3e2c53",
+      "bytes": 16323
+    },
+    "check_u6.py": {
+      "sha256": "3f83bac18279a19e1c85861487ea38dbacc8f82c133a967f63e0b01826ba3d37",
+      "git_blob": "c8f324380f6054ea298c38c2f5becf90af71e325",
+      "bytes": 12532
+    }
+  },
+  "native_force": false,
+  "prime_claim": false,
+  "physical_time": false,
+  "full_trace_uploaded": false,
+  "isolated_same_author_replay_bytes_equal": true,
+  "next": "Source a genuine material-local return/action mechanism; constant local reactivation alone cannot confine this finite-budget default circuit. Unbounded comoving localization remains unresolved."
+}
