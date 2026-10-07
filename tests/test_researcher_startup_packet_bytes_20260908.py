@@ -114,13 +114,26 @@ class ResearcherStartupPacketByteTests(unittest.TestCase):
         completed, output = self.run_cli(root, receipt)
         self.assertEqual(completed.returncode, 0, completed.stderr)
         candidate = json.loads(output.read_bytes())
-        candidate["packet_bytes"] = HARD_MAX
-        padding = HARD_MAX - len(pretty_bytes(candidate)) + extra_bytes
+        target = HARD_MAX + extra_bytes
+        candidate["packet_bytes"] = target
+        candidate["read_plan"]["packet_plus_external_taskbook_bytes"] = target
+        padding = target - len(pretty_bytes(candidate))
         self.assertGreater(padding, 0)
-        sections = dict(SECTIONS)
-        sections["Frozen inputs and scope"] += "x" * padding
-        candidate["task"]["projection"] = sections
-        self.assertEqual(len(pretty_bytes(candidate)), HARD_MAX + extra_bytes)
+        # Padding also increases the serialized taskbook_bytes field. Rebuild
+        # that independent wire-format fixture until its actual UTF-8 size is
+        # exact, including decimal-width changes in the byte-count metadata.
+        for _ in range(10):
+            sections = dict(SECTIONS)
+            sections["Frozen inputs and scope"] += "x" * padding
+            candidate["task"]["taskbook_blob_sha1"] = self.write_publication(root, sections)
+            candidate["task"]["taskbook_bytes"] = len((root / "research_tasks" / "T1.md").read_bytes())
+            candidate["task"]["projection"] = sections
+            delta = target - len(pretty_bytes(candidate))
+            if delta == 0:
+                break
+            padding += delta
+            self.assertGreater(padding, 0)
+        self.assertEqual(len(pretty_bytes(candidate)), target)
         without_annotation = copy.deepcopy(candidate)
         del without_annotation["packet_bytes"]
         self.assertLess(len(pretty_bytes(without_annotation)), HARD_MAX)

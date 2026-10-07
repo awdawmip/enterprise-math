@@ -105,7 +105,7 @@ jobs:
       - name: Exclude isolated slow P017 bounded regression
         run: rm -f tests/test_p017_mirror_cross.py
       - name: Install pinned test dependencies
-        run: python -m pip install pytest==8.4.2 sympy==1.14.0
+        run: python -m pip install pytest==8.4.2 sympy==1.14.0 jsonschema==4.25.1
       - name: Unit tests shard ${{ matrix.shard }}
         env:
           PYTHONPATH: src
