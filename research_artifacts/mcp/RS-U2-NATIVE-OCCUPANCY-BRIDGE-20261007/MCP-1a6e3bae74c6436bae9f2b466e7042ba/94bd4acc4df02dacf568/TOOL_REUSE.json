@@ -1,0 +1,95 @@
+{
+  "schema": "U2_TOOL_REUSE_RESOLUTION_V1",
+  "query": "weighted BRC joint packet observer sufficient state reaction occupancy",
+  "lookup_only_is_execution": false,
+  "pinned_executed_kernel_blob": "3f205696709e847909958a153f8fe10d3f6b70f0",
+  "resolutions": [
+    {
+      "id": "T0_BRC",
+      "resolution": "COMPOSE_APPLIED",
+      "reason": "Source/anchor/joint packet lift and positive path composition; no signed force interpretation."
+    },
+    {
+      "id": "T12_IDEMPOTENT_PATH_CLOSURE_BELLMAN",
+      "resolution": "NOT_APPLICABLE",
+      "reason": "This carrier adds positive alternative masses and multiplicities; it is not idempotent."
+    },
+    {
+      "id": "T2_BLOCK_FINITE_CERTIFICATE",
+      "resolution": "NOT_APPLICABLE",
+      "reason": "No supplied native constitutive block family; cannot assemble native compatibility from missing predicates."
+    },
+    {
+      "id": "T3_TYPED_INCIDENCE_CIRCUIT",
+      "resolution": "NOT_APPLICABLE",
+      "reason": "Direction-only native force-incidence is not derived by this topological signed-circuit interface."
+    },
+    {
+      "id": "t0.brc_finite_horizon_contact",
+      "resolution": "NOT_APPLICABLE",
+      "reason": "Requires supplied signed-unit transition actions; cannot derive a material transition law from response mass."
+    },
+    {
+      "id": "t0.weighted_brc_cwm",
+      "resolution": "REUSE_EXECUTED",
+      "reason": "Unchanged pinned cwm_edge, cwm_propagate, cwm_recoalesce and one_state_recurrent_cwm; exact call counts in actual outputs."
+    },
+    {
+      "id": "brc.affine_effect_transport",
+      "resolution": "NOT_APPLICABLE",
+      "reason": "Requires supplied effects and fixed weights; degree-two moment scope does not grant occupancy/nonlinear observers."
+    },
+    {
+      "id": "heartbeat.joint_residue_environment_quotient",
+      "resolution": "NOT_APPLICABLE",
+      "reason": "Finite diagnostic product model does not supply the native incidence/reaction law."
+    },
+    {
+      "id": "t0.brc_certified_residue_quotient",
+      "resolution": "NOT_APPLICABLE",
+      "reason": "Missing native update family; a finite quotient certificate cannot supply the family to quotient."
+    },
+    {
+      "id": "t0.brc_constrained_graph_carry",
+      "resolution": "NOT_APPLICABLE",
+      "reason": "Lexical coverage match outside this fixed positive response/incidence audit; no invocation or new capability-gap claim."
+    },
+    {
+      "id": "t0.brc_finite_control_port",
+      "resolution": "NOT_APPLICABLE",
+      "reason": "No source-supported material control/effect kernels to pass into this interface."
+    },
+    {
+      "id": "t0.brc_multiplier_basin",
+      "resolution": "NOT_APPLICABLE",
+      "reason": "Lexical coverage match outside this fixed positive response/incidence audit; no invocation or new capability-gap claim."
+    },
+    {
+      "id": "t0.brc_residue_port_transport",
+      "resolution": "NOT_APPLICABLE",
+      "reason": "Requires explicit affine effects and residue/time matching; not a derivation of occupancy."
+    },
+    {
+      "id": "t0.heartbeat_residue_guarded_transport",
+      "resolution": "NOT_APPLICABLE",
+      "reason": "Lexical coverage match outside this fixed positive response/incidence audit; no invocation or new capability-gap claim."
+    },
+    {
+      "id": "heartbeat.mask6_environment_quotient",
+      "resolution": "NOT_APPLICABLE",
+      "reason": "Lexical coverage match outside this fixed positive response/incidence audit; no invocation or new capability-gap claim."
+    },
+    {
+      "id": "heartbeat.shared_clock_local_phase_quotient",
+      "resolution": "NOT_APPLICABLE",
+      "reason": "Lexical coverage match outside this fixed positive response/incidence audit; no invocation or new capability-gap claim."
+    }
+  ],
+  "extension": {
+    "object": "existing U2 packet incidence input and two-edge positive BRC path composition",
+    "resolution": "EXTEND_EXISTING_TOOL",
+    "scope": "Task-specific evidence checker; not a new tool family or native law"
+  },
+  "harvest": "RESULT_ONLY",
+  "capability_gap_boundary": "Missing source-supported native constitutive relations, not a claim that no software can manipulate supplied relations."
+}
